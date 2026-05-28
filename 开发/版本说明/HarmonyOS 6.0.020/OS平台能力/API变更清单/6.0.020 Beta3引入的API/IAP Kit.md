@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：iap； API声明：function queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<Array<Product>>; 差异内容：function queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<Array<Product>>; | api/@hms.core.iap.d.ts |
+| 新增API | NA | 类名：iap； API声明：function queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<Array&lt;Product&gt;>; 差异内容：function queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<Array&lt;Product&gt;>; | api/@hms.core.iap.d.ts |

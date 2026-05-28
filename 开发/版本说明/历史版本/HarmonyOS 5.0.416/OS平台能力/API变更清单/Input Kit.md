@@ -10,5 +10,5 @@
 | 新增API | NA | 类名：KeyPressedConfig； API声明：key: number; 差异内容：key: number; | api/@ohos.multimodalInput.inputConsumer.d.ts |
 | 新增API | NA | 类名：KeyPressedConfig； API声明：action: number; 差异内容：action: number; | api/@ohos.multimodalInput.inputConsumer.d.ts |
 | 新增API | NA | 类名：KeyPressedConfig； API声明：isRepeat: boolean; 差异内容：isRepeat: boolean; | api/@ohos.multimodalInput.inputConsumer.d.ts |
-| 新增API | NA | 类名：inputConsumer； API声明：function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void; 差异内容：function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void; | api/@ohos.multimodalInput.inputConsumer.d.ts |
-| 新增API | NA | 类名：inputConsumer； API声明：function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void; 差异内容：function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void; | api/@ohos.multimodalInput.inputConsumer.d.ts |
+| 新增API | NA | 类名：inputConsumer； API声明：function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback&lt;KeyEvent&gt;): void; 差异内容：function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback&lt;KeyEvent&gt;): void; | api/@ohos.multimodalInput.inputConsumer.d.ts |
+| 新增API | NA | 类名：inputConsumer； API声明：function off(type: 'keyPressed', callback?: Callback&lt;KeyEvent&gt;): void; 差异内容：function off(type: 'keyPressed', callback?: Callback&lt;KeyEvent&gt;): void; | api/@ohos.multimodalInput.inputConsumer.d.ts |

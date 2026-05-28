@@ -3,39 +3,35 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-formerror
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 formError模块提供获取卡片错误码的能力。
-
-
+ 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 从API version 9开始不再维护，建议使用[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)替代。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9开始不再维护，建议使用 卡片错误码 替代。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { formError } from '@kit.FormKit';
 ```
+ 
+  
 
-
-## 权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 权限
 
 无
+ 
+  
 
-
-## FormError
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### FormError
 
 枚举，支持的卡片类型。
-
+ 
 **系统能力：** SystemCapability.Ability.Form
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ERR_COMMON | 1 | 默认错误码。 |

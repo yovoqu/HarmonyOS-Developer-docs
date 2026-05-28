@@ -22,7 +22,7 @@
 | 新增API | NA | 类名：IpAndPort； API声明：ip: string; 差异内容：ip: string; | api/@hms.collaboration.urpc.d.ts |
 | 新增API | NA | 类名：IpAndPort； API声明：port: number; 差异内容：port: number; | api/@hms.collaboration.urpc.d.ts |
 | 新增API | NA | 类名：urpc； API声明： interface UrpcPromise 差异内容： interface UrpcPromise | api/@hms.collaboration.urpc.d.ts |
-| 新增API | NA | 类名：UrpcPromise； API声明：promise: Promise<Object>; 差异内容：promise: Promise<Object>; | api/@hms.collaboration.urpc.d.ts |
+| 新增API | NA | 类名：UrpcPromise； API声明：promise: Promise&lt;Object&gt;; 差异内容：promise: Promise&lt;Object&gt;; | api/@hms.collaboration.urpc.d.ts |
 | 新增API | NA | 类名：UrpcPromise； API声明：callingId: number; 差异内容：callingId: number; | api/@hms.collaboration.urpc.d.ts |
 | 新增API | NA | 类名：urpc； API声明： interface UrpcConnectConfiguration 差异内容： interface UrpcConnectConfiguration | api/@hms.collaboration.urpc.d.ts |
 | 新增API | NA | 类名：UrpcConnectConfiguration； API声明：node: IpAndPort; 差异内容：node: IpAndPort; | api/@hms.collaboration.urpc.d.ts |
@@ -45,4 +45,4 @@
 | 新增API | NA | 类名：UrpcStub； API声明：call: UrpcCall; 差异内容：call: UrpcCall; | api/@hms.collaboration.urpc.d.ts |
 | 新增API | NA | 类名：UrpcStub； API声明：cancel: UrpcCancel; 差异内容：cancel: UrpcCancel; | api/@hms.collaboration.urpc.d.ts |
 | 新增API | NA | 类名：UrpcStub； API声明：destroy: UrpcDestroy; 差异内容：destroy: UrpcDestroy; | api/@hms.collaboration.urpc.d.ts |
-| 新增API | NA | 类名：urpc； API声明：function urpcStubCreate(config: UrpcInitConfiguration, funcList: string \| string[]): Promise<UrpcStub>; 差异内容：function urpcStubCreate(config: UrpcInitConfiguration, funcList: string \| string[]): Promise<UrpcStub>; | api/@hms.collaboration.urpc.d.ts |
+| 新增API | NA | 类名：urpc； API声明：function urpcStubCreate(config: UrpcInitConfiguration, funcList: string \| string[]): Promise&lt;UrpcStub&gt;; 差异内容：function urpcStubCreate(config: UrpcInitConfiguration, funcList: string \| string[]): Promise&lt;UrpcStub&gt;; | api/@hms.collaboration.urpc.d.ts |

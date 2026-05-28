@@ -1,34 +1,41 @@
 # 密钥导出(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-export-key-ndk
 
 业务需要获取持久化存储的非对称密钥的公钥时使用，当前支持ECC/RSA/ED25519/X25519/SM2的公钥导出。
 
-
 > [!NOTE]
 > 轻量级智能穿戴仅支持RSA公钥导出。
+
 
 从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-构造对应参数。 keyAlias：密钥别名，封装成[OH_Huks_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob)结构，密钥别名最大长度为128字节。 paramSetIn：预留参数，暂不需要处理，传空即可。 key：用于放置导出的公钥，为[OH_Huks_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob)类型对象，需要业务提前申请好内存，需申请足够容纳获取到的密钥属性集的内存大小。 调用接口[OH_Huks_GetKeyItemParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_getkeyitemparamset)，传入上述参数。 返回值为成功码/错误码，导出公钥以标准的X.509规范的DER格式封装在参数key中，具体请参考[公钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#公钥材料格式)。
-```text
+##### 开发步骤
+1. 构造对应参数。
+
+  
+keyAlias：密钥别名，封装成[OH_Huks_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob)结构，密钥别名最大长度为128字节。
+2. paramSetIn：预留参数，暂不需要处理，传空即可。
+3. key：用于放置导出的公钥，为[OH_Huks_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob)类型对象，需要业务提前申请好内存，需申请足够容纳获取到的密钥属性集的内存大小。
+4. 调用接口[OH_Huks_GetKeyItemParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_getkeyitemparamset)，传入上述参数。
+5. 返回值为成功码/错误码，导出公钥以标准的X.509规范的DER格式封装在参数key中，具体请参考[公钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#公钥材料格式)。
+
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 /* 以下以生成ECC密钥为例 */
 OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                             uint32_t paramCount)

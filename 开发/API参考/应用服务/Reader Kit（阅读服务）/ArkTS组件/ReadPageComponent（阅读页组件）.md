@@ -3,62 +3,62 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-api-readpagecomponent
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供ReadPageComponent组件，HarmonyOS应用通过集成该组件可快速构建书籍阅读功能。
-
+ 
 **起始版本：** 5.0.4(16)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
-
-
-```ts
+```text
 import { ReadPageComponent } from '@kit.ReaderKit';
 ```
+ 
+  
 
-
-## ReadPageComponent
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ReadPageComponent
 
 阅读页组件，支持对书籍排版内容的显示、多种翻页交互和翻页动效，以及翻页阅读过程中阅读器所需要的进度、行为感知能力。
+ 
+> [!NOTE]
+> 支持根据阅读排版设置 ReaderSetting 对书籍内容进行按页进行排版、渲染。 支持适配不同的设备屏幕尺寸（Phone、PC/2in1、Tablet，包括横竖屏适配），并在此基础上支持通过点击、滑动的方式进行阅读交互，支持仿真、横滑翻页方式（包括翻页过程动效）。 支持排版结果通知能力，打开书籍或者触发翻页后按页提供当前页的排版结果信息 PageDataInfo 。
 
-
+ 
 **装饰器类型：** @Component
-
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
-
+ 
 **起始版本：** 5.0.4(16)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- |
-| controller | [ReaderComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#readercomponentcontroller) | _ | ReadPageComponent控制器。 |
-| readerCallback | AsyncCallback&lt;readerCore.[ReaderComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#readercomponentcontroller)&gt; | _ | 回调函数。 |
+| controller | ReaderComponentController | _ | ReadPageComponent控制器。 |
+| readerCallback | AsyncCallback<readerCore.ReaderComponentController> | _ | 回调函数。 |
+ 
+ 
+  
 
-
-### build
-**支持设备：** Phone / PC/2in1 / Tablet
+##### build
 
 build(): void
-
+ 
 用于创建ReadPageComponent对象的构造函数。
-
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
-
+ 
 **起始版本：** 5.0.4(16)
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { bookParser, readerCore, ReadPageComponent } from '@kit.ReaderKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

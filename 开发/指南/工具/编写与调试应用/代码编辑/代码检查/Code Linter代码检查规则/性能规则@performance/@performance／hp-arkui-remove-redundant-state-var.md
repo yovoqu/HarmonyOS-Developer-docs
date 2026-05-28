@@ -5,14 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hp-arkui-remove-redundant-state-var
 
 建议移除不关联UI组件的状态变量设置。
+ 
+通用丢帧场景下，建议优先修改。
+ 
 
- 通用丢帧场景下，建议优先修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -20,14 +19,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 @Entry
@@ -54,10 +55,10 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 @Entry
@@ -83,13 +84,13 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
 plugin:@performance/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

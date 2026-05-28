@@ -3,45 +3,46 @@
 更新时间：2026-03-09 07:25:19
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NodeContent是ArkUI提供的[ContentSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-contentslot)的管理器。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 NodeContent对象不支持使用JSON序列化。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { NodeContent } from '@kit.ArkUI';
 ```
+ 
+  
 
-
-## NodeContent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### NodeContent
 
 NodeContent是节点内容的实体封装。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### constructor
 
 constructor()
-
+ 
 节点内容的实体封装。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { nativeNode } from 'libNativeNode.so'; // 开发者自己实现的so
 import { NodeContent } from '@kit.ArkUI';
 
@@ -62,64 +63,61 @@ struct Parent {
   }
 }
 ```
-
+ 
 上述代码中so的实现可参考[Native XComponent](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeXComponentSample)。
+ 
+  
 
-
-### addFrameNode12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### addFrameNode12+
 
 addFrameNode(node: FrameNode): void
-
+ 
 根据参数将FrameNode添加到NodeContent中。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| node | [FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode) | 是 | 需要添加的FrameNode。 |
-
-
+| node | FrameNode | 是 | 需要添加的FrameNode。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[自定义节点错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-node)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 100025 | The parameter is invalid. Details about the invalid parameter and the reason are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted." |
+ 
+ 
+  
 
-
-### removeFrameNode12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### removeFrameNode12+
 
 removeFrameNode(node: FrameNode): void
-
+ 
 根据参数将FrameNode从NodeContent中删除。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| node | [FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode) | 是 | 需要删除的FrameNode。 |
-
-
+| node | FrameNode | 是 | 需要删除的FrameNode。 |
+ 
+ 
 **示例：**
-
+ 
 添加删除NodeContent中的FrameNode节点。
-
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 import { NodeContent, typeNode } from '@kit.ArkUI';
 
@@ -168,17 +166,17 @@ struct Index {
       Column() {
         ContentSlot(this.controller.GetContent())
         Button("AddToSlot")
-        .onClick(() => {
-          this.controller.AddNode();
-        })
+          .onClick(() => {
+            this.controller.AddNode();
+          })
         Button("RemoveBack")
-        .onClick(() => {
-          this.controller.RemoveNode();
-        })
+          .onClick(() => {
+            this.controller.RemoveNode();
+          })
         Button("RemoveFront")
-        .onClick(() => {
-          this.controller.RemoveFront();
-        })
+          .onClick(() => {
+            this.controller.RemoveFront();
+          })
       }
       .width('100%')
     }

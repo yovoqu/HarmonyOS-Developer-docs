@@ -5,26 +5,26 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-5
 
 先将URL设置为空，再改回原来的值，示例代码如下：
-
-```ts
+ 
+```ArkTS
 @Component
 export struct VideoErrorReload {
-@State url: string = 'https://******';
+  @State url: string = 'https://******';
 
-build() {
-Column({ space: 20 }) {
-Video({ src: this.url })
-.height(300)
+  build() {
+    Column({ space: 20 }) {
+      Video({ src: this.url })
+        .height(300)
 
-Button('重新url')
-.onClick(() => {
-let temp = this.url;
-this.url = '';
-setTimeout(() => {
-this.url = temp;
-}, 100);
-})
-}
-}
+      Button('重新url')
+        .onClick(() => {
+          let temp = this.url;
+          this.url = '';
+          setTimeout(() => {
+            this.url = temp;
+          }, 100);
+        })
+    }
+  }
 }
 ```

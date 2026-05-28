@@ -1,20 +1,25 @@
 # 匿名密钥证明(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-anon-attestation-arkts
 
 在使用本功能时，需确保网络通畅。
 
 
-## 开发步骤
+##### 开发步骤
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化参数集。
 
-指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化参数集。 [HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)中的properties字段中的参数必须包含[HUKS_TAG_ATTESTATION_CHALLENGE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性,可选参数包含[HUKS_TAG_ATTESTATION_ID_VERSION_INFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，[HUKS_TAG_ATTESTATION_ID_ALIAS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性。 生成非对称密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 将密钥别名与参数集作为参数传入[anonAttestKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksanonattestkeyitem11)方法中，即可证明密钥。
+  [HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)中的properties字段中的参数必须包含[HUKS_TAG_ATTESTATION_CHALLENGE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性,可选参数包含[HUKS_TAG_ATTESTATION_ID_VERSION_INFO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，[HUKS_TAG_ATTESTATION_ID_ALIAS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)属性。
+3. 生成非对称密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+4. 将密钥别名与参数集作为参数传入[anonAttestKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksanonattestkeyitem11)方法中，即可证明密钥。
 
-## 开发案例
 
 
-```text
+##### 开发案例
+
+```ArkTS
 /*
  * 以下以anonAttestKey的Promise接口操作验证为例
  */
@@ -93,7 +98,14 @@ let huksOptions: huks.HuksOptions = {
 
 function stringToUint8Array(str: string) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i ((resolve, reject) => {
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function generateKeyItem(keyAlias: string, huksOptions: huks.HuksOptions, throwObject: ThrowObject) {
+  return new Promise<void>((resolve, reject) => {
     try {
       huks.generateKeyItem(keyAlias, huksOptions, (error, data) => {
         if (error) {
@@ -132,7 +144,7 @@ async function publicGenKeyFunc(keyAlias: string, huksOptions: huks.HuksOptions)
 
 /* 4.证明密钥 */
 function anonAttestKeyItem(keyAlias: string, huksOptions: huks.HuksOptions, throwObject: ThrowObject) {
-  return new Promise((resolve, reject) => {
+  return new Promise<huks.HuksReturnResult>((resolve, reject) => {
     try {
       huks.anonAttestKeyItem(keyAlias, huksOptions, (error, data) => {
         if (error) {
@@ -148,7 +160,7 @@ function anonAttestKeyItem(keyAlias: string, huksOptions: huks.HuksOptions, thro
   });
 }
 
-async function publicAnonAttestKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function publicAnonAttestKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise<string> {
   console.info(`enter promise anonAttestKeyItem`);
   let throwObject: ThrowObject = { isThrow: false };
   try {
@@ -173,7 +185,7 @@ async function publicAnonAttestKey(keyAlias: string, huksOptions: huks.HuksOptio
   }
 }
 
-async function anonAttestKeyTest(): Promise {
+async function anonAttestKeyTest(): Promise<string> {
   await publicGenKeyFunc(aliasString, genOptions);
   let ret = await publicAnonAttestKey(aliasString, huksOptions);
   console.info('anon attest certChain data: ' + anonAttestCertChain)

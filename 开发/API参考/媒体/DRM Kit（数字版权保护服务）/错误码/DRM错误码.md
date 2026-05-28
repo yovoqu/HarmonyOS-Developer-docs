@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 24700101 未知错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 24700101 未知错误
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Unknown error.
 获取异常的描述，并检查系统错误日志，根据异常描述及日志中的错误描述处理。
 
 
-## 24700103 MediaKeySystem数量达到极限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 24700103 MediaKeySystem数量达到极限
 
 **错误信息**
 
@@ -50,8 +49,8 @@ MediaKeySystem实例数量超过上限（64个）。
 释放其他不再使用的MediaKeySystem资源。
 
 
-## 24700104 MediaKeySession数量达到极限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 24700104 MediaKeySession数量达到极限
 
 **错误信息**
 
@@ -70,8 +69,8 @@ MediaKeySession实例数量超过上限（64个）。
 释放其他不再使用的MediaKeySession资源。
 
 
-## 24700201 服务异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 24700201 服务异常
 
 **错误信息**
 
@@ -82,8 +81,6 @@ Service error. For example, the service crashed.
 DRM服务异常。
 
 **可能原因**
-
-
 1. 底层DRM解决方案插件功能执行错误。
 2. DRM服务挂死等。
 

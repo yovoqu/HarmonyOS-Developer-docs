@@ -4,41 +4,47 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-continuousvectorvector-init
 
-## 函数功能
+##### 函数功能
 
 初始化ContinuousVectorVector类。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void Init(const size_t capacity)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | capacity | 输入 | 实例的最大容量。 |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 size_t total_length = 1000U; // 需根据实际存放的数据量进行设置
 size_t capacity = 100U;
-std::vector buf(total_length);
+std::vector<uint8_t> buf(total_length);
 auto cvv = new (buf.data()) ContinuousVectorVector();
 cvv->Init(capacity);
 ```

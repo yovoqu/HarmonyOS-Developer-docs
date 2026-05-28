@@ -5,21 +5,23 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-64
 
 在har包目录下的hvigorfile.ts文件中编写代码如下：
-
+ 
 ```ts
 import { harTasks } from '@ohos/hvigor-ohos-plugin';
 
+
 function harTask(): HvigorPlugin {
-  return {
-    pluginId: 'harTask',
-    apply(node: HvigorNode) {
-      console.log('hello harTasks!');
-    },
-  };
+    return {
+        pluginId: 'harTask',
+        apply(node: HvigorNode) {
+            console.log('hello harTasks!');
+        }
+    }
 }
 
+
 export default {
-  system: harTasks,
-  plugins: [harTask()],
-};
+    system: harTasks,
+    plugins: [harTask()]
+}
 ```

@@ -19,13 +19,13 @@
 | API废弃版本变更 | 类名：Param； API声明：const USER_ID: string; 差异内容：NA | 类名：Param； API声明：const USER_ID: string; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
 | API废弃版本变更 | 类名：Param； API声明：const DISTRIBUTED_SERVICE_NAME: string; 差异内容：NA | 类名：Param； API声明：const DISTRIBUTED_SERVICE_NAME: string; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
 | API废弃版本变更 | 类名：Param； API声明：const DISTRIBUTED_SERVICE_INSTANCE_ID: string; 差异内容：NA | 类名：Param； API声明：const DISTRIBUTED_SERVICE_INSTANCE_ID: string; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
-| API废弃版本变更 | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object): Promise<void>; 差异内容：NA | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object): Promise<void>; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
-| API废弃版本变更 | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback<void>): void; 差异内容：NA | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback<void>): void; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
+| API废弃版本变更 | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object): Promise&lt;void&gt;; 差异内容：NA | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object): Promise&lt;void&gt;; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
+| API废弃版本变更 | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：hiAppEvent； API声明：function write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback&lt;void&gt;): void; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
 | API废弃版本变更 | 类名：hiAppEvent； API声明：function configure(config: ConfigOption): boolean; 差异内容：NA | 类名：hiAppEvent； API声明：function configure(config: ConfigOption): boolean; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
 | API废弃版本变更 | 类名：hiAppEvent； API声明： interface ConfigOption 差异内容：NA | 类名：hiAppEvent； API声明： interface ConfigOption 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
 | API废弃版本变更 | 类名：ConfigOption； API声明：disable?: boolean; 差异内容：NA | 类名：ConfigOption； API声明：disable?: boolean; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
 | API废弃版本变更 | 类名：ConfigOption； API声明：maxStorage?: string; 差异内容：NA | 类名：ConfigOption； API声明：maxStorage?: string; 差异内容：9 | api/@ohos.hiAppEvent.d.ts |
-| 错误码变更 | 类名：hiAppEvent； API声明：function write(info: AppEventInfo, callback: AsyncCallback<void>): void; 差异内容：NA | 类名：hiAppEvent； API声明：function write(info: AppEventInfo, callback: AsyncCallback<void>): void; 差异内容：11100001,11101001,11101002,11101003,11101004,11101005,11101006,401 | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
+| 错误码变更 | 类名：hiAppEvent； API声明：function write(info: AppEventInfo, callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：hiAppEvent； API声明：function write(info: AppEventInfo, callback: AsyncCallback&lt;void&gt;): void; 差异内容：11100001,11101001,11101002,11101003,11101004,11101005,11101006,401 | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：hichecker； API声明：const RULE_CHECK_ARKUI_PERFORMANCE: 17179869184n; 差异内容：const RULE_CHECK_ARKUI_PERFORMANCE: 17179869184n; | api/@ohos.hichecker.d.ts |
 | 新增API | NA | 类名：hidebug； API声明：function getVss(): bigint; 差异内容：function getVss(): bigint; | api/@ohos.hidebug.d.ts |
 | 新增API | NA | 类名：hidebug； API声明：function getSystemCpuUsage(): number; 差异内容：function getSystemCpuUsage(): number; | api/@ohos.hidebug.d.ts |
@@ -107,15 +107,15 @@
 | 新增API | NA | 类名：event； API声明：const RESOURCE_OVERLIMIT: string; 差异内容：const RESOURCE_OVERLIMIT: string; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：event； API声明：const ADDRESS_SANITIZER: string; 差异内容：const ADDRESS_SANITIZER: string; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：event； API声明：const MAIN_THREAD_JANK: string; 差异内容：const MAIN_THREAD_JANK: string; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
-| 新增API | NA | 类名：hiAppEvent； API声明：type ParamType = number \| string \| boolean \| Array<string>; 差异内容：type ParamType = number \| string \| boolean \| Array<string>; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
-| 新增API | NA | 类名：hiAppEvent； API声明：function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>; 差异内容：function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise<void>; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
-| 新增API | NA | 类名：AppEventPackage； API声明：appEventInfos: Array<AppEventInfo>; 差异内容：appEventInfos: Array<AppEventInfo>; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
+| 新增API | NA | 类名：hiAppEvent； API声明：type ParamType = number \| string \| boolean \| Array&lt;string&gt;; 差异内容：type ParamType = number \| string \| boolean \| Array&lt;string&gt;; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
+| 新增API | NA | 类名：hiAppEvent； API声明：function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise&lt;void&gt;; 差异内容：function setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise&lt;void&gt;; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
+| 新增API | NA | 类名：AppEventPackage； API声明：appEventInfos: Array&lt;AppEventInfo&gt;; 差异内容：appEventInfos: Array&lt;AppEventInfo&gt;; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：AppEventPackageHolder； API声明：setRow(size: number): void; 差异内容：setRow(size: number): void; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：AppEventFilter； API声明：names?: string[]; 差异内容：names?: string[]; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：hiAppEvent； API声明： interface AppEventGroup 差异内容： interface AppEventGroup | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：AppEventGroup； API声明：name: string; 差异内容：name: string; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
-| 新增API | NA | 类名：AppEventGroup； API声明：appEventInfos: Array<AppEventInfo>; 差异内容：appEventInfos: Array<AppEventInfo>; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
-| 新增API | NA | 类名：Watcher； API声明：onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void; 差异内容：onReceive?: (domain: string, appEventGroups: Array<AppEventGroup>) => void; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
+| 新增API | NA | 类名：AppEventGroup； API声明：appEventInfos: Array&lt;AppEventInfo&gt;; 差异内容：appEventInfos: Array&lt;AppEventInfo&gt;; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
+| 新增API | NA | 类名：Watcher； API声明：onReceive?: (domain: string, appEventGroups: Array&lt;AppEventGroup&gt;) => void; 差异内容：onReceive?: (domain: string, appEventGroups: Array&lt;AppEventGroup&gt;) => void; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：hiAppEvent； API声明：function setUserId(name: string, value: string): void; 差异内容：function setUserId(name: string, value: string): void; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：hiAppEvent； API声明：function getUserId(name: string): string; 差异内容：function getUserId(name: string): string; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：hiAppEvent； API声明：function setUserProperty(name: string, value: string): void; 差异内容：function setUserProperty(name: string, value: string): void; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |

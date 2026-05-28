@@ -3,34 +3,30 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-vpnextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 VpnExtensionContext是VpnExtensionAbility的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
 VpnExtensionContext可直接作为VpnExtension的上下文环境，提供允许访问特定于VpnExtensionAbility的资源的能力。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { VpnExtensionAbility } from '@kit.NetworkKit';
 ```
 
 
-## 使用说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 使用说明
 
 通过VpnExtensionAbility子类实例来获取。
 
-
-```ts
+```json
 import { VpnExtensionAbility, vpnExtension } from '@kit.NetworkKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -40,16 +36,15 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
   private blockedAppName: string = 'xxxx';
 
   onCreate(want: Want) {
-    let VpnConnection: vpnExtension.VpnConnection =
-      vpnExtension.createVpnConnection(this.context);
-    console.info('vpn createVpnConnection: ' + JSON.stringify(VpnConnection));
+    let VpnConnection: vpnExtension.VpnConnection = vpnExtension.createVpnConnection(this.context);
+    console.info("vpn createVpnConnection: " + JSON.stringify(VpnConnection));
   }
 }
 ```
 
 
-## VpnExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### VpnExtensionAbility
 
 三方VPN拓展能力。
 
@@ -57,22 +52,22 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | [VpnExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-vpnextensioncontext) | 否 | 否 | 指定context。 |
+| context | VpnExtensionContext | 否 | 否 | 指定context。 |
 
 
-### onCreate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onCreate
 
 onCreate(want: Want): void
 
 拓展VPN启动初始化的时候进行回调。
 
-
 > [!NOTE]
-> 建议配对调用[onDestroy](#ondestroy)监听拓展VPN的销毁，及时执行资源清理等操作。
+> 建议配对调用 onDestroy 监听拓展VPN的销毁，及时执行资源清理等操作。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
@@ -80,14 +75,14 @@ onCreate(want: Want): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 指示要启动的信息。 |
+| want | Want | 是 | 指示要启动的信息。 |
 
 
-### onDestroy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDestroy
 
 onDestroy(): void
 

@@ -1,12 +1,12 @@
 # Image Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-imagekit-6111
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：ImageSource； API声明：createPicture(options?: DecodingOptionsForPicture): Promise<Picture>; 差异内容：NA | 类名：ImageSource； API声明：createPicture(options?: DecodingOptionsForPicture): Promise<Picture>; 差异内容：7700203 | api/@ohos.multimedia.image.d.ts |
+| 新增错误码 | 类名：ImageSource； API声明：createPicture(options?: DecodingOptionsForPicture): Promise&lt;Picture&gt;; 差异内容：NA | 类名：ImageSource； API声明：createPicture(options?: DecodingOptionsForPicture): Promise&lt;Picture&gt;; 差异内容：7700203 | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：function createAuxiliaryPictureUsingAllocator(auxiliaryPictureInfo: AuxiliaryPictureInfo, allocatorType?: AllocatorType, pixels?: ArrayBuffer): AuxiliaryPicture; 差异内容：function createAuxiliaryPictureUsingAllocator(auxiliaryPictureInfo: AuxiliaryPictureInfo, allocatorType?: AllocatorType, pixels?: ArrayBuffer): AuxiliaryPicture; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：MetadataType； API声明：DNG_METADATA = 16 差异内容：DNG_METADATA = 16 | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：MetadataType； API声明：WEBP_METADATA = 17 差异内容：WEBP_METADATA = 17 | api/@ohos.multimedia.image.d.ts |
@@ -209,5 +209,5 @@
 | 新增API | NA | 类名：image； API声明：interface ImageRawData 差异内容：interface ImageRawData | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ImageRawData； API声明：buffer: ArrayBuffer; 差异内容：buffer: ArrayBuffer; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ImageRawData； API声明：bitsPerPixel: number; 差异内容：bitsPerPixel: number; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ImageSource； API声明：readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise<ImageMetadata>; 差异内容：readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise<ImageMetadata>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ImageSource； API声明：createImageRawData(): Promise<ImageRawData>; 差异内容：createImageRawData(): Promise<ImageRawData>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ImageSource； API声明：readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise&lt;ImageMetadata&gt;; 差异内容：readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise&lt;ImageMetadata&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ImageSource； API声明：createImageRawData(): Promise&lt;ImageRawData&gt;; 差异内容：createImageRawData(): Promise&lt;ImageRawData&gt;; | api/@ohos.multimedia.image.d.ts |

@@ -3,57 +3,72 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-common-h
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+##### 概述
 
-#### 概述
 定义DRM数据类型。
+ 
 **引用文件：** <multimedia/drm_framework/native_drm_common.h>
-
+ 
 **库：** libnative_drm.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+ 
 **相关模块：** [Drm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm)
+ 
+  
 
-#### 汇总
-#### 结构体
+##### 汇总
 
+  
+
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [DRM_MediaKeyRequestInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeyrequestinfo) | DRM_MediaKeyRequestInfo | 媒体密钥请求信息。 |
-| [DRM_MediaKeyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeyrequest) | DRM_MediaKeyRequest | 媒体密钥请求。 |
-| [DRM_Statistics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-statistics) | DRM_Statistics | MediaKeySystem的度量信息。 |
-| [DRM_OfflineMediakeyIdArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-offlinemediakeyidarray) | DRM_OfflineMediakeyIdArray | 离线媒体密钥ID数组。 |
-| [DRM_KeysInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-keysinfo) | DRM_KeysInfo | 媒体密钥信息。 |
-| [DRM_MediaKeyStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeystatus) | DRM_MediaKeyStatus | 媒体密钥状态。 |
-| [DRM_PsshInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-psshinfo) | DRM_PsshInfo | DRM内容保护系统专用头（Protection System Specific Header）信息。 |
-| [DRM_MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeysysteminfo) | DRM_MediaKeySystemInfo | 加密媒体内容的DRM信息。 |
-| [DRM_MediaKeySystemDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeysystemdescription) | DRM_MediaKeySystemDescription | DRM解决方案名称及其UUID的列表。 |
-| [MediaKeySystem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-mediakeysystem) | MediaKeySystem | MediaKeySystem结构。 |
-| [MediaKeySession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-mediakeysession) | MediaKeySession | MediaKeySession结构。 |
+| DRM_MediaKeyRequestInfo | DRM_MediaKeyRequestInfo | 媒体密钥请求信息。 |
+| DRM_MediaKeyRequest | DRM_MediaKeyRequest | 媒体密钥请求。 |
+| DRM_Statistics | DRM_Statistics | MediaKeySystem的度量信息。 |
+| DRM_OfflineMediakeyIdArray | DRM_OfflineMediakeyIdArray | 离线媒体密钥ID数组。 |
+| DRM_KeysInfo | DRM_KeysInfo | 媒体密钥信息。 |
+| DRM_MediaKeyStatus | DRM_MediaKeyStatus | 媒体密钥状态。 |
+| DRM_PsshInfo | DRM_PsshInfo | DRM内容保护系统专用头（Protection System Specific Header）信息。 |
+| DRM_MediaKeySystemInfo | DRM_MediaKeySystemInfo | 加密媒体内容的DRM信息。 |
+| DRM_MediaKeySystemDescription | DRM_MediaKeySystemDescription | DRM解决方案名称及其UUID的列表。 |
+| MediaKeySystem | MediaKeySystem | MediaKeySystem结构。 |
+| MediaKeySession | MediaKeySession | MediaKeySession结构。 |
+ 
+ 
+  
 
-#### 枚举
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [DRM_EventType](#drm_eventtype) | DRM_EventType | 监听事件类型。 |
-| [DRM_ContentProtectionLevel](#drm_contentprotectionlevel) | DRM_ContentProtectionLevel | 内容保护级别。 |
-| [DRM_MediaKeyType](#drm_mediakeytype) | DRM_MediaKeyType | 媒体密钥类型。 |
-| [DRM_MediaKeyRequestType](#drm_mediakeyrequesttype) | DRM_MediaKeyRequestType | 媒体密钥请求类型。 |
-| [DRM_OfflineMediaKeyStatus](#drm_offlinemediakeystatus) | DRM_OfflineMediaKeyStatus | 离线媒体密钥状态。 |
-| [DRM_CertificateStatus](#drm_certificatestatus) | DRM_CertificateStatus | 设备DRM证书状态。 |
+| DRM_EventType | DRM_EventType | 监听事件类型。 |
+| DRM_ContentProtectionLevel | DRM_ContentProtectionLevel | 内容保护级别。 |
+| DRM_MediaKeyType | DRM_MediaKeyType | 媒体密钥类型。 |
+| DRM_MediaKeyRequestType | DRM_MediaKeyRequestType | 媒体密钥请求类型。 |
+| DRM_OfflineMediaKeyStatus | DRM_OfflineMediaKeyStatus | 离线媒体密钥状态。 |
+| DRM_CertificateStatus | DRM_CertificateStatus | 设备DRM证书状态。 |
+ 
+ 
+  
 
-#### 函数
-
+##### 函数
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo)](#drm_mediakeysysteminfocallback) | DRM_MediaKeySystemInfoCallback | 应用为从媒体源获取DRM信息而设置的回调函数。 |
+| typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo) | DRM_MediaKeySystemInfoCallback | 应用为从媒体源获取DRM信息而设置的回调函数。 |
+ 
+ 
+  
 
-#### 宏定义
-
+##### 宏定义
+ 
 | 名称 | 描述 |
 | --- | --- |
 | MAX_MEDIA_KEY_REQUEST_OPTION_COUNT 16 | 媒体密钥请求可选数据的最大数量。 起始版本： 11 |
@@ -79,20 +94,28 @@
 | MAX_PSSH_INFO_COUNT 8 | PSSH（Protected System Specific Header）信息的最大数量。 起始版本： 11 |
 | MAX_MEDIA_KEY_SYSTEM_NAME_LEN 128 | MediaKeySystem名称的最大长度。 起始版本： 12 |
 | MAX_MEDIA_KEY_SYSTEM_NUM 8 | MediaKeySystem的最大数量。 起始版本： 12 |
+ 
+ 
+  
 
-#### 枚举类型说明
-#### DRM_EventType
+##### 枚举类型说明
 
-```ts
+  
+
+##### DRM_EventType
+
+```text
 enum DRM_EventType
 ```
-
+ 
 **描述**
+ 
 监听事件类型。
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | EVENT_DRM_BASE = 200 | DRM基础事件。 |
@@ -101,19 +124,24 @@ enum DRM_EventType
 | EVENT_KEY_EXPIRED = 203 | 密钥过期事件。 |
 | EVENT_VENDOR_DEFINED = 204 | DRM解决方案自定义事件。 |
 | EVENT_EXPIRATION_UPDATE = 206 | 密钥过期更新事件。 |
+ 
+ 
+  
 
-#### DRM_ContentProtectionLevel
+##### DRM_ContentProtectionLevel
 
-```ts
+```text
 enum DRM_ContentProtectionLevel
 ```
-
+ 
 **描述**
+ 
 内容保护级别。
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | CONTENT_PROTECTION_LEVEL_UNKNOWN = 0 | 未知级别。 |
@@ -121,36 +149,46 @@ enum DRM_ContentProtectionLevel
 | CONTENT_PROTECTION_LEVEL_HW_CRYPTO | 硬件安全级别。 |
 | CONTENT_PROTECTION_LEVEL_ENHANCED_HW_CRYPTO | 硬件增强级别。 |
 | CONTENT_PROTECTION_LEVEL_MAX | 最大安全级别。 |
+ 
+ 
+  
 
-#### DRM_MediaKeyType
+##### DRM_MediaKeyType
 
-```ts
+```text
 enum DRM_MediaKeyType
 ```
-
+ 
 **描述**
+ 
 媒体密钥类型。
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | MEDIA_KEY_TYPE_OFFLINE = 0 | 离线。 |
 | MEDIA_KEY_TYPE_ONLINE | 在线。 |
+ 
+ 
+  
 
-#### DRM_MediaKeyRequestType
+##### DRM_MediaKeyRequestType
 
-```ts
+```text
 enum DRM_MediaKeyRequestType
 ```
-
+ 
 **描述**
+ 
 媒体密钥请求类型。
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | MEDIA_KEY_REQUEST_TYPE_UNKNOWN = 0 | 未知请求类型。 |
@@ -159,37 +197,47 @@ enum DRM_MediaKeyRequestType
 | MEDIA_KEY_REQUEST_TYPE_RELEASE | 释放请求。 |
 | MEDIA_KEY_REQUEST_TYPE_NONE | 无请求。 |
 | MEDIA_KEY_REQUEST_TYPE_UPDATE | 更新请求。 |
+ 
+ 
+  
 
-#### DRM_OfflineMediaKeyStatus
+##### DRM_OfflineMediaKeyStatus
 
-```ts
+```text
 enum DRM_OfflineMediaKeyStatus
 ```
-
+ 
 **描述**
+ 
 离线媒体密钥状态。
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OFFLINE_MEDIA_KEY_STATUS_UNKNOWN = 0 | 未知状态。 |
 | OFFLINE_MEDIA_KEY_STATUS_USABLE | 可用状态。 |
 | OFFLINE_MEDIA_KEY_STATUS_INACTIVE | 失活状态。 |
+ 
+ 
+  
 
-#### DRM_CertificateStatus
+##### DRM_CertificateStatus
 
-```ts
+```text
 enum DRM_CertificateStatus
 ```
-
+ 
 **描述**
+ 
 设备DRM证书状态。
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | CERT_STATUS_PROVISIONED = 0 | 设备已安装设备DRM证书。 |
@@ -197,20 +245,28 @@ enum DRM_CertificateStatus
 | CERT_STATUS_EXPIRED | 设备DRM证书过期。 |
 | CERT_STATUS_INVALID | 设备DRM证书无效。 |
 | CERT_STATUS_UNAVAILABLE | 设备DRM证书不可用。 |
+ 
+ 
+  
 
-#### 函数说明
-#### DRM_MediaKeySystemInfoCallback()
+##### 函数说明
 
-```ts
+  
+
+##### DRM_MediaKeySystemInfoCallback()
+
+```text
 typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo)
 ```
-
+ 
 **描述**
+ 
 应用为从媒体源获取DRM信息而设置的回调函数。
+ 
 **起始版本：** 11
-
+ 
 **参数：**
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [DRM_MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeysysteminfo) *mediaKeySystemInfo | 输出参数，从媒体源获取的DRM信息，包含DRM内容保护系统的唯一标识和PSSH数据。 |
+| DRM_MediaKeySystemInfo *mediaKeySystemInfo | 输出参数，从媒体源获取的DRM信息，包含DRM内容保护系统的唯一标识和PSSH数据。 |

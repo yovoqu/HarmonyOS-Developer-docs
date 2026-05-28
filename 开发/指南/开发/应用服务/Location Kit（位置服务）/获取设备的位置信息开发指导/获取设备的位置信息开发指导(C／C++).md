@@ -4,13 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-guidelines-capi
 
-## 场景介绍
+##### 场景介绍
 
 开发者可以调用HarmonyOS位置相关接口，监听设备的位置变化。
+ 
+  
 
-## 函数说明
-
-
+##### 函数说明
+ 
 | 名称 | 描述 |
 | --- | --- |
 | OH_Location_IsLocatingEnabled(bool* enabled) | 查询位置开关是否开启。 |
@@ -24,29 +25,42 @@
 | OH_LocationRequestConfig_SetPowerConsumptionScene(Location_RequestConfig* requestConfig, Location_PowerConsumptionScene powerConsumptionScene) | 设置发起定位时的功耗场景。 |
 | OH_LocationRequestConfig_SetInterval(Location_RequestConfig* requestConfig, int interval) | 设置定位结果上报时间间隔。 |
 | OH_LocationRequestConfig_SetCallback(Location_RequestConfig* requestConfig, Location_InfoCallback callback, void* userData) | 设置用于接收位置上报的回调函数。 |
+ 
+ 
+  
 
+##### 开发步骤
+1. 新建一个Native C++工程。
 
-## 开发步骤
+  
+![](assets/获取设备的位置信息开发指导(C／C++)/file-20260514131959596-0.png)
 
-新建一个Native C++工程。
-![](assets/获取设备的位置信息开发指导(C／C++)
-/file-20260514131959596-0.png)  获取设备的位置信息，需要有位置权限，位置权限申请的方法和步骤见[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。  CMakeLists.txt文件中引入动态依赖库。
+2. 获取设备的位置信息，需要有位置权限，位置权限申请的方法和步骤见[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。
+3. CMakeLists.txt文件中引入动态依赖库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libace_napi.z.so)
 target_link_libraries(entry PUBLIC libhilog_ndk.z.so)
 target_link_libraries(entry PUBLIC liblocation_ndk.so)
 ```
 
-在napi_init.cpp文件中编码，首先导入模块。
+4. 在napi_init.cpp文件中编码，首先导入模块。
+
+  
 ```text
 #include "napi/native_api.h"
 #include "LocationKit/oh_location.h"
 #include "LocationKit/oh_location_type.h"
 #include "hilog/log.h"
-#include
+#include <stdlib.h>
 ```
 
-调用获取位置接口之前需要先判断位置开关是否打开。  查询当前位置开关状态，返回结果为布尔值，true代表位置开关开启，false代表位置开关关闭，示例代码如下：
+5. 调用获取位置接口之前需要先判断位置开关是否打开。
+
+  查询当前位置开关状态，返回结果为布尔值，true代表位置开关开启，false代表位置开关关闭，示例代码如下：
+
+  
 ```text
 static napi_value OhLocationIsEnabled(napi_env env, napi_callback_info info)
  {
@@ -69,7 +83,9 @@ static napi_value OhLocationIsEnabled(napi_env env, napi_callback_info info)
  EXTERN_C_END
 ```
 
-定位位置变化。
+6. 定位位置变化。
+
+  
 ```text
 // 定义一个请求参数
 struct Location_RequestConfig *g_requestConfig = NULL;
@@ -134,14 +150,18 @@ static napi_value Init(napi_env env, napi_value exports)
 EXTERN_C_END
 ```
 
-在types/libentry路径下index.d.ts文件中引入Napi接口。
+7. 在types/libentry路径下index.d.ts文件中引入Napi接口。
+
+  
 ```text
 export const ohLocationIsEnabled: () => boolean;
 export const ohLocationStartLocating: () => number;
 export const ohLocationStopLocating: () => number;
 ```
 
-删除Index.ets中的已废弃函数。
+8. 删除Index.ets中的已废弃函数。
+
+  
 ```text
 .onClick(() => {
     hilog.info(0x0000, 'testTag', 'Test NAPI 2 + 3 = %{public}d', testNapi.add(2, 3));

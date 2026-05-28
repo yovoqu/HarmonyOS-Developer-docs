@@ -5,34 +5,55 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-critical
 
 Node-API扩展接口napi_open_critical_scope用于打开临界区作用域，napi_close_critical_scope用于关闭临界区作用域。
+ 
 
+![](assets/使用扩展的Node-API接口创建和销毁临界区作用域及访问字符串内容/file-20260514132715086-0.png)
+ 
+ 
 非临界接口不能在临界区作用域使用，且同一执行环境中只能打开一个临界区作用域。建议仅在需要临界接口时打开临界区作用域，使用后应及时关闭。
+  
 
+  
 
-## 场景介绍
+##### 场景介绍
 
-调用临界接口前，必须通过napi_open_critical_scope打开临界区作用域，并在临界区作用域内进行调用。 关闭临界区作用域后，请勿使用临界接口及其返回结果，否则可能导致程序崩溃或数据损坏。
+调用临界接口前，必须通过napi_open_critical_scope打开临界区作用域，并在临界区作用域内进行调用。
+ 
+关闭临界区作用域后，请勿使用临界接口及其返回结果，否则可能导致程序崩溃或数据损坏。
+ 
+  
 
-## 临界区作用域的打开、关闭及临界接口的使用
-
-
+##### 临界区作用域的打开、关闭及临界接口的使用
+ 
 | 接口 | 描述 | 临界区作用域外执行的状态码 |
 | --- | --- | --- |
 | napi_open_critical_scope | 打开临界区作用域 | NA |
 | napi_close_critical_scope | 关闭临界区作用域 | napi_generic_failure |
 | napi_get_buffer_string_utf16_in_critical_scope | 获取ArkTS String的UTF-16编码内存缓冲区数据 | napi_generic_failure |
+ 
+ 
 
-![](assets/使用扩展的Node-API接口创建和销毁临界区作用域及访问字符串内容/file-20260514132715086-0.png)
-1.当ArkTS String以UTF-16编码存储时，napi_get_buffer_string_utf16_in_critical_scope才能正确获取其内存缓冲区，否则该函数返回错误。  2.napi_create_string_utf16和napi_create_string_utf8的功能是将输入数据以指定编码传递给虚拟机。这些函数不控制字符串在虚拟机的内部存储编码方式。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/oxvLtwV2SxKepZ4_x_BTRA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014533Z&HW-CC-Expire=86400&HW-CC-Sign=0ACF7155FC829F2C35382E8A104A3B2FCFE62BEC70FA126C5B77CDB298191A98)
+ 
+ 
+1.当ArkTS String以UTF-16编码存储时，napi_get_buffer_string_utf16_in_critical_scope才能正确获取其内存缓冲区，否则该函数返回错误。
+  
+2.napi_create_string_utf16和napi_create_string_utf8的功能是将输入数据以指定编码传递给虚拟机。这些函数不控制字符串在虚拟机的内部存储编码方式。
+  
 
-## 示例代码
+ 
+  
 
-模块注册
-```text
+##### 示例代码
+
+- 模块注册
+
+  
+```cpp
 // napi_init.cpp
-#include
-#include
-#include
+#include <string>
+#include <string_view>
+#include <vector>
 
 #include "napi/native_api.h"
 
@@ -76,7 +97,7 @@ public:
 };
 
 // 二次封装的方法，用于在获取ArkTS字符串底层缓冲区失败时，回落到拷贝
-static std::vector GetValueStringUtf16(napi_env env, napi_value value)
+static std::vector<char16_t> GetValueStringUtf16(napi_env env, napi_value value)
 {
    size_t strLength{};
    if (napi_get_value_string_utf16(env, value, nullptr, 0, &strLength) != napi_ok) {
@@ -84,7 +105,7 @@ static std::vector GetValueStringUtf16(napi_env env, napi_value value)
    }
    /* Node-API接口要求缓冲区长度大于字符串内容长度，用于写入c字符串结束标记。
       因此，需要获取完整字符串内容时，缓冲区大小应为字符串长度 + 1。 */
-   std::vector result(strLength + 1);
+   std::vector<char16_t> result(strLength + 1);
    if (napi_get_value_string_utf16(env, value, result.data(), result.size(), &strLength) != napi_ok) {
       return {};
    }
@@ -97,7 +118,22 @@ static napi_value NAPI_Global_getBufferStringUtf16(napi_env env, napi_callback_i
    size_t argc = 1;
    napi_get_cb_info(env, info, &argc, args, /* thisVar */ nullptr, /* data */ nullptr);
    // 传入参数小于要求的最低参数数量
-   if (argc  copied{}; // 预留，用以获取缓冲区失败时回落
+   if (argc < 1) {
+      return nullptr;
+   }
+   napi_valuetype argType;
+
+   // 传入参数类型不是字符串
+   if (napi_typeof(env, args[0], &argType) != napi_ok || argType != napi_string) {
+      return nullptr;
+   }
+
+   uint32_t returnCode = 0;
+   {
+      [[maybe_unused]] MyCriticalScope scope(env);
+      size_t bufSize{};
+      const char16_t *buf{};
+      std::vector<char16_t> copied{}; // 预留，用以获取缓冲区失败时回落
       std::u16string_view str;
 
       if (napi_get_buffer_string_utf16_in_critical_scope(env, args[0], &buf, &bufSize) == napi_ok)
@@ -107,7 +143,25 @@ static napi_value NAPI_Global_getBufferStringUtf16(napi_env env, napi_callback_i
             scope.Close();
             copied = GetValueStringUtf16(env, args[0]);
             str = std::u16string_view(copied.data(), copied.size());
-            returnCode |= (1  desc{{"getBufferStringUtf16", nullptr, NAPI_Global_getBufferStringUtf16,
+            returnCode |= (1 << 1);
+      }
+
+      // do something with str
+      if (str == u"测试字符串") {
+            returnCode |= 1;
+      }
+   }
+
+   napi_value returnResult{};
+   napi_create_int32(env, returnCode, &returnResult);
+   return returnResult;
+}
+
+// 模块注册
+EXTERN_C_START
+static napi_value Init(napi_env env, napi_value exports)
+{
+   std::vector<napi_property_descriptor> desc{{"getBufferStringUtf16", nullptr, NAPI_Global_getBufferStringUtf16,
                                                 nullptr, nullptr, nullptr, napi_default, nullptr}};
    napi_define_properties(env, exports, desc.size(), desc.data());
    return exports;
@@ -130,14 +184,18 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 }
 ```
 
-接口声明
-```text
+- 接口声明
+
+  
+```ts
 // index.d.ts
 export const getBufferStringUtf16: (str: string) => number;
 ```
 
-ArkTS代码示例
-```text
+- ArkTS代码示例
+
+  
+```ArkTS
 // index.ets
 import testNapi from "libentry.so"
 

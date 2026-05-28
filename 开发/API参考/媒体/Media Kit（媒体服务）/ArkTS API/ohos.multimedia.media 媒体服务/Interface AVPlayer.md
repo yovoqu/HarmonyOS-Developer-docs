@@ -3,7 +3,7 @@
 更新时间：2026-05-08 09:27:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 播放管理类，用于管理和播放媒体资源。在调用AVPlayer的方法前，需要先通过[createAVPlayer()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavplayer9)构建一个AVPlayer实例。
 
@@ -13,42 +13,44 @@
 
 Audio/Video播放demo可参考：[音频播放开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avplayer-for-playback)、[视频播放开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
 
+> [!NOTE]
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { media } from '@kit.MediaKit';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| url9+ | string | 否 | 是 | 媒体URL，只允许在idle状态下设置。          支持的视频格式：mp4、mpeg-ts、mkv。          支持的音频格式：m4a、aac、mp3、ogg、wav、flac、amr、ape。          支持路径示例：          1. fd类型播放：fd://xx。                    2. http网络播放：http\://xx。          3. https网络播放：https\://xx。          4. HLS网络播放路径：http\://xx或者https\://xx。          说明：          - 设置网络播放路径，需[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)：[ohos.permission.INTERNET](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissioninternet)，相关错误码: [201 权限校验失败](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)。          - 从API version 11开始不支持webm。          - 将资源句柄（fd）传递给AVPlayer实例之后，请不要通过该资源句柄做其他读写操作，包括但不限于将同一个资源句柄传递给多个AVPlayer / AVMetadataExtractor / AVImageGenerator / AVTranscoder。同一时间通过同一个资源句柄读写文件时存在竞争关系，将导致媒体播放器数据获取异常。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fdSrc9+ | [AVFileDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avfiledescriptor9) | 否 | 是 | 媒体文件描述，只允许在idle状态下设置。          使用场景：应用中的媒体资源被连续存储在同一个文件中。          支持的视频格式（mp4、mpeg-ts、mkv）。          支持的音频格式（m4a、aac、mp3、ogg、wav、flac、amr、ape）。          使用示例：          假设一个连续存储的媒体文件：          视频1（地址偏移：0，字节长度:100）；          视频2（地址偏移：101，字节长度：50）；          视频3（地址偏移：151，字节长度：150）；          1. 播放视频1：AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; }。          2. 播放视频2：AVFileDescriptor { fd = 资源句柄; offset = 101; length = 50; }。          3. 播放视频3：AVFileDescriptor { fd = 资源句柄; offset = 151; length = 150; }。          假设是一个独立的媒体文件: 请使用src=fd://xx。          说明：          从API version 11开始不支持webm。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| dataSrc10+ | [AVDataSrcDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avdatasrcdescriptor10) | 否 | 是 | 流式媒体资源描述，只允许在idle状态下设置。          使用场景：应用播放从远端下载到本地的文件，在应用未下载完整音视频资源时，提前播放已获取的资源数据。若将已获取的资源数据写入到本地文件中，同时从本地文件中读取数据，即可实现边播边缓存的能力。          支持的视频格式（mp4、mpeg-ts、mkv）。          支持的音频格式（m4a、aac、mp3、ogg、wav、flac、amr、ape）。          使用示例：          假设用户正在从远端服务器获取音视频媒体文件，希望下载到本地的同时播放已经下载好的部分：          1.用户需要获取媒体文件的总大小size（单位为字节），获取不到时设置为-1。          2.用户需要实现回调函数func用于填写数据，如果size = -1，则func形式为：func(buffer: ArrayBuffer, length: number)，此时播放器只会按照顺序获取数据；否则func形式为：func(buffer: ArrayBuffer, length: number, pos: number)，播放器会按需跳转并获取数据。          3.用户设置AVDataSrcDescriptor {fileSize = size, callback = func}。          注意事项：          如果播放的是mp4/m4a格式用户需要保证moov字段（媒体信息字段）在mdat字段（媒体数据字段）之前，或者moov之前的字段小于10M，否则会导致解析失败无法播放。          说明：          从API version 11开始不支持webm。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| surfaceId9+ | string | 否 | 是 | 视频窗口ID，默认无窗口。          仅支持在initialized状态下初始化。          初始化后可以在prepared/playing/paused/completed/stopped状态下重新设置，重新设置后视频播放将在新的窗口渲染。          使用场景：视频播放时的窗口渲染（纯音频播放时不涉及）。          使用示例：          通过[getXComponentSurfaceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#getxcomponentsurfaceid9)接口创建surfaceId。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| loop9+ | boolean | 否 | 否 | 视频循环播放属性，默认false，设置为true表示循环播放，动态属性。          只允许在prepared/playing/paused/completed状态下设置。          直播场景不支持loop设置。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| videoScaleType9+ | [VideoScaleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#videoscaletype9) | 否 | 是 | 视频缩放模式，默认VIDEO_SCALE_TYPE_FIT，动态属性。          只允许在prepared/playing/paused/completed状态下设置。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| audioInterruptMode9+ | [audio.InterruptMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#interruptmode9) | 否 | 是 | 音频焦点模型，默认SHARE_MODE，动态属性。          只允许在prepared/playing/paused/completed状态下设置。          在第一次调用[play()](#play9)之前设置， 以便此后中断模式生效。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| audioRendererInfo10+ | [audio.AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8) | 否 | 是 | 设置音频渲染信息。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。若默认usage不满足需求，则须主动配置[audio.AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8)。          只允许在initialized状态下设置。          在第一次调用[prepare()](#prepare9)之前设置，以便音频渲染器信息在之后生效。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| audioEffectMode10+ | [audio.AudioEffectMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioeffectmode10) | 否 | 是 | 设置音频音效模式，默认值为EFFECT_DEFAULT，动态属性。audioRendererInfo的usage变动时会恢复为默认值，只允许在prepared/playing/paused/completed状态下设置。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| state9+ | [AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avplayerstate9) | 是 | 否 | 音视频播放的状态，全状态有效，可查询参数。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| currentTime9+ | number | 是 | 否 | 视频的当前播放位置，单位为毫秒（ms），可查询参数。          返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。          直播场景默认返回（-1）。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| duration9+ | number | 是 | 否 | 视频时长，单位为毫秒（ms），可查询参数。          返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。          直播场景默认返回（-1）。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| width9+ | number | 是 | 否 | 视频宽，单位为像素（px），可查询参数。          返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| height9+ | number | 是 | 否 | 视频高，单位为像素（px），可查询参数。          返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| url9+ | string | 否 | 是 | 媒体URL，只允许在idle状态下设置。 支持的视频格式：mp4、mpeg-ts、mkv。 支持的音频格式：m4a、aac、mp3、ogg、wav、flac、amr、ape。 支持路径示例： 1. fd类型播放：fd://xx。 2. http网络播放：http\://xx。 3. https网络播放：https\://xx。 4. HLS网络播放路径：http\://xx或者https\://xx。 说明： - 设置网络播放路径，需声明权限：ohos.permission.INTERNET，相关错误码: 201 权限校验失败。 - 从API version 11开始不支持webm。 - 将资源句柄（fd）传递给AVPlayer实例之后，请不要通过该资源句柄做其他读写操作，包括但不限于将同一个资源句柄传递给多个AVPlayer / AVMetadataExtractor / AVImageGenerator / AVTranscoder。同一时间通过同一个资源句柄读写文件时存在竞争关系，将导致媒体播放器数据获取异常。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fdSrc9+ | AVFileDescriptor | 否 | 是 | 媒体文件描述，只允许在idle状态下设置。 使用场景：应用中的媒体资源被连续存储在同一个文件中。 支持的视频格式（mp4、mpeg-ts、mkv）。 支持的音频格式（m4a、aac、mp3、ogg、wav、flac、amr、ape）。 使用示例： 假设一个连续存储的媒体文件： 视频1（地址偏移：0，字节长度:100）； 视频2（地址偏移：101，字节长度：50）； 视频3（地址偏移：151，字节长度：150）； 1. 播放视频1：AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; }。 2. 播放视频2：AVFileDescriptor { fd = 资源句柄; offset = 101; length = 50; }。 3. 播放视频3：AVFileDescriptor { fd = 资源句柄; offset = 151; length = 150; }。 假设是一个独立的媒体文件: 请使用src=fd://xx。 说明： 从API version 11开始不支持webm。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| dataSrc10+ | AVDataSrcDescriptor | 否 | 是 | 流式媒体资源描述，只允许在idle状态下设置。 使用场景：应用播放从远端下载到本地的文件，在应用未下载完整音视频资源时，提前播放已获取的资源数据。若将已获取的资源数据写入到本地文件中，同时从本地文件中读取数据，即可实现边播边缓存的能力。 支持的视频格式（mp4、mpeg-ts、mkv）。 支持的音频格式（m4a、aac、mp3、ogg、wav、flac、amr、ape）。 使用示例： 假设用户正在从远端服务器获取音视频媒体文件，希望下载到本地的同时播放已经下载好的部分： 1.用户需要获取媒体文件的总大小size（单位为字节），获取不到时设置为-1。 2.用户需要实现回调函数func用于填写数据，如果size = -1，则func形式为：func(buffer: ArrayBuffer, length: number)，此时播放器只会按照顺序获取数据；否则func形式为：func(buffer: ArrayBuffer, length: number, pos: number)，播放器会按需跳转并获取数据。 3.用户设置AVDataSrcDescriptor {fileSize = size, callback = func}。 注意事项： 如果播放的是mp4/m4a格式用户需要保证moov字段（媒体信息字段）在mdat字段（媒体数据字段）之前，或者moov之前的字段小于10M，否则会导致解析失败无法播放。 说明： 从API version 11开始不支持webm。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| surfaceId9+ | string | 否 | 是 | 视频窗口ID，默认无窗口。 仅支持在initialized状态下初始化。 初始化后可以在prepared/playing/paused/completed/stopped状态下重新设置，重新设置后视频播放将在新的窗口渲染。 使用场景：视频播放时的窗口渲染（纯音频播放时不涉及）。 使用示例： 通过getXComponentSurfaceId接口创建surfaceId。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| loop9+ | boolean | 否 | 否 | 视频循环播放属性，默认false，设置为true表示循环播放，动态属性。 只允许在prepared/playing/paused/completed状态下设置。 直播场景不支持loop设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| videoScaleType9+ | VideoScaleType | 否 | 是 | 视频缩放模式，默认VIDEO_SCALE_TYPE_FIT，动态属性。 只允许在prepared/playing/paused/completed状态下设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| audioInterruptMode9+ | audio.InterruptMode | 否 | 是 | 音频焦点模型，默认SHARE_MODE，动态属性。 只允许在prepared/playing/paused/completed状态下设置。 在第一次调用play()之前设置， 以便此后中断模式生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| audioRendererInfo10+ | audio.AudioRendererInfo | 否 | 是 | 设置音频渲染信息。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。若默认usage不满足需求，则须主动配置audio.AudioRendererInfo。 只允许在initialized状态下设置。 在第一次调用prepare()之前设置，以便音频渲染器信息在之后生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| audioEffectMode10+ | audio.AudioEffectMode | 否 | 是 | 设置音频音效模式，默认值为EFFECT_DEFAULT，动态属性。audioRendererInfo的usage变动时会恢复为默认值，只允许在prepared/playing/paused/completed状态下设置。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| state9+ | AVPlayerState | 是 | 否 | 音视频播放的状态，全状态有效，可查询参数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| currentTime9+ | number | 是 | 否 | 视频的当前播放位置，单位为毫秒（ms），可查询参数。 返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。 直播场景默认返回（-1）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| duration9+ | number | 是 | 否 | 视频时长，单位为毫秒（ms），可查询参数。 返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。 直播场景默认返回（-1）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| width9+ | number | 是 | 否 | 视频宽，单位为像素（px），可查询参数。 返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| height9+ | number | 是 | 否 | 视频高，单位为像素（px），可查询参数。 返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## on('stateChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### on('stateChange')9+
 
 on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void
 
@@ -60,63 +62,58 @@ on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 状态机切换事件回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。 |
-| callback12+ | [OnAVPlayerStateChangeHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onavplayerstatechangehandle12) | 是 | 状态机切换事件回调方法。 |
+| callback12+ | OnAVPlayerStateChangeHandle | 是 | 状态机切换事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听播放状态机AVPlayerState切换的事件。
-  avPlayer.on(
-    'stateChange',
-    async (state: string, reason: media.StateChangeReason) => {
-      switch (state) {
-        case 'idle':
-          console.info('state idle called');
-          break;
-        case 'initialized':
-          console.info('initialized prepared called');
-          break;
-        case 'prepared':
-          console.info('state prepared called');
-          break;
-        case 'playing':
-          console.info('state playing called');
-          break;
-        case 'paused':
-          console.info('state paused called');
-          break;
-        case 'completed':
-          console.info('state completed called');
-          break;
-        case 'stopped':
-          console.info('state stopped called');
-          break;
-        case 'released':
-          console.info('state released called');
-          break;
-        case 'error':
-          console.info('state error called');
-          break;
-        default:
-          console.info('unknown state :' + state);
-          break;
-      }
-    },
-  );
+  avPlayer.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
+    switch (state) {
+      case 'idle':
+        console.info('state idle called');
+        break;
+      case 'initialized':
+        console.info('initialized prepared called');
+        break;
+      case 'prepared':
+        console.info('state prepared called');
+        break;
+      case 'playing':
+        console.info('state playing called');
+        break;
+      case 'paused':
+        console.info('state paused called');
+        break;
+      case 'completed':
+        console.info('state completed called');
+        break;
+      case 'stopped':
+        console.info('state stopped called');
+        break;
+      case 'released':
+        console.info('state released called');
+        break;
+      case 'error':
+        console.info('state error called');
+        break;
+      default:
+        console.info('unknown state :' + state);
+        break;
+    }
+  });
 }
 ```
 
 
-## off('stateChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('stateChange')9+
 
 off(type: 'stateChange', callback?: OnAVPlayerStateChangeHandle): void
 
@@ -128,18 +125,16 @@ off(type: 'stateChange', callback?: OnAVPlayerStateChangeHandle): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 状态机切换事件回调类型，取消注册的事件：'stateChange' |
-| callback12+ | [OnAVPlayerStateChangeHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onavplayerstatechangehandle12) | 否 | 状态机切换事件回调方法。如果填写该参数，仅取消注册此回调的方法，否则取消注册stateChange事件的所有回调方法。 |
+| callback12+ | OnAVPlayerStateChangeHandle | 否 | 状态机切换事件回调方法。如果填写该参数，仅取消注册此回调的方法，否则取消注册stateChange事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收播放状态机AVPlayerState切换的事件。
   avPlayer.off('stateChange');
@@ -147,8 +142,8 @@ async function test() {
 ```
 
 
-## on('error')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('error')9+
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -160,11 +155,10 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'error'，用户操作和系统都会触发此事件。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 错误事件回调方法，使用播放器的过程中发生错误，会提供错误码ID和错误信息。 |
+| callback | ErrorCallback | 是 | 错误事件回调方法，使用播放器的过程中发生错误，会提供错误码ID和错误信息。 |
 
 
 **错误码：**
@@ -172,7 +166,6 @@ on(type: 'error', callback: ErrorCallback): void
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
 在API version 9-13，针对网络、服务器等数据流异常，接口上报5400103；从API version 14开始，对应错误细化为错误码5411001-5411012。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -201,10 +194,9 @@ on(type: 'error', callback: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
-async function test() {
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听AVPlayer的错误事件，该事件仅用于错误提示，不需要用户停止播控动作。
   avPlayer.on('error', (error: BusinessError) => {
@@ -215,8 +207,8 @@ async function test() {
 ```
 
 
-## off('error')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('error')9+
 
 off(type: 'error', callback?: ErrorCallback): void
 
@@ -228,20 +220,18 @@ off(type: 'error', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，取消注册的事件：'error' |
-| callback12+ | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 错误事件回调方法，使用播放器的过程中发生错误，会提供错误码ID和错误信息。如果填写该参数，仅取消注册此回调方法，否则取消注册error事件的所有回调方法。 |
+| callback12+ | ErrorCallback | 否 | 错误事件回调方法，使用播放器的过程中发生错误，会提供错误码ID和错误信息。如果填写该参数，仅取消注册此回调方法，否则取消注册error事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再监听AVPlayer的错误事件。
   avPlayer.off('error');
@@ -249,10 +239,10 @@ async function test() {
 ```
 
 
-## setMediaSource12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise<void>
+##### setMediaSource12+
+
+setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise&lt;void&gt;
 
 流媒体预下载资源设置，下载URL对应的流媒体数据并暂存在内存中，此接口只能在idle状态下调用。使用Promise异步回调。
 
@@ -262,15 +252,13 @@ setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | [MediaSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasource) | 是 | 流媒体预下载媒体来源。 |
-| strategy | [PlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#playbackstrategy12) | 否 | 流媒体预下载播放策略。 |
+| src | MediaSource | 是 | 流媒体预下载媒体来源。 |
+| strategy | PlaybackStrategy | 否 | 流媒体预下载播放策略。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -281,7 +269,6 @@ setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -290,32 +277,28 @@ setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise<void>
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let player = await media.createAVPlayer();
-  let headers: Record<string, string> = { 'User-Agent': 'User-Agent-Value' };
-  let mediaSource: media.MediaSource = media.createMediaSourceWithUrl(
-    'http://xxx',
-    headers,
-  );
-  let playStrategy: media.PlaybackStrategy = {
+  let headers: Record<string, string> = {"User-Agent" : "User-Agent-Value"};
+  let mediaSource : media.MediaSource = media.createMediaSourceWithUrl("http://xxx",  headers);
+  let playStrategy : media.PlaybackStrategy = {
     preferredWidth: 1,
     preferredHeight: 2,
     preferredBufferDuration: 3,
     preferredHdr: false,
     preferredBufferDurationForPlaying: 1,
-    thresholdForAutoQuickPlay: 5,
+    thresholdForAutoQuickPlay: 5
   };
   player.setMediaSource(mediaSource, playStrategy);
 }
 ```
 
 
-## setPlaybackStrategy12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>
+##### setPlaybackStrategy12+
+
+setPlaybackStrategy(strategy: PlaybackStrategy): Promise&lt;void&gt;
 
 设置播放策略，只能在initialized状态下调用。使用Promise异步回调。
 
@@ -325,14 +308,12 @@ setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| strategy | [PlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#playbackstrategy12) | 是 | 播放策略。 |
+| strategy | PlaybackStrategy | 是 | 播放策略。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -343,7 +324,6 @@ setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed. |
@@ -352,31 +332,30 @@ setPlaybackStrategy(strategy: PlaybackStrategy): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 
 let player = await media.createAVPlayer();
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let fileDescriptor = await context.resourceManager.getRawFd('xxx.mp4');
-player.fdSrc = fileDescriptor;
-let playStrategy: media.PlaybackStrategy = {
+player.fdSrc = fileDescriptor
+let playStrategy : media.PlaybackStrategy = {
   preferredWidth: 1,
   preferredHeight: 2,
   preferredBufferDuration: 3,
   preferredHdr: false,
   mutedMediaType: media.MediaType.MEDIA_TYPE_AUD,
   preferredBufferDurationForPlaying: 1,
-  thresholdForAutoQuickPlay: 5,
+  thresholdForAutoQuickPlay: 5
 };
 player.setPlaybackStrategy(playStrategy);
 ```
 
 
-## setPlaybackRange18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise<void>
+##### setPlaybackRange18+
+
+setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise&lt;void&gt;
 
 设置播放区间，并通过指定的[SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8)跳转到区间开始位置。设置之后，只播放音视频文件设定区间内的内容。使用Promise异步回调。可在**initialized**/**prepared**/**paused**/**stopped**/**completed**状态下使用。
 
@@ -386,16 +365,14 @@ setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Prom
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | startTimeMs | number | 是 | 区间开始位置，单位ms，取值[0, duration)。可以设置-1值，系统将会从0位置开始播放。 |
 | endTimeMs | number | 是 | 区间结束位置，单位ms，取值(startTimeMs, duration]。可以设置-1值，系统将会播放到资源末尾。 |
-| mode | [SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8) | 否 | 支持SeekMode.SEEK_PREV_SYNC和SeekMode.SEEK_CLOSEST,          默认值: SeekMode.SEEK_PREV_SYNC。 |
+| mode | SeekMode | 否 | 支持SeekMode.SEEK_PREV_SYNC和SeekMode.SEEK_CLOSEST, 默认值: SeekMode.SEEK_PREV_SYNC。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -406,7 +383,6 @@ setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Prom
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The parameter check failed. Return by promise. |
@@ -415,28 +391,24 @@ setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Prom
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
-  avPlayer
-    .setPlaybackRange(0, 6000, media.SeekMode.SEEK_CLOSEST)
-    .then(() => {
-      console.info('Succeeded setPlaybackRange');
-    })
-    .catch((err: BusinessError) => {
-      console.error('Failed to setPlaybackRange' + err.message);
-    });
+  avPlayer.setPlaybackRange(0, 6000, media.SeekMode.SEEK_CLOSEST).then(() => {
+    console.info('Succeeded setPlaybackRange');
+  }).catch((err: BusinessError) => {
+    console.error('Failed to setPlaybackRange' + err.message);
+  });
 }
 ```
 
 
-## prepare9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-prepare(callback: AsyncCallback<void>): void
+##### prepare9+
+
+prepare(callback: AsyncCallback&lt;void&gt;): void
 
 准备播放音频/视频，需在[stateChange](#onstatechange9)事件成功触发至initialized状态后，才能调用。使用callback方式异步获取返回值。
 
@@ -445,7 +417,6 @@ prepare(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -456,7 +427,6 @@ prepare(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -465,11 +435,10 @@ prepare(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized状态后才能调用。
   avPlayer.prepare((err: BusinessError) => {
@@ -483,10 +452,10 @@ async function test() {
 ```
 
 
-## prepare9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-prepare(): Promise<void>
+##### prepare9+
+
+prepare(): Promise&lt;void&gt;
 
 准备播放音频/视频，需在[stateChange](#onstatechange9)事件成功触发至initialized状态后，才能调用。使用Promise异步回调。
 
@@ -498,7 +467,6 @@ prepare(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -508,7 +476,6 @@ prepare(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -517,29 +484,25 @@ prepare(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized状态后才能调用。
-  avPlayer.prepare().then(
-    () => {
-      console.info('Succeeded in preparing');
-    },
-    (err: BusinessError) => {
-      console.error('Failed to prepare,error message is :' + err.message);
-    },
-  );
+  avPlayer.prepare().then(() => {
+    console.info('Succeeded in preparing');
+  }, (err: BusinessError) => {
+    console.error('Failed to prepare,error message is :' + err.message);
+  });
 }
 ```
 
 
-## setMediaMuted12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setMediaMuted(mediaType: MediaType, muted: boolean ): Promise<void>
+##### setMediaMuted12+
+
+setMediaMuted(mediaType: MediaType, muted: boolean ): Promise&lt;void&gt;
 
 设置音频静音/取消音频静音，从API version 20开始，增加支持设置画面显示/不显示。使用Promise异步回调。
 
@@ -551,15 +514,13 @@ setMediaMuted(mediaType: MediaType, muted: boolean ): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mediaType | [MediaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#mediatype8) | 是 | 媒体类型枚举。          API version 12-19：仅支持设置MEDIA_TYPE_AUD。          API version 20及以后：增加支持设置MEDIA_TYPE_VID。 |
-| muted | boolean | 是 | API version 12-19：仅支持设置音频播放策略，表示音频是否静音播放。true为静音播放，false为取消静音播放。          API version 20及以后：增加支持设置视频播放策略，表示视频画面是否关闭。true为关闭画面，false为恢复画面。 |
+| mediaType | MediaType | 是 | 媒体类型枚举。 API version 12-19：仅支持设置MEDIA_TYPE_AUD。 API version 20及以后：增加支持设置MEDIA_TYPE_VID。 |
+| muted | boolean | 是 | API version 12-19：仅支持设置音频播放策略，表示音频是否静音播放。true为静音播放，false为取消静音播放。 API version 20及以后：增加支持设置视频播放策略，表示视频画面是否关闭。true为关闭画面，false为恢复画面。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -570,7 +531,6 @@ setMediaMuted(mediaType: MediaType, muted: boolean ): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The parameter check failed. Return by promise. |
@@ -579,30 +539,26 @@ setMediaMuted(mediaType: MediaType, muted: boolean ): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized状态后才能调用。
-  avPlayer.prepare().then(
-    () => {
-      console.info('Succeeded in preparing');
-      avPlayer.setMediaMuted(media.MediaType.MEDIA_TYPE_AUD, true);
-    },
-    (err: BusinessError) => {
-      console.error('Failed to prepare,error message is :' + err.message);
-    },
-  );
+  avPlayer.prepare().then(() => {
+    console.info('Succeeded in preparing');
+    avPlayer.setMediaMuted(media.MediaType.MEDIA_TYPE_AUD, true);
+  }, (err: BusinessError) => {
+    console.error('Failed to prepare,error message is :' + err.message);
+  });
 }
 ```
 
 
-## play9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-play(callback: AsyncCallback<void>): void
+##### play9+
+
+play(callback: AsyncCallback&lt;void&gt;): void
 
 开始播放音视频资源，只能在prepared/paused/completed状态调用。使用callback方式异步获取返回值。
 
@@ -611,7 +567,6 @@ play(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -622,7 +577,6 @@ play(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -630,11 +584,10 @@ play(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/paused/completed状态后才能调用。
   avPlayer.play((err: BusinessError) => {
@@ -648,10 +601,10 @@ async function test() {
 ```
 
 
-## play9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-play(): Promise<void>
+##### play9+
+
+play(): Promise&lt;void&gt;
 
 开始播放音视频资源，只能在prepared/paused/completed状态调用。使用Promise异步回调。
 
@@ -660,7 +613,6 @@ play(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -671,7 +623,6 @@ play(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -679,29 +630,25 @@ play(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/paused/completed状态后才能调用。
-  avPlayer.play().then(
-    () => {
-      console.info('Succeeded in playing');
-    },
-    (err: BusinessError) => {
-      console.error('Failed to play,error message is :' + err.message);
-    },
-  );
+  avPlayer.play().then(() => {
+    console.info('Succeeded in playing');
+  }, (err: BusinessError) => {
+    console.error('Failed to play,error message is :' + err.message);
+  });
 }
 ```
 
 
-## pause9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pause(callback: AsyncCallback<void>): void
+##### pause9+
+
+pause(callback: AsyncCallback&lt;void&gt;): void
 
 暂停播放音视频资源，只能在playing状态调用。使用callback方式异步获取返回值。
 
@@ -710,7 +657,6 @@ pause(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -721,7 +667,6 @@ pause(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -729,11 +674,10 @@ pause(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至playing状态后才能调用。
   avPlayer.pause((err: BusinessError) => {
@@ -747,10 +691,10 @@ async function test() {
 ```
 
 
-## pause9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pause(): Promise<void>
+##### pause9+
+
+pause(): Promise&lt;void&gt;
 
 暂停播放音视频资源，只能在playing状态调用。使用Promise异步回调。
 
@@ -759,7 +703,6 @@ pause(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -770,7 +713,6 @@ pause(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -778,29 +720,25 @@ pause(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至playing状态后才能调用。
-  avPlayer.pause().then(
-    () => {
-      console.info('Succeeded in pausing');
-    },
-    (err: BusinessError) => {
-      console.error('Failed to pause,error message is :' + err.message);
-    },
-  );
+  avPlayer.pause().then(() => {
+    console.info('Succeeded in pausing');
+  }, (err: BusinessError) => {
+    console.error('Failed to pause,error message is :' + err.message);
+  });
 }
 ```
 
 
-## stop9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(callback: AsyncCallback<void>): void
+##### stop9+
+
+stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止播放音视频资源，只能在prepared/playing/paused/completed状态调用。使用callback方式异步获取返回值。
 
@@ -809,7 +747,6 @@ stop(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -820,7 +757,6 @@ stop(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -828,11 +764,10 @@ stop(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
   avPlayer.stop((err: BusinessError) => {
@@ -846,10 +781,10 @@ async function test() {
 ```
 
 
-## stop9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(): Promise<void>
+##### stop9+
+
+stop(): Promise&lt;void&gt;
 
 停止播放音视频资源，只能在prepared/playing/paused/completed状态调用。使用Promise异步回调。
 
@@ -858,7 +793,6 @@ stop(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -869,7 +803,6 @@ stop(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -877,29 +810,25 @@ stop(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
-  avPlayer.stop().then(
-    () => {
-      console.info('Succeeded in stopping');
-    },
-    (err: BusinessError) => {
-      console.error('Failed to stop,error message is :' + err.message);
-    },
-  );
+  avPlayer.stop().then(() => {
+    console.info('Succeeded in stopping');
+  }, (err: BusinessError) => {
+    console.error('Failed to stop,error message is :' + err.message);
+  });
 }
 ```
 
 
-## reset9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reset(callback: AsyncCallback<void>): void
+##### reset9+
+
+reset(callback: AsyncCallback&lt;void&gt;): void
 
 重置播放，只能在initialized/prepared/playing/paused/completed/stopped/error状态调用。使用callback方式异步获取返回值。
 
@@ -908,7 +837,6 @@ reset(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -919,7 +847,6 @@ reset(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -927,11 +854,10 @@ reset(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized/prepared/playing/paused/completed/stopped/error状态后才能调用。
   avPlayer.reset((err: BusinessError) => {
@@ -945,10 +871,10 @@ async function test() {
 ```
 
 
-## reset9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reset(): Promise<void>
+##### reset9+
+
+reset(): Promise&lt;void&gt;
 
 重置播放，只能在initialized/prepared/playing/paused/completed/stopped/error状态调用。使用Promise异步回调。
 
@@ -957,7 +883,6 @@ reset(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -968,7 +893,6 @@ reset(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -976,29 +900,25 @@ reset(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized/prepared/playing/paused/completed/stopped/error状态后才能调用。
-  avPlayer.reset().then(
-    () => {
-      console.info('Succeeded in resetting');
-    },
-    (err: BusinessError) => {
-      console.error('Failed to reset,error message is :' + err.message);
-    },
-  );
+  avPlayer.reset().then(() => {
+    console.info('Succeeded in resetting');
+  }, (err: BusinessError) => {
+    console.error('Failed to reset,error message is :' + err.message);
+  });
 }
 ```
 
 
-## release9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(callback: AsyncCallback<void>): void
+##### release9+
+
+release(callback: AsyncCallback&lt;void&gt;): void
 
 销毁播放资源，除released状态外，均可以调用。使用callback方式异步获取返回值。
 
@@ -1007,7 +927,6 @@ release(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1018,7 +937,6 @@ release(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -1026,11 +944,10 @@ release(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发除released以外的状态才能调用。
   avPlayer.release((err: BusinessError) => {
@@ -1044,10 +961,10 @@ async function test() {
 ```
 
 
-## release9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(): Promise<void>
+##### release9+
+
+release(): Promise&lt;void&gt;
 
 销毁播放资源，除released状态，都可以调用。使用Promise异步回调。
 
@@ -1056,7 +973,6 @@ release(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1067,7 +983,6 @@ release(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -1075,29 +990,25 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发除released以外的状态才能调用。
-  avPlayer.release().then(
-    () => {
-      console.info('Succeeded in releasing');
-    },
-    (err: BusinessError) => {
-      console.error('Failed to release,error message is :' + err.message);
-    },
-  );
+  avPlayer.release().then(() => {
+    console.info('Succeeded in releasing');
+  }, (err: BusinessError) => {
+    console.error('Failed to release,error message is :' + err.message);
+  });
 }
 ```
 
 
-## getTrackDescription9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void
+##### getTrackDescription9+
+
+getTrackDescription(callback: AsyncCallback<Array&lt;MediaDescription&gt;>): void
 
 获取音视频轨道信息，可以在prepared/playing/paused状态调用。获取所有音视轨道信息，应在数据加载回调后调用。使用callback方式异步获取返回值。
 
@@ -1107,16 +1018,14 @@ getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)&gt;&gt; | 是 | 回调函数，当获取音视频轨道信息成功，err为undefined，data为获取到的MediaDescription数组；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;MediaDescription&gt;> | 是 | 回调函数，当获取音视频轨道信息成功，err为undefined，data为获取到的MediaDescription数组；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1125,30 +1034,27 @@ getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused状态后才能调用。
-  avPlayer.getTrackDescription(
-    (error: BusinessError, arrList: Array<media.MediaDescription>) => {
-      if (arrList != null) {
-        console.info('Succeeded in doing getTrackDescription');
-      } else {
-        console.error(`Failed to do getTrackDescription, error:${error}`);
-      }
-    },
-  );
+  avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
+    if ((arrList) != null) {
+      console.info('Succeeded in doing getTrackDescription');
+    } else {
+      console.error(`Failed to do getTrackDescription, error:${error}`);
+    }
+  });
 }
 ```
 
 
-## getTrackDescription9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getTrackDescription(): Promise<Array<MediaDescription>>
+##### getTrackDescription9+
+
+getTrackDescription(): Promise<Array&lt;MediaDescription&gt;>
 
 获取音视频轨道信息，可以在prepared/playing/paused状态调用。使用Promise异步回调。
 
@@ -1158,16 +1064,14 @@ getTrackDescription(): Promise<Array<MediaDescription>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)&gt;&gt; | Promise对象，返回音视频轨道信息MediaDescription数组。 |
+| Promise<Array&lt;MediaDescription&gt;> | Promise对象，返回音视频轨道信息MediaDescription数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1176,29 +1080,25 @@ getTrackDescription(): Promise<Array<MediaDescription>>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused状态后才能调用。
-  avPlayer
-    .getTrackDescription()
-    .then((arrList: Array<media.MediaDescription>) => {
-      console.info('Succeeded in getting TrackDescription');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`Failed to get TrackDescription, error:${error}`);
-    });
+  avPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) => {
+    console.info('Succeeded in getting TrackDescription');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get TrackDescription, error:${error}`);
+  });
 }
 ```
 
 
-## getSelectedTracks12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSelectedTracks(): Promise<Array<number>>
+##### getSelectedTracks12+
+
+getSelectedTracks(): Promise<Array&lt;number&gt;>
 
 获取已选择的音视频轨道索引，可以在prepared/playing/paused状态调用。使用Promise异步回调。
 
@@ -1208,16 +1108,14 @@ getSelectedTracks(): Promise<Array<number>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;number&gt;&gt; | Promise对象，返回已选择音视频轨道索引数组。 |
+| Promise<Array&lt;number&gt;> | Promise对象，返回已选择音视频轨道索引数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1226,29 +1124,25 @@ getSelectedTracks(): Promise<Array<number>>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused状态后才能调用。
-  avPlayer
-    .getSelectedTracks()
-    .then((arrList: Array<number>) => {
-      console.info('Succeeded in getting SelectedTracks');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`Failed to get SelectedTracks, error:${error}`);
-    });
+  avPlayer.getSelectedTracks().then((arrList: Array<number>) => {
+    console.info('Succeeded in getting SelectedTracks');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get SelectedTracks, error:${error}`);
+  });
 }
 ```
 
 
-## getPlaybackInfo12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPlaybackInfo(): Promise<PlaybackInfo>
+##### getPlaybackInfo12+
+
+getPlaybackInfo(): Promise&lt;PlaybackInfo&gt;
 
 获取播放过程信息，可以在prepared/playing/paused状态调用。使用Promise异步回调。
 
@@ -1256,16 +1150,14 @@ getPlaybackInfo(): Promise<PlaybackInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PlaybackInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#playbackinfo12)&gt; | Promise对象，返回播放器信息PlaybackInfo。 |
+| Promise&lt;PlaybackInfo&gt; | Promise对象，返回播放器信息PlaybackInfo。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let avPlayer: media.AVPlayer | undefined;
@@ -1277,9 +1169,7 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
     if (avPlayer) {
       try {
         playbackInfo = await avPlayer.getPlaybackInfo();
-        console.info(
-          `AVPlayer getPlaybackInfo = ${JSON.stringify(playbackInfo)}`,
-        ); // 打印整个PlaybackInfo的值。
+        console.info(`AVPlayer getPlaybackInfo = ${JSON.stringify(playbackInfo)}`); // 打印整个PlaybackInfo的值。
       } catch (error) {
         console.error(`error = ${error}`);
       }
@@ -1291,8 +1181,8 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
 ```
 
 
-## getPlaybackPosition18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getPlaybackPosition18+
 
 getPlaybackPosition(): number
 
@@ -1304,7 +1194,6 @@ getPlaybackPosition(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回当前播放位置的时间，单位：毫秒（ms）。 |
@@ -1314,7 +1203,6 @@ getPlaybackPosition(): number
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. |
@@ -1322,29 +1210,25 @@ getPlaybackPosition(): number
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized状态后才能调用。
-  avPlayer.prepare().then(
-    () => {
-      console.info('Succeeded in preparing');
-      let playbackPosition: number = avPlayer.getPlaybackPosition();
-      console.info(`AVPlayer getPlaybackPosition== ${playbackPosition}`);
-    },
-    (err: BusinessError) => {
-      console.error('Failed to prepare,error message is :' + err.message);
-    },
-  );
+  avPlayer.prepare().then(() => {
+    console.info('Succeeded in preparing');
+    let playbackPosition: number = avPlayer.getPlaybackPosition();
+    console.info(`AVPlayer getPlaybackPosition== ${playbackPosition}`);
+  }, (err: BusinessError) => {
+    console.error('Failed to prepare,error message is :' + err.message);
+  });
 }
 ```
 
 
-## getCurrentPresentationTimestamp23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCurrentPresentationTimestamp23+
 
 getCurrentPresentationTimestamp() : number
 
@@ -1358,7 +1242,6 @@ getCurrentPresentationTimestamp() : number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回当前播放位置的时间，单位：微秒（μs）。 |
@@ -1368,7 +1251,6 @@ getCurrentPresentationTimestamp() : number
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. |
@@ -1376,34 +1258,27 @@ getCurrentPresentationTimestamp() : number
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized状态后才能调用。
-  avPlayer.play().then(
-    () => {
-      console.info('Succeeded in playing');
-      let currentPresentation: number =
-        avPlayer.getCurrentPresentationTimestamp();
-      console.info(
-        `AVPlayer getCurrentPresentationTimestamp== ${currentPresentation}`,
-      );
-    },
-    (err: BusinessError) => {
-      console.error('Failed to prepare,error message is :' + err.message);
-    },
-  );
+  avPlayer.play().then(() => {
+    console.info('Succeeded in playing');
+    let currentPresentation: number = avPlayer.getCurrentPresentationTimestamp();
+    console.info(`AVPlayer getCurrentPresentationTimestamp== ${currentPresentation}`);
+  }, (err: BusinessError) => {
+    console.error('Failed to prepare,error message is :' + err.message);
+  });
 }
 ```
 
 
-## selectTrack12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-selectTrack(index: number, mode?: SwitchMode): Promise<void>
+##### selectTrack12+
+
+selectTrack(index: number, mode?: SwitchMode): Promise&lt;void&gt;
 
 使用AVPlayer播放多音视频轨资源时，选择指定轨道播放，使用Promise异步回调。
 
@@ -1413,15 +1288,13 @@ selectTrack(index: number, mode?: SwitchMode): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 多音视频资源的轨道索引，可通过[getTrackDescription](#gettrackdescription9-1)接口获取当前资源的所有轨道信息[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)。 |
-| mode | [SwitchMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#switchmode12) | 否 | 切换视频轨道模式，默认为SMOOTH模式，仅在DASH协议网络流视频轨切换时生效，其他场景当前暂不支持。 |
+| index | number | 是 | 多音视频资源的轨道索引，可通过getTrackDescription接口获取当前资源的所有轨道信息MediaDescription。 |
+| mode | SwitchMode | 否 | 切换视频轨道模式，默认为SMOOTH模式，仅在DASH协议网络流视频轨切换时生效，其他场景当前暂不支持。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1432,7 +1305,6 @@ selectTrack(index: number, mode?: SwitchMode): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The parameter check failed. Return by promise. |
@@ -1441,28 +1313,24 @@ selectTrack(index: number, mode?: SwitchMode): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function test() {
+async function  test(){
   let avPlayer: media.AVPlayer = await media.createAVPlayer();
   let audioTrackIndex: Object = 0;
-  avPlayer.getTrackDescription(
-    (error: BusinessError, arrList: Array<media.MediaDescription>) => {
-      if (arrList != null) {
-        for (let i = 0; i < arrList.length; i++) {
-          if (i != 0) {
-            // 获取音频轨道列表。
-            audioTrackIndex =
-              arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
-          }
+  avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
+    if (arrList != null) {
+      for (let i = 0; i < arrList.length; i++) {
+        if (i != 0) {
+          // 获取音频轨道列表。
+          audioTrackIndex = arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
         }
-      } else {
-        console.error(`Failed to get TrackDescription, error:${error}`);
       }
-    },
-  );
+    } else {
+      console.error(`Failed to get TrackDescription, error:${error}`);
+    }
+  });
 
   // 选择其中一个音频轨道。
   avPlayer.selectTrack(parseInt(audioTrackIndex.toString()));
@@ -1470,10 +1338,10 @@ async function test() {
 ```
 
 
-## deselectTrack12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deselectTrack(index: number): Promise<void>
+##### deselectTrack12+
+
+deselectTrack(index: number): Promise&lt;void&gt;
 
 使用AVPlayer播放多音轨视频时取消指定音视频轨道播放，使用Promise异步回调。
 
@@ -1483,14 +1351,12 @@ deselectTrack(index: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 多音视频资源的轨道索引，来自[getTrackDescription](#gettrackdescription9-1)接口所获取的轨道信息[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)。 |
+| index | number | 是 | 多音视频资源的轨道索引，来自getTrackDescription接口所获取的轨道信息MediaDescription。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1501,7 +1367,6 @@ deselectTrack(index: number): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The parameter check failed. Return by promise. |
@@ -1510,27 +1375,23 @@ deselectTrack(index: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let avPlayer: media.AVPlayer = await media.createAVPlayer();
 let audioTrackIndex: Object = 0;
-avPlayer.getTrackDescription(
-  (error: BusinessError, arrList: Array<media.MediaDescription>) => {
-    if (arrList != null) {
-      for (let i = 0; i < arrList.length; i++) {
-        if (i != 0) {
-          // 获取音频轨道列表。
-          audioTrackIndex =
-            arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
-        }
+avPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
+  if (arrList != null) {
+    for (let i = 0; i < arrList.length; i++) {
+      if (i != 0) {
+        // 获取音频轨道列表。
+        audioTrackIndex = arrList[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
       }
-    } else {
-      console.error(`Failed to get TrackDescription, error:${error}`);
     }
-  },
-);
+  } else {
+    console.error(`Failed to get TrackDescription, error:${error}`);
+  }
+});
 
 // 选择其中一个音频轨道。
 avPlayer.selectTrack(parseInt(audioTrackIndex.toString()));
@@ -1539,8 +1400,8 @@ avPlayer.deselectTrack(parseInt(audioTrackIndex.toString()));
 ```
 
 
-## setDecryptionConfig11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setDecryptionConfig11+
 
 setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void
 
@@ -1552,17 +1413,15 @@ setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boole
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mediaKeySession | [drm.MediaKeySession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession) | 是 | 解密会话 |
+| mediaKeySession | drm.MediaKeySession | 是 | 解密会话 |
 | secureVideoPath | boolean | 是 | 安全视频通路，true表示选择安全视频通路，false表示选择非安全视频通路 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1573,30 +1432,26 @@ setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boole
 
 关于drm模块的示例具体可见[@ohos.multimedia.drm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm)。
 
-
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 创建MediaKeySystem系统。
-  let keySystem: drm.MediaKeySystem =
-    drm.createMediaKeySystem('com.wiseplay.drm');
+  let keySystem:drm.MediaKeySystem = drm.createMediaKeySystem('com.wiseplay.drm');
   // 创建MediaKeySession解密会话。
-  let keySession: drm.MediaKeySession = keySystem.createMediaKeySession(
-    drm.ContentProtectionLevel.CONTENT_PROTECTION_LEVEL_SW_CRYPTO,
-  );
+  let keySession:drm.MediaKeySession = keySystem.createMediaKeySession(drm.ContentProtectionLevel.CONTENT_PROTECTION_LEVEL_SW_CRYPTO);
   // 生成许可证请求、设置许可证响应等。
   // 安全视频通路标志。
-  let secureVideoPath: boolean = false;
+  let secureVideoPath:boolean = false;
   // 设置解密配置。
   avPlayer.setDecryptionConfig(keySession, secureVideoPath);
 }
 ```
 
 
-## getMediaKeySystemInfos11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getMediaKeySystemInfos11+
 
 getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>
 
@@ -1608,40 +1463,43 @@ getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[drm.MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#mediakeysysteminfo)&gt; | MediaKeySystemInfo数组，MediaKeySystemInfo具有uuid和pssh两个属性。当返回值为undefined时，表示mediaKeySystemInfoUpdate事件未触发。 |
+| Array<drm.MediaKeySystemInfo> | MediaKeySystemInfo数组，MediaKeySystemInfo具有uuid和pssh两个属性。当返回值为undefined时，表示mediaKeySystemInfoUpdate事件未触发。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
-async function test() {
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在mediaKeySystemInfoUpdate事件触发成功后才能调用。
   const infos = avPlayer.getMediaKeySystemInfos();
   console.info('GetMediaKeySystemInfos count: ' + infos.length);
   for (let i = 0; i < infos.length; i++) {
-    console.info('GetMediaKeySystemInfos uuid: ' + infos[i]['uuid']);
-    console.info('GetMediaKeySystemInfos pssh: ' + infos[i]['pssh']);
+    console.info('GetMediaKeySystemInfos uuid: ' + infos[i]["uuid"]);
+    console.info('GetMediaKeySystemInfos pssh: ' + infos[i]["pssh"]);
   }
 }
 ```
 
 
-## seek9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### seek9+
 
 seek(timeMs: number, mode?:SeekMode): void
 
 跳转到指定播放位置，只能在prepared/playing/paused/completed状态调用，可以通过[on('seekDone')](#onseekdone9)事件确认是否生效。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/0mqHgU6TS1WQoUIrxXM74w/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084923Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=337917A2DC8AA9D0C9FEC3F717C42CFE62018004A8EAF97D7DA6902C95A52A1B)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/t-ILMzFARgCM7koMG_OjZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=3AE5BD8868CB55782C901C72DB65E5B99738A2CA3F7468A4F4891BBDC3C5601E)
+
+
 直播场景不支持seek。
+
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1649,18 +1507,16 @@ seek(timeMs: number, mode?:SeekMode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| timeMs | number | 是 | 指定的跳转时间节点，单位毫秒（ms），取值范围为[0, [duration](#属性)]。          当模式为[SEEK_CONTINUOUS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8)时，可以取值-1，表示SEEK_CONTINUOUS模式结束。 |
-| mode | [SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8) | 否 | 基于视频I帧的跳转模式，默认为SEEK_PREV_SYNC模式，仅在视频资源播放时设置。 |
+| timeMs | number | 是 | 指定的跳转时间节点，单位毫秒（ms），取值范围为[0, duration]。 当模式为SEEK_CONTINUOUS时，可以取值-1，表示SEEK_CONTINUOUS模式结束。 |
+| mode | SeekMode | 否 | 基于视频I帧的跳转模式，默认为SEEK_PREV_SYNC模式，仅在视频资源播放时设置。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   let seekTime: number = 1000;
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
@@ -1668,9 +1524,8 @@ async function test() {
 }
 ```
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   // SEEK_CONTINUOUS 可以结合Slider的onChange回调方法进行对应处理，当slideMode为Moving时，触发拖动过程的SeekContinuous。
   let avPlayer = await media.createAVPlayer();
   let slideMovingTime: number = 2000;
@@ -1683,8 +1538,8 @@ async function test() {
 ```
 
 
-## isSeekContinuousSupported18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isSeekContinuousSupported18+
 
 isSeekContinuousSupported() : boolean
 
@@ -1696,7 +1551,6 @@ isSeekContinuousSupported() : boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 媒体源是否支持以SEEK_CONTINUOUS模式进行seek。true表示支持，false表示不支持。 |
@@ -1704,9 +1558,8 @@ isSeekContinuousSupported() : boolean
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
   let isSupported = avPlayer.isSeekContinuousSupported();
@@ -1714,10 +1567,10 @@ async function test() {
 ```
 
 
-## on('seekDone')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'seekDone', callback: Callback<number>): void
+##### on('seekDone')9+
+
+on(type: 'seekDone', callback: Callback&lt;number&gt;): void
 
 监听seek生效的事件。
 
@@ -1727,31 +1580,29 @@ on(type: 'seekDone', callback: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | seek生效的事件回调类型，支持的事件：'seekDone'，除SEEK_CONTINUOUS外的[SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8)每次调用seek后都会回调此事件。 |
-| callback | Callback&lt;number&gt; | 是 | 回调函数。seek生效的事件回调方法，只会上报用户请求的time位置。          视频播放：[SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8)会造成实际跳转位置与用户设置产生偏差，精准位置需要通过currentTime获取，事件回调的time仅代表完成用户某一次请求。 |
+| type | string | 是 | seek生效的事件回调类型，支持的事件：'seekDone'，除SEEK_CONTINUOUS外的SeekMode每次调用seek后都会回调此事件。 |
+| callback | Callback&lt;number&gt; | 是 | 回调函数。seek生效的事件回调方法，只会上报用户请求的time位置。 视频播放：SeekMode会造成实际跳转位置与用户设置产生偏差，精准位置需要通过currentTime获取，事件回调的time仅代表完成用户某一次请求。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收seek生效的事件回调。
-  avPlayer.on('seekDone', (seekDoneTime: number) => {
+  avPlayer.on('seekDone', (seekDoneTime:number) => {
     console.info('seekDone called,and seek time is:' + seekDoneTime);
   });
 }
 ```
 
 
-## off('seekDone')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'seekDone', callback?: Callback<number>): void
+##### off('seekDone')9+
+
+off(type: 'seekDone', callback?: Callback&lt;number&gt;): void
 
 取消监听seek生效的事件。
 
@@ -1761,18 +1612,16 @@ off(type: 'seekDone', callback?: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | seek生效的事件回调类型，取消注册的事件：'seekDone'。 |
-| callback12+ | Callback&lt;number&gt; | 否 | 回调函数。seek生效的事件回调方法，只会上报用户请求的time位置。          视频播放：[SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8)会造成实际跳转位置与用户设置产生偏差，精准位置需要通过currentTime获取，事件回调的time仅代表完成用户某一次请求。如果填写该参数，仅取消注册此回调的方法，否则取消注册seekDone事件的所有回调方法。 |
+| callback12+ | Callback&lt;number&gt; | 否 | 回调函数。seek生效的事件回调方法，只会上报用户请求的time位置。 视频播放：SeekMode会造成实际跳转位置与用户设置产生偏差，精准位置需要通过currentTime获取，事件回调的time仅代表完成用户某一次请求。如果填写该参数，仅取消注册此回调的方法，否则取消注册seekDone事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收seek生效的事件回调。
   avPlayer.off('seekDone');
@@ -1780,15 +1629,20 @@ async function test() {
 ```
 
 
-## setSpeed9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setSpeed9+
 
 setSpeed(speed: PlaybackSpeed): void
 
 设置倍速模式，只能在prepared/playing/paused/completed状态调用，可以通过[on('speedDone')](#onspeeddone9)事件确认是否生效。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/ZBWRL1UuTsu5TYtrktv0fg/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084923Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=23306A90A0E9762F8E0958324CBC27E5F9D7F8974049F1956A95577A4FA2C44E)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/z8pGD_z0SH-raT1cTmg9UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=55273F21A7B6B7EDC001F644196B098D50740C0CA2DD0E0C40DA914D76FEE3C3)
+
+
 直播场景不支持setSpeed。
+
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1796,17 +1650,15 @@ setSpeed(speed: PlaybackSpeed): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| speed | [PlaybackSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#playbackspeed8) | 是 | 指定播放倍速模式。 |
+| speed | PlaybackSpeed | 是 | 指定播放倍速模式。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
   avPlayer.setSpeed(media.PlaybackSpeed.SPEED_FORWARD_2_00_X);
@@ -1814,10 +1666,10 @@ async function test() {
 ```
 
 
-## on('speedDone')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'speedDone', callback: Callback<number>): void
+##### on('speedDone')9+
+
+on(type: 'speedDone', callback: Callback&lt;number&gt;): void
 
 监听setSpeed生效的事件。
 
@@ -1827,31 +1679,29 @@ on(type: 'speedDone', callback: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setSpeed生效的事件回调类型，支持的事件：'speedDone'，每次调用setSpeed后都会回调此事件。 |
-| callback | Callback&lt;number&gt; | 是 | 回调函数。当setSpeed成功，上报生效的倍速模式，具体见[PlaybackSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#playbackspeed8)。 |
+| callback | Callback&lt;number&gt; | 是 | 回调函数。当setSpeed成功，上报生效的倍速模式，具体见PlaybackSpeed。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收setSpeed生效事件回调。
-  avPlayer.on('speedDone', (speed: number) => {
+  avPlayer.on('speedDone', (speed:number) => {
     console.info('speedDone called,and speed value is:' + speed);
   });
 }
 ```
 
 
-## off('speedDone')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'speedDone', callback?: Callback<number>): void
+##### off('speedDone')9+
+
+off(type: 'speedDone', callback?: Callback&lt;number&gt;): void
 
 取消监听setSpeed生效的事件。
 
@@ -1861,18 +1711,16 @@ off(type: 'speedDone', callback?: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setSpeed生效的事件回调类型，取消注册的事件：'speedDone'。 |
-| callback12+ | Callback&lt;number&gt; | 否 | 回调函数。当setSpeed成功，上报生效的倍速模式，具体见[PlaybackSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#playbackspeed8)。如果填写该参数，仅取消注册此回调方法，否则取消注册speedDone事件的所有回调方法。 |
+| callback12+ | Callback&lt;number&gt; | 否 | 回调函数。当setSpeed成功，上报生效的倍速模式，具体见PlaybackSpeed。如果填写该参数，仅取消注册此回调方法，否则取消注册speedDone事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收setSpeed生效事件回调。
   avPlayer.off('speedDone');
@@ -1880,22 +1728,26 @@ async function test() {
 ```
 
 
-## setPlaybackRate20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setPlaybackRate20+
 
 setPlaybackRate(rate: number): void
 
 设置倍速模式。只能在prepared/playing/paused/completed状态调用，取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/IQrb9mZGTpK7PqZm1N2GMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084923Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=2D261178A9C2D113DBB8A5F27B9D3C6C346A60A284FB65E17F69536F372D9957)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/4ctWC3tUSLenPHPE1ur9Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=82C312B8FBD7A0E0103873C88C461EA7AA31BB465497FDB38FCC9E4D9EB7D89C)
+
+
 直播场景不支持setPlaybackRate。
+
+
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1906,7 +1758,6 @@ setPlaybackRate(rate: number): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400108 | The parameter check failed, parameter value out of range. |
@@ -1915,9 +1766,8 @@ setPlaybackRate(rate: number): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
   avPlayer.setPlaybackRate(2.0);
@@ -1925,17 +1775,16 @@ async function test() {
 ```
 
 
-## getPlaybackRate23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPlaybackRate(): Promise<number>
+##### getPlaybackRate23+
+
+getPlaybackRate(): Promise&lt;number&gt;
 
 获取当前播放器的播放速率。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1944,9 +1793,8 @@ getPlaybackRate(): Promise<number>
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   avPlayer.getPlaybackRate().then((rate: number) => {
     console.info('Succeeded getPlaybackRate' + rate);
@@ -1955,8 +1803,8 @@ async function test() {
 ```
 
 
-## on('playbackRateDone')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('playbackRateDone')20+
 
 on(type: 'playbackRateDone', callback: OnPlaybackRateDone): void
 
@@ -1968,29 +1816,27 @@ on(type: 'playbackRateDone', callback: OnPlaybackRateDone): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setPlaybackRate生效的事件回调类型，支持的事件：'playbackRateDone'，每次调用setPlaybackRate后都会回调此事件。 |
-| callback | [OnPlaybackRateDone](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onplaybackratedone20) | 是 | setPlaybackRate生效的事件回调方法，上报设置后的播放速率。 |
+| callback | OnPlaybackRateDone | 是 | setPlaybackRate生效的事件回调方法，上报设置后的播放速率。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收setPlaybackRate生效的事件。
-  avPlayer.on('playbackRateDone', (rate: number) => {
+  avPlayer.on('playbackRateDone', (rate:number) => {
     console.info('playbackRateDone called,and rate value is:' + rate);
   });
 }
 ```
 
 
-## off('playbackRateDone')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('playbackRateDone')20+
 
 off(type: 'playbackRateDone', callback?: OnPlaybackRateDone): void
 
@@ -2002,18 +1848,16 @@ off(type: 'playbackRateDone', callback?: OnPlaybackRateDone): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setPlaybackRate生效的事件回调类型，取消注册的事件：'playbackRateDone'。 |
-| callback | [OnPlaybackRateDone](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onplaybackratedone20) | 否 | setPlaybackRate生效的事件回调方法，上报设置后的播放速率。如果填写该参数，仅取消注册此回调方法，否则取消注册playbackRateDone事件的所有回调方法。 |
+| callback | OnPlaybackRateDone | 否 | setPlaybackRate生效的事件回调方法，上报设置后的播放速率。如果填写该参数，仅取消注册此回调方法，否则取消注册playbackRateDone事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收setPlaybackRate生效的事件。
   avPlayer.off('playbackRateDone');
@@ -2021,8 +1865,8 @@ async function test() {
 ```
 
 
-## setBitrate9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setBitrate9+
 
 setBitrate(bitrate: number): void
 
@@ -2034,17 +1878,15 @@ setBitrate(bitrate: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bitrate | number | 是 | 指定比特率，须通过[availableBitrates](#onavailablebitrates9)事件获得当前HLS/DASH协议网络流可用的比特率列表，如果用户指定的比特率不在此列表中，则播放器将从可用比特率列表中选择最接近的比特率。如果通过availableBitrates事件获得的比特率列表长度为0，则不支持指定比特率，也不会产生bitrateDone回调。 |
+| bitrate | number | 是 | 指定比特率，须通过availableBitrates事件获得当前HLS/DASH协议网络流可用的比特率列表，如果用户指定的比特率不在此列表中，则播放器将从可用比特率列表中选择最接近的比特率。如果通过availableBitrates事件获得的比特率列表长度为0，则不支持指定比特率，也不会产生bitrateDone回调。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   let bitrate: number = 96000;
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至prepared/playing/paused/completed状态后才能调用。
@@ -2053,10 +1895,10 @@ async function test() {
 ```
 
 
-## on('bitrateDone')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'bitrateDone', callback: Callback<number>): void
+##### on('bitrateDone')9+
+
+on(type: 'bitrateDone', callback: Callback&lt;number&gt;): void
 
 监听setBitrate生效的事件。
 
@@ -2066,7 +1908,6 @@ on(type: 'bitrateDone', callback: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setBitrate生效的事件回调类型，支持的事件：'bitrateDone'，每次调用setBitrate后都会回调此事件。 |
@@ -2075,22 +1916,21 @@ on(type: 'bitrateDone', callback: Callback<number>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收setBitrate生效事件回调。
-  avPlayer.on('bitrateDone', (bitrate: number) => {
+  avPlayer.on('bitrateDone', (bitrate:number) => {
     console.info('bitrateDone called,and bitrate value is:' + bitrate);
   });
 }
 ```
 
 
-## off('bitrateDone')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'bitrateDone', callback?: Callback<number>): void
+##### off('bitrateDone')9+
+
+off(type: 'bitrateDone', callback?: Callback&lt;number&gt;): void
 
 取消监听setBitrate生效的事件。
 
@@ -2100,7 +1940,6 @@ off(type: 'bitrateDone', callback?: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setBitrate生效的事件回调类型，取消注册的事件：'bitrateDone'。 |
@@ -2109,9 +1948,8 @@ off(type: 'bitrateDone', callback?: Callback<number>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收setBitrate生效事件回调。
   avPlayer.off('bitrateDone');
@@ -2119,10 +1957,10 @@ async function test() {
 ```
 
 
-## on('availableBitrates')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'availableBitrates', callback: Callback<Array<number>>): void
+##### on('availableBitrates')9+
+
+on(type: 'availableBitrates', callback: Callback<Array&lt;number&gt;>): void
 
 监听HLS/DASH协议网络流可用的比特率列表，只会在切换prepared状态后上报。
 
@@ -2132,34 +1970,29 @@ on(type: 'availableBitrates', callback: Callback<Array<number>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | HLS/DASH协议网络流可用比特率上报事件回调类型，支持的事件：'availableBitrates'，只会在prepared之后上报一次。 |
-| callback | Callback&lt;Array&lt;number&gt;&gt; | 是 | HLS/DASH协议网络流可用比特率上报事件回调方法，使用数组存放支持的比特率。如果数组长度为0，则不支持指定比特率。 |
+| callback | Callback<Array&lt;number&gt;> | 是 | HLS/DASH协议网络流可用比特率上报事件回调方法，使用数组存放支持的比特率。如果数组长度为0，则不支持指定比特率。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function  test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，播放状态切换prepared状态时，接收到HLS/DASH协议网络流可用的比特率列表回调。
   avPlayer.on('availableBitrates', (bitrates: Array<number>) => {
-    console.info(
-      'availableBitrates called,and availableBitrates length is:' +
-        bitrates.length,
-    );
+    console.info('availableBitrates called,and availableBitrates length is:' + bitrates.length);
   });
 }
 ```
 
 
-## off('availableBitrates')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'availableBitrates', callback?: Callback<Array<number>>): void
+##### off('availableBitrates')9+
+
+off(type: 'availableBitrates', callback?: Callback<Array&lt;number&gt;>): void
 
 取消监听HLS/DASH协议网络流可用的比特率列表，调用[prepare](#prepare9)后，上报此事件。
 
@@ -2169,18 +2002,16 @@ off(type: 'availableBitrates', callback?: Callback<Array<number>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | HLS/DASH协议网络流可用比特率上报事件回调类型，取消注册的事件：'availableBitrates'。 |
-| callback12+ | Callback&lt;Array&lt;number&gt;&gt; | 否 | HLS/DASH协议网络流可用比特率上报事件回调方法，使用数组存放支持的比特率。如果数组长度为0，则不支持指定比特率。如果填写该参数，仅取消注册此回调方法，否则取消注册availableBitrates事件的所有回调方法。 |
+| callback12+ | Callback<Array&lt;number&gt;> | 否 | HLS/DASH协议网络流可用比特率上报事件回调方法，使用数组存放支持的比特率。如果数组长度为0，则不支持指定比特率。如果填写该参数，仅取消注册此回调方法，否则取消注册availableBitrates事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收HLS/DASH协议网络流可用的比特率列表回调。
   avPlayer.off('availableBitrates');
@@ -2188,8 +2019,8 @@ async function test() {
 ```
 
 
-## on('mediaKeySystemInfoUpdate')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('mediaKeySystemInfoUpdate')11+
 
 on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void
 
@@ -2201,43 +2032,32 @@ on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystem
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 版权保护信息更新上报事件回调类型，支持的事件：'mediaKeySystemInfoUpdate'，当播放内容的版权保护信息更新时上报事件。 |
-| callback | Callback&lt;Array&lt;drm.[MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#mediakeysysteminfo)&gt;&gt; | 是 | 版权保护信息更新上报事件回调方法，上报MediaKeySystemInfo数组。 |
+| callback | Callback<Array<drm.MediaKeySystemInfo>> | 是 | 版权保护信息更新上报事件回调方法，上报MediaKeySystemInfo数组。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
-async function test() {
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收mediaKeySystemInfoUpdate事件回调。
-  avPlayer.on(
-    'mediaKeySystemInfoUpdate',
-    (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => {
-      for (let i = 0; i < mediaKeySystemInfo.length; i++) {
-        console.info(
-          'mediaKeySystemInfoUpdate happened uuid: ' +
-            mediaKeySystemInfo[i]['uuid'],
-        );
-        console.info(
-          'mediaKeySystemInfoUpdate happened pssh: ' +
-            mediaKeySystemInfo[i]['pssh'],
-        );
-      }
-    },
-  );
+  avPlayer.on('mediaKeySystemInfoUpdate', (mediaKeySystemInfo: Array<drm.MediaKeySystemInfo>) => {
+    for (let i = 0; i < mediaKeySystemInfo.length; i++) {
+      console.info('mediaKeySystemInfoUpdate happened uuid: ' + mediaKeySystemInfo[i]["uuid"]);
+      console.info('mediaKeySystemInfoUpdate happened pssh: ' + mediaKeySystemInfo[i]["pssh"]);
+    }
+  });
 }
 ```
 
 
-## off('mediaKeySystemInfoUpdate')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('mediaKeySystemInfoUpdate')11+
 
 off(type: 'mediaKeySystemInfoUpdate', callback?: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
@@ -2249,18 +2069,16 @@ off(type: 'mediaKeySystemInfoUpdate', callback?: Callback<Array<drm.MediaKeySyst
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 版权保护信息更新上报事件回调类型，取消注册的事件：'mediaKeySystemInfoUpdate'。 |
-| callback | Callback&lt;Array&lt;drm.[MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#mediakeysysteminfo)&gt;&gt; | 否 | 版权保护信息更新上报事件回调方法，上报版权保护信息数组。如果填写该参数，仅取消注册此回调方法，否则取消注册mediaKeySystemInfoUpdate事件的所有回调方法。 |
+| callback | Callback<Array<drm.MediaKeySystemInfo>> | 否 | 版权保护信息更新上报事件回调方法，上报版权保护信息数组。如果填写该参数，仅取消注册此回调方法，否则取消注册mediaKeySystemInfoUpdate事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收mediaKeySystemInfoUpdate事件回调。
   avPlayer.off('mediaKeySystemInfoUpdate');
@@ -2268,18 +2086,20 @@ async function test() {
 ```
 
 
-## setLoudnessGain21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setLoudnessGain(loudnessGain: number): Promise<void>
+##### setLoudnessGain21+
+
+setLoudnessGain(loudnessGain: number): Promise&lt;void&gt;
 
 设置播放器的响度。调用该接口后，响度增益立即生效。使用Promise异步回调。
+
+> [!NOTE]
+> 当播放处于prepared/playing/paused/completed/stopped状态时，可调用该接口。 调用此接口时，需确保已设置音频渲染信息AVPlayer.audioRendererInfo，audioRendererInfo的usage参数必须是 STREAM_USAGE_MUSIC 、 STREAM_USAGE_MOVIE 、 STREAM_USAGE_AUDIOBOOK 其中之一。 该接口不支持高清通路的响度设置。 音频流的时延模式必须是普通时延。 该接口错误信息通过 on('error') 回调。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2288,7 +2108,6 @@ setLoudnessGain(loudnessGain: number): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -2296,25 +2115,24 @@ setLoudnessGain(loudnessGain: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { audio } from '@kit.AudioKit';
 
-async function test() {
+async function test(){
   let avPlayer = await media.createAVPlayer();
 
   let loudnessGain: number = 1.0;
   avPlayer.audioRendererInfo = {
     usage: audio.StreamUsage.STREAM_USAGE_MOVIE,
-    rendererFlags: 0,
-  };
+    rendererFlags: 0
+  }
   avPlayer.setLoudnessGain(loudnessGain);
 }
 ```
 
 
-## setVolume9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setVolume9+
 
 setVolume(volume: number): void
 
@@ -2326,7 +2144,6 @@ setVolume(volume: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | volume | number | 是 | 指定的相对音量大小，取值范围为[0.00-1.00]，1表示最大音量，即100%。 |
@@ -2334,9 +2151,8 @@ setVolume(volume: number): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   let volume: number = 1.0;
   avPlayer.setVolume(volume);
@@ -2344,10 +2160,10 @@ async function test() {
 ```
 
 
-## on('volumeChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'volumeChange', callback: Callback<number>): void
+##### on('volumeChange')9+
+
+on(type: 'volumeChange', callback: Callback&lt;number&gt;): void
 
 监听setVolume生效的事件。
 
@@ -2357,7 +2173,6 @@ on(type: 'volumeChange', callback: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setVolume生效的事件回调类型，支持的事件：'volumeChange'，每次调用setVolume后都会回调此事件。 |
@@ -2366,9 +2181,8 @@ on(type: 'volumeChange', callback: Callback<number>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收setVolume生效的事件回调。
   avPlayer.on('volumeChange', (vol: number) => {
@@ -2378,10 +2192,10 @@ async function test() {
 ```
 
 
-## off('volumeChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'volumeChange', callback?: Callback<number>): void
+##### off('volumeChange')9+
+
+off(type: 'volumeChange', callback?: Callback&lt;number&gt;): void
 
 取消监听setVolume生效的事件。
 
@@ -2391,7 +2205,6 @@ off(type: 'volumeChange', callback?: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | setVolume生效的事件回调类型，取消注册的事件：'volumeChange'。 |
@@ -2400,9 +2213,8 @@ off(type: 'volumeChange', callback?: Callback<number>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收setVolume生效的事件。
   avPlayer.off('volumeChange');
@@ -2410,10 +2222,10 @@ async function test() {
 ```
 
 
-## on('endOfStream')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'endOfStream', callback: Callback<void>): void
+##### on('endOfStream')9+
+
+on(type: 'endOfStream', callback: Callback&lt;void&gt;): void
 
 监听资源播放至结尾的事件；如果用户设置[loop](#属性)=true，播放会跳转至开头重播；如果用户没有设置loop，会通过[stateChange](#onstatechange9)上报completed状态。
 
@@ -2423,7 +2235,6 @@ on(type: 'endOfStream', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 资源播放至结尾的事件回调类型，支持的事件：'endOfStream'，当播放至结尾时会上报此事件。 |
@@ -2432,9 +2243,8 @@ on(type: 'endOfStream', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收endOfStream事件回调。
   avPlayer.on('endOfStream', () => {
@@ -2444,10 +2254,10 @@ async function test() {
 ```
 
 
-## off('endOfStream')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'endOfStream', callback?: Callback<void>): void
+##### off('endOfStream')9+
+
+off(type: 'endOfStream', callback?: Callback&lt;void&gt;): void
 
 取消监听资源播放至结尾的事件。
 
@@ -2457,7 +2267,6 @@ off(type: 'endOfStream', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 资源播放至结尾的事件回调类型，取消注册的事件：'endOfStream'。 |
@@ -2466,9 +2275,8 @@ off(type: 'endOfStream', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收endOfStream事件回调。
   avPlayer.off('endOfStream');
@@ -2476,25 +2284,29 @@ async function test() {
 ```
 
 
-## on('timeUpdate')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'timeUpdate', callback: Callback<number>): void
+##### on('timeUpdate')9+
+
+on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 
 监听资源播放当前时间，单位为毫秒（ms），用于刷新进度条当前位置，默认间隔100ms时间上报，因用户操作（seek）产生的时间变化会立刻上报。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/6wk-VWIFTdKJTalbHvga6g/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084923Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=59532EE89F2802D5AFA049B87E826F321D6A77D8AC424E0ED8E2ED9E25293B4F)
 
-- 直播场景不支持timeUpdate上报。
-- 操作（seek）时必须等待seekdone结束才能根据timeUpdate来更新进度条。
-- 在pause状态下，缓冲结束时播放器会上报timeUpdate事件。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/BqGgnOjfQu2iWbOMSl6-Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=8DB89912DF87B2B675F16960C51DC8883790D5329BC13C4A1E2DFF1572DDBF66)
+
+
+ - 直播场景不支持timeUpdate上报。
+ - 操作（seek）时必须等待seekdone结束才能根据timeUpdate来更新进度条。
+ - 在pause状态下，缓冲结束时播放器会上报timeUpdate事件。
+
+
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2504,12 +2316,11 @@ on(type: 'timeUpdate', callback: Callback<number>): void
 
 **示例1：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收资源播放当前时间事件回调。
-  avPlayer.on('timeUpdate', (time: number) => {
+  avPlayer.on('timeUpdate', (time:number) => {
     console.info('timeUpdate called,and new time is :' + time);
   });
 }
@@ -2517,13 +2328,12 @@ async function test() {
 
 **示例2：**
 
-
-```ts
+```text
 async function test() {
   let avPlayer = await media.createAVPlayer();
 
-  let isSeeking = false; // 标记是否正在seek。
-  let seekTargetTime = 0; // 记录目标时间（单位：毫秒）。
+  let isSeeking = false;    // 标记是否正在seek。
+  let seekTargetTime = 0;   // 记录目标时间（单位：毫秒）。
 
   // 1.监听seekDone：确认跳转完成。
   avPlayer.on('seekDone', (seekDoneTime: number) => {
@@ -2532,7 +2342,7 @@ async function test() {
     seekTargetTime = seekDoneTime; // 可选：记录最终定位时间。
   });
 
-  // 2.监听timeUpdate：��在seekDone后才更新进度。
+  // 2.监听timeUpdate：只在seekDone后才更新进度。
   avPlayer.on('timeUpdate', (time: number) => {
     // 关键逻辑：只有seekDone之后才允许更新进度条。
     if (isSeeking) {
@@ -2554,10 +2364,10 @@ async function test() {
 ```
 
 
-## off('timeUpdate')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'timeUpdate', callback?: Callback<number>): void
+##### off('timeUpdate')9+
+
+off(type: 'timeUpdate', callback?: Callback&lt;number&gt;): void
 
 取消监听资源播放当前时间。
 
@@ -2567,7 +2377,6 @@ off(type: 'timeUpdate', callback?: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 时间更新的回调类型，取消注册的事件：'timeUpdate'。 |
@@ -2576,9 +2385,8 @@ off(type: 'timeUpdate', callback?: Callback<number>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收资源播放当前时间事件回调。
   avPlayer.off('timeUpdate');
@@ -2586,22 +2394,26 @@ async function test() {
 ```
 
 
-## on('durationUpdate')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'durationUpdate', callback: Callback<number>): void
+##### on('durationUpdate')9+
+
+on(type: 'durationUpdate', callback: Callback&lt;number&gt;): void
 
 监听资源播放资源的时长，单位为毫秒（ms），用于刷新进度条长度，默认只在prepared上报一次，同时允许一些特殊码流刷新多次时长。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/0l554EGZTai1mtZliKxLNw/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084923Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=BD783D6534B4FE60ABAB48D0084D074CA02AB0670E1E9EF326BE42C3A4D81427)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/kOOkfFC0Sxm3WRCemGYpsw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=116535B19D7094C23E8BC5A251B55EFBC3A3766337D22ABA6C5CC399FFADB82C)
+
+
 直播场景不支持durationUpdate上报。
+
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2611,9 +2423,8 @@ on(type: 'durationUpdate', callback: Callback<number>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收资源播放资源的时长事件回调。
   avPlayer.on('durationUpdate', (duration: number) => {
@@ -2623,10 +2434,10 @@ async function test() {
 ```
 
 
-## off('durationUpdate')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'durationUpdate', callback?: Callback<number>): void
+##### off('durationUpdate')9+
+
+off(type: 'durationUpdate', callback?: Callback&lt;number&gt;): void
 
 取消监听资源播放资源的时长。
 
@@ -2636,7 +2447,6 @@ off(type: 'durationUpdate', callback?: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 时长更新的回调类型，取消注册的事件：'durationUpdate'。 |
@@ -2645,9 +2455,8 @@ off(type: 'durationUpdate', callback?: Callback<number>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收资源播放资源的时长事件回调。
   avPlayer.off('durationUpdate');
@@ -2655,8 +2464,8 @@ async function test() {
 ```
 
 
-## on('bufferingUpdate')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('bufferingUpdate')9+
 
 on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void
 
@@ -2668,37 +2477,27 @@ on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 播放缓存事件回调类型，支持的事件：'bufferingUpdate'。 |
-| callback | [OnBufferingUpdateHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onbufferingupdatehandler12) | 是 | 播放缓存事件回调方法。 |
+| callback | OnBufferingUpdateHandler | 是 | 播放缓存事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收音视频缓存更新事件回调。
-  avPlayer.on(
-    'bufferingUpdate',
-    (infoType: media.BufferingInfoType, value: number) => {
-      console.info(
-        'bufferingUpdate called,and infoType value is:' +
-          infoType +
-          ', value is :' +
-          value,
-      );
-    },
-  );
+  avPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: number) => {
+    console.info('bufferingUpdate called,and infoType value is:' + infoType + ', value is :' + value);
+  });
 }
 ```
 
 
-## off('bufferingUpdate')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('bufferingUpdate')9+
 
 off(type: 'bufferingUpdate', callback?: OnBufferingUpdateHandler): void
 
@@ -2710,18 +2509,16 @@ off(type: 'bufferingUpdate', callback?: OnBufferingUpdateHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 播放缓存事件回调类型，取消注册的事件：'bufferingUpdate'。 |
-| callback | [OnBufferingUpdateHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onbufferingupdatehandler12) | 否 | 播放缓存事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册bufferingUpdate事件的所有回调方法。 |
+| callback | OnBufferingUpdateHandler | 否 | 播放缓存事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册bufferingUpdate事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收资源播放资源的时长事件回调。
   avPlayer.off('bufferingUpdate');
@@ -2729,10 +2526,10 @@ async function test() {
 ```
 
 
-## on('startRenderFrame')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'startRenderFrame', callback: Callback<void>): void
+##### on('startRenderFrame')9+
+
+on(type: 'startRenderFrame', callback: Callback&lt;void&gt;): void
 
 订阅视频播放开始首帧渲染的更新事件，仅视频播放支持该订阅事件，该事件仅代表播放服务将第一帧画面送显示模块，实际效果依赖显示服务渲染性能。
 
@@ -2742,7 +2539,6 @@ on(type: 'startRenderFrame', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 视频播放开始首帧渲染事件回调类型，支持的事件：'startRenderFrame'。 |
@@ -2751,9 +2547,8 @@ on(type: 'startRenderFrame', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听后，开始接收视频播放开始首帧渲染的更新事件回调。
   avPlayer.on('startRenderFrame', () => {
@@ -2763,10 +2558,10 @@ async function test() {
 ```
 
 
-## off('startRenderFrame')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'startRenderFrame', callback?: Callback<void>): void
+##### off('startRenderFrame')9+
+
+off(type: 'startRenderFrame', callback?: Callback&lt;void&gt;): void
 
 取消监听视频播放开始首帧渲染的更新事件。
 
@@ -2776,7 +2571,6 @@ off(type: 'startRenderFrame', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 视频播放开始首帧渲染事件回调类型，取消注册的事件：'startRenderFrame'。 |
@@ -2785,9 +2579,8 @@ off(type: 'startRenderFrame', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收视频播放开始首帧渲染的更新事件回调。
   avPlayer.off('startRenderFrame');
@@ -2795,8 +2588,8 @@ async function test() {
 ```
 
 
-## on('videoSizeChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('videoSizeChange')9+
 
 on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void
 
@@ -2808,31 +2601,27 @@ on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 视频播放宽高变化事件回调类型，支持的事件：'videoSizeChange'。 |
-| callback | [OnVideoSizeChangeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onvideosizechangehandler12) | 是 | 视频播放宽高变化事件回调方法。 |
+| callback | OnVideoSizeChangeHandler | 是 | 视频播放宽高变化事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听视频播放宽高变化事件，仅视频播放支持该订阅事件，默认只在prepared状态上报一次。
   avPlayer.on('videoSizeChange', (width: number, height: number) => {
-    console.info(
-      'videoSizeChange called,and width is:' + width + ', height is :' + height,
-    );
+    console.info('videoSizeChange called,and width is:' + width + ', height is :' + height);
   });
 }
 ```
 
 
-## off('videoSizeChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('videoSizeChange')9+
 
 off(type: 'videoSizeChange', callback?: OnVideoSizeChangeHandler): void
 
@@ -2844,18 +2633,16 @@ off(type: 'videoSizeChange', callback?: OnVideoSizeChangeHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 视频播放宽高变化事件回调类型，取消注册的事件：'videoSizeChange'。 |
-| callback12+ | [OnVideoSizeChangeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onvideosizechangehandler12) | 否 | 视频播放宽高变化事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册videoSizeChange事件的所有回调方法。 |
+| callback12+ | OnVideoSizeChangeHandler | 否 | 视频播放宽高变化事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册videoSizeChange事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再监听视频播放宽高变化事件。
   avPlayer.off('videoSizeChange');
@@ -2863,8 +2650,8 @@ async function test() {
 ```
 
 
-## on('audioInterrupt')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('audioInterrupt')9+
 
 on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void
 
@@ -2876,20 +2663,18 @@ on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 音频焦点变化事件回调类型，支持的事件：'audioInterrupt'。 |
-| callback | Callback&lt;[audio.InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)&gt; | 是 | 音频焦点变化事件回调方法。 |
+| callback | Callback<audio.InterruptEvent> | 是 | 音频焦点变化事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { audio } from '@kit.AudioKit';
 
-async function test() {
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 监听音频焦点变化事件，多个音视频资源同时播放时，会根据音频焦点模型audio.InterruptMode触发此事件。
   avPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
@@ -2899,8 +2684,8 @@ async function test() {
 ```
 
 
-## off('audioInterrupt')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('audioInterrupt')9+
 
 off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void
 
@@ -2912,18 +2697,16 @@ off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 音频焦点变化事件回调类型，取消注册的事件：'audioInterrupt'。 |
-| callback12+ | Callback&lt;[audio.InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)&gt; | 否 | 音频焦点变化事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册audioInterrupt事件的所有回调方法。 |
+| callback12+ | Callback<audio.InterruptEvent> | 否 | 音频焦点变化事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册audioInterrupt事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收音频焦点变化事件回调。
   avPlayer.off('audioInterrupt');
@@ -2931,8 +2714,8 @@ async function test() {
 ```
 
 
-## on('audioOutputDeviceChangeWithInfo')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('audioOutputDeviceChangeWithInfo')11+
 
 on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStreamDeviceChangeInfo>): void
 
@@ -2946,17 +2729,15 @@ on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStream
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'audioOutputDeviceChangeWithInfo'。 |
-| callback | Callback&lt;[audio.AudioStreamDeviceChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreamdevicechangeinfo11)&gt; | 是 | 回调函数，返回当前音频流的输出设备描述信息及变化原因。 |
+| callback | Callback<audio.AudioStreamDeviceChangeInfo> | 是 | 回调函数，返回当前音频流的输出设备描述信息及变化原因。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2965,25 +2746,21 @@ on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStream
 
 **示例：**
 
-
-```ts
+```json
 import { audio } from '@kit.AudioKit';
 
-async function test() {
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 开始监听音频流输出设备变化及原因。
-  avPlayer.on(
-    'audioOutputDeviceChangeWithInfo',
-    (data: audio.AudioStreamDeviceChangeInfo) => {
-      console.info(`${JSON.stringify(data)}`);
-    },
-  );
+  avPlayer.on('audioOutputDeviceChangeWithInfo', (data: audio.AudioStreamDeviceChangeInfo) => {
+    console.info(`${JSON.stringify(data)}`);
+  });
 }
 ```
 
 
-## off('audioOutputDeviceChangeWithInfo')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('audioOutputDeviceChangeWithInfo')11+
 
 off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void
 
@@ -2995,17 +2772,15 @@ off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStre
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'audioOutputDeviceChangeWithInfo'。 |
-| callback | Callback&lt;[audio.AudioStreamDeviceChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreamdevicechangeinfo11)&gt; | 否 | 回调函数，返回当前音频流的输出设备描述信息及变化原因。如果填写该参数，仅取消注册此回调方法，否则取消注册audioOutputDeviceChangeWithInfo事件的所有回调方法。 |
+| callback | Callback<audio.AudioStreamDeviceChangeInfo> | 否 | 回调函数，返回当前音频流的输出设备描述信息及变化原因。如果填写该参数，仅取消注册此回调方法，否则取消注册audioOutputDeviceChangeWithInfo事件的所有回调方法。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3014,9 +2789,8 @@ off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStre
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收音频流输出设备变化事件。
   avPlayer.off('audioOutputDeviceChangeWithInfo');
@@ -3024,10 +2798,10 @@ async function test() {
 ```
 
 
-## addSubtitleFromFd12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>
+##### addSubtitleFromFd12+
+
+addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise&lt;void&gt;
 
 依据fd为视频添加外挂字幕，当前仅支持与视频资源同时设置（在avplayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
 
@@ -3037,16 +2811,14 @@ addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fd | number | 是 | 资源句柄，通过[resourceManager.getRawFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9)获取。 |
+| fd | number | 是 | 资源句柄，通过resourceManager.getRawFd获取。 |
 | offset | number | 否 | 资源偏移量。需要基于预置资源的信息输入，非法值会造成字幕资源解析错误。默认值为0。单位为字节。 |
 | length | number | 否 | 资源长度。默认值为文件中从偏移量开始的剩余字节，需要基于预置资源的信息输入，非法值会造成字幕资源解析错误，默认值为0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3057,7 +2829,6 @@ addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The parameter check failed. Return by promise. |
@@ -3066,26 +2837,21 @@ addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise<void>
 
 **示例：**
 
-
-```ts
-import { common } from '@kit.AbilityKit';
+```text
+import { common } from '@kit.AbilityKit'
 
 let avPlayer = await media.createAVPlayer();
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let fileDescriptor = await context.resourceManager.getRawFd('xxx.srt');
 
-avPlayer.addSubtitleFromFd(
-  fileDescriptor.fd,
-  fileDescriptor.offset,
-  fileDescriptor.length,
-);
+avPlayer.addSubtitleFromFd(fileDescriptor.fd, fileDescriptor.offset, fileDescriptor.length);
 ```
 
 
-## addSubtitleFromUrl12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addSubtitleFromUrl(url: string): Promise<void>
+##### addSubtitleFromUrl12+
+
+addSubtitleFromUrl(url: string): Promise&lt;void&gt;
 
 依据url为视频添加外挂字幕，当前仅支持与视频资源同时设置（在avplayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
 
@@ -3095,14 +2861,12 @@ addSubtitleFromUrl(url: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | string | 是 | 外挂字幕文件地址。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3113,7 +2877,6 @@ addSubtitleFromUrl(url: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The parameter check failed. Return by promise. |
@@ -3122,20 +2885,19 @@ addSubtitleFromUrl(url: string): Promise<void>
 
 **示例：**
 
-
-```ts
-async function test() {
-  let fdUrl: string = 'http://xxx.xxx.xxx/xx/index.srt';
+```text
+async function test(){
+  let fdUrl:string = 'http://xxx.xxx.xxx/xx/index.srt';
   let avPlayer: media.AVPlayer = await media.createAVPlayer();
   avPlayer.addSubtitleFromUrl(fdUrl);
 }
 ```
 
 
-## on('subtitleUpdate')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
+##### on('subtitleUpdate')12+
+
+on(type: 'subtitleUpdate', callback: Callback&lt;SubtitleInfo&gt;): void
 
 订阅获取外挂字幕的事件，当有外挂字幕时，会通过订阅的回调方法通知用户。用户只能订阅一个外挂字幕事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
 
@@ -3145,33 +2907,24 @@ on(type: 'subtitleUpdate', callback: Callback<SubtitleInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'subtitleUpdate'。 |
-| callback | Callback&lt;[SubtitleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#subtitleinfo12)&gt; | 是 | 外挂字幕事件回调方法。 |
+| callback | Callback&lt;SubtitleInfo&gt; | 是 | 外挂字幕事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 订阅获取外挂字幕的事件，当有外挂字幕时，会触发事件。
   avPlayer.on('subtitleUpdate', async (info: media.SubtitleInfo) => {
     if (info) {
-      let text = !info.text ? '' : info.text;
-      let startTime = !info.startTime ? 0 : info.startTime;
-      let duration = !info.duration ? 0 : info.duration;
-      console.info(
-        'subtitleUpdate info: text=' +
-          text +
-          ' startTime=' +
-          startTime +
-          ' duration=' +
-          duration,
-      );
+      let text = (!info.text) ? '' : info.text
+      let startTime = (!info.startTime) ? 0 : info.startTime
+      let duration = (!info.duration) ? 0 : info.duration
+      console.info('subtitleUpdate info: text=' + text + ' startTime=' + startTime +' duration=' + duration);
     } else {
       console.info('subtitleUpdate info is null');
     }
@@ -3180,10 +2933,10 @@ async function test() {
 ```
 
 
-## off('subtitleUpdate')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
+##### off('subtitleUpdate')12+
+
+off(type: 'subtitleUpdate', callback?: Callback&lt;SubtitleInfo&gt;): void
 
 取消订阅获取外挂字幕的事件。
 
@@ -3193,18 +2946,16 @@ off(type: 'subtitleUpdate', callback?: Callback<SubtitleInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'subtitleUpdate'。 |
-| callback | Callback&lt;[SubtitleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#subtitleinfo12)&gt; | 否 | 取消外挂字幕事件的回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册subtitleUpdate事件的所有回调方法。 |
+| callback | Callback&lt;SubtitleInfo&gt; | 否 | 取消外挂字幕事件的回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册subtitleUpdate事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收获取外挂字幕的事件。
   avPlayer.off('subtitleUpdate');
@@ -3212,8 +2963,8 @@ async function test() {
 ```
 
 
-## on('trackChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('trackChange')12+
 
 on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
@@ -3225,18 +2976,16 @@ on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'trackChange'。 |
-| callback | [OnTrackChangeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#ontrackchangehandler12) | 是 | 轨道变更事件回调方法。 |
+| callback | OnTrackChangeHandler | 是 | 轨道变更事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 订阅获取轨道变更的事件，当播放的轨道变更时，会触发事件回调。
   avPlayer.on('trackChange', (index: number, isSelect: boolean) => {
@@ -3246,8 +2995,8 @@ async function test() {
 ```
 
 
-## off('trackChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('trackChange')12+
 
 off(type: 'trackChange', callback?: OnTrackChangeHandler): void
 
@@ -3259,18 +3008,16 @@ off(type: 'trackChange', callback?: OnTrackChangeHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'trackChange'。 |
-| callback | [OnTrackChangeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#ontrackchangehandler12) | 否 | 取消轨道变更事件的回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册trackChange事件的所有回调方法。 |
+| callback | OnTrackChangeHandler | 否 | 取消轨道变更事件的回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册trackChange事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收轨道变更的事件。
   avPlayer.off('trackChange');
@@ -3278,10 +3025,10 @@ async function test() {
 ```
 
 
-## on('trackInfoUpdate')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
+##### on('trackInfoUpdate')12+
+
+on(type: 'trackInfoUpdate', callback: Callback<Array&lt;MediaDescription&gt;>): void
 
 订阅获取轨道信息更新的事件，当播放的轨道有更新时，会通过订阅的回调方法通知用户。用户只能订阅一个轨道变更事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
 
@@ -3291,30 +3038,24 @@ on(type: 'trackInfoUpdate', callback: Callback<Array<MediaDescription>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'trackInfoUpdate'。 |
-| callback | Callback&lt;Array&lt;[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)&gt;&gt; | 是 | 轨道信息更新事件回调方法。 |
+| callback | Callback<Array&lt;MediaDescription&gt;> | 是 | 轨道信息更新事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 订阅获取轨道信息更新的事件，当播放的轨道有更新时，会触发事件回调。
   avPlayer.on('trackInfoUpdate', (info: Array<media.MediaDescription>) => {
     if (info) {
       for (let i = 0; i < info.length; i++) {
-        let propertyIndex: Object =
-          info[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
-        let propertyType: Object =
-          info[i][media.MediaDescriptionKey.MD_KEY_TRACK_TYPE];
-        console.info(
-          'track info: index=' + propertyIndex + ' tracktype=' + propertyType,
-        );
+        let propertyIndex: Object = info[i][media.MediaDescriptionKey.MD_KEY_TRACK_INDEX];
+        let propertyType: Object = info[i][media.MediaDescriptionKey.MD_KEY_TRACK_TYPE];
+        console.info('track info: index=' + propertyIndex + ' tracktype=' + propertyType);
       }
     } else {
       console.info('track info is null');
@@ -3324,10 +3065,10 @@ async function test() {
 ```
 
 
-## off('trackInfoUpdate')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
+##### off('trackInfoUpdate')12+
+
+off(type: 'trackInfoUpdate', callback?: Callback<Array&lt;MediaDescription&gt;>): void
 
 取消订阅获取轨道信息更新的事件。
 
@@ -3337,18 +3078,16 @@ off(type: 'trackInfoUpdate', callback?: Callback<Array<MediaDescription>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'trackInfoUpdate'。 |
-| callback | Callback&lt;Array&lt;[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)&gt;&gt; | 否 | 取消轨道信息更新事件的回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册trackInfoUpdate事件的所有回调方法。 |
+| callback | Callback<Array&lt;MediaDescription&gt;> | 否 | 取消轨道信息更新事件的回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册trackInfoUpdate事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收轨道信息更新的事件。
   avPlayer.off('trackInfoUpdate');
@@ -3356,10 +3095,10 @@ async function test() {
 ```
 
 
-## on('amplitudeUpdate')13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
+##### on('amplitudeUpdate')13+
+
+on(type: 'amplitudeUpdate', callback: Callback<Array&lt;number&gt;>): void
 
 订阅音频最大电平值，音频资源播放时定时上报。
 
@@ -3367,18 +3106,16 @@ on(type: 'amplitudeUpdate', callback: Callback<Array<number>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'amplitudeUpdate'。 |
-| callback | Callback&lt;Array&lt;number&gt;&gt; | 是 | 音频最大电平值更新���件回调方法。 |
+| callback | Callback<Array&lt;number&gt;> | 是 | 音频最大电平值更新事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 订阅音频最大电平值，音频资源播放时定时上报。
   avPlayer.on('amplitudeUpdate', (value: Array<number>) => {
@@ -3388,10 +3125,10 @@ async function test() {
 ```
 
 
-## off('amplitudeUpdate')13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
+##### off('amplitudeUpdate')13+
+
+off(type: 'amplitudeUpdate', callback?: Callback<Array&lt;number&gt;>): void
 
 取消订阅获取音频最大电平值事件。
 
@@ -3399,18 +3136,16 @@ off(type: 'amplitudeUpdate', callback?: Callback<Array<number>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'amplitudeUpdate'。 |
-| callback | Callback&lt;Array&lt;number&gt;&gt; | 否 | 取消音频最大电平值更新事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册amplitudeUpdate事件的所有回调方法。 |
+| callback | Callback<Array&lt;number&gt;> | 否 | 取消音频最大电平值更新事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册amplitudeUpdate事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收获取音频最大电平值事件上报。
   avPlayer.off('amplitudeUpdate');
@@ -3418,10 +3153,10 @@ async function test() {
 ```
 
 
-## on('seiMessageReceived')18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessageHandle): void
+##### on('seiMessageReceived')18+
+
+on(type: 'seiMessageReceived', payloadTypes: Array&lt;number&gt;, callback: OnSeiMessageHandle): void
 
 订阅获取SEI信息事件，仅适用于HTTP-FLV直播，视频流中包含SEI信息时上报。需在prepare之前订阅，当用户重复订阅时，以最后一次订阅的回调接口为准。
 
@@ -3431,57 +3166,44 @@ on(type: 'seiMessageReceived', payloadTypes: Array<number>, callback: OnSeiMessa
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'seiMessageReceived'。 |
 | payloadTypes | Array&lt;number&gt; | 是 | SEI信息的订阅负载类型数组。当前仅支持负载类型为5，即payloadType = 5。 |
-| callback | [OnSeiMessageHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onseimessagehandle18) | 是 | 用于监听SEI信息事件的回调函数，接收订阅的负载类型。 |
+| callback | OnSeiMessageHandle | 是 | 用于监听SEI信息事件的回调函数，接收订阅的负载类型。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { util } from '@kit.ArkTS';
 
-async function test() {
+async function test(){
   let avPlayer = await media.createAVPlayer();
 
   // 监听后，开始接收seiMessageReceived事件回调。
-  avPlayer.on(
-    'seiMessageReceived',
-    [5],
-    (messages: Array<media.SeiMessage>, playbackPosition?: number) => {
-      console.info('seiMessageReceived playbackPosition ' + playbackPosition);
+  avPlayer.on('seiMessageReceived', [5], (messages: Array<media.SeiMessage>, playbackPosition?: number) =>
+  {
+    console.info('seiMessageReceived playbackPosition ' + playbackPosition);
 
-      for (let key = 0; key < messages.length; key++) {
-        console.info(
-          'seiMessageReceived messages payloadType ' +
-            messages[key].payloadType +
-            ' payload size ' +
-            messages[key].payload.byteLength,
-        );
+    for (let key = 0; key < messages.length; key++) {
+      console.info('seiMessageReceived messages payloadType ' + messages[key].payloadType + ' payload size ' + messages[key].payload.byteLength);
 
-        let textDecoder = util.TextDecoder.create('utf-8', { ignoreBOM: true });
-        let ab = messages[key]?.payload?.slice(
-          16,
-          messages[key].payload.byteLength,
-        );
-        let result: Uint8Array = new Uint8Array(ab);
-        let retStr: string = textDecoder.decodeToString(result);
-        console.info('seiMessageReceived messages payload ' + retStr);
-      }
-    },
-  );
+      let textDecoder = util.TextDecoder.create("utf-8",{ignoreBOM: true});
+      let ab = messages[key]?.payload?.slice(16, messages[key].payload.byteLength);
+      let result: Uint8Array = new Uint8Array(ab);
+      let retStr: string = textDecoder.decodeToString(result);
+      console.info('seiMessageReceived messages payload ' + retStr);
+    }
+  });
 }
 ```
 
 
-## off('seiMessageReceived')18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMessageHandle): void
+##### off('seiMessageReceived')18+
+
+off(type: 'seiMessageReceived', payloadTypes?: Array&lt;number&gt;, callback?: OnSeiMessageHandle): void
 
 取消订阅获取SEI信息事件。
 
@@ -3491,19 +3213,17 @@ off(type: 'seiMessageReceived', payloadTypes?: Array<number>, callback?: OnSeiMe
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'seiMessageReceived'。 |
 | payloadTypes | Array&lt;number&gt; | 否 | SEI信息的订阅负载类型。 |
-| callback | [OnSeiMessageHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onseimessagehandle18) | 否 | 用于监听SEI信息事件的回调函数，接收订阅的负载类型。如果填写该参数，仅取消注册此回调方法，否则取消注册seiMessageReceived事件的所有回调方法。 |
+| callback | OnSeiMessageHandle | 否 | 用于监听SEI信息事件的回调函数，接收订阅的负载类型。如果填写该参数，仅取消注册此回调方法，否则取消注册seiMessageReceived事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收seiMessageReceived事件回调。
   avPlayer.off('seiMessageReceived');
@@ -3511,12 +3231,15 @@ async function test() {
 ```
 
 
-## setSuperResolution18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSuperResolution(enabled: boolean) : Promise<void>
+##### setSuperResolution18+
+
+setSuperResolution(enabled: boolean) : Promise&lt;void&gt;
 
 动态开启/关闭超分算法，可在 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' 状态下调用。使用Promise异步回调。
+
+> [!NOTE]
+> 在调用 prepare() 前先通过 PlaybackStrategy 使能超分。 默认目标分辨率为1920x1080，单位为像素。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -3525,14 +3248,12 @@ setSuperResolution(enabled: boolean) : Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 表示是否开启超分。true表示开启超分，false表示关闭超分。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3543,24 +3264,22 @@ setSuperResolution(enabled: boolean) : Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
 | 5410003 | Super-resolution not supported. Return by promise. |
-| 5410004 | Missing enable super-resolution feature in [PlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#playbackstrategy12). Return by promise. |
+| 5410004 | Missing enable super-resolution feature in PlaybackStrategy. Return by promise. |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
-  let url: string = 'http://abc.bcd.efg/aa/test.mp4'; // 此处仅为示意，请替换为真实资源文件URL。
+  let url: string = 'http://abc.bcd.efg/aa/test.mp4';    // 此处仅为示意，请替换为真实资源文件URL。
   avPlayer.url = url;
-  let playStrategy: media.PlaybackStrategy = {
-    enableSuperResolution: true,
+  let playStrategy : media.PlaybackStrategy = {
+      enableSuperResolution: true
   };
   avPlayer.setPlaybackStrategy(playStrategy);
   // 此处仅为示意，实际开发中需要在stateChange事件成功触发至initialized/prepared/playing/paused/completed/stopped状态后才能调用。
@@ -3569,10 +3288,10 @@ async function test() {
 ```
 
 
-## setVideoWindowSize18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setVideoWindowSize(width: number, height: number) : Promise<void>
+##### setVideoWindowSize18+
+
+setVideoWindowSize(width: number, height: number) : Promise&lt;void&gt;
 
 动态设置超分算法的输出分辨率。可在 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' 状态下调用。使用Promise异步回调。
 
@@ -3586,7 +3305,6 @@ setVideoWindowSize(width: number, height: number) : Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | width | number | 是 | 超分算法的目标输出视频宽度，取值范围为[320-1920]，单位为像素。 |
@@ -3594,7 +3312,6 @@ setVideoWindowSize(width: number, height: number) : Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3605,25 +3322,23 @@ setVideoWindowSize(width: number, height: number) : Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Return by promise. |
 | 5400102 | Operation not allowed. Return by promise. |
 | 5410003 | Super-resolution not supported. Return by promise. |
-| 5410004 | Missing enable super-resolution feature in [PlaybackStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#playbackstrategy12). Return by promise. |
+| 5410004 | Missing enable super-resolution feature in PlaybackStrategy. Return by promise. |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
-  let url: string = 'http://abc.bcd.efg/aa/test.mp4'; // 此处仅为示意，请替换为真实资源文件URL。
+  let url: string = 'http://abc.bcd.efg/aa/test.mp4';    // 此处仅为示意，请替换为真实资源文件URL。
   avPlayer.url = url;
-  let playStrategy: media.PlaybackStrategy = {
-    enableSuperResolution: true,
+  let playStrategy : media.PlaybackStrategy = {
+      enableSuperResolution: true
   };
   avPlayer.setPlaybackStrategy(playStrategy);
   avPlayer.setSuperResolution(true);
@@ -3633,8 +3348,8 @@ async function test() {
 ```
 
 
-## on('superResolutionChanged')18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('superResolutionChanged')18+
 
 on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void
 
@@ -3646,18 +3361,16 @@ on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'superResolutionChanged'，当超分算法开启/关闭状态变化时，触发该事件。 |
-| callback | [OnSuperResolutionChanged](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onsuperresolutionchanged-18) | 是 | 超分开关事件回调方法。 |
+| callback | OnSuperResolutionChanged | 是 | 超分开关事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 订阅监听超分算法开启/关闭事件。
   avPlayer.on('superResolutionChanged', (enabled: boolean) => {
@@ -3667,8 +3380,8 @@ async function test() {
 ```
 
 
-## off('superResolutionChanged')18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('superResolutionChanged')18+
 
 off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void
 
@@ -3680,18 +3393,16 @@ off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为：'superResolutionChanged'，当超分算法开启/关闭状态变化时，触发该事件。 |
-| callback | [OnSuperResolutionChanged](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onsuperresolutionchanged-18) | 否 | 超分开关事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册superResolutionChanged事件的所有回调方法。 |
+| callback | OnSuperResolutionChanged | 否 | 超分开关事件回调方法。如果填写该参数，仅取消注册此回调方法，否则取消注册superResolutionChanged事件的所有回调方法。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收超分算法开启/关闭事件。
   avPlayer.off('superResolutionChanged');
@@ -3699,10 +3410,10 @@ async function test() {
 ```
 
 
-## getPlaybackStatisticMetrics23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPlaybackStatisticMetrics(): Promise<PlaybackMetrics>
+##### getPlaybackStatisticMetrics23+
+
+getPlaybackStatisticMetrics(): Promise&lt;PlaybackMetrics&gt;
 
 获取当前播放器的统计指标信息，可以在准备（prepared）/播放（playing）/暂停（paused）/完成（completed）/停止（stopped）状态调用。使用Promise异步回调。
 
@@ -3710,16 +3421,14 @@ getPlaybackStatisticMetrics(): Promise<PlaybackMetrics>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PlaybackMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#playbackmetrics23)&gt; | Promise对象，返回当前播放器的指标信息PlaybackMetrics。 |
+| Promise&lt;PlaybackMetrics&gt; | Promise对象，返回当前播放器的指标信息PlaybackMetrics。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let avPlayer: media.AVPlayer | undefined;
@@ -3731,9 +3440,7 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
     if (avPlayer) {
       try {
         playbackMetrics = await avPlayer.getPlaybackStatisticMetrics();
-        console.info(
-          `AVPlayer getPlaybackStatisticMetrics = ${JSON.stringify(playbackMetrics)}`,
-        ); // 打印整个playbackMetrics的值。
+        console.info(`AVPlayer getPlaybackStatisticMetrics = ${JSON.stringify(playbackMetrics)}`); // 打印整个playbackMetrics的值。
       } catch (error) {
         console.error(`error = ${error}`);
       }
@@ -3745,10 +3452,10 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
 ```
 
 
-## onMetricsEvent23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-onMetricsEvent(callback: Callback<Array<AVMetricsEvent>>): void
+##### onMetricsEvent23+
+
+onMetricsEvent(callback: Callback<Array&lt;AVMetricsEvent&gt;>): void
 
 订阅播放过程中的指标事件。
 
@@ -3756,24 +3463,20 @@ onMetricsEvent(callback: Callback<Array<AVMetricsEvent>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;Array&lt;[AVMetricsEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avmetricsevent23)&gt;&gt; | 是 | 上报的指标事件信息的方法。使用callback异步回调。 |
+| callback | Callback<Array&lt;AVMetricsEvent&gt;> | 是 | 上报的指标事件信息的方法。使用callback异步回调。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```json
+async function test(){
   let avPlayer = await media.createAVPlayer();
   avPlayer.onMetricsEvent((info: Array<media.AVMetricsEvent>) => {
     if (info) {
       for (let i = 0; i < info.length; i++) {
-        console.info(
-          'metrics info: index=' + i + ' info=' + JSON.stringify(info),
-        );
+        console.info('metrics info: index=' + i + ' info=' + JSON.stringify(info));
       }
     } else {
       console.info('metrics info is null');
@@ -3783,10 +3486,10 @@ async function test() {
 ```
 
 
-## offMetricsEvent23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-offMetricsEvent(callback?: Callback<Array<AVMetricsEvent>>): void
+##### offMetricsEvent23+
+
+offMetricsEvent(callback?: Callback<Array&lt;AVMetricsEvent&gt;>): void
 
 取消订阅播放过程中的指标事件。
 
@@ -3794,17 +3497,15 @@ offMetricsEvent(callback?: Callback<Array<AVMetricsEvent>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;Array&lt;[AVMetricsEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avmetricsevent23)&gt;&gt; | 否 | 上报的指标事件信息的方法。使用callback异步回调。 |
+| callback | Callback<Array&lt;AVMetricsEvent&gt;> | 否 | 上报的指标事件信息的方法。使用callback异步回调。 |
 
 
 **示例：**
 
-
-```ts
-async function test() {
+```text
+async function test(){
   let avPlayer = await media.createAVPlayer();
   avPlayer.offMetricsEvent();
 }

@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastPickerHelper； API声明：resetCommunicationDevice(): Promise<void>; 差异内容：resetCommunicationDevice(): Promise<void>; | api/@ohos.multimedia.avsession.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastPickerHelper； API声明：resetCommunicationDevice(): Promise&lt;void&gt;; 差异内容：resetCommunicationDevice(): Promise&lt;void&gt;; | api/@ohos.multimedia.avsession.d.ts |

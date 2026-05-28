@@ -1,16 +1,19 @@
 # 管理网络连接(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-netmanager-guidelines
 
-## 场景介绍
+##### 场景介绍
 
 NetConnection模块提供了常用网络信息查询的能力。
 
-## 接口说明
+
+
+##### 接口说明
 
 NetConnection常用接口如下表所示，详细的接口说明请参考[net_connection.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-connection-h)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | OH_NetConn_HasDefaultNet(int32_t *hasDefaultNet) | 检查默认数据网络是否被激活，判断设备是否有网络连接，以便在应用程序中采取相应的措施。 |
@@ -22,8 +25,8 @@ NetConnection常用接口如下表所示，详细的接口说明请参考[net_co
 | OH_NetConn_GetAddrInfo (char *host, char *serv, struct addrinfo *hint, struct addrinfo **res, int32_t netId) | 通过netId获取DNS结果。 |
 | OH_NetConn_FreeDnsResult(struct addrinfo *res) | 释放DNS结果内存。 |
 | OH_NetConn_GetAllNets(NetConn_NetHandleList *netHandleList) | 获取所有处于连接状态的网络列表。 |
-| OHOS_NetConn_RegisterDnsResolver(OH_NetConn_CustomDnsResolver resolver) | 注册自定义DNS解析器。          弃用： 从API version 13开始废弃。          替代： 推荐使用OH_NetConn_RegisterDnsResolver。 |
-| OHOS_NetConn_UnregisterDnsResolver(void) | 取消注册自定义DNS解析器。          弃用： 从API version 13开始废弃。          替代： 推荐使用OH_NetConn_UnregisterDnsResolver。 |
+| OHOS_NetConn_RegisterDnsResolver(OH_NetConn_CustomDnsResolver resolver) | 注册自定义DNS解析器。 弃用： 从API version 13开始废弃。 替代： 推荐使用OH_NetConn_RegisterDnsResolver。 |
+| OHOS_NetConn_UnregisterDnsResolver(void) | 取消注册自定义DNS解析器。 弃用： 从API version 13开始废弃。 替代： 推荐使用OH_NetConn_UnregisterDnsResolver。 |
 | OH_NetConn_RegisterDnsResolver(OH_NetConn_CustomDnsResolver resolver) | 注册自定义DNS解析器。 |
 | OH_NetConn_UnregisterDnsResolver(void) | 取消注册自定义DNS解析器。 |
 | OH_NetConn_SetPacUrl(const char *pacUrl) | 设置系统级代理自动配置(PAC)脚本地址。 |
@@ -32,33 +35,48 @@ NetConnection常用接口如下表所示，详细的接口说明请参考[net_co
 | OH_NetConn_QueryTraceRoute(char *destination, NetConn_TraceRouteOption *option, NetConn_TraceRouteInfo *traceRouteInfo) | 查询跟踪路由。 |
 
 
-## 网络管理接口开发示例
 
 
-## 开发步骤
+##### 网络管理接口开发示例
 
-使用本文档涉及接口获取网络相关信息时，需先创建Native C++工程，在源文件中将相关接口封装，再在ArkTS层对封装的接口进行调用，使用hilog或者console.log等手段选择打印在控制台或者生成设备日志。 本文以实现获取默认激活的数据网络为例，给出具体的开发指导。 其他接口开发请参考：[完整示例代码](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_NetManager/NetConnection_Exploitation_case)。
 
-## 添加开发依赖
 
-**添加动态链接库** CMakeLists.txt中添加以下lib:
+##### 开发步骤
+
+使用本文档涉及接口获取网络相关信息时，需先创建Native C++工程，在源文件中将相关接口封装，再在ArkTS层对封装的接口进行调用，使用hilog或者console.log等手段选择打印在控制台或者生成设备日志。
+
+本文以实现获取默认激活的数据网络为例，给出具体的开发指导。
+
+其他接口开发请参考：[完整示例代码](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_NetManager/NetConnection_Exploitation_case)。
+
+
+
+##### 添加开发依赖
+
+**添加动态链接库**
+
+CMakeLists.txt中添加以下lib:
+
 ```text
 libace_napi.z.so
 libnet_connection.so
 ```
 
 **头文件**
-```text
+
+```cpp
 #include "napi/native_api.h"
 #include "network/netmanager/net_connection.h"
 #include "network/netmanager/net_connection_type.h"
 ```
 
 
-## 构建工程
 
-在源文件中编写调用该API的代码，并将结果封装成一个napi_value类型的值返回给Node.js环境。
-```text
+##### 构建工程
+1. 在源文件中编写调用该API的代码，并将结果封装成一个napi_value类型的值返回给Node.js环境。
+
+  
+```cpp
 // 获取默认网络的函数
 static napi_value GetDefaultNet(napi_env env, napi_callback_info info)
 {
@@ -68,7 +86,7 @@ static napi_value GetDefaultNet(napi_env env, napi_callback_info info)
     // ...
     int32_t param;
     napi_get_value_int32(env, args[0], &param); // 从 args[0] 获取整数值并存储到 param 中
-
+    
     NetConn_NetHandle netHandle;
     if (param == 0) { // 如果参数是0
         param = OH_NetConn_GetDefaultNet(NULL);
@@ -93,9 +111,11 @@ static napi_value NetId(napi_env env, napi_callback_info info)
     return result;
 }
 ```
+简要说明：这两个函数用于获取系统默认网络连接的相关信息。其中，GetDefaultNet是接收ArkTS端传入的测试参数，返回调用接口后对应的返回值，param可以自行调整；如果返回值为0，代表获取成功，401代表参数错误，201代表没有权限；而NetId函数则用于获取默认网络连接的ID。这些信息可以用于进一步的网络操作。
+2. 将通过napi封装好的napi_value类型对象初始化导出，通过外部函数接口，将以上两个函数暴露给JavaScript使用。
 
-简要说明：这两个函数用于获取系统默认网络连接的相关信息。其中，GetDefaultNet是接收ArkTS端传入的测试参数，返回调用接口后对应的返回值，param可以自行调整；如果返回值为0，代表获取成功，401代表参数错误，201代表没有权限；而NetId函数则用于获取默认网络连接的ID。这些信息可以用于进一步的网络操作。 将通过napi封装好的napi_value类型对象初始化导出，通过外部函数接口，将以上两个函数暴露给JavaScript使用。
-```text
+  
+```cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
@@ -111,8 +131,10 @@ static napi_value Init(napi_env env, napi_value exports)
 EXTERN_C_END
 ```
 
-将上一步中初始化成功的对象通过RegisterEntryModule函数，使用napi_module_register函数将模块注册到Node.js中。
-```text
+3. 将上一步中初始化成功的对象通过RegisterEntryModule函数，使用napi_module_register函数将模块注册到Node.js中。
+
+  
+```cpp
 static napi_module demoModule = {
     .nm_version = 1,
     .nm_flags = 0,
@@ -122,18 +144,19 @@ static napi_module demoModule = {
     .nm_priv = ((void *)0),
     .reserved = {0},
 };
-
+ 
 extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_module_register(&demoModule); }
 ```
 
-在工程的index.d.ts文件中定义两个函数的类型。 GetDefaultNet函数接受一个数字参数code，返回一个数字类型的值。 NetId函数不接受参数，返回一个数字类型的值。
-```text
-export const GetDefaultNet: (code: number) => number;
-export const NetId: () => number;
-```
+4. 在工程的index.d.ts文件中定义两个函数的类型。
 
-在index.ets文件中对上述封装好的接口进行调用。
-```text
+  
+GetDefaultNet函数接受一个数字参数code，返回一个数字类型的值。
+5. NetId函数不接受参数，返回一个数字类型的值。
+6. 在index.ets文件中对上述封装好的接口进行调用。
+
+  
+```ArkTS
 import testNetManager from 'libentry.so';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -172,7 +195,7 @@ struct Index {
           // ...
     }.width('100%').height('100%').justifyContent(FlexAlign.Center);
   }
-
+  
   GetDefaultNet() {
     let netId = testNetManager.NetId();
     // ...
@@ -208,18 +231,35 @@ struct Index {
 }
 ```
 
-配置CMakeLists.txt，本模块需要用到的共享库是libnet_connection.so，在工程自动生成的CMakeLists.txt中的target_link_libraries中添加此共享库。
-![](assets/管理网络连接(C／C++)
-/file-20260514131242258-0.png) 如图所示，在add_library中的entry是工程自动生成的modname。若要做修改，需和步骤3中.nm_modname保持一致。
-![](assets/管理网络连接(C／C++)
-/file-20260514131242258-1.png) 经过以上步骤，整个工程的搭建已经完成，接下来就可以连接设备运行工程进行日志查看了。
+7. 配置CMakeLists.txt，本模块需要用到的共享库是libnet_connection.so，在工程自动生成的CMakeLists.txt中的target_link_libraries中添加此共享库。
 
-## 测试步骤
+  
+![](assets/管理网络连接(C／C++)/file-20260514131242258-0.png)
+ 
 
-连接设备，使用DevEco Studio打开搭建好的工程。 运行工程，设备上会弹出以下所示图片。 点击GetDefaultNet时获取的是默认网络ID。 点击codeNumber时获取的是接口返回的响应状态码。
-![](assets/管理网络连接(C／C++)
-/file-20260514131242258-2.png) 点击GetDefaultNet按钮，控制台会打印日志。
-![](assets/管理网络连接(C／C++)
-/file-20260514131242258-3.png) 点击codeNumber按钮，控制台会打印相应的响应状态码。
-![](assets/管理网络连接(C／C++)
-/file-20260514131242258-4.png)
+  如图所示，在add_library中的entry是工程自动生成的modname。若要做修改，需和步骤3中.nm_modname保持一致。
+
+  
+![](assets/管理网络连接(C／C++)/file-20260514131242258-1.png)
+
+
+经过以上步骤，整个工程的搭建已经完成，接下来就可以连接设备运行工程进行日志查看了。
+
+
+
+##### 测试步骤
+1. 连接设备，使用DevEco Studio打开搭建好的工程。
+2. 运行工程，设备上会弹出以下所示图片。
+
+  
+点击GetDefaultNet时获取的是默认网络ID。
+3. 点击codeNumber时获取的是接口返回的响应状态码。
+4. 点击GetDefaultNet按钮，控制台会打印日志。
+
+  
+![](assets/管理网络连接(C／C++)/file-20260514131242258-3.png)
+
+5. 点击codeNumber按钮，控制台会打印相应的响应状态码。
+
+  
+![](assets/管理网络连接(C／C++)/file-20260514131242258-4.png)

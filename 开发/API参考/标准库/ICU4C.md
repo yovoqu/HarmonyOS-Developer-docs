@@ -5,10 +5,9 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/icu4c
 
 当今的软件市场是一个全球性的市场，应用程序的开发和维护需要支持多种语言。International Components for Unicode (ICU) 库为多平台多系统提供了强大且功能齐全的多语言文化信息处理能力。
-
+ 
 [ICU4C](https://unicode-org.github.io/icu/userguide/icu4c/)是ICU 库的C语言版本，部分接口已开放，支持如下能力：
-
-
+ 
 - 区域与文化标识(uloc.h)
 - 时间日期格式化(udat.h)
 - 数字及度量衡格式化(unumberformatter.h，unum.h)
@@ -28,24 +27,24 @@
 - Unicode码点处理(utf.h，utf8.h，utf16.h)，从API version 22开始支持
 - CLDR版本(ulocdata.h)，从API version 22开始支持
 
+  
 
-## 引入ICU4C国际化能力
+##### 引入ICU4C国际化能力
 
 如果开发者需要使用ICU4C相关功能，请按需要添加对应的头文件。本模块头文件需要添加unicode目录前缀，例如：
-
-
+ 
 ```text
 #include <unicode/uloc.h>
 ```
-
+ 
 其次在CMakeLists.txt中添加以下动态库:
-
-
+ 
 ```text
 libicu.so
 ```
+ 
+  
 
-
-## 标准库中导出的符号列表
+##### 标准库中导出的符号列表
 
 [native api中导出的ICU4C符号列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/icu4c-symbol)

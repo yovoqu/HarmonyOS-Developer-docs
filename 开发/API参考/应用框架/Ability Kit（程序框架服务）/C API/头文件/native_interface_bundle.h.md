@@ -3,11 +3,9 @@
 更新时间：2026-04-10 09:55:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-bundle-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供查询应用包信息的功能，包括应用包名、应用指纹、应用appId等。
 
@@ -22,45 +20,44 @@
 **相关模块：** [Native_Bundle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_NativeBundle_ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-applicationinfo) | OH_NativeBundle_ApplicationInfo | 应用包信息数据结构，包含应用包名和应用指纹信息。 |
-| [OH_NativeBundle_ElementName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-elementname) | OH_NativeBundle_ElementName | elementName信息。 |
-| [OH_NativeBundle_Metadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-metadata) | OH_NativeBundle_Metadata | 元数据信息。 |
-| [OH_NativeBundle_ModuleMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-modulemetadata) | OH_NativeBundle_ModuleMetadata | 模块元数据的信息。 |
+| OH_NativeBundle_ApplicationInfo | OH_NativeBundle_ApplicationInfo | 应用包信息数据结构，包含应用包名和应用指纹信息。 |
+| OH_NativeBundle_ElementName | OH_NativeBundle_ElementName | elementName信息。 |
+| OH_NativeBundle_Metadata | OH_NativeBundle_Metadata | 元数据信息。 |
+| OH_NativeBundle_ModuleMetadata | OH_NativeBundle_ModuleMetadata | 模块元数据的信息。 |
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [OH_NativeBundle_ApplicationInfo OH_NativeBundle_GetCurrentApplicationInfo()](#oh_nativebundle_getcurrentapplicationinfo) | 获取当前应用信息，包含应用包名和应用指纹信息。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回对象下的字段的指针。 |
-| [char* OH_NativeBundle_GetAppId()](#oh_nativebundle_getappid) | 获取当前应用的appId。appId是应用的唯一标识，由应用包名和签名信息决定。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
-| [char* OH_NativeBundle_GetAppIdentifier()](#oh_nativebundle_getappidentifier) | 获取当前应用的应用程序标识符。该应用程序标识符在应用的整个生命周期中不会发生变化，包括版本更新、证书更改、公钥和私钥更改以及应用程序迁移。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
-| [OH_NativeBundle_ElementName OH_NativeBundle_GetMainElementName()](#oh_nativebundle_getmainelementname) | 获取当前应用入口元素mainElement的信息，包括包名、模块名和组件名。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回对象下的字段的指针。 |
-| [char* OH_NativeBundle_GetCompatibleDeviceType()](#oh_nativebundle_getcompatibledevicetype) | 获取当前应用适用的设备类型。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
-| [bool OH_NativeBundle_IsDebugMode(bool* isDebugMode)](#oh_nativebundle_isdebugmode) | 查询当前应用的调试模式。 |
-| [OH_NativeBundle_ModuleMetadata* OH_NativeBundle_GetModuleMetadata(size_t* size)](#oh_nativebundle_getmodulemetadata) | 获取当前应用程序的模块元数据数组。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
-| [BundleManager_ErrorCode OH_NativeBundle_GetAbilityResourceInfo(char* fileType, OH_NativeBundle_AbilityResourceInfo** abilityResourceInfo, size_t* size)](#oh_nativebundle_getabilityresourceinfo) | 获取支持打开特定文件类型的组件资源信息列表。在使用完该接口之后，为了防止内存泄漏，需要调用[OH_AbilityResourceInfo_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ability-resource-info-h#oh_abilityresourceinfo_destroy)进行释放。 |
+| OH_NativeBundle_ApplicationInfo OH_NativeBundle_GetCurrentApplicationInfo() | 获取当前应用信息，包含应用包名和应用指纹信息。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回对象下的字段的指针。 |
+| char* OH_NativeBundle_GetAppId() | 获取当前应用的appId。appId是应用的唯一标识，由应用包名和签名信息决定。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
+| char* OH_NativeBundle_GetAppIdentifier() | 获取当前应用的应用程序标识符。该应用程序标识符在应用的整个生命周期中不会发生变化，包括版本更新、证书更改、公钥和私钥更改以及应用程序迁移。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
+| OH_NativeBundle_ElementName OH_NativeBundle_GetMainElementName() | 获取当前应用入口元素mainElement的信息，包括包名、模块名和组件名。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回对象下的字段的指针。 |
+| char* OH_NativeBundle_GetCompatibleDeviceType() | 获取当前应用适用的设备类型。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
+| bool OH_NativeBundle_IsDebugMode(bool* isDebugMode) | 查询当前应用的调试模式。 |
+| OH_NativeBundle_ModuleMetadata* OH_NativeBundle_GetModuleMetadata(size_t* size) | 获取当前应用程序的模块元数据数组。在使用此接口后，为了避免内存泄漏，需要手动释放接口返回的指针。 |
+| BundleManager_ErrorCode OH_NativeBundle_GetAbilityResourceInfo(char* fileType, OH_NativeBundle_AbilityResourceInfo** abilityResourceInfo, size_t* size) | 获取支持打开特定文件类型的组件资源信息列表。在使用完该接口之后，为了防止内存泄漏，需要调用OH_AbilityResourceInfo_Destroy进行释放。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### OH_NativeBundle_GetCurrentApplicationInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### OH_NativeBundle_GetCurrentApplicationInfo()
 
 ```text
 OH_NativeBundle_ApplicationInfo OH_NativeBundle_GetCurrentApplicationInfo()
@@ -74,15 +71,14 @@ OH_NativeBundle_ApplicationInfo OH_NativeBundle_GetCurrentApplicationInfo()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_NativeBundle_ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-applicationinfo) | 返回新创建的OH_NativeBundle_ApplicationInfo对象。如果返回的对象为NULL，则表示创建失败。          失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
+| OH_NativeBundle_ApplicationInfo | 返回新创建的OH_NativeBundle_ApplicationInfo对象。如果返回的对象为NULL，则表示创建失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
 
 
-### OH_NativeBundle_GetAppId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_NativeBundle_GetAppId()
 
 ```text
 char* OH_NativeBundle_GetAppId()
@@ -96,15 +92,14 @@ char* OH_NativeBundle_GetAppId()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| char* | 返回一个新创建的字符串，用于指示appID信息。如果返回的对象为NULL，则表示创建失败。          失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
+| char* | 返回一个新创建的字符串，用于指示appID信息。如果返回的对象为NULL，则表示创建失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
 
 
-### OH_NativeBundle_GetAppIdentifier()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_NativeBundle_GetAppIdentifier()
 
 ```text
 char* OH_NativeBundle_GetAppIdentifier()
@@ -118,15 +113,14 @@ char* OH_NativeBundle_GetAppIdentifier()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| char* | 返回一个新创建的字符串，用于指示应用程序标识符信息。如果返回的对象为NULL，则表示创建失败。          失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
+| char* | 返回一个新创建的字符串，用于指示应用程序标识符信息。如果返回的对象为NULL，则表示创建失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
 
 
-### OH_NativeBundle_GetMainElementName()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_NativeBundle_GetMainElementName()
 
 ```text
 OH_NativeBundle_ElementName OH_NativeBundle_GetMainElementName()
@@ -140,15 +134,14 @@ OH_NativeBundle_ElementName OH_NativeBundle_GetMainElementName()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_NativeBundle_ElementName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-elementname) | 返回新创建的OH_NativeBundle_ElementName对象。如果返回的对象为NULL，则表示创建失败。          失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
+| OH_NativeBundle_ElementName | 返回新创建的OH_NativeBundle_ElementName对象。如果返回的对象为NULL，则表示创建失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
 
 
-### OH_NativeBundle_GetCompatibleDeviceType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_NativeBundle_GetCompatibleDeviceType()
 
 ```text
 char* OH_NativeBundle_GetCompatibleDeviceType()
@@ -162,15 +155,14 @@ char* OH_NativeBundle_GetCompatibleDeviceType()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| char* | 返回一个新创建的字符串，用于指示兼容设备类型。如果返回的对象为NULL，则表示创建失败。          失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
+| char* | 返回一个新创建的字符串，用于指示兼容设备类型。如果返回的对象为NULL，则表示创建失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
 
 
-### OH_NativeBundle_IsDebugMode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_NativeBundle_IsDebugMode()
 
 ```text
 bool OH_NativeBundle_IsDebugMode(bool* isDebugMode)
@@ -184,7 +176,6 @@ bool OH_NativeBundle_IsDebugMode(bool* isDebugMode)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | bool* isDebugMode | 表示应用是否处于调试模式，取值为true表示可调试模式，取值为false表示不可调试模式。 |
@@ -192,15 +183,14 @@ bool OH_NativeBundle_IsDebugMode(bool* isDebugMode)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | bool | 如果调用成功，则返回true，否则返回false。 |
 
 
-### OH_NativeBundle_GetModuleMetadata()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_NativeBundle_GetModuleMetadata()
 
 ```text
 OH_NativeBundle_ModuleMetadata* OH_NativeBundle_GetModuleMetadata(size_t* size)
@@ -214,7 +204,6 @@ OH_NativeBundle_ModuleMetadata* OH_NativeBundle_GetModuleMetadata(size_t* size)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | size_t* size | 表示模块元数据数组大小。 |
@@ -222,15 +211,14 @@ OH_NativeBundle_ModuleMetadata* OH_NativeBundle_GetModuleMetadata(size_t* size)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_NativeBundle_ModuleMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-modulemetadata)* | 返回模块元数据数组，如果返回的对象为NULL，则表示获取失败。          失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
+| OH_NativeBundle_ModuleMetadata* | 返回模块元数据数组，如果返回的对象为NULL，则表示获取失败。 失败的可能原因是应用程序地址空间已满，导致空间分配失败。 |
 
 
-### OH_NativeBundle_GetAbilityResourceInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_NativeBundle_GetAbilityResourceInfo()
 
 ```text
 BundleManager_ErrorCode OH_NativeBundle_GetAbilityResourceInfo(char* fileType, OH_NativeBundle_AbilityResourceInfo** abilityResourceInfo, size_t* size)
@@ -248,17 +236,15 @@ BundleManager_ErrorCode OH_NativeBundle_GetAbilityResourceInfo(char* fileType, O
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| char* fileType | 表示待查询的特定文件类型，推荐使用[UTD类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-type-descriptors)，比如：'general.plain-text'、'general.image'。目前也可以兼容使用[MIME type类型](https://www.iana.org/assignments/media-types/media-types.xhtml?utm_source=ld246.com)和文件后缀名称，如：'text/xml' 、 '.png'等。文件后缀与文件类型的映射关系参见[UTD预置列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-type-list)。不支持传'*/*'。 |
-| [OH_NativeBundle_AbilityResourceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-native-bundle-oh-nativebundle-abilityresourceinfo)** abilityResourceInfo | 表示返回的组件资源信息列表。 |
+| char* fileType | 表示待查询的特定文件类型，推荐使用UTD类型，比如：'general.plain-text'、'general.image'。目前也可以兼容使用MIME type类型和文件后缀名称，如：'text/xml' 、 '.png'等。文件后缀与文件类型的映射关系参见UTD预置列表。不支持传'*/*'。 |
+| OH_NativeBundle_AbilityResourceInfo** abilityResourceInfo | 表示返回的组件资源信息列表。 |
 | size_t* size | 表示返回的组件资源信息列表大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [BundleManager_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-bundle-manager-common-h#bundlemanager_errorcode) | 如果调用成功，返回[BUNDLE_MANAGER_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-bundle-manager-common-h#bundlemanager_errorcode)。          如果调用方没有正确的权限，返回[BUNDLE_MANAGER_ERROR_CODE_PERMISSION_DENIED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-bundle-manager-common-h#bundlemanager_errorcode)。 |
+| BundleManager_ErrorCode | 如果调用成功，返回BUNDLE_MANAGER_ERROR_CODE_NO_ERROR。 如果调用方没有正确的权限，返回BUNDLE_MANAGER_ERROR_CODE_PERMISSION_DENIED。 |

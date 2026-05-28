@@ -5,10 +5,9 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hp-arkui-no-high-freq-log
 
 建议在正式发布的版本中，注释掉或删除日志打印代码。该规则已于5.0.3.403版本下线。
+ 
 
-
-## 正例
-
+##### 正例
 
 ```text
 import hilog from '@ohos.hilog';
@@ -27,10 +26,10 @@ struct MyComponent{
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 import hilog from '@ohos.hilog';
@@ -49,5 +48,6 @@ struct MyComponent{
   }
 }
 ```
-
+ 
+ 
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

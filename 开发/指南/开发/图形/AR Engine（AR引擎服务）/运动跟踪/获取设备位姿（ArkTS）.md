@@ -1,30 +1,37 @@
 # 获取设备位姿（ArkTS）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-pose
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/HarmonyOS_Samples/arengine_samplecode_clientdemo_arkts)。
 
 
-## 约束与限制
+##### 约束与限制
 
-获取设备位姿支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从5.1.0(18)开始，获取设备位姿支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 获取设备位姿可以通过[ARCamera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arcamera)相机对象获取，以下接口为获取设备位姿接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [ARCamera.getPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arcameragetpose) | 获取摄像机在世界空间中的位姿信息。 |
+| ARCamera.getPose | 获取摄像机在世界空间中的位姿信息。 |
 
 
-## 开发步骤
 
 
-## 导入模块
+##### 开发步骤
+
+
+
+##### 导入模块
 
 获取设备位姿能力需要依赖以下模块。
+
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
 import { Node, Scene, Vec3 } from '@kit.ArkGraphics3D';
@@ -33,18 +40,25 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 Vec3是一个三维向量，用于存储设备的位姿信息。
 
-## 定义变量
+
+
+##### 定义变量
 
 定义两个变量pose和stateReason，用于接收pose位姿信息和追踪失败原因。
+
 ```text
 let pose: arEngine.ARPose;
 let stateReason: arEngine.ARTrackingStateReason;
 ```
 
 
-## 显示预览流及设备位姿信息
 
-首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。 在设备界面上显示设备位姿信息及追踪失败原因，使用重复调用函数方法在设备界面上实时更新位姿和追踪失败原因的信息。
+##### 显示预览流及设备位姿信息
+
+首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
+
+在设备界面上显示设备位姿信息及追踪失败原因，使用重复调用函数方法在设备界面上实时更新位姿和追踪失败原因的信息。
+
 ```text
 @Builder
 export function ARPoseBuilder(): void {
@@ -154,9 +168,11 @@ function infoStyles() {
 ```
 
 
-## 获取设备位姿信息
+
+##### 获取设备位姿信息
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法获取AR会话对象arSession，之后通过AR会话对象arSession获取每一帧对应的设备位姿信息。
+
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {

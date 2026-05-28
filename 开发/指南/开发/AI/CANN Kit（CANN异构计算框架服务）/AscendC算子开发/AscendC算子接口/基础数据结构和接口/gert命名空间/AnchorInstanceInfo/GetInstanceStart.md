@@ -4,32 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getinstancestart
 
-## 函数功能
+##### 函数功能
 
 获取算子某个IR输入在实际输入中的起始序号（index）。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 uint32_t GetInstanceStart() const
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 无
+ 
+  
 
-## 返回值
+##### 返回值
 
 算子某个IR输入在实际输入中的起始序号（index）。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 AnchorInstanceInfo anchor_0(0, 10); // IR定义的第1个输入是动态输入，且有10个实际输入

@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：petalMaps； API声明：function openMapTaxi(context: common.Context, taxiParams: TaxiParams): Promise<void>; 差异内容：function openMapTaxi(context: common.Context, taxiParams: TaxiParams): Promise<void>; | api/@hms.core.map.petalMaps.d.ts |
+| 新增API | NA | 类名：petalMaps； API声明：function openMapTaxi(context: common.Context, taxiParams: TaxiParams): Promise&lt;void&gt;; 差异内容：function openMapTaxi(context: common.Context, taxiParams: TaxiParams): Promise&lt;void&gt;; | api/@hms.core.map.petalMaps.d.ts |
 | 新增API | NA | 类名：VehicleType； API声明：TRANSIT = 3 差异内容：TRANSIT = 3 | api/@hms.core.map.petalMaps.d.ts |
 | 新增API | NA | 类名：petalMaps； API声明：interface TaxiParams 差异内容：interface TaxiParams | api/@hms.core.map.petalMaps.d.ts |
 | 新增API | NA | 类名：TaxiParams； API声明：originPosition?: mapCommon.LatLng; 差异内容：originPosition?: mapCommon.LatLng; | api/@hms.core.map.petalMaps.d.ts |

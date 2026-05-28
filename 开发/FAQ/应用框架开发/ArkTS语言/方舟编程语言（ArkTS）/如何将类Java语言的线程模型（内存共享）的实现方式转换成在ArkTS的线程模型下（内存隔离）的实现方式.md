@@ -5,146 +5,160 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-46
 
 可以利用TaskPool接口转换，具体分为以下四个场景：
-
+ 
 - 场景一：主线程将独立任务放到子线程执行。代码示例：共享内存写法：
-```ts
+
+  
+```text
 class Task {
   static run(args) {
     // Do some independent tasks
   }
 }
 let thread = new Thread(() => {
-  let result = Task.run(args);
+  let result = Task.run(args)
   // deal with result
-});
+})
 ```
  ArkTS写法：
-```ts
+
+  
+```ArkTS
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
 function run(args: number) {
-// Do some independent tasks
+  // Do some independent tasks
 }
 let task: taskpool.Task = new taskpool.Task(run, 100); // 100: test number
 taskpool.execute(task).then((res) => {
-// Return result
+  // Return result
 });
 ```
+
 - 场景二：主线程在子线程使用类对象实例。代码示例：共享内存写法：
-```ts
+
+  
+```text
 class Material {
   action(args) {
     // Do some independent tasks
   }
 }
-let material = new Material();
+let material = new Material()
 let thread = new Thread(() => {
-  let result = material.action(args);
+  let result = material.action(args)
   // deal with result
-});
+})
 ```
  ArkTS写法：
-```ts
+
+  
+```ArkTS
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent
 function runner(material: Material): void {
-return material.action(100); // 100: test number
+  return material.action(100); // 100: test number
 }
 @Sendable
 class Material {
-action(args: number) {
-// Do some independent tasks
-}
+  action(args: number) {
+    // Do some independent tasks
+  }
 }
 let material = new Material()
 taskpool.execute(runner, material).then((ret) => {
-// Return result
+  // Return result
 })
 ```
+
 - 场景三：子线程更新主线程状态。代码示例：共享内存写法：
-```ts
+
+  
+```text
 class Task {
-  run(args) {
-    // deal with result
-    runOnUiThread(() => {
-      UpdateUI(result);
-    });
-  }
+    run(args) {
+        // deal with result
+        runOnUiThread(() => {
+            UpdateUI(result)
+        })
+    }
 }
-let task = new Task();
+let task = new Task()
 let thread = new Thread(() => {
-  let result = task.run(args);
-  // Processing results
-});
+    let result = task.run(args)
+    // Processing results
+})
 ```
  ArkTS写法：
-```ts
+
+  
+```ArkTS
 import taskpool from '@ohos.taskpool'
 
 // let result: Object[] | undefined = undefined
 
 @Concurrent
 function runner(task:Task) {
-task.run()
+  task.run()
 }
 @Sendable
 class Task {
-run(args?: Object[] | undefined) {
-// Do some independent tasks
-taskpool.Task.sendData(JsResult)
-}
+  run(args?: Object[] | undefined) {
+    // Do some independent tasks
+    taskpool.Task.sendData(JsResult)
+  }
 }
 let task = new Task()
 let run = new taskpool.Task(runner, task)
 run.onReceiveData((result?: Function | undefined) => {
-UpdateUI(result)
+  UpdateUI(result)
 })
 taskpool.execute(run).then((ret) => {
-// Return result
+  // Return result
 })
 ```
+
 - 场景四：子线程同步调用主线程接口。代码示例：
-```ts
+```text
 class SdkU3d {
-  static getInst() {
-    return SdkMgr.getInst();
-  }
-  getPropStr(str: string) {
-    return xx;
-  }
+    static getInst() {
+        return SdkMgr.getInst();
+    }
+    getPropStr(str: string) {
+        return xx;
+    }
 }
 let thread = new Thread(() => {
-  // In the game thread
-  let sdk = SdkU3d.getInst();
-  let ret = sdk.getPropStr('xx');
-});
+    // In the game thread
+    let sdk = SdkU3d.getInst()
+    let ret = sdk.getPropStr("xx")
+})
 ```
  ArkTS写法：
-```ts
+
+  
+```ArkTS
 import { MessageEvents, taskpool, worker } from '@kit.ArkTS';
 class SdkU3d {
   static getInst(): Object {
     return SdkMgr.getInst();
   }
-  getPropStr(str: string) {}
+  getPropStr(str: string) { }
 }
-let workerInstance = new worker.ThreadWorker('xx/worker.ts');
-workerInstance.registerGlobalCallObject('instance_xx', SdkU3d.getInst());
-workerInstance.postMessage('start');
+let workerInstance = new worker.ThreadWorker("xx/worker.ts");
+workerInstance.registerGlobalCallObject("instance_xx", SdkU3d.getInst());
+workerInstance.postMessage("start");
 // In the game worker thread
 const mainPort = worker.workerPort;
 mainPort.onmessage = (e: MessageEvents): void => {
-  let ret = mainPort.callGlobalCallObjectMethod(
-    'instance_xx',
-    'getPropStr',
-    100,
-  ); // 100: test number
-};
+  let ret = mainPort.callGlobalCallObjectMethod("instance_xx", "getPropStr", 100); // 100: test number
+}
 ```
 
 
-参考链接
-
-并发概述
+ 
+**参考链接**
+ 
+[并发概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/concurrency-overview)

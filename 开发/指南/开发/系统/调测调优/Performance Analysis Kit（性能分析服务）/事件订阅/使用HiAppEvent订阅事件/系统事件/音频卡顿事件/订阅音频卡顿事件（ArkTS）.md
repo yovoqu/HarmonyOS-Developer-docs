@@ -4,19 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-audio-jank-event-arkts
 
-## 接口说明
+##### 接口说明
 
 API接口的具体使用说明（参数使用限制、具体取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent (应用事件打点)ArkTS API文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
+  
 | 接口名 | 描述 |
 | --- | --- |
 | addWatcher(watcher: Watcher): AppEventPackageHolder | 添加应用事件观察者，以添加对应用事件的订阅。 |
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以移除对应用事件的订阅。 |
+ 
+ 
+  
 
+##### 开发步骤
 
-## 开发步骤
+以实现对应用音频播放触发丢帧生成的音频卡顿事件订阅为例，说明开发步骤。
+ 1. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，添加系统事件的订阅。
 
-以实现对应用音频播放触发丢帧生成的音频卡顿事件订阅为例，说明开发步骤。 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，添加系统事件的订阅。
-```text
+  
+```json
 import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
 
 hiAppEvent.addWatcher({
@@ -30,7 +36,7 @@ hiAppEvent.addWatcher({
      }
    ],
    // 开发者可以自行实现订阅实时回调函数，以便对订阅获取到的事件数据进行自定义处理
-   onReceive: (domain: string, appEventGroups: Array) => {
+   onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
      hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
      for (const eventGroup of appEventGroups) {
        // 开发者可以根据事件集合中的事件名称区分不同的系统事件
@@ -44,7 +50,9 @@ hiAppEvent.addWatcher({
  });
 ```
 
-编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加一个模拟写入音频数据的回调函数normalCallback，在该回调中模拟卡顿主动返回INVALID（不送数据）来触发卡顿故障事件。
+2. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加一个模拟写入音频数据的回调函数normalCallback，在该回调中模拟卡顿主动返回INVALID（不送数据）来触发卡顿故障事件。
+
+  
 ```text
 import { audio } from '@kit.AudioKit';
 let g_invalidCount = 0;
@@ -58,7 +66,9 @@ function normalCallback(buffer: ArrayBuffer) {
 }
 ```
 
-编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加一个卡顿触发按钮，改变INVALID返回次数，模拟相应音频卡顿。
+3. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加一个卡顿触发按钮，改变INVALID返回次数，模拟相应音频卡顿。
+
+  
 ```text
 Row() {
   Button("卡顿").onClick(async () => {
@@ -67,7 +77,9 @@ Row() {
 }
 ```
 
-编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，在创建AudioRender实例时，进行耗时操作回调
+4. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，在创建AudioRender实例时，进行耗时操作回调
+
+  
 ```text
 audio.createAudioRenderer(audioRendererOptions, (err, renderer) => { // 创建AudioRenderer实例
   if (!err) {
@@ -82,7 +94,10 @@ audio.createAudioRenderer(audioRendererOptions, (err, renderer) => { // 创建Au
 });
 ```
 
-AudioRender正常播放时，点击卡顿按钮，即可触发耗时回调，触发音频卡顿事件。  每次音频卡顿触发后，可以在Log窗口看到对系统事件数据的处理日志。
+5. AudioRender正常播放时，点击卡顿按钮，即可触发耗时回调，触发音频卡顿事件。
+6. 每次音频卡顿触发后，可以在Log窗口看到对系统事件数据的处理日志。
+
+  
 ```text
 HiAppEvent onReceive: domain=OS
 HiAppEvent eventName=AUDIO_JANK_FRAME

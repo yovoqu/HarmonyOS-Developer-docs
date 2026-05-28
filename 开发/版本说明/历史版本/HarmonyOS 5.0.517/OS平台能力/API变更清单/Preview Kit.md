@@ -15,8 +15,8 @@
 | 新增API | NA | 类名：FilePreloadStatusInfo； API声明：sandboxPath: string; 差异内容：sandboxPath: string; | api/@hms.pcService.openFileBoost.d.ts |
 | 新增API | NA | 类名：FilePreloadStatusInfo； API声明：progress: number; 差异内容：progress: number; | api/@hms.pcService.openFileBoost.d.ts |
 | 新增API | NA | 类名：FilePreloadStatusInfo； API声明：state: FilePreloadState; 差异内容：state: FilePreloadState; | api/@hms.pcService.openFileBoost.d.ts |
-| 新增API | NA | 类名：openFileBoost； API声明：function on(type: 'filePreloadStateChanged', callback: Callback<FilePreloadStatusInfo>): void; 差异内容：function on(type: 'filePreloadStateChanged', callback: Callback<FilePreloadStatusInfo>): void; | api/@hms.pcService.openFileBoost.d.ts |
-| 新增API | NA | 类名：openFileBoost； API声明：function off(type: 'filePreloadStateChanged', callback?: Callback<FilePreloadStatusInfo>): void; 差异内容：function off(type: 'filePreloadStateChanged', callback?: Callback<FilePreloadStatusInfo>): void; | api/@hms.pcService.openFileBoost.d.ts |
+| 新增API | NA | 类名：openFileBoost； API声明：function on(type: 'filePreloadStateChanged', callback: Callback&lt;FilePreloadStatusInfo&gt;): void; 差异内容：function on(type: 'filePreloadStateChanged', callback: Callback&lt;FilePreloadStatusInfo&gt;): void; | api/@hms.pcService.openFileBoost.d.ts |
+| 新增API | NA | 类名：openFileBoost； API声明：function off(type: 'filePreloadStateChanged', callback?: Callback&lt;FilePreloadStatusInfo&gt;): void; 差异内容：function off(type: 'filePreloadStateChanged', callback?: Callback&lt;FilePreloadStatusInfo&gt;): void; | api/@hms.pcService.openFileBoost.d.ts |
 | 新增API | NA | 类名：openFileBoost； API声明：function addFile(file: string): void; 差异内容：function addFile(file: string): void; | api/@hms.pcService.openFileBoost.d.ts |
 | 新增API | NA | 类名：openFileBoost； API声明：function removeFile(file: string): void; 差异内容：function removeFile(file: string): void; | api/@hms.pcService.openFileBoost.d.ts |
 | 新增API | NA | 类名：openFileBoost； API声明：function queryFilePreloadStatusInfo(file: string): FilePreloadStatusInfo; 差异内容：function queryFilePreloadStatusInfo(file: string): FilePreloadStatusInfo; | api/@hms.pcService.openFileBoost.d.ts |

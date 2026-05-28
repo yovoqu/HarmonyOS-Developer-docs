@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 函数变更 | 类名：GZip； API声明：gzputc(char: number): Promise<number>; 差异内容：char: number | 类名：GZip； API声明：gzputc(ch: number): Promise<number>; 差异内容：ch: number | api/@ohos.zlib.d.ts |
+| 函数变更 | 类名：GZip； API声明：gzputc(char: number): Promise&lt;number&gt;; 差异内容：char: number | 类名：GZip； API声明：gzputc(ch: number): Promise&lt;number&gt;; 差异内容：ch: number | api/@ohos.zlib.d.ts |
 | 枚举赋值发生改变 | 类名：BatteryCapacityLevel； API声明：LEVEL_FULL 差异内容：0 | 类名：BatteryCapacityLevel； API声明：LEVEL_FULL 差异内容：1 | api/@ohos.batteryInfo.d.ts |
 | 枚举赋值发生改变 | 类名：BatteryCapacityLevel； API声明：LEVEL_HIGH 差异内容：1 | 类名：BatteryCapacityLevel； API声明：LEVEL_HIGH 差异内容：2 | api/@ohos.batteryInfo.d.ts |
 | 枚举赋值发生改变 | 类名：BatteryCapacityLevel； API声明：LEVEL_NORMAL 差异内容：2 | 类名：BatteryCapacityLevel； API声明：LEVEL_NORMAL 差异内容：3 | api/@ohos.batteryInfo.d.ts |
@@ -56,7 +56,7 @@
 | 新增API | NA | 类名：print； API声明：enum DocFlavor 差异内容：enum DocFlavor | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：DocFlavor； API声明：FILE_DESCRIPTOR = 0 差异内容：FILE_DESCRIPTOR = 0 | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：DocFlavor； API声明：BYTES = 1 差异内容：BYTES = 1 | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function startPrint(job: PrintJobData): Promise<void>; 差异内容：function startPrint(job: PrintJobData): Promise<void>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function startPrint(job: PrintJobData): Promise&lt;void&gt;; 差异内容：function startPrint(job: PrintJobData): Promise&lt;void&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：cacheDownload； API声明：enum CacheStrategy 差异内容：enum CacheStrategy | api/@ohos.request.cacheDownload.d.ts |
 | 新增API | NA | 类名：CacheStrategy； API声明：FORCE = 0 差异内容：FORCE = 0 | api/@ohos.request.cacheDownload.d.ts |
 | 新增API | NA | 类名：CacheStrategy； API声明：LAZY = 1 差异内容：LAZY = 1 | api/@ohos.request.cacheDownload.d.ts |
@@ -73,12 +73,12 @@
 | 新增API | NA | 类名：DownloadError； API声明：readonly message: string; 差异内容：readonly message: string; | api/@ohos.request.cacheDownload.d.ts |
 | 新增API | NA | 类名：cacheDownload； API声明：function clearMemoryCache(): void; 差异内容：function clearMemoryCache(): void; | api/@ohos.request.cacheDownload.d.ts |
 | 新增API | NA | 类名：cacheDownload； API声明：function clearFileCache(): void; 差异内容：function clearFileCache(): void; | api/@ohos.request.cacheDownload.d.ts |
-| 新增API | NA | 类名：cacheDownload； API声明：function onDownloadSuccess(url: string, callback: Callback<void>): void; 差异内容：function onDownloadSuccess(url: string, callback: Callback<void>): void; | api/@ohos.request.cacheDownload.d.ts |
-| 新增API | NA | 类名：cacheDownload； API声明：function onDownloadError(url: string, callback: Callback<DownloadError>): void; 差异内容：function onDownloadError(url: string, callback: Callback<DownloadError>): void; | api/@ohos.request.cacheDownload.d.ts |
-| 新增API | NA | 类名：cacheDownload； API声明：function offDownloadSuccess(url: string, callback?: Callback<void>): void; 差异内容：function offDownloadSuccess(url: string, callback?: Callback<void>): void; | api/@ohos.request.cacheDownload.d.ts |
-| 新增API | NA | 类名：cacheDownload； API声明：function offDownloadError(url: string, callback?: Callback<DownloadError>): void; 差异内容：function offDownloadError(url: string, callback?: Callback<DownloadError>): void; | api/@ohos.request.cacheDownload.d.ts |
+| 新增API | NA | 类名：cacheDownload； API声明：function onDownloadSuccess(url: string, callback: Callback&lt;void&gt;): void; 差异内容：function onDownloadSuccess(url: string, callback: Callback&lt;void&gt;): void; | api/@ohos.request.cacheDownload.d.ts |
+| 新增API | NA | 类名：cacheDownload； API声明：function onDownloadError(url: string, callback: Callback&lt;DownloadError&gt;): void; 差异内容：function onDownloadError(url: string, callback: Callback&lt;DownloadError&gt;): void; | api/@ohos.request.cacheDownload.d.ts |
+| 新增API | NA | 类名：cacheDownload； API声明：function offDownloadSuccess(url: string, callback?: Callback&lt;void&gt;): void; 差异内容：function offDownloadSuccess(url: string, callback?: Callback&lt;void&gt;): void; | api/@ohos.request.cacheDownload.d.ts |
+| 新增API | NA | 类名：cacheDownload； API声明：function offDownloadError(url: string, callback?: Callback&lt;DownloadError&gt;): void; 差异内容：function offDownloadError(url: string, callback?: Callback&lt;DownloadError&gt;): void; | api/@ohos.request.cacheDownload.d.ts |
 | 新增API | NA | 类名：RunningLockType； API声明：BACKGROUND_USER_IDLE = 129 差异内容：BACKGROUND_USER_IDLE = 129 | api/@ohos.runningLock.d.ts |
 | 新增API | NA | 类名：settings； API声明：function openInputMethodSettings(context: Context): void; 差异内容：function openInputMethodSettings(context: Context): void; | api/@ohos.settings.d.ts |
 | 新增API | NA | 类名：settings； API声明：function openInputMethodDetail(context: Context, bundleName: string, inputMethodId: string): void; 差异内容：function openInputMethodDetail(context: Context, bundleName: string, inputMethodId: string): void; | api/@ohos.settings.d.ts |
-| 属性类型匿名对象整改不兼容 | 类名：PasteDataProperty； API声明：additions: {  [key: string]: object;  }; 差异内容：{  [key: string]: object;  } | 类名：PasteDataProperty； API声明：additions: Record<string, object>; 差异内容：Record<string, object> | api/@ohos.pasteboard.d.ts |
-| 属性类型匿名对象整改不兼容 | 类名：PasteDataRecord； API声明：data: {  [mimeType: string]: ArrayBuffer;  }; 差异内容：{  [mimeType: string]: ArrayBuffer;  } | 类名：PasteDataRecord； API声明：data: Record<string, ArrayBuffer>; 差异内容：Record<string, ArrayBuffer> | api/@ohos.pasteboard.d.ts |
+| 属性类型匿名对象整改不兼容 | 类名：PasteDataProperty； API声明：additions: { [key: string]: object; }; 差异内容：{ [key: string]: object; } | 类名：PasteDataProperty； API声明：additions: Record<string, object>; 差异内容：Record<string, object> | api/@ohos.pasteboard.d.ts |
+| 属性类型匿名对象整改不兼容 | 类名：PasteDataRecord； API声明：data: { [mimeType: string]: ArrayBuffer; }; 差异内容：{ [mimeType: string]: ArrayBuffer; } | 类名：PasteDataRecord； API声明：data: Record<string, ArrayBuffer>; 差异内容：Record<string, ArrayBuffer> | api/@ohos.pasteboard.d.ts |

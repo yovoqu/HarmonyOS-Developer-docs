@@ -3,22 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 颜色滤波器。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## createBlendModeColorFilter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createBlendModeColorFilter
 
 createBlendModeColorFilter(color: common2D.Color, mode: BlendMode) : ColorFilter
 
@@ -28,25 +30,22 @@ createBlendModeColorFilter(color: common2D.Color, mode: BlendMode) : ColorFilter
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
-| mode | [BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode) | 是 | 颜色的混合模式。 |
+| color | common2D.Color | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
+| mode | BlendMode | 是 | 颜色的混合模式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -55,20 +54,16 @@ createBlendModeColorFilter(color: common2D.Color, mode: BlendMode) : ColorFilter
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
-const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
-let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(
-  color,
-  drawing.BlendMode.SRC,
-);
+const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(color, drawing.BlendMode.SRC);
 ```
 
 
-## createBlendModeColorFilter18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createBlendModeColorFilter18+
 
 static createBlendModeColorFilter(color: common2D.Color | number, mode: BlendMode) : ColorFilter
 
@@ -78,25 +73,22 @@ static createBlendModeColorFilter(color: common2D.Color | number, mode: BlendMod
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) \| number | 是 | 颜色，可以用16进制ARGB格式的无符号整数表示。 |
-| mode | [BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode) | 是 | 颜色的混合模式。 |
+| color | common2D.Color \| number | 是 | 颜色，可以用16进制ARGB格式的无符号整数表示。 |
+| mode | BlendMode | 是 | 颜色的混合模式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -105,19 +97,15 @@ static createBlendModeColorFilter(color: common2D.Color | number, mode: BlendMod
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(
-  0xffff0000,
-  drawing.BlendMode.SRC,
-);
+let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(0xffff0000, drawing.BlendMode.SRC);
 ```
 
 
-## createComposeColorFilter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createComposeColorFilter
 
 createComposeColorFilter(outer: ColorFilter, inner: ColorFilter) : ColorFilter
 
@@ -127,25 +115,22 @@ createComposeColorFilter(outer: ColorFilter, inner: ColorFilter) : ColorFilter
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| outer | [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 是 | 组合滤波器中后生效的颜色滤波器。 |
-| inner | [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 是 | 组合滤波器中先生效的颜色滤波器。 |
+| outer | ColorFilter | 是 | 组合滤波器中后生效的颜色滤波器。 |
+| inner | ColorFilter | 是 | 组合滤波器中先生效的颜色滤波器。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -154,28 +139,18 @@ createComposeColorFilter(outer: ColorFilter, inner: ColorFilter) : ColorFilter
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
-const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
-let colorFilter1 = drawing.ColorFilter.createBlendModeColorFilter(
-  color,
-  drawing.BlendMode.SRC,
-);
-let colorFilter2 = drawing.ColorFilter.createBlendModeColorFilter(
-  color,
-  drawing.BlendMode.DST,
-);
-let colorFilter = drawing.ColorFilter.createComposeColorFilter(
-  colorFilter1,
-  colorFilter2,
-);
+const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+let colorFilter1 = drawing.ColorFilter.createBlendModeColorFilter(color, drawing.BlendMode.SRC);
+let colorFilter2 = drawing.ColorFilter.createBlendModeColorFilter(color, drawing.BlendMode.DST);
+let colorFilter = drawing.ColorFilter.createComposeColorFilter(colorFilter1, colorFilter2);
 ```
 
 
-## createLinearToSRGBGamma
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createLinearToSRGBGamma
 
 createLinearToSRGBGamma() : ColorFilter
 
@@ -185,24 +160,22 @@ createLinearToSRGBGamma() : ColorFilter
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let colorFilter = drawing.ColorFilter.createLinearToSRGBGamma();
 ```
 
 
-## createSRGBGammaToLinear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createSRGBGammaToLinear
 
 createSRGBGammaToLinear() : ColorFilter
 
@@ -212,24 +185,22 @@ createSRGBGammaToLinear() : ColorFilter
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let colorFilter = drawing.ColorFilter.createSRGBGammaToLinear();
 ```
 
 
-## createLumaColorFilter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createLumaColorFilter
 
 createLumaColorFilter() : ColorFilter
 
@@ -239,33 +210,30 @@ createLumaColorFilter() : ColorFilter
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let colorFilter = drawing.ColorFilter.createLumaColorFilter();
 ```
 
 
-## createMatrixColorFilter12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static createMatrixColorFilter(matrix: Array<number>): ColorFilter
+##### createMatrixColorFilter12+
+
+static createMatrixColorFilter(matrix: Array&lt;number&gt;): ColorFilter
 
 创建颜色滤波器，通过4x5颜色矩阵变换颜色。
 
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -274,16 +242,14 @@ static createMatrixColorFilter(matrix: Array<number>): ColorFilter
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -292,19 +258,21 @@ static createMatrixColorFilter(matrix: Array<number>): ColorFilter
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix: Array<number> = [
-  1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 1, 0,
+  1, 0, 0, 0, 0,
+  0, 1, 0, 0, 0,
+  0, 0, 100, 0, 0,
+  0, 0, 0, 1, 0
 ];
 let colorFilter = drawing.ColorFilter.createMatrixColorFilter(matrix);
 ```
 
 
-## createLightingColorFilter20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createLightingColorFilter20+
 
 static createLightingColorFilter(mutColor: common2D.Color | number, addColor: common2D.Color | number): ColorFilter
 
@@ -314,30 +282,24 @@ static createLightingColorFilter(mutColor: common2D.Color | number, addColor: co
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mutColor | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) \| number | 是 | 用来进行乘法运算的颜色，ARGB格式的颜色，每个颜色通道是0到255之间的整数。为number类型时必须是16进制ARGB格式的无符号整数。 |
-| addColor | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) \| number | 是 | 用来进行加法运算的颜色，ARGB格式的颜色，每个颜色通道是0到255之间的整数。为number类型时必须是16进制ARGB格式的无符号整数。 |
+| mutColor | common2D.Color \| number | 是 | 用来进行乘法运算的颜色，ARGB格式的颜色，每个颜色通道是0到255之间的整数。为number类型时必须是16进制ARGB格式的无符号整数。 |
+| addColor | common2D.Color \| number | 是 | 用来进行加法运算的颜色，ARGB格式的颜色，每个颜色通道是0到255之间的整数。为number类型时必须是16进制ARGB格式的无符号整数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回一个颜色滤波器。 |
+| ColorFilter | 返回一个颜色滤波器。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
-let mulColor: common2D.Color = { alpha: 0, red: 0, green: 0, blue: 20 };
-let addColor: common2D.Color = { alpha: 0, red: 0, green: 0, blue: 125 };
-let colorFilter = drawing.ColorFilter.createLightingColorFilter(
-  mulColor,
-  addColor,
-);
+let mulColor : common2D.Color = { alpha: 0, red: 0, green: 0, blue: 20 };
+let addColor : common2D.Color = { alpha: 0, red: 0, green: 0, blue: 125 };
+let colorFilter = drawing.ColorFilter.createLightingColorFilter(mulColor, addColor);
 ```

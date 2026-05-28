@@ -4,25 +4,36 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ipc-rpc-development-guideline
 
-## 场景介绍
+##### 场景介绍
 
 IPC/RPC的主要工作是跨进程建立对象通信的连接（客户端进程的Proxy和服务端进程的Stub建立一一对应关系），从而通过Proxy的接口可以和Stub进行IPC/RPC通信。
 
-## 开发步骤
 
+
+##### 开发步骤
 
 > [!NOTE]
-> 在进行IPC&RPC跨进程通信前需要通过Ability Kit获取服务端的代理对象。 不支持三方应用实现跨进程通信，三方应用仅可通过connectServiceExtensionAbility连接系统提供的ServiceExtensionAbility，通过返回的代理对ServiceExtensionAbility进行通信从而达到三方应用和系统服务通信的目的。 从API version 20开始，在2in1设备上，开发者可使用AppServiceExtensionAbility组件，为应用提供后台服务能力。三方应用可connectAppServiceExtensionAbility连接AppServiceExtensionAbility，通过返回的代理对象和AppServiceExtensionAbility进行通信从而达到三方和三方应用通信的目的。详细开发步骤参考AppServiceExtensionAbility。 三方应用之间也可通过动态订阅公共事件进行进程间通信。 完整的IPC&RPC通信开发流程涉及系统ServiceExtensionAbility的实现，故本篇指南仅提供客户端示例代码。
+> 在进行IPC&RPC跨进程通信前需要通过Ability Kit获取服务端的代理对象。 不支持三方应用实现跨进程通信，三方应用仅可通过 connectServiceExtensionAbility 连接系统提供的ServiceExtensionAbility，通过返回的代理对 ServiceExtensionAbility 进行通信从而达到三方应用和系统服务通信的目的。 从API version 20开始，在2in1设备上，开发者可使用AppServiceExtensionAbility组件，为应用提供后台服务能力。三方应用可 connectAppServiceExtensionAbility 连接AppServiceExtensionAbility，通过返回的代理对象和 AppServiceExtensionAbility 进行通信从而达到三方和三方应用通信的目的。详细开发步骤参考 AppServiceExtensionAbility 。 三方应用之间也可通过 动态订阅公共事件 进行进程间通信。 完整的IPC&RPC通信开发流程涉及系统ServiceExtensionAbility的实现，故本篇指南仅提供客户端示例代码。
 
 
-## 客户端实现
 
-创建变量want，指定要连接的Ability所在应用的包名、组件名。 创建变量connect，指定连接成功、连接失败和断开连接时的回调函数。 连接服务，获取服务代理对象Proxy，并注册死亡监听。 客户端发送消息给服务端。 通信结束后，断开连接，移除服务代理对象Proxy的死亡监听。
+
+##### 客户端实现
+1. 创建变量want，指定要连接的Ability所在应用的包名、组件名。
+2. 创建变量connect，指定连接成功、连接失败和断开连接时的回调函数。
+3. 连接服务，获取服务代理对象Proxy，并注册死亡监听。
+4. 客户端发送消息给服务端。
+5. 通信结束后，断开连接，移除服务代理对象Proxy的死亡监听。
+
 > [!NOTE]
-> 在本文档的示例中，通过this.getUIContext().getHostContext()来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在页面中使用UIAbilityContext提供的能力，请参见获取UIAbility的上下文信息。
+> 在本文档的示例中，通过this.getUIContext().getHostContext()来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需要在页面中使用UIAbilityContext提供的能力，请参见 获取UIAbility的上下文信息 。
 
-在IPC（同设备的跨进程通信）场景中，客户端的示例如下： 导入相关依赖，并定义所需的变量；
-```text
+
+在IPC（同设备的跨进程通信）场景中，客户端的示例如下：
+
+导入相关依赖，并定义所需的变量；
+
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, common } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
@@ -43,7 +54,8 @@ let deathRecipient = new MyDeathRecipient();
 ```
 
 连接服务，获取代理对象，发送信息给服务端，通信结束后断开连接。
-```text
+
+```json
 // 连接服务
 function connectAbility(context:common.UIAbilityContext, promptAction: PromptAction) {
   hilog.info(0x00000, 'testTag', 'begin to connect Ability');
@@ -113,7 +125,7 @@ function disconnectAbility(context: common.UIAbilityContext) {
 }
 
 // 发送消息
-async function sendString(promptAction: PromptAction) : Promise  {
+async function sendString(promptAction: PromptAction) : Promise <void> {
   hilog.info(0x00000, 'testTag', 'begin to send String');
   let option = new rpc.MessageOption();
   let data = rpc.MessageSequence.create();
@@ -147,8 +159,11 @@ async function sendString(promptAction: PromptAction) : Promise  {
 }
 ```
 
-在RPC（跨设备的跨进程通信）场景中，具体客户端的示例如下： 导入相关依赖，并定义所需的变量；
-```text
+在RPC（跨设备的跨进程通信）场景中，具体客户端的示例如下：
+
+导入相关依赖，并定义所需的变量；
+
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { rpc } from '@kit.IPCKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -160,7 +175,7 @@ import { PromptAction  } from '@kit.ArkUI';
 let proxy: rpc.IRemoteObject | undefined;
 let connectId: number | undefined;
 let dmInstance: distributedDeviceManager.DeviceManager;
-let deviceList: Array | undefined;
+let deviceList: Array<distributedDeviceManager.DeviceBasicInfo> | undefined;
 let deviceId: string| undefined;
 
 // 死亡通知
@@ -173,7 +188,8 @@ let deathRecipient = new MyDeathRecipient();
 ```
 
 获取[允许多设备协同的权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all-user#ohospermissiondistributed_datasync)，在组网的情况下获取到对端的设备ID（组网场景下对应设备的唯一网络标识符，可以使用distributedDeviceManager获取目标设备的NetworkId）后连接服务，获取代理对象并发送信息给服务端，当代理对象与服务端的通信结束后，进行断连。
-```text
+
+```json
 // 获取权限
 function getPermission(context:common.UIAbilityContext) {
   hilog.info(0x00000, 'testTag', 'begin to requestPermissions');
@@ -287,7 +303,7 @@ function disconnectAbility(context: common.UIAbilityContext) {
 }
 
 // 发送消息
-async function sendString(promptAction: PromptAction) : Promise  {
+async function sendString(promptAction: PromptAction) : Promise <void> {
   hilog.info(0x00000, 'testTag', 'begin to send string');
   let option = new rpc.MessageOption();
   let data = rpc.MessageSequence.create();
@@ -325,10 +341,15 @@ async function sendString(promptAction: PromptAction) : Promise  {
 ```
 
 
-## 完整示例
 
+##### 完整示例
 
 > [!NOTE]
 > 以下完整示例涉及到ServiceExtensionAbility，需要使用full-SDK。参考示例前，请先阅读对应示例的ReadMe进行相应的配置后，再进行编译。
 
-针对IPC与RPC通信开发，端到端的完整示例，请参考： [IPC通信完整示例-使用Parcelable/ArrayBuffer通信](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/SystemFeature/IPC/ObjectTransfer) [IPC通信完整示例-传递字符串及死亡监听使用](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/IPC/IPC_sendMessage) [RPC通信完整示例-传递字符串及死亡监听使用](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/IPC/RPC_sendMessage)
+
+针对IPC与RPC通信开发，端到端的完整示例，请参考：
+
+ - [IPC通信完整示例-使用Parcelable/ArrayBuffer通信](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/SystemFeature/IPC/ObjectTransfer)
+ - [IPC通信完整示例-传递字符串及死亡监听使用](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/IPC/IPC_sendMessage)
+ - [RPC通信完整示例-传递字符串及死亡监听使用](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/IPC/RPC_sendMessage)

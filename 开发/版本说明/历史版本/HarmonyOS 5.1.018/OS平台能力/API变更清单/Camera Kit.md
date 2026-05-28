@@ -21,8 +21,8 @@
 | 新增API | NA | 类名：camera； API声明：interface CameraConcurrentInfo 差异内容：interface CameraConcurrentInfo | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：CameraConcurrentInfo； API声明：readonly device: CameraDevice; 差异内容：readonly device: CameraDevice; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：CameraConcurrentInfo； API声明：readonly type: CameraConcurrentType; 差异内容：readonly type: CameraConcurrentType; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：CameraConcurrentInfo； API声明：readonly modes: Array<SceneMode>; 差异内容：readonly modes: Array<SceneMode>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：CameraConcurrentInfo； API声明：readonly outputCapabilities: Array<CameraOutputCapability>; 差异内容：readonly outputCapabilities: Array<CameraOutputCapability>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：CameraConcurrentInfo； API声明：readonly modes: Array&lt;SceneMode&gt;; 差异内容：readonly modes: Array&lt;SceneMode&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：CameraConcurrentInfo； API声明：readonly outputCapabilities: Array&lt;CameraOutputCapability&gt;; 差异内容：readonly outputCapabilities: Array&lt;CameraOutputCapability&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 起始版本有变化 | 类名：camera； API声明：enum HostDeviceType 差异内容：10 | 类名：camera； API声明：enum HostDeviceType 差异内容：15 | api/@ohos.multimedia.camera.d.ts |
 | 起始版本有变化 | 类名：HostDeviceType； API声明：UNKNOWN_TYPE = 0 差异内容：10 | 类名：HostDeviceType； API声明：UNKNOWN_TYPE = 0 差异内容：15 | api/@ohos.multimedia.camera.d.ts |
 | 起始版本有变化 | 类名：HostDeviceType； API声明：PHONE = 0x0E 差异内容：10 | 类名：HostDeviceType； API声明：PHONE = 0x0E 差异内容：15 | api/@ohos.multimedia.camera.d.ts |
@@ -32,5 +32,5 @@
 | 起始版本有变化 | 类名：VideoOutput； API声明：isMirrorSupported(): boolean; 差异内容：12 | 类名：VideoOutput； API声明：isMirrorSupported(): boolean; 差异内容：15 | api/@ohos.multimedia.camera.d.ts |
 | 起始版本有变化 | 类名：VideoOutput； API声明：enableMirror(enabled: boolean): void; 差异内容：12 | 类名：VideoOutput； API声明：enableMirror(enabled: boolean): void; 差异内容：15 | api/@ohos.multimedia.camera.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：CameraManager； API声明：getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice; 差异内容：getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice; | api/@ohos.multimedia.camera.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：CameraManager； API声明：getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>; 差异内容：getCameraConcurrentInfos(cameras: Array<CameraDevice>): Array<CameraConcurrentInfo>; | api/@ohos.multimedia.camera.d.ts |
-| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：CameraInput； API声明：open(): Promise<void>; 差异内容：open(): Promise<void>; | 类名：CameraInput； API声明：open(type: CameraConcurrentType): Promise<void>; 差异内容：open(type: CameraConcurrentType): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：CameraManager； API声明：getCameraConcurrentInfos(cameras: Array&lt;CameraDevice&gt;): Array&lt;CameraConcurrentInfo&gt;; 差异内容：getCameraConcurrentInfos(cameras: Array&lt;CameraDevice&gt;): Array&lt;CameraConcurrentInfo&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：CameraInput； API声明：open(): Promise&lt;void&gt;; 差异内容：open(): Promise&lt;void&gt;; | 类名：CameraInput； API声明：open(type: CameraConcurrentType): Promise&lt;void&gt;; 差异内容：open(type: CameraConcurrentType): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |

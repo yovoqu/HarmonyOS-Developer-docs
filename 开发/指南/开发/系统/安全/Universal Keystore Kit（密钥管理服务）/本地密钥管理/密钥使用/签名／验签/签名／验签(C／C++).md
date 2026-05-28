@@ -1,45 +1,71 @@
 # 签名/验签(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-ndk
 
 当前指导提供以下示例，供开发者参考完成签名、验签开发：
 
+ - 密钥算法为ECC256、摘要算法为SHA256，请见开发案例：[ECC256/SHA256](#ecc256sha256)
+ - 密钥算法为SM2、摘要算法为SM3，请见开发案例：[SM2/SM3](#sm2sm3)
+ - 密钥算法为SM2、摘要算法为NoDigest，请见开发案例：[SM2/NoDigest](#sm2nodigest)
+ - 密钥算法为RSA、摘要算法为SHA256、填充模式为PSS，请见开发案例：[RSA/SHA256/PSS](#rsasha256pss)
+ - 密钥算法为RSA、摘要算法为SHA256、填充模式为PKCS1_V1_5，请见开发案例：[RSA/SHA256/PKCS1_V1_5](#rsasha256pkcs1_v1_5)
+ - 密钥算法为RSA、摘要算法为SHA384、填充模式为PSS，请见开发案例：[RSA/SHA384/PSS](#rsasha384pss)
 
-- 密钥算法为ECC256、摘要算法为SHA256，请见开发案例：[ECC256/SHA256](#ecc256sha256)
-- 密钥算法为SM2、摘要算法为SM3，请见开发案例：[SM2/SM3](#sm2sm3)
-- 密钥算法为SM2、摘要算法为NoDigest，请见开发案例：[SM2/NoDigest](#sm2nodigest)
-- 密钥算法为RSA、摘要算法为SHA256、填充模式为PSS，请见开发案例：[RSA/SHA256/PSS](#rsasha256pss)
-- 密钥算法为RSA、摘要算法为SHA256、填充模式为PKCS1_V1_5，请见开发案例：[RSA/SHA256/PKCS1_V1_5](#rsasha256pkcs1_v1_5)
-- 密钥算法为RSA、摘要算法为SHA384、填充模式为PSS，请见开发案例：[RSA/SHA384/PSS](#rsasha384pss)
 
 具体的场景介绍及支持的算法规格，请参考[签名/验签支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-overview#支持的算法)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-**生成密钥** 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。 调用[OH_Huks_GenerateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_generatekeyitem)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。 **签名** 获取密钥别名。 指定待签名的明文数据。 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取签名signature。 **验签** 获取密钥别名。 获取待验证的签名signature。 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。 调用[OH_Huks_UpdateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_updatesession)更新密钥会话。 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，验证签名。 **删除密钥** 当密钥废弃不用时，需要调用[OH_Huks_DeleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_deletekeyitem)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-ndk)。
+##### 开发步骤
 
-## 开发案例
+**生成密钥**
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。
+3. 调用[OH_Huks_GenerateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_generatekeyitem)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+
+除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。
+
+**签名**
+1. 获取密钥别名。
+2. 指定待签名的明文数据。
+3. 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。
+4. 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取签名signature。
+
+**验签**
+1. 获取密钥别名。
+2. 获取待验证的签名signature。
+3. 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。
+4. 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[OH_Huks_UpdateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_updatesession)更新密钥会话。
+6. 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，验证签名。
+
+**删除密钥**
+
+当密钥废弃不用时，需要调用[OH_Huks_DeleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_deletekeyitem)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-ndk)。
 
 
-## ECC256/SHA256
+
+##### 开发案例
 
 
-```text
+
+##### ECC256/SHA256
+
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                                    uint32_t paramCount)
@@ -101,7 +127,7 @@ static OH_Huks_Result SignDataECC(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleS[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleSign = {(uint32_t)sizeof(uint64_t), handleS};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, signParamSet, &handleSign, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -114,7 +140,7 @@ static OH_Huks_Result SignDataECC(const struct OH_Huks_Blob *keyAlias,
 
     struct OH_Huks_Blob finishInData = {0, NULL};
     ohResult = OH_Huks_FinishSession(&handleSign, signParamSet, &finishInData, outDataSign);
-
+    
     return ohResult;
 }
 
@@ -126,7 +152,7 @@ static OH_Huks_Result VerifySignatureECC(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleV[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleVerify = {(uint32_t)sizeof(uint64_t), handleV};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, verifyParamSet, &handleVerify, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -138,9 +164,9 @@ static OH_Huks_Result VerifySignatureECC(const struct OH_Huks_Blob *keyAlias,
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     ohResult = OH_Huks_FinishSession(&handleVerify, verifyParamSet, signature, &verifyOut);
-
+    
     return ohResult;
 }
 
@@ -152,20 +178,20 @@ napi_value SignVerifyKeyECC(napi_env env, napi_callback_info info)
     struct OH_Huks_ParamSet *signParamSet = nullptr;
     struct OH_Huks_ParamSet *verifyParamSet = nullptr;
     OH_Huks_Result ohResult;
-
+    
     do {
         ohResult = InitParamSet(&genParamSet, g_genSignVerifyParamsTestECC,
                                 sizeof(g_genSignVerifyParamsTestECC) / sizeof(OH_Huks_Param));
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         ohResult = InitParamSet(&signParamSet, g_signParamsTestECC,
                                 sizeof(g_signParamsTestECC) / sizeof(OH_Huks_Param));
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         ohResult = InitParamSet(&verifyParamSet, g_verifyParamsTestECC,
                                 sizeof(g_verifyParamsTestECC) / sizeof(OH_Huks_Param));
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
@@ -192,7 +218,7 @@ napi_value SignVerifyKeyECC(napi_env env, napi_callback_info info)
             break;
         }
     } while (0);
-
+    
     (void)OH_Huks_DeleteKeyItem(&g_keyAlias, genParamSet);
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&signParamSet);
@@ -205,14 +231,14 @@ napi_value SignVerifyKeyECC(napi_env env, napi_callback_info info)
 ```
 
 
-## SM2/SM3
 
+##### SM2/SM3
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                                    uint32_t paramCount)
@@ -276,7 +302,7 @@ static OH_Huks_Result SignDataSM2(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleS[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleSign = {(uint32_t)sizeof(uint64_t), handleS};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, signParamSet, &handleSign, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -289,7 +315,7 @@ static OH_Huks_Result SignDataSM2(const struct OH_Huks_Blob *keyAlias,
 
     struct OH_Huks_Blob finishInData = {0, NULL};
     ohResult = OH_Huks_FinishSession(&handleSign, signParamSet, &finishInData, outDataSign);
-
+    
     return ohResult;
 }
 
@@ -301,7 +327,7 @@ static OH_Huks_Result VerifySignatureSM2(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleV[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleVerify = {(uint32_t)sizeof(uint64_t), handleV};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, verifyParamSet, &handleVerify, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -313,9 +339,9 @@ static OH_Huks_Result VerifySignatureSM2(const struct OH_Huks_Blob *keyAlias,
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     ohResult = OH_Huks_FinishSession(&handleVerify, verifyParamSet, signature, &verifyOut);
-
+    
     return ohResult;
 }
 
@@ -328,20 +354,20 @@ napi_value SignVerifyKeySM2SM3(napi_env env, napi_callback_info info)
     struct OH_Huks_ParamSet *signParamSet = nullptr;
     struct OH_Huks_ParamSet *verifyParamSet = nullptr;
     OH_Huks_Result ohResult;
-
+    
     do {
         ohResult = InitParamSet(&genParamSet, g_genSignVerifyParamsSM2,
                                 sizeof(g_genSignVerifyParamsSM2) / sizeof(OH_Huks_Param));
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         ohResult = InitParamSet(&signParamSet, g_signParamsSM2,
                                 sizeof(g_signParamsSM2) / sizeof(OH_Huks_Param));
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         ohResult = InitParamSet(&verifyParamSet, g_verifyParamsSM2,
                                 sizeof(g_verifyParamsSM2) / sizeof(OH_Huks_Param));
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
@@ -368,7 +394,7 @@ napi_value SignVerifyKeySM2SM3(napi_env env, napi_callback_info info)
             break;
         }
     } while (0);
-
+    
     (void)OH_Huks_DeleteKeyItem(&g_keyAlias, genParamSet);
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&signParamSet);
@@ -381,14 +407,14 @@ napi_value SignVerifyKeySM2SM3(napi_env env, napi_callback_info info)
 ```
 
 
-## SM2/NoDigest
 
+##### SM2/NoDigest
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                                    uint32_t paramCount)
@@ -468,7 +494,7 @@ static OH_Huks_Result VerifySignatureSM2NoDigest(const struct OH_Huks_Blob *keyA
 {
     uint8_t handleV[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleVerify = {(uint32_t)sizeof(uint64_t), handleV};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, verifyParamSet, &handleVerify, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -480,9 +506,9 @@ static OH_Huks_Result VerifySignatureSM2NoDigest(const struct OH_Huks_Blob *keyA
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     ohResult = OH_Huks_FinishSession(&handleVerify, verifyParamSet, signature, &verifyOut);
-
+    
     return ohResult;
 }
 
@@ -548,14 +574,14 @@ napi_value SignVerifyKeySM2NoDigest(napi_env env, napi_callback_info info)
 ```
 
 
-## RSA/SHA256/PSS
 
+##### RSA/SHA256/PSS
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                                    uint32_t paramCount)
@@ -621,7 +647,7 @@ static OH_Huks_Result SignData(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleS[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleSign = {(uint32_t)sizeof(uint64_t), handleS};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, signParamSet, &handleSign, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -634,7 +660,7 @@ static OH_Huks_Result SignData(const struct OH_Huks_Blob *keyAlias,
 
     struct OH_Huks_Blob finishInData = {0, nullptr};
     ohResult = OH_Huks_FinishSession(&handleSign, signParamSet, &finishInData, outDataSign);
-
+    
     return ohResult;
 }
 
@@ -646,7 +672,7 @@ static OH_Huks_Result VerifySignature(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleV[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleVerify = {(uint32_t)sizeof(uint64_t), handleV};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, verifyParamSet, &handleVerify, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -658,9 +684,9 @@ static OH_Huks_Result VerifySignature(const struct OH_Huks_Blob *keyAlias,
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     ohResult = OH_Huks_FinishSession(&handleVerify, verifyParamSet, signature, &verifyOut);
-
+    
     return ohResult;
 }
 
@@ -722,14 +748,14 @@ napi_value SignVerifyKeyRsaSha256Pss(napi_env env, napi_callback_info info)
 ```
 
 
-## RSA/SHA256/PKCS1_V1_5
 
+##### RSA/SHA256/PKCS1_V1_5
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                                    uint32_t paramCount)
@@ -794,7 +820,7 @@ static OH_Huks_Result SignData(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleS[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleSign = {(uint32_t)sizeof(uint64_t), handleS};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, signParamSet, &handleSign, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -807,7 +833,7 @@ static OH_Huks_Result SignData(const struct OH_Huks_Blob *keyAlias,
 
     struct OH_Huks_Blob finishInData = {0, nullptr};
     ohResult = OH_Huks_FinishSession(&handleSign, signParamSet, &finishInData, outDataSign);
-
+    
     return ohResult;
 }
 
@@ -819,7 +845,7 @@ static OH_Huks_Result VerifySignature(const struct OH_Huks_Blob *keyAlias,
 {
     uint8_t handleV[sizeof(uint64_t)] = {0};
     struct OH_Huks_Blob handleVerify = {(uint32_t)sizeof(uint64_t), handleV};
-
+    
     OH_Huks_Result ohResult = OH_Huks_InitSession(keyAlias, verifyParamSet, &handleVerify, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -831,9 +857,9 @@ static OH_Huks_Result VerifySignature(const struct OH_Huks_Blob *keyAlias,
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     ohResult = OH_Huks_FinishSession(&handleVerify, verifyParamSet, signature, &verifyOut);
-
+    
     return ohResult;
 }
 
@@ -865,19 +891,19 @@ napi_value SignVerifyKeyRsaSha256Pkcs1V15(napi_env env, napi_callback_info info)
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         ohResult = GenerateKey(&g_keyAlias, genParamSet);
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         uint8_t outDataS[RSA_COMMON_SIZE] = {0};
         struct OH_Huks_Blob outDataSign = {RSA_COMMON_SIZE, outDataS};
         ohResult = SignData(&g_keyAlias, signParamSet, &inData, &outDataSign);
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         ohResult = VerifySignature(&g_keyAlias, verifyParamSet, &inData, &outDataSign);
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
@@ -896,14 +922,14 @@ napi_value SignVerifyKeyRsaSha256Pkcs1V15(napi_env env, napi_callback_info info)
 ```
 
 
-## RSA/SHA384/PSS
 
+##### RSA/SHA384/PSS
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                                    uint32_t paramCount)
@@ -982,7 +1008,7 @@ static OH_Huks_Result SignDataRSA(const struct OH_Huks_Blob *keyAlias,
 
     struct OH_Huks_Blob finishInData = {0, NULL};
     ohResult = OH_Huks_FinishSession(&handleSign, signParamSet, &finishInData, outDataSign);
-
+    
     return ohResult;
 }
 

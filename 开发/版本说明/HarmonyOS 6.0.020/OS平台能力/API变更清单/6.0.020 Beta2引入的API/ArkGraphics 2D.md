@@ -26,7 +26,7 @@
 | 删除API | 类名：Color； API声明：green: number; 差异内容：green: number; | NA | api/@ohos.graphics.uiEffect.d.ts |
 | 删除API | 类名：Color； API声明：blue: number; 差异内容：blue: number; | NA | api/@ohos.graphics.uiEffect.d.ts |
 | 删除API | 类名：Color； API声明：alpha: number; 差异内容：alpha: number; | NA | api/@ohos.graphics.uiEffect.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Path； API声明：approximate(acceptableError: number): Array<number>; 差异内容：approximate(acceptableError: number): Array<number>; | api/@ohos.graphics.drawing.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Path； API声明：approximate(acceptableError: number): Array&lt;number&gt;; 差异内容：approximate(acceptableError: number): Array&lt;number&gt;; | api/@ohos.graphics.drawing.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Path； API声明：interpolate(other: Path, weight: number, interpolatedPath: Path): boolean; 差异内容：interpolate(other: Path, weight: number, interpolatedPath: Path): boolean; | api/@ohos.graphics.drawing.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Path； API声明：isInterpolate(other: Path): boolean; 差异内容：isInterpolate(other: Path): boolean; | api/@ohos.graphics.drawing.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Pen； API声明：setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager \| null): void; 差异内容：setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager \| null): void; | api/@ohos.graphics.drawing.d.ts |
@@ -34,7 +34,7 @@
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Brush； API声明：setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager \| null): void; 差异内容：setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager \| null): void; | api/@ohos.graphics.drawing.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Brush； API声明：getColor4f(): common2D.Color4f; 差异内容：getColor4f(): common2D.Color4f; | api/@ohos.graphics.drawing.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：FontCollection； API声明：unloadFontSync(name: string): void; 差异内容：unloadFontSync(name: string): void; | api/@ohos.graphics.text.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：FontCollection； API声明：unloadFont(name: string): Promise<void>; 差异内容：unloadFont(name: string): Promise<void>; | api/@ohos.graphics.text.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：FontCollection； API声明：unloadFont(name: string): Promise&lt;void&gt;; 差异内容：unloadFont(name: string): Promise&lt;void&gt;; | api/@ohos.graphics.text.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Run； API声明：getTextDirection(): TextDirection; 差异内容：getTextDirection(): TextDirection; | api/@ohos.graphics.text.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Run； API声明：getAdvances(range: Range): Array<common2D.Point>; 差异内容：getAdvances(range: Range): Array<common2D.Point>; | api/@ohos.graphics.text.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：ParagraphStyle； API声明：verticalAlign?: TextVerticalAlign; 差异内容：verticalAlign?: TextVerticalAlign; | api/@ohos.graphics.text.d.ts |

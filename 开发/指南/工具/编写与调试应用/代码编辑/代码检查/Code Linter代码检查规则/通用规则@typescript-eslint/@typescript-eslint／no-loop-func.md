@@ -5,29 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-loop-func
 
 禁止在循环语句内包含不安全引用的函数声明。
+ 
+该规则仅支持对.js/.ts文件进行检查。
+ 
 
- 该规则仅支持对.js/.ts文件进行检查。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-loop-func": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 const a = function(): void {
@@ -45,10 +46,10 @@ for (let i = 10; i; i--) {
   b();
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 const num = 10;
@@ -60,13 +61,34 @@ for (let i = num; i; i--) {
 }
 
 let i1 = 0;
-while (i1
+while (i1 < num) {
+  // 变量i是不安全的引用
+  const a = function(): number {
+    return i1;
+  };
+  a();
 
-## 规则集
+  i1++;
+}
 
+let i2 = 0;
+do {
+  // 变量i是不安全的引用
+  function a(): number {
+    return i2;
+  }
+  a();
+
+  i2++;
+} while (i2 < num);
+```
+ 
+ 
+
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -4,32 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlibapiworkspacesize
 
-## 函数功能
+##### 函数功能
 
 获取AscendC API需要的workspace空间大小。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 uint32_t GetLibApiWorkSpaceSize(void) const;
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 无
+ 
+  
 
-## 返回值
+##### 返回值
 
 返回uint32_t数据类型的结果，该结果代表当前系统workspace的大小。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 // 开发者自定义的tiling函数

@@ -1,15 +1,18 @@
 # 应用文件访问(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-access
 
 应用需要对应用文件目录下的应用文件进行查看、创建、读写、删除、移动、复制、获取属性等访问操作，下文介绍具体方法。
 
 
-## 接口说明
+##### 接口说明
 
-开发者通过基础文件操作接口（[ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)）实现应用文件访问能力，主要功能如下表所示。 **表1** 基础文件操作接口功能，其中“√”表示支持，“-”表示不区分同步和异步。
+开发者通过基础文件操作接口（[ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)）实现应用文件访问能力，主要功能如下表所示。
+
+**表1** 基础文件操作接口功能，其中“√”表示支持，“-”表示不区分同步和异步。
+
 | 接口名 | 功能 | 接口类型 | 支持同步 | 支持异步 |
 | --- | --- | --- | --- | --- |
 | access | 检查文件是否存在 | 方法 | √ | √ |
@@ -34,17 +37,30 @@
 | OpenMode | 设置文件打开标签 | 属性 | - | - |
 | Filter | 设置文件过滤配置项 | 类型 | - | - |
 
-![](assets/应用文件访问(ArkTS)
-/file-20260514130904750-0.png) 使用基础文件操作接口时，耗时较长的操作，例如：read、write等，建议使用异步接口，避免应用崩溃。
 
-## 开发示例
 
-在对应用文件开始访问前，开发者需要[获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。以从UIAbilityContext获取HAP级别的文件路径为例进行说明，UIAbilityContext的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。 下面介绍几种常用操作示例。
+![](assets/应用文件访问(ArkTS)/file-20260514130904750-0.png)
 
-## 新建并读写一个文件
+
+使用基础文件操作接口时，耗时较长的操作，例如：read、write等，建议使用异步接口，避免应用崩溃。
+
+
+
+
+
+##### 开发示例
+
+在对应用文件开始访问前，开发者需要[获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。以从UIAbilityContext获取HAP级别的文件路径为例进行说明，UIAbilityContext的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+
+下面介绍几种常用操作示例。
+
+
+
+##### 新建并读写一个文件
 
 以下示例代码演示了如何新建一个文件并对其读写。
-```text
+
+```ArkTS
 // pages/xxx.ets
 import { fileIo, ReadOptions } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -54,8 +70,7 @@ import { buffer } from '@kit.ArkTS';
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 ```
 
-
-```text
+```ArkTS
 function createFile(context: common.UIAbilityContext): void {
   let filesDir = context.filesDir;
   let file: fileIo.File | null = null;
@@ -92,10 +107,12 @@ function createFile(context: common.UIAbilityContext): void {
 ```
 
 
-## 读取文件内容并写入到另一个文件
+
+##### 读取文件内容并写入到另一个文件
 
 以下示例代码演示了如何从一个文件读写内容到另一个文件。
-```text
+
+```ArkTS
 // pages/xxx.ets
 import { fileIo, ReadOptions, WriteOptions } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -104,8 +121,7 @@ import { common } from '@kit.AbilityKit';
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 ```
 
-
-```text
+```ArkTS
 function readWriteFile(context: common.UIAbilityContext): void {
   let srcFile: fileIo.File | null = null;
   let destFile: fileIo.File | null = null;
@@ -155,15 +171,17 @@ function readWriteFile(context: common.UIAbilityContext): void {
 }
 ```
 
-
-> [!NOTE]
+> [!WARNING]
 > 使用读写接口时，需注意可选项参数offset的设置。对于已存在且读写过的文件，文件偏移指针默认在上次读写操作的终止位置。
 
 
-## 以流的形式读写文件
+
+
+##### 以流的形式读写文件
 
 以下示例代码演示了如何使用流接口读取test.txt的文件内容并写入到destFile.txt文件中。
-```text
+
+```ArkTS
 // pages/xxx.ets
 import { fileIo, ReadOptions } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -172,9 +190,8 @@ import { common } from '@kit.AbilityKit';
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 ```
 
-
-```text
-async function readWriteFileWithStream(context: common.UIAbilityContext): Promise {
+```ArkTS
+async function readWriteFileWithStream(context: common.UIAbilityContext): Promise<void> {
   let filesDir = context.filesDir;
   let inputStream: fileIo.Stream | null = null;
   let outputStream: fileIo.Stream | null = null;
@@ -195,13 +212,40 @@ async function readWriteFileWithStream(context: common.UIAbilityContext): Promis
     let readLen = await inputStream.read(buf, readOptions);
     readSize += readLen;
     while (readLen > 0) {
-      const writeBuf = readLen  [!NOTE]
+      const writeBuf = readLen < bufSize ? buf.slice(0, readLen) : buf;
+      await outputStream.write(writeBuf);
+      readOptions.offset = readSize;
+      readLen = await inputStream.read(buf, readOptions);
+      readSize += readLen;
+    }
+    console.info(`Succeeded in reading and writing file with stream.`);
+  } catch (err) {
+    console.error(`Failed to read and write file with stream. Code: ${err.code}, message: ${err.message}`);
+  } finally {
+    try {
+      if (inputStream) {
+        inputStream.closeSync();
+      }
+      if (outputStream) {
+        outputStream.closeSync();
+      }
+    } catch (closeErr) {
+      console.error(`Failed to close stream`);
+    }
+  }
+}
+```
+
+> [!WARNING]
 > 使用流接口时，需注意流的及时关闭。同时流的异步接口应严格遵循异步接口使用规范，避免同步、异步接口混用。流接口不支持并发读写。
 
 
-## 查看文件列表
 
-     以下示例代码演示了如何查看文件列表。
+
+##### 查看文件列表
+
+以下示例代码演示了如何查看文件列表。
+
 ```text
 import { fileIo, Filter, ListFileOptions } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -210,28 +254,37 @@ import { common } from '@kit.AbilityKit';
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 ```
 
-
-```text
+```ArkTS
 function getListFile(context: common.UIAbilityContext): void {
-let listFileOption: ListFileOptions = {
-recursion: false,
-listNum: 0,
-filter: {
-suffix: ['.png', '.jpg', '.txt'],
-displayName: ['test*'],
-fileSizeOver: 0,
-lastModifiedAfter: new Date(0).getTime()
+  let listFileOption: ListFileOptions = {
+    recursion: false,
+    listNum: 0,
+    filter: {
+      suffix: ['.png', '.jpg', '.txt'],
+      displayName: ['test*'],
+      fileSizeOver: 0,
+      lastModifiedAfter: new Date(0).getTime()
+    }
+  };
+  let filesDir = context.filesDir;
+  try {
+    let files = fileIo.listFileSync(filesDir, listFileOption);
+    for (let i = 0; i < files.length; i++) {
+      console.info(`Succeeded in listing file, The name of file: ${files[i]}`);
+    }
+  } catch (err) {
+    console.error(`Failed to list file. Code: ${err.code}, message: ${err.message}`);
+  }
 }
-};
-let filesDir = context.filesDir;
-try {
-let files = fileIo.listFileSync(filesDir, listFileOption);
-for (let i = 0; i
+```
 
-## 使用文件流
+
+
+##### 使用文件流
 
 以下示例代码演示了如何使用文件可读流，文件可写流。
-```text
+
+```ArkTS
 // pages/xxx.ets
 import { fileIo } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -240,8 +293,7 @@ import { common } from '@kit.AbilityKit';
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 ```
 
-
-```text
+```ArkTS
 function copyFileWithReadable(context: common.UIAbilityContext): void {
   try {
     let filesDir = context.filesDir;
@@ -274,8 +326,7 @@ function copyFileWithReadable(context: common.UIAbilityContext): void {
 }
 ```
 
-
-```text
+```ArkTS
 function copyFileWithData(context: common.UIAbilityContext): void {
   let filesDir = context.filesDir;
 
@@ -312,10 +363,12 @@ function copyFileWithData(context: common.UIAbilityContext): void {
 ```
 
 
-## 使用文件哈希流
+
+##### 使用文件哈希流
 
 哈希流是一种数据传输和存储技术，可以将任意长度的数据转换为固定长度的哈希值来验证数据的完整性和一致性。以下代码演示了如何使用文件哈希处理接口（[ohos.file.hash](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-hash)）来处理文件哈希流。
-```text
+
+```ArkTS
 // pages/xxx.ets
 import { fileIo } from '@kit.CoreFileKit';
 import { hash } from '@kit.CoreFileKit';
@@ -325,8 +378,7 @@ import { common } from '@kit.AbilityKit';
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 ```
 
-
-```text
+```ArkTS
 function hashFileWithStream(context: common.UIAbilityContext) {
   try {
     let filesDir = context.filesDir;

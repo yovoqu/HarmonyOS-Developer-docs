@@ -7,8 +7,8 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：declare namespace eap 差异内容：declare namespace eap | api/@ohos.net.eap.d.ts |
-| 新增API | NA | 类名：eap； API声明：function regCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback<EapData>): void; 差异内容：function regCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback<EapData>): void; | api/@ohos.net.eap.d.ts |
-| 新增API | NA | 类名：eap； API声明：function unregCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback<EapData>): void; 差异内容：function unregCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback<EapData>): void; | api/@ohos.net.eap.d.ts |
+| 新增API | NA | 类名：eap； API声明：function regCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback&lt;EapData&gt;): void; 差异内容：function regCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback&lt;EapData&gt;): void; | api/@ohos.net.eap.d.ts |
+| 新增API | NA | 类名：eap； API声明：function unregCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback&lt;EapData&gt;): void; 差异内容：function unregCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback&lt;EapData&gt;): void; | api/@ohos.net.eap.d.ts |
 | 新增API | NA | 类名：eap； API声明：function replyCustomEapData(result: CustomResult, data: EapData): void; 差异内容：function replyCustomEapData(result: CustomResult, data: EapData): void; | api/@ohos.net.eap.d.ts |
 | 新增API | NA | 类名：eap； API声明：function startEthEap(netId: number, profile: EthEapProfile): void; 差异内容：function startEthEap(netId: number, profile: EthEapProfile): void; | api/@ohos.net.eap.d.ts |
 | 新增API | NA | 类名：eap； API声明：function logOffEthEap(netId: number): void; 差异内容：function logOffEthEap(netId: number): void; | api/@ohos.net.eap.d.ts |
@@ -55,9 +55,9 @@
 | 新增API | NA | 类名：EthEapProfile； API声明：realm: string; 差异内容：realm: string; | api/@ohos.net.eap.d.ts |
 | 新增API | NA | 类名：EthEapProfile； API声明：plmn: string; 差异内容：plmn: string; | api/@ohos.net.eap.d.ts |
 | 新增API | NA | 类名：EthEapProfile； API声明：eapSubId: number; 差异内容：eapSubId: number; | api/@ohos.net.eap.d.ts |
-| 新增API | NA | 类名：connection； API声明：function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise<void>; 差异内容：function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise<void>; | api/@ohos.net.connection.d.ts |
+| 新增API | NA | 类名：connection； API声明：function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise&lt;void&gt;; 差异内容：function setNetExtAttribute(netHandle: NetHandle, netExtAttribute: string): Promise&lt;void&gt;; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：connection； API声明：function setNetExtAttributeSync(netHandle: NetHandle, netExtAttribute: string): void; 差异内容：function setNetExtAttributeSync(netHandle: NetHandle, netExtAttribute: string): void; | api/@ohos.net.connection.d.ts |
-| 新增API | NA | 类名：connection； API声明：function getNetExtAttribute(netHandle: NetHandle): Promise<string>; 差异内容：function getNetExtAttribute(netHandle: NetHandle): Promise<string>; | api/@ohos.net.connection.d.ts |
+| 新增API | NA | 类名：connection； API声明：function getNetExtAttribute(netHandle: NetHandle): Promise&lt;string&gt;; 差异内容：function getNetExtAttribute(netHandle: NetHandle): Promise&lt;string&gt;; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：connection； API声明：function getNetExtAttributeSync(netHandle: NetHandle): string; 差异内容：function getNetExtAttributeSync(netHandle: NetHandle): string; | api/@ohos.net.connection.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@ohos.net.eap.d.ts 差异内容：NetworkKit | api/@ohos.net.eap.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：WebSocketRequestOptions； API声明：skipServerCertVerification?: boolean; 差异内容：skipServerCertVerification?: boolean; | api/@ohos.net.webSocket.d.ts |

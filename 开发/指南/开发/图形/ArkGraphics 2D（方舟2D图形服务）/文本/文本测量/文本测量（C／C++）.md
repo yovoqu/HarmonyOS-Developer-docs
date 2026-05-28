@@ -1,18 +1,25 @@
 # 文本测量（C/C++）
 
-更新时间：2026-05-20 08:28:51
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-c
 
-#### 场景介绍
-文本测量指的是在图形绘制中，对文本的尺寸和布局进行评估，计算文本在给定字体和样式下占用的空间（例如宽度、高度和其他相关信息）的过程。文本测量用于文本排版、布局、渲染以及调整文本显示的位置和大小等场景，便于更精准地控制与调整界面的布局和呈现，以达到设计预期。
-当前主要支持以下方面的文本测量能力：
-- 文本宽度：测量给定文本在特定字体、大小和样式下的水平长度。
-- 文本高度：测量给定文本的垂直高度，通常涉及字体的上升线、下降线等。
-- 行间距：测量多行文本之间的垂直距离，通常与字体的行距相关。
-- 字符间距：测量单个字符之间的水平距离，通常与字形和字体设计有关。
+##### 场景介绍
 
-#### 接口说明
+文本测量指的是在图形绘制中，对文本的尺寸和布局进行评估，计算文本在给定字体和样式下占用的空间（例如宽度、高度和其他相关信息）的过程。文本测量用于文本排版、布局、渲染以及调整文本显示的位置和大小等场景，便于更精准地控制与调整界面的布局和呈现，以达到设计预期。
+
+当前主要支持以下方面的文本测量能力：
+
+ - **文本宽度**：测量给定文本在特定字体、大小和样式下的水平长度。
+ - **文本高度**：测量给定文本的垂直高度，通常涉及字体的上升线、下降线等。
+ - **行间距**：测量多行文本之间的垂直距离，通常与字体的行距相关。
+ - **字符间距**：测量单个字符之间的水平距离，通常与字形和字体设计有关。
+
+
+
+
+##### 接口说明
+
 文本测量中常用接口如下表所示，详细接口说明参考[drawing_text_typography.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h)。
 
 | 接口名 | 描述 |
@@ -23,13 +30,32 @@
 | OH_Drawing_LineMetrics* OH_Drawing_TypographyGetLineMetrics (OH_Drawing_Typography* ) | 获取段落行的度量信息。包含行的高度、宽度、起始坐标等信息。 |
 | double OH_Drawing_TextStyleGetLetterSpacing (OH_Drawing_TextStyle *) | 获取文本的字符间距。 |
 
-#### 开发步骤
-1. 在工程的src/main/cpp/CMakeLists.txt文件中添加以下lib。 libnative_drawing.so
-2. 导入依赖的相关头文件。 #include <native_drawing/drawing_font_collection.h>
 
+
+
+##### 开发步骤
+1. 在工程的src/main/cpp/CMakeLists.txt文件中添加以下lib。
+
+  
+```text
+libnative_drawing.so
+```
+
+2. 导入依赖的相关头文件。
+
+  
+```cpp
+#include <native_drawing/drawing_font_collection.h>
 #include <native_drawing/drawing_text_typography.h>
 #include <native_drawing/drawing_text_declaration.h>
-3. 创建段落生成器ParagraphBuilder，并设置段落样式。 // 创建文本样式，设置文本颜色为黑色并设置字体大小为50
+```
+
+3. 创建段落生成器ParagraphBuilder，并设置段落样式。
+
+  
+```cpp
+// 创建文本样式，设置文本颜色为黑色并设置字体大小为50
+OH_Drawing_TextStyle *myTextStyle = OH_Drawing_CreateTextStyle();
 OH_Drawing_SetTextStyleColor(myTextStyle, OH_Drawing_ColorSetArgb(0xFF, 0x00, 0x00, 0x00));
 OH_Drawing_SetTextStyleFontSize(myTextStyle, 50.0);
 // 创建一个段落样式对象，以设置排版风格
@@ -45,9 +71,21 @@ const char *text = "排版测量的文字度量信息";
 OH_Drawing_TypographyHandlerAddText(handler, text);
 // 通过段落生成器生成段落
 OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
-4. 调用排版接口并设置段落排版宽度，对段落进行塑型排版。 // 对段落进行塑形排版，设置排版宽度为maxWidth
+```
+
+4. 调用排版接口并设置段落排版宽度，对段落进行塑型排版。
+
+  
+```cpp
+// 对段落进行塑形排版，设置排版宽度为maxWidth
 OH_Drawing_TypographyLayout(typography, maxWidth);
-5. 调用段落测量信息获取接口，获取指定数据。 // case1: 获取排版后最长行行宽
+```
+
+5. 调用段落测量信息获取接口，获取指定数据。
+
+  
+```cpp
+// case1: 获取排版后最长行行宽
 double longestLine = OH_Drawing_TypographyGetLongestLine(typography);
 DRAWING_LOGI("第%{public}d行 longestLine: %{public}f", longestLine);
 
@@ -62,8 +100,8 @@ for (int i = 0; i < lineMetricsSize; ++i) {
 // lineMetrics为经过排版测量的文字度量信息
 double curLineAscender = -lineMetrics[i].ascender;
 double curLineWidth = lineMetrics[i].width;
- DRAWING_LOGI("第%{public}d行 lineMetrics ascender: %{public}f", i + 1, curLineAscender);
- DRAWING_LOGI("第%{public}d行 lineMetrics width: %{public}f", i + 1, curLineWidth);
+    DRAWING_LOGI("第%{public}d行 lineMetrics ascender: %{public}f", i + 1, curLineAscender);
+    DRAWING_LOGI("第%{public}d行 lineMetrics width: %{public}f", i + 1, curLineWidth);
 }
 
 // case4:获取段落最长行宽度与带缩进最长行行宽
@@ -78,3 +116,4 @@ DRAWING_LOGI("result: %{public}zu, fontMetrics ascent: %{public}f" , result, fon
 OH_Drawing_LineMetrics lineMetric;
 OH_Drawing_TypographyGetLineMetricsAt(typography, 0, &lineMetric);
 DRAWING_LOGI("第1行 lineMetrics ascender: %{public}f", -lineMetric.ascender);
+```

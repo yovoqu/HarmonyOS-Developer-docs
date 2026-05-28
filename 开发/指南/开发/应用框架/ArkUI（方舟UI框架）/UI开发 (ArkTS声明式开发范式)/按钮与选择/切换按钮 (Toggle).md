@@ -1,35 +1,53 @@
 # 切换按钮 (Toggle)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-switch
 
 Toggle组件提供状态按钮样式、勾选框样式和开关样式，一般用于两种状态之间的切换。具体用法请参考[Toggle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle)。
 
 
-## 创建切换按钮
+##### 创建切换按钮
 
 Toggle通过调用[ToggleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#toggleoptions18对象说明)来创建，具体调用形式如下：
+
 ```text
 Toggle(options: { type: ToggleType, isOn?: boolean })
 ```
 
-其中，ToggleType为开关类型，包括Button、Checkbox和Switch，isOn为切换按钮的状态。 API version 11开始，Checkbox默认样式由圆角方形变为圆形。 接口调用有以下两种形式： 创建不包含子组件的Toggle。 当ToggleType为Checkbox或者Switch时，用于创建不包含子组件的Toggle：
-```text
+其中，ToggleType为开关类型，包括Button、Checkbox和Switch，isOn为切换按钮的状态。
+
+API version 11开始，Checkbox默认样式由圆角方形变为圆形。
+
+接口调用有以下两种形式：
+
+ - 创建不包含子组件的Toggle。
+
+  当ToggleType为Checkbox或者Switch时，用于创建不包含子组件的Toggle：
+
+  
+```ArkTS
 Toggle({ type: ToggleType.Checkbox, isOn: false }).id('toggle1') // 请开发者替换为实际的id
 Toggle({ type: ToggleType.Checkbox, isOn: true }).id('toggle2') // 请开发者替换为实际的id
 ```
 
-![](assets/切换按钮%20(Toggle)
-/file-20260514130633711-0.png)
-```text
+![](assets/切换按钮%20(Toggle)/file-20260514130633711-0.png)
+
+
+  
+```ArkTS
 Toggle({ type: ToggleType.Switch, isOn: false }).id('toggle3') // 请开发者替换为实际的id
 Toggle({ type: ToggleType.Switch, isOn: true }).id('toggle4') // 请开发者替换为实际的id
 ```
 
-![](assets/切换按钮%20(Toggle)
-/file-20260514130633711-1.png) 创建包含子组件的Toggle。 当ToggleType为Button时，只能包含一个子组件，如果子组件有文本设置，则相应的文本内容会显示在按钮上。
-```text
+![](assets/切换按钮%20(Toggle)/file-20260514130633711-1.png)
+
+ - 创建包含子组件的Toggle。
+
+  当ToggleType为Button时，只能包含一个子组件，如果子组件有文本设置，则相应的文本内容会显示在按钮上。
+
+  
+```ArkTS
 Toggle({ type: ToggleType.Button, isOn: false }) {
   Text('status button')
     .fontColor('#182431')
@@ -43,13 +61,18 @@ Toggle({ type: ToggleType.Button, isOn: true }) {
 }.width(100).id('toggle6') // 请开发者替换为实际的id
 ```
 
-![](assets/切换按钮%20(Toggle)
-/file-20260514130633711-2.png)
+![](assets/切换按钮%20(Toggle)/file-20260514130633711-2.png)
 
-## 自定义样式
 
-通过selectedColor属性设置Toggle打开选中后的背景颜色。
-```text
+
+
+
+##### 自定义样式
+
+ - 通过selectedColor属性设置Toggle打开选中后的背景颜色。
+
+  
+```ArkTS
 Toggle({ type: ToggleType.Button, isOn: true }) {
     Text('status button')
       .fontColor('#182431')
@@ -66,9 +89,12 @@ Toggle({ type: ToggleType.Button, isOn: true }) {
     // ···
 ```
 
-![](assets/切换按钮%20(Toggle)
-/file-20260514130633711-3.png) 通过switchPointColor属性设置Switch类型的圆形滑块颜色，仅对type为ToggleType.Switch生效。
-```text
+![](assets/切换按钮%20(Toggle)/file-20260514130633711-3.png)
+
+ - 通过switchPointColor属性设置Switch类型的圆形滑块颜色，仅对type为ToggleType.Switch生效。
+
+  
+```ArkTS
 Toggle({ type: ToggleType.Switch, isOn: false })
   .switchPointColor(Color.Pink)
   // ···
@@ -77,13 +103,17 @@ Toggle({ type: ToggleType.Switch, isOn: true })
   // ···
 ```
 
-![](assets/切换按钮%20(Toggle)
-/file-20260514130633711-4.png)
+![](assets/切换按钮%20(Toggle)/file-20260514130633711-4.png)
 
-## 添加事件
+
+
+
+
+##### 添加事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，Toggle还用于选中和取消选中后触发某些操作，可以绑定onChange事件来响应操作后的自定义行为。
-```text
+
+```ArkTS
 Toggle({ type: ToggleType.Switch, isOn: false })
   .onChange((isOn: boolean) => {
     if(isOn) {
@@ -94,10 +124,12 @@ Toggle({ type: ToggleType.Switch, isOn: false })
 ```
 
 
-## 场景示例
+
+##### 场景示例
 
 Toggle用于切换蓝牙开关状态。
-```text
+
+```ArkTS
 // xxx.ets
 import { promptAction } from '@kit.ArkUI';
 
@@ -146,5 +178,5 @@ export struct ToggleSample {
 }
 ```
 
-![](assets/切换按钮%20(Toggle)
-/file-20260514130633711-5.gif)
+
+![](assets/切换按钮%20(Toggle)/file-20260514130633711-5.gif)

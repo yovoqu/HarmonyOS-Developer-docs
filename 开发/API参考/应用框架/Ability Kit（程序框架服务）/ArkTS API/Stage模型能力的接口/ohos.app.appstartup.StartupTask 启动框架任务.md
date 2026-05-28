@@ -3,35 +3,32 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-appstartup-startuptask
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供[应用启动框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup)任务的相关能力。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
 ```text
 import { StartupTask } from '@kit.AbilityKit';
 ```
 
 
-## StartupTask
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### StartupTask
 
 该类提供启动任务的相关能力，使用[@Sendable装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable装饰器)装饰。
 
 **装饰器类型**：@Sendable
 
 
-### onDependencyCompleted
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onDependencyCompleted
 
 onDependencyCompleted?(dependency: string, result: Object): void
 
@@ -41,17 +38,15 @@ onDependencyCompleted?(dependency: string, result: Object): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dependency | string | 是 | 依赖的启动任务名称。 |
-| result | Object | 是 | 依赖的启动任务[init](#init)返回的执行结果。 |
+| result | Object | 是 | 依赖的启动任务init返回的执行结果。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { StartupTask, common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -66,21 +61,16 @@ export default class StartupTask_001 extends StartupTask {
   }
 
   onDependencyCompleted(dependency: string, result: Object): void {
-    hilog.info(
-      0x0000,
-      'testTag',
-      'StartupTask_001 onDependencyCompleted, dependency: %{public}s, result: %{public}s',
-      dependency,
-      JSON.stringify(result),
-    );
+    hilog.info(0x0000, 'testTag', 'StartupTask_001 onDependencyCompleted, dependency: %{public}s, result: %{public}s',
+      dependency, JSON.stringify(result));
     // ...
   }
 }
 ```
 
 
-### init
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### init
 
 init(context: AbilityStageContext): Promise<Object | void>
 
@@ -90,24 +80,21 @@ init(context: AbilityStageContext): Promise<Object | void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext) | 是 | [AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)的上下文环境 |
+| context | AbilityStageContext | 是 | AbilityStage的上下文环境 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Object \| void&gt; | Promise对象，返回启动任务执行结果对象。 |
+| Promise<Object \| void> | Promise对象，返回启动任务执行结果对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { StartupTask, common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -119,8 +106,8 @@ export default class StartupTask_001 extends StartupTask {
   async init(context: common.AbilityStageContext) {
     hilog.info(0x0000, 'testTag', 'StartupTask_001 init.');
     // ...
-
-    return 'StartupTask_001';
+    
+    return "StartupTask_001";
   }
 
   onDependencyCompleted(dependency: string, result: Object): void {

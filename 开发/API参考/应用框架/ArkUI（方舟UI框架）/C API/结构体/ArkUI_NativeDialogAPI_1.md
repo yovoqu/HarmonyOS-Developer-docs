@@ -3,16 +3,14 @@
 更新时间：2026-03-12 02:57:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialogapi-1
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct {...} ArkUI_NativeDialogAPI_1
 ```
 
 
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 ArkUI提供的Native侧自定义弹窗接口集合。
 
@@ -23,43 +21,42 @@ ArkUI提供的Native侧自定义弹窗接口集合。
 **所在头文件：** [native_dialog.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-dialog-h)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 成员函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 成员函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle (*create)()](#create) | 创建自定义弹窗并返回指向自定义弹窗的指针。 |
-| [void (*dispose)(ArkUI_NativeDialogHandle handle)](#dispose) | 销毁自定义弹窗。 |
-| [int32_t (*setContent)(ArkUI_NativeDialogHandle handle, ArkUI_NodeHandle content)](#setcontent) | 挂载自定义弹窗内容。 |
-| [int32_t (*removeContent)(ArkUI_NativeDialogHandle handle)](#removecontent) | 卸载自定义弹窗内容。 |
-| [int32_t (*setContentAlignment)(ArkUI_NativeDialogHandle handle, int32_t alignment, float offsetX, float offsetY)](#setcontentalignment) | 设置自定义弹窗对齐方式。 |
-| [int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle)](#resetcontentalignment) | 重置setContentAlignment方法设置的属性，使用系统默认的对齐方式。 |
-| [int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal)](#setmodalmode) | 设置自定义弹窗是否开启模态样式的弹窗。 |
-| [int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel)](#setautocancel) | 设置自定义弹窗是否允许通过点击遮罩层退出。 |
-| [int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const ArkUI_Rect* maskRect)](#setmask) | 设置自定义弹窗遮罩属性。 |
-| [int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgroundColor)](#setbackgroundcolor) | 设置弹窗背景色。 |
-| [int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float topRight,float bottomLeft, float bottomRight)](#setcornerradius) | 设置弹窗背板圆角半径。 |
-| [int32_t (*setGridColumnCount)(ArkUI_NativeDialogHandle handle, int32_t gridCount)](#setgridcolumncount) | 设置弹窗宽度占栅格宽度的个数。 |
-| [int32_t (*enableCustomStyle)(ArkUI_NativeDialogHandle handle, bool enableCustomStyle)](#enablecustomstyle) | 弹窗容器样式是否可以自定义。 |
-| [int32_t (*enableCustomAnimation)(ArkUI_NativeDialogHandle handle, bool enableCustomAnimation)](#enablecustomanimation) | 弹窗容器是否使用自定义弹窗动画。 |
-| [int32_t (*registerOnWillDismiss)(ArkUI_NativeDialogHandle handle, ArkUI_OnWillDismissEvent eventHandler)](#registeronwilldismiss) | 当触发系统定义的返回操作、键盘ESC关闭交互操作时，如果注册了该回调函数，弹窗不会立即关闭，而是由用户决定是否关闭。 |
-| [int32_t (*show)(ArkUI_NativeDialogHandle handle, bool showInSubWindow)](#show) | 显示自定义弹窗。 |
-| [int32_t (*close)(ArkUI_NativeDialogHandle handle)](#close) | 关闭自定义弹窗，如已关闭，则不生效。该接口后台执行是异步的，在关闭动画执行完成后弹窗节点才会下树。如需关闭后再次打开弹窗，请在延迟300ms以后再执行。 |
-| [int32_t (*registerOnWillDismissWithUserData)(ArkUI_NativeDialogHandle handle, void* userData, void (*callback)(ArkUI_DialogDismissEvent* event))](#registeronwilldismisswithuserdata) | 注册系统关闭自定义弹窗的监听事件。 |
+| ArkUI_NativeDialogHandle (*create)() | 创建自定义弹窗并返回指向自定义弹窗的指针。 |
+| void (*dispose)(ArkUI_NativeDialogHandle handle) | 销毁自定义弹窗。 |
+| int32_t (*setContent)(ArkUI_NativeDialogHandle handle, ArkUI_NodeHandle content) | 挂载自定义弹窗内容。 |
+| int32_t (*removeContent)(ArkUI_NativeDialogHandle handle) | 卸载自定义弹窗内容。 |
+| int32_t (*setContentAlignment)(ArkUI_NativeDialogHandle handle, int32_t alignment, float offsetX, float offsetY) | 设置自定义弹窗对齐方式。 |
+| int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle) | 重置setContentAlignment方法设置的属性，使用系统默认的对齐方式。 |
+| int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal) | 设置自定义弹窗是否开启模态样式的弹窗。 |
+| int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel) | 设置自定义弹窗是否允许通过点击遮罩层退出。 |
+| int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const ArkUI_Rect* maskRect) | 设置自定义弹窗遮罩属性。 |
+| int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgroundColor) | 设置弹窗背景色。 |
+| int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float topRight,float bottomLeft, float bottomRight) | 设置弹窗背板圆角半径。 |
+| int32_t (*setGridColumnCount)(ArkUI_NativeDialogHandle handle, int32_t gridCount) | 设置弹窗宽度占栅格宽度的个数。 |
+| int32_t (*enableCustomStyle)(ArkUI_NativeDialogHandle handle, bool enableCustomStyle) | 弹窗容器样式是否可以自定义。 |
+| int32_t (*enableCustomAnimation)(ArkUI_NativeDialogHandle handle, bool enableCustomAnimation) | 弹窗容器是否使用自定义弹窗动画。 |
+| int32_t (*registerOnWillDismiss)(ArkUI_NativeDialogHandle handle, ArkUI_OnWillDismissEvent eventHandler) | 当触发系统定义的返回操作、键盘ESC关闭交互操作时，如果注册了该回调函数，弹窗不会立即关闭，而是由用户决定是否关闭。 |
+| int32_t (*show)(ArkUI_NativeDialogHandle handle, bool showInSubWindow) | 显示自定义弹窗。 |
+| int32_t (*close)(ArkUI_NativeDialogHandle handle) | 关闭自定义弹窗，如已关闭，则不生效。该接口后台执行是异步的，在关闭动画执行完成后弹窗节点才会下树。如需关闭后再次打开弹窗，请在延迟300ms以后再执行。 |
+| int32_t (*registerOnWillDismissWithUserData)(ArkUI_NativeDialogHandle handle, void* userData, void (*callback)(ArkUI_DialogDismissEvent* event)) | 注册系统关闭自定义弹窗的监听事件。 |
 
 
-## 成员函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 成员函数说明
 
+
+
+##### create()
 
 ```text
 ArkUI_NativeDialogHandle (*create)()
@@ -69,21 +66,20 @@ ArkUI_NativeDialogHandle (*create)()
 
 创建自定义弹窗并返回指向自定义弹窗的指针。
 
-
 > [!NOTE]
-> create方法需要在调用[show](#show)方法之前调用。
+> create方法需要在调用 show 方法之前调用。
+
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) | 返回指向自定义弹窗的指针，如果创建失败，则返回空指针。 |
+| ArkUI_NativeDialogHandle | 返回指向自定义弹窗的指针，如果创建失败，则返回空指针。 |
 
 
-### dispose()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### dispose()
 
 ```text
 void (*dispose)(ArkUI_NativeDialogHandle handle)
@@ -93,15 +89,14 @@ void (*dispose)(ArkUI_NativeDialogHandle handle)
 
 销毁自定义弹窗。
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 
 
-### setContent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setContent()
 
 ```text
 int32_t (*setContent)(ArkUI_NativeDialogHandle handle, ArkUI_NodeHandle content)
@@ -111,30 +106,28 @@ int32_t (*setContent)(ArkUI_NativeDialogHandle handle, ArkUI_NodeHandle content)
 
 挂载自定义弹窗内容。
 
-
 > [!NOTE]
-> setContent方法需要在调用[show](#show)方法之前调用。
+> setContent方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
-| [ArkUI_NodeHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-node8h) content | 弹窗内容根节点指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NodeHandle content | 弹窗内容根节点指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### removeContent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### removeContent()
 
 ```text
 int32_t (*removeContent)(ArkUI_NativeDialogHandle handle)
@@ -144,29 +137,27 @@ int32_t (*removeContent)(ArkUI_NativeDialogHandle handle)
 
 卸载自定义弹窗内容。
 
-
 > [!NOTE]
-> removeContent方法需要在调用[show](#show)方法之前调用。
+> removeContent方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### setContentAlignment()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setContentAlignment()
 
 ```text
 int32_t (*setContentAlignment)(ArkUI_NativeDialogHandle handle, int32_t alignment, float offsetX, float offsetY)
@@ -176,32 +167,30 @@ int32_t (*setContentAlignment)(ArkUI_NativeDialogHandle handle, int32_t alignmen
 
 设置自定义弹窗对齐方式。
 
-
 > [!NOTE]
-> setContentAlignment方法需要在调用[show](#show)方法之前调用。
+> setContentAlignment方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
-| int32_t alignment | 对齐方式，参数类型[ArkUI_Alignment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_alignment)。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
+| int32_t alignment | 对齐方式，参数类型ArkUI_Alignment。 |
 | float offsetX | 弹窗的水平偏移量，浮点型，单位：vp。 |
 | float offsetY | 弹窗的垂直偏移量，浮点型，单位：vp。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### resetContentAlignment()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### resetContentAlignment()
 
 ```text
 int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle)
@@ -211,29 +200,27 @@ int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle)
 
 重置setContentAlignment方法设置的属性，使用系统默认的对齐方式，默认值：ARKUI_ALIGNMENT_TOP_START，参考[ArkUI_Alignment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_alignment)。
 
-
 > [!NOTE]
-> resetContentAlignment方法需要在调用[show](#show)方法之前调用。
+> resetContentAlignment方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### setModalMode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setModalMode()
 
 ```text
 int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal)
@@ -243,30 +230,28 @@ int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal)
 
 设置自定义弹窗是否开启模态样式的弹窗。
 
-
 > [!NOTE]
-> setModalMode方法需要在调用[show](#show)方法之前调用。
+> setModalMode方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | bool isModal | 设置是否开启模态窗口，模态窗口有蒙层，非模态窗口无蒙层。为true时开启模态窗口，为false时不开启模态窗口。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### setAutoCancel()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setAutoCancel()
 
 ```text
 int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel)
@@ -276,30 +261,28 @@ int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel)
 
 设置自定义弹窗是否允许通过点击遮罩层退出。
 
-
 > [!NOTE]
-> setAutoCancel方法需要在调用[show](#show)方法之前调用。
+> setAutoCancel方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | bool autoCancel | 设置是否允许通过点击遮罩层退出，true表示关闭弹窗，false表示不关闭弹窗。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### setMask()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setMask()
 
 ```text
 int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const ArkUI_Rect* maskRect)
@@ -309,31 +292,29 @@ int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const Ar
 
 设置自定义弹窗遮罩属性。
 
-
 > [!NOTE]
-> setMask方法需要在调用[show](#show)方法之前调用。
+> setMask方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | uint32_t maskColor | 设置遮罩颜色，0xargb格式。 |
-| const [ArkUI_Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-rect)* maskRect | 遮蔽层区域范围的指针，遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。参数类型[ArkUI_Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-rect)。 |
+| const ArkUI_Rect* maskRect | 遮蔽层区域范围的指针，遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。参数类型ArkUI_Rect。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### setBackgroundColor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setBackgroundColor()
 
 ```text
 int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgroundColor)
@@ -343,30 +324,28 @@ int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgrou
 
 设置弹窗背景色。
 
-
 > [!NOTE]
-> setBackgroundColor方法需要在调用[show](#show)方法之前调用。
+> setBackgroundColor方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | uint32_t backgroundColor | 设置弹窗背景颜色，0xargb格式。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### setCornerRadius()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setCornerRadius()
 
 ```text
 int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float topRight,float bottomLeft, float bottomRight)
@@ -376,16 +355,15 @@ int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float
 
 设置弹窗背板圆角半径。
 
-
 > [!NOTE]
-> setCornerRadius方法需要在调用[show](#show)方法之前调用。
+> setCornerRadius方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | float topLeft | 设置弹窗背板左上角圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
 | float topRight | 设置弹窗背板右上角圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
 | float bottomLeft | 设置弹窗背板左下圆角半径，单位：vp。默认值：从API version 12开始，为32vp。API version 11及之前版本，为24vp。 |
@@ -394,15 +372,14 @@ int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### setGridColumnCount()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### setGridColumnCount()
 
 ```text
 int32_t (*setGridColumnCount)(ArkUI_NativeDialogHandle handle, int32_t gridCount)
@@ -412,30 +389,28 @@ int32_t (*setGridColumnCount)(ArkUI_NativeDialogHandle handle, int32_t gridCount
 
 设置弹窗宽度占栅格宽度的个数。
 
-
 > [!NOTE]
-> setGridColumnCount方法需要在调用[show](#show)方法之前调用。
+> setGridColumnCount方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
-| int32_t gridCount | 默认为按照窗口大小自适应，最大栅格数为[系统最大栅格数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#布局的总列数)。          取值范围：大于等于0的整数。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
+| int32_t gridCount | 默认为按照窗口大小自适应，最大栅格数为系统最大栅格数。 取值范围：大于等于0的整数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### enableCustomStyle()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### enableCustomStyle()
 
 ```text
 int32_t (*enableCustomStyle)(ArkUI_NativeDialogHandle handle, bool enableCustomStyle)
@@ -445,30 +420,28 @@ int32_t (*enableCustomStyle)(ArkUI_NativeDialogHandle handle, bool enableCustomS
 
 弹窗容器样式是否可以自定义。
 
-
 > [!NOTE]
-> enableCustomStyle方法需要在调用[show](#show)方法之前调用。
+> enableCustomStyle方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
-| bool enableCustomStyle | 弹窗容器样式是否可以自定义。          默认值：false          true：弹窗容器样式不能自定义，宽度自适应子节点，圆角为0，弹窗背景色透明；false：弹窗容器样式可以自定义，高度自适应子节点，宽度由栅格系统定义，圆角半径24vp，PC/2in1设备避让屏幕边缘以及窗口标题栏。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
+| bool enableCustomStyle | 弹窗容器样式是否可以自定义。 默认值：false true：弹窗容器样式不能自定义，宽度自适应子节点，圆角为0，弹窗背景色透明；false：弹窗容器样式可以自定义，高度自适应子节点，宽度由栅格系统定义，圆角半径24vp，PC/2in1设备避让屏幕边缘以及窗口标题栏。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### enableCustomAnimation()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### enableCustomAnimation()
 
 ```text
 int32_t (*enableCustomAnimation)(ArkUI_NativeDialogHandle handle, bool enableCustomAnimation)
@@ -478,30 +451,28 @@ int32_t (*enableCustomAnimation)(ArkUI_NativeDialogHandle handle, bool enableCus
 
 弹窗容器是否使用自定义弹窗动画。
 
-
 > [!NOTE]
-> enableCustomAnimation方法需要在调用[show](#show)方法之前调用。
+> enableCustomAnimation方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | bool enableCustomAnimation | true:使用自定义动画，关闭系统默认动画；false:使用系统默认动画。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### registerOnWillDismiss()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### registerOnWillDismiss()
 
 ```text
 int32_t (*registerOnWillDismiss)(ArkUI_NativeDialogHandle handle, ArkUI_OnWillDismissEvent eventHandler)
@@ -511,30 +482,28 @@ int32_t (*registerOnWillDismiss)(ArkUI_NativeDialogHandle handle, ArkUI_OnWillDi
 
 当触发系统定义的返回操作、键盘ESC关闭交互操作时，如果注册了该回调函数，弹窗不会立即关闭，而是由用户决定是否关闭。
 
-
 > [!NOTE]
-> registerOnWillDismiss方法需要在调用[show](#show)方法之前调用。
+> registerOnWillDismiss方法需要在调用 show 方法之前调用。
+
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
-| [ArkUI_OnWillDismissEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-dialog-h#arkui_onwilldismissevent) eventHandler | 弹窗关闭的回调函数。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_OnWillDismissEvent eventHandler | 弹窗关闭的回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### show()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### show()
 
 ```text
 int32_t (*show)(ArkUI_NativeDialogHandle handle, bool showInSubWindow)
@@ -546,24 +515,22 @@ int32_t (*show)(ArkUI_NativeDialogHandle handle, bool showInSubWindow)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | bool showInSubWindow | 是否在子窗口显示弹窗。true表示在子窗显示弹窗。false表示不在子窗显示弹窗。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### close()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### close()
 
 ```text
 int32_t (*close)(ArkUI_NativeDialogHandle handle)
@@ -575,23 +542,21 @@ int32_t (*close)(ArkUI_NativeDialogHandle handle)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。此时仅表示关闭指令下发成功，不代表弹窗完全关闭。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。此时仅表示关闭指令下发成功，不代表弹窗完全关闭。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
 
 
-### registerOnWillDismissWithUserData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### registerOnWillDismissWithUserData()
 
 ```text
 int32_t (*registerOnWillDismissWithUserData)(ArkUI_NativeDialogHandle handle, void* userData, void (*callback)(ArkUI_DialogDismissEvent* event))
@@ -603,17 +568,15 @@ int32_t (*registerOnWillDismissWithUserData)(ArkUI_NativeDialogHandle handle, vo
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NativeDialogHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativedialog8h) handle | 指向自定义弹窗控制器的指针。 |
+| ArkUI_NativeDialogHandle handle | 指向自定义弹窗控制器的指针。 |
 | void* userData | 用户自定义数据指针。 |
-| callback | 监听自定义弹窗关闭的回调事件。          - event: 回调函数的入参，捕获关闭原因。 |
+| callback | 监听自定义弹窗关闭的回调事件。 - event: 回调函数的入参，捕获关闭原因。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。          [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。          [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |

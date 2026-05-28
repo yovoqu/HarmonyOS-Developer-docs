@@ -5,14 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-js-code-cache-by-precompile-check
 
 建议通过预编译生成JavaScript字节码缓存，可以降低Web页面第一次和第二次的加载时间。
+ 
+[Web完成时延](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section563844632917)场景下，建议优先修改。
+ 
 
- [Web完成时延](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization#section563844632917)场景下，建议优先修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -20,14 +19,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -40,7 +41,7 @@ interface Config {
 @Component
 struct JsCodeCacheByPrecompileCheckNoReport {
   controller: webview.WebviewController = new webview.WebviewController();
-  configs: Array = [
+  configs: Array<Config> = [
     {
       url: 'https://www.example.com/example.js',
       localPath: 'example.js',
@@ -74,10 +75,10 @@ struct JsCodeCacheByPrecompileCheckNoReport {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -107,13 +108,13 @@ struct JsCodeCacheByPrecompileCheckReport {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/all
+<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

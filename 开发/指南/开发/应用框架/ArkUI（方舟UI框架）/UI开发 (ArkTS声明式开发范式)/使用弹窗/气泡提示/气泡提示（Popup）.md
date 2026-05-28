@@ -1,6 +1,6 @@
 # 气泡提示（Popup）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-popup
 
@@ -13,10 +13,13 @@ Popup属性可绑定在组件上显示气泡弹窗提示，设置弹窗内容、
 多个气泡同时弹出时，子窗内显示的气泡比主窗内显示的气泡层级高，所处窗口相同时，后面弹出的气泡层级比先弹出的气泡层级高。
 
 
-## 文本提示气泡
+##### 文本提示气泡
 
-文本提示气泡常用于展示带有文本的信息提示，适用于无交互的场景。Popup属性需绑定组件，当bindPopup属性的参数show为true时，会弹出气泡提示。 在Button组件上绑定Popup属性，每次点击Button按钮时，handlePopup会切换布尔值。当值为true时，触发bindPopup弹出气泡。
-```text
+文本提示气泡常用于展示带有文本的信息提示，适用于无交互的场景。Popup属性需绑定组件，当bindPopup属性的参数show为true时，会弹出气泡提示。
+
+在Button组件上绑定Popup属性，每次点击Button按钮时，handlePopup会切换布尔值。当值为true时，触发bindPopup弹出气泡。
+
+```ArkTS
 @Entry
 @Component
 export struct TextPopupExample {
@@ -41,12 +44,17 @@ export struct TextPopupExample {
 }
 ```
 
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-0.png)
 
-## 添加气泡状态变化的事件
+
+
+
+##### 添加气泡状态变化的事件
 
 通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的onStateChange属性为气泡添加状态变化的事件回调，可以判断气泡的当前显示状态。
-```text
+
+```ArkTS
 @Entry
 @Component
 export struct StatePopupExample {
@@ -76,12 +84,17 @@ export struct StatePopupExample {
 }
 ```
 
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-1.gif)
 
-## 带按钮的提示气泡
+
+
+
+##### 带按钮的提示气泡
 
 通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的primaryButton、secondaryButton属性为气泡最多设置两个Button按钮，通过此按钮进行简单的交互，开发者可以通过配置action参数来设置想要触发的操作。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Entry
@@ -125,12 +138,17 @@ export struct ButtonPopupExample {
 }
 ```
 
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-2.jpeg)
 
-## 气泡的动画
+
+
+
+##### 气泡的动画
 
 通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)或[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)中的transition属性，可以控制气泡的进场和出场动画效果。
-```text
+
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -198,12 +216,17 @@ export struct AnimationPopupExample {
 }
 ```
 
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-3.gif)
 
-## 自定义气泡
+
+
+
+##### 自定义气泡
 
 开发者可以使用[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)的builder创建自定义气泡，@Builder中可以放自定义的内容。除此之外，还可以通过popupColor等参数控制气泡样式。
-```text
+
+```ArkTS
 // 请将$r('app.media.xxx')替换为实际资源文件
 @Entry
 @Component
@@ -248,12 +271,28 @@ export struct CustomPopupExample {
 ```
 
 使用者通过配置placement参数将弹出的气泡放到需要提示的位置。弹窗构造器会触发弹出提示信息，来引导使用者完成操作，也让使用者有更好的UI体验。
+
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-4.jpeg)
 
-## 气泡样式
 
-气泡除了可以通过builder实现自定义气泡，还可以通过接口设置气泡的样式和显示效果。 背景颜色：气泡的背景色默认为透明，但是会有一个默认的模糊效果，手机上为COMPONENT_ULTRA_THICK。 蒙层样式：气泡默认有蒙层，且蒙层的颜色为透明。 显示大小：气泡大小由内部的builder大小或者message的长度决定的。 显示位置：气泡默认显示在宿主组件的下方，可以通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的Placement属性来配置其显示位置以及对齐方向。 以下示例通过设置[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的popupColor（背景颜色）、mask（蒙层样式）、width（气泡宽度）、placement（显示位置）实现气泡的样式。
-```text
+
+
+##### 气泡样式
+
+气泡除了可以通过builder实现自定义气泡，还可以通过接口设置气泡的样式和显示效果。
+
+背景颜色：气泡的背景色默认为透明，但是会有一个默认的模糊效果，手机上为COMPONENT_ULTRA_THICK。
+
+蒙层样式：气泡默认有蒙层，且蒙层的颜色为透明。
+
+显示大小：气泡大小由内部的builder大小或者message的长度决定的。
+
+显示位置：气泡默认显示在宿主组件的下方，可以通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的Placement属性来配置其显示位置以及对齐方向。
+
+以下示例通过设置[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的popupColor（背景颜色）、mask（蒙层样式）、width（气泡宽度）、placement（显示位置）实现气泡的样式。
+
+```ArkTS
 // xxx.ets
 
 @Entry
@@ -286,12 +325,17 @@ export struct StylePopupExample {
 }
 ```
 
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-5.gif)
 
-## 气泡避让软键盘
+
+
+
+##### 气泡避让软键盘
 
 当软键盘弹出时，气泡默认不会对其避让，可能导致气泡被软键盘覆盖，从API version 15开始，可以设置[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)中keyboardAvoidMode属性的值为KeyboardAvoidMode.DEFAULT，来使气泡避让键盘。这时如果当前没有位置放下气泡时，气泡会从预设位置平移覆盖宿主组件。
-```text
+
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -333,12 +377,17 @@ export struct AvoidSoftKeyboardPopupExample {
 }
 ```
 
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-6.gif)
 
-## 设置气泡内的多态效果
+
+
+
+##### 设置气泡内的多态效果
 
 目前使用@Builder自定义气泡内容时，默认不支持多态样式，可以使用@Component新建一个组件实现按下气泡中的内容时背景变色。
-```text
+
+```ArkTS
 // 请将$r('app.media.xxx')替换为实际资源文件
 @Entry
 @Component
@@ -350,7 +399,7 @@ export struct PolymorphicEffectPopupExample {
     this.getUIContext().getHostContext()?.resourceManager.getStringByNameSync('Create_group_chat') as string;
   @State electronicWorkCard: string =
     this.getUIContext().getHostContext()?.resourceManager.getStringByNameSync('Electronic_work_card') as string;
-  private menus: Array = [this.scan, this.createGroupChat, this.electronicWorkCard];
+  private menus: Array<string> = [this.scan, this.createGroupChat, this.electronicWorkCard];
 
   // popup构造器定义弹框内容
   @Builder
@@ -437,16 +486,21 @@ struct PopupItemChild {
 }
 ```
 
+
 ![](assets/气泡提示（Popup）/file-20260514130644727-7.gif)
 
-## 气泡支持避让中轴
+
+
+
+##### 气泡支持避让中轴
 
 从API version 18起，气泡支持中轴避让功能。从API version 20开始，在2in1设备上默认启用（仅在窗口处于瀑布模式时产生避让）。开发者可通过[PopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupoptions类型说明)中的enableHoverMode属性，控制气泡是否启用中轴避让。
+
 > [!NOTE]
 > 如果气泡的点击位置在中轴区域，则气泡不会避让。 2in1设备上需同时满足窗口处于瀑布模式才会产生避让。
 
 
-```text
+```ArkTS
 @Entry
 @Component
 export struct SupportedAvoidAxisPopupExample {
@@ -470,7 +524,7 @@ export struct SupportedAvoidAxisPopupExample {
 
   @State message: string = 'Hello World';
   @State index: number = 0;
-  @State arrayStr: Array = [this.upScreen, this.middleAxle, this.lowerScreen];
+  @State arrayStr: Array<string> = [this.upScreen, this.middleAxle, this.lowerScreen];
   @State enableHoverMode: boolean | undefined = true;
   @State showInSubwindow: boolean = false;
   @State placement: Placement | undefined = undefined;
@@ -482,7 +536,15 @@ export struct SupportedAvoidAxisPopupExample {
         Column() {
           Button(this.zone + this.arrayStr[this.index])
             .onClick(() => {
-              if (this.index  {
+              if (this.index < 2) {
+                this.index++
+              } else {
+                this.index = 0
+              }
+            })
+
+          Button(this.subwindowDisplay + (this.showInSubwindow ? this.subwindow : this.nonSubwindow))
+            .onClick(() => {
               this.showInSubwindow = !this.showInSubwindow
             })
 

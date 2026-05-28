@@ -1,32 +1,34 @@
 # @ohos.data.rdb (关系型数据库)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-rdb
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 关系型数据库（Relational Database，RDB）是一种基于关系模型来管理数据的数据库。关系型数据库基于SQLite组件提供了一套完整的对本地数据库进行管理的机制，对外提供了一系列的增、删、改、查等接口，也可以直接运行用户输入的SQL语句来满足复杂的场景需要。不支持Worker线程。
 
 该模块提供以下关系型数据库相关的常用功能：
 
-
-- [RdbPredicates](#rdbpredicates)：数据库中用来代表数据实体的性质、特征或者数据实体之间关系的词项，主要用来定义数据库的操作条件。
-- [RdbStore](#rdbstore)：提供管理关系数据库（RDB）方法的接口。
-
-
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+ - [RdbPredicates](#rdbpredicates)：数据库中用来代表数据实体的性质、特征或者数据实体之间关系的词项，主要用来定义数据库的操作条件。
+ - [RdbStore](#rdbstore)：提供管理关系数据库（RDB）方法的接口。
 
 
-```ts
+> [!NOTE]
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9开始，该接口不再维护，推荐使用新接口 @ohos.data.relationalStore 。
+
+
+
+##### 导入模块
+
+```text
 import data_rdb from '@ohos.data.rdb';
 ```
 
 
-## data_rdb.getRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback<RdbStore>): void
+##### data_rdb.getRdbStore
+
+getRdbStore(context: Context, config: StoreConfig, version: number, callback: AsyncCallback&lt;RdbStore&gt;): void
 
 获得一个相关的RdbStore，操作关系型数据库，用户可以根据自己的需求配置RdbStore的参数，然后通过RdbStore调用相关接口可以执行相关的数据操作，使用callback异步回调。
 
@@ -34,19 +36,17 @@ getRdbStore(context: Context, config: StoreConfig, version: number, callback: As
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。 |
-| config | [StoreConfig](#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
-| version | number | 是 | 数据库版本。          目前暂不支持通过version自动识别数据库升级降级操作，只能由开发者自行维护。 |
-| callback | AsyncCallback&lt;[RdbStore](#rdbstore)&gt; | 是 | 指定callback回调函数，返回RdbStore对象。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
+| version | number | 是 | 数据库版本。 目前暂不支持通过version自动识别数据库升级降级操作，只能由开发者自行维护。 |
+| callback | AsyncCallback&lt;RdbStore&gt; | 是 | 指定callback回调函数，返回RdbStore对象。 |
 
 
 **示例：**
 
 FA模型示例：
-
 
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
@@ -56,46 +56,40 @@ import { BusinessError } from '@ohos.base';
 
 const STORE_CONFIG: data_rdb.StoreConfig = { name: "RdbTest.db"}
 data_rdb.getRdbStore(this.context, STORE_CONFIG, 1, (err, rdbStore) => {
-if (err) {
-console.info("Get RdbStore failed, err: " + err)
-return
-}
-console.log("Get RdbStore successfully.")
+  if (err) {
+    console.error("Get RdbStore failed, err: " + err)
+    return
+  }
+  console.info("Get RdbStore successfully.")
 })
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import UIAbility from '@ohos.app.ability.UIAbility';
-import { BusinessError } from '@ohos.base';
+import { BusinessError } from "@ohos.base";
 import window from '@ohos.window';
 
-const STORE_CONFIG: data_rdb.StoreConfig = { name: 'RdbTest.db' };
+const STORE_CONFIG: data_rdb.StoreConfig = { name: "RdbTest.db"}
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    data_rdb.getRdbStore(
-      this.context,
-      STORE_CONFIG,
-      1,
-      (err: BusinessError, rdbStore: data_rdb.RdbStore) => {
-        if (err) {
-          console.info('Get RdbStore failed, err: ' + err);
-          return;
-        }
-        console.log('Get RdbStore successfully.');
-      },
-    );
+  onWindowStageCreate(windowStage: window.WindowStage){
+    data_rdb.getRdbStore(this.context, STORE_CONFIG, 1, (err: BusinessError, rdbStore: data_rdb.RdbStore) => {
+      if (err) {
+        console.error("Get RdbStore failed, err: " + err)
+        return
+      }
+      console.info("Get RdbStore successfully.")
+    })
   }
 }
 ```
 
 
-## data_rdb.getRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRdbStore(context: Context, config: StoreConfig, version: number): Promise<RdbStore>
+##### data_rdb.getRdbStore
+
+getRdbStore(context: Context, config: StoreConfig, version: number): Promise&lt;RdbStore&gt;
 
 获得一个相关的RdbStore，操作关系型数据库，用户可以根据自己的需求配置RdbStore的参数，然后通过RdbStore调用相关接口可以执行相关的数据操作，使用Promise异步回调。
 
@@ -103,26 +97,23 @@ getRdbStore(context: Context, config: StoreConfig, version: number): Promise<Rdb
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。 |
-| config | [StoreConfig](#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
-| version | number | 是 | 数据库版本。          目前暂不支持通过version自动识别数据库升级降级操作，只能由开发者自行维护。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
+| version | number | 是 | 数据库版本。 目前暂不支持通过version自动识别数据库升级降级操作，只能由开发者自行维护。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[RdbStore](#rdbstore)&gt; | Promise对象。返回RdbStore对象。 |
+| Promise&lt;RdbStore&gt; | Promise对象。返回RdbStore对象。 |
 
 
 **示例：**
 
 FA模型示例：
-
 
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
@@ -130,43 +121,40 @@ import featureAbility from '@ohos.ability.featureAbility';
 const STORE_CONFIG: data_rdb.StoreConfig = { name: "RdbTest.db"}
 let promise = data_rdb.getRdbStore(this.context, STORE_CONFIG, 1);
 promise.then(async (rdbStore) => {
-console.log("Get RdbStore successfully.")
+  console.info("Get RdbStore successfully.")
 }).catch((err: BusinessError) => {
-console.log("Get RdbStore failed, err: " + err)
+  console.error("Get RdbStore failed, err: " + err)
 })
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import UIAbility from '@ohos.app.ability.UIAbility';
-import { BusinessError } from '@ohos.base';
+import { BusinessError } from "@ohos.base";
 import window from '@ohos.window';
 
-const STORE_CONFIG: data_rdb.StoreConfig = { name: 'RdbTest.db' };
+const STORE_CONFIG: data_rdb.StoreConfig = { name: "RdbTest.db"}
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    context = this.context;
+  onWindowStageCreate(windowStage: window.WindowStage){
+    context = this.context
   }
 }
 
 // 获取context后调用getRdbStore
 let promise = data_rdb.getRdbStore(this.context, STORE_CONFIG, 1);
-promise
-  .then(async (rdbStore: data_rdb.RdbStore) => {
-    console.log('Get RdbStore successfully.');
-  })
-  .catch((err: BusinessError) => {
-    console.log('Get RdbStore failed, err: ' + err);
-  });
+promise.then(async (rdbStore: data_rdb.RdbStore) => {
+  console.info("Get RdbStore successfully.")
+}).catch((err: BusinessError) => {
+  console.error("Get RdbStore failed, err: " + err)
+})
 ```
 
 
-## data_rdb.deleteRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void
+##### data_rdb.deleteRdbStore
+
+deleteRdbStore(context: Context, name: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除数据库，使用callback异步回调。
 
@@ -174,10 +162,9 @@ deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
 | name | string | 是 | 数据库名称。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
 
@@ -186,47 +173,45 @@ deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): v
 
 FA模型示例：
 
-
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
 
 data_rdb.deleteRdbStore(this.context, "RdbTest.db", (err) => {
-if (err) {
-console.info("Delete RdbStore failed, err: " + err)
-return
-}
-console.log("Delete RdbStore successfully.")
+  if (err) {
+    console.error("Delete RdbStore failed, err: " + err)
+    return
+  }
+  console.info("Delete RdbStore successfully.")
 })
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import UIAbility from '@ohos.app.ability.UIAbility';
 import window from '@ohos.window';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    context = this.context;
+  onWindowStageCreate(windowStage: window.WindowStage){
+    context = this.context
   }
 }
 
 // 获取context后调用deleteRdbStore
-data_rdb.deleteRdbStore(this.context, 'RdbTest.db', (err) => {
+data_rdb.deleteRdbStore(this.context, "RdbTest.db", (err) => {
   if (err) {
-    console.info('Delete RdbStore failed, err: ' + err);
-    return;
+    console.error("Delete RdbStore failed, err: " + err)
+    return
   }
-  console.log('Delete RdbStore successfully.');
-});
+  console.info("Delete RdbStore successfully.")
+})
 ```
 
 
-## data_rdb.deleteRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteRdbStore(context: Context, name: string): Promise<void>
+##### data_rdb.deleteRdbStore
+
+deleteRdbStore(context: Context, name: string): Promise&lt;void&gt;
 
 使用指定的数据库文件配置删除数据库，使用Promise异步回调。
 
@@ -234,15 +219,13 @@ deleteRdbStore(context: Context, name: string): Promise<void>
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
 | name | string | 是 | 数据库名称。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -253,53 +236,48 @@ deleteRdbStore(context: Context, name: string): Promise<void>
 
 FA模型示例：
 
-
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
 
 let promise = data_rdb.deleteRdbStore(this.context, "RdbTest.db")
 promise.then(() => {
-console.log("Delete RdbStore successfully.")
+  console.info("Delete RdbStore successfully.")
 }).catch((err: BusinessError) => {
-console.info("Delete RdbStore failed, err: " + err)
+  console.error("Delete RdbStore failed, err: " + err)
 })
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import UIAbility from '@ohos.app.ability.UIAbility';
-import { BusinessError } from '@ohos.base';
+import { BusinessError } from "@ohos.base";
 import window from '@ohos.window';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    context = this.context;
+  onWindowStageCreate(windowStage: window.WindowStage){
+    context = this.context
   }
 }
 
 // 获取context后调用deleteRdbStore
-let promise = data_rdb.deleteRdbStore(this.context, 'RdbTest.db');
-promise
-  .then(() => {
-    console.log('Delete RdbStore successfully.');
-  })
-  .catch((err: BusinessError) => {
-    console.info('Delete RdbStore failed, err: ' + err);
-  });
+let promise = data_rdb.deleteRdbStore(this.context, "RdbTest.db")
+promise.then(()=>{
+  console.info("Delete RdbStore successfully.")
+}).catch((err: BusinessError) => {
+  console.error("Delete RdbStore failed, err: " + err)
+})
 ```
 
 
-## ValueType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ValueType
 
 type ValueType = number | string | boolean
 
 用于表示允许的数据字段类型。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -308,8 +286,9 @@ type ValueType = number | string | boolean
 | boolean | 表示值类型为布尔值。 |
 
 
-## ValuesBucket
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ValuesBucket
 
 type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
@@ -317,19 +296,18 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
-
 | 键类型 | 值类型 |
 | --- | --- |
-| string | [ValueType](#valuetype)\| Uint8Array \| null |
+| string | ValueType\| Uint8Array \| null |
 
 
-## SyncMode8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SyncMode8+
 
 指数据库同步模式。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -337,8 +315,9 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 | SYNC_MODE_PULL | 1 | 表示数据从远程设备拉至本地设备。 |
 
 
-## SubscribeType8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubscribeType8+
 
 描述订阅类型。
 
@@ -346,33 +325,33 @@ type ValuesBucket = { [key: string]: ValueType | Uint8Array | null }
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SUBSCRIBE_TYPE_REMOTE | 0 | 订阅远程数据更改。 |
 
 
-## StoreConfig
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### StoreConfig
 
 管理关系数据库配置。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
-
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 数据库文件名。 |
 
 
-## RdbPredicates
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### RdbPredicates
 
 表示关系型数据库（RDB）的谓词。该类确定RDB中条件表达式的值是true还是false。
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(name: string)
 
@@ -382,7 +361,6 @@ constructor(name: string)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 数据库表名。 |
@@ -390,27 +368,25 @@ constructor(name: string)
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
 ```
 
 
-### inDevices8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-inDevices(devices: Array<string>): RdbPredicates
+##### inDevices8+
+
+inDevices(devices: Array&lt;string&gt;): RdbPredicates
 
 同步分布式数据库时连接到组网内指定的远程设备。
-
 
 > [!NOTE]
 > 其中devices通过调用deviceManager.getTrustedDeviceListSync方法得到。deviceManager模块的接口均为系统接口，仅系统应用可用。
 
+
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -419,47 +395,42 @@ inDevices(devices: Array<string>): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 
 let dmInstance: deviceManager.DeviceManager;
 let deviceIds: Array<string> = [];
 let devices: Array<string> = [];
 
-deviceManager.createDeviceManager(
-  'com.example.appdatamgrverify',
-  (err: BusinessError, manager: void) => {
-    if (err) {
-      console.log('create device manager failed, err=' + err);
-      return;
-    }
-    dmInstance = manager;
-    devices = dmInstance.getTrustedDeviceListSync();
-    for (let i = 0; i < devices.length; i++) {
-      deviceIds[i] = devices[i].deviceId;
-    }
-  },
-);
+deviceManager.createDeviceManager("com.example.appdatamgrverify", (err: BusinessError, manager: void) => {
+  if (err) {
+    console.error("create device manager failed, err=" + err);
+    return;
+  }
+  dmInstance = manager;
+  devices = dmInstance.getTrustedDeviceListSync();
+  for (let i = 0; i < devices.length; i++) {
+    deviceIds[i] = devices[i].deviceId;
+  }
+})
 
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE");
 predicates.inDevices(deviceIds);
-
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
+                                  
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE");
 predicates.inDevices(deviceIds);
 ```
 
 
-### inAllDevices8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### inAllDevices8+
 
 inAllDevices(): RdbPredicates
 
@@ -469,23 +440,21 @@ inAllDevices(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.inAllDevices();
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.inAllDevices()
 ```
 
 
-### equalTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### equalTo
 
 equalTo(field: string, value: ValueType): RdbPredicates
 
@@ -495,32 +464,29 @@ equalTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'lisi');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "lisi")
 ```
 
 
-### notEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notEqualTo
 
 notEqualTo(field: string, value: ValueType): RdbPredicates
 
@@ -530,32 +496,29 @@ notEqualTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.notEqualTo('NAME', 'lisi');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.notEqualTo("NAME", "lisi")
 ```
 
 
-### beginWrap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### beginWrap
 
 beginWrap(): RdbPredicates
 
@@ -565,29 +528,26 @@ beginWrap(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回带有左括号的Rdb谓词。 |
+| RdbPredicates | 返回带有左括号的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates
-  .equalTo('NAME', 'lisi')
-  .beginWrap()
-  .equalTo('AGE', 18)
-  .or()
-  .equalTo('SALARY', 200.5)
-  .endWrap();
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "lisi")
+    .beginWrap()
+    .equalTo("AGE", 18)
+    .or()
+    .equalTo("SALARY", 200.5)
+    .endWrap()
 ```
 
 
-### endWrap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### endWrap
 
 endWrap(): RdbPredicates
 
@@ -597,29 +557,26 @@ endWrap(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回带有右括号的Rdb谓词。 |
+| RdbPredicates | 返回带有右括号的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates
-  .equalTo('NAME', 'lisi')
-  .beginWrap()
-  .equalTo('AGE', 18)
-  .or()
-  .equalTo('SALARY', 200.5)
-  .endWrap();
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "lisi")
+    .beginWrap()
+    .equalTo("AGE", 18)
+    .or()
+    .equalTo("SALARY", 200.5)
+    .endWrap()
 ```
 
 
-### or
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### or
 
 or(): RdbPredicates
 
@@ -629,23 +586,23 @@ or(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回带有或条件的Rdb谓词。 |
+| RdbPredicates | 返回带有或条件的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa').or().equalTo('NAME', 'Rose');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Lisa")
+    .or()
+    .equalTo("NAME", "Rose")
 ```
 
 
-### and
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### and
 
 and(): RdbPredicates
 
@@ -655,23 +612,23 @@ and(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回带有和条件的Rdb谓词。 |
+| RdbPredicates | 返回带有和条件的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa').and().equalTo('SALARY', 200.5);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Lisa")
+    .and()
+    .equalTo("SALARY", 200.5)
 ```
 
 
-### contains
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### contains
 
 contains(field: string, value: string): RdbPredicates
 
@@ -681,7 +638,6 @@ contains(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -690,23 +646,21 @@ contains(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.contains('NAME', 'os');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.contains("NAME", "os")
 ```
 
 
-### beginsWith
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### beginsWith
 
 beginsWith(field: string, value: string): RdbPredicates
 
@@ -716,7 +670,6 @@ beginsWith(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -725,23 +678,21 @@ beginsWith(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.beginsWith('NAME', 'os');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.beginsWith("NAME", "os")
 ```
 
 
-### endsWith
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### endsWith
 
 endsWith(field: string, value: string): RdbPredicates
 
@@ -751,7 +702,6 @@ endsWith(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -760,23 +710,21 @@ endsWith(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.endsWith('NAME', 'se');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.endsWith("NAME", "se")
 ```
 
 
-### isNull
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isNull
 
 isNull(field: string): RdbPredicates
 
@@ -786,7 +734,6 @@ isNull(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -794,23 +741,21 @@ isNull(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例**：
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.isNull('NAME');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.isNull("NAME")
 ```
 
 
-### isNotNull
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isNotNull
 
 isNotNull(field: string): RdbPredicates
 
@@ -820,7 +765,6 @@ isNotNull(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -828,16 +772,14 @@ isNotNull(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -846,15 +788,14 @@ isNotNull(field: string): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.isNotNull('NAME');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.isNotNull("NAME")
 ```
 
 
-### like
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### like
 
 like(field: string, value: string): RdbPredicates
 
@@ -864,7 +805,6 @@ like(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -873,23 +813,21 @@ like(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.like('NAME', '%os%');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.like("NAME", "%os%")
 ```
 
 
-### glob
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### glob
 
 glob(field: string, value: string): RdbPredicates
 
@@ -899,32 +837,29 @@ glob(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | string | 是 | 指示要与谓词匹配的值。          支持通配符，*表示0个、1个或多个数字或字符，?表示1个数字或字符。 |
+| value | string | 是 | 指示要与谓词匹配的值。 支持通配符，*表示0个、1个或多个数字或字符，?表示1个数字或字符。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.glob('NAME', '?h*g');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.glob("NAME", "?h*g")
 ```
 
 
-### between
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### between
 
 between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
@@ -934,33 +869,30 @@ between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| low | [ValueType](#valuetype) | 是 | 指示与谓词匹配的最小值。 |
-| high | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的最大值。 |
+| low | ValueType | 是 | 指示与谓词匹配的最小值。 |
+| high | ValueType | 是 | 指示要与谓词匹配的最大值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.between('AGE', 10, 50);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.between("AGE", 10, 50)
 ```
 
 
-### notBetween
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notBetween
 
 notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
@@ -970,33 +902,30 @@ notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| low | [ValueType](#valuetype) | 是 | 指示与谓词匹配的最小值。 |
-| high | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的最大值。 |
+| low | ValueType | 是 | 指示与谓词匹配的最小值。 |
+| high | ValueType | 是 | 指示要与谓词匹配的最大值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.notBetween('AGE', 10, 50);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.notBetween("AGE", 10, 50)
 ```
 
 
-### greaterThan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### greaterThan
 
 greaterThan(field: string, value: ValueType): RdbPredicates
 
@@ -1006,32 +935,29 @@ greaterThan(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.greaterThan('AGE', 18);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.greaterThan("AGE", 18)
 ```
 
 
-### lessThan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lessThan
 
 lessThan(field: string, value: ValueType): RdbPredicates
 
@@ -1041,32 +967,29 @@ lessThan(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.lessThan('AGE', 20);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.lessThan("AGE", 20)
 ```
 
 
-### greaterThanOrEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### greaterThanOrEqualTo
 
 greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
@@ -1076,32 +999,29 @@ greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.greaterThanOrEqualTo('AGE', 18);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.greaterThanOrEqualTo("AGE", 18)
 ```
 
 
-### lessThanOrEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lessThanOrEqualTo
 
 lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
@@ -1111,32 +1031,29 @@ lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.lessThanOrEqualTo('AGE', 20);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.lessThanOrEqualTo("AGE", 20)
 ```
 
 
-### orderByAsc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### orderByAsc
 
 orderByAsc(field: string): RdbPredicates
 
@@ -1146,7 +1063,6 @@ orderByAsc(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -1154,23 +1070,21 @@ orderByAsc(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.orderByAsc('NAME');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.orderByAsc("NAME")
 ```
 
 
-### orderByDesc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### orderByDesc
 
 orderByDesc(field: string): RdbPredicates
 
@@ -1180,7 +1094,6 @@ orderByDesc(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -1188,23 +1101,21 @@ orderByDesc(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.orderByDesc('AGE');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.orderByDesc("AGE")
 ```
 
 
-### distinct
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### distinct
 
 distinct(): RdbPredicates
 
@@ -1214,23 +1125,21 @@ distinct(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回可用于过滤重复记录的谓词。 |
+| RdbPredicates | 返回可用于过滤重复记录的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose').distinct();
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Rose").distinct()
 ```
 
 
-### limitAs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### limitAs
 
 limitAs(value: number): RdbPredicates
 
@@ -1240,7 +1149,6 @@ limitAs(value: number): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 最大数据记录数。 |
@@ -1248,23 +1156,21 @@ limitAs(value: number): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回可用于设置最大数据记录数的谓词。 |
+| RdbPredicates | 返回可用于设置最大数据记录数的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose').limitAs(3);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Rose").limitAs(3)
 ```
 
 
-### offsetAs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### offsetAs
 
 offsetAs(rowOffset: number): RdbPredicates
 
@@ -1274,7 +1180,6 @@ offsetAs(rowOffset: number): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | rowOffset | number | 是 | 返回结果的起始位置，取值为正整数。 |
@@ -1282,32 +1187,29 @@ offsetAs(rowOffset: number): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回具有指定返回结果起始位置的谓词。 |
+| RdbPredicates | 返回具有指定返回结果起始位置的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose').limitAs(-1).offsetAs(3);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Rose").limitAs(-1).offsetAs(3)
 ```
 
 
-### groupBy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-groupBy(fields: Array<string>): RdbPredicates
+##### groupBy
+
+groupBy(fields: Array&lt;string&gt;): RdbPredicates
 
 配置RdbPredicates按指定列分组查询结果。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1316,23 +1218,21 @@ groupBy(fields: Array<string>): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回分组查询列的谓词。 |
+| RdbPredicates | 返回分组查询列的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.groupBy(['AGE', 'NAME']);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.groupBy(["AGE", "NAME"])
 ```
 
 
-### indexedBy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### indexedBy
 
 indexedBy(field: string): RdbPredicates
 
@@ -1342,7 +1242,6 @@ indexedBy(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 索引列的名称。 |
@@ -1350,25 +1249,23 @@ indexedBy(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回具有指定索引列的RdbPredicates。 |
+| RdbPredicates | 返回具有指定索引列的RdbPredicates。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.indexedBy('SALARY_INDEX');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.indexedBy("SALARY_INDEX")
 ```
 
 
-### in
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-in(field: string, value: Array<ValueType>): RdbPredicates
+##### in
+
+in(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 配置RdbPredicates以匹配数据字段为ValueType数组且值在给定范围内的指定字段。
 
@@ -1376,34 +1273,31 @@ in(field: string, value: Array<ValueType>): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | Array&lt;[ValueType](#valuetype)&gt; | 是 | 以ValueType型数组形式指定的要匹配的值。 |
+| value | Array&lt;ValueType&gt; | 是 | 以ValueType型数组形式指定的要匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.in('AGE', [18, 20]);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.in("AGE", [18, 20])
 ```
 
 
-### notIn
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-notIn(field: string, value: Array<ValueType>): RdbPredicates
+##### notIn
+
+notIn(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 将RdbPredicates配置为匹配数据字段为ValueType且值超出给定范围的指定字段。
 
@@ -1411,42 +1305,39 @@ notIn(field: string, value: Array<ValueType>): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | Array&lt;[ValueType](#valuetype)&gt; | 是 | 以ValueType数组形式指定的要匹配的值。 |
+| value | Array&lt;ValueType&gt; | 是 | 以ValueType数组形式指定的要匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](#rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.notIn('NAME', ['Lisa', 'Rose']);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.notIn("NAME", ["Lisa", "Rose"])
 ```
 
 
-## RdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### RdbStore
 
 提供管理关系数据库（RDB）方法的接口。
 
 在使用以下相关接口前，请使用[executeSql](#executesql8)接口初始化数据库表结构和相关数据。
 
 
-### insert
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>):void
+##### insert
+
+insert(table: string, values: ValuesBucket, callback: AsyncCallback&lt;number&gt;):void
 
 向目标表中插入一行数据，使用callback异步回调。
 
@@ -1454,25 +1345,23 @@ insert(table: string, values: ValuesBucket, callback: AsyncCallback<number>):voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | table | string | 是 | 指定的目标表名。 |
-| values | [ValuesBucket](#valuesbucket) | 是 | 表示要插入到表中的数据行。 |
+| values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。如果操作成功，返回行ID；否则返回-1。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'CODES';
-let value1 = 'Lisi';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "CODES";
+let value1 = "Lisi";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3, 4, 5]);
@@ -1483,20 +1372,20 @@ const valueBucket: ValuesBucket = {
   key4: value4,
 };
 
-rdbStore.insert('EMPLOYEE', valueBucket, (status: number, rowId: number) => {
+rdbStore.insert("EMPLOYEE", valueBucket, (status: number, rowId: number) => {
   if (status) {
-    console.log('Insert is failed');
+    console.error("Insert failed");
     return;
   }
-  console.log('Insert is successful, rowId = ' + rowId);
-});
+  console.info("Insert is successful, rowId = " + rowId);
+})
 ```
 
 
-### insert
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-insert(table: string, values: ValuesBucket):Promise<number>
+##### insert
+
+insert(table: string, values: ValuesBucket):Promise&lt;number&gt;
 
 向目标表中插入一行数据，使用Promise异步回调。
 
@@ -1504,15 +1393,13 @@ insert(table: string, values: ValuesBucket):Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | table | string | 是 | 指定的目标表名。 |
-| values | [ValuesBucket](#valuesbucket) | 是 | 表示要插入到表中的数据行。 |
+| values | ValuesBucket | 是 | 表示要插入到表中的数据行。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1521,15 +1408,14 @@ insert(table: string, values: ValuesBucket):Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'CODES';
-let value1 = 'Lisi';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "CODES";
+let value1 = "Lisi";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3, 4, 5]);
@@ -1540,21 +1426,19 @@ const valueBucket: ValuesBucket = {
   key4: value4,
 };
 
-let promise: void = rdbStore.insert('EMPLOYEE', valueBucket);
-promise
-  .then((rowId: BusinessError) => {
-    console.log('Insert is successful, rowId = ' + rowId);
-  })
-  .catch((status: number) => {
-    console.log('Insert is failed');
-  });
+let promise: void = rdbStore.insert("EMPLOYEE", valueBucket)
+promise.then((rowId: BusinessError) => {
+  console.info("Insert is successful, rowId = " + rowId);
+}).catch((status: number) => {
+  console.error("Insert failed");
+})
 ```
 
 
-### batchInsert
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<number>):void
+##### batchInsert
+
+batchInsert(table: string, values: Array&lt;ValuesBucket&gt;, callback: AsyncCallback&lt;number&gt;):void
 
 向目标表中插入一组数据，使用callback异步回调。
 
@@ -1562,33 +1446,31 @@ batchInsert(table: string, values: Array<ValuesBucket>, callback: AsyncCallback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | table | string | 是 | 指定的目标表名。 |
-| values | Array&lt;[ValuesBucket](#valuesbucket)&gt; | 是 | 表示要插入到表中的一组数据。 |
+| values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。如果操作成功，返回插入的数据个数，否则返回-1。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'CODES';
-let value1 = 'Lisa';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "CODES";
+let value1 = "Lisa";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3, 4, 5]);
-let value5 = 'Jack';
+let value5 = "Jack";
 let value6 = 19;
 let value7 = 101.5;
 let value8 = new Uint8Array([6, 7, 8, 9, 10]);
-let value9 = 'Tom';
+let value9 = "Tom";
 let value10 = 20;
 let value11 = 102.5;
 let value12 = new Uint8Array([11, 12, 13, 14, 15]);
@@ -1612,27 +1494,20 @@ const valueBucket3: ValuesBucket = {
 };
 
 let valueBuckets = new Array(valueBucket1, valueBucket2, valueBucket3);
-rdbStore.batchInsert(
-  'EMPLOYEE',
-  valueBuckets,
-  (status: number, insertNum: number) => {
-    if (status) {
-      console.log('batchInsert is failed, status = ' + status);
-      return;
-    }
-    console.log(
-      'batchInsert is successful, the number of values that were inserted = ' +
-        insertNum,
-    );
-  },
-);
+rdbStore.batchInsert("EMPLOYEE", valueBuckets, (status: number, insertNum: number) => {
+  if (status) {
+    console.error("batchInsert failed, status = " + status);
+    return;
+  }
+  console.info("batchInsert is successful, the number of values that were inserted = " + insertNum);
+})
 ```
 
 
-### batchInsert
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-batchInsert(table: string, values: Array<ValuesBucket>):Promise<number>
+##### batchInsert
+
+batchInsert(table: string, values: Array&lt;ValuesBucket&gt;):Promise&lt;number&gt;
 
 向目标表中插入一组数据，使用Promise异步回调。
 
@@ -1640,15 +1515,13 @@ batchInsert(table: string, values: Array<ValuesBucket>):Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | table | string | 是 | 指定的目标表名。 |
-| values | Array&lt;[ValuesBucket](#valuesbucket)&gt; | 是 | 表示要插入到表中的一组数据。 |
+| values | Array&lt;ValuesBucket&gt; | 是 | 表示要插入到表中的一组数据。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1657,23 +1530,22 @@ batchInsert(table: string, values: Array<ValuesBucket>):Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'CODES';
-let value1 = 'Lisa';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "CODES";
+let value1 = "Lisa";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3, 4, 5]);
-let value5 = 'Jack';
+let value5 = "Jack";
 let value6 = 19;
 let value7 = 101.5;
 let value8 = new Uint8Array([6, 7, 8, 9, 10]);
-let value9 = 'Tom';
+let value9 = "Tom";
 let value10 = 20;
 let value11 = 102.5;
 let value12 = new Uint8Array([11, 12, 13, 14, 15]);
@@ -1697,24 +1569,19 @@ const valueBucket3: ValuesBucket = {
 };
 
 let valueBuckets = new Array(valueBucket1, valueBucket2, valueBucket3);
-let promise: void = rdbStore.batchInsert('EMPLOYEE', valueBuckets);
-promise
-  .then((insertNum: number) => {
-    console.log(
-      'batchInsert is successful, the number of values that were inserted = ' +
-        insertNum,
-    );
-  })
-  .catch((status: number) => {
-    console.log('batchInsert is failed, status = ' + status);
-  });
+let promise: void = rdbStore.batchInsert("EMPLOYEE", valueBuckets);
+promise.then((insertNum: number) => {
+  console.info("batchInsert is successful, the number of values that were inserted = " + insertNum);
+}).catch((status: number) => {
+  console.error("batchInsert failed, status = " + status);
+})
 ```
 
 
-### update
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<number>):void
+##### update
+
+update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback&lt;number&gt;):void
 
 根据RdbPredicates的指定实例对象更新数据库中的数据，使用callback异步回调。
 
@@ -1722,25 +1589,23 @@ update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| values | [ValuesBucket](#valuesbucket) | 是 | values指示数据库中要更新的数据行。键值对与数据库表的列名相关联。 |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | RdbPredicates的实例对象指定的更新条件。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 指定的callback回调方法。返回受影响的行数�� |
+| values | ValuesBucket | 是 | values指示数据库中要更新的数据行。键值对与数据库表的列名相关联。 |
+| predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的更新条件。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 指定的callback回调方法。返回受影响的行数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'CODES';
-let value1 = 'Lisa';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "CODES";
+let value1 = "Lisa";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3, 4, 5]);
@@ -1751,22 +1616,22 @@ const valueBucket: ValuesBucket = {
   key3: value3,
   key4: value4,
 };
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa');
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Lisa")
 rdbStore.update(valueBucket, predicates, (err: BusinessError, rows: number) => {
   if (err) {
-    console.info('Updated failed, err: ' + err);
-    return;
+    console.error("Update failed, err: " + err)
+    return
   }
-  console.log('Updated row count: ' + rows);
-});
+  console.info("Updated row count: " + rows)
+})
 ```
 
 
-### update
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-update(values: ValuesBucket, predicates: RdbPredicates):Promise<number>
+##### update
+
+update(values: ValuesBucket, predicates: RdbPredicates):Promise&lt;number&gt;
 
 根据RdbPredicates的指定实例对象更新数据库中的数据，使用Promise异步回调。
 
@@ -1774,15 +1639,13 @@ update(values: ValuesBucket, predicates: RdbPredicates):Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| values | [ValuesBucket](#valuesbucket) | 是 | values指示数据库中要更新的数据行。键值对与数据库表的列名相关联。 |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | RdbPredicates的实例对象指定的更新条件。 |
+| values | ValuesBucket | 是 | values指示数据库中要更新的数据行。键值对与数据库表的列名相关联。 |
+| predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的更新条件。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1791,15 +1654,14 @@ update(values: ValuesBucket, predicates: RdbPredicates):Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'CODES';
-let value1 = 'Lisa';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "CODES";
+let value1 = "Lisa";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3, 4, 5]);
@@ -1810,23 +1672,21 @@ const valueBucket: ValuesBucket = {
   key3: value3,
   key4: value4,
 };
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa');
-let promise: void = rdbStore.update(valueBucket, predicates);
-promise
-  .then(async (rows: number) => {
-    console.log('Updated row count: ' + rows);
-  })
-  .catch((err: BusinessError) => {
-    console.info('Updated failed, err: ' + err);
-  });
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Lisa")
+let promise: void = rdbStore.update(valueBucket, predicates)
+promise.then(async (rows: number) => {
+  console.info("Updated row count: " + rows)
+}).catch((err: BusinessError) => {
+  console.error("Update failed, err: " + err)
+})
 ```
 
 
-### delete
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-delete(predicates: RdbPredicates, callback: AsyncCallback<number>):void
+##### delete
+
+delete(predicates: RdbPredicates, callback: AsyncCallback&lt;number&gt;):void
 
 根据RdbPredicates的指定实例对象从数据库中删除数据，使用callback异步回调。
 
@@ -1834,33 +1694,31 @@ delete(predicates: RdbPredicates, callback: AsyncCallback<number>):void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | RdbPredicates的实例对象指定的删除条件。 |
+| predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的删除条件。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 指定callback回调函数。返回受影响的行数。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa');
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Lisa")
 rdbStore.delete(predicates, (err: BusinessError, rows: number) => {
   if (err) {
-    console.info('Delete failed, err: ' + err);
-    return;
+    console.error("Delete failed, err: " + err)
+    return
   }
-  console.log('Delete rows: ' + rows);
-});
+  console.info("Delete rows: " + rows)
+})
 ```
 
 
-### delete
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-delete(predicates: RdbPredicates):Promise<number>
+##### delete
+
+delete(predicates: RdbPredicates):Promise&lt;number&gt;
 
 根据RdbPredicates的指定实例对象从数据库中删除数据，使用Promise异步回调。
 
@@ -1868,14 +1726,12 @@ delete(predicates: RdbPredicates):Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | RdbPredicates的实例对象指定的删除条件。 |
+| predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的删除条件。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1884,25 +1740,22 @@ delete(predicates: RdbPredicates):Promise<number>
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa');
-let promise: void = rdbStore.delete(predicates);
-promise
-  .then((rows: number) => {
-    console.log('Delete rows: ' + rows);
-  })
-  .catch((err: BusinessError) => {
-    console.info('Delete failed, err: ' + err);
-  });
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Lisa")
+let promise: void = rdbStore.delete(predicates)
+promise.then((rows: number) => {
+  console.info("Delete rows: " + rows)
+}).catch((err: BusinessError) => {
+  console.error("Delete failed, err: " + err)
+})
 ```
 
 
-### query
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback<ResultSet>):void
+##### query
+
+query(predicates: RdbPredicates, columns: Array&lt;string&gt;, callback: AsyncCallback&lt;ResultSet&gt;):void
 
 根据指定条件查询数据库中的数据，使用callback异步回调。
 
@@ -1910,39 +1763,33 @@ query(predicates: RdbPredicates, columns: Array<string>, callback: AsyncCallback
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | RdbPredicates的实例对象指定的查询条件。 |
+| predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的查询条件。 |
 | columns | Array&lt;string&gt; | 是 | 表示要查询的列。如果值为空，则查询应用于所有列。 |
-| callback | AsyncCallback&lt;[ResultSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-resultset)&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose');
-rdbStore.query(
-  predicates,
-  ['ID', 'NAME', 'AGE', 'SALARY', 'CODES'],
-  (err: BusinessError, resultSet: void) => {
-    if (err) {
-      console.info('Query failed, err: ' + err);
-      return;
-    }
-    console.log('ResultSet column names: ' + resultSet.columnNames);
-    console.log('ResultSet column count: ' + resultSet.columnCount);
-  },
-);
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Rose")
+rdbStore.query(predicates, ["ID", "NAME", "AGE", "SALARY", "CODES"], (err: BusinessError, resultSet: void) => {
+  if (err) {
+    console.error("Query failed, err: " + err)
+    return
+  }
+  console.info("ResultSet column names: " + resultSet.columnNames)
+  console.info("ResultSet column count: " + resultSet.columnCount)
+})
 ```
 
 
-### query
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-query(predicates: RdbPredicates, columns?: Array<string>):Promise<ResultSet>
+##### query
+
+query(predicates: RdbPredicates, columns?: Array&lt;string&gt;):Promise&lt;ResultSet&gt;
 
 根据指定条件查询数据库中的数据，使用Promise异步回调。
 
@@ -1950,49 +1797,38 @@ query(predicates: RdbPredicates, columns?: Array<string>):Promise<ResultSet>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | RdbPredicates的实例对象指定的查询条件。 |
+| predicates | RdbPredicates | 是 | RdbPredicates的实例对象指定的查询条件。 |
 | columns | Array&lt;string&gt; | 否 | 表示要查询的列。如果值为空，则查询应用于所有列。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ResultSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-resultset)&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose');
-let promise: void = rdbStore.query(predicates, [
-  'ID',
-  'NAME',
-  'AGE',
-  'SALARY',
-  'CODES',
-]);
-promise
-  .then((resultSet: void) => {
-    console.log('ResultSet column names: ' + resultSet.columnNames);
-    console.log('ResultSet column count: ' + resultSet.columnCount);
-  })
-  .catch((err: BusinessError) => {
-    console.info('Query failed, err: ' + err);
-  });
+```text
+let predicates = new data_rdb.RdbPredicates("EMPLOYEE")
+predicates.equalTo("NAME", "Rose")
+let promise: void = rdbStore.query(predicates, ["ID", "NAME", "AGE", "SALARY", "CODES"])
+promise.then((resultSet: void) => {
+  console.info("ResultSet column names: " + resultSet.columnNames)
+  console.info("ResultSet column count: " + resultSet.columnCount)
+}).catch((err: BusinessError) => {
+  console.error("Query failed, err: " + err)
+})
 ```
 
 
-### querySql8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<ResultSet>):void
+##### querySql8+
+
+querySql(sql: string, bindArgs: Array&lt;ValueType&gt;, callback: AsyncCallback&lt;ResultSet&gt;):void
 
 根据指定SQL语句查询数据库中的数据，使用callback异步回调。
 
@@ -2000,37 +1836,31 @@ querySql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<Result
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;[ValueType](#valuetype)&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
-| callback | AsyncCallback&lt;[ResultSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-resultset)&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
+| bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
+| callback | AsyncCallback&lt;ResultSet&gt; | 是 | 指定callback回调函数。如果操作成功，则返回ResultSet对象。 |
 
 
 **示例：**
 
-
-```ts
-rdbStore.querySql(
-  'SELECT * FROM EMPLOYEE CROSS JOIN BOOK WHERE BOOK.NAME = ?',
-  ['sanguo'],
-  (err: BusinessError, resultSet: void) => {
-    if (err) {
-      console.info('Query failed, err: ' + err);
-      return;
-    }
-    console.log('ResultSet column names: ' + resultSet.columnNames);
-    console.log('ResultSet column count: ' + resultSet.columnCount);
-  },
-);
+```text
+rdbStore.querySql("SELECT * FROM EMPLOYEE CROSS JOIN BOOK WHERE BOOK.NAME = ?", ['sanguo'], (err: BusinessError, resultSet: void) => {
+  if (err) {
+    console.error("Query failed, err: " + err)
+    return
+  }
+  console.info("ResultSet column names: " + resultSet.columnNames)
+  console.info("ResultSet column count: " + resultSet.columnCount)
+})
 ```
 
 
-### querySql8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-querySql(sql: string, bindArgs?: Array<ValueType>):Promise<ResultSet>
+##### querySql8+
+
+querySql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;ResultSet&gt;
 
 根据指定SQL语句查询数据库中的数据，使用Promise异步回调。
 
@@ -2038,43 +1868,36 @@ querySql(sql: string, bindArgs?: Array<ValueType>):Promise<ResultSet>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;[ValueType](#valuetype)&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ResultSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-resultset)&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
+| Promise&lt;ResultSet&gt; | Promise对象。如果操作成功，则返回ResultSet对象。 |
 
 
 **示例：**
 
-
-```ts
-let promise: void = rdbStore.querySql(
-  "SELECT * FROM EMPLOYEE CROSS JOIN BOOK WHERE BOOK.NAME = 'sanguo'",
-);
-promise
-  .then((resultSet: void) => {
-    console.log('ResultSet column names: ' + resultSet.columnNames);
-    console.log('ResultSet column count: ' + resultSet.columnCount);
-  })
-  .catch((err: BusinessError) => {
-    console.info('Query failed, err: ' + err);
-  });
+```text
+let promise: void = rdbStore.querySql("SELECT * FROM EMPLOYEE CROSS JOIN BOOK WHERE BOOK.NAME = 'sanguo'")
+promise.then((resultSet: void) => {
+  console.info("ResultSet column names: " + resultSet.columnNames)
+  console.info("ResultSet column count: " + resultSet.columnCount)
+}).catch((err: BusinessError) => {
+  console.error("Query failed, err: " + err)
+})
 ```
 
 
-### executeSql8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void>):void
+##### executeSql8+
+
+executeSql(sql: string, bindArgs: Array&lt;ValueType&gt;, callback: AsyncCallback&lt;void&gt;):void
 
 执行包含指定参数但不返回值的SQL语句，使用callback异步回调。
 
@@ -2082,33 +1905,31 @@ executeSql(sql: string, bindArgs: Array<ValueType>, callback: AsyncCallback<void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;[ValueType](#valuetype)&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
+| bindArgs | Array&lt;ValueType&gt; | 是 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数需为空数组。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
 
 
 **示例：**
 
-
-```ts
-const SQL_DELETE_TABLE = 'DELETE FROM test WHERE name = ?';
+```text
+const SQL_DELETE_TABLE = "DELETE FROM test WHERE name = ?"
 rdbStore.executeSql(SQL_DELETE_TABLE, ['zhangsan'], (err: BusinessError) => {
   if (err) {
-    console.info('ExecuteSql failed, err: ' + err);
-    return;
+    console.error("ExecuteSql failed, err: " + err)
+    return
   }
-  console.info('Delete table done.');
-});
+  console.info('Delete table done.')
+})
 ```
 
 
-### executeSql8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-executeSql(sql: string, bindArgs?: Array<ValueType>):Promise<void>
+##### executeSql8+
+
+executeSql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;void&gt;
 
 执行包含指定参数但不返回值的SQL语句，使用Promise异步回调。
 
@@ -2116,15 +1937,13 @@ executeSql(sql: string, bindArgs?: Array<ValueType>):Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sql | string | 是 | 指定要执行的SQL语句。 |
-| bindArgs | Array&lt;[ValueType](#valuetype)&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
+| bindArgs | Array&lt;ValueType&gt; | 否 | SQL语句中参数的值。该值与sql参数语句中的占位符相对应。当sql参数语句完整时，该参数不填。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2133,22 +1952,19 @@ executeSql(sql: string, bindArgs?: Array<ValueType>):Promise<void>
 
 **示例：**
 
-
-```ts
-const SQL_DELETE_TABLE = "DELETE FROM test WHERE name = 'zhangsan'";
-let promise = rdbStore.executeSql(SQL_DELETE_TABLE);
-promise
-  .then(() => {
-    console.info('Delete table done.');
-  })
-  .catch((err: BusinessError) => {
-    console.info('ExecuteSql failed, err: ' + err);
-  });
+```text
+const SQL_DELETE_TABLE = "DELETE FROM test WHERE name = 'zhangsan'"
+let promise = rdbStore.executeSql(SQL_DELETE_TABLE)
+promise.then(() => {
+  console.info('Delete table done.')
+}).catch((err: BusinessError) => {
+  console.error("ExecuteSql failed, err: " + err)
+})
 ```
 
 
-### beginTransaction8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### beginTransaction8+
 
 beginTransaction():void
 
@@ -2158,16 +1974,15 @@ beginTransaction():void
 
 **示例：**
 
-
-```ts
+```text
 import featureAbility from '@ohos.ability.featureAbility';
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'blobType';
-let value1 = 'Lisa';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "blobType";
+let value1 = "Lisa";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3]);
@@ -2179,21 +1994,16 @@ const valueBucket: ValuesBucket = {
   key4: value4,
 };
 
-data_rdb.getRdbStore(
-  this.context,
-  'RdbTest.db',
-  1,
-  async (err: BusinessError, rdbStore) => {
-    rdbStore.beginTransaction();
-    await rdbStore.insert('test', valueBucket);
-    rdbStore.commit();
-  },
-);
+data_rdb.getRdbStore(this.context, "RdbTest.db", 1, async (err: BusinessError, rdbStore) => {
+  rdbStore.beginTransaction()
+  await rdbStore.insert("test", valueBucket)
+  rdbStore.commit()
+})
 ```
 
 
-### commit8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### commit8+
 
 commit():void
 
@@ -2203,16 +2013,15 @@ commit():void
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 import featureAbility from '@ohos.ability.featureAbility';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'blobType';
-let value1 = 'Lisa';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "blobType";
+let value1 = "Lisa";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3]);
@@ -2224,21 +2033,16 @@ const valueBucket: ValuesBucket = {
   key4: value4,
 };
 
-data_rdb.getRdbStore(
-  this.context,
-  'RdbTest.db',
-  1,
-  async (err: BusinessError, rdbStore) => {
-    rdbStore.beginTransaction();
-    await rdbStore.insert('test', valueBucket);
-    rdbStore.commit();
-  },
-);
+data_rdb.getRdbStore(this.context, "RdbTest.db", 1, async (err: BusinessError, rdbStore) => {
+  rdbStore.beginTransaction()
+  await rdbStore.insert("test", valueBucket)
+  rdbStore.commit()
+})
 ```
 
 
-### rollBack8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### rollBack8+
 
 rollBack():void
 
@@ -2248,16 +2052,15 @@ rollBack():void
 
 **示例：**
 
-
-```ts
+```text
 import { ValuesBucket } from '@ohos.data.ValuesBucket';
 import featureAbility from '@ohos.ability.featureAbility';
 
-let key1 = 'NAME';
-let key2 = 'AGE';
-let key3 = 'SALARY';
-let key4 = 'blobType';
-let value1 = 'Lisa';
+let key1 = "NAME";
+let key2 = "AGE";
+let key3 = "SALARY";
+let key4 = "blobType";
+let value1 = "Lisa";
 let value2 = 18;
 let value3 = 100.5;
 let value4 = new Uint8Array([1, 2, 3]);
@@ -2269,29 +2072,23 @@ const valueBucket: ValuesBucket = {
   key4: value4,
 };
 
-const STORE_CONFIG = { name: 'RdbTest.db' };
-data_rdb.getRdbStore(
-  this,
-  context,
-  'RdbTest.db',
-  1,
-  async (err: BusinessError, rdbStore) => {
-    try {
-      rdbStore.beginTransaction();
-      await rdbStore.insert('test', valueBucket);
-      rdbStore.commit();
-    } catch (e) {
-      rdbStore.rollBack();
-    }
-  },
-);
+const STORE_CONFIG = { name: "RdbTest.db"}
+data_rdb.getRdbStore(this,context, "RdbTest.db", 1, async (err: BusinessError, rdbStore) => {
+  try {
+    rdbStore.beginTransaction()
+    await rdbStore.insert("test", valueBucket)
+    rdbStore.commit()
+  } catch (e) {
+    rdbStore.rollBack()
+  }
+})
 ```
 
 
-### setDistributedTables8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void
+##### setDistributedTables8+
+
+setDistributedTables(tables: Array&lt;string&gt;, callback: AsyncCallback&lt;void&gt;): void
 
 设置分布式列表，使用callback异步回调。
 
@@ -2301,7 +2098,6 @@ setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tables | Array&lt;string&gt; | 是 | 要设置的分布式列表表名。 |
@@ -2310,22 +2106,21 @@ setDistributedTables(tables: Array<string>, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
-rdbStore.setDistributedTables(['EMPLOYEE'], (err: BusinessError) => {
+```text
+rdbStore.setDistributedTables(["EMPLOYEE"], (err: BusinessError) => {
   if (err) {
-    console.info('SetDistributedTables failed, err: ' + err);
-    return;
+    console.error('SetDistributedTables failed, err: ' + err)
+    return
   }
-  console.info('SetDistributedTables successfully.');
-});
+  console.info('SetDistributedTables successfully.')
+})
 ```
 
 
-### setDistributedTables8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setDistributedTables(tables: Array<string>): Promise<void>
+##### setDistributedTables8+
+
+setDistributedTables(tables: Array&lt;string&gt;): Promise&lt;void&gt;
 
 设置分布式列表，使用Promise异步回调。
 
@@ -2335,14 +2130,12 @@ setDistributedTables(tables: Array<string>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tables | Array&lt;string&gt; | 是 | 要设置的分布式列表表名。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2351,36 +2144,32 @@ setDistributedTables(tables: Array<string>): Promise<void>
 
 **示例：**
 
-
-```ts
-let promise: void = rdbStore.setDistributedTables(['EMPLOYEE']);
-promise
-  .then(() => {
-    console.info('SetDistributedTables successfully.');
-  })
-  .catch((err: BusinessError) => {
-    console.info('SetDistributedTables failed, err: ' + err);
-  });
+```text
+let promise: void = rdbStore.setDistributedTables(["EMPLOYEE"])
+promise.then(() => {
+  console.info("SetDistributedTables successfully.")
+}).catch((err: BusinessError) => {
+  console.error("SetDistributedTables failed, err: " + err)
+})
 ```
 
 
-### obtainDistributedTableName8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-obtainDistributedTableName(device: string, table: string, callback: AsyncCallback<string>): void
+##### obtainDistributedTableName8+
+
+obtainDistributedTableName(device: string, table: string, callback: AsyncCallback&lt;string&gt;): void
 
 根据远程设备的本地表名获取指定远程设备的分布式表名。在查询远程设备数据库时，需要使用分布式表名，使用callback异步回调。
 
-
 > [!NOTE]
 > 其中device通过调用deviceManager.getTrustedDeviceListSync方法得到。deviceManager模块的接口均为系统接口，仅系统应用可用。
+
 
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2391,15 +2180,14 @@ obtainDistributedTableName(device: string, table: string, callback: AsyncCallbac
 
 **示例：**
 
-
-```ts
+```text
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 
 let dmInstance: Array<string>;
 
 deviceManager.createDeviceManager("com.example.appdatamgrverify", (err: BusinessError, manager: void) => {
   if (err) {
-    console.log("create device manager failed, err=" + err);
+    console.error("create device manager failed, err=" + err);
     return;
   }
   dmInstance = manager;
@@ -2409,7 +2197,7 @@ deviceManager.createDeviceManager("com.example.appdatamgrverify", (err: Business
 
 rdbStore.obtainDistributedTableName(deviceId, "EMPLOYEE", (err: BusinessError, tableName: String) {
   if (err) {
-    console.info('ObtainDistributedTableName failed, err: ' + err)
+    console.error('ObtainDistributedTableName failed, err: ' + err)
     return
   }
   console.info('ObtainDistributedTableName successfully, tableName=.' + tableName)
@@ -2417,23 +2205,22 @@ rdbStore.obtainDistributedTableName(deviceId, "EMPLOYEE", (err: BusinessError, t
 ```
 
 
-### obtainDistributedTableName8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-obtainDistributedTableName(device: string, table: string): Promise<string>
+##### obtainDistributedTableName8+
+
+obtainDistributedTableName(device: string, table: string): Promise&lt;string&gt;
 
 根据远程设备的本地表名获取指定远程设备的分布式表名。在查询远程设备数据库时，需要使用分布式表名，使用Promise异步回调。
 
-
 > [!NOTE]
 > 其中device通过调用deviceManager.getTrustedDeviceListSync方法得到。deviceManager模块的接口均为系统接口，仅系统应用可用。
+
 
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2443,7 +2230,6 @@ obtainDistributedTableName(device: string, table: string): Promise<string>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象。如果操作成功，返回远程设备的分布式表名。 |
@@ -2451,40 +2237,32 @@ obtainDistributedTableName(device: string, table: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 
 let dmInstance: Array<string>;
 
-deviceManager.createDeviceManager(
-  'com.example.appdatamgrverify',
-  (err: BusinessError, manager: void) => {
-    if (err) {
-      console.log('create device manager failed, err=' + err);
-      return;
-    }
-    dmInstance = manager;
-    let devices: Array<string> = dmInstance.getTrustedDeviceListSync();
-    let deviceId: Array<string> = devices[0].deviceId;
-  },
-);
+deviceManager.createDeviceManager("com.example.appdatamgrverify", (err: BusinessError, manager: void) => {
+  if (err) {
+    console.error("create device manager failed, err=" + err);
+    return;
+  }
+  dmInstance = manager;
+  let devices: Array<string> = dmInstance.getTrustedDeviceListSync();
+  let deviceId: Array<string> = devices[0].deviceId;
+})
 
-let promise: void = rdbStore.obtainDistributedTableName(deviceId, 'EMPLOYEE');
-promise
-  .then((tableName: String) => {
-    console.info(
-      'ObtainDistributedTableName successfully, tableName= ' + tableName,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.info('ObtainDistributedTableName failed, err: ' + err);
-  });
+let promise: void = rdbStore.obtainDistributedTableName(deviceId, "EMPLOYEE")
+promise.then((tableName: String) => {
+  console.info('ObtainDistributedTableName successfully, tableName= ' + tableName)
+}).catch((err: BusinessError) => {
+  console.error('ObtainDistributedTableName failed, err: ' + err)
+})
 ```
 
 
-### sync8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sync8+
 
 sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[string, number]>>): void
 
@@ -2496,25 +2274,23 @@ sync(mode: SyncMode, predicates: RdbPredicates, callback: AsyncCallback<Array<[s
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | [SyncMode](#syncmode8) | 是 | 指同步模式。该值可以是推、拉。 |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | 约束同步数据和设备。 |
-| callback | AsyncCallback&lt;Array&lt;[string, number]&gt;&gt; | 是 | 指定的callback回调函数，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，其他值表示失败。 |
+| mode | SyncMode | 是 | 指同步模式。该值可以是推、拉。 |
+| predicates | RdbPredicates | 是 | 约束同步数据和设备。 |
+| callback | AsyncCallback<Array<[string, number]>> | 是 | 指定的callback回调函数，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，其他值表示失败。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 
 let dmInstance: Array<string>;
 
 deviceManager.createDeviceManager("com.example.appdatamgrverify", (err: BusinessError, manager: void) => {
   if (err) {
-    console.log("create device manager failed, err=" + err);
+    console.error("create device manager failed, err=" + err);
     return;
   }
   dmInstance = manager;
@@ -2528,19 +2304,19 @@ let predicates = new data_rdb.RdbPredicates('EMPLOYEE')
 predicates.inDevices(deviceIds)
 rdbStore.sync(data_rdb.SyncMode.SYNC_MODE_PUSH, predicates, (err: BusinessError, result: void) {
   if (err) {
-    console.log('Sync failed, err: ' + err)
+    console.error('Sync failed, err: ' + err)
     return
   }
-  console.log('Sync done.')
+  console.info('Sync done.')
   for (let i = 0; i < result.length; i++) {
-    console.log('device=' + result[i][0] + ' status=' + result[i][1])
+    console.info('device=' + result[i][0] + ' status=' + result[i][1])
   }
 })
 ```
 
 
-### sync8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sync8+
 
 sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>>
 
@@ -2552,64 +2328,56 @@ sync(mode: SyncMode, predicates: RdbPredicates): Promise<Array<[string, number]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | [SyncMode](#syncmode8) | 是 | 指同步模式。该值可以是推、拉。 |
-| predicates | [RdbPredicates](#rdbpredicates) | 是 | 约束同步数据和设备。 |
+| mode | SyncMode | 是 | 指同步模式。该值可以是推、拉。 |
+| predicates | RdbPredicates | 是 | 约束同步数据和设备。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[string, number]&gt;&gt; | Promise对象，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，其他值表示失败。 |
+| Promise<Array<[string, number]>> | Promise对象，用于向调用者发送同步结果。string：设备ID；number：每个设备同步状态，0表示成功，其他值表示失败。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import deviceManager from '@ohos.distributedHardware.deviceManager';
 
 let dmInstance: Array<string>;
 
-deviceManager.createDeviceManager(
-  'com.example.appdatamgrverify',
-  (err: BusinessError, manager: void) => {
-    if (err) {
-      console.log('create device manager failed, err=' + err);
-      return;
-    }
-    dmInstance = manager;
-    let devices: Array<string> = dmInstance.getTrustedDeviceListSync();
-    for (let i = 0; i < devices.length; i++) {
-      let deviceIds: Array<string> = devices[i].deviceId;
-    }
-  },
-);
+deviceManager.createDeviceManager("com.example.appdatamgrverify", (err: BusinessError, manager: void) => {
+  if (err) {
+    console.error("create device manager failed, err=" + err);
+    return;
+  }
+  dmInstance = manager;
+  let devices: Array<string> = dmInstance.getTrustedDeviceListSync();
+  for (let i = 0; i < devices.length; i++) {
+    let deviceIds: Array<string> = devices[i].deviceId;
+  }
+})
 
-let predicates = new data_rdb.RdbPredicates('EMPLOYEE');
-predicates.inDevices(deviceIds);
-let promise: void = rdbStore.sync(data_rdb.SyncMode.SYNC_MODE_PUSH, predicates);
-promise
-  .then((result: void) => {
-    console.log('Sync done.');
-    for (let i = 0; i < result.length; i++) {
-      console.log('device=' + result[i][0] + ' status=' + result[i][1]);
-    }
-  })
-  .catch((err: BusinessError) => {
-    console.log('Sync failed');
-  });
+let predicates = new data_rdb.RdbPredicates('EMPLOYEE')
+predicates.inDevices(deviceIds)
+let promise: void = rdbStore.sync(data_rdb.SyncMode.SYNC_MODE_PUSH, predicates)
+promise.then((result: void) =>{
+  console.info('Sync done.')
+  for (let i = 0; i < result.length; i++) {
+    console.info('device=' + result[i][0] + ' status=' + result[i][1])
+  }
+}).catch((err: BusinessError) => {
+  console.error('Sync failed')
+})
 ```
 
 
-### on('dataChange')8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void
+##### on('dataChange')8+
+
+on(event: 'dataChange', type: SubscribeType, observer: Callback<Array&lt;string&gt;>): void
 
 注册数据库的观察者。当分布式数据库中的数据发生更改时，将调用回调。
 
@@ -2617,40 +2385,34 @@ on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取值为'dataChange'，表示数据更改。 |
-| type | [SubscribeType](#subscribetype8) | 是 | 订阅类型。 |
-| observer | Callback&lt;Array&lt;string&gt;&gt; | 是 | 指分布式数据库中数据更改事件的观察者。Array&lt;string&gt;为数据库中的数据发生改变的对端设备ID。 |
+| type | SubscribeType | 是 | 订阅类型。 |
+| observer | Callback<Array&lt;string&gt;> | 是 | 指分布式数据库中数据更改事件的观察者。Array&lt;string&gt;为数据库中的数据发生改变的对端设备ID。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let devices: Array<string>;
 
 try {
-  rdbStore.on(
-    'dataChange',
-    data_rdb.SubscribeType.SUBSCRIBE_TYPE_REMOTE,
-    (storeObserver: Array<string>) => {
-      for (let i = 0; i < devices.length; i++) {
-        console.log('device=' + devices[i] + ' data changed');
-      }
-    },
-  );
+  rdbStore.on('dataChange', data_rdb.SubscribeType.SUBSCRIBE_TYPE_REMOTE, (storeObserver: Array<string>) => {
+    for (let i = 0; i < devices.length; i++) {
+      console.info('device=' + devices[i] + ' data changed')
+    }
+  })
 } catch (err) {
-  console.log('Register observer failed');
+  console.error('Register observer failed')
 }
 ```
 
 
-### off('dataChange')8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>): void
+##### off('dataChange')8+
+
+off(event:'dataChange', type: SubscribeType, observer: Callback<Array&lt;string&gt;>): void
 
 从数据库中删除指定类型的指定观察者，使用callback异步回调。
 
@@ -2658,31 +2420,25 @@ off(event:'dataChange', type: SubscribeType, observer: Callback<Array<string>>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取值为'dataChange'，表示数据更改。 |
-| type | [SubscribeType](#subscribetype8) | 是 | 订阅类型。 |
-| observer | Callback&lt;Array&lt;string&gt;&gt; | 是 | 指已注册的数据更改观察者。Array&lt;string&gt;为数据库中的数据发生改变的对端设备ID。 |
+| type | SubscribeType | 是 | 订阅类型。 |
+| observer | Callback<Array&lt;string&gt;> | 是 | 指已注册的数据更改观察者。Array&lt;string&gt;为数据库中的数据发生改变的对端设备ID。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let devices: Array<string>;
 
 try {
-  rdbStore.off(
-    'dataChange',
-    data_rdb.SubscribeType.SUBSCRIBE_TYPE_REMOTE,
-    (storeObserver: Array<string>) => {
-      for (let i = 0; i < devices.length; i++) {
-        console.log('device=' + devices[i] + ' data changed');
-      }
-    },
-  );
+  rdbStore.off('dataChange', data_rdb.SubscribeType.SUBSCRIBE_TYPE_REMOTE, (storeObserver: Array<string>) => {
+    for (let i = 0; i < devices.length; i++) {
+      console.info('device=' + devices[i] + ' data changed')
+    }
+  })
 } catch (err) {
-  console.log('Unregister observer failed');
+  console.error('Unregister observer failed')
 }
 ```

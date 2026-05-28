@@ -3,28 +3,31 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-heatmap
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable
+##### 导入模块
 
-#### 导入模块
-
-```ts
+```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
+ 
+  
 
-#### Heatmap
+##### Heatmap
+
 热力图管理对象。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addHeatmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addheatmap)方法时会返回该类型的实例。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 let data: mapCommon.WeightedLatLng[] = [];
 for (let i = 0; i < 500; i++) {
   data.push({
@@ -47,27 +50,33 @@ let heatMapOptions: mapCommon.HeatmapParams = {
 }
 let heatMap = await this.mapController.addHeatmap(heatMapOptions)
 ```
+ 
+  
 
-#### setData
+##### setData
+
 setData(data: mapCommon.WeightedLatLng[]): void
+ 
 更新热力图数据。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | [mapCommon.WeightedLatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#weightedlatlng)[] | 是 | 热力图数据（建议数据量小于10000条，数据量过大可能导致卡顿），异常值不处理。 |
-
+| data | mapCommon.WeightedLatLng[] | 是 | 热力图数据（建议数据量小于10000条，数据量过大可能导致卡顿），异常值不处理。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let data: mapCommon.WeightedLatLng[] = [
   {
     point: {
@@ -79,50 +88,62 @@ let data: mapCommon.WeightedLatLng[] = [
 ];
 heatMap.setData(data);
 ```
+ 
+  
 
-#### getData
+##### getData
+
 getData(): mapCommon.WeightedLatLng[]
+ 
 获取热力图数据。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [mapCommon.WeightedLatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#weightedlatlng)[] | 热力图数据。 |
-
+| mapCommon.WeightedLatLng[] | 热力图数据。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let data: mapCommon.WeightedLatLng[] = heatMap.getData();
 ```
+ 
+  
 
-#### setColor
+##### setColor
+
 setColor(color: Record<number, number>): void
+ 
 更新热力图颜色。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | color | Record<number, number> | 是 | 热力图颜色。 - key：数据密度，取值范围[0, 1]。 - value：颜色渐变值，ARGB格式。 异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let record: Record<number, number> = {
   0: 0x26C3999,    // 深蓝色
   0.15: 0xFF4D4DFF, // 蓝紫色
@@ -135,50 +156,62 @@ let record: Record<number, number> = {
 };
 heatMap.setColor(record);
 ```
+ 
+  
 
-#### getColor
+##### getColor
+
 getColor(): Record<number, number>
+ 
 获取热力图颜色。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Record<number, number> | 热力图颜色。 - key：数据密度，取值范围[0, 1]。 - value：颜色渐变值，ARGB格式。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let record: Record<number, number> = heatMap.getColor();
 ```
+ 
+  
 
-#### setIntensity
+##### setIntensity
+
 setIntensity(intensity: number | Record<number, number>): void
+ 
 更新热力图强度。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | intensity | number \| Record<number, number> | 是 | 热力图强度，如果是number类型，所有层级使用同一个强度。 - key：层级，取值范围[2, 20]。 - value：热力图强度，取值范围大于0。 异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let intensity: Record<number, number> | number = {
   2:0.1,
   3:0.1,
@@ -186,50 +219,62 @@ let intensity: Record<number, number> | number = {
 };
 heatMap.setIntensity(intensity);
 ```
+ 
+  
 
-#### getIntensity
+##### getIntensity
+
 getIntensity(): number | Record<number, number>
+ 
 获取热力图强度。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number \| Record<number, number> | 热力图强度，如果是number类型，所有层级使用同一个强度。 - key：层级，取值范围[2, 20]。 - value：热力图强度，取值范围大于0。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let intensity: Record<number, number> | number = heatMap.getIntensity();
 ```
+ 
+  
 
-#### setOpacity
+##### setOpacity
+
 setOpacity(opacity: number | Record<number, number>): void
+ 
 更新热力图透明度。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | opacity | number \| Record<number, number> | 是 | 热力图透明度，如果是number类型，所有层级使用同一个透明度。 - key：层级，取值范围[2, 20]。 - value：热力图透明度，取值范围[0, 1]，0表示完全不透明，1表示完全透明。 异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let opacity: Record<number, number> | number = {
   2:0.1,
   3:0.1,
@@ -237,181 +282,228 @@ let opacity: Record<number, number> | number = {
 }
 heatMap.setOpacity(opacity);
 ```
+ 
+  
 
-#### getOpacity
+##### getOpacity
+
 getOpacity(): number | Record<number, number>
+ 
 获取热力图透明度。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number \| Record<number, number> | 热力图透明度，如果是number类型，所有层级使用同一个透明度。 - key：热力图颜色渐变层级，取值范围[2, 20]。 - value：热力图透明度，取值范围[0, 1]，0表示完全不透明，1表示完全透明。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let opacity: Record<number, number> | number = heatMap.getOpacity();
 ```
+ 
+  
 
-#### setRadius
+##### setRadius
+
 setRadius(radius: number | Record<number, number>): void
+ 
 更新热力图半径。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | radius | number \| Record<number, number> | 是 | 热力图半径，如果是number类型，所有层级使用同一个半径。 - key：层级，取值范围[2, 20]。 - value：热力图半径，取值范围：[1, +∞)。 异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 heatMap.setRadius(3000);
 ```
+ 
+  
 
-#### getRadius
+##### getRadius
+
 getRadius(): number | Record<number, number>
+ 
 获取热力图半径。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number \| Record<number, number> | 热力图半径，如果是number类型，所有层级使用同一个半径。 - key：层级，取值范围[2, 20]。 - value：热力图半径，取值范围：[1, +∞)。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let radius: number | Record<number, number> = heatMap.getRadius();
 ```
+ 
+  
 
-#### setRadiusUnit
+##### setRadiusUnit
+
 setRadiusUnit(radiusUnit: mapCommon.RadiusUnit): void
+ 
 更新热力图半径的单位。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radiusUnit | [mapCommon.RadiusUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#radiusunit) | 是 | 热力图半径单位。异常值不处理。 |
-
+| radiusUnit | mapCommon.RadiusUnit | 是 | 热力图半径单位。异常值不处理。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 heatMap.setRadiusUnit(mapCommon.RadiusUnit.PIXEL_UNIT);
 ```
+ 
+  
 
-#### getRadiusUnit
+##### getRadiusUnit
+
 getRadiusUnit(): mapCommon.RadiusUnit
+ 
 获取热力图半径单位。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [mapCommon.RadiusUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#radiusunit) | 热力图半径单位。 |
-
+| mapCommon.RadiusUnit | 热力图半径单位。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let radiusUnit: mapCommon.RadiusUnit = heatMap.getRadiusUnit();
 ```
+ 
+  
 
-#### setVisible
+##### setVisible
+
 setVisible(visible: boolean): void
+ 
 更新热力图是否可见。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | visible | boolean | 是 | 热力图是否可见。 - true：可见。 - false：不可见。 异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 heatMap.setVisible(false);
 ```
+ 
+  
 
-#### isVisible
+##### isVisible
+
 isVisible(): boolean
+ 
 获取热力图是否可见。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 热力图是否可见。 - true：可见。 - false：不可见。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let isVisible: boolean = heatMap.isVisible();
 ```
+ 
+  
 
-#### remove
+##### remove
+
 remove(): void
+ 
 删除热力图。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 heatMap.remove();
 ```

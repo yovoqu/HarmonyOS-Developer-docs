@@ -4,36 +4,42 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setexpandindex
 
-## 函数功能
+##### 函数功能
 
 将第index轴设置为补维轴。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void SetExpandIndex(const AxisIndex index)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | index | 输入 | 第index根轴为补维轴。 using AxisIndex = uint64_t; |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 ExpandDimsType type1("1001");

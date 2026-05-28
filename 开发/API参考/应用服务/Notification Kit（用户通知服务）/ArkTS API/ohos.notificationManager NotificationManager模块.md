@@ -3,28 +3,26 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供通知管理的能力，包括发布、更新、取消通知，创建、获取、移除通知渠道，获取发布通知应用的使能状态，获取通知的相关信息等。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { notificationManager } from '@kit.NotificationKit';
 ```
 
 
-## notificationManager.publish
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-publish(request: NotificationRequest, callback: AsyncCallback<void>): void
+##### notificationManager.publish
+
+publish(request: NotificationRequest, callback: AsyncCallback&lt;void&gt;): void
 
 发布通知。使用callback异步回调。
 
@@ -34,17 +32,15 @@ publish(request: NotificationRequest, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1) | 是 | 设置发布通知的内容和相关配置信息。 |
+| request | NotificationRequest | 是 | 设置发布通知的内容和相关配置信息。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当发布通知成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)、[HTTP错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-http)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -66,41 +62,37 @@ publish(request: NotificationRequest, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // publish回调
 let publishCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to publish notification. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to publish notification. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in publishing notification.`);
   }
-};
+}
 // 通知Request对象
 let notificationRequest: notificationManager.NotificationRequest = {
   id: 1,
   content: {
-    notificationContentType:
-      notificationManager.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
+    notificationContentType: notificationManager.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
     normal: {
-      title: 'test_title',
-      text: 'test_text',
-      additionalText: 'test_additionalText',
-    },
-  },
+      title: "test_title",
+      text: "test_text",
+      additionalText: "test_additionalText"
+    }
+  }
 };
 notificationManager.publish(notificationRequest, publishCallback);
 ```
 
 
-## notificationManager.publish
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-publish(request: NotificationRequest): Promise<void>
+##### notificationManager.publish
+
+publish(request: NotificationRequest): Promise&lt;void&gt;
 
 发布通知。使用Promise异步回调。
 
@@ -110,14 +102,12 @@ publish(request: NotificationRequest): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1) | 是 | 设置发布通知的内容和相关配置信息。 |
+| request | NotificationRequest | 是 | 设置发布通知的内容和相关配置信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -128,7 +118,6 @@ publish(request: NotificationRequest): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)、[HTTP错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-http)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -149,47 +138,39 @@ publish(request: NotificationRequest): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 通知Request对象
 let notificationRequest: notificationManager.NotificationRequest = {
   id: 1,
   content: {
-    notificationContentType:
-      notificationManager.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
+    notificationContentType: notificationManager.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
     normal: {
-      title: 'test_title',
-      text: 'test_text',
-      additionalText: 'test_additionalText',
-    },
-  },
+      title: "test_title",
+      text: "test_text",
+      additionalText: "test_additionalText"
+    }
+  }
 };
-notificationManager
-  .publish(notificationRequest)
-  .then(() => {
-    console.info(`Succeeded in publishing notification.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to publish notification. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.publish(notificationRequest).then(() => {
+  console.info(`Succeeded in publishing notification.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to publish notification. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.cancel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancel(id: number, label: string, callback: AsyncCallback<void>): void
+##### notificationManager.cancel
+
+cancel(id: number, label: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据通知ID和标签取消已发布的通知。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -202,7 +183,6 @@ cancel(id: number, label: string, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -214,35 +194,31 @@ cancel(id: number, label: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // cancel回调
 let cancelCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to cancel notification. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to cancel notification. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in canceling notification.`);
   }
-};
-notificationManager.cancel(0, 'label', cancelCallback);
+}
+notificationManager.cancel(0, "label", cancelCallback);
 ```
 
 
-## notificationManager.cancel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancel(id: number, label?: string): Promise<void>
+##### notificationManager.cancel
+
+cancel(id: number, label?: string): Promise&lt;void&gt;
 
 根据通知ID和标签取消已发布的通知，若标签为空，则取消与指定通知ID匹配的已发布通知。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -251,7 +227,6 @@ cancel(id: number, label?: string): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -262,7 +237,6 @@ cancel(id: number, label?: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -274,34 +248,27 @@ cancel(id: number, label?: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .cancel(0)
-  .then(() => {
-    console.info(`Succeeded in canceling notification.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to cancel notification. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.cancel(0).then(() => {
+  console.info(`Succeeded in canceling notification.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to cancel notification. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.cancel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancel(id: number, callback: AsyncCallback<void>): void
+##### notificationManager.cancel
+
+cancel(id: number, callback: AsyncCallback&lt;void&gt;): void
 
 根据指定的通知ID取消已发布的通知。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -313,7 +280,6 @@ cancel(id: number, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -325,35 +291,31 @@ cancel(id: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // cancel回调
 let cancelCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to cancel notification. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to cancel notification. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in canceling notification.`);
   }
-};
+}
 notificationManager.cancel(0, cancelCallback);
 ```
 
 
-## notificationManager.cancelAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancelAll(callback: AsyncCallback<void>): void
+##### notificationManager.cancelAll
+
+cancelAll(callback: AsyncCallback&lt;void&gt;): void
 
 取消当前应用所有已发布的通知。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -364,7 +326,6 @@ cancelAll(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -375,28 +336,25 @@ cancelAll(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // cancel回调
 let cancelAllCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to cancel all notification. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to cancel all notification. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in canceling all notification.`);
   }
-};
+}
 notificationManager.cancelAll(cancelAllCallback);
 ```
 
 
-## notificationManager.cancelAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancelAll(): Promise<void>
+##### notificationManager.cancelAll
+
+cancelAll(): Promise&lt;void&gt;
 
 取消当前应用所有已发布的通知。使用Promise异步回调。
 
@@ -404,7 +362,6 @@ cancelAll(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -413,7 +370,6 @@ cancelAll(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -424,27 +380,21 @@ cancelAll(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .cancelAll()
-  .then(() => {
-    console.info(`Succeeded in canceling all notification.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to cancel all notification. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.cancelAll().then(() => {
+  console.info(`Succeeded in canceling all notification.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to cancel all notification. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.addSlot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addSlot(type: SlotType, callback: AsyncCallback<void>): void
+##### notificationManager.addSlot
+
+addSlot(type: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
 创建指定类型的通知渠道。使用callback异步回调。
 
@@ -452,10 +402,9 @@ addSlot(type: SlotType, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [SlotType](#slottype) | 是 | 要创建的通知渠道的类型。 |
+| type | SlotType | 是 | 要创建的通知渠道的类型。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当创建指定类型的通知渠道成功，err为undefined，否则为错误对象。 |
 
 
@@ -463,7 +412,6 @@ addSlot(type: SlotType, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -475,31 +423,25 @@ addSlot(type: SlotType, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // addSlot回调
 let addSlotCallBack = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to add slot. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to add slot. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in adding slot.`);
   }
-};
-notificationManager.addSlot(
-  notificationManager.SlotType.SOCIAL_COMMUNICATION,
-  addSlotCallBack,
-);
+}
+notificationManager.addSlot(notificationManager.SlotType.SOCIAL_COMMUNICATION, addSlotCallBack);
 ```
 
 
-## notificationManager.addSlot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addSlot(type: SlotType): Promise<void>
+##### notificationManager.addSlot
+
+addSlot(type: SlotType): Promise&lt;void&gt;
 
 创建指定类型的通知渠道。使用Promise异步回调。
 
@@ -507,14 +449,12 @@ addSlot(type: SlotType): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [SlotType](#slottype) | 是 | 要创建的通知渠道的类型。 |
+| type | SlotType | 是 | 要创建的通知渠道的类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -524,7 +464,6 @@ addSlot(type: SlotType): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -537,27 +476,21 @@ addSlot(type: SlotType): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .addSlot(notificationManager.SlotType.SOCIAL_COMMUNICATION)
-  .then(() => {
-    console.info(`Succeeded in adding slot.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to add slot. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.addSlot(notificationManager.SlotType.SOCIAL_COMMUNICATION).then(() => {
+  console.info(`Succeeded in adding slot.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to add slot. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.getSlot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void
+##### notificationManager.getSlot
+
+getSlot(slotType: SlotType, callback: AsyncCallback&lt;NotificationSlot&gt;): void
 
 获取指定类型的通知渠道。使用callback异步回调。
 
@@ -565,17 +498,15 @@ getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotType | [SlotType](#slottype) | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
-| callback | AsyncCallback&lt;[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot)&gt; | 是 | 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对象。 |
+| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
+| callback | AsyncCallback&lt;NotificationSlot&gt; | 是 | 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -587,33 +518,26 @@ getSlot(slotType: SlotType, callback: AsyncCallback<NotificationSlot>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // getSlot回调
-let getSlotCallback = (
-  err: BusinessError,
-  data: notificationManager.NotificationSlot,
-): void => {
+let getSlotCallback = (err: BusinessError, data: notificationManager.NotificationSlot): void => {
   if (err) {
-    console.error(
-      `Failed to get slot. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to get slot. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in getting slot, data is ${JSON.stringify(data)}`);
   }
-};
-let slotType: notificationManager.SlotType =
-  notificationManager.SlotType.SOCIAL_COMMUNICATION;
+}
+let slotType: notificationManager.SlotType = notificationManager.SlotType.SOCIAL_COMMUNICATION;
 notificationManager.getSlot(slotType, getSlotCallback);
 ```
 
 
-## notificationManager.getSlot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSlot(slotType: SlotType): Promise<NotificationSlot>
+##### notificationManager.getSlot
+
+getSlot(slotType: SlotType): Promise&lt;NotificationSlot&gt;
 
 获取指定类型的通知渠道。使用Promise异步回调。
 
@@ -621,24 +545,21 @@ getSlot(slotType: SlotType): Promise<NotificationSlot>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotType | [SlotType](#slottype) | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
+| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot)&gt; | Promise对象，返回通知渠道对象。 |
+| Promise&lt;NotificationSlot&gt; | Promise对象，返回通知渠道对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -650,29 +571,22 @@ getSlot(slotType: SlotType): Promise<NotificationSlot>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let slotType: notificationManager.SlotType =
-  notificationManager.SlotType.SOCIAL_COMMUNICATION;
-notificationManager
-  .getSlot(slotType)
-  .then((data: notificationManager.NotificationSlot) => {
-    console.info(`Succeeded in getting slot, data is ${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get slot. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+let slotType: notificationManager.SlotType = notificationManager.SlotType.SOCIAL_COMMUNICATION;
+notificationManager.getSlot(slotType).then((data: notificationManager.NotificationSlot) => {
+  console.info(`Succeeded in getting slot, data is ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get slot. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.getSlots
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void
+##### notificationManager.getSlots
+
+getSlots(callback: AsyncCallback<Array&lt;NotificationSlot&gt;>): void
 
 获取当前应用的所有通知渠道。使用callback异步回调。
 
@@ -680,16 +594,14 @@ getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot)&gt;&gt; | 是 | 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot数组，否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;NotificationSlot&gt;> | 是 | 回调函数。当获取通知渠道成功，err为undefined，data为获取到的NotificationSlot数组，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -701,31 +613,25 @@ getSlots(callback: AsyncCallback<Array<NotificationSlot>>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // getSlots回调
-let getSlotsCallback = (
-  err: BusinessError,
-  data: Array<notificationManager.NotificationSlot>,
-): void => {
+let getSlotsCallback = (err: BusinessError, data: Array<notificationManager.NotificationSlot>): void => {
   if (err) {
-    console.error(
-      `Failed to get slots. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to get slots. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in getting slots, data is ${JSON.stringify(data)}`);
   }
-};
+}
 notificationManager.getSlots(getSlotsCallback);
 ```
 
 
-## notificationManager.getSlots
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSlots(): Promise<Array<NotificationSlot>>
+##### notificationManager.getSlots
+
+getSlots(): Promise<Array&lt;NotificationSlot&gt;>
 
 获取当前应用的所有通知渠道。使用Promise异步回调。
 
@@ -733,16 +639,14 @@ getSlots(): Promise<Array<NotificationSlot>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot)&gt;&gt; | Promise对象，返回通知渠道对象。 |
+| Promise<Array&lt;NotificationSlot&gt;> | Promise对象，返回通知渠道对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -753,27 +657,21 @@ getSlots(): Promise<Array<NotificationSlot>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .getSlots()
-  .then((data: Array<notificationManager.NotificationSlot>) => {
-    console.info(`Succeeded in getting slots, data is ${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get slots. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.getSlots().then((data: Array<notificationManager.NotificationSlot>) => {
+  console.info(`Succeeded in getting slots, data is ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get slots. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.removeSlot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void
+##### notificationManager.removeSlot
+
+removeSlot(slotType: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
 删除当前应用指定类型的通知渠道。使用callback异步回调。
 
@@ -781,17 +679,15 @@ removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotType | [SlotType](#slottype) | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
+| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当删除指定类型的通知渠道成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -803,30 +699,26 @@ removeSlot(slotType: SlotType, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // removeSlot回调
 let removeSlotCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to remove slot. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to remove slot. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in removing slot.`);
   }
-};
-let slotType: notificationManager.SlotType =
-  notificationManager.SlotType.SOCIAL_COMMUNICATION;
+}
+let slotType: notificationManager.SlotType = notificationManager.SlotType.SOCIAL_COMMUNICATION;
 notificationManager.removeSlot(slotType, removeSlotCallback);
 ```
 
 
-## notificationManager.removeSlot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeSlot(slotType: SlotType): Promise<void>
+##### notificationManager.removeSlot
+
+removeSlot(slotType: SlotType): Promise&lt;void&gt;
 
 删除当前应用指定类型的通知渠道。使用Promise异步回调。
 
@@ -834,14 +726,12 @@ removeSlot(slotType: SlotType): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotType | [SlotType](#slottype) | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
+| slotType | SlotType | 是 | 通知渠道类型，例如社交通信、服务提醒、内容咨询等类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -852,7 +742,6 @@ removeSlot(slotType: SlotType): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -863,36 +752,28 @@ removeSlot(slotType: SlotType): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let slotType: notificationManager.SlotType =
-  notificationManager.SlotType.SOCIAL_COMMUNICATION;
-notificationManager
-  .removeSlot(slotType)
-  .then(() => {
-    console.info(`Succeeded in removing slot.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to remove slot. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+let slotType: notificationManager.SlotType = notificationManager.SlotType.SOCIAL_COMMUNICATION;
+notificationManager.removeSlot(slotType).then(() => {
+  console.info(`Succeeded in removing slot.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to remove slot. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.removeAllSlots
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAllSlots(callback: AsyncCallback<void>): void
+##### notificationManager.removeAllSlots
+
+removeAllSlots(callback: AsyncCallback&lt;void&gt;): void
 
 删除当前应用所有通知渠道。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -903,7 +784,6 @@ removeAllSlots(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -914,34 +794,30 @@ removeAllSlots(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let removeAllSlotsCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to remove all slots. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to remove all slots. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in removing all slots.`);
   }
-};
+}
 notificationManager.removeAllSlots(removeAllSlotsCallback);
 ```
 
 
-## notificationManager.removeAllSlots
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAllSlots(): Promise<void>
+##### notificationManager.removeAllSlots
+
+removeAllSlots(): Promise&lt;void&gt;
 
 删除当前应用所有通知渠道。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -952,7 +828,6 @@ removeAllSlots(): Promise<void>
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1600001 | Internal error. |
@@ -962,34 +837,27 @@ removeAllSlots(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .removeAllSlots()
-  .then(() => {
-    console.info(`Succeeded in removing all slots.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to remove all slots. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.removeAllSlots().then(() => {
+  console.info(`Succeeded in removing all slots.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to remove all slots. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.isNotificationEnabled11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isNotificationEnabled(callback: AsyncCallback<boolean>): void
+##### notificationManager.isNotificationEnabled11+
+
+isNotificationEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
 查询当前应用通知使能状态。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1000,7 +868,6 @@ isNotificationEnabled(callback: AsyncCallback<boolean>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)、[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -1013,40 +880,31 @@ isNotificationEnabled(callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let isNotificationEnabledCallback = (
-  err: BusinessError,
-  data: boolean,
-): void => {
+let isNotificationEnabledCallback = (err: BusinessError, data: boolean): void => {
   if (err) {
-    console.error(
-      `isNotificationEnabled failed, code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`isNotificationEnabled failed, code is ${err.code}, message is ${err.message}`);
   } else {
-    console.info(
-      `isNotificationEnabled success, data is ${JSON.stringify(data)}`,
-    );
+    console.info(`isNotificationEnabled success, data is ${JSON.stringify(data)}`);
   }
-};
+}
 
 notificationManager.isNotificationEnabled(isNotificationEnabledCallback);
 ```
 
 
-## notificationManager.isNotificationEnabled11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isNotificationEnabled(): Promise<boolean>
+##### notificationManager.isNotificationEnabled11+
+
+isNotificationEnabled(): Promise&lt;boolean&gt;
 
 查询当前应用通知使能状态。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1056,7 +914,6 @@ isNotificationEnabled(): Promise<boolean>
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)、[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1069,27 +926,19 @@ isNotificationEnabled(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .isNotificationEnabled()
-  .then((data: boolean) => {
-    console.info(
-      `isNotificationEnabled success, data: ${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `isNotificationEnabled failed, code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.isNotificationEnabled().then((data: boolean) => {
+  console.info(`isNotificationEnabled success, data: ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`isNotificationEnabled failed, code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.isNotificationEnabledSync12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notificationManager.isNotificationEnabledSync12+
 
 isNotificationEnabledSync(): boolean
 
@@ -1098,7 +947,6 @@ isNotificationEnabledSync(): boolean
 **系统能力**：SystemCapability.Notification.Notification
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1109,7 +957,6 @@ isNotificationEnabledSync(): boolean
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1600001 | Internal error. |
@@ -1119,19 +966,16 @@ isNotificationEnabledSync(): boolean
 
 **示例：**
 
-
-```ts
+```json
 let enabled: boolean = notificationManager.isNotificationEnabledSync();
-console.info(
-  `isNotificationEnabledSync success, data is : ${JSON.stringify(enabled)}`,
-);
+console.info(`isNotificationEnabledSync success, data is : ${JSON.stringify(enabled)}`);
 ```
 
 
-## notificationManager.setBadgeNumber10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setBadgeNumber(badgeNumber: number): Promise<void>
+##### notificationManager.setBadgeNumber10+
+
+setBadgeNumber(badgeNumber: number): Promise&lt;void&gt;
 
 设定角标个数，在应用的桌面图标上呈现。使用Promise异步回调。
 
@@ -1141,14 +985,12 @@ setBadgeNumber(badgeNumber: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | badgeNumber | number | 是 | 角标个数。当角标设定个数取值小于或等于0时，清除角标。取值大于99时，通知角标将显示99+。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1158,7 +1000,6 @@ setBadgeNumber(badgeNumber: number): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1172,28 +1013,22 @@ setBadgeNumber(badgeNumber: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let badgeNumber: number = 10;
-notificationManager
-  .setBadgeNumber(badgeNumber)
-  .then(() => {
-    console.info(`Succeeded in setting badge number.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to set badge number. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.setBadgeNumber(badgeNumber).then(() => {
+  console.info(`Succeeded in setting badge number.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to set badge number. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.setBadgeNumber10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void
+##### notificationManager.setBadgeNumber10+
+
+setBadgeNumber(badgeNumber: number, callback: AsyncCallback&lt;void&gt;): void
 
 设定角标个数，在应用的桌面图标上呈现。使用callback异步回调。
 
@@ -1202,7 +1037,6 @@ setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void
 **设备行为差异**：该接口在Wearable中返回801错误码，在其他设备类型中可正常调用。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1214,7 +1048,6 @@ setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -1227,35 +1060,31 @@ setBadgeNumber(badgeNumber: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let setBadgeNumberCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to set badge number. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to set badge number. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in setting badge number.`);
   }
-};
+}
 let badgeNumber: number = 10;
 notificationManager.setBadgeNumber(badgeNumber, setBadgeNumberCallback);
 ```
 
 
-## notificationManager.getBadgeNumber22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getBadgeNumber(): Promise<number>
+##### notificationManager.getBadgeNumber22+
+
+getBadgeNumber(): Promise&lt;number&gt;
 
 获取当前应用角标数量。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1266,7 +1095,6 @@ getBadgeNumber(): Promise<number>
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1600001 | Internal error. |
@@ -1276,36 +1104,27 @@ getBadgeNumber(): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .getBadgeNumber()
-  .then((badgeNumber: number) => {
-    console.info(
-      `Succeeded in getting badge number, badgeNumber is ${JSON.stringify(badgeNumber)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get badge number. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.getBadgeNumber().then((badgeNumber: number) => {
+  console.info(`Succeeded in getting badge number, badgeNumber is ${JSON.stringify(badgeNumber)}`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get badge number. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.getActiveNotificationCount
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getActiveNotificationCount(callback: AsyncCallback<number>): void
+##### notificationManager.getActiveNotificationCount
+
+getActiveNotificationCount(callback: AsyncCallback&lt;number&gt;): void
 
 获取当前应用未删除的通知数。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1316,7 +1135,6 @@ getActiveNotificationCount(callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -1327,42 +1145,31 @@ getActiveNotificationCount(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let getActiveNotificationCountCallback = (
-  err: BusinessError,
-  data: number,
-): void => {
+let getActiveNotificationCountCallback = (err: BusinessError, data: number): void => {
   if (err) {
-    console.error(
-      `Failed to get active notification count. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to get active notification count. Code is ${err.code}, message is ${err.message}`);
   } else {
-    console.info(
-      `Succeeded in getting active notification count, data is ${JSON.stringify(data)}`,
-    );
+    console.info(`Succeeded in getting active notification count, data is ${JSON.stringify(data)}`);
   }
-};
+}
 
-notificationManager.getActiveNotificationCount(
-  getActiveNotificationCountCallback,
-);
+notificationManager.getActiveNotificationCount(getActiveNotificationCountCallback);
 ```
 
 
-## notificationManager.getActiveNotificationCount
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getActiveNotificationCount(): Promise<number>
+##### notificationManager.getActiveNotificationCount
+
+getActiveNotificationCount(): Promise&lt;number&gt;
 
 获取当前应用未删除的通知数。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1373,7 +1180,6 @@ getActiveNotificationCount(): Promise<number>
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1600001 | Internal error. |
@@ -1383,29 +1189,21 @@ getActiveNotificationCount(): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .getActiveNotificationCount()
-  .then((data: number) => {
-    console.info(
-      `Succeeded in getting active notification count, data is ${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get active notification count. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.getActiveNotificationCount().then((data: number) => {
+  console.info(`Succeeded in getting active notification count, data is ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get active notification count. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.getActiveNotifications
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): void
+##### notificationManager.getActiveNotifications
+
+getActiveNotifications(callback: AsyncCallback<Array&lt;NotificationRequest&gt;>): void
 
 获取当前应用未删除的通知列表。使用callback异步回调。
 
@@ -1413,16 +1211,14 @@ getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)&gt;&gt; | 是 | 回调函数。当获取未删除的通知列表成功，err为undefined，data为获取到的通知列表，否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;NotificationRequest&gt;> | 是 | 回调函数。当获取未删除的通知列表成功，err为undefined，data为获取到的通知列表，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1434,32 +1230,24 @@ getActiveNotifications(callback: AsyncCallback<Array<NotificationRequest>>): voi
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let getActiveNotificationsCallback = (
-  err: BusinessError,
-  data: Array<notificationManager.NotificationRequest>,
-): void => {
+let getActiveNotificationsCallback = (err: BusinessError, data: Array<notificationManager.NotificationRequest>): void => {
   if (err) {
-    console.error(
-      `Failed to get active notifications. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to get active notifications. Code is ${err.code}, message is ${err.message}`);
   } else {
-    console.info(
-      `Succeeded in getting active notifications, data is ${JSON.stringify(data)}`,
-    );
+    console.info(`Succeeded in getting active notifications, data is ${JSON.stringify(data)}`);
   }
-};
+}
 notificationManager.getActiveNotifications(getActiveNotificationsCallback);
 ```
 
 
-## notificationManager.getActiveNotifications
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getActiveNotifications(): Promise<Array<NotificationRequest>>
+##### notificationManager.getActiveNotifications
+
+getActiveNotifications(): Promise<Array&lt;NotificationRequest&gt;>
 
 获取当前应用未删除的通知列表。使用Promise异步回调。
 
@@ -1467,16 +1255,14 @@ getActiveNotifications(): Promise<Array<NotificationRequest>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)&gt;&gt; | Promise对象，返回当前应用的通知列表。 |
+| Promise<Array&lt;NotificationRequest&gt;> | Promise对象，返回当前应用的通知列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1487,29 +1273,21 @@ getActiveNotifications(): Promise<Array<NotificationRequest>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .getActiveNotifications()
-  .then((data: Array<notificationManager.NotificationRequest>) => {
-    console.info(
-      `Succeeded in getting active notifications, data is ${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get active notifications. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.getActiveNotifications().then((data: Array<notificationManager.NotificationRequest>) => {
+  console.info(`Succeeded in getting active notifications, data is ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get active notifications. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.getNotificationParameters24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getNotificationParameters(id: number, label?: string): Promise<NotificationParameters>
+##### notificationManager.getNotificationParameters24+
+
+getNotificationParameters(id: number, label?: string): Promise&lt;NotificationParameters&gt;
 
 获取通知[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)中wantAgent字段的部分信息。使用Promise异步回调。
 
@@ -1519,7 +1297,6 @@ getNotificationParameters(id: number, label?: string): Promise<NotificationParam
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | id | number | 是 | 通知ID。 |
@@ -1528,16 +1305,14 @@ getNotificationParameters(id: number, label?: string): Promise<NotificationParam
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NotificationParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationparameters24)&gt; | Promise对象，返回wantAgent的部分信息。 |
+| Promise&lt;NotificationParameters&gt; | Promise对象，返回wantAgent的部分信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1549,31 +1324,23 @@ getNotificationParameters(id: number, label?: string): Promise<NotificationParam
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let id: number = 0;
-let label: string = '';
-notificationManager
-  .getNotificationParameters(id, label)
-  .then((data: notificationManager.NotificationParameters) => {
-    console.info(
-      `Succeeded in getting notification parameters, data is ${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get notification parameters. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+let label: string = "";
+notificationManager.getNotificationParameters(id, label).then((data: notificationManager.NotificationParameters) => {
+  console.info(`Succeeded in getting notification parameters, data is ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get notification parameters. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.cancelGroup
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancelGroup(groupName: string, callback: AsyncCallback<void>): void
+##### notificationManager.cancelGroup
+
+cancelGroup(groupName: string, callback: AsyncCallback&lt;void&gt;): void
 
 取消当前应用指定组下的通知。使用callback异步回调。
 
@@ -1581,17 +1348,15 @@ cancelGroup(groupName: string, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| groupName | string | 是 | 通知组名称，此名称需要在发布通知时通过[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)对象指定。 |
+| groupName | string | 是 | 通知组名称，此名称需要在发布通知时通过NotificationRequest对象指定。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当取消当前应用指定组下的通知成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1603,28 +1368,25 @@ cancelGroup(groupName: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let cancelGroupCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `Failed to cancel group. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to cancel group. Code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`Succeeded in canceling group.`);
   }
-};
-let groupName: string = 'GroupName';
+}
+let groupName: string = "GroupName";
 notificationManager.cancelGroup(groupName, cancelGroupCallback);
 ```
 
 
-## notificationManager.cancelGroup
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancelGroup(groupName: string): Promise<void>
+##### notificationManager.cancelGroup
+
+cancelGroup(groupName: string): Promise&lt;void&gt;
 
 取消当前应用指定组下的通知。使用Promise异步回调。
 
@@ -1632,14 +1394,12 @@ cancelGroup(groupName: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| groupName | string | 是 | 通知组名称，此名称需要在发布通知时通过[NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1)对象指定。 |
+| groupName | string | 是 | 通知组名称，此名称需要在发布通知时通过NotificationRequest对象指定。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1650,7 +1410,6 @@ cancelGroup(groupName: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -1661,35 +1420,28 @@ cancelGroup(groupName: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let groupName: string = 'GroupName';
-notificationManager
-  .cancelGroup(groupName)
-  .then(() => {
-    console.info(`Succeeded in canceling group.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to cancel group. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+let groupName: string = "GroupName";
+notificationManager.cancelGroup(groupName).then(() => {
+  console.info(`Succeeded in canceling group.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to cancel group. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.isSupportTemplate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void
+##### notificationManager.isSupportTemplate
+
+isSupportTemplate(templateName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 在使用[通知模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1701,7 +1453,6 @@ isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -1712,28 +1463,25 @@ isSupportTemplate(templateName: string, callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let templateName: string = 'downloadTemplate';
 let isSupportTemplateCallback = (err: BusinessError, data: boolean): void => {
   if (err) {
-    console.error(
-      `isSupportTemplate failed, code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`isSupportTemplate failed, code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`isSupportTemplate success, data: ${JSON.stringify(data)}`);
   }
-};
+}
 notificationManager.isSupportTemplate(templateName, isSupportTemplateCallback);
 ```
 
 
-## notificationManager.isSupportTemplate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isSupportTemplate(templateName: string): Promise<boolean>
+##### notificationManager.isSupportTemplate
+
+isSupportTemplate(templateName: string): Promise&lt;boolean&gt;
 
 在使用[通知模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用Promise异步回调。
 
@@ -1741,14 +1489,12 @@ isSupportTemplate(templateName: string): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | templateName | string | 是 | 模板名称。当前仅支持'downloadTemplate'。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1759,7 +1505,6 @@ isSupportTemplate(templateName: string): Promise<boolean>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -1770,30 +1515,27 @@ isSupportTemplate(templateName: string): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let templateName: string = 'downloadTemplate';
-notificationManager
-  .isSupportTemplate(templateName)
-  .then((data: boolean) => {
-    console.info(`isSupportTemplate success, data: ${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `isSupportTemplate failed, code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.isSupportTemplate(templateName).then((data: boolean) => {
+  console.info(`isSupportTemplate success, data: ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`isSupportTemplate failed, code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.requestEnableNotification10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<void>): void
+##### notificationManager.requestEnableNotification10+
+
+requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback&lt;void&gt;): void
 
 应用需要获取用户授权才能发送通知。在通知发布前调用该接口，可以拉起通知授权弹窗，让用户选择是否允许发送通知。使用callback异步回调。
+
+> [!NOTE]
+> 仅当应用界面加载完成后（即调用 loadContent 成功），方可使用该接口。 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用 openNotificationSettings 二次申请授权，拉起通知管理弹窗。
 
 
 **模型约束**：此接口仅可在Stage模型下使用。
@@ -1802,17 +1544,15 @@ requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 通知弹窗绑定Ability的上下文。 |
+| context | UIAbilityContext | 是 | 通知弹窗绑定Ability的上下文。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当应用通过弹窗获取用户授权成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1826,8 +1566,7 @@ requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback<voi
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1838,49 +1577,33 @@ class MyAbility extends UIAbility {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          `Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`,
-        );
+        hilog.error(0x0000, 'testTag', `Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`);
         return;
       }
-      hilog.info(
-        0x0000,
-        'testTag',
-        `Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`,
-      );
+      hilog.info(0x0000, 'testTag', `Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`);
       let requestEnableNotificationCallback = (err: BusinessError): void => {
         if (err) {
-          hilog.error(
-            0x0000,
-            'testTag',
-            `[ANS] requestEnableNotification failed, code is ${err.code}, message is ${err.message}`,
-          );
+          hilog.error(0x0000, 'testTag', `[ANS] requestEnableNotification failed, code is ${err.code}, message is ${err.message}`);
         } else {
-          hilog.info(
-            0x0000,
-            'testTag',
-            `[ANS] requestEnableNotification success`,
-          );
+          hilog.info(0x0000, 'testTag', `[ANS] requestEnableNotification success`);
         }
       };
-      notificationManager.requestEnableNotification(
-        this.context,
-        requestEnableNotificationCallback,
-      );
+      notificationManager.requestEnableNotification(this.context, requestEnableNotificationCallback);
     });
   }
 }
 ```
 
 
-## notificationManager.requestEnableNotification10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-requestEnableNotification(context: UIAbilityContext): Promise<void>
+##### notificationManager.requestEnableNotification10+
+
+requestEnableNotification(context: UIAbilityContext): Promise&lt;void&gt;
 
 应用需要获取用户授权才能发送通知。在通知发布前调用该接口，可以拉起通知授权弹窗，让用户选择是否允许发送通知。使用Promise异步回调。
+
+> [!NOTE]
+> 仅当应用界面加载完成后（即调用 loadContent 成功），方可使用该接口。 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用 openNotificationSettings 二次申请授权，拉起通知管理弹窗。
 
 
 **模型约束**：此接口仅可在Stage模型下使用。
@@ -1889,14 +1612,12 @@ requestEnableNotification(context: UIAbilityContext): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 通知弹窗绑定的Ability上下文。 |
+| context | UIAbilityContext | 是 | 通知弹窗绑定的Ability上下文。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1907,7 +1628,6 @@ requestEnableNotification(context: UIAbilityContext): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -1920,8 +1640,7 @@ requestEnableNotification(context: UIAbilityContext): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1932,55 +1651,35 @@ class MyAbility extends UIAbility {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          `Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`,
-        );
+        hilog.error(0x0000, 'testTag', `Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`);
         return;
       }
-      hilog.info(
-        0x0000,
-        'testTag',
-        `Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`,
-      );
-      notificationManager
-        .requestEnableNotification(this.context)
-        .then(() => {
-          hilog.info(
-            0x0000,
-            'testTag',
-            `[ANS] requestEnableNotification success`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          hilog.error(
-            0x0000,
-            'testTag',
-            `[ANS] requestEnableNotification failed, code is ${err.code}, message is ${err.message}`,
-          );
-        });
+      hilog.info(0x0000, 'testTag', `Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`);
+      notificationManager.requestEnableNotification(this.context).then(() => {
+        hilog.info(0x0000, 'testTag', `[ANS] requestEnableNotification success`);
+      }).catch((err: BusinessError) => {
+        hilog.error(0x0000, 'testTag', `[ANS] requestEnableNotification failed, code is ${err.code}, message is ${err.message}`);
+      });
     });
   }
 }
 ```
 
 
-## notificationManager.requestEnableNotification(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-requestEnableNotification(callback: AsyncCallback<void>): void
+##### notificationManager.requestEnableNotification(deprecated)
+
+requestEnableNotification(callback: AsyncCallback&lt;void&gt;): void
 
 当前应用请求通知使能。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的[requestEnableNotification](#notificationmanagerrequestenablenotification10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的 requestEnableNotification 替代。
+
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1991,7 +1690,6 @@ requestEnableNotification(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -2004,40 +1702,34 @@ requestEnableNotification(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let requestEnableNotificationCallback = (err: BusinessError): void => {
   if (err) {
-    console.error(
-      `requestEnableNotification failed, code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`requestEnableNotification failed, code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`requestEnableNotification success`);
   }
 };
-notificationManager.requestEnableNotification(
-  requestEnableNotificationCallback,
-);
+notificationManager.requestEnableNotification(requestEnableNotificationCallback);
 ```
 
 
-## notificationManager.requestEnableNotification(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-requestEnableNotification(): Promise<void>
+##### notificationManager.requestEnableNotification(deprecated)
+
+requestEnableNotification(): Promise&lt;void&gt;
 
 当前应用请求通知使能。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的[requestEnableNotification](#notificationmanagerrequestenablenotification10-1)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用有context入参的 requestEnableNotification 替代。
+
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2047,7 +1739,6 @@ requestEnableNotification(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2060,27 +1751,21 @@ requestEnableNotification(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .requestEnableNotification()
-  .then(() => {
-    console.info(`requestEnableNotification success`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `requestEnableNotification failed, code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.requestEnableNotification().then(() => {
+  console.info(`requestEnableNotification success`);
+}).catch((err: BusinessError) => {
+  console.error(`requestEnableNotification failed, code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.isDistributedEnabled
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isDistributedEnabled(callback: AsyncCallback<boolean>): void
+##### notificationManager.isDistributedEnabled
+
+isDistributedEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
 查询设备是否支持跨设备协同通知。使用callback异步回调。
 
@@ -2089,7 +1774,6 @@ isDistributedEnabled(callback: AsyncCallback<boolean>): void
 **系统能力**：SystemCapability.Notification.Notification
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2100,7 +1784,6 @@ isDistributedEnabled(callback: AsyncCallback<boolean>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -2112,18 +1795,12 @@ isDistributedEnabled(callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let isDistributedEnabledCallback = (
-  err: BusinessError,
-  data: boolean,
-): void => {
+let isDistributedEnabledCallback = (err: BusinessError, data: boolean): void => {
   if (err) {
-    console.error(
-      `isDistributedEnabled failed, code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`isDistributedEnabled failed, code is ${err.code}, message is ${err.message}`);
   } else {
     console.info(`isDistributedEnabled success ${JSON.stringify(data)}`);
   }
@@ -2132,10 +1809,10 @@ notificationManager.isDistributedEnabled(isDistributedEnabledCallback);
 ```
 
 
-## notificationManager.isDistributedEnabled
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isDistributedEnabled(): Promise<boolean>
+##### notificationManager.isDistributedEnabled
+
+isDistributedEnabled(): Promise&lt;boolean&gt;
 
 查询设备是否支持跨设备协同通知。使用Promise异步回调。
 
@@ -2145,7 +1822,6 @@ isDistributedEnabled(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。返回true表示支持跨设备协同通知；返回false表示不支持跨设备协同通知。 |
@@ -2154,7 +1830,6 @@ isDistributedEnabled(): Promise<boolean>
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2166,27 +1841,21 @@ isDistributedEnabled(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .isDistributedEnabled()
-  .then((data: boolean) => {
-    console.info(`isDistributedEnabled success, data: ${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `isDistributedEnabled failed, code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.isDistributedEnabled().then((data: boolean) => {
+  console.info(`isDistributedEnabled success, data: ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`isDistributedEnabled failed, code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.openNotificationSettings13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-openNotificationSettings(context: UIAbilityContext): Promise<void>
+##### notificationManager.openNotificationSettings13+
+
+openNotificationSettings(context: UIAbilityContext): Promise&lt;void&gt;
 
 拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调。
 
@@ -2196,14 +1865,12 @@ openNotificationSettings(context: UIAbilityContext): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 通知设置页面绑定Ability的上下文。 |
+| context | UIAbilityContext | 是 | 通知设置页面绑定Ability的上下文。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2213,7 +1880,6 @@ openNotificationSettings(context: UIAbilityContext): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2225,8 +1891,7 @@ openNotificationSettings(context: UIAbilityContext): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -2237,44 +1902,25 @@ class MyAbility extends UIAbility {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          `Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`,
-        );
+        hilog.error(0x0000, 'testTag', `Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`);
         return;
       }
-      hilog.info(
-        0x0000,
-        'testTag',
-        `Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`,
-      );
-      notificationManager
-        .openNotificationSettings(this.context)
-        .then(() => {
-          hilog.info(
-            0x0000,
-            'testTag',
-            `[ANS] openNotificationSettings success`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          hilog.error(
-            0x0000,
-            'testTag',
-            `[ANS] openNotificationSettings failed, code is ${err.code}, message is ${err.message}`,
-          );
-        });
+      hilog.info(0x0000, 'testTag', `Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`);
+      notificationManager.openNotificationSettings(this.context).then(() => {
+        hilog.info(0x0000, 'testTag', `[ANS] openNotificationSettings success`);
+      }).catch((err: BusinessError) => {
+        hilog.error(0x0000, 'testTag', `[ANS] openNotificationSettings failed, code is ${err.code}, message is ${err.message}`);
+      });
     });
   }
 }
 ```
 
 
-## notificationManager.getNotificationSetting20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getNotificationSetting(): Promise<NotificationSetting>
+##### notificationManager.getNotificationSetting20+
+
+getNotificationSetting(): Promise&lt;NotificationSetting&gt;
 
 获取应用程序的通知设置。使用Promise异步回调。
 
@@ -2282,16 +1928,14 @@ getNotificationSetting(): Promise<NotificationSetting>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NotificationSetting](#notificationsetting20)&gt; | Promise对象，返回此应用程序的通知设置。 |
+| Promise&lt;NotificationSetting&gt; | Promise对象，返回此应用程序的通知设置。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2302,36 +1946,27 @@ getNotificationSetting(): Promise<NotificationSetting>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .getNotificationSetting()
-  .then((data: notificationManager.NotificationSetting) => {
-    console.info(
-      `getNotificationSetting success, data: ${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getNotificationSetting failed, code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.getNotificationSetting().then((data: notificationManager.NotificationSetting) => {
+    console.info(`getNotificationSetting success, data: ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getNotificationSetting failed, code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## notificationManager.isGeofenceEnabled23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isGeofenceEnabled(): Promise<boolean>
+##### notificationManager.isGeofenceEnabled23+
+
+isGeofenceEnabled(): Promise&lt;boolean&gt;
 
 检查地理围栏功能是否已启用。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2341,7 +1976,6 @@ isGeofenceEnabled(): Promise<boolean>
 **错误码**：
 
 以下错误码的详细介绍请参见[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2353,41 +1987,26 @@ isGeofenceEnabled(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-notificationManager
-  .isGeofenceEnabled()
-  .then((data: boolean) => {
-    hilog.info(
-      0x0000,
-      'testTag',
-      '%{public}s',
-      `isGeofenceEnabled success, enabled:  ${JSON.stringify(data)}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    hilog.error(
-      0x0000,
-      'testTag',
-      '%{public}s',
-      `isGeofenceEnabled failed, code is ${err.code}, message is ${err.message}`,
-    );
-  });
+notificationManager.isGeofenceEnabled().then((data: boolean) => {
+  hilog.info(0x0000, 'testTag', '%{public}s', `isGeofenceEnabled success, enabled:  ${JSON.stringify(data)}.`);
+}).catch((err: BusinessError) => {
+  hilog.error(0x0000, 'testTag', '%{public}s',`isGeofenceEnabled failed, code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## ContentType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ContentType
 
 通知内容类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Notification.Notification
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2400,13 +2019,13 @@ notificationManager
 | NOTIFICATION_CONTENT_LIVE_VIEW11+ | 6 | 普通实况窗类型通知。仅系统应用可用。 |
 
 
-## SlotLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SlotLevel
 
 通知级别。
 
 **系统能力**：SystemCapability.Notification.Notification
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2417,8 +2036,9 @@ notificationManager
 | LEVEL_HIGH | 4 | 表示通知功能已启用，状态栏中显示通知图标，有横幅，有提示音。 |
 
 
-## SlotType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SlotType
 
 通知渠道类型。
 
@@ -2426,34 +2046,34 @@ notificationManager
 
 **系统能力**：SystemCapability.Notification.Notification
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| UNKNOWN_TYPE | 0 | 未知类型。该类型对应[SlotLevel](#slotlevel)为LEVEL_MIN。 |
-| SOCIAL_COMMUNICATION | 1 | 社交通信。该类型对应[SlotLevel](#slotlevel)为LEVEL_HIGH。 |
-| SERVICE_INFORMATION | 2 | 服务提醒。该类型对应[SlotLevel](#slotlevel)为LEVEL_HIGH。 |
-| CONTENT_INFORMATION | 3 | 内容资讯。该类型对应[SlotLevel](#slotlevel)为LEVEL_MIN。 |
-| LIVE_VIEW11+ | 4 | 实况窗。不支持三方应用直接创建该渠道类型通知，可以由系统代理创建后，三方应用发布同ID的通知来更新指定内容，更新时默认无提示音。该类型对应[SlotLevel](#slotlevel)为LEVEL_DEFAULT。 |
-| CUSTOMER_SERVICE11+ | 5 | 客服消息。该类型用于用户与商家之间的客服消息，需由用户主动发起。该类型对应[SlotLevel](#slotlevel)为LEVEL_DEFAULT。 |
-| OTHER_TYPES | 0xFFFF | 其他。该类型对应[SlotLevel](#slotlevel)为LEVEL_MIN。 |
+| UNKNOWN_TYPE | 0 | 未知类型。该类型对应SlotLevel为LEVEL_MIN。 |
+| SOCIAL_COMMUNICATION | 1 | 社交通信。该类型对应SlotLevel为LEVEL_HIGH。 |
+| SERVICE_INFORMATION | 2 | 服务提醒。该类型对应SlotLevel为LEVEL_HIGH。 |
+| CONTENT_INFORMATION | 3 | 内容资讯。该类型对应SlotLevel为LEVEL_MIN。 |
+| LIVE_VIEW11+ | 4 | 实况窗。不支持三方应用直接创建该渠道类型通知，可以由系统代理创建后，三方应用发布同ID的通知来更新指定内容，更新时默认无提示音。该类型对应SlotLevel为LEVEL_DEFAULT。 |
+| CUSTOMER_SERVICE11+ | 5 | 客服消息。该类型用于用户与商家之间的客服消息，需由用户主动发起。该类型对应SlotLevel为LEVEL_DEFAULT。 |
+| OTHER_TYPES | 0xFFFF | 其他。该类型对应SlotLevel为LEVEL_MIN。 |
 
 
-## NotificationSetting20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationSetting20+
 
 通知设置状态，包括是否开启振动、是否开启响铃。
 
 **系统能力**：SystemCapability.Notification.Notification
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| vibrationEnabled | boolean | 否 | 否 | 表示是否开启振动。          - true：开启。          - false：关闭。 |
-| soundEnabled | boolean | 否 | 否 | 表示是否开启响铃。          - true：开启。          - false：关闭。 |
+| vibrationEnabled | boolean | 否 | 否 | 表示是否开启振动。 - true：开启。 - false：关闭。 |
+| soundEnabled | boolean | 否 | 否 | 表示是否开启响铃。 - true：开启。 - false：关闭。 |
 
 
-## BundleOption
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### BundleOption
 
 type BundleOption = _BundleOption
 
@@ -2461,14 +2081,14 @@ type BundleOption = _BundleOption
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_BundleOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcommondef#bundleoption) | 指定应用的包信息。 |
+| _BundleOption | 指定应用的包信息。 |
 
 
-## NotificationActionButton
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationActionButton
 
 type NotificationActionButton = _NotificationActionButton
 
@@ -2476,14 +2096,14 @@ type NotificationActionButton = _NotificationActionButton
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationActionButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-apis-inner-notification-notificationactionbutton) | 通知中显示的操作按钮。 |
+| _NotificationActionButton | 通知中显示的操作按钮。 |
 
 
-## NotificationBasicContent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationBasicContent
 
 type NotificationBasicContent = _NotificationBasicContent
 
@@ -2491,14 +2111,14 @@ type NotificationBasicContent = _NotificationBasicContent
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationBasicContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationbasiccontent) | 描述普通文本通知。 |
+| _NotificationBasicContent | 描述普通文本通知。 |
 
 
-## NotificationContent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationContent
 
 type NotificationContent = _NotificationContent
 
@@ -2506,14 +2126,14 @@ type NotificationContent = _NotificationContent
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationcontent-1) | 描述通知内容。 |
+| _NotificationContent | 描述通知内容。 |
 
 
-## NotificationLongTextContent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationLongTextContent
 
 type NotificationLongTextContent = _NotificationLongTextContent
 
@@ -2521,14 +2141,14 @@ type NotificationLongTextContent = _NotificationLongTextContent
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationLongTextContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationlongtextcontent) | 描述长文本通知。 |
+| _NotificationLongTextContent | 描述长文本通知。 |
 
 
-## NotificationMultiLineContent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationMultiLineContent
 
 type NotificationMultiLineContent = _NotificationMultiLineContent
 
@@ -2536,14 +2156,14 @@ type NotificationMultiLineContent = _NotificationMultiLineContent
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationMultiLineContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationmultilinecontent) | 描述多行文本通知。 |
+| _NotificationMultiLineContent | 描述多行文本通知。 |
 
 
-## NotificationPictureContent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationPictureContent
 
 type NotificationPictureContent = _NotificationPictureContent
 
@@ -2551,14 +2171,14 @@ type NotificationPictureContent = _NotificationPictureContent
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationPictureContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationpicturecontent) | 附有图片的通知。 |
+| _NotificationPictureContent | 附有图片的通知。 |
 
 
-## NotificationSystemLiveViewContent11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationSystemLiveViewContent11+
 
 type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent
 
@@ -2566,14 +2186,14 @@ type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationSystemLiveViewContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationsystemliveviewcontent) | 系统实况窗通知内容。 |
+| _NotificationSystemLiveViewContent | 系统实况窗通知内容。 |
 
 
-## NotificationRequest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationRequest
 
 type NotificationRequest = _NotificationRequest
 
@@ -2581,14 +2201,14 @@ type NotificationRequest = _NotificationRequest
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationrequest-1) | 通知请求。 |
+| _NotificationRequest | 通知请求。 |
 
 
-## NotificationParameters24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationParameters24+
 
 type NotificationParameters = _NotificationParameters
 
@@ -2598,14 +2218,14 @@ type NotificationParameters = _NotificationParameters
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#notificationparameters24) | 描述通知请求中wantAgent的部分信息。 |
+| _NotificationParameters | 描述通知请求中wantAgent的部分信息。 |
 
 
-## DistributedOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DistributedOptions
 
 type DistributedOptions = _DistributedOptions
 
@@ -2613,14 +2233,14 @@ type DistributedOptions = _DistributedOptions
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_DistributedOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest#distributedoptions8) | 分布式选项。 |
+| _DistributedOptions | 分布式选项。 |
 
 
-## NotificationSlot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationSlot
 
 type NotificationSlot = _NotificationSlot
 
@@ -2628,14 +2248,14 @@ type NotificationSlot = _NotificationSlot
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationSlot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot) | 通知渠道。 |
+| _NotificationSlot | 通知渠道。 |
 
 
-## NotificationTemplate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationTemplate
 
 type NotificationTemplate = _NotificationTemplate
 
@@ -2643,14 +2263,14 @@ type NotificationTemplate = _NotificationTemplate
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate) | 通知模板。 |
+| _NotificationTemplate | 通知模板。 |
 
 
-## NotificationUserInput
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationUserInput
 
 type NotificationUserInput = _NotificationUserInput
 
@@ -2658,14 +2278,14 @@ type NotificationUserInput = _NotificationUserInput
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationUserInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationuserinput) | 保存用户输入的通知消息。 |
+| _NotificationUserInput | 保存用户输入的通知消息。 |
 
 
-## NotificationCapsule11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationCapsule11+
 
 type NotificationCapsule = _NotificationCapsule
 
@@ -2673,14 +2293,14 @@ type NotificationCapsule = _NotificationCapsule
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationCapsule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationcapsule11) | 通知胶囊。 |
+| _NotificationCapsule | 通知胶囊。 |
 
 
-## NotificationButton11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationButton11+
 
 type NotificationButton = _NotificationButton
 
@@ -2688,14 +2308,14 @@ type NotificationButton = _NotificationButton
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationbutton11) | 通知按钮。 |
+| _NotificationButton | 通知按钮。 |
 
 
-## NotificationTime11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationTime11+
 
 type NotificationTime = _NotificationTime
 
@@ -2703,14 +2323,14 @@ type NotificationTime = _NotificationTime
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationtime11) | 描述通知计时信息。 |
+| _NotificationTime | 描述通知计时信息。 |
 
 
-## NotificationProgress11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### NotificationProgress11+
 
 type NotificationProgress = _NotificationProgress
 
@@ -2718,19 +2338,18 @@ type NotificationProgress = _NotificationProgress
 
 **系统能力**： SystemCapability.Notification.Notification
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_NotificationProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcontent#notificationprogress11) | 描述通知进度。 |
+| _NotificationProgress | 描述通知进度。 |
 
 
-## PriorityNotificationType23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PriorityNotificationType23+
 
 描述通知的优先级类型。
 
 **系统能力**：SystemCapability.Notification.Notification
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

@@ -1,18 +1,19 @@
 # atm工具
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/atm-tool
 
 Access Token Manager (程序访问控制管理工具，简称atm工具)，是用于查询应用进程的权限、使用类型等信息的工具，为开发者提供了根据tokenid、包名、进程名等信息进行访问控制管理的能力。
 
 
-## 环境说明
+##### 环境说明
 
 在使用本工具前，开发者需要先获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)，执行hdc shell。
 
-## atm工具命令列表
 
+
+##### atm工具命令列表
 
 | 命令 | 描述 |
 | --- | --- |
@@ -20,35 +21,39 @@ Access Token Manager (程序访问控制管理工具，简称atm工具)，是用
 | dump | 查询命令，用于查询访问控制相关数据信息。 |
 
 
-## 帮助命令
 
 
-```text
+##### 帮助命令
+
+```bash
 # 显示帮助信息
 atm help
 ```
 
 
-## 查询命令
 
+##### 查询命令
 
-```text
-atm dump [-h] [-t [-i ] [-b ] [-n ]] [-v [-i ] [-p ]]
+```bash
+atm dump [-h] [-d [-p <permission-name>]] [-t [-i <token-id>] [-b <bundle-name>] [-n <process-name>] [-p <permission-name>]]
 ```
 
-下表所列命令中，-t为必选参数，-i、-b、-n、-p为可选参数。对atm dump -t命令，-i、-b、-n参数只能单独使用。
+下表所列命令中，-d、-t为必选参数，-i、-b、-n、-p为可选参数。对atm dump -t命令，-i、-b、-n参数只能单独使用。
+
 | 参数 | 参数说明 |
 | --- | --- |
-| -d | 必选参数，查询系统中所有的权限定义。 |
-| -d -p  | 可选参数，通过权限名，查询权限定义。 |
 | -h | 帮助信息。 |
+| -d | 必选参数，查询系统中所有的权限定义。 |
+| -d -p <permission-name> | 可选参数，通过权限名，查询权限定义。 |
 | -t | 必选参数，查询系统中所有应用进程信息。 |
-| -t -i  | 可选参数，通过应用进程的tokenid，查询该应用的基本信息以及对应的[权限信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#grantstatus)。 |
-| -t -b  | 可选参数，通过应用进程的包名bundle-name，查询该应用的基本信息以及对应的[权限信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#grantstatus)。 |
-| -t -n  | 可选参数，通过应用进程的进程名process-name，查询该应用的基本信息以及对应的[权限信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#grantstatus)。 |
+| -t -i <token-id> | 可选参数，通过应用进程的tokenid，查询该应用的基本信息以及对应的GrantStatus。 |
+| -t -b <bundle-name> | 可选参数，通过应用进程的包名bundle-name，查询该应用的基本信息以及对应的GrantStatus。 |
+| -t -n <process-name> | 可选参数，通过应用进程的进程名process-name，查询该应用的基本信息以及对应的GrantStatus。 |
+
 
 示例：
-```text
+
+```bash
 #查询系统中所有的权限定义
 atm dump -d
 

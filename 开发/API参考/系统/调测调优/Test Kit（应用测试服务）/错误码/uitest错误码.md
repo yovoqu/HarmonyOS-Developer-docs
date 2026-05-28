@@ -3,15 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 17000001 初始化失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 17000001 初始化失败
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Initialization failed.
 执行param set persist.ace.testmode.enabled 1，并重启设备。
 
 
-## 17000002 当前无法调用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 17000002 当前无法调用
 
 **错误信息**
 
@@ -50,8 +49,8 @@ API没有使用await进行异步调用，造成堵塞。
 检查测试用例，确保异步接口使用await调用。
 
 
-## 17000003 断言失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 17000003 断言失败
 
 **错误信息**
 
@@ -70,8 +69,8 @@ Assertion failed.
 检查用户断言存在的控件实际是否存在。
 
 
-## 17000004 目标控件/窗口丢失
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 17000004 目标控件/窗口丢失
 
 **错误信息**
 
@@ -90,8 +89,8 @@ The window or component is invisible or destroyed.
 检查获取到目标控件/窗口后，页面是否发生变化导致目标丢失。
 
 
-## 17000005 操作不支持
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 17000005 操作不支持
 
 **错误信息**
 
@@ -110,8 +109,8 @@ UI对象不支持该操作。
 检查当前界面控件/窗口属性/设备是否支持该操作。
 
 
-## 17000007 参数不合法
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 17000007 参数不合法
 
 **错误信息**
 

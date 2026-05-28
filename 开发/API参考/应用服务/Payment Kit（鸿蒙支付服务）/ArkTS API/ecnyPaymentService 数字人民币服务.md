@@ -1,9 +1,9 @@
 # ecnyPaymentService (数字人民币服务)
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-ecnypaymentservice
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供数字人民币支付服务。
 
@@ -16,17 +16,15 @@
 **起始版本：** 5.0.1(13)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { ecnyPaymentService } from '@kit.PaymentKit';
 ```
 
 
-## EcnyOrderInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### EcnyOrderInfo
 
 拉起数字人民币收银台时传入的订单信息。
 
@@ -38,12 +36,11 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 **起始版本：** 5.0.1(13)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | merchantAppId | string | 否 | 否 | 由运营机构分配的APPID。 |
 | merchantNo | string | 否 | 否 | 由运营机构分配的商户号。 |
-| acqAgtInstnId | string | 否 | 是 | 受理服务机构的金融机构编码（[通过受理服务机构入网](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-digital-cny-pay-preparations)的商户，此项必填）。若未填写，默认为空。 |
+| acqAgtInstnId | string | 否 | 是 | 受理服务机构的金融机构编码（通过受理服务机构入网的商户，此项必填）。若未填写，默认为空。 |
 | creditorInstitutionId | string | 否 | 否 | 收款运营机构的金融机构编码。 |
 | encryptedKey | string | 否 | 否 | 用于加密订单信息的密钥密文。 |
 | encryptedInfo | string | 否 | 否 | 订单加密信息。 |
@@ -52,12 +49,13 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 | extraInfo | string | 否 | 是 | 保留字段。json string格式。若未填写，默认为空。示例为{"key1":"value1"}。 |
 
 
-> [!NOTE]
+> [!TIP]
 > 相关参数获取及详细说明参见运营机构或受理服务机构（客服热线956196）提供的开发指引。
 
 
-## EcnyPayResult
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### EcnyPayResult
 
 数字人民币支付结果。
 
@@ -69,17 +67,17 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 **起始版本：** 5.0.1(13)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | orderNo | string | 否 | 否 | 订单号。 |
 | extraInfo | string | 否 | 是 | 保留字段。json string格式。示例为{"key1":"value1"}。 |
 
 
-## requestEcnyPayment
-**支持设备：** Phone / PC/2in1 / Tablet
 
-requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise<EcnyPayResult>
+
+##### requestEcnyPayment
+
+requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise&lt;EcnyPayResult&gt;
 
 该方法提供基础支付功能，调用该方法前请确保网络已连接，调用该方法后会拉起数字人民币收银台，支付完成后使用Promise异步返回。
 
@@ -95,25 +93,22 @@ requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise<E
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文，不传会报401参数错误。 |
-| orderInfo | [EcnyOrderInfo](#ecnyorderinfo) | 是 | 拉起收银台传入的订单信息。不传会报401参数错误。 |
+| context | common.Context | 是 | 上下文，不传会报401参数错误。 |
+| orderInfo | EcnyOrderInfo | 是 | 拉起收银台传入的订单信息。不传会报401参数错误。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[EcnyPayResult](#ecnypayresult)&gt; | Promise对象。返回支付结果信息。 |
+| Promise&lt;EcnyPayResult&gt; | Promise对象。返回支付结果信息。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -130,9 +125,7 @@ requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise<E
 
 示例中的context的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)
 
-
-```ts
-import { BusinessError } from '@kit.BasicServicesKit';
+```text
 import { ecnyPaymentService } from '@kit.PaymentKit';
 import { common } from '@kit.AbilityKit';
 
@@ -154,21 +147,21 @@ struct Index {
       lastWalletId: "***"
     };
     ecnyPaymentService.requestEcnyPayment(this.context, orderInfo)
-    .then((result: ecnyPaymentService.EcnyPayResult) => {
-      // 支付成功
-      console.info(`succeeded in paying, result.orderNo: ${result.orderNo}, result.extraInfo: ${result.extraInfo}`);
-    })
+      .then((result: ecnyPaymentService.EcnyPayResult) => {
+        // 支付成功
+        console.info(`succeeded in paying, result.orderNo: ${result.orderNo}, result.extraInfo: ${result.extraInfo}`);
+      })
   }
 
   build() {
     Column() {
       Button('requestEcnyPaymentPromise')
-      .type(ButtonType.Capsule)
-      .width('50%')
-      .margin(20)
-      .onClick(() => {
-        this.requestEcnyPaymentPromise();
-      })
+        .type(ButtonType.Capsule)
+        .width('50%')
+        .margin(20)
+        .onClick(() => {
+          this.requestEcnyPaymentPromise();
+        })
     }
     .width('100%')
     .height('100%')

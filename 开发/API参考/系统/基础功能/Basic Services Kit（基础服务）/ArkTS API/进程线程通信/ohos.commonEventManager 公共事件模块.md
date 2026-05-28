@@ -3,34 +3,32 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了公共事件相关的能力，包括发布公共事件、订阅公共事件、以及退订公共事件。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { commonEventManager } from '@kit.BasicServicesKit';
 ```
 
 
-## Support
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Support
 
 系统公共事件是指由系统服务或系统应用发布的事件，订阅这些公共事件需要特定的权限、使用相应的值，详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。
 
 
-## commonEventManager.publish
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-publish(event: string, callback: AsyncCallback<void>): void
+##### commonEventManager.publish
+
+publish(event: string, callback: AsyncCallback&lt;void&gt;): void
 
 发布公共事件。使用callback异步回调。
 
@@ -40,17 +38,15 @@ publish(event: string, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | string | 是 | 表示要发送的公共事件。详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。 |
+| event | string | 是 | 表示要发送的公共事件。详见系统定义的公共事件。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当公共事件发布成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[事件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-commoneventservice)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -62,34 +58,29 @@ publish(event: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 发布公共事件
 try {
   commonEventManager.publish('event', (err: BusinessError) => {
     if (err) {
-      console.error(
-        `Failed to publish common event. Code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`Failed to publish common event. Code is ${err.code}, message is ${err.message}`);
       return;
     }
     console.info(`Succeeded in publishing common event.`);
   });
 } catch (error) {
   let err: BusinessError = error as BusinessError;
-  console.error(
-    `Failed to publish common event. Code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`Failed to publish common event. Code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-## commonEventManager.publish
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>): void
+##### commonEventManager.publish
+
+publish(event: string, options: CommonEventPublishData, callback: AsyncCallback&lt;void&gt;): void
 
 发布公共事件。使用callback异步回调。
 
@@ -99,18 +90,16 @@ publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | string | 是 | 表示要发布的公共事件。详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。 |
-| options | [CommonEventPublishData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventpublishdata) | 是 | 表示发布公共事件的属性。 |
+| event | string | 是 | 表示要发布的公共事件。详见系统定义的公共事件。 |
+| options | CommonEventPublishData | 是 | 表示发布公共事件的属性。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当公共事件发布成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[事件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-commoneventservice)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -122,41 +111,36 @@ publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 公共事件相关信息，以发布有序公共事件为例
 let options: commonEventManager.CommonEventPublishData = {
   code: 0,
   data: 'initial data',
-  isOrdered: true, // 有序公共事件
-};
+  isOrdered: true // 有序公共事件
+}
 
 // 发布公共事件
 try {
   commonEventManager.publish('event', options, (err: BusinessError) => {
     if (err) {
-      console.error(
-        `Failed to publish common event. Code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`Failed to publish common event. Code is ${err.code}, message is ${err.message}`);
       return;
     }
     console.info(`Succeeded in publishing common event.`);
   });
 } catch (error) {
   let err: BusinessError = error as BusinessError;
-  console.error(
-    `Failed to publish common event. Code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`Failed to publish common event. Code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-## commonEventManager.createSubscriber
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback<CommonEventSubscriber>): void
+##### commonEventManager.createSubscriber
+
+createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback&lt;CommonEventSubscriber&gt;): void
 
 创建订阅者。使用callback异步回调。
 
@@ -166,67 +150,55 @@ createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallbac
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| subscribeInfo | [CommonEventSubscribeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscribeinfo) | 是 | 表示订阅信息。 |
-| callback | AsyncCallback&lt;[CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1)&gt; | 是 | 回调函数。当公共事件订阅者创建成功时，err为undefined，否则为错误对象。 |
+| subscribeInfo | CommonEventSubscribeInfo | 是 | 表示订阅信息。 |
+| callback | AsyncCallback&lt;CommonEventSubscriber&gt; | 是 | 回调函数。当公共事件订阅者创建成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameter types.          3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
 let subscriber: commonEventManager.CommonEventSubscriber | null = null;
 // 订阅者信息
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-  events: ['event'],
+  events: ['event']
 };
 
 // 创建订阅者
 try {
-  commonEventManager.createSubscriber(
-    subscribeInfo,
-    (
-      err: BusinessError,
-      commonEventSubscriber: commonEventManager.CommonEventSubscriber,
-    ) => {
-      if (!err) {
+  commonEventManager.createSubscriber(subscribeInfo,
+    (err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
+      if(!err) {
         console.info(`Succeeded in creating subscriber.`);
         subscriber = commonEventSubscriber;
         return;
       }
-      console.error(
-        `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-      );
-    },
-  );
+      console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
+    });
 } catch (error) {
   let err: BusinessError = error as BusinessError;
-  console.error(
-    `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-## commonEventManager.createSubscriber
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSubscriber>
+##### commonEventManager.createSubscriber
+
+createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise&lt;CommonEventSubscriber&gt;
 
 创建订阅者。使用Promise异步回调。
 
@@ -236,59 +208,50 @@ createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise<CommonEventSu
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| subscribeInfo | [CommonEventSubscribeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscribeinfo) | 是 | 表示订阅信息。 |
+| subscribeInfo | CommonEventSubscribeInfo | 是 | 表示订阅信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1)&gt; | Promise对象，返回创建成功的订阅者对象。 |
+| Promise&lt;CommonEventSubscriber&gt; | Promise对象，返回创建成功的订阅者对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameter types.          3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
 let subscriber: commonEventManager.CommonEventSubscriber | null = null;
 // 订阅者信息
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-  events: ['event'],
+  events: ['event']
 };
 // 创建订阅者
-commonEventManager
-  .createSubscriber(subscribeInfo)
-  .then((commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
-    console.info(`Succeeded in creating subscriber.`);
-    subscriber = commonEventSubscriber;
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-    );
-  });
+commonEventManager.createSubscriber(subscribeInfo).then((commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
+  console.info(`Succeeded in creating subscriber.`);
+  subscriber = commonEventSubscriber;
+}).catch((err: BusinessError) => {
+  console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## commonEventManager.createSubscriberSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### commonEventManager.createSubscriberSync10+
 
 createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber
 
@@ -300,58 +263,52 @@ createSubscriber的同步接口。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| subscribeInfo | [CommonEventSubscribeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscribeinfo) | 是 | 表示订阅信息。 |
+| subscribeInfo | CommonEventSubscribeInfo | 是 | 表示订阅信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1) | 返回订阅者对象。 |
+| CommonEventSubscriber | 返回订阅者对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameter types.          3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
 let subscriber: commonEventManager.CommonEventSubscriber | null = null;
 // 订阅者信息
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-  events: ['event'],
+  events: ['event']
 };
 // 创建订阅者
 try {
   subscriber = commonEventManager.createSubscriberSync(subscribeInfo);
 } catch (error) {
   let err: BusinessError = error as BusinessError;
-  console.error(
-    `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-## commonEventManager.subscribe
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEventData>): void
+##### commonEventManager.subscribe
+
+subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback&lt;CommonEventData&gt;): void
 
 订阅公共事件。使用callback异步回调。
 
@@ -361,17 +318,15 @@ subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEvent
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1) | 是 | 表示订阅者对象。 |
-| callback | AsyncCallback&lt;[CommonEventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventdata)&gt; | 是 | 回调函数。当公共事件订阅成功后，事件触发时执行的回调函数；否则订阅失败时，err为错误对象。 |
+| subscriber | CommonEventSubscriber | 是 | 表示订阅者对象。 |
+| callback | AsyncCallback&lt;CommonEventData&gt; | 是 | 回调函数。当公共事件订阅成功后，事件触发时执行的回调函数；否则订阅失败时，err为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[事件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-commoneventservice)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -383,70 +338,51 @@ subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback<CommonEvent
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
 let subscriber: commonEventManager.CommonEventSubscriber | null = null;
 // 订阅者信息
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-  events: ['event'],
+  events: ['event']
 };
 
 // 创建订阅者
 try {
-  commonEventManager.createSubscriber(
-    subscribeInfo,
-    (
-      err: BusinessError,
-      commonEventSubscriber: commonEventManager.CommonEventSubscriber,
-    ) => {
-      if (!err) {
+  commonEventManager.createSubscriber(subscribeInfo,
+    (err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
+      if(!err) {
         console.info(`Succeeded in creating subscriber.`);
         subscriber = commonEventSubscriber;
         // 订阅公共事件
         try {
-          commonEventManager.subscribe(
-            subscriber,
-            (err: BusinessError, data: commonEventManager.CommonEventData) => {
-              if (err) {
-                console.error(
-                  `Failed to subscribe. Code is ${err.code}, message is ${err.message}`,
-                );
-                return;
-              }
-              console.info(
-                `Succeeded in subscribing, data is ${JSON.stringify(data)}`,
-              );
-            },
-          );
+          commonEventManager.subscribe(subscriber, (err: BusinessError, data: commonEventManager.CommonEventData) => {
+            if (err) {
+              console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
+              return;
+            }
+            console.info(`Succeeded in subscribing, data is ${JSON.stringify(data)}`);
+          });
         } catch (error) {
           let err: BusinessError = error as BusinessError;
-          console.error(
-            `Failed to subscribe. Code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
         }
         return;
       }
-      console.error(
-        `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-      );
-    },
-  );
+      console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
+    });
 } catch (error) {
   let err: BusinessError = error as BusinessError;
-  console.error(
-    `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-## commonEventManager.unsubscribe
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): void
+##### commonEventManager.unsubscribe
+
+unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback&lt;void&gt;): void
 
 取消订阅公共事件。使用callback异步回调。
 
@@ -456,10 +392,9 @@ unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1) | 是 | 表示订阅者对象。 |
+| subscriber | CommonEventSubscriber | 是 | 表示订阅者对象。 |
 | callback | AsyncCallback&lt;void&gt; | 否 | 回调函数。当取消公共事件订阅成功时，err为undefined，否则为错误对象。 |
 
 
@@ -467,10 +402,9 @@ unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): 
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[事件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-commoneventservice)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameter types.          3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | capability not supported. |
 | 1500007 | Failed to send the message to the common event service. |
 | 1500008 | Failed to initialize the common event service. |
@@ -478,62 +412,43 @@ unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback<void>): 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
 let subscriber: commonEventManager.CommonEventSubscriber | null = null;
 // 订阅者信息
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-  events: ['event'],
+  events: ['event']
 };
 
 // 创建订阅者
 try {
-  commonEventManager.createSubscriber(
-    subscribeInfo,
-    (
-      err: BusinessError,
-      commonEventSubscriber: commonEventManager.CommonEventSubscriber,
-    ) => {
-      if (!err) {
+  commonEventManager.createSubscriber(subscribeInfo,
+    (err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
+      if(!err) {
         console.info(`Succeeded in creating subscriber.`);
         subscriber = commonEventSubscriber;
         // 订阅公共事件
         try {
-          commonEventManager.subscribe(
-            subscriber,
-            (err: BusinessError, data: commonEventManager.CommonEventData) => {
-              if (err) {
-                console.error(
-                  `Failed to subscribe. Code is ${err.code}, message is ${err.message}`,
-                );
-                return;
-              }
-              console.info(
-                `Succeeded in subscribing, data is ${JSON.stringify(data)}`,
-              );
-            },
-          );
+          commonEventManager.subscribe(subscriber, (err: BusinessError, data: commonEventManager.CommonEventData) => {
+            if (err) {
+              console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
+              return;
+            }
+            console.info(`Succeeded in subscribing, data is ${JSON.stringify(data)}`);
+          });
         } catch (error) {
           let err: BusinessError = error as BusinessError;
-          console.error(
-            `Failed to subscribe. Code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
         }
         return;
       }
-      console.error(
-        `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-      );
-    },
-  );
+      console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
+    });
 } catch (error) {
   let err: BusinessError = error as BusinessError;
-  console.error(
-    `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
 }
 
 // 取消订阅公共事件
@@ -542,9 +457,7 @@ setTimeout(() => {
   try {
     commonEventManager.unsubscribe(subscriber, (err: BusinessError) => {
       if (err) {
-        console.error(
-          `Failed to unsubscribe. Code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`Failed to unsubscribe. Code is ${err.code}, message is ${err.message}`);
         return;
       }
       // subscriber不再使用时需要将其置为null，避免内存泄露
@@ -553,18 +466,16 @@ setTimeout(() => {
     });
   } catch (error) {
     let err: BusinessError = error as BusinessError;
-    console.error(
-      `Failed to unsubscribe. Code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`Failed to unsubscribe. Code is ${err.code}, message is ${err.message}`);
   }
 }, 500);
 ```
 
 
-## commonEventManager.subscribeToEvent20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEventData>): Promise<void>
+##### commonEventManager.subscribeToEvent20+
+
+subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback&lt;CommonEventData&gt;): Promise&lt;void&gt;
 
 订阅公共事件，并返回订阅成功或失败信息。使用Promise异步回调。
 
@@ -574,15 +485,13 @@ subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEve
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| subscriber | [CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1) | 是 | 表示订阅者对象。 |
-| callback | Callback&lt;[CommonEventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventdata)&gt; | 是 | 表示接收公共事件数据的回调函数。 |
+| subscriber | CommonEventSubscriber | 是 | 表示订阅者对象。 |
+| callback | Callback&lt;CommonEventData&gt; | 是 | 表示接收公共事件数据的回调函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -592,7 +501,6 @@ subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEve
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[事件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-commoneventservice)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -604,72 +512,49 @@ subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback<CommonEve
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 定义订阅者，用于保存创建成功的订阅者对象，后续使用其完成订阅及退订的动作
 let subscriber: commonEventManager.CommonEventSubscriber | null = null;
 // 订阅者信息
 let subscribeInfo: commonEventManager.CommonEventSubscribeInfo = {
-  events: ['event'],
+  events: ["event"]
 };
 
 // 创建订阅者
 try {
-  commonEventManager.createSubscriber(
-    subscribeInfo,
-    (
-      err: BusinessError,
-      commonEventSubscriber: commonEventManager.CommonEventSubscriber,
-    ) => {
+  commonEventManager.createSubscriber(subscribeInfo,
+    (err: BusinessError, commonEventSubscriber: commonEventManager.CommonEventSubscriber) => {
       if (err) {
-        console.error(
-          `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
       } else {
         console.info(`Succeeded in creating subscriber.`);
         subscriber = commonEventSubscriber;
         // 订阅公共事件
         try {
-          commonEventManager
-            .subscribeToEvent(
-              subscriber,
-              (data: commonEventManager.CommonEventData) => {
-                console.info(
-                  `Succeeded to receive common event, data is ` +
-                    JSON.stringify(data),
-                );
-              },
-            )
-            .then(() => {
-              console.info(`Succeeded to subscribe.`);
-            })
-            .catch((err: BusinessError) => {
-              console.error(
-                `Failed to subscribe. Code is ${err.code}, message is ${err.message}`,
-              );
-            });
+          commonEventManager.subscribeToEvent(subscriber, (data: commonEventManager.CommonEventData) => {
+            console.info(`Succeeded to receive common event, data is ` + JSON.stringify(data));
+          }).then(() => {
+            console.info(`Succeeded to subscribe.`);
+          }).catch((err: BusinessError) => {
+            console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
+          });
         } catch (error) {
           let err: BusinessError = error as BusinessError;
-          console.error(
-            `Failed to subscribe. Code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`Failed to subscribe. Code is ${err.code}, message is ${err.message}`);
         }
       }
-    },
-  );
+    });
 } catch (error) {
   let err: BusinessError = error as BusinessError;
-  console.error(
-    `Failed to create subscriber. Code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`Failed to create subscriber. Code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-## CommonEventData10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### CommonEventData10+
 
 type CommonEventData = _CommonEventData
 
@@ -679,31 +564,31 @@ type CommonEventData = _CommonEventData
 
 **系统能力：** SystemCapability.Notification.CommonEvent
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_CommonEventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventdata) | 表示公共事件的数据。 |
+| _CommonEventData | 表示公共事件的数据。 |
 
 
-## CommonEventSubscriber10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CommonEventSubscriber10+
 
 type CommonEventSubscriber = _CommonEventSubscriber
 
-描述公共���件的订阅者。
+描述公共事件的订阅者。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Notification.CommonEvent
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_CommonEventSubscriber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscriber#commoneventsubscriber-1) | 描述公共事件的订阅者。 |
+| _CommonEventSubscriber | 描述公共事件的订阅者。 |
 
 
-## CommonEventSubscribeInfo10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CommonEventSubscribeInfo10+
 
 type CommonEventSubscribeInfo = _CommonEventSubscribeInfo
 
@@ -713,14 +598,14 @@ type CommonEventSubscribeInfo = _CommonEventSubscribeInfo
 
 **系统能力：** SystemCapability.Notification.CommonEvent
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_CommonEventSubscribeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventsubscribeinfo) | 用于表示订阅者的信息。 |
+| _CommonEventSubscribeInfo | 用于表示订阅者的信息。 |
 
 
-## CommonEventPublishData10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CommonEventPublishData10+
 
 type CommonEventPublishData = _CommonEventPublishData
 
@@ -730,7 +615,6 @@ type CommonEventPublishData = _CommonEventPublishData
 
 **系统能力：** SystemCapability.Notification.CommonEvent
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_CommonEventPublishData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-commonevent-commoneventpublishdata) | 描述公共事件内容和属性。 |
+| _CommonEventPublishData | 描述公共事件内容和属性。 |

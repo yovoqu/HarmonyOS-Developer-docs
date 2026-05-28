@@ -4,32 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setscalar
 
-## 函数功能
+##### 函数功能
 
 设置shape为标量。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void SetScalar()
 ```
+ 
+  
 
-
-## 参数说明
-
-无
-
-## 返回值
+##### 参数说明
 
 无
+ 
+  
 
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 Shape shape0({3, 256, 256});

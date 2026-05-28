@@ -9,16 +9,19 @@
 在进行应用开发的过程中，开发者可以通过AVPlayer的实例注册on('subtitleUpdate')方法监听字幕信息。
 
 
-## 开发步骤及注意事项
+##### 开发步骤及注意事项
 
-详细的API说明请参考[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer) 调用[addSubtitleFromFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#addsubtitlefromfd12)，使用视频播放的AVPlayer实例设置外挂字幕资源。
+详细的API说明请参考[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)
+1. 调用[addSubtitleFromFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#addsubtitlefromfd12)，使用视频播放的AVPlayer实例设置外挂字幕资源。
+
+  
 ```text
 import { media } from '@kit.MediaKit';
  import { common } from '@kit.AbilityKit';
  // 类成员定义avPlayer和context。
  private avPlayer: media.AVPlayer | null = null;
  private context: common.UIAbilityContext | undefined = undefined;
-
+ 
  // 在业务函数中（示例工程函数名为avSetupVideoAndSubtitle）：
  // 创建avPlayer实例对象。
  this.avPlayer = await media.createAVPlayer();
@@ -30,7 +33,9 @@ import { media } from '@kit.MediaKit';
  this.avPlayer.addSubtitleFromFd(fileDescriptorSub.fd, fileDescriptorSub.offset, fileDescriptorSub.length);
 ```
 
-调用[on('subtitleUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onsubtitleupdate12)接口，注册字幕回调函数。
+2. 调用[on('subtitleUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onsubtitleupdate12)接口，注册字幕回调函数。
+
+  
 ```text
 import { media } from '@kit.MediaKit';
  // 类成员定义用来显示的字幕字符串。
@@ -54,7 +59,9 @@ import { media } from '@kit.MediaKit';
  });
 ```
 
-(可选)当需要不显示字幕的时候，使用视频播放的AVPlayer实例注销字幕回调函数。
+3. (可选)当需要不显示字幕的时候，使用视频播放的AVPlayer实例注销字幕回调函数。
+
+  
 ```text
 import { media } from '@kit.MediaKit';
  // 类成员定义avPlayer和context。
@@ -65,10 +72,13 @@ import { media } from '@kit.MediaKit';
 ```
 
 
-## 运行完整示例
 
-新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSSubtitle)，并将示例工程的以下资源复制到对应目录。
-```text
+
+##### 运行完整示例
+1. 新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSSubtitle)，并将示例工程的以下资源复制到对应目录。
+
+  
+```ArkTS
 AVPlayerArkTSSubtitle
 entry/src/main/ets/
 └── pages
@@ -87,4 +97,4 @@ entry/src/main/resources/
     └── test1.srt （字幕资源）
 ```
 
-编译新建工程并运行。
+2. 编译新建工程并运行。

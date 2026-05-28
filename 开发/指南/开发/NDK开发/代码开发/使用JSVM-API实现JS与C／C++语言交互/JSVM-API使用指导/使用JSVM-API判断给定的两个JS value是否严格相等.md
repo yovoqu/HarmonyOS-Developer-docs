@@ -4,34 +4,44 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-strict-equals
 
-## 简介
+##### 简介
 
 JSVM-API 中的函数用于判断两个 JavaScript 值是否严格相等，类似于 JavaScript 中的 === 操作符。该函数避免类型转换和松散相等性比较，确保值和类型均相等。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
 比较两个JavaScript值是否严格相等。严格相等比较不会进行类型转换，它要求两个值的类型和值完全相同才会返回true。
+ 
+  
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_StrictEquals | 判断两个JSVM_Value对象是否相等 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
+ 
+  
 
-## OH_JSVM_StrictEquals
+##### OH_JSVM_StrictEquals
 
-判断给定的两个JS value是否严格相等。 cpp部分代码：
-```text
+判断给定的两个JS value是否严格相等。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_StrictEquals的样例方法
 static JSVM_Value IsStrictEquals(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -63,8 +73,9 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(data = '123';value = '123';isStrictEquals(data,value);)JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM OH_JSVM_StrictEquals: success: 1
 ```

@@ -25,30 +25,46 @@
 从API version 22开始，在PC/2in1设备上对应用进行录屏时，可通过申请权限**ohos.permission.CUSTOM_SCREEN_RECORDING**，实现在录制屏幕时不再弹出隐私告警弹窗。配置方式请参见[受限开放权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions)。
 
 
-## 开发步骤及注意事项
+##### 开发步骤及注意事项
 
-使用AVScreenCapture时要明确其状态的变化，在创建实例后，调用对应的方法可以进入指定的状态实现对应的行为。 在确定的状态下执行不合适的方法会导致AVScreenCapture发生错误，开发者需要在调用状态转换的方法前进行状态检查，避免程序运行异常。 **在 CMake 脚本中链接动态库**
+使用AVScreenCapture时要明确其状态的变化，在创建实例后，调用对应的方法可以进入指定的状态实现对应的行为。
+
+在确定的状态下执行不合适的方法会导致AVScreenCapture发生错误，开发者需要在调用状态转换的方法前进行状态检查，避免程序运行异常。
+
+**在 CMake 脚本中链接动态库**
+
 ```text
 target_link_libraries(entry PUBLIC libnative_avscreen_capture.so)
 ```
+1. 添加头文件。
 
-添加头文件。
+  
 ```text
 #include "napi/native_api.h"
-#include
-#include
-#include
-#include
-#include
-#include
+#include <multimedia/player_framework/native_avscreen_capture.h>
+#include <multimedia/player_framework/native_avscreen_capture_base.h>
+#include <multimedia/player_framework/native_avscreen_capture_errors.h>
+#include <fcntl.h>
+#include <string>
+#include <unistd.h>
 ```
 
-创建AVScreenCapture实例capture。
+2. 创建AVScreenCapture实例capture。
+
+  
 ```text
 OH_AVScreenCapture* capture = OH_AVScreenCapture_Create();
 ```
 
-配置屏幕录制参数。 创建AVScreenCapture实例capture后，可以设置屏幕录制所需要的参数。 其中，录屏存文件时默认录制内录，麦克风可以动态开关，可以同时内外录制。 同时，录屏存文件需要设置状态回调，感知录制状态。
+3. 配置屏幕录制参数。
+
+  创建AVScreenCapture实例capture后，可以设置屏幕录制所需要的参数。
+
+  其中，录屏存文件时默认录制内录，麦克风可以动态开关，可以同时内外录制。
+
+  同时，录屏存文件需要设置状态回调，感知录制状态。
+
+  
 ```text
 // 录屏时获取麦克风或者内录，内录参数必填，如果都设置了，内录和麦克风的参数设置需要一致。
 OH_AudioCaptureInfo micCapInfo = {
@@ -100,40 +116,49 @@ config = {
 OH_AVScreenCapture_Init(capture, config);
 ```
 
-调用StartScreenRecording()方法开始进行屏幕录制。
+4. 调用StartScreenRecording()方法开始进行屏幕录制。
+
+  
 ```text
 OH_AVScreenCapture_StartScreenRecording(capture);
 ```
 
-调用StopScreenRecording()方法停止录制。
+5. 调用StopScreenRecording()方法停止录制。
+
+  
 ```text
 OH_AVScreenCapture_StopScreenRecording(capture);
 ```
 
-调用Release()方法销毁实例，释放资源。
+6. 调用Release()方法销毁实例，释放资源。
+
+  
 ```text
 OH_AVScreenCapture_Release(capture);
 ```
 
 
-## 完整示例
+
+
+##### 完整示例
 
 下面展示了使用AVScreenCapture屏幕录制存文件的完整示例代码。
+
 ```text
 #include "napi/native_api.h"
-#include
-#include
-#include
-#include
-#include
-#include
+#include <multimedia/player_framework/native_avscreen_capture.h>
+#include <multimedia/player_framework/native_avscreen_capture_base.h>
+#include <multimedia/player_framework/native_avscreen_capture_errors.h>
+#include <fcntl.h>
+#include <string>
+#include <unistd.h>
 
 int32_t outputFd;
 struct OH_AVScreenCapture* capture;
 
 void OnStateChange(struct OH_AVScreenCapture *capture, OH_AVScreenCaptureStateCode stateCode, void *userData) {
     (void)capture;
-
+    
     if (stateCode == OH_SCREEN_CAPTURE_STATE_STARTED) {
         // 处理状态变更。
     }
@@ -252,7 +277,7 @@ static napi_value StartScreenCapture(napi_env env, napi_callback_info info) {
     }
 
     std::string fileUrl = "fd://" + std::to_string(outputFd);
-    recorderInfo.url = const_cast(fileUrl.c_str());
+    recorderInfo.url = const_cast<char *>(fileUrl.c_str());
     recorderInfo.fileFormat = OH_ContainerFormatType::CFT_MPEG_4;
     config.recorderInfo = recorderInfo;
 
@@ -289,7 +314,7 @@ static napi_value StartScreenCapture(napi_env env, napi_callback_info info) {
     region->height = 100;
     uint64_t regionDisplayId = 0; // 传入矩形区域所在的屏幕Id。
     OH_AVScreenCapture_SetCaptureArea(capture, regionDisplayId, region);
-
+    
     // 对申请的内存进行释放。
     delete region;
 
@@ -304,7 +329,7 @@ static napi_value StartScreenCapture(napi_env env, napi_callback_info info) {
     }
 
     // 结束录屏见StopScreenCapture。
-
+    
     // 返回调用结果，示例仅返回随意值。
     napi_value code;
     napi_create_double(env, AV_SCREEN_CAPTURE_ERR_OK, &code);

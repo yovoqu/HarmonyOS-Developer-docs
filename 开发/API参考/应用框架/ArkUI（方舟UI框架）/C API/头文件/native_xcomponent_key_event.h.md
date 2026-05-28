@@ -3,60 +3,56 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-xcomponent-key-event-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明用于访问Native XComponent键盘事件所使用到的枚举类型。
-
+ 
 **引用文件：** <ace/xcomponent/native_xcomponent_key_event.h>
-
+ 
 **库：** libace_ndk.z.so
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [OH_NativeXComponent Native XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent)
-
+ 
 **相关示例：** [NativeXComponentSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeXComponentSample)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_NativeXComponent_KeyCode](#oh_nativexcomponent_keycode) | OH_NativeXComponent_KeyCode | 按键事件的键码。 |
-| [OH_NativeXComponent_KeyAction](#oh_nativexcomponent_keyaction) | OH_NativeXComponent_KeyAction | 按键事件动作。 |
+| OH_NativeXComponent_KeyCode | OH_NativeXComponent_KeyCode | 按键事件的键码。 |
+| OH_NativeXComponent_KeyAction | OH_NativeXComponent_KeyAction | 按键事件动作。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_NativeXComponent_KeyCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeXComponent_KeyCode
 
 ```text
 enum OH_NativeXComponent_KeyCode
 ```
-
+ 
 **描述：**
-
+ 
 按键事件的键码。
-
+ 
 **起始版本：** 10
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | KEY_UNKNOWN = -1 | 未知按键。 |
@@ -389,23 +385,22 @@ enum OH_NativeXComponent_KeyCode
 | KEY_BTN_7 = 3107 | 按键7。 |
 | KEY_BTN_8 = 3108 | 按键8。 |
 | KEY_BTN_9 = 3109 | 按键9。 |
+ 
+ 
+  
 
-
-### OH_NativeXComponent_KeyAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeXComponent_KeyAction
 
 ```text
 enum OH_NativeXComponent_KeyAction
 ```
-
+ 
 **描述：**
-
+ 
 按键事件动作。
-
+ 
 **起始版本：** 10
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_NATIVEXCOMPONENT_KEY_ACTION_UNKNOWN = -1 | 未知的按键动作。 |

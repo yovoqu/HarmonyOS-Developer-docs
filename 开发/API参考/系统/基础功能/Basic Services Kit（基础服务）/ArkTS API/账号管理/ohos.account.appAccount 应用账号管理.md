@@ -1,28 +1,26 @@
 # @ohos.account.appAccount (应用账号管理)
 
-更新时间：2026-03-17 02:21:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-appaccount
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供应用账号信息的添加、删除、修改和查询基础能力，并支持应用间鉴权和分布式数据同步功能。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { appAccount } from '@kit.BasicServicesKit';
 ```
 
 
-## appAccount.createAppAccountManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### appAccount.createAppAccountManager
 
 createAppAccountManager(): AppAccountManager
 
@@ -32,38 +30,34 @@ createAppAccountManager(): AppAccountManager
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AppAccountManager](#appaccountmanager) | 应用账号管理器对象。 |
+| AppAccountManager | 应用账号管理器对象。 |
 
 
 **示例：**
 
-
-```ts
-let appAccountManager: appAccount.AppAccountManager =
-  appAccount.createAppAccountManager();
+```text
+let appAccountManager: appAccount.AppAccountManager = appAccount.createAppAccountManager();
 ```
 
 
-## AppAccountManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AppAccountManager
 
 应用账号管理器，可用于管理应用自身的账号信息。
 
 
-### createAccount9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createAccount(name: string, callback: AsyncCallback<void>): void
+##### createAccount9+
+
+createAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据账号名创建应用账号。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -74,7 +68,6 @@ createAccount(name: string, callback: AsyncCallback<void>): void
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -87,33 +80,28 @@ createAccount(name: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   appAccountManager.createAccount('WangWu', (err: BusinessError) => {
     if (err) {
-      console.error(
-        `createAccount code: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`createAccount code: code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('createAccount successful.');
     }
   });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `createAccount err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`createAccount err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### createAccount9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void
+##### createAccount9+
+
+createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback&lt;void&gt;): void
 
 根据账号名和可选项创建应用账号。使用callback异步回调。
 
@@ -121,18 +109,16 @@ createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallba
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
-| options | [CreateAccountOptions](#createaccountoptions9) | 是 | 创建应用账号的选项，可提供自定义数据，但不建议包含敏感数据（如密码、Token等）。 |
+| options | CreateAccountOptions | 是 | 创建应用账号的选项，可提供自定义数据，但不建议包含敏感数据（如密码、Token等）。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当创建成功时，err为null，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -145,38 +131,33 @@ createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallba
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let options: appAccount.CreateAccountOptions = {
   customData: {
-    age: '10',
-  },
-};
+    age: '10'
+  }
+}
 try {
   appAccountManager.createAccount('LiSi', options, (err: BusinessError) => {
     if (err) {
-      console.error(
-        `createAccount failed, code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`createAccount failed, code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('createAccount successfully');
     }
   });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `createAccount exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`createAccount exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### createAccount9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createAccount(name: string, options?: CreateAccountOptions): Promise<void>
+##### createAccount9+
+
+createAccount(name: string, options?: CreateAccountOptions): Promise&lt;void&gt;
 
 根据账号名和可选项创建应用账号。使用Promise异步回调。
 
@@ -184,15 +165,13 @@ createAccount(name: string, options?: CreateAccountOptions): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
-| options | [CreateAccountOptions](#createaccountoptions9) | 否 | 创建应用账号的选项，可提供自定义数据，但不建议包含敏感数据（如密码、Token等）。不填无影响，默认为空，表示创建的该账号无额外信息需要添加。 |
+| options | CreateAccountOptions | 否 | 创建应用账号的选项，可提供自定义数据，但不建议包含敏感数据（如密码、Token等）。不填无影响，默认为空，表示创建的该账号无额外信息需要添加。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -203,7 +182,6 @@ createAccount(name: string, options?: CreateAccountOptions): Promise<void>
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -215,37 +193,29 @@ createAccount(name: string, options?: CreateAccountOptions): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let options: appAccount.CreateAccountOptions = {
   customData: {
-    age: '10',
-  },
-};
+    age: '10'
+  }
+}
 try {
-  appAccountManager
-    .createAccount('LiSi', options)
-    .then(() => {
-      console.info('createAccount successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `createAccount failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.createAccount('LiSi', options).then(() => {
+    console.info('createAccount successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`createAccount failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `createAccount exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`createAccount exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### createAccountImplicitly9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createAccountImplicitly9+
 
 createAccountImplicitly(owner: string, callback: AuthCallback): void
 
@@ -255,17 +225,15 @@ createAccountImplicitly(owner: string, callback: AuthCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调对象，返回创建结果。 |
+| callback | AuthCallback | 是 | 认证器回调对象，返回创建结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -280,8 +248,7 @@ createAccountImplicitly(owner: string, callback: AuthCallback): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, common } from '@kit.AbilityKit';
 
@@ -325,8 +292,8 @@ struct Index {
 ```
 
 
-### createAccountImplicitly9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createAccountImplicitly9+
 
 createAccountImplicitly(owner: string, options: CreateAccountImplicitlyOptions, callback: AuthCallback): void
 
@@ -336,18 +303,16 @@ createAccountImplicitly(owner: string, options: CreateAccountImplicitlyOptions, 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| options | [CreateAccountImplicitlyOptions](#createaccountimplicitlyoptions9) | 是 | 隐式创建账号的选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调对象，返回创建结果。 |
+| options | CreateAccountImplicitlyOptions | 是 | 隐式创建账号的选项。 |
+| callback | AuthCallback | 是 | 认证器回调对象，返回创建结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -362,8 +327,7 @@ createAccountImplicitly(owner: string, options: CreateAccountImplicitlyOptions, 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, common } from '@kit.AbilityKit';
 
@@ -411,17 +375,16 @@ struct Index {
 ```
 
 
-### removeAccount9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAccount(name: string, callback: AsyncCallback<void>): void
+##### removeAccount9+
+
+removeAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除应用账号。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -433,8 +396,7 @@ removeAccount(name: string, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-| 错误���ID | 错误信息 |
+| 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 12300001 | System service exception. |
@@ -444,33 +406,28 @@ removeAccount(name: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   appAccountManager.removeAccount('ZhaoLiu', (err: BusinessError) => {
     if (err) {
-      console.error(
-        `removeAccount failed, code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`removeAccount failed, code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('removeAccount successfully');
     }
-  });
+ });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `removeAccount exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`removeAccount exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### removeAccount9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAccount(name: string): Promise<void>
+##### removeAccount9+
+
+removeAccount(name: string): Promise&lt;void&gt;
 
 删除应用账号。使用Promise异步回调。
 
@@ -478,14 +435,12 @@ removeAccount(name: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -495,7 +450,6 @@ removeAccount(name: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -507,41 +461,32 @@ removeAccount(name: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .removeAccount('Lisi')
-    .then(() => {
-      console.info('removeAccount successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `removeAccount failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.removeAccount('Lisi').then(() => {
+    console.info('removeAccount successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`removeAccount failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `removeAccount exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`removeAccount exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAppAccess9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>): void
+##### setAppAccess9+
+
+setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用对特定账号的访问权限。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -555,7 +500,6 @@ setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: 
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -567,45 +511,34 @@ setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.setAppAccess(
-    'ZhangSan',
-    'com.example.accountjsdemo',
-    true,
-    (err: BusinessError) => {
-      if (err) {
-        console.error(
-          `setAppAccess failed: code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('setAppAccess successfully');
-      }
-    },
-  );
+  appAccountManager.setAppAccess('ZhangSan', 'com.example.accountjsdemo', true, (err: BusinessError) => {
+    if (err) {
+      console.error(`setAppAccess failed: code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('setAppAccess successfully');
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAppAccess exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAppAccess exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAppAccess9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<void>
+##### setAppAccess9+
+
+setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise&lt;void&gt;
 
 设置指定应用对特定账号的数据访问权限。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -616,7 +549,6 @@ setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<v
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -625,7 +557,6 @@ setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<v
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -638,41 +569,32 @@ setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<v
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .setAppAccess('ZhangSan', 'com.example.accountjsdemo', true)
-    .then(() => {
-      console.info('setAppAccess successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `setAppAccess failed: code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.setAppAccess('ZhangSan', 'com.example.accountjsdemo', true).then(() => {
+    console.info('setAppAccess successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`setAppAccess failed: code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAppAccess exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAppAccess exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkAppAccess9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean>): void
+##### checkAppAccess9+
+
+checkAppAccess(name: string, bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用对特定账号的数据是否可访问。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -685,7 +607,6 @@ checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -696,44 +617,35 @@ checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.checkAppAccess(
-    'ZhangSan',
-    'com.example.accountjsdemo',
+  appAccountManager.checkAppAccess('ZhangSan', 'com.example.accountjsdemo',
     (err: BusinessError, isAccessible: boolean) => {
       if (err) {
-        console.error(
-          `checkAppAccess failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`checkAppAccess failed, code is ${err.code}, message is ${err.message}`);
       } else {
         console.info('checkAppAccess successfully');
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkAppAccess exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkAppAccess exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkAppAccess9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAppAccess(name: string, bundleName: string): Promise<boolean>
+##### checkAppAccess9+
+
+checkAppAccess(name: string, bundleName: string): Promise&lt;boolean&gt;
 
 检查指定应用对特定账号的数据是否可访问。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -742,7 +654,6 @@ checkAppAccess(name: string, bundleName: string): Promise<boolean>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -753,7 +664,6 @@ checkAppAccess(name: string, bundleName: string): Promise<boolean>
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -764,36 +674,26 @@ checkAppAccess(name: string, bundleName: string): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .checkAppAccess('ZhangSan', 'com.example.accountjsdemo')
-    .then((isAccessible: boolean) => {
-      console.info(
-        'checkAppAccess successfully, isAccessible: ' + isAccessible,
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `checkAppAccess failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.checkAppAccess('ZhangSan', 'com.example.accountjsdemo').then((isAccessible: boolean) => {
+    console.info('checkAppAccess successfully, isAccessible: ' + isAccessible);
+  }).catch((err: BusinessError) => {
+    console.error(`checkAppAccess failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkAppAccess exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkAppAccess exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setDataSyncEnabled9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<void>): void
+##### setDataSyncEnabled9+
+
+setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 开启或禁止指定应用账号的数据同步功能。使用callback异步回调。
 
@@ -802,7 +702,6 @@ setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<voi
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -815,7 +714,6 @@ setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<voi
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -827,33 +725,24 @@ setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<voi
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.setDataSyncEnabled(
-    'ZhangSan',
-    true,
-    (err: BusinessError) => {
-      console.error(
-        `setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`,
-      );
-    },
-  );
+    appAccountManager.setDataSyncEnabled('ZhangSan', true, (err: BusinessError) => {
+        console.error(`setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`);
+    });
 } catch (e) {
-  const err = e as BusinessError;
-  console.error(
-    `setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`,
-  );
+    const err = e as BusinessError;
+    console.error(`setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setDataSyncEnabled9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>
+##### setDataSyncEnabled9+
+
+setDataSyncEnabled(name: string, isEnabled: boolean): Promise&lt;void&gt;
 
 开启或禁止指定应用账号的数据同步功能。使用Promise异步回调。
 
@@ -863,7 +752,6 @@ setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
@@ -871,7 +759,6 @@ setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -882,7 +769,6 @@ setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -894,34 +780,26 @@ setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .setDataSyncEnabled('ZhangSan', true)
-    .then(() => {
-      console.info('setDataSyncEnabled Success');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`,
-      );
+    appAccountManager.setDataSyncEnabled('ZhangSan', true).then(() => {
+        console.info('setDataSyncEnabled Success');
+    }).catch((err: BusinessError) => {
+        console.error(`setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`);
     });
 } catch (e) {
-  const err = e as BusinessError;
-  console.error(
-    `setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`,
-  );
+    const err = e as BusinessError;
+    console.error(`setDataSyncEnabled err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkDataSyncEnabled9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>): void
+##### checkDataSyncEnabled9+
+
+checkDataSyncEnabled(name: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号是否开启数据同步功能。使用callback异步回调。
 
@@ -930,7 +808,6 @@ checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>): void
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -942,7 +819,6 @@ checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>): void
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -954,38 +830,28 @@ checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.checkDataSyncEnabled(
-    'ZhangSan',
-    (err: BusinessError, isEnabled: boolean) => {
-      if (err) {
-        console.error(
-          `checkDataSyncEnabled failed, err: code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info(
-          'checkDataSyncEnabled successfully, isEnabled: ' + isEnabled,
-        );
-      }
-    },
-  );
+  appAccountManager.checkDataSyncEnabled('ZhangSan', (err: BusinessError, isEnabled: boolean) => {
+    if (err) {
+      console.error(`checkDataSyncEnabled failed, err: code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('checkDataSyncEnabled successfully, isEnabled: ' + isEnabled);
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkDataSyncEnabled err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkDataSyncEnabled err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkDataSyncEnabled9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkDataSyncEnabled(name: string): Promise<boolean>
+##### checkDataSyncEnabled9+
+
+checkDataSyncEnabled(name: string): Promise&lt;boolean&gt;
 
 检查指定应用账号是否开启数据同步功能。使用Promise异步回调。
 
@@ -995,14 +861,12 @@ checkDataSyncEnabled(name: string): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1013,7 +877,6 @@ checkDataSyncEnabled(name: string): Promise<boolean>
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -1025,43 +888,32 @@ checkDataSyncEnabled(name: string): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .checkDataSyncEnabled('ZhangSan')
-    .then((isEnabled: boolean) => {
-      console.info(
-        'checkDataSyncEnabled successfully, isEnabled: ' + isEnabled,
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `checkDataSyncEnabled failed, err: code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.checkDataSyncEnabled('ZhangSan').then((isEnabled: boolean) => {
+      console.info('checkDataSyncEnabled successfully, isEnabled: ' + isEnabled);
+  }).catch((err: BusinessError) => {
+    console.error(`checkDataSyncEnabled failed, err: code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkDataSyncEnabled err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkDataSyncEnabled err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setCredential(name: string, credentialType: string, credential: string,callback: AsyncCallback<void>): void
+##### setCredential9+
+
+setCredential(name: string, credentialType: string, credential: string,callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的凭据。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1075,7 +927,6 @@ setCredential(name: string, credentialType: string, credential: string,callback:
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1086,45 +937,34 @@ setCredential(name: string, credentialType: string, credential: string,callback:
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.setCredential(
-    'ZhangSan',
-    'PIN_SIX',
-    'xxxxxx',
-    (err: BusinessError) => {
-      if (err) {
-        console.error(
-          `setCredential failed, code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('setCredential successfully');
-      }
-    },
-  );
+  appAccountManager.setCredential('ZhangSan', 'PIN_SIX', 'xxxxxx', (err: BusinessError) => {
+    if (err) {
+      console.error(`setCredential failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('setCredential successfully');
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setCredential exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setCredential exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setCredential(name: string, credentialType: string, credential: string): Promise<void>
+##### setCredential9+
+
+setCredential(name: string, credentialType: string, credential: string): Promise&lt;void&gt;
 
 设置指定应用账号的凭据。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1135,7 +975,6 @@ setCredential(name: string, credentialType: string, credential: string): Promise
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -1144,7 +983,6 @@ setCredential(name: string, credentialType: string, credential: string): Promise
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1156,41 +994,32 @@ setCredential(name: string, credentialType: string, credential: string): Promise
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .setCredential('ZhangSan', 'PIN_SIX', 'xxxxxx')
-    .then(() => {
-      console.info('setCredential successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `setCredential failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.setCredential('ZhangSan', 'PIN_SIX', 'xxxxxx').then(() => {
+    console.info('setCredential successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`setCredential failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setCredential exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setCredential exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void
+##### getCredential9+
+
+getCredential(name: string, credentialType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的凭据。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1203,7 +1032,6 @@ getCredential(name: string, credentialType: string, callback: AsyncCallback<stri
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1215,44 +1043,34 @@ getCredential(name: string, credentialType: string, callback: AsyncCallback<stri
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.getCredential(
-    'ZhangSan',
-    'PIN_SIX',
-    (err: BusinessError, result: string) => {
-      if (err) {
-        console.error(
-          `getCredential failed, code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('getCredential successfully, result: ' + result);
-      }
-    },
-  );
+  appAccountManager.getCredential('ZhangSan', 'PIN_SIX', (err: BusinessError, result: string) => {
+    if (err) {
+      console.error(`getCredential failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('getCredential successfully, result: ' + result);
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getCredential err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getCredential err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCredential(name: string, credentialType: string): Promise<string>
+##### getCredential9+
+
+getCredential(name: string, credentialType: string): Promise&lt;string&gt;
 
 获取指定应用账号的凭据。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1261,7 +1079,6 @@ getCredential(name: string, credentialType: string): Promise<string>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1272,7 +1089,6 @@ getCredential(name: string, credentialType: string): Promise<string>
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1284,41 +1100,32 @@ getCredential(name: string, credentialType: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .getCredential('ZhangSan', 'PIN_SIX')
-    .then((credential: string) => {
-      console.info('getCredential successfully, credential: ' + credential);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `getCredential failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.getCredential('ZhangSan', 'PIN_SIX').then((credential: string) => {
+    console.info('getCredential successfully, credential: ' + credential);
+  }).catch((err: BusinessError) => {
+    console.error(`getCredential failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getCredential exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getCredential exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setCustomData9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>): void
+##### setCustomData9+
+
+setCustomData(name: string, key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的自定义数据。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1332,7 +1139,6 @@ setCustomData(name: string, key: string, value: string, callback: AsyncCallback<
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1344,45 +1150,34 @@ setCustomData(name: string, key: string, value: string, callback: AsyncCallback<
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.setCustomData(
-    'ZhangSan',
-    'age',
-    '12',
-    (err: BusinessError) => {
-      if (err) {
-        console.error(
-          `setCustomData failed, code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('setCustomData successfully');
-      }
-    },
-  );
+  appAccountManager.setCustomData('ZhangSan', 'age', '12', (err: BusinessError) => {
+    if (err) {
+      console.error(`setCustomData failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('setCustomData successfully');
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setCustomData exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setCustomData exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setCustomData9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setCustomData(name: string, key: string, value: string): Promise<void>
+##### setCustomData9+
+
+setCustomData(name: string, key: string, value: string): Promise&lt;void&gt;
 
 设置指定应用账号的自定义数据。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1393,7 +1188,6 @@ setCustomData(name: string, key: string, value: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -1402,7 +1196,6 @@ setCustomData(name: string, key: string, value: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1415,41 +1208,32 @@ setCustomData(name: string, key: string, value: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .setCustomData('ZhangSan', 'age', '12')
-    .then(() => {
-      console.info('setCustomData successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `setCustomData failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.setCustomData('ZhangSan', 'age', '12').then(() => {
+    console.info('setCustomData successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`setCustomData failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setCustomData exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setCustomData exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getCustomData9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCustomData(name: string, key: string, callback: AsyncCallback<string>): void
+##### getCustomData9+
+
+getCustomData(name: string, key: string, callback: AsyncCallback&lt;string&gt;): void
 
 根据指定键名获取特定应用账号的自定义数据。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1462,7 +1246,6 @@ getCustomData(name: string, key: string, callback: AsyncCallback<string>): void
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1474,42 +1257,34 @@ getCustomData(name: string, key: string, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.getCustomData(
-    'ZhangSan',
-    'age',
-    (err: BusinessError, data: string) => {
-      if (err) {
-        console.error('getCustomData failed, error: ' + err);
-      } else {
-        console.info('getCustomData successfully, data: ' + data);
-      }
-    },
-  );
+  appAccountManager.getCustomData('ZhangSan', 'age', (err: BusinessError, data: string) => {
+    if (err) {
+      console.error('getCustomData failed, error: ' + err);
+    } else {
+      console.info('getCustomData successfully, data: ' + data);
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getCustomData exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getCustomData exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getCustomData9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCustomData(name: string, key: string): Promise<string>
+##### getCustomData9+
+
+getCustomData(name: string, key: string): Promise&lt;string&gt;
 
 根据指定键名获取特定应用账号的自定义数据。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1518,7 +1293,6 @@ getCustomData(name: string, key: string): Promise<string>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1529,7 +1303,6 @@ getCustomData(name: string, key: string): Promise<string>
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1541,32 +1314,24 @@ getCustomData(name: string, key: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .getCustomData('ZhangSan', 'age')
-    .then((data: string) => {
-      console.info('getCustomData successfully, data: ' + data);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `getCustomData failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.getCustomData('ZhangSan', 'age').then((data: string) => {
+    console.info('getCustomData successfully, data: ' + data);
+  }).catch((err: BusinessError) => {
+    console.error(`getCustomData failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getCustomData exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getCustomData exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getCustomDataSync9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCustomDataSync9+
 
 getCustomDataSync(name: string, key: string): string
 
@@ -1576,7 +1341,6 @@ getCustomDataSync(name: string, key: string): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
@@ -1584,7 +1348,6 @@ getCustomDataSync(name: string, key: string): string
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1595,7 +1358,6 @@ getCustomDataSync(name: string, key: string): string
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1607,8 +1369,7 @@ getCustomDataSync(name: string, key: string): string
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
@@ -1616,17 +1377,15 @@ try {
   console.info('getCustomDataSync successfully, value: ' + value);
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getCustomDataSync failed, code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getCustomDataSync failed, code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAllAccounts9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void
+##### getAllAccounts9+
+
+getAllAccounts(callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 获取所有可访问的应用账号信息。使用callback异步回调。
 
@@ -1634,16 +1393,14 @@ getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 是 | 回调函数。当查询成功时，err为null，data为获取到的应用账号信息列表；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;AppAccountInfo&gt;> | 是 | 回调函数。当查询成功时，err为null，data为获取到的应用账号信息列表；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1653,35 +1410,28 @@ getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.getAllAccounts(
-    (err: BusinessError, data: appAccount.AppAccountInfo[]) => {
-      if (err) {
-        console.error(
-          `getAllAccounts failed, code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('getAllAccounts successfully');
-      }
-    },
-  );
+  appAccountManager.getAllAccounts((err: BusinessError, data: appAccount.AppAccountInfo[]) => {
+    if (err) {
+      console.error(`getAllAccounts failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('getAllAccounts successfully');
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAllAccounts exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAllAccounts exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAllAccounts9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAccounts(): Promise<Array<AppAccountInfo>>
+##### getAllAccounts9+
+
+getAllAccounts(): Promise<Array&lt;AppAccountInfo&gt;>
 
 获取所有可访问的应用账号信息。使用Promise异步回调。
 
@@ -1689,16 +1439,14 @@ getAllAccounts(): Promise<Array<AppAccountInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | Promise对象，返回全部应用已授权账号信息对象。 |
+| Promise<Array&lt;AppAccountInfo&gt;> | Promise对象，返回全部应用已授权账号信息对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1707,34 +1455,26 @@ getAllAccounts(): Promise<Array<AppAccountInfo>>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .getAllAccounts()
-    .then((data: appAccount.AppAccountInfo[]) => {
-      console.info('getAllAccounts successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `getAllAccounts failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.getAllAccounts().then((data: appAccount.AppAccountInfo[]) => {
+    console.info('getAllAccounts successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`getAllAccounts failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAllAccounts exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAllAccounts exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAccountsByOwner9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void
+##### getAccountsByOwner9+
+
+getAccountsByOwner(owner: string, callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 根据应用账号所有者获取调用方可访问的应用账号列表。使用callback异步回调。
 
@@ -1742,17 +1482,15 @@ getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| callback | AsyncCallback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 是 | 回调函数。如果获取成功，err为null，data为获取到的应用账号列表；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;AppAccountInfo&gt;> | 是 | 回调函数。如果获取成功，err为null，data为获取到的应用账号列表；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1763,45 +1501,35 @@ getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.getAccountsByOwner(
-    'com.example.accountjsdemo2',
+  appAccountManager.getAccountsByOwner('com.example.accountjsdemo2',
     (err: BusinessError, data: appAccount.AppAccountInfo[]) => {
       if (err) {
-        console.error(
-          `getAccountsByOwner failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`getAccountsByOwner failed, code is ${err.code}, message is ${err.message}`);
       } else {
-        console.info(
-          'getAccountsByOwner successfully, data:' + JSON.stringify(data),
-        );
+        console.info('getAccountsByOwner successfully, data:' + JSON.stringify(data));
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAccountsByOwner exception:code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAccountsByOwner exception:code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAccountsByOwner9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAccountsByOwner(owner: string): Promise<Array<AppAccountInfo>>
+##### getAccountsByOwner9+
+
+getAccountsByOwner(owner: string): Promise<Array&lt;AppAccountInfo&gt;>
 
 根据应用账号所有者获取调用方可访问的应用账号列表。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1810,16 +1538,14 @@ getAccountsByOwner(owner: string): Promise<Array<AppAccountInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | Promise对象，返回获取到的应用账号列表。 |
+| Promise<Array&lt;AppAccountInfo&gt;> | Promise对象，返回获取到的应用账号列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1830,36 +1556,27 @@ getAccountsByOwner(owner: string): Promise<Array<AppAccountInfo>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .getAccountsByOwner('com.example.accountjsdemo2')
-    .then((data: appAccount.AppAccountInfo[]) => {
-      console.info(
-        'getAccountsByOwner successfully, data: ' + JSON.stringify(data),
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `getAccountsByOwner failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.getAccountsByOwner('com.example.accountjsdemo2').then((
+    data: appAccount.AppAccountInfo[]) => {
+    console.info('getAccountsByOwner successfully, data: ' + JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    console.error(`getAccountsByOwner failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAccountsByOwner exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAccountsByOwner exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### on('accountChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void
+##### on('accountChange')9+
+
+on(type: 'accountChange', owners: Array&lt;string&gt;, callback: Callback<Array&lt;AppAccountInfo&gt;>): void
 
 订阅指定应用的账号信息变更事件。
 
@@ -1867,18 +1584,16 @@ on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAcc
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'accountChange' | 是 | 事件回调类型，支持的事件为'accountChange'，当目标应用更新账号信息时，触发该事件。 |
 | owners | Array&lt;string&gt; | 是 | 应用账号所有者的包名列表。 |
-| callback | Callback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 是 | 需要注册的回调函数，返回信息为发生变更的应用账号列表。 |
+| callback | Callback<Array&lt;AppAccountInfo&gt;> | 是 | 需要注册的回调函数，返回信息为发生变更的应用账号列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1889,8 +1604,7 @@ on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAcc
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function changeOnCallback(data: appAccount.AppAccountInfo[]): void {
@@ -1898,24 +1612,18 @@ function changeOnCallback(data: appAccount.AppAccountInfo[]): void {
 }
 
 try {
-  appAccountManager.on(
-    'accountChange',
-    ['com.example.actsaccounttest'],
-    changeOnCallback,
-  );
+  appAccountManager.on('accountChange', ['com.example.actsaccounttest'], changeOnCallback);
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `on accountChange failed, code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`on accountChange failed, code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### off('accountChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>): void
+##### off('accountChange')9+
+
+off(type: 'accountChange', callback?: Callback<Array&lt;AppAccountInfo&gt;>): void
 
 取消订阅账号信息变更事件。
 
@@ -1923,17 +1631,15 @@ off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'accountChange' | 是 | 事件回调类型，支持的事件为'accountChange'，当账号所有者更新账号信息时，触发该事件。 |
-| callback | Callback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 否 | 需要注销的回调函数，默认为空，表示取消该类型事件所有的回调。 |
+| callback | Callback<Array&lt;AppAccountInfo&gt;> | 否 | 需要注销的回调函数，默认为空，表示取消该类型事件所有的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1944,8 +1650,7 @@ off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function changeOnCallback(data: appAccount.AppAccountInfo[]): void {
@@ -1953,30 +1658,22 @@ function changeOnCallback(data: appAccount.AppAccountInfo[]): void {
 }
 
 try {
-  appAccountManager.on(
-    'accountChange',
-    ['com.example.actsaccounttest'],
-    changeOnCallback,
-  );
+  appAccountManager.on('accountChange', ['com.example.actsaccounttest'], changeOnCallback);
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `on accountChange failed, code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`on accountChange failed, code is ${err.code}, message is ${err.message}`);
 }
 try {
   appAccountManager.off('accountChange', changeOnCallback);
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `off accountChange failed, code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`off accountChange failed, code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### auth9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### auth9+
 
 auth(name: string, owner: string, authType: string, callback: AuthCallback): void
 
@@ -1986,19 +1683,17 @@ auth(name: string, owner: string, authType: string, callback: AuthCallback): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | owner | string | 是 | 应用账号所有者的包名。 |
 | authType | string | 是 | 鉴权类型。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 回调对象，返回鉴权结果。 |
+| callback | AuthCallback | 是 | 回调对象，返回鉴权结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2013,8 +1708,7 @@ auth(name: string, owner: string, authType: string, callback: AuthCallback): voi
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, common } from '@kit.AbilityKit';
 
@@ -2059,8 +1753,8 @@ struct Index {
 ```
 
 
-### auth9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### auth9+
 
 auth(name: string, owner: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void
 
@@ -2070,20 +1764,18 @@ auth(name: string, owner: string, authType: string, options: Record<string, Obje
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | owner | string | 是 | 应用账号所有者的包名。 |
 | authType | string | 是 | 鉴权类型。 |
-| options | Record&lt;string, Object&gt; | 是 | 鉴权所需的可选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 回调对象，返回鉴权结果。 |
+| options | Record<string, Object> | 是 | 鉴权所需的可选项。 |
+| callback | AuthCallback | 是 | 回调对象，返回鉴权结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2098,8 +1790,7 @@ auth(name: string, owner: string, authType: string, options: Record<string, Obje
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, common } from '@kit.AbilityKit';
 
@@ -2147,17 +1838,16 @@ struct Index {
 ```
 
 
-### getAuthToken9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void
+##### getAuthToken9+
+
+getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2171,7 +1861,6 @@ getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallb
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2183,45 +1872,35 @@ getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallb
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.getAuthToken(
-    'LiSi',
-    'com.example.accountjsdemo',
-    'getSocialData',
+  appAccountManager.getAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData',
     (err: BusinessError, token: string) => {
       if (err) {
-        console.error(
-          `getAuthToken failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`getAuthToken failed, code is ${err.code}, message is ${err.message}`);
       } else {
         console.info('getAuthToken successfully, token: ' + token);
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAuthToken exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAuthToken exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAuthToken9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthToken(name: string, owner: string, authType: string): Promise<string>
+##### getAuthToken9+
+
+getAuthToken(name: string, owner: string, authType: string): Promise&lt;string&gt;
 
 获取指定应用账号的特定鉴权类型的授权令牌。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2232,7 +1911,6 @@ getAuthToken(name: string, owner: string, authType: string): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回授权令牌。 |
@@ -2241,7 +1919,6 @@ getAuthToken(name: string, owner: string, authType: string): Promise<string>
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2254,41 +1931,32 @@ getAuthToken(name: string, owner: string, authType: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .getAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData')
-    .then((token: string) => {
-      console.info('getAuthToken successfully, token: ' + token);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `getAuthToken failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.getAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData').then((token: string) => {
+    console.info('getAuthToken successfully, token: ' + token);
+  }).catch((err: BusinessError) => {
+    console.error(`getAuthToken failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAuthToken exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAuthToken exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAuthToken9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void
+##### setAuthToken9+
+
+setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 为指定应用账号设置特定鉴权类型的授权令牌。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2302,7 +1970,6 @@ setAuthToken(name: string, authType: string, token: string, callback: AsyncCallb
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2314,45 +1981,34 @@ setAuthToken(name: string, authType: string, token: string, callback: AsyncCallb
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.setAuthToken(
-    'LiSi',
-    'getSocialData',
-    'xxxx',
-    (err: BusinessError) => {
-      if (err) {
-        console.error(
-          `setAuthToken failed, code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('setAuthToken successfully');
-      }
-    },
-  );
+  appAccountManager.setAuthToken('LiSi', 'getSocialData', 'xxxx', (err: BusinessError) => {
+    if (err) {
+      console.error(`setAuthToken failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('setAuthToken successfully');
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAuthToken exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAuthToken exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAuthToken9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAuthToken(name: string, authType: string, token: string): Promise<void>
+##### setAuthToken9+
+
+setAuthToken(name: string, authType: string, token: string): Promise&lt;void&gt;
 
 为指定应用账号设置特定鉴权类型的授权令牌。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2363,7 +2019,6 @@ setAuthToken(name: string, authType: string, token: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -2372,7 +2027,6 @@ setAuthToken(name: string, authType: string, token: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2385,41 +2039,32 @@ setAuthToken(name: string, authType: string, token: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .setAuthToken('LiSi', 'getSocialData', 'xxxx')
-    .then(() => {
-      console.info('setAuthToken successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `setAuthToken failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.setAuthToken('LiSi', 'getSocialData', 'xxxx').then(() => {
+    console.info('setAuthToken successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`setAuthToken failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAuthToken exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAuthToken exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### deleteAuthToken9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void
+##### deleteAuthToken9+
+
+deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2434,7 +2079,6 @@ deleteAuthToken(name: string, owner: string, authType: string, token: string, ca
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2446,46 +2090,35 @@ deleteAuthToken(name: string, owner: string, authType: string, token: string, ca
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.deleteAuthToken(
-    'LiSi',
-    'com.example.accountjsdemo',
-    'getSocialData',
-    'xxxxx',
+  appAccountManager.deleteAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData', 'xxxxx',
     (err: BusinessError) => {
       if (err) {
-        console.error(
-          `deleteAuthToken failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`deleteAuthToken failed, code is ${err.code}, message is ${err.message}`);
       } else {
         console.info('deleteAuthToken successfully');
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `deleteAuthToken exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`deleteAuthToken exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### deleteAuthToken9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>
+##### deleteAuthToken9+
+
+deleteAuthToken(name: string, owner: string, authType: string, token: string): Promise&lt;void&gt;
 
 删除指定应用账号的特定鉴权类型的授权令牌。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2497,7 +2130,6 @@ deleteAuthToken(name: string, owner: string, authType: string, token: string): P
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -2506,7 +2138,6 @@ deleteAuthToken(name: string, owner: string, authType: string, token: string): P
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2519,46 +2150,32 @@ deleteAuthToken(name: string, owner: string, authType: string, token: string): P
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .deleteAuthToken(
-      'LiSi',
-      'com.example.accountjsdemo',
-      'getSocialData',
-      'xxxxx',
-    )
-    .then(() => {
-      console.info('deleteAuthToken successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `deleteAuthToken failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.deleteAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData', 'xxxxx').then(() => {
+    console.info('deleteAuthToken successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`deleteAuthToken failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `deleteAuthToken exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`deleteAuthToken exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAuthTokenVisibility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void>): void
+##### setAuthTokenVisibility9+
+
+setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2573,7 +2190,6 @@ setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVis
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2586,46 +2202,35 @@ setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVis
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.setAuthTokenVisibility(
-    'LiSi',
-    'getSocialData',
-    'com.example.accountjsdemo',
-    true,
+  appAccountManager.setAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo', true,
     (err: BusinessError) => {
       if (err) {
-        console.error(
-          `setAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`setAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`);
       } else {
         console.info('setAuthTokenVisibility successfully');
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAuthTokenVisibility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>
+##### setAuthTokenVisibility9+
+
+setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise&lt;void&gt;
 
 设置指定账号的特定鉴权类型的授权令牌对指定应用的可见性。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2637,7 +2242,6 @@ setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVis
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -2646,7 +2250,6 @@ setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVis
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2660,46 +2263,32 @@ setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVis
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .setAuthTokenVisibility(
-      'LiSi',
-      'getSocialData',
-      'com.example.accountjsdemo',
-      true,
-    )
-    .then(() => {
-      console.info('setAuthTokenVisibility successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `setAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.setAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo', true).then(() => {
+    console.info('setAuthTokenVisibility successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`setAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkAuthTokenVisibility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>): void
+##### checkAuthTokenVisibility9+
+
+checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2713,7 +2302,6 @@ checkAuthTokenVisibility(name: string, authType: string, bundleName: string, cal
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2725,47 +2313,35 @@ checkAuthTokenVisibility(name: string, authType: string, bundleName: string, cal
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.checkAuthTokenVisibility(
-    'LiSi',
-    'getSocialData',
-    'com.example.accountjsdemo',
+  appAccountManager.checkAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo',
     (err: BusinessError, isVisible: boolean) => {
       if (err) {
-        console.error(
-          `checkAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`checkAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`);
       } else {
-        console.info(
-          'checkAuthTokenVisibility successfully, isVisible: ' + isVisible,
-        );
+        console.info('checkAuthTokenVisibility successfully, isVisible: ' + isVisible);
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkAuthTokenVisibility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>
+##### checkAuthTokenVisibility9+
+
+checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise&lt;boolean&gt;
 
 检查指定应用账号的特定鉴权类型的授权令牌对指定应用的可见性。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2776,7 +2352,6 @@ checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Pr
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。返回true表示授权令牌对指定应用的可见，返回false表示不可见。 |
@@ -2785,7 +2360,6 @@ checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Pr
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2798,40 +2372,27 @@ checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Pr
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .checkAuthTokenVisibility(
-      'LiSi',
-      'getSocialData',
-      'com.example.accountjsdemo',
-    )
-    .then((isVisible: boolean) => {
-      console.info(
-        'checkAuthTokenVisibility successfully, isVisible: ' + isVisible,
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `checkAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.checkAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo').then((
+    isVisible: boolean) => {
+    console.info('checkAuthTokenVisibility successfully, isVisible: ' + isVisible);
+  }).catch((err: BusinessError) => {
+    console.error(`checkAuthTokenVisibility failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkAuthTokenVisibility exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAllAuthTokens9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<AuthTokenInfo>>): void
+##### getAllAuthTokens9+
+
+getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array&lt;AuthTokenInfo&gt;>): void
 
 获取指定账号对调用方可见的所有授权令牌。使用callback异步回调。
 
@@ -2839,18 +2400,16 @@ getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<Auth
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| callback | AsyncCallback&lt;Array&lt;[AuthTokenInfo](#authtokeninfo9)&gt;&gt; | 是 | 回调函数。当获取成功时，err为null，data为授权令牌数组；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;AuthTokenInfo&gt;> | 是 | 回调函数。当获取成功时，err为null，data为授权令牌数组；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2862,37 +2421,29 @@ getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<Auth
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.getAllAuthTokens(
-    'LiSi',
-    'com.example.accountjsdemo',
+  appAccountManager.getAllAuthTokens('LiSi', 'com.example.accountjsdemo',
     (err: BusinessError, tokenArr: appAccount.AuthTokenInfo[]) => {
       if (err) {
-        console.error(
-          `getAllAuthTokens failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`getAllAuthTokens failed, code is ${err.code}, message is ${err.message}`);
       } else {
         console.info('getAllAuthTokens successfully, tokenArr: ' + tokenArr);
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAllAuthTokens exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAllAuthTokens exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAllAuthTokens9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>
+##### getAllAuthTokens9+
+
+getAllAuthTokens(name: string, owner: string): Promise<Array&lt;AuthTokenInfo&gt;>
 
 获取指定账号对调用方可见的所有授权令牌。使用Promise异步回调。
 
@@ -2900,7 +2451,6 @@ getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
@@ -2909,16 +2459,14 @@ getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AuthTokenInfo](#authtokeninfo9)&gt;&gt; | Promise对象，返回授权令牌数组。 |
+| Promise<Array&lt;AuthTokenInfo&gt;> | Promise对象，返回授权令牌数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2930,36 +2478,27 @@ getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .getAllAuthTokens('LiSi', 'com.example.accountjsdemo')
-    .then((tokenArr: appAccount.AuthTokenInfo[]) => {
-      console.info(
-        'getAllAuthTokens successfully, tokenArr: ' + JSON.stringify(tokenArr),
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `getAllAuthTokens failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.getAllAuthTokens('LiSi', 'com.example.accountjsdemo').then((
+    tokenArr: appAccount.AuthTokenInfo[]) => {
+    console.info('getAllAuthTokens successfully, tokenArr: ' + JSON.stringify(tokenArr));
+  }).catch((err: BusinessError) => {
+    console.error(`getAllAuthTokens failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAllAuthTokens exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAllAuthTokens exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAuthList9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void
+##### getAuthList9+
+
+getAuthList(name: string, authType: string, callback: AsyncCallback<Array&lt;string&gt;>): void
 
 获取指定应用账号的特定鉴权类型的授权列表，即被授权的包名数组（令牌的授权列表通过[setAuthTokenVisibility](#setauthtokenvisibility9)来设置）。使用callback异步回调。
 
@@ -2967,18 +2506,16 @@ getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | authType | string | 是 | 鉴权类型。 |
-| callback | AsyncCallback&lt;Array&lt;string&gt;&gt; | 是 | 回调函数。当获取成功时，err为null，data为被授权的包名数组；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;string&gt;> | 是 | 回调函数。当获取成功时，err为null，data为被授权的包名数组；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2991,37 +2528,28 @@ getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.getAuthList(
-    'LiSi',
-    'getSocialData',
-    (err: BusinessError, authList: string[]) => {
-      if (err) {
-        console.error(
-          `getAuthList failed, code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('getAuthList successfully, authList: ' + authList);
-      }
-    },
-  );
+  appAccountManager.getAuthList('LiSi', 'getSocialData', (err: BusinessError, authList: string[]) => {
+    if (err) {
+      console.error(`getAuthList failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('getAuthList successfully, authList: ' + authList);
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAuthList exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAuthList exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAuthList9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthList(name: string, authType: string): Promise<Array<string>>
+##### getAuthList9+
+
+getAuthList(name: string, authType: string): Promise<Array&lt;string&gt;>
 
 获取指定应用账号的特定鉴权类型的授权列表，即被授权的包名数组（令牌的授权列表通过[setAuthTokenVisibility](#setauthtokenvisibility9)来设置）。使用Promise异步回调。
 
@@ -3029,7 +2557,6 @@ getAuthList(name: string, authType: string): Promise<Array<string>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
@@ -3038,16 +2565,14 @@ getAuthList(name: string, authType: string): Promise<Array<string>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;string&gt;&gt; | Promise对象，返回被授权的包名数组。 |
+| Promise<Array&lt;string&gt;> | Promise对象，返回被授权的包名数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3060,34 +2585,26 @@ getAuthList(name: string, authType: string): Promise<Array<string>>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .getAuthList('LiSi', 'getSocialData')
-    .then((authList: string[]) => {
-      console.info('getAuthList successfully, authList: ' + authList);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `getAuthList failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.getAuthList('LiSi', 'getSocialData').then((authList: string[]) => {
+    console.info('getAuthList successfully, authList: ' + authList);
+  }).catch((err: BusinessError) => {
+    console.error(`getAuthList failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `getAuthList exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`getAuthList exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### getAuthCallback9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>): void
+##### getAuthCallback9+
+
+getAuthCallback(sessionId: string, callback: AsyncCallback&lt;AuthCallback&gt;): void
 
 获取鉴权会话的认证器回调对象。使用callback异步回调。
 
@@ -3095,17 +2612,15 @@ getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | string | 是 | 鉴权会话的标识。 |
-| callback | AsyncCallback&lt;[AuthCallback](#authcallback9)&gt; | 是 | 回调函数。当获取成功时，err为null，data为鉴权会话的认证器回调对象；否则为错误对象。 |
+| callback | AsyncCallback&lt;AuthCallback&gt; | 是 | 回调函数。当获取成功时，err为null，data为鉴权会话的认证器回调对象；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3117,55 +2632,44 @@ getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, UIAbility, AbilityConstant } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, param: AbilityConstant.LaunchParam) {
-    // ability 生命周期函数
-    let sessionId: string = want.parameters![
-      appAccount.Constants.KEY_SESSION_ID
-    ] as string;
+  onCreate(want: Want, param: AbilityConstant.LaunchParam) { // ability 生命周期函数
+    let sessionId: string = want.parameters![appAccount.Constants.KEY_SESSION_ID] as string;
     try {
-      appAccountManager.getAuthCallback(
-        sessionId,
-        (err: BusinessError, callback: appAccount.AuthCallback) => {
-          if (err != null) {
-            console.error(
-              `getAuthCallback err: code is ${err.code}, message is ${err.message}`,
-            );
-            return;
+      appAccountManager.getAuthCallback(sessionId, (err: BusinessError, callback: appAccount.AuthCallback) => {
+        if (err != null) {
+          console.error(`getAuthCallback err: code is ${err.code}, message is ${err.message}`);
+          return;
+        }
+        let result: appAccount.AuthResult = {
+          account: {
+            name: 'Lisi',
+            owner: 'com.example.accountjsdemo',
+          },
+          tokenInfo: {
+            token: 'xxxxxx',
+            authType: 'getSocialData'
           }
-          let result: appAccount.AuthResult = {
-            account: {
-              name: 'Lisi',
-              owner: 'com.example.accountjsdemo',
-            },
-            tokenInfo: {
-              token: 'xxxxxx',
-              authType: 'getSocialData',
-            },
-          };
-          callback.onResult(0, result);
-        },
-      );
+        };
+        callback.onResult(0, result);
+      });
     } catch (e) {
       const err = e as BusinessError;
-      console.error(
-        `getAuthCallback exception: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`getAuthCallback exception: code is ${err.code}, message is ${err.message}`);
     }
   }
 }
 ```
 
 
-### getAuthCallback9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthCallback(sessionId: string): Promise<AuthCallback>
+##### getAuthCallback9+
+
+getAuthCallback(sessionId: string): Promise&lt;AuthCallback&gt;
 
 获取鉴权会话的认证器回调对象。使用Promise异步回调。
 
@@ -3173,7 +2677,6 @@ getAuthCallback(sessionId: string): Promise<AuthCallback>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | string | 是 | 鉴权会话的标识。 |
@@ -3181,16 +2684,14 @@ getAuthCallback(sessionId: string): Promise<AuthCallback>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AuthCallback](#authcallback9)&gt; | Promise对象，返回鉴权会话的认证器回调对象。 |
+| Promise&lt;AuthCallback&gt; | Promise对象，返回鉴权会话的认证器回调对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3202,53 +2703,42 @@ getAuthCallback(sessionId: string): Promise<AuthCallback>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, UIAbility, AbilityConstant } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, param: AbilityConstant.LaunchParam) {
-    // ability 生命周期函数
-    let sessionId: string = want.parameters![
-      appAccount.Constants.KEY_SESSION_ID
-    ] as string;
+  onCreate(want: Want, param: AbilityConstant.LaunchParam) { // ability 生命周期函数
+    let sessionId: string = want.parameters![appAccount.Constants.KEY_SESSION_ID] as string;
     try {
-      appAccountManager
-        .getAuthCallback(sessionId)
-        .then((callback: appAccount.AuthCallback) => {
-          let result: appAccount.AuthResult = {
-            account: {
-              name: 'Lisi',
-              owner: 'com.example.accountjsdemo',
-            },
-            tokenInfo: {
-              token: 'xxxxxx',
-              authType: 'getSocialData',
-            },
-          };
-          callback.onResult(0, result);
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `getAuthCallback err: code is ${err.code}, message is ${err.message}`,
-          );
-        });
+      appAccountManager.getAuthCallback(sessionId).then((callback: appAccount.AuthCallback) => {
+      let result: appAccount.AuthResult = {
+        account: {
+          name: 'Lisi',
+          owner: 'com.example.accountjsdemo',
+        },
+        tokenInfo: {
+          token: 'xxxxxx',
+          authType: 'getSocialData'
+        }
+      };
+      callback.onResult(0, result);
+      }).catch((err: BusinessError) => {
+        console.error(`getAuthCallback err: code is ${err.code}, message is ${err.message}`);
+      });
     } catch (e) {
       const err = e as BusinessError;
-      console.error(
-        `getAuthCallback exception: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`getAuthCallback exception: code is ${err.code}, message is ${err.message}`);
     }
   }
 }
 ```
 
 
-### queryAuthenticatorInfo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void
+##### queryAuthenticatorInfo9+
+
+queryAuthenticatorInfo(owner: string, callback: AsyncCallback&lt;AuthenticatorInfo&gt;): void
 
 获取指定应用的认证器信息。使用callback异步回调。
 
@@ -3256,17 +2746,15 @@ queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| callback | AsyncCallback&lt;[AuthenticatorInfo](#authenticatorinfo8)&gt; | 是 | 回调函数。当获取成功时，err为null，data为认证器信息对象；否则为错误对象。 |
+| callback | AsyncCallback&lt;AuthenticatorInfo&gt; | 是 | 回调函数。当获取成功时，err为null，data为认证器信息对象；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3278,45 +2766,35 @@ queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.queryAuthenticatorInfo(
-    'com.example.accountjsdemo',
+  appAccountManager.queryAuthenticatorInfo('com.example.accountjsdemo',
     (err: BusinessError, info: appAccount.AuthenticatorInfo) => {
       if (err) {
-        console.error(
-          `queryAuthenticatorInfo failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`queryAuthenticatorInfo failed, code is ${err.code}, message is ${err.message}`);
       } else {
-        console.info(
-          'queryAuthenticatorInfo successfully, info: ' + JSON.stringify(info),
-        );
+        console.info('queryAuthenticatorInfo successfully, info: ' + JSON.stringify(info));
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `queryAuthenticatorInfo exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`queryAuthenticatorInfo exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### queryAuthenticatorInfo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>
+##### queryAuthenticatorInfo9+
+
+queryAuthenticatorInfo(owner: string): Promise&lt;AuthenticatorInfo&gt;
 
 获取指定应用的认证器信息。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3325,16 +2803,14 @@ queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AuthenticatorInfo](#authenticatorinfo8)&gt; | Promise对象，返回指定应用的认证器信息对象。 |
+| Promise&lt;AuthenticatorInfo&gt; | Promise对象，返回指定应用的认证器信息对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3346,43 +2822,33 @@ queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .queryAuthenticatorInfo('com.example.accountjsdemo')
-    .then((info: appAccount.AuthenticatorInfo) => {
-      console.info(
-        'queryAuthenticatorInfo successfully, info: ' + JSON.stringify(info),
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `queryAuthenticatorInfo failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.queryAuthenticatorInfo('com.example.accountjsdemo').then((
+    info: appAccount.AuthenticatorInfo) => {
+    console.info('queryAuthenticatorInfo successfully, info: ' + JSON.stringify(info));
+  }).catch((err: BusinessError) => {
+    console.error(`queryAuthenticatorInfo failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `queryAuthenticatorInfo exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`queryAuthenticatorInfo exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkAccountLabels9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAccountLabels(name: string, owner: string, labels: Array<string>, callback: AsyncCallback<boolean>): void
+##### checkAccountLabels9+
+
+checkAccountLabels(name: string, owner: string, labels: Array&lt;string&gt;, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号是否满足特定的标签集合。使用callback异步回调。该方法依赖目标应用的认证器提供标签检查的能力。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3396,7 +2862,6 @@ checkAccountLabels(name: string, owner: string, labels: Array<string>, callback:
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -3410,48 +2875,36 @@ checkAccountLabels(name: string, owner: string, labels: Array<string>, callback:
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let labels = ['student'];
 try {
-  appAccountManager.checkAccountLabels(
-    'zhangsan',
-    'com.example.accountjsdemo',
-    labels,
+  appAccountManager.checkAccountLabels('zhangsan', 'com.example.accountjsdemo', labels,
     (err: BusinessError, hasAllLabels: boolean) => {
       if (err) {
-        console.error(
-          `checkAccountLabels failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`checkAccountLabels failed, code is ${err.code}, message is ${err.message}`);
       } else {
-        console.info(
-          'checkAccountLabels successfully, hasAllLabels: ' + hasAllLabels,
-        );
+        console.info('checkAccountLabels successfully, hasAllLabels: ' + hasAllLabels);
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkAccountLabels exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkAccountLabels exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### checkAccountLabels9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<boolean>
+##### checkAccountLabels9+
+
+checkAccountLabels(name: string, owner: string, labels: Array&lt;string&gt;): Promise&lt;boolean&gt;
 
 检查指定应用账号是否满足特定的标签集合。使用Promise异步回调。该方法依赖目标应用的认证器提供标签检查的能力。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3462,7 +2915,6 @@ checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。返回true表示指定账号满足特定的标签集合，返回false表示不满足。 |
@@ -3471,7 +2923,6 @@ checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3486,42 +2937,34 @@ checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let labels = ['student'];
 try {
-  appAccountManager
-    .checkAccountLabels('zhangsan', 'com.example.accountjsdemo', labels)
-    .then((hasAllLabels: boolean) => {
-      console.info('checkAccountLabels successfully: ' + hasAllLabels);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `checkAccountLabels failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.checkAccountLabels('zhangsan', 'com.example.accountjsdemo', labels).then((
+    hasAllLabels: boolean) => {
+    console.info('checkAccountLabels successfully: ' + hasAllLabels);
+  }).catch((err: BusinessError) => {
+    console.error(`checkAccountLabels failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `checkAccountLabels exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`checkAccountLabels exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### deleteCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteCredential(name: string, credentialType: string, callback: AsyncCallback<void>): void
+##### deleteCredential9+
+
+deleteCredential(name: string, credentialType: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定应用账号的特定类型的凭据信息。使用callback异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3534,7 +2977,6 @@ deleteCredential(name: string, credentialType: string, callback: AsyncCallback<v
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -3546,44 +2988,34 @@ deleteCredential(name: string, credentialType: string, callback: AsyncCallback<v
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager.deleteCredential(
-    'zhangsan',
-    'PIN_SIX',
-    (err: BusinessError) => {
-      if (err) {
-        console.error(
-          `deleteCredential failed, code is ${err.code}, message is ${err.message}`,
-        );
-      } else {
-        console.info('deleteCredential successfully');
-      }
-    },
-  );
+  appAccountManager.deleteCredential('zhangsan', 'PIN_SIX', (err: BusinessError) => {
+    if (err) {
+      console.error(`deleteCredential failed, code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('deleteCredential successfully');
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `deleteCredential exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`deleteCredential exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### deleteCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteCredential(name: string, credentialType: string): Promise<void>
+##### deleteCredential9+
+
+deleteCredential(name: string, credentialType: string): Promise&lt;void&gt;
 
 删除指定应用账号的特定类型的凭据信息。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -3592,7 +3024,6 @@ deleteCredential(name: string, credentialType: string): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3603,7 +3034,6 @@ deleteCredential(name: string, credentialType: string): Promise<void>
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -3615,34 +3045,26 @@ deleteCredential(name: string, credentialType: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  appAccountManager
-    .deleteCredential('zhangsan', 'PIN_SIX')
-    .then(() => {
-      console.info('deleteCredential successfully');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `deleteCredential failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.deleteCredential('zhangsan', 'PIN_SIX').then(() => {
+    console.info('deleteCredential successfully');
+  }).catch((err: BusinessError) => {
+    console.error(`deleteCredential failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `deleteCredential exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`deleteCredential exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### selectAccountsByOptions9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array<AppAccountInfo>>): void
+##### selectAccountsByOptions9+
+
+selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 根据选项选择调用方可访问的账号列表。使用callback异步回调。如果选项中包含标签约束，则该方法依赖目标应用的认证器提供标签检查的能力。
 
@@ -3650,17 +3072,15 @@ selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SelectAccountsOptions](#selectaccountsoptions9) | 是 | 选择账号的选项。 |
-| callback | AsyncCallback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 是 | 回调函数。当根据选项选择请求方可访问的账号列表时，err为null，data为可访问的账号信息对象；否则为错误对象。 |
+| options | SelectAccountsOptions | 是 | 选择账号的选项。 |
+| callback | AsyncCallback<Array&lt;AppAccountInfo&gt;> | 是 | 回调函数。当根据选项选择请求方可访问的账号列表时，err为null，data为可访问的账号信息对象；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3673,43 +3093,33 @@ selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let options: appAccount.SelectAccountsOptions = {
   allowedOwners: ['com.example.accountjsdemo'],
-  requiredLabels: ['student'],
+  requiredLabels: ['student']
 };
 try {
-  appAccountManager.selectAccountsByOptions(
-    options,
+  appAccountManager.selectAccountsByOptions(options,
     (err: BusinessError, accountArr: appAccount.AppAccountInfo[]) => {
       if (err) {
-        console.error(
-          `selectAccountsByOptions failed, code is ${err.code}, message is ${err.message}`,
-        );
+        console.error(`selectAccountsByOptions failed, code is ${err.code}, message is ${err.message}`);
       } else {
-        console.info(
-          'selectAccountsByOptions successfully, accountArr: ' +
-            JSON.stringify(accountArr),
-        );
+        console.info('selectAccountsByOptions successfully, accountArr: ' + JSON.stringify(accountArr));
       }
-    },
-  );
+    });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `selectAccountsByOptions exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`selectAccountsByOptions exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### selectAccountsByOptions9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccountInfo>>
+##### selectAccountsByOptions9+
+
+selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array&lt;AppAccountInfo&gt;>
 
 根据选项选择调用方可访问的账号列表。使用Promise异步回调。如果选项中包含标签约束，则该方法依赖目标应用的认证器提供标签检查的能力。
 
@@ -3717,24 +3127,21 @@ selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccoun
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SelectAccountsOptions](#selectaccountsoptions9) | 是 | 选择账号的选项。 |
+| options | SelectAccountsOptions | 是 | 选择账号的选项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | Promise对象，返回调用方可访问的账号列表。 |
+| Promise<Array&lt;AppAccountInfo&gt;> | Promise对象，返回调用方可访问的账号列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3747,38 +3154,27 @@ selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccoun
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let options: appAccount.SelectAccountsOptions = {
-  allowedOwners: ['com.example.accountjsdemo'],
+  allowedOwners: ['com.example.accountjsdemo']
 };
 try {
-  appAccountManager
-    .selectAccountsByOptions(options)
-    .then((accountArr: appAccount.AppAccountInfo[]) => {
-      console.info(
-        'selectAccountsByOptions successfully, accountArr: ' +
-          JSON.stringify(accountArr),
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `selectAccountsByOptions failed, code is ${err.code}, message is ${err.message}`,
-      );
-    });
+  appAccountManager.selectAccountsByOptions(options).then((accountArr: appAccount.AppAccountInfo[]) => {
+    console.info('selectAccountsByOptions successfully, accountArr: ' + JSON.stringify(accountArr));
+  }).catch((err: BusinessError) => {
+    console.error(`selectAccountsByOptions failed, code is ${err.code}, message is ${err.message}`);
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `selectAccountsByOptions exception: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`selectAccountsByOptions exception: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### verifyCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### verifyCredential9+
 
 verifyCredential(name: string, owner: string, callback: AuthCallback): void
 
@@ -3788,18 +3184,16 @@ verifyCredential(name: string, owner: string, callback: AuthCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 回调函数，返回验证结果。 |
+| callback | AuthCallback | 是 | 回调函数，返回验证结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3814,39 +3208,29 @@ verifyCredential(name: string, owner: string, callback: AuthCallback): void
 
 **示例：**
 
-
-```ts
+```json
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   appAccountManager.verifyCredential('zhangsan', 'com.example.accountjsdemo', {
     onResult: (resultCode: number, result?: appAccount.AuthResult) => {
-      console.info(
-        'verifyCredential onResult, resultCode: ' + JSON.stringify(resultCode),
-      );
-      console.info(
-        'verifyCredential onResult, result: ' + JSON.stringify(result),
-      );
+      console.info('verifyCredential onResult, resultCode: ' + JSON.stringify(resultCode));
+      console.info('verifyCredential onResult, result: ' + JSON.stringify(result));
     },
     onRequestRedirected: (request: Want) => {
-      console.info(
-        'verifyCredential onRequestRedirected, request: ' +
-          JSON.stringify(request),
-      );
-    },
+      console.info('verifyCredential onRequestRedirected, request: ' + JSON.stringify(request));
+    }
   });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `verifyCredential err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`verifyCredential err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### verifyCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### verifyCredential9+
 
 verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, callback: AuthCallback): void
 
@@ -3856,19 +3240,17 @@ verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| options | [VerifyCredentialOptions](#verifycredentialoptions9) | 是 | 验证凭据的选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 回调函数，返回验证结果。 |
+| options | VerifyCredentialOptions | 是 | 验证凭据的选项。 |
+| callback | AuthCallback | 是 | 回调函数，返回验证结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3883,49 +3265,33 @@ verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, 
 
 **示例：**
 
-
-```ts
+```json
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let options: appAccount.VerifyCredentialOptions = {
   credentialType: 'pin',
-  credential: '123456',
+  credential: '123456'
 };
 try {
-  appAccountManager.verifyCredential(
-    'zhangsan',
-    'com.example.accountjsdemo',
-    options,
-    {
-      onResult: (resultCode: number, result?: appAccount.AuthResult) => {
-        console.info(
-          'verifyCredential onResult, resultCode: ' +
-            JSON.stringify(resultCode),
-        );
-        console.info(
-          'verifyCredential onResult, result: ' + JSON.stringify(result),
-        );
-      },
-      onRequestRedirected: (request: Want) => {
-        console.info(
-          'verifyCredential onRequestRedirected, request: ' +
-            JSON.stringify(request),
-        );
-      },
+  appAccountManager.verifyCredential('zhangsan', 'com.example.accountjsdemo', options, {
+    onResult: (resultCode: number, result?: appAccount.AuthResult) => {
+      console.info('verifyCredential onResult, resultCode: ' + JSON.stringify(resultCode));
+      console.info('verifyCredential onResult, result: ' + JSON.stringify(result));
     },
-  );
+    onRequestRedirected: (request: Want) => {
+      console.info('verifyCredential onRequestRedirected, request: ' + JSON.stringify(request));
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `verifyCredential err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`verifyCredential err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAuthenticatorProperties9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAuthenticatorProperties9+
 
 setAuthenticatorProperties(owner: string, callback: AuthCallback): void
 
@@ -3935,17 +3301,15 @@ setAuthenticatorProperties(owner: string, callback: AuthCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 认证器的所有者的包名。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 回调函数，返回设置属性的结果。 |
+| callback | AuthCallback | 是 | 回调函数，返回设置属性的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3959,41 +3323,29 @@ setAuthenticatorProperties(owner: string, callback: AuthCallback): void
 
 **示例：**
 
-
-```ts
+```json
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   appAccountManager.setAuthenticatorProperties('com.example.accountjsdemo', {
     onResult: (resultCode: number, result?: appAccount.AuthResult) => {
-      console.info(
-        'setAuthenticatorProperties onResult, resultCode: ' +
-          JSON.stringify(resultCode),
-      );
-      console.info(
-        'setAuthenticatorProperties onResult, result: ' +
-          JSON.stringify(result),
-      );
+      console.info('setAuthenticatorProperties onResult, resultCode: ' + JSON.stringify(resultCode));
+      console.info('setAuthenticatorProperties onResult, result: ' + JSON.stringify(result));
     },
     onRequestRedirected: (request: Want) => {
-      console.info(
-        'setAuthenticatorProperties onRequestRedirected, request: ' +
-          JSON.stringify(request),
-      );
-    },
+      console.info('setAuthenticatorProperties onRequestRedirected, request: ' + JSON.stringify(request));
+    }
   });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAuthenticatorProperties err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAuthenticatorProperties err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### setAuthenticatorProperties9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAuthenticatorProperties9+
 
 setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callback: AuthCallback): void
 
@@ -4003,18 +3355,16 @@ setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callbac
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 认证器的所有者的包名。 |
-| options | [SetPropertiesOptions](#setpropertiesoptions9) | 是 | 设置属性的选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调，返回设置属性的结果。 |
+| options | SetPropertiesOptions | 是 | 设置属性的选项。 |
+| callback | AuthCallback | 是 | 认证器回调，返回设置属性的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4028,61 +3378,44 @@ setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callbac
 
 **示例：**
 
-
-```ts
+```json
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let options: appAccount.SetPropertiesOptions = {
-  properties: { prop1: 'value1' },
+  properties: { prop1: 'value1' }
 };
 try {
-  appAccountManager.setAuthenticatorProperties(
-    'com.example.accountjsdemo',
-    options,
-    {
-      onResult: (resultCode: number, result?: appAccount.AuthResult) => {
-        console.info(
-          'setAuthenticatorProperties onResult, resultCode: ' +
-            JSON.stringify(resultCode),
-        );
-        console.info(
-          'setAuthenticatorProperties onResult, result: ' +
-            JSON.stringify(result),
-        );
-      },
-      onRequestRedirected: (request: Want) => {
-        console.info(
-          'setAuthenticatorProperties onRequestRedirected, request: ' +
-            JSON.stringify(request),
-        );
-      },
+  appAccountManager.setAuthenticatorProperties('com.example.accountjsdemo', options, {
+    onResult: (resultCode: number, result?: appAccount.AuthResult) => {
+      console.info('setAuthenticatorProperties onResult, resultCode: ' + JSON.stringify(resultCode));
+      console.info('setAuthenticatorProperties onResult, result: ' + JSON.stringify(result));
     },
-  );
+    onRequestRedirected: (request: Want) => {
+      console.info('setAuthenticatorProperties onRequestRedirected, request: ' + JSON.stringify(request));
+    }
+  });
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `setAuthenticatorProperties err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`setAuthenticatorProperties err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### addAccount(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAccount(name: string, callback: AsyncCallback<void>): void
+##### addAccount(deprecated)
+
+addAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据账号名添加应用账号。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[createAccount](#createaccount9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 createAccount 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4092,33 +3425,29 @@ addAccount(name: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 appAccountManager.addAccount('WangWu', (err: BusinessError) => {
-  console.error(
-    `addAccount err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`addAccount err: code is ${err.code}, message is ${err.message}`);
 });
 ```
 
 
-### addAccount(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAccount(name: string, extraInfo: string, callback: AsyncCallback<void>): void
+##### addAccount(deprecated)
+
+addAccount(name: string, extraInfo: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据账号名和额外信息添加应用账号。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[createAccount](#createaccount9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 createAccount 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4129,33 +3458,29 @@ addAccount(name: string, extraInfo: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 appAccountManager.addAccount('LiSi', 'token101', (err: BusinessError) => {
-  console.error(
-    `addAccount err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`addAccount err: code is ${err.code}, message is ${err.message}`);
 });
 ```
 
 
-### addAccount(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAccount(name: string, extraInfo?: string): Promise<void>
+##### addAccount(deprecated)
+
+addAccount(name: string, extraInfo?: string): Promise&lt;void&gt;
 
 根据账号名和额外信息添加应用账号。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[createAccount](#createaccount9-2)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 createAccount 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4165,7 +3490,6 @@ addAccount(name: string, extraInfo?: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4173,51 +3497,43 @@ addAccount(name: string, extraInfo?: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .addAccount('LiSi', 'token101')
-  .then(() => {
-    console.info('addAccount Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `addAccount err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.addAccount('LiSi', 'token101').then(()=> {
+  console.info('addAccount Success');
+}).catch((err: BusinessError) => {
+  console.error(`addAccount err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### addAccountImplicitly(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addAccountImplicitly(deprecated)
 
 addAccountImplicitly(owner: string, authType: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
 根据指定的账号所有者隐式地添加应用账号。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[createAccountImplicitly](#createaccountimplicitly9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 createAccountImplicitly 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 应用账号所有者的包名。 |
 | authType | string | 是 | 鉴权类型。鉴权类型为自定义。 |
 | options | {[key: string]: any} | 是 | 鉴权所需要的可选项。可选项可根据自己需要设置。 |
-| callback | [AuthenticatorCallback](#authenticatorcallbackdeprecated) | 是 | 认证器回调对象，返回添加结果。 |
+| callback | AuthenticatorCallback | 是 | 认证器回调对象，返回添加结果。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, common } from '@kit.AbilityKit';
 
@@ -4257,21 +3573,20 @@ struct Index {
 ```
 
 
-### deleteAccount(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteAccount(name: string, callback: AsyncCallback<void>): void
+##### deleteAccount(deprecated)
+
+deleteAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除应用账号。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[removeAccount](#removeaccount9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 removeAccount 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4281,33 +3596,29 @@ deleteAccount(name: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 appAccountManager.deleteAccount('ZhaoLiu', (err: BusinessError) => {
-  console.error(
-    `deleteAccount err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`deleteAccount err: code is ${err.code}, message is ${err.message}`);
 });
 ```
 
 
-### deleteAccount(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteAccount(name: string): Promise<void>
+##### deleteAccount(deprecated)
+
+deleteAccount(name: string): Promise&lt;void&gt;
 
 删除应用账号。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[removeAccount](#removeaccount9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 removeAccount 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4316,7 +3627,6 @@ deleteAccount(name: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4324,38 +3634,31 @@ deleteAccount(name: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .deleteAccount('ZhaoLiu')
-  .then(() => {
-    console.info('deleteAccount Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `deleteAccount err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.deleteAccount('ZhaoLiu').then(() => {
+  console.info('deleteAccount Success');
+}).catch((err: BusinessError) => {
+  console.error(`deleteAccount err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### disableAppAccess(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>): void
+##### disableAppAccess(deprecated)
+
+disableAppAccess(name: string, bundleName: string, callback: AsyncCallback&lt;void&gt;): void
 
 禁止指定第三方应用账号名称对指定的第三方应用进行访问。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setAppAccess](#setappaccess9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setAppAccess 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4366,37 +3669,29 @@ disableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.disableAppAccess(
-  'ZhangSan',
-  'com.example.accountjsdemo',
-  (err: BusinessError) => {
-    console.error(
-      `disableAppAccess err: code is ${err.code}, message is ${err.message}`,
-    );
-  },
-);
+appAccountManager.disableAppAccess('ZhangSan', 'com.example.accountjsdemo', (err: BusinessError) => {
+  console.error(`disableAppAccess err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### disableAppAccess(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disableAppAccess(name: string, bundleName: string): Promise<void>
+##### disableAppAccess(deprecated)
+
+disableAppAccess(name: string, bundleName: string): Promise&lt;void&gt;
 
 禁止指定第三方应用账号名称对指定包名称的第三方应用进行访问。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setAppAccess](#setappaccess9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setAppAccess 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4406,7 +3701,6 @@ disableAppAccess(name: string, bundleName: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4414,38 +3708,31 @@ disableAppAccess(name: string, bundleName: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .disableAppAccess('ZhangSan', 'com.example.accountjsdemo')
-  .then(() => {
-    console.info('disableAppAccess Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `disableAppAccess err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.disableAppAccess('ZhangSan', 'com.example.accountjsdemo').then(() => {
+  console.info('disableAppAccess Success');
+}).catch((err: BusinessError) => {
+  console.error(`disableAppAccess err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### enableAppAccess(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-enableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>): void
+##### enableAppAccess(deprecated)
+
+enableAppAccess(name: string, bundleName: string, callback: AsyncCallback&lt;void&gt;): void
 
 允许指定第三方应用账号名称对指定包名称的第三方应用进行访问。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setAppAccess](#setappaccess9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setAppAccess 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4456,41 +3743,33 @@ enableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>)
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.enableAppAccess(
-  'ZhangSan',
-  'com.example.accountjsdemo',
-  (err: BusinessError) => {
-    if (err) {
-      console.error(
-        `enableAppAccess err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('enableAppAccess successful.');
-    }
-  },
-);
+appAccountManager.enableAppAccess('ZhangSan', 'com.example.accountjsdemo', (err: BusinessError) => {
+  if (err) {
+    console.error(`enableAppAccess err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('enableAppAccess successful.');
+  }
+});
 ```
 
 
-### enableAppAccess(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-enableAppAccess(name: string, bundleName: string): Promise<void>
+##### enableAppAccess(deprecated)
+
+enableAppAccess(name: string, bundleName: string): Promise&lt;void&gt;
 
 允许指定第三方应用账号的名称对指定包名称的第三方应用进行访问。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setAppAccess](#setappaccess9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setAppAccess 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4500,7 +3779,6 @@ enableAppAccess(name: string, bundleName: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4508,40 +3786,33 @@ enableAppAccess(name: string, bundleName: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .enableAppAccess('ZhangSan', 'com.example.accountjsdemo')
-  .then(() => {
-    console.info('enableAppAccess Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `enableAppAccess err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.enableAppAccess('ZhangSan', 'com.example.accountjsdemo').then(() => {
+  console.info('enableAppAccess Success');
+}).catch((err: BusinessError) => {
+  console.error(`enableAppAccess err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### checkAppAccountSyncEnable(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAppAccountSyncEnable(name: string, callback: AsyncCallback<boolean>): void
+##### checkAppAccountSyncEnable(deprecated)
+
+checkAppAccountSyncEnable(name: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号是否开启数据同步功能。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[checkDataSyncEnabled](#checkdatasyncenabled9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 checkDataSyncEnabled 替代。
+
 
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4551,42 +3822,35 @@ checkAppAccountSyncEnable(name: string, callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.checkAppAccountSyncEnable(
-  'ZhangSan',
-  (err: BusinessError, result: boolean) => {
-    if (err) {
-      console.error(
-        `checkAppAccountSyncEnable code: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('checkAppAccountSyncEnable result: ' + result);
-    }
-  },
-);
+appAccountManager.checkAppAccountSyncEnable('ZhangSan', (err: BusinessError, result: boolean) => {
+  if (err) {
+    console.error(`checkAppAccountSyncEnable code: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('checkAppAccountSyncEnable result: ' + result);
+  }
+});
 ```
 
 
-### checkAppAccountSyncEnable(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAppAccountSyncEnable(name: string): Promise<boolean>
+##### checkAppAccountSyncEnable(deprecated)
+
+checkAppAccountSyncEnable(name: string): Promise&lt;boolean&gt;
 
 检查指定应用账号是否开启数据同步功能。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[checkDataSyncEnabled](#checkdatasyncenabled9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 checkDataSyncEnabled 替代。
+
 
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4595,7 +3859,6 @@ checkAppAccountSyncEnable(name: string): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。返回true表示指定应用账号已开启数据同步功能；返回false表示未开启。 |
@@ -4603,38 +3866,31 @@ checkAppAccountSyncEnable(name: string): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .checkAppAccountSyncEnable('ZhangSan')
-  .then((data: boolean) => {
-    console.info('checkAppAccountSyncEnable, result: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `checkAppAccountSyncEnable err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.checkAppAccountSyncEnable('ZhangSan').then((data: boolean) => {
+  console.info('checkAppAccountSyncEnable, result: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`checkAppAccountSyncEnable err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### setAccountCredential(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAccountCredential(name: string, credentialType: string, credential: string,callback: AsyncCallback<void>): void
+##### setAccountCredential(deprecated)
+
+setAccountCredential(name: string, credentialType: string, credential: string,callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的凭据。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[setCredential](#setcredential9)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 setCredential 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4646,42 +3902,33 @@ setAccountCredential(name: string, credentialType: string, credential: string,ca
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.setAccountCredential(
-  'ZhangSan',
-  'credentialType001',
-  'credential001',
-  (err: BusinessError) => {
-    if (err) {
-      console.error(
-        `setAccountCredential err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('setAccountCredential successful.');
-    }
-  },
-);
+appAccountManager.setAccountCredential('ZhangSan', 'credentialType001', 'credential001', (err: BusinessError) => {
+  if (err) {
+    console.error(`setAccountCredential err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('setAccountCredential successful.');
+  }
+});
 ```
 
 
-### setAccountCredential(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAccountCredential(name: string, credentialType: string, credential: string): Promise<void>
+##### setAccountCredential(deprecated)
+
+setAccountCredential(name: string, credentialType: string, credential: string): Promise&lt;void&gt;
 
 设置指定应用账号的凭据。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[setCredential](#setcredential9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 setCredential 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4692,7 +3939,6 @@ setAccountCredential(name: string, credentialType: string, credential: string): 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4700,38 +3946,31 @@ setAccountCredential(name: string, credentialType: string, credential: string): 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .setAccountCredential('ZhangSan', 'credentialType001', 'credential001')
-  .then(() => {
-    console.info('setAccountCredential Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `setAccountCredential err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.setAccountCredential('ZhangSan', 'credentialType001', 'credential001').then(() => {
+  console.info('setAccountCredential Success');
+}).catch((err: BusinessError) => {
+  console.error(`setAccountCredential err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### setAccountExtraInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback<void>): void
+##### setAccountExtraInfo(deprecated)
+
+setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的额外信息。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setCustomData](#setcustomdata9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4742,41 +3981,33 @@ setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback<voi
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.setAccountExtraInfo(
-  'ZhangSan',
-  'Tk002',
-  (err: BusinessError) => {
-    if (err) {
-      console.error(
-        `setAccountExtraInfo err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('setAccountExtraInfo successful.');
-    }
-  },
-);
+appAccountManager.setAccountExtraInfo('ZhangSan', 'Tk002', (err: BusinessError) => {
+  if (err) {
+    console.error(`setAccountExtraInfo err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('setAccountExtraInfo successful.');
+  }
+});
 ```
 
 
-### setAccountExtraInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAccountExtraInfo(name: string, extraInfo: string): Promise<void>
+##### setAccountExtraInfo(deprecated)
+
+setAccountExtraInfo(name: string, extraInfo: string): Promise&lt;void&gt;
 
 设置此应用程序账号的额外信息。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setCustomData](#setcustomdata9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4786,7 +4017,6 @@ setAccountExtraInfo(name: string, extraInfo: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4794,40 +4024,33 @@ setAccountExtraInfo(name: string, extraInfo: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .setAccountExtraInfo('ZhangSan', 'Tk002')
-  .then(() => {
-    console.info('setAccountExtraInfo Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `setAccountExtraInfo err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.setAccountExtraInfo('ZhangSan', 'Tk002').then(() => {
+  console.info('setAccountExtraInfo Success');
+}).catch((err: BusinessError) => {
+  console.error(`setAccountExtraInfo err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### setAppAccountSyncEnable(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAppAccountSyncEnable(name: string, isEnable: boolean, callback: AsyncCallback<void>): void
+##### setAppAccountSyncEnable(deprecated)
+
+setAppAccountSyncEnable(name: string, isEnable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 开启或禁止指定应用账号的数据同步功能。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setDataSyncEnabled](#setdatasyncenabled9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setDataSyncEnabled 替代。
+
 
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4838,43 +4061,35 @@ setAppAccountSyncEnable(name: string, isEnable: boolean, callback: AsyncCallback
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.setAppAccountSyncEnable(
-  'ZhangSan',
-  true,
-  (err: BusinessError) => {
-    if (err) {
-      console.error(
-        `setAppAccountSyncEnable err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('setAppAccountSyncEnable successful.');
-    }
-  },
-);
+appAccountManager.setAppAccountSyncEnable('ZhangSan', true, (err: BusinessError) => {
+  if (err) {
+    console.error(`setAppAccountSyncEnable err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('setAppAccountSyncEnable successful.');
+  }
+});
 ```
 
 
-### setAppAccountSyncEnable(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAppAccountSyncEnable(name: string, isEnable: boolean): Promise<void>
+##### setAppAccountSyncEnable(deprecated)
+
+setAppAccountSyncEnable(name: string, isEnable: boolean): Promise&lt;void&gt;
 
 开启或禁止指定应用账号的数据同步功能。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setDataSyncEnabled](#setdatasyncenabled9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setDataSyncEnabled 替代。
+
 
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4884,7 +4099,6 @@ setAppAccountSyncEnable(name: string, isEnable: boolean): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4892,38 +4106,31 @@ setAppAccountSyncEnable(name: string, isEnable: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .setAppAccountSyncEnable('ZhangSan', true)
-  .then(() => {
-    console.info('setAppAccountSyncEnable Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `setAppAccountSyncEnable err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.setAppAccountSyncEnable('ZhangSan', true).then(() => {
+  console.info('setAppAccountSyncEnable Success');
+}).catch((err: BusinessError) => {
+  console.error(`setAppAccountSyncEnable err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### setAssociatedData(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAssociatedData(name: string, key: string, value: string, callback: AsyncCallback<void>): void
+##### setAssociatedData(deprecated)
+
+setAssociatedData(name: string, key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的关联数据。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setCustomData](#setcustomdata9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4935,42 +4142,33 @@ setAssociatedData(name: string, key: string, value: string, callback: AsyncCallb
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.setAssociatedData(
-  'ZhangSan',
-  'k001',
-  'v001',
-  (err: BusinessError) => {
-    if (err) {
-      console.error(
-        `setAssociatedData err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('setAssociatedData successful.');
-    }
-  },
-);
+appAccountManager.setAssociatedData('ZhangSan', 'k001', 'v001', (err: BusinessError) => {
+  if (err) {
+    console.error(`setAssociatedData err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('setAssociatedData successful.');
+  }
+});
 ```
 
 
-### setAssociatedData(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAssociatedData(name: string, key: string, value: string): Promise<void>
+##### setAssociatedData(deprecated)
+
+setAssociatedData(name: string, key: string, value: string): Promise&lt;void&gt;
 
 设置指定应用账号的关联数据。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[setCustomData](#setcustomdata9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 setCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -4981,7 +4179,6 @@ setAssociatedData(name: string, key: string, value: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -4989,33 +4186,27 @@ setAssociatedData(name: string, key: string, value: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .setAssociatedData('ZhangSan', 'k001', 'v001')
-  .then(() => {
-    console.info('setAssociatedData Success');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `setAssociatedData err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.setAssociatedData('ZhangSan', 'k001', 'v001').then(() => {
+  console.info('setAssociatedData Success');
+}).catch((err: BusinessError) => {
+  console.error(`setAssociatedData err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getAllAccessibleAccounts(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAccessibleAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void
+##### getAllAccessibleAccounts(deprecated)
+
+getAllAccessibleAccounts(callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 获取所有可访问的应用账号信息。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getAllAccounts](#getallaccounts9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getAllAccounts 替代。
+
 
 **需要权限：** ohos.permission.GET_ALL_APP_ACCOUNTS，该权限仅系统应用可申请。
 
@@ -5023,42 +4214,36 @@ getAllAccessibleAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 是 | 回调函数。当查询成功时，err为null，data为获取到的应用账号信息列表；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;AppAccountInfo&gt;> | 是 | 回调函数。当查询成功时，err为null，data为获取到的应用账号信息列表；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.getAllAccessibleAccounts(
-  (err: BusinessError, data: appAccount.AppAccountInfo[]) => {
-    if (err) {
-      console.error(
-        `getAllAccessibleAccounts err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('getAllAccessibleAccounts data: ' + JSON.stringify(data));
-    }
-  },
-);
+appAccountManager.getAllAccessibleAccounts((err: BusinessError, data: appAccount.AppAccountInfo[])=>{
+  if (err) {
+    console.error(`getAllAccessibleAccounts err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('getAllAccessibleAccounts data: ' + JSON.stringify(data));
+  }
+});
 ```
 
 
-### getAllAccessibleAccounts(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAccessibleAccounts(): Promise<Array<AppAccountInfo>>
+##### getAllAccessibleAccounts(deprecated)
+
+getAllAccessibleAccounts(): Promise<Array&lt;AppAccountInfo&gt;>
 
 获取所有可访问的应用账号信息。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getAllAccounts](#getallaccounts9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getAllAccounts 替代。
+
 
 **需要权限：** ohos.permission.GET_ALL_APP_ACCOUNTS，该权限仅系统应用可申请。
 
@@ -5066,94 +4251,79 @@ getAllAccessibleAccounts(): Promise<Array<AppAccountInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | Promise对象，返回全部应用已授权账号信息对象。 |
+| Promise<Array&lt;AppAccountInfo&gt;> | Promise对象，返回全部应用已授权账号信息对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getAllAccessibleAccounts()
-  .then((data: appAccount.AppAccountInfo[]) => {
-    console.info('getAllAccessibleAccounts: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAllAccessibleAccounts err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAllAccessibleAccounts().then((data: appAccount.AppAccountInfo[]) => {
+  console.info('getAllAccessibleAccounts: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`getAllAccessibleAccounts err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getAllAccounts(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAccounts(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void
+##### getAllAccounts(deprecated)
+
+getAllAccounts(owner: string, callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 根据应用账号所有者获取调用方可访问的应用账号列表。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getAccountsByOwner](#getaccountsbyowner9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getAccountsByOwner 替代。
+
 
 **需要权限：** ohos.permission.GET_ALL_APP_ACCOUNTS，该权限仅系统应用可申请。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| callback | AsyncCallback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 是 | 应用账号信息列表。 |
+| callback | AsyncCallback<Array&lt;AppAccountInfo&gt;> | 是 | 应用账号信息列表。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 const selfBundle = 'com.example.actsgetallaaccounts';
-appAccountManager.getAllAccounts(
-  selfBundle,
-  (err: BusinessError, data: appAccount.AppAccountInfo[]) => {
-    if (err) {
-      console.error(
-        `getAllAccounts err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('getAllAccounts data:' + JSON.stringify(data));
-    }
-  },
-);
+appAccountManager.getAllAccounts(selfBundle, (err: BusinessError, data: appAccount.AppAccountInfo[])=>{
+  if (err) {
+    console.error(`getAllAccounts err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('getAllAccounts data:' + JSON.stringify(data));
+  }
+});
 ```
 
 
-### getAllAccounts(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllAccounts(owner: string): Promise<Array<AppAccountInfo>>
+##### getAllAccounts(deprecated)
+
+getAllAccounts(owner: string): Promise<Array&lt;AppAccountInfo&gt;>
 
 根据应用账号所有者获取调用方可访问的应用账号列表。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getAccountsByOwner](#getaccountsbyowner9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getAccountsByOwner 替代。
+
 
 **需要权限：** ohos.permission.GET_ALL_APP_ACCOUNTS，该权限仅系统应用可申请。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5162,92 +4332,76 @@ getAllAccounts(owner: string): Promise<Array<AppAccountInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | Promise对象，返回指定应用全部账号信息对象。 |
+| Promise<Array&lt;AppAccountInfo&gt;> | Promise对象，返回指定应用全部账号信息对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 const selfBundle = 'com.example.actsgetallaaccounts';
-appAccountManager
-  .getAllAccounts(selfBundle)
-  .then((data: appAccount.AppAccountInfo[]) => {
-    console.info('getAllAccounts: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAllAccounts err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAllAccounts(selfBundle).then((data: appAccount.AppAccountInfo[]) => {
+  console.info('getAllAccounts: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`getAllAccounts err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getAccountCredential(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAccountCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void
+##### getAccountCredential(deprecated)
+
+getAccountCredential(name: string, credentialType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的凭据。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getCredential](#getcredential9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getCredential 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 应���账号的名称。 |
+| name | string | 是 | 应用账号的名称。 |
 | credentialType | string | 是 | 凭据类型。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取凭据成功时，err为null，data为指定应用账号的凭据；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.getAccountCredential(
-  'ZhangSan',
-  'credentialType001',
-  (err: BusinessError, result: string) => {
-    if (err) {
-      console.error(
-        `getAccountCredential err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('getAccountCredential result: ' + result);
-    }
-  },
-);
+appAccountManager.getAccountCredential('ZhangSan', 'credentialType001', (err: BusinessError, result: string) => {
+  if (err) {
+    console.error(`getAccountCredential err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('getAccountCredential result: ' + result);
+  }
+});
 ```
 
 
-### getAccountCredential(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAccountCredential(name: string, credentialType: string): Promise<string>
+##### getAccountCredential(deprecated)
+
+getAccountCredential(name: string, credentialType: string): Promise&lt;string&gt;
 
 获取指定应用账号的凭据。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getCredential](#getcredential9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getCredential 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5257,7 +4411,6 @@ getAccountCredential(name: string, credentialType: string): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回指定应用账号的凭据。 |
@@ -5265,38 +4418,31 @@ getAccountCredential(name: string, credentialType: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getAccountCredential('ZhangSan', 'credentialType001')
-  .then((data: string) => {
-    console.info('getAccountCredential, result: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAccountCredential err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAccountCredential('ZhangSan', 'credentialType001').then((data: string) => {
+  console.info('getAccountCredential, result: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`getAccountCredential err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getAccountExtraInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAccountExtraInfo(name: string, callback: AsyncCallback<string>): void
+##### getAccountExtraInfo(deprecated)
+
+getAccountExtraInfo(name: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的额外信息（能转换成string类型的其它信息）。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getCustomData](#getcustomdata9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5306,40 +4452,33 @@ getAccountExtraInfo(name: string, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.getAccountExtraInfo(
-  'ZhangSan',
-  (err: BusinessError, result: string) => {
-    if (err) {
-      console.error(
-        `getAccountExtraInfo err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('getAccountExtraInfo result: ' + result);
-    }
-  },
-);
+appAccountManager.getAccountExtraInfo('ZhangSan', (err: BusinessError, result: string) => {
+  if (err) {
+    console.error(`getAccountExtraInfo err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('getAccountExtraInfo result: ' + result);
+  }
+});
 ```
 
 
-### getAccountExtraInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAccountExtraInfo(name: string): Promise<string>
+##### getAccountExtraInfo(deprecated)
+
+getAccountExtraInfo(name: string): Promise&lt;string&gt;
 
 获取指定应用账号的额外信息（能转换成string类型的其它信息）。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getCustomData](#getcustomdata9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5348,7 +4487,6 @@ getAccountExtraInfo(name: string): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回此应用程序账号的额外信息对象。 |
@@ -5356,38 +4494,31 @@ getAccountExtraInfo(name: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getAccountExtraInfo('ZhangSan')
-  .then((data: string) => {
-    console.info('getAccountExtraInfo, result: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAccountExtraInfo err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAccountExtraInfo('ZhangSan').then((data: string) => {
+  console.info('getAccountExtraInfo, result: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`getAccountExtraInfo err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getAssociatedData(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAssociatedData(name: string, key: string, callback: AsyncCallback<string>): void
+##### getAssociatedData(deprecated)
+
+getAssociatedData(name: string, key: string, callback: AsyncCallback&lt;string&gt;): void
 
 根据指定键名获取特定应用账号的关联数据。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getCustomData](#getcustomdata9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5398,41 +4529,33 @@ getAssociatedData(name: string, key: string, callback: AsyncCallback<string>): v
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.getAssociatedData(
-  'ZhangSan',
-  'k001',
-  (err: BusinessError, result: string) => {
-    if (err) {
-      console.error(
-        `getAssociatedData err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('getAssociatedData result: ' + result);
-    }
-  },
-);
+appAccountManager.getAssociatedData('ZhangSan', 'k001', (err: BusinessError, result: string) => {
+  if (err) {
+    console.error(`getAssociatedData err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('getAssociatedData result: ' + result);
+  }
+});
 ```
 
 
-### getAssociatedData(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAssociatedData(name: string, key: string): Promise<string>
+##### getAssociatedData(deprecated)
+
+getAssociatedData(name: string, key: string): Promise&lt;string&gt;
 
 获取与此应用程序账号关联的数据。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[getCustomData](#getcustomdata9-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 getCustomData 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5442,7 +4565,6 @@ getAssociatedData(name: string, key: string): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回关联数据的取值。 |
@@ -5450,50 +4572,42 @@ getAssociatedData(name: string, key: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getAssociatedData('ZhangSan', 'k001')
-  .then((data: string) => {
-    console.info('getAssociatedData: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAssociatedData err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAssociatedData('ZhangSan', 'k001').then((data: string) => {
+  console.info('getAssociatedData: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`getAssociatedData err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### on('change')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'change', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void
+##### on('change')(deprecated)
+
+on(type: 'change', owners: Array&lt;string&gt;, callback: Callback<Array&lt;AppAccountInfo&gt;>): void
 
 订阅指定应用的账号信息变更事件。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[on('accountChange')](#onaccountchange9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 on('accountChange') 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'change' | 是 | 事件回调类型，支持的事件为'change'，当账号所有者更新账号信息时，触发该事件。 |
 | owners | Array&lt;string&gt; | 是 | 应用账号所有者的包名列表。 |
-| callback | Callback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 是 | 需要注册的回调函数，返回信息发生变更的应用账号列表。 |
+| callback | Callback<Array&lt;AppAccountInfo&gt;> | 是 | 需要注册的回调函数，返回信息发生变更的应用账号列表。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function changeOnCallback(data: appAccount.AppAccountInfo[]): void {
@@ -5501,85 +4615,70 @@ function changeOnCallback(data: appAccount.AppAccountInfo[]): void {
 }
 
 try {
-  appAccountManager.on(
-    'change',
-    ['com.example.actsaccounttest'],
-    changeOnCallback,
-  );
+  appAccountManager.on('change', ['com.example.actsaccounttest'], changeOnCallback);
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `on accountOnOffDemo code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`on accountOnOffDemo code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### off('change')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'change', callback?: Callback<Array<AppAccountInfo>>): void
+##### off('change')(deprecated)
+
+off(type: 'change', callback?: Callback<Array&lt;AppAccountInfo&gt;>): void
 
 取消订阅账号信息变更事件。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃。建议使用[off('accountChange')](#offaccountchange9)替代。
+> 从API version 7开始支持，从API version 9开始废弃。建议使用 off('accountChange') 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'change' | 是 | 事件回调类型，支持的事件为'change'，当账号所有者更新账号信息时，触发该事件。 |
-| callback | Callback&lt;Array&lt;[AppAccountInfo](#appaccountinfo)&gt;&gt; | 否 | 需要注销的回调函数，默认为空，表示取消该类型事件的所有回调。 |
+| callback | Callback<Array&lt;AppAccountInfo&gt;> | 否 | 需要注销的回调函数，默认为空，表示取消该类型事件的所有回调。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function changeOnCallback(data: appAccount.AppAccountInfo[]): void {
   console.info('receive change data: ' + JSON.stringify(data));
   appAccountManager.off('change', () => {
     console.info('off finish');
-  });
+  })
 }
 
 try {
-  appAccountManager.on(
-    'change',
-    ['com.example.actsaccounttest'],
-    changeOnCallback,
-  );
+  appAccountManager.on('change', ['com.example.actsaccounttest'], changeOnCallback);
 } catch (e) {
   const err = e as BusinessError;
-  console.error(
-    `on accountOnOffDemo err: code is ${err.code}, message is ${err.message}`,
-  );
+  console.error(`on accountOnOffDemo err: code is ${err.code}, message is ${err.message}`);
 }
 ```
 
 
-### authenticate(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### authenticate(deprecated)
 
 authenticate(name: string, owner: string, authType: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
 对应用账号进行鉴权以获取授权令牌。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[auth](#auth9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 auth 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5587,13 +4686,12 @@ authenticate(name: string, owner: string, authType: string, options: {[key: stri
 | owner | string | 是 | 应用账号所有者的包名。 |
 | authType | string | 是 | 鉴权类型。 |
 | options | {[key: string]: any} | 是 | 鉴权所需的可选项。 |
-| callback | [AuthenticatorCallback](#authenticatorcallbackdeprecated) | 是 | 回调对象，返回鉴权结果。 |
+| callback | AuthenticatorCallback | 是 | 回调对象，返回鉴权结果。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, common } from '@kit.AbilityKit';
 
@@ -5633,21 +4731,20 @@ struct Index {
 ```
 
 
-### getOAuthToken(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getOAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void
+##### getOAuthToken(deprecated)
+
+getOAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAuthToken](#getauthtoken9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAuthToken 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5659,42 +4756,34 @@ getOAuthToken(name: string, owner: string, authType: string, callback: AsyncCall
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.getOAuthToken(
-  'LiSi',
-  'com.example.accountjsdemo',
-  'getSocialData',
+appAccountManager.getOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData',
   (err: BusinessError, data: string) => {
     if (err) {
-      console.error(
-        `getOAuthToken err: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`getOAuthToken err: code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('getOAuthToken token: ' + data);
     }
-  },
-);
+  });
 ```
 
 
-### getOAuthToken(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getOAuthToken(name: string, owner: string, authType: string): Promise<string>
+##### getOAuthToken(deprecated)
+
+getOAuthToken(name: string, owner: string, authType: string): Promise&lt;string&gt;
 
 获取指定应用账号的特定鉴权类型的授权令牌。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAuthToken](#getauthtoken9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAuthToken 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5705,7 +4794,6 @@ getOAuthToken(name: string, owner: string, authType: string): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回授权令牌。 |
@@ -5713,38 +4801,31 @@ getOAuthToken(name: string, owner: string, authType: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData')
-  .then((data: string) => {
-    console.info('getOAuthToken token: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getOAuthToken err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData').then((data: string) => {
+  console.info('getOAuthToken token: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`getOAuthToken err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### setOAuthToken(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setOAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void
+##### setOAuthToken(deprecated)
+
+setOAuthToken(name: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 为指定应用账号设置特定鉴权类型的授权令牌。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[setAuthToken](#setauthtoken9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 setAuthToken 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5756,42 +4837,33 @@ setOAuthToken(name: string, authType: string, token: string, callback: AsyncCall
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.setOAuthToken(
-  'LiSi',
-  'getSocialData',
-  'xxxx',
-  (err: BusinessError) => {
-    if (err) {
-      console.error(
-        `setOAuthToken err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('setOAuthToken successful.');
-    }
-  },
-);
+appAccountManager.setOAuthToken('LiSi', 'getSocialData', 'xxxx', (err: BusinessError) => {
+  if (err) {
+    console.error(`setOAuthToken err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('setOAuthToken successful.');
+  }
+});
 ```
 
 
-### setOAuthToken(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setOAuthToken(name: string, authType: string, token: string): Promise<void>
+##### setOAuthToken(deprecated)
+
+setOAuthToken(name: string, authType: string, token: string): Promise&lt;void&gt;
 
 为指定应用账号设置特定鉴权类型的授权令牌。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[setAuthToken](#setauthtoken9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 setAuthToken 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5802,7 +4874,6 @@ setOAuthToken(name: string, authType: string, token: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -5810,38 +4881,31 @@ setOAuthToken(name: string, authType: string, token: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .setOAuthToken('LiSi', 'getSocialData', 'xxxx')
-  .then(() => {
-    console.info('setOAuthToken successfully');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `setOAuthToken err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.setOAuthToken('LiSi', 'getSocialData', 'xxxx').then(() => {
+  console.info('setOAuthToken successfully');
+}).catch((err: BusinessError) => {
+  console.error(`setOAuthToken err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### deleteOAuthToken(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteOAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void
+##### deleteOAuthToken(deprecated)
+
+deleteOAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[deleteAuthToken](#deleteauthtoken9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 deleteAuthToken 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5854,43 +4918,34 @@ deleteOAuthToken(name: string, owner: string, authType: string, token: string, c
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.deleteOAuthToken(
-  'LiSi',
-  'com.example.accountjsdemo',
-  'getSocialData',
-  'xxxxx',
+appAccountManager.deleteOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData', 'xxxxx',
   (err: BusinessError) => {
     if (err) {
-      console.error(
-        `deleteOAuthToken err: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`deleteOAuthToken err: code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('deleteOAuthToken successful.');
     }
-  },
-);
+  });
 ```
 
 
-### deleteOAuthToken(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteOAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>
+##### deleteOAuthToken(deprecated)
+
+deleteOAuthToken(name: string, owner: string, authType: string, token: string): Promise&lt;void&gt;
 
 删除指定应用账号的特定鉴权类型的授权令牌。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[deleteAuthToken](#deleteauthtoken9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 deleteAuthToken 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5902,7 +4957,6 @@ deleteOAuthToken(name: string, owner: string, authType: string, token: string): 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -5910,43 +4964,31 @@ deleteOAuthToken(name: string, owner: string, authType: string, token: string): 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .deleteOAuthToken(
-    'LiSi',
-    'com.example.accountjsdemo',
-    'getSocialData',
-    'xxxxx',
-  )
-  .then(() => {
-    console.info('deleteOAuthToken successfully');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `deleteOAuthToken err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.deleteOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialData', 'xxxxx').then(() => {
+  console.info('deleteOAuthToken successfully');
+}).catch((err: BusinessError) => {
+  console.error(`deleteOAuthToken err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### setOAuthTokenVisibility(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void>): void
+##### setOAuthTokenVisibility(deprecated)
+
+setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[setAuthTokenVisibility](#setauthtokenvisibility9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 setAuthTokenVisibility 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -5959,43 +5001,34 @@ setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVi
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.setOAuthTokenVisibility(
-  'LiSi',
-  'getSocialData',
-  'com.example.accountjsdemo',
-  true,
+appAccountManager.setOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo', true,
   (err: BusinessError) => {
     if (err) {
-      console.error(
-        `setOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`setOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('setOAuthTokenVisibility successful.');
     }
-  },
-);
+  });
 ```
 
 
-### setOAuthTokenVisibility(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>
+##### setOAuthTokenVisibility(deprecated)
+
+setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise&lt;void&gt;
 
 设置指定账号的特定鉴权类型的授权令牌对指定应用的可见性。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[setAuthTokenVisibility](#setauthtokenvisibility9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 setAuthTokenVisibility 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -6007,7 +5040,6 @@ setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVi
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -6015,43 +5047,31 @@ setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVi
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .setOAuthTokenVisibility(
-    'LiSi',
-    'getSocialData',
-    'com.example.accountjsdemo',
-    true,
-  )
-  .then(() => {
-    console.info('setOAuthTokenVisibility successfully');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `setOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.setOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo', true).then(() => {
+  console.info('setOAuthTokenVisibility successfully');
+}).catch((err: BusinessError) => {
+  console.error(`setOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### checkOAuthTokenVisibility(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkOAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>): void
+##### checkOAuthTokenVisibility(deprecated)
+
+checkOAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[checkAuthTokenVisibility](#checkauthtokenvisibility9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 checkAuthTokenVisibility 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -6063,42 +5083,34 @@ checkOAuthTokenVisibility(name: string, authType: string, bundleName: string, ca
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.checkOAuthTokenVisibility(
-  'LiSi',
-  'getSocialData',
-  'com.example.accountjsdemo',
+appAccountManager.checkOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo',
   (err: BusinessError, data: boolean) => {
     if (err) {
-      console.error(
-        `checkOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`checkOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('checkOAuthTokenVisibility isVisible: ' + data);
     }
-  },
-);
+  });
 ```
 
 
-### checkOAuthTokenVisibility(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>
+##### checkOAuthTokenVisibility(deprecated)
+
+checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise&lt;boolean&gt;
 
 检查指定应用账号的特定鉴权类型的授权令牌对指定应用的可见性。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[checkAuthTokenVisibility](#checkauthtokenvisibility9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 checkAuthTokenVisibility 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -6109,7 +5121,6 @@ checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): P
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。返回true表示指定鉴权类型的OAuth令牌对特定应用的可见，返回false表示不可见。 |
@@ -6117,87 +5128,70 @@ checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): P
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .checkOAuthTokenVisibility(
-    'LiSi',
-    'getSocialData',
-    'com.example.accountjsdemo',
-  )
-  .then((data: boolean) => {
-    console.info('checkOAuthTokenVisibility isVisible: ' + data);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `checkOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.checkOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.accountjsdemo').then((
+  data: boolean) => {
+  console.info('checkOAuthTokenVisibility isVisible: ' + data);
+}).catch((err: BusinessError) => {
+  console.error(`checkOAuthTokenVisibility err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getAllOAuthTokens(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllOAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<OAuthTokenInfo>>): void
+##### getAllOAuthTokens(deprecated)
+
+getAllOAuthTokens(name: string, owner: string, callback: AsyncCallback<Array&lt;OAuthTokenInfo&gt;>): void
 
 获取指定账号对调用方可见的所有授权令牌。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAllAuthTokens](#getallauthtokens9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAllAuthTokens 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | owner | string | 是 | 应用账号所有者的包名。 |
-| callback | AsyncCallback&lt;Array&lt;[OAuthTokenInfo](#oauthtokeninfodeprecated)&gt;&gt; | 是 | 回调函数。当获取成功时，err为null，data为授权令牌数组；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;OAuthTokenInfo&gt;> | 是 | 回调函数。当获取成功时，err为null，data为授权令牌数组；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.getAllOAuthTokens(
-  'LiSi',
-  'com.example.accountjsdemo',
+appAccountManager.getAllOAuthTokens('LiSi', 'com.example.accountjsdemo',
   (err: BusinessError, data: appAccount.OAuthTokenInfo[]) => {
     if (err) {
-      console.error(
-        `getAllOAuthTokens err: code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`getAllOAuthTokens err: code is ${err.code}, message is ${err.message}`);
     } else {
       console.info('getAllOAuthTokens data: ' + JSON.stringify(data));
     }
-  },
-);
+  });
 ```
 
 
-### getAllOAuthTokens(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAllOAuthTokens(name: string, owner: string): Promise<Array<OAuthTokenInfo>>
+##### getAllOAuthTokens(deprecated)
+
+getAllOAuthTokens(name: string, owner: string): Promise<Array&lt;OAuthTokenInfo&gt;>
 
 获取指定账号对调用方可见的所有授权令牌。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAllAuthTokens](#getallauthtokens9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAllAuthTokens 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -6207,91 +5201,76 @@ getAllOAuthTokens(name: string, owner: string): Promise<Array<OAuthTokenInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt; [OAuthTokenInfo](#oauthtokeninfodeprecated)&gt;&gt; | Promise对象，返回授权令牌数组。 |
+| Promise<Array< OAuthTokenInfo>> | Promise对象，返回授权令牌数组。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getAllOAuthTokens('LiSi', 'com.example.accountjsdemo')
-  .then((data: appAccount.OAuthTokenInfo[]) => {
-    console.info('getAllOAuthTokens data: ' + JSON.stringify(data));
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAllOAuthTokens err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAllOAuthTokens('LiSi', 'com.example.accountjsdemo').then((
+  data: appAccount.OAuthTokenInfo[]) => {
+  console.info('getAllOAuthTokens data: ' + JSON.stringify(data));
+}).catch((err: BusinessError) => {
+  console.error(`getAllOAuthTokens err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getOAuthList(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getOAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void
+##### getOAuthList(deprecated)
+
+getOAuthList(name: string, authType: string, callback: AsyncCallback<Array&lt;string&gt;>): void
 
 获取指定应用账号的特定鉴权类型的授权列表，即被授权的包名数组（令牌的授权列表通过[setOAuthTokenVisibility](#setoauthtokenvisibilitydeprecated)来设置）。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAuthList](#getauthlist9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAuthList 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | authType | string | 是 | 鉴权类型。 |
-| callback | AsyncCallback&lt;Array&lt;string&gt;&gt; | 是 | 回调函数。当获取成功时，err为null，data为被授权的包名数组；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;string&gt;> | 是 | 回调函数。当获取成功时，err为null，data为被授权的包名数组；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager.getOAuthList(
-  'LiSi',
-  'getSocialData',
-  (err: BusinessError, data: string[]) => {
-    if (err) {
-      console.error(
-        `getOAuthList err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('getOAuthList data: ' + JSON.stringify(data));
-    }
-  },
-);
+appAccountManager.getOAuthList('LiSi', 'getSocialData', (err: BusinessError, data: string[]) => {
+  if (err) {
+    console.error(`getOAuthList err: code is ${err.code}, message is ${err.message}`);
+  } else {
+    console.info('getOAuthList data: ' + JSON.stringify(data));
+  }
+});
 ```
 
 
-### getOAuthList(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getOAuthList(name: string, authType: string): Promise<Array<string>>
+##### getOAuthList(deprecated)
+
+getOAuthList(name: string, authType: string): Promise<Array&lt;string&gt;>
 
 获取指定应用账号的特定鉴权类型的授权列表，即被授权的包名数组（令牌的授权列表通过[setOAuthTokenVisibility](#setoauthtokenvisibilitydeprecated)来设置）。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAuthList](#getauthlist9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAuthList 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -6301,208 +5280,175 @@ getOAuthList(name: string, authType: string): Promise<Array<string>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;string&gt;&gt; | Promise对象，返回被授权的包名数组。 |
+| Promise<Array&lt;string&gt;> | Promise对象，返回被授权的包名数组。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getOAuthList('LiSi', 'getSocialData')
-  .then((data: string[]) => {
-    console.info('getOAuthList data: ' + JSON.stringify(data));
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getOAuthList err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getOAuthList('LiSi', 'getSocialData').then((data: string[]) => {
+  console.info('getOAuthList data: ' + JSON.stringify(data));
+}).catch((err: BusinessError) => {
+  console.error(`getOAuthList err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### getAuthenticatorCallback(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthenticatorCallback(sessionId: string, callback: AsyncCallback<AuthenticatorCallback>): void
+##### getAuthenticatorCallback(deprecated)
+
+getAuthenticatorCallback(sessionId: string, callback: AsyncCallback&lt;AuthenticatorCallback&gt;): void
 
 获取鉴权会话的认证器回调。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAuthCallback](#getauthcallback9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAuthCallback 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | string | 是 | 鉴权会话的标识。 |
-| callback | AsyncCallback&lt;[AuthenticatorCallback](#authenticatorcallbackdeprecated)&gt; | 是 | 回调函数。当获取鉴权会话的认证器回调函数成功时，err为null，data为认证器回调函数；否则为错误对象。 |
+| callback | AsyncCallback&lt;AuthenticatorCallback&gt; | 是 | 回调函数。当获取鉴权会话的认证器回调函数成功时，err为null，data为认证器回调函数；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want, UIAbility, AbilityConstant } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, param: AbilityConstant.LaunchParam) {
-    // ability 生命周期函数
-    let sessionId: string = want.parameters![
-      appAccount.Constants.KEY_SESSION_ID
-    ] as string;
-    appAccountManager.getAuthenticatorCallback(
-      sessionId,
-      (err: BusinessError, callback: appAccount.AuthenticatorCallback) => {
+  onCreate(want: Want, param: AbilityConstant.LaunchParam) { // ability 生命周期函数
+    let sessionId: string = want.parameters![appAccount.Constants.KEY_SESSION_ID] as string;
+    appAccountManager.getAuthenticatorCallback(sessionId,
+        (err: BusinessError, callback: appAccount.AuthenticatorCallback) => {
         if (err.code != appAccount.ResultCode.SUCCESS) {
-          console.error(
-            `getAuthenticatorCallback err: code is ${err.code}, message is ${err.message}`,
-          );
-          return;
+            console.error(`getAuthenticatorCallback err: code is ${err.code}, message is ${err.message}`);
+            return;
         }
         callback.onResult(appAccount.ResultCode.SUCCESS, {
           name: 'LiSi',
           owner: 'com.example.accountjsdemo',
           authType: 'getSocialData',
-          token: 'xxxxxx',
+          token: 'xxxxxx'
         });
-      },
-    );
-  }
-}
-```
-
-
-### getAuthenticatorCallback(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getAuthenticatorCallback(sessionId: string): Promise<AuthenticatorCallback>
-
-获取鉴权会话的认证器回调。使用Promise异步回调。
-
-
-> [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[getAuthCallback](#getauthcallback9-1)替代。
-
-**系统能力：** SystemCapability.Account.AppAccount
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| sessionId | string | 是 | 鉴权会话的标识。 |
-
-
-**返回值：**
-
-
-| 类型 | 说明 |
-| --- | --- |
-| Promise&lt;[AuthenticatorCallback](#authenticatorcallbackdeprecated)&gt; | Promise对象，返回鉴权会话的认证器回调对象。 |
-
-
-**示例：**
-
-
-```ts
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Want, UIAbility, AbilityConstant } from '@kit.AbilityKit';
-
-export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, param: AbilityConstant.LaunchParam) {
-    // ability 生命周期函数
-    let sessionId: string = want.parameters![
-      appAccount.Constants.KEY_SESSION_ID
-    ] as string;
-    appAccountManager
-      .getAuthenticatorCallback(sessionId)
-      .then((callback: appAccount.AuthenticatorCallback) => {
-        callback.onResult(appAccount.ResultCode.SUCCESS, {
-          name: 'LiSi',
-          owner: 'com.example.accountjsdemo',
-          authType: 'getSocialData',
-          token: 'xxxxxx',
-        });
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `getAuthenticatorCallback err: code is ${err.code}, message is ${err.message}`,
-        );
       });
   }
 }
 ```
 
 
-### getAuthenticatorInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void
+##### getAuthenticatorCallback(deprecated)
 
-获取指定应用的认证器信息。使用callback异步回调。
+getAuthenticatorCallback(sessionId: string): Promise&lt;AuthenticatorCallback&gt;
 
+获取鉴权会话的认证器回调。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[queryAuthenticatorInfo](#queryauthenticatorinfo9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 getAuthCallback 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| owner | string | 是 | 应用账号所有者的包名。 |
-| callback | AsyncCallback&lt;[AuthenticatorInfo](#authenticatorinfo8)&gt; | 是 | 回调函数。当获取成功时，err为null，data为认证器信息对象；否则为错误对象。 |
+| sessionId | string | 是 | 鉴权会话的标识。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;AuthenticatorCallback&gt; | Promise对象，返回鉴权会话的认证器回调对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
+import { Want, UIAbility, AbilityConstant } from '@kit.AbilityKit';
 
-appAccountManager.getAuthenticatorInfo(
-  'com.example.accountjsdemo',
-  (err: BusinessError, data: appAccount.AuthenticatorInfo) => {
-    if (err) {
-      console.error(
-        `getAuthenticatorInfo err: code is ${err.code}, message is ${err.message}`,
-      );
-    } else {
-      console.info('getAuthenticatorInfo data: ' + JSON.stringify(data));
-    }
-  },
-);
+export default class EntryAbility extends UIAbility {
+  onCreate(want: Want, param: AbilityConstant.LaunchParam) { // ability 生命周期函数
+    let sessionId: string = want.parameters![appAccount.Constants.KEY_SESSION_ID] as string;
+    appAccountManager.getAuthenticatorCallback(sessionId).then((
+      callback: appAccount.AuthenticatorCallback) => {
+      callback.onResult(appAccount.ResultCode.SUCCESS, {
+        name: 'LiSi',
+        owner: 'com.example.accountjsdemo',
+        authType: 'getSocialData',
+        token: 'xxxxxx'
+      });
+    }).catch((err: BusinessError) => {
+      console.error(`getAuthenticatorCallback err: code is ${err.code}, message is ${err.message}`);
+    });
+  }
+}
 ```
 
 
-### getAuthenticatorInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>
+##### getAuthenticatorInfo(deprecated)
 
-获取指定应用的认证器信息。使用Promise异步回调。
+getAuthenticatorInfo(owner: string, callback: AsyncCallback&lt;AuthenticatorInfo&gt;): void
 
+获取指定应用的认证器信息。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[queryAuthenticatorInfo](#queryauthenticatorinfo9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 queryAuthenticatorInfo 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
 
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| owner | string | 是 | 应用账号所有者的包名。 |
+| callback | AsyncCallback&lt;AuthenticatorInfo&gt; | 是 | 回调函数。当获取成功时，err为null，data为认证器信息对象；否则为错误对象。 |
+
+
+**示例：**
+
+```json
+import { BusinessError } from '@kit.BasicServicesKit';
+
+appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo',
+  (err: BusinessError, data: appAccount.AuthenticatorInfo) => {
+    if (err) {
+      console.error(`getAuthenticatorInfo err: code is ${err.code}, message is ${err.message}`);
+    } else {
+      console.info('getAuthenticatorInfo data: ' + JSON.stringify(data));
+    }
+  });
+```
+
+
+
+##### getAuthenticatorInfo(deprecated)
+
+getAuthenticatorInfo(owner: string): Promise&lt;AuthenticatorInfo&gt;
+
+获取指定应用的认证器信息。使用Promise异步回调。
+
+> [!NOTE]
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 queryAuthenticatorInfo 替代。
+
+
+**系统能力：** SystemCapability.Account.AppAccount
+
+**参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -6511,38 +5457,31 @@ getAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AuthenticatorInfo](#authenticatorinfo8)&gt; | Promise对象，返回指定应用的认证器信息对象。 |
+| Promise&lt;AuthenticatorInfo&gt; | Promise对象，返回指定应用的认证器信息对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-appAccountManager
-  .getAuthenticatorInfo('com.example.accountjsdemo')
-  .then((data: appAccount.AuthenticatorInfo) => {
-    console.info('getAuthenticatorInfo: ' + JSON.stringify(data));
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAuthenticatorInfo err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
+  data: appAccount.AuthenticatorInfo) => {
+  console.info('getAuthenticatorInfo: ' + JSON.stringify(data));
+}).catch((err: BusinessError) => {
+  console.error(`getAuthenticatorInfo err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## AppAccountInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AppAccountInfo
 
 表示应用账号信息。
 
 **系统能力：** SystemCapability.Account.AppAccount
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -6550,32 +5489,32 @@ appAccountManager
 | name | string | 否 | 否 | 应用账号的名称。 |
 
 
-## AuthTokenInfo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AuthTokenInfo9+
 
 表示Auth令牌信息。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | authType | string | 否 | 否 | 令牌的鉴权类型。 |
 | token | string | 否 | 否 | 令牌的取值。 |
-| account | [AppAccountInfo](#appaccountinfo) | 否 | 是 | 令牌所属的账号信息，默认为空。 |
+| account | AppAccountInfo | 否 | 是 | 令牌所属的账号信息，默认为空。 |
 
 
-## OAuthTokenInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OAuthTokenInfo(deprecated)
 
 表示OAuth令牌信息。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[AuthTokenInfo](#authtokeninfo9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 AuthTokenInfo 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -6583,13 +5522,13 @@ appAccountManager
 | token | string | 否 | 否 | 令牌的取值。 |
 
 
-## AuthenticatorInfo8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AuthenticatorInfo8+
 
 表示OAuth认证器信息。
 
 **系统能力：** SystemCapability.Account.AppAccount
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -6598,104 +5537,104 @@ appAccountManager
 | labelId | number | 否 | 否 | 认证器的标签标识。 |
 
 
-## AuthResult9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AuthResult9+
 
 表示认证结果信息。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| account | [AppAccountInfo](#appaccountinfo) | 否 | 是 | 令牌所属的账号信息，默认为空。 |
-| tokenInfo | [AuthTokenInfo](#authtokeninfo9) | 否 | 是 | 令牌信息，默认为空。 |
+| account | AppAccountInfo | 否 | 是 | 令牌所属的账号信息，默认为空。 |
+| tokenInfo | AuthTokenInfo | 否 | 是 | 令牌信息，默认为空。 |
 
 
-## CreateAccountOptions9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CreateAccountOptions9+
 
 表示创建账号的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| customData | Record&lt;string, string&gt; | 否 | 是 | 自定义数据，默认为空。 |
+| customData | Record<string, string> | 否 | 是 | 自定义数据，默认为空。 |
 
 
-## CreateAccountImplicitlyOptions9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CreateAccountImplicitlyOptions9+
 
 表示隐式创建账号的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | requiredLabels | Array&lt;string&gt; | 否 | 是 | 所需的标签，默认为空。 |
 | authType | string | 否 | 是 | 鉴权类型，默认为空。 |
-| parameters | Record&lt;string, Object&gt; | 否 | 是 | 自定义参数对象，默认为空。 |
+| parameters | Record<string, Object> | 否 | 是 | 自定义参数对象，默认为空。 |
 
 
-## SelectAccountsOptions9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SelectAccountsOptions9+
 
 表示用于选择账号的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| allowedAccounts | Array&lt;[AppAccountInfo](#appaccountinfo)&gt; | 否 | 是 | 允许的账号数组，默认为空。 |
+| allowedAccounts | Array&lt;AppAccountInfo&gt; | 否 | 是 | 允许的账号数组，默认为空。 |
 | allowedOwners | Array&lt;string&gt; | 否 | 是 | 允许的账号所有者数组，默认为空。 |
 | requiredLabels | Array&lt;string&gt; | 否 | 是 | 认证器的标签标识，默认为空。 |
 
 
-## VerifyCredentialOptions9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### VerifyCredentialOptions9+
 
 表示用于验证凭据的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | credentialType | string | 否 | 是 | 凭据类型，默认为空。 |
 | credential | string | 否 | 是 | 凭据取值，默认为空。 |
-| parameters | Record&lt;string, Object&gt; | 否 | 是 | 自定义参数对象，默认为空。 |
+| parameters | Record<string, Object> | 否 | 是 | 自定义参数对象，默认为空。 |
 
 
-## SetPropertiesOptions9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SetPropertiesOptions9+
 
 表示用于设置属性的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| properties | Record&lt;string, Object&gt; | 否 | 是 | 属性对象，默认为空。 |
-| parameters | Record&lt;string, Object&gt; | 否 | 是 | 自定义参数对象，默认为空。 |
+| properties | Record<string, Object> | 否 | 是 | 属性对象，默认为空。 |
+| parameters | Record<string, Object> | 否 | 是 | 自定义参数对象，默认为空。 |
 
 
-## Constants8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Constants8+
 
 表示常量的枚举。
 
 **系统能力：** SystemCapability.Account.AppAccount
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ACTION_ADD_ACCOUNT_IMPLICITLY(deprecated) | 'addAccountImplicitly' | 表示操作，隐式添加账号。          **说明：**从API version 8开始支持，从API version 9开始废弃，建议使用ACTION_CREATE_ACCOUNT_IMPLICITLY替代。 |
-| ACTION_AUTHENTICATE(deprecated) | 'authenticate' | 表示操作，鉴权。          **说明：**从API version 8开始支持，从API version 9开始废弃，建议使用ACTION_AUTH替代。 |
+| ACTION_ADD_ACCOUNT_IMPLICITLY(deprecated) | 'addAccountImplicitly' | 表示操作，隐式添加账号。 **说明：**从API version 8开始支持，从API version 9开始废弃，建议使用ACTION_CREATE_ACCOUNT_IMPLICITLY替代。 |
+| ACTION_AUTHENTICATE(deprecated) | 'authenticate' | 表示操作，鉴权。 **说明：**从API version 8开始支持，从API version 9开始废弃，建议使用ACTION_AUTH替代。 |
 | ACTION_CREATE_ACCOUNT_IMPLICITLY9+ | 'createAccountImplicitly' | 表示操作，隐式创建账号。 |
 | ACTION_AUTH9+ | 'auth' | 表示操作，鉴权。 |
 | ACTION_VERIFY_CREDENTIAL9+ | 'verifyCredential' | 表示操作，验证凭据。 |
@@ -6713,17 +5652,17 @@ appAccountManager
 | KEY_BOOLEAN_RESULT9+ | 'booleanResult' | 表示键名，布尔返回值。 |
 
 
-## ResultCode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ResultCode(deprecated)
 
 表示返回码的枚举。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。相关信息建议查看[账号管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account)替代。
+> 从API version 8开始支持，从API version 9开始废弃。相关信息建议查看 账号管理错误码 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -6748,14 +5687,15 @@ appAccountManager
 | ERROR_PERMISSION_DENIED | 10018 | 表示权限不足。 |
 
 
-## AuthCallback9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AuthCallback9+
 
 认证器回调类。
 
 
-### onResult9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onResult9+
 
 onResult: (code: number, result?: AuthResult) => void
 
@@ -6765,47 +5705,39 @@ onResult: (code: number, result?: AuthResult) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | code | number | 是 | 鉴权结果码。 |
-| result | [AuthResult](#authresult9) | 否 | 鉴权结果，默认为空，表示不接收认证结果信息。 |
+| result | AuthResult | 否 | 鉴权结果，默认为空，表示不接收认证结果信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let appAccountManager: appAccount.AppAccountManager =
-  appAccount.createAppAccountManager();
+let appAccountManager: appAccount.AppAccountManager = appAccount.createAppAccountManager();
 let sessionId = '1234';
-appAccountManager
-  .getAuthCallback(sessionId)
-  .then((callback: appAccount.AuthCallback) => {
-    let result: appAccount.AuthResult = {
-      account: {
-        name: 'Lisi',
-        owner: 'com.example.accountjsdemo',
-      },
-      tokenInfo: {
-        token: 'xxxxxx',
-        authType: 'getSocialData',
-      },
-    };
-    callback.onResult(appAccount.ResultCode.SUCCESS, result);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAuthCallback err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAuthCallback(sessionId).then((callback: appAccount.AuthCallback) => {
+  let result: appAccount.AuthResult = {
+    account: {
+      name: 'Lisi',
+      owner: 'com.example.accountjsdemo',
+    },
+    tokenInfo: {
+      token: 'xxxxxx',
+      authType: 'getSocialData'
+    }
+  };
+  callback.onResult(0, result);
+}).catch((err: BusinessError) => {
+  console.error(`getAuthCallback err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### onRequestRedirected9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onRequestRedirected9+
 
 onRequestRedirected: (request: Want) => void
 
@@ -6815,23 +5747,19 @@ onRequestRedirected: (request: Want) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 用于跳转的请求信息。 |
+| request | Want | 是 | 用于跳转的请求信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 
 class MyAuthenticator extends appAccount.Authenticator {
   createAccountImplicitly(
-    options: appAccount.CreateAccountImplicitlyOptions,
-    callback: appAccount.AuthCallback,
-  ) {
+    options: appAccount.CreateAccountImplicitlyOptions, callback: appAccount.AuthCallback) {
     let want: Want = {
       bundleName: 'com.example.accountjsdemo',
       abilityName: 'com.example.accountjsdemo.LoginAbility',
@@ -6839,12 +5767,8 @@ class MyAuthenticator extends appAccount.Authenticator {
     callback.onRequestRedirected(want);
   }
 
-  auth(
-    name: string,
-    authType: string,
-    options: Record<string, Object>,
-    callback: appAccount.AuthCallback,
-  ) {
+  auth(name: string, authType: string,
+    options: Record<string, Object>, callback: appAccount.AuthCallback) {
     let result: appAccount.AuthResult = {
       account: {
         name: 'Lisi',
@@ -6852,17 +5776,17 @@ class MyAuthenticator extends appAccount.Authenticator {
       },
       tokenInfo: {
         token: 'xxxxxx',
-        authType: 'getSocialData',
-      },
+        authType: 'getSocialData'
+      }
     };
-    callback.onResult(appAccount.ResultCode.SUCCESS, result);
+    callback.onResult(0, result);
   }
 }
 ```
 
 
-### onRequestContinued9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onRequestContinued9+
 
 onRequestContinued?: () => void
 
@@ -6872,53 +5796,45 @@ onRequestContinued?: () => void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let appAccountManager: appAccount.AppAccountManager =
-  appAccount.createAppAccountManager();
+let appAccountManager: appAccount.AppAccountManager = appAccount.createAppAccountManager();
 let sessionId = '1234';
-appAccountManager
-  .getAuthCallback(sessionId)
-  .then((callback: appAccount.AuthCallback) => {
-    if (callback.onRequestContinued != undefined) {
-      callback.onRequestContinued();
-    }
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAuthCallback err: code is ${err.code}, message is ${err.message}`,
-    );
-  });
+appAccountManager.getAuthCallback(sessionId).then((callback: appAccount.AuthCallback) => {
+  if (callback.onRequestContinued != undefined) {
+    callback.onRequestContinued();
+  }
+}).catch((err: BusinessError) => {
+  console.error(`getAuthCallback err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-## AuthenticatorCallback(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AuthenticatorCallback(deprecated)
 
 OAuth认证器回调接口。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[AuthCallback](#authcallback9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 AuthCallback 替代。
 
 
-### onResult(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onResult(deprecated)
 
 onResult: (code: number, result: {[key: string]: any;}) => void
 
 通知请求结果。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[onResult](#onresult9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 onResult 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -6928,65 +5844,52 @@ onResult: (code: number, result: {[key: string]: any;}) => void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let appAccountManager: appAccount.AppAccountManager =
-  appAccount.createAppAccountManager();
+let appAccountManager: appAccount.AppAccountManager = appAccount.createAppAccountManager();
 let sessionId = '1234';
-appAccountManager
-  .getAuthenticatorCallback(sessionId)
-  .then((callback: appAccount.AuthenticatorCallback) => {
-    callback.onResult(appAccount.ResultCode.SUCCESS, {
-      name: 'LiSi',
-      owner: 'com.example.accountjsdemo',
-      authType: 'getSocialData',
-      token: 'xxxxxx',
-    });
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getAuthenticatorCallback err: code is ${err.code}, message is ${err.message}`,
-    );
+appAccountManager.getAuthenticatorCallback(sessionId).then((callback: appAccount.AuthenticatorCallback) => {
+  callback.onResult(appAccount.ResultCode.SUCCESS, {
+    name: 'LiSi',
+    owner: 'com.example.accountjsdemo',
+    authType: 'getSocialData',
+    token: 'xxxxxx'
   });
+}).catch((err: BusinessError) => {
+  console.error(`getAuthenticatorCallback err: code is ${err.code}, message is ${err.message}`);
+});
 ```
 
 
-### onRequestRedirected(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onRequestRedirected(deprecated)
 
 onRequestRedirected: (request: Want) => void
 
 通知请求被跳转。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃。建议使用[onRequestRedirected](#onrequestredirected9)替代。
+> 从API version 8开始支持，从API version 9开始废弃。建议使用 onRequestRedirected 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 用于跳转的请求信息。 |
+| request | Want | 是 | 用于跳转的请求信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 
 class MyAuthenticator extends appAccount.Authenticator {
-  addAccountImplicitly(
-    authType: string,
-    callerBundleName: string,
-    options: Record<string, Object>,
-    callback: appAccount.AuthenticatorCallback,
-  ) {
+  addAccountImplicitly(authType: string, callerBundleName: string,
+    options: Record<string, Object>, callback: appAccount.AuthenticatorCallback) {
     let want: Want = {
       bundleName: 'com.example.accountjsdemo',
       abilityName: 'com.example.accountjsdemo.LoginAbility',
@@ -6994,31 +5897,26 @@ class MyAuthenticator extends appAccount.Authenticator {
     callback.onRequestRedirected(want);
   }
 
-  authenticate(
-    name: string,
-    authType: string,
-    callerBundleName: string,
-    options: Record<string, Object>,
-    callback: appAccount.AuthenticatorCallback,
-  ) {
+  authenticate(name: string, authType: string, callerBundleName: string,
+    options: Record<string, Object>, callback: appAccount.AuthenticatorCallback) {
     callback.onResult(appAccount.ResultCode.SUCCESS, {
       name: name,
       authType: authType,
-      token: 'xxxxxx',
+      token: 'xxxxxx'
     });
   }
 }
 ```
 
 
-## Authenticator8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Authenticator8+
 
 认证器基类。
 
 
-### createAccountImplicitly9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createAccountImplicitly9+
 
 createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthCallback): void
 
@@ -7028,39 +5926,39 @@ createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthC
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [CreateAccountImplicitlyOptions](#createaccountimplicitlyoptions9) | 是 | 隐式创建账号的选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调对象，用于返回创建结果。 |
+| options | CreateAccountImplicitlyOptions | 是 | 隐式创建账号的选项。 |
+| callback | AuthCallback | 是 | 认证器回调对象，用于返回创建结果。 |
 
 
-### addAccountImplicitly(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### addAccountImplicitly(deprecated)
 
 addAccountImplicitly(authType: string, callerBundleName: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
 根据指定的鉴权类型和可选项，隐式地添加应用账号。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持, 从API version 9开始废弃。建议使用[createAccountImplicitly](#createaccountimplicitly9-2)替代。
+> 从API version 8开始支持, 从API version 9开始废弃。建议使用 createAccountImplicitly 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | authType | string | 是 | 应用账号的鉴权类型。 |
 | callerBundleName | string | 是 | 鉴权请求方的包名。 |
 | options | {[key: string]: any} | 是 | 鉴权所需要的可选项。 |
-| callback | [AuthenticatorCallback](#authenticatorcallbackdeprecated) | 是 | 认证器回调，用于返回鉴权结果。 |
+| callback | AuthenticatorCallback | 是 | 认证器回调，用于返回鉴权结果。 |
 
 
-### auth9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### auth9+
 
 auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void
 
@@ -7070,30 +5968,29 @@ auth(name: string, authType: string, options: Record<string, Object>, callback: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | authType | string | 是 | 应用账号的鉴权类型。 |
-| options | Record&lt;string, Object&gt; | 是 | 鉴权所需要的可选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 回调对象，用于返回鉴权结果。 |
+| options | Record<string, Object> | 是 | 鉴权所需要的可选项。 |
+| callback | AuthCallback | 是 | 回调对象，用于返回鉴权结果。 |
 
 
-### authenticate(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### authenticate(deprecated)
 
 authenticate(name: string, authType: string, callerBundleName: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
 对应用账号进行鉴权，获取OAuth令牌。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持, 从API version 9开始废弃。建议使用[auth](#auth9-2)替代。
+> 从API version 8开始支持, 从API version 9开始废弃。建议使用 auth 替代。
+
 
 **系统能力：** SystemCapability.Account.AppAccount
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -7101,11 +5998,12 @@ authenticate(name: string, authType: string, callerBundleName: string, options: 
 | authType | string | 是 | 应用账号的鉴权类型。 |
 | callerBundleName | string | 是 | 鉴权请求方的包名。 |
 | options | {[key: string]: any} | 是 | 鉴权所需要的可选项。 |
-| callback | [AuthenticatorCallback](#authenticatorcallbackdeprecated) | 是 | 认证器回调，用于返回鉴权结果。 |
+| callback | AuthenticatorCallback | 是 | 认证器回调，用于返回鉴权结果。 |
 
 
-### verifyCredential9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### verifyCredential9+
 
 verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthCallback): void
 
@@ -7115,12 +6013,11 @@ verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthC
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
-| options | [VerifyCredentialOptions](#verifycredentialoptions9) | 是 | 验证凭据的可选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调，用于返回验证结果。 |
+| options | VerifyCredentialOptions | 是 | 验证凭据的可选项。 |
+| callback | AuthCallback | 是 | 认证器回调，用于返回验证结果。 |
 
 
 **示例：**
@@ -7128,8 +6025,8 @@ verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthC
 接口需组合使用，请查看[getRemoteObject](#getremoteobject9)中的示例。
 
 
-### setProperties9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setProperties9+
 
 setProperties(options: SetPropertiesOptions, callback: AuthCallback): void
 
@@ -7139,11 +6036,10 @@ setProperties(options: SetPropertiesOptions, callback: AuthCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SetPropertiesOptions](#setpropertiesoptions9) | 是 | 设置属性的可选项。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调，用于返回设置结果。 |
+| options | SetPropertiesOptions | 是 | 设置属性的可选项。 |
+| callback | AuthCallback | 是 | 认证器回调，用于返回设置结果。 |
 
 
 **示例：**
@@ -7151,10 +6047,10 @@ setProperties(options: SetPropertiesOptions, callback: AuthCallback): void
 接口需组合使用，请查看[getRemoteObject](#getremoteobject9)中的示例。
 
 
-### checkAccountLabels9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-checkAccountLabels(name: string, labels: Array<string>, callback: AuthCallback): void
+##### checkAccountLabels9+
+
+checkAccountLabels(name: string, labels: Array&lt;string&gt;, callback: AuthCallback): void
 
 检查账号标签。使用callback异步回调。
 
@@ -7162,12 +6058,11 @@ checkAccountLabels(name: string, labels: Array<string>, callback: AuthCallback):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
 | labels | Array&lt;string&gt; | 是 | 标签数组。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调，用于返回检查结果。 |
+| callback | AuthCallback | 是 | 认证器回调，用于返回检查结果。 |
 
 
 **示例：**
@@ -7175,8 +6070,8 @@ checkAccountLabels(name: string, labels: Array<string>, callback: AuthCallback):
 接口需组合使用，请查看[getRemoteObject](#getremoteobject9)中的示例。
 
 
-### checkAccountRemovable9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### checkAccountRemovable9+
 
 checkAccountRemovable(name: string, callback: AuthCallback): void
 
@@ -7186,11 +6081,10 @@ checkAccountRemovable(name: string, callback: AuthCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 应用账号的名称。 |
-| callback | [AuthCallback](#authcallback9) | 是 | 认证器回调，用于返回判断结果。 |
+| callback | AuthCallback | 是 | 认证器回调，用于返回判断结果。 |
 
 
 **示例：**
@@ -7198,8 +6092,8 @@ checkAccountRemovable(name: string, callback: AuthCallback): void
 接口需组合使用，请查看[getRemoteObject](#getremoteobject9)中的示例。
 
 
-### getRemoteObject9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getRemoteObject9+
 
 getRemoteObject(): rpc.RemoteObject
 
@@ -7209,10 +6103,9 @@ getRemoteObject(): rpc.RemoteObject
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [rpc.RemoteObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#remoteobject) | 认证器Authenticator的远程对象。用于跨进程通信。 |
+| rpc.RemoteObject | 认证器Authenticator的远程对象。用于跨进程通信。 |
 
 
 **示例：**
@@ -7221,46 +6114,35 @@ getRemoteObject(): rpc.RemoteObject
 
 **示例：**
 
-
-```ts
+```text
 import { rpc } from '@kit.IPCKit';
 import { Want } from '@kit.AbilityKit';
 
 class MyAuthenticator extends appAccount.Authenticator {
-  verifyCredential(
-    name: string,
-    options: appAccount.VerifyCredentialOptions,
-    callback: appAccount.AuthCallback,
-  ) {
-    let want: Want = {
-      bundleName: 'com.example.accountjsdemo',
-      abilityName: 'com.example.accountjsdemo.VerifyAbility',
-      parameters: {
-        name: name,
-      },
-    };
-    callback.onRequestRedirected(want);
+  verifyCredential(name: string,
+    options: appAccount.VerifyCredentialOptions, callback: appAccount.AuthCallback) {
+      let want: Want = {
+        bundleName: 'com.example.accountjsdemo',
+        abilityName: 'com.example.accountjsdemo.VerifyAbility',
+        parameters: {
+          name: name
+        }
+      };
+      callback.onRequestRedirected(want);
   }
 
-  setProperties(
-    options: appAccount.SetPropertiesOptions,
-    callback: appAccount.AuthCallback,
-  ) {
+  setProperties(options: appAccount.SetPropertiesOptions, callback: appAccount.AuthCallback) {
     let want: Want = {
       bundleName: 'com.example.accountjsdemo',
       abilityName: 'com.example.accountjsdemo.SetPropertiesAbility',
       parameters: {
-        options: options,
-      },
+        options: options
+      }
     };
     callback.onRequestRedirected(want);
   }
 
-  checkAccountLabels(
-    name: string,
-    labels: string[],
-    callback: appAccount.AuthCallback,
-  ) {
+  checkAccountLabels(name: string, labels: string[], callback: appAccount.AuthCallback) {
     callback.onResult(0);
   }
 
@@ -7270,10 +6152,9 @@ class MyAuthenticator extends appAccount.Authenticator {
 }
 
 export default {
-  onConnect(want: Want): rpc.RemoteObject {
-    // serviceAbility 生命周期函数, 需要放在serviceAbility中
+  onConnect(want: Want): rpc.RemoteObject { // serviceAbility 生命周期函数, 需要放在serviceAbility中
     let authenticator = new MyAuthenticator();
     return authenticator.getRemoteObject();
-  },
-};
+  }
+}
 ```

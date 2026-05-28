@@ -8,8 +8,8 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：declare namespace promotionService 差异内容：declare namespace promotionService | api/@hms.core.payment.promotionService.d.ets |
 | 新增API | NA | 类名：promotionService； API声明：class PromotionComponentController 差异内容：class PromotionComponentController | api/@hms.core.payment.promotionService.d.ets |
-| 新增API | NA | 类名：PromotionComponentController； API声明：public startPromotionEntryDialog(mercNo: string, offset?: number): Promise<UserAction>; 差异内容：public startPromotionEntryDialog(mercNo: string, offset?: number): Promise<UserAction>; | api/@hms.core.payment.promotionService.d.ets |
-| 新增API | NA | 类名：promotionService； API声明：function startPromotionDetailPopup(context: common.Context, mercNo: string): Promise<UserAction>; 差异内容：function startPromotionDetailPopup(context: common.Context, mercNo: string): Promise<UserAction>; | api/@hms.core.payment.promotionService.d.ets |
+| 新增API | NA | 类名：PromotionComponentController； API声明：public startPromotionEntryDialog(mercNo: string, offset?: number): Promise&lt;UserAction&gt;; 差异内容：public startPromotionEntryDialog(mercNo: string, offset?: number): Promise&lt;UserAction&gt;; | api/@hms.core.payment.promotionService.d.ets |
+| 新增API | NA | 类名：promotionService； API声明：function startPromotionDetailPopup(context: common.Context, mercNo: string): Promise&lt;UserAction&gt;; 差异内容：function startPromotionDetailPopup(context: common.Context, mercNo: string): Promise&lt;UserAction&gt;; | api/@hms.core.payment.promotionService.d.ets |
 | 新增API | NA | 类名：promotionService； API声明：function startUserChooseCouponsPopup(context: common.Context, orderContext: OrderContext): Promise<CouponDetail[]>; 差异内容：function startUserChooseCouponsPopup(context: common.Context, orderContext: OrderContext): Promise<CouponDetail[]>; | api/@hms.core.payment.promotionService.d.ets |
 | 新增API | NA | 类名：promotionService； API声明：interface UserAction 差异内容：interface UserAction | api/@hms.core.payment.promotionService.d.ets |
 | 新增API | NA | 类名：UserAction； API声明：doNothing: boolean; 差异内容：doNothing: boolean; | api/@hms.core.payment.promotionService.d.ets |

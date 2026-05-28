@@ -6,16 +6,16 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| API模型切换 | 类名：ResourceManager； API声明：getStringValue(resource: Resource, callback: _AsyncCallback<string>): void; 差异内容：NA | 类名：ResourceManager； API声明：getStringValue(resource: Resource, callback: _AsyncCallback<string>): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getStringValue(resource: Resource): Promise<string>; 差异内容：NA | 类名：ResourceManager； API声明：getStringValue(resource: Resource): Promise<string>; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array<string>>): void; 差异内容：NA | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array<string>>): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource): Promise<Array<string>>; 差异内容：NA | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource): Promise<Array<string>>; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, callback: _AsyncCallback<Uint8Array>): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getMediaContent(resource: Resource): Promise<Uint8Array>; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource): Promise<Uint8Array>; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, callback: _AsyncCallback<string>): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource): Promise<string>; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource): Promise<string>; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void; 差异内容：NA | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback<string>): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
-| API模型切换 | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number): Promise<string>; 差异内容：NA | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number): Promise<string>; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getStringValue(resource: Resource, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：NA | 类名：ResourceManager； API声明：getStringValue(resource: Resource, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getStringValue(resource: Resource): Promise&lt;string&gt;; 差异内容：NA | 类名：ResourceManager； API声明：getStringValue(resource: Resource): Promise&lt;string&gt;; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array&lt;string&gt;>): void; 差异内容：NA | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource, callback: _AsyncCallback<Array&lt;string&gt;>): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource): Promise<Array&lt;string&gt;>; 差异内容：NA | 类名：ResourceManager； API声明：getStringArrayValue(resource: Resource): Promise<Array&lt;string&gt;>; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, callback: _AsyncCallback&lt;Uint8Array&gt;): void; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, callback: _AsyncCallback&lt;Uint8Array&gt;): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getMediaContent(resource: Resource): Promise&lt;Uint8Array&gt;; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource): Promise&lt;Uint8Array&gt;; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource): Promise&lt;string&gt;; 差异内容：NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource): Promise&lt;string&gt;; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：NA | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
+| API模型切换 | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number): Promise&lt;string&gt;; 差异内容：NA | 类名：ResourceManager； API声明：getPluralStringValue(resource: Resource, num: number): Promise&lt;string&gt;; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
 | API模型切换 | 类名：ResourceManager； API声明：getStringSync(resource: Resource): string; 差异内容：NA | 类名：ResourceManager； API声明：getStringSync(resource: Resource): string; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
 | API模型切换 | 类名：ResourceManager； API声明：getBoolean(resource: Resource): boolean; 差异内容：NA | 类名：ResourceManager； API声明：getBoolean(resource: Resource): boolean; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
 | API模型切换 | 类名：ResourceManager； API声明：getNumber(resource: Resource): number; 差异内容：NA | 类名：ResourceManager； API声明：getNumber(resource: Resource): number; 差异内容：stagemodelonly | api/@ohos.resourceManager.d.ts |
@@ -77,7 +77,7 @@
 | 新增API | NA | 类名：Calendar； API声明：add(field: string, amount: number): void; 差异内容：add(field: string, amount: number): void; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：Calendar； API声明：getTimeInMillis(): number; 差异内容：getTimeInMillis(): number; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：Calendar； API声明：compareDays(date: Date): number; 差异内容：compareDays(date: Date): number; | api/@ohos.i18n.d.ts |
-| 新增API | NA | 类名：TimeZone； API声明：static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>; 差异内容：static getTimezonesByLocation(longitude: number, latitude: number): Array<TimeZone>; | api/@ohos.i18n.d.ts |
+| 新增API | NA | 类名：TimeZone； API声明：static getTimezonesByLocation(longitude: number, latitude: number): Array&lt;TimeZone&gt;; 差异内容：static getTimezonesByLocation(longitude: number, latitude: number): Array&lt;TimeZone&gt;; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：i18n； API声明： export enum NormalizerMode 差异内容： export enum NormalizerMode | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：NormalizerMode； API声明：NFC = 1 差异内容：NFC = 1 | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：NormalizerMode； API声明：NFD = 2 差异内容：NFD = 2 | api/@ohos.i18n.d.ts |
@@ -91,31 +91,31 @@
 | 新增API | NA | 类名：HolidayInfoItem； API声明：year: number; 差异内容：year: number; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：HolidayInfoItem； API声明：month: number; 差异内容：month: number; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：HolidayInfoItem； API声明：day: number; 差异内容：day: number; | api/@ohos.i18n.d.ts |
-| 新增API | NA | 类名：HolidayInfoItem； API声明：localNames?: Array<HolidayLocalName>; 差异内容：localNames?: Array<HolidayLocalName>; | api/@ohos.i18n.d.ts |
+| 新增API | NA | 类名：HolidayInfoItem； API声明：localNames?: Array&lt;HolidayLocalName&gt;; 差异内容：localNames?: Array&lt;HolidayLocalName&gt;; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：i18n； API声明： export interface HolidayLocalName 差异内容： export interface HolidayLocalName | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：HolidayLocalName； API声明：language: string; 差异内容：language: string; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：HolidayLocalName； API声明：name: string; 差异内容：name: string; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：i18n； API声明： export class HolidayManager 差异内容： export class HolidayManager | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：HolidayManager； API声明：isHoliday(date?: Date): boolean; 差异内容：isHoliday(date?: Date): boolean; | api/@ohos.i18n.d.ts |
-| 新增API | NA | 类名：HolidayManager； API声明：getHolidayInfoItemArray(year?: number): Array<HolidayInfoItem>; 差异内容：getHolidayInfoItemArray(year?: number): Array<HolidayInfoItem>; | api/@ohos.i18n.d.ts |
+| 新增API | NA | 类名：HolidayManager； API声明：getHolidayInfoItemArray(year?: number): Array&lt;HolidayInfoItem&gt;; 差异内容：getHolidayInfoItemArray(year?: number): Array&lt;HolidayInfoItem&gt;; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：i18n； API声明： export interface EntityInfoItem 差异内容： export interface EntityInfoItem | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：EntityInfoItem； API声明：begin: number; 差异内容：begin: number; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：EntityInfoItem； API声明：end: number; 差异内容：end: number; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：EntityInfoItem； API声明：type: string; 差异内容：type: string; | api/@ohos.i18n.d.ts |
 | 新增API | NA | 类名：i18n； API声明： export class EntityRecognizer 差异内容： export class EntityRecognizer | api/@ohos.i18n.d.ts |
-| 新增API | NA | 类名：EntityRecognizer； API声明：findEntityInfo(text: string): Array<EntityInfoItem>; 差异内容：findEntityInfo(text: string): Array<EntityInfoItem>; | api/@ohos.i18n.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, density: number, callback: _AsyncCallback<Uint8Array>): void; 差异内容：getMediaContent(resource: Resource, density: number, callback: _AsyncCallback<Uint8Array>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, density: number): Promise<Uint8Array>; 差异内容：getMediaContent(resource: Resource, density: number): Promise<Uint8Array>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resId: number, density: number, callback: _AsyncCallback<Uint8Array>): void; 差异内容：getMediaContent(resId: number, density: number, callback: _AsyncCallback<Uint8Array>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resId: number, density: number): Promise<Uint8Array>; 差异内容：getMediaContent(resId: number, density: number): Promise<Uint8Array>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, density: number, callback: _AsyncCallback<string>): void; 差异内容：getMediaContentBase64(resource: Resource, density: number, callback: _AsyncCallback<string>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, density: number): Promise<string>; 差异内容：getMediaContentBase64(resource: Resource, density: number): Promise<string>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resId: number, density: number, callback: _AsyncCallback<string>): void; 差异内容：getMediaContentBase64(resId: number, density: number, callback: _AsyncCallback<string>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resId: number, density: number): Promise<string>; 差异内容：getMediaContentBase64(resId: number, density: number): Promise<string>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaByName(resName: string, density: number, callback: _AsyncCallback<Uint8Array>): void; 差异内容：getMediaByName(resName: string, density: number, callback: _AsyncCallback<Uint8Array>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaByName(resName: string, density: number): Promise<Uint8Array>; 差异内容：getMediaByName(resName: string, density: number): Promise<Uint8Array>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaBase64ByName(resName: string, density: number, callback: _AsyncCallback<string>): void; 差异内容：getMediaBase64ByName(resName: string, density: number, callback: _AsyncCallback<string>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getMediaBase64ByName(resName: string, density: number): Promise<string>; 差异内容：getMediaBase64ByName(resName: string, density: number): Promise<string>; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：EntityRecognizer； API声明：findEntityInfo(text: string): Array&lt;EntityInfoItem&gt;; 差异内容：findEntityInfo(text: string): Array&lt;EntityInfoItem&gt;; | api/@ohos.i18n.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, density: number, callback: _AsyncCallback&lt;Uint8Array&gt;): void; 差异内容：getMediaContent(resource: Resource, density: number, callback: _AsyncCallback&lt;Uint8Array&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resource: Resource, density: number): Promise&lt;Uint8Array&gt;; 差异内容：getMediaContent(resource: Resource, density: number): Promise&lt;Uint8Array&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resId: number, density: number, callback: _AsyncCallback&lt;Uint8Array&gt;): void; 差异内容：getMediaContent(resId: number, density: number, callback: _AsyncCallback&lt;Uint8Array&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContent(resId: number, density: number): Promise&lt;Uint8Array&gt;; 差异内容：getMediaContent(resId: number, density: number): Promise&lt;Uint8Array&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, density: number, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：getMediaContentBase64(resource: Resource, density: number, callback: _AsyncCallback&lt;string&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resource: Resource, density: number): Promise&lt;string&gt;; 差异内容：getMediaContentBase64(resource: Resource, density: number): Promise&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resId: number, density: number, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：getMediaContentBase64(resId: number, density: number, callback: _AsyncCallback&lt;string&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64(resId: number, density: number): Promise&lt;string&gt;; 差异内容：getMediaContentBase64(resId: number, density: number): Promise&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaByName(resName: string, density: number, callback: _AsyncCallback&lt;Uint8Array&gt;): void; 差异内容：getMediaByName(resName: string, density: number, callback: _AsyncCallback&lt;Uint8Array&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaByName(resName: string, density: number): Promise&lt;Uint8Array&gt;; 差异内容：getMediaByName(resName: string, density: number): Promise&lt;Uint8Array&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaBase64ByName(resName: string, density: number, callback: _AsyncCallback&lt;string&gt;): void; 差异内容：getMediaBase64ByName(resName: string, density: number, callback: _AsyncCallback&lt;string&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getMediaBase64ByName(resName: string, density: number): Promise&lt;string&gt;; 差异内容：getMediaBase64ByName(resName: string, density: number): Promise&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getStringSync(resId: number, ...args: Array<string \| number>): string; 差异内容：getStringSync(resId: number, ...args: Array<string \| number>): string; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getStringSync(resource: Resource, ...args: Array<string \| number>): string; 差异内容：getStringSync(resource: Resource, ...args: Array<string \| number>): string; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getStringByNameSync(resName: string, ...args: Array<string \| number>): string; 差异内容：getStringByNameSync(resName: string, ...args: Array<string \| number>): string; | api/@ohos.resourceManager.d.ts |
@@ -132,14 +132,14 @@
 | 新增API | NA | 类名：ResourceManager； API声明：getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableDescriptor; 差异内容：getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableDescriptor; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor; 差异内容：getDrawableDescriptor(resource: Resource, density?: number, type?: number): DrawableDescriptor; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getDrawableDescriptorByName(resName: string, density?: number, type?: number): DrawableDescriptor; 差异内容：getDrawableDescriptorByName(resName: string, density?: number, type?: number): DrawableDescriptor; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getRawFileList(path: string, callback: _AsyncCallback<Array<string>>): void; 差异内容：getRawFileList(path: string, callback: _AsyncCallback<Array<string>>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getRawFileList(path: string): Promise<Array<string>>; 差异内容：getRawFileList(path: string): Promise<Array<string>>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getColor(resId: number, callback: _AsyncCallback<number>): void; 差异内容：getColor(resId: number, callback: _AsyncCallback<number>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getColor(resId: number): Promise<number>; 差异内容：getColor(resId: number): Promise<number>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getColor(resource: Resource, callback: _AsyncCallback<number>): void; 差异内容：getColor(resource: Resource, callback: _AsyncCallback<number>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getColor(resource: Resource): Promise<number>; 差异内容：getColor(resource: Resource): Promise<number>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getColorByName(resName: string, callback: _AsyncCallback<number>): void; 差异内容：getColorByName(resName: string, callback: _AsyncCallback<number>): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getColorByName(resName: string): Promise<number>; 差异内容：getColorByName(resName: string): Promise<number>; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getRawFileList(path: string, callback: _AsyncCallback<Array&lt;string&gt;>): void; 差异内容：getRawFileList(path: string, callback: _AsyncCallback<Array&lt;string&gt;>): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getRawFileList(path: string): Promise<Array&lt;string&gt;>; 差异内容：getRawFileList(path: string): Promise<Array&lt;string&gt;>; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getColor(resId: number, callback: _AsyncCallback&lt;number&gt;): void; 差异内容：getColor(resId: number, callback: _AsyncCallback&lt;number&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getColor(resId: number): Promise&lt;number&gt;; 差异内容：getColor(resId: number): Promise&lt;number&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getColor(resource: Resource, callback: _AsyncCallback&lt;number&gt;): void; 差异内容：getColor(resource: Resource, callback: _AsyncCallback&lt;number&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getColor(resource: Resource): Promise&lt;number&gt;; 差异内容：getColor(resource: Resource): Promise&lt;number&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getColorByName(resName: string, callback: _AsyncCallback&lt;number&gt;): void; 差异内容：getColorByName(resName: string, callback: _AsyncCallback&lt;number&gt;): void; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getColorByName(resName: string): Promise&lt;number&gt;; 差异内容：getColorByName(resName: string): Promise&lt;number&gt;; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getColorSync(resId: number): number; 差异内容：getColorSync(resId: number): number; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getColorSync(resource: Resource): number; 差异内容：getColorSync(resource: Resource): number; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getColorByNameSync(resName: string): number; 差异内容：getColorByNameSync(resName: string): number; | api/@ohos.resourceManager.d.ts |
@@ -147,7 +147,7 @@
 | 新增API | NA | 类名：ResourceManager； API声明：removeResource(path: string): void; 差异内容：removeResource(path: string): void; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getRawFdSync(path: string): RawFileDescriptor; 差异内容：getRawFdSync(path: string): RawFileDescriptor; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：closeRawFdSync(path: string): void; 差异内容：closeRawFdSync(path: string): void; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getRawFileListSync(path: string): Array<string>; 差异内容：getRawFileListSync(path: string): Array<string>; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getRawFileListSync(path: string): Array&lt;string&gt;; 差异内容：getRawFileListSync(path: string): Array&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getRawFileContentSync(path: string): Uint8Array; 差异内容：getRawFileContentSync(path: string): Uint8Array; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getMediaContentSync(resId: number, density?: number): Uint8Array; 差异内容：getMediaContentSync(resId: number, density?: number): Uint8Array; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getMediaContentSync(resource: Resource, density?: number): Uint8Array; 差异内容：getMediaContentSync(resource: Resource, density?: number): Uint8Array; | api/@ohos.resourceManager.d.ts |
@@ -155,15 +155,15 @@
 | 新增API | NA | 类名：ResourceManager； API声明：getMediaContentBase64Sync(resource: Resource, density?: number): string; 差异内容：getMediaContentBase64Sync(resource: Resource, density?: number): string; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getPluralStringValueSync(resId: number, num: number): string; 差异内容：getPluralStringValueSync(resId: number, num: number): string; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getPluralStringValueSync(resource: Resource, num: number): string; 差异内容：getPluralStringValueSync(resource: Resource, num: number): string; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getStringArrayValueSync(resId: number): Array<string>; 差异内容：getStringArrayValueSync(resId: number): Array<string>; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getStringArrayValueSync(resource: Resource): Array<string>; 差异内容：getStringArrayValueSync(resource: Resource): Array<string>; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getStringArrayValueSync(resId: number): Array&lt;string&gt;; 差异内容：getStringArrayValueSync(resId: number): Array&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getStringArrayValueSync(resource: Resource): Array&lt;string&gt;; 差异内容：getStringArrayValueSync(resource: Resource): Array&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getPluralStringByNameSync(resName: string, num: number): string; 差异内容：getPluralStringByNameSync(resName: string, num: number): string; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getMediaByNameSync(resName: string, density?: number): Uint8Array; 差异内容：getMediaByNameSync(resName: string, density?: number): Uint8Array; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getMediaBase64ByNameSync(resName: string, density?: number): string; 差异内容：getMediaBase64ByNameSync(resName: string, density?: number): string; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getStringArrayByNameSync(resName: string): Array<string>; 差异内容：getStringArrayByNameSync(resName: string): Array<string>; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getStringArrayByNameSync(resName: string): Array&lt;string&gt;; 差异内容：getStringArrayByNameSync(resName: string): Array&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getConfigurationSync(): Configuration; 差异内容：getConfigurationSync(): Configuration; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getDeviceCapabilitySync(): DeviceCapability; 差异内容：getDeviceCapabilitySync(): DeviceCapability; | api/@ohos.resourceManager.d.ts |
-| 新增API | NA | 类名：ResourceManager； API声明：getLocales(includeSystem?: boolean): Array<string>; 差异内容：getLocales(includeSystem?: boolean): Array<string>; | api/@ohos.resourceManager.d.ts |
+| 新增API | NA | 类名：ResourceManager； API声明：getLocales(includeSystem?: boolean): Array&lt;string&gt;; 差异内容：getLocales(includeSystem?: boolean): Array&lt;string&gt;; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getSymbol(resId: number): number; 差异内容：getSymbol(resId: number): number; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getSymbol(resource: Resource): number; 差异内容：getSymbol(resource: Resource): number; | api/@ohos.resourceManager.d.ts |
 | 新增API | NA | 类名：ResourceManager； API声明：getSymbolByName(resName: string): number; 差异内容：getSymbolByName(resName: string): number; | api/@ohos.resourceManager.d.ts |

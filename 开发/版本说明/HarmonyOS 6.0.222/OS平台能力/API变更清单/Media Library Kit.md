@@ -9,9 +9,9 @@
 | 新增API | NA | 类名：PhotoKeys； API声明：OWNER_ALBUM_ID = 'owner_album_id' 差异内容：OWNER_ALBUM_ID = 'owner_album_id' | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：PhotoKeys； API声明：ASPECT_RATIO = 'aspect_ratio' 差异内容：ASPECT_RATIO = 'aspect_ratio' | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明：enum FusionAssetType 差异内容：enum FusionAssetType | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAlbumIdByLpath(lpath: string): Promise<number>; 差异内容：getAlbumIdByLpath(lpath: string): Promise<number>; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAlbumIdByLpath(lpath: string): Promise&lt;number&gt;; 差异内容：getAlbumIdByLpath(lpath: string): Promise&lt;number&gt;; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：BaseSelectOptions； API声明：isMovingPhotoBadgeShown?: boolean; 差异内容：isMovingPhotoBadgeShown?: boolean; | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：BaseSelectOptions； API声明：assetFilter?: Array<OperationItem>; 差异内容：assetFilter?: Array<OperationItem>; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：BaseSelectOptions； API声明：assetFilter?: Array&lt;OperationItem&gt;; 差异内容：assetFilter?: Array&lt;OperationItem&gt;; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明：export enum MovingPhotoBadgeStateType 差异内容：export enum MovingPhotoBadgeStateType | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：MovingPhotoBadgeStateType； API声明：NOT_MOVING_PHOTO = 0 差异内容：NOT_MOVING_PHOTO = 0 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：MovingPhotoBadgeStateType； API声明：MOVING_PHOTO_ENABLED = 1 差异内容：MOVING_PHOTO_ENABLED = 1 | api/@ohos.file.photoAccessHelper.d.ts |
@@ -20,8 +20,8 @@
 | 新增API | NA | 类名：photoAccessHelper； API声明：export class OperationItem 差异内容：export class OperationItem | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：OperationItem； API声明：operationType: OperationType; 差异内容：operationType: OperationType; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：OperationItem； API声明：field?: PhotoKeys; 差异内容：field?: PhotoKeys; | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：OperationItem； API声明：value?: Array<OperationValueType>; 差异内容：value?: Array<OperationValueType>; | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：PhotoSelectResult； API声明：movingPhotoBadgeStates: Array<MovingPhotoBadgeStateType>; 差异内容：movingPhotoBadgeStates: Array<MovingPhotoBadgeStateType>; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：OperationItem； API声明：value?: Array&lt;OperationValueType&gt;; 差异内容：value?: Array&lt;OperationValueType&gt;; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：PhotoSelectResult； API声明：movingPhotoBadgeStates: Array&lt;MovingPhotoBadgeStateType&gt;; 差异内容：movingPhotoBadgeStates: Array&lt;MovingPhotoBadgeStateType&gt;; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明：export enum OperationType 差异内容：export enum OperationType | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：OperationType； API声明：EQUAL_TO = 1 差异内容：EQUAL_TO = 1 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：OperationType； API声明：NOT_EQUAL_TO = 2 差异内容：NOT_EQUAL_TO = 2 | api/@ohos.file.photoAccessHelper.d.ts |
@@ -42,7 +42,7 @@
 | 新增API | NA | 类名：VideoMode； API声明：LOG_VIDEO = 1 差异内容：LOG_VIDEO = 1 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：PhotoPickerComponent； API声明：onMovingPhotoBadgeStateChanged?: MovingPhotoBadgeStateChangedCallback; 差异内容：onMovingPhotoBadgeStateChanged?: MovingPhotoBadgeStateChangedCallback; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export type MovingPhotoBadgeStateChangedCallback = (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void; 差异内容：export type MovingPhotoBadgeStateChangedCallback = (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void; | api/@ohos.file.PhotoPickerComponent.d.ets |
-| 新增API | NA | 类名：PickerController； API声明：updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise<void>; 差异内容：updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise<void>; | api/@ohos.file.PhotoPickerComponent.d.ets |
+| 新增API | NA | 类名：PickerController； API声明：updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise&lt;void&gt;; 差异内容：updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise&lt;void&gt;; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare class UpdatablePickerConfigs 差异内容：export declare class UpdatablePickerConfigs | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：mimeType?: photoAccessHelper.PhotoViewMIMETypes; 差异内容：mimeType?: photoAccessHelper.PhotoViewMIMETypes; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：mimeTypeFilter?: photoAccessHelper.MimeTypeFilter; 差异内容：mimeTypeFilter?: photoAccessHelper.MimeTypeFilter; | api/@ohos.file.PhotoPickerComponent.d.ets |
@@ -52,7 +52,7 @@
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：selectMode?: SelectMode; 差异内容：selectMode?: SelectMode; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：singleSelectionMode?: photoAccessHelper.SingleSelectionMode; 差异内容：singleSelectionMode?: photoAccessHelper.SingleSelectionMode; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：isRepeatSelectSupported?: boolean; 差异内容：isRepeatSelectSupported?: boolean; | api/@ohos.file.PhotoPickerComponent.d.ets |
-| 新增API | NA | 类名：UpdatablePickerConfigs； API声明：preselectedUris?: Array<string>; 差异内容：preselectedUris?: Array<string>; | api/@ohos.file.PhotoPickerComponent.d.ets |
+| 新增API | NA | 类名：UpdatablePickerConfigs； API声明：preselectedUris?: Array&lt;string&gt;; 差异内容：preselectedUris?: Array&lt;string&gt;; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：checkBoxColor?: string; 差异内容：checkBoxColor?: string; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：checkboxTextColor?: string; 差异内容：checkboxTextColor?: string; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：UpdatablePickerConfigs； API声明：backgroundColor?: string; 差异内容：backgroundColor?: string; | api/@ohos.file.PhotoPickerComponent.d.ets |

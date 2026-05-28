@@ -3,24 +3,21 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmediabase
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义AVMedia的结构体和枚举类型。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 23
+ 
+  
 
-
-## 文件汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 文件汇总
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [avmedia_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmedia-base-h) | 定义AVMedia的结构体和枚举类型。 |
-| [avmetakeys.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetakeys-h) | 定义音视频元数据键。 |
+| avmedia_base.h | 定义AVMedia的结构体和枚举类型。 |
+| avmetakeys.h | 定义音视频元数据键。 |

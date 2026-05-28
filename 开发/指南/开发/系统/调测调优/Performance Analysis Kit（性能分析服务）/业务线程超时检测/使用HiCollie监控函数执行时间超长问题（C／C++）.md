@@ -1,29 +1,44 @@
 # 使用HiCollie监控函数执行时间超长问题（C/C++）
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-settimer-guidelines-ndk
 
-## 简介
+##### 简介
 
 任务执行超时指要监控的业务代码逻辑执行时长超过业务逻辑预期时间。本文面向开发者介绍HiCollie模块对外提供函数执行时间超长的检测能力。
+
+
 ![](assets/使用HiCollie监控函数执行时间超长问题（C／C++）/file-20260514131420460-0.png)
+
+
 当开发者通过DevEco Studio的Debug按钮安装并启动应用时，会自动关闭当前工程的超时检测机制。避免调试过程出现超时检测影响开发者调试。
 
-## 接口说明
 
+
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| OH_HiCollie_SetTimer | 注册定时器，用于检测函数或代码块执行是否超过自定义时间。          结合OH_HiCollie_CancelTimer接口配套使用，应在调用耗时的函数之前使用。          说明：从API version 18开始，支持该接口。 |
-| OH_HiCollie_CancelTimer | 取消定时器。          结合OH_HiCollie_SetTimer接口配套使用，执行函数或代码块后使用，OH_HiCollie_CancelTimer通过id将该任务取消；          若未在自定义时间内取消，则执行回调函数，在特定自定义超时动作下，生成故障日志。          说明：从API version 18开始，支持该接口。 |
+| OH_HiCollie_SetTimer | 注册定时器，用于检测函数或代码块执行是否超过自定义时间。 结合OH_HiCollie_CancelTimer接口配套使用，应在调用耗时的函数之前使用。 说明：从API version 18开始，支持该接口。 |
+| OH_HiCollie_CancelTimer | 取消定时器。 结合OH_HiCollie_SetTimer接口配套使用，执行函数或代码块后使用，OH_HiCollie_CancelTimer通过id将该任务取消； 若未在自定义时间内取消，则执行回调函数，在特定自定义超时动作下，生成故障日志。 说明：从API version 18开始，支持该接口。 |
 
-API接口的具体使用说明（参数使用限制、具体取值范围等）请参考[HiCollie](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hicollie-h)。 函数执行时间超长故障日志以syswarning-开头，生成在“设备/data/log/warninglog/”路径下。文件名格式为“syswarning-应用包名-应用UID-秒级时间.log”。
 
-## 开发步骤
+ - API接口的具体使用说明（参数使用限制、具体取值范围等）请参考[HiCollie](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hicollie-h)。
+ - 函数执行时间超长故障日志以syswarning-开头，生成在“设备/data/log/warninglog/”路径下。文件名格式为“syswarning-应用包名-应用UID-秒级时间.log”。
 
-下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie Ndk接口。 新建Native C++工程，目录结构如下：
-```text
+
+
+
+##### 开发步骤
+
+下文将展示如何在应用内增加一个按钮，并单击该按钮以调用HiCollie Ndk接口。
+1. 新建Native C++工程，目录结构如下：
+
+  
+```ArkTS
 entry:
   src:
     main:
@@ -40,14 +55,20 @@ entry:
           - Index.ets
 ```
 
-编辑“CMakeLists.txt”文件，添加源文件及动态库。
+2. 编辑“CMakeLists.txt”文件，添加源文件及动态库。
+
+  
 ```text
 # 依赖动态库libhilog_ndk.z.so（日志输出），libohhicollie.so（HiCollie对外检测接口）
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libohhicollie.so)
 ```
 
-编辑“napi_init.cpp”文件，导入依赖头文件、定义LOG_TAG与测试方法以及注册TestHiCollieTimerNdk为ArkTS接口。 引入头文件及定义LOG_TAG。
-```text
+3. 编辑“napi_init.cpp”文件，导入依赖头文件、定义LOG_TAG与测试方法以及注册TestHiCollieTimerNdk为ArkTS接口。
+
+  引入头文件及定义LOG_TAG。
+
+  
+```cpp
 #include "napi/native_api.h"
 // ...
 #include "hilog/log.h"
@@ -56,14 +77,14 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libohhicol
 #define LOG_TAG "testTag"
 ```
 
-
-```text
-#include
+```cpp
+#include <unistd.h>
 #include "hicollie/hicollie.h"
 ```
-
 构造任务执行时间超时场景，并使用OH_HiCollie_SetTimer及OH_HiCollie_CancelTimer函数进行监控。
-```text
+
+  
+```cpp
 // 定义回调函数
 void CallBack(void*)
 {
@@ -84,25 +105,33 @@ static napi_value TestHiCollieTimerNdk(napi_env env, napi_callback_info info)
     return nullptr;
 }
 ```
-
 在Init函数中的desc[]数组中将TestHiCollieTimerNdk注册为ArkTS接口。
-```text
+
+  
+```cpp
 // 将TestHiCollieTimerNdk注册为ArkTS接口
 { "TestHiCollieTimerNdk", nullptr, TestHiCollieTimerNdk, nullptr, nullptr, nullptr, napi_default, nullptr },
 ```
 
-编辑“index.d.ts”文件，定义ArkTS接口。
-```text
+4. 编辑“index.d.ts”文件，定义ArkTS接口。
+
+  
+```ts
 export const TestHiCollieTimerNdk: () => void;
 ```
 
-编辑“Index.ets”文件。 引入调用C接口的头文件。
-```text
+5. 编辑“Index.ets”文件。
+
+  引入调用C接口的头文件。
+
+  
+```ArkTS
 import testNapi from 'libentry.so';
 ```
-
 在Index页面新增触发TestHiCollieTimerNdk方法的按钮。
-```text
+
+  
+```ArkTS
 // 添加点击事件，触发TestHiCollieTimerNdk方法。
 Button('TestHiCollieTimerNdk')
   .type(ButtonType.Capsule)
@@ -117,14 +146,19 @@ Button('TestHiCollieTimerNdk')
   })
 ```
 
-点击DevEco Studio界面中的运行按钮，运行应用工程。 在DevEco Studio的底部，切换到“Log->HiLog”窗口，设置日志的过滤条件为“testTag”。 （1）点击“TestHiCollieTimerNdk”按钮执行程序，日志窗口打印任务id。
+6. 点击DevEco Studio界面中的运行按钮，运行应用工程。
+7. 在DevEco Studio的底部，切换到“Log->HiLog”窗口，设置日志的过滤条件为“testTag”。
+
+  （1）点击“TestHiCollieTimerNdk”按钮执行程序，日志窗口打印任务id。
+
+  
 ```text
 .../testTag ... HiCollieTimer taskId: x
 ```
-
 （2）等待2s后，执行回调函数，日志窗口打印。
+
+  
 ```text
 .../testTag ... HiCollieTimerNdk CallBack
 ```
-
 获取故障文件信息相关内容可参考[订阅任务执行超时事件（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-apphicollie-events-ndk) 订阅获取。

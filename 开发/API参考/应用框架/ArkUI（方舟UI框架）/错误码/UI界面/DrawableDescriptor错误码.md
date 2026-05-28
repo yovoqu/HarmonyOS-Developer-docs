@@ -3,15 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drawable-descriptor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。
 
 
-## 111001 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 111001 内部错误
 
 **错误信息**
 

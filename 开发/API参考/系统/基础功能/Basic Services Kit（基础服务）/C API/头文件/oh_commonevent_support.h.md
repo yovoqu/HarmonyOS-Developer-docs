@@ -3,33 +3,30 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-support-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供系统定义的公共事件常量。
-
+ 
 **库：** libohcommonevent.so
-
+ 
 **引用文件：** <BasicServicesKit/oh_commonevent_support.h>
-
+ 
 **系统能力：** SystemCapability.Notification.CommonEvent
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [OH_CommonEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 常量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 常量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | static const char * const COMMON_EVENT_SHUTDOWN = "usual.event.SHUTDOWN" | 表示设备正在关闭并将继续直至最终关闭的公共事件。 起始版本： 12 系统能力： SystemCapability.Notification.CommonEvent |

@@ -3,15 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 14400001 连接USB设备被拒绝
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 14400001 连接USB设备被拒绝
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Access right denied. Call requestRight to get the USBDevicePipe access right fir
 调用requestRight方法申请设备的使用权限。
 
 
-## 14400004 服务异常
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400004 服务异常
 
 **错误信息**
 
@@ -50,8 +49,8 @@ Service exception. Possible causes: No accessory is plugged in.
 插入配件。
 
 
-## 14400005 数据库操作异常
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400005 数据库操作异常
 
 **错误信息**
 
@@ -66,8 +65,8 @@ Database operation exception.
 尝试重新调用接口。
 
 
-## 14401001 目标USB配件未匹配
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14401001 目标USB配件未匹配
 
 **错误信息**
 
@@ -82,8 +81,8 @@ The target USBAccessory not matched.
 通过getAccessoryList获得配件列表，使用匹配的USBAccessory重新操作。
 
 
-## 14401002 打开配件节点失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14401002 打开配件节点失败
 
 **错误信息**
 
@@ -98,8 +97,8 @@ Failed to open the native accessory node.
 尝试重新调用接口。
 
 
-## 14401003 不能重复打开配件
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14401003 不能重复打开配件
 
 **错误信息**
 
@@ -114,8 +113,8 @@ Cannot reopen the accessory.
 配件已被打开，继续执行后续开发操作。
 
 
-## 14400007 资源繁忙
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400007 资源繁忙
 
 **错误信息**
 
@@ -126,8 +125,6 @@ Resource busy. Possible causes: 1. The transfer has already been submitted. 2. T
 资源被占用。
 
 **可能原因**
-
-
 1. 传输任务已提交。
 2. 该接口已被另一个程序或驱动程序占用。
 
@@ -136,8 +133,8 @@ Resource busy. Possible causes: 1. The transfer has already been submitted. 2. T
 检查[usbManager.claimInterface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-usbmanager#usbmanagerclaiminterface)接口是否调用成功。
 
 
-## 14400008 没有设备(连接已断开)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400008 没有设备(连接已断开)
 
 **错误信息**
 
@@ -152,8 +149,8 @@ No such device (it may have been disconnected).
 检查设备类型是否正确，检查设备是否已成功连接。
 
 
-## 14400009 内存不足
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400009 内存不足
 
 **错误信息**
 
@@ -172,8 +169,8 @@ Insufficient memory. Possible causes: 1. Memory allocation failed.
 及时清理内存。
 
 
-## 14400010 无法识别的错误
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400010 无法识别的错误
 
 **错误信息**
 
@@ -188,8 +185,8 @@ Other USB error. Possible causes:Unrecognized discard error code.
 查阅设备相关资料，尝试重新操作。
 
 
-## 14400011 未找到正在进行的传输
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400011 未找到正在进行的传输
 
 **错误信息**
 
@@ -204,8 +201,8 @@ The transfer is not in progress, or is already complete or cancelled.
 重新发起新的传输请求。
 
 
-## 14400012 I/O错误
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400012 I/O错误
 
 **错误信息**
 
@@ -220,8 +217,8 @@ I/O通道异常，实际读/写操作失败。
 尝试重新操作。
 
 
-## 14400013 参数合法性检查失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 14400013 参数合法性检查失败
 
 **错误信息**
 
@@ -232,8 +229,6 @@ The USBDevicePipe validity check failed. Possible causes: 1. The input parameter
 参数合法性检查失败。
 
 **可能原因**
-
-
 1. 输入参数合法性检查失败。
 2. 入参获取调用链不合理。
 
@@ -242,8 +237,8 @@ The USBDevicePipe validity check failed. Possible causes: 1. The input parameter
 采用合理的调用链获取入参。
 
 
-## 31400001 串口服务异常
-**支持设备：** PC/2in1
+
+##### 31400001 串口服务异常
 
 **错误信息**
 
@@ -262,8 +257,8 @@ Serial port management exception.
 检查是否连接设备，重新通过串口列表获取端口号。
 
 
-## 31400002 没有串口设备访问权限
-**支持设备：** PC/2in1
+
+##### 31400002 没有串口设备访问权限
 
 **错误信息**
 
@@ -282,8 +277,8 @@ Access denied. Call requestSerialRight to request user authorization first.
 调用requestSerialRight 申请访问权限。
 
 
-## 31400003 端口号不存在
-**支持设备：** PC/2in1
+
+##### 31400003 端口号不存在
 
 **错误信息**
 
@@ -302,8 +297,8 @@ PortId does not exist.
 插拔设备，再次尝试打开。
 
 
-## 31400004 端口正在被其他应用程序使用
-**支持设备：** PC/2in1
+
+##### 31400004 端口正在被其他应用程序使用
 
 **错误信息**
 
@@ -322,8 +317,8 @@ The serial port device is occupied.
 插拔设备，再次尝试打开。
 
 
-## 31400005 设备未打开
-**支持设备：** PC/2in1
+
+##### 31400005 设备未打开
 
 **错误信息**
 
@@ -342,8 +337,8 @@ The serial port device is not opened. Call the open API first.
 请先调用Open接口打开设备，再进行后续操作。
 
 
-## 31400006 传输超时
-**支持设备：** PC/2in1
+
+##### 31400006 传输超时
 
 **错误信息**
 
@@ -362,8 +357,8 @@ Data transfer timed out.
 请检查对端设备是否发起数据传输。
 
 
-## 31400007 IO异常
-**支持设备：** PC/2in1
+
+##### 31400007 IO异常
 
 **错误信息**
 
@@ -374,8 +369,6 @@ IO exception. Possible causes: 1. The transfer was canceled. 2. The device offer
 IO异常。
 
 **可能原因**
-
-
 1. 传输任务被异常取消。
 2. 用户接收的单次传输数据量超过了设置的缓冲区大小。
 

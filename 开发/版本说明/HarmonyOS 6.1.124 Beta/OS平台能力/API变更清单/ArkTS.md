@@ -1,6 +1,6 @@
 # ArkTS
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkts-6111
 
@@ -11,7 +11,7 @@
 | 新增API | NA | 类名：Configs； API声明：priority?: Priority; 差异内容：priority?: Priority; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：Configs； API声明：timeout?: number; 差异内容：timeout?: number; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：ArkTSVM； API声明：static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>; 差异内容：static getAllVMHeapMemoryInfo(): Promise<HeapMemoryInfo[]>; | api/@ohos.util.d.ts |
-| 新增API | NA | 类名：ArkTSVM； API声明：static onVMHeapMemoryPressure(callback: Callback<string>, heapMemoryThreshold: HeapMemoryThreshold): boolean; 差异内容：static onVMHeapMemoryPressure(callback: Callback<string>, heapMemoryThreshold: HeapMemoryThreshold): boolean; | api/@ohos.util.d.ts |
+| 新增API | NA | 类名：ArkTSVM； API声明：static onVMHeapMemoryPressure(callback: Callback&lt;string&gt;, heapMemoryThreshold: HeapMemoryThreshold): boolean; 差异内容：static onVMHeapMemoryPressure(callback: Callback&lt;string&gt;, heapMemoryThreshold: HeapMemoryThreshold): boolean; | api/@ohos.util.d.ts |
 | 新增API | NA | 类名：ArkTSVM； API声明：static offVMHeapMemoryPressure(): void; 差异内容：static offVMHeapMemoryPressure(): void; | api/@ohos.util.d.ts |
 | 新增API | NA | 类名：util； API声明：interface HeapMemoryThreshold 差异内容：interface HeapMemoryThreshold | api/@ohos.util.d.ts |
 | 新增API | NA | 类名：HeapMemoryThreshold； API声明：localHeapThreshold?: number; 差异内容：localHeapThreshold?: number; | api/@ohos.util.d.ts |

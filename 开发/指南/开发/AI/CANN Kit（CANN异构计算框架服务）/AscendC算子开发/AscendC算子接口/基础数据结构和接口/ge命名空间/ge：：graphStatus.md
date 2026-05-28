@@ -5,8 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-gegraphstatus
 
 graphStatus类型即uint32_t类型，其不同的状态说明如下。
-
-
+  
 | 状态 | 值 | 说明 |
 | --- | --- | --- |
 | ge::GRAPH_SUCCESS | 0 | 对应函数执行成功。 |

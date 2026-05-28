@@ -3,13 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 创建并显示即时反馈、对话框、操作菜单以及自定义弹窗。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 10开始支持。 以下API需先使用UIContext中的 getPromptAction() 方法获取到PromptAction对象，再通过该对象调用对应方法。
 
-## getTopOrder18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### getTopOrder18+
 
 getTopOrder(): LevelOrder
 
@@ -23,18 +26,16 @@ getTopOrder(): LevelOrder
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LevelOrder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#levelorder18) | 返回弹窗层级信息。 |
+| LevelOrder | 返回弹窗层级信息。 |
 
 
 **示例：**
 
 该示例通过调用getTopOrder接口，展示了获取最顶层显示弹窗顺序的功能。
 
-
-```ts
+```text
 import { ComponentContent, PromptAction, LevelOrder, promptAction, UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -49,9 +50,9 @@ class Params {
 function buildText(params: Params) {
   Column({ space: 20 }) {
     Text(params.text)
-    .fontSize(50)
-    .fontWeight(FontWeight.Bold)
-    .margin({ bottom: 36 })
+      .fontSize(50)
+      .fontWeight(FontWeight.Bold)
+      .margin({ bottom: 36 })
   }.backgroundColor('#FFF0F0F0')
 }
 
@@ -62,7 +63,7 @@ struct Index {
   private ctx: UIContext = this.getUIContext();
   private promptAction: PromptAction = this.ctx.getPromptAction();
   private contentNode: ComponentContent<Object> =
-  new ComponentContent(this.ctx, wrapBuilder(buildText), new Params(this.message));
+    new ComponentContent(this.ctx, wrapBuilder(buildText), new Params(this.message));
 
   private baseDialogOptions: promptAction.BaseDialogOptions = {
     showInSubWindow: false,
@@ -73,19 +74,19 @@ struct Index {
     Row() {
       Column({ space: 10 }) {
         Button('openCustomDialog弹窗')
-        .fontSize(20)
-        .onClick(() => {
-          this.promptAction.openCustomDialog(this.contentNode, this.baseDialogOptions)
-          .catch((err: BusinessError) => {
-            console.error("openCustomDialog error: " + err.code + " " + err.message);
+          .fontSize(20)
+          .onClick(() => {
+            this.promptAction.openCustomDialog(this.contentNode, this.baseDialogOptions)
+              .catch((err: BusinessError) => {
+                console.error("openCustomDialog error: " + err.code + " " + err.message);
+              })
+              .then(() => {
+                let topOrder: LevelOrder = this.promptAction.getTopOrder();
+                if (topOrder !== undefined) {
+                  console.error('topOrder: ' + topOrder.getOrder());
+                }
+              })
           })
-          .then(() => {
-            let topOrder: LevelOrder = this.promptAction.getTopOrder();
-            if (topOrder !== undefined) {
-              console.error('topOrder: ' + topOrder.getOrder());
-            }
-          })
-        })
       }.width('100%')
     }.height('100%')
   }
@@ -93,8 +94,8 @@ struct Index {
 ```
 
 
-## getBottomOrder18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getBottomOrder18+
 
 getBottomOrder(): LevelOrder
 
@@ -106,18 +107,16 @@ getBottomOrder(): LevelOrder
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LevelOrder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#levelorder18) | 返回弹窗层级信息。 |
+| LevelOrder | 返回弹窗层级信息。 |
 
 
 **示例：**
 
 该示例通过调用getBottomOrder接口，展示了获取最底层显示弹窗顺序的功能。
 
-
-```ts
+```text
 import { ComponentContent, PromptAction, LevelOrder, promptAction, UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -132,9 +131,9 @@ class Params {
 function buildText(params: Params) {
   Column({ space: 20 }) {
     Text(params.text)
-    .fontSize(50)
-    .fontWeight(FontWeight.Bold)
-    .margin({ bottom: 36 })
+      .fontSize(50)
+      .fontWeight(FontWeight.Bold)
+      .margin({ bottom: 36 })
   }.backgroundColor('#FFF0F0F0')
 }
 
@@ -145,7 +144,7 @@ struct Index {
   private ctx: UIContext = this.getUIContext();
   private promptAction: PromptAction = this.ctx.getPromptAction();
   private contentNode: ComponentContent<Object> =
-  new ComponentContent(this.ctx, wrapBuilder(buildText), new Params(this.message));
+    new ComponentContent(this.ctx, wrapBuilder(buildText), new Params(this.message));
 
   private baseDialogOptions: promptAction.BaseDialogOptions = {
     showInSubWindow: false,
@@ -156,19 +155,19 @@ struct Index {
     Row() {
       Column({ space: 10 }) {
         Button('openCustomDialog弹窗')
-        .fontSize(20)
-        .onClick(() => {
-          this.promptAction.openCustomDialog(this.contentNode, this.baseDialogOptions)
-          .catch((err: BusinessError) => {
-            console.error("openCustomDialog error: " + err.code + " " + err.message);
+          .fontSize(20)
+          .onClick(() => {
+            this.promptAction.openCustomDialog(this.contentNode, this.baseDialogOptions)
+              .catch((err: BusinessError) => {
+                console.error("openCustomDialog error: " + err.code + " " + err.message);
+              })
+              .then(() => {
+                let bottomOrder: LevelOrder = this.promptAction.getBottomOrder();
+                if (bottomOrder !== undefined) {
+                  console.error('bottomOrder: ' + bottomOrder.getOrder());
+                }
+              })
           })
-          .then(() => {
-            let bottomOrder: LevelOrder = this.promptAction.getBottomOrder();
-            if (bottomOrder !== undefined) {
-              console.error('bottomOrder: ' + bottomOrder.getOrder());
-            }
-          })
-        })
       }.width('100%')
     }.height('100%')
   }
@@ -176,10 +175,10 @@ struct Index {
 ```
 
 
-## openToast18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openToast(options: promptAction.ShowToastOptions): Promise<number>
+##### openToast18+
+
+openToast(options: promptAction.ShowToastOptions): Promise&lt;number&gt;
 
 显示即时反馈。使用Promise异步回调返回即时反馈的id，可供closeToast使用。
 
@@ -189,14 +188,12 @@ openToast(options: promptAction.ShowToastOptions): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions) | 是 | Toast选项。 |
+| options | promptAction.ShowToastOptions | 是 | Toast选项。 |
 
 
 **返回值**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -206,7 +203,6 @@ openToast(options: promptAction.ShowToastOptions): Promise<number>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -218,8 +214,7 @@ openToast(options: promptAction.ShowToastOptions): Promise<number>
 
 该示例通过调用openToast和closeToast接口，展示了弹出以及关闭Toast的功能。
 
-
-```ts
+```text
 import { PromptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -232,38 +227,38 @@ struct Index {
   build() {
     Column() {
       Button('OpenToast')
-      .height(100)
-      .onClick(() => {
-        this.promptAction.openToast({
-          message: 'Toast Message',
-          duration: 10000,
-        }).then((toastId: number) => {
-          this.toastId = toastId;
+        .height(100)
+        .onClick(() => {
+          this.promptAction.openToast({
+            message: 'Toast Message',
+            duration: 10000,
+          }).then((toastId: number) => {
+            this.toastId = toastId;
+          })
+            .catch((error: BusinessError) => {
+              console.error(`openToast error code is ${error.code}, message is ${error.message}`);
+            })
         })
-        .catch((error: BusinessError) => {
-          console.error(`openToast error code is ${error.code}, message is ${error.message}`);
-        })
-      })
       Blank().height(50)
       Button('Close Toast')
-      .height(100)
-      .onClick(() => {
-        try {
-          this.promptAction.closeToast(this.toastId);
-        } catch (error) {
-          let message = (error as BusinessError).message;
-          let code = (error as BusinessError).code;
-          console.error(`CloseToast error code is ${code}, message is ${message}`);
-        };
-      })
+        .height(100)
+        .onClick(() => {
+          try {
+            this.promptAction.closeToast(this.toastId);
+          } catch (error) {
+            let message = (error as BusinessError).message;
+            let code = (error as BusinessError).code;
+            console.error(`CloseToast error code is ${code}, message is ${message}`);
+          };
+        })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
   }
 }
 ```
 
 
-## closeToast18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### closeToast18+
 
 closeToast(toastId: number): void
 
@@ -275,7 +270,6 @@ closeToast(toastId: number): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | toastId | number | 是 | openToast返回的id。 |
@@ -284,7 +278,6 @@ closeToast(toastId: number): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -298,8 +291,8 @@ closeToast(toastId: number): void
 请参考[openToast18](#opentoast18)的示例。
 
 
-## showToast
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showToast
 
 showToast(options: promptAction.ShowToastOptions): void
 
@@ -311,16 +304,14 @@ showToast(options: promptAction.ShowToastOptions): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.ShowToastOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showtoastoptions) | 是 | Toast选项。 |
+| options | promptAction.ShowToastOptions | 是 | Toast选项。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -332,8 +323,7 @@ showToast(options: promptAction.ShowToastOptions): void
 
 该示例通过调用showToast接口，创建并显示即时反馈。
 
-
-```ts
+```text
 import { PromptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -345,26 +335,26 @@ struct Index {
   build() {
     Column() {
       Button('showToast')
-      .onClick(() => {
-        try {
-          this.promptAction.showToast({
-            message: 'Message Info',
-            duration: 2000
-          });
-        } catch (error) {
-          let message = (error as BusinessError).message;
-          let code = (error as BusinessError).code;
-          console.error(`showToast args error code is ${code}, message is ${message}`);
-        };
-      })
+        .onClick(() => {
+          try {
+            this.promptAction.showToast({
+              message: 'Message Info',
+              duration: 2000
+            });
+          } catch (error) {
+            let message = (error as BusinessError).message;
+            let code = (error as BusinessError).code;
+            console.error(`showToast args error code is ${code}, message is ${message}`);
+          };
+        })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
   }
 }
 ```
 
 
-## showDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showDialog
 
 showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void
 
@@ -376,17 +366,15 @@ showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<prom
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.ShowDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showdialogoptions) | 是 | 页面显示对话框信息描述。 |
-| callback | AsyncCallback&lt;[promptAction.ShowDialogSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showdialogsuccessresponse)&gt; | 是 | 回调函数。弹出对话框成功，err为undefined，data为获取到的对话框响应结果，否则为错误对象。 |
+| options | promptAction.ShowDialogOptions | 是 | 页面显示对话框信息描述。 |
+| callback | AsyncCallback<promptAction.ShowDialogSuccessResponse> | 是 | 回调函数。弹出对话框成功，err为undefined，data为获取到的对话框响应结果，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -398,8 +386,7 @@ showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<prom
 
 该示例通过调用showDialog接口，展示了弹出对话框以及返回对话框响应结果的功能。
 
-
-```ts
+```text
 import { PromptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -411,42 +398,42 @@ struct Index {
   build() {
     Column() {
       Button('showDialog')
-      .onClick(() => {
-        try {
-          this.promptAction.showDialog({
-            title: 'showDialog Title Info',
-            message: 'Message Info',
-            buttons: [
-            {
-              text: 'button1',
-              color: '#000000'
-            },
-            {
-              text: 'button2',
-              color: '#000000'
-            }
-            ]
-          }, (err, data) => {
-            if (err) {
-              console.error('showDialog err: ' + err);
-              return;
-            }
-            console.info('showDialog success callback, click button: ' + data.index);
-          });
-        } catch (error) {
-          let message = (error as BusinessError).message;
-          let code = (error as BusinessError).code;
-          console.error(`showDialog args error code is ${code}, message is ${message}`);
-        };
-      })
+        .onClick(() => {
+          try {
+            this.promptAction.showDialog({
+              title: 'showDialog Title Info',
+              message: 'Message Info',
+              buttons: [
+                {
+                  text: 'button1',
+                  color: '#000000'
+                },
+                {
+                  text: 'button2',
+                  color: '#000000'
+                }
+              ]
+            }, (err, data) => {
+              if (err) {
+                console.error('showDialog err: ' + err);
+                return;
+              }
+              console.info('showDialog success callback, click button: ' + data.index);
+            });
+          } catch (error) {
+            let message = (error as BusinessError).message;
+            let code = (error as BusinessError).code;
+            console.error(`showDialog args error code is ${code}, message is ${message}`);
+          };
+        })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
   }
 }
 ```
 
 
-## showDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showDialog
 
 showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>
 
@@ -458,24 +445,21 @@ showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.ShowDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showdialogoptions) | 是 | 对话框选项。 |
+| options | promptAction.ShowDialogOptions | 是 | 对话框选项。 |
 
 
 **返回值：**
 
-
-| ���型 | 说明 |
+| 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[promptAction.ShowDialogSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#showdialogsuccessresponse)&gt; | Promise对象，返回对话框的响应结果。 |
+| Promise<promptAction.ShowDialogSuccessResponse> | Promise对象，返回对话框的响应结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
+以下错误码的详细介绍请参见[ 通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -487,8 +471,7 @@ showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDi
 
 该示例通过调用showDialog接口，展示了弹出对话框以及通过Promise获取对话框响应结果的功能。
 
-
-```ts
+```text
 import { PromptAction } from '@kit.ArkUI';
 
 @Entry
@@ -499,36 +482,36 @@ struct Index {
   build() {
     Column() {
       Button('showDialog')
-      .onClick(() => {
-        this.promptAction.showDialog({
-          title: 'Title Info',
-          message: 'Message Info',
-          buttons: [
-          {
-            text: 'button1',
-            color: '#000000'
-          },
-          {
-            text: 'button2',
-            color: '#000000'
-          }
-          ],
+        .onClick(() => {
+          this.promptAction.showDialog({
+            title: 'Title Info',
+            message: 'Message Info',
+            buttons: [
+              {
+                text: 'button1',
+                color: '#000000'
+              },
+              {
+                text: 'button2',
+                color: '#000000'
+              }
+            ],
+          })
+            .then(data => {
+              console.info('showDialog success, click button: ' + data.index);
+            })
+            .catch((err: Error) => {
+              console.error('showDialog error: ' + err);
+            })
         })
-        .then(data => {
-          console.info('showDialog success, click button: ' + data.index);
-        })
-        .catch((err: Error) => {
-          console.error('showDialog error: ' + err);
-        })
-      })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
   }
 }
 ```
 
 
-## showActionMenu11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showActionMenu11+
 
 showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<[promptAction.ActionMenuSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenusuccessresponse)>): void
 
@@ -540,17 +523,15 @@ showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.ActionMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenuoptions) | 是 | 操作菜单选项。 |
-| callback | AsyncCallback&lt;[promptAction.ActionMenuSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenusuccessresponse)&gt; | 是 | 回调函数。弹出操作菜单成功，err为undefined，data为获取到的操作菜单响应结果，否则为错误对象。 |
+| options | promptAction.ActionMenuOptions | 是 | 操作菜单选项。 |
+| callback | AsyncCallback<promptAction.ActionMenuSuccessResponse> | 是 | 回调函数。弹出操作菜单成功，err为undefined，data为获取到的操作菜单响应结果，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -560,8 +541,7 @@ showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<
 
 **示例：**
 
-
-```ts
+```text
 import { PromptAction, promptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -573,41 +553,41 @@ struct Index {
   build() {
     Column() {
       Button('showActionMenu')
-      .onClick(() => {
-        try {
-          this.promptAction.showActionMenu({
-            title: 'Title Info',
-            buttons: [
-            {
-              text: 'item1',
-              color: '#666666'
-            },
-            {
-              text: 'item2',
-              color: '#000000'
-            }
-            ]
-          }, (err: BusinessError, data: promptAction.ActionMenuSuccessResponse) => {
-            if (err) {
-              console.error('showActionMenu err: ' + err);
-              return;
-            }
-            console.info('showActionMenu success callback, click button: ' + data.index);
-          });
-        } catch (error) {
-          let message = (error as BusinessError).message;
-          let code = (error as BusinessError).code;
-          console.error(`showActionMenu args error code is ${code}, message is ${message}`);
-        };
-      })
+        .onClick(() => {
+          try {
+            this.promptAction.showActionMenu({
+              title: 'Title Info',
+              buttons: [
+                {
+                  text: 'item1',
+                  color: '#666666'
+                },
+                {
+                  text: 'item2',
+                  color: '#000000'
+                }
+              ]
+            }, (err: BusinessError, data: promptAction.ActionMenuSuccessResponse) => {
+              if (err) {
+                console.error('showActionMenu err: ' + err);
+                return;
+              }
+              console.info('showActionMenu success callback, click button: ' + data.index);
+            });
+          } catch (error) {
+            let message = (error as BusinessError).message;
+            let code = (error as BusinessError).code;
+            console.error(`showActionMenu args error code is ${code}, message is ${message}`);
+          };
+        })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
   }
 }
 ```
 
 
-## showActionMenu
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showActionMenu
 
 showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>
 
@@ -619,24 +599,21 @@ showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.Ac
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.ActionMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenuoptions) | 是 | 操作菜单选项。 |
+| options | promptAction.ActionMenuOptions | 是 | 操作菜单选项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[promptAction.ActionMenuSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenusuccessresponse)&gt; | Promise对象，返回菜单的响应结果。 |
+| Promise<promptAction.ActionMenuSuccessResponse> | Promise对象，返回菜单的响应结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -648,8 +625,7 @@ showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.Ac
 
 该示例通过调用showActionMenu接口，展示了弹出操作菜单以及通过Promise获取操作菜单响应结果的功能。
 
-
-```ts
+```text
 import { PromptAction } from '@kit.ArkUI';
 @Entry
 @Component
@@ -659,37 +635,37 @@ struct Index {
   build() {
     Column() {
       Button('showActionMenu')
-      .onClick(() => {
-        this.promptAction.showActionMenu({
-          title: 'showActionMenu Title Info',
-          buttons: [
-          {
-            text: 'item1',
-            color: '#666666'
-          },
-          {
-            text: 'item2',
-            color: '#000000'
-          },
-          ]
+        .onClick(() => {
+          this.promptAction.showActionMenu({
+            title: 'showActionMenu Title Info',
+            buttons: [
+              {
+                text: 'item1',
+                color: '#666666'
+              },
+              {
+                text: 'item2',
+                color: '#000000'
+              },
+            ]
+          })
+            .then(data => {
+              console.info('showActionMenu success, click button: ' + data.index);
+            })
+            .catch((err: Error) => {
+              console.error('showActionMenu error: ' + err);
+            })
         })
-        .then(data => {
-          console.info('showActionMenu success, click button: ' + data.index);
-        })
-        .catch((err: Error) => {
-          console.error('showActionMenu error: ' + err);
-        })
-      })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
   }
 }
 ```
 
 
-## openCustomDialog12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>
+##### openCustomDialog12+
+
+openCustomDialog<T extends Object>(dialogContent: ComponentContent&lt;T&gt;, options?: promptAction.BaseDialogOptions): Promise&lt;void&gt;
 
 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置customStyle为true时的显示效果。
 
@@ -699,15 +675,13 @@ openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?:
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dialogContent | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | 自定义弹窗中显示的组件内容。 |
-| options | [promptAction.BaseDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11) | 否 | 弹窗样式。          说明： 如果BaseDialogOptions中的[isModal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)与[showInSubWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示��层，并在子窗口中显示。 |
+| dialogContent | ComponentContent&lt;T&gt; | 是 | 自定义弹窗中显示的组件内容。 |
+| options | promptAction.BaseDialogOptions | 否 | 弹窗样式。 说明： 如果BaseDialogOptions中的isModal与showInSubWindow同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -718,7 +692,6 @@ openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?:
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -728,10 +701,9 @@ openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?:
 
 **示例：**
 
-该示例通过监听[系统环境信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)（系统语言、深浅色等）的变化，调用[ComponentContent<T>](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) 的[update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#update)和[updateConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#updateconfiguration12)实现自定义弹窗的数据更新及节点的全量刷新。
+该示例通过监听[系统环境信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)（系统语言、深浅色等）的变化，调用[ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) 的[update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#update)和[updateConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#updateconfiguration12)实现自定义弹窗的数据更新及节点的全量刷新。
 
-
-```ts
+```text
 import { ComponentContent } from '@kit.ArkUI';
 import { AbilityConstant, Configuration, EnvironmentCallback, ConfigurationConstant } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -751,9 +723,9 @@ class Params {
 function BuilderDialog(params: Params) {
   Column() {
     Text(params.text)
-    .fontSize(50)
-    .fontWeight(FontWeight.Bold)
-    .margin({ bottom: 36 })
+      .fontSize(50)
+      .fontWeight(FontWeight.Bold)
+      .margin({ bottom: 36 })
   }.backgroundColor(params.colorMode == resourceManager.ColorMode.LIGHT ? "#D5D5D5" : "#004AAF")
 }
 
@@ -771,7 +743,7 @@ struct Index {
       onConfigurationUpdated: (config: Configuration): void => {
         console.info(`onConfigurationUpdated ${config}`);
         this.getUIContext().getHostContext()?.getApplicationContext().resourceManager.getConfiguration((err,
-        config) => {
+          config) => {
           // 调用ComponentContent的update更新colorMode信息
           this.contentNode?.update(new Params(this.message, config.colorMode))
           setTimeout(() => {
@@ -783,10 +755,10 @@ struct Index {
     }
     // 注册监听系统环境变化监听器
     this.callbackId =
-    this.getUIContext().getHostContext()?.getApplicationContext().on('environment', environmentCallback)
+      this.getUIContext().getHostContext()?.getApplicationContext().on('environment', environmentCallback)
     // 设置应用深浅色跟随系统
     this.getUIContext()
-    .getHostContext()?.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET)
+      .getHostContext()?.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET)
   }
 
   aboutToDisappear() {
@@ -799,23 +771,23 @@ struct Index {
     Row() {
       Column() {
         Button("click me")
-        .onClick(() => {
-          let uiContext = this.getUIContext();
-          let promptAction = uiContext.getPromptAction();
-          if (this.contentNode == null && uiContext.getHostContext() != undefined) {
-            this.contentNode = new ComponentContent(uiContext, wrapBuilder(BuilderDialog), new Params(this.message,
-            uiContext.getHostContext()!!.getApplicationContext().resourceManager.getConfigurationSync().colorMode))
-          }
-          if (this.contentNode == null) {
-            return
-          }
-          promptAction.closeCustomDialog(this.contentNode)
-          promptAction.openCustomDialog(this.contentNode).then(() => {
-            console.info("succeeded")
-          }).catch((error: BusinessError) => {
-            console.error(`OpenCustomDialog args error code is ${error.code}, message is ${error.message}`);
+          .onClick(() => {
+            let uiContext = this.getUIContext();
+            let promptAction = uiContext.getPromptAction();
+            if (this.contentNode == null && uiContext.getHostContext() != undefined) {
+              this.contentNode = new ComponentContent(uiContext, wrapBuilder(BuilderDialog), new Params(this.message,
+                uiContext.getHostContext()!!.getApplicationContext().resourceManager.getConfigurationSync().colorMode))
+            }
+            if (this.contentNode == null) {
+              return
+            }
+            promptAction.closeCustomDialog(this.contentNode)
+            promptAction.openCustomDialog(this.contentNode).then(() => {
+              console.info("succeeded")
+            }).catch((error: BusinessError) => {
+              console.error(`OpenCustomDialog args error code is ${error.code}, message is ${error.message}`);
+            })
           })
-        })
       }
       .width('100%')
       .height('100%')
@@ -826,10 +798,10 @@ struct Index {
 ```
 
 
-## openCustomDialog12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>
+##### openCustomDialog12+
+
+openCustomDialog(options: promptAction.CustomDialogOptions): Promise&lt;number&gt;
 
 创建并弹出自定义弹窗。使用Promise异步回调返回对话框的id，可供closeCustomDialog使用。
 
@@ -839,14 +811,12 @@ openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.CustomDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#customdialogoptions11) | 是 | 自定义弹窗的内容。          说明： 如果BaseDialogOptions中的[isModal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)与[showInSubWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。 |
+| options | promptAction.CustomDialogOptions | 是 | 自定义弹窗的内容。 说明： 如果BaseDialogOptions中的isModal与showInSubWindow同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -857,7 +827,6 @@ openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -866,8 +835,7 @@ openCustomDialog(options: promptAction.CustomDialogOptions): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -906,32 +874,32 @@ struct Index {
     Row() {
       Column({ space: 20 }) {
         Button('Click Me')
-        .fontSize(30)
-        .onClick(() => {
-          this.getUIContext()
-          .getPromptAction()
-          .openCustomDialog({
-            builder: () => {
-              this.customDialogComponent()
-            },
-            onWillDismiss: (dismissDialogAction: DismissDialogAction) => {
-              console.info('reason' + JSON.stringify(dismissDialogAction.reason));
-              console.info('dialog onWillDismiss');
-              if (dismissDialogAction.reason == DismissReason.PRESS_BACK) {
-                dismissDialogAction.dismiss();
-              }
-              if (dismissDialogAction.reason == DismissReason.TOUCH_OUTSIDE) {
-                dismissDialogAction.dismiss();
-              }
-            }
+          .fontSize(30)
+          .onClick(() => {
+            this.getUIContext()
+              .getPromptAction()
+              .openCustomDialog({
+                builder: () => {
+                  this.customDialogComponent()
+                },
+                onWillDismiss: (dismissDialogAction: DismissDialogAction) => {
+                  console.info('reason' + JSON.stringify(dismissDialogAction.reason));
+                  console.info('dialog onWillDismiss');
+                  if (dismissDialogAction.reason == DismissReason.PRESS_BACK) {
+                    dismissDialogAction.dismiss();
+                  }
+                  if (dismissDialogAction.reason == DismissReason.TOUCH_OUTSIDE) {
+                    dismissDialogAction.dismiss();
+                  }
+                }
+              })
+              .then((dialogId: number) => {
+                this.customDialogComponentId = dialogId;
+              })
+              .catch((error: BusinessError) => {
+                console.error(`openCustomDialog error code is ${error.code}, message is ${error.message}`);
+              })
           })
-          .then((dialogId: number) => {
-            this.customDialogComponentId = dialogId;
-          })
-          .catch((error: BusinessError) => {
-            console.error(`openCustomDialog error code is ${error.code}, message is ${error.message}`);
-          })
-        })
       }
       .width('100%')
     }
@@ -941,10 +909,10 @@ struct Index {
 ```
 
 
-## openCustomDialogWithController18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController, options?: promptAction.BaseDialogOptions): Promise<void>
+##### openCustomDialogWithController18+
+
+openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent&lt;T&gt;, controller: promptAction.DialogController, options?: promptAction.BaseDialogOptions): Promise&lt;void&gt;
 
 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。支持传入弹窗控制器与自定义弹窗绑定，后续可以通过控制器控制自定义弹窗。
 
@@ -956,16 +924,14 @@ openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dialogContent | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | 自定义弹窗中显示的组件内容。 |
-| controller | [promptAction.DialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#dialogcontroller18) | 是 | 自定义弹窗的控制器。 |
-| options | [promptAction.BaseDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11) | 否 | 自定义弹窗的样式。          说明： 如果BaseDialogOptions中的[isModal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)与[showInSubWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。 |
+| dialogContent | ComponentContent&lt;T&gt; | 是 | 自定义弹窗中显示的组件内容。 |
+| controller | promptAction.DialogController | 是 | 自定义弹窗的控制器。 |
+| options | promptAction.BaseDialogOptions | 否 | 自定义弹窗的样式。 说明： 如果BaseDialogOptions中的isModal与showInSubWindow同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -975,7 +941,6 @@ openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -988,8 +953,7 @@ openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent
 
 该示例通过调用openCustomDialog接口，展示了支持传入弹窗控制器与自定义弹窗绑定的功能。
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { ComponentContent, promptAction } from '@kit.ArkUI';
 
@@ -1007,15 +971,15 @@ class Params {
 function buildText(params: Params) {
   Column() {
     Text(params.text)
-    .fontSize(50)
-    .fontWeight(FontWeight.Bold)
-    .margin({ bottom: 36 })
+      .fontSize(50)
+      .fontWeight(FontWeight.Bold)
+      .margin({ bottom: 36 })
     Button('点我关闭弹窗：通过外部传递的DialogController')
-    .onClick(() => {
-      if (params.dialogController != undefined) {
-        params.dialogController.close();
-      }
-    })
+      .onClick(() => {
+        if (params.dialogController != undefined) {
+          params.dialogController.close();
+        }
+      })
   }.backgroundColor('#FFF0F0F0')
 }
 
@@ -1029,19 +993,19 @@ struct Index {
     Row() {
       Column() {
         Button("click me")
-        .onClick(() => {
-          let uiContext = this.getUIContext();
-          let promptAction = uiContext.getPromptAction();
-          let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText),
-          new Params(this.message, this.dialogController));
-          promptAction.openCustomDialogWithController(contentNode, this.dialogController)
-          .then(() => {
-            console.info('succeeded');
+          .onClick(() => {
+            let uiContext = this.getUIContext();
+            let promptAction = uiContext.getPromptAction();
+            let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText),
+              new Params(this.message, this.dialogController));
+            promptAction.openCustomDialogWithController(contentNode, this.dialogController)
+              .then(() => {
+                console.info('succeeded');
+              })
+              .catch((error: BusinessError) => {
+                console.error(`OpenCustomDialogWithController args error code is ${error.code}, message is ${error.message}`);
+              })
           })
-          .catch((error: BusinessError) => {
-            console.error(`OpenCustomDialogWithController args error code is ${error.code}, message is ${error.message}`);
-          })
-        })
       }
       .width('100%')
       .height('100%')
@@ -1052,10 +1016,10 @@ struct Index {
 ```
 
 
-## updateCustomDialog12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>
+##### updateCustomDialog12+
+
+updateCustomDialog<T extends Object>(dialogContent: ComponentContent&lt;T&gt;, options: promptAction.BaseDialogOptions): Promise&lt;void&gt;
 
 更新已弹出的dialogContent对应的自定义弹窗的样式，使用Promise异步回调。
 
@@ -1065,15 +1029,13 @@ updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dialogContent | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | 自定义弹窗中显示的组件内容。 |
-| options | [promptAction.BaseDialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11) | 是 | 弹窗样式，目前仅支持更新alignment、offset、autoCancel、maskColor。 |
+| dialogContent | ComponentContent&lt;T&gt; | 是 | 自定义弹窗中显示的组件内容。 |
+| options | promptAction.BaseDialogOptions | 是 | 弹窗样式，目前仅支持更新alignment、offset、autoCancel、maskColor。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1083,7 +1045,6 @@ updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1096,8 +1057,7 @@ updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options
 
 该示例通过调用updateCustomDialog接口，动态调整已弹出自定义弹窗的位置。
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -1113,9 +1073,9 @@ class Params {
 function buildText(params: Params) {
   Column() {
     Text(params.text)
-    .fontSize(50)
-    .fontWeight(FontWeight.Bold)
-    .margin({ bottom: 36 })
+      .fontSize(50)
+      .fontWeight(FontWeight.Bold)
+      .margin({ bottom: 36 })
   }.backgroundColor('#FFF0F0F0')
 }
 
@@ -1128,28 +1088,28 @@ struct Index {
     Row() {
       Column() {
         Button("click me")
-        .onClick(() => {
-          let uiContext = this.getUIContext();
-          let promptAction = uiContext.getPromptAction();
-          let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), new Params(this.message));
-          promptAction.openCustomDialog(contentNode)
-          .then(() => {
-            console.info('succeeded');
-          })
-          .catch((error: BusinessError) => {
-            console.error(`updateCustomDialog args error code is ${error.code}, message is ${error.message}`);
-          })
+          .onClick(() => {
+            let uiContext = this.getUIContext();
+            let promptAction = uiContext.getPromptAction();
+            let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), new Params(this.message));
+            promptAction.openCustomDialog(contentNode)
+              .then(() => {
+                console.info('succeeded');
+              })
+              .catch((error: BusinessError) => {
+                console.error(`updateCustomDialog args error code is ${error.code}, message is ${error.message}`);
+              })
 
-          setTimeout(() => {
-            promptAction.updateCustomDialog(contentNode, { alignment: DialogAlignment.CenterEnd })
-            .then(() => {
-              console.info('succeeded');
-            })
-            .catch((error: BusinessError) => {
-              console.error(`updateCustomDialog args error code is ${error.code}, message is ${error.message}`);
-            })
-          }, 2000); //2秒后自动更新弹窗位置
-        })
+            setTimeout(() => {
+              promptAction.updateCustomDialog(contentNode, { alignment: DialogAlignment.CenterEnd })
+                .then(() => {
+                  console.info('succeeded');
+                })
+                .catch((error: BusinessError) => {
+                  console.error(`updateCustomDialog args error code is ${error.code}, message is ${error.message}`);
+                })
+            }, 2000); //2秒后自动更新弹窗位置
+          })
       }
       .width('100%')
       .height('100%')
@@ -1160,10 +1120,10 @@ struct Index {
 ```
 
 
-## closeCustomDialog12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>
+##### closeCustomDialog12+
+
+closeCustomDialog<T extends Object>(dialogContent: ComponentContent&lt;T&gt;): Promise&lt;void&gt;
 
 关闭已弹出的dialogContent对应的自定义弹窗，使用Promise异步回调。
 
@@ -1173,14 +1133,12 @@ closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dialogContent | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | 自定义弹窗中显示的组件内容。 |
+| dialogContent | ComponentContent&lt;T&gt; | 是 | 自定义弹窗中显示的组件内容。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1190,7 +1148,6 @@ closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1203,8 +1160,7 @@ closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise
 
 该示例通过调用closeCustomDialog接口，关闭已弹出的dialogContent对应的自定义弹窗。
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -1220,9 +1176,9 @@ class Params {
 function buildText(params: Params) {
   Column() {
     Text(params.text)
-    .fontSize(50)
-    .fontWeight(FontWeight.Bold)
-    .margin({ bottom: 36 })
+      .fontSize(50)
+      .fontWeight(FontWeight.Bold)
+      .margin({ bottom: 36 })
   }.backgroundColor('#FFF0F0F0')
 }
 
@@ -1235,27 +1191,27 @@ struct Index {
     Row() {
       Column() {
         Button("click me")
-        .onClick(() => {
-          let uiContext = this.getUIContext();
-          let promptAction = uiContext.getPromptAction();
-          let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), new Params(this.message));
-          promptAction.openCustomDialog(contentNode)
-          .then(() => {
-            console.info('succeeded');
+          .onClick(() => {
+            let uiContext = this.getUIContext();
+            let promptAction = uiContext.getPromptAction();
+            let contentNode = new ComponentContent(uiContext, wrapBuilder(buildText), new Params(this.message));
+            promptAction.openCustomDialog(contentNode)
+              .then(() => {
+                console.info('succeeded');
+              })
+              .catch((error: BusinessError) => {
+                console.error(`OpenCustomDialog args error code is ${error.code}, message is ${error.message}`);
+              })
+            setTimeout(() => {
+              promptAction.closeCustomDialog(contentNode)
+                .then(() => {
+                  console.info('succeeded');
+                })
+                .catch((error: BusinessError) => {
+                  console.error(`OpenCustomDialog args error code is ${error.code}, message is ${error.message}`);
+                })
+            }, 2000); //2秒后自动关闭
           })
-          .catch((error: BusinessError) => {
-            console.error(`OpenCustomDialog args error code is ${error.code}, message is ${error.message}`);
-          })
-          setTimeout(() => {
-            promptAction.closeCustomDialog(contentNode)
-            .then(() => {
-              console.info('succeeded');
-            })
-            .catch((error: BusinessError) => {
-              console.error(`OpenCustomDialog args error code is ${error.code}, message is ${error.message}`);
-            })
-          }, 2000); //2秒后自动关闭
-        })
       }
       .width('100%')
       .height('100%')
@@ -1266,8 +1222,8 @@ struct Index {
 ```
 
 
-## closeCustomDialog12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### closeCustomDialog12+
 
 closeCustomDialog(dialogId: number): void
 
@@ -1279,7 +1235,6 @@ closeCustomDialog(dialogId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dialogId | number | 是 | openCustomDialog返回的对话框id。 |
@@ -1289,7 +1244,6 @@ closeCustomDialog(dialogId: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -1298,8 +1252,7 @@ closeCustomDialog(dialogId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { PromptAction } from '@kit.ArkUI';
 
 @Entry
@@ -1327,25 +1280,25 @@ struct Index {
     Row() {
       Column() {
         Button("click me")
-        .onClick(() => {
-          this.promptAction.openCustomDialog({
-            builder: () => {
-              this.customDialogComponent()
-            },
-            onWillDismiss: (dismissDialogAction: DismissDialogAction) => {
-              console.info(`reason ${dismissDialogAction.reason}`);
-              console.info('dialog onWillDismiss');
-              if (dismissDialogAction.reason == DismissReason.PRESS_BACK) {
-                dismissDialogAction.dismiss();
+          .onClick(() => {
+            this.promptAction.openCustomDialog({
+              builder: () => {
+                this.customDialogComponent()
+              },
+              onWillDismiss: (dismissDialogAction: DismissDialogAction) => {
+                console.info(`reason ${dismissDialogAction.reason}`);
+                console.info('dialog onWillDismiss');
+                if (dismissDialogAction.reason == DismissReason.PRESS_BACK) {
+                  dismissDialogAction.dismiss();
+                }
+                if (dismissDialogAction.reason == DismissReason.TOUCH_OUTSIDE) {
+                  dismissDialogAction.dismiss();
+                }
               }
-              if (dismissDialogAction.reason == DismissReason.TOUCH_OUTSIDE) {
-                dismissDialogAction.dismiss();
-              }
-            }
-          }).then((dialogId: number) => {
-            this.customDialogComponentId = dialogId;
+            }).then((dialogId: number) => {
+              this.customDialogComponentId = dialogId;
+            })
           })
-        })
       }
       .width('100%')
       .height('100%')
@@ -1356,10 +1309,10 @@ struct Index {
 ```
 
 
-## presentCustomDialog18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise<number>
+##### presentCustomDialog18+
+
+presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise&lt;number&gt;
 
 创建并弹出自定义弹窗。使用Promise异步回调返回对话框的id，可供closeCustomDialog使用。
 
@@ -1371,16 +1324,14 @@ presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: p
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| builder | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [CustomBuilderWithId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-t#custombuilderwithid18) | 是 | 自定义弹窗的内容。 |
-| controller | [promptAction.DialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#dialogcontroller18) | 否 | 自定义弹窗的控制器。 |
-| options | [promptAction.DialogOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#dialogoptions18) | 否 | 自定义弹窗的样式。          说明： 如果BaseDialogOptions中的[isModal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)与[showInSubWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#basedialogoptions11)同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。 |
+| builder | CustomBuilder \| CustomBuilderWithId | 是 | 自定义弹窗的内容。 |
+| controller | promptAction.DialogController | 否 | 自定义弹窗的控制器。 |
+| options | promptAction.DialogOptions | 否 | 自定义弹窗的样式。 说明： 如果BaseDialogOptions中的isModal与showInSubWindow同时设置为true，则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1391,7 +1342,6 @@ presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: p
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -1400,8 +1350,7 @@ presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: p
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { PromptAction, promptAction } from '@kit.ArkUI';
 
@@ -1446,28 +1395,28 @@ struct Index {
     Row() {
       Column({ space: 10 }) {
         Button('presentCustomDialog')
-        .fontSize(20)
-        .onClick(() => {
-          this.promptAction.presentCustomDialog(() => {
-            this.customDialogComponent()
-          }, this.dialogController)
-          .then((dialogId: number) => {
-            this.customDialogComponentId = dialogId;
+          .fontSize(20)
+          .onClick(() => {
+            this.promptAction.presentCustomDialog(() => {
+              this.customDialogComponent()
+            }, this.dialogController)
+              .then((dialogId: number) => {
+                this.customDialogComponentId = dialogId;
+              })
+              .catch((err: BusinessError) => {
+                console.error("presentCustomDialog error: " + err.code + " " + err.message);
+              })
           })
-          .catch((err: BusinessError) => {
-            console.error("presentCustomDialog error: " + err.code + " " + err.message);
-          })
-        })
         Button('presentCustomDialog with id')
-        .fontSize(20)
-        .onClick(() => {
-          this.promptAction.presentCustomDialog((dialogId: number) => {
-            this.customDialogComponentWithId(dialogId)
-          }, this.dialogController)
-          .catch((err: BusinessError) => {
-            console.error("presentCustomDialog with id error: " + err.code + " " + err.message);
+          .fontSize(20)
+          .onClick(() => {
+            this.promptAction.presentCustomDialog((dialogId: number) => {
+              this.customDialogComponentWithId(dialogId)
+            }, this.dialogController)
+              .catch((err: BusinessError) => {
+                console.error("presentCustomDialog with id error: " + err.code + " " + err.message);
+              })
           })
-        })
       }
       .width('100%')
       .height('100%')
@@ -1478,12 +1427,15 @@ struct Index {
 ```
 
 
-## openPopup18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: PopupCommonOptions): Promise<void>
+##### openPopup18+
+
+openPopup<T extends Object>(content: ComponentContent&lt;T&gt;, target: TargetInfo, options?: PopupCommonOptions): Promise&lt;void&gt;
 
 创建并弹出以content作为内容的Popup弹窗，使用Promise异步回调。
+
+> [!NOTE]
+> 使用该接口时，若未传入有效的target，则无法弹出popup弹窗。 由于 updatePopup 和 closePopup 依赖content去更新或者关闭指定的popup弹窗，开发者需自行维护传入的content。 如果在wrapBuilder中包含其他组件（例如： Popup 、 Chip 组件），则 ComponentContent 应采用带有四个参数的构造函数constructor，其中options参数应传递{ nestingBuilderSupported: true }。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -1492,16 +1444,14 @@ openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, op
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | popup弹窗中显示的组件内容。 |
-| target | [TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18) | 是 | 需要绑定组件的信息。 |
-| options | [PopupCommonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupcommonoptions18类型说明) | 否 | popup弹窗样式。 |
+| content | ComponentContent&lt;T&gt; | 是 | popup弹窗中显示的组件内容。 |
+| target | TargetInfo | 是 | 需要绑定组件的信息。 |
+| options | PopupCommonOptions | 否 | popup弹窗样式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1511,7 +1461,6 @@ openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, op
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1526,8 +1475,7 @@ openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, op
 
 该示例通过调用openPopup、updatePopup和closePopup接口，展示了弹出、更新以及关闭Popup的功能。
 
-
-```ts
+```text
 import { ComponentContent, FrameNode } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1537,7 +1485,7 @@ interface PopupParam {
 }
 
 export function showPopup(context: UIContext, uniqueId: number, contentNode: ComponentContent<PopupParam>,
-popupParam: PopupParam) {
+  popupParam: PopupParam) {
   const promptAction = context.getPromptAction();
   let frameNode: FrameNode | null = context.getFrameNodeByUniqueId(uniqueId);
   let targetId = frameNode?.getFirstChild()?.getUniqueId();
@@ -1546,31 +1494,31 @@ popupParam: PopupParam) {
     mask: { color: Color.Pink },
     enableArrow: true,
   })
-  .then(() => {
-    console.info('openPopup success');
-  })
-  .catch((err: BusinessError) => {
-    console.error('openPopup error: ' + err.code + ' ' + err.message);
-  })
+    .then(() => {
+      console.info('openPopup success');
+    })
+    .catch((err: BusinessError) => {
+      console.error('openPopup error: ' + err.code + ' ' + err.message);
+    })
   popupParam.updateFunc = () => {
     promptAction.updatePopup(contentNode, {
       enableArrow: false
     }, true)
-    .then(() => {
-      console.info('updatePopup success');
-    })
-    .catch((err: BusinessError) => {
-      console.error('updatePopup error: ' + err.code + ' ' + err.message);
-    })
+      .then(() => {
+        console.info('updatePopup success');
+      })
+      .catch((err: BusinessError) => {
+        console.error('updatePopup error: ' + err.code + ' ' + err.message);
+      })
   }
   popupParam.closeFunc = () => {
     promptAction.closePopup(contentNode)
-    .then(() => {
-      console.info('closePopup success');
-    })
-    .catch((err: BusinessError) => {
-      console.error('closePopup error: ' + err.code + ' ' + err.message);
-    })
+      .then(() => {
+        console.info('closePopup success');
+      })
+      .catch((err: BusinessError) => {
+        console.error('closePopup error: ' + err.code + ' ' + err.message);
+      })
   }
 }
 
@@ -1579,15 +1527,15 @@ function buildText(param?: PopupParam) {
   Column() {
     Text('popup')
     Button('Update Popup')
-    .fontSize(20)
-    .onClick(() => {
-      param?.updateFunc?.();
-    })
+      .fontSize(20)
+      .onClick(() => {
+        param?.updateFunc?.();
+      })
     Button('Close Popup')
-    .fontSize(20)
-    .onClick(() => {
-      param?.closeFunc?.();
-    })
+      .fontSize(20)
+      .onClick(() => {
+        param?.closeFunc?.();
+      })
   }
 }
 
@@ -1597,29 +1545,29 @@ struct Index {
   build() {
     Column() {
       Button('Open Popup')
-      .fontSize(20)
-      .onClick(() => {
-        let context = this.getUIContext();
-        const popupParam: PopupParam = {};
-        const contentNode = new ComponentContent(context, wrapBuilder(buildText), popupParam);
-        showPopup(context, this.getUniqueId(), contentNode, popupParam);
-      })
+        .fontSize(20)
+        .onClick(() => {
+          let context = this.getUIContext();
+          const popupParam: PopupParam = {};
+          const contentNode = new ComponentContent(context, wrapBuilder(buildText), popupParam);
+          showPopup(context, this.getUniqueId(), contentNode, popupParam);
+        })
     }
   }
 }
 ```
 
 
-## updatePopup18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions, partialUpdate?: boolean ): Promise<void>
+##### updatePopup18+
+
+updatePopup<T extends Object>(content: ComponentContent&lt;T&gt;, options: PopupCommonOptions, partialUpdate?: boolean ): Promise&lt;void&gt;
 
 更新content对应的Popup弹窗的样式，使用Promise异步回调。
 
-
 > [!NOTE]
 > 不支持更新showInSubWindow、focusable、onStateChange、onWillDismiss、transition。
+
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -1627,16 +1575,14 @@ updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommon
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | popup弹窗中显示的组件内容。 |
-| options | [PopupCommonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupcommonoptions18类型说明) | 是 | popup弹窗样式。          说明：          不支持更新showInSubWindow、focusable、onStateChange、onWillDismiss、transition。 |
-| partialUpdate | boolean | 否 | popup弹窗更新方式，默认值为false。          说明：          true：增量更新，此时更新options中的指定属性，其它属性保留当前值。options中传入的属性为异常值或undefined时，不会对该属性进行更新。          false：全量更新，此时更新options中的指定属性，并且其他属性恢复默认值。 |
+| content | ComponentContent&lt;T&gt; | 是 | popup弹窗中显示的组件内容。 |
+| options | PopupCommonOptions | 是 | popup弹窗样式。 说明： 不支持更新showInSubWindow、focusable、onStateChange、onWillDismiss、transition。 |
+| partialUpdate | boolean | 否 | popup弹窗更新方式，默认值为false。 说明： true：增量更新，此时更新options中的指定属性，其它属性保留当前值。options中传入的属性为异常值或undefined时，不会对该属性进行更新。 false：全量更新，此时更新options中的指定属性，并且其他属性恢复默认值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1646,7 +1592,6 @@ updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommon
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1660,10 +1605,10 @@ updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommon
 请参考[openPopup](#openpopup18)示例。
 
 
-## closePopup18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>
+##### closePopup18+
+
+closePopup<T extends Object>(content: ComponentContent&lt;T&gt;): Promise&lt;void&gt;
 
 关闭content对应的Popup弹窗，使用Promise异步回调。
 
@@ -1673,14 +1618,12 @@ closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | popup弹窗中显示的组件内容。 |
+| content | ComponentContent&lt;T&gt; | 是 | popup弹窗中显示的组件内容。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1690,7 +1633,6 @@ closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1704,12 +1646,15 @@ closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>
 请参考[openPopup](#openpopup18)示例。
 
 
-## openMenu18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>
+##### openMenu18+
+
+openMenu<T extends Object>(content: ComponentContent&lt;T&gt;, target: TargetInfo, options?: MenuOptions): Promise&lt;void&gt;
 
 创建并弹出以content作为内容的Menu弹窗。使用Promise异步回调。
+
+> [!NOTE]
+> 使用该接口时，若未传入有效的target，则无法弹出menu弹窗。 由于 updateMenu 和 closeMenu 依赖content去更新或者关闭指定的menu弹窗，开发者需自行维护传入的content。 如果在wrapBuilder中包含其他组件（例如： Popup 、 Chip 组件），则 ComponentContent 应采用带有四个参数的构造函数constructor，其中options参数应传递{ nestingBuilderSupported: true }。 子窗弹窗里不能再弹出子窗弹窗，例如 openMenu 设置了showInSubWindow为true时，则不能再弹出另一个设置了showInSubWindow为true的弹窗。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -1718,16 +1663,14 @@ openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, opt
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | menu弹窗中显示的组件内容。 |
-| target | [TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18) | 是 | 需要绑定组件的信息。 |
-| options | [MenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menuoptions10) | 否 | menu弹窗样式。          说明：          title属性不生效。          preview参数仅支持设置MenuPreviewMode类型。 |
+| content | ComponentContent&lt;T&gt; | 是 | menu弹窗中显示的组件内容。 |
+| target | TargetInfo | 是 | 需要绑定组件的信息。 |
+| options | MenuOptions | 否 | menu弹窗样式。 说明： title属性不生效。 preview参数仅支持设置MenuPreviewMode类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1737,7 +1680,6 @@ openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, opt
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1752,8 +1694,7 @@ openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, opt
 
 该示例通过调用openMenu接口，展示了弹出Menu的功能。
 
-
-```ts
+```text
 import { ComponentContent, FrameNode } from '@kit.ArkUI';
 
 export function doSomething(context: UIContext, uniqueId: number, contentNode: ComponentContent<Object>) {
@@ -1789,26 +1730,29 @@ struct Index {
   build() {
     Column() {
       Button('OpenMenu', { type: ButtonType.Normal, stateEffect: true })
-      .borderRadius('16lpx')
-      .width('80%')
-      .margin(10)
-      .onClick(() => {
-        let context = this.getUIContext();
-        const contentNode = new ComponentContent(context, wrapBuilder(MyMenu));
-        doSomething(context, this.getUniqueId(), contentNode);
-      })
+        .borderRadius('16lpx')
+        .width('80%')
+        .margin(10)
+        .onClick(() => {
+          let context = this.getUIContext();
+          const contentNode = new ComponentContent(context, wrapBuilder(MyMenu));
+          doSomething(context, this.getUniqueId(), contentNode);
+        })
     }
   }
 }
 ```
 
 
-## updateMenu18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions, partialUpdate?: boolean ): Promise<void>
+##### updateMenu18+
+
+updateMenu<T extends Object>(content: ComponentContent&lt;T&gt;, options: MenuOptions, partialUpdate?: boolean ): Promise&lt;void&gt;
 
 更新content对应的Menu弹窗的样式。使用Promise异步回调。
+
+> [!TIP]
+> 不支持更新showInSubWindow、preview、previewAnimationOptions、transition、onAppear、aboutToAppear、onDisappear、aboutToDisappear、onWillAppear、onDidAppear、onWillDisappear和onDidDisappear。 支持mask通过设置 MenuMaskType 实现更新蒙层样式，不支持mask通过设置boolean实现蒙层从无到有或者从有到无的更新。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -1817,16 +1761,14 @@ updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions,
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | menu弹窗中显示的组件内容。 |
-| options | [MenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menuoptions10) | 是 | menu弹窗样式。          说明：          1. 不支持更新showInSubWindow、preview、previewAnimationOptions、transition、onAppear、aboutToAppear、onDisappear、aboutToDisappear、onWillAppear、onDidAppear、onWillDisappear和onDidDisappear。          2. 支持mask通过设置[MenuMaskType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menumasktype20类型说明)实现更新蒙层样式，不支持mask通过设置boolean实现蒙层从无到有或者从有到无的更新。 |
-| partialUpdate | boolean | 否 | menu弹窗更新方式，默认值为false。          说明：          1. true为增量更新，保留当前值，更新options中的指定属性。          2. false为全量更新，除options中的指定属性，其他属性恢复默认值。 |
+| content | ComponentContent&lt;T&gt; | 是 | menu弹窗中显示的组件内容。 |
+| options | MenuOptions | 是 | menu弹窗样式。 说明： 1. 不支持更新showInSubWindow、preview、previewAnimationOptions、transition、onAppear、aboutToAppear、onDisappear、aboutToDisappear、onWillAppear、onDidAppear、onWillDisappear和onDidDisappear。 2. 支持mask通过设置MenuMaskType实现更新蒙层样式，不支持mask通过设置boolean实现蒙层从无到有或者从有到无的更新。 |
+| partialUpdate | boolean | 否 | menu弹窗更新方式，默认值为false。 说明： 1. true为增量更新，保留当前值，更新options中的指定属性。 2. false为全量更新，除options中的指定属性，其他属性恢复默认值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1836,7 +1778,6 @@ updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions,
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1849,8 +1790,7 @@ updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions,
 
 该示例通过调用updateMenu接口，展示了更新Menu箭头样式的功能。
 
-
-```ts
+```text
 import { ComponentContent, FrameNode } from '@kit.ArkUI';
 
 export function doSomething(context: UIContext, uniqueId: number, contentNode: ComponentContent<Object>) {
@@ -1891,24 +1831,24 @@ struct Index {
   build() {
     Column() {
       Button('OpenMenu', { type: ButtonType.Normal, stateEffect: true })
-      .borderRadius('16lpx')
-      .width('80%')
-      .margin(10)
-      .onClick(() => {
-        let context = this.getUIContext();
-        const contentNode = new ComponentContent(context, wrapBuilder(MyMenu));
-        doSomething(context, this.getUniqueId(), contentNode);
-      })
+        .borderRadius('16lpx')
+        .width('80%')
+        .margin(10)
+        .onClick(() => {
+          let context = this.getUIContext();
+          const contentNode = new ComponentContent(context, wrapBuilder(MyMenu));
+          doSomething(context, this.getUniqueId(), contentNode);
+        })
     }
   }
 }
 ```
 
 
-## closeMenu18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>
+##### closeMenu18+
+
+closeMenu<T extends Object>(content: ComponentContent&lt;T&gt;): Promise&lt;void&gt;
 
 关闭content对应的Menu弹窗。使用Promise异步回调。
 
@@ -1918,14 +1858,12 @@ closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| content | [ComponentContent&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 是 | menu弹窗中显示的组件内容。 |
+| content | ComponentContent&lt;T&gt; | 是 | menu弹窗中显示的组件内容。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1935,7 +1873,6 @@ closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[弹窗错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-promptaction)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1948,8 +1885,7 @@ closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>
 
 该示例通过调用closeMenu接口，展示了关闭Menu的功能。
 
-
-```ts
+```text
 import { ComponentContent, FrameNode } from '@kit.ArkUI';
 
 export function doSomething(context: UIContext, uniqueId: number, contentNode: ComponentContent<Object>) {
@@ -1988,46 +1924,44 @@ struct Index {
   build() {
     Column() {
       Button('OpenMenu', { type: ButtonType.Normal, stateEffect: true })
-      .borderRadius('16lpx')
-      .width('80%')
-      .margin(10)
-      .onClick(() => {
-        let context = this.getUIContext();
-        const contentNode = new ComponentContent(context, wrapBuilder(MyMenu));
-        doSomething(context, this.getUniqueId(), contentNode);
-      })
+        .borderRadius('16lpx')
+        .width('80%')
+        .margin(10)
+        .onClick(() => {
+          let context = this.getUIContext();
+          const contentNode = new ComponentContent(context, wrapBuilder(MyMenu));
+          doSomething(context, this.getUniqueId(), contentNode);
+        })
     }
   }
 }
 ```
 
 
-## showActionMenu(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showActionMenu(deprecated)
 
 showActionMenu(options: promptAction.ActionMenuOptions, callback: [promptAction.ActionMenuSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenusuccessresponse)): void
 
 创建并显示操作菜单，菜单响应结果使用callback异步回调返回。
 
-
 > [!NOTE]
-> 从API version 10开始支持，从API version 11开始废弃，建议使用[showActionMenu](#showactionmenu11)替代。
+> 从API version 10开始支持，从API version 11开始废弃，建议使用 showActionMenu 替代。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [promptAction.ActionMenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenuoptions) | 是 | 操作菜单选项。 |
-| callback | [promptAction.ActionMenuSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenusuccessresponse) | 是 | 回调函数，返回菜单的响应结果。 |
+| options | promptAction.ActionMenuOptions | 是 | 操作菜单选项。 |
+| callback | promptAction.ActionMenuSuccessResponse | 是 | 回调函数，返回菜单的响应结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2039,8 +1973,7 @@ showActionMenu(options: promptAction.ActionMenuOptions, callback: [promptAction.
 
 该示例通过调用showActionMenu接口，展示了弹出操作菜单以及返回菜单响应结果的功能。
 
-
-```ts
+```text
 import { PromptAction } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2052,28 +1985,28 @@ struct Index {
   build() {
     Column() {
       Button('showActionMenu')
-      .onClick(() => {
-        try {
-          this.promptAction.showActionMenu({
-            title: 'Title Info',
-            buttons: [
-            {
-              text: 'item1',
-              color: '#666666'
-            },
-            {
-              text: 'item2',
-              color: '#000000'
-            }
-            ]
-        }, { index: 0 });
-        } catch (error) {
-          let message = (error as BusinessError).message;
-          let code = (error as BusinessError).code;
-          console.error(`showActionMenu args error code is ${code}, message is ${message}`);
-        }
-        ;
-      })
+        .onClick(() => {
+          try {
+            this.promptAction.showActionMenu({
+              title: 'Title Info',
+              buttons: [
+                {
+                  text: 'item1',
+                  color: '#666666'
+                },
+                {
+                  text: 'item2',
+                  color: '#000000'
+                }
+              ]
+            }, { index: 0 });
+          } catch (error) {
+            let message = (error as BusinessError).message;
+            let code = (error as BusinessError).code;
+            console.error(`showActionMenu args error code is ${code}, message is ${message}`);
+          }
+          ;
+        })
     }.height('100%').width('100%').justifyContent(FlexAlign.Center)
   }
 }

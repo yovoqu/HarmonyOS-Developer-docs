@@ -1,6 +1,6 @@
 # SM2签名数据格式转换(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm2-sign-data-format-conversion
 
@@ -9,9 +9,10 @@
 开发者可指定SM2签名数据，将其转换成DER格式密文。反之，也可以从DER格式密文中取出具体的SM2签名数据。
 
 **指定密文参数，转换为DER格式**
+1. 构造[EccSignatureSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#eccsignaturespec20)对象，用于指定SM2密文参数。
+2. 调用[genEccSignature](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#geneccsignature20)，将EccSignatureSpec对象传入，转换为DER格式的SM2密文。
 
-
-```text
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -33,9 +34,10 @@ function testSm2SignDataRsToDer() {
 ```
 
 **指定DER格式，转换为（r、s）格式**
+1. 指定DER格式的SM2密文参数。
+2. 调用[genEccSignatureSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#geneccsignaturespec20)，将DER格式数据传入，转换为(r、s)格式的SM2密文。
 
-
-```text
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

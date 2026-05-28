@@ -3,27 +3,25 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-chart
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图表组件，用于呈现线形图、柱状图、量规图界面。
-
-
+ 
 > [!NOTE]
 > 从API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
+  
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 不支持。
+ 
+  
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | type | string | line | 否 | 设置图表类型（不支持动态修改），可选项有： - bar：柱状图。 - line：线形图。 - gauge：量规图。 - progress：进度类圆形图表。 - loading：加载类圆形图表。 - rainbow：占比类圆形图表。 |
@@ -32,32 +30,29 @@
 | segments | DataSegment \| Array&lt;DataSegment&gt; | - | 否 | 进度类、加载类和占比类圆形图表使用的数据结构。 DataSegment针对进度类和加载类圆形图表使用，Array&lt;DataSegment&gt;针对占比类图表使用，DataSegment最多9个。 |
 | effects | boolean | true | 否 | 是否开启占比类、进度类圆形图表特效。 默认值：true，表示开启占比类、进度类圆形图表特效。 |
 | animationduration | number | 3000 | 否 | 设置占比类圆形图表展开动画时长，单位为ms。 |
-
-
-**表1** ChartOptions
-
-
+ 
+ 
+ **表1** ChartOptions
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | xAxis | ChartAxis | - | 是 | x轴参数设置。可以设置x轴最小值、最大值、刻度数以及是否显示。 |
 | yAxis | ChartAxis | - | 是 | y轴参数设置。可以设置y轴最小值、最大值、刻度数以及是否显示。 |
 | series | ChartAxis | - | 否 | 数据序列参数设置，仅线形图支持。可以设置： - 线的样式，如线宽、是否平滑。 - 线最前端位置白点的样式和大小。 |
-
-
-**表2** ChartDataset
-
-
+ 
+ 
+ **表2** ChartDataset
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | strokeColor | &lt;color&gt; | #ff6384 | 否 | 线条颜色，仅线形图支持。 |
 | fillColor | &lt;color&gt; | #ff6384 | 否 | 填充颜色，线形图表示填充的渐变颜色。 |
 | data | Array&lt;number&gt; \| Array&lt;Point&gt; | - | 是 | 设置绘制线或柱中的点集。 |
 | gradient | boolean | false | 否 | 设置是否显示填充渐变颜色，仅线形图支持。 默认值：false，表示设置不显示填充渐变颜色。 |
-
-
-**表3** ChartAxis
-
-
+ 
+ 
+ **表3** ChartAxis
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | min | number | 0 | 否 | 轴的最小值，不支持负数，仅线形图支持。 |
@@ -65,11 +60,10 @@
 | axisTick | number | 10 | 否 | 轴显示的刻度数量。 仅支持1~20，且具体显示的效果与如下计算值有关（图的宽度所占的像素/（max-min））。在柱状图中，每组数据显示的柱子数量与刻度数量一致，且柱子显示在刻度处。 |
 | display | boolean | false | 否 | 是否显示轴。 默认值：false，表示不显示轴。 |
 | color | &lt;color&gt; | #c0c0c0 | 否 | 轴颜色。 |
-
-
-**表4** ChartSeries
-
-
+ 
+ 
+ **表4** ChartSeries
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | lineStyle | ChartLineStyle | - | 否 | 线样式设置，如线宽、是否平滑。 |
@@ -77,20 +71,18 @@
 | topPoint | PointStyle | - | 否 | 最高点的样式和大小。 |
 | bottomPoint | PointStyle | - | 否 | 最低点的样式和大小。 |
 | loop | ChartLoop | - | 否 | 设置屏幕显示满时，是否需要重头开始绘制。 |
-
-
-**表5** ChartLineStyle
-
-
+ 
+ 
+ **表5** ChartLineStyle
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | width | &lt;length&gt; | 1px | 否 | 线宽设置。 |
 | smooth | boolean | false | 否 | 是否平滑。 默认值：false，表示不做平滑处理。 |
-
-
-**表6** PointStyle
-
-
+ 
+ 
+ **表6** PointStyle
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | shape | string | circle | 否 | 高亮点的形状。可选值为： - circle：圆形。 - square：方形。 - triangle：三角形。 |
@@ -98,20 +90,18 @@
 | strokeWidth | &lt;length&gt; | 1px | 否 | 边框宽度。 |
 | strokeColor | &lt;color&gt; | #ff0000 | 否 | 边框颜色。 |
 | fillColor | &lt;color&gt; | #ff0000 | 否 | 填充颜色。 |
-
-
-**表7** ChartLoop
-
-
+ 
+ 
+ **表7** ChartLoop
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | margin | &lt;length&gt; | 1 | 否 | 擦除点的个数（最新绘制的点与最老的点之间的横向距离）。 margin和topPoint/bottomPoint/headPoint同时使用时，有概率出现point正好位于擦除区域的情况，导致point不可见，因此不建议同时使用。 |
 | gradient | boolean | false | 否 | 是否需要渐变擦除。 默认值：false，表示不需要渐变擦除。 |
-
-
-**表8** Point
-
-
+ 
+ 
+ **表8** Point
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | value | number | 0 | 是 | 表示绘制点的Y轴坐标。 |
@@ -121,19 +111,18 @@
 | textColor | &lt;color&gt; | #000000 | 否 | 表示注释文字的颜色。 |
 | lineDash | string | solid | 否 | 表示绘制当前线段虚线的样式。 - "dashed, 5, 5"：表示纯虚线，绘制5px的实线后留5px的空白。 - “solid”：表示绘制实线。 |
 | lineColor | &lt;color&gt; | #000000 | 否 | 表示绘制当前线段的颜色。此颜色不设置会默认使用整体的strokeColor。 |
-
-
-**表9** DataSegment
-
-
+ 
+ 
+ **表9** DataSegment
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | startColor | Color | - | 否 | 起始位置的颜色，设置startColor必须设置endColor。不设置startColor时，会使用系统默认预置的颜色数组，具体颜色值见下表。 |
 | endColor | Color | - | 否 | 终止位置的颜色，设置endColor必须设置startColor。 不设置startColor时，会使用系统默认预置的颜色数组。 |
 | value | number | 0 | 是 | 占比数据的所占份额，最大100。 |
 | name | string | - | 否 | 此类数据的名称。 |
-
-
+ 
+  
 | 数据组 | 主题 | 深色主题 |
 | --- | --- | --- |
 | 0 | 起始颜色：#f7ce00，结束颜色：#f99b11 | 起始颜色：#d1a738，结束颜色：#eb933d |
@@ -145,22 +134,21 @@
 | 6 | 起始颜色：#73c1e6，结束颜色：#4fb4e3 | 起始颜色：#5ea6d1，结束颜色：#4895c2 |
 | 7 | 起始颜色：#a5d61d，结束颜色：#69d14f | 起始颜色：#91c23a，结束颜色：#70ba5d |
 | 8 | 起始颜色：#a2a2b0，结束颜色：#8e8e93 | 起始颜色：#8c8c99，结束颜色：#6b6b76 |
-
-
+ 
+ 
 当类型为量规图时，还支持如下属性：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | percent | number | 0 | 否 | 当前值占整体的百分比，取值范围为0-100。 |
+ 
+ 
+  
 
-
-## 样式
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 样式
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)外，还支持如下样式：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | stroke-width | &lt;length&gt; | 32px（量规） 24px（占比类圆形图表） | 否 | 量规、占比类圆形图表组件刻度条的宽度。 |
@@ -171,20 +159,217 @@
 | radius | &lt;length&gt; | - | 否 | 量规组件刻度条半径，该样式优先于通用样式的width和height样式，仅量规图支持。 该样式需要和center-x和center-y一起配置才能生效。 |
 | colors | Array | - | 否 | 量规组件刻度条每一个区段的颜色，仅量规图支持。 如：colors: #ff0000, #00ff00。 |
 | weights | Array | - | 否 | 量规组件刻度条每一个区段的权重，仅量规图支持。 如：weights: 2, 2。 |
-| font-family | Array | - | 否 | 表示绘制注释的字体样式，支持[自定义字体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-customizing-font)。 |
+| font-family | Array | - | 否 | 表示绘制注释的字体样式，支持自定义字体。 |
 | font-size | &lt;length&gt; | - | 否 | 表示绘制注释的字体的大小。 |
+ 
+ 
+  
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。
+ 
+  
 
+##### 示例
+1. 线形图
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <stack class="chart-region">
+    <image class="chart-background" src="common/background.png"></image>
+    <chart class="chart-data" type="line" ref="linechart" options="{{lineOps}}" datasets="{{lineData}}"></chart>
+  </stack>
+</div>
+```
+  
+```text
+/* xxx.css */
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.chart-region {
+  height: 400px;
+  width: 700px;
+}
+.chart-background {
+  object-fit: fill;
+}
+.chart-data {
+  width: 700px;
+  height: 600px;
+}
+```
+  
+```json
+// xxx.json
+{
+  "data": {
+    "lineData": [
+      {
+        "strokeColor": "#0081ff",
+        "fillColor": "#cce5ff",
+        "data": [
+          763,
+          550,
+          551,
+          554,
+          731,
+          654,
+          525,
+          696,
+          595,
+          628,
+          791,
+          505,
+          613,
+          575,
+          475,
+          553,
+          491,
+          680,
+          657,
+          716
+        ],
+        "gradient": true
+      }
+    ],
+    "lineOps": {
+      "xAxis": {
+        "min": 0,
+        "max": 20,
+        "display": false
+      },
+      "yAxis": {
+        "min": 0,
+        "max": 1000,
+        "display": false
+      },
+      "series": {
+        "lineStyle": {
+          "width": "5px",
+          "smooth": true
+        },
+        "headPoint": {
+          "shape": "circle",
+          "size": 20,
+          "strokeWidth": 5,
+          "fillColor": "#ffffff",
+          "strokeColor": "#007aff",
+          "display": true
+        },
+        "loop": {
+          "margin": 2,
+          "gradient": true
+        }
+      }
+    }
+  }
+}
+```
+  
+![](assets/chart/file-20260514164257845-1.png)
 
+2. 柱状图
 
-1. 线形图  __PREBLOCK_0__  __PREBLOCK_1__  __PREBLOCK_2__  ![](assets/chart/file-20260514164257845-0.png)
-2. 柱状图  __PREBLOCK_3__  __PREBLOCK_4__  __PREBLOCK_5__  ![](assets/chart/file-20260514164257845-1.png)
-3. 量规图  __PREBLOCK_6__  __PREBLOCK_7__  ![](assets/chart/file-20260514164257845-2.png)
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <stack class="data-region">
+    <image class="data-background" src="common/background.png"></image>
+    <chart class="data-bar" type="bar" id="bar-chart" options="{{barOps}}" datasets="{{barData}}"></chart>
+  </stack>
+</div>
+```
+  
+```text
+/* xxx.css */
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.data-region {
+  height: 400px;
+  width: 700px;
+}
+.data-background {
+  object-fit: fill;
+}
+.data-bar {
+  width: 700px;
+  height: 400px;
+}
+```
+  
+```json
+{
+  "data": {
+    "barData": [
+      {
+        "fillColor": "#f07826",
+        "data": [763, 550, 551, 554, 731, 654, 525, 696, 595, 628]
+      },
+      {
+        "fillColor": "#cce5ff",
+        "data": [535, 776, 615, 444, 694, 785, 677, 609, 562, 410]
+      },
+      {
+        "fillColor": "#ff88bb",
+        "data": [673, 500, 574, 483, 702, 583, 437, 506, 693, 657]
+      }
+    ],
+    "barOps": {
+      "xAxis": {
+        "min": 0,
+        "max": 20,
+        "display": false,
+        "axisTick": 10
+      },
+      "yAxis": {
+        "min": 0,
+        "max": 1000,
+        "display": false
+      }
+    }
+  }
+}
+```
+  
+![](assets/chart/file-20260514164257845-2.png)
+
+3. 量规图
+
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <div class="gauge-region">
+    <chart class="data-gauge" type="gauge" percent = "50"></chart>
+  </div>
+</div>
+```
+  
+```text
+/* xxx.css */
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gauge-region {
+  height: 400px;
+  width: 400px;
+}
+.data-gauge {
+  colors: #83f115, #fd3636, #3bf8ff;
+  weights: 4, 2, 1;
+}
+```
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/eqlHXUTYRnyHaLE8v4jhfQ/zh-cn_image_0000002581276654.png?HW-CC-KV=V1&HW-CC-Date=20260528T013758Z&HW-CC-Expire=86400&HW-CC-Sign=B584E2587E558E08973F6ECC1F5D7CD5F0EB26F3F851115058883B188C9BC392)

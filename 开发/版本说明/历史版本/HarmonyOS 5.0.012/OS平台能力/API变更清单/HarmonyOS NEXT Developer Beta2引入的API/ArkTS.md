@@ -14,9 +14,9 @@
 | 错误码变更 | 类名：Task； API声明：addDependency(...tasks: Task[]): void; 差异内容：10200026,401 | 类名：Task； API声明：addDependency(...tasks: Task[]): void; 差异内容：10200026,10200052,401 | api/@ohos.taskpool.d.ts |
 | 错误码变更 | 类名：Task； API声明：removeDependency(...tasks: Task[]): void; 差异内容：10200027,401 | 类名：Task； API声明：removeDependency(...tasks: Task[]): void; 差异内容：10200027,10200052,401 | api/@ohos.taskpool.d.ts |
 | 错误码变更 | 类名：TaskGroup； API声明：addTask(task: Task): void; 差异内容：10200014,401 | 类名：TaskGroup； API声明：addTask(task: Task): void; 差异内容：10200014,10200051,401 | api/@ohos.taskpool.d.ts |
-| 错误码变更 | 类名：SequenceRunner； API声明：execute(task: Task): Promise<Object>; 差异内容：10200003,10200006,10200025,401 | 类名：SequenceRunner； API声明：execute(task: Task): Promise<Object>; 差异内容：10200003,10200006,10200025,10200051,401 | api/@ohos.taskpool.d.ts |
-| 错误码变更 | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise<Object>; 差异内容：10200003,10200006,10200014,401 | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise<Object>; 差异内容：10200003,10200006,10200014,10200051,401 | api/@ohos.taskpool.d.ts |
-| 错误码变更 | 类名：taskpool； API声明：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>; 差异内容：10200028,401 | 类名：taskpool； API声明：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>; 差异内容：10200028,10200051,401 | api/@ohos.taskpool.d.ts |
+| 错误码变更 | 类名：SequenceRunner； API声明：execute(task: Task): Promise&lt;Object&gt;; 差异内容：10200003,10200006,10200025,401 | 类名：SequenceRunner； API声明：execute(task: Task): Promise&lt;Object&gt;; 差异内容：10200003,10200006,10200025,10200051,401 | api/@ohos.taskpool.d.ts |
+| 错误码变更 | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise&lt;Object&gt;; 差异内容：10200003,10200006,10200014,401 | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise&lt;Object&gt;; 差异内容：10200003,10200006,10200014,10200051,401 | api/@ohos.taskpool.d.ts |
+| 错误码变更 | 类名：taskpool； API声明：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise&lt;Object&gt;; 差异内容：10200028,401 | 类名：taskpool； API声明：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise&lt;Object&gt;; 差异内容：10200028,10200051,401 | api/@ohos.taskpool.d.ts |
 | 函数变更 | 类名：Writable； API声明：off(event: string, callback?: Callback<emitter.EventData>): void; 差异内容：callback?: Callback<emitter.EventData> | 类名：Writable； API声明：off(event: string): void; 差异内容：NA | api/@ohos.util.stream.d.ts |
 | 函数变更 | 类名：Readable； API声明：off(event: string, callback?: Callback<emitter.EventData>): void; 差异内容：callback?: Callback<emitter.EventData> | 类名：Readable； API声明：off(event: string): void; 差异内容：NA | api/@ohos.util.stream.d.ts |
 | 函数变更 | 类名：Int8Array； API声明：map(callbackFn: TypedArrayForEachCallback<number, Int8Array>): Int8Array; 差异内容：callbackFn: TypedArrayForEachCallback<number, Int8Array> | 类名：Int8Array； API声明：map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array; 差异内容：callbackFn: TypedArrayMapCallback<number, Int8Array> | arkts/@arkts.collections.d.ets |
@@ -30,18 +30,18 @@
 | 新增API | NA | 类名：taskpool； API声明：function executePeriodically(period: number, task: Task, priority?: Priority): void; 差异内容：function executePeriodically(period: number, task: Task, priority?: Priority): void; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：stream； API声明： interface ReadableOptions 差异内容： interface ReadableOptions | api/@ohos.util.stream.d.ts |
 | 新增API | NA | 类名：ReadableOptions； API声明：encoding?: string; 差异内容：encoding?: string; | api/@ohos.util.stream.d.ts |
-| 新增API | NA | 类名：collections； API声明：type TypedArrayMapCallback<ElementType, ArrayType> =  (value: ElementType, index: number, array: ArrayType) => ElementType; 差异内容：type TypedArrayMapCallback<ElementType, ArrayType> =  (value: ElementType, index: number, array: ArrayType) => ElementType; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：splice(start: number): Array<T>; 差异内容：splice(start: number): Array<T>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：splice(start: number, deleteCount: number, ...items: T[]): Array<T>; 差异内容：splice(start: number, deleteCount: number, ...items: T[]): Array<T>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：collections； API声明：type TypedArrayMapCallback<ElementType, ArrayType> = (value: ElementType, index: number, array: ArrayType) => ElementType; 差异内容：type TypedArrayMapCallback<ElementType, ArrayType> = (value: ElementType, index: number, array: ArrayType) => ElementType; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：splice(start: number): Array&lt;T&gt;; 差异内容：splice(start: number): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：splice(start: number, deleteCount: number, ...items: T[]): Array&lt;T&gt;; 差异内容：splice(start: number, deleteCount: number, ...items: T[]): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Uint8ClampedArray 差异内容： class Uint8ClampedArray | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：static readonly BYTES_PER_ELEMENT: number; 差异内容：static readonly BYTES_PER_ELEMENT: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：readonly buffer: ArrayBuffer; 差异内容：readonly buffer: ArrayBuffer; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：readonly byteOffset: number; 差异内容：readonly byteOffset: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8ClampedArray； API声明：static from(arrayLike: ArrayLike<number>): Uint8ClampedArray; 差异内容：static from(arrayLike: ArrayLike<number>): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8ClampedArray； API声明：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8ClampedArray; 差异内容：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8ClampedArray； API声明：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray; 差异内容：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8ClampedArray； API声明：static from(arrayLike: ArrayLike&lt;number&gt;): Uint8ClampedArray; 差异内容：static from(arrayLike: ArrayLike&lt;number&gt;): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8ClampedArray； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint8ClampedArray; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8ClampedArray； API声明：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray; 差异内容：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：copyWithin(target: number, start: number, end?: number): Uint8ClampedArray; 差异内容：copyWithin(target: number, start: number, end?: number): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：every(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean; 差异内容：every(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：fill(value: number, start?: number, end?: number): Uint8ClampedArray; 差异内容：fill(value: number, start?: number, end?: number): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
@@ -55,15 +55,15 @@
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U; 差异内容：reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：reverse(): Uint8ClampedArray; 差异内容：reverse(): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8ClampedArray； API声明：set(array: ArrayLike<number>, offset?: number): void; 差异内容：set(array: ArrayLike<number>, offset?: number): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8ClampedArray； API声明：set(array: ArrayLike&lt;number&gt;, offset?: number): void; 差异内容：set(array: ArrayLike&lt;number&gt;, offset?: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：slice(start?: number, end?: number): Uint8ClampedArray; 差异内容：slice(start?: number, end?: number): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：some(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean; 差异内容：some(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8ClampedArray； API声明：sort(compareFn?: TypedArrayCompareFn<number>): Uint8ClampedArray; 差异内容：sort(compareFn?: TypedArrayCompareFn<number>): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8ClampedArray； API声明：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint8ClampedArray; 差异内容：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：subarray(begin?: number, end?: number): Uint8ClampedArray; 差异内容：subarray(begin?: number, end?: number): Uint8ClampedArray; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：at(index: number): number \| undefined; 差异内容：at(index: number): number \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：entries(): IterableIterator<[number, number]>; 差异内容：entries(): IterableIterator<[number, number]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8ClampedArray； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8ClampedArray； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8ClampedArray； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8ClampedArray； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8ClampedArray； API声明：includes(searchElement: number, fromIndex?: number): boolean; 差异内容：includes(searchElement: number, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class BitVector 差异内容： class BitVector | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：BitVector； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
@@ -79,4 +79,4 @@
 | 新增API | NA | 类名：BitVector； API声明：getLastIndexOf(element: number, fromIndex: number, toIndex: number): number; 差异内容：getLastIndexOf(element: number, fromIndex: number, toIndex: number): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：BitVector； API声明：flipBitByIndex(index: number): void; 差异内容：flipBitByIndex(index: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：BitVector； API声明：flipBitsByRange(fromIndex: number, toIndex: number): void; 差异内容：flipBitsByRange(fromIndex: number, toIndex: number): void; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：BitVector； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：BitVector； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |

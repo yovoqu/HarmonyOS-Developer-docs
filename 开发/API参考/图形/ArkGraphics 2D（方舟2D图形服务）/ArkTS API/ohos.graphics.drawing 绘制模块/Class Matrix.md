@@ -1,34 +1,40 @@
 # Class (Matrix)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 矩阵对象。
 
 表示为3*3的矩阵，如下图所示：
 
+
 ![](assets/Class%20Matrix/file-20260514165004209-0.png)
+
 
 矩阵中的元素从左到右，从上到下分别表示水平缩放系数、水平倾斜系数、水平位移系数、垂直倾斜系数、垂直缩放系数、垂直位移系数、X轴透视系数、Y轴透视系数、透视缩放系数。
 
 设(x1, y1)为源坐标点，(x2, y2)为源坐标点通过矩阵变换后的坐标点，则两个坐标点的关系如下：
 
+
 ![](assets/Class%20Matrix/file-20260514165004209-1.png)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
 
-```ts
+
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor12+
 
 constructor()
 
@@ -38,16 +44,15 @@ constructor()
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
 ```
 
 
-## constructor20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor20+
 
 constructor(matrix: Matrix)
 
@@ -57,16 +62,14 @@ constructor(matrix: Matrix)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 被拷贝的矩阵。 |
+| matrix | Matrix | 是 | 被拷贝的矩阵。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -74,8 +77,8 @@ let matrix2 = new drawing.Matrix(matrix);
 ```
 
 
-## isAffine20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isAffine20+
 
 isAffine(): boolean
 
@@ -85,7 +88,6 @@ isAffine(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回当前矩阵是否为仿射矩阵。true表示是仿射矩阵，false表示不是仿射矩阵。 |
@@ -93,8 +95,7 @@ isAffine(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -104,8 +105,8 @@ console.info('isAff :', isAff);
 ```
 
 
-## rectStaysRect20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### rectStaysRect20+
 
 rectStaysRect(): boolean
 
@@ -115,7 +116,6 @@ rectStaysRect(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回经过该矩阵映射后的矩形的形状是否仍为矩形。true表示仍是矩形，false表示不是矩形。 |
@@ -123,8 +123,7 @@ rectStaysRect(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -135,8 +134,8 @@ console.info('isRect :', isRect);
 ```
 
 
-## setSkew20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setSkew20+
 
 setSkew(kx: number, ky: number, px: number, py: number): void
 
@@ -146,8 +145,7 @@ setSkew(kx: number, ky: number, px: number, py: number): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | ���明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | kx | number | 是 | x轴上的倾斜量，该参数为浮点数。正值会使绘制沿y轴增量方向向右倾斜；负值会使绘制沿y轴增量方向向左倾斜。 |
 | ky | number | 是 | y轴上的倾斜量，该参数为浮点数。正值会使绘制沿x轴增量方向向下倾斜；负值会使绘制沿x轴增量方向向上倾斜。 |
@@ -157,8 +155,7 @@ setSkew(kx: number, ky: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -167,8 +164,8 @@ matrix.setSkew(2, 0.5, 0.5, 2);
 ```
 
 
-## setSinCos20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setSinCos20+
 
 setSinCos(sinValue: number, cosValue: number, px: number, py: number): void
 
@@ -177,7 +174,6 @@ setSinCos(sinValue: number, cosValue: number, px: number, py: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -189,8 +185,7 @@ setSinCos(sinValue: number, cosValue: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -199,8 +194,8 @@ matrix.setSinCos(0, 1, 1, 0);
 ```
 
 
-## setRotation12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setRotation12+
 
 setRotation(degree: number, px: number, py: number): void
 
@@ -209,7 +204,6 @@ setRotation(degree: number, px: number, py: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -222,7 +216,6 @@ setRotation(degree: number, px: number, py: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -230,8 +223,7 @@ setRotation(degree: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -239,8 +231,8 @@ matrix.setRotation(90, 100, 100);
 ```
 
 
-## setScale12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setScale12+
 
 setScale(sx: number, sy: number, px: number, py: number): void
 
@@ -249,7 +241,6 @@ setScale(sx: number, sy: number, px: number, py: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -263,7 +254,6 @@ setScale(sx: number, sy: number, px: number, py: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -271,8 +261,7 @@ setScale(sx: number, sy: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -280,8 +269,8 @@ matrix.setScale(100, 100, 150, 150);
 ```
 
 
-## setTranslation12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setTranslation12+
 
 setTranslation(dx: number, dy: number): void
 
@@ -290,7 +279,6 @@ setTranslation(dx: number, dy: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -302,7 +290,6 @@ setTranslation(dx: number, dy: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -310,8 +297,7 @@ setTranslation(dx: number, dy: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
@@ -319,17 +305,16 @@ matrix.setTranslation(100, 100);
 ```
 
 
-## setMatrix12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setMatrix(values: Array<number>): void
+##### setMatrix12+
+
+setMatrix(values: Array&lt;number&gt;): void
 
 设置矩阵对象的各项参数。
 
-**��统能力：** SystemCapability.Graphics.Drawing
+**系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -340,7 +325,6 @@ setMatrix(values: Array<number>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types; 3. Parameter verification failed. |
@@ -348,18 +332,17 @@ setMatrix(values: Array<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
-let value: Array<number> = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+let value : Array<number> = [2, 2, 2, 2, 2, 2, 2, 2, 2];
 matrix.setMatrix(value);
 ```
 
 
-## preConcat12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### preConcat12+
 
 preConcat(matrix: Matrix): void
 
@@ -369,16 +352,14 @@ preConcat(matrix: Matrix): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 表示矩阵对象，位于乘法表达式右侧。 |
+| matrix | Matrix | 是 | 表示矩阵对象，位于乘法表达式右侧。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -387,8 +368,7 @@ preConcat(matrix: Matrix): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix1 = new drawing.Matrix();
@@ -399,10 +379,10 @@ matrix1.preConcat(matrix2);
 ```
 
 
-## setMatrix20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setMatrix(matrix: Array<number> | Matrix): void
+##### setMatrix20+
+
+setMatrix(matrix: Array&lt;number&gt; | Matrix): void
 
 用一个矩阵对当前矩阵进行更新。
 
@@ -410,16 +390,14 @@ setMatrix(matrix: Array<number> | Matrix): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | Array&lt;number&gt; \| [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 用于更新的数组或矩阵。 |
+| matrix | Array&lt;number&gt; \| Matrix | 是 | 用于更新的数组或矩阵。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix1 = new drawing.Matrix();
@@ -429,8 +407,8 @@ matrix1.setMatrix(matrix2);
 ```
 
 
-## setConcat20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setConcat20+
 
 setConcat(matrixA: Matrix, matrixB: Matrix): void
 
@@ -440,17 +418,15 @@ setConcat(matrixA: Matrix, matrixB: Matrix): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrixA | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 用于运算的矩阵A。 |
-| matrixB | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 用于运算的矩阵B。 |
+| matrixA | Matrix | 是 | 用于运算的矩阵A。 |
+| matrixB | Matrix | 是 | 用于运算的矩阵B。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix1 = new drawing.Matrix();
@@ -461,8 +437,8 @@ matrix1.setConcat(matrix2, matrix1);
 ```
 
 
-## postConcat20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### postConcat20+
 
 postConcat(matrix: Matrix): void
 
@@ -472,23 +448,21 @@ postConcat(matrix: Matrix): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 用于运算的矩阵。 |
+| matrix | Matrix | 是 | 用于运算的矩阵。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
 if (matrix.isIdentity()) {
-  console.info('matrix is identity.');
+  console.info("matrix is identity.");
 } else {
-  console.info('matrix is not identity.');
+  console.info("matrix is not identity.");
 }
 let matrix1 = new drawing.Matrix();
 matrix1.setMatrix([2, 1, 3, 1, 2, 1, 3, 1, 2]);
@@ -498,10 +472,10 @@ matrix1.postConcat(matrix2);
 ```
 
 
-## isEqual12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isEqual(matrix: Matrix): Boolean
+##### isEqual12+
+
+isEqual(matrix: Matrix): boolean
 
 判断两个矩阵是否相等。
 
@@ -509,24 +483,21 @@ isEqual(matrix: Matrix): Boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 另一个矩阵。 |
+| matrix | Matrix | 是 | 另一个矩阵。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Boolean | 返回两个矩阵的比较结果。true表示两个矩阵相等，false表示两个矩阵不相等。 |
+| boolean | 返回两个矩阵的比较结果。true表示两个矩阵相等，false表示两个矩阵不相等。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -535,8 +506,7 @@ isEqual(matrix: Matrix): Boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix1 = new drawing.Matrix();
@@ -544,17 +514,17 @@ matrix1.setMatrix([2, 1, 3, 1, 2, 1, 3, 1, 2]);
 let matrix2 = new drawing.Matrix();
 matrix2.setMatrix([-2, 1, 3, 1, 0, -1, 3, -1, 2]);
 if (matrix1.isEqual(matrix2)) {
-  console.info('matrix1 and matrix2 are equal.');
+  console.info("matrix1 and matrix2 are equal.");
 } else {
-  console.info('matrix1 and matrix2 are not equal.');
+  console.info("matrix1 and matrix2 are not equal.");
 }
 ```
 
 
-## invert12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-invert(matrix: Matrix): Boolean
+##### invert12+
+
+invert(matrix: Matrix): boolean
 
 将矩阵matrix设置为当前矩阵的逆矩阵，并返回是否设置成功的结果。
 
@@ -562,24 +532,21 @@ invert(matrix: Matrix): Boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 矩阵对象，用于存储获取到的逆矩阵。 |
+| matrix | Matrix | 是 | 矩阵对象，用于存储获取到的逆矩阵。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Boolean | 返回matrix是否被设置为逆矩阵的结果。true表示当前矩阵可逆，matrix被设置为逆矩阵，false表示当前矩阵不可逆，matrix不被设置。 |
+| boolean | 返回matrix是否被设置为逆矩阵的结果。true表示当前矩阵可逆，matrix被设置为逆矩阵，false表示当前矩阵不可逆，matrix不被设置。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -588,8 +555,7 @@ invert(matrix: Matrix): Boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix1 = new drawing.Matrix();
@@ -597,19 +563,17 @@ matrix1.setMatrix([2, 1, 3, 1, 2, 1, 3, 1, 2]);
 let matrix2 = new drawing.Matrix();
 matrix2.setMatrix([-2, 1, 3, 1, 0, -1, 3, -1, 2]);
 if (matrix1.invert(matrix2)) {
-  console.info(
-    'matrix1 is invertible and matrix2 is set as an inverse matrix of the matrix1.',
-  );
+  console.info("matrix1 is invertible and matrix2 is set as an inverse matrix of the matrix1.");
 } else {
-  console.info('matrix1 is not invertible and matrix2 is not changed.');
+  console.info("matrix1 is not invertible and matrix2 is not changed.");
 }
 ```
 
 
-## isIdentity12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isIdentity(): Boolean
+##### isIdentity12+
+
+isIdentity(): boolean
 
 判断矩阵是否是单位矩阵。
 
@@ -617,29 +581,27 @@ isIdentity(): Boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Boolean | 返回矩阵是否是单位矩阵。true表示矩阵是单位矩阵，false表示矩阵不是单位矩阵。 |
+| boolean | 返回矩阵是否是单位矩阵。true表示矩阵是单位矩阵，false表示矩阵不是单位矩阵。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let matrix = new drawing.Matrix();
 if (matrix.isIdentity()) {
-  console.info('matrix is identity.');
+  console.info("matrix is identity.");
 } else {
-  console.info('matrix is not identity.');
+  console.info("matrix is not identity.");
 }
 ```
 
 
-## getValue12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getValue12+
 
 getValue(index: number): number
 
@@ -649,14 +611,12 @@ getValue(index: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 索引位置，范围0-8，该参数为整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -667,7 +627,6 @@ getValue(index: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types;3. Parameter verification failed. |
@@ -675,19 +634,18 @@ getValue(index: number): number
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 for (let i = 0; i < 9; i++) {
-  console.info('matrix ' + matrix.getValue(i).toString());
+    console.info("matrix "+matrix.getValue(i).toString());
 }
 ```
 
 
-## postRotate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### postRotate12+
 
 postRotate(degree: number, px: number, py: number): void
 
@@ -696,7 +654,6 @@ postRotate(degree: number, px: number, py: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -709,7 +666,6 @@ postRotate(degree: number, px: number, py: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -717,21 +673,20 @@ postRotate(degree: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 let degree: number = 2;
 let px: number = 3;
 let py: number = 4;
 matrix.postRotate(degree, px, py);
-console.info('matrix= ' + matrix.getAll().toString());
+console.info("matrix= "+matrix.getAll().toString());
 ```
 
 
-## postScale12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### postScale12+
 
 postScale(sx: number, sy: number, px: number, py: number): void
 
@@ -740,7 +695,6 @@ postScale(sx: number, sy: number, px: number, py: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -754,7 +708,6 @@ postScale(sx: number, sy: number, px: number, py: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -762,9 +715,8 @@ postScale(sx: number, sy: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 let sx: number = 2;
@@ -772,12 +724,12 @@ let sy: number = 0.5;
 let px: number = 1;
 let py: number = 1;
 matrix.postScale(sx, sy, px, py);
-console.info('matrix= ' + matrix.getAll().toString());
+console.info("matrix= "+matrix.getAll().toString());
 ```
 
 
-## postTranslate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### postTranslate12+
 
 postTranslate(dx: number, dy: number): void
 
@@ -786,7 +738,6 @@ postTranslate(dx: number, dy: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -798,7 +749,6 @@ postTranslate(dx: number, dy: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -806,20 +756,19 @@ postTranslate(dx: number, dy: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 let dx: number = 3;
 let dy: number = 4;
 matrix.postTranslate(dx, dy);
-console.info('matrix= ' + matrix.getAll().toString());
+console.info("matrix= "+matrix.getAll().toString());
 ```
 
 
-## preRotate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### preRotate12+
 
 preRotate(degree: number, px: number, py: number): void
 
@@ -828,7 +777,6 @@ preRotate(degree: number, px: number, py: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -841,7 +789,6 @@ preRotate(degree: number, px: number, py: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -849,21 +796,20 @@ preRotate(degree: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 let degree: number = 2;
 let px: number = 3;
 let py: number = 4;
 matrix.preRotate(degree, px, py);
-console.info('matrix= ' + matrix.getAll().toString());
+console.info("matrix= "+matrix.getAll().toString());
 ```
 
 
-## postSkew20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### postSkew20+
 
 postSkew(kx: number, ky: number, px: number, py: number): void
 
@@ -873,7 +819,6 @@ postSkew(kx: number, ky: number, px: number, py: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | kx | number | 是 | x轴上的倾斜量，该参数为浮点数。正值会使绘制沿y轴增量方向向右倾斜；负值会使绘制沿y轴增量方向向左倾斜。 |
@@ -884,17 +829,16 @@ postSkew(kx: number, ky: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D"
 
 let matrix = new drawing.Matrix();
 matrix.postSkew(2.0, 1.0, 2.0, 1.0);
 ```
 
 
-## preSkew20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### preSkew20+
 
 preSkew(kx: number, ky: number, px: number, py: number): void
 
@@ -904,7 +848,6 @@ preSkew(kx: number, ky: number, px: number, py: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | kx | number | 是 | x轴上的倾斜量，该参数为浮点数。正值会使绘制沿y轴增量方向向右倾斜；负值会使绘制沿y轴增量方向向左倾斜。 |
@@ -915,17 +858,16 @@ preSkew(kx: number, ky: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D"
 
 let matrix = new drawing.Matrix();
 matrix.preSkew(2.0, 1.0, 2.0, 1.0);
 ```
 
 
-## mapRadius20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mapRadius20+
 
 mapRadius(radius: number): number
 
@@ -935,14 +877,12 @@ mapRadius(radius: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | radius | number | 是 | 用于计算的圆的半径，浮点数。如果是负数，则按照绝对值进行计算。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -951,9 +891,8 @@ mapRadius(radius: number): number
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D"
 
 let matrix = new drawing.Matrix();
 matrix.setMatrix([2, 1, 3, 1, 2, 1, 3, 1, 2]);
@@ -962,8 +901,8 @@ console.info('radius', radius);
 ```
 
 
-## preScale12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### preScale12+
 
 preScale(sx: number, sy: number, px: number, py: number): void
 
@@ -972,7 +911,6 @@ preScale(sx: number, sy: number, px: number, py: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -986,7 +924,6 @@ preScale(sx: number, sy: number, px: number, py: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -994,9 +931,8 @@ preScale(sx: number, sy: number, px: number, py: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 let sx: number = 2;
@@ -1004,12 +940,12 @@ let sy: number = 0.5;
 let px: number = 1;
 let py: number = 1;
 matrix.preScale(sx, sy, px, py);
-console.info('matrix' + matrix.getAll().toString());
+console.info("matrix"+matrix.getAll().toString());
 ```
 
 
-## preTranslate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### preTranslate12+
 
 preTranslate(dx: number, dy: number): void
 
@@ -1018,7 +954,6 @@ preTranslate(dx: number, dy: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1030,7 +965,6 @@ preTranslate(dx: number, dy: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1038,20 +972,19 @@ preTranslate(dx: number, dy: number): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 let dx: number = 3;
 let dy: number = 4;
 matrix.preTranslate(dx, dy);
-console.info('matrix' + matrix.getAll().toString());
+console.info("matrix"+matrix.getAll().toString());
 ```
 
 
-## reset12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### reset12+
 
 reset(): void
 
@@ -1061,19 +994,18 @@ reset(): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
 matrix.postScale(2, 3, 4, 5);
 matrix.reset();
-console.info('matrix= ' + matrix.getAll().toString());
+console.info("matrix= "+matrix.getAll().toString());
 ```
 
 
-## mapPoints12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mapPoints12+
 
 mapPoints(src: Array<common2D.Point>): Array<common2D.Point>
 
@@ -1083,24 +1015,21 @@ mapPoints(src: Array<common2D.Point>): Array<common2D.Point>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | Array&lt;[common2D.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12)&gt; | 是 | 源点数组。 |
+| src | Array<common2D.Point> | 是 | 源点数组。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[common2D.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12)&gt; | 源点数组经矩阵变换后的点数组。 |
+| Array<common2D.Point> | 源点数组经矩阵变换后的点数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1109,32 +1038,30 @@ mapPoints(src: Array<common2D.Point>): Array<common2D.Point>
 
 **示例：**
 
-
-```ts
-import { drawing, common2D } from '@kit.ArkGraphics2D';
+```json
+import { drawing, common2D } from "@kit.ArkGraphics2D";
 
 let src: Array<common2D.Point> = [];
-src.push({ x: 15, y: 20 });
-src.push({ x: 20, y: 15 });
-src.push({ x: 30, y: 10 });
+src.push({x: 15, y: 20});
+src.push({x: 20, y: 15});
+src.push({x: 30, y: 10});
 let matrix = new drawing.Matrix();
 let dst: Array<common2D.Point> = matrix.mapPoints(src);
-console.info('matrix= src: ' + JSON.stringify(src));
-console.info('matrix= dst: ' + JSON.stringify(dst));
+console.info("matrix= src: "+JSON.stringify(src));
+console.info("matrix= dst: "+JSON.stringify(dst));
 ```
 
 
-## getAll12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAll(): Array<number>
+##### getAll12+
+
+getAll(): Array&lt;number&gt;
 
 获取矩阵的所有元素值。
 
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1143,37 +1070,36 @@ getAll(): Array<number>
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import { drawing } from "@kit.ArkGraphics2D";
 
 let matrix = new drawing.Matrix();
-console.info('matrix ' + matrix.getAll());
+console.info("matrix "+ matrix.getAll());
 ```
 
 
-## mapRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mapRect12+
 
 mapRect(dst: common2D.Rect, src: common2D.Rect): boolean
 
 将目标矩形设置为源矩形通过矩阵变换后的图形的外接矩形。如下图所示，蓝色矩形为源矩形，假设黄色矩形为源矩形通过矩阵变换形成的图形，此时黄色矩形的边不与坐标轴平行，无法使用矩形对象表示，因此，将目标矩形设置为黄色矩形的外接矩形，即黑色矩形。
 
-![](assets/Class%20Matrix/file-20260514165004209-2.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/7HCdFv8-Qtu3N23BG_E1hw/zh-cn_image_0000002611836837.png?HW-CC-KV=V1&HW-CC-Date=20260528T014042Z&HW-CC-Expire=86400&HW-CC-Sign=35CF9DA161C862FB4B73D9AD3EEF03014F20CEF4660F4F0DF190815EE821B31A)
+
 
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dst | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 目标矩形对象，用于存储源矩形经矩阵变换后的图形的外接矩形。 |
-| src | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 源矩形对象。 |
+| dst | common2D.Rect | 是 | 目标矩形对象，用于存储源矩形经矩阵变换后的图形的外接矩形。 |
+| src | common2D.Rect | 是 | 源矩形对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1184,7 +1110,6 @@ mapRect(dst: common2D.Rect, src: common2D.Rect): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1192,21 +1117,20 @@ mapRect(dst: common2D.Rect, src: common2D.Rect): boolean
 
 **示例：**
 
-
-```ts
-import { drawing, common2D } from '@kit.ArkGraphics2D';
+```json
+import { drawing, common2D } from "@kit.ArkGraphics2D";
 
 let dst: common2D.Rect = { left: 100, top: 20, right: 130, bottom: 60 };
 let src: common2D.Rect = { left: 100, top: 80, right: 130, bottom: 120 };
 let matrix = new drawing.Matrix();
 if (matrix.mapRect(dst, src)) {
-  console.info('matrix= dst ' + JSON.stringify(dst));
+    console.info("matrix= dst "+JSON.stringify(dst));
 }
 ```
 
 
-## setRectToRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setRectToRect12+
 
 setRectToRect(src: common2D.Rect, dst: common2D.Rect, scaleToFit: ScaleToFit): boolean
 
@@ -1216,16 +1140,14 @@ setRectToRect(src: common2D.Rect, dst: common2D.Rect, scaleToFit: ScaleToFit): b
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 源矩形。 |
-| dst | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 目标矩形。 |
-| scaleToFit | [ScaleToFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#scaletofit12) | 是 | 源矩形到目标矩形的映射方式。 |
+| src | common2D.Rect | 是 | 源矩形。 |
+| dst | common2D.Rect | 是 | 目标矩形。 |
+| scaleToFit | ScaleToFit | 是 | 源矩形到目标矩形的映射方式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1236,7 +1158,6 @@ setRectToRect(src: common2D.Rect, dst: common2D.Rect, scaleToFit: ScaleToFit): b
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed. |
@@ -1244,22 +1165,21 @@ setRectToRect(src: common2D.Rect, dst: common2D.Rect, scaleToFit: ScaleToFit): b
 
 **示例：**
 
-
-```ts
-import { drawing, common2D } from '@kit.ArkGraphics2D';
+```text
+import { drawing, common2D } from "@kit.ArkGraphics2D";
 
 let src: common2D.Rect = { left: 100, top: 100, right: 300, bottom: 300 };
 let dst: common2D.Rect = { left: 200, top: 200, right: 600, bottom: 600 };
-let scaleToFit: drawing.ScaleToFit = drawing.ScaleToFit.FILL_SCALE_TO_FIT;
+let scaleToFit: drawing.ScaleToFit = drawing.ScaleToFit.FILL_SCALE_TO_FIT
 let matrix = new drawing.Matrix();
 if (matrix.setRectToRect(src, dst, scaleToFit)) {
-  console.info('matrix' + matrix.getAll().toString());
+    console.info("matrix"+matrix.getAll().toString());
 }
 ```
 
 
-## setPolyToPoly12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setPolyToPoly12+
 
 setPolyToPoly(src: Array<common2D.Point>, dst: Array<common2D.Point>, count: number): boolean
 
@@ -1269,16 +1189,14 @@ setPolyToPoly(src: Array<common2D.Point>, dst: Array<common2D.Point>, count: num
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | Array&lt;[common2D.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12)&gt; | 是 | 源点数组，长度必须为count。 |
-| dst | Array&lt;[common2D.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12)&gt; | 是 | 目标点数组，长度必须为count。 |
+| src | Array<common2D.Point> | 是 | 源点数组，长度必须为count。 |
+| dst | Array<common2D.Point> | 是 | 目标点数组，长度必须为count。 |
 | count | number | 是 | 在src和dst点的数量，该参数为整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1289,7 +1207,6 @@ setPolyToPoly(src: Array<common2D.Point>, dst: Array<common2D.Point>, count: num
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1297,20 +1214,13 @@ setPolyToPoly(src: Array<common2D.Point>, dst: Array<common2D.Point>, count: num
 
 **示例：**
 
+```text
+import { drawing, common2D } from "@kit.ArkGraphics2D";
 
-```ts
-import { drawing, common2D } from '@kit.ArkGraphics2D';
-
-let srcPoints: Array<common2D.Point> = [
-  { x: 10, y: 20 },
-  { x: 200, y: 150 },
-];
-let dstPoints: Array<common2D.Point> = [
-  { x: 0, y: 10 },
-  { x: 300, y: 600 },
-];
+let srcPoints: Array<common2D.Point> = [ {x: 10, y: 20}, {x: 200, y: 150} ];
+let dstPoints: Array<common2D.Point> = [{ x:0, y: 10 }, { x:300, y: 600 }];
 let matrix = new drawing.Matrix();
 if (matrix.setPolyToPoly(srcPoints, dstPoints, 2)) {
-  console.info('matrix' + matrix.getAll().toString());
+    console.info("matrix"+matrix.getAll().toString());
 }
 ```

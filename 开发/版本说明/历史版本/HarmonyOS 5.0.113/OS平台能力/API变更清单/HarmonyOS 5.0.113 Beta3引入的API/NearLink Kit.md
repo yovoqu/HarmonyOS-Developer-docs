@@ -7,10 +7,10 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace advertising 差异内容： declare namespace advertising | api/@hms.nearlink.advertising.d.ts |
-| 新增API | NA | 类名：advertising； API声明：function startAdvertising(advertisingParams: AdvertisingParams): Promise<number>; 差异内容：function startAdvertising(advertisingParams: AdvertisingParams): Promise<number>; | api/@hms.nearlink.advertising.d.ts |
-| 新增API | NA | 类名：advertising； API声明：function stopAdvertising(advertisingId: number): Promise<void>; 差异内容：function stopAdvertising(advertisingId: number): Promise<void>; | api/@hms.nearlink.advertising.d.ts |
-| 新增API | NA | 类名：advertising； API声明：function on(type: 'advertisingStateChange', callback: Callback<AdvertisingStateChangeInfo>): void; 差异内容：function on(type: 'advertisingStateChange', callback: Callback<AdvertisingStateChangeInfo>): void; | api/@hms.nearlink.advertising.d.ts |
-| 新增API | NA | 类名：advertising； API声明：function off(type: 'advertisingStateChange', callback?: Callback<AdvertisingStateChangeInfo>): void; 差异内容：function off(type: 'advertisingStateChange', callback?: Callback<AdvertisingStateChangeInfo>): void; | api/@hms.nearlink.advertising.d.ts |
+| 新增API | NA | 类名：advertising； API声明：function startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;; 差异内容：function startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;; | api/@hms.nearlink.advertising.d.ts |
+| 新增API | NA | 类名：advertising； API声明：function stopAdvertising(advertisingId: number): Promise&lt;void&gt;; 差异内容：function stopAdvertising(advertisingId: number): Promise&lt;void&gt;; | api/@hms.nearlink.advertising.d.ts |
+| 新增API | NA | 类名：advertising； API声明：function on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeInfo&gt;): void; 差异内容：function on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeInfo&gt;): void; | api/@hms.nearlink.advertising.d.ts |
+| 新增API | NA | 类名：advertising； API声明：function off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChangeInfo&gt;): void; 差异内容：function off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChangeInfo&gt;): void; | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：advertising； API声明： interface AdvertisingParams 差异内容： interface AdvertisingParams | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：AdvertisingParams； API声明：advertisingSettings: AdvertisingSettings; 差异内容：advertisingSettings: AdvertisingSettings; | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：AdvertisingParams； API声明：advertisingData: AdvertisingData; 差异内容：advertisingData: AdvertisingData; | api/@hms.nearlink.advertising.d.ts |
@@ -19,9 +19,9 @@
 | 新增API | NA | 类名：AdvertisingSettings； API声明：power?: TxPowerMode; 差异内容：power?: TxPowerMode; | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：AdvertisingSettings； API声明：isConnectable?: boolean; 差异内容：isConnectable?: boolean; | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：advertising； API声明： interface AdvertisingData 差异内容： interface AdvertisingData | api/@hms.nearlink.advertising.d.ts |
-| 新增API | NA | 类名：AdvertisingData； API声明：serviceUuids?: Array<string>; 差异内容：serviceUuids?: Array<string>; | api/@hms.nearlink.advertising.d.ts |
-| 新增API | NA | 类名：AdvertisingData； API声明：manufacturerData?: Array<ManufacturerData>; 差异内容：manufacturerData?: Array<ManufacturerData>; | api/@hms.nearlink.advertising.d.ts |
-| 新增API | NA | 类名：AdvertisingData； API声明：serviceData?: Array<ServiceData>; 差异内容：serviceData?: Array<ServiceData>; | api/@hms.nearlink.advertising.d.ts |
+| 新增API | NA | 类名：AdvertisingData； API声明：serviceUuids?: Array&lt;string&gt;; 差异内容：serviceUuids?: Array&lt;string&gt;; | api/@hms.nearlink.advertising.d.ts |
+| 新增API | NA | 类名：AdvertisingData； API声明：manufacturerData?: Array&lt;ManufacturerData&gt;; 差异内容：manufacturerData?: Array&lt;ManufacturerData&gt;; | api/@hms.nearlink.advertising.d.ts |
+| 新增API | NA | 类名：AdvertisingData； API声明：serviceData?: Array&lt;ServiceData&gt;; 差异内容：serviceData?: Array&lt;ServiceData&gt;; | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：AdvertisingData； API声明：includeDeviceName?: boolean; 差异内容：includeDeviceName?: boolean; | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：advertising； API声明： interface ManufacturerData 差异内容： interface ManufacturerData | api/@hms.nearlink.advertising.d.ts |
 | 新增API | NA | 类名：ManufacturerData； API声明：manufacturerId: number; 差异内容：manufacturerId: number; | api/@hms.nearlink.advertising.d.ts |
@@ -106,12 +106,12 @@
 | 新增API | NA | 类名：manager； API声明：type ConnectionState = constant.ConnectionState; 差异内容：type ConnectionState = constant.ConnectionState; | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：manager； API声明：function getState(): NearlinkState; 差异内容：function getState(): NearlinkState; | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：manager； API声明：function getLocalName(): string; 差异内容：function getLocalName(): string; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function on(type: 'stateChange', callback: Callback<NearlinkState>): void; 差异内容：function on(type: 'stateChange', callback: Callback<NearlinkState>): void; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function off(type: 'stateChange', callback?: Callback<NearlinkState>): void; 差异内容：function off(type: 'stateChange', callback?: Callback<NearlinkState>): void; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function on(type: 'pairingStateChange', callback: Callback<PairingStateParam>): void; 差异内容：function on(type: 'pairingStateChange', callback: Callback<PairingStateParam>): void; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function off(type: 'pairingStateChange', callback?: Callback<PairingStateParam>): void; 差异内容：function off(type: 'pairingStateChange', callback?: Callback<PairingStateParam>): void; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function on(type: 'connectionStateChange', callback: Callback<ConnectionStateParam>): void; 差异内容：function on(type: 'connectionStateChange', callback: Callback<ConnectionStateParam>): void; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function off(type: 'connectionStateChange', callback?: Callback<ConnectionStateParam>): void; 差异内容：function off(type: 'connectionStateChange', callback?: Callback<ConnectionStateParam>): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function on(type: 'stateChange', callback: Callback&lt;NearlinkState&gt;): void; 差异内容：function on(type: 'stateChange', callback: Callback&lt;NearlinkState&gt;): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function off(type: 'stateChange', callback?: Callback&lt;NearlinkState&gt;): void; 差异内容：function off(type: 'stateChange', callback?: Callback&lt;NearlinkState&gt;): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function on(type: 'pairingStateChange', callback: Callback&lt;PairingStateParam&gt;): void; 差异内容：function on(type: 'pairingStateChange', callback: Callback&lt;PairingStateParam&gt;): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function off(type: 'pairingStateChange', callback?: Callback&lt;PairingStateParam&gt;): void; 差异内容：function off(type: 'pairingStateChange', callback?: Callback&lt;PairingStateParam&gt;): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function on(type: 'connectionStateChange', callback: Callback&lt;ConnectionStateParam&gt;): void; 差异内容：function on(type: 'connectionStateChange', callback: Callback&lt;ConnectionStateParam&gt;): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionStateParam&gt;): void; 差异内容：function off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionStateParam&gt;): void; | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：manager； API声明： enum NearlinkState 差异内容： enum NearlinkState | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：NearlinkState； API声明：STATE_TURNING_ON = 0 差异内容：STATE_TURNING_ON = 0 | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：NearlinkState； API声明：STATE_ON = 1 差异内容：STATE_ON = 1 | api/@hms.nearlink.manager.d.ts |
@@ -150,10 +150,10 @@
 | 新增API | NA | 类名：RemoteDevice； API声明：getDeviceClass(): DeviceClass; 差异内容：getDeviceClass(): DeviceClass; | api/@hms.nearlink.remoteDevice.d.ts |
 | 新增API | NA | 类名：RemoteDevice； API声明：getConnectionState(): ConnectionState; 差异内容：getConnectionState(): ConnectionState; | api/@hms.nearlink.remoteDevice.d.ts |
 | 新增API | NA | 类名：global； API声明： declare namespace scan 差异内容： declare namespace scan | api/@hms.nearlink.scan.d.ts |
-| 新增API | NA | 类名：scan； API声明：function startScan(filters: Array<ScanFilters>, options?: ScanOptions): Promise<void>; 差异内容：function startScan(filters: Array<ScanFilters>, options?: ScanOptions): Promise<void>; | api/@hms.nearlink.scan.d.ts |
-| 新增API | NA | 类名：scan； API声明：function stopScan(): Promise<void>; 差异内容：function stopScan(): Promise<void>; | api/@hms.nearlink.scan.d.ts |
-| 新增API | NA | 类名：scan； API声明：function on(type: 'deviceFound', callback: Callback<Array<ScanResults>>): void; 差异内容：function on(type: 'deviceFound', callback: Callback<Array<ScanResults>>): void; | api/@hms.nearlink.scan.d.ts |
-| 新增API | NA | 类名：scan； API声明：function off(type: 'deviceFound', callback?: Callback<Array<ScanResults>>): void; 差异内容：function off(type: 'deviceFound', callback?: Callback<Array<ScanResults>>): void; | api/@hms.nearlink.scan.d.ts |
+| 新增API | NA | 类名：scan； API声明：function startScan(filters: Array&lt;ScanFilters&gt;, options?: ScanOptions): Promise&lt;void&gt;; 差异内容：function startScan(filters: Array&lt;ScanFilters&gt;, options?: ScanOptions): Promise&lt;void&gt;; | api/@hms.nearlink.scan.d.ts |
+| 新增API | NA | 类名：scan； API声明：function stopScan(): Promise&lt;void&gt;; 差异内容：function stopScan(): Promise&lt;void&gt;; | api/@hms.nearlink.scan.d.ts |
+| 新增API | NA | 类名：scan； API声明：function on(type: 'deviceFound', callback: Callback<Array&lt;ScanResults&gt;>): void; 差异内容：function on(type: 'deviceFound', callback: Callback<Array&lt;ScanResults&gt;>): void; | api/@hms.nearlink.scan.d.ts |
+| 新增API | NA | 类名：scan； API声明：function off(type: 'deviceFound', callback?: Callback<Array&lt;ScanResults&gt;>): void; 差异内容：function off(type: 'deviceFound', callback?: Callback<Array&lt;ScanResults&gt;>): void; | api/@hms.nearlink.scan.d.ts |
 | 新增API | NA | 类名：scan； API声明： interface ScanResults 差异内容： interface ScanResults | api/@hms.nearlink.scan.d.ts |
 | 新增API | NA | 类名：ScanResults； API声明：address: string; 差异内容：address: string; | api/@hms.nearlink.scan.d.ts |
 | 新增API | NA | 类名：ScanResults； API声明：rssi: number; 差异内容：rssi: number; | api/@hms.nearlink.scan.d.ts |
@@ -177,42 +177,42 @@
 | 新增API | NA | 类名：ssap； API声明：function createClient(address: string): Client; 差异内容：function createClient(address: string): Client; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：ssap； API声明：function createServer(): Server; 差异内容：function createServer(): Server; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：ssap； API声明： interface Client 差异内容： interface Client | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：connect(): Promise<void>; 差异内容：connect(): Promise<void>; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：disconnect(): Promise<void>; 差异内容：disconnect(): Promise<void>; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：connect(): Promise&lt;void&gt;; 差异内容：connect(): Promise&lt;void&gt;; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：disconnect(): Promise&lt;void&gt;; 差异内容：disconnect(): Promise&lt;void&gt;; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Client； API声明：close(): void; 差异内容：close(): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：getServices(): Promise<Array<Service>>; 差异内容：getServices(): Promise<Array<Service>>; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：readProperty(property: Property): Promise<Property>; 差异内容：readProperty(property: Property): Promise<Property>; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：writeProperty(property: Property, writeType: PropertyWriteType): Promise<void>; 差异内容：writeProperty(property: Property, writeType: PropertyWriteType): Promise<void>; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：setPropertyNotification(property: Property, enable: boolean): Promise<void>; 差异内容：setPropertyNotification(property: Property, enable: boolean): Promise<void>; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：requestMtuSize(mtu: number): Promise<void>; 差异内容：requestMtuSize(mtu: number): Promise<void>; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：on(type: 'propertyChange', callback: Callback<Property>): void; 差异内容：on(type: 'propertyChange', callback: Callback<Property>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：off(type: 'propertyChange', callback?: Callback<Property>): void; 差异内容：off(type: 'propertyChange', callback?: Callback<Property>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：on(type: 'connectionStateChange', callback: Callback<ConnectionChangeState>): void; 差异内容：on(type: 'connectionStateChange', callback: Callback<ConnectionChangeState>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：off(type: 'connectionStateChange', callback?: Callback<ConnectionChangeState>): void; 差异内容：off(type: 'connectionStateChange', callback?: Callback<ConnectionChangeState>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：on(type: 'mtuChange', callback: Callback<number>): void; 差异内容：on(type: 'mtuChange', callback: Callback<number>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Client； API声明：off(type: 'mtuChange', callback?: Callback<number>): void; 差异内容：off(type: 'mtuChange', callback?: Callback<number>): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：getServices(): Promise<Array&lt;Service&gt;>; 差异内容：getServices(): Promise<Array&lt;Service&gt;>; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：readProperty(property: Property): Promise&lt;Property&gt;; 差异内容：readProperty(property: Property): Promise&lt;Property&gt;; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void&gt;; 差异内容：writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void&gt;; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：setPropertyNotification(property: Property, enable: boolean): Promise&lt;void&gt;; 差异内容：setPropertyNotification(property: Property, enable: boolean): Promise&lt;void&gt;; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：requestMtuSize(mtu: number): Promise&lt;void&gt;; 差异内容：requestMtuSize(mtu: number): Promise&lt;void&gt;; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：on(type: 'propertyChange', callback: Callback&lt;Property&gt;): void; 差异内容：on(type: 'propertyChange', callback: Callback&lt;Property&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：off(type: 'propertyChange', callback?: Callback&lt;Property&gt;): void; 差异内容：off(type: 'propertyChange', callback?: Callback&lt;Property&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void; 差异内容：on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void; 差异内容：off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：on(type: 'mtuChange', callback: Callback&lt;number&gt;): void; 差异内容：on(type: 'mtuChange', callback: Callback&lt;number&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Client； API声明：off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void; 差异内容：off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：ssap； API声明： interface Server 差异内容： interface Server | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Server； API声明：addService(service: Service): void; 差异内容：addService(service: Service): void; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Server； API声明：removeService(serviceUuid: string): void; 差异内容：removeService(serviceUuid: string): void; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Server； API声明：close(): void; 差异内容：close(): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：notifyPropertyChanged(address: string, property: Property): Promise<void>; 差异内容：notifyPropertyChanged(address: string, property: Property): Promise<void>; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt;; 差异内容：notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt;; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Server； API声明：sendResponse(response: ServerResponse): void; 差异内容：sendResponse(response: ServerResponse): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：on(type: 'connectionStateChange', callback: Callback<ConnectionChangeState>): void; 差异内容：on(type: 'connectionStateChange', callback: Callback<ConnectionChangeState>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：off(type: 'connectionStateChange', callback?: Callback<ConnectionChangeState>): void; 差异内容：off(type: 'connectionStateChange', callback?: Callback<ConnectionChangeState>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：on(type: 'propertyRead', callback: Callback<PropertyReadRequest>): void; 差异内容：on(type: 'propertyRead', callback: Callback<PropertyReadRequest>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：off(type: 'propertyRead', callback?: Callback<PropertyReadRequest>): void; 差异内容：off(type: 'propertyRead', callback?: Callback<PropertyReadRequest>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：on(type: 'propertyWrite', callback: Callback<PropertyWriteRequest>): void; 差异内容：on(type: 'propertyWrite', callback: Callback<PropertyWriteRequest>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：off(type: 'propertyWrite', callback?: Callback<PropertyWriteRequest>): void; 差异内容：off(type: 'propertyWrite', callback?: Callback<PropertyWriteRequest>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：on(type: 'mtuChange', callback: Callback<number>): void; 差异内容：on(type: 'mtuChange', callback: Callback<number>): void; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Server； API声明：off(type: 'mtuChange', callback?: Callback<number>): void; 差异内容：off(type: 'mtuChange', callback?: Callback<number>): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void; 差异内容：on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void; 差异内容：off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void; 差异内容：on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：off(type: 'propertyRead', callback?: Callback&lt;PropertyReadRequest&gt;): void; 差异内容：off(type: 'propertyRead', callback?: Callback&lt;PropertyReadRequest&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：on(type: 'propertyWrite', callback: Callback&lt;PropertyWriteRequest&gt;): void; 差异内容：on(type: 'propertyWrite', callback: Callback&lt;PropertyWriteRequest&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：off(type: 'propertyWrite', callback?: Callback&lt;PropertyWriteRequest&gt;): void; 差异内容：off(type: 'propertyWrite', callback?: Callback&lt;PropertyWriteRequest&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：on(type: 'mtuChange', callback: Callback&lt;number&gt;): void; 差异内容：on(type: 'mtuChange', callback: Callback&lt;number&gt;): void; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Server； API声明：off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void; 差异内容：off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：ssap； API声明： interface Service 差异内容： interface Service | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Service； API声明：serviceUuid: string; 差异内容：serviceUuid: string; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Service； API声明：properties: Array<Property>; 差异内容：properties: Array<Property>; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Service； API声明：properties: Array&lt;Property&gt;; 差异内容：properties: Array&lt;Property&gt;; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：ssap； API声明： interface Property 差异内容： interface Property | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Property； API声明：serviceUuid: string; 差异内容：serviceUuid: string; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Property； API声明：propertyUuid: string; 差异内容：propertyUuid: string; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Property； API声明：value: ArrayBuffer; 差异内容：value: ArrayBuffer; | api/@hms.nearlink.ssap.d.ts |
-| 新增API | NA | 类名：Property； API声明：descriptors?: Array<PropertyDescriptor>; 差异内容：descriptors?: Array<PropertyDescriptor>; | api/@hms.nearlink.ssap.d.ts |
+| 新增API | NA | 类名：Property； API声明：descriptors?: Array&lt;PropertyDescriptor&gt;; 差异内容：descriptors?: Array&lt;PropertyDescriptor&gt;; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：Property； API声明：operation?: number; 差异内容：operation?: number; | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：ssap； API声明： interface PropertyDescriptor 差异内容： interface PropertyDescriptor | api/@hms.nearlink.ssap.d.ts |
 | 新增API | NA | 类名：PropertyDescriptor； API声明：serviceUuid: string; 差异内容：serviceUuid: string; | api/@hms.nearlink.ssap.d.ts |

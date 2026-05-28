@@ -1,40 +1,48 @@
 # 使用Image_NativeModule完成图片接收
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-receiver-c
 
 图像接收类，用于获取组件的surfaceId、接收最新的图片、读取下一张图片以及释放ImageReceiver实例。结合camera API实现的相机预览示例代码可参考[预览流二次处理(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview-imagereceiver)。
 
-
 > [!NOTE]
-> ImageReceiver只作为图片的接收方、消费者，在ImageReceiver设置的size、format等属性实际上并不会生效。图片属性需要在发送方、生产者进行设置，可参考预览(C/C++)设置previewProfiles。
+> ImageReceiver只作为图片的接收方、消费者，在ImageReceiver设置的size、format等属性实际上并不会生效。图片属性需要在发送方、生产者进行设置，可参考 预览(C/C++) 设置previewProfiles。
 
 
-## 开发步骤
+
+##### 开发步骤
 
 
-## 添加依赖
+
+##### 添加依赖
 
 在进行应用开发之前，开发者需要打开native工程的src/main/cpp/CMakeLists.txt，在target_link_libraries依赖中添加libohimage.so、libimage_receiver.so、libnative_image.so以及日志依赖libhilog_ndk.z.so。
+
 ```text
 target_link_libraries(entry PUBLIC libhilog_ndk.z.so libohimage.so libimage_receiver.so libnative_image.so)
 ```
 
 
-## Native接口调用
 
-具体接口说明请参考[Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule)。 下述代码主要演示了Receiver的初始化、相机预览流的创建以及获取图像的信息和Receiver的释放等相关功能。
+##### Native接口调用
+
+具体接口说明请参考[Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule)。
+
+下述代码主要演示了Receiver的初始化、相机预览流的创建以及获取图像的信息和Receiver的释放等相关功能。
+
 > [!NOTE]
 > 部分接口在API version 20以后才支持，需要开发者在进行开发时选择合适的API版本。
 
-导入相关头文件。
-```text
-#include
+1. 导入相关头文件。
+
+  
+```cpp
+#include <hilog/log.h>
 #include "napi/native_api.h"
-#include
-#include
-#include
+#include <string>
+#include <multimedia/image_framework/image/image_native.h>
+#include <multimedia/image_framework/image/image_receiver_native.h>
 
 #include "ohcamera/camera.h"
 #include "ohcamera/camera_input.h"
@@ -44,13 +52,15 @@ target_link_libraries(entry PUBLIC libhilog_ndk.z.so libohimage.so libimage_rece
 #include "ohcamera/video_output.h"
 #include "ohcamera/camera_manager.h"
 
-#include
-#include  // C++17以上使用
-#include
+#include <mutex>
+#include <shared_mutex> // C++17以上使用
+#include <condition_variable>
 ```
 
-常量定义。
-```text
+2. 常量定义。
+
+  
+```cpp
 #undef LOG_DOMAIN
 #define LOG_DOMAIN 0x3200
 
@@ -62,8 +72,10 @@ target_link_libraries(entry PUBLIC libhilog_ndk.z.so libohimage.so libimage_rece
 #define IMAGE_CAPACITY 2
 ```
 
-定义全局变量。
-```text
+3. 定义全局变量。
+
+  
+```cpp
 static OH_ImageReceiverNative* g_receiver = nullptr;
 
 static std::mutex g_mutex;
@@ -73,8 +85,10 @@ static bool g_imageReady = false;
 static OH_ImageNative* g_imageInfoResult = nullptr;
 ```
 
-定义一些工具类函数，用来处理napi的返回值和参数类型的转换。
-```text
+4. 定义一些工具类函数，用来处理napi的返回值和参数类型的转换。
+
+  
+```cpp
 // 处理napi返回值。
 napi_value GetJsResultDemo(napi_env env, int result)
 {
@@ -84,10 +98,10 @@ napi_value GetJsResultDemo(napi_env env, int result)
 }
 
 // 将uint64_t转换为一个以null结尾的char数组。
-std::unique_ptr ConvertUint64ToCharTemp(uint64_t value)
+std::unique_ptr<char[]> ConvertUint64ToCharTemp(uint64_t value)
 {
     std::string strValue = std::to_string(value);
-    auto charBuffer = std::make_unique(strValue.size() + 1);
+    auto charBuffer = std::make_unique<char[]>(strValue.size() + 1);
     std::copy(strValue.begin(), strValue.end(), charBuffer.get());
     charBuffer[strValue.size()] = '\0';
 
@@ -95,8 +109,13 @@ std::unique_ptr ConvertUint64ToCharTemp(uint64_t value)
 }
 ```
 
-初始化Receiver。 创建并设置ReceiverOptions。
-```text
+5. 初始化Receiver。
+
+  
+创建并设置ReceiverOptions。
+
+  
+```cpp
 static Image_ErrorCode CreateAndConfigOptions(OH_ImageReceiverOptions** options)
 {
     Image_ErrorCode errCode = OH_ImageReceiverOptions_Create(options);
@@ -121,8 +140,10 @@ static Image_ErrorCode CreateAndConfigOptions(OH_ImageReceiverOptions** options)
 }
 ```
 
-获取ReceiverOptions。
-```text
+6. 获取ReceiverOptions。
+
+  
+```cpp
 static Image_ErrorCode ValidateOptions(OH_ImageReceiverOptions* options)
 {
     Image_Size imgSizeRead;
@@ -150,8 +171,10 @@ static Image_ErrorCode ValidateOptions(OH_ImageReceiverOptions* options)
 }
 ```
 
-创建Receiver对象。
-```text
+7. 创建Receiver对象。
+
+  
+```cpp
 static Image_ErrorCode CreateReceiver(OH_ImageReceiverOptions* options, OH_ImageReceiverNative** receiver)
 {
     Image_ErrorCode errCode = OH_ImageReceiverNative_Create(options, receiver);
@@ -163,14 +186,16 @@ static Image_ErrorCode CreateReceiver(OH_ImageReceiverOptions* options, OH_Image
 }
 ```
 
-定义获取下一张图片的callback函数。
-```text
+8. 定义获取下一张图片的callback函数。
+
+  
+```cpp
 static void OnCallback(OH_ImageReceiverNative* receiver)
 {
     OH_LOG_INFO(LOG_APP, "ImageReceiverNativeCTest buffer available.");
 
     // 共享锁（读）
-    std::shared_lock lock(shared_receiver_mutex);
+    std::shared_lock<std::shared_mutex> lock(shared_receiver_mutex);
     OH_ImageNative* image = nullptr;
     Image_ErrorCode errCode = OH_ImageReceiverNative_ReadNextImage(receiver, &image);
     if (errCode != IMAGE_SUCCESS) {
@@ -179,7 +204,7 @@ static void OnCallback(OH_ImageReceiverNative* receiver)
         OH_ImageNative_Release(image);
         return;
     } else {
-        std::lock_guard lock(g_mutex);
+        std::lock_guard<std::mutex> lock(g_mutex);
         g_imageInfoResult = image;
         g_imageReady = true;
     }
@@ -187,8 +212,10 @@ static void OnCallback(OH_ImageReceiverNative* receiver)
 }
 ```
 
-注册callback。
-```text
+9. 注册callback。
+
+  
+```cpp
 static Image_ErrorCode RegisterCallbackAndQuery(OH_ImageReceiverNative* receiver)
 {
     uint64_t surfaceID = 0;
@@ -222,8 +249,10 @@ static Image_ErrorCode RegisterCallbackAndQuery(OH_ImageReceiverNative* receiver
 }
 ```
 
-初始化Receiver的整体流程。
-```text
+10. 初始化Receiver的整体流程。
+
+  
+```cpp
 static napi_value ImageReceiverNativeCTest(napi_env env, napi_callback_info info)
 {
     if (g_receiver != nullptr) {
@@ -264,8 +293,13 @@ static napi_value ImageReceiverNativeCTest(napi_env env, napi_callback_info info
 }
 ```
 
-调用相机拍照流进行拍照，触发回调。 创建一个CameraManager实例。
-```text
+11. 调用相机拍照流进行拍照，触发回调。
+
+  
+创建一个CameraManager实例。
+
+  
+```cpp
 Camera_ErrorCode InitCameraManagerAndInput(Camera_Manager*& cameraManager,
                                            Camera_Device*& cameras,
                                            uint32_t& size,
@@ -281,343 +315,390 @@ Camera_ErrorCode InitCameraManagerAndInput(Camera_Manager*& cameraManager,
         return ret;
     }
     ret = OH_CameraManager_GetSupportedCameras(cameraManager, &cameras, &size);
-    if (cameras == nullptr || size                  获取相机输出能力。
-```text
-Camera_ErrorCode GetCameraOutputCapability(Camera_Manager* cameraManager,
-Camera_Device* cameras,
-uint32_t cameraDeviceIndex,
-Camera_OutputCapability*& capability)
-{
-capability = nullptr;
-Camera_ErrorCode ret = OH_CameraManager_GetSupportedCameraOutputCapability(cameraManager,
-&cameras[cameraDeviceIndex],
-&capability);
-if (capability == nullptr || ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CameraManager_GetSupportedCameraOutputCapability failed.");
-}
-return ret;
+    if (cameras == nullptr || size < 1 || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_GetSupportedCameras failed.");
+        return ret;
+    }
+
+    for (uint32_t i = 0; i < size; ++i) {
+        OH_LOG_INFO(LOG_APP, "Camera[%{public}u]: id=%{public}s, position=%{public}d, type=%{public}d, "
+            "connectionType=%{public}d", i, cameras[i].cameraId, cameras[i].cameraPosition, cameras[i].cameraType,
+            cameras[i].connectionType);
+    }
+
+    ret = OH_CameraManager_CreateCameraInput(cameraManager, &cameras[0], &cameraInput);
+    if (cameraInput == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_CreateCameraInput failed.ret:%{public}d", ret);
+        return ret;
+    }
+    return CAMERA_OK;
 }
 ```
 
-                 创建相机捕获会话，用于捕获相机拍摄的照片。
-```text
+12. 获取相机输出能力。
+
+  
+```cpp
+Camera_ErrorCode GetCameraOutputCapability(Camera_Manager* cameraManager,
+                                           Camera_Device* cameras,
+                                           uint32_t cameraDeviceIndex,
+                                           Camera_OutputCapability*& capability)
+{
+    capability = nullptr;
+    Camera_ErrorCode ret = OH_CameraManager_GetSupportedCameraOutputCapability(cameraManager,
+                                                                               &cameras[cameraDeviceIndex],
+                                                                               &capability);
+    if (capability == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_GetSupportedCameraOutputCapability failed.");
+    }
+    return ret;
+}
+```
+
+13. 创建相机捕获会话，用于捕获相机拍摄的照片。
+
+  
+```cpp
 Camera_CaptureSession* CreateAndStartSession(Camera_Manager* cameraManager, Camera_Input* cameraInput, int sessionMode)
 {
-Camera_CaptureSession* captureSession = nullptr;
-Camera_ErrorCode ret = OH_CameraManager_CreateCaptureSession(cameraManager, &captureSession);
-if (captureSession == nullptr || ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CameraManager_CreateCaptureSession failed.");
-return nullptr;
-}
-ret = OH_CaptureSession_SetSessionMode(captureSession, static_cast(sessionMode));
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_SetSessionMode failed.");
-return nullptr;
-}
-ret = OH_CaptureSession_BeginConfig(captureSession);
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_BeginConfig failed.");
-return nullptr;
-}
-ret = OH_CaptureSession_AddInput(captureSession, cameraInput);
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_AddInput failed.");
-return nullptr;
-}
-return captureSession;
+    Camera_CaptureSession* captureSession = nullptr;
+    Camera_ErrorCode ret = OH_CameraManager_CreateCaptureSession(cameraManager, &captureSession);
+    if (captureSession == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_CreateCaptureSession failed.");
+        return nullptr;
+    }
+    ret = OH_CaptureSession_SetSessionMode(captureSession, static_cast<Camera_SceneMode>(sessionMode));
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_SetSessionMode failed.");
+        return nullptr;
+    }
+    ret = OH_CaptureSession_BeginConfig(captureSession);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_BeginConfig failed.");
+        return nullptr;
+    }
+    ret = OH_CaptureSession_AddInput(captureSession, cameraInput);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_AddInput failed.");
+        return nullptr;
+    }
+    return captureSession;
 }
 ```
 
-                 开启捕获会话。
-```text
+14. 开启捕获会话。
+
+  
+```cpp
 static Camera_ErrorCode StartCaptureSession(Camera_Manager* mgr, Camera_Input* input,
-Camera_PreviewOutput* previewOutput,
-Camera_CaptureSession** sessionOut)
+                                            Camera_PreviewOutput* previewOutput,
+                                            Camera_CaptureSession** sessionOut)
 {
-*sessionOut = CreateAndStartSession(mgr, input, NORMAL_PHOTO);
-if (*sessionOut == nullptr) {
-OH_LOG_ERROR(LOG_APP, "CreateAndStartSession failed.");
-return CAMERA_INVALID_ARGUMENT;
-}
+    *sessionOut = CreateAndStartSession(mgr, input, NORMAL_PHOTO);
+    if (*sessionOut == nullptr) {
+        OH_LOG_ERROR(LOG_APP, "CreateAndStartSession failed.");
+        return CAMERA_INVALID_ARGUMENT;
+    }
 
-Camera_ErrorCode ret = OH_CaptureSession_AddPreviewOutput(*sessionOut, previewOutput);
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_AddPreviewOutput failed.");
-return ret;
-}
+    Camera_ErrorCode ret = OH_CaptureSession_AddPreviewOutput(*sessionOut, previewOutput);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_AddPreviewOutput failed.");
+        return ret;
+    }
 
-ret = OH_CaptureSession_CommitConfig(*sessionOut);
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_CommitConfig failed.");
-return ret;
-}
+    ret = OH_CaptureSession_CommitConfig(*sessionOut);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_CommitConfig failed.");
+        return ret;
+    }
 
-ret = OH_CaptureSession_Start(*sessionOut);
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_Start failed.");
-}
-
-return ret;
+    ret = OH_CaptureSession_Start(*sessionOut);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CaptureSession_Start failed.");
+    }
+    
+    return ret;
 }
 ```
 
-                 创建相机拍照流。
-```text
+15. 创建相机拍照流。
+
+  
+```cpp
 Camera_ErrorCode StartTakePhoto(char* str)
 {
-char* photoSurfaceId = str;
-Camera_Manager* cameraManager = nullptr;
-Camera_Device* cameras = nullptr;
-uint32_t size = 0;
-Camera_Input* cameraInput = nullptr;
-Camera_ErrorCode ret = InitCameraManagerAndInput(cameraManager, cameras, size, cameraInput);
-if (ret != CAMERA_OK) return ret;
+    char* photoSurfaceId = str;
+    Camera_Manager* cameraManager = nullptr;
+    Camera_Device* cameras = nullptr;
+    uint32_t size = 0;
+    Camera_Input* cameraInput = nullptr;
+    Camera_ErrorCode ret = InitCameraManagerAndInput(cameraManager, cameras, size, cameraInput);
+    if (ret != CAMERA_OK) return ret;
 
-Camera_OutputCapability* cameraOutputCapability = nullptr;
-ret = GetCameraOutputCapability(cameraManager, cameras, 0, cameraOutputCapability);
-if (ret != CAMERA_OK) return ret;
+    Camera_OutputCapability* cameraOutputCapability = nullptr;
+    ret = GetCameraOutputCapability(cameraManager, cameras, 0, cameraOutputCapability);
+    if (ret != CAMERA_OK) return ret;
+    
+    const Camera_Profile* photoProfile = cameraOutputCapability->previewProfiles[0];
+    Camera_PreviewOutput* previewOutput = nullptr;
+    ret = OH_CameraManager_CreatePreviewOutput(cameraManager, photoProfile, photoSurfaceId, &previewOutput);
+    if (photoProfile == nullptr || previewOutput == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_CreatePreviewOutput failed.");
+        return ret;
+    }
 
-const Camera_Profile* photoProfile = cameraOutputCapability->previewProfiles[0];
-Camera_PreviewOutput* previewOutput = nullptr;
-ret = OH_CameraManager_CreatePreviewOutput(cameraManager, photoProfile, photoSurfaceId, &previewOutput);
-if (photoProfile == nullptr || previewOutput == nullptr || ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CameraManager_CreatePreviewOutput failed.");
-return ret;
-}
+    ret = OH_CameraInput_Open(cameraInput);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraInput_open failed.");
+        return ret;
+    }
 
-ret = OH_CameraInput_Open(cameraInput);
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "OH_CameraInput_open failed.");
-return ret;
-}
-
-Camera_CaptureSession* captureSession = nullptr;
-ret = StartCaptureSession(cameraManager, cameraInput, previewOutput, &captureSession);
-if (ret != CAMERA_OK) {
-OH_LOG_ERROR(LOG_APP, "StartCaptureSession failed.");
-return ret;
-}
-
-return CAMERA_OK;
+    Camera_CaptureSession* captureSession = nullptr;
+    ret = StartCaptureSession(cameraManager, cameraInput, previewOutput, &captureSession);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "StartCaptureSession failed.");
+        return ret;
+    }
+    
+    return CAMERA_OK;
 }
 ```
 
-                 调用相机拍照的整体流程。
-```text
+16. 调用相机拍照的整体流程。
+
+  
+```cpp
 static napi_value TakePhoto(napi_env env, napi_callback_info info)
 {
-if (g_receiver == nullptr) {
-OH_LOG_ERROR(LOG_APP, "ImageReceiver not initialized.");
-return GetJsResultDemo(env, IMAGE_BAD_PARAMETER);
-}
-uint64_t surfaceId = 0;
-Image_ErrorCode errCode = OH_ImageReceiverNative_GetReceivingSurfaceId(g_receiver, &surfaceId);
-if (errCode != IMAGE_SUCCESS) {
-OH_LOG_ERROR(LOG_APP, "Get surfaceId failed.");
-return GetJsResultDemo(env, errCode);
-}
+    if (g_receiver == nullptr) {
+        OH_LOG_ERROR(LOG_APP, "ImageReceiver not initialized.");
+        return GetJsResultDemo(env, IMAGE_BAD_PARAMETER);
+    }
+    uint64_t surfaceId = 0;
+    Image_ErrorCode errCode = OH_ImageReceiverNative_GetReceivingSurfaceId(g_receiver, &surfaceId);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_LOG_ERROR(LOG_APP, "Get surfaceId failed.");
+        return GetJsResultDemo(env, errCode);
+    }
 
-auto surfaceId_c = ConvertUint64ToCharTemp(surfaceId);
-Camera_ErrorCode photoRet = StartTakePhoto(surfaceId_c.get());
-return GetJsResultDemo(env, photoRet);
+    auto surfaceId_c = ConvertUint64ToCharTemp(surfaceId);
+    Camera_ErrorCode photoRet = StartTakePhoto(surfaceId_c.get());
+    return GetJsResultDemo(env, photoRet);
 }
 ```
 
-                    获取Receiver接收到的图片信息。                        等待OnCallback回调通知。
-```text
+17. 获取Receiver接收到的图片信息。
+
+  
+等待OnCallback回调通知。
+
+  
+```cpp
 // 同步等待。
 static OH_ImageNative* NotifyJsImageInfoSync()
 {
-std::unique_lock lock(g_mutex);
-g_imageReady = false;
-g_imageInfoResult = nullptr;
+    std::unique_lock<std::mutex> lock(g_mutex);
+    g_imageReady = false;
+    g_imageInfoResult = nullptr;
 
-// 等待OnCallback回调通知。
-bool ret = g_condVar.wait_for(lock, std::chrono::seconds(1), [] {
-OH_LOG_INFO(LOG_APP, "NotifyJsImageInfoSync: wait_for wakeup, g_imageReady=%{public}d", g_imageReady);
-return g_imageReady;
-});
-if (!ret) {
-OH_LOG_ERROR(LOG_APP, "NotifyJsImageInfoSync: wait_for timeout.");
-return nullptr;
-}
-return g_imageInfoResult;
+    // 等待OnCallback回调通知。
+    bool ret = g_condVar.wait_for(lock, std::chrono::seconds(1), [] {
+        OH_LOG_INFO(LOG_APP, "NotifyJsImageInfoSync: wait_for wakeup, g_imageReady=%{public}d", g_imageReady);
+        return g_imageReady;
+    });
+    if (!ret) {
+        OH_LOG_ERROR(LOG_APP, "NotifyJsImageInfoSync: wait_for timeout.");
+        return nullptr;
+    }
+    return g_imageInfoResult;
 }
 ```
 
-                 获取图片大小。
-```text
+18. 获取图片大小。
+
+  
+```cpp
 // 获取图片大小。
 static napi_value GetImageSizeInfo(napi_env env, OH_ImageNative* image)
 {
-OH_LOG_INFO(LOG_APP, "GetImageSizeInfo: enter, image=%{public}p", image);
+    OH_LOG_INFO(LOG_APP, "GetImageSizeInfo: enter, image=%{public}p", image);
 
-Image_Size imgSizeRead;
-Image_ErrorCode errCode = OH_ImageNative_GetImageSize(image, &imgSizeRead);
-OH_LOG_INFO(LOG_APP, "GetImageSizeInfo: GetImageSize errCode=%{public}d, width=%{public}d, height=%{public}d",
-errCode, imgSizeRead.width, imgSizeRead.height);
+    Image_Size imgSizeRead;
+    Image_ErrorCode errCode = OH_ImageNative_GetImageSize(image, &imgSizeRead);
+    OH_LOG_INFO(LOG_APP, "GetImageSizeInfo: GetImageSize errCode=%{public}d, width=%{public}d, height=%{public}d",
+                errCode, imgSizeRead.width, imgSizeRead.height);
 
-if (errCode == IMAGE_SUCCESS) {
-napi_value resultObj;
-napi_create_object(env, &resultObj);
+    if (errCode == IMAGE_SUCCESS) {
+        napi_value resultObj;
+        napi_create_object(env, &resultObj);
 
-napi_value width;
-napi_value height;
-napi_create_int32(env, imgSizeRead.width, &width);
-napi_create_int32(env, imgSizeRead.height, &height);
+        napi_value width;
+        napi_value height;
+        napi_create_int32(env, imgSizeRead.width, &width);
+        napi_create_int32(env, imgSizeRead.height, &height);
 
-napi_set_named_property(env, resultObj, "width", width);
-napi_set_named_property(env, resultObj, "height", height);
+        napi_set_named_property(env, resultObj, "width", width);
+        napi_set_named_property(env, resultObj, "height", height);
 
-OH_LOG_INFO(LOG_APP, "GetImageSizeInfo: exit");
-return resultObj;
-}
+        OH_LOG_INFO(LOG_APP, "GetImageSizeInfo: exit");
+        return resultObj;
+    }
 
-OH_LOG_ERROR(LOG_APP, "GetImageSizeInfo: Failed to get image size");
-return nullptr;
+    OH_LOG_ERROR(LOG_APP, "GetImageSizeInfo: Failed to get image size");
+    return nullptr;
 }
 ```
 
-                 获取组件类型。
-```text
+19. 获取组件类型。
+
+  
+```cpp
 // 获取组件类型。
 static size_t GetComponentTypeSize(OH_ImageNative* image, size_t& componentTypeSize)
 {
-OH_LOG_INFO(LOG_APP, "GetComponentTypeSize: enter, image=%{public}p", image);
-// 获取组件类型的大小。
-Image_ErrorCode errCode = OH_ImageNative_GetComponentTypes(image, nullptr, &componentTypeSize);
-OH_LOG_INFO(LOG_APP, "GetComponentTypeSize: GetComponentTypes (query size) errCode=%{public}d,"
-"componentTypeSize=%{public}zu", errCode, componentTypeSize);
-return componentTypeSize;
+    OH_LOG_INFO(LOG_APP, "GetComponentTypeSize: enter, image=%{public}p", image);
+    // 获取组件类型的大小。
+    Image_ErrorCode errCode = OH_ImageNative_GetComponentTypes(image, nullptr, &componentTypeSize);
+    OH_LOG_INFO(LOG_APP, "GetComponentTypeSize: GetComponentTypes (query size) errCode=%{public}d,"
+                "componentTypeSize=%{public}zu", errCode, componentTypeSize);
+    return componentTypeSize;
 }
 ```
 
-                 获取组件信息。
-```text
+20. 获取组件信息。
+
+  
+```cpp
 // 获取组件信息。
 static napi_value GetComponentInfo(napi_env env, size_t componentTypeSize, OH_ImageNative* image, napi_value resultObj)
 {
-if (componentTypeSize > 0) {
-uint32_t* components = new uint32_t[componentTypeSize];
-Image_ErrorCode errCode = OH_ImageNative_GetComponentTypes(image, &components, &componentTypeSize);
-OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetComponentTypes (get types) errCode=%{public}d,"
-"firstComponent=%{public}u", errCode, componentTypeSize > 0 ? components[0] : 0);
-if (errCode != IMAGE_SUCCESS) {
-OH_LOG_ERROR(LOG_APP, "GetImageInfoObject: GetComponentTypes (get types) failed");
-delete [] components;
-return resultObj;
-}
-
-OH_NativeBuffer* nativeBuffer = nullptr;
-errCode = OH_ImageNative_GetByteBuffer(image, components[0], &nativeBuffer);
-if (errCode == IMAGE_SUCCESS) {
-OH_LOG_INFO(LOG_APP, "Get native buffer success.");
-}
-
-size_t nativeBufferSize = 0;
-errCode = OH_ImageNative_GetBufferSize(image, components[0], &nativeBufferSize);
-OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetBufferSize errCode=%{public}d, nativeBufferSize=%{public}zu",
-errCode, nativeBufferSize);
-if (errCode == IMAGE_SUCCESS) {
-napi_value bufSize;
-napi_create_int32(env, static_cast(nativeBufferSize), &bufSize);
-napi_set_named_property(env, resultObj, "bufferSize", bufSize);
-}
-
-int32_t rowStride = 0;
-errCode = OH_ImageNative_GetRowStride(image, components[0], &rowStride);
-OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetRowStride errCode=%{public}d,"
-"rowStride=%{public}d", errCode, rowStride);
-if (errCode == IMAGE_SUCCESS) {
-napi_value jsRowStride;
-napi_create_int32(env, rowStride, &jsRowStride);
-napi_set_named_property(env, resultObj, "rowStride", jsRowStride);
-}
-
-int32_t pixelStride = 0;
-errCode = OH_ImageNative_GetPixelStride(image, components[0], &pixelStride);
-OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetPixelStride errCode=%{public}d, pixelStride=%{public}d",
-errCode, pixelStride);
-if (errCode == IMAGE_SUCCESS) {
-napi_value jsPixelStride;
-napi_create_int32(env, pixelStride, &jsPixelStride);
-napi_set_named_property(env, resultObj, "pixelStride", jsPixelStride);
-}
-delete [] components;
-}
-return resultObj;
+    if (componentTypeSize > 0) {
+        uint32_t* components = new uint32_t[componentTypeSize];
+        Image_ErrorCode errCode = OH_ImageNative_GetComponentTypes(image, &components, &componentTypeSize);
+        OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetComponentTypes (get types) errCode=%{public}d,"
+                    "firstComponent=%{public}u", errCode, componentTypeSize > 0 ? components[0] : 0);
+        if (errCode != IMAGE_SUCCESS) {
+            OH_LOG_ERROR(LOG_APP, "GetImageInfoObject: GetComponentTypes (get types) failed");
+            delete [] components;
+            return resultObj;
+        }
+        
+        OH_NativeBuffer* nativeBuffer = nullptr;
+        errCode = OH_ImageNative_GetByteBuffer(image, components[0], &nativeBuffer);
+        if (errCode == IMAGE_SUCCESS) {
+            OH_LOG_INFO(LOG_APP, "Get native buffer success.");
+        }
+    
+        size_t nativeBufferSize = 0;
+        errCode = OH_ImageNative_GetBufferSize(image, components[0], &nativeBufferSize);
+        OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetBufferSize errCode=%{public}d, nativeBufferSize=%{public}zu",
+                    errCode, nativeBufferSize);
+        if (errCode == IMAGE_SUCCESS) {
+            napi_value bufSize;
+            napi_create_int32(env, static_cast<int32_t>(nativeBufferSize), &bufSize);
+            napi_set_named_property(env, resultObj, "bufferSize", bufSize);
+        }
+    
+        int32_t rowStride = 0;
+        errCode = OH_ImageNative_GetRowStride(image, components[0], &rowStride);
+        OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetRowStride errCode=%{public}d,"
+                    "rowStride=%{public}d", errCode, rowStride);
+        if (errCode == IMAGE_SUCCESS) {
+            napi_value jsRowStride;
+            napi_create_int32(env, rowStride, &jsRowStride);
+            napi_set_named_property(env, resultObj, "rowStride", jsRowStride);
+        }
+    
+        int32_t pixelStride = 0;
+        errCode = OH_ImageNative_GetPixelStride(image, components[0], &pixelStride);
+        OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetPixelStride errCode=%{public}d, pixelStride=%{public}d",
+                    errCode, pixelStride);
+        if (errCode == IMAGE_SUCCESS) {
+            napi_value jsPixelStride;
+            napi_create_int32(env, pixelStride, &jsPixelStride);
+            napi_set_named_property(env, resultObj, "pixelStride", jsPixelStride);
+        }
+        delete [] components;
+    }
+    return resultObj;
 }
 ```
 
-                 获取图片属性并封装为napi对象。
-```text
+21. 获取图片属性并封装为napi对象。
+
+  
+```cpp
 // 获取图像属性并封装为napi对象。
 static napi_value GetImageInfoObject(napi_env env, OH_ImageNative* image)
 {
-OH_LOG_INFO(LOG_APP, "GetImageInfoObject: enter, image=%{public}p", image);
-napi_value resultObj;
-napi_create_object(env, &resultObj);
-resultObj = GetImageSizeInfo(env, image);
+    OH_LOG_INFO(LOG_APP, "GetImageInfoObject: enter, image=%{public}p", image);
+    napi_value resultObj;
+    napi_create_object(env, &resultObj);
+    resultObj = GetImageSizeInfo(env, image);
+    
+    size_t componentTypeSize = 0;
+    componentTypeSize = GetComponentTypeSize(image, componentTypeSize);
+    if (componentTypeSize > 0) {
+        resultObj = GetComponentInfo(env, componentTypeSize, image, resultObj);
+    }
 
-size_t componentTypeSize = 0;
-componentTypeSize = GetComponentTypeSize(image, componentTypeSize);
-if (componentTypeSize > 0) {
-resultObj = GetComponentInfo(env, componentTypeSize, image, resultObj);
-}
+    int64_t timestamp = 0;
+    Image_ErrorCode errCode = OH_ImageNative_GetTimestamp(image, &timestamp);
+    OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetTimestamp errCode=%{public}d, timestamp=%{public}ld",
+                errCode, timestamp);
+    if (errCode == IMAGE_SUCCESS) {
+        napi_value jsTimestamp;
+        napi_create_int64(env, timestamp, &jsTimestamp);
+        napi_set_named_property(env, resultObj, "timestamp", jsTimestamp);
+    }
 
-int64_t timestamp = 0;
-Image_ErrorCode errCode = OH_ImageNative_GetTimestamp(image, &timestamp);
-OH_LOG_INFO(LOG_APP, "GetImageInfoObject: GetTimestamp errCode=%{public}d, timestamp=%{public}ld",
-errCode, timestamp);
-if (errCode == IMAGE_SUCCESS) {
-napi_value jsTimestamp;
-napi_create_int64(env, timestamp, &jsTimestamp);
-napi_set_named_property(env, resultObj, "timestamp", jsTimestamp);
-}
-
-OH_LOG_INFO(LOG_APP, "GetImageInfoObject: exit");
-return resultObj;
+    OH_LOG_INFO(LOG_APP, "GetImageInfoObject: exit");
+    return resultObj;
 }
 ```
 
-                 获取ReceiverImageInfo的整体流程。
-```text
+22. 获取ReceiverImageInfo的整体流程。
+
+  
+```cpp
 static napi_value GetReceiverImageInfo(napi_env env, napi_callback_info info)
 {
-OH_ImageNative* image = NotifyJsImageInfoSync();
-if (!image) {
-napi_value undefined;
-napi_get_undefined(env, &undefined);
-return undefined;
-}
-napi_value resultObj = GetImageInfoObject(env, image);
-OH_ImageNative_Release(image);
-return resultObj;
+    OH_ImageNative* image = NotifyJsImageInfoSync();
+    if (!image) {
+        napi_value undefined;
+        napi_get_undefined(env, &undefined);
+        return undefined;
+    }
+    napi_value resultObj = GetImageInfoObject(env, image);
+    OH_ImageNative_Release(image);
+    return resultObj;
 }
 ```
 
-                    释放receiver。
-```text
+23. 释放receiver。
+
+  
+```cpp
 static napi_value ReleaseImageReceiver(napi_env env, napi_callback_info info)
 {
-if (g_receiver == nullptr) {
-OH_LOG_INFO(LOG_APP, "No image receiver to release.");
-return nullptr;
-}
+    if (g_receiver == nullptr) {
+        OH_LOG_INFO(LOG_APP, "No image receiver to release.");
+        return nullptr;
+    }
 
-Image_ErrorCode errCode = OH_ImageReceiverNative_Off(g_receiver);
-if (errCode != IMAGE_SUCCESS) {
-OH_LOG_ERROR(LOG_APP, "ImageReceiverNativeCTest image receiver off failed, errCode: %{public}d.", errCode);
-}
+    Image_ErrorCode errCode = OH_ImageReceiverNative_Off(g_receiver);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_LOG_ERROR(LOG_APP, "ImageReceiverNativeCTest image receiver off failed, errCode: %{public}d.", errCode);
+    }
 
-// 独占锁（写）
-std::unique_lock lock(shared_receiver_mutex);
-errCode = OH_ImageReceiverNative_Release(g_receiver);
-if (errCode != IMAGE_SUCCESS) {
-OH_LOG_ERROR(LOG_APP, "Release image receiver failed, errCode: %{public}d.", errCode);
-}
-
-g_receiver = nullptr;
-return GetJsResultDemo(env, errCode);
+    // 独占锁（写）
+    std::unique_lock<std::shared_mutex> lock(shared_receiver_mutex);
+    errCode = OH_ImageReceiverNative_Release(g_receiver);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_LOG_ERROR(LOG_APP, "Release image receiver failed, errCode: %{public}d.", errCode);
+    }
+    
+    g_receiver = nullptr;
+    return GetJsResultDemo(env, errCode);
 }
 ```

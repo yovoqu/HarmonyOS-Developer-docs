@@ -4,33 +4,52 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-record-base-on-avscreencapture
 
-#### 概述
+##### 概述
+
 AVScreenCapture具备采集设备内部音频和麦克风音频的能力，可以录制设备内播放的音频或者麦克风的音频。本文适用于音频录制类应用的开发，针对市场上主流音频录制类应用的常见场景，介绍了如何基于AVScreenCapture录制音频，指导开发者实现基础录制。
+ 
 基于AVScreenCapture录制音频实现的功能效果如下：
+ 
 
-![](assets/基于AVScreenCapture录制音频/file-20260525090901637-001.gif)
+![](assets/基于AVScreenCapture录制音频/file-20260515114725303-0.gif)
+
+ 
 本文的主要内容如下：
+ 
 [基础录制](#section20569101215108)：介绍在C/C++侧基于AVScreenCapture录制音频，包括开始录制、结束录制。
+ 
+ 
 
-#### 基础录制
-#### 实现原理
+##### 基础录制
+
+ 
+
+##### 实现原理
+
 开发者可以调用C/C++侧屏幕录制[AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avscreencapture)模块的接口，完成屏幕录制，采集设备内部和麦克风等音视频源数据。通过AVScreenCapture可以实现单独录制音频文件的功能，在录制音频文件时，支持录制m4a的音频格式，关键流程包括开始录制、停止录制、释放资源等。
+ 
+ 
 
-#### 开发步骤
+##### 开发步骤
+
 1.在CMake脚本中链接动态库libnative_avscreen_capture.so、libnative_media_core.so等。
-
-```ts
+ 
+```text
 target_link_libraries(entry PUBLIC libace_napi.z.so libace_ndk.z.so libjsvm.so libhilog_ndk.z.so libnative_avscreen_capture.so libuv.so libnative_media_core.so)
 ```
-
+ 
 2.配置音频录制相关参数。
+ 
 - 设置视频录制相关参数OH_VideoInfo，包括OH_VideoCaptureInfo和OH_VideoEncInfo。
 
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > AVScreenCapture用于实现屏幕录制。当OH_VideoCaptureInfo的videoFrameWidth和videoFrameHeight设置为0时，AVScreenCapture会忽略视频相关参数，不录制屏幕数据。
 
+ 
 - 设置音频相关参数OH_AudioInfo，包括音频采集信息OH_AudioCaptureInfo、音频编码信息OH_AudioEncInfo。
 
+ 
 ```cpp
 // Configuration parameters
 void AVScreenCapture::SetConfig(OH_AVScreenCaptureConfig &config) {
@@ -61,11 +80,13 @@ void AVScreenCapture::SetConfig(OH_AVScreenCaptureConfig &config) {
     config.recorderInfo = recorderInfo; // recorder info
 }
 ```
-
+ 
 3.启动音频录制。
+ 
 - 在调用[OH_AVScreenCapture_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-h#oh_avscreencapture_create)创建录制对象后，通过环境配置OH_AVScreenCaptureConfig初始化该对象。
 - 然后，调用OH_AVScreenCapture_StartScreenRecording()启动音频录制。
 
+ 
 ```cpp
 OH_AVSCREEN_CAPTURE_ErrCode AVScreenCapture::StartScreenCaptureToFile(int32_t outputFd) {
     if (avScreenCapture != nullptr) {
@@ -102,9 +123,10 @@ OH_AVSCREEN_CAPTURE_ErrCode AVScreenCapture::StartScreenCaptureToFile(int32_t ou
     return result;
 }
 ```
-
+ 
+ 
 4.停止音频录制。
-
+ 
 ```cpp
 OH_AVSCREEN_CAPTURE_ErrCode AVScreenCapture::StopScreenCaptureToFile() {
     OH_AVSCREEN_CAPTURE_ErrCode result = AV_SCREEN_CAPTURE_ERR_OPERATE_NOT_PERMIT;
@@ -131,9 +153,9 @@ OH_AVSCREEN_CAPTURE_ErrCode AVScreenCapture::StopScreenCaptureToFile() {
     return result;
 }
 ```
-
+ 
 5.释放音频录制资源。
-
+ 
 ```cpp
 void AVScreenCapture::ReleaseAVScreenCapture(struct OH_AVScreenCapture *capture) {
     StopScreenCaptureRecording(capture);
@@ -145,6 +167,8 @@ void AVScreenCapture::ReleaseAVScreenCapture(struct OH_AVScreenCapture *capture)
     }
 }
 ```
+ 
 
-#### 示例代码
+##### 示例代码
+
 - [基于AVScreenCapture录制音频（C++）](https://gitcode.com/HarmonyOS_Samples/avscreen-capture-record-system-audio-arkts)

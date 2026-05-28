@@ -3,69 +3,82 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Context是Stage模型的上下文基类，主要用于访问特定应用程序的资源，以及执行应用级操作的回调。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
-## 不同类型Context的继承和持有关系
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-- 不同类型Context的继承关系如下：       ![](assets/Context%20Stage模型的上下文基类/file-20260514163721269-0.png)
-- 不同类型Context的持有关系如下：       ![](assets/Context%20Stage模型的上下文基类/file-20260514163721269-1.png)
+##### 不同类型Context的继承和持有关系
+
+ - 不同类型Context的继承关系如下：
+
+  
+![](assets/Context%20Stage模型的上下文基类/file-20260514163721269-1.png)
+
+ - 不同类型Context的持有关系如下：
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/M4elkyLaTjaJ5CpsiNcl8w/zh-cn_image_0000002581435524.png?HW-CC-KV=V1&HW-CC-Date=20260528T013959Z&HW-CC-Expire=86400&HW-CC-Sign=CE4553190B4DF83C26498CDF7E55D563E59174C07ED7979F3E94EAF31E970C38)
+
 
 
 > [!NOTE]
-> [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)是指UI实例上下文，用于关联窗口与UI页面。与本文档中的应用上下文Context无直接关联，不存在继承或持有关系。
+> UIContext 是指UI实例上下文，用于关联窗口与UI页面。与本文档中的应用上下文Context无直接关联，不存在继承或持有关系。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
 
-## Context
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Context
 
 Context提供了ability或application的上下文的能力，包括访问特定应用程序的资源等。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| resourceManager | resmgr.[ResourceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resourcemanager) | 否 | 否 | 资源管理对象。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| applicationInfo | [ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-applicationinfo) | 否 | 否 | 当前应用程序的信息。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| cacheDir | string | 否 | 否 | 缓存目录，详情参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| tempDir | string | 否 | 否 | 临时目录，详情参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| resourceDir11+ | string | 否 | 否 | 资源目录。          说明：需要开发者手动在\&lt;module-name&gt;\resource路径下创建resfile目录。创建的resfile目录仅支持以只读方式访问。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| filesDir | string | 否 | 否 | 文件目录，详情参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| databaseDir | string | 否 | 否 | 数据库目录，详情参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| preferencesDir | string | 否 | 否 | preferences目录，详情参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| bundleCodeDir | string | 否 | 否 | 安装包目录。不能拼接路径访问资源文件，请使用[资源管理接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)访问资源，详情参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| distributedFilesDir | string | 否 | 否 | 分布式文件目录，详情参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| cloudFileDir12+ | string | 否 | 否 | 云文件目录。          元服务API：从API version 12开始，该接口支持在元服务中使用。 |
-| logFileDir22+ | string | 否 | 否 | 日志文件目录。          元服务API：从API version 22开始，该接口支持在元服务中使用。 |
-| eventHub | [EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub) | 否 | 否 | 事件中心，提供订阅、取消订阅、触发事件对象。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| area | contextConstant.[AreaMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode) | 否 | 否 | 文件分区信息，按加密等级[AreaMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode) 进行分区。          元服务API：从API version 11开始，该接口支持在元服务中使用。 |
-| processName18+ | string | 否 | 否 | 当前应用的进程名。          元服务API：从API version 18开始，该接口支持在元服务中使用。 |
+| resourceManager | resmgr.ResourceManager | 否 | 否 | 资源管理对象。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| applicationInfo | ApplicationInfo | 否 | 否 | 当前应用程序的信息。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| cacheDir | string | 否 | 否 | 缓存目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| tempDir | string | 否 | 否 | 临时目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| resourceDir11+ | string | 否 | 否 | 资源目录。 说明：需要开发者手动在\<module-name>\resource路径下创建resfile目录。创建的resfile目录仅支持以只读方式访问。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| filesDir | string | 否 | 否 | 文件目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| databaseDir | string | 否 | 否 | 数据库目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| preferencesDir | string | 否 | 否 | preferences目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| bundleCodeDir | string | 否 | 否 | 安装包目录。不能拼接路径访问资源文件，请使用资源管理接口访问资源，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| distributedFilesDir | string | 否 | 否 | 分布式文件目录，详情参考应用沙箱目录。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| cloudFileDir12+ | string | 否 | 否 | 云文件目录。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| logFileDir22+ | string | 否 | 否 | 日志文件目录。 元服务API：从API version 22开始，该接口支持在元服务中使用。 |
+| eventHub | EventHub | 否 | 否 | 事件中心，提供订阅、取消订阅、触发事件对象。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| area | contextConstant.AreaMode | 否 | 否 | 文件分区信息，按加密等级AreaMode 进行分区。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| processName18+ | string | 否 | 否 | 当前应用的进程名。 元服务API：从API version 18开始，该接口支持在元服务中使用。 |
 
 
-### createModuleContext(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### createModuleContext(deprecated)
 
 createModuleContext(moduleName: string): Context
 
 根据模块名创建上下文。
+
+> [!NOTE]
+> 仅支持获取本应用中其他Module的Context和应用内HSP的Context，不支持获取其他应用的Context。 从API version 9 开始支持，从API version 12 开始废弃，建议使用 application.createModuleContext 替代，否则可能导致资源获取异常。 由于创建模块上下文的过程涉及资源查询与初始化，耗时相对较长，在对应用流畅性要求较高的场景下，不建议频繁或多次调用createModuleContext接口创建多个Context实例，以免影响用户体验。
 
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -74,14 +87,12 @@ createModuleContext(moduleName: string): Context
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | moduleName | string | 是 | 模块名。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -92,7 +103,6 @@ createModuleContext(moduleName: string): Context
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -100,8 +110,7 @@ createModuleContext(moduleName: string): Context
 
 **示例：**
 
-
-```ts
+```text
 import { common, UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -112,17 +121,15 @@ export default class EntryAbility extends UIAbility {
     try {
       moduleContext = this.context.createModuleContext('entry');
     } catch (error) {
-      console.error(
-        `createModuleContext failed, error.code: ${(error as BusinessError).code}, error.message: ${(error as BusinessError).message}`,
-      );
+      console.error(`createModuleContext failed, error.code: ${(error as BusinessError).code}, error.message: ${(error as BusinessError).message}`);
     }
   }
 }
 ```
 
 
-### getApplicationContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getApplicationContext
 
 getApplicationContext(): ApplicationContext
 
@@ -134,16 +141,14 @@ getApplicationContext(): ApplicationContext
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext) | 应用上下文。 |
+| ApplicationContext | 应用上下文。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -152,8 +157,7 @@ getApplicationContext(): ApplicationContext
 
 **示例：**
 
-
-```ts
+```text
 import { common, UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -164,19 +168,17 @@ export default class EntryAbility extends UIAbility {
     try {
       applicationContext = this.context.getApplicationContext();
     } catch (error) {
-      console.error(
-        `getApplicationContext failed, error.code: ${(error as BusinessError).code}, error.message: ${(error as BusinessError).message}`,
-      );
+      console.error(`getApplicationContext failed, error.code: ${(error as BusinessError).code}, error.message: ${(error as BusinessError).message}`);
     }
   }
 }
 ```
 
 
-### getGroupDir10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getGroupDir(dataGroupID: string): Promise<string>
+##### getGroupDir10+
+
+getGroupDir(dataGroupID: string): Promise&lt;string&gt;
 
 通过应用中的Group ID获取对应的共享目录，使用Promise异步回调。
 
@@ -186,14 +188,12 @@ getGroupDir(dataGroupID: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| [dataGroupID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#options10) | string | 是 | 元服务类型的应用创建时，系统会指定分配唯一Group ID。 |
+| dataGroupID | string | 是 | 元服务类型的应用创建时，系统会指定分配唯一Group ID。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -204,7 +204,6 @@ getGroupDir(dataGroupID: string): Promise<string>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -213,34 +212,31 @@ getGroupDir(dataGroupID: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { common, UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class EntryAbility extends UIAbility {
   onCreate() {
     console.info('MyAbility onCreate');
-    let groupId = '1';
+    let groupId = "1";
     let getGroupDirContext: common.Context = this.context;
     try {
-      getGroupDirContext.getGroupDir(groupId).then((data) => {
-        console.info('getGroupDir result:' + data);
-      });
+      getGroupDirContext.getGroupDir(groupId).then(data => {
+        console.info("getGroupDir result:" + data);
+      })
     } catch (error) {
-      console.error(
-        `getGroupDirContext failed, error.code: ${(error as BusinessError).code}, error.message: ${(error as BusinessError).message}`,
-      );
+      console.error(`getGroupDirContext failed, error.code: ${(error as BusinessError).code}, error.message: ${(error as BusinessError).message}`);
     }
   }
 }
 ```
 
 
-### getGroupDir10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void
+##### getGroupDir10+
+
+getGroupDir(dataGroupID: string, callback: AsyncCallback&lt;string&gt;): void
 
 通过应用中的Group ID获取对应的共享目录，使用callback异步回调。
 
@@ -250,17 +246,15 @@ getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| [dataGroupID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-preferences#options10) | string | 是 | 元服务类型的应用创建时，系统会指定分配唯一Group ID。 |
-| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取共享目录成功，err为undefined，data为对应的共享目录，如果不存在则返回为空；否则为错误对象。          说明：仅支持应用el2加密级别。 |
+| dataGroupID | string | 是 | 元服务类型的应用创建时，系统会指定分配唯一Group ID。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取共享目录成功，err为undefined，data为对应的共享目录，如果不存在则返回为空；否则为错误对象。 说明：仅支持应用el2加密级别。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -270,8 +264,7 @@ getGroupDir(dataGroupID: string, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { common, UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -280,7 +273,7 @@ export default class EntryAbility extends UIAbility {
     console.info('MyAbility onCreate');
     let getGroupDirContext: common.Context = this.context;
 
-    getGroupDirContext.getGroupDir('1', (err: BusinessError, data) => {
+    getGroupDirContext.getGroupDir("1", (err: BusinessError, data) => {
       if (err) {
         console.error(`getGroupDir failed, err: ${JSON.stringify(err)}`);
       } else {
@@ -292,8 +285,8 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-### createAreaModeContext18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createAreaModeContext18+
 
 createAreaModeContext(areaMode: contextConstant.AreaMode): Context
 
@@ -305,14 +298,12 @@ createAreaModeContext(areaMode: contextConstant.AreaMode): Context
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| areaMode | [contextConstant.AreaMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode) | 是 | 指定的数据加密等级。 |
+| areaMode | contextConstant.AreaMode | 是 | 指定的数据加密等级。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -321,8 +312,7 @@ createAreaModeContext(areaMode: contextConstant.AreaMode): Context
 
 **示例：**
 
-
-```ts
+```json
 import { common, UIAbility, contextConstant } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -334,20 +324,15 @@ export default class EntryAbility extends UIAbility {
     try {
       areaModeContext = this.context.createAreaModeContext(areaMode);
     } catch (error) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'createAreaModeContext error is:%{public}s',
-        JSON.stringify(error),
-      );
+      hilog.error(0x0000, 'testTag', 'createAreaModeContext error is:%{public}s', JSON.stringify(error));
     }
   }
 }
 ```
 
 
-### createDisplayContext15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createDisplayContext15+
 
 createDisplayContext(displayId: number): Context
 
@@ -359,24 +344,21 @@ createDisplayContext(displayId: number): Context
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| [displayId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#windowproperties) | number | 是 | 物理屏幕ID。 |
+| displayId | number | 是 | 物理屏幕ID。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Context](#context) | 带有指定物理屏幕信息的上下文。 |
+| Context | 带有指定物理屏幕信息的上下文。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -385,8 +367,7 @@ createDisplayContext(displayId: number): Context
 
 **示例：**
 
-
-```ts
+```json
 import { common, UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -397,12 +378,7 @@ export default class EntryAbility extends UIAbility {
     try {
       displayContext = this.context.createDisplayContext(0);
     } catch (error) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'createDisplayContext error is:%{public}s',
-        JSON.stringify(error),
-      );
+      hilog.error(0x0000, 'testTag', 'createDisplayContext error is:%{public}s', JSON.stringify(error));
     }
   }
 }

@@ -3,15 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-vpn
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 说明文档。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
-
-## 2200001 非法参数值
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+##### 2200001 非法参数值
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Invalid parameter value.
 检查输入参数的取值范围是否正确。
 
 
-## 2200002 连接服务失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV / Wearable
+
+##### 2200002 连接服务失败
 
 **错误信息**
 
@@ -50,8 +49,8 @@ Failed to connect to the service.
 检查系统服务运行状态是否正常。
 
 
-## 2200003 系统内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 2200003 系统内部错误
 
 **错误信息**
 
@@ -74,8 +73,8 @@ System internal error.
 2.系统异常，请稍后重试或重启设备。
 
 
-## 2203001 VPN创建失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 2203001 VPN创建失败
 
 **错误信息**
 
@@ -94,8 +93,8 @@ VPN creation denied, please check the user type.
 检查当前登录系统用户的类型。
 
 
-## 2203002 VPN已存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 2203002 VPN已存在
 
 **错误信息**
 
@@ -114,8 +113,8 @@ VPN已经被创建。
 先执行destroy接口，再调用该接口。
 
 
-## 2203004 无效描述符
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 2203004 无效描述符
 
 **错误信息**
 
@@ -134,8 +133,8 @@ tcp链路建立失败。
 检查socket链路是否建立成功。
 
 
-## 19900001 无效参数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 19900001 无效参数
 
 **错误信息**
 
@@ -154,8 +153,8 @@ Invalid parameter value.
 请检查参数数量和类型。
 
 
-## 19900002 系统内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 19900002 系统内部错误
 
 **错误信息**
 

@@ -1,6 +1,6 @@
 # Enterprise Threat Protection Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisethreatprotectionkit-6111
 
@@ -23,11 +23,11 @@
 | 新增API | NA | 类名：QueryCallback； API声明：onQuery(files: IsolatedFileInfo[]): void; 差异内容：onQuery(files: IsolatedFileInfo[]): void; | api/@hms.pcService.virusRemediation.d.ts |
 | 新增API | NA | 类名：QueryCallback； API声明：onComplete(): void; 差异内容：onComplete(): void; | api/@hms.pcService.virusRemediation.d.ts |
 | 新增API | NA | 类名：QueryCallback； API声明：onError(code: number, message: string): void; 差异内容：onError(code: number, message: string): void; | api/@hms.pcService.virusRemediation.d.ts |
-| 新增API | NA | 类名：virusRemediation； API声明：function isolateThreatFile(path: string): Promise<string>; 差异内容：function isolateThreatFile(path: string): Promise<string>; | api/@hms.pcService.virusRemediation.d.ts |
-| 新增API | NA | 类名：virusRemediation； API声明：function restoreIsolatedFile(id: string): Promise<string>; 差异内容：function restoreIsolatedFile(id: string): Promise<string>; | api/@hms.pcService.virusRemediation.d.ts |
-| 新增API | NA | 类名：virusRemediation； API声明：function removeIsolatedFile(id: string): Promise<void>; 差异内容：function removeIsolatedFile(id: string): Promise<void>; | api/@hms.pcService.virusRemediation.d.ts |
+| 新增API | NA | 类名：virusRemediation； API声明：function isolateThreatFile(path: string): Promise&lt;string&gt;; 差异内容：function isolateThreatFile(path: string): Promise&lt;string&gt;; | api/@hms.pcService.virusRemediation.d.ts |
+| 新增API | NA | 类名：virusRemediation； API声明：function restoreIsolatedFile(id: string): Promise&lt;string&gt;; 差异内容：function restoreIsolatedFile(id: string): Promise&lt;string&gt;; | api/@hms.pcService.virusRemediation.d.ts |
+| 新增API | NA | 类名：virusRemediation； API声明：function removeIsolatedFile(id: string): Promise&lt;void&gt;; 差异内容：function removeIsolatedFile(id: string): Promise&lt;void&gt;; | api/@hms.pcService.virusRemediation.d.ts |
 | 新增API | NA | 类名：virusRemediation； API声明：function queryIsolatedFiles(callback: QueryCallback, batchNum?: number): void; 差异内容：function queryIsolatedFiles(callback: QueryCallback, batchNum?: number): void; | api/@hms.pcService.virusRemediation.d.ts |
-| 新增API | NA | 类名：virusRemediation； API声明：function openFile(path: string): Promise<number>; 差异内容：function openFile(path: string): Promise<number>; | api/@hms.pcService.virusRemediation.d.ts |
+| 新增API | NA | 类名：virusRemediation； API声明：function openFile(path: string): Promise&lt;number&gt;; 差异内容：function openFile(path: string): Promise&lt;number&gt;; | api/@hms.pcService.virusRemediation.d.ts |
 | 新增API | NA | 类名：virusRemediation； API声明：function scanBundleFiles(type: ScanTargetType, callback: ScanCallback, bundleName?: string, batchNum?: number): void; 差异内容：function scanBundleFiles(type: ScanTargetType, callback: ScanCallback, bundleName?: string, batchNum?: number): void; | api/@hms.pcService.virusRemediation.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.pcService.virusRemediation.d.ts 差异内容：EnterpriseThreatProtectionKit | api/@hms.pcService.virusRemediation.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：kits@kit.EnterpriseThreatProtectionKit.d.ts 差异内容：EnterpriseThreatProtectionKit | kits/@kit.EnterpriseThreatProtectionKit.d.ts |

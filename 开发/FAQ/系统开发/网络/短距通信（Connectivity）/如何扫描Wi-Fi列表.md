@@ -5,8 +5,8 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-2
 
 使用wifiManager.getScanInfoList方法获取扫描Wi-Fi结果，需要权限：ohos.permission.GET_WIFI_INFO。参考代码如下：
-
-```ts
+ 
+```ArkTS
 import { wifiManager } from '@kit.ConnectivityKit';
 
 try {
@@ -31,7 +31,7 @@ try {
   console.error('failed:' + JSON.stringify(error));
 }
 ```
-
-参考链接
-
-wifiManager.getScanInfoList
+ 
+**参考链接**
+ 
+[wifiManager.getScanInfoList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager#wifimanagergetscaninfolist10)

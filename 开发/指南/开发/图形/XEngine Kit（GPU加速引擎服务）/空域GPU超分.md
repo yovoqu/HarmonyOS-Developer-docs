@@ -1,19 +1,31 @@
 # 空域GPU超分
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-gpu-spatial-upscaling
 
 XEngine Kit提供空域GPU超分能力，其基于单帧输入图像，使用空间邻域信息实现超采样，开销较小同时收益可观，建议使用超分倍率为[1.2, 1.5]。
 
 
-## 约束与限制
+##### 约束与限制
 
-支持的设备类型：Phone，从5.0.2(14)版本开始，新增支持Tablet、PC/2in1设备，从5.1.1(19)版本开始新增支持TV设备。  可通过以下方式查询相关扩展特性是否支持：  对于OpenGL ES，使用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)扩展特性查询接口进行查询。  对于Vulkan，使用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)扩展特性查询接口进行查询。 如查询结果包含[XEG_SPATIAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_spatial_upscale_extension_name)，则表示支持该特性，若查询结果未包含，则表示不支持该特性。
+ - 支持的设备类型：Phone，从5.0.2(14)版本开始，新增支持Tablet、PC/2in1设备，从5.1.1(19)版本开始新增支持TV设备。
+ - 可通过以下方式查询相关扩展特性是否支持：
 
-## 接口说明
+  
+对于OpenGL ES，使用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)扩展特性查询接口进行查询。
+ - 对于Vulkan，使用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)扩展特性查询接口进行查询。
+
+
+如查询结果包含[XEG_SPATIAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_spatial_upscale_extension_name)，则表示支持该特性，若查询结果未包含，则表示不支持该特性。
+
+
+
+
+##### 接口说明
 
 以下接口为OpenGL ES和Vulkan空域GPU超分设置接口，如需使用更丰富的设置和查询接口，具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | const GLubyte * HMS_XEG_GetString (GLenum name) | XEngine OpenGL ES扩展特性查询接口。 |
@@ -25,38 +37,77 @@ XEngine Kit提供空域GPU超分能力，其基于单帧输入图像，使用空
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroySpatialUpscale (XEG_SpatialUpscale xegSpatialUpscale) | 销毁XEG_SpatialUpscale对象。 |
 
 
-## 业务流程
 
-下面是基于GLES图形API平台集成空域GPU超分的主要业务流程
+
+##### 业务流程
+
+ - 下面是基于GLES图形API平台集成空域GPU超分的主要业务流程
+
+  
 ![](assets/空域GPU超分/file-20260514131719684-0.jpg)
-用户在进入游戏初始化场景时调用HMS_XEG_GetString接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含空域GPU超分时代表可以使用此特性。调用HMS_XEG_SpatialUpscaleParameter接口配置超分参数。当游戏运行时，游戏渲染待超分的当前帧纹理。当待超分纹理渲染完成时，调用HMS_XEG_RenderSpatialUpscale接口对待超分的纹理超分。当超分渲染完成时，游戏渲染剩下的纹理，如UI等。当前帧已全部渲染完成，进行送显。当游戏退出时，超分资源会自行释放。 下面是基于Vulkan图形API平台集成空域GPU超分的主要业务流程
-![](assets/空域GPU超分/file-20260514131719684-1.jpg)
-用户在进入游戏初始化场景时调用HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含空域GPU超分时代表可以使用此特性。此时调用HMS_XEG_CreateSpatialUpscale接口创建超分实例。当游戏运行时，游戏渲染待超分的当前帧纹理。当待超分纹理渲染完成时，调用HMS_XEG_CmdRenderSpatialUpscale接口对待超分的纹理超分。当超分渲染完成时，游戏渲染剩下的纹理，如UI等。当前帧已全部渲染完成，进行送显。当游戏退出时，调用HMS_XEG_DestroySpatialUpscale接口销毁超分实例。
 
-## 开发步骤
+
+1. 用户在进入游戏初始化场景时调用HMS_XEG_GetString接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含空域GPU超分时代表可以使用此特性。
+2. 调用HMS_XEG_SpatialUpscaleParameter接口配置超分参数。
+3. 当游戏运行时，游戏渲染待超分的当前帧纹理。
+4. 当待超分纹理渲染完成时，调用HMS_XEG_RenderSpatialUpscale接口对待超分的纹理超分。
+5. 当超分渲染完成时，游戏渲染剩下的纹理，如UI等。
+6. 当前帧已全部渲染完成，进行送显。
+7. 当游戏退出时，超分资源会自行释放。
+
+ - 下面是基于Vulkan图形API平台集成空域GPU超分的主要业务流程
+
+  
+![](assets/空域GPU超分/file-20260514131719684-1.jpg)
+
+
+1. 用户在进入游戏初始化场景时调用HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含空域GPU超分时代表可以使用此特性。
+2. 此时调用HMS_XEG_CreateSpatialUpscale接口创建超分实例。
+3. 当游戏运行时，游戏渲染待超分的当前帧纹理。
+4. 当待超分纹理渲染完成时，调用HMS_XEG_CmdRenderSpatialUpscale接口对待超分的纹理超分。
+5. 当超分渲染完成时，游戏渲染剩下的纹理，如UI等。
+6. 当前帧已全部渲染完成，进行送显。
+7. 当游戏退出时，调用HMS_XEG_DestroySpatialUpscale接口销毁超分实例。
+
+
+
+##### 开发步骤
 
 本章以OpenGL ES和Vulkan图像API集成为例，说明XEngine集成操作过程。
 
-## 配置项目
 
-编译HAP时，Native层so编译需要依赖NDK中的libxengine.so。 头文件引用  按需引用XEngine的头文件，如使用OpenGL ES空域GPU超分。
+
+##### 配置项目
+
+编译HAP时，Native层so编译需要依赖NDK中的libxengine.so。
+
+ - 头文件引用
+
+  按需引用XEngine的头文件，如使用OpenGL ES空域GPU超分。
+
+  
 ```text
-#include
-#include
-#include
-#include
+#include <cstring>
+#include <cstdlib>
+#include <xengine/xeg_gles_extension.h>
+#include <xengine/xeg_gles_spatial_upscale.h>
 ```
-
 按需引用XEngine的头文件，如使用Vulkan空域GPU超分。
+
+  
 ```text
-#include
-#include
-#include
-#include
-#include
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <xengine/xeg_vulkan_extension.h>
+#include <xengine/xeg_vulkan_spatial_upscale.h>
 ```
 
-编写CMakeLists.txt  按需引用XEngine的CMakeLists，如使用OpenGL ES空域GPU超分功能，CMakeLists.txt部分示例代码如下，完整示例代码请参见[Demo（GPU加速引擎-GLES）](https://gitcode.com/harmonyos_samples/xengine-samplecode-gles-demo-cpp)。
+ - 编写CMakeLists.txt
+
+  按需引用XEngine的CMakeLists，如使用OpenGL ES空域GPU超分功能，CMakeLists.txt部分示例代码如下，完整示例代码请参见[Demo（GPU加速引擎-GLES）](https://gitcode.com/harmonyos_samples/xengine-samplecode-gles-demo-cpp)。
+
+  
 ```text
 find_library(
     # 设置路径变量的名称。
@@ -80,8 +131,9 @@ find_library(
 target_link_libraries(nativerender PUBLIC
 ${EGL-lib} ${GLES-lib} ${xengine-lib})
 ```
-
 按需引用XEngine的CMakeLists，如使用Vulkan空域GPU超分功能，CMakeLists.txt部分示例代码如下，完整示例代码请参见[Demo（GPU加速引擎-Vulkan）](https://gitcode.com/harmonyos_samples/xengine-samplecode-vulkan-demo-cpp)。
+
+  
 ```text
 find_library(
     # 设置路径变量的名称。
@@ -101,9 +153,19 @@ ${Vulkan-lib} ${xengine-lib})
 ```
 
 
-## 集成XEngine空域GPU超分（OpenGL ES）
 
-使用EGL和OpenGL ES图形API搭建图像渲染管线并集成空域GPU超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。 本节阐述OpenGL ES图形API的空域GPU超分的使用，详细代码请参见[Demo（GPU加速引擎-GLES）](https://gitcode.com/harmonyos_samples/xengine-samplecode-gles-demo-cpp)。 在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。 调用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口，获取XEngine支持的扩展信息，只有在支持XEG_SPATIAL_UPSCALE_EXTENSION_NAME扩展时才可以使用空域GPU超分的相关接口。
+
+
+##### 集成XEngine空域GPU超分（OpenGL ES）
+
+使用EGL和OpenGL ES图形API搭建图像渲染管线并集成空域GPU超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。
+
+本节阐述OpenGL ES图形API的空域GPU超分的使用，详细代码请参见[Demo（GPU加速引擎-GLES）](https://gitcode.com/harmonyos_samples/xengine-samplecode-gles-demo-cpp)。
+
+在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。
+1. 调用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口，获取XEngine支持的扩展信息，只有在支持XEG_SPATIAL_UPSCALE_EXTENSION_NAME扩展时才可以使用空域GPU超分的相关接口。
+
+  
 ```text
 // 查询XEngine支持的GLES扩展信息
 const char* extensions = (const char*)HMS_XEG_GetString(XEG_EXTENSIONS);
@@ -113,7 +175,9 @@ if (!strstr(extensions, XEG_SPATIAL_UPSCALE_EXTENSION_NAME)) {
 }
 ```
 
-调用[HMS_XEG_SpatialUpscaleParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_spatialupscaleparameter)接口，对空域GPU超分的参数赋值。
+2. 调用[HMS_XEG_SpatialUpscaleParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_spatialupscaleparameter)接口，对空域GPU超分的参数赋值。
+
+  
 ```text
 // m_sharpness为用户自定义超分锐化参数，此处以参数为0.3f为例
 float m_sharpness = 0.3f;
@@ -122,11 +186,13 @@ uint32_t m_renderWidth = 800;
 uint32_t m_renderHeight = 600;
 HMS_XEG_SpatialUpscaleParameter(XEG_SPATIAL_UPSCALE_SHARPNESS, &m_sharpness);
 // upscaleScissor为超分输入图像的采样区域
-int upscaleScissor[4] = {0, 0, static_cast(m_renderWidth), static_cast(m_renderHeight)};
+int upscaleScissor[4] = {0, 0, static_cast<int>(m_renderWidth), static_cast<int>(m_renderHeight)};
 HMS_XEG_SpatialUpscaleParameter(XEG_SPATIAL_UPSCALE_SCISSOR, upscaleScissor);
 ```
 
-调用[HMS_XEG_RenderSpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_renderspatialupscale)接口进行超分。
+3. 调用[HMS_XEG_RenderSpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_renderspatialupscale)接口进行超分。
+
+  
 ```text
 // upscaleFBO为用户自定义创建的framebuffer
 unsigned int upscaleFBO;
@@ -140,21 +206,29 @@ glScissor(0, 0, m_upscaleWidth, m_upscaleHeight);
 unsigned int upscaleColorBuffer;
 HMS_XEG_RenderSpatialUpscale(upscaleColorBuffer);
 ```
-
 upscaleFBO是已创建完成的framebuffer，并绑定纹理，超分接口调用后绘制到纹理上。
 
-## 集成XEngine空域GPU超分（Vulkan）
 
-使用Vulkan图形API搭建图像渲染管线并集成空域GPU超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。 本节阐述Vulkan图形API的空域GPU超分使用，详细代码请参见[Demo（GPU加速引擎-Vulkan）](https://gitcode.com/harmonyos_samples/xengine-samplecode-vulkan-demo-cpp)。 在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。 调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口，获取XEngine支持的扩展信息，只有在支持XEG_SPATIAL_UPSCALE_EXTENSION_NAME扩展时才可以使用空域GPU超分的相关接口。
+
+##### 集成XEngine空域GPU超分（Vulkan）
+
+使用Vulkan图形API搭建图像渲染管线并集成空域GPU超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。
+
+本节阐述Vulkan图形API的空域GPU超分使用，详细代码请参见[Demo（GPU加速引擎-Vulkan）](https://gitcode.com/harmonyos_samples/xengine-samplecode-vulkan-demo-cpp)。
+
+在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。
+1. 调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口，获取XEngine支持的扩展信息，只有在支持XEG_SPATIAL_UPSCALE_EXTENSION_NAME扩展时才可以使用空域GPU超分的相关接口。
+
+  
 ```text
 // physicalDevice为Vulkan物理设备，用户需进行初始化
 VkPhysicalDevice physicalDevice;
 // 查询XEngine支持的Vulkan扩展列表
-std::vector supportedExtensions;
+std::vector<std::string> supportedExtensions;
 uint32_t pPropertyCount;
 HMS_XEG_EnumerateDeviceExtensionProperties(physicalDevice, &pPropertyCount, nullptr);
 if (pPropertyCount > 0) {
-    std::vector pProperties(pPropertyCount);
+    std::vector<XEG_ExtensionProperties> pProperties(pPropertyCount);
     if (HMS_XEG_EnumerateDeviceExtensionProperties(physicalDevice, &pPropertyCount, &pProperties.front()) == VK_SUCCESS) {
         for (auto ext : pProperties) {
              supportedExtensions.push_back(ext.extensionName);
@@ -167,12 +241,16 @@ if (std::find(supportedExtensions.begin(), supportedExtensions.end(), XEG_SPATIA
 }
 ```
 
-声明实例句柄。
+2. 声明实例句柄。
+
+  
 ```text
 XEG_SpatialUpscale xegSpatialUpscale;
 ```
 
-调用[HMS_XEG_CreateSpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_createspatialupscale)接口，创建超分实例。
+3. 调用[HMS_XEG_CreateSpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_createspatialupscale)接口，创建超分实例。
+
+  
 ```text
 // 渲染宽高和超分后宽高均为用户自定义参数，此处以将800*600分辨率超分至1200*900分辨率为例
 uint32_t m_renderWidth = 800;
@@ -209,7 +287,9 @@ createInfo.inputSize = srcRect2D.extent;
 HMS_XEG_CreateSpatialUpscale(device, &createInfo, &xegSpatialUpscale);
 ```
 
-调用[HMS_XEG_CmdRenderSpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdrenderspatialupscale)接口下发超分，每帧都需要调用。
+4. 调用[HMS_XEG_CmdRenderSpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdrenderspatialupscale)接口下发超分，每帧都需要调用。
+
+  
 ```text
 // inputImageView为用户创建的超分输入图像的VkImageView
 VkImageView inputImageView = VK_NULL_HANDLE;
@@ -223,7 +303,9 @@ xegDescription.outputImage = outputImageView;
 HMS_XEG_CmdRenderSpatialUpscale(cmdBuff, xegSpatialUpscale, &xegDescription);
 ```
 
-调用[HMS_XEG_DestroySpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_destroyspatialupscale)接口销毁实例。
+5. 调用[HMS_XEG_DestroySpatialUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_destroyspatialupscale)接口销毁实例。
+
+  
 ```text
 HMS_XEG_DestroySpatialUpscale(xegSpatialUpscale);
 ```

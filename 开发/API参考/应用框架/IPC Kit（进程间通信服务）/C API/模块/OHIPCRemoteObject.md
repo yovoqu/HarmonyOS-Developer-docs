@@ -3,23 +3,20 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohipcremoteobject
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供远端对象创建、销毁、数据发送、远端对象死亡状态监听等功能C接口。
-
+ 
 **系统能力：** SystemCapability.Communication.IPC.Core
-
+ 
 **起始版本：** 12
+ 
+  
 
-
-## 文件汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 文件汇总
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [ipc_cremote_object.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ipc-cremote-object-h) | 提供远端对象创建、销毁、数据发送、远端对象死亡状态监听等功能C接口。 |
+| ipc_cremote_object.h | 提供远端对象创建、销毁、数据发送、远端对象死亡状态监听等功能C接口。 |

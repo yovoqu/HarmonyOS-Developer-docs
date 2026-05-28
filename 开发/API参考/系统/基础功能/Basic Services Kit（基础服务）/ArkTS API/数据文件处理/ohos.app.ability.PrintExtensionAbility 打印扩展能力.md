@@ -3,31 +3,28 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-printextensionability
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 该模块为打印扩展能力的操作API，提供调用打印扩展能力的接口。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 14开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 14开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 ```
 
 
-## PrintExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PrintExtensionAbility
 
 
-### onCreate
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onCreate
 
 onCreate(want: Want): void
 
@@ -37,30 +34,28 @@ onCreate(want: Want): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want#want) | 是 | 表示调用打印页面需要参数。 |
+| want | Want | 是 | 表示调用打印页面需要参数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onCreate(want: Want): void {
-    console.info('onCreate');
-    // ...
-  }
+    onCreate(want: Want): void {
+        console.info('onCreate');
+        // ...
+    }
 }
 ```
 
 
-### onStartDiscoverPrinter
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStartDiscoverPrinter
 
 onStartDiscoverPrinter(): void
 
@@ -70,21 +65,20 @@ onStartDiscoverPrinter(): void
 
 **示例：**
 
-
-```ts
+```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onStartDiscoverPrinter(): void {
-    console.info('onStartDiscoverPrinter enter');
-    // ...
-  }
+    onStartDiscoverPrinter(): void {
+        console.info('onStartDiscoverPrinter enter');
+        // ...
+    }
 }
 ```
 
 
-### onStopDiscoverPrinter
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStopDiscoverPrinter
 
 onStopDiscoverPrinter(): void
 
@@ -94,21 +88,20 @@ onStopDiscoverPrinter(): void
 
 **示例：**
 
-
-```ts
+```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onStopDiscoverPrinter(): void {
-    console.info('onStopDiscoverPrinter enter');
-    // ...
-  }
+    onStopDiscoverPrinter(): void {
+        console.info('onStopDiscoverPrinter enter');
+        // ...
+    }
 }
 ```
 
 
-### onConnectPrinter
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onConnectPrinter
 
 onConnectPrinter(printerId: number): void
 
@@ -118,7 +111,6 @@ onConnectPrinter(printerId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | printerId | number | 是 | 表示打印机ID。 |
@@ -126,21 +118,20 @@ onConnectPrinter(printerId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onConnectPrinter(printerId: number): void {
-    console.info('onConnectPrinter enter');
-    // ...
-  }
+    onConnectPrinter(printerId: number): void {
+        console.info('onConnectPrinter enter');
+        // ...
+    }
 }
 ```
 
 
-### onDisconnectPrinter
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onDisconnectPrinter
 
 onDisconnectPrinter(printerId: number): void
 
@@ -150,7 +141,6 @@ onDisconnectPrinter(printerId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | printerId | number | 是 | 表示打印机ID。 |
@@ -158,21 +148,20 @@ onDisconnectPrinter(printerId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onDisconnectPrinter(printerId: number): void {
-    console.info('onDisconnectPrinter enter');
-    // ...
-  }
+    onDisconnectPrinter(printerId: number): void {
+        console.info('onDisconnectPrinter enter');
+        // ...
+    }
 }
 ```
 
 
-### onStartPrintJob24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStartPrintJob24+
 
 onStartPrintJob(jobInfo: print.PrintJob): void
 
@@ -182,29 +171,27 @@ onStartPrintJob(jobInfo: print.PrintJob): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| jobInfo | [print.PrintJob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-print#printjob24) | 是 | 表示打印任务的信息。 |
+| jobInfo | print.PrintJob | 是 | 表示打印任务的信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { print, PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onStartPrintJob(jobInfo: print.PrintJob): void {
-    console.info('onStartPrintJob, jobId is: ' + jobInfo.jobId);
-    // ...
-  }
+    onStartPrintJob(jobInfo: print.PrintJob): void {
+        console.info('onStartPrintJob, jobId is: ' + jobInfo.jobId);
+        // ...
+    }
 }
 ```
 
 
-### onCancelPrintJob24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onCancelPrintJob24+
 
 onCancelPrintJob(jobInfo: print.PrintJob): void
 
@@ -214,29 +201,27 @@ onCancelPrintJob(jobInfo: print.PrintJob): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| jobInfo | [print.PrintJob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-print#printjob24) | 是 | 表示打印任务的信息。 |
+| jobInfo | print.PrintJob | 是 | 表示打印任务的信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { print, PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onCancelPrintJob(jobInfo: print.PrintJob): void {
-    console.info('onCancelPrintJob, jobId is: ' + jobInfo.jobId);
-    // ...
-  }
+    onCancelPrintJob(jobInfo: print.PrintJob): void {
+        console.info('onCancelPrintJob, jobId is: ' + jobInfo.jobId);
+        // ...
+    }
 }
 ```
 
 
-### onRequestPrinterCapability24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onRequestPrinterCapability24+
 
 onRequestPrinterCapability(printerId: number): print.PrinterCapability
 
@@ -246,7 +231,6 @@ onRequestPrinterCapability(printerId: number): print.PrinterCapability
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | printerId | number | 是 | 表示打印机ID。 |
@@ -254,35 +238,33 @@ onRequestPrinterCapability(printerId: number): print.PrinterCapability
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [print.PrinterCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-print#printercapability24) | 表示打印能力。 |
+| print.PrinterCapability | 表示打印能力。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { print, PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onRequestPrinterCapability(printerId: number): print.PrinterCapability {
-    console.info('onRequestPrinterCapability enter');
-    // ...
-    let tmp: print.PrinterCapability = {
-      colorMode: 1,
-      duplexMode: 1,
-      pageSize: [],
-    };
-    return tmp;
-  }
+    onRequestPrinterCapability(printerId: number): print.PrinterCapability {
+        console.info('onRequestPrinterCapability enter');
+        // ...
+        let tmp : print.PrinterCapability = {
+            colorMode : 1,
+            duplexMode : 1,
+            pageSize : []
+        };
+        return tmp;
+    }
 }
 ```
 
 
-### onDestroy
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onDestroy
 
 onDestroy(): void
 
@@ -292,13 +274,12 @@ onDestroy(): void
 
 **示例：**
 
-
-```ts
+```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 export default class HWPrintExtension extends PrintExtensionAbility {
-  onDestroy(): void {
-    console.info('onDestroy');
-  }
+    onDestroy(): void {
+        console.info('onDestroy');
+    }
 }
 ```

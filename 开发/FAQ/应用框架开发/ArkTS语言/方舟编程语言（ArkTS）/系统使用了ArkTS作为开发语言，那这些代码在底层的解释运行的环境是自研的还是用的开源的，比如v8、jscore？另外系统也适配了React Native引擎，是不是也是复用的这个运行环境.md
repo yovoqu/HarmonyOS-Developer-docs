@@ -5,5 +5,5 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-64
 
 1. 系统使用方舟编译器及运行时环境执行应用包中的字节码。字节码由方舟编译工具链从ArkTS、TS或JS源码编译生成。
-
+ 
 2. 系统适配的React Native引擎目前运行JS源码，使用系统提供的V8引擎。

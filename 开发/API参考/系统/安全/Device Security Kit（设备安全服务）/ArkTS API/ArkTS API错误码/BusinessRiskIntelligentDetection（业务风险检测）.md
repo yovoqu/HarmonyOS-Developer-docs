@@ -3,15 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-brid
-**支持设备：** Phone / Tablet
-
+**支持设备：** Phone | Tablet
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
 
-## 1012500001 内部异常
-**支持设备：** Phone / Tablet
+
+##### 1012500001 内部异常
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Internal error.
 请优先重试，若重试不成功，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1012500002 设备网络异常
-**支持设备：** Phone / Tablet
+
+##### 1012500002 设备网络异常
 
 **错误信息**
 
@@ -50,8 +49,8 @@ The network is unreachable.
 连接网络后重新发起请求。
 
 
-## 1012500003 访问云端服务器异常
-**支持设备：** Phone / Tablet
+
+##### 1012500003 访问云端服务器异常
 
 **错误信息**
 
@@ -70,8 +69,8 @@ Access cloud server fail.
 重新发起请求。
 
 
-## 1012500004 权限校验失败
-**支持设备：** Phone / Tablet
+
+##### 1012500004 权限校验失败
 
 **错误信息**
 
@@ -90,8 +89,8 @@ Verify cloud capability fail.
 参考[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)在AppGallery Connect开通Device Security服务，开通Device Security服务后重试。
 
 
-## 1012500005 API调用次数超过限制
-**支持设备：** Phone / Tablet
+
+##### 1012500005 API调用次数超过限制
 
 **错误信息**
 
@@ -112,8 +111,8 @@ API调用次数超过限制。
 在下一个计数周期再次调用API。
 
 
-## 1012500006 API调用超时
-**支持设备：** Phone / Tablet
+
+##### 1012500006 API调用超时
 
 **错误信息**
 
@@ -132,8 +131,8 @@ API调用超时。
 重新发起请求。
 
 
-## 1012500007 参数检查失败
-**支持设备：** Phone / Tablet
+
+##### 1012500007 参数检查失败
 
 **错误信息**
 

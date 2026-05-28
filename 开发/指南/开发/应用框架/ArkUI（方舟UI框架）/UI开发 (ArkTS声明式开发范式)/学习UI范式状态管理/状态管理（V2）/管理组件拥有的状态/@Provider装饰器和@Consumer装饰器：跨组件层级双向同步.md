@@ -1,6 +1,6 @@
 # @Provider装饰器和@Consumer装饰器：跨组件层级双向同步
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer
 
@@ -10,45 +10,72 @@
 
 @Provider和@Consumer提供了跨组件层级数据双向同步的能力。在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)。常见问题请参考[组件内状态变量常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component)。
 
-
 > [!NOTE]
-> @Provider和@Consumer装饰器从API version 12开始支持。 从API version 12开始，@Provider和@Consumer装饰器支持在元服务中使用。 从API version 23开始，通过配置BuilderNode的BuildOptions参数enableProvideConsumeCrossing为true，使得@Provider和@Consumer支持跨BuilderNode双向同步。在BuilderNode挂载到自定义组件节点树之后，@Consumer会重新获取最近的@Provider数据，与之建立双向同步关系。具体可见@Consumer在跨BuilderNode场景下和@Provider建立双向同步。 从API version 23开始，@Provider和@Consumer装饰器支持在ArkTS卡片中使用。
+> @Provider和@Consumer装饰器从API version 12开始支持。 从API version 12开始，@Provider和@Consumer装饰器支持在元服务中使用。 从API version 23开始，通过配置 BuilderNode 的 BuildOptions 参数enableProvideConsumeCrossing为true，使得@Provider和@Consumer支持跨 BuilderNode 双向同步。在BuilderNode挂载到自定义组件节点树之后，@Consumer会重新获取最近的@Provider数据，与之建立双向同步关系。具体可见 @Consumer在跨BuilderNode场景下和@Provider建立双向同步 。 从API version 23开始，@Provider和@Consumer装饰器支持在ArkTS卡片中使用。
 
 
-## 概述
 
-@Provider，即数据提供方，其所有的子组件都可以通过@Consumer绑定相同的key来获取@Provider提供的数据。 @Consumer，即数据消费方，可以通过绑定同样的key获取其最近父节点的@Provider的数据，当查找不到@Provider的数据时，使用本地默认值。图示如下。
-![](assets/@Provider装饰器和@Consumer装饰器：跨组件层级双向同步/file-20260514130524327-0.png)
-@Provider和@Consumer装饰的数据类型需要一致。 开发者在使用@Provider和@Consumer时要注意： @Provider和@Consumer强依赖自定义组件层级，@Consumer会因为所在组件的父组件不同，而被初始化为不同的值。 @Provider和@Consumer相当于把组件粘合在一起了，从组件独立角度考虑，应减少使用@Provider和@Consumer。
+##### 概述
 
-## @Provider和@Consumer vs @Provide和@Consume能力对比
+@Provider，即数据提供方，其所有的子组件都可以通过@Consumer绑定相同的key来获取@Provider提供的数据。
 
-在状态管理V1版本中，提供跨组件层级双向的装饰器为[@Provide和@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)，当前文档介绍的是状态管理V2装饰器@Provider和@Consumer。虽然两者名字和功能类似，但在特性上还存在一些差异。 如果开发者不了解状态管理V1中的@Provide和@Consume，可以直接跳过本节。
+@Consumer，即数据消费方，可以通过绑定同样的key获取其最近父节点的@Provider的数据，当查找不到@Provider的数据时，使用本地默认值。图示如下。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/vwH_84F6SOqI8P1BpCpTvw/zh-cn_image_0000002611833503.png?HW-CC-KV=V1&HW-CC-Date=20260528T014816Z&HW-CC-Expire=86400&HW-CC-Sign=DADC017EDCFA934470709DED17CE99C5B719AD37B80E09198F1F3E5A525C4DB0)
+
+
+@Provider和@Consumer装饰的数据类型需要一致。
+
+开发者在使用@Provider和@Consumer时要注意：
+
+ - @Provider和@Consumer强依赖自定义组件层级，@Consumer会因为所在组件的父组件不同，而被初始化为不同的值。
+ - @Provider和@Consumer相当于把组件粘合在一起了，从组件独立角度考虑，应减少使用@Provider和@Consumer。
+
+
+
+
+##### @Provider和@Consumer vs @Provide和@Consume能力对比
+
+在状态管理V1版本中，提供跨组件层级双向的装饰器为[@Provide和@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)，当前文档介绍的是状态管理V2装饰器@Provider和@Consumer。虽然两者名字和功能类似，但在特性上还存在一些差异。
+
+如果开发者不了解状态管理V1中的@Provide和@Consume，可以直接跳过本节。
+
 | 能力 | V2装饰器@Provider和@Consumer | V1装饰器@Provide和@Consume |
 | --- | --- | --- |
 | @Consume(r) | 必须本地初始化，当找不到@Provider时使用本地默认值。 | API version 20以前，@Consume禁止本地初始化，当找不到对应@Provide的时候，会抛出异常；从API version 20开始，@Consume支持设置默认值，如果没有设置默认值，且找不到对应@Provide时，会抛出异常。 |
 | 支持类型 | 支持function。 | 不支持function。 |
-| 观察能力 | 仅能观察自身赋值变化，如果要观察嵌套场景，配合[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)一起使用。 | 观察第一层变化，如果要观察嵌套场景，配合[@Observed和@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)一起使用。 |
+| 观察能力 | 仅能观察自身赋值变化，如果要观察嵌套场景，配合@Trace一起使用。 | 观察第一层变化，如果要观察嵌套场景，配合@Observed和@ObjectLink一起使用。 |
 | alias和属性名 | alias是唯一匹配的key，缺省时默认属性名为alias。 | alias和属性名都为key，优先匹配alias，匹配不到可以匹配属性名。 |
 | @Provide(r) 从父组件初始化 | 不允许。 | 允许。 |
 | @Provide(r)支持重载 | 默认开启，即@Provider可以重名，@Consumer向上查找最近的@Provider。 | 默认关闭，即在组件树上不允许有同名@Provide。如果需要重载，则需要配置allowOverride。 |
 
 
-## 装饰器说明
 
 
-## 基本规则
+##### 装饰器说明
 
-@Provider语法： @Provider(aliasName?: string) varName : varType = initValue
+
+
+##### 基本规则
+
+@Provider语法：
+
+@Provider(aliasName?: string) varName : varType = initValue
+
 | @Provider属性装饰器 | 说明 |
 | --- | --- |
 | 装饰器参数 | aliasName?: string，别名，缺省时默认为属性名。 |
-| 支持类型 | 自定义组件中成员变量。属性的类型可以为number、string、boolean、class、[Array](#装饰array类型变量)、[Date](#装饰date类型变量)、[Map](#装饰map类型变量)、[Set](#装饰set类型变量)等类型。支持装饰[箭头函数](#provider和consumer装饰回调事件用于组件之间完成行为抽象)。 |
+| 支持类型 | 自定义组件中成员变量。属性的类型可以为number、string、boolean、class、Array、Date、Map、Set等类型。支持装饰箭头函数。 |
 | 从父组件初始化 | 禁止。 |
 | 本地初始化 | 必须本地初始化。 |
 | 观察能力 | 能力等同于@Trace。变化会同步给对应的@Consumer。 |
 
-@Consumer语法： @Consumer(aliasName?: string) varName : varType = initValue
+
+@Consumer语法：
+
+@Consumer(aliasName?: string) varName : varType = initValue
+
 | @Consumer属性装饰器 | 说明 |
 | --- | --- |
 | 装饰器参数 | aliasName?: string，别名，缺省时默认为属性名，向上查找最近的@Provider。 |
@@ -58,13 +85,18 @@
 | 观察能力 | 能力等同于@Trace。变化会同步给对应的@Provider。 |
 
 
-## aliasName和属性名
+
+
+##### aliasName和属性名
 
 @Provider和@Consumer接受可选参数aliasName，没有配置参数时，使用属性名作为默认的aliasName。
+
 > [!NOTE]
 > aliasName是用于@Provider和@Consumer进行匹配的唯一指定key。
 
+
 以下三个例子可清楚介绍@Provider和@Consumer如何使用aliasName进行查找匹配。
+
 ```text
 @ComponentV2
 struct Parent {
@@ -80,7 +112,6 @@ struct Child {
 }
 ```
 
-
 ```text
 @ComponentV2
 struct Parent {
@@ -94,7 +125,6 @@ struct Child {
   @Consumer('alias') str: string = 'world';
 }
 ```
-
 
 ```text
 @ComponentV2
@@ -112,8 +142,8 @@ struct Child {
 ```
 
 
-## 变量传递
 
+##### 变量传递
 
 | 传递规则 | 说明 |
 | --- | --- |
@@ -121,17 +151,35 @@ struct Child {
 | 初始化子组件 | @Provider和@Consumer装饰的变量可以初始化子组件中@Param装饰的变量。 |
 
 
-## 使用限制
-
-@Provider和@Consumer为自定义组件的属性装饰器，只能装饰自定义组件内的属性，不能装饰class的属性。 @Provider和@Consumer为状态管理V2装饰器，只能在@ComponentV2中使用，不能在@Component中使用。 @Provider和@Consumer只支持本地初始化，不支持外部传入初始化。
-
-## 使用场景
 
 
-## @Provider和@Consumer双向同步
+##### 使用限制
+1. @Provider和@Consumer为自定义组件的属性装饰器，只能装饰自定义组件内的属性，不能装饰class的属性。
+2. @Provider和@Consumer为状态管理V2装饰器，只能在@ComponentV2中使用，不能在@Component中使用。
+3. @Provider和@Consumer只支持本地初始化，不支持外部传入初始化。
 
-**建立双向绑定** 自定义组件Parent和Child初始化： Child中@Consumer() str: string = 'world'向上查找，查找到Parent中声明的@Provider() str: string = 'hello'。 @Consumer() str: string = 'world'初始化为其查找到的@Provider的值，即'hello'。 两者建立双向同步关系。 点击Parent中的按钮，改变@Provider装饰的str，通知其对应的@Consumer，对应UI刷新。 点击Child中的按钮，改变@Consumer装饰的str，通知其对应的@Provider，对应UI刷新。
-```text
+
+
+##### 使用场景
+
+
+
+##### @Provider和@Consumer双向同步
+
+**建立双向绑定**
+1. 自定义组件Parent和Child初始化：       
+ - Child中@Consumer() str: string = 'world'向上查找，查找到Parent中声明的@Provider() str: string = 'hello'。
+
+2. @Consumer() str: string = 'world'初始化为其查找到的@Provider的值，即'hello'。
+
+3. 两者建立双向同步关系。
+
+4. 点击Parent中的按钮，改变@Provider装饰的str，通知其对应的@Consumer，对应UI刷新。
+
+5. 点击Child中的按钮，改变@Consumer装饰的str，通知其对应的@Provider，对应UI刷新。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Parent {
@@ -163,9 +211,23 @@ struct Child {
   }
 }
 ```
+**未建立双向绑定**
 
-**未建立双向绑定** 下面的例子中，@Provider和@Consumer由于aliasName值不同，无法建立双向同步关系。 自定义组件Parent和Child初始化： Child中@Consumer() str: string = 'world'向上查找，未查找到其数据提供方@Provider。 @Consumer() str: string = 'world'使用其本地默认值为'world'。 两者未建立双向同步关系。 点击Parent中的按钮，改变@Provider装饰的str1，仅刷新@Provider关联的Button组件。 点击Child中的按钮，改变@Consumer装饰的str，仅刷新@Consumer关联的Button组件。
-```text
+  下面的例子中，@Provider和@Consumer由于aliasName值不同，无法建立双向同步关系。
+
+1. 自定义组件Parent和Child初始化：       
+Child中@Consumer() str: string = 'world'向上查找，未查找到其数据提供方@Provider。
+
+2. @Consumer() str: string = 'world'使用其本地默认值为'world'。
+
+3. 两者未建立双向同步关系。
+
+4. 点击Parent中的按钮，改变@Provider装饰的str1，仅刷新@Provider关联的Button组件。
+
+5. 点击Child中的按钮，改变@Consumer装饰的str，仅刷新@Consumer关联的Button组件。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Parent {
@@ -199,10 +261,14 @@ struct Child {
 ```
 
 
-## 装饰Array类型变量
+  
 
-当装饰的对象是Array时，可以观察到Array整体的赋值，同时可以通过调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort更新Array中的数据。
-```text
+  ##### 装饰Array类型变量
+
+  当装饰的对象是Array时，可以观察到Array整体的赋值，同时可以通过调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort更新Array中的数据。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Parent {
@@ -260,10 +326,14 @@ struct Child {
 ```
 
 
-## 装饰Date类型变量
+  
 
-当装饰Date类型变量时，可以观察到数据源对Date整体的赋值，以及调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds带来的变化。
-```text
+  ##### 装饰Date类型变量
+
+  当装饰Date类型变量时，可以观察到数据源对Date整体的赋值，以及调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds带来的变化。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Parent {
@@ -324,14 +394,18 @@ struct Child {
 ```
 
 
-## 装饰Map类型变量
+  
 
-当装饰Map类型变量时，可以观察到数据源对Map整体的赋值，以及调用Map的接口set, clear, delete带来的变化。
-```text
+  ##### 装饰Map类型变量
+
+  当装饰Map类型变量时，可以观察到数据源对Map整体的赋值，以及调用Map的接口set, clear, delete带来的变化。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Parent {
-  @Provider() message: Map = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Provider() message: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
 
   build() {
     Column() {
@@ -364,7 +438,7 @@ struct Parent {
 
 @ComponentV2
 struct Child {
-  @Consumer() message: Map = new Map([[0, 'd'], [1, 'e'], [3, 'f']]);
+  @Consumer() message: Map<number, string> = new Map([[0, 'd'], [1, 'e'], [3, 'f']]);
 
   build() {
     Column() {
@@ -396,14 +470,18 @@ struct Child {
 ```
 
 
-## 装饰Set类型变量
+  
 
-当装饰Set类型变量时，可以观察到数据源对Set整体的赋值，以及调用Set的接口 add, clear, delete带来的变化。
-```text
+  ##### 装饰Set类型变量
+
+  当装饰Set类型变量时，可以观察到数据源对Set整体的赋值，以及调用Set的接口 add, clear, delete带来的变化。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Parent {
-  @Provider() message: Set = new Set([1, 2, 3, 4]);
+  @Provider() message: Set<number> = new Set([1, 2, 3, 4]);
 
   build() {
     Column() {
@@ -432,7 +510,7 @@ struct Parent {
 
 @ComponentV2
 struct Child {
-  @Consumer() message: Set = new Set([1, 2, 3, 4, 5, 6]);
+  @Consumer() message: Set<number> = new Set([1, 2, 3, 4, 5, 6]);
 
   build() {
     Column() {
@@ -460,10 +538,16 @@ struct Child {
 ```
 
 
-## @Provider和@Consumer装饰回调事件用于组件之间完成行为抽象
+  
 
-当需要在父组件中向子组件注册回调函数时，可以使用@Provider和@Consumer装饰回调方法来实现。 在拖拽场景中，若需将子组件的拖拽起始位置信息同步给父组件，可参考以下示例。
-```text
+  ##### @Provider和@Consumer装饰回调事件用于组件之间完成行为抽象
+
+  当需要在父组件中向子组件注册回调函数时，可以使用@Provider和@Consumer装饰回调方法来实现。
+
+  在拖拽场景中，若需将子组件的拖拽起始位置信息同步给父组件，可参考以下示例。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Parent {
@@ -499,10 +583,16 @@ struct Child {
 ```
 
 
-## @Provider和@Consumer装饰复杂类型，配合@Trace一起使用
+  
 
-@Provider和@Consumer只能观察到数据本身的变化。如果需要观察其装饰的复杂数据类型的属性变化，可以配合@Trace一起使用，也可以使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)将非可观察数据变为可观察数据。 装饰内置类型：Array、Map、Set、Date时，可以观察到某些API的变化，观察能力同[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#观察变化)。
-```text
+  ##### @Provider和@Consumer装饰复杂类型，配合@Trace一起使用
+
+1. @Provider和@Consumer只能观察到数据本身的变化。如果需要观察其装饰的复杂数据类型的属性变化，可以配合@Trace一起使用，也可以使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)将非可观察数据变为可观察数据。
+
+2. 装饰内置类型：Array、Map、Set、Date时，可以观察到某些API的变化，观察能力同[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace#观察变化)。
+
+  
+```ArkTS
 @ObservedV2
 class User {
   // 复杂数据类型的属性被@Trace装饰，可以被观察到属性变化
@@ -558,10 +648,14 @@ struct Child {
 ```
 
 
-## @Provider重名时，@Consumer向上查找其最近的@Provider
+  
 
-@Provider可以在组件树上重名，@Consumer会向上查找其最近父节点的@Provider的数据。
-```text
+  ##### @Provider重名时，@Consumer向上查找其最近的@Provider
+
+  @Provider可以在组件树上重名，@Consumer会向上查找其最近父节点的@Provider的数据。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -598,13 +692,20 @@ struct Child {
   }
 }
 ```
+上面的例子中：
 
-上面的例子中： Parent中的@Consumer向上查找，查找到Index中定义的@Provider() val: number = 10，初始化为10。 Child中的@Consumer向上查找，查找到Parent中定义的@Provider() val: number = 20后停止，初始化为20。
+  
+Parent中的@Consumer向上查找，查找到Index中定义的@Provider() val: number = 10，初始化为10。
+ - Child中的@Consumer向上查找，查找到Parent中定义的@Provider() val: number = 20后停止，初始化为20。
 
-## @Provider和@Consumer初始化@Param
+
+
+
+##### @Provider和@Consumer初始化@Param
 
 @Provider和@Consumer装饰的变量可以初始化子组件中@Param装饰的变量。
-```text
+
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -649,16 +750,29 @@ struct Child {
 }
 ```
 
-上面的例子中： Index中@Provider装饰的变量val与Parent中@Consumer装饰的变量val建立双向数据绑定。Parent中@Param装饰的变量val2接收Index中数据源val的数据，并同步其变化。Child中@Param装饰的变量val接收Parent中数据源val的数据，并同步其变化。 点击Parent中的按钮，触发@Consumer() val的变化，变化同步给Index中的@Provider() val和Child中的@Param val，对应UI刷新。 Index中@Provider() val的变化同步给Parent中的@Param val2，对应UI刷新。
+上面的例子中：
 
-## @Consumer在跨BuilderNode场景下和@Provider建立双向同步过程
+ - Index中@Provider装饰的变量val与Parent中@Consumer装饰的变量val建立双向数据绑定。Parent中@Param装饰的变量val2接收Index中数据源val的数据，并同步其变化。Child中@Param装饰的变量val接收Parent中数据源val的数据，并同步其变化。
+ - 点击Parent中的按钮，触发@Consumer() val的变化，变化同步给Index中的@Provider() val和Child中的@Param val，对应UI刷新。
+ - Index中@Provider() val的变化同步给Parent中的@Param val2，对应UI刷新。
 
+
+
+
+##### @Consumer在跨BuilderNode场景下和@Provider建立双向同步过程
 
 > [!NOTE]
 > 从API version 23开始，支持跨BuilderNode配对@Provider和@Consumer。
 
-下面给出一个示例，实现如下功能： BuilderNode通过[全局自定义构建函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)构建组件树，组件树的根[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)节点可通过[getFrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#getframenode)获取，该节点可直接由[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)返回并挂载于[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)节点下。 挂载到自定义组件节点树时，BuilderNode会通过addBuilderNode方法挂载在自定义组件下，此时BuilderNode节点下的@Consumer会向上查找@Provider，根据key的匹配规则找到最近的@Provider后，会和@Provider建立双向同步关系。如果找不到配对的@Provider，则@Consumer仍使用默认值。 建立双向同步的关系后，如果@Provider装饰变量的值和@Consumer的默认值不同，则会回调@Consumer的@Monitor方法，以及与@Consumer有同步关系的变量的@Monitor方法，例如：@Consumer通知其子组件中的@Param触发@Monitor方法。 BuilderNode从组件树卸载后，@Consumer会再次试图查找对应的@Provider，如果发现从组件树卸载后无法再找到之前配对的@Provider，则断开和@Provider的双向同步关系，@Consumer装饰的变量恢复成默认值。 @Consumer断开和@Provider的连接，恢复成默认值时，会判断@Consumer装饰变量的值相对于从@Provider变为@Consumer的默认值是否有变化，如果有变化，则会回调@Consumer的@Monitor方法以及与该@Consumer存在同步关系的变量的@Monitor方法。
-```text
+
+下面给出一个示例，实现如下功能：
+1. BuilderNode通过[全局自定义构建函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)构建组件树，组件树的根[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)节点可通过[getFrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#getframenode)获取，该节点可直接由[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)返回并挂载于[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)节点下。
+2. 挂载到自定义组件节点树时，BuilderNode会通过addBuilderNode方法挂载在自定义组件下，此时BuilderNode节点下的@Consumer会向上查找@Provider，根据key的匹配规则找到最近的@Provider后，会和@Provider建立双向同步关系。如果找不到配对的@Provider，则@Consumer仍使用默认值。
+3. 建立双向同步的关系后，如果@Provider装饰变量的值和@Consumer的默认值不同，则会回调@Consumer的@Monitor方法，以及与@Consumer有同步关系的变量的@Monitor方法，例如：@Consumer通知其子组件中的@Param触发@Monitor方法。
+4. BuilderNode从组件树卸载后，@Consumer会再次试图查找对应的@Provider，如果发现从组件树卸载后无法再找到之前配对的@Provider，则断开和@Provider的双向同步关系，@Consumer装饰的变量恢复成默认值。
+5. @Consumer断开和@Provider的连接，恢复成默认值时，会判断@Consumer装饰变量的值相对于从@Provider变为@Consumer的默认值是否有变化，如果有变化，则会回调@Consumer的@Monitor方法以及与该@Consumer存在同步关系的变量的@Monitor方法。
+
+```ArkTS
 import { BuilderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 @Builder
@@ -666,7 +780,7 @@ function buildText() {
   TestRemove()
 }
 
-let globalBuilderNode: BuilderNode | null = null;
+let globalBuilderNode: BuilderNode<[]> | null = null;
 
 class TextNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
@@ -686,7 +800,7 @@ class TextNodeController extends NodeController {
     if (globalBuilderNode === null && this.uiContext) {
       globalBuilderNode = new BuilderNode(this.uiContext);
       // 构建BuilderNode，TestRemove作为子组件
-      globalBuilderNode.build(wrapBuilder(buildText), undefined, { enableProvideConsumeCrossing: true });
+      globalBuilderNode.build(wrapBuilder<[]>(buildText), undefined, { enableProvideConsumeCrossing: true });
     }
     if (this.rootNode && globalBuilderNode) {
       this.rootNode.appendChild(globalBuilderNode.getFrameNode());
@@ -777,4 +891,9 @@ struct TestRemove {
 }
 ```
 
-上面的例子中： 点击add Child，TestRemove中@Consumer向上找到最近的RemoChildDisconnectProvider中的@Provider，将@Consumer从默认值更新为@Provider的值，并回调@Consumer的@Monitor方法。 @Provider和@Consumer配对后，建立双向同步关系。点击change Provider和Text(change cc)，@Provider和@Consumer绑定的Text组件刷新，并回调@Provider和@Consumer的@Monitor方法。 点击remove Child，BuilderNode子节点从组件树卸载，TestRemove中的@Consumer和RemoChildDisconnectProvider中的@Provider断开连接，TestRemove中的@Consumer恢复成默认值，并回调@Consumer的@Monitor方法。 点击dispose Child，释放BuilderNode下的子节点TestRemove，随后该子节点销毁，执行aboutToDisappear回调。
+上面的例子中：
+
+ - 点击add Child，TestRemove中@Consumer向上找到最近的RemoChildDisconnectProvider中的@Provider，将@Consumer从默认值更新为@Provider的值，并回调@Consumer的@Monitor方法。
+ - @Provider和@Consumer配对后，建立双向同步关系。点击change Provider和Text(change cc)，@Provider和@Consumer绑定的Text组件刷新，并回调@Provider和@Consumer的@Monitor方法。
+ - 点击remove Child，BuilderNode子节点从组件树卸载，TestRemove中的@Consumer和RemoChildDisconnectProvider中的@Provider断开连接，TestRemove中的@Consumer恢复成默认值，并回调@Consumer的@Monitor方法。
+ - 点击dispose Child，释放BuilderNode下的子节点TestRemove，随后该子节点销毁，执行aboutToDisappear回调。

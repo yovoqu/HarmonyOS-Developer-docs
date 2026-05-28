@@ -3,11 +3,9 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 提供请求转码能力的API。
 
@@ -18,11 +16,10 @@
 **起始版本：** 20
 
 
-## 文件汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 文件汇总
 
 | 名称 | 描述 |
 | --- | --- |
-| [avtranscoder.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-h) | 定义AVTranscoder接口。使用AVTranscoder提供的Native API将源视频文件转码为新视频文件。 |
-| [avtranscoder_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avtranscoder-base-h) | 定义了媒体AVTranscoder的结构体和枚举。 |
+| avtranscoder.h | 定义AVTranscoder接口。使用AVTranscoder提供的Native API将源视频文件转码为新视频文件。 |
+| avtranscoder_base.h | 定义了媒体AVTranscoder的结构体和枚举。 |

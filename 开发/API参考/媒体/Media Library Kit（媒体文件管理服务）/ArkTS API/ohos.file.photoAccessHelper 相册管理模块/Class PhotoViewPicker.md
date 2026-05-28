@@ -1,31 +1,38 @@
 # Class (PhotoViewPicker)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图库选择器对象用于支持选择图片、视频等用户场景。使用前，需先创建PhotoViewPicker实例。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 如果需要重复拉起PhotoViewPicker，需要先通过NavDestination或跟随进程销毁前一个photoViewPicker。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
 
 
-## select
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-select(option?: PhotoSelectOptions) : Promise<PhotoSelectResult>
+##### select
+
+select(option?: PhotoSelectOptions) : Promise&lt;PhotoSelectResult&gt;
 
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。使用Promise异步回调。传入可选参数PhotoSelectOptions对象，返回PhotoSelectResult对象。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/5AtcUBTiS6CQ_WGUpH8uyg/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084839Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=8DD5768889021C07165D39782075B486AB75CDB97123A525457ECCBC5F6B4FAF)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/Oa-yGopvRqq829oxrovnXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013707Z&HW-CC-Expire=86400&HW-CC-Sign=5857155BE198E08B296DB87DB56F200A49A09C184F33FB53FC37FA6836812802)
+
+
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。
+
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -33,24 +40,21 @@ select(option?: PhotoSelectOptions) : Promise<PhotoSelectResult>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | [PhotoSelectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#photoselectoptions) | 否 | photoPicker选择选项，若无此参数，则默认选择媒体文件类型为图片和视频类型，默认选择媒体文件数量的最大值为50。 |
+| option | PhotoSelectOptions | 否 | photoPicker选择选项，若无此参数，则默认选择媒体文件类型为图片和视频类型，默认选择媒体文件数量的最大值为50。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PhotoSelectResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#photoselectresult)&gt; | Promise对象。返回photoPicker选择后的结果集 |
+| Promise&lt;PhotoSelectResult&gt; | Promise对象。返回photoPicker选择后的结果集 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)和[媒体库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-medialibrary)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -61,49 +65,42 @@ select(option?: PhotoSelectOptions) : Promise<PhotoSelectResult>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function example01(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   try {
     let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-    photoSelectOptions.MIMEType =
-      photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
     photoSelectOptions.maxSelectNumber = 5;
     let photoPicker = new photoAccessHelper.PhotoViewPicker();
-    photoPicker
-      .select(photoSelectOptions)
-      .then((photoSelectResult: photoAccessHelper.PhotoSelectResult) => {
-        console.info(
-          'PhotoViewPicker.select successfully, photoSelectResult uri: ' +
-            JSON.stringify(photoSelectResult),
-        );
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `PhotoViewPicker.select failed with err: ${err.code}, ${err.message}`,
-        );
-      });
+    photoPicker.select(photoSelectOptions).then((photoSelectResult: photoAccessHelper.PhotoSelectResult) => {
+      console.info('PhotoViewPicker.select successfully, photoSelectResult uri: ' + JSON.stringify(photoSelectResult));
+    }).catch((err: BusinessError) => {
+      console.error(`PhotoViewPicker.select failed with err: ${err.code}, ${err.message}`);
+    });
   } catch (error) {
     let err: BusinessError = error as BusinessError;
-    console.error(
-      `PhotoViewPicker failed with err: ${err.code}, ${err.message}`,
-    );
+    console.error(`PhotoViewPicker failed with err: ${err.code}, ${err.message}`);
   }
 }
 ```
 
 
-## select
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>) : void
+##### select
+
+select(option: PhotoSelectOptions, callback: AsyncCallback&lt;PhotoSelectResult&gt;) : void
 
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，传入参数PhotoSelectOptions对象，返回PhotoSelectResult对象。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/aaVrTmizTbu32g2i16SnGQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084839Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=F0932023917CBB5D7E0345C89F387B940DC353C4252FD58255CABA5245A7108C)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pcOJWIGKQPmKcZgerwMoYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013707Z&HW-CC-Expire=86400&HW-CC-Sign=D685EF784AA555441B48DB8B7FB2ED9E80F8B6BCC0676C49C2C1A75EF48CE158)
+
+
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。
+
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -111,17 +108,15 @@ select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>) :
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| option | [PhotoSelectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#photoselectoptions) | 是 | photoPicker选择选项。 |
-| callback | AsyncCallback&lt;[PhotoSelectResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#photoselectresult)&gt; | 是 | callback 返回photoPicker选择后的结果集。 |
+| option | PhotoSelectOptions | 是 | photoPicker选择选项。 |
+| callback | AsyncCallback&lt;PhotoSelectResult&gt; | 是 | callback 返回photoPicker选择后的结果集。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)和[媒体库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-medialibrary)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -132,54 +127,44 @@ select(option: PhotoSelectOptions, callback: AsyncCallback<PhotoSelectResult>) :
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function example02(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   try {
     let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
-    photoSelectOptions.MIMEType =
-      photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
+    photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE;
     photoSelectOptions.maxSelectNumber = 5;
     let photoPicker = new photoAccessHelper.PhotoViewPicker();
-    photoPicker.select(
-      photoSelectOptions,
-      (
-        err: BusinessError,
-        photoSelectResult: photoAccessHelper.PhotoSelectResult,
-      ) => {
-        if (err) {
-          console.error(
-            `PhotoViewPicker.select failed with err: ${err.code}, ${err.message}`,
-          );
-          return;
-        }
-        console.info(
-          'PhotoViewPicker.select successfully, photoSelectResult uri: ' +
-            JSON.stringify(photoSelectResult),
-        );
-      },
-    );
+    photoPicker.select(photoSelectOptions, (err: BusinessError, photoSelectResult: photoAccessHelper.PhotoSelectResult) => {
+      if (err) {
+        console.error(`PhotoViewPicker.select failed with err: ${err.code}, ${err.message}`);
+        return;
+      }
+      console.info('PhotoViewPicker.select successfully, photoSelectResult uri: ' + JSON.stringify(photoSelectResult));
+    });
   } catch (error) {
     let err: BusinessError = error as BusinessError;
-    console.error(
-      `PhotoViewPicker failed with err: ${err.code}, ${err.message}`,
-    );
+    console.error(`PhotoViewPicker failed with err: ${err.code}, ${err.message}`);
   }
 }
 ```
 
 
-## select
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-select(callback: AsyncCallback<PhotoSelectResult>) : void
+##### select
+
+select(callback: AsyncCallback&lt;PhotoSelectResult&gt;) : void
 
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，返回PhotoSelectResult对象。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/H1ueGz2LSzCddjYXuQS1nA/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084839Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=DA99910E75EA537419E90D5912587FDDFDD57B86FC297BE4B7D21D08F2B6F184)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/IWUgn7STRK-2mie89334pw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013707Z&HW-CC-Expire=86400&HW-CC-Sign=4ED29B5D0D081CB47678DA3185448EB66B83ABD204E9A7A9B871D123C9EC139E)
+
+
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。
+
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -187,16 +172,14 @@ select(callback: AsyncCallback<PhotoSelectResult>) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[PhotoSelectResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#photoselectresult)&gt; | 是 | callback 返回photoPicker选择后的结果集。 |
+| callback | AsyncCallback&lt;PhotoSelectResult&gt; | 是 | callback 返回photoPicker选择后的结果集。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -206,35 +189,22 @@ select(callback: AsyncCallback<PhotoSelectResult>) : void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function example03(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   try {
     let photoPicker = new photoAccessHelper.PhotoViewPicker();
-    photoPicker.select(
-      (
-        err: BusinessError,
-        photoSelectResult: photoAccessHelper.PhotoSelectResult,
-      ) => {
-        if (err) {
-          console.error(
-            `PhotoViewPicker.select failed with err: ${err.code}, ${err.message}`,
-          );
-          return;
-        }
-        console.info(
-          'PhotoViewPicker.select successfully, photoSelectResult uri: ' +
-            JSON.stringify(photoSelectResult),
-        );
-      },
-    );
+    photoPicker.select((err: BusinessError, photoSelectResult: photoAccessHelper.PhotoSelectResult) => {
+      if (err) {
+        console.error(`PhotoViewPicker.select failed with err: ${err.code}, ${err.message}`);
+        return;
+      }
+      console.info('PhotoViewPicker.select successfully, photoSelectResult uri: ' + JSON.stringify(photoSelectResult));
+    });
   } catch (error) {
     let err: BusinessError = error as BusinessError;
-    console.error(
-      `PhotoViewPicker failed with err: ${err.code}, ${err.message}`,
-    );
+    console.error(`PhotoViewPicker failed with err: ${err.code}, ${err.message}`);
   }
 }
 ```

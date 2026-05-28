@@ -1,6 +1,6 @@
 # 使用OHAudio开发音频会话功能(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-session
 
@@ -11,30 +11,37 @@
 本文主要介绍AudioSession相关C API的使用方法和注意事项，更多音频焦点及音频会话的信息，可参考：[音频焦点介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency)和[音频会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-session-management)。
 
 
-## 使用入门
+##### 使用入门
 
-应用要使用OHAudio提供的音频会话管理（AudioSessionManager）能力，需要添加对应的头文件。 以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/AudioSessionSampleC)。
+应用要使用OHAudio提供的音频会话管理（AudioSessionManager）能力，需要添加对应的头文件。
 
-## 在 CMake 脚本中链接动态库
+以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/AudioSessionSampleC)。
 
+
+
+##### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudio.so)
 ```
 
 
-## 添加头文件
+
+##### 添加头文件
 
 应用通过引入[native_audio_session_manager.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h)头文件，使用音频播放相关API。
-```text
+
+```cpp
 #include "ohaudio/native_audio_session_manager.h"
 ```
 
 
-## 获取音频会话管理器
+
+##### 获取音频会话管理器
 
 创建[OH_AudioSessionManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosessionmanager)实例。在使用音频会话管理功能前，需要先通过[OH_AudioManager_GetAudioSessionManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiomanager_getaudiosessionmanager)创建音频会话管理实例。
-```text
+
+```cpp
 OH_AudioSessionManager *audioSessionManager;
 // ...
     OH_AudioCommon_Result resultManager = OH_AudioManager_GetAudioSessionManager(&audioSessionManager);
@@ -47,44 +54,58 @@ OH_AudioSessionManager *audioSessionManager;
 ```
 
 
-## 激活音频会话
 
-应用可以通过[OH_AudioSessionManager_ActivateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_activateaudiosession)接口激活当前应用的音频会话。 应用在[激活音频会话](#激活音频会话)时，需指定[音频会话策略（OH_AudioSession_Strategy）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-strategy)，其中包含[音频并发模式（OH_AudioSession_ConcurrencyMode）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-base-h#oh_audiosession_concurrencymode)参数，用于声明不同的音频并发策略。
-```text
+##### 激活音频会话
+
+应用可以通过[OH_AudioSessionManager_ActivateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_activateaudiosession)接口激活当前应用的音频会话。
+
+应用在[激活音频会话](#激活音频会话)时，需指定[音频会话策略（OH_AudioSession_Strategy）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-strategy)，其中包含[音频并发模式（OH_AudioSession_ConcurrencyMode）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-base-h#oh_audiosession_concurrencymode)参数，用于声明不同的音频并发策略。
+
+```cpp
 // CONCURRENCY_MIX_WITH_OTHERS 是示例，实际使用时请根据情况修改。
 OH_AudioSession_Strategy strategy = {CONCURRENCY_MIX_WITH_OTHERS};
-
+    
 // 设置音频并发模式并激活音频会话。
 OH_AudioSessionManager_ActivateAudioSession(audioSessionManager, &strategy);
 ```
 
 
-## 查询音频会话是否已激活
+
+##### 查询音频会话是否已激活
 
 应用可以通过[OH_AudioSessionManager_IsAudioSessionActivated](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_isaudiosessionactivated)接口检查当前应用的音频会话是否已激活。
-```text
+
+```cpp
 bool isActivated = OH_AudioSessionManager_IsAudioSessionActivated(audioSessionManager);
 ```
 
 
-## 停用音频会话
+
+##### 停用音频会话
 
 应用可以通过[OH_AudioSessionManager_DeactivateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_deactivateaudiosession)接口停用当前应用的音频会话。
-```text
+
+```cpp
 OH_AudioCommon_Result result;
 // ...
 result = OH_AudioSessionManager_DeactivateAudioSession(audioSessionManager);
 ```
 
 
-## 监听音频会话停用事件
 
-在使用AudioSession功能的过程中，推荐应用监听[音频会话停用事件（OH_AudioSession_DeactivatedEvent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-deactivatedevent)。 当AudioSession被停用（非主动停用）时，应用会收到[音频会话停用事件（OH_AudioSession_DeactivatedEvent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-deactivatedevent)，其中包含[音频会话停用原因（OH_AudioSession_DeactivatedReason）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosession_deactivatedreason)。 在收到AudioSessionDeactivatedEvent时，应用可根据自身业务需求，做相应的处理，例如释放相应资源、重新激活AudioSession等。
+##### 监听音频会话停用事件
 
-## 定义回调函数
+在使用AudioSession功能的过程中，推荐应用监听[音频会话停用事件（OH_AudioSession_DeactivatedEvent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-deactivatedevent)。
+
+当AudioSession被停用（非主动停用）时，应用会收到[音频会话停用事件（OH_AudioSession_DeactivatedEvent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-deactivatedevent)，其中包含[音频会话停用原因（OH_AudioSession_DeactivatedReason）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosession_deactivatedreason)。
+
+在收到AudioSessionDeactivatedEvent时，应用可根据自身业务需求，做相应的处理，例如释放相应资源、重新激活AudioSession等。
 
 
-```text
+
+##### 定义回调函数
+
+```cpp
 int32_t MyAudioSessionDeactivatedCallback(OH_AudioSession_DeactivatedEvent event)
 {
     switch (event.reason) {
@@ -101,26 +122,33 @@ OH_AudioSessionManager *audioSessionManager;
 ```
 
 
-## 注册音频会话停用事件回调
+
+##### 注册音频会话停用事件回调
 
 应用可以通过[OH_AudioSessionManager_RegisterSessionDeactivatedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_registersessiondeactivatedcallback)接口监听音频会话停用事件。
-```text
+
+```cpp
 OH_AudioCommon_Result resultRegister = OH_AudioSessionManager_RegisterSessionDeactivatedCallback(
     audioSessionManager, MyAudioSessionDeactivatedCallback);
 ```
 
 
-## 取消注册音频会话停用事件回调
+
+##### 取消注册音频会话停用事件回调
 
 应用可以通过[OH_AudioSessionManager_UnregisterSessionDeactivatedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_unregistersessiondeactivatedcallback)接口取消监听音频会话停用事件。
-```text
+
+```cpp
 OH_AudioCommon_Result resultUnregister = OH_AudioSessionManager_UnregisterSessionDeactivatedCallback(
     audioSessionManager, MyAudioSessionDeactivatedCallback);
 ```
 
-**音频会话从创建到激活并监听的完整示例：** 参考以下示例，完成音频会话从创建到激活并监听的过程。
-```text
-#include
+**音频会话从创建到激活并监听的完整示例：**
+
+参考以下示例，完成音频会话从创建到激活并监听的过程。
+
+```cpp
+#include <cstdint>
 #include "ohaudio/native_audio_session_manager.h"
 // ...
 int32_t MyAudioSessionDeactivatedCallback(OH_AudioSession_DeactivatedEvent event)
@@ -140,7 +168,7 @@ OH_AudioSessionManager *audioSessionManager;
     OH_AudioCommon_Result resultManager = OH_AudioManager_GetAudioSessionManager(&audioSessionManager);
     // ...
     OH_AudioSession_Strategy strategy = {CONCURRENCY_MIX_WITH_OTHERS};
-
+    
     // 设置音频并发模式并激活音频会话。
     OH_AudioSessionManager_ActivateAudioSession(audioSessionManager, &strategy);
     // 查询音频会话是否已激活。
@@ -162,41 +190,53 @@ OH_AudioSessionManager *audioSessionManager;
 ```
 
 
-## 通过设置AudioSession场景参数申请焦点
+
+##### 通过设置AudioSession场景参数申请焦点
 
 应用通过AudioSession申请焦点。首先要调用接口[OH_AudioSessionManager_SetScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_setscene)设置场景参数，然后调用[OH_AudioSessionManager_ActivateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_activateaudiosession)接口激活AudioSession。
-```text
+
+```cpp
 // AUDIO_SESSION_SCENE_MEDIA 仅为示例，实际使用时请根据具体情况进行修改。
 OH_AudioSessionManager_SetScene(audioSessionManager, AUDIO_SESSION_SCENE_MEDIA);
 // ...
 // CONCURRENCY_MIX_WITH_OTHERS 是示例，实际使用时请根据情况修改。
 OH_AudioSession_Strategy strategy = {CONCURRENCY_MIX_WITH_OTHERS};
-
+    
 // 设置音频并发模式并激活音频会话。
 OH_AudioSessionManager_ActivateAudioSession(audioSessionManager, &strategy);
 ```
 
 
-## 启用混音播放下静音建议通知
 
-从API version 23开始，当本应用在并发模式为CONCURRENCY_MIX_WITH_OTHERS下进行播放时，如果有其他应用的音频同时播放，此时两者会混合播放。部分场景下（如游戏或广播），应用可以通过启用静音建议通知，以给用户提供更好的体验。 启用静音建议通知后，本应用播放音频的同时，其他应用播放了不可与本应用并发播放的音频，本应用会收到静音建议通知，此时本应用可以选择不做处理，让本应用和其他应用进行并发播放；也可以选择将自身静音播放，让其他应用单独播放音频。 启用混音播放下静音建议通知，需要先调用接口[OH_AudioSessionManager_SetScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_setscene)设置场景参数并订阅音频会话状态更改事件[OH_AudioSession_StateChangeHint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosession_statechangehint)，启用后再调用[OH_AudioSessionManager_ActivateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_activateaudiosession)接口激活AudioSession。启用静音建议通知的前提是[OH_AudioSession_ConcurrencyMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-base-h#oh_audiosession_concurrencymode)模式必须为CONCURRENCY_MIX_WITH_OTHERS。
-```text
+##### 启用混音播放下静音建议通知
+
+从API version 23开始，当本应用在并发模式为CONCURRENCY_MIX_WITH_OTHERS下进行播放时，如果有其他应用的音频同时播放，此时两者会混合播放。部分场景下（如游戏或广播），应用可以通过启用静音建议通知，以给用户提供更好的体验。
+
+启用静音建议通知后，本应用播放音频的同时，其他应用播放了不可与本应用并发播放的音频，本应用会收到静音建议通知，此时本应用可以选择不做处理，让本应用和其他应用进行并发播放；也可以选择将自身静音播放，让其他应用单独播放音频。
+
+启用混音播放下静音建议通知，需要先调用接口[OH_AudioSessionManager_SetScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_setscene)设置场景参数并订阅音频会话状态更改事件[OH_AudioSession_StateChangeHint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosession_statechangehint)，启用后再调用[OH_AudioSessionManager_ActivateAudioSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-manager-h#oh_audiosessionmanager_activateaudiosession)接口激活AudioSession。启用静音建议通知的前提是[OH_AudioSession_ConcurrencyMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-session-base-h#oh_audiosession_concurrencymode)模式必须为CONCURRENCY_MIX_WITH_OTHERS。
+
+```cpp
 // AUDIO_SESSION_SCENE_MEDIA 仅为示例，实际使用时请根据具体情况进行修改。
 OH_AudioSessionManager_SetScene(audioSessionManager, AUDIO_SESSION_SCENE_MEDIA);
 // 启用混音播放下静音建议。
 OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthers(audioSessionManager, true);
 // ...
 OH_AudioSession_Strategy strategy = {CONCURRENCY_MIX_WITH_OTHERS};
-
+    
 // 设置音频并发模式并激活音频会话。
 OH_AudioSessionManager_ActivateAudioSession(audioSessionManager, &strategy);
 ```
 
 
-## 监听AudioSession焦点状态变化事件
 
-通过[AudioSession焦点状态事件（OH_AudioSession_StateChangedEvent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-statechangedevent)监听音频会话焦点状态的变化。 **AudioSession申请焦点以及监听焦点变化事件的完整示例：**
-```text
+##### 监听AudioSession焦点状态变化事件
+
+通过[AudioSession焦点状态事件（OH_AudioSession_StateChangedEvent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiosession-statechangedevent)监听音频会话焦点状态的变化。
+
+**AudioSession申请焦点以及监听焦点变化事件的完整示例：**
+
+```cpp
 OH_AudioSessionManager *audioSessionManager;
 
 void AudioSessionStateChangedCallback(OH_AudioSession_StateChangedEvent event)
@@ -244,7 +284,7 @@ void AudioSessionStateChangedCallback(OH_AudioSession_StateChangedEvent event)
     OH_AudioSessionManager_EnableMuteSuggestionWhenMixWithOthers(audioSessionManager, true);
     // CONCURRENCY_MIX_WITH_OTHERS 是示例，实际使用时请根据情况修改。
     OH_AudioSession_Strategy strategy = {CONCURRENCY_MIX_WITH_OTHERS};
-
+    
     // 设置音频并发模式并激活音频会话。
     OH_AudioSessionManager_ActivateAudioSession(audioSessionManager, &strategy);
     // ...

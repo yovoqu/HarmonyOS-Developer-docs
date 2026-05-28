@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：notificationManager； API声明：function openNotificationSettings(context: UIAbilityContext): Promise<void>; 差异内容：function openNotificationSettings(context: UIAbilityContext): Promise<void>; | api/@ohos.notificationManager.d.ts |
+| 新增API | NA | 类名：notificationManager； API声明：function openNotificationSettings(context: UIAbilityContext): Promise&lt;void&gt;; 差异内容：function openNotificationSettings(context: UIAbilityContext): Promise&lt;void&gt;; | api/@ohos.notificationManager.d.ts |

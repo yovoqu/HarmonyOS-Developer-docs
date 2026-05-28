@@ -8,19 +8,25 @@
 
 pdfService和PdfView都可实现打开和保存文档，使用场景上有如下区别：
 
+ - 需要对PDF文档做相关的编辑和操作，建议使用pdfService的能力打开和保存文档。
+ - 需要预览、搜索关键字、监听PDF文档回调和批注等操作，推荐使用PdfView打开。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [loadDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#loaddocument)(path: string, password?: string, onProgress?: (progress: number) => number): ParseResult | 加载指定文档路径。 |
-| [saveDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#savedocument)(path: string, onProgress?: (progress: number) => number): boolean | 保存文档。 |
+| loadDocument(path: string, password?: string, onProgress?: (progress: number) => number): ParseResult | 加载指定文档路径。 |
+| saveDocument(path: string, onProgress?: (progress: number) => number): boolean | 保存文档。 |
 
 
-## 示例代码
 
-调用loadDocument方法，加载PDF文档。 在【Save As】和【Save】两个按钮中调用saveDocument方法，分别实现了另存为PDF文档和保存覆盖源PDF文档的两种方式。
+
+##### 示例代码
+1. 调用loadDocument方法，加载PDF文档。
+2. 在【Save As】和【Save】两个按钮中调用saveDocument方法，分别实现了另存为PDF文档和保存覆盖源PDF文档的两种方式。
+
 ```text
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

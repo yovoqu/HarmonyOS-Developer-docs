@@ -14,8 +14,7 @@ customScan.[rescan](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 示例：
 
-
-```text
+```json
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { customScan, scanBarcode } from '@kit.ScanKit';
@@ -23,8 +22,8 @@ import { customScan, scanBarcode } from '@kit.ScanKit';
 @Entry
 @Component
 struct Index {
-  private callback: AsyncCallback> =
-    (err: BusinessError, data: Array) => {
+  private callback: AsyncCallback<Array<scanBarcode.ScanResult>> =
+    (err: BusinessError, data: Array<scanBarcode.ScanResult>) => {
       if (err) {
         hilog.error(0x0001, '[Scan Sample]',
           `Failed to get ScanResult by callback. Code: ${err.code}, message: ${err.message}`);

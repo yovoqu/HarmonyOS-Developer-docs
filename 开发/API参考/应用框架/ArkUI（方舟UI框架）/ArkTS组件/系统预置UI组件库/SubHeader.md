@@ -3,153 +3,155 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-subheader
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 子标题，用于列表项或内容项顶部，将该列表或内容划分为一个区块，子标题名称用来概括该区块内容。
+ 
+> [!NOTE]
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果SubHeader设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SubHeader本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SubHeader设置通用属性和通用事件。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { SubHeader } from '@kit.ArkUI';
 ```
+ 
+  
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 无
-
-
+ 
 > [!NOTE]
 > 不支持设置文本相关。
 
+ 
+  
 
-## SubHeader
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### SubHeader
 
-SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, select?: SelectOptions, operationType?: OperationType, operationItem?: Array<OperationOption>, operationSymbolOptions?: Array<SymbolOptions>, primaryTitleModifier?: TextModifier, secondaryTitleModifier?: TextModifier, titleBuilder?: () => void, contentMargin?: LocalizedMargin, contentPadding?: LocalizedPadding, titleId?: string })
-
+SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, select?: SelectOptions, operationType?: OperationType, operationItem?: Array&lt;OperationOption&gt;, operationSymbolOptions?: Array&lt;SymbolOptions&gt;, primaryTitleModifier?: TextModifier, secondaryTitleModifier?: TextModifier, titleBuilder?: () => void, contentMargin?: LocalizedMargin, contentPadding?: LocalizedPadding, titleId?: string })
+ 
 **装饰器类型：**@Component
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Prop | 图标设置项。 默认值：undefined，表示不显示图标。 当使用secondaryTitle属性时，设置icon属性才会生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| iconSymbolOptions12+ | [SymbolOptions](#symboloptions12) | 否 | - | icon为[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)时的设置项。 默认值：undefined，表示不显示图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| primaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Prop | 标题内容。 默认值：undefined，表示不显示标题。 当同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| secondaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Prop | 副标题内容。 默认值：undefined，表示不显示副标题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| select | [SelectOptions](#selectoptions) | 否 | - | select内容以及事件。 默认值：undefined，表示不显示下拉框。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| operationType | [OperationType](#operationtype) | 否 | @Prop | 操作区（右侧）元素样式。 默认值：OperationType.BUTTON 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| operationItem | Array&lt;[OperationOption](#operationoption)&gt; | 否 | - | 操作区（右侧）的设置项。 默认值：undefined，表示不显示操作区。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| operationSymbolOptions12+ | Array&lt;[SymbolOptions](#symboloptions12)&gt; | 否 | - | operationType为OperationType.ICON_GROUP， operationItem设置多个图标，图标为[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)时的设置项。 默认值：undefined，表示不设置Symbol图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| primaryTitleModifier12+ | [TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier) | 否 | - | 设置标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined，表示使用系统默认样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| secondaryTitleModifier12+ | [TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier) | 否 | - | 设置副标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined，表示使用系统默认样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| titleBuilder12+ | () =&gt; void | 否 | @BuilderParam | 自定义标题区内容 默认值：undefined，表示不采用自定义标题定义标题。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| contentMargin12+ | [LocalizedMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizedmargin12) | 否 | @Prop | 子标题外边距，不支持设置负数。 默认值：  {start: LengthMetrics.resource(   \$r('sys.float.margin_left')),   end: LengthMetrics.resource(   \$r('sys.float.margin_right'))} 元服务API： 从API version 12开始，该接口支持在元服���中使用。 |
-| contentPadding12+ | [LocalizedPadding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizedpadding12) | 否 | @Prop | 子标题内边距。 默认值： 左侧为副标题或副标题加图标时：  {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)}。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| titleAccessibilityText23+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Prop | 设置标题自定义朗读内容。 默认值：undefined 值为undefined时，默认朗读组件显示的标题内容。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| icon | ResourceStr | 否 | @Prop | 图标设置项。 默认值：undefined，表示不显示图标。 当使用secondaryTitle属性时，设置icon属性才会生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| iconSymbolOptions12+ | SymbolOptions | 否 | - | icon为SymbolGlyph时的设置项。 默认值：undefined，表示不显示图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| primaryTitle | ResourceStr | 否 | @Prop | 标题内容。 默认值：undefined，表示不显示标题。 当同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| secondaryTitle | ResourceStr | 否 | @Prop | 副标题内容。 默认值：undefined，表示不显示副标题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| select | SelectOptions | 否 | - | select内容以及事件。 默认值：undefined，表示不显示下拉框。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| operationType | OperationType | 否 | @Prop | 操作区（右侧）元素样式。 默认值：OperationType.BUTTON 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| operationItem | Array&lt;OperationOption&gt; | 否 | - | 操作区（右侧）的设置项。 默认值：undefined，表示不显示操作区。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| operationSymbolOptions12+ | Array&lt;SymbolOptions&gt; | 否 | - | operationType为OperationType.ICON_GROUP， operationItem设置多个图标，图标为SymbolGlyph时的设置项。 默认值：undefined，表示不设置Symbol图标。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| primaryTitleModifier12+ | TextModifier | 否 | - | 设置标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined，表示使用系统默认样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| secondaryTitleModifier12+ | TextModifier | 否 | - | 设置副标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined，表示使用系统默认样式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| titleBuilder12+ | () => void | 否 | @BuilderParam | 自定义标题区内容 默认值：undefined，表示不采用自定义标题定义标题。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| contentMargin12+ | LocalizedMargin | 否 | @Prop | 子标题外边距，不支持设置负数。 默认值： {start: LengthMetrics.resource( \$r('sys.float.margin_left')), end: LengthMetrics.resource( \$r('sys.float.margin_right'))} 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| contentPadding12+ | LocalizedPadding | 否 | @Prop | 子标题内边距。 默认值： 左侧为副标题或副标题加图标时： {start: LengthMetrics.vp(12), end: LengthMetrics.vp(12)}。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| titleAccessibilityText23+ | ResourceStr | 否 | @Prop | 设置标题自定义朗读内容。 默认值：undefined 值为undefined时，默认朗读组件显示的标题内容。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
 | titleId24+ | string | 否 | @Prop | 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置标题id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+ 
+ 
+  
 
-
-## OperationType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### OperationType
 
 定义子标题操作区的元素样式。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | TEXT_ARROW | 0 | 文本按钮（带右箭头）。 |
 | BUTTON | 1 | 文本按钮（不带右箭头）。 |
 | ICON_GROUP | 2 | 图标按钮（最多支持配置三张图标）。 |
 | LOADING | 3 | 加载动画。 |
+ 
+ 
+  
 
-
-## SelectOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### SelectOptions
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| options | Array&lt;[SelectOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#selectoption对象说明)&gt; | 否 | 否 | 下拉选项内容。  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| options | Array&lt;SelectOption&gt; | 否 | 否 | 下拉选项内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | selected | number | 否 | 是 | 设置下拉菜单初始选项的索引。 取值范围：大于等于-1。 第一项的索引为0。 当不设置selected属性时，默认选择值为-1，菜单项不选中。 若设置数值小于-1，按不选中处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| value | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 设置下拉按钮本身的文本内容。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。从API version 20开始，支持Resource类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| onSelect | (index: number, value?: string) =&gt; void | 否 | 是 | 下拉菜单选中某一项的回调。 - index：选中项的索引。 - value：选中项的值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| defaultFocus18+ | boolean | 否 | 是 | 下拉按钮是否为默认焦点。 true：下拉按钮是默认焦点。 false：下拉按钮不是默认焦点。 默认值：false  元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置下拉按钮id。  元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| value | ResourceStr | 否 | 是 | 设置下拉按钮本身的文本内容。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。从API version 20开始，支持Resource类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| onSelect | (index: number, value?: string) => void | 否 | 是 | 下拉菜单选中某一项的回调。 - index：选中项的索引。 - value：选中项的值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| defaultFocus18+ | boolean | 否 | 是 | 下拉按钮是否为默认焦点。 true：下拉按钮是默认焦点。 false：下拉按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置下拉按钮id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+ 
+ 
+  
 
-
-## OperationOption
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### OperationOption
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 文本内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| action | ()=&gt;void | 否 | 是 | 子标题右侧按钮点击事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| value | ResourceStr | 否 | 否 | 文本内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| action | ()=>void | 否 | 是 | 子标题右侧按钮点击事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | accessibilityLevel18+ | string | 否 | 是 | 子标题右侧按钮无障碍重要性。用于控制当前项是否可被无障碍辅助服务所识别。 支持的值为： "auto"：当前组件会转换"yes"。 "yes"：当前组件可被无障碍辅助服务所识别。 "no"：当前组件不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。 默认值："auto" 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityText18+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 子标题右侧按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值：类型为TEXT_ARROW和BUTTON时默认值为当前项value属性内容，其他类型默认值为“ ”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityDescription18+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 子标题右侧按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值：类型为LOADING时，默认值为“正在加载”，其他类型默认值为“单指双击即可执行”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus18+ | boolean | 否 | 是 | 子标题右侧按钮是否为默认焦点。 true：子标题右侧按钮是默认焦点。 false：子标题右侧按钮不是默认焦点。 默认值：false  元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 子标题右侧按钮id。需要为子标题右侧按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置子标题右侧按钮id。  元服务API： 从API version 24开始，该接口��持在元服务中使用。 |
+| accessibilityText18+ | ResourceStr | 否 | 是 | 子标题右侧按钮的无障碍文本属性。当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。 默认值：类型为TEXT_ARROW和BUTTON时默认值为当前项value属性内容，其他类型默认值为“ ”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityDescription18+ | ResourceStr | 否 | 是 | 子标题右侧按钮的无障碍描述。此描述用于向用户详细解释当前组件，开发人员应为组件的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从组件的属性和无障碍文本中直接获知时。如果组件同时具备文本属性和无障碍说明属性，当组件被选中时，系统将首先播报组件的文本属性，随后播报无障碍说明属性的内容。 默认值：类型为LOADING时，默认值为“正在加载”，其他类型默认值为“单指双击即可执行”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| defaultFocus18+ | boolean | 否 | 是 | 子标题右侧按钮是否为默认焦点。 true：子标题右侧按钮是默认焦点。 false：子标题右侧按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 子标题右侧按钮id。需要为子标题右侧按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置子标题右侧按钮id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+ 
+ 
+  
 
-
-## SymbolOptions12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### SymbolOptions12+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fontColor | Array&lt;[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)&gt; | 否 | 是 | 设置[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)颜色。 默认值：不同渲染策略下默认值不同。 |
-| fontSize | number \| string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 是 | 设置[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)大小。 number类型取值范围：大于等于0。 设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如："10"，"10fp"。 默认值：系统默认值。 |
-| fontWeight | number \| [FontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) \| string | 否 | 是 | 设置[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)粗细。 number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。 string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal |
-| renderingStrategy | [SymbolRenderingStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symbolrenderingstrategy11枚举说明) | 否 | 是 | 设置[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)渲染策略。 默认值：SymbolRenderingStrategy.SINGLE 说明： \$r('sys.symbol.ohos_*')中引用的资源仅ohos_trash_circle、ohos_folder_badge_plus、ohos_lungs支持分层与多色模式。 |
-| effectStrategy | [SymbolEffectStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symboleffectstrategy11枚举说明) | 否 | 是 | 设置[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)动效策略。 默认值：SymbolEffectStrategy.NONE 说明： \$r('sys.symbol.ohos_*')中引用的资源仅ohos_wifi支持层级动效模式。 |
+| fontColor | Array&lt;ResourceColor&gt; | 否 | 是 | 设置SymbolGlyph颜色。 默认值：不同渲染策略下默认值不同。 |
+| fontSize | number \| string \| Resource | 否 | 是 | 设置SymbolGlyph大小。 number类型取值范围：大于等于0。 设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如："10"，"10fp"。 默认值：系统默认值。 |
+| fontWeight | number \| FontWeight \| string | 否 | 是 | 设置SymbolGlyph粗细。 number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。 string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal |
+| renderingStrategy | SymbolRenderingStrategy | 否 | 是 | 设置SymbolGlyph渲染策略。 默认值：SymbolRenderingStrategy.SINGLE 说明： \$r('sys.symbol.ohos_*')中引用的资源仅ohos_trash_circle、ohos_folder_badge_plus、ohos_lungs支持分层与多色模式。 |
+| effectStrategy | SymbolEffectStrategy | 否 | 是 | 设置SymbolGlyph动效策略。 默认值：SymbolEffectStrategy.NONE 说明： \$r('sys.symbol.ohos_*')中引用的资源仅ohos_wifi支持层级动效模式。 |
+ 
+ 
+  
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ 
+  
 
+##### 示例
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 示例1（效率型子标题）
+##### 示例1（效率型子标题）
 
 该示例主要演示子标题左侧为icon、secondaryTitle，右侧operationType为按钮类型。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -172,16 +174,18 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-0.png)
+![](assets/SubHeader/file-20260514164204917-2.png)
 
+ 
+  
 
-### 示例2（双行文本内容型子标题）
+##### 示例2（双行文本内容型子标题）
 
 该示例主要演示子标题左侧为primaryTitle、secondaryTitle，右侧operationType类型为TEXT_ARROW。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -204,16 +208,18 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-1.png)
+![](assets/SubHeader/file-20260514164204917-3.gif)
 
+ 
+  
 
-### 示例3（spinner型内容型子标题）
+##### 示例3（spinner型内容型子标题）
 
 该示例主要演示子标题左侧为select，右侧operationType类型为ICON_GROUP。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -254,16 +260,18 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-2.png)
+![](assets/SubHeader/file-20260514164204917-4.png)
 
+ 
+  
 
-### 示例4（设置左侧symbol图标）
+##### 示例4（设置左侧symbol图标）
 
 该示例主要演示子标题左侧icon设置symbol图标。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -290,16 +298,18 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-3.gif)
+![](assets/SubHeader/file-20260514164204917-5.png)
 
+ 
+  
 
-### 示例5（设置右侧symbol图标）
+##### 示例5（设置右侧symbol图标）
 
 该示例主要演示子标题operationType设置为OperationType.ICON_GROUP，operationItem的value设置为symbol图标。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -350,16 +360,18 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-4.png)
+![](assets/SubHeader/file-20260514164204917-6.png)
 
+ 
+  
 
-### 示例6（自定义标题内容）
+##### 示例6（自定义标题内容）
 
-该示例主要演示SubHeader设置titleBuilder自定义标题内容的效果。
-
-
-```ts
+ 该示例主要演示SubHeader设置titleBuilder自定义标题内容的效果。
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -369,9 +381,9 @@ struct SubHeaderExample {
   @Builder
   TitleBuilder(): void {
     Text('自定义标题')
-    .fontSize(24)
-    .fontColor(Color.Blue)
-    .fontWeight(FontWeight.Bold)
+      .fontSize(24)
+      .fontColor(Color.Blue)
+      .fontWeight(FontWeight.Bold)
   }
 
   build() {
@@ -396,16 +408,18 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-5.png)
+![](assets/SubHeader/file-20260514164204917-7.png)
 
+ 
+  
 
-### 示例7（自定义标题样式）
+##### 示例7（自定义标题样式）
 
 该示例主要演示SubHeader设置标题和副标题字体样式以及标题内外边距的效果。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader, LengthMetrics, TextModifier } from '@kit.ArkUI';
 
 @Entry
@@ -437,16 +451,18 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-6.png)
+![](assets/SubHeader/file-20260514164204917-8.png)
 
+ 
+  
 
-### 示例8（右侧按钮自定义播报）
+##### 示例8（右侧按钮自定义播报）
 
 从API version 18开始，该示例通过设置SubHeader的右侧按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -511,18 +527,20 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-7.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/x3FClJmmTqyeqILVCG6XNg/zh-cn_image_0000002581436272.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=A53B7F7356A0282E9F93F5F537FB79194520DCDBB6A22C57E482C15DEE7362C9)
 
+ 
+  
 
-### 示例9（右侧按钮设置默认获焦）
+##### 示例9（右侧按钮设置默认获焦）
 
 在获焦状态下，该示例通过设置SubHeader的右侧按钮属性defaultFocus使其默认获焦。
-
+ 
 从API version 18开始，在[OperationOption](#operationoption)中新增defaultFocus接口。
-
-
-```ts
+ 
+```text
 import { Prompt, OperationType, SubHeader } from '@kit.ArkUI';
 
 @Entry
@@ -547,5 +565,6 @@ struct SubHeaderExample {
   }
 }
 ```
+ 
 
-![](assets/SubHeader/file-20260514164204917-8.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/BIbz0AQ6S-mAVcQAwiUG1w/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=624B4E315934E49C2B82E2373320323052E78C722ADA52C5AF64A2513211ADDC)

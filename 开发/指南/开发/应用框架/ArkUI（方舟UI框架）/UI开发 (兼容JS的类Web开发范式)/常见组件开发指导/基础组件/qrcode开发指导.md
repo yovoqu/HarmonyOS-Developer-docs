@@ -7,14 +7,16 @@
 生成并显示二维码，具体用法请参考[qrcode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-qrcode)。
 
 
-## 创建qrcode组件
+##### 创建qrcode组件
 
 在pages/index目录下的hml文件中创建一个qrcode组件。
+
 ```text
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <qrcode value="Hello"></qrcode>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -28,22 +30,29 @@
 }
 ```
 
+
 ![](assets/qrcode开发指导/file-20260514130755686-0.png)
+
+
 > [!NOTE]
 > qrcode组件在创建的时候value的值为必填项。
 
 
-## 设置组件类型
+
+
+##### 设置组件类型
 
 通过设置qrcode的type属性来选择二维码类型，如定义qrcode为矩形二维码、圆形二维码。
+
 ```text
-
-
-    {{$item}}
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <select onchange="settype">
+    <option for="{{bcol_list}}" value="{{$item}}">{{$item}}</option>
+  </select>
+  <qrcode value="Hello" type="{{qr_type}}"></qrcode>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -61,7 +70,6 @@ select{
 }
 ```
 
-
 ```text
 // index.js
 export default {
@@ -75,16 +83,22 @@ export default {
 }
 ```
 
-![](assets/qrcode开发指导/file-20260514130755686-1.gif)
 
-## 设置样式
+![](assets/qrcode开发指导/file-20260514130755686-2.png)
+
+
+
+
+##### 设置样式
 
 通过color和background-color样式为二维码设置显示颜色和背景颜色。
+
 ```text
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <qrcode value="Hello" type="rect"></qrcode>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -103,19 +117,27 @@ qrcode{
 }
 ```
 
-![](assets/qrcode开发指导/file-20260514130755686-2.png)
+
+![](assets/qrcode开发指导/file-20260514130755686-3.gif)
+
+
 > [!NOTE]
 > width和height不一致时，取二者较小值作为二维码的边长，且最终生成的二维码居中显示。 width和height只设置一个时，取设置的值作为二维码的边长。都不设置时，使用200px作为默认边长。
 
 
-## 场景示例
+
+
+##### 场景示例
 
 在本场景中将二维码与输入框绑定，通过改变输入框的内容改变二维码。
+
 ```text
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <input style="margin-bottom: 100px;" onchange="change"></input>
+  <qrcode value="{{textVal}}"></qrcode>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -133,7 +155,6 @@ qrcode{
 }
 ```
 
-
 ```text
 // index.js
 export default{
@@ -146,4 +167,5 @@ export default{
 }
 ```
 
-![](assets/qrcode开发指导/file-20260514130755686-3.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/2NHSU3ZvTymEuL-pe-K7NA/zh-cn_image_0000002611754131.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014754Z&HW-CC-Expire=86400&HW-CC-Sign=CDC6DDC3914684D5C13C1FDC925994A7EAF23D19BEE5C0430DCFFD6633984A62)

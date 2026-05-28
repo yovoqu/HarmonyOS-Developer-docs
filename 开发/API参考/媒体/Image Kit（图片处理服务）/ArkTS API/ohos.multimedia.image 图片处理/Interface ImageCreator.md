@@ -3,44 +3,57 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagecreator
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImageCreator类，作为图片的生产者，用于将图片写入到Surface中。
+ 
 在调用以下方法前需要先通过[image.createImageCreator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagecreator11)创建ImageCreator实例，ImageCreator不支持多线程。
+ 
 由于图片占用内存较大，所以当ImageCreator实例使用完成后，应主动调用[release](#release9)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。
 
-> [!NOTE] 说明
-> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。本Interface首批接口从API version 9开始支持。
+  
 
-#### 导入模块
+##### 导入模块
 
-```ts
+```text
 import { image } from '@kit.ImageKit';
 ```
+ 
+  
 
-#### 属性
+##### 属性
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| capacity^9+ | number | 是 | 否 | 同时访问的图像数。该参数仅作为期望值，实际capacity由设备硬件决定。 |
-| format^9+ | [ImageFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#imageformat9) | 是 | 否 | 图像格式。 |
+| capacity9+ | number | 是 | 否 | 同时访问的图像数。该参数仅作为期望值，实际capacity由设备硬件决定。 |
+| format9+ | ImageFormat | 是 | 否 | 图像格式。 |
+ 
+ 
+  
 
-#### dequeueImage9+
+##### dequeueImage9+
+
 dequeueImage(callback: AsyncCallback&lt;Image&gt;): void
+ 
 从空闲队列中获取buffer图片，用于绘制UI内容。使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)> | 是 | 回调函数，当获取最新图片成功，err为undefined，data为获取到的最新图片；否则为错误对象。 |
-
+| callback | AsyncCallback&lt;Image&gt; | 是 | 回调函数，当获取最新图片成功，err为undefined，data为获取到的最新图片；否则为错误对象。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function DequeueImage(creator : image.ImageCreator) {
@@ -53,21 +66,27 @@ async function DequeueImage(creator : image.ImageCreator) {
   });
 }
 ```
+ 
+  
 
-#### dequeueImage9+
+##### dequeueImage9+
+
 dequeueImage(): Promise&lt;Image&gt;
+ 
 从空闲队列中获取buffer图片，用于绘制UI内容。使用Promise异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)> | Promise对象，返回最新图片。 |
-
+| Promise&lt;Image&gt; | Promise对象，返回最新图片。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function DequeueImage(creator : image.ImageCreator) {
@@ -78,22 +97,28 @@ async function DequeueImage(creator : image.ImageCreator) {
   })
 }
 ```
+ 
+  
 
-#### queueImage9+
+##### queueImage9+
+
 queueImage(image: Image, callback: AsyncCallback&lt;void&gt;): void
+ 
 将绘制好的图片放入队列。使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| image | [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image) | 是 | 绘制好的buffer图像。 |
+| image | Image | 是 | 绘制好的buffer图像。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当将图片放入队列成功，err为undefined，否则为错误对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function QueueImage(creator : image.ImageCreator) {
@@ -118,27 +143,34 @@ async function QueueImage(creator : image.ImageCreator) {
   })
 }
 ```
+ 
+  
 
-#### queueImage9+
+##### queueImage9+
+
 queueImage(image: Image): Promise&lt;void&gt;
+ 
 将绘制好的图片放入队列。使用Promise异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| image | [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image) | 是 | 绘制好的buffer图像。 |
-
+| image | Image | 是 | 绘制好的buffer图像。 |
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function QueueImage(creator : image.ImageCreator) {
@@ -161,22 +193,28 @@ async function QueueImage(creator : image.ImageCreator) {
   })
 }
 ```
+ 
+  
 
-#### on9+
+##### on9+
+
 on(type: 'imageRelease', callback: AsyncCallback&lt;void&gt;): void
+ 
 监听imageRelease事件。使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，如'imageRelease'。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当监听事件触发成功，err为undefined，否则为错误对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function On(creator : image.ImageCreator) {
@@ -189,22 +227,28 @@ async function On(creator : image.ImageCreator) {
   })
 }
 ```
+ 
+  
 
-#### off13+
+##### off13+
+
 off(type: 'imageRelease', callback?: AsyncCallback&lt;void&gt;): void
+ 
 释放buffer时，移除注册的回调函数。使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，如'imageRelease'。 |
 | callback | AsyncCallback&lt;void&gt; | 否 | 回调函数。当移除注册成功时，err返回null，否则为错误对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 async function Off(creator : image.ImageCreator) {
   let callbackFunc = ()=>{
       // 实现回调函数逻辑。
@@ -213,23 +257,31 @@ async function Off(creator : image.ImageCreator) {
   creator.off('imageRelease', callbackFunc)
 }
 ```
+ 
+  
 
-#### release9+
+##### release9+
+
 release(callback: AsyncCallback&lt;void&gt;): void
+ 
 释放当前图像。使用callback异步回调。
+ 
 由于图片占用内存较大，所以当ImageCreator实例使用完成后，应主动调用该方法，及时释放内存。
+ 
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当图像释放成功，err为undefined，否则为错误对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release(creator : image.ImageCreator) {
@@ -242,23 +294,31 @@ async function Release(creator : image.ImageCreator) {
   });
 }
 ```
+ 
+  
 
-#### release9+
+##### release9+
+
 release(): Promise&lt;void&gt;
+ 
 释放当前图像。使用Promise异步回调。
+ 
 由于图片占用内存较大，所以当ImageCreator实例使用完成后，应主动调用该方法，及时释放内存。
+ 
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageCreator
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release(creator : image.ImageCreator) {

@@ -3,25 +3,25 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code
-**支持设备：** Phone / Tablet / Wearable / PC/2in1 / TV
-
+**支持设备：** Phone | Tablet | Wearable | PC/2in1 | TV
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
 
-## 1000500001 内部错误
-**支持设备：** Phone / Tablet / Wearable / PC/2in1 / TV
+
+##### 1000500001 内部错误
 
 
-### 算法异常
+
+##### 算法异常
 
 **错误信息**
 
+ - Internal error. Failed to encode.
+ - Internal error. Failed to decode.
+ - Internal error. Failed to decode image.
 
-- Internal error. Failed to encode.
-- Internal error. Failed to decode.
-- Internal error. Failed to decode image.
 
 **错误描述**
 
@@ -36,7 +36,8 @@
 尝试重新调用码图生成或图像识码接口。
 
 
-### 码图生成失败
+
+##### 码图生成失败
 
 **错误信息**
 
@@ -55,7 +56,8 @@ Internal error. Failed to create pixelMap.
 尝试重新调用生成码图接口。
 
 
-### 图片获取失败
+
+##### 图片获取失败
 
 **错误信息**
 
@@ -74,13 +76,14 @@ Internal error. Failed to read file.
 检查传入的uri。
 
 
-### 获取系统context失败
+
+##### 获取系统context失败
 
 **错误信息**
 
+ - Internal error. Get UI content failed.
+ - Internal error. Get context failed.
 
-- Internal error. Get UI content failed.
-- Internal error. Get context failed.
 
 **错误描述**
 
@@ -95,7 +98,8 @@ Internal error. Failed to read file.
 排查context入参。
 
 
-### 获取callback失败
+
+##### 获取callback失败
 
 **错误信息**
 
@@ -114,14 +118,15 @@ Internal error. Get callback failed.
 排查Callback入参。
 
 
-### 接口调用顺序错误
+
+##### 接口调用顺序错误
 
 **错误信息**
 
+ - Internal error. This interface must be invoked after the customScan.start interface.
+ - Internal error. This interface cannot be used after the camera session is paused.
+ - Internal error. ScanOption is null, please call customScan.init first.
 
-- Internal error. This interface must be invoked after the customScan.start interface.
-- Internal error. This interface cannot be used after the camera session is paused.
-- Internal error. ScanOption is null, please call customScan.init first.
 
 **错误描述**
 
@@ -136,7 +141,8 @@ Internal error. Get callback failed.
 调整接口调用顺序，可参考自定义界面扫码的[业务流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-customscan#业务流程)。例如：先调用customScan.init接口，再调用customScan.start。
 
 
-### 接口调用不被允许
+
+##### 接口调用不被允许
 
 **错误信息**
 
@@ -155,7 +161,8 @@ customScan.start的Promise方式中调用了customScan.rescan接口。
 使用customScan.start的Callback方式再调用customScan.rescan接口。
 
 
-### 分辨率不匹配
+
+##### 分辨率不匹配
 
 **错误信息**
 
@@ -174,23 +181,24 @@ Internal error. The width and height of viewControl do not match the width and h
 检查ViewControl的宽高比例。
 
 
-### 相机错误
+
+##### 相机错误
 
 **错误信息**
 
+ - Internal error. CustomScan stop session failed.
+ - Internal error. Open camera flash failed.
+ - Internal error. Close camera flash failed.
+ - Internal error. Camera setZoom failed.
+ - Internal error. Camera getZoom failed.
+ - Internal error. Camera setFocusPoint failed.
+ - Internal error. Reset focus mode failed.
+ - Internal error. Camera config captureSession failed.
+ - Internal error. Camera create cameraManager failed.
+ - Internal error. Camera create camera session failed.
+ - Internal error. Camera restart camera session failed.
+ - Internal error. Camera create preview output failed.
 
-- Internal error. CustomScan stop session failed.
-- Internal error. Open camera flash failed.
-- Internal error. Close camera flash failed.
-- Internal error. Camera setZoom failed.
-- Internal error. Camera getZoom failed.
-- Internal error. Camera setFocusPoint failed.
-- Internal error. Reset focus mode failed.
-- Internal error. Camera config captureSession failed.
-- Internal error. Camera create cameraManager failed.
-- Internal error. Camera create camera session failed.
-- Internal error. Camera restart camera session failed.
-- Internal error. Camera create preview output failed.
 
 **错误描述**
 
@@ -198,27 +206,27 @@ Internal error. The width and height of viewControl do not match the width and h
 
 **可能原因**
 
+ - 相机流暂停失败。
+ - 开启闪光灯失败。
+ - 关闭闪光灯失败。
+ - 设置变焦比失败。
+ - 获取变焦比失败。
+ - 设置变焦点失败。
+ - 重置对焦模式失败。
+ - 相机配流失败。
+ - 相机创建cameraManager失败。
+ - 相机创建session失败。
+ - 相机重启失败。
+ - 相机创建预览流失败。
 
-- 相机流暂停失败。
-- 开启闪光灯失败。
-- 关闭闪光灯失败。
-- 设置变焦比失败。
-- 获取变焦比失败。
-- 设置变焦点失败。
-- 重置对焦模式失败。
-- 相机配流失败。
-- 相机创建cameraManager失败。
-- 相机创建session失败。
-- 相机重启失败。
-- 相机创建预览流失败。
 
 **处理步骤**
 
 建议尝试重新创建业务。
 
 
-## 1000500002 用户取消扫码
-**支持设备：** Phone / Tablet / Wearable
+
+##### 1000500002 用户取消扫码
 
 **错误信息**
 

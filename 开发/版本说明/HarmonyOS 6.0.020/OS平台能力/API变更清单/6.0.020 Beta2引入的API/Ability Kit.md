@@ -9,12 +9,12 @@
 | 函数变更 | 类名：AppServiceExtensionContext； API声明：connectServiceExtensionAbility(want: Want, options: ConnectOptions): number; 差异内容：want: Want, options: ConnectOptions | 类名：AppServiceExtensionContext； API声明：connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number; 差异内容：want: Want, callback: ConnectOptions | api/application/AppServiceExtensionContext.d.ts |
 | 函数变更 | 类名：UIAbilityContext； API声明：connectAppServiceExtensionAbility(want: Want, options: ConnectOptions): number; 差异内容：want: Want, options: ConnectOptions | 类名：UIAbilityContext； API声明：connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): number; 差异内容：want: Want, callback: ConnectOptions | api/application/UIAbilityContext.d.ts |
 | 新增API | NA | 类名：global； API声明：declare namespace kioskManager 差异内容：declare namespace kioskManager | api/@ohos.app.ability.kioskManager.d.ts |
-| 新增API | NA | 类名：kioskManager； API声明：function enterKioskMode(context: UIAbilityContext): Promise<void>; 差异内容：function enterKioskMode(context: UIAbilityContext): Promise<void>; | api/@ohos.app.ability.kioskManager.d.ts |
-| 新增API | NA | 类名：kioskManager； API声明：function exitKioskMode(context: UIAbilityContext): Promise<void>; 差异内容：function exitKioskMode(context: UIAbilityContext): Promise<void>; | api/@ohos.app.ability.kioskManager.d.ts |
+| 新增API | NA | 类名：kioskManager； API声明：function enterKioskMode(context: UIAbilityContext): Promise&lt;void&gt;; 差异内容：function enterKioskMode(context: UIAbilityContext): Promise&lt;void&gt;; | api/@ohos.app.ability.kioskManager.d.ts |
+| 新增API | NA | 类名：kioskManager； API声明：function exitKioskMode(context: UIAbilityContext): Promise&lt;void&gt;; 差异内容：function exitKioskMode(context: UIAbilityContext): Promise&lt;void&gt;; | api/@ohos.app.ability.kioskManager.d.ts |
 | 新增API | NA | 类名：kioskManager； API声明：export type KioskStatus = _KioskStatus; 差异内容：export type KioskStatus = _KioskStatus; | api/@ohos.app.ability.kioskManager.d.ts |
 | 新增API | NA | 类名：global； API声明：declare namespace shortcutManager 差异内容：declare namespace shortcutManager | api/@ohos.bundle.shortcutManager.d.ts |
-| 新增API | NA | 类名：shortcutManager； API声明：function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>; 差异内容：function setShortcutVisibleForSelf(id: string, visible: boolean): Promise<void>; | api/@ohos.bundle.shortcutManager.d.ts |
-| 新增API | NA | 类名：shortcutManager； API声明：function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>; 差异内容：function getAllShortcutInfoForSelf(): Promise<Array<ShortcutInfo>>; | api/@ohos.bundle.shortcutManager.d.ts |
+| 新增API | NA | 类名：shortcutManager； API声明：function setShortcutVisibleForSelf(id: string, visible: boolean): Promise&lt;void&gt;; 差异内容：function setShortcutVisibleForSelf(id: string, visible: boolean): Promise&lt;void&gt;; | api/@ohos.bundle.shortcutManager.d.ts |
+| 新增API | NA | 类名：shortcutManager； API声明：function getAllShortcutInfoForSelf(): Promise<Array&lt;ShortcutInfo&gt;>; 差异内容：function getAllShortcutInfoForSelf(): Promise<Array&lt;ShortcutInfo&gt;>; | api/@ohos.bundle.shortcutManager.d.ts |
 | 新增API | NA | 类名：shortcutManager； API声明：export type ShortcutInfo = _ShortcutInfo; 差异内容：export type ShortcutInfo = _ShortcutInfo; | api/@ohos.bundle.shortcutManager.d.ts |
 | 新增API | NA | 类名：shortcutManager； API声明：export type ShortcutWant = _ShortcutWant; 差异内容：export type ShortcutWant = _ShortcutWant; | api/@ohos.bundle.shortcutManager.d.ts |
 | 新增API | NA | 类名：shortcutManager； API声明：export type ParameterItem = _ParameterItem; 差异内容：export type ParameterItem = _ParameterItem; | api/@ohos.bundle.shortcutManager.d.ts |
@@ -31,7 +31,7 @@
 | 新增API | NA | 类名：ShortcutInfo； API声明：iconId?: number; 差异内容：iconId?: number; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ShortcutInfo； API声明：label?: string; 差异内容：label?: string; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ShortcutInfo； API声明：labelId?: number; 差异内容：labelId?: number; | api/bundleManager/ShortcutInfo.d.ts |
-| 新增API | NA | 类名：ShortcutInfo； API声明：wants?: Array<ShortcutWant>; 差异内容：wants?: Array<ShortcutWant>; | api/bundleManager/ShortcutInfo.d.ts |
+| 新增API | NA | 类名：ShortcutInfo； API声明：wants?: Array&lt;ShortcutWant&gt;; 差异内容：wants?: Array&lt;ShortcutWant&gt;; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ShortcutInfo； API声明：appIndex: number; 差异内容：appIndex: number; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ShortcutInfo； API声明：sourceType: number; 差异内容：sourceType: number; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ShortcutInfo； API声明：visible?: boolean; 差异内容：visible?: boolean; | api/bundleManager/ShortcutInfo.d.ts |
@@ -39,7 +39,7 @@
 | 新增API | NA | 类名：ShortcutWant； API声明：targetBundle: string; 差异内容：targetBundle: string; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ShortcutWant； API声明：targetModule?: string; 差异内容：targetModule?: string; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ShortcutWant； API声明：targetAbility: string; 差异内容：targetAbility: string; | api/bundleManager/ShortcutInfo.d.ts |
-| 新增API | NA | 类名：ShortcutWant； API声明：parameters?: Array<ParameterItem>; 差异内容：parameters?: Array<ParameterItem>; | api/bundleManager/ShortcutInfo.d.ts |
+| 新增API | NA | 类名：ShortcutWant； API声明：parameters?: Array&lt;ParameterItem&gt;; 差异内容：parameters?: Array&lt;ParameterItem&gt;; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：global； API声明：export interface ParameterItem 差异内容：export interface ParameterItem | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ParameterItem； API声明：key: string; 差异内容：key: string; | api/bundleManager/ShortcutInfo.d.ts |
 | 新增API | NA | 类名：ParameterItem； API声明：value: string; 差异内容：value: string; | api/bundleManager/ShortcutInfo.d.ts |
@@ -69,8 +69,8 @@
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api\application\KioskStatus.d.ts 差异内容：AbilityKit | api/application/KioskStatus.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api\bundleManager\ShortcutInfo.d.ts 差异内容：AbilityKit | api/bundleManager/ShortcutInfo.d.ts |
 | API从不支持元服务到支持元服务 | 类名：global； API声明：declare namespace abilityManager 差异内容：NA | 类名：global； API声明：declare namespace abilityManager 差异内容：atomicservice | api/@ohos.app.ability.abilityManager.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：AppServiceExtensionContext； API声明：startAbility(want: Want, options?: StartOptions): Promise<void>; 差异内容：startAbility(want: Want, options?: StartOptions): Promise<void>; | api/application/AppServiceExtensionContext.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：UIAbilityContext； API声明：setOnNewWantSkipScenarios(scenarios: number): Promise<void>; 差异内容：setOnNewWantSkipScenarios(scenarios: number): Promise<void>; | api/application/UIAbilityContext.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：AppServiceExtensionContext； API声明：startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;; 差异内容：startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;; | api/application/AppServiceExtensionContext.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：UIAbilityContext； API声明：setOnNewWantSkipScenarios(scenarios: number): Promise&lt;void&gt;; 差异内容：setOnNewWantSkipScenarios(scenarios: number): Promise&lt;void&gt;; | api/application/UIAbilityContext.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：UIAbility； API声明：onWillForeground(): void; 差异内容：onWillForeground(): void; | api/@ohos.app.ability.UIAbility.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：UIAbility； API声明：onDidForeground(): void; 差异内容：onDidForeground(): void; | api/@ohos.app.ability.UIAbility.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：UIAbility； API声明：onWillBackground(): void; 差异内容：onWillBackground(): void; | api/@ohos.app.ability.UIAbility.d.ts |

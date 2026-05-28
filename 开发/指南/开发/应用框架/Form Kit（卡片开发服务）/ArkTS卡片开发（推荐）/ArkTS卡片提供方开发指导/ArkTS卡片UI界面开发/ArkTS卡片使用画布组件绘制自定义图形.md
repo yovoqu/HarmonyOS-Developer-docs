@@ -1,13 +1,12 @@
 # ArkTS卡片使用画布组件绘制自定义图形
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-page-custom-drawing
 
 ArkTS卡片开放了自定义绘制的能力，在卡片上可以通过[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)组件创建一块画布，然后通过[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象在画布上进行自定义图形的绘制，如下示例代码实现了在画布的中心绘制了一个笑脸。
 
-
-```text
+```ArkTS
 // entry/src/main/ets/customcanvasdrawing/pages/CustomCanvasDrawingCard.ets
 @Entry
 @Component
@@ -91,5 +90,6 @@ struct CustomCanvasDrawingCard {
 ```
 
 运行效果如下图所示。
+
 
 ![](assets/ArkTS卡片使用画布组件绘制自定义图形/file-20260514130935358-0.jpeg)

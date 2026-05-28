@@ -1,88 +1,82 @@
 # Rcp_DnsRule
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___dns_rule
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 DNS规则配置。
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **相关模块：** [RemoteCommunication](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview)
-
+ 
 **所在头文件：** [rcp.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/rcp_8h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [Rcp_DnsRuleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview#rcp_dnsruletype)[type](#type) | 表示union中使用的数据类型。 |
-| union {   [Rcp_DnsServers](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___dns_servers) *   [dnsServers](#dnsservers)   [Rcp_StaticDnsRule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___static_dns_rule) *   [staticDnsRule](#staticdnsrule)   [Rcp_DynamicDnsRuleFunction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview#rcp_dynamicdnsrulefunction)   [dynamicDnsRule](#dynamicdnsrule)   } | dnsServers：DNS服务器。 staticDnsRule：静态DNS规则。 dynamicDnsRule：动态DNS规则。 |
+| Rcp_DnsRuleType type | 表示union中使用的数据类型。 |
+| union { Rcp_DnsServers * dnsServers; Rcp_StaticDnsRule * staticDnsRule; Rcp_DynamicDnsRuleFunction dynamicDnsRule; } data | dnsServers：DNS服务器。 staticDnsRule：静态DNS规则。 dynamicDnsRule：动态DNS规则。 |
+ 
+ 
+  
 
+##### 结构体成员变量说明
 
-## 结构体成员变量说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
+##### dnsServers
 
-### dnsServers
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```cpp
+```text
 Rcp_DnsServers* Rcp_DnsRule::dnsServers
 ```
-
+ 
 **描述**
-
+ 
 DNS服务器。
+ 
+  
 
+##### dynamicDnsRule
 
-### dynamicDnsRule
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```cpp
+```text
 Rcp_DynamicDnsRuleFunction Rcp_DnsRule::dynamicDnsRule
 ```
-
+ 
 **描述**
-
+ 
 动态DNS规则。
+ 
+  
 
+##### staticDnsRule
 
-### staticDnsRule
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```cpp
+```text
 Rcp_StaticDnsRule* Rcp_DnsRule::staticDnsRule
 ```
-
+ 
 **描述**
-
+ 
 静态DNS规则。
+ 
+  
 
+##### type
 
-### type
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```cpp
+```text
 Rcp_DnsRuleType Rcp_DnsRule::type
 ```
-
+ 
 **描述**
-
+ 
 表示union中使用的数据类型。

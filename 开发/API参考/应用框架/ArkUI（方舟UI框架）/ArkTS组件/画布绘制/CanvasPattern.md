@@ -3,51 +3,49 @@
 更新时间：2026-04-02 08:41:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvaspattern
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 一个Object对象，使用[createPattern](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createpattern)方法创建，通过指定图像和重复方式创建图片填充的模板。
-
-
+ 
 > [!NOTE]
 > 从 API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
+  
 
-## 方法
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 方法
 
+  
 
-### setTransform
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### setTransform
 
 setTransform(transform?: Matrix2D): void
-
+ 
 使用Matrix2D对象作为参数，对当前CanvasPattern进行矩阵变换。
-
+ 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| transform | [Matrix2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-matrix2d) | 否 | 转换矩阵。 异常值undefined和null按无效值不做矩阵变换处理。 默认值：不做矩阵变换 |
+| transform | Matrix2D | 否 | 转换矩阵。 异常值undefined和null按无效值不做矩阵变换处理。 默认值：不做矩阵变换 |
+ 
+ 
+  
 
-
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 示例
 
 通过setTransform对当前CanvasPattern进行矩阵变换。
-
-
+ 
 > [!NOTE]
-> 此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中[copyCodeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile#table1476161719356)相关介绍。
+> 此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中 copyCodeResource 相关介绍。
 
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -60,41 +58,42 @@ struct CanvasPatternPage {
   private pattern: CanvasPattern | null = null;
 
   build() {
-    Column() {
-      Button("Click to set transform")
-      .onClick(() => {
-        this.matrix.scaleY = 1
-        this.matrix.scaleX = 1
-        this.matrix.translateX = 50
-        this.matrix.translateY = 200
-        if (this.pattern) {
-          this.pattern.setTransform(this.matrix)
-        }
-        this.context.fillRect(0, 0, 480, 720)
-      })
-      .width("45%")
-      .margin("5px")
-      Canvas(this.context)
+      Column() {
+        Button("Click to set transform")
+          .onClick(() => {
+            this.matrix.scaleY = 1
+            this.matrix.scaleX = 1
+            this.matrix.translateX = 50
+            this.matrix.translateY = 200
+            if (this.pattern) {
+              this.pattern.setTransform(this.matrix)
+            }
+            this.context.fillRect(0, 0, 480, 720)
+          })
+          .width("45%")
+          .margin("5px")
+        Canvas(this.context)
+          .width('100%')
+          .height('80%')
+          .backgroundColor('#FFFFFF')
+          .onReady(() => {
+            this.pattern = this.context.createPattern(this.img, 'no-repeat')
+            this.matrix.scaleY = 0.5
+            this.matrix.scaleX = 0.5
+            this.matrix.translateX = 50
+            this.matrix.translateY = 50
+            if (this.pattern) {
+              this.context.fillStyle = this.pattern
+              this.pattern.setTransform(this.matrix)
+            }
+            this.context.fillRect(0, 0, 480, 720)
+          })
+      }
       .width('100%')
-      .height('80%')
-      .backgroundColor('#FFFFFF')
-      .onReady(() => {
-        this.pattern = this.context.createPattern(this.img, 'no-repeat')
-        this.matrix.scaleY = 0.5
-        this.matrix.scaleX = 0.5
-        this.matrix.translateX = 50
-        this.matrix.translateY = 50
-        if (this.pattern) {
-          this.context.fillStyle = this.pattern
-          this.pattern.setTransform(this.matrix)
-        }
-        this.context.fillRect(0, 0, 480, 720)
-      })
-    }
-    .width('100%')
-    .height('100%')
+      .height('100%')
   }
 }
 ```
+ 
 
-![](assets/CanvasPattern/file-20260514164102994-0.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/uyeAWSAsSJ--MREUcYzH3g/zh-cn_image_0000002581436062.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=66272E3B7C7BF6A21719E9C8BF0E1100B851AD4444A8581FE3EAD13E7541522A)

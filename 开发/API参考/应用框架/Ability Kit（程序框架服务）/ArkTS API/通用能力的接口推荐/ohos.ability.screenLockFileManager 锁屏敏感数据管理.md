@@ -3,22 +3,27 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenlockfilemanager
-
-支持设备：Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 敏感数据密钥在锁屏后会触发销毁，销毁后敏感数据无法读写，需解锁屏幕触发恢复敏感数据密钥后方可访问。本模块提供应用锁屏下敏感数据保护的能力，支持申请和释放锁屏下敏感数据访问权限等。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 本模块首批接口从API version 12 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
 
-```ts
+
+##### 导入模块
+
+```text
 import { screenLockFileManager } from '@kit.AbilityKit';
 ```
 
-#### DataType
+
+
+##### DataType
+
 枚举，指定锁屏下访问的敏感数据类型。
+
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
 
 | 名称 | 值 | 说明 |
@@ -26,8 +31,13 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 | MEDIA_DATA | 0x00000001 | 媒体类型数据。 |
 | ALL_DATA | 0xffffffff | 所有敏感加密数据。 |
 
-#### AccessStatus
+
+
+
+##### AccessStatus
+
 表示锁屏下敏感数据访问权限申请的状态枚举。
+
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
 
 | 名称 | 值 | 说明 |
@@ -35,8 +45,13 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 | ACCESS_DENIED | -1 | 拒绝授予锁屏下敏感数据访问。 |
 | ACCESS_GRANTED | 0 | 授予锁屏下敏感数据访问。 |
 
-#### ReleaseStatus
+
+
+
+##### ReleaseStatus
+
 表示锁屏下敏感数据访问权限释放的状态枚举。
+
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
 
 | 名称 | 值 | 说明 |
@@ -44,8 +59,13 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 | RELEASE_DENIED | -1 | 拒绝锁屏下敏感数据访问释放。 |
 | RELEASE_GRANTED | 0 | 释放锁屏下敏感数据访问。 |
 
-#### KeyStatus18+
+
+
+
+##### KeyStatus18+
+
 表示锁屏下敏感数据访问权限的状态枚举。
+
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
 
 | 名称 | 值 | 说明 |
@@ -54,18 +74,26 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 | KEY_RELEASED | -1 | 锁屏敏感数据访问权限已释放。 |
 | KEY_EXIST | 0 | 应用可以访问锁屏敏感数据。 |
 
-#### screenLockFileManager.acquireAccess
+
+
+
+##### screenLockFileManager.acquireAccess
+
 acquireAccess(): AccessStatus
+
 以同步方法申请锁屏下应用敏感数据访问权限。锁屏后，敏感数据无法被访问，但可通过调用该方法，访问本应用的敏感数据。
+
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [AccessStatus](#accessstatus) | 锁屏下敏感数据访问权限申请的状态。 |
+| AccessStatus | 锁屏下敏感数据访问权限申请的状态。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[锁屏敏感数据管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screenlockfilemanager)。
 
 | 错误码ID | 错误信息 |
@@ -75,9 +103,10 @@ acquireAccess(): AccessStatus
 | 29300003 | The application is not enabled the data protection under lock screen. |
 | 29300004 | File access is denied. |
 
+
 **示例：**
 
-```ts
+```text
 // 申请锁屏下应用敏感数据访问权限
 import { screenLockFileManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -94,18 +123,25 @@ try {
 }
 ```
 
-#### screenLockFileManager.releaseAccess
+
+
+##### screenLockFileManager.releaseAccess
+
 releaseAccess(): ReleaseStatus
+
 以同步方法取消锁屏下本应用敏感数据访问权限。
+
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [ReleaseStatus](#releasestatus) | 锁屏下敏感数据访问权限释放的状态。 |
+| ReleaseStatus | 锁屏下敏感数据访问权限释放的状态。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[锁屏敏感数据管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screenlockfilemanager)。
 
 | 错误码ID | 错误信息 |
@@ -115,9 +151,10 @@ releaseAccess(): ReleaseStatus
 | 29300003 | The application is not enabled the data protection under lock screen. |
 | 29300005 | File access was not acquired. |
 
+
 **示例：**
 
-```ts
+```text
 // 释放锁屏下应用敏感数据访问权限
 import { screenLockFileManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -134,18 +171,25 @@ try {
 }
 ```
 
-#### screenLockFileManager.queryAppKeyState18+
+
+
+##### screenLockFileManager.queryAppKeyState18+
+
 queryAppKeyState(): KeyStatus
+
 以同步方法查询锁屏下本应用敏感数据访问权限。
+
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [KeyStatus](#keystatus18) | 锁屏下敏感数据访问权限的状态。 |
+| KeyStatus | 锁屏下敏感数据访问权限的状态。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[锁屏敏感数据管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screenlockfilemanager)。
 
 | 错误码ID | 错误信息 |
@@ -153,9 +197,10 @@ queryAppKeyState(): KeyStatus
 | 801 | The specified SystemCapability name was not found. |
 | 29300002 | The system ability work abnormally. |
 
+
 **示例：**
 
-```ts
+```text
 // 查询锁屏下应用敏感数据访问权限
 import { screenLockFileManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';

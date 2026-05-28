@@ -28,7 +28,7 @@
 | 新增API | NA | 类名：OtaUpdatePolicy； API声明：installEndTime?: number; 差异内容：installEndTime?: number; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：systemManager； API声明： export interface UpdatePackageInfo 差异内容： export interface UpdatePackageInfo | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：UpdatePackageInfo； API声明：version: string; 差异内容：version: string; | api/@ohos.enterprise.systemManager.d.ts |
-| 新增API | NA | 类名：UpdatePackageInfo； API声明：packages: Array<Package>; 差异内容：packages: Array<Package>; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：UpdatePackageInfo； API声明：packages: Array&lt;Package&gt;; 差异内容：packages: Array&lt;Package&gt;; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：UpdatePackageInfo； API声明：description?: PackageDescription; 差异内容：description?: PackageDescription; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：systemManager； API声明： interface Package 差异内容： interface Package | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：Package； API声明：type: PackageType; 差异内容：type: PackageType; | api/@ohos.enterprise.systemManager.d.ts |
@@ -56,5 +56,5 @@
 | 新增API | NA | 类名：ErrorInfo； API声明：message: string; 差异内容：message: string; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：systemManager； API声明：function setOtaUpdatePolicy(admin: Want, policy: OtaUpdatePolicy): void; 差异内容：function setOtaUpdatePolicy(admin: Want, policy: OtaUpdatePolicy): void; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：systemManager； API声明：function getOtaUpdatePolicy(admin: Want): OtaUpdatePolicy; 差异内容：function getOtaUpdatePolicy(admin: Want): OtaUpdatePolicy; | api/@ohos.enterprise.systemManager.d.ts |
-| 新增API | NA | 类名：systemManager； API声明：function notifyUpdatePackages(admin: Want, packageInfo: UpdatePackageInfo): Promise<void>; 差异内容：function notifyUpdatePackages(admin: Want, packageInfo: UpdatePackageInfo): Promise<void>; | api/@ohos.enterprise.systemManager.d.ts |
-| 新增API | NA | 类名：systemManager； API声明：function getUpdateResult(admin: Want, version: string): Promise<UpdateResult>; 差异内容：function getUpdateResult(admin: Want, version: string): Promise<UpdateResult>; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：systemManager； API声明：function notifyUpdatePackages(admin: Want, packageInfo: UpdatePackageInfo): Promise&lt;void&gt;; 差异内容：function notifyUpdatePackages(admin: Want, packageInfo: UpdatePackageInfo): Promise&lt;void&gt;; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：systemManager； API声明：function getUpdateResult(admin: Want, version: string): Promise&lt;UpdateResult&gt;; 差异内容：function getUpdateResult(admin: Want, version: string): Promise&lt;UpdateResult&gt;; | api/@ohos.enterprise.systemManager.d.ts |

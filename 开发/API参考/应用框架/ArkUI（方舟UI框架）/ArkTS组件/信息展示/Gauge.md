@@ -3,23 +3,31 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-gauge
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 数据量规图表组件，用于将数据展示为环形图表。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 子组件
+
+
+##### 子组件
+
 可以包含单个子组件。
 
-> [!NOTE] 说明
-> 支持的子组件类型：系统组件和自定义组件，支持条件渲染控制if/else，不支持循环渲染控制ForEach和LazyForEach。  建议使用文本组件构建当前数值文本和辅助文本。  若子组件宽高为百分比形式，则基准范围为以外圆环做为内切圆的矩形。
+> [!NOTE]
+> 支持的子组件类型：系统组件和自定义组件，支持条件渲染控制 if/else ，不支持循环渲染控制 ForEach 和 LazyForEach 。 建议使用文本组件构建当前数值文本和辅助文本。 若子组件宽高为百分比形式，则基准范围为以外圆环做为内切圆的矩形。
 
-#### 接口
+
+
+
+##### 接口
+
 Gauge(options: GaugeOptions)
+
 创建数据量规图表组件。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -30,10 +38,15 @@ Gauge(options: GaugeOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [GaugeOptions](#gaugeoptions18对象说明) | 是 | 数据量规图表组件参数。 |
+| options | GaugeOptions | 是 | 数据量规图表组件参数。 |
 
-#### GaugeOptions18+对象说明
+
+
+
+##### GaugeOptions18+对象说明
+
 数据量规图表选项。
+
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -42,16 +55,25 @@ Gauge(options: GaugeOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value^8+ | number | 否 | 否 | 量规图的当前数据值，即图中指针指向位置。用于组件创建时量规图初始值的预置。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 说明： value不在min和max范围内时使用min作为默认值。 |
-| min^8+ | number | 否 | 是 | 当前数据段最小值。 默认值：0 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| max^8+ | number | 否 | 是 | 当前数据段最大值。 默认值：100 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 说明： max小于min时使用默认值0和100。 max和min支持负数。 |
+| value8+ | number | 否 | 否 | 量规图的当前数据值，即图中指针指向位置。用于组件创建时量规图初始值的预置。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 说明： value不在min和max范围内时使用min作为默认值。 |
+| min8+ | number | 否 | 是 | 当前数据段最小值。 默认值：0 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| max8+ | number | 否 | 是 | 当前数据段最大值。 默认值：100 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 说明： max小于min时使用默认值0和100。 max和min支持负数。 |
 
-#### 属性
+
+
+
+##### 属性
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-#### value
+
+
+##### value
+
 value(value: number)
+
 设置量规图的数据值。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -64,9 +86,15 @@ value(value: number)
 | --- | --- | --- | --- |
 | value | number | 是 | 量规图的数据值，可用于动态修改量规图的数据值。 默认值：0 |
 
-#### startAngle
+
+
+
+##### startAngle
+
 startAngle(angle: number)
+
 设置起始角度位置。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -79,9 +107,15 @@ startAngle(angle: number)
 | --- | --- | --- | --- |
 | angle | number | 是 | 起始角度位置，时钟0点为0度，顺时针方向为正角度，逆时针方向为负角度，超过360度等价于对360度取余后的角度。 默认值：0 从起始位置到终止位置的绘制只有顺时针方向。 |
 
-#### endAngle
+
+
+
+##### endAngle
+
 endAngle(angle: number)
+
 设置终止角度位置。起始角度和终止角度的差值过小时，会绘制出异常图像，请取合理的起始角度和终止角度。建议使用单色环改变Gauge的value参数实现数据值的调节，可通过定时器setTimeout进行数值的延迟加载。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -94,14 +128,25 @@ endAngle(angle: number)
 | --- | --- | --- | --- |
 | angle | number | 是 | 终止角度位置，时钟0点为0度，顺时针方向为正角度，逆时针方向为负角度，超过360度等价于对360度取余后的角度。 默认值：360 从起始位置到终止位置的绘制只有顺时针方向。 |
 
-#### colors
+
+
+
+##### colors
+
 colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>)
+
 设置量规图的颜色。
+
 从API version 11开始，该接口使用以下规则：
+
 参数类型为[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)，则圆环类型为单色环。
+
 参数类型为[LinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel#lineargradient10)，则圆环类型为渐变环。
+
 参数类型为数组，则圆环类型为分段渐变环，第一个参数为颜色值，若设置为非颜色类型，则置为"0xFFE84026"。第二个参数为颜色所占比重，若设置为负数或是非数值类型，则将比重置为0。
+
 分段渐变环最大显示段数为9段，若多于9段，则多于部分不显示。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -112,11 +157,17 @@ colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGra
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colors | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) \| [LinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel#lineargradient10) \| Array<[[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) \| [LinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel#lineargradient10) , number]> | 是 | 量规图的颜色，支持分段颜色设置。 API version 9 默认值：Color.Black API version 11默认值： 若不传颜色，或者数组为空，无法确定圆环类型及颜色，则圆环颜色为"0xFF64BB5C"、"0xFFF7CE00"、"0xFFE84026"的渐变环。 若传入颜色，但颜色值有误，则该颜色为"0xFFE84026"。 若对应颜色的比重为0，则该颜色在圆环中不显示。若所有颜色比重均为0，圆环不显示。 从API version 10开始，支持Array<ResourceColor, number>类型。 从API version 11开始，支持LinearGradient、ResourceColor和Array<LinearGradient, number>类型。 |
+| colors | ResourceColor \| LinearGradient \| Array<[ResourceColor \| LinearGradient , number]> | 是 | 量规图的颜色，支持分段颜色设置。 API version 9 默认值：Color.Black API version 11默认值： 若不传颜色，或者数组为空，无法确定圆环类型及颜色，则圆环颜色为"0xFF64BB5C"、"0xFFF7CE00"、"0xFFE84026"的渐变环。 若传入颜色，但颜色值有误，则该颜色为"0xFFE84026"。 若对应颜色的比重为0，则该颜色在圆环中不显示。若所有颜色比重均为0，圆环不显示。 从API version 10开始，支持Array<ResourceColor, number>类型。 从API version 11开始，支持LinearGradient、ResourceColor和Array<LinearGradient, number>类型。 |
 
-#### strokeWidth
+
+
+
+##### strokeWidth
+
 strokeWidth(length: Length)
+
 设置环形量规图的环形厚度。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -127,11 +178,17 @@ strokeWidth(length: Length)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| length | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 环形量规图的环形厚度。 默认值：4 单位：vp 说明： 设置小于等于0的值时，按默认值显示。 环形厚度的最大值为圆环的半径，超过最大值按最大值处理。 不支持百分比。 |
+| length | Length | 是 | 环形量规图的环形厚度。 默认值：4 单位：vp 说明： 设置小于等于0的值时，按默认值显示。 环形厚度的最大值为圆环的半径，超过最大值按最大值处理。 不支持百分比。 |
 
-#### description11+
+
+
+
+##### description11+
+
 description(value: CustomBuilder)
+
 设置说明内容。
+
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -142,11 +199,17 @@ description(value: CustomBuilder)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 是 | 说明内容。 说明： @Builder中的内容由开发者自定义，建议使用文本或者图片。 若自定义部分的宽高为百分比形式，则基准范围为圆环直径的44.4%*25.4%的矩形（图片为28.6%*28.6%），距离圆环底部0vp，左右居中。 设置null则不显示内容。 不设置则依赖是否设置数据最大最小值。 若设置最大最小值或者只设置其中一个，则显示最大最小值。 若未设置最大最小值，则不显示内容。 最大最小值显示在圆环底部，位置不可移动，若圆环开口角度设置不恰当，存在圆环遮挡文字的情况。 |
+| value | CustomBuilder | 是 | 说明内容。 说明： @Builder中的内容由开发者自定义，建议使用文本或者图片。 若自定义部分的宽高为百分比形式，则基准范围为圆环直径的44.4%*25.4%的矩形（图片为28.6%*28.6%），距离圆环底部0vp，左右居中。 设置null则不显示内容。 不设置则依赖是否设置数据最大最小值。 若设置最大最小值或者只设置其中一个，则显示最大最小值。 若未设置最大最小值，则不显示内容。 最大最小值显示在圆环底部，位置不可移动，若圆环开口角度设置不恰当，存在圆环遮挡文字的情况。 |
 
-#### trackShadow11+
+
+
+
+##### trackShadow11+
+
 trackShadow(value: GaugeShadowOptions)
+
 设置阴影样式。
+
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -157,11 +220,17 @@ trackShadow(value: GaugeShadowOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [GaugeShadowOptions](#gaugeshadowoptions11对象说明) | 是 | 添加阴影效果，可以指定模糊半径、X轴和Y轴的偏移量。 说明： 阴影颜色与圆环颜色一致。 设置null为不开启投影。 |
+| value | GaugeShadowOptions | 是 | 添加阴影效果，可以指定模糊半径、X轴和Y轴的偏移量。 说明： 阴影颜色与圆环颜色一致。 设置null为不开启投影。 |
 
-#### indicator11+
+
+
+
+##### indicator11+
+
 indicator(value: GaugeIndicatorOptions)
+
 设置指针样式。
+
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -172,14 +241,20 @@ indicator(value: GaugeIndicatorOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [GaugeIndicatorOptions](#gaugeindicatoroptions11对象说明) | 是 | 指针样式。 说明： 设置null则不显示指针。 |
+| value | GaugeIndicatorOptions | 是 | 指针样式。 说明： 设置null则不显示指针。 |
 
-#### privacySensitive12+
+
+
+
+##### privacySensitive12+
+
 privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
+
 设置隐私敏感。
 
-> [!NOTE] 说明
-> 从API version 20开始，该接口支持在attributeModifier中调用。
+> [!NOTE]
+> 从API version 20开始，该接口支持在 attributeModifier 中调用。
+
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -193,9 +268,15 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 | --- | --- | --- | --- |
 | isPrivacySensitiveMode | Optional&lt;boolean&gt; | 是 | 设置隐私敏感。在隐私模式下，Gauge指针指向0位置，最大值最小值文本将被遮罩，量程显示灰色或底色。true表示打开隐私敏感，false表示关闭隐私敏感。 说明： 设置null则不敏感。 |
 
-#### contentModifier12+
+
+
+
+##### contentModifier12+
+
 contentModifier(modifier: ContentModifier&lt;GaugeConfiguration&gt;)
+
 定制Gauge内容区的方法。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -204,16 +285,25 @@ contentModifier(modifier: ContentModifier&lt;GaugeConfiguration&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| modifier | [ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)<[GaugeConfiguration](#gaugeconfiguration12对象说明)> | 是 | 在Gauge组件上定制内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 |
+| modifier | ContentModifier&lt;GaugeConfiguration&gt; | 是 | 在Gauge组件上定制内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 |
 
-#### GaugeShadowOptions11+对象说明
+
+
+
+##### GaugeShadowOptions11+对象说明
+
 GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-information-display-common#multishadowoptions)，具有MultiShadowOptions的全部属性。
+
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-#### GaugeIndicatorOptions11+对象说明
+
+
+##### GaugeIndicatorOptions11+对象说明
+
 数据量规图表指针选项。
+
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -222,11 +312,16 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 图标资源路径。 说明： 不配置则使用系统默认样式，系统默认样式为三角形指针。 仅支持使用svg格式的图标，若使用其他格式，则使用默认的三角形样式指针。 |
-| space | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 否 | 是 | 指针距离圆环外边的间距。(不支持百分比) 默认值：8 单位：vp 说明： 对于默认的三角形样式指针，间距为黑色三角形到圆环外边的间距。 若设置值小于0，则使用默认值。 若设置值大于圆环半径，则使用默认值。 |
+| icon | ResourceStr | 否 | 是 | 图标资源路径。 说明： 不配置则使用系统默认样式，系统默认样式为三角形指针。 仅支持使用svg格式的图标，若使用其他格式，则使用默认的三角形样式指针。 |
+| space | Dimension | 否 | 是 | 指针距离圆环外边的间距。(不支持百分比) 默认值：8 单位：vp 说明： 对于默认的三角形样式指针，间距为黑色三角形到圆环外边的间距。 若设置值小于0，则使用默认值。 若设置值大于圆环半径，则使用默认值。 |
 
-#### GaugeConfiguration12+对象说明
+
+
+
+##### GaugeConfiguration12+对象说明
+
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -237,11 +332,18 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 | min | number | 否 | 否 | 当前数据段最小值。 |
 | max | number | 否 | 否 | 当前数据段最大值。 |
 
-#### 示例
-#### 示例1（设置多色量规图）
+
+
+
+##### 示例
+
+
+
+##### 示例1（设置多色量规图）
+
 该示例通过[colors](#colors)接口，实现了多色量规图效果。
 
-```ts
+```text
 @Entry
 @Component
 struct Gauge1 {
@@ -304,12 +406,17 @@ struct Gauge1 {
 }
 ```
 
-![](assets/Gauge/file-20260525091252702-001.png)
 
-#### 示例2（设置单色量规图）
+![](assets/Gauge/file-20260514164056155-3.png)
+
+
+
+
+##### 示例2（设置单色量规图）
+
 该示例通过[colors](#colors)接口，实现了单色量规图效果。
 
-```ts
+```text
 @Entry
 @Component
 struct Gauge2 {
@@ -347,13 +454,18 @@ struct Gauge2 {
 }
 ```
 
-![](assets/Gauge/file-20260525091252702-002.png)
 
-#### 示例3（设置定制说明区）
+![](assets/Gauge/file-20260514164056155-4.png)
+
+
+
+
+##### 示例3（设置定制说明区）
+
 该示例通过[description](#description11)接口，实现了说明区的设置功能。
 
-```ts
-  @Entry
+```text
+@Entry
   @Component
   struct Gauge3 {
     @Builder
@@ -367,7 +479,7 @@ struct Gauge2 {
         .height('100%')
         .textAlign(TextAlign.Center)
     }
-
+  
     build() {
       Column() {
         Column() {
@@ -408,12 +520,17 @@ struct Gauge2 {
   }
 ```
 
-![](assets/Gauge/file-20260525091252702-003.png)
 
-#### 示例4（设置辅助区）
+![](assets/Gauge/file-20260514164056155-5.png)
+
+
+
+
+##### 示例4（设置辅助区）
+
 该示例通过设置子组件，实现了辅助区的设置功能。
 
-```ts
+```text
 @Entry
 @Component
 struct Gauge4 {
@@ -462,12 +579,17 @@ struct Gauge4 {
 }
 ```
 
-![](assets/Gauge/file-20260525091252703-004.png)
 
-#### 示例5（设置最大最小值）
+![](assets/Gauge/file-20260514164056155-6.png)
+
+
+
+
+##### 示例5（设置最大最小值）
+
 该示例通过设置[GaugeOptions](#gaugeoptions18对象说明)的min、max属性，实现了量规图的最大最小值设置的功能。
 
-```ts
+```text
 @Entry
 @Component
 struct Gauge5 {
@@ -503,12 +625,17 @@ struct Gauge5 {
 }
 ```
 
-![](assets/Gauge/file-20260525091252703-005.png)
 
-#### 示例6（设置指针）
+![](assets/Gauge/file-20260514164056155-7.gif)
+
+
+
+
+##### 示例6（设置指针）
+
 该示例通过[indicator](#indicator11)接口，实现了设置量规图的指针的功能。
 
-```ts
+```text
 @Entry
 @Component
 struct Gauge6 {
@@ -550,12 +677,17 @@ struct Gauge6 {
 }
 ```
 
-![](assets/Gauge/file-20260525091252703-006.png)
 
-#### 示例7（设置起止角度）
+![](assets/Gauge/file-20260514164056155-8.gif)
+
+
+
+
+##### 示例7（设置起止角度）
+
 该示例通过[startAngle](#startangle)和[endAngle](#endangle)接口，实现了量规图起止角度设置的功能。
 
-```ts
+```text
 @Entry
 @Component
 struct Gauge7 {
@@ -589,12 +721,17 @@ struct Gauge7 {
 }
 ```
 
-![](assets/Gauge/file-20260525091252703-007.png)
 
-#### 示例8（设置定制内容区）
+![](assets/Gauge/file-20260514164056155-9.png)
+
+
+
+
+##### 示例8（设置定制内容区）
+
 该示例通过[contentModifier](#contentmodifier12)接口，实现了定制量规图内容区的功能。
 
-```ts
+```ArkTS
 // xxx.ets
 // 该示例实现了Gauge组件使用Builder定制内容区，使用了环形图表组件，按钮和文本框。点击增加按钮，环形图表指针位置会向右偏移，反之点减少按钮环形图表指针位置会向左偏移。
 @Builder
@@ -671,12 +808,17 @@ struct refreshExample {
 }
 ```
 
-![](assets/Gauge/file-20260525091252703-008.gif)
 
-#### 示例9（设置隐私隐藏）
+![](assets/Gauge/file-20260525091252702-001.png)
+
+
+
+
+##### 示例9（设置隐私隐藏）
+
 该示例通过[privacySensitive](#privacysensitive12)接口，实现了隐私隐藏效果，效果展示需要卡片框架支持
 
-```ts
+```text
 @Entry
 @Component
 struct GaugeExample {
@@ -701,12 +843,17 @@ struct GaugeExample {
 }
 ```
 
-![](assets/Gauge/file-20260525091252703-009.gif)
 
-#### 示例10（设置自定义指针）
+![](assets/Gauge/file-20260525091252702-002.png)
+
+
+
+
+##### 示例10（设置自定义指针）
+
 该示例通过[indicator](#indicator11)接口，实现了自定义指针功能，开发者导入svg类型的图片以替换默认指针。
 
-```ts
+```text
 @Entry
 @Component
 struct Gauge2 {
@@ -727,8 +874,7 @@ struct Gauge2 {
 }
 ```
 
-
-```ts
+```xml
 <svg width='200px' height='200px'>
     <path d='M 10,30 A 20,20 0,0,1 50,30 A 20,20 0,0,1 90,30 Q 90,60 50,90 Q 10,60 10,30 z'
           stroke='black' stroke-width='3' fill='white'>
@@ -736,4 +882,5 @@ struct Gauge2 {
 </svg>
 ```
 
-![](assets/Gauge/file-20260525091252704-010.png)
+
+![](assets/Gauge/file-20260525091252702-003.png)

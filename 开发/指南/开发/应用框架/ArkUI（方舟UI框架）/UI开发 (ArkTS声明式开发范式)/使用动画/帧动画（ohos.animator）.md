@@ -1,6 +1,6 @@
 # 帧动画（ohos.animator）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animator
 
@@ -8,28 +8,37 @@
 
 与属性动画相比，帧动画能让开发者实时感知动画进程，即时调整UI值，具备事件即时响应和可暂停的优势，但在性能上略逊于属性动画。当属性动画能满足需求时，建议优先采用属性动画接口实现。属性动画接口可参考[实现属性动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-attribute-animation-apis)。
 
-
 | 名称 | 实现方式 | 事件响应方式 | 可暂停 | 性能 |
 | --- | --- | --- | --- | --- |
 | 帧动画（ohos.animator） | 开发者可每帧修改UI侧属性值，UI侧属性实时更新 | 实时响应 | 是 | 较差 |
 | 属性动画 | UI侧只计算动画最终状态，动画过程为渲染值在改变，UI侧一直为动画最终状态，不感知实时渲染值 | 按最终状态响应 | 否 | 较好 |
 
+
 如图所示，帧动画在动画过程中即可实时响应，而属性动画按最终状态响应。
 
+
 ![](assets/帧动画（ohos.animator）/file-20260514130712985-0.gif)
+
+
 
 ![](assets/帧动画（ohos.animator）/file-20260514130712985-1.gif)
 
 
-## 使用帧动画实现动画效果
 
-使用如下步骤可以创建一个简单的animator，并且在每个帧回调中打印当前插值。 引入相关依赖。
-```text
+##### 使用帧动画实现动画效果
+
+使用如下步骤可以创建一个简单的animator，并且在每个帧回调中打印当前插值。
+1. 引入相关依赖。
+
+  
+```ArkTS
 import { AnimatorOptions, AnimatorResult } from '@kit.ArkUI';
 ```
 
-创建执行动画的对象。
-```text
+2. 创建执行动画的对象。
+
+  
+```ArkTS
 // 创建动画的初始参数
 let options: AnimatorOptions = {
   duration: 1500,
@@ -51,42 +60,58 @@ result.onFrame = (value: number) => {
 }
 ```
 
-播放动画。
-```text
+3. 播放动画。
+
+  
+```ArkTS
 // 播放动画
 result.play();
 ```
 
-动画执行完成后手动释放AnimatorResult对象。
-```text
+4. 动画执行完成后手动释放AnimatorResult对象。
+
+  
+```ArkTS
 // 释放动画对象
 result = undefined;
 ```
 
 
-## 使用帧动画实现小球抛物运动
 
-引入相关依赖。
-```text
+
+##### 使用帧动画实现小球抛物运动
+1. 引入相关依赖。
+
+  
+```ArkTS
 import { AnimatorOptions, AnimatorResult } from '@kit.ArkUI';
 ```
 
-定义要做动画的组件。
-```text
+2. 定义要做动画的组件。
+
+  
+```ArkTS
 Button()
   .width(60)
   .height(60)
   .translate({ x: this.translateX, y: this.translateY })
 ```
 
-在onPageShow中创建AnimatorResult对象。
-```text
+3. 在onPageShow中创建AnimatorResult对象。
+
+  
+```ArkTS
 onPageShow(): void {
   // 创建animatorResult对象
   this.animatorResult = this.getUIContext().createAnimator(this.animatorOption);
   this.animatorResult.onFrame = (progress: number) => {
     this.translateX = progress;
-    if (progress > this.topWidth && this.translateY  {
+    if (progress > this.topWidth && this.translateY < this.bottomHeight) {
+      this.translateY = Math.pow(progress - this.topWidth, 2) * this.g;
+    }
+  }
+  // 动画取消时执行方法
+  this.animatorResult.onCancel = () => {
     // 请将$r('app.string.cancel')替换为实际资源文件，在本示例中该资源文件的value值为"取消"
     this.animatorStatus = $r('app.string.cancel');
   }
@@ -103,8 +128,10 @@ onPageShow(): void {
 }
 ```
 
-定义动画播放，重置，暂停的按钮。
-```text
+4. 定义动画播放，重置，暂停的按钮。
+
+  
+```ArkTS
 // 请将$r('app.string.play')替换为实际资源文件，在本示例中该资源文件的value值为"播放"
 Button($r('app.string.play')).onClick(() => {
   this.animatorResult?.play();
@@ -124,15 +151,19 @@ Button($r('app.string.pause')).onClick(() => {
 }).width(80).height(35)
 ```
 
-在页面隐藏或销毁的生命周期中释放动画对象，避免内存泄漏。
-```text
+5. 在页面隐藏或销毁的生命周期中释放动画对象，避免内存泄漏。
+
+  
+```ArkTS
 onPageHide(): void {
   this.animatorResult = undefined;
 }
 ```
 
+
 完整示例如下。
-```text
+
+```ArkTS
 import { AnimatorOptions, AnimatorResult } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -171,7 +202,11 @@ struct Index {
     this.animatorResult = this.getUIContext().createAnimator(this.animatorOption);
     this.animatorResult.onFrame = (progress: number) => {
       this.translateX = progress;
-      if (progress > this.topWidth && this.translateY  {
+      if (progress > this.topWidth && this.translateY < this.bottomHeight) {
+        this.translateY = Math.pow(progress - this.topWidth, 2) * this.g;
+      }
+    }
+    this.animatorResult.onCancel = () => {
       // 'cancel'资源文件中的value值为'取消'
       this.animatorStatus = 'cancel';
     }
@@ -226,5 +261,6 @@ struct Index {
   }
 }
 ```
+
 
 ![](assets/帧动画（ohos.animator）/file-20260514130712985-2.gif)

@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-invalid-this
 
 禁止在this值为undefined的上下文中使用this。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-invalid-this": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-invalid-this选项](https://eslint.nodejs.cn/docs/rules/no-invalid-this#选项)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // ts代码文件中需要添加"use strict"
@@ -42,10 +43,10 @@ export class Bar {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // ts代码文件中需要添加"use strict"
@@ -63,13 +64,13 @@ export const foo2 = () => {
   baz(() => this);
 };
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

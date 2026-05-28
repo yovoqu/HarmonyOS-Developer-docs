@@ -9,7 +9,7 @@
 | 新增API | NA | 类名：global； API声明：export default class FormEditExtensionAbility 差异内容：export default class FormEditExtensionAbility | api/@ohos.app.form.FormEditExtensionAbility.d.ts |
 | 新增API | NA | 类名：FormEditExtensionAbility； API声明：context: FormEditExtensionContext; 差异内容：context: FormEditExtensionContext; | api/@ohos.app.form.FormEditExtensionAbility.d.ts |
 | 新增API | NA | 类名：global； API声明：export default class FormEditExtensionContext 差异内容：export default class FormEditExtensionContext | api/application/FormEditExtensionContext.d.ts |
-| 新增API | NA | 类名：FormEditExtensionContext； API声明：startSecondPage(want: Want): Promise<AbilityResult>; 差异内容：startSecondPage(want: Want): Promise<AbilityResult>; | api/application/FormEditExtensionContext.d.ts |
+| 新增API | NA | 类名：FormEditExtensionContext； API声明：startSecondPage(want: Want): Promise&lt;AbilityResult&gt;; 差异内容：startSecondPage(want: Want): Promise&lt;AbilityResult&gt;; | api/application/FormEditExtensionContext.d.ts |
 | 新增API | NA | 类名：FormDimension； API声明：DIMENSION_2_3 = 8 差异内容：DIMENSION_2_3 = 8 | api/@ohos.app.form.formInfo.d.ts |
 | 新增API | NA | 类名：FormDimension； API声明：DIMENSION_3_3 = 9 差异内容：DIMENSION_3_3 = 9 | api/@ohos.app.form.formInfo.d.ts |
 | 新增API | NA | 类名：formProvider； API声明：function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void; 差异内容：function openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void; | api/@ohos.app.form.formProvider.d.ts |

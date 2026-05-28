@@ -8,24 +8,24 @@
 
 以下示例创建了一个OffscreenCanvas画布，再在画布上创建一个getContext2d对象，并设置filter属性改变图片样式。
 
-
 ```text
-
-
-    blur
-    grayscale
-    hue-rotate
-    invert
-    drop-shadow
-    brightness
-    opacity
-    saturate
-    sepia
-    contrast
-
-
+<!-- xxx.hml -->
+<div class="container">
+  <canvas ref="canvas1"></canvas>
+  <select @change="change()">
+    <option value="blur(5px)">blur</option>
+    <option value="grayscale(50%)">grayscale</option>
+    <option value="hue-rotate(45deg)">hue-rotate</option>
+    <option value="invert(100%)">invert</option>
+    <option value="drop-shadow(8px 8px 10px green)">drop-shadow</option>
+    <option value="brightness(0.4)">brightness</option>
+    <option value="opacity(0.25)">opacity</option>
+    <option value="saturate(30%)">saturate</option>
+    <option value="sepia(60%)">sepia</option>
+    <option value="contrast(200%)">contrast</option>
+  </select>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -52,7 +52,6 @@ select {
     background-color: white;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -93,24 +92,27 @@ export default {
 }
 ```
 
+
 ![](assets/OffscreenCanvasRenderingContext2D对象/file-20260514130759397-0.gif)
 
 
-## 判断位置
+
+##### 判断位置
 
 使用isPointInPath判断坐标点是否在路径的区域内，使用isPointInStroke判断坐标点是否在路径的边缘线上，并在页面上显示返回结果。
+
 ```text
-
-
-    坐标：{{X}}, {{Y}}
-    In path:{{textValue}}
-    In stroke:{{textValue1}}
-
-
-  Add(50)
-
+<!-- xxx.hml -->
+<div class="container">
+  <div class="content">
+    <text>坐标：{{X}}, {{Y}}</text>
+    <text>In path:{{textValue}}</text>
+    <text>In stroke:{{textValue1}}</text>
+  </div>
+  <canvas ref="canvas"></canvas>
+  <button onclick="change">Add(50)</button>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -151,7 +153,6 @@ button {
 }
 ```
 
-
 ```text
 // xxx.js
 export default {
@@ -176,4 +177,26 @@ export default {
         canvas.transferFromImageBitmap(bitmap);
     },
     change() {
-        if (this.X ![](assets/OffscreenCanvasRenderingContext2D对象/file-20260514130759397-1.gif)
+        if (this.X < 500) {
+            this.X = this.X + 50;
+        } else {
+            this.X = 0;
+        }
+        let canvas = this.$refs.canvas.getContext('2d');
+        let offscreen = new OffscreenCanvas(500, 500);
+        let offscreenCanvasCtx = offscreen.getContext('2d');
+        let offscreenCanvasCtx1 = offscreen.getContext('2d');
+        offscreenCanvasCtx1.arc(this.X, this.Y, 1, 0, 6.28)
+        offscreenCanvasCtx.lineWidth = 20
+        offscreenCanvasCtx.rect(200, 150, 200, 200);
+        offscreenCanvasCtx.stroke();
+        this.textValue1 = offscreenCanvasCtx.isPointInStroke(this.X, this.Y) ? 'true' : 'false';
+        this.textValue = offscreenCanvasCtx.isPointInPath(this.X, this.Y) ? 'true' : 'false';
+        let bitmap = offscreen.transferToImageBitmap();
+        canvas.transferFromImageBitmap(bitmap);
+    }
+}
+```
+
+
+![](assets/OffscreenCanvasRenderingContext2D对象/file-20260514130759397-1.gif)

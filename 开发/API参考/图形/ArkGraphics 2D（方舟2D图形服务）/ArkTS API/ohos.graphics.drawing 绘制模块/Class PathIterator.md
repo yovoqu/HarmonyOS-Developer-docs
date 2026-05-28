@@ -3,22 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-pathiterator
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示路径操作迭代器，可通过遍历迭代器读取path的操作指令。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 18开始支持。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## constructor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor18+
 
 constructor(path: Path)
 
@@ -28,16 +30,14 @@ constructor(path: Path)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 迭代器绑定的路径对象。 |
+| path | Path | 是 | 迭代器绑定的路径对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let path: drawing.Path = new drawing.Path();
@@ -45,8 +45,8 @@ let iter: drawing.PathIterator = new drawing.PathIterator(path);
 ```
 
 
-## next18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### next18+
 
 next(points: Array<common2D.Point>, offset?: number): PathIteratorVerb
 
@@ -56,25 +56,22 @@ next(points: Array<common2D.Point>, offset?: number): PathIteratorVerb
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| points | Array&lt;[common2D.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12)&gt; | 是 | 坐标点数组，长度必须至少为偏移量加4，以确保能容纳所有类型的路径数据。操作执行后，该数组会被覆盖。填入的坐标点数量取决于操作类型，其中，MOVE填入1个坐标点，LINE填入2个坐标点，QUAD填入3个坐标点，CONIC填入3个坐标点 + 1个权重值（共3.5组），CUBIC填入4个坐标点，CLOSE和DONE不填入任何点。 |
+| points | Array<common2D.Point> | 是 | 坐标点数组，长度必须至少为偏移量加4，以确保能容纳所有类型的路径数据。操作执行后，该数组会被覆盖。填入的坐标点数量取决于操作类型，其中，MOVE填入1个坐标点，LINE填入2个坐标点，QUAD填入3个坐标点，CONIC填入3个坐标点 + 1个权重值（共3.5组），CUBIC填入4个坐标点，CLOSE和DONE不填入任何点。 |
 | offset | number | 否 | 数组中写入位置相对起始点的偏移量，默认为0，取值范围为[0, size-4]，size是指坐标点数组长度。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathIteratorVerb](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#pathiteratorverb18) | 迭代器包含的路径操作类型。 |
+| PathIteratorVerb | 迭代器包含的路径操作类型。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -83,43 +80,28 @@ next(points: Array<common2D.Point>, offset?: number): PathIteratorVerb
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 let path: drawing.Path = new drawing.Path();
 path.moveTo(10, 20);
 let iter: drawing.PathIterator = new drawing.PathIterator(path);
-let verbStr: Array<string> = [
-  'MOVE',
-  'LINE',
-  'QUAD',
-  'CONIC',
-  'CUBIC',
-  'CLOSE',
-  'DONE',
-];
-let pointCount: Array<number> = [1, 2, 3, 4, 4, 0, 0];
-let points: Array<common2D.Point> = [
-  { x: 0, y: 0 },
-  { x: 0, y: 0 },
-  { x: 0, y: 0 },
-  { x: 0, y: 0 },
-];
+let verbStr: Array<string> = ["MOVE", "LINE", "QUAD", "CONIC", "CUBIC", "CLOSE", "DONE"];
+let pointCount: Array<number> = [1,2,3,4,4,0,0];
+let points: Array<common2D.Point> = [{x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}, {x: 0, y: 0}];
 let offset = 0;
 let verb = iter.next(points, offset);
-let outputMessage: string = 'pathIteratorNext: ';
-outputMessage +=
-  'verb =' + verbStr[verb] + '; has ' + pointCount[verb] + ' pairs: ';
+let outputMessage: string = "pathIteratorNext: ";
+outputMessage += "verb =" + verbStr[verb] + "; has " + pointCount[verb] + " pairs: ";
 for (let j = 0; j < pointCount[verb] + offset; j++) {
-  outputMessage += '[' + points[j].x + ', ' + points[j].y + ']';
+  outputMessage += "[" + points[j].x + ", " + points[j].y + "]";
 }
 console.info(outputMessage);
 ```
 
 
-## peek18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### peek18+
 
 peek(): PathIteratorVerb
 
@@ -129,16 +111,14 @@ peek(): PathIteratorVerb
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathIteratorVerb](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#pathiteratorverb18) | 迭代器包含的路径操作类型。 |
+| PathIteratorVerb | 迭代器包含的路径操作类型。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let path: drawing.Path = new drawing.Path();
@@ -147,8 +127,8 @@ let res = iter.peek();
 ```
 
 
-## hasNext18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hasNext18+
 
 hasNext(): boolean
 
@@ -158,7 +138,6 @@ hasNext(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 判断路径操作迭代器中是否还有下一个操作。true表示有，false表示没有。 |
@@ -166,8 +145,7 @@ hasNext(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let path: drawing.Path = new drawing.Path();

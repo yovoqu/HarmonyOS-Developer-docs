@@ -3,29 +3,24 @@
 更新时间：2026-05-08 09:27:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-wifimanager
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供企业设备Wi-Fi管理能力，包括查询Wi-Fi开启状态等。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
-> 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。
-> 全局通用限制类策略由restrictions统一提供，若要全局禁用Wi-Fi，请参考[@ohos.enterprise.restrictions（限制类策略）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考 MDM Kit开发指南 。 全局通用限制类策略由restrictions统一提供，若要全局禁用Wi-Fi，请参考 @ohos.enterprise.restrictions（限制类策略） 。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 ```
 
 
-## wifiManager.isWifiActiveSync
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### wifiManager.isWifiActiveSync
 
 isWifiActiveSync(admin: Want): boolean
 
@@ -39,14 +34,12 @@ isWifiActiveSync(admin: Want): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -56,7 +49,6 @@ isWifiActiveSync(admin: Want): boolean
 **错误码**：
 
 以下的错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -68,8 +60,7 @@ isWifiActiveSync(admin: Want): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -80,19 +71,15 @@ let wantTemp: Want = {
 
 try {
   let result: boolean = wifiManager.isWifiActiveSync(wantTemp);
-  console.info(
-    `Succeeded in querying whether the Wi-Fi is active or not, result : ${result}`,
-  );
+  console.info(`Succeeded in querying whether the Wi-Fi is active or not, result : ${result}`);
 } catch (err) {
-  console.error(
-    `Failed to query whether the Wi-Fi is active or not. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to query whether the Wi-Fi is active or not. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.setWifiProfileSync
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### wifiManager.setWifiProfileSync
 
 setWifiProfileSync(admin: Want, profile: WifiProfile): void
 
@@ -108,17 +95,15 @@ setWifiProfileSync(admin: Want, profile: WifiProfile): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| profile | [WifiProfile](#wifiprofile) | 是 | Wi-Fi配置信息。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| profile | WifiProfile | 是 | Wi-Fi配置信息。 |
 
 
 **错误码**：
 
 以下的错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -132,8 +117,7 @@ setWifiProfileSync(admin: Want, profile: WifiProfile): void
 
 **适用于公共开发Wi-Fi**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -145,25 +129,22 @@ let wantTemp: Want = {
 
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'guest-Wi-Fi',
-  preSharedKey: '',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_OPEN,
+  'ssid': 'guest-Wi-Fi',
+  'preSharedKey': '',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_OPEN
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 **适用于多个同名Wi-Fi但不同BSSID的场景**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -175,26 +156,23 @@ let wantTemp: Want = {
 
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'guest-Wi-Fi',
-  bssid: 'AA:BB:CC:DD:EE:FF',
-  preSharedKey: '',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_OPEN,
+  'ssid': 'guest-Wi-Fi',
+  'bssid': 'AA:BB:CC:DD:EE:FF',
+  'preSharedKey': '',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_OPEN
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 **适用于老旧的工业设备等场景、安全性低**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -206,26 +184,23 @@ let wantTemp: Want = {
 
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'Legacy-Office-Wi-Fi',
-  bssid: 'AA:BB:CC:DD:EE:FF',
-  preSharedKey: '',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_WEP,
+  'ssid': 'Legacy-Office-Wi-Fi',
+  'bssid': 'AA:BB:CC:DD:EE:FF',
+  'preSharedKey': '',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_WEP
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 **适用于家庭网络、小型办公室、消费级路由器等场景**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -237,25 +212,22 @@ let wantTemp: Want = {
 
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'home_Wi-Fi',
-  preSharedKey: 'passwd',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_PSK,
+  'ssid': 'home_Wi-Fi',
+  'preSharedKey': 'passwd',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_PSK
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 **适用于现代化IoT设备网络**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -267,25 +239,22 @@ let wantTemp: Want = {
 
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'iot_Wi-Fi',
-  preSharedKey: 'passwd',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_SAE,
+  'ssid': 'iot_Wi-Fi',
+  'preSharedKey': 'passwd',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_SAE
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 **适用于公司网络和大学校园网络**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -298,41 +267,37 @@ let wantTemp: Want = {
 // EAP-PEAP 配置示例
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'company_Wi-Fi',
-  preSharedKey: '',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
-  eapProfile: {
+  'ssid': 'company_Wi-Fi',
+  'preSharedKey': '',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
+  'eapProfile': {
     eapMethod: wifiManager.EapMethod.EAP_PEAP,
     phase2Method: wifiManager.Phase2Method.PHASE2_MSCHAPV2,
     identity: 'zhangsan@company.com',
     password: 'passwd',
     anonymousIdentity: '',
     caPath: '/system/etc/security/caCerts/company-ca.pem',
-    caCertAliases: '',
+    caCertAliases:  '',
     clientCertAliases: '',
     certEntry: new Uint8Array(),
     certPassword: '',
-    altSubjectMatch:
-      'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
+    altSubjectMatch: 'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
     domainSuffixMatch: 'company.com',
     realm: '',
     eapSubId: 0,
-    plmn: '',
-  },
+    plmn: ''
+  }
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -345,10 +310,10 @@ let wantTemp: Want = {
 // EAP-TLS 配置示例
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'tls_Wi-Fi',
-  preSharedKey: '',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
-  eapProfile: {
+  'ssid': 'tls_Wi-Fi',
+  'preSharedKey': '',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
+  'eapProfile': {
     eapMethod: wifiManager.EapMethod.EAP_TLS,
     phase2Method: wifiManager.Phase2Method.PHASE2_NONE,
     identity: 'zhangsan@company.com',
@@ -359,27 +324,23 @@ let profile: wifiManager.WifiProfile = {
     clientCertAliases: 'zhangsan-auth-cert',
     certEntry: new Uint8Array(),
     certPassword: '',
-    altSubjectMatch:
-      'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
+    altSubjectMatch: 'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
     domainSuffixMatch: 'company.com',
     realm: '',
     eapSubId: 0,
-    plmn: '',
-  },
+    plmn: ''
+  }
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -392,10 +353,10 @@ let wantTemp: Want = {
 // EAP-TTLS 配置示例
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'ttls_Wi-Fi',
-  preSharedKey: '',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
-  eapProfile: {
+  'ssid': 'ttls_Wi-Fi',
+  'preSharedKey': '',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
+  'eapProfile': {
     eapMethod: wifiManager.EapMethod.EAP_TTLS,
     phase2Method: wifiManager.Phase2Method.PHASE2_GTC,
     identity: 'zhangsan@company.com',
@@ -406,27 +367,23 @@ let profile: wifiManager.WifiProfile = {
     clientCertAliases: '',
     certEntry: new Uint8Array(),
     certPassword: '',
-    altSubjectMatch:
-      'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
+    altSubjectMatch: 'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
     domainSuffixMatch: 'company.com',
     realm: 'company.com',
     plmn: '',
     eapSubId: 0,
-  },
+  }
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -439,43 +396,39 @@ let wantTemp: Want = {
 // EAP-SIM 配置示例
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'eap_sim_Wi-Fi',
-  preSharedKey: '',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
-  eapProfile: {
+  'ssid': 'eap_sim_Wi-Fi',
+  'preSharedKey': '',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_EAP,
+  'eapProfile': {
     eapMethod: wifiManager.EapMethod.EAP_SIM,
     phase2Method: wifiManager.Phase2Method.PHASE2_NONE,
     identity: '',
-    password: '',
+    password:'',
     anonymousIdentity: '',
     caPath: '',
-    caCertAliases: 'carrier-root-ca',
+    caCertAliases:  'carrier-root-ca',
     clientCertAliases: '',
     certEntry: new Uint8Array(),
     certPassword: '',
-    altSubjectMatch:
-      'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
+    altSubjectMatch: 'CN=radius.company.com,OU=IT Department,O=Company Inc.,C=US',
     domainSuffixMatch: 'company.com',
     realm: 'waln.mnc000.mcc460.3gppnetwork.org',
     eapSubId: 0,
-    plmn: '46000',
-  },
+    plmn: '46000'
+  }
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 **适用于需要固定IP地址供客户端访问等场景**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -487,40 +440,36 @@ let wantTemp: Want = {
 
 let profile: wifiManager.WifiProfile = {
   // 需根据实际情况进行替换
-  ssid: 'static_ip_Wi-Fi',
-  preSharedKey: 'passwd',
-  securityType: wifiManager.WifiSecurityType.WIFI_SEC_TYPE_PSK,
-  ipType: wifiManager.IpType.STATIC,
-  staticIp: {
+  'ssid': 'static_ip_Wi-Fi',
+  'preSharedKey': 'passwd',
+  'securityType': wifiManager.WifiSecurityType.WIFI_SEC_TYPE_PSK,
+  'ipType': wifiManager.IpType.STATIC,
+  'staticIp': {
     ipAddress: 3232235778, // 192.168.1.2
     gateway: 3232235777, // 192.168.1.1
     prefixLength: 24,
     dnsServers: [3232235777, 3232235777],
-    domains: [],
-  },
+    domains: []
+  }
 };
 
 try {
   wifiManager.setWifiProfileSync(wantTemp, profile);
   console.info(`Succeeded in setting Wi-Fi profile.`);
 } catch (err) {
-  console.error(
-    `Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set Wi-Fi profile. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.addAllowedWifiList19+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
+##### wifiManager.addAllowedWifiList19+
+
+addAllowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
 
 添加Wi-Fi允许名单。添加允许名单后当前设备仅允许连接该名单下的Wi-Fi。
 
 以下情况下，调用本接口会报策略冲突：
-
-
 1. 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)解除Wi-Fi禁用后，可解除冲突。
 2. 已经通过[addDisallowedWifiList](#wifimanageradddisallowedwifilist19)接口添加了Wi-Fi禁用名单。通过[removeDisallowedWifiList](#wifimanagerremovedisallowedwifilist19)移除Wi-Fi禁用名单后，可解除冲突。
 
@@ -534,17 +483,15 @@ addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| list | Array&lt;[WifiAccessInfo](#wifiaccessinfo19)&gt; | 是 | Wi-Fi允许名单数组。数组总长度不能超过200。例如，若当前允许名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| list | Array&lt;WifiAccessInfo&gt; | 是 | Wi-Fi允许名单数组。数组总长度不能超过200。例如，若当前允许名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -556,40 +503,35 @@ addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **示例：**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.edmtest',
-  abilityName: 'com.example.edmtest.EnterpriseAdminAbility',
+  abilityName: 'com.example.edmtest.EnterpriseAdminAbility'
 };
 try {
-  let wifiIds: Array<wifiManager.WifiAccessInfo> = [
-    {
-      // 需根据实际情况进行替换
-      ssid: 'wifi_name',
-      bssid: '68:77:24:77:A6:D8',
-    },
-  ];
+  let wifiIds: Array<wifiManager.WifiAccessInfo> = [{
+    // 需根据实际情况进行替换
+    ssid: "wifi_name",
+    bssid: "68:77:24:77:A6:D8"
+  }];
   wifiManager.addAllowedWifiList(wantTemp, wifiIds);
   console.info(`Succeeded in adding allowed Wi-Fi list.`);
 } catch (err) {
-  console.error(
-    `Failed to add allowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to add allowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.removeAllowedWifiList19+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-removeAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
+##### wifiManager.removeAllowedWifiList19+
 
-移除Wi-Fi允许名单。若移除允许名单中的部���Wi-Fi，则当前设备仅允许连接剩下未移除的Wi-Fi。若移除允许名单中的所有Wi-Fi，则当前设备可以连接任意Wi-Fi。
+removeAllowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
+
+移除Wi-Fi允许名单。若移除允许名单中的部分Wi-Fi，则当前设备仅允许连接剩下未移除的Wi-Fi。若移除允许名单中的所有Wi-Fi，则当前设备可以连接任意Wi-Fi。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_WIFI
 
@@ -601,17 +543,15 @@ removeAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| list | Array&lt;[WifiAccessInfo](#wifiaccessinfo19)&gt; | 是 | 待移除的Wi-Fi允许名单数组。数组总长度不能超过200。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| list | Array&lt;WifiAccessInfo&gt; | 是 | 待移除的Wi-Fi允许名单数组。数组总长度不能超过200。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -622,38 +562,33 @@ removeAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **示例：**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.edmtest',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
-  let wifiIds: Array<wifiManager.WifiAccessInfo> = [
-    {
-      // 需根据实际情况进行替换
-      ssid: 'wifi_name',
-      bssid: '68:77:24:77:A6:D8',
-    },
-  ];
+  let wifiIds: Array<wifiManager.WifiAccessInfo> = [{
+    // 需根据实际情况进行替换
+    ssid: "wifi_name",
+    bssid: "68:77:24:77:A6:D8"
+  }];
   wifiManager.removeAllowedWifiList(wantTemp, wifiIds);
   console.info(`Succeeded in removing allowed Wi-Fi list.`);
 } catch (err) {
-  console.error(
-    `Failed to remove allowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to remove allowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.getAllowedWifiList19+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getAllowedWifiList(admin: Want): Array<WifiAccessInfo>
+##### wifiManager.getAllowedWifiList19+
+
+getAllowedWifiList(admin: Want): Array&lt;WifiAccessInfo&gt;
 
 获取Wi-Fi允许名单。
 
@@ -665,24 +600,21 @@ getAllowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[WifiAccessInfo](#wifiaccessinfo19)&gt; | Wi-Fi允许名单数组。 |
+| Array&lt;WifiAccessInfo&gt; | Wi-Fi允许名单数组。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -693,40 +625,32 @@ getAllowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 **示例：**
 
-
-```ts
+```json
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.edmtest',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
-  let result: Array<wifiManager.WifiAccessInfo> =
-    wifiManager.getAllowedWifiList(wantTemp);
-  console.info(
-    `Succeeded in getting allowed Wi-Fi list. Result: ${JSON.stringify(result)}`,
-  );
+  let result: Array<wifiManager.WifiAccessInfo> = wifiManager.getAllowedWifiList(wantTemp);
+  console.info(`Succeeded in getting allowed Wi-Fi list. Result: ${JSON.stringify(result)}`);
 } catch (err) {
-  console.error(
-    `Failed to get allowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to get allowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.addDisallowedWifiList19+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
+##### wifiManager.addDisallowedWifiList19+
+
+addDisallowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
 
 添加Wi-Fi禁用名单。添加禁用名单后当前设备不允许连接该名单下的Wi-Fi。
 
 以下情况下，调用本接口会报策略冲突：
-
-
 1. 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口禁用了设备Wi-Fi能力。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)解除Wi-Fi禁用后，可解除冲突。
 2. 已经通过[addAllowedWifiList](#wifimanageraddallowedwifilist19)接口添加了Wi-Fi允许名单。通过[removeAllowedWifiList](#wifimanagerremoveallowedwifilist19)移除Wi-Fi允许名单后，可解除冲突。
 
@@ -740,17 +664,15 @@ addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| list | Array&lt;[WifiAccessInfo](#wifiaccessinfo19)&gt; | 是 | Wi-Fi禁用名单数组。数组总长度不能超过200。例如，若当前禁用名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| list | Array&lt;WifiAccessInfo&gt; | 是 | Wi-Fi禁用名单数组。数组总长度不能超过200。例如，若当前禁用名单数组中已有100个Wi-Fi，则最多支持通过该接口再添加100个。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -762,38 +684,33 @@ addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **示例：**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.edmtest',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
-  let wifiIds: Array<wifiManager.WifiAccessInfo> = [
-    {
-      // 需根据实际情况进行替换
-      ssid: 'wifi_name',
-      bssid: '68:77:24:77:A6:D8',
-    },
-  ];
+  let wifiIds: Array<wifiManager.WifiAccessInfo> = [{
+    // 需根据实际情况进行替换
+    ssid: "wifi_name",
+    bssid: "68:77:24:77:A6:D8"
+  }];
   wifiManager.addDisallowedWifiList(wantTemp, wifiIds);
   console.info(`Succeeded in adding disallowed Wi-Fi list.`);
 } catch (err) {
-  console.error(
-    `Failed to add disallowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to add disallowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.removeDisallowedWifiList19+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-removeDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
+##### wifiManager.removeDisallowedWifiList19+
+
+removeDisallowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
 
 移除Wi-Fi禁用名单。若移除禁用名单中的部分Wi-Fi，则当前设备不允许连接禁用名单内剩余的Wi-Fi。若移除禁用名单中的所有Wi-Fi，则当前设备可以连接任意的Wi-Fi。
 
@@ -807,17 +724,15 @@ removeDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| list | Array&lt;[WifiAccessInfo](#wifiaccessinfo19)&gt; | 是 | 待移除的Wi-Fi禁用名单数组。数组总长度不能超过200。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| list | Array&lt;WifiAccessInfo&gt; | 是 | 待移除的Wi-Fi禁用名单数组。数组总长度不能超过200。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -828,38 +743,33 @@ removeDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void
 
 **示例：**
 
-
-```ts
+```text
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.edmtest',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
-  let wifiIds: Array<wifiManager.WifiAccessInfo> = [
-    {
-      // 需根据实际情况进行替换
-      ssid: 'wifi_name',
-      bssid: '68:77:24:77:A6:D8',
-    },
-  ];
+  let wifiIds: Array<wifiManager.WifiAccessInfo> = [{
+    // 需根据实际情况进行替换
+    ssid: "wifi_name",
+    bssid: "68:77:24:77:A6:D8"
+  }];
   wifiManager.removeDisallowedWifiList(wantTemp, wifiIds);
   console.info(`Succeeded in removing disallowed Wi-Fi list.`);
 } catch (err) {
-  console.error(
-    `Failed to remove disallowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to remove disallowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.getDisallowedWifiList19+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>
+##### wifiManager.getDisallowedWifiList19+
+
+getDisallowedWifiList(admin: Want): Array&lt;WifiAccessInfo&gt;
 
 获取Wi-Fi禁用名单。
 
@@ -871,24 +781,21 @@ getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[WifiAccessInfo](#wifiaccessinfo19)&gt; | Wi-Fi禁用名单数组。 |
+| Array&lt;WifiAccessInfo&gt; | Wi-Fi禁用名单数组。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -899,32 +806,26 @@ getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>
 
 **示例：**
 
-
-```ts
+```json
 import { wifiManager } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.edmtest',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
-  let result: Array<wifiManager.WifiAccessInfo> =
-    wifiManager.getDisallowedWifiList(wantTemp);
-  console.info(
-    `Succeeded in getting disallowed Wi-Fi list. Result: ${JSON.stringify(result)}`,
-  );
+  let result: Array<wifiManager.WifiAccessInfo> = wifiManager.getDisallowedWifiList(wantTemp);
+  console.info(`Succeeded in getting disallowed Wi-Fi list. Result: ${JSON.stringify(result)}`);
 } catch (err) {
-  console.error(
-    `Failed to get disallowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to get disallowed Wi-Fi list. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.turnOnWifi20+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### wifiManager.turnOnWifi20+
 
 turnOnWifi(admin: Want, isForce: boolean): void
 
@@ -942,17 +843,15 @@ turnOnWifi(admin: Want, isForce: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| isForce | boolean | 是 | 是否强制打开Wi-Fi功能。          true表示强制开启Wi-Fi，强制开启后不支持用户在设备上手动关闭Wi-Fi开关，必须采用[turnOffWifi](#wifimanagerturnoffwifi20)接口关闭。false表示非强制开启Wi-Fi，此时用户可以在设备上手动操作关闭Wi-Fi开关。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| isForce | boolean | 是 | 是否强制打开Wi-Fi功能。 true表示强制开启Wi-Fi，强制开启后不支持用户在设备上手动关闭Wi-Fi开关，必须采用turnOffWifi接口关闭。false表示非强制开启Wi-Fi，此时用户可以在设备上手动操作关闭Wi-Fi开关。 |
 
 
 **错误码**：
 
 以下的错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -964,30 +863,27 @@ turnOnWifi(admin: Want, isForce: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { wifiManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 
 try {
   wifiManager.turnOnWifi(wantTemp, true);
   console.info(`Succeeded in turning on Wi-Fi.`);
 } catch (err) {
-  console.error(
-    `Failed to turn on Wi-Fi. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to turn on Wi-Fi. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## wifiManager.turnOffWifi20+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### wifiManager.turnOffWifi20+
 
 turnOffWifi(admin: Want): void
 
@@ -1005,16 +901,14 @@ turnOffWifi(admin: Want): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 
 
 **错误码**：
 
 以下的错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1026,49 +920,45 @@ turnOffWifi(admin: Want): void
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { wifiManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 
 try {
   wifiManager.turnOffWifi(wantTemp);
   console.info(`Succeeded in turning off Wi-Fi.`);
 } catch (err) {
-  console.error(
-    `Failed to turn off Wi-Fi. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to turn off Wi-Fi. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## WifiAccessInfo19+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### WifiAccessInfo19+
 
 Wi-Fi的SSID和BSSID信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | ssid | string | 否 | 否 | Wi-Fi热点名称，编码格式为UTF-8，最大长度为32字节（中文字符占3位，英文字符占1位）。 |
-| bssid | string | 否 | 是 | Wi-Fi热点的MAC地址，例如：00:11:22:33:44:55。获取方式如下：打开设置应用-点击系统选项-点击开发者选项-开启WLAN详细日志记录开关，然后进入设置应用中的WLAN列表，查看显示的MAC地址。若一个Wi-Fi对应多个MAC地址，需添加所有MAC地址。          作为[addDisallowedWifiList](#wifimanageradddisallowedwifilist19)和[removeDisallowedWifiList](#wifimanagerremovedisallowedwifilist19)接口的入参时，该属性可选，默认值为空字符串。          作为[addAllowedWifiList](#wifimanageraddallowedwifilist19)和[removeAllowedWifiList](#wifimanagerremoveallowedwifilist19)接口入参时，从API version 21开始，该属性可选，默认值为空字符串。API version 20及之前的版本，该属性必填。 |
+| bssid | string | 否 | 是 | Wi-Fi热点的MAC地址，例如：00:11:22:33:44:55。获取方式如下：打开设置应用-点击系统选项-点击开发者选项-开启WLAN详细日志记录开关，然后进入设置应用中的WLAN列表，查看显示的MAC地址。若一个Wi-Fi对应多个MAC地址，需添加所有MAC地址。 作为addDisallowedWifiList和removeDisallowedWifiList接口的入参时，该属性可选，默认值为空字符串。 作为addAllowedWifiList和removeAllowedWifiList接口入参时，从API version 21开始，该属性可选，默认值为空字符串。API version 20及之前的版本，该属性必填。 |
 
 
-## WifiProfile
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### WifiProfile
 
 Wi-Fi配置信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1076,24 +966,24 @@ Wi-Fi配置信息。
 | bssid | string | 否 | 是 | Wi-Fi热点的MAC地址，长度6个字节，例如：00:11:22:33:44:55。获取方式如下：打开设置应用-点击系统选项-点击开发者选项-开启WLAN详细日志记录开关，然后进入设置应用中的WLAN列表，查看显示的MAC地址。若一个Wi-Fi对应多个MAC地址，需添加所有MAC地址。 |
 | preSharedKey | string | 否 | 否 | 热点的密钥，最大长度为64字节。 |
 | isHiddenSsid | boolean | 否 | 是 | 是否是隐藏网络。true表示是隐藏网络，false表示不是隐藏网络，默认为false。 |
-| securityType | [WifiSecurityType](#wifisecuritytype) | 否 | 否 | 安全类型。 |
+| securityType | WifiSecurityType | 否 | 否 | 安全类型。 |
 | creatorUid | number | 否 | 是 | 创建用户的ID，默认值-1。 |
 | disableReason | number | 否 | 是 | 禁用原因，默认值0。 |
 | netId | number | 否 | 是 | 分配的网络ID，默认值-1。 |
 | randomMacType | number | 否 | 是 | 随机MAC类型。0-随机MAC地址， 1-设备MAC地址，默认值0。 |
 | randomMacAddr | string | 否 | 是 | MAC地址。randomMacType为设备MAC类型时，该字段必填。 |
-| ipType | [IpType](#iptype) | 否 | 是 | IP地址类型，默认值DHCP。 |
-| staticIp | [IpProfile](#ipprofile) | 否 | 是 | 静态IP配置信息。ipType为STATIC时，该字段必填。 |
-| eapProfile | [WifiEapProfile](#wifieapprofile) | 否 | 是 | 可扩展身份验证协议配置。只有securityType为WIFI_SEC_TYPE_EAP时必填。 |
+| ipType | IpType | 否 | 是 | IP地址类型，默认值DHCP。 |
+| staticIp | IpProfile | 否 | 是 | 静态IP配置信息。ipType为STATIC时，该字段必填。 |
+| eapProfile | WifiEapProfile | 否 | 是 | 可扩展身份验证协议配置。只有securityType为WIFI_SEC_TYPE_EAP时必填。 |
 
 
-## WifiSecurityType
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### WifiSecurityType
 
 表示加密类型的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1109,13 +999,13 @@ Wi-Fi配置信息。
 | WIFI_SEC_TYPE_WAPI_PSK | 9 | WAPI-PSK加密类型。 |
 
 
-## IpType
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### IpType
 
 表示IP类型的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1124,13 +1014,13 @@ Wi-Fi配置信息。
 | UNKNOWN | 2 | 未指定。 |
 
 
-## IpProfile
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### IpProfile
 
 IP配置信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1141,18 +1031,18 @@ IP配置信息。
 | domains | Array&lt;string&gt; | 否 | 否 | 域信息。 |
 
 
-## WifiEapProfile
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### WifiEapProfile
 
 可扩展身份验证协议配置信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| eapMethod | [EapMethod](#eapmethod) | 否 | 否 | EAP认证方式。 |
-| phase2Method | [Phase2Method](#phase2method) | 否 | 否 | 第二阶段认证方式。只有eapMethod为EAP_PEAP或EAP_TTLS时需要填写。 |
+| eapMethod | EapMethod | 否 | 否 | EAP认证方式。 |
+| phase2Method | Phase2Method | 否 | 否 | 第二阶段认证方式。只有eapMethod为EAP_PEAP或EAP_TTLS时需要填写。 |
 | identity | string | 否 | 否 | 身份信息。当eapMethod为TLS时，该字段不能为空。 |
 | anonymousIdentity | string | 否 | 否 | 匿名身份。 |
 | password | string | 否 | 否 | 密码。当eapMethod为EAP_PEAP或EAP_PWD时，该字段不能为空串，最大长度为128字节。 |
@@ -1168,17 +1058,17 @@ IP配置信息。
 | eapSubId | number | 否 | 否 | SIM卡的子ID。 |
 
 
-## EapMethod
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### EapMethod
 
 表示EAP认证方式的枚举。
-
 
 > [!NOTE]
 > 当前仅支持使用EAP_PEAP、EAP_TLS两种认证方式，其他暂不支持。
 
-**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1193,13 +1083,13 @@ IP配置信息。
 | EAP_UNAUTH_TLS | 8 | UNAUTH TLS类型，单向认证（仅认证客户端）和加密通道。 |
 
 
-## Phase2Method
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### Phase2Method
 
 表示第二阶段认证方式的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

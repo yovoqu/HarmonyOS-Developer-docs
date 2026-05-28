@@ -1,62 +1,111 @@
 # 用户文件URI介绍
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro
 
 用户文件URI是文件的唯一标识，在对用户文件进行访问与修改等操作时往往都会使用到URI，不建议开发者解析URI中的片段用于业务代码开发，不同类型的URI使用方式将在下文详细介绍。
 
 
-## URI的类型
+##### URI的类型
 
-URI类型可以归纳为文档类URI和媒体文件URI两类 文档类URI：由picker拉起文件管理器选择或保存返回。具体获取方式参见[文档类URI获取方式](#文档类uri获取方式)。 媒体文件URI：由picker通过拉起图库选择图片或者视频返回，通过photoAccessHelper模块获取图片或者视频文件的URI，以及通过userFileManager模块获取图片、视频或者音频文件的URI。具体获取方式参见[媒体文件URI获取方式](#媒体文件uri获取方式)。
+URI类型可以归纳为文档类URI和媒体文件URI两类
+
+ - 文档类URI：由picker拉起文件管理器选择或保存返回。具体获取方式参见[文档类URI获取方式](#文档类uri获取方式)。
+ - 媒体文件URI：由picker通过拉起图库选择图片或者视频返回，通过photoAccessHelper模块获取图片或者视频文件的URI，以及通过userFileManager模块获取图片、视频或者音频文件的URI。具体获取方式参见[媒体文件URI获取方式](#媒体文件uri获取方式)。
+
+
+
 ![](assets/用户文件URI介绍/file-20260514130917046-0.png)
 
-## 文档类URI
 
 
-## 文档类URI介绍
 
-**文档类URI的格式类型为：** 'file://docs/storage/Users/currentUser//test.txt' **其中各个字段表示的含义为：**
+##### 文档类URI
+
+
+
+##### 文档类URI介绍
+
+**文档类URI的格式类型为：**
+
+'file://docs/storage/Users/currentUser/&lt;relative_path&gt;/test.txt'
+
+**其中各个字段表示的含义为：**
+
 | URI字段 | 说明 |
 | --- | --- |
 | 'file://docs/storage/Users/currentUser/' | 文件管理器的根目录。 |
-| '/' | 文件在根目录下的相对路径。例如：'Download/'和'Documents/'。 |
+| '&lt;relative_path&gt;/' | 文件在根目录下的相对路径。例如：'Download/'和'Documents/'。 |
 | 'test.txt' | 用户文件系统中存储的文件名，支持的文件类型为文件管理器支持的所有类型，以文件管理器为准。例如txt、jpg、mp4和mp3等格式的文件。 |
 
 
-## 文档类URI获取方式
 
-通过[DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)接口选择或保存文件，返回选择或保存的文件URI。 通过[AudioViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#audioviewpicker)接口选择或保存文件，返回选择或保存的文件URI。
 
-## 文档类URI的使用方式
+##### 文档类URI获取方式
+1. 通过[DocumentViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)接口选择或保存文件，返回选择或保存的文件URI。
+2. 通过[AudioViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#audioviewpicker)接口选择或保存文件，返回选择或保存的文件URI。
+
+
+
+##### 文档类URI的使用方式
 
 应用使用此类URI可通过[文件管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)进行进一步处理。示例代码参见picker中的[选择文档类文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/select-user-file#选择文档类文件)和[保存文档类文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/save-user-file#保存文档类文件)。
 
-## 媒体文件URI
 
 
-## 媒体文件URI介绍
+##### 媒体文件URI
 
-**媒体文件URI的格式类型为：** 图片URI格式： 'file://media/Photo//IMG_datetime_0001/displayName.jpg' 视频URI格式： 'file://media/Photo//VID_datetime_0001/displayName.mp4' 音频URI格式： 'file://media/Audio//AUD_datetime_0001/displayName.mp3' **其中各个字段表示的含义为：**
+
+
+##### 媒体文件URI介绍
+
+**媒体文件URI的格式类型为：**
+
+图片URI格式：
+
+ - 'file://media/Photo/&lt;id&gt;/IMG_datetime_0001/displayName.jpg'
+
+
+视频URI格式：
+
+ - 'file://media/Photo/&lt;id&gt;/VID_datetime_0001/displayName.mp4'
+
+
+音频URI格式：
+
+ - 'file://media/Audio/&lt;id&gt;/AUD_datetime_0001/displayName.mp3'
+
+
+**其中各个字段表示的含义为：**
+
 | URI字段 | 说明 |
 | --- | --- |
 | 'file://media' | 表示这个URI是媒体文件。 |
 | 'Photo' | 表示这个URI是媒体文件中的图片或者视频类文件。 |
 | 'Audio' | 表示这个URI是媒体文件中的音频类文件。 |
-| '' | 表示在数据库中多个表中处理后的值，并不是指表中的file_id列，注意请不要使用此id去数据库中查询具体文件。 |
+| '&lt;id&gt;' | 表示在数据库中多个表中处理后的值，并不是指表中的file_id列，注意请不要使用此id去数据库中查询具体文件。 |
 | 'IMG_datetime_0001' | 表示图片文件在用户文件系统中存储的文件名去掉后缀剩下的部分。 |
 | 'VID_datetime_0001' | 表示视频文件在用户文件系统中存储的文件名去掉后缀剩下的部分。 |
 | 'AUD_datetime_0001' | 表示音频文件在用户文件系统中存储的文件名去掉后缀剩下的部分。 |
 
 
-## 媒体文件URI获取方式
 
-通过PhotoAccessHelper的[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)选择媒体文件，返回选择的媒体文件的URI。 通过[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper)模块中的[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)或[createAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#createasset)接口获取媒体文件对应文件的URI。
 
-## 媒体文件URI的使用方式
+##### 媒体文件URI获取方式
+1. 通过PhotoAccessHelper的[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)选择媒体文件，返回选择的媒体文件的URI。
+2. 通过[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper)模块中的[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)或[createAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#createasset)接口获取媒体文件对应文件的URI。
 
-normal等级的应用使用此类URI可以通过[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper)模块进行进一步处理。示例代码参见媒体资源使用指导中的[指定URI获取图片或视频资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker#指定uri获取图片或视频资源)。此接口需要申请相册管理模块读权限（[ohos.permission.READ_IMAGEVIDEO](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-overview#能力范围)），在使用中需要注意应用是否有此权限。 若normal等级的应用不想申请权限也可以通过临时授权的方式使用PhotoAccessHelper的[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)得到的URI使用[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)接口获取对应URI的PhotoAsset对象。通过此方式获取的PhotoAsset对象可调用[getThumbnail](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset#getthumbnail)方法获取缩略图，并通过[get](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset#get)接口方法读取[PhotoKeys](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#photokeys)中的部分信息。 以下为PhotoKeys中支持临时授权方式可以读取的信息：
+
+
+##### 媒体文件URI的使用方式
+
+normal等级的应用使用此类URI可以通过[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper)模块进行进一步处理。示例代码参见媒体资源使用指导中的[指定URI获取图片或视频资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker#指定uri获取图片或视频资源)。此接口需要申请相册管理模块读权限（[ohos.permission.READ_IMAGEVIDEO](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-overview#能力范围)），在使用中需要注意应用是否有此权限。
+
+若normal等级的应用不想申请权限也可以通过临时授权的方式使用PhotoAccessHelper的[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)得到的URI使用[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)接口获取对应URI的PhotoAsset对象。通过此方式获取的PhotoAsset对象可调用[getThumbnail](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset#getthumbnail)方法获取缩略图，并通过[get](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset#get)接口方法读取[PhotoKeys](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#photokeys)中的部分信息。
+
+以下为PhotoKeys中支持临时授权方式可以读取的信息：
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | URI | 'uri' | 文件URI。 |
@@ -72,8 +121,10 @@ normal等级的应用使用此类URI可以通过[photoAccessHelper](https://deve
 | ORIENTATION | 'orientation' | 图片文件的方向。 |
 | TITLE | 'title' | 文件标题。 |
 
+
 下面为通过临时授权方式使用媒体文件URI进行获取缩略图和读取文件部分信息的示例代码：
-```text
+
+```ArkTS
 import { BusinessError } from '@kit.BasicServicesKit';
 // ...
 import { common } from '@kit.AbilityKit';
@@ -106,7 +157,7 @@ async function photoPickerGetUri() {
 }
 
 // 请在组件内获取context
-async function uriGetAssets(context: common.UIAbilityContext): Promise {
+async function uriGetAssets(context: common.UIAbilityContext): Promise<string> {
   // 检查uris数组是否为空
   if (uris.length === 0) {
     throw new Error('No URIs available');
@@ -121,7 +172,7 @@ async function uriGetAssets(context: common.UIAbilityContext): Promise {
         photoAccessHelper.PhotoKeys.TITLE, photoAccessHelper.PhotoKeys.DURATION],
       predicates: predicates
     };
-    let fetchResult: photoAccessHelper.FetchResult =
+    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
       await phAccessHelper.getAssets(fetchOption);
     // 得到uri对应的PhotoAsset对象，读取文件的部分信息
     const asset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();

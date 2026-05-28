@@ -5,8 +5,8 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-263
 
 参考代码如下：
-
-```ts
+ 
+```ArkTS
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -16,31 +16,31 @@ const TAG = 'FullNavigationSubComponent';
 @Entry
 @Component
 struct FullNavigationSubComponent {
-context = this.getUIContext();
+  context = this.getUIContext();
 
-onPageShow(): void {
-window.getLastWindow(this.context.getHostContext(), (err, win) => {
-if (err != null) {
-hilog.error(DOMAIN, TAG, `getLastWindow failed  code:${err.code};message:${err.message}`);
-} else {
-win.setWindowLayoutFullScreen(true);
-}
-})
-}
+  onPageShow(): void {
+    window.getLastWindow(this.context.getHostContext(), (err, win) => {
+      if (err != null) {
+        hilog.error(DOMAIN, TAG, `getLastWindow failed  code:${err.code};message:${err.message}`);
+      } else {
+        win.setWindowLayoutFullScreen(true);
+      }
+    })
+  }
 
-build() {
-Navigation() {
-Column() {
-}
-.width('100%')
-.height('100%')
-.backgroundColor(Color.Black)
-}
-.width('100%')
-.height('100%')
-.title('Personalization Settings')
-.titleMode(NavigationTitleMode.Mini)
-.backgroundColor(Color.Grey)
-}
+  build() {
+    Navigation() {
+      Column() {
+      }
+      .width('100%')
+      .height('100%')
+      .backgroundColor(Color.Black)
+    }
+    .width('100%')
+    .height('100%')
+    .title('Personalization Settings')
+    .titleMode(NavigationTitleMode.Mini)
+    .backgroundColor(Color.Grey)
+  }
 }
 ```

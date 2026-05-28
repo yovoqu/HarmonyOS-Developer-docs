@@ -9,25 +9,32 @@
 应用场景举例：开发者可以使用地理围栏技术，在企业周围创建一个区域围栏，当用户进入这个区域，在移动设备上进行有针对性的提醒。
 
 
-## 接口说明
+##### 接口说明
 
 地理围栏所使用的接口如下，详细说明参见：[Location Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager)。
+
 | 接口名 | 功能描述 |
 | --- | --- |
-| [addGnssGeofence(fenceRequest: GnssGeofenceRequest): Promise](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanageraddgnssgeofence12) | 添加一个GNSS地理围栏，并订阅地理围栏事件。使用Promise异步回调。 |
-| [removeGnssGeofence(geofenceId: number): Promise](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocationmanager#geolocationmanagerremovegnssgeofence12) | 删除一个GNSS地理围栏，并取消订阅该地理围栏事件。使用Promise异步回调。 |
+| addGnssGeofence(fenceRequest: GnssGeofenceRequest): Promise&lt;number&gt; | 添加一个GNSS地理围栏，并订阅地理围栏事件。使用Promise异步回调。 |
+| removeGnssGeofence(geofenceId: number): Promise&lt;void&gt; | 删除一个GNSS地理围栏，并取消订阅该地理围栏事件。使用Promise异步回调。 |
 
 
-## 开发步骤
 
-使用地理围栏功能，需要有权限ohos.permission.APPROXIMATELY_LOCATION，位置权限申请的方法和步骤见[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。 导入geoLocationManager模块、wantAgent模块和BusinessError模块。
+
+##### 开发步骤
+1. 使用地理围栏功能，需要有权限ohos.permission.APPROXIMATELY_LOCATION，位置权限申请的方法和步骤见[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。
+2. 导入geoLocationManager模块、wantAgent模块和BusinessError模块。
+
+  
 ```text
 import { geoLocationManager } from '@kit.LocationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { notificationManager } from '@kit.NotificationKit';
 ```
 
-创建围栏。
+3. 创建围栏。
+
+  
 ```text
 // 通过WantAgentInfo的operationType设置动作类型
 let geofence: geoLocationManager.Geofence = {
@@ -35,15 +42,19 @@ let geofence: geoLocationManager.Geofence = {
 }
 ```
 
-指定APP需要监听的地理围栏事件类型，这里表示需要监听进入围栏和退出围栏事件。
+4. 指定APP需要监听的地理围栏事件类型，这里表示需要监听进入围栏和退出围栏事件。
+
+  
 ```text
-let transitionStatusList: Array = [
+let transitionStatusList: Array<geoLocationManager.GeofenceTransitionEvent> = [
     geoLocationManager.GeofenceTransitionEvent.GEOFENCE_TRANSITION_EVENT_ENTER,
     geoLocationManager.GeofenceTransitionEvent.GEOFENCE_TRANSITION_EVENT_EXIT,
 ];
 ```
 
-创建GEOFENCE_TRANSITION_EVENT_ENTER、GEOFENCE_TRANSITION_EVENT_EXIT事件对应的通知对象。
+5. 创建GEOFENCE_TRANSITION_EVENT_ENTER、GEOFENCE_TRANSITION_EVENT_EXIT事件对应的通知对象。
+
+  
 ```text
 // GEOFENCE_TRANSITION_EVENT_ENTER事件
 let notificationRequest1: notificationManager.NotificationRequest = {
@@ -71,10 +82,12 @@ let notificationRequest2: notificationManager.NotificationRequest = {
 };
 ```
 
-添加围栏。
-```text
+6. 添加围栏。
+
+  
+```json
 // 把创建的通知对象存入Array中，存入顺序与transitionStatusList一致
-let notificationRequestList: Array =
+let notificationRequestList: Array<notificationManager.NotificationRequest> =
   [notificationRequest1, notificationRequest2];
 // 构造GNSS地理围栏请求对象gnssGeofenceRequest
 let gnssGeofenceRequest: geoLocationManager.GnssGeofenceRequest = {
@@ -109,8 +122,10 @@ try {
 }
 ```
 
-删除围栏。
-```text
+7. 删除围栏。
+
+  
+```json
 // fenceId是在geoLocationManager.addGnssGeofence执行成功后获取的
 let fenceId = 1;
 try {

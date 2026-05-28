@@ -3,24 +3,26 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ColorManagement继承自[ColorManagementQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagementquery)。
 
 色彩管理类，用于设置色彩空间参数。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 12开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { camera } from '@kit.CameraKit';
 ```
 
 
-## setColorSpace12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setColorSpace12+
 
 setColorSpace(colorSpace: colorSpaceManager.ColorSpace): void
 
@@ -38,30 +40,28 @@ P3广色域与HDR高动态范围成像：
 
 从API version 23开始，可以通过接口[getSupportedFullOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedfulloutputcapability23)查询是否支持拍照模式下的预览P010格式。
 
+ - 若应用不主动设置色彩空间，在拍照模式下，当预览输出格式为CAMERA_FORMAT_YUV_420_SP时，色彩空间默认为SRGB；当预览输出格式为CAMERA_FORMAT_YCRCB_P010/CAMERA_FORMAT_YCBCR_P010时，色彩空间默认为BT2020_HLG。
+ - 若应用主动设置色彩空间，在拍照模式下，预览输出格式与色彩空间必须按照下列表格中的对应关系配置，若不满足则会在[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)或[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11-1)时返回错误码。
 
-- 若应用不主动设置色彩空间，在拍照模式下，当预览输出格式为CAMERA_FORMAT_YUV_420_SP时，色彩空间默认为SRGB；当预览输出格式为CAMERA_FORMAT_YCRCB_P010/CAMERA_FORMAT_YCBCR_P010时，色彩空间默认为BT2020_HLG。
-- 若应用主动设置色彩空间，在拍照模式下，预览输出格式与色彩空间必须按照下列表格中的对应关系配置，若不满足则会在[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)或[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11-1)时返回错误码。
 
 拍照模式：
-
 
 | SDR/HDR拍摄 | 预览输出格式 | 色彩空间 |
 | --- | --- | --- |
 | SDR(Default) | CAMERA_FORMAT_YUV_420_SP | SRGB |
 | HDR P3 | CAMERA_FORMAT_YUV_420_SP | DISPLAY_P3 |
-| HDR BT.2020 | CAMERA_FORMAT_YCRCB_P010、          CAMERA_FORMAT_YCBCR_P010 | BT2020_HLG |
+| HDR BT.2020 | CAMERA_FORMAT_YCRCB_P010、 CAMERA_FORMAT_YCBCR_P010 | BT2020_HLG |
 
 
 在录像模式下，使能SDR或HDR_VIVID拍摄效果时，CameraFormat与ColorSpace必须按照下列表格中的对应关系配置，若不满足表格中CameraFormat与ColorSpace配置，会导致预览异常等问题。
 
 录像模式：
 
-
 | SDR/HDR拍摄 | CameraFormat | ColorSpace |
 | --- | --- | --- |
 | SDR(Default) | CAMERA_FORMAT_YUV_420_SP | BT709_LIMIT |
-| HDR_VIVID | CAMERA_FORMAT_YCRCB_P010 | BT2020_HLG_LIMIT、          BT2020_HLG |
-| HDR_VIVID | CAMERA_FORMAT_YCBCR_P010 | BT2020_HLG_LIMIT、          BT2020_HLG |
+| HDR_VIVID | CAMERA_FORMAT_YCRCB_P010 | BT2020_HLG_LIMIT、 BT2020_HLG |
+| HDR_VIVID | CAMERA_FORMAT_YCBCR_P010 | BT2020_HLG_LIMIT、 BT2020_HLG |
 
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -70,16 +70,14 @@ P3广色域与HDR高动态范围成像：
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colorSpace | [colorSpaceManager.ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-colorspacemanager#colorspace) | 是 | 色彩空间，通过[getSupportedColorSpaces](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagementquery#getsupportedcolorspaces12)接口获取。 |
+| colorSpace | colorSpaceManager.ColorSpace | 是 | 色彩空间，通过getSupportedColorSpaces接口获取。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -91,15 +89,11 @@ P3广色域与HDR高动态范围成像：
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
-function setColorSpace(
-  session: camera.PhotoSession,
-  colorSpaces: Array<colorSpaceManager.ColorSpace>,
-): void {
+function setColorSpace(session: camera.PhotoSession, colorSpaces: Array<colorSpaceManager.ColorSpace>): void {
   if (colorSpaces === undefined || colorSpaces.length <= 0) {
     return;
   }
@@ -113,8 +107,8 @@ function setColorSpace(
 ```
 
 
-## getActiveColorSpace12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getActiveColorSpace12+
 
 getActiveColorSpace(): colorSpaceManager.ColorSpace
 
@@ -126,16 +120,14 @@ getActiveColorSpace(): colorSpaceManager.ColorSpace
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [colorSpaceManager.ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-colorspacemanager#colorspace) | 当前设置的色彩空间。 |
+| colorSpaceManager.ColorSpace | 当前设置的色彩空间。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -144,22 +136,17 @@ getActiveColorSpace(): colorSpaceManager.ColorSpace
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
-function getActiveColorSpace(
-  session: camera.PhotoSession,
-): colorSpaceManager.ColorSpace | undefined {
+function getActiveColorSpace(session: camera.PhotoSession): colorSpaceManager.ColorSpace | undefined {
   let colorSpace: colorSpaceManager.ColorSpace | undefined = undefined;
   try {
     colorSpace = session.getActiveColorSpace();
   } catch (error) {
     let err = error as BusinessError;
-    console.error(
-      `The getActiveColorSpace call failed. error code: ${err.code}`,
-    );
+    console.error(`The getActiveColorSpace call failed. error code: ${err.code}`);
   }
   return colorSpace;
 }

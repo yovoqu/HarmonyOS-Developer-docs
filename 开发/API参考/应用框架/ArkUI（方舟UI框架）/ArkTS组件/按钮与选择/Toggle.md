@@ -3,23 +3,22 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 组件提供勾选框样式、状态按钮样式和开关样式。
-
 
 > [!NOTE]
 > 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 仅当ToggleType设置为Button时，可包含子组件。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 Toggle(options: ToggleOptions)
 
@@ -31,20 +30,20 @@ Toggle(options: ToggleOptions)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [ToggleOptions](#toggleoptions18对象说明) | 是 | Toggle组件的配置选项，用于配置开关的样式类型和初始状态。 |
+| options | ToggleOptions | 是 | Toggle组件的配置选项，用于配置开关的样式类型和初始状态。 |
 
 
-## ToggleOptions18+对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ToggleOptions18+对象说明
 
 Toggle的信息。
 
-
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+
 
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
@@ -52,21 +51,21 @@ Toggle的信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type8+ | [ToggleType](#toggletype枚举说明) | 否 | 否 | 开关的样式。          默认值：ToggleType.Switch          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isOn8+ | boolean | 否 | 是 | 开关是否打开。          true：打开；false：关闭。          默认值：false          该属性支持[\$\$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。          该属性支持[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| type8+ | ToggleType | 否 | 否 | 开关的样式。 默认值：ToggleType.Switch 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| isOn8+ | boolean | 否 | 是 | 开关是否打开。 true：打开；false：关闭。 默认值：false 该属性支持$$双向绑定变量。 该属性支持!!双向绑定变量。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
-## ToggleType枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ToggleType枚举说明
 
 Toggle的样式。
 
+> [!TIP]
+> Toggle的样式继承对应组件样式的默认值，且不支持设置。例如，如果ToggleType为Button，则该组件样式继承 ButtonType 的默认值。由于Button.type从API version 18开始，默认类型从胶囊型变更为圆角矩形，胶囊型按钮不支持设置 borderRadius ，此时使用Toggle组件设置borderRadius也不生效。
 
-> [!NOTE]
-> Toggle的样式继承对应组件样式的默认值，且不支持设置。例如，如果ToggleType为Button，则该组件样式继承[ButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttontype枚举说明)的默认值。由于Button.type从API version 18开始，默认类型从胶囊型变更为圆角矩形，胶囊型按钮不支持设置[borderRadius](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#borderradius)，此时使用Toggle组件设置borderRadius也不生效。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -74,22 +73,22 @@ Toggle的样式。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Checkbox | 0 | 提供单选框样式。          说明：          API version 11开始，Checkbox默认样式由圆角方形变为圆形。          [通用属性margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)的默认值为：          {          top: '14px',          right: '14px',          bottom: '14px',          left: '14px'          }。          默认尺寸为：          {width:'20vp', height:'20vp'}。 |
-| Switch | 1 | 提供开关样式。          说明：          [通用属性margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#margin)默认值为：          {          top: '6px',          right: '14px',          bottom: '6px',          left: '14px'          }。          默认尺寸为：          {width:'36vp', height:'20vp'}。 |
+| Checkbox | 0 | 提供单选框样式。 说明： API version 11开始，Checkbox默认样式由圆角方形变为圆形。 通用属性margin的默认值为： { top: '14px', right: '14px', bottom: '14px', left: '14px' }。 默认尺寸为： {width:'20vp', height:'20vp'}。 |
+| Switch | 1 | 提供开关样式。 说明： 通用属性margin默认值为： { top: '6px', right: '14px', bottom: '6px', left: '14px' }。 默认尺寸为： {width:'36vp', height:'20vp'}。 |
 | Button | 2 | 提供状态按钮样式。如子组件设置文本，文本内容将显示在按钮内。默认高度为28vp，宽度无默认值。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### selectedColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### selectedColor
 
 selectedColor(value: ResourceColor)
 
@@ -103,14 +102,14 @@ selectedColor(value: ResourceColor)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 是 | 组件打开状态的背景颜色。          默认值：          当ToggleType为Switch时，默认值为\$r('sys.color.ohos_id_color_emphasize')。          当ToggleType为Checkbox时，默认值为\$r('sys.color.ohos_id_color_emphasize')。          当ToggleType为Button时，默认值为\$r('sys.color.ohos_id_color_emphasize')混合\$r('sys.float.ohos_id_alpha_highlight_bg')的透明度。 |
+| value | ResourceColor | 是 | 组件打开状态的背景颜色。 默认值： 当ToggleType为Switch时，默认值为\$r('sys.color.ohos_id_color_emphasize')。 当ToggleType为Checkbox时，默认值为\$r('sys.color.ohos_id_color_emphasize')。 当ToggleType为Button时，默认值为\$r('sys.color.ohos_id_color_emphasize')混合\$r('sys.float.ohos_id_alpha_highlight_bg')的透明度。 |
 
 
-### switchPointColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### switchPointColor
 
 switchPointColor(color: ResourceColor)
 
@@ -124,14 +123,14 @@ switchPointColor(color: ResourceColor)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 是 | Switch类型的圆形滑块颜色。          默认值：\$r('sys.color.ohos_id_color_foreground_contrary') |
+| color | ResourceColor | 是 | Switch类型的圆形滑块颜色。 默认值：\$r('sys.color.ohos_id_color_foreground_contrary') |
 
 
-### switchStyle12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### switchStyle12+
 
 switchStyle(value: SwitchStyle)
 
@@ -143,16 +142,16 @@ switchStyle(value: SwitchStyle)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [SwitchStyle](#switchstyle12对象说明) | 是 | Switch样式风格。 |
+| value | SwitchStyle | 是 | Switch样式风格。 |
 
 
-### contentModifier12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-contentModifier(modifier: ContentModifier<ToggleConfiguration>)
+
+##### contentModifier12+
+
+contentModifier(modifier: ContentModifier&lt;ToggleConfiguration&gt;)
 
 定制Toggle内容区的方法。
 
@@ -162,14 +161,14 @@ contentModifier(modifier: ContentModifier<ToggleConfiguration>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| modifier | [ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)[&lt;ToggleConfiguration&gt;](#toggleconfiguration12对象说明) | 是 | 在Toggle组件上，定制内容区的方法。          modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 |
+| modifier | ContentModifier&lt;ToggleConfiguration&gt; | 是 | 在Toggle组件上，定制内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 |
 
 
-## SwitchStyle12+对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SwitchStyle12+对象说明
 
 Switch类型的样式。
 
@@ -177,23 +176,23 @@ Switch类型的样式。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pointRadius | number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 是 | 设置Switch类型的圆形滑块半径，单位为vp。          说明：          不支持百分比，设定值小于0时按照默认算法设置，设定值大于等于0时按照设定值设置。          未设定此属性时，圆形滑块半径根据默认算法设置。          默认算法：（组件高度（单位：vp） / 2） - （2vp * 组件高度（单位：vp） / 20vp）。 |
-| unselectedColor | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 设置Switch类型关闭状态的背景颜色。          默认值：深色和浅色模式下均为0x337F7F7F。从API version 20开始，如果开启了[优化深浅色模式切换开销](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-dark-light-color-adaptation#优化深浅色模式切换开销)能力，浅色模式下默认值为0x19000000，表现效果为10%透明度的黑色；深色模式下默认值为0x19FFFFFF，表现效果为10%透明度的白色。 |
-| pointColor | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 设置Switch类型的圆形滑块颜色。          默认值：\$r('sys.color.ohos_id_color_foreground_contrary') |
-| trackBorderRadius | number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 是 | 设置Switch类型的滑轨的圆角，单位为vp。          说明：          不支持百分比，设定值小于0时按照默认算法设置，设定值大于组件高度一半时按照组件高度一半设置，其他场合按照设定值设置。          未设定此属性时，滑轨圆角根据默认算法设置。          默认算法：组件高度（单位：vp） / 2。 |
+| pointRadius | number \| Resource | 否 | 是 | 设置Switch类型的圆形滑块半径，单位为vp。 说明： 不支持百分比，设定值小于0时按照默认算法设置，设定值大于等于0时按照设定值设置。 未设定此属性时，圆形滑块半径根据默认算法设置。 默认算法：（组件高度（单位：vp） / 2） - （2vp * 组件高度（单位：vp） / 20vp）。 |
+| unselectedColor | ResourceColor | 否 | 是 | 设置Switch类型关闭状态的背景颜色。 默认值：深色和浅色模式下均为0x337F7F7F。从API version 20开始，如果开启了优化深浅色模式切换开销能力，浅色模式下默认值为0x19000000，表现效果为10%透明度的黑色；深色模式下默认值为0x19FFFFFF，表现效果为10%透明度的白色。 |
+| pointColor | ResourceColor | 否 | 是 | 设置Switch类型的圆形滑块颜色。 默认值：\$r('sys.color.ohos_id_color_foreground_contrary') |
+| trackBorderRadius | number \| Resource | 否 | 是 | 设置Switch类型的滑轨的圆角，单位为vp。 说明： 不支持百分比，设定值小于0时按照默认算法设置，设定值大于组件高度一半时按照组件高度一半设置，其他场合按照设定值设置。 未设定此属性时，滑轨圆角根据默认算法设置。 默认算法：组件高度（单位：vp） / 2。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
-### onChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onChange
 
 onChange(callback: (isOn: boolean) => void)
 
@@ -207,14 +206,14 @@ onChange(callback: (isOn: boolean) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isOn | boolean | 是 | 开关的状态。          true：状态从关切换为开；false：状态从开切换为关。 |
+| isOn | boolean | 是 | 开关的状态。 true：状态从关切换为开；false：状态从开切换为关。 |
 
 
-## ToggleConfiguration12+对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ToggleConfiguration12+对象说明
 
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
@@ -222,24 +221,24 @@ onChange(callback: (isOn: boolean) => void)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isOn | boolean | 否 | 否 | 开关是否打开。          true：开关打开；false：开关关闭。          默认值：false |
-| enabled | boolean | 否 | 否 | 是否可以切换状态。          true：可以切换状态；false：不可以切换状态。          默认值：true |
-| triggerChange | Callback&lt;boolean&gt; | 否 | 否 | 触发switch选中状态变化。          true：状态从关切换为开；false：状态从开切换为关。 |
+| isOn | boolean | 否 | 否 | 开关是否打开。 true：开关打开；false：开关关闭。 默认值：false |
+| enabled | boolean | 否 | 否 | 是否可以切换状态。 true：可以切换状态；false：不可以切换状态。 默认值：true |
+| triggerChange | Callback&lt;boolean&gt; | 否 | 否 | 触发switch选中状态变化。 true：状态从关切换为开；false：状态从开切换为关。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 示例1（设置开关的样式）
+##### 示例
+
+
+
+##### 示例1（设置开关的样式）
 
 该示例通过配置ToggleType设置Toggle的勾选框样式、状态按钮样式及开关样式。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -249,35 +248,35 @@ struct ToggleExample {
       Text('type: Switch').fontSize(12).fontColor(0xcccccc).width('90%')
       Flex({ justifyContent: FlexAlign.SpaceEvenly, alignItems: ItemAlign.Center }) {
         Toggle({ type: ToggleType.Switch, isOn: false })
-        .selectedColor('#007DFF')
-        .switchPointColor('#FFFFFF')
-        .onChange((isOn: boolean) => {
-          console.info('Component status:' + isOn);
-        })
+          .selectedColor('#007DFF')
+          .switchPointColor('#FFFFFF')
+          .onChange((isOn: boolean) => {
+            console.info('Component status:' + isOn);
+          })
 
         Toggle({ type: ToggleType.Switch, isOn: true })
-        .selectedColor('#007DFF')
-        .switchPointColor('#FFFFFF')
-        .onChange((isOn: boolean) => {
-          console.info('Component status:' + isOn);
-        })
+          .selectedColor('#007DFF')
+          .switchPointColor('#FFFFFF')
+          .onChange((isOn: boolean) => {
+            console.info('Component status:' + isOn);
+          })
       }
 
       Text('type: Checkbox').fontSize(12).fontColor(0xcccccc).width('90%')
       Flex({ justifyContent: FlexAlign.SpaceEvenly, alignItems: ItemAlign.Center }) {
         Toggle({ type: ToggleType.Checkbox, isOn: false })
-        .size({ width: 20, height: 20 })
-        .selectedColor('#007DFF')
-        .onChange((isOn: boolean) => {
-          console.info('Component status:' + isOn);
-        })
+          .size({ width: 20, height: 20 })
+          .selectedColor('#007DFF')
+          .onChange((isOn: boolean) => {
+            console.info('Component status:' + isOn);
+          })
 
         Toggle({ type: ToggleType.Checkbox, isOn: true })
-        .size({ width: 20, height: 20 })
-        .selectedColor('#007DFF')
-        .onChange((isOn: boolean) => {
-          console.info('Component status:' + isOn);
-        })
+          .size({ width: 20, height: 20 })
+          .selectedColor('#007DFF')
+          .onChange((isOn: boolean) => {
+            console.info('Component status:' + isOn);
+          })
       }
 
       Text('type: Button').fontSize(12).fontColor(0xcccccc).width('90%')
@@ -303,15 +302,17 @@ struct ToggleExample {
 }
 ```
 
-![](assets/Toggle/file-20260514164013986-0.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/jRb9chQUROW5gRzQHBnPpA/zh-cn_image_0000002611755765.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=0116CAE9F7ABB2C520DA9795E5D212FAA546639189E3188D87832EA55F36F010)
 
 
-### 示例2（自定义开关类型的样式）
+
+
+##### 示例2（自定义开关类型的样式）
 
 该示例实现了自定义设置Toggle组件Switch样式，包括圆形滑块半径、关闭状态的背景颜色、圆形滑块颜色、滑轨的圆角。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -321,41 +322,43 @@ struct ToggleExample {
       Text('type: Switch').fontSize(12).fontColor(0xcccccc).width('90%')
       Flex({ justifyContent: FlexAlign.SpaceEvenly, alignItems: ItemAlign.Center }) {
         Toggle({ type: ToggleType.Switch, isOn: false })
-        .selectedColor('#007DFF')
-        .switchStyle({
-          pointRadius: 15,
-          trackBorderRadius: 10,
-          pointColor: '#D2B48C',
-          unselectedColor: Color.Pink })
-        .onChange((isOn: boolean) => {
-          console.info('Component status:' + isOn);
-        })
+          .selectedColor('#007DFF')
+          .switchStyle({
+            pointRadius: 15,
+            trackBorderRadius: 10,
+            pointColor: '#D2B48C',
+            unselectedColor: Color.Pink })
+          .onChange((isOn: boolean) => {
+            console.info('Component status:' + isOn);
+          })
 
         Toggle({ type: ToggleType.Switch, isOn: true })
-        .selectedColor('#007DFF')
-        .switchStyle({
-          pointRadius: 15,
-          trackBorderRadius: 10,
-          pointColor: '#D2B48C',
-          unselectedColor: Color.Pink })
-        .onChange((isOn: boolean) => {
-          console.info('Component status:' + isOn);
-        })
+          .selectedColor('#007DFF')
+          .switchStyle({
+            pointRadius: 15,
+            trackBorderRadius: 10,
+            pointColor: '#D2B48C',
+            unselectedColor: Color.Pink })
+          .onChange((isOn: boolean) => {
+            console.info('Component status:' + isOn);
+          })
       }
     }.width('100%').padding(24)
   }
 }
 ```
 
-![](assets/Toggle/file-20260514164013986-1.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jcEYVX7iQ3eOw13_arZaWw/zh-cn_image_0000002581435828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=A712383B80F402F41467F472CFF592346662191745B46EB88873AF0FDEA5188F)
 
 
-### 示例3（自定义Toggle样式）
+
+
+##### 示例3（自定义Toggle样式）
 
 该示例实现自定义Toggle样式，通过按钮切换圆形背景颜色：点击蓝圆按钮，背景变蓝色；点击黄圆按钮，背景变黄色。
 
-
-```ts
+```ArkTS
 // xxx.ets
 class MySwitchStyle implements ContentModifier<ToggleConfiguration> {
   selectedColor: Color = Color.White;
@@ -375,16 +378,16 @@ class MySwitchStyle implements ContentModifier<ToggleConfiguration> {
 function buildSwitch(config: ToggleConfiguration) {
   Column({ space: 50 }) {
     Circle({ width: 150, height: 150 })
-    .fill(config.isOn ? (config.contentModifier as MySwitchStyle).selectedColor : Color.Blue)
+      .fill(config.isOn ? (config.contentModifier as MySwitchStyle).selectedColor : Color.Blue)
     Row() {
       Button('蓝' + JSON.stringify((config.contentModifier as MySwitchStyle).lamp))
-      .onClick(() => {
-        config.triggerChange(false);
-      })
+        .onClick(() => {
+          config.triggerChange(false);
+        })
       Button('黄' + JSON.stringify((config.contentModifier as MySwitchStyle).lamp))
-      .onClick(() => {
-        config.triggerChange(true);
-      })
+        .onClick(() => {
+          config.triggerChange(true);
+        })
     }
   }
 }
@@ -395,14 +398,15 @@ struct Index {
   build() {
     Column({ space: 50 }) {
       Toggle({ type: ToggleType.Switch })
-      .enabled(true)
-      .contentModifier(new MySwitchStyle(Color.Yellow, '灯'))
-      .onChange((isOn: boolean) => {
-        console.info('Switch Log:' + isOn);
-      })
+        .enabled(true)
+        .contentModifier(new MySwitchStyle(Color.Yellow, '灯'))
+        .onChange((isOn: boolean) => {
+          console.info('Switch Log:' + isOn);
+        })
     }.height('100%').width('100%')
   }
 }
 ```
 
-![](assets/Toggle/file-20260514164013986-2.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Lk_mBM8aQHmF9ZqwhOOrJQ/zh-cn_image_0000002611835659.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=2EE3F05E59727BEB6B3274E8841240CD2BE1FED9AC6697BB148C26288BC04B3C)

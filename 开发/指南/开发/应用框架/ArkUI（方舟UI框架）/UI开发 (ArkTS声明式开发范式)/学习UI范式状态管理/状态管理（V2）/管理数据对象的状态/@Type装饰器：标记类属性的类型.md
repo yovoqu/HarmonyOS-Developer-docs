@@ -1,6 +1,6 @@
 # @Type装饰器：标记类属性的类型
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-type
 
@@ -8,17 +8,18 @@
 
 @Type的目的是标记类属性，配合PersistenceV2使用，防止序列化时类丢失。在阅读本文档前，建议提前阅读：[PersistenceV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)。
 
-
 > [!NOTE]
 > @Type从API version 12开始支持。 从API version 12开始，该装饰器支持在元服务中使用。
 
 
-## 概述
+
+##### 概述
 
 @Type标记类属性，使得类属性序列化时不丢失类型信息，便于类的反序列化。
 
-## 装饰器说明
 
+
+##### 装饰器说明
 
 | @Type装饰器 | 说明 |
 | --- | --- |
@@ -26,10 +27,13 @@
 | 可装饰的类型 | Object class以及Array、Date、Map、Set等内嵌类型。 |
 
 
-## 使用限制
 
-只能用在[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的类中，不能用在自定义组件中。
-```text
+
+##### 使用限制
+1. 只能用在[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的类中，不能用在自定义组件中。
+
+  
+```ArkTS
 class Sample {
   private data: number = 0;
 }
@@ -39,7 +43,6 @@ class Info {
   @Trace public sample: Sample = new Sample(); // 正确用法
 }
 ```
-
 
 ```text
 @Observed
@@ -56,15 +59,20 @@ class Info {
  }
 ```
 
-不支持collections.Set、collections.Map等类型。 不支持非built-in类型。如[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)、NativePointer、[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist)等Native类型。 不支持简单类型。如string、number、boolean等。 不支持构造函数含参的类。
-
-## 使用场景
-
-
-## 持久化数据
+2. 不支持collections.Set、collections.Map等类型。
+3. 不支持非built-in类型。如[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)、NativePointer、[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist)等Native类型。
+4. 不支持简单类型。如string、number、boolean等。
+5. 不支持构造函数含参的类。
 
 
-```text
+
+##### 使用场景
+
+
+
+##### 持久化数据
+
+```ArkTS
 import { PersistenceV2, Type } from '@kit.ArkUI';
 
 @ObservedV2

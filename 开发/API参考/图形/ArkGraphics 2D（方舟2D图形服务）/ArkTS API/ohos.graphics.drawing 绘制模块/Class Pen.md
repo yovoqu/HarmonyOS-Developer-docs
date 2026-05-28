@@ -3,22 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-pen
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 画笔对象，描述所绘制图形形状的轮廓信息。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor12+
 
 constructor()
 
@@ -28,16 +30,15 @@ constructor()
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
 ```
 
 
-## constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor12+
 
 constructor(pen: Pen)
 
@@ -47,16 +48,14 @@ constructor(pen: Pen)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pen | [Pen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-pen) | 是 | 待复制的画笔对象。 |
+| pen | Pen | 是 | 待复制的画笔对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -65,8 +64,7 @@ constructor(pen: Pen)
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -77,8 +75,8 @@ const newPen = new drawing.Pen(pen);
 ```
 
 
-## setMiterLimit12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setMiterLimit12+
 
 setMiterLimit(miter: number): void
 
@@ -87,7 +85,6 @@ setMiterLimit(miter: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -98,7 +95,6 @@ setMiterLimit(miter: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -106,8 +102,7 @@ setMiterLimit(miter: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -115,8 +110,8 @@ pen.setMiterLimit(5);
 ```
 
 
-## getMiterLimit12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getMiterLimit12+
 
 getMiterLimit(): number
 
@@ -126,7 +121,6 @@ getMiterLimit(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回折线尖角长度与线宽的最大比值。 |
@@ -134,8 +128,7 @@ getMiterLimit(): number
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -143,8 +136,8 @@ let miter = pen.getMiterLimit();
 ```
 
 
-## setImageFilter12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setImageFilter12+
 
 setImageFilter(filter: ImageFilter | null): void
 
@@ -154,16 +147,14 @@ setImageFilter(filter: ImageFilter | null): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| filter | [ImageFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-imagefilter) \| null | 是 | 图像滤波器，null表示清空画笔的图像滤波器效果。 |
+| filter | ImageFilter \| null | 是 | 图像滤波器，null表示清空画笔的图像滤波器效果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -172,9 +163,8 @@ setImageFilter(filter: ImageFilter | null): void
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let colorfilter = drawing.ColorFilter.createSRGBGammaToLinear();
 let imgFilter = drawing.ImageFilter.createFromColorFilter(colorfilter);
@@ -184,8 +174,8 @@ pen.setImageFilter(null);
 ```
 
 
-## getColorFilter12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getColorFilter12+
 
 getColorFilter(): ColorFilter
 
@@ -195,17 +185,15 @@ getColorFilter(): ColorFilter
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) | 返回颜色滤波器。 |
+| ColorFilter | 返回颜色滤波器。 |
 
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let pen = new drawing.Pen();
 let colorfilter = drawing.ColorFilter.createLumaColorFilter();
@@ -214,8 +202,8 @@ let filter = pen.getColorFilter();
 ```
 
 
-## setColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setColor
 
 setColor(color: common2D.Color) : void
 
@@ -225,16 +213,14 @@ setColor(color: common2D.Color) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
+| color | common2D.Color | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -243,18 +229,17 @@ setColor(color: common2D.Color) : void
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
-const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
 const pen = new drawing.Pen();
 pen.setColor(color);
 ```
 
 
-## setColor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setColor12+
 
 setColor(alpha: number, red: number, green: number, blue: number): void
 
@@ -263,7 +248,6 @@ setColor(alpha: number, red: number, green: number, blue: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -277,7 +261,6 @@ setColor(alpha: number, red: number, green: number, blue: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -285,8 +268,7 @@ setColor(alpha: number, red: number, green: number, blue: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -294,8 +276,8 @@ pen.setColor(255, 255, 0, 0);
 ```
 
 
-## setColor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setColor18+
 
 setColor(color: number) : void
 
@@ -305,7 +287,6 @@ setColor(color: number) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | color | number | 是 | 16进制ARGB格式的颜色。 |
@@ -313,8 +294,7 @@ setColor(color: number) : void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -322,8 +302,8 @@ pen.setColor(0xffff0000);
 ```
 
 
-## setColor4f20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setColor4f20+
 
 setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void
 
@@ -333,30 +313,26 @@ setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceMa
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color4f | [common2D.Color4f](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color4f20) | 是 | ARGB格式的颜色，每个颜色通道的值是0.0-1.0之间的浮点数，大于1.0时，取1.0，小于0.0时，取0.0。 |
-| colorSpace | [colorSpaceManager.ColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-colorspacemanager#colorspacemanager) \| null | 是 | 标准色域对象，null表示使用SRGB色域。 |
+| color4f | common2D.Color4f | 是 | ARGB格式的颜色，每个颜色通道的值是0.0-1.0之间的浮点数，大于1.0时，取1.0，小于0.0时，取0.0。 |
+| colorSpace | colorSpaceManager.ColorSpaceManager \| null | 是 | 标准色域对象，null表示使用SRGB色域。 |
 
 
 **示例：**
 
-
-```ts
-import { common2D, drawing, colorSpaceManager } from '@kit.ArkGraphics2D';
+```text
+import { common2D, drawing, colorSpaceManager } from "@kit.ArkGraphics2D";
 
 const pen = new drawing.Pen();
-let colorSpace = colorSpaceManager.create(
-  colorSpaceManager.ColorSpace.BT2020_HLG,
-);
-let color4f: common2D.Color4f = { alpha: 1, red: 0.5, green: 0.4, blue: 0.7 };
+let colorSpace = colorSpaceManager.create(colorSpaceManager.ColorSpace.BT2020_HLG);
+let color4f:common2D.Color4f = {alpha:1, red:0.5, green:0.4, blue:0.7};
 pen.setColor4f(color4f, colorSpace);
 ```
 
 
-## getColor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getColor12+
 
 getColor(): common2D.Color
 
@@ -366,27 +342,25 @@ getColor(): common2D.Color
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) | 返回画笔的颜色。 |
+| common2D.Color | 返回画笔的颜色。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
-const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
 const pen = new drawing.Pen();
 pen.setColor(color);
 let colorGet = pen.getColor();
 ```
 
 
-## getColor4f20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getColor4f20+
 
 getColor4f(): common2D.Color4f
 
@@ -396,30 +370,26 @@ getColor4f(): common2D.Color4f
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [common2D.Color4f](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color4f20) | 返回画笔的颜色。 |
+| common2D.Color4f | 返回画笔的颜色。 |
 
 
 **示例：**
 
-
-```ts
-import { common2D, drawing, colorSpaceManager } from '@kit.ArkGraphics2D';
+```text
+import { common2D, drawing, colorSpaceManager } from "@kit.ArkGraphics2D";
 
 const pen = new drawing.Pen();
-let colorSpace = colorSpaceManager.create(
-  colorSpaceManager.ColorSpace.BT2020_HLG,
-);
-let color4f: common2D.Color4f = { alpha: 1, red: 0.5, green: 0.4, blue: 0.7 };
+let colorSpace = colorSpaceManager.create(colorSpaceManager.ColorSpace.BT2020_HLG);
+let color4f:common2D.Color4f = {alpha:1, red:0.5, green:0.4, blue:0.7};
 pen.setColor4f(color4f, colorSpace);
 let color = pen.getColor4f();
 ```
 
 
-## getHexColor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getHexColor18+
 
 getHexColor(): number
 
@@ -429,7 +399,6 @@ getHexColor(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回画笔的颜色，以16进制ARGB格式的32位无符号整数表示。 |
@@ -437,11 +406,10 @@ getHexColor(): number
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
-let color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+let color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
 let pen = new drawing.Pen();
 pen.setColor(color);
 let hex_color: number = pen.getHexColor();
@@ -449,8 +417,8 @@ console.info('getHexColor: ', hex_color.toString(16));
 ```
 
 
-## setStrokeWidth
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setStrokeWidth
 
 setStrokeWidth(width: number) : void
 
@@ -459,7 +427,6 @@ setStrokeWidth(width: number) : void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -470,7 +437,6 @@ setStrokeWidth(width: number) : void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -478,8 +444,7 @@ setStrokeWidth(width: number) : void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -487,8 +452,8 @@ pen.setStrokeWidth(5);
 ```
 
 
-## getWidth12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getWidth12+
 
 getWidth(): number
 
@@ -498,7 +463,6 @@ getWidth(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回画笔的线宽，单位为物理像素px。 |
@@ -506,8 +470,7 @@ getWidth(): number
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -515,8 +478,8 @@ let width = pen.getWidth();
 ```
 
 
-## setAntiAlias
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAntiAlias
 
 setAntiAlias(aa: boolean) : void
 
@@ -525,7 +488,6 @@ setAntiAlias(aa: boolean) : void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -536,7 +498,6 @@ setAntiAlias(aa: boolean) : void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -544,8 +505,7 @@ setAntiAlias(aa: boolean) : void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -553,8 +513,8 @@ pen.setAntiAlias(true);
 ```
 
 
-## isAntiAlias12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isAntiAlias12+
 
 isAntiAlias(): boolean
 
@@ -564,7 +524,6 @@ isAntiAlias(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回画笔是否开启抗锯齿属性，true表示开启，false表示关闭。 |
@@ -572,8 +531,7 @@ isAntiAlias(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -581,8 +539,8 @@ let isAntiAlias = pen.isAntiAlias();
 ```
 
 
-## setAlpha
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAlpha
 
 setAlpha(alpha: number) : void
 
@@ -591,7 +549,6 @@ setAlpha(alpha: number) : void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -602,7 +559,6 @@ setAlpha(alpha: number) : void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed. |
@@ -610,8 +566,7 @@ setAlpha(alpha: number) : void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -619,8 +574,8 @@ pen.setAlpha(128);
 ```
 
 
-## getAlpha12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAlpha12+
 
 getAlpha(): number
 
@@ -630,7 +585,6 @@ getAlpha(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回画笔的透明度，该返回值为0到255之间的整数。 |
@@ -638,8 +592,7 @@ getAlpha(): number
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -647,8 +600,8 @@ let alpha = pen.getAlpha();
 ```
 
 
-## setColorFilter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setColorFilter
 
 setColorFilter(filter: ColorFilter | null) : void
 
@@ -658,16 +611,14 @@ setColorFilter(filter: ColorFilter | null) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| filter | [ColorFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-colorfilter) \| null | 是 | 颜色滤波器。null表示清空颜色滤波器。 |
+| filter | ColorFilter \| null | 是 | 颜色滤波器。null表示清空颜色滤波器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -676,8 +627,7 @@ setColorFilter(filter: ColorFilter | null) : void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -686,8 +636,8 @@ pen.setColorFilter(colorFilter);
 ```
 
 
-## setMaskFilter12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setMaskFilter12+
 
 setMaskFilter(filter: MaskFilter | null): void
 
@@ -697,16 +647,14 @@ setMaskFilter(filter: MaskFilter | null): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| filter | [MaskFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-maskfilter) \| null | 是 | 蒙版滤镜。null表示清空蒙版滤镜。 |
+| filter | MaskFilter \| null | 是 | 蒙版滤镜。null表示清空蒙版滤镜。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -715,29 +663,25 @@ setMaskFilter(filter: MaskFilter | null): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
-    let maskFilter = drawing.MaskFilter.createBlurMaskFilter(
-      drawing.BlurType.OUTER,
-      10,
-    );
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
+    let maskFilter = drawing.MaskFilter.createBlurMaskFilter(drawing.BlurType.OUTER, 10);
     pen.setMaskFilter(maskFilter);
   }
 }
 ```
 
 
-## setPathEffect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setPathEffect12+
 
 setPathEffect(effect: PathEffect | null): void
 
@@ -747,16 +691,14 @@ setPathEffect(effect: PathEffect | null): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| effect | [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) \| null | 是 | 路径效果对象。null表示清空路径效果。 |
+| effect | PathEffect \| null | 是 | 路径效果对象。null表示清空路径效果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -765,17 +707,16 @@ setPathEffect(effect: PathEffect | null): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     let pathEffect = drawing.PathEffect.createDashPathEffect([30, 10], 0);
     pen.setPathEffect(pathEffect);
   }
@@ -783,8 +724,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## setShaderEffect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setShaderEffect12+
 
 setShaderEffect(shaderEffect: ShaderEffect | null): void
 
@@ -794,16 +735,14 @@ setShaderEffect(shaderEffect: ShaderEffect | null): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shaderEffect | [ShaderEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-shadereffect) \| null | 是 | 着色器对象。null表示清空着色器效果。 |
+| shaderEffect | ShaderEffect \| null | 是 | 着色器对象。null表示清空着色器效果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -812,23 +751,17 @@ setShaderEffect(shaderEffect: ShaderEffect | null): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
-let shaderEffect = drawing.ShaderEffect.createLinearGradient(
-  { x: 100, y: 100 },
-  { x: 300, y: 300 },
-  [0xff00ff00, 0xffff0000],
-  drawing.TileMode.REPEAT,
-);
+let shaderEffect = drawing.ShaderEffect.createLinearGradient({x: 100, y: 100}, {x: 300, y: 300}, [0xFF00FF00, 0xFFFF0000], drawing.TileMode.REPEAT);
 pen.setShaderEffect(shaderEffect);
 ```
 
 
-## setShadowLayer12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setShadowLayer12+
 
 setShadowLayer(shadowLayer: ShadowLayer | null): void
 
@@ -838,16 +771,14 @@ setShadowLayer(shadowLayer: ShadowLayer | null): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shadowLayer | [ShadowLayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-shadowlayer) \| null | 是 | 阴影层对象。null表示清空阴影层效果。 |
+| shadowLayer | ShadowLayer \| null | 是 | 阴影层对象。null表示清空阴影层效果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -856,39 +787,24 @@ setShadowLayer(shadowLayer: ShadowLayer | null): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let font = new drawing.Font();
     font.setSize(60);
-    let textBlob = drawing.TextBlob.makeFromString(
-      'hello',
-      font,
-      drawing.TextEncoding.TEXT_ENCODING_UTF8,
-    );
+    let textBlob = drawing.TextBlob.makeFromString("hello", font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
     let pen = new drawing.Pen();
     pen.setStrokeWidth(2.0);
-    let pen_color: common2D.Color = {
-      alpha: 0xff,
-      red: 0xff,
-      green: 0x00,
-      blue: 0x00,
-    };
+    let pen_color : common2D.Color = {alpha: 0xFF, red: 0xFF, green: 0x00, blue: 0x00};
     pen.setColor(pen_color);
     canvas.attachPen(pen);
     canvas.drawTextBlob(textBlob, 100, 100);
     canvas.detachPen();
-    let color: common2D.Color = {
-      alpha: 0xff,
-      red: 0x00,
-      green: 0xff,
-      blue: 0x00,
-    };
+    let color : common2D.Color = {alpha: 0xFF, red: 0x00, green: 0xFF, blue: 0x00};
     let shadowLayer = drawing.ShadowLayer.create(3, -3, 3, color);
     pen.setShadowLayer(shadowLayer);
     canvas.attachPen(pen);
@@ -899,8 +815,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## setBlendMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setBlendMode
 
 setBlendMode(mode: BlendMode) : void
 
@@ -910,16 +826,14 @@ setBlendMode(mode: BlendMode) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | [BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode) | 是 | 颜色的混合模式。 |
+| mode | BlendMode | 是 | 颜色的混合模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -928,8 +842,7 @@ setBlendMode(mode: BlendMode) : void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -937,8 +850,8 @@ pen.setBlendMode(drawing.BlendMode.SRC);
 ```
 
 
-## setJoinStyle12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setJoinStyle12+
 
 setJoinStyle(style: JoinStyle): void
 
@@ -948,16 +861,14 @@ setJoinStyle(style: JoinStyle): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | [JoinStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#joinstyle12) | 是 | 折线转角样式。 |
+| style | JoinStyle | 是 | 折线转角样式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -966,25 +877,24 @@ setJoinStyle(style: JoinStyle): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     pen.setJoinStyle(drawing.JoinStyle.ROUND_JOIN);
   }
 }
 ```
 
 
-## getJoinStyle12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getJoinStyle12+
 
 getJoinStyle(): JoinStyle
 
@@ -994,7 +904,6 @@ getJoinStyle(): JoinStyle
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | JoinStyle | 返回折线转角的样式。 |
@@ -1002,17 +911,16 @@ getJoinStyle(): JoinStyle
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     pen.setJoinStyle(drawing.JoinStyle.ROUND_JOIN);
     let joinStyle = pen.getJoinStyle();
   }
@@ -1020,8 +928,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## setCapStyle12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setCapStyle12+
 
 setCapStyle(style: CapStyle): void
 
@@ -1031,16 +939,14 @@ setCapStyle(style: CapStyle): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | [CapStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#capstyle12) | 是 | 描述画笔的线帽样式。 |
+| style | CapStyle | 是 | 描述画笔的线帽样式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1049,25 +955,24 @@ setCapStyle(style: CapStyle): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     pen.setCapStyle(drawing.CapStyle.SQUARE_CAP);
   }
 }
 ```
 
 
-## getCapStyle12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCapStyle12+
 
 getCapStyle(): CapStyle
 
@@ -1077,7 +982,6 @@ getCapStyle(): CapStyle
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | CapStyle | 返回画笔的线帽样式。 |
@@ -1085,17 +989,16 @@ getCapStyle(): CapStyle
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     pen.setCapStyle(drawing.CapStyle.SQUARE_CAP);
     let capStyle = pen.getCapStyle();
   }
@@ -1103,8 +1006,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## setDither
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setDither
 
 setDither(dither: boolean) : void
 
@@ -1113,7 +1016,6 @@ setDither(dither: boolean) : void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1124,7 +1026,6 @@ setDither(dither: boolean) : void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1132,8 +1033,7 @@ setDither(dither: boolean) : void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();
@@ -1141,8 +1041,8 @@ pen.setDither(true);
 ```
 
 
-## getFillPath12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFillPath12+
 
 getFillPath(src: Path, dst: Path): boolean
 
@@ -1152,15 +1052,13 @@ getFillPath(src: Path, dst: Path): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 源路径对象。 |
-| dst | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 目标路径对象。 |
+| src | Path | 是 | 源路径对象。 |
+| dst | Path | 是 | 目标路径对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1171,7 +1069,6 @@ getFillPath(src: Path, dst: Path): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1179,8 +1076,7 @@ getFillPath(src: Path, dst: Path): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let pen = new drawing.Pen();
@@ -1192,8 +1088,8 @@ let value = pen.getFillPath(pathSrc, pathDst);
 ```
 
 
-## reset12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### reset12+
 
 reset(): void
 
@@ -1203,8 +1099,7 @@ reset(): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 const pen = new drawing.Pen();

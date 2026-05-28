@@ -4,39 +4,61 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-cloud-sync-of-rdb-store
 
-## 场景介绍
+##### 场景介绍
 
 端云数据同步：关系型数据库提供端云同步的能力，云作为数据的中心节点，设备通过与云的数据同步，实现同账号设备间的数据一致性。
+ 
 > [!NOTE]
 > 从HarmonyOS 6.1.0开始，支持使用关系型数据库实现端云数据同步。
 
+ 
+  
 
-## 约束限制
+##### 约束限制
 
-每个应用程序最多支持同时打开16个关系型分布式数据库。  单个数据库最多支持注册8个订阅数据变化的回调。  安全级别为S4的数据库不能同步至云端。  单个资产大小的支持范围为1B~50G。  设备之间相同表的主键要确保唯一（尤其不能使用自增主键）。  删除资产相关数据时，端云同步不主动删除本地资产文件，需要应用自行管理。  端云同步表的列只能新增，不能修改和删除，否则会出现不兼容问题。  资产名默认填写成同步表中对应的资产类型列名。  关系型数据库支持SQLite数据类型和SQLite约束（其中NOT NULL约束无需添加）。
+- 每个应用程序最多支持同时打开16个关系型分布式数据库。
+- 单个数据库最多支持注册8个订阅数据变化的回调。
+- 安全级别为S4的数据库不能同步至云端。
+- 单个资产大小的支持范围为1B~50G。
+- 设备之间相同表的主键要确保唯一（尤其不能使用自增主键）。
+- 删除资产相关数据时，端云同步不主动删除本地资产文件，需要应用自行管理。
+- 端云同步表的列只能新增，不能修改和删除，否则会出现不兼容问题。
+- 资产名默认填写成同步表中对应的资产类型列名。
+- 关系型数据库支持SQLite数据类型和SQLite约束（其中NOT NULL约束无需添加）。
 
-## 接口说明
+ 
+  
+
+##### 接口说明
 
 以下为使用关系型数据库实现端云数据同步的相关接口，更多接口及使用方式可见[关系型数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-relationalstore)和[端云服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-clouddata)。
+  
 | 接口名称 | 描述 |
 | --- | --- |
-| getRdbStore(context: Context, config: StoreConfig): Promise | 指定context和config，创建并得到指定类型的RdbStore数据库。 |
-| setDistributedTables(tables: Array, type?: DistributedType, config?: DistributedConfig): Promise | 设置分布式数据库表。 |
-| on(event: 'dataChange', type: SubscribeType, observer: Callback>\| Callback>): void | 注册数据库的数据变更的事件监听。当分布式数据库或本地数据库中的数据发生更改时，将调用回调。 |
-| off(event:'dataChange', type: SubscribeType, observer?: Callback>\| Callback>): void | 取消数据变更的事件监听。 |
-| cloudSync(mode: SyncMode, tables: string[], progress: Callback, callback: AsyncCallback): void | 手动执行对指定表的端云同步。 |
-| setCloudStrategy(strategy: StrategyType, param?: Array): Promise | 设置应用自身的云同步策略，若未设置，则执行全局策略setGlobalCloudStrategy，全局策略若未设置，默认使用WIFI和蜂窝策略。 |
+| getRdbStore(context: Context, config: StoreConfig): Promise&lt;RdbStore&gt; | 指定context和config，创建并得到指定类型的RdbStore数据库。 |
+| setDistributedTables(tables: Array&lt;string&gt;, type?: DistributedType, config?: DistributedConfig): Promise&lt;void&gt; | 设置分布式数据库表。 |
+| on(event: 'dataChange', type: SubscribeType, observer: Callback<Array&lt;string&gt;>\| Callback<Array&lt;ChangeInfo&gt;>): void | 注册数据库的数据变更的事件监听。当分布式数据库或本地数据库中的数据发生更改时，将调用回调。 |
+| off(event:'dataChange', type: SubscribeType, observer?: Callback<Array&lt;string&gt;>\| Callback<Array&lt;ChangeInfo&gt;>): void | 取消数据变更的事件监听。 |
+| cloudSync(mode: SyncMode, tables: string[], progress: Callback&lt;ProgressDetails&gt;, callback: AsyncCallback&lt;void&gt;): void | 手动执行对指定表的端云同步。 |
+| setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise&lt;void&gt; | 设置应用自身的云同步策略，若未设置，则执行全局策略setGlobalCloudStrategy，全局策略若未设置，默认使用WIFI和蜂窝策略。 |
+ 
+ 
+  
 
+##### 开发步骤
 
-## 开发步骤
+以设备A发生数据变更，设备B订阅数据变化通知实现端-云-端数据同步为例。
+ 1. 导入模块。
 
-以设备A发生数据变更，设备B订阅数据变化通知实现端-云-端数据同步为例。 导入模块。
+  
 ```text
 import { relationalStore,cloudData } from '@kit.ArkData';
 ```
 
-设备A创建关系型数据库，设置端云同步分布式表。
-```text
+2. 设备A创建关系型数据库，设置端云同步分布式表。
+
+  
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let store:relationalStore.RdbStore | undefined = undefined
@@ -65,8 +87,10 @@ try {
 }
 ```
 
-设备B设置端云同步策略。
-```text
+3. 设备B设置端云同步策略。
+
+  
+```json
 try {
   // 设置网络策略为仅允许WIFI网络同步
   await cloudData.setCloudStrategy(cloudData.StrategyType.NETWORK, [cloudData.NetWorkStrategy.WIFI]).then(() => {
@@ -79,8 +103,12 @@ try {
 }
 ```
 
-端云数据同步。  当步骤2中autoSync设置为true时，表示已开启端云数据自动同步。云侧数据变化通知不一定会及时，此时如果设备B确认设备A数据发生了变化，可以执行cloudSync()方法进行手动同步。当步骤2中autoSync设置为false时，不支持端云数据自动同步，只能通过手动执行同步方法进行端云同步。
-```text
+4. 端云数据同步。
+
+  
+当步骤2中autoSync设置为true时，表示已开启端云数据自动同步。云侧数据变化通知不一定会及时，此时如果设备B确认设备A数据发生了变化，可以执行cloudSync()方法进行手动同步。
+5. 当步骤2中autoSync设置为false时，不支持端云数据自动同步，只能通过手动执行同步方法进行端云同步。
+```json
 try {
   if (store != undefined) {
     // 手动执行对指定表的端云同步，使用SYNC_MODE_TIME_FIRST模式，进行手动同步，表示数据从修改时间较近的一端同步到修改时间较远的一端。
@@ -100,15 +128,49 @@ try {
 }
 ```
 
-设备B订阅数据变化通知监听。  只有订阅后的端侧设备才能收到通知，当进程终止或崩溃后无法收到通知。如果需要在启动时获取云端数据变化，可以使用cursor进行查询。
+6. 设备B订阅数据变化通知监听。
+
+  只有订阅后的端侧设备才能收到通知，当进程终止或崩溃后无法收到通知。如果需要在启动时获取云端数据变化，可以使用cursor进行查询。
+
+  
 ```text
-let accountObserver = (accounts: Array) => {
-  for (let i = 0; i 设备B收到数据变化通知后，可以使用cursor查询云侧数据变化。  通过cursor可以查询同步表中变化的数据。数据管理会给每行数据绑定一个cursor字段，每次增删改都会将cursor字段赋值为最大值+1。应用通过使用predicates.greaterThan(relationalStore.Field.CURSOR_FIELD, currentCursor)传入上次的最大cursor，如果数据经过更改，数据库会返回比上次更大的curosr。开库需要把autoCleanDirtyData字段设置为false，不然感知不到删除的数据。autoCleanDirtyData字段设置为false之后，云端删除数据时并不会删除本地数据，应用可以通过cursor查询到删除的数据，需要调用cleanDirtyData方法删除本地数据。
+let accountObserver = (accounts: Array<string>) => {
+  for (let i = 0; i < accounts.length; i++) {
+    console.info(`${accounts[i]} data changed`);
+  }
+}
+
+try {
+  // 订阅云端数据更改,需要传入accountObserver函数
+  if (store != undefined) {
+    (store as relationalStore.RdbStore).on("dataChange", relationalStore.SubscribeType.SUBSCRIBE_TYPE_CLOUD, accountObserver);
+  }
+} catch (err) {
+  console.error(`Register observer failed,code is ${err.code},message is ${err.message}`);
+}
+
+try {
+  // 当前不需要订阅端云数据变化时，可以将其取消
+  if(store != undefined) {
+    (store as relationalStore.RdbStore).off('dataChange', relationalStore.SubscribeType.SUBSCRIBE_TYPE_CLOUD, accountObserver);
+  }
+} catch (err) {
+  let code = (err as BusinessError).code;
+  let message = (err as BusinessError).message
+  console.error(`Unregister observer failed, code is ${code},message is ${message}`);
+}
+```
+
+7. 设备B收到数据变化通知后，可以使用cursor查询云侧数据变化。
+
+  
+通过cursor可以查询同步表中变化的数据。数据管理会给每行数据绑定一个cursor字段，每次增删改都会将cursor字段赋值为最大值+1。应用通过使用predicates.greaterThan(relationalStore.Field.CURSOR_FIELD, currentCursor)传入上次的最大cursor，如果数据经过更改，数据库会返回比上次更大的curosr。
+8. 开库需要把autoCleanDirtyData字段设置为false，不然感知不到删除的数据。autoCleanDirtyData字段设置为false之后，云端删除数据时并不会删除本地数据，应用可以通过cursor查询到删除的数据，需要调用cleanDirtyData方法删除本地数据。
 ```text
 const STORE_CONFIG: relationalStore.StoreConfig = {
-name: 'RdbTest.db',
-autoCleanDirtyData: false,
-securityLevel: relationalStore.SecurityLevel.S1
+  name: 'RdbTest.db',
+  autoCleanDirtyData: false,
+  securityLevel: relationalStore.SecurityLevel.S1
 };
 store = await relationalStore.getRdbStore(getContext(), STORE_CONFIG);
 // ...
@@ -122,24 +184,24 @@ predicates.and();
 predicates.equalTo(relationalStore.Field.ORIGIN_FIELD, relationalStore.Origin.CLOUD);
 predicates.orderByAsc(relationalStore.Field.CURSOR_FIELD);
 if (store == undefined) {
-return;
+  return;
 }
 // uuid：同步表中的主键
 let resultSet: relationalStore.ResultSet = await store.query(predicates, ["uuid"]);
 if (!resultSet || !resultSet.goToFirstRow()) {
-return;
+  return;
 }
 let cursor: number = 0;
 let deleteFlag: number = 0;
 do {
-cursor = resultSet.getLong(resultSet.getColumnIndex(relationalStore.Field.CURSOR_FIELD));
-deleteFlag = resultSet.getLong(resultSet.getColumnIndex(relationalStore.Field.DELETED_FLAG_FIELD));
-// 判断应用是否存在端云同步删除操作
-if (deleteFlag) {
-// 处理删除逻辑
-} else {
-// 处理非删除逻辑
-}
+  cursor = resultSet.getLong(resultSet.getColumnIndex(relationalStore.Field.CURSOR_FIELD));
+  deleteFlag = resultSet.getLong(resultSet.getColumnIndex(relationalStore.Field.DELETED_FLAG_FIELD));
+  // 判断应用是否存在端云同步删除操作
+  if (deleteFlag) {
+    // 处理删除逻辑
+  } else {
+    // 处理非删除逻辑
+  }
 } while (resultSet.goToNextRow());
 // 清理脏数据
 store.cleanDirtyData("EMPLOYEE", cursor);

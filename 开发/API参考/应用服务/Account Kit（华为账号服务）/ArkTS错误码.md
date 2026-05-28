@@ -3,15 +3,14 @@
 更新时间：2026-04-29 07:35:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。
 
 
-## 1001500001 应用指纹证书校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001500001 应用指纹证书校验失败
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Failed to check the fingerprint of the app bundle.
 请参见Account Kit常见问题[1001500001 应用指纹证书校验失败的可能原因和解决办法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-1)。
 
 
-## 1001500002 重复请求
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001500002 重复请求
 
 **错误信息**
 
@@ -50,8 +49,8 @@ This error code is reported when a request is already being processed.
 应用无需特殊处理。
 
 
-## 1001500003 不支持该scopes或permissions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001500003 不支持该scopes或permissions
 
 **错误信息**
 
@@ -62,8 +61,6 @@ The scopes or permissions are not supported.
 不支持该scopes或者permissions。
 
 **可能原因**
-
-
 1. 已登录的华为账号不支持授权应用请求的数据。
 2. 在获取实名信息、实名信息校验、人脸核身等场景下，用户登录的账号为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）注册的华为账号，但使用了港澳台通行证进行实名。
 3. 在实名信息校验、人脸核身等场景下，PC/2in1设备或前置摄像功能异常的设备不支持传入verifyRealName和verifyFace 2个scope进行授权。
@@ -73,8 +70,6 @@ The scopes or permissions are not supported.
 7. Wearable、TV设备申请获取不支持的scope。
 
 **处理步骤**
-
-
 1. 更换或注册一个中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）的华为账号重新登录授权，如果在一键登录场景下，应用需展示其他登录方式。
 2. 在获取实名信息、实名信息校验、人脸核身等场景下，引导用户更换使用中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）身份证实名的华为账号。
 3. 在实名信息校验、人脸核身等场景下，使用其他前置摄像功能正常的设备授权verifyRealName和verifyFace 2个scope。
@@ -84,8 +79,8 @@ The scopes or permissions are not supported.
 7. 更换其他支持调用该API的设备。
 
 
-## 1001500004 已登录的华为账号不支持该功能
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001500004 已登录的华为账号不支持该功能
 
 **错误信息**
 
@@ -96,20 +91,16 @@ The account does not support this function.
 已登录的华为账号不支持该功能。
 
 **可能原因**
-
-
 1. 已登录的华为账号注册地为中国境外、香港特别行政区、澳门特别行政区或中国台湾，不支持调用获取手机号一致性状态接口。
 2. 儿童账号不支持在TV设备上调用华为账号一键登录接口。
 
 **处理步骤**
-
-
 1. 更换或注册一个注册地为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）的账号，重新触发该接口。
 2. 在TV设备上，登录成人账号调用华为账号一键登录接口。
 
 
-## 1001500005 该功能被限制调用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001500005 该功能被限制调用
 
 **错误信息**
 
@@ -124,14 +115,12 @@ This function is restricted from being called.
 获取手机号一致性接口[getMobileNumberConsistency](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#getmobilenumberconsistency)在24h内被调用超过50次。
 
 **处理步骤**
-
-
 1. 应用需要控制手机号一致性接口的调用次数，保证24h内不超过50次。
 2. 若开发者调测过程中出现该错误码，可通过重启设备恢复。
 
 
-## 1001502001 用户未登录华为账号
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001502001 用户未登录华为账号
 
 **错误信息**
 
@@ -150,8 +139,8 @@ The user has not logged in with HUAWEI ID.
 可调用[LoginWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#loginwithhuaweiidrequest)，将forceLogin参数设置为true拉起登录页面引导用户登录，或引导用户在系统设置中登录华为账号。
 
 
-## 1001502002 应用未授权
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001502002 应用未授权
 
 **错误信息**
 
@@ -162,22 +151,18 @@ The application is not authorized.
 应用未授权。
 
 **可能原因**
-
-
 1. 调用[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)且forceAuthorization参数设置为false的场景，用户未对应用授权。
 2. idValue未按照[getMobileNumberConsistency](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#getmobilenumberconsistency)接口中的[ConsistencyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#consistencyrequest)正确传入或用户已对应用取消授权。
 3. idValue未按照[getHuaweiIDState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#gethuaweiidstate)接口中的[StateRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#staterequest)正确传入或用户已对应用取消授权。
 
 **处理步骤**
-
-
 1. 如需引导用户授权，可调用[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)，通过将forceAuthorization参数设置为true（不设置默认为true）拉起用户授权页面引导用户授权。
 2. 参考[ConsistencyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#consistencyrequest)中的idValue正确方式获取或重新授权。
 3. 参考[StateRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#staterequest)中的idValue正确方式获取或重新授权。
 
 
-## 1001502003 输入参数值无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001502003 输入参数值无效
 
 **错误信息**
 
@@ -188,25 +173,28 @@ Invalid input parameter value.
 输入参数值无效。
 
 **可能原因**
-
-
 1. client_id未配置或配置错误。
 2. Profile文件无效。
 3. 一键登录场景，传入的匿名手机号不正确，或是未调用授权API（[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)）获取匿名手机号。
 4. 接口传参异常，如调用授权API（[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)）时scope和permission都未传。
 
 **处理步骤**
+1. 在 AppGallery Connect（简称AGC）的[开发与服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject)中，选择对应的项目和对应的应用，在“常规 > 应用 ”下，找到**应用**的Client ID和APP ID。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/-00MtogAQvSL5BwCtmDdtQ/zh-cn_image_0000002611834669.png?HW-CC-KV=V1&HW-CC-Date=20260528T013438Z&HW-CC-Expire=86400&HW-CC-Sign=E1E92D21EDD9D4EBA59EF9B36EE44A910BA856637679D8551B60E47ED065E0EE)
 
 
-1. 在 AppGallery Connect（简称AGC）的[开发与服务](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/myProject)中，选择对应的项目和对应的应用，在“常规 > 应用 ”下，找到**应用**的Client ID和APP ID。       ![](assets/ArkTS错误码/file-20260514165101630-0.png)                        若Client ID和APP ID不同：请检查module type为entry的模块下module.json5中的client_id是否配置或配置的值是否正确，参考[配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
+  
+若Client ID和APP ID不同：请检查module type为entry的模块下module.json5中的client_id是否配置或配置的值是否正确，参考[配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 2. 若Client ID和APP ID相同：可无需配置Client ID。
 3. 请在AppGallery Connect中重新申请Profile文件并重新进行签名。在调试阶段，请参考[申请调试Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-debug-profile-0000002248181278)，完成Profile申请并重新手动签名；在发布阶段，请参考[申请发布Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-profile-0000002248341090)，完成Profile申请并重新手动签名。
 4. 需要通过授权API（[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)）获取到匿名手机号，将其作为参数调用一键登录接口。
 5. 检查[authentication](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication)相关接口参数。
 
 
-## 1001502005 网络错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001502005 网络错误
 
 **错误信息**
 
@@ -225,8 +213,8 @@ Network error.
 检查网络连接。
 
 
-## 1001502009 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001502009 内部错误
 
 **错误信息**
 
@@ -241,14 +229,12 @@ Internal error.
 华为账号服务器错误或其他内部错误等。
 
 **处理步骤**
-
-
 1. 重启设备后重试。
 2. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=101704353626565886&level3=101704354306240980&keyWord=Account Kit)提交问题，华为支持人员会及时处理。
 
 
-## 1001502012 用户取消授权
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001502012 用户取消授权
 
 **错误信息**
 
@@ -267,8 +253,8 @@ The user canceled the authorization.
 由于用户主动取消授权，应用无需特殊处理。
 
 
-## 1001502014 应用未申请scopes或permissions权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001502014 应用未申请scopes或permissions权限
 
 **错误信息**
 
@@ -287,8 +273,8 @@ The app does not have the required scopes or permissions.
 请参见Account Kit常见问题[1001502014 应用未申请scopes或permissions权限的可能原因和解决方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-2)。
 
 
-## 1001600001 网络不可用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600001 网络不可用
 
 **错误信息**
 
@@ -307,8 +293,8 @@ The network is unavailable.
 检查网络是否连接好。
 
 
-## 1001600002 账号未登录
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600002 账号未登录
 
 **错误信息**
 
@@ -327,8 +313,8 @@ The user has not logged in with HUAWEI ID.
 如需引导用户登录，可调用[LoginWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#loginwithhuaweiidrequest)，将forceLogin参数设置为true拉起登录页面引导用户登录，或引导用户在系统设置中登录华为账号。
 
 
-## 1001600003 应用指纹证书校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600003 应用指纹证书校验失败
 
 **错误信息**
 
@@ -339,20 +325,16 @@ Failed to check the fingerprint of the application bundle.
 应用指纹证书校验失败。
 
 **可能原因**
-
-
 1. client_id配置错误（例如：错配成项目的Client ID）。
 2. 应用的指纹证书未配置或配置错误。
 
 **处理步骤**
-
-
 1. 检查module type为entry的模块下的module.json5配置文件中的Client ID是否正确，请参考[配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 2. 检查AGC上应用的指纹证书，详情请见[添加公钥指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933#section7398154810570)。
 
 
-## 1001600004 应用未申请对应permissions权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600004 应用未申请对应permissions权限
 
 **错误信息**
 
@@ -371,8 +353,8 @@ The application does not have the required permissions.
 申请对应权限。
 
 
-## 1001600005 用户取消当前操作
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600005 用户取消当前操作
 
 **错误信息**
 
@@ -391,8 +373,8 @@ The user canceled the current operation.
 应用无需特殊处理。
 
 
-## 1001600006 当前设备不支持此验证要素
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600006 当前设备不支持此验证要素
 
 **错误信息**
 
@@ -411,8 +393,8 @@ The requested verification factors are unavailable on the device.
 引导用户到系统设置>华为账号中心>个人信息或系统设置>华为账号中心>账号安全对验证要素进行配置。
 
 
-## 1001600007 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600007 内部错误
 
 **错误信息**
 
@@ -427,14 +409,12 @@ Internal error.
 华为账号服务器错误或其他内部错误等。
 
 **处理步骤**
-
-
 1. 重启设备后重试。
 2. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=101704353626565886&level3=101704354306240980&keyWord=Account Kit)提交问题，华为支持人员会及时处理。
 
 
-## 1001600011 该设备不支持此API
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1001600011 该设备不支持此API
 
 **错误信息**
 
@@ -453,8 +433,8 @@ This device does not support this API.
 应避免在该设备上使用此API，或在代码中通过判断来规避异常场景下应用在不同设备上运行所产生的影响。
 
 
-## 1008100001 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1008100001 内部错误
 
 **错误信息**
 
@@ -469,14 +449,12 @@ Internal error.
 华为账号服务器错误或其他内部错误等。
 
 **处理步骤**
-
-
 1. 重启设备后重试。
 2. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=101704353626565886&level3=101704354306240980&keyWord=Account Kit)提交问题，华为支持人员会及时处理。
 
 
-## 1008100002 网络不可用
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1008100002 网络不可用
 
 **错误信息**
 
@@ -495,8 +473,8 @@ The network is unavailable.
 检查网络是否连接好。
 
 
-## 1008100003 账号未登录
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1008100003 账号未登录
 
 **错误信息**
 
@@ -515,8 +493,8 @@ The user has not signed in with HUAWEI ID.
 如需引导用户登录，可调用[LoginWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#loginwithhuaweiidrequest)，将forceLogin参数设置为true拉起登录页面引导用户登录，或引导用户在系统设置中登录华为账号。
 
 
-## 1008100004 应用指纹证书校验失败
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1008100004 应用指纹证书校验失败
 
 **错误信息**
 
@@ -527,20 +505,16 @@ Failed to check the fingerprint of the app bundle.
 应用指纹证书校验失败。
 
 **可能原因**
-
-
 1. client_id配置错误（例如：错配成项目的Client ID）。
 2. 应用的指纹证书未配置或配置错误。
 
 **处理步骤**
-
-
 1. 检查module type为entry的模块下的module.json5配置文件中的Client ID是否正确，详情请见[配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 2. 检查AGC上应用的指纹证书，详情请见[添加公钥指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933#section7398154810570)。
 
 
-## 1008100005 应用未申请对应permissions权限
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1008100005 应用未申请对应permissions权限
 
 **错误信息**
 
@@ -559,8 +533,8 @@ The app does not have the required permissions.
 确认对应接口permissions是否已申请，申请步骤参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev#开发前提)。
 
 
-## 1008100006 用户未完成操作就退出了收货地址管理服务
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1008100006 用户未完成操作就退出了收货地址管理服务
 
 **错误信息**
 
@@ -579,8 +553,8 @@ The user quits the shipping address management service without finishing.
 应用无需特殊处理。
 
 
-## 1008100007 已登录的华为账号不支持收货地址管理服务
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1008100007 已登录的华为账号不支持收货地址管理服务
 
 **错误信息**
 
@@ -599,8 +573,8 @@ The shipping address management service does not support the HUAWEI ID that is a
 引导用户更换或注册一个中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）的华为账号重新登录，或使用其他方式获取收货地址。
 
 
-## 1010060001 用户取消发票服务
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060001 用户取消发票服务
 
 **错误信息**
 
@@ -619,8 +593,8 @@ The operation was canceled by the user.
 应用无需特殊处理。
 
 
-## 1010060002 系统内部错误
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060002 系统内部错误
 
 **错误信息**
 
@@ -635,14 +609,12 @@ System internal error.
 华为账号服务器错误或其他内部错误等。
 
 **处理步骤**
-
-
 1. 重启设备后重试。
 2. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=101704353626565886&level3=101704354306240980&keyWord=Account Kit)提交问题，华为支持人员会及时处理。
 
 
-## 1010060003 应用指纹证书校验失败
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060003 应用指纹证书校验失败
 
 **错误信息**
 
@@ -653,20 +625,16 @@ Failed to check the fingerprint of the app bundle.
 应用指纹证书校验失败。
 
 **可能原因**
-
-
-1. client_id配置错误（例如：错配���项目的Client ID）。
+1. client_id配置错误（例如：错配成项目的Client ID）。
 2. 应用的指纹证书未配置或配置错误。
 
 **处理步骤**
-
-
 1. 检查module type为entry的模块下的module.json5配置文件中的Client ID是否正确，请参考[配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 2. 检查AGC上应用的指纹证书，详情请见[添加公钥指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933#section7398154810570)。
 
 
-## 1010060004 调用过于频繁
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060004 调用过于频繁
 
 **错误信息**
 
@@ -685,8 +653,8 @@ Too frequent API calls.
 请控制接口调用频度。
 
 
-## 1010060005 网络连接错误
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060005 网络连接错误
 
 **错误信息**
 
@@ -705,8 +673,8 @@ Network connection error.
 检查网络是否连接好。
 
 
-## 1010060006 账号未登录
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060006 账号未登录
 
 **错误信息**
 
@@ -725,8 +693,8 @@ The HUAWEI ID is not signed in.
 如需引导用户登录，可调用[LoginWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#loginwithhuaweiidrequest)，将forceLogin参数设置为true拉起登录页面引导用户登录，或引导用户在系统设置中登录华为账号。
 
 
-## 1010060007 发票抬头已存在
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060007 发票抬头已存在
 
 **错误信息**
 
@@ -745,8 +713,8 @@ Failed to create a invoice title because the title already exists.
 应用无需特殊处理。
 
 
-## 1010060008 华为账号不支持发票服务
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1010060008 华为账号不支持发票服务
 
 **错误信息**
 
@@ -765,8 +733,8 @@ The invoice service does not support the logged HUAWEI ID.
 引导用户更换或注册一个中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）的华为账号重新登录，或使用其他方式获取发票抬头。
 
 
-## 1005300001 用户未同意协议
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1005300001 用户未同意协议
 
 **错误信息**
 
@@ -785,8 +753,8 @@ The user did not accept the agreement.
 需要用户手动同意协议。
 
 
-## 1005300002 用户未点击“华为账号一键登录”按钮
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1005300002 用户未点击“华为账号一键登录”按钮
 
 **错误信息**
 
@@ -805,8 +773,8 @@ The user did not click the HUAWEI ID login button.
 仅通过点击“华为账号一键登录”按钮，在拉起的协议弹框上点击同意并登录按钮时才调用continueLogin接口。
 
 
-## 1009900002 未成年人模式未开启
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1009900002 未成年人模式未开启
 
 **错误信息**
 
@@ -825,8 +793,8 @@ The minors mode is not enabled.
 [开启未成年人模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-app-turn-on-minorsprotection)。
 
 
-## 1009900003 用户取消操作
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1009900003 用户取消操作
 
 **错误信息**
 
@@ -845,8 +813,8 @@ The user canceled the operation.
 处理用户取消的逻辑。
 
 
-## 1009900005 未成年人模式已经开启
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1009900005 未成年人模式已经开启
 
 **错误信息**
 
@@ -865,8 +833,8 @@ The minors mode is already on.
 调用[getMinorsProtectionInfoSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-minorsprotection#getminorsprotectioninfosync)()或[getMinorsProtectionInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-minorsprotection#getminorsprotectioninfo)()判断当前未成年人模式的状态，如果未成年人模式是关闭状态，再调用接口。
 
 
-## 1009900006 未成年人模式已经关闭
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1009900006 未成年人模式已经关闭
 
 **错误信息**
 
@@ -885,8 +853,8 @@ The minors mode is already off.
 调用[getMinorsProtectionInfoSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-minorsprotection#getminorsprotectioninfosync)()或[getMinorsProtectionInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-minorsprotection#getminorsprotectioninfo)()判断当前未成年人模式的状态，如果未成年人模式是开启状态，再调用接口，否则无需重复调用。
 
 
-## 1009900007 不支持的账号
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1009900007 不支持的账号
 
 **错误信息**
 
@@ -905,8 +873,8 @@ Unsupported HUAWEI ID.
 登录中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）账号。
 
 
-## 1009900011 服务不可用
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 1009900011 服务不可用
 
 **错误信息**
 
@@ -925,8 +893,8 @@ Service not available.
 开发者可提醒用户进入“设置”>“隐私和安全”>“隐私空间”退出隐私空间，或者构建自己的未成年人模式。
 
 
-## 1002500001 网络不可用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500001 网络不可用
 
 **错误信息**
 
@@ -945,8 +913,8 @@ The network is unavailable.
 检查网络是否连接好。
 
 
-## 1002500002 账号未登录
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500002 账号未登录
 
 **错误信息**
 
@@ -965,8 +933,8 @@ The user has not logged in with HUAWEI ID.
 如需引导用户登录，可调用[LoginWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#loginwithhuaweiidrequest)，将forceLogin参数设置为true拉起登录页面引导用户登录，或引导用户在系统设置中登录华为账号。
 
 
-## 1002500003 应用指纹证书校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500003 应用指纹证书校验失败
 
 **错误信息**
 
@@ -977,20 +945,16 @@ Failed to check the fingerprint of the application bundle.
 应用指纹证书校验失败。
 
 **可能原因**
-
-
 1. client_id配置错误（例如：错配成项目的Client ID）。
 2. 应用的指纹证书未配置或配置错误。
 
 **处理步骤**
-
-
 1. 检查module type为entry的模块下的module.json5配置文件中的Client ID是否正确，请参考[配置Client ID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-client-id)。
 2. 检查AGC上应用的指纹证书，详情请见[添加公钥指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933#section7398154810570)。
 
 
-## 1002500004 应用未申请对应permissions权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500004 应用未申请对应permissions权限
 
 **错误信息**
 
@@ -1009,8 +973,8 @@ The application does not have the required permissions.
 确认对应接口permissions是否已申请，申请步骤参见对应场景下的开发前提。
 
 
-## 1002500005 用户取消验证
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500005 用户取消验证
 
 **错误信息**
 
@@ -1029,8 +993,8 @@ The user canceled the verification of the HUAWEI ID.
 应用无需特殊处理。
 
 
-## 1002500006 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500006 内部错误
 
 **错误信息**
 
@@ -1045,15 +1009,13 @@ Internal error.
 华为账号服务器错误、调用了当前设备不支持的API或其他内部错误等。
 
 **处理步骤**
-
-
 1. 重启设备后重试。
 2. 请检查当前设备是否支持调用该API，建议先使用[canIUse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用caniuse判断syscap是否可调用)判断当前设备是否支持该API，再进行调用。
 3. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=101704353626565886&level3=101704354306240980&keyWord=Account Kit)提交问题，华为支持人员会及时处理。
 
 
-## 1002500008 该华为账号不支持实名验证
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500008 该华为账号不支持实名验证
 
 **错误信息**
 
@@ -1072,7 +1034,8 @@ Real-name verification is not supported for the HUAWEI ID.
 更换注册地为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）账号再操作。
 
 
-## 1002500009 实名渠道验证失败
+
+##### 1002500009 实名渠道验证失败
 
 **错误信息**
 
@@ -1083,20 +1046,16 @@ Real-name channel verification failed.
 实名渠道验证失败。
 
 **可能原因**
-
-
 1. 实名认证渠道号传入错误。
 2. 实名认证渠道验证出错。
 
 **处理步骤**
-
-
 1. 请检查实名认证渠道号是否正确。
 2. 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=101704353626565886&level3=101704354306240980&keyWord=Account Kit)提交问题，华为支持人员会及时处理。
 
 
-## 1002500011 您的面部与作为身份证明的面部图像不匹配
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500011 您的面部与作为身份证明的面部图像不匹配
 
 **错误信息**
 
@@ -1115,8 +1074,8 @@ Your face does not match your facial image as proof of identity.
 引导用户重新验证人脸。
 
 
-## 1002500012 未查询到实名信息
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500012 未查询到实名信息
 
 **错误信息**
 
@@ -1135,8 +1094,8 @@ No real-name information is found for the HUAWEI ID.
 引导用户到系统设置>华为账号中心>个人信息>实名认证条目下完成实名认证。
 
 
-## 1002500013 姓名和身份证号码不匹配
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500013 姓名和身份证号码不匹配
 
 **错误信息**
 
@@ -1147,20 +1106,16 @@ Your name and ID number do not match.
 姓名和身份证号码不匹配。
 
 **可能原因**
-
-
 1. 用户输入有误。
 2. 用户可能最近变更了户口，或挂失身份证并补发了新卡，但该身份信息尚未与公安部同步。
 
 **处理步骤**
-
-
 1. 重新输入姓名身份证号后重试。
 2. 如是原因2引起，建议用户隔段时间后再重试。
 
 
-## 1002500014 实名验证尝试次数过多
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500014 实名验证尝试次数过多
 
 **错误信息**
 
@@ -1179,8 +1134,8 @@ Too many real-name verification attempts.
 24小时后重试。
 
 
-## 1002500015 参数verificationToken不合法
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500015 参数verificationToken不合法
 
 **错误信息**
 
@@ -1199,8 +1154,8 @@ The verificationToken parameter is incorrectly set.
 重新获取正确的verificationToken后重试。
 
 
-## 1002500016 此设备不支持此API
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1002500016 此设备不支持此API
 
 **错误信息**
 

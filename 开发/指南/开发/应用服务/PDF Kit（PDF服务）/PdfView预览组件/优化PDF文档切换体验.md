@@ -4,22 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-switch-optimize
 
-## 场景介绍
+##### 场景介绍
 
-在应用中进行多文档切换时，为了提供更加流畅和清晰的视觉体验，推荐结合状态管理来控制PdfView的渲染时机。 通过引入加载状态，可以在文档加载过程中暂时隐藏预览组件并展示加载动画，待loadDocument异步加载完成且页面布局准备就绪后，再展示清晰的文档内容。这种方式能有效优化切换过程中的视觉跳变，提升交互质感。
+在应用中进行多文档切换时，为了提供更加流畅和清晰的视觉体验，推荐结合状态管理来控制PdfView的渲染时机。
 
-## 接口说明
+通过引入加载状态，可以在文档加载过程中暂时隐藏预览组件并展示加载动画，待loadDocument异步加载完成且页面布局准备就绪后，再展示清晰的文档内容。这种方式能有效优化切换过程中的视觉跳变，提升交互质感。
 
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [loadDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#loaddocument)(path: string, password?: string, initPageIndex?: number, onProgress?: Callback): Promise | 加载PDF文档。 |
-| [setPageFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#setpagefit)(pageFit: pdfService.PageFit): void | 设置页面的适配模式。 |
+| loadDocument(path: string, password?: string, initPageIndex?: number, onProgress?: Callback&lt;number&gt;): Promise<pdfService.ParseResult> | 加载PDF文档。 |
+| setPageFit(pageFit: pdfService.PageFit): void | 设置页面的适配模式。 |
 
 
-## 示例代码
 
-定义@State变量isLoading，用于标记文档的加载状态，并以此控制PdfView组件的挂载与显示。 将isLoading置为true，显示Loading界面；待异步加载成功后，再将isLoading置为false，展示PDF视图。 通过调用loadDocument加载不同的文件路径，实现PDF文件的切换。
+
+##### 示例代码
+1. 定义@State变量isLoading，用于标记文档的加载状态，并以此控制PdfView组件的挂载与显示。
+2. 将isLoading置为true，显示Loading界面；待异步加载成功后，再将isLoading置为false，展示PDF视图。
+3. 通过调用loadDocument加载不同的文件路径，实现PDF文件的切换。
+
 ```text
 import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit'
 import { fileIo } from '@kit.CoreFileKit';

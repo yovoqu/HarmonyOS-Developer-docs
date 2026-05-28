@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：realName； API声明：function startFacialRecognitionVerification(context: common.Context, request: FacialRecognitionVerificationRequest): Promise<FacialRecognitionVerificationResult>; 差异内容：NA | 类名：realName； API声明：function startFacialRecognitionVerification(context: common.Context, request: FacialRecognitionVerificationRequest): Promise<FacialRecognitionVerificationResult>; 差异内容：801 | api/@hms.core.account.realname.d.ts |
+| 新增错误码 | 类名：realName； API声明：function startFacialRecognitionVerification(context: common.Context, request: FacialRecognitionVerificationRequest): Promise&lt;FacialRecognitionVerificationResult&gt;; 差异内容：NA | 类名：realName； API声明：function startFacialRecognitionVerification(context: common.Context, request: FacialRecognitionVerificationRequest): Promise&lt;FacialRecognitionVerificationResult&gt;; 差异内容：801 | api/@hms.core.account.realname.d.ts |

@@ -3,54 +3,48 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-f
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
-import { ArkTSUtils } from '@kit.ArkTS';
+```text
+import { ArkTSUtils } from '@kit.ArkTS'
 ```
+ 
+  
 
-
-## ArkTSUtils.isSendable
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### ArkTSUtils.isSendable
 
 isSendable(value: Object | null | undefined): boolean
-
+ 
 该方法用于判断value是否为Sendable数据类型。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Utils.Lang
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object \| null \| undefined | 是 | 待校验的对象。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | boolean | value是否为Sendable数据类型，true表示value是Sendable数据类型，否则为false。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { ArkTSUtils } from '@kit.ArkTS';
 
 @Sendable

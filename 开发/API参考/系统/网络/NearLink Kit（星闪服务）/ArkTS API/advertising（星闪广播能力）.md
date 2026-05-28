@@ -3,31 +3,41 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-advertising
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了发送星闪广播的相关功能，包括启动广播、停止广播、订阅广播状态等。
+
 **起始版本：** 5.0.1(13)
 
-#### 导入模块
 
-```ts
+##### 导入模块
+
+```text
 import { advertising } from '@kit.NearLinkKit';
 ```
 
-#### AdvertisingParams
+
+
+##### AdvertisingParams
+
 表示发送广播携带的参数。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| advertisingSettings | [AdvertisingSettings](#advertisingsettings) | 否 | 否 | 广播配置参数。 |
-| advertisingData | [AdvertisingData](#advertisingdata) | 否 | 否 | 广播数据包。 |
+| advertisingSettings | AdvertisingSettings | 否 | 否 | 广播配置参数。 |
+| advertisingData | AdvertisingData | 否 | 否 | 广播数据包。 |
 
-#### AdvertisingSettings
+
+
+
+##### AdvertisingSettings
+
 表示广播配置参数。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -35,24 +45,34 @@ import { advertising } from '@kit.NearLinkKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | interval | number | 否 | 是 | 广播间隔配置参数。单位slot，范围160-16777215，默认值为5000。1个slot对应的时间长度是0.125ms，例如：5000*0.125=625ms。 |
-| power | [TxPowerMode](#txpowermode) | 否 | 是 | 广播发射功率配置参数。如果不配置，则默认值为ADV_TX_POWER_LOW。 |
+| power | TxPowerMode | 否 | 是 | 广播发射功率配置参数。如果不配置，则默认值为ADV_TX_POWER_LOW。 |
 | isConnectable | boolean | 否 | 是 | true: 表示可连接的广播。false：表示不可连接的广播。默认值为true。 |
 
-#### AdvertisingData
+
+
+
+##### AdvertisingData
+
 表示广播数据包。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| serviceUuids | Array&lt;string&gt; | 否 | 是 | 服务UUID列表。若未配置则默认不携带该字段。UUID格式参考[星闪标准服务UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)。 |
-| manufacturerData | Array<[ManufacturerData](#manufacturerdata)> | 否 | 是 | 厂商数据。若未配置则默认不携带该字段。 |
-| serviceData | Array<[ServiceData](#servicedata)> | 否 | 是 | 服务数据。若未配置则默认不携带该字段。 |
+| serviceUuids | Array&lt;string&gt; | 否 | 是 | 服务UUID列表。若未配置则默认不携带该字段。UUID格式参考星闪标准服务UUID。 |
+| manufacturerData | Array&lt;ManufacturerData&gt; | 否 | 是 | 厂商数据。若未配置则默认不携带该字段。 |
+| serviceData | Array&lt;ServiceData&gt; | 否 | 是 | 服务数据。若未配置则默认不携带该字段。 |
 | includeDeviceName | boolean | 否 | 是 | 指示广播数据中是否携带本机设备名。true：表示包含设备名称。false：表示不包含设备名称。默认值为false。 |
 
-#### ManufacturerData
+
+
+
+##### ManufacturerData
+
 表示厂商数据。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -62,19 +82,29 @@ import { advertising } from '@kit.NearLinkKit';
 | manufacturerId | number | 否 | 否 | 厂商ID。取值范围[1, 65535]。 |
 | manufacturerData | ArrayBuffer | 否 | 否 | 厂商数据。 |
 
-#### ServiceData
+
+
+
+##### ServiceData
+
 表示服务相关数据。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| serviceUuid | string | 否 | 否 | 表示服务的UUID。UUID格式参考[星闪标准服务UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)。 |
+| serviceUuid | string | 否 | 否 | 表示服务的UUID。UUID格式参考星闪标准服务UUID。 |
 | serviceData | ArrayBuffer | 否 | 否 | 表示服务数据。 |
 
-#### AdvertisingStateChangeInfo
+
+
+
+##### AdvertisingStateChangeInfo
+
 表示广播启停状态变化信息。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -82,10 +112,15 @@ import { advertising } from '@kit.NearLinkKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | advertisingId | number | 否 | 否 | 表示广播ID。取值范围[0, 255]。 |
-| state | [AdvertisingState](#advertisingstate) | 否 | 否 | 表示当前广播状态。 |
+| state | AdvertisingState | 否 | 否 | 表示当前广播状态。 |
 
-#### TxPowerMode
+
+
+
+##### TxPowerMode
+
 表示广播发送模式，为枚举值。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -96,8 +131,13 @@ import { advertising } from '@kit.NearLinkKit';
 | ADV_TX_POWER_MEDIUM | 2 | 表示中等功耗模式。 |
 | ADV_TX_POWER_HIGH | 3 | 表示高功耗模式。 |
 
-#### AdvertisingState
+
+
+
+##### AdvertisingState
+
 表示广播状态，为枚举值。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -107,9 +147,15 @@ import { advertising } from '@kit.NearLinkKit';
 | STARTED | 1 | 表示广播已启动。 |
 | STOPPED | 2 | 表示广播已停止。 |
 
-#### startAdvertising
+
+
+
+##### startAdvertising
+
 startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
+
 发送星闪广播。使用Promise异步回调。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -120,7 +166,8 @@ startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| advertisingParams | [AdvertisingParams](#advertisingparams) | 是 | 广播相关参数。 |
+| advertisingParams | AdvertisingParams | 是 | 广播相关参数。 |
+
 
 **返回值：**
 
@@ -128,7 +175,9 @@ startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象，返回本次开启的广播ID。广播ID是随机分配的唯一标识值。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -139,9 +188,10 @@ startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 | 1009700003 | Nearlink is off. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```json
 import { advertising } from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -189,9 +239,14 @@ try {
 }
 ```
 
-#### stopAdvertising
+
+
+##### stopAdvertising
+
 stopAdvertising(advertisingId: number): Promise&lt;void&gt;
+
 停止发送星闪广播。使用Promise异步回调。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -204,13 +259,16 @@ stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 | --- | --- | --- | --- |
 | advertisingId | number | 是 | 广播ID，开启广播时获取。取值范围[0, 255]。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -221,9 +279,10 @@ stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 | 1009700003 | Nearlink is off. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { advertising } from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -237,9 +296,14 @@ try {
 }
 ```
 
-#### on( 'advertisingStateChange')
+
+
+##### on( 'advertisingStateChange')
+
 on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeInfo&gt;): void
+
 订阅星闪广播状态变化事件。使用callback异步回调。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -251,9 +315,11 @@ on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeI
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'advertisingStateChange'，表示星闪广播状态事件。 当调用sle.startAdvertising、sle.stopAdvertising时，均会触发该事件。 |
-| callback | Callback<[AdvertisingStateChangeInfo](#advertisingstatechangeinfo)> | 是 | 回调函数，返回广播状态变化数据。 |
+| callback | Callback&lt;AdvertisingStateChangeInfo&gt; | 是 | 回调函数，返回广播状态变化数据。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -262,9 +328,10 @@ on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeI
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
 
+
 **示例：**
 
-```ts
+```text
 import { advertising } from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -279,9 +346,14 @@ try {
 }
 ```
 
-#### off( 'advertisingStateChange')
+
+
+##### off( 'advertisingStateChange')
+
 off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChangeInfo&gt;): void
+
 取消订阅星闪广播状态变化事件。使用callback异步回调。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -293,9 +365,11 @@ off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChang
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'advertisingStateChange'，表示广播状态事件。 |
-| callback | Callback<[AdvertisingStateChangeInfo](#advertisingstatechangeinfo)> | 否 | 回调函数，返回广播启停状态变化信息。 填写该参数则取消当前callback订阅。不填写该参数则取消该type对应的所有回调。 |
+| callback | Callback&lt;AdvertisingStateChangeInfo&gt; | 否 | 回调函数，返回广播启停状态变化信息。 填写该参数则取消当前callback订阅。不填写该参数则取消该type对应的所有回调。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -304,9 +378,10 @@ off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChang
 | 401 | Invalid parameter. |
 | 801 | Capability not supported. |
 
+
 **示例：**
 
-```ts
+```text
 import { advertising } from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

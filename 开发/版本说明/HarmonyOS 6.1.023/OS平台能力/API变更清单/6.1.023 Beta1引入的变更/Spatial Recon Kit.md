@@ -12,7 +12,7 @@
 | API模型切换 | 类名：GSImportSettings； API声明：offset?: number; 差异内容：NA | 类名：GSImportSettings； API声明：offset?: number; 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |
 | API模型切换 | 类名：spatialRender； API声明：export interface GSNode 差异内容：NA | 类名：spatialRender； API声明：export interface GSNode 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |
 | API模型切换 | 类名：spatialRender； API声明：export class GSPlugin 差异内容：NA | 类名：spatialRender； API声明：export class GSPlugin 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |
-| API模型切换 | 类名：GSPlugin； API声明：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise<GSNode>; 差异内容：NA | 类名：GSPlugin； API声明：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise<GSNode>; 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |
+| API模型切换 | 类名：GSPlugin； API声明：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise&lt;GSNode&gt;; 差异内容：NA | 类名：GSPlugin； API声明：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise&lt;GSNode&gt;; 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |
 | API模型切换 | 类名：spatialRender； API声明：export interface RetroEffect 差异内容：NA | 类名：spatialRender； API声明：export interface RetroEffect 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |
 | API模型切换 | 类名：RetroEffect； API声明：colorNum: number; 差异内容：NA | 类名：RetroEffect； API声明：colorNum: number; 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |
 | API模型切换 | 类名：RetroEffect； API声明：pixelSize: number; 差异内容：NA | 类名：RetroEffect； API声明：pixelSize: number; 差异内容：stagemodelonly | api/@hms.graphics.spatialRender.d.ts |

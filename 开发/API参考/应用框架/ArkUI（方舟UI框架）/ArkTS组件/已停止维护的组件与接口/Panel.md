@@ -3,28 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-panel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可滑动面板，提供一种轻量的内容展示窗口，方便在不同尺寸中切换。
 
-
 > [!NOTE]
-> 从API version 12开始，该组件不再维护，推荐使用通用属性[bindSheet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition)。
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 12开始，该组件不再维护，推荐使用通用属性 bindSheet 。 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 可以包含子组件。
 
-
 > [!NOTE]
-> 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-ifelse)、[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)和[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)）。
+> 子组件类型：系统组件和自定义组件，支持渲染控制类型（ if/else 、 ForEach 和 LazyForEach ）。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 接口
 
 Panel(show: boolean)
 
@@ -36,20 +34,20 @@ Panel(show: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| show | boolean | 是 | 控制Panel显示或隐藏。          说明：          如果设置为false时，则不占位隐藏。[Visible.None](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-visibility)或者show之间有一个生效时，都会生效不占位隐藏。 |
+| show | boolean | 是 | 控制Panel显示或隐藏。 说明： 如果设置为false时，则不占位隐藏。Visible.None或者show之间有一个生效时，都会生效不占位隐藏。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### type
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### type
 
 type(value: PanelType)
 
@@ -63,14 +61,14 @@ type(value: PanelType)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [PanelType](#paneltype枚举说明) | 是 | 设置可滑动面板的类型。          默认值：PanelType.Foldable |
+| value | PanelType | 是 | 设置可滑动面板的类型。 默认值：PanelType.Foldable |
 
 
-### mode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### mode
 
 mode(value: PanelMode)
 
@@ -84,14 +82,14 @@ mode(value: PanelMode)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [PanelMode](#panelmode枚举说明) | 是 | 设置可滑动面板的初始状态。          Minibar类型默认值：PanelMode.Mini；其余类型默认值：PanelMode.Half          从API version 10开始，该属性支持[\$\$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。 |
+| value | PanelMode | 是 | 设置可滑动面板的初始状态。 Minibar类型默认值：PanelMode.Mini；其余类型默认值：PanelMode.Half 从API version 10开始，该属性支持$$双向绑定变量。 |
 
 
-### dragBar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### dragBar
 
 dragBar(value: boolean)
 
@@ -105,14 +103,14 @@ dragBar(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 设置是否存在控制条，true表示存在，false表示不存在。          默认值：true |
+| value | boolean | 是 | 设置是否存在控制条，true表示存在，false表示不存在。 默认值：true |
 
 
-### customHeight10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### customHeight10+
 
 customHeight(value: Dimension | PanelHeight)
 
@@ -126,14 +124,14 @@ customHeight(value: Dimension | PanelHeight)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) \| [PanelHeight](#panelheight10枚举说明) | 是 | 指定PanelType.CUSTOM状态下的高度。          默认值：0          说明：          不支持设置百分比。 |
+| value | Dimension \| PanelHeight | 是 | 指定PanelType.CUSTOM状态下的高度。 默认值：0 说明： 不支持设置百分比。 |
 
 
-### fullHeight
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### fullHeight
 
 fullHeight(value: number | string)
 
@@ -141,20 +139,20 @@ fullHeight(value: number | string)
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**��服务API：** 从API version 11开始，该接口支持在元服务中使用。
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 指定PanelMode.Full状态下的高度。          默认值：当前组件主轴大小减去8vp空白区          说明：          不支持设置百分比。 |
+| value | number \| string | 是 | 指定PanelMode.Full状态下的高度。 默认值：当前组件主轴大小减去8vp空白区 说明： 不支持设置百分比。 |
 
 
-### halfHeight
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### halfHeight
 
 halfHeight(value: number | string)
 
@@ -168,14 +166,14 @@ halfHeight(value: number | string)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 指定PanelMode.Half状态下的高度。          默认值：当前组件主轴大小的一半。          说明：          不支持设置百分比。 |
+| value | number \| string | 是 | 指定PanelMode.Half状态下的高度。 默认值：当前组件主轴大小的一半。 说明： 不支持设置百分比。 |
 
 
-### miniHeight
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### miniHeight
 
 miniHeight(value: number | string)
 
@@ -189,14 +187,14 @@ miniHeight(value: number | string)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 指定PanelMode.Mini状态下的高度。          默认值：48          单位：vp          说明：          不支持设置百分比。 |
+| value | number \| string | 是 | 指定PanelMode.Mini状态下的高度。 默认值：48 单位：vp 说明： 不支持设置百分比。 |
 
 
-### show
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### show
 
 show(value: boolean)
 
@@ -210,14 +208,14 @@ show(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 当滑动面板弹出时调用，true显示面板，false不显示面板。          默认值：true          说明：          该属性的优先级高于参数show。 |
+| value | boolean | 是 | 当滑动面板弹出时调用，true显示面板，false不显示面板。 默认值：true 说明： 该属性的优先级高于参数show。 |
 
 
-### backgroundMask9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### backgroundMask9+
 
 backgroundMask(color: ResourceColor)
 
@@ -231,14 +229,14 @@ backgroundMask(color: ResourceColor)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 是 | 指定Panel的背景蒙层。          默认值：'#08182431' |
+| color | ResourceColor | 是 | 指定Panel的背景蒙层。 默认值：'#08182431' |
 
 
-### showCloseIcon10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### showCloseIcon10+
 
 showCloseIcon(value: boolean)
 
@@ -252,21 +250,20 @@ showCloseIcon(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 设置是否显示关闭图标，true表示显示，false表示不显示。          默认值：false |
+| value | boolean | 是 | 设置是否显示关闭图标，true表示显示，false表示不显示。 默认值：false |
 
 
-## PanelType枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PanelType枚举说明
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 说明 |
 | --- | --- |
@@ -276,15 +273,15 @@ showCloseIcon(value: boolean)
 | CUSTOM10+ | 配置自适应内容高度，不支持尺寸切换效果。 |
 
 
-## PanelMode枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PanelMode枚举说明
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -293,8 +290,9 @@ showCloseIcon(value: boolean)
 | Full | 2 | 类全屏状态。 |
 
 
-## PanelHeight10+枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PanelHeight10+枚举说明
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -302,20 +300,20 @@ showCloseIcon(value: boolean)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 说明 |
 | --- | --- |
 | WRAP_CONTENT | 类型为CUSTOM时，自适应内容高度。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
-### onChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onChange
 
 onChange(event: (width: number, height: number, mode: PanelMode) => void)
 
@@ -329,16 +327,16 @@ onChange(event: (width: number, height: number, mode: PanelMode) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | width | number | 是 | 内容区的宽度值。 |
-| height | number | 是 | 内容区的高度值。          当dragBar属性为true时，panel本身的高度值为dragBar高度加上内容区高度。 |
+| height | number | 是 | 内容区的高度值。 当dragBar属性为true时，panel本身的高度值为dragBar高度加上内容区高度。 |
 | mode | PanelMode | 是 | 面板的状态。 |
 
 
-### onHeightChange9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onHeightChange9+
 
 onHeightChange(callback: (value: number) => void)
 
@@ -352,17 +350,16 @@ onHeightChange(callback: (value: number) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 内容区的高度值，默认返回值单位为px。          当dragBar属性为true时，panel本身的高度值为dragBar高度加上内容区高度。          因用户体验设计原因，panel最高只能滑到 fullHeight-8vp。 |
+| value | number | 是 | 内容区的高度值，默认返回值单位为px。 当dragBar属性为true时，panel本身的高度值为dragBar高度加上内容区高度。 因用户体验设计原因，panel最高只能滑到 fullHeight-8vp。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 示例
+
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -372,14 +369,14 @@ struct PanelExample {
   build() {
     Column() {
       Text('2021-09-30    Today Calendar: 1.afternoon......Click for details')
-      .width('90%')
-      .height(50)
-      .borderRadius(10)
-      .backgroundColor(0xFFFFFF)
-      .padding({ left: 20 })
-      .onClick(() => {
-        this.show = !this.show
-      })
+        .width('90%')
+        .height(50)
+        .borderRadius(10)
+        .backgroundColor(0xFFFFFF)
+        .padding({ left: 20 })
+        .onClick(() => {
+          this.show = !this.show
+        })
       Panel(this.show) { // 展示日程
         Column() {
           Text('Today Calendar')
@@ -395,9 +392,10 @@ struct PanelExample {
       .onChange((width: number, height: number, mode: PanelMode) => {
         console.info(`width:${width},height:${height},mode:${mode}`)
       })
-  }.width('100%').height('100%').backgroundColor(0xDCDCDC).padding({ top: 5 })
+    }.width('100%').height('100%').backgroundColor(0xDCDCDC).padding({ top: 5 })
   }
 }
 ```
 
-![](assets/Panel/file-20260514164212193-0.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/r3Dk1zm9Tjiu8RD0ixVY8A/zh-cn_image_0000002611836133.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013929Z&HW-CC-Expire=86400&HW-CC-Sign=FBC7BACFDC0023626A33F4D5A02635997A0DB5B10F170A2B9062CAC83CE5907F)

@@ -5,27 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_prefer-readonly
 
 如果私有成员从未在构造函数之外进行修改，则要求将其标记为“只读”。
+ 
 
+ 
 
-## 规则配置
+##### 规则配置
 
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/prefer-readonly": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/prefer-readonly选项](https://typescript-eslint.nodejs.cn/rules/prefer-readonly/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 export class Container {
@@ -43,10 +46,10 @@ export class Container {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 export class Container {
@@ -68,13 +71,13 @@ export class Container {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

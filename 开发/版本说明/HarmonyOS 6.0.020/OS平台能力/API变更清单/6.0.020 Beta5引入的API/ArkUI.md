@@ -27,7 +27,7 @@
 | 删除错误码 | 类名：uiAppearance； API声明：function getFontScale(): number; 差异内容：401 | 类名：uiAppearance； API声明：function getFontScale(): number; 差异内容：NA | api/@ohos.uiAppearance.d.ts |
 | 删除错误码 | 类名：uiAppearance； API声明：function getFontWeightScale(): number; 差异内容：401 | 类名：uiAppearance； API声明：function getFontWeightScale(): number; 差异内容：NA | api/@ohos.uiAppearance.d.ts |
 | 删除错误码 | 类名：LengthMetrics； API声明：static resource(value: Resource): LengthMetrics; 差异内容：180001,180002 | 类名：LengthMetrics； API声明：static resource(value: Resource): LengthMetrics; 差异内容：NA | api/arkui/Graphics.d.ts |
-| 函数变更 | 类名：SymbolGlyphAttribute； API声明：shaderStyle(shaders: Array<ShaderStyle>): SymbolGlyphAttribute; 差异内容：shaders: Array<ShaderStyle> | 类名：SymbolGlyphAttribute； API声明：shaderStyle(shader: Array<ShaderStyle \| undefined> \| ShaderStyle): SymbolGlyphAttribute; 差异内容：shader: Array<ShaderStyle \| undefined> \| ShaderStyle | component/symbolglyph.d.ts |
+| 函数变更 | 类名：SymbolGlyphAttribute； API声明：shaderStyle(shaders: Array&lt;ShaderStyle&gt;): SymbolGlyphAttribute; 差异内容：shaders: Array&lt;ShaderStyle&gt; | 类名：SymbolGlyphAttribute； API声明：shaderStyle(shader: Array<ShaderStyle \| undefined> \| ShaderStyle): SymbolGlyphAttribute; 差异内容：shader: Array<ShaderStyle \| undefined> \| ShaderStyle | component/symbolglyph.d.ts |
 | 新增API | NA | 类名：global； API声明：declare enum ReplaceEffectType 差异内容：declare enum ReplaceEffectType | component/symbolglyph.d.ts |
 | 新增API | NA | 类名：ReplaceEffectType； API声明：SEQUENTIAL = 0 差异内容：SEQUENTIAL = 0 | component/symbolglyph.d.ts |
 | 新增API | NA | 类名：ReplaceEffectType； API声明：CROSS_FADE = 1 差异内容：CROSS_FADE = 1 | component/symbolglyph.d.ts |
@@ -51,7 +51,7 @@
 | 删除API | 类名：TextChangeReason； API声明：ACCESSIBILITY = 10 差异内容：ACCESSIBILITY = 10 | NA | component/text_common.d.ts |
 | 删除API | 类名：TextChangeReason； API声明：COLLABORATION = 11 差异内容：COLLABORATION = 11 | NA | component/text_common.d.ts |
 | 删除API | 类名：TextChangeReason； API声明：STYLUS = 12 差异内容：STYLUS = 12 | NA | component/text_common.d.ts |
-| 函数变更 | 类名：TextDataDetectorConfig； API声明：onDetectResultUpdate?: (result: string) => void; 差异内容：(result: string) => void | 类名：TextDataDetectorConfig； API声明：onDetectResultUpdate?: Callback<string>; 差异内容：Callback<string> | component/text_common.d.ts |
+| 函数变更 | 类名：TextDataDetectorConfig； API声明：onDetectResultUpdate?: (result: string) => void; 差异内容：(result: string) => void | 类名：TextDataDetectorConfig； API声明：onDetectResultUpdate?: Callback&lt;string&gt;; 差异内容：Callback&lt;string&gt; | component/text_common.d.ts |
 | 类新增可选成员 | 类名：global； API声明： 差异内容：NA | 类名：ReplaceSymbolEffect； API声明：replaceType?: ReplaceEffectType; 差异内容：replaceType?: ReplaceEffectType; | component/symbolglyph.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：Padding； API声明：top?: Length; 差异内容：top?: Length; | component/units.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：Padding； API声明：right?: Length; 差异内容：right?: Length; | component/units.d.ts |

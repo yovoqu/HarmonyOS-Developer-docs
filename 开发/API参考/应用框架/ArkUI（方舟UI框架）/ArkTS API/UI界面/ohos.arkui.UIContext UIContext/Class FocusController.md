@@ -3,13 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-focuscontroller
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供控制焦点的能力，如清除、移动和激活焦点等功能。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getFocusController() 方法获取FocusController实例，再通过该实例调用对应方法。
 
-## clearFocus12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### clearFocus12+
 
 clearFocus(): void
 
@@ -23,8 +26,7 @@ clearFocus(): void
 
 在该示例中，按钮"button2"默认获焦，点击按钮"clearFocus"后，焦点回到该页面的根容器节点"column1"，此时按下键盘TAB键，按钮"button2"重新获焦。可通过点击"button1"使该按钮获焦，点击按钮"clearFocus"后，焦点同样回到该页面的根容器节点"column1"，此时按下键盘TAB键，由按钮"button1"重新获焦。
 
-
-```ts
+```text
 @Entry
 @Component
 struct ClearFocusExample {
@@ -35,32 +37,32 @@ struct ClearFocusExample {
     Column({ space: 20 }) {
       Column({ space: 5 }) {
         Button('button1')
-        .width(200)
-        .height(70)
-        .fontColor(Color.White)
-        .focusOnTouch(true)
-        .backgroundColor(Color.Blue)
+          .width(200)
+          .height(70)
+          .fontColor(Color.White)
+          .focusOnTouch(true)
+          .backgroundColor(Color.Blue)
         Button('button2')
-        .width(200)
-        .height(70)
-        .fontColor(Color.White)
-        .focusOnTouch(true)
-        .backgroundColor(this.btColor)
-        .defaultFocus(true)
-        .onFocus(() => {
-          this.btColor = Color.Red;
-        })
-        .onBlur(() => {
-          this.btColor = Color.Blue;
-        })
+          .width(200)
+          .height(70)
+          .fontColor(Color.White)
+          .focusOnTouch(true)
+          .backgroundColor(this.btColor)
+          .defaultFocus(true)
+          .onFocus(() => {
+            this.btColor = Color.Red;
+          })
+          .onBlur(() => {
+            this.btColor = Color.Blue;
+          })
         Button('clearFocus')
-        .width(200)
-        .height(70)
-        .fontColor(Color.White)
-        .backgroundColor(Color.Blue)
-        .onClick(() => {
-          this.getUIContext().getFocusController().clearFocus();
-        })
+          .width(200)
+          .height(70)
+          .fontColor(Color.White)
+          .backgroundColor(Color.Blue)
+          .onClick(() => {
+            this.getUIContext().getFocusController().clearFocus();
+          })
       }
       .id('column2')
     }
@@ -72,8 +74,8 @@ struct ClearFocusExample {
 ```
 
 
-## requestFocus12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### requestFocus12+
 
 requestFocus(key: string): void
 
@@ -85,16 +87,14 @@ requestFocus(key: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | string | 是 | 节点对应的[组件标识](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id)。 |
+| key | string | 是 | 节点对应的组件标识。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[焦点错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-focus)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -105,8 +105,7 @@ requestFocus(key: string): void
 
 **示例：**
 
-
-```ts
+```text
 @Entry
 @Component
 struct RequestExample {
@@ -116,42 +115,42 @@ struct RequestExample {
     Column({ space: 20 }) {
       Column({ space: 5 }) {
         Button('Button')
-        .width(200)
-        .height(70)
-        .fontColor(Color.White)
-        .focusOnTouch(true)
-        .backgroundColor(this.btColor)
-        .onFocus(() => {
-          this.btColor = Color.Red;
-        })
-        .onBlur(() => {
-          this.btColor = Color.Blue;
-        })
-        .id("testButton")
+          .width(200)
+          .height(70)
+          .fontColor(Color.White)
+          .focusOnTouch(true)
+          .backgroundColor(this.btColor)
+          .onFocus(() => {
+            this.btColor = Color.Red;
+          })
+          .onBlur(() => {
+            this.btColor = Color.Blue;
+          })
+          .id("testButton")
 
         Divider()
-        .vertical(false)
-        .width("80%")
-        .backgroundColor(Color.Black)
-        .height(10)
+          .vertical(false)
+          .width("80%")
+          .backgroundColor(Color.Black)
+          .height(10)
 
         Button('requestFocus')
-        .width(200)
-        .height(70)
-        .onClick(() => {
-          this.getUIContext().getFocusController().requestFocus("testButton");
-        })
+          .width(200)
+          .height(70)
+          .onClick(() => {
+            this.getUIContext().getFocusController().requestFocus("testButton");
+          })
 
         Button('requestFocus fail')
-        .width(200)
-        .height(70)
-        .onClick(() => {
-          try {
-            this.getUIContext().getFocusController().requestFocus("eee");
-          } catch (error) {
-            console.error(`requestFocus failed code is ${error.code} message is ${error.message}`);
-          }
-        })
+          .width(200)
+          .height(70)
+          .onClick(() => {
+            try {
+              this.getUIContext().getFocusController().requestFocus("eee");
+            } catch (error) {
+              console.error(`requestFocus failed code is ${error.code} message is ${error.message}`);
+            }
+          })
       }
     }
     .width('100%')
@@ -161,8 +160,8 @@ struct RequestExample {
 ```
 
 
-## activate14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### activate14+
 
 activate(isActive: boolean, autoInactive?: boolean): void
 
@@ -174,17 +173,15 @@ activate(isActive: boolean, autoInactive?: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isActive | boolean | 是 | 设置是否进入/退出焦点激活态。          true表示设置进入焦点激活态，false表示设置退出焦点激活态。 |
-| autoInactive | boolean | 否 | 设置焦点激活态退出逻辑。          为true时，会自动在触摸事件、鼠标事件触发时退出，为false时，仅受开发者API控制。          默认值：true |
+| isActive | boolean | 是 | 设置是否进入/退出焦点激活态。 true表示设置进入焦点激活态，false表示设置退出焦点激活态。 |
+| autoInactive | boolean | 否 | 设置焦点激活态退出逻辑。 为true时，会自动在触摸事件、鼠标事件触发时退出，为false时，仅受开发者API控制。 默认值：true |
 
 
 **示例：**
 
-
-```ts
+```text
 // 该示例表示在页面加载完成时进入焦点激活态，可按方向键在button间走焦
 @Entry
 @Component
@@ -200,17 +197,17 @@ struct ActivateExample {
   build() {
     Row() {
       Button('Button1')
-      .width(200)
-      .height(70)
-      .defaultFocus(true)
+        .width(200)
+        .height(70)
+        .defaultFocus(true)
 
       Button('Button2')
-      .width(200)
-      .height(70)
+        .width(200)
+        .height(70)
 
       Button('Button3')
-      .width(200)
-      .height(70)
+        .width(200)
+        .height(70)
     }
     .padding(10)
     .justifyContent(FlexAlign.SpaceBetween)
@@ -220,8 +217,8 @@ struct ActivateExample {
 ```
 
 
-## isActive20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isActive20+
 
 isActive(): boolean
 
@@ -235,7 +232,6 @@ isActive(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回UI实例的焦点激活态。true表示当前进入焦点激活态，false表示当前已退出焦点激活态。 |
@@ -245,8 +241,7 @@ isActive(): boolean
 
 验证isActive返回UI实例的焦点激活态。
 
-
-```ts
+```text
 @Entry
 @Component
 struct ClearFocusExample {
@@ -257,34 +252,34 @@ struct ClearFocusExample {
     Column({ space: 20 }) {
       Column({ space: 5 }) {
         Button('button1')
-        .width(200)
-        .height(70)
-        .fontColor(Color.White)
-        .focusOnTouch(true)
-        .backgroundColor(Color.Blue)
-        .onClick(() => {
-          console.info("button1 onClick");
-          this.getUIContext().getFocusController().activate(true);
-          console.info(`focus status ${this.getUIContext().getFocusController().isActive()}`);
-        })
+          .width(200)
+          .height(70)
+          .fontColor(Color.White)
+          .focusOnTouch(true)
+          .backgroundColor(Color.Blue)
+          .onClick(() => {
+            console.info("button1 onClick");
+            this.getUIContext().getFocusController().activate(true);
+            console.info(`focus status ${this.getUIContext().getFocusController().isActive()}`);
+          })
         Button('button2')
-        .width(200)
-        .height(70)
-        .fontColor(Color.White)
-        .focusOnTouch(true)
-        .backgroundColor(this.btColor)
-        .defaultFocus(true)
-        .onClick(() => {
-          console.info("button2 onClick");
-          this.getUIContext().getFocusController().activate(false);
-          console.info(`focus status ${this.getUIContext().getFocusController().isActive()}`);
-        })
-        .onFocus(() => {
-          this.btColor = Color.Red;
-        })
-        .onBlur(() => {
-          this.btColor = Color.Blue;
-        })
+          .width(200)
+          .height(70)
+          .fontColor(Color.White)
+          .focusOnTouch(true)
+          .backgroundColor(this.btColor)
+          .defaultFocus(true)
+          .onClick(() => {
+            console.info("button2 onClick");
+            this.getUIContext().getFocusController().activate(false);
+            console.info(`focus status ${this.getUIContext().getFocusController().isActive()}`);
+          })
+          .onFocus(() => {
+            this.btColor = Color.Red;
+          })
+          .onBlur(() => {
+            this.btColor = Color.Blue;
+          })
       }
     }
     .width('100%')
@@ -294,8 +289,8 @@ struct ClearFocusExample {
 ```
 
 
-## setAutoFocusTransfer14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAutoFocusTransfer14+
 
 setAutoFocusTransfer(isAutoFocusTransfer: boolean): void
 
@@ -307,16 +302,14 @@ setAutoFocusTransfer(isAutoFocusTransfer: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isAutoFocusTransfer | boolean | 是 | 设置页面切换时，新的页面是否需要主动获取焦点，例如[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)、[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)、[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)、[Dialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog)、[Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup)等。true表示需要主动获取焦点，false表示不需要主动获取焦点。默认值为true。 |
+| isAutoFocusTransfer | boolean | 是 | 设置页面切换时，新的页面是否需要主动获取焦点，例如Router、Navigation、Menu、Dialog、Popup等。true表示需要主动获取焦点，false表示不需要主动获取焦点。默认值为true。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @CustomDialog
 struct CustomDialogExample {
   controller?: CustomDialogController;
@@ -324,19 +317,19 @@ struct CustomDialogExample {
   build() {
     Column() {
       Text('这是自定义弹窗')
-      .fontSize(30)
-      .height(100)
+        .fontSize(30)
+        .height(100)
       Text('弹窗不能主动获取焦点')
-      .fontSize(20)
-      .height(100)
+        .fontSize(20)
+        .height(100)
       Button('点我关闭弹窗')
-      .onClick(() => {
-        if (this.controller != undefined) {
-          this.getUIContext().getFocusController().setAutoFocusTransfer(true);
-          this.controller.close();
-        }
-      })
-      .margin(20)
+        .onClick(() => {
+          if (this.controller != undefined) {
+            this.getUIContext().getFocusController().setAutoFocusTransfer(true);
+            this.controller.close();
+          }
+        })
+        .margin(20)
     }
   }
 }
@@ -355,20 +348,20 @@ struct CustomDialogUser {
   build() {
     Column() {
       Button('click me')
-      .onClick(() => {
-        if (this.dialogController != null) {
-          this.getUIContext().getFocusController().setAutoFocusTransfer(false);
-          this.dialogController.open();
-        }
-      }).backgroundColor(0x317aff)
-  }.width('100%').margin({ top: 5 })
+        .onClick(() => {
+          if (this.dialogController != null) {
+            this.getUIContext().getFocusController().setAutoFocusTransfer(false);
+            this.dialogController.open();
+          }
+        }).backgroundColor(0x317aff)
+    }.width('100%').margin({ top: 5 })
   }
 }
 ```
 
 
-## setKeyProcessingMode15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setKeyProcessingMode15+
 
 setKeyProcessingMode(mode: KeyProcessingMode): void
 
@@ -380,16 +373,14 @@ setKeyProcessingMode(mode: KeyProcessingMode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | [KeyProcessingMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#keyprocessingmode15) | 是 | 按键处理模式。 |
+| mode | KeyProcessingMode | 是 | 按键处理模式。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 该示例演示了在页面加载完成后设置走焦类型的实现方式。
 @Entry
 @Component

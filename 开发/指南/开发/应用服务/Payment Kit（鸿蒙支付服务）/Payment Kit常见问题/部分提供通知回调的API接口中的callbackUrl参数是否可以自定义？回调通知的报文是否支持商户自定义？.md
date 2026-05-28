@@ -3,3 +3,6 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-14
+
+1. API接口callbackUrl参数是可以由商户自行定义的HTTPS协议的有效接口。如：https://www.xxxxxx.com/hw/pay/callback。
+2. 回调通知报文暂时无法由商户自定义。

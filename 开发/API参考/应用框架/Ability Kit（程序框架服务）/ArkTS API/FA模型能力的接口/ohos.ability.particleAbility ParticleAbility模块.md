@@ -3,62 +3,58 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-particleability
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 particleAbility模块提供了操作Data和Service类型的Ability的能力，包括启动、停止指定的particleAbility，获取dataAbilityHelper，连接、断连指定的ServiceAbility等。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在FA模型下使用。
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在FA模型下使用。
 
 
-## 使用限制
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 使用限制
 
 particleAbility模块用来对Data和Service类型的Ability进行操作。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { particleAbility } from '@kit.AbilityKit';
 ```
 
 
-## particleAbility.startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<void>): void
+##### particleAbility.startAbility
+
+startAbility(parameter: StartAbilityParameter, callback: AsyncCallback&lt;void&gt;): void
 
 启动指定的particleAbility。使用callback异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
+> 组件启动规则详见： 组件启动规则（FA模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [StartAbilityParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-startabilityparameter) | 是 | 表示启动的ability。 |
+| parameter | StartAbilityParameter | 是 | 表示启动的ability。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动指定的particleAbility成功，err为undefined，否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { particleAbility, wantConstant } from '@kit.AbilityKit';
 
 particleAbility.startAbility(
   {
-    want: {
+    want:
+    {
       action: 'ohos.want.action.home',
       entities: ['entity.system.home'],
       type: 'MIMETYPE',
@@ -66,7 +62,7 @@ particleAbility.startAbility(
       deviceId: '',
       bundleName: 'com.example.Data',
       abilityName: 'com.example.Data.EntryAbility',
-      uri: '',
+      uri: ''
     },
   },
   (error, data) => {
@@ -80,29 +76,27 @@ particleAbility.startAbility(
 ```
 
 
-## particleAbility.startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(parameter: StartAbilityParameter): Promise<void>
+##### particleAbility.startAbility
+
+startAbility(parameter: StartAbilityParameter): Promise&lt;void&gt;
 
 启动指定的particleAbility。使用Promise异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
+> 组件启动规则详见： 组件启动规则（FA模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [StartAbilityParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-startabilityparameter) | 是 | 表示启动的ability。 |
+| parameter | StartAbilityParameter | 是 | 表示启动的ability。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -111,13 +105,13 @@ startAbility(parameter: StartAbilityParameter): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { particleAbility, wantConstant } from '@kit.AbilityKit';
 
-particleAbility
-  .startAbility({
-    want: {
+particleAbility.startAbility(
+  {
+    want:
+    {
       action: 'ohos.want.action.home',
       entities: ['entity.system.home'],
       type: 'MIMETYPE',
@@ -125,26 +119,25 @@ particleAbility
       deviceId: '',
       bundleName: 'com.example.Data',
       abilityName: 'com.example.Data.EntryAbility',
-      uri: '',
+      uri: ''
     },
-  })
-  .then(() => {
-    console.info('particleAbility startAbility');
-  });
+  },
+).then(() => {
+  console.info('particleAbility startAbility');
+});
 ```
 
 
-## particleAbility.terminateSelf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(callback: AsyncCallback<void>): void
+##### particleAbility.terminateSelf
+
+terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 销毁当前particleAbility。使用callback异步回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -153,29 +146,29 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { particleAbility } from '@kit.AbilityKit';
 
-particleAbility.terminateSelf((error) => {
-  if (error && error.code !== 0) {
-    console.error(`terminateSelf fail, error: ${JSON.stringify(error)}`);
+particleAbility.terminateSelf(
+  (error) => {
+    if (error && error.code !== 0) {
+      console.error(`terminateSelf fail, error: ${JSON.stringify(error)}`);
+    }
   }
-});
+);
 ```
 
 
-## particleAbility.terminateSelf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(): Promise<void>
+##### particleAbility.terminateSelf
+
+terminateSelf(): Promise&lt;void&gt;
 
 销毁当前particleAbility。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -184,8 +177,7 @@ terminateSelf(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { particleAbility } from '@kit.AbilityKit';
 
 particleAbility.terminateSelf().then(() => {
@@ -194,22 +186,20 @@ particleAbility.terminateSelf().then(() => {
 ```
 
 
-## particleAbility.acquireDataAbilityHelper
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### particleAbility.acquireDataAbilityHelper
 
 acquireDataAbilityHelper(uri: string): DataAbilityHelper
 
 获取dataAbilityHelper对象。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
-> 跨应用访问dataAbility，对端应用需配置关联启动。
+> 组件启动规则详见： 组件启动规则（FA模型） 。 跨应用访问dataAbility，对端应用需配置关联启动。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -218,16 +208,14 @@ acquireDataAbilityHelper(uri: string): DataAbilityHelper
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DataAbilityHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-dataabilityhelper) | 用来协助其他Ability访问DataAbility的工具类。 |
+| DataAbilityHelper | 用来协助其他Ability访问DataAbility的工具类。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { particleAbility } from '@kit.AbilityKit';
 
 let uri = '';
@@ -235,10 +223,10 @@ particleAbility.acquireDataAbilityHelper(uri);
 ```
 
 
-## particleAbility.startBackgroundRunning(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback<void>): void
+##### particleAbility.startBackgroundRunning(deprecated)
+
+startBackgroundRunning(id: number, request: NotificationRequest, callback: AsyncCallback&lt;void&gt;): void
 
 向系统申请长时任务。使用callback异步回调。
 
@@ -246,24 +234,22 @@ startBackgroundRunning(id: number, request: NotificationRequest, callback: Async
 
 **系统能力**：SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[backgroundTaskManager.startBackgroundRunning](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundtaskmanagerstartbackgroundrunning)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 backgroundTaskManager.startBackgroundRunning 替代。
+
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | id | number | 是 | 长时任务通知id号。 |
-| request | [NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationrequest) | 是 | 通知参数，用于显示通知栏的信息。 |
+| request | NotificationRequest | 是 | 通知参数，用于显示通知栏的信息。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当向系统申请长时任务成功，err为undefined，否则为错误对象。 |
 
 
 **示例**：
 
-
-```ts
+```json
 import { particleAbility, wantAgent } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import notification from '@ohos.notification';
@@ -280,38 +266,36 @@ let wantAgentInfo: wantAgent.WantAgentInfo = {
   wants: [
     {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
-    },
+      abilityName: 'EntryAbility'
+    }
   ],
   operationType: wantAgent.OperationType.START_ABILITY,
   requestCode: 0,
-  wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG],
+  wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]
 };
 
 wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj) => {
   let id = 1;
-  particleAbility.startBackgroundRunning(
-    id,
+  particleAbility.startBackgroundRunning(id, {
+    content:
     {
-      content: {
-        contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
-        normal: {
-          title: 'title',
-          text: 'text',
-        },
-      },
-      wantAgent: wantAgentObj,
+      contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
+      normal:
+      {
+        title: 'title',
+        text: 'text'
+      }
     },
-    callback,
-  );
+    wantAgent: wantAgentObj
+  }, callback);
 });
 ```
 
 
-## particleAbility.startBackgroundRunning(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>
+##### particleAbility.startBackgroundRunning(deprecated)
+
+startBackgroundRunning(id: number, request: NotificationRequest): Promise&lt;void&gt;
 
 向系统申请长时任务。使用Promise异步回调。
 
@@ -319,21 +303,19 @@ startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>
 
 **系统能力**：SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[backgroundTaskManager.startBackgroundRunning](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundtaskmanagerstartbackgroundrunning-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 backgroundTaskManager.startBackgroundRunning 替代。
+
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | id | number | 是 | 长时任务通知id号。 |
-| request | [NotificationRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification#notificationrequest) | 是 | 通知参数，用于显示通知栏的信息。 |
+| request | NotificationRequest | 是 | 通知参数，用于显示通知栏的信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -342,8 +324,7 @@ startBackgroundRunning(id: number, request: NotificationRequest): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { particleAbility, wantAgent } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import notification from '@ohos.notification';
@@ -352,52 +333,50 @@ let wantAgentInfo: wantAgent.WantAgentInfo = {
   wants: [
     {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
-    },
+      abilityName: 'EntryAbility'
+    }
   ],
   operationType: wantAgent.OperationType.START_ABILITY,
   requestCode: 0,
-  wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG],
+  wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]
 };
 
 wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj) => {
   let id = 1;
-  particleAbility
-    .startBackgroundRunning(id, {
-      content: {
-        contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
-        normal: {
-          title: 'title',
-          text: 'text',
-        },
-      },
-      wantAgent: wantAgentObj,
-    })
-    .then(() => {
-      console.info('Operation succeeded');
-    })
-    .catch((err: BusinessError) => {
-      console.error(`Operation failed cause: ${JSON.stringify(err)}`);
-    });
+  particleAbility.startBackgroundRunning(id, {
+    content:
+    {
+      contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
+      normal:
+      {
+        title: 'title',
+        text: 'text'
+      }
+    },
+    wantAgent: wantAgentObj
+  }).then(() => {
+    console.info('Operation succeeded');
+  }).catch((err: BusinessError) => {
+    console.error(`Operation failed cause: ${JSON.stringify(err)}`);
+  });
 });
 ```
 
 
-## particleAbility.cancelBackgroundRunning(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancelBackgroundRunning(callback: AsyncCallback<void>): void
+##### particleAbility.cancelBackgroundRunning(deprecated)
+
+cancelBackgroundRunning(callback: AsyncCallback&lt;void&gt;): void
 
 向系统申请取消长时任务。使用callback异步回调。
 
 **系统能力**：SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[backgroundTaskManager.stopBackgroundRunning](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundtaskmanagerstopbackgroundrunning)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 backgroundTaskManager.stopBackgroundRunning 替代。
+
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -406,8 +385,7 @@ cancelBackgroundRunning(callback: AsyncCallback<void>): void
 
 **示例**：
 
-
-```ts
+```json
 import { particleAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -423,21 +401,20 @@ particleAbility.cancelBackgroundRunning(callback);
 ```
 
 
-## particleAbility.cancelBackgroundRunning(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-cancelBackgroundRunning(): Promise<void>
+##### particleAbility.cancelBackgroundRunning(deprecated)
+
+cancelBackgroundRunning(): Promise&lt;void&gt;
 
 向系统申请取消长时任务。使用Promise异步回调。
 
 **系统能力**：SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[backgroundTaskManager.stopBackgroundRunning](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundtaskmanagerstopbackgroundrunning-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 backgroundTaskManager.stopBackgroundRunning 替代。
+
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -446,47 +423,40 @@ cancelBackgroundRunning(): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { particleAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-particleAbility
-  .cancelBackgroundRunning()
-  .then(() => {
-    console.info('Operation succeeded');
-  })
-  .catch((err: BusinessError) => {
-    console.error(`Operation failed cause: ${JSON.stringify(err)}`);
-  });
+particleAbility.cancelBackgroundRunning().then(() => {
+  console.info('Operation succeeded');
+}).catch((err: BusinessError) => {
+  console.error(`Operation failed cause: ${JSON.stringify(err)}`);
+});
 ```
 
 
-## particleAbility.connectAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### particleAbility.connectAbility
 
 connectAbility(request: Want, options:ConnectOptions): number
 
 将当前ability与指定的ServiceAbility进行连接。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
-> 跨应用连接serviceAbility，对端应用需配置关联启动。
+> 组件启动规则详见： 组件启动规则（FA模型） 。 跨应用连接serviceAbility，对端应用需配置关联启动。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want) | 是 | 表示被连接的ServiceAbility。 |
-| options | [ConnectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-connectoptions) | 是 | 连接回调方法。 |
+| request | Want | 是 | 表示被连接的ServiceAbility。 |
+| options | ConnectOptions | 是 | 连接回调方法。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -495,8 +465,7 @@ connectAbility(request: Want, options:ConnectOptions): number
 
 **示例**：
 
-
-```ts
+```text
 import { particleAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -508,45 +477,35 @@ let connId = particleAbility.connectAbility(
   },
   {
     onConnect: (element, remote) => {
-      console.info(
-        `ConnectAbility onConnect remote is proxy: ${remote instanceof rpc.RemoteProxy}`,
-      );
+      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);
     },
     onDisconnect: (element) => {
-      console.info(
-        `ConnectAbility onDisconnect element.deviceId: ${element.deviceId}`,
-      );
+      console.info(`ConnectAbility onDisconnect element.deviceId: ${element.deviceId}`);
     },
     onFailed: (code) => {
-      console.error(
-        `particleAbilityTest ConnectAbility onFailed errCode: ${code}`,
-      );
+      console.error(`particleAbilityTest ConnectAbility onFailed errCode: ${code}`);
     },
   },
 );
 
-particleAbility
-  .disconnectAbility(connId)
-  .then((data) => {
-    console.info(`data: ${data}`);
-  })
-  .catch((error: BusinessError) => {
-    console.error(`particleAbilityTest result errCode: ${error.code}`);
-  });
+particleAbility.disconnectAbility(connId).then((data) => {
+  console.info(`data: ${data}`);
+}).catch((error: BusinessError) => {
+  console.error(`particleAbilityTest result errCode: ${error.code}`);
+});
 ```
 
 
-## particleAbility.disconnectAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectAbility(connection: number, callback:AsyncCallback<void>): void
+##### particleAbility.disconnectAbility
+
+disconnectAbility(connection: number, callback:AsyncCallback&lt;void&gt;): void
 
 断开当前ability与指定ServiceAbility的连接。使用callback异步回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -556,8 +515,7 @@ disconnectAbility(connection: number, callback:AsyncCallback<void>): void
 
 **示例**：
 
-
-```ts
+```json
 import { particleAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 
@@ -568,42 +526,33 @@ let connId = particleAbility.connectAbility(
   },
   {
     onConnect: (element, remote) => {
-      console.info(
-        `ConnectAbility onConnect remote is proxy: ${remote instanceof rpc.RemoteProxy}`,
-      );
+      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);
     },
     onDisconnect: (element) => {
-      console.info(
-        `ConnectAbility onDisconnect element.deviceId: ${element.deviceId}`,
-      );
+      console.info(`ConnectAbility onDisconnect element.deviceId: ${element.deviceId}`);
     },
     onFailed: (code) => {
-      console.error(
-        `particleAbilityTest ConnectAbility onFailed errCode: ${code}`,
-      );
+      console.error(`particleAbilityTest ConnectAbility onFailed errCode: ${code}`);
     },
   },
 );
 
 particleAbility.disconnectAbility(connId, (err) => {
-  console.error(
-    `particleAbilityTest disconnectAbility err: ${JSON.stringify(err)}`,
-  );
+  console.error(`particleAbilityTest disconnectAbility err: ${JSON.stringify(err)}`);
 });
 ```
 
 
-## particleAbility.disconnectAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectAbility(connection: number): Promise<void>
+##### particleAbility.disconnectAbility
+
+disconnectAbility(connection: number): Promise&lt;void&gt;
 
 断开当前ability与指定ServiceAbility的连接。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -612,7 +561,6 @@ disconnectAbility(connection: number): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -620,8 +568,7 @@ disconnectAbility(connection: number): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { particleAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -633,41 +580,31 @@ let connId = particleAbility.connectAbility(
   },
   {
     onConnect: (element, remote) => {
-      console.info(
-        `ConnectAbility onConnect remote is proxy: ${remote instanceof rpc.RemoteProxy}`,
-      );
+      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);
     },
     onDisconnect: (element) => {
-      console.info(
-        `ConnectAbility onDisconnect element.deviceId: ${element.deviceId}`,
-      );
+      console.info(`ConnectAbility onDisconnect element.deviceId: ${element.deviceId}`);
     },
     onFailed: (code) => {
-      console.error(
-        `particleAbilityTest ConnectAbility onFailed errCode: ${code}`,
-      );
+      console.error(`particleAbilityTest ConnectAbility onFailed errCode: ${code}`);
     },
   },
 );
 
-particleAbility
-  .disconnectAbility(connId)
-  .then(() => {
-    console.info('disconnectAbility success');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`particleAbilityTest result errCode : ${error.code}`);
-  });
+particleAbility.disconnectAbility(connId).then(() => {
+  console.info('disconnectAbility success');
+}).catch((error: BusinessError) => {
+  console.error(`particleAbilityTest result errCode : ${error.code}`);
+});
 ```
 
 
-## ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ErrorCode
 
 定义启动Ability时返回的错误码。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

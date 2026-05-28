@@ -6,8 +6,8 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 错误码变更 | 类名：LoginPanelController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback<HuaweiIDCredential>): LoginPanelController; 差异内容：NA | 类名：LoginPanelController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback<HuaweiIDCredential>): LoginPanelController; 差异内容：1001500001,1001500002,1001500003,1001502001,1001502002,1001502003,1001502005,1001502009,1001502012,1001502014,1005300001,12300001,401 | api/@hms.core.account.LoginComponent.d.ets |
-| 错误码变更 | 类名：LoginWithHuaweiIDButtonController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback<HuaweiIDCredential>): LoginWithHuaweiIDButtonController; 差异内容：NA | 类名：LoginWithHuaweiIDButtonController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback<HuaweiIDCredential>): LoginWithHuaweiIDButtonController; 差异内容：1001500001,1001500002,1001500003,1001502001,1001502002,1001502003,1001502005,1001502009,1001502012,1001502014,1005300001,12300001,401 | api/@hms.core.account.LoginComponent.d.ets |
+| 错误码变更 | 类名：LoginPanelController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;): LoginPanelController; 差异内容：NA | 类名：LoginPanelController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;): LoginPanelController; 差异内容：1001500001,1001500002,1001500003,1001502001,1001502002,1001502003,1001502005,1001502009,1001502012,1001502014,1005300001,12300001,401 | api/@hms.core.account.LoginComponent.d.ets |
+| 错误码变更 | 类名：LoginWithHuaweiIDButtonController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;): LoginWithHuaweiIDButtonController; 差异内容：NA | 类名：LoginWithHuaweiIDButtonController； API声明：onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;): LoginWithHuaweiIDButtonController; 差异内容：1001500001,1001500002,1001500003,1001502001,1001502002,1001502003,1001502005,1001502009,1001502012,1001502014,1005300001,12300001,401 | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：loginComponentManager； API声明： export interface StateStyles 差异内容： export interface StateStyles | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：StateStyles； API声明：normal?: ButtonStyle; 差异内容：normal?: ButtonStyle; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：StateStyles； API声明：pressed?: ButtonStyle; 差异内容：pressed?: ButtonStyle; | api/@hms.core.account.LoginComponent.d.ets |
@@ -35,16 +35,16 @@
 | 新增API | NA | 类名：ButtonStyle； API声明：clickEffect(value: ClickEffect): ButtonStyle; 差异内容：clickEffect(value: ClickEffect): ButtonStyle; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：ButtonStyle； API声明：loadingStyle(value: LoadingStyle): ButtonStyle; 差异内容：loadingStyle(value: LoadingStyle): ButtonStyle; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：loginComponentManager； API声明： export interface SweepGradient 差异内容： export interface SweepGradient | api/@hms.core.account.LoginComponent.d.ets |
-| 新增API | NA | 类名：SweepGradient； API声明：center: [  Length,  Length  ]; 差异内容：center: [  Length,  Length  ]; | api/@hms.core.account.LoginComponent.d.ets |
+| 新增API | NA | 类名：SweepGradient； API声明：center: [ Length, Length ]; 差异内容：center: [ Length, Length ]; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：SweepGradient； API声明：start?: number \| string; 差异内容：start?: number \| string; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：SweepGradient； API声明：end?: number \| string; 差异内容：end?: number \| string; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：SweepGradient； API声明：rotation?: number \| string; 差异内容：rotation?: number \| string; | api/@hms.core.account.LoginComponent.d.ets |
-| 新增API | NA | 类名：SweepGradient； API声明：colors: Array<[  ResourceColor,  number  ]>; 差异内容：colors: Array<[  ResourceColor,  number  ]>; | api/@hms.core.account.LoginComponent.d.ets |
+| 新增API | NA | 类名：SweepGradient； API声明：colors: Array<[ ResourceColor, number ]>; 差异内容：colors: Array<[ ResourceColor, number ]>; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：SweepGradient； API声明：repeating?: boolean; 差异内容：repeating?: boolean; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：loginComponentManager； API声明： export interface RadialGradient 差异内容： export interface RadialGradient | api/@hms.core.account.LoginComponent.d.ets |
-| 新增API | NA | 类名：RadialGradient； API声明：center: [  Length,  Length  ]; 差异内容：center: [  Length,  Length  ]; | api/@hms.core.account.LoginComponent.d.ets |
+| 新增API | NA | 类名：RadialGradient； API声明：center: [ Length, Length ]; 差异内容：center: [ Length, Length ]; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：RadialGradient； API声明：radius: number \| string; 差异内容：radius: number \| string; | api/@hms.core.account.LoginComponent.d.ets |
-| 新增API | NA | 类名：RadialGradient； API声明：colors: Array<[  ResourceColor,  number  ]>; 差异内容：colors: Array<[  ResourceColor,  number  ]>; | api/@hms.core.account.LoginComponent.d.ets |
+| 新增API | NA | 类名：RadialGradient； API声明：colors: Array<[ ResourceColor, number ]>; 差异内容：colors: Array<[ ResourceColor, number ]>; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：RadialGradient； API声明：repeating?: boolean; 差异内容：repeating?: boolean; | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：loginComponentManager； API声明： export interface ExtraStyle 差异内容： export interface ExtraStyle | api/@hms.core.account.LoginComponent.d.ets |
 | 新增API | NA | 类名：ExtraStyle； API声明：buttonStyle?: ButtonStyle; 差异内容：buttonStyle?: ButtonStyle; | api/@hms.core.account.LoginComponent.d.ets |

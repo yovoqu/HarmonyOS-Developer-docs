@@ -18,7 +18,7 @@
 | 新增API | NA | 类名：Poi； API声明：subLocality: string; 差异内容：subLocality: string; | api/@ohos.geoLocationManager.d.ts |
 | 新增API | NA | 类名：Poi； API声明：address: string; 差异内容：address: string; | api/@ohos.geoLocationManager.d.ts |
 | 新增API | NA | 类名：geoLocationManager； API声明：export interface PoiInfo 差异内容：export interface PoiInfo | api/@ohos.geoLocationManager.d.ts |
-| 新增API | NA | 类名：PoiInfo； API声明：poiArray: Array<Poi>; 差异内容：poiArray: Array<Poi>; | api/@ohos.geoLocationManager.d.ts |
+| 新增API | NA | 类名：PoiInfo； API声明：poiArray: Array&lt;Poi&gt;; 差异内容：poiArray: Array&lt;Poi&gt;; | api/@ohos.geoLocationManager.d.ts |
 | 新增API | NA | 类名：PoiInfo； API声明：timestamp: number; 差异内容：timestamp: number; | api/@ohos.geoLocationManager.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：ContinuousLocationRequest； API声明：needPoi?: boolean; 差异内容：needPoi?: boolean; | api/@ohos.geoLocationManager.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SingleLocationRequest； API声明：needPoi?: boolean; 差异内容：needPoi?: boolean; | api/@ohos.geoLocationManager.d.ts |

@@ -4,12 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-apphicollie-events-arkts
 
-## 简介
+##### 简介
 
 从API version 21开始，支持arkTS接口订阅任务执行超时事件。 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅任务执行超时事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -17,13 +18,19 @@
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以取消对应用事件的订阅。 |
 
 
-## 开发步骤
 
 
-## 添加事件观察者
+##### 开发步骤
 
-为确保开发阶段顺利接收事件回调，建议采取以下方案：创建新的Native C++工程，在ArkTS代码中实现订阅，并通过C++代码构造故障注入以触发任务执行超时事件。 新建Native C++工程，目录结构如下：
-```text
+
+
+##### 添加事件观察者
+
+为确保开发阶段顺利接收事件回调，建议采取以下方案：创建新的Native C++工程，在ArkTS代码中实现订阅，并通过C++代码构造故障注入以触发任务执行超时事件。
+1. 新建Native C++工程，目录结构如下：
+
+  
+```ArkTS
 entry:
   src:
     main:
@@ -40,19 +47,25 @@ entry:
           - Index.ets
 ```
 
-编辑“CMakeLists.txt”文件，添加源文件及动态库。
+2. 编辑“CMakeLists.txt”文件，添加源文件及动态库。
+
+  
 ```text
 # 新增动态库依赖libhilog_ndk.z.so（日志输出）及libohhicollie.so（hicollie检测）
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libohhicollie.so)
 ```
 
-编辑“EntryAbility.ets”文件，导入依赖模块，示例代码如下：
+3. 编辑“EntryAbility.ets”文件，导入依赖模块，示例代码如下：
+
+  
 ```text
 import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-订阅系统事件，编辑“EntryAbility.ets”文件，在onCreate函数中添加订阅代码，示例代码如下：
-```text
+4. 订阅系统事件，编辑“EntryAbility.ets”文件，在onCreate函数中添加订阅代码，示例代码如下：
+
+  
+```json
 let watcher: hiAppEvent.Watcher = {
   // 开发者可以自定义观察者名称，系统会使用名称来标识不同的观察者
   name: "watcher",
@@ -64,7 +77,7 @@ let watcher: hiAppEvent.Watcher = {
     }
   ],
   // 开发者可以自行实现订阅实时回调函数，以便对订阅获取到的事件数据进行自定义处理
-  onReceive: (domain: string, appEventGroups: Array) => {
+  onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
     hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
     for (const eventGroup of appEventGroups) {
       hilog.info(0x0000, 'testTag', `HiAppEvent eventName=${eventGroup.name}`);
@@ -93,13 +106,17 @@ let watcher: hiAppEvent.Watcher = {
 hiAppEvent.addWatcher(watcher);
 ```
 
-新增TestHiCollieTimerNdk函数。 编辑“napi_init.cpp”文件，新增TestHiCollieTimerNdk函数，构造任务执行超时事件：
+5. 新增TestHiCollieTimerNdk函数。
+
+  编辑“napi_init.cpp”文件，新增TestHiCollieTimerNdk函数，构造任务执行超时事件：
+
+  
 ```text
 // 引入hicollie.h头文件
 #include "napi/native_api.h"
 #include "hicollie/hicollie.h"
 #include "hilog/log.h"
-#include
+#include <unistd.h>
 #undef LOG_TAG
 #define LOG_TAG "testTag"
 
@@ -121,7 +138,11 @@ static napi_value TestHiCollieTimerNdk(napi_env env, napi_callback_info exports)
 }
 ```
 
-将TestHiCollieTimerNdk注册为ArkTS接口。 编辑“napi_init.cpp”文件，TestHiCollieTimerNdk注册为ArkTS接口：
+6. 将TestHiCollieTimerNdk注册为ArkTS接口。
+
+  编辑“napi_init.cpp”文件，TestHiCollieTimerNdk注册为ArkTS接口：
+
+  
 ```text
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
@@ -147,13 +168,16 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
     napi_module_register(&demoModule);
 }
 ```
-
 编辑“index.d.ts”文件，定义ArkTS接口：
+
+  
 ```text
 export const TestHiCollieTimerNdk: () => void;
 ```
 
-编辑“Index.ets”文件，新增按钮触发任务执行超时事件。
+7. 编辑“Index.ets”文件，新增按钮触发任务执行超时事件。
+
+  
 ```text
 import testNapi from 'libentry.so';
 
@@ -177,11 +201,14 @@ struct Index {
 }
 ```
 
-单击DevEco Studio界面中的运行按钮，运行应用工程，然后在应用界面中单击按钮“TestHiCollieTimerNdk”，触发任务执行超时事件。
+8. 单击DevEco Studio界面中的运行按钮，运行应用工程，然后在应用界面中单击按钮“TestHiCollieTimerNdk”，触发任务执行超时事件。
 
-## 验证观察者是否订阅到任务执行超时事件
+
+
+##### 验证观察者是否订阅到任务执行超时事件
 
 应用工程崩溃退出后，再次运行可在Log窗口查看系统事件数据处理日志。
+
 ```text
 HiAppEvent eventInfo.domain=OS
 HiAppEvent eventInfo.name=APP_HICOLLIE
@@ -203,8 +230,8 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 ```
 
 
-## 移除事件观察者
 
+##### 移除事件观察者
 
 ```text
 // 移除该应用事件观察者以取消订阅事件

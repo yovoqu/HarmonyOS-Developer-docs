@@ -8,4 +8,4 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：MediaDescriptionKey； API声明：MD_KEY_ORIGINAL_WIDTH = 'original_width' 差异内容：MD_KEY_ORIGINAL_WIDTH = 'original_width' | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：MediaDescriptionKey； API声明：MD_KEY_ORIGINAL_HEIGHT = 'original_height' 差异内容：MD_KEY_ORIGINAL_HEIGHT = 'original_height' | api/@ohos.multimedia.media.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVPlayer； API声明：setLoudnessGain(loudnessGain: number): Promise<void>; 差异内容：setLoudnessGain(loudnessGain: number): Promise<void>; | api/@ohos.multimedia.media.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVPlayer； API声明：setLoudnessGain(loudnessGain: number): Promise&lt;void&gt;; 差异内容：setLoudnessGain(loudnessGain: number): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |

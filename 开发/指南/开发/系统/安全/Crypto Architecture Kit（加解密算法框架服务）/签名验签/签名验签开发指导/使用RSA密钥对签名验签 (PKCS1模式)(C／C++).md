@@ -1,23 +1,27 @@
 # 使用RSA密钥对签名验签 (PKCS1模式)(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-sign-sig-verify-pkcs1-ndk
 
 对应的算法规格请查看[签名验签算法规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sign-sig-verify-overview#rsa)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
 ```
 
 
-## 签名开发步骤
 
-调用[OH_CryptoSign_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_create)，指定字符串参数'RSA1024|PKCS1|SHA256'，创建Sign实例，用于完成签名操作。 调用[OH_CryptoSign_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_init)，使用私钥（OH_CryptoPrivKey）初始化Sign实例。 调用[OH_CryptoSign_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_update)，传入待签名的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update。如果数据量较小，可以直接调用OH_CryptoSign_Final接口一次性传入。 调用[OH_CryptoSign_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_final)，获取签名后的数据。 调用[OH_CryptoSign_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_destroy)等释放内存。
+##### 签名开发步骤
+1. 调用[OH_CryptoSign_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_create)，指定字符串参数'RSA1024|PKCS1|SHA256'，创建Sign实例，用于完成签名操作。
+2. 调用[OH_CryptoSign_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_init)，使用私钥（OH_CryptoPrivKey）初始化Sign实例。
+3. 调用[OH_CryptoSign_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_update)，传入待签名的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update。如果数据量较小，可以直接调用OH_CryptoSign_Final接口一次性传入。
+4. 调用[OH_CryptoSign_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_final)，获取签名后的数据。
+5. 调用[OH_CryptoSign_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_destroy)等释放内存。
+
 ```text
 #include "CryptoArchitectureKit/crypto_common.h"
 #include "CryptoArchitectureKit/crypto_signature.h"
@@ -36,7 +40,7 @@ static OH_Crypto_ErrCode doTestRsaSignature() {
       0x01, 0x9d, 0x70, 0xa3, 0xf4, 0x92, 0x16, 0xec, 0x3f, 0xa7, 0x3c, 0x83, 0x8d, 0x40, 0x41, 0xfc,
    }; // 待验证数据，仅供参考。
    Crypto_DataBlob msgBlob = {
-      .data = reinterpret_cast(plainText),
+      .data = reinterpret_cast<uint8_t *>(plainText),
       .len = sizeof(plainText)
    };
 
@@ -88,10 +92,20 @@ static OH_Crypto_ErrCode doTestRsaSignature() {
 ```
 
 
-## 验签开发步骤
 
-调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA1024|PKCS1|SHA256'，与签名的Sign实例保持一致。创建Verify实例，用于完成验签操作。 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。 调用[OH_CryptoVerify_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_update)，传入待验证的数据。 当前单次update长度没有限制，开发者可以根据数据量判断如何调用update，如果数据量较小，可以直接调用OH_CryptoVerify_Final接口一次性传入。 当待签名的数据较短时，可以在init完成后直接调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)。 当数据量较大时，可以多次调用update，即[分段验签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-sign-sig-verify-pkcs1-by-segment-ndk)。 调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)，对数据进行验签。
-```text
+##### 验签开发步骤
+1. 调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA1024|PKCS1|SHA256'，与签名的Sign实例保持一致。创建Verify实例，用于完成验签操作。
+2. 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。
+3. 调用[OH_CryptoVerify_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_update)，传入待验证的数据。
+
+  当前单次update长度没有限制，开发者可以根据数据量判断如何调用update，如果数据量较小，可以直接调用OH_CryptoVerify_Final接口一次性传入。
+
+  
+当待签名的数据较短时，可以在init完成后直接调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)。
+4. 当数据量较大时，可以多次调用update，即[分段验签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-sign-sig-verify-pkcs1-by-segment-ndk)。
+5. 调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)，对数据进行验签。
+
+```cpp
 #include "signing_signature_verification.h"
 
 bool DoTestRsaSignature()
@@ -106,7 +120,7 @@ bool DoTestRsaSignature()
         0xd1, 0xb5, 0xc7, 0x12, 0xbf, 0xcf, 0x91, 0x25, 0x82, 0x23, 0x6b, 0xd6, 0x64, 0x52, 0x77, 0x93,
         0x01, 0x9d, 0x70, 0xa3, 0xf4, 0x92, 0x16, 0xec, 0x3f, 0xa7, 0x3c, 0x83, 0x8d, 0x40, 0x41, 0xfc,
     };
-    Crypto_DataBlob msgBlob = {.data = reinterpret_cast(plainText), .len = sizeof(plainText)};
+    Crypto_DataBlob msgBlob = {.data = reinterpret_cast<uint8_t *>(plainText), .len = sizeof(plainText)};
 
     uint8_t pubKeyText[] = {
         0x2d, 0x2d, 0x2d, 0x2d, 0x2d, 0x42, 0x45, 0x47, 0x49, 0x4e, 0x20, 0x52, 0x53, 0x41, 0x20, 0x50, 0x55, 0x42,
@@ -125,7 +139,7 @@ bool DoTestRsaSignature()
         0x20, 0x50, 0x55, 0x42, 0x4c, 0x49, 0x43, 0x20, 0x4b, 0x45, 0x59, 0x2d, 0x2d, 0x2d, 0x2d, 0x2d, 0x0a,
     };
 
-    Crypto_DataBlob keyBlob = {.data = reinterpret_cast(pubKeyText), .len = sizeof(pubKeyText)};
+    Crypto_DataBlob keyBlob = {.data = reinterpret_cast<uint8_t *>(pubKeyText), .len = sizeof(pubKeyText)};
 
     uint8_t signText[] = {
         0x68, 0x2f, 0x3b, 0xe6, 0xa6, 0x5c, 0xb8, 0x60, 0xd4, 0xe1, 0x64, 0xa7, 0xd8, 0x0c, 0x9c, 0x89,
@@ -138,7 +152,7 @@ bool DoTestRsaSignature()
         0xd8, 0x4b, 0xc9, 0x92, 0xa0, 0x3f, 0x6e, 0xba, 0x78, 0x2e, 0x80, 0x78, 0x1e, 0x74, 0xa0, 0x47,
     };
 
-    Crypto_DataBlob signBlob = {.data = reinterpret_cast(signText), .len = sizeof(signText)};
+    Crypto_DataBlob signBlob = {.data = reinterpret_cast<uint8_t *>(signText), .len = sizeof(signText)};
 
     // keypair
     OH_Crypto_ErrCode ret = CRYPTO_SUCCESS;

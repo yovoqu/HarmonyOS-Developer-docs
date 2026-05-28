@@ -4,12 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensorplacementutils
 
-## 函数功能
+##### 函数功能
 
 提供一组函数，判断TensorPlacement的位置。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 class TensorPlacementUtils {
@@ -40,26 +41,33 @@ class TensorPlacementUtils {
   }
 };
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | placement | 输入 | 需要进行判断的TensorPlacement枚举。 |
+ 
+ 
+  
 
+##### 返回值
 
-## 返回值
+- true表示是。
+- false表示不是。
 
-true表示是。  false表示不是。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 TensorData tensor_data;

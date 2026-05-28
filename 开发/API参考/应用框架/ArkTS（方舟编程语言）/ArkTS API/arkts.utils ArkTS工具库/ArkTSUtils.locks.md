@@ -3,7 +3,7 @@
 更新时间：2026-03-30 09:53:19
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-locks
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 为了解决多并发实例间的数据竞争问题，ArkTS语言基础库引入了异步锁能力。为了开发者的开发效率，AsyncLock对象支持跨并发实例引用传递。
 
@@ -11,25 +11,22 @@
 
 使用异步锁的方法需要标记为async，调用方需要await修饰调用，才能保证时序正确。因此会导致外层调用函数全部标记成async。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
-import { ArkTSUtils } from '@kit.ArkTS';
+```text
+import { ArkTSUtils } from '@kit.ArkTS'
 ```
 
 
-## AsyncLockCallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type AsyncLockCallback<T> = () => T | Promise<T>
+##### AsyncLockCallback
+
+type AsyncLockCallback&lt;T&gt; = () => T | Promise&lt;T&gt;
 
 这是一个补充类型别名，表示[lockAsync](#lockasync)函数所有重载中的回调。
 
@@ -38,19 +35,18 @@ type AsyncLockCallback<T> = () => T | Promise<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 
-## AsyncLock
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AsyncLock
 
 实现异步锁功能的类，允许在锁下执行异步操作。该类使用[@Sendable装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)装饰。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -59,8 +55,7 @@ type AsyncLockCallback<T> = () => T | Promise<T>
 
 **示例：**
 
-
-```ts
+```text
 // 示例一：
 @Sendable
 class A {
@@ -103,8 +98,8 @@ async function foo(a: A) {
 ```
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor()
 
@@ -116,14 +111,13 @@ constructor()
 
 **示例：**
 
-
-```ts
+```text
 let lock = new ArkTSUtils.locks.AsyncLock();
 ```
 
 
-### request
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### request
 
 static request(name: string): AsyncLock
 
@@ -135,7 +129,6 @@ static request(name: string): AsyncLock
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 按指定名称查找或创建异步锁实例。 |
@@ -143,23 +136,21 @@ static request(name: string): AsyncLock
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AsyncLock](#asynclock) | 返回查找到或创建后的异步锁实例。 |
+| AsyncLock | 返回查找到或创建后的异步锁实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let lockName = 'isAvailableLock';
 let lock = ArkTSUtils.locks.AsyncLock.request(lockName);
 ```
 
 
-### query
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### query
 
 static query(name: string): AsyncLockState
 
@@ -171,24 +162,21 @@ static query(name: string): AsyncLockState
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| name | string | 是 | 要查询的锁的名称，仅可查询通过[request接口](#request)获取的锁（即与[request接口](#request)入参锁名称保持一致）。 |
+| name | string | 是 | 要查询的锁的名称，仅可查询通过request接口获取的锁（即与request接口入参锁名称保持一致）。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AsyncLockState](#asynclockstate) | 包含状态描述的异步锁状态实例。 |
+| AsyncLockState | 包含状态描述的异步锁状态实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -198,10 +186,9 @@ static query(name: string): AsyncLockState
 
 **示例：**
 
-
-```ts
+```text
 // 查询已存在的锁信息
-let lock = ArkTSUtils.locks.AsyncLock.request('queryTestLock');
+let lock = ArkTSUtils.locks.AsyncLock.request("queryTestLock");
 let state = ArkTSUtils.locks.AsyncLock.query('queryTestLock');
 let pending: ArkTSUtils.locks.AsyncLockInfo[] = state.pending;
 let held: ArkTSUtils.locks.AsyncLockInfo[] = state.held;
@@ -219,8 +206,8 @@ try {
 ```
 
 
-### queryAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### queryAll
 
 static queryAll(): AsyncLockState[]
 
@@ -232,30 +219,27 @@ static queryAll(): AsyncLockState[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AsyncLockState](#asynclockstate)[] | 包含锁状态信息的异步锁状态数组。 |
+| AsyncLockState[] | 包含锁状态信息的异步锁状态数组。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 查询已存在的锁信息
-let lock1 = ArkTSUtils.locks.AsyncLock.request('queryTestLock1');
-let lock2 = ArkTSUtils.locks.AsyncLock.request('queryTestLock2');
-let states: ArkTSUtils.locks.AsyncLockState[] =
-  ArkTSUtils.locks.AsyncLock.queryAll();
+let lock1 = ArkTSUtils.locks.AsyncLock.request("queryTestLock1");
+let lock2 = ArkTSUtils.locks.AsyncLock.request("queryTestLock2");
+let states: ArkTSUtils.locks.AsyncLockState[] = ArkTSUtils.locks.AsyncLock.queryAll();
 // 输出当前存在的锁数量
-console.info('The states size is ' + states.length);
+console.info("The states size is " + states.length);
 ```
 
 
-### lockAsync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>
+##### lockAsync
+
+lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;): Promise&lt;T&gt;
 
 在获取的锁下执行操作。该方法首先获取锁，然后调用回调，最后释放锁。回调在调用[lockAsync](#lockasync)的同一线程中以异步方式执行。
 
@@ -265,14 +249,12 @@ lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [AsyncLockCallback&lt;T&gt;](#asynclockcallback) | 是 | 获取锁后要调用的函数。 |
+| callback | AsyncLockCallback&lt;T&gt; | 是 | 获取锁后要调用的函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -283,7 +265,6 @@ lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The input parameters are invalid. |
@@ -292,19 +273,18 @@ lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>
 
 **示例：**
 
-
-```ts
+```text
 let lock = new ArkTSUtils.locks.AsyncLock();
 let p1 = lock.lockAsync<void>(() => {
-  // 执行某些操作
+    // 执行某些操作
 });
 ```
 
 
-### lockAsync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>
+##### lockAsync
+
+lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode): Promise&lt;T&gt;
 
 在获取的锁下执行操作。该方法首先获取锁，然后调用回调，最后释放锁。回调在调用[lockAsync](#lockasync)的同一线程中以异步方式执行。
 
@@ -314,15 +294,13 @@ lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [AsyncLockCallback&lt;T&gt;](#asynclockcallback) | 是 | 获取锁后要调用的函数。 |
-| mode | [AsyncLockMode](#asynclockmode) | 是 | 锁的操作模式。 |
+| callback | AsyncLockCallback&lt;T&gt; | 是 | 获取锁后要调用的函数。 |
+| mode | AsyncLockMode | 是 | 锁的操作模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -333,7 +311,6 @@ lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | The input parameters are invalid. |
@@ -342,19 +319,18 @@ lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>
 
 **示例：**
 
-
-```ts
+```text
 let lock = new ArkTSUtils.locks.AsyncLock();
 let p1 = lock.lockAsync<void>(() => {
-  // 执行某些操作
+    // 执行某些操作
 }, ArkTSUtils.locks.AsyncLockMode.EXCLUSIVE);
 ```
 
 
-### lockAsync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode, options: AsyncLockOptions<U>): Promise<T | U>
+##### lockAsync
+
+lockAsync<T, U>(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode, options: AsyncLockOptions&lt;U&gt;): Promise<T | U>
 
 在获取的锁下执行操作。该方法首先获取锁，然后调用回调，最后释放锁。回调在调用[lockAsync](#lockasync)的同一线程中以异步方式执行。在[AsyncLockOptions](#asynclockoptions)中可以提供一个可选的超时值。在这种情况下，如果超时前未能获取锁，lockAsync将返回被拒绝的Promise并带上一个BusinessError实例。这种情况下，错误信息将包含持有的锁和等待的锁的信息以及可能的死锁警告。
 
@@ -364,26 +340,23 @@ lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode, options: As
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [AsyncLockCallback&lt;T&gt;](#asynclockcallback) | 是 | 获取锁后要调用的函数。 |
-| mode | [AsyncLockMode](#asynclockmode) | 是 | 锁的操作模式。 |
-| options | [AsyncLockOptions&lt;U&gt;](#asynclockoptions) | 是 | 锁的操作选项。 |
+| callback | AsyncLockCallback&lt;T&gt; | 是 | 获取锁后要调用的函数。 |
+| mode | AsyncLockMode | 是 | 锁的操作模式。 |
+| options | AsyncLockOptions&lt;U&gt; | 是 | 锁的操作选项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;T \| U&gt; | 回调执行后解决的Promise，或者在超时情况下被拒绝。 |
+| Promise<T \| U> | 回调执行后解决的Promise，或者在超时情况下被拒绝。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -394,30 +367,28 @@ lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode, options: As
 
 **示例：**
 
-
-```ts
+```text
 let lock = new ArkTSUtils.locks.AsyncLock();
 let options = new ArkTSUtils.locks.AsyncLockOptions<void>();
 options.timeout = 1000;
 let p: Promise<void> = lock.lockAsync<void, void>(
-  () => {
-    // 执行某些操作
-  },
-  ArkTSUtils.locks.AsyncLockMode.EXCLUSIVE,
-  options,
+    () => {
+        // 执行某些操作
+    },
+    ArkTSUtils.locks.AsyncLockMode.EXCLUSIVE,
+    options
 );
 ```
 
 
-## AsyncLockMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AsyncLockMode
 
 锁操作对应的模式枚举。
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -427,41 +398,40 @@ let p: Promise<void> = lock.lockAsync<void, void>(
 
 **示例：**
 
-
-```ts
+```text
 let lock = new ArkTSUtils.locks.AsyncLock();
 // shared0可获取锁并开始执行
 lock.lockAsync(async () => {
-  console.info('shared0');
-  await new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    console.info('shared0');
+    await new Promise<void>((resolve) => setTimeout(resolve, 1000));
 }, ArkTSUtils.locks.AsyncLockMode.SHARED);
 // shared1可获取锁并开始执行，无需等待shared0
 lock.lockAsync(async () => {
-  console.info('shared1');
-  await new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    console.info('shared1');
+    await new Promise<void>((resolve) => setTimeout(resolve, 1000));
 }, ArkTSUtils.locks.AsyncLockMode.SHARED);
 // exclusive0需等待shared0、1执行完后才可获取锁并执行
 lock.lockAsync(async () => {
-  console.info('exclusive0');
-  await new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    console.info('exclusive0');
+    await new Promise<void>((resolve) => setTimeout(resolve, 1000));
 }, ArkTSUtils.locks.AsyncLockMode.EXCLUSIVE);
 // shared2需等待exclusive0执行完后才可获取锁并执行
 lock.lockAsync(async () => {
-  console.info('shared2');
-  await new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    console.info('shared2');
+    await new Promise<void>((resolve) => setTimeout(resolve, 1000));
 }, ArkTSUtils.locks.AsyncLockMode.SHARED);
 // shared3需等待exclusive0执行完后才可获取锁并执行，无需等待shared2
 lock.lockAsync(async () => {
-  console.info('shared3');
-  await new Promise<void>((resolve) => setTimeout(resolve, 1000));
+    console.info('shared3');
+    await new Promise<void>((resolve) => setTimeout(resolve, 1000));
 }, ArkTSUtils.locks.AsyncLockMode.SHARED);
 ```
 
 
-## AsyncLockOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-class AsyncLockOptions<T>
+##### AsyncLockOptions
+
+class AsyncLockOptions&lt;T&gt;
 
 表示锁操作选项的类。
 
@@ -470,8 +440,8 @@ class AsyncLockOptions<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor()
 
@@ -483,12 +453,8 @@ constructor()
 
 **示例：**
 
-
-```ts
-let s: ArkTSUtils.locks.AbortSignal<string> = {
-  aborted: false,
-  reason: 'Aborted',
-};
+```text
+let s: ArkTSUtils.locks.AbortSignal<string> = { aborted: false, reason: 'Aborted' };
 let options = new ArkTSUtils.locks.AsyncLockOptions<string>();
 options.isAvailable = false;
 options.signal = s;
@@ -503,18 +469,19 @@ let p = lock.lockAsync<void, string>(
 ```
 
 
-### 属性
 
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isAvailable | boolean | 否 | 否 | 当前锁是否可用。取值为true，则只有在尚未持有锁定请求时才会授予该锁定请求；为false则表示将等待当前锁被释放。默认为 false。 |
-| signal | [AbortSignal&lt;T&gt;](#abortsignal)\|null | 否 | 否 | 用于终止异步操作的对象。当signal.aborted为true时，锁请求将被丢弃；当signal.aborted为false时，请求会继续等待获取锁；当signal为null时，请求正常排队运行。默认为 null。 |
-| timeout | number | 否 | 否 | 锁的超时时间，单位为毫秒。若该值大于零，且操作运行时间超过该时间，[lockAsync](#lockasync)将返回被拒绝的Promise。默认为 0。 |
+| signal | AbortSignal&lt;T&gt;\|null | 否 | 否 | 用于终止异步操作的对象。当signal.aborted为true时，锁请求将被丢弃；当signal.aborted为false时，请求会继续等待获取锁；当signal为null时，请求正常排队运行。默认为 null。 |
+| timeout | number | 否 | 否 | 锁的超时时间，单位为毫秒。若该值大于零，且操作运行时间超过该时间，lockAsync将返回被拒绝的Promise。默认为 0。 |
 
 
-## AsyncLockState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AsyncLockState
 
 用于存储异步锁实例上当前执行的所有锁操作的信息的类。
 
@@ -523,17 +490,18 @@ let p = lock.lockAsync<void, string>(
 **系统能力：** SystemCapability.Utils.Lang
 
 
-### 属性
 
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| held | [AsyncLockInfo[]](#asynclockinfo) | 否 | 否 | 持有的锁信息。 |
-| pending | [AsyncLockInfo[]](#asynclockinfo) | 否 | 否 | 等待中的锁信息。 |
+| held | AsyncLockInfo[] | 否 | 否 | 持有的锁信息。 |
+| pending | AsyncLockInfo[] | 否 | 否 | 等待中的锁信息。 |
 
 
-## AsyncLockInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AsyncLockInfo
 
 关于锁的信息。
 
@@ -542,18 +510,19 @@ let p = lock.lockAsync<void, string>(
 **系统能力：** SystemCapability.Utils.Lang
 
 
-### 属性
 
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 锁的名称。 |
-| mode | [AsyncLockMode](#asynclockmode) | 否 | 否 | 锁的模式。 |
-| contextId | number | 否 | 否 | [AsyncLockMode](#asynclockmode)调用者的执行上下文标识符。 |
+| mode | AsyncLockMode | 否 | 否 | 锁的模式。 |
+| contextId | number | 否 | 否 | AsyncLockMode调用者的执行上下文标识符。 |
 
 
-## AbortSignal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AbortSignal
 
 用于终止异步操作的对象。该类的实例必须在其创建的同一线程中访问。从其他线程访问此类的字段会导致未定义的行为。
 
@@ -562,17 +531,18 @@ let p = lock.lockAsync<void, string>(
 **系统能力：** SystemCapability.Utils.Lang
 
 
-### 属性
 
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | aborted | boolean | 否 | 否 | 是否终止异步操作。为true时表示终止异步操作，为false时表示异步操作未被终止。 |
-| reason | T | 否 | 否 | 终止的原因。此值将用于拒绝[lockAsync](#lockasync)返回的Promise。 |
+| reason | T | 否 | 否 | 终止的原因。此值将用于拒绝lockAsync返回的Promise。 |
 
 
-## ConditionVariable18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConditionVariable18+
 
 实现异步等待功能的类，支持异步等待通知操作。该类使用[@Sendable装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)装饰。
 
@@ -581,8 +551,8 @@ let p = lock.lockAsync<void, string>(
 **系统能力：** SystemCapability.Utils.Lang
 
 
-### constructor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor18+
 
 constructor()
 
@@ -594,14 +564,13 @@ constructor()
 
 **示例：**
 
-
-```ts
+```text
 let conditionVariable = new ArkTSUtils.locks.ConditionVariable();
 ```
 
 
-### request18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### request18+
 
 static request(name: string): ConditionVariable
 
@@ -613,7 +582,6 @@ static request(name: string): ConditionVariable
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 按指定名称查找或创建等待通知操作的对象名称，字符串无特别限制。 |
@@ -621,25 +589,22 @@ static request(name: string): ConditionVariable
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ConditionVariable](#conditionvariable18) | 返回查找到或创建后的异步等待通知操作的实例。 |
+| ConditionVariable | 返回查找到或创建后的异步等待通知操作的实例。 |
 
 
 **示例：**
 
-
-```ts
-let conditionVariable =
-  ArkTSUtils.locks.ConditionVariable.request('conditionName');
+```text
+let conditionVariable = ArkTSUtils.locks.ConditionVariable.request("conditionName");
 ```
 
 
-### wait18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-wait(): Promise<void>
+##### wait18+
+
+wait(): Promise&lt;void&gt;
 
 异步调用进入等待中，将在被唤醒后继续执行。使用Promise异步回调。
 
@@ -649,7 +614,6 @@ wait(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -657,20 +621,18 @@ wait(): Promise<void>
 
 **示例：**
 
-
-```ts
-const conditionVariable: ArkTSUtils.locks.ConditionVariable =
-  new ArkTSUtils.locks.ConditionVariable();
+```text
+const conditionVariable: ArkTSUtils.locks.ConditionVariable = new ArkTSUtils.locks.ConditionVariable();
 conditionVariable.wait().then(() => {
   console.info(`Thread being awakened, then continue...`); // 被唤醒后输出日志
 });
 ```
 
 
-### waitFor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-waitFor(timeout : number) : Promise<void>
+##### waitFor18+
+
+waitFor(timeout : number) : Promise&lt;void&gt;
 
 异步调用进入等待中, 将在被唤醒或者等待时间结束后继续执行。使用Promise异步回调。
 
@@ -680,14 +642,12 @@ waitFor(timeout : number) : Promise<void>
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | timeout | number | 是 | 等待时间，单位为ms，正整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -696,18 +656,16 @@ waitFor(timeout : number) : Promise<void>
 
 **示例：**
 
-
-```ts
-const conditionVariable: ArkTSUtils.locks.ConditionVariable =
-  new ArkTSUtils.locks.ConditionVariable();
+```text
+const conditionVariable: ArkTSUtils.locks.ConditionVariable = new ArkTSUtils.locks.ConditionVariable();
 conditionVariable.waitFor(3000).then(() => {
   console.info(`Thread being awakened, then continue...`); // 被唤醒后输出日志
 });
 ```
 
 
-### notifyAll18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notifyAll18+
 
 notifyAll() : void
 
@@ -719,10 +677,8 @@ notifyAll() : void
 
 **示例：**
 
-
-```ts
-const conditionVariable: ArkTSUtils.locks.ConditionVariable =
-  new ArkTSUtils.locks.ConditionVariable();
+```text
+const conditionVariable: ArkTSUtils.locks.ConditionVariable = new ArkTSUtils.locks.ConditionVariable();
 conditionVariable.waitFor(3000).then(() => {
   console.info(`Thread being awakened, then continue...`); // 被唤醒后输出日志
 });
@@ -731,8 +687,8 @@ conditionVariable.notifyAll();
 ```
 
 
-### notifyOne18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notifyOne18+
 
 notifyOne() : void
 
@@ -744,10 +700,8 @@ notifyOne() : void
 
 **示例：**
 
-
-```ts
-const conditionVariable: ArkTSUtils.locks.ConditionVariable =
-  new ArkTSUtils.locks.ConditionVariable();
+```text
+const conditionVariable: ArkTSUtils.locks.ConditionVariable = new ArkTSUtils.locks.ConditionVariable();
 conditionVariable.waitFor(3000).then(() => {
   console.info(`Thread a being awakened, then continue...`); // 被唤醒后输出日志
 });

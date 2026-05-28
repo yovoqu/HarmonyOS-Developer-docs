@@ -1,35 +1,42 @@
 # 简单文本绘制与显示（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/simple-text-c
 
-## 场景介绍
+##### 场景介绍
 
 在一个简单的用户界面中，可能只需要展示几行静态文本，例如标签、按钮上的文字、菜单项或状态栏中的提示信息。此时，开发者只需要选择合适的字体、大小和颜色即可完成渲染。
+ 
+  
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口定义 | 描述 |
 | --- | --- |
 | OH_Drawing_TextStyle* OH_Drawing_CreateTextStyle(void) | 创建指向OH_Drawing_TextStyle对象的指针。 |
 | void OH_Drawing_SetTextStyleFontSize(OH_Drawing_TextStyle* style, double fontSize) | 设置字号。 |
 | void OH_Drawing_SetTextStyleFontWeight(OH_Drawing_TextStyle* style, int fontWeight) | 设置字重。目前只有系统默认字体支持字重的调节，其他字体设置字重值小于semi-bold时字体粗细无变化，当设置字重值大于等于semi-bold时可能会触发伪加粗效果。 |
+ 
+ 
+  
 
+##### 开发步骤
+1. 创建Canvas画布对象，画布Canvas对象创建方法具体可见[画布的获取与绘制结果的显示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。
+2. 初始化段落样式，设置文本对齐方式为居中对齐。
 
-## 开发步骤
-
-创建Canvas画布对象，画布Canvas对象创建方法具体可见[画布的获取与绘制结果的显示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。  初始化段落样式，设置文本对齐方式为居中对齐。
-```text
+  
+```cpp
 // 创建一个 TypographyStyle 创建 Typography 时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 设置文本对齐方式为居中
 OH_Drawing_SetTypographyTextAlign(typoStyle, TEXT_ALIGN_CENTER);
 ```
 
-初始化文本样式，此处设置字体颜色为纯黑色，字体大小为60，字重为400。
-```text
+3. 初始化文本样式，此处设置字体颜色为纯黑色，字体大小为60，字重为400。
+
+  
+```cpp
 // 设置文字颜色、大小、字重，不设置 TextStyle 会使用 TypographyStyle 中的默认 TextStyle
 OH_Drawing_TextStyle *txtStyle = OH_Drawing_CreateTextStyle();
 OH_Drawing_SetTextStyleColor(txtStyle, OH_Drawing_ColorSetArgb(0xFF, 0x00, 0x00, 0x00));
@@ -37,8 +44,10 @@ OH_Drawing_SetTextStyleFontSize(txtStyle, 60);
 OH_Drawing_SetTextStyleFontWeight(txtStyle, FONT_WEIGHT_400);
 ```
 
-初始化段落对象，并添加文本。
-```text
+4. 初始化段落对象，并添加文本。
+
+  
+```cpp
 // 创建 FontCollection，FontCollection 用于管理字体匹配逻辑
 OH_Drawing_FontCollection *fc = OH_Drawing_CreateFontCollection();
 // 使用 FontCollection 和 之前创建的 TypographyStyle 创建 TypographyCreate。TypographyCreate 用于创建 Typography
@@ -53,8 +62,10 @@ OH_Drawing_TypographyHandlerAddText(handler, text);
 OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
 ```
 
-排版段落并进行文本绘制。
-```text
+5. 排版段落并进行文本绘制。
+
+  
+```cpp
 // 设置页面最大宽度
 double maxWidth = width_;
 OH_Drawing_TypographyLayout(typography, maxWidth);
@@ -62,8 +73,10 @@ OH_Drawing_TypographyLayout(typography, maxWidth);
 OH_Drawing_TypographyPaint(typography, cCanvas_, 0, 100);
 ```
 
-释放内存
-```text
+6. 释放内存
+
+  
+```cpp
 // 释放内存
 OH_Drawing_DestroyTypographyStyle(typoStyle);
 OH_Drawing_DestroyTextStyle(txtStyle);
@@ -72,7 +85,10 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
+ 
+  
 
-## 效果展示
+##### 效果展示
+
 
 ![](assets/简单文本绘制与显示（C／C++）/file-20260514131646325-0.png)

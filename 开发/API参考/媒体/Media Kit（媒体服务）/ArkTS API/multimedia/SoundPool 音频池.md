@@ -3,20 +3,18 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-multimedia-soundpool
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音频池提供了短音频的加载、播放、音量设置、循环设置、停止播放、资源卸载等功能。
 
 SoundPool需要和@ohos.multimedia.media配合使用，需要先通过[media.createSoundPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatesoundpool10)完成音频池实例的创建。
 
-
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
 ```text
 import { media } from '@kit.MediaKit';
@@ -24,8 +22,8 @@ import { audio } from '@kit.AudioKit';
 ```
 
 
-## PlayParameters
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### PlayParameters
 
 表示音频池播放参数设置。
 
@@ -33,23 +31,22 @@ import { audio } from '@kit.AudioKit';
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| loop | number | 否 | 是 | 设置循环次数。          当loop≥0时，实际播放次数为loop+1。          当loop＜0时，表示一直循环。          默认值：0，表示仅播放一次。          当loop为浮点数时只截取整数部分。 |
-| rate | number | 否 | 是 | 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiorendererrate8)。默认值：0。 |
-| leftVolume | number | 否 | 是 | 设置左声道音量。设置范围为[0.0, 1.0]，默认值为1.0。          当音量超过边界值时自动设置为边界值。 |
-| rightVolume | number | 否 | 是 | 设置右声道音量（当前不支持左右分别设置，将以左声道音量为准）。设置范围为[0.0, 1.0]，默认值为1.0。          当音量超过边界值时自动设置为边界值。 |
-| priority | number | 否 | 是 | 音频流播放的优先级。0为最低优先级，数值越大优先级越高。          通过相互比较数值大小确定播放优先级，设置范围为大于等于0的整数。默认值为0。          当优先级为负数时自动设置为0，为浮点数时只截取整数部分。 |
+| loop | number | 否 | 是 | 设置循环次数。 当loop≥0时，实际播放次数为loop+1。 当loop＜0时，表示一直循环。 默认值：0，表示仅播放一次。 当loop为浮点数时只截取整数部分。 |
+| rate | number | 否 | 是 | 设置音频播放的倍速，具体倍速范围参照AudioRendererRate。默认值：0。 |
+| leftVolume | number | 否 | 是 | 设置左声道音量。设置范围为[0.0, 1.0]，默认值为1.0。 当音量超过边界值时自动设置为边界值。 |
+| rightVolume | number | 否 | 是 | 设置右声道音量（当前不支持左右分别设置，将以左声道音量为准）。设置范围为[0.0, 1.0]，默认值为1.0。 当音量超过边界值时自动设置为边界值。 |
+| priority | number | 否 | 是 | 音频流播放的优先级。0为最低优先级，数值越大优先级越高。 通过相互比较数值大小确定播放优先级，设置范围为大于等于0的整数。默认值为0。 当优先级为负数时自动设置为0，为浮点数时只截取整数部分。 |
 
 
-## ErrorType20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ErrorType20+
 
 枚举，错误类型（用于区分错误发生阶段）。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -57,48 +54,51 @@ import { audio } from '@kit.AudioKit';
 | PLAY_ERROR | 2 | 表示播放资源时发生错误。 |
 
 
-## ErrorInfo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ErrorInfo20+
 
 错误信息。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| errorCode | T | 否 | 否 | 错误码。errorCode的类型T为[BusinessError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)类型。 |
-| errorType | [ErrorType](#errortype20) | 否 | 是 | 表示错误发生阶段。 |
+| errorCode | T | 否 | 否 | 错误码。errorCode的类型T为BusinessError类型。 |
+| errorType | ErrorType | 否 | 是 | 表示错误发生阶段。 |
 | soundId | number | 否 | 是 | 发生错误的资源ID，load方法能够获取soundId。 |
 | streamId | number | 否 | 是 | 发生错误的音频流ID，play方法能够获取streamId。 |
 
 
-## SoundPool
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SoundPool
 
 音频池提供了系统声音的加载、播放、音量设置、循环设置、停止播放和资源卸载等功能，在调用SoundPool的接口前，需要先通过[media.createSoundPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatesoundpool10)创建实例。
 
-
 > [!NOTE]
-> SoundPool目前不支持后台播放、设置音频打断等音频焦点策略和跳过音频头尾的静音帧。SoundPool低时延播放可参考使用SoundPool播放短音频(ArkTS)。
+> 在使用SoundPool实例的方法时，建议开发者注册相关回调，主动获取当前状态变化。 on('loadComplete') ：监听资源加载完成。建议开发者监听此回调以确保音频在加载完成后进行播放。 on('playFinishedWithStreamId') ：监听播放完成，同时返回播放结束的音频的streamId。 on('playFinished') ：监听播放完成。 on('error') ：监听错误事件。 on('errorOccurred') ：监听错误事件，同时返回 errorInfo 。 SoundPool目前不支持后台播放、设置音频打断等音频焦点策略和跳过音频头尾的静音帧。SoundPool低时延播放可参考 使用SoundPool播放短音频(ArkTS) 。
 
 
-### load
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-load(uri: string, callback: AsyncCallback<number>): void
+
+##### load
+
+load(uri: string, callback: AsyncCallback&lt;number&gt;): void
 
 加载音频资源。使用callback异步回调。
 
 通过callback异步回调获取资源ID，入参URL通过获取文件fd生成以"fd://"开头的文件描述字符串。
 
-该方法不支持加载rawfile目录资源，需要通过[load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void](#load-2)或者[load(fd: number, offset: number, length: number): Promise<number>](#load-3)实现。
+该方法不支持加载rawfile目录资源，需要通过[load(fd: number, offset: number, length: number, callback: AsyncCallback&lt;number&gt;): void](#load-2)或者[load(fd: number, offset: number, length: number): Promise&lt;number&gt;](#load-3)实现。
+
+> [!NOTE]
+> 将资源句柄（fd）或加载路径描述（uri）传递给音频池播放器之后，请不要通过该资源句柄或加载路径描述做其他读写操作，包括但不限于将同一个资源句柄或加载路径描述传递给多个音频池播放器。 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -110,7 +110,6 @@ load(uri: string, callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -120,8 +119,7 @@ load(uri: string, callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```json
 import { fileIo } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -131,63 +129,53 @@ import { audio } from '@kit.AudioKit';
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-  rendererFlags: 1,
-};
-media.createSoundPool(
-  5,
-  audioRendererInfo,
-  (error: BusinessError, soundPool_: media.SoundPool) => {
-    if (error) {
-      console.error(
-        `Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`,
-      );
-      return;
-    } else {
-      soundPool = soundPool_;
-      console.info(`Succeeded in creating SoundPool`);
-      let uri: string = '';
-      let file: fileIo.File;
-      // 获取fd的uri路径。
-      fileIo
-        .open('/test_01.mp3', fileIo.OpenMode.READ_ONLY)
-        .then((file_: fileIo.File) => {
-          file = file_;
-          console.info('file fd: ' + file.fd);
-          uri = 'fd://' + file.fd.toString();
-          soundPool.load(uri, (error: BusinessError, soundId_: number) => {
-            if (error) {
-              console.error(
-                `Failed to load soundPool: Code: ${error.code}, message: ${error.message}`,
-              );
-            } else {
-              console.info(
-                `Succeeded in loading soundPool` + JSON.stringify(soundId_),
-              );
-            }
-          });
-        }); // '/test_01.mp3' 作为样例，使用时需要传入文件对应路径。
-    }
-  },
-);
+  rendererFlags: 1
+}
+media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let uri:string = "";
+    let file: fileIo.File;
+    // 获取fd的uri路径。
+    fileIo.open('/test_01.mp3', fileIo.OpenMode.READ_ONLY).then((file_: fileIo.File) => {
+      file = file_;
+      console.info("file fd: " + file.fd);
+      uri = 'fd://' + (file.fd).toString();
+      soundPool.load(uri, (error: BusinessError, soundId_: number) => {
+        if (error) {
+          console.error(`Failed to load soundPool: Code: ${error.code}, message: ${error.message}`);
+        } else {
+          console.info(`Succeeded in loading soundPool` + JSON.stringify(soundId_));
+        }
+      });
+    }); // '/test_01.mp3' 作为样例，使用时需要传入文件对应路径。
+  }
+});
 ```
 
 
-### load
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-load(uri: string): Promise<number>
+##### load
+
+load(uri: string): Promise&lt;number&gt;
 
 加载音频资源。使用Promise异步回调。
 
 通过Promise异步回调获取资源ID，入参URL通过获取文件fd生成以"fd://"开头的文件描述字符串。
 
-该方法不支持加载rawfile目录资源，需要通过[load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void](#load-2)或者[load(fd: number, offset: number, length: number): Promise<number>](#load-3)实现。
+该方法不支持加载rawfile目录资源，需要通过[load(fd: number, offset: number, length: number, callback: AsyncCallback&lt;number&gt;): void](#load-2)或者[load(fd: number, offset: number, length: number): Promise&lt;number&gt;](#load-3)实现。
+
+> [!NOTE]
+> 将资源句柄（fd）或加载路径描述（uri）传递给音频池播放器之后，请不要通过该资源句柄或加载路径描述做其他读写操作，包括但不限于将同一个资源句柄或加载路径描述传递给多个音频池播放器。 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -195,7 +183,6 @@ load(uri: string): Promise<number>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -206,7 +193,6 @@ load(uri: string): Promise<number>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -216,8 +202,7 @@ load(uri: string): Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { fileIo } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -227,66 +212,55 @@ import { audio } from '@kit.AudioKit';
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-  rendererFlags: 1,
-};
-media.createSoundPool(
-  5,
-  audioRendererInfo,
-  (error: BusinessError, soundPool_: media.SoundPool) => {
-    if (error) {
-      console.error(
-        `Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`,
-      );
-      return;
-    } else {
-      soundPool = soundPool_;
-      console.info(`Succeeded in creating SoundPool`);
-      let uri: string = '';
-      let soundID: number = 0;
-      let file: fileIo.File;
-      // 获取fd的uri路径。
-      fileIo
-        .open('/test_01.mp3', fileIo.OpenMode.READ_ONLY)
-        .then((file_: fileIo.File) => {
-          file = file_;
-          console.info('file fd: ' + file.fd);
-          uri = 'fd://' + file.fd.toString();
-          soundPool.load(uri).then(
-            (soundId: number) => {
-              console.info('Succeeded in loading uri');
-              soundID = soundId;
-            },
-            (err: BusinessError) => {
-              console.error(
-                'Failed to load soundPool. Code: ${err.code}, message: ${err.message}',
-              );
-            },
-          );
-        }); // '/test_01.mp3' 作为样例，使用时需要传入文件对应路径。
-    }
-  },
-);
+  rendererFlags: 1
+}
+media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let uri:string = "";
+    let soundID: number = 0;
+    let file: fileIo.File;
+    // 获取fd的uri路径。
+    fileIo.open('/test_01.mp3', fileIo.OpenMode.READ_ONLY).then((file_: fileIo.File) => {
+      file = file_;
+      console.info("file fd: " + file.fd);
+      uri = 'fd://' + (file.fd).toString();
+      soundPool.load(uri).then((soundId: number) => {
+        console.info('Succeeded in loading uri');
+        soundID = soundId;
+      }, (err: BusinessError) => {
+        console.error('Failed to load soundPool. Code: ${err.code}, message: ${err.message}');
+      });
+    }); // '/test_01.mp3' 作为样例，使用时需要传入文件对应路径。
+  }
+});
 ```
 
 
-### load
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void
+##### load
+
+load(fd: number, offset: number, length: number, callback: AsyncCallback&lt;number&gt;): void
 
 加载音频资源。使用callback异步回调。
 
 通过callback异步回调获取资源ID，入参可手动传入资源信息或通过读取应用内置资源自动获取。
+
+> [!NOTE]
+> 将资源句柄（fd）或加载路径描述（uri）传递给音频池播放器之后，请不要通过该资源句柄或加载路径描述做其他读写操作，包括但不限于将同一个资源句柄或加载路径描述传递给多个音频池播放器。 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fd | number | 是 | 资源句柄，通过[resourceManager.getRawFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9)获取。 |
+| fd | number | 是 | 资源句柄，通过resourceManager.getRawFd获取。 |
 | offset | number | 是 | 资源偏移量，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。 |
 | length | number | 是 | 资源长度，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 获取回调的soundID，有效值大于0。 |
@@ -295,7 +269,6 @@ load(fd: number, offset: number, length: number, callback: AsyncCallback<number>
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -306,8 +279,7 @@ load(fd: number, offset: number, length: number, callback: AsyncCallback<number>
 
 **示例1：**
 
-
-```ts
+```text
 import { fileIo } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -317,56 +289,40 @@ import { audio } from '@kit.AudioKit';
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-  rendererFlags: 1,
-};
-media.createSoundPool(
-  5,
-  audioRendererInfo,
-  (error: BusinessError, soundPool_: media.SoundPool) => {
-    if (error) {
-      console.error(
-        `Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`,
-      );
-      return;
-    } else {
-      soundPool = soundPool_;
-      console.info(`Succeeded in creating SoundPool`);
-      let file: fileIo.File;
-      let soundID: number = 0;
-      let fileSize: number = 1; // 通过fileIo.stat()获取size值。
-      let uri: string = '';
-      // 获取fd的描述信息，test_01.mp3不是rawfile目录资源下面的音频。
-      fileIo
-        .open('/test_01.mp3', fileIo.OpenMode.READ_ONLY)
-        .then((file_: fileIo.File) => {
-          file = file_;
-          console.info('file fd: ' + file.fd);
-          uri = 'fd://' + file.fd.toString();
-          soundPool.load(
-            file.fd,
-            0,
-            fileSize,
-            (error: BusinessError, soundId_: number) => {
-              if (error) {
-                console.error(
-                  `Failed to load soundPool: Code: ${error.code}, message: ${error.message}`,
-                );
-              } else {
-                soundID = soundId_;
-                console.info('Succeeded in loading soundId:' + soundId_);
-              }
-            },
-          );
-        }); // '/test_01.mp3' 作为样例，使用时需要传入文件对应路径。
-    }
-  },
-);
+  rendererFlags: 1
+}
+media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let file: fileIo.File;
+    let soundID: number = 0;
+    let fileSize: number = 1; // 通过fileIo.stat()获取size值。
+    let uri: string = "";
+    // 获取fd的描述信息，test_01.mp3不是rawfile目录资源下面的音频。
+    fileIo.open('/test_01.mp3', fileIo.OpenMode.READ_ONLY).then((file_: fileIo.File) => {
+      file = file_;
+      console.info("file fd: " + file.fd);
+      uri = 'fd://' + (file.fd).toString();
+      soundPool.load(file.fd, 0, fileSize, (error: BusinessError, soundId_: number) => {
+        if (error) {
+          console.error(`Failed to load soundPool: Code: ${error.code}, message: ${error.message}`);
+        } else {
+          soundID = soundId_;
+          console.info('Succeeded in loading soundId:' + soundId_);
+        }
+      });
+    }); // '/test_01.mp3' 作为样例，使用时需要传入文件对应路径。
+  }
+});
 ```
 
 **示例2：**
 
-
-```ts
+```text
 import { media } from '@kit.MediaKit';
 import { audio } from '@kit.AudioKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -376,70 +332,57 @@ function create(context: Context) {
   let soundPool: media.SoundPool;
   let audioRendererInfo: audio.AudioRendererInfo = {
     usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-    rendererFlags: 1,
-  };
+    rendererFlags: 1
+  }
   let soundID: number = 0;
-  media.createSoundPool(
-    5,
-    audioRendererInfo,
-    async (error: BusinessError, soundPool_: media.SoundPool) => {
-      if (error) {
-        console.error(
-          `Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`,
-        );
-        return;
-      } else {
-        soundPool = soundPool_;
-        console.info(`Succeeded in createSoundPool`);
-        // test_01.mp3为rawfile目录资源下面的音频。
-        let fileDescriptor =
-          await context.resourceManager.getRawFd('test_01.mp3');
-        soundPool.load(
-          fileDescriptor.fd,
-          fileDescriptor.offset,
-          fileDescriptor.length,
-          (error: BusinessError, soundId_: number) => {
-            if (error) {
-              console.error(
-                `Failed to load soundPool. Code: ${error.code}, message: ${error.message}`,
-              );
-            } else {
-              soundID = soundId_;
-              console.info('Succeeded in loading soundId:' + soundId_);
-            }
-          },
-        );
-      }
-    },
-  );
+  media.createSoundPool(5, audioRendererInfo, async (error: BusinessError, soundPool_: media.SoundPool) => {
+    if (error) {
+     console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+      return;
+    } else {
+      soundPool = soundPool_;
+      console.info(`Succeeded in createSoundPool`);
+      // test_01.mp3为rawfile目录资源下面的音频。
+      let fileDescriptor = await context.resourceManager.getRawFd('test_01.mp3');
+      soundPool.load(fileDescriptor.fd, fileDescriptor.offset, fileDescriptor.length, (error: BusinessError, soundId_: number) => {
+        if (error) {
+          console.error(`Failed to load soundPool. Code: ${error.code}, message: ${error.message}`);
+        } else {
+          soundID = soundId_;
+          console.info('Succeeded in loading soundId:' + soundId_);
+        }
+      });
+    }
+  });
 }
 ```
 
 
-### load
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-load(fd: number, offset: number, length: number): Promise<number>
+##### load
+
+load(fd: number, offset: number, length: number): Promise&lt;number&gt;
 
 加载音频资源。使用Promise异步回调。
 
 通过Promise异步回调获取资源ID，入参可手动传入资源信息或通过读取应用内置资源自动获取。
+
+> [!NOTE]
+> 将资源句柄（fd）或加载路径描述（uri）传递给音频池播放器之后，请不要通过该资源句柄或加载路径描述做其他读写操作，包括但不限于将同一个资源句柄或加载路径描述传递给多个音频池播放器。 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fd | number | 是 | 资源句柄，通过[resourceManager.getRawFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9)获取。 |
+| fd | number | 是 | 资源句柄，通过resourceManager.getRawFd获取。 |
 | offset | number | 是 | 资源偏移量，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。 |
 | length | number | 是 | 资源长度，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -450,7 +393,6 @@ load(fd: number, offset: number, length: number): Promise<number>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -460,8 +402,7 @@ load(fd: number, offset: number, length: number): Promise<number>
 
 **示例1：**
 
-
-```ts
+```text
 import { fileIo } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -471,52 +412,38 @@ import { audio } from '@kit.AudioKit';
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-  rendererFlags: 1,
-};
-media.createSoundPool(
-  5,
-  audioRendererInfo,
-  (error: BusinessError, soundPool_: media.SoundPool) => {
-    if (error) {
-      console.error(
-        `Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`,
-      );
-      return;
-    } else {
-      soundPool = soundPool_;
-      console.info(`Succeeded in creating SoundPool`);
-      let file: fileIo.File;
-      let soundID: number = 0;
-      let fileSize: number = 1; // 通过fileIo.stat()获取size值。
-      let uri: string = '';
-      // 获取fd的描述信息，test_01.mp3不是rawfile目录资源下面的音频。
-      fileIo
-        .open('/test_01.mp3', fileIo.OpenMode.READ_ONLY)
-        .then((file_: fileIo.File) => {
-          file = file_;
-          console.info('file fd: ' + file.fd);
-          uri = 'fd://' + file.fd.toString();
-          soundPool.load(file.fd, 0, fileSize).then(
-            (soundId: number) => {
-              console.info('Succeeded in loading soundpool');
-              soundID = soundId;
-            },
-            (err: BusinessError) => {
-              console.error(
-                `Failed to load soundpool.  Code: ${err.code}, message: ${err.message}`,
-              );
-            },
-          );
-        });
-    }
-  },
-);
+  rendererFlags: 1
+}
+media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
+  if (error) {
+   console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let file: fileIo.File;
+    let soundID: number = 0;
+    let fileSize: number = 1; // 通过fileIo.stat()获取size值。
+    let uri: string = "";
+    // 获取fd的描述信息，test_01.mp3不是rawfile目录资源下面的音频。
+    fileIo.open('/test_01.mp3', fileIo.OpenMode.READ_ONLY).then((file_: fileIo.File) => {
+      file = file_;
+      console.info("file fd: " + file.fd);
+      uri = 'fd://' + (file.fd).toString();
+      soundPool.load(file.fd, 0, fileSize).then((soundId: number) => {
+        console.info('Succeeded in loading soundpool');
+        soundID = soundId;
+      }, (err: BusinessError) => {
+        console.error(`Failed to load soundpool.  Code: ${err.code}, message: ${err.message}`);
+      });
+    });
+  }
+});
 ```
 
 **示例2：**
 
-
-```ts
+```text
 import { media } from '@kit.MediaKit';
 import { audio } from '@kit.AudioKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -526,48 +453,34 @@ function create(context: Context) {
   let soundPool: media.SoundPool;
   let audioRendererInfo: audio.AudioRendererInfo = {
     usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-    rendererFlags: 1,
-  };
+    rendererFlags: 1
+  }
   let soundID: number = 0;
-  media.createSoundPool(
-    5,
-    audioRendererInfo,
-    async (error: BusinessError, soundPool_: media.SoundPool) => {
-      if (error) {
-        console.error(
-          `Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`,
-        );
-        return;
-      } else {
-        soundPool = soundPool_;
-        console.info(`Succeeded in creating SoundPool`);
-        // test_01.mp3为rawfile目录资源下面的音频。
-        let fileDescriptor =
-          await context.resourceManager.getRawFd('test_01.mp3');
-        soundPool
-          .load(fileDescriptor.fd, fileDescriptor.offset, fileDescriptor.length)
-          .then(
-            (soundId: number) => {
-              console.info('Succeeded in loading soundpool');
-              soundID = soundId;
-            },
-            (err: BusinessError) => {
-              console.error(
-                `Failed to load soundpool. Code: ${err.code}, message: ${err.message}`,
-              );
-            },
-          );
-      }
-    },
-  );
+  media.createSoundPool(5, audioRendererInfo, async (error: BusinessError, soundPool_: media.SoundPool) => {
+    if (error) {
+      console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+      return;
+    } else {
+      soundPool = soundPool_;
+      console.info(`Succeeded in creating SoundPool`);
+      // test_01.mp3为rawfile目录资源下面的音频。
+      let fileDescriptor = await context.resourceManager.getRawFd('test_01.mp3');
+      soundPool.load(fileDescriptor.fd, fileDescriptor.offset, fileDescriptor.length).then((soundId: number) => {
+        console.info('Succeeded in loading soundpool');
+        soundID = soundId;
+      }, (err: BusinessError) => {
+        console.error(`Failed to load soundpool. Code: ${err.code}, message: ${err.message}`);
+      });
+    }
+  });
 }
 ```
 
 
-### play
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void
+##### play
+
+play(soundID: number, params: PlayParameters, callback: AsyncCallback&lt;number&gt;): void
 
 播放音频资源，获取音频流streamID。使用callback异步回调。
 
@@ -575,18 +488,16 @@ play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | soundID | number | 是 | 资源ID，通过load方法获取。 |
-| params | [PlayParameters](#playparameters) | 是 | play播放相关参数的设置。 |
+| params | PlayParameters | 是 | play播放相关参数的设置。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 获取回调的音频流ID，有效值大于0。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -597,7 +508,6 @@ play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): 
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -606,42 +516,42 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let soundID: number = 0;
-let streamID: number = 0;
-let playParameters: media.PlayParameters = {
-loop: 3, // 循环3次。
-rate: audio.AudioRendererRate.RENDER_RATE_NORMAL, // 正常倍速。
-leftVolume: 0.5, // range = 0.0-1.0
-rightVolume: 0.5, // range = 0.0-1.0
-priority: 0, // 最低优先级。
-}
-soundPool.play(soundID, playParameters, (error: BusinessError, streamId: number) => {
-if (error) {
-console.error(`Failed to play soundpool: errCode is ${error.code}, errMessage is ${error.message}`);
-} else {
-streamID = streamId;
-console.info('Succeeded in playing soundpool, streamId:' + streamId);
-}
-});
-}
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let soundID: number = 0;
+    let streamID: number = 0;
+    let playParameters: media.PlayParameters = {
+      loop: 3, // 循环3次。
+      rate: audio.AudioRendererRate.RENDER_RATE_NORMAL, // 正常倍速。
+      leftVolume: 0.5, // range = 0.0-1.0
+      rightVolume: 0.5, // range = 0.0-1.0
+      priority: 0, // 最低优先级。
+    }
+    soundPool.play(soundID, playParameters, (error: BusinessError, streamId: number) => {
+      if (error) {
+        console.error(`Failed to play soundpool: errCode is ${error.code}, errMessage is ${error.message}`);
+      } else {
+        streamID = streamId;
+        console.info('Succeeded in playing soundpool, streamId:' + streamId);
+      }
+    });
+  }
 });
 ```
 
 
-### play
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-play(soundID: number, callback: AsyncCallback<number>): void
+##### play
+
+play(soundID: number, callback: AsyncCallback&lt;number&gt;): void
 
 使用默认参数播放音频资源，获取音频流streamID。使用callback异步回调。
 
@@ -649,7 +559,6 @@ play(soundID: number, callback: AsyncCallback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | soundID | number | 是 | 资源ID，通过load方法获取。 |
@@ -660,7 +569,6 @@ play(soundID: number, callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback. |
@@ -670,7 +578,6 @@ play(soundID: number, callback: AsyncCallback<number>): void
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -679,35 +586,35 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in creating SoundPool`);
-let soundID: number = 0;
-let streamID: number = 0;
-soundPool.play(soundID,  (error: BusinessError, streamId: number) => {
-if (error) {
-console.error(`Failed to play soundpool: errCode is ${error.code}, errMessage is ${error.message}`);
-} else {
-streamID = streamId;
-console.info('Succeeded in playing soundpool, streamId:' + streamId);
-}
-});
-}
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let soundID: number = 0;
+    let streamID: number = 0;
+    soundPool.play(soundID,  (error: BusinessError, streamId: number) => {
+      if (error) {
+        console.error(`Failed to play soundpool: errCode is ${error.code}, errMessage is ${error.message}`);
+      } else {
+        streamID = streamId;
+        console.info('Succeeded in playing soundpool, streamId:' + streamId);
+      }
+    });
+  }
 });
 ```
 
 
-### play
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-play(soundID: number, params?: PlayParameters): Promise<number>
+##### play
+
+play(soundID: number, params?: PlayParameters): Promise&lt;number&gt;
 
 播放音频资源，获取音频流streamID。使用Promise异步回调。
 
@@ -715,15 +622,13 @@ play(soundID: number, params?: PlayParameters): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | soundID | number | 是 | 资源ID，通过load方法获取。 |
-| params | [PlayParameters](#playparameters) | 否 | play播放相关参数的设置。 |
+| params | PlayParameters | 否 | play播放相关参数的设置。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -734,7 +639,6 @@ play(soundID: number, params?: PlayParameters): Promise<number>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise. |
@@ -744,7 +648,6 @@ play(soundID: number, params?: PlayParameters): Promise<number>
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -753,48 +656,47 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in creating SoundPool`);
-let soundID: number = 0;
-let streamID: number = 0;
-let playParameters: media.PlayParameters = {
-loop: 3, // 循环4次。
-rate: audio.AudioRendererRate.RENDER_RATE_NORMAL, // 正常倍速。
-leftVolume: 0.5, // range = 0.0-1.0。
-rightVolume: 0.5, // range = 0.0-1.0。
-priority: 0, // 最低优先级。
-}
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let soundID: number = 0;
+    let streamID: number = 0;
+    let playParameters: media.PlayParameters = {
+      loop: 3, // 循环4次。
+      rate: audio.AudioRendererRate.RENDER_RATE_NORMAL, // 正常倍速。
+      leftVolume: 0.5, // range = 0.0-1.0。
+      rightVolume: 0.5, // range = 0.0-1.0。
+      priority: 0, // 最低优先级。
+    }
 
-soundPool.play(soundID, playParameters).then((streamId: number) => {
-console.info('Succeeded in playing soundpool');
-streamID = streamId;
-},(err: BusinessError) => {
-console.error('Failed to play soundpool. Code: ${err.code}, message: ${err.message}');
-});
-}
+    soundPool.play(soundID, playParameters).then((streamId: number) => {
+      console.info('Succeeded in playing soundpool');
+      streamID = streamId;
+    },(err: BusinessError) => {
+      console.error('Failed to play soundpool. Code: ${err.code}, message: ${err.message}');
+    });
+  }
 });
 ```
 
 
-### stop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(streamID: number, callback: AsyncCallback<void>): void
+##### stop
+
+stop(streamID: number, callback: AsyncCallback&lt;void&gt;): void
 
 停止播放音频资源。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -806,7 +708,6 @@ stop(streamID: number, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback. |
@@ -816,7 +717,6 @@ stop(streamID: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -825,34 +725,34 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let streamID: number = 0;
-// 先调用play方法给拿到对应的streamID。
-soundPool.stop(streamID, (error: BusinessError) => {
-if (error) {
-console.error('Failed to stop soundpool Code: ${err.code}, message: ${err.message}');
-} else {
-console.info('Succeeded in stopping soundpool');
-}
-})
-}
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let streamID: number = 0;
+    // 先调用play方法给拿到对应的streamID。
+    soundPool.stop(streamID, (error: BusinessError) => {
+      if (error) {
+        console.error('Failed to stop soundpool Code: ${err.code}, message: ${err.message}');
+      } else {
+        console.info('Succeeded in stopping soundpool');
+      }
+    })
+  }
 });
 ```
 
 
-### stop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(streamID: number): Promise<void>
+##### stop
+
+stop(streamID: number): Promise&lt;void&gt;
 
 停止streamID对应的音频播放。使用Promise异步回调。
 
@@ -860,14 +760,12 @@ stop(streamID: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | streamID | number | 是 | 音频流ID，通过play方法获取。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -878,7 +776,6 @@ stop(streamID: number): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise. |
@@ -888,7 +785,6 @@ stop(streamID: number): Promise<void>
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -897,32 +793,32 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let streamID: number = 0;
-// 先调用play方法给拿到对应的streamID。
-soundPool.stop(streamID).then(() => {
-console.info('Succeeded in stopping soundpool');
-}, (err: BusinessError) => {
-console.error(`Failed to stop soundpool Code: ${err.code}, message: ${err.message}`);
-});
-}
+  if (error) {
+    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let streamID: number = 0;
+    // 先调用play方法给拿到对应的streamID。
+    soundPool.stop(streamID).then(() => {
+      console.info('Succeeded in stopping soundpool');
+    }, (err: BusinessError) => {
+      console.error(`Failed to stop soundpool Code: ${err.code}, message: ${err.message}`);
+    });
+  }
 });
 ```
 
 
-### setLoop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void
+##### setLoop
+
+setLoop(streamID: number, loop: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置循环模式。使用callback异步回调。
 
@@ -930,18 +826,16 @@ setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | streamID | number | 是 | 音频流ID，通过play方法获取。 |
-| loop | number | 是 | 设置循环次数。          当loop≥0时，实际播放次数为loop+1。          当loop＜0时，表示一直循环。 |
+| loop | number | 是 | 设置循环次数。 当loop≥0时，实际播放次数为loop+1。 当loop＜0时，表示一直循环。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当setLoop的回调成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -952,7 +846,6 @@ setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -961,35 +854,35 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let streamID: number = 0;
-// 先通过调用play方法获取到对应的streamID。
-// 设置循环2次。
-soundPool.setLoop(streamID, 2, (error: BusinessError) => {
-if (error) {
-console.error(`Failed to setLoop soundPool. Code: ${error.code}, message: ${error.message}`);
-} else {
-console.info('Succeeded in setLooping soundpool, streamID:' + streamID);
-}
-});
-}
+  if (error) {
+    console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let streamID: number = 0;
+    // 先通过调用play方法获取到对应的streamID。
+    // 设置循环2次。
+    soundPool.setLoop(streamID, 2, (error: BusinessError) => {
+      if (error) {
+        console.error(`Failed to setLoop soundPool. Code: ${error.code}, message: ${error.message}`);
+      } else {
+        console.info('Succeeded in setLooping soundpool, streamID:' + streamID);
+      }
+    });
+  }
 });
 ```
 
 
-### setLoop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setLoop(streamID: number, loop: number): Promise<void>
+##### setLoop
+
+setLoop(streamID: number, loop: number): Promise&lt;void&gt;
 
 设置循环模式。使用Promise异步回调。
 
@@ -997,15 +890,13 @@ setLoop(streamID: number, loop: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | streamID | number | 是 | 音频流ID，通过play方法获取。 |
-| loop | number | 是 | 设置循环次数。          当loop≥0时，实际播放次数为loop+1。          当loop＜0时，表示一直循环。 |
+| loop | number | 是 | 设置循环次数。 当loop≥0时，实际播放次数为loop+1。 当loop＜0时，表示一直循环。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1016,7 +907,6 @@ setLoop(streamID: number, loop: number): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise. |
@@ -1026,7 +916,6 @@ setLoop(streamID: number, loop: number): Promise<void>
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1035,40 +924,39 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in creating SoundPool`);
-let streamID: number = 0;
-// 先通过调用play方法获取到对应的streamID。
-// 设置循环1次。
-soundPool.setLoop(streamID, 1).then(() => {
-console.info('Succeeded in setting Priority soundpool, streamID:' + streamID);
-}).catch((err: BusinessError) => {
-console.error(`Failed to setLoop soundPool. Code: ${err.code}, message: ${err.message}`);
-});
-}
+  if (error) {
+    console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let streamID: number = 0;
+    // 先通过调用play方法获取到对应的streamID。
+    // 设置循环1次。
+    soundPool.setLoop(streamID, 1).then(() => {
+      console.info('Succeeded in setting Priority soundpool, streamID:' + streamID);
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to setLoop soundPool. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
 });
 ```
 
 
-### setPriority
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): void
+##### setPriority
+
+setPriority(streamID: number, priority: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频流播放的优先级。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1081,7 +969,6 @@ setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): 
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback. |
@@ -1091,7 +978,6 @@ setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): 
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1100,42 +986,41 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in creating SoundPool`);
-let streamID: number = 0;
-// 先调用play方法获取到对应资源的streamID。
-// 给对应的streamID资源设置优先级为1。
-soundPool.setPriority(streamID, 1, (error: BusinessError) => {
-if (error) {
-console.error(`Failed to setPriority soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
-} else {
-console.info('Succeeded in setPriority soundpool, streamID:' + streamID);
-}
-});
-}
+  if (error) {
+    console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let streamID: number = 0;
+    // 先调用play方法获取到对应资源的streamID。
+    // 给对应的streamID资源设置优先级为1。
+    soundPool.setPriority(streamID, 1, (error: BusinessError) => {
+      if (error) {
+        console.error(`Failed to setPriority soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
+      } else {
+        console.info('Succeeded in setPriority soundpool, streamID:' + streamID);
+      }
+    });
+  }
 });
 ```
 
 
-### setPriority
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setPriority(streamID: number, priority: number): Promise<void>
+##### setPriority
+
+setPriority(streamID: number, priority: number): Promise&lt;void&gt;
 
 设置音频流优先级。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1145,7 +1030,6 @@ setPriority(streamID: number, priority: number): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -1154,7 +1038,6 @@ setPriority(streamID: number, priority: number): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1165,7 +1048,6 @@ setPriority(streamID: number, priority: number): Promise<void>
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1174,34 +1056,34 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let streamID: number = 0;
-// 先调用play方法获取到对应资源的streamID。
-// 给对应的streamID资源设置优先级为1。
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let streamID: number = 0;
+    // 先调用play方法获取到对应资源的streamID。
+    // 给对应的streamID资源设置优先级为1。
 
-soundPool.setPriority(streamID, 1).then(() => {
-console.info('Succeeded in setting Priority soundpool');
-}, (err: BusinessError) => {
-console.error('Failed to set Priority soundPool. Code: ${err.code}, message: ${err.message}');
-});
-}
+    soundPool.setPriority(streamID, 1).then(() => {
+      console.info('Succeeded in setting Priority soundpool');
+    }, (err: BusinessError) => {
+      console.error('Failed to set Priority soundPool. Code: ${err.code}, message: ${err.message}');
+    });
+  }
 });
 ```
 
 
-### setRate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void
+##### setRate
+
+setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频流播放速率。使用callback异步回调。
 
@@ -1209,18 +1091,16 @@ setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | streamID | number | 是 | 音频流ID，通过play方法获取。 |
-| rate | [audio.AudioRendererRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiorendererrate8) | 是 | 音频rate相关参数。 |
+| rate | audio.AudioRendererRate | 是 | 音频rate相关参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当音频池setRate方法回调成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1231,7 +1111,6 @@ setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1240,35 +1119,35 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool.  Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in creating SoundPool`);
-let streamID: number = 0;
-let selectedAudioRendererRate: audio.AudioRendererRate = audio.AudioRendererRate.RENDER_RATE_NORMAL; // 默认正常速率
-// 先调用play方法获取到对应资源的streamID。
-soundPool.setRate(streamID, selectedAudioRendererRate, (error: BusinessError) => {
-if (error) {
-console.error(`Failed to set Rate soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
-} else {
-console.info('Succeeded in setting Rate, streamID:' + streamID);
-}
-})
-}
+  if (error) {
+    console.error(`Failed to create SoundPool.  Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let streamID: number = 0;
+    let selectedAudioRendererRate: audio.AudioRendererRate = audio.AudioRendererRate.RENDER_RATE_NORMAL; // 默认正常速率
+    // 先调用play方法获取到对应资源的streamID。
+    soundPool.setRate(streamID, selectedAudioRendererRate, (error: BusinessError) => {
+      if (error) {
+        console.error(`Failed to set Rate soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
+      } else {
+        console.info('Succeeded in setting Rate, streamID:' + streamID);
+      }
+    })
+  }
 });
 ```
 
 
-### setRate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>
+##### setRate
+
+setRate(streamID: number, rate: audio.AudioRendererRate): Promise&lt;void&gt;
 
 设置音频流的播放速率。使用Promise异步回调。
 
@@ -1276,15 +1155,13 @@ setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | streamID | number | 是 | 音频流ID，通过play方法获取。 |
-| rate | [audio.AudioRendererRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiorendererrate8) | 是 | 音频rate相关参数。 |
+| rate | audio.AudioRendererRate | 是 | 音频rate相关参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1295,7 +1172,6 @@ setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by promise. |
@@ -1305,7 +1181,6 @@ setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1314,40 +1189,39 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool.  Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in creating SoundPool`);
-let streamID: number = 0;
-let selectedAudioRendererRate: audio.AudioRendererRate = audio.AudioRendererRate.RENDER_RATE_NORMAL; // 默认正常速率
-// 先调用play方法获取到对应资源的streamID。
-soundPool.setRate(streamID, selectedAudioRendererRate).then(() => {
-console.info('Succeeded in setting Rate soundpool');
-}, (err: BusinessError) => {
-console.error(`Failed to set Rate. Code: ${err.code}, message: ${err.message}`);
-});
-}
+  if (error) {
+    console.error(`Failed to create SoundPool.  Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in creating SoundPool`);
+    let streamID: number = 0;
+    let selectedAudioRendererRate: audio.AudioRendererRate = audio.AudioRendererRate.RENDER_RATE_NORMAL; // 默认正常速率
+    // 先调用play方法获取到对应资源的streamID。
+    soundPool.setRate(streamID, selectedAudioRendererRate).then(() => {
+      console.info('Succeeded in setting Rate soundpool');
+    }, (err: BusinessError) => {
+      console.error(`Failed to set Rate. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
 });
 ```
 
 
-### setVolume
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void
+##### setVolume
+
+setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频流播放音量。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1361,7 +1235,6 @@ setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: A
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. Return by callback. |
@@ -1371,7 +1244,6 @@ setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: A
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1380,42 +1252,41 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to create SoundPool.  Code: ${error.code}, message: ${error.message}`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let streamID: number = 0;
-// 先调用play方法获取到对应资源的streamID。
-// 设置音量为0.5。
-soundPool.setVolume(streamID, 0.5, 0.5, (error: BusinessError) => {
-if (error) {
-console.error(`Failed to setVolume soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
-} else {
-console.info('Succeeded in setting Volume soundpool, streamID:' + streamID);
-}
-})
-}
+  if (error) {
+    console.error(`Failed to create SoundPool.  Code: ${error.code}, message: ${error.message}`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let streamID: number = 0;
+    // 先调用play方法获取到对应资源的streamID。
+    // 设置音量为0.5。
+    soundPool.setVolume(streamID, 0.5, 0.5, (error: BusinessError) => {
+      if (error) {
+        console.error(`Failed to setVolume soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
+      } else {
+        console.info('Succeeded in setting Volume soundpool, streamID:' + streamID);
+      }
+    })
+  }
 });
 ```
 
 
-### setVolume
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<void>
+##### setVolume
+
+setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise&lt;void&gt;
 
 设置音频流的播放音量。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1426,7 +1297,6 @@ setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<vo
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -1435,7 +1305,6 @@ setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<vo
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1446,7 +1315,6 @@ setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<vo
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1455,31 +1323,31 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let streamID: number = 0;
-// 先调用play方法获取到对应资源的streamID。
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let streamID: number = 0;
+    // 先调用play方法获取到对应资源的streamID。
 
-soundPool.setVolume(streamID, 0.5, 0.5).then(() => {
-console.info('Succeeded in setVolume soundpool');
-}, (err: BusinessError) => {
-console.error('Failed to setVolume soundPool and catch error is ' + err.message);
-});
-}
+    soundPool.setVolume(streamID, 0.5, 0.5).then(() => {
+      console.info('Succeeded in setVolume soundpool');
+    }, (err: BusinessError) => {
+      console.error('Failed to setVolume soundPool and catch error is ' + err.message);
+    });
+  }
 });
 ```
 
 
-### setInterruptMode23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setInterruptMode23+
 
 setInterruptMode(interruptMode: media.SoundInterruptMode): void
 
@@ -1491,14 +1359,12 @@ setInterruptMode(interruptMode: media.SoundInterruptMode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| interruptMode | [media.SoundInterruptMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#soundinterruptmode23) | 是 | 同一ID音频在播放时的打断模式，通过media.SoundInterruptMode枚举获取。 |
+| interruptMode | media.SoundInterruptMode | 是 | 同一ID音频在播放时的打断模式，通过media.SoundInterruptMode枚举获取。 |
 
 
 **示例：**
-
 
 ```text
 import { media } from '@kit.MediaKit';
@@ -1506,36 +1372,35 @@ import { media } from '@kit.MediaKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-// 选择模式1：同ID音频并行播放模式。
-soundPool.setInterruptMode(media.SoundInterruptMode.NO_INTERRUPT);
-// 选择模式2：同ID音频截断模式。
-soundPool.setInterruptMode(media.SoundInterruptMode.SAME_SOUND_INTERRUPT);
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    // 选择模式1：同ID音频并行播放模式。
+    soundPool.setInterruptMode(media.SoundInterruptMode.NO_INTERRUPT);
+    // 选择模式2：同ID音频截断模式。
+    soundPool.setInterruptMode(media.SoundInterruptMode.SAME_SOUND_INTERRUPT);
+  }
 });
 ```
 
 
-### unload
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-unload(soundID: number, callback: AsyncCallback<void>): void
+##### unload
+
+unload(soundID: number, callback: AsyncCallback&lt;void&gt;): void
 
 卸载音频资源。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1547,7 +1412,6 @@ unload(soundID: number, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by callback. |
@@ -1557,7 +1421,6 @@ unload(soundID: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1566,34 +1429,34 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let soundID: number = 0;
-// 先调用load方法获取到对应资源的soundID。
-soundPool.unload(soundID, (error: BusinessError) => {
-if (error) {
-console.error(`Failed to unload soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
-} else {
-console.info('Succeeded in unload soundPool');
-}
-})
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let soundID: number = 0;
+    // 先调用load方法获取到对应资源的soundID。
+    soundPool.unload(soundID, (error: BusinessError) => {
+      if (error) {
+        console.error(`Failed to unload soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
+      } else {
+        console.info('Succeeded in unload soundPool');
+      }
+    })
+  }
 });
 ```
 
 
-### unload
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-unload(soundID: number): Promise<void>
+##### unload
+
+unload(soundID: number): Promise&lt;void&gt;
 
 卸载音频资源。使用Promise异步回调。
 
@@ -1601,14 +1464,12 @@ unload(soundID: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | soundID | number | 是 | 资源ID，通过load方法获取。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1618,7 +1479,6 @@ unload(soundID: number): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1629,7 +1489,6 @@ unload(soundID: number): Promise<void>
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1638,40 +1497,39 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-let soundID: number = 0;
-// 先调用load方法获取到对应资源的soundID。
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    let soundID: number = 0;
+    // 先调用load方法获取到对应资源的soundID。
 
-soundPool.unload(soundID).then(() => {
-console.info('Succeeded in unload soundPool');
-}, (err: BusinessError) => {
-console.error('Failed to unload soundPool and catch error is ' + err.message);
-});
-}
+    soundPool.unload(soundID).then(() => {
+      console.info('Succeeded in unload soundPool');
+    }, (err: BusinessError) => {
+      console.error('Failed to unload soundPool and catch error is ' + err.message);
+    });
+  }
 });
 ```
 
 
-### release
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(callback: AsyncCallback<void>): void
+##### release
+
+release(callback: AsyncCallback&lt;void&gt;): void
 
 释放音频池实例。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1682,14 +1540,12 @@ release(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400105 | Service died. Return by callback. |
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1699,39 +1555,38 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.release((error: BusinessError) => {
-if (error) {
-console.error(`Failed to release soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
-} else {
-console.info('Succeeded in releasing soundPool');
-}
-})
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.release((error: BusinessError) => {
+      if (error) {
+        console.error(`Failed to release soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
+      } else {
+        console.info('Succeeded in releasing soundPool');
+      }
+    })
+  }
 });
 ```
 
 
-### release
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(): Promise<void>
+##### release
+
+release(): Promise&lt;void&gt;
 
 释放音频池实例。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1742,14 +1597,12 @@ release(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400105 | Service died. Return by promise. |
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1759,37 +1612,36 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.release().then(() => {
-console.info('Succeeded in releasing soundPool');
-}, (err: BusinessError) => {
-console.error('Failed to release soundPool and catch error is ' + err.message);
-});
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.release().then(() => {
+      console.info('Succeeded in releasing soundPool');
+    }, (err: BusinessError) => {
+      console.error('Failed to release soundPool and catch error is ' + err.message);
+    });
+  }
 });
 ```
 
 
-### on('loadComplete')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'loadComplete', callback: Callback<number>): void
+##### on('loadComplete')
+
+on(type: 'loadComplete', callback: Callback&lt;number&gt;): void
 
 音频池资源加载完成监听。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1799,7 +1651,6 @@ on(type: 'loadComplete', callback: Callback<number>): void
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1808,26 +1659,26 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.on('loadComplete', (soundId: number) => {
-console.info('Succeeded in loadComplete, soundId：' + soundId);
-})
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.on('loadComplete', (soundId: number) => {
+      console.info('Succeeded in loadComplete, soundId：' + soundId);
+    })
+  }
 });
 ```
 
 
-### off('loadComplete')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('loadComplete')
 
 off(type: 'loadComplete'): void
 
@@ -1837,14 +1688,12 @@ off(type: 'loadComplete'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消注册的事件：'loadComplete'。 |
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1854,26 +1703,26 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.off('loadComplete');
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.off('loadComplete');
+  }
 });
 ```
 
 
-### on('playFinishedWithStreamId')18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'playFinishedWithStreamId', callback: Callback<number>): void
+##### on('playFinishedWithStreamId')18+
+
+on(type: 'playFinishedWithStreamId', callback: Callback&lt;number&gt;): void
 
 音频池资源播放完成监听，同时返回播放结束的音频的streamId。使用callback异步回调。
 
@@ -1885,7 +1734,6 @@ on(type: 'playFinishedWithStreamId', callback: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 支持的事件：'playFinishedWithStreamId'，音频流播放完成会触发此回调，并返回播放完成的音频的streamId。 |
@@ -1893,7 +1741,6 @@ on(type: 'playFinishedWithStreamId', callback: Callback<number>): void
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1903,25 +1750,25 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool_: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-} else {
-soundPool_ = soundPool;
-console.info(`Succeeded in createSoundPool`);
-soundPool_.on('playFinishedWithStreamId', (streamId) => {
-console.info('The stream with streamId: ' + streamId + ' has finished playing.');
-});
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+  } else {
+    soundPool_ = soundPool;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool_.on('playFinishedWithStreamId', (streamId) => {
+      console.info('The stream with streamId: ' + streamId + ' has finished playing.');
+    });
+  }
 });
 ```
 
 
-### off('playFinishedWithStreamId')18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('playFinishedWithStreamId')18+
 
 off(type: 'playFinishedWithStreamId'): void
 
@@ -1931,14 +1778,12 @@ off(type: 'playFinishedWithStreamId'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消注册的事件：'playFinishedWithStreamId'。 |
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1948,32 +1793,31 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool_: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-} else {
-soundPool_ = soundPool;
-console.info(`Succeeded in createSoundPool`);
-soundPool_.off('playFinishedWithStreamId');
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+  } else {
+    soundPool_ = soundPool;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool_.off('playFinishedWithStreamId');
+  }
 });
 ```
 
 
-### on('playFinished')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'playFinished', callback: Callback<void>): void
+##### on('playFinished')
+
+on(type: 'playFinished', callback: Callback&lt;void&gt;): void
 
 音频池资源播放完成监听。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1983,7 +1827,6 @@ on(type: 'playFinished', callback: Callback<void>): void
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -1992,26 +1835,26 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.on('playFinished', () => {
-console.info('Succeeded in playFinished');
-});
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.on('playFinished', () => {
+      console.info('Succeeded in playFinished');
+    });
+  }
 });
 ```
 
 
-### off('playFinished')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('playFinished')
 
 off(type: 'playFinished'): void
 
@@ -2021,14 +1864,12 @@ off(type: 'playFinished'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消注册的事件：'playFinished'。 |
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2038,24 +1879,24 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.off('playFinished');
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.off('playFinished');
+  }
 });
 ```
 
 
-### on('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('error')
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -2065,7 +1906,6 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'error'，用户操作和系统都会触发此事件。 |
@@ -2073,7 +1913,6 @@ on(type: 'error', callback: ErrorCallback): void
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2083,27 +1922,27 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.on('error', (error: BusinessError) => {
-console.error('error happened,and error message is :' + error.message);
-console.error('error happened,and error code is :' + error.code);
-})
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.on('error', (error: BusinessError) => {
+      console.error('error happened,and error message is :' + error.message);
+      console.error('error happened,and error code is :' + error.code);
+    })
+  }
 });
 ```
 
 
-### off('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('error')
 
 off(type: 'error'): void
 
@@ -2113,7 +1952,6 @@ off(type: 'error'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，取消注册的事件：'error'。 |
@@ -2121,7 +1959,6 @@ off(type: 'error'): void
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -2130,26 +1967,26 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.off('error');
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.off('error');
+  }
 });
 ```
 
 
-### on('errorOccurred')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void
+##### on('errorOccurred')20+
+
+on(type: 'errorOccurred', callback: Callback&lt;ErrorInfo&gt;): void
 
 监听[SoundPool](#soundpool)的错误事件，并返回包含错误码、错误发生阶段、资源ID和音频流ID的[ErrorInfo](#errorinfo20)。使用callback异步回调。
 
@@ -2157,15 +1994,13 @@ on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'errorOccurred'，当用户或系统操作导致错误，触发该事件。 |
-| callback | Callback&lt;[ErrorInfo](#errorinfo20)&gt; | 是 | 回调函数，返回错误事件回调方法。在使用播放器的过程中发生错误时，提供错误信息[ErrorInfo](#errorinfo20)。 |
+| callback | Callback&lt;ErrorInfo&gt; | 是 | 回调函数，返回错误事件回调方法。在使用播放器的过程中发生错误时，提供错误信息ErrorInfo。 |
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2175,32 +2010,32 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.on('errorOccurred', (errorInfo) => {
-console.error('error happened,and error message is :' + errorInfo.errorCode.message);
-console.error('error happened,and error code is :' + errorInfo.errorCode.code);
-console.error('error happened,and errorType is :' + errorInfo.errorType);
-console.error('error happened,and soundId is :' + errorInfo.soundId);
-console.error('error happened,and streamId is :' + errorInfo.streamId);
-})
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.on('errorOccurred', (errorInfo) => {
+      console.error('error happened,and error message is :' + errorInfo.errorCode.message);
+      console.error('error happened,and error code is :' + errorInfo.errorCode.code);
+      console.error('error happened,and errorType is :' + errorInfo.errorType);
+      console.error('error happened,and soundId is :' + errorInfo.soundId);
+      console.error('error happened,and streamId is :' + errorInfo.streamId);
+    })
+  }
 });
 ```
 
 
-### off('errorOccurred')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void
+##### off('errorOccurred')20+
+
+off(type: 'errorOccurred', callback?: Callback&lt;ErrorInfo&gt;): void
 
 取消监听音频池的错误事件。
 
@@ -2208,15 +2043,13 @@ off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，取消注册的事件为'errorOccurred'。 |
-| callback | Callback&lt;[ErrorInfo](#errorinfo20)&gt; | 否 | 错误事件回调方法。在使用播放器的过程中发生错误时，提供错误信息[ErrorInfo](#errorinfo20)，不设置callback时不提供相关信息。 |
+| callback | Callback&lt;ErrorInfo&gt; | 否 | 错误事件回调方法。在使用播放器的过程中发生错误时，提供错误信息ErrorInfo，不设置callback时不提供相关信息。 |
 
 
 **示例：**
-
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2226,17 +2059,17 @@ import { audio } from '@kit.AudioKit';
 // 创建soundPool实例。
 let soundPool: media.SoundPool;
 let audioRendererInfo: audio.AudioRendererInfo = {
-usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
-rendererFlags: 1
+  usage: audio.StreamUsage.STREAM_USAGE_MUSIC,
+  rendererFlags: 1
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
-if (error) {
-console.error(`Failed to createSoundPool`);
-return;
-} else {
-soundPool = soundPool_;
-console.info(`Succeeded in createSoundPool`);
-soundPool.off('errorOccurred');
-}
+  if (error) {
+    console.error(`Failed to createSoundPool`);
+    return;
+  } else {
+    soundPool = soundPool_;
+    console.info(`Succeeded in createSoundPool`);
+    soundPool.off('errorOccurred');
+  }
 });
 ```

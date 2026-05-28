@@ -5,19 +5,17 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-354
 
 目前有两种方案可供参考：
-
-1. 传递资源ID。
-```ts
-this.getUIContext()
-  .getHostContext()
-  ?.resourceManager.getColorSync($r('app.color.xxx').id);
+ 1. 传递资源ID。
+```ArkTS
+this.getUIContext().getHostContext()?.resourceManager.getColorSync($r('app.color.xxx').id);
 ```
+
 2. 在配置了dark限定词目录的包的module.json5文件中添加配置。
 ```json
 "metadata": [
-{
-"name": "ContextResourceConfigLoadFromParentTemp",
-"value": "true"
-}
+  {
+    "name": "ContextResourceConfigLoadFromParentTemp",
+    "value": "true"
+  }
 ],
 ```

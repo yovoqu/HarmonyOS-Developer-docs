@@ -1,29 +1,36 @@
 # 获取设备位姿（C/C++）
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-pose
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-## 约束与限制
+##### 约束与限制
 
-获取设备位姿能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
+从5.0.0(12)开始，获取设备位姿能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
-## 创建ARSession
+
+
+##### 创建ARSession
 
 开发者可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession)创建ARSession。
 
-## 获取设备当前位姿
 
-创建一个空位姿变量cameraPose。
+
+##### 获取设备当前位姿
+1. 创建一个空位姿变量cameraPose。
+
+  
 ```text
 AREngine_ARPose *cameraPose = nullptr;
 HMS_AREngine_ARPose_Create(arSession, nullptr, 0, &cameraPose);
 ```
 
-获取当前时刻相机位姿信息，并存储在cameraPose变量中。
+2. 获取当前时刻相机位姿信息，并存储在cameraPose变量中。
+
+  
 ```text
 // 创建一个新的AREngine_ARFrame对象。
 AREngine_ARFrame *arFrame = nullptr;
@@ -37,7 +44,9 @@ HMS_AREngine_ARFrame_AcquireCamera(arSession, arFrame, &arCamera);
 HMS_AREngine_ARCamera_GetPose(arSession, arCamera, cameraPose);
 ```
 
-从cameraPose中获取相机位姿的不同分量，包括平移分量和旋转分量。
+3. 从cameraPose中获取相机位姿的不同分量，包括平移分量和旋转分量。
+
+  
 ```text
 float poseRaw[7] = { 0.0f };
 HMS_AREngine_ARPose_GetPoseRaw(arSession, cameraPose, poseRaw, 7);

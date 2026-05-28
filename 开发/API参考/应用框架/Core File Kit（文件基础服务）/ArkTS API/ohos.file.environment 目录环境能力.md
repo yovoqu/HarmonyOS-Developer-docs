@@ -7,22 +7,20 @@
 
 该模块提供环境目录能力，获取内存存储根目录、公共文件根目录的ArkTS接口。
 
-
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** PC/2in1
 
+##### 导入模块
 
-```ts
+```text
 import { Environment } from '@kit.CoreFileKit';
 ```
 
 
-## Environment.getUserDownloadDir
-**支持设备：** PC/2in1
+
+##### Environment.getUserDownloadDir
 
 getUserDownloadDir(): string
 
@@ -34,7 +32,6 @@ getUserDownloadDir(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回当前用户预授权下载目录的沙箱路径。 |
@@ -44,7 +41,6 @@ getUserDownloadDir(): string
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. |
@@ -53,24 +49,21 @@ getUserDownloadDir(): string
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 function getUserDownloadDirExample() {
   try {
     let path = Environment.getUserDownloadDir();
     console.info(`Succeeded in getUserDownloadDir, path is ${path}`);
   } catch (err) {
-    console.error(
-      `Failed to getUserDownloadDir. Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to getUserDownloadDir. Code: ${err.code}, message: ${err.message}`);
   }
 }
 ```
 
 
-## Environment.getUserDesktopDir
-**支持设备：** PC/2in1
+
+##### Environment.getUserDesktopDir
 
 getUserDesktopDir(): string
 
@@ -82,7 +75,6 @@ getUserDesktopDir(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回当前用户预授权桌面目录的沙箱路径。 |
@@ -92,7 +84,6 @@ getUserDesktopDir(): string
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. |
@@ -101,24 +92,21 @@ getUserDesktopDir(): string
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 function getUserDesktopDirExample() {
   try {
     let path = Environment.getUserDesktopDir();
     console.info(`Succeeded in getUserDesktopDir, path is ${path}`);
   } catch (err) {
-    console.error(
-      `Failed to getUserDesktopDir. Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to getUserDesktopDir. Code: ${err.code}, message: ${err.message}`);
   }
 }
 ```
 
 
-## Environment.getUserDocumentDir
-**支持设备：** PC/2in1
+
+##### Environment.getUserDocumentDir
 
 getUserDocumentDir(): string
 
@@ -130,7 +118,6 @@ getUserDocumentDir(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回当前用户预授权文档目录的沙箱路径。 |
@@ -140,7 +127,6 @@ getUserDocumentDir(): string
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. |
@@ -149,17 +135,14 @@ getUserDocumentDir(): string
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 function getUserDocumentDirExample() {
   try {
     let path = Environment.getUserDocumentDir();
     console.info(`Succeeded in getUserDocumentDir, path is ${path}`);
   } catch (err) {
-    console.error(
-      `Failed to getUserDocumentDir. Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to getUserDocumentDir. Code: ${err.code}, message: ${err.message}`);
   }
 }
 ```

@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-throw-literal
 
 禁止将字面量作为异常抛出。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-throw-literal": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-throw-literal选项](https://typescript-eslint.nodejs.cn/rules/no-throw-literal#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // 抛出Error对象
@@ -47,10 +48,10 @@ class CustomError extends Error {
 }
 throw new CustomError();
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 throw 'error';
@@ -75,13 +76,13 @@ function err() {
 }
 throw err();
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

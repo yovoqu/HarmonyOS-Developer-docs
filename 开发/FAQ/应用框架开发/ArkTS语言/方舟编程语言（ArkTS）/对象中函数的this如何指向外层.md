@@ -5,17 +5,17 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-139
 
 通过箭头函数实现。参考代码如下：
-
-```ts
+ 
+```ArkTS
 interface T {
-start: () => number
+  start: () => number
 }
 @Component
 struct PointingOuterLayer {
-@State num: number = 1
-obj: T = {
-start: () => {
-return this.num
-}
-}
+  @State num: number = 1
+  obj: T = {
+    start: () => {
+      return this.num
+    }
+  }
 ```

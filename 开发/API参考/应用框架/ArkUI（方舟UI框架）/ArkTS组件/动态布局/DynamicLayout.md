@@ -3,23 +3,22 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 动态布局容器组件，支持在运行时动态切换不同的布局算法，不改变子组件的状态。
-
 
 > [!NOTE]
 > 该组件从API version 24开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 可以包含子组件。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 DynamicLayout(algorithm: LayoutAlgorithm)
 
@@ -35,36 +34,40 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| algorithm | [LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1) | 是 | 指定动态布局组件的布局算法。取非法值时，按照[堆叠布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)布局子组件，子组件堆叠排列。 |
+| algorithm | LayoutAlgorithm | 是 | 指定动态布局组件的布局算法。取非法值时，按照堆叠布局算法布局子组件，子组件堆叠排列。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
+> [!NOTE]
+> 当布局算法为 RowLayoutAlgorithm 或 ColumnLayoutAlgorithm 时，子组件设置 Flex布局 属性生效。 当布局算法为 StackLayoutAlgorithm 时，子组件设置 layoutGravity 属性生效。 当布局算法为 CustomLayoutAlgorithm 时，DynamicLayout组件 FrameNode 的 setMeasuredSize 方法优先级高于 尺寸设置 和 边框 属性，子组件 FrameNode 的 measure 和 layout 方法优先级高于 ignoreLayoutSafeArea 属性。
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+
+##### 事件
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 示例
 
 
-### 示例1（自定义布局算法实现瀑布流布局）
+
+##### 示例1（自定义布局算法实现瀑布流布局）
 
 该示例展示如何重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)、[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)函数，实现瀑布流布局展示商品列表的功能。
 
 从API version 24开始，新增onMeasure、onLayout。
 
-
-```ts
+```text
 import { DynamicLayout, DynamicLayoutAttribute, CustomLayoutAlgorithm, LayoutAlgorithm, FrameNode, LayoutConstraint, Position } from '@kit.ArkUI';
 
 // 瀑布流布局算法
@@ -146,35 +149,35 @@ struct WaterfallLayoutExample {
 
   // 商品数据
   private products: Product[] = [
-  { id: '1', name: '时尚运动鞋', price: '¥399', height: 180, image: '商品图' },
-  { id: '2', name: '休闲双肩包', price: '¥259', height: 220, image: '商品图' },
-  { id: '3', name: '无线蓝牙耳机', price: '¥599', height: 150, image: '商品图' },
-  { id: '4', name: '智能手表', price: '¥1299', height: 200, image: '商品图' },
-  { id: '5', name: '太阳眼镜', price: '¥199', height: 130, image: '商品图' },
-  { id: '6', name: '便携充电宝', price: '¥129', height: 170, image: '商品图' },
-  { id: '7', name: '机械键盘', price: '¥459', height: 160, image: '商品图' },
-  { id: '8', name: '游戏鼠标', price: '¥189', height: 140, image: '商品图' },
-  { id: '9', name: '高清显示器', price: '¥1599', height: 210, image: '商品图' },
-  { id: '10', name: '智能音箱', price: '¥299', height: 190, image: '商品图' }
+    { id: '1', name: '时尚运动鞋', price: '¥399', height: 180, image: '商品图' },
+    { id: '2', name: '休闲双肩包', price: '¥259', height: 220, image: '商品图' },
+    { id: '3', name: '无线蓝牙耳机', price: '¥599', height: 150, image: '商品图' },
+    { id: '4', name: '智能手表', price: '¥1299', height: 200, image: '商品图' },
+    { id: '5', name: '太阳眼镜', price: '¥199', height: 130, image: '商品图' },
+    { id: '6', name: '便携充电宝', price: '¥129', height: 170, image: '商品图' },
+    { id: '7', name: '机械键盘', price: '¥459', height: 160, image: '商品图' },
+    { id: '8', name: '游戏鼠标', price: '¥189', height: 140, image: '商品图' },
+    { id: '9', name: '高清显示器', price: '¥1599', height: 210, image: '商品图' },
+    { id: '10', name: '智能音箱', price: '¥299', height: 190, image: '商品图' }
   ];
 
   // 商品卡片组件
   @Builder ProductCard(product: Product) {
     Column() {
       Text(product.image)
-      .fontSize(18)
-      .margin({ bottom: 8 })
+        .fontSize(18)
+        .margin({ bottom: 8 })
       Text(product.name)
-      .fontSize(14)
-      .fontWeight(FontWeight.Medium)
-      .fontColor(0x333333)
-      .margin({ bottom: 4 })
-      .maxLines(1)
-      .textOverflow({ overflow: TextOverflow.Ellipsis })
+        .fontSize(14)
+        .fontWeight(FontWeight.Medium)
+        .fontColor(0x333333)
+        .margin({ bottom: 4 })
+        .maxLines(1)
+        .textOverflow({ overflow: TextOverflow.Ellipsis })
       Text(product.price)
-      .fontSize(16)
-      .fontColor(0xFF6B35)
-      .fontWeight(FontWeight.Bold)
+        .fontSize(16)
+        .fontColor(0xFF6B35)
+        .fontWeight(FontWeight.Bold)
     }
     .width('100%')
     .padding(12)
@@ -188,9 +191,9 @@ struct WaterfallLayoutExample {
   build() {
     Column() {
       Text('商品列表 - 瀑布流布局')
-      .fontSize(18)
-      .fontWeight(FontWeight.Bold)
-      .margin({ bottom: 20 })
+        .fontSize(18)
+        .fontWeight(FontWeight.Bold)
+        .margin({ bottom: 20 })
 
       Scroll() {
         DynamicLayout(this.algorithm) {
@@ -210,9 +213,9 @@ struct WaterfallLayoutExample {
       .layoutWeight(1)
 
       Text('商品卡片自动分配到高度最小的列')
-      .fontSize(14)
-      .fontColor(Color.Gray)
-      .margin({ top: 12 })
+        .fontSize(14)
+        .fontColor(Color.Gray)
+        .margin({ top: 12 })
     }
     .padding(20)
     .width('100%')
@@ -230,17 +233,19 @@ interface Product {
 }
 ```
 
-![](assets/DynamicLayout/file-20260514163944602-0.png)
+
+![](assets/DynamicLayout/file-20260514163944602-2.gif)
 
 
-### 示例2（切换布局算法）
+
+
+##### 示例2（切换布局算法）
 
 该示例通过改变[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰的LayoutAlgorithm变量，实现动态切换DynamicLayout组件布局算法的功能。示例展示如何切换布局算法为[水平线性布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)、[垂直线性布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)、[堆叠布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)和[网格布局算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)。
 
 从API version 24开始，新增RowLayoutAlgorithm、ColumnLayoutAlgorithm、StackLayoutAlgorithm、GridLayoutAlgorithm。
 
-
-```ts
+```text
 import { DynamicLayout, DynamicLayoutAttribute, RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, LayoutAlgorithm, LengthMetrics } from '@kit.ArkUI';
 
 @Entry
@@ -258,37 +263,37 @@ struct LayoutSwitchExample {
       // 使用状态变量控制布局算法
       DynamicLayout(this.algorithm) {
         Text('Item 1')
-        .width(this.childWidth)
-        .height(this.childHeight)
-        .fontSize(14)
-        .textAlign(TextAlign.Center)
-        .backgroundColor(0xF5DEB3)
-        .borderRadius(8)
-        .layoutGravity(LocalizedAlignment.TOP_START)
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.TOP_START)
         Text('Item 2')
-        .width(this.childWidth)
-        .height(this.childHeight)
-        .fontSize(14)
-        .textAlign(TextAlign.Center)
-        .backgroundColor(0xF5DEB3)
-        .borderRadius(8)
-        .layoutGravity(LocalizedAlignment.TOP_END)
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.TOP_END)
         Text('Item 3')
-        .width(this.childWidth)
-        .height(this.childHeight)
-        .fontSize(14)
-        .textAlign(TextAlign.Center)
-        .backgroundColor(0xF5DEB3)
-        .borderRadius(8)
-        .layoutGravity(LocalizedAlignment.BOTTOM_START)
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.BOTTOM_START)
         Text('Item 4')
-        .width(this.childWidth)
-        .height(this.childHeight)
-        .fontSize(14)
-        .textAlign(TextAlign.Center)
-        .backgroundColor(0xF5DEB3)
-        .borderRadius(8)
-        .layoutGravity(LocalizedAlignment.BOTTOM_END)
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.BOTTOM_END)
       }
       .width(300)
       .height(280)
@@ -299,47 +304,47 @@ struct LayoutSwitchExample {
       Column({ space: 10 }) {
         Row({ space: 10 }) {
           Button('Row布局')
-          .fontSize(14)
-          .onClick(() => {
-            this.algorithm = new RowLayoutAlgorithm({
-              space: LengthMetrics.vp(10),
-              alignItems: VerticalAlign.Center
-            });
-            this.childWidth = '20%'
-            this.childHeight = '20%'
-          })
+            .fontSize(14)
+            .onClick(() => {
+              this.algorithm = new RowLayoutAlgorithm({
+                space: LengthMetrics.vp(10),
+                alignItems: VerticalAlign.Center
+              });
+              this.childWidth = '20%'
+              this.childHeight = '20%'
+            })
           Button('Column布局')
-          .fontSize(14)
-          .onClick(() => {
-            this.algorithm = new ColumnLayoutAlgorithm({
-              space: LengthMetrics.vp(10),
-              alignItems: HorizontalAlign.Center
-            });
-            this.childWidth = '20%'
-            this.childHeight = '20%'
-          })
+            .fontSize(14)
+            .onClick(() => {
+              this.algorithm = new ColumnLayoutAlgorithm({
+                space: LengthMetrics.vp(10),
+                alignItems: HorizontalAlign.Center
+              });
+              this.childWidth = '20%'
+              this.childHeight = '20%'
+            })
         }
         Row({ space: 10 }) {
           Button('Stack布局')
-          .fontSize(14)
-          .onClick(() => {
-            this.algorithm = new StackLayoutAlgorithm({
-              alignContent: LocalizedAlignment.CENTER
-            });
-            this.childWidth = '20%'
-            this.childHeight = '20%'
-          })
+            .fontSize(14)
+            .onClick(() => {
+              this.algorithm = new StackLayoutAlgorithm({
+                alignContent: LocalizedAlignment.CENTER
+              });
+              this.childWidth = '20%'
+              this.childHeight = '20%'
+            })
           Button('Grid布局')
-          .fontSize(14)
-          .onClick(() => {
-            this.algorithm = new GridLayoutAlgorithm({
-              columnsTemplate: '1fr 1fr',
-              rowsGap: LengthMetrics.vp(5),
-              columnsGap: LengthMetrics.vp(5)
-            });
-            this.childWidth = '100%'
-            this.childHeight = '50%'
-          })
+            .fontSize(14)
+            .onClick(() => {
+              this.algorithm = new GridLayoutAlgorithm({
+                columnsTemplate: '1fr 1fr',
+                rowsGap: LengthMetrics.vp(5),
+                columnsGap: LengthMetrics.vp(5)
+              });
+              this.childWidth = '100%'
+              this.childHeight = '50%'
+            })
         }
       }
       .margin({ top: 20 })
@@ -349,17 +354,19 @@ struct LayoutSwitchExample {
 }
 ```
 
-![](assets/DynamicLayout/file-20260514163944602-1.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Uajj2PHPTgG-gjuRMG-p4w/zh-cn_image_0000002581275816.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013930Z&HW-CC-Expire=86400&HW-CC-Sign=7AD2050CDE6134AE07414A3C6FCE36F06AE6CB436C00E8EF096CAB659D154774)
 
 
-### 示例3（修改布局算法属性）
+
+
+##### 示例3（修改布局算法属性）
 
 该示例通过修改[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)的space和justifyContent属性，实现DynamicLayout组件布局效果刷新的功能。
 
 从API version 24开始，新增space、justifyContent属性。
 
-
-```ts
+```text
 import { DynamicLayout, DynamicLayoutAttribute, RowLayoutAlgorithm, LengthMetrics } from '@kit.ArkUI';
 
 @Entry
@@ -374,20 +381,20 @@ struct PropertyChangeExample {
     Column() {
       DynamicLayout(this.algorithm) {
         Text('Item 1')
-        .width(60)
-        .height(40)
-        .fontSize(14)
-        .backgroundColor(0xF5DEB3)
+          .width(60)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xF5DEB3)
         Text('Item 2')
-        .width(60)
-        .height(40)
-        .fontSize(14)
-        .backgroundColor(0xD2B48C)
+          .width(60)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xD2B48C)
         Text('Item 3')
-        .width(60)
-        .height(40)
-        .fontSize(14)
-        .backgroundColor(0xF5DEB3)
+          .width(60)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xF5DEB3)
       }
       .width('100%')
       .height(80)
@@ -395,23 +402,23 @@ struct PropertyChangeExample {
 
       Row({ space: 10 }) {
         Button('增加间距')
-        .fontSize(14)
-        .onClick(() => {
-          // 修改space属性触发重新布局
-          const currentSpace = this.algorithm.space?.value;
-          this.algorithm.space = LengthMetrics.vp(currentSpace as number + 5);
-        })
+          .fontSize(14)
+          .onClick(() => {
+            // 修改space属性触发重新布局
+            const currentSpace = this.algorithm.space?.value;
+            this.algorithm.space = LengthMetrics.vp(currentSpace as number + 5);
+          })
         Button('居中对齐')
-        .fontSize(14)
-        .onClick(() => {
-          // 修改justifyContent属性触发重新布局
-          this.algorithm.justifyContent = FlexAlign.Center;
-        })
+          .fontSize(14)
+          .onClick(() => {
+            // 修改justifyContent属性触发重新布局
+            this.algorithm.justifyContent = FlexAlign.Center;
+          })
         Button('两端对齐')
-        .fontSize(14)
-        .onClick(() => {
-          this.algorithm.justifyContent = FlexAlign.SpaceBetween;
-        })
+          .fontSize(14)
+          .onClick(() => {
+            this.algorithm.justifyContent = FlexAlign.SpaceBetween;
+          })
       }
       .margin({ top: 20 })
     }
@@ -420,4 +427,5 @@ struct PropertyChangeExample {
 }
 ```
 
-![](assets/DynamicLayout/file-20260514163944602-2.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/xeMNpLJYTRWGLNu59GtMaQ/zh-cn_image_0000002611755673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013930Z&HW-CC-Expire=86400&HW-CC-Sign=661008E52B2040F5C89E0FB1624D1CB2D5C44305FE68DAD9741B924D9B753353)

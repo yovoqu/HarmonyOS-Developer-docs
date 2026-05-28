@@ -3,37 +3,38 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-calendarmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供日历与日程管理能力，包括日历和日程的创建、删除、修改、查询等。
 
+ - 日历管理器[CalendarManager](#calendarmanager)用于管理日历[Calendar](#calendar)。
+ - 日历[Calendar](#calendar)主要包含账户信息[CalendarAccount](#calendaraccount)和配置信息[CalendarConfig](#calendarconfig)。日历Calendar与日程[Event](#event)属于从属关系，需要先创建日历Calendar对象，然后再通过日历Calendar创建日程Event对象，一个Calendar可以有多个Event，一个Event只属于一个Calendar。日历管理器是对日历的管理，日程过滤器是对日程的管理。
 
-- 日历管理器[CalendarManager](#calendarmanager)用于管理日历[Calendar](#calendar)。
-- 日历[Calendar](#calendar)主要包含账户信息[CalendarAccount](#calendaraccount)和配置信息[CalendarConfig](#calendarconfig)。日历Calendar与日程[Event](#event)属于从属关系，需要先创建日历Calendar对象，然后再通过日历Calendar创建日程Event对象，一个Calendar可以有多个Event，一个Event只属于一个Calendar。日历管理器是对日历的管理，日程过滤器是对日程的管理。
+
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 进行日历或日程的读取时，需要申请ohos.permission.READ_CALENDAR或ohos.permission.READ_WHOLE_CALENDAR权限。 进行日历或日程的添加、删除或修改时，需要申请ohos.permission.WRITE_CALENDAR或ohos.permission.WRITE_WHOLE_CALENDAR权限。
 
 
 申请对应权限之后，支持的相关操作可见下表。
 
-
 | 申请的权限 | 支持的日历账户操作范围 | 支持的日程操作范围 |
 | --- | --- | --- |
-| ohos.permission.READ_CALENDAR | - 读取系统默认日历账户         - 读取当前应用创建的日历账户 | - 读取系统默认日历账户下当前应用创建的日程         - 读取当前应用创建的日历账户下当前应用创建的日程 |
-| ohos.permission.WRITE_CALENDAR | - 添加、删除或修改当前应用创建的日历账户 | - 添加、删除或修改系统默认日历账户下当前应用创建的日程         - 添加、删除或修改当前应用创建的日历账户下当前应用创建的日程 |
+| ohos.permission.READ_CALENDAR | - 读取系统默认日历账户 - 读取当前应用创建的日历账户 | - 读取系统默认日历账户下当前应用创建的日程 - 读取当前应用创建的日历账户下当前应用创建的日程 |
+| ohos.permission.WRITE_CALENDAR | - 添加、删除或修改当前应用创建的日历账户 | - 添加、删除或修改系统默认日历账户下当前应用创建的日程 - 添加、删除或修改当前应用创建的日历账户下当前应用创建的日程 |
 | ohos.permission.READ_WHOLE_CALENDAR | - 读取所有日历账户 | - 读取所有应用创建的日程 |
 | ohos.permission.WRITE_WHOLE_CALENDAR | - 添加、删除或修改所有日历账户 | - 添加、删除或修改所有应用创建的日程 |
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { calendarManager } from '@kit.CalendarKit';
 ```
 
 
-## calendarManager.getCalendarManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### calendarManager.getCalendarManager
 
 getCalendarManager(context: Context): CalendarManager
 
@@ -47,28 +48,25 @@ getCalendarManager(context: Context): CalendarManager
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 应用上下文Context，Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
+| context | Context | 是 | 应用上下文Context，Stage模型的应用Context定义见Context。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CalendarManager](#calendarmanager) | 返回创建的CalendarManager对象。 |
+| CalendarManager | 返回创建的CalendarManager对象。 |
 
 
 **示例**：
 
-
 > [!NOTE]
-> 示例中的mContext的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+> 示例中的mContext的获取方式请参见 获取UIAbility的上下文信息 。
 
 
-```ts
+```ArkTS
 // 获取上下文mContext
 // 获取日历管理器calendarMgr
 // 该文件为系统生成，目录：entry/src/main/ets/entryability/EntryAbility.ets
@@ -80,7 +78,7 @@ import {
   PermissionRequestResult,
   Permissions,
   UIAbility,
-  Want,
+  Want
 } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { calendarManager } from '@kit.CalendarKit';
@@ -103,34 +101,20 @@ export default class EntryAbility extends UIAbility {
 
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
-        console.error(
-          `Failed to load the content. Code: ${err.code}, message: ${err.message}`,
-        );
+        console.error(`Failed to load the content. Code: ${err.code}, message: ${err.message}`);
         return;
       }
-      console.info(
-        `Succeeded in loading the content. Data: ${JSON.stringify(data)}`,
-      );
+      console.info(`Succeeded in loading the content. Data: ${JSON.stringify(data)}`);
     });
     mContext = this.context;
-    const permissions: Permissions[] = [
-      'ohos.permission.READ_CALENDAR',
-      'ohos.permission.WRITE_CALENDAR',
-    ];
+    const permissions: Permissions[] = ['ohos.permission.READ_CALENDAR', 'ohos.permission.WRITE_CALENDAR'];
     let atManager = abilityAccessCtrl.createAtManager();
-    atManager
-      .requestPermissionsFromUser(mContext, permissions)
-      .then((result: PermissionRequestResult) => {
-        console.info(
-          `get Permission success, result: ${JSON.stringify(result)}`,
-        );
-        calendarMgr = calendarManager.getCalendarManager(mContext);
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `get Permission error, error. Code: ${error.code}, message: ${error.message}`,
-        );
-      });
+    atManager.requestPermissionsFromUser(mContext, permissions).then((result: PermissionRequestResult) => {
+      console.info(`get Permission success, result: ${JSON.stringify(result)}`);
+      calendarMgr = calendarManager.getCalendarManager(mContext);
+    }).catch((error: BusinessError) => {
+      console.error(`get Permission error, error. Code: ${error.code}, message: ${error.message}`);
+    })
   }
 
   onWindowStageDestroy(): void {
@@ -151,18 +135,18 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-## CalendarManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### CalendarManager
 
 下列API示例中需先通过[getCalendarManager()](#calendarmanagergetcalendarmanager)方法获取CalendarManager对象，再通过此对象调用对应方法，进行Calendar的创建、删除、修改、查询等操作。
 
 **系统能力**： SystemCapability.Applications.CalendarData
 
 
-### createCalendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void
+##### createCalendar
+
+createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback&lt;Calendar&gt;): void
 
 根据日历账户信息，创建一个Calendar对象，使用callback异步回调。
 
@@ -174,17 +158,15 @@ createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calenda
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| calendarAccount | [CalendarAccount](#calendaraccount) | 是 | 日历账户信息。 |
-| callback | AsyncCallback&lt;[Calendar](#calendar)&gt; | 是 | 回调函数，当创建账户成功时，err为undefined，data为创建成功的Calendar；否则为错误对象。 |
+| calendarAccount | CalendarAccount | 是 | 日历账户信息。 |
+| callback | AsyncCallback&lt;Calendar&gt; | 是 | 回调函数，当创建账户成功时，err为undefined，data为创建成功的Calendar；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -196,8 +178,7 @@ createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calenda
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
@@ -205,36 +186,27 @@ import { calendarManager } from '@kit.CalendarKit';
 
 const calendarAccount: calendarManager.CalendarAccount = {
   name: 'CreateMyCalendarByCallBack',
-  type: calendarManager.CalendarType.LOCAL,
+  type: calendarManager.CalendarType.LOCAL
 };
 try {
-  calendarMgr?.createCalendar(
-    calendarAccount,
-    (err: BusinessError, data: calendarManager.Calendar) => {
-      if (err) {
-        console.error(
-          `Failed to create calendar. Code: ${err.code}, message: ${err.message}`,
-        );
-      } else {
-        console.info(
-          `Succeeded in creating calendar, data -> ${JSON.stringify(data)}`,
-        );
-      }
-    },
-  );
+  calendarMgr?.createCalendar(calendarAccount, (err: BusinessError, data: calendarManager.Calendar) => {
+    if (err) {
+      console.error(`Failed to create calendar. Code: ${err.code}, message: ${err.message}`);
+    } else {
+      console.info(`Succeeded in creating calendar, data -> ${JSON.stringify(data)}`);
+    }
+  });
 } catch (error) {
   // 检查权限是否已成功申请或者参数是否正确。
-  console.error(
-    `Failed to create calendar. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to create calendar. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-### createCalendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>
+##### createCalendar
+
+createCalendar(calendarAccount: CalendarAccount): Promise&lt;Calendar&gt;
 
 根据日历账户信息，创建一个Calendar对象，使用Promise异步回调。
 
@@ -246,24 +218,21 @@ createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| calendarAccount | [CalendarAccount](#calendaraccount) | 是 | 日历账户信息。 |
+| calendarAccount | CalendarAccount | 是 | 日历账户信息。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Calendar](#calendar)&gt; | Promise对象，返回创建的Calendar对象。 |
+| Promise&lt;Calendar&gt; | Promise对象，返回创建的Calendar对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -275,8 +244,7 @@ createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
@@ -285,28 +253,21 @@ import { calendarManager } from '@kit.CalendarKit';
 const calendarAccount: calendarManager.CalendarAccount = {
   name: 'CreateMyCalendarByPromise',
   type: calendarManager.CalendarType.LOCAL,
-  displayName: 'MyApplication',
+  displayName : 'MyApplication'
 };
-calendarMgr
-  ?.createCalendar(calendarAccount)
-  .then((data: calendarManager.Calendar) => {
-    console.info(
-      `Succeeded in creating calendar data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((error: BusinessError) => {
-    // 检查权限是否已成功申请或者参数是否正确。
-    console.error(
-      `Failed to create calendar. Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calendar) => {
+  console.info(`Succeeded in creating calendar data->${JSON.stringify(data)}`);
+}).catch((error : BusinessError) => {
+  // 检查权限是否已成功申请或者参数是否正确。
+  console.error(`Failed to create calendar. Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-### deleteCalendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void
+##### deleteCalendar
+
+deleteCalendar(calendar: Calendar, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定Calendar对象，使用callback异步回调。
 
@@ -318,17 +279,15 @@ deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| calendar | [Calendar](#calendar) | 是 | 即将删除的Calendar对象。无法删除默认账户。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调���数，当删除账户成功时，err为undefined；否则为错误对象。 |
+| calendar | Calendar | 是 | 即将删除的Calendar对象。无法删除默认账户。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当删除账户成功时，err为undefined；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -340,8 +299,7 @@ deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
@@ -349,52 +307,36 @@ import { calendarManager } from '@kit.CalendarKit';
 
 const calendarAccount: calendarManager.CalendarAccount = {
   name: 'DeleteMyCalendarByCallBack',
-  type: calendarManager.CalendarType.LOCAL,
+  type: calendarManager.CalendarType.LOCAL
 };
-calendarMgr
-  ?.createCalendar(calendarAccount)
-  .then((data: calendarManager.Calendar) => {
-    console.info(
-      `Succeeded in creating calendar, data -> ${JSON.stringify(data)}`,
-    );
-    calendarMgr?.getCalendar(
-      calendarAccount,
-      (err: BusinessError, data: calendarManager.Calendar) => {
-        if (err) {
-          console.error(
-            `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-          );
+calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calendar) => {
+  console.info(`Succeeded in creating calendar, data -> ${JSON.stringify(data)}`);
+  calendarMgr?.getCalendar(calendarAccount, (err: BusinessError, data: calendarManager.Calendar) => {
+    if (err) {
+      console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+    } else {
+      console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+      calendarMgr?.deleteCalendar(data, (err1: BusinessError) => {
+        if (err1) {
+          // 检查参数是否正确。
+          console.error(`Failed to delete calendar. Code: ${err1.code}, message: ${err1.message}`);
         } else {
-          console.info(
-            `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-          );
-          calendarMgr?.deleteCalendar(data, (err1: BusinessError) => {
-            if (err1) {
-              // 检查参数是否正确。
-              console.error(
-                `Failed to delete calendar. Code: ${err1.code}, message: ${err1.message}`,
-              );
-            } else {
-              console.info('Succeeded in deleting calendar');
-            }
-          });
+          console.info('Succeeded in deleting calendar');
         }
-      },
-    );
-  })
-  .catch((error: BusinessError) => {
-    // 检查权限是否已成功申请或者参数是否正确。
-    console.error(
-      `Failed to create calendar. Code: ${error.code}, message: ${error.message}`,
-    );
+      });
+    }
   });
+}).catch((error: BusinessError) => {
+  // 检查权限是否已成功申请或者参数是否正确。
+  console.error(`Failed to create calendar. Code: ${error.code}, message: ${error.message}`);
+})
 ```
 
 
-### deleteCalendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteCalendar(calendar: Calendar): Promise<void>
+##### deleteCalendar
+
+deleteCalendar(calendar: Calendar): Promise&lt;void&gt;
 
 删除指定Calendar对象，使用Promise异步回调。
 
@@ -406,14 +348,12 @@ deleteCalendar(calendar: Calendar): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| calendar | [Calendar](#calendar) | 是 | 即将删除的Calendar对象。无法删除默认账户。 |
+| calendar | Calendar | 是 | 即将删除的Calendar对象。无法删除默认账户。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -423,7 +363,6 @@ deleteCalendar(calendar: Calendar): Promise<void>
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -435,8 +374,7 @@ deleteCalendar(calendar: Calendar): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
@@ -444,52 +382,33 @@ import { calendarManager } from '@kit.CalendarKit';
 
 const calendarAccount: calendarManager.CalendarAccount = {
   name: 'DeleteMyCalendarByPromise',
-  type: calendarManager.CalendarType.LOCAL,
+  type: calendarManager.CalendarType.LOCAL
 };
-calendarMgr
-  ?.createCalendar(calendarAccount)
-  .then((data: calendarManager.Calendar) => {
-    console.info(
-      `Succeeded in creating calendar, data -> ${JSON.stringify(data)}`,
-    );
-    calendarMgr
-      ?.getCalendar(calendarAccount)
-      .then((data: calendarManager.Calendar) => {
-        console.info(
-          `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-        );
-        calendarMgr
-          ?.deleteCalendar(data)
-          .then(() => {
-            console.info('Succeeded in deleting calendar');
-          })
-          .catch((err: BusinessError) => {
-            // 检查参数是否正确。
-            console.error(
-              `Failed to delete calendar. Code: ${err.code}, message: ${err.message}`,
-            );
-          });
-      })
-      .catch((err: BusinessError) => {
-        // 检查权限是否已成功申请或者参数是否正确。
-        console.error(
-          `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-        );
-      });
-  })
-  .catch((error: BusinessError) => {
+calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calendar) => {
+  console.info(`Succeeded in creating calendar, data -> ${JSON.stringify(data)}`);
+  calendarMgr?.getCalendar(calendarAccount).then((data: calendarManager.Calendar) => {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendarMgr?.deleteCalendar(data).then(() => {
+      console.info('Succeeded in deleting calendar');
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to delete calendar. Code: ${err.code}, message: ${err.message}`);
+    });
+  }).catch((err: BusinessError) => {
     // 检查权限是否已成功申请或者参数是否正确。
-    console.error(
-      `Failed to create calendar. Code: ${error.code}, message: ${error.message}`,
-    );
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
   });
+}).catch((error: BusinessError) => {
+  // 检查权限是否已成功申请或者参数是否正确。
+  console.error(`Failed to create calendar. Code: ${error.code}, message: ${error.message}`);
+})
 ```
 
 
-### getCalendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCalendar(callback: AsyncCallback<Calendar>): void
+##### getCalendar
+
+getCalendar(callback: AsyncCallback&lt;Calendar&gt;): void
 
 获取默认Calendar对象，默认Calendar是日历存储首次运行时创建的，若创建Event时不关注其Calendar归属，则无须通过[createCalendar()](#createcalendar)创建Calendar，直接使用默认Calendar，使用callback异步回调。
 
@@ -503,16 +422,14 @@ getCalendar(callback: AsyncCallback<Calendar>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[Calendar](#calendar)&gt; | 是 | 回调函数，当查询账户成功时，err为undefined，data为查询到的Calendar；否则为错误对象。 |
+| callback | AsyncCallback&lt;Calendar&gt; | 是 | 回调函数，当查询账户成功时，err为undefined，data为查询到的Calendar；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -524,34 +441,27 @@ getCalendar(callback: AsyncCallback<Calendar>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请或者参数是否正确。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-    }
-  },
-);
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请或者参数是否正确。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+  }
+});
 ```
 
 
-### getCalendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void
+##### getCalendar
+
+getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback&lt;Calendar&gt;): void
 
 获取指定Calendar对象，使用callback异步回调。
 
@@ -565,17 +475,15 @@ getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>)
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| calendarAccount | [CalendarAccount](#calendaraccount) | 是 | 指定日历账户信息。 |
-| callback | AsyncCallback&lt;[Calendar](#calendar)&gt; | 是 | 回调函数，当查询账户成功时，err为undefined，data为查询到的Calendar；否则为错误对象。 |
+| calendarAccount | CalendarAccount | 是 | 指定日历账户信息。 |
+| callback | AsyncCallback&lt;Calendar&gt; | 是 | 回调函数，当查询账户成功时，err为undefined，data为查询到的Calendar；否则为错误对象。 |
 
 
 **错误码：**
 
-以下错误码详细介绍��参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -588,8 +496,7 @@ getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>)
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
@@ -597,43 +504,29 @@ import { calendarManager } from '@kit.CalendarKit';
 
 const calendarAccount: calendarManager.CalendarAccount = {
   name: 'MyCalendar',
-  type: calendarManager.CalendarType.LOCAL,
+  type: calendarManager.CalendarType.LOCAL
 };
-calendarMgr
-  ?.createCalendar(calendarAccount)
-  .then((data: calendarManager.Calendar) => {
-    console.info(
-      `Succeeded in creating calendar, data -> ${JSON.stringify(data)}`,
-    );
-    calendarMgr?.getCalendar(
-      calendarAccount,
-      (err: BusinessError, data: calendarManager.Calendar) => {
-        if (err) {
-          console.error(
-            `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-          );
-          // 检查权限是否已成功申请或者参数是否正确。
-        } else {
-          console.info(
-            `Succeeded in getting calendar data -> ${JSON.stringify(data)}`,
-          );
-        }
-      },
-    );
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to create calendar. Code: ${error.code}, message: ${error.message}`,
-    );
-    // 检查权限是否已成功申请或者参数是否正确。
+calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calendar) => {
+  console.info(`Succeeded in creating calendar, data -> ${JSON.stringify(data)}`);
+  calendarMgr?.getCalendar(calendarAccount, (err: BusinessError, data: calendarManager.Calendar) => {
+    if (err) {
+      console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+      // 检查权限是否已成功申请或者参数是否正确。
+    } else {
+      console.info(`Succeeded in getting calendar data -> ${JSON.stringify(data)}`);
+    }
   });
+}).catch((error: BusinessError) => {
+  console.error(`Failed to create calendar. Code: ${error.code}, message: ${error.message}`);
+  // 检查权限是否已成功申请或者参数是否正确。
+})
 ```
 
 
-### getCalendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>
+##### getCalendar
+
+getCalendar(calendarAccount?: CalendarAccount): Promise&lt;Calendar&gt;
 
 获取默认Calendar对象或者指定Calendar对象，使用Promise异步回调。
 
@@ -647,24 +540,21 @@ getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| calendarAccount | [CalendarAccount](#calendaraccount) | 否 | 指定日历账户信息，用来获取指定Calendar对象，不填时，表示获取默认Calendar对象。 |
+| calendarAccount | CalendarAccount | 否 | 指定日历账户信息，用来获取指定Calendar对象，不填时，表示获取默认Calendar对象。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Calendar](#calendar)&gt; | Promise对象，返回查询到的Calendar对象。 |
+| Promise&lt;Calendar&gt; | Promise对象，返回查询到的Calendar对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -677,31 +567,23 @@ getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-calendarMgr
-  ?.getCalendar()
-  .then((data: calendarManager.Calendar) => {
-    console.info(
-      `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    // 检查权限是否已成功申请。
-    console.error(
-      `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+calendarMgr?.getCalendar().then((data: calendarManager.Calendar) => {
+  console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  // 检查权限是否已成功申请。
+  console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-### getAllCalendars
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAllCalendars
 
 getAllCalendars(callback: AsyncCallback<Calendar[]>): void
 
@@ -715,16 +597,14 @@ getAllCalendars(callback: AsyncCallback<Calendar[]>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[Calendar](#calendar)[]&gt; | 是 | 回调函数，当查询账户成功时，err为undefined，data为查询到的Calendar数组；否则为错误对象。 |
+| callback | AsyncCallback<Calendar[]> | 是 | 回调函数，当查询账户成功时，err为undefined，data为查询到的Calendar数组；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -736,35 +616,28 @@ getAllCalendars(callback: AsyncCallback<Calendar[]>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-calendarMgr?.getAllCalendars(
-  (err: BusinessError, data: calendarManager.Calendar[]) => {
-    if (err) {
-      console.error(
-        `Failed to get all calendars. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting all calendars, data -> ${JSON.stringify(data)}`,
-      );
-      data.forEach((calendar) => {
-        const account = calendar.getAccount();
-        console.info(`account -> ${JSON.stringify(account)}`);
-      });
-    }
-  },
-);
+calendarMgr?.getAllCalendars((err: BusinessError, data: calendarManager.Calendar[]) => {
+  if (err) {
+    console.error(`Failed to get all calendars. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting all calendars, data -> ${JSON.stringify(data)}`);
+    data.forEach((calendar) => {
+      const account = calendar.getAccount();
+      console.info(`account -> ${JSON.stringify(account)}`);
+    })
+  }
+});
 ```
 
 
-### getAllCalendars
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAllCalendars
 
 getAllCalendars(): Promise<Calendar[]>
 
@@ -778,16 +651,14 @@ getAllCalendars(): Promise<Calendar[]>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Calendar](#calendar)[]&gt; | Promise对象，返回查询到的Calendar对象数组。 |
+| Promise<Calendar[]> | Promise对象，返回查询到的Calendar对象数组。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -799,37 +670,30 @@ getAllCalendars(): Promise<Calendar[]>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-calendarMgr
-  ?.getAllCalendars()
-  .then((data: calendarManager.Calendar[]) => {
-    console.info(
-      `Succeeded in getting all calendars, data -> ${JSON.stringify(data)}`,
-    );
-    data.forEach((calendar) => {
-      const account = calendar.getAccount();
-      console.info(`account -> ${JSON.stringify(account)}`);
-    });
+calendarMgr?.getAllCalendars().then((data: calendarManager.Calendar[]) => {
+  console.info(`Succeeded in getting all calendars, data -> ${JSON.stringify(data)}`);
+  data.forEach((calendar) => {
+    const account = calendar.getAccount();
+    console.info(`account -> ${JSON.stringify(account)}`);
   })
-  .catch((err: BusinessError) => {
-    // 检查权限是否已成功申请。
-    console.error(
-      `Failed to get all calendars. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+}).catch((err: BusinessError) => {
+  // 检查权限是否已成功申请。
+  console.error(`Failed to get all calendars. Code: ${err.code}, message: ${err.message}`);
+  
+});
 ```
 
 
-### editEvent12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-editEvent(event: Event): Promise<number>
+##### editEvent12+
+
+editEvent(event: Event): Promise&lt;number&gt;
 
 通过跳转到日程创建页面创建单个日程，入参Event不填日程id，不支持设置instanceStartTime、instanceEndTime、identifier、attendee、service、isLunar和timeZone属性。使用Promise异步回调。
 
@@ -841,14 +705,12 @@ editEvent(event: Event): Promise<number>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [Event](#event) | 是 | Event对象。 |
+| event | Event | 是 | Event对象。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -857,8 +719,7 @@ editEvent(event: Event): Promise<number>
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
@@ -869,7 +730,7 @@ const event: calendarManager.Event = {
   title: 'title',
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
 calendarMgr?.editEvent(event).then((eventId: number): void => {
   console.info(`create Event id = ${eventId}`);
@@ -877,31 +738,31 @@ calendarMgr?.editEvent(event).then((eventId: number): void => {
 ```
 
 
-## Calendar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Calendar
 
 下列API示例中需先通过[createCalendar()](#createcalendar)、[getCalendar()](#getcalendar)中任一方法获取Calendar对象，再通过此对象调用对应方法，对该Calendar下的日程进行创建、删除、修改、查询等操作。
 
 **系统能力**： SystemCapability.Applications.CalendarData
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | id | number | 是 | 否 | 日历账户id，日历账户id是日历账户的唯一标识符，是数据库的自增主键，小于0代表日历账户创建失败，大于0代表日历账户创建成功，没有等于0的情况。 |
 
 
-### addEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addEvent(event: Event, callback: AsyncCallback<number>): void
+
+##### addEvent
+
+addEvent(event: Event, callback: AsyncCallback&lt;number&gt;): void
 
 创建日程，入参[Event](#event)不填日程id、instanceStartTime和instanceEndTime，使用callback异步回调。
 
@@ -915,17 +776,15 @@ addEvent(event: Event, callback: AsyncCallback<number>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [Event](#event) | 是 | Event对象。 |
+| event | Event | 是 | Event对象。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，当添加日程成功时，err为undefined，data为日程id；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -935,51 +794,41 @@ addEvent(event: Event, callback: AsyncCallback<number>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const event: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr
-  ?.getCalendar()
-  .then((data: calendarManager.Calendar) => {
-    console.info(
-      `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-    );
-    calendar = data;
-    calendar.addEvent(event, (err: BusinessError, data: number): void => {
-      if (err) {
-        // 检查权限是否已成功申请或者参数是否正确。
-        console.error(
-          `Failed to addEvent. Code: ${err.code}, message: ${err.message}`,
-        );
-      } else {
-        console.info(`Succeeded in adding event, id -> ${data}`);
-      }
-    });
-  })
-  .catch((err: BusinessError) => {
-    // 检查权限是否已成功申请。
-    console.error(
-      `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-    );
+calendarMgr?.getCalendar().then((data: calendarManager.Calendar) => {
+  console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+  calendar = data;
+  calendar.addEvent(event, (err: BusinessError, data: number): void => {
+    if (err) {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to addEvent. Code: ${err.code}, message: ${err.message}`);
+    } else {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }
   });
+}).catch((err: BusinessError) => {
+  // 检查权限是否已成功申请。
+  console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-### addEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addEvent(event: Event): Promise<number>
+##### addEvent
+
+addEvent(event: Event): Promise&lt;number&gt;
 
 创建日程，入参[Event](#event)不填日程id、instanceStartTime和instanceEndTime，使用Promise异步回调。
 
@@ -993,14 +842,12 @@ addEvent(event: Event): Promise<number>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [Event](#event) | 是 | Event对象。 |
+| event | Event | 是 | Event对象。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1011,7 +858,6 @@ addEvent(event: Event): Promise<number>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -1020,53 +866,41 @@ addEvent(event: Event): Promise<number>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const event: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      calendar
-        .addEvent(event)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to addEvent. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    calendar.addEvent(event).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to addEvent. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### addEvents
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addEvents(events: Event[], callback: AsyncCallback<void>): void
+##### addEvents
+
+addEvents(events: Event[], callback: AsyncCallback&lt;void&gt;): void
 
 批量创建日程，入参[Event](#event)不填日程id、instanceStartTime和instanceEndTime，使用callback异步回调。
 
@@ -1078,17 +912,15 @@ addEvents(events: Event[], callback: AsyncCallback<void>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| events | [Event](#event)[] | 是 | Event对象数组。 |
+| events | Event[] | 是 | Event对象数组。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当添加日程成功时，err为undefined；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1098,59 +930,50 @@ addEvents(events: Event[], callback: AsyncCallback<void>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const events: calendarManager.Event[] = [
   {
     type: calendarManager.EventType.NORMAL,
     startTime: date.getTime(),
-    endTime: date.getTime() + 60 * 60 * 1000,
+    endTime: date.getTime() + 60 * 60 * 1000
   },
   {
     type: calendarManager.EventType.NORMAL,
     startTime: date.getTime(),
-    endTime: date.getTime() + 60 * 60 * 1000,
-  },
+    endTime: date.getTime() + 60 * 60 * 1000
+  }
 ];
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      calendar.addEvents(events, (err: BusinessError) => {
-        if (err) {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add events. Code: ${err.code}, message: ${err.message}`,
-          );
-        } else {
-          console.info('Succeeded in adding events');
-        }
-      });
-    }
-  },
-);
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    calendar.addEvents(events, (err: BusinessError) => {
+      if (err) {
+        // 检查权限是否已成功申请或者参数是否正确。
+        console.error(`Failed to add events. Code: ${err.code}, message: ${err.message}`);
+      } else {
+        console.info('Succeeded in adding events');
+      }
+    });
+  }
+});
 ```
 
 
-### addEvents
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addEvents(events: Event[]): Promise<void>
+##### addEvents
+
+addEvents(events: Event[]): Promise&lt;void&gt;
 
 批量创建日程，入参[Event](#event)不填日程id、instanceStartTime和instanceEndTime，使用Promise异步回调。
 
@@ -1162,14 +985,12 @@ addEvents(events: Event[]): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| events | [Event](#event)[] | 是 | Event对象数组。 |
+| events | Event[] | 是 | Event对象数组。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1180,7 +1001,6 @@ addEvents(events: Event[]): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -1189,60 +1009,48 @@ addEvents(events: Event[]): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const events: calendarManager.Event[] = [
   {
     type: calendarManager.EventType.NORMAL,
     startTime: date.getTime(),
-    endTime: date.getTime() + 60 * 60 * 1000,
+    endTime: date.getTime() + 60 * 60 * 1000
   },
   {
     type: calendarManager.EventType.NORMAL,
     startTime: date.getTime(),
-    endTime: date.getTime() + 60 * 60 * 1000,
-  },
+    endTime: date.getTime() + 60 * 60 * 1000
+  }
 ];
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      calendar
-        .addEvents(events)
-        .then(() => {
-          console.info('Succeeded in adding events');
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    calendar.addEvents(events).then(() => {
+      console.info('Succeeded in adding events');
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### deleteEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteEvent(id: number, callback: AsyncCallback<void>): void
+##### deleteEvent
+
+deleteEvent(id: number, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定id的日程，使用callback异步回调。
 
@@ -1252,7 +1060,6 @@ deleteEvent(id: number, callback: AsyncCallback<void>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | id | number | 是 | 日程id，传入的日程id为整数，表示已创建日程的id，是日程的唯一标识符。 |
@@ -1261,72 +1068,57 @@ deleteEvent(id: number, callback: AsyncCallback<void>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 let id: number = 0;
 const date = new Date();
 const event: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      calendar
-        .addEvent(event)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id = data;
-          calendar?.deleteEvent(id, (err: BusinessError) => {
-            if (err) {
-              // 检查参数是否正确。
-              console.error(
-                `Failed to delete event. Code: ${err.code}, message: ${err.message}`,
-              );
-            } else {
-              console.info('Succeeded in deleting event');
-            }
-          });
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    calendar.addEvent(event).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id = data;
+      calendar?.deleteEvent(id, (err: BusinessError) => {
+        if (err) {
+          // 检查参数是否正确。
+          console.error(`Failed to delete event. Code: ${err.code}, message: ${err.message}`);
+        } else {
+          console.info('Succeeded in deleting event');
+        }
+      });
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### deleteEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteEvent(id: number): Promise<void>
+##### deleteEvent
+
+deleteEvent(id: number): Promise&lt;void&gt;
 
 删除指定id的日程，使用Promise异步回调。
 
 **系统能力**： SystemCapability.Applications.CalendarData
 
 **参数**：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1335,7 +1127,6 @@ deleteEvent(id: number): Promise<void>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -1343,66 +1134,49 @@ deleteEvent(id: number): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 let id: number = 0;
 const date = new Date();
 const event: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar data->${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id = data;
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      calendar
-        .deleteEvent(id)
-        .then(() => {
-          console.info('Succeeded in deleting event');
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to delete event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar data->${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id = data;
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    calendar.deleteEvent(id).then(() => {
+      console.info('Succeeded in deleting event');
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to delete event. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### deleteEvents
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteEvents(ids: number[], callback: AsyncCallback<void>): void
+##### deleteEvents
+
+deleteEvents(ids: number[], callback: AsyncCallback&lt;void&gt;): void
 
 根据日程id，批量删除日程，使用callback异步回调。
 
@@ -1412,7 +1186,6 @@ deleteEvents(ids: number[], callback: AsyncCallback<void>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | ids | number[] | 是 | 日程id数组。 |
@@ -1421,90 +1194,70 @@ deleteEvents(ids: number[], callback: AsyncCallback<void>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 let id1: number = 0;
 let id2: number = 0;
 const date = new Date();
 const event1: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
 const event2: calendarManager.Event = {
   type: calendarManager.EventType.IMPORTANT,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event1)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id1 = data;
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      await calendar
-        .addEvent(event2)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id2 = data;
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      calendar.deleteEvents([id1, id2], (err: BusinessError) => {
-        if (err) {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to delete events. Code: ${err.code}, message: ${err.message}`,
-          );
-        } else {
-          console.info('Succeeded in deleting events');
-        }
-      });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event1).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id1 = data;
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    await calendar.addEvent(event2).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id2 = data;
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    calendar.deleteEvents([id1, id2], (err: BusinessError) => {
+      if (err) {
+        // 检查参数是否正确。
+        console.error(`Failed to delete events. Code: ${err.code}, message: ${err.message}`);
+      } else {
+        console.info('Succeeded in deleting events');
+      }
+    });
+  }
+});
 ```
 
 
-### deleteEvents
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteEvents(ids: number[]): Promise<void>
+##### deleteEvents
+
+deleteEvents(ids: number[]): Promise&lt;void&gt;
 
 根据日程id，批量删除日程，使用Promise异步回调。
 
 **系统能力**： SystemCapability.Applications.CalendarData
 
 **参数**：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1513,7 +1266,6 @@ deleteEvents(ids: number[]): Promise<void>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -1521,84 +1273,62 @@ deleteEvents(ids: number[]): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 let id1: number = 0;
 let id2: number = 0;
 const date = new Date();
 const event1: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
 const event2: calendarManager.Event = {
   type: calendarManager.EventType.IMPORTANT,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event1)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id1 = data;
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      await calendar
-        .addEvent(event2)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id2 = data;
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      calendar
-        .deleteEvents([id1, id2])
-        .then(() => {
-          console.info('Succeeded in deleting events');
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to delete events. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event1).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id1 = data;
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    await calendar.addEvent(event2).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id2 = data;
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    calendar.deleteEvents([id1, id2]).then(() => {
+      console.info('Succeeded in deleting events');
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to delete events. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### updateEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updateEvent(event: Event, callback: AsyncCallback<void>): void
+##### updateEvent
+
+updateEvent(event: Event, callback: AsyncCallback&lt;void&gt;): void
 
 更新日程，入参[Event](#event)需要填写被修改日程的id，使用callback异步回调。
 
@@ -1606,76 +1336,61 @@ updateEvent(event: Event, callback: AsyncCallback<void>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [Event](#event) | 是 | Event对象。 |
+| event | Event | 是 | Event对象。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当更新日程成功时，err为undefined；否则为错误对象。 |
 
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const oriEvent: calendarManager.Event = {
   title: 'update',
   type: calendarManager.EventType.NORMAL,
   description: 'updateEventTest',
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(oriEvent)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          oriEvent.id = data;
-          oriEvent.title = 'newUpdate';
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      calendar.updateEvent(oriEvent, (err: BusinessError) => {
-        if (err) {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to update event. Code: ${err.code}, message: ${err.message}`,
-          );
-        } else {
-          console.info('Succeeded in updating event');
-        }
-      });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(oriEvent).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      oriEvent.id = data;
+      oriEvent.title = 'newUpdate';
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    calendar.updateEvent(oriEvent, (err: BusinessError) => {
+      if (err) {
+        // 检查参数是否正确。
+        console.error(`Failed to update event. Code: ${err.code}, message: ${err.message}`);
+      } else {
+        console.info('Succeeded in updating event');
+      }
+    });
+  }
+});
 ```
 
 
-### updateEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updateEvent(event: Event): Promise<void>
+##### updateEvent
+
+updateEvent(event: Event): Promise&lt;void&gt;
 
 更新日程，入参[Event](#event)需要填写被修改日程的id，使用Promise异步回调。
 
@@ -1683,14 +1398,12 @@ updateEvent(event: Event): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [Event](#event) | 是 | Event对象。 |
+| event | Event | 是 | Event对象。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1699,66 +1412,49 @@ updateEvent(event: Event): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const oriEvent: calendarManager.Event = {
   title: 'update',
   type: calendarManager.EventType.NORMAL,
   description: 'updateEventTest',
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(oriEvent)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          oriEvent.id = data;
-          oriEvent.title = 'newUpdate';
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      calendar
-        .updateEvent(oriEvent)
-        .then(() => {
-          console.info(`Succeeded in updating event`);
-        })
-        .catch((err: BusinessError) => {
-          // 参数是否正确。
-          console.error(
-            `Failed to update event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(oriEvent).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      oriEvent.id = data;
+      oriEvent.title = 'newUpdate';
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    calendar.updateEvent(oriEvent).then(() => {
+      console.info(`Succeeded in updating event`);
+    }).catch((err: BusinessError) => {
+      // 参数是否正确。
+      console.error(`Failed to update event. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### getEvents
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getEvents
 
 getEvents(callback: AsyncCallback<Event[]>): void
 
@@ -1774,16 +1470,14 @@ API version 20之前，默认查询字段包括id、type、title、startTime、e
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[Event](#event)[]&gt; | 是 | 回调函数，当查询日程成功时，err为undefined，data为查询到的Event数组；否则为错误对象。 |
+| callback | AsyncCallback<Event[]> | 是 | 回调函数，当查询日程成功时，err为undefined，data为查询到的Event数组；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1793,47 +1487,34 @@ API version 20之前，默认查询字段包括id、type、title、startTime、e
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      calendar.getEvents(
-        (err: BusinessError, data: calendarManager.Event[]) => {
-          if (err) {
-            console.error(
-              `Failed to get events. Code: ${err.code}, message: ${err.message}`,
-            );
-          } else {
-            console.info(
-              `Succeeded in getting events, data -> ${JSON.stringify(data)}`,
-            );
-          }
-        },
-      );
-    }
-  },
-);
+let calendar : calendarManager.Calendar | undefined = undefined;
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    calendar.getEvents((err: BusinessError, data: calendarManager.Event[]) => {
+      if (err) {
+        console.error(`Failed to get events. Code: ${err.code}, message: ${err.message}`);
+      } else {
+        console.info(`Succeeded in getting events, data -> ${JSON.stringify(data)}`);
+      }
+    });
+  }
+});
 ```
 
 
-### getEvents
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getEvents
 
 getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>):void
 
@@ -1847,18 +1528,16 @@ getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCa
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| eventFilter | [EventFilter](#eventfilter) | 是 | 查询条件。 |
-| eventKey | (keyof [Event](#event))[] | 是 | 查询字段。 |
-| callback | AsyncCallback&lt;[Event](#event)[]&gt; | 是 | 回调函数，当查询日程成功时，err为undefined，data为查询到的Event数组；否则为错误对象。 |
+| eventFilter | EventFilter | 是 | 查询条件。 |
+| eventKey | (keyof Event)[] | 是 | 查询字段。 |
+| callback | AsyncCallback<Event[]> | 是 | 回调函数，当查询日程成功时，err为undefined，data为查询到的Event数组；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1868,86 +1547,61 @@ getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCa
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 let id1: number = 0;
 let id2: number = 0;
 const date = new Date();
 const event1: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
 const event2: calendarManager.Event = {
   type: calendarManager.EventType.IMPORTANT,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event1)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      await calendar
-        .addEvent(event2)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      const filter = calendarManager.EventFilter.filterById([id1, id2]);
-      calendar.getEvents(
-        filter,
-        ['title', 'type', 'startTime', 'endTime'],
-        (err: BusinessError, data: calendarManager.Event[]) => {
-          if (err) {
-            // 检查参数是否正确。
-            console.error(
-              `Failed to get events. Code: ${err.code}, message: ${err.message}`,
-            );
-          } else {
-            console.info(
-              `Succeeded in getting events, data -> ${JSON.stringify(data)}`,
-            );
-          }
-        },
-      );
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event1).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    await calendar.addEvent(event2).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    const filter = calendarManager.EventFilter.filterById([id1, id2]);
+    calendar.getEvents(filter, ['title', 'type', 'startTime', 'endTime'], (err: BusinessError, data: calendarManager.Event[]) => {
+      if (err) {
+        // 检查参数是否正确。
+        console.error(`Failed to get events. Code: ${err.code}, message: ${err.message}`);
+      } else {
+        console.info(`Succeeded in getting events, data -> ${JSON.stringify(data)}`);
+      }
+    });
+  }
+});
 ```
 
 
-### getEvents
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getEvents
 
 getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>
 
@@ -1965,25 +1619,22 @@ getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| eventFilter | [EventFilter](#eventfilter) | 否 | 查询条件。 |
-| eventKey | (keyof [Event](#event))[] | 否 | 查询字段。API version 20之前，不填时默认查询字段包括id、type、title、startTime、endTime、isAllDay、description、timeZone、location、service、attendee、reminderTime；从API version 20开始，不填时默认查询字段包括id、type、title、startTime、endTime、isAllDay、description、timeZone、location、service、attendee、reminderTime、identifier。若查询字段为空，则不返回该字段。 |
+| eventFilter | EventFilter | 否 | 查询条件。 |
+| eventKey | (keyof Event)[] | 否 | 查询字段。API version 20之前，不填时默认查询字段包括id、type、title、startTime、endTime、isAllDay、description、timeZone、location、service、attendee、reminderTime；从API version 20开始，不填时默认查询字段包括id、type、title、startTime、endTime、isAllDay、description、timeZone、location、service、attendee、reminderTime、identifier。若查询字段为空，则不返回该字段。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Event](#event)[]&gt; | Promise对象，返回的是Event对象数组。 |
+| Promise<Event[]> | Promise对象，返回的是Event对象数组。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1993,67 +1644,48 @@ getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const event: calendarManager.Event = {
   title: 'MyEvent',
   type: calendarManager.EventType.IMPORTANT,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      // 根据MyEvent进行模糊查询，如果存在类似标题为MyEvent1类型的日程，也可查询出来
-      const filter = calendarManager.EventFilter.filterByTitle('MyEvent');
-      calendar
-        .getEvents(filter)
-        .then((data: calendarManager.Event[]) => {
-          console.info(
-            `Succeeded in getting events, data -> ${JSON.stringify(data)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to get events. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    // 根据MyEvent进行模糊查询，如果存在类似标题为MyEvent1类型的日程，也可查询出来
+    const filter = calendarManager.EventFilter.filterByTitle('MyEvent');
+    calendar.getEvents(filter).then((data: calendarManager.Event[]) => {
+      console.info(`Succeeded in getting events, data -> ${JSON.stringify(data)}`);
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to get events. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### getConfig
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getConfig
 
 getConfig(): CalendarConfig
 
@@ -2063,48 +1695,38 @@ getConfig(): CalendarConfig
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CalendarConfig](#calendarconfig) | 日历配置信息。 |
+| CalendarConfig | 日历配置信息。 |
 
 
 **示例**：
 
-
-```ts
+```json
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      const config = calendar.getConfig();
-      console.info(
-        `Succeeded in getting config, config -> ${JSON.stringify(config)}`,
-      );
-    }
-  },
-);
+let calendar : calendarManager.Calendar | undefined = undefined;
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    const config = calendar.getConfig();
+    console.info(`Succeeded in getting config, config -> ${JSON.stringify(config)}`);
+  }
+});
 ```
 
 
-### setConfig
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setConfig(config: CalendarConfig, callback: AsyncCallback<void>): void
+##### setConfig
+
+setConfig(config: CalendarConfig, callback: AsyncCallback&lt;void&gt;): void
 
 设置日历配置信息，使用callback异步回调。
 
@@ -2112,17 +1734,15 @@ setConfig(config: CalendarConfig, callback: AsyncCallback<void>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [CalendarConfig](#calendarconfig) | 是 | 日历配置信息。 |
+| config | CalendarConfig | 是 | 日历配置信息。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当设置Config成功时，err为undefined；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2131,52 +1751,41 @@ setConfig(config: CalendarConfig, callback: AsyncCallback<void>): void
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const config: calendarManager.CalendarConfig = {
   enableReminder: true,
-  color: '#aabbcc',
+  color: '#aabbcc'
 };
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      calendar.setConfig(config, (err: BusinessError) => {
-        if (err) {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to set config. Code: ${err.code}, message: ${err.message}`,
-          );
-        } else {
-          console.info(
-            `Succeeded in setting config, config -> ${JSON.stringify(config)}`,
-          );
-        }
-      });
-    }
-  },
-);
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    calendar.setConfig(config, (err: BusinessError) => {
+      if (err) {
+        // 检查权限是否已成功申请或者参数是否正确。
+        console.error(`Failed to set config. Code: ${err.code}, message: ${err.message}`);
+      } else {
+        console.info(`Succeeded in setting config, config -> ${JSON.stringify(config)}`);
+      }
+    });
+  }
+});
 ```
 
 
-### setConfig
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setConfig(config: CalendarConfig): Promise<void>
+##### setConfig
+
+setConfig(config: CalendarConfig): Promise&lt;void&gt;
 
 设置日历配置信息，使用Promise异步回调。
 
@@ -2184,14 +1793,12 @@ setConfig(config: CalendarConfig): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [CalendarConfig](#calendarconfig) | 是 | 日历配置信息。 |
+| config | CalendarConfig | 是 | 日历配置信息。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2202,7 +1809,6 @@ setConfig(config: CalendarConfig): Promise<void>
 
 以下错误码详细介绍请参考[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 23900001 | Parameter value error. |
@@ -2210,51 +1816,37 @@ setConfig(config: CalendarConfig): Promise<void>
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const config: calendarManager.CalendarConfig = {
   enableReminder: true,
-  color: '#aabbcc',
+  color: '#aabbcc'
 };
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      calendar
-        .setConfig(config)
-        .then(() => {
-          console.info(
-            `Succeeded in setting config, data->${JSON.stringify(config)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to set config. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    calendar.setConfig(config).then(() => {
+      console.info(`Succeeded in setting config, data->${JSON.stringify(config)}`);
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to set config. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### getAccount
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAccount
 
 getAccount(): CalendarAccount
 
@@ -2264,46 +1856,36 @@ getAccount(): CalendarAccount
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CalendarAccount](#calendaraccount) | 日历账户信息。 |
+| CalendarAccount | 日历账户信息。 |
 
 
 **示例**：
 
-
-```ts
+```json
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
-calendarMgr?.getCalendar(
-  (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      const account = calendar.getAccount();
-      console.info(
-        `succeeded in getting account, account -> ${JSON.stringify(account)}`,
-      );
-    }
-  },
-);
+let calendar : calendarManager.Calendar | undefined = undefined;
+calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    const account = calendar.getAccount();
+    console.info(`succeeded in getting account, account -> ${JSON.stringify(account)}`);
+  }
+});
 ```
 
 
-### queryEventInstances18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### queryEventInstances18+
 
 queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>
 
@@ -2319,27 +1901,24 @@ queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyo
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | start | number | 是 | 日程开始时间，类型为13位时间戳。 |
 | end | number | 是 | 日程结束时间，类型为13位时间戳。 |
 | ids | number[] | 否 | 需要查询的日程id数组，可为空数组或undefined。 |
-| eventKey | (keyof [Event](#event))[] | 否 | 所有查询日程的字段。不填时，默认查询字段为：id、title、startTime、endTime、instanceStartTime、instanceEndTime、isAllDay、description、timeZone、location、service。若查询字段为空，则不返回该字段。 |
+| eventKey | (keyof Event)[] | 否 | 所有查询日程的字段。不填时，默认查询字段为：id、title、startTime、endTime、instanceStartTime、instanceEndTime、isAllDay、description、timeZone、location、service。若查询字段为空，则不返回该字段。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Event](#event)[]&gt; | Promise对象，返回的是Event对象数组。 |
+| Promise<Event[]> | Promise对象，返回的是Event对象数组。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[日历服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-calendarmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2349,76 +1928,47 @@ queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyo
 
 **示例**：
 
-
-```ts
+```json
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { BusinessError } from '@kit.BasicServicesKit';
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const date = new Date();
 const event: calendarManager.Event = {
   title: 'MyEvent',
   type: calendarManager.EventType.IMPORTANT,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      calendar
-        ?.queryEventInstances(
-          date.getTime(),
-          date.getTime() + 60 * 60 * 1000,
-          undefined,
-          [
-            'title',
-            'startTime',
-            'endTime',
-            'instanceStartTime',
-            'instanceEndTime',
-          ],
-        )
-        .then((data: calendarManager.Event[]) => {
-          console.info(
-            `Succeeded in getting event instances, data -> ${JSON.stringify(data)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to get event instances. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    calendar?.queryEventInstances(date.getTime(), date.getTime() + 60 * 60 * 1000, undefined,
+      ['title', 'startTime', 'endTime', 'instanceStartTime', 'instanceEndTime',]).then((data: calendarManager.Event[]) => {
+      console.info(`Succeeded in getting event instances, data -> ${JSON.stringify(data)}`);
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to get event instances. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-## CalendarAccount
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### CalendarAccount
 
 日历账户信息。
 
@@ -2426,21 +1976,20 @@ calendarMgr?.getCalendar(
 
 **系统能力**：SystemCapability.Applications.CalendarData
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 是 | 否 | 账户名称（面向开发者），长度建议为[0,5000]字符。 |
-| type | [CalendarType](#calendartype) | 否 | 否 | 账户类型。 |
+| type | CalendarType | 否 | 否 | 账户类型。 |
 | displayName | string | 否 | 是 | 账户显示在日历应用上的名称（面向用户）。不填时，默认为空字符串，长度限制为[0,64]字符，长度超限制会导致日历应用上账户名显示不全，被截断。 |
 
 
-## CalendarConfig
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CalendarConfig
 
 日历配置信息。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2448,44 +1997,44 @@ calendarMgr?.getCalendar(
 | color | number \| string | 否 | 是 | 设置Calendar颜色。值为number时取值范围为0x000000至0xFFFFFF或0x00000000至0xFFFFFFFF，值为string时长度为7或9，如'#FFFFFF'，'#FFFFFFFFF'。不设置时默认值为0xFF0A59F7，输入undefined或错误值时抛异常。 |
 
 
-## Event
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Event
 
 日程对象，包含日程标题、开始时间、结束时间等信息。
 
 **系统能力**：SystemCapability.Applications.CalendarData
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| id | number | 否 | 是 | 日程id。当调用[addEvent()](#addevent)、[addEvents()](#addevents)创建日程时，id为数据库自增字段，没有默认值，不填写此参数；当调用[deleteEvent()](#deleteevent)、[deleteEvents()](#deleteevents)删除日程时，日程id数组，日程id需为整数，传入其他非法入参会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| type | [EventType](#eventtype) | 否 | 否 | 日程类型。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| title | string | 否 | 是 | 日程标题。长度建议为[0,5000]字符，不填时，默认为空字符串。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| location | [Location](#location) | 否 | 是 | 日程地点。不填时，默认为undefined。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| startTime | number | 否 | 否 | 日程开始时间，需要13位时间戳。全天日程时，该字段转换为传入日期00:00对应的时间戳。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| endTime | number | 否 | 否 | 日程结束时间，需要13位时间戳。全天日程时，该字段转换为传入日期24:00对应的时间戳。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isAllDay | boolean | 否 | 是 | 是否为全天日程。当取值为true时，说明为全天日程；当取值为false时，说明不是全天日程，默认为非全天日程。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| attendee | [Attendee](#attendee)[] | 否 | 是 | 会议日程参与者。不填时，默认为null。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| timeZone | string | 否 | 是 | 日程时区。长度建议为[0,5000]字符，不填或异常值时，默认为当前所在时区，当需要创建与当前不一样的时区时，可填入对应的时区。可通过[systemDateTime.getTimezone()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-date-time#systemdatetimegettimezone)获取当前系统时区。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| reminderTime | number[] | 否 | 是 | 日程提醒时间，单位为分钟。填写x分钟，即距开始时间提前x分钟提醒，不填时，默认为不提醒。为负值时表示延期多长时间提醒。全天日程时此字段表示上午9:00前x分钟提醒，可取负值，负值表示上午9:00后多长时间提醒。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| recurrenceRule | [RecurrenceRule](#recurrencerule) | 否 | 是 | 日程重复规则，设置了此字段的日程为重复日程。不填时，默认为非重复日程，默认值为undefined。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| description | string | 否 | 是 | 日程描述。长度建议为[0,5000]字符，不填时，默认为空字符串。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| service | [EventService](#eventservice) | 否 | 是 | 日程服务。不填时，默认没有一键服务。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| identifier12+ | string | 否 | 是 | 写入方可指定日程唯一标识。长度建议为[0,5000]字符，不填时，默认为null。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| isLunar12+ | boolean | 否 | 是 | 是否为农历日程。当取值为true时，说明为农历日程；当取值为false时，说明不是农历日程，默认为非农历日程。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| instanceStartTime18+ | number | 否 | 是 | 日程实例开始时间，需要13位时间戳。当调用[addEvent()](#addevent)、[addEvents()](#addevents)创建日程时，不填写此参数，默认值为undefined。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| instanceEndTime18+ | number | 否 | 是 | 日程实例结束时间，需要13位时间戳。当调用[addEvent()](#addevent)、[addEvents()](#addevents)创建日程时，不填写此参数，默认值为undefined。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| id | number | 否 | 是 | 日程id。当调用addEvent()、addEvents()创建日程时，id为数据库自增字段，没有默认值，不填写此参数；当调用deleteEvent()、deleteEvents()删除日程时，日程id数组，日程id需为整数，传入其他非法入参会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| type | EventType | 否 | 否 | 日程类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| title | string | 否 | 是 | 日程标题。长度建议为[0,5000]字符，不填时，默认为空字符串。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| location | Location | 否 | 是 | 日程地点。不填时，默认为undefined。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| startTime | number | 否 | 否 | 日程开始时间，需要13位时间戳。全天日程时，该字段转换为传入日期00:00对应的时间戳。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| endTime | number | 否 | 否 | 日程结束时间，需要13位时间戳。全天日程时，该字段转换为传入日期24:00对应的时间戳。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| isAllDay | boolean | 否 | 是 | 是否为全天日程。当取值为true时，说明为全天日程；当取值为false时，说明不是全天日程，默认为非全天日程。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| attendee | Attendee[] | 否 | 是 | 会议日程参与者。不填时，默认为null。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| timeZone | string | 否 | 是 | 日程时区。长度建议为[0,5000]字符，不填或异常值时，默认为当前所在时区，当需要创建与当前不一样的时区时，可填入对应的时区。可通过systemDateTime.getTimezone()获取当前系统时区。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| reminderTime | number[] | 否 | 是 | 日程提醒时间，单位为分钟。填写x分钟，即距开始时间提前x分钟提醒，不填时，默认为不提醒。为负值时表示延期多长时间提醒。全天日程时此字段表示上午9:00前x分钟提醒，可取负值，负值表示上午9:00后多长时间提醒。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| recurrenceRule | RecurrenceRule | 否 | 是 | 日程重复规则，设置了此字段的日程为重复日程。不填时，默认为非重复日程，默认值为undefined。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| description | string | 否 | 是 | 日程描述。长度建议为[0,5000]字符，不填时，默认为空字符串。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| service | EventService | 否 | 是 | 日程服务。不填时，默认没有一键服务。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| identifier12+ | string | 否 | 是 | 写入方可指定日程唯一标识。长度建议为[0,5000]字符，不填时，默认为null。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| isLunar12+ | boolean | 否 | 是 | 是否为农历日程。当取值为true时，说明为农历日程；当取值为false时，说明不是农历日程，默认为非农历日程。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| instanceStartTime18+ | number | 否 | 是 | 日程实例开始时间，需要13位时间戳。当调用addEvent()、addEvents()创建日程时，不填写此参数，默认值为undefined。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| instanceEndTime18+ | number | 否 | 是 | 日程实例结束时间，需要13位时间戳。当调用addEvent()、addEvents()创建日程时，不填写此参数，默认值为undefined。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
-## CalendarType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CalendarType
 
 账户类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2496,15 +2045,15 @@ calendarMgr?.getCalendar(
 | SUBSCRIBED | 'subscribed' | 订阅账户。 |
 
 
-## Location
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Location
 
 日程地点。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2513,8 +2062,9 @@ calendarMgr?.getCalendar(
 | latitude | number | 否 | 是 | 地点纬度。取值范围[-90, 90]，默认为undefined。超过取值范围地图将无法正常显示。 |
 
 
-## EventFilter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### EventFilter
 
 日程过滤器，查询日程时进行筛选过滤，获取符合条件的日程。
 
@@ -2523,8 +2073,8 @@ calendarMgr?.getCalendar(
 **系统能力**： SystemCapability.Applications.CalendarData
 
 
-### filterById
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### filterById
 
 static filterById(ids: number[]): EventFilter
 
@@ -2534,7 +2084,6 @@ static filterById(ids: number[]): EventFilter
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | ids | number[] | 是 | 日程id数组，日程id需为整数。 |
@@ -2542,93 +2091,68 @@ static filterById(ids: number[]): EventFilter
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [EventFilter](#eventfilter) | 返回日程过滤器对象。 |
+| EventFilter | 返回日程过滤器对象。 |
 
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 let id1: number = 0;
 let id2: number = 0;
 const date = new Date();
 const event1: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
 const event2: calendarManager.Event = {
   type: calendarManager.EventType.IMPORTANT,
   startTime: date.getTime(),
-  endTime: date.getTime() + 60 * 60 * 1000,
+  endTime: date.getTime() + 60 * 60 * 1000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event1)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id1 = data;
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      await calendar
-        .addEvent(event2)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-          id2 = data;
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      const filter = calendarManager.EventFilter.filterById([id1, id2]);
-      calendar
-        .getEvents(filter)
-        .then((data: calendarManager.Event[]) => {
-          console.info(
-            `Succeeded in getting events filter by id, data -> ${JSON.stringify(data)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to filter by id. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event1).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id1 = data;
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    await calendar.addEvent(event2).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+      id2 = data;
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    const filter = calendarManager.EventFilter.filterById([id1, id2]);
+    calendar.getEvents(filter).then((data: calendarManager.Event[]) => {
+      console.info(`Succeeded in getting events filter by id, data -> ${JSON.stringify(data)}`);
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to filter by id. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### filterByTime
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### filterByTime
 
 static filterByTime(start: number, end: number): EventFilter
 
@@ -2638,7 +2162,6 @@ static filterByTime(start: number, end: number): EventFilter
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | start | number | 是 | 开始时间。格式为13位时间戳。 |
@@ -2647,91 +2170,63 @@ static filterByTime(start: number, end: number): EventFilter
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [EventFilter](#eventfilter) | 返回日程过滤器对象。 |
+| EventFilter | 返回日程过滤器对象。 |
 
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const event1: calendarManager.Event = {
   type: calendarManager.EventType.NORMAL,
   startTime: 1686931200000,
-  endTime: 1687017600000,
+  endTime: 1687017600000
 };
 const event2: calendarManager.Event = {
   type: calendarManager.EventType.IMPORTANT,
   startTime: 1686931200000,
-  endTime: 1687017600000,
+  endTime: 1687017600000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event1)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      await calendar
-        .addEvent(event2)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      const filter = calendarManager.EventFilter.filterByTime(
-        1686931200000,
-        1687017600000,
-      );
-      calendar
-        .getEvents(filter)
-        .then((data: calendarManager.Event[]) => {
-          console.info(
-            `Succeeded in getting events filter by time, data -> ${JSON.stringify(data)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to filter by time. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event1).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+      // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    await calendar.addEvent(event2).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    const filter = calendarManager.EventFilter.filterByTime(1686931200000, 1687017600000);
+    calendar.getEvents(filter).then((data: calendarManager.Event[]) => {
+      console.info(`Succeeded in getting events filter by time, data -> ${JSON.stringify(data)}`);
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to filter by time. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-### filterByTitle
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### filterByTitle
 
 static filterByTitle(title: string): EventFilter
 
@@ -2741,7 +2236,6 @@ static filterByTitle(title: string): EventFilter
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | title | string | 是 | 日程标题。长度建议为[0,5000]字符。 |
@@ -2749,73 +2243,53 @@ static filterByTitle(title: string): EventFilter
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [EventFilter](#eventfilter) | 返回日程过滤器对象。 |
+| EventFilter | 返回日程过滤器对象。 |
 
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';
 
-let calendar: calendarManager.Calendar | undefined = undefined;
+let calendar : calendarManager.Calendar | undefined = undefined;
 const event: calendarManager.Event = {
   title: 'MyEvent',
   type: calendarManager.EventType.NORMAL,
   startTime: 1686931200000,
-  endTime: 1687017600000,
+  endTime: 1687017600000
 };
-calendarMgr?.getCalendar(
-  async (err: BusinessError, data: calendarManager.Calendar) => {
-    if (err) {
-      // 检查权限是否已成功申请。
-      console.error(
-        `Failed to get calendar. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting calendar, data -> ${JSON.stringify(data)}`,
-      );
-      calendar = data;
-      await calendar
-        .addEvent(event)
-        .then((data: number) => {
-          console.info(`Succeeded in adding event, id -> ${data}`);
-        })
-        .catch((err: BusinessError) => {
-          // 检查权限是否已成功申请或者参数是否正确。
-          console.error(
-            `Failed to add event. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-      const filter = calendarManager.EventFilter.filterByTitle('MyEvent');
-      calendar
-        .getEvents(filter)
-        .then((data: calendarManager.Event[]) => {
-          console.info(
-            `Succeeded in getting events filter by title, data -> ${JSON.stringify(data)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          // 检查参数是否正确。
-          console.error(
-            `Failed to filter by title. Code: ${err.code}, message: ${err.message}`,
-          );
-        });
-    }
-  },
-);
+calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calendar) => {
+  if (err) {
+    // 检查权限是否已成功申请。
+    console.error(`Failed to get calendar. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting calendar, data -> ${JSON.stringify(data)}`);
+    calendar = data;
+    await calendar.addEvent(event).then((data: number) => {
+      console.info(`Succeeded in adding event, id -> ${data}`);
+    }).catch((err: BusinessError) => {
+       // 检查权限是否已成功申请或者参数是否正确。
+      console.error(`Failed to add event. Code: ${err.code}, message: ${err.message}`);
+    });
+    const filter = calendarManager.EventFilter.filterByTitle('MyEvent');
+    calendar.getEvents(filter).then((data: calendarManager.Event[]) => {
+      console.info(`Succeeded in getting events filter by title, data -> ${JSON.stringify(data)}`);
+    }).catch((err: BusinessError) => {
+      // 检查参数是否正确。
+      console.error(`Failed to filter by title. Code: ${err.code}, message: ${err.message}`);
+    });
+  }
+});
 ```
 
 
-## EventType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### EventType
 
 日程类型枚举。
 
@@ -2823,45 +2297,44 @@ calendarMgr?.getCalendar(
 
 **系统能力**：SystemCapability.Applications.CalendarData
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL | 0 | 普通日程，例如会议，闹钟等日常提醒的日程。 |
 | IMPORTANT | 1 | 重要日程，例如结婚纪念日等具有重要意义的日期，不推荐三方开发者使用，重要日程类型不支持一键服务跳转功能及无法自定义提醒时间。 |
 
 
-## RecurrenceRule
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### RecurrenceRule
 
 重复日程重复规则。
 
 **系统能力**：SystemCapability.Applications.CalendarData
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| recurrenceFrequency | [RecurrenceFrequency](#recurrencefrequency) | 否 | 否 | 日程重复规则类型。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| expire | number | 否 | 是 | 重复周期截止日。格式为13位时间戳，不填时则日程无截止日期。          当expire与count和interval同时设置时，以先到达的限制条件及效果为准。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| count12+ | number | 否 | 是 | 重复日程的重复次数，取值为非负整数，浮点数输入将向下取整，不填时默认为0，表示不会限定重复次数，会一直重复。取值为负时，效果等同于取值为0。          当count与interval和expire同时设置时，以先到达的限制条件及效果为准。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| interval12+ | number | 否 | 是 | 重复日程的重复周期，取值为非负整数，浮点数输入将向下取整。          不填时默认为0，当取值为0、1或负值时，表示日程每天/周/月/年重复一次。          当interval与count和expire同时设置时，以先到达的限制条件及效果为准。          此属性与recurrenceFrequency重复规则相关，不同的重复规则下，表示的重复周期不同，以interval取2为例，分为以下几种情况：          每���重复时：表示日程每两天重复一次。          每周重复时：表示日程每两周重复一次。          每月重复时：表示日程每两月重复一次。          每年重复时：表示日程每两年重复一次。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| excludedDates12+ | number[] | 否 | 是 | 重复日程的排除日期，参数取值为时间戳格式，不填时，默认为空，表示没有排除的日期，0或负数为无效值，与空值效果相同。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| daysOfWeek12+ | number[] | 否 | 是 | 按照一周第几天重复。不填时，默认为空，表示没有一周第几天重复的规则。范围为[1, 7]，对应周一到周日，其他值为无效值，与空值效果相同。该字段数组与其相关字段数组为一一对应关系，如weeksOfMonth为[1, 2, 3]，daysOfWeek为[1, 2, 3]，则表示按照每月的第一周的周一，第二周的周二，第三周的周三进行重复。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| daysOfMonth12+ | number[] | 否 | 是 | 按照一个月第几天重复。不填时，默认为空，表示没有一个月第几天重复的规则。范围为[1, 31]，[1, 31]对应1到31号，其他值为无效值，与空值效果相同。若当月没有29号、30号或31号，则29、30、31也为无效值。该字段数组与其相关字段数组为一一对应关系，如monthsOfYear为[1, 2, 3]，daysOfMonth为[1, 2, 3]，则表示按照一月一号，二月二号，三月三号进行重复。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| daysOfYear12+ | number[] | 否 | 是 | 按照一年第几天重复。不填时，默认为空，表示没有一年第几天重复的规则。范围为[1, 366]，[1, 366]表示一年的1到366天，其他值为无效值，与空值效果相同。若当年没有366天，366也为无效值。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| weeksOfMonth12+ | number[] | 否 | 是 | 按照一个月第几周重复。不填时，默认为空，表示没有一个月第几周重复的规则。范围为[1, 5]，[1, 5]为每月的第1到第5周，其他值为无效值，与空值效果相同。若当月没有第五周，5也为无效值。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| weeksOfYear12+ | number[] | 否 | 是 | 按照一年中第几周重复。不填时，默认为空，表示没有一年第几周重复的规则。范围为[1, 53]，[1, 53]为每年的第1到第53周，其他值为无效值，与空值效果相同。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| monthsOfYear12+ | number[] | 否 | 是 | 按照一年中第几个月重复。不填时，默认为空，表示没有一年第几个月重复的规则。范围为[1, 12]，[1, 12]为每年的1到12月，其他值为无效值，与空值效果相同。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| recurrenceFrequency | RecurrenceFrequency | 否 | 否 | 日程重复规则类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| expire | number | 否 | 是 | 重复周期截止日。格式为13位时间戳，不填时则日程无截止日期。 当expire与count和interval同时设置时，以先到达的限制条件及效果为准。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| count12+ | number | 否 | 是 | 重复日程的重复次数，取值为非负整数，浮点数输入将向下取整，不填时默认为0，表示不会限定重复次数，会一直重复。取值为负时，效果等同于取值为0。 当count与interval和expire同时设置时，以先到达的限制条件及效果为准。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| interval12+ | number | 否 | 是 | 重复日程的重复周期，取值为非负整数，浮点数输入将向下取整。 不填时默认为0，当取值为0、1或负值时，表示日程每天/周/月/年重复一次。 当interval与count和expire同时设置时，以先到达的限制条件及效果为准。 此属性与recurrenceFrequency重复规则相关，不同的重复规则下，表示的重复周期不同，以interval取2为例，分为以下几种情况： 每天重复时：表示日程每两天重复一次。 每周重复时：表示日程每两周重复一次。 每月重复时：表示日程每两月重复一次。 每年重复时：表示日程每两年重复一次。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| excludedDates12+ | number[] | 否 | 是 | 重复日程的排除日期，参数取值为时间戳格式，不填时，默认为空，表示没有排除的日期，0或负数为无效值，与空值效果相同。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| daysOfWeek12+ | number[] | 否 | 是 | 按照一周第几天重复。不填时，默认为空，表示没有一周第几天重复的规则。范围为[1, 7]，对应周一到周日，其他值为无效值，与空值效果相同。该字段数组与其相关字段数组为一一对应关系，如weeksOfMonth为[1, 2, 3]，daysOfWeek为[1, 2, 3]，则表示按照每月的第一周的周一，第二周的周二，第三周的周三进行重复。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| daysOfMonth12+ | number[] | 否 | 是 | 按照一个月第几天重复。不填时，默认为空，表示没有一个月第几天重复的规则。范围为[1, 31]，[1, 31]对应1到31号，其他值为无效值，与空值效果相同。若当月没有29号、30号或31号，则29、30、31也为无效值。该字段数组与其相关字段数组为一一对应关系，如monthsOfYear为[1, 2, 3]，daysOfMonth为[1, 2, 3]，则表示按照一月一号，二月二号，三月三号进行重复。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| daysOfYear12+ | number[] | 否 | 是 | 按照一年第几天重复。不填时，默认为空，表示没有一年第几天重复的规则。范围为[1, 366]，[1, 366]表示一年的1到366天，其他值为无效值，与空值效果相同。若当年没有366天，366也为无效值。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| weeksOfMonth12+ | number[] | 否 | 是 | 按照一个月第几周重复。不填时，默认为空，表示没有一个月第几周重复的规则。范围为[1, 5]，[1, 5]为每月的第1到第5周，其他值为无效值，与空值效果相同。若当月没有第五周，5也为无效值。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| weeksOfYear12+ | number[] | 否 | 是 | 按照一年中第几周重复。不填时，默认为空，表示没有一年第几周重复的规则。范围为[1, 53]，[1, 53]为每年的第1到第53周，其他值为无效值，与空值效果相同。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| monthsOfYear12+ | number[] | 否 | 是 | 按照一年中第几个月重复。不填时，默认为空，表示没有一年第几个月重复的规则。范围为[1, 12]，[1, 12]为每年的1到12月，其他值为无效值，与空值效果相同。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## RecurrenceFrequency
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### RecurrenceFrequency
 
 日程重复规则类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2871,25 +2344,26 @@ calendarMgr?.getCalendar(
 | DAILY | 3 | 每天重复。 |
 
 
-## Attendee
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Attendee
 
 会议日程参与者。
 
 **系统能力**：SystemCapability.Applications.CalendarData
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | string | 否 | 否 | 会议日程参与者的姓名。长度建议为[0,5000]字符。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| email | string | 否 | 否 | 会议日程参与者的邮箱，邮箱格式为“用户名@域名.后缀”，用户名部分只能包含字母、数字、下划线“_”、点 “.”、连字符 “-”。不能以点 “.” 开头或结尾。 不能连续出现两个点（即“..”）。长度建议为[0,5000]字符。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| role12+ | [AttendeeRole](#attendeerole12) | 否 | 是 | 会议日程参与者的角色，不填时默认为空。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| status18+ | [AttendeeStatus](#attendeestatus18) | 否 | 是 | 会议日程参与者的状态，不填时默认为空。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| type18+ | [AttendeeType](#attendeetype18) | 否 | 是 | 会议日程参与者的类型，不填时默认为空。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| name | string | 否 | 否 | 会议日程参与者的姓名。长度建议为[0,5000]字符。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| email | string | 否 | 否 | 会议日程参与者的邮箱，邮箱格式为“用户名@域名.后缀”，用户名部分只能包含字母、数字、下划线“_”、点 “.”、连字符 “-”。不能以点 “.” 开头或结尾。 不能连续出现两个点（即“..”）。长度建议为[0,5000]字符。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| role12+ | AttendeeRole | 否 | 是 | 会议日程参与者的角色，不填时默认为空。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| status18+ | AttendeeStatus | 否 | 是 | 会议日程参与者的状态，不填时默认为空。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| type18+ | AttendeeType | 否 | 是 | 会议日程参与者的类型，不填时默认为空。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
-## EventService
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### EventService
 
 日程服务。
 
@@ -2897,23 +2371,22 @@ calendarMgr?.getCalendar(
 
 **系统能力**：SystemCapability.Applications.CalendarData
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [ServiceType](#servicetype) | 否 | 否 | 服务类型。 |
+| type | ServiceType | 否 | 否 | 服务类型。 |
 | uri | string | 否 | 否 | 服务的uri，格式为DeepLink类型。可以跳转到三方应用相应界面。长度建议为[0,5000]字符。 |
 | description | string | 否 | 是 | 服务辅助描述。长度建议为[0,5000]字符，不填时，默认为空字符串。 |
 
 
-## ServiceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ServiceType
 
 日程服务类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2928,8 +2401,9 @@ calendarMgr?.getCalendar(
 | SPORTS_EXERCISE | 'SportsExercise' | 一键运动。 |
 
 
-## AttendeeRole12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AttendeeRole12+
 
 会议日程参与者角色类型枚举。
 
@@ -2937,22 +2411,21 @@ calendarMgr?.getCalendar(
 
 **系统能力**：SystemCapability.Applications.CalendarData
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ORGANIZER | 'organizer' | 会议组织者。 |
 | PARTICIPANT | 'participant' | 会议参与者。 |
 
 
-## AttendeeStatus18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AttendeeStatus18+
 
 会议日程参与者状态类型枚举。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2963,15 +2436,15 @@ calendarMgr?.getCalendar(
 | UNRESPONSIVE | 4 | 参与者未响应。 |
 
 
-## AttendeeType18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AttendeeType18+
 
 会议日程参与者受邀类型枚举。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.CalendarData
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

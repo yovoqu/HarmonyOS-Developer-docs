@@ -3,28 +3,26 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendable-resource-manager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 资源管理导入sendableResourceManager模块，通过调用[resourceToSendableResource](#sendableresourcemanagerresourcetosendableresource)和[sendableResourceToResource](#sendableresourcemanagersendableresourcetoresource)方法可以将[Resource](#resource)对象和[SendableResource](#sendableresource)对象进行互转。
 
 Resource对象通过转换为SendableResource对象后，可以被[Sendable类](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)持有。Sendable类在跨线程传输后，取出持有的SendableResource对象转为Resource对象，作为参数获取资源。
 
-
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
 ```text
 import { sendableResourceManager } from '@kit.LocalizationKit';
 ```
 
 
-## sendableResourceManager.resourceToSendableResource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendableResourceManager.resourceToSendableResource
 
 resourceToSendableResource(resource: Resource): SendableResource
 
@@ -36,24 +34,21 @@ resourceToSendableResource(resource: Resource): SendableResource
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| resource | [Resource](#resource) | 是 | Resource对象。 |
+| resource | Resource | 是 | Resource对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SendableResource](#sendableresource) | 转换后的SendableResource对象。 |
+| SendableResource | 转换后的SendableResource对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -61,7 +56,6 @@ resourceToSendableResource(resource: Resource): SendableResource
 
 
 **示例：**
-
 
 ```json
 // 资源文件路径: src/main/resources/base/element/string.json
@@ -75,23 +69,22 @@ resourceToSendableResource(resource: Resource): SendableResource
 }
 ```
 
-
 ```text
 import { sendableResourceManager } from '@kit.LocalizationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-let sendableResource: sendableResourceManager.SendableResource = sendableResourceManager.resourceToSendableResource($r('app.string.test'));
+    let sendableResource: sendableResourceManager.SendableResource = sendableResourceManager.resourceToSendableResource($r('app.string.test'));
 } catch (error) {
-let code = (error as BusinessError).code;
-let message = (error as BusinessError).message;
-console.error(`resourceToSendableResource failed, error code: ${code}, message: ${message}.`);
+    let code = (error as BusinessError).code;
+    let message = (error as BusinessError).message;
+    console.error(`resourceToSendableResource failed, error code: ${code}, message: ${message}.`);
 }
 ```
 
 
-## sendableResourceManager.sendableResourceToResource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendableResourceManager.sendableResourceToResource
 
 sendableResourceToResource(resource: SendableResource): Resource
 
@@ -103,24 +96,21 @@ sendableResourceToResource(resource: SendableResource): Resource
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| resource | [SendableResource](#sendableresource) | 是 | SendableResource对象。 |
+| resource | SendableResource | 是 | SendableResource对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Resource](#resource) | 转换后的Resource对象。 |
+| Resource | 转换后的Resource对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -128,7 +118,6 @@ sendableResourceToResource(resource: SendableResource): Resource
 
 
 **示例：**
-
 
 ```json
 // 资源文件路径: src/main/resources/base/element/string.json
@@ -142,23 +131,22 @@ sendableResourceToResource(resource: SendableResource): Resource
 }
 ```
 
-
 ```text
 import { sendableResourceManager } from '@kit.LocalizationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-let resource: sendableResourceManager.Resource = sendableResourceManager.sendableResourceToResource(sendableResourceManager.resourceToSendableResource($r('app.string.test')));
+    let resource: sendableResourceManager.Resource = sendableResourceManager.sendableResourceToResource(sendableResourceManager.resourceToSendableResource($r('app.string.test')));
 } catch (error) {
-let code = (error as BusinessError).code;
-let message = (error as BusinessError).message;
-console.error(`sendableResourceToResource failed, error code: ${code}, message: ${message}.`);
+    let code = (error as BusinessError).code;
+    let message = (error as BusinessError).message;
+    console.error(`sendableResourceToResource failed, error code: ${code}, message: ${message}.`);
 }
 ```
 
 
-## Resource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Resource
 
 type Resource = _Resource
 
@@ -166,14 +154,14 @@ type Resource = _Resource
 
 **系统能力：** SystemCapability.Global.ResourceManager
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource#resource-1) | 表示Resource资源信息。 |
+| _Resource | 表示Resource资源信息。 |
 
 
-## SendableResource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SendableResource
 
 type SendableResource = _SendableResource
 
@@ -181,7 +169,6 @@ type SendableResource = _SendableResource
 
 **系统能力：** SystemCapability.Global.ResourceManager
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_SendableResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableresource#sendableresource-1) | 表示SendableResource资源信息。 |
+| _SendableResource | 表示SendableResource资源信息。 |

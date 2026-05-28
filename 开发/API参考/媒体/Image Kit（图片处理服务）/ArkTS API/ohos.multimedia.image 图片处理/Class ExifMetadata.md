@@ -3,27 +3,33 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ExifMetadata implements Metadata
+ 
 Exif（Exchangeable image file format）元数据。
-
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
+  
 
-```ts
+##### 导入模块
+
+```text
 import { image } from '@kit.ImageKit';
 ```
+ 
+  
 
-#### 属性
+##### 属性
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
+ 
 各属性详细取值，请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | newSubfileType | number | 否 | 是 | 表示该子文件的数据类型（例如文本/图像等基本类型，而非具体存储格式）。 |
@@ -37,7 +43,7 @@ import { image } from '@kit.ImageKit';
 | make | string | 否 | 是 | 拍摄设备的品牌制造商名称。 |
 | model | string | 否 | 是 | 相机型号。 |
 | stripOffsets | number[] | 否 | 是 | 图像数据的分块存储偏移量，单位为字节。 为提高大图像访问效率，原始像素数据被分割为多个连续区块（称为条带）。 此标签按顺序存储每个条带在文件中的起始位置偏移量。 |
-| orientation | [Orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#orientation23) | 否 | 是 | 图像方向。 |
+| orientation | Orientation | 否 | 是 | 图像方向。 |
 | samplesPerPixel | number | 否 | 是 | 记录每个像素的颜色分量数量，适用于RGB（红绿蓝，Red Green Blue）和YCbCr（亮度-蓝色色差-红色色差，Luma-Chrominance）色彩模型。 由于这两种模型都是三分量模型（一个亮度分量加两个色度分量，或三个颜色通道），因此该标签的标准值为3。 对于JPEG压缩图像，此标签将会被对应的JPEG标记替换。 |
 | rowsPerStrip | number | 否 | 是 | 每条图像数据的行数。 |
 | stripByteCounts | number[] | 否 | 是 | 压缩后每个条带中的字节数。 |
@@ -166,23 +172,30 @@ import { image } from '@kit.ImageKit';
 | sourceImageNumberOfCompositeImage | number[] | 否 | 是 | 用于合成图像的源图像数量。 |
 | sourceExposureTimesOfCompositeImage | ArrayBuffer | 否 | 是 | 合成图像的源图像的曝光时间，例如1/33秒。 |
 | gamma | number | 否 | 是 | 每个组件的伽玛值。 |
+ 
+ 
+  
 
-#### createInstance
+##### createInstance
+
 static createInstance(): ExifMetadata
+ 
 创建一个空的[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)实例。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata) | 返回ExifMetadata的空实例。 |
-
+| ExifMetadata | 返回ExifMetadata的空实例。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 async function exifMetadataCreateInstance(context: Context) {
   let exifMetadata = image.ExifMetadata.createInstance();
   if (exifMetadata != undefined) {
@@ -190,37 +203,47 @@ async function exifMetadataCreateInstance(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### getProperties
+##### getProperties
+
 getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
+ 
 获取图像的元数据属性值。使用Promise异步回调。
+ 
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | Array&lt;string&gt; | 是 | 要获取的值的属性名称。 |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Record<string, string \| null>> | Promise对象，返回获取到的图像元数据属性值。 |
-
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600202 | Unsupported metadata. Possible causes: unsupported metadata type. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -246,37 +269,47 @@ async function exifMetadataGetProperties(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### setProperties
+##### setProperties
+
 setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
+ 
 批量设置图片元数据中的指定属性的值。使用Promise异步回调。
+ 
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | records | Record<string, string \| null> | 是 | 用户要修改的ExifMetadata对象的属性和键值对的集合。 |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600202 | Unsupported metadata. Possible causes: unsupported metadata type. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -306,23 +339,29 @@ async function exifMetadataSetProperties(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### getAllProperties
+##### getAllProperties
+
 getAllProperties(): Promise<Record<string, string | null>>
+ 
 获取图片中所有元数据的属性和值。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Record<string, string \| null>> | Promise对象，返回元数据拥有的所有属性的值。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -350,23 +389,29 @@ async function exifMetadataGetAllProperties(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### clone
+##### clone
+
 clone(): Promise&lt;ExifMetadata&gt;
+ 
 对Exif元数据进行克隆。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)> | Promise对象，成功返回Exif元数据实例。 |
-
+| Promise&lt;ExifMetadata&gt; | Promise对象，成功返回Exif元数据实例。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -393,23 +438,29 @@ async function exifMetadataClone(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### getBlob
+##### getBlob
+
 getBlob(): Promise&lt;ArrayBuffer&gt;
+ 
 以二进制数据的形式获取元数据。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回元数据的二进制数据。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
@@ -431,36 +482,45 @@ async function exifMetadataGetBlob(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### setBlob
+##### setBlob
+
 setBlob(blob: ArrayBuffer): Promise&lt;void&gt;
+ 
 使用二进制数据替换当前元数据。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blob | ArrayBuffer | 是 | 要替换的二进制数据。 |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600206 | Invalid parameter. Possible causes: The blob is empty or has a length of 0. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {

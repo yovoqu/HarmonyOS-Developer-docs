@@ -3,7 +3,7 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-face-detector-api
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 人脸检测支持2D人脸检测框的检测能力。检测给定图片中的人脸数量、人脸位置、特征点（左右眼中心、鼻子、左右嘴角）和姿态（pitch、roll、yaw）信息。人脸检测框按照大小排序。
 
@@ -12,17 +12,15 @@
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { faceDetector } from '@kit.CoreVisionKit';
 ```
 
 
-## VisionInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### VisionInfo
 
 待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的PixelMap类型的视觉信息。
 
@@ -32,14 +30,14 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pixelMap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 否 | 待识别的图片。          具体规格请参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-introduction#约束与限制)。 |
+| pixelMap | image.PixelMap | 是 | 否 | 待识别的图片。 具体规格请参考约束与限制。 |
 
 
-## FaceRecognitionConfiguration
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### FaceRecognitionConfiguration
 
 人脸遮挡检测的配置项。
 
@@ -47,21 +45,20 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.2(14)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| faceBlock | boolean | 是 | 否 | 是否开启人脸遮挡检测。          true：开启人脸遮挡检测；false：不开启人脸遮挡检测。默认为false。 |
+| faceBlock | boolean | 是 | 否 | 是否开启人脸遮挡检测。 true：开启人脸遮挡检测；false：不开启人脸遮挡检测。默认为false。 |
 
 
-## FaceBlock
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### FaceBlock
 
 人脸遮挡检测结果的枚举类。
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
 **起始版本：** 5.0.2(14)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -70,8 +67,9 @@ import { faceDetector } from '@kit.CoreVisionKit';
 | BLOCKED | 1 | 人脸有遮挡。 |
 
 
-## FacePoint
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### FacePoint
 
 指示像素点的位置。
 
@@ -81,15 +79,15 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | x | number | 是 | 否 | 像素点横向x坐标。 |
 | y | number | 是 | 否 | 像素点纵向y坐标。 |
 
 
-## FacePose
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### FacePose
 
 描述人脸在三维空间中的方向。坐标系可参考[世界坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-face-detector#世界坐标系)。
 
@@ -99,7 +97,6 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | yaw | number | 是 | 否 | 头型航向，将物体绕Y轴旋转（localRotationY）。取值范围[-180,180]。 |
@@ -107,8 +104,9 @@ import { faceDetector } from '@kit.CoreVisionKit';
 | roll | number | 是 | 否 | 头型横滚，将物体绕Z轴旋转（localRotationZ）。取值范围[-180,180]。 |
 
 
-## FaceRectangle
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### FaceRectangle
 
 表示人脸的矩形框。
 
@@ -118,7 +116,6 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | left | number | 是 | 否 | 人脸矩形框左上角x坐标。 |
@@ -127,8 +124,9 @@ import { faceDetector } from '@kit.CoreVisionKit';
 | height | number | 是 | 否 | 人脸框高，单位：pixel。 |
 
 
-## Face
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### Face
 
 表示人脸的信息列表。
 
@@ -136,20 +134,20 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| probability | number | 是 | 否 | 表示人脸检测结果的置信度，取值范围为0~1的浮点数，数值越大代表置信度越高。          元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
-| block | [FaceBlock](#faceblock) | 是 | 是 | 人脸遮挡结果。默认值为FaceBlock.UNINITIALIZED，表示未开启人脸遮挡检测；若初始化时通过[FaceRecognitionConfiguration](#facerecognitionconfiguration)将faceBlock设置为true开启了遮挡检测，则返回FaceBlock.UNBLOCKED（无遮挡）或FaceBlock.BLOCKED（有遮挡）。          起始版本：5.0.2(14)。 |
-| pose | [FacePose](#facepose) | 是 | 否 | 人脸头型航向。          元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
-| rect | [FaceRectangle](#facerectangle) | 是 | 否 | 人脸框列表。          元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
-| points | Array&lt;[FacePoint](#facepoint)&gt; | 是 | 否 | 人脸五官位置数组，包括：左右眼中心、鼻子、左右嘴角。参数顺序为：左眼中心，右眼中心，鼻子，左嘴角，右嘴角。          元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
+| probability | number | 是 | 否 | 表示人脸检测结果的置信度，取值范围为0~1的浮点数，数值越大代表置信度越高。 元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
+| block | FaceBlock | 是 | 是 | 人脸遮挡结果。默认值为FaceBlock.UNINITIALIZED，表示未开启人脸遮挡检测；若初始化时通过FaceRecognitionConfiguration将faceBlock设置为true开启了遮挡检测，则返回FaceBlock.UNBLOCKED（无遮挡）或FaceBlock.BLOCKED（有遮挡）。 起始版本：5.0.2(14)。 |
+| pose | FacePose | 是 | 否 | 人脸头型航向。 元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
+| rect | FaceRectangle | 是 | 否 | 人脸框列表。 元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
+| points | Array&lt;FacePoint&gt; | 是 | 否 | 人脸五官位置数组，包括：左右眼中心、鼻子、左右嘴角。参数顺序为：左眼中心，右眼中心，鼻子，左嘴角，右嘴角。 元服务API：从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
 
 
-## faceDetector.init
-**支持设备：** Phone / PC/2in1 / Tablet
 
-init(): Promise<boolean>
+
+##### faceDetector.init
+
+init(): Promise&lt;boolean&gt;
 
 初始化人脸检测分析器服务。使用Promise异步回调。
 
@@ -161,16 +159,14 @@ init(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。          true：初始化成功；false：初始化失败。 |
+| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。 true：初始化成功；false：初始化失败。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { faceDetector } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -208,10 +204,10 @@ struct Page {
 ```
 
 
-## faceDetector.init
-**支持设备：** Phone / PC/2in1 / Tablet
 
-init(faceRecognitionConfiguration: FaceRecognitionConfiguration): Promise<boolean>
+##### faceDetector.init
+
+init(faceRecognitionConfiguration: FaceRecognitionConfiguration): Promise&lt;boolean&gt;
 
 初始化人脸遮挡检测分析器服务。同一个进程内只要有人脸检测服务开启了遮挡检测，在该人脸检测服务未release这段时间内，这个进程内的其他所有人脸检测服务都等同于开启了遮挡检测。使用Promise异步回调。
 
@@ -221,24 +217,21 @@ init(faceRecognitionConfiguration: FaceRecognitionConfiguration): Promise<boolea
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| faceRecognitionConfiguration | [FaceRecognitionConfiguration](#facerecognitionconfiguration) | 是 | 人脸遮挡检测配置参数。 |
+| faceRecognitionConfiguration | FaceRecognitionConfiguration | 是 | 人脸遮挡检测配置参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。          true：初始化成功；false：初始化失败。 |
+| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。 true：初始化成功；false：初始化失败。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -247,8 +240,7 @@ init(faceRecognitionConfiguration: FaceRecognitionConfiguration): Promise<boolea
 
 **示例：**
 
-
-```ts
+```text
 import { faceDetector } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -289,10 +281,10 @@ struct Page {
 ```
 
 
-## faceDetector.release
-**支持设备：** Phone / PC/2in1 / Tablet
 
-release(): Promise<void>
+##### faceDetector.release
+
+release(): Promise&lt;void&gt;
 
 释放人脸检测分析器服务。使用Promise异步回调。
 
@@ -304,7 +296,6 @@ release(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -312,8 +303,7 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { faceDetector } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -351,10 +341,10 @@ struct Page {
 ```
 
 
-## faceDetector.detect
-**支持设备：** Phone / PC/2in1 / Tablet
 
-detect(visionInfo: VisionInfo): Promise<Array<Face>>
+##### faceDetector.detect
+
+detect(visionInfo: VisionInfo): Promise<Array&lt;Face&gt;>
 
 检测一张图片中的人脸信息，使用Promise异步回调。
 
@@ -366,24 +356,21 @@ detect(visionInfo: VisionInfo): Promise<Array<Face>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| visionInfo | [VisionInfo](#visioninfo) | 是 | 图片实例（包含人脸）。 |
+| visionInfo | VisionInfo | 是 | 图片实例（包含人脸）。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[Face](#face)&gt;&gt; | Promise对象，返回人脸检测的结果。 |
+| Promise<Array&lt;Face&gt;> | Promise对象，返回人脸检测的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -395,8 +382,7 @@ detect(visionInfo: VisionInfo): Promise<Array<Face>>
 
 **示例：**
 
-
-```ts
+```json
 import { faceDetector } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

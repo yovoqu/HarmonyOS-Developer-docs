@@ -7,36 +7,42 @@
 FAST Kit提供的Concurrent HashMap（并发哈希表）专为高并发场景下的键值对数据管理而设计。它通过细粒度的锁策略实现多线程环境下的安全存储、快速访问与高效更新，适用于对并发吞吐量和数据一致性要求较高的增删改查操作，典型场景包括单点插入、删除、查询及并发修改等。
 
 
-## 接口说明
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
+
 | 名称 | 描述 |
 | --- | --- |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_ConcurrentHashmap_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_create) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle, [HMS_FAST_ConcurrentHashmap_HashFunc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_hashfunc) hasher, [HMS_FAST_ConcurrentHashmap_KeyEqualFunc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_keyequalfunc) equaler, float maxLoadFac, size_t numShards) | 使用给定配置创建并发哈希表。 |
-| void [HMS_FAST_ConcurrentHashmap_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_destroy) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle) | 销毁指定并发哈希表。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_ConcurrentHashmap_Insert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_insert) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle, const [FAST_ConcurrentHashmapKeyPtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapkeyptr) key, const [FAST_ConcurrentHashmapValuePtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapvalueptr) value, [FAST_ConcurrentHashmapValuePtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapvalueptr)* originValue) | 将给定的键值对插入并发哈希表中，如果键已经存在，则使用value覆写原有的值，并将对应值的地址保存在originValue中。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_ConcurrentHashmap_Find](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_find) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle, const [FAST_ConcurrentHashmapKeyPtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapkeyptr) key, [FAST_ConcurrentHashmapValuePtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapvalueptr)* value) | 在给定并发哈希表中查找输入的键，并将对应的值保存在value中。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_ConcurrentHashmap_Erase](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_erase) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle, const [FAST_ConcurrentHashmapKeyPtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapkeyptr) key, [FAST_ConcurrentHashmapKeyPtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapkeyptr)* originKey, [FAST_ConcurrentHashmapValuePtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapvalueptr)* originValue) | 在给定哈希表中删除输入的键，并将键/值对应的地址保存在originKey和originValue中。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_ConcurrentHashmap_TryInsert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_tryinsert) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle, const [FAST_ConcurrentHashmapKeyPtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapkeyptr) key, const [FAST_ConcurrentHashmapValuePtr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmapvalueptr) value) | 将给定的键值对插入并发哈希表中，如果键已经存在、则不做操作。 |
-| size_t [HMS_FAST_ConcurrentHashmap_Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_size) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle) | 返回给定哈希表当前的元素个数。 |
-| void [HMS_FAST_ConcurrentHashmap_Clear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_clear) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle) | 清空给定哈希表中维护的所有元素。 |
-| size_t [HMS_FAST_ConcurrentHashmap_EraseIf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_eraseif) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle, [HMS_FAST_ConcurrentHashmap_HookFunc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_hookfunc) condFunc, void* condCtx, [HMS_FAST_ConcurrentHashmap_HookFunc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_hookfunc) freeFunc, void* freeCtx) | 删除哈希表中符合开发者定义条件的所有元素，并使用开发者定义的方式释放其内存。 |
-| void [HMS_FAST_ConcurrentHashmap_Traverse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_traverse) ([FAST_ConcurrentHashmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_concurrenthashmaphandle)* handle, [HMS_FAST_ConcurrentHashmap_HookFunc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_hookfunc) condFunc, void* condCtx, [HMS_FAST_ConcurrentHashmap_HookFunc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_concurrenthashmap_hookfunc) workFunc, void* workCtx) | 遍历哈希表，将所有符合开发者输入条件的键值对按开发者给定的方式修改。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Create (FAST_ConcurrentHashmap* handle, HMS_FAST_ConcurrentHashmap_HashFunc hasher, HMS_FAST_ConcurrentHashmap_KeyEqualFunc equaler, float maxLoadFac, size_t numShards) | 使用给定配置创建并发哈希表。 |
+| void HMS_FAST_ConcurrentHashmap_Destroy (FAST_ConcurrentHashmap* handle) | 销毁指定并发哈希表。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Insert (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, const FAST_ConcurrentHashmapValuePtr value, FAST_ConcurrentHashmapValuePtr* originValue) | 将给定的键值对插入并发哈希表中，如果键已经存在，则使用value覆写原有的值，并将对应值的地址保存在originValue中。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Find (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValuePtr* value) | 在给定并发哈希表中查找输入的键，并将对应的值保存在value中。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Erase (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapKeyPtr* originKey, FAST_ConcurrentHashmapValuePtr* originValue) | 在给定哈希表中删除输入的键，并将键/值对应的地址保存在originKey和originValue中。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_TryInsert (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, const FAST_ConcurrentHashmapValuePtr value) | 将给定的键值对插入并发哈希表中，如果键已经存在、则不做操作。 |
+| size_t HMS_FAST_ConcurrentHashmap_Size (FAST_ConcurrentHashmap* handle) | 返回给定哈希表当前的元素个数。 |
+| void HMS_FAST_ConcurrentHashmap_Clear (FAST_ConcurrentHashmap* handle) | 清空给定哈希表中维护的所有元素。 |
+| size_t HMS_FAST_ConcurrentHashmap_EraseIf (FAST_ConcurrentHashmap* handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc freeFunc, void* freeCtx) | 删除哈希表中符合开发者定义条件的所有元素，并使用开发者定义的方式释放其内存。 |
+| void HMS_FAST_ConcurrentHashmap_Traverse (FAST_ConcurrentHashmap* handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc workFunc, void* workCtx) | 遍历哈希表，将所有符合开发者输入条件的键值对按开发者给定的方式修改。 |
 
 
-## 开发步骤
 
-在CMake脚本中链接相关动态库。
+
+##### 开发步骤
+1. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libfast_ads.so)
 ```
 
-定义哈希值如何计算，键如何比较。
+2. 定义哈希值如何计算，键如何比较。
+
+  
 ```text
 #include "FASTKit/fast_ads_concurrent_hashmap.h"
 
 uint64_t custom_hash_int(const FAST_ConcurrentHashamapKeyPtr key) {
-    static std::hash hasher;
+    static std::hash<int> hasher;
     int* intKey = (int*)key;
     return hasher(*intKey);
 }
@@ -48,7 +54,9 @@ int32_t custom_equal_int(const FAST_ConcurrentHashmapKeyPtr key1, const FAST_Con
 }
 ```
 
-使用合适的配置创建并发哈希表，负载因子（loadfac）和分段数（numShards）的典型值一般为0.8和64。负载因子主要作用于分段内部，更大的负载因子通常意味着更小的内存消耗和更大的操作开销；分段数主要作用域并发哈希表全局，更大的分段数通常意味着更好的并发性能和更大的内存消耗。
+3. 使用合适的配置创建并发哈希表，负载因子（loadfac）和分段数（numShards）的典型值一般为0.8和64。负载因子主要作用于分段内部，更大的负载因子通常意味着更小的内存消耗和更大的操作开销；分段数主要作用域并发哈希表全局，更大的分段数通常意味着更好的并发性能和更大的内存消耗。
+
+  
 ```text
 FAST_ConcurrentHashmapHandle handle;
 HMS_FAST_ConcurrentHashmap_HashFunc hasher = &custom_hash_int;
@@ -59,7 +67,9 @@ int ret = HMS_FAST_ConcurrentHashmap_Create(&handle, hasher, equaler, loadfac, n
 EXPECT_EQ(ret, FAST_ErrorCode::FAST_ERROR_CODE_SUCCESS);
 ```
 
-向并发哈希表中插入键值对。
+4. 向并发哈希表中插入键值对。
+
+  
 ```text
 // 初始化空的哈希表
 int* key0 = new int{0};
@@ -93,7 +103,9 @@ ret = HMS_FAST_ConcurrentHashmap_Insert(
 ); // {0： 0， 1: 2}, 且originVal == &val1
 ```
 
-开发者使用键查找对应的值，并将结果保存在输入指针中。开发者需注意在使用此接口时应校验返回值ret，如果ret值不等于[FAST_ERROR_CODE_SUCCESS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1)，则res获取到的值是无效的。
+5. 开发者使用键查找对应的值，并将结果保存在输入指针中。开发者需注意在使用此接口时应校验返回值ret，如果ret值不等于[FAST_ERROR_CODE_SUCCESS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1)，则res获取到的值是无效的。
+
+  
 ```text
 // 预先插入元素 {0： 0， 1： 2}
 int targetKey = 1;
@@ -107,7 +119,9 @@ EXPECT_EQ(ret == FAST_ERROR_CODE_SUCCESS);
 EXPECT_EQ((*res) == 2);
 ```
 
-开发者使用键删除并发哈希表中对应的键值对，并获取关联内存的地址。
+6. 开发者使用键删除并发哈希表中对应的键值对，并获取关联内存的地址。
+
+  
 ```text
 // 预先插入元素 {0： 0， 1： 2}
 // 使用originKey/Val获得预先插入的元素地址，便于内存管理
@@ -132,7 +146,9 @@ ret = HMS_FAST_ConcurrentHashmap_Erase(
 );
 ```
 
-开发者查询并发哈希表当前元素个数。
+7. 开发者查询并发哈希表当前元素个数。
+
+  
 ```text
 // 预先插入元素 {0： 0， 1： 2}
 // 需注意在重度的并发场景下，该方法获取到的尺寸与实际尺寸可能存在细微差异
@@ -140,7 +156,9 @@ size_t curSize = HMS_FAST_ConcurrentHashmap_Size(handle);
 EXPECT_EQ(curSize == 2);
 ```
 
-开发者清空并发哈希表中所有元素。
+8. 开发者清空并发哈希表中所有元素。
+
+  
 ```text
 // 预先插入元素 {0： 0， 1： 2}
 HMS_FAST_ConcurrentHashmap_Clear(handle);
@@ -148,7 +166,9 @@ curSize = HMS_FAST_ConcurrentHashmap_Size(handle);
 EXPECT_EQ(curSize == 0);
 ```
 
-开发者遍历给定并发哈希表，并删除或修改符合输入条件的所有键值对。
+9. 开发者遍历给定并发哈希表，并删除或修改符合输入条件的所有键值对。
+
+  
 ```text
 // 删除key为偶数的键值对
 int32_t coustom_erase_cond(FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValuePtr val, void* context) {
@@ -181,4 +201,33 @@ int32_t custom_work(FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValu
 }
 
 // 预先插入元素 {1： 1， 3： 3， 5： 5}
-for (int i = 0; i
+for (int i = 0; i < 6; i += 2) {
+    int* key = new int{i};
+    int* val = new int{i};
+    ret = HMS_FAST_ConcurrentHashmap_Insert(
+        handle,
+        (FAST_ConcurrentHashmapKeyPtr)key,
+        (FAST_ConcurrentHashmapValuePtr)val,
+        nullptr
+    );
+} // {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+
+// EraseIf接口返回被删除的元素的个数
+ret = HMS_FAST_ConcurrentHashmap_EraseIf(
+    handle,
+    (HMS_FAST_ConcurrentHashmap_HookFunc)&custom_erase_cond,
+    nullptr,
+    (HMS_FAST_ConcurrentHashmap_HookFunc)&custom_free,
+    nullptr
+); // {1： 1， 3： 3， 5： 5}
+EXPECT_EQ(ret == 3);
+
+int context = 10;
+HMS_FAST_ConcurrentHashmap_Traverse(
+    handle,
+    (HMS_FAST_ConcurrentHashmap_HookFunc)&custom_modify_cond,
+    nullptr,
+    (HMS_FAST_ConcurrentHashmap_HookFunc)&custom_work,
+    (void*)&context
+); // {1: 11, 3: 13, 5: 15}
+```

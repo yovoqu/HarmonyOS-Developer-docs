@@ -3,15 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule
-**支持设备：** Phone / PC/2in1 / Tablet / TV / Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 16600001 系统服务工作异常
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 16600001 系统服务工作异常
 
 **错误信息**
 
@@ -24,8 +23,6 @@ The system ability works abnormally.
 **可能原因**
 
 该错误码表示系统服务工作异常，可能原因如下。
-
-
 1. DMS服务没有正常启动。
 2. DMS的binder对象无法正常获取。
 3. 流转依赖的其他服务没有正常启动或者binder对象无法获取。
@@ -35,8 +32,8 @@ The system ability works abnormally.
 系统服务内部工作异常，请稍后重试，或者重启设备尝试。
 
 
-## 16600002 指定的token或callback未注册
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 16600002 指定的token或callback未注册
 
 **错误信息**
 
@@ -55,8 +52,8 @@ The specified token or callback is not registered.
 请先注册token或callback。
 
 
-## 16600003 应用注册token已达到最大次数限制
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 16600003 应用注册token已达到最大次数限制
 
 **错误信息**
 
@@ -75,8 +72,8 @@ The number of token registration times has reached the upper limit.
 请勿频繁注册，请使用已注册的token。
 
 
-## 16600004 指定的callback已注册
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 16600004 指定的callback已注册
 
 **错误信息**
 
@@ -95,8 +92,8 @@ The specified callback has been registered.
 请勿使用相同的callback重复注册。
 
 
-## 16300501 系统服务工作异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 16300501 系统服务工作异常
 
 **错误信息**
 
@@ -109,8 +106,6 @@ The system ability works abnormally.
 **可能原因**
 
 该错误码表示系统服务工作异常，可能原因如下。
-
-
 1. DMS服务没有正常启动。
 2. DMS的binder对象无法正常获取。
 3. 流转依赖的其他服务没有正常启动或者binder对象无法获取。
@@ -120,7 +115,8 @@ The system ability works abnormally.
 系统服务内部工作异常，请稍后重试，或者重启设备尝试。
 
 
-## 16300502 获取指定的missionId的missionInfo失败
+
+##### 16300502 获取指定的missionId的missionInfo失败
 
 **错误信息**
 
@@ -133,8 +129,6 @@ Failed to get the missionInfo of the specified missionId.
 **可能原因**
 
 该错误码表示获取指定的missionId的missionInfo失败，可能原因如下。
-
-
 1. missionId输入错误。
 2. missionId对应的missionInfo确实不存在。
 
@@ -143,7 +137,8 @@ Failed to get the missionInfo of the specified missionId.
 请检查输入的missionId是否正确。
 
 
-## 16300503 远端未安装应用且不支持免安装
+
+##### 16300503 远端未安装应用且不支持免安装
 
 **错误信息**
 
@@ -158,13 +153,12 @@ The application is not installed on the remote end and installation-free is not 
 该错误码可能原因是远端未安装迁移应用并且不支持免安装。
 
 **处理步骤**
-
-
 1. 请检查远端是否已安装需要迁移的应用。
 2. 请检查远端是否支持免安装。
 
 
-## 16300504 远端未安装应用但支持免安装，需使用免安装标识重试
+
+##### 16300504 远端未安装应用但支持免安装，需使用免安装标识重试
 
 **错误信息**
 
@@ -183,7 +177,8 @@ The application is not installed on the remote end and installation-free is supp
 请使用免安装的标识重试。
 
 
-## 16300505 操作设备必须是迁移的应用所在的设备或需迁移到的目标设备
+
+##### 16300505 操作设备必须是迁移的应用所在的设备或需迁移到的目标设备
 
 **错误信息**
 
@@ -202,7 +197,8 @@ The operation device must be the device where the application to be continued is
 请检查操作设备是否是迁移的应用所在的设备或需迁移到的目标设备。
 
 
-## 16300506 本地迁移任务已在进行中
+
+##### 16300506 本地迁移任务已在进行中
 
 **错误信息**
 
@@ -221,7 +217,8 @@ The local continuation task is already in progress.
 请检查是否已经发起了迁移并未结束。
 
 
-## 16300507 获取指定的bundleName的missionInfo失败
+
+##### 16300507 获取指定的bundleName的missionInfo失败
 
 **错误信息**
 
@@ -234,8 +231,6 @@ Failed to get the missionInfo of the specified bundle name.
 **可能原因**
 
 该错误码表示获取指定的bundleName的missionInfo失败，可能原因如下。
-
-
 1. bundleName输入错误。
 2. bundleName对应的missionInfo确实不存在。
 
@@ -244,7 +239,8 @@ Failed to get the missionInfo of the specified bundle name.
 请检查输入的bundleName是否正确。
 
 
-## 29360207 注册超出最大次数
+
+##### 29360207 注册超出最大次数
 
 **错误信息**
 
@@ -263,7 +259,8 @@ The number of registrations has reached the upper limit.
 重启服务并且避免频繁注册。
 
 
-## 29360208 token未注册
+
+##### 29360208 token未注册
 
 **错误信息**
 
@@ -282,7 +279,8 @@ The token is not registered.
 注册token并使用已注册的token。
 
 
-## 29360209 callback已注册
+
+##### 29360209 callback已注册
 
 **错误信息**
 
@@ -301,7 +299,8 @@ The callback has been registered.
 请勿使用相同的callback重复注册。
 
 
-## 29360210 callback未注册
+
+##### 29360210 callback未注册
 
 **错误信息**
 
@@ -320,7 +319,8 @@ The callback is not registered.
 注册callback并使用已注册的callback。
 
 
-## 29360211 连接ability失败
+
+##### 29360211 连接ability失败
 
 **错误信息**
 
@@ -339,7 +339,8 @@ Failed to connect to the ability.
 检查token是否有效以及相应ability是否正常服务，重新启动服务或重启设备。
 
 
-## 29360214 callback类型错误
+
+##### 29360214 callback类型错误
 
 **错误信息**
 
@@ -358,7 +359,8 @@ The type of callback is not supported.
 请使用系统支持的callback类型并传入。
 
 
-## 29360215 无效的连接状态
+
+##### 29360215 无效的连接状态
 
 **错误信息**
 
@@ -377,7 +379,8 @@ Invalid connection state.
 设置指定合法的DeviceConnectState值。
 
 
-## 29360216 无效的流转模式
+
+##### 29360216 无效的流转模式
 
 **错误信息**
 

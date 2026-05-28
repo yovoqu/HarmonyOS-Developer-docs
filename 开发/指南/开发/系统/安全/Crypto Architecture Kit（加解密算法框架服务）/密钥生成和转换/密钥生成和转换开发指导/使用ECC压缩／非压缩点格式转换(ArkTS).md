@@ -1,6 +1,6 @@
 # 使用ECC压缩/非压缩点格式转换(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rypto-convert-compressed-or-uncompressed-ecc-point
 
@@ -11,10 +11,11 @@ ECC的算法规格请查看[非对称密钥生成和转换规格：ECC](https://
 通过传入字符串参数format，可指定需要获取的点数据格式。如果需要获取压缩格式，则指定format为："COMPRESSED"；需要获取非压缩格式，则指定format为："UNCOMPRESSED"。
 
 
-## 指定非压缩点数据转换为压缩点数据
+##### 指定非压缩点数据转换为压缩点数据
+1. 指定Uint8Array类型的ECC非压缩点数据，调用[ECCKeyUtil.convertPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpoint12)，构造[Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#point10)对象，用于生成点数据。
+2. 调用[ECCKeyUtil.getEncodedPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpoint12)，获取压缩点数据。
 
-指定Uint8Array类型的ECC非压缩点数据，调用[ECCKeyUtil.convertPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpoint12)，构造[Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#point10)对象，用于生成点数据。 调用[ECCKeyUtil.getEncodedPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpoint12)，获取压缩点数据。
-```text
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function eccPointUncompressedToCompressed() {
@@ -30,10 +31,17 @@ function eccPointUncompressedToCompressed() {
 ```
 
 
-## 指定压缩点数据获取密钥对象
 
-指定Uint8Array类型的ECC压缩点数据，调用[ECCKeyUtil.convertPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpoint12)，得到[Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#point10)对象，用于密钥对象生成。 调用[ECCKeyUtil.genECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genecccommonparamsspec11)，指定曲线名'NID_brainpoolP256r1'，生成ECC的非对称公共密钥参数。 构造[ECCPubKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#eccpubkeyspec10)对象，用于指定ECC算法中公钥包含的参数。ECCPubKeySpec是AsyKeySpec的子类。需要通过参数algName指定算法'ECC'；指定密钥参数类型[AsyKeySpecType.PUBLIC_KEY_SPEC](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#asykeyspectype10)，参数pk指定为得到的point对象。 通过得到的公钥参数，调用[createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。 调用[AsyKeyGeneratorBySpec.generatePubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatepubkey10)，得到指定的公钥。 调用[ECCKeyUtil.getEncodedPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpoint12)，得到非压缩点数据。 调用[PubKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)，获取ECC算法中公钥pk的x坐标。
-```text
+##### 指定压缩点数据获取密钥对象
+1. 指定Uint8Array类型的ECC压缩点数据，调用[ECCKeyUtil.convertPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpoint12)，得到[Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#point10)对象，用于密钥对象生成。
+2. 调用[ECCKeyUtil.genECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genecccommonparamsspec11)，指定曲线名'NID_brainpoolP256r1'，生成ECC的非对称公共密钥参数。
+3. 构造[ECCPubKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#eccpubkeyspec10)对象，用于指定ECC算法中公钥包含的参数。ECCPubKeySpec是AsyKeySpec的子类。需要通过参数algName指定算法'ECC'；指定密钥参数类型[AsyKeySpecType.PUBLIC_KEY_SPEC](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#asykeyspectype10)，参数pk指定为得到的point对象。
+4. 通过得到的公钥参数，调用[createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。
+5. 调用[AsyKeyGeneratorBySpec.generatePubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatepubkey10)，得到指定的公钥。
+6. 调用[ECCKeyUtil.getEncodedPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpoint12)，得到非压缩点数据。
+7. 调用[PubKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)，获取ECC算法中公钥pk的x坐标。
+
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 async function eccPointCompressedToPoint() {

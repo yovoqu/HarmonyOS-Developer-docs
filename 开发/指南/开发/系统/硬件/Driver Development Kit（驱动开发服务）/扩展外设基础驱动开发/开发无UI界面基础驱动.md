@@ -1,25 +1,42 @@
 # 开发无UI界面基础驱动
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/driverextensionability
 
-## 场景介绍
+##### 场景介绍
 
 无UI界面的基础驱动，适用于不需要通过UI界面设置驱动能力的简单设备，例如鼠标、键盘等，保证设备的即插即用功能即可。开发者可以通过DriverExtensionAbility实现此类应用的开发。
 
-## 基本概念
 
-DriverExtensionAbility [DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)是Driver类型的ExtensionAbility组件，提供驱动相关扩展框架能力。对于部分设备，支持插入外接的硬件模块来扩展设备能力， 此时可以以应用方式安装该硬件模块的驱动程序。[DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)可以通过[@ohos.driver.deviceManager (外设管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-driver-devicemanager)提供的接口被应用绑定，并根据应用的请求信息在后台处理相关事务。 每个类型的ExtensionAbility都有自己的Context，DriverExtensionAbility通过[DriverExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-driverextensioncontext)提供相关能力。
 
-## 环境搭建
+##### 基本概念
+
+ - DriverExtensionAbility
+
+  [DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)是Driver类型的ExtensionAbility组件，提供驱动相关扩展框架能力。对于部分设备，支持插入外接的硬件模块来扩展设备能力， 此时可以以应用方式安装该硬件模块的驱动程序。[DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)可以通过[@ohos.driver.deviceManager (外设管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-driver-devicemanager)提供的接口被应用绑定，并根据应用的请求信息在后台处理相关事务。
+
+  每个类型的ExtensionAbility都有自己的Context，DriverExtensionAbility通过[DriverExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-driverextensioncontext)提供相关能力。
+
+
+
+
+##### 环境搭建
 
 请参考[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/environmental-preparation)完成开发前的准备工作。
 
-## 开发步骤
 
-开发者在实现一个驱动时，需要在DevEco Studio工程中手动新建一个DriverExtensionAbility，具体步骤如下： 创建新工程，请参考[创建一个新的工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)，创建一个HarmonyOS工程。（如果在[开发带UI界面基础驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/externaldevice-guidelines)已经创建，则此处不需要创建。） 在新创建的工程对应的ets目录下，右键选择“New > Directory”，新建一个目录并命名为driverextability。 在driverextability目录，右键选择“New > ArkTS File”，新建一个文件并命名为DriverExtAbility.ets。 在文件中导入相关Kit，并定义请求Code。
-```text
+
+##### 开发步骤
+
+开发者在实现一个驱动时，需要在DevEco Studio工程中手动新建一个DriverExtensionAbility，具体步骤如下：
+1. 创建新工程，请参考[创建一个新的工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)，创建一个HarmonyOS工程。（如果在[开发带UI界面基础驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/externaldevice-guidelines)已经创建，则此处不需要创建。）
+2. 在新创建的工程对应的ets目录下，右键选择“New > Directory”，新建一个目录并命名为driverextability。
+3. 在driverextability目录，右键选择“New > ArkTS File”，新建一个文件并命名为DriverExtAbility.ets。
+4. 在文件中导入相关Kit，并定义请求Code。
+
+  
+```ArkTS
 import { DriverExtensionAbility } from '@kit.DriverDevelopmentKit';
 import { Want } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
@@ -27,8 +44,10 @@ import { rpc } from '@kit.IPCKit';
 const REQUEST_CODE = 99; // 与扩展外设客户端约定请求码。
 ```
 
-打开DriverExtAbility.ets文件，导入[@ohos.rpc (RPC通信)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc)，重载onRemoteMessageRequest()方法，接收应用传递过来的消息，并将处理的结果返回给应用。REQUEST_CODE用于校验应用发送的服务请求码。
-```text
+5. 打开DriverExtAbility.ets文件，导入[@ohos.rpc (RPC通信)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc)，重载onRemoteMessageRequest()方法，接收应用传递过来的消息，并将处理的结果返回给应用。REQUEST_CODE用于校验应用发送的服务请求码。
+
+  
+```ArkTS
 class StubTest extends rpc.RemoteObject {
   // 接收应用传递过来的消息处理，以及将处理的结果返回给客户端。
   onRemoteMessageRequest(code: number, data: rpc.MessageSequence, reply: rpc.MessageSequence,
@@ -46,8 +65,10 @@ class StubTest extends rpc.RemoteObject {
 }
 ```
 
-在DriverExtAbility.ets文件中，增加导入[DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)的依赖包，该包提供了onInit()、onRelease()、onConnect()和onDisconnect()生命周期回调，自定义类继承[DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)并根据需要重写生命周期回调。
-```text
+6. 在DriverExtAbility.ets文件中，增加导入[DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)的依赖包，该包提供了onInit()、onRelease()、onConnect()和onDisconnect()生命周期回调，自定义类继承[DriverExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-driverextensionability)并根据需要重写生命周期回调。
+
+  
+```ArkTS
 export default class DriverExtAbility extends DriverExtensionAbility {
   onInit(want: Want) {
     console.info('testTag', `onInit, want: ${want.abilityName}`);
@@ -66,15 +87,17 @@ export default class DriverExtAbility extends DriverExtensionAbility {
     console.info('testTag', `onDisconnect, want: ${want.abilityName}`);
   }
 
-  onDump(params: Array) {
+  onDump(params: Array<string>) {
     console.info('testTag', `onDump, params:` + JSON.stringify(params));
     return ['params'];
   }
 }
 ```
 
-在工程Module对应的[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中注册DriverExtensionAbility，type标签需要设置为“driver”，srcEntry标签表示当前ExtensionAbility组件所对应的代码路径。
-```text
+7. 在工程Module对应的[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中注册DriverExtensionAbility，type标签需要设置为“driver”，srcEntry标签表示当前ExtensionAbility组件所对应的代码路径。
+
+  
+```ArkTS
 {
   "module": {
     "name": "entry",
@@ -158,12 +181,36 @@ export default class DriverExtAbility extends DriverExtensionAbility {
 }
 ```
 
-完成客户端和驱动示例代码开发后，请参考[使用本地真机运行应用/元服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)，将Hap导入设备中，并点击hap中的Hello，查看是否会转变为Hello world，即实现ipc通信功能。
+8. 完成客户端和驱动示例代码开发后，请参考[使用本地真机运行应用/元服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)，将Hap导入设备中，并点击hap中的Hello，查看是否会转变为Hello world，即实现ipc通信功能。
 
-## 扩展设备能力
 
-扩展外设管理目前提供了HidDdk、UsbDdk、USBSerialDDK和ScsiPeripheralDDK四种能力，用于扩展外设专项驱动的开发。具体使用方法，请参考： [开发适用HID协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hid-ddk-guidelines) [开发适用USB协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usb-ddk-guidelines) [开发适用串口协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usb-serial-ddk-guidelines) [开发使用SCSI协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scsi-peripheral-ddk-guidelines)
 
-## 应用签名
+##### 扩展设备能力
 
-**注意：** 先配置权限，再自动签名。 应用需要配置签名文件才能在设备上运行，并且扩展外设管理客户端开发，需要配置扩展外设的权限：ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER。 ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER 在module.json5配置文件的requestPermissions标签中[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)后，即可获得授权。 ohos.permission.ACCESS_DDK_DRIVERS 在module.json5配置文件的requestPermissions标签中[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。 HarmonyAppProvision配置文件中，修改acls字段，跨级别申请权限，可参考[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)。 完成权限配置后，可参考[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)对应用进行签名。
+扩展外设管理目前提供了HidDdk、UsbDdk、USBSerialDDK和ScsiPeripheralDDK四种能力，用于扩展外设专项驱动的开发。具体使用方法，请参考：
+
+ - [开发适用HID协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hid-ddk-guidelines)
+ - [开发适用USB协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usb-ddk-guidelines)
+ - [开发适用串口协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usb-serial-ddk-guidelines)
+ - [开发使用SCSI协议的设备驱动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scsi-peripheral-ddk-guidelines)
+
+
+
+
+##### 应用签名
+
+**注意：** 先配置权限，再自动签名。
+
+应用需要配置签名文件才能在设备上运行，并且扩展外设管理客户端开发，需要配置扩展外设的权限：ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER。
+
+ - ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
+
+  在module.json5配置文件的requestPermissions标签中[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)后，即可获得授权。
+ - ohos.permission.ACCESS_DDK_DRIVERS
+
+1. 在module.json5配置文件的requestPermissions标签中[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+
+2. HarmonyAppProvision配置文件中，修改acls字段，跨级别申请权限，可参考[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)。
+
+
+完成权限配置后，可参考[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)对应用进行签名。

@@ -3,31 +3,32 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-apis-inner-application-appserviceextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AppServiceExtensionContext模块是[AppServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
 AppServiceExtensionContext提供了连接、断开ServiceExtensionAbility（系统应用后台服务扩展组件）的能力，以及AppServiceExtensionAbility终止自身的能力。这里的ServiceExtensionAbility只能由系统应用开发，支持三方应用连接。
 
+> [!NOTE]
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
 
-## 使用说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 使用说明
 
 在使用AppServiceExtensionContext的功能前，需要通过AppServiceExtensionAbility子类实例获取。
 
 **示例：**
 
-
-```ts
+```text
 import { AppServiceExtensionAbility, Want } from '@kit.AbilityKit';
 
 export default class AppServiceExtension extends AppServiceExtensionAbility {
@@ -38,14 +39,14 @@ export default class AppServiceExtension extends AppServiceExtensionAbility {
 ```
 
 
-## AppServiceExtensionContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AppServiceExtensionContext
 
 
-### startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want, options?: StartOptions): Promise<void>
+##### startAbility
+
+startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 
 启动UIAbility。仅支持在主线程调用。使用Promise异步回调。
 
@@ -53,15 +54,13 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | Want类型参数，传入需要启动的Ability的信息，如Ability名称、Bundle名称等。 |
-| options | [StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions) | 否 | 启动Ability所携带的参数。 |
+| want | Want | 是 | Want类型参数，传入需要启动的Ability的信息，如Ability名称、Bundle名称等。 |
+| options | StartOptions | 否 | 启动Ability所携带的参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -71,7 +70,6 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -101,53 +99,43 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 
 **示例：**
 
-
-```ts
-import {
-  AppServiceExtensionAbility,
-  Want,
-  StartOptions,
-} from '@kit.AbilityKit';
+```text
+import { AppServiceExtensionAbility, Want, StartOptions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class MyAppServiceExtensionAbility extends AppServiceExtensionAbility {
   onCreate(want: Want) {
     let wantInfo: Want = {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
     let options: StartOptions = {
-      displayId: 0,
+      displayId: 0
     };
 
     try {
-      this.context
-        .startAbility(wantInfo, options)
+      this.context.startAbility(wantInfo, options)
         .then(() => {
           // 执行正常业务
           console.info('startAbility succeed');
         })
         .catch((err: BusinessError) => {
           // 处理业务逻辑错误
-          console.error(
-            `startAbility failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`startAbility failed, code is ${err.code}, message is ${err.message}`);
         });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `startAbility failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`startAbility failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### connectServiceExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### connectServiceExtensionAbility
 
 connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number
 
@@ -157,25 +145,22 @@ connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | Want类型参数，传入需要连接的Ability的信息，如Ability名称，Bundle名称等。 |
-| callback | [ConnectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-connectoptions) | 是 | ConnectOptions类型的回调函数，返回服务连接成功、连接失败、断开的信息。 |
+| want | Want | 是 | Want类型参数，传入需要连接的Ability的信息，如Ability名称，Bundle名称等。 |
+| callback | ConnectOptions | 是 | ConnectOptions类型的回调函数，返回服务连接成功、连接失败、断开的信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回连接id，客户端可以通过[disconnectServiceExtensionAbility](#disconnectserviceextensionability)传入该连接id来断开连接。 |
+| number | 返回连接id，客户端可以通过disconnectServiceExtensionAbility传入该连接id来断开连接。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -191,8 +176,7 @@ connectServiceExtensionAbility(want: Want, callback: ConnectOptions): number
 
 **示例：**
 
-
-```ts
+```text
 import { AppServiceExtensionAbility, Want, common } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -207,7 +191,7 @@ export default class AppServiceExtension extends AppServiceExtensionAbility {
   onCreate(localWant: Want) {
     let want: Want = {
       bundleName: 'com.example.myapp',
-      abilityName: 'MyAbility',
+      abilityName: 'MyAbility'
     };
     let callback: common.ConnectOptions = {
       onConnect(elementName, remote) {
@@ -219,55 +203,39 @@ export default class AppServiceExtension extends AppServiceExtensionAbility {
       },
       onFailed(code) {
         hilog.error(0x0000, TAG, '----------- onFailed -----------');
-      },
+      }
     };
 
+
     try {
-      this.connection = this.context.connectServiceExtensionAbility(
-        want,
-        callback,
-      );
+      this.connection = this.context.connectServiceExtensionAbility(want, callback);
     } catch (paramError) {
       commRemote = null;
       // 处理入参错误异常
-      hilog.error(
-        0x0000,
-        TAG,
-        `error.code: ${(paramError as BusinessError).code}, error.message: ${(paramError as BusinessError).message}`,
-      );
+      hilog.error(0x0000, TAG, `error.code: ${(paramError as BusinessError).code}, error.message: ${(paramError as BusinessError).message}`);
     }
   }
 
   onDestroy(): void {
-    this.context
-      .disconnectServiceExtensionAbility(this.connection)
-      .then(() => {
-        commRemote = null;
-        // 执行正常业务
-        hilog.info(
-          0x0000,
-          TAG,
-          '----------- disconnectServiceExtensionAbility success -----------',
-        );
-      })
+    this.context.disconnectServiceExtensionAbility(this.connection).then(() => {
+      commRemote = null;
+      // 执行正常业务
+      hilog.info(0x0000, TAG, '----------- disconnectServiceExtensionAbility success -----------');
+    })
       .catch((error: BusinessError) => {
         commRemote = null;
         // 处理业务逻辑错误
-        hilog.error(
-          0x0000,
-          TAG,
-          `disconnectServiceExtensionAbility failed, error.code: ${error.code}, error.message: ${error.message}`,
-        );
+        hilog.error(0x0000, TAG, `disconnectServiceExtensionAbility failed, error.code: ${error.code}, error.message: ${error.message}`);
       });
   }
 }
 ```
 
 
-### disconnectServiceExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectServiceExtensionAbility(connection: number): Promise<void>
+##### disconnectServiceExtensionAbility
+
+disconnectServiceExtensionAbility(connection: number): Promise&lt;void&gt;
 
 将AppServiceExtensionAbility与已连接的ServiceExtensionAbility断开连接。仅支持在主线程调用。使用Promise异步回调。
 
@@ -275,14 +243,12 @@ disconnectServiceExtensionAbility(connection: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| connection | number | 是 | 在[connectServiceExtensionAbility](#connectserviceextensionability)中返回的连接id。 |
+| connection | number | 是 | 在connectServiceExtensionAbility中返回的连接id。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -292,7 +258,6 @@ disconnectServiceExtensionAbility(connection: number): Promise<void>
 **错误码：**
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -305,17 +270,16 @@ disconnectServiceExtensionAbility(connection: number): Promise<void>
 参见[connectServiceExtensionAbility](#connectserviceextensionability)。
 
 
-### terminateSelf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(): Promise<void>
+##### terminateSelf
+
+terminateSelf(): Promise&lt;void&gt;
 
 销毁AppServiceExtensionAbility自身。仅支持在主线程调用。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -326,7 +290,6 @@ terminateSelf(): Promise<void>
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 16000009 | An ability cannot be started or stopped in Wukong mode. |
@@ -336,8 +299,7 @@ terminateSelf(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { AppServiceExtensionAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -346,24 +308,13 @@ const TAG: string = '[AppServiceExtensionAbility]';
 
 export default class AppServiceExtension extends AppServiceExtensionAbility {
   onCreate(want: Want) {
-    this.context
-      .terminateSelf()
-      .then(() => {
-        // 执行正常业务
-        hilog.info(
-          0x0000,
-          TAG,
-          '----------- terminateSelf succeed -----------',
-        );
-      })
-      .catch((error: BusinessError) => {
-        // 处理业务逻辑错误
-        hilog.error(
-          0x0000,
-          TAG,
-          `terminateSelf failed, error.code: ${error.code}, error.message: ${error.message}`,
-        );
-      });
+    this.context.terminateSelf().then(() => {
+      // 执行正常业务
+      hilog.info(0x0000, TAG, '----------- terminateSelf succeed -----------');
+    }).catch((error: BusinessError) => {
+      // 处理业务逻辑错误
+      hilog.error(0x0000, TAG, `terminateSelf failed, error.code: ${error.code}, error.message: ${error.message}`);
+    });
   }
 }
 ```

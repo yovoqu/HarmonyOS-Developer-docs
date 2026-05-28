@@ -1,6 +1,6 @@
 # @Styles装饰器：定义组件重用样式
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style
 
@@ -8,19 +8,25 @@
 
 @Styles装饰器可以将多条样式设置提炼成一个方法，直接在组件声明的位置调用。通过@Styles装饰器可以快速定义并复用自定义样式。
 
-
 > [!NOTE]
 > 从API version 9开始支持。 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
 
 
-## 装饰器使用说明
 
-当前@Styles仅支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。 @Styles可以定义在组件内或全局，在全局定义时需在方法名前面添加function关键字，组件内定义时则不需要添加function关键字。请参考用例[组件内styles和全局styles的用法](#组件内styles和全局styles的用法)。 组件内@Styles的优先级高于全局@Styles。框架优先找当前组件内的@Styles，如果找不到，则会全局查找。
+##### 装饰器使用说明
+
+ - 当前@Styles仅支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ - @Styles可以定义在组件内或全局，在全局定义时需在方法名前面添加function关键字，组件内定义时则不需要添加function关键字。请参考用例[组件内styles和全局styles的用法](#组件内styles和全局styles的用法)。
+ - 组件内@Styles的优先级高于全局@Styles。框架优先找当前组件内的@Styles，如果找不到，则会全局查找。
+
+
 > [!NOTE]
-> 只能在当前文件内使用@Styles，不支持export。 若需要实现样式导出，推荐使用AttributeModifier。
+> 只能在当前文件内使用@Styles，不支持export。 若需要实现样式导出，推荐使用 AttributeModifier 。
+
 
 定义在组件内的@Styles可以通过this访问组件的常量和状态变量，并可以在@Styles里通过事件来改变状态变量的值，示例如下：
-```text
+
+```ArkTS
 @Entry
 @Component
 struct FancyUse {
@@ -46,11 +52,17 @@ struct FancyUse {
 }
 ```
 
-![](assets/@Styles装饰器：定义组件重用样式/file-20260514130510965-0.gif)
 
-## 限制条件
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/7DEwwX7XSpK3XNTPAJ7xDA/zh-cn_image_0000002581433640.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014802Z&HW-CC-Expire=86400&HW-CC-Sign=0687E24576FB1FD0C696250A07A6BCE28BD13EE0D727B77FA0ACF16712A9392A)
 
-@Styles方法不支持传入参数，编译期会报错。
+
+
+
+##### 限制条件
+
+ - @Styles方法不支持传入参数，编译期会报错。
+
+
 ```text
 // 错误写法： @Styles不支持参数，编译期报错
   @Styles
@@ -59,8 +71,7 @@ struct FancyUse {
   }
 ```
 
-
-```text
+```ArkTS
 // 正确写法
   @Styles
   function globalFancy () {
@@ -68,7 +79,9 @@ struct FancyUse {
   }
 ```
 
-不支持在@Styles方法内使用逻辑组件，逻辑组件内的属性不生效。
+ - 不支持在@Styles方法内使用逻辑组件，逻辑组件内的属性不生效。
+
+
 ```text
 // 错误写法
   @Styles
@@ -79,8 +92,7 @@ struct FancyUse {
   }
 ```
 
-
-```text
+```ArkTS
 // 正确写法
   @Styles
   function backgroundColorStyle() {
@@ -89,13 +101,14 @@ struct FancyUse {
 ```
 
 
-## 使用场景
+
+##### 使用场景
 
 
-## 组件内@Styles和全局@Styles的用法
 
+##### 组件内@Styles和全局@Styles的用法
 
-```text
+```ArkTS
 // 定义在全局的@Styles封装的样式
 @Styles
 function globalFancy1() {
@@ -136,4 +149,5 @@ struct GlobalFancy {
 }
 ```
 
-![](assets/@Styles装饰器：定义组件重用样式/file-20260514130510965-1.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/GEXz7LqwQJWTYJ1ZKBonAQ/zh-cn_image_0000002611833469.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014802Z&HW-CC-Expire=86400&HW-CC-Sign=A726F8B712AD14F7924AAD3380DC9893A38811A1D4F1F6DD84D5775EC5C644CB)

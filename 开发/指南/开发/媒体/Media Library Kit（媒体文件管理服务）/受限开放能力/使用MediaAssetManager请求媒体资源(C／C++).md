@@ -1,6 +1,6 @@
 # 使用MediaAssetManager请求媒体资源(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-mediaassetmanager-for-request-resource
 
@@ -9,28 +9,36 @@
 请求图片资源的全流程包含：创建MediaAssetManager，设置请求资源，请求图片资源，取消本次请求(可选)。
 
 
-## 开发步骤及注意事项
+##### 开发步骤及注意事项
 
 在CMake脚本中链接动态库
+
 ```text
 target_link_libraries(sample PUBLIC libmedia_asset_manager.so)
 ```
 
-开发者通过引入[media_asset_manager_capi.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-manager-capi-h)和[media_asset_base_capi.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-base-capi-h)头文件，使用MediaAssetManager相关API。 详细的API说明请参考[MediaAssetManager API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mediaassetmanager)。
+开发者通过引入[media_asset_manager_capi.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-manager-capi-h)和[media_asset_base_capi.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-asset-base-capi-h)头文件，使用MediaAssetManager相关API。
+
+详细的API说明请参考[MediaAssetManager API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mediaassetmanager)。
+
 > [!NOTE]
-> 开发前，需要参考开发准备，申请ohos.permission.READ_IMAGEVIDEO权限。
+> 开发前，需要参考 开发准备 ，申请ohos.permission.READ_IMAGEVIDEO权限。
 
-创建实例：OH_MediaAssetManager_Create()。 设置资源：设置资源请求回调、设置资源请求策略、设置源图片Uri和目标Uri。 请求图片资源：调用OH_MediaAssetManager_RequestImageForPath()请求图片资源到目标Uri。 取消请求：调用OH_MediaAssetManager_CancelRequest()。(可选)
+1. 创建实例：OH_MediaAssetManager_Create()。
+2. 设置资源：设置资源请求回调、设置资源请求策略、设置源图片Uri和目标Uri。
+3. 请求图片资源：调用OH_MediaAssetManager_RequestImageForPath()请求图片资源到目标Uri。
+4. 取消请求：调用OH_MediaAssetManager_CancelRequest()。(可选)
 
-## 完整示例
 
 
-```text
+##### 完整示例
+
+```cpp
 #include "napi/native_api.h"
 #include "multimedia/media_library/media_asset_base_capi.h"
 #include "multimedia/media_library/media_asset_manager_capi.h"
-#include
-#include
+#include <cstdio>
+#include <cstring>
 
 const char ERROR_REQUEST_ID[UUID_STR_MAX_LENGTH] = "00000000-0000-0000-0000-000000000000";
 
@@ -53,7 +61,7 @@ static napi_value RequestMediaAssets(napi_env env, napi_callback_info info)
     } else {
         // 设置资源请求回调
         OH_MediaLibrary_OnDataPrepared callback = OnDataPrepared;
-
+        
         // 设置资源请求策略
         MediaLibrary_RequestOptions options;
         options.deliveryMode = MEDIA_LIBRARY_HIGH_QUALITY_MODE;

@@ -3,11 +3,9 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 为ArkWeb NDK接口发生异常提供错误码。
 
@@ -24,15 +22,14 @@
 **起始版本：** 12
 
 
-## 文件汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 文件汇总
 
 | 名称 | 描述 |
 | --- | --- |
-| [arkweb_error_code.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-error-code-h) | 声明ArkWeb NDK接口异常错误码。 |
-| [arkweb_interface.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h) | 提供ArkWeb在Native侧获取API的接口，及基础Native API类型。 |
-| [arkweb_net_error_list.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-net-error-list-h) | 声明ArkWeb网络协议栈错误码。 |
-| [arkweb_scheme_handler.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-scheme-handler-h) | 声明用于拦截来自ArkWeb的请求的API。 |
-| [arkweb_type.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h) | 提供ArkWeb在Native侧的公共类型定义。 |
-| [native_interface_arkweb.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-arkweb-h) | 声明API接口供开发者使用注入对象和执行JavaScript代码等功能。 |
+| arkweb_error_code.h | 声明ArkWeb NDK接口异常错误码。 |
+| arkweb_interface.h | 提供ArkWeb在Native侧获取API的接口，及基础Native API类型。 |
+| arkweb_net_error_list.h | 声明ArkWeb网络协议栈错误码。 |
+| arkweb_scheme_handler.h | 声明用于拦截来自ArkWeb的请求的API。 |
+| arkweb_type.h | 提供ArkWeb在Native侧的公共类型定义。 |
+| native_interface_arkweb.h | 声明API接口供开发者使用注入对象和执行JavaScript代码等功能。 |

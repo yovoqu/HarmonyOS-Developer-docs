@@ -3,24 +3,26 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datashare
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **DataShare**用于应用管理其自身数据，同时支持同个设备上不同应用间的数据共享。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { dataShare } from '@kit.ArkData';
 ```
 
 
-## dataShare.createDataProxyHandle20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createDataProxyHandle(): Promise<DataProxyHandle>
+##### dataShare.createDataProxyHandle20+
+
+createDataProxyHandle(): Promise&lt;DataProxyHandle&gt;
 
 创建DataProxyHandle实例。使用Promise异步回调。
 
@@ -28,16 +30,14 @@ createDataProxyHandle(): Promise<DataProxyHandle>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DataProxyHandle](#dataproxyhandle20)&gt; | Promise对象。返回DataProxyHandle实例。 |
+| Promise&lt;DataProxyHandle&gt; | Promise对象。返回DataProxyHandle实例。 |
 
 
 **错误码：**
 
 错误码的详细介绍请参见[数据共享错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-datashare)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -46,35 +46,28 @@ createDataProxyHandle(): Promise<DataProxyHandle>
 
 **示例：**
 
-
-```ts
+```text
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    dataShare
-      .createDataProxyHandle()
-      .then((dataProxyHandle) => {
-        console.info('createDataProxyHandle succeed');
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `createDataProxyHandle error: code: ${err.code}, message: ${err.message}`,
-        );
-      });
+    dataShare.createDataProxyHandle().then((dataProxyHandle) => {
+      console.info("createDataProxyHandle succeed");
+    }).catch((err: BusinessError) => {
+      console.error(`createDataProxyHandle error: code: ${err.code}, message: ${err.message}`);
+    });
   }
 }
 ```
 
 
-## ChangeType20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ChangeType20+
 
 数据变更类型枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -83,43 +76,43 @@ export default class EntryAbility extends UIAbility {
 | UPDATE | 2 | 表示数据更新。 |
 
 
-## ProxyData20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ProxyData20+
 
 共享配置的数据结构。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | uri | string | 否 | 否 | 共享配置的全局唯一标识。固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复。字符串长度不超过256个字节。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-valuesbucket#valuetype) | 否 | 是 | 共享配置的值。不填则为空字符串。字符串长度不超过4096个字节。当首次发布共享配置时，如果未填写，将默认设置为空字符串。在更新共享配置时，如果未填写，共享配置的值将不会被更新。 |
-| allowList | string[] | 否 | 是 | 允许订阅和读取共享配置的应用程序列表。不填则为空的字符串数组。数组最大长度为256，超过256的部分不生效。数组中每个元素为应用的[appIdentifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-problem-of-application#什么是appidentifier)，单个appIdentifier最大长度128字节，超过128字节的appIdentifier不会生效。当首次发布共享配置时，如果未填写，将默认为空的允许列表。在更新共享配置时，如果未填写，共享配置的允许列表将不会被更新。一个空的允许列表表示只有发布者能够访问该共享配置。 |
+| value | ValueType | 否 | 是 | 共享配置的值。不填则为空字符串。字符串长度不超过4096个字节。当首次发布共享配置时，如果未填写，将默认设置为空字符串。在更新共享配置时，如果未填写，共享配置的值将不会被更新。 |
+| allowList | string[] | 否 | 是 | 允许订阅和读取共享配置的应用程序列表。不填则为空的字符串数组。数组最大长度为256，超过256的部分不生效。数组中每个元素为应用的appIdentifier，单个appIdentifier最大长度128字节，超过128字节的appIdentifier不会生效。当首次发布共享配置时，如果未填写，将默认为空的允许列表。在更新共享配置时，如果未填写，共享配置的允许列表将不会被更新。一个空的允许列表表示只有发布者能够访问该共享配置。 |
 
 
-## DataProxyChangeInfo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataProxyChangeInfo20+
 
 通知订阅者共享配置变更的数据结构。包括数据变更类型、变化的URI、变更的数据内容。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [ChangeType](#changetype20) | 否 | 否 | 通知变更的类型。 |
+| type | ChangeType | 否 | 否 | 通知变更的类型。 |
 | uri | string | 否 | 否 | 通知变更指定URI。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-valuesbucket#valuetype) | 否 | 否 | 更新的数据。 |
+| value | ValueType | 否 | 否 | 更新的数据。 |
 
 
-## DataProxyErrorCode20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataProxyErrorCode20+
 
 配置共享批量操作返回值的状态码枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -129,70 +122,71 @@ export default class EntryAbility extends UIAbility {
 | OVER_LIMIT | 3 | 表示当前应用发布的配置超过32个配置的上限。 |
 
 
-## DataProxyResult20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataProxyResult20+
 
 配置共享批量操作结果的数据结构。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | uri | string | 否 | 否 | 被操作的URI。固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复，字符串长度不超过256个字节。 |
-| result | [DataProxyErrorCode](#dataproxyerrorcode20) | 否 | 否 | 操作结果的错误码。 |
+| result | DataProxyErrorCode | 否 | 否 | 操作结果的错误码。 |
 
 
-## DataProxyGetResult20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataProxyGetResult20+
 
 配置共享批量获取操作结果的数据结构。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | uri | string | 否 | 否 | 被操作的URI。固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复，字符串长度不超过256个字节。 |
-| result | [DataProxyErrorCode](#dataproxyerrorcode20) | 否 | 否 | 操作结果的错误码。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-valuesbucket#valuetype) \| undefined | 否 | 否 | 如果获取操作成功，则为共享配置的值；如果获取操作失败，则未定义。 |
+| result | DataProxyErrorCode | 否 | 否 | 操作结果的错误码。 |
+| value | ValueType \| undefined | 否 | 否 | 如果获取操作成功，则为共享配置的值；如果获取操作失败，则未定义。 |
 | allowList | string[] \| undefined | 否 | 否 | 如果获取操作成功，则为共享配置的允许列表；如果获取操作失败，则未定义。只有发布者才能获取允许列表，其他应用只能获取值。 |
 
 
-## DataProxyType20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataProxyType20+
 
 数据代理类型的枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SHARED_CONFIG | 0 | 表示应用之间的共享配置。 |
 
 
-## DataProxyConfig20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataProxyConfig20+
 
 数据代理操作配置的数据结构。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [DataProxyType](#dataproxytype20) | 否 | 否 | 数据代理操作的类型。 |
+| type | DataProxyType | 否 | 否 | 数据代理操作的类型。 |
 
 
-## DataProxyHandle20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataProxyHandle20+
 
 数据代理操作句柄的实例，可使用此实例访问或管理共享配置信息。在调用DataProxyHandle提供的方法前，需要先通过[createDataProxyHandle](#datasharecreatedataproxyhandle20)构建一个实例。
 
 
-### on('dataChange')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('dataChange')20+
 
 on(event: 'dataChange', uris: string[], config: DataProxyConfig, callback: AsyncCallback<DataProxyChangeInfo[]>): DataProxyResult[]
 
@@ -204,27 +198,24 @@ on(event: 'dataChange', uris: string[], config: DataProxyConfig, callback: Async
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件/回调类型，支持的事件为'dataChange'，当配置发布方修改配置时，触发该事件。 |
 | uris | string[] | 是 | 表示要订阅的共享配置对应的URI数组，数组最大长度为32。URI固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复，字符串长度不超过256个字节。 |
-| config | [DataProxyConfig](#dataproxyconfig20) | 是 | 表示数据代理操作的配置。 |
-| callback | AsyncCallback&lt;[DataProxyChangeInfo](#dataproxychangeinfo20)[]&gt; | 是 | 回调函数。当配置发布方修改配置时会回调该函数。 |
+| config | DataProxyConfig | 是 | 表示数据代理操作的配置。 |
+| callback | AsyncCallback<DataProxyChangeInfo[]> | 是 | 回调函数。当配置发布方修改配置时会回调该函数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DataProxyResult](#dataproxyresult20)[] | 批量操作的结果数组。 |
+| DataProxyResult[] | 批量操作的结果数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[数据共享错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-datashare)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -234,43 +225,30 @@ on(event: 'dataChange', uris: string[], config: DataProxyConfig, callback: Async
 
 **示例：**
 
-
-```ts
-const urisToWatch: string[] = [
-  'datashareproxy://com.example.app1/config1',
-  'datashareproxy://com.example.app1/config2',
-];
+```text
+const urisToWatch: string[] =
+  ['datashareproxy://com.example.app1/config1', 'datashareproxy://com.example.app1/config2',];
 const config: dataShare.DataProxyConfig = {
   type: dataShare.DataProxyType.SHARED_CONFIG,
 };
-const callback = (
-  err: BusinessError<void>,
-  changes: dataShare.DataProxyChangeInfo[],
-): void => {
+const callback = (err: BusinessError<void>, changes: dataShare.DataProxyChangeInfo[]): void => {
   if (err) {
     console.error(`callback error: code: ${err.code}, message: ${err.message}`);
   } else {
     changes.forEach((change) => {
-      console.info(
-        `Change Type: ${change.type}, URI: ${change.uri}, Value: ${change.value}`,
-      );
+      console.info(`Change Type: ${change.type}, URI: ${change.uri}, Value: ${change.value}`);
     });
   }
 };
-const results: dataShare.DataProxyResult[] = dataProxyHandle.on(
-  'dataChange',
-  urisToWatch,
-  config,
-  callback,
-);
+const results: dataShare.DataProxyResult[] = dataProxyHandle.on('dataChange', urisToWatch, config, callback);
 results.forEach((result) => {
   console.info(`URI: ${result.uri}, Result: ${result.result}`);
 });
 ```
 
 
-### off('dataChange')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('dataChange')20+
 
 off(event: 'dataChange', uris: string[], config: DataProxyConfig, callback?: AsyncCallback<DataProxyChangeInfo[]>): DataProxyResult[]
 
@@ -280,27 +258,24 @@ off(event: 'dataChange', uris: string[], config: DataProxyConfig, callback?: Asy
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件/回调类型，支持的事件为'dataChange'。 |
 | uris | string[] | 是 | 表示要取消订阅的共享配置对应的URI数组，数组最大长度为32。URI固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复，字符串长度不超过256个字节。 |
-| config | [DataProxyConfig](#dataproxyconfig20) | 是 | 表示数据代理操作的配置。 |
-| callback | AsyncCallback&lt;[DataProxyChangeInfo](#dataproxychangeinfo20)[]&gt; | 否 | 回调函数。表示指定取消订阅的callback通知，如果为空、undefined或null，则取消订阅这些URI下所有的通知事件。 |
+| config | DataProxyConfig | 是 | 表示数据代理操作的配置。 |
+| callback | AsyncCallback<DataProxyChangeInfo[]> | 否 | 回调函数。表示指定取消订阅的callback通知，如果为空、undefined或null，则取消订阅这些URI下所有的通知事件。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DataProxyResult](#dataproxyresult20)[] | 批量操作的结果数组。 |
+| DataProxyResult[] | 批量操作的结果数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[数据共享错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-datashare)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -310,43 +285,30 @@ off(event: 'dataChange', uris: string[], config: DataProxyConfig, callback?: Asy
 
 **示例：**
 
-
-```ts
-const urisToUnWatch: string[] = [
-  'datashareproxy://com.example.app1/config1',
-  'datashareproxy://com.example.app1/config2',
-];
+```text
+const urisToUnWatch: string[] =
+  ['datashareproxy://com.example.app1/config1', 'datashareproxy://com.example.app1/config2',];
 const config: dataShare.DataProxyConfig = {
   type: dataShare.DataProxyType.SHARED_CONFIG,
 };
-const callback = (
-  err: BusinessError<void>,
-  changes: dataShare.DataProxyChangeInfo[],
-): void => {
+const callback = (err: BusinessError<void>, changes: dataShare.DataProxyChangeInfo[]): void => {
   if (err) {
     console.error(`callback error: code: ${err.code}, message: ${err.message}`);
   } else {
     changes.forEach((change) => {
-      console.info(
-        `Change Type: ${change.type}, URI: ${change.uri}, Value: ${change.value}`,
-      );
+      console.info(`Change Type: ${change.type}, URI: ${change.uri}, Value: ${change.value}`);
     });
   }
 };
-const results: dataShare.DataProxyResult[] = dataProxyHandle.off(
-  'dataChange',
-  urisToUnWatch,
-  config,
-  callback,
-);
+const results: dataShare.DataProxyResult[] = dataProxyHandle.off('dataChange', urisToUnWatch, config, callback);
 results.forEach((result) => {
   console.info(`URI: ${result.uri}, Result: ${result.result}`);
 });
 ```
 
 
-### publish20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### publish20+
 
 publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
@@ -356,25 +318,22 @@ publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | [ProxyData](#proxydata20)[] | 是 | 表示需要创建或者更新的共享配置项数组。数组最大长度为32。 |
-| config | [DataProxyConfig](#dataproxyconfig20) | 是 | 表示数据代理操作的配置。 |
+| data | ProxyData[] | 是 | 表示需要创建或者更新的共享配置项数组。数组最大长度为32。 |
+| config | DataProxyConfig | 是 | 表示数据代理操作的配置。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DataProxyResult](#dataproxyresult20)[]&gt; | Promise对象。返回批量操作的结果数组。 |
+| Promise<DataProxyResult[]> | Promise对象。返回批量操作的结果数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[数据共享错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-datashare)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -384,40 +343,31 @@ publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
 **示例：**
 
-
-```ts
-const newConfigData: dataShare.ProxyData[] = [
-  {
-    uri: 'datashareproxy://com.example.app1/config1',
-    value: 'Value1',
-    allowList: ['appIdentifier2', 'appIdentifier3'], // 此处字符串仅作示例，使用时需替换为应用实际的appIdentifier
-  },
-  {
-    uri: 'datashareproxy://com.example.app1/config2',
-    value: 'Value2',
-    allowList: ['appIdentifier3', 'appIdentifier4'], // 此处字符串仅作示例，使用时需替换为应用实际的appIdentifier
-  },
-];
+```text
+const newConfigData: dataShare.ProxyData[] = [{
+  uri: 'datashareproxy://com.example.app1/config1',
+  value: 'Value1',
+  allowList: ['appIdentifier2', 'appIdentifier3'], // 此处字符串仅作示例，使用时需替换为应用实际的appIdentifier
+}, {
+  uri: 'datashareproxy://com.example.app1/config2',
+  value: 'Value2',
+  allowList: ['appIdentifier3', 'appIdentifier4'], // 此处字符串仅作示例，使用时需替换为应用实际的appIdentifier
+}];
 const config: dataShare.DataProxyConfig = {
   type: dataShare.DataProxyType.SHARED_CONFIG,
 };
-dataProxyHandle
-  .publish(newConfigData, config)
-  .then((results: dataShare.DataProxyResult[]) => {
-    results.forEach((result) => {
-      console.info(`URI: ${result.uri}, Result: ${result.result}`);
-    });
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to publish config. code: ${error.code}, message: ${error.message}`,
-    );
+dataProxyHandle.publish(newConfigData, config).then((results: dataShare.DataProxyResult[]) => {
+  results.forEach((result) => {
+    console.info(`URI: ${result.uri}, Result: ${result.result}`);
   });
+}).catch((error: BusinessError) => {
+  console.error(`Failed to publish config. code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-### delete20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### delete20+
 
 delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
@@ -427,25 +377,22 @@ delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uris | string[] | 是 | 表示需要删除的共享配置对应的URI数组，数组最大长度为32。URI固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复，字符串长度不超过256个字节。 |
-| config | [DataProxyConfig](#dataproxyconfig20) | 是 | 表示数据代理操作的配置。 |
+| config | DataProxyConfig | 是 | 表示数据代理操作的配置。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DataProxyResult](#dataproxyresult20)[]&gt; | Promise对象。返回批量操作的结果数组。 |
+| Promise<DataProxyResult[]> | Promise对象。返回批量操作的结果数组。 |
 
 
 **错误码：**
 
-以下错误码的���细介绍请参见[数据共享错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-datashare)。
-
+以下错误码的详细介绍请参见[数据共享错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-datashare)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -455,32 +402,24 @@ delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
 **示例：**
 
-
-```ts
-const urisToDelete: string[] = [
-  'datashareproxy://com.example.app1/config1',
-  'datashareproxy://com.example.app1/config2',
-];
+```text
+const urisToDelete: string[] =
+  ['datashareproxy://com.example.app1/config1', 'datashareproxy://com.example.app1/config2',];
 const config: dataShare.DataProxyConfig = {
   type: dataShare.DataProxyType.SHARED_CONFIG,
 };
-dataProxyHandle
-  .delete(urisToDelete, config)
-  .then((results: dataShare.DataProxyResult[]) => {
-    results.forEach((result) => {
-      console.info(`URI: ${result.uri}, Result: ${result.result}`);
-    });
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to delete config. code: ${error.code}, message: ${error.message}`,
-    );
+dataProxyHandle.delete(urisToDelete, config).then((results: dataShare.DataProxyResult[]) => {
+  results.forEach((result) => {
+    console.info(`URI: ${result.uri}, Result: ${result.result}`);
   });
+}).catch((error: BusinessError) => {
+  console.error(`Failed to delete config. code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-### get20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### get20+
 
 get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>
 
@@ -490,25 +429,22 @@ get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uris | string[] | 是 | 表示需要获取的共享配置的URI数组，数组最大长度为32。URI固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复，字符串长度不超过256个字节。 |
-| config | [DataProxyConfig](#dataproxyconfig20) | 是 | 表示数据代理操作的配置。 |
+| config | DataProxyConfig | 是 | 表示数据代理操作的配置。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DataProxyGetResult](#dataproxygetresult20)[]&gt; | Promise对象。返回批量获取操作的结果数组。 |
+| Promise<DataProxyGetResult[]> | Promise对象。返回批量获取操作的结果数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[数据共享错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-datashare)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -518,27 +454,17 @@ get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>
 
 **示例：**
 
-
-```ts
-const urisToGet: string[] = [
-  'datashareproxy://com.example.app1/config1',
-  'datashareproxy://com.example.app1/config2',
-];
+```text
+const urisToGet: string[] =
+  ['datashareproxy://com.example.app1/config1', 'datashareproxy://com.example.app1/config2',];
 const config: dataShare.DataProxyConfig = {
   type: dataShare.DataProxyType.SHARED_CONFIG,
 };
-dataProxyHandle
-  .get(urisToGet, config)
-  .then((results: dataShare.DataProxyGetResult[]) => {
-    results.forEach((result) => {
-      console.info(
-        `URI: ${result.uri}, Result: ${result.result}, AllowList: ${result.allowList}`,
-      );
-    });
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to get config. code: ${error.code}, message: ${error.message}`,
-    );
+dataProxyHandle.get(urisToGet, config).then((results: dataShare.DataProxyGetResult[]) => {
+  results.forEach((result) => {
+    console.info(`URI: ${result.uri}, Result: ${result.result}, AllowList: ${result.allowList}`);
   });
+}).catch((error: BusinessError) => {
+  console.error(`Failed to get config. code: ${error.code}, message: ${error.message}`);
+});
 ```

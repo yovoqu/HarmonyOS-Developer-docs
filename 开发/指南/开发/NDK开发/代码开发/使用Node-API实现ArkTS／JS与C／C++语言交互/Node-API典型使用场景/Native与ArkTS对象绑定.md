@@ -4,14 +4,19 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-object-wrap
 
-## 场景介绍
+##### 场景介绍
 
 通过napi_wrap将ArkTS对象与Native的C++对象绑定，后续操作时再通过napi_unwrap将ArkTS对象绑定的C++对象取出，并对其进行操作。
+ 
+  
 
-## 使用示例
+##### 使用示例
+1. 接口声明、编译配置以及模块注册
 
-接口声明、编译配置以及模块注册   **接口声明**
-```text
+  **接口声明**
+
+  
+```ts
 // index.d.ts
 export class MyObject {
   constructor(arg: number);
@@ -21,9 +26,10 @@ export class MyObject {
   public set value(newVal: number);
 }
 ```
+   **编译配置**
 
-**编译配置**
-```text
+  
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
 project(napi_wrap_demo)
@@ -43,9 +49,10 @@ add_definitions("-DLOG_TAG=\"testTag\"")
 add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 ```
+   **模块注册**
 
-**模块注册**
-```text
+  
+```cpp
 // napi_init.cpp
 #include "napi/native_api.h"
 #include "hilog/log.h"
@@ -82,7 +89,7 @@ MyObject::~MyObject()
 void MyObject::Destructor(napi_env env, void* nativeObject, [[maybe_unused]] void* finalize_hint)
 {
     OH_LOG_INFO(LOG_APP, "MyObject::Destructor called");
-    delete reinterpret_cast(nativeObject);
+    delete reinterpret_cast<MyObject*>(nativeObject);
 }
 
 napi_value MyObject::Init(napi_env env, napi_value exports)
@@ -131,7 +138,9 @@ extern "C" __attribute__((constructor)) void RegisterObjectWrapModule()
 }
 ```
 
-在构造函数中绑定ArkTS与C++对象
+2. 在构造函数中绑定ArkTS与C++对象
+
+  
 ```text
 napi_value MyObject::New(napi_env env, napi_callback_info info)
 {
@@ -175,7 +184,7 @@ napi_value MyObject::New(napi_env env, napi_callback_info info)
         // 通过napi_wrap将ArkTS对象jsThis)与C++对象obj绑定
         status = napi_wrap(env,
                            jsThis,
-                           reinterpret_cast(obj),
+                           reinterpret_cast<void*>(obj),
                            MyObject::Destructor,
                            nullptr,  // finalize_hint
                            &obj->wrapper_);
@@ -222,7 +231,9 @@ napi_value MyObject::New(napi_env env, napi_callback_info info)
 }
 ```
 
-将ArkTS对象之前绑定的C++对象取出，并对其进行操作
+3. 将ArkTS对象之前绑定的C++对象取出，并对其进行操作
+
+  
 ```text
 napi_value MyObject::GetValue(napi_env env, napi_callback_info info)
 {
@@ -237,7 +248,7 @@ napi_value MyObject::GetValue(napi_env env, napi_callback_info info)
 
     MyObject* obj = nullptr;
     // 通过napi_unwrap将jsThis之前绑定的C++对象取出，并对其进行操作
-    status = napi_unwrap(env, jsThis, reinterpret_cast(&obj));
+    status = napi_unwrap(env, jsThis, reinterpret_cast<void**>(&obj));
     if (status != napi_ok) {
         napi_throw_error(env, nullptr, "Node-API napi_unwrap fail");
         return nullptr;
@@ -268,7 +279,7 @@ napi_value MyObject::SetValue(napi_env env, napi_callback_info info)
 
     MyObject* obj = nullptr;
     // 通过napi_unwrap将jsThis之前绑定的C++对象取出，并对其进行操作
-    status = napi_unwrap(env, jsThis, reinterpret_cast(&obj));
+    status = napi_unwrap(env, jsThis, reinterpret_cast<void**>(&obj));
     if (status != napi_ok) {
         napi_throw_error(env, nullptr, "Node-API napi_unwrap fail");
         return nullptr;
@@ -295,7 +306,7 @@ napi_value MyObject::PlusOne(napi_env env, napi_callback_info info)
 
     MyObject* obj = nullptr;
     // 通过napi_unwrap将jsThis之前绑定的C++对象取出，并对其进行操作
-    status = napi_unwrap(env, jsThis, reinterpret_cast(&obj));
+    status = napi_unwrap(env, jsThis, reinterpret_cast<void**>(&obj));
     if (status != napi_ok) {
         napi_throw_error(env, nullptr, "Node-API napi_unwrap fail");
         return nullptr;
@@ -312,7 +323,9 @@ napi_value MyObject::PlusOne(napi_env env, napi_callback_info info)
 }
 ```
 
-ArkTS侧示例代码
+4. ArkTS侧示例代码
+
+  
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { MyObject } from 'libentry.so';

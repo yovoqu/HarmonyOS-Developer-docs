@@ -3,22 +3,24 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-floatingball
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该模块提供闪控球的基础功能，包括判断设备是否支持闪控球功能，以及创建闪控球控制器来启动、更新或停止闪控球。适用于跨应用的题目搜索、账单记录、商品比价、抢单、翻译场景，以及金融类应用的实时盯盘场景，以小窗模式呈现内容。闪控球以悬浮小组件形式显示在其他应用之上，即时呈现应用的关键信息。
 
+> [!NOTE]
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { floatingBall } from '@kit.ArkUI';
 ```
 
 
-## floatingBall.isFloatingBallEnabled
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### floatingBall.isFloatingBallEnabled
 
 isFloatingBallEnabled(): boolean
 
@@ -28,7 +30,6 @@ isFloatingBallEnabled(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 当前设备是否支持闪控球功能。true表示支持，false则表示不支持。 |
@@ -36,17 +37,16 @@ isFloatingBallEnabled(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let enable: boolean = floatingBall.isFloatingBallEnabled();
 console.info('Floating ball enabled is: ' + enable);
 ```
 
 
-## floatingBall.create
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-create(config: FloatingBallConfiguration): Promise<FloatingBallController>
+##### floatingBall.create
+
+create(config: FloatingBallConfiguration): Promise&lt;FloatingBallController&gt;
 
 创建闪控球控制器，使用Promise异步回调。
 
@@ -56,24 +56,21 @@ create(config: FloatingBallConfiguration): Promise<FloatingBallController>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [FloatingBallConfiguration](#floatingballconfiguration) | 是 | 创建闪控球控制器的参数。该参数不能为空，并且构造该参数的context不能为空。 |
+| config | FloatingBallConfiguration | 是 | 创建闪控球控制器的参数。该参数不能为空，并且构造该参数的context不能为空。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[FloatingBallController](#floatingballcontroller)&gt; | Promise对象。返回当前创建的闪控球控制器。 |
+| Promise&lt;FloatingBallController&gt; | Promise对象。返回当前创建的闪控球控制器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -84,55 +81,44 @@ create(config: FloatingBallConfiguration): Promise<FloatingBallController>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
-let floatingBallController: floatingBall.FloatingBallController | undefined =
-  undefined;
+let floatingBallController: floatingBall.FloatingBallController | undefined = undefined;
 // 请在组件内获取context，确保this.getUIContext().getHostContext()返回的结果为UIAbilityContext
 let ctx = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let config: floatingBall.FloatingBallConfiguration = {
   context: ctx,
 };
 try {
-  floatingBall
-    .create(config)
-    .then((data: floatingBall.FloatingBallController) => {
-      floatingBallController = data;
-      console.info(
-        `Succeeded in creating floating ball controller. Data: ${data}`,
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to create floating ball controller. Cause:${err.code}, message:${err.message}`,
-      );
-    });
-} catch (e) {
-  console.error(
-    `Failed to create floating ball controller. Cause:${e.code}, message:${e.message}`,
-  );
+  floatingBall.create(config).then((data: floatingBall.FloatingBallController) => {
+    floatingBallController = data;
+    console.info(`Succeeded in creating floating ball controller. Data: ${data}`);
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to create floating ball controller. Cause:${err.code}, message:${err.message}`);
+  });
+} catch(e) {
+  console.error(`Failed to create floating ball controller. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-## FloatingBallConfiguration
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### FloatingBallConfiguration
 
 创建闪控球控制器时需要提供的参数配置。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | [BaseContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-basecontext) | 否 | 否 | 表示上下文环境。 |
+| context | BaseContext | 否 | 否 | 表示上下文环境。 |
 
 
-## FloatingBallController
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FloatingBallController
 
 闪控球控制器实例，用于启动、更新、停止闪控球以及注册回调等操作。
 
@@ -141,10 +127,10 @@ try {
 **系统能力：** SystemCapability.Window.SessionManager
 
 
-### startFloatingBall
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startFloatingBall(params: FloatingBallParams): Promise<void>
+##### startFloatingBall
+
+startFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 
 启动闪控球，使用Promise异步回调。
 
@@ -154,14 +140,12 @@ startFloatingBall(params: FloatingBallParams): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [FloatingBallParams](#floatingballparams) | 是 | 启动闪控球的参数。 |
+| params | FloatingBallParams | 是 | 启动闪控球的参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -171,7 +155,6 @@ startFloatingBall(params: FloatingBallParams): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -187,38 +170,30 @@ startFloatingBall(params: FloatingBallParams): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let startParams: floatingBall.FloatingBallParams = {
   template: floatingBall.FloatingBallTemplate.EMPHATIC,
   title: 'title',
-  content: 'content',
+  content: 'content'
 };
 try {
-  floatingBallController
-    .startFloatingBall(startParams)
-    .then(() => {
-      console.info('Succeeded in starting floating ball.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to start floating ball. Cause:${err.code}, message:${err.message}`,
-      );
-    });
-} catch (e) {
-  console.error(
-    `Failed to start floating ball. Cause:${e.code}, message:${e.message}`,
-  );
+  floatingBallController.startFloatingBall(startParams).then(() => {
+    console.info('Succeeded in starting floating ball.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to start floating ball. Cause:${err.code}, message:${err.message}`);
+  });
+} catch(e) {
+  console.error(`Failed to start floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-### updateFloatingBall
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updateFloatingBall(params: FloatingBallParams): Promise<void>
+##### updateFloatingBall
+
+updateFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 
 更新闪控球，使用Promise异步回调。
 
@@ -226,14 +201,12 @@ updateFloatingBall(params: FloatingBallParams): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [FloatingBallParams](#floatingballparams) | 是 | 更新闪控球的参数。 |
+| params | FloatingBallParams | 是 | 更新闪控球的参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -243,7 +216,6 @@ updateFloatingBall(params: FloatingBallParams): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -260,45 +232,36 @@ updateFloatingBall(params: FloatingBallParams): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let updateParams: floatingBall.FloatingBallParams = {
   template: floatingBall.FloatingBallTemplate.EMPHATIC,
   title: 'title2',
-  content: 'content2',
+  content: 'content2'
 };
 try {
-  floatingBallController
-    .updateFloatingBall(updateParams)
-    .then(() => {
-      console.info('Succeeded in updating floating ball.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to update floating ball. Cause:${err.code}, message:${err.message}`,
-      );
-    });
-} catch (e) {
-  console.error(
-    `Failed to update floating ball. Cause:${e.code}, message:${e.message}`,
-  );
+  floatingBallController.updateFloatingBall(updateParams).then(() => {
+    console.info('Succeeded in updating floating ball.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to update floating ball. Cause:${err.code}, message:${err.message}`);
+  });
+} catch(e) {
+  console.error(`Failed to update floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-### stopFloatingBall
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stopFloatingBall(): Promise<void>
+##### stopFloatingBall
+
+stopFloatingBall(): Promise&lt;void&gt;
 
 停止闪控球，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -309,7 +272,6 @@ stopFloatingBall(): Promise<void>
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300022 | Repeated floating ball operation. |
@@ -319,27 +281,21 @@ stopFloatingBall(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-floatingBallController
-  .stopFloatingBall()
-  .then(() => {
-    console.info('Succeeded in stopping floating ball.');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to stop floating ball. Cause:${err.code}, message:${err.message}`,
-    );
-  });
+floatingBallController.stopFloatingBall().then(() => {
+  console.info('Succeeded in stopping floating ball.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to stop floating ball. Cause:${err.code}, message:${err.message}`);
+});
 ```
 
 
-### on('stateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'stateChange', callback: Callback<FloatingBallState>): void
+##### on('stateChange')
+
+on(type: 'stateChange', callback: Callback&lt;FloatingBallState&gt;): void
 
 注册闪控球生命周期状态变化的监听事件。不再使用时，取消监听以避免内存泄漏。
 
@@ -347,17 +303,15 @@ on(type: 'stateChange', callback: Callback<FloatingBallState>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。 |
-| callback | Callback&lt;[FloatingBallState](#floatingballstate)&gt; | 是 | 回调函数。返回当前的闪控球生命周期状态。 |
+| callback | Callback&lt;FloatingBallState&gt; | 是 | 回调函数。返回当前的闪控球生命周期状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -369,25 +323,22 @@ on(type: 'stateChange', callback: Callback<FloatingBallState>): void
 
 **示例：**
 
-
-```ts
+```text
 let onStateChange = (state: floatingBall.FloatingBallState) => {
   console.info('Floating ball stateChange: ' + state);
 };
 try {
   floatingBallController.on('stateChange', onStateChange);
-} catch (e) {
-  console.error(
-    `Failed to on stateChange floating ball. Cause:${e.code}, message:${e.message}`,
-  );
+} catch(e) {
+  console.error(`Failed to on stateChange floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-### off('stateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'stateChange', callback?: Callback<FloatingBallState>): void
+##### off('stateChange')
+
+off(type: 'stateChange', callback?: Callback&lt;FloatingBallState&gt;): void
 
 取消闪控球生命周期状态变化的监听事件。
 
@@ -395,17 +346,15 @@ off(type: 'stateChange', callback?: Callback<FloatingBallState>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'stateChange'，即闪控球生命周期状态变化事件。 |
-| callback | Callback&lt;[FloatingBallState](#floatingballstate)&gt; | 否 | 回调函数。返回当前的闪控球生命周期状态。若传入参数，则停止该监听。若未传入参数，则停止所有闪控球生命周期状态变化的监听。 |
+| callback | Callback&lt;FloatingBallState&gt; | 否 | 回调函数。返回当前的闪控球生命周期状态。若传入参数，则停止该监听。若未传入参数，则停止所有闪控球生命周期状态变化的监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -416,32 +365,28 @@ off(type: 'stateChange', callback?: Callback<FloatingBallState>): void
 
 **示例：**
 
-
-```ts
+```text
 let onStateChange = (state: floatingBall.FloatingBallState) => {
   console.info('Floating ball stateChange: ' + state);
 };
 try {
   floatingBallController.off('stateChange', onStateChange);
-} catch (e) {
-  console.error(
-    `Failed to off stateChange floating ball. Cause:${e.code}, message:${e.message}`,
-  );
+} catch(e) {
+  console.error(`Failed to off stateChange floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-### on('click')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'click', callback: Callback<void>): void
+##### on('click')
+
+on(type: 'click', callback: Callback&lt;void&gt;): void
 
 注册闪控球的点击监听事件，不使用时，取消监听以避免内存泄漏。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -453,7 +398,6 @@ on(type: 'click', callback: Callback<void>): void
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300019 | Wrong parameters for operating the floating ball. |
@@ -464,32 +408,28 @@ on(type: 'click', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 let onClick = () => {
   console.info('Floating ball onClick');
 };
 try {
   floatingBallController.on('click', onClick);
-} catch (e) {
-  console.error(
-    `Failed to on click floating ball. Cause:${e.code}, message:${e.message}`,
-  );
+} catch(e) {
+  console.error(`Failed to on click floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-### off('click')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'click', callback?: Callback<void>): void
+##### off('click')
+
+off(type: 'click', callback?: Callback&lt;void&gt;): void
 
 取消闪控球点击的监听事件。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -501,7 +441,6 @@ off(type: 'click', callback?: Callback<void>): void
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300019 | Wrong parameters for operating the floating ball. |
@@ -511,25 +450,22 @@ off(type: 'click', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 let onClick = () => {
   console.info('Floating ball onClick');
 };
 try {
   floatingBallController.off('click', onClick);
-} catch (e) {
-  console.error(
-    `Failed to off click floating ball. Cause:${e.code}, message:${e.message}`,
-  );
+} catch(e) {
+  console.error(`Failed to off click floating ball. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-### getFloatingBallWindowInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>
+##### getFloatingBallWindowInfo
+
+getFloatingBallWindowInfo(): Promise&lt;FloatingBallWindowInfo&gt;
 
 获得闪控球窗口信息，使用Promise异步回调。
 
@@ -537,16 +473,14 @@ getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[FloatingBallWindowInfo](#floatingballwindowinfo)&gt; | Promise对象，返回闪控球窗口信息。 |
+| Promise&lt;FloatingBallWindowInfo&gt; | Promise对象，返回闪控球窗口信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -560,30 +494,21 @@ getFloatingBallWindowInfo(): Promise<FloatingBallWindowInfo>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-floatingBallController
-  .getFloatingBallWindowInfo()
-  .then((data: floatingBall.FloatingBallWindowInfo) => {
-    console.info(
-      'Succeeded in getting floating ball window info. Info: ' +
-        JSON.stringify(data),
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get floating ball window info. Cause code: ${err.code}, message: ${err.message}`,
-    );
-  });
+floatingBallController.getFloatingBallWindowInfo().then((data: floatingBall.FloatingBallWindowInfo) => {
+  console.info('Succeeded in getting floating ball window info. Info: ' + JSON.stringify(data));
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get floating ball window info. Cause code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-### restoreMainWindow
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-restoreMainWindow(want: Want): Promise<void>
+##### restoreMainWindow
+
+restoreMainWindow(want: Want): Promise&lt;void&gt;
 
 恢复应用主窗口并加载指定页面。使用Promise异步回调。仅支持在点击闪控球后调用；若应用拥有ohos.permission.AUTO_RESTORE_MAIN_WINDOW权限，可以无需点击直接调用该接口。
 
@@ -593,14 +518,12 @@ restoreMainWindow(want: Want): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 加载指定页面的Want。 |
+| want | Want | 是 | 加载指定页面的Want。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -610,7 +533,6 @@ restoreMainWindow(want: Want): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -622,50 +544,42 @@ restoreMainWindow(want: Want): Promise<void>
 | 1300023 | Floating ball internal error. |
 | 1300024 | The floating ball window state is abnormal. |
 | 1300025 | The floating ball state does not support this operation. |
-| 1300026 | Failed to restore the main window. Possible causes:          1. Invalid parameter. The provided bundleName does not match the caller's application bundleName.          2. The application lacks the ohos.permission.AUTO_RESTORE_MAIN_WINDOW permission, and no user interaction (click) on the floating ball has occurred. |
+| 1300026 | Failed to restore the main window. Possible causes: 1. Invalid parameter. The provided bundleName does not match the caller's application bundleName. 2. The application lacks the ohos.permission.AUTO_RESTORE_MAIN_WINDOW permission, and no user interaction (click) on the floating ball has occurred. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
 
 let want: Want = {
   bundleName: 'xxx.xxx.xxx',
-  abilityName: 'EntryAbility',
+  abilityName: 'EntryAbility'
 };
 try {
-  floatingBallController
-    .restoreMainWindow(want)
-    .then(() => {
-      console.info('Succeeded in restoring floating ball main window.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to restore floating ball main window. Cause code: ${err.code}, message: ${err.message}`,
-      );
-    });
-} catch (e) {
-  console.error(
-    `Failed to create floating ball controller. Cause:${e.code}, message:${e.message}`,
-  );
+  floatingBallController.restoreMainWindow(want).then(() => {
+    console.info('Succeeded in restoring floating ball main window.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to restore floating ball main window. Cause code: ${err.code}, message: ${err.message}`);
+  });
+} catch(e) {
+  console.error(`Failed to create floating ball controller. Cause:${e.code}, message:${e.message}`);
 }
 ```
 
 
-### setFloatingBallVisibilityInApp24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>
+##### setFloatingBallVisibilityInApp24+
+
+setFloatingBallVisibilityInApp(isVisible: boolean): Promise&lt;void&gt;
 
 设置闪控球在应用内是否可见。使用Promise异步回调。
 
+ - 当应用处于多任务界面时（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为PAUSED），闪控球不可见。
+ - 默认情况（即未调用此接口设置时）和调用此接口传入true时：除多任务界面外，闪控球均可见。
+ - 调用此接口传入false时：当应用处于前台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为SHOWN或者RESUMED）时，闪控球不可见；当应用处于后台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为HIDDEN）时，闪控球可见。
 
-- 当应用处于多任务界面时（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为PAUSED），闪控球不可见。
-- 默认情况（即未调用此接口设置时）和调用此接口传入true时：除多任务界面外，闪控球均可见。
-- 调用此接口传入false时：当应用处于前台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为SHOWN或者RESUMED）时，闪控球不可见；当应用处于后台（[生命周期状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#生命周期状态)为HIDDEN）时，闪控球可见。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
@@ -673,14 +587,12 @@ setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isVisible | boolean | 是 | true表示闪控球在应用内可见；false表示闪控球在应用内不可见。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -691,7 +603,6 @@ setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300003 | This window manager service works abnormally. Possible cause: Internal IPC error. |
@@ -701,47 +612,40 @@ setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-floatingBallController
-  ?.setFloatingBallVisibilityInApp(false)
-  .then(() => {
-    console.info('Succeeded in setting floating ball visibility.');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to set floating ball visibility. Cause code: ${err.code}, message: ${err.message}`,
-    );
-  });
+floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
+  console.info('Succeeded in setting floating ball visibility.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to set floating ball visibility. Cause code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## FloatingBallParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### FloatingBallParams
 
 启动和更新闪控球的配置参数。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| template | [FloatingBallTemplate](#floatingballtemplate) | 否 | 否 | 闪控球模板。 |
+| template | FloatingBallTemplate | 否 | 否 | 闪控球模板。 |
 | title | string | 否 | 否 | 闪控球标题，不可为空字符串，大小不超过64字节。 |
 | content | string | 否 | 是 | 闪控球内容，大小不超过64字节。不传入时默认为空字符串，不显示闪控球内容。 |
 | backgroundColor | string | 否 | 是 | 闪控球背景颜色，为不带透明度的十六进制颜色格式（例如'#008EF5'或'#FF008EF5'），不传入时闪控球跟随系统深浅色模式的默认背景色。 |
-| icon | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 否 | 是 | 闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过[getPixelBytesNumber](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#getpixelbytesnumber7)获取）。建议图标像素宽高为128px*128px。实际显示效果依赖于设备能力和闪控球UI样式。 |
+| icon | image.PixelMap | 否 | 是 | 闪控球图标，图标像素的总字节数不超过192KB（图标像素的总字节数通过getPixelBytesNumber获取）。建议图标像素宽高为128px*128px。实际显示效果依赖于设备能力和闪控球UI样式。 |
 
 
-## FloatingBallState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FloatingBallState
 
 闪控球生命周期状态的枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -749,13 +653,13 @@ floatingBallController
 | STOPPED | 2 | 表示闪控球停止。 |
 
 
-## FloatingBallTemplate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FloatingBallTemplate
 
 闪控球模板类型的枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -765,13 +669,13 @@ floatingBallController
 | SIMPLE | 4 | 纯文本布局，只支持标题。使用此模板时，FloatingBallParams中的title参数必传。 |
 
 
-## FloatingBallWindowInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FloatingBallWindowInfo
 
 闪控球窗口信息。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

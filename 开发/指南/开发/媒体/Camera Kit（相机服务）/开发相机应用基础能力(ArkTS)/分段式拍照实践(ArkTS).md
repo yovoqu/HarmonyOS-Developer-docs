@@ -11,16 +11,21 @@
 在参考以下示例前，建议开发者查看[分段式拍照(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-deferred-capture)的具体章节，了解[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)、[拍照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)等单个流程。
 
 
-## 开发流程
+##### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建拍照流，开发流程如下。
-![](assets/分段式拍照实践(ArkTS)
-/file-20260514131517399-0.png)
 
-## 完整示例
+
+![](assets/分段式拍照实践(ArkTS)/file-20260514131517399-0.png)
+
+
+
+
+##### 完整示例
 
 Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
-```text
+
+```json
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
@@ -35,8 +40,8 @@ function getPhotoAccessHelper(context: Context): photoAccessHelper.PhotoAccessHe
   let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
   return phAccessHelper;
 }
-
-class MediaDataHandler implements photoAccessHelper.MediaAssetDataHandler {
+   
+class MediaDataHandler implements photoAccessHelper.MediaAssetDataHandler<ArrayBuffer> {
   onDataPrepared(data: ArrayBuffer) {
     if (data === undefined) {
       console.error('Error occurred when preparing data');
@@ -58,7 +63,7 @@ async function mediaLibRequestBuffer(photoAsset: photoAccessHelper.PhotoAsset, c
 }
 
 async function mediaLibSavePhoto(photoAsset: photoAccessHelper.PhotoAsset,
-  phAccessHelper: photoAccessHelper.PhotoAccessHelper): Promise {
+  phAccessHelper: photoAccessHelper.PhotoAccessHelper): Promise<void> {
   try {
     let assetChangeRequest: photoAccessHelper.MediaAssetChangeRequest =
       new photoAccessHelper.MediaAssetChangeRequest(photoAsset);
@@ -72,7 +77,7 @@ async function mediaLibSavePhoto(photoAsset: photoAccessHelper.PhotoAsset,
 
 function setPhotoOutputCb(photoOutput: camera.PhotoOutput, context: Context): void {
   // 监听回调之后，调用photoOutput的capture方法，低质量图上报后触发回调。
-  photoOutput.on('photoAssetAvailable', async (err: BusinessError, photoAsset: photoAccessHelper.PhotoAsset): Promise => {
+  photoOutput.on('photoAssetAvailable', async (err: BusinessError, photoAsset: photoAccessHelper.PhotoAsset): Promise<void> => {
     console.info('getPhotoAsset start');
     console.error(`err: ${err}`);
     if ((err !== undefined && err.code !== 0) || photoAsset === undefined) {
@@ -87,7 +92,7 @@ function setPhotoOutputCb(photoOutput: camera.PhotoOutput, context: Context): vo
 }
 
 
-async function deferredCaptureCase(context: Context, surfaceId: string): Promise {
+async function deferredCaptureCase(context: Context, surfaceId: string): Promise<void> {
   // 创建CameraManager对象。
   let cameraManager: camera.CameraManager = camera.getCameraManager(context);
   if (!cameraManager) {
@@ -105,8 +110,33 @@ async function deferredCaptureCase(context: Context, surfaceId: string): Promise
   });
 
   // 获取相机列表。
-  let cameraArray: Array = cameraManager.getSupportedCameras();
-  if (cameraArray.length  {
+  let cameraArray: Array<camera.CameraDevice> = cameraManager.getSupportedCameras();
+  if (cameraArray.length <= 0) {
+    console.error('cameraManager.getSupportedCameras error');
+    return;
+  }
+
+  for (let index = 0; index < cameraArray.length; index++) {
+    console.info('cameraId : ' + cameraArray[index].cameraId); // 获取相机ID。
+    console.info('cameraPosition : ' + cameraArray[index].cameraPosition); // 获取相机位置。
+    console.info('cameraType : ' + cameraArray[index].cameraType); // 获取相机类型。
+    console.info('connectionType : ' + cameraArray[index].connectionType); // 获取相机连接类型。
+  }
+
+  // 创建相机输入流。
+  try {
+    cameraInput = cameraManager.createCameraInput(cameraArray[0]);
+  } catch (error) {
+    let err = error as BusinessError;
+    console.error('Failed to createCameraInput errorCode = ' + err.code);
+  }
+  if (cameraInput === undefined) {
+    return;
+  }
+
+  // 监听cameraInput错误信息。
+  let cameraDevice: camera.CameraDevice = cameraArray[0];
+  cameraInput.on('error', cameraDevice, (error: BusinessError) => {
     console.error(`Camera input error code: ${error.code}`);
   });
 
@@ -114,7 +144,7 @@ async function deferredCaptureCase(context: Context, surfaceId: string): Promise
   await cameraInput.open();
 
   // 获取支持的模式类型。
-  let sceneModes: Array = cameraManager.getSupportedSceneModes(cameraArray[0]);
+  let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraArray[0]);
   let isSupportPhotoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_PHOTO) >= 0;
   if (!isSupportPhotoMode) {
     console.error('photo mode not support');
@@ -129,12 +159,12 @@ async function deferredCaptureCase(context: Context, surfaceId: string): Promise
   }
   console.info('outputCapability: ' + JSON.stringify(cameraOutputCap));
 
-  let previewProfilesArray: Array = cameraOutputCap.previewProfiles;
+  let previewProfilesArray: Array<camera.Profile> = cameraOutputCap.previewProfiles;
   if (!previewProfilesArray) {
     console.error('createOutput previewProfilesArray == null || undefined');
   }
 
-  let photoProfilesArray: Array = cameraOutputCap.photoProfiles;
+  let photoProfilesArray: Array<camera.Profile> = cameraOutputCap.photoProfiles;
   if (!photoProfilesArray) {
     console.error('createOutput photoProfilesArray == null || undefined');
   }
@@ -275,14 +305,31 @@ async function deferredCaptureCase(context: Context, surfaceId: string): Promise
   }
 
   // 获取相机支持的可变焦距比范围。
-  let zoomRatioRange: Array = [];
+  let zoomRatioRange: Array<number> = [];
   try {
     zoomRatioRange = photoSession.getZoomRatioRange();
   } catch (error) {
     let err = error as BusinessError;
     console.error('Failed to get the zoom ratio range. errorCode = ' + err.code);
   }
-  if (zoomRatioRange.length  {
+  if (zoomRatioRange.length <= 0) {
+    return;
+  }
+
+  // 设置可变焦距比。
+  try {
+    photoSession.setZoomRatio(zoomRatioRange[0]);
+  } catch (error) {
+    let err = error as BusinessError;
+    console.error('Failed to set the zoom ratio value. errorCode = ' + err.code);
+  }
+  let photoCaptureSetting: camera.PhotoCaptureSetting = {
+    quality: camera.QualityLevel.QUALITY_LEVEL_HIGH, // 设置图片质量高。
+    rotation: camera.ImageRotation.ROTATION_0 // 设置图片旋转角度0。
+  }
+
+  // 使用当前拍照设置触发一次拍照。
+  photoOutput.capture(photoCaptureSetting, (err: BusinessError) => {
     if (err) {
       console.error(`Failed to capture the photo ${err.message}`);
       return;
@@ -327,11 +374,28 @@ struct Index {
   }
 
 
-  async requestPermissionsFn(): Promise {
+  async requestPermissionsFn(): Promise<void> {
     let atManager = abilityAccessCtrl.createAtManager();
     if (this.context) {
       let res = await atManager.requestPermissionsFromUser(this.context, [this.cameraPermission]);
-      for (let i = 0; i  {
+      for (let i = 0; i < res.permissions.length; i++) {
+        if (this.cameraPermission.toString() === res.permissions[i] && res.authResults[i] === 0) {
+          this.isShow = true;
+        }
+      }
+    }
+  }
+
+  aboutToAppear(): void {
+    this.requestPermissionsFn();
+  }
+
+  build() {
+    Column() {
+      Column() {
+        if (this.isShow) {
+          XComponent(this.mXComponentOptions)
+          .onLoad(async () => {
             console.info('onLoad is called');
             if (this.context) {
               this.surfaceId = this.mXComponentController.getXComponentSurfaceId();

@@ -7,28 +7,30 @@
 
 本模块提供划词管理能力，包括创建窗口、显示窗口、移动窗口、隐藏窗口、销毁窗口、监听鼠标划词事件、获取选中文本等。
 
+> [!NOTE]
+> 本模块首批接口从API version 24开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块仅支持PC/2in1设备。 仅支持集成了划词扩展的应用调用。
 
-## 导入模块
-**支持设备：** PC/2in1
 
 
-```ts
+##### 导入模块
+
+```text
 import { selectionManager } from '@kit.BasicServicesKit';
 ```
 
 
-## selectionManager
-**支持设备：** PC/2in1
+
+##### selectionManager
 
 **系统能力：** SystemCapability.SelectionInput.Selection
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 
-### selectionManager.on('selectionCompleted')
-**支持设备：** PC/2in1
 
-on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void
+##### selectionManager.on('selectionCompleted')
+
+on(type: 'selectionCompleted', callback: Callback&lt;SelectionInfo&gt;): void
 
 订阅划词完成事件。使用callback异步回调。
 
@@ -38,17 +40,15 @@ on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 设置监听类型，固定取值为'selectionCompleted'。 |
-| callback | Callback&lt;[SelectionInfo](#selectioninfo)&gt; | 是 | 回调函数，返回当前划词信息。 |
+| callback | Callback&lt;SelectionInfo&gt; | 是 | 回调函数，返回当前划词信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -57,29 +57,23 @@ on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager } from '@kit.BasicServicesKit';
 
 try {
-  selectionManager.on(
-    'selectionCompleted',
-    (info: selectionManager.SelectionInfo) => {
-      console.info(`Enter the callback function.`);
-    },
-  );
+  selectionManager.on('selectionCompleted', (info: selectionManager.SelectionInfo) => {
+    console.info(`Enter the callback function.`);
+  });
 } catch (err) {
-  console.error(
-    `Failed to register selectionCompleted callback: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to register selectionCompleted callback: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-### selectionManager.off('selectionCompleted')
-**支持设备：** PC/2in1
 
-off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void
+##### selectionManager.off('selectionCompleted')
+
+off(type: 'selectionCompleted', callback?: Callback&lt;SelectionInfo&gt;): void
 
 取消订阅划词完成事件。使用callback异步回调。
 
@@ -89,17 +83,15 @@ off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 设置监听类型，固定取值为'selectionCompleted'。 |
-| callback | Callback&lt;[SelectionInfo](#selectioninfo)&gt; | 否 | 回调函数，返回[SelectionInfo](#selectioninfo)。参数不填写时，取消订阅type对应的所有回调事件。 |
+| callback | Callback&lt;SelectionInfo&gt; | 否 | 回调函数，返回SelectionInfo。参数不填写时，取消订阅type对应的所有回调事件。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager } from '@kit.BasicServicesKit';
 
 let selectionChangeCallback = (info: selectionManager.SelectionInfo) => {
@@ -110,17 +102,15 @@ selectionManager.on('selectionCompleted', selectionChangeCallback);
 try {
   selectionManager.off('selectionCompleted', selectionChangeCallback);
 } catch (err) {
-  console.error(
-    `Failed to unregister selectionCompleted: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to unregister selectionCompleted: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-### getSelectionContent()
-**支持设备：** PC/2in1
 
-getSelectionContent(): Promise<string>
+##### getSelectionContent()
+
+getSelectionContent(): Promise&lt;string&gt;
 
 获取选中文本的内容。使用Promise异步回调。
 
@@ -130,7 +120,6 @@ getSelectionContent(): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回当前选中文本的内容。 |
@@ -139,7 +128,6 @@ getSelectionContent(): Promise<string>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -153,29 +141,23 @@ getSelectionContent(): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager } from '@kit.BasicServicesKit';
 
-selectionManager.on(
-  'selectionCompleted',
-  async (info: selectionManager.SelectionInfo) => {
-    try {
-      let content = await selectionManager.getSelectionContent();
-    } catch (err) {
-      console.error(
-        `Failed to get selection content: ${err.code}, error message: ${err.message}`,
-      );
-    }
-  },
-);
+selectionManager.on('selectionCompleted', async (info: selectionManager.SelectionInfo) => {
+  try {
+    let content = await selectionManager.getSelectionContent();
+  } catch (err) {
+    console.error(`Failed to get selection content: ${err.code}, error message: ${err.message}`);
+  }
+});
 ```
 
 
-### createPanel
-**支持设备：** PC/2in1
 
-createPanel(ctx: Context, info: PanelInfo): Promise<Panel>
+##### createPanel
+
+createPanel(ctx: Context, info: PanelInfo): Promise&lt;Panel&gt;
 
 创建划词面板。使用Promise异步回调。
 
@@ -187,25 +169,22 @@ createPanel(ctx: Context, info: PanelInfo): Promise<Panel>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ctx | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#context) | 是 | 当前划词面板依赖的上下文信息。 |
-| info | [PanelInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionpanel#panelinfo) | 是 | 划词面板信息。 |
+| ctx | Context | 是 | 当前划词面板依赖的上下文信息。 |
+| info | PanelInfo | 是 | 划词面板信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Panel](#panel)&gt; | Promise对象，返回当前创建的划词面板对象。 |
+| Promise&lt;Panel&gt; | Promise对象，返回当前创建的划词面板对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -215,15 +194,8 @@ createPanel(ctx: Context, info: PanelInfo): Promise<Panel>
 
 **示例：**
 
-
-```ts
-import {
-  selectionManager,
-  SelectionExtensionAbility,
-  PanelInfo,
-  PanelType,
-  BusinessError,
-} from '@kit.BasicServicesKit';
+```text
+import { selectionManager, SelectionExtensionAbility, PanelInfo, PanelType, BusinessError } from '@kit.BasicServicesKit';
 import { rpc } from '@kit.IPCKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -235,7 +207,7 @@ class SelectionAbilityStub extends rpc.RemoteObject {
     code: number,
     data: rpc.MessageSequence,
     reply: rpc.MessageSequence,
-    options: rpc.MessageOption,
+    options: rpc.MessageOption
   ): boolean | Promise<boolean> {
     return true;
   }
@@ -248,20 +220,16 @@ class ServiceExtAbility extends SelectionExtensionAbility {
       x: 0,
       y: 0,
       width: 500,
-      height: 200,
-    };
+      height: 200
+    }
     let selectionPanel: selectionManager.Panel | undefined = undefined;
-    selectionManager
-      .createPanel(this.context, panelInfo)
+    selectionManager.createPanel(this.context, panelInfo)
       .then((panel: selectionManager.Panel) => {
         selectionPanel = panel;
         console.info('Succeed in creating panel.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Failed to create panel: ${err.code}, error message: ${err.message}`,
-        );
-      });
+      }).catch((err: BusinessError) => {
+      console.error(`Failed to create panel: ${err.code}, error message: ${err.message}`);
+    });
     return new SelectionAbilityStub('remote');
   }
 }
@@ -269,10 +237,10 @@ export default ServiceExtAbility;
 ```
 
 
-### destroyPanel
-**支持设备：** PC/2in1
 
-destroyPanel(panel: Panel): Promise<void>
+##### destroyPanel
+
+destroyPanel(panel: Panel): Promise&lt;void&gt;
 
 销毁划词面板。使用Promise异步回调。
 
@@ -282,14 +250,12 @@ destroyPanel(panel: Panel): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| panel | [Panel](#panel) | 是 | 要销毁的面板对象。 |
+| panel | Panel | 是 | 要销毁的面板对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -300,7 +266,6 @@ destroyPanel(panel: Panel): Promise<void>
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 33600001 | Selection service exception. |
@@ -308,15 +273,8 @@ destroyPanel(panel: Panel): Promise<void>
 
 **示例：**
 
-
-```ts
-import {
-  selectionManager,
-  SelectionExtensionAbility,
-  PanelInfo,
-  PanelType,
-  BusinessError,
-} from '@kit.BasicServicesKit';
+```text
+import { selectionManager, SelectionExtensionAbility, PanelInfo, PanelType, BusinessError } from '@kit.BasicServicesKit';
 import { rpc } from '@kit.IPCKit';
 import { Want } from '@kit.AbilityKit';
 
@@ -328,7 +286,7 @@ class SelectionAbilityStub extends rpc.RemoteObject {
     code: number,
     data: rpc.MessageSequence,
     reply: rpc.MessageSequence,
-    options: rpc.MessageOption,
+    options: rpc.MessageOption
   ): boolean | Promise<boolean> {
     return true;
   }
@@ -341,39 +299,28 @@ class ServiceExtAbility extends SelectionExtensionAbility {
       x: 0,
       y: 0,
       width: 500,
-      height: 200,
-    };
+      height: 200
+    }
     let selectionPanel: selectionManager.Panel | undefined = undefined;
 
-    selectionManager
-      .createPanel(this.context, panelInfo)
+    selectionManager.createPanel(this.context, panelInfo)
       .then((panel: selectionManager.Panel) => {
         console.info('Succeed in creating panel.');
         selectionPanel = panel;
         try {
           if (selectionPanel) {
-            selectionManager
-              .destroyPanel(selectionPanel)
-              .then(() => {
-                console.info('Succeed in destroying panel.');
-              })
-              .catch((err: BusinessError) => {
-                console.error(
-                  `Failed to destroy panel: ${err.code}, error message: ${err.message}`,
-                );
-              });
+            selectionManager.destroyPanel(selectionPanel).then(() => {
+              console.info('Succeed in destroying panel.');
+            }).catch((err: BusinessError) => {
+              console.error(`Failed to destroy panel: ${err.code}, error message: ${err.message}`);
+            });
           }
         } catch (err) {
-          console.error(
-            `Failed to destroy panel: ${err.code}, error message: ${err.message}`,
-          );
+          console.error(`Failed to destroy panel: ${err.code}, error message: ${err.message}`);
         }
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Failed to create panel: ${err.code}, error message: ${err.message}`,
-        );
-      });
+      }).catch((err: BusinessError) => {
+      console.error(`Failed to create panel: ${err.code}, error message: ${err.message}`);
+    });
     return new SelectionAbilityStub('remote');
   }
 }
@@ -381,8 +328,8 @@ export default ServiceExtAbility;
 ```
 
 
-## SelectionInfo
-**支持设备：** PC/2in1
+
+##### SelectionInfo
 
 划词事件信息。
 
@@ -390,10 +337,9 @@ export default ServiceExtAbility;
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| selectionType | [SelectionType](#selectiontype) | 否 | 否 | 触发划词类型。 |
+| selectionType | SelectionType | 否 | 否 | 触发划词类型。 |
 | startDisplayX | number | 否 | 否 | 划词起始位置的屏幕x轴坐标，单位为px。 |
 | startDisplayY | number | 否 | 否 | 划词起始位置的屏幕y轴坐标，单位为px。 |
 | endDisplayX | number | 否 | 否 | 划词结束位置的屏幕x轴坐标，单位为px。 |
@@ -407,8 +353,9 @@ export default ServiceExtAbility;
 | bundleName | string | 否 | 否 | 被划词应用的bundleName。 |
 
 
-## Panel
-**支持设备：** PC/2in1
+
+
+##### Panel
 
 划词面板。
 
@@ -419,10 +366,10 @@ export default ServiceExtAbility;
 下列API均需使用[createPanel](#createpanel)获取到Panel实例后，通过实例调用。
 
 
-### setUiContent
-**支持设备：** PC/2in1
 
-setUiContent(path: string): Promise<void>
+##### setUiContent
+
+setUiContent(path: string): Promise&lt;void&gt;
 
 为当前的划词面板加载具体页面内容。使用Promise异步回调。
 
@@ -432,14 +379,12 @@ setUiContent(path: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 要加载到面板中的页面内容的路径，Stage模型下该路径需添加到工程的resources/base/profile/main_pages.json文件中，不支持FA模型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -450,7 +395,6 @@ setUiContent(path: string): Promise<void>
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 33600001 | Selection service exception. |
@@ -459,33 +403,25 @@ setUiContent(path: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  selectionPanel
-    .setUiContent('pages/Index')
-    .then(() => {
-      console.info('Succeeded in setting the content.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to setUiContent: ${err.code}, error message: ${err.message}`,
-      );
-    });
+  selectionPanel.setUiContent('pages/Index').then(() => {
+    console.info('Succeeded in setting the content.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to setUiContent: ${err.code}, error message: ${err.message}`);
+  });
 } catch (err) {
-  console.error(
-    `Failed to setUiContent: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to setUiContent: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-### show
-**支持设备：** PC/2in1
 
-show(): Promise<void>
+##### show
+
+show(): Promise&lt;void&gt;
 
 显示划词面板。使用Promise异步回调。
 
@@ -495,7 +431,6 @@ show(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -505,7 +440,6 @@ show(): Promise<void>
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 33600001 | Selection service exception. |
@@ -514,27 +448,21 @@ show(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
-selectionPanel
-  .show()
-  .then(() => {
-    console.info('Succeeded in showing the panel.');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to show panel: ${err.code}, error message: ${err.message}`,
-    );
-  });
+selectionPanel.show().then(() => {
+  console.info('Succeeded in showing the panel.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to show panel: ${err.code}, error message: ${err.message}`);
+});
 ```
 
 
-### hide
-**支持设备：** PC/2in1
 
-hide(): Promise<void>
+##### hide
+
+hide(): Promise&lt;void&gt;
 
 隐藏当前划词面板。使用Promise异步回调。
 
@@ -544,7 +472,6 @@ hide(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -554,7 +481,6 @@ hide(): Promise<void>
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 33600001 | Selection service exception. |
@@ -563,27 +489,21 @@ hide(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
-selectionPanel
-  .hide()
-  .then(() => {
-    console.info('Succeeded in hiding the panel.');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to hide panel: ${err.code}, error message: ${err.message}`,
-    );
-  });
+selectionPanel.hide().then(() => {
+  console.info('Succeeded in hiding the panel.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to hide panel: ${err.code}, error message: ${err.message}`);
+});
 ```
 
 
-### startMoving
-**支持设备：** PC/2in1
 
-startMoving(): Promise<void>
+##### startMoving
+
+startMoving(): Promise&lt;void&gt;
 
 使当前划词面板可以随鼠标拖动位置。使用Promise异步回调。该接口需要写在onTouch的回调函数中，并且事件类型为TouchType.Down。
 
@@ -593,7 +513,6 @@ startMoving(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -603,7 +522,6 @@ startMoving(): Promise<void>
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 33600001 | Selection service exception. |
@@ -612,14 +530,13 @@ startMoving(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
 RelativeContainer() {
   /*
-  * 页面布局内容，需要开发者根据实际补充
-  */
+   * 页面布局内容，需要开发者根据实际补充
+   */
 }
 .onTouch((event: TouchEvent) => {
   if (event.type === TouchType.Down) {
@@ -635,10 +552,10 @@ RelativeContainer() {
 ```
 
 
-### moveToGlobalDisplay
-**支持设备：** PC/2in1
 
-moveToGlobalDisplay(x: number, y: number): Promise<void>
+##### moveToGlobalDisplay
+
+moveToGlobalDisplay(x: number, y: number): Promise&lt;void&gt;
 
 移动划词面板至屏幕指定位置。使用Promise异步回调。
 
@@ -648,7 +565,6 @@ moveToGlobalDisplay(x: number, y: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | x | number | 是 | x轴方向移动的值，单位为px。 |
@@ -656,7 +572,6 @@ moveToGlobalDisplay(x: number, y: number): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -667,7 +582,6 @@ moveToGlobalDisplay(x: number, y: number): Promise<void>
 
 以下错误码的详细介绍请参见[划词服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-selection)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 33600001 | Selection service exception. |
@@ -676,33 +590,25 @@ moveToGlobalDisplay(x: number, y: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  selectionPanel
-    .moveToGlobalDisplay(200, 200)
-    .then(() => {
-      console.info('Succeeded in moving the panel.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to move panel: ${err.code}, error message: ${err.message}`,
-      );
-    });
+  selectionPanel.moveToGlobalDisplay(200, 200).then(() => {
+    console.info('Succeeded in moving the panel.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to move panel: ${err.code}, error message: ${err.message}`);
+  });
 } catch (err) {
-  console.error(
-    `Failed to move panel: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to move panel: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-### on('destroyed')
-**支持设备：** PC/2in1
 
-on(type: 'destroyed', callback: Callback<void>): void
+##### on('destroyed')
+
+on(type: 'destroyed', callback: Callback&lt;void&gt;): void
 
 订阅划词窗口销毁事件。使用callback异步回调。
 
@@ -712,7 +618,6 @@ on(type: 'destroyed', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 设置监听类型，固定取值为'destroyed'。 |
@@ -721,8 +626,7 @@ on(type: 'destroyed', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
 try {
@@ -730,17 +634,15 @@ try {
     console.info('Panel has been destroyed.');
   });
 } catch (err) {
-  console.error(
-    `Failed to register destroyed callback: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to register destroyed callback: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-### off('destroyed')
-**支持设备：** PC/2in1
 
-off(type: 'destroyed', callback?: Callback<void>): void
+##### off('destroyed')
+
+off(type: 'destroyed', callback?: Callback&lt;void&gt;): void
 
 取消订阅划词窗口销毁事件。使用callback异步回调。
 
@@ -750,7 +652,6 @@ off(type: 'destroyed', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 设置监听类型，固定取值为'destroyed'。 |
@@ -759,24 +660,21 @@ off(type: 'destroyed', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
 try {
   selectionPanel.off('destroyed');
 } catch (err) {
-  console.error(
-    `Failed to unregister destroyed: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to unregister destroyed: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-### on('hidden')
-**支持设备：** PC/2in1
 
-on(type: 'hidden', callback: Callback<void>): void
+##### on('hidden')
+
+on(type: 'hidden', callback: Callback&lt;void&gt;): void
 
 订阅划词窗口隐藏事件。使用callback异步回调。
 
@@ -786,7 +684,6 @@ on(type: 'hidden', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 设置监听类型，固定取值为'hidden'。 |
@@ -795,8 +692,7 @@ on(type: 'hidden', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
 try {
@@ -804,17 +700,15 @@ try {
     console.info('Panel has been hidden.');
   });
 } catch (err) {
-  console.error(
-    `Failed to register hidden callback: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to register hidden callback: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-### off('hidden')
-**支持设备：** PC/2in1
 
-off(type: 'hidden', callback?: Callback<void>): void
+##### off('hidden')
+
+off(type: 'hidden', callback?: Callback&lt;void&gt;): void
 
 取消订阅划词窗口隐藏事件。使用callback异步回调。
 
@@ -824,7 +718,6 @@ off(type: 'hidden', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 设置监听类型，固定取值为'hidden'。 |
@@ -833,29 +726,25 @@ off(type: 'hidden', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { selectionManager, BusinessError } from '@kit.BasicServicesKit';
 
 try {
   selectionPanel.off('hidden');
 } catch (err) {
-  console.error(
-    `Failed to unregister hidden: ${err.code}, error message: ${err.message}`,
-  );
+  console.error(`Failed to unregister hidden: ${err.code}, error message: ${err.message}`);
 }
 ```
 
 
-## SelectionType
-**支持设备：** PC/2in1
+
+##### SelectionType
 
 定义触发划词的类型枚举。
 
 **系统能力：** SystemCapability.SelectionInput.Selection
 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

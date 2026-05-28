@@ -1,6 +1,6 @@
 # Ability Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-abilitykit-6111
 
@@ -43,9 +43,9 @@
 | 新增API | NA | 类名：AgentCard； API声明：version: string; 差异内容：version: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentCard； API声明：documentationUrl?: string; 差异内容：documentationUrl?: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentCard； API声明：capabilities?: AgentCapabilities; 差异内容：capabilities?: AgentCapabilities; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentCard； API声明：defaultInputModes: Array<string>; 差异内容：defaultInputModes: Array<string>; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentCard； API声明：defaultOutputModes: Array<string>; 差异内容：defaultOutputModes: Array<string>; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentCard； API声明：skills: Array<AgentSkill>; 差异内容：skills: Array<AgentSkill>; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentCard； API声明：defaultInputModes: Array&lt;string&gt;; 差异内容：defaultInputModes: Array&lt;string&gt;; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentCard； API声明：defaultOutputModes: Array&lt;string&gt;; 差异内容：defaultOutputModes: Array&lt;string&gt;; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentCard； API声明：skills: Array&lt;AgentSkill&gt;; 差异内容：skills: Array&lt;AgentSkill&gt;; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentCard； API声明：iconUrl: string; 差异内容：iconUrl: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentCard； API声明：category: string; 差异内容：category: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentCard； API声明：extension?: string; 差异内容：extension?: string; | api/application/AgentCard.d.ts |
@@ -63,16 +63,16 @@
 | 新增API | NA | 类名：AgentSkill； API声明：id: string; 差异内容：id: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentSkill； API声明：name: string; 差异内容：name: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentSkill； API声明：description: string; 差异内容：description: string; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentSkill； API声明：tags: Array<string>; 差异内容：tags: Array<string>; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentSkill； API声明：examples?: Array<string>; 差异内容：examples?: Array<string>; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentSkill； API声明：inputModes?: Array<string>; 差异内容：inputModes?: Array<string>; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentSkill； API声明：outputModes?: Array<string>; 差异内容：outputModes?: Array<string>; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentSkill； API声明：tags: Array&lt;string&gt;; 差异内容：tags: Array&lt;string&gt;; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentSkill； API声明：examples?: Array&lt;string&gt;; 差异内容：examples?: Array&lt;string&gt;; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentSkill； API声明：inputModes?: Array&lt;string&gt;; 差异内容：inputModes?: Array&lt;string&gt;; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentSkill； API声明：outputModes?: Array&lt;string&gt;; 差异内容：outputModes?: Array&lt;string&gt;; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentSkill； API声明：extension?: string; 差异内容：extension?: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：global； API声明：export interface AgentAppInfo 差异内容：export interface AgentAppInfo | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentAppInfo； API声明：bundleName: string; 差异内容：bundleName: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentAppInfo； API声明：moduleName: string; 差异内容：moduleName: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentAppInfo； API声明：abilityName: string; 差异内容：abilityName: string; | api/application/AgentCard.d.ts |
-| 新增API | NA | 类名：AgentAppInfo； API声明：deviceTypes?: Array<string>; 差异内容：deviceTypes?: Array<string>; | api/application/AgentCard.d.ts |
+| 新增API | NA | 类名：AgentAppInfo； API声明：deviceTypes?: Array&lt;string&gt;; 差异内容：deviceTypes?: Array&lt;string&gt;; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：AgentAppInfo； API声明：minAppVersion?: string; 差异内容：minAppVersion?: string; | api/application/AgentCard.d.ts |
 | 新增API | NA | 类名：global； API声明：declare class AgentExtensionContext 差异内容：declare class AgentExtensionContext | api/application/AgentExtensionContext.d.ts |
 | 新增API | NA | 类名：AgentExtensionContext； API声明：agentCard: AgentCard; 差异内容：agentCard: AgentCard; | api/application/AgentExtensionContext.d.ts |

@@ -3,31 +3,28 @@
 更新时间：2026-04-13 09:29:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-appstartup-startupconfigentry
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供[应用启动框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup)配置的能力。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { StartupConfigEntry } from '@kit.AbilityKit';
 ```
 
 
-## StartupConfigEntry
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### StartupConfigEntry
 
 
-### onConfig
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onConfig
 
 onConfig?(): StartupConfig
 
@@ -39,21 +36,15 @@ onConfig?(): StartupConfig
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [StartupConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-appstartup-startupconfig#startupconfig) | 启动框架配置信息。 |
+| StartupConfig | 启动框架配置信息。 |
 
 
 **示例：**
 
-
-```ts
-import {
-  StartupConfig,
-  StartupConfigEntry,
-  StartupListener,
-} from '@kit.AbilityKit';
+```text
+import { StartupConfig, StartupConfigEntry, StartupListener } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -63,32 +54,27 @@ export default class MyStartupConfigEntry extends StartupConfigEntry {
     let onCompletedCallback = (error: BusinessError<void>) => {
       hilog.info(0x0000, 'testTag', `onCompletedCallback`);
       if (error) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          'onCompletedCallback: %{public}d, message: %{public}s',
-          error.code,
-          error.message,
-        );
+        hilog.error(0x0000, 'testTag', 'onCompletedCallback: %{public}d, message: %{public}s', error.code,
+          error.message);
       } else {
         hilog.info(0x0000, 'testTag', `onCompletedCallback: success.`);
       }
-    };
+    }
     let startupListener: StartupListener = {
-      onCompleted: onCompletedCallback,
-    };
+      'onCompleted': onCompletedCallback
+    }
     let config: StartupConfig = {
-      timeoutMs: 10000,
-      startupListener: startupListener,
-    };
+      'timeoutMs': 10000,
+      'startupListener': startupListener
+    }
     return config;
   }
 }
 ```
 
 
-### onRequestCustomMatchRule20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onRequestCustomMatchRule20+
 
 onRequestCustomMatchRule(want: Want): string
 
@@ -102,14 +88,12 @@ onRequestCustomMatchRule(want: Want): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIAbility的Want信息。 |
+| want | Want | 是 | 启动UIAbility的Want信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -118,8 +102,7 @@ onRequestCustomMatchRule(want: Want): string
 
 **示例：**
 
-
-```ts
+```text
 import { StartupConfigEntry, Want } from '@kit.AbilityKit';
 
 export default class MyStartupConfigEntry extends StartupConfigEntry {

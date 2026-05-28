@@ -4,15 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-json-configuration
 
-## json配置说明
+##### json配置说明
 
-固定输入/输出顺序的算子json配置文件中“inputs”和“outputs”参数按照“**输入/输出规则排布**”，所以要求Kernel入口函数的参数也是按照该规则排布。 **简要说明：** **输入/输出规则排布**（所有输出参数排布在输入参数之后）：例如Kernel入口函数的参数排布为
+固定输入/输出顺序的算子json配置文件中“inputs”和“outputs”参数按照“**输入/输出规则排布**”，所以要求Kernel入口函数的参数也是按照该规则排布。
+ 
+**简要说明：**
+ 
+- **输入/输出规则排布**（所有输出参数排布在输入参数之后）：例如Kernel入口函数的参数排布为
+
+  
 ```text
 extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2, GM_ADDR output)
 ```
 
-**标准自定义算子工程场景**的开发人员一般按此方式配置算子json文件。   以AddCustom算子为例，对应的json配置示例如下，参数说明参见表1。
-```text
+- **标准自定义算子工程场景**的开发人员一般按此方式配置算子json文件。
+
+ 
+以AddCustom算子为例，对应的json配置示例如下，参数说明参见表1。
+ 
+```bash
 {
     "op_type": "AddCustom",
     "data_script": "./add_golden.py",
@@ -63,8 +73,9 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2,
     ]
 }
 ```
-
- **表1** 固定输入/输出顺序的算子json全量参数说明
+ 
+**表1** 固定输入/输出顺序的算子json全量参数说明
+  
 | 配置项 | 配置项 | 数据类型 | 参数说明 | 取值说明 | 是否必选 |
 | --- | --- | --- | --- | --- | --- |
 | op_type | N/A | string | 算子名。 | 与待调测算子严格匹配。 | 是 |
@@ -82,12 +93,18 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2,
 | attrs | name | string | 算子的属性名，是区分每个算子的唯一标识，不可重复。 | 部分场景允许没有attrs，请根据实际情况填写。 | 是 |
 | attrs | dtype | string | 数据类型。 | 部分场景允许没有attrs，请根据实际情况填写。 | 是 |
 | attrs | value | 可变 | 属性值。 | 部分场景允许没有attrs，请根据实际情况填写。 | 是 |
+ 
+ 
+  
 
+##### 特殊格式输入
 
-## 特殊格式输入
+- **场景1：支持Scalar格式的输入。**
 
-**场景1：支持Scalar格式的输入。**  当输入为Scalar格式，json中“inputs”配置项中删除data_file，shape配为null，data_value配为指定的标量值。
-```text
+  当输入为Scalar格式，json中“inputs”配置项中删除data_file，shape配为null，data_value配为指定的标量值。
+
+  
+```json
 {
    "op_type": "xxxx",
    "data_script": "",
@@ -104,8 +121,12 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2,
  }
 ```
 
-**场景2：支持TensorList格式的输入。**  当输入为TensorList格式，该参数需要用[ ]表示，List中的每一项表示一个Tensor，示例如下。
-```text
+- **场景2：支持TensorList格式的输入。**
+
+  当输入为TensorList格式，该参数需要用[ ]表示，List中的每一项表示一个Tensor，示例如下。
+
+  
+```json
 {
    "op_type": "xxxx",
    "data_script": "",
@@ -132,12 +153,21 @@ extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2,
  }
 ```
 
-**场景3：支持原地算子格式的输入。**
+- **场景3：支持原地算子格式的输入。**
+
+  
 > [!NOTE]
 > 暂不支持该方式设置输入。
 
-当算子为[原地算子(in-place op)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-tools#基本概念)时，输入和输出地址一样，配置算子json时“outputs”和“inputs”除了“data_file”不同，其他配置项均保持一致。配置示例如下。  "inputs"中data_file：输入数据为x.bin。"outputs"中data_file：输出数据为标杆数据golden_x.bin。
-```text
+
+  当算子为[原地算子(in-place op)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-tools#基本概念)时，输入和输出地址一样，配置算子json时“outputs”和“inputs”除了“data_file”不同，其他配置项均保持一致。配置示例如下。
+
+  
+"inputs"中data_file：输入数据为x.bin。
+- "outputs"中data_file：输出数据为标杆数据golden_x.bin。
+
+  
+```json
 {
      "op_type": "AddCustom",
      "data_script": "./add_golden.py",

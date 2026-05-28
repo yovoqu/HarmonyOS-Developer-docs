@@ -19,8 +19,8 @@
 | 新增API | NA | 类名：global； API声明： declare enum WebResponseType 差异内容： declare enum WebResponseType | component/web.d.ts |
 | 新增API | NA | 类名：WebResponseType； API声明：LONG_PRESS = 1 差异内容：LONG_PRESS = 1 | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface SelectionMenuOptionsExt 差异内容： declare interface SelectionMenuOptionsExt | component/web.d.ts |
-| 新增API | NA | 类名：SelectionMenuOptionsExt； API声明：onAppear?: Callback<void>; 差异内容：onAppear?: Callback<void>; | component/web.d.ts |
-| 新增API | NA | 类名：SelectionMenuOptionsExt； API声明：onDisappear?: Callback<void>; 差异内容：onDisappear?: Callback<void>; | component/web.d.ts |
+| 新增API | NA | 类名：SelectionMenuOptionsExt； API声明：onAppear?: Callback&lt;void&gt;; 差异内容：onAppear?: Callback&lt;void&gt;; | component/web.d.ts |
+| 新增API | NA | 类名：SelectionMenuOptionsExt； API声明：onDisappear?: Callback&lt;void&gt;; 差异内容：onDisappear?: Callback&lt;void&gt;; | component/web.d.ts |
 | 新增API | NA | 类名：SelectionMenuOptionsExt； API声明：preview?: CustomBuilder; 差异内容：preview?: CustomBuilder; | component/web.d.ts |
 | 新增API | NA | 类名：SelectionMenuOptionsExt； API声明：menuType?: MenuType; 差异内容：menuType?: MenuType; | component/web.d.ts |
 | 新增API | NA | 类名：WebAttribute； API声明：enableHapticFeedback(enabled: boolean): WebAttribute; 差异内容：enableHapticFeedback(enabled: boolean): WebAttribute; | component/web.d.ts |

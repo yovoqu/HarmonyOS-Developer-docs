@@ -17,11 +17,11 @@
 | API废弃版本变更 | 类名：XComponentNode； API声明：onDestroy(): void; 差异内容：NA | 类名：XComponentNode； API声明：onDestroy(): void; 差异内容：12 | api/arkui/XComponentNode.d.ts |
 | API废弃版本变更 | 类名：XComponentNode； API声明：changeRenderType(type: NodeRenderType): boolean; 差异内容：NA | 类名：XComponentNode； API声明：changeRenderType(type: NodeRenderType): boolean; 差异内容：12 | api/arkui/XComponentNode.d.ts |
 | API废弃版本变更 | 类名：XComponentType； API声明：COMPONENT 差异内容：NA | 类名：XComponentType； API声明：COMPONENT 差异内容：12 | component/enums.d.ts |
-| 函数变更 | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo): Promise<{ event: DragEvent; extraParams: string; }>; 差异内容：Promise<{event:DragEvent;extraParams:string;}> | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo): Promise<DragEventParam>; 差异内容：Promise<DragEventParam> | api/@ohos.arkui.dragController.d.ts |
+| 函数变更 | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo): Promise<{ event: DragEvent; extraParams: string; }>; 差异内容：Promise<{event:DragEvent;extraParams:string;}> | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo): Promise&lt;DragEventParam&gt;; 差异内容：Promise&lt;DragEventParam&gt; | api/@ohos.arkui.dragController.d.ts |
 | 函数变更 | 类名：DragController； API声明：executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: dragController.DragInfo): Promise<{ event: DragEvent; extraParams: string; }>; 差异内容：Promise<{event:DragEvent;extraParams:string;}> | 类名：DragController； API声明：executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: dragController.DragInfo): Promise<dragController.DragEventParam>; 差异内容：Promise<dragController.DragEventParam> | api/@ohos.arkui.UIContext.d.ts |
 | 函数变更 | 类名：SwiperAttribute； API声明：prevMargin(value: Length): SwiperAttribute; 差异内容：NA | 类名：SwiperAttribute； API声明：prevMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute; 差异内容：ignoreBlank?: boolean | component/swiper.d.ts |
 | 函数变更 | 类名：SwiperAttribute； API声明：nextMargin(value: Length): SwiperAttribute; 差异内容：NA | 类名：SwiperAttribute； API声明：nextMargin(value: Length, ignoreBlank?: boolean): SwiperAttribute; 差异内容：ignoreBlank?: boolean | component/swiper.d.ts |
-| 函数变更 | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo, callback: AsyncCallback<{ event: DragEvent; extraParams: string; }>): void; 差异内容：callback: AsyncCallback<{ event: DragEvent; extraParams: string; }> | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo, callback: AsyncCallback<DragEventParam>): void; 差异内容：callback: AsyncCallback<DragEventParam> | api/@ohos.arkui.dragController.d.ts |
+| 函数变更 | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo, callback: AsyncCallback<{ event: DragEvent; extraParams: string; }>): void; 差异内容：callback: AsyncCallback<{ event: DragEvent; extraParams: string; }> | 类名：dragController； API声明：function executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: DragInfo, callback: AsyncCallback&lt;DragEventParam&gt;): void; 差异内容：callback: AsyncCallback&lt;DragEventParam&gt; | api/@ohos.arkui.dragController.d.ts |
 | 函数变更 | 类名：DragController； API声明：executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<{ event: DragEvent; extraParams: string; }>): void; 差异内容：callback: AsyncCallback<{ event: DragEvent; extraParams: string; }> | 类名：DragController； API声明：executeDrag(custom: CustomBuilder \| DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<dragController.DragEventParam>): void; 差异内容：callback: AsyncCallback<dragController.DragEventParam> | api/@ohos.arkui.UIContext.d.ts |
 | 函数变更 | 类名：SearchAttribute； API声明：onChange(callback: (value: string) => void): SearchAttribute; 差异内容：callback: (value: string) => void | 类名：SearchAttribute； API声明：onChange(callback: EditableTextOnChangeCallback): SearchAttribute; 差异内容：callback: EditableTextOnChangeCallback | component/search.d.ts |
 | 函数变更 | 类名：TextAreaAttribute； API声明：onChange(callback: (value: string) => void): TextAreaAttribute; 差异内容：callback: (value: string) => void | 类名：TextAreaAttribute； API声明：onChange(callback: EditableTextOnChangeCallback): TextAreaAttribute; 差异内容：callback: EditableTextOnChangeCallback | component/text_area.d.ts |
@@ -32,7 +32,7 @@
 | 函数变更 | 类名：NavDestinationAttribute； API声明：backButtonIcon(value: ResourceStr \| PixelMap): NavDestinationAttribute; 差异内容：value: ResourceStr \| PixelMap | 类名：NavDestinationAttribute； API声明：backButtonIcon(value: ResourceStr \| PixelMap \| SymbolGlyphModifier): NavDestinationAttribute; 差异内容：value: ResourceStr \| PixelMap \| SymbolGlyphModifier | component/nav_destination.d.ts |
 | 函数变更 | 类名：SecurityComponentMethod； API声明：offset(value: Position): T; 差异内容：value: Position | 类名：SecurityComponentMethod； API声明：offset(value: Position \| Edges \| LocalizedEdges): T; 差异内容：value: Position \| Edges \| LocalizedEdges | component/security_component.d.ts |
 | 函数变更 | 类名：BottomTabBarStyle； API声明：padding(value: Padding \| Dimension): BottomTabBarStyle; 差异内容：value: Padding \| Dimension | 类名：BottomTabBarStyle； API声明：padding(value: Padding \| Dimension \| LocalizedPadding): BottomTabBarStyle; 差异内容：value: Padding \| Dimension \| LocalizedPadding | component/tab_content.d.ts |
-| 属性变更 | 类名：IconGroupSuffix； API声明：@Prop items: Array<IconItemOptions>; 差异内容：Array<IconItemOptions> | 类名：IconGroupSuffix； API声明：@Require @Prop items: Array<IconItemOptions \| SymbolGlyphModifier>; 差异内容：Array<IconItemOptions \| SymbolGlyphModifier> | api/@ohos.arkui.advanced.ChipGroup.d.ets |
+| 属性变更 | 类名：IconGroupSuffix； API声明：@Prop items: Array&lt;IconItemOptions&gt;; 差异内容：Array&lt;IconItemOptions&gt; | 类名：IconGroupSuffix； API声明：@Require @Prop items: Array<IconItemOptions \| SymbolGlyphModifier>; 差异内容：Array<IconItemOptions \| SymbolGlyphModifier> | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | 属性变更 | 类名：global； API声明：declare const ComponentV2: ClassDecorator; 差异内容：ClassDecorator | 类名：global； API声明：declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator); 差异内容：ClassDecorator & ((options: ComponentOptions) => ClassDecorator) | component/common.d.ts |
 | 属性变更 | 类名：TipsDialog； API声明：imageRes: Resource; 差异内容：Resource | 类名：TipsDialog； API声明：imageRes: ResourceStr \| PixelMap; 差异内容：ResourceStr,PixelMap | api/@ohos.arkui.advanced.Dialog.d.ets |
 | 属性变更 | 类名：ActionSheetOptions； API声明：cornerRadius?: Dimension \| BorderRadiuses; 差异内容：Dimension,BorderRadiuses | 类名：ActionSheetOptions； API声明：cornerRadius?: Dimension \| BorderRadiuses \| LocalizedBorderRadiuses; 差异内容：Dimension,BorderRadiuses,LocalizedBorderRadiuses | component/action_sheet.d.ts |
@@ -66,26 +66,26 @@
 | 新增API | NA | 类名：HoverModeStatus； API声明：windowStatusType: window.WindowStatusType; 差异内容：windowStatusType: window.WindowStatusType; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
 | 新增API | NA | 类名：global； API声明：export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void; 差异内容：export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
 | 新增API | NA | 类名：global； API声明： export declare struct FoldSplitContainer 差异内容： export declare struct FoldSplitContainer | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
-| 新增API | NA | 类名：FoldSplitContainer； API声明：@BuilderParam primary: Callback<void>; 差异内容：@BuilderParam primary: Callback<void>; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
-| 新增API | NA | 类名：FoldSplitContainer； API声明：@BuilderParam secondary: Callback<void>; 差异内容：@BuilderParam secondary: Callback<void>; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
-| 新增API | NA | 类名：FoldSplitContainer； API声明：@BuilderParam extra?: Callback<void>; 差异内容：@BuilderParam extra?: Callback<void>; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
+| 新增API | NA | 类名：FoldSplitContainer； API声明：@BuilderParam primary: Callback&lt;void&gt;; 差异内容：@BuilderParam primary: Callback&lt;void&gt;; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
+| 新增API | NA | 类名：FoldSplitContainer； API声明：@BuilderParam secondary: Callback&lt;void&gt;; 差异内容：@BuilderParam secondary: Callback&lt;void&gt;; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
+| 新增API | NA | 类名：FoldSplitContainer； API声明：@BuilderParam extra?: Callback&lt;void&gt;; 差异内容：@BuilderParam extra?: Callback&lt;void&gt;; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
 | 新增API | NA | 类名：FoldSplitContainer； API声明：@Prop expandedLayoutOptions: ExpandedRegionLayoutOptions; 差异内容：@Prop expandedLayoutOptions: ExpandedRegionLayoutOptions; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
 | 新增API | NA | 类名：FoldSplitContainer； API声明：@Prop hoverModeLayoutOptions: HoverModeRegionLayoutOptions; 差异内容：@Prop hoverModeLayoutOptions: HoverModeRegionLayoutOptions; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
 | 新增API | NA | 类名：FoldSplitContainer； API声明：@Prop foldedLayoutOptions: FoldedRegionLayoutOptions; 差异内容：@Prop foldedLayoutOptions: FoldedRegionLayoutOptions; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
 | 新增API | NA | 类名：FoldSplitContainer； API声明：@Prop animationOptions?: AnimateParam \| null; 差异内容：@Prop animationOptions?: AnimateParam \| null; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
 | 新增API | NA | 类名：FoldSplitContainer； API声明：onHoverStatusChange?: OnHoverStatusChangeHandler; 差异内容：onHoverStatusChange?: OnHoverStatusChangeHandler; | api/@ohos.arkui.advanced.FoldSplitContainer.d.ets |
-| 新增API | NA | 类名：global； API声明：export declare type StorageDefaultCreator<T> = () => T; 差异内容：export declare type StorageDefaultCreator<T> = () => T; | api/@ohos.arkui.StateManagement.d.ts |
+| 新增API | NA | 类名：global； API声明：export declare type StorageDefaultCreator&lt;T&gt; = () => T; 差异内容：export declare type StorageDefaultCreator&lt;T&gt; = () => T; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明： export interface TypeConstructorWithArgs 差异内容： export interface TypeConstructorWithArgs | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明： export declare class AppStorageV2 差异内容： export declare class AppStorageV2 | api/@ohos.arkui.StateManagement.d.ts |
-| 新增API | NA | 类名：AppStorageV2； API声明：static connect<T extends object>(type: TypeConstructorWithArgs<T>, keyOrDefaultCreator?: string \| StorageDefaultCreator<T>, defaultCreator?: StorageDefaultCreator<T>): T \| undefined; 差异内容：static connect<T extends object>(type: TypeConstructorWithArgs<T>, keyOrDefaultCreator?: string \| StorageDefaultCreator<T>, defaultCreator?: StorageDefaultCreator<T>): T \| undefined; | api/@ohos.arkui.StateManagement.d.ts |
-| 新增API | NA | 类名：AppStorageV2； API声明：static remove<T>(keyOrType: string \| TypeConstructorWithArgs<T>): void; 差异内容：static remove<T>(keyOrType: string \| TypeConstructorWithArgs<T>): void; | api/@ohos.arkui.StateManagement.d.ts |
-| 新增API | NA | 类名：AppStorageV2； API声明：static keys(): Array<string>; 差异内容：static keys(): Array<string>; | api/@ohos.arkui.StateManagement.d.ts |
+| 新增API | NA | 类名：AppStorageV2； API声明：static connect<T extends object>(type: TypeConstructorWithArgs&lt;T&gt;, keyOrDefaultCreator?: string \| StorageDefaultCreator&lt;T&gt;, defaultCreator?: StorageDefaultCreator&lt;T&gt;): T \| undefined; 差异内容：static connect<T extends object>(type: TypeConstructorWithArgs&lt;T&gt;, keyOrDefaultCreator?: string \| StorageDefaultCreator&lt;T&gt;, defaultCreator?: StorageDefaultCreator&lt;T&gt;): T \| undefined; | api/@ohos.arkui.StateManagement.d.ts |
+| 新增API | NA | 类名：AppStorageV2； API声明：static remove&lt;T&gt;(keyOrType: string \| TypeConstructorWithArgs&lt;T&gt;): void; 差异内容：static remove&lt;T&gt;(keyOrType: string \| TypeConstructorWithArgs&lt;T&gt;): void; | api/@ohos.arkui.StateManagement.d.ts |
+| 新增API | NA | 类名：AppStorageV2； API声明：static keys(): Array&lt;string&gt;; 差异内容：static keys(): Array&lt;string&gt;; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明：export declare type PersistenceErrorCallback = (key: string, reason: 'quota' \| 'serialization' \| 'unknown', message: string) => void; 差异内容：export declare type PersistenceErrorCallback = (key: string, reason: 'quota' \| 'serialization' \| 'unknown', message: string) => void; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明： export declare class PersistenceV2 差异内容： export declare class PersistenceV2 | api/@ohos.arkui.StateManagement.d.ts |
-| 新增API | NA | 类名：PersistenceV2； API声明：static save<T>(keyOrType: string \| TypeConstructorWithArgs<T>): void; 差异内容：static save<T>(keyOrType: string \| TypeConstructorWithArgs<T>): void; | api/@ohos.arkui.StateManagement.d.ts |
+| 新增API | NA | 类名：PersistenceV2； API声明：static save&lt;T&gt;(keyOrType: string \| TypeConstructorWithArgs&lt;T&gt;): void; 差异内容：static save&lt;T&gt;(keyOrType: string \| TypeConstructorWithArgs&lt;T&gt;): void; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：PersistenceV2； API声明：static notifyOnError(callback: PersistenceErrorCallback \| undefined): void; 差异内容：static notifyOnError(callback: PersistenceErrorCallback \| undefined): void; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明： export interface TypeConstructor 差异内容： export interface TypeConstructor | api/@ohos.arkui.StateManagement.d.ts |
-| 新增API | NA | 类名：global； API声明：export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator; 差异内容：export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator; | api/@ohos.arkui.StateManagement.d.ts |
+| 新增API | NA | 类名：global； API声明：export declare type TypeDecorator = &lt;T&gt;(type: TypeConstructor&lt;T&gt;) => PropertyDecorator; 差异内容：export declare type TypeDecorator = &lt;T&gt;(type: TypeConstructor&lt;T&gt;) => PropertyDecorator; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明：export declare const Type: TypeDecorator; 差异内容：export declare const Type: TypeDecorator; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明： export declare class ContainerSpanModifier 差异内容： export declare class ContainerSpanModifier | api/arkui/ContainerSpanModifier.d.ts |
 | 新增API | NA | 类名：ContainerSpanModifier； API声明：applyNormalAttribute?(containerSpanAttribute: ContainerSpanAttribute): void; 差异内容：applyNormalAttribute?(containerSpanAttribute: ContainerSpanAttribute): void; | api/arkui/ContainerSpanModifier.d.ts |
@@ -95,8 +95,8 @@
 | 新增API | NA | 类名：ChipGroupPaddingOptions； API声明：top: Length; 差异内容：top: Length; | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | 新增API | NA | 类名：ChipGroupPaddingOptions； API声明：bottom: Length; 差异内容：bottom: Length; | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | 新增API | NA | 类名：ChipGroup； API声明：@Prop chipGroupPadding?: ChipGroupPaddingOptions; 差异内容：@Prop chipGroupPadding?: ChipGroupPaddingOptions; | api/@ohos.arkui.advanced.ChipGroup.d.ets |
-| 新增API | NA | 类名：TipsDialog； API声明：onCheckedChange?: Callback<boolean>; 差异内容：onCheckedChange?: Callback<boolean>; | api/@ohos.arkui.advanced.Dialog.d.ets |
-| 新增API | NA | 类名：ConfirmDialog； API声明：onCheckedChange?: Callback<boolean>; 差异内容：onCheckedChange?: Callback<boolean>; | api/@ohos.arkui.advanced.Dialog.d.ets |
+| 新增API | NA | 类名：TipsDialog； API声明：onCheckedChange?: Callback&lt;boolean&gt;; 差异内容：onCheckedChange?: Callback&lt;boolean&gt;; | api/@ohos.arkui.advanced.Dialog.d.ets |
+| 新增API | NA | 类名：ConfirmDialog； API声明：onCheckedChange?: Callback&lt;boolean&gt;; 差异内容：onCheckedChange?: Callback&lt;boolean&gt;; | api/@ohos.arkui.advanced.Dialog.d.ets |
 | 新增API | NA | 类名：SubHeader； API声明：primaryTitleModifier?: TextModifier; 差异内容：primaryTitleModifier?: TextModifier; | api/@ohos.arkui.advanced.SubHeader.d.ets |
 | 新增API | NA | 类名：SubHeader； API声明：secondaryTitleModifier?: TextModifier; 差异内容：secondaryTitleModifier?: TextModifier; | api/@ohos.arkui.advanced.SubHeader.d.ets |
 | 新增API | NA | 类名：SubHeader； API声明：@BuilderParam titleBuilder?: () => void; 差异内容：@BuilderParam titleBuilder?: () => void; | api/@ohos.arkui.advanced.SubHeader.d.ets |
@@ -119,7 +119,7 @@
 | 新增API | NA | 类名：UIContext； API声明：getNavigationInfoByUniqueId(id: number): observer.NavigationInfo \| undefined; 差异内容：getNavigationInfoByUniqueId(id: number): observer.NavigationInfo \| undefined; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：postFrameCallback(frameCallback: FrameCallback): void; 差异内容：postFrameCallback(frameCallback: FrameCallback): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void; 差异内容：postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：UIContext； API声明：requireDynamicSyncScene(id: string): Array<DynamicSyncScene>; 差异内容：requireDynamicSyncScene(id: string): Array<DynamicSyncScene>; | api/@ohos.arkui.UIContext.d.ts |
+| 新增API | NA | 类名：UIContext； API声明：requireDynamicSyncScene(id: string): Array&lt;DynamicSyncScene&gt;; 差异内容：requireDynamicSyncScene(id: string): Array&lt;DynamicSyncScene&gt;; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：global； API声明： export const enum SwiperDynamicSyncSceneType 差异内容： export const enum SwiperDynamicSyncSceneType | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：SwiperDynamicSyncSceneType； API声明：GESTURE = 0 差异内容：GESTURE = 0 | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：SwiperDynamicSyncSceneType； API声明：ANIMATION = 1 差异内容：ANIMATION = 1 | api/@ohos.arkui.UIContext.d.ts |
@@ -163,13 +163,13 @@
 | 新增API | NA | 类名：global； API声明： declare enum LayoutSafeAreaEdge 差异内容： declare enum LayoutSafeAreaEdge | component/common.d.ts |
 | 新增API | NA | 类名：LayoutSafeAreaEdge； API声明：TOP = 0 差异内容：TOP = 0 | component/common.d.ts |
 | 新增API | NA | 类名：LayoutSafeAreaEdge； API声明：BOTTOM = 1 差异内容：BOTTOM = 1 | component/common.d.ts |
-| 新增API | NA | 类名：ContextMenuAnimationOptions； API声明：hoverScale?: AnimationRange<number>; 差异内容：hoverScale?: AnimationRange<number>; | component/common.d.ts |
+| 新增API | NA | 类名：ContextMenuAnimationOptions； API声明：hoverScale?: AnimationRange&lt;number&gt;; 差异内容：hoverScale?: AnimationRange&lt;number&gt;; | component/common.d.ts |
 | 新增API | NA | 类名：MenuElement； API声明：symbolIcon?: SymbolGlyphModifier; 差异内容：symbolIcon?: SymbolGlyphModifier; | component/common.d.ts |
 | 新增API | NA | 类名：CommonMethod； API声明：focusScopeId(id: string, isGroup?: boolean): T; 差异内容：focusScopeId(id: string, isGroup?: boolean): T; | component/common.d.ts |
 | 新增API | NA | 类名：CommonMethod； API声明：focusScopePriority(scopeId: string, priority?: FocusPriority): T; 差异内容：focusScopePriority(scopeId: string, priority?: FocusPriority): T; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type OnMoveHandler = (from: number, to: number) => void; 差异内容：declare type OnMoveHandler = (from: number, to: number) => void; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare class DynamicNode 差异内容： declare class DynamicNode | component/common.d.ts |
-| 新增API | NA | 类名：DynamicNode； API声明：onMove(handler: Optional<OnMoveHandler>): T; 差异内容：onMove(handler: Optional<OnMoveHandler>): T; | component/common.d.ts |
+| 新增API | NA | 类名：DynamicNode； API声明：onMove(handler: Optional&lt;OnMoveHandler&gt;): T; 差异内容：onMove(handler: Optional&lt;OnMoveHandler&gt;): T; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum TextSelectableMode 差异内容： declare enum TextSelectableMode | component/enums.d.ts |
 | 新增API | NA | 类名：TextSelectableMode； API声明：SELECTABLE_UNFOCUSABLE = 0 差异内容：SELECTABLE_UNFOCUSABLE = 0 | component/enums.d.ts |
 | 新增API | NA | 类名：TextSelectableMode； API声明：SELECTABLE_FOCUSABLE = 1 差异内容：SELECTABLE_FOCUSABLE = 1 | component/enums.d.ts |
@@ -179,7 +179,7 @@
 | 新增API | NA | 类名：MenuItemOptions； API声明：symbolStartIcon?: SymbolGlyphModifier; 差异内容：symbolStartIcon?: SymbolGlyphModifier; | component/menu_item.d.ts |
 | 新增API | NA | 类名：MenuItemOptions； API声明：symbolEndIcon?: SymbolGlyphModifier; 差异内容：symbolEndIcon?: SymbolGlyphModifier; | component/menu_item.d.ts |
 | 新增API | NA | 类名：NavPathStack； API声明：pushPath(info: NavPathInfo, options?: NavigationOptions): void; 差异内容：pushPath(info: NavPathInfo, options?: NavigationOptions): void; | component/navigation.d.ts |
-| 新增API | NA | 类名：NavPathStack； API声明：pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>; 差异内容：pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>; | component/navigation.d.ts |
+| 新增API | NA | 类名：NavPathStack； API声明：pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;; 差异内容：pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavPathStack； API声明：replacePath(info: NavPathInfo, options?: NavigationOptions): void; 差异内容：replacePath(info: NavPathInfo, options?: NavigationOptions): void; | component/navigation.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle; 差异内容：declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationMenuItem； API声明：symbolIcon?: SymbolGlyphModifier; 差异内容：symbolIcon?: SymbolGlyphModifier; | component/navigation.d.ts |
@@ -194,17 +194,17 @@
 | 新增API | NA | 类名：ToolbarItem； API声明：activeSymbolIcon?: SymbolGlyphModifier; 差异内容：activeSymbolIcon?: SymbolGlyphModifier; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationTitleOptions； API声明：paddingStart?: LengthMetrics; 差异内容：paddingStart?: LengthMetrics; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationTitleOptions； API声明：paddingEnd?: LengthMetrics; 差异内容：paddingEnd?: LengthMetrics; | component/navigation.d.ts |
-| 新增API | NA | 类名：NavigationAttribute； API声明：ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute; 差异内容：ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute; | component/navigation.d.ts |
-| 新增API | NA | 类名：NavigationAttribute； API声明：systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute; 差异内容：systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute; | component/navigation.d.ts |
+| 新增API | NA | 类名：NavigationAttribute； API声明：ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;LayoutSafeAreaEdge&gt;): NavigationAttribute; 差异内容：ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;LayoutSafeAreaEdge&gt;): NavigationAttribute; | component/navigation.d.ts |
+| 新增API | NA | 类名：NavigationAttribute； API声明：systemBarStyle(style: Optional&lt;SystemBarStyle&gt;): NavigationAttribute; 差异内容：systemBarStyle(style: Optional&lt;SystemBarStyle&gt;): NavigationAttribute; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationAnimatedTransition； API声明：isInteractive?: boolean; 差异内容：isInteractive?: boolean; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationTransitionProxy； API声明：isInteractive?: boolean; 差异内容：isInteractive?: boolean; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationTransitionProxy； API声明：cancelTransition?(): void; 差异内容：cancelTransition?(): void; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationTransitionProxy； API声明：updateTransition?(progress: number): void; 差异内容：updateTransition?(progress: number): void; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavContentInfo； API声明：param?: Object; 差异内容：param?: Object; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavContentInfo； API声明：navDestinationId?: string; 差异内容：navDestinationId?: string; | component/navigation.d.ts |
-| 新增API | NA | 类名：NavDestinationAttribute； API声明：ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavDestinationAttribute; 差异内容：ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationAttribute； API声明：systemBarStyle(style: Optional<SystemBarStyle>): NavDestinationAttribute; 差异内容：systemBarStyle(style: Optional<SystemBarStyle>): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：RelativeContainerAttribute； API声明：barrier(barrierStyle: Array<LocalizedBarrierStyle>): RelativeContainerAttribute; 差异内容：barrier(barrierStyle: Array<LocalizedBarrierStyle>): RelativeContainerAttribute; | component/relative_container.d.ts |
+| 新增API | NA | 类名：NavDestinationAttribute； API声明：ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;LayoutSafeAreaEdge&gt;): NavDestinationAttribute; 差异内容：ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;LayoutSafeAreaEdge&gt;): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationAttribute； API声明：systemBarStyle(style: Optional&lt;SystemBarStyle&gt;): NavDestinationAttribute; 差异内容：systemBarStyle(style: Optional&lt;SystemBarStyle&gt;): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：RelativeContainerAttribute； API声明：barrier(barrierStyle: Array&lt;LocalizedBarrierStyle&gt;): RelativeContainerAttribute; 差异内容：barrier(barrierStyle: Array&lt;LocalizedBarrierStyle&gt;): RelativeContainerAttribute; | component/relative_container.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum LocalizedBarrierDirection 差异内容： declare enum LocalizedBarrierDirection | component/relative_container.d.ts |
 | 新增API | NA | 类名：LocalizedBarrierDirection； API声明：START = 0 差异内容：START = 0 | component/relative_container.d.ts |
 | 新增API | NA | 类名：LocalizedBarrierDirection； API声明：END = 1 差异内容：END = 1 | component/relative_container.d.ts |
@@ -213,25 +213,25 @@
 | 新增API | NA | 类名：global； API声明： declare interface LocalizedBarrierStyle 差异内容： declare interface LocalizedBarrierStyle | component/relative_container.d.ts |
 | 新增API | NA | 类名：LocalizedBarrierStyle； API声明：id: string; 差异内容：id: string; | component/relative_container.d.ts |
 | 新增API | NA | 类名：LocalizedBarrierStyle； API声明：localizedDirection: LocalizedBarrierDirection; 差异内容：localizedDirection: LocalizedBarrierDirection; | component/relative_container.d.ts |
-| 新增API | NA | 类名：LocalizedBarrierStyle； API声明：referencedId: Array<string>; 差异内容：referencedId: Array<string>; | component/relative_container.d.ts |
+| 新增API | NA | 类名：LocalizedBarrierStyle； API声明：referencedId: Array&lt;string&gt;; 差异内容：referencedId: Array&lt;string&gt;; | component/relative_container.d.ts |
 | 新增API | NA | 类名：SearchAttribute； API声明：onWillInsert(callback: Callback<InsertValue, boolean>): SearchAttribute; 差异内容：onWillInsert(callback: Callback<InsertValue, boolean>): SearchAttribute; | component/search.d.ts |
-| 新增API | NA | 类名：SearchAttribute； API声明：onDidInsert(callback: Callback<InsertValue>): SearchAttribute; 差异内容：onDidInsert(callback: Callback<InsertValue>): SearchAttribute; | component/search.d.ts |
+| 新增API | NA | 类名：SearchAttribute； API声明：onDidInsert(callback: Callback&lt;InsertValue&gt;): SearchAttribute; 差异内容：onDidInsert(callback: Callback&lt;InsertValue&gt;): SearchAttribute; | component/search.d.ts |
 | 新增API | NA | 类名：SearchAttribute； API声明：onWillDelete(callback: Callback<DeleteValue, boolean>): SearchAttribute; 差异内容：onWillDelete(callback: Callback<DeleteValue, boolean>): SearchAttribute; | component/search.d.ts |
-| 新增API | NA | 类名：SearchAttribute； API声明：onDidDelete(callback: Callback<DeleteValue>): SearchAttribute; 差异内容：onDidDelete(callback: Callback<DeleteValue>): SearchAttribute; | component/search.d.ts |
+| 新增API | NA | 类名：SearchAttribute； API声明：onDidDelete(callback: Callback&lt;DeleteValue&gt;): SearchAttribute; 差异内容：onDidDelete(callback: Callback&lt;DeleteValue&gt;): SearchAttribute; | component/search.d.ts |
 | 新增API | NA | 类名：SearchAttribute； API声明：enablePreviewText(enable: boolean): SearchAttribute; 差异内容：enablePreviewText(enable: boolean): SearchAttribute; | component/search.d.ts |
 | 新增API | NA | 类名：Indicator； API声明：start(value: LengthMetrics): T; 差异内容：start(value: LengthMetrics): T; | component/swiper.d.ts |
 | 新增API | NA | 类名：Indicator； API声明：end(value: LengthMetrics): T; 差异内容：end(value: LengthMetrics): T; | component/swiper.d.ts |
 | 新增API | NA | 类名：DotIndicator； API声明：maxDisplayCount(maxDisplayCount: number): DotIndicator; 差异内容：maxDisplayCount(maxDisplayCount: number): DotIndicator; | component/swiper.d.ts |
 | 新增API | NA | 类名：SubTabBarStyle； API声明：padding(padding: LocalizedPadding): SubTabBarStyle; 差异内容：padding(padding: LocalizedPadding): SubTabBarStyle; | component/tab_content.d.ts |
 | 新增API | NA | 类名：TextAreaAttribute； API声明：onWillInsert(callback: Callback<InsertValue, boolean>): TextAreaAttribute; 差异内容：onWillInsert(callback: Callback<InsertValue, boolean>): TextAreaAttribute; | component/text_area.d.ts |
-| 新增API | NA | 类名：TextAreaAttribute； API声明：onDidInsert(callback: Callback<InsertValue>): TextAreaAttribute; 差异内容：onDidInsert(callback: Callback<InsertValue>): TextAreaAttribute; | component/text_area.d.ts |
+| 新增API | NA | 类名：TextAreaAttribute； API声明：onDidInsert(callback: Callback&lt;InsertValue&gt;): TextAreaAttribute; 差异内容：onDidInsert(callback: Callback&lt;InsertValue&gt;): TextAreaAttribute; | component/text_area.d.ts |
 | 新增API | NA | 类名：TextAreaAttribute； API声明：onWillDelete(callback: Callback<DeleteValue, boolean>): TextAreaAttribute; 差异内容：onWillDelete(callback: Callback<DeleteValue, boolean>): TextAreaAttribute; | component/text_area.d.ts |
-| 新增API | NA | 类名：TextAreaAttribute； API声明：onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute; 差异内容：onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute; | component/text_area.d.ts |
+| 新增API | NA | 类名：TextAreaAttribute； API声明：onDidDelete(callback: Callback&lt;DeleteValue&gt;): TextAreaAttribute; 差异内容：onDidDelete(callback: Callback&lt;DeleteValue&gt;): TextAreaAttribute; | component/text_area.d.ts |
 | 新增API | NA | 类名：TextAreaAttribute； API声明：enablePreviewText(enable: boolean): TextAreaAttribute; 差异内容：enablePreviewText(enable: boolean): TextAreaAttribute; | component/text_area.d.ts |
 | 新增API | NA | 类名：TextInputAttribute； API声明：onWillInsert(callback: Callback<InsertValue, boolean>): TextInputAttribute; 差异内容：onWillInsert(callback: Callback<InsertValue, boolean>): TextInputAttribute; | component/text_input.d.ts |
-| 新增API | NA | 类名：TextInputAttribute； API声明：onDidInsert(callback: Callback<InsertValue>): TextInputAttribute; 差异内容：onDidInsert(callback: Callback<InsertValue>): TextInputAttribute; | component/text_input.d.ts |
+| 新增API | NA | 类名：TextInputAttribute； API声明：onDidInsert(callback: Callback&lt;InsertValue&gt;): TextInputAttribute; 差异内容：onDidInsert(callback: Callback&lt;InsertValue&gt;): TextInputAttribute; | component/text_input.d.ts |
 | 新增API | NA | 类名：TextInputAttribute； API声明：onWillDelete(callback: Callback<DeleteValue, boolean>): TextInputAttribute; 差异内容：onWillDelete(callback: Callback<DeleteValue, boolean>): TextInputAttribute; | component/text_input.d.ts |
-| 新增API | NA | 类名：TextInputAttribute； API声明：onDidDelete(callback: Callback<DeleteValue>): TextInputAttribute; 差异内容：onDidDelete(callback: Callback<DeleteValue>): TextInputAttribute; | component/text_input.d.ts |
+| 新增API | NA | 类名：TextInputAttribute； API声明：onDidDelete(callback: Callback&lt;DeleteValue&gt;): TextInputAttribute; 差异内容：onDidDelete(callback: Callback&lt;DeleteValue&gt;): TextInputAttribute; | component/text_input.d.ts |
 | 新增API | NA | 类名：TextInputAttribute； API声明：enablePreviewText(enable: boolean): TextInputAttribute; 差异内容：enablePreviewText(enable: boolean): TextInputAttribute; | component/text_input.d.ts |
 | 新增API | NA | 类名：global； API声明： export interface ChipSymbolGlyphOptions 差异内容： export interface ChipSymbolGlyphOptions | api/@ohos.arkui.advanced.Chip.d.ets |
 | 新增API | NA | 类名：ChipSymbolGlyphOptions； API声明：normal?: SymbolGlyphModifier; 差异内容：normal?: SymbolGlyphModifier; | api/@ohos.arkui.advanced.Chip.d.ets |
@@ -255,14 +255,14 @@
 | 新增API | NA | 类名：SegmentButtonOptions； API声明：direction?: Direction; 差异内容：direction?: Direction; | api/@ohos.arkui.advanced.SegmentButton.d.ets |
 | 新增API | NA | 类名：window； API声明： interface SystemBarStyle 差异内容： interface SystemBarStyle | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：SystemBarStyle； API声明：statusBarContentColor?: string; 差异内容：statusBarContentColor?: string; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：on(type: 'subWindowClose', callback: Callback<void>): void; 差异内容：on(type: 'subWindowClose', callback: Callback<void>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：off(type: 'subWindowClose', callback?: Callback<void>): void; 差异内容：off(type: 'subWindowClose', callback?: Callback<void>): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：on(type: 'subWindowClose', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'subWindowClose', callback: Callback&lt;void&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：off(type: 'subWindowClose', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'subWindowClose', callback?: Callback&lt;void&gt;): void; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：ComponentContent； API声明：dispose(): void; 差异内容：dispose(): void; | api/arkui/ComponentContent.d.ts |
 | 新增API | NA | 类名：LengthMetrics； API声明：static resource(value: Resource): LengthMetrics; 差异内容：static resource(value: Resource): LengthMetrics; | api/arkui/Graphics.d.ts |
 | 新增API | NA | 类名：IndexerAlign； API声明：START 差异内容：START | component/alphabet_indexer.d.ts |
 | 新增API | NA | 类名：IndexerAlign； API声明：END 差异内容：END | component/alphabet_indexer.d.ts |
 | 新增API | NA | 类名：AlphabetIndexerAttribute； API声明：enableHapticFeedback(value: boolean): AlphabetIndexerAttribute; 差异内容：enableHapticFeedback(value: boolean): AlphabetIndexerAttribute; | component/alphabet_indexer.d.ts |
-| 新增API | NA | 类名：ContainerSpanAttribute； API声明：attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>): ContainerSpanAttribute; 差异内容：attributeModifier(modifier: AttributeModifier<ContainerSpanAttribute>): ContainerSpanAttribute; | component/container_span.d.ts |
+| 新增API | NA | 类名：ContainerSpanAttribute； API声明：attributeModifier(modifier: AttributeModifier&lt;ContainerSpanAttribute&gt;): ContainerSpanAttribute; 差异内容：attributeModifier(modifier: AttributeModifier&lt;ContainerSpanAttribute&gt;): ContainerSpanAttribute; | component/container_span.d.ts |
 | 新增API | NA | 类名：DatePickerDialogOptions； API声明：dateTimeOptions?: DateTimeOptions; 差异内容：dateTimeOptions?: DateTimeOptions; | component/date_picker.d.ts |
 | 新增API | NA | 类名：global； API声明： declare class ForEachAttribute 差异内容： declare class ForEachAttribute | component/for_each.d.ts |
 | 新增API | NA | 类名：global； API声明： declare class LazyForEachAttribute 差异内容： declare class LazyForEachAttribute | component/lazy_for_each.d.ts |
@@ -279,18 +279,18 @@
 | 新增API | NA | 类名：CircleStyleOptions； API声明：color?: ResourceColor; 差异内容：color?: ResourceColor; | component/pattern_lock.d.ts |
 | 新增API | NA | 类名：CircleStyleOptions； API声明：radius?: LengthMetrics; 差异内容：radius?: LengthMetrics; | component/pattern_lock.d.ts |
 | 新增API | NA | 类名：CircleStyleOptions； API声明：enableWaveEffect?: boolean; 差异内容：enableWaveEffect?: boolean; | component/pattern_lock.d.ts |
-| 新增API | NA | 类名：PatternLockAttribute； API声明：activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute; 差异内容：activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute; | component/pattern_lock.d.ts |
-| 新增API | NA | 类名：RefreshAttribute； API声明：pullDownRatio(ratio: Optional<number>): RefreshAttribute; 差异内容：pullDownRatio(ratio: Optional<number>): RefreshAttribute; | component/refresh.d.ts |
+| 新增API | NA | 类名：PatternLockAttribute； API声明：activateCircleStyle(options: Optional&lt;CircleStyleOptions&gt;): PatternLockAttribute; 差异内容：activateCircleStyle(options: Optional&lt;CircleStyleOptions&gt;): PatternLockAttribute; | component/pattern_lock.d.ts |
+| 新增API | NA | 类名：RefreshAttribute； API声明：pullDownRatio(ratio: Optional&lt;number&gt;): RefreshAttribute; 差异内容：pullDownRatio(ratio: Optional&lt;number&gt;): RefreshAttribute; | component/refresh.d.ts |
 | 新增API | NA | 类名：RichEditorSpanType； API声明：BUILDER = 3 差异内容：BUILDER = 3 | component/rich_editor.d.ts |
 | 新增API | NA | 类名：RichEditorBaseController； API声明：getLayoutManager(): LayoutManager; 差异内容：getLayoutManager(): LayoutManager; | component/rich_editor.d.ts |
-| 新增API | NA | 类名：RichEditorController； API声明：fromStyledString(value: StyledString): Array<RichEditorSpan>; 差异内容：fromStyledString(value: StyledString): Array<RichEditorSpan>; | component/rich_editor.d.ts |
+| 新增API | NA | 类名：RichEditorController； API声明：fromStyledString(value: StyledString): Array&lt;RichEditorSpan&gt;; 差异内容：fromStyledString(value: StyledString): Array&lt;RichEditorSpan&gt;; | component/rich_editor.d.ts |
 | 新增API | NA | 类名：RichEditorController； API声明：toStyledString(value: RichEditorRange): StyledString; 差异内容：toStyledString(value: RichEditorRange): StyledString; | component/rich_editor.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type RichEditorSpan = RichEditorImageSpanResult \| RichEditorTextSpanResult; 差异内容：declare type RichEditorSpan = RichEditorImageSpanResult \| RichEditorTextSpanResult; | component/rich_editor.d.ts |
 | 新增API | NA | 类名：SelectOption； API声明：symbolIcon?: SymbolGlyphModifier; 差异内容：symbolIcon?: SymbolGlyphModifier; | component/select.d.ts |
-| 新增API | NA | 类名：SelectAttribute； API声明：divider(options: Optional<DividerOptions> \| null): SelectAttribute; 差异内容：divider(options: Optional<DividerOptions> \| null): SelectAttribute; | component/select.d.ts |
+| 新增API | NA | 类名：SelectAttribute； API声明：divider(options: Optional&lt;DividerOptions&gt; \| null): SelectAttribute; 差异内容：divider(options: Optional&lt;DividerOptions&gt; \| null): SelectAttribute; | component/select.d.ts |
 | 新增API | NA | 类名：MenuItemConfiguration； API声明：symbolIcon?: SymbolGlyphModifier; 差异内容：symbolIcon?: SymbolGlyphModifier; | component/select.d.ts |
 | 新增API | NA | 类名：SliderInteraction； API声明：SLIDE_AND_CLICK_UP = 2 差异内容：SLIDE_AND_CLICK_UP = 2 | component/slider.d.ts |
-| 新增API | NA | 类名：TabsController； API声明：preloadItems(indices: Optional<Array<number>>): Promise<void>; 差异内容：preloadItems(indices: Optional<Array<number>>): Promise<void>; | component/tabs.d.ts |
+| 新增API | NA | 类名：TabsController； API声明：preloadItems(indices: Optional<Array&lt;number&gt;>): Promise&lt;void&gt;; 差异内容：preloadItems(indices: Optional<Array&lt;number&gt;>): Promise&lt;void&gt;; | component/tabs.d.ts |
 | 新增API | NA | 类名：TextAttribute； API声明：textSelectable(mode: TextSelectableMode): TextAttribute; 差异内容：textSelectable(mode: TextSelectableMode): TextAttribute; | component/text.d.ts |
 | 新增API | NA | 类名：TextController； API声明：getLayoutManager(): LayoutManager; 差异内容：getLayoutManager(): LayoutManager; | component/text.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface InsertValue 差异内容： declare interface InsertValue | component/text_common.d.ts |
@@ -335,11 +335,11 @@
 | 新增API | NA | 类名：VirtualScrollOptions； API声明：totalCount?: number; 差异内容：totalCount?: number; | component/repeat.d.ts |
 | 新增API | NA | 类名：global； API声明： interface TemplateOptions 差异内容： interface TemplateOptions | component/repeat.d.ts |
 | 新增API | NA | 类名：TemplateOptions； API声明：cachedCount?: number; 差异内容：cachedCount?: number; | component/repeat.d.ts |
-| 新增API | NA | 类名：global； API声明：declare type TemplateTypedFunc<T> = (item: T, index: number) => string; 差异内容：declare type TemplateTypedFunc<T> = (item: T, index: number) => string; | component/repeat.d.ts |
-| 新增API | NA | 类名：global； API声明：declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void; 差异内容：declare type RepeatItemBuilder<T> = (repeatItem: RepeatItem<T>) => void; | component/repeat.d.ts |
-| 新增API | NA | 类名：RepeatAttribute； API声明：virtualScroll(virtualScrollOptions?: VirtualScrollOptions): RepeatAttribute<T>; 差异内容：virtualScroll(virtualScrollOptions?: VirtualScrollOptions): RepeatAttribute<T>; | component/repeat.d.ts |
-| 新增API | NA | 类名：RepeatAttribute； API声明：template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>; 差异内容：template(type: string, itemBuilder: RepeatItemBuilder<T>, templateOptions?: TemplateOptions): RepeatAttribute<T>; | component/repeat.d.ts |
-| 新增API | NA | 类名：RepeatAttribute； API声明：templateId(typedFunc: TemplateTypedFunc<T>): RepeatAttribute<T>; 差异内容：templateId(typedFunc: TemplateTypedFunc<T>): RepeatAttribute<T>; | component/repeat.d.ts |
+| 新增API | NA | 类名：global； API声明：declare type TemplateTypedFunc&lt;T&gt; = (item: T, index: number) => string; 差异内容：declare type TemplateTypedFunc&lt;T&gt; = (item: T, index: number) => string; | component/repeat.d.ts |
+| 新增API | NA | 类名：global； API声明：declare type RepeatItemBuilder&lt;T&gt; = (repeatItem: RepeatItem&lt;T&gt;) => void; 差异内容：declare type RepeatItemBuilder&lt;T&gt; = (repeatItem: RepeatItem&lt;T&gt;) => void; | component/repeat.d.ts |
+| 新增API | NA | 类名：RepeatAttribute； API声明：virtualScroll(virtualScrollOptions?: VirtualScrollOptions): RepeatAttribute&lt;T&gt;; 差异内容：virtualScroll(virtualScrollOptions?: VirtualScrollOptions): RepeatAttribute&lt;T&gt;; | component/repeat.d.ts |
+| 新增API | NA | 类名：RepeatAttribute； API声明：template(type: string, itemBuilder: RepeatItemBuilder&lt;T&gt;, templateOptions?: TemplateOptions): RepeatAttribute&lt;T&gt;; 差异内容：template(type: string, itemBuilder: RepeatItemBuilder&lt;T&gt;, templateOptions?: TemplateOptions): RepeatAttribute&lt;T&gt;; | component/repeat.d.ts |
+| 新增API | NA | 类名：RepeatAttribute； API声明：templateId(typedFunc: TemplateTypedFunc&lt;T&gt;): RepeatAttribute&lt;T&gt;; 差异内容：templateId(typedFunc: TemplateTypedFunc&lt;T&gt;): RepeatAttribute&lt;T&gt;; | component/repeat.d.ts |
 | 删除API | 类名：global； API声明： declare enum SymbolRenderingStrategy 差异内容： declare enum SymbolRenderingStrategy | NA | api/@ohos.arkui.advanced.SubHeader.d.ets |
 | 删除API | 类名：SymbolRenderingStrategy； API声明：SINGLE = 0 差异内容：SINGLE = 0 | NA | api/@ohos.arkui.advanced.SubHeader.d.ets |
 | 删除API | 类名：SymbolRenderingStrategy； API声明：MULTIPLE_COLOR = 1 差异内容：MULTIPLE_COLOR = 1 | NA | api/@ohos.arkui.advanced.SubHeader.d.ets |
@@ -350,5 +350,5 @@
 | 删除API | 类名：SymbolEffectStrategy； API声明：HIERARCHICAL = 2 差异内容：HIERARCHICAL = 2 | NA | api/@ohos.arkui.advanced.SubHeader.d.ets |
 | 删除API | 类名：global； API声明：declare type WindowMode = import('../api/@ohos.window').WindowMode; 差异内容：declare type WindowMode = import('../api/@ohos.window').WindowMode; | NA | component/folder_stack.d.ts |
 | 删除API | 类名：HoverEventParam； API声明：windowMode: WindowMode; 差异内容：windowMode: WindowMode; | NA | component/folder_stack.d.ts |
-| 新增装饰器 | 类名：IconGroupSuffix； API声明：@Prop items: Array<IconItemOptions>; 差异内容：NA | 类名：IconGroupSuffix； API声明：@Require @Prop items: Array<IconItemOptions \| SymbolGlyphModifier>; 差异内容：Require | api/@ohos.arkui.advanced.ChipGroup.d.ets |
+| 新增装饰器 | 类名：IconGroupSuffix； API声明：@Prop items: Array&lt;IconItemOptions&gt;; 差异内容：NA | 类名：IconGroupSuffix； API声明：@Require @Prop items: Array<IconItemOptions \| SymbolGlyphModifier>; 差异内容：Require | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | 新增装饰器 | 类名：ChipGroup； API声明：@Prop items: ChipGroupItemOptions[]; 差异内容：NA | 类名：ChipGroup； API声明：@Require @Prop items: ChipGroupItemOptions[]; 差异内容：Require | api/@ohos.arkui.advanced.ChipGroup.d.ets |

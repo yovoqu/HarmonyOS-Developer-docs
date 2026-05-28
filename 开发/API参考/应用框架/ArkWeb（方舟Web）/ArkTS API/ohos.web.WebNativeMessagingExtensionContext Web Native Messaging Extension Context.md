@@ -3,38 +3,32 @@
 更新时间：2026-04-13 09:29:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-web-webnativemessagingextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 WebNativeMessagingExtensionContext是Web原生消息扩展的上下文，继承自ExtensionContext。它提供了与WebNativeMessagingExtension通信消息的交互能力。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 21开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 21开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
-import {
-  WebNativeMessagingExtensionAbility,
-  ConnectionInfo,
-} from '@kit.ArkWeb';
+```text
+import { WebNativeMessagingExtensionAbility, ConnectionInfo } from '@kit.ArkWeb';
 ```
 
 
-## WebNativeMessagingExtensionContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### WebNativeMessagingExtensionContext
 
 WebNativeMessagingExtensionContext是Web原生消息扩展的上下文，包含所需交互能力。
 
 
-### startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want, options?: StartOptions): Promise<void>
+##### startAbility
+
+startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 
 使用Promise异步回调启动Ability。
 
@@ -44,15 +38,13 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 
 **参数:**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 表示需要启动的Ability的信息。 |
-| options | [StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions) | 否 | 启动选项。 |
+| want | Want | 是 | 表示需要启动的Ability的信息。 |
+| options | StartOptions | 否 | 启动选项。 |
 
 
 **返回值:**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -62,7 +54,6 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 **错误码:**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -92,38 +83,32 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 
 **示例:**
 
-
-```ts
-import {
-  WebNativeMessagingExtensionAbility,
-  ConnectionInfo,
-} from '@kit.ArkWeb';
+```text
+import { WebNativeMessagingExtensionAbility, ConnectionInfo } from '@kit.ArkWeb';
 import { Want } from '@kit.AbilityKit';
 
 export class MyWebNativeMessagingExtension extends WebNativeMessagingExtensionAbility {
   onConnectNative(info: ConnectionInfo): void {
     const abilityWant: Want = {
-      bundleName: 'com.example.mybundle',
-      abilityName: 'MainAbility',
+    bundleName: 'com.example.mybundle',
+    abilityName: 'MainAbility'
     };
     try {
-      const context = this.context; // 获取 WebNativeMessagingExtensionContext 实例
-      context.startAbility(abilityWant);
-      console.info('Ability started successfully');
+        const context = this.context; // 获取 WebNativeMessagingExtensionContext 实例
+        context.startAbility(abilityWant);
+        console.info('Ability started successfully');
     } catch (err) {
-      console.error(
-        `Failed to start ability. Code: ${err.code}, Message: ${err.message}`,
-      );
+        console.error(`Failed to start ability. Code: ${err.code}, Message: ${err.message}`);
     }
   }
 }
 ```
 
 
-### terminateSelf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(): Promise<void>
+##### terminateSelf
+
+terminateSelf(): Promise&lt;void&gt;
 
 销毁当前Web原生消息扩展。该方法返回一个Promise对象用于异步处理。
 
@@ -132,7 +117,6 @@ terminateSelf(): Promise<void>
 **模型约束:** 此接口仅可在Stage模型下使用。
 
 **返回值:**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -143,7 +127,6 @@ terminateSelf(): Promise<void>
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 16000009 | An ability cannot be started or stopped in Wukong mode. |
@@ -153,33 +136,27 @@ terminateSelf(): Promise<void>
 
 **示例:**
 
-
-```ts
-import {
-  WebNativeMessagingExtensionAbility,
-  ConnectionInfo,
-} from '@kit.ArkWeb';
+```text
+import { WebNativeMessagingExtensionAbility, ConnectionInfo } from '@kit.ArkWeb';
 
 export class MyWebNativeMessagingExtension extends WebNativeMessagingExtensionAbility {
   onConnectNative(info: ConnectionInfo): void {
     try {
-      const context = this.context; // 获取 WebNativeMessagingExtensionContext 实例
-      context.terminateSelf();
-      console.info('Extension terminated successfully');
+        const context = this.context; // 获取 WebNativeMessagingExtensionContext 实例
+        context.terminateSelf();
+        console.info('Extension terminated successfully');
     } catch (err) {
-      console.error(
-        `Failed to terminate extension. Code: ${err.code}, Message: ${err.message}`,
-      );
+        console.error(`Failed to terminate extension. Code: ${err.code}, Message: ${err.message}`);
     }
   }
 }
 ```
 
 
-### stopNativeConnection
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stopNativeConnection(connectionId: number): Promise<void>
+##### stopNativeConnection
+
+stopNativeConnection(connectionId: number): Promise&lt;void&gt;
 
 停止指定的本地连接。使用Promise进行异步回调。
 
@@ -189,14 +166,12 @@ stopNativeConnection(connectionId: number): Promise<void>
 
 **参数:**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | connectionId | number | 是 | 要停止的连接ID。取值范围为正整数，必须是有效的连接ID。当connectionId值无效时，会对应返回错误码。 |
 
 
 **返回值:**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -207,7 +182,6 @@ stopNativeConnection(connectionId: number): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | The application does not have permission to call the interface. |
@@ -217,24 +191,18 @@ stopNativeConnection(connectionId: number): Promise<void>
 
 **示例:**
 
-
-```ts
-import {
-  WebNativeMessagingExtensionAbility,
-  ConnectionInfo,
-} from '@kit.ArkWeb';
+```text
+import { WebNativeMessagingExtensionAbility, ConnectionInfo } from '@kit.ArkWeb';
 
 export class MyWebNativeMessagingExtension extends WebNativeMessagingExtensionAbility {
   onConnectNative(info: ConnectionInfo): void {
     const CONNECTION_ID = 12345; // 实际的连接 ID
     try {
-      const context = this.context; // 获取 WebNativeMessagingExtensionContext 实例
-      context.stopNativeConnection(CONNECTION_ID);
-      console.info('Native connection stopped successfully');
+        const context = this.context;// 获取 WebNativeMessagingExtensionContext 实例
+        context.stopNativeConnection(CONNECTION_ID);
+        console.info('Native connection stopped successfully');
     } catch (err) {
-      console.error(
-        `Failed to stop native connection. Code: ${err.code}, Message: ${err.message}`,
-      );
+        console.error(`Failed to stop native connection. Code: ${err.code}, Message: ${err.message}`);
     }
   }
 }

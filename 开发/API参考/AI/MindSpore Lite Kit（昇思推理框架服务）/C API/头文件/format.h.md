@@ -3,57 +3,53 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-format-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供张量数据的排列格式。
-
+ 
 **引用文件：** <mindspore/format.h>
-
+ 
 **库：** libmindspore_lite_ndk.so
-
+ 
 **系统能力：** SystemCapability.Ai.MindSpore
-
+ 
 **起始版本：** 9
-
+ 
 **相关模块：** [MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_AI_Format](#oh_ai_format) | OH_AI_Format | MSTensor保存的数据支持的排列格式。 |
+| OH_AI_Format | OH_AI_Format | MSTensor保存的数据支持的排列格式。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_AI_Format
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_AI_Format
 
 ```text
 enum OH_AI_Format
 ```
-
+ 
 **描述**
-
+ 
 MSTensor保存的数据支持的排列格式。
-
+ 
 **起始版本：** 9
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_AI_FORMAT_NCHW = 0 | 按批次N、通道C、高度H和宽度W的顺序存储张量数据。 |

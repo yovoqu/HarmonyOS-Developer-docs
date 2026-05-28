@@ -82,7 +82,7 @@
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Region； API声明：setEmpty(): void; 差异内容：setEmpty(): void; | api/@ohos.graphics.drawing.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Paragraph； API声明：updateColor(color: common2D.Color): void; 差异内容：updateColor(color: common2D.Color): void; | api/@ohos.graphics.text.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：Paragraph； API声明：updateDecoration(decoration: Decoration): void; 差异内容：updateDecoration(decoration: Decoration): void; | api/@ohos.graphics.text.d.ts |
-| 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：Matrix； API声明：setMatrix(values: Array<number>): void; 差异内容：setMatrix(values: Array<number>): void; | 类名：Matrix； API声明：setMatrix(matrix: Array<number> \| Matrix): void; 差异内容：setMatrix(matrix: Array<number> \| Matrix): void; | api/@ohos.graphics.drawing.d.ts |
+| 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：Matrix； API声明：setMatrix(values: Array&lt;number&gt;): void; 差异内容：setMatrix(values: Array&lt;number&gt;): void; | 类名：Matrix； API声明：setMatrix(matrix: Array&lt;number&gt; \| Matrix): void; 差异内容：setMatrix(matrix: Array&lt;number&gt; \| Matrix): void; | api/@ohos.graphics.drawing.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：TextStyle； API声明：badgeType?: TextBadgeType; 差异内容：badgeType?: TextBadgeType; | api/@ohos.graphics.text.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：ParagraphStyle； API声明：trailingSpaceOptimized?: boolean; 差异内容：trailingSpaceOptimized?: boolean; | api/@ohos.graphics.text.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：ParagraphStyle； API声明：autoSpace?: boolean; 差异内容：autoSpace?: boolean; | api/@ohos.graphics.text.d.ts |

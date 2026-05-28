@@ -6,30 +6,123 @@
 
 在开发过程中，应用经常会创建异步线程执行视频转码任务以满足不同诉求，主要包括：
 
+ - 节省存储空间。
 
-## 基础概念
+  高清视频文件通常存储空间占用大，几分钟的视频就可能占用数GB的存储空间。视频压缩可以显著减小文件大小，节省存储空间。
+ - 提高设备兼容性。
 
-视频的码率（Bitrate）和分辨率（宽×高）是影响视频画质和文件大小的两个关键因素。它们之间的关系并非简单的线性对应，而是受到编码效率、内容复杂度等多种因素的共同影响。 **码率（Bitrate）和分辨率（宽×高）的基本概念** 码率：指的是单位时间内视频流的数据量（单位：Kbps 或 Mbps）。1 Mbps = 1,000,000 bit/s（1,000,000比特每秒）。 码率越高，单位时间内传输的数据越多，潜在画质更高，但文件体积也更大。 分辨率：指视频画面的像素数量（例如 1920×1080）。 分辨率越高，像素数量越多，画面细节更加清晰，但需要处理的数据量也更大。 **码率和分辨率的关系** 直观关系 在相同编码效率和内容复杂度的情况下，分辨率越大，则需要分配越高的码率以保持画质。如果所分配的码率不足，编码器会通过压缩（如丢弃细节、增加块效应）来降低数据量。 公式参考（经验法则） 码率正比于 分辨率宽×分辨率高×帧率×复杂度系数 复杂度系数与视频内容的动态程度相关，例如静态画面（例如讲座视频）低复杂度系数，可以较低码率保持清晰，动态画面（例如体育比赛）高复杂度系数，需要更高的码率。 **编码效率的影响** 不同的编码标准（如 H.264、H.265、AV1）具有不同的压缩效率： 高效编码器（如 H.265）在相同分辨率和画质下，码率可比 H.264 降低约50%。 低效编码器（如 MJPEG）需要更高的码率以避免画质损失。
+  不同设备所支持播放的视频格式各不相同。视频转码可以将源视频格式转换成设备支持的常用格式，以满足不同设备的播放需求，从而提高视频文件的设备兼容性。
 
-## 选择合适的码率和分辨率
 
-**码率转换** 输入：源视频的宽wref、高href、帧率fpsref、码率Rref；目标视频的宽wtar、高htar、帧率fpstar。 输出：目标视频的码率Rtar。 计算过程：
-![](assets/创建异步线程执行AVTranscoder视频转码(ArkTS)
-/file-20260514131550405-0.png) 分辨率和帧率的系数由以下经验公式计算可得。
-![](assets/创建异步线程执行AVTranscoder视频转码(ArkTS)
-/file-20260514131550405-1.png)
-![](assets/创建异步线程执行AVTranscoder视频转码(ArkTS)
-/file-20260514131550405-2.png) 上述计算帧率的公式y=clip(0.5, 2, x)表示：如果x∈[0.5, 2.0]，取y=x；如果x＜0.5，取y=0.5；如果x＞2.0，取y=2.0。 **码率计算** 选定一个baseline的码率，例如720P/30fps的视频，码率默认3Mbps，记为V0。 如果要对视频V1做转码，输出视频为V2，可以按如下过程计算： 代入(V0,V2)，得到估计码率为R2。 代入(V1,V2)，得到估计码率为R2'。 取二者最小值，以确保目标码率比源视频有所降低。 **分辨率设置参考（以H.264为例）**
+
+##### 基础概念
+
+视频的码率（Bitrate）和分辨率（宽×高）是影响视频画质和文件大小的两个关键因素。它们之间的关系并非简单的线性对应，而是受到编码效率、内容复杂度等多种因素的共同影响。
+
+ - **码率（Bitrate）和分辨率（宽×高）的基本概念**
+
+  
+码率：指的是单位时间内视频流的数据量（单位：Kbps 或 Mbps）。1 Mbps = 1,000,000 bit/s（1,000,000比特每秒）。
+
+  码率越高，单位时间内传输的数据越多，潜在画质更高，但文件体积也更大。
+ - 分辨率：指视频画面的像素数量（例如 1920×1080）。
+
+  分辨率越高，像素数量越多，画面细节更加清晰，但需要处理的数据量也更大。
+
+      - **码率和分辨率的关系**
+
+  
+直观关系
+
+  在相同编码效率和内容复杂度的情况下，分辨率越大，则需要分配越高的码率以保持画质。如果所分配的码率不足，编码器会通过压缩（如丢弃细节、增加块效应）来降低数据量。
+ - 公式参考（经验法则）
+
+  
+码率正比于 分辨率宽×分辨率高×帧率×复杂度系数
+ - 复杂度系数与视频内容的动态程度相关，例如静态画面（例如讲座视频）低复杂度系数，可以较低码率保持清晰，动态画面（例如体育比赛）高复杂度系数，需要更高的码率。
+
+
+      - **编码效率的影响**
+
+  不同的编码标准（如 H.264、H.265、AV1）具有不同的压缩效率：
+
+  
+高效编码器（如 H.265）在相同分辨率和画质下，码率可比 H.264 降低约50%。
+ - 低效编码器（如 MJPEG）需要更高的码率以避免画质损失。
+
+
+
+
+
+##### 选择合适的码率和分辨率
+
+ - **码率转换**
+
+  输入：源视频的宽wref、高href、帧率fpsref、码率Rref；目标视频的宽wtar、高htar、帧率fpstar。
+
+  输出：目标视频的码率Rtar。
+
+  计算过程：
+
+  
+![](assets/创建异步线程执行AVTranscoder视频转码(ArkTS)/file-20260514131550405-0.png)
+
+
+  分辨率和帧率的系数由以下经验公式计算可得。
+
+  
+![](assets/创建异步线程执行AVTranscoder视频转码(ArkTS)/file-20260514131550405-1.png)
+
+
+  
+![](assets/创建异步线程执行AVTranscoder视频转码(ArkTS)/file-20260514131550405-2.png)
+
+
+  上述计算帧率的公式y=clip(0.5, 2, x)表示：如果x∈[0.5, 2.0]，取y=x；如果x＜0.5，取y=0.5；如果x＞2.0，取y=2.0。
+ - **码率计算**
+
+  选定一个baseline的码率，例如720P/30fps的视频，码率默认3Mbps，记为V0。
+
+  如果要对视频V1做转码，输出视频为V2，可以按如下过程计算：
+
+1. 代入(V0,V2)，得到估计码率为R2。
+
+2. 代入(V1,V2)，得到估计码率为R2'。
+
+  取二者最小值，以确保目标码率比源视频有所降低。
+ - **分辨率设置参考（以H.264为例）**
+
 | 分辨率 | 动态内容（如游戏） | 中等动态（如电影） | 静态内容（如幻灯片） |
+
 | --- | --- | --- | --- |
+
 | 720p(1280 × 720) | 3.5–5 Mbps | 2.5–4 Mbps | 1–2 Mbps |
+
 | 1080p(1920 × 1080) | 6–8 Mbps | 4–6 Mbps | 2–3 Mbps |
+
 | 4K(3840 × 2160) | 25–35 Mbps | 15–25 Mbps | 10–15 Mbps |
+ - **转换样例**
 
-**转换样例** 场景一：假设要转码一个分辨率1280×720，30fps的视频，码率为1Mbps，这是画质相对比较良好的视频。需要将视频转码为分辨率640×480，30fps的视频，码率应该设置为463,463bps。计算如下： Resolution_factor = 0.463463 fps_factor = 1 Rtar = 463,463bps 场景二：假设要转码一个分辨率1280×720，30fps的视频，码率为1Mbps的视频。需要将视频转码为码率为600,000bps，30fps的视频，分辨率应该设置为888×500。计算如下： fps_factor = 1 Rtar = 600,000bps Resolution_factor = 0.482029
+  场景一：假设要转码一个分辨率1280×720，30fps的视频，码率为1Mbps，这是画质相对比较良好的视频。需要将视频转码为分辨率640×480，30fps的视频，码率应该设置为463,463bps。计算如下：
 
-## 视频转码压缩开发样例
+  Resolution_factor = 0.463463
 
+  fps_factor = 1
+
+  Rtar = 463,463bps
+
+  场景二：假设要转码一个分辨率1280×720，30fps的视频，码率为1Mbps的视频。需要将视频转码为码率为600,000bps，30fps的视频，分辨率应该设置为888×500。计算如下：
+
+  fps_factor = 1
+
+  Rtar = 600,000bps
+
+  Resolution_factor = 0.482029
+
+
+
+
+##### 视频转码压缩开发样例
 
 ```text
 import { media } from '@kit.MediaKit';
@@ -127,21 +220,29 @@ export class AVTranscoderDemo {
 
 具体如何使用转码能力对视频进行转码，可以参见文档：[用AVTranscoder实现视频转码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avtranscoder-for-transcodering)。
 
-## 使用异步线程的方式进行转码
 
-本示例使用的是worker线程的方式来实现异步线程进行转码，worker线程的详细使用方式，可以参见文档: [Worker线程使用说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker) [Worker简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)
 
-## 开发步骤
+##### 使用异步线程的方式进行转码
 
-引入头文件，创建worker线程，并注册回调。
+本示例使用的是worker线程的方式来实现异步线程进行转码，worker线程的详细使用方式，可以参见文档:
+
+ - [Worker线程使用说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)
+ - [Worker简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)
+
+
+
+
+##### 开发步骤
+1. 引入头文件，创建worker线程，并注册回调。
+
+  
 ```text
 import { ErrorEvent, MessageEvents, worker } from '@kit.ArkTS'
 import { SendableObject } from '../util/SendableObject';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 ```
 
-
-```text
+```ArkTS
 // 创建Worker对象。
 private workerInstance?: worker.ThreadWorker;
 @State currentProgress: number = 0;
@@ -179,7 +280,11 @@ this.workerInstance.onexit = (e: number) => {
 }
 ```
 
-创建参数对象，向worker线程发送参数对象。 如下是参数对象模型：
+2. 创建参数对象，向worker线程发送参数对象。
+
+  如下是参数对象模型：
+
+  
 ```text
 import { sendableContextManager } from '@kit.AbilityKit';
 
@@ -204,8 +309,9 @@ export class SendableObject {
   }
 }
 ```
-
 如下是发送参数的逻辑：
+
+  
 ```text
 private context: Context | undefined;
 // 向Worker线程发送消息。
@@ -218,7 +324,11 @@ if (this.context != undefined) {
 }
 ```
 
-worker线程接收参数，并且执行转码的逻辑。 worker线程接收参数：
+3. worker线程接收参数，并且执行转码的逻辑。
+
+  worker线程接收参数：
+
+  
 ```text
 //worker线程接收参数。
 const sendableObject: SendableObject = event.data;
@@ -231,9 +341,10 @@ await doSome(context);
 // 向主线程发送消息。
 workerPort.postMessage('start end');
 ```
-
 执行转码逻辑：
-```text
+
+  
+```json
 async function doSome(context: common.Context) {
   console.info(`doSome in`);
   try {
@@ -284,7 +395,9 @@ async function doSome(context: common.Context) {
 }
 ```
 
-监听转码的Complete回调，在转码结束的时候向主线程发送消息。
+4. 监听转码的Complete回调，在转码结束的时候向主线程发送消息。
+
+  
 ```text
 // 转码完成回调函数。
 transcoder.on('complete', async () => {
@@ -295,7 +408,9 @@ transcoder.on('complete', async () => {
 })
 ```
 
-主线程接收到worker线程转码结束的信息，销毁worker线程。
+5. 主线程接收到worker线程转码结束的信息，销毁worker线程。
+
+  
 ```text
 // 注册onmessage回调，当宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息时被调用，在宿主线程执行。
 this.workerInstance.onmessage = (e: MessageEvents) => {
@@ -313,10 +428,13 @@ this.workerInstance.onmessage = (e: MessageEvents) => {
 ```
 
 
-## 运行示例工程
 
-参考以下示例，使用worker线程的方式来实现异步线程进行转码。 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVTranscoder/AsyncTranscoder)，并将示例工程的资源复制到对应目录。
-```text
+
+##### 运行示例工程
+
+参考以下示例，使用worker线程的方式来实现异步线程进行转码。
+1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVTranscoder/AsyncTranscoder)，并将示例工程的资源复制到对应目录。       
+```ArkTS
 AsyncTranscoder
 entry/build-profile.json5 (配置字段信息将Worker线程文件打包到应用)
 entry/src/main/ets/
@@ -340,4 +458,4 @@ entry/src/main/resources/
     └── H264_AAC.mp4 (视频资源)
 ```
 
-编译新建工程并运行。
+2. 编译新建工程并运行。

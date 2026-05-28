@@ -1,28 +1,26 @@
 # @ohos.graphics.displaySync (可变帧率)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-displaysync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可变帧率支持让开发者以指定帧率来运行UI业务，一般用于开发者自绘制UI，并且对于帧率有特定诉求的场景。
-
 
 > [!NOTE]
 > 本模块首批接口和数据定义从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { displaySync } from '@kit.ArkGraphics2D';
 ```
 
 
-## displaySync.create
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### displaySync.create
 
 create(): DisplaySync
 
@@ -32,27 +30,24 @@ create(): DisplaySync
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DisplaySync](#displaysync) | 返回当前创建的DisplaySync对象实例。 |
+| DisplaySync | 返回当前创建的DisplaySync对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 ```
 
 
-## IntervalInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### IntervalInfo
 
 开发者可以从订阅函数中获取帧绘制的时间戳信息，包含当前帧到达的时间timestamp和下一帧预期到达的时间targetTimestamp。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -60,16 +55,17 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 | targetTimestamp | number | 否 | 否 | 下一帧预期到达的时间（单位：纳秒）。 |
 
 
-## DisplaySync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DisplaySync
 
 帧率和回调函数设置实例。用于帧率设置和回调函数的注册，以及启动和停止回调函数的调用。
 
 下列API示例中都需先使用[displaySync.create()](#displaysynccreate)方法获取到DisplaySync实例，再通过此实例调用对应方法。
 
 
-### setExpectedFrameRateRange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setExpectedFrameRateRange
 
 setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : void
 
@@ -79,41 +75,38 @@ setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rateRange | [ExpectedFrameRateRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation#expectedframeraterange11) | 是 | 设置DisplaySync期望的帧率。 |
+| rateRange | ExpectedFrameRateRange | 是 | 设置DisplaySync期望的帧率。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.Incorrect parameters types. 3. Parameter verification failed. or check ExpectedFrameRateRange if valid. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.Incorrect parameters types. 3. Parameter verification failed. or check if ExpectedFrameRateRange is valid. |
 
 
 **示例：**
 
-
-```ts
-let range: ExpectedFrameRateRange = {
+```text
+let range : ExpectedFrameRateRange = {
   expected: 10,
-  min: 0,
-  max: 120,
+  min:0,
+  max:120
 };
 
 // 设置DisplaySync期望的帧率
-backDisplaySync?.setExpectedFrameRateRange(range);
+backDisplaySync?.setExpectedFrameRateRange(range)
 ```
 
 
-### on('frame')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'frame', callback: Callback<IntervalInfo>): void
+##### on('frame')
+
+on(type: 'frame', callback: Callback&lt;IntervalInfo&gt;): void
 
 订阅每一帧的变化。
 
@@ -121,36 +114,28 @@ on(type: 'frame', callback: Callback<IntervalInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'frame' | 是 | 设置注册回调的类型（只能是'frame'类型）。 |
-| callback | Callback&lt;[IntervalInfo](#intervalinfo)&gt; | 是 | 订阅函数。 |
+| callback | Callback&lt;IntervalInfo&gt; | 是 | 订阅函数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let callback = (frameInfo: displaySync.IntervalInfo) => {
-  console.info(
-    'DisplaySync',
-    'TimeStamp:' +
-      frameInfo.timestamp +
-      ' TargetTimeStamp: ' +
-      frameInfo.targetTimestamp,
-  );
-};
+    console.info("DisplaySync", 'TimeStamp:' + frameInfo.timestamp + ' TargetTimeStamp: ' + frameInfo.targetTimestamp);
+}
 
 // 注册订阅函数
-backDisplaySync?.on('frame', callback);
+backDisplaySync?.on("frame", callback)
 ```
 
 
-### off('frame')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'frame', callback?: Callback<IntervalInfo>): void
+##### off('frame')
+
+off(type: 'frame', callback?: Callback&lt;IntervalInfo&gt;): void
 
 取消订阅每一帧的变化。
 
@@ -158,36 +143,28 @@ off(type: 'frame', callback?: Callback<IntervalInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'frame' | 是 | 设置注册回调的类型（只能是'frame'类型）。 |
-| callback | Callback&lt;[IntervalInfo](#intervalinfo)&gt; | 否 | 订阅函数，参数不填时，默认取消全部订阅函数。 |
+| callback | Callback&lt;IntervalInfo&gt; | 否 | 订阅函数，参数不填时，默认取消全部订阅函数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let callback = (frameInfo: displaySync.IntervalInfo) => {
-  console.info(
-    'DisplaySync',
-    'TimeStamp:' +
-      frameInfo.timestamp +
-      ' TargetTimeStamp: ' +
-      frameInfo.targetTimestamp,
-  );
-};
+    console.info("DisplaySync", 'TimeStamp:' + frameInfo.timestamp + ' TargetTimeStamp: ' + frameInfo.targetTimestamp);
+}
 
-backDisplaySync?.on('frame', callback);
+backDisplaySync?.on("frame", callback)
 
 // 取消订阅函数
-backDisplaySync?.off('frame', callback);
+backDisplaySync?.off("frame", callback)
 ```
 
 
-### start
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### start
 
 start(): void
 
@@ -197,41 +174,32 @@ start(): void
 
 **示例：**
 
-
-```ts
-let range: ExpectedFrameRateRange = {
+```text
+let range : ExpectedFrameRateRange = {
   expected: 10,
-  min: 0,
-  max: 120,
+  min:0,
+  max:120
 };
 
-backDisplaySync?.setExpectedFrameRateRange(range);
+backDisplaySync?.setExpectedFrameRateRange(range)
 
 let callback = (frameInfo: displaySync.IntervalInfo) => {
-  console.info(
-    'DisplaySync',
-    'TimeStamp:' +
-      frameInfo.timestamp +
-      ' TargetTimeStamp: ' +
-      frameInfo.targetTimestamp,
-  );
-};
+    console.info("DisplaySync", 'TimeStamp:' + frameInfo.timestamp + ' TargetTimeStamp: ' + frameInfo.targetTimestamp);
+}
 
-backDisplaySync?.on('frame', callback);
+backDisplaySync?.on("frame", callback)
 
 // 开始每帧回调
-backDisplaySync?.start();
+backDisplaySync?.start()
 ```
 
-
 > [!NOTE]
-> start接口是将DisplaySync关联到UI实例和窗口，若在非UI页面中或者一些异步回调中进行start操作，可能无法跟踪到当前UI的上下��，导致start接口失败，会进一步导致订阅函数无法执行。
-> 因此可以使用UIContext的[runScopedTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#runscopedtask)接口来指定start函数执行的UI上下文。
+> start接口是将DisplaySync关联到UI实例和窗口，若在非UI页面中或者一些异步回调中进行start操作，可能无法跟踪到当前UI的上下文，导致start接口失败，会进一步导致订阅函数无法执行。 因此可以使用UIContext的 runScopedTask 接口来指定start函数执行的UI上下文。
+
 
 **示例：**
 
-
-```ts
+```ArkTS
 import { displaySync } from '@kit.ArkGraphics2D';
 import { UIContext } from '@kit.ArkUI';
 
@@ -258,8 +226,8 @@ struct Index {
 ```
 
 
-### stop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### stop
 
 stop(): void
 
@@ -269,32 +237,25 @@ stop(): void
 
 **示例：**
 
-
-```ts
-let range: ExpectedFrameRateRange = {
+```text
+let range : ExpectedFrameRateRange = {
   expected: 10,
-  min: 0,
-  max: 120,
+  min:0,
+  max:120
 };
 
-backDisplaySync?.setExpectedFrameRateRange(range);
+backDisplaySync?.setExpectedFrameRateRange(range)
 
 let callback = (frameInfo: displaySync.IntervalInfo) => {
-  console.info(
-    'DisplaySync',
-    'TimeStamp:' +
-      frameInfo.timestamp +
-      ' TargetTimeStamp: ' +
-      frameInfo.targetTimestamp,
-  );
-};
+    console.info("DisplaySync", 'TimeStamp:' + frameInfo.timestamp + ' TargetTimeStamp: ' + frameInfo.targetTimestamp);
+}
 
-backDisplaySync?.on('frame', callback);
+backDisplaySync?.on("frame", callback)
 
-backDisplaySync?.start();
+backDisplaySync?.start()
 
 // ...
 
 // 停止每帧回调
-backDisplaySync?.stop();
+backDisplaySync?.stop()
 ```

@@ -19,5 +19,5 @@
 | 新增API | NA | 类名：ShareAbilityInfo； API声明：name: string; 差异内容：name: string; | api/@hms.collaboration.systemShare.d.ts |
 | 新增API | NA | 类名：systemShare； API声明：interface ShareOperationResult 差异内容：interface ShareOperationResult | api/@hms.collaboration.systemShare.d.ts |
 | 新增API | NA | 类名：ShareOperationResult； API声明：targetAbilityInfo: ShareAbilityInfo; 差异内容：targetAbilityInfo: ShareAbilityInfo; | api/@hms.collaboration.systemShare.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：ShareController； API声明：on(type: 'shareCompleted', callback: Callback<ShareOperationResult>): void; 差异内容：on(type: 'shareCompleted', callback: Callback<ShareOperationResult>): void; | api/@hms.collaboration.systemShare.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：ShareController； API声明：off(type: 'shareCompleted', callback?: Callback<ShareOperationResult>): void; 差异内容：off(type: 'shareCompleted', callback?: Callback<ShareOperationResult>): void; | api/@hms.collaboration.systemShare.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：ShareController； API声明：on(type: 'shareCompleted', callback: Callback&lt;ShareOperationResult&gt;): void; 差异内容：on(type: 'shareCompleted', callback: Callback&lt;ShareOperationResult&gt;): void; | api/@hms.collaboration.systemShare.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：ShareController； API声明：off(type: 'shareCompleted', callback?: Callback&lt;ShareOperationResult&gt;): void; 差异内容：off(type: 'shareCompleted', callback?: Callback&lt;ShareOperationResult&gt;): void; | api/@hms.collaboration.systemShare.d.ts |

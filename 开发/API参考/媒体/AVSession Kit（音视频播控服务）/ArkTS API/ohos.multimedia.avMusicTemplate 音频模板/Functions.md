@@ -4,16 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-f
 
+> [!NOTE]
+> 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块仅适用于API version 23及以上版本的Car设备。
 
-## 导入模块
 
 
-```ts
+##### 导入模块
+
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 ```
 
 
-## avMusicTemplate.createAVMusicTemplate
+
+##### avMusicTemplate.createAVMusicTemplate
 
 createAVMusicTemplate(accessType: AVMusicTemplateType): AVMusicTemplate
 
@@ -25,24 +29,21 @@ createAVMusicTemplate(accessType: AVMusicTemplateType): AVMusicTemplate
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| accessType | [AVMusicTemplateType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-e#avmusictemplatetype) | 是 | 音频模板枚举类型。 |
+| accessType | AVMusicTemplateType | 是 | 音频模板枚举类型。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AVMusicTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-avmusictemplate) | 音频模板对象，可用于获取会话ID。 |
+| AVMusicTemplate | 音频模板对象，可用于获取会话ID。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -52,15 +53,15 @@ createAVMusicTemplate(accessType: AVMusicTemplateType): AVMusicTemplate
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private static sInstance: TemplateManager;
 
-  private constructor() {}
+  private constructor() {
+  }
 
   /**
    * 获取模板控制器实例。
@@ -72,7 +73,7 @@ export class TemplateManager {
       TemplateManager.sInstance = new TemplateManager();
     }
     return TemplateManager.sInstance;
-  }
+  };
 
   /**
    * 创建音频模板。
@@ -80,12 +81,10 @@ export class TemplateManager {
   public createTemplate() {
     if (this.template) {
       console.warn('createTemplate: template not undefined');
-      return;
+      return
     }
     try {
-      this.template = avMusicTemplate.createAVMusicTemplate(
-        avMusicTemplate.AVMusicTemplateType.DEFAULT,
-      );
+      this.template = avMusicTemplate.createAVMusicTemplate(avMusicTemplate.AVMusicTemplateType.DEFAULT);
       console.info('Succeeded in creating template.');
     } catch (e) {
       console.error(`createTemplate, errCode: ${e?.code}`);

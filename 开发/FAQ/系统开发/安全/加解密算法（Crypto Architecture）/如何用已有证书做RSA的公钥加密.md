@@ -4,15 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-23
 
-问题场景
-
+**问题场景**
+ 
 使用PEM格式证书中的公钥调用示例中的 `rsaPubKeyEncrypt()` 方法时，初始化失败。使用指南中示例的公钥可以成功加密，但加密后的数据转换为字符串后显示为乱码。
-
-解决措施
-
+ 
+**解决措施**
+ 
 将内容转换为字符串时，可以将其转换为Base64或十六进制。具体转换方法请参考以下代码：
-
-```ts
+ 
+```ArkTS
 function uint8ArrayToHexStr(data: Uint8Array): string {
   let hexString = '';
   let i: number;
@@ -23,29 +23,19 @@ function uint8ArrayToHexStr(data: Uint8Array): string {
   return hexString;
 }
 ```
-
+ 
 参考如下代码内容，使用正确的证书数据进行处理。
-
-```ts
+ 
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-async function rsaPubKeyEncrypt(
-  pubKey: cryptoFramework.PubKey,
-  plainText: cryptoFramework.DataBlob,
-) {
+async function rsaPubKeyEncrypt(pubKey: cryptoFramework.PubKey, plainText: cryptoFramework.DataBlob) {
   try {
     let asyKeyGenerator = cryptoFramework.createAsyKeyGenerator('RSA1024');
     let keyGenPromise: cryptoFramework.KeyPair =
-      await asyKeyGenerator.convertKey(
-        { data: pubKey.getEncoded().data },
-        null,
-      );
+      await asyKeyGenerator.convertKey({ data: pubKey.getEncoded().data }, null);
     let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
-    await cipher.init(
-      cryptoFramework.CryptoMode.ENCRYPT_MODE,
-      keyGenPromise.pubKey,
-      null,
-    );
+    await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyGenPromise.pubKey, null);
     let encryptData = await cipher.doFinal(plainText);
     return uint8ArrayToHexStr(encryptData.data);
   } catch (err) {

@@ -3,26 +3,28 @@
 更新时间：2026-03-27 08:08:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 不建议对 BuilderNode 中的RenderNode进行修改操作。BuilderNode中持有的 FrameNode 仅用于将该BuilderNode作为子节点挂载到其他FrameNode上，对该FrameNode或对应的RenderNode进行属性设置与子节点操作可能会产生未定义行为，包括但不限于显示异常、事件异常、稳定性问题等。 RenderNode对象不支持使用JSON序列化。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { RenderNode } from '@kit.ArkUI';
 ```
 
 
-## RenderNode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### RenderNode
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor()
 
@@ -34,8 +36,7 @@ RenderNode的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -77,8 +78,8 @@ struct Index {
 ```
 
 
-### appendChild
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### appendChild
 
 appendChild(node: RenderNode): void
 
@@ -90,16 +91,14 @@ appendChild(node: RenderNode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| node | [RenderNode](#rendernode-1) | 是 | 需要添加的RenderNode。 |
+| node | RenderNode | 是 | 需要添加的RenderNode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[自定义节点错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-node)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -108,8 +107,7 @@ appendChild(node: RenderNode): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -161,8 +159,8 @@ struct Index {
 ```
 
 
-### insertChildAfter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### insertChildAfter
 
 insertChildAfter(child: RenderNode, sibling: RenderNode | null): void
 
@@ -174,17 +172,15 @@ insertChildAfter(child: RenderNode, sibling: RenderNode | null): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| child | [RenderNode](#rendernode-1) | 是 | 需要添加的子节点。 |
-| sibling | [RenderNode](#rendernode-1) \| null | 是 | 新节点将插入到该节点之后。若该参数设置为空，则新节点将插入到首个子节点之前。 |
+| child | RenderNode | 是 | 需要添加的子节点。 |
+| sibling | RenderNode \| null | 是 | 新节点将插入到该节点之后。若该参数设置为空，则新节点将插入到首个子节点之前。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[自定义节点错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-node)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -193,8 +189,7 @@ insertChildAfter(child: RenderNode, sibling: RenderNode | null): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -259,8 +254,8 @@ struct Index {
 ```
 
 
-### removeChild
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeChild
 
 removeChild(node: RenderNode): void
 
@@ -272,16 +267,14 @@ removeChild(node: RenderNode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| node | [RenderNode](#rendernode-1) | 是 | 需要删除的子节点。 |
+| node | RenderNode | 是 | 需要删除的子节点。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -338,8 +331,8 @@ struct Index {
 ```
 
 
-### clearChildren
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clearChildren
 
 clearChildren(): void
 
@@ -351,8 +344,7 @@ clearChildren(): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -389,21 +381,21 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
-      .width(200)
-      .height(300)
+        .borderWidth(1)
+        .width(200)
+        .height(300)
       Button("clearChildren")
-      .onClick(() => {
-        renderNode.clearChildren(); // 清除renderNode的所有子节点
-      })
+        .onClick(() => {
+          renderNode.clearChildren(); // 清除renderNode的所有子节点
+        })
     }.width("100%")
   }
 }
 ```
 
 
-### getChild
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getChild
 
 getChild(index: number): RenderNode | null
 
@@ -415,7 +407,6 @@ getChild(index: number): RenderNode | null
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 需要查询的子节点的序列号。 |
@@ -423,16 +414,14 @@ getChild(index: number): RenderNode | null
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RenderNode](#rendernode-1) \| null | 子节点。若该RenderNode不包含所查询的子节点，则返回空对象null。 |
+| RenderNode \| null | 子节点。若该RenderNode不包含所查询的子节点，则返回空对象null。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -469,31 +458,31 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
-      .width(200)
-      .height(300)
+        .borderWidth(1)
+        .width(200)
+        .height(300)
       Button("getChild")
-      .onClick(() => {
-        for (let i = 0; i < 11; i++) {
-          let childNode: RenderNode | null = renderNode.getChild(i);
-          if (childNode == null) {
-            // renderNode不存在序列号为10的子节点，此时返回null
-            console.error(`the ${i} of renderNode's childNode is null`);
-          } else {
-            // 正常获取子节点并打印节点属性
-            console.info(`the ${i} of renderNode's childNode has a size of {${childNode.size.width},${childNode.size.height}}`);
+        .onClick(() => {
+          for (let i = 0; i < 11; i++) {
+            let childNode: RenderNode | null = renderNode.getChild(i);
+            if (childNode == null) {
+              // renderNode不存在序列号为10的子节点，此时返回null
+              console.error(`the ${i} of renderNode's childNode is null`);
+            } else {
+              // 正常获取子节点并打印节点属性
+              console.info(`the ${i} of renderNode's childNode has a size of {${childNode.size.width},${childNode.size.height}}`);
+            }
           }
-        }
 
-      })
+        })
     }.width("100%")
   }
 }
 ```
 
 
-### getFirstChild
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFirstChild
 
 getFirstChild(): RenderNode | null
 
@@ -505,16 +494,14 @@ getFirstChild(): RenderNode | null
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RenderNode](#rendernode-1) \| null | 首个子节点。若该RenderNode不包含子节点，则返回空对象null。 |
+| RenderNode \| null | 首个子节点。若该RenderNode不包含子节点，则返回空对象null。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -561,26 +548,26 @@ struct Index {
   build() {
     Row() {
       NodeContainer(this.myNodeController)
-      .width(200)
-      .height(350)
+        .width(200)
+        .height(350)
       Button('getFirstChild')
-      .onClick(() => {
-        // 获取renderNode的首个子节点
-        const firstChild = renderNode.getFirstChild();
-        if (firstChild === null) {
-          console.error('the fist child is null');
-        } else {
-          console.info(`the position of fist child is x: ${firstChild.position.x}, y: ${firstChild.position.y}`);
-        }
-      })
+        .onClick(() => {
+          // 获取renderNode的首个子节点
+          const firstChild = renderNode.getFirstChild();
+          if (firstChild === null) {
+            console.error('the fist child is null');
+          } else {
+            console.info(`the position of fist child is x: ${firstChild.position.x}, y: ${firstChild.position.y}`);
+          }
+        })
     }
   }
 }
 ```
 
 
-### getNextSibling
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getNextSibling
 
 getNextSibling(): RenderNode | null
 
@@ -592,16 +579,14 @@ getNextSibling(): RenderNode | null
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RenderNode](#rendernode-1) \| null | 当前RenderNode的下一个同级节点。若该RenderNode不包含下一个同级节点，则返回空对象null。 |
+| RenderNode \| null | 当前RenderNode的下一个同级节点。若该RenderNode不包含下一个同级节点，则返回空对象null。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -648,27 +633,27 @@ struct Index {
   build() {
     Row() {
       NodeContainer(this.myNodeController)
-      .width(200)
-      .height(350)
+        .width(200)
+        .height(350)
       Button('getNextSibling')
-      .onClick(() => {
-        const child = renderNode.getChild(1);
-        // 获取renderNode序列号为1的子节点后，再获取它的下一个同级节点
-        const nextSibling = child!.getNextSibling()
-        if (nextSibling === null || child === null) {
-          console.error('the child or nextChild is null');
-        } else {
-          console.info(`the position of child is x: ${child.position.x}, y: ${child.position.y}, the position of nextSibling is x: ${nextSibling.position.x}, y: ${nextSibling.position.y}`);
-        }
-      })
+        .onClick(() => {
+          const child = renderNode.getChild(1);
+          // 获取renderNode序列号为1的子节点后，再获取它的下一个同级节点
+          const nextSibling = child!.getNextSibling()
+          if (nextSibling === null || child === null) {
+            console.error('the child or nextChild is null');
+          } else {
+            console.info(`the position of child is x: ${child.position.x}, y: ${child.position.y}, the position of nextSibling is x: ${nextSibling.position.x}, y: ${nextSibling.position.y}`);
+          }
+        })
     }
   }
 }
 ```
 
 
-### getPreviousSibling
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getPreviousSibling
 
 getPreviousSibling(): RenderNode | null
 
@@ -680,16 +665,14 @@ getPreviousSibling(): RenderNode | null
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RenderNode](#rendernode-1) \| null | 当前RenderNode的上一个同级节点。若该RenderNode不包含上一个同级节点，则返回空对象null。 |
+| RenderNode \| null | 当前RenderNode的上一个同级节点。若该RenderNode不包含上一个同级节点，则返回空对象null。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -736,27 +719,27 @@ struct Index {
   build() {
     Row() {
       NodeContainer(this.myNodeController)
-      .width(200)
-      .height(350)
+        .width(200)
+        .height(350)
       Button('getPreviousSibling')
-      .onClick(() => {
-        const child = renderNode.getChild(1);
-        // 获取renderNode序列号为1的子节点后，再获取它的上一个同级节点
-        const previousSibling = child!.getPreviousSibling()
-        if (child === null || previousSibling === null) {
-          console.error('the child or previousChild is null');
-        } else {
-          console.info(`the position of child is x: ${child.position.x}, y: ${child.position.y}, the position of previousSibling is x: ${previousSibling.position.x}, y: ${previousSibling.position.y}`);
-        }
-      })
+        .onClick(() => {
+          const child = renderNode.getChild(1);
+          // 获取renderNode序列号为1的子节点后，再获取它的上一个同级节点
+          const previousSibling = child!.getPreviousSibling()
+          if (child === null || previousSibling === null) {
+            console.error('the child or previousChild is null');
+          } else {
+            console.info(`the position of child is x: ${child.position.x}, y: ${child.position.y}, the position of previousSibling is x: ${previousSibling.position.x}, y: ${previousSibling.position.y}`);
+          }
+        })
     }
   }
 }
 ```
 
 
-### backgroundColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### backgroundColor
 
 set backgroundColor(color: number)
 
@@ -767,7 +750,6 @@ set backgroundColor(color: number)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -784,7 +766,6 @@ get backgroundColor(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 当前RenderNode的背景颜色，默认值为0X00000000。 |
@@ -792,8 +773,7 @@ get backgroundColor(): number
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -832,8 +812,8 @@ struct Index {
 ```
 
 
-### clipToFrame
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clipToFrame
 
 set clipToFrame(useClip: boolean)
 
@@ -845,10 +825,9 @@ set clipToFrame(useClip: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| useClip | boolean | 是 | 设置是否进行剪裁。          true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。 |
+| useClip | boolean | 是 | 设置是否进行剪裁。 true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。 |
 
 
 get clipToFrame(): boolean
@@ -861,16 +840,14 @@ get clipToFrame(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 获取当前RenderNode是否需要进行剪裁，默认值为true。          true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。 |
+| boolean | 获取当前RenderNode是否需要进行剪裁，默认值为true。 true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -916,8 +893,8 @@ struct Index {
 ```
 
 
-### opacity
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### opacity
 
 set opacity(value: number)
 
@@ -928,7 +905,6 @@ set opacity(value: number)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -945,7 +921,6 @@ get opacity(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 获取当前RenderNode的不透明度，默认值为1，不透明。 |
@@ -953,8 +928,7 @@ get opacity(): number
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -995,8 +969,8 @@ struct Index {
 ```
 
 
-### size
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### size
 
 set size(size: Size)
 
@@ -1008,10 +982,9 @@ set size(size: Size)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| size | [Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#size) | 是 | 将要设置的RenderNode的大小。 |
+| size | Size | 是 | 将要设置的RenderNode的大小。 |
 
 
 get size(): Size
@@ -1024,16 +997,14 @@ get size(): Size
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#size) | 获取当前RenderNode的大小，默认值宽度和高度为0。 |
+| Size | 获取当前RenderNode的大小，默认值宽度和高度为0。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1073,8 +1044,8 @@ struct Index {
 ```
 
 
-### position
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### position
 
 set position(position: Position)
 
@@ -1086,10 +1057,9 @@ set position(position: Position)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| position | [Position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#position) | 是 | 将要设置的RenderNode的位置。 |
+| position | Position | 是 | 将要设置的RenderNode的位置。 |
 
 
 get position(): Position
@@ -1102,16 +1072,14 @@ get position(): Position
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#position) | 获取当前RenderNode的位置，默认位置为{ x: 0, y: 0 }。 |
+| Position | 获取当前RenderNode的位置，默认位置为{ x: 0, y: 0 }。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1152,8 +1120,8 @@ struct Index {
 ```
 
 
-### frame
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### frame
 
 set frame(frame: Frame)
 
@@ -1165,10 +1133,9 @@ set frame(frame: Frame)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| frame | [Frame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#frame) | 是 | 将要设置的RenderNode的大小和位置。 |
+| frame | Frame | 是 | 将要设置的RenderNode的大小和位置。 |
 
 
 get frame(): Frame
@@ -1181,16 +1148,14 @@ get frame(): Frame
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Frame](#frame) | 获取当前RenderNode的大小和位置，默认值为{ x: 0, y: 0, width: 0, height: 0 }。 |
+| Frame | 获取当前RenderNode的大小和位置，默认值为{ x: 0, y: 0, width: 0, height: 0 }。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1230,8 +1195,8 @@ struct Index {
 ```
 
 
-### pivot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pivot
 
 set pivot(pivot: Pivot)
 
@@ -1243,10 +1208,9 @@ set pivot(pivot: Pivot)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pivot | [Pivot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#pivot) | 是 | 将要设置的RenderNode的轴心。 |
+| pivot | Pivot | 是 | 将要设置的RenderNode的轴心。 |
 
 
 get pivot(): Pivot
@@ -1259,16 +1223,14 @@ get pivot(): Pivot
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Pivot](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#pivot) | 获取当前RenderNode的轴心，默认值为{ x: 0.5, y: 0.5}。 |
+| Pivot | 获取当前RenderNode的轴心，默认值为{ x: 0.5, y: 0.5}。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1311,8 +1273,8 @@ struct Index {
 ```
 
 
-### scale
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### scale
 
 set scale(scale: Scale)
 
@@ -1324,10 +1286,9 @@ set scale(scale: Scale)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | [Scale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#scale) | 是 | 将要设置的RenderNode的缩放比例。 |
+| scale | Scale | 是 | 将要设置的RenderNode的缩放比例。 |
 
 
 get scale(): Scale
@@ -1340,16 +1301,14 @@ get scale(): Scale
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Scale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#scale) | 获取当前RenderNode的比例，默认值为{ x: 1, y: 1 }。 |
+| Scale | 获取当前RenderNode的比例，默认值为{ x: 1, y: 1 }。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1390,8 +1349,8 @@ struct Index {
 ```
 
 
-### translation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### translation
 
 set translation(translation: Translation)
 
@@ -1403,10 +1362,9 @@ set translation(translation: Translation)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| translation | [Translation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#translation) | 是 | 将要设置的RenderNode的平移量。 |
+| translation | Translation | 是 | 将要设置的RenderNode的平移量。 |
 
 
 get translation(): Translation
@@ -1419,16 +1377,14 @@ get translation(): Translation
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Translation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#translation) | 获取当前RenderNode的平移量，默认值为{ x: 0, y: 0 }。 |
+| Translation | 获取当前RenderNode的平移量，默认值为{ x: 0, y: 0 }。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1469,8 +1425,8 @@ struct Index {
 ```
 
 
-### rotation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### rotation
 
 set rotation(rotation: Rotation)
 
@@ -1482,10 +1438,9 @@ set rotation(rotation: Rotation)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rotation | [Rotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#rotation) | 是 | 将要设置的RenderNode的旋转角度。 |
+| rotation | Rotation | 是 | 将要设置的RenderNode的旋转角度。 |
 
 
 get rotation(): Rotation
@@ -1498,16 +1453,14 @@ get rotation(): Rotation
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Rotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#rotation) | 当前RenderNode的旋转角度。默认值为{ x: 0, y: 0, z: 0}。 |
+| Rotation | 当前RenderNode的旋转角度。默认值为{ x: 0, y: 0, z: 0}。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1548,8 +1501,8 @@ struct Index {
 ```
 
 
-### transform
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### transform
 
 set transform(transform: Matrix4)
 
@@ -1561,19 +1514,22 @@ set transform(transform: Matrix4)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| transform | [Matrix4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#matrix4) | 是 | 将要设置的RenderNode的变换矩阵。 |
+| transform | Matrix4 | 是 | 将要设置的RenderNode的变换矩阵。 |
 
 
 get transform(): Matrix4
 
 获取当前RenderNode的变换矩阵。默认值为：
 
-
-```ts
-[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+```text
+[
+  1, 0, 0, 0,
+  0, 1, 0, 0,
+  0, 0, 1, 0,
+  0, 0, 0, 1
+]
 ```
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1582,16 +1538,14 @@ get transform(): Matrix4
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Matrix4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#matrix4) | 当前RenderNode的变换矩阵。 |
+| Matrix4 | 当前RenderNode的变换矩阵。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1599,10 +1553,10 @@ renderNode.backgroundColor = 0xffff0000;
 renderNode.frame = { x: 10, y: 10, width: 100, height: 100 };
 // 设置renderNode的变换矩阵
 renderNode.transform = [
-1, 0, 0, 0,
-0, 2, 0, 0,
-0, 0, 1, 0,
-0, 0, 0, 1
+  1, 0, 0, 0,
+  0, 2, 0, 0,
+  0, 0, 1, 0,
+  0, 0, 0, 1
 ];
 // 获取renderNode的变换矩阵
 const transform = renderNode.transform;
@@ -1637,8 +1591,8 @@ struct Index {
 ```
 
 
-### shadowColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### shadowColor
 
 set shadowColor(color: number)
 
@@ -1650,10 +1604,9 @@ set shadowColor(color: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | number | 是 | 将要设置的RenderNode的阴影颜色，ARGB格式。          取值范围是符合ARGB格式的颜色。 |
+| color | number | 是 | 将要设置的RenderNode的阴影颜色，ARGB格式。 取值范围是符合ARGB格式的颜色。 |
 
 
 get shadowColor(): number
@@ -1666,7 +1619,6 @@ get shadowColor(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 当前RenderNode的阴影颜色，ARGB格式，默认值为0X00000000。 |
@@ -1674,8 +1626,7 @@ get shadowColor(): number
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1717,8 +1668,8 @@ struct Index {
 ```
 
 
-### shadowOffset
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### shadowOffset
 
 set shadowOffset(offset: Offset)
 
@@ -1730,10 +1681,9 @@ set shadowOffset(offset: Offset)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | [Offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#offset) | 是 | 将要设置的RenderNode的阴影偏移。 |
+| offset | Offset | 是 | 将要设置的RenderNode的阴影偏移。 |
 
 
 get shadowOffset(): Offset
@@ -1746,16 +1696,14 @@ get shadowOffset(): Offset
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Offset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#offset) | 当前RenderNode的阴影偏移，默认值为{ x: 0, y: 0 }。 |
+| Offset | 当前RenderNode的阴影偏移，默认值为{ x: 0, y: 0 }。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1798,8 +1746,8 @@ struct Index {
 ```
 
 
-### label12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### label12+
 
 set label(label: string)
 
@@ -1810,7 +1758,6 @@ set label(label: string)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1827,7 +1774,6 @@ get label(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 当前RenderNode的标签，默认值为""。 |
@@ -1835,8 +1781,7 @@ get label(): string
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController, UIContext } from '@kit.ArkUI';
 
 // 继承NodeController实现自定义UI控制器
@@ -1869,17 +1814,17 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .width(300)
-      .height(700)
-      .backgroundColor(Color.Gray)
+        .width(300)
+        .height(700)
+        .backgroundColor(Color.Gray)
     }
   }
 }
 ```
 
 
-### shadowAlpha
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### shadowAlpha
 
 set shadowAlpha(alpha: number)
 
@@ -1891,10 +1836,9 @@ set shadowAlpha(alpha: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| alpha | number | 是 | 将要设置的RenderNode的阴影颜色的Alpha值。          取值范围是alpha值。 |
+| alpha | number | 是 | 将要设置的RenderNode的阴影颜色的Alpha值。 取值范围是alpha值。 |
 
 
 get shadowAlpha(): number
@@ -1907,7 +1851,6 @@ get shadowAlpha(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 当前RenderNode的阴影颜色的Alpha值，默认值为0。 |
@@ -1915,8 +1858,7 @@ get shadowAlpha(): number
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -1960,8 +1902,8 @@ struct Index {
 ```
 
 
-### shadowElevation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### shadowElevation
 
 set shadowElevation(elevation: number)
 
@@ -1973,10 +1915,9 @@ set shadowElevation(elevation: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| elevation | number | 是 | 将要设置的RenderNode的光照高度。          取值范围：[0, +∞) |
+| elevation | number | 是 | 将要设置的RenderNode的光照高度。 取值范围：[0, +∞) |
 
 
 get shadowElevation(): number
@@ -1989,16 +1930,14 @@ get shadowElevation(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 当前RenderNode的阴影高度，默认值为0。          取值范围：[0, +∞) |
+| number | 当前RenderNode的阴影高度，默认值为0。 取值范围：[0, +∞) |
 
 
 **示例：**
 
-
-```ts
+```text
 import {  RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2040,11 +1979,13 @@ struct Index {
 }
 ```
 
-![](assets/RenderNode/file-20260514163850516-0.jpg)
+
+![](assets/RenderNode/file-20260514163850516-1.jpg)
 
 
-### shadowRadius
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### shadowRadius
 
 set shadowRadius(radius: number)
 
@@ -2056,10 +1997,9 @@ set shadowRadius(radius: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radius | number | 是 | 将要设置的RenderNode的阴影模糊半径。          取值范围：[0, +∞) |
+| radius | number | 是 | 将要设置的RenderNode的阴影模糊半径。 取值范围：[0, +∞) |
 
 
 get shadowRadius(): number
@@ -2072,16 +2012,14 @@ get shadowRadius(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 当前RenderNode的阴影模糊半径，默认值为0。          取值范围：[0, +∞) |
+| number | 当前RenderNode的阴影模糊半径，默认值为0。 取值范围：[0, +∞) |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2129,11 +2067,13 @@ struct Index {
 }
 ```
 
-![](assets/RenderNode/file-20260514163850516-1.jpg)
+
+![](assets/RenderNode/file-20260514163850516-2.png)
 
 
-### draw
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### draw
 
 draw(context: DrawContext): void
 
@@ -2141,9 +2081,9 @@ draw(context: DrawContext): void
 
 该接口的[DrawContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#drawcontext)中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见[调整自定义绘制Canvas的变换矩阵](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-rendernode#调整自定义绘制canvas的变换矩阵)。
 
-
 > [!NOTE]
 > RenderNode初始化时，会调用两次draw方法。第一次调用是在首次创建FrameNode时触发Render流程，第二次调用是在首次设置modifier时触发绘制。后续绘制流程皆由modifier触发。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2151,18 +2091,16 @@ draw(context: DrawContext): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [DrawContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#drawcontext) | 是 | 图形绘制上下文。 |
+| context | DrawContext | 是 | 图形绘制上下文。 |
 
 
 **示例：**
 
 ArkTS侧代码：
 
-
-```ts
+```ArkTS
 // Index.ets
 import bridge from "libentry.so"; // 该 so 由开发者通过 NAPI 编写并生成
 import { RenderNode, FrameNode, NodeController, DrawContext } from '@kit.ArkUI';
@@ -2215,8 +2153,7 @@ struct Index {
 
 C++侧可通过NAPI来获取Canvas，并进行后续的自定义绘制操作。
 
-
-```text
+```cpp
 // native_bridge.cpp
 #include "napi/native_api.h"
 #include <native_drawing/drawing_canvas.h>
@@ -2226,76 +2163,75 @@ C++侧可通过NAPI来获取Canvas，并进行后续的自定义绘制操作。
 
 static napi_value OnDraw(napi_env env, napi_callback_info info)
 {
-size_t argc = 4;
-napi_value args[4] = { nullptr };
-napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
+    size_t argc = 4;
+    napi_value args[4] = { nullptr };
+    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-int32_t id;
-napi_get_value_int32(env, args[0], &id);
+    int32_t id;
+    napi_get_value_int32(env, args[0], &id);
+    
+    // 获取 Canvas 指针
+    void* temp = nullptr;
+    napi_unwrap(env, args[1], &temp);
+    OH_Drawing_Canvas *canvas = reinterpret_cast<OH_Drawing_Canvas*>(temp);
+    
+    // 获取 Canvas 宽度
+    int32_t width;
+    napi_get_value_int32(env, args[2], &width);
+    
+    // 获取 Canvas 高度
+    int32_t height;
+    napi_get_value_int32(env, args[3], &height);
+    
+    // 传入canvas、height、width等信息至绘制函数中进行自定义绘制
+    auto path = OH_Drawing_PathCreate();
+    OH_Drawing_PathMoveTo(path, width / 4, height / 4);
+    OH_Drawing_PathLineTo(path, width * 3 / 4, height / 4);
+    OH_Drawing_PathLineTo(path, width * 3 / 4, height * 3 / 4);
+    OH_Drawing_PathLineTo(path, width / 4, height * 3 / 4);
+    OH_Drawing_PathLineTo(path, width / 4, height / 4);
+    OH_Drawing_PathClose(path);
+    
+    auto pen = OH_Drawing_PenCreate();
+    OH_Drawing_PenSetWidth(pen, 10);
+    OH_Drawing_PenSetColor(pen, OH_Drawing_ColorSetArgb(0xFF, 0xFF, 0x00, 0x00));
+    OH_Drawing_CanvasAttachPen(canvas, pen);
+    
+    OH_Drawing_CanvasDrawPath(canvas, path);
 
-// 获取 Canvas 指针
-void* temp = nullptr;
-napi_unwrap(env, args[1], &temp);
-OH_Drawing_Canvas *canvas = reinterpret_cast<OH_Drawing_Canvas*>(temp);
-
-// 获取 Canvas 宽度
-int32_t width;
-napi_get_value_int32(env, args[2], &width);
-
-// 获取 Canvas 高度
-int32_t height;
-napi_get_value_int32(env, args[3], &height);
-
-// 传入canvas、height、width等信息至绘制函数中进行自定义绘制
-auto path = OH_Drawing_PathCreate();
-OH_Drawing_PathMoveTo(path, width / 4, height / 4);
-OH_Drawing_PathLineTo(path, width * 3 / 4, height / 4);
-OH_Drawing_PathLineTo(path, width * 3 / 4, height * 3 / 4);
-OH_Drawing_PathLineTo(path, width / 4, height * 3 / 4);
-OH_Drawing_PathLineTo(path, width / 4, height / 4);
-OH_Drawing_PathClose(path);
-
-auto pen = OH_Drawing_PenCreate();
-OH_Drawing_PenSetWidth(pen, 10);
-OH_Drawing_PenSetColor(pen, OH_Drawing_ColorSetArgb(0xFF, 0xFF, 0x00, 0x00));
-OH_Drawing_CanvasAttachPen(canvas, pen);
-
-OH_Drawing_CanvasDrawPath(canvas, path);
-
-return nullptr;
+    return nullptr;
 }
 
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
-napi_property_descriptor desc[] = {
-{ "nativeOnDraw", nullptr, OnDraw, nullptr, nullptr, nullptr, napi_default, nullptr }
-};
-napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
-return exports;
+    napi_property_descriptor desc[] = {
+        { "nativeOnDraw", nullptr, OnDraw, nullptr, nullptr, nullptr, napi_default, nullptr }
+    };
+    napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
+    return exports;
 }
 EXTERN_C_END
 
 static napi_module demoModule = {
-.nm_version =1,
-.nm_flags = 0,
-.nm_filename = nullptr,
-.nm_register_func = Init,
-.nm_modname = "entry",
-.nm_priv = ((void*)0),
-.reserved = { 0 },
+    .nm_version =1,
+    .nm_flags = 0,
+    .nm_filename = nullptr,
+    .nm_register_func = Init,
+    .nm_modname = "entry",
+    .nm_priv = ((void*)0),
+    .reserved = { 0 },
 };
 
 extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 {
-napi_module_register(&demoModule);
+    napi_module_register(&demoModule);
 }
 ```
 
 修改工程中的src/main/cpp/CMakeLists.txt文件，添加如下内容：
 
-
-```text
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.4.1)
 project(NapiTest)
@@ -2303,7 +2239,7 @@ project(NapiTest)
 set(NATIVERENDER_ROOT_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
 include_directories(${NATIVERENDER_ROOT_PATH}
-${NATIVERENDER_ROOT_PATH}/include)
+                    ${NATIVERENDER_ROOT_PATH}/include)
 
 add_library(entry SHARED native_bridge.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so)
@@ -2313,21 +2249,15 @@ target_link_libraries(entry PUBLIC libnative_drawing.so)
 
 同时在工程中的src/main/cpp/types/libentry/index.d.ts文件中，添加自定义绘制函数在ArkTs侧的定义，如：
 
-
-```ts
+```text
 import { DrawContext } from '@kit.ArkUI';
 
-export const nativeOnDraw: (
-  id: number,
-  context: DrawContext,
-  width: number,
-  height: number,
-) => number;
+export const nativeOnDraw: (id: number, context: DrawContext, width: number, height: number) => number;
 ```
 
 
-### invalidate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### invalidate
 
 invalidate(): void
 
@@ -2339,8 +2269,7 @@ invalidate(): void
 
 **示例：**
 
-
-```ts
+```text
 import bridge from "libentry.so"; // 该 so 由开发者通过 NAPI 编写并生成
 import { RenderNode, FrameNode, NodeController, DrawContext } from '@kit.ArkUI';
 
@@ -2386,12 +2315,12 @@ struct Index {
     Column() {
       Column() {
         NodeContainer(this.myNodeController)
-        .width('100%')
+          .width('100%')
         Button('Invalidate')
-        .onClick(() => {
-          // 触发RenderNode的重新渲染
-          this.myNodeController.newNode?.invalidate()
-        })
+          .onClick(() => {
+            // 触发RenderNode的重新渲染
+            this.myNodeController.newNode?.invalidate()
+          })
       }
       .width('100%')
       .height('100%')
@@ -2404,10 +2333,10 @@ struct Index {
 libentry.so的构建方式见draw方法的示例。
 
 
-### borderStyle12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-set borderStyle(style: Edges<BorderStyle>)
+##### borderStyle12+
+
+set borderStyle(style: Edges&lt;BorderStyle&gt;)
 
 设置当前RenderNode的边框样式。
 
@@ -2417,13 +2346,12 @@ set borderStyle(style: Edges<BorderStyle>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | [Edges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#edgest12)&lt;[BorderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#borderstyle)&gt; | 是 | RenderNode的边框样式。 |
+| style | Edges&lt;BorderStyle&gt; | 是 | RenderNode的边框样式。 |
 
 
-get borderStyle(): Edges<BorderStyle>
+get borderStyle(): Edges&lt;BorderStyle&gt;
 
 获取当前RenderNode的边框样式。
 
@@ -2433,16 +2361,14 @@ get borderStyle(): Edges<BorderStyle>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Edges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#edgest12)&lt;[BorderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#borderstyle)&gt; | RenderNode的边框样式。 |
+| Edges&lt;BorderStyle&gt; | RenderNode的边框样式。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2490,10 +2416,10 @@ struct Index {
 ```
 
 
-### borderWidth12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-set borderWidth(width: Edges<number>)
+##### borderWidth12+
+
+set borderWidth(width: Edges&lt;number&gt;)
 
 设置当前RenderNode的边框宽度。
 
@@ -2503,13 +2429,12 @@ set borderWidth(width: Edges<number>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | [Edges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#edgest12)&lt;number&gt; | 是 | RenderNode的边框宽度，单位为vp。 |
+| width | Edges&lt;number&gt; | 是 | RenderNode的边框宽度，单位为vp。 |
 
 
-get borderWidth(): Edges<number>
+get borderWidth(): Edges&lt;number&gt;
 
 获取当前RenderNode的边框宽度。
 
@@ -2519,16 +2444,14 @@ get borderWidth(): Edges<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Edges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#edgest12)&lt;number&gt; | RenderNode的边框宽度，默认所有边框宽度为0vp。 |
+| Edges&lt;number&gt; | RenderNode的边框宽度，默认所有边框宽度为0vp。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2570,10 +2493,10 @@ struct Index {
 ```
 
 
-### borderColor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-set borderColor(color: Edges<number>)
+##### borderColor12+
+
+set borderColor(color: Edges&lt;number&gt;)
 
 设置当前RenderNode的边框颜色。
 
@@ -2583,13 +2506,12 @@ set borderColor(color: Edges<number>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [Edges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#edgest12)&lt;number&gt; | 是 | RenderNode的边框颜色。 |
+| color | Edges&lt;number&gt; | 是 | RenderNode的边框颜色。 |
 
 
-get borderColor(): Edges<number>
+get borderColor(): Edges&lt;number&gt;
 
 获取当前RenderNode的边框颜色。
 
@@ -2599,16 +2521,14 @@ get borderColor(): Edges<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Edges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#edgest12)&lt;number&gt; | RenderNode的边框颜色，默认所有边框颜色为0XFF000000。 |
+| Edges&lt;number&gt; | RenderNode的边框颜色，默认所有边框颜色为0XFF000000。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2651,8 +2571,8 @@ struct Index {
 ```
 
 
-### borderRadius12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### borderRadius12+
 
 set borderRadius(radius: BorderRadiuses)
 
@@ -2664,10 +2584,9 @@ set borderRadius(radius: BorderRadiuses)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radius | [BorderRadiuses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#borderradiuses12) | 是 | RenderNode的边框圆角，单位为vp。 |
+| radius | BorderRadiuses | 是 | RenderNode的边框圆角，单位为vp。 |
 
 
 get borderRadius(): BorderRadiuses
@@ -2680,16 +2599,14 @@ get borderRadius(): BorderRadiuses
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [BorderRadiuses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#borderradiuses12) | RenderNode的边框圆角，默认所有边框圆角为0vp。 |
+| BorderRadiuses | RenderNode的边框圆角，默认所有边框圆角为0vp。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2731,8 +2648,8 @@ struct Index {
 ```
 
 
-### shapeMask12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### shapeMask12+
 
 set shapeMask(shapeMask: ShapeMask)
 
@@ -2744,10 +2661,9 @@ set shapeMask(shapeMask: ShapeMask)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shapeMask | [ShapeMask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#shapemask12) | 是 | RenderNode的遮罩。 |
+| shapeMask | ShapeMask | 是 | RenderNode的遮罩。 |
 
 
 get shapeMask(): ShapeMask
@@ -2760,16 +2676,14 @@ get shapeMask(): ShapeMask
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ShapeMask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#shapemask12) | RenderNode的边框遮罩。 |
+| ShapeMask | RenderNode的边框遮罩。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeMask } from '@kit.ArkUI';
 
 // 创建遮罩并设置填充颜色、边框颜色、边框宽度
@@ -2818,8 +2732,8 @@ struct Index {
 ```
 
 
-### shapeClip12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### shapeClip12+
 
 set shapeClip(shapeClip: ShapeClip)
 
@@ -2831,10 +2745,9 @@ set shapeClip(shapeClip: ShapeClip)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shapeClip | [ShapeClip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#shapeclip12) | 是 | RenderNode的裁剪形状。 |
+| shapeClip | ShapeClip | 是 | RenderNode的裁剪形状。 |
 
 
 get shapeClip(): ShapeClip
@@ -2847,16 +2760,14 @@ get shapeClip(): ShapeClip
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ShapeClip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#shapeclip12) | RenderNode的裁剪形状。 |
+| ShapeClip | RenderNode的裁剪形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeClip } from '@kit.ArkUI';
 
 // 创建图形裁剪形状并设置路径绘制指令
@@ -2900,63 +2811,63 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
+        .borderWidth(1)
       Button("setRectShape")
-      .onClick(() => {
-        shapeClip.setRectShape({
-          left: 0,
-          right: 150,
-          top: 0,
-          bottom: 150
-        });
-        renderNode.shapeClip = shapeClip;
-      })
-      Button("setRoundRectShape")
-      .onClick(() => {
-        shapeClip.setRoundRectShape({
-          rect: {
+        .onClick(() => {
+          shapeClip.setRectShape({
             left: 0,
+            right: 150,
             top: 0,
-            right: this.getUIContext().vp2px(150),
-            bottom: this.getUIContext().vp2px(150)
-          },
-          corners: {
-            topLeft: { x: 32, y: 32 },
-            topRight: { x: 32, y: 32 },
-            bottomLeft: { x: 32, y: 32 },
-            bottomRight: { x: 32, y: 32 }
-          }
-        });
-        renderNode.shapeClip = shapeClip;
-      })
+            bottom: 150
+          });
+          renderNode.shapeClip = shapeClip;
+        })
+      Button("setRoundRectShape")
+        .onClick(() => {
+          shapeClip.setRoundRectShape({
+            rect: {
+              left: 0,
+              top: 0,
+              right: this.getUIContext().vp2px(150),
+              bottom: this.getUIContext().vp2px(150)
+            },
+            corners: {
+              topLeft: { x: 32, y: 32 },
+              topRight: { x: 32, y: 32 },
+              bottomLeft: { x: 32, y: 32 },
+              bottomRight: { x: 32, y: 32 }
+            }
+          });
+          renderNode.shapeClip = shapeClip;
+        })
       Button("setCircleShape")
-      .onClick(() => {
-        shapeClip.setCircleShape({ centerY: 75, centerX: 75, radius: 75 });
-        renderNode.shapeClip = shapeClip;
-      })
+        .onClick(() => {
+          shapeClip.setCircleShape({ centerY: 75, centerX: 75, radius: 75 });
+          renderNode.shapeClip = shapeClip;
+        })
       Button("setOvalShape")
-      .onClick(() => {
-        shapeClip.setOvalShape({
-          left: 0,
-          right: this.getUIContext().vp2px(150),
-          top: 0,
-          bottom: this.getUIContext().vp2px(100)
-        });
-        renderNode.shapeClip = shapeClip;
-      })
+        .onClick(() => {
+          shapeClip.setOvalShape({
+            left: 0,
+            right: this.getUIContext().vp2px(150),
+            top: 0,
+            bottom: this.getUIContext().vp2px(100)
+          });
+          renderNode.shapeClip = shapeClip;
+        })
       Button("setCommandPath")
-      .onClick(() => {
-        shapeClip.setCommandPath({ commands: "M100 0 L0 100 L50 200 L150 200 L200 100 Z" });
-        renderNode.shapeClip = shapeClip;
-      })
+        .onClick(() => {
+          shapeClip.setCommandPath({ commands: "M100 0 L0 100 L50 200 L150 200 L200 100 Z" });
+          renderNode.shapeClip = shapeClip;
+        })
     }
   }
 }
 ```
 
 
-### dispose12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### dispose12+
 
 dispose(): void
 
@@ -2968,8 +2879,7 @@ dispose(): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -3012,24 +2922,26 @@ struct Index {
     Column({ space: 4 }) {
       NodeContainer(this.myNodeController)
       Button('RenderNode dispose')
-      .onClick(() => {
-        this.myNodeController.disposeRenderNode();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.myNodeController.disposeRenderNode();
+        })
+        .width('100%')
     }
   }
 }
 ```
 
 
-### markNodeGroup12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### markNodeGroup12+
 
 set markNodeGroup(isNodeGroup: boolean)
 
 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成。设置效果如下：
 
-![](assets/RenderNode/file-20260514163850516-2.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Xj0WpJOTSVmVw62W1tZ4hA/zh-cn_image_0000002611835415.png?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=78A900B54C0361BE65B9252ABD65D9FF9C811252C9E1674C625ECCFA988823B6)
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3037,10 +2949,9 @@ set markNodeGroup(isNodeGroup: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNodeGroup | boolean | 是 | 设置是否优先绘制节点及其子节点。          true表示优先绘制节点及其子节点，false表示不是优先绘制节点及其子节点。 |
+| isNodeGroup | boolean | 是 | 设置是否优先绘制节点及其子节点。 true表示优先绘制节点及其子节点，false表示不是优先绘制节点及其子节点。 |
 
 
 get markNodeGroup(): boolean
@@ -3053,16 +2964,14 @@ get markNodeGroup(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 当前节点是否标记了优先绘制。          true表示当前节点标记了优先绘制，false表示当前节点没有标记优先绘制。          默认值：false |
+| boolean | 当前节点是否标记了优先绘制。 true表示当前节点标记了优先绘制，false表示当前节点没有标记优先绘制。 默认值：false |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, DrawContext } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -3122,8 +3031,8 @@ struct Index {
 ```
 
 
-### lengthMetricsUnit12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lengthMetricsUnit12+
 
 set lengthMetricsUnit(unit: LengthMetricsUnit)
 
@@ -3135,10 +3044,9 @@ set lengthMetricsUnit(unit: LengthMetricsUnit)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| unit | [LengthMetricsUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetricsunit12) | 是 | 设置RenderNode各个属性使用的单位。 |
+| unit | LengthMetricsUnit | 是 | 设置RenderNode各个属性使用的单位。 |
 
 
 get lengthMetricsUnit(): LengthMetricsUnit
@@ -3151,16 +3059,14 @@ get lengthMetricsUnit(): LengthMetricsUnit
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LengthMetricsUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetricsunit12) | 获取RenderNode各个属性使用的单位，默认值为LengthMetricsUnit.DEFAULT。 |
+| LengthMetricsUnit | 获取RenderNode各个属性使用的单位，默认值为LengthMetricsUnit.DEFAULT。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, DrawContext } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 import { LengthMetricsUnit } from '@kit.ArkUI';
@@ -3218,8 +3124,8 @@ struct Index {
 ```
 
 
-### isDisposed20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isDisposed20+
 
 isDisposed(): boolean
 
@@ -3231,7 +3137,6 @@ isDisposed(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 后端实体节点是否解除引用。true为节点已与后端实体节点解除引用，false为节点未与后端实体节点解除引用。 |
@@ -3239,8 +3144,7 @@ isDisposed(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -3296,20 +3200,20 @@ struct Index {
     Column({ space: 4 }) {
       NodeContainer(this.myNodeController)
       Button('RenderNode dispose')
-      .onClick(() => {
-        this.myNodeController.disposeRenderNode();
-        this.text = '';
-      })
-      .width(200)
-      .height(50)
+        .onClick(() => {
+          this.myNodeController.disposeRenderNode();
+          this.text = '';
+        })
+        .width(200)
+        .height(50)
       Button('RenderNode isDisposed')
-      .onClick(() => {
-        this.text = this.myNodeController.isDisposed();
-      })
-      .width(200)
-      .height(50)
+        .onClick(() => {
+          this.text = this.myNodeController.isDisposed();
+        })
+        .width(200)
+        .height(50)
       Text(this.text)
-      .fontSize(25)
+        .fontSize(25)
     }
     .width('100%')
     .height('100%')
@@ -3317,4 +3221,5 @@ struct Index {
 }
 ```
 
-![](assets/RenderNode/file-20260514163850516-3.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/qC5O2kLiSiKJ7WFwhTeZuw/zh-cn_image_0000002581275668.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=8F62E9BC460C4A2DEF08A35D942125548F4F8AA269F92A66B3A595A1A09DC3D8)

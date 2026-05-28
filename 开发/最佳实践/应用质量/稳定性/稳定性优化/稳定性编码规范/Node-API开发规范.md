@@ -4,12 +4,16 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-coding-standard-node
 
-#### 获取JS传入参数及其数量
-**【规则】**当传入napi_get_cb_info的argv不为nullptr时，argv的长度必须大于等于传入argc声明的大小。
-当argv不为nullptr时，napi_get_cb_info会根据argc声明的数量将JS实际传入的参数写入argv。如果argc小于或等于实际JS传入参数的数量，该接口仅会将声明的argc数量的参数写入argv；而当argc大于实际参数数量时，该接口会在argv的尾部填充undefined。
-**错误示例**
+##### 获取JS传入参数及其数量
 
-```ts
+ 
+**【规则】**当传入napi_get_cb_info的argv不为nullptr时，argv的长度必须大于等于传入argc声明的大小。
+ 
+当argv不为nullptr时，napi_get_cb_info会根据argc声明的数量将JS实际传入的参数写入argv。如果argc小于或等于实际JS传入参数的数量，该接口仅会将声明的argc数量的参数写入argv；而当argc大于实际参数数量时，该接口会在argv的尾部填充undefined。
+ 
+**错误示例**
+ 
+```text
 static napi_value IncorrectDemo1(napi_env env, napi_callback_info info) {
     // The `argc` is not properly initialized, resulting in an indeterminate random value, which may cause the length of `argv` to be less than the number declared by `argc`, leading to data overrun. 
     size_t argc;
@@ -26,9 +30,9 @@ static napi_value IncorrectDemo2(napi_env env, napi_callback_info info) {
     return nullptr;
 }
 ```
-
+ 
 **正确示例**
-
+ 
 ```cpp
 static napi_value GetArgvDemo1(napi_env env, napi_callback_info info) {
     size_t argc = 0;
@@ -59,12 +63,17 @@ static napi_value GetArgvDemo2(napi_env env, napi_callback_info info) {
     return nullptr;
 }
 ```
+ 
 
-#### 生命周期管理
+##### 生命周期管理
+
+ 
 **【规则】**合理使用napi_open_handle_scope和napi_close_handle_scope管理napi_value的生命周期，做到生命周期最小化，避免发生内存泄漏问题。
+ 
 每个napi_value属于特定的HandleScope。HandleScope通过napi_open_handle_scope和napi_close_handle_scope来建立和关闭。HandleScope关闭后，所属的napi_value会自动释放。
+ 
 **正确示例**：
-
+ 
 ```cpp
 static void OpenHandleScope(napi_env env, napi_callback_info info) {
     /**
@@ -85,13 +94,18 @@ static void OpenHandleScope(napi_env env, napi_callback_info info) {
     }
 }
 ```
+ 
 
-#### 上下文敏感
+##### 上下文敏感
+
+ 
 **【规则】**多引擎实例场景下，禁止通过Node-API跨引擎实例访问JS对象。
+ 
 引擎实例是一个独立的运行环境。JS对象的创建和访问操作必须在同一个引擎实例中进行。如果在不同的引擎实例中操作同一个对象，可能会引发程序崩溃。引擎实例在接口中体现为napi_env。
+ 
 **错误示例**：
-
-```cpp
+ 
+```text
 // Thread 1 executes, creating a string object in env1 with the value "bar". 
 napi_create_string_utf8(env1, "bar", NAPI_AUTO_LENGTH, &string);
 // Thread 2 executes, creates an object in env2, and sets the aforementioned string object into the object. 
@@ -107,13 +121,17 @@ if (status != napi_ok) {
     return;
 }
 ```
-
+ 
 所有的JS对象都隶属于具体的某一napi_env，不可将env1的对象，设置到env2中的对象中。在env2中一旦访问到env1的对象，程序可能会发生崩溃。
+ 
 
-#### 异常处理
+##### 异常处理
+
+ 
 **【建议】**Node-API接口调用发生异常需要及时处理，不能遗漏异常到后续逻辑，否则程序可能发生不可预期行为。
+ 
 **正确示例**：
-
+ 
 ```cpp
 static void ErroHandle(napi_env env, napi_callback_info info) {
     napi_value object, string;
@@ -138,14 +156,19 @@ static void ErroHandle(napi_env env, napi_callback_info info) {
     }
 }
 ```
-
+ 
 如上示例中，步骤1或者步骤2出现异常时，步骤3都不会正常进行。只有当方法的返回值是napi_ok时，才能保持继续正常运行；否则后续流程可能会出现不可预期的行为。
+ 
 
-#### 异步任务
+##### 异步任务
+
+ 
 **【规则】**当使用uv_queue_work方法将任务抛到JS线程上面执行的时候，对JS线程的回调方法，一般情况下需要加上napi_handle_scope来管理回调方法创建的napi_value的生命周期。
+ 
 使用uv_queue_work方法，不会走Node-API框架，此时需要开发者自己合理使用napi_handle_scope来管理napi_value的生命周期。
+ 
 **正确示例**：
-
+ 
 ```cpp
 void callbackTest(CallbackContext* context)
 {
@@ -189,19 +212,25 @@ void callbackTest(CallbackContext* context)
     );
 }
 ```
+ 
 
-#### 对象绑定
+##### 对象绑定
+
+ 
 **【规则】**使用napi_wrap接口，如果最后一个参数result传递不为nullptr，需要开发者在合适的时机调用napi_remove_wrap函数主动删除创建的napi_ref。
+ 
 napi_wrap接口定义如下：
-
-```ts
+ 
+```text
 napi_wrap(napi_env env, napi_value js_object, void* native_object, napi_finalize finalize_cb, void* finalize_hint, napi_ref* result)
 ```
-
+ 
 当最后一个参数result不为nullptr时，框架会创建一个napi_ref对象，指向js_object。开发者需要管理js_object的生命周期，在合适时机调用napi_remove_wrap删除napi_ref，以便GC正常释放js_object，触发绑定的C++对象native_object的析构函数finalize_cb。
+ 
 根据业务情况，最后一个参数result可以直接传递为nullptr。
+ 
 **正确示例**：
-
+ 
 ```cpp
 void NapiWrapTest(napi_env env, napi_callback_info info) {
     napi_value jsobject, nativeObject;
@@ -221,15 +250,23 @@ void NapiWrapTest(napi_env env, napi_callback_info info) {
     napi_remove_wrap(env, jsobject, &nativeObjectResult);
 }
 ```
+ 
 
-#### 高性能数组
+##### 高性能数组
+
+ 
 **【建议】**存储值类型数据时，使用ArrayBuffer代替JSArray来提高应用性能。
+ 
 使用JSArray作为容器储存数据，支持几乎所有的JS数据类型。
+ 
 使用napi_set_element方法对JSArray存储值类型数据（如int32）时，同样会涉及到与运行时的交互，造成不必要的开销。
+ 
 ArrayBuffer进行增改是直接对缓冲区进行更改，性能显著优于使用napi_set_element操作JSArray。
+ 
 在这种场景下，推荐使用napi_create_arraybuffer接口创建 ArrayBuffer 对象。
+ 
 **示例：**
-
+ 
 ```cpp
 // The following code uses a regular JSArray as a container, but it only stores data of type int32.
 // But because it is a JS object, it can only be modified using the napi method, resulting in lower performance.
@@ -274,34 +311,49 @@ static napi_value ArrayBufferDemo(napi_env env, napi_callback_info info)
     return arrBuffer;
 }
 ```
-
+ 
 napi_create_arraybuffer等同于JS代码中的newArrayBuffer(size)，生成的对象不可直接在TS/JS中读取，需要将其包装为TypedArray或DataView后才能进行读写。
+ 
 **基准性能测试结果如下：**
-
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > 以下数据为千次循环写入累计数据，为了更清晰地体现出差异，已对设备核心频率进行限制。
 
-
+  
 | 容器类型 | Benchmark数据（us） |
 | --- | --- |
 | JSArray | 1566.174 |
 | ArrayBuffer | 3.609 |
+ 
+ 
 
-#### 数据转换
+##### 数据转换
+
+ 
 **【建议】**尽可能的减少数据转换次数，避免不必要的复制。
+ 
 - **减少数据转换次数：**频繁的数据转换可能导致性能下降，建议通过批量处理数据或使用更高效的数据结构来优化性能。
 - **避免不必要的数据复制：**数据转换时，使用Node-API提供的接口直接访问原始数据。
 - **使用缓存：**如果数据在多次转换中都会被使用到，可以考虑使用缓存来避免重复的数据转换，从而减少不必要的计算，提高性能。
 
-#### 模块注册与模块命名
-**【规则】**
-nm_register_func对应的函数需要加上修饰符static，防止与其他so里的符号冲突。
-模块注册的入口，即使用__attribute__((constructor))修饰函数的函数名需要确保与其他模块不同。
-模块实现中.nm_modname字段需要与模块名完全匹配，区分大小写。
-**错误示例**
-模块名为nativerender的错误示例：
+ 
 
-```ts
+##### 模块注册与模块命名
+
+ 
+**【规则】**
+ 
+nm_register_func对应的函数需要加上修饰符static，防止与其他so里的符号冲突。
+ 
+模块注册的入口，即使用__attribute__((constructor))修饰函数的函数名需要确保与其他模块不同。
+ 
+模块实现中.nm_modname字段需要与模块名完全匹配，区分大小写。
+ 
+**错误示例**
+ 
+模块名为nativerender的错误示例：
+ 
+```text
 EXTERN_C_START
 napi_value Init(napi_env env, napi_value exports)
 {
@@ -328,10 +380,11 @@ extern "C" __attribute__((constructor)) void RegisterModule()
     napi_module_register(&nativeModule);
 }
 ```
-
+ 
 **正确示例**：
+ 
 模块名为nativerender的正确示例：
-
+ 
 ```cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
@@ -356,12 +409,16 @@ extern "C" __attribute__((constructor)) void RegisterNativerenderModule(void)
     napi_module_register(&demoModule);
 }
 ```
+ 
 
-#### 正确的使用napi_create_external系列接口创建的JS Object
+##### 正确的使用napi_create_external系列接口创建的JS Object
+
+ 
 **【规则】**napi_create_external系列接口创建的JS对象仅限当前线程使用。跨线程传递（如使用worker的post_message）会导致应用崩溃。若需跨线程传递绑定有Native对象的JS对象，请使用napi_coerce_to_native_binding_object接口。
+ 
 **错误示例**
-
-```ts
+ 
+```text
 static void MyFinalizeCB(napi_env env, void *finalize_data, void *finalize_hint) { return; };
 
 static napi_value CreateMyExternal(napi_env env, napi_callback_info info) {
@@ -372,8 +429,7 @@ static napi_value CreateMyExternal(napi_env env, napi_callback_info info) {
 
 // The code for module registration has been omitted here; you may need to register the CreateMyExternal method yourself.
 ```
-
-
+ 
 ```ts
 // index.d.ts
 export const createMyExternal: () => Object;
@@ -396,19 +452,24 @@ const mWorker = new worker.ThreadWorker('../workers/Worker');
 mWorker.terminate();
 // The implementation of Worker is a default template, omitted here.
 ```
+ 
 
-#### 防止重复释放获取的buffer
+##### 防止重复释放获取的buffer
+
+ 
 **【规则】**使用napi_get_arraybuffer_info等接口，参数data资源开发者不允许释放，data的生命周期受引擎管理。
+ 
 这里以napi_get_arraybuffer_info为例，该接口定义如下：
-
-```ts
+ 
+```text
 napi_get_arraybuffer_info(napi_env env, napi_value arraybuffer, void** data, size_t* byte_length)
 ```
-
+ 
 data获取的是ArrayBuffer的缓冲区头指针，开发者只能在该缓冲区内进行读写操作，不得执行释放操作。该段内存由引擎内部的ArrayBuffer分配器管理，并随JS对象ArrayBuffer的生命周期自动释放。
+ 
 **错误示例：**
-
-```ts
+ 
+```text
 void* arrayBufferPtr = nullptr;
 napi_value arrayBuffer = nullptr;
 size_t createBufferSize = ARRAY_BUFFER_SIZE;
@@ -417,8 +478,7 @@ size_t arrayBufferSize;
 napi_status result = napi_get_arraybuffer_info(env, arrayBuffer, &arrayBufferPtr, &arrayBufferSize);
 delete arrayBufferPtr; // This step is prohibited. The lifecycle of the created arrayBufferPtr is managed by the engine, and users are not allowed to delete it themselves. Otherwise, it may lead to double free.
 ```
-
-
+  
 | Node-API中受当前规则约束的接口有： |
 | --- |
 | napi_create_arraybuffer |
@@ -428,11 +488,19 @@ delete arrayBufferPtr; // This step is prohibited. The lifecycle of the created 
 | napi_get_buffer_info |
 | napi_get_typedarray_info |
 | napi_get_dataview_info |
+ 
+ 
 
-#### 其他
+##### 其他
+
+ 
 **【建议】**合理使用napi_object_freeze和napi_object_seal来控制对象以及对象属性的可变性。
+ 
 napi_object_freeze等同于Object.freeze，冻结后对象的所有属性均无法修改；napi_object_seal等同于Object.seal，密封后对象不可增删属性，但属性值仍可修改。两者的主要区别在于，freeze后属性值不可修改，而seal后属性值仍可修改。
+ 
 使用以上语义时，确保约束条件符合需求。违背语义在严格模式下会抛出Error，默认严格模式。
+ 
 
-#### 示例代码
+##### 示例代码
+
 - [Node-API开发规范](https://gitcode.com/harmonyos_samples/BestPracticeSnippets/tree/master/NodeAPIDevelopment)

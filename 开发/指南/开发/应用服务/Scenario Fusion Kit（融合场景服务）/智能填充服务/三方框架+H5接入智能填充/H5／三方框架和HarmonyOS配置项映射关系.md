@@ -4,9 +4,8 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-mappingrelationship
 
-## H5 autocomplete和HarmonyOS的ContentType的映射关系
-
-
+##### H5 autocomplete和HarmonyOS的ContentType的映射关系
+ 
 | 输入场景 | 【H5】autocomplete | 【ArkUI】ContentType | 说明 |
 | --- | --- | --- | --- |
 | 昵称 | nickname | NICKNAME | 昵称，如“Vivian”。 |
@@ -24,15 +23,16 @@
 | 车牌号 | license-plate | LICENSE_PLATE | 车牌号，如“粤A*****1”。 |
 | 名称 | organization | ORGANIZATION | 名称，如“深圳市xx公司”。 |
 | 税号 | tax-id | TAX_ID | 税号，如“2020***********000”。 |
-
-
+ 
+ 
 > [!NOTE]
 > autocomplete配置项name和（family-name，given-name）不能同时在同一个表单中使用（在护照信息场景中可以同时使用）。
 
+ 
+  
 
-## React Native textContentType和HarmonyOS的ContentType的映射关系
-
-
+##### React Native textContentType和HarmonyOS的ContentType的映射关系
+ 
 | 输入场景 | 【React Native】textContentType | 【ArkUI】ContentType | 说明 |
 | --- | --- | --- | --- |
 | 昵称 | nickname | NICKNAME | 昵称，如“Vivian”。 |
@@ -52,7 +52,7 @@
 | 车牌号 | licensePlate | LICENSE_PLATE | 车牌号，如“粤A*****1”。 |
 | 名称 | organization | ORGANIZATION | 名称，如“深圳市xx公司”。 |
 | 税号 | taxId | TAX_ID | 税号，如“2020***********000”。 |
-
-
+ 
+ 
 > [!NOTE]
 > textContentType配置项name和（familyName，givenName）不能同时在同一个表单中使用（在护照信息场景中可以同时使用）。

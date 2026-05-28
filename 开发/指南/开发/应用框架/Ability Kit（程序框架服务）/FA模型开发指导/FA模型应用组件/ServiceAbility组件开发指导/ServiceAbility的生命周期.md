@@ -5,10 +5,9 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/serviceability-lifecycle
 
 开发者可以根据业务场景实现service.js/service.ets中的生命周期相关接口。ServiceAbility生命周期接口说明见下表。
-
-**表1** ServiceAbility生命周期接口说明
-
-
+ 
+ **表1** ServiceAbility生命周期接口说明
+  
 | 接口名 | 描述 |
 | --- | --- |
 | onStart(): void | 该方法在创建ServiceAbility的时候调用，用于Service的初始化，在ServiceAbility的整个生命周期只会调用一次。 |

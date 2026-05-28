@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-contacts
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 16700001 系统内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+##### 16700001 系统内部错误
 
 **错误信息**
 
@@ -30,8 +29,8 @@ general error.
 系统异常，请稍后重试。
 
 
-## 16700002 参数检查失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 16700002 参数检查失败
 
 **错误信息**
 
@@ -42,8 +41,6 @@ Invalid parameter value.
 参数校验失败。
 
 **可能原因**
-
-
 1. 空参数错误 (Null Argument Error)。
 2. 参数格式错误 (Format Error)。
 3. 参数值范围错误 (Value Range Error)。
@@ -53,8 +50,8 @@ Invalid parameter value.
 请阅读参数规格约束，按照可能原因进行排查。
 
 
-## 16700101 查询数据库失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 16700101 查询数据库失败
 
 **错误信息**
 
@@ -73,8 +70,8 @@ Failed to get value from contacts data.
 当前访问数据库失败，请稍后重试。
 
 
-## 16700102 增删改数据库失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 16700102 增删改数据库失败
 
 **错误信息**
 
@@ -93,8 +90,8 @@ Failed to set value to contacts data.
 当前访问数据库失败，请稍后重试。
 
 
-## 16700103 用户取消
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 16700103 用户取消
 
 **错误信息**
 

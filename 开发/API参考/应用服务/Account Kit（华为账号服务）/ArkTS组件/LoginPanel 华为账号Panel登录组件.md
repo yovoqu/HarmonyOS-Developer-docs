@@ -3,64 +3,61 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-loginpanel
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供LoginPanel组件，应用通过集成该组件完成华为账号登录功能。
-
+ 
 LoginPanel需要配合[loginComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager)一起使用，用于实现华为账号登录功能。LoginPanel内的按钮文本默认支持多语言。
-
+ 
 **起始版本：** 4.1.0(11)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
-```ts
+```text
 import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
 ```
+ 
+  
 
-
-## LoginPanel
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### LoginPanel
 
 该类为用来展示登录面板的UI组件。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **装饰器类型：** @Component
-
+ 
 **系统能力：** SystemCapability.AuthenticationServices.HuaweiID.UIComponent
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-
+  
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | show | boolean | 是 | @Link | 该参数用于控制LoginPanel组件是否展示。 false表示不展示该组件。 true表示展示该组件，当业务需要使用LoginPanel组件时设置值为true。 说明： - 该参数必须是@State装饰的局部变量。 - LoginPanel仅支持在页面中使用，弹框、子窗口等场景暂不支持。 |
-| params | [LoginPanelParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginpanelparams) | 是 | - | LoginPanel组件参数。 |
-| controller | [LoginPanelController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginpanelcontroller) | 是 | - | LoginPanel组件控制器用来接收组件的点击事件。 |
+| params | LoginPanelParams | 是 | - | LoginPanel组件参数。 |
+| controller | LoginPanelController | 是 | - | LoginPanel组件控制器用来接收组件的点击事件。 |
+ 
+ 
+  
 
-
-### build
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### build
 
 build(): void
-
+ 
 用于创建[LoginPanel](#loginpanel)对象的构造函数。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.AuthenticationServices.HuaweiID.UIComponent
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -98,62 +95,62 @@ struct PreviewLoginPanelPage {
   }];
   // 构造LoginPanel组件的控制器
   controller: loginComponentManager.LoginPanelController = new loginComponentManager.LoginPanelController()
-  // 当登录类型不是QUICK_LOGIN且未设置协议时，如果需要展示自定义协议弹框，需要设置协议状态为NOT_ACCEPTED
-  .setAgreementStatus(loginComponentManager.AgreementStatus.NOT_ACCEPTED)
-  // 用户点击其他方式登录展示隐私协议弹框
-  .setShowAgreementForOptionalLogin()
-  .onClickLoginWithHuaweiIDButton((error: BusinessError, response: loginComponentManager.HuaweiIDCredential) => {
-    hilog.info(0x0000, 'testTag', 'onClickLoginWithHuaweiIDButton');
-    if (error) {
-      this.dealAllError(error);
-      return;
-    }
-    if (response) {
-      // 获取到Authorization Code后，传给应用服务端
-      const authorizationCode = response.authorizationCode;
-      hilog.info(0x0000, 'testTag', 'Succeeded in getting response.');
+    // 当登录类型不是QUICK_LOGIN且未设置协议时，如果需要展示自定义协议弹框，需要设置协议状态为NOT_ACCEPTED
+    .setAgreementStatus(loginComponentManager.AgreementStatus.NOT_ACCEPTED)
+    // 用户点击其他方式登录展示隐私协议弹框
+    .setShowAgreementForOptionalLogin()
+    .onClickLoginWithHuaweiIDButton((error: BusinessError, response: loginComponentManager.HuaweiIDCredential) => {
+      hilog.info(0x0000, 'testTag', 'onClickLoginWithHuaweiIDButton');
+      if (error) {
+        this.dealAllError(error);
+        return;
+      }
+      if (response) {
+        // 获取到Authorization Code后，传给应用服务端
+        const authorizationCode = response.authorizationCode;
+        hilog.info(0x0000, 'testTag', 'Succeeded in getting response.');
+        this.show = false;
+        return;
+      }
+    })
+    .onClickOptionalLoginButton(() => {
+      hilog.info(0x0000, 'testTag', 'onClickOptionalLoginButton');
       this.show = false;
-      return;
-    }
-  })
-  .onClickOptionalLoginButton(() => {
-    hilog.info(0x0000, 'testTag', 'onClickOptionalLoginButton');
-    this.show = false;
-  })
-  .onClickOptionalLoginIcon((error: BusinessError, tag: string) => {
-    if (error) {
-      this.dealAllError(error);
-      return;
-    }
-    hilog.info(0x0000, 'testTag', `onClickOptionalLoginIcon tag: ${tag}`);
-    this.show = false;
-  })
-  .onClickPrivacyText((error: BusinessError, tag: string) => {
-    if (error) {
-      this.dealAllError(error);
-      return;
-    }
-    // 应用需要根据tag实现协议页面的跳转逻辑
-    hilog.info(0x0000, 'testTag', `onClickPrivacyText tag: ${tag}`);
-  })
-  .onClickCloseButton(() => {
-    hilog.info(0x0000, 'testTag', 'onClickCloseButton');
-    this.show = false;
-  })
-  .onChangeAgreementStatus((error: BusinessError, agreementStatus: loginComponentManager.AgreementStatus) => {
-    if (error) {
-      this.dealAllError(error);
-      return;
-    }
-    hilog.info(0x0000, 'testTag', `onChangeAgreementStatus agreementStatus: ${agreementStatus}`);
-  })
-  .onClickEvent((error: BusinessError, clickEvent: loginComponentManager.ClickEvent) => {
-    if (error) {
-      this.dealAllError(error);
-      return;
-    }
-    hilog.info(0x0000, 'testTag', `onClickEvent clickEvent: ${clickEvent}`);
-  });
+    })
+    .onClickOptionalLoginIcon((error: BusinessError, tag: string) => {
+      if (error) {
+        this.dealAllError(error);
+        return;
+      }
+      hilog.info(0x0000, 'testTag', `onClickOptionalLoginIcon tag: ${tag}`);
+      this.show = false;
+    })
+    .onClickPrivacyText((error: BusinessError, tag: string) => {
+      if (error) {
+        this.dealAllError(error);
+        return;
+      }
+      // 应用需要根据tag实现协议页面的跳转逻辑
+      hilog.info(0x0000, 'testTag', `onClickPrivacyText tag: ${tag}`);
+    })
+    .onClickCloseButton(() => {
+      hilog.info(0x0000, 'testTag', 'onClickCloseButton');
+      this.show = false;
+    })
+    .onChangeAgreementStatus((error: BusinessError, agreementStatus: loginComponentManager.AgreementStatus) => {
+      if (error) {
+        this.dealAllError(error);
+        return;
+      }
+      hilog.info(0x0000, 'testTag', `onChangeAgreementStatus agreementStatus: ${agreementStatus}`);
+    })
+    .onClickEvent((error: BusinessError, clickEvent: loginComponentManager.ClickEvent) => {
+      if (error) {
+        this.dealAllError(error);
+        return;
+      }
+      hilog.info(0x0000, 'testTag', `onClickEvent clickEvent: ${clickEvent}`);
+    });
 
   // 错误处理
   dealAllError(error: BusinessError): void {

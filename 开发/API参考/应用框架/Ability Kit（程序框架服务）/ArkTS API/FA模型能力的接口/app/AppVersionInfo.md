@@ -3,33 +3,29 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-appversioninfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用版本信息，可以通过[getAppVersionInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context#contextgetappversioninfo7)获取当前应用的版本信息。
-
-
+ 
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在FA模型下使用。
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在FA模型下使用。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import featureAbility from '@ohos.ability.featureAbility';
 ```
+ 
+  
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | appName | string | 是 | 否 | 应用名称。 |

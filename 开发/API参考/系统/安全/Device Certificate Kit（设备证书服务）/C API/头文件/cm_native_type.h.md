@@ -3,82 +3,78 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cm-native-type-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供CertManager中的枚举变量、结构体定义、宏定义和错误码。
-
+ 
 **引用文件：** <device_certificate/certmanager/cm_native_type.h>
-
+ 
 **库：** libohcert_manager.so
-
+ 
 **系统能力：** SystemCapability.Security.CertificateManager
-
+ 
 **起始版本：** 22
-
+ 
 **相关模块：** [CertManagerType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_CM_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype-oh-cm-blob) | OH_CM_Blob | 定义存放数据的结构体类型。 |
-| [OH_CM_Credential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype-oh-cm-credential) | OH_CM_Credential | 定义证书凭据详情的结构体类型。 |
-| [OH_CM_CredentialDetailList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype-oh-cm-credentialdetaillist) | OH_CM_CredentialDetailList | 定义证书凭据详情列表的结构体类型。 |
-| [OH_CM_UkeyInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanagertype-oh-cm-ukeyinfo) | OH_CM_UkeyInfo | 定义USB证书凭据信息的结构体类型。 |
+| OH_CM_Blob | OH_CM_Blob | 定义存放数据的结构体类型。 |
+| OH_CM_Credential | OH_CM_Credential | 定义证书凭据详情的结构体类型。 |
+| OH_CM_CredentialDetailList | OH_CM_CredentialDetailList | 定义证书凭据详情列表的结构体类型。 |
+| OH_CM_UkeyInfo | OH_CM_UkeyInfo | 定义USB证书凭据信息的结构体类型。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_CM_ErrorCode](#oh_cm_errorcode) | OH_CM_ErrorCode | 错误码。 |
-| [OH_CM_CertificatePurpose](#oh_cm_certificatepurpose) | OH_CM_CertificatePurpose | 证书凭据用途类型。 |
+| OH_CM_ErrorCode | OH_CM_ErrorCode | 错误码。 |
+| OH_CM_CertificatePurpose | OH_CM_CertificatePurpose | 证书凭据用途类型。 |
+ 
+ 
+  
 
-
-### 宏定义
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 宏定义
+ 
 | 名称 | 描述 |
 | --- | --- |
 | OH_CM_MAX_LEN_CERTIFICATE_CHAIN 24588 | 证书链最大长度。 起始版本： 22 |
 | OH_CM_MAX_LEN_URI 256 | URI最大长度。 起始版本： 22 |
 | OH_CM_MAX_LEN_CERT_ALIAS 129 | 证书别名最大长度。 起始版本： 22 |
 | OH_CM_MAX_LEN_TYPE_NAME 1025 | 证书类型最大长度。 起始版本： 22 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_CM_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_CM_ErrorCode
 
 ```text
 enum OH_CM_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 错误码。
-
+ 
 **起始版本：** 22
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_CM_SUCCESS = 0 | 成功。 |
@@ -93,23 +89,22 @@ enum OH_CM_ErrorCode
 | OH_CM_STORE_PATH_NOT_SUPPORTED = 17500009 | 不支持指定的证书存储路径。 |
 | OH_CM_ACCESS_UKEY_SERVICE_FAILED = 17500010 | USB证书凭据访问失败。 |
 | OH_CM_PARAMETER_VALIDATION_FAILED = 17500011 | 参数校验失败，例如参数格式或参数范围无效。 |
+ 
+ 
+  
 
-
-### OH_CM_CertificatePurpose
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_CM_CertificatePurpose
 
 ```text
 enum OH_CM_CertificatePurpose
 ```
-
+ 
 **描述**
-
+ 
 证书凭据用途类型。
-
+ 
 **起始版本：** 22
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_CM_CERT_PURPOSE_DEFAULT = 0 | 默认用途，用于凭据签名用途。 |

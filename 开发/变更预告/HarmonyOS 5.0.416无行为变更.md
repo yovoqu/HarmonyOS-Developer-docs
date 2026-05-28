@@ -4,7 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-roadmap/all-changelogs-504
 
-## HarmonyOS 5.0.4(16)无行为变更
-
-
 HarmonyOS 5.0.4(16)未引入行为变更，特此声明。

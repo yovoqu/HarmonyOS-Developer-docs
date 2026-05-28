@@ -11,16 +11,25 @@
 在参考以下示例前，建议开发者查看[相机开发指导(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)的具体章节，了解[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)、[拍照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)等单个流程。
 
 
-## 开发流程
+##### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建拍照流，开发流程如下。
-![](assets/拍照实践(ArkTS)
-/file-20260514131515039-0.png)
 
-## 完整示例
 
-Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。 如需要在图库中看到所保存的图片、视频资源，需要将其保存到媒体库，保存方式请参考：[保存媒体库资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。 需要在[photoOutput.on('photoAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#onphotoavailable11)接口获取到buffer时，将buffer在安全控件中保存到媒体库。
-```text
+![](assets/拍照实践(ArkTS)/file-20260514131515039-0.png)
+
+
+
+
+##### 完整示例
+
+Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+
+如需要在图库中看到所保存的图片、视频资源，需要将其保存到媒体库，保存方式请参考：[保存媒体库资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。
+
+需要在[photoOutput.on('photoAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#onphotoavailable11)接口获取到buffer时，将buffer在安全控件中保存到媒体库。
+
+```json
 import { camera } from '@kit.CameraKit';
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -75,7 +84,7 @@ function setPhotoOutputCb(photoOutput: camera.PhotoOutput): void {
   });
 }
 
-async function cameraShootingCase(context: Context, surfaceId: string): Promise {
+async function cameraShootingCase(context: Context, surfaceId: string): Promise<void> {
   try {
     // 创建CameraManager对象。
     let cameraManager: camera.CameraManager = camera.getCameraManager(context);
@@ -94,8 +103,29 @@ async function cameraShootingCase(context: Context, surfaceId: string): Promise 
     });
 
     // 获取相机列表。
-    let cameraArray: Array = cameraManager.getSupportedCameras();
-    if (!cameraArray || cameraArray.length  {
+    let cameraArray: Array<camera.CameraDevice> = cameraManager.getSupportedCameras();
+    if (!cameraArray || cameraArray.length <= 0) {
+      console.error("cameraManager.getSupportedCameras error");
+      return;
+    }
+
+    for (let index = 0; index < cameraArray.length; index++) {
+      console.info('cameraId : ' + cameraArray[index].cameraId);                          // 获取相机ID。
+      console.info('cameraPosition : ' + cameraArray[index].cameraPosition);              // 获取相机位置。
+      console.info('cameraType : ' + cameraArray[index].cameraType);                      // 获取相机类型。
+      console.info('connectionType : ' + cameraArray[index].connectionType);              // 获取相机连接类型。
+    }
+
+    // 创建相机输入流。
+    resources.cameraInput = cameraManager.createCameraInput(cameraArray[0]);
+    if (!resources.cameraInput) {
+      console.error('cameraInput is null');
+      return;
+    }
+
+    // 监听cameraInput错误信息。
+    let cameraDevice: camera.CameraDevice = cameraArray[0];
+    resources.cameraInput.on('error', cameraDevice, (error: BusinessError) => {
       console.error(`Camera input error code: ${error.code}`);
     })
 
@@ -103,7 +133,7 @@ async function cameraShootingCase(context: Context, surfaceId: string): Promise 
     await resources.cameraInput.open();
 
     // 获取支持的模式类型。
-    let sceneModes: Array = cameraManager.getSupportedSceneModes(cameraArray[0]);
+    let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraArray[0]);
     let isSupportPhotoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_PHOTO) >= 0;
     if (!isSupportPhotoMode) {
       console.error('photo mode not support');
@@ -118,9 +148,30 @@ async function cameraShootingCase(context: Context, surfaceId: string): Promise 
     }
     console.info("outputCapability: " + JSON.stringify(cameraOutputCap));
 
-    let previewProfilesArray: Array = cameraOutputCap.previewProfiles;
-    if (!previewProfilesArray || previewProfilesArray.length  = cameraOutputCap.photoProfiles;
-    if (!photoProfilesArray || photoProfilesArray.length  {
+    let previewProfilesArray: Array<camera.Profile> = cameraOutputCap.previewProfiles;
+    if (!previewProfilesArray || previewProfilesArray.length <= 0) {
+      console.error("previewProfilesArray is null or []");
+      releaseResources();
+      return;
+    }
+
+    let photoProfilesArray: Array<camera.Profile> = cameraOutputCap.photoProfiles;
+    if (!photoProfilesArray || photoProfilesArray.length <= 0) {
+      console.error("photoProfilesArray is null or []");
+      releaseResources();
+      return;
+    }
+
+    // 创建预览输出流,其中参数 surfaceId 参考上文 XComponent 组件，预览流为XComponent组件提供的surface。
+    resources.previewOutput = cameraManager.createPreviewOutput(previewProfilesArray[0], surfaceId);
+    if (!resources.previewOutput) {
+      console.error('previewOutput is null');
+      releaseResources();
+      return;
+    }
+    try {
+      // 监听预览输出错误信息。
+      resources.previewOutput.on('error', (error: BusinessError) => {
         console.error(`Preview output error code: ${error.code}`);
       });
     } catch (e) {
@@ -195,7 +246,7 @@ async function cameraShootingCase(context: Context, surfaceId: string): Promise 
     }
 
     // 获取相机支持的可变焦距比范围。
-    let zoomRatioRange: Array = [];
+    let zoomRatioRange: Array<number> = [];
     try {
       zoomRatioRange = resources.photoSession.getZoomRatioRange();
     } catch (error) {
@@ -235,7 +286,7 @@ async function cameraShootingCase(context: Context, surfaceId: string): Promise 
   }
 }
 
-async function releaseResources(): Promise {
+async function releaseResources(): Promise<void> {
   // 停止当前会话。
   await resources.photoSession?.stop().catch((e: BusinessError) => {console.error('停止会话失败:', e)});
 

@@ -10,7 +10,7 @@
 | 新增API | NA | 类名：global； API声明： declare interface IdCardConfig 差异内容： declare interface IdCardConfig | api/@hms.ai.CardRecognition.d.ets |
 | 新增API | NA | 类名：IdCardConfig； API声明：isPhotoNeeded?: boolean; 差异内容：isPhotoNeeded?: boolean; | api/@hms.ai.CardRecognition.d.ets |
 | 新增API | NA | 类名：IdCardConfig； API声明：isQualityDetectionNeeded?: boolean; 差异内容：isQualityDetectionNeeded?: boolean; | api/@hms.ai.CardRecognition.d.ets |
-| 新增API | NA | 类名：VisionImageAnalyzerController； API声明：getImageAnalyzerUIStatus(): Promise<ImageAnalyzerUIStatus>; 差异内容：getImageAnalyzerUIStatus(): Promise<ImageAnalyzerUIStatus>; | api/@hms.ai.visionImageAnalyzer.d.ets |
+| 新增API | NA | 类名：VisionImageAnalyzerController； API声明：getImageAnalyzerUIStatus(): Promise&lt;ImageAnalyzerUIStatus&gt;; 差异内容：getImageAnalyzerUIStatus(): Promise&lt;ImageAnalyzerUIStatus&gt;; | api/@hms.ai.visionImageAnalyzer.d.ets |
 | 新增API | NA | 类名：visionImageAnalyzer； API声明： enum ImageAnalyzerUIStatus 差异内容： enum ImageAnalyzerUIStatus | api/@hms.ai.visionImageAnalyzer.d.ets |
 | 新增API | NA | 类名：ImageAnalyzerUIStatus； API声明：INITIAL = 0 差异内容：INITIAL = 0 | api/@hms.ai.visionImageAnalyzer.d.ets |
 | 新增API | NA | 类名：ImageAnalyzerUIStatus； API声明：AI_BUTTON_SELECTED = 1 差异内容：AI_BUTTON_SELECTED = 1 | api/@hms.ai.visionImageAnalyzer.d.ets |

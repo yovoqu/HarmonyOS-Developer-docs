@@ -1,34 +1,48 @@
 # EnterpriseAdminExtensionAbility开发指南
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-admin
 
-## 概述
+##### 概述
 
 企业设备管理扩展能力组件，是设备管理应用必备组件。当开发者为企业开发设备管理应用时，需继承EnterpriseAdminExtensionAbility，在EnterpriseAdminExtensionAbility实例中实现MDM业务逻辑，EnterpriseAdminExtensionAbility实现了系统管理状态变化通知功能，并定义了管理应用激活、去激活、应用安装、卸载事件等回调接口。
 
-## 接口说明
+
+
+##### 接口说明
 
 以下为本次开发示例所使用的接口，更多接口及使用方式请见[企业设备管理扩展能力接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability)。
+
 | 接口名称 | 描述 |
 | --- | --- |
-| [onAdminEnabled(): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onadminenabled) | 设备管理应用被激活回调方法。 |
-| [onAdminDisabled(): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onadmindisabled) | 设备管理应用被解除激活回调方法。 |
-| [onBundleAdded(bundleName: string): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onbundleadded) | 应用安装回调方法。 |
-| [onBundleRemoved(bundleName: string): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onbundleremoved) | 应用卸载回调方法。 |
-| [onDeviceAdminEnabled(bundleName: string): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#ondeviceadminenabled23) | 普通设备管理应用被激活回调方法。 |
-| [onDeviceAdminDisabled(bundleName: string): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#ondeviceadmindisabled23) | 普通设备管理应用被解除激活回调方法。 |
+| onAdminEnabled(): void | 设备管理应用被激活回调方法。 |
+| onAdminDisabled(): void | 设备管理应用被解除激活回调方法。 |
+| onBundleAdded(bundleName: string): void | 应用安装回调方法。 |
+| onBundleRemoved(bundleName: string): void | 应用卸载回调方法。 |
+| onDeviceAdminEnabled(bundleName: string): void | 普通设备管理应用被激活回调方法。 |
+| onDeviceAdminDisabled(bundleName: string): void | 普通设备管理应用被解除激活回调方法。 |
 
 
-## 开发步骤
+
+
+##### 开发步骤
 
 新建一个工程后，结构如下：
+
+
 ![](assets/EnterpriseAdminExtensionAbility开发指南/file-20260514131328715-0.png)
+
+
 首先，创建一个EnterpriseAdmin类型的ExtensionAbility（也就是EnterpriseAdminExtensionAbility）。
+
+
 ![](assets/EnterpriseAdminExtensionAbility开发指南/file-20260514131328715-1.png)
+
+
 其次，打开新建的EnterpriseAdminAbility文件，导入EnterpriseAdminExtensionAbility模块，使其继承EnterpriseAdminExtensionAbility并加上需要的应用通知回调方法，如onAdminEnabled()、onAdminDisabled()等回调方法。当设备管理应用激活或者解除激活时，可以在对应回调方法中接收系统发送通知。
-```text
+
+```ArkTS
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 // ···
 
@@ -70,7 +84,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 ```
 
 最后，在工程Module对应的[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)配置文件中将EnterpriseAdminAbility注册为ExtensionAbility，type标签需要设置为“enterpriseAdmin”，srcEntry标签表示当前ExtensionAbility组件所对应的代码路径。
-```text
+
+```ArkTS
 "extensionAbilities": [
   {
     "name": "EnterpriseAdminAbility",

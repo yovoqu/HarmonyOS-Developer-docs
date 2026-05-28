@@ -8,41 +8,57 @@
 
 常见的未定义行为有：
 
+ - 除数为零。
+ - 使用未对齐的指针，或未对齐的引用。
+ - 浮点数转换导致的溢出。
+ - 访问空指针。
 
-- 除数为零。
-- 使用未对齐的指针，或未对齐的引用。
-- 浮点数转换导致的溢出。
-- 访问空指针。
 
 该功能从DevEco Studio 5.1.0 Release版本开始支持。
 
 
-## 使用约束
+##### 使用约束
 
 ASan、TSan、UBSan、HWASan不能同时开启，只能开启其中一个。
 
-## 开启UBSan
+
+
+##### 开启UBSan
 
 可通过以下两种方式开启UBSan。
 
-## 方式一
+
+
+##### 方式一
 
 点击**Run > Edit Configurations >** Diagnostics，勾选**Undefined Behavior Sanitizer**开启检测。
+
+
 ![](assets/使用UBSan检测未定义行为/file-20260514133034330-0.png)
 
-## 方式二
 
-在需要开启UBSan的模块中，通过添加构建参数开启UBSan检测插桩，在对应模块的模块级build-profile.json5中添加命令参数：
-```text
+
+
+##### 方式二
+
+在需要开启UBSan的模块中，通过添加构建参数开启UBSan检测插桩，在对应模块的模块级build-profile.json5中添加命令参数：      
+```json
 "arguments": "-DOHOS_ENABLE_UBSAN=ON"
 ```
 
+
+
 ![](assets/使用UBSan检测未定义行为/file-20260514133034330-1.png)
 
-## 使用UBSan
 
-运行或调试当前应用。 当检测出未定义行为时，弹出UBSan log信息，点击信息中的链接即可跳转到未定义行为的代码处。日志中的异常检测类型请参考[UBSan异常检测类型](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ubsan-detection#section124211321406)。
+
+
+##### 使用UBSan
+1. 运行或调试当前应用。
+2. 当检测出未定义行为时，弹出UBSan log信息，点击信息中的链接即可跳转到未定义行为的代码处。日志中的异常检测类型请参考[UBSan异常检测类型](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ubsan-detection#section124211321406)。       
 > [!NOTE]
-> 无论编译模式是debug或release，均有链接可直接跳转至源码。
+> 无论 编译模式 是debug或release，均有链接可直接跳转至源码。
 
-![](assets/使用UBSan检测未定义行为/file-20260514133034330-2.png)
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/89BFWmRNSqmP6kTZvavROw/zh-cn_image_0000002602066139.png?HW-CC-KV=V1&HW-CC-Date=20260528T014920Z&HW-CC-Expire=86400&HW-CC-Sign=5E86EEAE4297A1A2B63EFD27BD60EC9F7BD8CC62199FFF88A13471E457AE2DF9)

@@ -1,19 +1,29 @@
 # Constants
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-c
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
+  
+
+##### 导入模块
+
+```text
+import { image } from '@kit.ImageKit';
+```
+ 
+  
+
+##### 常量
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
-
+  
 | 名称 | 类型 | 值 | 说明 |
 | --- | --- | --- | --- |
 | XMAGE_WATERMARK_MODE_AT_THE_BOTTOM | number | 9 | XMAGE水印固定位于图像底部中央。 |
@@ -31,20 +41,17 @@
 | CAPTURE_MODE_REAR_LENS_NIGHT_VIEW | number | 42 | 拍摄模式：后镜头夜景模式。 |
 | CAPTURE_MODE_SUPER_MACRO | number | 47 | 拍摄模式：超微距模式。 |
 | CAPTURE_MODE_SNAP_SHOT | number | 62 | 拍摄模式：抓拍模式。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { image } from '@kit.ImageKit';
 
-const defaultXmageWaterMarkModeAtTheBottom =
-  image.XMAGE_WATERMARK_MODE_AT_THE_BOTTOM;
+const defaultXmageWaterMarkModeAtTheBottom = image.XMAGE_WATERMARK_MODE_AT_THE_BOTTOM;
 const defaultXmageWaterMarkModeBorder = image.XMAGE_WATERMARK_MODE_BORDER;
 const defaultCaptureModeProfessional = image.CAPTURE_MODE_PROFESSIONAL;
-const defaultCaptureModeFrontLensNightView =
-  image.CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW;
+const defaultCaptureModeFrontLensNightView = image.CAPTURE_MODE_FRONT_LENS_NIGHT_VIEW;
 const defaultCaptureModePanorama = image.CAPTURE_MODE_PANORAMA;
 const defaultCaptureModeTailLight = image.CAPTURE_MODE_TAIL_LIGHT;
 const defaultCaptureModeLightGraffiti = image.CAPTURE_MODE_LIGHT_GRAFFITI;
@@ -53,8 +60,7 @@ const defaultCaptureModeStarTrack = image.CAPTURE_MODE_STAR_TRACK;
 const defaultCaptureModeWideAperture = image.CAPTURE_MODE_WIDEAPERTURE;
 const defaultCaptureModeMovingPhoto = image.CAPTURE_MODE_MOVING_PHOTO;
 const defaultCaptureModePortrait = image.CAPTURE_MODE_PORTRAIT;
-const defaultCaptureModeRearLensNightView =
-  image.CAPTURE_MODE_REAR_LENS_NIGHT_VIEW;
+const defaultCaptureModeRearLensNightView = image.CAPTURE_MODE_REAR_LENS_NIGHT_VIEW;
 const defaultCaptureModeSuperMacro = image.CAPTURE_MODE_SUPER_MACRO;
 const defaultCaptureModeSnapShot = image.CAPTURE_MODE_SNAP_SHOT;
 ```

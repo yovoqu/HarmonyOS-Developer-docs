@@ -5,13 +5,17 @@
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-coding-standard-ndk-arkts
 
 ArkTS通过引用编译好的so文件来调用native方法。为避免不规范引用导致的运行时异常和故障排查成本，开发者应按照本文的标准进行引用。
+ 
 NDK工程创建步骤及目录结构可参考：[创建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-with-ndk)。
+ 
 
-#### import本模块的so
+##### import本模块的so
+
 **配置依赖**：
+ 
 模块根目录 > oh-package.json5
-
-```ts
+ 
+```text
 {
   "name": "entry",
   "version": "1.0.0",
@@ -25,12 +29,12 @@ NDK工程创建步骤及目录结构可参考：[创建NDK工程](https://develo
   }
 }
 ```
-
+ 
 依赖文件中的so名称要与CMakeLists.txt文件中的模块名称一致。
+ 
 模块根目录 > src > main > cpp > CMakeLists.txt
-
-```ts
-
+ 
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.4.1)
 project(MyApplication14)
@@ -47,10 +51,11 @@ add_library(entry SHARED napi_init.cpp)
 # 声明产物entry链接时需要的三方库libace_napi.z.so
 target_link_libraries(entry PUBLIC libace_napi.z.so)
 ```
-
+ 
 **引用native方法**：
+ 
 引用的so文件名称必须与oh-package.json5中定义的一致。
-
+ 
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 // import rely on so
@@ -78,22 +83,30 @@ struct Index {
   }
 }
 ```
-
+ 
 调用的方法名称必须与.d.ts文件中导出的方法名一致。
+ 
 模块根目录 > src > main > cpp > types > libentry > index.d.ts
-
+ 
 ```ts
 export const add: (a: number, b: number) => number;
 ```
+ 
+ 
 
-#### import其它模块的so
+##### import其它模块的so
+
 开发者可以在har/hsp中编写公共的so，供其他模块调用。
+ 
+ 
 
-#### 引用方模块
+##### 引用方模块
+
 **本地依赖**：
+ 
 模块根目录 > oh-package.json5
-
-```ts
+ 
+```text
 {
   "name": "entry",
   "version": "1.0.0",
@@ -107,17 +120,18 @@ export const add: (a: number, b: number) => number;
   }
 }
 ```
-
+ 
+ 
 **远程依赖**：
+ 
 运行命令
-
-```ts
+```text
 ohpm install library --registry http://localhost:8088/repos/ohpm
 ```
-
+ 
+ 
 工程根目录 > oh-package.json5 中会自动配置依赖。
-
-```ts
+```text
 {
   "name": "depend_othermodule_so",
   "version": "1.0.0",
@@ -135,10 +149,9 @@ ohpm install library --registry http://localhost:8088/repos/ohpm
   }
 }
 ```
-
-引用native方法
-：
-
+ 
+ 
+**引用native方法**：
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 // Reference napi in dependent modules
@@ -166,11 +179,16 @@ struct Index {
   }
 }
 ```
+ 
+ 
 
-#### 导出方模块
+##### 导出方模块
+
+ 
 通过统一出口将napi导出。
+ 
 模块根目录 > index.ets
-
+ 
 ```ArkTS
 import testNapi from 'liblibrary.so';
 export {testNapi}

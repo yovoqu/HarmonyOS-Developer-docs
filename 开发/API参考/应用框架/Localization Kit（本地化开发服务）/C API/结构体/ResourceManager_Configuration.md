@@ -3,34 +3,31 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-resourcemanager-resourcemanager-configuration
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct ResourceManager_Configuration {...} ResourceManager_Configuration
 ```
+  
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 设备状态的枚举。
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [resourcemanager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-resourcemanager)
-
+ 
 **所在头文件：** [resmgr_common.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-resmgr-common-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | ResourceManager_Direction direction | 表示屏幕方向。 |

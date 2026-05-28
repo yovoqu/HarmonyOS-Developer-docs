@@ -1,6 +1,6 @@
 # 启动应用内的UIAbility组件
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-intra-device-interaction
 
@@ -8,16 +8,21 @@
 
 本文主要介绍启动应用内的UIAbility组件的方式。应用间的组件跳转详见[应用间跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/link-between-apps-overview)。
 
+ - [启动应用内的UIAbility](#启动应用内的uiability)
+ - [启动应用内的UIAbility并获取返回结果](#启动应用内的uiability并获取返回结果)
+ - [启动UIAbility的指定页面](#启动uiability的指定页面)
 
-- [启动应用内的UIAbility](#启动应用内的uiability)
-- [启动应用内的UIAbility并获取返回结果](#启动应用内的uiability并获取返回结果)
-- [启动UIAbility的指定页面](#启动uiability的指定页面)
 
 
-## 启动应用内的UIAbility
+##### 启动应用内的UIAbility
 
-当一个应用内包含多个[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)时，存在应用内启动UIAbility的场景。例如在支付应用中从入口UIAbility启动收付款UIAbility。 假设应用中有两个UIAbility：EntryAbility和FuncAbility（可以在同一个Module中，也可以在不同的Module中），需要从EntryAbility的页面中启动FuncAbility。 在EntryAbility中，通过调用[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability)方法启动UIAbility，[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)为UIAbility实例启动的入口参数，其中bundleName为待启动应用的Bundle名称，abilityName为待启动的Ability名称，moduleName在待启动的UIAbility属于不同的Module时添加，parameters为自定义信息参数。示例中的context的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
-```text
+当一个应用内包含多个[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)时，存在应用内启动UIAbility的场景。例如在支付应用中从入口UIAbility启动收付款UIAbility。
+
+假设应用中有两个UIAbility：EntryAbility和FuncAbility（可以在同一个Module中，也可以在不同的Module中），需要从EntryAbility的页面中启动FuncAbility。
+1. 在EntryAbility中，通过调用[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability)方法启动UIAbility，[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)为UIAbility实例启动的入口参数，其中bundleName为待启动应用的Bundle名称，abilityName为待启动的Ability名称，moduleName在待启动的UIAbility属于不同的Module时添加，parameters为自定义信息参数。示例中的context的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+
+  
+```ArkTS
 import { common, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -70,8 +75,10 @@ struct MainPage {
 }
 ```
 
-在FuncAbility的[onCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)或者[onNewWant()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)生命周期回调文件中接收EntryAbility传递过来的参数。
-```text
+2. 在FuncAbility的[onCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)或者[onNewWant()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)生命周期回调文件中接收EntryAbility传递过来的参数。
+
+  
+```ArkTS
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 // ···
 
@@ -87,12 +94,13 @@ export default class FuncAbilityA extends UIAbility {
 }
 ```
 
-
 > [!NOTE]
-> 在被拉起的FuncAbility中，可以通过获取传递过来的want参数的parameters来获取拉起方UIAbility的PID、Bundle Name等信息。
+> 在被拉起的FuncAbility中，可以通过获取传递过来的 want 参数的parameters来获取拉起方 UIAbility 的PID、Bundle Name等信息。
 
-在FuncAbility业务完成之后，如需要停止当前[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例，在FuncAbility中通过调用[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)方法实现。
-```text
+3. 在FuncAbility业务完成之后，如需要停止当前[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例，在FuncAbility中通过调用[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)方法实现。
+
+  
+```ArkTS
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -124,16 +132,20 @@ struct FuncAbilityAPage {
 }
 ```
 
-
 > [!NOTE]
-> 调用terminateSelf()方法停止当前UIAbility实例时，默认会保留该实例的快照（Snapshot），即在最近任务列表中仍然能查看到该实例对应的任务。如不需要保留该实例的快照，可以在其对应UIAbility的module.json5配置文件中，将abilities标签的removeMissionAfterTerminate字段配置为true。
+> 调用terminateSelf()方法停止当前UIAbility实例时，默认会保留该实例的快照（Snapshot），即在最近任务列表中仍然能查看到该实例对应的任务。如不需要保留该实例的快照，可以在其对应UIAbility的 module.json5配置文件 中，将 abilities标签 的removeMissionAfterTerminate字段配置为true。
 
-如需要关闭应用所有的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例，可以调用[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)的[killAllProcesses()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextkillallprocesses)方法实现关闭应用所有的进程。
+4. 如需要关闭应用所有的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例，可以调用[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)的[killAllProcesses()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextkillallprocesses)方法实现关闭应用所有的进程。
 
-## 启动应用内的UIAbility并获取返回结果
 
-在一个EntryAbility启动另外一个FuncAbility时，希望在被启动的FuncAbility完成相关业务后，能将结果返回给调用方。例如在应用中将入口功能和账号登录功能分别设计为两个独立的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)，在账号登录UIAbility中完成登录操作后，需要将登录的结果返回给入口UIAbility。 在EntryAbility中，调用[startAbilityForResult()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilityforresult-2)接口启动FuncAbility，异步回调中的data用于接收FuncAbility停止自身后返回给EntryAbility的信息。示例中的context的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
-```text
+
+##### 启动应用内的UIAbility并获取返回结果
+
+在一个EntryAbility启动另外一个FuncAbility时，希望在被启动的FuncAbility完成相关业务后，能将结果返回给调用方。例如在应用中将入口功能和账号登录功能分别设计为两个独立的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)，在账号登录UIAbility中完成登录操作后，需要将登录的结果返回给入口UIAbility。
+1. 在EntryAbility中，调用[startAbilityForResult()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilityforresult-2)接口启动FuncAbility，异步回调中的data用于接收FuncAbility停止自身后返回给EntryAbility的信息。示例中的context的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+
+  
+```ArkTS
 import { common, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -197,8 +209,10 @@ struct MainPage {
 }
 ```
 
-在FuncAbility停止自身时，需要调用[terminateSelfWithResult()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)方法，入参[abilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)为FuncAbility需要返回给EntryAbility的信息。
-```text
+2. 在FuncAbility停止自身时，需要调用[terminateSelfWithResult()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)方法，入参[abilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)为FuncAbility需要返回给EntryAbility的信息。
+
+  
+```ArkTS
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -249,8 +263,10 @@ struct FuncAbilityAPage {
 }
 ```
 
-FuncAbility停止自身后，EntryAbility通过[startAbilityForResult()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilityforresult-2)方法回调接收被FuncAbility返回的信息，RESULT_CODE需要与前面的数值保持一致。
-```text
+3. FuncAbility停止自身后，EntryAbility通过[startAbilityForResult()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilityforresult-2)方法回调接收被FuncAbility返回的信息，RESULT_CODE需要与前面的数值保持一致。
+
+  
+```ArkTS
 import { common, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -315,17 +331,31 @@ struct MainPage {
 ```
 
 
-## 启动UIAbility的指定页面
 
 
-## 概述
+##### 启动UIAbility的指定页面
 
-一个[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)可以对应多个页面，在不同的场景下启动该UIAbility时需要展示不同的页面，例如从一个UIAbility的页面中跳转到另外一个UIAbility时，希望启动目标UIAbility的指定页面。 UIAbility的启动分为两种情况：UIAbility冷启动和UIAbility热启动。 UIAbility冷启动：指的是UIAbility实例处于完全关闭状态下被启动，这需要完整地加载和初始化UIAbility实例的代码、资源等。 UIAbility热启动：指的是UIAbility实例已经启动并在前台运行过，由于某些原因切换到后台，再次启动该UIAbility实例，这种情况下可以快速恢复UIAbility实例的状态。 本文主要讲解[目标UIAbility冷启动](#目标uiability冷启动)和[目标UIAbility热启动](#目标uiability热启动)两种启动指定页面的场景，以及在讲解启动指定页面之前会讲解到在调用方如何指定启动页面。
 
-## 调用方UIAbility指定启动页面
+
+##### 概述
+
+一个[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)可以对应多个页面，在不同的场景下启动该UIAbility时需要展示不同的页面，例如从一个UIAbility的页面中跳转到另外一个UIAbility时，希望启动目标UIAbility的指定页面。
+
+UIAbility的启动分为两种情况：UIAbility冷启动和UIAbility热启动。
+
+ - UIAbility冷启动：指的是UIAbility实例处于完全关闭状态下被启动，这需要完整地加载和初始化UIAbility实例的代码、资源等。
+ - UIAbility热启动：指的是UIAbility实例已经启动并在前台运行过，由于某些原因切换到后台，再次启动该UIAbility实例，这种情况下可以快速恢复UIAbility实例的状态。
+
+
+本文主要讲解[目标UIAbility冷启动](#目标uiability冷启动)和[目标UIAbility热启动](#目标uiability热启动)两种启动指定页面的场景，以及在讲解启动指定页面之前会讲解到在调用方如何指定启动页面。
+
+
+
+##### 调用方UIAbility指定启动页面
 
 调用方[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)启动另外一个UIAbility时，通常需要跳转到指定的页面。例如FuncAbility包含两个页面（Index对应首页，Second对应功能A页面），此时需要在传入的[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)参数中配置指定的页面路径信息，可以通过Want中的parameters参数增加一个自定义参数传递页面跳转信息。示例中的context的获取方式请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
-```text
+
+```ArkTS
 import { common, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -378,10 +408,12 @@ struct MainPage {
 ```
 
 
-## 目标UIAbility冷启动
+
+##### 目标UIAbility冷启动
 
 目标[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)冷启动时，在目标UIAbility的[onCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)生命周期回调中，接收调用方传过来的参数。然后在目标UIAbility的[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)生命周期回调中，解析调用方传递过来的[want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)参数，获取到需要加载的页面信息url，传入[windowStage.loadContent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage#loadcontent9)方法。
-```text
+
+```ArkTS
 import { AbilityConstant, Want, UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window, UIContext } from '@kit.ArkUI';
@@ -414,12 +446,29 @@ export default class ColdStartAbility extends UIAbility {
 ```
 
 
-## 目标UIAbility热启动
 
-在应用开发中，会遇到目标[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例之前已经启动过的场景，这时再次启动目标UIAbility时，不会重新走初始化逻辑，只会直接触发[onNewWant()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)生命周期方法。为了实现跳转到指定页面，需要在onNewWant()中解析参数进行处理。 例如短信应用和联系人应用配合使用的场景。 用户先打开短信应用，短信应用的UIAbility实例启动，显示短信应用的主页。 用户将设备回到桌面界面，短信应用进入后台运行状态。 用户打开联系人应用，找到联系人张三。 用户点击联系人张三的短信按钮，会再次启动短信应用的UIAbility实例。 由于短信应用的UIAbility实例已经启动过了，此时会触发该UIAbility的onNewWant()回调，而不会再走[onCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)和[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)等初始化逻辑。 图1 目标UIAbility热启动
-![](assets/启动应用内的UIAbility组件/file-20260514130336576-0.png)
-开发步骤如下所示。 冷启动短信应用的UIAbility实例时，在[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)生命周期回调中，通过调用[getUIContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getuicontext10)接口获取UI上下文实例[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)对象。
-```text
+##### 目标UIAbility热启动
+
+在应用开发中，会遇到目标[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例之前已经启动过的场景，这时再次启动目标UIAbility时，不会重新走初始化逻辑，只会直接触发[onNewWant()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)生命周期方法。为了实现跳转到指定页面，需要在onNewWant()中解析参数进行处理。
+
+例如短信应用和联系人应用配合使用的场景。
+1. 用户先打开短信应用，短信应用的UIAbility实例启动，显示短信应用的主页。
+2. 用户将设备回到桌面界面，短信应用进入后台运行状态。
+3. 用户打开联系人应用，找到联系人张三。
+4. 用户点击联系人张三的短信按钮，会再次启动短信应用的UIAbility实例。
+5. 由于短信应用的UIAbility实例已经启动过了，此时会触发该UIAbility的onNewWant()回调，而不会再走[onCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)和[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)等初始化逻辑。
+
+图1 目标UIAbility热启动
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/YzC45RmdRiOa6zUN1iPPNw/zh-cn_image_0000002581433534.png?HW-CC-KV=V1&HW-CC-Date=20260528T014846Z&HW-CC-Expire=86400&HW-CC-Sign=94996056455394910FCFF550E10941E8B625E71D816696587850B4CFA049BD30)
+
+
+开发步骤如下所示。
+1. 冷启动短信应用的UIAbility实例时，在[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)生命周期回调中，通过调用[getUIContext()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getuicontext10)接口获取UI上下文实例[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)对象。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { Want, UIAbility } from '@kit.AbilityKit';
 import { window, UIContext } from '@kit.ArkUI';
@@ -430,7 +479,7 @@ export default class HotStartAbility extends UIAbility {
   private funcAbilityWant: Want | undefined = undefined;
   private uiContext: UIContext | undefined = undefined;
  // ···
-
+ 
   onWindowStageCreate(windowStage: window.WindowStage): void {
     // Main window is created, set main page for this ability
     hilog.info(DOMAIN_NUMBER, TAG, '%{public}s', 'Ability onWindowStageCreate');
@@ -457,8 +506,13 @@ export default class HotStartAbility extends UIAbility {
 }
 ```
 
-在短信应用UIAbility的[onNewWant()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)回调中通过AppStorage设置全局变量nameForNavi的值，并进行指定页面的跳转。此时再次启动该短信应用的UIAbility实例时，即可跳转到该短信应用的UIAbility实例的指定页面。 导入相关模块，并在onNewWant()生命周期回调中设置全局变量nameForNavi的值。
-```text
+2. 在短信应用UIAbility的[onNewWant()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)回调中通过AppStorage设置全局变量nameForNavi的值，并进行指定页面的跳转。此时再次启动该短信应用的UIAbility实例时，即可跳转到该短信应用的UIAbility实例的指定页面。
+
+  
+ - 导入相关模块，并在onNewWant()生命周期回调中设置全局变量nameForNavi的值。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { Want, UIAbility, AbilityConstant } from '@kit.AbilityKit';
 // ···
@@ -470,13 +524,16 @@ export default class HotStartAbility extends UIAbility {
 
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(DOMAIN_NUMBER, TAG, '%{public}s', 'onNewWant');
-    AppStorage.setOrCreate('nameForNavi', 'pageOne');
+    AppStorage.setOrCreate<string>('nameForNavi', 'pageOne');
   }
 }
 ```
 
-在Index页面显示时触发onPageShow回调，获取全局变量nameForNavi的值，并进行执行页面的跳转。
-```text
+
+3. 在Index页面显示时触发onPageShow回调，获取全局变量nameForNavi的值，并进行执行页面的跳转。
+
+  
+```ArkTS
 @Entry
 @Component
 struct Index {
@@ -484,7 +541,7 @@ struct Index {
   pathStack: NavPathStack = new NavPathStack();
 
   onPageShow(): void {
-    let somePage = AppStorage.get('nameForNavi')
+    let somePage = AppStorage.get<string>('nameForNavi')
     if (somePage) {
       this.pathStack.pushPath({ name: somePage }, false);
       AppStorage.delete('nameForNavi');
@@ -511,8 +568,11 @@ struct Index {
 }
 ```
 
-实现Navigation子页面。
-```text
+
+4. 实现Navigation子页面。
+
+  
+```ArkTS
 @Builder
 export function PageOneBuilder() {
   PageOne();
@@ -545,8 +605,11 @@ export struct PageOne {
 }
 ```
 
-在系统配置文件route_map.json中配置子页信息（参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)）。
-```text
+
+5. 在系统配置文件route_map.json中配置子页信息（参考[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)）。
+
+  
+```ArkTS
 // route_map.json
 {
   "routerMap": [
@@ -562,8 +625,11 @@ export struct PageOne {
 }
 ```
 
-在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#routermap标签)中配置routerMap路由映射。
-```text
+
+6. 在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#routermap标签)中配置routerMap路由映射。
+
+  
+```json
 {
   "module": {
     // ···
@@ -574,5 +640,6 @@ export struct PageOne {
 ```
 
 
+
 > [!NOTE]
-> 当被调用方UIAbility组件启动模式设置为multiton启动模式时，每次启动都会创建一个新的实例，那么onNewWant()回调就不会被用到。
+> 当被调用方 UIAbility组件启动模式 设置为multiton启动模式时，每次启动都会创建一个新的实例，那么onNewWant()回调就不会被用到。

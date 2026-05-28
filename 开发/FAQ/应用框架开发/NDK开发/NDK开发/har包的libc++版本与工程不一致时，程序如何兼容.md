@@ -4,18 +4,18 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-78
 
-问题现象
-
+**问题现象**
+ 
 har包的libc++和工程的libc++版本不一致的情况是隔离的吗？还是不能共存，只能使用一个？
-
-解决措施
-
+ 
+**解决措施**
+ 
 对于har包：
-
-如果其ohpm版本为1.5及以上，当项目同时依赖了某个三方库的不同版本时。ohpm将选择其中的最高版本进行安装。可参考resolve_conflict。
-
+ 
+如果其ohpm版本为1.5及以上，当项目同时依赖了某个三方库的不同版本时。ohpm将选择其中的最高版本进行安装。可参考[resolve_conflict](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#section368717475562)。
+ 
 对于sdk：
-
+ 
 SDK中是否导入libc++库由各SDK打包时决定。不同SDK中可能存在不同版本的libc++库。使用时可指定链接对应的libc++库。
-
-使用set(CMAKE_CXX_STANDARD xxx)指定版本。具体可参考如何修改代码工程所支持的C++语言版本。
+ 
+使用set(CMAKE_CXX_STANDARD xxx)指定版本。具体可参考[如何修改代码工程所支持的C++语言版本](https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-9)。

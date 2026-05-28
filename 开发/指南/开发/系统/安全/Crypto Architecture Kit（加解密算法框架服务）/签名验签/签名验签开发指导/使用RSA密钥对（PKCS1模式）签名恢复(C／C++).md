@@ -1,24 +1,26 @@
 # 使用RSA密钥对（PKCS1模式）签名恢复(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-sign-sig-verify-recover-pkcs1-ndk
 
 对应的算法规格请查看[验签算法规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sign-sig-verify-overview#rsa)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
 ```
 
 
-## 开发步骤
 
-调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA1024|PKCS1|SHA256|Recover'，与签名的Sign实例保持一致。创建Verify实例，用于完成验签操作。 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。 调用[OH_CryptoVerify_Recover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_recover)，对数据进行签名恢复。
-```text
+##### 开发步骤
+1. 调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA1024|PKCS1|SHA256|Recover'，与签名的Sign实例保持一致。创建Verify实例，用于完成验签操作。
+2. 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。
+3. 调用[OH_CryptoVerify_Recover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_recover)，对数据进行签名恢复。
+
+```cpp
 #include "signing_signature_verification.h"
 
 OH_Crypto_ErrCode DoTestRsaSignatureRecover()
@@ -30,7 +32,7 @@ OH_Crypto_ErrCode DoTestRsaSignatureRecover()
     uint8_t plainText[] = {0xc4, 0xa5, 0xe5, 0x45, 0xee, 0x71, 0x5e, 0x3b, 0x24, 0x1d, 0x7e,
                            0x62, 0xd6, 0x6b, 0xab, 0x98, 0x88, 0x0f, 0xaf, 0x1e, 0x96, 0xa0,
                            0x6c, 0xa5, 0x0d, 0x29, 0xfd, 0xcc, 0xef, 0xf6, 0x2b, 0x92};
-    Crypto_DataBlob msgBlob = {.data = reinterpret_cast(plainText), .len = sizeof(plainText)};
+    Crypto_DataBlob msgBlob = {.data = reinterpret_cast<uint8_t *>(plainText), .len = sizeof(plainText)};
 
     uint8_t pubKeyText[] = {
         0x2d, 0x2d, 0x2d, 0x2d, 0x2d, 0x42, 0x45, 0x47, 0x49, 0x4e, 0x20, 0x52, 0x53, 0x41, 0x20, 0x50, 0x55, 0x42,
@@ -49,7 +51,7 @@ OH_Crypto_ErrCode DoTestRsaSignatureRecover()
         0x20, 0x50, 0x55, 0x42, 0x4c, 0x49, 0x43, 0x20, 0x4b, 0x45, 0x59, 0x2d, 0x2d, 0x2d, 0x2d, 0x2d, 0x0a,
     };
 
-    Crypto_DataBlob keyBlob = {.data = reinterpret_cast(pubKeyText), .len = sizeof(pubKeyText)};
+    Crypto_DataBlob keyBlob = {.data = reinterpret_cast<uint8_t *>(pubKeyText), .len = sizeof(pubKeyText)};
 
     uint8_t signText[] = {
         0x1f, 0xe3, 0xcf, 0x8d, 0x94, 0xb4, 0xa0, 0x9e, 0xf1, 0x0c, 0x38, 0x59, 0xcb, 0x5b, 0x89, 0xc9,
@@ -62,7 +64,7 @@ OH_Crypto_ErrCode DoTestRsaSignatureRecover()
         0x49, 0xa5, 0x2e, 0x05, 0x86, 0xfd, 0x6f, 0x9a, 0x40, 0xe6, 0x43, 0xab, 0xc5, 0xbc, 0xac, 0x21,
     };
 
-    Crypto_DataBlob signBlob = {.data = reinterpret_cast(signText), .len = sizeof(signText)};
+    Crypto_DataBlob signBlob = {.data = reinterpret_cast<uint8_t *>(signText), .len = sizeof(signText)};
 
     // keypair
     OH_Crypto_ErrCode ret = CRYPTO_SUCCESS;

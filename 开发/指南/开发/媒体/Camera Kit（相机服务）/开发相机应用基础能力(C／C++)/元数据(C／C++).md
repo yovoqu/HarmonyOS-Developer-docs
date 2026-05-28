@@ -1,6 +1,6 @@
 # 元数据(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-metadata
 
@@ -9,21 +9,24 @@
 Metadata主要是通过一个TAG（Key），去找对应的Data（Value），用于传递参数和配置信息，减少内存拷贝操作。
 
 
-## 开发步骤
+##### 开发步骤
 
-详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。 导入NDK接口，导入方法如下。
-```text
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
+详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
+1. 导入NDK接口，导入方法如下。
+
+  
+```cpp
+#include <cstdint>
+#include <native_buffer/buffer_common.h>
+#include <unistd.h>
+#include <string>
+#include <thread>
+#include <cstdio>
+#include <fcntl.h>
+#include <map>
+#include <string>
+#include <vector>
+#include <native_buffer/native_buffer.h>
 #include "iostream"
 #include "mutex"
 
@@ -36,8 +39,8 @@ Metadata主要是通过一个TAG（Key），去找对应的Data（Value），用
 #include "ohcamera/video_output.h"
 #include "napi/native_api.h"
 #include "ohcamera/camera_manager.h"
-#include
-#include
+#include <window_manager/oh_display_info.h>
+#include <window_manager/oh_display_manager.h>
 
 namespace OHOS_CAMERA_SAMPLE {
 class NDKCamera {
@@ -57,7 +60,9 @@ class NDKCamera {
 } // namespace OHOS_CAMERA_SAMPLE
 ```
 
-在CMake脚本中链接相关动态库。
+2. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC
     libace_napi.z.so
@@ -66,8 +71,10 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
-调用OH_CameraManager_GetSupportedCameraOutputCapability()方法，获取当前设备支持的元数据类型metaDataObjectType，并通过OH_CameraManager_CreateMetadataOutput()方法创建元数据输出流。
-```text
+3. 调用OH_CameraManager_GetSupportedCameraOutputCapability()方法，获取当前设备支持的元数据类型metaDataObjectType，并通过OH_CameraManager_CreateMetadataOutput()方法创建元数据输出流。
+
+  
+```cpp
 Camera_ErrorCode NDKCamera::CreateMetadataOutput(void)
 {
     metaDataObjectType_ = cameraOutputCapability_->supportedMetadataObjectTypes[0];
@@ -85,16 +92,20 @@ Camera_ErrorCode NDKCamera::CreateMetadataOutput(void)
 }
 ```
 
-调用[OH_CameraManager_CreateCaptureSession()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createcapturesession)方法创建一个会话。
-```text
+4. 调用[OH_CameraManager_CreateCaptureSession()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createcapturesession)方法创建一个会话。
+
+  
+```cpp
 ret = OH_CameraManager_CreateCaptureSession(cameraManager_, &captureSession_);
 if (captureSession_ == nullptr || ret != CAMERA_OK) {
     OH_LOG_ERROR(LOG_APP, "Create captureSession failed.");
 }
 ```
 
-配置session，完成后通过调用[OH_CaptureSession_Start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_start)方法输出metadata数据。接口调用失败会返回相应错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
-```text
+5. 配置session，完成后通过调用[OH_CaptureSession_Start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_start)方法输出metadata数据。接口调用失败会返回相应错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
+
+  
+```cpp
 // 开始配置会话。
 Camera_ErrorCode ret = OH_CaptureSession_BeginConfig(captureSession_);
 
@@ -131,7 +142,9 @@ OH_LOG_INFO(LOG_APP, "session start");
 ret = OH_CaptureSession_Start(captureSession_);
 ```
 
-调用stop()方法停止输出metadata数据，接口调用失败会返回相应错误码。
+6. 调用stop()方法停止输出metadata数据，接口调用失败会返回相应错误码。
+
+  
 ```text
 Camera_ErrorCode StopMetadataOutput(Camera_MetadataOutput* metadataOutput)
 {
@@ -144,10 +157,16 @@ Camera_ErrorCode StopMetadataOutput(Camera_MetadataOutput* metadataOutput)
 ```
 
 
-## 状态监听
 
-在相机应用开发过程中，可以随时监听metadata数据以及输出流的状态。 通过注册监听获取metadata对象，监听事件固定为metadataObjectsAvailable。检测到有效metadata数据时，callback返回相应的metadata数据信息，metadataOutput创建成功时可监听。
-```text
+
+##### 状态监听
+
+在相机应用开发过程中，可以随时监听metadata数据以及输出流的状态。
+
+ - 通过注册监听获取metadata对象，监听事件固定为metadataObjectsAvailable。检测到有效metadata数据时，callback返回相应的metadata数据信息，metadataOutput创建成功时可监听。
+
+  
+```cpp
 void OnMetadataObjectAvailable(Camera_MetadataOutput *metadataOutput, Camera_MetadataObject *metadataObject,
     uint32_t size)
 {
@@ -155,20 +174,20 @@ void OnMetadataObjectAvailable(Camera_MetadataOutput *metadataOutput, Camera_Met
 }
 ```
 
-
 > [!NOTE]
 > 当前的元数据类型仅支持人脸检测（FACE_DETECTION）功能。元数据信息对象为识别到的人脸区域的矩形信息（Rect），包含矩形区域的左上角x坐标、y坐标和矩形的宽高数据。
 
-通过注册回调函数，获取监听metadata流的错误结果，callback返回metadata输出接口使用错误时返回的错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
-```text
+ - 通过注册回调函数，获取监听metadata流的错误结果，callback返回metadata输出接口使用错误时返回的错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
+
+  
+```cpp
 void OnMetadataOutputError(Camera_MetadataOutput *metadataOutput, Camera_ErrorCode errorCode)
 {
     OH_LOG_INFO(LOG_APP, "OnMetadataOutput errorCode = %{public}d", errorCode);
 }
 ```
 
-
-```text
+```cpp
 MetadataOutput_Callbacks *NDKCamera::GetMetadataOutputListener(void)
 {
     static MetadataOutput_Callbacks metadataOutputListener = {

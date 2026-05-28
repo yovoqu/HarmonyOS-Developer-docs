@@ -9,7 +9,7 @@
 - console主要用于应用开发的调试阶段。
 - 推荐使用hilog对日志系统进行分类和统一处理。使用console.log打印日志，不方便日志定位。
 
-
-参考链接
-
-Hilog
+ 
+**参考链接**
+ 
+[Hilog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hilog)

@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-50
 
-当前不推荐手动制作HQF包，推荐使用Hot Reload能力。
+当前不推荐手动制作HQF包，推荐使用[Hot Reload](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hot-reload)能力。

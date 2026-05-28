@@ -69,6 +69,6 @@
 | API废弃版本变更 | 类名：RelativeTimeFormatResolvedOptions； API声明：numeric: string; 差异内容：20 | 类名：RelativeTimeFormatResolvedOptions； API声明：numeric: string; 差异内容：NA | api/@ohos.intl.d.ts |
 | API废弃版本变更 | 类名：RelativeTimeFormatResolvedOptions； API声明：numberingSystem: string; 差异内容：20 | 类名：RelativeTimeFormatResolvedOptions； API声明：numberingSystem: string; 差异内容：NA | api/@ohos.intl.d.ts |
 | API废弃版本变更 | 类名：RelativeTimeFormat； API声明：format(value: number, unit: string): string; 差异内容：20 | 类名：RelativeTimeFormat； API声明：format(value: number, unit: string): string; 差异内容：NA | api/@ohos.intl.d.ts |
-| API废弃版本变更 | 类名：RelativeTimeFormat； API声明：formatToParts(value: number, unit: string): Array<object>; 差异内容：20 | 类名：RelativeTimeFormat； API声明：formatToParts(value: number, unit: string): Array<object>; 差异内容：NA | api/@ohos.intl.d.ts |
+| API废弃版本变更 | 类名：RelativeTimeFormat； API声明：formatToParts(value: number, unit: string): Array&lt;object&gt;; 差异内容：20 | 类名：RelativeTimeFormat； API声明：formatToParts(value: number, unit: string): Array&lt;object&gt;; 差异内容：NA | api/@ohos.intl.d.ts |
 | API废弃版本变更 | 类名：RelativeTimeFormat； API声明：resolvedOptions(): RelativeTimeFormatResolvedOptions; 差异内容：20 | 类名：RelativeTimeFormat； API声明：resolvedOptions(): RelativeTimeFormatResolvedOptions; 差异内容：NA | api/@ohos.intl.d.ts |
 | 删除API | 类名：System； API声明：static setSystemLocaleInstance(locale: Intl.Locale): void; 差异内容：static setSystemLocaleInstance(locale: Intl.Locale): void; | NA | api/@ohos.i18n.d.ts |

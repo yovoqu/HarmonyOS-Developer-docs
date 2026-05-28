@@ -1,31 +1,42 @@
 # 适配相机旋转角度(ArkTS)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation
 
-**
+屏幕处于不同的屏幕状态时，原始图像需旋转不同的角度，以确保图像在合适的方向显示，效果如图所示。
+ 
 
- 屏幕处于不同的屏幕状态时，原始图像需旋转不同的角度，以确保图像在合适的方向显示，效果如图所示。
+![](assets/适配相机旋转角度(ArkTS)/file-20260514131522199-0.png)
 
-![](assets/适配相机旋转角度(ArkTS)
-/file-20260514131522199-0.png)
+ 
+本开发指导将指导开发者在预览、拍照、录像等不同场景下，如何适配相机的旋转角度。
+ 
+- 在预览时，图像旋转角度与屏幕显示旋转角度（[Display](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#属性).rotation）相关。具体开发指导：[创建会话](#创建会话) > [预览](#预览)。
+- 在拍照、录像时，图像旋转角度与设备重力方向（即[设备旋转角度](#计算设备旋转角度)）相关。
 
- 本开发指导将指导开发者在预览、拍照、录像等不同场景下，如何适配相机的旋转角度。
+  拍照开发指导：[创建会话](#创建会话) > [计算设备旋转角度](#计算设备旋转角度) > [拍照](#拍照)。
 
+  录像开发指导：[创建会话](#创建会话) > [计算设备旋转角度](#计算设备旋转角度) > [录像](#录像)。
 
- 详细的API参考说明，请参考[Camera API文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-camera)。
+ 
+详细的API参考说明，请参考[Camera API文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-camera)。
+  
 
+##### 创建会话
+1. 导入相机等相关模块。
 
-## 创建会话
-
-导入相机等相关模块。
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-创建[Session](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session)会话。  相机使用预览等功能前，均需创建相机会话，调用[CameraManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager)中的[createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createsession11)方法创建一个会话，创建会话时需指定创建[SceneMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#scenemode11)为NORMAL_PHOTO或NORMAL_VIDEO，创建的session处于拍照或者录像模式。
+2. 创建[Session](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session)会话。
+
+  相机使用预览等功能前，均需创建相机会话，调用[CameraManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager)中的[createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createsession11)方法创建一个会话，创建会话时需指定创建[SceneMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#scenemode11)为NORMAL_PHOTO或NORMAL_VIDEO，创建的session处于拍照或者录像模式。
+
+  
 ```text
 function createPhotoSession(cameraManager: camera.CameraManager): camera.Session | undefined {
   let session: camera.Session | undefined = undefined;
@@ -50,18 +61,28 @@ function createVideoSession(cameraManager: camera.CameraManager): camera.Session
 }
 ```
 
+ 
+  
 
-## 预览
+##### 预览
 
-完成[会话创建](#创建会话)后，开发者可根据实际需求，配置输出流。 调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)中的[getPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getpreviewrotation12)接口，获取[预览旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#预览旋转角度)。  displayRotation：[显示设备的屏幕旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#屏幕旋转角度)，可通过[display.getDefaultDisplaySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displaygetdefaultdisplaysync9)获取[Display](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#属性)对象并读取其rotation属性值，并将对应角度填入。  例：Display.rotation = 1，表示显示设备屏幕顺时针旋转为90°，此处displayRotation填入90。
+完成[会话创建](#创建会话)后，开发者可根据实际需求，配置输出流。
+ 1. 调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)中的[getPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getpreviewrotation12)接口，获取[预览旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#预览旋转角度)。
+
+  displayRotation：[显示设备的屏幕旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#屏幕旋转角度)，可通过[display.getDefaultDisplaySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displaygetdefaultdisplaysync9)获取[Display](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#属性)对象并读取其rotation属性值，并将对应角度填入。
+
+  例：Display.rotation = 1，表示显示设备屏幕顺时针旋转为90°，此处displayRotation填入90。
+
+  
 ```text
 import { display } from '@kit.ArkUI';
 
 let initDisplayRotation = display.getDefaultDisplaySync().rotation;
 let imageRotation = initDisplayRotation * camera.ImageRotation.ROTATION_90;
 ```
+  该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用，如果存在异步执行的情况，previewOutput未添加到session里或者已调用的session.release，导致两者关系未绑定，此时调用getPreviewRotation，则会调用失败，并抛出错误码[CameraErrorCode.SERVICE_FATAL_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera#section7400201-相机服务异常)。
 
-该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用，如果存在异步执行的情况，previewOutput未添加到session里或者已调用的session.release，导致两者关系未绑定，此时调用getPreviewRotation，则会调用失败，并抛出错误码[CameraErrorCode.SERVICE_FATAL_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera#section7400201-相机服务异常)。
+  
 ```text
 function getPreviewRotation(previewOutput: camera.PreviewOutput, imageRotation : camera.ImageRotation): camera.ImageRotation {
   let previewRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
@@ -77,20 +98,18 @@ function getPreviewRotation(previewOutput: camera.PreviewOutput, imageRotation :
 }
 ```
 
-调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)中的[setPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#setpreviewrotation12)，设置图像的预览旋转角度。  该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用，如果多次调用，以最新调用设置的图像预览旋转角度为准。  previewRotation：预览旋转角度，取上一步[getPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getpreviewrotation12)的返回值。isDisplayLocked：可选入参，默认为false。当设置为false，即屏幕方向未锁定，[预览旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#预览旋转角度)将根据[相机镜头角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#相机镜头安装角度)+[屏幕显示旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#屏幕旋转角度)的值计算；当设置为true，Surface旋转锁定，不跟随窗口变化，旋转角度仅取相机镜头角度计算。
-```text
-function setPreviewRotation(previewOutput: camera.PreviewOutput, previewRotation : camera.ImageRotation, isDisplayLocked: boolean): void {
-  try {
-    previewOutput.setPreviewRotation(previewRotation, isDisplayLocked);
-  } catch (error) {
-    // 失败返回错误码error.code并处理
-    let err = error as BusinessError;
-    console.error(`The previewOutput.setPreviewRotation call failed. error code: ${err.code}`);
-  }
-}
-```
+2. 调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)中的[setPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#setpreviewrotation12)，设置图像的预览旋转角度。
 
-**预览流旋转接口适配场景及示例：** 在[会话配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)过程中调用预览旋转接口，即：使用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)接口提交相关配置后调用，建议在[Start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)起流前调用。
+  该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用，如果多次调用，以最新调用设置的图像预览旋转角度为准。
+
+  
+previewRotation：预览旋转角度，取上一步[getPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getpreviewrotation12)的返回值。
+3. isDisplayLocked：可选入参，默认为false。当设置为false，即屏幕方向未锁定，[预览旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#预览旋转角度)将根据[相机镜头角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#相机镜头安装角度)+[屏幕显示旋转角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#屏幕旋转角度)的值计算；当设置为true，Surface旋转锁定，不跟随窗口变化，旋转角度仅取相机镜头角度计算。
+ 
+**预览流旋转接口适配场景及示例：**
+ 1. 在[会话配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)过程中调用预览旋转接口，即：使用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)接口提交相关配置后调用，建议在[Start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)起流前调用。
+
+  
 ```text
 // previewOutput是创建的预览输出
 try {
@@ -104,7 +123,9 @@ try {
 }
 ```
 
-应用使用相机时，通过监听[Display对象变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displayonaddremovechange)，感知窗口当前状态，如当前相机窗口发生旋转时，需对预览流进行角度修正。推荐在[会话配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)中完成调用预览旋转接口后，直接创建监听。
+2. 应用使用相机时，通过监听[Display对象变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#displayonaddremovechange)，感知窗口当前状态，如当前相机窗口发生旋转时，需对预览流进行角度修正。推荐在[会话配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)中完成调用预览旋转接口后，直接创建监听。
+
+  
 ```text
 import { display } from '@kit.ArkUI';
 
@@ -124,10 +145,19 @@ display.on('change', () => {
 });
 ```
 
+ 
+  
 
-## 拍照
+##### 拍照
 
-完成[会话创建](#创建会话)后，开发者可根据实际需求，配置输出流。 调用[PhotoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput)中的[getPhotoRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#getphotorotation12)可以获取到拍照旋转角度。  该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用。  deviceDegree：设备旋转角度。拍照的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
+完成[会话创建](#创建会话)后，开发者可根据实际需求，配置输出流。
+ 1. 调用[PhotoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput)中的[getPhotoRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#getphotorotation12)可以获取到拍照旋转角度。
+
+  该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用。
+
+  deviceDegree：设备旋转角度。拍照的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
+
+  
 ```text
 function getPhotoRotation(photoOutput: camera.PhotoOutput, deviceDegree: number): camera.ImageRotation {
   let photoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
@@ -143,11 +173,21 @@ function getPhotoRotation(photoOutput: camera.PhotoOutput, deviceDegree: number)
 }
 ```
 
-应用将拍照角度写入[PhotoCaptureSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#photocapturesetting).rotation。  其余参数的配置及拍照，可参考[拍照开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)。
+2. 应用将拍照角度写入[PhotoCaptureSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#photocapturesetting).rotation。
+3. 其余参数的配置及拍照，可参考[拍照开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)。
+ 
+  
 
-## 录像
+##### 录像
 
-完成[会话创建](#创建会话)后，开发者可根据实际需求，配置输出流。 调用[VideoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput)中的[getVideoRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput#getvideorotation12)可以获取到录像的旋转角度。  该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用。  deviceDegree：设备旋转角度。录像的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
+完成[会话创建](#创建会话)后，开发者可根据实际需求，配置输出流。
+ 1. 调用[VideoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput)中的[getVideoRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput#getvideorotation12)可以获取到录像的旋转角度。
+
+  该接口需要在session调用[commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)完成配流后调用。
+
+  deviceDegree：设备旋转角度。录像的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
+
+  
 ```text
 function getVideoRotation(videoOutput: camera.VideoOutput, deviceDegree: number): camera.ImageRotation {
   let videoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
@@ -163,7 +203,11 @@ function getVideoRotation(videoOutput: camera.VideoOutput, deviceDegree: number)
 }
 ```
 
-在[AVRecorder.prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#prepare9)后使用[updateRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#updaterotation12)设置录像角度。  其余参数的配置及启动录像，可参考[录像开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording)。   **录像流旋转接口适配示例代码：**
+2. 在[AVRecorder.prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#prepare9)后使用[updateRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#updaterotation12)设置录像角度。
+3. 其余参数的配置及启动录像，可参考[录像开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording)。
+ 
+**录像流旋转接口适配示例代码：**
+ 
 ```text
 import { camera } from '@kit.CameraKit';
 import { media } from '@kit.MediaKit';
@@ -184,11 +228,15 @@ async function getVideoRotationAndUpdate(videoOutput: camera.VideoOutput, device
   }
 }
 ```
+ 
+  
 
+##### 计算设备旋转角度
 
-## 计算设备旋转角度
-
-当前可通过调用[once(type: SensorId.GRAVITY, callback: Callback)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#gravity9-1)获取一次重力传感器在x、y、z三个方向上的数据，计算得出设备旋转角度deviceDegree，示例如下所示。 如果无法获得重力传感器数据，需要申请重力传感器权限ohos.permission.ACCELEROMETER。权限申请请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)，如何获取传感器数据请参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines)。
+当前可通过调用[once(type: SensorId.GRAVITY, callback: Callback&lt;GravityResponse&gt;)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#gravity9-1)获取一次重力传感器在x、y、z三个方向上的数据，计算得出设备旋转角度deviceDegree，示例如下所示。
+ 
+如果无法获得重力传感器数据，需要申请重力传感器权限ohos.permission.ACCELEROMETER。权限申请请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)，如何获取传感器数据请参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines)。
+ 
 ```text
 import { Decimal } from '@kit.ArkTS';
 import { sensor } from '@kit.SensorServiceKit';
@@ -201,7 +249,14 @@ function getRealData(data: sensor.GravityResponse): number {
   let x = data.x;
   let y = data.y;
   let z = data.z;
-  if ((x * x + y * y) * 3 = 0 ? getDeviceDegree % 360 : getDeviceDegree % 360 + 360;
+  if ((x * x + y * y) * 3 < z * z) {
+    return getDeviceDegree;
+  } else {
+    try {
+      let sd: Decimal = Decimal.atan2(y, -x);
+      let sc: Decimal = Decimal.round(Number(sd) / 3.141592653589 * 180);
+      getDeviceDegree = 90 - Number(sc);
+      getDeviceDegree = getDeviceDegree >= 0 ? getDeviceDegree % 360 : getDeviceDegree % 360 + 360;
     } catch (error) {
       let err = error as BusinessError;
       console.error(`decimal failed, error: ${err.code}`);
@@ -210,7 +265,7 @@ function getRealData(data: sensor.GravityResponse): number {
   return getDeviceDegree;
 }
 
-async function getGravity() : Promise {
+async function getGravity() : Promise<number> {
   let data: sensor.Sensor[];
   try {
     data = await sensor.getSensorList();
@@ -220,14 +275,22 @@ async function getGravity() : Promise {
     return -1; // 异常场景下返回默认值
   }
 
-  for (let i = 0; i  = new Promise((resolve) => {
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].sensorId === sensor.SensorId.GRAVITY) {
+      isSupported = true;
+      break;
+    }
+  }
+  try {
+    if (isSupported === true) {
+      const promise: Promise<number> = new Promise((resolve) => {
         sensor.once(sensor.SensorId.GRAVITY, (data: sensor.GravityResponse) => {
           resolve(getRealData(data));
         });
       })
       return promise;
     } else {
-      const promise: Promise = new Promise((resolve) => {
+      const promise: Promise<number> = new Promise((resolve) => {
         sensor.once(sensor.SensorId.ACCELEROMETER, (data: sensor.AccelerometerResponse) => {
           resolve(getRealData(data as sensor.GravityResponse));
         });
@@ -242,28 +305,41 @@ async function getGravity() : Promise {
 }
 
 // 获取当前设备旋转角度
-async function getCurrentDeviceDegree() : Promise {
+async function getCurrentDeviceDegree() : Promise<number> {
   getDeviceDegree = await getGravity(); // 调用使用await
   return getDeviceDegree;
 }
 ```
+ 
+  
 
-
-## 视频通话送远端场景
+##### 视频通话送远端场景
 
 两个设备之间进行视频通话，存在设备间持握方向不一致问题，建议**在本端将画面转正**，再通过网络发送到对端，画面转正参考[自绘制场景预览角度的归一化处理](#自绘制场景预览角度的归一化处理)。
+ 
+  
 
-## 实现相机无损出图
+##### 实现相机无损出图
 
-在部分折叠屏设备上，[不同折叠状态](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-foldable-guide#section152264061715)下的[设备自然方向](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#设备自然方向)会发生改变，导致不同折叠状态下真实的[相机镜头安装角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#相机镜头安装角度)不同。为了屏蔽不同设备间的差异，使得不同折叠状态下的相机镜头安装角度一致，系统会自动调整部分折叠状态下的相机采集图像方向（通过旋转裁切的方式）和相机镜头安装角度，因此会存在视场角（Field of View, FOV）损失，可能会导致相机预览、拍照、录像可见范围降低，因此如果需要实现相机无损出图，可以通过[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)接口来实现相机无损出图。具体方式如下： 设备是否支持无损出图，首先需要确认设备的相机镜头安装角度是否可变，可以通过[isPhysicalCameraOrientationVariable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#isphysicalcameraorientationvariable22)接口查询。 当相机镜头安装角度不可变时，不同折叠状态下的相机出图均为无损出图。  当相机镜头安装角度可变时：  如应用需要实现相机无损出图，由于相机镜头安装角度与相机旋转相关，需要应用完成[相机旋转的适配](#top)后，通过[getPhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#getphysicalcameraorientation22)接口获取设备当前折叠状态下真实的相机镜头安装角度，并通过[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)接口实现相机无损出图（相机镜头安装角度不可变时使用[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)将会返回[7400102](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera#section7400102-非法操作)错误码，未适配相机旋转时使用相机无损出图会导致预览、拍照、录像旋转异常），推荐在[createCameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createcamerainput)后直接使用[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)接口实现相机无损出图。   示例代码如下：
+在部分折叠屏设备上，[不同折叠状态](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-foldable-guide#section152264061715)下的[设备自然方向](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#设备自然方向)会发生改变，导致不同折叠状态下真实的[相机镜头安装角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term#相机镜头安装角度)不同。为了屏蔽不同设备间的差异，使得不同折叠状态下的相机镜头安装角度一致，系统会自动调整部分折叠状态下的相机采集图像方向（通过旋转裁切的方式）和相机镜头安装角度，因此会存在视场角（Field of View, FOV）损失，可能会导致相机预览、拍照、录像可见范围降低，因此如果需要实现相机无损出图，可以通过[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)接口来实现相机无损出图。具体方式如下：
+ 
+设备是否支持无损出图，首先需要确认设备的相机镜头安装角度是否可变，可以通过[isPhysicalCameraOrientationVariable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#isphysicalcameraorientationvariable22)接口查询。
+ 1. 当相机镜头安装角度不可变时，不同折叠状态下的相机出图均为无损出图。
+2. 当相机镜头安装角度可变时：
+
+  
+如应用需要实现相机无损出图，由于相机镜头安装角度与相机旋转相关，需要应用完成[相机旋转的适配](#top)后，通过[getPhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#getphysicalcameraorientation22)接口获取设备当前折叠状态下真实的相机镜头安装角度，并通过[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)接口实现相机无损出图（相机镜头安装角度不可变时使用[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)将会返回[7400102](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera#section7400102-非法操作)错误码，未适配相机旋转时使用相机无损出图会导致预览、拍照、录像旋转异常），推荐在[createCameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createcamerainput)后直接使用[usePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput#usephysicalcameraorientation22)接口实现相机无损出图。
+ 
+示例代码如下：
+ 
 ```text
 import { camera } from '@kit.CameraKit';
 
 function enablePhysicalCameraOrientation(cameraInput: camera.CameraInput) {
   // 查询设备的相机镜头安装角度是否可变
-  let isVarialbe: boolean = cameraInput.isPhysicalCameraOrientationVariable();
+  let isVariable: boolean = cameraInput.isPhysicalCameraOrientationVariable();
 
-  if (isVarialbe) {
+  if (isVariable) {
     // 获取设备当前折叠状态下真实的相机镜头安装角度
     let physicalOrientation: number = cameraInput.getPhysicalCameraOrientation();
     console.info(`physical Orientation is ${physicalOrientation}`);
@@ -274,20 +350,29 @@ function enablePhysicalCameraOrientation(cameraInput: camera.CameraInput) {
   }
 }
 ```
+ 
+  
 
+##### 常见问题
 
-## 常见问题
+  
 
-
-## 指定XComponent的大小，防止旋转后图像拉伸变形
+##### 指定XComponent的大小，防止旋转后图像拉伸变形
 
 图像显示出现拉伸或压缩等变形，是因为图像分辨率与[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)的宽高比不匹配。以应用层下发的1920*1080(16:9)竖屏和横屏为例，器件出图均是按照4:3比例出一张RAW图，在此基础上，根据应用层下发的16:9比例进行裁切，提供数据给应用层。因此，无论手机持握方向如何变化，应用层接收的数据始终是16:9比例的图片。具体图示如下：
+  
 | 设备和镜头方向 | 处理过程示意图 | XComponent布局 |
 | --- | --- | --- |
-| 设备条件： 手机竖屏、充电口向下。 使用后置相机拍摄。 可得： - 后置相机镜头角度 = 90° - 屏幕旋转角度 = 0°，[Display.rotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#属性) = 0 - 图像预览旋转角度 = 0°+90° = 90° |  | 出图与最终成像有90度夹角，布局宽高与图像宽高交换。 |
-| 设备条件： 手机横屏、充电口向右。 使用后置相机拍摄。 可得： - 后置相机镜头角度 = 90° - 屏幕旋转角度 = 270°，[Display.rotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#属性) = 3 - 图像预览旋转角度 = 270°+90° = 360° = 0° |  | 出图与最终成像有0度夹角，布局与图像宽高比一致。 |
-
-从上图可以看出，当手机从竖屏转换为横屏时，图像始终保持16:9的输出比例，但镜头与屏幕显示方向之间的夹角从90度变为0度。如果布局保持9:16不变，那么16:9的图像数据放置在9:16的空间内显示，会导致图像形变。因此，为确保图像显示正常，横屏时需要将布局的宽高比调整为16:9。 首先，将XComponent的宽度和高度作为状态变量进行监听，通过[Window.on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)监听窗口的变化，根据屏幕旋转角度（[Display.rotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#属性) ）与相机镜头角度（[CameraDevice.cameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#orientation10)）之间的角度来确定布局的宽高比，以确保布局能跟随窗口实时调整。 具体的实现方法如下，在需要进行横竖屏切换的页面中，通常建议在aboutToAppear中执行窗口变化的监听。
+| 设备条件： 手机竖屏、充电口向下。 使用后置相机拍摄。 可得： - 后置相机镜头角度 = 90° - 屏幕旋转角度 = 0°，Display.rotation = 0 - 图像预览旋转角度 = 0°+90° = 90° |  | 出图与最终成像有90度夹角，布局宽高与图像宽高交换。 |
+| 设备条件： 手机横屏、充电口向右。 使用后置相机拍摄。 可得： - 后置相机镜头角度 = 90° - 屏幕旋转角度 = 270°，Display.rotation = 3 - 图像预览旋转角度 = 270°+90° = 360° = 0° |  | 出图与最终成像有0度夹角，布局与图像宽高比一致。 |
+ 
+ 
+从上图可以看出，当手机从竖屏转换为横屏时，图像始终保持16:9的输出比例，但镜头与屏幕显示方向之间的夹角从90度变为0度。如果布局保持9:16不变，那么16:9的图像数据放置在9:16的空间内显示，会导致图像形变。因此，为确保图像显示正常，横屏时需要将布局的宽高比调整为16:9。
+ 
+首先，将XComponent的宽度和高度作为状态变量进行监听，通过[Window.on('windowSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowsizechange7)监听窗口的变化，根据屏幕旋转角度（[Display.rotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#属性) ）与相机镜头角度（[CameraDevice.cameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#orientation10)）之间的角度来确定布局的宽高比，以确保布局能跟随窗口实时调整。
+ 
+具体的实现方法如下，在需要进行横竖屏切换的页面中，通常建议在aboutToAppear中执行窗口变化的监听。
+ 
 ```text
 import { bundleManager } from '@kit.AbilityKit';
 import { display } from '@kit.ArkUI';
@@ -325,7 +410,13 @@ struct Index {
   }
 
   isIsolateForSpecialType(): boolean { // 兼容平板API14之前的设备
-    return deviceInfo.deviceType == "tablet" && this.targetVersion  {
+    return deviceInfo.deviceType == "tablet" && this.targetVersion <= 50000013;
+  }
+
+  aboutToAppear(): void {
+    this.updateXComponentSize();
+    this.getBundleInfoForSelf();
+    this.windowClass.on('windowSizeChange', (size) => {
       this.mWindowWidth = size.width;
       this.mWindowHeight = size.height;
       this.updateXComponentSize();
@@ -386,7 +477,7 @@ struct Index {
   }
   }
 
-  async aboutToDisAppear(): Promise {
+  async aboutToDisAppear(): Promise<void> {
     display.off('change');
     this.windowClass.off('windowSizeChange');
     // 解注册
@@ -396,12 +487,17 @@ struct Index {
   }
 }
 ```
+ 
+除了指定XComponent的宽高外，还可以通过设置XComponent的renderFit来实现图片的自适应大小显示、居中裁剪显示等效果。具体详情请参考[RenderFit介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit#renderfit)。
+ 
+  
 
- 除了指定XComponent的宽高外，还可以通过设置XComponent的renderFit来实现图片的自适应大小显示、居中裁剪显示等效果。具体详情请参考[RenderFit介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-renderfit#renderfit)。
+##### 自绘制场景预览角度的归一化处理
 
-## 自绘制场景预览角度的归一化处理
-
-在自绘制场景中，对于后置摄像头，可以通过调用[getPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getpreviewrotation12)获取旋转角度，将图像转正；对于前置摄像头，由于存在水平镜像和垂直镜像的差异，为了简化操作，需先对前置摄像头的图像角度进行归一化处理后，再将图像转正，并根据业务需求决定是否进行镜像处理。 pixelMap处理方式：
+在自绘制场景中，对于后置摄像头，可以通过调用[getPreviewRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getpreviewrotation12)获取旋转角度，将图像转正；对于前置摄像头，由于存在水平镜像和垂直镜像的差异，为了简化操作，需先对前置摄像头的图像角度进行归一化处理后，再将图像转正，并根据业务需求决定是否进行镜像处理。
+ 
+pixelMap处理方式：
+ 
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -440,7 +536,31 @@ function  onImageArrival(receiver: image.ImageReceiver): void {
             // stride与width不一致
             const dstBufferSize = width * height * 1.5 // 以NV21为例（YUV_420_SP格式的图片）YUV_420_SP内存计算公式：长x宽+(长x宽)/2
             const dstArr = new Uint8Array(dstBufferSize)
-            for (let j = 0; j  {
+            for (let j = 0; j < height * 1.5; j++) {
+              const srcBuf = new Uint8Array(imgComponent.byteBuffer, j * stride, width)
+              dstArr.set(srcBuf, j * width)
+            }
+            let pixelMap = await image.createPixelMap(dstArr.buffer, {
+              size: { height: height, width: width },
+              srcPixelFormat: image.PixelMapFormat.NV21, // 此处以NV21为例
+            });
+            updatePixelMap(pixelMap);
+          }
+        } else {
+          console.error('byteBuffer is null');
+        }
+        // 确保当前buffer没有在使用的情况下，可进行资源释放。
+        // 如果对buffer进行异步操作，需要在异步操作结束后再释放该资源（nextImage.release()）。
+        nextImage.release();
+        console.info('image process done');
+      })
+    })
+  })
+}
+```
+ 
+```text
+async function  updatePixelMap(pixelMap: image.PixelMap): Promise<void> {
   let rotation : number = 0;
   try {
     rotation = display.getDefaultDisplaySync().rotation * camera.ImageRotation.ROTATION_90;
@@ -466,15 +586,21 @@ function  onImageArrival(receiver: image.ImageReceiver): void {
   }
 }
 ```
+ 
+  
 
+##### 适配一多设备
 
-## 适配一多设备
+为了适配一多设备，主要分为以下几步：
+ 1. 根据屏幕比例选择合适的预览分辨率。
+2. 根据确定的预览分辨率，通过宽/高得到新的比例。
+3. 根据上一步的比例计算XComponent宽高，可参考[指定XComponent的大小，防止旋转后图像拉伸变形](#指定xcomponent的大小防止旋转后图像拉伸变形)，将mConfigRatio应用于布局宽高的计算。
 
-为了适配一多设备，主要分为以下几步： 根据屏幕比例选择合适的预览分辨率。  根据确定的预览分辨率，通过宽/高得到新的比例。  根据上一步的比例计算XComponent宽高，可参考[指定XComponent的大小，防止旋转后图像拉伸变形](#指定xcomponent的大小防止旋转后图像拉伸变形)，将mConfigRatio应用于布局宽高的计算。
+  
 > [!NOTE]
 > 在适配折叠屏设备时，每次折叠屏镜头变化都需要重新获取屏幕比例。
 
-
+ 
 ```text
 let mConfigRatio: number = 16 / 9; // 设置分辨率比例初始值，此处以16:9宽高比为例。
 let reConfigType : number = 720;
@@ -504,18 +630,55 @@ function getSurfaceSize(cameraDevice: camera.CameraDevice, configRatio: number, 
 }
 function getPreviewProfile(cameraOutputCapability: camera.CameraOutputCapability, configRatio: number): camera.Profile | undefined {
   let previewProfiles = cameraOutputCapability.previewProfiles;
-  if (previewProfiles.length  0.2) continue; // 0.2的误差可自行调整
+  if (previewProfiles.length < 1) {
+    return undefined;
+  }
+  console.info(`previewProfiles this.foramt: ${previewProfileObj.format} configRatio = ${configRatio}`);
+  let optimalSize: camera.Profile|undefined;
+  let minDiff = Number.MAX_VALUE;
+  // 计算屏幕的宽高比
+  for (let i = 0; i < previewProfiles.length; i++) {
+    if (previewProfiles[i].format !== previewProfileObj.format) {
+      continue;
+    }
+    let ratio = previewProfiles[i].size.width / previewProfiles[i].size.height; // 1088*1080
+    // 检查宽高比是否匹配
+    if (Math.abs(ratio - configRatio) > 0.2) continue; // 0.2的误差可自行调整
     // 选择最接近的分辨率
-    if (Math.abs(previewProfiles[i].size.height - reConfigType)
+    if (Math.abs(previewProfiles[i].size.height - reConfigType) < minDiff) {
+      optimalSize = previewProfiles[i];
+      minDiff = Math.abs(previewProfiles[i].size.height - reConfigType);
+    }
+  }
 
-## 拍照无法镜像
+  // 如果没有找到合适的分辨率，选择第一个
+  if (optimalSize === undefined) {
+    minDiff = Number.MAX_VALUE;
+    for (let i = 0; i < previewProfiles.length; i++) {
+      if (previewProfiles[i].format !== previewProfileObj.format) {
+        continue;
+      }
+      if (Math.abs(previewProfiles[i].size.height - reConfigType) < minDiff) { // 720
+        optimalSize = previewProfiles[i];
+        minDiff = Math.abs(previewProfiles[i].size.height - reConfigType);
+      }
+    }
+  }
+  return optimalSize;
+}
+```
+ 
+  
+
+##### 拍照无法镜像
 
 通过设置[PhotoCaptureSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#photocapturesetting)中的mirror属性改变拍照镜像。
+ 
 ```text
 // this.photoOutput是拍照输出output, this.getDeviceDegree是重力角度
 let photoSettings: camera.PhotoCaptureSetting = {
-quality: camera.QualityLevel.QUALITY_LEVEL_HIGH,
-mirror: this.photoOutput?.isMirrorSupported() // 设置拍照镜像，true表示镜像，false表示非镜像
+  quality: camera.QualityLevel.QUALITY_LEVEL_HIGH,
+  mirror: this.photoOutput?.isMirrorSupported() // 设置拍照镜像，true表示镜像，false表示非镜像
 };
 // ... 省略获取代码
 this.photoRotation = getPhotoRotation(this.photoOutput!!,this.getDeviceDegree)

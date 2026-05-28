@@ -5,19 +5,24 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording-case
 
 在开发相机应用时，需要先[申请相关权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preparation)。
+ 
+当前示例提供完整的录像流程及其接口调用顺序的介绍。对于单个流程（如[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-session-management)、[录像](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording)）的介绍请参考具体章节。
+  
 
- 当前示例提供完整的录像流程及其接口调用顺序的介绍。对于单个流程（如[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-session-management)、[录像](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-recording)）的介绍请参考具体章节。
-
-
-## 开发流程
+##### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建录像流，开发流程如下。
-![](assets/录像实践(C／C++)
-/file-20260514131528089-0.png)
+ 
 
-## 完整示例
+![](assets/录像实践(C／C++)/file-20260514131528089-0.png)
 
-在CMake脚本中链接相关动态库。
+ 
+  
+
+##### 完整示例
+1. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC
     libace_napi.z.so
@@ -26,7 +31,9 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
-创建头文件ndk_camera.h。
+2. 创建头文件ndk_camera.h。
+
+  
 ```text
 #include "ohcamera/camera.h"
 #include "ohcamera/camera_input.h"
@@ -43,15 +50,147 @@ public:
 };
 ```
 
-cpp侧导入NDK接口，并根据传入的SurfaceId进行录像。
+3. cpp侧导入NDK接口，并根据传入的SurfaceId进行录像。
+
+  
 ```text
 #include "hilog/log.h"
-#include
+#include <cmath>
 
 bool IsAspectRatioEqual(float videoAspectRatio, float previewAspectRatio)
 {
     float epsilon = 1e-6f;
-    return fabsf(videoAspectRatio - previewAspectRatio) previewProfiles == nullptr) {
+    return fabsf(videoAspectRatio - previewAspectRatio) <= epsilon;
+}
+
+void OnCameraInputError(const Camera_Input* cameraInput, Camera_ErrorCode errorCode)
+{
+    OH_LOG_INFO(LOG_APP, "OnCameraInput errorCode = %{public}d", errorCode);
+}
+
+CameraInput_Callbacks* GetCameraInputListener(void)
+{
+    static CameraInput_Callbacks cameraInputCallbacks = {
+        .onError = OnCameraInputError
+    };
+    return &cameraInputCallbacks;
+}
+
+void CaptureSessionOnFocusStateChange(Camera_CaptureSession* session, Camera_FocusState focusState)
+{
+    OH_LOG_INFO(LOG_APP, "CaptureSessionOnFocusStateChange");
+}
+
+void CaptureSessionOnError(Camera_CaptureSession* session, Camera_ErrorCode errorCode)
+{
+    OH_LOG_INFO(LOG_APP, "CaptureSessionOnError = %{public}d", errorCode);
+}
+
+CaptureSession_Callbacks* GetCaptureSessionRegister(void)
+{
+    static CaptureSession_Callbacks captureSessionCallbacks = {
+        .onFocusStateChange = CaptureSessionOnFocusStateChange,
+        .onError = CaptureSessionOnError
+    };
+    return &captureSessionCallbacks;
+}
+
+void VideoOutputOnFrameStart(Camera_VideoOutput* videoOutput)
+{
+    OH_LOG_INFO(LOG_APP, "VideoOutputOnFrameStart");
+}
+
+void VideoOutputOnFrameEnd(Camera_VideoOutput* videoOutput, int32_t frameCount)
+{
+    OH_LOG_INFO(LOG_APP, "VideoOutput frameCount = %{public}d", frameCount);
+}
+
+void VideoOutputOnError(Camera_VideoOutput* videoOutput, Camera_ErrorCode errorCode)
+{
+    OH_LOG_INFO(LOG_APP, "VideoOutput errorCode = %{public}d", errorCode);
+}
+
+VideoOutput_Callbacks* GetVideoOutputListener(void)
+{
+    static VideoOutput_Callbacks videoOutputListener = {
+        .onFrameStart = VideoOutputOnFrameStart,
+        .onFrameEnd = VideoOutputOnFrameEnd,
+        .onError = VideoOutputOnError
+    };
+    return &videoOutputListener;
+}
+
+void CameraManagerStatusCallback(Camera_Manager* cameraManager, Camera_StatusInfo* status)
+{
+    OH_LOG_INFO(LOG_APP, "CameraManagerStatusCallback is called");
+}
+
+CameraManager_Callbacks* GetCameraManagerListener()
+{
+    static CameraManager_Callbacks cameraManagerListener = {
+        .onCameraStatus = CameraManagerStatusCallback
+    };
+    return &cameraManagerListener;
+}
+
+NDKCamera::NDKCamera(char* previewId, char* videoId)
+{
+    Camera_Manager* cameraManager = nullptr;
+    Camera_Device* cameras = nullptr;
+    Camera_CaptureSession* captureSession = nullptr;
+    Camera_OutputCapability* cameraOutputCapability = nullptr;
+    Camera_VideoOutput* videoOutput = nullptr;
+    const Camera_Profile* previewProfile = nullptr;
+    const Camera_Profile* photoProfile = nullptr;
+    const Camera_VideoProfile* videoProfile = nullptr;
+    Camera_PreviewOutput* previewOutput = nullptr;
+    Camera_PhotoOutput* photoOutput = nullptr;
+    Camera_Input* cameraInput = nullptr;
+    uint32_t size = 0;
+    uint32_t cameraDeviceIndex = 0;
+    char* videoSurfaceId = videoId;
+    char* previewSurfaceId = previewId;
+    // 创建CameraManager对象。
+    Camera_ErrorCode ret = OH_Camera_GetCameraManager(&cameraManager);
+    if (cameraManager == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_Camera_GetCameraManager failed.");
+        return;
+    }
+    // 监听相机状态变化。
+    ret = OH_CameraManager_RegisterCallback(cameraManager, GetCameraManagerListener());
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_RegisterCallback failed.");
+        return;
+    }
+
+    // 获取相机列表。
+    ret = OH_CameraManager_GetSupportedCameras(cameraManager, &cameras, &size);
+    if (cameras == nullptr || size <= 0 || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_GetSupportedCameras failed.");
+        return;
+    }
+
+    for (int index = 0; index < size; index++) {
+        OH_LOG_ERROR(LOG_APP, "cameraId  =  %{public}s ", cameras[index].cameraId);              // 获取相机ID。
+        OH_LOG_ERROR(LOG_APP, "cameraPosition  =  %{public}d ", cameras[index].cameraPosition);  // 获取相机位置。
+        OH_LOG_ERROR(LOG_APP, "cameraType  =  %{public}d ", cameras[index].cameraType);          // 获取相机类型。
+        OH_LOG_ERROR(LOG_APP, "connectionType  =  %{public}d ", cameras[index].connectionType);  // 获取相机连接类型。
+    }
+
+    if (size < cameraDeviceIndex + 1) {
+        OH_LOG_ERROR(LOG_APP, "cameraDeviceIndex is invalid.");
+        return;
+    }
+
+    // 获取相机设备支持的输出流能力。
+    ret = OH_CameraManager_GetSupportedCameraOutputCapability(cameraManager, &cameras[cameraDeviceIndex],
+                                                            &cameraOutputCapability);
+    if (cameraOutputCapability == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_GetSupportedCameraOutputCapability failed.");
+        return;
+    }
+
+    if (cameraOutputCapability->previewProfiles == nullptr) {
         OH_LOG_ERROR(LOG_APP, "previewProfiles == null");
         return;
     }
@@ -70,7 +209,7 @@ bool IsAspectRatioEqual(float videoAspectRatio, float previewAspectRatio)
     }
     // 预览流宽高比要与录像流的宽高比一致，如果录制的是hdr视频，请筛选支持hdr的Camera_VideoProfile。
     Camera_VideoProfile** videoProfiles = cameraOutputCapability->videoProfiles;
-    for (int index = 0; index videoProfilesSize; index++) {
+    for (int index = 0; index < cameraOutputCapability->videoProfilesSize; index++) {
         bool isEqual = IsAspectRatioEqual((float)videoProfiles[index]->size.width / videoProfiles[index]->size.height,
             (float)previewProfile->size.width / previewProfile->size.height);
         // 默认筛选CAMERA_FORMAT_YUV_420_SP的profile。
@@ -258,7 +397,9 @@ bool IsAspectRatioEqual(float videoAspectRatio, float previewAspectRatio)
 }
 ```
 
+ 
+  
 
-## 示例代码
+##### 示例代码
 
-录像示例代码请参考[NDKPhotoVideoSample(C/C++)](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/CameraKit/NDKPhotoVideoSample)。
+- 录像示例代码请参考[NDKPhotoVideoSample(C/C++)](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/CameraKit/NDKPhotoVideoSample)。

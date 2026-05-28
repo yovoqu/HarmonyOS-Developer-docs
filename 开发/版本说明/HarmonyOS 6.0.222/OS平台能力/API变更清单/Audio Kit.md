@@ -8,4 +8,4 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：DeviceType； API声明：SYSTEM_PRIVATE = 200 差异内容：SYSTEM_PRIVATE = 200 | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：AudioDeviceDescriptor； API声明：readonly model?: string; 差异内容：readonly model?: string; | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioDeviceDescriptor； API声明：readonly capabilities?: Array<AudioStreamInfo>; 差异内容：readonly capabilities?: Array<AudioStreamInfo>; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioDeviceDescriptor； API声明：readonly capabilities?: Array&lt;AudioStreamInfo&gt;; 差异内容：readonly capabilities?: Array&lt;AudioStreamInfo&gt;; | api/@ohos.multimedia.audio.d.ts |

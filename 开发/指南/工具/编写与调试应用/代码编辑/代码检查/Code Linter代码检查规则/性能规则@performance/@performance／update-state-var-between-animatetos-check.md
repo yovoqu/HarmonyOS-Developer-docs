@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-update-state-var-between-animatetos-check
 
 如果多个animateTo之间存在状态更新，会导致执行下一个animateTo之前又存在需要更新的脏节点，可能造成冗余更新。因此不建议在两次animateTo之间进行状态变量更新。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -18,14 +17,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 @Entry
@@ -37,13 +38,14 @@ struct UpdateMultipleProperties {
   build() {
     Column() {
       Column() {
-
+        
         Button('Tap2')
           .width('100%')
           .margin({ top: 12 })
           .onClick(() => {
             let doTimes = 5;
-            for (let i = 0; i  {
+            for (let i = 0; i < doTimes; i++) {
+              setTimeout(() => {
                 // Explicitly specify the initial values of all properties to be animated before the animation.
                 this.w = 80
                 this.color = Color.Yellow
@@ -63,7 +65,8 @@ struct UpdateMultipleProperties {
           .margin({ top: 12 })
           .onClick(() => {
             let doTimes = 5;
-            for (let i = 0; i  {
+            for (let i = 0; i < doTimes; i++) {
+              setTimeout(() => {
                 this.getUIContext().animateTo({ curve: Curve.Sharp, duration: 1000 }, () => {
                   this.w = (this.w === 80 ? 150 : 80);
                 });
@@ -88,10 +91,10 @@ struct UpdateMultipleProperties {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 @Entry
@@ -108,7 +111,8 @@ struct UpdateMultipleProperties {
           .margin({ top: 12 })
           .onClick(() => {
             let doTimes = 5;
-            for (let i = 0; i  {
+            for (let i = 0; i < doTimes; i++) {
+              setTimeout(() => {
                 this.w = 80
                 this.h = 4
                 this.getUIContext().animateTo({ curve: Curve.Sharp, duration: 1000 }, () => {
@@ -137,14 +141,14 @@ struct UpdateMultipleProperties {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/recommended
-plugin:@performance/all
+<span style="color: rgb(80,160,79);">plugin:@performance/</span><span style="color: rgb(0,0,255);">recommended</span>
+<span style="color: rgb(80,160,79);">plugin:@performance/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

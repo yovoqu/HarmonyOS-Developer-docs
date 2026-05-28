@@ -3,44 +3,42 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-div
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
+ 
 基础容器，用作页面结构的根节点或将内容进行分组。
+  
 
-
-## 权限列表
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 权限列表
 
 无
+ 
+  
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 支持。
+ 
+  
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)。
+ 
+  
 
-
-## 样式
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 样式
 
 除支持组件[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | flex-direction | string | row | 否 | flex容器主轴方向。可选项有： - column：垂直方向从上到下。 - row：水平方向从左到右。 |
 | flex-wrap | string | nowrap | 否 | flex容器是单行还是多行显示，该值暂不支持动态修改。可选项有： - nowrap：不换行，单行显示。 - wrap：换行，多行显示。 |
-| justify-content | string | flex-start | 否 | flex容器当前行的主轴对齐格式。可选项有： - flex-start：项目位于容器的开头。 - flex-end：项目位于容器的结尾。 - center：项目位于容器的中心。 - space-between：项目位于各行之间留有空白的容器内。 - space-around：项目位于各行之前、之间、之后都留有空白的容器内。 - space-evenly5+:  均匀排列每个元素，每个元素之间的间隔相等。 |
+| justify-content | string | flex-start | 否 | flex容器当前行的主轴对齐格式。可选项有： - flex-start：项目位于容器的开头。 - flex-end：项目位于容器的结尾。 - center：项目位于容器的中心。 - space-between：项目位于各行之间留有空白的容器内。 - space-around：项目位于各行之前、之间、之后都留有空白的容器内。 - space-evenly5+: 均匀排列每个元素，每个元素之间的间隔相等。 |
 | align-items | string | stretch | 否 | flex容器当前行的交叉轴对齐格式，可选值为： - stretch：弹性元素在交叉轴方向被拉伸到与容器相同的高度或宽度。 - flex-start：元素向交叉轴起点对齐。 - flex-end：元素向交叉轴终点对齐。 - center：元素在交叉轴居中。 - baseline：如Flex布局纵向排列，则该值与’flex-start‘等效。横向布局时，内容元素存在文本时按照文本基线对齐，否则底部对齐。 |
 | align-content | string | flex-start | 否 | 交叉轴中有额外的空间时，多行内容对齐格式，可选值为： - flex-start：所有行从交叉轴起点开始填充。第一行的交叉轴起点边和容器的交叉轴起点边对齐。接下来的每一行紧跟前一行。 - flex-end：所有行从交叉轴末尾开始填充。最后一行的交叉轴终点和容器的交叉轴终点对齐。同时所有后续行与前一个对齐。 - center：所有行朝向容器的中心填充。每行互相紧挨，相对于容器居中对齐。容器的交叉轴起点边和第一行的距离相等于容器的交叉轴终点边和最后一行的距离。 - space-between：所有行在容器中平均分布。相邻两行间距相等。容器的交叉轴起点边和终点边分别与第一行和最后一行的边对齐。 - space-around：所有行在容器中平均分布，相邻两行间距相等。容器的交叉轴起点边和终点边分别与第一行和最后一行的距离是相邻两行间距的一半。 |
 | grid-template-[columns \| rows] | string | 1行1列 | 否 | 用于设置当前网格布局行和列的数量，不设置时默认1行1列，仅当display为grid时生效。 示例：如设置grid-template-columns为： - 50px 100px 60px：分三列，第一列50px，第二列100px，第三列60px； - 1fr 1fr 2fr：分三列，将父组件允许的宽分为4等份，第一列占1份，第二列占一份，第三列占2份； - 30% 20% 50%：分三列，将父组件允许的宽为基准，第一列占30%，第二列占20%，第三列占50%； - repeat(2,100px)：分两列，第一列100px，第二列100px； - repeat(auto-fill,100px)5+：按照每列100px的大小和交叉轴大小计算最大正整数重复次数，按照该重复次数布满交叉轴； - auto 1fr 1fr：分三列，第一列自适应内部子组件所需宽度，剩余空间分为两等份，第二列占一份，第三列占一份。 |
@@ -53,59 +51,389 @@
 | scrollbar-color6+ | &lt;color&gt; | - | 否 | 设置滚动条的颜色。 |
 | scrollbar-width6+ | &lt;length&gt; | - | 否 | 设置滚动条的宽度。 |
 | overscroll-effect6+ | string | - | 否 | 设置滚动边缘效果，可选值为： - spring：弹性物理动效，滑动到边缘后可以根据初始速度或通过触摸事件继续滑动一段距离，松手后回弹。 - fade：渐隐物理动效，滑动到边缘后展示一个波浪形的渐隐，根据速度和滑动距离的变化渐隐也会发生一定的变化。 - none：滑动到边缘后无效果。 |
+ 
+ 
+  
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
-
-
+  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
 | reachstart6+ | - | 当页面滑动到最开始的点时触发的事件回调，需要设置flex-direction为row时才会触发。 |
 | reachend6+ | - | 当页面滑动到最末尾的点时触发的事件回调，需要设置flex-direction为row时才会触发。 |
 | reachtop6+ | - | 当页面滑动到最上部的点时触发的事件回调，需要设置flex-direction为column时才会触发。 |
 | reachbottom6+ | - | 当页面滑动到最下部的点时触发的事件回调，需要设置flex-direction为column时才会触发。 |
+ 
+ 
+  
 
-
-## 方法
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 方法
 
 除支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：
-
-
+  
 | 名称 | 参数 | 返回值 | 描述 |
 | --- | --- | --- | --- |
 | getScrollOffset6+ | - | ScrollOffset | 获取元素内容的滚动偏移。 需要设置overflow样式为scroll。 |
 | scrollBy6+ | ScrollParam | - | 指定元素内容的滚动偏移。 需要设置overflow样式为scroll。 |
-
-
+ 
+ 
 **表1** ScrollOffset6+
-
-
+  
 | 名称 | 类型 | 描述 |
 | --- | --- | --- |
 | x | number | 在x轴方向的偏移，单位为px。 |
 | y | number | 在y轴方向的偏移，单位为px。 |
-
-
+ 
+ 
 **表2** ScrollParam6+
-
-
+  
 | 名称 | 类型 | 描述 |
 | --- | --- | --- |
 | dx | number | 水平方向滑动的偏移量，单位px。 |
 | dy | number | 垂直方向滑动的偏移量，单位px。 |
 | smooth | boolean | 是否平滑处理。设置为true时表示平滑处理，设置为false时表示不平滑处理。 |
+ 
+ 
+  
+
+##### 示例
+1. Flex样式
+
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <div class="flex-box">
+    <div class="flex-item color-primary"></div>
+    <div class="flex-item color-warning"></div>
+    <div class="flex-item color-success"></div>
+  </div>
+</div>
+```
+  
+```text
+/* xxx.css */
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 454px;
+  height: 454px;
+}
+.flex-box {
+  justify-content: space-around;
+  align-items: center;
+  width: 400px;
+  height: 140px;
+  background-color: #ffffff;
+}
+.flex-item {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+}
+.color-primary {
+  background-color: #007dff;
+}
+.color-warning {
+  background-color: #ff7500;
+}
+.color-success {
+  background-color: #41ba41;
+}
+```
+  
+![](assets/div/file-20260514164218352-1.png)
+
+2. Flex Wrap样式
+
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <div class="flex-box">
+    <div class="flex-item color-primary"></div>
+    <div class="flex-item color-warning"></div>
+    <div class="flex-item color-success"></div>
+  </div>
+</div>
+```
+  
+```text
+/* xxx.css */
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 454px;
+  height: 454px;
+}
+.flex-box {
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 250px;
+  background-color: #ffffff;
+}
+.flex-item {
+  width: 120px;
+  height: 120px;
+  border-radius: 16px;
+}
+.color-primary {
+  background-color: #007dff;
+}
+.color-warning {
+  background-color: #ff7500;
+}
+.color-success {
+  background-color: #41ba41;
+}
+```
+  
+![](assets/div/file-20260514164218352-2.png)
+
+3. Grid样式
+
+  
+```text
+<!-- xxx.hml -->
+<div class="common grid-parent">
+  <div class="grid-child grid-left-top"></div>
+  <div class="grid-child grid-left-bottom"></div>
+  <div class="grid-child grid-right-top"></div>
+  <div class="grid-child grid-right-bottom"></div>
+</div>
+```
+  
+```text
+/* xxx.css */
+.common {
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  margin: 24px;
+}
+.grid-parent {
+  display: grid;
+  grid-template-columns: 35% 35%;
+  grid-columns-gap: 24px;
+  grid-rows-gap: 24px;
+  grid-template-rows: 35% 35%;
+}
+.grid-child {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.grid-left-top {
+  grid-row-start: 0;
+  grid-column-start: 0;
+  grid-row-end: 0;
+  grid-column-end: 0;
+  background-color: #3f56ea;
+}
+.grid-left-bottom {
+  grid-row-start: 1;
+  grid-column-start: 0;
+  grid-row-end: 1;
+  grid-column-end: 0;
+  background-color: #00aaee;
+}
+.grid-right-top {
+  grid-row-start: 0;
+  grid-column-start: 1;
+  grid-row-end: 0;
+  grid-column-end: 1;
+  background-color: #00bfc9;
+}
+.grid-right-bottom {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 1;
+  grid-column-end: 1;
+  background-color: #47cc47;
+}
+```
+  
+![](assets/div/file-20260514164218352-3.gif)
+
+4. 拖拽7+
+
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <div class="content" ondragstart="dragstart" ondrag="drag" ondragend="dragend" style="position: absolute;left: {{left}};top: {{top}};">
+  </div>
+</div>
+```
+  
+```text
+/* xxx.css */
+ .container {
+ flex-direction: column;
+ width: 100%;
+ height: 100%;
+ }
+ .content {
+ width: 200px;
+ height: 200px;
+ background-color: red;
+ }
+```
+  
+```text
+// xxx.js
+import promptAction from '@ohos.promptAction';
+export default {
+  data:{
+    left:0,
+    top:0,
+  },
+  dragstart(e){
+    promptAction.showToast({
+      message: 'Start to be dragged'
+    })
+  },
+  drag(e){
+    this.left = e.globalX;
+    this.top = e.globalY;
+  },
+  dragend(e){
+    promptAction.showToast({
+      message: 'End Drag'
+    })
+  }
+}
+```
+  
+![](assets/div/file-20260514164218352-4.gif)
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <div class="content" ondrag="drag" style="position: absolute;left: {{left}};top: {{top}};"></div>
+  <div style="width: 500px; height: 500px; background-color: yellow; position: fixed; left: 15%; top: 30%; opacity:0.3"
+    ondragenter="dragenter" ondragover="dragover" ondragleave="dragleave" ondrop="drop">
+  </div>
+</div>
+```
+  
+```text
+/* xxx.css */
+.container {
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  max-width: 100%;
+}
+.content{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  position: absolute;
+}
+```
+  
+```text
+// xxx.js
+import promptAction from '@ohos.promptAction';
+export default {
+  data:{
+    left:0,
+    top:0,
+  },
+  drag(e){
+    this.left = e.globalX;
+    this.top = e.globalY;
+  },
+  dragenter(e){
+    promptAction.showToast({
+      message: 'enter'
+    })
+  },
+  dragover(e){
+    promptAction.showToast({
+      message: 'over'
+    })
+  },
+  dragleave(e){
+    promptAction.showToast({
+      message: 'leave'
+    })
+  },
+  drop(e){
+    promptAction.showToast({
+      message: 'drop'
+    })
+  }
+}
+```
+  
+![](assets/div/file-20260514164218352-5.gif)
 
+5. 手指捏合7+
 
-1. Flex样式  __PREBLOCK_0__  __PREBLOCK_1__  ![](assets/div/file-20260514164218352-0.png)
-2. Flex Wrap样式  __PREBLOCK_2__  __PREBLOCK_3__  ![](assets/div/file-20260514164218352-1.png)
-3. Grid样式  __PREBLOCK_4__  __PREBLOCK_5__  ![](assets/div/file-20260514164218352-2.png)
-4. 拖拽7+  __PREBLOCK_6__  __PREBLOCK_7__  __PREBLOCK_8__  ![](assets/div/file-20260514164218352-3.gif)  __PREBLOCK_9__  __PREBLOCK_10__  __PREBLOCK_11__  ![](assets/div/file-20260514164218352-4.gif)
-5. 手指捏合7+  __PREBLOCK_12__  __PREBLOCK_13__  __PREBLOCK_14__  ![](assets/div/file-20260514164218352-5.gif)
+  
+```text
+<!-- xxx.hml -->
+<div class="container">
+  <div class="content" onpinchstart="pinchstart" onpinchend="pinchend" onpinchupdate="pinchupdate"
+    onpinchcancel="pinchcancel"> 
+  </div>
+</div>
+```
+  
+```text
+/* xxx.css */
+.container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 454px;
+  height: 454px;
+}
+.content {
+  width: 400px;
+  height: 400px;
+  background-color: aqua;
+  margin: 30px;
+}
+```
+  
+```text
+// xxx.js
+import promptAction from '@ohos.promptAction';
+export default {
+  pinchstart(e){
+    promptAction.showToast({
+      message: 'pinchstart!!!'
+    })
+  },
+  pinchupdate(e){
+    promptAction.showToast({
+      message: 'Two-finger pinch update'
+    })
+  },
+  pinchend(e){
+    promptAction.showToast({
+      message: 'Finished with two fingers pinching'
+    })
+  },
+  pinchcancel(e){
+    promptAction.showToast({
+      message: 'Finger pinching is interrupted'
+    })
+  }
+}
+```
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/Uavqyc0VT82AaxZKITAXbg/zh-cn_image_0000002581276404.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013813Z&HW-CC-Expire=86400&HW-CC-Sign=A30060D5ACB09F05A2F03C2F5491FABCB7B504E44F32DEAF96940A8BA6535F57)

@@ -3,26 +3,28 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AgentHostProxy用于从[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)服务端向客户端发送数据或安全认证请求。
 
+> [!NOTE]
+> 本模块首批接口从API version 24开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口需要在主线程中使用，不支持在Worker、TaskPool等子线程中使用。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
 
-## AgentHostProxy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AgentHostProxy
 
 
-### sendData
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendData
 
 sendData(data: string): void
 
@@ -34,16 +36,14 @@ sendData(data: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | string | 是 | 待发送到[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)客户端的数据。 |
+| data | string | 是 | 待发送到AgentExtensionAbility客户端的数据。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -52,8 +52,7 @@ sendData(data: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { common, AgentExtensionAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -69,17 +68,15 @@ export default class MyAgentExtensionAbility extends AgentExtensionAbility {
     } catch (err) {
       let code = (err as BusinessError).code;
       let msg = (err as BusinessError).message;
-      console.error(
-        `${TAG} sendData failed, err code: ${code}, err msg: ${msg}.`,
-      );
+      console.error(`${TAG} sendData failed, err code: ${code}, err msg: ${msg}.`);
     }
   }
 }
 ```
 
 
-### authorize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### authorize
 
 authorize(handshakeData: string): void
 
@@ -91,7 +88,6 @@ authorize(handshakeData: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | handshakeData | string | 是 | 待发送到客户端的安全认证数据。 |
@@ -101,7 +97,6 @@ authorize(handshakeData: string): void
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 35600002 | Failed to send the IPC message. |
@@ -109,8 +104,7 @@ authorize(handshakeData: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { common, AgentExtensionAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -126,9 +120,7 @@ export default class MyAgentExtensionAbility extends AgentExtensionAbility {
     } catch (err) {
       let code = (err as BusinessError).code;
       let msg = (err as BusinessError).message;
-      console.error(
-        `${TAG} authorize failed, err code: ${code}, err msg: ${msg}.`,
-      );
+      console.error(`${TAG} authorize failed, err code: ${code}, err msg: ${msg}.`);
     }
   }
 }

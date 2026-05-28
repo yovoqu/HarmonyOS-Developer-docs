@@ -1,6 +1,6 @@
 # 在NDK中保证多实例场景功能正常
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-scope-task
 
@@ -8,20 +8,18 @@ API version 20开始，ArkUI开发框架新增了[OH_ArkUI_RunTaskInScope](https
 
 在NDK多窗口开发时，可能会涉及到组件的跨实例设置属性等场景，使用该能力可确保在调用跨实例组件设置属性时的上下文正确性，避免跨实例接口调用失败。
 
-
 > [!NOTE]
-> 适用于NDK多窗口开发中不同UI实例间的交互场景，例如在页面B中修改页面A创建的组件属性或未挂载到UI树的组件逻辑。 支持通过userData参数传递自定义数据结构（如组件指针、业务参数等），便于在回调任务中精准定位目标组件。 与OH_ArkUI_NodeUtils_GetAttachedNodeHandleById等接口配合使用，有效规避跨实例访问导致的空指针或权限异常问题。
+> 适用于NDK多窗口开发中不同UI实例间的交互场景，例如在页面B中修改页面A创建的组件属性或未挂载到UI树的组件逻辑。 支持通过userData参数传递自定义数据结构（如组件指针、业务参数等），便于在回调任务中精准定位目标组件。 与 OH_ArkUI_NodeUtils_GetAttachedNodeHandleById 等接口配合使用，有效规避跨实例访问导致的空指针或权限异常问题。
+
 
 本示例展示OH_ArkUI_RunTaskInScope接口的基础使用方式，OH_ArkUI_NodeUtils_GetAttachedNodeHandleById用于获取前置实例页面内的组件，相关使用请参考[OH_ArkUI_NodeUtils_GetAttachedNodeHandleById](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodeutils_getattachednodehandlebyid)，此处userData传入的数据类型为最终要设置的组件指针，便于设置对应组件属性。
 
-
-```text
+```cpp
 const uint32_t VALUE_2 = 250;
 const uint32_t VALUE_3 = 480;
 ```
 
-
-```text
+```cpp
 //page1
 ArkUI_NodeHandle button = nodeAPI->createNode(ARKUI_NODE_BUTTON);
 ArkUI_AttributeItem LABEL_Item = {.string = "pageOneButton"};
@@ -32,8 +30,7 @@ nodeAPI->setAttribute(button, NODE_BUTTON_LABEL, &LABEL_Item);
 nodeAPI->addChild(textContainer, button);
 ```
 
-
-```text
+```cpp
 //page2
 //pageOneButton由前置页面创建，通过OH_ArkUI_NodeUtils_GetAttachedNodeHandleById在第二个页面获取。
 ArkUI_NodeHandle pageOneButton = nullptr;
@@ -48,7 +45,7 @@ if (uiContext == nullptr) {
     return nullptr;
 }
 OH_ArkUI_RunTaskInScope(uiContext, pageOneButton, [](void *userData) {
-    auto *nodeAPI = reinterpret_cast(
+    auto *nodeAPI = reinterpret_cast<ArkUI_NativeNodeAPI_1 *>(
         OH_ArkUI_QueryModuleInterfaceByName(ARKUI_NATIVE_NODE, "ArkUI_NativeNodeAPI_1"));
     auto pageOneButton = (ArkUI_NodeHandle)userData;
     ArkUI_NumberValue value[] = {VALUE_3};

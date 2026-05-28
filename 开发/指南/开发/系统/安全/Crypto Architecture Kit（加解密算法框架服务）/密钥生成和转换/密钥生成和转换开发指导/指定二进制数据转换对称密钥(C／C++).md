@@ -1,24 +1,31 @@
 # 指定二进制数据转换对称密钥(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-binary-data-to-sym-key-ndk
 
 以3DES和HMAC为例，根据指定的对称密钥二进制数据生成密钥（OH_CryptoSymKey），将外部或存储的二进制数据转换为算法库的密钥对象，该对象可用于后续的加解密操作。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
 ```
 
 
-## 指定二进制数据转换3DES密钥
 
-查看[对称密钥生成和转换规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#section3des)。 获取3DES二进制密钥数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。 调用[OH_CryptoSymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_create)，指定字符串参数'3DES192'，创建密钥算法为3DES、密钥长度为192位的对称密钥生成器（OH_CryptoSymKeyGenerator）。 调用[OH_CryptoSymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_convert)，根据指定的对称密钥二进制数据生成对称密钥对象（OH_CryptoSymKey）。 调用[OH_CryptoSymKey_GetKeyData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkey_getkeydata)，获取密钥对象的二进制数据。 以下以生成3DES密钥为例：
-```text
+##### 指定二进制数据转换3DES密钥
+
+查看[对称密钥生成和转换规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#section3des)。
+1. 获取3DES二进制密钥数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。
+2. 调用[OH_CryptoSymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_create)，指定字符串参数'3DES192'，创建密钥算法为3DES、密钥长度为192位的对称密钥生成器（OH_CryptoSymKeyGenerator）。
+3. 调用[OH_CryptoSymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_convert)，根据指定的对称密钥二进制数据生成对称密钥对象（OH_CryptoSymKey）。
+4. 调用[OH_CryptoSymKey_GetKeyData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkey_getkeydata)，获取密钥对象的二进制数据。
+
+以下以生成3DES密钥为例：
+
+```cpp
 #include "CryptoArchitectureKit/crypto_common.h"
 #include "CryptoArchitectureKit/crypto_sym_key.h"
 #include "file.h"
@@ -54,13 +61,21 @@ OH_Crypto_ErrCode doTestDataCovertSymKey()
 ```
 
 
-## 指定二进制数据转换HMAC密钥
 
-查看[对称密钥生成和转换规格：HMAC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#hmac)。 获取HMAC二进制密钥，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。 调用[OH_CryptoSymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_create)，指定字符串参数'HMAC'，创建密钥算法为HMAC、密钥长度为[1, 32768]位的对称密钥生成器（OH_CryptoSymKeyGenerator）。 调用[OH_CryptoSymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_convert)，根据指定的对称密钥二进制数据生成对称密钥对象（OH_CryptoSymKey）。 调用[OH_CryptoSymKey_GetKeyData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkey_getkeydata)，获取密钥对象的二进制数据。 以下以生成HMAC密钥为例：
-```text
+##### 指定二进制数据转换HMAC密钥
+
+查看[对称密钥生成和转换规格：HMAC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#hmac)。
+1. 获取HMAC二进制密钥，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。
+2. 调用[OH_CryptoSymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_create)，指定字符串参数'HMAC'，创建密钥算法为HMAC、密钥长度为[1, 32768]位的对称密钥生成器（OH_CryptoSymKeyGenerator）。
+3. 调用[OH_CryptoSymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_convert)，根据指定的对称密钥二进制数据生成对称密钥对象（OH_CryptoSymKey）。
+4. 调用[OH_CryptoSymKey_GetKeyData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkey_getkeydata)，获取密钥对象的二进制数据。
+
+以下以生成HMAC密钥为例：
+
+```cpp
 #include "CryptoArchitectureKit/crypto_common.h"
 #include "CryptoArchitectureKit/crypto_sym_key.h"
-#include
+#include <cstring>
 #include "file.h"
 
 OH_Crypto_ErrCode testConvertHmacKey()
@@ -71,7 +86,7 @@ OH_Crypto_ErrCode testConvertHmacKey()
     Crypto_DataBlob out = {.data = nullptr, .len = 0};
     OH_Crypto_ErrCode ret;
 
-    char *arr = const_cast("12345678abcdefgh12345678abcdefgh12345678abcdefgh12345678abcdefgh");
+    char *arr = const_cast<char *>("12345678abcdefgh12345678abcdefgh12345678abcdefgh12345678abcdefgh");
     Crypto_DataBlob convertBlob = {.data = (uint8_t *)(arr), .len = strlen(arr)};
     ret = OH_CryptoSymKeyGenerator_Create(algName, &ctx);
     if (ret != CRYPTO_SUCCESS) {

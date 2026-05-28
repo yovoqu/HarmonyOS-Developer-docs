@@ -3,31 +3,32 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdatabase
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Web组件数据库管理对象。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。 目前调用WebDataBase下的方法，都需要先加载Web组件。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { webview } from '@kit.ArkWeb';
 ```
 
 
-## getHttpAuthCredentials
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static getHttpAuthCredentials(host: string, realm: string): Array<string>
+##### getHttpAuthCredentials
+
+static getHttpAuthCredentials(host: string, realm: string): Array&lt;string&gt;
 
 检索给定主机和域的HTTP身份验证凭据，该方法为同步方法。
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -36,7 +37,6 @@ static getHttpAuthCredentials(host: string, realm: string): Array<string>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -47,7 +47,6 @@ static getHttpAuthCredentials(host: string, realm: string): Array<string>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -55,8 +54,7 @@ static getHttpAuthCredentials(host: string, realm: string): Array<string>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -72,14 +70,14 @@ struct WebComponent {
   build() {
     Column() {
       Button('getHttpAuthCredentials')
-      .onClick(() => {
-        try {
-          this.username_password = webview.WebDataBase.getHttpAuthCredentials(this.host, this.realm);
-          console.info('num: ' + this.username_password.length);
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
+        .onClick(() => {
+          try {
+            this.username_password = webview.WebDataBase.getHttpAuthCredentials(this.host, this.realm);
+            console.info('num: ' + this.username_password.length);
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
       Web({ src: 'www.example.com', controller: this.controller })
     }
   }
@@ -87,8 +85,8 @@ struct WebComponent {
 ```
 
 
-## saveHttpAuthCredentials
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### saveHttpAuthCredentials
 
 static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void
 
@@ -97,7 +95,6 @@ static saveHttpAuthCredentials(host: string, realm: string, username: string, pa
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -111,7 +108,6 @@ static saveHttpAuthCredentials(host: string, realm: string, username: string, pa
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -119,8 +115,7 @@ static saveHttpAuthCredentials(host: string, realm: string, username: string, pa
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -135,13 +130,13 @@ struct WebComponent {
   build() {
     Column() {
       Button('saveHttpAuthCredentials')
-      .onClick(() => {
-        try {
-          webview.WebDataBase.saveHttpAuthCredentials(this.host, this.realm, "Stromgol", "Laroche");
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
+        .onClick(() => {
+          try {
+            webview.WebDataBase.saveHttpAuthCredentials(this.host, this.realm, "Stromgol", "Laroche");
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
       Web({ src: 'www.example.com', controller: this.controller })
     }
   }
@@ -149,8 +144,8 @@ struct WebComponent {
 ```
 
 
-## existHttpAuthCredentials
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### existHttpAuthCredentials
 
 static existHttpAuthCredentials(): boolean
 
@@ -160,16 +155,14 @@ static existHttpAuthCredentials(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 是否存在任何已保存的HTTP身份验证凭据。          存在返回true，不存在返回false。 |
+| boolean | 是否存在任何已保存的HTTP身份验证凭据。 存在返回true，不存在返回false。 |
 
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -182,13 +175,13 @@ struct WebComponent {
   build() {
     Column() {
       Button('existHttpAuthCredentials')
-      .onClick(() => {
-        try {
-          let result = webview.WebDataBase.existHttpAuthCredentials();
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
+        .onClick(() => {
+          try {
+            let result = webview.WebDataBase.existHttpAuthCredentials();
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
       Web({ src: 'www.example.com', controller: this.controller })
     }
   }
@@ -196,8 +189,8 @@ struct WebComponent {
 ```
 
 
-## deleteHttpAuthCredentials
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### deleteHttpAuthCredentials
 
 static deleteHttpAuthCredentials(): void
 
@@ -207,8 +200,7 @@ static deleteHttpAuthCredentials(): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -221,13 +213,13 @@ struct WebComponent {
   build() {
     Column() {
       Button('deleteHttpAuthCredentials')
-      .onClick(() => {
-        try {
-          webview.WebDataBase.deleteHttpAuthCredentials();
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
+        .onClick(() => {
+          try {
+            webview.WebDataBase.deleteHttpAuthCredentials();
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
       Web({ src: 'www.example.com', controller: this.controller })
     }
   }

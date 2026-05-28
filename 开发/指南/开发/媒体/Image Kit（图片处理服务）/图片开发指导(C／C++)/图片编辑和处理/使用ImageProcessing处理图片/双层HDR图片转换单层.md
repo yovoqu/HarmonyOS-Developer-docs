@@ -5,45 +5,60 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdr-dual-to-single
 
 调用者可以调用本模块提供的[C API接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageprocessing)，实现将双层HDR图片转换为单层HDR图片。
+ 
+该能力常用于图片分享中，如下图所示：
+ 
 
- 该能力常用于图片分享中，如下图所示：
+![](assets/双层HDR图片转换单层/file-20260514131541904-0.png)
 
- ![](assets/双层HDR图片转换单层/file-20260514131541904-0.png)
+  
 
+##### 规格说明
 
-## 规格说明
-
-**支持的数据输入格式：** 使用图片双层HDR转单层HDR转换算法Compose。
-| 输入[ColorSpaceName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-color-space-manager-h#colorspacename) | 输入[HdrMetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmap_hdrmetadatatype) | 输入[PIXEL_FORMAT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixel_format) | 输出[ColorSpaceName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-color-space-manager-h#colorspacename) | 输出 [HdrMetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmap_hdrmetadatatype) | 输出[PIXEL_FORMAT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixel_format) |
+**支持的数据输入格式：**
+ 
+使用图片双层HDR转单层HDR转换算法Compose。
+  
+| 输入ColorSpaceName | 输入HdrMetadataType | 输入PIXEL_FORMAT | 输出ColorSpaceName | 输出 HdrMetadataType | 输出PIXEL_FORMAT |
 | --- | --- | --- | --- | --- | --- |
 | DISPLAY_P3_LIMIT/DISPLAY_P3 | HDR_METADATA_TYPE_BASE | RGBA_8888 | BT2020_HLG | HDR_METADATA_TYPE_ALTERNATE | YCBCR_P010 / RGBA_1010102 |
 | SRGB_LIMIT/SRGB | HDR_METADATA_TYPE_BASE | RGBA_8888 | BT2020_HLG | HDR_METADATA_TYPE_ALTERNATE | YCBCR_P010 / RGBA_1010102 |
 | DISPLAY_P3_LIMIT/DISPLAY_P3 | HDR_METADATA_TYPE_BASE | RGBA_8888 | BT2020_PQ | HDR_METADATA_TYPE_ALTERNATE | YCBCR_P010 / RGBA_1010102 |
 | SRGB_LIMIT/SRGB | HDR_METADATA_TYPE_BASE | RGBA_8888 | BT2020_PQ | HDR_METADATA_TYPE_ALTERNATE | YCBCR_P010 / RGBA_1010102 |
-
+ 
+ 
 **分辨率规格：**
+  
 | 最小分辨率（单位：像素） | 最大分辨率（单位：像素） |
 | --- | --- |
 | 32*32 | 8880*8880 |
+ 
+ 
+**内存规格：**
+ 
+处理的PixelMap对象需为[DMA内存](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type-c#内存类型介绍)。
+ 
+  
 
-**内存规格：** 处理的PixelMap对象需为[DMA内存](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type-c#内存类型介绍)。
-
-## 开发指导
+##### 开发指导
 
 具体实现可参考[示例工程](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/tree/master/UsingImageProcessingToProcessImages)。
+ 
+  
 
-## 在 CMake 脚本中链接动态库
+##### 在 CMake 脚本中链接动态库
 
-
-```text
+```cpp
 add_library(entry SHARED napi_init.cpp ImageProcessing/ImageProcessing.cpp)
 target_link_libraries(entry PUBLIC ${BASE_LIBRARY})
 ```
+ 
+  
 
+##### ArkTS侧调用的开发步骤
+1. 创建10 bit的PixelMap。
 
-## ArkTS侧调用的开发步骤
-
-创建10 bit的PixelMap。
+  
 ```text
 let opts: image.InitializationOptions = {
   editable: true,
@@ -56,13 +71,17 @@ let opts: image.InitializationOptions = {
 let outPutPixelMap = image.createPixelMapSync(opts);
 ```
 
-创建8 bit的PixelMap。
+2. 创建8 bit的PixelMap。
+
+  
 ```text
 let sdrpixelMap : image.PixelMap = nativePix.createPixelMapTest(imageInfo.size.height, imageInfo.size.width);
 let gainmappixelMap : image.PixelMap = nativePix.createPixelMapTest(imageInfo.size.height, imageInfo.size.width);
 ```
 
-配置色彩框架和元数据信息。
+3. 配置色彩框架和元数据信息。
+
+  
 ```text
 let colorSpaceDISPLAY_P3 : colorSpaceManager.ColorSpaceManager = colorSpaceManager.create(colorSpaceManager.ColorSpace.DISPLAY_P3);
 let colorSpaceBT2020_HLG : colorSpaceManager.ColorSpaceManager = colorSpaceManager.create(colorSpaceManager.ColorSpace.BT2020_HLG);
@@ -74,25 +93,34 @@ hdrpixelMap.setColorSpace(colorSpaceBT2020_HLG);
 hdrpixelMap.setMetadata(image.HdrMetadataKey.HDR_METADATA_TYPE, image.HdrMetadataType.ALTERNATE);
 ```
 
+ 
+  
 
-## Native侧调用的开发步骤
+##### Native侧调用的开发步骤
+1. 添加头文件。
 
-添加头文件。
+  
 ```text
-#include
-#include
-#include
-#include
-#include
-#include
+#include <multimedia/image_framework/image_mdk_common.h>
+#include <multimedia/image_framework/image_pixel_map_mdk.h>
+#include <multimedia/image_framework/image/pixelmap_native.h>
+#include <multimedia/video_processing_engine/image_processing.h>
+#include <multimedia/video_processing_engine/image_processing_types.h>
+#include <native_color_space_manager/native_color_space_manager.h>
 ```
 
-（可选）初始化环境。 一般在进程内第一次使用时调用，可提前完成部分耗时操作。
+2. （可选）初始化环境。
+
+  一般在进程内第一次使用时调用，可提前完成部分耗时操作。
+
+  
 ```text
 ImageProcessing_ErrorCode ret =  OH_ImageProcessing_InitializeEnvironment();
 ```
 
-（可选）查询能力支持。建议在使用对应能力前调用。
+3. （可选）查询能力支持。建议在使用对应能力前调用。
+
+  
 ```text
 //输入格式
 DST_INFO.colorSpace = BT2020_HLG;
@@ -108,7 +136,9 @@ SRC_GAIN_INFO.pixelFormat = PIXEL_FORMAT_RGBA_8888;
 bool flag = OH_ImageProcessing_IsCompositionSupported(&SRC_INFO, &SRC_GAIN_INFO, &DST_INFO);
 ```
 
-创建8 bit的PixelMap。
+4. 创建8 bit的PixelMap。
+
+  
 ```text
 napi_value ImageProcessing::CreatePixelMap(napi_env env, napi_callback_info info)
 {
@@ -118,7 +148,38 @@ napi_value ImageProcessing::CreatePixelMap(napi_env env, napi_callback_info info
     napi_value argValue[2] = {0};
     size_t argCount = 2;
     size_t count = 2;
-    if (napi_get_cb_info(env, info, &argCount, argValue, &thisVar, nullptr) != napi_ok || argCount 将ArkTS中的PixelMap转换为C++的PixelMap。
+    if (napi_get_cb_info(env, info, &argCount, argValue, &thisVar, nullptr) != napi_ok || argCount < count ||
+        argValue[0] == nullptr || argValue[1] == nullptr) {
+        return nullptr;
+    }
+    int32_t width = 0;
+    int32_t height = 0;
+    napi_get_value_int32(env, argValue[1], &width);
+    napi_get_value_int32(env, argValue[0], &height);
+    struct OhosPixelMapCreateOps createOps;
+    createOps.width = width;
+    createOps.height = height;
+    int32_t rgba8888 = 3;
+    createOps.pixelFormat = rgba8888;
+    createOps.alphaType = 0;
+    
+    size_t bufferSize = createOps.width * createOps.height * 4;
+    void *buff = malloc(bufferSize);
+    int32_t res = OH_PixelMap_CreatePixelMapWithStride(env, createOps, (uint8_t *)buff, bufferSize, createOps.width * 4,
+        &pixelMap);
+    free(buff);
+    OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "createPixelMap",
+        "OH_PixelMap_CreatePixelMapWithStride %{public}d", res);
+    if (res != IMAGE_RESULT_SUCCESS || pixelMap == nullptr) {
+        return udfVar;
+    }
+    return pixelMap;
+}
+```
+
+5. 将ArkTS中的PixelMap转换为C++的PixelMap。
+
+  
 ```text
 OH_PixelmapNative* sdr = nullptr;
 OH_PixelmapNative_ConvertPixelmapNativeFromNapi(env, argValue[0], &sdr);
@@ -128,29 +189,54 @@ OH_PixelmapNative* hdr = nullptr;
 OH_PixelmapNative_ConvertPixelmapNativeFromNapi(env, argValue[2], &hdr);
 ```
 
-  创建图片HDR双层转单层模块。 应用可以通过图片处理引擎模块类型来创建图片HDR双层转单层模块。示例中的变量说明如下：  instance：图片处理模块实例。IMAGE_PROCESSING_TYPE_COMPOSITION：HDR双层转单层。预期返回值：IMAGE_PROCESSING_SUCCESS
-```text
-OH_ImageProcessing* instance = nullptr;
-ret = OH_ImageProcessing_Create(&instance, IMAGE_PROCESSING_TYPE_COMPOSITION);
-```
+6. 创建图片HDR双层转单层模块。
 
-  执行算法。
+  应用可以通过图片处理引擎模块类型来创建图片HDR双层转单层模块。示例中的变量说明如下：
+
+  
+- instance：图片处理模块实例。
+
+7. IMAGE_PROCESSING_TYPE_COMPOSITION：HDR双层转单层。
+
+8. 预期返回值：IMAGE_PROCESSING_SUCCESS
+
+9. 执行算法。
+
+  
 ```text
 ret = OH_ImageProcessing_Compose(instance, sdr, gainmap, hdr);
 ```
 
-  释放实例资源。
+
+10. 释放实例资源。
+
+  
 ```text
 ret = OH_ImageProcessing_Destroy(instance);
 instance = nullptr;
 ```
 
-  释放初始化环境资源。
+
+11. 释放初始化环境资源。
+
+  
 ```text
 ret = OH_ImageProcessing_DeinitializeEnvironment();
 ```
 
 
-## 完整示例代码
+  
 
-ArkTS示例代码： [compose.ets示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/ets/view/HDRImageConversionComponent.ets) C++相关示例代码： [CMakeLists.txt示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/cpp/CMakeLists.txt)  [ImageProcessing.h示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/cpp/ImageProcessing/ImageProcessing.h)  [ImageProcessing.cpp示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/cpp/ImageProcessing/ImageProcessing.cpp)
+  ##### 完整示例代码
+
+  ArkTS示例代码：
+
+  
+[compose.ets示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/ets/view/HDRImageConversionComponent.ets)
+
+ 
+C++相关示例代码：
+ 
+- [CMakeLists.txt示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/cpp/CMakeLists.txt)
+- [ImageProcessing.h示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/cpp/ImageProcessing/ImageProcessing.h)
+- [ImageProcessing.cpp示例代码](https://gitcode.com/HarmonyOS_Samples/DocsSample_MultiMedia/blob/master/UsingImageProcessingToProcessImages/entry/src/main/cpp/ImageProcessing/ImageProcessing.cpp)

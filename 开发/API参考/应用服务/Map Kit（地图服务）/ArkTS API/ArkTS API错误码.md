@@ -3,15 +3,14 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。
 
 
-## 1002600001 系统内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600001 系统内部错误
 
 **错误信息**
 
@@ -30,8 +29,8 @@ System internal error.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600002 应用连接地图服务失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600002 应用连接地图服务失败
 
 **错误信息**
 
@@ -42,21 +41,25 @@ Failed to connect to the Map Kit server.
 应用连接地图服务失败。
 
 **可能原因**
-
-
 1. 设备网络存在问题。
 2. 使用自动签名时，未连接上地图服务。
 
 **处理步骤**
-
-
 1. 检查设备网络状态。
-2. 清除旧证书配置后，重新自动签名，并配置client_id和证书指纹；从HarmonyOS 5.0.2(14)版本开始，可参考[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc)进行配置。       ![](assets/ArkTS%20API错误码/file-20260514165150704-0.png)       ![](assets/ArkTS%20API错误码/file-20260514165150704-1.png)
+2. 清除旧证书配置后，重新自动签名，并配置client_id和证书指纹；从HarmonyOS 5.0.2(14)版本开始，可参考[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc)进行配置。
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-1.png)
+
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-10.png)
+
 3. 如未解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600003 应用身份校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600003 应用身份校验失败
 
 **错误信息**
 
@@ -67,8 +70,6 @@ App authentication failed.
 应用身份校验失败。
 
 **可能原因**
-
-
 1. 项目module.json5文件中配置的client_id与AGC上不一致。
 2. AGC上公钥指纹为空或错误。
 3. 设备网络状态差，身份认证超时。
@@ -77,19 +78,71 @@ App authentication failed.
 6. 配置自动签名时，重复配置导致AGC上调试证书和本地使用证书不匹配。
 
 **处理步骤**
+1. 检查module.json5文件中配置的client_id与AGC上是否一致。
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-11.png)
 
 
-1. 检查module.json5文件中配置的client_id与AGC上是否一致。       ![](assets/ArkTS%20API错误码/file-20260514165150704-2.png)       ![](assets/ArkTS%20API错误码/file-20260514165150704-3.png)
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-2.png)
+
 2. 重新生成公钥指纹（[自动生成签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section958212134217)/[手动生成签名证书指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-signature-info-0000001628566748#section2049119231438)），然后在AGC上[配置公钥指纹](https://developer.huawei.com/consumer/cn/doc/app/agc-help-cert-fingerprint-0000002278002933)。
 3. 检查设备网络状态后重新尝试。
 4. 将设备的系统时间往后调整1天。
 5. 请根据[开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)，先打开地图服务开关，然后重新[申请调试Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-add-debugprofile-0000001914423102)，并[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)。
-6. 自动签名证书不匹配有两种解决方案：       方案一：将本地已生成的csr签名，通过AGC重新生成新的调试证书，然后通过新的调试证书选择生成新的指纹证书。       自动签名默认已生成的csr签名在如下图路径下，马赛克部分为用户名。       ![](assets/ArkTS%20API错误码/file-20260514165150704-4.png)       在AGC上新增证书，将上述所选csr文件选中并生成新的调试证书。       ![](assets/ArkTS%20API错误码/file-20260514165150704-5.png)       然后添加公钥指纹，选中刚才自己生成调试证书即可。（需注意，配置完成后由于鉴权缓存，可能还是无法马上显示地图，须清除缓存或者将设备的系统时间往后调整1天，才能立刻显示地图。）       ![](assets/ArkTS%20API错误码/file-20260514165150704-6.png)       方案二：将本地配置自动签名证书和AGC上调试证书全部删除，重新生成新的自动签名，调试证书会自动生成，并用新的调试证书生成公钥指纹。       将build-profile.json5文件下signingConfigs参数删除。       ![](assets/ArkTS%20API错误码/file-20260514165150704-7.png)       将config文件夹下所有内容删除。       ![](assets/ArkTS%20API错误码/file-20260514165150704-8.png)       将AGC上自动签名生成的调试证书删除。       ![](assets/ArkTS%20API错误码/file-20260514165150704-9.png)       将旧证书删除后生成新的自动签名，调试证书会被同步创建，然后用新生成的调试证书生成新的指纹即可。（需注意，配置完成后由于鉴权缓存，可能还是无法马上显示地图，须清除缓存或者将设备的系统时间往后调整1天，才能立刻显示地图。）       ![](assets/ArkTS%20API错误码/file-20260514165150704-10.png)
+6. 自动签名证书不匹配有两种解决方案：
+
+  方案一：将本地已生成的csr签名，通过AGC重新生成新的调试证书，然后通过新的调试证书选择生成新的指纹证书。
+
+  自动签名默认已生成的csr签名在如下图路径下，马赛克部分为用户名。
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-3.png)
+
+
+  在AGC上新增证书，将上述所选csr文件选中并生成新的调试证书。
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-4.png)
+
+
+  然后添加公钥指纹，选中刚才自己生成调试证书即可。（需注意，配置完成后由于鉴权缓存，可能还是无法马上显示地图，须清除缓存或者将设备的系统时间往后调整1天，才能立刻显示地图。）
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-5.png)
+
+
+  方案二：将本地配置自动签名证书和AGC上调试证书全部删除，重新生成新的自动签名，调试证书会自动生成，并用新的调试证书生成公钥指纹。
+
+  将build-profile.json5文件下signingConfigs参数删除。
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-6.png)
+
+
+  将config文件夹下所有内容删除。
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-7.png)
+
+
+  将AGC上自动签名生成的调试证书删除。
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-8.png)
+
+
+  将旧证书删除后生成新的自动签名，调试证书会被同步创建，然后用新生成的调试证书生成新的指纹即可。（需注意，配置完成后由于鉴权缓存，可能还是无法马上显示地图，须清除缓存或者将设备的系统时间往后调整1天，才能立刻显示地图。）
+
+  
+![](assets/ArkTS%20API错误码/file-20260514165150704-9.png)
+
 7. 如未解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600004 应用没有开通地图服务权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600004 应用没有开通地图服务权限
 
 **错误信息**
 
@@ -100,21 +153,21 @@ The Map permission is not enabled.
 应用没有开通地图服务权限。
 
 **可能原因**
-
-
 1. 没有开通地图服务权限。
 2. client_id未配置。
 
 **处理步骤**
-
-
 1. [开通地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc#开通地图服务)。
-2. 配置client_id。       ![](assets/ArkTS%20API错误码/file-20260514165150704-11.png)
+2. 配置client_id。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/z7g8pYF7R_Wt7cY2jVSAJg/zh-cn_image_0000002581437046.png?HW-CC-KV=V1&HW-CC-Date=20260528T013432Z&HW-CC-Expire=86400&HW-CC-Sign=97C0E0AF64A6690B828665F3FE68BA72CCE50EB62067619D3EC858443EEA04DF)
+
 3. 如未解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600005 网络不可用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600005 网络不可用
 
 **错误信息**
 
@@ -133,8 +186,8 @@ The network is unavailable.
 检查网络后尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600006 API调用量超出配额
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600006 API调用量超出配额
 
 **错误信息**
 
@@ -153,8 +206,8 @@ API调用量超出配额。
 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600007 API的QPS超过配额
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600007 API的QPS超过配额
 
 **错误信息**
 
@@ -173,8 +226,8 @@ API的QPS超过配额。
 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600008 接口已经欠费
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600008 接口已经欠费
 
 **错误信息**
 
@@ -193,8 +246,8 @@ The API is in arrears.
 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600009 API未订购付费套餐
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600009 API未订购付费套餐
 
 **错误信息**
 
@@ -213,8 +266,8 @@ API未订购付费套餐。
 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600010 服务器繁忙，请稍后再试
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600010 服务器繁忙，请稍后再试
 
 **错误信息**
 
@@ -233,8 +286,8 @@ The server is busy. Please wait and try again.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600011 服务器异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600011 服务器异常
 
 **错误信息**
 
@@ -255,8 +308,8 @@ Server error.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600012 国家或地区码异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600012 国家或地区码异常
 
 **错误信息**
 
@@ -275,8 +328,8 @@ The country code is not supported.
 更换国家/地区码。
 
 
-## 1002600013 当前路由地未知，稍后重试
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600013 当前路由地未知，稍后重试
 
 **错误信息**
 
@@ -291,14 +344,12 @@ The current routing location is unknown. Try again later.
 获取当前设备的路由地失败。
 
 **处理步骤**
-
-
 1. 检查设备网络是否可用。
 2. 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600014 地图应用启动失败。
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600014 地图应用启动失败。
 
 **错误信息**
 
@@ -313,14 +364,12 @@ Failed to start the map app.
 设备未安装地图应用且拉起应用市场地图下载详情页失败。
 
 **处理步骤**
-
-
 1. 通过应用市场搜索下载地图应用。
 2. 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600015 热力图ID已存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600015 热力图ID已存在
 
 **错误信息**
 
@@ -339,8 +388,8 @@ The heatmap ID already exists.
 尝试更换ID或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002600999 未知错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002600999 未知错误
 
 **错误信息**
 
@@ -359,8 +408,8 @@ Unknown error.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002601001 要操作的对象已经不存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002601001 要操作的对象已经不存在
 
 **错误信息**
 
@@ -379,8 +428,8 @@ The object to be operated does not exist.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002601002 自定义地图样式文件不存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002601002 自定义地图样式文件不存在
 
 **错误信息**
 
@@ -405,8 +454,8 @@ The custom map style file does not exist.
 3.尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002601004 样式内容格式不正确
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002601004 样式内容格式不正确
 
 **错误信息**
 
@@ -425,8 +474,8 @@ The style content format is incorrect.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002601005 生成自定义组件图标失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002601005 生成自定义组件图标失败
 
 **错误信息**
 
@@ -445,8 +494,8 @@ Failed to generate the icon of the custom component.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002602001 起终点无归属国家，或服务错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002602001 起终点无归属国家，或服务错误
 
 **错误信息**
 
@@ -465,8 +514,8 @@ The start and end points do not have home countries, or a service error occurred
 请检查起终点后尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1002602002 不支持跨区进行路径规划
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002602002 不支持跨区进行路径规划
 
 **错误信息**
 
@@ -485,8 +534,8 @@ Cross-region route planning is not supported.
 检查入参是否涉及跨区。
 
 
-## 1002602003 起始点或结束点超过100个
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002602003 起始点或结束点超过100个
 
 **错误信息**
 
@@ -505,8 +554,8 @@ The number of start points or end points exceed 100.
 检查入参，起点或终点个数是否超限。
 
 
-## 1002602004 两点直线距离超过限制的距离
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002602004 两点直线距离超过限制的距离
 
 **错误信息**
 
@@ -525,8 +574,8 @@ The linear distance between the start point and end point exceeds the upper limi
 检查入参，两点直线距离是否超过接口限制的距离。
 
 
-## 1002602005 起点/终点/途经点不支持导航
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002602005 起点/终点/途经点不支持导航
 
 **错误信息**
 
@@ -545,8 +594,8 @@ The start point, end point, or waypoint does not support navigation.
 检查入参。
 
 
-## 1002602006 请求点位映射到道路同一点上
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002602006 请求点位映射到道路同一点上
 
 **错误信息**
 
@@ -565,8 +614,8 @@ The request point is mapped to the same point on the road.
 检查入参。
 
 
-## 1002603001 空结果
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1002603001 空结果
 
 **错误信息**
 
@@ -585,8 +634,8 @@ Zero result.
 检查入参。
 
 
-## 1022100001 要操作的地图控制器不存在
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1022100001 要操作的地图控制器不存在
 
 **错误信息**
 
@@ -605,8 +654,8 @@ The map controller to be operated does not exist.
 尝试重试操作或请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 401 入参无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 401 入参无效
 
 **错误信息**
 
@@ -625,8 +674,8 @@ Invalid input parameter.
 检查入参。
 
 
-## 801 功能不支持。设备能力受限，调用接口失败。
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 801 功能不支持。设备能力受限，调用接口失败。
 
 **错误信息**
 

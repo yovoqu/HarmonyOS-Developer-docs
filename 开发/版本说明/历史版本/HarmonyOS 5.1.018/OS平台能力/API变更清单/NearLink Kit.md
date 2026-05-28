@@ -10,14 +10,14 @@
 | 新增API | NA | 类名：dataTransfer； API声明：type ConnectionState = constant.ConnectionState; 差异内容：type ConnectionState = constant.ConnectionState; | api/@hms.nearlink.dataTransfer.d.ts |
 | 新增API | NA | 类名：dataTransfer； API声明：function createPort(uuid: string): void; 差异内容：function createPort(uuid: string): void; | api/@hms.nearlink.dataTransfer.d.ts |
 | 新增API | NA | 类名：dataTransfer； API声明：function destroyPort(uuid: string): void; 差异内容：function destroyPort(uuid: string): void; | api/@hms.nearlink.dataTransfer.d.ts |
-| 新增API | NA | 类名：dataTransfer； API声明：function connect(params: ConnectionParams): Promise<void>; 差异内容：function connect(params: ConnectionParams): Promise<void>; | api/@hms.nearlink.dataTransfer.d.ts |
-| 新增API | NA | 类名：dataTransfer； API声明：function disconnect(params: ConnectionParams): Promise<void>; 差异内容：function disconnect(params: ConnectionParams): Promise<void>; | api/@hms.nearlink.dataTransfer.d.ts |
-| 新增API | NA | 类名：dataTransfer； API声明：function on(type: 'connectionStateChanged', callback: Callback<ConnectionResult>): void; 差异内容：function on(type: 'connectionStateChanged', callback: Callback<ConnectionResult>): void; | api/@hms.nearlink.dataTransfer.d.ts |
-| 新增API | NA | 类名：dataTransfer； API声明：function off(type: 'connectionStateChanged', callback?: Callback<ConnectionResult>): void; 差异内容：function off(type: 'connectionStateChanged', callback?: Callback<ConnectionResult>): void; | api/@hms.nearlink.dataTransfer.d.ts |
+| 新增API | NA | 类名：dataTransfer； API声明：function connect(params: ConnectionParams): Promise&lt;void&gt;; 差异内容：function connect(params: ConnectionParams): Promise&lt;void&gt;; | api/@hms.nearlink.dataTransfer.d.ts |
+| 新增API | NA | 类名：dataTransfer； API声明：function disconnect(params: ConnectionParams): Promise&lt;void&gt;; 差异内容：function disconnect(params: ConnectionParams): Promise&lt;void&gt;; | api/@hms.nearlink.dataTransfer.d.ts |
+| 新增API | NA | 类名：dataTransfer； API声明：function on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): void; 差异内容：function on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): void; | api/@hms.nearlink.dataTransfer.d.ts |
+| 新增API | NA | 类名：dataTransfer； API声明：function off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;): void; 差异内容：function off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;): void; | api/@hms.nearlink.dataTransfer.d.ts |
 | 新增API | NA | 类名：dataTransfer； API声明：function getConnectionState(params: ConnectionStateParams): ConnectionState; 差异内容：function getConnectionState(params: ConnectionStateParams): ConnectionState; | api/@hms.nearlink.dataTransfer.d.ts |
-| 新增API | NA | 类名：dataTransfer； API声明：function writeData(params: DataParams): Promise<void>; 差异内容：function writeData(params: DataParams): Promise<void>; | api/@hms.nearlink.dataTransfer.d.ts |
-| 新增API | NA | 类名：dataTransfer； API声明：function on(type: 'readData', callback: Callback<DataParams>): void; 差异内容：function on(type: 'readData', callback: Callback<DataParams>): void; | api/@hms.nearlink.dataTransfer.d.ts |
-| 新增API | NA | 类名：dataTransfer； API声明：function off(type: 'readData', callback?: Callback<DataParams>): void; 差异内容：function off(type: 'readData', callback?: Callback<DataParams>): void; | api/@hms.nearlink.dataTransfer.d.ts |
+| 新增API | NA | 类名：dataTransfer； API声明：function writeData(params: DataParams): Promise&lt;void&gt;; 差异内容：function writeData(params: DataParams): Promise&lt;void&gt;; | api/@hms.nearlink.dataTransfer.d.ts |
+| 新增API | NA | 类名：dataTransfer； API声明：function on(type: 'readData', callback: Callback&lt;DataParams&gt;): void; 差异内容：function on(type: 'readData', callback: Callback&lt;DataParams&gt;): void; | api/@hms.nearlink.dataTransfer.d.ts |
+| 新增API | NA | 类名：dataTransfer； API声明：function off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void; 差异内容：function off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void; | api/@hms.nearlink.dataTransfer.d.ts |
 | 新增API | NA | 类名：dataTransfer； API声明：interface ConnectionParams 差异内容：interface ConnectionParams | api/@hms.nearlink.dataTransfer.d.ts |
 | 新增API | NA | 类名：ConnectionParams； API声明：address: string; 差异内容：address: string; | api/@hms.nearlink.dataTransfer.d.ts |
 | 新增API | NA | 类名：ConnectionParams； API声明：uuid: string; 差异内容：uuid: string; | api/@hms.nearlink.dataTransfer.d.ts |
@@ -45,8 +45,8 @@
 | 新增API | NA | 类名：AcbState； API声明：CONNECTED = 1 差异内容：CONNECTED = 1 | api/@hms.nearlink.constant.d.ts |
 | 新增API | NA | 类名：AcbState； API声明：ENCRYPTED = 2 差异内容：ENCRYPTED = 2 | api/@hms.nearlink.constant.d.ts |
 | 新增API | NA | 类名：manager； API声明：type AcbState = constant.AcbState; 差异内容：type AcbState = constant.AcbState; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function on(type: 'acbStateChange', callback: Callback<AcbStateParam>): void; 差异内容：function on(type: 'acbStateChange', callback: Callback<AcbStateParam>): void; | api/@hms.nearlink.manager.d.ts |
-| 新增API | NA | 类名：manager； API声明：function off(type: 'acbStateChange', callback?: Callback<AcbStateParam>): void; 差异内容：function off(type: 'acbStateChange', callback?: Callback<AcbStateParam>): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function on(type: 'acbStateChange', callback: Callback&lt;AcbStateParam&gt;): void; 差异内容：function on(type: 'acbStateChange', callback: Callback&lt;AcbStateParam&gt;): void; | api/@hms.nearlink.manager.d.ts |
+| 新增API | NA | 类名：manager； API声明：function off(type: 'acbStateChange', callback?: Callback&lt;AcbStateParam&gt;): void; 差异内容：function off(type: 'acbStateChange', callback?: Callback&lt;AcbStateParam&gt;): void; | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：PairingReason； API声明：PAIRING_REASON_PROFILE_UNSUPPORTED = 2 差异内容：PAIRING_REASON_PROFILE_UNSUPPORTED = 2 | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：PairingReason； API声明：PAIRING_REASON_EXCEED_ACB_MAX = 3 差异内容：PAIRING_REASON_EXCEED_ACB_MAX = 3 | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：PairingReason； API声明：PAIRING_REASON_REMOTE_CANCELED = 4 差异内容：PAIRING_REASON_REMOTE_CANCELED = 4 | api/@hms.nearlink.manager.d.ts |
@@ -58,6 +58,6 @@
 | 新增API | NA | 类名：AcbStateParam； API声明：state: AcbState; 差异内容：state: AcbState; | api/@hms.nearlink.manager.d.ts |
 | 新增API | NA | 类名：remoteDevice； API声明：type AcbState = constant.AcbState; 差异内容：type AcbState = constant.AcbState; | api/@hms.nearlink.remoteDevice.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.nearlink.dataTransfer.d.ts 差异内容：NearLinkKit | api/@hms.nearlink.dataTransfer.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：RemoteDevice； API声明：startPairing(): Promise<void>; 差异内容：startPairing(): Promise<void>; | api/@hms.nearlink.remoteDevice.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：RemoteDevice； API声明：startPairing(): Promise&lt;void&gt;; 差异内容：startPairing(): Promise&lt;void&gt;; | api/@hms.nearlink.remoteDevice.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：RemoteDevice； API声明：getAcbState(): AcbState; 差异内容：getAcbState(): AcbState; | api/@hms.nearlink.remoteDevice.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：ScanResults； API声明：deviceClass?: constant.DeviceClass; 差异内容：deviceClass?: constant.DeviceClass; | api/@hms.nearlink.scan.d.ts |

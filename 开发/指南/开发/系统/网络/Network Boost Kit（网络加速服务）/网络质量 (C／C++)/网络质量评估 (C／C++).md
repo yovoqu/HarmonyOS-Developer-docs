@@ -4,38 +4,48 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-qoscallback-c
 
-## 场景介绍
+##### 场景介绍
 
 应用在订阅网络质量Qos评估后，系统按照一定的周期或Qos变化后回调给应用。回调的Qos信息包括数据传输的链路类型、上下行空口实时带宽、上下行空口实时速率、RTT时延等。
 
-## 接口说明
+
+
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | int32_t HMS_NetworkBoost_RegisterNetQosCallback(HMS_NetworkBoost_NetQosChange callback, uint32_t* callbackId) | 注册Qos信息状态变化回调。 |
 | int32_t HMS_NetworkBoost_UnregisterNetQosCallback(uint32_t callbackId) | 取消注册Qos信息状态变化回调。 |
 
 
-## 开发步骤
 
-导入Network Boost Kit模块。
+
+##### 开发步骤
+1. 导入Network Boost Kit模块。
+
+  
 ```text
 #include "NetworkBoostKit/network_boost_quality.h"
-#include
+#include <cstdio>
 ```
 
-CMakeLists.txt中添加以下lib，具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-preparations#c-api开发准备)。
+2. CMakeLists.txt中添加以下lib，具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-preparations#c-api开发准备)。
+
+  
 ```text
 libnetwork_boost.so
 ```
 
-通过注册回调的方式监听网络质量评估信息。
+3. 通过注册回调的方式监听网络质量评估信息。
+
+  
 ```text
 uint32_t callbackId = 0;
 void onNetworkQoSChanged(NetworkBoost_NetworkQosArray *msg)
 {
-    for (int32_t i = 0; i pathNum; i++) {
+    for (int32_t i = 0; i < msg->pathNum; i++) {
         // 回调信息处理
         printf("数据链路类型: %d\n", msg->networkQos[i].pathType);
         printf("该数据链路类型的上行带宽: %ld\n", msg->networkQos[i].linkUpBandwidth);
@@ -62,7 +72,9 @@ int32_t RegisterNetQualityCallback()
 }
 ```
 
-当应用业务流程结束，通过取消注册的方式取消监听网络质量评估信息。
+4. 当应用业务流程结束，通过取消注册的方式取消监听网络质量评估信息。
+
+  
 ```text
 int32_t UnregisterNetQualityCallback()
 {

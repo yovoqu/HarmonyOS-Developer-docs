@@ -1,26 +1,33 @@
 # Interface (Metadata)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-metadata
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Metadata类，用于存储图像的元数据。目前支持的元数据类型可参考[MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#metadatatype13)。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 13开始支持。
 
-#### 导入模块
 
-```ts
+
+##### 导入模块
+
+```text
 import { image } from '@kit.ImageKit';
 ```
 
-#### getProperties13+
+
+
+##### getProperties13+
+
 getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
+
 获取图像中属性的值。使用Promise异步回调。
+
 如要查询属性值信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)、[FragmentMapPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#fragmentmappropertykey13)和[GifPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#gifpropertykey20)和[HeifsPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#heifspropertykey23)。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
@@ -29,13 +36,16 @@ getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
 | --- | --- | --- | --- |
 | key | Array&lt;string&gt; | 是 | 要获取其值的属性的名称。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Record<string, string \| null>> | Promise对象，返回元数据要获取的属性的值，如获取失败则返回错误码。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -43,9 +53,10 @@ getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed; |
 | 7600202 | Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The metadata type does not match the auxiliary picture type. |
 
+
 **示例：**
 
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetProperties(context: Context) {
@@ -71,10 +82,16 @@ async function GetProperties(context: Context) {
 }
 ```
 
-#### setProperties13+
+
+
+##### setProperties13+
+
 setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
+
 批量设置图片元数据中的指定属性的值。使用Promise异步回调。
+
 如要查询属性值信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)、[FragmentMapPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#fragmentmappropertykey13)和[GifPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#gifpropertykey20)和[HeifsPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#heifspropertykey23)。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
@@ -83,13 +100,16 @@ setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
 | --- | --- | --- | --- |
 | records | Record<string, string \| null> | 是 | 要修改的属性和值的数组。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，如获取失败则返回错误码。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -97,9 +117,10 @@ setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed; |
 | 7600202 | Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The metadata type does not match the auxiliary picture type. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function SetProperties(context: Context) {
@@ -129,10 +150,16 @@ async function SetProperties(context: Context) {
 }
 ```
 
-#### getAllProperties13+
+
+
+##### getAllProperties13+
+
 getAllProperties(): Promise<Record<string, string | null>>
+
 获取图片中所有元数据的属性和值。使用Promise异步回调。
+
 如要查询属性值信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)、[FragmentMapPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#fragmentmappropertykey13)和[GifPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#gifpropertykey20)和[HeifsPropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#heifspropertykey23)。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
@@ -141,9 +168,10 @@ getAllProperties(): Promise<Record<string, string | null>>
 | --- | --- |
 | Promise<Record<string, string \| null>> | Promise对象，返回元数据拥有的所有属性的值。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetAllProperties(context: Context) {
@@ -171,20 +199,26 @@ async function GetAllProperties(context: Context) {
 }
 ```
 
-#### clone13+
+
+
+##### clone13+
+
 clone(): Promise&lt;Metadata&gt;
+
 对元数据进行克隆。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Metadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-metadata)> | Promise对象，成功返回元数据实例。 |
+| Promise&lt;Metadata&gt; | Promise对象，成功返回元数据实例。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Clone(context: Context) {
@@ -211,9 +245,14 @@ async function Clone(context: Context) {
 }
 ```
 
-#### getBlob23+
+
+
+##### getBlob23+
+
 getBlob(): Promise&lt;ArrayBuffer&gt;
+
 以二进制数据的形式获取元数据。使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -224,9 +263,10 @@ getBlob(): Promise&lt;ArrayBuffer&gt;
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回元数据的二进制数据。 |
 
+
 **示例：**
 
-```ts
+```text
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
@@ -251,9 +291,14 @@ async function GetBlob(context: Context) {
 }
 ```
 
-#### setBlob23+
-setBlob(blob: ArrayBuffer):
+
+
+##### setBlob23+
+
+setBlob(blob: ArrayBuffer): Promise&lt;void&gt;
+
 使用二进制数据替换当前元数据。使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -264,22 +309,26 @@ setBlob(blob: ArrayBuffer):
 | --- | --- | --- | --- |
 | blob | ArrayBuffer | 是 | 要替换的二进制数据。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600206 | Invalid parameter. Possible causes: The blob is empty or has a length of 0. |
 
+
 **示例：**
 
-```ts
+```text
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {

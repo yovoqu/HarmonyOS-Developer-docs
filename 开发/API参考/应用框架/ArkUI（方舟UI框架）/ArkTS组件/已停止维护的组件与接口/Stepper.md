@@ -3,27 +3,30 @@
 更新时间：2026-05-08 09:27:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepper
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 步骤导航器组件，适用于引导用户按照步骤完成任务的导航场景。
 
+> [!NOTE]
+> 从API version 8开始支持，从API version 22开始废弃，建议使用 Swiper 替代。详细示例请参考 示例2 。 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 子组件
 
 仅能包含子组件[StepperItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem)。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 Stepper(value?: { index?: number })
 
 创建步骤导航器组件。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 22开始废弃，建议使用[index](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#index)替代。
+> 从API version 8开始支持，从API version 22开始废弃，建议使用 index 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -31,32 +34,32 @@ Stepper(value?: { index?: number })
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | { index?: number } | 否 | 设置步骤导航器当前显示StepperItem的索引值。          取值范围：[0, 子组件的数量-1]          默认值：0          从API version 10开始，该参数支持[\$\$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。 |
+| value | { index?: number } | 否 | 设置步骤导航器当前显示StepperItem的索引值。 取值范围：[0, 子组件的数量-1] 默认值：0 从API version 10开始，该参数支持$$双向绑定变量。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 无
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 事件
 
 
-### onFinish(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onFinish(deprecated)
 
 onFinish(callback: () => void)
 
 步骤导航器最后一个[StepperItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem)的[nextLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#nextlabeldeprecated)被点击时，并且[ItemState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#itemstate枚举说明)属性为Normal时，触发该回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 22开始废弃，建议使用[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onchange)替代。
+> 从API version 8开始支持，从API version 22开始废弃，建议使用 onChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -64,22 +67,22 @@ onFinish(callback: () => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | () =&gt; void | 是 | 步骤导航器最后一个StepperItem的nextLabel被点击时，并且ItemState属性为Normal时，触发该回调。 |
+| callback | () => void | 是 | 步骤导航器最后一个StepperItem的nextLabel被点击时，并且ItemState属性为Normal时，触发该回调。 |
 
 
-### onSkip(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onSkip(deprecated)
 
 onSkip(callback: () => void)
 
 当前显示的[StepperItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem)状态为ItemState.Skip时，[nextLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#nextlabeldeprecated)被点击时触发该回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 22开始废弃，建议使用[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onchange)替代。
+> 从API version 8开始支持，从API version 22开始废弃，建议使用 onChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -87,22 +90,22 @@ onSkip(callback: () => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | () =&gt; void | 是 | 当前显示的StepperItem状态为ItemState.Skip时，nextLabel被点击时触发该回调。 |
+| callback | () => void | 是 | 当前显示的StepperItem状态为ItemState.Skip时，nextLabel被点击时触发该回调。 |
 
 
-### onChange(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onChange(deprecated)
 
 onChange(callback: (prevIndex: number, index: number) => void)
 
 点击当前StepperItem的[prevLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#prevlabeldeprecated)进行步骤切换时触发该回调；或点击当前StepperItem的[nextLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#nextlabeldeprecated)，当前页面不为步骤导航器最后一个StepperItem且[ItemState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#itemstate枚举说明)属性为Normal时，触发该回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 22开始废弃，建议使用[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onchange)替代。
+> 从API version 8开始支持，从API version 22开始废弃，建议使用 onChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -110,30 +113,29 @@ onChange(callback: (prevIndex: number, index: number) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| prevIndex | number | 是 | 切换前的步骤页索引值。          取值范围：[0, +∞) |
-| index | number | 是 | 切换后的步骤页（前一页或者下一页）索引值。          取值范围：[0, +∞) |
+| prevIndex | number | 是 | 切换前的步骤页索引值。 取值范围：[0, +∞) |
+| index | number | 是 | 切换后的步骤页（前一页或者下一页）索引值。 取值范围：[0, +∞) |
 
 
-### onNext(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onNext(deprecated)
 
 onNext(callback: (index: number, pendingIndex: number) => void)
 
 点击StepperItem的[nextLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#nextlabeldeprecated)切换下一步骤时，当前页面不为步骤导航器最后一个StepperItem且[ItemState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#itemstate枚举说明)属性为Normal时，触发该回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 22开始废弃，建议使用[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onchange)替代。
+> 从API version 8开始支持，从API version 22开始废弃，建议使用 onChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -141,16 +143,17 @@ onNext(callback: (index: number, pendingIndex: number) => void)
 | pendingIndex | number | 是 | 下一步骤页索引值。 |
 
 
-### onPrevious(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onPrevious(deprecated)
 
 onPrevious(callback: (index: number, pendingIndex: number) => void)
 
 点击StepperItem的[prevLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#prevlabeldeprecated)切换上一步骤时触发该回调。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 22开始废弃，建议使用[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onchange)替代。
+> 从API version 8开始支持，从API version 22开始废弃，建议使用 onChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -158,23 +161,23 @@ onPrevious(callback: (index: number, pendingIndex: number) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 当前步骤页索引值。 |
 | pendingIndex | number | 是 | 上一步骤页索引值。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 示例1（使用Stepper）
+##### 示例
+
+
+
+##### 示例1（使用Stepper）
 
 该示例主要演示如何使用步骤导航器组件。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Styles function itemStyle () {
   .width(336)
@@ -208,12 +211,12 @@ struct StepperExample {
       StepperItem() {
         Column() {
           Text('Page One')
-          .itemTextStyle()
+            .itemTextStyle()
           Button('change status:' + this.firstState)
-          .backgroundColor('#007dFF')
-          .onClick(() => {
-            this.firstState = this.firstState === ItemState.Skip ? ItemState.Normal : ItemState.Skip;
-          })
+            .backgroundColor('#007dFF')
+            .onClick(() => {
+              this.firstState = this.firstState === ItemState.Skip ? ItemState.Normal : ItemState.Skip;
+            })
         }.itemStyle()
       }
       .nextLabel('Next')
@@ -222,12 +225,12 @@ struct StepperExample {
       StepperItem() {
         Column() {
           Text('Page Two')
-          .itemTextStyle()
+            .itemTextStyle()
           Button('change status:' + this.secondState)
-          .backgroundColor('#007dFF')
-          .onClick(() => {
-            this.secondState = this.secondState === ItemState.Disabled ? ItemState.Normal : ItemState.Disabled;
-          })
+            .backgroundColor('#007dFF')
+            .onClick(() => {
+              this.secondState = this.secondState === ItemState.Disabled ? ItemState.Normal : ItemState.Disabled;
+            })
         }.itemStyle()
       }
       .nextLabel('Next')
@@ -237,12 +240,12 @@ struct StepperExample {
       StepperItem() {
         Column() {
           Text('Page Three')
-          .itemTextStyle()
+            .itemTextStyle()
           Button('change status:' + this.thirdState)
-          .backgroundColor('#007dFF')
-          .onClick(() => {
-            this.thirdState = this.thirdState === ItemState.Waiting ? ItemState.Normal : ItemState.Waiting;
-          })
+            .backgroundColor('#007dFF')
+            .onClick(() => {
+              this.thirdState = this.thirdState === ItemState.Waiting ? ItemState.Normal : ItemState.Waiting;
+            })
         }.itemStyle()
       }
       .status(this.thirdState)
@@ -250,7 +253,7 @@ struct StepperExample {
       StepperItem() {
         Column() {
           Text('Page Four')
-          .itemTextStyle()
+            .itemTextStyle()
         }.itemStyle()
       }
     }
@@ -272,15 +275,17 @@ struct StepperExample {
 }
 ```
 
-![](assets/Stepper/file-20260514164213951-0.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/lp3RK0IkRj-N3QwJIUPzlw/zh-cn_image_0000002611836137.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013929Z&HW-CC-Expire=86400&HW-CC-Sign=51D7F15AA12A5467918B0B7B8F49D560E89A8D9EC62DF7A5830E35D583B14B81)
 
 
-### 示例2（使用Swiper替代Stepper）
+
+
+##### 示例2（使用Swiper替代Stepper）
 
 该示例主要演示如何使用[Swiper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper)组件实现Stepper组件的功能，示例效果图同示例1。
 
-
-```ts
+```text
 @Styles
 function itemStyle() {
   .width(336)
@@ -314,49 +319,49 @@ struct StepperExample {
         // 第一个步骤页
         Column() {
           Text('Page One')
-          .itemTextStyle()
+            .itemTextStyle()
           Button('change status:' + this.status)
-          .backgroundColor('#007dFF')
-          .onClick(() => {
-            if (this.status < 3) {
-              this.status += 1
-            } else {
-              this.status = 0
-            }
-          })
+            .backgroundColor('#007dFF')
+            .onClick(() => {
+              if (this.status < 3) {
+                this.status += 1
+              } else {
+                this.status = 0
+              }
+            })
         }.itemStyle()
         // 第二个步骤页
         Column() {
           Text('Page Two')
-          .itemTextStyle()
+            .itemTextStyle()
           Button('change status:' + this.status)
-          .backgroundColor('#007dFF')
-          .onClick(() => {
-            if (this.status < 3) {
-              this.status += 1
-            } else {
-              this.status = 0
-            }
-          })
+            .backgroundColor('#007dFF')
+            .onClick(() => {
+              if (this.status < 3) {
+                this.status += 1
+              } else {
+                this.status = 0
+              }
+            })
         }.itemStyle()
         // 第三个步骤页
         Column() {
           Text('Page Three')
-          .itemTextStyle()
+            .itemTextStyle()
           Button('change status:' + this.status)
-          .backgroundColor('#007dFF')
-          .onClick(() => {
-            if (this.status < 3) {
-              this.status += 1
-            } else {
-              this.status = 0
-            }
-          })
+            .backgroundColor('#007dFF')
+            .onClick(() => {
+              if (this.status < 3) {
+                this.status += 1
+              } else {
+                this.status = 0
+              }
+            })
         }.itemStyle()
         // 第四个步骤页
         Column() {
           Text('Page Four')
-          .itemTextStyle()
+            .itemTextStyle()
         }.itemStyle()
       }
       .index(this.currentIndex)
@@ -375,13 +380,13 @@ struct StepperExample {
         if (this.currentIndex > 0) {
           Row() {
             SymbolGlyph($r("sys.symbol.chevron_left"))
-            .fontSize(20)
-            .margin({ right: 5 })
+              .fontSize(20)
+              .margin({ right: 5 })
             Text(this.prevLabel)
             // 使用这里的onClick替代原Stepper的onPrevious
-            .onClick(() => {
-              this.swiperController.showPrevious()
-            })
+              .onClick(() => {
+                this.swiperController.showPrevious()
+              })
           }
           .justifyContent(FlexAlign.Start)
           .width(100)
@@ -392,37 +397,37 @@ struct StepperExample {
           if (this.currentIndex == 3) {
             Text("开始")
             // 使用这里的onClick替代原Stepper的onFinish
-            .onClick(() => {
-              console.info("Finish")
-            })
+              .onClick(() => {
+                console.info("Finish")
+              })
           } else if (this.status == 0) {
             Text(this.nextLabel)
             // 使用这里的onClick替代原Stepper的onNext
-            .onClick(() => {
-              this.swiperController.showNext()
-            })
+              .onClick(() => {
+                this.swiperController.showNext()
+              })
             SymbolGlyph($r("sys.symbol.chevron_right"))
-            .fontSize(20)
-            .margin({ left: 5 })
+              .fontSize(20)
+              .margin({ left: 5 })
           } else if (this.status == 1) {
             Text(this.nextLabel)
-            .fontColor('#ff818181')
+              .fontColor('#ff818181')
             SymbolGlyph($r("sys.symbol.chevron_right"))
-            .fontSize(20)
-            .fontColor(['#ff818181'])
-            .margin({ left: 5 })
+              .fontSize(20)
+              .fontColor(['#ff818181'])
+              .margin({ left: 5 })
           } else if (this.status == 2) {
             LoadingProgress()
-            .width(25)
+              .width(25)
           } else if (this.status == 3) {
             Text("跳过")
             // 使用这里的onClick替代原Stepper的onSkip
-            .onClick(() => {
-              console.info("Skip")
-            })
+              .onClick(() => {
+                console.info("Skip")
+              })
             SymbolGlyph($r("sys.symbol.chevron_right"))
-            .fontSize(20)
-            .margin({ left: 5 })
+              .fontSize(20)
+              .margin({ left: 5 })
           }
         }
         .justifyContent(FlexAlign.End)

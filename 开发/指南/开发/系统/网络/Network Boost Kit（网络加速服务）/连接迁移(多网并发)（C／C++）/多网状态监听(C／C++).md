@@ -7,33 +7,43 @@
 从6.0.2(22)开始，支持多网状态监听。
 
 
-## 场景介绍
+##### 场景介绍
 
 应用通过监听多网络状态的变化，感知可用网络的变化，从而选择在多网络上传输数据的策略。
 
-## 接口说明
+
+
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | int32_t HMS_NetworkBoost_RegisterMultiPathStateChangeCallback(HMS_NetworkBoost_OnMultiPathStateChangecallback, uint32_t *callbackId) | 注册多网状态变化事件。 |
 | int32_t HMS_NetworkBoost_UnregisterMultiPathStateChangeCallback(uint32_t callbackId) | 去注册多网状态变化事件。 |
 
 
-## 开发步骤
 
-导入Network Boost Kit模块。
+
+##### 开发步骤
+1. 导入Network Boost Kit模块。
+
+  
 ```text
 #include "NetworkBoostKit/network_boost_handover.h"
-#include
+#include <cstdio>
 ```
 
-CMakeLists.txt中添加以下lib，具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-preparations#c-api开发准备)。
+2. CMakeLists.txt中添加以下lib，具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-preparations#c-api开发准备)。
+
+  
 ```text
 libnetwork_boost.so
 ```
 
-调用HMS_NetworkBoost_RegisterMultiPathStateChangeCallback接口，获取多网状态变化信息。
+3. 调用HMS_NetworkBoost_RegisterMultiPathStateChangeCallback接口，获取多网状态变化信息。
+
+  
 ```text
 uint32_t callbackId = 0;
 void onMultiPathStateChangeCallback(NetworkBoost_MultiPathStateChange* result)
@@ -50,7 +60,9 @@ int32_t RegisterMultiPathStateChange()
 }
 ```
 
-当应用业务流程结束，通过取消注册的方式取消多网状态监听。
+4. 当应用业务流程结束，通过取消注册的方式取消多网状态监听。
+
+  
 ```text
 int32_t UnregisterMultiPathStateChange() {
     // 使用注册时获取的回调Id取消注册

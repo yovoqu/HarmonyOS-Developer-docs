@@ -5,29 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_hp-arkui-set-cache-count-for-lazyforeach-grid
 
 建议在Grid下使用LazyForEach时设置合理的cacheCount。
+ 
+滑动丢帧场景下，建议优先修改。
+ 
 
- 滑动丢帧场景下，建议优先修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
-    "@performance/hp-arkui-set-cache-count-for-lazyforeach-grid": "suggestion",
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
+    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-set-cache-count-for-lazyforeach-grid"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // 源码文件，请以工程实际为准
@@ -40,7 +41,15 @@ struct MyComponent {
   private data: MyDataSource = new MyDataSource();
 
   aboutToAppear() {
-    for (let i = 1; i  {
+    for (let i = 1; i < 1000; i++) {
+      this.data.pushData(i);
+    }
+  }
+
+  build() {
+    Column({ space: 5 }) {
+      Grid() {
+        LazyForEach(this.data, (item: number) => {
           GridItem() {
             // 使用可复用自定义组件
             // 业务逻辑
@@ -59,10 +68,10 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // 源码文件，请以工程实际为准
@@ -75,7 +84,15 @@ struct MyComponent {
   private data: MyDataSource = new MyDataSource();
 
   aboutToAppear() {
-    for (let i = 1; i  {
+    for (let i = 1; i < 1000; i++) {
+      this.data.pushData(i);
+    }
+  }
+
+  build() {
+    Column({ space: 5 }) {
+      Grid() {
+        LazyForEach(this.data, (item: number) => {
           GridItem() {
             // 使用可复用自定义组件
             // 业务逻辑
@@ -93,14 +110,14 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/recommended
+<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
 plugin:@performance/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -6,21 +6,38 @@
 
 在PDF文档中添加或删除页面，包括：
 
+ - 添加单个、多个空白页到PDF文档。
+ - 删除PDF文档中单个、多个指定页。
+ - 将其他PDF文档页添加到本PDF文档。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [insertBlankPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#insertblankpage)(index: number, width: number, height: number): PdfPage | 在指定位置插入空白PDF页。 |
-| [getPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#getpage)(index: number): PdfPage | 获取指定页的对象。 |
-| [insertPageFromDocument](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#insertpagefromdocument)(document: PdfDocument, fromIndex: number, pageCount: number, index: number): PdfPage | 将其他文档的页添加到当前文档。 |
-| [deletePage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#deletepage)(index: number, count: number): void | 删除指定的PDF页。 |
+| insertBlankPage(index: number, width: number, height: number): PdfPage | 在指定位置插入空白PDF页。 |
+| getPage(index: number): PdfPage | 获取指定页的对象。 |
+| insertPageFromDocument(document: PdfDocument, fromIndex: number, pageCount: number, index: number): PdfPage | 将其他文档的页添加到当前文档。 |
+| deletePage(index: number, count: number): void | 删除指定的PDF页。 |
 
 
-## 示例代码
 
-调用loadDocument方法，加载PDF文档。 调用getPage方法获取当前页，用于获取页面宽高。 调用insertBlankPage和insertPageFromDocument方法实现如下功能。 插入单个空白页。 插入多个空白页。 将input2.pdf文档的索引1、2、3页插入到input.pdf索引0的位置，并另存文档。 调用deletePage方法删除单个或多个索引页。
+
+##### 示例代码
+1. 调用loadDocument方法，加载PDF文档。
+2. 调用getPage方法获取当前页，用于获取页面宽高。
+3. 调用insertBlankPage和insertPageFromDocument方法实现如下功能。
+
+  
+ - 插入单个空白页。
+
+4. 插入多个空白页。
+
+5. 将input2.pdf文档的索引1、2、3页插入到input.pdf索引0的位置，并另存文档。
+ - 调用deletePage方法删除单个或多个索引页。
+
+
 ```text
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -51,7 +68,15 @@ struct PdfPage {
       // 插入多个空白页
       Button('insertSomeBlankPage').onClick(async () => {
         let page: pdfService.PdfPage = this.pdfDocument.getPage(0);
-        for (let i = 0; i  {
+        for (let i = 0; i < 3; i++) {
+          this.pdfDocument.insertBlankPage(2, page.getWidth(), page.getHeight());
+        }
+        let outPdfPath = this.context.filesDir + '/testInsertSomeBlankPage.pdf';
+        let result = this.pdfDocument.saveDocument(outPdfPath);
+        hilog.info(0x0000, 'PdfPage', 'insertSomeBlankPage %{public}s!', result ? 'success' : 'fail');
+      })
+      // 将input2.pdf文档的索引1,2,3页插入到input.pdf索引0的位置，并另存文档
+      Button('insertPageFromDocument').onClick(async () => {
         let pdfDoc: pdfService.PdfDocument = new pdfService.PdfDocument();
         // 确保在工程目录src/main/resources/resfile里有input2.pdf文档
         pdfDoc.loadDocument(this.context.resourceDir + '/input2.pdf');

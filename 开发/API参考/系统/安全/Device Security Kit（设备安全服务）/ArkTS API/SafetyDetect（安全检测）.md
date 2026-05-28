@@ -3,26 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 - 判断设备环境是否安全，比如是否被越狱、被模拟等，您可基于结果评估如何响应。
-- 判断用户访问的URL是否为恶意网址，对于恶意网址，由您评估提示或拦截用户的访问风险。
+ - 判断用户访问的URL是否为恶意网址，对于恶意网址，由您评估提示或拦截用户的访问风险。
+
 
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+##### 导入模块
 
-
-```ts
+```text
 import { safetyDetect } from '@kit.DeviceSecurityKit';
 ```
 
 
-## SysIntegrityRequest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### SysIntegrityRequest
 
 系统完整性检测的请求参数。
 
@@ -32,14 +30,14 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | nonce | string | 否 | 否 | 开发者应用传入的一个随机生成的nonce值，用于防重放攻击，在检测结果中会包含该值。 |
 
 
-## SysIntegrityResponse
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### SysIntegrityResponse
 
 系统完整性检测返回值。
 
@@ -49,14 +47,14 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| result | string | 否 | 否 | JWS格式的系统完整性检测结果。JWS内容详见《Device Security Kit开发指南》中的系统完整性检测[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-sysintegrity-check#开发步骤)。 |
+| result | string | 否 | 否 | JWS格式的系统完整性检测结果。JWS内容详见《Device Security Kit开发指南》中的系统完整性检测开发步骤。 |
 
 
-## UrlCheckRequest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### UrlCheckRequest
 
 URL检测请求参数。
 
@@ -66,14 +64,14 @@ URL检测请求参数。
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | urls | Array&lt;string&gt; | 否 | 否 | 被检测的URL列表 |
 
 
-## UrlCheckResponse
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### UrlCheckResponse
 
 URL检测返回值。
 
@@ -83,14 +81,14 @@ URL检测返回值。
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| results | Array&lt;[UrlCheckResult](#urlcheckresult)&gt; | 否 | 否 | URL检测返回的检测结果 |
+| results | Array&lt;UrlCheckResult&gt; | 否 | 否 | URL检测返回的检测结果 |
 
 
-## UrlCheckResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### UrlCheckResult
 
 URL检测结果详情。
 
@@ -100,15 +98,15 @@ URL检测结果详情。
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | url | string | 否 | 否 | 对应到输入参数中被检测的URL |
-| threat | [UrlThreatType](#urlthreattype) | 否 | 否 | URL的威胁类型 |
+| threat | UrlThreatType | 否 | 否 | URL的威胁类型 |
 
 
-## UrlThreatType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### UrlThreatType
 
 枚举URL威胁类型。
 
@@ -118,7 +116,6 @@ URL检测结果详情。
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL | 0 | 未发现威胁。 |
@@ -127,15 +124,21 @@ URL检测结果详情。
 | OTHERS | 3 | 其他威胁类型的URL |
 
 
-## checkSysIntegrity
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### checkSysIntegrity
 
 checkSysIntegrity(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[SysIntegrityResponse](#sysintegrityresponse)>
 
 获取本设备的系统完整性的在线检测结果。使用Promise异步回调。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/iA9wlgUrTTuMxKKxfGfJNQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084516Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=2819A8368986B4DF758B7B5617F9F82E2391587D5E6C243F9F3F31315C83A44F)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/0EWTH04WSs2emgX6euJDMg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=F5A5768D25388EAA14EC926E788262E7E0910B20492EC1534F01A3C0F05CCD0B)
+
+
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
+
+
 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
@@ -145,29 +148,26 @@ checkSysIntegrity(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[Sy
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| req | [SysIntegrityRequest](#sysintegrityrequest) | 是 | 请求参数，包含nonce。          nonce长度必须16至66字节之间，有效值为base64编码范围。 |
+| req | SysIntegrityRequest | 是 | 请求参数，包含nonce。 nonce长度必须16至66字节之间，有效值为base64编码范围。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SysIntegrityResponse](#sysintegrityresponse)&gt; | Promise对象，返回系统完整性检测结果。 |
+| Promise&lt;SysIntegrityResponse&gt; | Promise对象，返回系统完整性检测结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | Invalid parameters.          Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameter types.          3. Parameter verification failed. |
+| 401 | Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | API is not supported. |
 | 1010800001 | Internal error. |
 | 1010800002 | The network is unreachable. |
@@ -180,50 +180,42 @@ checkSysIntegrity(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[Sy
 
 **示例：**
 
-
-```ts
+```text
 import { safetyDetect } from '@kit.DeviceSecurityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = 'SafetyDetectJsTest';
+const TAG = "SafetyDetectJsTest";
 
 // 请求系统完整性检测，并处理结果
-let req: safetyDetect.SysIntegrityRequest = {
-  nonce: 'imEe1PCRcjGkBCAhOCh6ImADztOZ8ygxlWRs', // 从服务器生成的随机的nonce值
+let req : safetyDetect.SysIntegrityRequest = {
+  nonce : 'imEe1PCRcjGkBCAhOCh6ImADztOZ8ygxlWRs' // 从服务器生成的随机的nonce值
 };
 try {
   hilog.info(0x0000, TAG, 'CheckSysIntegrity begin.');
-  const data: safetyDetect.SysIntegrityResponse =
-    await safetyDetect.checkSysIntegrity(req);
-  hilog.info(
-    0x0000,
-    TAG,
-    'Succeeded in checkSysIntegrity: %{public}s',
-    data.result,
-  );
+  const data: safetyDetect.SysIntegrityResponse = await safetyDetect.checkSysIntegrity(req);
+  hilog.info(0x0000, TAG, 'Succeeded in checkSysIntegrity: %{public}s', data.result);
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    TAG,
-    'CheckSysIntegrity failed: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, TAG, 'CheckSysIntegrity failed: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## checkUrlThreat
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### checkUrlThreat
 
 checkUrlThreat(req: [UrlCheckRequest](#urlcheckrequest)): Promise<[UrlCheckResponse](#urlcheckresponse)>
 
 检测URL是否为恶意网址。使用Promise异步回调。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/GSd7wPacQ6OA19vMUe2nyQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084516Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=BF250A859FC70F556B858CA1A044484D12D48FB1E29950C8131E13E4A72F4804)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/REE4jbqhTpOTOixmgVRP0g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=CE7569F3EF1586782143C60DE748BB3AEB4C1831C94976192507B2596BDD8FD3)
+
+
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
+
+
 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
@@ -233,29 +225,26 @@ checkUrlThreat(req: [UrlCheckRequest](#urlcheckrequest)): Promise<[UrlCheckRespo
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| req | [UrlCheckRequest](#urlcheckrequest) | 是 | 请求参数，包含被检测的URL列表。          传入的URL数量最多10个并且每个URL长度不大于4096字节。 |
+| req | UrlCheckRequest | 是 | 请求参数，包含被检测的URL列表。 传入的URL数量最多10个并且每个URL长度不大于4096字节。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[UrlCheckResponse](#urlcheckresponse)&gt; | Promise对象，返回URL检测结果。 |
+| Promise&lt;UrlCheckResponse&gt; | Promise对象，返回URL检测结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied |
-| 401 | Invalid parameters.          Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameter types.          3. Parameter verification failed. |
+| 401 | Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | API is not supported. |
 | 1010800001 | Internal error. |
 | 1010800002 | The network is unreachable. |
@@ -268,46 +257,32 @@ checkUrlThreat(req: [UrlCheckRequest](#urlcheckrequest)): Promise<[UrlCheckRespo
 
 **示例：**
 
-
-```ts
+```text
 import { safetyDetect } from '@kit.DeviceSecurityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = 'SafetyDetectJsTest';
+const TAG = "SafetyDetectJsTest";
 
 // 请求URL检测，并处理结果
-let req: safetyDetect.UrlCheckRequest = {
-  urls: ['https://test1.com'],
+let req : safetyDetect.UrlCheckRequest = {
+  urls : ['https://test1.com']
 };
 try {
   hilog.info(0x0000, TAG, 'CheckUrlThreat begin.');
-  const data: safetyDetect.UrlCheckResponse =
-    await safetyDetect.checkUrlThreat(req);
-  hilog.info(
-    0x0000,
-    TAG,
-    'Succeeded in checkUrlThreat: %{public}s %{public}d',
-    data.results[0].url,
-    data.results[0].threat,
-  );
+  const data: safetyDetect.UrlCheckResponse = await safetyDetect.checkUrlThreat(req);
+  hilog.info(0x0000, TAG, 'Succeeded in checkUrlThreat: %{public}s %{public}d', data.results[0].url, data.results[0].threat);
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    TAG,
-    'CheckUrlThreat failed: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, TAG, 'CheckUrlThreat failed: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## checkSysIntegrityOnLocal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
-checkSysIntegrityOnLocal(): Promise<string>
+##### checkSysIntegrityOnLocal
+
+checkSysIntegrityOnLocal(): Promise&lt;string&gt;
 
 获取本设备的系统完整性的本地检测结果。使用Promise异步回调。
 
@@ -319,16 +294,14 @@ checkSysIntegrityOnLocal(): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，返回JSON格式的系统完整性检测结果。JSON内容详见《Device Security Kit开发指南》中的本地系统完整性检测[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-sysintegrity-check-onlocal#开发步骤)。 |
+| Promise&lt;string&gt; | Promise对象，返回JSON格式的系统完整性检测结果。JSON内容详见《Device Security Kit开发指南》中的本地系统完整性检测开发步骤。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -342,46 +315,39 @@ checkSysIntegrityOnLocal(): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { safetyDetect } from '@kit.DeviceSecurityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = 'SafetyDetectJsTest';
+const TAG = "SafetyDetectJsTest";
 
 // 请求本地系统完整性检测，并处理结果
 try {
   hilog.info(0x0000, TAG, 'CheckSysIntegrityOnLocal begin.');
   const result: string = await safetyDetect.checkSysIntegrityOnLocal();
-  hilog.info(
-    0x0000,
-    TAG,
-    'Succeeded in checkSysIntegrityOnLocal: %{public}s',
-    result,
-  );
+  hilog.info(0x0000, TAG, 'Succeeded in checkSysIntegrityOnLocal: %{public}s', result);
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    TAG,
-    'CheckSysIntegrityOnLocal failed: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, TAG, 'CheckSysIntegrityOnLocal failed: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## checkSysIntegrityEnhanced
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### checkSysIntegrityEnhanced
 
 checkSysIntegrityEnhanced(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[SysIntegrityResponse](#sysintegrityresponse)>
 
 获取本设备的系统完整性的在线增强检测结果。使用Promise异步回调。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/7y_4lOmMTqyoUFjl9lZfUg/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084516Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=A956184F66F804F9C0AE1A395E4C5FDAEA77703E98D7034B8863E50BDB476F4C)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/DBsNpbmYQB6ZCIIx1oJMwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=091BC717B4D2ACD2B27B99A090CD54A9502314E0A5E8EB7E5298160671B56F06)
+
+
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
+
+
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
@@ -391,24 +357,21 @@ checkSysIntegrityEnhanced(req: [SysIntegrityRequest](#sysintegrityrequest)): Pro
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| req | [SysIntegrityRequest](#sysintegrityrequest) | 是 | 请求参数，包含nonce。          nonce长度必须16至66字节之间，有效值为base64编码范围。 |
+| req | SysIntegrityRequest | 是 | 请求参数，包含nonce。 nonce长度必须16至66字节之间，有效值为base64编码范围。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SysIntegrityResponse](#sysintegrityresponse)&gt; | Promise对象，返回系统完整性增强检测结果。 |
+| Promise&lt;SysIntegrityResponse&gt; | Promise对象，返回系统完整性增强检测结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -425,36 +388,23 @@ checkSysIntegrityEnhanced(req: [SysIntegrityRequest](#sysintegrityrequest)): Pro
 
 **示例：**
 
-
-```ts
+```text
 import { safetyDetect } from '@kit.DeviceSecurityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
+import { BusinessError} from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const TAG = 'SafetyDetectJsTest';
+const TAG = "SafetyDetectJsTest";
 
 // 请求系统完整性增强检测，并处理结果
-let req: safetyDetect.SysIntegrityRequest = {
-  nonce: 'imEe1PCRcjGkBCAhOCh6ImADztOZ8ygxlWRs', // 从服务器生成的随机的nonce值
+let req : safetyDetect.SysIntegrityRequest = {
+  nonce : 'imEe1PCRcjGkBCAhOCh6ImADztOZ8ygxlWRs' // 从服务器生成的随机的nonce值
 };
 try {
   hilog.info(0x0000, TAG, 'CheckSysIntegrityEnhanced begin.');
-  const data: safetyDetect.SysIntegrityResponse =
-    await safetyDetect.checkSysIntegrityEnhanced(req);
-  hilog.info(
-    0x0000,
-    TAG,
-    'Succeeded in checkSysIntegrityEnhanced: %{public}s',
-    data.result,
-  );
+  const data: safetyDetect.SysIntegrityResponse = await safetyDetect.checkSysIntegrityEnhanced(req);
+  hilog.info(0x0000, TAG, 'Succeeded in checkSysIntegrityEnhanced: %{public}s', data.result);
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    TAG,
-    'CheckSysIntegrityEnhanced failed: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, TAG, 'CheckSysIntegrityEnhanced failed: %{public}d %{public}s', e.code, e.message);
 }
 ```

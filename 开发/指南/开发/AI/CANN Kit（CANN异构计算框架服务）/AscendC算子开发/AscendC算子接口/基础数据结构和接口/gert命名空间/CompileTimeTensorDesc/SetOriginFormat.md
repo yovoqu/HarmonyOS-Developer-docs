@@ -4,36 +4,42 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiletimetensordesc-setoriginformat
 
-## 函数功能
+##### 函数功能
 
 向CompileTimeTensorDesc中设置Tensor的原始数据排布格式。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void SetOriginFormat(const ge::Format format)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| format | 输入 | 需要设置的原始数据排布格式信息。 关于ge::Format的定义，请参见[Format](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-format)。 |
+| format | 输入 | 需要设置的原始数据排布格式信息。 关于ge::Format的定义，请参见Format。 |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 auto dtype_ = ge::DataType::DT_INT32;

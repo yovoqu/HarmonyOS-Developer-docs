@@ -3,28 +3,29 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-marqueedynamicsyncscene
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供Marquee组件相关帧率的配置。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 14开始支持。 MarqueeDynamicSyncScene继承自 DynamicSyncScene ，对应 Marquee 的动态帧率场景。
 
+  
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [MarqueeDynamicSyncSceneType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-e#marqueedynamicsyncscenetype14) | 是 | 否 | Marquee的动态帧率场景。 |
-
-
+| type | MarqueeDynamicSyncSceneType | 是 | 否 | Marquee的动态帧率场景。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { MarqueeDynamicSyncSceneType, MarqueeDynamicSyncScene } from '@kit.ArkUI';
 
 @Entry
@@ -56,40 +57,40 @@ struct MarqueeExample {
         fromStart: this.fromStart,
         src: this.marqueeText + this.src
       })
-      .marqueeUpdateStrategy(MarqueeUpdateStrategy.PRESERVE_POSITION)
-      .width(300)
-      .height(80)
-      .fontColor('#FFFFFF')
-      .fontSize(48)
-      .fontWeight(700)
-      .backgroundColor('#182431')
-      .margin({ bottom: 40 })
-      .id('dynamicMarquee')
-      .onAppear(()=>{
-        this.scenes = this.getUIContext().requireDynamicSyncScene('dynamicMarquee') as MarqueeDynamicSyncScene[];
-      })
+        .marqueeUpdateStrategy(MarqueeUpdateStrategy.PRESERVE_POSITION)
+        .width(300)
+        .height(80)
+        .fontColor('#FFFFFF')
+        .fontSize(48)
+        .fontWeight(700)
+        .backgroundColor('#182431')
+        .margin({ bottom: 40 })
+        .id('dynamicMarquee')
+        .onAppear(()=>{
+          this.scenes = this.getUIContext().requireDynamicSyncScene('dynamicMarquee') as MarqueeDynamicSyncScene[];
+        })
       Button('Start')
-      .onClick(() => {
-        this.start = true;
-        this.controller.start();
-        this.scenes.forEach((scenes: MarqueeDynamicSyncScene) => {
-          if (scenes.type == MarqueeDynamicSyncSceneType.ANIMATION) {
-            scenes.setFrameRateRange(this.ANIMATION);
-          }
-        });
-      })
-      .width(120)
-      .height(40)
-      .fontSize(16)
-      .fontWeight(500)
-      .backgroundColor('#007DFF')
+        .onClick(() => {
+          this.start = true;
+          this.controller.start();
+          this.scenes.forEach((scenes: MarqueeDynamicSyncScene) => {
+            if (scenes.type == MarqueeDynamicSyncSceneType.ANIMATION) {
+              scenes.setFrameRateRange(this.ANIMATION);
+            }
+          });
+        })
+        .width(120)
+        .height(40)
+        .fontSize(16)
+        .fontWeight(500)
+        .backgroundColor('#007DFF')
       TextClock({ timeZoneOffset: -8, controller: this.controller })
-      .format('hms')
-      .onDateChange((value: number) => {
-        this.src = this.convert2time(value);
-      })
-      .margin(20)
-      .fontSize(30)
+        .format('hms')
+        .onDateChange((value: number) => {
+          this.src = this.convert2time(value);
+        })
+        .margin(20)
+        .fontSize(30)
     }
     .width('100%')
     .height('100%')

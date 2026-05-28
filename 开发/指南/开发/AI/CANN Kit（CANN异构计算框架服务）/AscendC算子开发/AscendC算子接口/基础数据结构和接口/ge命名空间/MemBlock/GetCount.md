@@ -4,34 +4,41 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getcount
 
-## 函数功能
+##### 函数功能
 
 获取MemBlock的引用计数。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 size_t GetCount() const
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 无
+ 
+  
 
-## 返回值
-
-
+##### 返回值
+ 
 | 类型 | 描述 |
 | --- | --- |
 | size_t | 返回引用计数。 |
+ 
+ 
+  
 
-
-## 异常处理
+##### 异常处理
 
 无
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无

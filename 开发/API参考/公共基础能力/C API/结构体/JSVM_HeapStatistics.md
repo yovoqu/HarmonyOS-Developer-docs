@@ -3,34 +3,31 @@
 更新时间：2026-03-17 02:21:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-jsvm-heapstatistics
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 typedef struct {...} JSVM_HeapStatistics
 ```
+  
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+##### 概述
 
 用于保存有关JavaScript堆内存使用情况的统计信息。
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [JSVM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm)
-
+ 
 **所在头文件：** [jsvm_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-types-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+  
 
-
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | size_t totalHeapSize | 总堆大小，单位KB。 |

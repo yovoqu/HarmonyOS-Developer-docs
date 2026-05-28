@@ -6,11 +6,11 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除错误码 | 类名：wifiManager； API声明：function on(type: 'hotspotStateChange', callback: Callback<number>): void; 差异内容：202 | 类名：wifiManager； API声明：function on(type: 'hotspotStateChange', callback: Callback<number>): void; 差异内容：NA | api/@ohos.wifiManager.d.ts |
-| 删除错误码 | 类名：wifiManager； API声明：function off(type: 'hotspotStateChange', callback?: Callback<number>): void; 差异内容：202 | 类名：wifiManager； API声明：function off(type: 'hotspotStateChange', callback?: Callback<number>): void; 差异内容：NA | api/@ohos.wifiManager.d.ts |
+| 删除错误码 | 类名：wifiManager； API声明：function on(type: 'hotspotStateChange', callback: Callback&lt;number&gt;): void; 差异内容：202 | 类名：wifiManager； API声明：function on(type: 'hotspotStateChange', callback: Callback&lt;number&gt;): void; 差异内容：NA | api/@ohos.wifiManager.d.ts |
+| 删除错误码 | 类名：wifiManager； API声明：function off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;): void; 差异内容：202 | 类名：wifiManager； API声明：function off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;): void; 差异内容：NA | api/@ohos.wifiManager.d.ts |
 | 新增API | NA | 类名：wifiManager； API声明：function disableWifi(): void; 差异内容：function disableWifi(): void; | api/@ohos.wifiManager.d.ts |
-| 新增API | NA | 类名：access； API声明：function enableBluetoothAsync(): Promise<void>; 差异内容：function enableBluetoothAsync(): Promise<void>; | api/@ohos.bluetooth.access.d.ts |
-| 新增API | NA | 类名：access； API声明：function disableBluetoothAsync(): Promise<void>; 差异内容：function disableBluetoothAsync(): Promise<void>; | api/@ohos.bluetooth.access.d.ts |
+| 新增API | NA | 类名：access； API声明：function enableBluetoothAsync(): Promise&lt;void&gt;; 差异内容：function enableBluetoothAsync(): Promise&lt;void&gt;; | api/@ohos.bluetooth.access.d.ts |
+| 新增API | NA | 类名：access； API声明：function disableBluetoothAsync(): Promise&lt;void&gt;; 差异内容：function disableBluetoothAsync(): Promise&lt;void&gt;; | api/@ohos.bluetooth.access.d.ts |
 | 新增API | NA | 类名：ble； API声明：enum GattDisconnectReason 差异内容：enum GattDisconnectReason | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：GattDisconnectReason； API声明：CONN_TIMEOUT = 1 差异内容：CONN_TIMEOUT = 1 | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：GattDisconnectReason； API声明：CONN_TERMINATE_PEER_USER = 2 差异内容：CONN_TERMINATE_PEER_USER = 2 | api/@ohos.bluetooth.ble.d.ts |

@@ -6,12 +6,12 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 权限变更 | 类名：adminManager； API声明：function disableAdmin(admin: Want, userId?: number): Promise<void>; 差异内容：ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE | 类名：adminManager； API声明：function disableAdmin(admin: Want, userId?: number): Promise<void>; 差异内容：ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN | api/@ohos.enterprise.adminManager.d.ts |
+| 权限变更 | 类名：adminManager； API声明：function disableAdmin(admin: Want, userId?: number): Promise&lt;void&gt;; 差异内容：ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE | 类名：adminManager； API声明：function disableAdmin(admin: Want, userId?: number): Promise&lt;void&gt;; 差异内容：ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN | api/@ohos.enterprise.adminManager.d.ts |
 | 新增API | NA | 类名：global； API声明：declare class EnterpriseAdminExtensionContext 差异内容：declare class EnterpriseAdminExtensionContext | api/application/EnterpriseAdminExtensionContext.d.ts |
-| 新增API | NA | 类名：EnterpriseAdminExtensionContext； API声明：startAbilityByAdmin(admin: Want, want: Want): Promise<void>; 差异内容：startAbilityByAdmin(admin: Want, want: Want): Promise<void>; | api/application/EnterpriseAdminExtensionContext.d.ts |
-| 新增API | NA | 类名：adminManager； API声明：function enableDeviceAdmin(admin: Want): Promise<void>; 差异内容：function enableDeviceAdmin(admin: Want): Promise<void>; | api/@ohos.enterprise.adminManager.d.ts |
-| 新增API | NA | 类名：adminManager； API声明：function disableDeviceAdmin(admin: Want): Promise<void>; 差异内容：function disableDeviceAdmin(admin: Want): Promise<void>; | api/@ohos.enterprise.adminManager.d.ts |
-| 新增API | NA | 类名：bundleManager； API声明：function getInstalledBundleList(admin: Want, accountId: number, bundleInfoGetFlag: number): Promise<Array<BundleInfo>>; 差异内容：function getInstalledBundleList(admin: Want, accountId: number, bundleInfoGetFlag: number): Promise<Array<BundleInfo>>; | api/@ohos.enterprise.bundleManager.d.ts |
+| 新增API | NA | 类名：EnterpriseAdminExtensionContext； API声明：startAbilityByAdmin(admin: Want, want: Want): Promise&lt;void&gt;; 差异内容：startAbilityByAdmin(admin: Want, want: Want): Promise&lt;void&gt;; | api/application/EnterpriseAdminExtensionContext.d.ts |
+| 新增API | NA | 类名：adminManager； API声明：function enableDeviceAdmin(admin: Want): Promise&lt;void&gt;; 差异内容：function enableDeviceAdmin(admin: Want): Promise&lt;void&gt;; | api/@ohos.enterprise.adminManager.d.ts |
+| 新增API | NA | 类名：adminManager； API声明：function disableDeviceAdmin(admin: Want): Promise&lt;void&gt;; 差异内容：function disableDeviceAdmin(admin: Want): Promise&lt;void&gt;; | api/@ohos.enterprise.adminManager.d.ts |
+| 新增API | NA | 类名：bundleManager； API声明：function getInstalledBundleList(admin: Want, accountId: number, bundleInfoGetFlag: number): Promise<Array&lt;BundleInfo&gt;>; 差异内容：function getInstalledBundleList(admin: Want, accountId: number, bundleInfoGetFlag: number): Promise<Array&lt;BundleInfo&gt;>; | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：bundleManager； API声明：export enum BundleInfoGetFlag 差异内容：export enum BundleInfoGetFlag | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：BundleInfoGetFlag； API声明：DEFAULT = 0 差异内容：DEFAULT = 0 | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：BundleInfoGetFlag； API声明：WITH_APPLICATION_INFO = 1 << 0 差异内容：WITH_APPLICATION_INFO = 1 << 0 | api/@ohos.enterprise.bundleManager.d.ts |
@@ -44,9 +44,9 @@
 | 新增API | NA | 类名：restrictions； API声明：function getUserRestrictedForAccount(admin: Want \| null, settingsItem: string, accountId: number): boolean; 差异内容：function getUserRestrictedForAccount(admin: Want \| null, settingsItem: string, accountId: number): boolean; | api/@ohos.enterprise.restrictions.d.ts |
 | 新增API | NA | 类名：securityManager； API声明：function installEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, fd: number, accountId: number): void; 差异内容：function installEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, fd: number, accountId: number): void; | api/@ohos.enterprise.securityManager.d.ts |
 | 新增API | NA | 类名：securityManager； API声明：function uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: number): void; 差异内容：function uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: number): void; | api/@ohos.enterprise.securityManager.d.ts |
-| 新增API | NA | 类名：systemManager； API声明：function addKeyEventPolicies(admin: Want, keyPolicies: Array<KeyEventPolicy>): void; 差异内容：function addKeyEventPolicies(admin: Want, keyPolicies: Array<KeyEventPolicy>): void; | api/@ohos.enterprise.systemManager.d.ts |
-| 新增API | NA | 类名：systemManager； API声明：function removeKeyEventPolicies(admin: Want, keyCodes: Array<KeyCode>): void; 差异内容：function removeKeyEventPolicies(admin: Want, keyCodes: Array<KeyCode>): void; | api/@ohos.enterprise.systemManager.d.ts |
-| 新增API | NA | 类名：systemManager； API声明：function getKeyEventPolicies(admin: Want): Array<KeyEventPolicy>; 差异内容：function getKeyEventPolicies(admin: Want): Array<KeyEventPolicy>; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：systemManager； API声明：function addKeyEventPolicies(admin: Want, keyPolicies: Array&lt;KeyEventPolicy&gt;): void; 差异内容：function addKeyEventPolicies(admin: Want, keyPolicies: Array&lt;KeyEventPolicy&gt;): void; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：systemManager； API声明：function removeKeyEventPolicies(admin: Want, keyCodes: Array&lt;KeyCode&gt;): void; 差异内容：function removeKeyEventPolicies(admin: Want, keyCodes: Array&lt;KeyCode&gt;): void; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：systemManager； API声明：function getKeyEventPolicies(admin: Want): Array&lt;KeyEventPolicy&gt;; 差异内容：function getKeyEventPolicies(admin: Want): Array&lt;KeyEventPolicy&gt;; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：systemManager； API声明：interface KeyEventPolicy 差异内容：interface KeyEventPolicy | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyEventPolicy； API声明：keyCode: KeyCode; 差异内容：keyCode: KeyCode; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyEventPolicy； API声明：keyPolicy: KeyPolicy; 差异内容：keyPolicy: KeyPolicy; | api/@ohos.enterprise.systemManager.d.ts |
@@ -64,7 +64,7 @@
 | 新增API | NA | 类名：KeyEvent； API声明：keyCode: KeyCode; 差异内容：keyCode: KeyCode; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyEvent； API声明：keyAction: KeyAction; 差异内容：keyAction: KeyAction; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyEvent； API声明：actionTime: number; 差异内容：actionTime: number; | api/@ohos.enterprise.systemManager.d.ts |
-| 新增API | NA | 类名：KeyEvent； API声明：keyItems: Array<KeyItem>; 差异内容：keyItems: Array<KeyItem>; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：KeyEvent； API声明：keyItems: Array&lt;KeyItem&gt;; 差异内容：keyItems: Array&lt;KeyItem&gt;; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：systemManager； API声明：enum KeyAction 差异内容：enum KeyAction | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyAction； API声明：UNKNOWN = -1 差异内容：UNKNOWN = -1 | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyAction； API声明：DOWN = 0 差异内容：DOWN = 0 | api/@ohos.enterprise.systemManager.d.ts |
@@ -73,7 +73,7 @@
 | 新增API | NA | 类名：KeyItem； API声明：keyCode: KeyCode; 差异内容：keyCode: KeyCode; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyItem； API声明：pressed: boolean; 差异内容：pressed: boolean; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：KeyItem； API声明：downTime: number; 差异内容：downTime: number; | api/@ohos.enterprise.systemManager.d.ts |
-| 新增API | NA | 类名：systemManager； API声明：function startCollectLog(admin: Want): Promise<void>; 差异内容：function startCollectLog(admin: Want): Promise<void>; | api/@ohos.enterprise.systemManager.d.ts |
+| 新增API | NA | 类名：systemManager； API声明：function startCollectLog(admin: Want): Promise&lt;void&gt;; 差异内容：function startCollectLog(admin: Want): Promise&lt;void&gt;; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：systemManager； API声明：function finishLogCollected(admin: Want): void; 差异内容：function finishLogCollected(admin: Want): void; | api/@ohos.enterprise.systemManager.d.ts |
 | 新增API | NA | 类名：telephonyManager； API声明：function hangupCalling(admin: Want): void; 差异内容：function hangupCalling(admin: Want): void; | api/@ohos.enterprise.telephonyManager.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api\application\EnterpriseAdminExtensionContext.d.ts 差异内容：MDMKit | api/application/EnterpriseAdminExtensionContext.d.ts |

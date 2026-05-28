@@ -1,56 +1,85 @@
 # USB批量传输
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bulktransfer
 
-## 场景介绍
+##### 场景介绍
 
 批量传输主要应用在传输和接收大量数据同时又没有带宽和间隔时间要求的情况下，例如传输文件、图像等场景，打印机和扫描仪等设备属于这种类型的设备。
 
-## 环境准备
 
 
-## 环境要求
-
-开发工具及配置： DevEco Studio作为驱动开发工具，是进行驱动开发必备条件之一，开发者可以使用该工具进行开发、调试、打包等操作。请[下载安装](https://developer.huawei.com/consumer/cn/download/)该工具，并参考[DevEco Studio使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)中的[创建工程及运行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)进行基本的操作验证，保证DevEco Studio可正常运行。 SDK版本配置： 扩展外设管理提供的ArkTS接口，所需SDK版本为API 16及以上才可使用。 HDC配置： HDC（HarmonyOS Device Connector）是为开发人员提供的用于调试的命令行工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互，详细参考[HDC配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)。
-
-## 搭建环境
-
-在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。 将public-SDK更新到API 16或以上。 PC安装HDC工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互。 用USB线缆将搭载HarmonyOS的设备连接到PC。
-
-## 开发指导
+##### 环境准备
 
 
-## 接口说明
 
+##### 环境要求
+
+ - 开发工具及配置：
+
+  DevEco Studio作为驱动开发工具，是进行驱动开发必备条件之一，开发者可以使用该工具进行开发、调试、打包等操作。请[下载安装](https://developer.huawei.com/consumer/cn/download/)该工具，并参考[DevEco Studio使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)中的[创建工程及运行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)进行基本的操作验证，保证DevEco Studio可正常运行。
+ - SDK版本配置：
+
+  扩展外设管理提供的ArkTS接口，所需SDK版本为API 16及以上才可使用。
+ - HDC配置：
+
+  HDC（HarmonyOS Device Connector）是为开发人员提供的用于调试的命令行工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互，详细参考[HDC配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)。
+
+
+
+
+##### 搭建环境
+
+ - 在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。
+ - 将public-SDK更新到API 16或以上。
+ - PC安装HDC工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互。
+ - 用USB线缆将搭载HarmonyOS的设备连接到PC。
+
+
+
+
+##### 开发指导
+
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| bulkTransfer(pipe: USBDevicePipe, endpoint: USBEndpoint, buffer: Uint8Array, timeout ?: number): Promise | 批量传输。 |
+| bulkTransfer(pipe: USBDevicePipe, endpoint: USBEndpoint, buffer: Uint8Array, timeout ?: number): Promise&lt;number&gt; | 批量传输。 |
+
 
 更多关于设备管理和传输模式的详细接口介绍，请查阅[@ohos.usbManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-usbmanager)。
 
-## 开发步骤
+
+
+##### 开发步骤
 
 主机（Host）连接设备（Device），通过bulkTransfer接口进行数据传输。以下步骤描述了如何使用批量传输方式来传输数据：
+
 > [!NOTE]
 > 以下示例代码只是使用批量传输方式来传输数据的必要流程，需要放入具体的方法中执行。在实际调用时，设备开发者需要遵循设备相关协议进行调用，确保数据的正确传输和设备的兼容性。
 
-导入模块。
-```text
+1. 导入模块。
+
+  
+```ArkTS
 // 导入usbManager模块
 import { usbManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
 ```
 
-获取设备列表。
+2. 获取设备列表。
+
+  
 > [!NOTE]
-> 批量传输只能在传输类型为2的端点上进行，若不匹配会返回IO错误。
+> 批量传输只能在 传输类型 为2的端点上进行，若不匹配会返回IO错误。
 
 
-```text
+  
+```ArkTS
 // 获取设备列表。
 let deviceList: usbManager.USBDevice[] = usbManager.getDevices();
 console.info(`deviceList: ${deviceList}`);
@@ -114,8 +143,10 @@ deviceList结构示例
 this.deviceList_ = deviceList;
 ```
 
-获取设备操作权限。
-```text
+3. 获取设备操作权限。
+
+  
+```ArkTS
 if (this.deviceList_ === undefined || this.deviceList_.length === 0) {
   console.error('deviceList is empty');
   this.logInfo_ += '\n[ERROR] deviceList is empty';
@@ -133,8 +164,10 @@ usbManager.requestRight(deviceName).then((hasRight: boolean) => {
 });
 ```
 
-打开设备。
-```text
+4. 打开设备。
+
+  
+```ArkTS
 if (this.deviceList_ === undefined || this.deviceList_.length === 0) {
   console.error('deviceList_ is empty');
   this.logInfo_ += '\n[ERROR] deviceList is empty';
@@ -165,12 +198,15 @@ console.info('open device success');
 this.logInfo_ += '\n[INFO] open device success';
 ```
 
-数据传输。
+5. 数据传输。
+
+  
 > [!NOTE]
-> 在数据传输前建议先获取interface所属endpoint的type，通过type判断interface是否支持所需的传输类型。 若调用传输接口失败，请先确认设备interface是否支持模式切换。若alternateSetting支持切换设置，可在传输前调用usbManager.setInterface重新设置interface，使端点和传输类型匹配，保证端点正常通信。
+> 在数据传输前建议先获取interface所属endpoint的type，通过type判断interface是否支持所需的传输类型。 若调用传输接口失败，请先确认设备interface是否支持 模式切换 。若alternateSetting支持切换设置，可在传输前调用 usbManager.setInterface 重新设置interface，使端点和传输类型匹配，保证端点正常通信。
 
 
-```text
+  
+```ArkTS
 if (this.pipe_ === undefined || this.interface_ === undefined) {
   console.error('pipe_ or interface_ is null');
   this.logInfo_ += '\n[ERROR] pipe_ or interface_ is null';
@@ -217,8 +253,10 @@ if (outEndpoint !== undefined && outEndpoint.direction === 0) {
 }
 ```
 
-释放接口，关闭设备。
-```text
+6. 释放接口，关闭设备。
+
+  
+```ArkTS
 if (this.pipe_ === undefined || this.interface_ === undefined) {
   console.error('pipe_ or interface_ is null');
   this.logInfo_ += '\n[ERROR] pipe_ or interface_ is null';

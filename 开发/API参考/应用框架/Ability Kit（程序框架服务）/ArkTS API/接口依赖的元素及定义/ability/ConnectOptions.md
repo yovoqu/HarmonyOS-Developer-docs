@@ -3,30 +3,28 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-connectoptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 在连接指定的后台服务时作为入参，用于接收连接过程中的状态变化，如作为[connectServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#connectserviceextensionability)的入参，连接指定的ServiceExtensionAbility。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
 
-## ConnectOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ConnectOptions
 
 
-### onConnect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onConnect
 
 onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void
 
@@ -36,24 +34,22 @@ onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| elementName | [ElementName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-elementname) | 是 | 目标Ability的elementName。 |
-| remote | [rpc.IRemoteObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#iremoteobject) | 是 | 用于与目标Ability进行IPC通信的IRemoteObject实例。 |
+| elementName | ElementName | 是 | 目标Ability的elementName。 |
+| remote | rpc.IRemoteObject | 是 | 用于与目标Ability进行IPC通信的IRemoteObject实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility, common, Want, AbilityConstant } from '@kit.AbilityKit';
 import { bundleManager } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 
 let connectWant: Want = {
   bundleName: 'com.example.myapp',
-  abilityName: 'MyAbility',
+  abilityName: 'MyAbility'
 };
 
 let connectOptions: common.ConnectOptions = {
@@ -65,22 +61,19 @@ let connectOptions: common.ConnectOptions = {
   },
   onFailed(code: number) {
     console.error(`onFailed code: ${code}`);
-  },
+  }
 };
 
 class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
-    let connection: number = this.context.connectServiceExtensionAbility(
-      connectWant,
-      connectOptions,
-    );
+    let connection: number = this.context.connectServiceExtensionAbility(connectWant, connectOptions);
   }
 }
 ```
 
 
-### onDisconnect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onDisconnect
 
 onDisconnect(elementName: ElementName): void
 
@@ -90,23 +83,21 @@ onDisconnect(elementName: ElementName): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| elementName | [ElementName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-elementname) | 是 | 目标Ability的elementName。 |
+| elementName | ElementName | 是 | 目标Ability的elementName。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility, common, Want, AbilityConstant } from '@kit.AbilityKit';
 import { bundleManager } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 
 let connectWant: Want = {
   bundleName: 'com.example.myapp',
-  abilityName: 'MyAbility',
+  abilityName: 'MyAbility'
 };
 
 let connectOptions: common.ConnectOptions = {
@@ -118,22 +109,19 @@ let connectOptions: common.ConnectOptions = {
   },
   onFailed(code: number) {
     console.error(`onFailed code: ${code}`);
-  },
+  }
 };
 
 class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
-    let connection: number = this.context.connectServiceExtensionAbility(
-      connectWant,
-      connectOptions,
-    );
+    let connection: number = this.context.connectServiceExtensionAbility(connectWant, connectOptions);
   }
 }
 ```
 
 
-### onFailed
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onFailed
 
 onFailed(code: number): void
 
@@ -143,23 +131,21 @@ onFailed(code: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| code | number | 是 | 连接指定Ability失败返回的错误码。          错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。          201 - The application does not have permission to call the interface.          16000001 - The specified ability does not exist.          16000002 - Incorrect ability type.          16000004 - Cannot start an invisible component.          16000005 - The specified process does not have the permission.          16000006 - Cross-user operations are not allowed.          16000008 - The crowdtesting application expires.          16000053 - The ability is not on the top of the UI.          16000055 - Installation-free timed out.          16000050 - Internal error. |
+| code | number | 是 | 连接指定Ability失败返回的错误码。 错误码详细介绍请参考通用错误码和元能力子系统错误码。 201 - The application does not have permission to call the interface. 16000001 - The specified ability does not exist. 16000002 - Incorrect ability type. 16000004 - Cannot start an invisible component. 16000005 - The specified process does not have the permission. 16000006 - Cross-user operations are not allowed. 16000008 - The crowdtesting application expires. 16000053 - The ability is not on the top of the UI. 16000055 - Installation-free timed out. 16000050 - Internal error. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility, common, Want, AbilityConstant } from '@kit.AbilityKit';
 import { bundleManager } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 
 let connectWant: Want = {
   bundleName: 'com.example.myapp',
-  abilityName: 'MyAbility',
+  abilityName: 'MyAbility'
 };
 
 let connectOptions: common.ConnectOptions = {
@@ -171,15 +157,12 @@ let connectOptions: common.ConnectOptions = {
   },
   onFailed(code: number) {
     console.error(`onFailed code: ${code}`);
-  },
+  }
 };
 
 class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
-    let connection: number = this.context.connectServiceExtensionAbility(
-      connectWant,
-      connectOptions,
-    );
+    let connection: number = this.context.connectServiceExtensionAbility(connectWant, connectOptions);
   }
 }
 ```

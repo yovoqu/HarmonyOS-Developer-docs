@@ -1,45 +1,58 @@
 # 媒体会话提供方(ArkTS)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avsession-developer
 
 音视频应用在实现音视频功能的同时，需要作为媒体会话提供方接入媒体会话，在媒体会话控制方（例如播控中心）中展示媒体相关信息，并响应媒体会话控制方下发的播控命令。
 
 
-## 基本概念
+##### 基本概念
 
-媒体会话元数据（AVMetadata）： 用于描述媒体数据相关属性，包含标识当前媒体的ID（assetId），上一首媒体的ID（previousAssetId），下一首媒体的ID（nextAssetId），标题（title），专辑作者（author），专辑名称（album），词作者（writer），媒体时长（duration）等属性。 媒体播放状态（AVPlaybackState）：用于描述媒体播放状态的相关属性，包含当前媒体的播放状态（state）、播放位置（position）、播放倍速（speed）、缓冲时间（bufferedTime）、循环模式（loopMode）、是否收藏（isFavorite）、正在播放的媒体Id（activeItemId）、自定义媒体数据（extras）等属性。
+ - 媒体会话元数据（AVMetadata）： 用于描述媒体数据相关属性，包含标识当前媒体的ID（assetId），上一首媒体的ID（previousAssetId），下一首媒体的ID（nextAssetId），标题（title），专辑作者（author），专辑名称（album），词作者（writer），媒体时长（duration）等属性。
+ - 媒体播放状态（AVPlaybackState）：用于描述媒体播放状态的相关属性，包含当前媒体的播放状态（state）、播放位置（position）、播放倍速（speed）、缓冲时间（bufferedTime）、循环模式（loopMode）、是否收藏（isFavorite）、正在播放的媒体Id（activeItemId）、自定义媒体数据（extras）等属性。
 
-## 接口说明
 
-媒体会话提供方使用的关键接口如下表所示。接口返回值有两种返回形式：callback和promise，下表中为callback形式接口，promise和callback只是返回值方式不一样，功能相同。 更多API说明请参考文档：[模块描述](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession)。
+
+
+##### 接口说明
+
+媒体会话提供方使用的关键接口如下表所示。接口返回值有两种返回形式：callback和promise，下表中为callback形式接口，promise和callback只是返回值方式不一样，功能相同。
+
+更多API说明请参考文档：[模块描述](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession)。
+
 | 接口名 | 说明 |
 | --- | --- |
-| createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback): void10+ | 创建媒体会话。          一个UIAbility只能存在一个媒体会话，重复创建会失败。 |
-| setAVMetadata(data: AVMetadata, callback: AsyncCallback): void10+ | 设置媒体会话元数据。 |
-| setAVPlaybackState(state: AVPlaybackState, callback: AsyncCallback): void10+ | 设置媒体会话播放状态。 |
-| setLaunchAbility(ability: WantAgent, callback: AsyncCallback): void10+ | 设置启动UIAbility。 |
-| getController(callback: AsyncCallback): void10+ | 获取当前会话自身控制器。 |
-| getOutputDevice(callback: AsyncCallback): void10+ | 获取播放设备相关信息。 |
-| activate(callback: AsyncCallback): void10+ | 激活媒体会话。 |
-| deactivate(callback: AsyncCallback): void10+ | 禁用当前会话。 |
-| destroy(callback: AsyncCallback): void10+ | 销毁媒体会话。 |
-| setAVQueueItems(items: Array, callback: AsyncCallback): void 10+ | 设置媒体播放列表。 |
-| setAVQueueTitle(title: string, callback: AsyncCallback): void10+ | 设置媒体播放列表名称。 |
-| dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback): void10+ | 设置会话内自定义事件。 |
-| setExtras(extras: {[key: string]: Object}, callback: AsyncCallback): void10+ | 设置键值对形式的自定义媒体数据包。 |
+| createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback&lt;AVSession&gt;): void10+ | 创建媒体会话。 一个UIAbility只能存在一个媒体会话，重复创建会失败。 |
+| setAVMetadata(data: AVMetadata, callback: AsyncCallback&lt;void&gt;): void10+ | 设置媒体会话元数据。 |
+| setAVPlaybackState(state: AVPlaybackState, callback: AsyncCallback&lt;void&gt;): void10+ | 设置媒体会话播放状态。 |
+| setLaunchAbility(ability: WantAgent, callback: AsyncCallback&lt;void&gt;): void10+ | 设置启动UIAbility。 |
+| getController(callback: AsyncCallback&lt;AVSessionController&gt;): void10+ | 获取当前会话自身控制器。 |
+| getOutputDevice(callback: AsyncCallback&lt;OutputDeviceInfo&gt;): void10+ | 获取播放设备相关信息。 |
+| activate(callback: AsyncCallback&lt;void&gt;): void10+ | 激活媒体会话。 |
+| deactivate(callback: AsyncCallback&lt;void&gt;): void10+ | 禁用当前会话。 |
+| destroy(callback: AsyncCallback&lt;void&gt;): void10+ | 销毁媒体会话。 |
+| setAVQueueItems(items: Array&lt;AVQueueItem&gt;, callback: AsyncCallback&lt;void&gt;): void 10+ | 设置媒体播放列表。 |
+| setAVQueueTitle(title: string, callback: AsyncCallback&lt;void&gt;): void10+ | 设置媒体播放列表名称。 |
+| dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback&lt;void&gt;): void10+ | 设置会话内自定义事件。 |
+| setExtras(extras: {[key: string]: Object}, callback: AsyncCallback&lt;void&gt;): void10+ | 设置键值对形式的自定义媒体数据包。 |
 | getOutputDeviceSync(): OutputDeviceInfo10+ | 使用同步方法获取当前输出设备信息。 |
 
 
-## 开发步骤
 
-音视频应用作为媒体会话提供方接入媒体会话的基本步骤如下所示： 通过AVSessionManager的方法创建并激活媒体会话。
+
+##### 开发步骤
+
+音视频应用作为媒体会话提供方接入媒体会话的基本步骤如下所示：
+1. 通过AVSessionManager的方法创建并激活媒体会话。
+
+  
 > [!NOTE]
 > 以下示例代码仅展示创建AVSession对象的接口调用，应用在真正使用时，需要确保AVSession对象实例在应用后台播放业务活动期间一直存在，避免被系统回收、释放，导致后台发声时被系统管控。
 
 
-```text
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 // ...
 
@@ -77,108 +90,17 @@ struct Index {
 }
 ```
 
-跟随媒体信息的变化，及时设置媒体会话信息。需要设置的媒体会话信息主要包括： 媒体会话元数据AVMetadata。 媒体播放状态AVPlaybackState。 音视频应用设置的媒体会话信息，会被媒体会话控制方通过AVSessionController相关方法获取后进行显示或处理。
-```text
-import { avSession as AVSessionManager } from '@kit.AVSessionKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-// ...
+2. 跟随媒体信息的变化，及时设置媒体会话信息。需要设置的媒体会话信息主要包括：
 
-@Entry
-@Component
-struct Index {
-  @State message: string = 'hello world';
-  // ...
+  
+媒体会话元数据AVMetadata。
+3. 媒体播放状态AVPlaybackState。
+4. 设置用于被媒体会话控制方拉起的UIAbility。当用户操作媒体会话控制方的界面时，例如点击播控中心的卡片，可以拉起此处配置的UIAbility。
 
-  build() {
-    Column() {
-      // ...
-      Text(this.message)
-        .onClick(async () => {
-          let context = this.getUIContext().getHostContext() as Context;
-          // 假设已经创建了一个session，如何创建session可以参考之前的案例。
-          let session = await AVSessionManager.createAVSession(context, 'SESSION_NAME', 'audio');
-          // 播放器逻辑··· 引发媒体信息与播放状态的变更。
-          // 设置必要的媒体信息。
-          let metadata: AVSessionManager.AVMetadata = {
-            assetId: '0', // 由应用指定，用于标识应用媒体库里的媒体。
-            title: 'TITLE',
-            mediaImage: 'IMAGE',
-            artist: 'ARTIST'
-          };
-          session.setAVMetadata(metadata).then(() => {
-            console.info(`SetAVMetadata successfully`);
-            // ...
-          }).catch((err: BusinessError) => {
-            console.error(`Failed to set AVMetadata. Code: ${err.code}, message: ${err.message}`);
-            // ...
-          });
-          // 简单设置一个播放状态 - 暂停 未收藏。
-          let playbackState: AVSessionManager.AVPlaybackState = {
-            state: AVSessionManager.PlaybackState.PLAYBACK_STATE_PAUSE,
-            isFavorite: false
-          };
-          session.setAVPlaybackState(playbackState, (err) => {
-            if (err) {
-              console.error(`Failed to set AVPlaybackState. Code: ${err.code}, message: ${err.message}`);
-              // ...
-            } else {
-              console.info(`SetAVPlaybackState successfully`);
-              // ...
-            }
-          });
-          // 设置一个播放列表。
-          let queueItemDescription1: AVSessionManager.AVMediaDescription = {
-            assetId: '001',
-            title: 'music_name',
-            subtitle: 'music_sub_name',
-            description: 'music_description',
-            mediaImage: 'PIXELMAP_OBJECT',
-            extras: { 'extras': 'any' }
-          };
-          let queueItem1: AVSessionManager.AVQueueItem = {
-            itemId: 1,
-            description: queueItemDescription1
-          };
-          let queueItemDescription2: AVSessionManager.AVMediaDescription = {
-            assetId: '002',
-            title: 'music_name',
-            subtitle: 'music_sub_name',
-            description: 'music_description',
-            mediaImage: 'PIXELMAP_OBJECT',
-            extras: { 'extras': 'any' }
-          };
-          let queueItem2: AVSessionManager.AVQueueItem = {
-            itemId: 2,
-            description: queueItemDescription2
-          };
-          let queueItemsArray = [queueItem1, queueItem2];
-          session.setAVQueueItems(queueItemsArray).then(() => {
-            console.info(`SetAVQueueItems successfully`);
-            // ...
-          }).catch((err: BusinessError) => {
-            console.error(`Failed to set AVQueueItem, error code: ${err.code}, error message: ${err.message}`);
-            // ...
-          });
-          // 设置媒体播放列表名称。
-          let queueTitle = 'QUEUE_TITLE';
-          session.setAVQueueTitle(queueTitle).then(() => {
-            console.info(`SetAVQueueTitle successfully`);
-            // ...
-          }).catch((err: BusinessError) => {
-            console.error(`Failed to set AVQueueTitle, error code: ${err.code}, error message: ${err.message}`);
-            // ...
-          });
-          // ...
-        })
-    }
-    .width('100%')
-    .height('100%')
-  }
-}
-```
+  设置UIAbility时通过WantAgent接口实现，更多关于WantAgent的信息请参考[WantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantagent)。
 
-设置用于被媒体会话控制方拉起的UIAbility。当用户操作媒体会话控制方的界面时，例如点击播控中心的卡片，可以拉起此处配置的UIAbility。 设置UIAbility时通过WantAgent接口实现，更多关于WantAgent的信息请参考[WantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantagent)。
-```text
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 import { wantAgent } from '@kit.AbilityKit';
 
@@ -219,12 +141,15 @@ struct Index {
 }
 ```
 
-设置一个即时的自定义会话事件，以供媒体控制方接收到事件后进行相应的操作。
+5. 设置一个即时的自定义会话事件，以供媒体控制方接收到事件后进行相应的操作。
+
+  
 > [!NOTE]
 > 通过dispatchSessionEvent方法设置的数据不会保存在会话对象或AVSession服务中。
 
 
-```text
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 // ...
@@ -261,12 +186,15 @@ struct Index {
 }
 ```
 
-设置与当前会话相关的自定义媒体数据包，以供媒体控制方接收到事件后进行相应的操作。
+6. 设置与当前会话相关的自定义媒体数据包，以供媒体控制方接收到事件后进行相应的操作。
+
+  
 > [!NOTE]
 > 通过setExtras方法设置的数据包会被存储在AVSession服务中，数据的生命周期与会话一致；会话对应的Controller可以使用getExtras来获取该数据。
 
 
-```text
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 // ...
@@ -302,12 +230,21 @@ struct Index {
 }
 ```
 
-注册播控命令事件监听，便于响应用户通过媒体会话控制方，例如播控中心，下发的播控命令。 在Session侧注册的监听分为固定播控命令和高级播控事件两种。 6.1 固定控制命令的监听。
+7. 注册播控命令事件监听，便于响应用户通过媒体会话控制方，例如播控中心，下发的播控命令。
+
+  在Session侧注册的监听分为固定播控命令和高级播控事件两种。
+
+  6.1 固定控制命令的监听。
+
+  
 > [!NOTE]
 > 媒体会话提供方在注册相关固定播控命令事件监听时，监听的事件会在媒体会话控制方的getValidCommands()方法中体现，即媒体会话控制方会认为对应的方法有效，进而根据需要触发相应暂不使用时的事件。为了保证媒体会话控制方下发的播控命令可以被正常执行，媒体会话提供方请勿进行无逻辑的空实现监听。
 
-Session侧的固定播控命令主要包括播放、暂停、上一首、下一首等基础操作命令，详细介绍请参见[AVControlCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avcontrolcommand10)。
-```text
+
+  Session侧的固定播控命令主要包括播放、暂停、上一首、下一首等基础操作命令，详细介绍请参见[AVControlCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avcontrolcommand10)。
+
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 // ...
 
@@ -402,68 +339,19 @@ struct Index {
   }
 }
 ```
+6.2 高级播控事件的监听。
 
-6.2 高级播控事件的监听。 Session侧的可以注册的高级播控事件主要包括： skipToQueueItem: 播放列表其中某项被选中的事件。 handleKeyEvent: 按键事件。 outputDeviceChange: 播放设备变化的事件。 commonCommand: 自定义控制命令变化的事件。
-```text
-import { avSession as AVSessionManager } from '@kit.AVSessionKit';
-// ...
+  Session侧的可以注册的高级播控事件主要包括：
 
-@Entry
-@Component
-struct Index {
-  @State message: string = 'hello world';
-  // ...
+  
+skipToQueueItem: 播放列表其中某项被选中的事件。
+8. handleKeyEvent: 按键事件。
+9. outputDeviceChange: 播放设备变化的事件。
+10. commonCommand: 自定义控制命令变化的事件。
+11. 获取当前媒体会话自身的控制器，与媒体会话对应进行通信交互。
 
-  build() {
-    Column() {
-      // ...
-      Text(this.message)
-        .onClick(async () => {
-          try {
-            let context = this.getUIContext().getHostContext() as Context;
-            // 假设已经创建了一个session，如何创建session可以参考之前的案例。
-            let type: AVSessionManager.AVSessionType = 'audio';
-            let session = await AVSessionManager.createAVSession(context, 'SESSION_NAME', type);
-            // ...
-            // 一般在监听器中会对播放器做相应逻辑处理。
-            // 不要忘记处理完后需要通过set接口同步播放相关信息，参考上面的用例。
-            session.on('skipToQueueItem', (itemId) => {
-              console.info(`on skipToQueueItem , do skip task`);
-              // ...
-              // 实现具体功能。
-            });
-            session.on('handleKeyEvent', (event) => {
-              console.info(`on handleKeyEvent , the event is ${JSON.stringify(event)}`);
-              // ...
-              // 实现具体功能。
-            });
-            session.on('outputDeviceChange', (device) => {
-              console.info(`on outputDeviceChange , the device info is ${JSON.stringify(device)}`);
-              // ...
-              // 实现具体功能。
-            });
-            session.on('commonCommand', (commandString, args) => {
-              console.info(`on commonCommand , command is ${commandString}, args are ${JSON.stringify(args)}`);
-              // ...
-              // 实现具体功能。
-            });
-            // ...
-          } catch (err) {
-            if (err) {
-              console.error(`AVSession create Error: Code: ${err.code}, message: ${err.message}`);
-              // ...
-            }
-          }
-        })
-    }
-    .width('100%')
-    .height('100%')
-  }
-}
-```
-
-获取当前媒体会话自身的控制器，与媒体会话对应进行通信交互。
-```text
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 // ...
 
@@ -512,8 +400,12 @@ struct Index {
 }
 ```
 
-音视频应用在退出，并且不需要继续播放时，及时取消监听以及销毁媒体会话释放资源。 取消播控命令监听的示例代码如下所示 ：
-```text
+12. 音视频应用在退出，并且不需要继续播放时，及时取消监听以及销毁媒体会话释放资源。
+
+  取消播控命令监听的示例代码如下所示 ：
+
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 
 @Entry
@@ -548,9 +440,10 @@ struct Index {
   }
 }
 ```
-
 销毁媒体会话示例代码如下所示：
-```text
+
+  
+```ArkTS
 import { avSession as AVSessionManager } from '@kit.AVSessionKit';
 // ...
 

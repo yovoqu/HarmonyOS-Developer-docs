@@ -5,15 +5,16 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-hdr-shooting
 
 HarmonyOS支持调用接口拍摄HDR Vivid照片，可以拍出层次表现更细腻、光影细节更丰富的画面，提升画面质感，呈现更卓越的视觉效果。
+ 
+当前示例提供完整的HDR Vivid拍照开发步骤，方便开发者实现HDR拍照的功能。更多HDR Vivid的开发指导，请参考[使用HDR Vivid特性开发媒体应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multimedia-hdr-vivid)。
+ 
+在参考以下示例前，建议开发者查看[相机开发指导(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)的具体章节，了解[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)、[拍照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)等单个流程。
+  
 
- 当前示例提供完整的HDR Vivid拍照开发步骤，方便开发者实现HDR拍照的功能。更多HDR Vivid的开发指导，请参考[使用HDR Vivid特性开发媒体应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multimedia-hdr-vivid)。
+##### 开发步骤
+1. 导入接口。
 
- 在参考以下示例前，建议开发者查看[相机开发指导(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)的具体章节，了解[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)、[拍照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)等单个流程。
-
-
-## 开发步骤
-
-导入接口。
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { colorSpaceManager } from '@kit.ArkGraphics2D';
@@ -23,10 +24,12 @@ import { fileIo } from '@kit.CoreFileKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
 
-查询支持的色彩空间。
+2. 查询支持的色彩空间。
+
+  
 ```text
-function getSupportedColorSpaces(session: camera.PhotoSession): Array {
-  let colorSpaces: Array = [];
+function getSupportedColorSpaces(session: camera.PhotoSession): Array<colorSpaceManager.ColorSpace> {
+  let colorSpaces: Array<colorSpaceManager.ColorSpace> = [];
   try {
     colorSpaces = session.getSupportedColorSpaces();
   } catch (error) {
@@ -37,11 +40,15 @@ function getSupportedColorSpaces(session: camera.PhotoSession): Array {
  }
 ```
 
-设置色彩空间。  如果是SDR拍照色彩空间需要设置为SRGB，如果是HDR拍照色彩空间需要设置为DISPLAY_P3。具体参考[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。
+3. 设置色彩空间。
+
+  如果是SDR拍照色彩空间需要设置为SRGB，如果是HDR拍照色彩空间需要设置为DISPLAY_P3。具体参考[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。
+
+  
 ```text
 function setColorSpaceBeforeCommitConfig(session: camera.PhotoSession, isHdr: boolean): void {
   let colorSpace: colorSpaceManager.ColorSpace = isHdr? colorSpaceManager.ColorSpace.DISPLAY_P3 : colorSpaceManager.ColorSpace.SRGB;
-  let colorSpaces: Array = getSupportedColorSpaces(session);
+  let colorSpaces: Array<colorSpaceManager.ColorSpace> = getSupportedColorSpaces(session);
   let isSupportedColorSpaces = colorSpaces.indexOf(colorSpace) >= 0;
   if (isSupportedColorSpaces) {
     console.info(`setColorSpace: ${colorSpace}`);
@@ -54,9 +61,13 @@ function setColorSpaceBeforeCommitConfig(session: camera.PhotoSession, isHdr: bo
 }
 ```
 
-实现HDR拍照。  在提交会话配置前执行步骤3设置色彩空间，其余流程按照正常拍照流程开发。
-```text
-async function savePicture(buffer: ArrayBuffer, img: image.Image, context: Context): Promise {
+4. 实现HDR拍照。
+
+  在提交会话配置前执行步骤3设置色彩空间，其余流程按照正常拍照流程开发。
+
+  
+```json
+async function savePicture(buffer: ArrayBuffer, img: image.Image, context: Context): Promise<void> {
   let accessHelper: photoAccessHelper.PhotoAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
   let options: photoAccessHelper.CreateOptions = {
     title: Date.now().toString()
@@ -97,7 +108,7 @@ function setPhotoOutputCb(photoOutput: camera.PhotoOutput, context: Context): vo
   });
 }
 
-async function cameraHdrShootingCase(context: Context, surfaceId: string): Promise {
+async function cameraHdrShootingCase(context: Context, surfaceId: string): Promise<void> {
   // 创建CameraManager对象
   let cameraManager: camera.CameraManager = camera.getCameraManager(context);
   if (!cameraManager) {
@@ -115,8 +126,34 @@ async function cameraHdrShootingCase(context: Context, surfaceId: string): Promi
   });
 
   // 获取相机列表
-  let cameraArray: Array = cameraManager.getSupportedCameras();
-  if (cameraArray.length  {
+  let cameraArray: Array<camera.CameraDevice> = cameraManager.getSupportedCameras();
+  if (cameraArray.length <= 0) {
+    console.error("cameraManager.getSupportedCameras error");
+    return;
+  }
+
+  for (let index = 0; index < cameraArray.length; index++) {
+    console.info('cameraId : ' + cameraArray[index].cameraId);                          // 获取相机ID
+    console.info('cameraPosition : ' + cameraArray[index].cameraPosition);              // 获取相机位置
+    console.info('cameraType : ' + cameraArray[index].cameraType);                      // 获取相机类型
+    console.info('connectionType : ' + cameraArray[index].connectionType);              // 获取相机连接类型
+  }
+
+  // 创建相机输入流
+  let cameraInput: camera.CameraInput | undefined = undefined;
+  try {
+    cameraInput = cameraManager.createCameraInput(cameraArray[0]);
+  } catch (error) {
+    let err = error as BusinessError;
+    console.error('Failed to createCameraInput errorCode = ' + err.code);
+  }
+  if (cameraInput === undefined) {
+    return;
+  }
+
+  // 监听cameraInput错误信息
+  let cameraDevice: camera.CameraDevice = cameraArray[0];
+  cameraInput.on('error', cameraDevice, (error: BusinessError) => {
     console.error(`Camera input error code: ${error.code}`);
   })
 
@@ -124,7 +161,7 @@ async function cameraHdrShootingCase(context: Context, surfaceId: string): Promi
   await cameraInput.open();
 
   // 获取支持的模式类型
-  let sceneModes: Array = cameraManager.getSupportedSceneModes(cameraArray[0]);
+  let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraArray[0]);
   let isSupportPhotoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_PHOTO) >= 0;
   if (!isSupportPhotoMode) {
     console.error('photo mode not support');
@@ -138,12 +175,12 @@ async function cameraHdrShootingCase(context: Context, surfaceId: string): Promi
   }
   console.info("outputCapability: " + JSON.stringify(cameraOutputCap));
 
-  let previewProfilesArray: Array = cameraOutputCap.previewProfiles;
+  let previewProfilesArray: Array<camera.Profile> = cameraOutputCap.previewProfiles;
   if (!previewProfilesArray) {
     console.error("createOutput previewProfilesArray == null || undefined");
   }
 
-  let photoProfilesArray: Array = cameraOutputCap.photoProfiles;
+  let photoProfilesArray: Array<camera.Profile> = cameraOutputCap.photoProfiles;
   if (!photoProfilesArray) {
     console.error("createOutput photoProfilesArray == null || undefined");
   }

@@ -5,8 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-datatype
 
 DataType枚举值定义如下。
-
-
+ 
 ```text
 enum DataType {
   DT_FLOAT = 0, // float type

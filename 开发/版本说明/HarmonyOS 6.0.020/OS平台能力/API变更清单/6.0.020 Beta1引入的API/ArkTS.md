@@ -32,9 +32,9 @@
 | 新增API | NA | 类名：FastBuffer； API声明：equals(otherBuffer: Uint8Array \| FastBuffer): boolean; 差异内容：equals(otherBuffer: Uint8Array \| FastBuffer): boolean; | api/@ohos.fastbuffer.d.ts |
 | 新增API | NA | 类名：FastBuffer； API声明：includes(value: string \| number \| FastBuffer \| Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean; 差异内容：includes(value: string \| number \| FastBuffer \| Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean; | api/@ohos.fastbuffer.d.ts |
 | 新增API | NA | 类名：FastBuffer； API声明：indexOf(value: string \| number \| FastBuffer \| Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number; 差异内容：indexOf(value: string \| number \| FastBuffer \| Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number; | api/@ohos.fastbuffer.d.ts |
-| 新增API | NA | 类名：FastBuffer； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | api/@ohos.fastbuffer.d.ts |
-| 新增API | NA | 类名：FastBuffer； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | api/@ohos.fastbuffer.d.ts |
-| 新增API | NA | 类名：FastBuffer； API声明：entries(): IterableIterator<[  number,  number  ]>; 差异内容：entries(): IterableIterator<[  number,  number  ]>; | api/@ohos.fastbuffer.d.ts |
+| 新增API | NA | 类名：FastBuffer； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | api/@ohos.fastbuffer.d.ts |
+| 新增API | NA | 类名：FastBuffer； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | api/@ohos.fastbuffer.d.ts |
+| 新增API | NA | 类名：FastBuffer； API声明：entries(): IterableIterator<[ number, number ]>; 差异内容：entries(): IterableIterator<[ number, number ]>; | api/@ohos.fastbuffer.d.ts |
 | 新增API | NA | 类名：FastBuffer； API声明：lastIndexOf(value: string \| number \| FastBuffer \| Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number; 差异内容：lastIndexOf(value: string \| number \| FastBuffer \| Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number; | api/@ohos.fastbuffer.d.ts |
 | 新增API | NA | 类名：FastBuffer； API声明：readBigInt64BE(offset?: number): bigint; 差异内容：readBigInt64BE(offset?: number): bigint; | api/@ohos.fastbuffer.d.ts |
 | 新增API | NA | 类名：FastBuffer； API声明：readBigInt64LE(offset?: number): bigint; 差异内容：readBigInt64LE(offset?: number): bigint; | api/@ohos.fastbuffer.d.ts |

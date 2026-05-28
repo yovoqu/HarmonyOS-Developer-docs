@@ -5,17 +5,22 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-typenode
 
 > [!NOTE]
-> 从API version 12开始，支持使用typeNode实现画中画功能开发。  在HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用typeNode实现画中画功能开发；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用typeNode实现画中画功能开发。
+> 从API version 12开始，支持使用typeNode实现画中画功能开发。 在HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用typeNode实现画中画功能开发；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用typeNode实现画中画功能开发。
 
- 该方式适用于任意场景下应用接入画中画功能，以下根据实际开发场景提供四个示例，分别介绍对应场景下画中画功能的实现步骤：
+ 
+该方式适用于任意场景下应用接入画中画功能，以下根据实际开发场景提供四个示例，分别介绍对应场景下画中画功能的实现步骤：
+ 
+- [应用使用typeNode自由节点（不添加到布局）实现画中画功能](#应用使用typenode自由节点不添加到布局实现画中画功能)。
+- [应用使用router导航时通过typeNode实现画中画功能](#应用使用router导航时通过typenode实现画中画功能)。
+- [应用使用Navigation导航时通过typeNode实现画中画功能](#应用使用navigation导航时通过typenode实现画中画功能)。
+- [应用使用单界面Ability时通过typeNode实现画中画功能](#应用使用单界面ability时通过typenode实现画中画功能)。
 
-
- 本文以视频播放为例，介绍通过typeNode实现画中画功能的基本开发步骤。
-
- 示例中的视频播放器简易实现参考：
-
-
-```text
+ 
+本文以视频播放为例，介绍通过typeNode实现画中画功能的基本开发步骤。
+ 
+示例中的视频播放器简易实现参考：
+ 
+```ArkTS
 // model/AVPlayer.ets
 // 简易播放器实现
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -77,16 +82,37 @@ export class AVPlayer {
   }
 }
 ```
+  
 
+##### 约束与限制
 
-## 约束与限制
+- 构造PiPConfiguration参数时，建议传入contentWidth和contentHeight参数用以计算画中画初始比例，否则系统将以16:9的比例呈现画中画窗口。
+- contentNode支持XComponentType.SURFACE类型，且创建typeNode时必须指定为"XComponent"类型。
+- 在关闭画中画时，需要检查自定义组件节点是否释放，避免出现内存泄漏。
 
-构造PiPConfiguration参数时，建议传入contentWidth和contentHeight参数用以计算画中画初始比例，否则系统将以16:9的比例呈现画中画窗口。  contentNode支持XComponentType.SURFACE类型，且创建typeNode时必须指定为"XComponent"类型。  在关闭画中画时，需要检查自定义组件节点是否释放，避免出现内存泄漏。
+ 
+  
 
-## 应用使用typeNode自由节点（不添加到布局）实现画中画功能
+##### 应用使用typeNode自由节点（不添加到布局）实现画中画功能
+1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
 
-创建画中画控制器，注册生命周期事件以及控制事件回调。  通过主窗口UIContext创建typeNode节点。  通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。  通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。  通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。  通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。 启动画中画。  创建画中画控制器实例后，通过startPiP接口启动画中画。  更新媒体源尺寸信息。  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。  关闭画中画。  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画。
-```text
+  
+通过主窗口UIContext创建typeNode节点。
+2. 通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。
+3. 通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。
+4. 通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。
+5. 通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。
+6. 启动画中画。
+
+  创建画中画控制器实例后，通过startPiP接口启动画中画。
+7. 更新媒体源尺寸信息。
+
+  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。
+8. 关闭画中画。
+
+  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画。
+ 
+```ArkTS
 // entryability/EntryAbility.ets
 import { BusinessError } from '@kit.BasicServicesKit';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
@@ -131,9 +157,8 @@ export default class EntryAbility extends UIAbility {
   // ...
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // pages/Index.ets
 // 应用首页
 import { router } from '@kit.ArkUI';
@@ -195,9 +220,8 @@ struct Index {
   // ...
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // pages/TypeNodeFreePage.ets
 // 该页面用于展示应用布局文件，创建的typeNode节点不会添加到该布局中
 import { PipManager } from '../nodefree/PipManager';
@@ -262,9 +286,8 @@ struct TypeNodeFreePage {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // nodeFree/PipManager.ets
 // 画中画控制器单例
 import { PiPWindow, typeNode } from '@kit.ArkUI'; // 引入PiPWindow模块
@@ -431,7 +454,7 @@ export class PipManager {
     if (this.pipController === null || this.pipController === undefined) {
       return;
     }
-    let promise: Promise = this.pipController.stopPiP();
+    let promise: Promise<void> = this.pipController.stopPiP();
     promise.then(() => {
       Logger.info(TAG, `Succeeded in stopping pip.`);
     }).catch((err: BusinessError) => {
@@ -457,14 +480,35 @@ export class PipManager {
   }
 }
 ```
-
+ 
 以上示例代码对应的示意图如下所示：
-![](assets/使用typeNode实现画中画功能开发（ArkTS）/file-20260514130818473-0.gif)
+ 
 
-## 应用使用router导航时通过typeNode实现画中画功能
+![](assets/使用typeNode实现画中画功能开发（ArkTS）/file-20260514130818473-1.gif)
 
-创建画中画控制器，注册生命周期事件以及控制事件回调。  创建自定义NodeController，实现makeNode方法，在该方法中创建typeNode。  通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。  通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。  通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。  通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。 启动画中画。  创建画中画控制器实例后，通过startPiP接口启动画中画，在画中画ABOUT_TO_START生命周期将typeNode节点从布局移除，并返回上级界面（可选）。如果启动画中画时返回了上级界面，需要在画中画ABOUT_TO_RESTORE（还原）时重新跳转到原界面。  更新媒体源尺寸信息。  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。  关闭画中画。  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画，在画中画ABOUT_TO_STOP生命周期将typeNode节点重新添加到布局中。
-```text
+ 
+  
+
+##### 应用使用router导航时通过typeNode实现画中画功能
+1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
+
+  
+创建自定义NodeController，实现makeNode方法，在该方法中创建typeNode。
+2. 通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。
+3. 通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。
+4. 通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。
+5. 通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。
+6. 启动画中画。
+
+  创建画中画控制器实例后，通过startPiP接口启动画中画，在画中画ABOUT_TO_START生命周期将typeNode节点从布局移除，并返回上级界面（可选）。如果启动画中画时返回了上级界面，需要在画中画ABOUT_TO_RESTORE（还原）时重新跳转到原界面。
+7. 更新媒体源尺寸信息。
+
+  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。
+8. 关闭画中画。
+
+  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画，在画中画ABOUT_TO_STOP生命周期将typeNode节点重新添加到布局中。
+ 
+```ArkTS
 // entryability/EntryAbility.ets
 import { BusinessError } from '@kit.BasicServicesKit';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
@@ -483,9 +527,8 @@ export default class EntryAbility extends UIAbility {
   // ...
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // pages/RouterImplementPage.ets
 import { PipManager } from '../route/PipManager';
 import { PiPWindow, router, Router } from '@kit.ArkUI'; // 引入PiPWindow模块
@@ -559,9 +602,8 @@ struct RouterImplementPage {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // route/Page1.ets
 import { PipManager } from '../route/PipManager';
 import { Logger } from '../util/LogUtil';
@@ -622,9 +664,8 @@ export struct Page1 {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // route/PipManager.ets
 import { PiPWindow, typeNode } from '@kit.ArkUI'; // 引入PiPWindow模块
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -655,7 +696,7 @@ export class PipManager {
   private pipController?: PiPWindow.PiPController = undefined;
   private xcNodeController: XCNodeController;
   private mXComponentController: XComponentController;
-  private lifeCycleCallback: Set = new Set();
+  private lifeCycleCallback: Set<Function> = new Set();
   public player: AVPlayer;
 
   public static getInstance(): PipManager {
@@ -810,7 +851,7 @@ export class PipManager {
   // 步骤4：关闭画中画
   stopPip() {
     if (this.pipController) {
-      let promise: Promise = this.pipController.stopPiP();
+      let promise: Promise<void> = this.pipController.stopPiP();
       promise.then(() => {
         Logger.info(TAG, `Succeeded in stopping pip.`);
       }).catch((err: BusinessError) => {
@@ -837,9 +878,8 @@ export class PipManager {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // route/XCNodeController.ets
 import { FrameNode, NodeController, typeNode } from '@kit.ArkUI';
 import { PipManager } from './PipManager';
@@ -926,14 +966,35 @@ export class XCNodeController extends NodeController {
   }
 }
 ```
-
+ 
 以上示例代码对应的示意图如下所示：
-![](assets/使用typeNode实现画中画功能开发（ArkTS）/file-20260514130818473-1.gif)
+ 
 
-## 应用使用Navigation导航时通过typeNode实现画中画功能
+![](assets/使用typeNode实现画中画功能开发（ArkTS）/file-20260514130818473-2.gif)
 
-创建画中画控制器，注册生命周期事件以及控制事件回调。  创建自定义NodeController，实现makeNode方法，在该方法中创建typeNode。  通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。  通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。  通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。  通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。 启动画中画。  创建画中画控制器实例后，通过startPiP接口启动画中画，在画中画ABOUT_TO_START生命周期将typeNode节点从布局移除，并返回上级界面（可选）。如果启动画中画时返回了上级界面，需要在画中画ABOUT_TO_RESTORE（还原）时重新跳转到原界面。  更新媒体源尺寸信息。  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。  关闭画中画。  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画，在画中画ABOUT_TO_STOP生命周期将typeNode节点重新添加到布局中。
-```text
+ 
+  
+
+##### 应用使用Navigation导航时通过typeNode实现画中画功能
+1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
+
+  
+创建自定义NodeController，实现makeNode方法，在该方法中创建typeNode。
+2. 通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。
+3. 通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。
+4. 通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。
+5. 通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。
+6. 启动画中画。
+
+  创建画中画控制器实例后，通过startPiP接口启动画中画，在画中画ABOUT_TO_START生命周期将typeNode节点从布局移除，并返回上级界面（可选）。如果启动画中画时返回了上级界面，需要在画中画ABOUT_TO_RESTORE（还原）时重新跳转到原界面。
+7. 更新媒体源尺寸信息。
+
+  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。
+8. 关闭画中画。
+
+  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画，在画中画ABOUT_TO_STOP生命周期将typeNode节点重新添加到布局中。
+ 
+```ArkTS
 // entryability/EntryAbility.ets
 import { BusinessError } from '@kit.BasicServicesKit';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
@@ -952,9 +1013,8 @@ export default class EntryAbility extends UIAbility {
   // ...
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // pages/NavigationImplementPage.ets
 import { PipManager } from '../navigation/PipManager';
 import { Page1 } from '../navigation/Page1';
@@ -1032,9 +1092,8 @@ struct NavigationImplementPage {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // navigation/Page1.ets
 import { PipManager } from './PipManager';
 import { Logger } from '../util/LogUtil';
@@ -1094,9 +1153,8 @@ export struct Page1 {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // navigation/XCNodeController.ets
 import { FrameNode, NodeController, typeNode } from '@kit.ArkUI';
 import { PipManager } from './PipManager';
@@ -1181,9 +1239,8 @@ export class XCNodeController extends NodeController {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // navigation/PipManager.ets
 import { PiPWindow, typeNode } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1214,7 +1271,7 @@ export class PipManager {
   private pipController?: PiPWindow.PiPController = undefined;
   private xcNodeController: XCNodeController;
   private mXComponentController: XComponentController;
-  private lifeCycleCallback: Set = new Set();
+  private lifeCycleCallback: Set<Function> = new Set();
   public player: AVPlayer;
 
   public static getInstance(): PipManager {
@@ -1372,7 +1429,7 @@ export class PipManager {
     if (this.pipController === null || this.pipController === undefined) {
       return;
     }
-    let promise: Promise = this.pipController.stopPiP();
+    let promise: Promise<void> = this.pipController.stopPiP();
     promise.then(() => {
       Logger.info(TAG, `Succeeded in stopping pip.`);
     }).catch((err: BusinessError) => {
@@ -1398,14 +1455,35 @@ export class PipManager {
   }
 }
 ```
-
+ 
 以上示例代码对应的示意图如下所示：
-![](assets/使用typeNode实现画中画功能开发（ArkTS）/file-20260514130818473-2.gif)
+ 
 
-## 应用使用单界面Ability时通过typeNode实现画中画功能
+![](assets/使用typeNode实现画中画功能开发（ArkTS）/file-20260514130818473-3.gif)
 
-创建画中画控制器，注册生命周期事件以及控制事件回调。  创建自定义NodeController，实现makeNode方法，在该方法中创建typeNode。  通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。  通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。  通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。  通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。 启动画中画。  创建画中画控制器实例后，通过startPiP接口启动画中画，在画中画ABOUT_TO_START生命周期将typeNode节点从布局移除。  更新媒体源尺寸信息。  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。  关闭画中画。  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画，在画中画ABOUT_TO_STOP生命周期将typeNode节点重新添加到布局中。
-```text
+ 
+  
+
+##### 应用使用单界面Ability时通过typeNode实现画中画功能
+1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
+
+  
+创建自定义NodeController，实现makeNode方法，在该方法中创建typeNode。
+2. 通过create(config: PiPConfiguration, contentNode: typeNode.XComponent)接口创建画中画控制器实例。
+3. 通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。
+4. 通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。
+5. 通过画中画控制器实例的on('controlEvent')接口注册控制事件回调。
+6. 启动画中画。
+
+  创建画中画控制器实例后，通过startPiP接口启动画中画，在画中画ABOUT_TO_START生命周期将typeNode节点从布局移除。
+7. 更新媒体源尺寸信息。
+
+  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。
+8. 关闭画中画。
+
+  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画，在画中画ABOUT_TO_STOP生命周期将typeNode节点重新添加到布局中。
+ 
+```ArkTS
 // entryability/EntryAbility.ets
 import { BusinessError } from '@kit.BasicServicesKit';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
@@ -1424,9 +1502,8 @@ export default class EntryAbility extends UIAbility {
   // ...
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // pages/AbilityImplementPage.ets
 import { PipManager } from '../ability/PipManager';
 import { PiPWindow } from '@kit.ArkUI'; // 引入PiPWindow模块
@@ -1502,9 +1579,8 @@ struct AbilityImplementPage {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // ability/XCNodeController.ets
 import { FrameNode, NodeController, typeNode } from '@kit.ArkUI';
 import { PipManager } from './PipManager';
@@ -1590,9 +1666,8 @@ export class XCNodeController extends NodeController {
   }
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // ability/PipManager.ets
 import { PiPWindow, typeNode } from '@kit.ArkUI'; // 引入PiPWindow模块
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1623,7 +1698,7 @@ export class PipManager {
   private pipController?: PiPWindow.PiPController = undefined;
   private xcNodeController: XCNodeController;
   private mXComponentController: XComponentController;
-  private lifeCycleCallback: Set = new Set();
+  private lifeCycleCallback: Set<Function> = new Set();
   public player: AVPlayer;
 
   public static getInstance(): PipManager {
@@ -1779,7 +1854,7 @@ export class PipManager {
     if (this.pipController === null || this.pipController === undefined) {
       return;
     }
-    let promise: Promise = this.pipController.stopPiP();
+    let promise: Promise<void> = this.pipController.stopPiP();
     promise.then(() => {
       Logger.info(TAG, `Succeeded in stopping pip.`);
     }).catch((err: BusinessError) => {
@@ -1802,6 +1877,8 @@ export class PipManager {
   }
 }
 ```
-
+ 
 以上示例代码对应的示意图如下所示：
-![](assets/使用typeNode实现画中画功能开发（ArkTS）/file-20260514130818473-3.gif)
+ 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/0kj7GExZQlmZukbEWr-aew/zh-cn_image_0000002581274328.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014750Z&HW-CC-Expire=86400&HW-CC-Sign=C58D2C8D8F20B8344F9B20850E1CD75C8025D8A934B70E4833FBF25A04FACF27)

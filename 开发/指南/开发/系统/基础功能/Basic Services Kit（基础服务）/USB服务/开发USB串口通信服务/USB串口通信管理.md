@@ -1,44 +1,53 @@
 # USB串口通信管理
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usbserial-communication
 
-## 简介
+##### 简介
 
 USB串口通信服务中通过Host设备的USB接口连接串口设备的串口进行串行数据传输，通信管理核心目标是实现设备间的高效、稳定数据传输与协同控制。主要使用在工业自动化与远程监控、物联网设备互联、医疗设备管理等场景。
+ 
+  
 
-## 环境准备
+##### 环境准备
 
 请参考USB串口通信服务开发概述[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usbserial-overview#环境准备)。
+ 
+  
 
-## 开发指导
+##### 开发指导
 
+  
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口名 | 描述 |
 | --- | --- |
-| getPortList(): Readonly[] | 获取串口设备列表。 |
+| getPortList(): Readonly&lt;SerialPort&gt;[] | 获取串口设备列表。 |
 | hasSerialRight(portId: number): boolean | 检查应用程序是否具有访问串口设备的权限。 |
-| requestSerialRight(portId: number): Promise | 请求对串口设备的访问权限。 |
+| requestSerialRight(portId: number): Promise&lt;boolean&gt; | 请求对串口设备的访问权限。 |
 | open(portId: number): void | 打开串口设备。 |
 | close(portId: number): void | 关闭串口设备。 |
-| read(portId: number, buffer: Uint8Array, timeout?: number): Promise | 从串口设备读取数据，使用Promise异步返回。 |
+| read(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&gt; | 从串口设备读取数据，使用Promise异步返回。 |
 | readSync(portId: number, buffer: Uint8Array, timeout?: number): number | 以同步方法从串口设备读取数据。 |
-| write(portId: number, buffer: Uint8Array, timeout?: number): Promise | 往串口设备写入数据，使用Promise异步返回。 |
+| write(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&gt; | 往串口设备写入数据，使用Promise异步返回。 |
 | writeSync(portId: number, buffer: Uint8Array, timeout?: number): number | 以同步方法往串口设备写入数据。 |
+ 
+ 
+  
 
-
-## 开发步骤
+##### 开发步骤
 
 开发者可以通过上述接口读取和写入数据：
+ 
 > [!NOTE]
 > 以下示例代码只是串口数据传输的必要流程，需要放入具体的方法中执行。
 
- 导入模块。
-```text
+1. 导入模块。
+
+  
+```ArkTS
 // 导入usbManager模块
 import { serialManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit'
@@ -46,8 +55,10 @@ import { buffer } from '@kit.ArkTS';
 import { JSON } from '@kit.ArkTS';
 ```
 
-获取设备列表。
-```text
+2. 获取设备列表。
+
+  
+```ArkTS
 // 获取连接主设备的USB设备列表
 let portList: serialManager.SerialPort[] = serialManager.getPortList();
 console.info(`usbSerial portList: ${portList}`);
@@ -60,8 +71,10 @@ if (portList === undefined || portList.length === 0) {
 this.portList_ = portList;
 ```
 
-获取设备操作权限。
-```text
+3. 获取设备操作权限。
+
+  
+```ArkTS
 if (this.portList_ === undefined || this.portList_.length === 0) {
   console.error('usbSerial portList is empty');
   this.logInfo_ += '\n[ERROR] usbSerial portList is empty';
@@ -84,8 +97,10 @@ if (!serialManager.hasSerialRight(portId)) {
 this.portId_ = portId;
 ```
 
-根据串口打开设备。
-```text
+4. 根据串口打开设备。
+
+  
+```ArkTS
 let portId: number = this.portId_;
 try {
   serialManager.open(portId)
@@ -97,8 +112,10 @@ try {
 }
 ```
 
-通过串口读取数据。
-```text
+5. 通过串口读取数据。
+
+  
+```ArkTS
 let portId: number = this.portId_;
 // 异步读取
 let readBuffer: Uint8Array = new Uint8Array(64);
@@ -122,8 +139,10 @@ try {
 }
 ```
 
-通过串口写入数据。
-```text
+6. 通过串口写入数据。
+
+  
+```ArkTS
 let portId: number = this.portId_;
 // 异步写入
 let writeBuffer: Uint8Array = new Uint8Array(buffer.from('Hello World', 'utf-8').buffer)
@@ -147,8 +166,10 @@ try {
 }
 ```
 
-关闭串口设备。
-```text
+7. 关闭串口设备。
+
+  
+```ArkTS
 let portId: number = this.portId_;
 try {
   serialManager.close(portId);
@@ -160,7 +181,10 @@ try {
 }
 ```
 
+ 
+  
 
-## 调测验证
-
-准备一根USB转串口线缆，线缆的USB接口连接到HarmonyOS设备USB端口（该端口需支持USB转串口），线缆的串口接口连接到目标设备的串口上。在HarmonyOS设备上执行上述示例。返回usbSerial success，表示相关接口调用成功，设备串口通信能力正常；返回usbSerial error，表示接口调用失败。
+##### 调测验证
+1. 准备一根USB转串口线缆，线缆的USB接口连接到HarmonyOS设备USB端口（该端口需支持USB转串口），线缆的串口接口连接到目标设备的串口上。
+2. 在HarmonyOS设备上执行上述示例。
+3. 返回usbSerial success，表示相关接口调用成功，设备串口通信能力正常；返回usbSerial error，表示接口调用失败。

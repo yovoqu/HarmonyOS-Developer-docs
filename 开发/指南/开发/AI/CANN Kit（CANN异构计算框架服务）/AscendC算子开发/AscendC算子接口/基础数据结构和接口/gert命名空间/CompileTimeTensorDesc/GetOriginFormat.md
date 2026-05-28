@@ -4,32 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiletimetensordesc-getoriginformat
 
-## 函数功能
+##### 函数功能
 
 获取CompileTimeTensorDesc所描述Tensor的原始数据排布格式。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 ge::Format GetOriginFormat() const
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 无
+ 
+  
 
-## 返回值
+##### 返回值
 
 CompileTimeTensorDesc所描述Tensor的原始数据排布格式。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 auto dtype_ = ge::DataType::DT_INT32;

@@ -1,9 +1,9 @@
 # speechRecognizer（语音识别）
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 语音识别服务提供将音频信息转换为文本的能力，便于用户与设备进行互动，实现实时语音交互、语音识别。
 
@@ -12,19 +12,17 @@
 **起始版本：** 4.1.0(11)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 ```
 
 
-## speechRecognizer.createEngine
-**支持设备：** Phone / PC/2in1 / Tablet
 
-createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback<SpeechRecognitionEngine>): void
+##### speechRecognizer.createEngine
+
+createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;SpeechRecognitionEngine&gt;): void
 
 创建SpeechRecognitionEngine实例，并初始化引擎。使用callback异步回调。
 
@@ -34,17 +32,15 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback<Spe
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| createEngineParams | [CreateEngineParams](#createengineparams) | 是 | 创建引擎实例的配置项。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;[SpeechRecognitionEngine](#speechrecognitionengine)&gt; | 是 | 回调函数。返回创建的引擎实例。 |
+| createEngineParams | CreateEngineParams | 是 | 创建引擎实例的配置项。 |
+| callback | AsyncCallback&lt;SpeechRecognitionEngine&gt; | 是 | 回调函数。返回创建的引擎实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -56,8 +52,7 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback<Spe
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
@@ -78,10 +73,10 @@ speechRecognizer.SpeechRecognitionEngine) => {
     // 接收创建引擎的实例
     asrEngine = speechRecognitionEngine;
   } else {
-    // 无法创建引擎时返回错误码1002200001，原因：语种不支持、模式不支持、初始化超时、资源不存在等导致创建引擎失败
-    // 无法创建引擎时返回错误码1002200006，原因：引擎正在忙碌中，一般多个应用同时调用语音识别引擎时触发
-    // 无法创建引擎时返回错误码1002200008，原因：引擎已被销毁
-    console.error(`Failed to create engine. Code: ${err.code}, message: ${err.message}.`);
+      // 无法创建引擎时返回错误码1002200001，原因：语种不支持、模式不支持、初始化超时、资源不存在等导致创建引擎失败
+      // 无法创建引擎时返回错误码1002200006，原因：引擎正在忙碌中，一般多个应用同时调用语音识别引擎时触发
+      // 无法创建引擎时返回错误码1002200008，原因：引擎已被销毁
+      console.error(`Failed to create engine. Code: ${err.code}, message: ${err.message}.`);
   }
 });
 
@@ -96,10 +91,10 @@ struct Page {
 ```
 
 
-## speechRecognizer.createEngine
-**支持设备：** Phone / PC/2in1 / Tablet
 
-createEngine(createEngineParams: CreateEngineParams): Promise<SpeechRecognitionEngine>
+##### speechRecognizer.createEngine
+
+createEngine(createEngineParams: CreateEngineParams): Promise&lt;SpeechRecognitionEngine&gt;
 
 创建SpeechRecognitionEngine实例，并初始化引擎。使用Promise异步回调。
 
@@ -109,24 +104,21 @@ createEngine(createEngineParams: CreateEngineParams): Promise<SpeechRecognitionE
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| createEngineParams | [CreateEngineParams](#createengineparams) | 是 | 创建引擎实例的配置项。 |
+| createEngineParams | CreateEngineParams | 是 | 创建引擎实例的配置项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SpeechRecognitionEngine](#speechrecognitionengine)&gt; | Promise对象。返回创建的引擎实例。 |
+| Promise&lt;SpeechRecognitionEngine&gt; | Promise对象。返回创建的引擎实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -138,8 +130,7 @@ createEngine(createEngineParams: CreateEngineParams): Promise<SpeechRecognitionE
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
@@ -173,8 +164,8 @@ struct Page {
 ```
 
 
-## SpeechRecognitionEngine
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### SpeechRecognitionEngine
 
 语音识别类，用于执行语音识别过程中的相关操作。在调用SpeechRecognitionEngine的方法前，需要先通过[createEngine](#speechrecognizercreateengine)方法创建一个[SpeechRecognitionEngine](#speechrecognitionengine)实例。
 
@@ -183,10 +174,10 @@ struct Page {
 **起始版本：** 4.1.0(11)
 
 
-### listLanguages
-**支持设备：** Phone / PC/2in1 / Tablet
 
-listLanguages(params: LanguageQuery, callback: AsyncCallback<Array<string>>): void
+##### listLanguages
+
+listLanguages(params: LanguageQuery, callback: AsyncCallback<Array&lt;string&gt;>): void
 
 查询支持的语种信息，使用callback异步回调。
 
@@ -196,17 +187,15 @@ listLanguages(params: LanguageQuery, callback: AsyncCallback<Array<string>>): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [LanguageQuery](#languagequery) | 是 | 查询语种信息请求参数。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;Array&lt;string&gt;&gt; | 是 | 回调函数。返回查询结果。          当前仅支持中文，返回结果为：['zh-CN']。 |
+| params | LanguageQuery | 是 | 查询语种信息请求参数。 |
+| callback | AsyncCallback<Array&lt;string&gt;> | 是 | 回调函数。返回查询结果。 当前仅支持中文，返回结果为：['zh-CN']。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -217,8 +206,7 @@ listLanguages(params: LanguageQuery, callback: AsyncCallback<Array<string>>): vo
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
@@ -251,10 +239,10 @@ struct Page {
 ```
 
 
-### listLanguages
-**支持设备：** Phone / PC/2in1 / Tablet
 
-listLanguages(params: LanguageQuery): Promise<Array<string>>
+##### listLanguages
+
+listLanguages(params: LanguageQuery): Promise<Array&lt;string&gt;>
 
 查询支持的语种信息，使用Promise异步回调。
 
@@ -264,24 +252,21 @@ listLanguages(params: LanguageQuery): Promise<Array<string>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [LanguageQuery](#languagequery) | 是 | 查询语种信息请求参数。 |
+| params | LanguageQuery | 是 | 查询语种信息请求参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;string&gt;&gt; | Promise对象。返回查询的结果。          当前仅支持中文，返回结果为：['zh-CN']。 |
+| Promise<Array&lt;string&gt;> | Promise对象。返回查询的结果。 当前仅支持中文，返回结果为：['zh-CN']。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -292,8 +277,7 @@ listLanguages(params: LanguageQuery): Promise<Array<string>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
@@ -308,23 +292,23 @@ let languageQuery: speechRecognizer.LanguageQuery = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .fontSize(20)
-    .onClick( () => {
-      // 调用listLanguages方法，查询引擎目前支持的语种信息，以Promise返回
-      asrEngine?.listLanguages(languageQuery).then((res: Array<string>) => {
-        console.info(`Succeeded in listing languages, result: ${JSON.stringify(res)}.`);
-      }).catch((err: BusinessError) => {
-        console.error(`Failed to list languages. Code: ${err.code}, message: ${err.message}.`);
-      });
-    })
+      .id('Button')
+      .fontSize(20)
+      .onClick( () => {
+        // 调用listLanguages方法，查询引擎目前支持的语种信息，以Promise返回
+        asrEngine?.listLanguages(languageQuery).then((res: Array<string>) => {
+          console.info(`Succeeded in listing languages, result: ${JSON.stringify(res)}.`);
+        }).catch((err: BusinessError) => {
+          console.error(`Failed to list languages. Code: ${err.code}, message: ${err.message}.`);
+        });
+      })
   }
 }
 ```
 
 
-### setListener
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### setListener
 
 setListener(listener: RecognitionListener): void
 
@@ -336,16 +320,14 @@ setListener(listener: RecognitionListener): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| listener | [RecognitionListener](#recognitionlistener) | 是 | 回调对象，识别过程中所有回调信息均通过此对象返回。 |
+| listener | RecognitionListener | 是 | 回调对象，识别过程中所有回调信息均通过此对象返回。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -378,18 +360,18 @@ let setListener: speechRecognizer.RecognitionListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      asrEngine?.setListener(setListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        asrEngine?.setListener(setListener);
+      })
   }
 }
 ```
 
 
-### startListening
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### startListening
 
 startListening(params: StartParams): void
 
@@ -401,16 +383,14 @@ startListening(params: StartParams): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [StartParams](#startparams) | 是 | 启动语音识别的相关参数，用于设置会话ID、音频配置信息等。 |
+| params | StartParams | 是 | 启动语音识别的相关参数，用于设置会话ID、音频配置信息等。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -421,8 +401,7 @@ startListening(params: StartParams): void
 
 **示例：**
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -437,18 +416,18 @@ let recognizerParams: speechRecognizer.StartParams = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 调用开始识别方法
-      asrEngine?.startListening(recognizerParams);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 调用开始识别方法
+        asrEngine?.startListening(recognizerParams);
+      })
   }
 }
 ```
 
 
-### writeAudio
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### writeAudio
 
 writeAudio(sessionId: string, audio: Uint8Array): void
 
@@ -462,17 +441,15 @@ writeAudio(sessionId: string, audio: Uint8Array): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
 | audio | Uint8Array | 是 | 待识别的音频数据，当前仅支持音频数据长度为640字节或1280字节。每次发送音频调用间隔必须为20ms（传输音频长度为640字节）或40ms（传输音频长度为1280字节）。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -484,8 +461,7 @@ writeAudio(sessionId: string, audio: Uint8Array): void
 
 **示例：**
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -499,18 +475,18 @@ let uint8Array: Uint8Array = new Uint8Array();
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 写入音频流，音频流长度仅支持640字节或1280字节
-      asrEngine?.writeAudio(sessionId, uint8Array);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 写入音频流，音频流长度仅支持640字节或1280字节
+        asrEngine?.writeAudio(sessionId, uint8Array);
+      })
   }
 }
 ```
 
 
-### finish
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### finish
 
 finish(sessionId: string): void
 
@@ -522,16 +498,14 @@ finish(sessionId: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -542,8 +516,7 @@ finish(sessionId: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -558,16 +531,16 @@ struct Page {
   build() {
     Column(){
       Button()
-      .id('Button')
-      .onClick( () => {
-        // 写入音频流，音频流长度仅支持640字节或1280字节
-        asrEngine?.writeAudio(sessionId, uint8Array);
-      })
+        .id('Button')
+        .onClick( () => {
+          // 写入音频流，音频流长度仅支持640字节或1280字节
+          asrEngine?.writeAudio(sessionId, uint8Array);
+        })
 
       Button() {
         Text('finish')
-        .fontColor(Color.White)
-        .fontSize(20)
+          .fontColor(Color.White)
+          .fontSize(20)
       }
       .type(ButtonType.Capsule)
       .backgroundColor('#0x317AE7')
@@ -584,8 +557,8 @@ struct Page {
 ```
 
 
-### cancel
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### cancel
 
 cancel(sessionId: string): void
 
@@ -597,16 +570,14 @@ cancel(sessionId: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -617,8 +588,7 @@ cancel(sessionId: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -633,16 +603,16 @@ struct Page {
   build() {
     Column(){
       Button()
-      .id('Button')
-      .onClick( () => {
-        // 写入音频流，音频流长度仅支持640字节或1280字节
-        asrEngine?.writeAudio(sessionId, uint8Array);
-      })
+        .id('Button')
+        .onClick( () => {
+          // 写入音频流，音频流长度仅支持640字节或1280字节
+          asrEngine?.writeAudio(sessionId, uint8Array);
+        })
 
       Button() {
         Text('cancel')
-        .fontColor(Color.White)
-        .fontSize(20)
+          .fontColor(Color.White)
+          .fontSize(20)
       }
       .type(ButtonType.Capsule)
       .backgroundColor('#0x317AE7')
@@ -659,8 +629,8 @@ struct Page {
 ```
 
 
-### isBusy
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### isBusy
 
 isBusy(): boolean
 
@@ -672,16 +642,14 @@ isBusy(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 服务是否处于繁忙状态的返回值。          - true：引擎正处于繁忙状态。          - false：引擎没有处于繁忙状态。 |
+| boolean | 服务是否处于繁忙状态的返回值。 - true：引擎正处于繁忙状态。 - false：引擎没有处于繁忙状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -690,8 +658,7 @@ isBusy(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -706,16 +673,16 @@ struct Page {
   build() {
     Column() {
       Button()
-      .id('Button')
-      .onClick(() => {
-        // 写入音频流，音频流长度仅支持640字节或1280字节
-        asrEngine?.writeAudio(sessionId, uint8Array);
-      })
+        .id('Button')
+        .onClick(() => {
+          // 写入音频流，音频流长度仅支持640字节或1280字节
+          asrEngine?.writeAudio(sessionId, uint8Array);
+        })
 
       Button() {
         Text('cancel')
-        .fontColor(Color.White)
-        .fontSize(20)
+          .fontColor(Color.White)
+          .fontSize(20)
       }
       .type(ButtonType.Capsule)
       .backgroundColor('#0x317AE7')
@@ -733,8 +700,8 @@ struct Page {
 ```
 
 
-### shutdown
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### shutdown
 
 shutdown(): void
 
@@ -746,8 +713,7 @@ shutdown(): void
 
 **示例：**
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -762,16 +728,16 @@ struct Page {
   build() {
     Column() {
       Button()
-      .id('Button')
-      .onClick(() => {
-        // 写入音频流，音频流长度仅支持640字节或1280字节
-        asrEngine?.writeAudio(sessionId, uint8Array);
-      })
+        .id('Button')
+        .onClick(() => {
+          // 写入音频流，音频流长度仅支持640字节或1280字节
+          asrEngine?.writeAudio(sessionId, uint8Array);
+        })
 
       Button() {
         Text('cancel')
-        .fontColor(Color.White)
-        .fontSize(20)
+          .fontColor(Color.White)
+          .fontSize(20)
       }
       .type(ButtonType.Capsule)
       .backgroundColor('#0x317AE7')
@@ -788,8 +754,8 @@ struct Page {
 ```
 
 
-## RecognitionListener
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### RecognitionListener
 
 语音识别的回调对象，通过此对象可返回识别过程的相关状态，例如识别开始、识别完成、音频开始、音频结束等。
 
@@ -798,8 +764,8 @@ struct Page {
 **起始版本：** 4.1.0(11)
 
 
-### onStart
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStart
 
 onStart(sessionId: string, eventMessage: string): void
 
@@ -811,17 +777,15 @@ onStart(sessionId: string, eventMessage: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
-| eventMessage | string | 是 | 开始识别信息描述。          返回值为一个句子，描述开始识别结果的状态信息，开始识别成功则返回：startListening success. |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
+| eventMessage | string | 是 | 开始识别信息描述。 返回值为一个句子，描述开始识别结果的状态信息，开始识别成功则返回：startListening success. |
 
 
 **示例：**
 
-
-```ts
+```json
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -854,18 +818,18 @@ let setListener: speechRecognizer.RecognitionListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      asrEngine?.setListener(setListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        asrEngine?.setListener(setListener);
+      })
   }
 }
 ```
 
 
-### onEvent
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onEvent
 
 onEvent(sessionId: string, eventCode: number, eventMessage: string): void
 
@@ -877,18 +841,16 @@ onEvent(sessionId: string, eventCode: number, eventMessage: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
-| eventCode | number | 是 | 事件标识。          1：音频开始标识。          3：音频结束标识。 |
-| eventMessage | string | 是 | 事件信息描述。          返回值为一个句子，描述识别过程的事件信息。          - 音频开始：speech started.          - 音频结束：speech stopped. |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
+| eventCode | number | 是 | 事件标识。 1：音频开始标识。 3：音频结束标识。 |
+| eventMessage | string | 是 | 事件信息描述。 返回值为一个句子，描述识别过程的事件信息。 - 音频开始：speech started. - 音频结束：speech stopped. |
 
 
 **示例：**
 
-
-```ts
+```json
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -921,18 +883,18 @@ let setListener: speechRecognizer.RecognitionListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      asrEngine?.setListener(setListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        asrEngine?.setListener(setListener);
+      })
   }
 }
 ```
 
 
-### onResult
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onResult
 
 onResult(sessionId: string, result: SpeechRecognitionResult): void
 
@@ -944,17 +906,15 @@ onResult(sessionId: string, result: SpeechRecognitionResult): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
-| result | [SpeechRecognitionResult](#speechrecognitionresult) | 是 | 识别结果。 |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
+| result | SpeechRecognitionResult | 是 | 识别结果。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -987,18 +947,18 @@ let setListener: speechRecognizer.RecognitionListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      asrEngine?.setListener(setListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        asrEngine?.setListener(setListener);
+      })
   }
 }
 ```
 
 
-### onComplete
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onComplete
 
 onComplete(sessionId: string, eventMessage: string): void
 
@@ -1010,17 +970,15 @@ onComplete(sessionId: string, eventMessage: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
-| eventMessage | string | 是 | 识别完成的相关信息。          返回值为一个句子，描述识别结束的状态信息：recognize complete |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
+| eventMessage | string | 是 | 识别完成的相关信息。 返回值为一个句子，描述识别结束的状态信息：recognize complete |
 
 
 **示例：**
 
-
-```ts
+```json
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -1053,18 +1011,18 @@ let setListener: speechRecognizer.RecognitionListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      asrEngine?.setListener(setListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        asrEngine?.setListener(setListener);
+      })
   }
 }
 ```
 
 
-### onError
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onError
 
 onError(sessionId: string, errorCode: number, errorMessage: string): void
 
@@ -1076,18 +1034,16 @@ onError(sessionId: string, errorCode: number, errorMessage: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sessionId | string | 是 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
-| errorCode | number | 是 | 返回的错误码：          401 参数检查失败          1002200002 开始识别失败          1002200003 超过最大音频          1002200004 结束识别失败          1002200005 取消识别失败          1002200006 服务忙碌          1002200007 引擎未初始化          1002200010 语音识别未启动          1002200011 语音识别异常          1002200012 没有获取麦克风权限          错误码详细信息参见：[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。 |
+| sessionId | string | 是 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
+| errorCode | number | 是 | 返回的错误码： 401 参数检查失败 1002200002 开始识别失败 1002200003 超过最大音频 1002200004 结束识别失败 1002200005 取消识别失败 1002200006 服务忙碌 1002200007 引擎未初始化 1002200010 语音识别未启动 1002200011 语音识别异常 1002200012 没有获取麦克风权限 错误码详细信息参见：Core Speech Kit错误码。 |
 | errorMessage | string | 是 | 错误信息描述。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -1120,18 +1076,18 @@ let setListener: speechRecognizer.RecognitionListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      asrEngine?.setListener(setListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        asrEngine?.setListener(setListener);
+      })
   }
 }
 ```
 
 
-## CreateEngineParams
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### CreateEngineParams
 
 创建引擎实例的相关参数，用于配置语种、模式、区域信息等。
 
@@ -1139,16 +1095,16 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | language | string | 否 | 否 | 语种，当前仅支持“zh-CN”中文。 |
-| online | number | 否 | 否 | 模式。          1为离线，当前仅支持离线模式。 |
-| extraParams | Record&lt;string, Object&gt; | 否 | 是 | - &lt;'locate', string&gt; 区域信息。          可选，不设置时默认为“CN”，当前仅支持“CN”。          - &lt;'recognizerMode', string&gt; 语言模式。          可选，不设置时默认为“short”，当前支持“short“和“long”。          - &lt;'sysGeneralLexicon, string[]&gt; 系统热词。支持配置热词提高识别率。系统热词针对应用，在整个识别过程中都生效。          可选，不设置时默认为空。热词总数不超过200，每个热词长度范围为[2, 20]。 |
+| online | number | 否 | 否 | 模式。 1为离线，当前仅支持离线模式。 |
+| extraParams | Record<string, Object> | 否 | 是 | - <'locate', string> 区域信息。 可选，不设置时默认为“CN”，当前仅支持“CN”。 - <'recognizerMode', string> 语言模式。 可选，不设置时默认为“short”，当前支持“short”和“long”。 - <'sysGeneralLexicon, string[]> 系统热词。支持配置热词提高识别率。系统热词针对应用，在整个识别过程中都生效。 可选，不设置时默认为空。热词总数不超过200，每个热词长度范围为[2, 20]。 |
 
 
-## LanguageQuery
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### LanguageQuery
 
 查询语种信息时的相关参数，例如查询离线模式下服务支持的语种信息，需将online参数设置为1。
 
@@ -1156,15 +1112,15 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| sessionId | string | 否 | 否 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
-| extraParams | Record&lt;string, Object&gt; | 否 | 是 | - &lt;'online', number&gt; 模式。          可选，1为离线，当前仅支持离线。 |
+| sessionId | string | 否 | 否 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
+| extraParams | Record<string, Object> | 否 | 是 | - <'online', number> 模式。 可选，1为离线，当前仅支持离线。 |
 
 
-## StartParams
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### StartParams
 
 启动语音识别的相关参数，用于设置会话ID、音频配置信息等。
 
@@ -1172,18 +1128,16 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| sessionId | string | 否 | 否 | 会话ID，会话的唯一标识。          由字母、数字、下划线和短横线组成，无长度限制。 |
-| audioInfo | [AudioInfo](#audioinfo) | 否 | 否 | 音频配置信息。 |
-| extraParams | Record&lt;string, Object&gt; | 否 | 是 | - &lt;'recognitionMode', number&gt;实时语音识别模式。          0：实时录音识别（需应用开启录音权限：ohos.permission.MICROPHONE），若需结束录音，则调用[finish](#finish)或者[cancel](#cancel)方法；          1：实时音频转文字识别，开启此模式时需要额外调用[writeAudio](#writeaudio)方法，传入待识别音频流；          可选，不传参时默认为1。          - &lt;'vadBegin', number&gt;          Voice Activity Detection(VAD)前端点设置。长语音模式不支持配置，当前长语音模式下默认存在语音输入。短语音模式中用于检测语音开始，若语音开始时间超出参数范围则认为无语音输入。参数范围是[500,10000]。          可选，不传参时默认为10000ms。          - &lt;'vadEnd', number&gt;          Voice Activity Detection(VAD)后端点设置。长语音模式中用于检测子句是否结束，若语音中断时间超出参数范围则认为子句结束，若需要结束长语音识别需要主动结束。短语音模式中用于检测语音结束，若语音中断时间超出参数范围则认为识别结束。参数范围是[500,10000]。          可选，不传参时，短语音默认为800ms支持配置，长语音默认为500ms不支持配置。          - &lt;'maxAudioDuration', number&gt;最大支持音频时长，不传参时默认20000ms。          短语音模式支持范围[20000-60000]，单位ms。          长语音模式支持范围[20000 - 8 * 60 * 60 * 1000]，单位ms。          - &lt;'recognizerOption', &lt;'enablePartialResult', boolean&gt;&gt;          蹦字模式。          可选，不传参时默认为开启。          开启蹦字模式：          'recognizerOption': recognizerOption = {          'enablePartialResult': true          }          关闭蹦字模式：          'recognizerOption': recognizerOption = {          'enablePartialResult': false          }          - &lt;'sessionGeneralLexicon': string[]&gt;          会话热词。支持配置热词提高识别率。会话热词优先级比系统热词更高，会话结束时释放。          可选，不设置时默认为空。热词总数不超过200，每个热词长度范围为[2, 20]。 |
+| sessionId | string | 否 | 否 | 会话ID，会话的唯一标识。 由字母、数字、下划线和短横线组成，无长度限制。 |
+| audioInfo | AudioInfo | 否 | 否 | 音频配置信息。 |
+| extraParams | Record<string, Object> | 否 | 是 | - <'recognitionMode', number>实时语音识别模式。 0：实时录音识别（需应用开启录音权限：ohos.permission.MICROPHONE），若需结束录音，则调用finish或者cancel方法； 1：实时音频转文字识别，开启此模式时需要额外调用writeAudio方法，传入待识别音频流； 可选，不传参时默认为1。 - <'vadBegin', number> Voice Activity Detection(VAD)前端点设置。长语音模式不支持配置，当前长语音模式下默认存在语音输入。短语音模式中用于检测语音开始，若语音开始时间超出参数范围则认为无语音输入。参数范围是[500,10000]。 可选，不传参时默认为10000ms。 - <'vadEnd', number> Voice Activity Detection(VAD)后端点设置。长语音模式中用于检测子句是否结束，若语音中断时间超出参数范围则认为子句结束，若需要结束长语音识别需要主动结束。短语音模式中用于检测语音结束，若语音中断时间超出参数范围则认为识别结束。参数范围是[500,10000]。 可选，不传参时，短语音默认为800ms支持配置，长语音默认为500ms不支持配置。 - <'maxAudioDuration', number>最大支持音频时长，不传参时默认20000ms。 短语音模式支持范围[20000-60000]，单位ms。 长语音模式支持范围[20000 - 8 * 60 * 60 * 1000]，单位ms。 - <'recognizerOption', <'enablePartialResult', boolean>> 蹦字模式。 可选，不传参时默认为开启。 开启蹦字模式： 'recognizerOption': recognizerOption = { 'enablePartialResult': true } 关闭蹦字模式： 'recognizerOption': recognizerOption = { 'enablePartialResult': false } - <'sessionGeneralLexicon': string[]> 会话热词。支持配置热词提高识别率。会话热词优先级比系统热词更高，会话结束时释放。 可选，不设置时默认为空。热词总数不超过200，每个热词长度范围为[2, 20]。 |
 
 
 示例：
 
-
-```ts
+```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 let asrEngine: speechRecognizer.SpeechRecognitionEngine | undefined = undefined;
@@ -1211,18 +1165,18 @@ let recognizerParams: speechRecognizer.StartParams = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 调用开始识别方法
-      asrEngine?.startListening(recognizerParams);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 调用开始识别方法
+        asrEngine?.startListening(recognizerParams);
+      })
   }
 }
 ```
 
 
-## AudioInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### AudioInfo
 
 音频配置信息。
 
@@ -1230,18 +1184,18 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| audioType | string | 否 | 否 | 音频类型。          当前仅支持“pcm”。 |
-| sampleRate | number | 否 | 否 | 音频的采样率。          当前仅支持16000采样率。 |
-| sampleBit | number | 否 | 否 | 音频返回的采样位数。          当前仅支持16位。 |
-| soundChannel | number | 否 | 否 | 音频返回的通道数信息。          当前仅支持通道1。 |
-| extraParams | Record&lt;string, Object&gt; | 否 | 是 | - &lt;'compressRate', number&gt; 音频的压缩率。          可选，pcm格式音频默认为0。预留参数，当前无实际使用。 |
+| audioType | string | 否 | 否 | 音频类型。 当前仅支持“pcm”。 |
+| sampleRate | number | 否 | 否 | 音频的采样率。 当前仅支持16000采样率。 |
+| sampleBit | number | 否 | 否 | 音频返回的采样位数。 当前仅支持16位。 |
+| soundChannel | number | 否 | 否 | 音频返回的通道数信息。 当前仅支持通道1。 |
+| extraParams | Record<string, Object> | 否 | 是 | - <'compressRate', number> 音频的压缩率。 可选，pcm格式音频默认为0。预留参数，当前无实际使用。 |
 
 
-## SpeechRecognitionResult
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### SpeechRecognitionResult
 
 音频识别结果信息。
 
@@ -1249,9 +1203,8 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isFinal | boolean | 否 | 否 | 是否为本条子句最终结果的判断。          - true：是本条子句的最终结果。          - false：是本条子句的中间结果。 |
-| isLast | boolean | 否 | 否 | 是否为最后一条句子的判断。          - true：是最后一条句子。          - false：不是最后一条句子。 |
+| isFinal | boolean | 否 | 否 | 是否为本条子句最终结果的判断。 - true：是本条子句的最终结果。 - false：是本条子句的中间结果。 |
+| isLast | boolean | 否 | 否 | 是否为最后一条句子的判断。 - true：是最后一条句子。 - false：不是最后一条句子。 |
 | result | string | 否 | 否 | 最优识别结果。 |

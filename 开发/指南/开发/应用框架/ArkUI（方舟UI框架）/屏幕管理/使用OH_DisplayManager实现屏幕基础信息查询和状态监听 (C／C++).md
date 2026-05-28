@@ -1,20 +1,32 @@
 # 使用OH_DisplayManager实现屏幕基础信息查询和状态监听 (C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-display-manager
 
-## 场景介绍
+##### 场景介绍
 
-[OH_DisplayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-displaymanager)屏幕管理模块用于提供屏幕的信息查询、屏幕状态变化监听、折叠设备的折叠状态变化监听等能力，应用可根据对应的屏幕信息、屏幕状态变化、屏幕折叠状态适配不同的UI界面显示。 支持查询的屏幕信息，包括屏幕的分辨率、物理像素密度、逻辑像素密度、刷新率、屏幕尺寸、屏幕旋转方向、屏幕旋转角度等。 支持屏幕状态变化的监听，包括屏幕旋转变化，屏幕分辨率变化、屏幕刷新率变化等。 支持查询当前设备是否为可折叠设备，同时支持折叠状态（展开/折叠）变化的监听。
+[OH_DisplayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-displaymanager)屏幕管理模块用于提供屏幕的信息查询、屏幕状态变化监听、折叠设备的折叠状态变化监听等能力，应用可根据对应的屏幕信息、屏幕状态变化、屏幕折叠状态适配不同的UI界面显示。
 
-## 基本概念
+ - 支持查询的屏幕信息，包括屏幕的分辨率、物理像素密度、逻辑像素密度、刷新率、屏幕尺寸、屏幕旋转方向、屏幕旋转角度等。
+ - 支持屏幕状态变化的监听，包括屏幕旋转变化，屏幕分辨率变化、屏幕刷新率变化等。
+ - 支持查询当前设备是否为可折叠设备，同时支持折叠状态（展开/折叠）变化的监听。
 
-屏幕的物理像素密度(densityDPI)：代表每英寸屏幕所拥有的物理像素点数。 屏幕的逻辑像素的密度(densityPixels)：代表物理像素与逻辑像素的缩放系数比，计算方法为物理像素密度除以160。
 
-## 接口说明
+
+
+##### 基本概念
+
+ - 屏幕的物理像素密度(densityDPI)：代表每英寸屏幕所拥有的物理像素点数。
+ - 屏幕的逻辑像素的密度(densityPixels)：代表物理像素与逻辑像素的缩放系数比，计算方法为物理像素密度除以160。
+
+
+
+
+##### 接口说明
 
 常用接口如下表所示。更多API说明请参考[OH_DisplayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-displaymanager)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | OH_NativeDisplayManager_GetDefaultDisplayRotation(NativeDisplayManager_Rotation *displayRotation) | 获取默认屏幕的旋转角度。 |
@@ -27,8 +39,9 @@
 | OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener(uint32_t listenerIndex) | 取消屏幕展开、折叠状态变化监听。 |
 
 
-## 在CMake脚本中链接动态库
 
+
+##### 在CMake脚本中链接动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhilog_ndk.z.so)
@@ -36,20 +49,22 @@ target_link_libraries(entry PUBLIC libnative_display_manager.so )
 ```
 
 
-## 添加头文件
 
+##### 添加头文件
 
-```text
-#include
-#include
-#include
+```cpp
+#include <window_manager/oh_display_info.h>
+#include <window_manager/oh_display_manager.h>
+#include <hilog/log.h>
 ```
 
 
-## 获取屏幕状态
 
-可以通过OH_NativeDisplayManager_GetDefaultDisplayRotation获取默认屏幕的旋转角度。
-```text
+##### 获取屏幕状态
+1. 可以通过OH_NativeDisplayManager_GetDefaultDisplayRotation获取默认屏幕的旋转角度。
+
+  
+```cpp
 static napi_value GetDefaultDisplayRotation(napi_env env, napi_callback_info info)
 {
     NativeDisplayManager_Rotation displayRotation;
@@ -69,8 +84,10 @@ static napi_value GetDefaultDisplayRotation(napi_env env, napi_callback_info inf
 }
 ```
 
-可以通过OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo获取挖孔屏、刘海屏、瀑布屏等不可用屏幕区域信息。 可通过OH_NativeDisplayManager_DestroyDefaultDisplayCutoutInfo销毁挖孔屏、刘海屏、瀑布屏等不可用屏幕区域信息。
-```text
+2. 可以通过OH_NativeDisplayManager_CreateDefaultDisplayCutoutInfo获取挖孔屏、刘海屏、瀑布屏等不可用屏幕区域信息。 可通过OH_NativeDisplayManager_DestroyDefaultDisplayCutoutInfo销毁挖孔屏、刘海屏、瀑布屏等不可用屏幕区域信息。
+
+  
+```cpp
 static napi_value CreateDefaultDisplayCutoutInfo(napi_env env, napi_callback_info info)
 {
     NativeDisplayManager_CutoutInfo *cutOutInfo = NULL;
@@ -80,7 +97,7 @@ static napi_value CreateDefaultDisplayCutoutInfo(napi_env env, napi_callback_inf
         if (cutOutInfo != NULL && cutOutInfo->boundingRectsLength != 0) {
             OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "DMSTest",
                 "GetDefaultCutoutInfo cutOutInfo length=%{public}d", cutOutInfo->boundingRectsLength);
-            for (int i = 0; i boundingRectsLength; i++) {
+            for (int i = 0; i < cutOutInfo->boundingRectsLength; i++) {
                 OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "DMSTest",
                     "cutOutInfo[%{public}d]=[%{public}d %{public}d %{public}d %{public}d]",
                     i, cutOutInfo->boundingRects[i].left, cutOutInfo->boundingRects[i].top,
@@ -118,10 +135,13 @@ static napi_value CreateDefaultDisplayCutoutInfo(napi_env env, napi_callback_inf
 ```
 
 
-## 监听屏幕状态变化
+
+
+##### 监听屏幕状态变化
 
 可以通过OH_NativeDisplayManager_RegisterDisplayChangeListener接口注册屏幕变化的监听，包括屏幕旋转、分辨率变化、刷新率变化、DPI变化等。 通过OH_NativeDisplayManager_UnregisterDisplayChangeListener接口取消屏幕状态变化的监听。
-```text
+
+```cpp
 void DisplayChangeCallback(uint64_t displayId)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "DMSTest",
@@ -166,10 +186,12 @@ static napi_value UnregisterDisplayChangeListener(napi_env env, napi_callback_in
 ```
 
 
-## 监听折叠设备状态变化
 
-可以通过OH_NativeDisplayManager_IsFoldable接口查询设备是不是折叠设备。
-```text
+##### 监听折叠设备状态变化
+1. 可以通过OH_NativeDisplayManager_IsFoldable接口查询设备是不是折叠设备。
+
+  
+```cpp
 static napi_value IsFoldable(napi_env env, napi_callback_info info)
 {
     bool isFoldDevice = OH_NativeDisplayManager_IsFoldable();
@@ -180,8 +202,10 @@ static napi_value IsFoldable(napi_env env, napi_callback_info info)
 }
 ```
 
-可以通过OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener注册屏幕展开/折叠状态变化的监听。 通过OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener接口取消屏幕展开/折叠状态变化的监听。
-```text
+2. 可以通过OH_NativeDisplayManager_RegisterFoldDisplayModeChangeListener注册屏幕展开/折叠状态变化的监听。 通过OH_NativeDisplayManager_UnregisterFoldDisplayModeChangeListener接口取消屏幕展开/折叠状态变化的监听。
+
+  
+```cpp
 void FoldDisplayModeChangeCallback(NativeDisplayManager_FoldDisplayMode displayMode)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "DMSTest", "displayMode=%{public}d.", displayMode);
@@ -223,10 +247,11 @@ static napi_value UnregisterFoldDisplayModeChangeListener(napi_env env, napi_cal
 ```
 
 
-## 注册函数
 
 
-```text
+##### 注册函数
+
+```cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
@@ -250,8 +275,25 @@ EXTERN_C_END
 ```
 
 
-## 注册模块
 
+##### 注册模块
+
+```cpp
+static napi_module displayModule = {
+    .nm_version = 1,
+    .nm_flags = 0,
+    .nm_filename = nullptr,
+    .nm_register_func = Init,
+    .nm_modname = "nativedisplay",
+    .nm_priv = ((void*)0),
+    .reserved = { 0 },
+};
+
+extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
+{
+    napi_module_register(&displayModule);
+}
+```
 
 ```text
 static napi_module displayModule = {
@@ -271,28 +313,10 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 ```
 
 
-```text
-static napi_module displayModule = {
-    .nm_version = 1,
-    .nm_flags = 0,
-    .nm_filename = nullptr,
-    .nm_register_func = Init,
-    .nm_modname = "nativedisplay",
-    .nm_priv = ((void*)0),
-    .reserved = { 0 },
-};
 
-extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
-{
-    napi_module_register(&displayModule);
-}
-```
+##### 在Index.ets文件中调用函数
 
-
-## 在Index.ets文件中调用函数
-
-
-```text
+```ArkTS
 private callGetDisplayRotation(): void {
   this.promptAction.openToast({ message: '调用getDisplayRotation方法' }).catch((error: Error) => {
     console.error(`callGetDisplayRotation error ${JSON.stringify(error)}`);

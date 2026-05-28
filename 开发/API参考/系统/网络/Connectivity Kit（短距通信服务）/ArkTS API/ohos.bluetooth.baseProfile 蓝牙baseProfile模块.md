@@ -3,32 +3,30 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-baseprofile
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供不同的蓝牙技术协议的基础公共方法。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
 ```text
 import { baseProfile } from '@kit.ConnectivityKit';
 ```
 
 
-## BaseProfile
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### BaseProfile
 
 基础Profile接口定义，提供订阅和获取连接状态等公共能力。如：[A2dpSourceProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-a2dp#a2dpsourceprofile)、[HandsFreeAudioGatewayProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-hfp#handsfreeaudiogatewayprofile)等[Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#profile)类型都继承于该类。
 
 
-## ProfileConnectionState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ProfileConnectionState
 
 type ProfileConnectionState = constant.ProfileConnectionState
 
@@ -36,34 +34,33 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [constant.ProfileConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-constant#profileconnectionstate) | 本端和对端蓝牙设备间的Profile连接状态。 |
+| constant.ProfileConnectionState | 本端和对端蓝牙设备间的Profile连接状态。 |
 
 
-## StateChangeParam
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### StateChangeParam
 
 本端和对端蓝牙设备间Profile连接状态变化参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 对端设备地址，例如："XX:XX:XX:XX:XX:XX"。 |
-| state | [ProfileConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-constant#profileconnectionstate) | 否 | 否 | Profile连接状态。 |
-| cause12+ | [DisconnectCause](#disconnectcause12) | 否 | 否 | Profile断开连接的原因。 |
+| state | ProfileConnectionState | 否 | 否 | Profile连接状态。 |
+| cause12+ | DisconnectCause | 否 | 否 | Profile断开连接的原因。 |
 
 
-## DisconnectCause12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DisconnectCause12+
 
 枚举，Profile断开连接的原因。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -75,10 +72,11 @@ type ProfileConnectionState = constant.ProfileConnectionState
 | CONNECT_FAIL_INTERNAL | 5 | 内部错误。 |
 
 
-## BaseProfile.getConnectedDevices
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getConnectedDevices(): Array<string>
+
+##### BaseProfile.getConnectedDevices
+
+getConnectedDevices(): Array&lt;string&gt;
 
 获取和本端设备间已连接Profile的对端设备列表。
 
@@ -88,16 +86,14 @@ getConnectedDevices(): Array<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;string&gt; | 返回已连接Profile的对端设备列表。          基于信息安全考虑，此处获取的设备地址为虚拟MAC地址。          - 已配对的地址不会变更。          - 若该设备重启蓝牙开关，重新获取到的虚拟地址会立即变更。          - 若取消配对，蓝牙子系统会根据该地址的实际使用情况，决策后续变更时机；若其他应用正在使用该地址，则不会立刻变更。          - 若要持久化保存该地址，可使用[access.addPersistentDeviceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-access#accessaddpersistentdeviceid16)方法。 |
+| Array&lt;string&gt; | 返回已连接Profile的对端设备列表。 基于信息安全考虑，此处获取的设备地址为虚拟MAC地址。 - 已配对的地址不会变更。 - 若该设备重启蓝牙开关，重新获取到的虚拟地址会立即变更。 - 若取消配对，蓝牙子系统会根据该地址的实际使用情况，决策后续变更时机；若其他应用正在使用该地址，则不会立刻变更。 - 若要持久化保存该地址，可使用access.addPersistentDeviceId方法。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -111,36 +107,34 @@ getConnectedDevices(): Array<string>
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { a2dp } from '@kit.ConnectivityKit';
 
 try {
-let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
-let retArray = a2dpSrc.getConnectedDevices();
+    let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
+    let retArray = a2dpSrc.getConnectedDevices();
 } catch (err) {
-console.error("errCode:" + (err as BusinessError).code + ",errMessage:" + (err as BusinessError).message);
+    console.error("errCode:" + (err as BusinessError).code + ",errMessage:" + (err as BusinessError).message);
 }
 ```
 
 
-## BaseProfile.getConnectionState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### BaseProfile.getConnectionState
 
 getConnectionState(deviceId: string): ProfileConnectionState
 
 获取和对端设备间Profile的连接状态。
 
+ - 从API version 21开始，此接口支持使用对端设备的实际MAC地址获取Profile连接状态。
 
-- 从API version 21开始，此接口支持使用对端设备的实际MAC地址获取Profile连接状态。
 
 **需要权限**：ohos.permission.ACCESS_BLUETOOTH
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -149,16 +143,14 @@ getConnectionState(deviceId: string): ProfileConnectionState
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ProfileConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-constant#profileconnectionstate) | 返回Profile的连接状态。 |
+| ProfileConnectionState | 返回Profile的连接状态。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -173,24 +165,23 @@ getConnectionState(deviceId: string): ProfileConnectionState
 
 **示例：**
 
-
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { a2dp } from '@kit.ConnectivityKit';
 
 try {
-let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
-let ret = a2dpSrc.getConnectionState('XX:XX:XX:XX:XX:XX');
+    let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
+    let ret = a2dpSrc.getConnectionState('XX:XX:XX:XX:XX:XX');
 } catch (err) {
-console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
 ```
 
 
-## BaseProfile.on('connectionStateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void
+##### BaseProfile.on('connectionStateChange')
+
+on(type: 'connectionStateChange', callback: Callback&lt;StateChangeParam&gt;): void
 
 订阅Profile的连接状态变化事件。使用Callback异步回调。
 
@@ -200,17 +191,15 @@ on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为'connectionStateChange'，表示Profile连接状态变化事件。          当Profile连接状态变化时，触发该事件。 |
-| callback | Callback&lt;[StateChangeParam](#statechangeparam)&gt; | 是 | 指定订阅的回调函数，会携带Profile连接状态。 |
+| type | string | 是 | 事件回调类型，支持的事件为'connectionStateChange'，表示Profile连接状态变化事件。 当Profile连接状态变化时，触发该事件。 |
+| callback | Callback&lt;StateChangeParam&gt; | 是 | 指定订阅的回调函数，会携带Profile连接状态。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -221,25 +210,24 @@ on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void
 
 **示例：**
 
-
-```text
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { a2dp } from '@kit.ConnectivityKit';
 
 function onReceiveEvent(data: baseProfile.StateChangeParam) {
-console.info('a2dp state = '+ JSON.stringify(data));
+    console.info('a2dp state = '+ JSON.stringify(data));
 }
 try {
-let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
-a2dpSrc.on('connectionStateChange', onReceiveEvent);
+    let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
+    a2dpSrc.on('connectionStateChange', onReceiveEvent);
 } catch (err) {
-console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
 ```
 
 
-## BaseProfile.off('connectionStateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### BaseProfile.off('connectionStateChange')
 
 off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#statechangeparam)>): void
 
@@ -251,17 +239,15 @@ off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#state
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'connectionStateChange'，表示Profile连接状态变化事件。 |
-| callback | Callback&lt;[StateChangeParam](#statechangeparam)&gt; | 否 | 指定取消订阅的回调函数通知。          若传参，则需与[BaseProfile.on('connectionStateChange')](#baseprofileonconnectionstatechange)中的回调函数一致；若无传参，则取消订阅该type对应的所有回调函数通知。 |
+| callback | Callback&lt;StateChangeParam&gt; | 否 | 指定取消订阅的回调函数通知。 若传参，则需与BaseProfile.on('connectionStateChange')中的回调函数一致；若无传参，则取消订阅该type对应的所有回调函数通知。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -272,19 +258,18 @@ off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#state
 
 **示例：**
 
-
-```text
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { a2dp } from '@kit.ConnectivityKit';
 
 function onReceiveEvent(data: baseProfile.StateChangeParam) {
-console.info('a2dp state = '+ JSON.stringify(data));
+    console.info('a2dp state = '+ JSON.stringify(data));
 }
 try {
-let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
-a2dpSrc.on('connectionStateChange', onReceiveEvent);
-a2dpSrc.off('connectionStateChange', onReceiveEvent);
+    let a2dpSrc = a2dp.createA2dpSrcProfile(); // 以a2dp举例
+    a2dpSrc.on('connectionStateChange', onReceiveEvent);
+    a2dpSrc.off('connectionStateChange', onReceiveEvent);
 } catch (err) {
-console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
 ```

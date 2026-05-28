@@ -4,22 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-computenodeinfo-init
 
-## 函数功能
+##### 函数功能
 
 初始化ComputeNodeInfo类。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void Init(const size_t ir_inputs_num, const size_t inputs_num, const size_t outputs_num, const ge::char_t *node_name, const ge::char_t *node_type);
 void Init(const size_t ir_inputs_num, const size_t ir_outputs_num, const size_t inputs_num, const size_t outputs_num, const size_t attr_size, const ge::char_t *node_name, const ge::char_t *node_type);
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | ir_inputs_num | 输入 | 算子原型输入的个数。 |
@@ -29,18 +30,23 @@ void Init(const size_t ir_inputs_num, const size_t ir_outputs_num, const size_t 
 | node_type | 输入 | 节点类型（算子原型名称）。 |
 | ir_outputs_num | 输入 | 算子原型输出的个数。 |
 | attr_size | 输入 | 属性个数。 |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 auto ir_input_num = node->GetOpDesc()->GetIrInputs().size();

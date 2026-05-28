@@ -21,21 +21,21 @@
 | API废弃版本变更 | 类名：Vector； API声明：getLastIndexFrom(element: T, index: number): number; 差异内容：NA | 类名：Vector； API声明：getLastIndexFrom(element: T, index: number): number; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：getIndexFrom(element: T, index: number): number; 差异内容：NA | 类名：Vector； API声明：getIndexFrom(element: T, index: number): number; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：removeByRange(fromIndex: number, toIndex: number): void; 差异内容：NA | 类名：Vector； API声明：removeByRange(fromIndex: number, toIndex: number): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
-| API废弃版本变更 | 类名：Vector； API声明：replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector<T>) => T, thisArg?: Object): void; 差异内容：NA | 类名：Vector； API声明：replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector<T>) => T, thisArg?: Object): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
-| API废弃版本变更 | 类名：Vector； API声明：forEach(callbackFn: (value: T, index?: number, vector?: Vector<T>) => void, thisArg?: Object): void; 差异内容：NA | 类名：Vector； API声明：forEach(callbackFn: (value: T, index?: number, vector?: Vector<T>) => void, thisArg?: Object): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
+| API废弃版本变更 | 类名：Vector； API声明：replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector&lt;T&gt;) => T, thisArg?: Object): void; 差异内容：NA | 类名：Vector； API声明：replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector&lt;T&gt;) => T, thisArg?: Object): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
+| API废弃版本变更 | 类名：Vector； API声明：forEach(callbackFn: (value: T, index?: number, vector?: Vector&lt;T&gt;) => void, thisArg?: Object): void; 差异内容：NA | 类名：Vector； API声明：forEach(callbackFn: (value: T, index?: number, vector?: Vector&lt;T&gt;) => void, thisArg?: Object): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：sort(comparator?: (firstValue: T, secondValue: T) => number): void; 差异内容：NA | 类名：Vector； API声明：sort(comparator?: (firstValue: T, secondValue: T) => number): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
-| API废弃版本变更 | 类名：Vector； API声明：subVector(fromIndex: number, toIndex: number): Vector<T>; 差异内容：NA | 类名：Vector； API声明：subVector(fromIndex: number, toIndex: number): Vector<T>; 差异内容：9 | api/@ohos.util.Vector.d.ts |
+| API废弃版本变更 | 类名：Vector； API声明：subVector(fromIndex: number, toIndex: number): Vector&lt;T&gt;; 差异内容：NA | 类名：Vector； API声明：subVector(fromIndex: number, toIndex: number): Vector&lt;T&gt;; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：clear(): void; 差异内容：NA | 类名：Vector； API声明：clear(): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
-| API废弃版本变更 | 类名：Vector； API声明：clone(): Vector<T>; 差异内容：NA | 类名：Vector； API声明：clone(): Vector<T>; 差异内容：9 | api/@ohos.util.Vector.d.ts |
+| API废弃版本变更 | 类名：Vector； API声明：clone(): Vector&lt;T&gt;; 差异内容：NA | 类名：Vector； API声明：clone(): Vector&lt;T&gt;; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：setLength(newSize: number): void; 差异内容：NA | 类名：Vector； API声明：setLength(newSize: number): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：getCapacity(): number; 差异内容：NA | 类名：Vector； API声明：getCapacity(): number; 差异内容：9 | api/@ohos.util.Vector.d.ts |
-| API废弃版本变更 | 类名：Vector； API声明：convertToArray(): Array<T>; 差异内容：NA | 类名：Vector； API声明：convertToArray(): Array<T>; 差异内容：9 | api/@ohos.util.Vector.d.ts |
+| API废弃版本变更 | 类名：Vector； API声明：convertToArray(): Array&lt;T&gt;; 差异内容：NA | 类名：Vector； API声明：convertToArray(): Array&lt;T&gt;; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：isEmpty(): boolean; 差异内容：NA | 类名：Vector； API声明：isEmpty(): boolean; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：increaseCapacityTo(newCapacity: number): void; 差异内容：NA | 类名：Vector； API声明：increaseCapacityTo(newCapacity: number): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：toString(): string; 差异内容：NA | 类名：Vector； API声明：toString(): string; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：Vector； API声明：trimToCurrentLength(): void; 差异内容：NA | 类名：Vector； API声明：trimToCurrentLength(): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
-| API废弃版本变更 | 类名：Vector； API声明：copyToArray(array: Array<T>): void; 差异内容：NA | 类名：Vector； API声明：copyToArray(array: Array<T>): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
-| API废弃版本变更 | 类名：Vector； API声明：Symbol.iterator: IterableIterator<T>; 差异内容：NA | 类名：Vector； API声明：Symbol.iterator: IterableIterator<T>; 差异内容：9 | api/@ohos.util.Vector.d.ts |
+| API废弃版本变更 | 类名：Vector； API声明：copyToArray(array: Array&lt;T&gt;): void; 差异内容：NA | 类名：Vector； API声明：copyToArray(array: Array&lt;T&gt;): void; 差异内容：9 | api/@ohos.util.Vector.d.ts |
+| API废弃版本变更 | 类名：Vector； API声明：Symbol.iterator: IterableIterator&lt;T&gt;; 差异内容：NA | 类名：Vector； API声明：Symbol.iterator: IterableIterator&lt;T&gt;; 差异内容：9 | api/@ohos.util.Vector.d.ts |
 | API废弃版本变更 | 类名：WorkerGlobalScope； API声明：readonly self: WorkerGlobalScope & typeof globalThis; 差异内容：NA | 类名：WorkerGlobalScope； API声明：readonly self: WorkerGlobalScope & typeof globalThis; 差异内容：9 | api/@ohos.worker.d.ts |
 | API废弃版本变更 | 类名：DedicatedWorkerGlobalScope； API声明：postMessage(messageObject: Object, options?: PostMessageOptions): void; 差异内容：NA | 类名：DedicatedWorkerGlobalScope； API声明：postMessage(messageObject: Object, options?: PostMessageOptions): void; 差异内容：9 | api/@ohos.worker.d.ts |
 | API废弃版本变更 | 类名：DedicatedWorkerGlobalScope； API声明：postMessage(messageObject: Object, transfer: ArrayBuffer[]): void; 差异内容：NA | 类名：DedicatedWorkerGlobalScope； API声明：postMessage(messageObject: Object, transfer: ArrayBuffer[]): void; 差异内容：9 | api/@ohos.worker.d.ts |
@@ -47,22 +47,22 @@
 | 权限变更 | 类名：global； API声明： declare namespace url 差异内容：N/A | 类名：global； API声明： declare namespace url 差异内容：NA | api/@ohos.url.d.ts |
 | 权限变更 | 类名：global； API声明： declare namespace util 差异内容：N/A | 类名：global； API声明： declare namespace util 差异内容：NA | api/@ohos.util.d.ts |
 | 权限变更 | 类名：global； API声明： declare namespace xml 差异内容：N/A | 类名：global； API声明： declare namespace xml 差异内容：NA | api/@ohos.xml.d.ts |
-| 函数变更 | 类名：TextEncoder； API声明：encodeIntoUint8Array(input: string, dest: Uint8Array): {  read: number;  written: number;  }; 差异内容：{read:number;written:number;} | 类名：TextEncoder； API声明：encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo; 差异内容：EncodeIntoUint8ArrayInfo | api/@ohos.util.d.ts |
+| 函数变更 | 类名：TextEncoder； API声明：encodeIntoUint8Array(input: string, dest: Uint8Array): { read: number; written: number; }; 差异内容：{read:number;written:number;} | 类名：TextEncoder； API声明：encodeIntoUint8Array(input: string, dest: Uint8Array): EncodeIntoUint8ArrayInfo; 差异内容：EncodeIntoUint8ArrayInfo | api/@ohos.util.d.ts |
 | 函数变更 | 类名：Base64Helper； API声明：encodeSync(src: Uint8Array): Uint8Array; 差异内容：NA | 类名：Base64Helper； API声明：encodeSync(src: Uint8Array, options?: Type): Uint8Array; 差异内容：options?: Type | api/@ohos.util.d.ts |
 | 函数变更 | 类名：Base64Helper； API声明：encodeToStringSync(src: Uint8Array): string; 差异内容：NA | 类名：Base64Helper； API声明：encodeToStringSync(src: Uint8Array, options?: Type): string; 差异内容：options?: Type | api/@ohos.util.d.ts |
 | 函数变更 | 类名：Base64Helper； API声明：decodeSync(src: Uint8Array \| string): Uint8Array; 差异内容：NA | 类名：Base64Helper； API声明：decodeSync(src: Uint8Array \| string, options?: Type): Uint8Array; 差异内容：options?: Type | api/@ohos.util.d.ts |
-| 函数变更 | 类名：Base64Helper； API声明：encode(src: Uint8Array): Promise<Uint8Array>; 差异内容：NA | 类名：Base64Helper； API声明：encode(src: Uint8Array, options?: Type): Promise<Uint8Array>; 差异内容：options?: Type | api/@ohos.util.d.ts |
-| 函数变更 | 类名：Base64Helper； API声明：encodeToString(src: Uint8Array): Promise<string>; 差异内容：NA | 类名：Base64Helper； API声明：encodeToString(src: Uint8Array, options?: Type): Promise<string>; 差异内容：options?: Type | api/@ohos.util.d.ts |
-| 函数变更 | 类名：Base64Helper； API声明：decode(src: Uint8Array \| string): Promise<Uint8Array>; 差异内容：NA | 类名：Base64Helper； API声明：decode(src: Uint8Array \| string, options?: Type): Promise<Uint8Array>; 差异内容：options?: Type | api/@ohos.util.d.ts |
+| 函数变更 | 类名：Base64Helper； API声明：encode(src: Uint8Array): Promise&lt;Uint8Array&gt;; 差异内容：NA | 类名：Base64Helper； API声明：encode(src: Uint8Array, options?: Type): Promise&lt;Uint8Array&gt;; 差异内容：options?: Type | api/@ohos.util.d.ts |
+| 函数变更 | 类名：Base64Helper； API声明：encodeToString(src: Uint8Array): Promise&lt;string&gt;; 差异内容：NA | 类名：Base64Helper； API声明：encodeToString(src: Uint8Array, options?: Type): Promise&lt;string&gt;; 差异内容：options?: Type | api/@ohos.util.d.ts |
+| 函数变更 | 类名：Base64Helper； API声明：decode(src: Uint8Array \| string): Promise&lt;Uint8Array&gt;; 差异内容：NA | 类名：Base64Helper； API声明：decode(src: Uint8Array \| string, options?: Type): Promise&lt;Uint8Array&gt;; 差异内容：options?: Type | api/@ohos.util.d.ts |
 | 函数变更 | 类名：URLSearchParams； API声明：forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void; 差异内容：callbackFn: (value: string, key: string, searchParams: this) => void | 类名：URLSearchParams； API声明：forEach(callbackFn: (value: string, key: string, searchParams: URLSearchParams) => void, thisArg?: Object): void; 差异内容：callbackFn: (value: string, key: string, searchParams: URLSearchParams) => void | api/@ohos.url.d.ts |
 | 函数变更 | 类名：URLParams； API声明：forEach(callbackFn: (value: string, key: string, searchParams: this) => void, thisArg?: Object): void; 差异内容：callbackFn: (value: string, key: string, searchParams: this) => void | 类名：URLParams； API声明：forEach(callbackFn: (value: string, key: string, searchParams: URLParams) => void, thisArg?: Object): void; 差异内容：callbackFn: (value: string, key: string, searchParams: URLParams) => void | api/@ohos.url.d.ts |
-| 函数变更 | 类名：TextDecoder； API声明：static create(encoding?: string, options?: {  fatal?: boolean;  ignoreBOM?: boolean;  }): TextDecoder; 差异内容：options?: {  fatal?: boolean;  ignoreBOM?: boolean;  } | 类名：TextDecoder； API声明：static create(encoding?: string, options?: TextDecoderOptions): TextDecoder; 差异内容：options?: TextDecoderOptions | api/@ohos.util.d.ts |
-| 函数变更 | 类名：TextDecoder； API声明：decodeWithStream(input: Uint8Array, options?: {  stream?: boolean;  }): string; 差异内容：options?: {  stream?: boolean;  } | 类名：TextDecoder； API声明：decodeWithStream(input: Uint8Array, options?: DecodeWithStreamOptions): string; 差异内容：options?: DecodeWithStreamOptions | api/@ohos.util.d.ts |
+| 函数变更 | 类名：TextDecoder； API声明：static create(encoding?: string, options?: { fatal?: boolean; ignoreBOM?: boolean; }): TextDecoder; 差异内容：options?: { fatal?: boolean; ignoreBOM?: boolean; } | 类名：TextDecoder； API声明：static create(encoding?: string, options?: TextDecoderOptions): TextDecoder; 差异内容：options?: TextDecoderOptions | api/@ohos.util.d.ts |
+| 函数变更 | 类名：TextDecoder； API声明：decodeWithStream(input: Uint8Array, options?: { stream?: boolean; }): string; 差异内容：options?: { stream?: boolean; } | 类名：TextDecoder； API声明：decodeWithStream(input: Uint8Array, options?: DecodeWithStreamOptions): string; 差异内容：options?: DecodeWithStreamOptions | api/@ohos.util.d.ts |
 | 属性变更 | 类名：Task； API声明：arguments?: unknown[]; 差异内容：unknown[] | 类名：Task； API声明：arguments?: Object[]; 差异内容：Object[] | api/@ohos.taskpool.d.ts |
 | 属性变更 | 类名：WorkerOptions； API声明：type?: "classic" \| "module"; 差异内容："classic","module" | 类名：WorkerOptions； API声明：type?: 'classic' \| 'module'; 差异内容：'classic','module' | api/@ohos.worker.d.ts |
 | 自定义类型变更 | 类名：global； API声明：type MessageType = "message" \| "messageerror"; 差异内容："message" \| "messageerror" | 类名：global； API声明：type MessageType = 'message' \| 'messageerror'; 差异内容：'message' \| 'messageerror' | api/@ohos.worker.d.ts |
-| 新增API | NA | 类名：taskpool； API声明：function execute(func: Function, ...args: Object[]): Promise<Object>; 差异内容：function execute(func: Function, ...args: Object[]): Promise<Object>; | api/@ohos.taskpool.d.ts |
-| 新增API | NA | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise<Object>; 差异内容：function execute(task: Task, priority?: Priority): Promise<Object>; | api/@ohos.taskpool.d.ts |
+| 新增API | NA | 类名：taskpool； API声明：function execute(func: Function, ...args: Object[]): Promise&lt;Object&gt;; 差异内容：function execute(func: Function, ...args: Object[]): Promise&lt;Object&gt;; | api/@ohos.taskpool.d.ts |
+| 新增API | NA | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise&lt;Object&gt;; 差异内容：function execute(task: Task, priority?: Priority): Promise&lt;Object&gt;; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明：function execute(group: TaskGroup, priority?: Priority): Promise<Object[]>; 差异内容：function execute(group: TaskGroup, priority?: Priority): Promise<Object[]>; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明：function cancel(group: TaskGroup): void; 差异内容：function cancel(group: TaskGroup): void; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明：type CallbackFunction = () => void; 差异内容：type CallbackFunction = () => void; | api/@ohos.taskpool.d.ts |
@@ -87,7 +87,7 @@
 | 新增API | NA | 类名：TaskGroup； API声明：addTask(task: Task): void; 差异内容：addTask(task: Task): void; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：TaskGroup； API声明：name: string; 差异内容：name: string; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明： class SequenceRunner 差异内容： class SequenceRunner | api/@ohos.taskpool.d.ts |
-| 新增API | NA | 类名：SequenceRunner； API声明：execute(task: Task): Promise<Object>; 差异内容：execute(task: Task): Promise<Object>; | api/@ohos.taskpool.d.ts |
+| 新增API | NA | 类名：SequenceRunner； API声明：execute(task: Task): Promise&lt;Object&gt;; 差异内容：execute(task: Task): Promise&lt;Object&gt;; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明： class LongTask 差异内容： class LongTask | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明： enum State 差异内容： enum State | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：State； API声明：WAITING = 1 差异内容：WAITING = 1 | api/@ohos.taskpool.d.ts |
@@ -105,7 +105,7 @@
 | 新增API | NA | 类名：taskpool； API声明： class TaskPoolInfo 差异内容： class TaskPoolInfo | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：TaskPoolInfo； API声明：threadInfos: ThreadInfo[]; 差异内容：threadInfos: ThreadInfo[]; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：TaskPoolInfo； API声明：taskInfos: TaskInfo[]; 差异内容：taskInfos: TaskInfo[]; | api/@ohos.taskpool.d.ts |
-| 新增API | NA | 类名：taskpool； API声明：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>; 差异内容：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>; | api/@ohos.taskpool.d.ts |
+| 新增API | NA | 类名：taskpool； API声明：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise&lt;Object&gt;; 差异内容：function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise&lt;Object&gt;; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明：function getTaskPoolInfo(): TaskPoolInfo; 差异内容：function getTaskPoolInfo(): TaskPoolInfo; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明：function terminateTask(longTask: LongTask): void; 差异内容：function terminateTask(longTask: LongTask): void; | api/@ohos.taskpool.d.ts |
 | 新增API | NA | 类名：taskpool； API声明：function isConcurrent(func: Function): boolean; 差异内容：function isConcurrent(func: Function): boolean; | api/@ohos.taskpool.d.ts |
@@ -223,48 +223,48 @@
 | 新增API | NA | 类名：Duplex； API声明：readonly writableFinished: boolean; 差异内容：readonly writableFinished: boolean; | api/@ohos.util.stream.d.ts |
 | 新增API | NA | 类名：global； API声明： declare namespace collections 差异内容： declare namespace collections | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明：type TypedArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType; 差异内容：type TypedArrayFromMapFn<FromElementType, ToElementType> = (value: FromElementType, index: number) => ToElementType; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：collections； API声明：type TypedArrayPredicateFn<ElementType, ArrayType> =  (value: ElementType, index: number, array: ArrayType) => boolean; 差异内容：type TypedArrayPredicateFn<ElementType, ArrayType> =  (value: ElementType, index: number, array: ArrayType) => boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：collections； API声明：type TypedArrayForEachCallback<ElementType, ArrayType> =  (value: ElementType, index: number, array: ArrayType) => void; 差异内容：type TypedArrayForEachCallback<ElementType, ArrayType> =  (value: ElementType, index: number, array: ArrayType) => void; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：collections； API声明：type TypedArrayReduceCallback<AccType, ElementType, ArrayType> =  (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType; 差异内容：type TypedArrayReduceCallback<AccType, ElementType, ArrayType> =  (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：collections； API声明：type TypedArrayCompareFn<ElementType> = (first: ElementType, second: ElementType) => number; 差异内容：type TypedArrayCompareFn<ElementType> = (first: ElementType, second: ElementType) => number; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：collections； API声明：type TypedArrayPredicateFn<ElementType, ArrayType> = (value: ElementType, index: number, array: ArrayType) => boolean; 差异内容：type TypedArrayPredicateFn<ElementType, ArrayType> = (value: ElementType, index: number, array: ArrayType) => boolean; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：collections； API声明：type TypedArrayForEachCallback<ElementType, ArrayType> = (value: ElementType, index: number, array: ArrayType) => void; 差异内容：type TypedArrayForEachCallback<ElementType, ArrayType> = (value: ElementType, index: number, array: ArrayType) => void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：collections； API声明：type TypedArrayReduceCallback<AccType, ElementType, ArrayType> = (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType; 差异内容：type TypedArrayReduceCallback<AccType, ElementType, ArrayType> = (previousValue: AccType, currentValue: ElementType, currentIndex: number, array: ArrayType) => AccType; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：collections； API声明：type TypedArrayCompareFn&lt;ElementType&gt; = (first: ElementType, second: ElementType) => number; 差异内容：type TypedArrayCompareFn&lt;ElementType&gt; = (first: ElementType, second: ElementType) => number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明：type ISendable = lang.ISendable; 差异内容：type ISendable = lang.ISendable; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： interface ConcatArray 差异内容： interface ConcatArray | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：ConcatArray； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：ConcatArray； API声明：join(separator?: string): string; 差异内容：join(separator?: string): string; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：ConcatArray； API声明：slice(start?: number, end?: number): ConcatArray<T>; 差异内容：slice(start?: number, end?: number): ConcatArray<T>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：ConcatArray； API声明：slice(start?: number, end?: number): ConcatArray&lt;T&gt;; 差异内容：slice(start?: number, end?: number): ConcatArray&lt;T&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Array 差异内容： class Array | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：static create<T>(arrayLength: number, initialValue: T): Array<T>; 差异内容：static create<T>(arrayLength: number, initialValue: T): Array<T>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：static from<T>(arrayLike: ArrayLike<T>): Array<T>; 差异内容：static from<T>(arrayLike: ArrayLike<T>): Array<T>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：static create&lt;T&gt;(arrayLength: number, initialValue: T): Array&lt;T&gt;; 差异内容：static create&lt;T&gt;(arrayLength: number, initialValue: T): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;): Array&lt;T&gt;; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：pop(): T \| undefined; 差异内容：pop(): T \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：push(...items: T[]): number; 差异内容：push(...items: T[]): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：join(separator?: string): string; 差异内容：join(separator?: string): string; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：shift(): T \| undefined; 差异内容：shift(): T \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：unshift(...items: T[]): number; 差异内容：unshift(...items: T[]): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：slice(start?: number, end?: number): Array<T>; 差异内容：slice(start?: number, end?: number): Array<T>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：sort(compareFn?: (a: T, b: T) => number): Array<T>; 差异内容：sort(compareFn?: (a: T, b: T) => number): Array<T>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：slice(start?: number, end?: number): Array&lt;T&gt;; 差异内容：slice(start?: number, end?: number): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：sort(compareFn?: (a: T, b: T) => number): Array&lt;T&gt;; 差异内容：sort(compareFn?: (a: T, b: T) => number): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：indexOf(searchElement: T, fromIndex?: number): number; 差异内容：indexOf(searchElement: T, fromIndex?: number): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：forEach(callbackFn: (value: T, index: number, array: Array<T>) => void): void; 差异内容：forEach(callbackFn: (value: T, index: number, array: Array<T>) => void): void; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：map<U>(callbackFn: (value: T, index: number, array: Array<T>) => U): Array<U>; 差异内容：map<U>(callbackFn: (value: T, index: number, array: Array<T>) => U): Array<U>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：filter(predicate: (value: T, index: number, array: Array<T>) => boolean): Array<T>; 差异内容：filter(predicate: (value: T, index: number, array: Array<T>) => boolean): Array<T>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T; 差异内容：reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array<T>) => T): T; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：reduce<U>(  callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,  initialValue: U  ): U; 差异内容：reduce<U>(  callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array<T>) => U,  initialValue: U  ): U; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：forEach(callbackFn: (value: T, index: number, array: Array&lt;T&gt;) => void): void; 差异内容：forEach(callbackFn: (value: T, index: number, array: Array&lt;T&gt;) => void): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：map&lt;U&gt;(callbackFn: (value: T, index: number, array: Array&lt;T&gt;) => U): Array&lt;U&gt;; 差异内容：map&lt;U&gt;(callbackFn: (value: T, index: number, array: Array&lt;T&gt;) => U): Array&lt;U&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：filter(predicate: (value: T, index: number, array: Array&lt;T&gt;) => boolean): Array&lt;T&gt;; 差异内容：filter(predicate: (value: T, index: number, array: Array&lt;T&gt;) => boolean): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array&lt;T&gt;) => T): T; 差异内容：reduce(callbackFn: (previousValue: T, currentValue: T, currentIndex: number, array: Array&lt;T&gt;) => T): T; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：reduce&lt;U&gt;( callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array&lt;T&gt;) => U, initialValue: U ): U; 差异内容：reduce&lt;U&gt;( callbackFn: (previousValue: U, currentValue: T, currentIndex: number, array: Array&lt;T&gt;) => U, initialValue: U ): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：at(index: number): T \| undefined; 差异内容：at(index: number): T \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：entries(): IterableIterator<[number, T]>; 差异内容：entries(): IterableIterator<[number, T]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：values(): IterableIterator<T>; 差异内容：values(): IterableIterator<T>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：find(predicate: (value: T, index: number, obj: Array<T>) => boolean): T \| undefined; 差异内容：find(predicate: (value: T, index: number, obj: Array<T>) => boolean): T \| undefined; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：values(): IterableIterator&lt;T&gt;; 差异内容：values(): IterableIterator&lt;T&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：find(predicate: (value: T, index: number, obj: Array&lt;T&gt;) => boolean): T \| undefined; 差异内容：find(predicate: (value: T, index: number, obj: Array&lt;T&gt;) => boolean): T \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：includes(searchElement: T, fromIndex?: number): boolean; 差异内容：includes(searchElement: T, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：findIndex(predicate: (value: T, index: number, obj: Array<T>) => boolean): number; 差异内容：findIndex(predicate: (value: T, index: number, obj: Array<T>) => boolean): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：fill(value: T, start?: number, end?: number): Array<T>; 差异内容：fill(value: T, start?: number, end?: number): Array<T>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：findIndex(predicate: (value: T, index: number, obj: Array&lt;T&gt;) => boolean): number; 差异内容：findIndex(predicate: (value: T, index: number, obj: Array&lt;T&gt;) => boolean): number; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：fill(value: T, start?: number, end?: number): Array&lt;T&gt;; 差异内容：fill(value: T, start?: number, end?: number): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：shrinkTo(arrayLength: number): void; 差异内容：shrinkTo(arrayLength: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Array； API声明：extendTo(arrayLength: number, initialValue: T): void; 差异内容：extendTo(arrayLength: number, initialValue: T): void; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Array； API声明：concat(...items: ConcatArray<T>[]): Array<T>; 差异内容：concat(...items: ConcatArray<T>[]): Array<T>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Array； API声明：concat(...items: ConcatArray&lt;T&gt;[]): Array&lt;T&gt;; 差异内容：concat(...items: ConcatArray&lt;T&gt;[]): Array&lt;T&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Map 差异内容： class Map | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Map； API声明：readonly size: number; 差异内容：readonly size: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Map； API声明：entries(): IterableIterator<[K, V]>; 差异内容：entries(): IterableIterator<[K, V]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Map； API声明：keys(): IterableIterator<K>; 差异内容：keys(): IterableIterator<K>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Map； API声明：values(): IterableIterator<V>; 差异内容：values(): IterableIterator<V>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Map； API声明：keys(): IterableIterator&lt;K&gt;; 差异内容：keys(): IterableIterator&lt;K&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Map； API声明：values(): IterableIterator&lt;V&gt;; 差异内容：values(): IterableIterator&lt;V&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Map； API声明：clear(): void; 差异内容：clear(): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Map； API声明：delete(key: K): boolean; 差异内容：delete(key: K): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Map； API声明：forEach(callbackFn: (value: V, key: K, map: Map<K, V>) => void): void; 差异内容：forEach(callbackFn: (value: V, key: K, map: Map<K, V>) => void): void; | arkts/@arkts.collections.d.ets |
@@ -274,12 +274,12 @@
 | 新增API | NA | 类名：collections； API声明： class Set 差异内容： class Set | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Set； API声明：readonly size: number; 差异内容：readonly size: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Set； API声明：entries(): IterableIterator<[T, T]>; 差异内容：entries(): IterableIterator<[T, T]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Set； API声明：keys(): IterableIterator<T>; 差异内容：keys(): IterableIterator<T>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Set； API声明：values(): IterableIterator<T>; 差异内容：values(): IterableIterator<T>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Set； API声明：add(value: T): Set<T>; 差异内容：add(value: T): Set<T>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Set； API声明：keys(): IterableIterator&lt;T&gt;; 差异内容：keys(): IterableIterator&lt;T&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Set； API声明：values(): IterableIterator&lt;T&gt;; 差异内容：values(): IterableIterator&lt;T&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Set； API声明：add(value: T): Set&lt;T&gt;; 差异内容：add(value: T): Set&lt;T&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Set； API声明：clear(): void; 差异内容：clear(): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Set； API声明：delete(value: T): boolean; 差异内容：delete(value: T): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Set； API声明：forEach(callbackFn: (value: T, value2: T, set: Set<T>) => void): void; 差异内容：forEach(callbackFn: (value: T, value2: T, set: Set<T>) => void): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Set； API声明：forEach(callbackFn: (value: T, value2: T, set: Set&lt;T&gt;) => void): void; 差异内容：forEach(callbackFn: (value: T, value2: T, set: Set&lt;T&gt;) => void): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Set； API声明：has(value: T): boolean; 差异内容：has(value: T): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class ArrayBuffer 差异内容： class ArrayBuffer | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：ArrayBuffer； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
@@ -290,9 +290,9 @@
 | 新增API | NA | 类名：Int8Array； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：readonly byteOffset: number; 差异内容：readonly byteOffset: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：static from(arrayLike: ArrayLike<number>): Int8Array; 差异内容：static from(arrayLike: ArrayLike<number>): Int8Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int8Array; 差异内容：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int8Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array; 差异内容：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：static from(arrayLike: ArrayLike&lt;number&gt;): Int8Array; 差异内容：static from(arrayLike: ArrayLike&lt;number&gt;): Int8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int8Array; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array; 差异内容：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：copyWithin(target: number, start: number, end?: number): Int8Array; 差异内容：copyWithin(target: number, start: number, end?: number): Int8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean; 差异内容：every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：fill(value: number, start?: number, end?: number): Int8Array; 差异内容：fill(value: number, start?: number, end?: number): Int8Array; | arkts/@arkts.collections.d.ets |
@@ -305,17 +305,17 @@
 | 新增API | NA | 类名：Int8Array； API声明：map(callbackFn: TypedArrayForEachCallback<number, Int8Array>): Int8Array; 差异内容：map(callbackFn: TypedArrayForEachCallback<number, Int8Array>): Int8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialValue: number): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialValue: number): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U; 差异内容：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U; 差异内容：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：reverse(): Int8Array; 差异内容：reverse(): Int8Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：set(array: ArrayLike<number>, offset?: number): void; 差异内容：set(array: ArrayLike<number>, offset?: number): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：set(array: ArrayLike&lt;number&gt;, offset?: number): void; 差异内容：set(array: ArrayLike&lt;number&gt;, offset?: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：slice(start?: number, end?: number): Int8Array; 差异内容：slice(start?: number, end?: number): Int8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean; 差异内容：some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：sort(compareFn?: TypedArrayCompareFn<number>): Int8Array; 差异内容：sort(compareFn?: TypedArrayCompareFn<number>): Int8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int8Array; 差异内容：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：subarray(begin?: number, end?: number): Int8Array; 差异内容：subarray(begin?: number, end?: number): Int8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：at(index: number): number \| undefined; 差异内容：at(index: number): number \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：entries(): IterableIterator<[number, number]>; 差异内容：entries(): IterableIterator<[number, number]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int8Array； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int8Array； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int8Array； API声明：includes(searchElement: number, fromIndex?: number): boolean; 差异内容：includes(searchElement: number, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Uint8Array 差异内容： class Uint8Array | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：static readonly BYTES_PER_ELEMENT: number; 差异内容：static readonly BYTES_PER_ELEMENT: number; | arkts/@arkts.collections.d.ets |
@@ -323,9 +323,9 @@
 | 新增API | NA | 类名：Uint8Array； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：readonly byteOffset: number; 差异内容：readonly byteOffset: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：static from(arrayLike: ArrayLike<number>): Uint8Array; 差异内容：static from(arrayLike: ArrayLike<number>): Uint8Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8Array; 差异内容：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint8Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8Array; 差异内容：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：static from(arrayLike: ArrayLike&lt;number&gt;): Uint8Array; 差异内容：static from(arrayLike: ArrayLike&lt;number&gt;): Uint8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint8Array; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint8Array; 差异内容：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：copyWithin(target: number, start: number, end?: number): Uint8Array; 差异内容：copyWithin(target: number, start: number, end?: number): Uint8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：every(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean; 差异内容：every(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：fill(value: number, start?: number, end?: number): Uint8Array; 差异内容：fill(value: number, start?: number, end?: number): Uint8Array; | arkts/@arkts.collections.d.ets |
@@ -338,17 +338,17 @@
 | 新增API | NA | 类名：Uint8Array； API声明：map(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): Uint8Array; 差异内容：map(callbackFn: TypedArrayForEachCallback<number, Uint8Array>): Uint8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>, initialValue: number): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8Array>, initialValue: number): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U; 差异内容：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U; 差异内容：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Uint8Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：reverse(): Uint8Array; 差异内容：reverse(): Uint8Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：set(array: ArrayLike<number>, offset?: number): void; 差异内容：set(array: ArrayLike<number>, offset?: number): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：set(array: ArrayLike&lt;number&gt;, offset?: number): void; 差异内容：set(array: ArrayLike&lt;number&gt;, offset?: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：slice(start?: number, end?: number): Uint8Array; 差异内容：slice(start?: number, end?: number): Uint8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：some(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean; 差异内容：some(predicate: TypedArrayPredicateFn<number, Uint8Array>): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：sort(compareFn?: TypedArrayCompareFn<number>): Uint8Array; 差异内容：sort(compareFn?: TypedArrayCompareFn<number>): Uint8Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint8Array; 差异内容：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：subarray(begin?: number, end?: number): Uint8Array; 差异内容：subarray(begin?: number, end?: number): Uint8Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：at(index: number): number \| undefined; 差异内容：at(index: number): number \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：entries(): IterableIterator<[number, number]>; 差异内容：entries(): IterableIterator<[number, number]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint8Array； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint8Array； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint8Array； API声明：includes(searchElement: number, fromIndex?: number): boolean; 差异内容：includes(searchElement: number, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Int16Array 差异内容： class Int16Array | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：static readonly BYTES_PER_ELEMENT: number; 差异内容：static readonly BYTES_PER_ELEMENT: number; | arkts/@arkts.collections.d.ets |
@@ -356,9 +356,9 @@
 | 新增API | NA | 类名：Int16Array； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：readonly byteOffset: number; 差异内容：readonly byteOffset: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：static from(arrayLike: ArrayLike<number>): Int16Array; 差异内容：static from(arrayLike: ArrayLike<number>): Int16Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int16Array; 差异内容：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int16Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int16Array; 差异内容：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：static from(arrayLike: ArrayLike&lt;number&gt;): Int16Array; 差异内容：static from(arrayLike: ArrayLike&lt;number&gt;): Int16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int16Array; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int16Array; 差异内容：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：copyWithin(target: number, start: number, end?: number): Int16Array; 差异内容：copyWithin(target: number, start: number, end?: number): Int16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：every(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean; 差异内容：every(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：fill(value: number, start?: number, end?: number): Int16Array; 差异内容：fill(value: number, start?: number, end?: number): Int16Array; | arkts/@arkts.collections.d.ets |
@@ -371,17 +371,17 @@
 | 新增API | NA | 类名：Int16Array； API声明：map(callbackFn: TypedArrayForEachCallback<number, Int16Array>): Int16Array; 差异内容：map(callbackFn: TypedArrayForEachCallback<number, Int16Array>): Int16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>, initialValue: number): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>, initialValue: number): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U; 差异内容：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U; 差异内容：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：reverse(): Int16Array; 差异内容：reverse(): Int16Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：set(array: ArrayLike<number>, offset?: number): void; 差异内容：set(array: ArrayLike<number>, offset?: number): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：set(array: ArrayLike&lt;number&gt;, offset?: number): void; 差异内容：set(array: ArrayLike&lt;number&gt;, offset?: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：slice(start?: number, end?: number): Int16Array; 差异内容：slice(start?: number, end?: number): Int16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：some(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean; 差异内容：some(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：sort(compareFn?: TypedArrayCompareFn<number>): Int16Array; 差异内容：sort(compareFn?: TypedArrayCompareFn<number>): Int16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int16Array; 差异内容：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：subarray(begin?: number, end?: number): Int16Array; 差异内容：subarray(begin?: number, end?: number): Int16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：at(index: number): number \| undefined; 差异内容：at(index: number): number \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：entries(): IterableIterator<[number, number]>; 差异内容：entries(): IterableIterator<[number, number]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int16Array； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int16Array； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int16Array； API声明：includes(searchElement: number, fromIndex?: number): boolean; 差异内容：includes(searchElement: number, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Uint16Array 差异内容： class Uint16Array | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：static readonly BYTES_PER_ELEMENT: number; 差异内容：static readonly BYTES_PER_ELEMENT: number; | arkts/@arkts.collections.d.ets |
@@ -389,9 +389,9 @@
 | 新增API | NA | 类名：Uint16Array； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：readonly byteOffset: number; 差异内容：readonly byteOffset: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：static from(arrayLike: ArrayLike<number>): Uint16Array; 差异内容：static from(arrayLike: ArrayLike<number>): Uint16Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint16Array; 差异内容：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint16Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint16Array; 差异内容：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：static from(arrayLike: ArrayLike&lt;number&gt;): Uint16Array; 差异内容：static from(arrayLike: ArrayLike&lt;number&gt;): Uint16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint16Array; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint16Array; 差异内容：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：copyWithin(target: number, start: number, end?: number): Uint16Array; 差异内容：copyWithin(target: number, start: number, end?: number): Uint16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：every(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean; 差异内容：every(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：fill(value: number, start?: number, end?: number): Uint16Array; 差异内容：fill(value: number, start?: number, end?: number): Uint16Array; | arkts/@arkts.collections.d.ets |
@@ -404,17 +404,17 @@
 | 新增API | NA | 类名：Uint16Array； API声明：map(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): Uint16Array; 差异内容：map(callbackFn: TypedArrayForEachCallback<number, Uint16Array>): Uint16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>, initialValue: number): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint16Array>, initialValue: number): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U; 差异内容：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U; 差异内容：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Uint16Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：reverse(): Uint16Array; 差异内容：reverse(): Uint16Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：set(array: ArrayLike<number>, offset?: number): void; 差异内容：set(array: ArrayLike<number>, offset?: number): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：set(array: ArrayLike&lt;number&gt;, offset?: number): void; 差异内容：set(array: ArrayLike&lt;number&gt;, offset?: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：slice(start?: number, end?: number): Uint16Array; 差异内容：slice(start?: number, end?: number): Uint16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：some(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean; 差异内容：some(predicate: TypedArrayPredicateFn<number, Uint16Array>): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：sort(compareFn?: TypedArrayCompareFn<number>): Uint16Array; 差异内容：sort(compareFn?: TypedArrayCompareFn<number>): Uint16Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint16Array; 差异内容：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：subarray(begin?: number, end?: number): Uint16Array; 差异内容：subarray(begin?: number, end?: number): Uint16Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：at(index: number): number \| undefined; 差异内容：at(index: number): number \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：entries(): IterableIterator<[number, number]>; 差异内容：entries(): IterableIterator<[number, number]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint16Array； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint16Array； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint16Array； API声明：includes(searchElement: number, fromIndex?: number): boolean; 差异内容：includes(searchElement: number, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Int32Array 差异内容： class Int32Array | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：static readonly BYTES_PER_ELEMENT: number; 差异内容：static readonly BYTES_PER_ELEMENT: number; | arkts/@arkts.collections.d.ets |
@@ -422,9 +422,9 @@
 | 新增API | NA | 类名：Int32Array； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：readonly byteOffset: number; 差异内容：readonly byteOffset: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：static from(arrayLike: ArrayLike<number>): Int32Array; 差异内容：static from(arrayLike: ArrayLike<number>): Int32Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int32Array; 差异内容：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int32Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int32Array; 差异内容：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：static from(arrayLike: ArrayLike&lt;number&gt;): Int32Array; 差异内容：static from(arrayLike: ArrayLike&lt;number&gt;): Int32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int32Array; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int32Array; 差异内容：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：copyWithin(target: number, start: number, end?: number): Int32Array; 差异内容：copyWithin(target: number, start: number, end?: number): Int32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：every(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean; 差异内容：every(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：fill(value: number, start?: number, end?: number): Int32Array; 差异内容：fill(value: number, start?: number, end?: number): Int32Array; | arkts/@arkts.collections.d.ets |
@@ -437,17 +437,17 @@
 | 新增API | NA | 类名：Int32Array； API声明：map(callbackFn: TypedArrayForEachCallback<number, Int32Array>): Int32Array; 差异内容：map(callbackFn: TypedArrayForEachCallback<number, Int32Array>): Int32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>, initialValue: number): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Int32Array>, initialValue: number): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U; 差异内容：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U; 差异内容：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int32Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：reverse(): Int32Array; 差异内容：reverse(): Int32Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：set(array: ArrayLike<number>, offset?: number): void; 差异内容：set(array: ArrayLike<number>, offset?: number): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：set(array: ArrayLike&lt;number&gt;, offset?: number): void; 差异内容：set(array: ArrayLike&lt;number&gt;, offset?: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：slice(start?: number, end?: number): Int32Array; 差异内容：slice(start?: number, end?: number): Int32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：some(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean; 差异内容：some(predicate: TypedArrayPredicateFn<number, Int32Array>): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：sort(compareFn?: TypedArrayCompareFn<number>): Int32Array; 差异内容：sort(compareFn?: TypedArrayCompareFn<number>): Int32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int32Array; 差异内容：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：subarray(begin?: number, end?: number): Int32Array; 差异内容：subarray(begin?: number, end?: number): Int32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：at(index: number): number \| undefined; 差异内容：at(index: number): number \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：entries(): IterableIterator<[number, number]>; 差异内容：entries(): IterableIterator<[number, number]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Int32Array； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Int32Array； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Int32Array； API声明：includes(searchElement: number, fromIndex?: number): boolean; 差异内容：includes(searchElement: number, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：collections； API声明： class Uint32Array 差异内容： class Uint32Array | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：static readonly BYTES_PER_ELEMENT: number; 差异内容：static readonly BYTES_PER_ELEMENT: number; | arkts/@arkts.collections.d.ets |
@@ -455,9 +455,9 @@
 | 新增API | NA | 类名：Uint32Array； API声明：readonly byteLength: number; 差异内容：readonly byteLength: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：readonly byteOffset: number; 差异内容：readonly byteOffset: number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：readonly length: number; 差异内容：readonly length: number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：static from(arrayLike: ArrayLike<number>): Uint32Array; 差异内容：static from(arrayLike: ArrayLike<number>): Uint32Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint32Array; 差异内容：static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Uint32Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint32Array; 差异内容：static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Uint32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：static from(arrayLike: ArrayLike&lt;number&gt;): Uint32Array; 差异内容：static from(arrayLike: ArrayLike&lt;number&gt;): Uint32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint32Array; 差异内容：static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint32Array; 差异内容：static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：copyWithin(target: number, start: number, end?: number): Uint32Array; 差异内容：copyWithin(target: number, start: number, end?: number): Uint32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：every(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean; 差异内容：every(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：fill(value: number, start?: number, end?: number): Uint32Array; 差异内容：fill(value: number, start?: number, end?: number): Uint32Array; | arkts/@arkts.collections.d.ets |
@@ -470,17 +470,17 @@
 | 新增API | NA | 类名：Uint32Array； API声明：map(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): Uint32Array; 差异内容：map(callbackFn: TypedArrayForEachCallback<number, Uint32Array>): Uint32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>): number; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>, initialValue: number): number; 差异内容：reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint32Array>, initialValue: number): number; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U; 差异内容：reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U; 差异内容：reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Uint32Array>, initialValue: U): U; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：reverse(): Uint32Array; 差异内容：reverse(): Uint32Array; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：set(array: ArrayLike<number>, offset?: number): void; 差异内容：set(array: ArrayLike<number>, offset?: number): void; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：set(array: ArrayLike&lt;number&gt;, offset?: number): void; 差异内容：set(array: ArrayLike&lt;number&gt;, offset?: number): void; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：slice(start?: number, end?: number): Uint32Array; 差异内容：slice(start?: number, end?: number): Uint32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：some(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean; 差异内容：some(predicate: TypedArrayPredicateFn<number, Uint32Array>): boolean; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：sort(compareFn?: TypedArrayCompareFn<number>): Uint32Array; 差异内容：sort(compareFn?: TypedArrayCompareFn<number>): Uint32Array; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint32Array; 差异内容：sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：subarray(begin?: number, end?: number): Uint32Array; 差异内容：subarray(begin?: number, end?: number): Uint32Array; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：at(index: number): number \| undefined; 差异内容：at(index: number): number \| undefined; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：entries(): IterableIterator<[number, number]>; 差异内容：entries(): IterableIterator<[number, number]>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：keys(): IterableIterator<number>; 差异内容：keys(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
-| 新增API | NA | 类名：Uint32Array； API声明：values(): IterableIterator<number>; 差异内容：values(): IterableIterator<number>; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：keys(): IterableIterator&lt;number&gt;; 差异内容：keys(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
+| 新增API | NA | 类名：Uint32Array； API声明：values(): IterableIterator&lt;number&gt;; 差异内容：values(): IterableIterator&lt;number&gt;; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：Uint32Array； API声明：includes(searchElement: number, fromIndex?: number): boolean; 差异内容：includes(searchElement: number, fromIndex?: number): boolean; | arkts/@arkts.collections.d.ets |
 | 新增API | NA | 类名：global； API声明： declare namespace lang 差异内容： declare namespace lang | arkts/@arkts.lang.d.ets |
 | 新增API | NA | 类名：lang； API声明： interface ISendable 差异内容： interface ISendable | arkts/@arkts.lang.d.ets |
@@ -629,21 +629,21 @@
 | 新增API | NA | 类名：Decimal； API声明：static readonly EUCLIDEAN : 9; 差异内容：static readonly EUCLIDEAN : 9; | arkts/@arkts.math.Decimal.d.ets |
 | 新增API | NA | 类名：global； API声明： declare namespace utils 差异内容： declare namespace utils | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：utils； API声明： namespace locks 差异内容： namespace locks | arkts/@arkts.utils.d.ets |
-| 新增API | NA | 类名：locks； API声明：type AsyncLockCallback<T> = () => T \| Promise<T>; 差异内容：type AsyncLockCallback<T> = () => T \| Promise<T>; | arkts/@arkts.utils.d.ets |
+| 新增API | NA | 类名：locks； API声明：type AsyncLockCallback&lt;T&gt; = () => T \| Promise&lt;T&gt;; 差异内容：type AsyncLockCallback&lt;T&gt; = () => T \| Promise&lt;T&gt;; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：locks； API声明： class AsyncLock 差异内容： class AsyncLock | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLock； API声明：static request(name: string): AsyncLock; 差异内容：static request(name: string): AsyncLock; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLock； API声明：static query(name: string): AsyncLockState; 差异内容：static query(name: string): AsyncLockState; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLock； API声明：static queryAll(): AsyncLockState[]; 差异内容：static queryAll(): AsyncLockState[]; | arkts/@arkts.utils.d.ets |
-| 新增API | NA | 类名：AsyncLock； API声明：lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>; 差异内容：lockAsync<T>(callback: AsyncLockCallback<T>): Promise<T>; | arkts/@arkts.utils.d.ets |
-| 新增API | NA | 类名：AsyncLock； API声明：lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>; 差异内容：lockAsync<T>(callback: AsyncLockCallback<T>, mode: AsyncLockMode): Promise<T>; | arkts/@arkts.utils.d.ets |
-| 新增API | NA | 类名：AsyncLock； API声明：lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode,  options: AsyncLockOptions<U>): Promise<T \| U>; 差异内容：lockAsync<T, U>(callback: AsyncLockCallback<T>, mode: AsyncLockMode,  options: AsyncLockOptions<U>): Promise<T \| U>; | arkts/@arkts.utils.d.ets |
+| 新增API | NA | 类名：AsyncLock； API声明：lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;): Promise&lt;T&gt;; 差异内容：lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;): Promise&lt;T&gt;; | arkts/@arkts.utils.d.ets |
+| 新增API | NA | 类名：AsyncLock； API声明：lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode): Promise&lt;T&gt;; 差异内容：lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode): Promise&lt;T&gt;; | arkts/@arkts.utils.d.ets |
+| 新增API | NA | 类名：AsyncLock； API声明：lockAsync<T, U>(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode, options: AsyncLockOptions&lt;U&gt;): Promise<T \| U>; 差异内容：lockAsync<T, U>(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode, options: AsyncLockOptions&lt;U&gt;): Promise<T \| U>; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLock； API声明：readonly name: string; 差异内容：readonly name: string; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：locks； API声明： enum AsyncLockMode 差异内容： enum AsyncLockMode | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLockMode； API声明：SHARED = 1 差异内容：SHARED = 1 | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLockMode； API声明：EXCLUSIVE = 2 差异内容：EXCLUSIVE = 2 | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：locks； API声明： class AsyncLockOptions 差异内容： class AsyncLockOptions | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLockOptions； API声明：isAvailable: boolean; 差异内容：isAvailable: boolean; | arkts/@arkts.utils.d.ets |
-| 新增API | NA | 类名：AsyncLockOptions； API声明：signal: AbortSignal<T> \| null; 差异内容：signal: AbortSignal<T> \| null; | arkts/@arkts.utils.d.ets |
+| 新增API | NA | 类名：AsyncLockOptions； API声明：signal: AbortSignal&lt;T&gt; \| null; 差异内容：signal: AbortSignal&lt;T&gt; \| null; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLockOptions； API声明：timeout: number; 差异内容：timeout: number; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：locks； API声明： class AsyncLockState 差异内容： class AsyncLockState | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：AsyncLockState； API声明：held: AsyncLockInfo[]; 差异内容：held: AsyncLockInfo[]; | arkts/@arkts.utils.d.ets |
@@ -659,5 +659,5 @@
 | 新增API | NA | 类名：ASON； API声明：type ISendable = lang.ISendable; 差异内容：type ISendable = lang.ISendable; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：ASON； API声明：function parse(text: string): ISendable \| null; 差异内容：function parse(text: string): ISendable \| null; | arkts/@arkts.utils.d.ets |
 | 新增API | NA | 类名：ASON； API声明：function stringify(value: ISendable \| null \| undefined): string; 差异内容：function stringify(value: ISendable \| null \| undefined): string; | arkts/@arkts.utils.d.ets |
-| 删除API | 类名：taskpool； API声明：function execute(func: Function, ...args: unknown[]): Promise<unknown>; 差异内容：function execute(func: Function, ...args: unknown[]): Promise<unknown>; | NA | api/@ohos.taskpool.d.ts |
-| 删除API | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise<unknown>; 差异内容：function execute(task: Task, priority?: Priority): Promise<unknown>; | NA | api/@ohos.taskpool.d.ts |
+| 删除API | 类名：taskpool； API声明：function execute(func: Function, ...args: unknown[]): Promise&lt;unknown&gt;; 差异内容：function execute(func: Function, ...args: unknown[]): Promise&lt;unknown&gt;; | NA | api/@ohos.taskpool.d.ts |
+| 删除API | 类名：taskpool； API声明：function execute(task: Task, priority?: Priority): Promise&lt;unknown&gt;; 差异内容：function execute(task: Task, priority?: Priority): Promise&lt;unknown&gt;; | NA | api/@ohos.taskpool.d.ts |

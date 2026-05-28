@@ -3,7 +3,7 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fastbuffer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FastBuffer对象是更高效的Buffer容器，用于表示固定长度的字节序列，是专门存放二进制数据的缓存区。
 
@@ -11,23 +11,20 @@ FastBuffer通过from构造时，仅支持FastBuffer、Uint8Array、string、Arra
 
 需要高性能处理大型二进制数据（如图片、文件传输、网络通信等）时，推荐使用FastBuffer。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 ```
 
 
-## BufferEncoding
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### BufferEncoding
 
 type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex'
 
@@ -36,7 +33,6 @@ type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -53,8 +49,9 @@ type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' 
 | 'hex' | 表示十六进制格式。 |
 
 
-## fastbuffer.alloc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### fastbuffer.alloc
 
 alloc(size: number, fill?: string | FastBuffer | number, encoding?: BufferEncoding): FastBuffer
 
@@ -66,26 +63,23 @@ alloc(size: number, fill?: string | FastBuffer | number, encoding?: BufferEncodi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| size | number | 是 | 指定的FastBuffer对象长度，单位：字节。取值范围：0 &lt;= size &lt;= UINT32_MAX。 |
+| size | number | 是 | 指定的FastBuffer对象长度，单位：字节。取值范围：0 <= size <= UINT32_MAX。 |
 | fill | string \| FastBuffer \| number | 否 | 填充至新缓存区的值，默认值：0。 |
-| encoding | [BufferEncoding](#bufferencoding) | 否 | 编码格式（当fill为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
+| encoding | BufferEncoding | 否 | 编码格式（当fill为string时，才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 返回一个FastBuffer对象。 |
+| FastBuffer | 返回一个FastBuffer对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.alloc(5);
@@ -98,8 +92,8 @@ console.info(buf3.toString());
 ```
 
 
-## fastbuffer.allocUninitializedFromPool
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.allocUninitializedFromPool
 
 allocUninitializedFromPool(size: number): FastBuffer
 
@@ -111,24 +105,21 @@ allocUninitializedFromPool(size: number): FastBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| size | number | 是 | 指定的FastBuffer对象长度，单位：字节。取值范围：0 &lt;= size &lt;= UINT32_MAX。 |
+| size | number | 是 | 指定的FastBuffer对象长度，单位：字节。取值范围：0 <= size <= UINT32_MAX。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 未初始化的Buffer实例。 |
+| FastBuffer | 未初始化的Buffer实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(10);
@@ -137,8 +128,8 @@ buf.fill(0);
 ```
 
 
-## fastbuffer.allocUninitialized
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.allocUninitialized
 
 allocUninitialized(size: number): FastBuffer
 
@@ -150,24 +141,21 @@ allocUninitialized(size: number): FastBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| size | number | 是 | 指定的FastBuffer对象长度，单位：字节。取值范围：0 &lt;= size &lt;= UINT32_MAX。 |
+| size | number | 是 | 指定的FastBuffer对象长度，单位：字节。取值范围：0 <= size <= UINT32_MAX。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 未初始化的FastBuffer实例。 |
+| FastBuffer | 未初始化的FastBuffer实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitialized(10);
@@ -176,8 +164,8 @@ buf.fill(0);
 ```
 
 
-## fastbuffer.byteLength
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.byteLength
 
 byteLength(value: string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer, encoding?: BufferEncoding): number
 
@@ -189,15 +177,13 @@ byteLength(value: string | FastBuffer | TypedArray | DataView | ArrayBuffer | Sh
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string \| FastBuffer \| TypedArray \| DataView \| ArrayBuffer \| SharedArrayBuffer | 是 | 指定字符串。 |
-| encoding | [BufferEncoding](#bufferencoding) | 否 | 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
+| encoding | BufferEncoding | 否 | 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -206,26 +192,21 @@ byteLength(value: string | FastBuffer | TypedArray | DataView | ArrayBuffer | Sh
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let str = 'hello world';
-console.info(
-  `${str}: ${str.length} characters, ${fastbuffer.byteLength(str, 'utf-8')} bytes`,
-);
+console.info(`${str}: ${str.length} characters, ${fastbuffer.byteLength(str, 'utf-8')} bytes`);
 // 输出结果：hello world: 11 characters, 11 bytes
 
 str = '\u00bd + \u00bc = \u00be';
-console.info(
-  `${str}: ${str.length} characters, ${fastbuffer.byteLength(str, 'utf-8')} bytes`,
-);
+console.info(`${str}: ${str.length} characters, ${fastbuffer.byteLength(str, 'utf-8')} bytes`);
 // 输出结果：½ + ¼ = ¾: 9 characters, 12 bytes
 ```
 
 
-## fastbuffer.compare
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.compare
 
 compare(buf1: FastBuffer | Uint8Array, buf2: FastBuffer | Uint8Array): -1 | 0 | 1
 
@@ -237,25 +218,22 @@ compare(buf1: FastBuffer | Uint8Array, buf2: FastBuffer | Uint8Array): -1 | 0 | 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| buf1 | [FastBuffer](#fastbuffer) \| Uint8Array | 是 | 待比较的第一个对象。 |
-| buf2 | [FastBuffer](#fastbuffer) \| Uint8Array | 是 | 待比较的第二个对象。 |
+| buf1 | FastBuffer \| Uint8Array | 是 | 待比较的第一个对象。 |
+| buf2 | FastBuffer \| Uint8Array | 是 | 待比较的第二个对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| -1 \| 0 \| 1 | 如果buf1与buf2相同，则返回0。          如果排序时buf1位于buf2之后，则返回1。          如果排序时buf1位于buf2之前，则返回-1。 |
+| -1 \| 0 \| 1 | 如果buf1与buf2相同，则返回0。 如果排序时buf1位于buf2之后，则返回1。 如果排序时buf1位于buf2之前，则返回-1。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -264,8 +242,7 @@ compare(buf1: FastBuffer | Uint8Array, buf2: FastBuffer | Uint8Array): -1 | 0 | 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from('1234');
@@ -277,8 +254,8 @@ console.info(Number(res).toString());
 ```
 
 
-## fastbuffer.concat
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.concat
 
 concat(list: FastBuffer[] | Uint8Array[], totalLength?: number): FastBuffer
 
@@ -294,25 +271,22 @@ concat(list: FastBuffer[] | Uint8Array[], totalLength?: number): FastBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| list | [FastBuffer](#fastbuffer)[] \| Uint8Array[] | 是 | 实例数组。 |
+| list | FastBuffer[] \| Uint8Array[] | 是 | 实例数组。 |
 | totalLength | number | 否 | 需要复制的总字节长度，默认值为0。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 返回新的FastBuffer对象。 |
+| FastBuffer | 返回新的FastBuffer对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -321,20 +295,19 @@ concat(list: FastBuffer[] | Uint8Array[], totalLength?: number): FastBuffer
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
-let buf1 = fastbuffer.from('1234');
-let buf2 = fastbuffer.from('abcd');
+let buf1 = fastbuffer.from("1234");
+let buf2 = fastbuffer.from("abcd");
 let buf = fastbuffer.concat([buf1, buf2]);
 console.info(buf.toString('hex'));
 // 输出结果：3132333461626364
 ```
 
 
-## fastbuffer.from
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.from
 
 from(array: number[]): FastBuffer
 
@@ -346,7 +319,6 @@ from(array: number[]): FastBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | array | number[] | 是 | 指定数组，数组内各元素的取值范围为[0, 255]。 |
@@ -354,16 +326,14 @@ from(array: number[]): FastBuffer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 新的FastBuffer对象。 |
+| FastBuffer | 新的FastBuffer对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
@@ -372,8 +342,8 @@ console.info(buf.toString('hex'));
 ```
 
 
-## fastbuffer.from
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.from
 
 from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): FastBuffer
 
@@ -385,26 +355,23 @@ from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?:
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arrayBuffer | ArrayBuffer \| SharedArrayBuffer | 是 | 实例对象。 |
 | byteOffset | number | 否 | 字节偏移量，默认值：0。 |
-| length | number | 否 | 字节长度， 默认值:（arrayBuffer.byteLength - byteOffset）。取值范围：0 &lt;= length &lt;= arrayBuffer.byteLength - byteOffset。传入null时返回空FastBuffer。 |
+| length | number | 否 | 字节长度， 默认值:（arrayBuffer.byteLength - byteOffset）。取值范围：0 <= length <= arrayBuffer.byteLength - byteOffset。传入null时返回空FastBuffer。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 返回一个FastBuffer对象，该对象与入参对象arrayBuffer共享相同的内存区域。 |
+| FastBuffer | 返回一个FastBuffer对象，该对象与入参对象arrayBuffer共享相同的内存区域。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -414,8 +381,7 @@ from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?:
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let ab = new ArrayBuffer(10);
@@ -425,8 +391,8 @@ console.info(buf.length.toString());
 ```
 
 
-## fastbuffer.from
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.from
 
 from(buffer: FastBuffer | Uint8Array): FastBuffer
 
@@ -440,24 +406,21 @@ from(buffer: FastBuffer | Uint8Array): FastBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| buffer | [FastBuffer](#fastbuffer) \| Uint8Array | 是 | 对象数据。 |
+| buffer | FastBuffer \| Uint8Array | 是 | 对象数据。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 返回新的FastBuffer对象。 |
+| FastBuffer | 返回新的FastBuffer对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -466,8 +429,7 @@ from(buffer: FastBuffer | Uint8Array): FastBuffer
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 // 以FastBuffer对象类型进行创建新的FastBuffer对象
@@ -479,14 +441,14 @@ console.info(buf2.toString());
 // 以Uint8Array对象类型进行创建FastBuffer对象，保持对象间内存共享
 let uint8Array = new Uint8Array(10);
 let buf3 = fastbuffer.from(uint8Array);
-buf3.fill(1);
-console.info('uint8Array:', uint8Array);
+buf3.fill(1)
+console.info("uint8Array:", uint8Array)
 // 输出结果：1,1,1,1,1,1,1,1,1,1
 ```
 
 
-## fastbuffer.from
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.from
 
 from(value: string, encoding?: BufferEncoding): FastBuffer
 
@@ -498,25 +460,22 @@ from(value: string, encoding?: BufferEncoding): FastBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string | 是 | 字符串。 |
-| encoding | [BufferEncoding](#bufferencoding) | 否 | 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
+| encoding | BufferEncoding | 否 | 编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 返回新的FastBuffer对象。 |
+| FastBuffer | 返回新的FastBuffer对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from('this is a test');
@@ -529,8 +488,8 @@ console.info(buf2.toString());
 ```
 
 
-## fastbuffer.isBuffer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.isBuffer
 
 isBuffer(obj: Object): boolean
 
@@ -542,14 +501,12 @@ isBuffer(obj: Object): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | obj | Object | 是 | 判断对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -558,30 +515,29 @@ isBuffer(obj: Object): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let result = fastbuffer.isBuffer(fastbuffer.alloc(10)); // 10: fastbuffer size
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = true
 let result1 = fastbuffer.isBuffer(fastbuffer.from('foo'));
-console.info('result1 = ' + result1);
+console.info("result1 = " + result1);
 // 输出结果：result1 = true
 let result2 = fastbuffer.isBuffer('a string');
-console.info('result2 = ' + result2);
+console.info("result2 = " + result2);
 // 输出结果：result2 = false
 let result3 = fastbuffer.isBuffer([]);
-console.info('result3 = ' + result3);
+console.info("result3 = " + result3);
 // 输出结果：result3 = false
 let result4 = fastbuffer.isBuffer(new Uint8Array(1024));
-console.info('result4 = ' + result4);
+console.info("result4 = " + result4);
 // 输出结果：result4 = false
 ```
 
 
-## fastbuffer.isEncoding
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.isEncoding
 
 isEncoding(encoding: string): boolean
 
@@ -593,14 +549,12 @@ isEncoding(encoding: string): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 是 | 编码格式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -609,8 +563,7 @@ isEncoding(encoding: string): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 console.info(fastbuffer.isEncoding('utf-8').toString());
@@ -624,8 +577,8 @@ console.info(fastbuffer.isEncoding('').toString());
 ```
 
 
-## fastbuffer.transcode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastbuffer.transcode
 
 transcode(source: FastBuffer | Uint8Array, fromEnc: string, toEnc: string): FastBuffer
 
@@ -639,45 +592,41 @@ fastbuffer.transcode支持的编码：'ascii' | 'utf8' | 'utf16le'| 'ucs2' | 'la
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [FastBuffer](#fastbuffer) \| Uint8Array | 是 | 实例对象。 |
+| source | FastBuffer \| Uint8Array | 是 | 实例对象。 |
 | fromEnc | string | 是 | 当前编码格式。支持的格式范围为BufferEncoding。传入空字符串时，表示使用编码格式'utf8'。 |
-| toEnc | string | 是 | 目标编码。 支持的格式范围为[BufferEncoding](#bufferencoding)。 |
+| toEnc | string | 是 | 目标编码。 支持的格式范围为BufferEncoding。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 将当前编码转换成目标编码，并返回一个新的FastBuffer对象。 |
+| FastBuffer | 将当前编码转换成目标编码，并返回一个新的FastBuffer对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let newBuf = fastbuffer.transcode(fastbuffer.from('buffer'), 'utf-8', 'ascii');
-console.info('newBuf = ' + newBuf.toString('ascii'));
+console.info("newBuf = " + newBuf.toString('ascii'));
 // 输出结果：newBuf = buffer
 ```
 
 
-## FastBuffer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### FastBuffer
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -688,11 +637,10 @@ console.info('newBuf = ' + newBuf.toString('ascii'));
 
 **示例：**
 
-
-```ts
+```json
 import { fastbuffer } from '@kit.ArkTS';
 
-let buf = fastbuffer.from('1236');
+let buf = fastbuffer.from("1236");
 console.info(JSON.stringify(buf.length));
 // 输出结果：4
 let arrayBuffer = buf.buffer;
@@ -703,8 +651,8 @@ console.info(JSON.stringify(buf.byteOffset));
 ```
 
 
-### compare
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### compare
 
 compare(target: FastBuffer | Uint8Array, targetStart?: number, targetEnd?: number, sourceStart?: number, sourceEnd?: number): -1 | 0 | 1
 
@@ -716,28 +664,25 @@ compare(target: FastBuffer | Uint8Array, targetStart?: number, targetEnd?: numbe
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| target | [FastBuffer](#fastbuffer) \| Uint8Array | 是 | 要比较的实例对象。 |
-| targetStart | number | 否 | target实例中开始的偏移量。默认值：0。 0 &lt;= targetStart &lt;= target.length。 |
-| targetEnd | number | 否 | target实例中结束的偏移量（不包含结束位置）。默认值：目标对象的字节长度。取值范围：0 &lt;= targetEnd &lt;= target.length。 |
-| sourceStart | number | 否 | this实例中开始的偏移量。默认值：0。取值范围：0 &lt;= sourceStart &lt;= this.length。 |
-| sourceEnd | number | 否 | this实例中结束的偏移量（不包含结束位置）。默认值：当前对象的字节长度。取值范围：0 &lt;= sourceEnd &lt;= this.length。 |
+| target | FastBuffer \| Uint8Array | 是 | 要比较的实例对象。 |
+| targetStart | number | 否 | target实例中开始的偏移量。默认值：0。 0 <= targetStart <= target.length。 |
+| targetEnd | number | 否 | target实例中结束的偏移量（不包含结束位置）。默认值：目标对象的字节长度。取值范围：0 <= targetEnd <= target.length。 |
+| sourceStart | number | 否 | this实例中开始的偏移量。默认值：0。取值范围：0 <= sourceStart <= this.length。 |
+| sourceEnd | number | 否 | this实例中结束的偏移量（不包含结束位置）。默认值：当前对象的字节长度。取值范围：0 <= sourceEnd <= this.length。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| -1 \| 0 \| 1 | 返回比较结果。          -1：当前排列在目标前；          0：当前与目标相同；          1：当前排列在目标后。 |
+| -1 \| 0 \| 1 | 返回比较结果。 -1：当前排列在目标前； 0：当前与目标相同； 1：当前排列在目标后。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -747,8 +692,7 @@ compare(target: FastBuffer | Uint8Array, targetStart?: number, targetEnd?: numbe
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from([1, 2, 3, 4, 5, 6, 7, 8, 9]);
@@ -763,8 +707,8 @@ console.info(buf1.compare(buf2, 5, 6, 5).toString());
 ```
 
 
-### copy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### copy
 
 copy(target: FastBuffer| Uint8Array, targetStart?: number, sourceStart?: number, sourceEnd?: number): number
 
@@ -776,17 +720,15 @@ copy(target: FastBuffer| Uint8Array, targetStart?: number, sourceStart?: number,
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| target | [FastBuffer](#fastbuffer) \| Uint8Array | 是 | 要复制到的Buffer或Uint8Array实例。 |
-| targetStart | number | 否 | target实例中开始写入的偏移量。默认值：0。取值范围：0 &lt;= targetStart &lt;= UINT32_MAX。 |
-| sourceStart | number | 否 | this实例中开始复制的偏移量。默认值: 0。取值范围：0 &lt;= sourceStart &lt;= UINT32_MAX。 |
-| sourceEnd | number | 否 | this实例中结束复制的偏移量（不包含结束位置）。默认值：当前对象的字节长度。取值范围：0 &lt;= sourceEnd &lt;= this.length。 |
+| target | FastBuffer \| Uint8Array | 是 | 要复制到的Buffer或Uint8Array实例。 |
+| targetStart | number | 否 | target实例中开始写入的偏移量。默认值：0。取值范围：0 <= targetStart <= UINT32_MAX。 |
+| sourceStart | number | 否 | this实例中开始复制的偏移量。默认值: 0。取值范围：0 <= sourceStart <= UINT32_MAX。 |
+| sourceEnd | number | 否 | this实例中结束复制的偏移量（不包含结束位置）。默认值：当前对象的字节长度。取值范围：0 <= sourceEnd <= this.length。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -797,7 +739,6 @@ copy(target: FastBuffer| Uint8Array, targetStart?: number, sourceStart?: number,
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | Range error. Possible causes: The value of the parameter is not within the specified range. |
@@ -806,8 +747,7 @@ copy(target: FastBuffer| Uint8Array, targetStart?: number, sourceStart?: number,
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.allocUninitializedFromPool(26);
@@ -823,8 +763,8 @@ console.info(buf2.toString('ascii', 0, 25));
 ```
 
 
-### entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[number, number]>
 
@@ -836,38 +776,36 @@ entries(): IterableIterator<[number, number]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[number, number]&gt; | 包含key和value的迭代器，同时两者皆为number类型。 |
+| IterableIterator<[number, number]> | 包含key和value的迭代器，同时两者皆为number类型。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from('buffer');
 let pair = buf.entries();
 let next: IteratorResult<Object[]> = pair.next();
 while (!next.done) {
-  console.info('fastbuffer: ' + next.value);
+  console.info("fastbuffer: " + next.value);
   /*
   输出结果：buffer: 0,98
-  fastbuffer: 1,117
-  fastbuffer: 2,102
-  fastbuffer: 3,102
-  fastbuffer: 4,101
-  fastbuffer: 5,114
-  */
+           fastbuffer: 1,117
+           fastbuffer: 2,102
+           fastbuffer: 3,102
+           fastbuffer: 4,101
+           fastbuffer: 5,114
+   */
   next = pair.next();
 }
 ```
 
 
-### equals
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### equals
 
 equals(otherBuffer: Uint8Array | FastBuffer): boolean
 
@@ -879,14 +817,12 @@ equals(otherBuffer: Uint8Array | FastBuffer): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | otherBuffer | Uint8Array \| FastBuffer | 是 | 比较的目标对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -897,7 +833,6 @@ equals(otherBuffer: Uint8Array | FastBuffer): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200068 | The underlying ArrayBuffer is null or detach. |
@@ -905,8 +840,7 @@ equals(otherBuffer: Uint8Array | FastBuffer): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from('ABC');
@@ -920,8 +854,8 @@ console.info(buf1.equals(buf3).toString());
 ```
 
 
-### fill
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fill
 
 fill(value: string | FastBuffer | Uint8Array | number, offset?: number, end?: number, encoding?: BufferEncoding): FastBuffer
 
@@ -933,27 +867,24 @@ fill(value: string | FastBuffer | Uint8Array | number, offset?: number, end?: nu
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string \| FastBuffer \| Uint8Array \| number | 是 | 用于填充的值。 |
-| offset | number | 否 | 起始偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length。 |
-| end | number | 否 | 结束偏移量（不包含结束位置）。 默认值：当前对象的字节长度。取值范围：0 &lt;= end &lt;= this.length。 |
-| encoding | [BufferEncoding](#bufferencoding) | 否 | 字符编码格式（value为string才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
+| offset | number | 否 | 起始偏移量。默认值：0。取值范围：0 <= offset <= this.length。 |
+| end | number | 否 | 结束偏移量（不包含结束位置）。 默认值：当前对象的字节长度。取值范围：0 <= end <= this.length。 |
+| encoding | BufferEncoding | 否 | 字符编码格式（value为string才有意义）。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FastBuffer](#fastbuffer) | 返回填充后的FastBuffer对象。 |
+| FastBuffer | 返回填充后的FastBuffer对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -963,8 +894,7 @@ fill(value: string | FastBuffer | Uint8Array | number, offset?: number, end?: nu
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let b = fastbuffer.allocUninitializedFromPool(50).fill('h');
@@ -973,8 +903,8 @@ console.info(b.toString());
 ```
 
 
-### includes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### includes
 
 includes(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean
 
@@ -990,16 +920,14 @@ includes(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string \| number \| FastBuffer \| Uint8Array | 是 | 要搜索的内容。 |
 | byteOffset | number | 否 | 字节偏移量。若为正数，则从0开始计算偏移量；若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。默认值：0。 |
-| encoding | [BufferEncoding](#bufferencoding) | 否 | 字符编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
+| encoding | BufferEncoding | 否 | 字符编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1008,8 +936,7 @@ includes(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from('this is a buffer');
@@ -1020,8 +947,8 @@ console.info(buf.includes('be').toString());
 ```
 
 
-### indexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### indexOf
 
 indexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number
 
@@ -1037,16 +964,14 @@ indexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, e
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string \| number \| FastBuffer \| Uint8Array | 是 | 要查找的内容。 |
 | byteOffset | number | 否 | 字节偏移量。若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。默认值：0。 |
-| encoding | [BufferEncoding](#bufferencoding) | 否 | 字符编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
+| encoding | BufferEncoding | 否 | 字符编码格式。默认值：'utf8'。传入无法识别的encoding会抛出TypeError。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1055,8 +980,7 @@ indexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, e
 
 **示例**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from('this is a buffer');
@@ -1067,10 +991,10 @@ console.info(buf.indexOf('is').toString());
 ```
 
 
-### keys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-keys(): IterableIterator<number>
+##### keys
+
+keys(): IterableIterator&lt;number&gt;
 
 返回一个包含key值的迭代器。
 
@@ -1080,7 +1004,6 @@ keys(): IterableIterator<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | IterableIterator&lt;number&gt; | 返回一个包含key值的迭代器。 |
@@ -1088,8 +1011,7 @@ keys(): IterableIterator<number>
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from('buffer');
@@ -1099,19 +1021,19 @@ for (const key of keys) {
 }
 /*
 输出结果：0
-1
-2
-3
-4
-5
-*/
+        1
+        2
+        3
+        4
+        5
+ */
 ```
 
 
-### values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<number>
+##### values
+
+values(): IterableIterator&lt;number&gt;
 
 返回一个包含value的迭代器。
 
@@ -1121,7 +1043,6 @@ values(): IterableIterator<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | IterableIterator&lt;number&gt; | 迭代器。 |
@@ -1129,30 +1050,29 @@ values(): IterableIterator<number>
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from('buffer');
-let pair = buf1.values();
-let next: IteratorResult<number> = pair.next();
+let pair = buf1.values()
+let next:IteratorResult<number> = pair.next()
 while (!next.done) {
   console.info(next.value.toString());
   /*
   输出结果：98
-  117
-  102
-  102
-  101
-  114
-  */
+           117
+           102
+           102
+           101
+           114
+   */
   next = pair.next();
 }
 ```
 
 
-### lastIndexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lastIndexOf
 
 lastIndexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number
 
@@ -1168,16 +1088,14 @@ lastIndexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: numbe
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string \| number \| FastBuffer \| Uint8Array | 是 | 要搜索的内容。 |
 | byteOffset | number | 否 | 字节偏移量。若byteOffset为正数，则从0开始计算偏移量；如果为负数，则从末尾开始计算偏移量。默认值：this.length - 1。 |
-| encoding | [BufferEncoding](#bufferencoding) | 否 | 字符编码格式。默认值：'utf8'。 |
+| encoding | BufferEncoding | 否 | 字符编码格式。默认值：'utf8'。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1186,8 +1104,7 @@ lastIndexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: numbe
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from('this buffer is a buffer');
@@ -1198,8 +1115,8 @@ console.info(buf.lastIndexOf('buffer').toString());
 ```
 
 
-### readBigInt64BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readBigInt64BE
 
 readBigInt64BE(offset?: number): bigint
 
@@ -1211,14 +1128,12 @@ readBigInt64BE(offset?: number): bigint
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 8。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1229,29 +1144,25 @@ readBigInt64BE(offset?: number): bigint
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
-let buf = fastbuffer.from([
-  0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75,
-  0x76, 0x77, 0x78,
-]);
+let buf = fastbuffer.from([0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70,
+  0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78]);
 console.info(buf.readBigInt64BE(0).toString());
 // 输出结果：7161960797921896816
 ```
 
 
-### readBigInt64LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readBigInt64LE
 
 readBigInt64LE(offset?: number): bigint
 
@@ -1263,14 +1174,12 @@ readBigInt64LE(offset?: number): bigint
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 8，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1281,29 +1190,25 @@ readBigInt64LE(offset?: number): bigint
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
-let buf = fastbuffer.from([
-  0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75,
-  0x76, 0x77, 0x78,
-]);
+let buf = fastbuffer.from([0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70,
+  0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78]);
 console.info(buf.readBigInt64LE(0).toString());
 // 输出结果：8100120198111388771
 ```
 
 
-### readBigUInt64BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readBigUInt64BE
 
 readBigUInt64BE(offset?: number): bigint
 
@@ -1315,14 +1220,12 @@ readBigUInt64BE(offset?: number): bigint
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 8，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1333,29 +1236,25 @@ readBigUInt64BE(offset?: number): bigint
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
-let buf = fastbuffer.from([
-  0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75,
-  0x76, 0x77, 0x78,
-]);
+let buf = fastbuffer.from([0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70,
+  0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78]);
 console.info(buf.readBigUInt64BE(0).toString());
 // 输出结果：7161960797921896816
 ```
 
 
-### readBigUInt64LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readBigUInt64LE
 
 readBigUInt64LE(offset?: number): bigint
 
@@ -1367,14 +1266,12 @@ readBigUInt64LE(offset?: number): bigint
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 8，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1385,29 +1282,25 @@ readBigUInt64LE(offset?: number): bigint
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
-let buf = fastbuffer.from([
-  0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75,
-  0x76, 0x77, 0x78,
-]);
+let buf = fastbuffer.from([0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x70,
+  0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78]);
 console.info(buf.readBigUInt64LE(0).toString());
 // 输出结果：8100120198111388771
 ```
 
 
-### readDoubleBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readDoubleBE
 
 readDoubleBE(offset?: number): number
 
@@ -1419,14 +1312,12 @@ readDoubleBE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 8，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1437,16 +1328,14 @@ readDoubleBE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([1, 2, 3, 4, 5, 6, 7, 8]);
@@ -1455,8 +1344,8 @@ console.info(buf.readDoubleBE(0).toString());
 ```
 
 
-### readDoubleLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readDoubleLE
 
 readDoubleLE(offset?: number): number
 
@@ -1468,14 +1357,12 @@ readDoubleLE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 8，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 8，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1486,16 +1373,14 @@ readDoubleLE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([1, 2, 3, 4, 5, 6, 7, 8]);
@@ -1504,8 +1389,8 @@ console.info(buf.readDoubleLE(0).toString());
 ```
 
 
-### readFloatBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readFloatBE
 
 readFloatBE(offset?: number): number
 
@@ -1517,14 +1402,12 @@ readFloatBE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 4，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1535,16 +1418,14 @@ readFloatBE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([1, 2, 3, 4, 5, 6, 7, 8]);
@@ -1553,8 +1434,8 @@ console.info(buf.readFloatBE(0).toString());
 ```
 
 
-### readFloatLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readFloatLE
 
 readFloatLE(offset?: number): number
 
@@ -1566,14 +1447,12 @@ readFloatLE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 4，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1584,16 +1463,14 @@ readFloatLE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([1, 2, 3, 4, 5, 6, 7, 8]);
@@ -1602,8 +1479,8 @@ console.info(buf.readFloatLE(0).toString());
 ```
 
 
-### readInt8
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readInt8
 
 readInt8(offset?: number): number
 
@@ -1615,14 +1492,12 @@ readInt8(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 1，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 1，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1633,16 +1508,14 @@ readInt8(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 1. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([-1, 5]);
@@ -1653,8 +1526,8 @@ console.info(buf.readInt8(1).toString());
 ```
 
 
-### readInt16BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readInt16BE
 
 readInt16BE(offset?: number): number
 
@@ -1666,14 +1539,12 @@ readInt16BE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 2，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1684,16 +1555,14 @@ readInt16BE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 2. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0, 5]);
@@ -1702,8 +1571,8 @@ console.info(buf.readInt16BE(0).toString());
 ```
 
 
-### readInt16LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readInt16LE
 
 readInt16LE(offset?: number): number
 
@@ -1715,14 +1584,12 @@ readInt16LE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 2，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1733,16 +1600,14 @@ readInt16LE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 2. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0, 5]);
@@ -1751,8 +1616,8 @@ console.info(buf.readInt16LE(0).toString());
 ```
 
 
-### readInt32BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readInt32BE
 
 readInt32BE(offset?: number): number
 
@@ -1764,14 +1629,12 @@ readInt32BE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 4，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1782,16 +1645,14 @@ readInt32BE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0, 0, 0, 5]);
@@ -1800,12 +1661,12 @@ console.info(buf.readInt32BE(0).toString());
 ```
 
 
-### readInt32LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readInt32LE
 
 readInt32LE(offset?: number): number
 
-从指定的offset处读取有符号的小端序32��整数。
+从指定的offset处读取有符号的小端序32位整数。
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
 
@@ -1813,14 +1674,12 @@ readInt32LE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 4，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1831,16 +1690,14 @@ readInt32LE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0, 0, 0, 5]);
@@ -1849,8 +1706,8 @@ console.info(buf.readInt32LE(0).toString());
 ```
 
 
-### readIntBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readIntBE
 
 readIntBE(offset: number, byteLength: number): number
 
@@ -1862,15 +1719,13 @@ readIntBE(offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 是 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - byteLength，默认值：0。 |
-| byteLength | number | 是 | 读取的字节数。取值范围：1 &lt;= byteLength &lt;= 6。 |
+| offset | number | 是 | 偏移量。取值范围：0 <= offset <= this.length - byteLength，默认值：0。 |
+| byteLength | number | 是 | 读取的字节数。取值范围：1 <= byteLength <= 6。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1881,27 +1736,25 @@ readIntBE(offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
-let buf = fastbuffer.from('ab');
+let buf = fastbuffer.from("ab");
 let num = buf.readIntBE(0, 1);
 console.info(num.toString());
 // 输出结果：97
 ```
 
 
-### readIntLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readIntLE
 
 readIntLE(offset: number, byteLength: number): number
 
@@ -1913,15 +1766,13 @@ readIntLE(offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 是 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - byteLength，默认值：0。 |
-| byteLength | number | 是 | 读取的字节数。取值范围：1 &lt;= byteLength &lt;= 6。 |
+| offset | number | 是 | 偏移量。取值范围：0 <= offset <= this.length - byteLength，默认值：0。 |
+| byteLength | number | 是 | 读取的字节数。取值范围：1 <= byteLength <= 6。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1932,16 +1783,14 @@ readIntLE(offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
@@ -1950,8 +1799,8 @@ console.info(buf.readIntLE(0, 6).toString(16));
 ```
 
 
-### readUInt8
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readUInt8
 
 readUInt8(offset?: number): number
 
@@ -1963,14 +1812,12 @@ readUInt8(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 1，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 1，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1981,16 +1828,14 @@ readUInt8(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 1. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 1. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([1, -2]);
@@ -2001,8 +1846,8 @@ console.info(buf.readUInt8(1).toString());
 ```
 
 
-### readUInt16BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readUInt16BE
 
 readUInt16BE(offset?: number): number
 
@@ -2014,14 +1859,12 @@ readUInt16BE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 2，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2032,16 +1875,14 @@ readUInt16BE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 2. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x12, 0x34, 0x56]);
@@ -2052,8 +1893,8 @@ console.info(buf.readUInt16BE(1).toString(16));
 ```
 
 
-### readUInt16LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readUInt16LE
 
 readUInt16LE(offset?: number): number
 
@@ -2065,14 +1906,12 @@ readUInt16LE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 2，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 2，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2083,16 +1922,14 @@ readUInt16LE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 2. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 2. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x12, 0x34, 0x56]);
@@ -2103,8 +1940,8 @@ console.info(buf.readUInt16LE(1).toString(16));
 ```
 
 
-### readUInt32BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readUInt32BE
 
 readUInt32BE(offset?: number): number
 
@@ -2116,14 +1953,12 @@ readUInt32BE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 4，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2134,16 +1969,14 @@ readUInt32BE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x12, 0x34, 0x56, 0x78]);
@@ -2152,8 +1985,8 @@ console.info(buf.readUInt32BE(0).toString(16));
 ```
 
 
-### readUInt32LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readUInt32LE
 
 readUInt32LE(offset?: number): number
 
@@ -2165,14 +1998,12 @@ readUInt32LE(offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 否 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - 4，默认值：0。 |
+| offset | number | 否 | 偏移量。取值范围：0 <= offset <= this.length - 4，默认值：0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2183,16 +2014,14 @@ readUInt32LE(offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset]. |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset]. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x12, 0x34, 0x56, 0x78]);
@@ -2201,8 +2030,8 @@ console.info(buf.readUInt32LE(0).toString(16));
 ```
 
 
-### readUIntBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readUIntBE
 
 readUIntBE(offset: number, byteLength: number): number
 
@@ -2214,15 +2043,13 @@ readUIntBE(offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 是 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - byteLength，默认值：0。 |
-| byteLength | number | 是 | 要读取的字节数。读取的字节数。取值范围：1 &lt;= byteLength &lt;= 6。 |
+| offset | number | 是 | 偏移量。取值范围：0 <= offset <= this.length - byteLength，默认值：0。 |
+| byteLength | number | 是 | 要读取的字节数。读取的字节数。取值范围：1 <= byteLength <= 6。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2233,16 +2060,14 @@ readUIntBE(offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
@@ -2251,8 +2076,8 @@ console.info(buf.readUIntBE(0, 6).toString(16));
 ```
 
 
-### readUIntLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### readUIntLE
 
 readUIntLE(offset: number, byteLength: number): number
 
@@ -2264,15 +2089,13 @@ readUIntLE(offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 是 | 偏移量。取值范围：0 &lt;= offset &lt;= this.length - byteLength，默认值：0。 |
-| byteLength | number | 是 | 读取的字节数。取值范围：1 &lt;= byteLength &lt;= 6。 |
+| offset | number | 是 | 偏移量。取值范围：0 <= offset <= this.length - byteLength，默认值：0。 |
+| byteLength | number | 是 | 读取的字节数。取值范围：1 <= byteLength <= 6。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2283,16 +2106,14 @@ readUIntLE(offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
@@ -2301,8 +2122,8 @@ console.info(buf.readUIntLE(0, 6).toString(16));
 ```
 
 
-### subarray
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### subarray
 
 subarray(start?: number, end?: number): FastBuffer
 
@@ -2314,15 +2135,13 @@ subarray(start?: number, end?: number): FastBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | start | number | 否 | 截取开始位置。默认值：0。 |
-| end | number | 否 | 截取结束位置（不包含结束位置）。默认值：当前对象的字节长度。取值范围：start &lt;= end &lt;= this.length。传入null时返回空FastBuffer。 |
+| end | number | 否 | 截取结束位置（不包含结束位置）。默认值：当前对象的字节长度。取值范围：start <= end <= this.length。传入null时返回空FastBuffer。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2331,8 +2150,7 @@ subarray(start?: number, end?: number): FastBuffer
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.allocUninitializedFromPool(26);
@@ -2346,8 +2164,8 @@ console.info(buf2.toString('ascii', 0, buf2.length));
 ```
 
 
-### swap16
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### swap16
 
 swap16(): FastBuffer
 
@@ -2359,7 +2177,6 @@ swap16(): FastBuffer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | FastBuffer | 交换之后的FastBuffer对象。 |
@@ -2369,7 +2186,6 @@ swap16(): FastBuffer
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200009 | The fastbuffer size must be a multiple of 16-bits. |
@@ -2377,8 +2193,7 @@ swap16(): FastBuffer
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
@@ -2390,8 +2205,8 @@ console.info(buf1.toString('hex'));
 ```
 
 
-### swap32
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### swap32
 
 swap32(): FastBuffer
 
@@ -2403,7 +2218,6 @@ swap32(): FastBuffer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | FastBuffer | 交换之后的FastBuffer对象。 |
@@ -2413,7 +2227,6 @@ swap32(): FastBuffer
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200009 | The fastbuffer size must be a multiple of 32-bits. |
@@ -2421,8 +2234,7 @@ swap32(): FastBuffer
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
@@ -2434,8 +2246,8 @@ console.info(buf1.toString('hex'));
 ```
 
 
-### swap64
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### swap64
 
 swap64(): FastBuffer
 
@@ -2447,7 +2259,6 @@ swap64(): FastBuffer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | FastBuffer | 交换之后的FastBuffer对象。 |
@@ -2457,7 +2268,6 @@ swap64(): FastBuffer
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200009 | The fastbuffer size must be a multiple of 64-bits. |
@@ -2465,8 +2275,7 @@ swap64(): FastBuffer
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
@@ -2478,8 +2287,8 @@ console.info(buf1.toString('hex'));
 ```
 
 
-### toJSON
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toJSON
 
 toJSON(): Object
 
@@ -2491,7 +2300,6 @@ toJSON(): Object
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Object | JSON对象。 |
@@ -2499,8 +2307,7 @@ toJSON(): Object
 
 **示例：**
 
-
-```ts
+```json
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);
@@ -2510,8 +2317,8 @@ console.info(JSON.stringify(obj));
 ```
 
 
-### toString
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString
 
 toString(encoding?: string, start?: number, end?: number): string
 
@@ -2523,7 +2330,6 @@ toString(encoding?: string, start?: number, end?: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 字符编码格式。默认值：'utf8'。 |
@@ -2533,16 +2339,14 @@ toString(encoding?: string, start?: number, end?: number): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| string | 字符串。当start &gt;= this.length或start &gt; end时返回空字符串。 |
+| string | 字符串。当start >= this.length或start > end时返回空字符串。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2551,8 +2355,7 @@ toString(encoding?: string, start?: number, end?: number): string
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf1 = fastbuffer.allocUninitializedFromPool(26);
@@ -2564,8 +2367,8 @@ console.info(buf1.toString('utf-8'));
 ```
 
 
-### write
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### write
 
 write(str: string, offset?: number, length?: number, encoding?: string): number
 
@@ -2577,7 +2380,6 @@ write(str: string, offset?: number, length?: number, encoding?: string): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | str | string | 是 | 要写入Buffer的字符串。 |
@@ -2588,7 +2390,6 @@ write(str: string, offset?: number, length?: number, encoding?: string): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 写入的字节数。 |
@@ -2598,7 +2399,6 @@ write(str: string, offset?: number, length?: number, encoding?: string): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | Range error. Possible causes: The value of the parameter is not within the specified range. |
@@ -2607,8 +2407,7 @@ write(str: string, offset?: number, length?: number, encoding?: string): number
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.alloc(256);
@@ -2618,13 +2417,13 @@ console.info(`${len} bytes: ${buf.toString('utf-8', 0, len)}`);
 
 let buffer1 = fastbuffer.alloc(10);
 let length = buffer1.write('abcd', 8);
-console.info('length = ' + length);
+console.info("length = " + length);
 // 输出结果：length = 2
 ```
 
 
-### writeBigInt64BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeBigInt64BE
 
 writeBigInt64BE(value: bigint, offset?: number): number
 
@@ -2636,15 +2435,13 @@ writeBigInt64BE(value: bigint, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | bigint | 是 | 写入Buffer的数据。取值范围：-INT64_MAX &lt;= value &lt;= INT64_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 8。 |
+| value | bigint | 是 | 写入Buffer的数据。取值范围：-INT64_MAX <= value <= INT64_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2655,27 +2452,25 @@ writeBigInt64BE(value: bigint, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeBigInt64BE(BigInt(0x0102030405060708), 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 8
 ```
 
 
-### writeBigInt64LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeBigInt64LE
 
 writeBigInt64LE(value: bigint, offset?: number): number
 
@@ -2687,15 +2482,13 @@ writeBigInt64LE(value: bigint, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | bigint | 是 | 写入Buffer的数据。取值范围：-INT64_MAX &lt;= value &lt;= INT64_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 8。 |
+| value | bigint | 是 | 写入Buffer的数据。取值范围：-INT64_MAX <= value <= INT64_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2706,27 +2499,25 @@ writeBigInt64LE(value: bigint, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeBigInt64LE(BigInt(0x0102030405060708), 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 8
 ```
 
 
-### writeBigUInt64BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeBigUInt64BE
 
 writeBigUInt64BE(value: bigint, offset?: number): number
 
@@ -2738,15 +2529,13 @@ writeBigUInt64BE(value: bigint, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | bigint | 是 | 写入Buffer的数据。取值范围：0 &lt;= value &lt;= UINT64_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 8。 |
+| value | bigint | 是 | 写入Buffer的数据。取值范围：0 <= value <= UINT64_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2757,27 +2546,25 @@ writeBigUInt64BE(value: bigint, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeBigUInt64BE(BigInt(0xdecafafecacefade), 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 8
 ```
 
 
-### writeBigUInt64LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeBigUInt64LE
 
 writeBigUInt64LE(value: bigint, offset?: number): number
 
@@ -2789,15 +2576,13 @@ writeBigUInt64LE(value: bigint, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | bigint | 是 | 写入Buffer的数据。取值范围：0 &lt;= value &lt;= UINT64_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 8。 |
+| value | bigint | 是 | 写入Buffer的数据。取值范围：0 <= value <= UINT64_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2808,27 +2593,25 @@ writeBigUInt64LE(value: bigint, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeBigUInt64LE(BigInt(0xdecafafecacefade), 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 8
 ```
 
 
-### writeDoubleBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeDoubleBE
 
 writeDoubleBE(value: number, offset?: number): number
 
@@ -2840,15 +2623,13 @@ writeDoubleBE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-DOUBLE_MAX &lt;= value &lt;= DOUBLE_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 8。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-DOUBLE_MAX <= value <= DOUBLE_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2859,27 +2640,25 @@ writeDoubleBE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset] |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeDoubleBE(123.456, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 8
 ```
 
 
-### writeDoubleLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeDoubleLE
 
 writeDoubleLE(value: number, offset?: number): number
 
@@ -2891,15 +2670,13 @@ writeDoubleLE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-DOUBLE_MAX &lt;= value &lt;= DOUBLE_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 8。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-DOUBLE_MAX <= value <= DOUBLE_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 8。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2910,27 +2687,25 @@ writeDoubleLE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 8. Received value is: [offset] |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 8. Received value is: [offset] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeDoubleLE(123.456, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 8
 ```
 
 
-### writeFloatBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeFloatBE
 
 writeFloatBE(value: number, offset?: number): number
 
@@ -2942,15 +2717,13 @@ writeFloatBE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-FLOAT_MAX &lt;= value &lt;= FLOAT_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 4。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-FLOAT_MAX <= value <= FLOAT_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2961,27 +2734,25 @@ writeFloatBE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset] |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeFloatBE(3.1415, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 4
 ```
 
 
-### writeFloatLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeFloatLE
 
 writeFloatLE(value: number, offset?: number): number
 
@@ -2993,15 +2764,13 @@ writeFloatLE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-FLOAT_MAX &lt;= value &lt;= FLOAT_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 4。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-FLOAT_MAX <= value <= FLOAT_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3012,27 +2781,25 @@ writeFloatLE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "offset" is out of range. It must be &gt;= 0 and &lt;= buf.length - 4. Received value is: [offset] |
+| 10200001 | The value of "offset" is out of range. It must be >= 0 and <= buf.length - 4. Received value is: [offset] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(8);
 let result = buf.writeFloatLE(3.1415, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 4
 ```
 
 
-### writeInt8
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeInt8
 
 writeInt8(value: number, offset?: number): number
 
@@ -3044,15 +2811,13 @@ writeInt8(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-INT8_MAX &lt;= value &lt;= INT8_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 1。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-INT8_MAX <= value <= INT8_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 1。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3063,30 +2828,28 @@ writeInt8(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(2);
 let result = buf.writeInt8(2, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 1
 let result1 = buf.writeInt8(-2, 1);
-console.info('result1 = ' + result1);
+console.info("result1 = " + result1);
 // 输出结果：result1 = 2
 ```
 
 
-### writeInt16BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeInt16BE
 
 writeInt16BE(value: number, offset?: number): number
 
@@ -3098,15 +2861,13 @@ writeInt16BE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-INT16_MAX &lt;= value &lt;= INT16_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 2。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-INT16_MAX <= value <= INT16_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3117,27 +2878,25 @@ writeInt16BE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(2);
 let result = buf.writeInt16BE(0x0102, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 2
 ```
 
 
-### writeInt16LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeInt16LE
 
 writeInt16LE(value: number, offset?: number): number
 
@@ -3149,15 +2908,13 @@ writeInt16LE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-INT16_MAX &lt;= value &lt;= INT16_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 2。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-INT16_MAX <= value <= INT16_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3168,27 +2925,25 @@ writeInt16LE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(2);
 let result = buf.writeInt16LE(0x0304, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 2
 ```
 
 
-### writeInt32BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeInt32BE
 
 writeInt32BE(value: number, offset?: number): number
 
@@ -3200,15 +2955,13 @@ writeInt32BE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-INT32_MAX &lt;= value &lt;= INT32_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 4。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-INT32_MAX <= value <= INT32_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3219,27 +2972,25 @@ writeInt32BE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(4);
 let result = buf.writeInt32BE(0x01020304, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 4
 ```
 
 
-### writeInt32LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeInt32LE
 
 writeInt32LE(value: number, offset?: number): number
 
@@ -3251,15 +3002,13 @@ writeInt32LE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：-INT32_MAX &lt;= value &lt;= INT32_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 4。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：-INT32_MAX <= value <= INT32_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3270,27 +3019,25 @@ writeInt32LE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(4);
 let result = buf.writeInt32LE(0x05060708, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 4
 ```
 
 
-### writeIntBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeIntBE
 
 writeIntBE(value: number, offset: number, byteLength: number): number
 
@@ -3302,16 +3049,14 @@ writeIntBE(value: number, offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 写入Buffer的数据。取值范围取决于byteLength。 |
-| offset | number | 是 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - byteLength。传入null或undefined时偏移量为0。 |
+| offset | number | 是 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。 |
 | byteLength | number | 是 | 要写入的字节数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3322,27 +3067,25 @@ writeIntBE(value: number, offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(6);
 let result = buf.writeIntBE(0x1234567890ab, 0, 6);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 6
 ```
 
 
-### writeIntLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeIntLE
 
 writeIntLE(value: number, offset: number, byteLength: number): number
 
@@ -3354,16 +3097,14 @@ writeIntLE(value: number, offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 写入Buffer的数据。取值范围取决于byteLength。 |
-| offset | number | 是 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - byteLength。传入null或undefined时偏移量为0。 |
+| offset | number | 是 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。 |
 | byteLength | number | 是 | 要写入的字节数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3374,27 +3115,25 @@ writeIntLE(value: number, offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(6);
 let result = buf.writeIntLE(0x1234567890ab, 0, 6);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 6
 ```
 
 
-### writeUInt8
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeUInt8
 
 writeUInt8(value: number, offset?: number): number
 
@@ -3406,15 +3145,13 @@ writeUInt8(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：0 &lt;= value &lt;= UINT8_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 1。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：0 <= value <= UINT8_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 1。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3425,36 +3162,34 @@ writeUInt8(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(4);
 let result = buf.writeUInt8(0x3, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 1
 let result1 = buf.writeUInt8(0x4, 1);
-console.info('result1 = ' + result1);
+console.info("result1 = " + result1);
 // 输出结果：result1 = 2
 let result2 = buf.writeUInt8(0x23, 2);
-console.info('result2 = ' + result2);
+console.info("result2 = " + result2);
 // 输出结果：result2 = 3
 let result3 = buf.writeUInt8(0x42, 3);
-console.info('result3 = ' + result3);
+console.info("result3 = " + result3);
 // 输出结果：result3 = 4
 ```
 
 
-### writeUInt16BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeUInt16BE
 
 writeUInt16BE(value: number, offset?: number): number
 
@@ -3466,15 +3201,13 @@ writeUInt16BE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：0 &lt;= value &lt;= UINT16_MAX。 |
-| offset | number | 否 | 偏移量。默认值为0。取值范围：0 &lt;= offset &lt;= this.length - 2。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：0 <= value <= UINT16_MAX。 |
+| offset | number | 否 | 偏移量。默认值为0。取值范围：0 <= offset <= this.length - 2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3485,30 +3218,28 @@ writeUInt16BE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(4);
 let result = buf.writeUInt16BE(0xdead, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 2
 let result1 = buf.writeUInt16BE(0xbeef, 2);
-console.info('result1 = ' + result1);
+console.info("result1 = " + result1);
 // 输出结果：result1 = 4
 ```
 
 
-### writeUInt16LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeUInt16LE
 
 writeUInt16LE(value: number, offset?: number): number
 
@@ -3520,15 +3251,13 @@ writeUInt16LE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：0 &lt;= value &lt;= UINT16_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 2。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：0 <= value <= UINT16_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3539,30 +3268,28 @@ writeUInt16LE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(4);
 let result = buf.writeUInt16LE(0xdead, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 2
 let result1 = buf.writeUInt16LE(0xbeef, 2);
-console.info('result1 = ' + result1);
+console.info("result1 = " + result1);
 // 输出结果：result1 = 4
 ```
 
 
-### writeUInt32BE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeUInt32BE
 
 writeUInt32BE(value: number, offset?: number): number
 
@@ -3574,15 +3301,13 @@ writeUInt32BE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入Buffer的数据。取值范围：0 &lt;= value &lt;= UINT32_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 4。 |
+| value | number | 是 | 写入Buffer的数据。取值范围：0 <= value <= UINT32_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3593,27 +3318,25 @@ writeUInt32BE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(4);
 let result = buf.writeUInt32BE(0xfeedface, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 4
 ```
 
 
-### writeUInt32LE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeUInt32LE
 
 writeUInt32LE(value: number, offset?: number): number
 
@@ -3625,15 +3348,13 @@ writeUInt32LE(value: number, offset?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 写入FastBuffer对象的数据。取值范围：0 &lt;= value &lt;= UINT32_MAX。 |
-| offset | number | 否 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - 4。 |
+| value | number | 是 | 写入FastBuffer对象的数据。取值范围：0 <= value <= UINT32_MAX。 |
+| offset | number | 否 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - 4。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3644,27 +3365,25 @@ writeUInt32LE(value: number, offset?: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(4);
 let result = buf.writeUInt32LE(0xfeedface, 0);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 4
 ```
 
 
-### writeUIntBE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeUIntBE
 
 writeUIntBE(value: number, offset: number, byteLength: number): number
 
@@ -3676,16 +3395,14 @@ writeUIntBE(value: number, offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 写入Buffer的数据。取值范围取决于byteLength。 |
-| offset | number | 是 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - byteLength。传入null或undefined时偏移量为0。 |
+| offset | number | 是 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。 |
 | byteLength | number | 是 | 要写入的字节数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3696,27 +3413,25 @@ writeUIntBE(value: number, offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(6);
 let result = buf.writeUIntBE(0x1234567890ab, 0, 6);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 6
 ```
 
 
-### writeUIntLE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### writeUIntLE
 
 writeUIntLE(value: number, offset: number, byteLength: number): number
 
@@ -3728,16 +3443,14 @@ writeUIntLE(value: number, offset: number, byteLength: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 写入Buffer的数据。取值范围取决于byteLength。 |
-| offset | number | 是 | 偏移量。默认值：0。取值范围：0 &lt;= offset &lt;= this.length - byteLength。传入null或undefined时偏移量为0。 |
+| offset | number | 是 | 偏移量。默认值：0。取值范围：0 <= offset <= this.length - byteLength。传入null或undefined时偏移量为0。 |
 | byteLength | number | 是 | 要写入的字节数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3748,20 +3461,18 @@ writeUIntLE(value: number, offset: number, byteLength: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 10200001 | The value of "[param]" is out of range. It must be &gt;= [left range] and &lt;= [right range]. Received value is: [param] |
+| 10200001 | The value of "[param]" is out of range. It must be >= [left range] and <= [right range]. Received value is: [param] |
 
 
 **示例：**
 
-
-```ts
+```text
 import { fastbuffer } from '@kit.ArkTS';
 
 let buf = fastbuffer.allocUninitializedFromPool(6);
 let result = buf.writeUIntLE(0x1234567890ab, 0, 6);
-console.info('result = ' + result);
+console.info("result = " + result);
 // 输出结果：result = 6
 ```

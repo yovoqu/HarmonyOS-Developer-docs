@@ -1,25 +1,35 @@
 # 使用扩展的Node-API接口在异步线程中运行和停止事件循环
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-event-loop
 
-## 场景介绍
+##### 场景介绍
 
 开发者在自己创建的ArkTS运行环境中调用异步的ArkTS接口时，可以通过使用Node-API中的扩展接口napi_run_event_loop和napi_stop_event_loop来运行和停止ArkTS实例中的事件循环。
+ 
+  
 
-## 调用异步的ArkTS接口示例
+##### 调用异步的ArkTS接口示例
 
-调用的ArkTS接口为异步接口时，需要通过扩展接口napi_run_event_loop将异步线程中的事件循环运行起来，底层事件队列中的异步任务将被处理执行。当前Node-API扩展了两种事件循环模式来运行异步线程的事件循环，分别为napi_event_mode_nowait模式和napi_event_mode_default模式。 如果使用napi_event_mode_nowait模式运行底层事件循环，系统会尝试从底层的事件队列中取出一个任务并处理，完成之后事件循环停止，如果底层的事件队列中没有任务，事件循环会立刻停止，当前的异步线程不会被阻塞； 如果使用napi_event_mode_default模式来运行底层事件循环，系统会阻塞当前的线程，同时会一直尝试从事件队列中获取任务并执行处理这些任务。如果不想当前线程继续被阻塞，可以使用扩展接口napi_stop_event_loop将正在运行的事件循环停止。
+调用的ArkTS接口为异步接口时，需要通过扩展接口napi_run_event_loop将异步线程中的事件循环运行起来，底层事件队列中的异步任务将被处理执行。当前Node-API扩展了两种事件循环模式来运行异步线程的事件循环，分别为napi_event_mode_nowait模式和napi_event_mode_default模式。
+ 
+如果使用napi_event_mode_nowait模式运行底层事件循环，系统会尝试从底层的事件队列中取出一个任务并处理，完成之后事件循环停止，如果底层的事件队列中没有任务，事件循环会立刻停止，当前的异步线程不会被阻塞；
+ 
+如果使用napi_event_mode_default模式来运行底层事件循环，系统会阻塞当前的线程，同时会一直尝试从事件队列中获取任务并执行处理这些任务。如果不想当前线程继续被阻塞，可以使用扩展接口napi_stop_event_loop将正在运行的事件循环停止。
+ 
+  
 
-## 示例代码
+##### 示例代码
 
-功能实现
-```text
+- 功能实现
+
+  
+```cpp
 #include "napi/native_api.h"
-#include
-#include
-#include
+#include <pthread.h>
+#include <hilog/log.h>
+#include <napi/common.h>
 static constexpr int INT_ARG_2 = 2; // 入参索引
 // ...
 static napi_value ResolvedCallback(napi_env env, napi_callback_info info)
@@ -99,7 +109,7 @@ static void *RunEventLoopFunc(void *arg)
         return nullptr;
     }
 
-    auto flag = reinterpret_cast(arg);
+    auto flag = reinterpret_cast<bool *>(arg);
     if (*flag == true) {
         if (napi_run_event_loop(env, napi_event_mode_default) != napi_ok) {
             napi_close_handle_scope(env, scope);
@@ -145,7 +155,9 @@ static napi_value RunEventLoop(napi_env env, napi_callback_info info)
 }
 ```
 
-模块注册
+- 模块注册
+
+  
 ```text
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
@@ -174,14 +186,20 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule()
 }
 ```
 
-接口声明
-```text
+- 接口声明
+
+  
+```ts
 // index.d.ts
 export const runEventLoop: (isDefault: boolean) => object;
 ```
 
-编译配置   CMakeLists.txt文件需要按照如下配置
-```text
+- 编译配置
+
+1. CMakeLists.txt文件需要按照如下配置
+
+  
+```cpp
 // CMakeLists.txt
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
@@ -200,8 +218,10 @@ add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 ```
 
-需要在模块的build-profile.json5文件中进行以下配置
-```text
+2. 需要在模块的build-profile.json5文件中进行以下配置
+
+  
+```ArkTS
 "buildOption": {
   "arkOptions" : {
     "runtimeOnly" : {
@@ -212,21 +232,22 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
   },
 ```
 
-ArkTS代码示例
+ 
+- ArkTS代码示例
+
+  
 ```text
 // 导入头文件
 import testNapi from 'libentry.so'
 ```
 
-
-```text
+```ArkTS
 // index.ets
 testNapi.runEventLoop(true);
 ```
 
-
-```text
-export function SetTimeout(): Promise {
+```ArkTS
+export function SetTimeout(): Promise<void> {
   return new Promise((resolve) => {
     setTimeout(() => {
       console.info('set timer delay 1s');

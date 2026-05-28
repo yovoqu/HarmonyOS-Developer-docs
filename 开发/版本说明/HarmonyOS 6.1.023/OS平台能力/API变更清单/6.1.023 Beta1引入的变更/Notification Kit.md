@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：notificationManager； API声明：function isGeofenceEnabled(): Promise<boolean>; 差异内容：function isGeofenceEnabled(): Promise<boolean>; | api/@ohos.notificationManager.d.ts |
+| 新增API | NA | 类名：notificationManager； API声明：function isGeofenceEnabled(): Promise&lt;boolean&gt;; 差异内容：function isGeofenceEnabled(): Promise&lt;boolean&gt;; | api/@ohos.notificationManager.d.ts |
 | 新增API | NA | 类名：notificationManager； API声明：export enum PriorityNotificationType 差异内容：export enum PriorityNotificationType | api/@ohos.notificationManager.d.ts |
 | 新增API | NA | 类名：PriorityNotificationType； API声明：OTHER = 'OTHER' 差异内容：OTHER = 'OTHER' | api/@ohos.notificationManager.d.ts |
 | 新增API | NA | 类名：PriorityNotificationType； API声明：PRIMARY_CONTACT = 'PRIMARY_CONTACT' 差异内容：PRIMARY_CONTACT = 'PRIMARY_CONTACT' | api/@ohos.notificationManager.d.ts |

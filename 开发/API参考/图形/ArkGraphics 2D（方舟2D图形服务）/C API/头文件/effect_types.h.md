@@ -3,92 +3,87 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effect-types-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明滤镜效果的数据类型。
-
+ 
 **引用文件：** <native_effect/effect_types.h>
-
+ 
 **库：** libnative_effect.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [effectKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effectkit)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_Filter_ColorMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effectkit-oh-filter-colormatrix) | - | 定义一个用来创建滤镜效果的矩阵。 |
-| [OH_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-effectkit-oh-filter) | OH_Filter | 滤镜结构体，用来生成滤镜位图。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-pixelmapnative) | OH_PixelmapNative | 定义一个位图。 |
+| OH_Filter_ColorMatrix | - | 定义一个用来创建滤镜效果的矩阵。 |
+| OH_Filter | OH_Filter | 滤镜结构体，用来生成滤镜位图。 |
+| OH_PixelmapNative | OH_PixelmapNative | 定义一个位图。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [EffectErrorCode](#effecterrorcode) | EffectErrorCode | 定义滤镜效果的状态码。 |
-| [EffectTileMode](#effecttilemode) | EffectTileMode | 定义着色器效果平铺模式的枚举。 |
+| EffectErrorCode | EffectErrorCode | 定义滤镜效果的状态码。 |
+| EffectTileMode | EffectTileMode | 定义着色器效果平铺模式的枚举。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### EffectErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### EffectErrorCode
 
 ```text
 enum EffectErrorCode
 ```
-
+ 
 **描述**
-
+ 
 定义滤镜效果的状态码。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | EFFECT_SUCCESS = 0 | 成功。 |
 | EFFECT_BAD_PARAMETER = 401 | 无效的参数。 |
 | EFFECT_UNSUPPORTED_OPERATION = 7600201 | 不支持的操作。 |
 | EFFECT_UNKNOWN_ERROR = 7600901 | 未知错误。 |
+ 
+ 
+  
 
-
-### EffectTileMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### EffectTileMode
 
 ```text
 enum EffectTileMode
 ```
-
+ 
 **描述**
-
+ 
 定义着色器效果平铺模式的枚举。
-
+ 
 **起始版本：** 14
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | CLAMP = 0 | 如果着色器效果超出其原始边界，剩余区域使用着色器的边缘颜色填充。 |

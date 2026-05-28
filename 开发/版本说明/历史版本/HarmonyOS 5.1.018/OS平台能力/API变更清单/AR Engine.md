@@ -13,7 +13,7 @@
 | 新增API | NA | 类名：ARAddAugmentedImageReason； API声明：LIGHT_ANOMALY = 2 差异内容：LIGHT_ANOMALY = 2 | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAddAugmentedImageReason； API声明：FEATURE_LIMIT = 3 差异内容：FEATURE_LIMIT = 3 | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAddAugmentedImageReason； API声明：OTHER = 4 差异内容：OTHER = 4 | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：arEngine； API声明：type Distortion = [  number,  number,  number,  number,  number  ]; 差异内容：type Distortion = [  number,  number,  number,  number,  number  ]; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：arEngine； API声明：type Distortion = [ number, number, number, number, number ]; 差异内容：type Distortion = [ number, number, number, number, number ]; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：enum ARSemanticPlaneLabel 差异内容：enum ARSemanticPlaneLabel | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSemanticPlaneLabel； API声明：UNKNOWN = 0 差异内容：UNKNOWN = 0 | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSemanticPlaneLabel； API声明：WALL = 1 差异内容：WALL = 1 | api/@hms.core.ar.arengine.d.ts |
@@ -92,27 +92,27 @@
 | 新增API | NA | 类名：ARSession； API声明：getFrame(): ARFrame; 差异内容：getFrame(): ARFrame; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSession； API声明：createAnchor(pose: ARPose): ARAnchor; 差异内容：createAnchor(pose: ARPose): ARAnchor; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSession； API声明：detachAnchor(anchor: ARAnchor): void; 差异内容：detachAnchor(anchor: ARAnchor): void; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARSession； API声明：getAllAnchors(): Array<ARAnchor>; 差异内容：getAllAnchors(): Array<ARAnchor>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARSession； API声明：getAllTrackables(type: ARTrackableType): Array<ARTrackable>; 差异内容：getAllTrackables(type: ARTrackableType): Array<ARTrackable>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARSession； API声明：openFlash(): Promise<boolean>; 差异内容：openFlash(): Promise<boolean>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARSession； API声明：closeFlash(): Promise<boolean>; 差异内容：closeFlash(): Promise<boolean>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARSession； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARSession； API声明：getAllAnchors(): Array&lt;ARAnchor&gt;; 差异内容：getAllAnchors(): Array&lt;ARAnchor&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARSession； API声明：getAllTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;; 差异内容：getAllTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARSession； API声明：openFlash(): Promise&lt;boolean&gt;; 差异内容：openFlash(): Promise&lt;boolean&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARSession； API声明：closeFlash(): Promise&lt;boolean&gt;; 差异内容：closeFlash(): Promise&lt;boolean&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARSession； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARFrame 差异内容：class ARFrame | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARFrame； API声明：readonly timestamp: number; 差异内容：readonly timestamp: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARFrame； API声明：readonly pointCloud: ARPointCloud; 差异内容：readonly pointCloud: ARPointCloud; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARFrame； API声明：getCamera(): ARCamera; 差异内容：getCamera(): ARCamera; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARFrame； API声明：getUpdatedTrackables(type: ARTrackableType): Array<ARTrackable>; 差异内容：getUpdatedTrackables(type: ARTrackableType): Array<ARTrackable>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARFrame； API声明：hitTest(x: number, y: number): Array<ARHitResult>; 差异内容：hitTest(x: number, y: number): Array<ARHitResult>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARFrame； API声明：getUpdatedTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;; 差异内容：getUpdatedTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARFrame； API声明：hitTest(x: number, y: number): Array&lt;ARHitResult&gt;; 差异内容：hitTest(x: number, y: number): Array&lt;ARHitResult&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARFrame； API声明：acquireSceneMesh(): ARSceneMesh; 差异内容：acquireSceneMesh(): ARSceneMesh; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARFrame； API声明：acquireDepthImage16Bits(): ARImage; 差异内容：acquireDepthImage16Bits(): ARImage; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARFrame； API声明：acquireDepthConfidenceImage(): ARImage; 差异内容：acquireDepthConfidenceImage(): ARImage; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARFrame； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARFrame； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARAnchor 差异内容：class ARAnchor | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAnchor； API声明：readonly id: number; 差异内容：readonly id: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAnchor； API声明：readonly trackingState: ARTrackingState; 差异内容：readonly trackingState: ARTrackingState; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAnchor； API声明：getPose(): ARPose; 差异内容：getPose(): ARPose; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAnchor； API声明：detach(): void; 差异内容：detach(): void; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARAnchor； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARAnchor； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARPlaneAnchor 差异内容：class ARPlaneAnchor | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPlaneAnchor； API声明：getPlane(): ARPlane; 差异内容：getPlane(): ARPlane; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：interface ARCameraIntrinsics 差异内容：interface ARCameraIntrinsics | api/@hms.core.ar.arengine.d.ts |
@@ -134,8 +134,8 @@
 | 新增API | NA | 类名：ARImage； API声明：readonly width: number; 差异内容：readonly width: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARImage； API声明：readonly height: number; 差异内容：readonly height: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARImage； API声明：readonly imageTimestamp: number; 差异内容：readonly imageTimestamp: number; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARImage； API声明：readonly planes: Array<ImageComponent>; 差异内容：readonly planes: Array<ImageComponent>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARImage； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARImage； API声明：readonly planes: Array&lt;ImageComponent&gt;; 差异内容：readonly planes: Array&lt;ImageComponent&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARImage； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：interface ImageComponent 差异内容：interface ImageComponent | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ImageComponent； API声明：readonly rowStride: number; 差异内容：readonly rowStride: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ImageComponent； API声明：readonly pixelStride: number; 差异内容：readonly pixelStride: number; | api/@hms.core.ar.arengine.d.ts |
@@ -155,9 +155,9 @@
 | 新增API | NA | 类名：ARTrackable； API声明：readonly type: ARTrackableType; 差异内容：readonly type: ARTrackableType; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARTrackable； API声明：readonly state: ARTrackingState; 差异内容：readonly state: ARTrackingState; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARTrackable； API声明：getPose(): ARPose; 差异内容：getPose(): ARPose; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARTrackable； API声明：getAnchors(): Array<ARAnchor>; 差异内容：getAnchors(): Array<ARAnchor>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARTrackable； API声明：getAnchors(): Array&lt;ARAnchor&gt;; 差异内容：getAnchors(): Array&lt;ARAnchor&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARTrackable； API声明：createAnchor(pose: ARPose): ARAnchor; 差异内容：createAnchor(pose: ARPose): ARAnchor; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARTrackable； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARTrackable； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARPlane 差异内容：class ARPlane | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPlane； API声明：planeType: ARPlaneType; 差异内容：planeType: ARPlaneType; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPlane； API声明：extendX: number; 差异内容：extendX: number; | api/@hms.core.ar.arengine.d.ts |
@@ -169,25 +169,25 @@
 | 新增API | NA | 类名：ARPlane； API声明：isPoseInPolygon(pose: ARPose): boolean; 差异内容：isPoseInPolygon(pose: ARPose): boolean; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：interface ARPointCloud 差异内容：interface ARPointCloud | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPointCloud； API声明：readonly timestamp: number; 差异内容：readonly timestamp: number; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARPointCloud； API声明：readonly points: Array<number>; 差异内容：readonly points: Array<number>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARPointCloud； API声明：readonly points: Array&lt;number&gt;; 差异内容：readonly points: Array&lt;number&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARSceneMesh 差异内容：class ARSceneMesh | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSceneMesh； API声明：readonly verticesSize: number; 差异内容：readonly verticesSize: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSceneMesh； API声明：readonly triangleIndicesSize: number; 差异内容：readonly triangleIndicesSize: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSceneMesh； API声明：getVertices(): ArrayBuffer; 差异内容：getVertices(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSceneMesh； API声明：getVertexNormals(): ArrayBuffer; 差异内容：getVertexNormals(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARSceneMesh； API声明：getTriangleIndices(): ArrayBuffer; 差异内容：getTriangleIndices(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARSceneMesh； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARSceneMesh； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARHitResult 差异内容：class ARHitResult | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARHitResult； API声明：readonly distance: number; 差异内容：readonly distance: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARHitResult； API声明：getHitPose(): ARPose; 差异内容：getHitPose(): ARPose; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARHitResult； API声明：getTrackable(): ARTrackable; 差异内容：getTrackable(): ARTrackable; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARHitResult； API声明：createAnchor(): ARAnchor; 差异内容：createAnchor(): ARAnchor; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARHitResult； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARHitResult； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARPose 差异内容：class ARPose | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPose； API声明：readonly rotation: Quaternion; 差异内容：readonly rotation: Quaternion; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPose； API声明：readonly translation: Vec3; 差异内容：readonly translation: Vec3; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPose； API声明：getMatrix(): Matrix4; 差异内容：getMatrix(): Matrix4; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARPose； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARPose； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：function createARPose(rotation: Quaternion, translation: Vec3): ARPose; 差异内容：function createARPose(rotation: Quaternion, translation: Vec3): ARPose; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARPoint 差异内容：class ARPoint | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARPoint； API声明：readonly orientationMode: ARPointOrientationMode; 差异内容：readonly orientationMode: ARPointOrientationMode; | api/@hms.core.ar.arengine.d.ts |
@@ -197,31 +197,31 @@
 | 新增API | NA | 类名：ARAugmentedImage； API声明：readonly index: number; 差异内容：readonly index: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAugmentedImage； API声明：readonly name: string; 差异内容：readonly name: string; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：interface ARAugmentedImageDatabase 差异内容：interface ARAugmentedImageDatabase | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：deserialize(buffer: ArrayBuffer): Promise<void>; 差异内容：deserialize(buffer: ArrayBuffer): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：serialize(): Promise<ArrayBuffer>; 差异内容：serialize(): Promise<ArrayBuffer>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：addImage(name: string, pixelMap: image.PixelMap, widthInMeters: number): Promise<ARAddAugmentedImageResult>; 差异内容：addImage(name: string, pixelMap: image.PixelMap, widthInMeters: number): Promise<ARAddAugmentedImageResult>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：deserialize(buffer: ArrayBuffer): Promise&lt;void&gt;; 差异内容：deserialize(buffer: ArrayBuffer): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：serialize(): Promise&lt;ArrayBuffer&gt;; 差异内容：serialize(): Promise&lt;ArrayBuffer&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：addImage(name: string, pixelMap: image.PixelMap, widthInMeters: number): Promise&lt;ARAddAugmentedImageResult&gt;; 差异内容：addImage(name: string, pixelMap: image.PixelMap, widthInMeters: number): Promise&lt;ARAddAugmentedImageResult&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：getImageCount(): number; 差异内容：getImageCount(): number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：getCapacity(): number; 差异内容：getCapacity(): number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：getImageAddMode(): ARAddAugmentedImageMode; 差异内容：getImageAddMode(): ARAddAugmentedImageMode; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：setImageAddMode(mode: ARAddAugmentedImageMode): void; 差异内容：setImageAddMode(mode: ARAddAugmentedImageMode): void; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：arEngine； API声明：function createARAugmentedImageDatabase(): Promise<ARAugmentedImageDatabase>; 差异内容：function createARAugmentedImageDatabase(): Promise<ARAugmentedImageDatabase>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARAugmentedImageDatabase； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：arEngine； API声明：function createARAugmentedImageDatabase(): Promise&lt;ARAugmentedImageDatabase&gt;; 差异内容：function createARAugmentedImageDatabase(): Promise&lt;ARAugmentedImageDatabase&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：interface ARAddAugmentedImageResult 差异内容：interface ARAddAugmentedImageResult | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAddAugmentedImageResult； API声明：index: number; 差异内容：index: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAddAugmentedImageResult； API声明：state: number; 差异内容：state: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARAddAugmentedImageResult； API声明：stateReason: ARAddAugmentedImageReason; 差异内容：stateReason: ARAddAugmentedImageReason; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：global； API声明：export declare namespace arViewController 差异内容：export declare namespace arViewController | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：arViewController； API声明：class ARViewContext 差异内容：class ARViewContext | api/@hms.core.ar.arview.d.ets |
-| 新增API | NA | 类名：ARViewContext； API声明：init(): Promise<void>; 差异内容：init(): Promise<void>; | api/@hms.core.ar.arview.d.ets |
+| 新增API | NA | 类名：ARViewContext； API声明：init(): Promise&lt;void&gt;; 差异内容：init(): Promise&lt;void&gt;; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewContext； API声明：pause(): void; 差异内容：pause(): void; | api/@hms.core.ar.arview.d.ets |
-| 新增API | NA | 类名：ARViewContext； API声明：destroy(): Promise<void>; 差异内容：destroy(): Promise<void>; | api/@hms.core.ar.arview.d.ets |
+| 新增API | NA | 类名：ARViewContext； API声明：destroy(): Promise&lt;void&gt;; 差异内容：destroy(): Promise&lt;void&gt;; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewContext； API声明：resume(): void; 差异内容：resume(): void; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：arViewController； API声明：abstract class ARViewCallback 差异内容：abstract class ARViewCallback | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewCallback； API声明：abstract onFrameUpdate(ctx: ARViewContext, sysBootTs: number): void; 差异内容：abstract onFrameUpdate(ctx: ARViewContext, sysBootTs: number): void; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewCallback； API声明：abstract onAnchorAdd(ctx: ARViewContext, node: Node, anchor: arEngine.ARAnchor): void; 差异内容：abstract onAnchorAdd(ctx: ARViewContext, node: Node, anchor: arEngine.ARAnchor): void; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewCallback； API声明：abstract onAnchorUpdate(ctx: ARViewContext, node: Node, anchor: arEngine.ARAnchor): void; 差异内容：abstract onAnchorUpdate(ctx: ARViewContext, node: Node, anchor: arEngine.ARAnchor): void; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare struct ARView 差异内容：export declare struct ARView | api/@hms.core.ar.arview.d.ets |
-| 新增API | NA | 类名：ARView； API声明：@Require  @State  context: arViewController.ARViewContext; 差异内容：@Require  @State  context: arViewController.ARViewContext; | api/@hms.core.ar.arview.d.ets |
+| 新增API | NA | 类名：ARView； API声明：@Require @State context: arViewController.ARViewContext; 差异内容：@Require @State context: arViewController.ARViewContext; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARView； API声明：build(): void; 差异内容：build(): void; | api/@hms.core.ar.arview.d.ets |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.core.ar.arengine.d.ts 差异内容：AREngine | api/@hms.core.ar.arengine.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.core.ar.arview.d.ets 差异内容：AREngine | api/@hms.core.ar.arview.d.ets |

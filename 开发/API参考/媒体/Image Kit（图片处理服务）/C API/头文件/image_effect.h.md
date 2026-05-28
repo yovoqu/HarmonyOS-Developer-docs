@@ -3,11 +3,9 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-h
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 声明效果器相关接口。
 
@@ -26,63 +24,62 @@
 **相关模块：** [ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) | OH_ImageEffect | 定义效果器结构类型。 |
+| OH_ImageEffect | OH_ImageEffect | 定义效果器结构类型。 |
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### 函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [OH_ImageEffect *OH_ImageEffect_Create(const char *name)](#oh_imageeffect_create) | 创建OH_ImageEffect实例，调用[OH_ImageEffect_Release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-h#oh_imageeffect_release)进行资源释放。 |
-| [OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const char *filterName)](#oh_imageeffect_addfilter) | 添加滤镜。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffect, OH_EffectFilter *filter)](#oh_imageeffect_addfilterbyfilter) | 添加指定滤镜。 |
-| [OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)](#oh_imageeffect_insertfilter) | 插入滤镜。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter)](#oh_imageeffect_insertfilterbyfilter) | 按指定位置插入滤镜。 |
-| [int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *filterName)](#oh_imageeffect_removefilter) | 移除滤镜。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEffect, uint32_t index)](#oh_imageeffect_removefilterbyindex) | 移除指定位置滤镜。 |
-| [OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)](#oh_imageeffect_replacefilter) | 替换滤镜。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter)](#oh_imageeffect_replacefilterbyfilter) | 替换指定位置滤镜。 |
-| [int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect)](#oh_imageeffect_getfiltercount) | 查询已添加滤镜个数。 |
-| [OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t index)](#oh_imageeffect_getfilter) | 查询已添加滤镜。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, const char *key, const ImageEffect_Any *value)](#oh_imageeffect_configure) | 设置配置信息。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffect, OHNativeWindow *nativeWindow)](#oh_imageeffect_setoutputsurface) | 设置输出Surface。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect, OHNativeWindow **nativeWindow)](#oh_imageeffect_getinputsurface) | 获取输入Surface。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)](#oh_imageeffect_setinputpixelmap) | 设置输入的Pixelmap。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)](#oh_imageeffect_setoutputpixelmap) | 设置输出的Pixelmap。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)](#oh_imageeffect_setinputnativebuffer) | 设置输入的NativeBuffer。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)](#oh_imageeffect_setoutputnativebuffer) | 设置输出的NativeBuffer。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, const char *uri)](#oh_imageeffect_setinputuri) | 设置输入的URI。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, const char *uri)](#oh_imageeffect_setoutputuri) | 设置输出的URI。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)](#oh_imageeffect_setinputpicture) | 设置输入的Picture。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)](#oh_imageeffect_setoutputpicture) | 设置输出的Picture。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffect, int32_t textureId,int32_t colorSpace)](#oh_imageeffect_setinputtextureid) | 配置输入包含图片内容的纹理标识。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEffect, int32_t textureId)](#oh_imageeffect_setoutputtextureid) | 配置输出包含渲染后的纹理标识。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect)](#oh_imageeffect_start) | 启动效果器。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect)](#oh_imageeffect_stop) | 停止效果。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect)](#oh_imageeffect_release) | 释放OH_ImageEffect实例资源。 |
-| [ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **info)](#oh_imageeffect_save) | 序列化效果器。 |
-| [OH_ImageEffect *OH_ImageEffect_Restore(const char *info)](#oh_imageeffect_restore) | 反序列化效果器。 |
+| OH_ImageEffect *OH_ImageEffect_Create(const char *name) | 创建OH_ImageEffect实例，调用OH_ImageEffect_Release进行资源释放。 |
+| OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const char *filterName) | 添加滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffect, OH_EffectFilter *filter) | 添加指定滤镜。 |
+| OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName) | 插入滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter) | 按指定位置插入滤镜。 |
+| int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *filterName) | 移除滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEffect, uint32_t index) | 移除指定位置滤镜。 |
+| OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName) | 替换滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter) | 替换指定位置滤镜。 |
+| int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect) | 查询已添加滤镜个数。 |
+| OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t index) | 查询已添加滤镜。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, const char *key, const ImageEffect_Any *value) | 设置配置信息。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffect, OHNativeWindow *nativeWindow) | 设置输出Surface。 |
+| ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect, OHNativeWindow **nativeWindow) | 获取输入Surface。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap) | 设置输入的Pixelmap。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap) | 设置输出的Pixelmap。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer) | 设置输入的NativeBuffer。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer) | 设置输出的NativeBuffer。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, const char *uri) | 设置输入的URI。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, const char *uri) | 设置输出的URI。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture) | 设置输入的Picture。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture) | 设置输出的Picture。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffect, int32_t textureId,int32_t colorSpace) | 配置输入包含图片内容的纹理标识。 |
+| ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEffect, int32_t textureId) | 配置输出包含渲染后的纹理标识。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect) | 启动效果器。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect) | 停止效果。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect) | 释放OH_ImageEffect实例资源。 |
+| ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **info) | 序列化效果器。 |
+| OH_ImageEffect *OH_ImageEffect_Restore(const char *info) | 反序列化效果器。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-### OH_ImageEffect_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 函数说明
 
+
+
+##### OH_ImageEffect_Create()
 
 ```text
 OH_ImageEffect *OH_ImageEffect_Create(const char *name)
@@ -98,7 +95,6 @@ OH_ImageEffect *OH_ImageEffect_Create(const char *name)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *name | 效果器名，用于标识效果器，由用户自定义，建议为非空的字符串。 |
@@ -106,15 +102,14 @@ OH_ImageEffect *OH_ImageEffect_Create(const char *name)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) * | 返回一个指向OH_ImageEffect实例的指针，创建失败时返回空指针。 |
+| OH_ImageEffect * | 返回一个指向OH_ImageEffect实例的指针，创建失败时返回空指针。 |
 
 
-### OH_ImageEffect_AddFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_AddFilter()
 
 ```text
 OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const char *filterName)
@@ -130,24 +125,22 @@ OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const cha
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | const char *filterName | 滤镜名。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_EffectFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilter) * | 返回一个指向OH_EffectFilter实例的指针，滤镜名无效时返回空指针。 |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，滤镜名无效时返回空指针。 |
 
 
-### OH_ImageEffect_AddFilterByFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_AddFilterByFilter()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffect, OH_EffectFilter *filter)
@@ -163,24 +156,22 @@ ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffe
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
-| [OH_EffectFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilter) *filter | 滤镜指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_EffectFilter *filter | 滤镜指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_InsertFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_InsertFilter()
 
 ```text
 OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)
@@ -196,25 +187,23 @@ OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | uint32_t index | 插入滤镜位置索引。 |
 | const char *filterName | 滤镜名。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_EffectFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilter) * | 返回一个指向OH_EffectFilter实例的指针，参数无效时返回空指针。 |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，参数无效时返回空指针。 |
 
 
-### OH_ImageEffect_InsertFilterByFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_InsertFilterByFilter()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index,OH_EffectFilter *filter)
@@ -230,25 +219,23 @@ ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageE
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | uint32_t index | 插入滤镜位置索引。 |
-| [OH_EffectFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilter) *filter | 滤镜指针。 |
+| OH_EffectFilter *filter | 滤镜指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_RemoveFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_RemoveFilter()
 
 ```text
 int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *filterName)
@@ -264,24 +251,22 @@ int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *fil
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | const char *filterName | 滤镜名。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 所删除的滤镜个数。 |
 
 
-### OH_ImageEffect_RemoveFilterByIndex()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_RemoveFilterByIndex()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEffect, uint32_t index)
@@ -297,24 +282,22 @@ ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEf
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | uint32_t index | 移除滤镜位置索引。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_ReplaceFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_ReplaceFilter()
 
 ```text
 OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)
@@ -330,24 +313,22 @@ OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint3
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | const char *filterName | 滤镜名。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_EffectFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilter) * | 返回一个指向OH_EffectFilter实例的指针，替换失败时返回空指针。 |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，替换失败时返回空指针。 |
 
 
-### OH_ImageEffect_ReplaceFilterByFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_ReplaceFilterByFilter()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter)
@@ -363,25 +344,23 @@ ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *image
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | uint32_t index | 替换滤镜位置索引。 |
-| [OH_EffectFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilter) *filter | 滤镜指针。 |
+| OH_EffectFilter *filter | 滤镜指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_GetFilterCount()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_GetFilterCount()
 
 ```text
 int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect)
@@ -397,23 +376,21 @@ int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 已添加的滤镜个数。 |
 
 
-### OH_ImageEffect_GetFilter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_GetFilter()
 
 ```text
 OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t index)
@@ -429,24 +406,22 @@ OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | uint32_t index | 待查询滤镜位置索引。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_EffectFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-effectfilter) * | 返回一个指向OH_EffectFilter实例的指针，参数无效时返回空指针。 |
+| OH_EffectFilter * | 返回一个指向OH_EffectFilter实例的指针，参数无效时返回空指针。 |
 
 
-### OH_ImageEffect_Configure()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_Configure()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, const char *key,const ImageEffect_Any *value)
@@ -462,25 +437,23 @@ ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, cons
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | const char *key | 配置参数。 |
-| [const ImageEffect_Any](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-imageeffect-any) *value | 配置参数值。 |
+| const ImageEffect_Any *value | 配置参数值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。          EFFECT_KEY_ERROR：参数无效。          EFFECT_PARAM_ERROR：参数值无效。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_KEY_ERROR：参数无效。 EFFECT_PARAM_ERROR：参数值无效。 |
 
 
-### OH_ImageEffect_SetOutputSurface()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetOutputSurface()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffect, OHNativeWindow *nativeWindow)
@@ -496,24 +469,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffec
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | OHNativeWindow *nativeWindow | 指向OHNativeWindow实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_GetInputSurface()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_GetInputSurface()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect, OHNativeWindow **nativeWindow)
@@ -529,24 +500,22 @@ ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | OHNativeWindow **nativeWindow | 指向OHNativeWindow实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_SetInputPixelmap()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetInputPixelmap()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)
@@ -562,24 +531,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffec
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 指向OH_PixelmapNative实例的指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PixelmapNative *pixelmap | 指向OH_PixelmapNative实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_SetOutputPixelmap()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetOutputPixelmap()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)
@@ -595,24 +562,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffe
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 指向OH_PixelmapNative实例的指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PixelmapNative *pixelmap | 指向OH_PixelmapNative实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。          EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
 
 
-### OH_ImageEffect_SetInputNativeBuffer()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetInputNativeBuffer()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)
@@ -628,24 +593,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageE
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
-| [OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer-oh-nativebuffer) *nativeBuffer | 指向OH_NativeBuffer实例的指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_NativeBuffer *nativeBuffer | 指向OH_NativeBuffer实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_SetOutputNativeBuffer()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetOutputNativeBuffer()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)
@@ -661,24 +624,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *image
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
-| [OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer-oh-nativebuffer) *nativeBuffer | 指向OH_NativeBuffer实例的指针，允许为空，当输入为空时渲染结果返回到输入的OH_NativeBuffer对象上。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_NativeBuffer *nativeBuffer | 指向OH_NativeBuffer实例的指针，允许为空，当输入为空时渲染结果返回到输入的OH_NativeBuffer对象上。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。          EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
 
 
-### OH_ImageEffect_SetInputUri()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetInputUri()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, const char *uri)
@@ -694,24 +655,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, co
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | const char *uri | 图片URI（只支持Jpeg，Heif）。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_SetOutputUri()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetOutputUri()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, const char *uri)
@@ -727,24 +686,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, c
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | const char *uri | 图片URI。输出URI的格式和输入保持一致，如果不支持Heif编码能力，则进行Jpeg编码。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_SetInputPicture()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetInputPicture()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)
@@ -760,24 +717,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
-| [OH_PictureNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-picturenative) *picture | 指向OH_PictureNative实例的指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PictureNative *picture | 指向OH_PictureNative实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_SetOutputPicture()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetOutputPicture()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)
@@ -793,24 +748,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffec
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
-| [OH_PictureNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-picturenative) *picture | 指向OH_PictureNative实例的指针，允许为空，当输入为空时渲染结果返回到输入的OH_PictureNative对象上。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
+| OH_PictureNative *picture | 指向OH_PictureNative实例的指针，允许为空，当输入为空时渲染结果返回到输入的OH_PictureNative对象上。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。          EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_PARAM_ERROR：如果参数异常导致方法调用失败。 |
 
 
-### OH_ImageEffect_SetInputTextureId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetInputTextureId()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffect, int32_t textureId,int32_t colorSpace)
@@ -826,25 +779,23 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffe
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | OH_ImageEffect结构体实例指针。 |
+| OH_ImageEffect *imageEffect | OH_ImageEffect结构体实例指针。 |
 | int32_t textureId | 包含图片内容的纹理标识，纹理标识必须是有效的且绑定了GL_TEXTURE_2D类型的纹理。 |
 | int32_t colorSpace | 图片对应的色彩空间。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针或参数超出有效范围。          EFFECT_PARAM_ERROR：参数缺失或参数错误。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针或参数超出有效范围。 EFFECT_PARAM_ERROR：参数缺失或参数错误。 |
 
 
-### OH_ImageEffect_SetOutputTextureId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_SetOutputTextureId()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEffect, int32_t textureId)
@@ -860,24 +811,22 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEff
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | OH_ImageEffect结构体实例指针。 |
-| int32_t textureId | 包含图片渲染后内容的纹理标识，纹理标识必须是一个有效的纹理。          如果纹理标识未被绑定纹理图片，纹理标识会自动绑定GL_TEXTURE_2D类型；          如果纹理标识已经被绑定纹理且尺寸不合适，结果可能会被裁剪或部分填充到此纹理上。 |
+| OH_ImageEffect *imageEffect | OH_ImageEffect结构体实例指针。 |
+| int32_t textureId | 包含图片渲染后内容的纹理标识，纹理标识必须是一个有效的纹理。 如果纹理标识未被绑定纹理图片，纹理标识会自动绑定GL_TEXTURE_2D类型； 如果纹理标识已经被绑定纹理且尺寸不合适，结果可能会被裁剪或部分填充到此纹理上。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针或参数超出有效范围。          EFFECT_PARAM_ERROR：参数缺失或参数错误。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针或参数超出有效范围。 EFFECT_PARAM_ERROR：参数缺失或参数错误。 |
 
 
-### OH_ImageEffect_Start()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_Start()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect)
@@ -893,23 +842,21 @@ ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。          EFFECT_INPUT_OUTPUT_NOT_SUPPORTED：待处理输入、输出图像数据类型不一致。          EFFECT_COLOR_SPACE_NOT_MATCH：输入、输出图像色彩空间不匹配。          EFFECT_ALLOCATE_MEMORY_FAILED：内存申请失败。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 EFFECT_INPUT_OUTPUT_NOT_SUPPORTED：待处理输入、输出图像数据类型不一致。 EFFECT_COLOR_SPACE_NOT_MATCH：输入、输出图像色彩空间不匹配。 EFFECT_ALLOCATE_MEMORY_FAILED：内存申请失败。 |
 
 
-### OH_ImageEffect_Stop()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_Stop()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect)
@@ -925,23 +872,21 @@ ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_Release()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_Release()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect)
@@ -957,23 +902,21 @@ ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_Save()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_Save()
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **info)
@@ -989,24 +932,22 @@ ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **in
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) *imageEffect | 效果器指针。 |
+| OH_ImageEffect *imageEffect | 效果器指针。 |
 | char **info | 指向char数组的指针，返回序列化JSON字符串。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageEffect_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h#imageeffect_errorcode) | EFFECT_SUCCESS：方法调用成功。          EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
+| ImageEffect_ErrorCode | EFFECT_SUCCESS：方法调用成功。 EFFECT_ERROR_PARAM_INVALID：入参为空指针。 |
 
 
-### OH_ImageEffect_Restore()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_ImageEffect_Restore()
 
 ```text
 OH_ImageEffect *OH_ImageEffect_Restore(const char *info)
@@ -1022,7 +963,6 @@ OH_ImageEffect *OH_ImageEffect_Restore(const char *info)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *info | 序列化JSON字符串。 |
@@ -1030,7 +970,6 @@ OH_ImageEffect *OH_ImageEffect_Restore(const char *info)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect-oh-imageeffect) * | 反序列化成功时返回OH_ImageEffect实例，否则返回空指针。 |
+| OH_ImageEffect * | 反序列化成功时返回OH_ImageEffect实例，否则返回空指针。 |

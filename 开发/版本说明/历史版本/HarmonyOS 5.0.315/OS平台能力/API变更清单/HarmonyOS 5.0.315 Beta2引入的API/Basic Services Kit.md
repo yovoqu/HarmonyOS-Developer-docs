@@ -27,5 +27,5 @@
 | 新增API | NA | 类名：GetDataParams； API声明：progressIndicator: ProgressIndicator; 差异内容：progressIndicator: ProgressIndicator; | api/@ohos.pasteboard.d.ts |
 | 新增API | NA | 类名：GetDataParams； API声明：progressListener?: ProgressListener; 差异内容：progressListener?: ProgressListener; | api/@ohos.pasteboard.d.ts |
 | 新增API | NA | 类名：GetDataParams； API声明：progressSignal?: ProgressSignal; 差异内容：progressSignal?: ProgressSignal; | api/@ohos.pasteboard.d.ts |
-| 新增API | NA | 类名：SystemPasteboard； API声明：getDataWithProgress(params: GetDataParams): Promise<PasteData>; 差异内容：getDataWithProgress(params: GetDataParams): Promise<PasteData>; | api/@ohos.pasteboard.d.ts |
+| 新增API | NA | 类名：SystemPasteboard； API声明：getDataWithProgress(params: GetDataParams): Promise&lt;PasteData&gt;; 差异内容：getDataWithProgress(params: GetDataParams): Promise&lt;PasteData&gt;; | api/@ohos.pasteboard.d.ts |
 | 新增API | NA | 类名：Config； API声明：multipart?: boolean; 差异内容：multipart?: boolean; | api/@ohos.request.d.ts |

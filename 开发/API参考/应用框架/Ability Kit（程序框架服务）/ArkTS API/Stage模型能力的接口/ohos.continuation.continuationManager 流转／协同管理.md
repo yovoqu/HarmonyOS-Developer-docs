@@ -3,42 +3,38 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationmanager
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 continuationManager模块提供了流转/协同入口管理服务能力，包括连接/取消流转管理服务，注册/解注册设备连接变化监听，拉起设备选择模块，更新连接状态。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持，从API version 22开始废弃，建议使用[分布式设备管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager)替代。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 8开始支持，从API version 22开始废弃，建议使用 分布式设备管理 替代。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 导入模块
 
-```ts
+```text
 import { continuationManager } from '@kit.AbilityKit';
 ```
 
 
-## continuationManager.register(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-register(callback: AsyncCallback<number>): void
+##### continuationManager.register(deprecated)
+
+register(callback: AsyncCallback&lt;number&gt;): void
 
 注册流转管理服务，并获取对应的注册token，无过滤条件，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[ondevicestatechange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 ondevicestatechange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -47,8 +43,7 @@ register(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = -1;
@@ -63,16 +58,16 @@ continuationManager.register((err, data) => {
 ```
 
 
-## continuationManager.register(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-register(options: ContinuationExtraParams, callback: AsyncCallback<number>): void
+##### continuationManager.register(deprecated)
+
+register(options: ContinuationExtraParams, callback: AsyncCallback&lt;number&gt;): void
 
 连接流转管理服务，并获取对应的注册token，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -80,23 +75,21 @@ register(options: ContinuationExtraParams, callback: AsyncCallback<number>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 是 | 过滤可选择设备列表的额外参数。 |
+| options | ContinuationExtraParams | 是 | 过滤可选择设备列表的额外参数。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | AsyncCallback形式返回流转管理服务连接后生成的token。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = -1;
 continuationManager.register(
   {
-    deviceType: ['00E'],
+    deviceType: ["00E"]
   },
   (err, data) => {
     if (err.code != 0) {
@@ -105,21 +98,20 @@ continuationManager.register(
     }
     console.info('register finished, ' + JSON.stringify(data));
     token = data;
-  },
-);
+});
 ```
 
 
-## continuationManager.register(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-register(options?: ContinuationExtraParams): Promise<number>
+##### continuationManager.register(deprecated)
+
+register(options?: ContinuationExtraParams): Promise&lt;number&gt;
 
 连接流转管理服务，并获取对应的注册token，使用Promise方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -127,14 +119,12 @@ register(options?: ContinuationExtraParams): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
+| options | ContinuationExtraParams | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -143,34 +133,31 @@ register(options?: ContinuationExtraParams): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = -1;
-continuationManager
-  .register({ deviceType: ['00E'] })
-  .then((data) => {
+continuationManager.register(
+  { deviceType: ["00E"] }).then((data) => {
     console.info('register finished, ' + JSON.stringify(data));
     token = data;
-  })
-  .catch((err: BusinessError) => {
+  }).catch((err: BusinessError) => {
     console.error('register failed, cause: ' + JSON.stringify(err));
-  });
+});
 ```
 
 
-## continuationManager.registerContinuation(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-registerContinuation(callback: AsyncCallback<number>): void
+##### continuationManager.registerContinuation(deprecated)
+
+registerContinuation(callback: AsyncCallback&lt;number&gt;): void
 
 注册流转管理服务，并获取对应的注册token，无过滤条件，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -182,7 +169,6 @@ registerContinuation(callback: AsyncCallback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;number&gt; | 是 | AsyncCallback形式返回流转管理服务连接后生成的token。 |
@@ -191,7 +177,6 @@ registerContinuation(callback: AsyncCallback<number>): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -203,17 +188,14 @@ registerContinuation(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = -1;
 try {
   continuationManager.registerContinuation((err, data) => {
     if (err.code != 0) {
-      console.error(
-        'registerContinuation failed, cause: ' + JSON.stringify(err),
-      );
+      console.error('registerContinuation failed, cause: ' + JSON.stringify(err));
       return;
     }
     console.info('registerContinuation finished, ' + JSON.stringify(data));
@@ -225,16 +207,16 @@ try {
 ```
 
 
-## continuationManager.registerContinuation(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-registerContinuation(options: ContinuationExtraParams, callback: AsyncCallback<number>): void
+##### continuationManager.registerContinuation(deprecated)
+
+registerContinuation(options: ContinuationExtraParams, callback: AsyncCallback&lt;number&gt;): void
 
 连接流转管理服务，并获取对应的注册token，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -246,17 +228,15 @@ registerContinuation(options: ContinuationExtraParams, callback: AsyncCallback<n
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 是 | 过滤可选择设备列表的额外参数。 |
+| options | ContinuationExtraParams | 是 | 过滤可选择设备列表的额外参数。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | AsyncCallback形式返回流转管理服务连接后生成的token。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -268,43 +248,39 @@ registerContinuation(options: ContinuationExtraParams, callback: AsyncCallback<n
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = -1;
 try {
   continuationManager.registerContinuation(
     {
-      deviceType: ['00E'],
+      deviceType: ["00E"]
     },
     (err, data) => {
       if (err.code != 0) {
-        console.error(
-          'registerContinuation failed, cause: ' + JSON.stringify(err),
-        );
+        console.error('registerContinuation failed, cause: ' + JSON.stringify(err));
         return;
       }
       console.info('registerContinuation finished, ' + JSON.stringify(data));
       token = data;
-    },
-  );
+  });
 } catch (err) {
   console.error('registerContinuation failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.registerContinuation(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-registerContinuation(options?: ContinuationExtraParams): Promise<number>
+##### continuationManager.registerContinuation(deprecated)
+
+registerContinuation(options?: ContinuationExtraParams): Promise&lt;number&gt;
 
 连接流转管理服务，并获取对应的注册token，使用Promise方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -316,14 +292,12 @@ registerContinuation(options?: ContinuationExtraParams): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
+| options | ContinuationExtraParams | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -333,7 +307,6 @@ registerContinuation(options?: ContinuationExtraParams): Promise<number>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -345,42 +318,37 @@ registerContinuation(options?: ContinuationExtraParams): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = -1;
 try {
-  continuationManager
-    .registerContinuation({
-      deviceType: ['00E'],
-    })
-    .then((data) => {
+  continuationManager.registerContinuation(
+    {
+      deviceType: ["00E"]
+    }).then((data) => {
       console.info('registerContinuation finished, ' + JSON.stringify(data));
       token = data;
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        'registerContinuation failed, cause: ' + JSON.stringify(err),
-      );
-    });
+    }).catch((err: BusinessError) => {
+      console.error('registerContinuation failed, cause: ' + JSON.stringify(err));
+  });
 } catch (err) {
   console.error('registerContinuation failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.on('deviceConnect')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'deviceConnect', callback: Callback<ContinuationResult>): void
+##### continuationManager.on('deviceConnect')(deprecated)
+
+on(type: 'deviceConnect', callback: Callback&lt;ContinuationResult&gt;): void
 
 异步方法，监听设备连接状态，使用Callback形式返回连接的设备信息。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -388,20 +356,18 @@ on(type: 'deviceConnect', callback: Callback<ContinuationResult>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听的事件类型，固定值"deviceConnect"。 |
-| callback | Callback&lt;[ContinuationResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationresult)&gt; | 是 | 当用户从设备选择模块中选择设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
+| callback | Callback&lt;ContinuationResult&gt; | 是 | 当用户从设备选择模块中选择设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
-continuationManager.on('deviceConnect', (data) => {
+continuationManager.on("deviceConnect", (data) => {
   console.info('onDeviceConnect deviceId: ' + JSON.stringify(data.id));
   console.info('onDeviceConnect deviceType: ' + JSON.stringify(data.type));
   console.info('onDeviceConnect deviceName: ' + JSON.stringify(data.name));
@@ -409,23 +375,22 @@ continuationManager.on('deviceConnect', (data) => {
 ```
 
 
-## continuationManager.on('deviceDisconnect')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'deviceDisconnect', callback: Callback<string>): void
+##### continuationManager.on('deviceDisconnect')(deprecated)
+
+on(type: 'deviceDisconnect', callback: Callback&lt;string&gt;): void
 
 异步方法，监听设备断开状态，使用Callback形式返回断开的设备信息。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -435,26 +400,25 @@ on(type: 'deviceDisconnect', callback: Callback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
-continuationManager.on('deviceDisconnect', (data) => {
+continuationManager.on("deviceDisconnect", (data) => {
   console.info('onDeviceDisconnect deviceId: ' + JSON.stringify(data));
 });
 ```
 
 
-## continuationManager.off('deviceConnect')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-off(type: 'deviceConnect', callback?: Callback<ContinuationResult>): void
+##### continuationManager.off('deviceConnect')(deprecated)
+
+off(type: 'deviceConnect', callback?: Callback&lt;ContinuationResult&gt;): void
 
 异步方法，取消监听设备连接状态，使用Callback形式返回连接的设备信息。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 offDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -462,20 +426,18 @@ off(type: 'deviceConnect', callback?: Callback<ContinuationResult>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消监听的事件类型，固定值"deviceConnect"。 |
-| callback | Callback&lt;[ContinuationResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationresult)&gt; | 否 | 当用户从设备选择模块中选择设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
+| callback | Callback&lt;ContinuationResult&gt; | 否 | 当用户从设备选择模块中选择设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
-continuationManager.off('deviceConnect', (data) => {
+continuationManager.off("deviceConnect", (data) => {
   console.info('onDeviceConnect deviceId: ' + JSON.stringify(data.id));
   console.info('onDeviceConnect deviceType: ' + JSON.stringify(data.type));
   console.info('onDeviceConnect deviceName: ' + JSON.stringify(data.name));
@@ -483,23 +445,22 @@ continuationManager.off('deviceConnect', (data) => {
 ```
 
 
-## continuationManager.off('deviceDisconnect')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-off(type: 'deviceDisconnect', callback?: Callback<string>): void
+##### continuationManager.off('deviceDisconnect')(deprecated)
+
+off(type: 'deviceDisconnect', callback?: Callback&lt;string&gt;): void
 
 异步方法，取消监听设备断开状态，使用Callback形式返回连接的设备信息。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 offDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -509,26 +470,25 @@ off(type: 'deviceDisconnect', callback?: Callback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
-continuationManager.off('deviceDisconnect', (data) => {
+continuationManager.off("deviceDisconnect", (data) => {
   console.info('onDeviceDisconnect deviceId: ' + JSON.stringify(data));
 });
 ```
 
 
-## continuationManager.on('deviceSelected')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'deviceSelected', token: number, callback: Callback<Array<ContinuationResult>>): void
+##### continuationManager.on('deviceSelected')(deprecated)
+
+on(type: 'deviceSelected', token: number, callback: Callback<Array&lt;ContinuationResult&gt;>): void
 
 异步方法，监听设备连接状态，使用Callback形式返回连接的设备信息。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -540,18 +500,16 @@ on(type: 'deviceSelected', token: number, callback: Callback<Array<ContinuationR
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听的事件类型，固定值"deviceSelected"。 |
 | token | number | 是 | 注册后的token。 |
-| callback | Callback&lt;Array&lt;[ContinuationResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationresult)&gt;&gt; | 是 | 当用户从设备选择模块中选择设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
+| callback | Callback<Array&lt;ContinuationResult&gt;> | 是 | 当用户从设备选择模块中选择设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -564,22 +522,17 @@ on(type: 'deviceSelected', token: number, callback: Callback<Array<ContinuationR
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
 try {
-  continuationManager.on('deviceSelected', token, (data) => {
+  continuationManager.on("deviceSelected", token, (data) => {
     console.info('onDeviceSelected len: ' + data.length);
     for (let i = 0; i < data.length; i++) {
       console.info('onDeviceSelected deviceId: ' + JSON.stringify(data[i].id));
-      console.info(
-        'onDeviceSelected deviceType: ' + JSON.stringify(data[i].type),
-      );
-      console.info(
-        'onDeviceSelected deviceName: ' + JSON.stringify(data[i].name),
-      );
+      console.info('onDeviceSelected deviceType: ' + JSON.stringify(data[i].type));
+      console.info('onDeviceSelected deviceName: ' + JSON.stringify(data[i].name));
     }
   });
 } catch (err) {
@@ -588,16 +541,16 @@ try {
 ```
 
 
-## continuationManager.on('deviceUnselected')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'deviceUnselected', token: number, callback: Callback<Array<ContinuationResult>>): void
+##### continuationManager.on('deviceUnselected')(deprecated)
+
+on(type: 'deviceUnselected', token: number, callback: Callback<Array&lt;ContinuationResult&gt;>): void
 
 异步方法，监听设备断开状态，使用Callback形式返回断开的设备信息。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[onDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#ondevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 onDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -609,18 +562,16 @@ on(type: 'deviceUnselected', token: number, callback: Callback<Array<Continuatio
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听的事件类型，固定值"deviceUnselected"。 |
 | token | number | 是 | 注册后的token。 |
-| callback | Callback&lt;Array&lt;[ContinuationResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationresult)&gt;&gt; | 是 | 当用户从设备选择模块中断开设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
+| callback | Callback<Array&lt;ContinuationResult&gt;> | 是 | 当用户从设备选择模块中断开设备时调用，返回设备ID、设备类型和设备名称供开发者使用。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -633,24 +584,17 @@ on(type: 'deviceUnselected', token: number, callback: Callback<Array<Continuatio
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
 try {
-  continuationManager.on('deviceUnselected', token, (data) => {
+  continuationManager.on("deviceUnselected", token, (data) => {
     console.info('onDeviceUnselected len: ' + data.length);
     for (let i = 0; i < data.length; i++) {
-      console.info(
-        'onDeviceUnselected deviceId: ' + JSON.stringify(data[i].id),
-      );
-      console.info(
-        'onDeviceUnselected deviceType: ' + JSON.stringify(data[i].type),
-      );
-      console.info(
-        'onDeviceUnselected deviceName: ' + JSON.stringify(data[i].name),
-      );
+      console.info('onDeviceUnselected deviceId: ' + JSON.stringify(data[i].id));
+      console.info('onDeviceUnselected deviceType: ' + JSON.stringify(data[i].type));
+      console.info('onDeviceUnselected deviceName: ' + JSON.stringify(data[i].name));
     }
     console.info('onDeviceUnselected finished.');
   });
@@ -660,18 +604,18 @@ try {
 ```
 
 
-## continuationManager.off('deviceSelected')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### continuationManager.off('deviceSelected')(deprecated)
 
 off(type: 'deviceSelected', token: number): void
 
 取消监听设备连接状态。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 offDeviceStateChange 替代。
 
-**元服务API��** 从API version 11开始，该接口支持在元服务中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
@@ -680,7 +624,6 @@ off(type: 'deviceSelected', token: number): void
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -692,7 +635,6 @@ off(type: 'deviceSelected', token: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -704,29 +646,28 @@ off(type: 'deviceSelected', token: number): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
 try {
-  continuationManager.off('deviceSelected', token);
+  continuationManager.off("deviceSelected", token);
 } catch (err) {
   console.error('off failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.off('deviceUnselected')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### continuationManager.off('deviceUnselected')(deprecated)
 
 off(type: 'deviceUnselected', token: number): void
 
 取消监听设备断开状态。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 offDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -738,7 +679,6 @@ off(type: 'deviceUnselected', token: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消监听的事件类型，固定值"deviceUnselected"。 |
@@ -748,7 +688,6 @@ off(type: 'deviceUnselected', token: number): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -761,36 +700,34 @@ off(type: 'deviceUnselected', token: number): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
 try {
-  continuationManager.off('deviceUnselected', token);
+  continuationManager.off("deviceUnselected", token);
 } catch (err) {
   console.error('off failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.startDeviceManager(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-startDeviceManager(token: number, callback: AsyncCallback<void>): void
+##### continuationManager.startDeviceManager(deprecated)
+
+startDeviceManager(token: number, callback: AsyncCallback&lt;void&gt;): void
 
 拉起设备选择模块，可显示组网内可选择设备列表信息，无过滤条件，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[startDiscovering](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#startdiscovering)替代。
+> 从API version 9开始废弃，建议使用 startDiscovering 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -800,8 +737,7 @@ startDeviceManager(token: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
@@ -815,16 +751,16 @@ continuationManager.startDeviceManager(token, (err) => {
 ```
 
 
-## continuationManager.startDeviceManager(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-startDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback<void>): void
+##### continuationManager.startDeviceManager(deprecated)
+
+startDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback&lt;void&gt;): void
 
 拉起设备选择模块，可显示组网内可选择设备列表信息，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[startDiscovering](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#startdiscovering)替代。
+> 从API version 9开始废弃，建议使用 startDiscovering 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -832,25 +768,23 @@ startDeviceManager(token: number, options: ContinuationExtraParams, callback: As
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 是 | 过滤可选择设备列表的额外参数。 |
+| options | ContinuationExtraParams | 是 | 过滤可选择设备列表的额外参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当模块选择完成，err为undefined，否则返回错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
 continuationManager.startDeviceManager(
   token,
   {
-    deviceType: ['00E'],
+    deviceType: ["00E"]
   },
   (err) => {
     if (err.code != 0) {
@@ -858,21 +792,20 @@ continuationManager.startDeviceManager(
       return;
     }
     console.info('startDeviceManager finished. ');
-  },
-);
+});
 ```
 
 
-## continuationManager.startDeviceManager(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-startDeviceManager(token: number, options?: ContinuationExtraParams): Promise<void>
+##### continuationManager.startDeviceManager(deprecated)
+
+startDeviceManager(token: number, options?: ContinuationExtraParams): Promise&lt;void&gt;
 
 拉起设备选择模块，可显示组网内可选择设备列表信息，使用Promise方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[startDiscovering](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#startdiscovering)替代。
+> 从API version 9开始废弃，建议使用 startDiscovering 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -880,15 +813,13 @@ startDeviceManager(token: number, options?: ContinuationExtraParams): Promise<vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
+| options | ContinuationExtraParams | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -897,35 +828,33 @@ startDeviceManager(token: number, options?: ContinuationExtraParams): Promise<vo
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = -1;
-continuationManager
-  .startDeviceManager(token, {
-    deviceType: ['00E'],
-  })
-  .then(() => {
+continuationManager.startDeviceManager(
+  token,
+  {
+    deviceType: ["00E"]
+  }).then(() => {
     console.info('startDeviceManager finished. ');
-  })
-  .catch((err: BusinessError) => {
+  }).catch((err: BusinessError) => {
     console.error('startDeviceManager failed, cause: ' + JSON.stringify(err));
-  });
+});
 ```
 
 
-## continuationManager.startContinuationDeviceManager(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-startContinuationDeviceManager(token: number, callback: AsyncCallback<void>): void
+##### continuationManager.startContinuationDeviceManager(deprecated)
+
+startContinuationDeviceManager(token: number, callback: AsyncCallback&lt;void&gt;): void
 
 拉起设备选择模块，可显示组网内可选择设备列表信息，无过滤条件，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[startDiscovering](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#startdiscovering)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 startDiscovering 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -937,7 +866,6 @@ startContinuationDeviceManager(token: number, callback: AsyncCallback<void>): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
@@ -947,7 +875,6 @@ startContinuationDeviceManager(token: number, callback: AsyncCallback<void>): vo
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -959,39 +886,34 @@ startContinuationDeviceManager(token: number, callback: AsyncCallback<void>): vo
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = -1;
 try {
   continuationManager.startContinuationDeviceManager(token, (err) => {
     if (err.code != 0) {
-      console.error(
-        'startContinuationDeviceManager failed, cause: ' + JSON.stringify(err),
-      );
+      console.error('startContinuationDeviceManager failed, cause: ' + JSON.stringify(err));
       return;
     }
     console.info('startContinuationDeviceManager finished. ');
   });
 } catch (err) {
-  console.error(
-    'startContinuationDeviceManager failed, cause: ' + JSON.stringify(err),
-  );
+  console.error('startContinuationDeviceManager failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.startContinuationDeviceManager(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-startContinuationDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback<void>): void
+##### continuationManager.startContinuationDeviceManager(deprecated)
+
+startContinuationDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback&lt;void&gt;): void
 
 拉起设备选择模块，可显示组网内可选择设备列表信息，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[startDiscovering](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#startdiscovering)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 startDiscovering 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1003,18 +925,16 @@ startContinuationDeviceManager(token: number, options: ContinuationExtraParams, 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 是 | 过滤可选择设备列表的额外参数。 |
+| options | ContinuationExtraParams | 是 | 过滤可选择设备列表的额外参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当模块选择完成，err为undefined，否则返回错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1026,8 +946,7 @@ startContinuationDeviceManager(token: number, options: ContinuationExtraParams, 
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = -1;
@@ -1035,37 +954,31 @@ try {
   continuationManager.startContinuationDeviceManager(
     token,
     {
-      deviceType: ['00E'],
+      deviceType: ["00E"]
     },
     (err) => {
       if (err.code != 0) {
-        console.error(
-          'startContinuationDeviceManager failed, cause: ' +
-            JSON.stringify(err),
-        );
+        console.error('startContinuationDeviceManager failed, cause: ' + JSON.stringify(err));
         return;
       }
       console.info('startContinuationDeviceManager finished. ');
-    },
-  );
+  });
 } catch (err) {
-  console.error(
-    'startContinuationDeviceManager failed, cause: ' + JSON.stringify(err),
-  );
+  console.error('startContinuationDeviceManager failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.startContinuationDeviceManager(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-startContinuationDeviceManager(token: number, options?: ContinuationExtraParams): Promise<void>
+##### continuationManager.startContinuationDeviceManager(deprecated)
 
-拉起设备选择模块，可显示组网内可选择设备列表信息，使用Promise方式作为异��方法。
+startContinuationDeviceManager(token: number, options?: ContinuationExtraParams): Promise&lt;void&gt;
 
+拉起设备选择模块，可显示组网内可选择设备列表信息，使用Promise方式作为异步方法。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[startDiscovering](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#startdiscovering)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 startDiscovering 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1077,15 +990,13 @@ startContinuationDeviceManager(token: number, options?: ContinuationExtraParams)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
-| options | [ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
+| options | ContinuationExtraParams | 否 | 过滤可选择设备列表的额外参数，该参数可缺省。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1095,7 +1006,6 @@ startContinuationDeviceManager(token: number, options?: ContinuationExtraParams)
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1107,43 +1017,37 @@ startContinuationDeviceManager(token: number, options?: ContinuationExtraParams)
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = -1;
 try {
-  continuationManager
-    .startContinuationDeviceManager(token, {
-      deviceType: ['00E'],
-    })
-    .then(() => {
+  continuationManager.startContinuationDeviceManager(
+    token,
+    {
+      deviceType: ["00E"]
+    }).then(() => {
       console.info('startContinuationDeviceManager finished. ');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        'startContinuationDeviceManager failed, cause: ' + JSON.stringify(err),
-      );
+    }).catch((err: BusinessError) => {
+      console.error('startContinuationDeviceManager failed, cause: ' + JSON.stringify(err));
     });
 } catch (err) {
-  console.error(
-    'startContinuationDeviceManager failed, cause: ' + JSON.stringify(err),
-  );
+  console.error('startContinuationDeviceManager failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.updateConnectStatus(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback<void>): void
+##### continuationManager.updateConnectStatus(deprecated)
+
+updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback&lt;void&gt;): void
 
 通知设备选择模块，更新当前的连接状态，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[getAvailableDeviceListSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#getavailabledevicelistsync)替代。
+> 从API version 9开始废弃，建议使用 getAvailableDeviceListSync 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -1151,50 +1055,41 @@ updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState,
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
 | deviceId | string | 是 | 设备ID。 |
-| status | [DeviceConnectState](#deviceconnectstatedeprecated) | 是 | 设备连接状态。 |
+| status | DeviceConnectState | 是 | 设备连接状态。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当通知设备成功，err为undefined，否则返回错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = -1;
-let deviceId: string = 'test deviceId';
-continuationManager.updateConnectStatus(
-  token,
-  deviceId,
-  continuationManager.DeviceConnectState.CONNECTED,
-  (err) => {
-    if (err.code != 0) {
-      console.error(
-        'updateConnectStatus failed, cause: ' + JSON.stringify(err),
-      );
-      return;
-    }
-    console.info('updateConnectStatus finished. ');
-  },
-);
+let deviceId: string = "test deviceId";
+continuationManager.updateConnectStatus(token, deviceId, continuationManager.DeviceConnectState.CONNECTED, (err) => {
+  if (err.code != 0) {
+    console.error('updateConnectStatus failed, cause: ' + JSON.stringify(err));
+    return;
+  }
+  console.info('updateConnectStatus finished. ');
+});
 ```
 
 
-## continuationManager.updateConnectStatus(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState): Promise<void>
+##### continuationManager.updateConnectStatus(deprecated)
+
+updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState): Promise&lt;void&gt;
 
 通知设备选择模块，更新当前的连接状态，使用Promise方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[getAvailableDeviceListSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#getavailabledevicelistsync)替代。
+> 从API version 9开始废弃，建议使用 getAvailableDeviceListSync 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -1202,16 +1097,14 @@ updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
 | deviceId | string | 是 | 设备ID。 |
-| status | [DeviceConnectState](#deviceconnectstatedeprecated) | 是 | 设备连接状态。 |
+| status | DeviceConnectState | 是 | 设备连接状态。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1220,38 +1113,32 @@ updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState)
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = 1;
-let deviceId: string = 'test deviceId';
-continuationManager
-  .updateConnectStatus(
-    token,
-    deviceId,
-    continuationManager.DeviceConnectState.CONNECTED,
-  )
+let deviceId: string = "test deviceId";
+continuationManager.updateConnectStatus(token, deviceId, continuationManager.DeviceConnectState.CONNECTED)
   .then(() => {
     console.info('updateConnectStatus finished. ');
   })
   .catch((err: BusinessError) => {
     console.error('updateConnectStatus failed, cause: ' + JSON.stringify(err));
-  });
+});
 ```
 
 
-## continuationManager.updateContinuationState(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-updateContinuationState(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback<void>): void
+##### continuationManager.updateContinuationState(deprecated)
+
+updateContinuationState(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback&lt;void&gt;): void
 
 通知设备选择模块，更新当前的连接状态，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[getAvailableDeviceListSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#getavailabledevicelistsync)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 getAvailableDeviceListSync 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1263,19 +1150,17 @@ updateContinuationState(token: number, deviceId: string, status: DeviceConnectSt
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
 | deviceId | string | 是 | 设备ID。 |
-| status | [DeviceConnectState](#deviceconnectstatedeprecated) | 是 | 设备连接状态。 |
+| status | DeviceConnectState | 是 | 设备连接状态。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当通知设备成功，err为undefined，否则返回错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1287,45 +1172,35 @@ updateContinuationState(token: number, deviceId: string, status: DeviceConnectSt
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
-let deviceId: string = 'test deviceId';
+let deviceId: string = "test deviceId";
 try {
-  continuationManager.updateContinuationState(
-    token,
-    deviceId,
-    continuationManager.DeviceConnectState.CONNECTED,
-    (err) => {
-      if (err.code != 0) {
-        console.error(
-          'updateContinuationState failed, cause: ' + JSON.stringify(err),
-        );
-        return;
-      }
-      console.info('updateContinuationState finished. ');
-    },
-  );
+  continuationManager.updateContinuationState(token, deviceId, continuationManager.DeviceConnectState.CONNECTED, (err) => {
+    if (err.code != 0) {
+      console.error('updateContinuationState failed, cause: ' + JSON.stringify(err));
+      return;
+    }
+    console.info('updateContinuationState finished. ');
+  });
 } catch (err) {
-  console.error(
-    'updateContinuationState failed, cause: ' + JSON.stringify(err),
-  );
+  console.error('updateContinuationState failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.updateContinuationState(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-updateContinuationState(token: number, deviceId: string, status: DeviceConnectState): Promise<void>
+##### continuationManager.updateContinuationState(deprecated)
+
+updateContinuationState(token: number, deviceId: string, status: DeviceConnectState): Promise&lt;void&gt;
 
 通知设备选择模块，更新当前的连接状态，使用Promise方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[getAvailableDeviceListSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#getavailabledevicelistsync)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 getAvailableDeviceListSync 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1337,16 +1212,14 @@ updateContinuationState(token: number, deviceId: string, status: DeviceConnectSt
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
 | deviceId | string | 是 | 设备ID。 |
-| status | [DeviceConnectState](#deviceconnectstatedeprecated) | 是 | 设备连接状态。 |
+| status | DeviceConnectState | 是 | 设备连接状态。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1357,7 +1230,6 @@ updateContinuationState(token: number, deviceId: string, status: DeviceConnectSt
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -1368,53 +1240,42 @@ updateContinuationState(token: number, deviceId: string, status: DeviceConnectSt
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = 1;
-let deviceId: string = 'test deviceId';
+let deviceId: string = "test deviceId";
 try {
-  continuationManager
-    .updateContinuationState(
-      token,
-      deviceId,
-      continuationManager.DeviceConnectState.CONNECTED,
-    )
+  continuationManager.updateContinuationState(token, deviceId, continuationManager.DeviceConnectState.CONNECTED)
     .then(() => {
       console.info('updateContinuationState finished. ');
     })
     .catch((err: BusinessError) => {
-      console.error(
-        'updateContinuationState failed, cause: ' + JSON.stringify(err),
-      );
+      console.error('updateContinuationState failed, cause: ' + JSON.stringify(err));
     });
 } catch (err) {
-  console.error(
-    'updateContinuationState failed, cause: ' + JSON.stringify(err),
-  );
+  console.error('updateContinuationState failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## continuationManager.unregister(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-unregister(token: number, callback: AsyncCallback<void>): void
+##### continuationManager.unregister(deprecated)
+
+unregister(token: number, callback: AsyncCallback&lt;void&gt;): void
 
 解注册流转管理服务，传入注册时获取的token进行解注册，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 offDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1424,8 +1285,7 @@ unregister(token: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
@@ -1439,23 +1299,22 @@ continuationManager.unregister(token, (err) => {
 ```
 
 
-## continuationManager.unregister(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-unregister(token: number): Promise<void>
+##### continuationManager.unregister(deprecated)
+
+unregister(token: number): Promise&lt;void&gt;
 
 解注册流转管理服务，传入注册时获取的token进行解注册，使用Promise方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始废弃，建议使用 offDeviceStateChange 替代。
+
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1464,7 +1323,6 @@ unregister(token: number): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise形式返回接口调用结果。 |
@@ -1472,33 +1330,30 @@ unregister(token: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = 1;
-continuationManager
-  .unregister(token)
+continuationManager.unregister(token)
   .then(() => {
     console.info('unregister finished. ');
-  })
-  .catch((err: BusinessError) => {
+  }).catch((err: BusinessError) => {
     console.error('unregister failed, cause: ' + JSON.stringify(err));
-  });
+});
 ```
 
 
-## continuationManager.unregisterContinuation(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-unregisterContinuation(token: number, callback: AsyncCallback<void>): void
+##### continuationManager.unregisterContinuation(deprecated)
+
+unregisterContinuation(token: number, callback: AsyncCallback&lt;void&gt;): void
 
 解注册流转管理服务，传入注册时获取的token进行解注册，使用AsyncCallback方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 offDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1509,7 +1364,6 @@ unregisterContinuation(token: number, callback: AsyncCallback<void>): void
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1521,7 +1375,6 @@ unregisterContinuation(token: number, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -1532,17 +1385,14 @@ unregisterContinuation(token: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 
 let token: number = 1;
 try {
   continuationManager.unregisterContinuation(token, (err) => {
     if (err.code != 0) {
-      console.error(
-        'unregisterContinuation failed, cause: ' + JSON.stringify(err),
-      );
+      console.error('unregisterContinuation failed, cause: ' + JSON.stringify(err));
       return;
     }
     console.info('unregisterContinuation finished. ');
@@ -1553,16 +1403,16 @@ try {
 ```
 
 
-## continuationManager.unregisterContinuation(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-unregisterContinuation(token: number): Promise<void>
+##### continuationManager.unregisterContinuation(deprecated)
+
+unregisterContinuation(token: number): Promise&lt;void&gt;
 
 解注册流转管理服务，传入注册时获取的token进行解注册，使用Promise方式作为异步方法。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 22开始废弃，建议使用[offDeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#offdevicestatechange)替代。
+> 从API version 9开始支持，从API version 22开始废弃，建议使用 offDeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1574,14 +1424,12 @@ unregisterContinuation(token: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | number | 是 | 注册后的token。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1591,7 +1439,6 @@ unregisterContinuation(token: number): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DistributedSchedule错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributedschedule)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1603,44 +1450,37 @@ unregisterContinuation(token: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { continuationManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let token: number = -1;
 try {
-  continuationManager
-    .unregisterContinuation(token)
-    .then(() => {
+  continuationManager.unregisterContinuation(token).then(() => {
       console.info('unregisterContinuation finished. ');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        'unregisterContinuation failed, cause: ' + JSON.stringify(err),
-      );
-    });
+    }).catch((err: BusinessError) => {
+      console.error('unregisterContinuation failed, cause: ' + JSON.stringify(err));
+  });
 } catch (err) {
   console.error('unregisterContinuation failed, cause: ' + JSON.stringify(err));
 }
 ```
 
 
-## DeviceConnectState(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### DeviceConnectState(deprecated)
 
 设备连接状态。
 
-
 > [!NOTE]
-> 从API version 22开始废弃，建议使用[DeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#devicestatechange)替代。
+> 从API version 22开始废弃，建议使用 DeviceStateChange 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1650,21 +1490,21 @@ try {
 | DISCONNECTING | 3 | 设备断开连接状态。 |
 
 
-## ContinuationMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### ContinuationMode(deprecated)
 
 设备选择模块连接模式。
 
-
 > [!NOTE]
-> 从API version 22开始废弃，建议使用[DeviceStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#devicestatechange)替代。
+> 从API version 22开始废弃，建议使用 DeviceStateChange 替代。
 
-**元服务API���** 从API version 11开始，该接口支持在元服务中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1672,16 +1512,17 @@ try {
 | COLLABORATION_MULTIPLE | 1 | 设备选择模块多选模式。 |
 
 
-## ContinuationResult(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### ContinuationResult(deprecated)
 
 type ContinuationResult = _ContinuationResult
 
 流转管理入口返回的设备信息。
 
-
 > [!NOTE]
-> 从API version 10开始支持，从API version 22开始废弃，建议使用[DeviceBasicInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#devicebasicinfo)替代。
+> 从API version 10开始支持，从API version 22开始废弃，建议使用 DeviceBasicInfo 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1689,22 +1530,22 @@ type ContinuationResult = _ContinuationResult
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_ContinuationResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationresult) | 表示流转管理入口返回的设备信息。 |
+| _ContinuationResult | 表示流转管理入口返回的设备信息。 |
 
 
-## ContinuationExtraParams(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### ContinuationExtraParams(deprecated)
 
 type ContinuationExtraParams = _ContinuationExtraParams
 
 流转管理入口中设备选择模块所需的过滤参数。
 
-
 > [!NOTE]
-> 从API version 10开始支持，从API version 22开始废弃，建议使用[DeviceBasicInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#devicebasicinfo)替代。
+> 从API version 10开始支持，从API version 22开始废弃，建议使用 DeviceBasicInfo 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1712,7 +1553,6 @@ type ContinuationExtraParams = _ContinuationExtraParams
 
 **系统能力**：SystemCapability.Ability.DistributedAbilityManager
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_ContinuationExtraParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams) | 表示流转管理入口中设备选择模块所需的过滤参数。 |
+| _ContinuationExtraParams | 表示流转管理入口中设备选择模块所需的过滤参数。 |

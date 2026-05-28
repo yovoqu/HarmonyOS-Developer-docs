@@ -3,32 +3,44 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-data-transfer-api
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了星闪数据传输的功能。
+
 **起始版本：** 5.1.0(18)
 
-#### 导入模块
 
-```ts
+##### 导入模块
+
+```text
 import { dataTransfer } from '@kit.NearLinkKit';
 ```
 
-#### ConnectionState
+
+
+##### ConnectionState
+
 type ConnectionState = constant.ConnectionState
+
 表示和远端设备的连接状态，为枚举值。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
 
 | 类型 | 说明 |
 | --- | --- |
-| [constant.ConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-constant#connectionstate) | 和远端设备的连接状态。 |
+| constant.ConnectionState | 和远端设备的连接状态。 |
 
-#### createPort
+
+
+
+##### createPort
+
 createPort(uuid: string): void
+
 注册端口通道。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -39,9 +51,11 @@ createPort(uuid: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uuid | string | 是 | 可填写16字节星闪服务UUID，或填写2字节支持数传的星闪标准服务UUID。UUID格式参考“[星闪标准服务标识](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)”。 |
+| uuid | string | 是 | 可填写16字节星闪服务UUID，或填写2字节支持数传的星闪标准服务UUID。UUID格式参考“星闪标准服务标识”。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -54,9 +68,10 @@ createPort(uuid: string): void
 | 1009700021 | Port is exceeds the upper limit. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -69,9 +84,14 @@ try {
 }
 ```
 
-#### destroyPort
+
+
+##### destroyPort
+
 destroyPort(uuid: string): void
+
 销毁端口通道。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -82,9 +102,11 @@ destroyPort(uuid: string): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uuid | string | 是 | 可填写16字节星闪服务UUID，或填写2字节支持数传的星闪标准服务UUID。UUID格式参考“[星闪标准服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)”。 |
+| uuid | string | 是 | 可填写16字节星闪服务UUID，或填写2字节支持数传的星闪标准服务UUID。UUID格式参考“星闪标准服务”。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -96,9 +118,10 @@ destroyPort(uuid: string): void
 | 1009700022 | The UUID is not registered. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -111,9 +134,14 @@ try {
 }
 ```
 
-#### connect
+
+
+##### connect
+
 connect(params: ConnectionParams): Promise&lt;void&gt;
+
 连接远端设备，建立端口通道。使用Promise异步回调。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -124,7 +152,8 @@ connect(params: ConnectionParams): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [ConnectionParams](#connectionparams) | 是 | 指明端口的连接参数。 |
+| params | ConnectionParams | 是 | 指明端口的连接参数。 |
+
 
 **返回值：**
 
@@ -132,7 +161,9 @@ connect(params: ConnectionParams): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -143,9 +174,10 @@ connect(params: ConnectionParams): Promise&lt;void&gt;
 | 1009700003 | Nearlink is off. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -164,9 +196,14 @@ try {
 }
 ```
 
-#### disconnect
+
+
+##### disconnect
+
 disconnect(params: ConnectionParams): Promise&lt;void&gt;
+
 断连远端设备，销毁端口通道。使用Promise异步回调。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -177,7 +214,8 @@ disconnect(params: ConnectionParams): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [ConnectionParams](#connectionparams) | 是 | 指明端口的连接参数。 |
+| params | ConnectionParams | 是 | 指明端口的连接参数。 |
+
 
 **返回值：**
 
@@ -185,7 +223,9 @@ disconnect(params: ConnectionParams): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -196,9 +236,10 @@ disconnect(params: ConnectionParams): Promise&lt;void&gt;
 | 1009700003 | Nearlink is off. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -217,9 +258,14 @@ try {
 }
 ```
 
-#### on('connectionStateChanged')
+
+
+##### on('connectionStateChanged')
+
 on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): void
+
 订阅端口通道连接状态变更事件。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -231,9 +277,11 @@ on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'connectionStateChanged'，表示连接状态发生变化的事件。 当端口通道连接状态发生变化时，触发该事件。 当调用datatransfer.connect或datatransfer.disconnect时，可能引起连接状态发生变化。 |
-| callback | Callback<[ConnectionResult](#connectionresult)> | 是 | 回调函数，返回与远端设备端口连接参数的协商结果。 |
+| callback | Callback&lt;ConnectionResult&gt; | 是 | 回调函数，返回与远端设备端口连接参数的协商结果。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -243,9 +291,10 @@ on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): 
 | 801 | Capability not supported. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```json
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Callback } from '@kit.BasicServicesKit';
@@ -260,9 +309,14 @@ try {
 }
 ```
 
-#### off('connectionStateChanged')
+
+
+##### off('connectionStateChanged')
+
 off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;): void
+
 取消订阅端口通道连接状态变更事件。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -274,9 +328,11 @@ off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'connectionStateChange'，表示数传连接状态发生变化的事件。 |
-| callback | Callback<[ConnectionResult](#connectionresult)> | 否 | 回调函数，返回与远端设备端口连接参数的协商结果。 填写该参数则取消当前callback订阅。不填写该参数则取消该type对应的所有回调。 |
+| callback | Callback&lt;ConnectionResult&gt; | 否 | 回调函数，返回与远端设备端口连接参数的协商结果。 填写该参数则取消当前callback订阅。不填写该参数则取消该type对应的所有回调。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -286,9 +342,10 @@ off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;)
 | 801 | Capability not supported. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -299,9 +356,14 @@ try {
 }
 ```
 
-#### getConnectionState
+
+
+##### getConnectionState
+
 getConnectionState(params: ConnectionStateParams): ConnectionState
+
 获取与远端设备之间的端口通道连接状态。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -312,15 +374,18 @@ getConnectionState(params: ConnectionStateParams): ConnectionState
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [ConnectionStateParams](#connectionstateparams) | 是 | 指明端口的连接参数。 |
+| params | ConnectionStateParams | 是 | 指明端口的连接参数。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [ConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-constant#connectionstate) | 和远端设备的星闪端口通道连接状态。 |
+| ConnectionState | 和远端设备的星闪端口通道连接状态。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -331,9 +396,10 @@ getConnectionState(params: ConnectionStateParams): ConnectionState
 | 1009700003 | NearLink is off. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```json
 import { dataTransfer } from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -349,9 +415,14 @@ try {
 }
 ```
 
-#### writeData
+
+
+##### writeData
+
 writeData(params: DataParams): Promise&lt;void&gt;
+
 通过设备地址和uuid向远端设备发数据。使用Promise异步回调。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -362,7 +433,8 @@ writeData(params: DataParams): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [DataParams](#dataparams) | 是 | 指明发送数据的参数，包含远端设备地址、服务UUID以及发送的数据包。 |
+| params | DataParams | 是 | 指明发送数据的参数，包含远端设备地址、服务UUID以及发送的数据包。 |
+
 
 **返回值：**
 
@@ -370,7 +442,9 @@ writeData(params: DataParams): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -382,9 +456,10 @@ writeData(params: DataParams): Promise&lt;void&gt;
 | 1009700023 | Write data congest. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -408,9 +483,14 @@ try {
 }
 ```
 
-#### on('readData')
+
+
+##### on('readData')
+
 on(type: 'readData', callback: Callback&lt;DataParams&gt;): void
+
 订阅端口通道数据接收事件。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -422,9 +502,11 @@ on(type: 'readData', callback: Callback&lt;DataParams&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'readData'，表示端口通道数据接收事件。 当收到远端设备的端口数据时，触发该事件。 |
-| callback | Callback<[DataParams](#dataparams)> | 是 | 回调函数，返回端口数据发送和接收的参数。 |
+| callback | Callback&lt;DataParams&gt; | 是 | 回调函数，返回端口数据发送和接收的参数。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -434,9 +516,10 @@ on(type: 'readData', callback: Callback&lt;DataParams&gt;): void
 | 801 | Capability not supported. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```json
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Callback } from '@kit.BasicServicesKit';
@@ -451,9 +534,14 @@ try {
 }
 ```
 
-#### off('readData')
+
+
+##### off('readData')
+
 off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void
+
 取消订阅端口通道数据接收事件。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -465,9 +553,11 @@ off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'readData'，表示端口通道数据接收事件。 |
-| callback | Callback<[DataParams](#dataparams)> | 否 | 回调函数，返回端口数据发送和接收的参数。 填写该参数则取消当前callback订阅。不填写该参数则取消该type对应的所有回调。 |
+| callback | Callback&lt;DataParams&gt; | 否 | 回调函数，返回端口数据发送和接收的参数。 填写该参数则取消当前callback订阅。不填写该参数则取消该type对应的所有回调。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
 
 | 错误码ID | 错误信息 |
@@ -477,9 +567,10 @@ off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void
 | 801 | Capability not supported. |
 | 1009700099 | Operation failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { dataTransfer} from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -490,8 +581,12 @@ try {
 }
 ```
 
-#### ConnectionParams
+
+
+##### ConnectionParams
+
 发起端口连接的参数。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
@@ -499,12 +594,17 @@ try {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
-| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考[星闪标准服务UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)。 |
+| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | mtu | number | 否 | 是 | 期望发送数据的包长，单位为byte。范围[0, 65535]，默认值为512。 |
-| transferMode | [TransferMode](#transfermode) | 否 | 是 | 表示和远端设备的数据传输模式。默认值是BASIC。 |
+| transferMode | TransferMode | 否 | 是 | 表示和远端设备的数据传输模式。默认值是BASIC。 |
 
-#### DataParams
+
+
+
+##### DataParams
+
 端口数据发送和接收的参数。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
@@ -512,11 +612,16 @@ try {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
-| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考[星闪标准服务UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)。 |
+| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | data | ArrayBuffer | 否 | 否 | 发送的数据包。 |
 
-#### ConnectionResult
+
+
+
+##### ConnectionResult
+
 与远端设备端口连接参数的协商结果
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
@@ -524,12 +629,17 @@ try {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
-| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考[星闪标准服务UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)。 |
+| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | mtu | number | 否 | 否 | 协商后的发送和接收数据的包长，单位为byte，范围[0, 65535]。 |
-| state | [ConnectionState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-constant#connectionstate) | 否 | 否 | 与远端设备的连接状态。 |
+| state | ConnectionState | 否 | 否 | 与远端设备的连接状态。 |
 
-#### ConnectionStateParams
+
+
+
+##### ConnectionStateParams
+
 获取端口通道连接状态所需参数。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
@@ -537,10 +647,15 @@ try {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
-| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考[星闪标准服务UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq#星闪标准服务uuid的格式)。 |
+| uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 
-#### TransferMode
+
+
+
+##### TransferMode
+
 表示和远端设备的数据传输模式，为枚举值。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)

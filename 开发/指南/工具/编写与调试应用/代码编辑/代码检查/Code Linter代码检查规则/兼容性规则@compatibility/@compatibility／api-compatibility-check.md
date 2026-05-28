@@ -5,14 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-api-compatibility-check
 
 从DevEco Studio 6.0.1 Beta1开始，Code Linter新增版本兼容性规则扫描。
+ 
+工程代码中调用的API版本比工程配置中的compatibleSdkVersion版本高，可能会导致兼容性问题。建议添加代码报错措施，消除兼容性问题。
+ 
 
- 工程代码中调用的API版本比工程配置中的compatibleSdkVersion版本高，可能会导致兼容性问题。建议添加代码报错措施，消除兼容性问题。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -20,15 +19,19 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
+##### 正例
 
 **示例一**：API调用前，增加SDK版本判断。
+ 
 ```text
 import { dataUriUtils } from '@kit.AbilityKit';
 import { deviceInfo } from '@kit.BasicServicesKit';
@@ -37,7 +40,7 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 struct Test {
   build() {
     Text('hello').onClick(() => {
-      // 使用接口前增加SDK版本的判断，SDK版本计算方式具体请参考应用升级targetSDKVersion兼容低版本指导
+      // 使用接口前增加SDK版本的判断，SDK版本计算方式具体请参考<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-upgrade" target="_blank">应用升级targetSDKVersion兼容低版本指导</a>
       if (deviceInfo.distributionOSApiVersion >= 60000) {
         dataUriUtils.getId('');
       }
@@ -50,8 +53,9 @@ struct Test {
   }
 }
 ```
-
- **示例二**：API调用前，增加判空。
+ 
+**示例二**：API调用前，增加判空。
+ 
 ```text
 import { dataUriUtils } from '@kit.AbilityKit';
 
@@ -67,8 +71,10 @@ struct Test {
   }
 }
 ```
-
+ 
+ 
 **示例三**：API调用前，使用try-catch异常处理。
+ 
 ```text
 import { dataUriUtils } from '@kit.AbilityKit'
 
@@ -86,10 +92,9 @@ struct Test {
   }
 }
 ```
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // 工程中compatibleSdkVersion配置为5.0.5(17)
@@ -106,13 +111,13 @@ struct Test {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
 plugin:@compatibility/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -5,15 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-faq-3
 
 未配置网络权限将出现如下异常日志：
-
-
+ 
 ```text
 ohos.permission.INTERNET check failed
 ```
-
- 请开发者在“src/main/module.json5”的requestPermissions层级中添加网络权限。
-
-
+ 
+请开发者在“src/main/module.json5”的requestPermissions层级中添加网络权限。
+ 
 ```text
 {
   "module": {

@@ -3,49 +3,46 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-constant
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了蓝牙[Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#profile)、设备类型相关的常量定义。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
 ```text
 import { constant } from '@kit.ConnectivityKit';
 ```
 
 
-## ProfileId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ProfileId
 
 枚举，表示蓝牙[Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#profile)协议的标识。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| PROFILE_A2DP_SOURCE | 1 | [A2DP Source](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#a2dp-source) Profile，负责发送音频数据端使用的协议。 |
-| PROFILE_HANDSFREE_AUDIO_GATEWAY | 4 | [HFP Ag](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hfp-ag) Profile，负责通话音频网关使用的协议。 |
-| PROFILE_HID_HOST | 6 | [HID Host](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid-host) Profile，负责与[HID Device](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid-device)建立通信并处理数据交互的协议。 |
-| PROFILE_PAN_NETWORK | 7 | [NAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#nap) Profile，负责提供网络共享端使用的协议。 |
+| PROFILE_A2DP_SOURCE | 1 | A2DP Source Profile，负责发送音频数据端使用的协议。 |
+| PROFILE_HANDSFREE_AUDIO_GATEWAY | 4 | HFP Ag Profile，负责通话音频网关使用的协议。 |
+| PROFILE_HID_HOST | 6 | HID Host Profile，负责与HID Device建立通信并处理数据交互的协议。 |
+| PROFILE_PAN_NETWORK | 7 | NAP Profile，负责提供网络共享端使用的协议。 |
 
 
-## ProfileConnectionState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ProfileConnectionState
 
 枚举，本端和对端蓝牙设备间的Profile连接状态。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -55,13 +52,13 @@ import { constant } from '@kit.ConnectivityKit';
 | STATE_DISCONNECTING | 3 | 表示Profile正在断开连接。 |
 
 
-## MajorClass
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MajorClass
 
 枚举，蓝牙设备的主要类型。蓝牙标准协议字段。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -78,13 +75,13 @@ import { constant } from '@kit.ConnectivityKit';
 | MAJOR_UNCATEGORIZED | 0x1F00 | 表示未分类设备。 |
 
 
-## MajorMinorClass
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MajorMinorClass
 
 枚举，蓝牙设备的子类型，在[MajorClass](#majorclass)基础上进一步细分的类型。蓝牙标准协议字段。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -176,13 +173,13 @@ import { constant } from '@kit.ConnectivityKit';
 | HEALTH_PERSONAL_MOBILITY_DEVICE | 0x093C | 表示个人移动健康设备。 |
 
 
-## ProfileUuids12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ProfileUuids12+
 
 枚举，由蓝牙技术联盟（[Bluetooth Special Interest Group](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#bluetooth-sig)）定义，使用通用唯一标识（Universally Unique Identifier，[UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#uuid)）表示不同的蓝牙协议Profile。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

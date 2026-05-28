@@ -3,34 +3,31 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-readstatecode
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 朗读控件的播报状态枚举类。
-
+ 
 **起始版本：** 5.0.0(12)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
-
-
-```ts
+```text
 import { ReadStateCode } from '@kit.SpeechKit';
 ```
+ 
+  
 
-
-## ReadStateCode
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ReadStateCode
 
 播报状态枚举类。
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AI.Component.TextReader
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | PLAYING | 1 | 播放。 |

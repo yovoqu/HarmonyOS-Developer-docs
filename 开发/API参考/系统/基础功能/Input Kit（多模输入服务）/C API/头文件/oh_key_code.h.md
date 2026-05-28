@@ -3,57 +3,53 @@
 更新时间：2026-03-17 02:21:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-key-code-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 按键设备的键值。
-
+ 
 **引用文件：** <multimodalinput/oh_key_code.h>
-
+ 
 **库：** libohinput.so
-
+ 
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [input](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Input_KeyCode](#input_keycode) | Input_KeyCode | 键值。 |
+| Input_KeyCode | Input_KeyCode | 键值。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### Input_KeyCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Input_KeyCode
 
 ```text
 enum Input_KeyCode
 ```
-
+ 
 **描述**
-
+ 
 键值。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | KEYCODE_UNKNOWN = -1 | 未知按键 |

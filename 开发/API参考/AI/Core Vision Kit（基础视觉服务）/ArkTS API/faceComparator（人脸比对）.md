@@ -3,24 +3,22 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-facecomparator-api
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 识别人脸，对人像进行高精度比对，给出置信度分数，判断对象是否为同一个人。人脸比对技术可应用于实现对图库照片的智能分类管理等场景中。基于领先的端侧智能图像识别算法，对人脸识别准确度高，让应用体验更好。
 
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { faceComparator } from '@kit.CoreVisionKit';
 ```
 
 
-## VisionInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### VisionInfo
 
 待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的PixelMap类型的视觉信息。
 
@@ -28,14 +26,14 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pixelMap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 否 | 待识别的图片。          具体规格请参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-introduction#约束与限制)。 |
+| pixelMap | image.PixelMap | 是 | 否 | 待识别的图片。 具体规格请参考约束与限制。 |
 
 
-## FaceCompareResult
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### FaceCompareResult
 
 人脸比对的结果。
 
@@ -43,17 +41,17 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isSamePerson | boolean | 是 | 否 | 是否是同一个人，true代表为同一个人，false不是同一个人。 |
 | similarity | number | 是 | 否 | 相似度，取值范围是0~1的浮点数。值越大说明相似程度越高。 |
 
 
-## faceComparator.init
-**支持设备：** Phone / PC/2in1 / Tablet
 
-init(): Promise<boolean>
+
+##### faceComparator.init
+
+init(): Promise&lt;boolean&gt;
 
 初始化人脸比对分析器服务。使用Promise异步回调。
 
@@ -63,16 +61,14 @@ init(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。          true：初始化成功；false：初始化失败。 |
+| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。 true：初始化成功；false：初始化失败。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { faceComparator } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -110,10 +106,10 @@ struct Page {
 ```
 
 
-## faceComparator.release
-**支持设备：** Phone / PC/2in1 / Tablet
 
-release(): Promise<void>
+##### faceComparator.release
+
+release(): Promise&lt;void&gt;
 
 释放人脸比对分析器服务。使用Promise异步回调。
 
@@ -123,7 +119,6 @@ release(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -131,8 +126,7 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { faceComparator } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -170,10 +164,10 @@ struct Page {
 ```
 
 
-## faceComparator.compareFaces
-**支持设备：** Phone / PC/2in1 / Tablet
 
-compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise<FaceCompareResult>
+##### faceComparator.compareFaces
+
+compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise&lt;FaceCompareResult&gt;
 
 创建人脸比对实例，使用Promise异步回调。
 
@@ -183,25 +177,22 @@ compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise<FaceComp
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| visionInfo1 | [VisionInfo](#visioninfo) | 是 | 第一张包含人脸的图片。 |
-| visionInfo2 | [VisionInfo](#visioninfo) | 是 | 第二张包含人脸的图片。 |
+| visionInfo1 | VisionInfo | 是 | 第一张包含人脸的图片。 |
+| visionInfo2 | VisionInfo | 是 | 第二张包含人脸的图片。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[FaceCompareResult](#facecompareresult)&gt; | Promise对象，返回人脸比对的结果。 |
+| Promise&lt;FaceCompareResult&gt; | Promise对象，返回人脸比对的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -213,8 +204,7 @@ compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise<FaceComp
 
 **示例：**
 
-
-```ts
+```text
 import { faceComparator } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

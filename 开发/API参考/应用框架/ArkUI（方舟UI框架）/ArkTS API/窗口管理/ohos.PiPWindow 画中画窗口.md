@@ -1,24 +1,26 @@
 # @ohos.PiPWindow (画中画窗口)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pipwindow
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该模块提供画中画基础功能，包括判断当前系统是否支持画中画功能，以及创建画中画控制器用于启动或停止画中画等。适用于视频播放、视频通话或视频会议场景下，以小窗（画中画）模式呈现内容。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 在HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用画中画功能，其他设备不可用；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用画中画功能，其他设备不可用。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { PiPWindow } from '@kit.ArkUI';
 ```
 
 
-## PiPWindow.isPiPEnabled
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### PiPWindow.isPiPEnabled
 
 isPiPEnabled(): boolean
 
@@ -30,7 +32,6 @@ isPiPEnabled(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 当前系统是否支持画中画功能。true表示支持，false则表示不支持。 |
@@ -38,17 +39,16 @@ isPiPEnabled(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let enable: boolean = PiPWindow.isPiPEnabled();
 console.info('isPipEnabled:' + enable);
 ```
 
 
-## PiPWindow.create
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-create(config: PiPConfiguration): Promise<PiPController>
+##### PiPWindow.create
+
+create(config: PiPConfiguration): Promise&lt;PiPController&gt;
 
 创建画中画控制器，使用Promise异步回调。
 
@@ -58,24 +58,21 @@ create(config: PiPConfiguration): Promise<PiPController>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [PiPConfiguration](#pipconfiguration) | 是 | 创建画中画控制器的参数。该参数不能为空，并且构造该参数的context和componentController不能为空。构造该参数时，如果指定了templateType，需保证templateType是[PiPTemplateType](#piptemplatetype)类型；如果指定了controlGroups，需保证controlGroups与templateType匹配，详见[PiPControlGroup](#pipcontrolgroup12)。 |
+| config | PiPConfiguration | 是 | 创建画中画控制器的参数。该参数不能为空，并且构造该参数的context和componentController不能为空。构造该参数时，如果指定了templateType，需保证templateType是PiPTemplateType类型；如果指定了controlGroups，需保证controlGroups与templateType匹配，详见PiPControlGroup。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PiPController](#pipcontroller)&gt; | Promise对象。返回当前创建的画中画控制器。 |
+| Promise&lt;PiPController&gt; | Promise对象。返回当前创建的画中画控制器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -85,8 +82,7 @@ create(config: PiPConfiguration): Promise<PiPController>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { BuilderNode, FrameNode, NodeController, UIContext } from '@kit.ArkUI';
 
@@ -102,8 +98,8 @@ class Params {
 function buildText(params: Params) {
   Column() {
     Text(params.text)
-    .fontSize(20)
-    .fontColor(Color.Red)
+      .fontSize(20)
+      .fontColor(Color.Red)
   }
   .width('100%') // 宽度方向充满画中画窗口
   .height('100%') // 高度方向充满画中画窗口
@@ -137,61 +133,61 @@ class TextNodeController extends NodeController {
 @Entry
 @Component
 struct Index {
-  private message: string = 'createPiP';
-  private pipController: PiPWindow.PiPController | undefined = undefined;
-  private mXComponentController: XComponentController = new XComponentController(); // 开发者应使用该mXComponentController初始化XComponent: XComponent( {id: 'video', type: 'surface', controller: mXComponentController} )，保证XComponent的内容可以被迁移到画中画窗口。
-  private nodeController: TextNodeController = new TextNodeController('this is custom UI');
-  private navId: string = "page_1"; // 假设当前页面的导航id为page_1，详见PiPConfiguration定义，具体导航名称由开发者自行定义。
-  private contentWidth: number = 800; // 假设当前内容宽度800px。
-  private contentHeight: number = 600; // 假设当前内容高度600px。
-  private pageId: number = this.getUniqueId(); // 获取当前页面Id。
-  private para: Record<string, number> = { 'PropA': 47 };
-  private localStorage: LocalStorage = new LocalStorage(this.para);
-  private res: boolean = this.localStorage.setOrCreate('PropB', 121);
-  private defaultWindowSizeType: number = 1; // 指定画中画第一次拉起窗口为小窗口。
-  private cornerAdsorptionEnabled: boolean = true;
-  private config: PiPWindow.PiPConfiguration = {
-    context: this.getUIContext().getHostContext() as Context,
-    componentController: this.mXComponentController,
-    navigationId: this.navId,
-    handleId: this.pageId,
-    templateType: PiPWindow.PiPTemplateType.VIDEO_PLAY,
-    contentWidth: this.contentWidth,
-    contentHeight: this.contentHeight,
-    controlGroups: [PiPWindow.VideoPlayControlGroup.VIDEO_PREVIOUS_NEXT],
-    customUIController: this.nodeController, // 可选，如果需要在画中画显示内容上方展示自定义UI，可设置该参数。
-    localStorage: this.localStorage, // 可选，如果需要跟踪主窗实例，可设置此参数。
-    defaultWindowSizeType: this.defaultWindowSizeType, // 可选，如果需要配置默认启动窗口档位，可设置此参数。
-    cornerAdsorptionEnabled: this.cornerAdsorptionEnabled, // 可选，默认为true，如果不需要画中画窗口四角吸附，可设置此参数为false。
-  };
+    private message: string = 'createPiP';
+    private pipController: PiPWindow.PiPController | undefined = undefined;
+    private mXComponentController: XComponentController = new XComponentController(); // 开发者应使用该mXComponentController初始化XComponent: XComponent( {id: 'video', type: 'surface', controller: mXComponentController} )，保证XComponent的内容可以被迁移到画中画窗口。
+    private nodeController: TextNodeController = new TextNodeController('this is custom UI');
+    private navId: string = "page_1"; // 假设当前页面的导航id为page_1，详见PiPConfiguration定义，具体导航名称由开发者自行定义。
+    private contentWidth: number = 800; // 假设当前内容宽度800px。
+    private contentHeight: number = 600; // 假设当前内容高度600px。
+    private pageId: number = this.getUniqueId(); // 获取当前页面Id。
+    private para: Record<string, number> = { 'PropA': 47 };
+    private localStorage: LocalStorage = new LocalStorage(this.para);
+    private res: boolean = this.localStorage.setOrCreate('PropB', 121);
+    private defaultWindowSizeType: number = 1; // 指定画中画第一次拉起窗口为小窗口。
+    private cornerAdsorptionEnabled: boolean = true;
+    private config: PiPWindow.PiPConfiguration = {
+        context: this.getUIContext().getHostContext() as Context,
+        componentController: this.mXComponentController,
+        navigationId: this.navId,
+        handleId: this.pageId,
+        templateType: PiPWindow.PiPTemplateType.VIDEO_PLAY,
+        contentWidth: this.contentWidth,
+        contentHeight: this.contentHeight,
+        controlGroups: [PiPWindow.VideoPlayControlGroup.VIDEO_PREVIOUS_NEXT],
+        customUIController: this.nodeController, // 可选，如果需要在画中画显示内容上方展示自定义UI，可设置该参数。
+        localStorage: this.localStorage, // 可选，如果需要跟踪主窗实例，可设置此参数。
+        defaultWindowSizeType: this.defaultWindowSizeType, // 可选，如果需要配置默认启动窗口档位，可设置此参数。
+        cornerAdsorptionEnabled: this.cornerAdsorptionEnabled, // 可选，默认为true，如果不需要画中画窗口四角吸附，可设置此参数为false。
+    };
 
-  createPiP() {
-    let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config);
-    promise.then((data: PiPWindow.PiPController) => {
-      this.pipController = data;
-      console.info(`Succeeded in creating pip controller. Data:${data}`);
-    }).catch((err: BusinessError) => {
-      console.error(`Failed to create pip controller. Cause:${err.code}, message:${err.message}`);
-    });
-  }
-
-  // 仅用于功能测试，实际开发过程中开发者按功能需求设计组件
-  build() {
-    RelativeContainer() {
-      Button(this.message)
-      .onClick(() => {
-        this.createPiP();
-      })
+    createPiP() {
+        let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config);
+        promise.then((data: PiPWindow.PiPController) => {
+            this.pipController = data;
+            console.info(`Succeeded in creating pip controller. Data:${data}`);
+        }).catch((err: BusinessError) => {
+            console.error(`Failed to create pip controller. Cause:${err.code}, message:${err.message}`);
+        });
     }
-  }
+
+    // 仅用于功能测试，实际开发过程中开发者按功能需求设计组件
+    build() {
+        RelativeContainer() {
+            Button(this.message)
+                .onClick(() => {
+                    this.createPiP();
+                })
+        }
+    }
 }
 ```
 
 
-## PiPWindow.create12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>
+##### PiPWindow.create12+
+
+create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise&lt;PiPController&gt;
 
 创建画中画控制器，使用typeNode为画中画添加自定义UI节点。使用Promise异步回调。
 
@@ -201,25 +197,22 @@ create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPC
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [PiPConfiguration](#pipconfiguration) | 是 | 创建画中画控制器的参数。该参数不能为空，并且构造该参数的context不能为空。构造该参数时，如果指定了templateType，需保证templateType是[PiPTemplateType](#piptemplatetype)类型；如果指定了controlGroups，需保证controlGroups与templateType匹配，详见[PiPControlGroup](#pipcontrolgroup12)。 |
-| contentNode | [typeNode.XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#xcomponent12) | 是 | 用于渲染画中画窗口中的内容。该参数不能为空。 |
+| config | PiPConfiguration | 是 | 创建画中画控制器的参数。该参数不能为空，并且构造该参数的context不能为空。构造该参数时，如果指定了templateType，需保证templateType是PiPTemplateType类型；如果指定了controlGroups，需保证controlGroups与templateType匹配，详见PiPControlGroup。 |
+| contentNode | typeNode.XComponent | 是 | 用于渲染画中画窗口中的内容。该参数不能为空。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PiPController](#pipcontroller)&gt; | Promise对象。返回当前创建的画中画控制器。 |
+| Promise&lt;PiPController&gt; | Promise对象。返回当前创建的画中画控制器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -229,89 +222,87 @@ create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPC
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { PiPWindow, typeNode, UIContext } from '@kit.ArkUI';
 
 @Entry
 @Component
 struct Index {
-  private message = 'createPiP'
-  private pipController: PiPWindow.PiPController | undefined = undefined;
-  private xComponentController: XComponentController = new XComponentController();
-  private context: UIContext | undefined = this.getUIContext(); // 可传入UIContext或在布局中通过this.getUIContext()为context赋有效值
-  private contentWidth: number = 800; // 假设当前内容宽度800px。
-  private contentHeight: number = 600; // 假设当前内容高度600px。
-  private config: PiPWindow.PiPConfiguration = {
-    context: this.getUIContext().getHostContext() as Context,
-    componentController: this.xComponentController,
-    templateType: PiPWindow.PiPTemplateType.VIDEO_PLAY,
-    contentWidth: this.contentWidth,
-    contentHeight: this.contentHeight,
-  };
-  private options: XComponentOptions = {
-    type: XComponentType.SURFACE,
-    controller: this.xComponentController
-  }
-  private xComponent = typeNode.createNode(this.context, 'XComponent', this.options);
-
-  createPiP() {
-    let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config, this.xComponent);
-    promise.then((data: PiPWindow.PiPController) => {
-      this.pipController = data;
-      console.info(`Succeeded in creating pip controller. Data:${data}`);
-    }).catch((err: BusinessError) => {
-      console.error(`Failed to create pip controller. Cause:${err.code}, message:${err.message}`);
-    });
-  }
-
-  // 仅用于功能测试，实际开发过程中开发者按功能需求设计组件
-  build() {
-    RelativeContainer() {
-      Button(this.message)
-      .onClick(() => {
-        this.createPiP();
-      })
+    private message = 'createPiP'
+    private pipController: PiPWindow.PiPController | undefined = undefined;
+    private xComponentController: XComponentController = new XComponentController();
+    private context: UIContext | undefined = this.getUIContext(); // 可传入UIContext或在布局中通过this.getUIContext()为context赋有效值
+    private contentWidth: number = 800; // 假设当前内容宽度800px。
+    private contentHeight: number = 600; // 假设当前内容高度600px。
+    private config: PiPWindow.PiPConfiguration = {
+        context: this.getUIContext().getHostContext() as Context,
+        componentController: this.xComponentController,
+        templateType: PiPWindow.PiPTemplateType.VIDEO_PLAY,
+        contentWidth: this.contentWidth,
+        contentHeight: this.contentHeight,
+    };
+    private options: XComponentOptions = {
+        type: XComponentType.SURFACE,
+        controller: this.xComponentController
     }
-  }
+    private xComponent = typeNode.createNode(this.context, 'XComponent', this.options);
+
+    createPiP() {
+        let promise: Promise<PiPWindow.PiPController> = PiPWindow.create(this.config, this.xComponent);
+        promise.then((data: PiPWindow.PiPController) => {
+            this.pipController = data;
+            console.info(`Succeeded in creating pip controller. Data:${data}`);
+        }).catch((err: BusinessError) => {
+            console.error(`Failed to create pip controller. Cause:${err.code}, message:${err.message}`);
+        });
+    }
+
+    // 仅用于功能测试，实际开发过程中开发者按功能需求设计组件
+    build() {
+        RelativeContainer() {
+            Button(this.message)
+                .onClick(() => {
+                    this.createPiP();
+                })
+        }
+    }
 }
 ```
 
 
-## PiPConfiguration
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### PiPConfiguration
 
 创建画中画控制器时的参数。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | [BaseContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-basecontext) | 否 | 否 | 表示上下文环境。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| componentController | [XComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponentcontroller) | 否 | 否 | 表示原始[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)控制器。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| navigationId | string | 否 | 是 | navigation控件ID，不传值则默认不需要缓存页面。          1、UIAbility使用[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)管理页面时，需要设置Navigation控件的id属性，并将该id设置给画中画控制器，确保还原场景下能够从画中画窗口恢复到原页面。          2、UIAbility使用[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router)管理页面时，无需设置navigationId。          3、UIAbility只有单页面时，无需设置navigationId，还原场景下也能够从画中画窗口恢复到原页面。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| handleId22+ | number | 否 | 是 | navigation控件下的子页面ID，点击"恢复全屏窗口"按钮后，恢复到指定的页面。只适用于UIAbility使用[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)管理页面的场景，可以设置为Navigation���的子页面ID。默认为-1，恢复Navigation栈顶页面。推荐使用方法[getUniqueId()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getuniqueid12)获取页面ID。使用[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)模块内页面路由时，推荐使用[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)，否则可能会出现[getUniqueId()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getuniqueid12)获取页面ID不准确的情况。          元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| templateType | [PiPTemplateType](#piptemplatetype) | 否 | 是 | 模板类型，用以区分视频播放、视频通话、视频会议或视频直播，不传值则默认为视频播放模板。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| contentWidth | number | 否 | 是 | 原始内容宽度，单位为px。用于确定画中画窗口比例。当[使用typeNode的方式](#pipwindowcreate12)创建PiPController时，不传值则默认为1920。当[不使用typeNode的方式](#pipwindowcreate)创建PiPController时，不传值则默认为[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件的宽度。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| contentHeight | number | 否 | 是 | 原始内容高度，单位为px。用于确定画中画窗口比例。当[使用typeNode的方式](#pipwindowcreate12)创建PiPController时，不传值则默认为1080。当[不使用typeNode的方式](#pipwindowcreate)创建PiPController时，不传值则默认为[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件的高度。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| controlGroups12+ | Array&lt;[PiPControlGroup](#pipcontrolgroup12)&gt; | 否 | 是 | 画中画控制面板的可选控件组列表，应用可以对此进行配置以决定是否显示。应用未配置时，面板显示基础控件（如视频播放控件组的播放/暂停控件）；应用选择配置时，则最多可以选择三个控件，超出三个create接口抛出401错误码。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| customUIController12+ | [NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller) | 否 | 是 | 自定义UI控制器，用于实现在画中画界面的自定义UI功能。此参数不填时，默认不使用自定义UI功能          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| localStorage17+ | [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) | 否 | 是 | 页面级别的UI状态存储单元。多实例下可用来跟踪主窗实例的UI状态存储对象，不传值则无法通过画中画窗口获取主窗的UI状态存储对象。          元服务API： 从API version 17开始，该接口支持在元服务中使用。 |
-| defaultWindowSizeType19+ | number | 否 | 是 | 当前应用第一次拉起画中画的窗口大小。          0：代表不设置大小。按照上个应用的画中画关闭前的大小启动；          1：代表小窗；          2：代表大窗；          不传值则为默认值0。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| cornerAdsorptionEnabled22+ | boolean | 否 | 是 | 是否开启画中画四角吸附功能。当开启画中画四角吸附功能后，屏幕将被划分为四个热区：以屏幕的上下中线和左右中线为界，形成左上、右上、左下、右下四个区域。用户拖动画中画窗口并松手后，系统将根据窗口中心点所处的热区，自动将窗口吸附到对应角落。          true：表示开启画中画四角吸附功能。          false：表示关闭画中画四角吸附功能。          不传值则为默认值true。          设备行为差异： 该接口在Phone、Tablet设备上可正常调用，在其他设备上不生效。          元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| context | BaseContext | 否 | 否 | 表示上下文环境。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| componentController | XComponentController | 否 | 否 | 表示原始XComponent控制器。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| navigationId | string | 否 | 是 | navigation控件ID，不传值则默认不需要缓存页面。 1、UIAbility使用Navigation管理页面时，需要设置Navigation控件的id属性，并将该id设置给画中画控制器，确保还原场景下能够从画中画窗口恢复到原页面。 2、UIAbility使用Router管理页面时，无需设置navigationId。 3、UIAbility只有单页面时，无需设置navigationId，还原场景下也能够从画中画窗口恢复到原页面。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| handleId22+ | number | 否 | 是 | navigation控件下的子页面ID，点击"恢复全屏窗口"按钮后，恢复到指定的页面。只适用于UIAbility使用Navigation管理页面的场景，可以设置为Navigation下的子页面ID。默认为-1，恢复Navigation栈顶页面。推荐使用方法getUniqueId()获取页面ID。使用Navigation模块内页面路由时，推荐使用系统路由表，否则可能会出现getUniqueId()获取页面ID不准确的情况。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| templateType | PiPTemplateType | 否 | 是 | 模板类型，用以区分视频播放、视频通话、视频会议或视频直播，不传值则默认为视频播放模板。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| contentWidth | number | 否 | 是 | 原始内容宽度，单位为px。用于确定画中画窗口比例。当使用typeNode的方式创建PiPController时（即使用PiPWindow.create()传入contentNode参数），不传值则默认为1920。当不使用typeNode的方式创建PiPController时（即使用PiPWindow.create()不传入contentNode参数），不传值则默认为XComponent组件的宽度。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| contentHeight | number | 否 | 是 | 原始内容高度，单位为px。用于确定画中画窗口比例。当使用typeNode的方式创建PiPController时（即使用PiPWindow.create()传入contentNode参数），不传值则默认为1080。当不使用typeNode的方式创建PiPController时（即使用PiPWindow.create()不传入contentNode参数），不传值则默认为XComponent组件的高度。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| controlGroups12+ | Array&lt;PiPControlGroup&gt; | 否 | 是 | 画中画控制面板的可选控件组列表，应用可以对此进行配置以决定是否显示。应用未配置时，面板显示基础控件（如视频播放控件组的播放/暂停控件）；应用选择配置时，则最多可以选择三个控件，超出三个create接口抛出401错误码。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| customUIController12+ | NodeController | 否 | 是 | 自定义UI控制器，用于实现在画中画界面的自定义UI功能。此参数不填时，默认不使用自定义UI功能 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| localStorage17+ | LocalStorage | 否 | 是 | 页面级别的UI状态存储单元。多实例下可用来跟踪主窗实例的UI状态存储对象，不传值则无法通过画中画窗口获取主窗的UI状态存储对象。 元服务API： 从API version 17开始，该接口支持在元服务中使用。 |
+| defaultWindowSizeType19+ | number | 否 | 是 | 当前应用第一次拉起画中画的窗口大小。 0：代表不设置大小。按照上个应用的画中画关闭前的大小启动； 1：代表小窗； 2：代表大窗； 不传值则为默认值0。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| cornerAdsorptionEnabled22+ | boolean | 否 | 是 | 是否开启画中画四角吸附功能。当开启画中画四角吸附功能后，屏幕将被划分为四个热区：以屏幕的上下中线和左右中线为界，形成左上、右上、左下、右下四个区域。画中画拉起时会根据上次画中画消失的位置出现在屏幕四角，用户拖动窗口时可自由移动，松手后则会自动吸附在屏幕边缘。 true：表示开启画中画四角吸附功能。 false：表示关闭画中画四角吸附功能。 不传值则为默认值true。 设备行为差异： 该接口在Phone、Tablet设备上可正常调用，在其他设备上不生效。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 
 
-## PiPWindowSize15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPWindowSize15+
 
 画中画窗口大小。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -320,8 +311,9 @@ struct Index {
 | scale | number | 否 | 否 | 窗口缩放比，显示大小相对于width和height的缩放比，该参数为浮点数，取值范围大于0.0，小于等于1.0。等于1表示与width和height一样大。 |
 
 
-## PiPWindowInfo15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPWindowInfo15+
 
 画中画窗口信息。
 
@@ -329,22 +321,21 @@ struct Index {
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | windowId | number | 否 | 否 | 画中画窗口ID。 |
-| size | [PiPWindowSize](#pipwindowsize15) | 否 | 否 | 画中画窗口大小。 |
+| size | PiPWindowSize | 否 | 否 | 画中画窗口大小。 |
 
 
-## PiPTemplateType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPTemplateType
 
 画中画模板类型枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -354,15 +345,15 @@ struct Index {
 | VIDEO_LIVE | 3 | 表示将要切换为画中画播放的媒体类型是直播，系统依此加载直播模板。 |
 
 
-## PiPState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPState
 
 画中画生命周期状态枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -374,8 +365,9 @@ struct Index {
 | ERROR | 6 | 表示画中画生命周期执行过程出现了异常。 |
 
 
-## PiPControlGroup12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPControlGroup12+
 
 type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup
 
@@ -385,17 +377,17 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoPlayControlGroup](#videoplaycontrolgroup12) | 视频播放控件组。 |
-| [VideoCallControlGroup](#videocallcontrolgroup12) | 视频通话控件组。 |
-| [VideoMeetingControlGroup](#videomeetingcontrolgroup12) | 视频会议控件组。 |
-| [VideoLiveControlGroup](#videolivecontrolgroup12) | 视频直播控件组。 |
+| VideoPlayControlGroup | 视频播放控件组。 |
+| VideoCallControlGroup | 视频通话控件组。 |
+| VideoMeetingControlGroup | 视频会议控件组。 |
+| VideoLiveControlGroup | 视频直播控件组。 |
 
 
-## VideoPlayControlGroup12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### VideoPlayControlGroup12+
 
 视频播放控件组枚举。仅当[PiPTemplateType](#piptemplatetype)为VIDEO_PLAY时使用。
 
@@ -403,22 +395,21 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| VIDEO_PREVIOUS_NEXT | 101 | 视频上一个/下一个控件组。          与视频快进/后退控件组为互斥控件组。如添加视频快进/后退控件组，则不可添加该控件组。 |
-| FAST_FORWARD_BACKWARD | 102 | 视频快进/后退控件组。          与视频上一个/下一个控件组为互斥控件组。如添加视频上一个/下一个控件组，则不可添加该控件组。 |
+| VIDEO_PREVIOUS_NEXT | 101 | 视频上一个/下一个控件组。 与视频快进/后退控件组为互斥控件组。如添加视频快进/后退控件组，则不可添加该控件组。 |
+| FAST_FORWARD_BACKWARD | 102 | 视频快进/后退控件组。 与视频上一个/下一个控件组为互斥控件组。如添加视频上一个/下一个控件组，则不可添加该控件组。 |
 
 
-## VideoCallControlGroup12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### VideoCallControlGroup12+
 
 视频通话控件组枚举。仅当[PiPTemplateType](#piptemplatetype) 为VIDEO_CALL时使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -428,15 +419,15 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 | MUTE_SWITCH | 204 | 静音控件组。 |
 
 
-## VideoMeetingControlGroup12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### VideoMeetingControlGroup12+
 
 视频会议控件组枚举。仅当[PiPTemplateType](#piptemplatetype) 为VIDEO_MEETING时使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -446,8 +437,9 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 | MICROPHONE_SWITCH | 304 | 打开/关闭麦克风控件组。 |
 
 
-## VideoLiveControlGroup12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### VideoLiveControlGroup12+
 
 视频直播控件组枚举。仅当[PiPTemplateType](#piptemplatetype) 为VIDEO_LIVE时使用。
 
@@ -455,15 +447,15 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | VIDEO_PLAY_PAUSE | 401 | 播放/暂停直播控件组。 |
 | MUTE_SWITCH | 402 | 静音控件组。 |
 
 
-## PiPActionEventType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPActionEventType
 
 type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent
 
@@ -473,17 +465,17 @@ type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingA
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PiPVideoActionEvent](#pipvideoactionevent) | 视频播放控制面板控件事件类型。 |
-| [PiPCallActionEvent](#pipcallactionevent) | 视频通话控制面板控件事件类型。 |
-| [PiPMeetingActionEvent](#pipmeetingactionevent) | 视频会议控制面板控件事件类型。 |
-| [PiPLiveActionEvent](#pipliveactionevent) | 直播控制面板控件事件类型。 |
+| PiPVideoActionEvent | 视频播放控制面板控件事件类型。 |
+| PiPCallActionEvent | 视频通话控制面板控件事件类型。 |
+| PiPMeetingActionEvent | 视频会议控制面板控件事件类型。 |
+| PiPLiveActionEvent | 直播控制面板控件事件类型。 |
 
 
-## PiPVideoActionEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPVideoActionEvent
 
 type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward'
 
@@ -492,7 +484,6 @@ type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -503,8 +494,9 @@ type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo
 | 'fastBackward'12+ | 视频进度后退。从API version 12 开始支持。 |
 
 
-## PiPCallActionEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPCallActionEvent
 
 type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged'
 
@@ -514,7 +506,6 @@ type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | '
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'hangUp' | 挂断视频通话。 |
@@ -523,8 +514,9 @@ type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | '
 | 'voiceStateChanged'12+ | 静音或解除静音。 |
 
 
-## PiPMeetingActionEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPMeetingActionEvent
 
 type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged'
 
@@ -534,7 +526,6 @@ type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'hangUp' | 挂断视频会议。 |
@@ -543,8 +534,9 @@ type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged
 | 'micStateChanged'12+ | 打开或关闭麦克风。 |
 
 
-## PiPLiveActionEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPLiveActionEvent
 
 type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
@@ -554,22 +546,21 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'playbackStateChanged' | 播放或暂停直播。 |
 | 'voiceStateChanged'12+ | 静音或解除静音。 |
 
 
-## PiPControlStatus12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPControlStatus12+
 
 控制面板控件状态枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -579,15 +570,15 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 | CLOSE | 0 | 关闭。 |
 
 
-## PiPControlType12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPControlType12+
 
 控制面板控件类型枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -602,8 +593,9 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 | MUTE_SWITCH | 8 | 打开/关闭静音控件。 |
 
 
-## ControlPanelActionEventCallback12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ControlPanelActionEventCallback12+
 
 type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void
 
@@ -615,15 +607,15 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [PiPActionEventType](#pipactioneventtype) | 是 | 回调画中画控制面板控件动作事件类型。          应用依据控件动作事件做相应处理，如触发'playbackStateChanged'事件时，需要开始或停止视频。 |
+| event | PiPActionEventType | 是 | 回调画中画控制面板控件动作事件类型。 应用依据控件动作事件做相应处理，如触发'playbackStateChanged'事件时，需要开始或停止视频。 |
 | status | number | 否 | 表示可切换状态的控件当前的状态，如具备打开和关闭两种状态的麦克风控件组、摄像头控件组和静音控件组，打开为1，关闭为0。其余控件该参数返回默认值-1。 |
 
 
-## ControlEventParam12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ControlEventParam12+
 
 画中画控制面板控件动作回调的参数。
 
@@ -631,15 +623,15 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 **系统能力：** SystemCapability.Window.SessionManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| controlType | [PiPControlType](#pipcontroltype12) | 否 | 否 | 回调画中画控制面板控件动作事件类型。应用依据控件类型做相应处理，如视频模板中暂停/播放控件被点击时，需要开始或停止视频。 |
-| status | [PiPControlStatus](#pipcontrolstatus12) | 否 | 是 | 表示可切换状态的控件当前的状态，如具备打开和关闭两种状态的麦克风控件组、摄像头控件组和静音控件组，打开为PiPControlStatus.PLAY，关闭为PiPControlStatus.PAUSE。如不具备开/关和播放/暂停状态的挂断控件默认返回值为-1。 |
+| controlType | PiPControlType | 否 | 否 | 回调画中画控制面板控件动作事件类型。应用依据控件类型做相应处理，如视频模板中暂停/播放控件被点击时，需要开始或停止视频。 |
+| status | PiPControlStatus | 否 | 是 | 表示可切换状态的控件当前的状态，如具备打开和关闭两种状态的麦克风控件组、摄像头控件组和静音控件组，打开为PiPControlStatus.PLAY，关闭为PiPControlStatus.PAUSE。如不具备开/关和播放/暂停状态的挂断控件默认返回值为-1。 |
 
 
-## PiPController
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PiPController
 
 画中画控制器实例。用于启动、停止画中画以及更新回调注册等。
 
@@ -648,10 +640,10 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 **系统能力：** SystemCapability.Window.SessionManager
 
 
-### startPiP
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startPiP(): Promise<void>
+##### startPiP
+
+startPiP(): Promise&lt;void&gt;
 
 启动画中画，使用Promise异步回调。
 
@@ -661,7 +653,6 @@ startPiP(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -670,7 +661,6 @@ startPiP(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -682,26 +672,21 @@ startPiP(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 // 开发者可根据pipController的定义方式自行实现pipController的调用
-let promise: Promise<void> = this.pipController.startPiP();
-promise
-  .then(() => {
-    console.info(`Succeeded in starting pip.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to start pip. Cause:${err.code}, message:${err.message}`,
-    );
-  });
+let promise : Promise<void> = this.pipController.startPiP();
+promise.then(() => {
+  console.info(`Succeeded in starting pip.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to start pip. Cause:${err.code}, message:${err.message}`);
+});
 ```
 
 
-### stopPiP
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stopPiP(): Promise<void>
+##### stopPiP
+
+stopPiP(): Promise&lt;void&gt;
 
 停止画中画，使用Promise异步回调。
 
@@ -710,7 +695,6 @@ stopPiP(): Promise<void>
 **系统能力：** SystemCapability.Window.SessionManager
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -721,7 +705,6 @@ stopPiP(): Promise<void>
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300011 | Failed to destroy the PiP window. |
@@ -731,23 +714,18 @@ stopPiP(): Promise<void>
 
 **示例：**
 
-
-```ts
-let promise: Promise<void> = this.pipController.stopPiP();
-promise
-  .then(() => {
-    console.info(`Succeeded in stopping pip.`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to stop pip. Cause:${err.code}, message:${err.message}`,
-    );
-  });
+```text
+let promise : Promise<void> = this.pipController.stopPiP();
+promise.then(() => {
+  console.info(`Succeeded in stopping pip.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to stop pip. Cause:${err.code}, message:${err.message}`);
+});
 ```
 
 
-### setAutoStartEnabled
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAutoStartEnabled
 
 setAutoStartEnabled(enable: boolean): void
 
@@ -761,7 +739,6 @@ setAutoStartEnabled(enable: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enable | boolean | 是 | 如返回桌面时需自动启动画中画，则该参数配置为true，否则为false。若设置-系统-智慧多窗-自动启动画中画开关为关闭状态，就算该参数配置为true，应用返回桌面时也不会自动启动画中画窗口。 |
@@ -769,15 +746,14 @@ setAutoStartEnabled(enable: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 let enable: boolean = true;
 this.pipController.setAutoStartEnabled(enable);
 ```
 
 
-### updateContentSize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### updateContentSize
 
 updateContentSize(width: number, height: number): void
 
@@ -789,7 +765,6 @@ updateContentSize(width: number, height: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | width | number | 是 | 表示媒体内容宽度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。 |
@@ -800,7 +775,6 @@ updateContentSize(width: number, height: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Params error. Possible causes: The PiPController is not created or destroyed. |
@@ -808,16 +782,15 @@ updateContentSize(width: number, height: number): void
 
 **示例：**
 
-
-```ts
+```text
 let width: number = 540; // 假设当前内容宽度变为540px。
 let height: number = 960; // 假设当前内容高度变为960px。
 this.pipController.updateContentSize(width, height);
 ```
 
 
-### updatePiPControlStatus12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### updatePiPControlStatus12+
 
 updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void
 
@@ -829,17 +802,15 @@ updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controlType | [PiPControlType](#pipcontroltype12) | 是 | 表示画中画控制面板控件类型。目前仅支持VIDEO_PLAY_PAUSE、MICROPHONE_SWITCH、CAMERA_SWITCH和MUTE_SWITCH这几种控件类型，传入其他控件类型不生效也不报错。 |
-| status | [PiPControlStatus](#pipcontrolstatus12) | 是 | 表示画中画控制面板控件状态。 |
+| controlType | PiPControlType | 是 | 表示画中画控制面板控件类型。目前仅支持VIDEO_PLAY_PAUSE、MICROPHONE_SWITCH、CAMERA_SWITCH和MUTE_SWITCH这几种控件类型，传入其他控件类型不生效也不报错。 |
+| status | PiPControlStatus | 是 | 表示画中画控制面板控件状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -848,19 +819,17 @@ updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): v
 
 **示例：**
 
-
-```ts
-let controlType: PiPWindow.PiPControlType =
-  PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。
+```text
+let controlType: PiPWindow.PiPControlType = PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。
 let status: PiPWindow.PiPControlStatus = PiPWindow.PiPControlStatus.PLAY; // 视频播放控制面板中播放/暂停控件为播放状态。
 this.pipController.updatePiPControlStatus(controlType, status);
 ```
 
 
-### updateContentNode18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updateContentNode(contentNode: typeNode.XComponent): Promise<void>
+##### updateContentNode18+
+
+updateContentNode(contentNode: typeNode.XComponent): Promise&lt;void&gt;
 
 更新画中画节点内容，使用Promise异步回调。
 
@@ -870,14 +839,12 @@ updateContentNode(contentNode: typeNode.XComponent): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| contentNode | [typeNode.XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#xcomponent12) | 是 | 用于渲染画中画窗口中的内容。该参数不能为空。 |
+| contentNode | typeNode.XComponent | 是 | 用于渲染画中画窗口中的内容。该参数不能为空。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -888,7 +855,6 @@ updateContentNode(contentNode: typeNode.XComponent): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Params error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed |
@@ -898,25 +864,22 @@ updateContentNode(contentNode: typeNode.XComponent): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { typeNode, UIContext } from '@kit.ArkUI';
 
 let context: UIContext | undefined = undefined; // 可传入UIContext或在布局中通过this.getUIContext()为context赋有效值
 
 try {
-  let contentNode = typeNode.createNode(context, 'XComponent');
+  let contentNode = typeNode.createNode(context, "XComponent");
   this.pipController.updateContentNode(contentNode);
 } catch (exception) {
-  console.error(
-    `Failed to update content node. Cause: ${exception.code}, message: ${exception.message}`,
-  );
+  console.error(`Failed to update content node. Cause: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
 
-### setPiPControlEnabled12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setPiPControlEnabled12+
 
 setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void
 
@@ -928,17 +891,15 @@ setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controlType | [PiPControlType](#pipcontroltype12) | 是 | 表示画中画控制面板控件类型。 |
+| controlType | PiPControlType | 是 | 表示画中画控制面板控件类型。 |
 | enabled | boolean | 是 | 表示画中画控制面板控件使能状态。true表示控件为可使用状态，false则为禁用状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -947,19 +908,17 @@ setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void
 
 **示例：**
 
-
-```ts
-let controlType: PiPWindow.PiPControlType =
-  PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。
+```text
+let controlType: PiPWindow.PiPControlType = PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。
 let enabled: boolean = false; // 视频播放控制面板中播放/暂停控件为禁用状态。
 this.pipController.setPiPControlEnabled(controlType, enabled);
 ```
 
 
-### getPiPWindowInfo15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPiPWindowInfo(): Promise<PiPWindowInfo>
+##### getPiPWindowInfo15+
+
+getPiPWindowInfo(): Promise&lt;PiPWindowInfo&gt;
 
 获取画中画窗口信息，使用Promise异步回调。
 
@@ -969,16 +928,14 @@ getPiPWindowInfo(): Promise<PiPWindowInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PiPWindowInfo](#pipwindowinfo15)&gt; | Promise对象，返回当前画中画窗口信息。 |
+| Promise&lt;PiPWindowInfo&gt; | Promise对象，返回当前画中画窗口信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -988,36 +945,26 @@ getPiPWindowInfo(): Promise<PiPWindowInfo>
 
 **示例：**
 
-
-```ts
+```json
 let pipWindowInfo: PiPWindow.PiPWindowInfo | undefined = undefined;
 try {
-  let promise: Promise<PiPWindow.PiPWindowInfo> =
-    this.pipController.getPiPWindowInfo();
-  promise
-    .then((data) => {
-      pipWindowInfo = data;
-      console.info(
-        'Success in get pip window info. Info: ' + JSON.stringify(data),
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to get pip window info. Cause code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  let promise : Promise<PiPWindow.PiPWindowInfo> = this.pipController.getPiPWindowInfo();
+  promise.then((data) => {
+    pipWindowInfo = data;
+    console.info('Success in get pip window info. Info: ' + JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to get pip window info. Cause code: ${err.code}, message: ${err.message}`);
+  });
 } catch (exception) {
-  console.error(
-    `Failed to get pip window info. Cause code: ${exception.code}, message: ${exception.message}`,
-  );
+  console.error(`Failed to get pip window info. Cause code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
 
-### getPiPSettingSwitch20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPiPSettingSwitch(): Promise<boolean>
+##### getPiPSettingSwitch20+
+
+getPiPSettingSwitch(): Promise&lt;boolean&gt;
 
 获取设置中自动启动画中画开关的状态，使用Promise异步回调。
 
@@ -1029,7 +976,6 @@ getPiPSettingSwitch(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回当前自动启动画中画开关状态，true表示开启，false表示关闭。 |
@@ -1039,7 +985,6 @@ getPiPSettingSwitch(): Promise<boolean>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
@@ -1048,36 +993,26 @@ getPiPSettingSwitch(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 let pipSwitchStatus: boolean | undefined = undefined;
 try {
-  let promise: Promise<boolean> = this.pipController.getPiPSettingSwitch();
-  promise
-    .then((data) => {
-      pipSwitchStatus = data;
-      console.info(
-        'Succeeded in getting pip switch status. switchStatus: ' +
-          JSON.stringify(data),
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to get pip switch status. Cause code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  let promise : Promise<boolean> = this.pipController.getPiPSettingSwitch();
+  promise.then((data) => {
+    pipSwitchStatus = data;
+    console.info('Succeeded in getting pip switch status. switchStatus: ' + JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to get pip switch status. Cause code: ${err.code}, message: ${err.message}`);
+  });
 } catch (exception) {
-  console.error(
-    `Failed to get pip switch status. Cause code: ${exception.code}, message: ${exception.message}`,
-  );
+  console.error(`Failed to get pip switch status. Cause code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
 
-### isPiPActive23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isPiPActive(): Promise<boolean>
+##### isPiPActive23+
+
+isPiPActive(): Promise&lt;boolean&gt;
 
 获取画中画的隐藏状态。使用Promise异步回调。
 
@@ -1087,16 +1022,14 @@ isPiPActive(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。画中画生命周期不为[STARTED](#pipstate)时调用本接口总是返回false。 |
+| Promise&lt;boolean&gt; | Promise对象，返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。画中画生命周期不为STARTED时调用本接口总是返回false。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1105,34 +1038,24 @@ isPiPActive(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 let pipActiveStatus: boolean | undefined = undefined;
 try {
-  let promise: Promise<boolean> | undefined = this.pipController?.isPiPActive();
-  promise
-    ?.then((data) => {
-      pipActiveStatus = data;
-      console.info(
-        'Succeeded in getting pip active status. activeStatus: ' +
-          JSON.stringify(data),
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to get pip active status. Cause code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  let promise : Promise<boolean> | undefined = this.pipController?.isPiPActive();
+  promise?.then((data) => {
+    pipActiveStatus = data;
+    console.info('Succeeded in getting pip active status. activeStatus: ' + JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to get pip active status. Cause code: ${err.code}, message: ${err.message}`);
+  });
 } catch (exception) {
-  console.error(
-    `Failed to get pip active status. Cause code: ${exception.code}, message: ${exception.message}`,
-  );
+  console.error(`Failed to get pip active status. Cause code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
 
-### on('stateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('stateChange')
 
 on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void
 
@@ -1144,51 +1067,46 @@ on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'stateChange'，即画中画生命周期状态变化事件。 |
-| callback | function | 是 | 回调生命周期状态变化事件以及原因。          state：[PiPState](#pipstate)，表示当前画中画生命周期状态。          reason：string，表示当前生命周期的切换原因。          在HarmonyOS 6.1.0之前，reason始终为“0”，无需关注。          从HarmonyOS 6.1.0开始，reason为当前生命周期的切换原因：          "requestStart"：应用调用startPip接口；          "autoStart"：应用退后台触发画中画自动启动；          "requestDelete"：应用调用stopPip接口；          "panelActionDelete"：用户点击画中画窗口的关闭按钮；          "dragDelete"：用户将画中画窗口拖入垃圾桶；          "panelActionRestore"：用户点击画中画窗口的还原按钮（无还原按钮时可点击画中画窗口）触发还原；          "other"：其他原因，如新的画中画窗口拉起导致当前窗口被关闭、应用主窗口被关闭等场景。 |
+| callback | function | 是 | 回调生命周期状态变化事件以及原因。 state：PiPState，表示当前画中画生命周期状态。 reason：string，表示当前生命周期的切换原因。 在HarmonyOS 6.1.0之前，reason始终为“0”，无需关注。 从HarmonyOS 6.1.0开始，reason为当前生命周期的切换原因： "requestStart"：应用调用startPip接口； "autoStart"：应用退后台触发画中画自动启动； "requestDelete"：应用调用stopPip接口； "panelActionDelete"：用户点击画中画窗口的关闭按钮； "dragDelete"：用户将画中画窗口拖入垃圾桶； "panelActionRestore"：用户点击画中画窗口的还原按钮（无还原按钮时可点击画中画窗口）触发还原； "other"：其他原因，如新的画中画窗口拉起导致当前窗口被关闭、应用主窗口被关闭等场景。 |
 
 
 **示例：**
 
-
-```ts
-this.pipController.on(
-  'stateChange',
-  (state: PiPWindow.PiPState, reason: string) => {
-    let curState: string = '';
-    switch (state) {
-      case PiPWindow.PiPState.ABOUT_TO_START:
-        curState = 'ABOUT_TO_START';
-        break;
-      case PiPWindow.PiPState.STARTED:
-        curState = 'STARTED';
-        break;
-      case PiPWindow.PiPState.ABOUT_TO_STOP:
-        curState = 'ABOUT_TO_STOP';
-        break;
-      case PiPWindow.PiPState.STOPPED:
-        curState = 'STOPPED';
-        break;
-      case PiPWindow.PiPState.ABOUT_TO_RESTORE:
-        curState = 'ABOUT_TO_RESTORE';
-        break;
-      case PiPWindow.PiPState.ERROR:
-        curState = 'ERROR';
-        break;
-      default:
-        break;
-    }
-    console.info('stateChange:' + curState + ' reason:' + reason);
-  },
-);
+```text
+this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string) => {
+  let curState: string = '';
+  switch (state) {
+    case PiPWindow.PiPState.ABOUT_TO_START:
+      curState = 'ABOUT_TO_START';
+      break;
+    case PiPWindow.PiPState.STARTED:
+      curState = 'STARTED';
+      break;
+    case PiPWindow.PiPState.ABOUT_TO_STOP:
+      curState = 'ABOUT_TO_STOP';
+      break;
+    case PiPWindow.PiPState.STOPPED:
+      curState = 'STOPPED';
+      break;
+    case PiPWindow.PiPState.ABOUT_TO_RESTORE:
+      curState = 'ABOUT_TO_RESTORE';
+      break;
+    case PiPWindow.PiPState.ERROR:
+      curState = 'ERROR';
+      break;
+    default:
+      break;
+  }
+  console.info('stateChange:' + curState + ' reason:' + reason);
+});
 ```
 
 
-### off('stateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('stateChange')
 
 off(type: 'stateChange'): void
 
@@ -1200,7 +1118,6 @@ off(type: 'stateChange'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'stateChange'，即画中画生命周期状态变化事件。 |
@@ -1208,14 +1125,13 @@ off(type: 'stateChange'): void
 
 **示例：**
 
-
-```ts
+```text
 this.pipController.off('stateChange');
 ```
 
 
-### on('controlPanelActionEvent')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('controlPanelActionEvent')
 
 on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void
 
@@ -1227,53 +1143,48 @@ on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'controlPanelActionEvent'，即画中画控制面板控件动作事件。 |
-| callback | [ControlPanelActionEventCallback](#controlpanelactioneventcallback12) | 是 | 描述画中画控制面板控件动作事件回调。 |
+| callback | ControlPanelActionEventCallback | 是 | 描述画中画控制面板控件动作事件回调。 |
 
 
 **示例：**
 
-
-```ts
-this.pipController.on(
-  'controlPanelActionEvent',
-  (event: PiPWindow.PiPActionEventType, status?: number) => {
-    switch (event) {
-      case 'playbackStateChanged':
-        if (status === 0) {
-          // 停止视频
-        } else if (status === 1) {
-          // 播放视频
-        }
-        break;
-      case 'nextVideo':
-        // 切换到下一个视频
-        break;
-      case 'previousVideo':
-        // 切换到上一个视频
-        break;
-      case 'fastForward':
-        // 视频进度快进
-        break;
-      case 'fastBackward':
-        // 视频进度后退
-        break;
-      default:
-        break;
-    }
-    console.info('registerActionEventCallback, event:' + event);
-  },
-);
+```text
+this.pipController.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEventType, status?: number) => {
+  switch (event) {
+    case 'playbackStateChanged':
+      if (status === 0) {
+        // 停止视频
+      } else if (status === 1) {
+        // 播放视频
+      }
+      break;
+    case 'nextVideo':
+      // 切换到下一个视频
+      break;
+    case 'previousVideo':
+      // 切换到上一个视频
+      break;
+    case 'fastForward':
+      // 视频进度快进
+      break;
+    case 'fastBackward':
+      // 视频进度后退
+      break;
+    default:
+      break;
+  }
+  console.info('registerActionEventCallback, event:' + event);
+});
 ```
 
 
-### on('controlEvent')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'controlEvent', callback: Callback<ControlEventParam>): void
+##### on('controlEvent')12+
+
+on(type: 'controlEvent', callback: Callback&lt;ControlEventParam&gt;): void
 
 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
 
@@ -1283,17 +1194,15 @@ on(type: 'controlEvent', callback: Callback<ControlEventParam>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'controlEvent'，即画中画控制面板控件动作事件。 |
-| callback | Callback&lt;[ControlEventParam](#controleventparam12)&gt; | 是 | 描述画中画控制面板控件动作事件回调。 |
+| callback | Callback&lt;ControlEventParam&gt; | 是 | 描述画中画控制面板控件动作事件回调。 |
 
 
 **示例：**
 
-
-```ts
+```text
 this.pipController.on('controlEvent', (control) => {
   switch (control.controlType) {
     case PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE:
@@ -1318,18 +1227,13 @@ this.pipController.on('controlEvent', (control) => {
     default:
       break;
   }
-  console.info(
-    'registerControlEventCallback, controlType:' +
-      control.controlType +
-      ', status' +
-      control.status,
-  );
+  console.info('registerControlEventCallback, controlType:' + control.controlType + ', status' + control.status);
 });
 ```
 
 
-### off('controlPanelActionEvent')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('controlPanelActionEvent')
 
 off(type: 'controlPanelActionEvent'): void
 
@@ -1341,7 +1245,6 @@ off(type: 'controlPanelActionEvent'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'controlPanelActionEvent'，即画中画控制面板控件动作事件。 |
@@ -1349,47 +1252,44 @@ off(type: 'controlPanelActionEvent'): void
 
 **示例：**
 
-
-```ts
+```text
 this.pipController.off('controlPanelActionEvent');
 ```
 
 
-### off('controlEvent')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'controlEvent', callback?: Callback<ControlEventParam>): void
+##### off('controlEvent')12+
+
+off(type: 'controlEvent', callback?: Callback&lt;ControlEventParam&gt;): void
 
 关闭画中画控制面板控件动作事件的监听。
 
-**元服务API：** 从API version 12开���，该接口支持在元服务中使用。
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Window.SessionManager
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'controlEvent'，即画中画控制面板控件动作事件。 |
-| callback | Callback&lt;[ControlEventParam](#controleventparam12)&gt; | 否 | 描述画中画控制面板控件动作事件回调。如果未传入参数，解除type为'controlEvent'的所有回调。 |
+| callback | Callback&lt;ControlEventParam&gt; | 否 | 描述画中画控制面板控件动作事件回调。如果未传入参数，解除type为'controlEvent'的所有回调。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let callbackFunc = (event: PiPWindow.ControlEventParam) => {
   console.info(`receive control event: ${event.controlType}, ${event.status}`);
-};
+}
 this.pipController.off('controlEvent', callbackFunc);
 ```
 
 
-### on('pipWindowSizeChange')15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void
+##### on('pipWindowSizeChange')15+
+
+on(type: 'pipWindowSizeChange', callback: Callback&lt;PiPWindowSize&gt;): void
 
 开启画中画窗口尺寸变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
 
@@ -1399,17 +1299,15 @@ on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。 |
-| callback | Callback&lt;[PiPWindowSize](#pipwindowsize15)&gt; | 是 | 回调函数。返回当前画中画窗口的尺寸。 |
+| callback | Callback&lt;PiPWindowSize&gt; | 是 | 回调函数。返回当前画中画窗口的尺寸。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1420,30 +1318,21 @@ on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void
 
 **示例：**
 
-
-```ts
+```json
 try {
-  this.pipController.on(
-    'pipWindowSizeChange',
-    (size: PiPWindow.PiPWindowSize) => {
-      console.info(
-        'Succeeded in enabling the listener for pip window size changes. size: ' +
-          JSON.stringify(size),
-      );
-    },
-  );
+  this.pipController.on('pipWindowSizeChange', (size: PiPWindow.PiPWindowSize) => {
+    console.info('Succeeded in enabling the listener for pip window size changes. size: ' + JSON.stringify(size));
+  });
 } catch (exception) {
-  console.error(
-    `Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`,
-  );
+  console.error(`Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
 
-### off('pipWindowSizeChange')15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void
+##### off('pipWindowSizeChange')15+
+
+off(type: 'pipWindowSizeChange', callback?: Callback&lt;PiPWindowSize&gt;): void
 
 关闭画中画窗口尺寸变化事件的监听。
 
@@ -1453,17 +1342,15 @@ off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。 |
-| callback | Callback&lt;[PiPWindowSize](#pipwindowsize15)&gt; | 否 | 回调函数。返回当前画中画窗口的尺寸。如果传入参数，则关闭该监听。如果未传入参数，解除type为'pipWindowSizeChange'的所有回调。 |
+| callback | Callback&lt;PiPWindowSize&gt; | 否 | 回调函数。返回当前画中画窗口的尺寸。如果传入参数，则关闭该监听。如果未传入参数，解除type为'pipWindowSizeChange'的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1473,18 +1360,15 @@ off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void
 
 **示例：**
 
-
-```ts
+```text
 const callback = (size: PiPWindow.PiPWindowSize) => {
   // ...
-};
+}
 try {
   // 通过on接口开启监听
   this.pipController.on('pipWindowSizeChange', callback);
 } catch (exception) {
-  console.error(
-    `Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`,
-  );
+  console.error(`Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);
 }
 
 try {
@@ -1493,17 +1377,15 @@ try {
   // 如果通过on开启多个callback进行监听，同时关闭所有监听：
   this.pipController.off('pipWindowSizeChange');
 } catch (exception) {
-  console.error(
-    `Failed to disable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`,
-  );
+  console.error(`Failed to disable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);
 }
 ```
 
 
-### on('activeStatusChange')22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'activeStatusChange', callback: Callback<boolean>): void
+##### on('activeStatusChange')22+
+
+on(type: 'activeStatusChange', callback: Callback&lt;boolean&gt;): void
 
 开启画中画窗口隐藏状态变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
 
@@ -1513,7 +1395,6 @@ on(type: 'activeStatusChange', callback: Callback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'activeStatusChange'，即画中画隐藏状态变化事件。 |
@@ -1522,19 +1403,18 @@ on(type: 'activeStatusChange', callback: Callback<boolean>): void
 
 **示例：**
 
-
-```ts
+```text
 let callback = (activeStatus: boolean) => {
   console.info(`pip window is visible: ${activeStatus}`);
-};
+}
 this.pipController.on('activeStatusChange', callback);
 ```
 
 
-### off('activeStatusChange')22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'activeStatusChange', callback?: Callback<boolean>): void
+##### off('activeStatusChange')22+
+
+off(type: 'activeStatusChange', callback?: Callback&lt;boolean&gt;): void
 
 关闭画中画窗口隐藏状态变化事件的监听。
 
@@ -1544,7 +1424,6 @@ off(type: 'activeStatusChange', callback?: Callback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'activeStatusChange'，即画中画隐藏状态变化事件。 |
@@ -1553,10 +1432,9 @@ off(type: 'activeStatusChange', callback?: Callback<boolean>): void
 
 **示例：**
 
-
-```ts
+```text
 let callback = (activeStatus: boolean) => {
   console.info(`pip window is visible: ${activeStatus}`);
-};
+}
 this.pipController.off('activeStatusChange', callback);
 ```

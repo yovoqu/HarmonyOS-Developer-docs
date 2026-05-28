@@ -3,40 +3,37 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-meta-h
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 声明统一类型数据信息。
-
+ 
 **引用文件：** <database/udmf/udmf_meta.h>
-
+ 
 **库：** libudmf.so
-
+ 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [UDMF](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+  
 
-
-### 宏定义
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
+##### 宏定义
+ 
 | 名称 | 描述 |
 | --- | --- |
 | UDMF_META_ENTITY "general.entity" | 所有表示物理存储类型的基类型，用于描述类型的物理属性，无归属类型。 起始版本： 12 |
 | UDMF_META_OBJECT "general.object" | 所有表示逻辑内容类型的基类型，用于描述类型的功能性特征，无归属类型。 起始版本： 12 |
 | UDMF_META_COMPOSITE_OBJECT "general.composite-object" | 所有组合内容类型（例如PDF文件类型混合了文本和图片类数据）的基类型，归属类型为OBJECT。 起始版本： 12 |
 | UDMF_META_TEXT "general.text" | 所有文本的基类型，归属类型为OBJECT。 起始版本： 12 |
-| UDMF_META_PLAIN_TEXT "general.plain-text" | 未指定编码的文本类型，没有标识符，归属类型为TEXT。  起始版本： 12 |
+| UDMF_META_PLAIN_TEXT "general.plain-text" | 未指定编码的文本类型，没有标识符，归属类型为TEXT。 起始版本： 12 |
 | UDMF_META_HTML "general.html" | HTML文本类型，归属类型为TEXT。 起始版本： 12 |
 | UDMF_META_HYPERLINK "general.hyperlink" | 超链接类型，归属类型为TEXT。 起始版本： 12 |
 | UDMF_META_XML "general.xml" | XML文本类型，归属类型为TEXT。 起始版本： 12 |
@@ -49,7 +46,7 @@
 | UDMF_META_PYTHON_SCRIPT "general.python-script" | Python脚本类型，归属类型为SHELL_SCRIPT。 起始版本： 12 |
 | UDMF_META_RUBY_SCRIPT "general.ruby-script" | Ruby脚本类型，归属类型为SHELL_SCRIPT。 起始版本： 12 |
 | UDMF_META_TYPE_SCRIPT "general.type-script" | TypeScript源代码类型，归属类型为SCRIPT。 起始版本： 12 |
-| UDMF_META_JAVA_SCRIPT "general.java-script" | JavaScript源代码类型，归属类型为SCRIPT。  起始版本： 12 |
+| UDMF_META_JAVA_SCRIPT "general.java-script" | JavaScript源代码类型，归属类型为SCRIPT。 起始版本： 12 |
 | UDMF_META_C_HEADER "general.c-header" | C头文件类型，归属类型为SOURCE_CODE。 起始版本： 12 |
 | UDMF_META_C_SOURCE "general.c-source" | C源代码类型，归属类型为SOURCE_CODE。 起始版本： 12 |
 | UDMF_META_C_PLUS_PLUS_HEADER "general.c-plus-plus-header" | C++头文件类型，归属类型为SOURCE_CODE。 起始版本： 12 |
@@ -68,7 +65,7 @@
 | UDMF_META_RAW_IMAGE "general.raw-image" | 所有原始图像格式的基类型，归属类型为IMAGE。 起始版本： 12 |
 | UDMF_META_TIFF "general.tiff" | TIFF图片类型，归属类型为IMAGE。 起始版本： 12 |
 | UDMF_META_BMP "com.microsoft.bmp" | WINDOWS位图图像类型，归属类型为IMAGE。 起始版本： 12 |
-| UDMF_META_ICO "com.microsoft.ico" | WINDOWS图标图像类型，归属类型为IMAGE。  起始版本： 12 |
+| UDMF_META_ICO "com.microsoft.ico" | WINDOWS图标图像类型，归属类型为IMAGE。 起始版本： 12 |
 | UDMF_META_PHOTOSHOP_IMAGE "com.adobe.photoshop-image" | Adobe Photoshop图片类型，归属类型为IMAGE。 起始版本： 12 |
 | UDMF_META_AI_IMAGE "com.adobe.illustrator.ai-image" | Adobe Illustrator图片类型，归属类型为IMAGE。 起始版本： 12 |
 | UDMF_META_WORD_DOC "com.microsoft.word.doc" | Microsoft Word数据类型，归属类型为COMPOSITE_OBJECT。 起始版本： 12 |
@@ -90,7 +87,7 @@
 | UDMF_META_AAC "general.aac" | AAC音频类型，归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_AIFF "general.aiff" | AIFF音频类型，归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_ALAC "general.alac" | ALAC音频类型，归属类型为AUDIO。 起始版本： 12 |
-| UDMF_META_FLAC "general.flac" | FLAC音频类型，归属类型为AUDIO。  起始版本： 12 |
+| UDMF_META_FLAC "general.flac" | FLAC音频类型，归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_MP3 "general.mp3" | MP3音频类型，归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_OGG "general.ogg" | OGG音频类型，归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_PCM "general.pcm" | PCM音频类型，归属类型为AUDIO。 起始版本： 12 |
@@ -136,7 +133,7 @@
 | UDMF_META_OPENEXR_IMAGE "com.ilm.openexr-image" | 开放标准的高动态范围图像格式类型，归属类型为IMAGE。 起始版本： 12 |
 | UDMF_META_FLASHPIX_IMAGE "com.kodak.flashpix.image" | FlashPix图像文件类型，归属类型为IMAGE。 起始版本： 12 |
 | UDMF_META_REALMEDIA "com.real.realmedia" | 流媒体视频类型，归属类型为VIDEO。 起始版本： 12 |
-| UDMF_META_AU_AUDIO "general.au-audio" | Au数据格式，归属��型为AUDIO。 起始版本： 12 |
+| UDMF_META_AU_AUDIO "general.au-audio" | Au数据格式，归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_AIFC_AUDIO "general.aifc-audio" | 音频交换数据类型，归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_SD2_AUDIO "com.digidesign.sd2-audio" | 单声道/立体声音频类型（Digidesign Sound Designer II），归属类型为AUDIO。 起始版本： 12 |
 | UDMF_META_REALAUDIO "com.real.realaudio" | RealMedia音频类型，归属类型为AUDIO。 起始版本： 12 |

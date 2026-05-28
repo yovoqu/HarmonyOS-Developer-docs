@@ -3,32 +3,29 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-wantconstant
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 wantConstant模块提供want中操作want常数和解释Flags说明的能力。
-
-
+ 
 > [!NOTE]
-> 本模块首批接口从API version 6开始支持，从API version 9废弃，替换模块为[@ohos.app.ability.wantConstant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantconstant)。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 6开始支持，从API version 9废弃，替换模块为 @ohos.app.ability.wantConstant 。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import wantConstant from '@ohos.ability.wantConstant';
 ```
+ 
+  
 
-
-## Action
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Action
 
 want操作的常数。用于表示要执行的通用操作。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityBase
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ACTION_HOME | ohos.want.action.home | 指示返回原点的操作。 |
@@ -57,16 +54,16 @@ want操作的常数。用于表示要执行的通用操作。
 | ACTION_FILE_SELECT7+ | ohos.action.fileSelect | 指示选择文件的操作。 |
 | PARAMS_STREAM7+ | ability.params.stream | 指示发送数据时与目标关联的数据流的URI。对应的value必须是string类型的数组。 |
 | ACTION_APP_ACCOUNT_OAUTH 8+ | ohos.account.appAccount.action.oauth | 指示提供oauth服务的操作。 |
+ 
+ 
+  
 
-
-## Entity
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Entity
 
 want实体的常数。用于表示目标Ability额外的类别信息。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityBase
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ENTITY_DEFAULT | entity.system.default | 指示默认实体，如果未指定实体，则使用该实体。 |
@@ -74,16 +71,16 @@ want实体的常数。用于表示目标Ability额外的类别信息。
 | ENTITY_VOICE | entity.system.voice | 表示语音交互实体。 |
 | ENTITY_BROWSABLE | entity.system.browsable | 指示浏览器类别。 |
 | ENTITY_VIDEO | entity.system.video | 指示视频类别。 |
+ 
+ 
+  
 
-
-## Flags
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Flags
 
 Flags说明。用于表示处理Want的方式。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityBase
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | FLAG_AUTH_READ_URI_PERMISSION | 0x00000001 | 指示对URI执行读取操作的授权。 |
@@ -96,6 +93,6 @@ Flags说明。用于表示处理Want的方式。
 | FLAG_START_FOREGROUND_ABILITY | 0x00000200 | 指示无论主机应用程序是否已启动，都将启动使用服务模板的功能。 |
 | FLAG_INSTALL_ON_DEMAND | 0x00000800 | 如果未安装指定的功能，请安装该功能。 |
 | FLAG_INSTALL_WITH_BACKGROUND_MODE | 0x80000000 | 如果未安装，使用后台模式安装该功能。 |
-| FLAG_ABILITY_CLEAR_MISSION | 0x00008000 | 指示清除其他任务的操作。可以为传递给 FeatureAbility 中[startAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-featureability#featureabilitystartability)方法的Want设置此标志，并且必须与FLAG_ABILITY_NEW_MISSION一起使用。 |
+| FLAG_ABILITY_CLEAR_MISSION | 0x00008000 | 指示清除其他任务的操作。可以为传递给 FeatureAbility 中startAbility方法的Want设置此标志，并且必须与FLAG_ABILITY_NEW_MISSION一起使用。 |
 | FLAG_ABILITY_NEW_MISSION | 0x10000000 | 指示在历史任务堆栈上创建任务的操作。 |
 | FLAG_ABILITY_MISSION_TOP | 0x20000000 | 指示如果启动能力的现有实例已位于任务堆栈的顶部，则将重用该实例。否则，将创建一个新的能力实例。 |

@@ -6,16 +6,17 @@
 
 数据防泄漏（Data Loss Prevention，DLP）是系统提供的系统级的数据防泄漏解决方案，提供跨设备的文件的权限管理、加密存储、授权访问等能力。
 
+ - 权限管理：查询当前DLP沙箱的权限信息。
+ - 文件信息获取：获取DLP文件的基本信息，如原始文件名。
+ - 沙箱环境检测：查询当前应用是否运行在DLP沙箱环境。
+ - 配置管理：设置、获取和清理沙箱应用配置信息。
 
-- 权限管理：查询当前DLP沙箱的权限信息。
-- 文件信息获取：获取DLP文件的基本信息，如原始文件名。
-- 沙箱环境检测：查询当前应用是否运行在DLP沙箱环境。
-- 配置管理：设置、获取和清理沙箱应用配置信息。
 
 
-## 接口说明
+##### 接口说明
 
 数据防泄漏服务关键接口如下表所示。具体API说明详见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-dlp-permission-api-h)
+
 | 名称 | 描述 |
 | --- | --- |
 | DLP_ErrCode OH_DLP_GetDlpPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t *flags) | 查询当前DLP沙箱的权限信息。 |
@@ -26,10 +27,13 @@
 | DLP_ErrCode OH_DLP_CleanSandboxAppConfig() | 清理沙箱应用配置信息。 |
 
 
-## 开发步骤
 
-在CMakeLists.txt中导入数据防泄漏的共享库，并链接该库。
-```text
+
+##### 开发步骤
+1. 在CMakeLists.txt中导入数据防泄漏的共享库，并链接该库。
+
+  
+```cpp
 cmake_minimum_required(VERSION 3.5.0)
 project(DlpApiTest)
 
@@ -46,15 +50,19 @@ add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libohdlp_permission.so)
 ```
 
-导入数据防泄漏服务的头文件和NAPI相关头文件。
+2. 导入数据防泄漏服务的头文件和NAPI相关头文件。
+
+  
 ```text
 #include "napi/native_api.h"
-#include
-#include
+#include <cstdint>
+#include <cstdlib>
 #include "DataProtectionKit/dlp_permission_api.h"
 ```
 
-查询当前DLP沙箱的权限信息。
+3. 查询当前DLP沙箱的权限信息。
+
+  
 ```text
 static napi_value GetDlpPermissionInfo(napi_env env, napi_callback_info info)
 {
@@ -73,7 +81,9 @@ static napi_value GetDlpPermissionInfo(napi_env env, napi_callback_info info)
 }
 ```
 
-获取指定DLP文件名的原始文件名。
+4. 获取指定DLP文件名的原始文件名。
+
+  
 ```text
 static napi_value GetOriginalFileName(napi_env env, napi_callback_info info)
 {
@@ -92,7 +102,9 @@ static napi_value GetOriginalFileName(napi_env env, napi_callback_info info)
 }
 ```
 
-查询当前应用是否运行在DLP沙箱环境。
+5. 查询当前应用是否运行在DLP沙箱环境。
+
+  
 ```text
 static napi_value IsInSandbox(napi_env env, napi_callback_info info)
 {
@@ -109,20 +121,24 @@ static napi_value IsInSandbox(napi_env env, napi_callback_info info)
 }
 ```
 
-设置沙箱应用配置信息。
+6. 设置沙箱应用配置信息。
+
+  
 ```text
 static napi_value SetSandboxAppConfig(napi_env env, napi_callback_info info)
 {
     const char *configInfo = "configInfo";
     DLP_ErrCode ret = OH_DLP_SetSandboxAppConfig(configInfo);
-
+ 
     napi_value result = nullptr;
     napi_create_int32(env, ret, &result);
     return result;
 }
 ```
 
-获取沙箱应用配置信息。
+7. 获取沙箱应用配置信息。
+
+  
 ```text
 static napi_value GetSandboxAppConfig(napi_env env, napi_callback_info info)
 {
@@ -140,12 +156,14 @@ static napi_value GetSandboxAppConfig(napi_env env, napi_callback_info info)
 }
 ```
 
-清理沙箱应用配置信息。
+8. 清理沙箱应用配置信息。
+
+  
 ```text
 static napi_value CleanSandboxAppConfig(napi_env env, napi_callback_info info)
 {
     DLP_ErrCode ret = OH_DLP_CleanSandboxAppConfig();
-
+ 
     napi_value result = nullptr;
     napi_create_int32(env, ret, &result);
     return result;

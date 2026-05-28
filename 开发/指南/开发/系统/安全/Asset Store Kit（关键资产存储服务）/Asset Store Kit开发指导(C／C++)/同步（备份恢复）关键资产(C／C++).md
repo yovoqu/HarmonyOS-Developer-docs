@@ -1,28 +1,32 @@
 # 同步（备份恢复）关键资产(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-sync
 
-## 添加依赖
+##### 添加依赖
 
 在CMake脚本中链接相关动态库。
+
 ```text
 target_link_libraries(entry PUBLIC libasset_ndk.z.so)
 ```
 
 引用头文件。
-```text
+
+```cpp
 #include "napi/native_api.h"
-#include
+#include <string.h>
 #include "asset/asset_api.h"
 ```
 
 
-## 新增支持同步的关键资产
+
+##### 新增支持同步的关键资产
 
 新增密码demo_pwd（别名demo_alias），附属信息为demo_label，支持同步的关键资产。
-```text
+
+```cpp
 static napi_value AddSyncAsset(napi_env env, napi_callback_info info)
 {
     char *secretStr = "demo_pwd";
@@ -47,26 +51,34 @@ static napi_value AddSyncAsset(napi_env env, napi_callback_info info)
 ```
 
 
-## 接入备份恢复扩展能力
+
+##### 接入备份恢复扩展能力
 
 为触发应用数据备份恢复，需要[应用接入数据备份恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-backup-extension)。
 
-## 查询关键资产同步结果
 
 
-## 接口介绍
+##### 查询关键资产同步结果
 
-通过API文档查看查询关键资产同步结果接口OH_Asset_QuerySyncResult。 在查询关键资产时，关键资产属性的内容参数如下表所示。
+
+
+##### 接口介绍
+
+通过API文档查看查询关键资产同步结果接口OH_Asset_QuerySyncResult。
+
+在查询关键资产时，关键资产属性的内容参数如下表所示。
+
 | 属性名称（Asset_Tag） | 属性内容（Asset_Value） | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | ASSET_TAG_REQUIRE_ATTR_ENCRYPTED14+ | 类型为bool。 | 是 | 是否查询业务自定义附属信息被加密的关键资产同步结果。true表示查询业务自定义附属信息加密存储的关键资产同步结果，false表示查询业务自定义附属信息不加密存储的关键资产同步结果。默认值为false。 |
 | ASSET_TAG_GROUP_ID18+ | 类型为uint8[]，长度为7-127字节。 | 是 | 待查询的关键资产所属群组，默认查询不属于任何群组的关键资产同步结果。 |
 
 
-## 代码示例
 
 
-```text
+##### 代码示例
+
+```cpp
 static napi_value QuerySyncResult(napi_env env, napi_callback_info info)
 {
     Asset_SyncResult syncResult = {0};
@@ -78,6 +90,11 @@ static napi_value QuerySyncResult(napi_env env, napi_callback_info info)
 ```
 
 
-## 约束和限制
 
-在可信设备间同步过程中，新旧设备的关键资产均需处于可访问的状态，否则可能出现关键资产无法同步的情况。 仅设置密码时可访问的关键资产，如果新旧设备中任意一台设备未设置锁屏密码，则无法同步成功。 仅屏幕处于解锁状态时可访问的关键资产，如果新旧设备中任意一台设备的屏幕未处于解锁状态，则无法同步成功。 仅用户认证通过后可访问的关键资产，如果旧设备未设置锁屏密码，则无法同步成功。
+##### 约束和限制
+
+在可信设备间同步过程中，新旧设备的关键资产均需处于可访问的状态，否则可能出现关键资产无法同步的情况。
+
+ - 仅设置密码时可访问的关键资产，如果新旧设备中任意一台设备未设置锁屏密码，则无法同步成功。
+ - 仅屏幕处于解锁状态时可访问的关键资产，如果新旧设备中任意一台设备的屏幕未处于解锁状态，则无法同步成功。
+ - 仅用户认证通过后可访问的关键资产，如果旧设备未设置锁屏密码，则无法同步成功。

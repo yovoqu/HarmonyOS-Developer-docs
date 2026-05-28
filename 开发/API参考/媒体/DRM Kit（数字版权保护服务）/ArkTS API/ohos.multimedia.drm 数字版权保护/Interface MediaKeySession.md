@@ -3,23 +3,29 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持媒体密钥管理。在调用MediaKeySession方法之前，必须使用[createMediaKeySession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysystem#createmediakeysession)获取一个MediaKeySession实例。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
 
-```ts
+
+##### 导入模块
+
+```text
 import { drm } from '@kit.DrmKit';
 ```
 
-#### generateMediaKeyRequest
+
+
+##### generateMediaKeyRequest
+
 generateMediaKeyRequest(mimeType: string, initData: Uint8Array, mediaKeyType: number, options?: OptionsData[]): Promise&lt;MediaKeyRequest&gt;
+
 生成媒体密钥请求。使用Promise异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -28,18 +34,21 @@ generateMediaKeyRequest(mimeType: string, initData: Uint8Array, mediaKeyType: nu
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mimeType | string | 是 | 媒体类型，DRM解决方案名称，可通过[isMediaKeySystemSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-f#drmismediakeysystemsupported-1)查询。 |
-| initData | Uint8Array | 是 | 初始数据，即加密流中的PSSH box中的实际PSSH数据。可通过监听AVPlayer的'mediaKeySystemInfoUpdate'事件（[on('mediaKeySystemInfoUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onmediakeysysteminfoupdate11)）获取DRM信息，从中提取pssh字段生成initData。具体开发流程可参考[基于AVPlayer播放DRM节目(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/drm-avplayer-arkts-integration)。 |
+| mimeType | string | 是 | 媒体类型，DRM解决方案名称，可通过isMediaKeySystemSupported查询。 |
+| initData | Uint8Array | 是 | 初始数据，即加密流中的PSSH box中的实际PSSH数据。可通过监听AVPlayer的'mediaKeySystemInfoUpdate'事件（on('mediaKeySystemInfoUpdate')）获取DRM信息，从中提取pssh字段生成initData。具体开发流程可参考基于AVPlayer播放DRM节目(ArkTS)。 |
 | mediaKeyType | number | 是 | 媒体密钥类型。取值范围为[0, 1]。0表示在线，1表示离线。 传入指定范围外的参数会导致参数校验失败，抛出错误码401。 |
-| options | [OptionsData[]](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#optionsdata) | 否 | 可选数据。默认值为空数组。 |
+| options | OptionsData[] | 否 | 可选数据。默认值为空数组。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[MediaKeyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#mediakeyrequest)> | Promise对象，媒体密钥请求。 |
+| Promise&lt;MediaKeyRequest&gt; | Promise对象，媒体密钥请求。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -48,9 +57,10 @@ generateMediaKeyRequest(mimeType: string, initData: Uint8Array, mediaKeyType: nu
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -62,9 +72,14 @@ mediaKeySession.generateMediaKeyRequest("video/avc", uint8pssh, drm.MediaKeyType
 });
 ```
 
-#### processMediaKeyResponse
+
+
+##### processMediaKeyResponse
+
 processMediaKeyResponse(response: Uint8Array): Promise&lt;Uint8Array&gt;
+
 处理媒体密钥响应。使用Promise异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -75,13 +90,16 @@ processMediaKeyResponse(response: Uint8Array): Promise&lt;Uint8Array&gt;
 | --- | --- | --- | --- |
 | response | Uint8Array | 是 | 媒体密钥响应。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;Uint8Array&gt; | Promise对象，媒体密钥标识。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -90,9 +108,10 @@ processMediaKeyResponse(response: Uint8Array): Promise&lt;Uint8Array&gt;
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -104,9 +123,14 @@ mediaKeySession.processMediaKeyResponse(mediaKeyResponse).then((mediaKeyId: Uint
 });
 ```
 
-#### checkMediaKeyStatus
+
+
+##### checkMediaKeyStatus
+
 checkMediaKeyStatus(): MediaKeyStatus[]
+
 检查当前媒体密钥状态。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -115,9 +139,11 @@ checkMediaKeyStatus(): MediaKeyStatus[]
 
 | 类型 | 说明 |
 | --- | --- |
-| [MediaKeyStatus[]](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#mediakeystatus) | 当前媒体密钥状态值。 |
+| MediaKeyStatus[] | 当前媒体密钥状态值。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -125,9 +151,10 @@ checkMediaKeyStatus(): MediaKeyStatus[]
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -135,14 +162,20 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 let keyStatus: drm.MediaKeyStatus[] =  mediaKeySession.checkMediaKeyStatus();
 ```
 
-#### clearMediaKeys
+
+
+##### clearMediaKeys
+
 clearMediaKeys(): void
+
 清除当前媒体密钥。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **错误码：**
+
 以下错误码的详细介绍请参见[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -150,9 +183,10 @@ clearMediaKeys(): void
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -165,9 +199,14 @@ mediaKeySession.processMediaKeyResponse(mediaKeyResponse).then((mediaKeyId: Uint
 mediaKeySession.clearMediaKeys();
 ```
 
-#### generateOfflineReleaseRequest
+
+
+##### generateOfflineReleaseRequest
+
 generateOfflineReleaseRequest(mediaKeyId: Uint8Array): Promise&lt;Uint8Array&gt;
+
 生成离线媒体密钥释放请求。使用Promise异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -178,13 +217,16 @@ generateOfflineReleaseRequest(mediaKeyId: Uint8Array): Promise&lt;Uint8Array&gt;
 | --- | --- | --- | --- |
 | mediaKeyId | Uint8Array | 是 | 离线媒体密钥标识。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;Uint8Array&gt; | Promise对象，设备上的DRM解决方案支持离线媒体密钥释放处理，则返回离线媒体密钥释放请求。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -193,9 +235,10 @@ generateOfflineReleaseRequest(mediaKeyId: Uint8Array): Promise&lt;Uint8Array&gt;
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -207,10 +250,16 @@ mediaKeySession.generateOfflineReleaseRequest(mediaKeyId).then((offlineReleaseRe
 });
 ```
 
-#### processOfflineReleaseResponse
+
+
+##### processOfflineReleaseResponse
+
 processOfflineReleaseResponse(mediaKeyId: Uint8Array, response: Uint8Array): Promise&lt;void&gt;
+
 处理离线媒体密钥释放响应。使用Promise异步回调。
+
 如果设备上的DRM解决方案不支持离线媒体密钥释放，将抛出错误码24700101。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -222,13 +271,16 @@ processOfflineReleaseResponse(mediaKeyId: Uint8Array, response: Uint8Array): Pro
 | mediaKeyId | Uint8Array | 是 | 离线媒体密钥标识。 |
 | response | Uint8Array | 是 | 离线媒体密钥释放响应。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -237,9 +289,10 @@ processOfflineReleaseResponse(mediaKeyId: Uint8Array, response: Uint8Array): Pro
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -256,9 +309,14 @@ mediaKeySession.processOfflineReleaseResponse(mediaKeyId, offlineReleaseResponse
 });
 ```
 
-#### restoreOfflineMediaKeys
+
+
+##### restoreOfflineMediaKeys
+
 restoreOfflineMediaKeys(mediaKeyId: Uint8Array): Promise&lt;void&gt;
+
 恢复离线媒体密钥。使用Promise异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -269,13 +327,16 @@ restoreOfflineMediaKeys(mediaKeyId: Uint8Array): Promise&lt;void&gt;
 | --- | --- | --- | --- |
 | mediaKeyId | Uint8Array | 是 | 离线媒体密钥标识。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -284,9 +345,10 @@ restoreOfflineMediaKeys(mediaKeyId: Uint8Array): Promise&lt;void&gt;
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -298,9 +360,14 @@ mediaKeySession.restoreOfflineMediaKeys(mediaKeyId).then(() => {
 });
 ```
 
-#### getContentProtectionLevel
+
+
+##### getContentProtectionLevel
+
 getContentProtectionLevel(): ContentProtectionLevel
+
 获取当前会话的内容保护级别。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -309,9 +376,11 @@ getContentProtectionLevel(): ContentProtectionLevel
 
 | 类型 | 说明 |
 | --- | --- |
-| [ContentProtectionLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-e#contentprotectionlevel) | 返回当前会话内容保护级别。 |
+| ContentProtectionLevel | 返回当前会话内容保护级别。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -319,9 +388,10 @@ getContentProtectionLevel(): ContentProtectionLevel
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -330,9 +400,14 @@ let contentProtectionLevel: drm.ContentProtectionLevel = mediaKeySession.getCont
 console.info(`contentProtectionLevel: ${contentProtectionLevel}`);
 ```
 
-#### requireSecureDecoderModule
+
+
+##### requireSecureDecoderModule
+
 requireSecureDecoderModule(mimeType: string): boolean
+
 是否需要安全解码。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -341,7 +416,8 @@ requireSecureDecoderModule(mimeType: string): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mimeType | string | 是 | 媒体类型，支持的媒体类型取决于DRM解决方案，可通过[isMediaKeySystemSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-f#drmismediakeysystemsupported-1)查询。 |
+| mimeType | string | 是 | 媒体类型，支持的媒体类型取决于DRM解决方案，可通过isMediaKeySystemSupported查询。 |
+
 
 **返回值：**
 
@@ -349,7 +425,9 @@ requireSecureDecoderModule(mimeType: string): boolean
 | --- | --- |
 | boolean | 是否需要安全解码，true表示需要安全解码，false表示不需要安全解码。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -358,9 +436,10 @@ requireSecureDecoderModule(mimeType: string): boolean
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -368,9 +447,14 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 let status: boolean = mediaKeySession.requireSecureDecoderModule("video/avc");
 ```
 
-#### on('keyRequired')
+
+
+##### on('keyRequired')
+
 on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void
+
 监听密钥请求事件。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -380,9 +464,11 @@ on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'keyRequired'，当播放DRM节目需要获取媒体密钥时触发。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 是 | 回调函数，返回事件信息。 |
+| callback | (eventInfo: EventInfo) => void | 是 | 回调函数，返回事件信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -390,9 +476,10 @@ on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -402,10 +489,16 @@ mediaKeySession.on('keyRequired', (eventInfo: drm.EventInfo) => {
 });
 ```
 
-#### off('keyRequired')
+
+
+##### off('keyRequired')
+
 off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void
+
 注销密钥请求事件监听。使用callback异步回调。
+
 该接口用于注销已在on('keyRequired')中注册的监听，当播放DRM节目需要获取媒体密钥时触发的事件。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -415,9 +508,11 @@ off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，固定为'keyRequired'。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+| callback | (eventInfo: EventInfo) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -425,9 +520,10 @@ off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -435,9 +531,14 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 mediaKeySession.off('keyRequired');
 ```
 
-#### on('keyExpired')
+
+
+##### on('keyExpired')
+
 on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void
+
 监听密钥过期事件。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -447,9 +548,11 @@ on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，固定为'keyExpired'。密钥过期时触发。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 是 | 回调函数，返回事件信息。 |
+| callback | (eventInfo: EventInfo) => void | 是 | 回调函数，返回事件信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -457,9 +560,10 @@ on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -469,9 +573,14 @@ mediaKeySession.on('keyExpired', (eventInfo: drm.EventInfo) => {
 });
 ```
 
-#### off('keyExpired')
+
+
+##### off('keyExpired')
+
 off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void
+
 注销密钥过期事件监听。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -481,9 +590,11 @@ off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，固定为'keyExpired'。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+| callback | (eventInfo: EventInfo) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -491,9 +602,10 @@ off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -501,9 +613,14 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 mediaKeySession.off('keyExpired');
 ```
 
-#### on('vendorDefined')
+
+
+##### on('vendorDefined')
+
 on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void
+
 监听DRM解决方案自定义事件。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -513,9 +630,11 @@ on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'vendorDefined'。自定义事件发生时触发。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 是 | 回调函数，返回事件信息。 |
+| callback | (eventInfo: EventInfo) => void | 是 | 回调函数，返回事件信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -523,9 +642,10 @@ on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -535,9 +655,14 @@ mediaKeySession.on('vendorDefined', (eventInfo: drm.EventInfo) => {
 });
 ```
 
-#### off('vendorDefined')
+
+
+##### off('vendorDefined')
+
 off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void
+
 注销DRM解决方案自定义事件监听。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -547,9 +672,11 @@ off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'vendorDefined'。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+| callback | (eventInfo: EventInfo) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -557,9 +684,10 @@ off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -567,9 +695,14 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 mediaKeySession.off('vendorDefined');
 ```
 
-#### on('expirationUpdate')
+
+
+##### on('expirationUpdate')
+
 on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void
+
 监听密钥过期更新事件。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -579,9 +712,11 @@ on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，固定为'expirationUpdate'。密钥过期更新时触发。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 是 | 回调函数，返回事件信息。 |
+| callback | (eventInfo: EventInfo) => void | 是 | 回调函数，返回事件信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -589,9 +724,10 @@ on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -601,9 +737,14 @@ mediaKeySession.on('expirationUpdate', (eventInfo: drm.EventInfo) => {
 });
 ```
 
-#### off('expirationUpdate')
+
+
+##### off('expirationUpdate')
+
 off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void
+
 注销过期更新事件监听。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -613,9 +754,11 @@ off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，固定为'expirationUpdate'。 |
-| callback | (eventInfo: [EventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#eventinfo)) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+| callback | (eventInfo: EventInfo) => void | 否 | 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -623,9 +766,10 @@ off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -633,9 +777,14 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 mediaKeySession.off('expirationUpdate');
 ```
 
-#### on('keysChange')
+
+
+##### on('keysChange')
+
 on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void
+
 监听密钥变化事件。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -645,9 +794,11 @@ on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，固定为'keysChange'。密钥变化时触发。 |
-| callback | (keyInfo: [KeysInfo[]](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#keysinfo), newKeyAvailable: boolean) => void | 是 | 回调函数，返回事件信息，包含密钥标识和密钥状态描述的列表及密钥是否可用。 |
+| callback | (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void | 是 | 回调函数，返回事件信息，包含密钥标识和密钥状态描述的列表及密钥是否可用。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -655,9 +806,10 @@ on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean)
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -669,9 +821,14 @@ mediaKeySession.on('keysChange', (keyInfo: drm.KeysInfo[], newKeyAvailable: bool
 });
 ```
 
-#### off('keysChange')
+
+
+##### off('keysChange')
+
 off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void
+
 注销密钥变化事件监听。使用callback异步回调。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
@@ -681,9 +838,11 @@ off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolea
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件类型，固定为'keysChange'。 |
-| callback | (keyInfo: [KeysInfo[]](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i#keysinfo), newKeyAvailable: boolean) => void | 否 | 回调函数，返回事件信息，包含密钥标识和密钥状态描述的列表及密钥是否可用。 可选参数，不传时注销该事件类型的所有监听。 |
+| callback | (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void | 否 | 回调函数，返回事件信息，包含密钥标识和密钥状态描述的列表及密钥是否可用。 可选参数，不传时注销该事件类型的所有监听。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -691,9 +850,10 @@ off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolea
 | 401 | The parameter check failed. Possibly because: 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 24700101 | All unknown errors |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");
@@ -701,14 +861,20 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 mediaKeySession.off('keysChange');
 ```
 
-#### destroy
+
+
+##### destroy
+
 destroy(): void
+
 销毁MediaKeySession实例。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **错误码：**
+
 以下错误码的详细介绍请参见[DRM错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drm)。
 
 | 错误码ID | 错误信息 |
@@ -716,9 +882,10 @@ destroy(): void
 | 24700101 | All unknown errors |
 | 24700201 | Fatal service error, for example, service died |
 
+
 **示例：**
 
-```ts
+```text
 import { drm } from '@kit.DrmKit';
 
 let mediaKeySystem: drm.MediaKeySystem = drm.createMediaKeySystem("com.wiseplay.drm");

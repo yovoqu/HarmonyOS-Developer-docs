@@ -3,47 +3,40 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-apis-application-enterpriseadminextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 EnterpriseAdminExtensionContext是[EnterpriseAdminExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
 每个EnterpriseAdminExtensionAbility组件实例化时，系统都会自动创建对应的EnterpriseAdminExtensionContext。开发者可以通过EnterpriseAdminExtensionContext获取应用的沙箱路径、启动其他的组件。该上下文环境只能在当前EnterpriseAdminExtensionAbility中使用，不能传递到其他组件中使用。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 23 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
-> 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。
+> 本模块首批接口从API version 23 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考 MDM Kit开发指南 。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { common } from '@kit.MDMKit';
 ```
 
 
-## EnterpriseAdminExtensionContext
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### EnterpriseAdminExtensionContext
 
 [EnterpriseAdminExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability)的上下文，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
 
-### startAbilityByAdmin
-**支持设备：** Phone / PC/2in1 / Tablet
 
-startAbilityByAdmin(admin: Want, want: Want): Promise<void>
+##### startAbilityByAdmin
+
+startAbilityByAdmin(admin: Want, want: Want): Promise&lt;void&gt;
 
 在[EnterpriseAdminExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability)组件中直接启动另外一个组件（页面没有弹窗提醒），目前支持[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)，[AppServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability)。使用Promise异步回调。
 
-
 > [!NOTE]
-> 仅支持启动三方应用组件，不支持系统应用组件。
-> 被启动的组件需要对外可见，即module.json5中的exported字段需要为true。
-> 不支持[隐式Want启动](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#隐式want启动)。
-> 如果被启动的UIAbility有权限保护，需要额外申请对应的权限。
+> 仅支持启动三方应用组件，不支持系统应用组件。 被启动的组件需要对外可见，即module.json5中的exported字段需要为true。 不支持 隐式Want启动 。 如果被启动的UIAbility有权限保护，需要额外申请对应的权限。
+
 
 **需要权限**：ohos.permission.ENTERPRISE_START_ABILITIES
 
@@ -53,15 +46,13 @@ startAbilityByAdmin(admin: Want, want: Want): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动组件的必要信息，Want中必须包含被启动组件的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| want | Want | 是 | 启动组件的必要信息，Want中必须包含被启动组件的abilityName和所在应用的bundleName。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -71,7 +62,6 @@ startAbilityByAdmin(admin: Want, want: Want): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -86,41 +76,38 @@ startAbilityByAdmin(admin: Want, want: Want): Promise<void>
 
 需要在module.json5中配置被启动组件的信息。permissions为可选字段，需根据实际情况进行替换或者不填。
 
-
 ```json
 "abilities": [
-{
-  "name": "MainAbility",
-  "srcEntry": "./ets/MainAbility/MainAbility.ts",
-  "description": "$string:MainAbility_desc",
-  "icon": "$media:icon",
-  "label": "$string:MainAbility_label",
-  "startWindowIcon": "$media:icon",
-  "startWindowBackground": "$color:white",
-  "exported": true,
-  "permissions": [
-  "ohos.permission.START_UI_Ability"
-  ]
-}
+  {
+    "name": "MainAbility",
+    "srcEntry": "./ets/MainAbility/MainAbility.ts",
+    "description": "$string:MainAbility_desc",
+    "icon": "$media:icon",
+    "label": "$string:MainAbility_label",
+    "startWindowIcon": "$media:icon",
+    "startWindowBackground": "$color:white",
+    "exported": true,
+    "permissions": [
+      "ohos.permission.START_UI_Ability"
+    ]
+  }
 ]
 ```
 
 调用方应用需要在module.json5中申请对应的权限。启动其他应用中的组件时，调用方应用必须获取该组件所要求的权限。
 
-
 ```json
 "requestPermissions": [
-{
-  "name": "ohos.permission.START_UI_ABILITY"
-},
-{
-  "name": "ohos.permission.ENTERPRISE_START_ABILITIES"
-}
+  {
+    "name": "ohos.permission.START_UI_ABILITY"
+  },
+  {
+    "name": "ohos.permission.ENTERPRISE_START_ABILITIES"
+  }
 ]
 ```
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 import { preferences } from '@kit.ArkData';
 import { Want } from '@kit.AbilityKit';
@@ -139,31 +126,27 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
     // 需根据实际情况进行替换
     let want: Want = {
       bundleName: 'com.example.myotherapplication',
-      abilityName: 'MainAbility',
+      abilityName: 'MainAbility'
     };
-    this.context
-      .startAbilityByAdmin(admin, want)
-      .catch((err: BusinessError) => {
-        console.error(
-          `Failed to start an ability. Code: ${err.code}, message: ${err.message}`,
-        );
-      });
-
+    this.context.startAbilityByAdmin(admin, want).catch((err: BusinessError) => {
+      console.error(`Failed to start an ability. Code: ${err.code}, message: ${err.message}`);
+    });
+    
     // 通过context获取到应用文件路径
     let preferencesDir = this.context.preferencesDir;
     console.info(`preferencesDir: ` + preferencesDir);
-
+    
     // 通过context获取到preferences数据
     let options: preferences.Options = {
       // 需根据实际情况进行替换
-      name: 'key',
+      name: "key",
     };
     try {
       let preference = preferences.getPreferencesSync(this.context, options);
       // 需根据实际情况进行替换
-      preference.putSync('key', 'value');
+      preference.putSync("key", "value");
       preference.flushSync();
-
+    
       // 需根据实际情况进行替换
       let value: string = preference.getSync('key', 'default') as string;
       console.info(`get preferences value: ${value}`);

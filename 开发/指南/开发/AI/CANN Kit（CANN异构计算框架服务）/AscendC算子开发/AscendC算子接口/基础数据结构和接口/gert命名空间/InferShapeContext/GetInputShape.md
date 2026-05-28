@@ -4,36 +4,44 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-infershapecontext-getinputshape
 
-## 函数功能
+##### 函数功能
 
 根据算子输入索引获取对应的输入shape指针。这里的输入索引是指算子实例化后实际的索引，不是原型定义中的索引。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 const Shape *GetInputShape(const size_t index) const;
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | index | 输入 | 算子输入索引，从0开始计数。 |
+ 
+ 
+  
 
+##### 返回值
 
-## 返回值
+输入shape指针，index非法时，返回空指针。
+ 
+关于Shape类型的定义，请参见[Shape](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-shape-introduction)。
+ 
+  
 
-输入shape指针，index非法时，返回空指针。 关于Shape类型的定义，请参见[Shape](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-shape-introduction)。
-
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 ge::graphStatus InferShapeForReshape(InferShapeContext *context) {

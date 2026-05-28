@@ -4,30 +4,32 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingbyopfndynamic
 
-## 函数功能
+##### 函数功能
 
 动态输入/输出算子的自动映射回调函数。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
-Status AutoMappingByOpFnDynamic(const ge::Operator &op_src, ge::Operator &op, const std::vector &dynamic_name_attr_value)
+Status AutoMappingByOpFnDynamic(const ge::Operator &op_src, ge::Operator &op, const std::vector<DynamicInputOutputInfo> &dynamic_name_attr_value)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| op_src | 输入 | 转换前原始模型中的算子，包含原始模型中算子的属性。 关于Operator类，请参见[Operator](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-construction-and-destructor)。 |
-| op | 输入 | 适配AI处理器的算子。 关于Operator类，请参见[Operator](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-construction-and-destructor)。 |
-| dynamic_name_attr_value | 输入 | 描述动态输入输出实际个数，DynamicInputOutputInfo数据结构请参见[DynamicInputOutputInfo数据结构说明](#dynamicinputoutputinfo数据结构说明)。 |
+| op_src | 输入 | 转换前原始模型中的算子，包含原始模型中算子的属性。 关于Operator类，请参见Operator。 |
+| op | 输入 | 适配AI处理器的算子。 关于Operator类，请参见Operator。 |
+| dynamic_name_attr_value | 输入 | 描述动态输入输出实际个数，DynamicInputOutputInfo数据结构请参见DynamicInputOutputInfo数据结构说明。 |
+ 
+ 
+  
 
-
-## DynamicInputOutputInfo数据结构说明
-
+##### DynamicInputOutputInfo数据结构说明
 
 ```text
 constexpr int64_t kMaxNameLength = 1048576; // 1M
@@ -50,8 +52,7 @@ struct DynamicInputOutputInfo {
   DynamicInputOutputInfo() : DynamicInputOutputInfo(kInvalid, nullptr, 0L, nullptr, 0L) {}
 };
 ```
-
-
+  
 | 参数 | 说明 |
 | --- | --- |
 | type | 指定是动态输入或输出。 0：无效值 1：输入 2：输出 |
@@ -59,14 +60,15 @@ struct DynamicInputOutputInfo {
 | port_name_len | 端口名字长度，最大长度为kMaxNameLength。 |
 | attr_name | 属性名字。 |
 | attr_name_len | 属性名字长度，最大长度为kMaxNameLength。 |
+ 
+ 
+  
 
-
-## 调用示例
-
+##### 调用示例
 
 ```text
 Status QueueDequeueUpToMapping(const  ge::Operator& op_src, ge::Operator& op) {
-vector dynamic_name_attr_value;
+vector<DynamicInputOutputInfo> dynamic_name_attr_value;
 string port_name = "components";
 string attr_name = "component_types";
 DynamicInputOutputInfo name_attr(kOutput, port_name.c_str(), port_name.size(), attr_name.c_str(), attr_name.size());
@@ -74,7 +76,7 @@ dynamic_name_attr_value.push_back(name_attr);
 AutoMappingByOpFnDynamic(op_src, op, dynamic_name_attr_value);
 return SUCCESS;
 }
-
+ 
 REGISTER_CUSTOM_OP("QueueDequeueUpTo")
 .FrameworkType(TENSORFLOW)
 .OriginOpType("QueueDequeueUpToV2")

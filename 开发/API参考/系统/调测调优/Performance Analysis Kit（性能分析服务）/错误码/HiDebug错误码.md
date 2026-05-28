@@ -1,17 +1,16 @@
 # HiDebug错误码
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hidebug
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 11400101 系统服务获取失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 11400101 系统服务获取失败
 
 **错误信息**
 
@@ -30,16 +29,16 @@ serviceId参数无效，或对应的服务未启动。
 确保传入正确的系统服务serviceId。
 
 
-## 11400104 远程服务异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400104 远程服务异常
 
 **错误信息**
 
 The interface call failed due to a remote exception.
 
-
 > [!NOTE]
 > 错误信息请以接口实际返回内容为准。
+
 
 **错误描述**
 
@@ -54,8 +53,30 @@ The interface call failed due to a remote exception.
 建议重启设备后重试。若重试后依然失败，请[导出日志信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-setup-hilog#section2114542680)请通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
 
 
-## 11400107 dump子进程fork失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400106 配额超限
+
+**错误信息**
+
+The number of available invocations for the interface is insufficient. Please wait until the number of available invocations for the interface is reset.
+
+**错误描述**
+
+接口调用配额已超限，无法继续执行操作。
+
+**可能原因**
+
+1.进程调用次数超出配额（1次/天）。
+
+2.整机调用次数超出配额（5次/周）。
+
+**处理步骤**
+
+等待进程或整机的调用配额刷新或者在开发者模式下调用接口。
+
+
+
+##### 11400107 dump子进程fork失败
 
 **错误信息**
 
@@ -74,8 +95,8 @@ dump子进程fork失败。
 建议开发者重试。若重试后依然失败，请通过[日志分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-setup-hilog)过滤error级别日志辅助问题定位。若依然无法解决，请通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
 
 
-## 11400108 等待dump子进程结束失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400108 等待dump子进程结束失败
 
 **错误信息**
 
@@ -94,8 +115,8 @@ Failed to wait for the child process to finish.
 建议开发者重试。若重试后依然失败，请通过[日志分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-setup-hilog)过滤error级别日志辅助问题定位。若依然无法解决，请通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
 
 
-## 11400109 等待dump子进程超时
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400109 等待dump子进程超时
 
 **错误信息**
 
@@ -114,8 +135,8 @@ dump过程耗时长，建议检查系统负载。
 建议开发者重试。若重试后依然失败，请通过[日志分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-setup-hilog)过滤error级别日志辅助问题定位。若依然无法解决，请通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
 
 
-## 11400110 磁盘空间不足
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400110 磁盘空间不足
 
 **错误信息**
 
@@ -134,8 +155,8 @@ Failed to create dump file.
 释放磁盘空间，确保空闲空间大于30GB。
 
 
-## 11400111 Napi接口调用失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400111 Napi接口调用失败
 
 **错误信息**
 
@@ -154,8 +175,8 @@ Napi接口调用时出现异常。
 建议开发者重试。若重试后依然失败，请通过[日志分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-setup-hilog)过滤error级别日志辅助问题定位。若依然无法解决，请通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
 
 
-## 11400112 重复dump采集
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400112 重复dump采集
 
 **错误信息**
 
@@ -174,8 +195,8 @@ Repeated data dump.
 建议优化代码逻辑，确保上次dump完成后，再启动新的dump。
 
 
-## 11400113 创建dump文件失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400113 创建dump文件失败
 
 **错误信息**
 
@@ -196,8 +217,8 @@ Failed to create dump file.
 建议开发者重试。若重试后依然失败，请通过[日志分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-setup-hilog)过滤error级别日志辅助问题定位。若依然无法解决，请通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
 
 
-## 11400114 使能GWP-ASan失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400114 使能GWP-ASan失败
 
 **错误信息**
 

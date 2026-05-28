@@ -10,8 +10,8 @@
 | 新增API | NA | 类名：CompleteButtonText； API声明：TEXT_DONE = 0 差异内容：TEXT_DONE = 0 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：CompleteButtonText； API声明：TEXT_SEND = 1 差异内容：TEXT_SEND = 1 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：CompleteButtonText； API声明：TEXT_ADD = 2 差异内容：TEXT_ADD = 2 | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：PhotoAsset； API声明：clone(title: string): Promise<PhotoAsset>; 差异内容：clone(title: string): Promise<PhotoAsset>; | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：requestPhotoUrisReadPermission(srcFileUris: Array<string>): Promise<Array<string>>; 差异内容：requestPhotoUrisReadPermission(srcFileUris: Array<string>): Promise<Array<string>>; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：PhotoAsset； API声明：clone(title: string): Promise&lt;PhotoAsset&gt;; 差异内容：clone(title: string): Promise&lt;PhotoAsset&gt;; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：requestPhotoUrisReadPermission(srcFileUris: Array&lt;string&gt;): Promise<Array&lt;string&gt;>; 差异内容：requestPhotoUrisReadPermission(srcFileUris: Array&lt;string&gt;): Promise<Array&lt;string&gt;>; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：PhotoSelectOptions； API声明：completeButtonText?: CompleteButtonText; 差异内容：completeButtonText?: CompleteButtonText; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：PhotoPickerComponent； API声明：onVideoPlayStateChanged?: videoPlayStateChangedCallback; 差异内容：onVideoPlayStateChanged?: videoPlayStateChangedCallback; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void; 差异内容：export type videoPlayStateChangedCallback = (state: VideoPlayerState) => void; | api/@ohos.file.PhotoPickerComponent.d.ets |

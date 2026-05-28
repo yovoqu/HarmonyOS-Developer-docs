@@ -3,30 +3,32 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-subheaderv2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 子标题，用于列表项或内容项顶部，将该列表或内容划分为一个区块，子标题名称用来概括该区块内容。
 
 该组件基于[状态管理（V2）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview#状态管理v2)实现，相较于[状态管理（V1）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组件层级。借助状态管理（V2），开发者可以通过该组件更灵活地控制子标题的数据和状态，实现更高效的用户界面刷新。
 
+> [!NOTE]
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果SubHeaderV2设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SubHeaderV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SubHeaderV2设置通用属性和通用事件。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { SubHeaderV2 } from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## SubHeaderV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### SubHeaderV2
 
 SubHeaderV2({ icon?: SubHeaderV2IconType, title?: SubHeaderV2Title, select?: SubHeaderV2Select, operationType?: SubHeaderV2OperationType, operationItems?: SubHeaderV2OperationItem[], titleBuilder?: SubHeaderV2TitleBuilder; })
 
@@ -40,19 +42,19 @@ SubHeaderV2({ icon?: SubHeaderV2IconType, title?: SubHeaderV2Title, select?: Sub
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | [SubHeaderV2IconType](#subheaderv2icontype) | 否 | @Param | 图标设置项。          默认值：undefined          当title使用secondaryTitle属性时，设置icon属性才会生效。 |
-| title | [SubHeaderV2Title](#subheaderv2title) | 否 | @Param | 标题设置项。          默认值：undefined |
-| select | [SubHeaderV2Select](#subheaderv2select) | 否 | @Param | select内容以及事件。          默认值：undefined |
-| operationType | [SubHeaderV2OperationType](#subheaderv2operationtype) | 否 | @Param | 操作区元素样式。          默认值：SubHeaderV2OperationType.BUTTON |
-| operationItems | [SubHeaderV2OperationItem](#subheaderv2operationitem)[] | 否 | @Param | 操作区的设置项。          默认值：undefined |
-| titleBuilder | [SubHeaderV2TitleBuilder](#subheaderv2titlebuilder) | 否 | @BuilderParam | 自定义标题区内容。          默认值：() =&gt; void |
+| icon | SubHeaderV2IconType | 否 | @Param | 图标设置项。 默认值：undefined 当title使用secondaryTitle属性时，设置icon属性才会生效。 |
+| title | SubHeaderV2Title | 否 | @Param | 标题设置项。 默认值：undefined |
+| select | SubHeaderV2Select | 否 | @Param | select内容以及事件。 默认值：undefined |
+| operationType | SubHeaderV2OperationType | 否 | @Param | 操作区元素样式。 默认值：SubHeaderV2OperationType.BUTTON |
+| operationItems | SubHeaderV2OperationItem[] | 否 | @Param | 操作区的设置项。 默认值：undefined |
+| titleBuilder | SubHeaderV2TitleBuilder | 否 | @BuilderParam | 自定义标题区内容。 默认值：() => void |
 
 
-## SubHeaderV2IconType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2IconType
 
 type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
@@ -64,41 +66,41 @@ type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 资源类型，用于定义普通图标。 |
-| [SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/universal-attributes-attribute-symbolglyphmodifier#symbolglyphmodifier) | Symbol类型，用于定义Symbol图标。 |
+| ResourceStr | 资源类型，用于定义普通图标。 |
+| SymbolGlyphModifier | Symbol类型，用于定义Symbol图标。 |
 
 
-## SubHeaderV2Title
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2Title
 
 标题设置项。
 
 **装饰器类型：** @ObservedV2
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| primaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 标题内容。          当[SubHeaderV2](#subheaderv2-1)中同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。          默认值：undefined          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| secondaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 副标题内容。          默认值：undefined          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| primaryTitleModifier | [TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier) | 否 | 是 | 设置标题文本属性，如设置标题颜色、字体大小、字重等。          默认值：undefined          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| secondaryTitleModifier | [TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier) | 否 | 是 | 设置副标题文本属性，如设置副标题颜色、字体大小、字重等。          默认值：undefined          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| titleAccessibilityText23+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 设置标题自定义朗读内容。          默认值：undefined          值为undefined时，默认朗读组件显示的标题内容。          装饰器类型：@Trace          元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。          默认值：undefined，表示不设置标题id。          装饰器类型：@Trace          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| primaryTitle | ResourceStr | 否 | 是 | 标题内容。 当SubHeaderV2中同时使用primaryTitle、secondaryTitle、icon属性时，设置primaryTitle属性不生效。 默认值：undefined 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| secondaryTitle | ResourceStr | 否 | 是 | 副标题内容。 默认值：undefined 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| primaryTitleModifier | TextModifier | 否 | 是 | 设置标题文本属性，如设置标题颜色、字体大小、字重等。 默认值：undefined 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| secondaryTitleModifier | TextModifier | 否 | 是 | 设置副标题文本属性，如设置副标题颜色、字体大小、字重等。 默认值：undefined 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| titleAccessibilityText23+ | ResourceStr | 否 | 是 | 设置标题自定义朗读内容。 默认值：undefined 值为undefined时，默认朗读组件显示的标题内容。 装饰器类型：@Trace 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置标题id。 装饰器类型：@Trace 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(options: SubHeaderV2TitleOptions)
 
@@ -112,14 +114,14 @@ constructor(options: SubHeaderV2TitleOptions)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubHeaderV2TitleOptions](#subheaderv2titleoptions) | 是 | 标题内容信息。 |
+| options | SubHeaderV2TitleOptions | 是 | 标题内容信息。 |
 
 
-## SubHeaderV2TitleOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2TitleOptions
 
 用于构建SubHeaderV2Title对象。
 
@@ -127,45 +129,45 @@ constructor(options: SubHeaderV2TitleOptions)
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| primaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 标题内容。          默认值：undefined          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| secondaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 副标题内容。          默认值：undefined          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| primaryTitleModifier | [TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier) | 否 | 是 | 设置标题文本属性，如设置主标题颜色、字体大小、字重等。          默认值：undefined          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| secondaryTitleModifier | [TextModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#自定义modifier) | 否 | 是 | 设置副标题文本属性，如设置副标题颜色、字体大小、字重等。          默认值：undefined          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| titleAccessibilityText23+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 设置标题自定义朗读内容。          默认值：undefined          值为undefined时，默认朗读组件显示的标题内容。          元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。          默认值：undefined，表示不设置标题id。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| primaryTitle | ResourceStr | 否 | 是 | 标题内容。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| secondaryTitle | ResourceStr | 否 | 是 | 副标题内容。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| primaryTitleModifier | TextModifier | 否 | 是 | 设置标题文本属性，如设置主标题颜色、字体大小、字重等。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| secondaryTitleModifier | TextModifier | 否 | 是 | 设置副标题文本属性，如设置副标题颜色、字体大小、字重等。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| titleAccessibilityText23+ | ResourceStr | 否 | 是 | 设置标题自定义朗读内容。 默认值：undefined 值为undefined时，默认朗读组件显示的标题内容。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 标题id。需要为标题设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置标题id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-## SubHeaderV2Select
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2Select
 
 select内容以及事件。
 
 **装饰器类型：** @ObservedV2
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| options | [SelectOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#selectoption对象说明)[] | 否 | 否 | 下拉选项内容。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| selectedIndex | number | 否 | 是 | 设置下拉菜单初始选项的索引。          第一项的索引为0。          当不设置selected属性时，          默认选择值为-1，菜单项不选中。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| selectedContent | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 设置下拉按钮本身的文本内容。默认值：'' 。从API version 20开始，支持Resource类型。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onSelect | [SubHeaderV2SelectOnSelect](#subheaderv2selectonselect) | 否 | 是 | 下拉菜单选中某一项的回调。          默认值：undefined          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus | boolean | 否 | 是 | 下拉按钮是否为默认焦点。          true：下拉按钮是默认焦点。          false：下拉按钮不是默认焦点。          默认值：false          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。          默认值：undefined，表示不设置下拉按钮id。          装饰器类型：@Trace          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| options | SelectOption[] | 否 | 否 | 下拉选项内容。 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| selectedIndex | number | 否 | 是 | 设置下拉菜单初始选项的索引。 第一项的索引为0。 当不设置selected属性时， 默认选择值为-1，菜单项不选中。 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| selectedContent | ResourceStr | 否 | 是 | 设置下拉按钮本身的文本内容。默认值：'' 。从API version 20开始，支持Resource类型。 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onSelect | SubHeaderV2SelectOnSelect | 否 | 是 | 下拉菜单选中某一项的回调。 默认值：undefined 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| defaultFocus | boolean | 否 | 是 | 下拉按钮是否为默认焦点。 true：下拉按钮是默认焦点。 false：下拉按钮不是默认焦点。 默认值：false 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置下拉按钮id。 装饰器类型：@Trace 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(options: SubHeaderV2SelectOptions)
 
@@ -179,14 +181,14 @@ select内容以及事件构造函数。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubHeaderV2SelectOptions](#subheaderv2selectoptions) | 是 | 下拉选项信息。 |
+| options | SubHeaderV2SelectOptions | 是 | 下拉选项信息。 |
 
 
-## SubHeaderV2SelectOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2SelectOptions
 
 用于构建SubHeaderV2Select对象。
 
@@ -194,19 +196,19 @@ select内容以及事件构造函数。
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| options | [SelectOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-select#selectoption对象说明)[] | 否 | 否 | 下拉选项内容。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| selectedIndex | number | 否 | 是 | 设置下拉菜单初始选项的索引。          第一项的索引为0。          当不设置selected属性时，          默认选择值为-1，菜单项不选中。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| selectedContent | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 设置下拉按钮本身的文本内容。默认值：''。从API version 20开始，支持Resource类型。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onSelect | [SubHeaderV2SelectOnSelect](#subheaderv2selectonselect) | 否 | 是 | 下拉菜单选中某一项的回调。          默认值：undefined          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus | boolean | 否 | 是 | 下拉按钮是否为默认焦点。          true：下拉按钮是默认焦点。          false：下拉按钮不是默认焦点。          默认值：false          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。          默认值：undefined，表示不设置下拉按钮id。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| options | SelectOption[] | 否 | 否 | 下拉选项内容。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| selectedIndex | number | 否 | 是 | 设置下拉菜单初始选项的索引。 第一项的索引为0。 当不设置selected属性时， 默认选择值为-1，菜单项不选中。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| selectedContent | ResourceStr | 否 | 是 | 设置下拉按钮本身的文本内容。默认值：''。从API version 20开始，支持Resource类型。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onSelect | SubHeaderV2SelectOnSelect | 否 | 是 | 下拉菜单选中某一项的回调。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| defaultFocus | boolean | 否 | 是 | 下拉按钮是否为默认焦点。 true：下拉按钮是默认焦点。 false：下拉按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 下拉按钮id。需要为下拉按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置下拉按钮id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-## SubHeaderV2SelectOnSelect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2SelectOnSelect
 
 type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void
 
@@ -220,15 +222,15 @@ type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: strin
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | selectedIndex | number | 是 | 表示选中的下拉菜单项的索引值。 |
 | selectedContent | string | 否 | 表示选中的下拉菜单项的内容值。 |
 
 
-## SubHeaderV2OperationType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2OperationType
 
 操作区元素样式。
 
@@ -238,7 +240,6 @@ type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: strin
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | TEXT_ARROW | 0 | 文本按钮（带右箭头）。 |
@@ -247,8 +248,9 @@ type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: strin
 | LOADING | 3 | 加载动画。 |
 
 
-## SubHeaderV2OperationItemType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2OperationItemType
 
 type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
@@ -260,42 +262,42 @@ type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 字符串类型用于定义文本显示或普通图标；资源类型，用于定义普通图标。 |
-| [SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/universal-attributes-attribute-symbolglyphmodifier#symbolglyphmodifier) | Symbol类型，用于定义Symbol图标。 |
+| ResourceStr | 字符串类型用于定义文本显示或普通图标；资源类型，用于定义普通图标。 |
+| SymbolGlyphModifier | Symbol类型，用于定义Symbol图标。 |
 
 
-## SubHeaderV2OperationItem
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2OperationItem
 
 操作区的设置项。
 
 **装饰器类型：** @ObservedV2
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | [SubHeaderV2OperationItemType](#subheaderv2operationitemtype) | 否 | 否 | 操作区元素内容。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| action | [SubHeaderV2OperationItemAction](#subheaderv2operationitemaction) | 否 | 是 | 操作区事件。默认值：() =&gt; void。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityText | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 子标题右侧icon图标无障碍描述。          默认值：undefined          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityLevel | string | 否 | 是 | 子标题右侧icon图标无障碍重要性。          支持的值为：          "auto"：当前子标题右侧icon图标由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。          "yes"：当前子标题右侧icon图标可被无障碍辅助服务所识别。          "no"：当前子标题右侧icon图标不可被无障碍辅助服务所识别。          "no-hide-descendants"：当前子标题右侧icon图标及其所有子组件不可被无障碍辅助服务所识别。          默认值: “yes”。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityDescription | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 子标题右侧icon图标无障碍说明，用于为用户进一步说明当前组件。          默认值：“单指双击即可执行”。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus | boolean | 否 | 是 | 子标题右侧按钮是否为默认焦点。          true：子标题右侧按钮是默认焦点。          false：子标题右侧按钮不是默认焦点。          默认值：false          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 子标题右侧按钮id。需要为子标题右侧按钮设置id的时候设置此参数，缺省时不设置此参数。          默认值：undefined，表示不设置子标题右侧按钮id。          装饰器类型：@Trace          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| content | SubHeaderV2OperationItemType | 否 | 否 | 操作区元素内容。 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| action | SubHeaderV2OperationItemAction | 否 | 是 | 操作区事件。默认值：() => void。 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityText | ResourceStr | 否 | 是 | 子标题右侧icon图标无障碍描述。 默认值：undefined 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityLevel | string | 否 | 是 | 子标题右侧icon图标无障碍重要性。 支持的值为： "auto"：当前子标题右侧icon图标由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。 "yes"：当前子标题右侧icon图标可被无障碍辅助服务所识别。 "no"：当前子标题右侧icon图标不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前子标题右侧icon图标及其所有子组件不可被无障碍辅助服务所识别。 默认值: “yes”。 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityDescription | ResourceStr | 否 | 是 | 子标题右侧icon图标无障碍说明，用于为用户进一步说明当前组件。 默认值：“单指双击即可执行”。 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| defaultFocus | boolean | 否 | 是 | 子标题右侧按钮是否为默认焦点。 true：子标题右侧按钮是默认焦点。 false：子标题右侧按钮不是默认焦点。 默认值：false 装饰器类型：@Trace 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 子标题右侧按钮id。需要为子标题右侧按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置子标题右侧按钮id。 装饰器类型：@Trace 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(options: SubHeaderV2OperationItemOptions)
 
@@ -309,14 +311,14 @@ constructor(options: SubHeaderV2OperationItemOptions)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubHeaderV2OperationItemOptions](#subheaderv2operationitemoptions) | 是 | 操作项配置信息。用于构建SubHeaderV2OperationItem对象。 |
+| options | SubHeaderV2OperationItemOptions | 是 | 操作项配置信息。用于构建SubHeaderV2OperationItem对象。 |
 
 
-## SubHeaderV2OperationItemAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2OperationItemAction
 
 type SubHeaderV2OperationItemAction = () => void
 
@@ -329,8 +331,8 @@ type SubHeaderV2OperationItemAction = () => void
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
 
-## SubHeaderV2OperationItemOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### SubHeaderV2OperationItemOptions
 
 用于构建SubHeaderV2OperationItem对象。
 
@@ -338,20 +340,20 @@ type SubHeaderV2OperationItemAction = () => void
 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | [SubHeaderV2OperationItemType](#subheaderv2operationitemtype) | 否 | 否 | 操作项显示的内容。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| action | [SubHeaderV2OperationItemAction](#subheaderv2operationitemaction) | 否 | 是 | 选项操作事件。默认值：() =&gt; void。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityText | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 子标题右侧icon图标无障碍描述。          默认值：undefined          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityLevel | string | 否 | 是 | 子标题右侧icon图标无障碍重要性。          支持的值为：          "auto"：当前子标题右侧icon图标由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。          "yes"：当前子标题右侧icon图标可被无障碍辅助服务所��别。          "no"：当前子标题右侧icon图标不可被无障碍辅助服务所识别。          "no-hide-descendants"：当前子标题右侧icon图标及其所有子组件不可被无障碍辅助服务所识别。          默认值: “yes”。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| accessibilityDescription | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 子标题右侧icon图标无障碍说明，用于为用户进一步说明当前组件。          默认值：“单指双击即可执行”。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus | boolean | 否 | 是 | 子标题右侧按钮是否为默认焦点。          true：子标题右侧按钮是默认焦点。          false：子标题右侧按钮不是默认焦点。          默认值：false          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| id24+ | string | 否 | 是 | 子标题右侧按钮id。需要为子标题右侧按钮设置id的时候设置此参数，缺省时不设置此参数。          默认值：undefined，表示不设置子标题右侧按钮id。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| content | SubHeaderV2OperationItemType | 否 | 否 | 操作项显示的内容。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| action | SubHeaderV2OperationItemAction | 否 | 是 | 选项操作事件。默认值：() => void。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityText | ResourceStr | 否 | 是 | 子标题右侧icon图标无障碍描述。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityLevel | string | 否 | 是 | 子标题右侧icon图标无障碍重要性。 支持的值为： "auto"：当前子标题右侧icon图标由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。 "yes"：当前子标题右侧icon图标可被无障碍辅助服务所识别。 "no"：当前子标题右侧icon图标不可被无障碍辅助服务所识别。 "no-hide-descendants"：当前子标题右侧icon图标及其所有子组件不可被无障碍辅助服务所识别。 默认值: “yes”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| accessibilityDescription | ResourceStr | 否 | 是 | 子标题右侧icon图标无障碍说明，用于为用户进一步说明当前组件。 默认值：“单指双击即可执行”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| defaultFocus | boolean | 否 | 是 | 子标题右侧按钮是否为默认焦点。 true：子标题右侧按钮是默认焦点。 false：子标题右侧按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| id24+ | string | 否 | 是 | 子标题右侧按钮id。需要为子标题右侧按钮设置id的时候设置此参数，缺省时不设置此参数。 默认值：undefined，表示不设置子标题右侧按钮id。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-## SubHeaderV2TitleBuilder
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubHeaderV2TitleBuilder
 
 type SubHeaderV2TitleBuilder= () => void
 
@@ -364,22 +366,22 @@ type SubHeaderV2TitleBuilder= () => void
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 示例
 
 
-### 示例1（效率型子标题）
+
+##### 示例1（效率型子标题）
 
 该示例主要演示子标题左侧为icon、secondaryTitle，右侧operationType为按钮类型。
 
-
-```ts
+```text
 import {
   SubHeaderV2OperationType,
   SubHeaderV2,
@@ -433,15 +435,17 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-0.png)
+
+![](assets/SubHeaderV2/file-20260514164205594-1.png)
 
 
-### 示例2（双行文本内容型子标题）
+
+
+##### 示例2（双行文本内容型子标题）
 
 该示例主要演示子标题左侧为primaryTitle、secondaryTitle，右侧operationType类型为TEXT_ARROW。
 
-
-```ts
+```text
 import {
   SubHeaderV2OperationType,
   SubHeaderV2,
@@ -487,15 +491,17 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-1.png)
+
+![](assets/SubHeaderV2/file-20260514164205594-2.png)
 
 
-### 示例3（spinner型内容型子标题）
+
+
+##### 示例3（spinner型内容型子标题）
 
 该示例主要演示子标题左侧为select，右侧operationType类型为ICON_GROUP。
 
-
-```ts
+```text
 import {
   SubHeaderV2,
   SubHeaderV2OperationType,
@@ -513,7 +519,7 @@ struct SubHeaderExample {
   @Local title: SubHeaderV2Title = new SubHeaderV2Title({ primaryTitle: '一级标题', secondaryTitle: '二级标题' });
   @Local operationItems: SubHeaderV2OperationItem[] = [];
   @Local select: SubHeaderV2Select =
-  new SubHeaderV2Select({ options: [{ value: 'aaa' }, { value: 'bbb' }, { value: 'ccc' }] });
+    new SubHeaderV2Select({ options: [{ value: 'aaa' }, { value: 'bbb' }, { value: 'ccc' }] });
 
   aboutToAppear(): void {
 
@@ -533,24 +539,24 @@ struct SubHeaderExample {
     })
 
     this.operationItems = [
-    new SubHeaderV2OperationItem({
-      content: $r('sys.media.ohos_ic_public_email'),
-      action: () => {
-        Prompt.showToast({ message: 'demo' })
-      }
-    }),
-    new SubHeaderV2OperationItem({
-      content: $r('sys.media.ohos_ic_public_email'),
-      action: () => {
-        Prompt.showToast({ message: 'demo' })
-      }
-    }),
-    new SubHeaderV2OperationItem({
-      content: $r('sys.media.ohos_ic_public_email'),
-      action: () => {
-        Prompt.showToast({ message: 'demo' })
-      }
-    })]
+      new SubHeaderV2OperationItem({
+        content: $r('sys.media.ohos_ic_public_email'),
+        action: () => {
+          Prompt.showToast({ message: 'demo' })
+        }
+      }),
+      new SubHeaderV2OperationItem({
+        content: $r('sys.media.ohos_ic_public_email'),
+        action: () => {
+          Prompt.showToast({ message: 'demo' })
+        }
+      }),
+      new SubHeaderV2OperationItem({
+        content: $r('sys.media.ohos_ic_public_email'),
+        action: () => {
+          Prompt.showToast({ message: 'demo' })
+        }
+      })]
   }
 
   build() {
@@ -567,15 +573,17 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-2.png)
+
+![](assets/SubHeaderV2/file-20260514164205594-3.gif)
 
 
-### 示例4（设置左侧symbol图标）
+
+
+##### 示例4（设置左侧symbol图标）
 
 该示例主要演示子标题左侧icon设置symbol图标。
 
-
-```ts
+```text
 import {
   SubHeaderV2,
   SubHeaderV2OperationType,
@@ -613,15 +621,17 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-3.gif)
+
+![](assets/SubHeaderV2/file-20260514164205594-4.png)
 
 
-### 示例5（设置右侧symbol图标）
+
+
+##### 示例5（设置右侧symbol图标）
 
 该示例主要演示子标题operationType设置为OperationType.ICON_GROUP，operationItem的value设置为symbol图标。
 
-
-```ts
+```text
 import {
   SubHeaderV2,
   SubHeaderV2OperationType,
@@ -641,7 +651,7 @@ struct SubHeaderExample {
   @Local title: SubHeaderV2Title = new SubHeaderV2Title({ primaryTitle: '一级标题', secondaryTitle: '二级标题' });
   @Local operationItem: SubHeaderV2OperationItem[] = [];
   @Local select: SubHeaderV2Select =
-  new SubHeaderV2Select({ options: [{ value: 'aaa' }, { value: 'bbb' }, { value: 'ccc' }] });
+    new SubHeaderV2Select({ options: [{ value: 'aaa' }, { value: 'bbb' }, { value: 'ccc' }] });
 
   aboutToAppear(): void {
     this.icon = new SymbolGlyphModifier($r('sys.symbol.ohos_wifi'));
@@ -663,30 +673,30 @@ struct SubHeaderExample {
     })
 
     this.operationItem = [
-    new SubHeaderV2OperationItem({
-      content: new SymbolGlyphModifier($r('sys.symbol.ohos_lungs')).fontWeight(FontWeight.Lighter),
-      action: () => {
-        Prompt.showToast({ message: 'demo1' })
-      }
-    }),
-    new SubHeaderV2OperationItem({
-      content: new SymbolGlyphModifier($r('sys.symbol.ohos_lungs'))
-      .renderingStrategy(SymbolRenderingStrategy.MULTIPLE_COLOR)
-      .fontColor([Color.Blue, Color.Grey, Color.Green])
+      new SubHeaderV2OperationItem({
+        content: new SymbolGlyphModifier($r('sys.symbol.ohos_lungs')).fontWeight(FontWeight.Lighter),
+        action: () => {
+          Prompt.showToast({ message: 'demo1' })
+        }
+      }),
+      new SubHeaderV2OperationItem({
+        content: new SymbolGlyphModifier($r('sys.symbol.ohos_lungs'))
+          .renderingStrategy(SymbolRenderingStrategy.MULTIPLE_COLOR)
+          .fontColor([Color.Blue, Color.Grey, Color.Green])
       ,
-      action: () => {
-        Prompt.showToast({ message: 'demo2' })
-      }
-    }),
-    new SubHeaderV2OperationItem({
-      content: new SymbolGlyphModifier($r('sys.symbol.ohos_lungs'))
-      .renderingStrategy(SymbolRenderingStrategy.MULTIPLE_OPACITY)
-      .fontColor([Color.Blue, Color.Grey, Color.Green])
+        action: () => {
+          Prompt.showToast({ message: 'demo2' })
+        }
+      }),
+      new SubHeaderV2OperationItem({
+        content: new SymbolGlyphModifier($r('sys.symbol.ohos_lungs'))
+          .renderingStrategy(SymbolRenderingStrategy.MULTIPLE_OPACITY)
+          .fontColor([Color.Blue, Color.Grey, Color.Green])
       ,
-      action: () => {
-        Prompt.showToast({ message: 'demo3' })
-      }
-    })]
+        action: () => {
+          Prompt.showToast({ message: 'demo3' })
+        }
+      })]
   }
 
   build() {
@@ -701,15 +711,17 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-4.png)
+
+![](assets/SubHeaderV2/file-20260514164205594-5.png)
 
 
-### 示例6（自定义标题内容）
+
+
+##### 示例6（自定义标题内容）
 
 该示例主要演示SubHeaderV2设置titleBuilder自定义标题内容的效果。
 
-
-```ts
+```text
 import {
   SubHeaderV2,
   SubHeaderV2OperationType,
@@ -740,9 +752,9 @@ struct SubHeaderExample {
   @Builder
   TitleBuilder(): void {
     Text('自定义标题')
-    .fontSize(24)
-    .fontColor(Color.Blue)
-    .fontWeight(FontWeight.Bold)
+      .fontSize(24)
+      .fontColor(Color.Blue)
+      .fontWeight(FontWeight.Bold)
   }
 
   build() {
@@ -761,15 +773,17 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-5.png)
+
+![](assets/SubHeaderV2/file-20260514164205594-6.png)
 
 
-### 示例7（自定义标题样式）
+
+
+##### 示例7（自定义标题样式）
 
 该示例主要演示SubHeaderV2设置标题和副标题字体样式。
 
-
-```ts
+```text
 import {
   SubHeaderV2,
   SubHeaderV2OperationType,
@@ -814,15 +828,17 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-6.png)
+
+![](assets/SubHeaderV2/file-20260514164205594-7.png)
 
 
-### 示例8（右侧按钮自定义播报）
+
+
+##### 示例8（右侧按钮自定义播报）
 
 该示例通过设置SubHeaderV2的右侧按钮属性accessibilityText、accessibilityDescription、accessibilityLevel自定义屏幕朗读播报文本。
 
-
-```ts
+```text
 import {
   SubHeaderV2OperationType,
   SubHeaderV2,
@@ -849,7 +865,7 @@ struct SubHeaderExample {
   @Local selectedValue: string | undefined = 'selectDemo';
   @Local selectedIndex: number = 0;
   @Local select: SubHeaderV2Select =
-  new SubHeaderV2Select({ options: [{ value: 'aaa' }, { value: 'bbb' }, { value: 'ccc' }] });
+    new SubHeaderV2Select({ options: [{ value: 'aaa' }, { value: 'bbb' }, { value: 'ccc' }] });
 
   aboutToAppear(): void {
     this.select = new SubHeaderV2Select({ options: [] });
@@ -916,17 +932,19 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-7.png)
+
+![](assets/SubHeaderV2/file-20260514164205594-8.png)
 
 
-### 示例9（右侧按钮设置默认获焦）
+
+
+##### 示例9（右侧按钮设置默认获焦）
 
 在获焦状态下，该示例通过设置SubHeaderV2的右侧按钮属性defaultFocus使其默认获焦。
 
 从API version 18开始，在[SubHeaderV2OperationItem](#subheaderv2operationitemoptions)中新增defaultFocus接口。
 
-
-```ts
+```text
 import {
   SubHeaderV2OperationType,
   SubHeaderV2,
@@ -980,4 +998,5 @@ struct SubHeaderExample {
 }
 ```
 
-![](assets/SubHeaderV2/file-20260514164205594-8.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/t5JGasBlRS2w_dPi6PN5ow/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T013859Z&HW-CC-Expire=86400&HW-CC-Sign=6938A9B964EA6B4FF40FCDBD1648BD491194D24F5A30EC152932EF278994792A)

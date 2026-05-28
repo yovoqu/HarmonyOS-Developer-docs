@@ -3,11 +3,9 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明访问图像矩形、大小、格式和组件数据的函数。
 
@@ -22,52 +20,51 @@
 **相关模块：** [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OhosImageRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagerect) | - | 定义图像矩形信息。 |
-| [ImageNative_](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagenative-) | ImageNative | 为图像接口定义native层图像对象。 |
-| [OhosImageComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagecomponent) | - | 定义图像组成信息。 |
+| OhosImageRect | - | 定义图像矩形信息。 |
+| ImageNative_ | ImageNative | 为图像接口定义native层图像对象。 |
+| OhosImageComponent | - | 定义图像组成信息。 |
 
 
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-| 名称 | 描述 |
-| --- | --- |
-| [图像格式](#图像格式) | 图像格式枚举值。 |
-| [图像颜色通道类型](#图像颜色通道类型) | 图像颜色通道类型枚举值。 |
-
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 枚举
 
 | 名称 | 描述 |
 | --- | --- |
-| [ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)](#oh_image_initimagenative) | 从输入的JavaScript Native API图像对象中解析native ImageNative对象。 |
-| [int32_t OH_Image_ClipRect(const ImageNative* native, struct OhosImageRect* rect)](#oh_image_cliprect) | 获取native ImageNative对象OhosImageRect信息。 |
-| [int32_t OH_Image_Size(const ImageNative* native, struct OhosImageSize* size)](#oh_image_size) | 获取native ImageNative对象的OhosImageSize信息。 |
-| [int32_t OH_Image_Format(const ImageNative* native, int32_t* format)](#oh_image_format) | 获取native ImageNative对象的图像格式。 |
-| [int32_t OH_Image_GetComponent(const ImageNative* native, int32_t componentType, struct OhosImageComponent* componentNative)](#oh_image_getcomponent) | 从native ImageNative对象中获取OhosImageComponent。 |
-| [int32_t OH_Image_Release(ImageNative* native)](#oh_image_release) | 释放ImageNative native对象。          这个方法无法释放JavaScript Native API Image对象，而是释放被[OH_Image_InitImageNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-h#oh_image_initimagenative)解析的ImageNative native对象。 |
+| 图像格式 | 图像格式枚举值。 |
+| 图像颜色通道类型 | 图像颜色通道类型枚举值。 |
 
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 图像格式
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数
 
+| 名称 | 描述 |
+| --- | --- |
+| ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source) | 从输入的JavaScript Native API图像对象中解析native ImageNative对象。 |
+| int32_t OH_Image_ClipRect(const ImageNative* native, struct OhosImageRect* rect) | 获取native ImageNative对象OhosImageRect信息。 |
+| int32_t OH_Image_Size(const ImageNative* native, struct OhosImageSize* size) | 获取native ImageNative对象的OhosImageSize信息。 |
+| int32_t OH_Image_Format(const ImageNative* native, int32_t* format) | 获取native ImageNative对象的图像格式。 |
+| int32_t OH_Image_GetComponent(const ImageNative* native, int32_t componentType, struct OhosImageComponent* componentNative) | 从native ImageNative对象中获取OhosImageComponent。 |
+| int32_t OH_Image_Release(ImageNative* native) | 释放ImageNative native对象。 这个方法无法释放JavaScript Native API Image对象，而是释放被OH_Image_InitImageNative解析的ImageNative native对象。 |
+
+
+
+
+##### 枚举类型说明
+
+
+
+##### 图像格式
 
 ```text
 enum anonymous enum
@@ -79,16 +76,15 @@ enum anonymous enum
 
 **起始版本：** 10
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | OHOS_IMAGE_FORMAT_YCBCR_422_SP = 1000 | YCBCR422 semi-planar格式。 |
 | OHOS_IMAGE_FORMAT_JPEG = 2000 | JPEG编码格式。 |
 
 
-### 图像颜色通道类型
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 图像颜色通道类型
 
 ```text
 enum anonymous enum
@@ -100,7 +96,6 @@ enum anonymous enum
 
 **起始版本：** 10
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | OHOS_IMAGE_COMPONENT_FORMAT_YUV_Y = 1 | 亮度信息。 |
@@ -109,13 +104,13 @@ enum anonymous enum
 | OHOS_IMAGE_COMPONENT_FORMAT_JPEG = 4 | JPEG格式。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### OH_Image_InitImageNative()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### OH_Image_InitImageNative()
 
 ```text
 ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)
@@ -129,7 +124,6 @@ ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | napi_env env | 表示指向JNI环境的指针。 |
@@ -138,10 +132,9 @@ ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagenative-)* | 如果操作成功返回ImageNative指针对象，如果操作失败返回空指针。 |
+| ImageNative* | 如果操作成功返回ImageNative指针对象，如果操作失败返回空指针。 |
 
 
 **参考：**
@@ -149,9 +142,8 @@ ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)
 [OH_Image_Release](#oh_image_release)
 
 
-### OH_Image_ClipRect()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### OH_Image_ClipRect()
 
 ```text
 int32_t OH_Image_ClipRect(const ImageNative* native, struct OhosImageRect* rect)
@@ -165,24 +157,22 @@ int32_t OH_Image_ClipRect(const ImageNative* native, struct OhosImageRect* rect)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [ImageNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagenative-)* native | 表示指向ImageNative native层对象的指针。 |
-| struct [OhosImageRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagerect)* rect | 表示作为转换结果的OhosImageRect对象指针。 |
+| const ImageNative* native | 表示指向ImageNative native层对象的指针。 |
+| struct OhosImageRect* rect | 表示作为转换结果的OhosImageRect对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | [IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)：          IMAGE_RESULT_SUCCESS：操作成功。          IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。          IMAGE_RESULT_INVALID_PARAMETER：参数无效。          IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。          IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
+| int32_t | IRNdkErrCode： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
 
 
-### OH_Image_Size()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Image_Size()
 
 ```text
 int32_t OH_Image_Size(const ImageNative* native, struct OhosImageSize* size)
@@ -200,24 +190,22 @@ ImageNative对象所存储的数据是预览流还是拍照流，取决于应用
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [ImageNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagenative-)* native | 表示ImageNative native对象的指针。 |
-| struct [OhosImageSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagesize)* size | 表示作为转换结果的OhosImageSize对象的指针。 |
+| const ImageNative* native | 表示ImageNative native对象的指针。 |
+| struct OhosImageSize* size | 表示作为转换结果的OhosImageSize对象的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | [IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)：          IMAGE_RESULT_SUCCESS：操作成功。          IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。          IMAGE_RESULT_INVALID_PARAMETER：参数无效。          IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。          IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
+| int32_t | IRNdkErrCode： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
 
 
-### OH_Image_Format()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Image_Format()
 
 ```text
 int32_t OH_Image_Format(const ImageNative* native, int32_t* format)
@@ -231,24 +219,22 @@ int32_t OH_Image_Format(const ImageNative* native, int32_t* format)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [ImageNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagenative-)* native | 表示ImageNative native对象的指针。 |
+| const ImageNative* native | 表示ImageNative native对象的指针。 |
 | int32_t* format | 表示作为转换结果的图像格式对象的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | [IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)：          IMAGE_RESULT_SUCCESS：操作成功。          IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。          IMAGE_RESULT_INVALID_PARAMETER：参数无效。          IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。          IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
+| int32_t | IRNdkErrCode： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
 
 
-### OH_Image_GetComponent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Image_GetComponent()
 
 ```text
 int32_t OH_Image_GetComponent(const ImageNative* native, int32_t componentType, struct OhosImageComponent* componentNative)
@@ -262,25 +248,23 @@ int32_t OH_Image_GetComponent(const ImageNative* native, int32_t componentType, 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [ImageNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagenative-)* native | 表示ImageNative native对象的指针。 |
+| const ImageNative* native | 表示ImageNative native对象的指针。 |
 | int32_t componentType | 表示所需组件的组件类型。 |
-| struct [OhosImageComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagecomponent)* componentNative | 表示转换结果的OhosImageComponent对象的指针。 |
+| struct OhosImageComponent* componentNative | 表示转换结果的OhosImageComponent对象的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | [IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)：          IMAGE_RESULT_SUCCESS：操作成功。          IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。          IMAGE_RESULT_INVALID_PARAMETER：参数无效。          IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。          IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
+| int32_t | IRNdkErrCode： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED：从surface获取参数失败。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
 
 
-### OH_Image_Release()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Image_Release()
 
 ```text
 int32_t OH_Image_Release(ImageNative* native)
@@ -296,18 +280,16 @@ int32_t OH_Image_Release(ImageNative* native)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [ImageNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-imagenative-)* native | 表示ImageNative native对象的指针。 |
+| ImageNative* native | 表示ImageNative native对象的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | [IRNdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h#irndkerrcode)：          IMAGE_RESULT_SUCCESS：操作成功。          IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。          IMAGE_RESULT_INVALID_PARAMETER：参数无效。          IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
+| int32_t | IRNdkErrCode： IMAGE_RESULT_SUCCESS：操作成功。 IMAGE_RESULT_JNI_ENV_ABNORMAL：JNI环境异常。 IMAGE_RESULT_INVALID_PARAMETER：参数无效。 IMAGE_RESULT_BAD_PARAMETER：参数错误。 |
 
 
 **参考：**

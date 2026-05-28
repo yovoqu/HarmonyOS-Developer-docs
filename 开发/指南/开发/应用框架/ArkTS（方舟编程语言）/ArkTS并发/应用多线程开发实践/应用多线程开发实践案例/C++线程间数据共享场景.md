@@ -1,6 +1,6 @@
 # C++线程间数据共享场景
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-interthread-shared
 
@@ -9,10 +9,15 @@
 为了支持此类场景，C++线程需要能够创建并调用ArkTS，同时支持对Sendable对象进行多线程共享和操作。
 
 
-## 在C++线程上调用ArkTS能力
+##### 在C++线程上调用ArkTS能力
 
-使用Node-API接口在C++线程中创建ArkTS运行环境并调用的方法，可以参考[使用Node-API接口创建ArkTS运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)。 核心代码片段如下所示： ArkTS文件定义。
-```text
+使用Node-API接口在C++线程中创建ArkTS运行环境并调用的方法，可以参考[使用Node-API接口创建ArkTS运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)。
+
+核心代码片段如下所示：
+
+ArkTS文件定义。
+
+```ArkTS
 @Sendable
 export class SendableObjTest {
   static newSendable() {
@@ -22,8 +27,9 @@ export class SendableObjTest {
 ```
 
 实现Native加载ArkTS模块的能力。
-```text
-#include
+
+```cpp
+#include <thread>
 
 #include "napi/native_api.h"
 
@@ -73,10 +79,17 @@ static void* CreateEnvAndSendSendable(void*)
 
 主要步骤包括：创建执行环境、加载模块、查找并调用模块函数（或直接通过Node-API接口创建Sendable对象），最后销毁执行环境。加载模块的详细信息，请参见[使用Node-API接口进行模块加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module-with-info)。查找并调用函数及更多Node-API接口能力，请参见[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi)。
 
-## 在C++线程之间操作Sendable共享对象
 
-在C++中调用ArkTS能力后，需要通过序列化和反序列化跨线程传递。napi_value不是多线程安全的，不能直接在多线程之间操作和共享。 下面代码例子说明了如何序列化和反序列化传递对象，注意因为Sendable共享对象是引用传递，所以序列化不会产生另外一份拷贝数据，而是直接传递对象引用到反序列化线程，所以在性能上相比非Sendable对象的序列化和反序列化更为高效。 ArkTS文件定义。
-```text
+
+##### 在C++线程之间操作Sendable共享对象
+
+在C++中调用ArkTS能力后，需要通过序列化和反序列化跨线程传递。napi_value不是多线程安全的，不能直接在多线程之间操作和共享。
+
+下面代码例子说明了如何序列化和反序列化传递对象，注意因为Sendable共享对象是引用传递，所以序列化不会产生另外一份拷贝数据，而是直接传递对象引用到反序列化线程，所以在性能上相比非Sendable对象的序列化和反序列化更为高效。
+
+ArkTS文件定义。
+
+```ArkTS
 @Sendable
 export class SendableObjTest {
   static newSendable() {
@@ -86,8 +99,9 @@ export class SendableObjTest {
 ```
 
 在Native中实现两个线程的序列化和反序列化Sendable的逻辑。
-```text
-#include
+
+```cpp
+#include <thread>
 
 #include "napi/native_api.h"
 
@@ -202,13 +216,13 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 }
 ```
 
-
-```text
+```ts
 export const testSendSendable: () => void;
 ```
 
 UI主线程发起调用。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 import { SendableObjTest } from './SendableObjTest'
@@ -239,6 +253,10 @@ struct Index {
 }
 ```
 
-整个过程主要包括的逻辑实现为： 在UI主线程中创建ArkTS运行环境，并发起一个C++子线程创建Sendable对象，保存到result中，然后将result引用的Sendable对象序列化到全局序列化数据serializationData中。 当这些流程完成后，发起另外一个C++子线程，并在这个新的线程中创建ArkTS运行环境。然后再通过反序列化接口从serializationData中反序列化出UI主线程创建的Sendable对象，并保存到result中，从而实现了Sendable对象的跨C++线程传递。反序列化完成后，需要销毁反序列化数据避免内存泄露。这时UI主线程和子线程都同时持有这个Sendable共享对象，即可通过Node-API进行对象操作，比如读写或者传递到ArkTS层等。
+整个过程主要包括的逻辑实现为：
+1. 在UI主线程中创建ArkTS运行环境，并发起一个C++子线程创建Sendable对象，保存到result中，然后将result引用的Sendable对象序列化到全局序列化数据serializationData中。
+2. 当这些流程完成后，发起另外一个C++子线程，并在这个新的线程中创建ArkTS运行环境。然后再通过反序列化接口从serializationData中反序列化出UI主线程创建的Sendable对象，并保存到result中，从而实现了Sendable对象的跨C++线程传递。反序列化完成后，需要销毁反序列化数据避免内存泄露。这时UI主线程和子线程都同时持有这个Sendable共享对象，即可通过Node-API进行对象操作，比如读写或者传递到ArkTS层等。
+
+  
 > [!NOTE]
-> 操作对象需要符合Sendable对象的规则，具体可见Sendable使用规则与约束。
+> 操作对象需要符合Sendable对象的规则，具体可见 Sendable使用规则与约束 。

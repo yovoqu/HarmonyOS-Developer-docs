@@ -16,7 +16,7 @@
 | 新增API | NA | 类名：ResolutionLevel； API声明：RESOLUTION_1080P = 2 差异内容：RESOLUTION_1080P = 2 | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：ResolutionLevel； API声明：RESOLUTION_2K = 3 差异内容：RESOLUTION_2K = 3 | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：ResolutionLevel； API声明：RESOLUTION_4K = 4 差异内容：RESOLUTION_4K = 4 | api/@ohos.multimedia.avsession.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastController； API声明：getSupportedDecoders(): Promise<Array<DecoderType>>; 差异内容：getSupportedDecoders(): Promise<Array<DecoderType>>; | api/@ohos.multimedia.avsession.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastController； API声明：getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>; 差异内容：getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>; | api/@ohos.multimedia.avsession.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastController； API声明：getSupportedDecoders(): Promise<Array&lt;DecoderType&gt;>; 差异内容：getSupportedDecoders(): Promise<Array&lt;DecoderType&gt;>; | api/@ohos.multimedia.avsession.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastController； API声明：getRecommendedResolutionLevel(decoderType: DecoderType): Promise&lt;ResolutionLevel&gt;; 差异内容：getRecommendedResolutionLevel(decoderType: DecoderType): Promise&lt;ResolutionLevel&gt;; | api/@ohos.multimedia.avsession.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastController； API声明：getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>; 差异内容：getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>; | api/@ohos.multimedia.avsession.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastController； API声明：getSupportedPlaySpeeds(): Promise<Array<number>>; 差异内容：getSupportedPlaySpeeds(): Promise<Array<number>>; | api/@ohos.multimedia.avsession.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：AVCastController； API声明：getSupportedPlaySpeeds(): Promise<Array&lt;number&gt;>; 差异内容：getSupportedPlaySpeeds(): Promise<Array&lt;number&gt;>; | api/@ohos.multimedia.avsession.d.ts |

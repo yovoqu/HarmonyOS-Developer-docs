@@ -3,7 +3,7 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-lightweightmap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LightWeightMap可用于存储具有关联关系的key-value键值对集合，存储元素中key值唯一，每个key对应一个value。
 
@@ -17,18 +17,16 @@ LightWeightMap和[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- K：Key，键
-- V：Value，值
+ - K：Key，键
+ - V：Value，值
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 规格限制
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 规格限制
 
 当LightWeightMap存入的key为number类型且值大于INT32_MAX或小于INT32_MIN时，针对LightWeightMap的操作，其结果可能与预期不一致。
 
@@ -36,44 +34,42 @@ LightWeightMap和[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 例如在以下示例针对key的计算中，1758783600000大于INT32_MAX，此时会通过TaggedDouble存储；1758783600小于INT32_MIN，此时会通过TaggedInt存储。由于以上存储方式的差异，当对其进行hash算法即会计算出不同的hash值，从而导致映射结果不同，产生与预期不一致的现象。
 
-
-```ts
+```text
 let mp = new LightWeightMap<number, number>();
-let key = 1758783600000 / 1000; // 1758783600000 > INT32_MAX
+let key = 1758783600000 / 1000;  // 1758783600000 > INT32_MAX
 mp.set(key, 1001);
-console.info('result:', mp.hasKey(1758783600)); // result: false
-console.info('result:', mp.hasKey(key)); // result: true
+console.info("result:", mp.hasKey(1758783600));  // result: false
+console.info("result:", mp.hasKey(key));  // result: true
 ```
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { LightWeightMap } from '@kit.ArkTS';
 ```
 
 
-## LightWeightMap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### LightWeightMap
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | LightWeightMap的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -87,7 +83,6 @@ LightWeightMap的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The LightWeightMap's constructor cannot be directly invoked. |
@@ -95,14 +90,13 @@ LightWeightMap的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
 ```
 
 
-### isEmpty
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty
 
 isEmpty(): boolean
 
@@ -114,7 +108,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 为空返回true，不为空返回false。 |
@@ -124,7 +117,6 @@ isEmpty(): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The isEmpty method cannot be bound. |
@@ -132,16 +124,15 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 const lightWeightMap = new LightWeightMap<string, number>();
 let result = lightWeightMap.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### hasAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hasAll
 
 hasAll(map: LightWeightMap<K, V>): boolean
 
@@ -153,14 +144,12 @@ hasAll(map: LightWeightMap<K, V>): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| map | LightWeightMap&lt;K, V&gt; | 是 | 比较对象。 |
+| map | LightWeightMap<K, V> | 是 | 比较对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -171,7 +160,6 @@ hasAll(map: LightWeightMap<K, V>): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -180,20 +168,19 @@ hasAll(map: LightWeightMap<K, V>): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let map = new LightWeightMap<string, number>();
-map.set('sparrow', 356);
+map.set("sparrow", 356);
 let result = lightWeightMap.hasAll(map);
-console.info('result = ', result); // result = true
+console.info("result = ", result); // result = true
 ```
 
 
-### hasKey
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hasKey
 
 hasKey(key: K): boolean
 
@@ -205,14 +192,12 @@ hasKey(key: K): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -223,7 +208,6 @@ hasKey(key: K): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The hasKey method cannot be bound. |
@@ -231,17 +215,16 @@ hasKey(key: K): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-let result = lightWeightMap.hasKey('squirrel');
-console.info('result:', result); // result: true
+lightWeightMap.set("squirrel", 123);
+let result = lightWeightMap.hasKey("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### hasValue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hasValue
 
 hasValue(value: V): boolean
 
@@ -253,14 +236,12 @@ hasValue(value: V): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | V | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -271,7 +252,6 @@ hasValue(value: V): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The hasValue method cannot be bound. |
@@ -279,17 +259,16 @@ hasValue(value: V): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
+lightWeightMap.set("squirrel", 123);
 let result = lightWeightMap.hasValue(123);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### increaseCapacityTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### increaseCapacityTo
 
 increaseCapacityTo(minimumCapacity: number): void
 
@@ -301,7 +280,6 @@ increaseCapacityTo(minimumCapacity: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | minimumCapacity | number | 是 | 需要容纳的元素数量。 |
@@ -311,7 +289,6 @@ increaseCapacityTo(minimumCapacity: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -320,15 +297,14 @@ increaseCapacityTo(minimumCapacity: number): void
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
 lightWeightMap.increaseCapacityTo(10);
 ```
 
 
-### get
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### get
 
 get(key: K): V
 
@@ -340,14 +316,12 @@ get(key: K): V
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -358,7 +332,6 @@ get(key: K): V
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The get method cannot be bound. |
@@ -366,18 +339,17 @@ get(key: K): V
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
-let result = lightWeightMap.get('sparrow');
-console.info('result:', result); // result: 356
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
+let result = lightWeightMap.get("sparrow");
+console.info("result:", result);  // result: 356
 ```
 
 
-### getIndexOfKey
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getIndexOfKey
 
 getIndexOfKey(key: K): number
 
@@ -389,14 +361,12 @@ getIndexOfKey(key: K): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 被查找的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -407,7 +377,6 @@ getIndexOfKey(key: K): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getIndexOfKey method cannot be bound. |
@@ -415,18 +384,17 @@ getIndexOfKey(key: K): number
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
-let result = lightWeightMap.getIndexOfKey('sparrow');
-console.info('result:', result); // result: 0
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
+let result = lightWeightMap.getIndexOfKey("sparrow");
+console.info("result:", result);  // result: 0
 ```
 
 
-### getIndexOfValue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getIndexOfValue
 
 getIndexOfValue(value: V): number
 
@@ -438,14 +406,12 @@ getIndexOfValue(value: V): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | V | 是 | 被查找的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -456,7 +422,6 @@ getIndexOfValue(value: V): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getIndexOfValue method cannot be bound. |
@@ -464,18 +429,17 @@ getIndexOfValue(value: V): number
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let result = lightWeightMap.getIndexOfValue(123);
-console.info('result:', result); // result: 1
+console.info("result:", result);  // result: 1
 ```
 
 
-### getKeyAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getKeyAt
 
 getKeyAt(index: number): K
 
@@ -487,14 +451,12 @@ getKeyAt(index: number): K
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 所查找的下标。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -505,7 +467,6 @@ getKeyAt(index: number): K
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -515,18 +476,17 @@ getKeyAt(index: number): K
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let result = lightWeightMap.getKeyAt(1);
-console.info('result:', result); // result: squirrel
+console.info("result:", result);  // result: squirrel
 ```
 
 
-### setAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAll
 
 setAll(map: LightWeightMap<K, V>): void
 
@@ -538,16 +498,14 @@ setAll(map: LightWeightMap<K, V>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| map | LightWeightMap&lt;K, V&gt; | 是 | 提供添加元素的LightWeightMap。 |
+| map | LightWeightMap<K, V> | 是 | 提供添加元素的LightWeightMap。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -557,20 +515,19 @@ setAll(map: LightWeightMap<K, V>): void
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let map = new LightWeightMap<string, number>();
-map.setAll(lightWeightMap); // 将lightWeightMap中所有的元素添加到map中
-let result = map.get('sparrow');
-console.info('result:', result); // result: 356
+map.setAll(lightWeightMap);   // 将lightWeightMap中所有的元素添加到map中
+let result = map.get("sparrow");
+console.info("result:", result);  // result: 356
 ```
 
 
-### set
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### set
 
 set(key: K, value: V): Object
 
@@ -582,7 +539,6 @@ set(key: K, value: V): Object
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 添加或更新成员数据的键名。 |
@@ -590,7 +546,6 @@ set(key: K, value: V): Object
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -601,7 +556,6 @@ set(key: K, value: V): Object
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The set method cannot be bound. |
@@ -609,16 +563,15 @@ set(key: K, value: V): Object
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-let result = lightWeightMap.set('squirrel', 123);
-console.info('result:', result); // result: squirrel:123
+let result = lightWeightMap.set("squirrel", 123);
+console.info("result:", result);  // result: squirrel:123
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove
 
 remove(key: K): V
 
@@ -630,14 +583,12 @@ remove(key: K): V
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -648,7 +599,6 @@ remove(key: K): V
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The remove method cannot be bound. |
@@ -656,17 +606,16 @@ remove(key: K): V
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('sparrow', 356);
-let result = lightWeightMap.remove('sparrow');
-console.info('result:', result); // result: 356
+lightWeightMap.set("sparrow", 356);
+let result = lightWeightMap.remove("sparrow");
+console.info("result:", result);  // result: 356
 ```
 
 
-### removeAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeAt
 
 removeAt(index: number): boolean
 
@@ -678,14 +627,12 @@ removeAt(index: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定下标。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -696,7 +643,6 @@ removeAt(index: number): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -705,18 +651,17 @@ removeAt(index: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let result = lightWeightMap.removeAt(1);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### setValueAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setValueAt
 
 setValueAt(index: number, newValue: V): boolean
 
@@ -728,7 +673,6 @@ setValueAt(index: number, newValue: V): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定下标。需要小于等于int32_max即2147483647。 |
@@ -736,7 +680,6 @@ setValueAt(index: number, newValue: V): boolean
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -747,7 +690,6 @@ setValueAt(index: number, newValue: V): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -757,18 +699,17 @@ setValueAt(index: number, newValue: V): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 lightWeightMap.setValueAt(1, 3546);
-console.info('result:', lightWeightMap.get('squirrel')); // result: 3546
+console.info("result:", lightWeightMap.get("squirrel"));  // result: 3546
 ```
 
 
-### getValueAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getValueAt
 
 getValueAt(index: number): V
 
@@ -780,14 +721,12 @@ getValueAt(index: number): V
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定下标。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -798,7 +737,6 @@ getValueAt(index: number): V
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -808,18 +746,17 @@ getValueAt(index: number): V
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let result = lightWeightMap.getValueAt(1);
-console.info('result:', result); // result: 123
+console.info("result:", result);  // result: 123
 ```
 
 
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -833,7 +770,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound. |
@@ -841,21 +777,20 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 lightWeightMap.clear();
 let result = lightWeightMap.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### keys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-keys(): IterableIterator<K>
+##### keys
+
+keys(): IterableIterator&lt;K&gt;
 
 返回包含此映射中所有的键的新迭代器对象。
 
@@ -864,7 +799,6 @@ keys(): IterableIterator<K>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -875,7 +809,6 @@ keys(): IterableIterator<K>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The keys method cannot be bound. |
@@ -883,24 +816,23 @@ keys(): IterableIterator<K>
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let keys = lightWeightMap.keys();
 for (let key of keys) {
-  console.info('key:', key);
+  console.info("key:", key);
 }
 // key: sparrow
 // key: squirrel
 ```
 
 
-### values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<V>
+##### values
+
+values(): IterableIterator&lt;V&gt;
 
 返回包含此映射中所有键值的新迭代器对象。
 
@@ -909,7 +841,6 @@ values(): IterableIterator<V>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -920,7 +851,6 @@ values(): IterableIterator<V>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The values method cannot be bound. |
@@ -928,22 +858,21 @@ values(): IterableIterator<V>
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let values = lightWeightMap.values();
 for (let value of values) {
-  console.info('value:', value);
+  console.info("value:", value);
 }
 // value: 356
 // value: 123
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### forEach
 
 forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void, thisArg?: Object): void
 
@@ -955,7 +884,6 @@ forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void, th
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -964,18 +892,16 @@ forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void, th
 
 callbackFn的参数说明：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | V | 否 | 当前遍历到的元素键值对的值，默认值为首个键值对的值。 |
 | key | K | 否 | 当前遍历到的元素键值对的键，默认值为首个键值对的键。 |
-| map | LightWeightMap&lt;K, V&gt; | 否 | 当前调用forEach方法的实例对象，默认值为当前实例对象。 |
+| map | LightWeightMap<K, V> | 否 | 当前调用forEach方法的实例对象，默认值为当前实例对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -985,33 +911,31 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('sparrow', 123);
-lightWeightMap.set('gull', 357);
+lightWeightMap.set("sparrow", 123);
+lightWeightMap.set("gull", 357);
 lightWeightMap.forEach((value: number, key: string) => {
-  console.info('value:' + value, 'key:' + key);
+  console.info("value:" + value, "key:" + key);
 });
 // value:123 key:sparrow
 // value:357 key:gull
 ```
 
-
-```ts
+```text
 // 不建议在forEach中使用set、setValueAt、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
 let lightWeightMap = new LightWeightMap<string, number>();
-for (let i = 0; i < 10; i++) {
-  lightWeightMap.set('sparrow' + i, 123);
+for(let i = 0; i < 10; i++) {
+  lightWeightMap.set("sparrow" + i, 123);
 }
-for (let i = 0; i < 10; i++) {
-  lightWeightMap.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  lightWeightMap.remove("sparrow" + i);
 }
 ```
 
 
-### entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[K, V]>
 
@@ -1023,16 +947,14 @@ entries(): IterableIterator<[K, V]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[K, V]&gt; | 返回一个迭代器。 |
+| IterableIterator<[K, V]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1041,35 +963,33 @@ entries(): IterableIterator<[K, V]>
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let iter = lightWeightMap.entries();
 let temp: IteratorResult<Object[]> = iter.next();
-while (!temp.done) {
-  console.info('key:' + temp.value[0]);
-  console.info('value:' + temp.value[1]);
+while(!temp.done) {
+  console.info("key:" + temp.value[0]);
+  console.info("value:" + temp.value[1]);
   temp = iter.next();
 }
 ```
 
-
-```ts
+```text
 // 不建议在entries中使用set、setValueAt、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
 let lightWeightMap = new LightWeightMap<string, number>();
-for (let i = 0; i < 10; i++) {
-  lightWeightMap.set('sparrow' + i, 123);
+for(let i = 0; i < 10; i++) {
+  lightWeightMap.set("sparrow" + i, 123);
 }
-for (let i = 0; i < 10; i++) {
-  lightWeightMap.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  lightWeightMap.remove("sparrow" + i);
 }
 ```
 
 
-### toString
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString
 
 toString(): String
 
@@ -1081,7 +1001,6 @@ toString(): String
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | String | 返回一个字符串。 |
@@ -1091,7 +1010,6 @@ toString(): String
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The toString method cannot be bound. |
@@ -1099,18 +1017,17 @@ toString(): String
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 let result = lightWeightMap.toString();
-console.info('result:', result); // result: sparrow:356,squirrel:123
+console.info("result:", result);  // result: sparrow:356,squirrel:123
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### [Symbol.iterator]
 
 [Symbol.iterator](): IterableIterator<[K, V]>
 
@@ -1122,16 +1039,14 @@ console.info('result:', result); // result: sparrow:356,squirrel:123
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[K, V]&gt; | 返回一个迭代器。 |
+| IterableIterator<[K, V]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1140,16 +1055,15 @@ console.info('result:', result); // result: sparrow:356,squirrel:123
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightMap = new LightWeightMap<string, number>();
-lightWeightMap.set('squirrel', 123);
-lightWeightMap.set('sparrow', 356);
+lightWeightMap.set("squirrel", 123);
+lightWeightMap.set("sparrow", 356);
 
 // 使用方法一：
 for (let item of lightWeightMap) {
-  console.info('key:', item[0]);
-  console.info('value:', item[1]);
+  console.info("key:", item[0]);
+  console.info("value:", item[1]);
 }
 // key: sparrow
 // value: 356
@@ -1159,9 +1073,9 @@ for (let item of lightWeightMap) {
 // 使用方法二：
 let iter = lightWeightMap[Symbol.iterator]();
 let temp: IteratorResult<Object[]> = iter.next();
-while (!temp.done) {
-  console.info('key:', temp.value[0]);
-  console.info('value:', temp.value[1]);
+while(!temp.done) {
+  console.info("key:", temp.value[0]);
+  console.info("value:", temp.value[1]);
   temp = iter.next();
 }
 // key: sparrow
@@ -1170,14 +1084,13 @@ while (!temp.done) {
 // value: 123
 ```
 
-
-```ts
+```text
 // 不建议在Symbol.iterator中使用set、setValueAt、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
 let lightWeightMap = new LightWeightMap<string, number>();
-for (let i = 0; i < 10; i++) {
-  lightWeightMap.set('sparrow' + i, 123);
+for(let i = 0; i < 10; i++) {
+  lightWeightMap.set("sparrow" + i, 123);
 }
-for (let i = 0; i < 10; i++) {
-  lightWeightMap.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  lightWeightMap.remove("sparrow" + i);
 }
 ```

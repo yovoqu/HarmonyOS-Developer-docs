@@ -4,18 +4,18 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-99
 
-问题描述
-
+**问题描述**
+ 
 mac系统项目编译报错。
-
-```text
+ 
+```json
 hvigor ERROR: EMFILE: too many open files, open '/Applications/DevEco-Studio.app/Contents/sdk/default/openharmony/ets/build-tools/ets-loader/kit_configs/@kit.ArkTS.json'
 ```
-
-解决措施
-
+ 
+**解决措施**
+ 
 最大连接数限制取决于系统所能打开的最大文件数（文件描述符）。在Linux中，动态端口号的默认范围是32768到65535，因此作为客户端连接同一个IP和端口号时，最多可以建立32768个连接。而在Mac系统中，默认情况下最多可以建立16384个连接。如果需要调整这些限制，可以在DevEco Studio终端执行以下命令（根据实际情况填充数字）：
-
+ 
 ```bash
 sysctl kern.maxfiles
 sudo sysctl -w kern.maxfiles=20480

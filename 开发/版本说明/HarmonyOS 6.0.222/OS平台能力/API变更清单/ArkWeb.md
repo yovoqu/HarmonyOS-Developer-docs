@@ -6,8 +6,8 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除错误码 | 类名：WebviewController； API声明：static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string, cacheValidTime?: number): void; 差异内容：401 | 类名：WebviewController； API声明：static prefetchResource(request: RequestInfo, additionalHeaders?: Array<WebHeader>, cacheKey?: string, cacheValidTime?: number): void; 差异内容：NA | api/@ohos.web.webview.d.ts |
-| 删除错误码 | 类名：WebviewController； API声明：injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void; 差异内容：401 | 类名：WebviewController； API声明：injectOfflineResources(resourceMaps: Array<OfflineResourceMap>): void; 差异内容：NA | api/@ohos.web.webview.d.ts |
+| 删除错误码 | 类名：WebviewController； API声明：static prefetchResource(request: RequestInfo, additionalHeaders?: Array&lt;WebHeader&gt;, cacheKey?: string, cacheValidTime?: number): void; 差异内容：401 | 类名：WebviewController； API声明：static prefetchResource(request: RequestInfo, additionalHeaders?: Array&lt;WebHeader&gt;, cacheKey?: string, cacheValidTime?: number): void; 差异内容：NA | api/@ohos.web.webview.d.ts |
+| 删除错误码 | 类名：WebviewController； API声明：injectOfflineResources(resourceMaps: Array&lt;OfflineResourceMap&gt;): void; 差异内容：401 | 类名：WebviewController； API声明：injectOfflineResources(resourceMaps: Array&lt;OfflineResourceMap&gt;): void; 差异内容：NA | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebCookieManager； API声明：static setLazyInitializeWebEngine(lazy: boolean): void; 差异内容：static setLazyInitializeWebEngine(lazy: boolean): void; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：JsMessageExt； API声明：getErrorDescription(): string \| null; 差异内容：getErrorDescription(): string \| null; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：webview； API声明：enum WebSoftKeyboardBehaviorMode 差异内容：enum WebSoftKeyboardBehaviorMode | api/@ohos.web.webview.d.ts |

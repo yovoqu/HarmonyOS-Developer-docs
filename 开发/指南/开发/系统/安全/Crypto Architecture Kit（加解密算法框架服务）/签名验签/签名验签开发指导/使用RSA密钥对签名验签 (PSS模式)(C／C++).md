@@ -1,23 +1,27 @@
 # 使用RSA密钥对签名验签 (PSS模式)(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-sign-sig-verify-pss-ndk
 
 对应的算法规格请查看[签名验签算法规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sign-sig-verify-overview#rsa)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohcrypto.so)
 ```
 
 
-## 签名开发步骤
 
-调用[OH_CryptoSign_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_create)，指定字符串参数'RSA2048|PSS|SHA256|MGF1_SHA256'，创建非对称密钥类型为RSA2048、填充模式为PSS、摘要算法为SHA256、掩码算法为MGF1_SHA256的Sign实例，用于完成签名操作。 调用[OH_CryptoSign_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_init)，使用私钥（OH_CryptoPrivKey）初始化Sign实例。 调用[OH_CryptoSign_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_update)，传入待签名的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update。如果数据量较小，可以直接调用OH_CryptoSign_Final接口一次性传入。 调用[OH_CryptoSign_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_final)，获取签名后的数据。 调用[OH_CryptoSign_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_destroy)等释放内存。
+##### 签名开发步骤
+1. 调用[OH_CryptoSign_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_create)，指定字符串参数'RSA2048|PSS|SHA256|MGF1_SHA256'，创建非对称密钥类型为RSA2048、填充模式为PSS、摘要算法为SHA256、掩码算法为MGF1_SHA256的Sign实例，用于完成签名操作。
+2. 调用[OH_CryptoSign_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_init)，使用私钥（OH_CryptoPrivKey）初始化Sign实例。
+3. 调用[OH_CryptoSign_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_update)，传入待签名的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update。如果数据量较小，可以直接调用OH_CryptoSign_Final接口一次性传入。
+4. 调用[OH_CryptoSign_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_final)，获取签名后的数据。
+5. 调用[OH_CryptoSign_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptosign_destroy)等释放内存。
+
 ```text
 #include "CryptoArchitectureKit/crypto_common.h"
 #include "CryptoArchitectureKit/crypto_signature.h"
@@ -33,7 +37,7 @@ static OH_Crypto_ErrCode doTestRsaPssSignSeg() {
       0x13, 0xa7, 0x73, 0xe8, 0xb8, 0x22, 0x99, 0x72, 0x98, 0x29, 0xae, 0x74, 0xa8, 0x4a, 0xea, 0xa9,
    };
    Crypto_DataBlob msgBlob = {
-      .data = reinterpret_cast(plainText),
+      .data = reinterpret_cast<uint8_t *>(plainText),
       .len = sizeof(plainText)
    };
 
@@ -85,10 +89,15 @@ static OH_Crypto_ErrCode doTestRsaPssSignSeg() {
 ```
 
 
-## 开发步骤
 
-调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA2048|PSS|SHA256|MGF1_SHA256'，创建非对称密钥类型为RSA2048、填充模式为PSS、摘要算法为SHA256、掩码算法为MGF1_SHA256的Verify实例，用于完成验签操作。 调用[OH_CryptoVerify_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_setparam)，设置签名参数。需要与签名时设置的保持一致。 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。 调用[OH_CryptoVerify_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_update)，传入待验证的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update，如果数据量较小，可以直接调用OH_CryptoVerify_Final接口一次性传入。 调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)，对数据进行验签。
-```text
+##### 开发步骤
+1. 调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA2048|PSS|SHA256|MGF1_SHA256'，创建非对称密钥类型为RSA2048、填充模式为PSS、摘要算法为SHA256、掩码算法为MGF1_SHA256的Verify实例，用于完成验签操作。
+2. 调用[OH_CryptoVerify_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_setparam)，设置签名参数。需要与签名时设置的保持一致。
+3. 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。
+4. 调用[OH_CryptoVerify_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_update)，传入待验证的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update，如果数据量较小，可以直接调用OH_CryptoVerify_Final接口一次性传入。
+5. 调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)，对数据进行验签。
+
+```cpp
 #include "signing_signature_verification.h"
 
 bool DoTestRsaPssSignatureSeg()
@@ -100,7 +109,7 @@ bool DoTestRsaPssSignatureSeg()
     uint8_t plainText[] = {
         0x13, 0xa7, 0x73, 0xe8, 0xb8, 0x22, 0x99, 0x72, 0x98, 0x29, 0xae, 0x74, 0xa8, 0x4a, 0xea, 0xa9,
     };
-    Crypto_DataBlob msgBlob = {.data = reinterpret_cast(plainText), .len = sizeof(plainText)};
+    Crypto_DataBlob msgBlob = {.data = reinterpret_cast<uint8_t *>(plainText), .len = sizeof(plainText)};
 
     uint8_t pubKeyText[] = {
         0x2d, 0x2d, 0x2d, 0x2d, 0x2d, 0x42, 0x45, 0x47, 0x49, 0x4e, 0x20, 0x52, 0x53, 0x41, 0x20, 0x50, 0x55, 0x42,
@@ -129,7 +138,7 @@ bool DoTestRsaPssSignatureSeg()
         0x49, 0x43, 0x20, 0x4b, 0x45, 0x59, 0x2d, 0x2d, 0x2d, 0x2d, 0x2d, 0x0a,
     };
 
-    Crypto_DataBlob keyBlob = {.data = reinterpret_cast(pubKeyText), .len = sizeof(pubKeyText)};
+    Crypto_DataBlob keyBlob = {.data = reinterpret_cast<uint8_t *>(pubKeyText), .len = sizeof(pubKeyText)};
 
     uint8_t signText[] = {
         0xac, 0x2b, 0x12, 0x56, 0x1c, 0xe1, 0x60, 0x49, 0xc2, 0xd9, 0x87, 0x89, 0xfb, 0xa3, 0xc5, 0x41, 0x64, 0x7f,
@@ -149,7 +158,7 @@ bool DoTestRsaPssSignatureSeg()
         0x0f, 0xfa, 0x64, 0x3c,
     };
 
-    Crypto_DataBlob signBlob = {.data = reinterpret_cast(signText), .len = sizeof(signText)};
+    Crypto_DataBlob signBlob = {.data = reinterpret_cast<uint8_t *>(signText), .len = sizeof(signText)};
 
     // keypair
     OH_Crypto_ErrCode ret = CRYPTO_SUCCESS;

@@ -4,9 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getcorememsize
 
-## 函数功能
+##### 函数功能
 
 获取硬件平台存储空间的内存大小，例如L1、L0_A、L0_B、L2等，支持的存储空间类型定义如下。
+ 
 ```text
 enum class CoreMemType {
 L0_A = 0,
@@ -19,35 +20,40 @@ HBM = 6,
 RESERVED
 };
 ```
+ 
+  
 
-
-## 函数原型
-
+##### 函数原型
 
 ```text
 void GetCoreMemSize(const CoreMemType &memType, uint64_t &size) const;
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | memType | 输入 | 硬件存储空间类型。 |
 | size | 输出 | 对应类型的存储空间大小，单位：字节。 |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 ge::graphStatus TilingXXX(gert::TilingContext* context) {

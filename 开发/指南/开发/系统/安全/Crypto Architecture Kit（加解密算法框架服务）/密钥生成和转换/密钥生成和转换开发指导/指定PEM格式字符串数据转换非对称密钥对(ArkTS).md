@@ -1,20 +1,29 @@
 # 指定PEM格式字符串数据转换非对称密钥对(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-string-data-to-asym-key-pair
 
 以RSA为例，根据指定的非对称密钥字符串数据，生成非对称密钥对（KeyPair）。
 
-
 > [!NOTE]
 > 针对非对称密钥的convertPemKey操作： 公钥需满足X.509规范、PKCS#1规范、PEM编码格式。 私钥需满足PKCS#8规范、PKCS#1规范、PEM编码格式。
 
 
-## 指定PEM格式字符串数据转换密钥对
 
-对应的算法规格请查看[非对称密钥生成和转换规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec)。 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。 生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。 调用[AsyKeyGenerator.convertPemKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkey12)，传入二进制密钥数据，生成非对称密钥对象（KeyPair）。 调用[AsyKeyGenerator.getEncodedPem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpem12)，将非对称密钥对象中的公钥转换成pkcs1或x509格式，私钥转换成pkcs1或pkcs8格式。 以Promise方式生成RSA密钥对为例：
-```text
+##### 指定PEM格式字符串数据转换密钥对
+
+对应的算法规格请查看[非对称密钥生成和转换规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec)。
+1. 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
+
+  生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。
+2. 调用[AsyKeyGenerator.convertPemKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkey12)，传入二进制密钥数据，生成非对称密钥对象（KeyPair）。
+3. 调用[AsyKeyGenerator.getEncodedPem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpem12)，将非对称密钥对象中的公钥转换成pkcs1或x509格式，私钥转换成pkcs1或pkcs8格式。
+
+ - 以Promise方式生成RSA密钥对为例：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 let priKeyPkcs1Str1024: string =
@@ -52,8 +61,10 @@ async function testPkcs1ToPkcs8ByPromise() {
 }
 ```
 
-同步返回结果（调用方法[convertPemKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkeysync12)）：
-```text
+ - 同步返回结果（调用方法[convertPemKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkeysync12)）：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 let priKeyPkcs1Str1024: string =

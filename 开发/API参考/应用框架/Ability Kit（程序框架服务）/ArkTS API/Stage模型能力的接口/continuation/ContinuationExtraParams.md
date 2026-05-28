@@ -3,24 +3,22 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationextraparams
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 流转管理入口中设备选择模块所需的过滤参数，可以作为[startContinuationDeviceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationmanager#continuationmanagerstartcontinuationdevicemanagerdeprecated)的入参。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持，从API version 22开始废弃，建议使用[分布式设备管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager)替代。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 8开始支持，从API version 22开始废弃，建议使用 分布式设备管理 替代。 本模块接口仅可在Stage模型下使用。
 
 
-## ContinuationExtraParams(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### ContinuationExtraParams(deprecated)
 
 表示流转管理入口中设备选择模块所需的过滤参数。
 
-
 > [!NOTE]
-> 从API version 22开始废弃，建议使用[devicebasicinfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#devicebasicinfo)代替。
+> 从API version 22开始废弃，建议使用 devicebasicinfo 代替。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -28,12 +26,11 @@
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.Ability.DistributedAbilityManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceType | Array&lt;string&gt; | 否 | 是 | 表示设备类型。 |
 | targetBundle | string | 否 | 是 | 表示目标Bundle名称。 |
 | description | string | 否 | 是 | 表示设备过滤的描述。 |
 | filter | any | 否 | 是 | 表示设备过滤的参数。 |
-| continuationMode | [continuationManager.ContinuationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationmanager#continuationmodedeprecated) | 否 | 是 | 表示协同的模式。 |
-| authInfo | Record&lt;string, Object&gt; | 否 | 是 | 表示认证的信息。 |
+| continuationMode | continuationManager.ContinuationMode | 否 | 是 | 表示协同的模式。 |
+| authInfo | Record<string, Object> | 否 | 是 | 表示认证的信息。 |

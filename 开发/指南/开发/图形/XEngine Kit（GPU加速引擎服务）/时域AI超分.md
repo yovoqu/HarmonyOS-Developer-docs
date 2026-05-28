@@ -1,64 +1,115 @@
 # 时域AI超分
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-ai-temporal-upscaling
 
 从6.0.0(20) 版本开始，新增支持OpenGL ES协议。
 
- XEngine Kit提供时域AI超分能力，利用相机的抖动获取不同位置的采样信息，融合时域实现超采样率和超分辨率功能，并利用神经网络达到抗锯齿效果，建议超分倍率为[1.25, 2.0]。
+XEngine Kit提供时域AI超分能力，利用相机的抖动获取不同位置的采样信息，融合时域实现超采样率和超分辨率功能，并利用神经网络达到抗锯齿效果，建议超分倍率为[1.25, 2.0]。
 
 
-## 业务流程
+##### 约束与限制
 
-下面是基于GLES图形API平台集成时域AI超分的主要业务流程
-![](assets/时域AI超分/file-20260514131720086-0.jpg)
-用户在进入游戏初始化场景时调用HMS_XEG_GetString接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含时域AI超分时代表可以使用此特性。此时调用HMS_XEG_TemporalUpscaleParameter接口配置超分参数。当游戏运行时，游戏渲染待超分的当前帧纹理。当待超分纹理渲染完成时，即已经做完了带jitter的主pass渲染，准备好了depth，motion vector，color等输入纹理，此时调用HMS_XEG_RenderTemporalUpscale接口对待超分的纹理超分。当超分渲染完成时，游戏渲染剩下的纹理，如UI等。当前帧已全部渲染完成，进行送显。当游戏退出时，超分资源会自行释放。 下面是基于Vulkan图形API平台集成时域AI超分的主要业务流程
-![](assets/时域AI超分/file-20260514131720086-1.jpg)
-用户在进入游戏初始化场景时调用HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含时域AI超分时代表可以使用此特性。此时调用HMS_XEG_CreateTemporalUpscale接口创建超分实例。当游戏运行时，游戏渲染待超分的当前帧纹理。当待超分纹理渲染完成时，即已经做完了带jitter的主pass渲染，准备好了depth，motion vector，color等输入纹理，此时调用HMS_XEG_CmdRenderTemporalUpscale接口对待超分的纹理超分。当超分渲染完成时，游戏渲染剩下的纹理，如UI等。当前帧已全部渲染完成，进行送显。当游戏退出时，调用HMS_XEG_DestroyTemporalUpscale接口销毁超分实例。
+ - 支持的设备类型：Phone，从5.1.0(18)版本开始新增支持Tablet、PC/2in1设备，从5.1.1(19)版本开始新增支持TV设备。
+ - 可通过以下方式查询相关扩展特性是否支持：
 
-## 约束与限制
+  
+对于OpenGL ES，使用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)扩展特性查询接口进行查询。
+ - 对于Vulkan，使用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)扩展特性查询接口进行查询。
 
-支持的设备类型：Phone，从5.1.0(18)版本开始新增支持Tablet、PC/2in1设备，从5.1.1(19)版本开始新增支持TV设备。  可通过以下方式查询相关扩展特性是否支持：  对于OpenGL ES，使用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)扩展特性查询接口进行查询。  对于Vulkan，使用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)扩展特性查询接口进行查询。 如查询结果包含[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)，则表示支持该特性，若查询结果未包含，则表示不支持该特性。
 
-## 接口说明
+如查询结果包含[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)，则表示支持该特性，若查询结果未包含，则表示不支持该特性。
+
+
+
+
+##### 接口说明
 
 以下接口为OpenGL ES和Vulkan时域AI超分设置接口，如需使用更丰富的设置和查询接口，具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | const GLubyte * HMS_XEG_GetString (GLenum name) | XEngine OpenGL ES扩展特性查询接口。 |
 | GL_APICALL void GL_APIENTRY HMS_XEG_TemporalUpscaleParameter(GLenum pname, const GLvoid *param) | 设置时域AI超分输入参数。 |
-| GL_APICALL void GL_APIENTRY HMS_XEG_RenderTemporalUpscale( GLuint inputTexture, GLuint depthTexture, GLuint motionVectorTexture, GLuint dynamicMaskTexture, GLfloat jitterX, GLfloat jitterY ) | 执行时域AI超分渲染命令。 |
+| GL_APICALL void GL_APIENTRY HMS_XEG_RenderTemporalUpscale( GLuint inputTexture, GLuint depthTexture, GLuint motionVectorTexture, GLuint dynamicMaskTexture, GLfloat jitterX, GLfloat jitterY ) | 录制时域AI超分渲染命令。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_EnumerateDeviceExtensionProperties (VkPhysicalDevice physicalDevice, uint32_t * pPropertyCount, XEG_ExtensionProperties * pProperties) | XEngine Vulkan扩展特性查询接口。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateTemporalUpscale (VkDevice device, XEG_TemporalUpscaleCreateInfo * pTemporalUpscaleInfo, XEG_TemporalUpscale * pTemporalUpscale) | 创建XEG_TemporalUpscale对象。 |
-| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderTemporalUpscale (VkCommandBuffer commandBuffer, XEG_TemporalUpscale temporalUpscale, XEG_TemporalUpscaleDescription * pDescription) | 执行时域AI超分渲染命令。 |
+| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderTemporalUpscale (VkCommandBuffer commandBuffer, XEG_TemporalUpscale temporalUpscale, XEG_TemporalUpscaleDescription * pDescription) | 录制时域AI超分渲染命令。 |
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyTemporalUpscale (XEG_TemporalUpscale temporalUpscale) | 销毁XEG_TemporalUpscale对象。 |
 
 
-## 开发步骤
+
+
+##### 业务流程
+
+ - 下面是基于GLES图形API平台集成时域AI超分的主要业务流程
+
+  
+![](assets/时域AI超分/file-20260514131720086-0.jpg)
+
+
+1. 用户在进入游戏初始化场景时调用HMS_XEG_GetString接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)时代表可以使用此特性。
+2. 此时调用HMS_XEG_TemporalUpscaleParameter接口配置超分参数。
+3. 当游戏运行时，游戏渲染待超分的当前帧纹理。
+4. 当待超分纹理渲染完成时，即已经做完了带jitter的主pass渲染，准备好了depth、motion vector、color等输入纹理，此时调用HMS_XEG_RenderTemporalUpscale接口对待超分的纹理超分。
+5. 当超分渲染完成时，游戏渲染剩下的纹理，如UI等。
+6. 当前帧已全部渲染完成，进行送显。
+7. 当游戏退出时，超分资源会自行释放。
+
+ - 下面是基于Vulkan图形API平台集成时域AI超分的主要业务流程
+
+  
+![](assets/时域AI超分/file-20260514131720086-1.jpg)
+
+
+1. 用户在进入游戏初始化场景时调用HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含时域AI超分时代表可以使用此特性。
+2. 此时调用HMS_XEG_CreateTemporalUpscale接口创建超分实例。
+3. 当游戏运行时，游戏渲染待超分的当前帧纹理。
+4. 当待超分纹理渲染完成时，即已经做完了带jitter的主pass渲染，准备好了depth、motion vector、color等输入纹理，此时调用HMS_XEG_CmdRenderTemporalUpscale接口对待超分的纹理超分。
+5. 当超分渲染完成时，游戏渲染剩下的纹理，如UI等。
+6. 当前帧已全部渲染完成，进行送显。
+7. 当游戏退出时，调用HMS_XEG_DestroyTemporalUpscale接口销毁超分实例。
+
+
+
+##### 开发步骤
 
 本章以OpenGL ES和Vulkan图像API集成为例，说明XEngine集成操作过程。
 
-## 配置项目
 
-编译HAP时，Native层so编译需要依赖NDK中的libxengine.so。 头文件引用  按需引用XEngine的头文件，如使用OpenGL ES时域AI超分。
+
+##### 配置项目
+
+编译HAP时，Native层so编译需要依赖NDK中的libxengine.so。
+
+ - 头文件引用
+
+  按需引用XEngine的头文件，如使用OpenGL ES时域AI超分。
+
+  
 ```text
-#include
-#include
-#include
-#include
+#include <cstring>
+#include <cstdlib>
+#include <xengine/xeg_gles_extension.h>
+#include <xengine/xeg_gles_temporal_upscale.h>
 ```
-
 按需引用XEngine的头文件，如使用Vulkan时域AI超分。
+
+  
 ```text
-#include
-#include
-#include
+#include <algorithm>
+#include <string>
+#include <vector>
 #include "xengine/xeg_vulkan_temporal_upscale.h"
 #include "xengine/xeg_vulkan_extension.h"
 ```
 
-编写CMakeLists.txt  按需引用XEngine的CMakeLists，如使用OpenGL ES时域AI超分功能，CMakeLists.txt部分示例代码如下。
+ - 编写CMakeLists.txt
+
+  按需引用XEngine的CMakeLists，如使用OpenGL ES时域AI超分功能，CMakeLists.txt部分示例代码如下。
+
+  
 ```text
 find_library(
     # 设置路径变量的名称。
@@ -82,8 +133,9 @@ find_library(
 target_link_libraries(nativerender PUBLIC
 ${EGL-lib} ${GLES-lib} ${xengine-lib})
 ```
-
 按需引用XEngine的CMakeLists，如使用Vulkan时域AI超分功能，CMakeLists.txt部分示例代码如下，完整示例代码请参见[Demo（GPU加速引擎-Vulkan）](https://gitcode.com/harmonyos_samples/xengine-samplecode-vulkan-temporal-upscale-demo-cpp)。
+
+  
 ```text
 find_library(
     # 设置路径变量的名称。
@@ -127,9 +179,19 @@ target_link_libraries(nativerender PUBLIC
 ```
 
 
-## 集成XEngine时域AI超分（OpenGL ES）
 
-使用EGL和OpenGL ES图形API搭建图像渲染管线并集成时域AI超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。 本节阐述OpenGL ES图形API的时域AI超分的使用。 在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。 调用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口，获取XEngine支持的扩展信息，只有在支持[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)扩展时才可以使用时域AI超分的相关接口。
+
+
+##### 集成XEngine时域AI超分（OpenGL ES）
+
+使用EGL和OpenGL ES图形API搭建图像渲染管线并集成时域AI超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。
+
+本节阐述OpenGL ES图形API的时域AI超分的使用。
+
+在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。
+1. 调用[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口，获取XEngine支持的扩展信息，只有在支持[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)扩展时才可以使用时域AI超分的相关接口。
+
+  
 ```text
 // 查询XEngine支持的GLES扩展信息
 const char* extensions = (const char*)HMS_XEG_GetString(XEG_EXTENSIONS);
@@ -139,7 +201,9 @@ if (!strstr(extensions, XEG_TEMPORAL_UPSCALE_EXTENSION_NAME)) {
 }
 ```
 
-调用[HMS_XEG_TemporalUpscaleParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_temporalupscaleparameter)接口，对时域AI超分的参数赋值。
+2. 调用[HMS_XEG_TemporalUpscaleParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_temporalupscaleparameter)接口，对时域AI超分的参数赋值。
+
+  
 ```text
 // m_lowResWidth与m_lowResHeight分别为用户自定义的渲染宽度与渲染高度，此处以800*600分辨率为例
 uint32_t m_lowResWidth = 800;
@@ -147,7 +211,7 @@ uint32_t m_lowResHeight = 600;
 // 设置相机抖动的周期数，此处以8为例
 GLuint jitterNum = 8;
 
-GLsizei inputSize[2] = {static_cast(m_lowResWidth), static_cast(m_lowResHeight)};
+GLsizei inputSize[2] = {static_cast<GLsizei>(m_lowResWidth), static_cast<GLsizei>(m_lowResHeight)};
 // 设置超分输入纹理的真实宽高
 HMS_XEG_TemporalUpscaleParameter(XEG_TEMPORAL_UPSCALE_INPUT_SIZE, inputSize);
 
@@ -166,7 +230,16 @@ GLfloat steadyLevel = 0.5;
 HMS_XEG_TemporalUpscaleParameter(XEG_TEMPORAL_UPSCALE_STEADY_LEVEL, &steadyLevel);
 ```
 
-调用[HMS_XEG_RenderTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_rendertemporalupscale)接口进行超分，每帧都需要调用。  其中，参数jitterX和jitterY分别为相机在X方向和Y方向的抖动，是一个类似Halton的低差异序列。  本例使用Halton算法计算Jitter值：使用Halton算法生成一个[0, 1]的序列，再减去0.5使序列范围保持在[-0.5, 0.5]，最后除以输入图像的分辨率，得到UV坐标下的Jitter值。  根据Halton算法生成每帧需要的相机抖动（Jitter）。
+3. 调用[HMS_XEG_RenderTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_rendertemporalupscale)接口进行超分，每帧都需要调用。
+
+  其中，参数jitterX和jitterY分别为相机在X方向和Y方向的抖动，是一个类似Halton的低差异序列。
+
+  本例使用Halton算法计算Jitter值：使用Halton算法生成一个[0.0, 1.0]的序列，再减去0.5使序列范围保持在[-0.5, 0.5]，最后除以输入图像的分辨率，得到UV坐标下的Jitter值。
+
+  
+ - 根据Halton算法生成每帧需要的相机抖动（Jitter）。
+
+  
 ```text
 // Halton算法示例
 float GetHaltonSequence(uint32_t index, uint32_t base) {
@@ -186,7 +259,6 @@ float jitterX = 0.0;
 float jitterY = 0.0;
 ```
 
-
 ```text
 // 此处需要保证生成的低差异序列长度与jitterNum保持一致，且在[-0.5, 0.5]的范围内
 jitterX = GetHaltonSequence((frameNum % jitterNum) + 1, 2) - 0.5;
@@ -196,7 +268,10 @@ jitterX = jitterX / m_lowResWidth;
 jitterY = jitterY / m_lowResHeight;
 ```
 
-调用时域AI超分渲染接口。
+
+4. 调用时域AI超分渲染接口。
+
+  
 ```text
 // 这里表示第一帧使用超分的情况下设置resetHistory为true，否则设置为false
 resetHistory = frameNum == 0 ? GL_TRUE : GL_FALSE;
@@ -225,18 +300,28 @@ HMS_XEG_RenderTemporalUpscale(m_lowLightColorTexture, m_lowGboDepth, m_motionVec
 ```
 
 
-## 集成XEngine时域AI超分（Vulkan）
 
-使用Vulkan图形API搭建图像渲染管线，并集成时域AI超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。 本节阐述Vulkan图形API的时域AI超分使用，详细代码请参见[Samplecode](https://gitcode.com/harmonyos_samples/xengine-samplecode-vulkan-temporal-upscale-demo-cpp)。 在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。 调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口，获取XEngine支持的扩展信息，只有在支持[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)扩展时才可以使用时域AI超分的相关接口。
+
+
+##### 集成XEngine时域AI超分（Vulkan）
+
+使用Vulkan图形API搭建图像渲染管线，并集成时域AI超分在Native层实现，渲染结果通过[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件显示到屏幕。
+
+本节阐述Vulkan图形API的时域AI超分使用，详细代码请参见[Samplecode](https://gitcode.com/harmonyos_samples/xengine-samplecode-vulkan-temporal-upscale-demo-cpp)。
+
+在调用XEngine Kit能力前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询您的目标设备是否支持SystemCapability.Graphic.XEngine系统能力。
+1. 调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口，获取XEngine支持的扩展信息，只有在支持[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)扩展时才可以使用时域AI超分的相关接口。
+
+  
 ```text
 // physicalDevice为Vulkan物理设备，用户需进行初始化
 VkPhysicalDevice physicalDevice;
 // 查询XEngine支持的Vulkan扩展列表
-std::vector supportedExtensions;
+std::vector<std::string> supportedExtensions;
 uint32_t pPropertyCount;
 HMS_XEG_EnumerateDeviceExtensionProperties(physicalDevice, &pPropertyCount, nullptr);
 if (pPropertyCount > 0) {
-    std::vector pProperties(pPropertyCount);
+    std::vector<XEG_ExtensionProperties> pProperties(pPropertyCount);
     if (HMS_XEG_EnumerateDeviceExtensionProperties(physicalDevice, &pPropertyCount,
         &pProperties.front()) == VK_SUCCESS) {
         for (auto ext : pProperties) {
@@ -251,18 +336,27 @@ if (std::find(supportedExtensions.begin(), supportedExtensions.end(), XEG_TEMPOR
 }
 ```
 
-声明实例句柄。
+2. 声明实例句柄。
+
+  
 ```text
 XEG_TemporalUpscale xegTemporalUpscale;
 ```
 
-调用[HMS_XEG_CreateTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_createtemporalupscale)接口，创建时域AI超分实例。
+3. 调用[HMS_XEG_CreateTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_createtemporalupscale)接口，创建时域AI超分实例。
+
+  
 ```text
 // 渲染宽高和超分后宽高均为用户自定义参数，这里将以800*600的分辨率进行1.5倍超分到1200*900的分辨率为例
 uint32_t lowResWidth = 800;
 uint32_t lowResHeight = 600;
 uint32_t highResWidth = 1200;
 uint32_t highResHeight = 900;
+VkRect2D dstRect2D;
+dstRect2D.offset.x = 0;
+dstRect2D.offset.y = 0;
+dstRect2D.extent.width = highResWidth;
+dstRect2D.extent.height = highResHeight;
 const uint32_t jitterNum = 8;
 // Vulkan逻辑设备，用户需进行初始化
 VkDevice device;
@@ -272,6 +366,7 @@ XEG_TemporalUpscaleCreateInfo createInfo;
 createInfo.inputSize = {lowResWidth, lowResHeight};
 // 指定输出图像的大小，即高分辨率图像的尺寸
 createInfo.outputSize = {highResWidth, highResHeight};
+createInfo.outputRegion = dstRect2D;
 // 指定输出图像的颜色格式
 createInfo.outputFormat = VK_FORMAT_R8G8B8A8_UNORM;
 // jitterNum为相机抖动的周期数
@@ -284,7 +379,16 @@ if (res != VK_SUCCESS) {
 }
 ```
 
-调用[HMS_XEG_CmdRenderTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdrendertemporalupscale)接口下发超分，每帧都需要调用。  其中，参数jitterX和jitterY分别为相机在X方向和Y方向的抖动，是一个类似Halton的低差异序列。  本例使用Halton算法计算Jitter值：使用Halton算法生成一个[0, 1]的序列，再减去0.5使序列范围保持在[-0.5, 0.5]，最后除以输入图像的分辨率，得到UV坐标下的Jitter值。  根据Halton算法生成每帧需要的相机抖动（Jitter）。
+4. 调用[HMS_XEG_CmdRenderTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdrendertemporalupscale)接口下发超分，每帧都需要调用。
+
+  其中，参数jitterX和jitterY分别为相机在X方向和Y方向的抖动，是一个类似Halton的低差异序列。
+
+  本例使用Halton算法计算Jitter值：使用Halton算法生成一个[0.0, 1.0]的序列，再减去0.5使序列范围保持在[-0.5, 0.5]，最后除以输入图像的分辨率，得到UV坐标下的Jitter值。
+
+  
+ - 根据Halton算法生成每帧需要的相机抖动（Jitter）。
+
+  
 ```text
 // Halton算法示例
 float GetHaltonSequence(uint32_t index, uint32_t base) {
@@ -299,7 +403,10 @@ float GetHaltonSequence(uint32_t index, uint32_t base) {
 }
 ```
 
-调用时域AI超分渲染接口。
+
+5. 调用时域AI超分渲染接口。
+
+  
 ```text
 // 当前帧数，需要每帧+1，用于确定当前帧使用的Jitter值，使Jitter值在JitterNum范围内轮转
 uint64_t frameNum = 0;
@@ -311,7 +418,7 @@ XEG_TemporalUpscaleDescription xegDescription;
 // inputImageView为用户创建的超分输入图像的VkImageView
 VkImageView inputImageView = VK_NULL_HANDLE;
 // motionVectorImageView为用户创建的运动矢量图像的VkImageView
-VkImageView motionVectorImageView= VK_NULL_HANDLE;
+VkImageView motionVectorImageView = VK_NULL_HANDLE;
 // depthImageView为用户创建的深度图像的VkImageView
 VkImageView depthImageView = VK_NULL_HANDLE;
 // dynamicMaskImageView为用户创建的物体动态遮罩图像的VkImageView
@@ -340,7 +447,9 @@ xegDescription.steadyLevel = 0.5;
 HMS_XEG_CmdRenderTemporalUpscale(commandBuffer, xegTemporalUpscale, &xegDescription);
 ```
 
-调用[HMS_XEG_DestroyTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_destroytemporalupscale)接口销毁实例。
+ - 调用[HMS_XEG_DestroyTemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_destroytemporalupscale)接口销毁实例。
+
+  
 ```text
 if (xegTemporalUpscale) {
     HMS_XEG_DestroyTemporalUpscale(xegTemporalUpscale);

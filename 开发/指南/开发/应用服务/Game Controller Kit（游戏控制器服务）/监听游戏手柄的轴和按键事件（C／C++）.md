@@ -5,21 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/game-controller-monitor-pad
 
 > [!NOTE]
-> 须先完成监听设备上下线功能的开发后，才能进行游戏手柄轴事件和按键事件的监听注册。
+> 须先完成 监听设备上下线 功能的开发后，才能进行游戏手柄轴事件和按键事件的监听注册。
 
 
-## 功能介绍
+
+##### 功能介绍
 
 Game Controller Kit提供游戏手柄轴事件和按键事件的监听能力。通过轴事件和按键事件的监听注册，在玩家操作手柄按键和摇杆时可获得对应回调通知。
 
-## 按键
+
+
+##### 按键
 
 Game Controller Kit支持的手柄键位参考图如下：
-![](assets/监听游戏手柄的轴和按键事件（C／C++）/file-20260514131902265-0.png)
 
-## 接口说明
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/rpg29irBTKaXIqLTww3e0w/zh-cn_image_0000002581434980.png?HW-CC-KV=V1&HW-CC-Date=20260528T014422Z&HW-CC-Expire=86400&HW-CC-Sign=065E9E89576A2EB3CA5C5C4BCC5DC43F6029C4E575ABED8FCF0F5F635ACF4713)
+
+
+
+
+##### 接口说明
 
 接口详细介绍请参考[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-game-controller)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | OH_GamePad_LeftShoulder_RegisterButtonInputMonitor | 注册LeftShoulder按键事件的监听。 |
@@ -46,37 +55,45 @@ Game Controller Kit支持的手柄键位参考图如下：
 | OH_GamePad_RightThumbstick_RegisterAxisInputMonitor | 注册RightThumbstick轴事件的监听。 |
 
 
-## 开发步骤
 
 
-## 链接动态库
+##### 开发步骤
 
+
+
+##### 链接动态库
 
 ```text
 target_link_libraries(entry PUBLIC libohgame_controller.z.so)
 ```
 
 
-## 导入模块
 
+##### 导入模块
 
 ```text
-#include
+#include <GameControllerKit/game_pad.h>
 ```
 
 
-## 注册和取消注册轴事件的监听
 
-调用相应接口注册或取消注册轴事件回调，通过回调函数获取轴值。 物理轴及其对应的轴值获取接口如下：
+##### 注册和取消注册轴事件的监听
+
+调用相应接口注册或取消注册轴事件回调，通过回调函数获取轴值。
+
+物理轴及其对应的轴值获取接口如下：
+
 | 物理轴 | 轴值获取接口 |
 | --- | --- |
-| LeftThumbstick | 通过OH_GamePad_AxisEvent_GetXAxisValue获取X轴的轴值。          通过OH_GamePad_AxisEvent_GetYAxisValue获取Y轴的轴值。 |
-| RightThumbstick | 通过OH_GamePad_AxisEvent_GetZAxisValue获取Z轴的轴值。          通过OH_GamePad_AxisEvent_GetRZAxisValue获取RZ轴的轴值。 |
-| DPAD | 通过OH_GamePad_AxisEvent_GetHatXAxisValue获取HatX轴的轴值。          通过OH_GamePad_AxisEvent_GetHatYAxisValue获取HatY轴的轴值。 |
+| LeftThumbstick | 通过OH_GamePad_AxisEvent_GetXAxisValue获取X轴的轴值。 通过OH_GamePad_AxisEvent_GetYAxisValue获取Y轴的轴值。 |
+| RightThumbstick | 通过OH_GamePad_AxisEvent_GetZAxisValue获取Z轴的轴值。 通过OH_GamePad_AxisEvent_GetRZAxisValue获取RZ轴的轴值。 |
+| DPAD | 通过OH_GamePad_AxisEvent_GetHatXAxisValue获取HatX轴的轴值。 通过OH_GamePad_AxisEvent_GetHatYAxisValue获取HatY轴的轴值。 |
 | LeftTrigger | 通过OH_GamePad_AxisEvent_GetBrakeAxisValue获取Brake轴的轴值。 |
 | RightTrigger | 通过OH_GamePad_AxisEvent_GetGasAxisValue获取Gas轴的轴值。 |
 
+
 以LeftThumbstick轴事件为例。
+
 ```text
 napi_value GamePad::LeftThumbstick_RegisterAxisInputMonitor(napi_env env, napi_callback_info info) {
     napi_value result;
@@ -118,9 +135,13 @@ void GamePad::LeftThumbstick_OnAxisEvent(const struct GamePad_AxisEvent *axisEve
 ```
 
 
-## 注册按键事件的监听和取消注册
 
-调用相应接口注册或取消注册按键事件回调，从回调函数中获取按键值。 以下是按键名称与对应按键值：
+##### 注册按键事件的监听和取消注册
+
+调用相应接口注册或取消注册按键事件回调，从回调函数中获取按键值。
+
+以下是按键名称与对应按键值：
+
 | 按键名称 | 按键值 |
 | --- | --- |
 | LeftShoulder | 2307 |
@@ -141,7 +162,9 @@ void GamePad::LeftThumbstick_OnAxisEvent(const struct GamePad_AxisEvent *axisEve
 | Dpad_LeftButton | 2014 |
 | Dpad_RightButton | 2015 |
 
+
 以LeftShoulder按键事件为例。
+
 ```text
 napi_value GamePad::LeftShoulder_RegisterButtonInputMonitor(napi_env env, napi_callback_info info) {
     napi_value result;
@@ -198,6 +221,22 @@ void GamePad::OnButtonEvent(const struct GamePad_ButtonEvent *buttonEvent, const
     OH_GamePad_PressedButtons_GetCount(buttonEvent, &count);
     temp.append(" ,count:").append(std::to_string(count));
     std::string pressedButtonCodes;
-    for (std::int32_t idx = 0; idx PrintLog(temp);
+    for (std::int32_t idx = 0; idx < count; idx++) {
+        GamePad_PressedButton *pressedButton;
+        OH_GamePad_PressedButtons_GetButtonInfo(buttonEvent, idx, &pressedButton);
+        int code;
+        OH_GamePad_PressedButton_GetButtonCode(pressedButton, &code);
+        char *name;
+        OH_GamePad_PressedButton_GetButtonCodeName(pressedButton, &name);
+        if (idx != 0) {
+            pressedButtonCodes = pressedButtonCodes.append(";");
+        }
+        pressedButtonCodes = pressedButtonCodes.append(std::to_string(code) + "|").append(name);
+        free(name);
+        OH_GamePad_DestroyPressedButton(&pressedButton);
+    }
+    temp.append(" ,pressedButtonCodes:").append(pressedButtonCodes);
+    OH_LOG_INFO(LOG_APP, "%{public}s", temp.c_str());
+    Log::GetInstance()->PrintLog(temp);
 }
 ```

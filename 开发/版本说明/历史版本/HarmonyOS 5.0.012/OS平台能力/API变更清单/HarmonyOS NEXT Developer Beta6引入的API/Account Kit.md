@@ -18,4 +18,4 @@
 | 新增API | NA | 类名：ConsistencyState； API声明：INCONSISTENT = 2 差异内容：INCONSISTENT = 2 | api/@hms.core.authentication.d.ts |
 | 新增API | NA | 类名：authentication； API声明： export interface ConsistencyResult 差异内容： export interface ConsistencyResult | api/@hms.core.authentication.d.ts |
 | 新增API | NA | 类名：ConsistencyResult； API声明：state: ConsistencyState; 差异内容：state: ConsistencyState; | api/@hms.core.authentication.d.ts |
-| 新增API | NA | 类名：HuaweiIDProvider； API声明：getMobileNumberConsistency(request: ConsistencyRequest): Promise<ConsistencyResult>; 差异内容：getMobileNumberConsistency(request: ConsistencyRequest): Promise<ConsistencyResult>; | api/@hms.core.authentication.d.ts |
+| 新增API | NA | 类名：HuaweiIDProvider； API声明：getMobileNumberConsistency(request: ConsistencyRequest): Promise&lt;ConsistencyResult&gt;; 差异内容：getMobileNumberConsistency(request: ConsistencyRequest): Promise&lt;ConsistencyResult&gt;; | api/@hms.core.authentication.d.ts |

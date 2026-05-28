@@ -1,6 +1,6 @@
 # 绑定半模态页面（bindSheet）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sheet-page
 
@@ -11,13 +11,18 @@
 半模态在不同宽度的设备上存在不同的形态能力，开发者对不同宽度的设备上有不同的形态诉求请参考([preferType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions))属性。可以使用bindSheet构建半模态转场效果，详见[模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-modal-transition#使用bindsheet构建半模态转场效果)。对于复杂或者冗长的用户流程，建议考虑其他的转场方式替代半模态。如[全模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-contentcover-page)和[Navigation转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-animation)。
 
 
-## 使用约束
+##### 使用约束
 
-半模态内嵌[UIExtension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension)时，不支持再在UIExtension内拉起半模态/弹窗。 若无二次确认或者自定义关闭行为的场景，不建议使用[shouldDismiss/onWillDismiss](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)接口。
+ - 半模态内嵌[UIExtension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension)时，不支持再在UIExtension内拉起半模态/弹窗。
+ - 若无二次确认或者自定义关闭行为的场景，不建议使用[shouldDismiss/onWillDismiss](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)接口。
 
-## 生命周期
+
+
+
+##### 生命周期
 
 半模态页面提供了生命周期函数，用于通知用户该弹窗的生命周期状态。生命周期的触发顺序依次为：onWillAppear -> onAppear -> onWillDisappear -> onDisappear。
+
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
 | onWillAppear | () => void | 半模态页面显示（动画开始前）回调函数。 |
@@ -26,9 +31,29 @@
 | onDisappear | () => void | 半模态页面回退（动画结束后）回调函数。 |
 
 
-## 使用嵌套滚动交互
 
-在半模态面板内容区域滑动时的操作优先级： 内容处于最顶部（内容不可滚动时以此状态处理） 上滑时，优先向上扩展面板挡位，如无挡位可扩展，则滚动内容 下滑时，优先向下收缩面板挡位，如无挡位可收缩，则关闭面板 内容处于中间位置（可上下滚动） 上/下滑时，优先滚动内容，直至页面内容到达底部/顶部 内容处于底部位置（内容可滚动时） 上滑时，呈现内容区域回弹效果，不切换挡位 下滑时，滚动内容直到到达顶部 半模态上述交互默认的嵌套模式为：{Forward：PARENT_FIRST，Backward：SELF_FIRST} 如果开发者希望在面板内容的builder中定义滚动容器，如List、Scroll，并结合半模态的上述交互能力，那么需要在垂直方向上为滚动容器设置嵌套滚动属性。
+
+##### 使用嵌套滚动交互
+
+在半模态面板内容区域滑动时的操作优先级：
+1. 内容处于最顶部（内容不可滚动时以此状态处理）
+
+  上滑时，优先向上扩展面板挡位，如无挡位可扩展，则滚动内容
+
+  下滑时，优先向下收缩面板挡位，如无挡位可收缩，则关闭面板
+2. 内容处于中间位置（可上下滚动）
+
+  上/下滑时，优先滚动内容，直至页面内容到达底部/顶部
+3. 内容处于底部位置（内容可滚动时）
+
+  上滑时，呈现内容区域回弹效果，不切换挡位
+
+  下滑时，滚动内容直到到达顶部
+
+半模态上述交互默认的嵌套模式为：{Forward：PARENT_FIRST，Backward：SELF_FIRST}
+
+如果开发者希望在面板内容的builder中定义滚动容器，如List、Scroll，并结合半模态的上述交互能力，那么需要在垂直方向上为滚动容器设置嵌套滚动属性。
+
 ```text
 .nestedScroll({
     // 可滚动组件往末尾端滚动时的嵌套滚动选项，手势向上
@@ -39,7 +64,8 @@
 ```
 
 完整示例代码如下：
-```text
+
+```ArkTS
 @Entry
 @Component
 struct SheetDemo {
@@ -95,16 +121,21 @@ struct SheetDemo {
 }
 ```
 
+
 ![](assets/绑定半模态页面（bindSheet）/file-20260514130646406-0.png)
 
-## 二次确认能力
+
+
+
+##### 二次确认能力
 
 推荐使用onWillDismiss接口，此接口支持在回调中处理二次确认，或自定义关闭行为。
+
 > [!NOTE]
 > 声明onWillDismiss接口后，半模态页面的所有关闭操作，包括侧滑、点击关闭按钮、点击蒙层和下拉关闭，都需通过调用dismiss方法来实现。若未实现此逻辑，半模态页面将无法响应上述关闭操作。
 
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const TAG = '[Sample_SupportingAgingFriendly]';
@@ -175,11 +206,18 @@ struct OnWillDismiss_Dismiss {
 }
 ```
 
-![](assets/绑定半模态页面（bindSheet）/file-20260514130646406-1.png)
 
-## 屏蔽部分关闭行为
+![](assets/绑定半模态页面（bindSheet）/file-20260514130646406-2.png)
 
-由于声明了onWillDismiss接口，半模态的关闭行为都需要dismiss处理。可以通过if等逻辑自定义处理关闭逻辑。 下述示例显示半模态页面只在下滑的时候关闭。
+
+
+
+##### 屏蔽部分关闭行为
+
+由于声明了onWillDismiss接口，半模态的关闭行为都需要dismiss处理。可以通过if等逻辑自定义处理关闭逻辑。
+
+下述示例显示半模态页面只在下滑的时候关闭。
+
 ```text
 onWillDismiss: ((DismissSheetAction: DismissSheetAction) => {
   if (DismissSheetAction.reason === DismissReason.SLIDE_DOWN) {
@@ -188,7 +226,12 @@ onWillDismiss: ((DismissSheetAction: DismissSheetAction) => {
 }),
 ```
 
-同理可以结合onWillSpringBackWhenDismiss接口实现更好的下滑体验。 类比onWillDismiss，在声明了onWillSpringBackWhenDismiss后，半模态下滑时的回弹操作需要使用 SpringBackAction.springBack()处理，无此逻辑则不会回弹。 具体代码如下，在半模态下滑的时候无需回弹。
+同理可以结合onWillSpringBackWhenDismiss接口实现更好的下滑体验。
+
+类比onWillDismiss，在声明了onWillSpringBackWhenDismiss后，半模态下滑时的回弹操作需要使用 SpringBackAction.springBack()处理，无此逻辑则不会回弹。
+
+具体代码如下，在半模态下滑的时候无需回弹。
+
 ```text
 onWillDismiss: ((DismissSheetAction: DismissSheetAction) => {
   if (DismissSheetAction.reason === DismissReason.SLIDE_DOWN) {
@@ -202,10 +245,18 @@ onWillSpringBackWhenDismiss: ((SpringBackAction: SpringBackAction) => {
 ```
 
 
-## 半模态支持避让中轴
 
-半模态从API version 14开始支持中轴避让，当前在2in1设备默认开启（仅窗口处于瀑布模式时产生避让）中轴避让能力，且在2in1设备默认避让区域为上半屏。开发者可以通过[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)的enableHoverMode主动设置是否避让中轴，及[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)的hoverModeArea设置避让中轴后显示区域。 半模态中轴避让不支持控件子窗能力，[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)中的showInSubWindow为true的场景。 2in1设备上需同时满足窗口处于瀑布模式才会产生避让。 完整示例代码如下：
-```text
+##### 半模态支持避让中轴
+
+半模态从API version 14开始支持中轴避让，当前在2in1设备默认开启（仅窗口处于瀑布模式时产生避让）中轴避让能力，且在2in1设备默认避让区域为上半屏。开发者可以通过[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)的enableHoverMode主动设置是否避让中轴，及[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)的hoverModeArea设置避让中轴后显示区域。
+
+ - 半模态中轴避让不支持控件子窗能力，[SheetOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sheet-transition#sheetoptions)中的showInSubWindow为true的场景。
+ - 2in1设备上需同时满足窗口处于瀑布模式才会产生避让。
+
+
+完整示例代码如下：
+
+```ArkTS
 @Entry
 @Component
 struct SheetTransitionExample {
@@ -268,4 +319,5 @@ struct SheetTransitionExample {
 }
 ```
 
-![](assets/绑定半模态页面（bindSheet）/file-20260514130646406-2.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/YL_-vyuZT5-X66aMuN6rYg/zh-cn_image_0000002611833817.png?HW-CC-KV=V1&HW-CC-Date=20260528T014809Z&HW-CC-Expire=86400&HW-CC-Sign=7AC381067A4076299D1303BE5284960347B45FAA6AAE2D5BDA7D4640476A9C5A)

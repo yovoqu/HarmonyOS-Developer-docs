@@ -1,6 +1,6 @@
 # 使用SM2密文格式转换(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm2-ciphertext-conversion
 
@@ -9,9 +9,11 @@
 开发者可指定SM2密文的参数，将其转换成符合国密标准的ASN.1格式密文。反之，也可以从国密标准的ASN.1格式密文中取出具体的SM2密文参数，便于开发者自行组合成其他格式的SM2密文。
 
 **指定密文参数，生成标准ASN.1密文**
+1. 构造[SM2CipherTextSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#sm2ciphertextspec12)对象，用于指定SM2密文参数。如果开发者使用的不是国密标准的ASN.1格式密文，需自行提取所需要的参数。
+2. 调用[genCipherTextBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genciphertextbyspec12)，将SM2CipherTextSpec对象传入，生成符合国密标准的ASN.1格式的SM2密文。
+3. 生成的密文可直接使用cryptoFramework进行SM2解密。
 
-
-```text
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function testGenCipherTextBySpec() {
@@ -29,9 +31,11 @@ function testGenCipherTextBySpec() {
 ```
 
 **从标准ASN.1密文中，获取密文参数**
+1. 准备符合国密标准的ASN.1格式的SM2密文。
+2. 调用[getCipherTextSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genciphertextbyspec12)，从标准密文中，获取具体的SM2密文参数。
+3. 根据业务需要，自行拼接SM2密文参数，形成其他格式的SM2密文。
 
-
-```text
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function testGetCipherTextSpec() {

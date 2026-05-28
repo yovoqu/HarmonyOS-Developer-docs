@@ -9,61 +9,75 @@
 获取视频帧的全流程包含：创建AVImageGenerator对象、设置资源、获取视频帧、销毁资源。
 
 
-## 开发步骤及注意事项
+##### 开发步骤及注意事项
 
 在 CMake 脚本中链接动态库。
+
 ```text
 target_link_libraries(entry PUBLIC libavimage_generator.so libace_napi.z.so)
 ```
 
 使用[OH_PixelmapNative_ConvertPixelmapNativeToNapi()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_convertpixelmapnativetonapi)接口将nativePixelMap对象转换为PixelMapnapi对象、[OH_PixelmapNative_Release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_release)接口释放OH_PixelmapNative对象资源，需引入如下头文件。
+
 ```text
-#include
+#include <multimedia/image_framework/image/pixelmap_native.h>
 ```
 
 并在 CMake 脚本中链接如下动态库。
+
 ```text
 target_link_libraries(entry PUBLIC libpixelmap.so libpixelmap_ndk.z.so)
 ```
 
 开发者使用系统日志能力时，需引入如下头文件。
+
 ```text
-#include
+#include <hilog/log.h>
 ```
 
 并需要在 CMake 脚本中链接如下动态库。
+
 ```text
 target_link_libraries(entry PUBLIC libhilog_ndk.z.so)
 ```
 
 （可选）开发者可以使用[OH_AVMetadataExtractor_FetchMetadata()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetadata-extractor-h#oh_avmetadataextractor_fetchmetadata)获取媒体资源时长信息[OH_AVMETADATA_EXTRACTOR_DURATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetadata-extractor-base-h#变量)，进而选择获取视频帧的时间。使用需引入如下头文件。
+
 ```text
 #include "multimedia/player_framework/avmetadata_extractor.h"
 #include "multimedia/player_framework/avmetadata_extractor_base.h"
 ```
 
 并需要在 CMake 脚本中链接如下动态库。
+
 ```text
 target_link_libraries(entry PUBLIC libavmetadata_extractor.so libnative_media_core.so)
 ```
 
-开发者通过引入[avimage_generator.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h)、[avimage_generator_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-base-h)和[native_averrors.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h)头文件，使用获取视频帧相关API。 详细的API说明请参考[AVImageGenerator API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimagegenerator)。 使用[OH_AVImageGenerator_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_create)创建实例。
+开发者通过引入[avimage_generator.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h)、[avimage_generator_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-base-h)和[native_averrors.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h)头文件，使用获取视频帧相关API。
+
+详细的API说明请参考[AVImageGenerator API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimagegenerator)。
+1. 使用[OH_AVImageGenerator_Create()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_create)创建实例。
+
+  
 ```text
-#include
+#include <multimedia/player_framework/avimage_generator.h>
 // 创建OH_AVImageGenerator实例。
 OH_AVImageGenerator* generator = OH_AVImageGenerator_Create();
 ```
 
-设置视频资源的文件描述符：调用[OH_AVImageGenerator_SetFDSource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_setfdsource)。
+2. 设置视频资源的文件描述符：调用[OH_AVImageGenerator_SetFDSource()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_setfdsource)。
+
+  
 ```text
 #include "napi/native_api.h"
-#include
-#include
+#include <multimedia/player_framework/avimage_generator.h>
+#include <multimedia/player_framework/native_averrors.h>
 
 int64_t offset = 0; // 媒体源在文件描述符中的偏移量。
 int32_t fileDescribe = -1; // 媒体文件描述符。
 int32_t fileSize = 0; // 媒体文件大小。
-
+    
 // 设置视频资源的文件描述符。
 OH_AVErrCode avErrCode = OH_AVImageGenerator_SetFDSource(generator, fileDescribe, offset, fileSize);
 // 异常处理。
@@ -74,7 +88,9 @@ if (avErrCode != AV_ERR_OK) {
 }
 ```
 
-（可选）获取媒体资源时长信息，并指定获取视频帧的时间。
+3. （可选）获取媒体资源时长信息，并指定获取视频帧的时间。
+
+  
 ```text
 #include "napi/native_api.h"
 #include "multimedia/player_framework/avmetadata_extractor.h"
@@ -124,13 +140,17 @@ static napi_value OhAVMetadataExtractorGetDuration(napi_env env, napi_callback_i
 }
 ```
 
-获取指定时间的视频帧：调用[OH_AVImageGenerator_FetchFrameByTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_fetchframebytime)，可以获取到一个OH_PixelmapNative对象，该对象可用于图片显示。 使用完成需要调用OH_PixelmapNative_Release释放OH_PixelmapNative对象资源，详细使用方法请参阅[Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_release)。
+4. 获取指定时间的视频帧：调用[OH_AVImageGenerator_FetchFrameByTime()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_fetchframebytime)，可以获取到一个OH_PixelmapNative对象，该对象可用于图片显示。
+
+  使用完成需要调用OH_PixelmapNative_Release释放OH_PixelmapNative对象资源，详细使用方法请参阅[Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_release)。
+
+  
 ```text
 #include "napi/native_api.h"
-#include
-#include
-#include
-#include
+#include <multimedia/image_framework/image/pixelmap_native.h>
+#include <multimedia/player_framework/avimage_generator.h>
+#include <multimedia/player_framework/avimage_generator_base.h>
+#include <multimedia/player_framework/native_averrors.h>
 
 // FetchFrameByTime的输入参数。
 struct FetchFrameParams {
@@ -194,17 +214,24 @@ static napi_value OhAvImageGeneratorFetchFrameByTime(napi_env env, napi_callback
 }
 ```
 
-释放资源：调用[OH_AVImageGenerator_Release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_release)销毁实例，释放资源。
+5. 释放资源：调用[OH_AVImageGenerator_Release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h#oh_avimagegenerator_release)销毁实例，释放资源。
+
+  
 ```text
 // 释放OH_AVImageGenerator资源。
 OH_AVImageGenerator_Release(generator);
 ```
 
 
-## 运行示例工程
 
-参考以下示例，获取一个视频指定时间的视频帧。 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVImageGenerator/AVImageGeneratorNDK)，并将示例工程的资源复制到对应目录。
-```text
+
+##### 运行示例工程
+
+参考以下示例，获取一个视频指定时间的视频帧。
+1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVImageGenerator/AVImageGeneratorNDK)，并将示例工程的资源复制到对应目录。
+
+  
+```ArkTS
 AVImageGeneratorNDK
 entry/src/main/ets/
 └── pages
@@ -228,4 +255,4 @@ entry/src/main/
         └── H264_AAC.mp4 (视频资源)
 ```
 
-编译新建工程并运行。
+2. 编译新建工程并运行。

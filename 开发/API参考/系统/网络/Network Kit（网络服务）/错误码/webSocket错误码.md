@@ -3,14 +3,14 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-websocket
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 说明文档。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
-
-## 200 连接失败
+##### 200 连接失败
 
 **错误信息**
 
@@ -21,8 +21,6 @@ Websocket connect failed.
 WebSocket连接失败。
 
 **可能原因**
-
-
 1. 服务器拒绝客户端连接、协议出现问题导致握手失败或证书验证失败。
 2. 客户端或服务端断开连接时无状态码。
 
@@ -31,8 +29,8 @@ WebSocket连接失败。
 检查协议是否有效、证书校验是否通过，重新连接。
 
 
-## 2302001 Websocket URL错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302001 Websocket URL错误
 
 **错误信息**
 
@@ -53,8 +51,8 @@ WebSocket URL错误。
 2.检查URL长度是否超过2048个字符。
 
 
-## 2302002 Websocket 证书不存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302002 Websocket 证书不存在
 
 **错误信息**
 
@@ -75,8 +73,8 @@ WebSocket 证书不存在。
 2.如指定了WebSocketRequestOptions.clientCert，请检查证书路径与私钥路径是否有效。
 
 
-## 2302003 Websocket 连接已经存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302003 Websocket 连接已经存在
 
 **错误信息**
 
@@ -95,8 +93,8 @@ WebSocket 连接已经建立。
 已建立websocket连接，无需重复调用WebSocket.connect进行建连，无其他处理步骤。
 
 
-## 2302004 WebsocketServer 无法在指定的NIC（网络接口）上进行网络监听
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302004 WebsocketServer 无法在指定的NIC（网络接口）上进行网络监听
 
 **错误信息**
 
@@ -115,8 +113,8 @@ WebSocketServer服务器配置文件中的ip地址无效。
 检查网络连接是否正常，检查ip地址有效性。
 
 
-## 2302005 WebsocketServer 无法在指定的端口上进行网络监听
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302005 WebsocketServer 无法在指定的端口上进行网络监听
 
 **错误信息**
 
@@ -135,8 +133,8 @@ WebSocketServer服务器配置文件中的端口号无效。
 检查端口号的有效性。
 
 
-## 2302007 WebsocketServer当前监听的端口已被占用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302007 WebsocketServer当前监听的端口已被占用
 
 **错误信息**
 
@@ -155,8 +153,8 @@ WebsocketServer当前监听的端口已经被占用。
 更换一个未被占用的端口。
 
 
-## 2302998 不允许访问域名
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302998 不允许访问域名
 
 **错误信息**
 
@@ -175,8 +173,8 @@ It is not allowed to access this domain.
 可参考[配置服务器域名](https://developer.huawei.com/consumer/cn/doc/atomic-guides/agc-help-harmonyos-server-domain)文档完成服务器域名相关配置。
 
 
-## 2302999 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2302999 内部错误
 
 **错误信息**
 

@@ -5,13 +5,14 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-vs-worker
 
 TaskPool和Worker的作用是为应用程序提供多线程运行环境，用于处理耗时计算任务或其他密集型任务，避免任务阻塞宿主线程，提高系统性能和资源利用率。
+ 
+本文将从[实现特点](#实现特点对比)和[适用场景](#适用场景对比)两个方面比较TaskPool与Worker。
+  
 
- 本文将从[实现特点](#实现特点对比)和[适用场景](#适用场景对比)两个方面比较TaskPool与Worker。
-
-
-## 实现特点对比
+##### 实现特点对比
 
 **表1** TaskPool和Worker的实现特点对比
+  
 | 实现 | TaskPool | Worker |
 | --- | --- | --- |
 | 内存模型 | 线程间隔离，内存不共享。 | 线程间隔离，内存不共享。 |
@@ -31,16 +32,54 @@ TaskPool和Worker的作用是为应用程序提供多线程运行环境，用于
 | 任务组 | 支持。 | 不支持。 |
 | 周期任务 | 支持。 | 不支持。 |
 | 异步队列 | 支持。 | 不支持。 |
+ 
+ 
+  
 
+##### 适用场景对比
 
-## 适用场景对比
+TaskPool和Worker均支持多线程并发能力。TaskPool的工作线程会绑定系统的调度优先级，并支持负载均衡（自动扩缩容），相比之下，Worker需要开发者自行创建和销毁，存在一定的创建和管理成本。因此，在大多数场景下，推荐优先使用TaskPool。
+ 
+Worker适用于需要长时间占据线程，并由开发者主动管理线程生命周期的场景；TaskPool适用于执行相对独立任务的场景，任务在线程中执行时无需关注线程生命周期。
+ 
+  
 
-TaskPool和Worker均支持多线程并发能力。TaskPool的工作线程会绑定系统的调度优先级，并支持负载均衡（自动扩缩容），相比之下，Worker需要开发者自行创建和销毁，存在一定的创建和管理成本。因此，在大多数场景下，推荐优先使用TaskPool。 Worker适用于需要长时间占据线程，并由开发者主动管理线程生命周期的场景；TaskPool适用于执行相对独立任务的场景，任务在线程中执行时无需关注线程生命周期。
+##### 建议使用Worker的场景
 
-## 建议使用Worker的场景
+以下场景中，任务通常需要长时间运行或依赖线程上下文，适合使用Worker：
+ 
+- **运行时间超过3分钟的任务**
 
-以下场景中，任务通常需要长时间运行或依赖线程上下文，适合使用Worker： **运行时间超过3分钟的任务**  （此处所说的3分钟不包括Promise和async/await异步调用的耗时，如网络下载、文件读写等I/O任务的耗时）：  例如后台进行1小时的预测算法训练等CPU密集型任务，适合使用Worker。  场景示例可参考[常驻任务开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resident-task-guide)。  **有强关联的一系列同步任务**  例如在需要创建并使用句柄的场景中，每次创建的句柄都不同，且必须持续保存该句柄，以确保后续操作正确执行，此类场景适合使用Worker。  场景示例可参考[使用Worker处理关联的同步任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sync-task-development#使用worker处理关联的同步任务)。
+  （此处所说的3分钟不包括Promise和async/await异步调用的耗时，如网络下载、文件读写等I/O任务的耗时）：
 
-## 建议使用TaskPool的场景
+  例如后台进行1小时的预测算法训练等CPU密集型任务，适合使用Worker。
 
-以下场景中，任务通常相对独立，对调度、取消或管理能力有更高要求，适合使用TaskPool： **需要设置任务优先级的任务**  在API version 18之前，Worker不支持设置调度优先级，需要使用TaskPool；  从API version 18开始，Worker支持设置调度优先级，开发者可以根据使用场景和任务特性选择使用TaskPool或Worker。  例如[图像直方图绘制场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cpu-intensive-task-development#使用taskpool进行图像直方图处理)，后台计算的直方图数据会用于前台界面的显示，影响用户体验，且任务相对独立，推荐使用TaskPool。  **需要频繁取消的任务**  如图库大图浏览场景。为提升体验，系统会同时缓存当前图片左右各两张图片。当往一侧滑动跳到下一张图片时，需取消另一侧的缓存任务，此时适合使用TaskPool。  **大量或调度点分散的任务**  例如大型应用中的多个模块包含多个耗时任务，不建议使用Worker进行负载管理，推荐使用TaskPool。  场景示例可参考[批量数据写数据库场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/batch-database-operations-guide)。
+  场景示例可参考[常驻任务开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resident-task-guide)。
+- **有强关联的一系列同步任务**
+
+  例如在需要创建并使用句柄的场景中，每次创建的句柄都不同，且必须持续保存该句柄，以确保后续操作正确执行，此类场景适合使用Worker。
+
+  场景示例可参考[使用Worker处理关联的同步任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sync-task-development#使用worker处理关联的同步任务)。
+
+ 
+  
+
+##### 建议使用TaskPool的场景
+
+以下场景中，任务通常相对独立，对调度、取消或管理能力有更高要求，适合使用TaskPool：
+ 
+- **需要设置任务优先级的任务**
+
+  在API version 18之前，Worker不支持设置调度优先级，需要使用TaskPool；
+
+  从API version 18开始，Worker支持设置调度优先级，开发者可以根据使用场景和任务特性选择使用TaskPool或Worker。
+
+  例如[图像直方图绘制场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cpu-intensive-task-development#使用taskpool进行图像直方图处理)，后台计算的直方图数据会用于前台界面的显示，影响用户体验，且任务相对独立，推荐使用TaskPool。
+- **需要频繁取消的任务**
+
+  如图库大图浏览场景。为提升体验，系统会同时缓存当前图片左右各两张图片。当往一侧滑动跳到下一张图片时，需取消另一侧的缓存任务，此时适合使用TaskPool。
+- **大量或调度点分散的任务**
+
+  例如大型应用中的多个模块包含多个耗时任务，不建议使用Worker进行负载管理，推荐使用TaskPool。
+
+  场景示例可参考[批量数据写数据库场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/batch-database-operations-guide)。

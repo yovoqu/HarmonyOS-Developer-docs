@@ -53,6 +53,6 @@
 | 新增API | NA | 类名：Client； API声明：unsubscribe(events: NotifyEvent[]): void; 差异内容：unsubscribe(events: NotifyEvent[]): void; | api/@hms.security.securityAudit.d.ts |
 | 新增API | NA | 类名：Client； API声明：addFilter(event: NotifyEvent, filter: Filter): void; 差异内容：addFilter(event: NotifyEvent, filter: Filter): void; | api/@hms.security.securityAudit.d.ts |
 | 新增API | NA | 类名：Client； API声明：removeFilter(event: NotifyEvent, filter: Filter): void; 差异内容：removeFilter(event: NotifyEvent, filter: Filter): void; | api/@hms.security.securityAudit.d.ts |
-| 新增API | NA | 类名：securityAudit； API声明：function newClient(callback: Callback<AuditEvent>): Client; 差异内容：function newClient(callback: Callback<AuditEvent>): Client; | api/@hms.security.securityAudit.d.ts |
+| 新增API | NA | 类名：securityAudit； API声明：function newClient(callback: Callback&lt;AuditEvent&gt;): Client; 差异内容：function newClient(callback: Callback&lt;AuditEvent&gt;): Client; | api/@hms.security.securityAudit.d.ts |
 | 新增API | NA | 类名：securityAudit； API声明：function deleteClient(client: Client): void; 差异内容：function deleteClient(client: Client): void; | api/@hms.security.securityAudit.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：AuditEvent； API声明：metadata?: string; 差异内容：metadata?: string; | api/@hms.security.securityAudit.d.ts |

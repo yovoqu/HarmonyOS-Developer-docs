@@ -13,5 +13,5 @@
 | 新增API | NA | 类名：CallerInfo； API声明：position?: string; 差异内容：position?: string; | api/@hms.telephony.CallerInfoQueryExtensionAbility.d.ts |
 | 新增API | NA | 类名：global； API声明： export default class CallerInfoQueryExtensionAbility 差异内容： export default class CallerInfoQueryExtensionAbility | api/@hms.telephony.CallerInfoQueryExtensionAbility.d.ts |
 | 新增API | NA | 类名：CallerInfoQueryExtensionAbility； API声明：context: CallerInfoQueryExtensionContext; 差异内容：context: CallerInfoQueryExtensionContext; | api/@hms.telephony.CallerInfoQueryExtensionAbility.d.ts |
-| 新增API | NA | 类名：CallerInfoQueryExtensionAbility； API声明：onQueryCallerInfo(phoneNumber: string): Promise<CallerInfo>; 差异内容：onQueryCallerInfo(phoneNumber: string): Promise<CallerInfo>; | api/@hms.telephony.CallerInfoQueryExtensionAbility.d.ts |
+| 新增API | NA | 类名：CallerInfoQueryExtensionAbility； API声明：onQueryCallerInfo(phoneNumber: string): Promise&lt;CallerInfo&gt;; 差异内容：onQueryCallerInfo(phoneNumber: string): Promise&lt;CallerInfo&gt;; | api/@hms.telephony.CallerInfoQueryExtensionAbility.d.ts |
 | 新增API | NA | 类名：global； API声明： export default class CallerInfoQueryExtensionContext 差异内容： export default class CallerInfoQueryExtensionContext | api/@hms.telephony.CallerInfoQueryExtensionContext.d.ts |

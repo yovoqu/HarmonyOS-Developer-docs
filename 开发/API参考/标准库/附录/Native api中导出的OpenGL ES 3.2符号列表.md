@@ -4,7 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/openglesv3-symbol
 
-
 | 符号类型 | 符号名 |
 | --- | --- |
 | FUNC | glActiveShaderProgram |

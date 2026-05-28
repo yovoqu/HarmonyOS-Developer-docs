@@ -1,26 +1,34 @@
 # 使用HKDF进行密钥派生(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-using-hkdf-ndk
 
 对应算法规格请查看[密钥派生算法规格：HKDF](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-overview#hkdf算法)。
 
 
-## 开发步骤
+##### 开发步骤
+1. 调用[OH_CryptoKdfParams_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_create)，指定字符串参数'HKDF'，创建密钥派生参数对象。
+2. 调用[OH_CryptoKdfParams_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_setparam)，设置HKDF所需的参数。示例如下：
 
-调用[OH_CryptoKdfParams_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_create)，指定字符串参数'HKDF'，创建密钥派生参数对象。 调用[OH_CryptoKdfParams_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_setparam)，设置HKDF所需的参数。示例如下： CRYPTO_KDF_KEY_DATABLOB：用于生成派生密钥的原始密钥材料。 CRYPTO_KDF_SALT_DATABLOB：盐值。 CRYPTO_KDF_INFO_DATABLOB：应用程序特定的信息（可选）。 调用[OH_CryptoKdf_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_create)，指定字符串参数'HKDF|SHA256|EXTRACT_AND_EXPAND'，创建密钥派生函数对象。 调用[OH_CryptoKdf_Derive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_derive)，指定目标密钥的字节长度，进行密钥派生。
-```text
+  
+CRYPTO_KDF_KEY_DATABLOB：用于生成派生密钥的原始密钥材料。
+3. CRYPTO_KDF_SALT_DATABLOB：盐值。
+4. CRYPTO_KDF_INFO_DATABLOB：应用程序特定的信息（可选）。
+5. 调用[OH_CryptoKdf_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_create)，指定字符串参数'HKDF|SHA256|EXTRACT_AND_EXPAND'，创建密钥派生函数对象。
+6. 调用[OH_CryptoKdf_Derive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_derive)，指定目标密钥的字节长度，进行密钥派生。
+
+```cpp
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
-#include
-#include
+#include <cstdio>
+#include <cstring>
 #include "file.h"
 
 static OH_Crypto_ErrCode setParams(OH_CryptoKdfParams **params)
 {
     const char *keyData = "012345678901234567890123456789";
     Crypto_DataBlob key = {
-        .data = reinterpret_cast(const_cast(keyData)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(keyData)),
         .len = strlen(keyData)
     };
     OH_Crypto_ErrCode ret = OH_CryptoKdfParams_SetParam(*params, CRYPTO_KDF_KEY_DATABLOB, &key);
@@ -31,7 +39,7 @@ static OH_Crypto_ErrCode setParams(OH_CryptoKdfParams **params)
     // 设置盐值。
     const char *saltData = "saltstring";
     Crypto_DataBlob salt = {
-        .data = reinterpret_cast(const_cast(saltData)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(saltData)),
         .len = strlen(saltData)
     };
     ret = OH_CryptoKdfParams_SetParam(*params, CRYPTO_KDF_SALT_DATABLOB, &salt);
@@ -42,7 +50,7 @@ static OH_Crypto_ErrCode setParams(OH_CryptoKdfParams **params)
     // 设置应用程序特定信息（可选）。
     const char *infoData = "infostring";
     Crypto_DataBlob info = {
-        .data = reinterpret_cast(const_cast(infoData)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(infoData)),
         .len = strlen(infoData)
     };
     ret = OH_CryptoKdfParams_SetParam(*params, CRYPTO_KDF_INFO_DATABLOB, &info);

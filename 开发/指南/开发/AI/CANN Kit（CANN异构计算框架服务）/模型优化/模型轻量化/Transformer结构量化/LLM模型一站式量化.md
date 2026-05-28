@@ -1,30 +1,43 @@
 # LLM模型一站式量化
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-large-language-one-stop
 
-## 简介
+##### 简介
 
-本工具提供大语言模型（Large Language Model，以下简称LLM）的4bit低位量化能力，采用标准的三段式量化流程：权重量化、激活量化和量化参数提取。三段式量化流程说明如下表所示。 **表1** 大语言模型4bit低位量化三阶段流程
+本工具提供大语言模型（Large Language Model，以下简称LLM）的4bit低位量化能力，采用标准的三段式量化流程：权重量化、激活量化和量化参数提取。三段式量化流程说明如下表所示。
+ 
+**表1** 大语言模型4bit低位量化三阶段流程
+  
 | 阶段 | 输入 | 输出 |
 | --- | --- | --- |
 | 阶段一（权重量化） | - 开发者提供 - JSON数据集（text字段作为prompt） - HuggingFace模型路径（开发者浮点模型） - 量化配置及执行文件 - config.yaml - run.sh | - dopt_config.json：开发者需完成该文件的量化策略配置后，重新执行此阶段 - trained_quant_weight.pth：权重量化参数 说明： 开发者需根据阶段一生成的dopt_config.json文件手动进行量化策略配置后，再次执行该阶段。 |
 | 阶段二（激活量化） | - 开发者提供 - JSON数据集（text字段作为prompt） - HuggingFace模型路径（开发者浮点模型） - 量化配置及执行文件 - config.yaml - run.sh | trained.pth：用于阶段三加载或量化仿真验证 |
 | 阶段三（量化参数提取） | - 开发者提供 - JSON数据集（text字段作为prompt） - HuggingFace模型路径（开发者浮点模型） - 量化配置及执行文件 - config.yaml - run.sh | - fake_quant_weight.pth：用于ONNX模型导出 - quant_params_file：权重及激活量化参数 |
+ 
+ 
+  
 
+##### 量化前准备工作
 
-## 量化前准备工作
+- HuggingFace浮点模型
+- JSON格式数据集，使用“text”字段作为prompt关键字
+- 量化配置文件[config.yaml](#configyaml示例)
+- [run.sh](#runsh示例)执行脚本
 
-HuggingFace浮点模型  JSON格式数据集，使用“text”字段作为prompt关键字  量化配置文件[config.yaml](#configyaml示例)  [run.sh](#runsh示例)执行脚本
+ 
 > [!NOTE]
-> LLM在量化过程中使用AutoModelForCausalLM以及AutoTokenizer加载，所以开发者的HuggingFace浮点模型需要满足该加载方式约束。  run.sh执行脚本环境须与开发者推理或者训练环境保持一致，否则模型加载或推理失败。
+> LLM在量化过程中使用AutoModelForCausalLM以及AutoTokenizer加载，所以开发者的HuggingFace浮点模型需要满足该加载方式约束。 run.sh执行脚本环境须与开发者推理或者训练环境保持一致，否则模型加载或推理失败。
 
+ 
+  
 
-## config.yaml示例
+##### config.yaml示例
 
 config.yaml用于模型量化配置，开发者可根据实际需要进行配置。以下示例可供参考，主要参数说明请参见[config.yaml配置参数说明](#configyaml配置参数说明)。
-```text
+ 
+```json
 kd:
   enable: False
   loss: mse
@@ -57,11 +70,13 @@ quant_param_2: False
 embedding_separate: True
 lm_head_size:
 ```
+ 
+  
 
-
-## config.yaml配置参数说明
+##### config.yaml配置参数说明
 
 以下为config.yaml文件的关键配置参数，具体说明如下表所示。
+  
 | 参数 | 参数 | 默认取值 | 说明 |
 | --- | --- | --- | --- |
 | kd：量化蒸馏相关 | enable | False | - True：使用蒸馏量化策略 - False：使用无训练量化策略，速度快，效果较稳定 |
@@ -83,44 +98,64 @@ lm_head_size:
 | dataset | cutoff_len | 128 | 激活量化样本序列长度。 |
 | dataset | num_samples | 256 | 激活量化校准样本数 |
 | dataset | quant_param_2 | False | - True：Kirin9020 - False：KirinX90 |
-| dataset | embedding_separate | True | - True：单独保存为bin文件 - False:  导出embedding的量化参数到量化文件，合并形态。 |
+| dataset | embedding_separate | True | - True：单独保存为bin文件 - False: 导出embedding的量化参数到量化文件，合并形态。 |
 | dataset | lm_head_size: | - | 可指定lmhead长度，硬件对齐。 |
+ 
+ 
+  
 
+##### 执行三段式量化
 
-## 执行三段式量化
+按以下步骤执行run.sh文件，stagex为传入参数，具体可参考[run.sh示例](#runsh示例)。
+ 1. 权重量化。
 
-按以下步骤执行run.sh文件，stagex为传入参数，具体可参考[run.sh示例](#runsh示例)。 权重量化。  选配量化策略。   生成插件式量化配置文件[dopt_config.json](#dopt_configjson量化配置文件说明)。
-```text
+  
+- 选配量化策略。
+
+  输出：[dopt_config.json](#dopt_configjson量化配置文件说明)，权重量化参数trained_quant_weight.pth【为阶段二的输入文件】。
+
+  
+```json
 bash run.sh stage1
 ```
+   量化策略可选配置为：
 
-量化策略可选配置为：
-```text
+  
+```json
 Quant_act_weight_eco   decode层策略
 Quant_lm_head          lm_head层策略
 Quant_Embed_MinMax     embedding层策略
 ```
 
-进行权重量化。
-```text
+
+2. dopt_config.json文件手动修改你希望的量化策略配置后，再次执行该阶段，进行权重量化。
+
+  
+```json
 bash run.sh stage1
 ```
 
-激活量化。
-```text
+- 激活量化
+
+  
+```json
 bash run.sh stage2
 ```
+  输出：trained.pth文件，阶段三会加载该权重，也可以用作标杆和量化仿真。
+- 提取量化参数。
 
-提取量化参数。
-```text
+  
+```json
 bash run.sh stage3
 ```
+  输出：fake_quant_weight.pth+quant_params_file，其中fake_quant_weight.pth在导出onnx模型时需要替换模型的权重为该文件中的权重。
 
+ 
+  
 
-## run.sh示例
+##### run.sh示例
 
-
-```text
+```json
 #!/bin/bash
 set -e
 qlibs='path/to/dopt_pytorch_py3'
@@ -152,16 +187,23 @@ python -u \
     --block-size $block_size \
     --output-dir ${output_dir} 2>&1 | tee ${output_dir}/logs.log
 ```
+ 
+  
 
+##### dopt_config.json量化配置文件说明
 
-## dopt_config.json量化配置文件说明
+工具支持开发者插件式自定义LLM量化规格：
+ 
+- 逐层权重量化位宽(bit)和分组大小(group_size)。
+- 逐层激活量化位宽(bit)。
+- 量化策略：decoder层使用"Quant_act_weight_eco"，lm_head层使用"Quant_lm_head"，embedding层使用"Quant_Embed_MinMax"。
 
-工具支持开发者插件式自定义LLM量化规格： 逐层权重量化位宽(bit)和分组大小(group_size)。  逐层激活量化位宽(bit)。  量化策略：decoder层使用"Quant_act_weight_eco"，lm_head层使用"Quant_lm_head"，embedding层使用"Quant_Embed_MinMax"。
-```text
+ 
+```json
 {
      "layer_strategy": {
          "model.layers.0.self_attn.q_proj": {
-             "type": "",
+             "type": "<class 'torch.nn.modules.linear.Linear'>",
              "quant_strategy": "Quant_act_weight_eco",
              "weight":{
                  "bit": 4,
@@ -174,26 +216,33 @@ python -u \
  }
 }
 ```
+ 
+  
 
-
-## 量化工具输出件
-
+##### 量化工具输出件
 
 ```text
 trained.pth            ### 量化仿真可使用该文件
 fake_quant_weight.pth  ### 导出onnx文件使用该权重
 trained_quant_weight.pth ### 阶段一的输出，阶段二的输入
 ```
+ 
+  
 
-
-## 量化仿真
+##### 量化仿真
 
 量化完成后，开发者可进行量化仿真推理，通过对比量化模型与原始浮点模型的输出结果，来评估量化模型精度是否满足要求。量化仿真推理工程可参考[qwen2模型量化仿真推理demo](#qwen2模型量化仿真推理demo)。
-![](assets/LLM模型一站式量化/file-20260514132230959-0.jpg)
+ 
 
-## 插件方法
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/N-SfRmOhSMeN0vwh9O3jPg/zh-cn_image_0000002611755245.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014409Z&HW-CC-Expire=86400&HW-CC-Sign=88004E61AC23471805B1D53DCE42B33DDF39AEC5F46CC6B9864082BA1002E53E)
+
+ 
+  
+
+##### 插件方法
 
 浮点模型完成加载和初始化后，使用以下接口将浮点模型转换为量化模型，模型推理逻辑不变，可参考[qwen2模型量化仿真推理demo](#qwen2模型量化仿真推理demo)。
+ 
 ```text
 import sys
 sys.path.append("path/to/dopt")
@@ -211,13 +260,17 @@ def get_quanted_model(base_model, dopt_config, quanted_ckpt):
      model.eval()
      return model
 ```
+ 
+- base_model：开发者浮点模型（使用transformers库AutoModelForCausalLM类进行加载）。
+- dopt_config：量化配置文件。
+- quanted_ckpt：量化后pth文件。
 
- base_model：开发者浮点模型（使用transformers库AutoModelForCausalLM类进行加载）。  dopt_config：量化配置文件。  quanted_ckpt：量化后pth文件。
+ 
+  
 
-## qwen2模型量化仿真推理demo
+##### qwen2模型量化仿真推理demo
 
-
-```text
+```json
 import os
 import sys
 import torch

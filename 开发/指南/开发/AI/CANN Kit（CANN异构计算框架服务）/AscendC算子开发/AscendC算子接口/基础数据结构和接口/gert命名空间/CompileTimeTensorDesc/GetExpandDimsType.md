@@ -4,32 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiletimetensordesc-getexpanddimstype
 
-## 函数功能
+##### 函数功能
 
 获取原始Format向运行时Format转换时的补维规则。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 ExpandDimsType GetExpandDimsType() const
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 无
+ 
+  
 
-## 返回值
+##### 返回值
 
 补维规则，请参考[ExpandDimsType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-expanddimstype-introduction)。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 auto dtype_ = ge::DataType::DT_INT32;

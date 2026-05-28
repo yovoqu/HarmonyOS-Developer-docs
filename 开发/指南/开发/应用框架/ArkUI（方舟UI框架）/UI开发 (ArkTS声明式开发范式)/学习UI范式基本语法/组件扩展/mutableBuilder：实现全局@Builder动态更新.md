@@ -6,14 +6,15 @@
 
 当在一个自定义组件内使用多个全局[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)函数实现UI的不同效果时，代码维护将变得非常困难，且页面不够整洁。此时，可以使用[wrapBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder)封装全局@Builder。但是wrapBuilder不支持动态切换@Builder，引入[mutableBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mutablebuilder)实现全局@Builder的动态切换。
 
-
 > [!NOTE]
 > 从API version 22开始，开发者可以使用mutableBuilder实现全局@Builder的动态切换。 从API version 22开始，mutableBuilder支持在元服务中使用。
 
 
-## wrapBuilder不支持动态全局@Builder
+
+##### wrapBuilder不支持动态全局@Builder
 
 当前wrapBuilder不支持二次赋值， 更改@Builder，UI不会发生变化。
+
 ```text
 class TextContent {
   text: string = '';
@@ -33,7 +34,7 @@ function buttonBuilder(p: TextContent) {
 @Component
 struct Index {
   @State message: string = 'init';
-  @State text: WrappedBuilder = wrapBuilder(textBuilder); // 使用textBuilder初始化
+  @State text: WrappedBuilder<[TextContent]> = wrapBuilder(textBuilder); // 使用textBuilder初始化
 
   build() {
     Column() {
@@ -46,35 +47,44 @@ struct Index {
 }
 ```
 
-在上述代码中，使用textBuilder初始化wrapBuilder，点击Button的onClick事件，使用buttonBuilder再次初始化wrapBuilder，不会触发对应的@Builder的更新。 为了解决这一问题，引入mutableBuilder作为动态全局@Builder封装函数。mutableBuilder返回MutableBuilder对象，用于[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)的动态刷新。
+在上述代码中，使用textBuilder初始化wrapBuilder，点击Button的onClick事件，使用buttonBuilder再次初始化wrapBuilder，不会触发对应的@Builder的更新。
 
-## 接口说明
+为了解决这一问题，引入mutableBuilder作为动态全局@Builder封装函数。mutableBuilder返回MutableBuilder对象，用于[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)的动态刷新。
+
+
+
+##### 接口说明
 
 mutableBuilder是一个模板函数，返回一个[MutableBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-mutablebuilder#mutablebuilder-2)对象。相比[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-wrapbuilder#wrappedbuilder)，MutableBuilder可以实现动态切换全局@Builder。
+
 ```text
-declare function mutableBuilder(builder: BuilderCallback): MutableBuilder;
+declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>;
 ```
 
 同时MutableBuilder对象是一个模板类，继承自[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder#接口说明)。
+
 ```text
-declare class MutableBuilder extends WrappedBuilder {
+declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args> {
 }
 ```
-
 
 > [!NOTE]
 > 模板参数Args extends Object[]需要匹配@Builder函数参数的类型。
 
+
 使用方法：
+
 ```text
-let builderVar: MutableBuilder = mutableBuilder(MyBuilder);
-let builderArr: MutableBuilder[] = [mutableBuilder(MyBuilder)]; // mutableBuilder支持放入数组中
+let builderVar: MutableBuilder<[string, number]> = mutableBuilder(MyBuilder);
+let builderArr: MutableBuilder<[string, number]>[] = [mutableBuilder(MyBuilder)]; // mutableBuilder支持放入数组中
 ```
 
 
-## 限制条件
 
-mutableBuilder方法只能传入[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)方法，传入局部@Builder方法编译时报错。
+##### 限制条件
+1. mutableBuilder方法只能传入[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)方法，传入局部@Builder方法编译时报错。
+
+  
 ```text
 class TextContent {
   text: string = '';
@@ -89,10 +99,10 @@ function globalBuilder(p: TextContent) {
 struct MyApp {
   @Local message: string = 'init';
   // 正确用法，使用全局@Builder
-  @Local switchingBuilder: MutableBuilder = mutableBuilder(globalBuilder);
+  @Local switchingBuilder: MutableBuilder<[TextContent]> = mutableBuilder(globalBuilder);
   // 错误用法，使用局部@Builder，编译报错
-  @Local localBuilderObject: MutableBuilder = mutableBuilder(this.localBuilder);
-
+  @Local localBuilderObject: MutableBuilder<[TextContent]> = mutableBuilder(this.localBuilder);
+  
   @Builder
   localBuilder(p: TextContent) {
     Text(p.text)
@@ -105,7 +115,9 @@ struct MyApp {
 }
 ```
 
-MutableBuilder对象的builder属性方法仅限在自定义组件内部使用，在自定义组件外面使用会导致程序运行时崩溃。
+2. MutableBuilder对象的builder属性方法仅限在自定义组件内部使用，在自定义组件外面使用会导致程序运行时崩溃。
+
+  
 ```text
 class TextContent {
   text: string = '';
@@ -117,13 +129,13 @@ function globalBuilder(p: TextContent) {
 }
 
 // 错误用法，MutableBuilder对象的builder属性方法在自定义组件外面使用，运行时崩溃
-let outSideBuilder: MutableBuilder = mutableBuilder(globalBuilder);
+let outSideBuilder: MutableBuilder<[TextContent]> = mutableBuilder(globalBuilder);
 outSideBuilder.builder({ text: 'message' });
 
 @ComponentV2
 struct MyApp {
   @Local message: string = 'init';
-  @Local switchingBuilder: MutableBuilder = mutableBuilder(globalBuilder);
+  @Local switchingBuilder: MutableBuilder<[TextContent]> = mutableBuilder(globalBuilder);
   build() {
     Column() {
       // 正确用法，MutableBuilder对象的builder属性方法在自定义组件中使用
@@ -133,22 +145,27 @@ struct MyApp {
 }
 ```
 
-不建议与wrapBuilder混合使用，因为mutableBuilder创建的对象类型是MutableBuilder类型，会导致不符合预期的更新。 如下为不推荐的用法：
+3. 不建议与wrapBuilder混合使用，因为mutableBuilder创建的对象类型是MutableBuilder类型，会导致不符合预期的更新。
+
+  如下为不推荐的用法：
+
+  
 ```text
 // 在实例化MutableBuilder对象时，建议使用mutableBuilder(builderName)方法
-@State switchingBuilder: MutableBuilder = mutableBuilder(textBuilder);
+@State switchingBuilder: MutableBuilder<[MutableBinding]> = mutableBuilder(textBuilder);
 // 不支持将MutableBuilder类型的变量赋值为undefined或null，会导致运行时crash
-@State switchingBuilder: MutableBuilder | undefined | null = null;
+@State switchingBuilder: MutableBuilder<[MutableBinding]> | undefined | null = null;
 Button(`MutableBuilder`).onClick(() => {
   // 不建议将wrapBuilder创建的对象赋值给MutableBuilder类型的对象，赋值后会将textBuilder动态切换成buttonBuilder
   this.switchingBuilder = wrapBuilder(buttonBuilder);
 })
 ```
-
 如下为推荐用法：
+
+  
 ```text
 // 在实例化MutableBuilder对象时，建议使用mutableBuilder(builderName)方法
-@State switchingBuilder: MutableBuilder = mutableBuilder(textBuilder);
+@State switchingBuilder: MutableBuilder<[MutableBinding]> = mutableBuilder(textBuilder);
 
 Button(`MutableBuilder`).onClick(() => {
   // 赋值会将wrapBuilder中textBuilder中动态切换成buttonBuilder
@@ -157,9 +174,12 @@ Button(`MutableBuilder`).onClick(() => {
 ```
 
 
-## 动态更改全局@Builder实例
+
+
+##### 动态更改全局@Builder实例
 
 使用@Builder装饰器装饰的方法textBuilder作为mutableBuilder的参数，然后将mutableBuilder的返回值赋值给变量switchingBuilder，在Button的点击事件中，使用@Builder装饰器装饰的方法buttonBuilder作为mutableBuilder的参数，将mutableBuilder的返回值再次赋值给变量switchingBuilder，可实现textBuilder 更新为buttonBuilder，以解决wrapBuilder不支持二次赋值的问题。
+
 ```text
 class TextContent {
   text: string = '';
@@ -180,7 +200,7 @@ let counter: number = 1;
 @ComponentV2
 struct MyApp {
   @Local message: string = 'init';
-  @Local switchingBuilder: MutableBuilder = mutableBuilder(textBuilder);
+  @Local switchingBuilder: MutableBuilder<[TextContent]> = mutableBuilder(textBuilder);
   build() {
     Column() {
       this.switchingBuilder.builder({ text: this.message })
@@ -201,12 +221,18 @@ struct MyApp {
 ```
 
 点击Button，可将textBuilder动态更改为buttonBuilder，如下图所示：
-![](assets/mutableBuilder：实现全局@Builder动态更新/file-20260514130510593-0.gif)
 
-## 使用mutableBuilder显示弹出菜单
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/TsPnavvxT6iewFFpvpXl7Q/zh-cn_image_0000002581273720.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=2CFA9F5589C9FD999C589825C6F0CEB2AFEA5E69C233BC604B9969D3B0EDA87B)
+
+
+
+
+##### 使用mutableBuilder显示弹出菜单
 
 由于MutableBuilder继承自WrappedBuilder，故mutableBuilder对应的@Builder具有跟WrappedBuilder同等能力，如下示例，mutableBuilder对应的@Builder方法可作为bindMenu入参，支持点击弹出菜单。
-```text
+
+```json
 @Builder
 function overBuilder() {
   Row() {
@@ -221,7 +247,7 @@ function overBuilder() {
 struct Index {
   @State arr: number[] = [1,2,3,4,5];
 
-  mutableBuilderMenu: MutableBuilder = mutableBuilder(overBuilder);
+  mutableBuilderMenu: MutableBuilder<[]> = mutableBuilder<[]>(overBuilder);
   build() {
     Column() {
       List({ space: 10 }) {
@@ -245,14 +271,16 @@ struct Index {
 ```
 
 
-## 观察mutableBuilder中@Builder的变化
+
+##### 观察mutableBuilder中@Builder的变化
 
 mutableBuilder对应的@Builder函数中可使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)进行包裹来观察状态变量的变化，同时可通过[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)或[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听mutableBuilder中@Builder的变化。
+
 ```text
 import { UIUtils, MutableBinding } from '@kit.ArkUI';
 
 @Builder
-function textBuilder(p: MutableBinding) {
+function textBuilder(p: MutableBinding<string>) {
   Text(p.value)
     .margin(20)
     .onClick(() => {
@@ -261,7 +289,7 @@ function textBuilder(p: MutableBinding) {
 }
 
 @Builder
-function buttonBuilder(p: MutableBinding) {
+function buttonBuilder(p: MutableBinding<string>) {
   Button(p.value)
     .margin(20)
     .onClick(() => {
@@ -275,10 +303,10 @@ let counter: number = 1;
 @ComponentV2
 struct MyApp {
   @Local message: string = 'init';
-  @Local switchingBuilder: MutableBuilder]> = mutableBuilder(textBuilder);
+  @Local switchingBuilder: MutableBuilder<[MutableBinding<string>]> = mutableBuilder(textBuilder);
 
   @Monitor('switchingBuilder') variableChange(m: IMonitor): void {
-    console.info(`Builder changed. is buttonBuilder: ${m.value]>>()?.now.builder === buttonBuilder}`);
+    console.info(`Builder changed. is buttonBuilder: ${m.value<MutableBuilder<[MutableBinding<string>]>>()?.now.builder === buttonBuilder}`);
   }
 
   build() {
@@ -301,5 +329,9 @@ struct MyApp {
 ```
 
 点击Click to change按钮，可将textBuilder动态切换为buttonBuilder，this.message将自动加B，界面会显示initB按钮。点击initB按钮，buttonBuilder中的p.value将自动加b，如下图所示：
-![](assets/mutableBuilder：实现全局@Builder动态更新/file-20260514130510593-1.gif)
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/-zRyHSy3QGS81_NGvA6hDw/zh-cn_image_0000002611753575.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=D7DA5FCB48F5CF6C6E11233BF05C86701E9C7252943FBB1FEFC80D58C11BC540)
+
+
 点击Click to change按钮将textBuilder动态切换为buttonBuilder时，@Monitor将监听到全局@Builder的变化，并打印日志@Builder changed. is buttonBuilder: true。

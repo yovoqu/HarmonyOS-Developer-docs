@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：contact； API声明：function addContacts(context: Context, contacts: Array<Contact>): Promise<Array<number>>; 差异内容：function addContacts(context: Context, contacts: Array<Contact>): Promise<Array<number>>; | api/@ohos.contact.d.ts |
+| 新增API | NA | 类名：contact； API声明：function addContacts(context: Context, contacts: Array&lt;Contact&gt;): Promise<Array&lt;number&gt;>; 差异内容：function addContacts(context: Context, contacts: Array&lt;Contact&gt;): Promise<Array&lt;number&gt;>; | api/@ohos.contact.d.ts |

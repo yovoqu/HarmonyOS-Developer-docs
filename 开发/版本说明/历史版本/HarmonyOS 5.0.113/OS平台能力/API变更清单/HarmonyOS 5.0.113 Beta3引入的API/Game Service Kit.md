@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：gamePerformance； API声明：function on(type: 'deviceStateChanged', callback: Callback<DeviceInfo>, scope: Array<DeviceInfoType>): void; 差异内容：function on(type: 'deviceStateChanged', callback: Callback<DeviceInfo>, scope: Array<DeviceInfoType>): void; | api/@hms.core.gameservice.gameperformance.d.ts |
+| 新增API | NA | 类名：gamePerformance； API声明：function on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;, scope: Array&lt;DeviceInfoType&gt;): void; 差异内容：function on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;, scope: Array&lt;DeviceInfoType&gt;): void; | api/@hms.core.gameservice.gameperformance.d.ts |
 | 新增API | NA | 类名：gamePerformance； API声明： interface ThermalInfo 差异内容： interface ThermalInfo | api/@hms.core.gameservice.gameperformance.d.ts |
 | 新增API | NA | 类名：ThermalInfo； API声明：thermalMargin?: number; 差异内容：thermalMargin?: number; | api/@hms.core.gameservice.gameperformance.d.ts |
 | 新增API | NA | 类名：ThermalInfo； API声明：thermalTrend?: number; 差异内容：thermalTrend?: number; | api/@hms.core.gameservice.gameperformance.d.ts |
@@ -19,4 +19,4 @@
 | 新增API | NA | 类名：DeviceInfoParameter； API声明：parameters?: Record<string, string>; 差异内容：parameters?: Record<string, string>; | api/@hms.core.gameservice.gameperformance.d.ts |
 | 新增API | NA | 类名：gamePerformance； API声明： enum DeviceInfoParameterKey 差异内容： enum DeviceInfoParameterKey | api/@hms.core.gameservice.gameperformance.d.ts |
 | 新增API | NA | 类名：DeviceInfoParameterKey； API声明：THERMAL_TEMP_LEVEL = 'tempLevel' 差异内容：THERMAL_TEMP_LEVEL = 'tempLevel' | api/@hms.core.gameservice.gameperformance.d.ts |
-| 新增API | NA | 类名：gamePerformance； API声明：function getDeviceInfoByScope(scope: Array<DeviceInfoParameter>): Promise<DeviceInfo>; 差异内容：function getDeviceInfoByScope(scope: Array<DeviceInfoParameter>): Promise<DeviceInfo>; | api/@hms.core.gameservice.gameperformance.d.ts |
+| 新增API | NA | 类名：gamePerformance； API声明：function getDeviceInfoByScope(scope: Array&lt;DeviceInfoParameter&gt;): Promise&lt;DeviceInfo&gt;; 差异内容：function getDeviceInfoByScope(scope: Array&lt;DeviceInfoParameter&gt;): Promise&lt;DeviceInfo&gt;; | api/@hms.core.gameservice.gameperformance.d.ts |

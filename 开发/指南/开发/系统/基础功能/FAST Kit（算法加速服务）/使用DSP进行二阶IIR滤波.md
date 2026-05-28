@@ -9,48 +9,60 @@
 二阶IIR滤波器采用直接II型转置结构，支持多通道（如立体声）和多节级联（如高阶滤波器）配置。滤波器支持动态激活/旁路控制，允许运行时灵活调整滤波特性。
 
 
-## 接口说明
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
+
 | 名称 | 描述 |
 | --- | --- |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_create) (size_t numChannels, size_t numSections, size_t maxFrames, FAST_Biquadm** filter) | 创建并初始化多通道多节二阶IIR滤波器组（单精度）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_CreateD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_created) (size_t numChannels, size_t numSections, size_t maxFrames, FAST_BiquadmD** filter) | 创建并初始化多通道多节二阶IIR滤波器组（双精度）。 |
-| void [HMS_FAST_Biquadm_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_destroy) (FAST_Biquadm* filter) | 销毁二阶滤波器实例（单精度）。 |
-| void [HMS_FAST_Biquadm_DestroyD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_destroyd) (FAST_BiquadmD* filter) | 销毁二阶滤波器实例（双精度）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_SetCoeffSingle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_setcoeffsingle) (FAST_Biquadm* filter, const float* coeff, size_t stride) | 从单精度源数组设置所有二阶滤波器系数（单精度滤波器）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_SetCoeffDouble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_setcoeffdouble) (FAST_Biquadm* filter, const double* coeff, size_t stride) | 从双精度源数组设置所有二阶滤波器系数（单精度滤波器）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_SetCoeffSingleD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_setcoeffsingled) (FAST_BiquadmD* filter, const float* coeff, size_t stride) | 从单精度源数组设置所有二阶滤波器系数（双精度滤波器）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_SetCoeffDoubleD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_setcoeffdoubled) (FAST_BiquadmD* filter, const double* coeff, size_t stride) | 从双精度源数组设置所有二阶滤波器系数（双精度滤波器）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_SetActiveFilters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_setactivefilters) (FAST_Biquadm* filter, const uint8_t* activeMask) | 设置二阶滤波器节的激活掩码（单精度）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm_SetActiveFiltersD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm_setactivefiltersd) (FAST_BiquadmD* filter, const uint8_t* activeMask) | 设置二阶滤波器节的激活掩码（双精度）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_Biquadm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadm) (FAST_Biquadm* filter, const float** input, const size_t strideInput, float** output, const size_t strideOutput, size_t length) | 通过二阶滤波器组处理多通道音频（单精度）。 |
-| [FAST_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#fast_errorcode-1) [HMS_FAST_BiquadmD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_biquadmd) (FAST_BiquadmD* filter, const double** input, const size_t strideInput, double** output, const size_t strideOutput, size_t length) | 通过二阶滤波器组处理多通道音频（双精度）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_Create (size_t numChannels, size_t numSections, size_t maxFrames, FAST_Biquadm** filter) | 创建并初始化多通道多节二阶IIR滤波器组（单精度）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_CreateD (size_t numChannels, size_t numSections, size_t maxFrames, FAST_BiquadmD** filter) | 创建并初始化多通道多节二阶IIR滤波器组（双精度）。 |
+| void HMS_FAST_Biquadm_Destroy (FAST_Biquadm* filter) | 销毁二阶滤波器实例（单精度）。 |
+| void HMS_FAST_Biquadm_DestroyD (FAST_BiquadmD* filter) | 销毁二阶滤波器实例（双精度）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffSingle (FAST_Biquadm* filter, const float* coeff, size_t stride) | 从单精度源数组设置所有二阶滤波器系数（单精度滤波器）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffDouble (FAST_Biquadm* filter, const double* coeff, size_t stride) | 从双精度源数组设置所有二阶滤波器系数（单精度滤波器）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffSingleD (FAST_BiquadmD* filter, const float* coeff, size_t stride) | 从单精度源数组设置所有二阶滤波器系数（双精度滤波器）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_SetCoeffDoubleD (FAST_BiquadmD* filter, const double* coeff, size_t stride) | 从双精度源数组设置所有二阶滤波器系数（双精度滤波器）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_SetActiveFilters (FAST_Biquadm* filter, const uint8_t* activeMask) | 设置二阶滤波器节的激活掩码（单精度）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm_SetActiveFiltersD (FAST_BiquadmD* filter, const uint8_t* activeMask) | 设置二阶滤波器节的激活掩码（双精度）。 |
+| FAST_ErrorCode HMS_FAST_Biquadm (FAST_Biquadm* filter, const float** input, const size_t strideInput, float** output, const size_t strideOutput, size_t length) | 通过二阶滤波器组处理多通道音频（单精度）。 |
+| FAST_ErrorCode HMS_FAST_BiquadmD (FAST_BiquadmD* filter, const double** input, const size_t strideInput, double** output, const size_t strideOutput, size_t length) | 通过二阶滤波器组处理多通道音频（双精度）。 |
 
 
-## 开发步骤
 
-在CMake脚本中链接相关动态库。
+
+##### 开发步骤
+1. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libfast_dsp.so)
 ```
 
-引入头文件。
+2. 引入头文件。
+
+  
 ```text
 #include "FASTKit/fast_dsp_common.h"
 ```
 
-调用HMS_FAST_Biquadm_Create创建滤波器实例（单精度）或HMS_FAST_Biquadm_CreateD（双精度）。 调用HMS_FAST_Biquadm_SetCoeffSingle设置滤波器系数。 可选：调用HMS_FAST_Biquadm_SetActiveFilters设置滤波器节激活掩码。 调用HMS_FAST_Biquadm进行滤波处理。 调用HMS_FAST_Biquadm_Destroy销毁滤波器实例。
+3. 调用HMS_FAST_Biquadm_Create创建滤波器实例（单精度）或HMS_FAST_Biquadm_CreateD（双精度）。
+4. 调用HMS_FAST_Biquadm_SetCoeffSingle设置滤波器系数。
+5. 可选：调用HMS_FAST_Biquadm_SetActiveFilters设置滤波器节激活掩码。
+6. 调用HMS_FAST_Biquadm进行滤波处理。
+7. 调用HMS_FAST_Biquadm_Destroy销毁滤波器实例。
 
-## 代码示例
 
 
-## 单通道滤波器示例
+##### 代码示例
 
+
+
+##### 单通道滤波器示例
 
 ```text
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode single_channel_filter_demo() {
@@ -104,64 +116,98 @@ FAST_ErrorCode single_channel_filter_demo() {
     }
 
     printf("Filtered output:\n");
-    for (size_t i = 0; i
+    for (size_t i = 0; i < num_samples; ++i) {
+        printf("  output[%zu] = %f\n", i, output[i]);
+    }
 
-## 多通道滤波器示例
+    // 销毁滤波器
+    HMS_FAST_Biquadm_Destroy(filter);
 
+    return FAST_ERROR_CODE_SUCCESS;
+}
+```
+
+
+
+##### 多通道滤波器示例
 
 ```text
-#include
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode multi_channel_filter_demo() {
-// 滤波器参数：2通道（立体声），2节级联，最大1000帧
-size_t num_channels = 2;
-size_t num_sections = 2;
-size_t max_frames = 1000;
+    // 滤波器参数：2通道（立体声），2节级联，最大1000帧
+    size_t num_channels = 2;
+    size_t num_sections = 2;
+    size_t max_frames = 1000;
 
-FAST_Biquadm* filter = nullptr;
-FAST_ErrorCode ret;
+    FAST_Biquadm* filter = nullptr;
+    FAST_ErrorCode ret;
 
-// 创建滤波器
-ret = HMS_FAST_Biquadm_Create(num_channels, num_sections, max_frames, &filter);
-if (ret != FAST_ERROR_CODE_SUCCESS) {
-printf("Failed to create filter: %d\n", ret);
-return ret;
+    // 创建滤波器
+    ret = HMS_FAST_Biquadm_Create(num_channels, num_sections, max_frames, &filter);
+    if (ret != FAST_ERROR_CODE_SUCCESS) {
+        printf("Failed to create filter: %d\n", ret);
+        return ret;
+    }
+
+    // 设置2节滤波器系数
+    float coefficients[] = {
+        // 第1节系数
+        0.049922035f, 0.099844069f, 0.049922035f, -1.558153539f, 0.649003273f,
+        // 第2节系数
+        0.049922035f, 0.099844069f, 0.049922035f, -1.558153539f, 0.649003273f
+    };
+
+    ret = HMS_FAST_Biquadm_SetCoeffSingle(filter, coefficients, 1);
+    if (ret != FAST_ERROR_CODE_SUCCESS) {
+        printf("Failed to set coefficients: %d\n", ret);
+        HMS_FAST_Biquadm_Destroy(filter);
+        return ret;
+    }
+
+    // 准备输入输出数据
+    const size_t num_samples = 100;
+    float input_left[num_samples];
+    float input_right[num_samples];
+    float output_left[num_samples];
+    float output_right[num_samples];
+
+    // 初始化输入数据（正弦波）
+    for (size_t i = 0; i < num_samples; ++i) {
+        input_left[i] = sinf(i * 0.1f);
+        input_right[i] = sinf(i * 0.1f + 0.5f);
+    }
+
+    const float* input_channels[] = {input_left, input_right};
+    float* output_channels[] = {output_left, output_right};
+
+    // 执行滤波
+    ret = HMS_FAST_Biquadm(filter, input_channels, 1, output_channels, 1, num_samples);
+    if (ret != FAST_ERROR_CODE_SUCCESS) {
+        printf("Failed to process: %d\n", ret);
+        HMS_FAST_Biquadm_Destroy(filter);
+        return ret;
+    }
+
+    printf("Multi-channel filter processed %zu samples\n", num_samples);
+
+    // 销毁滤波器
+    HMS_FAST_Biquadm_Destroy(filter);
+
+    return FAST_ERROR_CODE_SUCCESS;
 }
+```
 
-// 设置2节滤波器系数
-float coefficients[] = {
-// 第1节系数
-0.049922035f, 0.099844069f, 0.049922035f, -1.558153539f, 0.649003273f,
-// 第2节系数
-0.049922035f, 0.099844069f, 0.049922035f, -1.558153539f, 0.649003273f
-};
 
-ret = HMS_FAST_Biquadm_SetCoeffSingle(filter, coefficients, 1);
-if (ret != FAST_ERROR_CODE_SUCCESS) {
-printf("Failed to set coefficients: %d\n", ret);
-HMS_FAST_Biquadm_Destroy(filter);
-return ret;
-}
 
-// 准备输入输出数据
-const size_t num_samples = 100;
-float input_left[num_samples];
-float input_right[num_samples];
-float output_left[num_samples];
-float output_right[num_samples];
-
-// 初始化输入数据（正弦波）
-for (size_t i = 0; i
-
-## 动态激活滤波器节示例
-
+##### 动态激活滤波器节示例
 
 ```text
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode dynamic_filter_activation_demo() {
@@ -221,4 +267,13 @@ FAST_ErrorCode dynamic_filter_activation_demo() {
     }
 
     printf("Filtered output with dynamic activation:\n");
-    for (size_t i = 0; i
+    for (size_t i = 0; i < num_samples; ++i) {
+        printf("  output[%zu] = %f\n", i, output[i]);
+    }
+
+    // 销毁滤波器
+    HMS_FAST_Biquadm_Destroy(filter);
+
+    return FAST_ERROR_CODE_SUCCESS;
+}
+```

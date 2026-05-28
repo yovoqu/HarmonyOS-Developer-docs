@@ -6,14 +6,24 @@
 
 CMAC是基于对称密钥分组加密算法的消息认证码（Cipher-based Message Authentication Code），目前支持3DES加密算法的消息认证方法。
 
-
 > [!NOTE]
 > 仅支持在智能穿戴设备（Wearable）使用。
 
 
-## 开发步骤
 
-**生成密钥** 获取生成密钥算法参数配置。 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，支持的规格是128比特长度的密钥。 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)的规格介绍，导入已有的密钥。 **执行CMAC** 获取CMAC算法参数配置。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取MAC数据。
+##### 开发步骤
+
+**生成密钥**
+1. 获取生成密钥算法参数配置。
+2. 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，支持的规格是128比特长度的密钥。
+
+除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)的规格介绍，导入已有的密钥。
+
+**执行CMAC**
+1. 获取CMAC算法参数配置。
+2. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+3. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取MAC数据。
+
 ```text
 /*
  * 以下以CMAC密钥的Promise操作使用为例。
@@ -30,7 +40,22 @@ let macData: Uint8Array;
 
 function StringToUint8Array(str: String) {
   let arr: number[] = new Array();
-  for (let i = 0, j = str.length; i  = [{
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function Uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function GenerateKeyProperties() {
+  const properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_3DES
   }, {
@@ -44,7 +69,7 @@ function StringToUint8Array(str: String) {
 }
 
 function GetCmacProperties() {
-  const properties: Array = [{
+  const properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_CMAC
   }, {

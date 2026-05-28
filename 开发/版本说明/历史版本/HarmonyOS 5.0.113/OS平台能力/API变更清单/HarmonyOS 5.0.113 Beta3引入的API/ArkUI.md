@@ -4,7 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-b105
 
-
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | API卡片权限变更 | 类名：TextAttribute； API声明：fontFeature(value: string): TextAttribute; 差异内容：NA | 类名：TextAttribute； API声明：fontFeature(value: string): TextAttribute; 差异内容：form | component/text.d.ts |

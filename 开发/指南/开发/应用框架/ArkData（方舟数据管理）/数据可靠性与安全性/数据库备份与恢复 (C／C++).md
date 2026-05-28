@@ -1,29 +1,42 @@
 # 数据库备份与恢复 (C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-backup-and-restore
 
-## 场景介绍
+##### 场景介绍
 
-如果操作或存储的过程中出现问题，开发者可以使用恢复功能，将数据库恢复到之前的状态，重新对数据库进行操作。 在数据库被篡改、删除、或者设备断电场景下，数据库可能会因为数据丢失、数据损坏、脏数据等而不可用，可以通过数据库的备份恢复能力将数据库恢复至可用状态。 当前仅支持使用关系型数据库（C/C++）进行备份与恢复。
+如果操作或存储的过程中出现问题，开发者可以使用恢复功能，将数据库恢复到之前的状态，重新对数据库进行操作。
+ 
+在数据库被篡改、删除、或者设备断电场景下，数据库可能会因为数据丢失、数据损坏、脏数据等而不可用，可以通过数据库的备份恢复能力将数据库恢复至可用状态。
+ 
+当前仅支持使用关系型数据库（C/C++）进行备份与恢复。
+ 
+  
 
-## 开发步骤
+##### 开发步骤
 
-数据库操作或者存储过程中，有可能会因为各种原因发生非预期的数据库异常的情况，可以根据需要使用关系型数据库的备份能力，以便在数据库异常时，可靠高效地恢复数据保证业务数据正常使用。 CMakeLists.txt中添加以下lib。
+数据库操作或者存储过程中，有可能会因为各种原因发生非预期的数据库异常的情况，可以根据需要使用关系型数据库的备份能力，以便在数据库异常时，可靠高效地恢复数据保证业务数据正常使用。
+ 1. CMakeLists.txt中添加以下lib。
+
+  
 ```text
 libnative_rdb_ndk.z.so
 ```
 
-导入头文件。
-```text
-#include
+2. 导入头文件。
+
+  
+```cpp
+#include <cstring>
 #include "database/rdb/relational_store.h"
 #include "hilog/log.h"
 ```
 
-调用OH_Rdb_Backup接口实现数据库备份。
-```text
+3. 调用OH_Rdb_Backup接口实现数据库备份。
+
+  
+```cpp
 OH_Rdb_ConfigV2 *config = OH_Rdb_CreateConfig();
 OH_Rdb_SetDatabaseDir(config, "/data/storage/el2/database");
 OH_Rdb_SetArea(config, RDB_SECURITY_AREA_EL2);
@@ -40,8 +53,10 @@ OH_Rdb_DestroyConfig(config);
 config = nullptr;
 ```
 
-调用OH_Rdb_Restore接口实现数据库恢复。
-```text
+4. 调用OH_Rdb_Restore接口实现数据库恢复。
+
+  
+```cpp
 OH_Rdb_ConfigV2 *config = OH_Rdb_CreateConfig();
 OH_Rdb_SetDatabaseDir(config, "/data/storage/el2/database");
 OH_Rdb_SetArea(config, RDB_SECURITY_AREA_EL2);
@@ -59,7 +74,11 @@ OH_Rdb_DestroyConfig(config);
 config = nullptr;
 ```
 
-调用OH_Rdb_RegisterCorruptedHandler接口注册数据库异常处理。   从API version 22开始，支持注册数据库异常处理，开发者可根据需要调用OH_Rdb_RegisterCorruptedHandler接口注册数据库异常处理。
+5. 调用OH_Rdb_RegisterCorruptedHandler接口注册数据库异常处理。
+
+  从API version 22开始，支持注册数据库异常处理，开发者可根据需要调用OH_Rdb_RegisterCorruptedHandler接口注册数据库异常处理。
+
+  
 ```text
 // 数据库异常后处理的回调函数。
 // context为OH_Rdb_RegisterCorruptedHandler调用时传入的指针，生命周期由业务自身管理
@@ -102,7 +121,11 @@ Rdb_CorruptedHandler handler = CorruptedHandler;
 OH_Rdb_RegisterCorruptedHandler(config3, context, handler);
 ```
 
-调用OH_Rdb_UnregisterCorruptedHandler接口取消注册数据库异常处理。   从API version 22开始，支持取消注册数据库异常处理，开发者可根据需要调用OH_Rdb_UnregisterCorruptedHandler接口取消注册数据库异常处理。
+6. 调用OH_Rdb_UnregisterCorruptedHandler接口取消注册数据库异常处理。
+
+  从API version 22开始，支持取消注册数据库异常处理，开发者可根据需要调用OH_Rdb_UnregisterCorruptedHandler接口取消注册数据库异常处理。
+
+  
 ```text
 OH_Rdb_ConfigV2* config4 = OH_Rdb_CreateConfig();
 OH_Rdb_SetDatabaseDir(config4, "/data/storage/el2/database");

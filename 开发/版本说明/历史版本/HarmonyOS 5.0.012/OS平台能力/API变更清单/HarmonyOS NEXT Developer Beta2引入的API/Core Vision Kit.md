@@ -10,14 +10,14 @@
 | 新增API | NA | 类名：objectDetection； API声明： interface VisionObject 差异内容： interface VisionObject | api/@hms.ai.vision.objectDetection.d.ts |
 | 新增API | NA | 类名：VisionObject； API声明：boundingBox: visionBase.BoundingBox; 差异内容：boundingBox: visionBase.BoundingBox; | api/@hms.ai.vision.objectDetection.d.ts |
 | 新增API | NA | 类名：VisionObject； API声明：score: number; 差异内容：score: number; | api/@hms.ai.vision.objectDetection.d.ts |
-| 新增API | NA | 类名：VisionObject； API声明：labels: Array<number>; 差异内容：labels: Array<number>; | api/@hms.ai.vision.objectDetection.d.ts |
+| 新增API | NA | 类名：VisionObject； API声明：labels: Array&lt;number&gt;; 差异内容：labels: Array&lt;number&gt;; | api/@hms.ai.vision.objectDetection.d.ts |
 | 新增API | NA | 类名：VisionObject； API声明：id: number; 差异内容：id: number; | api/@hms.ai.vision.objectDetection.d.ts |
 | 新增API | NA | 类名：objectDetection； API声明： class ObjectDetectionResponse 差异内容： class ObjectDetectionResponse | api/@hms.ai.vision.objectDetection.d.ts |
-| 新增API | NA | 类名：ObjectDetectionResponse； API声明：objects: Array<VisionObject>; 差异内容：objects: Array<VisionObject>; | api/@hms.ai.vision.objectDetection.d.ts |
+| 新增API | NA | 类名：ObjectDetectionResponse； API声明：objects: Array&lt;VisionObject&gt;; 差异内容：objects: Array&lt;VisionObject&gt;; | api/@hms.ai.vision.objectDetection.d.ts |
 | 新增API | NA | 类名：objectDetection； API声明： class ObjectDetector 差异内容： class ObjectDetector | api/@hms.ai.vision.objectDetection.d.ts |
-| 新增API | NA | 类名：ObjectDetector； API声明：static create(): Promise<ObjectDetector>; 差异内容：static create(): Promise<ObjectDetector>; | api/@hms.ai.vision.objectDetection.d.ts |
-| 新增API | NA | 类名：ObjectDetector； API声明：process(request: visionBase.Request): Promise<ObjectDetectionResponse>; 差异内容：process(request: visionBase.Request): Promise<ObjectDetectionResponse>; | api/@hms.ai.vision.objectDetection.d.ts |
-| 新增API | NA | 类名：ObjectDetector； API声明：destroy(): Promise<void>; 差异内容：destroy(): Promise<void>; | api/@hms.ai.vision.objectDetection.d.ts |
+| 新增API | NA | 类名：ObjectDetector； API声明：static create(): Promise&lt;ObjectDetector&gt;; 差异内容：static create(): Promise&lt;ObjectDetector&gt;; | api/@hms.ai.vision.objectDetection.d.ts |
+| 新增API | NA | 类名：ObjectDetector； API声明：process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;; 差异内容：process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;; | api/@hms.ai.vision.objectDetection.d.ts |
+| 新增API | NA | 类名：ObjectDetector； API声明：destroy(): Promise&lt;void&gt;; 差异内容：destroy(): Promise&lt;void&gt;; | api/@hms.ai.vision.objectDetection.d.ts |
 | 新增API | NA | 类名：global； API声明： declare namespace skeletonDetection 差异内容： declare namespace skeletonDetection | api/@hms.ai.vision.skeletonDetection.d.ts |
 | 新增API | NA | 类名：skeletonDetection； API声明： enum SkeletonPointType 差异内容： enum SkeletonPointType | api/@hms.ai.vision.skeletonDetection.d.ts |
 | 新增API | NA | 类名：SkeletonPointType； API声明：NOSE = 0 差异内容：NOSE = 0 | api/@hms.ai.vision.skeletonDetection.d.ts |
@@ -44,13 +44,13 @@
 | 新增API | NA | 类名：skeletonDetection； API声明： interface Skeleton 差异内容： interface Skeleton | api/@hms.ai.vision.skeletonDetection.d.ts |
 | 新增API | NA | 类名：Skeleton； API声明：boundingBox: visionBase.BoundingBox; 差异内容：boundingBox: visionBase.BoundingBox; | api/@hms.ai.vision.skeletonDetection.d.ts |
 | 新增API | NA | 类名：Skeleton； API声明：score: number; 差异内容：score: number; | api/@hms.ai.vision.skeletonDetection.d.ts |
-| 新增API | NA | 类名：Skeleton； API声明：points: Array<SkeletonPoint>; 差异内容：points: Array<SkeletonPoint>; | api/@hms.ai.vision.skeletonDetection.d.ts |
+| 新增API | NA | 类名：Skeleton； API声明：points: Array&lt;SkeletonPoint&gt;; 差异内容：points: Array&lt;SkeletonPoint&gt;; | api/@hms.ai.vision.skeletonDetection.d.ts |
 | 新增API | NA | 类名：skeletonDetection； API声明： class SkeletonDetectionResponse 差异内容： class SkeletonDetectionResponse | api/@hms.ai.vision.skeletonDetection.d.ts |
-| 新增API | NA | 类名：SkeletonDetectionResponse； API声明：skeletons: Array<Skeleton>; 差异内容：skeletons: Array<Skeleton>; | api/@hms.ai.vision.skeletonDetection.d.ts |
+| 新增API | NA | 类名：SkeletonDetectionResponse； API声明：skeletons: Array&lt;Skeleton&gt;; 差异内容：skeletons: Array&lt;Skeleton&gt;; | api/@hms.ai.vision.skeletonDetection.d.ts |
 | 新增API | NA | 类名：skeletonDetection； API声明： class SkeletonDetector 差异内容： class SkeletonDetector | api/@hms.ai.vision.skeletonDetection.d.ts |
-| 新增API | NA | 类名：SkeletonDetector； API声明：static create(): Promise<SkeletonDetector>; 差异内容：static create(): Promise<SkeletonDetector>; | api/@hms.ai.vision.skeletonDetection.d.ts |
-| 新增API | NA | 类名：SkeletonDetector； API声明：process(request: visionBase.Request): Promise<SkeletonDetectionResponse>; 差异内容：process(request: visionBase.Request): Promise<SkeletonDetectionResponse>; | api/@hms.ai.vision.skeletonDetection.d.ts |
-| 新增API | NA | 类名：SkeletonDetector； API声明：destroy(): Promise<void>; 差异内容：destroy(): Promise<void>; | api/@hms.ai.vision.skeletonDetection.d.ts |
+| 新增API | NA | 类名：SkeletonDetector； API声明：static create(): Promise&lt;SkeletonDetector&gt;; 差异内容：static create(): Promise&lt;SkeletonDetector&gt;; | api/@hms.ai.vision.skeletonDetection.d.ts |
+| 新增API | NA | 类名：SkeletonDetector； API声明：process(request: visionBase.Request): Promise&lt;SkeletonDetectionResponse&gt;; 差异内容：process(request: visionBase.Request): Promise&lt;SkeletonDetectionResponse&gt;; | api/@hms.ai.vision.skeletonDetection.d.ts |
+| 新增API | NA | 类名：SkeletonDetector； API声明：destroy(): Promise&lt;void&gt;; 差异内容：destroy(): Promise&lt;void&gt;; | api/@hms.ai.vision.skeletonDetection.d.ts |
 | 新增API | NA | 类名：global； API声明： declare namespace visionBase 差异内容： declare namespace visionBase | api/@hms.ai.vision.visionBase.d.ts |
 | 新增API | NA | 类名：visionBase； API声明： enum SceneMode 差异内容： enum SceneMode | api/@hms.ai.vision.visionBase.d.ts |
 | 新增API | NA | 类名：SceneMode； API声明：FOREGROUND = 1 差异内容：FOREGROUND = 1 | api/@hms.ai.vision.visionBase.d.ts |
@@ -77,4 +77,4 @@
 | 新增API | NA | 类名：visionBase； API声明： class Response 差异内容： class Response | api/@hms.ai.vision.visionBase.d.ts |
 | 新增API | NA | 类名：Response； API声明：requestId?: string; 差异内容：requestId?: string; | api/@hms.ai.vision.visionBase.d.ts |
 | 新增API | NA | 类名：visionBase； API声明： class Analyzer 差异内容： class Analyzer | api/@hms.ai.vision.visionBase.d.ts |
-| 新增API | NA | 类名：Analyzer； API声明：destroy(): Promise<void>; 差异内容：destroy(): Promise<void>; | api/@hms.ai.vision.visionBase.d.ts |
+| 新增API | NA | 类名：Analyzer； API声明：destroy(): Promise&lt;void&gt;; 差异内容：destroy(): Promise&lt;void&gt;; | api/@hms.ai.vision.visionBase.d.ts |

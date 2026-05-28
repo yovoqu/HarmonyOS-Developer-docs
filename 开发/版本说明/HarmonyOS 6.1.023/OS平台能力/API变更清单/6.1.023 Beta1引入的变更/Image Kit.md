@@ -14,25 +14,25 @@
 | 新增API | NA | 类名：ImageBufferData； API声明：readonly rowStride: number[]; 差异内容：readonly rowStride: number[]; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ImageBufferData； API声明：readonly pixelStride: number[]; 差异内容：readonly pixelStride: number[]; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ImageBufferData； API声明：readonly byteBuffer: ArrayBuffer; 差异内容：readonly byteBuffer: ArrayBuffer; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：image； API声明：function createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled: boolean): Promise<PixelMap>; 差异内容：function createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled: boolean): Promise<PixelMap>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：image； API声明：function createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled: boolean): Promise&lt;PixelMap&gt;; 差异内容：function createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled: boolean): Promise&lt;PixelMap&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：function createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnabled: boolean): PixelMap; 差异内容：function createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnabled: boolean): PixelMap; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：interface HdrComposeOptions 差异内容：interface HdrComposeOptions | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HdrComposeOptions； API声明：desiredPixelFormat?: PixelMapFormat; 差异内容：desiredPixelFormat?: PixelMapFormat; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：Picture； API声明：getHdrComposedPixelmapWithOptions(options?: HdrComposeOptions): Promise<PixelMap \| undefined>; 差异内容：getHdrComposedPixelmapWithOptions(options?: HdrComposeOptions): Promise<PixelMap \| undefined>; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：MetadataType； API声明：HEIFS_METADATA = 15 差异内容：HEIFS_METADATA = 15 | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：Metadata； API声明：getBlob(): Promise<ArrayBuffer>; 差异内容：getBlob(): Promise<ArrayBuffer>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：Metadata； API声明：setBlob(blob: ArrayBuffer): Promise<void>; 差异内容：setBlob(blob: ArrayBuffer): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：Metadata； API声明：getBlob(): Promise&lt;ArrayBuffer&gt;; 差异内容：getBlob(): Promise&lt;ArrayBuffer&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：Metadata； API声明：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; 差异内容：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：enum HeifsPropertyKey 差异内容：enum HeifsPropertyKey | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HeifsPropertyKey； API声明：HEIFS_DELAY_TIME = 'HeifsDelayTime' 差异内容：HEIFS_DELAY_TIME = 'HeifsDelayTime' | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：class HeifsMetadata 差异内容：class HeifsMetadata | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HeifsMetadata； API声明：readonly heifsDelayTime?: number; 差异内容：readonly heifsDelayTime?: number; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HeifsMetadata； API声明：static createInstance(): HeifsMetadata; 差异内容：static createInstance(): HeifsMetadata; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HeifsMetadata； API声明：getProperties(key: Array<string>): Promise<Record<string, string \| null>>; 差异内容：getProperties(key: Array<string>): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HeifsMetadata； API声明：setProperties(records: Record<string, string \| null>): Promise<void>; 差异内容：setProperties(records: Record<string, string \| null>): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HeifsMetadata； API声明：getProperties(key: Array&lt;string&gt;): Promise<Record<string, string \| null>>; 差异内容：getProperties(key: Array&lt;string&gt;): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HeifsMetadata； API声明：setProperties(records: Record<string, string \| null>): Promise&lt;void&gt;; 差异内容：setProperties(records: Record<string, string \| null>): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HeifsMetadata； API声明：getAllProperties(): Promise<Record<string, string \| null>>; 差异内容：getAllProperties(): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HeifsMetadata； API声明：clone(): Promise<HeifsMetadata>; 差异内容：clone(): Promise<HeifsMetadata>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HeifsMetadata； API声明：getBlob(): Promise<ArrayBuffer>; 差异内容：getBlob(): Promise<ArrayBuffer>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HeifsMetadata； API声明：setBlob(blob: ArrayBuffer): Promise<void>; 差异内容：setBlob(blob: ArrayBuffer): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HeifsMetadata； API声明：clone(): Promise&lt;HeifsMetadata&gt;; 差异内容：clone(): Promise&lt;HeifsMetadata&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HeifsMetadata； API声明：getBlob(): Promise&lt;ArrayBuffer&gt;; 差异内容：getBlob(): Promise&lt;ArrayBuffer&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HeifsMetadata； API声明：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; 差异内容：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：enum Orientation 差异内容：enum Orientation | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：Orientation； API声明：TOP_LEFT = 1 差异内容：TOP_LEFT = 1 | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：Orientation； API声明：TOP_RIGHT = 2 差异内容：TOP_RIGHT = 2 | api/@ohos.multimedia.image.d.ts |
@@ -184,12 +184,12 @@
 | 新增API | NA | 类名：ExifMetadata； API声明：sourceExposureTimesOfCompositeImage?: ArrayBuffer; 差异内容：sourceExposureTimesOfCompositeImage?: ArrayBuffer; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ExifMetadata； API声明：gamma?: number; 差异内容：gamma?: number; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ExifMetadata； API声明：static createInstance(): ExifMetadata; 差异内容：static createInstance(): ExifMetadata; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ExifMetadata； API声明：getProperties(key: Array<string>): Promise<Record<string, string \| null>>; 差异内容：getProperties(key: Array<string>): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ExifMetadata； API声明：setProperties(records: Record<string, string \| null>): Promise<void>; 差异内容：setProperties(records: Record<string, string \| null>): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ExifMetadata； API声明：getProperties(key: Array&lt;string&gt;): Promise<Record<string, string \| null>>; 差异内容：getProperties(key: Array&lt;string&gt;): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ExifMetadata； API声明：setProperties(records: Record<string, string \| null>): Promise&lt;void&gt;; 差异内容：setProperties(records: Record<string, string \| null>): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ExifMetadata； API声明：getAllProperties(): Promise<Record<string, string \| null>>; 差异内容：getAllProperties(): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ExifMetadata； API声明：clone(): Promise<ExifMetadata>; 差异内容：clone(): Promise<ExifMetadata>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ExifMetadata； API声明：getBlob(): Promise<ArrayBuffer>; 差异内容：getBlob(): Promise<ArrayBuffer>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ExifMetadata； API声明：setBlob(blob: ArrayBuffer): Promise<void>; 差异内容：setBlob(blob: ArrayBuffer): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ExifMetadata； API声明：clone(): Promise&lt;ExifMetadata&gt;; 差异内容：clone(): Promise&lt;ExifMetadata&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ExifMetadata； API声明：getBlob(): Promise&lt;ArrayBuffer&gt;; 差异内容：getBlob(): Promise&lt;ArrayBuffer&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ExifMetadata； API声明：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; 差异内容：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：const XMAGE_WATERMARK_MODE_AT_THE_BOTTOM: number = 9; 差异内容：const XMAGE_WATERMARK_MODE_AT_THE_BOTTOM: number = 9; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：const XMAGE_WATERMARK_MODE_BORDER: number = 10; 差异内容：const XMAGE_WATERMARK_MODE_BORDER: number = 10; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：const CAPTURE_MODE_PROFESSIONAL: number = 2; 差异内容：const CAPTURE_MODE_PROFESSIONAL: number = 2; | api/@ohos.multimedia.image.d.ts |
@@ -248,18 +248,18 @@
 | 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：physicalAperture?: number; 差异内容：physicalAperture?: number; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：focusMode?: FocusMode; 差异内容：focusMode?: FocusMode; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：static createInstance(): MakerNoteHuaweiMetadata; 差异内容：static createInstance(): MakerNoteHuaweiMetadata; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：getProperties(key: Array<string>): Promise<Record<string, string \| null>>; 差异内容：getProperties(key: Array<string>): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：setProperties(records: Record<string, string \| null>): Promise<void>; 差异内容：setProperties(records: Record<string, string \| null>): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：getProperties(key: Array&lt;string&gt;): Promise<Record<string, string \| null>>; 差异内容：getProperties(key: Array&lt;string&gt;): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：setProperties(records: Record<string, string \| null>): Promise&lt;void&gt;; 差异内容：setProperties(records: Record<string, string \| null>): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：getAllProperties(): Promise<Record<string, string \| null>>; 差异内容：getAllProperties(): Promise<Record<string, string \| null>>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：clone(): Promise<MakerNoteHuaweiMetadata>; 差异内容：clone(): Promise<MakerNoteHuaweiMetadata>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：getBlob(): Promise<ArrayBuffer>; 差异内容：getBlob(): Promise<ArrayBuffer>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：setBlob(blob: ArrayBuffer): Promise<void>; 差异内容：setBlob(blob: ArrayBuffer): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：clone(): Promise&lt;MakerNoteHuaweiMetadata&gt;; 差异内容：clone(): Promise&lt;MakerNoteHuaweiMetadata&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：getBlob(): Promise&lt;ArrayBuffer&gt;; 差异内容：getBlob(): Promise&lt;ArrayBuffer&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：MakerNoteHuaweiMetadata； API声明：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; 差异内容：setBlob(blob: ArrayBuffer): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：interface ImageMetadata 差异内容：interface ImageMetadata | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ImageMetadata； API声明：exifMetadata?: ExifMetadata; 差异内容：exifMetadata?: ExifMetadata; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ImageMetadata； API声明：makerNoteHuaweiMetadata?: MakerNoteHuaweiMetadata; 差异内容：makerNoteHuaweiMetadata?: MakerNoteHuaweiMetadata; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：ImageMetadata； API声明：heifsMetadata?: HeifsMetadata; 差异内容：heifsMetadata?: HeifsMetadata; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ImageSource； API声明：readImageMetadata(propertyKeys?: string[], index?: number): Promise<ImageMetadata>; 差异内容：readImageMetadata(propertyKeys?: string[], index?: number): Promise<ImageMetadata>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ImageSource； API声明：writeImageMetadata(imageMetadata: ImageMetadata): Promise<void>; 差异内容：writeImageMetadata(imageMetadata: ImageMetadata): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ImageSource； API声明：readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMetadata&gt;; 差异内容：readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMetadata&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ImageSource； API声明：writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;; 差异内容：writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：Image； API声明：readonly colorSpace: colorSpaceManager.ColorSpace; 差异内容：readonly colorSpace: colorSpaceManager.ColorSpace; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：Image； API声明：getBufferData(): ImageBufferData \| null; 差异内容：getBufferData(): ImageBufferData \| null; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：Image； API声明：getMetadata(key: HdrMetadataKey): HdrMetadataValue \| null; 差异内容：getMetadata(key: HdrMetadataKey): HdrMetadataValue \| null; | api/@ohos.multimedia.image.d.ts |

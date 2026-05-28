@@ -3,22 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 区域对象，用于描述所绘制图形的区域信息。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## constructor20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor20+
 
 constructor()
 
@@ -26,8 +28,7 @@ constructor()
 
 **系统能力：** SystemCapability.Graphics.Drawing
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -39,7 +40,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -52,8 +53,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## constructor20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor20+
 
 constructor(region: Region)
 
@@ -63,16 +64,14 @@ constructor(region: Region)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| region | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 用于拷贝的区域。 |
+| region | Region | 是 | 用于拷贝的区域。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -84,7 +83,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -98,8 +97,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## constructor20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor20+
 
 constructor(left: number, top: number, right: number, bottom: number)
 
@@ -108,7 +107,6 @@ constructor(left: number, top: number, right: number, bottom: number)
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -120,8 +118,7 @@ constructor(left: number, top: number, right: number, bottom: number)
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -133,7 +130,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -145,8 +142,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## isEqual20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEqual20+
 
 isEqual(other: Region): boolean
 
@@ -156,14 +153,12 @@ isEqual(other: Region): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| other | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 区域对象。 |
+| other | Region | 是 | 区域对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -172,8 +167,7 @@ isEqual(other: Region): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -185,7 +179,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -204,8 +198,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## isComplex20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isComplex20+
 
 isComplex(): boolean
 
@@ -215,7 +209,6 @@ isComplex(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回当前区域是否包含多个矩形的结果。true表示当前区域包含多个矩形，false表示当前区域不包含多个矩形。 |
@@ -223,8 +216,7 @@ isComplex(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 import { RenderNode } from '@kit.ArkUI';
 
@@ -236,7 +228,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -255,8 +247,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## isEmpty20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty20+
 
 isEmpty(): boolean
 
@@ -266,7 +258,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回当前区域是否为空。true表示当前区域为空，false表示当前区域不为空。 |
@@ -274,8 +265,7 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -287,7 +277,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -304,8 +294,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## getBounds20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getBounds20+
 
 getBounds(): common2D.Rect
 
@@ -315,16 +305,14 @@ getBounds(): common2D.Rect
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 返回当前区域的边界矩形。 |
+| common2D.Rect | 返回当前区域的边界矩形。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let region = new drawing.Region();
@@ -332,8 +320,8 @@ let rect = region.getBounds();
 ```
 
 
-## getBoundaryPath20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getBoundaryPath20+
 
 getBoundaryPath(): Path
 
@@ -343,16 +331,14 @@ getBoundaryPath(): Path
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 返回当前区域边界的路径。 |
+| Path | 返回当前区域边界的路径。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let region = new drawing.Region();
@@ -360,8 +346,8 @@ let path = region.getBoundaryPath();
 ```
 
 
-## isPointContained12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isPointContained12+
 
 isPointContained(x: number, y: number) : boolean
 
@@ -371,7 +357,6 @@ isPointContained(x: number, y: number) : boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | x | number | 是 | 测试点的x轴坐标。该参数必须为整数。如果输入的数字包含小数部分，小数部分将被舍去。 |
@@ -379,7 +364,6 @@ isPointContained(x: number, y: number) : boolean
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -390,7 +374,6 @@ isPointContained(x: number, y: number) : boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -398,8 +381,7 @@ isPointContained(x: number, y: number) : boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -411,7 +393,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -419,7 +401,7 @@ class DrawingRenderNode extends RenderNode {
     region.setRect(100, 100, 400, 400);
     let flag: boolean = false;
     flag = region.isPointContained(200, 200);
-    console.info('region isPointContained : ' + flag);
+    console.info("region isPointContained : " + flag);
     canvas.drawPoint(200, 200);
     canvas.drawRegion(region);
     canvas.detachPen();
@@ -428,8 +410,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## offset20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### offset20+
 
 offset(dx: number, dy: number): void
 
@@ -439,7 +421,6 @@ offset(dx: number, dy: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dx | number | 是 | x轴方向平移量，正数往x轴正方向平移，负数往x轴负方向平移，该参数为整数。 |
@@ -448,8 +429,7 @@ offset(dx: number, dy: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -461,7 +441,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -476,8 +456,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## isRegionContained12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isRegionContained12+
 
 isRegionContained(other: Region) : boolean
 
@@ -487,14 +467,12 @@ isRegionContained(other: Region) : boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| other | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 区域对象。 |
+| other | Region | 是 | 区域对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -505,7 +483,6 @@ isRegionContained(other: Region) : boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -513,8 +490,7 @@ isRegionContained(other: Region) : boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -526,7 +502,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -536,7 +512,7 @@ class DrawingRenderNode extends RenderNode {
     other.setRect(150, 150, 250, 250);
     let flag: boolean = false;
     flag = region.isRegionContained(other);
-    console.info('region isRegionContained : ' + flag);
+    console.info("region isRegionContained : " + flag);
     canvas.drawRegion(region);
     canvas.drawRegion(other);
     canvas.detachPen();
@@ -545,8 +521,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## op12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### op12+
 
 op(region: Region, regionOp: RegionOp) : boolean
 
@@ -556,15 +532,13 @@ op(region: Region, regionOp: RegionOp) : boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| region | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 区域对象。 |
-| regionOp | [RegionOp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#regionop12) | 是 | 区域合并操作类型。 |
+| region | Region | 是 | 区域对象。 |
+| regionOp | RegionOp | 是 | 区域合并操作类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -575,7 +549,6 @@ op(region: Region, regionOp: RegionOp) : boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -583,8 +556,7 @@ op(region: Region, regionOp: RegionOp) : boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -596,7 +568,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -606,7 +578,7 @@ class DrawingRenderNode extends RenderNode {
     othregion.setRect(110, 110, 240, 240);
     let flag: boolean = false;
     flag = region.op(othregion, drawing.RegionOp.REPLACE);
-    console.info('region op : ' + flag);
+    console.info("region op : " + flag);
     canvas.drawRegion(region);
     canvas.detachPen();
   }
@@ -614,8 +586,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## quickReject12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### quickReject12+
 
 quickReject(left: number, top: number, right: number, bottom: number) : boolean
 
@@ -624,7 +596,6 @@ quickReject(left: number, top: number, right: number, bottom: number) : boolean
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -636,7 +607,6 @@ quickReject(left: number, top: number, right: number, bottom: number) : boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回矩形是否与区域不相交的结果。true表示矩形与区域不相交，false表示矩形与区域相交。 |
@@ -646,7 +616,6 @@ quickReject(left: number, top: number, right: number, bottom: number) : boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -654,8 +623,7 @@ quickReject(left: number, top: number, right: number, bottom: number) : boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -667,7 +635,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -675,7 +643,7 @@ class DrawingRenderNode extends RenderNode {
     region.setRect(100, 100, 400, 400);
     let flag: boolean = false;
     flag = region.quickReject(50, 50, 70, 70);
-    console.info('region quickReject : ' + flag);
+    console.info("region quickReject : " + flag);
     canvas.drawRegion(region);
     canvas.detachPen();
   }
@@ -683,8 +651,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## quickRejectRegion20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### quickRejectRegion20+
 
 quickRejectRegion(region: Region): boolean
 
@@ -694,14 +662,12 @@ quickRejectRegion(region: Region): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| region | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 指定的区域对象。 |
+| region | Region | 是 | 指定的区域对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -710,8 +676,7 @@ quickRejectRegion(region: Region): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -723,7 +688,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -732,7 +697,7 @@ class DrawingRenderNode extends RenderNode {
     region2.setRect(100, 100, 400, 400);
     let flag: boolean = false;
     flag = region.quickRejectRegion(region2);
-    console.info('region quickRejectRegion: ' + flag);
+    console.info("region quickRejectRegion: " + flag);
     canvas.drawRegion(region);
     canvas.detachPen();
   }
@@ -740,8 +705,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## setPath12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setPath12+
 
 setPath(path: Path, clip: Region) : boolean
 
@@ -751,15 +716,13 @@ setPath(path: Path, clip: Region) : boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 路径对象。 |
-| clip | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 区域对象。 |
+| path | Path | 是 | 路径对象。 |
+| clip | Region | 是 | 区域对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -770,7 +733,6 @@ setPath(path: Path, clip: Region) : boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -778,8 +740,7 @@ setPath(path: Path, clip: Region) : boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -791,7 +752,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -801,7 +762,7 @@ class DrawingRenderNode extends RenderNode {
     path.arcTo(50, 50, 300, 300, 0, 359);
     let flag: boolean = false;
     flag = region.setPath(path, region);
-    console.info('region setPath : ' + flag);
+    console.info("region setPath : " + flag);
     canvas.drawRegion(region);
     canvas.detachPen();
   }
@@ -809,8 +770,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## setRegion20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setRegion20+
 
 setRegion(region: Region): void
 
@@ -820,16 +781,14 @@ setRegion(region: Region): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| region | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 用于赋值的区域。 |
+| region | Region | 是 | 用于赋值的区域。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -841,7 +800,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -856,8 +815,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## setEmpty20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setEmpty20+
 
 setEmpty(): void
 
@@ -867,8 +826,7 @@ setEmpty(): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -877,17 +835,17 @@ class DrawingRenderNode extends RenderNode {
     let region = new drawing.Region();
     region.setRect(100, 100, 200, 200);
     let isEmpty = region.isEmpty();
-    console.info('isEmpty :' + isEmpty);
+    console.info("isEmpty :" + isEmpty);
     region.setEmpty();
     isEmpty = region.isEmpty();
-    console.info('isEmpty :' + isEmpty);
+    console.info("isEmpty :" + isEmpty);
   }
 }
 ```
 
 
-## setRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setRect12+
 
 setRect(left: number, top: number, right: number, bottom: number) : boolean
 
@@ -896,7 +854,6 @@ setRect(left: number, top: number, right: number, bottom: number) : boolean
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -908,7 +865,6 @@ setRect(left: number, top: number, right: number, bottom: number) : boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回设置矩形区域是否成功的结果。true表示设置矩形区域成功，false表示设置矩形区域失败。 |
@@ -918,7 +874,6 @@ setRect(left: number, top: number, right: number, bottom: number) : boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -926,8 +881,7 @@ setRect(left: number, top: number, right: number, bottom: number) : boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -939,14 +893,14 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
     let region = new drawing.Region();
     let flag: boolean = false;
     flag = region.setRect(50, 50, 300, 300);
-    console.info('region setRect : ' + flag);
+    console.info("region setRect : " + flag);
     canvas.drawRegion(region);
     canvas.detachPen();
   }
@@ -954,8 +908,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## isRect23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isRect23+
 
 isRect(): boolean
 
@@ -967,7 +921,6 @@ isRect(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回当前区域是否等同于单个矩形的结果。true表示当前区域等同于单个矩形，false表示当前区域不等同于单个矩形。 |
@@ -975,8 +928,7 @@ isRect(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 import { RenderNode } from '@kit.ArkUI';
 
@@ -988,7 +940,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -1010,8 +962,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## quickContains23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### quickContains23+
 
 quickContains(left: number, top: number, right: number, bottom: number): boolean
 
@@ -1023,17 +975,15 @@ quickContains(left: number, top: number, right: number, bottom: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | left | number | 是 | 矩形区域的左侧位置。该参数必须为整数。当输入的数字带小数时，小数部分会被舍去。 |
 | top | number | 是 | 矩形区域的顶部位置。该参数必须为整数。当输入的数字带小数时，小数部分会被舍去。 |
 | right | number | 是 | 矩形区域的右侧位置。该参数必须为整数。当输入的数字带小数时，小数部分会被舍去。 |
-| bottom | number | 是 | 矩形区域���底部位置。该参数必须为整数。当输入的数字带小数时，小数部分会被舍去。 |
+| bottom | number | 是 | 矩形区域的底部位置。该参数必须为整数。当输入的数字带小数时，小数部分会被舍去。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1042,8 +992,7 @@ quickContains(left: number, top: number, right: number, bottom: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 import { RenderNode } from '@kit.ArkUI';
 
@@ -1055,7 +1004,7 @@ class DrawingRenderNode extends RenderNode {
       alpha: 255,
       red: 255,
       green: 0,
-      blue: 0,
+      blue: 0
     });
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);

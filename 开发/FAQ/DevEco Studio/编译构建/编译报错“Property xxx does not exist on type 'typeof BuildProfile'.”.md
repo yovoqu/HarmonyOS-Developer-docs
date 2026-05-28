@@ -4,59 +4,61 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-11
 
-问题现象1
-
+**问题现象****1**
+ 
 使用自定义参数BuildProfile时，编译过程中未出现异常，但编译构建失败，提示“Property xxx does not exist on type 'typeof BuildProfile'”。
-
+ 
 
 ![](assets/编译报错“Property%20xxx%20does%20not%20exist%20on%20type%20'typeof%20BuildProfile'.”/file-20260515130049683-0.png)
 
+ 
 
-解决措施
-
+ 
+**解决措施**
+ 
 检查当前模块下build-profile.json5文件中targets>buildProfileFields配置的自定义参数的key值是否一致。如果不一致，请将targets内所有buildProfileFields的key值统一。
-
+ 
 以下为导致编译报错的配置示例：
-
+ 
 ```json
-"targets": [
-{
-"name": "default",
-"config": {
-"buildOption": {
-"arkOptions": {
-"buildProfileFields": {
-"targetName": "default"
-}
-}
-}
-}
-},
-{
-"name": "default1",
-"config": {
-"buildOption": {
-"arkOptions": {
-"buildProfileFields": {
-"targetName1": "default1"
-}
-}
-}
-}
-}
+<span style="color: rgb(135,16,148);">"targets"</span>: [
+  {
+    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
+    <span style="color: rgb(135,16,148);">"config"</span>: {
+      <span style="color: rgb(135,16,148);">"buildOption"</span>: {
+        <span style="color: rgb(135,16,148);">"arkOptions"</span>: {
+          <span style="color: rgb(135,16,148);">"buildProfileFields"</span>: {
+            <span style="color: rgb(135,16,148);">"targetName"</span>: <span style="color: rgb(6,125,23);">"default"</span>
+          }
+        }
+      }
+    }
+  },
+  {
+    <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default1"</span>,
+    <span style="color: rgb(135,16,148);">"config"</span>: {
+      <span style="color: rgb(135,16,148);">"buildOption"</span>: {
+        <span style="color: rgb(135,16,148);">"arkOptions"</span>: {
+          <span style="color: rgb(135,16,148);">"buildProfileFields"</span>: {
+            <span style="color: rgb(135,16,148);">"targetName1"</span>: <span style="color: rgb(6,125,23);">"default1"</span>
+          }
+        }
+      }
+    }
+  }
 ]
 ```
-
+ 
 将targets内所有buildProfileFields的key值修改为一致，例如都修改为targetName。
-
-问题现象2
-
+ 
+**问题现象2**
+ 
 使用了自定义参数BuildProfile并且编译器标红且构建失败，提示“Property xxx does not exist on type 'typeof BuildProfile'.”。
-
+ 
 
 ![](assets/编译报错“Property%20xxx%20does%20not%20exist%20on%20type%20'typeof%20BuildProfile'.”/file-20260515130049683-1.png)
 
-
-解决措施
-
+ 
+**解决措施**
+ 
 检查当前模块下的 build-profile.json5文件，确保buildProfileFields中已添加所使用的自定义参数。

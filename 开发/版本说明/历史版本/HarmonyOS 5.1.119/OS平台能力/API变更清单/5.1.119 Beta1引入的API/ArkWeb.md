@@ -17,8 +17,8 @@
 | API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：bypassHostnamesWithoutPeriod(): void; 差异内容：NA | 类名：ProxyConfig； API声明：bypassHostnamesWithoutPeriod(): void; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
 | API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：clearImplicitRules(): void; 差异内容：NA | 类名：ProxyConfig； API声明：clearImplicitRules(): void; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
 | API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：enableReverseBypass(reverse: boolean): void; 差异内容：NA | 类名：ProxyConfig； API声明：enableReverseBypass(reverse: boolean): void; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
-| API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：getBypassRules(): Array<string>; 差异内容：NA | 类名：ProxyConfig； API声明：getBypassRules(): Array<string>; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
-| API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：getProxyRules(): Array<ProxyRule>; 差异内容：NA | 类名：ProxyConfig； API声明：getProxyRules(): Array<ProxyRule>; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
+| API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：getBypassRules(): Array&lt;string&gt;; 差异内容：NA | 类名：ProxyConfig； API声明：getBypassRules(): Array&lt;string&gt;; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
+| API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：getProxyRules(): Array&lt;ProxyRule&gt;; 差异内容：NA | 类名：ProxyConfig； API声明：getProxyRules(): Array&lt;ProxyRule&gt;; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
 | API从不支持元服务到支持元服务 | 类名：ProxyConfig； API声明：isReverseBypassEnabled(): boolean; 差异内容：NA | 类名：ProxyConfig； API声明：isReverseBypassEnabled(): boolean; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
 | API从不支持元服务到支持元服务 | 类名：webview； API声明：class ProxyRule 差异内容：NA | 类名：webview； API声明：class ProxyRule 差异内容：atomicservice | api/@ohos.web.webview.d.ts |
 | API从不支持元服务到支持元服务 | 类名：ProxyRule； API声明：getSchemeFilter(): ProxySchemeFilter; 差异内容：NA | 类名：ProxyRule； API声明：getSchemeFilter(): ProxySchemeFilter; 差异内容：atomicservice | api/@ohos.web.webview.d.ts |

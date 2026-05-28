@@ -5,10 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-58
 
 使用HiLog进行日志打印时，最多支持4096字节，超出部分将被截断。
+ 
 利用HiLog封装日志打印工具类，解决日志信息过长的问题。
+ 
 示例如下：
+ 
 封装LogUtil类：
-
+ 
 ```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -89,9 +92,9 @@ class LogUtil {
 
 export default LogUtil;
 ```
-
+ 
 使用：
-
+ 
 ```ArkTS
 import LogUtil from './LogUtilClass';
 

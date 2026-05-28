@@ -1,16 +1,20 @@
 # ArkTS卡片使用自定义字体
 
-更新时间：2026-04-17 08:12:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-load-custom-font
 
 API version 22开始新增了[ohos.graphics.text.FontCollection.getLocalInstance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getlocalinstance22)接口获取本地字体集实例，应用可以通过这个本地实例为卡片加载自定义字体。
 
 
-## 开发步骤
+##### 开发步骤
+1. 创建动态卡片：按照[创建ArkTS卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)里的描述创建动态卡片。
+2. 在项目entry\src\main\resources\rawfile目录下添加自定义字体文件xxx.ttf。
+3. 页面布局代码实现entry/src/main/ets/widget/pages/WidgetCard.ets。
 
-创建动态卡片：按照[创建ArkTS卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)里的描述创建动态卡片。 在项目entry\src\main\resources\rawfile目录下添加自定义字体文件xxx.ttf。 页面布局代码实现entry/src/main/ets/widget/pages/WidgetCard.ets。 在卡片页面中布局两个按钮，点击按钮load font或按钮unload font，调用本地字体集实例的loadFontSync、unloadFontSync进行字体的加载、卸载。
-```text
+  在卡片页面中布局两个按钮，点击按钮load font或按钮unload font，调用本地字体集实例的loadFontSync、unloadFontSync进行字体的加载、卸载。
+
+```ArkTS
 // entry/src/main/ets/widget/pages/WidgetCard.ets
 import { text } from '@kit.ArkGraphics2D';
 
@@ -43,11 +47,13 @@ struct loadFontSyncCard {
 }
 ```
 
-
 > [!NOTE]
 > 本地字体集可加载多个自定义字体，所有字体合计最大内存限制加载20MB。 同一应用的所有卡片共用一个本地字体集实例。加载或卸载自定义字体后，所有卡片的字体显示会同步更新。
 
 
-## 运行结果
 
-![](assets/ArkTS卡片使用自定义字体/file-20260514130935715-0.gif)
+
+##### 运行结果
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/PVGNFIPQTk2xEZ3AI_iNog/zh-cn_image_0000002581274452.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014731Z&HW-CC-Expire=86400&HW-CC-Sign=7A7F1FE5C018A4E0E44EEC7BB71086460BE87C045895A032AD6E704018EB4964)

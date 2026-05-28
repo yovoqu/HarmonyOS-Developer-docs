@@ -1,50 +1,63 @@
 # 在自绘编辑框中使用输入法开发指导 (C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-inputmethod-in-custom-edit-box-ndk
 
-## 场景介绍
+##### 场景介绍
 
 IME Kit支持开发者在自绘编辑框中使用输入法，与输入法应用交互，包括显示、隐藏输入法，接收来自输入法应用的文本编辑操作通知等，本文档介绍开发者如何使用C/C++完成此功能开发。
 
-## 接口说明
+
+
+##### 接口说明
 
 详细接口说明请参考[InputMethod接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod)。
 
-## 添加动态链接库
+
+
+##### 添加动态链接库
 
 CMakeLists.txt中添加以下lib。
+
 ```text
 libohinputmethod.so
 ```
 
 
-## 引用头文件
 
+##### 引用头文件
 
 ```text
-#include
+#include <inputmethod/inputmethod_controller_capi.h>
 ```
 
 
-## 绑定输入法
 
-开发者需要在输入框获焦时，通过调用接口[OH_InputMethodController_Attach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_attach)绑定输入法，绑定成功后用户可以通过输入法输入文字。 创建InputMethod_TextEditorProxy实例，示例代码如下所示：
-```text
+##### 绑定输入法
+
+开发者需要在输入框获焦时，通过调用接口[OH_InputMethodController_Attach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_attach)绑定输入法，绑定成功后用户可以通过输入法输入文字。
+1. 创建InputMethod_TextEditorProxy实例，示例代码如下所示：
+
+  
+```cpp
 // 创建InputMethod_TextEditorProxy实例
 textEditorProxy = OH_TextEditorProxy_Create();
 ```
 
-创建InputMethod_AttachOptions实例，设置绑定输入法时的选项。示例代码如下所示：
-```text
+2. 创建InputMethod_AttachOptions实例，设置绑定输入法时的选项。示例代码如下所示：
+
+  
+```cpp
 // 创建InputMethod_AttachOptions实例，选项showKeyboard用于指定此次绑定成功后是否显示键盘，此处以目标显示键盘为例
 bool showKeyboard = true;
 attachOptions = OH_AttachOptions_Create(showKeyboard);
 ```
 
-调用OH_InputMethodController_Attach发起绑定输入法服务，调用成功后，可以获取到用于和输入法交互的InputMethod_InputMethodProxy。示例代码如下所示：
-```text
+3. 调用OH_InputMethodController_Attach发起绑定输入法服务，调用成功后，可以获取到用于和输入法交互的InputMethod_InputMethodProxy。示例代码如下所示：
+
+  
+```cpp
 // 发起绑定请求
 auto ret = OH_InputMethodController_Attach(textEditorProxy, attachOptions, &inputMethodProxy);
 if (ret != IME_ERR_OK) {
@@ -56,9 +69,12 @@ if (ret != IME_ERR_OK) {
 ```
 
 
-## 显示/隐藏面板功能
+
+
+##### 显示/隐藏面板功能
 
 绑定成功后，可以使用获取到的[InputMethod_InputMethodProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-inputmethod-inputmethodproxy)对象向输入法发送消息。示例代码如下所示：
+
 ```text
 // 显示键盘
 if (OH_InputMethodProxy_ShowKeyboard(inputMethodProxy) != InputMethod_ErrorCode::IME_ERR_OK) {
@@ -75,9 +91,11 @@ if (OH_InputMethodProxy_NotifyConfigurationChange(inputMethodProxy, InputMethod_
 ```
 
 
-## 监听输入法应用的请求/通知
 
-需要先实现对输入法应用发送的请求或通知的响应处理函数，示例代码如下所示：
+##### 监听输入法应用的请求/通知
+1. 需要先实现对输入法应用发送的请求或通知的响应处理函数，示例代码如下所示：
+
+  
 ```text
 // 实现InputMethod_TextEditorProxy中的输入法应用事件响应函数
 void GetTextConfig(InputMethod_TextEditorProxy *textEditorProxy, InputMethod_TextConfig *config)
@@ -95,8 +113,10 @@ void DeleteForward(InputMethod_TextEditorProxy *textEditorProxy, int32_t length)
 // ......
 ```
 
-将实现后的响应函数，设置到[InputMethod_TextEditorProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-inputmethod-texteditorproxy)中，再通过绑定输入法时调用的[OH_InputMethodController_Attach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_attach)将其设置到输入法框架中，完成监听注册。示例代码如下所示：
-```text
+2. 将实现后的响应函数，设置到[InputMethod_TextEditorProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-inputmethod-texteditorproxy)中，再通过绑定输入法时调用的[OH_InputMethodController_Attach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_attach)将其设置到输入法框架中，完成监听注册。示例代码如下所示：
+
+  
+```cpp
 OH_TextEditorProxy_SetGetTextConfigFunc(textEditorProxy, GetTextConfigFunc);
 OH_TextEditorProxy_SetInsertTextFunc(textEditorProxy, InsertTextFunc);
 OH_TextEditorProxy_SetDeleteForwardFunc(textEditorProxy, DeleteForwardFunc);
@@ -115,10 +135,13 @@ OH_TextEditorProxy_SetFinishTextPreviewFunc(textEditorProxy, FinishTextPreviewFu
 ```
 
 
-## 解绑输入法
+
+
+##### 解绑输入法
 
 当编辑框失焦，需要结束使用输入法，通过接口[OH_InputMethodController_Detach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h#oh_inputmethodcontroller_detach)与输入法框架解绑。
-```text
+
+```cpp
 // 发起解绑请求
 OH_InputMethodController_Detach(inputMethodProxy);
 OH_TextEditorProxy_Destroy(textEditorProxy);
@@ -126,14 +149,22 @@ OH_AttachOptions_Destroy(attachOptions);
 ```
 
 
-## 完整示例
 
-示例代码展示了绑定输入法、隐藏输入法、解绑输入法的完整流程。 示例代码总入口为InputMethodNdkDemo函数。 说明： 需要在CMakeList.txt中添加libohinputmethod.so libhilog_ndk.z.so依赖。
-```text
+##### 完整示例
+
+示例代码展示了绑定输入法、隐藏输入法、解绑输入法的完整流程。
+
+示例代码总入口为InputMethodNdkDemo函数。
+
+说明：
+
+需要在CMakeList.txt中添加libohinputmethod.so libhilog_ndk.z.so依赖。
+
+```cpp
 #include "napi/native_api.h"
-#include
-#include
-#include
+#include 
+#include <locale>
+#include <thread>
 
 #include "hilog/log.h"
 #include "inputmethod/inputmethod_controller_capi.h"
@@ -153,7 +184,7 @@ void InputMethodDestroy();
 
 void InitText()
 {
-    std::lock_guard lock(g_textMutex);
+    std::lock_guard<std::mutex> lock(g_textMutex);
     if (g_flagShow) {
         memset(g_strTextChar, 0x00, sizeof(g_strTextChar));
         g_strTextCharLen = 0;
@@ -163,7 +194,7 @@ void InitText()
 
 void SetText(const char* input)
 {
-    std::lock_guard lock(g_textMutex);
+    std::lock_guard<std::mutex> lock(g_textMutex);
     g_strTextCharLen = strlen(input);
     if (g_strTextCharLen > TEXTSIZE) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, 0, "testTag", "Length greater than 1024 , ret=%{public}d", g_strTextCharLen);
@@ -195,11 +226,12 @@ void InsertTextFunc(InputMethod_TextEditorProxy *proxy, const char16_t *text, si
     std::u16string u16Str(text, length + 1);
 
     // 转换为UTF-8编码的string
-    std::wstring_convert, char16_t> converter;
+    std::wstring_convert<std::codecvt_utf8_utf16<char16_t>, char16_t> converter;
     std::string utf8Str = converter.to_bytes(u16Str);
-    for (size_t i = 0; i (utf8Str[i]);
+    for (size_t i = 0; i < utf8Str.size(); ++i) {
+        unsigned char c = static_cast<unsigned char>(utf8Str[i]);
         if (c != 0x00) {
-            std::lock_guard lock(g_textMutex);
+            std::lock_guard<std::mutex> lock(g_textMutex);
             g_strTextChar[g_strTextCharLen] = c;
             g_strTextCharLen += 1;
         }
@@ -208,7 +240,7 @@ void InsertTextFunc(InputMethod_TextEditorProxy *proxy, const char16_t *text, si
 
 void DeleteForwardFunc(InputMethod_TextEditorProxy *proxy, int32_t length)
 {
-    std::lock_guard lock(g_textMutex);
+    std::lock_guard<std::mutex> lock(g_textMutex);
     if (g_strTextCharLen > 0) {
         strncpy(g_strTextChar, g_strTextChar + 1, g_strTextCharLen - 1);
         g_strTextCharLen = (g_strTextCharLen > 0) ? g_strTextCharLen - 1 : g_strTextCharLen;
@@ -217,7 +249,7 @@ void DeleteForwardFunc(InputMethod_TextEditorProxy *proxy, int32_t length)
 
 void DeleteBackwardFunc(InputMethod_TextEditorProxy *proxy, int32_t length)
 {
-    std::lock_guard lock(g_textMutex);
+    std::lock_guard<std::mutex> lock(g_textMutex);
     g_strTextCharLen = (g_strTextCharLen > 0) ? g_strTextCharLen - 1 : g_strTextCharLen;
     g_strTextChar[g_strTextCharLen] = '\0';
 }
@@ -318,8 +350,7 @@ void ConstructTextEditorProxy(InputMethod_TextEditorProxy *textEditorProxy)
 }
 ```
 
-
-```text
+```cpp
 void InputMethodNdkDemo()
 {
     // 创建InputMethod_TextEditorProxy实例

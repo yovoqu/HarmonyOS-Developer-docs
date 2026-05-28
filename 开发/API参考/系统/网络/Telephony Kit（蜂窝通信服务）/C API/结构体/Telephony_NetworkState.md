@@ -3,34 +3,31 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony-telephony-networkstate
-**支持设备：** Phone / Tablet / Wearable
-
+**支持设备：** Phone | Tablet | Wearable
 
 ```text
 typedef struct {...} Telephony_NetworkState
 ```
+  
 
-
-## 概述
-**支持设备：** Phone / Tablet / Wearable
+##### 概述
 
 网络状态信息。
-
+ 
 **起始版本：** 13
-
+ 
 **相关模块：** [Telephony](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony)
-
+ 
 **所在头文件：** [telephony_radio_type.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony-radio-type-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / Tablet / Wearable
+  
 
-
-### 成员变量
-**支持设备：** Phone / Tablet / Wearable
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | char longOperatorName_[TELEPHONY_MAX_OPERATOR_LEN] | 注册网络的长运营商名称。 |

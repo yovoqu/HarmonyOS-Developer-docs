@@ -4,19 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-62
 
-可以通过动态import的方式实现类似反射能力，具体实现可参考以下代码。
-
-```ts
-import('./module').then((module) => {
-  const t = module.DataTable.tagName();
-});
+可以通过[动态import](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-dynamic-import#动态import实现方案介绍)的方式实现类似反射能力，具体实现可参考以下代码。
+ 
+```ArkTS
+import('./module').then(
+  module => {
+    const t = module.DataTable.tagName();
+  });
 ```
-
-```ts
+ 
+```ArkTS
 export class DataTable {
-  constructor() {}
-  static tagName() {
-    return 'data-table';
+  constructor() {
+  }
+  static tagName(){
+    return 'data-table'
   }
 }
 ```

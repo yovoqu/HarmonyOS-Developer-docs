@@ -3,13 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-dragcontroller
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供发起主动拖拽的能力，当应用接收到触摸或长按等事件时可以主动发起拖拽的动作，并在其中携带拖拽信息。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 11开始支持。 以下API需先使用UIContext中的 getDragController() 方法获取DragController实例，再通过此实例调用对应方法。
 
-## executeDrag11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### executeDrag11+
 
 executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<dragController.DragEventParam>): void
 
@@ -21,18 +24,16 @@ executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| custom | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo) | 是 | 拖拽发起后跟手效果所拖拽的对象。          说明：          不支持全局builder。如果builder中使用了[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件，应尽量开启同步加载，即配置Image的[syncLoad](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#syncload8)为true。该builder只用于生成当次拖拽中显示的图片。builder的根组件宽高为0时，无法生成拖拽显示的图片导致拖拽失败。builder的修改不会同步到当前正在拖拽的图片，对builder的修改需要在下一次拖拽时生效。 |
-| dragInfo | [dragController.DragInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#draginfo) | 是 | 拖拽信息。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;[dragController.DragEventParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#drageventparam12)&gt; | 是 | 拖拽结束返回结果的回调          - event：拖拽事件信息，仅包括拖拽结果。          - extraParams：拖拽事件额外信息。 |
+| custom | CustomBuilder \| DragItemInfo | 是 | 拖拽发起后跟手效果所拖拽的对象。 说明： 不支持全局builder。如果builder中使用了Image组件，应尽量开启同步加载，即配置Image的syncLoad为true。该builder只用于生成当次拖拽中显示的图片。builder的根组件宽高为0时，无法生成拖拽显示的图片导致拖拽失败。builder的修改不会同步到当前正在拖拽的图片，对builder的修改需要在下一次拖拽时生效。 |
+| dragInfo | dragController.DragInfo | 是 | 拖拽信息。 |
+| callback | AsyncCallback<dragController.DragEventParam> | 是 | 拖拽结束返回结果的回调 - event：拖拽事件信息，仅包括拖拽结果。 - extraParams：拖拽事件额外信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -42,8 +43,7 @@ executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragI
 
 **示例：**
 
-
-```ts
+```text
 import { dragController } from '@kit.ArkUI';
 import { unifiedDataChannel } from '@kit.ArkData';
 
@@ -68,32 +68,32 @@ struct DragControllerPage {
   build() {
     Column() {
       Button('touch to execute drag')
-      .onTouch((event?: TouchEvent) => {
-        if (event) {
-          if (event.type == TouchType.Down) {
-            let text = new unifiedDataChannel.Text();
-            let unifiedData = new unifiedDataChannel.UnifiedData(text);
+        .onTouch((event?: TouchEvent) => {
+          if (event) {
+            if (event.type == TouchType.Down) {
+              let text = new unifiedDataChannel.Text();
+              let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
-            let dragInfo: dragController.DragInfo = {
-              pointerId: 0,
-              data: unifiedData,
-              extraParams: ''
-            };
-            let eve: DragInfo = new DragInfo();
-            this.getUIContext().getDragController().executeDrag(() => {
-              this.DraggingBuilder()
-            }, dragInfo, (err, eve) => {
-              if (eve.event) {
-                if (eve.event.getResult() == DragResult.DRAG_SUCCESSFUL) {
-                  // ...
-                } else if (eve.event.getResult() == DragResult.DRAG_FAILED) {
-                  // ...
+              let dragInfo: dragController.DragInfo = {
+                pointerId: 0,
+                data: unifiedData,
+                extraParams: ''
+              };
+              let eve: DragInfo = new DragInfo();
+              this.getUIContext().getDragController().executeDrag(() => {
+                this.DraggingBuilder()
+              }, dragInfo, (err, eve) => {
+                if (eve.event) {
+                  if (eve.event.getResult() == DragResult.DRAG_SUCCESSFUL) {
+                    // ...
+                  } else if (eve.event.getResult() == DragResult.DRAG_FAILED) {
+                    // ...
+                  }
                 }
-              }
-            })
+              })
+            }
           }
-        }
-      })
+        })
     }
     .width('100%')
     .height('100%')
@@ -101,11 +101,13 @@ struct DragControllerPage {
 }
 ```
 
-![](assets/Class%20DragController/file-20260514163831310-0.gif)
+
+![](assets/Class%20DragController/file-20260514163831310-1.gif)
 
 
-## executeDrag11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### executeDrag11+
 
 executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo): Promise<dragController.DragEventParam>
 
@@ -117,25 +119,22 @@ executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| custom | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo) | 是 | 拖拽发起后跟手效果所拖拽的对象。 |
-| dragInfo | [dragController.DragInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#draginfo) | 是 | 拖拽信息。 |
+| custom | CustomBuilder \| DragItemInfo | 是 | 拖拽发起后跟手效果所拖拽的对象。 |
+| dragInfo | dragController.DragInfo | 是 | 拖拽信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[dragController.DragEventParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#drageventparam12)&gt; | 拖拽结束返回结果的回调          - event：拖拽事件信息，仅包括拖拽结果。          - extraParams：拖拽事件额外信息。 |
+| Promise<dragController.DragEventParam> | 拖拽结束返回结果的回调 - event：拖拽事件信息，仅包括拖拽结果。 - extraParams：拖拽事件额外信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -145,8 +144,7 @@ executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragI
 
 **示例：**
 
-
-```ts
+```text
 import { dragController } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { unifiedDataChannel } from '@kit.ArkData';
@@ -184,46 +182,46 @@ struct DragControllerPage {
   build() {
     Column() {
       Button('touch to execute drag')
-      .onTouch((event?: TouchEvent) => {
-        if (event) {
-          if (event.type == TouchType.Down) {
-            let text = new unifiedDataChannel.Text();
-            let unifiedData = new unifiedDataChannel.UnifiedData(text);
+        .onTouch((event?: TouchEvent) => {
+          if (event) {
+            if (event.type == TouchType.Down) {
+              let text = new unifiedDataChannel.Text();
+              let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
-            let dragInfo: dragController.DragInfo = {
-              pointerId: 0,
-              data: unifiedData,
-              extraParams: ''
-            };
-            let pb: CustomBuilder = (): void => {
-              this.PixmapBuilder()
-            };
-            this.getUIContext().getComponentSnapshot().createFromBuilder(pb).then((pix: image.PixelMap) => {
-              this.pixmap = pix;
-              let dragItemInfo: DragItemInfo = {
-                pixelMap: this.pixmap,
-                builder: () => {
-                  this.DraggingBuilder()
-                },
-                extraInfo: "DragItemInfoTest"
+              let dragInfo: dragController.DragInfo = {
+                pointerId: 0,
+                data: unifiedData,
+                extraParams: ''
               };
-              let eve: DragInfo = new DragInfo();
-              this.getUIContext()
-              .getDragController()
-              .executeDrag(dragItemInfo, dragInfo)
-              .then((eve) => {
-                if (eve.event.getResult() == DragResult.DRAG_SUCCESSFUL) {
-                  // ...
-                } else if (eve.event.getResult() == DragResult.DRAG_FAILED) {
-                  // ...
-                }
+              let pb: CustomBuilder = (): void => {
+                this.PixmapBuilder()
+              };
+              this.getUIContext().getComponentSnapshot().createFromBuilder(pb).then((pix: image.PixelMap) => {
+                this.pixmap = pix;
+                let dragItemInfo: DragItemInfo = {
+                  pixelMap: this.pixmap,
+                  builder: () => {
+                    this.DraggingBuilder()
+                  },
+                  extraInfo: "DragItemInfoTest"
+                };
+                let eve: DragInfo = new DragInfo();
+                this.getUIContext()
+                  .getDragController()
+                  .executeDrag(dragItemInfo, dragInfo)
+                  .then((eve) => {
+                    if (eve.event.getResult() == DragResult.DRAG_SUCCESSFUL) {
+                      // ...
+                    } else if (eve.event.getResult() == DragResult.DRAG_FAILED) {
+                      // ...
+                    }
+                  })
+                  .catch((err: Error) => {
+                  })
               })
-              .catch((err: Error) => {
-              })
-            })
+            }
           }
-        }
-      })
+        })
     }
     .width('100%')
     .height('100%')
@@ -231,19 +229,21 @@ struct DragControllerPage {
 }
 ```
 
-![](assets/Class%20DragController/file-20260514163831310-1.gif)
+
+![](assets/Class%20DragController/file-20260514163831310-2.gif)
 
 
-## createDragAction11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### createDragAction11+
 
 createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction
 
 创建拖拽的Action对象，需要显式指定拖拽背板图（可多个），以及拖拽的数据，跟手点等信息；当通过一个已创建的Action对象发起的拖拽未结束时，无法再次创建新的Action对象，接口会抛出异常；当Action对象的生命周期结束后，注册在该对象上的回调函数会失效，因此需要在一个尽量长的作用域下持有该对象，并在每次发起拖拽前通过createDragAction返回新的对象覆盖旧值。
 
-
 > [!NOTE]
 > 建议控制传递的拖拽背板数量，传递过多容易导致拖起的效率问题。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -251,25 +251,22 @@ createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dra
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| customArray | Array&lt;[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [DragItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#dragiteminfo)&gt; | 是 | 拖拽发起后跟手效果所拖拽的对象。 |
-| dragInfo | [dragController.DragInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#draginfo) | 是 | 拖拽信息。 |
+| customArray | Array<CustomBuilder \| DragItemInfo> | 是 | 拖拽发起后跟手效果所拖拽的对象。 |
+| dragInfo | dragController.DragInfo | 是 | 拖拽信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [dragController.DragAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#dragaction11) | 创建拖拽Action对象，主要用于后面实现注册监听拖拽状态改变事件和启动拖拽服务。 |
+| dragController.DragAction | 创建拖拽Action对象，主要用于后面实现注册监听拖拽状态改变事件和启动拖拽服务。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -281,8 +278,7 @@ createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dra
 
 1.在EntryAbility.ets中获取UI上下文并保存至LocalStorage中。
 
-
-```ts
+```json
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window, UIContext } from '@kit.ArkUI';
@@ -307,25 +303,13 @@ export default class EntryAbility extends UIAbility {
 
     windowStage.loadContent('pages/Index', this.storage, (err, data) => {
       if (err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          'Failed to load the content. Cause: %{public}s',
-          JSON.stringify(err) ?? '',
-        );
+        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
       }
-      hilog.info(
-        0x0000,
-        'testTag',
-        'Succeeded in loading the content. Data: %{public}s',
-        JSON.stringify(data) ?? '',
-      );
+      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
       windowStage.getMainWindow((err, data) => {
         if (err.code) {
-          console.error(
-            `Failed to obtain the main window. Cause:${err.message}`,
-          );
+          console.error(`Failed to obtain the main window. Cause:${err.message}`);
           return;
         }
         let windowClass: window.Window = data;
@@ -355,8 +339,7 @@ export default class EntryAbility extends UIAbility {
 
 2.通过this.getUIContext().getSharedLocalStorage()获取上下文，进而获取DragController对象实施后续操作。
 
-
-```ts
+```text
 import { dragController, componentSnapshot, UIContext, DragController } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { unifiedDataChannel } from '@kit.ArkData';
@@ -429,7 +412,7 @@ struct DragControllerPage {
             }
           }
         }
-    }).margin({ top: 20 })
+      }).margin({ top: 20 })
     }
     .width('100%')
     .height('100%')
@@ -437,11 +420,13 @@ struct DragControllerPage {
 }
 ```
 
-![](assets/Class%20DragController/file-20260514163831310-2.gif)
+
+![](assets/Class%20DragController/file-20260514163831310-4.png)
 
 
-## getDragPreview11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### getDragPreview11+
 
 getDragPreview(): dragController.DragPreview
 
@@ -453,10 +438,9 @@ getDragPreview(): dragController.DragPreview
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [dragController.DragPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#dragpreview11) | 一个代表拖拽背板的对象，提供背板样式设置的接口，在OnDrop和OnDragEnd回调中使用不生效。 |
+| dragController.DragPreview | 一个代表拖拽背板的对象，提供背板样式设置的接口，在OnDrop和OnDragEnd回调中使用不生效。 |
 
 
 **错误码：** 通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
@@ -466,8 +450,8 @@ getDragPreview(): dragController.DragPreview
 请参考[animate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#animate11)示例。
 
 
-## setDragEventStrictReportingEnabled12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setDragEventStrictReportingEnabled12+
 
 setDragEventStrictReportingEnabled(enable: boolean): void
 
@@ -479,7 +463,6 @@ setDragEventStrictReportingEnabled(enable: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enable | boolean | 是 | 将目标从父组件拖拽到子组件时，是否会触发父组件的onDragLeave的回调。true表示触发父组件的onDragLeave的回调，false表示不触发。 |
@@ -487,33 +470,32 @@ setDragEventStrictReportingEnabled(enable: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window, UIContext } from '@kit.ArkUI';
 
-export default class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage): void {
-    windowStage.loadContent('pages/Index', (err, data) => {
-      if (err.code) {
-        return;
-      }
-      windowStage.getMainWindow((err, data) => {
-        if (err.code) {
-          return;
-        }
-        let windowClass: window.Window = data;
-        let uiContext: UIContext = windowClass.getUIContext();
-        uiContext.getDragController().setDragEventStrictReportingEnabled(true);
-      });
-    });
-  }
+ export default class EntryAbility extends UIAbility {
+   onWindowStageCreate(windowStage: window.WindowStage): void {
+       windowStage.loadContent('pages/Index', (err, data) => {
+         if (err.code) {
+         return;
+       }
+       windowStage.getMainWindow((err, data) => {
+         if (err.code) {
+           return;
+         }
+         let windowClass: window.Window = data;
+         let uiContext: UIContext = windowClass.getUIContext();
+         uiContext.getDragController().setDragEventStrictReportingEnabled(true);
+     });
+   });
+ }
 }
 ```
 
 
-## cancelDataLoading15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cancelDataLoading15+
 
 cancelDataLoading(key: string): void
 
@@ -525,7 +507,6 @@ cancelDataLoading(key: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 拖拽数据的标识，用于区分每次拖拽。key可通过startDataLoading接口获取。 |
@@ -535,15 +516,15 @@ cancelDataLoading(key: string): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[拖拽事件错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drag-event)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
 | 190004 | Operation failed. |
 
 
-## notifyDragStartRequest18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### notifyDragStartRequest18+
 
 notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void
 
@@ -555,16 +536,14 @@ notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| requestStatus | [dragController.DragStartRequestStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-dragcontroller#dragstartrequeststatus18) | 是 | 定义应用是否可以发起拖拽。 |
+| requestStatus | dragController.DragStartRequestStatus | 是 | 定义应用是否可以发起拖拽。 |
 
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { unifiedDataChannel } from '@kit.ArkData';
 import { image } from '@kit.ImageKit';
@@ -602,31 +581,31 @@ struct NormalEts {
   build() {
     Column({ space: 20 }) {
       Image($r("app.media.startIcon"))
-      .width(150)
-      .height(150)
-      .id("image1")
-      .draggable(true)
-      .dragPreview(this.previewData)
-      .onPreDrag((status: PreDragStatus) => {
-        if (status == PreDragStatus.PREPARING_FOR_DRAG_DETECTION) {
-          this.loadData();
-        } else {
-          clearTimeout(this.timeout1);
-        }
-      })
-      .onDragStart((event: DragEvent) => {
-        if (this.finished == false) {
-          this.getUIContext()
-          .getDragController()
-          // 应用数据准备阶段，无法发起拖拽
-          .notifyDragStartRequest(dragController.DragStartRequestStatus.WAITING);
-        } else {
-          event.setData(this.unifiedData1);
-        }
-      })
-      .onDragEnd(() => {
-        this.finished = false;
-      })
+        .width(150)
+        .height(150)
+        .id("image1")
+        .draggable(true)
+        .dragPreview(this.previewData)
+        .onPreDrag((status: PreDragStatus) => {
+          if (status == PreDragStatus.PREPARING_FOR_DRAG_DETECTION) {
+            this.loadData();
+          } else {
+            clearTimeout(this.timeout1);
+          }
+        })
+        .onDragStart((event: DragEvent) => {
+          if (this.finished == false) {
+            this.getUIContext()
+              .getDragController()
+              // 应用数据准备阶段，无法发起拖拽
+              .notifyDragStartRequest(dragController.DragStartRequestStatus.WAITING);
+          } else {
+            event.setData(this.unifiedData1);
+          }
+        })
+        .onDragEnd(() => {
+          this.finished = false;
+        })
     }
     .width('100%')
     .height(400)
@@ -634,11 +613,13 @@ struct NormalEts {
 }
 ```
 
-![](assets/Class%20DragController/file-20260514163831310-3.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_uQWkYOjQky5qTTjIXCeGQ/zh-cn_image_0000002581435536.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013825Z&HW-CC-Expire=86400&HW-CC-Sign=43775048D43995981B9E82BCB7553134EB5528BDB7FF65A2F7ADA8807BCD9F2B)
 
 
-## enableDropDisallowedBadge20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### enableDropDisallowedBadge20+
 
 enableDropDisallowedBadge(enabled: boolean): void
 
@@ -650,18 +631,65 @@ enableDropDisallowedBadge(enabled: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | boolean | 是 | 当组件的类型与配置的[allowDrop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-drop#allowdrop)无交集时可显示禁用角标，当目标进行拖拽时，通过enableDropDisallowedBadge方法检查是否显示拖拽禁止角标。true表示显示拖拽禁止角标，false表示不显示拖拽禁止角标。默认值为false。 |
+| enabled | boolean | 是 | 当组件的类型与配置的allowDrop无交集时可显示禁用角标，当目标进行拖拽时，通过enableDropDisallowedBadge方法检查是否显示拖拽禁止角标。true表示显示拖拽禁止角标，false表示不显示拖拽禁止角标。默认值为false。 |
 
 
 **示例：**
 
 该示例通过enableDropDisallowedBadge接口实现了对目标进行拖拽时显示拖拽禁止角标的功能。
+1. 在EntryAbility.ets中调用enableDropDisallowedBadge接口，设置enabled参数为true。
+
+  
+```text
+import { UIAbility } from '@kit.AbilityKit';
+import { window, UIContext } from '@kit.ArkUI';
+
+ export default class EntryAbility extends UIAbility {
+   onWindowStageCreate(windowStage: window.WindowStage): void {
+       windowStage.loadContent('pages/Index', (err, data) => {
+         if (err.code) {
+         return;
+       }
+       windowStage.getMainWindow((err, data) => {
+         if (err.code) {
+           return;
+         }
+         let windowClass: window.Window = data;
+         let uiContext: UIContext = windowClass.getUIContext();
+         uiContext.getDragController().enableDropDisallowedBadge(true);
+     });
+   });
+ }
+}
+```
+
+2. 在Index.ets中拖拽图标icon至下方空白区域，显示拖拽禁止角标。
+
+  
+```text
+@Entry
+@Component
+struct Index {
+  build() {
+    Column({ space: 20 }) {
+      // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件
+      Image($r('app.media.startIcon'))
+        .width(120)
+        .height(120)
+      Text('这里是不能落入区域')
+      Column()
+        .width('100%')
+        .layoutWeight(1)
+        .allowDrop(null)
+        .onDrop(() => {
+        })
+    }.width('100%')
+  }
+}
+```
 
 
-1. 在EntryAbility.ets中调用enableDropDisallowedBadge接口，设置enabled参数为true。       __PREBLOCK_6__
-2. 在Index.ets中拖拽图标icon至下方空白区域，显示拖拽禁止角标。       __PREBLOCK_7__
 
-![](assets/Class%20DragController/file-20260514163831310-4.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/nEC_nrAsStKhWDBnP58kVw/zh-cn_image_0000002611835367.png?HW-CC-KV=V1&HW-CC-Date=20260528T013825Z&HW-CC-Expire=86400&HW-CC-Sign=904F9180F70EB22C55856FDA3C0B88E09E84DE850C1F71DF88DC0C99FED33F7A)

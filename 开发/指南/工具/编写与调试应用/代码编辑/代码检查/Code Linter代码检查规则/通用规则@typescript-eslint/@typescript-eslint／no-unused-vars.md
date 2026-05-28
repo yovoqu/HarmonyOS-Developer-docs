@@ -5,27 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-unused-vars
 
 禁止定义未使用的变量。
+ 
 
+ 
 
-## 规则配置
+##### 规则配置
 
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-unused-vars": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-unused-vars选项](https://eslint.nodejs.cn/docs/rules/no-unused-vars#选项)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 const x = 10;
@@ -42,10 +45,10 @@ myFunc1 = () => setTimeout(() => {
   myFunc1();
 }, num);
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 const x = 10;
@@ -57,13 +60,13 @@ const x = 10;
 const num = 50;
 const myFunc1: () => number = () => num;
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

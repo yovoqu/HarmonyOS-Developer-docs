@@ -3,24 +3,22 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-f
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 ```
 
 
-## camera.getCameraManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### camera.getCameraManager
 
 getCameraManager(context: Context): CameraManager
 
@@ -32,24 +30,21 @@ getCameraManager(context: Context): CameraManager
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 应用上下文。 |
+| context | Context | 是 | 应用上下文。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CameraManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager) | 相机管理器。 |
+| CameraManager | 相机管理器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -59,14 +54,11 @@ getCameraManager(context: Context): CameraManager
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getCameraManager(
-  context: common.BaseContext,
-): camera.CameraManager | undefined {
+function getCameraManager(context: common.BaseContext): camera.CameraManager | undefined {
   let cameraManager: camera.CameraManager | undefined = undefined;
   try {
     cameraManager = camera.getCameraManager(context);

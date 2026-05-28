@@ -1,6 +1,6 @@
 # 双路预览(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview
 
@@ -15,23 +15,39 @@
 详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
 
 
-## 约束与限制
+##### 约束与限制
 
-暂不支持动态添加流，即不能在没有调用[session.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#stop11)的情况下，调用[addOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#addoutput11)添加流。 对ImageReceiver组件获取到的图像数据处理后，需要将对应的图像Buffer释放，确保Surface的BufferQueue正常轮转。
+ - 暂不支持动态添加流，即不能在没有调用[session.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#stop11)的情况下，调用[addOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#addoutput11)添加流。
+ - 对ImageReceiver组件获取到的图像数据处理后，需要将对应的图像Buffer释放，确保Surface的BufferQueue正常轮转。
 
-## 调用流程
+
+
+
+##### 调用流程
 
 双路方案调用流程图建议如下：
-![](assets/双路预览(ArkTS)
-/file-20260514131514165-0.png)
 
-## 开发步骤
 
-用于处理图像的第一路预览流：创建ImageReceiver对象，获取SurfaceId创建第一路预览流，注册图像监听，按需处理预览流每帧图像。 用于显示画面的第二路预览流：创建XComponent组件，获取SurfaceId创建第二路预览流，预览流画面直接在组件内渲染。 创建预览流获取数据：创建上述两路预览流，配置进相机会话，启动会话后，两路预览流同时获取数据。 以下各步骤示例为片段代码，可通过点击示例代码右下方的链接获取完整工程示例。
+![](assets/双路预览(ArkTS)/file-20260514131514165-0.png)
 
-## 用于处理图像的第一路预览流
 
-导入依赖，本篇文档需要用到图片和相机框架等相关依赖包。
+
+
+##### 开发步骤
+
+ - 用于处理图像的第一路预览流：创建ImageReceiver对象，获取SurfaceId创建第一路预览流，注册图像监听，按需处理预览流每帧图像。
+ - 用于显示画面的第二路预览流：创建XComponent组件，获取SurfaceId创建第二路预览流，预览流画面直接在组件内渲染。
+ - 创建预览流获取数据：创建上述两路预览流，配置进相机会话，启动会话后，两路预览流同时获取数据。
+
+
+以下各步骤示例为片段代码，可通过点击示例代码右下方的链接获取完整工程示例。
+
+
+
+##### 用于处理图像的第一路预览流
+1. 导入依赖，本篇文档需要用到图片和相机框架等相关依赖包。
+
+  
 ```text
 import { image } from '@kit.ImageKit';
 import { camera } from '@kit.CameraKit';
@@ -39,7 +55,9 @@ import { display } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-获取第一路预览流SurfaceId：创建ImageReceiver对象，通过ImageReceiver对象可获取其SurfaceId。
+2. 获取第一路预览流SurfaceId：创建ImageReceiver对象，通过ImageReceiver对象可获取其SurfaceId。
+
+  
 ```text
 async init(size: Size, format = image.ImageFormat.JPEG, capacity = 8) {
   const receiver = image.createImageReceiver(size, format, capacity);
@@ -49,17 +67,19 @@ async init(size: Size, format = image.ImageFormat.JPEG, capacity = 8) {
 }
 ```
 
-ImageReceiver接收预览流图像数据获取图像格式请参考[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)中的format参数，[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)格式请参考[PixelMapFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#pixelmapformat7)。
+3. ImageReceiver接收预览流图像数据获取图像格式请参考[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)中的format参数，[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)格式请参考[PixelMapFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#pixelmapformat7)。
+
+  
 ```text
 // Image格式与PixelMap格式映射关系。
-let formatToPixelMapFormatMap = new Map([
+let formatToPixelMapFormatMap = new Map<number, image.PixelMapFormat>([
   [12, image.PixelMapFormat.RGBA_8888],
   [25, image.PixelMapFormat.NV21],
   [35, image.PixelMapFormat.YCBCR_P010],
   [36, image.PixelMapFormat.YCRCB_P010]
 ]);
 // PixelMapFormat格式的单个像素点大小映射关系。
-let pixelMapFormatToSizeMap = new Map([
+let pixelMapFormatToSizeMap = new Map<image.PixelMapFormat, number>([
   [image.PixelMapFormat.RGBA_8888, 4],
   [image.PixelMapFormat.NV21, 1.5],
   [image.PixelMapFormat.YCBCR_P010, 3],
@@ -67,12 +87,15 @@ let pixelMapFormatToSizeMap = new Map([
 ]);
 ```
 
-注册监听处理预览流每帧图像数据：通过ImageReceiver组件中imageArrival事件监听获取底层返回的图像数据，详细的API说明请参考[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver)。
+4. 注册监听处理预览流每帧图像数据：通过ImageReceiver组件中imageArrival事件监听获取底层返回的图像数据，详细的API说明请参考[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver)。
+
+  
 > [!NOTE]
-> 在通过createPixelMap接口创建PixelMap实例时，设置的Size、srcPixelFormat等属性必须和相机预览输出流previewProfile中配置的Size、Format属性保持一致，ImageReceiver图片像素格式请参考PixelMapFormat，相机预览输出流previewProfile输出格式请参考CameraFormat。 由于不同设备产品差异性，应用开发者在创建相机预览输出流前，必须先通过getSupportedOutputCapability方法获取当前设备支持的预览输出流previewProfile，再根据实际业务需求选择CameraFormat和Size适合的预览输出流previewProfile。 ImageReceiver接收预览流图像数据实际format格式由应用开发者在创建预览输出流相机预览输出流时，根据实际业务需求选择的previewProfile中format格式参数影响，详细步骤请参考创建预览流获取数据。
+> 在通过 createPixelMap 接口创建 PixelMap 实例时，设置的Size、srcPixelFormat等属性必须和相机预览输出流previewProfile中配置的Size、Format属性保持一致，ImageReceiver图片像素格式请参考 PixelMapFormat ，相机预览输出流previewProfile输出格式请参考 CameraFormat 。 由于不同设备产品差异性，应用开发者在创建相机预览输出流前，必须先通过 getSupportedOutputCapability 方法获取当前设备支持的预览输出流previewProfile，再根据实际业务需求选择 CameraFormat 和 Size 适合的预览输出流previewProfile。 ImageReceiver接收预览流图像数据实际format格式由应用开发者在创建预览输出流相机预览输出流时，根据实际业务需求选择的previewProfile中format格式参数影响，详细步骤请参考 创建预览流获取数据 。
 
 
-```text
+  
+```ArkTS
 onImageArrival(receiver: image.ImageReceiver): void {
   receiver.on('imageArrival', () => {
     Logger.info(TAG, 'image arrival');
@@ -96,11 +119,18 @@ onImageArrival(receiver: image.ImageReceiver): void {
   });
 }
 ```
-
 通过 [image.Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#component9) 解析图片buffer数据参考：
-![](assets/双路预览(ArkTS)
-/file-20260514131514165-1.png) 需要确认图像的宽width是否与行距rowStride一致，如果不一致可参考以下方式处理： 方式一：去除imgComponent.byteBuffer中stride数据，拷贝得到新的buffer，调用不支持stride的接口处理buffer。
-```text
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/_B57iYHmT8OdPBgwWlyTkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014701Z&HW-CC-Expire=86400&HW-CC-Sign=5C11E2050564F244A5F01B2B4905FCF45E38299CD08E47740C1DC09C249E8026)
+ 
+
+  需要确认图像的宽width是否与行距rowStride一致，如果不一致可参考以下方式处理：
+
+  方式一：去除imgComponent.byteBuffer中stride数据，拷贝得到新的buffer，调用不支持stride的接口处理buffer。
+
+  
+```ArkTS
 async getPixelMap(imgComponent: image.Component, width: number, height: number, stride: number) {
   if (stride === width) {
     return await image.createPixelMap(imgComponent.byteBuffer, {
@@ -110,53 +140,80 @@ async getPixelMap(imgComponent: image.Component, width: number, height: number, 
   }
   const dstBufferSize = width * height * 1.5;
   const dstArr = new Uint8Array(dstBufferSize);
-  for (let j = 0; j 方式二：根据stride*height创建pixelMap，然后调用pixelMap的cropSync方法裁剪掉多余的像素。
+  for (let j = 0; j < height * 1.5; j++) {
+    const srcBuf = new Uint8Array(imgComponent.byteBuffer, j * stride, width);
+    dstArr.set(srcBuf, j * width);
+  }
+  return await image.createPixelMap(dstArr.buffer, {
+    size: { height: height, width: width },
+    srcPixelFormat: image.PixelMapFormat.NV21,
+  });
+}
+```
+方式二：根据stride*height创建pixelMap，然后调用pixelMap的cropSync方法裁剪掉多余的像素。
+
+  
 ```text
 // 创建pixelMap，width宽传行距stride的值。
 let pixelMap = await image.createPixelMap(imgComponent.byteBuffer, {
-size:{height: height, width: stride}, srcPixelFormat: pixelMapFormat});
+  size:{height: height, width: stride}, srcPixelFormat: pixelMapFormat});
 // 裁剪多余的像素。
 pixelMap.cropSync({size:{width:width, height:height}, x:0, y:0});
 ```
+方式三：将原始imgComponent.byteBuffer和stride信息一起传给支持stride的接口处理。
 
-       方式三：将原始imgComponent.byteBuffer和stride信息一起传给支持stride的接口处理。
 
-## 用于显示画面的第二路预览流
 
-     获取第二路预览流SurfaceId：创建XComponent组件用于预览流显示，获取SurfaceId请参考XComponent组件提供的[getXComponentSurfaceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#getxcomponentsurfaceid9)方法，而XComponent的能力由UI提供，相关介绍可参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。
-```text
+##### 用于显示画面的第二路预览流
+
+获取第二路预览流SurfaceId：创建XComponent组件用于预览流显示，获取SurfaceId请参考XComponent组件提供的[getXComponentSurfaceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#getxcomponentsurfaceid9)方法，而XComponent的能力由UI提供，相关介绍可参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。
+
+```ArkTS
 XComponent({
-type: XComponentType.SURFACE,
-controller: this.previewVM.xComponentController
+  type: XComponentType.SURFACE,
+  controller: this.previewVM.xComponentController
 })
-.size({ height: '100%', width: '100%' })
-.onLoad(async () => {
-// ...
-this.previewVM.surfaceId = this.previewVM.xComponentController.getXComponentSurfaceId();
-this.previewVM.setPreviewSize();
-this.previewVM.xComponentController.setXComponentSurfaceRotation({ lock: true });
-// ...
-})
+  .size({ height: '100%', width: '100%' })
+  .onLoad(async () => {
+    // ...
+    this.previewVM.surfaceId = this.previewVM.xComponentController.getXComponentSurfaceId();
+    this.previewVM.setPreviewSize();
+    this.previewVM.xComponentController.setXComponentSurfaceRotation({ lock: true });
+    // ...
+  })
 ```
 
 
-## 创建预览流获取数据
 
-     通过两个SurfaceId分别创建两路预览流输出，加入相机会话，启动相机会话，获取预览流数据。
-```text
+##### 创建预览流获取数据
+
+通过两个SurfaceId分别创建两路预览流输出，加入相机会话，启动相机会话，获取预览流数据。
+
+```ArkTS
 async createOutput(config: CreateOutputConfig) {
-const cameraOutputCap = config.cameraManager.getSupportedOutputCapability(config.device, config.sceneMode);
-const displayRatio = config.profile.size.width / config.profile.size.height;
-const profileWidth = config.profile.size.width;
-const previewProfile = cameraOutputCap.previewProfiles
-.sort((a, b) => Math.abs(a.size.width - profileWidth) - Math.abs(b.size.width - profileWidth))
-.find(pf => {
-const pfDisplayRatio = pf.size.width / pf.size.height;
-return pf.format === config.profile.format &&
-Math.abs(pfDisplayRatio - displayRatio)
+  const cameraOutputCap = config.cameraManager.getSupportedOutputCapability(config.device, config.sceneMode);
+  const displayRatio = config.profile.size.width / config.profile.size.height;
+  const profileWidth = config.profile.size.width;
+  const previewProfile = cameraOutputCap.previewProfiles
+    .sort((a, b) => Math.abs(a.size.width - profileWidth) - Math.abs(b.size.width - profileWidth))
+    .find(pf => {
+      const pfDisplayRatio = pf.size.width / pf.size.height;
+      return pf.format === config.profile.format &&
+        Math.abs(pfDisplayRatio - displayRatio) <= CameraConstant.PROFILE_DIFFERENCE;
+    });
+  if (!previewProfile) {
+    Logger.error(TAG_LOG, 'Failed to get preview profile');
+    return;
+  }
+  this.output = config.cameraManager.createPreviewOutput(previewProfile, config.surfaceId);
+  this.addOutputListener(this.output);
+  return this.output;
+}
+```
 
-## 完整示例
 
+
+##### 完整示例
 
 ```text
 import { image } from '@kit.ImageKit';
@@ -188,7 +245,51 @@ export class ImageReceiverManager implements OutputManager {
       .find(pf => {
         const pfDisplayRatio = pf.size.width / pf.size.height;
         return pf.format === config.profile.format &&
-          Math.abs(pfDisplayRatio - displayRatio)  {
+          Math.abs(pfDisplayRatio - displayRatio) <= CameraConstant.PROFILE_DIFFERENCE;
+      });
+    if (!previewProfile) {
+      Logger.error(TAG, 'Failed to get preview profile');
+      return;
+    }
+    const surfaceId = await this.init(config.profile.size);
+    this.output = config.cameraManager.createPreviewOutput(previewProfile, surfaceId);
+    this.position = config.device.cameraPosition;
+    return this.output;
+  }
+
+  async release() {
+    await this.output?.release();
+    this.output = undefined;
+  }
+
+  async init(size: Size, format = image.ImageFormat.JPEG, capacity = 8) {
+    const receiver = image.createImageReceiver(size, format, capacity);
+    const surfaceId = await receiver.getReceivingSurfaceId();
+    this.onImageArrival(receiver);
+    return surfaceId;
+  }
+
+  async getPixelMap(imgComponent: image.Component, width: number, height: number, stride: number) {
+    if (stride === width) {
+      return await image.createPixelMap(imgComponent.byteBuffer, {
+        size: { height: height, width: width },
+        srcPixelFormat: image.PixelMapFormat.NV21,
+      });
+    }
+    const dstBufferSize = width * height * 1.5;
+    const dstArr = new Uint8Array(dstBufferSize);
+    for (let j = 0; j < height * 1.5; j++) {
+      const srcBuf = new Uint8Array(imgComponent.byteBuffer, j * stride, width);
+      dstArr.set(srcBuf, j * width);
+    }
+    return await image.createPixelMap(dstArr.buffer, {
+      size: { height: height, width: width },
+      srcPixelFormat: image.PixelMapFormat.NV21,
+    });
+  }
+
+  onImageArrival(receiver: image.ImageReceiver): void {
+    receiver.on('imageArrival', () => {
       Logger.info(TAG, 'image arrival');
       receiver.readNextImage((err: BusinessError, nextImage: image.Image) => {
         if (err || nextImage === undefined) {

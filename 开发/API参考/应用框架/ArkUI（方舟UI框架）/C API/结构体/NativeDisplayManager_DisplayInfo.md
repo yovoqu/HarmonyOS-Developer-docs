@@ -3,38 +3,35 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaymanager-displayinfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct {...} NativeDisplayManager_DisplayInfo
 ```
+  
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 显示设备的对象属性。
-
+ 
 **起始版本：** 14
-
+ 
 **相关模块：** [OH_DisplayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-displaymanager)
-
+ 
 **所在头文件：** [oh_display_info.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-info-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | uint32_t id | 显示设备的屏幕id号，为非负整数。 |
-| char name[[OH_DISPLAY_NAME_LENGTH](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-info-h#宏定义) + 1] | 显示设备的名称。 |
+| char name[OH_DISPLAY_NAME_LENGTH + 1] | 显示设备的名称。 |
 | bool isAlive | 显示设备是否启用：true表示设备启动，false表示设备未启用。 |
 | int32_t width | 显示设备的屏幕宽度，单位为px，该参数应为非负整数。 |
 | int32_t height | 显示设备的屏幕高度，单位为px，该参数应为非负整数。 |
@@ -48,8 +45,8 @@ typedef struct {...} NativeDisplayManager_DisplayInfo
 | float scaledDensity | 显示设备的显示字体的缩放因子。该参数为大于0的浮点数，通常与densityPixels相同。 |
 | float xDPI | 显示设备x方向中每英寸屏幕的确切物理像素值，该参数为大于0的浮点数。 |
 | float yDPI | 显示设备y方向中每英寸屏幕的确切物理像素值，该参数为大于0的浮点数。 |
-| [NativeDisplayManager_Rotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-info-h#nativedisplaymanager_rotation) rotation | 显示设备的屏幕顺时针旋转角度。 |
-| [NativeDisplayManager_DisplayState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-info-h#nativedisplaymanager_displaystate) state | 显示设备的状态。 |
-| [NativeDisplayManager_Orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-info-h#nativedisplaymanager_orientation) orientation | 表示屏幕当前显示的方向。 |
-| [NativeDisplayManager_DisplayHdrFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaymanager-displayhdrformat)* hdrFormat | 显示设备支持的所有HDR格式。 |
-| [NativeDisplayManager_DisplayColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaymanager-displaycolorspace)* colorSpace | 显示设备支持的所有色域类型。 |
+| NativeDisplayManager_Rotation rotation | 显示设备的屏幕顺时针旋转角度。 |
+| NativeDisplayManager_DisplayState state | 显示设备的状态。 |
+| NativeDisplayManager_Orientation orientation | 表示屏幕当前显示的方向。 |
+| NativeDisplayManager_DisplayHdrFormat* hdrFormat | 显示设备支持的所有HDR格式。 |
+| NativeDisplayManager_DisplayColorSpace* colorSpace | 显示设备支持的所有色域类型。 |

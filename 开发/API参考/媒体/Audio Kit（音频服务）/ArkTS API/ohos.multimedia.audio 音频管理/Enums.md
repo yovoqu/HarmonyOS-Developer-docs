@@ -3,20 +3,18 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## AudioVolumeType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AudioVolumeType
 
 表示音频音量类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Volume
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -28,8 +26,9 @@
 | VOICE_ASSISTANT8+ | 9 | 语音助手。 |
 
 
-## InterruptMode9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### InterruptMode9+
 
 表示焦点模型的枚举。
 
@@ -37,20 +36,19 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Interrupt
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SHARE_MODE | 0 | 共享焦点模式。 |
 | INDEPENDENT_MODE | 1 | 独立焦点模式。 |
 
 
-## DeviceFlag
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceFlag
 
 表示音频设备类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -59,13 +57,13 @@
 | ALL_DEVICES_FLAG | 3 | 所有设备。 |
 
 
-## DeviceUsage12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceUsage12+
 
 表示音频设备类型的枚举（根据用途分类）。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -77,8 +75,9 @@
 | ALL_CALL_DEVICES | 12 | 所有通话设备。 |
 
 
-## DeviceRole
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceRole
 
 表示设备角色的枚举。
 
@@ -86,51 +85,50 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | INPUT_DEVICE | 1 | 输入设备角色。 |
 | OUTPUT_DEVICE | 2 | 输出设备角色。 |
 
 
-## DeviceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceType
 
 表示设备类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| INVALID | 0 | 无效设备。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| EARPIECE | 1 | 听筒。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| SPEAKER | 2 | 扬声器。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| WIRED_HEADSET | 3 | 有线耳机，带麦克风。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| WIRED_HEADPHONES | 4 | 有线耳机，不带麦克风。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| BLUETOOTH_SCO | 7 | 蓝牙设备SCO（Synchronous Connection Oriented）连接。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| BLUETOOTH_A2DP | 8 | 蓝牙设备A2DP（Advanced Audio Distribution Profile）连接。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| MIC | 15 | 麦克风。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| USB_HEADSET | 22 | USB耳机，带麦克风。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| DISPLAY_PORT12+ | 23 | DisplayPort（显示接口，简称DP），用于外接扩展设备。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| REMOTE_CAST12+ | 24 | 音频被系统应用投送到其他的远程设备。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| INVALID | 0 | 无效设备。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| EARPIECE | 1 | 听筒。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| SPEAKER | 2 | 扬声器。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| WIRED_HEADSET | 3 | 有线耳机，带麦克风。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| WIRED_HEADPHONES | 4 | 有线耳机，不带麦克风。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| BLUETOOTH_SCO | 7 | 蓝牙设备SCO（Synchronous Connection Oriented）连接。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| BLUETOOTH_A2DP | 8 | 蓝牙设备A2DP（Advanced Audio Distribution Profile）连接。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| MIC | 15 | 麦克风。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| USB_HEADSET | 22 | USB耳机，带麦克风。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| DISPLAY_PORT12+ | 23 | DisplayPort（显示接口，简称DP），用于外接扩展设备。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| REMOTE_CAST12+ | 24 | 音频被系统应用投送到其他的远程设备。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | USB_DEVICE18+ | 25 | USB设备（不包含USB耳机）。 |
 | HDMI19+ | 27 | HDMI设备（例如HDMI、ARC、eARC等）。 |
 | LINE_DIGITAL19+ | 28 | 有线数字设备（例如S/PDIF等）。 |
-| REMOTE_DAUDIO18+ | 29 | 分布式设备。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| REMOTE_DAUDIO18+ | 29 | 分布式设备。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 | HEARING_AID20+ | 30 | 助听器设备。 |
 | NEARLINK20+ | 31 | 星闪设备。 |
 | SYSTEM_PRIVATE22+ | 200 | 系统私有设备（由于该设备在系统中属于私有设备，因此应用程序可以忽略该设备）。 |
-| DEFAULT9+ | 1000 | 默认设备类型。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| DEFAULT9+ | 1000 | 默认设备类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## BluetoothAndNearlinkPreferredRecordCategory21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### BluetoothAndNearlinkPreferredRecordCategory21+
 
 表示在使用蓝牙或星闪进行录音时，应用程序的设备偏好分类枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -140,28 +138,28 @@
 | PREFERRED_HIGH_QUALITY | 3 | 更偏好使用蓝牙或星闪高质量模式进行录音。 |
 
 
-## CommunicationDeviceType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CommunicationDeviceType9+
 
 表示用于通信的可用设备类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Communication
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SPEAKER | 2 | 扬声器。 |
 
 
-## AudioRingMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioRingMode
 
 表示铃声模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Communication
 
 **设备行为差异：** 当该接口在无振动器件设备中被设置为振动模式时，将不会产生振动效果。
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -170,31 +168,31 @@
 | RINGER_MODE_NORMAL | 2 | 响铃模式。 |
 
 
-## AudioSampleFormat8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioSampleFormat8+
 
 表示音频采样格式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SAMPLE_FORMAT_INVALID | -1 | 无效格式。 |
 | SAMPLE_FORMAT_U8 | 0 | 无符号8位整数。 |
 | SAMPLE_FORMAT_S16LE | 1 | 带符号的16位整数，小尾数。 |
-| SAMPLE_FORMAT_S24LE | 2 | 带符号的24位整数，小尾数。          由于系统限制，该采样格式仅部分设备支持，请根据实际情况使用。 |
-| SAMPLE_FORMAT_S32LE | 3 | 带符号的32位整数，小尾数。          由于系统限制，该采样格式仅部分设备支持，请根据实际情况使用。 |
-| SAMPLE_FORMAT_F32LE9+ | 4 | 带符号的32位浮点数，小尾数。          由于系统限制，该采样格式仅部分设备支持，请根据实际情况使用。 |
+| SAMPLE_FORMAT_S24LE | 2 | 带符号的24位整数，小尾数。 由于系统限制，该采样格式仅部分设备支持，请根据实际情况使用。 |
+| SAMPLE_FORMAT_S32LE | 3 | 带符号的32位整数，小尾数。 由于系统限制，该采样格式仅部分设备支持，请根据实际情况使用。 |
+| SAMPLE_FORMAT_F32LE9+ | 4 | 带符号的32位浮点数，小尾数。 由于系统限制，该采样格式仅部分设备支持，请根据实际情况使用。 |
 
 
-## AudioErrors9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioErrors9+
 
 表示音频错误码的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -207,13 +205,13 @@
 | ERROR_SYSTEM | 6800301 | 系统处理异常。 |
 
 
-## AudioChannel8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioChannel8+
 
 表示音频声道的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -232,13 +230,13 @@
 | CHANNEL_1611+ | 16 | 十六声道。 |
 
 
-## AudioSamplingRate8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioSamplingRate8+
 
 表示音频采样率的枚举（具体设备支持的采样率规格会存在差异）。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -258,8 +256,9 @@
 | SAMPLE_RATE_19200012+ | 192000 | 采样率为192000。 |
 
 
-## AudioEncodingType8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioEncodingType8+
 
 表示音频编码类型的枚举。
 
@@ -267,22 +266,21 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ENCODING_TYPE_INVALID | -1 | 无效。 |
 | ENCODING_TYPE_RAW | 0 | PCM编码。 |
 
 
-## AudioLatencyType23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioLatencyType23+
 
 表示音频时延类型的枚举。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -291,13 +289,13 @@
 | LATENCY_TYPE_HARDWARE | 2 | 计算硬件侧时延，包含HAL、驱动和硬件。 |
 
 
-## AudioChannelLayout11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioChannelLayout11+
 
 表示音频文件声道布局类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -352,41 +350,41 @@
 | CH_LAYOUT_AMB_ORDER3_FUMA | 0x100000000103 | 声道排序为FUMA（根据ITU标准）的三阶HOA文件。 |
 
 
-## StreamUsage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### StreamUsage
 
 表示播放音频流类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| STREAM_USAGE_UNKNOWN | 0 | 未知类型。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_MEDIA(deprecated) | 1 | 媒体。          从API version 7开始支持，从API version 10开始废弃，建议使用该枚举中的STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_GAME或STREAM_USAGE_AUDIOBOOK替代。 |
-| STREAM_USAGE_MUSIC10+ | 1 | 音乐。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_VOICE_COMMUNICATION | 2 | VoIP语音通话（该流类型起播时，会触发开启3A算法）。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_VOICE_ASSISTANT9+ | 3 | 语音播报。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_ALARM10+ | 4 | 闹钟。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_VOICE_MESSAGE10+ | 5 | 语音消息。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_NOTIFICATION_RINGTONE(deprecated) | 6 | 通知铃声。          从API version 7开始支持，从API version 10开始废弃，建议使用该枚举中的STREAM_USAGE_RINGTONE替代。 |
-| STREAM_USAGE_RINGTONE10+ | 6 | 铃声。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_NOTIFICATION10+ | 7 | 通知音。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_ACCESSIBILITY10+ | 8 | 无障碍。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_MOVIE10+ | 10 | 电影或视频。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_GAME10+ | 11 | 游戏。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_AUDIOBOOK10+ | 12 | 有声读物（包括听书、相声、评书）、听新闻、播客等。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_NAVIGATION10+ | 13 | 导航。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| STREAM_USAGE_VIDEO_COMMUNICATION12+ | 17 | VoIP视频通话（该流类型起播时，会触发开启3A算法）。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_UNKNOWN | 0 | 未知类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_MEDIA(deprecated) | 1 | 媒体。 从API version 7开始支持，从API version 10开始废弃，建议使用该枚举中的STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_GAME或STREAM_USAGE_AUDIOBOOK替代。 |
+| STREAM_USAGE_MUSIC10+ | 1 | 音乐。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_VOICE_COMMUNICATION | 2 | VoIP语音通话（该流类型起播时，会触发开启3A算法）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_VOICE_ASSISTANT9+ | 3 | 语音播报。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_ALARM10+ | 4 | 闹钟。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_VOICE_MESSAGE10+ | 5 | 语音消息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_NOTIFICATION_RINGTONE(deprecated) | 6 | 通知铃声。 从API version 7开始支持，从API version 10开始废弃，建议使用该枚举中的STREAM_USAGE_RINGTONE替代。 |
+| STREAM_USAGE_RINGTONE10+ | 6 | 铃声。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_NOTIFICATION10+ | 7 | 通知音。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_ACCESSIBILITY10+ | 8 | 无障碍。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_MOVIE10+ | 10 | 电影或视频。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_GAME10+ | 11 | 游戏。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_AUDIOBOOK10+ | 12 | 有声读物（包括听书、相声、评书）、听新闻、播客等。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_NAVIGATION10+ | 13 | 导航。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| STREAM_USAGE_VIDEO_COMMUNICATION12+ | 17 | VoIP视频通话（该流类型起播时，会触发开启3A算法）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## AudioState8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioState8+
 
 表示音频状态的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -399,8 +397,9 @@
 | STATE_PAUSED | 5 | 暂停状态。 |
 
 
-## AudioEffectMode10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioEffectMode10+
 
 表示音效模式的枚举。
 
@@ -408,20 +407,19 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | EFFECT_NONE | 0 | 关闭音效。 |
 | EFFECT_DEFAULT | 1 | 默认音效。 |
 
 
-## AudioRendererRate8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioRendererRate8+
 
 表示音频渲染速度的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -430,8 +428,9 @@
 | RENDER_RATE_HALF | 2 | 0.5倍速。 |
 
 
-## InterruptType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### InterruptType
 
 表示中断类型的枚举。
 
@@ -439,15 +438,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | INTERRUPT_TYPE_BEGIN | 1 | 音频播放中断事件开始。 |
 | INTERRUPT_TYPE_END | 2 | 音频播放中断事件结束。 |
 
 
-## InterruptForceType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### InterruptForceType9+
 
 表示音频打断类型的枚举。
 
@@ -459,15 +458,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | INTERRUPT_FORCE | 0 | 强制打断类型，即具体操作已由系统强制执行。 |
-| INTERRUPT_SHARE | 1 | 共享打断类型，即系统不执行具体操作，通过[InterruptHint](#interrupthint)建议并提示应用操作，应用可自行决策下一步处理方式。 |
+| INTERRUPT_SHARE | 1 | 共享打断类型，即系统不执行具体操作，通过InterruptHint建议并提示应用操作，应用可自行决策下一步处理方式。 |
 
 
-## InterruptHint
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### InterruptHint
 
 表示中断提示的枚举。
 
@@ -479,26 +478,25 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| INTERRUPT_HINT_NONE8+ | 0 | 无提示。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| INTERRUPT_HINT_RESUME | 1 | 提示音频恢复，应用可主动触发开始渲染或开始采集的相关操作。          此操作无法由系统强制执行，其对应的[InterruptForceType](#interruptforcetype9)一定为INTERRUPT_SHARE类型。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| INTERRUPT_HINT_PAUSE | 2 | 提示音频暂停，暂时失去音频焦点。          待焦点可用时，会收到INTERRUPT_HINT_RESUME事件。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| INTERRUPT_HINT_STOP | 3 | 提示音频停止，彻底失去音频焦点。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| INTERRUPT_HINT_DUCK | 4 | 提示音频躲避开始，降低音量播放。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| INTERRUPT_HINT_UNDUCK8+ | 5 | 提示音频躲避结束，恢复音量播放。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| INTERRUPT_HINT_NONE8+ | 0 | 无提示。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| INTERRUPT_HINT_RESUME | 1 | 提示音频恢复，应用可主动触发开始渲染或开始采集的相关操作。 此操作无法由系统强制执行，其对应的InterruptForceType一定为INTERRUPT_SHARE类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| INTERRUPT_HINT_PAUSE | 2 | 提示音频暂停，暂时失去音频焦点。 待焦点可用时，会收到INTERRUPT_HINT_RESUME事件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| INTERRUPT_HINT_STOP | 3 | 提示音频停止，彻底失去音频焦点。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| INTERRUPT_HINT_DUCK | 4 | 提示音频躲避开始，降低音量播放。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| INTERRUPT_HINT_UNDUCK8+ | 5 | 提示音频躲避结束，恢复音量播放。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | INTERRUPT_HINT_MUTE20+ | 6 | 提示音频静音。 |
 | INTERRUPT_HINT_UNMUTE20+ | 7 | 提示音频解除静音。 |
 
 
-## AudioVolumeMode19+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioVolumeMode19+
 
 表示音量模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Volume
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -506,28 +504,28 @@
 | APP_INDIVIDUAL | 1 | 应用级音量。 |
 
 
-## AudioPrivacyType10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### AudioPrivacyType10+
 
 表示对应播放音频流是否支持被其他应用录制的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.PlaybackCapture
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | PRIVACY_TYPE_PUBLIC | 0 | 表示音频流可以被其他应用录制或屏幕投射，不包含隐私类型的流。 |
 | PRIVACY_TYPE_PRIVATE | 1 | 表示音频流不可以被其他应用录制或屏幕投射。 |
-| PRIVACY_TYPE_SHARED21+ | 2 | 表示音频流可以被其他应用录制或屏幕投射，包含隐私类型的流。          例如，在PRIVACY_TYPE_PUBLIC策略下，[STREAM_USAGE_VOICE_COMMUNICATION](#streamusage)类型音频流不会被其他应用录制或屏幕投射。          然而，在PRIVACY_TYPE_SHARED策略下，这些音频流将会允许被其他应用录制或屏幕投射。 |
+| PRIVACY_TYPE_SHARED21+ | 2 | 表示音频流可以被其他应用录制或屏幕投射，包含隐私类型的流。 例如，在PRIVACY_TYPE_PUBLIC策略下，STREAM_USAGE_VOICE_COMMUNICATION类型音频流不会被其他应用录制或屏幕投射。 然而，在PRIVACY_TYPE_SHARED策略下，这些音频流将会允许被其他应用录制或屏幕投射。 |
 
 
-## ChannelBlendMode11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ChannelBlendMode11+
 
 表示声道混合模式类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -537,26 +535,27 @@
 | MODE_ALL_RIGHT | 3 | 从右声道覆盖到左声道混合。 |
 
 
-## AudioStreamDeviceChangeReason11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioStreamDeviceChangeReason11+
 
 表示流设备变更原因的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| REASON_UNKNOWN | 0 | 未知原因。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| REASON_NEW_DEVICE_AVAILABLE | 1 | 新设备可用。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| REASON_OLD_DEVICE_UNAVAILABLE | 2 | 旧设备不可用。报告此原因时，应考虑暂停音频播放。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| REASON_OVERRODE | 3 | 强选。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| REASON_UNKNOWN | 0 | 未知原因。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| REASON_NEW_DEVICE_AVAILABLE | 1 | 新设备可用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| REASON_OLD_DEVICE_UNAVAILABLE | 2 | 旧设备不可用。报告此原因时，应考虑暂停音频播放。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| REASON_OVERRODE | 3 | 强选。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | REASON_SESSION_ACTIVATED20+ | 4 | 音频会话已激活。 |
 | REASON_STREAM_PRIORITY_CHANGED20+ | 5 | 更高优先级的音频流出现导致的系统设备切换。 |
 
 
-## OutputDeviceChangeRecommendedAction20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OutputDeviceChangeRecommendedAction20+
 
 表示输出设备变更后推荐操作的枚举。
 
@@ -564,20 +563,19 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEVICE_CHANGE_RECOMMEND_TO_CONTINUE | 0 | 推荐继续播放（该事件作为播放维持提示，作用是告知应用本次设备变动音频无需停止播放，但‌不可将其作为启动音频播放的判断依据）。 |
 | DEVICE_CHANGE_RECOMMEND_TO_STOP | 1 | 推荐停止播放。 |
 
 
-## DeviceChangeType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceChangeType
 
 表示设备连接状态变化的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -585,13 +583,13 @@
 | DISCONNECT | 1 | 断开设备连接。 |
 
 
-## DeviceBlockStatus13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceBlockStatus13+
 
 表示音频设备是否被堵塞的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -599,32 +597,32 @@
 | BLOCKED | 1 | 音频设备被堵塞。 |
 
 
-## SourceType8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SourceType8+
 
 表示录制音频流类型的枚举。
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| SOURCE_TYPE_INVALID | -1 | 无效的音频源。          系统能力： SystemCapability.Multimedia.Audio.Core |
-| SOURCE_TYPE_MIC | 0 | Mic音频源。          系统能力： SystemCapability.Multimedia.Audio.Core |
-| SOURCE_TYPE_VOICE_RECOGNITION9+ | 1 | 语音识别源。          系统能力： SystemCapability.Multimedia.Audio.Core |
-| SOURCE_TYPE_PLAYBACK_CAPTURE(deprecated) | 2 | 播放音频流（内录）录制音频源。          系统能力： SystemCapability.Multimedia.Audio.PlaybackCapture          从API version 10开始支持，从API version 12开始废弃，建议使用[录屏接口AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture)替代。 |
-| SOURCE_TYPE_VOICE_COMMUNICATION | 7 | 语音通话场景的音频源（单独启动录制不会开启3A算法，需同时使用[STREAM_USAGE_VOICE_COMMUNICATION](#streamusage)或[STREAM_USAGE_VIDEO_COMMUNICATION](#streamusage)类型的AudioRender起播才会触发开启3A算法）。          系统能力： SystemCapability.Multimedia.Audio.Core |
-| SOURCE_TYPE_VOICE_MESSAGE12+ | 10 | 短语音消息的音频源。          系统能力： SystemCapability.Multimedia.Audio.Core |
-| SOURCE_TYPE_CAMCORDER13+ | 13 | 录像的音频源。          系统能力： SystemCapability.Multimedia.Audio.Core |
-| SOURCE_TYPE_UNPROCESSED14+ | 14 | 麦克风纯净录音的音频源（系统不做任何算法处理）。          系统能力： SystemCapability.Multimedia.Audio.Core |
-| SOURCE_TYPE_LIVE20+ | 17 | 直播场景的音频源，在支持的设备上会提供系统回声消除能力。          系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_INVALID | -1 | 无效的音频源。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_MIC | 0 | Mic音频源。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_VOICE_RECOGNITION9+ | 1 | 语音识别源。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_PLAYBACK_CAPTURE(deprecated) | 2 | 播放音频流（内录）录制音频源。 系统能力： SystemCapability.Multimedia.Audio.PlaybackCapture 从API version 10开始支持，从API version 12开始废弃，建议使用录屏接口AVScreenCapture替代。 |
+| SOURCE_TYPE_VOICE_COMMUNICATION | 7 | 语音通话场景的音频源（单独启动录制不会开启3A算法，需同时使用STREAM_USAGE_VOICE_COMMUNICATION或STREAM_USAGE_VIDEO_COMMUNICATION类型的AudioRender起播才会触发开启3A算法）。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_VOICE_MESSAGE12+ | 10 | 短语音消息的音频源。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_CAMCORDER13+ | 13 | 录像的音频源。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_UNPROCESSED14+ | 14 | 麦克风纯净录音的音频源（系统不做任何算法处理）。 系统能力： SystemCapability.Multimedia.Audio.Core |
+| SOURCE_TYPE_LIVE20+ | 17 | 直播场景的音频源，在支持的设备上会提供系统回声消除能力。 系统能力： SystemCapability.Multimedia.Audio.Core |
 
 
-## AudioScene8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioScene8+
 
 表示音频场景的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Communication
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -634,13 +632,13 @@
 | AUDIO_SCENE_VOICE_CHAT | 3 | 语音聊天模式。 |
 
 
-## AudioConcurrencyMode12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioConcurrencyMode12+
 
 表示音频并发模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -650,13 +648,13 @@
 | CONCURRENCY_PAUSE_OTHERS | 3 | 暂停其他音频。 |
 
 
-## AudioSessionDeactivatedReason12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioSessionDeactivatedReason12+
 
 表示音频会话停用原因的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -664,13 +662,13 @@
 | DEACTIVATED_TIMEOUT | 1 | 音频会话等待超时。 |
 
 
-## AudioSessionScene20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioSessionScene20+
 
 枚举音频会话场景。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -679,8 +677,9 @@
 | AUDIO_SESSION_SCENE_VOICE_COMMUNICATION | 2 | VoIP语音通话音频会话场景。 |
 
 
-## AudioSessionStateChangeHint20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioSessionStateChangeHint20+
 
 枚举用于音频会话状态变更提示。
 
@@ -692,28 +691,27 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | AUDIO_SESSION_STATE_CHANGE_HINT_RESUME | 0 | 提示音频会话恢复，应用可主动触发开始渲染等操作。 |
 | AUDIO_SESSION_STATE_CHANGE_HINT_PAUSE | 1 | 提示音频会话暂停，暂时失去音频焦点。当焦点再次可用时，会收到 AUDIO_SESSION_STATE_CHANGE_HINT_RESUME 事件。 |
 | AUDIO_SESSION_STATE_CHANGE_HINT_STOP | 2 | 提示音频会话因焦点被抢占而停止，彻底失去音频焦点。 |
 | AUDIO_SESSION_STATE_CHANGE_HINT_TIME_OUT_STOP | 3 | 提示音频会话因长时间无业务而被系统停止，导致失去音频焦点。 |
-| AUDIO_SESSION_STATE_CHANGE_HINT_DUCK | 4 | 提示音频会话躲避开始，降低音量播放。          如果已启用[enableMuteSuggestionWhenMixWithOthers](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#enablemutesuggestionwhenmixwithothers23)，此时可以选择执行静音操作。 |
-| AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK | 5 | 提示音频会话躲避结束，恢复音量播放。          如果已启用[enableMuteSuggestionWhenMixWithOthers](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#enablemutesuggestionwhenmixwithothers23)，此时可取消静音。 |
-| AUDIO_SESSION_STATE_CHANGE_HINT_MUTE_SUGGESTION23+ | 6 | 静音播放建议。          当其他应用程序开始播放不可混音的音频时，应用程序可以自行决定是否静音。          模型约束： 此接口仅可在Stage模型下使用。 |
-| AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION23+ | 7 | 取消静音播放建议。          当其他应用程序不可混音的音频已结束，该应用程序可自行决定是否取消静音。          模型约束： 此接口仅可在Stage模型下使用。 |
-| AUDIO_SESSION_STATE_CHANGE_HINT_MUTE24+ | 8 | 提示音频会话静音。          该提示仅在以下条件满足后才会收到：通过接口[setAudioSessionBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#setaudiosessionbehavior24)设置参数[AudioSessionBehaviorFlags](#audiosessionbehaviorflags24).MUTE_WHEN_INTERRUPTED，并已调用[setAudioSessionScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#setaudiosessionscene20)，且音频会话已激活。          模型约束： 此接口仅可在Stage模型下使用。 |
-| AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE24+ | 9 | 提示音频会话解除静音，恢复播放。          该提示仅在以下条件满足后才会收到：通过接口[setAudioSessionBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#setaudiosessionbehavior24)设置参数[AudioSessionBehaviorFlags](#audiosessionbehaviorflags24).MUTE_WHEN_INTERRUPTED，并已调用[setAudioSessionScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#setaudiosessionscene20)，且音频会话已激活。          模型约束： 此接口仅可在Stage模型下使用。 |
+| AUDIO_SESSION_STATE_CHANGE_HINT_DUCK | 4 | 提示音频会话躲避开始，降低音量播放。 如果已启用enableMuteSuggestionWhenMixWithOthers，此时可以选择执行静音操作。 |
+| AUDIO_SESSION_STATE_CHANGE_HINT_UNDUCK | 5 | 提示音频会话躲避结束，恢复音量播放。 如果已启用enableMuteSuggestionWhenMixWithOthers，此时可取消静音。 |
+| AUDIO_SESSION_STATE_CHANGE_HINT_MUTE_SUGGESTION23+ | 6 | 静音播放建议。 当其他应用程序开始播放不可混音的音频时，应用程序可以自行决定是否静音。 模型约束： 此接口仅可在Stage模型下使用。 |
+| AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE_SUGGESTION23+ | 7 | 取消静音播放建议。 当其他应用程序不可混音的音频已结束，该应用程序可自行决定是否取消静音。 模型约束： 此接口仅可在Stage模型下使用。 |
+| AUDIO_SESSION_STATE_CHANGE_HINT_MUTE24+ | 8 | 提示音频会话静音。 该提示仅在以下条件满足后才会收到：通过接口setAudioSessionBehavior设置参数AudioSessionBehaviorFlags.MUTE_WHEN_INTERRUPTED，并已调用setAudioSessionScene，且音频会话已激活。 模型约束： 此接口仅可在Stage模型下使用。 |
+| AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE24+ | 9 | 提示音频会话解除静音，恢复播放。 该提示仅在以下条件满足后才会收到：通过接口setAudioSessionBehavior设置参数AudioSessionBehaviorFlags.MUTE_WHEN_INTERRUPTED，并已调用setAudioSessionScene，且音频会话已激活。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
-## AudioDataCallbackResult12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioDataCallbackResult12+
 
 表示音频数据回调结果的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -721,17 +719,17 @@
 | VALID | 0 | 表示该回调数据有效。 |
 
 
-## ContentType(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ContentType(deprecated)
 
 表示音频内容类型的枚举。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 10开始废弃，建议使用[StreamUsage](#streamusage)替代。
+> 从API version 7开始支持，从API version 10开始废弃，建议使用 StreamUsage 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -743,17 +741,17 @@
 | CONTENT_TYPE_RINGTONE8+ | 5 | 铃声。 |
 
 
-## ActiveDeviceType(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ActiveDeviceType(deprecated)
 
 表示活跃设备类型的枚举。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[CommunicationDeviceType](#communicationdevicetype9)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 CommunicationDeviceType 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -761,17 +759,17 @@
 | BLUETOOTH_SCO | 7 | 蓝牙设备SCO（Synchronous Connection Oriented）连接。 |
 
 
-## InterruptActionType(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### InterruptActionType(deprecated)
 
 表示中断事件返回类型的枚举。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[InterruptType](#interrupttype)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 InterruptType 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -779,26 +777,26 @@
 | TYPE_INTERRUPT | 1 | 表示音频打断事件。 |
 
 
-## AudioLoopbackMode20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioLoopbackMode20+
 
 表示返听模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | HARDWARE | 0 | 表示硬件返听模式。 |
 
 
-## AudioLoopbackStatus20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioLoopbackStatus20+
 
 表示返听状态的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -808,13 +806,13 @@
 | AVAILABLE_RUNNING | 1 | 表示返听运行中。 |
 
 
-## AudioLoopbackReverbPreset21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioLoopbackReverbPreset21+
 
 表示返听混响模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -824,13 +822,13 @@
 | CONCERT | 4 | 提供类似演唱会的混响效果。 |
 
 
-## AudioLoopbackEqualizerPreset21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioLoopbackEqualizerPreset21+
 
 表示返听均衡器类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -839,8 +837,9 @@
 | BRIGHT | 3 | 使人声更明亮。 |
 
 
-## AudioSessionBehaviorFlags24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AudioSessionBehaviorFlags24+
 
 表示音频会话行为的枚举。
 
@@ -848,8 +847,7 @@
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEFAULT_BEHAVIOR24+ | 0x00000000 | 默认行为，用于清空音频会话行为设置。 |
-| MUTE_WHEN_INTERRUPTED24+ | 0x00000002 | 当音频流被打断时，使用静音替代。          通过接口[setAudioSessionBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#setaudiosessionbehavior24)设置该行为的同时，也需要调用接口[setAudioSessionScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager#setaudiosessionscene20)使其生效。          当播放被静音时，应用将收到[InterruptHint](#interrupthint).INTERRUPT_HINT_MUTE通知，并且在恢复时会收到[InterruptHint](#interrupthint).INTERRUPT_HINT_UNMUTE通知。 |
+| MUTE_WHEN_INTERRUPTED24+ | 0x00000002 | 当音频流被打断时，使用静音替代。 通过接口setAudioSessionBehavior设置该行为的同时，也需要调用接口setAudioSessionScene使其生效。 当播放被静音时，应用将收到InterruptHint.INTERRUPT_HINT_MUTE通知，并且在恢复时会收到InterruptHint.INTERRUPT_HINT_UNMUTE通知。 |

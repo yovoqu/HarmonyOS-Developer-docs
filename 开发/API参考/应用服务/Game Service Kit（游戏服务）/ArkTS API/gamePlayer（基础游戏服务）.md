@@ -3,55 +3,57 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameplayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供接入Game Service Kit（游戏服务）的基础游戏服务能力。
-
+ 
 **起始版本：** 4.0.0(10)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
-```ts
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 ```
+ 
+  
 
-
-## GSKLocalPlayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### GSKLocalPlayer
 
 玩家信息类。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | gamePlayerId | string | 否 | 否 | 游戏玩家ID。转移场景下gamePlayerId不为空。 最大长度256个字符。 |
 | teamPlayerId | string | 否 | 否 | 团队玩家ID。绑定场景下teamPlayerId不为空。 最大长度256个字符。 |
-| idCompatibleType | number | 否 | 否 | ID兼容类型。 0：gamePlayerId与openId、playerId不兼容，即调用[getLocalPlayer](#gameplayergetlocalplayer)接口时，玩家首次登录游戏生成的玩家标识；teamPlayerId与unionId不兼容，即调用[unionLogin](#gameplayerunionlogin)接口时，玩家首次登录游戏未选择转移APK游戏数据生成的玩家标识。 1：gamePlayerId兼容playerId，即玩家首次登录游戏时选择转移APK游戏数据，且APK游戏使用了playerId作为玩家标识，Game Service Kit将playerId作为新的gamePlayerId。 2：gamePlayerId兼容openId，即玩家首次登录游戏时选择转移APK游戏数据，且APK游戏使用了openId作为玩家标识，Game Service Kit将openId作为新的gamePlayerId。 |
+| idCompatibleType | number | 否 | 否 | ID兼容类型。 0：gamePlayerId与openId、playerId不兼容，即调用getLocalPlayer接口时，玩家首次登录游戏生成的玩家标识；teamPlayerId与unionId不兼容，即调用unionLogin接口时，玩家首次登录游戏未选择转移APK游戏数据生成的玩家标识。 1：gamePlayerId兼容playerId，即玩家首次登录游戏时选择转移APK游戏数据，且APK游戏使用了playerId作为玩家标识，Game Service Kit将playerId作为新的gamePlayerId。 2：gamePlayerId兼容openId，即玩家首次登录游戏时选择转移APK游戏数据，且APK游戏使用了openId作为玩家标识，Game Service Kit将openId作为新的gamePlayerId。 |
 | level | number | 否 | 否 | 玩家等级。此参数为预留参数，当前固定返回0。 |
 | playableTime | number | 否 | 否 | 玩家本次可玩时长，单位：min。此参数为预留参数，当前固定返回-1。 说明：返回-1表示当前玩家为成年人，不限制可玩时长；返回大于等于0表示当前玩家为未成年人，返回值为未成年玩家的当前可玩时长。 |
 | loginIdType | number | 否 | 否 | 登录游戏时，玩家使用的账号ID类型。 1：gamePlayerId 2：teamPlayerId 起始版本： 5.0.0(12) |
+ 
+ 
+  
 
-
-## GSKPlayerRole
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### GSKPlayerRole
 
 玩家角色信息类。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
+ 
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/DVe6Xd-IRGCEX0FPV32ybQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T085121Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=50399FC57266C87001623024FF1EF805BB6FEF11456A79948EB5646DFE44C91A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/ekTuRyOqQ_SFdj7eM6DshQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013412Z&HW-CC-Expire=86400&HW-CC-Sign=E7B6E842D80E6FCB981DB8EFDB4C2BF6832771E91C020008C1794C917A46072B)
+ 
+ 
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
+  
 
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | roleId | string | 否 | 否 | 玩家角色ID，请勿传""和null。 如果游戏没有角色系统，请传入“0”。 最大长度128个字符。 |
@@ -59,199 +61,199 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 | serverId | string | 否 | 是 | 玩家区服ID。 最大长度128个字符。 |
 | serverName | string | 否 | 是 | 玩家区服名。 最大长度128个字符。 |
 | gamePlayerId | string | 否 | 是 | 游戏玩家ID。 最大长度256个字符。 |
-| teamPlayerId | string | 否 | 是 | 团队玩家ID。游戏官方账号与华为teamPlayerId绑定场景下可传入此参数。 最大长度256个字���。 |
+| teamPlayerId | string | 否 | 是 | 团队玩家ID。游戏官方账号与华为teamPlayerId绑定场景下可传入此参数。 最大长度256个字符。 |
 | thirdOpenId | string | 否 | 是 | 游戏官方账号ID。 最大长度128个字符。 起始版本： 5.0.0(12) |
+ 
+ 
+  
 
-
-## ThirdUserInfo
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### ThirdUserInfo
 
 账号合规信息类。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+ 
 > [!NOTE]
 > 华为账号合规校验时，无需传isRealName、isAdult、ageRange参数。
 
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | thirdOpenId | string | 否 | 否 | 游戏官方账号ID。若无，则传空字符串""。 最大长度128个字符。 |
 | isRealName | boolean | 否 | 是 | 玩家是否实名。 - true：已实名 - false：未实名 |
 | isAdult | boolean | 否 | 是 | 玩家账号实名认证是否为成年人。 - true：已成年 - false：未成年 |
-| ageRange | [ThirdUserAgeRange](#thirduseragerange) | 否 | 是 | 玩家当前年龄段信息。 |
+| ageRange | ThirdUserAgeRange | 否 | 是 | 玩家当前年龄段信息。 |
+ 
+ 
+  
 
-
-## UnionLoginParam
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### UnionLoginParam
 
 联合登录参数。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| thirdAccountInfos | Array&lt;[ThirdAccountInfo](#thirdaccountinfo)&gt; | 否 | 否 | 游戏官方账号信息，用于在联合登录面板中展示。不同账号的账号名称不能相同。 说明：若只需实现华为账号快速登录，此参数传空数组。 |
-| showLoginDialog | boolean | 否 | 否 | 是否强制弹出联合登录面板，允许玩家选择重新登录。 - true：调用[unionLogin](#gameplayerunionlogin)接口时，强制弹出联合登录面板。当需要切换账号或进行其他操作时，请将此值设置为true。 - false：调用[unionLogin](#gameplayerunionlogin)接口时，优先使用玩家上一次的选择，不强制弹出联合登录面板。 默认为false。 |
-| loginPanelType | [LoginPanelType](#loginpaneltype) | 否 | 是 | 联合登录面板类型： - ICON - BUTTON 默认为ICON。 |
+| thirdAccountInfos | Array&lt;ThirdAccountInfo&gt; | 否 | 否 | 游戏官方账号信息，用于在联合登录面板中展示。不同账号的账号名称不能相同。 说明：若只需实现华为账号快速登录，此参数传空数组。 |
+| showLoginDialog | boolean | 否 | 否 | 是否强制弹出联合登录面板，允许玩家选择重新登录。 - true：调用unionLogin接口时，强制弹出联合登录面板。当需要切换账号或进行其他操作时，请将此值设置为true。 - false：调用unionLogin接口时，优先使用玩家上一次的选择，不强制弹出联合登录面板。 默认为false。 |
+| loginPanelType | LoginPanelType | 否 | 是 | 联合登录面板类型： - ICON - BUTTON 默认为ICON。 |
+ 
+ 
+  
 
-
-## ThirdAccountInfo
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### ThirdAccountInfo
 
 游戏官方账号信息。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| accountIcon | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 否 | 游戏官方账号图标资源信息。总和最大支持35KB。 当前仅支持media目录下的图片。 |
+| accountIcon | Resource | 否 | 否 | 游戏官方账号图标资源信息。总和最大支持35KB。 当前仅支持media目录下的图片。 |
 | accountName | string | 否 | 否 | 游戏官方账号在联合登录面板上的显示名称。 建议传入具体的“xx游账号登录”、“xx通行证登录”等，例如“游友账号登录”，不建议使用“官方账号登录”等容易有歧义的账号名称。 若游戏存在多语言版本，开发者需要自行判断语种并传入当前语种对应的账号名称。 在LoginPanelType设置成“BUTTON”时，accountName作为对外展示的按钮文字。 最大长度19个字符。 |
 | accountIdentifier | string | 否 | 是 | 当前账号的唯一标识符，用来标识账号，并在登录结果中判断玩家选择的账号。 建议传入和当前账号相关的标识符，例如“youyou_account”。 默认值：undefined。 最大长度32个字符。 起始版本： 6.0.2(22) |
 | isOnTop | boolean | 否 | 是 | 在LoginPanelType设置为“ICON”时生效。 当前账号是否在联合登录面板上置顶： - true：置顶。 - false：不置顶。 默认为false。 说明： - 仅会置顶第一个传入“true”的账号，且被置顶的账号展示为按钮样式（按钮文案为传入的accountName值），非置顶账号展示为图标样式。 - 在BUTTON或ICON类型的登录面板上，华为侧置顶华为账号的优先级更高。 起始版本： 6.0.2(22) |
+ 
+ 
+  
 
-
-## BoundPlayerInfo
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### BoundPlayerInfo
 
 绑定信息类。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | thirdOpenId | string | 否 | 否 | 游戏官方账号ID。 |
-| bindType | [BindType](#bindtype) | 否 | 否 | 与游戏官方账号绑定的类型。 |
+| bindType | BindType | 否 | 否 | 与游戏官方账号绑定的类型。 |
+ 
+ 
+  
 
-
-## BindType
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### BindType
 
 账号绑定枚举类。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CP_ACCOUNT_LEVEL | 0 | 开发者级别。 |
 | APP_LEVEL | 1 | 游戏级别。 |
+ 
+ 
+  
 
-
-## UnionLoginResult
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### UnionLoginResult
 
 联合登录结果。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| accountName | string | 否 | 否 | 账号名。 - 若玩家选择华为账号，则返回“hw_account”。 - 若玩家选择开发者提供的游戏官方账号，则返回传入的ThirdAccountInfo.accountName。 - 若登录过程中出现异常，则返回“official_account”。     “official_account”表示目前无法返回具体的账号名，建议从开发者提供的账号中选择其中一个登录。 最大长度19个字符。 |
+| accountName | string | 否 | 否 | 账号名。 - 若玩家选择华为账号，则返回“hw_account”。 - 若玩家选择开发者提供的游戏官方账号，则返回传入的ThirdAccountInfo.accountName。 - 若登录过程中出现异常，则返回“official_account”。 “official_account”表示目前无法返回具体的账号名，建议从开发者提供的账号中选择其中一个登录。 最大长度19个字符。 |
 | needBinding | boolean | 否 | 否 | 玩家标识是否需要绑定游戏官方账号。 - true：为绑定场景，需要绑定游戏官方账号。 - false：为转移场景，无需绑定游戏官方账号。 游戏服务器需要根据玩家选择的登录场景进行适配： - 转移场景下，服务器需与HarmonyOS系统的渠道包策略保持一致。 - 绑定场景下/选择游戏官方账号登录场景下，服务器策略和游戏官方包保持一致。 |
-| boundPlayerInfo | [BoundPlayerInfo](#boundplayerinfo) | 否 | 否 | 与华为PlayerId绑定的游戏官方账号信息。 |
-| localPlayer | [GSKLocalPlayer](#gsklocalplayer) | 否 | 否 | 玩家信息。 |
-| accountIdentifier | string | 否 | 是 | 当前账号的唯一标识符，用来判断玩家选择的账号： - 若玩家选择华为账号登录，则返回“hw_account”。 - 若玩家选择开发者提供的游戏官方账号，则返回传入的ThirdAccountInfo.accountIdentifier。 - 若登录过程中出现异常，则返回“official_account”。     “official_account”表示目前无法返回具体的账号名，建议从开发者提供的账号中选择其中一个登录。 最大长度为32个字符。 起始版本： 6.0.2(22) |
+| boundPlayerInfo | BoundPlayerInfo | 否 | 否 | 与华为PlayerId绑定的游戏官方账号信息。 |
+| localPlayer | GSKLocalPlayer | 否 | 否 | 玩家信息。 |
+| accountIdentifier | string | 否 | 是 | 当前账号的唯一标识符，用来判断玩家选择的账号： - 若玩家选择华为账号登录，则返回“hw_account”。 - 若玩家选择开发者提供的游戏官方账号，则返回传入的ThirdAccountInfo.accountIdentifier。 - 若登录过程中出现异常，则返回“official_account”。 “official_account”表示目前无法返回具体的账号名，建议从开发者提供的账号中选择其中一个登录。 最大长度为32个字符。 起始版本： 6.0.2(22) |
+ 
+ 
+  
 
-
-## PlayerChangedResult
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### PlayerChangedResult
 
 玩家变化结果。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| event | [PlayerChangedEvent](#playerchangedevent) | 否 | 否 | 玩家变化事件。 |
+| event | PlayerChangedEvent | 否 | 否 | 玩家变化事件。 |
 | resultInfo | string | 否 | 否 | JSON字符串，返回当前事件的相关信息。 最大长度1024个字符。 |
+ 
+ 
+  
 
-
-## PlayerChangedEvent
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### PlayerChangedEvent
 
 玩家变化事件枚举类。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SWITCH_GAME_ACCOUNT | 0 | 玩家切换游戏账号。 |
+ 
+ 
+  
 
-
-## ThirdUserAgeRange
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### ThirdUserAgeRange
 
 游戏官方账号的年龄信息枚举类。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | AGE_RANGE_8 | 1 | 玩家实名认证年龄小于8周岁。 |
 | AGE_RANGE_16 | 2 | 玩家实名认证年龄大于等于8周岁，且小于16周岁。 |
 | AGE_RANGE_18 | 3 | 玩家实名认证年龄大于等于16周岁，且小于18周岁。 |
 | AGE_RANGE_ADULT | 4 | 玩家实名认证年龄大于等于18周岁。 |
+ 
+ 
+  
 
-
-## LoginPanelType
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### LoginPanelType
 
 登录面板枚举类。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ICON | 0 | - 除了华为账号，联合登录面板上最多还可以展示三个游戏官方账号。 - 开发者可以设置isOnTop参数，置顶登录面板上的任一种游戏官方账号。 |
 | BUTTON | 1 | - 登录面板上仅展示华为账号和游戏官方账号，且这两种登录账号均展示为按钮样式。 - 开发者无需设置置顶参数，登录面板上默认游戏官方账号在上、华为账号在下。 |
+ 
+ 
+  
 
-
-## GameErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### GameErrorCode
 
 错误码枚举类。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | INTERNAL_ERROR | 1002000001 | 游戏内部通用错误。 |
@@ -281,39 +283,37 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 | PAY_PRODUCT_CONSUMED | 1002000053 | 此次购买已经完成发货，无需重复发货。 起始版本： 6.0.1(21) |
 | PAY_ACCOUNT_REGION_UNSUPPORTED | 1002000054 | 用户账号所在服务地不在IAP Kit支持结算的国家/地区中。 起始版本： 6.0.1(21) |
 | PAY_DEAL_REJECTED | 1002000056 | 用户交易被拒绝。 起始版本： 6.0.1(21) |
+ 
+ 
+  
 
+##### gamePlayer.init
 
-## gamePlayer.init
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-init(context: common.UIAbilityContext): Promise<void>
-
+init(context: common.UIAbilityContext): Promise&lt;void&gt;
+ 
 游戏启动时，需要对Game Service Kit进行初始化。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 说明：严格要求继承UIAbility，并且获取上下文的时机是onWindowStageCreate生命周期中页面加载成功后。 |
-
-
+| context | common.UIAbilityContext | 是 | 上下文信息。 说明：严格要求继承UIAbility，并且获取上下文的时机是onWindowStageCreate生命周期中页面加载成功后。 |
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -329,42 +329,36 @@ export default class EntryAbility extends UIAbility {
         });
       } catch (error) {
         let err = error as BusinessError;
-        hilog.error(
-          0x0000,
-          'testTag',
-          `Failed to init. Code: ${err.code}, message: ${err.message}`,
-        );
+        hilog.error(0x0000, 'testTag', `Failed to init. Code: ${err.code}, message: ${err.message}`);
       }
     });
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.init
 
-## gamePlayer.init
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-init(context: common.UIAbilityContext, callback: AsyncCallback<void>): void
-
+init(context: common.UIAbilityContext, callback: AsyncCallback&lt;void&gt;): void
+ 
 游戏启动时，需要对Game Service Kit进行初始化。使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 说明：严格要求继承UIAbility，并且获取上下文的时机是onWindowStageCreate生命周期中页面加载成功后。 |
+| context | common.UIAbilityContext | 是 | 上下文信息。 说明：严格要求继承UIAbility，并且获取上下文的时机是onWindowStageCreate生命周期中页面加载成功后。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当初始化成功，err为undefined，否则为错误对象。 |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -380,51 +374,44 @@ export default class EntryAbility extends UIAbility {
         });
       } catch (error) {
         let err = error as BusinessError;
-        hilog.error(
-          0x0000,
-          'testTag',
-          `Failed to init. Code: ${err.code}, message: ${err.message}`,
-        );
+        hilog.error(0x0000, 'testTag', `Failed to init. Code: ${err.code}, message: ${err.message}`);
       }
     });
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.unionLogin
 
-## gamePlayer.unionLogin
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-unionLogin(context: common.UIAbilityContext, loginParam: UnionLoginParam): Promise<UnionLoginResult>
-
+unionLogin(context: common.UIAbilityContext, loginParam: UnionLoginParam): Promise&lt;UnionLoginResult&gt;
+ 
 华为账号和游戏官方账号联合登录。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
-| loginParam | [UnionLoginParam](#unionloginparam) | 是 | 联合登录参数。 |
-
-
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
+| loginParam | UnionLoginParam | 是 | 联合登录参数。 |
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[UnionLoginResult](#unionloginresult)&gt; | Promise对象。返回联合登录结果对象。 |
-
-
+| Promise&lt;UnionLoginResult&gt; | Promise对象。返回联合登录结果对象。 |
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -438,12 +425,11 @@ unionLogin(context: common.UIAbilityContext, loginParam: UnionLoginParam): Promi
 | 1002000014 | This interface is not available for this game. |
 | 1002000016 | Union login canceled by user. |
 | 1002000017 | Illegal application identity. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -455,10 +441,10 @@ struct UnionLogin {
   build() {
     Row() {
       Button('unionLogin')
-      .onClick(() => {
-        this.callUnionLogin();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callUnionLogin();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -476,7 +462,7 @@ struct UnionLogin {
     let request: gamePlayer.UnionLoginParam = {
       showLoginDialog: true, // 是否弹出联合登录面板。true表示强制弹出面板，false表示优先使用玩家上一次的登录选择，不弹出联合登录面板，若玩家首次登录或卸载重装，则正常弹出
       thirdAccountInfos: [
-      thirdAccountInfo1 // 若游戏无官包或无官方账号体系，请传空数组
+        thirdAccountInfo1 // 若游戏无官包或无官方账号体系，请传空数组
       ]
     };
     try {
@@ -492,40 +478,37 @@ struct UnionLogin {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.getLocalPlayer
 
-## gamePlayer.getLocalPlayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-getLocalPlayer(context: common.UIAbilityContext): Promise<GSKLocalPlayer>
-
+getLocalPlayer(context: common.UIAbilityContext): Promise&lt;GSKLocalPlayer&gt;
+ 
 获取玩家信息。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
-
-
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[GSKLocalPlayer](#gsklocalplayer)&gt; | Promise对象。返回玩家信息。 |
-
-
+| Promise&lt;GSKLocalPlayer&gt; | Promise对象。返回玩家信息。 |
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -538,12 +521,11 @@ getLocalPlayer(context: common.UIAbilityContext): Promise<GSKLocalPlayer>
 | 1002000011 | Agreement not agreed. |
 | 1002000014 | This interface is not available for this game. |
 | 1002000017 | Illegal application identity. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -555,10 +537,10 @@ struct GetLocalPlayer {
   build() {
     Row() {
       Button('getLocalPlayer')
-      .onClick(() => {
-        this.callGetLocalPlayer();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callGetLocalPlayer();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -580,33 +562,31 @@ struct GetLocalPlayer {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.getLocalPlayer
 
-## gamePlayer.getLocalPlayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-getLocalPlayer(context: common.UIAbilityContext, callback: AsyncCallback<GSKLocalPlayer>): void
-
+getLocalPlayer(context: common.UIAbilityContext, callback: AsyncCallback&lt;GSKLocalPlayer&gt;): void
+ 
 获取玩家信息。使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
-| callback | AsyncCallback&lt;[GSKLocalPlayer](#gsklocalplayer)&gt; | 是 | 回调函数。当获取玩家信息成功，err为undefined，data为获取到的GSKLocalPlayer对象；否则为错误对象。 |
-
-
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
+| callback | AsyncCallback&lt;GSKLocalPlayer&gt; | 是 | 回调函数。当获取玩家信息成功，err为undefined，data为获取到的GSKLocalPlayer对象；否则为错误对象。 |
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -619,12 +599,11 @@ getLocalPlayer(context: common.UIAbilityContext, callback: AsyncCallback<GSKLoca
 | 1002000011 | Agreement not agreed. |
 | 1002000014 | This interface is not available for this game. |
 | 1002000017 | Illegal application identity. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -636,10 +615,10 @@ struct GetLocalPlayer {
   build() {
     Row() {
       Button('getLocalPlayer')
-      .onClick(() => {
-        this.callGetLocalPlayer();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callGetLocalPlayer();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -663,42 +642,39 @@ struct GetLocalPlayer {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.bindPlayer
 
-## gamePlayer.bindPlayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-bindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: string): Promise<void>
-
+bindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: string): Promise&lt;void&gt;
+ 
 将玩家华为账号对应的teamPlayerId与游戏官方账号绑定。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
 | thirdOpenId | string | 是 | 游戏官方账号ID。 最大长度128个字符。 |
 | teamPlayerId | string | 是 | 玩家华为账号对应的teamPlayerId。 |
-
-
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
-
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -710,12 +686,11 @@ bindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: 
 | 1002000011 | Agreement not agreed. |
 | 1002000012 | The thirdOpenId or teamPlayerId has been bound. |
 | 1002000017 | Illegal application identity. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -727,10 +702,10 @@ struct BindPlayer {
   build() {
     Row() {
       Button('bindPlayer')
-      .onClick(() => {
-        this.callBindPlayer();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callBindPlayer();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -754,42 +729,39 @@ struct BindPlayer {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.unbindPlayer
 
-## gamePlayer.unbindPlayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-unbindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: string): Promise<void>
-
+unbindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: string): Promise&lt;void&gt;
+ 
 将玩家华为账号对应的teamPlayerId与游戏官方账号解绑。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
 | thirdOpenId | string | 是 | 游戏官方账号ID。 |
 | teamPlayerId | string | 是 | 玩家华为账号对应的teamPlayerId。 |
-
-
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
-
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -801,12 +773,11 @@ unbindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId
 | 1002000011 | Agreement not agreed. |
 | 1002000013 | The thirdOpenId and teamPlayerId are not bound. |
 | 1002000017 | Illegal application identity. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -818,10 +789,10 @@ struct UnbindPlayer {
   build() {
     Row() {
       Button('unbindPlayer')
-      .onClick(() => {
-        this.callUnbindPlayer();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callUnbindPlayer();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -845,41 +816,38 @@ struct UnbindPlayer {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.verifyLocalPlayer
 
-## gamePlayer.verifyLocalPlayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-verifyLocalPlayer(context: common.UIAbilityContext, thirdUserInfo: ThirdUserInfo): Promise<void>
-
+verifyLocalPlayer(context: common.UIAbilityContext, thirdUserInfo: ThirdUserInfo): Promise&lt;void&gt;
+ 
 合规校验接口，校验当前设备登录的账号的实名认证、游戏防沉迷信息。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
-| thirdUserInfo | [ThirdUserInfo](#thirduserinfo) | 是 | 游戏自己维护的玩家合规信息。 |
-
-
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
+| thirdUserInfo | ThirdUserInfo | 是 | 游戏自己维护的玩家合规信息。 |
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
-
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -893,12 +861,11 @@ verifyLocalPlayer(context: common.UIAbilityContext, thirdUserInfo: ThirdUserInfo
 | 1002000011 | Agreement not agreed. |
 | 1002000015 | The current player information is invalid. Execute the login process again to obtain the player information. |
 | 1002000017 | Illegal application identity. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -910,10 +877,10 @@ struct VerifyLocalPlayer {
   build() {
     Row() {
       Button('verifyLocalPlayer')
-      .onClick(() => {
-        this.callVerifyLocalPlayer();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callVerifyLocalPlayer();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -940,40 +907,37 @@ struct VerifyLocalPlayer {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.savePlayerRole
 
-## gamePlayer.savePlayerRole
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole): Promise<void>
-
+savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole): Promise&lt;void&gt;
+ 
 保存角色信息到游戏服务器。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
-| request | [GSKPlayerRole](#gskplayerrole) | 是 | 上报角色信息，玩家选择角色及区服后上报。如果游戏没有角色系统，roleId请传入“0”，roleName请传入“default”。 |
-
-
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
+| request | GSKPlayerRole | 是 | 上报角色信息，玩家选择角色及区服后上报。如果游戏没有角色系统，roleId请传入“0”，roleName请传入“default”。 |
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -985,10 +949,10 @@ struct SavePlayerRole {
   build() {
     Row() {
       Button('savePlayerRole')
-      .onClick(() => {
-        this.callSavePlayerRole();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callSavePlayerRole();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -1015,33 +979,31 @@ struct SavePlayerRole {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.savePlayerRole
 
-## gamePlayer.savePlayerRole
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole, callback: AsyncCallback<void>): void
-
+savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole, callback: AsyncCallback&lt;void&gt;): void
+ 
 保存角色信息到游戏服务器。使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | 上下文信息。 |
-| request | [GSKPlayerRole](#gskplayerrole) | 是 | 上报角色信息，玩家选择角色及区服后上报。如果游戏没有角色系统，roleId请传入“0”，roleName请传入“default”。 |
+| context | common.UIAbilityContext | 是 | 上下文信息。 |
+| request | GSKPlayerRole | 是 | 上报角色信息，玩家选择角色及区服后上报。如果游戏没有角色系统，roleId请传入“0”，roleName请传入“default”。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当保存角色信息成功，err为undefined，否则为错误对象。 |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -1053,10 +1015,10 @@ struct SavePlayerRole {
   build() {
     Row() {
       Button('savePlayerRole')
-      .onClick(() => {
-        this.callSavePlayerRole();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callSavePlayerRole();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -1083,49 +1045,44 @@ struct SavePlayerRole {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.on('playerChanged')
 
-## gamePlayer.on('playerChanged')
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-on(type: 'playerChanged', callback: Callback<PlayerChangedResult>): void
-
+on(type: 'playerChanged', callback: Callback&lt;PlayerChangedResult&gt;): void
+ 
 玩家变化事件监听。使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听的事件类型，固定为'playerChanged'事件。 |
-| callback | Callback&lt;[PlayerChangedResult](#playerchangedresult)&gt; | 是 | 回调函数，返回玩家变化结果。 |
-
-
+| callback | Callback&lt;PlayerChangedResult&gt; | 是 | 回调函数，返回玩家变化结果。 |
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-let playerChangedEventCallback = (
-  result: gamePlayer.PlayerChangedResult,
-): void => {
+let playerChangedEventCallback = (result: gamePlayer.PlayerChangedResult): void => {
   if (result.event === gamePlayer.PlayerChangedEvent.SWITCH_GAME_ACCOUNT) {
     // ...
     // 游戏号已切换，完成本地缓存清理工作后，再次调用unionLogin接口等
@@ -1137,49 +1094,42 @@ try {
   gamePlayer.on('playerChanged', playerChangedEventCallback);
 } catch (error) {
   let err = error as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    `Failed to register. Code: ${err.code}, message: ${err.message}`,
-  );
+  hilog.error(0x0000, 'testTag', `Failed to register. Code: ${err.code}, message: ${err.message}`);
 }
 ```
+ 
+  
 
+##### gamePlayer.off('playerChanged')
 
-## gamePlayer.off('playerChanged')
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-off(type: 'playerChanged', callback?: Callback<PlayerChangedResult>): void
-
+off(type: 'playerChanged', callback?: Callback&lt;PlayerChangedResult&gt;): void
+ 
 取消玩家变化事件监听。使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消监听的事件类型，固定为'playerChanged'事件。 |
-| callback | Callback&lt;[PlayerChangedResult](#playerchangedresult)&gt; | 否 | 回调函数，返回玩家变化结果。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消playerChanged事件的所有callback订阅。 |
-
-
+| callback | Callback&lt;PlayerChangedResult&gt; | 否 | 回调函数，返回玩家变化结果。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消playerChanged事件的所有callback订阅。 |
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
-
-
+ 
+ 
 **示例1**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1188,25 +1138,18 @@ try {
   gamePlayer.off('playerChanged');
 } catch (error) {
   let err = error as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    `Failed to unregister. Code: ${err.code}, message: ${err.message}`,
-  );
+  hilog.error(0x0000, 'testTag', `Failed to unregister. Code: ${err.code}, message: ${err.message}`);
 }
 ```
-
+ 
 **示例2**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-let playerChangedEventCallback = (
-  result: gamePlayer.PlayerChangedResult,
-): void => {
+let playerChangedEventCallback = (result: gamePlayer.PlayerChangedResult): void => {
   if (result.event === gamePlayer.PlayerChangedEvent.SWITCH_GAME_ACCOUNT) {
     // ...
     // 游戏号已切换，完成本地缓存清理工作后，再次调用unionLogin接口等
@@ -1218,41 +1161,36 @@ try {
   gamePlayer.off('playerChanged', playerChangedEventCallback);
 } catch (error) {
   let err = error as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    `Failed to unregister. Code: ${err.code}, message: ${err.message}`,
-  );
+  hilog.error(0x0000, 'testTag', `Failed to unregister. Code: ${err.code}, message: ${err.message}`);
 }
 ```
+ 
+  
 
-
-## MiniGameLoginParam
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### MiniGameLoginParam
 
 小游戏登录信息。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 6.0.1(21)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | gameAppId | string | 否 | 否 | 小游戏APP ID。 |
 | extraData | string | 否 | 是 | 附加信息，要求JSON String格式，可以将额外需要传入的字段以key:value的形式设置在JSON String中，并通过该参数传入。例如： let extraData = "{"key1":"value1","key2":"value2"}"; |
+ 
+ 
+  
 
-
-## MiniGamePlayer
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### MiniGamePlayer
 
 小游戏玩家信息。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 6.0.1(21)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | playerId | string | 否 | 否 | 玩家账号ID。 |
@@ -1261,106 +1199,90 @@ try {
 | playerSign | string | 否 | 否 | 玩家登录签名。 |
 | signTs | string | 否 | 否 | 玩家登录签名的时间戳。 |
 | extraData | string | 否 | 是 | 附加信息，要求JSON String格式，可以将额外需要传入的字段以key:value的形式设置在JSON String中，并通过该参数传入。例如： let extraData = "{"key1":"value1","key2":"value2"}"; |
+ 
+ 
+  
 
+##### gamePlayer.on('miniGameAddictionPrevented')
 
-## gamePlayer.on('miniGameAddictionPrevented')
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-on(type: 'miniGameAddictionPrevented', callback: Callback<string>): void
-
+on(type: 'miniGameAddictionPrevented', callback: Callback&lt;string&gt;): void
+ 
 注册小游戏防沉迷事件监听。使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 6.0.1(21)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听的事件类型，固定为'miniGameAddictionPrevented'事件。 |
 | callback | Callback&lt;string&gt; | 是 | 回调函数，返回小游戏防沉迷事件的注册结果。 |
-
-
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1002000018 | This API is only provided for HarmonyOS mini games. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let miniGameAddictionPreventedCallback = (result: string): void => {
   // 退出小游戏
-  hilog.info(
-    0x0000,
-    'testTag',
-    `Callback miniGameAddictionPrevented result: ${result}`,
-  );
+  hilog.info(0x0000, 'testTag', `Callback miniGameAddictionPrevented result: ${result}`);
 };
 
 // 调用on接口注册小游戏防沉迷事件监听
 try {
-  gamePlayer.on(
-    'miniGameAddictionPrevented',
-    miniGameAddictionPreventedCallback,
-  );
+  gamePlayer.on('miniGameAddictionPrevented', miniGameAddictionPreventedCallback);
 } catch (error) {
   let err = error as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    `Failed to register. Code: ${err.code}, message: ${err.message}`,
-  );
+  hilog.error(0x0000, 'testTag', `Failed to register. Code: ${err.code}, message: ${err.message}`);
 }
 ```
+ 
+  
 
+##### gamePlayer.off('miniGameAddictionPrevented')
 
-## gamePlayer.off('miniGameAddictionPrevented')
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-off(type: 'miniGameAddictionPrevented', callback?: Callback<string>): void
-
+off(type: 'miniGameAddictionPrevented', callback?: Callback&lt;string&gt;): void
+ 
 取消注册小游戏防沉迷事件监听。使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 6.0.1(21)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听的事件类型，固定为'miniGameAddictionPrevented'事件。 |
 | callback | Callback&lt;string&gt; | 否 | 回调函数，返回取消注册小游戏防沉迷事件结果。 如果该参数不为空，则取消当前callback订阅。如果该参数为空，则取消miniGameAddictionPrevented事件的所有callback订阅。 |
-
-
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1002000018 | This API is only provided for HarmonyOS mini games. |
-
-
+ 
+ 
 **示例1**：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1369,81 +1291,62 @@ try {
   gamePlayer.off('miniGameAddictionPrevented');
 } catch (error) {
   let err = error as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    `Failed to unregister. Code: ${err.code}, message: ${err.message}`,
-  );
+  hilog.error(0x0000, 'testTag', `Failed to unregister. Code: ${err.code}, message: ${err.message}`);
 }
 ```
-
+ 
 **示例**2：
-
-
-```ts
+ 
+```text
 import { gamePlayer } from '@kit.GameServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let miniGameAddictionPreventedCallback = (result: string): void => {
   // 退出小游戏
-  hilog.info(
-    0x0000,
-    'testTag',
-    `Callback miniGameAddictionPrevented result: ${result}`,
-  );
+  hilog.info(0x0000, 'testTag', `Callback miniGameAddictionPrevented result: ${result}`);
 };
 
 try {
   // 参数miniGameAddictionPreventedCallback为gamePlayer.on('miniGameAddictionPrevented', miniGameAddictionPreventedCallback)中第二个参数
-  gamePlayer.off(
-    'miniGameAddictionPrevented',
-    miniGameAddictionPreventedCallback,
-  );
+  gamePlayer.off('miniGameAddictionPrevented', miniGameAddictionPreventedCallback);
 } catch (error) {
   let err = error as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    `Failed to unregister. Code: ${err.code}, message: ${err.message}`,
-  );
+  hilog.error(0x0000, 'testTag', `Failed to unregister. Code: ${err.code}, message: ${err.message}`);
 }
 ```
+ 
+  
 
+##### gamePlayer.miniGameLogin
 
-## gamePlayer.miniGameLogin
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-miniGameLogin(context: common.Context, loginParam: MiniGameLoginParam): Promise<MiniGamePlayer>
-
+miniGameLogin(context: common.Context, loginParam: MiniGameLoginParam): Promise&lt;MiniGamePlayer&gt;
+ 
 登录小游戏。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 6.0.1(21)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文信息。 |
-| loginParam | [MiniGameLoginParam](#minigameloginparam) | 是 | 小游戏登录信息。 |
-
-
+| context | common.Context | 是 | 上下文信息。 |
+| loginParam | MiniGameLoginParam | 是 | 小游戏登录信息。 |
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[MiniGamePlayer](#minigameplayer)&gt; | Promise对象。返回玩家信息。 |
-
-
+| Promise&lt;MiniGamePlayer&gt; | Promise对象。返回玩家信息。 |
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1002000001 | System internal error. |
@@ -1456,12 +1359,11 @@ miniGameLogin(context: common.Context, loginParam: MiniGameLoginParam): Promise<
 | 1002000011 | Agreement not agreed. |
 | 1002000018 | This API is only provided for HarmonyOS mini games. |
 | 1002000019 | Parameter error. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```json
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -1473,10 +1375,10 @@ struct MiniGameLogin {
   build() {
     Row() {
       Button('miniGameLogin')
-      .onClick(() => {
-        this.callMiniGameLogin();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callMiniGameLogin();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -1502,41 +1404,38 @@ struct MiniGameLogin {
   }
 }
 ```
+ 
+  
 
+##### gamePlayer.miniGamePay
 
-## gamePlayer.miniGamePay
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-miniGamePay(context: common.Context, parameter: PurchaseParameter): Promise<CreatePurchaseResult>
-
+miniGamePay(context: common.Context, parameter: PurchaseParameter): Promise&lt;CreatePurchaseResult&gt;
+ 
 提供小游戏付费功能。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 6.0.1(21)
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文信息。 |
-| parameter | [PurchaseParameter](#purchaseparameter) | 是 | 购买商品参数。 |
-
-
+| context | common.Context | 是 | 上下文信息。 |
+| parameter | PurchaseParameter | 是 | 购买商品参数。 |
+ 
+ 
 **返回值**：
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[CreatePurchaseResult](#createpurchaseresult)&gt; | Promise对象。返回创建商品结果信息。 |
-
-
+| Promise&lt;CreatePurchaseResult&gt; | Promise对象。返回创建商品结果信息。 |
+ 
+ 
 **错误码**：
-
+ 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1002000001 | System internal error. |
@@ -1553,12 +1452,11 @@ miniGamePay(context: common.Context, parameter: PurchaseParameter): Promise<Crea
 | 1002000053 | The purchase has been finished and cannot be finished again. |
 | 1002000054 | The country or region of the signed-in HUAWEI ID does not support IAP. |
 | 1002000056 | The user is not allowed to make purchase. |
-
-
+ 
+ 
 **示例**：
-
-
-```ts
+ 
+```json
 import { gamePlayer } from '@kit.GameServiceKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -1570,10 +1468,10 @@ struct MiniGamePay {
   build() {
     Row() {
       Button('miniGamePay')
-      .onClick(() => {
-        this.callMiniGamePay();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.callMiniGamePay();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -1601,70 +1499,69 @@ struct MiniGamePay {
   }
 }
 ```
+ 
+  
 
-
-## PurchaseParameter
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### PurchaseParameter
 
 购买商品参数，仅供IAP Kit和小游戏使用。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | productId | string | 否 | 否 | 待支付的商品ID。 |
-| productType | [ProductType](#producttype) | 否 | 否 | 待查询的商品类型。 |
+| productType | ProductType | 否 | 否 | 待查询的商品类型。 |
 | developerPayload | string | 否 | 是 | 商户侧保留信息，该参数长度限制为[0, 256]。若该字段有值，在支付成功后的回调结果中会原样返回给应用。 |
 | reservedInfo | string | 否 | 是 | 要求JSON String格式，商户可以将额外需要传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。例如： let reservedInfo = "{"key1":"value1","key2":"value2"}"; 说明： 该字段为预留字段，可选传入，开发者暂时无需关注。 |
+ 
+ 
+  
 
-
-## ProductType
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### ProductType
 
 商品类型，仅供IAP Kit和小游戏使用。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CONSUMABLE | 0 | 消耗型商品。 |
 | NONCONSUMABLE | 1 | 非消耗型商品。 |
 | AUTORENEWABLE | 2 | 自动续期订阅商品。 起始版本： 5.0.0(12) |
+ 
+ 
+  
 
-
-## PurchaseResult
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### PurchaseResult
 
 订购商品结果信息，仅供IAP Kit使用。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.0.0(10)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | inAppPurchaseData | string | 否 | 否 | 订单数据的JSON字符串。 |
 | signature | string | 否 | 否 | 返回使用IAP私钥签署paymentData字符串生成的签名字符串。 |
 | signatureAlgorithm | string | 否 | 否 | 签名算法，固定为SHA256WithRSA/PSS。 |
+ 
+ 
+  
 
-
-## CreatePurchaseResult
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### CreatePurchaseResult
 
 创建商品结果信息，仅供IAP Kit和小游戏使用。
-
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
-
+ 
 **起始版本：** 4.1.0(11)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | purchaseData | string | 否 | 否 | 包含支付结果的JSON字符串。 |

@@ -1,6 +1,6 @@
 # Network Boost Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkboostkit-6111
 

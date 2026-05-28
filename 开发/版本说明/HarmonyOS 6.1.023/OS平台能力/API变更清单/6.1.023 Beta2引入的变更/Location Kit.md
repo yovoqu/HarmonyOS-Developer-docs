@@ -16,7 +16,7 @@
 | API废弃版本变更 | 类名：GetLocationOption； API声明：success?: (data: GeolocationResponse) => void; 差异内容：NA | 类名：GetLocationOption； API声明：success?: (data: GeolocationResponse) => void; 差异内容：9 | api/@system.geolocation.d.ts |
 | API废弃版本变更 | 类名：GetLocationOption； API声明：fail?: (data: string, code: number) => void; 差异内容：NA | 类名：GetLocationOption； API声明：fail?: (data: string, code: number) => void; 差异内容：9 | api/@system.geolocation.d.ts |
 | API废弃版本变更 | 类名：GetLocationOption； API声明：complete?: () => void; 差异内容：NA | 类名：GetLocationOption； API声明：complete?: () => void; 差异内容：9 | api/@system.geolocation.d.ts |
-| API废弃版本变更 | 类名：GetLocationTypeResponse； API声明：types: Array<string>; 差异内容：NA | 类名：GetLocationTypeResponse； API声明：types: Array<string>; 差异内容：9 | api/@system.geolocation.d.ts |
+| API废弃版本变更 | 类名：GetLocationTypeResponse； API声明：types: Array&lt;string&gt;; 差异内容：NA | 类名：GetLocationTypeResponse； API声明：types: Array&lt;string&gt;; 差异内容：9 | api/@system.geolocation.d.ts |
 | API废弃版本变更 | 类名：GetLocationTypeOption； API声明：success?: (data: GetLocationTypeResponse) => void; 差异内容：NA | 类名：GetLocationTypeOption； API声明：success?: (data: GetLocationTypeResponse) => void; 差异内容：9 | api/@system.geolocation.d.ts |
 | API废弃版本变更 | 类名：GetLocationTypeOption； API声明：fail?: (data: string, code: number) => void; 差异内容：NA | 类名：GetLocationTypeOption； API声明：fail?: (data: string, code: number) => void; 差异内容：9 | api/@system.geolocation.d.ts |
 | API废弃版本变更 | 类名：GetLocationTypeOption； API声明：complete?: () => void; 差异内容：NA | 类名：GetLocationTypeOption； API声明：complete?: () => void; 差异内容：9 | api/@system.geolocation.d.ts |

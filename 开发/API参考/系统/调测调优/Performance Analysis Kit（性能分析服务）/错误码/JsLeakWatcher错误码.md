@@ -3,15 +3,14 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-jsleakwatcher
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 10801001 参数isEnabled无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 10801001 参数isEnabled无效
 
 **错误信息**
 
@@ -32,8 +31,8 @@ The parameter isEnabled is invalid.
 确保传入参数isEnabled的类型正确。
 
 
-## 10801002 参数config无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 10801002 参数config无效
 
 **错误信息**
 
@@ -56,8 +55,8 @@ The parameter config is invalid.
 确保传入参数config的类型正确。
 
 
-## 10801003 参数callback无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 10801003 参数callback无效
 
 **错误信息**
 

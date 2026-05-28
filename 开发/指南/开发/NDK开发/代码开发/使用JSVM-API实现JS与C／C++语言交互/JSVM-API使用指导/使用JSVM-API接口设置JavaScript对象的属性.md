@@ -4,17 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-property
 
-## 简介
+##### 简介
 
 使用JSVM-API接口获取和设置JavaScript对象的属性。通过合理使用这些函数，实现更复杂的功能和逻辑。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-在JavaScript对象属性的相关开发中，需要处理JavaScript对象属性，确保正确地访问、设置、删除属性，并了解属性的继承关系和枚举特性。以下是一些关键概念： **对象（Object）**：在JavaScript中，对象是一种复合数据类型，它允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。**属性（Property）**：在JavaScript中，属性是对象特征的键值对。每个属性都有一个名字（也称为键或标识符）和一个值。属性的值可以是任意数据类型，包括基本类型、对象和函数。**可枚举属性（EnumerableProperty）**：在JavaScript中，对象的属性分为可枚举和不可枚举之分，它们是由属性的enumerable值决定的，即内部 “可枚举” 标志设置为true或false。可枚举性决定了属性是否能被 for...in 遍历到。**自有属性（OwnProperty）**：自有属性是直接定义在对象上的属性，而不是从原型链继承的。
+在JavaScript对象属性的相关开发中，需要处理JavaScript对象属性，确保正确地访问、设置、删除属性，并了解属性的继承关系和枚举特性。以下是一些关键概念：
+ 
+- **对象（Object）**：在JavaScript中，对象是一种复合数据类型，它允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。
+- **属性（Property）**：在JavaScript中，属性是对象特征的键值对。每个属性都有一个名字（也称为键或标识符）和一个值。属性的值可以是任意数据类型，包括基本类型、对象和函数。
+- **可枚举属性（EnumerableProperty）**：在JavaScript中，对象的属性分为可枚举和不可枚举之分，它们是由属性的enumerable值决定的，即内部 “可枚举” 标志设置为true或false。可枚举性决定了属性是否能被 for...in 遍历到。
+- **自有属性（OwnProperty）**：自有属性是直接定义在对象上的属性，而不是从原型链继承的。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_GetPropertyNames | 获取给定对象的所有可枚举属性名称，结果变量将存储一个包含所有可枚举属性名称的JavaScript数组 |
@@ -28,15 +37,22 @@
 | OH_JSVM_HasNamedProperty | 用给定的属性的名称，查询目标对象是否有此属性，此方法等效于使用从作为utf8Name传入的字符串创建的JSVM_Value调用OH_JSVM_HasProperty。 |
 | OH_JSVM_DefineProperties | 批量的向给定对象中定义属性 |
 | OH_JSVM_GetAllPropertyNames | 获取给定对象的所有可用属性名称，结果变量将存储一个包含所有可枚举属性名称的JavaScript数组 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅展示接口对应的C++代码。
+ 
+  
 
-## OH_JSVM_GetPropertyNames
+##### OH_JSVM_GetPropertyNames
 
-以字符串数组的形式获取对象的可枚举属性的名称，如果接口调用成功则返回JSVM_OK。 cpp部分代码：
+以字符串数组的形式获取对象的可枚举属性的名称，如果接口调用成功则返回JSVM_OK。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_GetPropertyNames的样例方法
 static JSVM_Value GetPropertyNames(JSVM_Env env, JSVM_CallbackInfo info)
@@ -72,16 +88,21 @@ const char *srcCallNative = R"JS(
     let script = getPropertyNames(obj);
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_GetPropertyNames success
 ```
+ 
+  
 
+##### OH_JSVM_SetProperty
 
-## OH_JSVM_SetProperty
-
-将给定的属性与值设置入给定的Object。 cpp部分代码：
+将给定的属性与值设置入给定的Object。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_SetProperty的样例方法
 static JSVM_Value SetProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -121,16 +142,21 @@ const char *srcCallNative = R"JS(
     setProperty(obj, "code", "hi")
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_SetProperty success
 ```
+ 
+  
 
+##### OH_JSVM_GetProperty
 
-## OH_JSVM_GetProperty
-
-获取给定Object的给定属性对应的值。 cpp部分代码：
+获取给定Object的给定属性对应的值。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_GetProperty的样例方法
 static JSVM_Value GetProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -166,16 +192,21 @@ const char *srcCallNative = R"JS(
     getProperty(obj, "message")
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_GetProperty success
 ```
+ 
+  
 
+##### OH_JSVM_HasProperty
 
-## OH_JSVM_HasProperty
-
-检查对象中是否存在指定的属性，可以避免访问不存在属性导致的异常或错误。 cpp部分代码：
+检查对象中是否存在指定的属性，可以避免访问不存在属性导致的异常或错误。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_HasProperty的样例方法
 static JSVM_Value HasProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -215,19 +246,26 @@ const char *srcCallNative = R"JS(
     hasProperty(obj, 0)
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 // hasProperty(obj, "data")输出
 JSVM OH_JSVM_HasProperty success:1
 // hasProperty(obj, 0)输出
 JSVM OH_JSVM_HasProperty success:0
 ```
+ 
+  
 
+##### OH_JSVM_DeleteProperty
 
-## OH_JSVM_DeleteProperty
-
-尝试从给定的Object中删除由key指定的属性，并返回操作的结果。 如果对象是一个不可扩展的对象，或者属性是不可配置的，则可能无法删除该属性。 cpp部分代码：
+尝试从给定的Object中删除由key指定的属性，并返回操作的结果。
+ 
+如果对象是一个不可扩展的对象，或者属性是不可配置的，则可能无法删除该属性。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_DeleteProperty的样例方法
 static JSVM_Value DeleteProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -272,16 +310,21 @@ const char *srcCallNative = R"JS(
     deleteProperty(obj, "message")
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_DeleteProperty success:1
 ```
+ 
+  
 
+##### OH_JSVM_HasOwnProperty
 
-## OH_JSVM_HasOwnProperty
-
-用于检查传入的Object是否具有自己的命名属性，不包括从原型链上继承的属性。 cpp部分代码：
+用于检查传入的Object是否具有自己的命名属性，不包括从原型链上继承的属性。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_HasOwnProperty的样例方法
 static JSVM_Value HasOwnProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -335,8 +378,9 @@ const char *srcCallNative = R"JS(
     hasOwnProperty(obj, "__defineGetter__")
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 // hasOwnProperty(obj, "message")输出
 JSVM OH_JSVM_HasOwnProperty success:1
@@ -344,11 +388,15 @@ JSVM OH_JSVM_HasOwnProperty success:1
 // `__defineGetter__`为Object原型方法，非OwnProperty，预期返回0
 JSVM OH_JSVM_HasOwnProperty success:0
 ```
+ 
+  
 
+##### OH_JSVM_SetNamedProperty
 
-## OH_JSVM_SetNamedProperty
-
-用于在传入的Javascript对象上设置一个命名属性。 cpp部分代码：
+用于在传入的Javascript对象上设置一个命名属性。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_SetNamedProperty的样例方法
 static JSVM_Value SetNamedProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -394,16 +442,21 @@ const char *srcCallNative = R"JS(
     setNamedProperty("message")
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_SetNamedProperty success
 ```
+ 
+  
 
+##### OH_JSVM_GetNamedProperty
 
-## OH_JSVM_GetNamedProperty
-
-用于从Javascript对象中获取命名属性的值。 cpp部分代码：
+用于从Javascript对象中获取命名属性的值。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_GetNamedProperty的样例方法
 static JSVM_Value GetNamedProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -443,16 +496,21 @@ const char *srcCallNative = R"JS(
     getNamedProperty(obj, "message")
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_GetNamedProperty success
 ```
+ 
+  
 
+##### OH_JSVM_HasNamedProperty
 
-## OH_JSVM_HasNamedProperty
-
-用于检查Javascript对象中是否包含指定的命名属性。 cpp部分代码：
+用于检查Javascript对象中是否包含指定的命名属性。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_HasNamedProperty的样例方法
 static JSVM_Value HasNamedProperty(JSVM_Env env, JSVM_CallbackInfo info)
@@ -495,19 +553,24 @@ const char *srcCallNative = R"JS(
     hasNamedProperty(obj, "message")
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_HasNamedProperty success:1
 ```
+ 
+  
 
+##### OH_JSVM_DefineProperties
 
-## OH_JSVM_DefineProperties
-
-用于定义对象的自定义属性，可一次性为对象设置若干个属性。 cpp部分代码：
+用于定义对象的自定义属性，可一次性为对象设置若干个属性。
+ 
+cpp部分代码：
+ 
 ```text
-#include
-#include
+#include <fstream>
+#include <string>
 // 属性描述符列表中defineMethodPropertiesExample属性的回调函数
 static JSVM_Value DefineMethodPropertiesExample(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -633,18 +696,23 @@ const char *srcCallNative = R"JS(
     defineProperties(obj)
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM DefineMethodPropertiesExample success:26
 JSVM defineStringPropertiesExample success:Hello!
 JSVM getterCallback success:Hello world!
 ```
+ 
+  
 
+##### OH_JSVM_GetAllPropertyNames
 
-## OH_JSVM_GetAllPropertyNames
-
-获取给定对象的所有可枚举属性名称，结果变量将存储一个包含这些属性名称的JavaScript数组。 cpp部分代码：
+获取给定对象的所有可枚举属性名称，结果变量将存储一个包含这些属性名称的JavaScript数组。
+ 
+cpp部分代码：
+ 
 ```text
 // OH_JSVM_GetAllPropertyNames的样例方法
 static JSVM_Value GetAllPropertyNames(JSVM_Env env, JSVM_CallbackInfo info)
@@ -683,8 +751,9 @@ const char *srcCallNative = R"JS(
     let script = getAllPropertyNames(obj);
 )JS";
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM OH_JSVM_GetAllPropertyNames success
 ```

@@ -8,9 +8,9 @@
 - risk 禁止访问，有继续浏览的按钮。
 - warning web内核不会主动拦截，仅展示警告提示，不提供继续访问的按钮。
 
-
+ 
 目前不允许自定义风险访问控制的流程，也没有提供相关回调。
-
-参考链接
-
-ThreatType
+ 
+**参考链接**
+ 
+[ThreatType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#threattype11)

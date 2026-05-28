@@ -5,32 +5,41 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-help
 
 获取有关ohpm-repo的帮助。
+ 
 
-
-## 命令格式
-
+##### 命令格式
 
 ```text
 ohpm-repo help [command]
 ohpm-repo [command] --help
 alias: -h
 ```
+ 
+ 
 
-
-## 参数
+##### 参数
 
 command：命令名称
+ 
+ 
 
-## 功能描述
+##### 功能描述
 
-如果提供了命令名称，则显示相应命令的帮助信息。 如果提供的命令名称不存在或未提供，则显示所有命令的概要信息。
+- 如果提供了命令名称，则显示相应命令的帮助信息。
+- 如果提供的命令名称不存在或未提供，则显示所有命令的概要信息。
 
-## 示例
+ 
+ 
+
+##### 示例
 
 执行以下命令：
+ 
 ```text
 ohpm-repo -h
 ```
-
+ 
 结果示例：
+ 
+
 ![](assets/ohpm-repo%20help/file-20260514134319365-0.png)

@@ -3,21 +3,31 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用来展示列表具体item，必须配合List来使用。
 
-> [!NOTE] 说明
-> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件的父组件只能是List或者ListItemGroup。 当ListItem配合LazyForEach使用时，ListItem子组件在ListItem创建时创建。配合if/else、ForEach使用时，或父组件为List/ListItemGroup时，ListItem子组件在ListItem布局时创建。
+> [!NOTE]
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件的父组件只能是 List 或者 ListItemGroup 。 当ListItem配合 LazyForEach 使用时，ListItem子组件在ListItem创建时创建。配合 if/else 、 ForEach 使用时，或父组件为List/ListItemGroup时，ListItem子组件在ListItem布局时创建。
 
-#### 子组件
+
+
+##### 子组件
+
 可以包含单个子组件。
 
-#### 接口
-#### ListItem10+
+
+
+##### 接口
+
+
+
+##### ListItem10+
+
 ListItem(value?: ListItemOptions)
+
 创建ListItem组件。
+
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -28,14 +38,20 @@ ListItem(value?: ListItemOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ListItemOptions](#listitemoptions10对象说明) | 否 | 为ListItem提供可选参数，该对象内含有ListItemStyle枚举类型的style参数。 默认值：{ style: ListItemStyle.NONE } |
+| value | ListItemOptions | 否 | 为ListItem提供可选参数，该对象内含有ListItemStyle枚举类型的style参数。 默认值：{ style: ListItemStyle.NONE } |
 
-#### ListItem(deprecated)
+
+
+
+##### ListItem(deprecated)
+
 ListItem(value?: string)
+
 创建ListItem组件。
 
-> [!NOTE] 说明
-> 从API version 7开始支持，从API version 10开始废弃，建议使用ListItem10+替代。
+> [!NOTE]
+> 从API version 7开始支持，从API version 10开始废弃，建议使用 ListItem 10+ 替代。
+
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -47,15 +63,24 @@ ListItem(value?: string)
 | --- | --- | --- | --- |
 | value | string | 否 | 无 |
 
-#### 属性
+
+
+
+##### 属性
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-#### sticky(deprecated)
+
+
+##### sticky(deprecated)
+
 sticky(value: Sticky)
+
 设置ListItem吸顶效果。
 
-> [!NOTE] 说明
-> 从API version 7开始支持，从API version 9开始废弃，建议使用sticky替代。
+> [!NOTE]
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 sticky 替代。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -63,14 +88,20 @@ sticky(value: Sticky)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Sticky](#stickydeprecated枚举说明) | 是 | ListItem吸顶效果。 默认值：Sticky.None |
+| value | Sticky | 是 | ListItem吸顶效果。 默认值：Sticky.None |
 
-#### editable(deprecated)
+
+
+
+##### editable(deprecated)
+
 editable(value: boolean | EditMode)
+
 设置当前ListItem元素是否可编辑，进入编辑模式后可删除或移动列表项。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，无替代接口。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -78,11 +109,17 @@ editable(value: boolean | EditMode)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean \| [EditMode](#editmodedeprecated枚举说明) | 是 | ListItem元素是否可编辑。 默认值：false |
+| value | boolean \| EditMode | 是 | ListItem元素是否可编辑。 默认值：false |
 
-#### selectable8+
+
+
+
+##### selectable8+
+
 selectable(value: boolean)
+
 设置当前ListItem元素是否可以被鼠标框选。外层List容器的鼠标框选开启时，ListItem的框选才生效。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -95,9 +132,15 @@ selectable(value: boolean)
 | --- | --- | --- | --- |
 | value | boolean | 是 | ListItem元素是否可以被鼠标框选。设置为true时可以被鼠标框选，设置为false时无法被鼠标框选。 默认值：true |
 
-#### selected10+
+
+
+
+##### selected10+
+
 selected(value: boolean)
+
 设置当前ListItem选中状态。该属性支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。该属性需要在设置[多态样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-polymorphic-style)前使用才能生效选中态样式。
+
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -110,9 +153,15 @@ selected(value: boolean)
 | --- | --- | --- | --- |
 | value | boolean | 是 | 当前ListItem选中状态。设置为true时为选中状态，设置为false时为默认状态。 默认值：false |
 
-#### swipeAction9+
+
+
+
+##### swipeAction9+
+
 swipeAction(value: SwipeActionOptions)
+
 用于设置ListItem的划出组件。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -121,13 +170,18 @@ swipeAction(value: SwipeActionOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [SwipeActionOptions](#swipeactionoptions9对象说明) | 是 | ListItem的划出组件。 |
+| value | SwipeActionOptions | 是 | ListItem的划出组件。 |
 
-#### Sticky(deprecated)枚举说明
+
+
+
+##### Sticky(deprecated)枚举说明
+
 ListItem吸顶效果枚举。
 
-> [!NOTE] 说明
-> 从API version 7开始支持，从API version 9开始废弃，建议使用List组件的StickyStyle替代。
+> [!TIP]
+> 从API version 7开始支持，从API version 9开始废弃，建议使用List组件的 StickyStyle 替代。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -137,11 +191,16 @@ ListItem吸顶效果枚举。
 | Normal | - | 当前item吸顶。 |
 | Opacity | - | 当前item吸顶显示透明度变化效果。 |
 
-#### EditMode(deprecated)枚举说明
+
+
+
+##### EditMode(deprecated)枚举说明
+
 ListItem元素编辑模式枚举。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，无替代接口。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -151,8 +210,13 @@ ListItem元素编辑模式枚举。
 | Deletable | - | 可删除。 |
 | Movable | - | 可移动。 |
 
-#### SwipeEdgeEffect9+枚举说明
+
+
+
+##### SwipeEdgeEffect9+枚举说明
+
 滑动效果枚举。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -162,45 +226,67 @@ ListItem元素编辑模式枚举。
 | Spring | - | ListItem划动距离超过划出组件大小后可以继续划动。 如果设置了删除区域，ListItem划动距离超过删除阈值后可以继续划动， 松手后按照弹簧阻尼曲线回弹。 |
 | None | - | ListItem划动距离不能超过划出组件大小。 如果设置了删除区域，ListItem划动距离不能超过删除阈值， 并且在设置删除回调的情况下，达到删除阈值后松手触发删除回调。 |
 
-#### SwipeActionOptions9+对象说明
+
+
+
+##### SwipeActionOptions9+对象说明
+
 start和end对应的@builder函数中顶层必须是单个组件，否则会引发未定义行为。如果@builder函数中顶层是if/else、ForEach等语句，那么需要保证if/else、ForEach等语句必须能生成单个组件。
+
 滑动手势只在listItem区域上，如果子组件划出ListItem区域外，在ListItem以外部分不会响应划动手势。所以在多列模式下，建议不要将划出组件设置太宽。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| start | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [SwipeActionItem](#swipeactionitem10对象说明) | 否 | 是 | ListItem向右划动时item左边的组件（List垂直布局时）或ListItem向下划动时item上方的组件（List水平布局时）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| end | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) \| [SwipeActionItem](#swipeactionitem10对象说明) | 否 | 是 | ListItem向左划动时item右边的组件（List垂直布局时）或ListItem向上划动时item下方的组件（List水平布局时）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| edgeEffect | [SwipeEdgeEffect](#swipeedgeeffect9枚举说明) | 否 | 是 | 滑动效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| onOffsetChange^11+ | (offset: number) => void | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）位置发生变化触发，以vp为单位。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| start | CustomBuilder \| SwipeActionItem | 否 | 是 | ListItem向右划动时item左边的组件（List垂直布局时）或ListItem向下划动时item上方的组件（List水平布局时）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| end | CustomBuilder \| SwipeActionItem | 否 | 是 | ListItem向左划动时item右边的组件（List垂直布局时）或ListItem向上划动时item下方的组件（List水平布局时）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| edgeEffect | SwipeEdgeEffect | 否 | 是 | 滑动效果。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| onOffsetChange11+ | (offset: number) => void | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）位置发生变化触发，以vp为单位。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
-#### SwipeActionItem10+对象说明
+
+
+
+##### SwipeActionItem10+对象说明
+
 List垂直布局，ListItem向右滑动时，item左边的长距离滑动删除选项。向左滑动时，item右边的长距离滑动删除选项。
+
 List水平布局，ListItem向上滑动时，item下边的长距离滑动删除选项。向下滑动时，item上边的长距离滑动删除选项。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| actionAreaDistance | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 设置组件长距离滑动删除距离阈值。即划出组件被完全滑进视窗后，继续滑动触发删除的距离阈值。 默认值：56vp 说明： 不支持设置百分比。 删除距离阈值大于item宽度减去划出组件宽度，或删除距离阈值小于等于0就不会设置删除区域。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| actionAreaDistance | Length | 否 | 是 | 设置组件长距离滑动删除距离阈值。即划出组件被完全滑进视窗后，继续滑动触发删除的距离阈值。 默认值：56vp 说明： 不支持设置百分比。 删除距离阈值大于item宽度减去划出组件宽度，或删除距离阈值小于等于0就不会设置删除区域。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onAction | () => void | 否 | 是 | 组件进入长距删除区后抬手时触发。 说明： 滑动后松手的位置超过或等于设置的距离阈值，并且设置的距离阈值有效时才会触发。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onEnterActionArea | () => void | 否 | 是 | 在滑动条目进入删除区域时调用，只触发一次，当再次进入时仍触发。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | onExitActionArea | () => void | 否 | 是 | 当滑动条目退出删除区域时调用，只触发一次，当再次退出时仍触发。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| builder | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）时显示的操作项。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| builderComponent^18+ | [ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）时显示的操作项。 说明： 该参数的优先级高于参数builder。即同时设置builder和builderComponent时，以builderComponent设置的值为准。 同一个builderComponent不推荐同时给不同的start/end使用，否则会导致显示问题。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onStateChange^11+ | (state:[SwipeActionState](#swipeactionstate11枚举说明)) => void | 否 | 是 | 当列表项滑动状态变化时候触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| builder | CustomBuilder | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）时显示的操作项。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| builderComponent18+ | ComponentContent | 否 | 是 | 当列表项向左或向右滑动（当列表方向为“垂直”时），向上或向下滑动（当列表方向为“水平”时）时显示的操作项。 说明： 该参数的优先级高于参数builder。即同时设置builder和builderComponent时，以builderComponent设置的值为准。 同一个builderComponent不推荐同时给不同的start/end使用，否则会导致显示问题。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onStateChange11+ | (state:SwipeActionState) => void | 否 | 是 | 当列表项滑动状态变化时候触发。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
-#### ListItemOptions10+对象说明
+
+
+
+##### ListItemOptions10+对象说明
+
 ListItem组件参数。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| style | [ListItemStyle](#listitemstyle10枚举说明) | 否 | 是 | 设置List组件卡片样式。 默认值：ListItemStyle.NONE 设置为ListItemStyle.NONE时无样式。 设置为ListItemStyle.CARD时，建议配合ListItemGroup的ListItemGroupStyle.CARD同时使用，显示默认卡片样式。 卡片样式下，ListItem默认规格：高度48vp，宽度100%，左右内边距8vp。如果需要实现ListItem高度自适应，可以把height设置为undefined。 卡片样式下，为卡片内的列表选项提供了默认的focus、hover、press、selected和disable样式。 说明： 当设置为ListItemStyle.CARD时，List的listDirection属性值须为Axis.Vertical，如果设置为Axis.Horizontal，会导致显示混乱；List属性alignListItem默认为ListItemAlign.Center，居中对齐显示。 |
+| style | ListItemStyle | 否 | 是 | 设置List组件卡片样式。 默认值：ListItemStyle.NONE 设置为ListItemStyle.NONE时无样式。 设置为ListItemStyle.CARD时，建议配合ListItemGroup的ListItemGroupStyle.CARD同时使用，显示默认卡片样式。 卡片样式下，ListItem默认规格：高度48vp，宽度100%，左右内边距8vp。如果需要实现ListItem高度自适应，可以把height设置为undefined。 卡片样式下，为卡片内的列表选项提供了默认的focus、hover、press、selected和disable样式。 说明： 当设置为ListItemStyle.CARD时，List的listDirection属性值须为Axis.Vertical，如果设置为Axis.Horizontal，会导致显示混乱；List属性alignListItem默认为ListItemAlign.Center，居中对齐显示。 |
 
-#### ListItemStyle10+枚举说明
+
+
+
+##### ListItemStyle10+枚举说明
+
 List组件卡片样式枚举。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -210,8 +296,13 @@ List组件卡片样式枚举。
 | NONE | 0 | 无样式。 |
 | CARD | 1 | 显示默认卡片样式。 |
 
-#### SwipeActionState11+枚举说明
+
+
+
+##### SwipeActionState11+枚举说明
+
 列表项滑动状态枚举。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -222,10 +313,19 @@ List组件卡片样式枚举。
 | EXPANDED | 1 | 展开状态，当ListItem向左或向右滑动（当列表方向为“垂直”时）， 向上或向下滑动（当列表方向为“水平”时）时操作项处于显示状态。 说明： 需要ListItem设置向左或向右滑动（当列表方向为“垂直”时）， 向上或向下滑动（当列表方向为“水平”时）时显示的操作项。 |
 | ACTIONING | 2 | 长距离状态，当ListItem进入长距删除区后删除ListItem的状态。 说明： 滑动后松手的位置超过或等于设置的距离阈值，并且设置的距离阈值有效时才能进入该状态。 |
 
-#### 事件
-#### onSelect8+
+
+
+
+##### 事件
+
+
+
+##### onSelect8+
+
 onSelect(event: (isSelected: boolean) => void)
+
 ListItem元素被鼠标框选的状态改变时触发回调。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -238,12 +338,21 @@ ListItem元素被鼠标框选的状态改变时触发回调。
 | --- | --- | --- | --- |
 | isSelected | boolean | 是 | 进入鼠标框选范围即被选中返回true， 移出鼠标框选范围即未被选中返回false。 |
 
-#### ListItemSwipeActionManager21+
+
+
+
+##### ListItemSwipeActionManager21+
+
 ListItem划出菜单的管理器。
 
-#### expand21+
+
+
+##### expand21+
+
 expand(node: FrameNode, direction: ListItemSwipeActionDirection): void
+
 展开指定ListItem的划出菜单。
+
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -252,10 +361,12 @@ expand(node: FrameNode, direction: ListItemSwipeActionDirection): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| node | [FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode) | 是 | ListItem节点对象。 |
-| direction | [ListItemSwipeActionDirection](#listitemswipeactiondirection21枚举说明) | 是 | ListItem划出菜单的展开方向。 |
+| node | FrameNode | 是 | ListItem节点对象。 |
+| direction | ListItemSwipeActionDirection | 是 | ListItem划出菜单的展开方向。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[自定义节点错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-node)。
 
 | 错误码ID | 错误信息 |
@@ -264,12 +375,18 @@ expand(node: FrameNode, direction: ListItemSwipeActionDirection): void
 | 106203 | The node not mounted to component tree. |
 
 
-> [!NOTE] 说明
+> [!NOTE]
 > 如果List组件cachedCount属性isShow参数设置为true，List显示区域外已预加载完成的ListItem支持展开，否则List显示区域外节点不支持展开。
 
-#### collapse21+
+
+
+
+##### collapse21+
+
 collapse(node: FrameNode): void
+
 收起指定ListItem的划出菜单。
+
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -278,9 +395,11 @@ collapse(node: FrameNode): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| node | [FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode) | 是 | ListItem节点对象。 |
+| node | FrameNode | 是 | ListItem节点对象。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[自定义节点错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-node)。
 
 | 错误码ID | 错误信息 |
@@ -288,8 +407,13 @@ collapse(node: FrameNode): void
 | 100023 | The component type of the node is incorrect. |
 | 106203 | The node not mounted to component tree. |
 
-#### ListItemSwipeActionDirection21+枚举说明
+
+
+
+##### ListItemSwipeActionDirection21+枚举说明
+
 ListItem划出菜单的展开方向。
+
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -299,11 +423,18 @@ ListItem划出菜单的展开方向。
 | START | 0 | 当列表方向是垂直方向时，LTR模式下表示ListItem的左边，RTL模式下表示ListItem的右边。当列表是水平方向时，表示ListItem的上边。 |
 | END | 1 | 当列表方向是垂直方向时，LTR模式下表示ListItem的右边，RTL模式下表示ListItem的左边。当列表是水平方向时，表示ListItem的下边。 |
 
-#### 示例
-#### 示例1（创建ListItem）
+
+
+
+##### 示例
+
+
+
+##### 示例1（创建ListItem）
+
 该示例实现了创建ListItem的基本用法。
 
-```ts
+```ArkTS
 // xxx.ets
 export class ListDataSource implements IDataSource {
   private list: number[] = [];
@@ -353,12 +484,17 @@ struct ListItemExample {
 }
 ```
 
-![](assets/ListItem/file-20260525091141811-001.gif)
 
-#### 示例2（设置划出组件）
+![](assets/ListItem/file-20260525091141812-003.jpeg)
+
+
+
+
+##### 示例2（设置划出组件）
+
 该示例展示了ListItem设置了swipeAction的横滑效果。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -432,12 +568,17 @@ struct ListItemExample2 {
 }
 ```
 
-![](assets/ListItem/file-20260525091141812-002.gif)
 
-#### 示例3（设置卡片样式）
+![](assets/ListItem/file-20260525091141812-004.gif)
+
+
+
+
+##### 示例3（设置卡片样式）
+
 该示例展示了ListItem的卡片样式效果。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -473,12 +614,17 @@ struct ListItemExample3 {
 }
 ```
 
-![](assets/ListItem/file-20260525091141812-003.jpeg)
 
-#### 示例4（通过ComponentContent设置划出组件）
+![](assets/ListItem/file-20260525091141813-005.gif)
+
+
+
+
+##### 示例4（通过ComponentContent设置划出组件）
+
 该示例通过[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent#componentcontent-1)设置ListItem中的划出组件操作时显示的操作项。
 
-```ts
+```ArkTS
 // xxx.ets
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -587,12 +733,17 @@ struct ListItemExample {
 }
 ```
 
-![](assets/ListItem/file-20260525091141812-004.gif)
 
-#### 示例5（通过ListItemSwipeActionManager管理划出菜单）
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/mlD-NzEFS6aT6sBcSaa8Ug/zh-cn_image_0000002581275828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013920Z&HW-CC-Expire=86400&HW-CC-Sign=1BCA70ED622444C1FB1C802C4E6F76BA8E1FEB0CA5EC6F1B522D5CCEB7006DB4)
+
+
+
+
+##### 示例5（通过ListItemSwipeActionManager管理划出菜单）
+
 从API version 21开始，该示例通过[ListItemSwipeActionManager](#listitemswipeactionmanager21)管理ListItem的划出菜单。
 
-```ts
+```ArkTS
 // xxx.ets
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -675,4 +826,5 @@ struct ListItemExample5 {
 }
 ```
 
-![](assets/ListItem/file-20260525091141813-005.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/saoG73VwRGaa-0u1H2f3bg/zh-cn_image_0000002611755685.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013920Z&HW-CC-Expire=86400&HW-CC-Sign=B19FB0FDFEDC7DB33DB7BFA78095784DC8CF3B79F8A9E7622CBC1A0C4F0C10FB)

@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：gameNearbyTransfer； API声明：function bindNearbyGame(bindParameters: BindParameters): Promise<void>; 差异内容：NA | 类名：gameNearbyTransfer； API声明：function bindNearbyGame(bindParameters: BindParameters): Promise<void>; 差异内容：1018300008 | api/@hms.core.gameservice.gamenearbytransfer.d.ts |
+| 新增错误码 | 类名：gameNearbyTransfer； API声明：function bindNearbyGame(bindParameters: BindParameters): Promise&lt;void&gt;; 差异内容：NA | 类名：gameNearbyTransfer； API声明：function bindNearbyGame(bindParameters: BindParameters): Promise&lt;void&gt;; 差异内容：1018300008 | api/@hms.core.gameservice.gamenearbytransfer.d.ts |

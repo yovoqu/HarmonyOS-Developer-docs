@@ -1,22 +1,26 @@
 # 卡片跳转到应用页面（router事件）
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-router
 
 在动态卡片中使用[postCardAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-postcardaction#postcardaction-1)接口的router能力，能够快速拉起动态卡片提供方应用的指定UIAbility(页面)，因此UIAbility较多的应用往往会通过卡片提供不同的跳转按钮，实现一键直达的效果。例如相机卡片，卡片上提供拍照、录像等按钮，点击不同按钮将拉起相机应用的不同UIAbility，从而提升用户的体验。
 
+
 ![](assets/卡片跳转到应用页面（router事件）/file-20260514130940713-0.png)
 
 
 > [!NOTE]
-> 本文主要介绍动态卡片的事件开发。对于静态卡片，请参见FormLink。
+> 本文主要介绍动态卡片的事件开发。对于静态卡片，请参见 FormLink 。
 
 
-## 开发步骤
 
-创建动态卡片，在工程的entry模块中，新建名为WidgetEventRouterCard的ArkTS卡片。 构建ArkTS卡片页面代码布局，卡片页面布局中有两个按钮，点击其中一个按钮时调用postCardAction向指定UIAbility发送router事件，并在事件内定义需要传递的内容。
-```text
+##### 开发步骤
+1. 创建动态卡片，在工程的entry模块中，新建名为WidgetEventRouterCard的ArkTS卡片。
+2. 构建ArkTS卡片页面代码布局，卡片页面布局中有两个按钮，点击其中一个按钮时调用postCardAction向指定UIAbility发送router事件，并在事件内定义需要传递的内容。
+
+  
+```ArkTS
 // src/main/ets/widgeteventrouter/pages/WidgetEventRouterCard.ets
 @Entry
 @Component
@@ -82,8 +86,10 @@ struct WidgetEventRouterCard {
 }
 ```
 
-处理router事件，在UIAbility中接收router事件并获取参数，根据传递的params不同，选择拉起不同的页面。
-```text
+3. 处理router事件，在UIAbility中接收router事件并获取参数，根据传递的params不同，选择拉起不同的页面。
+
+  
+```ts
 // src/main/ets/entryability/EntryAbility.ts
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -101,7 +107,7 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN_NUMBER, TAG, `Ability onCreate, ${JSON.stringify(want)}`);
     if (want?.parameters?.params) {
       // want.parameters.params 对应 postCardAction() 中 params 内容
-      let params: Record = JSON.parse(want.parameters.params as string);
+      let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
       this.selectPage = params.targetPage as string;
       hilog.info(DOMAIN_NUMBER, TAG, `onCreate selectPage: ${this.selectPage}`);
     }
@@ -112,7 +118,7 @@ export default class EntryAbility extends UIAbility {
     hilog.info(DOMAIN_NUMBER, TAG, `onNewWant Want: ${JSON.stringify(want)}`);
     if (want?.parameters?.params) {
       // want.parameters.params 对应 postCardAction() 中 params 内容
-      let params: Record = JSON.parse(want.parameters.params as string);
+      let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
       this.selectPage = params.targetPage as string;
       hilog.info(DOMAIN_NUMBER, TAG, `onNewWant selectPage: ${this.selectPage}`);
     }
@@ -149,8 +155,10 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-创建跳转后的UIAbility页面，新建FunA.ets和FunB.ets，构建页面布局。
-```text
+4. 创建跳转后的UIAbility页面，新建FunA.ets和FunB.ets，构建页面布局。
+
+  
+```ArkTS
 // src/main/ets/funpages/FunA.ets
 @Entry
 @Component
@@ -199,8 +207,7 @@ struct FunA {
 }
 ```
 
-
-```text
+```ArkTS
 // src/main/ets/funpages/FunB.ets
 @Entry
 @Component
@@ -249,8 +256,10 @@ struct FunB {
 }
 ```
 
-在resources/base/profile下的main_pages.json文件中配置FunA.ets和FunB.ets页面。
-```text
+5. 在resources/base/profile下的main_pages.json文件中配置FunA.ets和FunB.ets页面。
+
+  
+```json
 // src/main/resources/base/profile/main_pages.json
 {
     "src": [
@@ -261,8 +270,10 @@ struct FunB {
 }
 ```
 
-资源文件如下，请开发者替换为实际使用的资源。
-```text
+6. 资源文件如下，请开发者替换为实际使用的资源。
+
+  
+```json
 // src/main/resources/zh_CN/element/string.json
 {
   "string": [
@@ -288,6 +299,9 @@ struct FunB {
 ```
 
 
-## 运行效果
 
-![](assets/卡片跳转到应用页面（router事件）/file-20260514130940713-1.gif)
+
+##### 运行效果
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Q3axi1LwRZadASl-v272tw/zh-cn_image_0000002611834201.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014730Z&HW-CC-Expire=86400&HW-CC-Sign=63BB3E64A26594EDAF8C3E27D56816B6535160840ABAFC1AE8B053A25BD01649)

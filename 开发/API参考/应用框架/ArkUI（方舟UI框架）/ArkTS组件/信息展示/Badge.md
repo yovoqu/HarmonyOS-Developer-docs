@@ -3,24 +3,35 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-badge
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 信息标记组件，可以附加在单个组件上用于信息提醒的容器组件。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 子组件
+
+
+##### 子组件
+
 支持单个子组件。
 
-> [!NOTE] 说明
-> 子组件类型：系统组件和自定义组件，支持渲染控制类型（if/else、ForEach和LazyForEach）。  自定义组件宽高默认为0，需要给其设置宽高，否则标记组件将不显示。  当存在多个子组件时，只有最后一个子组件会在界面上显示，但其余子组件的状态更新仍会使Badge及其子组件重新布局渲染。  不影响子组件布局，即不会主动规避子组件内容。
+> [!NOTE]
+> 子组件类型：系统组件和自定义组件，支持渲染控制类型（ if/else 、 ForEach 和 LazyForEach ）。 自定义组件宽高默认为0，需要给其设置宽高，否则标记组件将不显示。 当存在多个子组件时，只有最后一个子组件会在界面上显示，但其余子组件的状态更新仍会使Badge及其子组件重新布局渲染。 不影响子组件布局，即不会主动规避子组件内容。
 
-#### 接口
-#### Badge
+
+
+
+##### 接口
+
+
+
+##### Badge
+
 Badge(value: BadgeParamWithNumber)
+
 根据数字创建标记组件。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -31,25 +42,38 @@ Badge(value: BadgeParamWithNumber)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [BadgeParamWithNumber](#badgeparamwithnumber对象说明) | 是 | 数字标记组件参数。 |
+| value | BadgeParamWithNumber | 是 | 数字标记组件参数。 |
 
-#### Badge
+
+
+
+##### Badge
+
 Badge(value: BadgeParamWithString)
+
 根据字符串创建标记组件。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
 从API version 12开始，该组件显隐时支持scale动效。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [BadgeParamWithString](#badgeparamwithstring对象说明) | 是 | 字符串标记组件参数。 |
+| value | BadgeParamWithString | 是 | 字符串标记组件参数。 |
 
-#### BadgeParam对象说明
+
+
+
+##### BadgeParam对象说明
+
 包含用于创建Badge组件的基础参数。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -58,11 +82,16 @@ Badge(value: BadgeParamWithString)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| position | [BadgePosition](#badgeposition枚举说明)\|[Position10+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#position) | 否 | 是 | 设置提示点显示位置。 默认值：BadgePosition.RightTop 说明： Position作为入参，不支持设置百分比；设置为非法值时，默认(0,0)处理。(0,0)为组件左上角位置。 BadgePosition作为入参时，会跟随Direction属性控制镜像显示。 |
-| style | [BadgeStyle](#badgestyle对象说明) | 否 | 否 | Badge组件可设置样式，支持设置文本颜色、尺寸、圆点颜色和尺寸。 |
+| position | BadgePosition\|Position10+ | 否 | 是 | 设置提示点显示位置。 默认值：BadgePosition.RightTop 说明： Position作为入参，不支持设置百分比；设置为非法值时，默认(0,0)处理。(0,0)为组件左上角位置。 BadgePosition作为入参时，会跟随Direction属性控制镜像显示。 |
+| style | BadgeStyle | 否 | 否 | Badge组件可设置样式，支持设置文本颜色、尺寸、圆点颜色和尺寸。 |
 
-#### BadgeParamWithNumber对象说明
+
+
+
+##### BadgeParamWithNumber对象说明
+
 BadgeParamWithNumber继承自[BadgeParam](#badgeparam对象说明)，具有BadgeParam的全部属性。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -74,8 +103,13 @@ BadgeParamWithNumber继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 | count | number | 否 | 否 | 设置提醒消息数。 说明： 当该值小于等于0且小于maxCount时不显示信息标记。 取值范围：[-2147483648, 2147483647]。超出范围时会加上或减去4294967296，使得值仍在范围内，非整数时会舍去小数部分取整数部分，如5.5取5。 |
 | maxCount | number | 否 | 是 | 最大消息数，超过最大消息时仅显示maxCount+，如maxCount是99时，显示99+。 默认值：99 取值范围：[-2147483648, 2147483647]。超出范围时会加上或减去4294967296，使得值仍在范围内，非整数时会舍去小数部分取整数部分，如5.5取5。 |
 
-#### BadgeParamWithString对象说明
+
+
+
+##### BadgeParamWithString对象说明
+
 BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有BadgeParam的全部属性。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -84,10 +118,15 @@ BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 提示内容的文本字符串。 说明： 从API version 20开始，支持ResourceStr类型。 |
+| value | ResourceStr | 否 | 否 | 提示内容的文本字符串。 说明： 从API version 20开始，支持ResourceStr类型。 |
 
-#### BadgePosition枚举说明
+
+
+
+##### BadgePosition枚举说明
+
 提示点显示位置。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -100,38 +139,56 @@ BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 | Right | - | 圆点显示在右侧纵向居中。 |
 | Left | - | 圆点显示在左侧纵向居中。 |
 
-#### BadgeStyle对象说明
+
+
+
+##### BadgeStyle对象说明
+
 Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| color | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 文本颜色。 默认值：Color.White 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fontSize | number \| [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 文本大小。string类型仅支持number类型取值的字符串形式，可以附带单位，支持的单位有"px"、"vp"、"fp"、"lpx"，例如"10"、"10fp"，不附带单位时默认单位为"fp"。 默认值：10vp 取值范围：大于0；取值为0时不显示文本，取值小于0时取默认值。 说明： 1. 不支持设置百分比，当设置为百分比时，按照默认值处理。 2. 从API version 20开始，支持ResourceStr类型。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| badgeSize | number \| [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | Badge的大小。string类型支持number类型取值的字符串形式，可以附带单位，例如"16"、"16vp"。 默认值：16 单位：vp 取值范围：大于0；取值为0时不显示Badge，取值小于0时取默认值。 说明： 1. 不支持设置百分比，当设置为百分比时，按照默认值处理。 2. 从API version 20开始，支持ResourceStr类型。 3. 当设置了fontSize且badgeSize小于fontSize时，badgeSize将按照fontSize生效。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| badgeColor | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | Badge的颜色。 默认值：Color.Red 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fontWeight^10+ | number \|[FontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) \| [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 设置文本的字体粗细。number类型取值范围：[100, 900]，取值间隔为100。取值越大，字体越粗。设置number类型在取值范围外时，按默认值400处理。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal 说明： 不支持设置百分比，当设置为百分比时，按照默认值处理。从API version 20开始，支持ResourceStr类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| borderColor^10+ | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 底板描边颜色。 默认值：Color.Red 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| borderWidth^10+ | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 底板描边粗细。 默认值：1 单位：vp 说明： 不支持设置百分比，当设置为百分比时，按照默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| outerBorderColor^22+ | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 底板外描边颜色。 默认值：Color.White 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| outerBorderWidth^22+ | [LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | 否 | 是 | 底板外描边粗细。 默认值：0 单位：vp 不支持设置百分比，当设置为百分比时，按照默认值处理。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
-| enableAutoAvoidance^22+ | boolean | 否 | 是 | 增加角标文本延伸显示时是否避让。 true表示避让，false表示不避让。 默认值：true 说明： 1. 避让效果为角标文本向组件内部延伸显示。 2. 当外描边的宽度大于0时，角标的延伸起点为外描边的内侧。 3. 当position设置为具体坐标值时，角标不进行避让处理。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| color | ResourceColor | 否 | 是 | 文本颜色。 默认值：Color.White 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fontSize | number \| ResourceStr | 否 | 是 | 文本大小。string类型仅支持number类型取值的字符串形式，可以附带单位，支持的单位有"px"、"vp"、"fp"、"lpx"，例如"10"、"10fp"，不附带单位时默认单位为"fp"。 默认值：10vp 取值范围：大于0；取值为0时不显示文本，取值小于0时取默认值。 说明： 1. 不支持设置百分比，当设置为百分比时，按照默认值处理。 2. 从API version 20开始，支持ResourceStr类型。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| badgeSize | number \| ResourceStr | 否 | 是 | Badge的大小。string类型支持number类型取值的字符串形式，可以附带单位，例如"16"、"16vp"。 默认值：16 单位：vp 取值范围：大于0；取值为0时不显示Badge，取值小于0时取默认值。 说明： 1. 不支持设置百分比，当设置为百分比时，按照默认值处理。 2. 从API version 20开始，支持ResourceStr类型。 3. 当设置了fontSize且badgeSize小于fontSize时，badgeSize将按照fontSize生效。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| badgeColor | ResourceColor | 否 | 是 | Badge的颜色。 默认值：Color.Red 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fontWeight10+ | number \|FontWeight \| ResourceStr | 否 | 是 | 设置文本的字体粗细。number类型取值范围：[100, 900]，取值间隔为100。取值越大，字体越粗。设置number类型在取值范围外时，按默认值400处理。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal 说明： 不支持设置百分比，当设置为百分比时，按照默认值处理。从API version 20开始，支持ResourceStr类型。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| borderColor10+ | ResourceColor | 否 | 是 | 底板描边颜色。 默认值：Color.Red 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| borderWidth10+ | Length | 否 | 是 | 底板描边粗细。 默认值：1 单位：vp 说明： 不支持设置百分比，当设置为百分比时，按照默认值处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| outerBorderColor22+ | ResourceColor | 否 | 是 | 底板外描边颜色。 默认值：Color.White 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| outerBorderWidth22+ | LengthMetrics | 否 | 是 | 底板外描边粗细。 默认值：0 单位：vp 不支持设置百分比，当设置为百分比时，按照默认值处理。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
+| enableAutoAvoidance22+ | boolean | 否 | 是 | 增加角标文本延伸显示时是否避让。 true表示避让，false表示不避让。 默认值：true 说明： 1. 避让效果为角标文本向组件内部延伸显示。 2. 当外描边的宽度大于0时，角标的延伸起点为外描边的内侧。 3. 当position设置为具体坐标值时，角标不进行避让处理。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 |
 
 
-> [!NOTE] 说明
-> 当borderWidth大于0且borderColor与badgeColor颜色不一致时，先绘制角标，再绘制描边。由于边缘像素经过抗锯齿处理，抗锯齿产生半透明像素，四角会出现 badgeColor 颜色的描边线。如需实现相关场景，建议使用Text组件设置outline代替Badge组件。
+> [!NOTE]
+> 当borderWidth大于0且borderColor与badgeColor颜色不一致时，先绘制角标，再绘制描边。由于边缘像素经过抗锯齿处理，抗锯齿产生半透明像素，四角会出现 badgeColor 颜色的描边线。如需实现相关场景，建议使用 Text 组件设置 outline 代替Badge组件。
 
-#### 属性
+
+
+
+##### 属性
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
-#### 事件
+
+
+##### 事件
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
-#### 示例
-#### 示例1（设置标记组件内容）
+
+
+##### 示例
+
+
+
+##### 示例1（设置标记组件内容）
+
 该示例通过[BadgeParamWithNumber](#badgeparamwithnumber对象说明)的入参value、[BadgeParamWithString](#badgeparamwithstring对象说明)的入参count，实现了传入空值、字符、数字时标记组件展现不同的效果。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -284,12 +341,17 @@ struct BadgeExample {
 }
 ```
 
+
 ![](assets/Badge/file-20260525091252621-001.png)
 
-#### 示例2（设置数字控制标记显隐）
+
+
+
+##### 示例2（设置数字控制标记显隐）
+
 该示例通过count属性，实现了设置数字0和1时标记组件的隐藏和显示效果。
 
-```ts
+```text
 // 该示例实现了Badge组件显隐时缩放
 @Entry
 @Component
@@ -321,12 +383,17 @@ struct Index {
 }
 ```
 
+
 ![](assets/Badge/file-20260525091252621-002.gif)
 
-#### 示例3（设置外描边和文本延伸方式）
+
+
+
+##### 示例3（设置外描边和文本延伸方式）
+
 从API version 22开始，该示例使用outerBorderColor和outerBorderWidth属性设置外描边，通过enableAutoAvoidance属性控制增加角标文本延伸显示时是否避让。
 
-```ts
+```text
 // 该示例实现了Badge组件自定义外描边和文本延伸方向
 import { LengthMetrics } from '@kit.ArkUI';
 
@@ -369,5 +436,6 @@ struct Index {
   }
 }
 ```
+
 
 ![](assets/Badge/file-20260525091252621-003.png)

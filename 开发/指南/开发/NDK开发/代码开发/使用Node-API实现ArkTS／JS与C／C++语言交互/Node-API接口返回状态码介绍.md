@@ -4,13 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi_status_introduction
 
-## 概述
+##### 概述
 
 绝大部分Node-API接口在执行结束后，会返回一个数据类型为napi_status的状态码枚举，表示操作成功与否的相关信息。本文将重点介绍Node-API接口返回的非napi_ok的状态码详情与修复建议。
+ 
+  
 
-## 各Node-API接口返回的非napi_ok状态码介绍
-
-
+##### 各Node-API接口返回的非napi_ok状态码介绍
+ 
 | 接口名称 | 接口功能 | 可能返回的非napi_ok状态码 | 原因 | 修复建议 |
 | --- | --- | --- | --- | --- |
 | napi_module_register | napi native模块注册接口。 | 不涉及 | 不涉及 | 不涉及 |

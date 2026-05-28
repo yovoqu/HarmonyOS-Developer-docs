@@ -4,33 +4,47 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-trigger-gc
 
-## 简介
+##### 简介
 
 JSVM-API提供了注册回调函数的能力，用于监测JavaScript虚拟机的内存GC。开发者可以在垃圾回收前后添加自定义逻辑，从而在垃圾回收时执行优化、调试或性能监控操作。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-在JavaScript中，内存的垃圾回收是自动进行的，用户并不直接感知JavaScript虚拟机的GC行为。每次GC执行之前，JS引擎会先进入一个"Prologue"阶段。每次GC执行之后，JS引擎会进入一个"Epilogue"阶段。"Prologue"阶段是GC的初始阶段，主要目标是做一些准备工作，以确保垃圾回收能够顺利进行。"Epilogue"阶段则是垃圾回收的最终清理和整理，确保内存恢复到一个正常的状态，并为下一次分配做好准备。在这两个阶段，JS引擎会分别调用用户提前注册的函数。用户可以在"Prologue"阶段所执行的注册函数中暂停某些任务、记录内存使用情况、执行性能调优等。在"Epilogue"阶段所执行的注册函数中，也可以去记录GC后的内存状态、启动后续的任务等等。 JSVM-API提供了OH_JSVM_AddHandlerForGC接口，可以在VM中注册回调函数。通过传入JSVM_CB_TRIGGER_BEFORE_GC来控制回调函数在"Prologue"阶段执行；通过传入JSVM_CB_TRIGGER_AFTER_GC来控制回调函数在"Epilogue"阶段执行。通过OH_JSVM_RemoveHandlerForGC，可以从VM中移除注册过的回调函数。
+在JavaScript中，内存的垃圾回收是自动进行的，用户并不直接感知JavaScript虚拟机的GC行为。每次GC执行之前，JS引擎会先进入一个"Prologue"阶段。每次GC执行之后，JS引擎会进入一个"Epilogue"阶段。"Prologue"阶段是GC的初始阶段，主要目标是做一些准备工作，以确保垃圾回收能够顺利进行。"Epilogue"阶段则是垃圾回收的最终清理和整理，确保内存恢复到一个正常的状态，并为下一次分配做好准备。在这两个阶段，JS引擎会分别调用用户提前注册的函数。用户可以在"Prologue"阶段所执行的注册函数中暂停某些任务、记录内存使用情况、执行性能调优等。在"Epilogue"阶段所执行的注册函数中，也可以去记录GC后的内存状态、启动后续的任务等等。
+ 
+JSVM-API提供了OH_JSVM_AddHandlerForGC接口，可以在VM中注册回调函数。通过传入JSVM_CB_TRIGGER_BEFORE_GC来控制回调函数在"Prologue"阶段执行；通过传入JSVM_CB_TRIGGER_AFTER_GC来控制回调函数在"Epilogue"阶段执行。通过OH_JSVM_RemoveHandlerForGC，可以从VM中移除注册过的回调函数。
+ 
+  
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_AddHandlerForGC | 用于向VM中注册回调函数 |
 | OH_JSVM_RemoveHandlerForGC | 用于从VM中移除注册过的回调函数 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
+ 
+  
 
-## OH_JSVM_AddHandlerForGC & OH_JSVM_RemoveHandlerForGC
+##### OH_JSVM_AddHandlerForGC & OH_JSVM_RemoveHandlerForGC
 
-可以多次调用OH_JSVM_AddHandlerForGC向VM注册回调函数，所有注册的回调函数都会生效。注册时，以回调函数指针和native-data作为键。如果多次注册存在相同的键，则视为无效注册，并返回JSVM_INVALID_ARG错误码。在相同触发条件下，回调函数的回调顺序与注册顺序不严格一致。 通过OH_JSVM_RemoveHandlerForGC可以从VM中移除注册过的回调函数。重复移除具有相同key的回调函数，则会判定为无效移除，并返回JSVM_INVALID_ARG错误码。 **cpp部分代码**
-```text
+可以多次调用OH_JSVM_AddHandlerForGC向VM注册回调函数，所有注册的回调函数都会生效。注册时，以回调函数指针和native-data作为键。如果多次注册存在相同的键，则视为无效注册，并返回JSVM_INVALID_ARG错误码。在相同触发条件下，回调函数的回调顺序与注册顺序不严格一致。
+ 
+通过OH_JSVM_RemoveHandlerForGC可以从VM中移除注册过的回调函数。重复移除具有相同key的回调函数，则会判定为无效移除，并返回JSVM_INVALID_ARG错误码。
+ 
+**cpp部分代码**
+ 
+```cpp
 // hello.cpp
-#include
+#include <iostream>
 
 static bool before_flag1 = false;
 static bool before_flag2 = false;
@@ -130,13 +144,17 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"triggerGC", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- **样例测试JS**
+ 
+**样例测试JS**
+ 
 ```text
 const char *srcCallNative = R"JS(triggerGC();)JS";
 ```
-
- **执行结果** 在LOG中输出下面结果：
+ 
+**执行结果**
+ 
+在LOG中输出下面结果：
+ 
 ```text
 == before GC ==
 gc type: 4

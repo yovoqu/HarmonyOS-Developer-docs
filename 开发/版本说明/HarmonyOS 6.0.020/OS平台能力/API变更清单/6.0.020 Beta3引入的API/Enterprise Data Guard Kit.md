@@ -6,5 +6,5 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：recoveryKey； API声明：function verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string): Promise<void>; 差异内容：function verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string): Promise<void>; | api/@hms.pcService.recoveryKeyService.d.ts |
-| 新增API | NA | 类名：recoveryKey； API声明：function getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise<EnterpriseRecoveryKeyInfo>; 差异内容：function getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise<EnterpriseRecoveryKeyInfo>; | api/@hms.pcService.recoveryKeyService.d.ts |
+| 新增API | NA | 类名：recoveryKey； API声明：function verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string): Promise&lt;void&gt;; 差异内容：function verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string): Promise&lt;void&gt;; | api/@hms.pcService.recoveryKeyService.d.ts |
+| 新增API | NA | 类名：recoveryKey； API声明：function getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;; 差异内容：function getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;; | api/@hms.pcService.recoveryKeyService.d.ts |

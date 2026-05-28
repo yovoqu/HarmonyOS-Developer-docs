@@ -1,6 +1,6 @@
 # 使用Web组件保存前端页面为PDF
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-createpdf
 
@@ -8,15 +8,16 @@
 
 使用[createPdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#createpdf14)生成实例后，调用pdfArrayBuffer方法获取二进制数据流，再使用[fileIo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)方法将二进制数据流保存为PDF文件。用户可以将前端页面内容保存为PDF以便分享或保存。例如，生成报告、发票等，方便用户保存和传输。
 
-
 > [!NOTE]
-> 通过pdfConfiguration的配置，可调整PDF每页大小、前端页面缩放比例等；推荐使用前端页面适配策略，通过CSS媒体查询（@media print）优化PDF排版。
+> 通过 pdfConfiguration 的配置，可调整PDF每页大小、前端页面缩放比例等；推荐使用前端页面适配策略，通过CSS媒体查询（@media print）优化PDF排版。
 
 
-## 需要权限
+
+##### 需要权限
 
 若涉及网络文档获取，需在module.json5中配置网络访问权限。具体添加方法请参考[在配置文件中声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。
-```text
+
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.INTERNET"
@@ -25,10 +26,12 @@
 ```
 
 
-## callback方式保存PDF
+
+##### callback方式保存PDF
 
 通过callback方式调用createPdf接口，获取到的result通过pdfArrayBuffer接口取得PDF二进制数据流，最后使用fileIo方法将二进制数据流保存为PDF文件。
-```text
+
+```ArkTS
 import { fileIo as fs } from '@kit.CoreFileKit';
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -83,10 +86,12 @@ struct Index {
 ```
 
 
-## Promise方式保存PDF
+
+##### Promise方式保存PDF
 
 通过Promise方式调用createPdf接口，获取到的result通过pdfArrayBuffer接口取得PDF二进制数据流，最后使用fileIo方法将二进制数据流保存为PDF文件。
-```text
+
+```ArkTS
 import { fileIo as fs } from '@kit.CoreFileKit';
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';

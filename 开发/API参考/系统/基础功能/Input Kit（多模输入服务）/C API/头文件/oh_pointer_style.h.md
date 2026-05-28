@@ -3,57 +3,53 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 鼠标光标的样式。
-
+ 
 **引用文件：** <multimodalinput/oh_pointer_style.h>
-
+ 
 **库：** libohinput.so
-
+ 
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
-
+ 
 **起始版本：** 22
-
+ 
 **相关模块：** [input](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Input_PointerStyle](#input_pointerstyle) | Input_PointerStyle | 鼠标光标样式。 |
+| Input_PointerStyle | Input_PointerStyle | 鼠标光标样式。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### Input_PointerStyle
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Input_PointerStyle
 
 ```text
 enum Input_PointerStyle
 ```
-
+ 
 **描述**
-
+ 
 鼠标光标样式。
-
+ 
 **起始版本：** 22
-
-
+  
 | 枚举项 | 描述 | 图示 |
 | --- | --- | --- |
 | DEFAULT = 0 | 默认 |  |
@@ -108,4 +104,4 @@ enum Input_PointerStyle
 | LASER_CURSOR = 49 | 悬浮光标。手写笔进入空鼠模式时使用该光标，无法直接使用 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
 | LASER_CURSOR_DOT = 50 | 点击光标。手写笔进入空鼠模式时使用该光标，无法直接使用 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
 | LASER_CURSOR_DOT_RED = 51 | 激光笔光标。手写笔进入空鼠模式时使用该光标，无法直接使用 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
-| DEVELOPER_DEFINED_ICON = -100 | 自定义光标，开发者可使用[OH_Input_SetCustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#oh_input_setcustomcursor)设置自定义光标，不支持使用[OH_Input_SetPointerStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#oh_input_setpointerstyle)直接设置。 | 自定义光标样式，通过接口设置。 |
+| DEVELOPER_DEFINED_ICON = -100 | 自定义光标，开发者可使用OH_Input_SetCustomCursor设置自定义光标，不支持使用OH_Input_SetPointerStyle直接设置。 | 自定义光标样式，通过接口设置。 |

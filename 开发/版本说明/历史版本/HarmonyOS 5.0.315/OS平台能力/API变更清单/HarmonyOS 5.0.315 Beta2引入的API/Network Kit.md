@@ -7,13 +7,13 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace netFirewall 差异内容： declare namespace netFirewall | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：netFirewall； API声明：function setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise<void>; 差异内容：function setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise<void>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：netFirewall； API声明：function getNetFirewallPolicy(userId: number): Promise<NetFirewallPolicy>; 差异内容：function getNetFirewallPolicy(userId: number): Promise<NetFirewallPolicy>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：netFirewall； API声明：function addNetFirewallRule(rule: NetFirewallRule): Promise<number>; 差异内容：function addNetFirewallRule(rule: NetFirewallRule): Promise<number>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：netFirewall； API声明：function updateNetFirewallRule(rule: NetFirewallRule): Promise<void>; 差异内容：function updateNetFirewallRule(rule: NetFirewallRule): Promise<void>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：netFirewall； API声明：function removeNetFirewallRule(userId: number, ruleId: number): Promise<void>; 差异内容：function removeNetFirewallRule(userId: number, ruleId: number): Promise<void>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：netFirewall； API声明：function getNetFirewallRules(userId: number, requestParam: RequestParam): Promise<FirewallRulePage>; 差异内容：function getNetFirewallRules(userId: number, requestParam: RequestParam): Promise<FirewallRulePage>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：netFirewall； API声明：function getNetFirewallRule(userId: number, ruleId: number): Promise<NetFirewallRule>; 差异内容：function getNetFirewallRule(userId: number, ruleId: number): Promise<NetFirewallRule>; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：netFirewall； API声明：function setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise&lt;void&gt;; 差异内容：function setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise&lt;void&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：netFirewall； API声明：function getNetFirewallPolicy(userId: number): Promise&lt;NetFirewallPolicy&gt;; 差异内容：function getNetFirewallPolicy(userId: number): Promise&lt;NetFirewallPolicy&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：netFirewall； API声明：function addNetFirewallRule(rule: NetFirewallRule): Promise&lt;number&gt;; 差异内容：function addNetFirewallRule(rule: NetFirewallRule): Promise&lt;number&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：netFirewall； API声明：function updateNetFirewallRule(rule: NetFirewallRule): Promise&lt;void&gt;; 差异内容：function updateNetFirewallRule(rule: NetFirewallRule): Promise&lt;void&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：netFirewall； API声明：function removeNetFirewallRule(userId: number, ruleId: number): Promise&lt;void&gt;; 差异内容：function removeNetFirewallRule(userId: number, ruleId: number): Promise&lt;void&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：netFirewall； API声明：function getNetFirewallRules(userId: number, requestParam: RequestParam): Promise&lt;FirewallRulePage&gt;; 差异内容：function getNetFirewallRules(userId: number, requestParam: RequestParam): Promise&lt;FirewallRulePage&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：netFirewall； API声明：function getNetFirewallRule(userId: number, ruleId: number): Promise&lt;NetFirewallRule&gt;; 差异内容：function getNetFirewallRule(userId: number, ruleId: number): Promise&lt;NetFirewallRule&gt;; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：netFirewall； API声明： enum NetFirewallRuleDirection 差异内容： enum NetFirewallRuleDirection | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：NetFirewallRuleDirection； API声明：RULE_IN = 1 差异内容：RULE_IN = 1 | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：NetFirewallRuleDirection； API声明：RULE_OUT = 2 差异内容：RULE_OUT = 2 | api/@ohos.net.netFirewall.d.ts |
@@ -60,12 +60,12 @@
 | 新增API | NA | 类名：NetFirewallRule； API声明：id?: number; 差异内容：id?: number; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：NetFirewallRule； API声明：description?: string; 差异内容：description?: string; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：NetFirewallRule； API声明：appUid?: number; 差异内容：appUid?: number; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：NetFirewallRule； API声明：localIps?: Array<NetFirewallIpParams>; 差异内容：localIps?: Array<NetFirewallIpParams>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：NetFirewallRule； API声明：remoteIps?: Array<NetFirewallIpParams>; 差异内容：remoteIps?: Array<NetFirewallIpParams>; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：NetFirewallRule； API声明：localIps?: Array&lt;NetFirewallIpParams&gt;; 差异内容：localIps?: Array&lt;NetFirewallIpParams&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：NetFirewallRule； API声明：remoteIps?: Array&lt;NetFirewallIpParams&gt;; 差异内容：remoteIps?: Array&lt;NetFirewallIpParams&gt;; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：NetFirewallRule； API声明：protocol?: number; 差异内容：protocol?: number; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：NetFirewallRule； API声明：localPorts?: Array<NetFirewallPortParams>; 差异内容：localPorts?: Array<NetFirewallPortParams>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：NetFirewallRule； API声明：remotePorts?: Array<NetFirewallPortParams>; 差异内容：remotePorts?: Array<NetFirewallPortParams>; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：NetFirewallRule； API声明：domains?: Array<NetFirewallDomainParams>; 差异内容：domains?: Array<NetFirewallDomainParams>; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：NetFirewallRule； API声明：localPorts?: Array&lt;NetFirewallPortParams&gt;; 差异内容：localPorts?: Array&lt;NetFirewallPortParams&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：NetFirewallRule； API声明：remotePorts?: Array&lt;NetFirewallPortParams&gt;; 差异内容：remotePorts?: Array&lt;NetFirewallPortParams&gt;; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：NetFirewallRule； API声明：domains?: Array&lt;NetFirewallDomainParams&gt;; 差异内容：domains?: Array&lt;NetFirewallDomainParams&gt;; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：NetFirewallRule； API声明：dns?: NetFirewallDnsParams; 差异内容：dns?: NetFirewallDnsParams; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：netFirewall； API声明： interface RequestParam 差异内容： interface RequestParam | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：RequestParam； API声明：page: number; 差异内容：page: number; | api/@ohos.net.netFirewall.d.ts |
@@ -76,7 +76,7 @@
 | 新增API | NA | 类名：FirewallRulePage； API声明：page: number; 差异内容：page: number; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：FirewallRulePage； API声明：pageSize: number; 差异内容：pageSize: number; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：FirewallRulePage； API声明：totalPage: number; 差异内容：totalPage: number; | api/@ohos.net.netFirewall.d.ts |
-| 新增API | NA | 类名：FirewallRulePage； API声明：data: Array<NetFirewallRule>; 差异内容：data: Array<NetFirewallRule>; | api/@ohos.net.netFirewall.d.ts |
+| 新增API | NA | 类名：FirewallRulePage； API声明：data: Array&lt;NetFirewallRule&gt;; 差异内容：data: Array&lt;NetFirewallRule&gt;; | api/@ohos.net.netFirewall.d.ts |
 | 新增API | NA | 类名：http； API声明： export enum AddressFamily 差异内容： export enum AddressFamily | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：AddressFamily； API声明：DEFAULT = 'CURL_IPRESOLVE_WHATEVER' 差异内容：DEFAULT = 'CURL_IPRESOLVE_WHATEVER' | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：AddressFamily； API声明：ONLY_V4 = 'CURL_IPRESOLVE_V4' 差异内容：ONLY_V4 = 'CURL_IPRESOLVE_V4' | api/@ohos.net.http.d.ts |

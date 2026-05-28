@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
 
-## 201 权限校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 201 权限校验失败
 
 **错误信息**
 
@@ -26,14 +25,12 @@ Permission denied.
 应用hap未开通Device Security服务。
 
 **处理步骤**
-
-
 1. 请参见[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)在AppGallery Connect开通“安全检测服务”。
 2. 重新[申请Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-profile-0000002270709473)，将新申请到的Profile作为工程的签名文件后重试。
 
 
-## 1010800001 内部异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800001 内部异常
 
 **错误信息**
 
@@ -52,8 +49,8 @@ Internal error.
 请优先重试，若重试不成功，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)申请帮助。
 
 
-## 1010800002 设备网络异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800002 设备网络异常
 
 **错误信息**
 
@@ -72,8 +69,8 @@ The network is unreachable.
 连接网络后重新发起请求。
 
 
-## 1010800003 访问云端服务器异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800003 访问云端服务器异常
 
 **错误信息**
 
@@ -92,8 +89,8 @@ Access cloud server fail.
 重新发起请求。
 
 
-## 1010800004 校验capability失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800004 校验capability失败
 
 **错误信息**
 
@@ -110,14 +107,12 @@ Verify capability fail.
 **处理步骤**
 
 开通安全检测服务
-
-
 1. 参考[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)在AppGallery Connect开通“安全检测服务”。
 2. 重新[申请Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-profile-0000002270709473)，将新申请到的Profile作为工程的签名文件后重试。
 
 
-## 1010800005 调用数量超过并行阈值
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800005 调用数量超过并行阈值
 
 **错误信息**
 
@@ -140,8 +135,8 @@ The number of calls exceeds the parallel threshold.
 建议延迟重试，比如延迟1秒。
 
 
-## 1010800006 调用频率超过阈值
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800006 调用频率超过阈值
 
 **错误信息**
 
@@ -164,8 +159,8 @@ The invoking frequency exceeds the threshold.
 控制应用调用次数，此时不应重试，需在下一个统计周期再调用该接口。
 
 
-## 1010800007 操作超时
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800007 操作超时
 
 **错误信息**
 
@@ -186,8 +181,8 @@ Operation timeout.
 重新发起请求。
 
 
-## 1010800008 云服务流量超过阈值
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 1010800008 云服务流量超过阈值
 
 **错误信息**
 

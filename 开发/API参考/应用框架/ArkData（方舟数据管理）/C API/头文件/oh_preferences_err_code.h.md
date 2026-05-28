@@ -3,57 +3,53 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-preferences-err-code-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明首选项模块统一使用的错误码信息。
-
+ 
 **引用文件：** <database/preferences/oh_preferences_err_code.h>
-
+ 
 **库：** libohpreferences.so
-
+ 
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core
-
+ 
 **起始版本：** 13
-
+ 
 **相关模块：** [Preferences](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-preferences)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_Preferences_ErrCode](#oh_preferences_errcode) | OH_Preferences_ErrCode | 错误码信息。 |
+| OH_Preferences_ErrCode | OH_Preferences_ErrCode | 错误码信息。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_Preferences_ErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Preferences_ErrCode
 
 ```text
 enum OH_Preferences_ErrCode
 ```
-
+ 
 **描述**
-
+ 
 错误码信息。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | PREFERENCES_OK = 0 | 操作执行成功。 |

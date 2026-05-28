@@ -14,7 +14,7 @@
 | API废弃版本变更 | 类名：InputMethodEngine； API声明：off(type: 'keyboardShow' \| 'keyboardHide', callback?: () => void): void; 差异内容：NA | 类名：InputMethodEngine； API声明：off(type: 'keyboardShow' \| 'keyboardHide', callback?: () => void): void; 差异内容：23 | api/@ohos.inputMethodEngine.d.ts |
 | API废弃版本变更 | 类名：InputMethodEngine； API声明：off(type: 'keyboardShow' \| 'keyboardHide', callback?: () => void): void; 差异内容：NA | 类名：InputMethodEngine； API声明：off(type: 'keyboardShow' \| 'keyboardHide', callback?: () => void): void; 差异内容：23 | api/@ohos.inputMethodEngine.d.ts |
 | 新增API | NA | 类名：inputMethodEngine； API声明：const ENTER_KEY_TYPE_NEWLINE: number; 差异内容：const ENTER_KEY_TYPE_NEWLINE: number; | api/@ohos.inputMethodEngine.d.ts |
-| 新增API | NA | 类名：InputMethodController； API声明：attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise<void>; 差异内容：attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise<void>; | api/@ohos.inputMethod.d.ts |
+| 新增API | NA | 类名：InputMethodController； API声明：attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise&lt;void&gt;; 差异内容：attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise&lt;void&gt;; | api/@ohos.inputMethod.d.ts |
 | 新增API | NA | 类名：InputWindowInfo； API声明：displayId?: number; 差异内容：displayId?: number; | api/@ohos.inputMethod.d.ts |
 | 新增API | NA | 类名：inputMethod； API声明：export interface AttachOptions 差异内容：export interface AttachOptions | api/@ohos.inputMethod.d.ts |
 | 新增API | NA | 类名：AttachOptions； API声明：showKeyboard?: boolean; 差异内容：showKeyboard?: boolean; | api/@ohos.inputMethod.d.ts |

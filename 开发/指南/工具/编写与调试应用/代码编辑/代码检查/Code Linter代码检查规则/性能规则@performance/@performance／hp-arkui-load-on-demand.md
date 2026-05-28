@@ -5,29 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_hp-arkui-load-on-demand
 
 建议使用按需加载。
+ 
+滑动丢帧场景下，建议优先修改。
+ 
 
- 滑动丢帧场景下，建议优先修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
-    "@performance/hp-arkui-load-on-demand": "warn",
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
+    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-load-on-demand"</span>: <span style="color: rgb(6,125,23);">"warn"</span>,
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // 源码文件，请以工程实际为准
@@ -38,7 +39,7 @@ import { MyDataSource } from './MyDataSource';
 struct ItemComponent {
   @State introduce: string = ''
 
-  aboutToReuse(params: Record) {
+  aboutToReuse(params: Record<string, ESObject>) {
     this.introduce = params.introduce
   }
 
@@ -69,10 +70,10 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 @Entry
@@ -94,14 +95,14 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/recommended
+<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
 plugin:@performance/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -5,20 +5,21 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-faq-4
 
 **现象描述**
+ 
+Map Kit地图Logo不可见。
+ 
 
- Map Kit地图Logo不可见。
+![](assets/设置地图Logo始终显示/file-20260514132034017-0.jpg)
 
- ![](assets/设置地图Logo始终显示/file-20260514132034017-0.jpg)
-
- **可能原因**
-
- 用户在开发过程中，若地图Logo被其他UI控件或页面元素覆盖，则可能导致Logo不可见。
-
- **处理步骤**
-
- Map Kit无法隐藏地图Logo，用户可通过调整地图组件的边距或布局，确保地图Logo不被其他控件遮挡。解决方案参考如下代码：
-
-
+ 
+**可能原因**
+ 
+用户在开发过程中，若地图Logo被其他UI控件或页面元素覆盖，则可能导致Logo不可见。
+ 
+**处理步骤**
+ 
+Map Kit无法隐藏地图Logo，用户可通过调整地图组件的边距或布局，确保地图Logo不被其他控件遮挡。解决方案参考如下代码：
+ 
 ```text
 import { MapComponent, mapCommon, map } from '@kit.MapKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
@@ -27,7 +28,7 @@ import { AsyncCallback } from '@kit.BasicServicesKit';
 @Component
 struct MapKitAppDemo {
   private mapOptions?: mapCommon.MapOptions;
-  private callback?: AsyncCallback;
+  private callback?: AsyncCallback<map.MapComponentController>;
   private mapController?: map.MapComponentController;
   private mapEventManager?: map.MapEventManager;
   private TAG = 'MapKitAppDemo';
@@ -141,7 +142,8 @@ struct MapKitAppDemo {
   }
 }
 ```
+ 
+展示效果如图所示：
+ 
 
- 展示效果如图所示：
-
- ![](assets/设置地图Logo始终显示/file-20260514132034017-1.gif)
+![](assets/设置地图Logo始终显示/file-20260514132034017-1.gif)

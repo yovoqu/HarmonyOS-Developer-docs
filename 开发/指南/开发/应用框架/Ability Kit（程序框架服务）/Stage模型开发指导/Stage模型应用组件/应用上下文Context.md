@@ -1,37 +1,49 @@
 # 应用上下文Context
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage
 
-## 概述
+##### 概述
 
 [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)是应用中对象的上下文，其提供了应用的一些基础信息，例如[resourceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager)（资源管理）、[applicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-applicationinfo)（当前应用信息）、[area](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode)（文件分区）等。
 
-## 不同类型Context的对比
 
-[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件和各种[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)派生类组件都有各自不同的Context类。分别有基类Context、[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)、[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)等Context。各类Context的继承和持有关系详见[不同类型Context的继承和持有关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#不同类型context的继承和持有关系)。 不同类型Context的获取方式与使用场景说明，如下表所示。
+
+##### 不同类型Context的对比
+
+[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件和各种[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)派生类组件都有各自不同的Context类。分别有基类Context、[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)、[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)等Context。各类Context的继承和持有关系详见[不同类型Context的继承和持有关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#不同类型context的继承和持有关系)。
+
+不同类型Context的获取方式与使用场景说明，如下表所示。
+
 > [!NOTE]
-> 不同类型的Context具有不同的能力，不可相互替代或强行转换。例如，ApplicationContext绑定了setFontSizeScale方法，但UIAbilityContext中没有此方法。因此，即使将UIAbilityContext强行转换为ApplicationContext，也无法调用setFontSizeScale方法。
+> 不同类型的Context具有不同的能力，不可相互替代或强行转换。例如， ApplicationContext 绑定了 setFontSizeScale 方法，但 UIAbilityContext 中没有此方法。因此，即使将UIAbilityContext强行转换为ApplicationContext，也无法调用setFontSizeScale方法。
+
 
 **表1** 不同类型Context的说明
+
 | Context类型 | 说明 | 获取方式 | 使用场景 |
 | --- | --- | --- | --- |
-| [ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext) | 应用的全局上下文，提供应用级别的信息和能力。 | - 从API version 14开始，可以直接使用[getApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application#applicationgetapplicationcontext14)获取。          - API version 14以前版本，只能使用其他Context实例的[getApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#getapplicationcontext)方法获取。 | - [获取当前应用的基本信息](#获取基本信息)。          - [获取应用级别的文件路径](#获取应用文件路径)。          - [获取和修改加密分区](#获取和修改加密分区)。          - [监听应用前后台变化](#监听应用前后台变化)。 |
-| [AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext) | 模块级别的上下文，提供模块级别的信息和能力。 | - 如果需要获取当前AbilityStage的Context，可以直接通过AbilityStage实例获取[context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage#属性)属性。          - 如果需要获取同一应用中其他Module的Context，可以通过[createModuleContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application#applicationcreatemodulecontext)方法。 | - 获取当前模块的基本信息。          - [获取模块级别的文件路径](#获取应用文件路径)。 |
-| [UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | UIAbility组件对应的上下文，提供UIAbility对外的信息和能力。 | - 通过UIAbility实例直接获取[context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#属性)属性。          - 在UIAbility的窗口中加载的UI组件实例，需要使用@ohos.arkui.UIContext提供的[getHostContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#gethostcontext12)方法。 | - 获取当前UIAbility的基本信息。          - 启动其他应用或元服务、连接/断连系统应用创建的ServiceExtensionAbility等。          - 销毁自身的UIAbility。 |
-| [ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext) | ExtensionAbility组件对应的上下文，每种类型的ExtensionContext提供不同的信息和能力。 | 通过ExtensionAbility实例直接获取Context属性。 | 不同类型的ExtensionAbility对应的Context提供的能力不同。以输入法上下文[InputMethodExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-context)为例，主要提供如下能力：          - 获取InputMethodExtensionAbility的基本信息。          - 销毁当前输入法。 |
-| [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext) | ArkUI的UI实例上下文，提供UI操作相关的能力。与上述其他类型的Context无直接关系。 | - 在UI组件内获取UIContext，直接使用组件内置的[getUIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#getuicontext)方法。          - 在存在Window实例的情况下，使用@ohos.window提供的[getUIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getuicontext10)方法。 | 主要用于UI实例中UI相关操作，例如：          - 获取当前UI实例的字体。          - 显示不同类型的弹框。          - 设置软键盘弹出时UI避让模式。 |
+| ApplicationContext | 应用的全局上下文，提供应用级别的信息和能力。 | - 从API version 14开始，可以直接使用getApplicationContext获取。 - API version 14以前版本，只能使用其他Context实例的getApplicationContext方法获取。 | - 获取当前应用的基本信息。 - 获取应用级别的文件路径。 - 获取和修改加密分区。 - 监听应用前后台变化。 |
+| AbilityStageContext | 模块级别的上下文，提供模块级别的信息和能力。 | - 如果需要获取当前AbilityStage的Context，可以直接通过AbilityStage实例获取context属性。 - 如果需要获取同一应用中其他Module的Context，可以通过createModuleContext方法。 | - 获取当前模块的基本信息。 - 获取模块级别的文件路径。 |
+| UIAbilityContext | UIAbility组件对应的上下文，提供UIAbility对外的信息和能力。 | - 通过UIAbility实例直接获取context属性。 - 在UIAbility的窗口中加载的UI组件实例，需要使用@ohos.arkui.UIContext提供的getHostContext方法。 | - 获取当前UIAbility的基本信息。 - 启动其他应用或元服务、连接/断连系统应用创建的ServiceExtensionAbility等。 - 销毁自身的UIAbility。 |
+| ExtensionContext | ExtensionAbility组件对应的上下文，每种类型的ExtensionContext提供不同的信息和能力。 | 通过ExtensionAbility实例直接获取Context属性。 | 不同类型的ExtensionAbility对应的Context提供的能力不同。以输入法上下文InputMethodExtensionContext为例，主要提供如下能力： - 获取InputMethodExtensionAbility的基本信息。 - 销毁当前输入法。 |
+| UIContext | ArkUI的UI实例上下文，提供UI操作相关的能力。与上述其他类型的Context无直接关系。 | - 在UI组件内获取UIContext，直接使用组件内置的getUIContext方法。 - 在存在Window实例的情况下，使用@ohos.window提供的getUIContext方法。 | 主要用于UI实例中UI相关操作，例如： - 获取当前UI实例的字体。 - 显示不同类型的弹框。 - 设置软键盘弹出时UI避让模式。 |
 
 
-## Context的获取方式
+
+
+##### Context的获取方式
 
 开发者如果需要通过Context获取应用资源、应用路径等信息，或者使用Context提供的方法来实现应用跳转、设置环境变量、清理数据、获取权限等操作，需要先获取对应的Context。本节分别介绍不同类型Context的获取方式与使用场景。
 
-## 获取ApplicationContext（应用的全局上下文）
+
+
+##### 获取ApplicationContext（应用的全局上下文）
 
 [ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)在基类Context的基础上提供了监听应用内应用组件的生命周期的变化、监听系统内存变化、监听应用内系统环境变化、设置应用语言、设置应用颜色模式、清除应用自身数据的同时撤销应用向用户申请的权限等能力，在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)、[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)、[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)中均可以获取。
-```text
+
+```ArkTS
 import { UIAbility, AbilityConstant, Want } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
@@ -42,10 +54,12 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-## 获取AbilityStageContext（模块级别的上下文）
+
+##### 获取AbilityStageContext（模块级别的上下文）
 
 [AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)和基类Context相比，额外提供[HapModuleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-hapmoduleinfo)、[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)等信息。
-```text
+
+```ArkTS
 import { AbilityStage } from '@kit.AbilityKit';
 
 export default class MyAbilityStage extends AbilityStage {
@@ -57,10 +71,12 @@ export default class MyAbilityStage extends AbilityStage {
 ```
 
 
-## 获取本应用中其他Module的Context（模块级别的上下文）
+
+##### 获取本应用中其他Module的Context（模块级别的上下文）
 
 调用[createModuleContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application#applicationcreatemodulecontext)方法，获取本应用中其他Module的Context。获取到其他Module的Context之后，即可获取到相应Module的资源信息。
-```text
+
+```ArkTS
 import { common, application } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -110,10 +126,15 @@ struct CreateModuleContext {
 ```
 
 
-## 获取UIAbilityContext（UIAbility组件的上下文）
 
-[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)和基类[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)相比，额外提供abilityInfo、currentHapModuleInfo等属性。通过UIAbilityContext可以获取UIAbility的相关配置信息，如包代码路径、Bundle名称、Ability名称和应用程序需要的环境状态等属性信息，也可以获取操作UIAbility实例的方法（如[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability)、[connectServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#connectserviceextensionability)、[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)等）。 在UIAbility中可以通过this.context获取UIAbility实例的上下文信息。
-```text
+##### 获取UIAbilityContext（UIAbility组件的上下文）
+
+[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)和基类[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)相比，额外提供abilityInfo、currentHapModuleInfo等属性。通过UIAbilityContext可以获取UIAbility的相关配置信息，如包代码路径、Bundle名称、Ability名称和应用程序需要的环境状态等属性信息，也可以获取操作UIAbility实例的方法（如[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability)、[connectServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#connectserviceextensionability)、[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)等）。
+
+ - 在UIAbility中可以通过this.context获取UIAbility实例的上下文信息。
+
+  
+```ArkTS
 import { UIAbility, AbilityConstant, Want } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
@@ -124,8 +145,10 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-在页面中获取UIAbility实例的上下文信息。
-```text
+ - 在页面中获取UIAbility实例的上下文信息。
+
+  
+```ArkTS
 import { common, Want } from '@kit.AbilityKit'; // 导入依赖资源context模块
 
 @Entry
@@ -147,9 +170,10 @@ struct EventHub {
   }
 }
 ```
-
 也可以在导入依赖资源context模块后，在具体使用[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)前进行变量定义。
-```text
+
+  
+```ArkTS
 import { common, Want } from '@kit.AbilityKit';
 
 @Entry
@@ -170,8 +194,10 @@ struct UIAbilityComponentsBasicUsage {
 }
 ```
 
-当业务完成后，开发者如果想要终止当前[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例，可以通过调用[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)方法实现。
-```text
+ - 当业务完成后，开发者如果想要终止当前[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)实例，可以通过调用[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateself)方法实现。
+
+  
+```ArkTS
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -211,17 +237,21 @@ struct UIAbilityComponentsUsage {
 ```
 
 
-## 获取ExtensionAbilityContext (ExtensionAbility组件的上下文)
+
+
+
+##### 获取ExtensionAbilityContext (ExtensionAbility组件的上下文)
 
 获取特定场景[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。以FormExtensionContext为例，表示卡片服务的上下文环境，继承自ExtensionContext，提供卡片服务相关的接口能力。
-```text
+
+```ArkTS
 import { FormExtensionAbility, formBindingData } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
 
 export default class MyFormExtensionAbility extends FormExtensionAbility {
   onAddForm(want: Want) {
     let formExtensionContext = this.context;
-    let dataObj1: Record = {
+    let dataObj1: Record<string, string> = {
       'temperature': '11c',
       'time': '11:00'
     };
@@ -232,14 +262,29 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
 ```
 
 
-## Context的典型使用场景
 
-本章节通过以下具体场景来介绍Context的用法： [获取基本信息](#获取基本信息) [获取应用文件路径](#获取应用文件路径) [获取和修改加密分区](#获取和修改加密分区) [监听应用前后台变化](#监听应用前后台变化) [监听UIAbility生命周期变化](#监听uiability生命周期变化)
+##### Context的典型使用场景
 
-## 获取基本信息
+本章节通过以下具体场景来介绍Context的用法：
 
-继承自[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)的不同类型Context，默认会继承父类的方法和属性，还会拥有自己独立的方法与属性。 通过Context属性可以获取当前应用、模块、UIAbility或ExtensionAbility的基本信息（例如资源管理对象、应用程序信息等），下面以UIAbility的信息获取为例： 如果需要跨包获取资源对象，可以参考[资源访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#资源访问)。
-```text
+ - [获取基本信息](#获取基本信息)
+ - [获取应用文件路径](#获取应用文件路径)
+ - [获取和修改加密分区](#获取和修改加密分区)
+ - [监听应用前后台变化](#监听应用前后台变化)
+ - [监听UIAbility生命周期变化](#监听uiability生命周期变化)
+
+
+
+
+##### 获取基本信息
+
+继承自[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)的不同类型Context，默认会继承父类的方法和属性，还会拥有自己独立的方法与属性。
+
+通过Context属性可以获取当前应用、模块、UIAbility或ExtensionAbility的基本信息（例如资源管理对象、应用程序信息等），下面以UIAbility的信息获取为例：
+
+如果需要跨包获取资源对象，可以参考[资源访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#资源访问)。
+
+```ArkTS
 import { UIAbility, AbilityConstant, Want } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
@@ -253,28 +298,47 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-## 获取应用文件路径
 
-[基类Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)提供了获取应用文件路径的能力，[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)和[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)均继承该能力。不同类型的Context获取的路径可能存在差异。 通过[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)可以获取应用级的文件路径。该路径用于存放应用全局信息，路径下的文件会跟随应用的卸载而删除。 通过[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)、[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，可以获取[Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-overview)级的文件路径。该路径用于存放Module相关信息，路径下的文件会跟随[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)/[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)的卸载而删除。HAP/HSP的卸载不会影响应用级路径下的文件，除非该应用的HAP/HSP已全部卸载。 UIAbilityContext：可以获取UIAbility所在Module的文件路径。 ExtensionContext：可以获取ExtensionAbility所在Module的文件路径。 AbilityStageContext：由于AbilityStageContext创建时机早于UIAbilityContext和ExtensionContext，通常用于在AbilityStage中获取文件路径。
+##### 获取应用文件路径
+
+[基类Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)提供了获取应用文件路径的能力，[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)和[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)均继承该能力。不同类型的Context获取的路径可能存在差异。
+
+ - 通过[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)可以获取应用级的文件路径。该路径用于存放应用全局信息，路径下的文件会跟随应用的卸载而删除。
+ - 通过[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)、[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，可以获取[Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-overview)级的文件路径。该路径用于存放Module相关信息，路径下的文件会跟随[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)/[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)的卸载而删除。HAP/HSP的卸载不会影响应用级路径下的文件，除非该应用的HAP/HSP已全部卸载。
+
+  
+UIAbilityContext：可以获取UIAbility所在Module的文件路径。
+ - ExtensionContext：可以获取ExtensionAbility所在Module的文件路径。
+ - AbilityStageContext：由于AbilityStageContext创建时机早于UIAbilityContext和ExtensionContext，通常用于在AbilityStage中获取文件路径。
+
+
+
 > [!NOTE]
-> 应用文件路径属于应用沙箱路径，具体请参见应用沙箱目录。
+> 应用文件路径属于应用沙箱路径，具体请参见 应用沙箱目录 。
+
 
 **表1** 不同级别Context获取的应用文件路径说明
+
 | 属性 | 说明 | ApplicationContext获取的路径 | AbilityStageContext、UIAbilityContext、ExtensionContext获取的路径 |
 | --- | --- | --- | --- |
-| bundleCodeDir | 安装包目录。 | /el1/bundle | /el1/bundle |
-| cacheDir | 缓存目录。 | //base/cache | //base/haps//cache |
-| filesDir | 文件目录。 | //base/files | //base/haps//files |
-| preferencesDir | preferences目录。 | //base/preferences | //base/haps//preferences |
-| tempDir | 临时目录。 | //base/temp | //base/haps//temp |
-| databaseDir | 数据库目录。 | //database | //database/ |
-| distributedFilesDir | 分布式文件目录。 | /el2/distributedFiles | /el2/distributedFiles/ |
-| resourceDir11+ | 资源目录。          说明：          需要开发者手动在\\resources路径下创建resfile目录。 | 不涉及 | /el1/bundle//resources/resfile |
-| cloudFileDir12+ | 云文件目录。 | /el2/cloud | /el2/cloud/ |
-| logFileDir22+ | 日志文件目录。 | /el2/log | /el2/log/ |
+| bundleCodeDir | 安装包目录。 | &lt;路径前缀&gt;/el1/bundle | &lt;路径前缀&gt;/el1/bundle |
+| cacheDir | 缓存目录。 | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/cache | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/haps/<module-name>/cache |
+| filesDir | 文件目录。 | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/files | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/haps/<module-name>/files |
+| preferencesDir | preferences目录。 | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/preferences | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/haps/<module-name>/preferences |
+| tempDir | 临时目录。 | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/temp | &lt;路径前缀&gt;/&lt;加密等级&gt;/base/haps/<module-name>/temp |
+| databaseDir | 数据库目录。 | &lt;路径前缀&gt;/&lt;加密等级&gt;/database | &lt;路径前缀&gt;/&lt;加密等级&gt;/database/<module-name> |
+| distributedFilesDir | 分布式文件目录。 | &lt;路径前缀&gt;/el2/distributedFiles | &lt;路径前缀&gt;/el2/distributedFiles/ |
+| resourceDir11+ | 资源目录。 说明： 需要开发者手动在\<module-name>\resources路径下创建resfile目录。 | 不涉及 | &lt;路径前缀&gt;/el1/bundle/<module-name>/resources/resfile |
+| cloudFileDir12+ | 云文件目录。 | &lt;路径前缀&gt;/el2/cloud | &lt;路径前缀&gt;/el2/cloud/ |
+| logFileDir22+ | 日志文件目录。 | &lt;路径前缀&gt;/el2/log | &lt;路径前缀&gt;/el2/log/ |
 
-本节以使用ApplicationContext获取cacheDir和filesDir为例，分别介绍如何获取应用缓存目录，以及如何获取应用文件目录，并用于新建文件和读写文件。 **获取应用缓存目录**
-```text
+
+本节以使用ApplicationContext获取cacheDir和filesDir为例，分别介绍如何获取应用缓存目录，以及如何获取应用文件目录，并用于新建文件和读写文件。
+
+ - **获取应用缓存目录**
+
+  
+```ArkTS
 import { common } from '@kit.AbilityKit';
 
 @Entry
@@ -306,8 +370,10 @@ struct ApplicationContextCache {
 }
 ```
 
-**获取应用文件目录**
-```text
+ - **获取应用文件目录**
+
+  
+```ArkTS
 import { common } from '@kit.AbilityKit';
 import { buffer } from '@kit.ArkTS';
 import { fileIo, ReadOptions } from '@kit.CoreFileKit';
@@ -366,10 +432,25 @@ struct ApplicationContextFile {
 ```
 
 
-## 获取和修改加密分区
 
-应用文件加密是一种保护数据安全的方法，可以使得文件在未经授权访问的情况下得到保护。在不同的场景下，应用需要不同程度的文件保护。 在实际应用中，开发者需要根据不同场景的需求选择合适的加密分区，从而保护应用数据的安全。通过合理使用不同级别的加密分区，可以有效提升应用数据的安全性。关于不同分区的权限说明，详见[ContextConstant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant)的[AreaMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode)。 EL1：对于私有文件，如闹铃、壁纸等，应用可以将这些文件放到设备级加密分区（EL1）中，以保证在用户输入密码前就可以被访问。 EL2：对于更敏感的文件，如个人隐私信息等，应用可以将这些文件放到更高级别的加密分区（EL2）中，以保证更高的安全性。 EL3：对于应用中的记录步数、文件下载、音乐播放，需要在锁屏时读写和创建新文件，放在（EL3）的加密分区比较合适。 EL4：对于用户安全信息相关的文件，锁屏时不需要读写文件、也不能创建文件，放在（EL4）的加密分区更合适。 EL5：对于用户隐私敏感数据文件，锁屏后默认不可读写，如果锁屏后需要读写文件，则锁屏前可以调用[acquireAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenlockfilemanager#screenlockfilemanageracquireaccess)接口申请继续读写文件，或者锁屏后也需要创建新文件且可读写，放在（EL5）的应用级加密分区更合适。 要实现获取和设置当前加密分区，可以通过读写[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)的area属性来实现。
-```text
+
+
+##### 获取和修改加密分区
+
+应用文件加密是一种保护数据安全的方法，可以使得文件在未经授权访问的情况下得到保护。在不同的场景下，应用需要不同程度的文件保护。
+
+在实际应用中，开发者需要根据不同场景的需求选择合适的加密分区，从而保护应用数据的安全。通过合理使用不同级别的加密分区，可以有效提升应用数据的安全性。关于不同分区的权限说明，详见[ContextConstant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant)的[AreaMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode)。
+
+ - EL1：对于私有文件，如闹铃、壁纸等，应用可以将这些文件放到设备级加密分区（EL1）中，以保证在用户输入密码前就可以被访问。
+ - EL2：对于更敏感的文件，如个人隐私信息等，应用可以将这些文件放到更高级别的加密分区（EL2）中，以保证更高的安全性。
+ - EL3：对于应用中的记录步数、文件下载、音乐播放，需要在锁屏时读写和创建新文件，放在（EL3）的加密分区比较合适。
+ - EL4：对于用户安全信息相关的文件，锁屏时不需要读写文件、也不能创建文件，放在（EL4）的加密分区更合适。
+ - EL5：对于用户隐私敏感数据文件，锁屏后默认不可读写，如果锁屏后需要读写文件，则锁屏前可以调用[acquireAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-screenlockfilemanager#screenlockfilemanageracquireaccess)接口申请继续读写文件，或者锁屏后也需要创建新文件且可读写，放在（EL5）的应用级加密分区更合适。
+
+
+要实现获取和设置当前加密分区，可以通过读写[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)的area属性来实现。
+
+```ArkTS
 import { UIAbility, contextConstant, AbilityConstant, Want } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
@@ -397,8 +478,7 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-
-```text
+```ArkTS
 // AreaContext.ets
 import { contextConstant, common } from '@kit.AbilityKit';
 
@@ -453,14 +533,18 @@ struct AreaContext {
 ```
 
 
-## 监听应用前后台变化
 
-开发者可以使用[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)的相关能力，监听应用的前后台变化。当应用前后台切换时，可以收到相应回调函数的通知，从而执行一些依赖前后台的方法，或者进行应用前后台切换频率等数据统计。 以[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)中的使用为例进行说明。
-```text
+##### 监听应用前后台变化
+
+开发者可以使用[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)的相关能力，监听应用的前后台变化。当应用前后台切换时，可以收到相应回调函数的通知，从而执行一些依赖前后台的方法，或者进行应用前后台切换频率等数据统计。
+
+以[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)中的使用为例进行说明。
+
+```ArkTS
 import { UIAbility, ApplicationStateChangeCallback } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-
+  
 const TAG = '[LifecycleAbility]';
 const DOMAIN = 0xF811;
 
@@ -489,10 +573,14 @@ export default class LifecycleAbility extends UIAbility {
 ```
 
 
-## 监听UIAbility生命周期变化
 
-开发者可以通过[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)监听UIAbility生命周期变化。当[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)生命周期变化时，如UIAbility创建、切换至前/后台、销毁等情况，UIAbility会收到相应回调函数的通知，从而执行依赖UIAbility生命周期的方法，也可以统计指定页面停留时间和访问频率等信息。 每次注册回调函数时，都会返回一个监听生命周期的ID，此ID会自增1。以[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)中的使用为例进行说明。
-```text
+##### 监听UIAbility生命周期变化
+
+开发者可以通过[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)监听UIAbility生命周期变化。当[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)生命周期变化时，如UIAbility创建、切换至前/后台、销毁等情况，UIAbility会收到相应回调函数的通知，从而执行依赖UIAbility生命周期的方法，也可以统计指定页面停留时间和访问频率等信息。
+
+每次注册回调函数时，都会返回一个监听生命周期的ID，此ID会自增1。以[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)中的使用为例进行说明。
+
+```ArkTS
 import { AbilityConstant, AbilityLifecycleCallback, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';

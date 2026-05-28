@@ -8,15 +8,14 @@
 
 **表1** IAbilityConnection接口说明
 
-
 | 接口名 | 描述 |
 | --- | --- |
 | onConnect() | 用于处理连接Service成功的回调。 |
 | onDisconnect() | 用来处理Service异常死亡的回调。 |
 | onFailed() | 用来处理连接Service失败的回调。 |
 
-PageAbility创建连接本地ServiceAbility回调实例的代码以及连接本地ServiceAbility的示例代码如下：
 
+PageAbility创建连接本地ServiceAbility回调实例的代码以及连接本地ServiceAbility的示例代码如下：
 
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
@@ -27,8 +26,7 @@ import rpc from '@ohos.rpc';
 import hilog from '@ohos.hilog';
 ```
 
-
-```text
+```json
 const TAG: string = 'PageServiceAbility';
 const domain: number = 0xFF00;
 
@@ -97,7 +95,6 @@ struct PageServiceAbility {
 同时，Service侧也需要在[onConnect()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-connectoptions#onconnect)时返回[IRemoteObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#iremoteobject)，从而定义与Service进行通信的接口。onConnect()需要返回一个IRemoteObject对象。系统提供了IRemoteObject的默认实现，开发者可以通过继承[rpc.RemoteObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#remoteobject)来创建自定义的实现类。
 
 Service侧把自身的实例返回给调用侧的示例代码如下：
-
 
 ```text
 import type Want from '@ohos.app.ability.Want';

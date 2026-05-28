@@ -6,9 +6,9 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：safetyDetect； API声明：function checkUrlThreat(req: UrlCheckRequest): Promise<UrlCheckResponse>; 差异内容：NA | 类名：safetyDetect； API声明：function checkUrlThreat(req: UrlCheckRequest): Promise<UrlCheckResponse>; 差异内容：1010800005,1010800006,1010800007,1010800008,801 | api/@hms.security.safetyDetect.d.ts |
-| 新增错误码 | 类名：safetyDetect； API声明：function checkSysIntegrity(req: SysIntegrityRequest): Promise<SysIntegrityResponse>; 差异内容：NA | 类名：safetyDetect； API声明：function checkSysIntegrity(req: SysIntegrityRequest): Promise<SysIntegrityResponse>; 差异内容：1010800005,1010800006,1010800007,1010800008,801 | api/@hms.security.safetyDetect.d.ts |
-| 新增API | NA | 类名：safetyDetect； API声明：function checkSysIntegrityOnLocal(): Promise<string>; 差异内容：function checkSysIntegrityOnLocal(): Promise<string>; | api/@hms.security.safetyDetect.d.ts |
+| 新增错误码 | 类名：safetyDetect； API声明：function checkUrlThreat(req: UrlCheckRequest): Promise&lt;UrlCheckResponse&gt;; 差异内容：NA | 类名：safetyDetect； API声明：function checkUrlThreat(req: UrlCheckRequest): Promise&lt;UrlCheckResponse&gt;; 差异内容：1010800005,1010800006,1010800007,1010800008,801 | api/@hms.security.safetyDetect.d.ts |
+| 新增错误码 | 类名：safetyDetect； API声明：function checkSysIntegrity(req: SysIntegrityRequest): Promise&lt;SysIntegrityResponse&gt;; 差异内容：NA | 类名：safetyDetect； API声明：function checkSysIntegrity(req: SysIntegrityRequest): Promise&lt;SysIntegrityResponse&gt;; 差异内容：1010800005,1010800006,1010800007,1010800008,801 | api/@hms.security.safetyDetect.d.ts |
+| 新增API | NA | 类名：safetyDetect； API声明：function checkSysIntegrityOnLocal(): Promise&lt;string&gt;; 差异内容：function checkSysIntegrityOnLocal(): Promise&lt;string&gt;; | api/@hms.security.safetyDetect.d.ts |
 | 新增API | NA | 类名：AttestType； API声明：ATTEST_TYPE_SECIMAGE_PROCESS = 3 差异内容：ATTEST_TYPE_SECIMAGE_PROCESS = 3 | api/@hms.security.trustedAppService.d.ts |
 | 新增API | NA | 类名：AttestExceptionErrCode； API声明：ATTEST_ERROR_SIGNATURE_VERIFICATION_FAILED = 1011500017 差异内容：ATTEST_ERROR_SIGNATURE_VERIFICATION_FAILED = 1011500017 | api/@hms.security.trustedAppService.d.ts |
 | 新增API | NA | 类名：AttestExceptionErrCode； API声明：ATTEST_ERROR_SECIMAGE_PROCESS_FAILED = 1011500018 差异内容：ATTEST_ERROR_SECIMAGE_PROCESS_FAILED = 1011500018 | api/@hms.security.trustedAppService.d.ts |
@@ -38,6 +38,6 @@
 | 新增API | NA | 类名：SecImageProcParams； API声明：tag: SecImageProcTag; 差异内容：tag: SecImageProcTag; | api/@hms.security.trustedAppService.d.ts |
 | 新增API | NA | 类名：SecImageProcParams； API声明：value: number \| CropRegion; 差异内容：value: number \| CropRegion; | api/@hms.security.trustedAppService.d.ts |
 | 新增API | NA | 类名：trustedAppService； API声明：export interface SecImageProcParamsArray 差异内容：export interface SecImageProcParamsArray | api/@hms.security.trustedAppService.d.ts |
-| 新增API | NA | 类名：SecImageProcParamsArray； API声明：properties: Array<SecImageProcParams>; 差异内容：properties: Array<SecImageProcParams>; | api/@hms.security.trustedAppService.d.ts |
-| 新增API | NA | 类名：trustedAppService； API声明：function procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsArray): Promise<SecImageBuffer>; 差异内容：function procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsArray): Promise<SecImageBuffer>; | api/@hms.security.trustedAppService.d.ts |
+| 新增API | NA | 类名：SecImageProcParamsArray； API声明：properties: Array&lt;SecImageProcParams&gt;; 差异内容：properties: Array&lt;SecImageProcParams&gt;; | api/@hms.security.trustedAppService.d.ts |
+| 新增API | NA | 类名：trustedAppService； API声明：function procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsArray): Promise&lt;SecImageBuffer&gt;; 差异内容：function procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsArray): Promise&lt;SecImageBuffer&gt;; | api/@hms.security.trustedAppService.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：FraudDetectionRequest； API声明：version?: number; 差异内容：version?: number; | api/@hms.security.businessRiskIntelligentDetection.d.ts |

@@ -1,6 +1,6 @@
 # 使用私钥对象获取公钥对象(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-prikey-to-get-pubkey
 
@@ -11,10 +11,22 @@
 对应的算法规格请查看[非对称密钥加解密算法规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-encrypt-decrypt-spec#rsa)。
 
 
-## 开发步骤
+##### 开发步骤
+1. 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。
 
-调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)，指定字符串参数'RSA1024'，创建RSA密钥类型为RSA1024、素数个数为2的非对称密钥生成器（AsyKeyGenerator）。 生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。 调用[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair-1)，随机生成非对称密钥对象（KeyPair）。 KeyPair对象中包括公钥PubKey、私钥PriKey。 调用[PubKey.getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)获取KeyPair中公钥对象的二进制数据。 调用[PriKey.getPubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getpubkey23)从私钥中获取公钥对象为PubKey。 调用[PubKey.getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)获取PubKey对象的二进制数据。 比较两个公钥对象的二进制数据。 以异步方式生成RSA密钥对为例（调用方法[getPubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getpubkey23)）：
-```text
+  生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。
+2. 调用[AsyKeyGenerator.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair-1)，随机生成非对称密钥对象（KeyPair）。
+
+  KeyPair对象中包括公钥PubKey、私钥PriKey。
+3. 调用[PubKey.getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)获取KeyPair中公钥对象的二进制数据。
+4. 调用[PriKey.getPubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getpubkey23)从私钥中获取公钥对象为PubKey。
+5. 调用[PubKey.getEncoded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencoded)获取PubKey对象的二进制数据。
+6. 比较两个公钥对象的二进制数据。
+
+ - 以异步方式生成RSA密钥对为例（调用方法[getPubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getpubkey23)）：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
@@ -82,8 +94,10 @@ async function prikeyGetPubKeyAsync() {
 }
 ```
 
-以同步方式生成RSA密钥对为例（调用方法[getPubKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getpubkeysync23)）：
-```text
+ - 以同步方式生成RSA密钥对为例（调用方法[getPubKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getpubkeysync23)）：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 

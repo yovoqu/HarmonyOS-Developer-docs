@@ -1,47 +1,63 @@
 # FileUri开发指导(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-fileuri-guidelines
 
-## 场景介绍
+##### 场景介绍
 
 FileUri提供了关于文件URI的基本操作，将URI转换成对应的沙箱路径、将应用沙箱路径转换成对应应用自己的URI、获取URI所在目录路径的URI等接口能力，方便应用对文件分享业务中URI的访问。
 
-## 基本概念
+
+
+##### 基本概念
 
 **结果集**：满足使用场景的路径或URI。
 
-## 约束限制
 
-URI转路径时，URI来源建议使用系统能力获取，例如：picker、剪切板、拖拽、及系统提供的路径转URI接口等系统能力返回的URI；如果转换应用或用户拼接的URI，则转换后的路径可能无法访问。 为保证数据的准确性，在转换或判断过程中应保持单对象处理，避免资源竞争导致数据异常。
 
-## 接口说明
+##### 约束限制
+
+ - URI转路径时，URI来源建议使用系统能力获取，例如：picker、剪切板、拖拽、及系统提供的路径转URI接口等系统能力返回的URI；如果转换应用或用户拼接的URI，则转换后的路径可能无法访问。
+ - 为保证数据的准确性，在转换或判断过程中应保持单对象处理，避免资源竞争导致数据异常。
+
+
+
+
+##### 接口说明
 
 接口的详细说明，请参考[oh_file_uri.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-file-uri-h)。
+
 | 接口名称 | 描述 |
 | --- | --- |
 | FileManagement_ErrCode OH_FileUri_GetUriFromPath(const char *path, unsigned int length, char **result) | 通过传入的path生成应用自己的URI。将path转URI时，path中的中文及非数字字母的特殊字符会被编码为对应的ASCII码，并拼接在URI中。 |
-| FileManagement_ErrCode OH_FileUri_GetPathFromUri(const char *uri, unsigned int length, char **result) | 将uri转换成对应的沙箱路径。          1. uri转路径过程中会将uri中存在的ASCII码进行解码后拼接在原处，非系统接口生成的uri中可能存在ASCII码解析范围之外的字符，导致字符串无法正常拼接。          2. 转换处理遵循系统约定的字符串替换规则（规则可能随系统演进而变化），转换过程中不进行路径校验操作，无法保证转换结果的可访问性。 |
-| FileManagement_ErrCode OH_FileUri_GetFullDirectoryUri(const char *uri, unsigned int length, char **result) | 获取所在路径uri。          1. uri指向文件则返回所在路径的uri。          2. uri指向目录则不处理直接返回原串。          3. uri指向的文件不存在或属性获取失败则返回空串。 |
+| FileManagement_ErrCode OH_FileUri_GetPathFromUri(const char *uri, unsigned int length, char **result) | 将uri转换成对应的沙箱路径。 1. uri转路径过程中会将uri中存在的ASCII码进行解码后拼接在原处，非系统接口生成的uri中可能存在ASCII码解析范围之外的字符，导致字符串无法正常拼接。 2. 转换处理遵循系统约定的字符串替换规则（规则可能随系统演进而变化），转换过程中不进行路径校验操作，无法保证转换结果的可访问性。 |
+| FileManagement_ErrCode OH_FileUri_GetFullDirectoryUri(const char *uri, unsigned int length, char **result) | 获取所在路径uri。 1. uri指向文件则返回所在路径的uri。 2. uri指向目录则不处理直接返回原串。 3. uri指向的文件不存在或属性获取失败则返回空串。 |
 | bool OH_FileUri_IsValidUri(const char *uri, unsigned int length) | 判断传入的uri的格式是否正确。仅校验uri是否满足系统定义的格式规范，不校验uri的有效性。 |
 | FileManagement_ErrCode OH_FileUri_GetFileName(const char *uri, unsigned int length, char **result) | 通过传入的uri获取到对应的文件名称（如果文件名中存在ASCII码将会被解码处理后拼接在原处）。 |
 
 
-## 开发步骤
 
-**在CMake脚本中链接动态库** CMakeLists.txt中添加以下lib。
+
+##### 开发步骤
+
+**在CMake脚本中链接动态库**
+
+CMakeLists.txt中添加以下lib。
+
 ```text
 target_link_libraries(sample PUBLIC libohfileuri.so)
 ```
 
 **添加头文件**
-```text
-#include
-```
 
-调用OH_FileUri_GetUriFromPath接口，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示：
 ```text
+#include <filemanagement/file_uri/oh_file_uri.h>
+```
+1. 调用OH_FileUri_GetUriFromPath接口，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示：
+
+  
+```cpp
 static napi_value NAPI_Global_OH_FileUri_GetUriFromPathExample(napi_env env, napi_callback_info info)
 {
     // ...
@@ -75,8 +91,10 @@ static napi_value NAPI_Global_OH_FileUri_GetUriFromPathExample(napi_env env, nap
 }
 ```
 
-调用OH_FileUri_GetPathFromUri通过URI转成对应的路径，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示。
-```text
+2. 调用OH_FileUri_GetPathFromUri通过URI转成对应的路径，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示。
+
+  
+```cpp
 static napi_value NAPI_Global_OH_FileUri_GetPathFromUriExample(napi_env env, napi_callback_info info)
 {
     // ...
@@ -110,8 +128,10 @@ static napi_value NAPI_Global_OH_FileUri_GetPathFromUriExample(napi_env env, nap
 }
 ```
 
-调用OH_FileUri_GetFullDirectoryUri获取URI所在路径的URI，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示。
-```text
+3. 调用OH_FileUri_GetFullDirectoryUri获取URI所在路径的URI，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示。
+
+  
+```cpp
 static napi_value NAPI_Global_OH_FileUri_GetFullDirectoryUriExample(napi_env env, napi_callback_info info)
 {
     // ...
@@ -140,8 +160,10 @@ static napi_value NAPI_Global_OH_FileUri_GetFullDirectoryUriExample(napi_env env
 }
 ```
 
-可以调用OH_FileUri_IsValidUri接口进行URI格式验证。 示例代码如下所示。
-```text
+4. 可以调用OH_FileUri_IsValidUri接口进行URI格式验证。 示例代码如下所示。
+
+  
+```cpp
 static napi_value NAPI_Global_OH_FileUri_IsValidUriExample(napi_env env, napi_callback_info info)
 {
     // ...
@@ -156,8 +178,10 @@ static napi_value NAPI_Global_OH_FileUri_IsValidUriExample(napi_env env, napi_ca
 }
 ```
 
-调用OH_FileUri_GetFileName获取URI中的文件名称，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示。
-```text
+5. 调用OH_FileUri_GetFileName获取URI中的文件名称，在接口中malloc的内存需要在使用完后释放，因此需要free对应的内存，避免内存泄漏。示例代码如下所示。
+
+  
+```cpp
 static napi_value NAPI_Global_OH_FileUri_GetFileNameExample(napi_env env, napi_callback_info info)
 {
     // ...

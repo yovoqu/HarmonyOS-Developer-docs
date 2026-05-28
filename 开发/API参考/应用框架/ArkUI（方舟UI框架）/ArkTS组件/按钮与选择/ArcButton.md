@@ -3,46 +3,48 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 弧形按钮组件提供强调、普通、警告等样式按钮，推荐用于圆形屏幕的设备。
 
+> [!NOTE]
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import {
   ArcButton,
   ArcButtonOptions,
   ArcButtonStatus,
   ArcButtonStyleMode,
   ArcButtonPosition,
-} from '@kit.ArkUI';
+}  from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 事件
 
 通用事件支持[点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)和[触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)。
 
 
-## ArcButton
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ArcButton
 
 ArcButton({ options: ArcButtonOptions })
 
@@ -56,46 +58,47 @@ ArcButton({ options: ArcButtonOptions })
 
 **参数**：
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| options | [ArcButtonOptions](#arcbuttonoptions) | 是 | @Require | 定义ArcButton组件的文本、背景色、阴影等参数。 |
+| options | ArcButtonOptions | 是 | @Require | 定义ArcButton组件的文本、背景色、阴影等参数。 |
 
 
-## ArcButtonOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ArcButtonOptions
 
 定义ArcButton的默认样式或自定义样式参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
 
 
-### 属性
 
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| position | [ArcButtonPosition](#arcbuttonposition) | 否 | 否 | 上下弧形按钮类型属性。          默认值：ArcButtonPosition.BOTTOM_EDGE。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| styleMode | [ArcButtonStyleMode](#arcbuttonstylemode) | 否 | 否 | 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig](#arcbuttonprogressconfig23)样式同时使用。          默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| status | [ArcButtonStatus](#arcbuttonstatus) | 否 | 否 | 弧形按钮状态。          默认值：ArcButtonStatus.NORMAL。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| label | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 弧形按钮显示文本。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle | [BlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#blurstyle9) | 否 | 否 | 弧形按钮背景模糊能力。          默认值：BlurStyle.NONE。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| backgroundColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 否 | 弧形按钮背景颜色。          ArcButtonStyleMode需要设置为CUSTOM。          默认值：Color.Black。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| shadowColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 否 | 弧形按钮阴影颜色。          默认值：Color.Black。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| shadowEnabled | boolean | 否 | 否 | 弧形按钮阴影开关。          默认值：false          值为true时，显示阴影。值为false时，不显示阴影。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontSize | [LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | 否 | 否 | 弧形按钮文本大小。          默认值：19fp。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 否 | 弧形按钮文本颜色。          ArcButtonStyleMode需要设置为CUSTOM。          默认值：Color.White。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| pressedFontColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 否 | 弧形按钮按下文本颜色。          ArcButtonStyleMode需要设置为CUSTOM。          默认值：Color.White。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontStyle | [FontStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontstyle) | 否 | 否 | 弧形按钮文本样式。          默认值：FontStyle.Normal。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontFamily | string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 否 | 弧形按钮字体名。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontMargin | [LocalizedMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizedmargin12) | 否 | 否 | 弧形按钮文本边距。          默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| progressConfig23+ | [ArcButtonProgressConfig](#arcbuttonprogressconfig23) | 否 | 是 | ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（[示例1](#示例1-设置弧形按钮)），设置后表现为进度条样式（[示例2](#示例2-设置设备进度条按钮)），进度条样式不受[ArcButtonStyleMode](#arcbuttonstylemode)属性设置影响。          默认值：[ArcButtonProgressConfig](#arcbuttonprogressconfig23) 的各项子属性均取其默认值。          元服务API： 从API version 23开始，该接口支持在元服务中使用。          模型约束： 此接口仅可在Stage模型下使用。 |
-| onTouch | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#voidcallback12)&lt; [TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#touchevent对象说明)&gt; | 否 | 是 | 弧形按钮手指触摸动作触发该回调。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onClick | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#voidcallback12)&lt;[ClickEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#clickevent) &gt; | 否 | 是 | 弧形按钮点击动作触发该回调。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| position | ArcButtonPosition | 否 | 否 | 上下弧形按钮类型属性。 默认值：ArcButtonPosition.BOTTOM_EDGE。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| styleMode | ArcButtonStyleMode | 否 | 否 | 弧形按钮样式模式。该样式不支持与ArcButtonProgressConfig样式同时使用。 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| status | ArcButtonStatus | 否 | 否 | 弧形按钮状态。 默认值：ArcButtonStatus.NORMAL。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| label | ResourceStr | 否 | 否 | 弧形按钮显示文本。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyle | BlurStyle | 否 | 否 | 弧形按钮背景模糊能力。 默认值：BlurStyle.NONE。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| backgroundColor | ColorMetrics | 否 | 否 | 弧形按钮背景颜色。 ArcButtonStyleMode需要设置为CUSTOM。 默认值：Color.Black。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| shadowColor | ColorMetrics | 否 | 否 | 弧形按钮阴影颜色。 默认值：Color.Black。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| shadowEnabled | boolean | 否 | 否 | 弧形按钮阴影开关。 默认值：false 值为true时，显示阴影。值为false时，不显示阴影。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontSize | LengthMetrics | 否 | 否 | 弧形按钮文本大小。 默认值：19fp。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontColor | ColorMetrics | 否 | 否 | 弧形按钮文本颜色。 ArcButtonStyleMode需要设置为CUSTOM。 默认值：Color.White。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| pressedFontColor | ColorMetrics | 否 | 否 | 弧形按钮按下文本颜色。 ArcButtonStyleMode需要设置为CUSTOM。 默认值：Color.White。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontStyle | FontStyle | 否 | 否 | 弧形按钮文本样式。 默认值：FontStyle.Normal。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontFamily | string \| Resource | 否 | 否 | 弧形按钮字体名。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontMargin | LocalizedMargin | 否 | 否 | 弧形按钮文本边距。 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| progressConfig23+ | ArcButtonProgressConfig | 否 | 是 | ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（示例1），设置后表现为进度条样式（示例2），进度条样式不受ArcButtonStyleMode属性设置影响。 默认值：ArcButtonProgressConfig 的各项子属性均取其默认值。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onTouch | Callback< TouchEvent> | 否 | 是 | 弧形按钮手指触摸动作触发该回调。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onClick | Callback<ClickEvent > | 否 | 是 | 弧形按钮点击动作触发该回调。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(options: CommonArcButtonOptions)
 
@@ -107,43 +110,43 @@ constructor(options: CommonArcButtonOptions)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [CommonArcButtonOptions](#commonarcbuttonoptions) | 是 | 定义ArcButton组件的文本、背景色、阴影等参数。 |
+| options | CommonArcButtonOptions | 是 | 定义ArcButton组件的文本、背景色、阴影等参数。 |
 
 
-## CommonArcButtonOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CommonArcButtonOptions
 
 ArcButton的默认样式或自定义样式参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| position | [ArcButtonPosition](#arcbuttonposition) | 否 | 是 | 上下弧形按钮类型属性。          默认值：ArcButtonPosition.BOTTOM_EDGE。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| styleMode | [ArcButtonStyleMode](#arcbuttonstylemode) | 否 | 是 | 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig](#arcbuttonprogressconfig23)样式同时使用。          默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| status | [ArcButtonStatus](#arcbuttonstatus) | 否 | 是 | 弧形按钮状态。          默认值：ArcButtonStatus.NORMAL。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| label | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 弧形按钮显示文本。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| backgroundBlurStyle | [BlurStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#blurstyle9) | 否 | 是 | 弧形按钮背景模糊能力。          默认值：BlurStyle.NONE。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| backgroundColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 弧形按钮背景颜色。          ArcButtonStyleMode需要设置为CUSTOM。          默认值：Color.Black。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| shadowColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 弧形按钮阴影颜色。          默认值：Color.Black。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| shadowEnabled | boolean | 否 | 是 | 弧形按钮阴影开关。          默认值：false          值为true时，显示阴影。值为false时，不显示阴影。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontSize | [LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | 否 | 是 | 弧形按钮文本大小。          默认值：19fp。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 弧形按钮文本颜色。          ArcButtonStyleMode需要设置为CUSTOM。          默认值：Color.White。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| pressedFontColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 弧形按钮按下文本颜色。          ArcButtonStyleMode需要设置为CUSTOM。          默认值：Color.White。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontStyle | [FontStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontstyle) | 否 | 是 | 弧形按钮文本样式。          默认值：FontStyle.Normal。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontFamily | string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 是 | 弧形按钮字体名。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontMargin | [LocalizedMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizedmargin12) | 否 | 是 | 弧形按钮文本边距。          默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| progressConfig23+ | [ArcButtonProgressConfig](#arcbuttonprogressconfig23) | 否 | 是 | ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（[示例1](#示例1-设置弧形按钮)），设置后表现为进度条样式（[示例2](#示例2-设置设备进度条按钮)），进度条样式不受[ArcButtonStyleMode](#arcbuttonstylemode)属性设置影响。          默认值：[ArcButtonProgressConfig](#arcbuttonprogressconfig23) 的各项子属性均取其默认值。          元服务API： 从API version 23开始，该接口支持在元服务中使用。          模型约束： 此接口仅可在Stage模型下使用。 |
-| onTouch | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#voidcallback12)&lt; [TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#touchevent对象说明)&gt; | 否 | 是 | 弧形按钮手指触摸动作触发该回调。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onClick | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#voidcallback12)&lt;[ClickEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#clickevent) &gt; | 否 | 是 | 弧形按钮点击动作触发该回调。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| position | ArcButtonPosition | 否 | 是 | 上下弧形按钮类型属性。 默认值：ArcButtonPosition.BOTTOM_EDGE。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| styleMode | ArcButtonStyleMode | 否 | 是 | 弧形按钮样式模式。该样式不支持与ArcButtonProgressConfig样式同时使用。 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| status | ArcButtonStatus | 否 | 是 | 弧形按钮状态。 默认值：ArcButtonStatus.NORMAL。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| label | ResourceStr | 否 | 是 | 弧形按钮显示文本。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| backgroundBlurStyle | BlurStyle | 否 | 是 | 弧形按钮背景模糊能力。 默认值：BlurStyle.NONE。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| backgroundColor | ColorMetrics | 否 | 是 | 弧形按钮背景颜色。 ArcButtonStyleMode需要设置为CUSTOM。 默认值：Color.Black。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| shadowColor | ColorMetrics | 否 | 是 | 弧形按钮阴影颜色。 默认值：Color.Black。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| shadowEnabled | boolean | 否 | 是 | 弧形按钮阴影开关。 默认值：false 值为true时，显示阴影。值为false时，不显示阴影。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontSize | LengthMetrics | 否 | 是 | 弧形按钮文本大小。 默认值：19fp。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontColor | ColorMetrics | 否 | 是 | 弧形按钮文本颜色。 ArcButtonStyleMode需要设置为CUSTOM。 默认值：Color.White。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| pressedFontColor | ColorMetrics | 否 | 是 | 弧形按钮按下文本颜色。 ArcButtonStyleMode需要设置为CUSTOM。 默认值：Color.White。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontStyle | FontStyle | 否 | 是 | 弧形按钮文本样式。 默认值：FontStyle.Normal。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontFamily | string \| Resource | 否 | 是 | 弧形按钮字体名。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontMargin | LocalizedMargin | 否 | 是 | 弧形按钮文本边距。 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| progressConfig23+ | ArcButtonProgressConfig | 否 | 是 | ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（示例1），设置后表现为进度条样式（示例2），进度条样式不受ArcButtonStyleMode属性设置影响。 默认值：ArcButtonProgressConfig 的各项子属性均取其默认值。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
+| onTouch | Callback< TouchEvent> | 否 | 是 | 弧形按钮手指触摸动作触发该回调。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onClick | Callback<ClickEvent > | 否 | 是 | 弧形按钮点击动作触发该回调。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
-## ArcButtonProgressConfig23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ArcButtonProgressConfig23+
 
 ArcButton内进度条的参数配置。
 
@@ -153,16 +156,16 @@ ArcButton内进度条的参数配置。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value | number | 否 | 否 | 进度条当前值。设置小于0的数值时置为0，设置大于total的数值时置为total。          默认值：0          取值范围：[0, total] |
-| total | number | 否 | 是 | 进度的最大值。          默认值：100          取值范围：[0, 2147483647]，设置0或超出取值范围取默认值为100。 |
-| color | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 进度条前景色。如果组件设置了背景色（[backgroundColor](#arcbuttonoptions)），进度条前景色默认值取组件背景色。进度条前景色不受按钮样式（[ArcButtonStyleMode](#arcbuttonstylemode)）设置影响。进度条背景色仅依赖进度条前景色设置，取进度条前景色的25%透明度。          默认值："#1F71FF"，显示为蓝色。 |
+| value | number | 否 | 否 | 进度条当前值。设置小于0的数值时置为0，设置大于total的数值时置为total。 默认值：0 取值范围：[0, total] |
+| total | number | 否 | 是 | 进度的最大值。 默认值：100 取值范围：[0, 2147483647]，设置0或超出取值范围取默认值为100。 |
+| color | ResourceColor | 否 | 是 | 进度条前景色。如果组件设置了背景色（backgroundColor），进度条前景色默认值取组件背景色。进度条前景色不受按钮样式（ArcButtonStyleMode）设置影响。进度条背景色仅依赖进度条前景色设置，取进度条前景色的25%透明度。 默认值："#1F71FF"，显示为蓝色。 |
 
 
-## ArcButtonPosition
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ArcButtonPosition
 
 定义ArcButton可设置的弧形按钮的类型。
 
@@ -170,22 +173,21 @@ ArcButton内进度条的参数配置。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | TOP_EDGE | 0 | 上弧形按钮，位于圆形屏幕上方。 |
 | BOTTOM_EDGE | 1 | 底部弧形按钮，位于圆形屏幕底部。 |
 
 
-## ArcButtonStyleMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ArcButtonStyleMode
 
 定义ArcButton可设置弧形按钮样式模式。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -196,15 +198,15 @@ ArcButton内进度条的参数配置。
 | CUSTOM | 4 | 自定义按钮颜色和字体颜色。 |
 
 
-## ArcButtonStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ArcButtonStatus
 
 定义ArcButton可设置的弧形按钮状态。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -213,13 +215,15 @@ ArcButton内进度条的参数配置。
 | DISABLED | 2 | 禁用状态。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 示例1 (设置弧形按钮)
+##### 示例
 
-该示例展示了ArcButton的基本用法。从API version 18开始，新增ArcButton。示例配置如��：
+
+
+##### 示例1 (设置弧形按钮)
+
+该示例展示了ArcButton的基本用法。从API version 18开始，新增ArcButton。示例配置如下：
 
 1.topOptions定义了上弧形按钮，按钮文本为ButtonTop，字体大小为15fp，按钮状态为正常状态，按钮样式为亮色强调，启用阴影。
 
@@ -227,20 +231,21 @@ ArcButton内进度条的参数配置。
 
 该示例推荐在Wearable设备下运行以获得最佳显示效果，同时支持在其他设备上运行。若要在Wearable设备上运行，需在src/main目录下的工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[deviceTypes标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#devicetypes标签)内配置wearable。
 
-
 ```json
 // module.json5
 {
   "module": {
     // ...
-    "deviceTypes": ["wearable", "phone"]
+    "deviceTypes": [
+      "wearable",
+      "phone"
+    ]
     // ...
   }
 }
 ```
 
-
-```ts
+```ArkTS
 // xxx.ets
 import {
   LengthMetrics,
@@ -283,8 +288,8 @@ struct Index {
     Stack() {
       Stack() {
         Circle({ width: 233, height: 233 })
-        .strokeWidth(0.1)
-        .fill(Color.White)
+          .strokeWidth(0.1)
+          .fill(Color.White)
 
         Column() {
           ArcButton({ options: this.topOptions })
@@ -303,10 +308,13 @@ struct Index {
 }
 ```
 
-![](assets/ArcButton/file-20260514164025632-0.jpg)
+
+![](assets/ArcButton/file-20260514164025632-1.jpg)
 
 
-### 示例2 (设置设备进度条按钮)
+
+
+##### 示例2 (设置设备进度条按钮)
 
 该示例展示了ArcButton组件进度条样式的基本用法。从API version 23开始，新增[progressConfig](#arcbuttonoptions)接口。示例配置如下：
 
@@ -316,20 +324,21 @@ struct Index {
 
 该示例推荐在Wearable设备下运行以获得最佳显示效果，同时支持在其他设备上运行。若要在Wearable设备上运行，需在src/main目录下的工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[deviceTypes标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#devicetypes标签)内配置wearable。
 
-
 ```json
 // module.json5
 {
   "module": {
     // ...
-    "deviceTypes": ["wearable", "phone"]
+    "deviceTypes": [
+      "wearable",
+      "phone"
+    ]
     // ...
   }
 }
 ```
 
-
-```ts
+```ArkTS
 // xxx.ets
 import {
   LengthMetrics,
@@ -375,8 +384,8 @@ struct Index {
     Stack() {
       Stack() {
         Circle({ width: 233, height: 233 })
-        .strokeWidth(0.1)
-        .fill(Color.White)
+          .strokeWidth(0.1)
+          .fill(Color.White)
 
         Column() {
           ArcButton({ options: this.topOptions })
@@ -395,4 +404,5 @@ struct Index {
 }
 ```
 
-![](assets/ArcButton/file-20260514164025632-1.jpg)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/ZfVnUihgQmWbh-BuqwHOMg/zh-cn_image_0000002611755801.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=A7BB1CA62222A272ED731C8A694F40A379AABF0643F4E9AF719B4C68B22FBEF7)

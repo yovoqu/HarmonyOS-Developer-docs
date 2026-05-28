@@ -1,32 +1,35 @@
 # Sendable对象冻结
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-freeze
 
 Sendable对象支持冻结操作。冻结后，对象变为只读，不能修改属性。因此，多个并发实例间访问时无需加锁。可以通过调用[Object.freeze](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)接口冻结对象。
-
-
+ 
 > [!NOTE]
 > 不支持在.ets文件中使用Object.freeze接口。
 
+  
 
-## 使用示例
+##### 使用示例
+1. 提供ts文件封装Object.freeze方法。
 
-提供ts文件封装Object.freeze方法。
-```text
+  
+```ts
 // helper.ts
 export function freezeObj(obj: any) {
   Object.freeze(obj);
 }
 ```
 
-调用freeze方法冻结对象，然后将其发送到子线程。
-```text
+2. 调用freeze方法冻结对象，然后将其发送到子线程。
+
+  
+```ArkTS
 // SendableFreeze.ets
 import { freezeObj } from './helper';
 import { worker } from '@kit.ArkTS';
-
+ 
 @Sendable
 export class GlobalConfig {
   // 一些配置属性与方法
@@ -35,7 +38,7 @@ export class GlobalConfig {
     freezeObj(this); // 初始化完成后冻结当前对象
   }
 }
-
+ 
 @Entry
 @Component
 struct Index {
@@ -58,8 +61,10 @@ struct Index {
 }
 ```
 
-子线程直接操作对象，不加锁。
-```text
+3. 子线程直接操作对象，不加锁。
+
+  
+```ArkTS
 // Worker.ets
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { GlobalConfig } from '../pages/Index';

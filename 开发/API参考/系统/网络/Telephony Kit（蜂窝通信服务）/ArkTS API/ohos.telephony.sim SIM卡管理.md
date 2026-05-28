@@ -3,28 +3,26 @@
 更新时间：2026-04-29 07:35:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sim
-**支持设备：** Phone / Tablet / Wearable
+**支持设备：** Phone | Tablet | Wearable
 
 SIM卡管理模块提供了SIM卡管理的基础能力，包括获取指定卡槽SIM卡的ISO国家码、归属PLMN号、服务提供商名称、SIM卡状态、卡类型、是否插卡、是否激活等。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / Tablet / Wearable
 
+##### 导入模块
 
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 ```
 
 
-## sim.isSimActive7+
-**支持设备：** Phone / Tablet / Wearable
 
-isSimActive(slotId: number, callback: AsyncCallback<boolean>): void
+##### sim.isSimActive7+
+
+isSimActive(slotId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 获取指定卡槽SIM卡是否激活。使用callback异步回调。
 
@@ -32,32 +30,28 @@ isSimActive(slotId: number, callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回指定卡槽是否激活。          - true:激活。          - false：未激活。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回指定卡槽是否激活。 - true:激活。 - false：未激活。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.isSimActive(0, (err: BusinessError, data: boolean) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.isSimActive7+
-**支持设备：** Phone / Tablet / Wearable
 
-isSimActive(slotId: number): Promise<boolean>
+##### sim.isSimActive7+
+
+isSimActive(slotId: number): Promise&lt;boolean&gt;
 
 获取指定卡槽SIM卡是否激活。使用Promise异步回调。
 
@@ -65,40 +59,34 @@ isSimActive(slotId: number): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | 以Promise形式返回指定卡槽是否激活。          - true:激活。          - false：未激活。 |
+| Promise&lt;boolean&gt; | 以Promise形式返回指定卡槽是否激活。 - true:激活。 - false：未激活。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .isSimActive(0)
-  .then((data: boolean) => {
+sim.isSimActive(0).then((data: boolean) => {
     console.info(`isSimActive success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`isSimActive failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## sim.isSimActiveSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.isSimActiveSync10+
 
 isSimActiveSync(slotId: number): boolean
 
@@ -108,24 +96,21 @@ isSimActiveSync(slotId: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 返回指定卡槽是否激活。          - true:激活。          - false：未激活。 |
+| boolean | 返回指定卡槽是否激活。 - true:激活。 - false：未激活。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
 let isSimActive: boolean = sim.isSimActiveSync(0);
@@ -133,10 +118,10 @@ console.info(`the sim is active:` + isSimActive);
 ```
 
 
-## sim.getDefaultVoiceSlotId7+
-**支持设备：** Phone / Tablet / Wearable
 
-getDefaultVoiceSlotId(callback: AsyncCallback<number>): void
+##### sim.getDefaultVoiceSlotId7+
+
+getDefaultVoiceSlotId(callback: AsyncCallback&lt;number&gt;): void
 
 获取默认语音业务的卡槽ID。使用callback异步回调。
 
@@ -144,31 +129,27 @@ getDefaultVoiceSlotId(callback: AsyncCallback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。          - 0：卡槽1。          - 1：卡槽2。          - -1：未设置或服务不可用。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。 - 0：卡槽1。 - 1：卡槽2。 - -1：未设置或服务不可用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getDefaultVoiceSlotId((err: BusinessError, data: number) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getDefaultVoiceSlotId7+
-**支持设备：** Phone / Tablet / Wearable
 
-getDefaultVoiceSlotId(): Promise<number>
+##### sim.getDefaultVoiceSlotId7+
+
+getDefaultVoiceSlotId(): Promise&lt;number&gt;
 
 获取默认语音业务的卡槽ID。使用Promise异步回调。
 
@@ -176,38 +157,29 @@ getDefaultVoiceSlotId(): Promise<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以Promise形式返回默认语音业务的卡槽ID。          - 0：卡槽1。          - 1：卡槽2。          - -1：未设置或服务不可用。 |
+| Promise&lt;number&gt; | 以Promise形式返回默认语音业务的卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 - -1：未设置或服务不可用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getDefaultVoiceSlotId()
-  .then((data: number) => {
-    console.info(
-      `getDefaultVoiceSlotId success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getDefaultVoiceSlotId failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+sim.getDefaultVoiceSlotId().then((data: number) => {
+    console.info(`getDefaultVoiceSlotId success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getDefaultVoiceSlotId failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.hasOperatorPrivileges7+
-**支持设备：** Phone / Tablet / Wearable
 
-hasOperatorPrivileges(slotId: number, callback: AsyncCallback<boolean>): void
+##### sim.hasOperatorPrivileges7+
+
+hasOperatorPrivileges(slotId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查应用(调用者)是否已被授予运营商权限。使用callback异步回调。
 
@@ -215,17 +187,15 @@ hasOperatorPrivileges(slotId: number, callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。 返回检查应用（调用者）是否已被授予运营商权限。          - true：授权。          - false：未授权（未插入SIM卡或停用）。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。 返回检查应用（调用者）是否已被授予运营商权限。 - true：授权。 - false：未授权（未插入SIM卡或停用）。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -238,23 +208,20 @@ hasOperatorPrivileges(slotId: number, callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.hasOperatorPrivileges(0, (err: BusinessError, data: boolean) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.hasOperatorPrivileges7+
-**支持设备：** Phone / Tablet / Wearable
 
-hasOperatorPrivileges(slotId: number): Promise<boolean>
+##### sim.hasOperatorPrivileges7+
+
+hasOperatorPrivileges(slotId: number): Promise&lt;boolean&gt;
 
 检查应用(调用者)是否已被授予运营商权限。使用Promise异步回调。
 
@@ -262,24 +229,21 @@ hasOperatorPrivileges(slotId: number): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | 以Promise形式返回检查应用(调用者)是否已被授予运营商权限。          - true：授权。          - false：未授权（未插入SIM卡或停用）。 |
+| Promise&lt;boolean&gt; | 以Promise形式返回检查应用(调用者)是否已被授予运营商权限。 - true：授权。 - false：未授权（未插入SIM卡或停用）。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -292,30 +256,22 @@ hasOperatorPrivileges(slotId: number): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .hasOperatorPrivileges(0)
-  .then((data: boolean) => {
-    console.info(
-      `hasOperatorPrivileges success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `hasOperatorPrivileges failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+sim.hasOperatorPrivileges(0).then((data: boolean) => {
+    console.info(`hasOperatorPrivileges success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`hasOperatorPrivileges failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.getISOCountryCodeForSim
-**支持设备：** Phone / Tablet / Wearable
 
-getISOCountryCodeForSim(slotId: number, callback: AsyncCallback<string>): void
+##### sim.getISOCountryCodeForSim
+
+getISOCountryCodeForSim(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定卡槽SIM卡的ISO国家码。使用callback异步回调。
 
@@ -323,17 +279,15 @@ getISOCountryCodeForSim(slotId: number, callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。返回国家码，例如：CN(中国)。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -347,23 +301,20 @@ getISOCountryCodeForSim(slotId: number, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getISOCountryCodeForSim(0, (err: BusinessError, data: string) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getISOCountryCodeForSim
-**支持设备：** Phone / Tablet / Wearable
 
-getISOCountryCodeForSim(slotId: number): Promise<string>
+##### sim.getISOCountryCodeForSim
+
+getISOCountryCodeForSim(slotId: number): Promise&lt;string&gt;
 
 获取指定卡槽SIM卡的ISO国家码。使用Promise异步回调。
 
@@ -371,14 +322,12 @@ getISOCountryCodeForSim(slotId: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -389,7 +338,6 @@ getISOCountryCodeForSim(slotId: number): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -402,28 +350,20 @@ getISOCountryCodeForSim(slotId: number): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getISOCountryCodeForSim(0)
-  .then((data: string) => {
-    console.info(
-      `getISOCountryCodeForSim success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getISOCountryCodeForSim failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+sim.getISOCountryCodeForSim(0).then((data: string) => {
+    console.info(`getISOCountryCodeForSim success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getISOCountryCodeForSim failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.getISOCountryCodeForSimSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getISOCountryCodeForSimSync10+
 
 getISOCountryCodeForSimSync(slotId: number): string
 
@@ -433,14 +373,12 @@ getISOCountryCodeForSimSync(slotId: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -449,8 +387,7 @@ getISOCountryCodeForSimSync(slotId: number): string
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
 let countryCode: string = sim.getISOCountryCodeForSimSync(0);
@@ -458,10 +395,10 @@ console.info(`the country ISO is:` + countryCode);
 ```
 
 
-## sim.getSimOperatorNumeric
-**支持设备：** Phone / Tablet / Wearable
 
-getSimOperatorNumeric(slotId: number, callback: AsyncCallback<string>): void
+##### sim.getSimOperatorNumeric
+
+getSimOperatorNumeric(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定卡槽SIM卡的归属PLMN(Public Land Mobile Network)号。使用callback异步回调。
 
@@ -469,17 +406,15 @@ getSimOperatorNumeric(slotId: number, callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。返回指定卡槽SIM卡的归属PLMN号。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -493,23 +428,20 @@ getSimOperatorNumeric(slotId: number, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getSimOperatorNumeric(0, (err: BusinessError, data: string) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getSimOperatorNumeric
-**支持设备：** Phone / Tablet / Wearable
 
-getSimOperatorNumeric(slotId: number): Promise<string>
+##### sim.getSimOperatorNumeric
+
+getSimOperatorNumeric(slotId: number): Promise&lt;string&gt;
 
 获取指定卡槽SIM卡的归属PLMN(Public Land Mobile Network)号。使用Promise异步回调。
 
@@ -517,14 +449,12 @@ getSimOperatorNumeric(slotId: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -535,7 +465,6 @@ getSimOperatorNumeric(slotId: number): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -548,28 +477,20 @@ getSimOperatorNumeric(slotId: number): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getSimOperatorNumeric(0)
-  .then((data: string) => {
-    console.info(
-      `getSimOperatorNumeric success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getSimOperatorNumeric failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+sim.getSimOperatorNumeric(0).then((data: string) => {
+    console.info(`getSimOperatorNumeric success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getSimOperatorNumeric failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.getSimOperatorNumericSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getSimOperatorNumericSync10+
 
 getSimOperatorNumericSync(slotId: number): string
 
@@ -579,14 +500,12 @@ getSimOperatorNumericSync(slotId: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -595,8 +514,7 @@ getSimOperatorNumericSync(slotId: number): string
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
 let numeric: string = sim.getSimOperatorNumericSync(0);
@@ -604,10 +522,10 @@ console.info(`the sim operator numeric is:` + numeric);
 ```
 
 
-## sim.getSimSpn
-**支持设备：** Phone / Tablet / Wearable
 
-getSimSpn(slotId: number, callback: AsyncCallback<string>): void
+##### sim.getSimSpn
+
+getSimSpn(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定卡槽SIM卡的服务提供商名称(Service Provider Name，SPN)。使用callback异步回调。
 
@@ -615,17 +533,15 @@ getSimSpn(slotId: number, callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。返回指定卡槽SIM卡的SPN。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -639,23 +555,20 @@ getSimSpn(slotId: number, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getSimSpn(0, (err: BusinessError, data: string) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getSimSpn
-**支持设备：** Phone / Tablet / Wearable
 
-getSimSpn(slotId: number): Promise<string>
+##### sim.getSimSpn
+
+getSimSpn(slotId: number): Promise&lt;string&gt;
 
 获取指定卡槽SIM卡的服务提供商名称(Service Provider Name，SPN)。使用Promise异步回调。
 
@@ -663,14 +576,12 @@ getSimSpn(slotId: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -681,7 +592,6 @@ getSimSpn(slotId: number): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -694,24 +604,20 @@ getSimSpn(slotId: number): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getSimSpn(0)
-  .then((data: string) => {
+sim.getSimSpn(0).then((data: string) => {
     console.info(`getSimSpn success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`getSimSpn failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## sim.getSimSpnSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getSimSpnSync10+
 
 getSimSpnSync(slotId: number): string
 
@@ -721,14 +627,12 @@ getSimSpnSync(slotId: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -737,8 +641,7 @@ getSimSpnSync(slotId: number): string
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
 let spn: string = sim.getSimSpnSync(0);
@@ -746,10 +649,10 @@ console.info(`the sim card spn is:` + spn);
 ```
 
 
-## sim.getSimState
-**支持设备：** Phone / Tablet / Wearable
 
-getSimState(slotId: number, callback: AsyncCallback<SimState>): void
+##### sim.getSimState
+
+getSimState(slotId: number, callback: AsyncCallback&lt;SimState&gt;): void
 
 获取指定卡槽的SIM卡状态。使用callback异步回调。
 
@@ -757,17 +660,15 @@ getSimState(slotId: number, callback: AsyncCallback<SimState>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;[SimState](#simstate)&gt; | 是 | 回调函数。参考[SimState](#simstate)。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;SimState&gt; | 是 | 回调函数。参考SimState。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -780,23 +681,20 @@ getSimState(slotId: number, callback: AsyncCallback<SimState>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getSimState(0, (err: BusinessError, data: sim.SimState) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getSimState
-**支持设备：** Phone / Tablet / Wearable
 
-getSimState(slotId: number): Promise<SimState>
+##### sim.getSimState
+
+getSimState(slotId: number): Promise&lt;SimState&gt;
 
 获取指定卡槽的SIM卡状态。使用Promise异步回调。
 
@@ -804,24 +702,21 @@ getSimState(slotId: number): Promise<SimState>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SimState](#simstate)&gt; | 以Promise形式返回获取指定卡槽的SIM卡状态。 |
+| Promise&lt;SimState&gt; | 以Promise形式返回获取指定卡槽的SIM卡状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -834,24 +729,20 @@ getSimState(slotId: number): Promise<SimState>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getSimState(0)
-  .then((data: sim.SimState) => {
+sim.getSimState(0).then((data: sim.SimState) => {
     console.info(`getSimState success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`getSimState failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## sim.getSimStateSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getSimStateSync10+
 
 getSimStateSync(slotId: number): SimState
 
@@ -861,24 +752,21 @@ getSimStateSync(slotId: number): SimState
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SimState](#simstate) | 返回获取指定卡槽的SIM卡状态。 |
+| SimState | 返回获取指定卡槽的SIM卡状态。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
 let simState: sim.SimState = sim.getSimStateSync(0);
@@ -886,10 +774,10 @@ console.info(`The sim state is:` + simState);
 ```
 
 
-## sim.getCardType7+
-**支持设备：** Phone / Tablet / Wearable
 
-getCardType(slotId: number, callback: AsyncCallback<CardType>): void
+##### sim.getCardType7+
+
+getCardType(slotId: number, callback: AsyncCallback&lt;CardType&gt;): void
 
 获取指定卡槽SIM卡的卡类型。使用callback异步回调。
 
@@ -897,17 +785,15 @@ getCardType(slotId: number, callback: AsyncCallback<CardType>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;[CardType](#cardtype7)&gt; | 是 | 回调函数。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;CardType&gt; | 是 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -921,23 +807,20 @@ getCardType(slotId: number, callback: AsyncCallback<CardType>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getCardType(0, (err: BusinessError, data: sim.CardType) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getCardType7+
-**支持设备：** Phone / Tablet / Wearable
 
-getCardType(slotId: number): Promise<CardType>
+##### sim.getCardType7+
+
+getCardType(slotId: number): Promise&lt;CardType&gt;
 
 获取指定卡槽SIM卡的卡类型。使用Promise异步回调。
 
@@ -945,24 +828,21 @@ getCardType(slotId: number): Promise<CardType>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[CardType](#cardtype7)&gt; | 以Promise形式返回指定卡槽SIM卡的卡类型。 |
+| Promise&lt;CardType&gt; | 以Promise形式返回指定卡槽SIM卡的卡类型。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -976,24 +856,20 @@ getCardType(slotId: number): Promise<CardType>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getCardType(0)
-  .then((data: sim.CardType) => {
+sim.getCardType(0).then((data: sim.CardType) => {
     console.info(`getCardType success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`getCardType failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## sim.getCardTypeSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getCardTypeSync10+
 
 getCardTypeSync(slotId: number): CardType
 
@@ -1003,24 +879,21 @@ getCardTypeSync(slotId: number): CardType
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CardType](#cardtype7) | 返回指定卡槽SIM卡的卡类型。 |
+| CardType | 返回指定卡槽SIM卡的卡类型。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
 let cardType: sim.CardType = sim.getCardTypeSync(0);
@@ -1028,10 +901,10 @@ console.info(`the card type is:` + cardType);
 ```
 
 
-## sim.hasSimCard7+
-**支持设备：** Phone / Tablet / Wearable
 
-hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void
+##### sim.hasSimCard7+
+
+hasSimCard(slotId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 获取指定卡槽SIM卡是否插卡。使用callback异步回调。
 
@@ -1039,17 +912,15 @@ hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调返回指定卡槽是否插卡。          - true:插卡。          - false：未插卡。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调返回指定卡槽是否插卡。 - true:插卡。 - false：未插卡。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1062,23 +933,20 @@ hasSimCard(slotId: number, callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.hasSimCard(0, (err: BusinessError, data: boolean) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.hasSimCard7+
-**支持设备：** Phone / Tablet / Wearable
 
-hasSimCard(slotId: number): Promise<boolean>
+##### sim.hasSimCard7+
+
+hasSimCard(slotId: number): Promise&lt;boolean&gt;
 
 获取指定卡槽SIM卡是否插卡。使用Promise异步回调。
 
@@ -1086,24 +954,21 @@ hasSimCard(slotId: number): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | 以Promise形式返回指定卡槽是否插卡。          - true:插卡。          - false：未插卡。 |
+| Promise&lt;boolean&gt; | 以Promise形式返回指定卡槽是否插卡。 - true:插卡。 - false：未插卡。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1116,24 +981,20 @@ hasSimCard(slotId: number): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .hasSimCard(0)
-  .then((data: boolean) => {
+sim.hasSimCard(0).then((data: boolean) => {
     console.info(`hasSimCard success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`hasSimCard failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## sim.hasSimCardSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.hasSimCardSync10+
 
 hasSimCardSync(slotId: number): boolean
 
@@ -1143,24 +1004,21 @@ hasSimCardSync(slotId: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 返回指定卡槽是否插卡。          - true:插卡。          - false：未插卡。 |
+| boolean | 返回指定卡槽是否插卡。 - true:插卡。 - false：未插卡。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
 let hasSimCard: boolean = sim.hasSimCardSync(0);
@@ -1168,34 +1026,32 @@ console.info(`has sim card: ` + hasSimCard);
 ```
 
 
-## sim.getSimAccountInfo10+
-**支持设备：** Phone / Tablet / Wearable
 
-getSimAccountInfo(slotId: number, callback: AsyncCallback<IccAccountInfo>): void
+##### sim.getSimAccountInfo10+
+
+getSimAccountInfo(slotId: number, callback: AsyncCallback&lt;IccAccountInfo&gt;): void
 
 获取SIM卡账户信息。使用callback异步回调。
 
 **需要权限**：ohos.permission.GET_TELEPHONY_STATE
 
-
 > [!NOTE]
 > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
+
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;[IccAccountInfo](#iccaccountinfo10)&gt; | 是 | 回调函数。返回指定卡槽SIM卡的账户信息。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;IccAccountInfo&gt; | 是 | 回调函数。返回指定卡槽SIM卡的账户信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1210,54 +1066,48 @@ getSimAccountInfo(slotId: number, callback: AsyncCallback<IccAccountInfo>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim.getSimAccountInfo(0, (err: BusinessError, data: sim.IccAccountInfo) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+sim.getSimAccountInfo(0, (err:BusinessError , data: sim.IccAccountInfo) => {
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getSimAccountInfo10+
-**支持设备：** Phone / Tablet / Wearable
 
-getSimAccountInfo(slotId: number): Promise<IccAccountInfo>
+##### sim.getSimAccountInfo10+
+
+getSimAccountInfo(slotId: number): Promise&lt;IccAccountInfo&gt;
 
 获取SIM卡账户信息。使用Promise异步回调。
 
 **需要权限**：ohos.permission.GET_TELEPHONY_STATE
 
-
 > [!NOTE]
 > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
+
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[IccAccountInfo](#iccaccountinfo10)&gt; | 以Promise形式返回指定卡槽SIM卡的账户信息。 |
+| Promise&lt;IccAccountInfo&gt; | 以Promise形式返回指定卡槽SIM卡的账户信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1272,53 +1122,43 @@ getSimAccountInfo(slotId: number): Promise<IccAccountInfo>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getSimAccountInfo(0)
-  .then((data: sim.IccAccountInfo) => {
-    console.info(
-      `getSimAccountInfo success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getSimAccountInfo failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+sim.getSimAccountInfo(0).then((data: sim.IccAccountInfo) => {
+    console.info(`getSimAccountInfo success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getSimAccountInfo failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.getActiveSimAccountInfoList10+
-**支持设备：** Phone / Tablet / Wearable
 
-getActiveSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void
+##### sim.getActiveSimAccountInfoList10+
+
+getActiveSimAccountInfoList(callback: AsyncCallback<Array&lt;IccAccountInfo&gt;>): void
 
 获取激活SIM卡账户信息列表。使用callback异步回调。
 
 **需要权限**：ohos.permission.GET_TELEPHONY_STATE
 
-
 > [!NOTE]
 > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
+
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[IccAccountInfo](#iccaccountinfo10)&gt;&gt; | 是 | 回调函数。返回激活SIM卡账户信息列表。 |
+| callback | AsyncCallback<Array&lt;IccAccountInfo&gt;> | 是 | 回调函数。返回激活SIM卡账户信息列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1332,23 +1172,18 @@ getActiveSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): voi
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim.getActiveSimAccountInfoList(
-  (err: BusinessError, data: Array<sim.IccAccountInfo>) => {
-    console.info(
-      `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-    );
-  },
-);
+sim.getActiveSimAccountInfoList((err: BusinessError, data: Array<sim.IccAccountInfo>) => {
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
+});
 ```
 
 
-## sim.getMaxSimCount7+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getMaxSimCount7+
 
 getMaxSimCount(): number
 
@@ -1358,7 +1193,6 @@ getMaxSimCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 卡槽数量。 |
@@ -1366,41 +1200,38 @@ getMaxSimCount(): number
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
 
-console.info('Result: ' + sim.getMaxSimCount());
+console.info("Result: "+ sim.getMaxSimCount());
 ```
 
 
-## sim.getActiveSimAccountInfoList10+
-**支持设备：** Phone / Tablet / Wearable
 
-getActiveSimAccountInfoList(): Promise<Array<IccAccountInfo>>
+##### sim.getActiveSimAccountInfoList10+
+
+getActiveSimAccountInfoList(): Promise<Array&lt;IccAccountInfo&gt;>
 
 获取激活SIM卡账户信息列表。使用Promise异步回调。
 
 **需要权限**：ohos.permission.GET_TELEPHONY_STATE
 
-
 > [!NOTE]
 > 获取ICCID和号码信息时需要GET_TELEPHONY_STATE权限，ICCID和号码信息为敏感数据，不向三方应用开放。调用接口时，获取到的ICCID和号码信息为空。
+
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[IccAccountInfo](#iccaccountinfo10)&gt;&gt; | 以Promise形式返回激活卡槽SIM卡的账户信息列表。 |
+| Promise<Array&lt;IccAccountInfo&gt;> | 以Promise形式返回激活卡槽SIM卡的账户信息列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1412,30 +1243,22 @@ getActiveSimAccountInfoList(): Promise<Array<IccAccountInfo>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getActiveSimAccountInfoList()
-  .then((data: Array<sim.IccAccountInfo>) => {
-    console.info(
-      `getActiveSimAccountInfoList success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getActiveSimAccountInfoList failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+sim.getActiveSimAccountInfoList().then((data: Array<sim.IccAccountInfo>) => {
+    console.info(`getActiveSimAccountInfoList success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getActiveSimAccountInfoList failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.getOpKey9+
-**支持设备：** Phone / Tablet / Wearable
 
-getOpKey(slotId: number, callback: AsyncCallback<string>): void
+##### sim.getOpKey9+
+
+getOpKey(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定卡槽中SIM卡的opkey。使用callback异步回调。
 
@@ -1443,17 +1266,15 @@ getOpKey(slotId: number, callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1467,29 +1288,28 @@ getOpKey(slotId: number, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 try {
-  sim.getOpKey(0, (err: BusinessError, data: string) => {
+    sim.getOpKey(0, (err: BusinessError, data: string) => {
     if (err) {
-      console.error('getOpKey failed, err: ' + JSON.stringify(err));
+      console.error("getOpKey failed, err: " + JSON.stringify(err));
     } else {
       console.info('getOpKey successfully, data: ' + JSON.stringify(data));
     }
   });
 } catch (err) {
-  console.error('getOpKey err: ' + JSON.stringify(err));
+  console.error("getOpKey err: " + JSON.stringify(err));
 }
 ```
 
 
-## sim.getOpKey9+
-**支持设备：** Phone / Tablet / Wearable
 
-getOpKey(slotId: number): Promise<string>
+##### sim.getOpKey9+
+
+getOpKey(slotId: number): Promise&lt;string&gt;
 
 获取指定卡槽中SIM卡的opkey。使用Promise异步回调。
 
@@ -1497,14 +1317,12 @@ getOpKey(slotId: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1515,7 +1333,6 @@ getOpKey(slotId: number): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1528,24 +1345,20 @@ getOpKey(slotId: number): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getOpKey(0)
-  .then((data: string) => {
+sim.getOpKey(0).then((data: string) => {
     console.info(`getOpKey success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`getOpKey failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## sim.getOpKeySync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getOpKeySync10+
 
 getOpKeySync(slotId: number): string
 
@@ -1555,14 +1368,12 @@ getOpKeySync(slotId: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1571,8 +1382,7 @@ getOpKeySync(slotId: number): string
 
 **示例：**
 
-
-```ts
+```json
 import { sim } from '@kit.TelephonyKit';
 
 let data: string = sim.getOpKeySync(0);
@@ -1580,10 +1390,10 @@ console.info(`getOpKey success, promise: data->${JSON.stringify(data)}`);
 ```
 
 
-## sim.getOpName9+
-**支持设备：** Phone / Tablet / Wearable
 
-getOpName(slotId: number, callback: AsyncCallback<string>): void
+##### sim.getOpName9+
+
+getOpName(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定卡槽中SIM卡的OpName。使用callback异步回调。
 
@@ -1591,17 +1401,15 @@ getOpName(slotId: number, callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1615,29 +1423,28 @@ getOpName(slotId: number, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 try {
-  sim.getOpName(0, (err: BusinessError, data: string) => {
+    sim.getOpName(0, (err: BusinessError, data: string) => {
     if (err) {
-      console.error('getOpName failed, err: ' + JSON.stringify(err));
+      console.error("getOpName failed, err: " + JSON.stringify(err));
     } else {
       console.info('getOpName successfully, data: ' + JSON.stringify(data));
     }
   });
 } catch (err) {
-  console.error('getOpName err: ' + JSON.stringify(err));
+  console.error("getOpName err: " + JSON.stringify(err));
 }
 ```
 
 
-## sim.getOpName9+
-**支持设备：** Phone / Tablet / Wearable
 
-getOpName(slotId: number): Promise<string>
+##### sim.getOpName9+
+
+getOpName(slotId: number): Promise&lt;string&gt;
 
 获取指定卡槽中SIM卡的OpName。使用Promise异步回调。
 
@@ -1645,14 +1452,12 @@ getOpName(slotId: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1663,7 +1468,6 @@ getOpName(slotId: number): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1676,24 +1480,20 @@ getOpName(slotId: number): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getOpName(0)
-  .then((data: string) => {
+sim.getOpName(0).then((data: string) => {
     console.info(`getOpName success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`getOpName failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## sim.getOpNameSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getOpNameSync10+
 
 getOpNameSync(slotId: number): string
 
@@ -1703,14 +1503,12 @@ getOpNameSync(slotId: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1719,8 +1517,7 @@ getOpNameSync(slotId: number): string
 
 **示例：**
 
-
-```ts
+```json
 import { sim } from '@kit.TelephonyKit';
 
 let data: string = sim.getOpNameSync(0);
@@ -1728,10 +1525,10 @@ console.info(`getOpName success, promise: data->${JSON.stringify(data)}`);
 ```
 
 
-## sim.getDefaultVoiceSimId10+
-**支持设备：** Phone / Tablet / Wearable
 
-getDefaultVoiceSimId(callback: AsyncCallback<number>): void
+##### sim.getDefaultVoiceSimId10+
+
+getDefaultVoiceSimId(callback: AsyncCallback&lt;number&gt;): void
 
 获取默认语音业务的SIM卡ID。使用callback异步回调。
 
@@ -1739,16 +1536,14 @@ getDefaultVoiceSimId(callback: AsyncCallback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。          与SIM卡绑定，从1开始递增。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。 与SIM卡绑定，从1开始递增。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1763,23 +1558,20 @@ getDefaultVoiceSimId(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getDefaultVoiceSimId((err: BusinessError, data: number) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+    console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getDefaultVoiceSimId10+
-**支持设备：** Phone / Tablet / Wearable
 
-getDefaultVoiceSimId(): Promise<number>
+##### sim.getDefaultVoiceSimId10+
+
+getDefaultVoiceSimId(): Promise&lt;number&gt;
 
 获取默认语音业务的SIM卡ID。使用Promise异步回调。
 
@@ -1787,16 +1579,14 @@ getDefaultVoiceSimId(): Promise<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以Promise形式返回默认语音业务的SIM卡ID。          与SIM卡绑定，从1开始递增。 |
+| Promise&lt;number&gt; | 以Promise形式返回默认语音业务的SIM卡ID。 与SIM卡绑定，从1开始递增。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1810,52 +1600,43 @@ getDefaultVoiceSimId(): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 let promise = sim.getDefaultVoiceSimId();
-promise
-  .then((data: number) => {
-    console.info(
-      `getDefaultVoiceSimId success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getDefaultVoiceSimId failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+promise.then((data: number) => {
+    console.info(`getDefaultVoiceSimId success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getDefaultVoiceSimId failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.getSimLabel20+
-**支持设备：** Phone / Tablet / Wearable
 
-getSimLabel(slotId: number, callback: AsyncCallback<SimLabel>): void
+##### sim.getSimLabel20+
+
+getSimLabel(slotId: number, callback: AsyncCallback&lt;SimLabel&gt;): void
 
 查看卡槽ID和SIM卡的对应关系：
 
+ - 卡槽1对应SIM卡1或SIM卡2
+ - 卡槽2对应SIM卡2或ESIMX
 
-- 卡槽1对应SIM卡1或SIM卡2
-- 卡槽2对应SIM卡2或ESIMX
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;[SimLabel](#simlabel20)&gt; | 是 | 回调函数。获取SIM卡标签信息。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;SimLabel&gt; | 是 | 回调函数。获取SIM卡标签信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1867,23 +1648,20 @@ getSimLabel(slotId: number, callback: AsyncCallback<SimLabel>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
 sim.getSimLabel(0, (err: BusinessError, data: sim.SimLabel) => {
-  console.info(
-    `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-  );
+  console.info(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## sim.getSimLabel20+
-**支持设备：** Phone / Tablet / Wearable
 
-getSimLabel(slotId: number): Promise<SimLabel>
+##### sim.getSimLabel20+
+
+getSimLabel(slotId: number): Promise&lt;SimLabel&gt;
 
 获取SIM卡的标签信息。使用Promise异步回调。
 
@@ -1891,24 +1669,21 @@ getSimLabel(slotId: number): Promise<SimLabel>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SimLabel](#simlabel20) &gt; | 回调函数。获取SIM卡标签信息。 |
+| Promise<SimLabel > | 回调函数。获取SIM卡标签信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1920,24 +1695,20 @@ getSimLabel(slotId: number): Promise<SimLabel>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { sim } from '@kit.TelephonyKit';
 
-sim
-  .getSimLabel(0)
-  .then((data: sim.SimLabel) => {
-    console.info(`getSimLabel success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(`getSimState failed, promise: err->${JSON.stringify(err)}`);
-  });
+sim.getSimLabel(0).then((data: sim.SimLabel) => {
+  console.info(`getSimLabel success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+  console.error(`getSimState failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## sim.getSimLabelSync20+
-**支持设备：** Phone / Tablet / Wearable
+
+##### sim.getSimLabelSync20+
 
 getSimLabelSync(slotId: number): SimLabel
 
@@ -1947,38 +1718,35 @@ getSimLabelSync(slotId: number): SimLabel
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SimLabel](#simlabel20) | SIM卡标���。 |
+| SimLabel | SIM卡标签。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { sim } from '@kit.TelephonyKit';
+
 
 let simLabel: sim.SimLabel = sim.getSimLabelSync(0);
 console.info(`The sim state is:` + simLabel);
 ```
 
 
-## SimType20+
-**支持设备：** Phone / Tablet / Wearable
+
+##### SimType20+
 
 SIM卡类型的枚举。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1986,27 +1754,27 @@ SIM卡类型的枚举。
 | ESIM | 1 | 电子SIM卡。 |
 
 
-## SimLabel20+
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### SimLabel20+
 
 SIM卡标签。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| simType | [SimType](#simtype20) | 否 | 否 | 表示SIM卡类型的枚举。 |
+| simType | SimType | 否 | 否 | 表示SIM卡类型的枚举。 |
 | index | number | 否 | 否 | SIM卡的唯一标识索引值。 |
 
 
-## SimState
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### SimState
 
 SIM卡状态。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2018,13 +1786,13 @@ SIM卡状态。
 | SIM_STATE_LOADED | 5 | 表示SIM卡处于loaded状态，即SIM卡在位且所有卡文件加载完毕。 |
 
 
-## CardType7+
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### CardType7+
 
 卡类型。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2040,20 +1808,20 @@ SIM卡状态。
 | SINGLE_MODE_ISIM_CARD8+ | 60 | 单一ISIM卡类型。 |
 
 
-## IccAccountInfo10+
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### IccAccountInfo10+
 
 Icc账户信息。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | simId | number | 否 | 否 | SIM卡ID。 |
 | slotIndex | number | 否 | 否 | 卡槽ID。 |
-| isEsim | boolean | 否 | 否 | 标记卡是否是eSim。          - true:是eSim。          - false：不是eSim。 |
-| isActive | boolean | 否 | 否 | 卡是否被激活。          - true:激活。          - false：未激活。 |
+| isEsim | boolean | 否 | 否 | 标记卡是否是eSim。 - true:是eSim。 - false：不是eSim。 |
+| isActive | boolean | 否 | 否 | 卡是否被激活。 - true:激活。 - false：未激活。 |
 | iccId | string | 否 | 否 | ICCID号码。 |
 | showName | string | 否 | 否 | SIM卡显示名称。 |
 | showNumber | string | 否 | 否 | SIM卡显示号码。 |

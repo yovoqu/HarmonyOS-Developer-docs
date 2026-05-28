@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-empty-interface
 
 不允许声明空接口。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-empty-interface": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-empty-interface选项](https://typescript-eslint.nodejs.cn/rules/no-empty-interface/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // an interface with any number of members
@@ -41,10 +42,10 @@ interface Bar {
 // in this case the interface can be used as a replacement of an intersection type.
 export interface Baz extends Foo, Bar {}
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // an empty interface
@@ -56,13 +57,13 @@ export interface Bar extends Foo {}
 // an interface with an empty list of supertypes
 export interface Baz {}
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

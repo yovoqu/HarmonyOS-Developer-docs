@@ -1,32 +1,49 @@
 # IPC与RPC通信开发指导(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ipc-capi-development-guideline
 
-## 场景介绍
+##### 场景介绍
 
-IPC让运行在不同进程间的Proxy和Stub实现互相通信。IPC CAPI是IPC Kit提供的C语言接口。 IPC CAPI接口不直接提供获取通信代理对象的能力，该功能由[Ability Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitykit-overview)提供。
-![](assets/IPC与RPC通信开发指导(C／C++)
-/file-20260514130958881-0.png) 进程间IPC通道的建立，请参考[Native子进程开发指导（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/capi-nativechildprocess-development-guideline)。本文重点介绍IPC CAPI的使用。
+IPC让运行在不同进程间的Proxy和Stub实现互相通信。IPC CAPI是IPC Kit提供的C语言接口。
 
-## 接口说明
+IPC CAPI接口不直接提供获取通信代理对象的能力，该功能由[Ability Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitykit-overview)提供。
+
+
+![](assets/IPC与RPC通信开发指导(C／C++)/file-20260514130958881-0.png)
+
+
+进程间IPC通道的建立，请参考[Native子进程开发指导（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/capi-nativechildprocess-development-guideline)。本文重点介绍IPC CAPI的使用。
+
+
+
+##### 接口说明
 
 **表1** IPC CAPI侧关键接口
+
 | 接口名 | 描述 |
 | --- | --- |
-| typedef int (*OH_OnRemoteRequestCallback)          (uint32_t code, const OHIPCParcel *data, OHIPCParcel *reply,          void *userData); | Stub端用于处理远端数据请求的回调函数。 |
-| OHIPCRemoteStub* OH_IPCRemoteStub_Create          (const char *descriptor, OH_OnRemoteRequestCallback requestCallback,          OH_OnRemoteDestroyCallback destroyCallback, void *userData); | 创建OHIPCRemoteStub对象。 |
-| int OH_IPCRemoteProxy_SendRequest(const OHIPCRemoteProxy *proxy,          uint32_t code, const OHIPCParcel *data, OHIPCParcel *reply,          const OH_IPC_MessageOption *option); | IPC消息发送函数。 |
+| typedef int (*OH_OnRemoteRequestCallback) (uint32_t code, const OHIPCParcel *data, OHIPCParcel *reply, void *userData); | Stub端用于处理远端数据请求的回调函数。 |
+| OHIPCRemoteStub* OH_IPCRemoteStub_Create (const char *descriptor, OH_OnRemoteRequestCallback requestCallback, OH_OnRemoteDestroyCallback destroyCallback, void *userData); | 创建OHIPCRemoteStub对象。 |
+| int OH_IPCRemoteProxy_SendRequest(const OHIPCRemoteProxy *proxy, uint32_t code, const OHIPCParcel *data, OHIPCParcel *reply, const OH_IPC_MessageOption *option); | IPC消息发送函数。 |
 | struct OHIPCRemoteProxy; | 用于向远端发送请求的OHIPCRemoteProxy对象，需要依赖元能力接口返回。 |
-| OHIPCDeathRecipient* OH_IPCDeathRecipient_Create          (OH_OnDeathRecipientCallback deathRecipientCallback,          OH_OnDeathRecipientDestroyCallback destroyCallback,          void *userData); | 创建用于监听远端OHIPCRemoteStub对象死亡的通知对象（OHIPCDeathRecipient对象）。 |
-| int OH_IPCRemoteProxy_AddDeathRecipient(OHIPCRemoteProxy *proxy,          OHIPCDeathRecipient *recipient); | 向OHIPCRemoteProxy对象注册死亡监听，用于接收远端OHIPCRemoteStub对象死亡时的回调通知。 |
+| OHIPCDeathRecipient* OH_IPCDeathRecipient_Create (OH_OnDeathRecipientCallback deathRecipientCallback, OH_OnDeathRecipientDestroyCallback destroyCallback, void *userData); | 创建用于监听远端OHIPCRemoteStub对象死亡的通知对象（OHIPCDeathRecipient对象）。 |
+| int OH_IPCRemoteProxy_AddDeathRecipient(OHIPCRemoteProxy *proxy, OHIPCDeathRecipient *recipient); | 向OHIPCRemoteProxy对象注册死亡监听，用于接收远端OHIPCRemoteStub对象死亡时的回调通知。 |
+
 
 详细的接口说明请参考[IPCKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ipckit)。
 
-## 开发步骤
 
-先创建服务端Stub对象，通过元能力获取其客户端代理Proxy对象，然后用Proxy对象与服务端Stub对象进行IPC通信，同时再注册远端对象的死亡通知回调，用于Proxy侧感知服务端Stub对象所在进程的死亡状态。 **动态库文件** CMakeLists.txt中添加以下lib。
+
+##### 开发步骤
+
+先创建服务端Stub对象，通过元能力获取其客户端代理Proxy对象，然后用Proxy对象与服务端Stub对象进行IPC通信，同时再注册远端对象的死亡通知回调，用于Proxy侧感知服务端Stub对象所在进程的死亡状态。
+
+**动态库文件**
+
+CMakeLists.txt中添加以下lib。
+
 ```text
 # ipc capi
 libipc_capi.so
@@ -35,18 +52,20 @@ libchild_process.so
 ```
 
 **头文件**
-```text
-#include
-#include
+
+```cpp
+#include <IPCKit/ipc_kit.h>
+#include <AbilityKit/native_child_process.h>
 ```
 
 **子进程实现**
-```text
-#include
+
+```cpp
+#include <IPCKit/ipc_kit.h>
 // ...
-#include
-#include
-#include
+#include <IPCKit/ipc_cremote_object.h>
+#include <IPCKit/ipc_cparcel.h>
+#include <IPCKit/ipc_error_code.h>
 
 class IpcCapiStubTest {
 public:
@@ -100,9 +119,10 @@ void NativeChildProcessMainProc()
 ```
 
 **主进程实现**
-```text
-#include
-#include
+
+```cpp
+#include <IPCKit/ipc_kit.h>
+#include <AbilityKit/native_child_process.h>
 // ...
 static void OnNativeChildProcessStarted(int errCode, OHIPCRemoteProxy *remoteProxy)
 {
@@ -131,9 +151,10 @@ void CreateNativeChildProcess()
 ```
 
 **Proxy侧实现**
-```text
+
+```cpp
 #include "IpcProxy.h"
-#include
+#include <IPCKit/ipc_error_code.h>
 #include "Ipchelper.h"
 
 IpcProxy::IpcProxy(OHIPCRemoteProxy *ipcProxy)
@@ -153,18 +174,18 @@ bool IpcProxy::RequestExitChildProcess(int32_t exitCode)
     if (ipcProxy_ == nullptr) {
         return false;
     }
-
+    
     StdUniPtrIpcParcel data(OH_IPCParcel_Create(), OH_IPCParcel_Destroy);
     StdUniPtrIpcParcel reply(OH_IPCParcel_Create(), OH_IPCParcel_Destroy);
     if (data == nullptr || reply == nullptr) {
         return false;
     }
-
+    
     if (!WriteInterfaceToken(data.get()) ||
         OH_IPCParcel_WriteInt32(data.get(), exitCode) != OH_IPC_SUCCESS) {
         return false;
     }
-
+    
     OH_IPC_MessageOption ipcOpt;
     ipcOpt.mode = OH_IPC_REQUEST_MODE_SYNC;
     ipcOpt.timeout = 0;
@@ -173,7 +194,7 @@ bool IpcProxy::RequestExitChildProcess(int32_t exitCode)
     if (ret != OH_IPC_SUCCESS) {
         return false;
     }
-
+    
     return true;
 }
 
@@ -182,20 +203,20 @@ int32_t IpcProxy::Add(int32_t a, int32_t b)
     if (ipcProxy_ == nullptr) {
         return INT32_MIN;
     }
-
+    
     int32_t result = INT32_MIN;
     StdUniPtrIpcParcel data(OH_IPCParcel_Create(), OH_IPCParcel_Destroy);
     StdUniPtrIpcParcel reply(OH_IPCParcel_Create(), OH_IPCParcel_Destroy);
     if (data == nullptr || reply == nullptr) {
         return result;
     }
-
+    
     if (!WriteInterfaceToken(data.get()) ||
         OH_IPCParcel_WriteInt32(data.get(), a) != OH_IPC_SUCCESS ||
         OH_IPCParcel_WriteInt32(data.get(), b) != OH_IPC_SUCCESS) {
         return result;
     }
-
+    
     OH_IPC_MessageOption ipcOpt;
     ipcOpt.mode = OH_IPC_REQUEST_MODE_SYNC;
     ipcOpt.timeout = 0;
@@ -204,7 +225,7 @@ int32_t IpcProxy::Add(int32_t a, int32_t b)
     if (ret != OH_IPC_SUCCESS) {
         return result;
     }
-
+    
     OH_IPCParcel_ReadInt32(reply.get(), &result);
     return result;
 }
@@ -214,18 +235,18 @@ int32_t IpcProxy::StartNativeChildProcess()
     if (ipcProxy_ == nullptr) {
         return INT32_MIN;
     }
-
+    
     int32_t result = INT32_MIN;
     StdUniPtrIpcParcel data(OH_IPCParcel_Create(), OH_IPCParcel_Destroy);
     StdUniPtrIpcParcel reply(OH_IPCParcel_Create(), OH_IPCParcel_Destroy);
     if (data == nullptr || reply == nullptr) {
         return result;
     }
-
+    
     if (!WriteInterfaceToken(data.get())) {
         return result;
     }
-
+    
     OH_IPC_MessageOption ipcOpt;
     ipcOpt.mode = OH_IPC_REQUEST_MODE_SYNC;
     ipcOpt.timeout = 0;
@@ -235,7 +256,7 @@ int32_t IpcProxy::StartNativeChildProcess()
     if (ret != OH_IPC_SUCCESS) {
         return result;
     }
-
+    
     OH_IPCParcel_ReadInt32(reply.get(), &result);
     return result;
 }
@@ -247,11 +268,12 @@ bool IpcProxy::WriteInterfaceToken(OHIPCParcel* data)
 ```
 
 **Stub侧实现**
-```text
+
+```cpp
 #include "IpcStub.h"
-#include
-#include
-#include
+#include <IPCKit/ipc_error_code.h>
+#include <cstring>
+#include <new>
 
 IpcStub::IpcStub()
 {
@@ -278,31 +300,31 @@ int IpcStub::OnRemoteRequest(uint32_t code, const OHIPCParcel *data, OHIPCParcel
     if (userData == nullptr) {
         return OH_IPC_CHECK_PARAM_ERROR;
     }
-
+    
     if (!CheckInterfaceToken(data)) {
         return OH_IPC_CHECK_PARAM_ERROR;
     }
-
+    
     int ret;
-    IpcStub *thiz = reinterpret_cast(userData);
+    IpcStub *thiz = reinterpret_cast<IpcStub*>(userData);
     switch (code) {
         case IPC_ID_REQUEST_EXIT_PROCESS:
             ret = thiz->HandleRequestExitChildProcess(data, reply);
             break;
-
+        
         case IPC_ID_ADD:
             ret = thiz->HandleAdd(data, reply);
             break;
-
+        
         case IPC_ID_START_NATIVE_CHILD_PROCESS:
             ret = thiz->HandleStartNativeChildProcess(data, reply);
             break;
-
+        
         default:
             ret = OH_IPC_CODE_OUT_OF_RANGE;
             break;
     }
-
+    
     return ret;
 }
 
@@ -318,7 +340,7 @@ void* IpcStub::OnIpcMemAlloc(int32_t len)
 
 void IpcStub::ReleaseIpcMem(void* ipcMem)
 {
-    delete[] reinterpret_cast(ipcMem);
+    delete[] reinterpret_cast<char*>(ipcMem);
 }
 
 bool IpcStub::CheckInterfaceToken(const OHIPCParcel* data)
@@ -329,7 +351,7 @@ bool IpcStub::CheckInterfaceToken(const OHIPCParcel* data)
     if (ret != OH_IPC_SUCCESS) {
         return false;
     }
-
+    
     bool tokenCheckRes = strcmp(token, interfaceToken_) == 0;
     ReleaseIpcMem(token);
     return tokenCheckRes;
@@ -353,12 +375,12 @@ int32_t IpcStub::HandleAdd(const OHIPCParcel *data, OHIPCParcel *reply)
         OH_IPCParcel_ReadInt32(data, &b) != OH_IPC_SUCCESS) {
         return OH_IPC_PARCEL_READ_ERROR;
     }
-
+    
     int32_t result = Add(a, b);
     if (OH_IPCParcel_WriteInt32(reply, result) != OH_IPC_SUCCESS) {
         return OH_IPC_PARCEL_WRITE_ERROR;
     }
-
+    
     return OH_IPC_SUCCESS;
 }
 

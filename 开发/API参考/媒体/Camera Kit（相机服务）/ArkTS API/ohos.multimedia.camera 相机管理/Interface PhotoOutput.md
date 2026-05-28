@@ -3,28 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拍照会话中使用的输出信息，继承[CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput)。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 ```
 
 
-## capture
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-capture(callback: AsyncCallback<void>): void
+##### capture
+
+capture(callback: AsyncCallback&lt;void&gt;): void
 
 以默认设置触发一次拍照，通过注册回调函数获取结果。使用callback异步回调。
 
@@ -34,16 +32,14 @@ capture(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当以默认设置触发拍照成功，err为undefined，否则为错误对象。错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当以默认设置触发拍照成功，err为undefined，否则为错误对象。错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -53,8 +49,7 @@ capture(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function capture(photoOutput: camera.PhotoOutput): void {
@@ -63,18 +58,16 @@ function capture(photoOutput: camera.PhotoOutput): void {
       console.error(`Failed to capture the photo, error code: ${err.code}.`);
       return;
     }
-    console.info(
-      'Callback invoked to indicate the photo capture request success.',
-    );
+    console.info('Callback invoked to indicate the photo capture request success.');
   });
 }
 ```
 
 
-## capture
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-capture(): Promise<void>
+##### capture
+
+capture(): Promise&lt;void&gt;
 
 以默认设置触发一次拍照。使用Promise异步回调。
 
@@ -84,7 +77,6 @@ capture(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -94,7 +86,6 @@ capture(): Promise<void>
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400104 | Session not running. |
@@ -103,31 +94,23 @@ capture(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function capture(photoOutput: camera.PhotoOutput): void {
-  photoOutput
-    .capture()
-    .then(() => {
-      console.info(
-        'Promise returned to indicate that photo capture request success.',
-      );
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to photo output capture, error code: ${error.code}.`,
-      );
-    });
+  photoOutput.capture().then(() => {
+    console.info('Promise returned to indicate that photo capture request success.');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to photo output capture, error code: ${error.code}.`);
+  });
 }
 ```
 
 
-## capture
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void
+##### capture
+
+capture(setting: PhotoCaptureSetting, callback: AsyncCallback&lt;void&gt;): void
 
 以指定参数触发一次拍照，通过注册回调函数获取结果。使用callback异步回调。
 
@@ -137,17 +120,15 @@ capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| setting | [PhotoCaptureSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#photocapturesetting) | 是 | 拍照设置，传入undefined类型数据按默认设置触发一次拍照处理。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，用于获取结果。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| setting | PhotoCaptureSetting | 是 | 拍照设置，传入undefined类型数据按默认设置触发一次拍照处理。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，用于获取结果。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -158,39 +139,36 @@ capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function capture(photoOutput: camera.PhotoOutput): void {
   let captureLocation: camera.Location = {
     latitude: 0,
     longitude: 0,
-    altitude: 0,
-  };
+    altitude: 0
+  }
   let settings: camera.PhotoCaptureSetting = {
     quality: camera.QualityLevel.QUALITY_LEVEL_LOW,
     rotation: camera.ImageRotation.ROTATION_0,
     location: captureLocation,
-    mirror: false,
-  };
+    mirror: false
+  }
   photoOutput.capture(settings, (err: BusinessError) => {
     if (err) {
       console.error(`Failed to capture the photo, error code: ${err.code}.`);
       return;
     }
-    console.info(
-      'Callback invoked to indicate the photo capture request success.',
-    );
+    console.info('Callback invoked to indicate the photo capture request success.');
   });
 }
 ```
 
 
-## capture
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-capture(setting: PhotoCaptureSetting): Promise<void>
+##### capture
+
+capture(setting: PhotoCaptureSetting): Promise&lt;void&gt;
 
 以指定参数触发一次拍照。使用Promise异步回调。
 
@@ -200,14 +178,12 @@ capture(setting: PhotoCaptureSetting): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| setting | [PhotoCaptureSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#photocapturesetting) | 是 | 拍照设置，传入undefined类型数据按默认设置触发一次拍照处理。 |
+| setting | PhotoCaptureSetting | 是 | 拍照设置，传入undefined类型数据按默认设置触发一次拍照处理。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -218,7 +194,6 @@ capture(setting: PhotoCaptureSetting): Promise<void>
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
@@ -228,48 +203,40 @@ capture(setting: PhotoCaptureSetting): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function capture(photoOutput: camera.PhotoOutput): void {
   let captureLocation: camera.Location = {
     latitude: 0,
     longitude: 0,
-    altitude: 0,
-  };
+    altitude: 0
+  }
   let settings: camera.PhotoCaptureSetting = {
     quality: camera.QualityLevel.QUALITY_LEVEL_LOW,
     rotation: camera.ImageRotation.ROTATION_0,
     location: captureLocation,
-    mirror: false,
-  };
-  photoOutput
-    .capture(settings)
-    .then(() => {
-      console.info(
-        'Promise returned to indicate that photo capture request success.',
-      );
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to photo output capture, error code: ${error.code}.`,
-      );
-    });
+    mirror: false
+  }
+  photoOutput.capture(settings).then(() => {
+    console.info('Promise returned to indicate that photo capture request success.');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to photo output capture, error code: ${error.code}.`);
+  });
 }
 ```
 
 
-## on('photoAvailable')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void
+##### on('photoAvailable')11+
+
+on(type: 'photoAvailable', callback: AsyncCallback&lt;Photo&gt;): void
 
 注册监听拍照返回照片上报事件。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -277,17 +244,15 @@ on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'photoAvailable'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[Photo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photo)&gt; | 是 | 回调函数，用于监听拍照返回照片上报事件。 |
+| callback | AsyncCallback&lt;Photo&gt; | 是 | 回调函数，用于监听拍照返回照片上报事件。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 import { camera } from '@kit.CameraKit';
@@ -300,18 +265,16 @@ function callback(err: BusinessError, photo: camera.Photo): void {
   let mainImage: image.Image = photo.main;
 }
 
-function registerPhotoOutputPhotoAvailable(
-  photoOutput: camera.PhotoOutput,
-): void {
+function registerPhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('photoAvailable', callback);
 }
 ```
 
 
-## off('photoAvailable')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void
+##### off('photoAvailable')11+
+
+off(type: 'photoAvailable', callback?: AsyncCallback&lt;Photo&gt;): void
 
 注销监听拍照返回照片上报事件。
 
@@ -321,17 +284,15 @@ off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'photoAvailable'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[Photo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photo)&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | AsyncCallback&lt;Photo&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 
@@ -343,20 +304,21 @@ function callback(err: BusinessError, photo: camera.Photo): void {
   let mainImage: image.Image = photo.main;
 }
 
-function unRegisterPhotoOutputPhotoAvailable(
-  photoOutput: camera.PhotoOutput,
-): void {
+function unRegisterPhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('photoAvailable', callback);
 }
 ```
 
 
-## onCapturePhotoAvailable23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-onCapturePhotoAvailable(callback: Callback<CapturePhoto>): void
+##### onCapturePhotoAvailable23+
+
+onCapturePhotoAvailable(callback: Callback&lt;CapturePhoto&gt;): void
 
 注册监听全质量图和未压缩图。使用callback异步回调。
+
+> [!NOTE]
+> 注册监听接口时，不支持在该接口监听的回调方法里调用 offCapturePhotoAvailable 注销回调。 拍摄未压缩图（YUV）格式图片时，仅支持使用此接口注册监听。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -367,16 +329,14 @@ onCapturePhotoAvailable(callback: Callback<CapturePhoto>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[CapturePhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-capturephoto)&gt; | 是 | 回调函数，用于监听全质量图和未压缩图上报事件。 |
+| callback | Callback&lt;CapturePhoto&gt; | 是 | 回调函数，用于监听全质量图和未压缩图上报事件。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 import { image } from '@kit.ImageKit';
 
@@ -384,18 +344,16 @@ function callback(capturePhoto: camera.CapturePhoto): void {
   let picture: image.Image | image.Picture = capturePhoto.main;
 }
 
-function registerCapturePhotoOutputPhotoAvailable(
-  photoOutput: camera.PhotoOutput,
-): void {
+function registerCapturePhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): void {
   photoOutput.onCapturePhotoAvailable(callback);
 }
 ```
 
 
-## offCapturePhotoAvailable23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-offCapturePhotoAvailable(callback?: Callback<CapturePhoto>): void
+##### offCapturePhotoAvailable23+
+
+offCapturePhotoAvailable(callback?: Callback&lt;CapturePhoto&gt;): void
 
 注销监听全质量图和未压缩图。使用callback异步回调。
 
@@ -407,16 +365,14 @@ offCapturePhotoAvailable(callback?: Callback<CapturePhoto>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[CapturePhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-capturephoto)&gt; | 否 | 回调函数，如果指定参数则取消对应callback，callback对象不可是匿名函数，否则取消所有callback。 |
+| callback | Callback&lt;CapturePhoto&gt; | 否 | 回调函数，如果指定参数则取消对应callback，callback对象不可是匿名函数，否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 import { image } from '@kit.ImageKit';
 
@@ -424,24 +380,22 @@ function callback(capturePhoto: camera.CapturePhoto): void {
   let picture: image.Image | image.Picture = capturePhoto.main;
 }
 
-function unRegisterCapturePhotoOutputPhotoAvailable(
-  photoOutput: camera.PhotoOutput,
-): void {
+function unRegisterCapturePhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): void {
   photoOutput.offCapturePhotoAvailable(callback);
 }
 ```
 
 
-## on('captureStartWithInfo')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void
+##### on('captureStartWithInfo')11+
+
+on(type: 'captureStartWithInfo', callback: AsyncCallback&lt;CaptureStartInfo&gt;): void
 
 监听拍照开始，通过注册回调函数获取[CaptureStartInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#capturestartinfo11)。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -449,23 +403,18 @@ on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'captureStartWithInfo'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[CaptureStartInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#capturestartinfo11)&gt; | 是 | 使用callback的方式获取Capture ID。 |
+| callback | AsyncCallback&lt;CaptureStartInfo&gt; | 是 | 使用callback的方式获取Capture ID。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function callback(
-  err: BusinessError,
-  captureStartInfo: camera.CaptureStartInfo,
-): void {
+function callback(err: BusinessError, captureStartInfo: camera.CaptureStartInfo): void {
   if (err !== undefined && err.code !== 0) {
     console.error(`Callback Error, errorCode: ${err.code}`);
     return;
@@ -479,10 +428,10 @@ function registerCaptureStartWithInfo(photoOutput: camera.PhotoOutput): void {
 ```
 
 
-## off('captureStartWithInfo')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): void
+##### off('captureStartWithInfo')11+
+
+off(type: 'captureStartWithInfo', callback?: AsyncCallback&lt;CaptureStartInfo&gt;): void
 
 注销监听拍照。
 
@@ -492,17 +441,15 @@ off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'captureStartWithInfo'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[CaptureStartInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#capturestartinfo11)&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | AsyncCallback&lt;CaptureStartInfo&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function unRegisterCaptureStartWithInfo(photoOutput: camera.PhotoOutput): void {
@@ -511,8 +458,8 @@ function unRegisterCaptureStartWithInfo(photoOutput: camera.PhotoOutput): void {
 ```
 
 
-## isMovingPhotoSupported12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isMovingPhotoSupported12+
 
 isMovingPhotoSupported(): boolean
 
@@ -524,7 +471,6 @@ isMovingPhotoSupported(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回是否支持动态照片拍照。true表示支持，false表示不支持。若接口调用失败，返回undefined。 |
@@ -534,7 +480,6 @@ isMovingPhotoSupported(): boolean
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400201 | Camera service fatal error. |
@@ -542,8 +487,7 @@ isMovingPhotoSupported(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function isMovingPhotoSupported(photoOutput: camera.PhotoOutput): boolean {
@@ -553,17 +497,15 @@ function isMovingPhotoSupported(photoOutput: camera.PhotoOutput): boolean {
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The isMovingPhotoSupported call failed. error code: ${err.code}`,
-    );
+    console.error(`The isMovingPhotoSupported call failed. error code: ${err.code}`);
   }
   return isSupported;
 }
 ```
 
 
-## enableMovingPhoto12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### enableMovingPhoto12+
 
 enableMovingPhoto(enabled: boolean): void
 
@@ -577,7 +519,6 @@ enableMovingPhoto(enabled: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 使能动态照片拍照。true为开启动态照片，false为关闭动态照片。 |
@@ -586,7 +527,6 @@ enableMovingPhoto(enabled: boolean): void
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -597,8 +537,7 @@ enableMovingPhoto(enabled: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function enableMovingPhoto(photoOutput: camera.PhotoOutput): void {
@@ -613,16 +552,16 @@ function enableMovingPhoto(photoOutput: camera.PhotoOutput): void {
 ```
 
 
-## on('photoAssetAvailable')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('photoAssetAvailable')12+
 
 on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void
 
 注册监听photoAsset上报。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -630,24 +569,19 @@ on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoA
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'photoAssetAvailable'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[photoAccessHelper.PhotoAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset)&gt; | 是 | 回调函数，用于监听photoAsset上报。 |
+| callback | AsyncCallback<photoAccessHelper.PhotoAsset> | 是 | 回调函数，用于监听photoAsset上报。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
-function photoAssetAvailableCallback(
-  err: BusinessError,
-  photoAsset: photoAccessHelper.PhotoAsset,
-): void {
+function photoAssetAvailableCallback(err: BusinessError, photoAsset: photoAccessHelper.PhotoAsset): void {
   if (err) {
     console.info(`photoAssetAvailable error: ${JSON.stringify(err)}.`);
     return;
@@ -656,16 +590,14 @@ function photoAssetAvailableCallback(
   // 开发者可通过photoAsset获取图片相关信息。
 }
 
-function onPhotoOutputPhotoAssetAvailable(
-  photoOutput: camera.PhotoOutput,
-): void {
+function onPhotoOutputPhotoAssetAvailable(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('photoAssetAvailable', photoAssetAvailableCallback);
 }
 ```
 
 
-## off('photoAssetAvailable')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('photoAssetAvailable')12+
 
 off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void
 
@@ -677,27 +609,23 @@ off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.Phot
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'photoAssetAvailable'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[photoAccessHelper.PhotoAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset)&gt; | 否 | 需要解监听的回调方法。如果callback不为空且与此对应的监听方法一致，不为匿名方法，则解注册该方法；如果callback为空，则解监听所有回调。 |
+| callback | AsyncCallback<photoAccessHelper.PhotoAsset> | 否 | 需要解监听的回调方法。如果callback不为空且与此对应的监听方法一致，不为匿名方法，则解注册该方法；如果callback为空，则解监听所有回调。 |
 
 
 **示例：**
 
-
-```ts
-function offPhotoOutputPhotoAssetAvailable(
-  photoOutput: camera.PhotoOutput,
-): void {
+```text
+function offPhotoOutputPhotoAssetAvailable(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('photoAssetAvailable');
 }
 ```
 
 
-## isMirrorSupported
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isMirrorSupported
 
 isMirrorSupported(): boolean
 
@@ -709,7 +637,6 @@ isMirrorSupported(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回是否支持镜像拍照，true表示支持，false表示不支持。若接口调用失败，返回undefined。 |
@@ -717,8 +644,7 @@ isMirrorSupported(): boolean
 
 **示例：**
 
-
-```ts
+```text
 function isMirrorSupported(photoOutput: camera.PhotoOutput): boolean {
   let isSupported: boolean = photoOutput.isMirrorSupported();
   return isSupported;
@@ -726,8 +652,8 @@ function isMirrorSupported(photoOutput: camera.PhotoOutput): boolean {
 ```
 
 
-## enableMirror13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### enableMirror13+
 
 enableMirror(enabled: boolean): void
 
@@ -741,7 +667,6 @@ enableMirror(enabled: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 是否启用动态照片镜像拍照。true为开启动态照片镜像拍照，false为关闭动态照片镜像拍照。 |
@@ -750,7 +675,6 @@ enableMirror(enabled: boolean): void
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -761,8 +685,7 @@ enableMirror(enabled: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function enableMirror(photoOutput: camera.PhotoOutput): void {
@@ -777,10 +700,10 @@ function enableMirror(photoOutput: camera.PhotoOutput): void {
 ```
 
 
-## getSupportedMovingPhotoVideoCodecTypes13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>
+##### getSupportedMovingPhotoVideoCodecTypes13+
+
+getSupportedMovingPhotoVideoCodecTypes(): Array&lt;VideoCodecType&gt;
 
 查询支持的动态照片短视频编码类型。
 
@@ -790,16 +713,14 @@ getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[VideoCodecType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#videocodectype13)&gt; | 支持的动态照片短视频编码类型列表。若接口调用失败，返回undefined。 |
+| Array&lt;VideoCodecType&gt; | 支持的动态照片短视频编码类型列表。若接口调用失败，返回undefined。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -808,20 +729,16 @@ getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>
 
 **示例：**
 
-
-```ts
-function getSupportedMovingPhotoVideoCodecType(
-  photoOutput: camera.PhotoOutput,
-): Array<camera.VideoCodecType> {
-  let supportedVideoCodecTypesArray: Array<camera.VideoCodecType> =
-    photoOutput.getSupportedMovingPhotoVideoCodecTypes();
+```text
+function getSupportedMovingPhotoVideoCodecType(photoOutput: camera.PhotoOutput): Array<camera.VideoCodecType> {
+  let supportedVideoCodecTypesArray: Array<camera.VideoCodecType> = photoOutput.getSupportedMovingPhotoVideoCodecTypes();
   return supportedVideoCodecTypesArray;
 }
 ```
 
 
-## setMovingPhotoVideoCodecType13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setMovingPhotoVideoCodecType13+
 
 setMovingPhotoVideoCodecType(codecType: VideoCodecType): void
 
@@ -833,16 +750,14 @@ setMovingPhotoVideoCodecType(codecType: VideoCodecType): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| codecType | [VideoCodecType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#videocodectype13) | 是 | 动态照片短视频编码类型。          如果设置不在枚举范围内，则该参数不会生效。 |
+| codecType | VideoCodecType | 是 | 动态照片短视频编码类型。 如果设置不在枚举范围内，则该参数不会生效。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -851,21 +766,17 @@ setMovingPhotoVideoCodecType(codecType: VideoCodecType): void
 
 **示例：**
 
-
-```ts
-function setMovingPhotoVideoCodecTypes(
-  photoOutput: camera.PhotoOutput,
-  videoCodecType: camera.VideoCodecType,
-): void {
+```text
+function setMovingPhotoVideoCodecTypes(photoOutput: camera.PhotoOutput, videoCodecType: camera.VideoCodecType): void {
   photoOutput.setMovingPhotoVideoCodecType(videoCodecType);
 }
 ```
 
 
-## on('frameShutter')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void
+##### on('frameShutter')
+
+on(type: 'frameShutter', callback: AsyncCallback&lt;FrameShutterInfo&gt;): void
 
 监听拍照帧输出捕获，通过注册回调函数获取结果。使用callback异步回调。
 
@@ -875,23 +786,18 @@ on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'frameShutter'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[FrameShutterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#frameshutterinfo)&gt; | 是 | 回调函数，用于获取相关信息。该回调返回意味着可以再次下发拍照请求。 |
+| callback | AsyncCallback&lt;FrameShutterInfo&gt; | 是 | 回调函数，用于获取相关信息。该回调返回意味着可以再次下发拍照请求。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function callback(
-  err: BusinessError,
-  frameShutterInfo: camera.FrameShutterInfo,
-): void {
+function callback(err: BusinessError, frameShutterInfo: camera.FrameShutterInfo): void {
   if (err !== undefined && err.code !== 0) {
     console.error(`Callback Error, errorCode: ${err.code}`);
     return;
@@ -900,18 +806,16 @@ function callback(
   console.info(`Timestamp for frame : ${frameShutterInfo.timestamp}`);
 }
 
-function registerPhotoOutputFrameShutter(
-  photoOutput: camera.PhotoOutput,
-): void {
+function registerPhotoOutputFrameShutter(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('frameShutter', callback);
 }
 ```
 
 
-## off('frameShutter')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void
+##### off('frameShutter')
+
+off(type: 'frameShutter', callback?: AsyncCallback&lt;FrameShutterInfo&gt;): void
 
 注销监听拍照帧输出捕获。
 
@@ -921,35 +825,31 @@ off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'frameShutter'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[FrameShutterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#frameshutterinfo)&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | AsyncCallback&lt;FrameShutterInfo&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
-function unregisterPhotoOutputFrameShutter(
-  photoOutput: camera.PhotoOutput,
-): void {
+```text
+function unregisterPhotoOutputFrameShutter(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('frameShutter');
 }
 ```
 
 
-## on('captureEnd')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void
+##### on('captureEnd')
+
+on(type: 'captureEnd', callback: AsyncCallback&lt;CaptureEndInfo&gt;): void
 
 监听拍照结束，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -957,23 +857,18 @@ on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'captureEnd'。photoOutput创建成功后可监听。拍照完全结束可触发该事件发生并返回相应信息。 |
-| callback | AsyncCallback&lt;[CaptureEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#captureendinfo)&gt; | 是 | 回调函数，用于获取相关信息。 |
+| callback | AsyncCallback&lt;CaptureEndInfo&gt; | 是 | 回调函数，用于获取相关信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function callback(
-  err: BusinessError,
-  captureEndInfo: camera.CaptureEndInfo,
-): void {
+function callback(err: BusinessError, captureEndInfo: camera.CaptureEndInfo): void {
   if (err !== undefined && err.code !== 0) {
     console.error(`Callback Error, errorCode: ${err.code}`);
     return;
@@ -988,10 +883,10 @@ function registerPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void {
 ```
 
 
-## off('captureEnd')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void
+##### off('captureEnd')
+
+off(type: 'captureEnd', callback?: AsyncCallback&lt;CaptureEndInfo&gt;): void
 
 注销监听拍照结束。
 
@@ -1001,35 +896,31 @@ off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'captureEnd'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[CaptureEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#captureendinfo)&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | AsyncCallback&lt;CaptureEndInfo&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
-function unregisterPhotoOutputCaptureEnd(
-  photoOutput: camera.PhotoOutput,
-): void {
+```text
+function unregisterPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('captureEnd');
 }
 ```
 
 
-## on('frameShutterEnd')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'frameShutterEnd', callback: AsyncCallback<FrameShutterEndInfo>): void
+##### on('frameShutterEnd')12+
+
+on(type: 'frameShutterEnd', callback: AsyncCallback&lt;FrameShutterEndInfo&gt;): void
 
 监听拍照曝光结束捕获，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -1037,23 +928,18 @@ on(type: 'frameShutterEnd', callback: AsyncCallback<FrameShutterEndInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'frameShutterEnd'，photoOutput创建成功后可监听。 |
-| callback | AsyncCallback&lt;[FrameShutterEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#frameshutterendinfo12)&gt; | 是 | 回调函数，用于获取相关信息。该回调返回表示拍照曝光结束。 |
+| callback | AsyncCallback&lt;FrameShutterEndInfo&gt; | 是 | 回调函数，用于获取相关信息。该回调返回表示拍照曝光结束。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function callback(
-  err: BusinessError,
-  frameShutterEndInfo: camera.FrameShutterEndInfo,
-): void {
+function callback(err: BusinessError, frameShutterEndInfo: camera.FrameShutterEndInfo): void {
   if (err !== undefined && err.code !== 0) {
     console.error(`Callback Error, errorCode: ${err.code}`);
     return;
@@ -1061,18 +947,16 @@ function callback(
   console.info(`CaptureId for frame : ${frameShutterEndInfo.captureId}`);
 }
 
-function registerPhotoOutputFrameShutterEnd(
-  photoOutput: camera.PhotoOutput,
-): void {
+function registerPhotoOutputFrameShutterEnd(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('frameShutterEnd', callback);
 }
 ```
 
 
-## off('frameShutterEnd')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'frameShutterEnd', callback?: AsyncCallback<FrameShutterEndInfo>): void
+##### off('frameShutterEnd')12+
+
+off(type: 'frameShutterEnd', callback?: AsyncCallback&lt;FrameShutterEndInfo&gt;): void
 
 注销监听拍照曝光结束捕获。
 
@@ -1082,42 +966,37 @@ off(type: 'frameShutterEnd', callback?: AsyncCallback<FrameShutterEndInfo>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听事件，固定为'frameShutterEnd'，photoOutput创建成功后可���听。 |
-| callback | AsyncCallback&lt;[FrameShutterEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#frameshutterendinfo12)&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| type | string | 是 | 监听事件，固定为'frameShutterEnd'，photoOutput创建成功后可监听。 |
+| callback | AsyncCallback&lt;FrameShutterEndInfo&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
-function unregisterPhotoOutputFrameShutterEnd(
-  photoOutput: camera.PhotoOutput,
-): void {
+```text
+function unregisterPhotoOutputFrameShutterEnd(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('frameShutterEnd');
 }
 ```
 
 
-## on('captureReady')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'captureReady', callback: AsyncCallback<void>): void
+##### on('captureReady')12+
+
+on(type: 'captureReady', callback: AsyncCallback&lt;void&gt;): void
 
 监听可拍下一张，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1127,8 +1006,7 @@ on(type: 'captureReady', callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function callback(err: BusinessError): void {
@@ -1139,18 +1017,16 @@ function callback(err: BusinessError): void {
   console.info(`photo capture ready`);
 }
 
-function registerPhotoOutputCaptureReady(
-  photoOutput: camera.PhotoOutput,
-): void {
+function registerPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('captureReady', callback);
 }
 ```
 
 
-## off('captureReady')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'captureReady', callback?: AsyncCallback<void>): void
+##### off('captureReady')12+
+
+off(type: 'captureReady', callback?: AsyncCallback&lt;void&gt;): void
 
 注销监听可拍下一张。
 
@@ -1160,7 +1036,6 @@ off(type: 'captureReady', callback?: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'captureReady'，photoOutput创建成功后可监听。 |
@@ -1169,33 +1044,29 @@ off(type: 'captureReady', callback?: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
-function unregisterPhotoOutputCaptureReady(
-  photoOutput: camera.PhotoOutput,
-): void {
+```text
+function unregisterPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('captureReady');
 }
 ```
 
 
-## on('estimatedCaptureDuration')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'estimatedCaptureDuration', callback: AsyncCallback<number>): void
+##### on('estimatedCaptureDuration')12+
+
+on(type: 'estimatedCaptureDuration', callback: AsyncCallback&lt;number&gt;): void
 
 监听预估的拍照时间，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1205,8 +1076,7 @@ on(type: 'estimatedCaptureDuration', callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function callback(err: BusinessError, duration: number): void {
@@ -1217,18 +1087,16 @@ function callback(err: BusinessError, duration: number): void {
   console.info(`photo estimated capture duration : ${duration}`);
 }
 
-function registerPhotoOutputEstimatedCaptureDuration(
-  photoOutput: camera.PhotoOutput,
-): void {
+function registerPhotoOutputEstimatedCaptureDuration(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('estimatedCaptureDuration', callback);
 }
 ```
 
 
-## off('estimatedCaptureDuration')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<number>): void
+##### off('estimatedCaptureDuration')12+
+
+off(type: 'estimatedCaptureDuration', callback?: AsyncCallback&lt;number&gt;): void
 
 注销监听预估的拍照时间。
 
@@ -1238,7 +1106,6 @@ off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'estimatedCaptureDuration'，photoOutput创建成功后可监听。 |
@@ -1247,26 +1114,23 @@ off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
-function unregisterPhotoOutputEstimatedCaptureDuration(
-  photoOutput: camera.PhotoOutput,
-): void {
+```text
+function unregisterPhotoOutputEstimatedCaptureDuration(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('estimatedCaptureDuration');
 }
 ```
 
 
-## on('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('error')
 
 on(type: 'error', callback: ErrorCallback): void
 
 监听拍照输出发生错误，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -1274,17 +1138,15 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'error'，photoOutput创建成功后可监听。拍照接口调用时出现错误触发该事件并返回错误信息。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| callback | ErrorCallback | 是 | 回调函数，用于获取错误信息。返回错误码，错误码类型CameraErrorCode。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function callback(err: BusinessError): void {
@@ -1297,8 +1159,8 @@ function registerPhotoOutputError(photoOutput: camera.PhotoOutput): void {
 ```
 
 
-## off('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('error')
 
 off(type: 'error', callback?: ErrorCallback): void
 
@@ -1310,25 +1172,23 @@ off(type: 'error', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'error'，photoOutput创建成功后可监听。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | ErrorCallback | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
+```text
 function unregisterPhotoOutputError(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('error');
 }
 ```
 
 
-## getActiveProfile12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getActiveProfile12+
 
 getActiveProfile(): Profile
 
@@ -1340,16 +1200,14 @@ getActiveProfile(): Profile
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#profile) | 当前生效的配置信息 |
+| Profile | 当前生效的配置信息 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1358,38 +1216,33 @@ getActiveProfile(): Profile
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function testGetActiveProfile(
-  photoOutput: camera.PhotoOutput,
-): camera.Profile | undefined {
+function testGetActiveProfile(photoOutput: camera.PhotoOutput): camera.Profile | undefined {
   let activeProfile: camera.Profile | undefined = undefined;
   try {
     activeProfile = photoOutput.getActiveProfile();
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The photoOutput.getActiveProfile call failed. error code: ${err.code}`,
-    );
+    console.error(`The photoOutput.getActiveProfile call failed. error code: ${err.code}`);
   }
   return activeProfile;
 }
 ```
 
 
-## getPhotoRotation12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getPhotoRotation12+
 
 getPhotoRotation(deviceDegree?: number): ImageRotation
 
 获取拍照旋转角度。
 
+ - 设备自然方向：设备默认使用方向。例如，直板机默认使用方向为竖屏（充电口向下）。
+ - 相机镜头角度：值等于相机图像顺时针旋转到设备自然方向的角度。例如，直板机后置相机传感器是横屏安装的，所以需要顺时针旋转90度到设备自然方向。
 
-- 设备自然方向：设备默认使用方向。例如，直板机默认使用方向为竖屏（充电口向下）。
-- 相机镜头角度：值等于相机图像顺时针旋转到设备自然方向的角度。例如，直板机后置相机传感器是横屏安装的，所以需要顺时针旋转90度到设备自然方向。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1399,24 +1252,21 @@ getPhotoRotation(deviceDegree?: number): ImageRotation
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceDegree | number | 否 | 设备旋转角度，单位度，取值范围：[0, 360]。          若入参超过该范围，则取入参除以360的余数。          从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行拍照旋转角度计算。 |
+| deviceDegree | number | 否 | 设备旋转角度，单位度，取值范围：[0, 360]。 若入参超过该范围，则取入参除以360的余数。 从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行拍照旋转角度计算。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#imagerotation) | 返回拍照旋转角度。若接口调用失败，返回undefined。 |
+| ImageRotation | 返回拍照旋转角度。若接口调用失败，返回undefined。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1425,14 +1275,10 @@ getPhotoRotation(deviceDegree?: number): ImageRotation
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function testGetPhotoRotation(
-  photoOutput: camera.PhotoOutput,
-  deviceDegree: number,
-): camera.ImageRotation {
+function testGetPhotoRotation(photoOutput: camera.PhotoOutput, deviceDegree : number): camera.ImageRotation {
   let photoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
     photoRotation = photoOutput.getPhotoRotation(deviceDegree);
@@ -1440,16 +1286,12 @@ function testGetPhotoRotation(
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The photoOutput.getPhotoRotation call failed. error code: ${err.code}`,
-    );
+    console.error(`The photoOutput.getPhotoRotation call failed. error code: ${err.code}`);
   }
   return photoRotation;
 }
 
-function testGetPhotoRotationWithOutParam(
-  photoOutput: camera.PhotoOutput,
-): camera.ImageRotation {
+function testGetPhotoRotationWithOutParam(photoOutput: camera.PhotoOutput): camera.ImageRotation {
   let photoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
     photoRotation = photoOutput.getPhotoRotation();
@@ -1457,31 +1299,27 @@ function testGetPhotoRotationWithOutParam(
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The photoOutput.testGetPhotoRotationWithOutParam call failed. error code: ${err.code}`,
-    );
+    console.error(`The photoOutput.testGetPhotoRotationWithOutParam call failed. error code: ${err.code}`);
   }
   return photoRotation;
 }
 ```
 
 
-## on('captureStart')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'captureStart', callback: AsyncCallback<number>): void
+##### on('captureStart')(deprecated)
+
+on(type: 'captureStart', callback: AsyncCallback&lt;number&gt;): void
 
 监听拍照开始，通过注册回调函数获取Capture ID。使用callback异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[on('captureStartWithInfo')](#oncapturestartwithinfo11)替代。
-> 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 on('captureStartWithInfo') 替代。 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1491,8 +1329,7 @@ on(type: 'captureStart', callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function callback(err: BusinessError, captureId: number): void {
@@ -1503,30 +1340,26 @@ function callback(err: BusinessError, captureId: number): void {
   console.info(`photo capture started, captureId : ${captureId}`);
 }
 
-function registerPhotoOutputCaptureStart(
-  photoOutput: camera.PhotoOutput,
-): void {
+function registerPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('captureStart', callback);
 }
 ```
 
 
-## off('captureStart')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'captureStart', callback?: AsyncCallback<number>): void
+##### off('captureStart')(deprecated)
+
+off(type: 'captureStart', callback?: AsyncCallback&lt;number&gt;): void
 
 注销拍照开始的监听。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[off('captureStartWithInfo')](#offcapturestartwithinfo11)替代。
-> 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 off('captureStartWithInfo') 替代。 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1536,18 +1369,15 @@ off(type: 'captureStart', callback?: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
-function unregisterPhotoOutputCaptureStart(
-  photoOutput: camera.PhotoOutput,
-): void {
+```text
+function unregisterPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): void {
   photoOutput.off('captureStart');
 }
 ```
 
 
-## isPhotoQualityPrioritizationSupported21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isPhotoQualityPrioritizationSupported21+
 
 isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean
 
@@ -1559,14 +1389,12 @@ isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPriorit
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| qualityPrioritization | [PhotoQualityPrioritization](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#photoqualityprioritization21) | 是 | 要检查的拍照画质优先策略。 |
+| qualityPrioritization | PhotoQualityPrioritization | 是 | 要检查的拍照画质优先策略。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1577,7 +1405,6 @@ isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPriorit
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400201 | Camera service fatal error, reconfiguring streams is needed to recover from failure. |
@@ -1585,34 +1412,27 @@ isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPriorit
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { camera } from '@kit.CameraKit';
 
 let photoOutput: camera.PhotoOutput;
 
-function isPhotoQualityPrioritizationSupported(
-  qualityPrioritization: camera.PhotoQualityPrioritization,
-): boolean {
+function isPhotoQualityPrioritizationSupported(qualityPrioritization: camera.PhotoQualityPrioritization): boolean {
   let isSupported: boolean = false;
   try {
-    isSupported = photoOutput.isPhotoQualityPrioritizationSupported(
-      qualityPrioritization,
-    );
+    isSupported = photoOutput.isPhotoQualityPrioritizationSupported(qualityPrioritization);
   } catch (error) {
     let err = error as BusinessError;
-    console.error(
-      `The isPhotoQualityPrioritizationSupported call failed. error code: ${err.code}`,
-    );
+    console.error(`The isPhotoQualityPrioritizationSupported call failed. error code: ${err.code}`);
   }
   return isSupported;
 }
 ```
 
 
-## setPhotoQualityPrioritization21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setPhotoQualityPrioritization21+
 
 setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void
 
@@ -1626,16 +1446,14 @@ setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| qualityPrioritization | [PhotoQualityPrioritization](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#photoqualityprioritization21) | 是 | 要设置的拍照画质优先策略。 |
+| qualityPrioritization | PhotoQualityPrioritization | 是 | 要设置的拍照画质优先策略。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1645,23 +1463,18 @@ setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization)
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { camera } from '@kit.CameraKit';
 
 let photoOutput: camera.PhotoOutput;
 
-function setPhotoQualityPrioritization(
-  qualityPrioritization: camera.PhotoQualityPrioritization,
-): void {
+function setPhotoQualityPrioritization(qualityPrioritization: camera.PhotoQualityPrioritization): void {
   try {
     photoOutput.setPhotoQualityPrioritization(qualityPrioritization);
   } catch (error) {
     let err = error as BusinessError;
-    console.error(
-      `The setPhotoQualityPrioritization call failed. error code: ${err.code}`,
-    );
+    console.error(`The setPhotoQualityPrioritization call failed. error code: ${err.code}`);
   }
 }
 ```

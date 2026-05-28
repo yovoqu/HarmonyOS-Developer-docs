@@ -1,16 +1,19 @@
 # 事件监听开发指导（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/monitor-guidelines
 
-## 功能介绍
+##### 功能介绍
 
 从API version 12开始，多模为应用提供了按键、输入事件（鼠标、触屏和轴事件）监听能力，当前仅支持录屏类应用。使用场景例如：用户在录屏应用开启录屏时，监听设备的按键、鼠标、触摸和轴事件。
 
-## 接口说明
+
+
+##### 接口说明
 
 创建和删除事件监听相关接口如下表所示，接口详细介绍请参考[Input文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input)。
+
 | 接口名称 | 描述 |
 | --- | --- |
 | Input_Result OH_Input_AddKeyEventMonitor(Input_KeyEventCallback callback) | 创建按键事件监听。 |
@@ -25,21 +28,27 @@
 | Input_Result OH_Input_RemoveAxisEventMonitor(InputEvent_AxisEventType axisEventType, Input_AxisEventCallback callback) | 删除指定类型轴事件监听。 |
 
 
-## 开发步骤
 
 
-## 链接动态库
+##### 开发步骤
+
+
+
+##### 链接动态库
 
 调用创建和删除事件监听前，需链接相关动态库。链接动态库的方法是，在CMakeList.txt文件中新增如下配置：
+
 ```text
 target_link_libraries(entry PUBLIC libohinput.so)
 ```
 
 
-## 申请所需权限
+
+##### 申请所需权限
 
 应用需要在module.json5中添加下面权限的配置，详细的配置方法参考声明[声明权限文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
-```text
+
+```json
 "requestPermissions": [
     {
         "name": "ohos.permission.INPUT_MONITORING"
@@ -48,10 +57,13 @@ target_link_libraries(entry PUBLIC libohinput.so)
 ```
 
 
-## 创建事件监听
 
-**按键事件**
-```text
+##### 创建事件监听
+
+ - **按键事件**
+
+
+```cpp
 struct KeyEvent {
     int32_t action;
     int32_t keyCode;
@@ -82,8 +94,10 @@ static napi_value RemoveKeyEventMonitor(napi_env env, napi_callback_info info)
 }
 ```
 
-**鼠标事件**
-```text
+ - **鼠标事件**
+
+
+```cpp
 struct MouseEvent {
     int32_t action;
     int32_t displayX;
@@ -122,8 +136,10 @@ static napi_value RemoveMouseEventMonitor(napi_env env, napi_callback_info info)
 }
 ```
 
-**触摸事件**
-```text
+ - **触摸事件**
+
+
+```cpp
 struct TouchEvent {
     int32_t action;
     int32_t id;
@@ -157,13 +173,15 @@ static napi_value RemoveTouchEventMonitor(napi_env env, napi_callback_info info)
 }
 ```
 
-**轴事件**
-```text
+ - **轴事件**
+
+
+```cpp
 struct AxisEvent {
     int32_t axisAction;
     float displayX;
     float displayY;
-    std::map axisValues;
+    std::map<int32_t, double> axisValues;
     int64_t actionTime { -1 };
     int32_t sourceType;
     int32_t axisEventType { -1 };
@@ -173,16 +191,16 @@ void OnAllAxisEventCallback(const Input_AxisEvent* axisEvent)
 {
     AxisEvent event;
     //Input_AxisEvent的生命周期仅限于回调函数内，回调函数执行完毕后会被自动销毁
-    InputEvent_AxisAction action = static_cast(0);
+    InputEvent_AxisAction action = static_cast<InputEvent_AxisAction>(0);
     Input_Result ret = OH_Input_GetAxisEventAction(axisEvent, &action);
     event.axisAction = action;
     ret = OH_Input_GetAxisEventDisplayX(axisEvent, &event.displayX);
     ret = OH_Input_GetAxisEventDisplayY(axisEvent, &event.displayY);
     ret = OH_Input_GetAxisEventActionTime(axisEvent, &event.actionTime);
-    InputEvent_SourceType sourceType = static_cast(0);
+    InputEvent_SourceType sourceType = static_cast<InputEvent_SourceType>(0);
     ret = OH_Input_GetAxisEventSourceType(axisEvent, &sourceType);
     event.sourceType = sourceType;
-    InputEvent_AxisEventType axisEventType = static_cast(-1);
+    InputEvent_AxisEventType axisEventType = static_cast<InputEvent_AxisEventType>(-1);
     ret = OH_Input_GetAxisEventType(axisEvent, &axisEventType);
     event.axisEventType = axisEventType;
     if (event.axisEventType == AXIS_EVENT_TYPE_PINCH) {
@@ -206,16 +224,16 @@ void OnPinchAxisEventCallback(const Input_AxisEvent* axisEvent)
 {
     AxisEvent event;
     //Input_AxisEvent的生命周期仅限于回调函数内，回调函数执行完毕后会被自动销毁
-    InputEvent_AxisAction action = static_cast(0);
+    InputEvent_AxisAction action = static_cast<InputEvent_AxisAction>(0);
     Input_Result ret = OH_Input_GetAxisEventAction(axisEvent, &action);
     event.axisAction = action;
     ret = OH_Input_GetAxisEventDisplayX(axisEvent, &event.displayX);
     ret = OH_Input_GetAxisEventDisplayY(axisEvent, &event.displayY);
     ret = OH_Input_GetAxisEventActionTime(axisEvent, &event.actionTime);
-    InputEvent_SourceType sourceType = static_cast(0);
+    InputEvent_SourceType sourceType = static_cast<InputEvent_SourceType>(0);
     ret = OH_Input_GetAxisEventSourceType(axisEvent, &sourceType);
     event.sourceType = sourceType;
-    InputEvent_AxisEventType axisEventType = static_cast(-1);
+    InputEvent_AxisEventType axisEventType = static_cast<InputEvent_AxisEventType>(-1);
     ret = OH_Input_GetAxisEventType(axisEvent, &axisEventType);
     event.axisEventType = axisEventType;
     double value = 0;
@@ -230,16 +248,16 @@ void OnScrollAxisEventCallback(const Input_AxisEvent* axisEvent)
 {
     AxisEvent event;
     //Input_AxisEvent的生命周期仅限于回调函数内，回调函数执行完毕后会被自动销毁
-    InputEvent_AxisAction action = static_cast(0);
+    InputEvent_AxisAction action = static_cast<InputEvent_AxisAction>(0);
     Input_Result ret = OH_Input_GetAxisEventAction(axisEvent, &action);
     event.axisAction = action;
     ret = OH_Input_GetAxisEventDisplayX(axisEvent, &event.displayX);
     ret = OH_Input_GetAxisEventDisplayY(axisEvent, &event.displayY);
     ret = OH_Input_GetAxisEventActionTime(axisEvent, &event.actionTime);
-    InputEvent_SourceType sourceType = static_cast(0);
+    InputEvent_SourceType sourceType = static_cast<InputEvent_SourceType>(0);
     ret = OH_Input_GetAxisEventSourceType(axisEvent, &sourceType);
     event.sourceType = sourceType;
-    InputEvent_AxisEventType axisEventType = static_cast(-1);
+    InputEvent_AxisEventType axisEventType = static_cast<InputEvent_AxisEventType>(-1);
     ret = OH_Input_GetAxisEventType(axisEvent, &axisEventType);
     event.axisEventType = axisEventType;
     double value = 0;

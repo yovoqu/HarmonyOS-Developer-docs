@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-shadow
 
 禁止声明与外部作用域变量同名的变量。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-shadow": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-shadow选项](https://typescript-eslint.nodejs.cn/rules/no-shadow/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 /*eslint no-shadow: "error"*/
@@ -42,10 +43,10 @@ export const c = () => {
 
 console.info(a);
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 /*eslint no-shadow: "error"*/
@@ -62,13 +63,13 @@ export const c = () => {
 
 console.info(a);
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

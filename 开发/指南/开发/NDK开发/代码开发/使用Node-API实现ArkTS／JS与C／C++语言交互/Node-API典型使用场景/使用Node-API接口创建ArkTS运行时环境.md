@@ -1,27 +1,35 @@
 # 使用Node-API接口创建ArkTS运行时环境
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime
 
-## 场景介绍
+##### 场景介绍
 
 开发者通过pthread_create创建新线程后，可以通过napi_create_ark_runtime来创建一个新的ArkTS基础运行时环境，并通过该运行时环境加载ArkTS模块。当使用结束后，开发者需要通过napi_destroy_ark_runtime来销毁所创建的ArkTS基础运行时环境。
+ 
+  
 
-## 约束限制
+##### 约束限制
 
 一个进程最多只能创建64个运行时环境。
+ 
+  
 
-## 示例代码
+##### 示例代码
 
-接口声明
-```text
+- 接口声明
+
+  
+```ts
 // index.d.ts
 export const createArkRuntime: () => object;
 ```
 
-编译配置
-```text
+- 编译配置
+
+  
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
 project(MyApplication3)
@@ -37,9 +45,10 @@ include_directories(${NATIVERENDER_ROOT_PATH}
 add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 ```
+  在当前模块的build-profile.json5文件中进行以下配置：
 
-在当前模块的build-profile.json5文件中进行以下配置：
-```text
+  
+```ArkTS
 "buildOption": {
   "arkOptions" : {
     "runtimeOnly" : {
@@ -50,8 +59,10 @@ target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
   },
 ```
 
-模块注册
-```text
+- 模块注册
+
+  
+```cpp
 // create_ark_runtime.cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
@@ -80,10 +91,14 @@ extern "C" __attribute__((constructor)) void RegisterQueueWorkModule()
 }
 ```
 
-功能实现  新建线程并创建ArkTS基础运行时环境，加载自定义模块请参考[napi_load_module_with_info](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module-with-info)。
-```text
+- 功能实现
+
+  新建线程并创建ArkTS基础运行时环境，加载自定义模块请参考[napi_load_module_with_info](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module-with-info)。
+
+  
+```cpp
 #include "napi/native_api.h"
-#include
+#include <pthread.h>
 // ...
 static void *CreateArkRuntimeFunc(void *arg)
 {
@@ -146,20 +161,23 @@ static napi_value CreateArkRuntime(napi_env env, napi_callback_info info)
 }
 ```
 
-ArkTS导入头文件
+- ArkTS导入头文件
+
+  
 ```text
 import testNapi from 'libentry.so';
 ```
 
-ArkTS代码示例
-```text
+- ArkTS代码示例
+
+  
+```ArkTS
 export function Logger() {
   console.info('print log');
 }
 ```
 
-
-```text
+```ArkTS
 // index.ets
 testNapi.createArkRuntime();
 ```

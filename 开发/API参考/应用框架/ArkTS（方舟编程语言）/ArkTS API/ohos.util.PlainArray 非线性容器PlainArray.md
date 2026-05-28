@@ -3,7 +3,7 @@
 更新时间：2026-04-02 08:41:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-plainarray
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PlainArray可用于存储具有关联关系的key-value键值对集合，其中key值唯一且类型为number，每个key对应一个value。
 
@@ -15,43 +15,40 @@ PlainArray和[LightWeightMap](https://developer.huawei.com/consumer/cn/doc/harmo
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- T：Type，类
+ - T：Type，类
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { PlainArray } from '@kit.ArkTS';
 ```
 
 
-## PlainArray
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### PlainArray
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | PlainArray的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -65,7 +62,6 @@ PlainArray的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The PlainArray's constructor cannot be directly invoked. |
@@ -73,14 +69,13 @@ PlainArray的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
 ```
 
 
-### isEmpty
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty
 
 isEmpty(): boolean
 
@@ -92,7 +87,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 为空返回true，不为空返回false。 |
@@ -102,7 +96,6 @@ isEmpty(): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The isEmpty method cannot be bound. |
@@ -110,16 +103,15 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 const plainArray = new PlainArray<string>();
 let result = plainArray.isEmpty();
-console.info('result = ', result); // result =  true
+console.info("result = ", result); // result =  true
 ```
 
 
-### has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(key: number): boolean
 
@@ -131,14 +123,12 @@ has(key: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | number | 是 | 指定key。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -149,7 +139,6 @@ has(key: number): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -158,17 +147,16 @@ has(key: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
+plainArray.add(1, "squirrel");
 let result = plainArray.has(1);
-console.info('result = ', result); // result = true
+console.info("result = ", result); // result = true
 ```
 
 
-### get
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### get
 
 get(key: number): T
 
@@ -180,14 +168,12 @@ get(key: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | number | 是 | 查找的指定key。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -198,7 +184,6 @@ get(key: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -207,18 +192,17 @@ get(key: number): T
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.get(1);
-console.info('result:', result); // result: squirrel
+console.info("result:", result);  // result: squirrel
 ```
 
 
-### getIndexOfKey
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getIndexOfKey
 
 getIndexOfKey(key: number): number
 
@@ -230,14 +214,12 @@ getIndexOfKey(key: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | number | 是 | 指定key。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -248,7 +230,6 @@ getIndexOfKey(key: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -257,18 +238,17 @@ getIndexOfKey(key: number): number
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.getIndexOfKey(2);
-console.info('result = ', result); // result = 1
+console.info("result = ", result); // result = 1
 ```
 
 
-### getIndexOfValue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getIndexOfValue
 
 getIndexOfValue(value: T): number
 
@@ -280,14 +260,12 @@ getIndexOfValue(value: T): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | T | 是 | 指定value元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -298,7 +276,6 @@ getIndexOfValue(value: T): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getIndexOfValue method cannot be bound. |
@@ -306,18 +283,17 @@ getIndexOfValue(value: T): number
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
-let result = plainArray.getIndexOfValue('squirrel');
-console.info('result:', result); // result: 0
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
+let result = plainArray.getIndexOfValue("squirrel");
+console.info("result:", result);  // result: 0
 ```
 
 
-### getKeyAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getKeyAt
 
 getKeyAt(index: number): number
 
@@ -329,14 +305,12 @@ getKeyAt(index: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定下标。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -347,7 +321,6 @@ getKeyAt(index: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -356,18 +329,17 @@ getKeyAt(index: number): number
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.getKeyAt(1);
-console.info('result = ', result); // result = 2
+console.info("result = ", result); // result = 2
 ```
 
 
-### getValueAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getValueAt
 
 getValueAt(index: number): T
 
@@ -379,14 +351,12 @@ getValueAt(index: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定下标。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -397,7 +367,6 @@ getValueAt(index: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -407,20 +376,19 @@ getValueAt(index: number): T
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.getValueAt(1);
-console.info('result:', result); // result: sparrow
+console.info("result:", result);  // result: sparrow
 ```
 
 
-### clone
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-clone(): PlainArray<T>
+##### clone
+
+clone(): PlainArray&lt;T&gt;
 
 克隆一个实例，并返回克隆后的实例。修改克隆后的实例并不会影响原实例。
 
@@ -429,7 +397,6 @@ clone(): PlainArray<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -440,7 +407,6 @@ clone(): PlainArray<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clone method cannot be bound. |
@@ -448,18 +414,17 @@ clone(): PlainArray<T>
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let newPlainArray = plainArray.clone();
-console.info('result:', newPlainArray.get(1)); // result: squirrel
+console.info("result:", newPlainArray.get(1));  // result: squirrel
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 add(key: number, value: T): void
 
@@ -471,7 +436,6 @@ add(key: number, value: T): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | number | 是 | 添加成员数据的键名。需要小于等于int32_max即2147483647。 |
@@ -482,7 +446,6 @@ add(key: number, value: T): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -491,16 +454,15 @@ add(key: number, value: T): void
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-console.info('result:', plainArray.get(1)); // result: squirrel
+plainArray.add(1, "squirrel");
+console.info("result:", plainArray.get(1));  // result: squirrel
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove
 
 remove(key: number): T
 
@@ -512,14 +474,12 @@ remove(key: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | number | 是 | 指定key。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -530,7 +490,6 @@ remove(key: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -539,18 +498,17 @@ remove(key: number): T
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.remove(2);
-console.info('result:', result); // result: sparrow
+console.info("result:", result);  // result: sparrow
 ```
 
 
-### removeAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeAt
 
 removeAt(index: number): T
 
@@ -562,14 +520,12 @@ removeAt(index: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定元素下标。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -580,7 +536,6 @@ removeAt(index: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -589,18 +544,17 @@ removeAt(index: number): T
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.removeAt(1);
-console.info('result:', result); // result: sparrow
+console.info("result:", result);  // result: sparrow
 ```
 
 
-### removeRangeFrom
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeRangeFrom
 
 removeRangeFrom(index: number, size: number): number
 
@@ -612,7 +566,6 @@ removeRangeFrom(index: number, size: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 删除元素的起始下标。需要小于等于int32_max即2147483647。 |
@@ -620,7 +573,6 @@ removeRangeFrom(index: number, size: number): number
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -631,7 +583,6 @@ removeRangeFrom(index: number, size: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -641,18 +592,17 @@ removeRangeFrom(index: number, size: number): number
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.removeRangeFrom(1, 3);
-console.info('result:', result); // result: 1
+console.info("result:", result);  // result: 1
 ```
 
 
-### setValueAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setValueAt
 
 setValueAt(index: number, value: T): void
 
@@ -664,7 +614,6 @@ setValueAt(index: number, value: T): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定替换数据下标。需要小于等于int32_max即2147483647。 |
@@ -675,7 +624,6 @@ setValueAt(index: number, value: T): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -685,19 +633,18 @@ setValueAt(index: number, value: T): void
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string | number>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 plainArray.setValueAt(1, 3546);
 let result = plainArray.getValueAt(1);
-console.info('result:', result); // result: 3546
+console.info("result:", result);  // result: 3546
 ```
 
 
-### toString
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString
 
 toString(): String
 
@@ -709,7 +656,6 @@ toString(): String
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | String | 返回对应字符串。 |
@@ -719,7 +665,6 @@ toString(): String
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The toString method cannot be bound. |
@@ -727,18 +672,17 @@ toString(): String
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 let result = plainArray.toString();
-console.info('result:', result); // result: 1:squirrel,2:sparrow
+console.info("result:", result);  // result: 1:squirrel,2:sparrow
 ```
 
 
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -752,7 +696,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound. |
@@ -760,21 +703,20 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 plainArray.clear();
 let result = plainArray.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => void, thisArg?: Object): void
+##### forEach
+
+forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray&lt;T&gt;) => void, thisArg?: Object): void
 
 在遍历PlainArray实例对象中每一个元素的过程中，对每个元素执行回调函数。
 
@@ -784,7 +726,6 @@ forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -792,7 +733,6 @@ forEach(callbackFn: (value: T, index?: number, PlainArray?: PlainArray<T>) => vo
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -805,7 +745,6 @@ callbackFn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -814,34 +753,32 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 plainArray.forEach((value: string, index: number) => {
-  console.info('value:' + value, 'index:' + index);
+  console.info("value:" + value, "index:" + index);
 });
 // value:squirrel index:1
 // value:sparrow index:2
 ```
 
-
-```ts
+```text
 // 不建议在forEach中使用add、remove、removeAt方法，因其可能导致迭代过程中的状态异常，建议使用for循环来进行安全的插入与删除操作。
 let plainArray = new PlainArray<string>();
-for (let i = 0; i < 10; i++) {
-  plainArray.add(i, '123');
+for(let i = 0; i < 10; i++) {
+  plainArray.add(i,"123");
 }
 
-for (let i = 0; i < 10; i++) {
+for(let i = 0; i < 10; i++) {
   plainArray.remove(i);
 }
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### [Symbol.iterator]
 
 [Symbol.iterator](): IterableIterator<[number, T]>
 
@@ -853,16 +790,14 @@ for (let i = 0; i < 10; i++) {
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[number, T]&gt; | 返回一个迭代器。 |
+| IterableIterator<[number, T]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -871,28 +806,26 @@ for (let i = 0; i < 10; i++) {
 
 **示例：**
 
-
-```ts
+```text
 let plainArray = new PlainArray<string>();
-plainArray.add(1, 'squirrel');
-plainArray.add(2, 'sparrow');
+plainArray.add(1, "squirrel");
+plainArray.add(2, "sparrow");
 
 for (let item of plainArray) {
-  console.info('value:' + item[1], 'index:' + item[0]);
+  console.info("value:" + item[1], "index:" + item[0]);
 }
 // value:squirrel index:1
 // value:sparrow index:2
 ```
 
-
-```ts
+```text
 // 不建议在Symbol.iterator中使用add、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
 let plainArray = new PlainArray<string>();
-for (let i = 0; i < 10; i++) {
-  plainArray.add(i, '123');
+for(let i = 0; i < 10; i++) {
+  plainArray.add(i,"123");
 }
 
-for (let i = 0; i < 10; i++) {
+for(let i = 0; i < 10; i++) {
   plainArray.remove(i);
 }
 ```

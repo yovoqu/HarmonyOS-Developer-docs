@@ -3,29 +3,26 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentprovider
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块为意图提供方提供管理能力，如主动发送指定意图的执行结果。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { insightIntentProvider } from '@kit.AbilityKit';
 ```
 
 
-## insightIntentProvider.sendExecuteResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-sendExecuteResult(instanceId: number, result: insightIntent.ExecuteResult): Promise<void>
+##### insightIntentProvider.sendExecuteResult
+
+sendExecuteResult(instanceId: number, result: insightIntent.ExecuteResult): Promise&lt;void&gt;
 
 如果意图提供方需要在业务处理的特定流程中主动发送意图执行结果，可以先通过[setReturnModeForUIAbilityForeground接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentcontext#insightintentcontextsetreturnmodeforuiabilityforeground23)或[setReturnModeForUIExtensionAbility接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentcontext#insightintentcontextsetreturnmodeforuiextensionability23)将意图执行结果返回形式[ReturnMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#returnmode23)设置为FUNCTION，然后调用该接口发送意图执行结果，适用于[配置类意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/insight-intent-config-development)。使用Promise异步回调。
 
@@ -39,15 +36,13 @@ sendExecuteResult(instanceId: number, result: insightIntent.ExecuteResult): Prom
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| [instanceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentcontext#属性) | number | 是 | 意图实例唯一ID。 |
-| result | [insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult) | 是 | 返回意图执行结果，表示本次意图执行返回给系统入口的数据。 |
+| instanceId | number | 是 | 意图实例唯一ID。 |
+| result | insightIntent.ExecuteResult | 是 | 返回意图执行结果，表示本次意图执行返回给系统入口的数据。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -57,7 +52,6 @@ sendExecuteResult(instanceId: number, result: insightIntent.ExecuteResult): Prom
 **错误码**：
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -69,24 +63,15 @@ sendExecuteResult(instanceId: number, result: insightIntent.ExecuteResult): Prom
 
 设置意图执行结果延迟返回示例：
 
-
-```ts
+```json
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 export default class InsightIntentExecutorUI extends InsightIntentExecutor {
-  onExecuteInUIAbilityForegroundMode(
-    name: string,
-    param: Record<string, Object>,
-    pageLoader: window.WindowStage,
-  ): insightIntent.ExecuteResult {
-    hilog.info(
-      0x0000,
-      'testTag',
-      'onExecuteInUIAbilityForegroundMode %{public}s',
-      name,
-    );
+  onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>,
+    pageLoader: window.WindowStage): insightIntent.ExecuteResult {
+    hilog.info(0x0000, 'testTag', 'onExecuteInUIAbilityForegroundMode %{public}s', name);
     let result: insightIntent.ExecuteResult;
     result = {
       code: 0,
@@ -96,37 +81,23 @@ export default class InsightIntentExecutorUI extends InsightIntentExecutor {
     };
     try {
       // 设置意图执行结果的返回形式为延迟返回
-      this.context.setReturnModeForUIAbilityForeground(
-        insightIntent.ReturnMode.FUNCTION,
-      );
+      this.context.setReturnModeForUIAbilityForeground(insightIntent.ReturnMode.FUNCTION);
     } catch (error) {
       let code = (error as BusinessError).code;
       let msg = (error as BusinessError).message;
-      console.error(
-        `testTag setReturnModeForUIExtensionAbility fail, error code: ${code}, error msg: ${msg}.`,
-      );
+      console.error(`testTag setReturnModeForUIExtensionAbility fail, error code: ${code}, error msg: ${msg}.`);
     }
     // 将意图实例的id通过localStorage传入目标页面中
     let localStorageData: Record<string, number> = {
-      insightId: this.context.instanceId,
+      'insightId': this.context.instanceId,
     };
     let storage: LocalStorage = new LocalStorage(localStorageData);
     // 通过pageLoader加载页面
     pageLoader.loadContent('pages/UIAbilityIndex', storage, (err, data) => {
       if (err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          'Failed to load the content. Cause: %{public}s',
-          JSON.stringify(err),
-        );
+        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
       } else {
-        hilog.info(
-          0x0000,
-          'testTag',
-          '%{public}s',
-          'Succeeded in loading the content',
-        );
+        hilog.info(0x0000, 'testTag', '%{public}s', 'Succeeded in loading the content');
       }
     });
     return result;
@@ -136,8 +107,7 @@ export default class InsightIntentExecutorUI extends InsightIntentExecutor {
 
 主动发送意图执行结果示例：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { insightIntent, insightIntentProvider } from '@kit.AbilityKit';
 
@@ -151,28 +121,28 @@ struct Index {
     Column() {
       // 通过sendExecuteResult接口主动返回意图执行结果
       Button('insightIntentProvider sendExecuteResult')
-      .onClick(() => {
-        try {
-          let result: insightIntent.ExecuteResult;
-          result = {
-            code: 0,
-            result: {
-              message: 'Unsupported insight intent.',
-            },
-          };
-          insightIntentProvider.sendExecuteResult(this.insightId, result)
-          .then(() => {
-            console.info('testTag setExecuteResult success');
-          })
-          .catch((error: BusinessError) => {
-            console.error(`testTag setExecuteResult fail1, error code: ${error.code}, error msg: ${error.message}.`);
-          });
-        } catch (e) {
-          let code = (e as BusinessError).code;
-          let msg = (e as BusinessError).message;
-          console.error(`testTag setExecuteResult fail2, error code: ${code}, error msg: ${msg}`);
-        }
-      })
+        .onClick(() => {
+          try {
+            let result: insightIntent.ExecuteResult;
+            result = {
+              code: 0,
+              result: {
+                message: 'Unsupported insight intent.',
+              },
+            };
+            insightIntentProvider.sendExecuteResult(this.insightId, result)
+              .then(() => {
+                console.info('testTag setExecuteResult success');
+              })
+              .catch((error: BusinessError) => {
+                console.error(`testTag setExecuteResult fail1, error code: ${error.code}, error msg: ${error.message}.`);
+              });
+          } catch (e) {
+            let code = (e as BusinessError).code;
+            let msg = (e as BusinessError).message;
+            console.error(`testTag setExecuteResult fail2, error code: ${code}, error msg: ${msg}`);
+          }
+        })
     }
     .height('100%')
     .width('100%')
@@ -181,10 +151,10 @@ struct Index {
 ```
 
 
-## insightIntentProvider.sendIntentResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-sendIntentResult(instanceId: number, result: insightIntent.IntentResult<T>): Promise<void>
+##### insightIntentProvider.sendIntentResult
+
+sendIntentResult(instanceId: number, result: insightIntent.IntentResult&lt;T&gt;): Promise&lt;void&gt;
 
 如果意图提供方需要在业务处理的特定流程中主动发送意图执行结果，可以先通过[setReturnModeForUIAbilityForeground接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentcontext#insightintentcontextsetreturnmodeforuiabilityforeground23)或[setReturnModeForUIExtensionAbility接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentcontext#insightintentcontextsetreturnmodeforuiextensionability23)将意图执行结果返回形式[ReturnMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#returnmode23)设置为FUNCTION，然后调用该接口发送意图执行结果。适用于[@InsightIntentEntry](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentdecorator#insightintententry)修饰的[装饰器类意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/insight-intent-decorator-development)。使用Promise异步回调。
 
@@ -198,15 +168,13 @@ sendIntentResult(instanceId: number, result: insightIntent.IntentResult<T>): Pro
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| [instanceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentcontext#属性) | number | 是 | 意图实例唯一ID。 |
-| result | [insightIntent.IntentResult&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#intentresultt20) | 是 | 返回意图执行结果，表示本次意图执行返回给系统入口的数据。 |
+| instanceId | number | 是 | 意图实例唯一ID。 |
+| result | insightIntent.IntentResult&lt;T&gt; | 是 | 返回意图执行结果，表示本次意图执行返回给系统入口的数据。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -216,7 +184,6 @@ sendIntentResult(instanceId: number, result: insightIntent.IntentResult<T>): Pro
 **错误码**：
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -228,13 +195,8 @@ sendIntentResult(instanceId: number, result: insightIntent.IntentResult<T>): Pro
 
 设置意图执行结果延迟返回示例：
 
-
-```ts
-import {
-  insightIntent,
-  InsightIntentEntry,
-  InsightIntentEntryExecutor,
-} from '@kit.AbilityKit';
+```text
+import { insightIntent, InsightIntentEntry, InsightIntentEntryExecutor } from '@kit.AbilityKit';
 
 class PlayVideoResultDef {
   resultCode: number = 0;
@@ -263,46 +225,40 @@ export default class PlayVideo extends InsightIntentEntryExecutor<PlayVideoResul
   episodeNumber: number = 12;
 
   onExecute(): Promise<insightIntent.IntentResult<PlayVideoResultDef>> {
-    console.info('testTag', 'PlayVideo onExecute success');
+    console.info('testTag', 'PlayVideo onExecute success')
     let result: insightIntent.IntentResult<PlayVideoResultDef> = {
       code: 0,
       result: {
         resultCode: 0x0000,
         resultMsg: 'Callback PlayVideo Success',
         someInvalid1: undefined,
-        someInvalid2: null,
-      },
-    };
+        someInvalid2: null
+      }
+    }
     let instanceId: number = this.context.instanceId;
     try {
       // 设置意图执行结果的返回形式为延迟返回
-      this.context.setReturnModeForUIAbilityForeground(
-        insightIntent.ReturnMode.FUNCTION,
-      );
+      this.context.setReturnModeForUIAbilityForeground(insightIntent.ReturnMode.FUNCTION);
       console.info('testTag: setReturnModeForUIAbilityForeground success');
     } catch (error) {
       let code = (error as BusinessError).code;
       let msg = (error as BusinessError).message;
-      console.error(
-        `testTag: setReturnModeForUIAbilityForeground failed, error code: ${code}, error msg: ${msg}.`,
-      );
+      console.error(`testTag: setReturnModeForUIAbilityForeground failed, error code: ${code}, error msg: ${msg}.`);
     }
 
     try {
       // 将意图实例的id通过localStorage传入目标页面中
       let localStorageData: Record<string, number> = {
-        insightId: instanceId,
+        'insightId': instanceId,
       };
       let storage: LocalStorage = new LocalStorage(localStorageData);
       // 通过pageLoader加载页面
       this.windowStage?.loadContent('pages/Index', storage);
-      console.info('testTag', 'Succeeded in loading the content1');
+      console.info('testTag', 'Succeeded in loading the content1')
     } catch (err) {
       let code = (err as BusinessError).code;
       let msg = (err as BusinessError).message;
-      console.error(
-        `testTag loadContent error code: ${code}, error msg: ${msg}.`,
-      );
+      console.error(`testTag loadContent error code: ${code}, error msg: ${msg}.`);
     }
     return Promise.resolve(result);
   }
@@ -311,8 +267,7 @@ export default class PlayVideo extends InsightIntentEntryExecutor<PlayVideoResul
 
 主动发送意图执行结果示例：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { insightIntent, insightIntentProvider } from '@kit.AbilityKit';
 
@@ -333,30 +288,30 @@ struct Index {
     Column() {
       // 通过sendExecuteResult接口主动返回意图执行结果
       Button('insightIntentProvider sendIntentResult')
-      .onClick(() => {
-        try {
-          let result: insightIntent.IntentResult<PlayVideoResultDef> = {
-            code: 0,
-            result: {
-              resultCode: 123,
-              resultMsg: 'Function PlayVideo Success',
-              someInvalid1: undefined,
-              someInvalid2: null
+        .onClick(() => {
+          try {
+            let result: insightIntent.IntentResult<PlayVideoResultDef> = {
+              code: 0,
+              result: {
+                resultCode: 123,
+                resultMsg: 'Function PlayVideo Success',
+                someInvalid1: undefined,
+                someInvalid2: null
+              }
             }
+            insightIntentProvider.sendIntentResult(this.insightId, result)
+              .then(() => {
+                console.info('testTag sendIntentResult success');
+              })
+              .catch((error: BusinessError) => {
+                console.error(`testTag sendIntentResult error, error code: ${error.code}, error msg: ${error.message}.`);
+              });
+          } catch (error) {
+            let code = (error as BusinessError).code;
+            let msg = (error as BusinessError).message;
+            console.error(`testTag sendIntentResult fail, error code: ${code}, error msg: ${msg}.`);
           }
-          insightIntentProvider.sendIntentResult(this.insightId, result)
-          .then(() => {
-            console.info('testTag sendIntentResult success');
-          })
-          .catch((error: BusinessError) => {
-            console.error(`testTag sendIntentResult error, error code: ${error.code}, error msg: ${error.message}.`);
-          });
-        } catch (error) {
-          let code = (error as BusinessError).code;
-          let msg = (error as BusinessError).message;
-          console.error(`testTag sendIntentResult fail, error code: ${code}, error msg: ${msg}.`);
-        }
-      })
+        })
     }
     .height('100%')
     .width('100%')

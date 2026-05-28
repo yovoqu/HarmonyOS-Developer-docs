@@ -1,6 +1,6 @@
 # CA证书开发指导
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/certmanager-ca-certs-guidelines
 
@@ -8,32 +8,62 @@
 > 本开发指导需使用API version 12及以上版本SDK。
 
 
-## 场景说明
 
-典型场景。 安装用户CA证书。调用者可以将用户CA证书安装在当前用户或者设备公共位置下。 安装在当前用户时，仅当前用户的业务可以访问该证书。 安装在设备公共位置下，所有用户下的业务都可以访问。 获取用户CA证书列表。可以选择获取当前用户或者设备公共位置下的用户CA证书列表。 获取用户CA证书详情。 删除指定的用户CA证书。 获取CA证书的存储路径。
+##### 场景说明
 
-## 接口说明
+典型场景。
 
-详细接口说明可参考[@ohos.security.certManager (证书管理模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanager)。 以上场景涉及的常用接口如下表所示。
+ - 安装用户CA证书。调用者可以将用户CA证书安装在当前用户或者设备公共位置下。       
+安装在当前用户时，仅当前用户的业务可以访问该证书。
+ - 安装在设备公共位置下，所有用户下的业务都可以访问。
+
+      - 获取用户CA证书列表。可以选择获取当前用户或者设备公共位置下的用户CA证书列表。
+ - 获取用户CA证书详情。
+ - 删除指定的用户CA证书。
+ - 获取CA证书的存储路径。
+
+
+
+
+##### 接口说明
+
+详细接口说明可参考[@ohos.security.certManager (证书管理模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanager)。
+
+以上场景涉及的常用接口如下表所示。
+
 | 实例名 | 接口名 | 描述 |
 | --- | --- | --- |
 | certificateManager | installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult18+ | 安装用户CA证书。 |
 | certificateManager | uninstallUserTrustedCertificateSync(certUri: string) : void18+ | 删除用户CA证书。 |
-| certificateManager | getAllUserTrustedCertificates(): Promise | 获取当前用户和设备公共位置的所有用户根CA证书列表。 |
-| certificateManager | getAllUserTrustedCertificates(scope: CertScope): Promise18+ | 根据证书的位置获取用户根CA证书列表。 |
-| certificateManager | getUserTrustedCertificate(certUri: string): Promise | 获取用户根CA证书的详细信息。 |
+| certificateManager | getAllUserTrustedCertificates(): Promise&lt;CMResult&gt; | 获取当前用户和设备公共位置的所有用户根CA证书列表。 |
+| certificateManager | getAllUserTrustedCertificates(scope: CertScope): Promise&lt;CMResult&gt;18+ | 根据证书的位置获取用户根CA证书列表。 |
+| certificateManager | getUserTrustedCertificate(certUri: string): Promise&lt;CMResult&gt; | 获取用户根CA证书的详细信息。 |
 | certificateManager | getCertificateStorePath(property: CertStoreProperty): string18+ | 获取证书的存储路径。 |
 
 
-## 开发步骤
 
-权限申请和声明。 使用安装和删除接口需要申请权限：ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT或ohos.permission.ACCESS_USER_TRUSTED_CERT 使用获取列表和获取详情接口需要申请权限：ohos.permission.ACCESS_CERT_MANAGER 申请流程请参考：[申请应用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/determine-application-mode) 声明权限请参考：[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions) 导入相关模块。
+
+##### 开发步骤
+1. 权限申请和声明。
+
+  使用安装和删除接口需要申请权限：ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT或ohos.permission.ACCESS_USER_TRUSTED_CERT
+
+  使用获取列表和获取详情接口需要申请权限：ohos.permission.ACCESS_CERT_MANAGER
+
+  申请流程请参考：[申请应用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/determine-application-mode)
+
+  声明权限请参考：[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)
+2. 导入相关模块。
+
+  
 ```text
 import { certificateManager } from '@kit.DeviceCertificateKit';
 ```
 
-安装用户CA证书、获取用户CA证书列表、获取用户证书详情、删除用户CA证书。
-```text
+3. 安装用户CA证书、获取用户CA证书列表、获取用户证书详情、删除用户CA证书。
+
+  
+```ArkTS
 import { certificateManager } from '@kit.DeviceCertificateKit';
 import { util } from '@kit.ArkTS';
 
@@ -108,8 +138,10 @@ async function userCASample() {
 }
 ```
 
-获取系统CA证书路径、用户CA证书路径。应用可以直接通过该路径访问CA证书。
-```text
+4. 获取系统CA证书路径、用户CA证书路径。应用可以直接通过该路径访问CA证书。
+
+  
+```ArkTS
 import { certificateManager } from '@kit.DeviceCertificateKit';
 
 function getUserCaPathSample() {

@@ -3,22 +3,24 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webresourcehandler
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过WebResourceHandler，可以提供自定义的返回头以及返回体给Web组件。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 12开始支持。 示例效果请以真机运行为准。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { webview } from '@kit.ArkWeb';
 ```
 
 
-## didReceiveResponse12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### didReceiveResponse12+
 
 didReceiveResponse(response: WebSchemeHandlerResponse): void
 
@@ -28,16 +30,14 @@ didReceiveResponse(response: WebSchemeHandlerResponse): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| response | [WebSchemeHandlerResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandlerresponse) | 是 | 该拦截请求的响应。 |
+| response | WebSchemeHandlerResponse | 是 | 该拦截请求的响应。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Webview错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)、[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -50,8 +50,8 @@ didReceiveResponse(response: WebSchemeHandlerResponse): void
 示例请参考[OnRequestStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandler#onrequeststart12)。
 
 
-## didReceiveResponseBody12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### didReceiveResponseBody12+
 
 didReceiveResponseBody(data: ArrayBuffer): void
 
@@ -60,7 +60,6 @@ didReceiveResponseBody(data: ArrayBuffer): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -71,7 +70,6 @@ didReceiveResponseBody(data: ArrayBuffer): void
 
 以下错误码的详细介绍请参见[Webview错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)、[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. |
@@ -83,8 +81,8 @@ didReceiveResponseBody(data: ArrayBuffer): void
 示例请参考[OnRequestStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandler#onrequeststart12)。
 
 
-## didFinish12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### didFinish12+
 
 didFinish(): void
 
@@ -96,7 +94,6 @@ didFinish(): void
 
 以下错误码的详细介绍请参见[Webview错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100021 | The resource handler is invalid. |
@@ -107,8 +104,8 @@ didFinish(): void
 示例请参考[OnRequestStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandler#onrequeststart12)。
 
 
-## didFail12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### didFail12+
 
 didFail(code: WebNetErrorList): void
 
@@ -118,16 +115,14 @@ didFail(code: WebNetErrorList): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| code | [WebNetErrorList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist#webneterrorlist) | 是 | 网络错误码。 |
+| code | WebNetErrorList | 是 | 网络错误码。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Webview错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)、[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -140,8 +135,8 @@ didFail(code: WebNetErrorList): void
 示例请参考[OnRequestStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webschemehandler#onrequeststart12)。
 
 
-## didFail20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### didFail20+
 
 didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void
 
@@ -151,17 +146,15 @@ didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| code | [WebNetErrorList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist#webneterrorlist) | 是 | 网络错误码。 |
-| completeIfNoResponse | boolean | 是 | 调用当前接口时，若之前未调用过[didReceiveResponse](#didreceiveresponse12)，是否完成此次网络请求；值为true时，若之前未调用过[didReceiveResponse](#didreceiveresponse12)，则会自动生成一个response以完成此次网络请求，网络错误码为-104；值为false时，将等待应用调用[didReceiveResponse](#didreceiveresponse12)并传入response，不会直接完成此次网络请求。 |
+| code | WebNetErrorList | 是 | 网络错误码。 |
+| completeIfNoResponse | boolean | 是 | 调用当前接口时，若之前未调用过didReceiveResponse，是否完成此次网络请求；值为true时，若之前未调用过didReceiveResponse，则会自动生成一个response以完成此次网络请求，网络错误码为-104；值为false时，将等待应用调用didReceiveResponse并传入response，不会直接完成此次网络请求。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Webview错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -171,8 +164,7 @@ didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview, WebNetErrorList } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -186,59 +178,59 @@ struct WebComponent {
   build() {
     Column() {
       Web({ src: 'https://www.example.com', controller: this.controller })
-      .onControllerAttached(() => {
-        try {
-          this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest, resourceHandler: webview.WebResourceHandler) => {
-            console.info("[schemeHandler] onRequestStart");
-            try {
-              console.info("[schemeHandler] onRequestStart url:" + request.getRequestUrl());
-              console.info("[schemeHandler] onRequestStart method:" + request.getRequestMethod());
-              console.info("[schemeHandler] onRequestStart referrer:" + request.getReferrer());
-              console.info("[schemeHandler] onRequestStart isMainFrame:" + request.isMainFrame());
-              console.info("[schemeHandler] onRequestStart hasGesture:" + request.hasGesture());
-              console.info("[schemeHandler] onRequestStart header size:" + request.getHeader().length);
-              console.info("[schemeHandler] onRequestStart resource type:" + request.getRequestResourceType());
-              console.info("[schemeHandler] onRequestStart frame url:" + request.getFrameUrl());
-              let header = request.getHeader();
-              for (let i = 0; i < header.length; i++) {
-                console.info("[schemeHandler] onRequestStart header:" + header[i].headerKey + " " + header[i].headerValue);
+        .onControllerAttached(() => {
+          try {
+            this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest, resourceHandler: webview.WebResourceHandler) => {
+              console.info("[schemeHandler] onRequestStart");
+              try {
+                console.info("[schemeHandler] onRequestStart url:" + request.getRequestUrl());
+                console.info("[schemeHandler] onRequestStart method:" + request.getRequestMethod());
+                console.info("[schemeHandler] onRequestStart referrer:" + request.getReferrer());
+                console.info("[schemeHandler] onRequestStart isMainFrame:" + request.isMainFrame());
+                console.info("[schemeHandler] onRequestStart hasGesture:" + request.hasGesture());
+                console.info("[schemeHandler] onRequestStart header size:" + request.getHeader().length);
+                console.info("[schemeHandler] onRequestStart resource type:" + request.getRequestResourceType());
+                console.info("[schemeHandler] onRequestStart frame url:" + request.getFrameUrl());
+                let header = request.getHeader();
+                for (let i = 0; i < header.length; i++) {
+                  console.info("[schemeHandler] onRequestStart header:" + header[i].headerKey + " " + header[i].headerValue);
+                }
+                let stream = request.getHttpBodyStream();
+                if (stream) {
+                  console.info("[schemeHandler] onRequestStart has http body stream");
+                } else {
+                  console.info("[schemeHandler] onRequestStart has no http body stream");
+                }
+              } catch (error) {
+                console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
               }
-              let stream = request.getHttpBodyStream();
-              if (stream) {
-                console.info("[schemeHandler] onRequestStart has http body stream");
-              } else {
-                console.info("[schemeHandler] onRequestStart has no http body stream");
+
+              if (request.getRequestUrl().endsWith("example.com")) {
+                return false;
               }
-            } catch (error) {
-              console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-            }
 
-            if (request.getRequestUrl().endsWith("example.com")) {
-              return false;
-            }
+              try {
+                // 直接调用didFail(WebNetErrorList.ERR_FAILED, true)，自动构造一个网络请求错误ERR_CONNECTION_FAILED
+                resourceHandler.didFail(WebNetErrorList.ERR_FAILED, true);
+              } catch (error) {
+                // 当error.code为17100101(The errorCode is either ARKWEB_NET_OK or outside the range of error codes in WebNetErrorList)
+                // 且didFail(code: WebNetErrorList, completeIfNoResponse: boolean)的code值不为null时，接口会继续调用不会中断。
+                console.error(`[schemeHandler] ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+              }
+              return true;
+            })
 
-            try {
-              // 直接调用didFail(WebNetErrorList.ERR_FAILED, true)，自动构造一个网络请求错误ERR_CONNECTION_FAILED
-              resourceHandler.didFail(WebNetErrorList.ERR_FAILED, true);
-            } catch (error) {
-              // 当error.code为17100101(The errorCode is either ARKWEB_NET_OK or outside the range of error codes in WebNetErrorList)
-              // 且didFail(code: WebNetErrorList, completeIfNoResponse: boolean)的code值不为null时，接口会继续调用不会中断。
-              console.error(`[schemeHandler] ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-            }
-            return true;
-          })
+            this.schemeHandler.onRequestStop((request: webview.WebSchemeHandlerRequest) => {
+              console.info("[schemeHandler] onRequestStop");
+            });
 
-          this.schemeHandler.onRequestStop((request: webview.WebSchemeHandlerRequest) => {
-            console.info("[schemeHandler] onRequestStop");
-          });
-
-          this.controller.setWebSchemeHandler('https', this.schemeHandler);
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
-      .javaScriptAccess(true)
-      .domStorageAccess(true)
+            this.controller.setWebSchemeHandler('https', this.schemeHandler);
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
+        .javaScriptAccess(true)
+        .domStorageAccess(true)
     }
   }
 }

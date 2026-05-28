@@ -4,72 +4,132 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataaugmentation-retrieval
 
-## 场景介绍
+##### 场景介绍
 
-智慧化数据检索可用于文件整理，文件搜索等场景，例如：关键词检索、语义检索（文搜文）和跨模态检索（文搜图）。智慧化数据检索通过多路召回和重排两个阶段实现： 多路召回是指通过多种不同的策略或算法从海量数据中快速筛选出候选结果集。这些策略可针对不同的特征、模型或者数据来源，旨在尽可能覆盖各种潜在场景。ArkData提供了倒排和向量两路召回的能力，并支持灵活的条件过滤。 重排是针对多路召回得到的候选结果集进行二次筛选，通过简单规则或者更复杂的模型（如机器学习或深度学习模型）计算各个结果的相关性分数，并重新排列顺序。
+智慧化数据检索可用于文件整理，文件搜索等场景，例如：关键词检索、语义检索（文搜文）和跨模态检索（文搜图）。智慧化数据检索通过多路召回和重排两个阶段实现：
 
-## 倒排检索召回
+ - 多路召回是指通过多种不同的策略或算法从海量数据中快速筛选出候选结果集。这些策略可针对不同的特征、模型或者数据来源，旨在尽可能覆盖各种潜在场景。ArkData提供了倒排和向量两路召回的能力，并支持灵活的条件过滤。
+ - 重排是针对多路召回得到的候选结果集进行二次筛选，通过简单规则或者更复杂的模型（如机器学习或深度学习模型）计算各个结果的相关性分数，并重新排列顺序。
+
+
+
+
+##### 倒排检索召回
 
 倒排检索召回包含核心词选取和倒排召回子策略。
 
-## 核心词选取
 
-在接收到用户查询时，于构造倒排查询SQL语句之前，应先根据词权重、词性及词的相对位置筛选出查询中的核心词集合。重排过程中，核心词是否命中是评判结果相关性的重要指标。当前核心词选取逻辑如下： 对分词结果从前到后遍历，累加词的权重，直到累加的词权重值超过总和词权重*核心词系数，这部分累加的词为核心词。 所有词性为“eng”（英文单词或字母）和“m”（数字）的分词全部视为核心词。 查询中的词权重和词性信息来源于高斯分词器的分词结果。
 
-## 倒排召回子策略
+##### 核心词选取
 
-为了保障召回结果的准确性，倒排召回使用SQLite FTS5倒排引擎能力，提供了3个倒排算子来进行相关结果匹配、打分。倒排算子如下： bm25算子：根据查询词在各字段中的命中情况，以bm25评分的加权和作为最终得分。 精确命中算子：如果文档字段中精确命中该查询语句，则给出其打分。 乱序窗口命中算子：如果文档字段中，在一定窗口范围内，出现所有用户查询词，则给出其打分。 此外，每个倒排算子还提供了匹配特征。最终的倒排召回得分是这三个策略加权后的结果。
+在接收到用户查询时，于构造倒排查询SQL语句之前，应先根据词权重、词性及词的相对位置筛选出查询中的核心词集合。重排过程中，核心词是否命中是评判结果相关性的重要指标。当前核心词选取逻辑如下：
+1. 对分词结果从前到后遍历，累加词的权重，直到累加的词权重值超过总和词权重*核心词系数，这部分累加的词为核心词。
+2. 所有词性为“eng”（英文单词或字母）和“m”（数字）的分词全部视为核心词。
 
-## 向量检索召回
+查询中的词权重和词性信息来源于高斯分词器的分词结果。
+
+
+
+##### 倒排召回子策略
+
+为了保障召回结果的准确性，倒排召回使用SQLite FTS5倒排引擎能力，提供了3个倒排算子来进行相关结果匹配、打分。倒排算子如下：
+
+ - bm25算子：根据查询词在各字段中的命中情况，以bm25评分的加权和作为最终得分。
+ - 精确命中算子：如果文档字段中精确命中该查询语句，则给出其打分。
+ - 乱序窗口命中算子：如果文档字段中，在一定窗口范围内，出现所有用户查询词，则给出其打分。
+
+
+此外，每个倒排算子还提供了匹配特征。最终的倒排召回得分是这三个策略加权后的结果。
+
+
+
+##### 向量检索召回
 
 向量召回是通过将用户查询转化为向量（需使用嵌入模型进行向量化处理）来检索相似向量，从而实现语义相近内容的召回。向量近似的阈值在召回配置中设定。
 
-## 反查
+
+
+##### 反查
 
 在多路召回完成后，部分结果仅由向量召回而未被倒排召回（或仅由倒排召回而未被向量召回）。这些差集在聚合多路召回结果时，缺乏其他路径提供的召回信息。由于重排模块要求每个召回结果包含所有路径的召回信息，因此需要对这些差集进行反查操作。
 
-## 排序模块
+
+
+##### 排序模块
 
 排序模块包括对结果进行分档以及档内排序，使用的算法有RRF和分数融合排序。
 
-## 对结果进行分档
 
-以多路召回结果作为输入，基于各路召回的特征值或者召回分数，实现召回结果的相关性分档。档位共三个，分为高、中、低档位，供业务对最终检索结果相关性进行判断。 对于倒排召回，基于查询结果中被匹配字段对用户的查询词命中情况进行分档。 高档位：存在匹配字段精确命中用户查询语句。 中档位：命中大多数核心词。 低档位：命中部分查询词。 “命中大多数核心词”是指当核心词数量小于等于3时，核心词全命中；当核心词数量大于3时，核心词命中N-1个，其中N为查询中被识别为核心词的总数。 对于向量召回，基于配置的一个或多个向量分数阈值对档位进行划分，当文档的向量分数大于等于某档位的阈值时，则划分至该档位。向量分数阈值是由1个或2个范围在[0,1]的数字组成。向量分数阈值有两个值时，分别表示高档位和中档位的阈值，向量分数小于中档位阈值则均为低档位；阈值有一个值时，该值表示高档位阈值，向量分数小于该值则均为低档位，无中档位。 对于同一个检索结果，倒排召回和向量召回的分档结果不一致时，以高档位结果优先。
 
-## 档内排序算法：RRF算法
+##### 对结果进行分档
+
+以多路召回结果作为输入，基于各路召回的特征值或者召回分数，实现召回结果的相关性分档。档位共三个，分为高、中、低档位，供业务对最终检索结果相关性进行判断。
+
+对于倒排召回，基于查询结果中被匹配字段对用户的查询词命中情况进行分档。
+1. 高档位：存在匹配字段精确命中用户查询语句。
+2. 中档位：命中大多数核心词。
+3. 低档位：命中部分查询词。
+
+“命中大多数核心词”是指当核心词数量小于等于3时，核心词全命中；当核心词数量大于3时，核心词命中N-1个，其中N为查询中被识别为核心词的总数。
+
+对于向量召回，基于配置的一个或多个向量分数阈值对档位进行划分，当文档的向量分数大于等于某档位的阈值时，则划分至该档位。向量分数阈值是由1个或2个范围在[0,1]的数字组成。向量分数阈值有两个值时，分别表示高档位和中档位的阈值，向量分数小于中档位阈值则均为低档位；阈值有一个值时，该值表示高档位阈值，向量分数小于该值则均为低档位，无中档位。
+
+对于同一个检索结果，倒排召回和向量召回的分档结果不一致时，以高档位结果优先。
+
+
+
+##### 档内排序算法：RRF算法
 
 以多路召回结果作为输入，基于RRF算法实现多路召回结果的重排，并支持多路召回的每路进行权重配置。RRF算法通常会根据元素在各个召回策略中的排名来计算RRF得分。例如，对于一个元素在不同召回策略中的排名分别为 _r_1,_r_2,⋯,r**n，其 RRF得分可以通过以下公式来计算。
+
+
 ![](assets/智慧化数据检索-ArkTS/file-20260514130930159-0.png)
+
+
 其中_k_是一个常数，用于调整排名的影响程度。通过计算每个元素的RRF得分，将元素根据得分进行排序，得到结果列表。
 
-## 档内排序算法：分数融合排序
+
+
+##### 档内排序算法：分数融合排序
 
 以多路召回结果作为输入，并基于多路召回结果的召回分数计算排序分数来实现重排，同时支持对多路召回的每路进行权重配置。分数融合排序算法会根据配置的每路权重对每个元素在每路的得分进行加权平均，计算出一个最终得分，最后将元素根据得分进行排序，得到结果列表。
 
-## 约束限制
 
-当前只支持基于向量数据库、倒排数据库的召回。 查询词长度不超过512字符。
 
-## 接口说明
+##### 约束限制
+
+ - 当前只支持基于向量数据库、倒排数据库的召回。
+ - 查询词长度不超过512字符。
+
+
+
+
+##### 接口说明
 
 以下是智慧数据多路召回和重排的相关接口。
+
 | 接口名称 | 描述 |
 | --- | --- |
-| [retrieval.getRetriever](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#getretriever)(config: [RetrievalConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#retrievalconfig)): Promise | 创建并获取检索器。 |
-| [retrieveRdb](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#retrieverdb)(query: string, condition: [RetrievalCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#retrievalcondition)): Promise | 给定检索条件（包含query分词、召回条件、重排策略），检索召回满足条件的数据。 |
+| retrieval.getRetriever(config: RetrievalConfig): Promise&lt;Retriever&gt; | 创建并获取检索器。 |
+| retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords&gt; | 给定检索条件（包含query分词、召回条件、重排策略），检索召回满足条件的数据。 |
 
 
-## 开发步骤
 
-导入模块。
+
+##### 开发步骤
+1. 导入模块。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { relationalStore } from '@kit.ArkData';
 import { retrieval } from '@kit.DataAugmentationKit';
 ```
 
-初始化倒排数据和向量数据。
-```text
+2. 初始化倒排数据和向量数据。
+
+  
+```ArkTS
 // Index.ets
 // 倒排数据库
 let rdbStoreInvIdx: relationalStore.RdbStore;
@@ -198,8 +258,10 @@ async insertInvIdxDB() {
 }
 ```
 
-配置倒排、向量数据库相关的信息和上下文对象，并且生成检索器对象，用于后面的检索。
-```text
+3. 配置倒排、向量数据库相关的信息和上下文对象，并且生成检索器对象，用于后面的检索。
+
+  
+```ArkTS
 // Index.ets
 async retrieve() {
   // 向量数据库的数据库连接配置信息
@@ -251,14 +313,16 @@ async retrieve() {
 }
 ```
 
-执行检索：使用前一步获取到的检索器，配合检索条件进行检索。
-```text
+4. 执行检索：使用前一步获取到的检索器，配合检索条件进行检索。
+
+  
+```ArkTS
 // Index.ets
  async retrieve() {
-    let fieldWeight:Record = {
+    let fieldWeight:Record<string, number> = {
       "filename":4.0
     }
-    let fieldSlops:Record = {
+    let fieldSlops:Record<string, number> = {
       "filename":5
     }
     // bm25算子
@@ -278,9 +342,9 @@ async retrieve() {
       columnSlops:fieldSlops
     }
     // 将三种倒排优化算子封装成策略数组
-    let invertedIndexStrategies:Array = [bm25Strategy, exactStrategy, outOfOrderStrategy]
+    let invertedIndexStrategies:Array<retrieval.InvertedIndexStrategy> = [bm25Strategy, exactStrategy, outOfOrderStrategy]
 
-    let filters: Array = [
+    let filters: Array<retrieval.FilterInfo> = [
       {
         columns: ["filename"],
         operator: retrieval.Operator.OP_NE,
@@ -316,14 +380,14 @@ async retrieve() {
       deepSize:2
     }
     // 向量召回占检索中所有回路的权重
-    let vectorWeights:Record = {
+    let vectorWeights:Record<string, number> = {
       "vectorRecall":0.5
     }
    // 倒排召回占检索中所有回路的权重
-    let invidxWeights:Record = {
+    let invidxWeights:Record<string, number> = {
       "vectorRecall":0.5
     }
-    let numberInspector:Record = {
+    let numberInspector:Record<retrieval.RecallName, retrieval.ColumnName> = {
       "vectorRecall":"filename"
     }
      // 向量重排参数配置
@@ -335,7 +399,7 @@ async retrieve() {
     let invidxRerankParameter:retrieval.InvertedIndexRerankParameter = {
       invertedIndexWeights:invidxWeights,
     }
-    let parameters:Record = {
+    let parameters:Record<retrieval.ChannelType, retrieval.RerankParameter> = {
       0:vectorRerankParameter,
       1:invidxRerankParameter
     }
@@ -347,7 +411,7 @@ async retrieve() {
       isSoftmaxNormalized:true
     }
     // 待解释的文档id
-    let GroundTruthIds: Array = ['1','2','3'];
+    let GroundTruthIds: Array<string> = ['1','2','3'];
     // 检索解释
     let explain : retrieval.ExplanationConfig ={
       groundTruths: GroundTruthIds
@@ -367,7 +431,9 @@ async retrieve() {
         .then((rdbdata:retrieval.RdbRecords) => {
 
           console.info(`#########  retrieval result ############`);
-          for (let i = 0; i  {
+          for (let i = 0; i < rdbdata.records.length; i++) {
+            console.info(` primaryKey is ${rdbdata.records[i].primaryKey}`);
+            Object.keys(rdbdata.records[i].columns).forEach((key) => {
               if (rdbdata.records && rdbdata.records[i]) {
                 let value = rdbdata.records[i].columns[key];
                 console.info(`recall Scores Key: ${key}, Value: ${value}`);
@@ -377,7 +443,7 @@ async retrieve() {
 
             Object.keys(rdbdata.records[i].recallScores).forEach((channelType) => {
               if (rdbdata.records) {
-                let scores:Record  = rdbdata.records[i].recallScores[channelType];
+                let scores:Record<string, retrieval.RecallScore>  = rdbdata.records[i].recallScores[channelType];
                 Object.keys(scores).forEach((key)=>{
                   let value = scores[key];
                   console.info(`recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);
@@ -397,7 +463,9 @@ async retrieve() {
 
           console.info(`#########  missdGroundTruthsPrimaryKey ############`);
           if(rdbdata.missedGroundTruths != undefined && rdbdata.missedGroundTruths.length != 0){
-            for (let i = 0; i  {
+            for (let i = 0; i < rdbdata.missedGroundTruths.length; i++) {
+              console.info(`missdGroundTruthsPrimaryKey is ${rdbdata.missedGroundTruths[i].primaryKey}`);
+              Object.keys(rdbdata.missedGroundTruths[i].columns).forEach((key) => {
                 if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {
                   let value = rdbdata.missedGroundTruths[i].columns[key];
                   console.info(`missdGroundTruths recall Scores Key: ${key}, Value: ${value}`);
@@ -407,7 +475,7 @@ async retrieve() {
 
               Object.keys(rdbdata.missedGroundTruths[i].recallScores).forEach((channelType) => {
                 if (rdbdata.missedGroundTruths) {
-                  let scores:Record  = rdbdata.missedGroundTruths[i].recallScores[channelType];
+                  let scores:Record<string, retrieval.RecallScore>  = rdbdata.missedGroundTruths[i].recallScores[channelType];
                   Object.keys(scores).forEach((key)=>{
                     let value = scores[key];
                     console.info(`missdGroundTruths recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);
@@ -434,10 +502,11 @@ async retrieve() {
 ```
 
 
-## ArkTS完整示例
 
 
-```text
+##### ArkTS完整示例
+
+```ArkTS
 // Index.ets
 import { relationalStore } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -611,11 +680,11 @@ struct Page {
         console.error("Failed to get Retriever and code is " + err.code);
       })
 
-    let fieldWeight:Record = {
+    let fieldWeight:Record<string, number> = {
       "filename":4.0
     }
 
-    let fieldSlops:Record = {
+    let fieldSlops:Record<string, number> = {
       "filename":5
     }
 
@@ -635,7 +704,7 @@ struct Page {
       columnSlops:fieldSlops
     }
 
-    let invertedIndexStrategies:Array = [bm25Strategy, exactStrategy, outOfOrderStrategy]
+    let invertedIndexStrategies:Array<retrieval.InvertedIndexStrategy> = [bm25Strategy, exactStrategy, outOfOrderStrategy]
 
     let recallConditionInvIdx:retrieval.InvertedIndexRecallCondition ={
       ftsTableName:"files",
@@ -665,11 +734,11 @@ struct Page {
       deepSize:2
     }
 
-    let vectorWeights:Record = {
+    let vectorWeights:Record<string, number> = {
       "vectorRecall":0.5
     }
 
-    let invidxWeights:Record = {
+    let invidxWeights:Record<string, number> = {
       "vectorRecall":0.5
     }
 
@@ -681,7 +750,7 @@ struct Page {
       invertedIndexWeights:invidxWeights,
     }
 
-    let parameters:Record = {
+    let parameters:Record<retrieval.ChannelType, retrieval.RerankParameter> = {
       0:vectorRerankParameter,
       1:invidxRerankParameter
     }
@@ -692,7 +761,7 @@ struct Page {
       isSoftmaxNormalized:true
     }
 
-    let groundTruthIds: Array = ['1','2', '3'];
+    let groundTruthIds: Array<string> = ['1','2', '3'];
     let explain : retrieval.ExplanationConfig ={
       groundTruths: groundTruthIds
     }
@@ -712,7 +781,9 @@ struct Page {
         .then((rdbdata:retrieval.RdbRecords) => {
 
           console.info(`#########  retrieval result ############`);
-          for (let i = 0; i  {
+          for (let i = 0; i < rdbdata.records.length; i++) {
+            console.info(` primaryKey is ${rdbdata.records[i].primaryKey}`);
+            Object.keys(rdbdata.records[i].columns).forEach((key) => {
               if (rdbdata.records && rdbdata.records[i]) {
                 let value = rdbdata.records[i].columns[key];
                 console.info(`recall Scores Key: ${key}, Value: ${value}`);
@@ -722,7 +793,7 @@ struct Page {
 
             Object.keys(rdbdata.records[i].recallScores).forEach((channelType) => {
               if (rdbdata.records) {
-                let scores:Record  = rdbdata.records[i].recallScores[channelType];
+                let scores:Record<string, retrieval.RecallScore>  = rdbdata.records[i].recallScores[channelType];
                 Object.keys(scores).forEach((key)=>{
                   let value = scores[key];
                   console.info(`recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);
@@ -742,7 +813,9 @@ struct Page {
 
           console.info(`#########  missdGroundTruthsPrimaryKey ############`);
           if(rdbdata.missedGroundTruths != undefined && rdbdata.missedGroundTruths.length != 0){
-            for (let i = 0; i  {
+            for (let i = 0; i < rdbdata.missedGroundTruths.length; i++) {
+              console.info(`missdGroundTruthsPrimaryKey is ${rdbdata.missedGroundTruths[i].primaryKey}`);
+              Object.keys(rdbdata.missedGroundTruths[i].columns).forEach((key) => {
                 if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {
                   let value = rdbdata.missedGroundTruths[i].columns[key];
                   console.info(`missdGroundTruths recall Scores Key: ${key}, Value: ${value}`);
@@ -752,7 +825,7 @@ struct Page {
 
               Object.keys(rdbdata.missedGroundTruths[i].recallScores).forEach((channelType) => {
                 if (rdbdata.missedGroundTruths) {
-                  let scores:Record  = rdbdata.missedGroundTruths[i].recallScores[channelType];
+                  let scores:Record<string, retrieval.RecallScore>  = rdbdata.missedGroundTruths[i].recallScores[channelType];
                   Object.keys(scores).forEach((key)=>{
                     let value = scores[key];
                     console.info(`missdGroundTruths recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);

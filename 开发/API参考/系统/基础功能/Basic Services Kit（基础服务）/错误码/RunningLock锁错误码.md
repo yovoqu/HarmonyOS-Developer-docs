@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-runninglock
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 4900101 连接服务失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 4900101 连接服务失败
 
 **错误信息**
 
@@ -22,15 +21,17 @@ Failed to connect to the service.
 操作失败，连接系统服务发生异常。
 
 **可能原因**
-
-
 1. 系统服务停止运行。
 2. 系统服务内部通讯发生异常。
 
 **处理步骤**
 
 检查系统服务是否正常运行。
+1. 在控制台中输入如下命令，查看当前的系统服务列表。
 
+  
+```bash
+> hdc shell hidumper -ls
+```
 
-1. 在控制台中输入如下命令，查看当前的系统服务列表。       __PREBLOCK_0__
 2. 查看系统服务列表中是否包含PowerManagerService系统服务。

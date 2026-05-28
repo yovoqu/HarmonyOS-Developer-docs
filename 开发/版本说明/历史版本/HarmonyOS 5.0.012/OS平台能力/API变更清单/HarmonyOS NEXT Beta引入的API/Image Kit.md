@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：PixelMap； API声明：scale(x: number, y: number, level: AntiAliasingLevel): Promise<void>; 差异内容：scale(x: number, y: number, level: AntiAliasingLevel): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：PixelMap； API声明：scale(x: number, y: number, level: AntiAliasingLevel): Promise&lt;void&gt;; 差异内容：scale(x: number, y: number, level: AntiAliasingLevel): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：PixelMap； API声明：scaleSync(x: number, y: number, level: AntiAliasingLevel): void; 差异内容：scaleSync(x: number, y: number, level: AntiAliasingLevel): void; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：PixelMapFormat； API声明：RGBA_1010102 = 10 差异内容：RGBA_1010102 = 10 | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：PixelMapFormat； API声明：YCBCR_P010 = 11 差异内容：YCBCR_P010 = 11 | api/@ohos.multimedia.image.d.ts |
@@ -35,8 +35,8 @@
 | 新增API | NA | 类名：HdrMetadataType； API声明：GAINMAP = 2 差异内容：GAINMAP = 2 | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HdrMetadataType； API声明：ALTERNATE = 3 差异内容：ALTERNATE = 3 | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明： interface HdrStaticMetadata 差异内容： interface HdrStaticMetadata | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HdrStaticMetadata； API声明：displayPrimariesX: Array<number>; 差异内容：displayPrimariesX: Array<number>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HdrStaticMetadata； API声明：displayPrimariesY: Array<number>; 差异内容：displayPrimariesY: Array<number>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HdrStaticMetadata； API声明：displayPrimariesX: Array&lt;number&gt;; 差异内容：displayPrimariesX: Array&lt;number&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HdrStaticMetadata； API声明：displayPrimariesY: Array&lt;number&gt;; 差异内容：displayPrimariesY: Array&lt;number&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HdrStaticMetadata； API声明：whitePointX: number; 差异内容：whitePointX: number; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HdrStaticMetadata； API声明：whitePointY: number; 差异内容：whitePointY: number; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HdrStaticMetadata； API声明：maxLuminance: number; 差异内容：maxLuminance: number; | api/@ohos.multimedia.image.d.ts |
@@ -56,11 +56,11 @@
 | 新增API | NA | 类名：HdrGainmapMetadata； API声明：useBaseColorFlag: boolean; 差异内容：useBaseColorFlag: boolean; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HdrGainmapMetadata； API声明：baseHeadroom: number; 差异内容：baseHeadroom: number; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：HdrGainmapMetadata； API声明：alternateHeadroom: number; 差异内容：alternateHeadroom: number; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：HdrGainmapMetadata； API声明：channels: Array<GainmapChannel>; 差异内容：channels: Array<GainmapChannel>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：HdrGainmapMetadata； API声明：channels: Array&lt;GainmapChannel&gt;; 差异内容：channels: Array&lt;GainmapChannel&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：type HdrMetadataValue = HdrMetadataType \| HdrStaticMetadata \| ArrayBuffer \| HdrGainmapMetadata; 差异内容：type HdrMetadataValue = HdrMetadataType \| HdrStaticMetadata \| ArrayBuffer \| HdrGainmapMetadata; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：PixelMap； API声明：convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>; 差异内容：convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise<void>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：PixelMap； API声明：convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise&lt;void&gt;; 差异内容：convertPixelFormat(targetPixelFormat: PixelMapFormat): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：PixelMap； API声明：setTransferDetached(detached: boolean): void; 差异内容：setTransferDetached(detached: boolean): void; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：PixelMap； API声明：getMetadata(key: HdrMetadataKey): HdrMetadataValue; 差异内容：getMetadata(key: HdrMetadataKey): HdrMetadataValue; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：PixelMap； API声明：setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>; 差异内容：setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ImageReceiver； API声明：off(type: 'imageArrival', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'imageArrival', callback?: AsyncCallback<void>): void; | api/@ohos.multimedia.image.d.ts |
-| 新增API | NA | 类名：ImageCreator； API声明：off(type: 'imageRelease', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'imageRelease', callback?: AsyncCallback<void>): void; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：PixelMap； API声明：setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise&lt;void&gt;; 差异内容：setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise&lt;void&gt;; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ImageReceiver； API声明：off(type: 'imageArrival', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'imageArrival', callback?: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：ImageCreator； API声明：off(type: 'imageRelease', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'imageRelease', callback?: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.image.d.ts |

@@ -3,15 +3,18 @@
 更新时间：2026-05-08 09:27:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供通过不同的url访问不同的页面，包括跳转到应用内的指定页面、同应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 10开始支持。 以下API需先使用UIContext中的 getRouter() 方法获取到Router对象，再通过该对象调用对应方法。
 
-## pushUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushUrl(options: router.RouterOptions): Promise<void>
+
+##### pushUrl
+
+pushUrl(options: router.RouterOptions): Promise&lt;void&gt;
 
 跳转到应用内的指定页面，使用Promise异步回调。
 
@@ -21,14 +24,12 @@ pushUrl(options: router.RouterOptions): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 跳转页面描述信息。 |
+| options | router.RouterOptions | 是 | 跳转页面描述信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -38,7 +39,6 @@ pushUrl(options: router.RouterOptions): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -50,8 +50,7 @@ pushUrl(options: router.RouterOptions): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -81,25 +80,25 @@ struct Index {
       params: new RouterParams([12, 45, 78])
     }
     this.getUIContext()
-    .getRouter()
-    .pushUrl(options)
-    .then(() => {
-      console.info('pushUrl success');
-    })
-    .catch((err: ESObject) => {
-      console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
-    })
+      .getRouter()
+      .pushUrl(options)
+      .then(() => {
+        console.info('pushUrl success');
+      })
+      .catch((err: ESObject) => {
+        console.error(`pushUrl failed, code is ${(err as BusinessError).code}, message is ${(err as BusinessError).message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Text('First Page')
       Button('Next page')
-      .type(ButtonType.Capsule)
-      .margin({ top: 20 })
-      .onClick(() => {
-        this.routePage()
-      })
+        .type(ButtonType.Capsule)
+        .margin({ top: 20 })
+        .onClick(() => {
+          this.routePage()
+        })
     }
     .width('100%')
     .height('100%')
@@ -107,8 +106,7 @@ struct Index {
 }
 ```
 
-
-```ts
+```text
 // 在second页面中接收传递过来的参数
 class innerParams {
   array: number[];
@@ -136,21 +134,21 @@ struct Second {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Text('Second Page')
       Button('Back')
-      .fontSize(30)
-      .onClick(() => {
-        try {
-          this.getUIContext().getRouter().showAlertBeforeBackPage({ message: 'Are you sure to return?' })
-        } catch (error) {
-          // TODO: Implement error handling.
-        }
-        this.getUIContext().getRouter().back()
-      })
-      .margin({ top: 20 })
+        .fontSize(30)
+        .onClick(() => {
+          try {
+            this.getUIContext().getRouter().showAlertBeforeBackPage({ message: 'Are you sure to return?' })
+          } catch (error) {
+            // TODO: Implement error handling.
+          }
+          this.getUIContext().getRouter().back()
+        })
+        .margin({ top: 20 })
       Button(`The value on the first page：${this.secondData}`)
-      .margin({ top: 20 })
-      .onClick(()=> {
-        this.secondData = (this.data['array'][1]).toString();
-      })
+        .margin({ top: 20 })
+        .onClick(()=> {
+          this.secondData = (this.data['array'][1]).toString();
+        })
     }
     .width('100%')
     .height('100%')
@@ -159,10 +157,10 @@ struct Second {
 ```
 
 
-## pushUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void
+##### pushUrl
+
+pushUrl(options: router.RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到应用内的指定页面。使用callback异步回调。
 
@@ -172,17 +170,15 @@ pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 跳转页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.RouterOptions | 是 | 跳转页面描述信息。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -194,8 +190,7 @@ pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -225,8 +220,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -241,10 +236,10 @@ struct Index {
 ```
 
 
-## pushUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>
+##### pushUrl
+
+pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
 跳转到应用内的指定页面，使用Promise异步回调。与[pushUrl](#pushurl)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -254,15 +249,13 @@ pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 跳转页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用的模式。 |
+| options | router.RouterOptions | 是 | 跳转页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -272,7 +265,6 @@ pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -284,8 +276,7 @@ pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -300,28 +291,28 @@ let rtm: RouterTmp = new RouterTmp();
 struct Index {
   async routePage() {
     this.getUIContext().getRouter().pushUrl({
-      url: 'pages/routerpage2',
-      params: {
-        data1: 'message',
-        data2: {
-          data3: [123, 456, 789]
+        url: 'pages/routerpage2',
+        params: {
+          data1: 'message',
+          data2: {
+            data3: [123, 456, 789]
+          }
         }
-      }
-    }, rtm.Standard)
-    .then(() => {
-      console.info('succeeded');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`pushUrl failed, code is ${error.code}, message is ${error.message}`);
-    })
+      }, rtm.Standard)
+      .then(() => {
+        console.info('succeeded');
+      })
+      .catch((error: BusinessError) => {
+        console.error(`pushUrl failed, code is ${error.code}, message is ${error.message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -336,10 +327,10 @@ struct Index {
 ```
 
 
-## pushUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void
+##### pushUrl
+
+pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到应用内的指定页面。使用callback异步回调。与[pushUrl](#pushurl-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -349,18 +340,16 @@ pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncC
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 跳转页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.RouterOptions | 是 | 跳转页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -372,8 +361,7 @@ pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncC
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -410,8 +398,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -426,10 +414,10 @@ struct Index {
 ```
 
 
-## replaceUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceUrl(options: router.RouterOptions): Promise<void>
+##### replaceUrl
+
+replaceUrl(options: router.RouterOptions): Promise&lt;void&gt;
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面，使用Promise异步回调。
 
@@ -439,14 +427,12 @@ replaceUrl(options: router.RouterOptions): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 替换页面描述信息。 |
+| options | router.RouterOptions | 是 | 替换页面描述信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -457,7 +443,6 @@ replaceUrl(options: router.RouterOptions): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -467,8 +452,7 @@ replaceUrl(options: router.RouterOptions): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -476,25 +460,25 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   async routePage() {
     this.getUIContext().getRouter().replaceUrl({
-      url: 'pages/detail',
-      params: {
-        data1: 'message'
-      }
-    })
-    .then(() => {
-      console.info('succeeded');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`replaceUrl failed, code is ${error.code}, message is ${error.message}`);
-    })
+        url: 'pages/detail',
+        params: {
+          data1: 'message'
+        }
+      })
+      .then(() => {
+        console.info('succeeded');
+      })
+      .catch((error: BusinessError) => {
+        console.error(`replaceUrl failed, code is ${error.code}, message is ${error.message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -509,10 +493,10 @@ struct Index {
 ```
 
 
-## replaceUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void
+##### replaceUrl
+
+replaceUrl(options: router.RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。使用callback异步回调。
 
@@ -522,17 +506,15 @@ replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 替换页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.RouterOptions | 是 | 替换页面描述信息。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -543,8 +525,7 @@ replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -571,8 +552,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -587,10 +568,10 @@ struct Index {
 ```
 
 
-## replaceUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void>
+##### replaceUrl
+
+replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面，使用Promise异步回调。与[replaceUrl](#replaceurl)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -600,15 +581,13 @@ replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 替换页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用的模式。 |
+| options | router.RouterOptions | 是 | 替换页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -619,7 +598,6 @@ replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -629,8 +607,7 @@ replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise<void
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -645,25 +622,25 @@ let rtm: RouterTmp = new RouterTmp();
 struct Index {
   async routePage() {
     this.getUIContext().getRouter().replaceUrl({
-      url: 'pages/detail',
-      params: {
-        data1: 'message'
-      }
-    }, rtm.Standard)
-    .then(() => {
-      console.info('succeeded');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`replaceUrl failed, code is ${error.code}, message is ${error.message}`);
-    })
+        url: 'pages/detail',
+        params: {
+          data1: 'message'
+        }
+      }, rtm.Standard)
+      .then(() => {
+        console.info('succeeded');
+      })
+      .catch((error: BusinessError) => {
+        console.error(`replaceUrl failed, code is ${error.code}, message is ${error.message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -678,10 +655,10 @@ struct Index {
 ```
 
 
-## replaceUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void
+##### replaceUrl
+
+replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。使用callback异步回调。与[replaceUrl](#replaceurl-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -691,18 +668,16 @@ replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: Asy
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 是 | 替换页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用��模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.RouterOptions | 是 | 替换页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -713,8 +688,7 @@ replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: Asy
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -748,8 +722,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -764,10 +738,10 @@ struct Index {
 ```
 
 
-## pushNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushNamedRoute(options: router.NamedRouterOptions): Promise<void>
+##### pushNamedRoute
+
+pushNamedRoute(options: router.NamedRouterOptions): Promise&lt;void&gt;
 
 跳转到指定的命名路由页面，使用Promise异步回调。
 
@@ -777,14 +751,12 @@ pushNamedRoute(options: router.NamedRouterOptions): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 跳转页面描述信息。 |
+| options | router.NamedRouterOptions | 是 | 跳转页面描述信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -795,7 +767,6 @@ pushNamedRoute(options: router.NamedRouterOptions): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -806,8 +777,7 @@ pushNamedRoute(options: router.NamedRouterOptions): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -815,28 +785,28 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   async routePage() {
     this.getUIContext().getRouter().pushNamedRoute({
-      name: 'myPage',
-      params: {
-        data1: 'message',
-        data2: {
-          data3: [123, 456, 789]
+        name: 'myPage',
+        params: {
+          data1: 'message',
+          data2: {
+            data3: [123, 456, 789]
+          }
         }
-      }
-    })
-    .then(() => {
-      console.info('succeeded');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`pushNamedRoute failed, code is ${error.code}, message is ${error.message}`);
-    })
+      })
+      .then(() => {
+        console.info('succeeded');
+      })
+      .catch((error: BusinessError) => {
+        console.error(`pushNamedRoute failed, code is ${error.code}, message is ${error.message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -851,10 +821,10 @@ struct Index {
 ```
 
 
-## pushNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void
+##### pushNamedRoute
+
+pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到指定的命名路由页面。使用callback异步回调。
 
@@ -864,17 +834,15 @@ pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 跳转页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.NamedRouterOptions | 是 | 跳转页面描述信息。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -886,8 +854,7 @@ pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -917,8 +884,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -933,10 +900,10 @@ struct Index {
 ```
 
 
-## pushNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>
+##### pushNamedRoute
+
+pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
 跳转到指定的命名路由页面，使用Promise异步回调。与[pushNamedRoute](#pushnamedroute)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -946,15 +913,13 @@ pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Pro
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 跳转页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用的模式。 |
+| options | router.NamedRouterOptions | 是 | 跳转页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -964,7 +929,6 @@ pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Pro
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -976,8 +940,7 @@ pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Pro
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -991,28 +954,28 @@ let rtm:RouterTmp = new RouterTmp();
 struct Index {
   async routePage() {
     this.getUIContext().getRouter().pushNamedRoute({
-      name: 'myPage',
-      params: {
-        data1: 'message',
-        data2: {
-          data3: [123, 456, 789]
+        name: 'myPage',
+        params: {
+          data1: 'message',
+          data2: {
+            data3: [123, 456, 789]
+          }
         }
-      }
-    }, rtm.Standard)
-    .then(() => {
-      console.info('succeeded');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`pushNamedRoute failed, code is ${error.code}, message is ${error.message}`);
-    })
+      }, rtm.Standard)
+      .then(() => {
+        console.info('succeeded');
+      })
+      .catch((error: BusinessError) => {
+        console.error(`pushNamedRoute failed, code is ${error.code}, message is ${error.message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -1027,10 +990,10 @@ struct Index {
 ```
 
 
-## pushNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void
+##### pushNamedRoute
+
+pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到指定的命名路由页面。使用callback异步回调。与[pushNamedRoute](#pushnamedroute-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -1040,18 +1003,16 @@ pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, call
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 跳转页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.NamedRouterOptions | 是 | 跳转页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1063,8 +1024,7 @@ pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, call
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1101,8 +1061,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -1117,10 +1077,10 @@ struct Index {
 ```
 
 
-## replaceNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>
+##### replaceNamedRoute
+
+replaceNamedRoute(options: router.NamedRouterOptions): Promise&lt;void&gt;
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面，使用Promise异步回调。
 
@@ -1130,14 +1090,12 @@ replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 替换页面描述信息。 |
+| options | router.NamedRouterOptions | 是 | 替换页面描述信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1148,7 +1106,6 @@ replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | if the number of parameters is less than 1 or the type of the url parameter is not string. |
@@ -1158,8 +1115,7 @@ replaceNamedRoute(options: router.NamedRouterOptions): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -1167,25 +1123,25 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   async routePage() {
     this.getUIContext().getRouter().replaceNamedRoute({
-      name: 'myPage',
-      params: {
-        data1: 'message'
-      }
-    })
-    .then(() => {
-      console.info('succeeded');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`replaceNamedRoute failed, code is ${error.code}, message is ${error.message}`);
-    })
+        name: 'myPage',
+        params: {
+          data1: 'message'
+        }
+      })
+      .then(() => {
+        console.info('succeeded');
+      })
+      .catch((error: BusinessError) => {
+        console.error(`replaceNamedRoute failed, code is ${error.code}, message is ${error.message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -1200,10 +1156,10 @@ struct Index {
 ```
 
 
-## replaceNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>): void
+##### replaceNamedRoute
+
+replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。使用callback异步回调。
 
@@ -1213,17 +1169,15 @@ replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 替换页面描述信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.NamedRouterOptions | 是 | 替换页面描述信息。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1234,8 +1188,7 @@ replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<vo
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -1262,8 +1215,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -1278,10 +1231,10 @@ struct Index {
 ```
 
 
-## replaceNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise<void>
+##### replaceNamedRoute
+
+replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面，使用Promise异步回调。与[replaceNamedRoute](#replacenamedroute)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -1291,15 +1244,13 @@ replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 替换页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用的模式。 |
+| options | router.NamedRouterOptions | 是 | 替换页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1310,7 +1261,6 @@ replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): 
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.Incorrect parameters types; 3. Parameter verification failed. |
@@ -1320,8 +1270,7 @@ replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): 
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1336,25 +1285,25 @@ let rtm: RouterTmp = new RouterTmp();
 struct Index {
   async routePage() {
     this.getUIContext().getRouter().replaceNamedRoute({
-      name: 'myPage',
-      params: {
-        data1: 'message'
-      }
-    }, rtm.Standard)
-    .then(() => {
-      console.info('succeeded');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`replaceNamedRoute failed, code is ${error.code}, message is ${error.message}`);
-    })
+        name: 'myPage',
+        params: {
+          data1: 'message'
+        }
+      }, rtm.Standard)
+      .then(() => {
+        console.info('succeeded');
+      })
+      .catch((error: BusinessError) => {
+        console.error(`replaceNamedRoute failed, code is ${error.code}, message is ${error.message}`);
+      })
   }
 
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -1369,10 +1318,10 @@ struct Index {
 ```
 
 
-## replaceNamedRoute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>): void
+##### replaceNamedRoute
+
+replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。使用callback异步回调。与[replaceNamedRoute](#replacenamedroute-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
 
@@ -1382,18 +1331,16 @@ replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, c
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.NamedRouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#namedrouteroptions10) | 是 | 替换页面描述信息。 |
-| mode | [router.RouterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routermode9) | 是 | 跳转页面使用的模式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。          当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
+| options | router.NamedRouterOptions | 是 | 替换页面描述信息。 |
+| mode | router.RouterMode | 是 | 跳转页面使用的模式。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | router跳转结果回调函数。 当路由跳转成功时，error为undefined。当路由跳转失败时，error为系统返回的错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1404,8 +1351,7 @@ replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, c
 
 **示例：**
 
-
-```ts
+```text
 import { router } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1439,8 +1385,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('next page')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -1455,8 +1401,8 @@ struct Index {
 ```
 
 
-## back
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### back
 
 back(options?: router.RouterOptions ): void
 
@@ -1468,27 +1414,25 @@ back(options?: router.RouterOptions ): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.RouterOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routeroptions) | 否 | 返回页面描述信息，其中参数url指路由跳转时返回到指定url的页面，如果页面栈中没有对应url的页面，则不响应该操作；如果栈中存在对应url的页面，则返回至index最大的同名页面。          如果url未设置，则返回上一页，页面不会重新构建，页面栈里面的page不会回收，出栈后会被回收。 |
+| options | router.RouterOptions | 否 | 返回页面描述信息，其中参数url指路由跳转时返回到指定url的页面，如果页面栈中没有对应url的页面，则不响应该操作；如果栈中存在对应url的页面，则返回至index最大的同名页面。 如果url未设置，则返回上一页，页面不会重新构建，页面栈里面的page不会回收，出栈后会被回收。 |
 
 
 **示例：**
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 let router: Router = uiContext.getRouter();
-router.back({ url: 'pages/detail' });
+router.back({url:'pages/detail'});
 ```
 
 
-## back12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### back12+
 
 back(index: number, params?: Object): void
 
@@ -1500,10 +1444,9 @@ back(index: number, params?: Object): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 跳转目标页面的索引值。          取值范围：[0, +∞) |
+| index | number | 是 | 跳转目标页面的索引值。 取值范围：[0, +∞) |
 | params | Object | 否 | 页面返回时携带的参数。 |
 
 
@@ -1511,9 +1454,8 @@ back(index: number, params?: Object): void
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 
 let router: Router = uiContext.getRouter();
@@ -1522,17 +1464,16 @@ router.back(1);
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 let router: Router = uiContext.getRouter();
-router.back(1, { info: '来自Home页' }); // 携带参数返回
+router.back(1, {info:'来自Home页'}); // 携带参数返回
 ```
 
 
-## clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -1546,9 +1487,8 @@ clear(): void
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 
 let router: Router = uiContext.getRouter();
@@ -1556,23 +1496,22 @@ router.clear();
 ```
 
 
-## getLength(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLength(deprecated)
 
 getLength(): string
 
 获取当前在页面栈内的页面数量。
 
-
 > [!NOTE]
-> 从API version 10开始支持，从 API version 23开始废弃，建议使用[getStackSize](#getstacksize23)替代。
+> 从API version 10开始支持，从 API version 23开始废弃，建议使用 getStackSize 替代。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1583,9 +1522,8 @@ getLength(): string
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 
 let router: Router = uiContext.getRouter();
@@ -1594,8 +1532,8 @@ console.info('pages stack size = ' + size);
 ```
 
 
-## getStackSize23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getStackSize23+
 
 getStackSize(): number
 
@@ -1609,7 +1547,6 @@ getStackSize(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 页面数量，页面栈支持最大数值是32。 |
@@ -1617,8 +1554,7 @@ getStackSize(): number
 
 **示例：**
 
-
-```ts
+```text
 @Entry
 @Component
 struct Index {
@@ -1627,8 +1563,8 @@ struct Index {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button() {
         Text('stack size')
-        .fontSize(25)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(25)
+          .fontWeight(FontWeight.Bold)
       }.type(ButtonType.Capsule)
       .margin({ top: 20 })
       .backgroundColor('#ccc')
@@ -1643,8 +1579,8 @@ struct Index {
 ```
 
 
-## getState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getState
 
 getState(): router.RouterState
 
@@ -1656,19 +1592,17 @@ getState(): router.RouterState
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| router.[RouterState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routerstate) | 页面状态信息。 |
+| router.RouterState | 页面状态信息。 |
 
 
 **示例：**
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 
 let router: Router = uiContext.getRouter();
@@ -1681,8 +1615,8 @@ if (page != undefined) {
 ```
 
 
-## getStateByIndex12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getStateByIndex12+
 
 getStateByIndex(index: number): router.RouterState | undefined
 
@@ -1694,27 +1628,24 @@ getStateByIndex(index: number): router.RouterState | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 表示要获取的页面索引。          取值范围：[1, +∞) |
+| index | number | 是 | 表示要获取的页面索引。 取值范围：[1, +∞) |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| router.[RouterState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routerstate) \| undefined | 返回页面状态信息。索引不存在时返回undefined。 |
+| router.RouterState \| undefined | 返回页面状态信息。索引不存在时返回undefined。 |
 
 
 **示例：**
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 
 let router: Router = uiContext.getRouter();
@@ -1728,8 +1659,8 @@ if (options != undefined) {
 ```
 
 
-## getStateByUrl12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getStateByUrl12+
 
 getStateByUrl(url: string): Array<router.[RouterState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routerstate)>
 
@@ -1741,7 +1672,6 @@ getStateByUrl(url: string): Array<router.[RouterState](https://developer.huawei.
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | string | 是 | 表示要获取对应页面信息的url。 |
@@ -1749,22 +1679,20 @@ getStateByUrl(url: string): Array<router.[RouterState](https://developer.huawei.
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;router.[RouterState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routerstate)&gt; | 页面状态信息。 |
+| Array<router.RouterState> | 页面状态信息。 |
 
 
 **示例：**
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 let router: Router = uiContext.getRouter();
-let options: Array<router.RouterState> = router.getStateByUrl('pages/index');
+let options:Array<router.RouterState> = router.getStateByUrl('pages/index');
 for (let i: number = 0; i < options.length; i++) {
   console.info('index = ' + options[i].index);
   console.info('name = ' + options[i].name);
@@ -1774,8 +1702,8 @@ for (let i: number = 0; i < options.length; i++) {
 ```
 
 
-## showAlertBeforeBackPage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showAlertBeforeBackPage
 
 showAlertBeforeBackPage(options: router.EnableAlertOptions): void
 
@@ -1787,16 +1715,14 @@ showAlertBeforeBackPage(options: router.EnableAlertOptions): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [router.EnableAlertOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#enablealertoptions) | 是 | 文本弹窗信息描述。 |
+| options | router.EnableAlertOptions | 是 | 文本弹窗信息描述。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1808,29 +1734,26 @@ showAlertBeforeBackPage(options: router.EnableAlertOptions): void
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let uiContext: UIContext = this.getUIContext();
 let router: Router = uiContext.getRouter();
 try {
   router.showAlertBeforeBackPage({
-    message: 'Message Info',
+    message: 'Message Info'
   });
-} catch (error) {
+} catch(error) {
   let message = (error as BusinessError).message;
   let code = (error as BusinessError).code;
-  console.error(
-    `showAlertBeforeBackPage failed, code is ${code}, message is ${message}`,
-  );
+  console.error(`showAlertBeforeBackPage failed, code is ${code}, message is ${message}`);
 }
 ```
 
 
-## hideAlertBeforeBackPage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hideAlertBeforeBackPage
 
 hideAlertBeforeBackPage(): void
 
@@ -1844,9 +1767,8 @@ hideAlertBeforeBackPage(): void
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 
 let router: Router = uiContext.getRouter();
@@ -1854,8 +1776,8 @@ router.hideAlertBeforeBackPage();
 ```
 
 
-## getParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getParams
 
 getParams(): Object
 
@@ -1867,7 +1789,6 @@ getParams(): Object
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Object | 发起跳转的页面往当前页传入的参数。 |
@@ -1877,9 +1798,8 @@ getParams(): Object
 
 完整示例请参考[PushUrl](#pushurl)中的示例。
 
-
-```ts
-import { Router, UIContext } from '@kit.ArkUI';
+```text
+import { Router , UIContext } from '@kit.ArkUI';
 let uiContext: UIContext = this.getUIContext();
 let router: Router = uiContext.getRouter();
 router.getParams();

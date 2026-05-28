@@ -3,28 +3,30 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-contextmenucontroller
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供控制菜单关闭的能力。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getContextMenuController() 方法获取ContextMenuController实例，再通过此实例调用对应方法。
 
+  
 
-## close12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### close12+
 
 close(): void
-
+ 
 关闭菜单。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **示例：**
-
+ 
 通过定时器触发，调用ContextMenuController的close方法关闭菜单。
-
-
-```ts
+ 
+```text
 import { ContextMenuController } from '@kit.ArkUI';
 
 @Entry
@@ -55,11 +57,11 @@ struct Index {
 
       Column() {
         Text("Test ContextMenu close")
-        .fontSize(20)
-        .width('100%')
-        .height(500)
-        .backgroundColor(0xAFEEEE)
-        .textAlign(TextAlign.Center)
+          .fontSize(20)
+          .width('100%')
+          .height(500)
+          .backgroundColor(0xAFEEEE)
+          .textAlign(TextAlign.Center)
       }
       .bindContextMenu(this.MenuBuilder, ResponseType.LongPress)
     }
@@ -68,5 +70,6 @@ struct Index {
   }
 }
 ```
+ 
 
-![](assets/Class%20ContextMenuController/file-20260514163830709-0.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/RYbGvMM9ToCKjDHJMCGtMQ/zh-cn_image_0000002581275614.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013822Z&HW-CC-Expire=86400&HW-CC-Sign=79D58E79EA3E958544B69C544B8C95907CC019FA7DE1DDE246591F6548CCAB66)

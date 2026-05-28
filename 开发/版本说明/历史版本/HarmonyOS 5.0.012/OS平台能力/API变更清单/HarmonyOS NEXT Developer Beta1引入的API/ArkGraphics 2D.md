@@ -12,7 +12,7 @@
 | API卡片权限变更 | 类名：Filter； API声明：brightness(bright: number): Filter; 差异内容：NA | 类名：Filter； API声明：brightness(bright: number): Filter; 差异内容：form | api/@ohos.effectKit.d.ts |
 | API卡片权限变更 | 类名：Filter； API声明：grayscale(): Filter; 差异内容：NA | 类名：Filter； API声明：grayscale(): Filter; 差异内容：form | api/@ohos.effectKit.d.ts |
 | API卡片权限变更 | 类名：effectKit； API声明： interface ColorPicker 差异内容：NA | 类名：effectKit； API声明： interface ColorPicker 差异内容：form | api/@ohos.effectKit.d.ts |
-| API卡片权限变更 | 类名：ColorPicker； API声明：getMainColor(): Promise<Color>; 差异内容：NA | 类名：ColorPicker； API声明：getMainColor(): Promise<Color>; 差异内容：form | api/@ohos.effectKit.d.ts |
+| API卡片权限变更 | 类名：ColorPicker； API声明：getMainColor(): Promise&lt;Color&gt;; 差异内容：NA | 类名：ColorPicker； API声明：getMainColor(): Promise&lt;Color&gt;; 差异内容：form | api/@ohos.effectKit.d.ts |
 | API卡片权限变更 | 类名：ColorPicker； API声明：getMainColorSync(): Color; 差异内容：NA | 类名：ColorPicker； API声明：getMainColorSync(): Color; 差异内容：form | api/@ohos.effectKit.d.ts |
 | API卡片权限变更 | 类名：effectKit； API声明： interface Color 差异内容：NA | 类名：effectKit； API声明： interface Color 差异内容：form | api/@ohos.effectKit.d.ts |
 | API卡片权限变更 | 类名：Color； API声明：red: number; 差异内容：NA | 类名：Color； API声明：red: number; 差异内容：form | api/@ohos.effectKit.d.ts |
@@ -20,11 +20,11 @@
 | API卡片权限变更 | 类名：Color； API声明：blue: number; 差异内容：NA | 类名：Color； API声明：blue: number; 差异内容：form | api/@ohos.effectKit.d.ts |
 | API卡片权限变更 | 类名：Color； API声明：alpha: number; 差异内容：NA | 类名：Color； API声明：alpha: number; 差异内容：form | api/@ohos.effectKit.d.ts |
 | API卡片权限变更 | 类名：effectKit； API声明：function createEffect(source: image.PixelMap): Filter; 差异内容：NA | 类名：effectKit； API声明：function createEffect(source: image.PixelMap): Filter; 差异内容：form | api/@ohos.effectKit.d.ts |
-| API卡片权限变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise<ColorPicker>; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise<ColorPicker>; 差异内容：form | api/@ohos.effectKit.d.ts |
-| API卡片权限变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void; 差异内容：form | api/@ohos.effectKit.d.ts |
+| API卡片权限变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise&lt;ColorPicker&gt;; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise&lt;ColorPicker&gt;; 差异内容：form | api/@ohos.effectKit.d.ts |
+| API卡片权限变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback&lt;ColorPicker&gt;): void; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback&lt;ColorPicker&gt;): void; 差异内容：form | api/@ohos.effectKit.d.ts |
 | API废弃版本变更 | 类名：Filter； API声明：getPixelMap(): image.PixelMap; 差异内容：NA | 类名：Filter； API声明：getPixelMap(): image.PixelMap; 差异内容：11 | api/@ohos.effectKit.d.ts |
-| 错误码变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise<ColorPicker>; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise<ColorPicker>; 差异内容：401 | api/@ohos.effectKit.d.ts |
-| 错误码变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback<ColorPicker>): void; 差异内容：401 | api/@ohos.effectKit.d.ts |
+| 错误码变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise&lt;ColorPicker&gt;; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap): Promise&lt;ColorPicker&gt;; 差异内容：401 | api/@ohos.effectKit.d.ts |
+| 错误码变更 | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback&lt;ColorPicker&gt;): void; 差异内容：NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, callback: AsyncCallback&lt;ColorPicker&gt;): void; 差异内容：401 | api/@ohos.effectKit.d.ts |
 | 新增API | NA | 类名：global； API声明： declare namespace drawing 差异内容： declare namespace drawing | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：drawing； API声明： enum BlendMode 差异内容： enum BlendMode | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：BlendMode； API声明：CLEAR = 0 差异内容：CLEAR = 0 | api/@ohos.graphics.drawing.d.ts |
@@ -77,7 +77,7 @@
 | 新增API | NA | 类名：Canvas； API声明：drawPath(path: Path): void; 差异内容：drawPath(path: Path): void; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Canvas； API声明：drawLine(x0: number, y0: number, x1: number, y1: number): void; 差异内容：drawLine(x0: number, y0: number, x1: number, y1: number): void; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Canvas； API声明：drawTextBlob(blob: TextBlob, x: number, y: number): void; 差异内容：drawTextBlob(blob: TextBlob, x: number, y: number): void; | api/@ohos.graphics.drawing.d.ts |
-| 新增API | NA | 类名：Canvas； API声明：drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number, vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void; 差异内容：drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number, vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void; | api/@ohos.graphics.drawing.d.ts |
+| 新增API | NA | 类名：Canvas； API声明：drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number, vertices: Array&lt;number&gt;, vertOffset: number, colors: Array&lt;number&gt;, colorOffset: number): void; 差异内容：drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number, vertices: Array&lt;number&gt;, vertOffset: number, colors: Array&lt;number&gt;, colorOffset: number): void; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Canvas； API声明：attachPen(pen: Pen): void; 差异内容：attachPen(pen: Pen): void; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Canvas； API声明：attachBrush(brush: Brush): void; 差异内容：attachBrush(brush: Brush): void; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Canvas； API声明：detachPen(): void; 差异内容：detachPen(): void; | api/@ohos.graphics.drawing.d.ts |
@@ -106,7 +106,7 @@
 | 新增API | NA | 类名：TextEncoding； API声明：TEXT_ENCODING_GLYPH_ID = 3 差异内容：TEXT_ENCODING_GLYPH_ID = 3 | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：drawing； API声明： class TextBlob 差异内容： class TextBlob | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：TextBlob； API声明：static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob; 差异内容：static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob; | api/@ohos.graphics.drawing.d.ts |
-| 新增API | NA | 类名：TextBlob； API声明：static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: common2D.Rect): TextBlob; 差异内容：static makeFromRunBuffer(pos: Array<TextBlobRunBuffer>, font: Font, bounds?: common2D.Rect): TextBlob; | api/@ohos.graphics.drawing.d.ts |
+| 新增API | NA | 类名：TextBlob； API声明：static makeFromRunBuffer(pos: Array&lt;TextBlobRunBuffer&gt;, font: Font, bounds?: common2D.Rect): TextBlob; 差异内容：static makeFromRunBuffer(pos: Array&lt;TextBlobRunBuffer&gt;, font: Font, bounds?: common2D.Rect): TextBlob; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：TextBlob； API声明：bounds(): common2D.Rect; 差异内容：bounds(): common2D.Rect; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：drawing； API声明： class Typeface 差异内容： class Typeface | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Typeface； API声明：getFamilyName(): string; 差异内容：getFamilyName(): string; | api/@ohos.graphics.drawing.d.ts |
@@ -129,7 +129,7 @@
 | 新增API | NA | 类名：drawing； API声明： class MaskFilter 差异内容： class MaskFilter | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：MaskFilter； API声明：static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter; 差异内容：static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：drawing； API声明： class PathEffect 差异内容： class PathEffect | api/@ohos.graphics.drawing.d.ts |
-| 新增API | NA | 类名：PathEffect； API声明：static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect; 差异内容：static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect; | api/@ohos.graphics.drawing.d.ts |
+| 新增API | NA | 类名：PathEffect； API声明：static createDashPathEffect(intervals: Array&lt;number&gt;, phase: number): PathEffect; 差异内容：static createDashPathEffect(intervals: Array&lt;number&gt;, phase: number): PathEffect; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：drawing； API声明： class ShadowLayer 差异内容： class ShadowLayer | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：ShadowLayer； API声明：static create(blurRadius: number, x: number, y: number, color: common2D.Color): ShadowLayer; 差异内容：static create(blurRadius: number, x: number, y: number, color: common2D.Color): ShadowLayer; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：drawing； API声明： class ColorFilter 差异内容： class ColorFilter | api/@ohos.graphics.drawing.d.ts |
@@ -174,10 +174,10 @@
 | 新增API | NA | 类名：Brush； API声明：setMaskFilter(filter: MaskFilter): void; 差异内容：setMaskFilter(filter: MaskFilter): void; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Brush； API声明：setShadowLayer(shadowLayer: ShadowLayer): void; 差异内容：setShadowLayer(shadowLayer: ShadowLayer): void; | api/@ohos.graphics.drawing.d.ts |
 | 新增API | NA | 类名：Brush； API声明：setBlendMode(mode: BlendMode): void; 差异内容：setBlendMode(mode: BlendMode): void; | api/@ohos.graphics.drawing.d.ts |
-| 新增API | NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, region: Array<number>): Promise<ColorPicker>; 差异内容：function createColorPicker(source: image.PixelMap, region: Array<number>): Promise<ColorPicker>; | api/@ohos.effectKit.d.ts |
-| 新增API | NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void; 差异内容：function createColorPicker(source: image.PixelMap, region: Array<number>, callback: AsyncCallback<ColorPicker>): void; | api/@ohos.effectKit.d.ts |
+| 新增API | NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, region: Array&lt;number&gt;): Promise&lt;ColorPicker&gt;; 差异内容：function createColorPicker(source: image.PixelMap, region: Array&lt;number&gt;): Promise&lt;ColorPicker&gt;; | api/@ohos.effectKit.d.ts |
+| 新增API | NA | 类名：effectKit； API声明：function createColorPicker(source: image.PixelMap, region: Array&lt;number&gt;, callback: AsyncCallback&lt;ColorPicker&gt;): void; 差异内容：function createColorPicker(source: image.PixelMap, region: Array&lt;number&gt;, callback: AsyncCallback&lt;ColorPicker&gt;): void; | api/@ohos.effectKit.d.ts |
 | 新增API | NA | 类名：Filter； API声明：invert(): Filter; 差异内容：invert(): Filter; | api/@ohos.effectKit.d.ts |
-| 新增API | NA | 类名：Filter； API声明：setColorMatrix(colorMatrix: Array<number>): Filter; 差异内容：setColorMatrix(colorMatrix: Array<number>): Filter; | api/@ohos.effectKit.d.ts |
+| 新增API | NA | 类名：Filter； API声明：setColorMatrix(colorMatrix: Array&lt;number&gt;): Filter; 差异内容：setColorMatrix(colorMatrix: Array&lt;number&gt;): Filter; | api/@ohos.effectKit.d.ts |
 | 新增API | NA | 类名：Filter； API声明：getEffectPixelMap(): Promise<image.PixelMap>; 差异内容：getEffectPixelMap(): Promise<image.PixelMap>; | api/@ohos.effectKit.d.ts |
 | 新增API | NA | 类名：ColorPicker； API声明：getLargestProportionColor(): Color; 差异内容：getLargestProportionColor(): Color; | api/@ohos.effectKit.d.ts |
 | 新增API | NA | 类名：ColorPicker； API声明：getTopProportionColors(colorCount: number): Array<Color \| null>; 差异内容：getTopProportionColors(colorCount: number): Array<Color \| null>; | api/@ohos.effectKit.d.ts |
@@ -229,8 +229,8 @@
 | 新增API | NA | 类名：IntervalInfo； API声明：targetTimestamp: number; 差异内容：targetTimestamp: number; | api/@ohos.graphics.displaySync.d.ts |
 | 新增API | NA | 类名：displaySync； API声明： interface DisplaySync 差异内容： interface DisplaySync | api/@ohos.graphics.displaySync.d.ts |
 | 新增API | NA | 类名：DisplaySync； API声明：setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void; 差异内容：setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void; | api/@ohos.graphics.displaySync.d.ts |
-| 新增API | NA | 类名：DisplaySync； API声明：on(type: 'frame', callback: Callback<IntervalInfo>): void; 差异内容：on(type: 'frame', callback: Callback<IntervalInfo>): void; | api/@ohos.graphics.displaySync.d.ts |
-| 新增API | NA | 类名：DisplaySync； API声明：off(type: 'frame', callback?: Callback<IntervalInfo>): void; 差异内容：off(type: 'frame', callback?: Callback<IntervalInfo>): void; | api/@ohos.graphics.displaySync.d.ts |
+| 新增API | NA | 类名：DisplaySync； API声明：on(type: 'frame', callback: Callback&lt;IntervalInfo&gt;): void; 差异内容：on(type: 'frame', callback: Callback&lt;IntervalInfo&gt;): void; | api/@ohos.graphics.displaySync.d.ts |
+| 新增API | NA | 类名：DisplaySync； API声明：off(type: 'frame', callback?: Callback&lt;IntervalInfo&gt;): void; 差异内容：off(type: 'frame', callback?: Callback&lt;IntervalInfo&gt;): void; | api/@ohos.graphics.displaySync.d.ts |
 | 新增API | NA | 类名：DisplaySync； API声明：start(): void; 差异内容：start(): void; | api/@ohos.graphics.displaySync.d.ts |
 | 新增API | NA | 类名：DisplaySync； API声明：stop(): void; 差异内容：stop(): void; | api/@ohos.graphics.displaySync.d.ts |
 | 新增API | NA | 类名：displaySync； API声明：function create(): DisplaySync; 差异内容：function create(): DisplaySync; | api/@ohos.graphics.displaySync.d.ts |
@@ -248,7 +248,7 @@
 | 新增API | NA | 类名：sendableColorSpaceManager； API声明：type ISendable = lang.ISendable; 差异内容：type ISendable = lang.ISendable; | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
 | 新增API | NA | 类名：sendableColorSpaceManager； API声明： interface ColorSpaceManager 差异内容： interface ColorSpaceManager | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
 | 新增API | NA | 类名：ColorSpaceManager； API声明：getColorSpaceName(): colorSpaceManager.ColorSpace; 差异内容：getColorSpaceName(): colorSpaceManager.ColorSpace; | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
-| 新增API | NA | 类名：ColorSpaceManager； API声明：getWhitePoint(): collections.Array<number>; 差异内容：getWhitePoint(): collections.Array<number>; | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
+| 新增API | NA | 类名：ColorSpaceManager； API声明：getWhitePoint(): collections.Array&lt;number&gt;; 差异内容：getWhitePoint(): collections.Array&lt;number&gt;; | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
 | 新增API | NA | 类名：ColorSpaceManager； API声明：getGamma(): number; 差异内容：getGamma(): number; | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
 | 新增API | NA | 类名：sendableColorSpaceManager； API声明：function create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager; 差异内容：function create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager; | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
 | 新增API | NA | 类名：sendableColorSpaceManager； API声明：function create(primaries: colorSpaceManager.ColorSpacePrimaries, gamma: number): ColorSpaceManager; 差异内容：function create(primaries: colorSpaceManager.ColorSpacePrimaries, gamma: number): ColorSpaceManager; | api/@ohos.graphics.sendableColorSpaceManager.d.ets |
@@ -314,7 +314,7 @@
 | 新增API | NA | 类名：TextStyle； API声明：fontWeight?: FontWeight; 差异内容：fontWeight?: FontWeight; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextStyle； API声明：fontStyle?: FontStyle; 差异内容：fontStyle?: FontStyle; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextStyle； API声明：baseline?: TextBaseline; 差异内容：baseline?: TextBaseline; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：TextStyle； API声明：fontFamilies?: Array<string>; 差异内容：fontFamilies?: Array<string>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：TextStyle； API声明：fontFamilies?: Array&lt;string&gt;; 差异内容：fontFamilies?: Array&lt;string&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextStyle； API声明：fontSize?: number; 差异内容：fontSize?: number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextStyle； API声明：letterSpacing?: number; 差异内容：letterSpacing?: number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextStyle； API声明：wordSpacing?: number; 差异内容：wordSpacing?: number; | api/@ohos.graphics.text.d.ts |
@@ -360,15 +360,15 @@
 | 新增API | NA | 类名：Paragraph； API声明：getMaxIntrinsicWidth(): number; 差异内容：getMaxIntrinsicWidth(): number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getAlphabeticBaseline(): number; 差异内容：getAlphabeticBaseline(): number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getIdeographicBaseline(): number; 差异内容：getIdeographicBaseline(): number; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：Paragraph； API声明：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>; 差异内容：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：Paragraph； API声明：getRectsForPlaceholders(): Array<TextBox>; 差异内容：getRectsForPlaceholders(): Array<TextBox>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：Paragraph； API声明：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array&lt;TextBox&gt;; 差异内容：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array&lt;TextBox&gt;; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：Paragraph； API声明：getRectsForPlaceholders(): Array&lt;TextBox&gt;; 差异内容：getRectsForPlaceholders(): Array&lt;TextBox&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity; 差异内容：getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getWordBoundary(offset: number): Range; 差异内容：getWordBoundary(offset: number): Range; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getLineCount(): number; 差异内容：getLineCount(): number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getLineHeight(line: number): number; 差异内容：getLineHeight(line: number): number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getLineWidth(line: number): number; 差异内容：getLineWidth(line: number): number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：didExceedMaxLines(): boolean; 差异内容：didExceedMaxLines(): boolean; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：Paragraph； API声明：getTextLines(): Array<TextLine>; 差异内容：getTextLines(): Array<TextLine>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：Paragraph； API声明：getTextLines(): Array&lt;TextLine&gt;; 差异内容：getTextLines(): Array&lt;TextLine&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：text； API声明： interface TextBox 差异内容： interface TextBox | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextBox； API声明：rect: common2D.Rect; 差异内容：rect: common2D.Rect; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextBox； API声明：direction: TextDirection; 差异内容：direction: TextDirection; | api/@ohos.graphics.text.d.ts |
@@ -397,11 +397,11 @@
 | 新增API | NA | 类名：text； API声明： class TextLine 差异内容： class TextLine | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextLine； API声明：getGlyphCount(): number; 差异内容：getGlyphCount(): number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextLine； API声明：getTextRange(): Range; 差异内容：getTextRange(): Range; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：TextLine； API声明：getGlyphRuns(): Array<Run>; 差异内容：getGlyphRuns(): Array<Run>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：TextLine； API声明：getGlyphRuns(): Array&lt;Run&gt;; 差异内容：getGlyphRuns(): Array&lt;Run&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextLine； API声明：paint(canvas: drawing.Canvas, x: number, y: number): void; 差异内容：paint(canvas: drawing.Canvas, x: number, y: number): void; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：text； API声明： class Run 差异内容： class Run | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Run； API声明：getGlyphCount(): number; 差异内容：getGlyphCount(): number; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：Run； API声明：getGlyphs(): Array<number>; 差异内容：getGlyphs(): Array<number>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：Run； API声明：getGlyphs(): Array&lt;number&gt;; 差异内容：getGlyphs(): Array&lt;number&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Run； API声明：getPositions(): Array<common2D.Point>; 差异内容：getPositions(): Array<common2D.Point>; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Run； API声明：getOffsets(): Array<common2D.Point>; 差异内容：getOffsets(): Array<common2D.Point>; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Run； API声明：getFont(): drawing.Font; 差异内容：getFont(): drawing.Font; | api/@ohos.graphics.text.d.ts |

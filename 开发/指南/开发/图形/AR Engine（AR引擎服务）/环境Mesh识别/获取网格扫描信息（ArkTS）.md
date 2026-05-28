@@ -1,41 +1,51 @@
 # 获取网格扫描信息（ArkTS）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-mesh
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/HarmonyOS_Samples/arengine_samplecode_clientdemo_arkts)。
 
 
-## 约束与限制
+##### 约束与限制
 
-获取网格扫描信息能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_MESH](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从5.1.0(18)开始，获取网格扫描信息能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持环境Mesh识别特性（[ARENGINE_FEATURE_TYPE_MESH](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 网格扫描主要依赖[ARSceneMesh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arscenemesh)，以下接口为AR网格扫描相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [ARSceneMesh.getVertices](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arscenemeshgetvertices) | 获取场景网格中的顶点坐标数据。 |
-| [ARSceneMesh.getVertexNormals](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arscenemeshgetvertexnormals) | 获取场景网格中的顶点法线坐标数据。 |
-| [ARSceneMesh.getTriangleIndices](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arscenemeshgettriangleindices) | 获取场景网格中的三角形索引数据。 |
-| [ARSceneMesh.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arscenemeshrelease) | 释放环境网格数据对象。 |
-| [ARFrame.hitTest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframehittest) | 根据相机投射光线，获取预览区域中的像素坐标（pixelX和pixelY）来确定射线方向，然后检测这个射线在平面或点云中是否有交点。 |
-| [ARHitResult.getHitPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arhitresultgethitpose) | 获取交点位姿。 |
-| [ARHitResult.getTrackable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arhitresultgettrackable) | 获取被命中的可追踪对象。 |
-| [ARHitResult.createAnchor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arhitresultcreateanchor) | 在交点（intersection）创建一个锚点。 |
-| [ARHitResult.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arhitresultrelease) | 释放命中检测结果对象占用的内存。 |
-| [ARPose.getMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arposegetmatrix) | 将位姿数据转换为一个4x4的矩阵。 |
-| [ARPose.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arposerelease) | 释放位姿对象占用的内存。 |
+| ARSceneMesh.getVertices | 获取场景网格中的顶点坐标数据。 |
+| ARSceneMesh.getVertexNormals | 获取场景网格中的顶点法线坐标数据。 |
+| ARSceneMesh.getTriangleIndices | 获取场景网格中的三角形索引数据。 |
+| ARSceneMesh.release | 释放环境网格数据对象。 |
+| ARFrame.hitTest | 根据相机投射光线，获取预览区域中的像素坐标（pixelX和pixelY）来确定射线方向，然后检测这个射线在平面或点云中是否有交点。 |
+| ARHitResult.getHitPose | 获取交点位姿。 |
+| ARHitResult.getTrackable | 获取被命中的可追踪对象。 |
+| ARHitResult.createAnchor | 在交点（intersection）创建一个锚点。 |
+| ARHitResult.release | 释放命中检测结果对象占用的内存。 |
+| ARPose.getMatrix | 将位姿数据转换为一个4x4的矩阵。 |
+| ARPose.release | 释放位姿对象占用的内存。 |
 
 
-## 开发步骤
 
-AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。 对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
 
-## 导入模块
+##### 开发步骤
+
+AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。
+
+对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
+
+
+
+##### 导入模块
 
 网格扫描能力所需要导入的模块如下：
+
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
 import { Node, Scene, Vec3 } from '@kit.ArkGraphics3D';
@@ -44,9 +54,13 @@ import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
 
-## 定义变量
 
-定义变量hitAnchorList存储放置物体处的锚点信息、hitPoseList存储放置物体处的位姿信息和statusBarHeight设备状态栏高度。 用户点击设备的坐标和显示预览流的坐标不一致，预览流的窗口略小于设备屏幕，因此需要减去设备状态栏高度以获取准确的点击坐标。
+##### 定义变量
+
+定义变量hitAnchorList存储放置物体处的锚点信息、hitPoseList存储放置物体处的位姿信息和statusBarHeight设备状态栏高度。
+
+用户点击设备的坐标和显示预览流的坐标不一致，预览流的窗口略小于设备屏幕，因此需要减去设备状态栏高度以获取准确的点击坐标。
+
 ```text
 let frame: arEngine.ARFrame;
 let hitAnchorList: arEngine.ARAnchor[] = [];
@@ -55,9 +69,11 @@ let statusBarHeight: number = 0;
 ```
 
 
-## 显示预览流
+
+##### 显示预览流
 
 首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
+
 ```text
 @Builder
 export function ARMeshBuilder(): void {
@@ -117,7 +133,30 @@ struct ARMesh {
         return;
       }
 
-      for (let i = 0; i  {
+      for (let i = 0; i < result.length; i++) {
+        let hitResult: arEngine.ARHitResult = result[i];
+        let distance: number = hitResult.distance;
+
+        if (distance <= 0) {
+          continue;
+        }
+
+        let hitAnchor: arEngine.ARAnchor = hitResult.createAnchor();
+        let pos: Vec3 = hitAnchor.getPose().translation;
+
+        hitPoseList.push(pos);
+        hitAnchorList.push(hitAnchor);
+
+      }
+      console.info('Succeeded in getting hit result.'); // 成功获取碰撞目标
+    } catch (error) {
+      const err: BusinessError = error as BusinessError;
+      console.error(`Failed to get hitResults. Code is ${err.code}, message is ${err.message}`);
+    }
+  }
+
+  private initARView(): void {
+    Scene.load().then((scene: Scene) => {
       let viewContext: arViewController.ARViewContext = new arViewController.ARViewContext();
       viewContext.scene = scene;
       viewContext.callback = new ARViewCallbackImpl();
@@ -166,9 +205,11 @@ struct ARMesh {
 ```
 
 
-## 获取mesh网格数据
+
+##### 获取mesh网格数据
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，获取mesh网格数据。
+
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
@@ -214,6 +255,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 ```
 
 
-## 获取网格扫描信息的自定义方法
+
+##### 获取网格扫描信息的自定义方法
 
 自定义数据转换方法arrayBufferFloat32ToNumber及arrayBufferInt32ToNumber可以参考[数据类型转换说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arraybuffer-info)。

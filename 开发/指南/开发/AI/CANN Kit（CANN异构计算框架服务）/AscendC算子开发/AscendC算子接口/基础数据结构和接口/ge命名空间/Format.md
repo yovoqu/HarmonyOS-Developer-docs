@@ -65,12 +65,11 @@ enum Format {
   FORMAT_MAX = 0xff
 };
 ```
-
- 上述Format枚举值对应的序号取值，从0开始，依次递增。
-
- IR构图不支持输入以下FORMAT：
-
-
+ 
+上述Format枚举值对应的序号取值，从0开始，依次递增。
+ 
+IR构图不支持输入以下FORMAT：
+ 
 ```text
 FORMAT_NC1HWC0
 FORMAT_FRACTAL_Z

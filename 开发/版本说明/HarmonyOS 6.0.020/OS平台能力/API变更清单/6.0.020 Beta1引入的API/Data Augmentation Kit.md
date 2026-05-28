@@ -10,7 +10,7 @@
 | 新增API | NA | 类名：rag； API声明：interface LLMStreamAnswer 差异内容：interface LLMStreamAnswer | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：LLMStreamAnswer； API声明：isFinished: boolean; 差异内容：isFinished: boolean; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：LLMStreamAnswer； API声明：chunk: string; 差异内容：chunk: string; | api/@hms.data.rag.d.ts |
-| 新增API | NA | 类名：LLMStreamAnswer； API声明：err?: BusinessError<string>; 差异内容：err?: BusinessError<string>; | api/@hms.data.rag.d.ts |
+| 新增API | NA | 类名：LLMStreamAnswer； API声明：err?: BusinessError&lt;string&gt;; 差异内容：err?: BusinessError&lt;string&gt;; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：rag； API声明：enum LLMRequestStatus 差异内容：enum LLMRequestStatus | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：LLMRequestStatus； API声明：LLM_SUCCESS = 0 差异内容：LLM_SUCCESS = 0 | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：LLMRequestStatus； API声明：LLM_REQUEST_ERROR = 1 差异内容：LLM_REQUEST_ERROR = 1 | api/@hms.data.rag.d.ts |
@@ -21,7 +21,7 @@
 | 新增API | NA | 类名：LLMRequestInfo； API声明：chatId: number; 差异内容：chatId: number; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：LLMRequestInfo； API声明：status: LLMRequestStatus; 差异内容：status: LLMRequestStatus; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：rag； API声明：abstract class ChatLLM 差异内容：abstract class ChatLLM | api/@hms.data.rag.d.ts |
-| 新增API | NA | 类名：ChatLLM； API声明：abstract streamChat(query: string, callback: Callback<LLMStreamAnswer>): Promise<LLMRequestInfo>; 差异内容：abstract streamChat(query: string, callback: Callback<LLMStreamAnswer>): Promise<LLMRequestInfo>; | api/@hms.data.rag.d.ts |
+| 新增API | NA | 类名：ChatLLM； API声明：abstract streamChat(query: string, callback: Callback&lt;LLMStreamAnswer&gt;): Promise&lt;LLMRequestInfo&gt;; 差异内容：abstract streamChat(query: string, callback: Callback&lt;LLMStreamAnswer&gt;): Promise&lt;LLMRequestInfo&gt;; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：rag； API声明：interface Config 差异内容：interface Config | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：Config； API声明：llm: ChatLLM; 差异内容：llm: ChatLLM; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：Config； API声明：retrievalConfig: retrieval.RetrievalConfig; 差异内容：retrievalConfig: retrieval.RetrievalConfig; | api/@hms.data.rag.d.ts |
@@ -38,21 +38,21 @@
 | 新增API | NA | 类名：Stream； API声明：answer: Answer; 差异内容：answer: Answer; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：Stream； API声明：isFinished: boolean; 差异内容：isFinished: boolean; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：rag； API声明：interface RunConfig 差异内容：interface RunConfig | api/@hms.data.rag.d.ts |
-| 新增API | NA | 类名：RunConfig； API声明：answerTypes: Array<StreamType>; 差异内容：answerTypes: Array<StreamType>; | api/@hms.data.rag.d.ts |
+| 新增API | NA | 类名：RunConfig； API声明：answerTypes: Array&lt;StreamType&gt;; 差异内容：answerTypes: Array&lt;StreamType&gt;; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：rag； API声明：interface FeedbackInfo 差异内容：interface FeedbackInfo | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：FeedbackInfo； API声明：runId: number; 差异内容：runId: number; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：FeedbackInfo； API声明：score: number; 差异内容：score: number; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：FeedbackInfo； API声明：source?: Record<StreamType, Answer>; 差异内容：source?: Record<StreamType, Answer>; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：FeedbackInfo； API声明：comment?: string; 差异内容：comment?: string; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：rag； API声明：interface RagSession 差异内容：interface RagSession | api/@hms.data.rag.d.ts |
-| 新增API | NA | 类名：RagSession； API声明：streamRun(question: string, config: RunConfig, callback: AsyncCallback<Stream>): Promise<number>; 差异内容：streamRun(question: string, config: RunConfig, callback: AsyncCallback<Stream>): Promise<number>; | api/@hms.data.rag.d.ts |
-| 新增API | NA | 类名：RagSession； API声明：close(): Promise<void>; 差异内容：close(): Promise<void>; | api/@hms.data.rag.d.ts |
-| 新增API | NA | 类名：rag； API声明：function createRagSession(context: common.Context, config: Config): Promise<RagSession>; 差异内容：function createRagSession(context: common.Context, config: Config): Promise<RagSession>; | api/@hms.data.rag.d.ts |
-| 新增API | NA | 类名：rag； API声明：function feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise<void>; 差异内容：function feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise<void>; | api/@hms.data.rag.d.ts |
+| 新增API | NA | 类名：RagSession； API声明：streamRun(question: string, config: RunConfig, callback: AsyncCallback&lt;Stream&gt;): Promise&lt;number&gt;; 差异内容：streamRun(question: string, config: RunConfig, callback: AsyncCallback&lt;Stream&gt;): Promise&lt;number&gt;; | api/@hms.data.rag.d.ts |
+| 新增API | NA | 类名：RagSession； API声明：close(): Promise&lt;void&gt;; 差异内容：close(): Promise&lt;void&gt;; | api/@hms.data.rag.d.ts |
+| 新增API | NA | 类名：rag； API声明：function createRagSession(context: common.Context, config: Config): Promise&lt;RagSession&gt;; 差异内容：function createRagSession(context: common.Context, config: Config): Promise&lt;RagSession&gt;; | api/@hms.data.rag.d.ts |
+| 新增API | NA | 类名：rag； API声明：function feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise&lt;void&gt;; 差异内容：function feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise&lt;void&gt;; | api/@hms.data.rag.d.ts |
 | 新增API | NA | 类名：global； API声明：declare namespace retrieval 差异内容：declare namespace retrieval | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：retrieval； API声明：function getRetriever(config: RetrievalConfig): Promise<Retriever>; 差异内容：function getRetriever(config: RetrievalConfig): Promise<Retriever>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：retrieval； API声明：function getRetriever(config: RetrievalConfig): Promise&lt;Retriever&gt;; 差异内容：function getRetriever(config: RetrievalConfig): Promise&lt;Retriever&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface RetrievalConfig 差异内容：interface RetrievalConfig | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：RetrievalConfig； API声明：channelConfigs: Array<ChannelConfig>; 差异内容：channelConfigs: Array<ChannelConfig>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：RetrievalConfig； API声明：channelConfigs: Array&lt;ChannelConfig&gt;; 差异内容：channelConfigs: Array&lt;ChannelConfig&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface ChannelConfig 差异内容：interface ChannelConfig | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：ChannelConfig； API声明：channelType: ChannelType; 差异内容：channelType: ChannelType; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：ChannelConfig； API声明：context: common.BaseContext; 差异内容：context: common.BaseContext; | api/@hms.data.retrieval.d.ts |
@@ -62,25 +62,25 @@
 | 新增API | NA | 类名：ChannelType； API声明：INVERTED_INDEX_DATABASE = 1 差异内容：INVERTED_INDEX_DATABASE = 1 | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：type DbConfig = relationalStore.StoreConfig; 差异内容：type DbConfig = relationalStore.StoreConfig; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface Retriever 差异内容：interface Retriever | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：Retriever； API声明：retrieveRdb(query: string, condition: RetrievalCondition): Promise<RdbRecords>; 差异内容：retrieveRdb(query: string, condition: RetrievalCondition): Promise<RdbRecords>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：Retriever； API声明：retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords&gt;; 差异内容：retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface RetrievalCondition 差异内容：interface RetrievalCondition | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：RetrievalCondition； API声明：recallConditions: Array<RecallCondition>; 差异内容：recallConditions: Array<RecallCondition>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：RetrievalCondition； API声明：recallConditions: Array&lt;RecallCondition&gt;; 差异内容：recallConditions: Array&lt;RecallCondition&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：RetrievalCondition； API声明：rerankMethod?: RerankMethod; 差异内容：rerankMethod?: RerankMethod; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：RetrievalCondition； API声明：resultCount?: number; 差异内容：resultCount?: number; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：type RecallCondition = InvertedIndexRecallCondition \| VectorRecallCondition; 差异内容：type RecallCondition = InvertedIndexRecallCondition \| VectorRecallCondition; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface InvertedIndexRecallCondition 差异内容：interface InvertedIndexRecallCondition | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：ftsTableName: string; 差异内容：ftsTableName: string; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：fromClause: string; 差异内容：fromClause: string; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：primaryKey: Array<ColumnName>; 差异内容：primaryKey: Array<ColumnName>; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：responseColumns: Array<ColumnName>; 差异内容：responseColumns: Array<ColumnName>; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：invertedIndexStrategies?: Array<InvertedIndexStrategy>; 差异内容：invertedIndexStrategies?: Array<InvertedIndexStrategy>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：primaryKey: Array&lt;ColumnName&gt;; 差异内容：primaryKey: Array&lt;ColumnName&gt;; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：responseColumns: Array&lt;ColumnName&gt;; 差异内容：responseColumns: Array&lt;ColumnName&gt;; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：invertedIndexStrategies?: Array&lt;InvertedIndexStrategy&gt;; 差异内容：invertedIndexStrategies?: Array&lt;InvertedIndexStrategy&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：recallName?: RecallName; 差异内容：recallName?: RecallName; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：filters?: Array<FilterInfo>; 差异内容：filters?: Array<FilterInfo>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：filters?: Array&lt;FilterInfo&gt;; 差异内容：filters?: Array&lt;FilterInfo&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：InvertedIndexRecallCondition； API声明：deepSize?: number; 差异内容：deepSize?: number; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：type ColumnName = string; 差异内容：type ColumnName = string; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：type RecallName = string; 差异内容：type RecallName = string; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface FilterInfo 差异内容：interface FilterInfo | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：FilterInfo； API声明：columns: Array<ColumnName>; 差异内容：columns: Array<ColumnName>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：FilterInfo； API声明：columns: Array&lt;ColumnName&gt;; 差异内容：columns: Array&lt;ColumnName&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：FilterInfo； API声明：operator?: Operator; 差异内容：operator?: Operator; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：FilterInfo； API声明：filterValue?: FilterValue; 差异内容：filterValue?: FilterValue; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：FilterInfo； API声明：filterRange?: FilterRange; 差异内容：filterRange?: FilterRange; | api/@hms.data.retrieval.d.ts |
@@ -114,10 +114,10 @@
 | 新增API | NA | 类名：retrieval； API声明：interface VectorRecallCondition 差异内容：interface VectorRecallCondition | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：VectorRecallCondition； API声明：vectorQuery: VectorQuery; 差异内容：vectorQuery: VectorQuery; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：VectorRecallCondition； API声明：fromClause: string; 差异内容：fromClause: string; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：VectorRecallCondition； API声明：primaryKey: Array<ColumnName>; 差异内容：primaryKey: Array<ColumnName>; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：VectorRecallCondition； API声明：responseColumns: Array<ColumnName>; 差异内容：responseColumns: Array<ColumnName>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：VectorRecallCondition； API声明：primaryKey: Array&lt;ColumnName&gt;; 差异内容：primaryKey: Array&lt;ColumnName&gt;; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：VectorRecallCondition； API声明：responseColumns: Array&lt;ColumnName&gt;; 差异内容：responseColumns: Array&lt;ColumnName&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：VectorRecallCondition； API声明：recallName?: RecallName; 差异内容：recallName?: RecallName; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：VectorRecallCondition； API声明：filters?: Array<FilterInfo>; 差异内容：filters?: Array<FilterInfo>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：VectorRecallCondition； API声明：filters?: Array&lt;FilterInfo&gt;; 差异内容：filters?: Array&lt;FilterInfo&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：VectorRecallCondition； API声明：deepSize?: number; 差异内容：deepSize?: number; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface VectorQuery 差异内容：interface VectorQuery | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：VectorQuery； API声明：column: ColumnName; 差异内容：column: ColumnName; | api/@hms.data.retrieval.d.ts |
@@ -135,10 +135,10 @@
 | 新增API | NA | 类名：InvertedIndexRerankParameter； API声明：invertedIndexWeights: Record<RecallName, number>; 差异内容：invertedIndexWeights: Record<RecallName, number>; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface VectorRerankParameter 差异内容：interface VectorRerankParameter | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：VectorRerankParameter； API声明：vectorWeights: Record<RecallName, number>; 差异内容：vectorWeights: Record<RecallName, number>; | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：VectorRerankParameter； API声明：thresholds?: Array<number>; 差异内容：thresholds?: Array<number>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：VectorRerankParameter； API声明：thresholds?: Array&lt;number&gt;; 差异内容：thresholds?: Array&lt;number&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：VectorRerankParameter； API声明：numberInspector?: Record<RecallName, ColumnName>; 差异内容：numberInspector?: Record<RecallName, ColumnName>; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface RdbRecords 差异内容：interface RdbRecords | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：RdbRecords； API声明：records: Array<ItemInfo>; 差异内容：records: Array<ItemInfo>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：RdbRecords； API声明：records: Array&lt;ItemInfo&gt;; 差异内容：records: Array&lt;ItemInfo&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface ItemInfo 差异内容：interface ItemInfo | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：ItemInfo； API声明：primaryKey: string; 差异内容：primaryKey: string; | api/@hms.data.retrieval.d.ts |
 | 新增API | NA | 类名：ItemInfo； API声明：columns: Record<string, relationalStore.ValueType>; 差异内容：columns: Record<string, relationalStore.ValueType>; | api/@hms.data.retrieval.d.ts |

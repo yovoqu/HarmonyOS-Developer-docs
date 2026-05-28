@@ -3,34 +3,31 @@
 更新时间：2026-03-09 07:25:19
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-jsvm-initoptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 typedef struct {...} JSVM_InitOptions
 ```
+  
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+##### 概述
 
 初始化选项，用于初始化JavaScript虚拟机。
-
+ 
 **起始版本：** 11
-
+ 
 **相关模块：** [JSVM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm)
-
+ 
 **所在头文件：** [jsvm_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-types-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+  
 
-
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | const intptr_t* externalReferences | 可选。嵌入器中可选的、以nullptr结尾的原始地址数组，虚拟机可以在序列化期间与之匹配，并可用于反序列化。此数组及其内容必须在虚拟机实例的整个生命周期内保持有效。 |

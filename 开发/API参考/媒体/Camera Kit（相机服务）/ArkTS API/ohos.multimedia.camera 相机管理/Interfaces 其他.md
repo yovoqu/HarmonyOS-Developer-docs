@@ -3,44 +3,43 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## CameraDevice
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### CameraDevice
 
 相机设备信息。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| cameraId | string | 是 | 否 | 相机ID。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| cameraPosition | [CameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraposition) | 是 | 否 | 相机位置。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| cameraType | [CameraType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameratype) | 是 | 否 | 相机类型。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| connectionType | [ConnectionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#connectiontype) | 是 | 否 | 相机连接类型。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| cameraOrientation12+ | number | 是 | 否 | 相机安装角度，不会随着屏幕旋转而改变。取值范围为[0, 360]。单位：度。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| hostDeviceName15+ | string | 是 | 否 | 远端设备名称。若当前无远端设备，返回为空。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| hostDeviceType15+ | [HostDeviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#hostdevicetype15) | 是 | 否 | 远端设备类型。          元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
-| lensEquivalentFocalLength24+ | Array&lt;number&gt; | 是 | 是 | 相机镜头等效焦距。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| isLogicalCamera24+ | boolean | 是 | 是 | 是否为逻辑摄像头（由多个物理相机组成）, true表示是逻辑摄像头，false表示是物理摄像头。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| constituentCameraDevices24+ | Array&lt;[CameraDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameradevice)&gt; | 是 | 是 | 组成此逻辑相机的物理相机列表。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| lensFocalLength24+ | number | 是 | 是 | 镜头实际焦距。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| minimumFocusDistance24+ | number | 是 | 是 | 相机最小对焦距离。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| lensDistortion24+ | Array&lt;number&gt; | 是 | 是 | 镜头畸变参数数组。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| lensIntrinsicCalibration24+ | Array&lt;number&gt; | 是 | 是 | 镜头内参标定参数数组。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| sensorPhysicalSize24+ | Array&lt;number&gt; | 是 | 是 | 传感器物理尺寸（宽度和高度）。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| sensorPixelArraySize24+ | Array&lt;number&gt; | 是 | 是 | 传感器像素阵列尺寸（宽度和高度。单位：像素）。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
-| sensorColorFilterArrangement24+ | [SensorColorFilterArrangement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#sensorcolorfilterarrangement24) | 是 | 是 | 传感器颜色滤镜排列方式。          模型约束： 此接口仅可在Stage模型下使用。          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| cameraId | string | 是 | 否 | 相机ID。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| cameraPosition | CameraPosition | 是 | 否 | 相机位置。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| cameraType | CameraType | 是 | 否 | 相机类型。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| connectionType | ConnectionType | 是 | 否 | 相机连接类型。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| cameraOrientation12+ | number | 是 | 否 | 相机安装角度，不会随着屏幕旋转而改变。取值范围为[0, 360]。单位：度。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| hostDeviceName15+ | string | 是 | 否 | 远端设备名称。若当前无远端设备，返回为空。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| hostDeviceType15+ | HostDeviceType | 是 | 否 | 远端设备类型。 元服务API： 从API version 19开始，该接口支持在元服务中使用。 |
+| lensEquivalentFocalLength24+ | Array&lt;number&gt; | 是 | 是 | 相机镜头等效焦距。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| isLogicalCamera24+ | boolean | 是 | 是 | 是否为逻辑摄像头（由多个物理相机组成）, true表示是逻辑摄像头，false表示是物理摄像头。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| constituentCameraDevices24+ | Array&lt;CameraDevice&gt; | 是 | 是 | 组成此逻辑相机的物理相机列表。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| lensFocalLength24+ | number | 是 | 是 | 镜头实际焦距。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| minimumFocusDistance24+ | number | 是 | 是 | 相机最小对焦距离。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| lensDistortion24+ | Array&lt;number&gt; | 是 | 是 | 镜头畸变参数数组。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| lensIntrinsicCalibration24+ | Array&lt;number&gt; | 是 | 是 | 镜头内参标定参数数组。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| sensorPhysicalSize24+ | Array&lt;number&gt; | 是 | 是 | 传感器物理尺寸（宽度和高度）。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| sensorPixelArraySize24+ | Array&lt;number&gt; | 是 | 是 | 传感器像素阵列尺寸（宽度和高度。单位：像素）。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| sensorColorFilterArrangement24+ | SensorColorFilterArrangement | 是 | 是 | 传感器颜色滤镜排列方式。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-## CameraStatusInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CameraStatusInfo
 
 相机管理器回调返回的接口实例，该实例表示相机状态信息。
 
@@ -48,15 +47,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| camera | [CameraDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameradevice) | 否 | 否 | 相机信息。 |
-| status | [CameraStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#camerastatus) | 否 | 否 | 相机状态。 |
+| camera | CameraDevice | 否 | 否 | 相机信息。 |
+| status | CameraStatus | 否 | 否 | 相机状态。 |
 
 
-## FoldStatusInfo12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FoldStatusInfo12+
 
 相机管理器回调返回的接口实例，表示折叠机折叠状态信息。
 
@@ -64,15 +63,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportedCameras | [Array&lt;CameraDevice&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameradevice) | 是 | 否 | 当前折叠状态所支持的相机信息列表。 |
-| foldStatus | [FoldStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#foldstatus12) | 是 | 否 | 折叠屏折叠状态。 |
+| supportedCameras | Array&lt;CameraDevice&gt; | 是 | 否 | 当前折叠状态所支持的相机信息列表。 |
+| foldStatus | FoldStatus | 是 | 否 | 折叠屏折叠状态。 |
 
 
-## Profile
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Profile
 
 相机配置信息项。
 
@@ -80,15 +79,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| format | [CameraFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraformat) | 是 | 否 | 输出格式。 |
-| size | [Size](#size) | 是 | 否 | 分辨率。          设置的是相机的分辨率宽度和高度，而非实际输出图像的宽度和高度。 |
+| format | CameraFormat | 是 | 否 | 输出格式。 |
+| size | Size | 是 | 否 | 分辨率。 设置的是相机的分辨率宽度和高度，而非实际输出图像的宽度和高度。 |
 
 
-## FrameRateRange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FrameRateRange
 
 帧率范围。
 
@@ -96,15 +95,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | min | number | 是 | 否 | 最小帧率。单位：fps。 |
 | max | number | 是 | 否 | 最大帧率。单位：fps。 |
 
 
-## VideoProfile
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### VideoProfile
 
 视频配置信息项，继承[Profile](#profile)。
 
@@ -112,14 +111,14 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| frameRateRange | [FrameRateRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#frameraterange) | 是 | 否 | 帧率范围。单位：fps(frames per second)。 |
+| frameRateRange | FrameRateRange | 是 | 否 | 帧率范围。单位：fps(frames per second)。 |
 
 
-## CameraOutputCapability
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CameraOutputCapability
 
 相机输出能力项。
 
@@ -127,24 +126,23 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| previewProfiles | Array&lt;[Profile](#profile)&gt; | 是 | 否 | 支持的预览配置信息集合。 |
-| photoProfiles | Array&lt;[Profile](#profile)&gt; | 是 | 否 | 支持的拍照配置信息集合。 |
-| videoProfiles | Array&lt;[VideoProfile](#videoprofile)&gt; | 是 | 否 | 支持的录像配置信息集合。 |
-| supportedMetadataObjectTypes | Array&lt;[MetadataObjectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#metadataobjecttype)&gt; | 是 | 否 | 支持的metadata流类型信息集合。 |
+| previewProfiles | Array&lt;Profile&gt; | 是 | 否 | 支持的预览配置信息集合。 |
+| photoProfiles | Array&lt;Profile&gt; | 是 | 否 | 支持的拍照配置信息集合。 |
+| videoProfiles | Array&lt;VideoProfile&gt; | 是 | 否 | 支持的录像配置信息集合。 |
+| supportedMetadataObjectTypes | Array&lt;MetadataObjectType&gt; | 是 | 否 | 支持的metadata流类型信息集合。 |
 
 
-## TorchStatusInfo11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### TorchStatusInfo11+
 
 手电筒回调返回的接口实例，表示手电筒状态信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -153,8 +151,9 @@
 | torchLevel | number | 是 | 否 | 手电筒亮度等级，取值范围为[0,1]，越靠近1，亮度越大。 |
 
 
-## Size
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Size
 
 尺寸参数。
 
@@ -162,15 +161,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | height | number | 否 | 否 | 图像尺寸高（像素）。 |
 | width | number | 否 | 否 | 图像尺寸宽（像素）。 |
 
 
-## Point
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Point
 
 点坐标用于对焦和曝光配置。
 
@@ -178,15 +177,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | x | number | 否 | 否 | 点的x坐标。 |
 | y | number | 否 | 否 | 点的y坐标。 |
 
 
-## CameraConcurrentInfo18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CameraConcurrentInfo18+
 
 相机的输出并发能力信息。
 
@@ -194,24 +193,23 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| device | [CameraDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameradevice) | 是 | 否 | 相机并发设备。 |
-| type | [CameraConcurrentType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraconcurrenttype18) | 是 | 否 | 镜头并发类型。 |
-| modes | Array&lt;[SceneMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#scenemode11) &gt; | 是 | 否 | 相机支持的模式。 |
-| outputCapabilities | Array&lt;[CameraOutputCapability](#cameraoutputcapability) &gt; | 是 | 否 | 相机对应模式的输出能力集。 |
+| device | CameraDevice | 是 | 否 | 相机并发设备。 |
+| type | CameraConcurrentType | 是 | 否 | 镜头并发类型。 |
+| modes | Array<SceneMode > | 是 | 否 | 相机支持的模式。 |
+| outputCapabilities | Array<CameraOutputCapability > | 是 | 否 | 相机对应模式的输出能力集。 |
 
 
-## Location
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Location
 
 图片地理位置信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -220,8 +218,9 @@
 | altitude | number | 否 | 否 | 海拔（米）。 |
 
 
-## PhotoCaptureSetting
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PhotoCaptureSetting
 
 拍摄照片的设置。
 
@@ -229,17 +228,17 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| quality | [QualityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#qualitylevel) | 否 | 是 | 图片质量（默认低）。 |
-| rotation | [ImageRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#imagerotation) | 否 | 是 | 图片旋转角度（默认0度，顺时针旋转）。 |
-| location | [Location](#location) | 否 | 是 | 图片地理位置信息（默认以设备硬件信息为准）。 |
-| mirror | boolean | 否 | 是 | 镜像使能开关（默认关）。使用之前需要使用[isMirrorSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#ismirrorsupported)进行判断是否支持。true表示使能，false表示不使能。 |
+| quality | QualityLevel | 否 | 是 | 图片质量（默认低）。 |
+| rotation | ImageRotation | 否 | 是 | 图片旋转角度（默认0度，顺时针旋转）。 |
+| location | Location | 否 | 是 | 图片地理位置信息（默认以设备硬件信息为准）。 |
+| mirror | boolean | 否 | 是 | 镜像使能开关（默认关）。使用之前需要使用isMirrorSupported进行判断是否支持。true表示使能，false表示不使能。 |
 
 
-## FrameShutterInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FrameShutterInfo
 
 拍照帧输出信息。
 
@@ -247,15 +246,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | captureId | number | 否 | 否 | 拍照的ID。 |
 | timestamp | number | 否 | 否 | 快门时间戳。单位毫秒。 |
 
 
-## FrameShutterEndInfo12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FrameShutterEndInfo12+
 
 拍照曝光结束信息。
 
@@ -263,14 +262,14 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | captureId | number | 否 | 否 | 拍照的ID。 |
 
 
-## CaptureStartInfo11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CaptureStartInfo11+
 
 拍照开始信息。
 
@@ -278,15 +277,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | captureId | number | 否 | 否 | 拍照的ID。 |
 | time | number | 否 | 否 | 预估的单次拍照底层出sensor采集帧时间，如果上报-1，代表没有预估时间。 |
 
 
-## CaptureEndInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CaptureEndInfo
 
 拍照停止信息。
 
@@ -294,15 +293,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | captureId | number | 否 | 否 | 拍照的ID。 |
 | frameCount | number | 否 | 否 | 帧数。 |
 
 
-## AutoDeviceSwitchStatus13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AutoDeviceSwitchStatus13+
 
 自动切换镜头状态信息。
 
@@ -310,15 +309,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isDeviceSwitched | boolean | 是 | 否 | 自动切换镜头是否成功。true表示成功，false表示失败。 |
 | isDeviceCapabilityChanged | boolean | 是 | 否 | 自动切换镜头成功后，其镜头能力值是否发生改变。true表示发生变化，false表示未发生变化。 |
 
 
-## Rect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Rect
 
 矩形定义，返回的检测点坐标系以设备充电口在右侧时的横向设备方向为基准。该坐标系左上角为（0，0），右下角为（1，1），其中（topLeftX，topLeftY）表示矩形区域的左上角坐标，width和height分别表示矩形区域的宽和高。因此在实际使用中根据业务诉求需要裁剪或者选择人脸区域时，必须将矩形区域的x坐标和y坐标分别乘以实际相机预览输出流的宽和高，即可得到裁剪后的人脸矩形区域。
 
@@ -330,7 +329,6 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | topLeftX | number | 否 | 否 | 矩形区域左上角x坐标，范围[0, 1]。 |
@@ -339,8 +337,9 @@
 | height | number | 否 | 否 | 矩形高，范围[0, 1]。 |
 
 
-## MetadataObject
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MetadataObject
 
 相机元能力信息，[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.on('metadataObjectsAvailable')接口获取。
 
@@ -348,16 +347,16 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [MetadataObjectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#metadataobjecttype) | 是 | 否 | metadata 类型。 |
+| type | MetadataObjectType | 是 | 否 | metadata 类型。 |
 | timestamp | number | 是 | 否 | 当前时间戳。单位为纳秒（ns）。 |
-| boundingBox | [Rect](#rect) | 是 | 否 | metadata 区域框。 |
+| boundingBox | Rect | 是 | 否 | metadata 区域框。 |
 
 
-## SmoothZoomInfo11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SmoothZoomInfo11+
 
 平滑变焦参数信息。
 
@@ -365,14 +364,14 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | duration | number | 否 | 否 | 平滑变焦总时长。单位ms。 |
 
 
-## ControlCenterStatusInfo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ControlCenterStatusInfo20+
 
 相机控制器效果激活状态信息。
 
@@ -380,15 +379,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| effectType | [ControlCenterEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#controlcentereffecttype20) | 是 | 否 | 相机控制器效果类型。 |
+| effectType | ControlCenterEffectType | 是 | 否 | 相机控制器效果类型。 |
 | isActive | boolean | 是 | 否 | 相机控制器效果激活状态。true表示已激活，false表示未激活。 |
 
 
-## IsoInfo22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### IsoInfo22+
 
 感光度（ISO）参数信息。
 
@@ -396,14 +395,14 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | iso | number | 是 | 是 | ISO值。 |
 
 
-## CameraOcclusionDetectionResult23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CameraOcclusionDetectionResult23+
 
 镜头遮挡或脏污检测回调返回的接口实例，表示镜头遮挡或脏污状态信息。
 
@@ -411,15 +410,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isCameraOccluded | boolean | 是 | 否 | 镜头是否被遮挡。true表示镜头被遮挡，false表示镜头无遮挡。 |
 | isCameraLensDirty | boolean | 是 | 否 | 镜头是否有脏污。true表示镜头有脏污，false表示镜头无脏污。 |
 
 
-## ZoomRange24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ZoomRange24+
 
 变焦范围。
 
@@ -427,15 +426,15 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | min | number | 是 | 否 | 最小变焦值。 |
 | max | number | 是 | 否 | 最大变焦值。 |
 
 
-## PhysicalAperture24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PhysicalAperture24+
 
 物理光圈对象。
 
@@ -443,22 +442,21 @@
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| zoomRange | [ZoomRange](#zoomrange24) | 否 | 否 | 特定物理光圈的变焦范围。 |
+| zoomRange | ZoomRange | 否 | 否 | 特定物理光圈的变焦范围。 |
 | apertures | Array&lt;number&gt; | 否 | 否 | 支持的物理光圈值。 |
 
 
-## ExposureInfo24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ExposureInfo24+
 
 曝光信息对象。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

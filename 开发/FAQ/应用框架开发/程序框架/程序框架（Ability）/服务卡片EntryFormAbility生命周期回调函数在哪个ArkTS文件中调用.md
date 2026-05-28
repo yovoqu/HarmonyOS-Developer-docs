@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-16
 
 新建卡片时会生成一个包含生命周期的EntryFormAbility.ets文件。
-
-参考链接
-
-FormExtensionAbility
+ 
+**参考链接**
+ 
+[FormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionability)

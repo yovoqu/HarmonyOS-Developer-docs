@@ -7,41 +7,55 @@
 从API version 22开始，[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)给开发者提供音频实时渲染能力，即音频实时播放时可进行自定义音效（仅支持均衡器节点）。例如，可以使用均衡器中预置的音效，改变音乐的风格。
 
 
-## 开发基础配置
+##### 开发基础配置
 
 开发者使用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)提供的实时渲染能力，添加对应的头文件。
 
-## 在CMake脚本中链接动态库
 
+
+##### 在CMake脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudio.so libohaudiosuite.so)
 ```
 
 
-## 添加头文件
 
-开发者通过引入头文件、、和使用音频编创和音频播放相关API。
+##### 添加头文件
+
+开发者通过引入头文件<[native_audio_suite_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h)>、<[native_audio_suite_engine.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h)>、<[native_audiostreambuilder.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h)>和<[native_audiorenderer.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiorenderer-h)>使用音频编创和音频播放相关API。
+
 ```text
-#include
-#include
-#include
-#include
+#include <ohaudiosuite/native_audio_suite_base.h>
+#include <ohaudiosuite/native_audio_suite_engine.h>
+#include <ohaudio/native_audiorenderer.h>
+#include <ohaudio/native_audiostreambuilder.h>
 ```
 
 
-## 开发步骤
+
+##### 开发步骤
 
 
-## 接口调用
+
+##### 接口调用
 
 详细的API说明请参考[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)。
 
-## 均衡器效果
+
+
+##### 均衡器效果
 
 **图1**：实时播放示意图
-![](assets/实时渲染(C／C++)
-/file-20260514131449707-0.png) 开发者可以通过以下步骤来实现一个简单的均衡器效果节点实时播放功能。 在初始化时，创建[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)管线（包括输入节点、均衡器节点、输出节点）。
+
+
+![](assets/实时渲染(C／C++)/file-20260514131449707-0.png)
+
+
+开发者可以通过以下步骤来实现一个简单的均衡器效果节点实时播放功能。
+1. 在初始化时，创建[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)管线（包括输入节点、均衡器节点、输出节点）。
+
+  
 ```text
 struct AudioDataInfo {
     uint8_t *buffer = nullptr;  // 音频数据。
@@ -58,11 +72,15 @@ static int32_t InputNodeWriteDataCallBack(
     bool *finished)
 {
     if ((audioNode == nullptr) || (userData == nullptr) ||
-        (audioData == nullptr) || (audioDataSize (userData);
+        (audioData == nullptr) || (audioDataSize <= 0) || (finished == nullptr)) {
+        return -1;
+    }
+
+    struct AudioDataInfo *info = static_cast<struct AudioDataInfo *>(userData);
     // 要处理的音频大小。
     int32_t actualDataSize = std::min(audioDataSize, info->bufferSize - info->totalWriteSize);
     // 将PCM音频数据写入audioData。
-    memcpy(static_cast(audioData), info->buffer + info->totalWriteSize, actualDataSize);
+    memcpy(static_cast<void *>(audioData), info->buffer + info->totalWriteSize, actualDataSize);
     info->totalWriteSize += actualDataSize;
 
     // 音频数据全部处理完。
@@ -99,7 +117,7 @@ struct AudioDataInfo audioInfo;
 audioInfo.buffer = nullptr; // 开发者根据业务场景存放要处理的音频数据。
 audioInfo.bufferSize = 0; // 开发者根据业务场景存放要处理的音频数据大小。
 audioInfo.totalWriteSize = 0;
-void *userData = static_cast(&audioInfo);
+void *userData = static_cast<void *>(&audioInfo);
 OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataCallBack, userData);
 // 创建输入节点。
 OH_AudioNode *inputNode = nullptr;
@@ -137,8 +155,25 @@ OH_AudioSuiteEngine_ConnectNodes(inputNode, eqNode);
 OH_AudioSuiteEngine_ConnectNodes(eqNode, outputNode);
 ```
 
-![](assets/实时渲染(C／C++)
-/file-20260514131449707-1.png) 离线编辑和实时渲染在创建管线时有区别。 实时渲染：OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_REALTIME_MODE 离线编辑：OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_EDIT_MODE 创建[OH_AudioRendererStruct](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)实例，并在其AudioRendererOnWriteData()回调函数中调用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)管线的[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口来处理数据。 请参考音频播放完成音频播放功能开发：[使用OHAudio开发音频播放功能(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)。 在播放器的回调函数中，将处理后的数据复制到OH_AudioRenderer实例的缓冲区中，实现音频播放过程中实时渲染。
+
+  
+![](assets/实时渲染(C／C++)/file-20260514131449707-1.png)
+ 
+
+  离线编辑和实时渲染在创建管线时有区别。
+
+  
+ - 实时渲染：OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_REALTIME_MODE
+
+2. 离线编辑：OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_EDIT_MODE
+
+3. 创建[OH_AudioRendererStruct](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)实例，并在其AudioRendererOnWriteData()回调函数中调用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)管线的[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口来处理数据。
+
+  请参考音频播放完成音频播放功能开发：[使用OHAudio开发音频播放功能(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohaudio-for-playback)。
+
+4. 在播放器的回调函数中，将处理后的数据复制到OH_AudioRenderer实例的缓冲区中，实现音频播放过程中实时渲染。
+
+  
 ```text
 static OH_AudioData_Callback_Result AudioRendererOnWriteData(
     OH_AudioRenderer* renderer,
@@ -149,7 +184,7 @@ static OH_AudioData_Callback_Result AudioRendererOnWriteData(
     bool finishedFlag = false;
     int32_t writeSize = 0;
     OH_AudioSuite_Result result = OH_AudioSuiteEngine_RenderFrame(
-        static_cast(userData), audioData, audioDataSize, &writeSize, &finishedFlag);
+        static_cast<OH_AudioSuitePipeline *>(userData), audioData, audioDataSize, &writeSize, &finishedFlag);
     if (result != OH_AudioSuite_Result::AUDIOSUITE_SUCCESS) {
         // 音频编创渲染失败。
         return AUDIO_DATA_CALLBACK_RESULT_INVALID;
@@ -178,7 +213,7 @@ int32_t frameSize = 20 * audioFormatOutput.samplingRate * audioFormatOutput.chan
 OH_AudioStreamBuilder_SetFrameSizeInCallback(rendererBuilder, frameSize);
 // 配置写入音频数据回调函数。
 OH_AudioStreamBuilder_SetRendererWriteDataCallback(
-    rendererBuilder, AudioRendererOnWriteData, static_cast(audioSuitePipeline));
+    rendererBuilder, AudioRendererOnWriteData, static_cast<void *>(audioSuitePipeline));
 
 // 启动管线。
 OH_AudioSuiteEngine_StartPipeline(audioSuitePipeline);
@@ -190,7 +225,10 @@ OH_AudioSuiteEngine_StartPipeline(audioSuitePipeline);
 OH_AudioSuiteEngine_StopPipeline(audioSuitePipeline);
 ```
 
-资源销毁。
+
+5. 资源销毁。
+
+  
 ```text
 // 销毁流构造器。
 OH_AudioStreamBuilder_Destroy(rendererBuilder);
@@ -208,6 +246,10 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 ```
 
 
-## 注意事项
+  
 
-音频实时渲染过程中，不支持重新创建新的效果节点，只支持修改效果节点的参数。 音频编创错误码具体报错信息请参考：[OH_AudioSuite_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audiosuite_result)。
+  ##### 注意事项
+
+  
+音频实时渲染过程中，不支持重新创建新的效果节点，只支持修改效果节点的参数。
+ - 音频编创错误码具体报错信息请参考：[OH_AudioSuite_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audiosuite_result)。

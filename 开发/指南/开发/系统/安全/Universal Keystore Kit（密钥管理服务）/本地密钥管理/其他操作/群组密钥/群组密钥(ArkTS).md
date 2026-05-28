@@ -11,17 +11,43 @@
 使用群组密钥之前，需要在app.json5文件中配置群组信息，配置方法参考[配置文件示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#配置文件示例)中assetAccessGroups字段的配置方式。
 
 
-## AES/CBC/PKCS7加解密
+##### AES/CBC/PKCS7加解密
 
 
-## 开发步骤
 
-**生成密钥** 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，推荐使用[HUKS_TAG_KEY_OVERRIDE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，避免密钥被覆盖。 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。 **加密** 指定密钥别名。 指定待加密的数据。 使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置加密算法参数配置。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取加密后的密文。 **解密** 指定密钥别名。 指定待解密的密文。 使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置解密算法参数配置。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取解密后的数据。 **删除密钥** 指定密钥别名。 使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置密钥删除算法参数配置。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)。 调用[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。
+##### 开发步骤
 
-## 开发示例
+**生成密钥**
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，推荐使用[HUKS_TAG_KEY_OVERRIDE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，避免密钥被覆盖。
+3. 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+
+除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。
+
+**加密**
+1. 指定密钥别名。
+2. 指定待加密的数据。
+3. 使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置加密算法参数配置。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)。
+4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取加密后的密文。
+
+**解密**
+1. 指定密钥别名。
+2. 指定待解密的密文。
+3. 使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置解密算法参数配置。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)。
+4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取解密后的数据。
+
+**删除密钥**
+1. 指定密钥别名。
+2. 使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置密钥删除算法参数配置。需要添加群组密钥标签[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)。
+3. 调用[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。
 
 
-```text
+
+##### 开发示例
+
+```json
 /*
  * 以下以AES/CBC/PKCS7的Promise操作使用为例
  */
@@ -41,7 +67,22 @@ let group = 'ohos.test.groupKey';
 
 function StringToUint8Array(str: string) {
   let arr: number[] = new Array();
-  for (let i = 0, j = str.length; i  = [{
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function Uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function GetAesGenerateProperties() {
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
   }, {
@@ -58,7 +99,7 @@ function StringToUint8Array(str: string) {
 }
 
 function GetAesEncryptProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
   }, {
@@ -84,7 +125,7 @@ function GetAesEncryptProperties() {
 }
 
 function GetAesDecryptProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
   }, {
@@ -210,7 +251,7 @@ async function DeleteKey() {
    * 模拟删除密钥场景
    * 1. 获取密钥别名
    */
-  let deleteProperties: Array = [
+  let deleteProperties: Array<huks.HuksParam> = [
     {
       tag: huks.HuksTag.HUKS_TAG_KEY_ACCESS_GROUP,
       value: StringToUint8Array(group)
@@ -239,17 +280,42 @@ async function TestGroupKeyEncryptDecrypt() {
 ```
 
 
-## X25519非对称密钥协商
+
+##### X25519非对称密钥协商
 
 
-## 开发步骤
 
-**生成密钥** 设备A、设备B各自生成一个非对称密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)或[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)。 密钥生成时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于生成群组密钥。 **导出密钥** 设备A、B导出非对称密钥对的公钥材料，具体请参考[密钥导出](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-export-key-arkts)。 导出密钥时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于导出群组密钥。 **密钥协商** 设备A、B分别基于本端私钥和对端设备的公钥，协商出共享密钥。 密钥协商时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于协商群组密钥。 **删除密钥** 当密钥废弃不用时，设备A、B均需要删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。 删除密钥时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于删除群组密钥。
+##### 开发步骤
 
-## 开发示例
+**生成密钥**
+
+设备A、设备B各自生成一个非对称密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)或[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)。
+
+密钥生成时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于生成群组密钥。
+
+**导出密钥**
+
+设备A、B导出非对称密钥对的公钥材料，具体请参考[密钥导出](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-export-key-arkts)。
+
+导出密钥时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于导出群组密钥。
+
+**密钥协商**
+
+设备A、B分别基于本端私钥和对端设备的公钥，协商出共享密钥。
+
+密钥协商时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于协商群组密钥。
+
+**删除密钥**
+
+当密钥废弃不用时，设备A、B均需要删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。
+
+删除密钥时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于删除群组密钥。
 
 
-```text
+
+##### 开发示例
+
+```json
 /*
  * 以下以X25519密钥的Promise操作使用为例
  * 通过群组密钥协商群组密钥
@@ -259,7 +325,37 @@ import { BusinessError } from "@kit.BasicServicesKit";
 
 function StringToUint8Array(str: string) {
   let arr: number[] = new Array();
-  for (let i = 0, j = str.length; i  = [{
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function Uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+/*
+ * 确定密钥别名和封装密钥属性参数集
+ */
+let srcKeyAliasFirst = "AgreeX25519KeyFirstAlias";
+let srcKeyAliasSecond = "AgreeX25519KeySecondAlias";
+let agreeX25519InData = 'AgreeX25519TestIndata';
+let finishOutData: Uint8Array;
+let handle: number;
+let exportKey: Uint8Array;
+let exportKeyFirst: Uint8Array;
+let exportKeySecond: Uint8Array;
+/*
+ * 需要在app.json5中配置assetAccessGroups字段新增群组信息
+ */
+let group = 'ohos.test.groupKey';
+/* 集成生成密钥参数集 */
+let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_X25519,
   }, {
@@ -289,7 +385,7 @@ let HuksOptions: huks.HuksOptions = {
   properties: properties,
   inData: new Uint8Array(new Array())
 }
-const finishProperties: Array = [{
+const finishProperties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG,
     value: huks.HuksKeyStorageType.HUKS_STORAGE_ONLY_USED_IN_HUKS,
   }, {
@@ -460,17 +556,37 @@ async function testAgree() {
 ```
 
 
-## PBKDF2派生密钥
+
+##### PBKDF2派生密钥
 
 
-## 开发步骤
 
-**生成密钥** 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 密钥生成时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于生成群组密钥。 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。 **密钥派生** 获取密钥别名，指定对应的属性参数HuksOptions，添加参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于派生群组密钥。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[updateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksupdatesession9)更新密钥会话。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，完成派生。 **删除密钥** 当密钥废弃不用时，需要调用[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。 删除密钥时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于删除群组密钥。
+##### 开发步骤
 
-## 开发示例
+**生成密钥**
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 密钥生成时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于生成群组密钥。
+3. 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+
+除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。
+
+**密钥派生**
+1. 获取密钥别名，指定对应的属性参数HuksOptions，添加参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于派生群组密钥。
+2. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+3. 调用[updateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksupdatesession9)更新密钥会话。
+4. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，完成派生。
+
+**删除密钥**
+
+当密钥废弃不用时，需要调用[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。
+
+删除密钥时，指定参数[HUKS_TAG_KEY_ACCESS_GROUP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，用于删除群组密钥。
 
 
-```text
+
+##### 开发示例
+
+```json
 /*
  * 以下以PBKDF2密钥的Promise操作使用为例
  * 使用群组密钥派生群组密钥
@@ -480,7 +596,36 @@ import { BusinessError } from "@kit.BasicServicesKit";
 
 function StringToUint8Array(str: string) {
   let arr: number[] = new Array();
-  for (let i = 0, j = str.length; i  = [{
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function Uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+/*
+ * 确定密钥别名和封装密钥属性参数集
+ */
+let srcKeyAlias = "pbkdf2Key";
+let salt = "mySalt";
+let iterationCount = 10000;
+let derivedKeySize = 32;
+let handle: number;
+let finishOutData: Uint8Array;
+/*
+ * 需要在app.json5中配置assetAccessGroups字段新增群组信息
+ */
+let group = 'ohos.test.groupKey';
+
+/* 集成生成密钥参数集 */
+let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES,
   }, {
@@ -507,7 +652,7 @@ let huksOptions: huks.HuksOptions = {
 }
 
 /* 集成init时密钥参数集 */
-let initProperties: Array = [{
+let initProperties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_PBKDF2,
   }, {
@@ -537,7 +682,7 @@ let initOptions: huks.HuksOptions = {
 }
 
 /* 集成finish时密钥参数集 */
-let finishProperties: Array = [{
+let finishProperties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG,
     value: huks.HuksKeyStorageType.HUKS_STORAGE_ONLY_USED_IN_HUKS,
   }, {

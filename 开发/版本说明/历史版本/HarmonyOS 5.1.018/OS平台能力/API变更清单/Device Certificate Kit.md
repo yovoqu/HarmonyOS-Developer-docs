@@ -6,11 +6,11 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback<X509Cert>): void; 差异内容：NA | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback<X509Cert>): void; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
-| 新增错误码 | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob): Promise<X509Cert>; 差异内容：NA | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob): Promise<X509Cert>; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
-| 新增错误码 | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob, callback: AsyncCallback<CertExtension>): void; 差异内容：NA | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob, callback: AsyncCallback<CertExtension>): void; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
-| 新增错误码 | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob): Promise<CertExtension>; 差异内容：NA | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob): Promise<CertExtension>; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
-| 新增错误码 | 类名：certificateManagerDialog； API声明：function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>; 差异内容：NA | 类名：certificateManagerDialog； API声明：function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>; 差异内容：29700005 | api/@ohos.security.certManagerDialog.d.ts |
+| 新增错误码 | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback&lt;X509Cert&gt;): void; 差异内容：NA | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob, callback: AsyncCallback&lt;X509Cert&gt;): void; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
+| 新增错误码 | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob): Promise&lt;X509Cert&gt;; 差异内容：NA | 类名：cert； API声明：function createX509Cert(inStream: EncodingBlob): Promise&lt;X509Cert&gt;; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
+| 新增错误码 | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob, callback: AsyncCallback&lt;CertExtension&gt;): void; 差异内容：NA | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob, callback: AsyncCallback&lt;CertExtension&gt;): void; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
+| 新增错误码 | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob): Promise&lt;CertExtension&gt;; 差异内容：NA | 类名：cert； API声明：function createCertExtension(inStream: EncodingBlob): Promise&lt;CertExtension&gt;; 差异内容：19030001 | api/@ohos.security.cert.d.ts |
+| 新增错误码 | 类名：certificateManagerDialog； API声明：function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise&lt;string&gt;; 差异内容：NA | 类名：certificateManagerDialog； API声明：function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise&lt;string&gt;; 差异内容：29700005 | api/@ohos.security.certManagerDialog.d.ts |
 | 新增API | NA | 类名：CertResult； API声明：ERR_MAYBE_WRONG_PASSWORD = 19030008 差异内容：ERR_MAYBE_WRONG_PASSWORD = 19030008 | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：cert； API声明：enum EncodingBaseFormat 差异内容：enum EncodingBaseFormat | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：EncodingBaseFormat； API声明：PEM = 0 差异内容：PEM = 0 | api/@ohos.security.cert.d.ts |
@@ -18,7 +18,7 @@
 | 新增API | NA | 类名：cert； API声明：interface Pkcs12Data 差异内容：interface Pkcs12Data | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：Pkcs12Data； API声明：privateKey?: string \| Uint8Array; 差异内容：privateKey?: string \| Uint8Array; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：Pkcs12Data； API声明：cert?: X509Cert; 差异内容：cert?: X509Cert; | api/@ohos.security.cert.d.ts |
-| 新增API | NA | 类名：Pkcs12Data； API声明：otherCerts?: Array<X509Cert>; 差异内容：otherCerts?: Array<X509Cert>; | api/@ohos.security.cert.d.ts |
+| 新增API | NA | 类名：Pkcs12Data； API声明：otherCerts?: Array&lt;X509Cert&gt;; 差异内容：otherCerts?: Array&lt;X509Cert&gt;; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：cert； API声明：interface Pkcs12ParsingConfig 差异内容：interface Pkcs12ParsingConfig | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：Pkcs12ParsingConfig； API声明：password: string; 差异内容：password: string; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：Pkcs12ParsingConfig； API声明：needsPrivateKey?: boolean; 差异内容：needsPrivateKey?: boolean; | api/@ohos.security.cert.d.ts |
@@ -58,11 +58,11 @@
 | 新增API | NA | 类名：cert； API声明：interface CsrGenerationConfig 差异内容：interface CsrGenerationConfig | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：CsrGenerationConfig； API声明：subject: X500DistinguishedName; 差异内容：subject: X500DistinguishedName; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：CsrGenerationConfig； API声明：mdName: string; 差异内容：mdName: string; | api/@ohos.security.cert.d.ts |
-| 新增API | NA | 类名：CsrGenerationConfig； API声明：attributes?: Array<CsrAttribute>; 差异内容：attributes?: Array<CsrAttribute>; | api/@ohos.security.cert.d.ts |
+| 新增API | NA | 类名：CsrGenerationConfig； API声明：attributes?: Array&lt;CsrAttribute&gt;; 差异内容：attributes?: Array&lt;CsrAttribute&gt;; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：CsrGenerationConfig； API声明：outFormat?: EncodingBaseFormat; 差异内容：outFormat?: EncodingBaseFormat; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：cert； API声明：function generateCsr(keyInfo: PrivateKeyInfo, config: CsrGenerationConfig): string \| Uint8Array; 差异内容：function generateCsr(keyInfo: PrivateKeyInfo, config: CsrGenerationConfig): string \| Uint8Array; | api/@ohos.security.cert.d.ts |
-| 新增API | NA | 类名：certificateManager； API声明：function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>; 差异内容：function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise<CMResult>; | api/@ohos.security.certManager.d.ts |
-| 新增API | NA | 类名：certificateManager； API声明：function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>; 差异内容：function getAllUserTrustedCertificates(scope: CertScope): Promise<CMResult>; | api/@ohos.security.certManager.d.ts |
+| 新增API | NA | 类名：certificateManager； API声明：function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise&lt;CMResult&gt;; 差异内容：function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise&lt;CMResult&gt;; | api/@ohos.security.certManager.d.ts |
+| 新增API | NA | 类名：certificateManager； API声明：function getAllUserTrustedCertificates(scope: CertScope): Promise&lt;CMResult&gt;; 差异内容：function getAllUserTrustedCertificates(scope: CertScope): Promise&lt;CMResult&gt;; | api/@ohos.security.certManager.d.ts |
 | 新增API | NA | 类名：CMErrorCode； API声明：CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007 差异内容：CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007 | api/@ohos.security.certManager.d.ts |
 | 新增API | NA | 类名：CmKeyDigest； API声明：CM_DIGEST_SM3 = 7 差异内容：CM_DIGEST_SM3 = 7 | api/@ohos.security.certManager.d.ts |
 | 新增API | NA | 类名：certificateManager； API声明：export enum CertType 差异内容：export enum CertType | api/@ohos.security.certManager.d.ts |
@@ -84,7 +84,7 @@
 | 新增API | NA | 类名：CertificateDialogErrorCode； API声明：ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005 差异内容：ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005 | api/@ohos.security.certManagerDialog.d.ts |
 | 新增API | NA | 类名：CertificateScope； API声明：NOT_SPECIFIED = 0 差异内容：NOT_SPECIFIED = 0 | api/@ohos.security.certManagerDialog.d.ts |
 | 新增API | NA | 类名：CertificateScope； API声明：GLOBAL_USER = 2 差异内容：GLOBAL_USER = 2 | api/@ohos.security.certManagerDialog.d.ts |
-| 新增API | NA | 类名：certificateManagerDialog； API声明：function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>; 差异内容：function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>; | api/@ohos.security.certManagerDialog.d.ts |
+| 新增API | NA | 类名：certificateManagerDialog； API声明：function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise&lt;void&gt;; 差异内容：function openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise&lt;void&gt;; | api/@ohos.security.certManagerDialog.d.ts |
 | 新增API | NA | 类名：certificateManagerDialog； API声明：export interface CertificateDialogProperty 差异内容：export interface CertificateDialogProperty | api/@ohos.security.certManagerDialog.d.ts |
 | 新增API | NA | 类名：CertificateDialogProperty； API声明：showInstallButton: boolean; 差异内容：showInstallButton: boolean; | api/@ohos.security.certManagerDialog.d.ts |
-| 新增API | NA | 类名：certificateManagerDialog； API声明：function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>; 差异内容：function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>; | api/@ohos.security.certManagerDialog.d.ts |
+| 新增API | NA | 类名：certificateManagerDialog； API声明：function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise&lt;void&gt;; 差异内容：function openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise&lt;void&gt;; | api/@ohos.security.certManagerDialog.d.ts |

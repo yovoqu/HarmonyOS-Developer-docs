@@ -1,20 +1,61 @@
 # 使用3DES对称密钥加解密(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-3des-sym-encrypt-decrypt-ecb
 
 对应的算法规格请查看[对称密钥加解密算法规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#section3des)。
 
 
-## 开发步骤
+##### 开发步骤
 
-**加密** 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为3DES、密钥长度为192位的对称密钥（SymKey）。 如何生成3DES对称密钥，开发者可参考下文示例，并结合[对称密钥生成和转换规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#section3des)和[指定二进制数据转换对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-binary-data-to-sym-key)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'3DES192|ECB|PKCS7'，创建对称密钥类型为3DES192、分组模式为ECB、填充模式为PKCS7的Cipher实例，用于完成加密操作。 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（CryptoMode.ENCRYPT_MODE），指定加密密钥（SymKey），初始化加密Cipher实例。 ECB模式无加密参数，传入null。 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（明文）。 当数据量较小时，可以在init完成后直接调用doFinal。 当数据量较大时，可以多次调用update，即分段加解密。 用户可以自行决定数据量大小。例如，数据量大于20字节时使用update。 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取加密后的数据。 已使用update，data传入null。 doFinal输出结果可能为null，在访问具体数据前，需要先判断结果是否为null，避免产生异常。 **解密** 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'3DES192|ECB|PKCS7'，创建对称密钥类型为3DES192、分组模式为ECB、填充模式为PKCS7的Cipher实例，用于完成解密操作。 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（CryptoMode.DECRYPT_MODE），并指定解密密钥（SymKey）初始化解密Cipher实例。ECB模式无加密参数，调用时直接传入null。 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（密文）。 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
+**加密**
+1. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为3DES、密钥长度为192位的对称密钥（SymKey）。
 
-## 开发示例
+  如何生成3DES对称密钥，开发者可参考下文示例，并结合[对称密钥生成和转换规格：3DES](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#section3des)和[指定二进制数据转换对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-binary-data-to-sym-key)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
+2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'3DES192|ECB|PKCS7'，创建对称密钥类型为3DES192、分组模式为ECB、填充模式为PKCS7的Cipher实例，用于完成加密操作。
+3. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（CryptoMode.ENCRYPT_MODE），指定加密密钥（SymKey），初始化加密Cipher实例。
 
-当前示例以ECB分组模式为例，不需要设置加解密参数IV。 如果使用CBC、CTR、OFB、CFB分组模式，需设置加解密参数IV，请参考[设置加解密参数IV](#设置加解密参数iv)，并确保在生成和初始化Cipher实例时正确设置相关参数。 异步方法示例：
-```text
+  ECB模式无加密参数，传入null。
+4. 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（明文）。
+
+  
+ - 当数据量较小时，可以在init完成后直接调用doFinal。
+
+5. 当数据量较大时，可以多次调用update，即分段加解密。
+
+6. 用户可以自行决定数据量大小。例如，数据量大于20字节时使用update。
+
+7. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取加密后的数据。
+
+  
+已使用update，data传入null。
+
+8. doFinal输出结果可能为null，在访问具体数据前，需要先判断结果是否为null，避免产生异常。
+
+  **解密**
+
+1. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'3DES192|ECB|PKCS7'，创建对称密钥类型为3DES192、分组模式为ECB、填充模式为PKCS7的Cipher实例，用于完成解密操作。
+
+2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（CryptoMode.DECRYPT_MODE），并指定解密密钥（SymKey）初始化解密Cipher实例。ECB模式无加密参数，调用时直接传入null。
+
+3. 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（密文）。
+
+4. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取解密后的数据。
+
+  
+
+  ##### 开发示例
+
+  当前示例以ECB分组模式为例，不需要设置加解密参数IV。
+
+  如果使用CBC、CTR、OFB、CFB分组模式，需设置加解密参数IV，请参考[设置加解密参数IV](#设置加解密参数iv)，并确保在生成和初始化Cipher实例时正确设置相关参数。
+
+  
+异步方法示例：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
@@ -60,8 +101,10 @@ async function main() {
 }
 ```
 
-同步方法示例：
-```text
+ - 同步方法示例：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
@@ -108,9 +151,15 @@ function main() {
 ```
 
 
-## 设置加解密参数IV
 
-下述示例为CBC分组模式，需要设置加解密参数IV。 如果分组模式为CBC、CTR、OFB、CFB，需要参考如下设置加解密参数IV。ECB不需要设置加解密参数IV。
+
+
+##### 设置加解密参数IV
+
+下述示例为CBC分组模式，需要设置加解密参数IV。
+
+如果分组模式为CBC、CTR、OFB、CFB，需要参考如下设置加解密参数IV。ECB不需要设置加解密参数IV。
+
 ```text
 function genIvParamsSpec() {
   let ivBlob = generateRandom(8); //3DES的 CBC、CFB、OFB、CTR的iv长度为8字节。

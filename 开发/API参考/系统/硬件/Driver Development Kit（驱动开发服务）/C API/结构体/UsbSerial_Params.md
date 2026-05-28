@@ -5,32 +5,29 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-serialddk-usbserial-params
 **支持设备：** PC/2in1
 
-
 ```text
 typedef struct UsbSerial_Params {...} __attribute__((aligned(8))) UsbSerial_Params
 ```
+  
 
-
-## 概述
-**支持设备：** PC/2in1
+##### 概述
 
 定义USB Serial DDK使用的USB串口参数。
-
+ 
 **起始版本：** 18
-
+ 
 **相关模块：** [USBSerialDDK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-serialddk)
-
+ 
 **所在头文件：** [usb_serial_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-serial-types-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** PC/2in1
+  
 
-
-### 成员变量
-**支持设备：** PC/2in1
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | uint32_t baudRate | 波特率，单位为波特。 |

@@ -3,35 +3,32 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-keyinfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 struct OH_Huks_KeyInfo {...}
 ```
+  
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义密钥信息的结构体类型。
-
+ 
 **起始版本：** 9
-
+ 
 **相关模块：** [HuksTypeApi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi)
-
+ 
 **所在头文件：** [native_huks_type.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
-| struct [OH_Huks_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob) alias | 密钥的别名。 |
-| struct [OH_Huks_ParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-paramset) *paramSet | 指向密钥参数集的指针。 |
+| struct OH_Huks_Blob alias | 密钥的别名。 |
+| struct OH_Huks_ParamSet *paramSet | 指向密钥参数集的指针。 |

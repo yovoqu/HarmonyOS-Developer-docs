@@ -39,7 +39,7 @@
 | 新增错误码 | 类名：RenderNode； API声明：insertChildAfter(child: RenderNode, sibling: RenderNode \| null): void; 差异内容：NA | 类名：RenderNode； API声明：insertChildAfter(child: RenderNode, sibling: RenderNode \| null): void; 差异内容：100025 | api/arkui/RenderNode.d.ts |
 | 删除错误码 | 类名：screenshot； API声明：function capture(options?: CaptureOption): Promise<image.PixelMap>; 差异内容：401 | 类名：screenshot； API声明：function capture(options?: CaptureOption): Promise<image.PixelMap>; 差异内容：NA | api/@ohos.screenshot.d.ts |
 | 权限变更 | 类名：screenshot； API声明：function capture(options?: CaptureOption): Promise<image.PixelMap>; 差异内容：ohos.permission.CUSTOM_SCREEN_CAPTURE | 类名：screenshot； API声明：function capture(options?: CaptureOption): Promise<image.PixelMap>; 差异内容：ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING | api/@ohos.screenshot.d.ts |
-| 函数变更 | 类名：FrameNode； API声明：addComponentContent<T>(content: ComponentContent<T>): void; 差异内容：content: ComponentContent<T> | 类名：FrameNode； API声明：addComponentContent<T>(content: ComponentContent<T> \| ReactiveComponentContent<T>): void; 差异内容：content: ComponentContent<T> \| ReactiveComponentContent<T> | api/arkui/FrameNode.d.ts |
+| 函数变更 | 类名：FrameNode； API声明：addComponentContent&lt;T&gt;(content: ComponentContent&lt;T&gt;): void; 差异内容：content: ComponentContent&lt;T&gt; | 类名：FrameNode； API声明：addComponentContent&lt;T&gt;(content: ComponentContent&lt;T&gt; \| ReactiveComponentContent&lt;T&gt;): void; 差异内容：content: ComponentContent&lt;T&gt; \| ReactiveComponentContent&lt;T&gt; | api/arkui/FrameNode.d.ts |
 | 函数变更 | 类名：SearchAttribute； API声明：customKeyboard(value: CustomBuilder, options?: KeyboardOptions): SearchAttribute; 差异内容：value: CustomBuilder | 类名：SearchAttribute； API声明：customKeyboard(value: CustomBuilder \| ComponentContent \| undefined, options?: KeyboardOptions): SearchAttribute; 差异内容：value: CustomBuilder \| ComponentContent \| undefined | component/search.d.ts |
 | 函数变更 | 类名：TextAreaAttribute； API声明：customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextAreaAttribute; 差异内容：value: CustomBuilder | 类名：TextAreaAttribute； API声明：customKeyboard(value: CustomBuilder \| ComponentContent \| undefined, options?: KeyboardOptions): TextAreaAttribute; 差异内容：value: CustomBuilder \| ComponentContent \| undefined | component/text_area.d.ts |
 | 函数变更 | 类名：TextInputAttribute； API声明：customKeyboard(value: CustomBuilder, options?: KeyboardOptions): TextInputAttribute; 差异内容：value: CustomBuilder | 类名：TextInputAttribute； API声明：customKeyboard(value: CustomBuilder \| ComponentContent \| undefined, options?: KeyboardOptions): TextInputAttribute; 差异内容：value: CustomBuilder \| ComponentContent \| undefined | component/text_input.d.ts |
@@ -61,11 +61,11 @@
 | 新增API | NA | 类名：PickerIndicatorStyle； API声明：backgroundColor?: ResourceColor; 差异内容：backgroundColor?: ResourceColor; | component/ui_picker_component.d.ts |
 | 新增API | NA | 类名：PickerIndicatorStyle； API声明：borderRadius?: LengthMetrics \| BorderRadiuses \| LocalizedBorderRadiuses; 差异内容：borderRadius?: LengthMetrics \| BorderRadiuses \| LocalizedBorderRadiuses; | component/ui_picker_component.d.ts |
 | 新增API | NA | 类名：global； API声明：declare class UIPickerComponentAttribute 差异内容：declare class UIPickerComponentAttribute | component/ui_picker_component.d.ts |
-| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：onChange(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute; 差异内容：onChange(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
-| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：onScrollStop(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute; 差异内容：onScrollStop(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
-| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：canLoop(isLoop: Optional<boolean>): UIPickerComponentAttribute; 差异内容：canLoop(isLoop: Optional<boolean>): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
-| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：enableHapticFeedback(enable: Optional<boolean>): UIPickerComponentAttribute; 差异内容：enableHapticFeedback(enable: Optional<boolean>): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
-| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：selectionIndicator(style: Optional<PickerIndicatorStyle>): UIPickerComponentAttribute; 差异内容：selectionIndicator(style: Optional<PickerIndicatorStyle>): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
+| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：onChange(callback: Optional&lt;OnUIPickerComponentCallback&gt;): UIPickerComponentAttribute; 差异内容：onChange(callback: Optional&lt;OnUIPickerComponentCallback&gt;): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
+| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;): UIPickerComponentAttribute; 差异内容：onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
+| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：canLoop(isLoop: Optional&lt;boolean&gt;): UIPickerComponentAttribute; 差异内容：canLoop(isLoop: Optional&lt;boolean&gt;): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
+| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：enableHapticFeedback(enable: Optional&lt;boolean&gt;): UIPickerComponentAttribute; 差异内容：enableHapticFeedback(enable: Optional&lt;boolean&gt;): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
+| 新增API | NA | 类名：UIPickerComponentAttribute； API声明：selectionIndicator(style: Optional&lt;PickerIndicatorStyle&gt;): UIPickerComponentAttribute; 差异内容：selectionIndicator(style: Optional&lt;PickerIndicatorStyle&gt;): UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
 | 新增API | NA | 类名：global； API声明：declare const UIPickerComponent: UIPickerComponentInterface; 差异内容：declare const UIPickerComponent: UIPickerComponentInterface; | component/ui_picker_component.d.ts |
 | 新增API | NA | 类名：global； API声明：declare const UIPickerComponentInstance: UIPickerComponentAttribute; 差异内容：declare const UIPickerComponentInstance: UIPickerComponentAttribute; | component/ui_picker_component.d.ts |
 | 新增API | NA | 类名：UIObserver； API声明：on(type: 'tabChange', config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void; 差异内容：on(type: 'tabChange', config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
@@ -78,14 +78,14 @@
 | 新增API | NA | 类名：UIObserver； API声明：on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void; 差异内容：on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIObserver； API声明：off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void; 差异内容：off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIObserver； API声明：off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void; 差异内容：off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：UIObserver； API声明：onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void; 差异内容：onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：UIObserver； API声明：onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void; 差异内容：onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：UIObserver； API声明：offSwiperContentUpdate(callback?: Callback<SwiperContentInfo>): void; 差异内容：offSwiperContentUpdate(callback?: Callback<SwiperContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：UIObserver； API声明：offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void; 差异内容：offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback<SwiperContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
+| 新增API | NA | 类名：UIObserver； API声明：onSwiperContentUpdate(callback: Callback&lt;SwiperContentInfo&gt;): void; 差异内容：onSwiperContentUpdate(callback: Callback&lt;SwiperContentInfo&gt;): void; | api/@ohos.arkui.UIContext.d.ts |
+| 新增API | NA | 类名：UIObserver； API声明：onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback&lt;SwiperContentInfo&gt;): void; 差异内容：onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback&lt;SwiperContentInfo&gt;): void; | api/@ohos.arkui.UIContext.d.ts |
+| 新增API | NA | 类名：UIObserver； API声明：offSwiperContentUpdate(callback?: Callback&lt;SwiperContentInfo&gt;): void; 差异内容：offSwiperContentUpdate(callback?: Callback&lt;SwiperContentInfo&gt;): void; | api/@ohos.arkui.UIContext.d.ts |
+| 新增API | NA | 类名：UIObserver； API声明：offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback&lt;SwiperContentInfo&gt;): void; 差异内容：offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback&lt;SwiperContentInfo&gt;): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：global； API声明：export interface SwiperContentInfo 差异内容：export interface SwiperContentInfo | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：SwiperContentInfo； API声明：id: string; 差异内容：id: string; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：SwiperContentInfo； API声明：uniqueId: number; 差异内容：uniqueId: number; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：SwiperContentInfo； API声明：swiperItemInfos: Array<SwiperItemInfo>; 差异内容：swiperItemInfos: Array<SwiperItemInfo>; | api/@ohos.arkui.UIContext.d.ts |
+| 新增API | NA | 类名：SwiperContentInfo； API声明：swiperItemInfos: Array&lt;SwiperItemInfo&gt;; 差异内容：swiperItemInfos: Array&lt;SwiperItemInfo&gt;; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：global； API声明：export interface SwiperItemInfo 差异内容：export interface SwiperItemInfo | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：SwiperItemInfo； API声明：uniqueId: number; 差异内容：uniqueId: number; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：SwiperItemInfo； API声明：index: number; 差异内容：index: number; | api/@ohos.arkui.UIContext.d.ts |
@@ -119,14 +119,14 @@
 | 新增API | NA | 类名：FrameMetrics； API声明：vsyncTimestamp: number; 差异内容：vsyncTimestamp: number; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：WindowLimits； API声明：pixelUnit?: PixelUnit; 差异内容：pixelUnit?: PixelUnit; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：Window； API声明：getWindowAvoidAreaIgnoringVisibility(type: AvoidAreaType): AvoidArea; 差异内容：getWindowAvoidAreaIgnoringVisibility(type: AvoidAreaType): AvoidArea; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：on(type: 'occlusionStateChanged', callback: Callback<OcclusionState>): void; 差异内容：on(type: 'occlusionStateChanged', callback: Callback<OcclusionState>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：off(type: 'occlusionStateChanged', callback?: Callback<OcclusionState>): void; 差异内容：off(type: 'occlusionStateChanged', callback?: Callback<OcclusionState>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：on(type: 'frameMetricsMeasured', callback: Callback<FrameMetrics>): void; 差异内容：on(type: 'frameMetricsMeasured', callback: Callback<FrameMetrics>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：off(type: 'frameMetricsMeasured', callback?: Callback<FrameMetrics>): void; 差异内容：off(type: 'frameMetricsMeasured', callback?: Callback<FrameMetrics>): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：on(type: 'occlusionStateChanged', callback: Callback&lt;OcclusionState&gt;): void; 差异内容：on(type: 'occlusionStateChanged', callback: Callback&lt;OcclusionState&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：off(type: 'occlusionStateChanged', callback?: Callback&lt;OcclusionState&gt;): void; 差异内容：off(type: 'occlusionStateChanged', callback?: Callback&lt;OcclusionState&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：on(type: 'frameMetricsMeasured', callback: Callback&lt;FrameMetrics&gt;): void; 差异内容：on(type: 'frameMetricsMeasured', callback: Callback&lt;FrameMetrics&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：off(type: 'frameMetricsMeasured', callback?: Callback&lt;FrameMetrics&gt;): void; 差异内容：off(type: 'frameMetricsMeasured', callback?: Callback&lt;FrameMetrics&gt;): void; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：Window； API声明：getWindowLimitsVP(): WindowLimits; 差异内容：getWindowLimitsVP(): WindowLimits; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：Window； API声明：isInFreeWindowMode(): boolean; 差异内容：isInFreeWindowMode(): boolean; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：on(type: 'freeWindowModeChange', callback: Callback<boolean>): void; 差异内容：on(type: 'freeWindowModeChange', callback: Callback<boolean>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：off(type: 'freeWindowModeChange', callback?: Callback<boolean>): void; 差异内容：off(type: 'freeWindowModeChange', callback?: Callback<boolean>): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：on(type: 'freeWindowModeChange', callback: Callback&lt;boolean&gt;): void; 差异内容：on(type: 'freeWindowModeChange', callback: Callback&lt;boolean&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：off(type: 'freeWindowModeChange', callback?: Callback&lt;boolean&gt;): void; 差异内容：off(type: 'freeWindowModeChange', callback?: Callback&lt;boolean&gt;): void; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：window； API声明：enum OcclusionState 差异内容：enum OcclusionState | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：OcclusionState； API声明：NO_OCCLUSION = 0 差异内容：NO_OCCLUSION = 0 | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：OcclusionState； API声明：PARTIAL_OCCLUSION = 1 差异内容：PARTIAL_OCCLUSION = 1 | api/@ohos.window.d.ts |
@@ -149,13 +149,13 @@
 | 新增API | NA | 类名：SourceType； API声明：KEY = 4 差异内容：KEY = 4 | component/common.d.ts |
 | 新增API | NA | 类名：SourceType； API声明：JOYSTICK = 5 差异内容：JOYSTICK = 5 | component/common.d.ts |
 | 新增API | NA | 类名：AxisEvent； API声明：hasAxis(axisType: AxisType): boolean; 差异内容：hasAxis(axisType: AxisType): boolean; | component/common.d.ts |
-| 新增API | NA | 类名：CommonMethod； API声明：responseRegionList(regions: Array<ResponseRegion>): T; 差异内容：responseRegionList(regions: Array<ResponseRegion>): T; | component/common.d.ts |
-| 新增API | NA | 类名：CommonMethod； API声明：onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T; 差异内容：onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T; | component/common.d.ts |
+| 新增API | NA | 类名：CommonMethod； API声明：responseRegionList(regions: Array&lt;ResponseRegion&gt;): T; 差异内容：responseRegionList(regions: Array&lt;ResponseRegion&gt;): T; | component/common.d.ts |
+| 新增API | NA | 类名：CommonMethod； API声明：onVisibleAreaChange(ratios: Array&lt;number&gt;, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T; 差异内容：onVisibleAreaChange(ratios: Array&lt;number&gt;, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T; | component/common.d.ts |
 | 新增API | NA | 类名：TextContentControllerBase； API声明：setStyledPlaceholder(styledString: StyledString): void; 差异内容：setStyledPlaceholder(styledString: StyledString): void; | component/common.d.ts |
 | 新增API | NA | 类名：ScrollableCommonMethod； API声明：contentStartOffset(offset: number \| Resource): T; 差异内容：contentStartOffset(offset: number \| Resource): T; | component/common.d.ts |
 | 新增API | NA | 类名：ScrollableCommonMethod； API声明：contentEndOffset(offset: number \| Resource): T; 差异内容：contentEndOffset(offset: number \| Resource): T; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type BuilderCallback = (...args: Args) => void; 差异内容：declare type BuilderCallback = (...args: Args) => void; | component/common.d.ts |
-| 新增API | NA | 类名：global； API声明：declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>; 差异内容：declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>; | component/common.d.ts |
+| 新增API | NA | 类名：global； API声明：declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder&lt;Args&gt;; 差异内容：declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder&lt;Args&gt;; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare class MutableBuilder 差异内容：declare class MutableBuilder | component/common.d.ts |
 | 新增API | NA | 类名：VisibleAreaEventOptions； API声明：measureFromViewport?: boolean; 差异内容：measureFromViewport?: boolean; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare enum RenderStrategy 差异内容：declare enum RenderStrategy | component/enums.d.ts |
@@ -192,7 +192,7 @@
 | 新增API | NA | 类名：DrawableTabBarIndicator； API声明：marginTop?: Length; 差异内容：marginTop?: Length; | component/tab_content.d.ts |
 | 新增API | NA | 类名：TextAreaAttribute； API声明：scrollBarColor(thumbColor: ColorMetrics \| undefined): TextAreaAttribute; 差异内容：scrollBarColor(thumbColor: ColorMetrics \| undefined): TextAreaAttribute; | component/text_area.d.ts |
 | 新增API | NA | 类名：TextAreaAttribute； API声明：enableSelectedDataDetector(enable: boolean \| undefined): TextAreaAttribute; 差异内容：enableSelectedDataDetector(enable: boolean \| undefined): TextAreaAttribute; | component/text_area.d.ts |
-| 新增API | NA | 类名：TextAreaAttribute； API声明：onWillAttachIME(callback: Callback<IMEClient> \| undefined): TextAreaAttribute; 差异内容：onWillAttachIME(callback: Callback<IMEClient> \| undefined): TextAreaAttribute; | component/text_area.d.ts |
+| 新增API | NA | 类名：TextAreaAttribute； API声明：onWillAttachIME(callback: Callback&lt;IMEClient&gt; \| undefined): TextAreaAttribute; 差异内容：onWillAttachIME(callback: Callback&lt;IMEClient&gt; \| undefined): TextAreaAttribute; | component/text_area.d.ts |
 | 新增API | NA | 类名：TextInputAttribute； API声明：enableSelectedDataDetector(enable: boolean \| undefined): TextInputAttribute; 差异内容：enableSelectedDataDetector(enable: boolean \| undefined): TextInputAttribute; | component/text_input.d.ts |
 | 新增API | NA | 类名：TabContentInfo； API声明：lastIndex?: number; 差异内容：lastIndex?: number; | api/@ohos.arkui.observer.d.ts |
 | 新增API | NA | 类名：uiObserver； API声明：export class WindowSizeLayoutBreakpointInfo 差异内容：export class WindowSizeLayoutBreakpointInfo | api/@ohos.arkui.observer.d.ts |
@@ -202,7 +202,7 @@
 | 新增API | NA | 类名：TextChangeEventInfo； API声明：id: string; 差异内容：id: string; | api/@ohos.arkui.observer.d.ts |
 | 新增API | NA | 类名：TextChangeEventInfo； API声明：uniqueId: number; 差异内容：uniqueId: number; | api/@ohos.arkui.observer.d.ts |
 | 新增API | NA | 类名：TextChangeEventInfo； API声明：content: string; 差异内容：content: string; | api/@ohos.arkui.observer.d.ts |
-| 新增API | NA | 类名：UIUtils； API声明：static applySync<T>(task: TaskCallback): T; 差异内容：static applySync<T>(task: TaskCallback): T; | api/@ohos.arkui.StateManagement.d.ts |
+| 新增API | NA | 类名：UIUtils； API声明：static applySync&lt;T&gt;(task: TaskCallback): T; 差异内容：static applySync&lt;T&gt;(task: TaskCallback): T; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：UIUtils； API声明：static flushUpdates(): void; 差异内容：static flushUpdates(): void; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：UIUtils； API声明：static flushUIUpdates(): void; 差异内容：static flushUIUpdates(): void; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type TaskCallback = () => T; 差异内容：declare type TaskCallback = () => T; | api/@ohos.arkui.StateManagement.d.ts |
@@ -217,10 +217,10 @@
 | 新增API | NA | 类名：BrightnessInfo； API声明：readonly maxHeadroom: number; 差异内容：readonly maxHeadroom: number; | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：PiPConfiguration； API声明：handleId?: number; 差异内容：handleId?: number; | api/@ohos.PiPWindow.d.ts |
 | 新增API | NA | 类名：PiPConfiguration； API声明：cornerAdsorptionEnabled?: boolean; 差异内容：cornerAdsorptionEnabled?: boolean; | api/@ohos.PiPWindow.d.ts |
-| 新增API | NA | 类名：PiPController； API声明：on(type: 'activeStatusChange', callback: Callback<boolean>): void; 差异内容：on(type: 'activeStatusChange', callback: Callback<boolean>): void; | api/@ohos.PiPWindow.d.ts |
-| 新增API | NA | 类名：PiPController； API声明：off(type: 'activeStatusChange', callback?: Callback<boolean>): void; 差异内容：off(type: 'activeStatusChange', callback?: Callback<boolean>): void; | api/@ohos.PiPWindow.d.ts |
+| 新增API | NA | 类名：PiPController； API声明：on(type: 'activeStatusChange', callback: Callback&lt;boolean&gt;): void; 差异内容：on(type: 'activeStatusChange', callback: Callback&lt;boolean&gt;): void; | api/@ohos.PiPWindow.d.ts |
+| 新增API | NA | 类名：PiPController； API声明：off(type: 'activeStatusChange', callback?: Callback&lt;boolean&gt;): void; 差异内容：off(type: 'activeStatusChange', callback?: Callback&lt;boolean&gt;): void; | api/@ohos.PiPWindow.d.ts |
 | 新增API | NA | 类名：global； API声明：export class ReactiveBuilderNode 差异内容：export class ReactiveBuilderNode | api/arkui/BuilderNode.d.ts |
-| 新增API | NA | 类名：ReactiveBuilderNode； API声明：build(builder: WrappedBuilder<Args>, config: BuildOptions, ...args: Args): void; 差异内容：build(builder: WrappedBuilder<Args>, config: BuildOptions, ...args: Args): void; | api/arkui/BuilderNode.d.ts |
+| 新增API | NA | 类名：ReactiveBuilderNode； API声明：build(builder: WrappedBuilder&lt;Args&gt;, config: BuildOptions, ...args: Args): void; 差异内容：build(builder: WrappedBuilder&lt;Args&gt;, config: BuildOptions, ...args: Args): void; | api/arkui/BuilderNode.d.ts |
 | 新增API | NA | 类名：ReactiveBuilderNode； API声明：getFrameNode(): FrameNode \| null; 差异内容：getFrameNode(): FrameNode \| null; | api/arkui/BuilderNode.d.ts |
 | 新增API | NA | 类名：ReactiveBuilderNode； API声明：postTouchEvent(event: TouchEvent): boolean; 差异内容：postTouchEvent(event: TouchEvent): boolean; | api/arkui/BuilderNode.d.ts |
 | 新增API | NA | 类名：ReactiveBuilderNode； API声明：dispose(): void; 差异内容：dispose(): void; | api/arkui/BuilderNode.d.ts |
@@ -244,29 +244,29 @@
 | 新增API | NA | 类名：BadgeStyle； API声明：enableAutoAvoidance?: boolean; 差异内容：enableAutoAvoidance?: boolean; | component/badge.d.ts |
 | 新增API | NA | 类名：LongPressGestureHandlerOptions； API声明：allowableMovement?: number; 差异内容：allowableMovement?: number; | component/gesture.d.ts |
 | 新增API | NA | 类名：LongPressRecognizer； API声明：getAllowableMovement(): number; 差异内容：getAllowableMovement(): number; | component/gesture.d.ts |
-| 新增API | NA | 类名：ImageSpanAttribute； API声明：supportSvg2(enable: Optional<boolean>): ImageSpanAttribute; 差异内容：supportSvg2(enable: Optional<boolean>): ImageSpanAttribute; | component/image_span.d.ts |
+| 新增API | NA | 类名：ImageSpanAttribute； API声明：supportSvg2(enable: Optional&lt;boolean&gt;): ImageSpanAttribute; 差异内容：supportSvg2(enable: Optional&lt;boolean&gt;): ImageSpanAttribute; | component/image_span.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type InterceptionCallback = (from: NavPathInfo \| NavBar, to: NavPathInfo \| NavBar, pathStack: NavPathStack, operation: NavigationOperation, isAnimated: boolean) => void; 差异内容：declare type InterceptionCallback = (from: NavPathInfo \| NavBar, to: NavPathInfo \| NavBar, pathStack: NavPathStack, operation: NavigationOperation, isAnimated: boolean) => void; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationInterception； API声明：interception?: InterceptionCallback; 差异内容：interception?: InterceptionCallback; | component/navigation.d.ts |
 | 新增API | NA | 类名：NavDestinationContext； API声明：mode?: NavDestinationMode; 差异内容：mode?: NavDestinationMode; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：global； API声明：declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>; 差异内容：declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>; | component/particle.d.ts |
-| 新增API | NA | 类名：ParticleAttribute； API声明：rippleFields(fields: Array<RippleFieldOptions> \| undefined): ParticleAttribute; 差异内容：rippleFields(fields: Array<RippleFieldOptions> \| undefined): ParticleAttribute; | component/particle.d.ts |
-| 新增API | NA | 类名：ParticleAttribute； API声明：velocityFields(fields: Array<VelocityFieldOptions> \| undefined): ParticleAttribute; 差异内容：velocityFields(fields: Array<VelocityFieldOptions> \| undefined): ParticleAttribute; | component/particle.d.ts |
+| 新增API | NA | 类名：global； API声明：declare type Vector2T&lt;T&gt; = import('../api/arkui/Graphics').Vector2T&lt;T&gt;; 差异内容：declare type Vector2T&lt;T&gt; = import('../api/arkui/Graphics').Vector2T&lt;T&gt;; | component/particle.d.ts |
+| 新增API | NA | 类名：ParticleAttribute； API声明：rippleFields(fields: Array&lt;RippleFieldOptions&gt; \| undefined): ParticleAttribute; 差异内容：rippleFields(fields: Array&lt;RippleFieldOptions&gt; \| undefined): ParticleAttribute; | component/particle.d.ts |
+| 新增API | NA | 类名：ParticleAttribute； API声明：velocityFields(fields: Array&lt;VelocityFieldOptions&gt; \| undefined): ParticleAttribute; 差异内容：velocityFields(fields: Array&lt;VelocityFieldOptions&gt; \| undefined): ParticleAttribute; | component/particle.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface FieldRegion 差异内容：declare interface FieldRegion | component/particle.d.ts |
 | 新增API | NA | 类名：FieldRegion； API声明：shape?: DisturbanceFieldShape; 差异内容：shape?: DisturbanceFieldShape; | component/particle.d.ts |
-| 新增API | NA | 类名：FieldRegion； API声明：position?: PositionT<number>; 差异内容：position?: PositionT<number>; | component/particle.d.ts |
-| 新增API | NA | 类名：FieldRegion； API声明：size?: SizeT<number>; 差异内容：size?: SizeT<number>; | component/particle.d.ts |
+| 新增API | NA | 类名：FieldRegion； API声明：position?: PositionT&lt;number&gt;; 差异内容：position?: PositionT&lt;number&gt;; | component/particle.d.ts |
+| 新增API | NA | 类名：FieldRegion； API声明：size?: SizeT&lt;number&gt;; 差异内容：size?: SizeT&lt;number&gt;; | component/particle.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface RippleFieldOptions 差异内容：declare interface RippleFieldOptions | component/particle.d.ts |
 | 新增API | NA | 类名：RippleFieldOptions； API声明：amplitude?: number; 差异内容：amplitude?: number; | component/particle.d.ts |
 | 新增API | NA | 类名：RippleFieldOptions； API声明：wavelength?: number; 差异内容：wavelength?: number; | component/particle.d.ts |
 | 新增API | NA | 类名：RippleFieldOptions； API声明：waveSpeed?: number; 差异内容：waveSpeed?: number; | component/particle.d.ts |
 | 新增API | NA | 类名：RippleFieldOptions； API声明：attenuation?: number; 差异内容：attenuation?: number; | component/particle.d.ts |
-| 新增API | NA | 类名：RippleFieldOptions； API声明：center?: PositionT<number>; 差异内容：center?: PositionT<number>; | component/particle.d.ts |
+| 新增API | NA | 类名：RippleFieldOptions； API声明：center?: PositionT&lt;number&gt;; 差异内容：center?: PositionT&lt;number&gt;; | component/particle.d.ts |
 | 新增API | NA | 类名：RippleFieldOptions； API声明：region?: FieldRegion; 差异内容：region?: FieldRegion; | component/particle.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface VelocityFieldOptions 差异内容：declare interface VelocityFieldOptions | component/particle.d.ts |
-| 新增API | NA | 类名：VelocityFieldOptions； API声明：velocity?: Vector2T<number>; 差异内容：velocity?: Vector2T<number>; | component/particle.d.ts |
+| 新增API | NA | 类名：VelocityFieldOptions； API声明：velocity?: Vector2T&lt;number&gt;; 差异内容：velocity?: Vector2T&lt;number&gt;; | component/particle.d.ts |
 | 新增API | NA | 类名：VelocityFieldOptions； API声明：region?: FieldRegion; 差异内容：region?: FieldRegion; | component/particle.d.ts |
 | 新增API | NA | 类名：RichEditorAttribute； API声明：enableSelectedDataDetector(enable: boolean \| undefined): RichEditorAttribute; 差异内容：enableSelectedDataDetector(enable: boolean \| undefined): RichEditorAttribute; | component/rich_editor.d.ts |
-| 新增API | NA | 类名：RichEditorAttribute； API声明：onWillAttachIME(callback: Callback<IMEClient> \| undefined): RichEditorAttribute; 差异内容：onWillAttachIME(callback: Callback<IMEClient> \| undefined): RichEditorAttribute; | component/rich_editor.d.ts |
+| 新增API | NA | 类名：RichEditorAttribute； API声明：onWillAttachIME(callback: Callback&lt;IMEClient&gt; \| undefined): RichEditorAttribute; 差异内容：onWillAttachIME(callback: Callback&lt;IMEClient&gt; \| undefined): RichEditorAttribute; | component/rich_editor.d.ts |
 | 新增API | NA | 类名：SecurityComponentMethod； API声明：focusBox(style: FocusBoxStyle): T; 差异内容：focusBox(style: FocusBoxStyle): T; | component/security_component.d.ts |
 | 新增API | NA | 类名：ParagraphStyle； API声明：readonly leadingMarginSpan?: LeadingMarginSpan; 差异内容：readonly leadingMarginSpan?: LeadingMarginSpan; | component/styled_string.d.ts |
 | 新增API | NA | 类名：ParagraphStyleInterface； API声明：leadingMarginSpan?: LeadingMarginSpan; 差异内容：leadingMarginSpan?: LeadingMarginSpan; | component/styled_string.d.ts |
@@ -287,7 +287,7 @@
 | 新增API | NA | 类名：TextAttribute； API声明：minLineHeight(value: LengthMetrics \| undefined): TextAttribute; 差异内容：minLineHeight(value: LengthMetrics \| undefined): TextAttribute; | component/text.d.ts |
 | 新增API | NA | 类名：TextAttribute； API声明：maxLineHeight(value: LengthMetrics \| undefined): TextAttribute; 差异内容：maxLineHeight(value: LengthMetrics \| undefined): TextAttribute; | component/text.d.ts |
 | 新增API | NA | 类名：TextAttribute； API声明：lineHeightMultiple(value: number \| undefined): TextAttribute; 差异内容：lineHeightMultiple(value: number \| undefined): TextAttribute; | component/text.d.ts |
-| 新增API | NA | 类名：TextAttribute； API声明：minLines(minLines: Optional<number>): TextAttribute; 差异内容：minLines(minLines: Optional<number>): TextAttribute; | component/text.d.ts |
+| 新增API | NA | 类名：TextAttribute； API声明：minLines(minLines: Optional&lt;number&gt;): TextAttribute; 差异内容：minLines(minLines: Optional&lt;number&gt;): TextAttribute; | component/text.d.ts |
 | 新增API | NA | 类名：TextAttribute； API声明：enableSelectedDataDetector(enable: boolean \| undefined): TextAttribute; 差异内容：enableSelectedDataDetector(enable: boolean \| undefined): TextAttribute; | component/text.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig; 差异内容：declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare enum TextDirection 差异内容：declare enum TextDirection | component/text_common.d.ts |
@@ -323,7 +323,7 @@
 | 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：SubTabBarStyle； API声明：indicator(value: IndicatorStyle): SubTabBarStyle; 差异内容：indicator(value: IndicatorStyle): SubTabBarStyle; | 类名：SubTabBarStyle； API声明：indicator(value: IndicatorStyle \| DrawableTabBarIndicator): SubTabBarStyle; 差异内容：indicator(value: IndicatorStyle \| DrawableTabBarIndicator): SubTabBarStyle; | component/tab_content.d.ts |
 | 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：WaterFlowAttribute； API声明：columnsTemplate(value: string): WaterFlowAttribute; 差异内容：columnsTemplate(value: string): WaterFlowAttribute; | 类名：WaterFlowAttribute； API声明：columnsTemplate(value: string \| ItemFillPolicy): WaterFlowAttribute; 差异内容：columnsTemplate(value: string \| ItemFillPolicy): WaterFlowAttribute; | component/water_flow.d.ts |
 | 类新增同名方法且参数类型与已有的参数类型范围不是包含关系 | 类名：ImageAttribute； API声明：alt(value: string \| Resource \| PixelMap): ImageAttribute; 差异内容：alt(value: string \| Resource \| PixelMap): ImageAttribute; | 类名：ImageAttribute； API声明：alt(src: ResourceStr \| PixelMap \| ImageAlt): ImageAttribute; 差异内容：alt(src: ResourceStr \| PixelMap \| ImageAlt): ImageAttribute; | component/image.d.ts |
-| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：Window； API声明：maximize(presentation?: MaximizePresentation): Promise<void>; 差异内容：maximize(presentation?: MaximizePresentation): Promise<void>; | 类名：Window； API声明：maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise<void>; 差异内容：maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise<void>; | api/@ohos.window.d.ts |
+| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：Window； API声明：maximize(presentation?: MaximizePresentation): Promise&lt;void&gt;; 差异内容：maximize(presentation?: MaximizePresentation): Promise&lt;void&gt;; | 类名：Window； API声明：maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise&lt;void&gt;; 差异内容：maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 新增导出符号 | 类名：global； API声明：export const enum ResolveStrategy 差异内容：NA | 类名：global； API声明： 差异内容：export const enum ResolveStrategy | api/@ohos.arkui.UIContext.d.ts |
 | arkts演进版本整改兼容变化 | 类名：global； API声明：export declare class FocusController 差异内容：NA | 类名：global； API声明：export class FocusController 差异内容：NA | api/@ohos.arkui.UIContext.d.ts |
 | arkts演进版本整改兼容变化 | 类名：global； API声明：export declare class ComponentSnapshot 差异内容：NA | 类名：global； API声明：export class ComponentSnapshot 差异内容：NA | api/@ohos.arkui.UIContext.d.ts |

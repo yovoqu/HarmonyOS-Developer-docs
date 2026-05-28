@@ -1,27 +1,30 @@
 # 预览(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview
 
 预览是启动相机后看见的画面，通常在拍照和录像前执行。
 
 
-## 开发步骤
+##### 开发步骤
 
-详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。 导入NDK接口，接口中提供了相机相关的属性和方法，导入方法如下。
-```text
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
+详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
+1. 导入NDK接口，接口中提供了相机相关的属性和方法，导入方法如下。
+
+  
+```cpp
+#include <cstdint>
+#include <native_buffer/buffer_common.h>
+#include <unistd.h>
+#include <string>
+#include <thread>
+#include <cstdio>
+#include <fcntl.h>
+#include <map>
+#include <string>
+#include <vector>
+#include <native_buffer/native_buffer.h>
 #include "iostream"
 #include "mutex"
 
@@ -34,8 +37,8 @@
 #include "ohcamera/video_output.h"
 #include "napi/native_api.h"
 #include "ohcamera/camera_manager.h"
-#include
-#include
+#include <window_manager/oh_display_info.h>
+#include <window_manager/oh_display_manager.h>
 
 namespace OHOS_CAMERA_SAMPLE {
 class NDKCamera {
@@ -55,7 +58,9 @@ class NDKCamera {
 } // namespace OHOS_CAMERA_SAMPLE
 ```
 
-在CMake脚本中链接相关动态库。
+2. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC
     libace_napi.z.so
@@ -64,8 +69,13 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
-获取SurfaceId。 XComponent组件为预览流提供的SurfaceId，而XComponent的能力由UI提供，相关介绍可参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。 根据传入的SurfaceId，通过[OH_CameraManager_GetSupportedCameraOutputCapability()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_getsupportedcameraoutputcapability)方法获取当前设备支持的预览能力。通过[OH_CameraManager_CreatePreviewOutput()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createpreviewoutput)方法创建预览输出流，其中，OH_CameraManager_CreatePreviewOutput()方法中的参数分别是cameraManager指针，previewProfiles数组中的第一项，步骤三中获取的surfaceId，以及返回的previewOutput指针。
-```text
+3. 获取SurfaceId。
+
+  XComponent组件为预览流提供的SurfaceId，而XComponent的能力由UI提供，相关介绍可参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。
+4. 根据传入的SurfaceId，通过[OH_CameraManager_GetSupportedCameraOutputCapability()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_getsupportedcameraoutputcapability)方法获取当前设备支持的预览能力。通过[OH_CameraManager_CreatePreviewOutput()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createpreviewoutput)方法创建预览输出流，其中，OH_CameraManager_CreatePreviewOutput()方法中的参数分别是cameraManager指针，previewProfiles数组中的第一项，步骤三中获取的surfaceId，以及返回的previewOutput指针。
+
+  
+```cpp
 Camera_ErrorCode NDKCamera::CreatePreviewOutput(void)
 {
     if (previewProfile_ == nullptr) {
@@ -84,8 +94,10 @@ Camera_ErrorCode NDKCamera::CreatePreviewOutput(void)
 }
 ```
 
-使能。当session完成CommitConfig后通过调用[OH_CaptureSession_Start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_start)方法输出预览流，接口调用失败会返回相应错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
-```text
+5. 使能。当session完成CommitConfig后通过调用[OH_CaptureSession_Start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_start)方法输出预览流，接口调用失败会返回相应错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
+
+  
+```cpp
 Camera_ErrorCode NDKCamera::SessionStart(void)
 {
     Camera_ErrorCode ret = OH_CaptureSession_Start(captureSession_);
@@ -98,8 +110,10 @@ Camera_ErrorCode NDKCamera::SessionStart(void)
 }
 ```
 
-通过[OH_CaptureSession_Stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_stop)方法停止预览流，接口调用失败会返回相应错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
-```text
+6. 通过[OH_CaptureSession_Stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_stop)方法停止预览流，接口调用失败会返回相应错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
+
+  
+```cpp
 Camera_ErrorCode NDKCamera::SessionStop(void)
 {
     Camera_ErrorCode ret = OH_CaptureSession_Stop(captureSession_);
@@ -113,34 +127,43 @@ Camera_ErrorCode NDKCamera::SessionStop(void)
 ```
 
 
-## 状态监听
 
-在相机应用开发过程中，可以随时监听预览输出流状态，包括预览流启动、预览流结束、预览流输出错误。 通过注册固定的frameStart回调函数获取监听预览启动结果，previewOutput创建成功时即可监听，预览第一次曝光时触发，有该事件返回结果则认为预览流已启动。
-```text
+
+##### 状态监听
+
+在相机应用开发过程中，可以随时监听预览输出流状态，包括预览流启动、预览流结束、预览流输出错误。
+
+ - 通过注册固定的frameStart回调函数获取监听预览启动结果，previewOutput创建成功时即可监听，预览第一次曝光时触发，有该事件返回结果则认为预览流已启动。
+
+  
+```cpp
 void PreviewOutputOnFrameStart(Camera_PreviewOutput *previewOutput)
 {
     OH_LOG_INFO(LOG_APP, "PreviewOutputOnFrameStart");
 }
 ```
 
-通过注册固定的frameEnd回调函数获取监听预览结束结果，previewOutput创建成功时即可监听，预览完成最后一帧时触发，有该事件返回结果则认为预览流已结束。
-```text
+ - 通过注册固定的frameEnd回调函数获取监听预览结束结果，previewOutput创建成功时即可监听，预览完成最后一帧时触发，有该事件返回结果则认为预览流已结束。
+
+  
+```cpp
 void PreviewOutputOnFrameEnd(Camera_PreviewOutput *previewOutput, int32_t frameCount)
 {
     OH_LOG_INFO(LOG_APP, "PreviewOutput frameCount = %{public}d", frameCount);
 }
 ```
 
-通过注册固定的error回调函数获取监听预览输出错误结果，callback返回预览输出接口使用错误时对应的错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
-```text
+ - 通过注册固定的error回调函数获取监听预览输出错误结果，callback返回预览输出接口使用错误时对应的错误码，错误码类型参见[Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode)。
+
+  
+```cpp
 void PreviewOutputOnError(Camera_PreviewOutput *previewOutput, Camera_ErrorCode errorCode)
 {
     OH_LOG_INFO(LOG_APP, "PreviewOutput errorCode = %{public}d", errorCode);
 }
 ```
 
-
-```text
+```cpp
 PreviewOutput_Callbacks *NDKCamera::GetPreviewOutputListener(void)
 {
     static PreviewOutput_Callbacks previewOutputListener = {

@@ -6,18 +6,18 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 错误码变更 | 类名：TextReader； API声明：function release(): Promise<void>; 差异内容：1010600012 | 类名：TextReader； API声明：function release(): Promise<void>; 差异内容：1010600012,1010600020 | api/@hms.ai.textReader.d.ets |
+| 错误码变更 | 类名：TextReader； API声明：function release(): Promise&lt;void&gt;; 差异内容：1010600012 | 类名：TextReader； API声明：function release(): Promise&lt;void&gt;; 差异内容：1010600012,1010600020 | api/@hms.ai.textReader.d.ets |
 | 错误码变更 | 类名：TextReader； API声明：function playPrev(): void; 差异内容：1010600012,1010600017 | 类名：TextReader； API声明：function playPrev(): void; 差异内容：1010600012,1010600018 | api/@hms.ai.textReader.d.ets |
 | 错误码变更 | 类名：TextReader； API声明：function playNext(): void; 差异内容：1010600012,1010600018 | 类名：TextReader； API声明：function playNext(): void; 差异内容：1010600012,1010600019 | api/@hms.ai.textReader.d.ets |
-| 权限变更 | 类名：TextReader； API声明：function init(context: common.BaseContext, readParams: ReaderParam): Promise<void>; 差异内容：NA | 类名：TextReader； API声明：function init(context: common.BaseContext, readParams: ReaderParam): Promise<void>; 差异内容：ohos.permission.KEEP_BACKGROUND_RUNNING. | api/@hms.ai.textReader.d.ets |
-| 新增API | NA | 类名：TextReader； API声明：function start(readInfoList: ReadInfo[], articleId: string \| undefined, startParams: StartParams): Promise<void>; 差异内容：function start(readInfoList: ReadInfo[], articleId: string \| undefined, startParams: StartParams): Promise<void>; | api/@hms.ai.textReader.d.ets |
-| 新增API | NA | 类名：TextReader； API声明：function on(type: 'requestMore', callback: Callback<string>): void; 差异内容：function on(type: 'requestMore', callback: Callback<string>): void; | api/@hms.ai.textReader.d.ets |
+| 权限变更 | 类名：TextReader； API声明：function init(context: common.BaseContext, readParams: ReaderParam): Promise&lt;void&gt;; 差异内容：NA | 类名：TextReader； API声明：function init(context: common.BaseContext, readParams: ReaderParam): Promise&lt;void&gt;; 差异内容：ohos.permission.KEEP_BACKGROUND_RUNNING. | api/@hms.ai.textReader.d.ets |
+| 新增API | NA | 类名：TextReader； API声明：function start(readInfoList: ReadInfo[], articleId: string \| undefined, startParams: StartParams): Promise&lt;void&gt;; 差异内容：function start(readInfoList: ReadInfo[], articleId: string \| undefined, startParams: StartParams): Promise&lt;void&gt;; | api/@hms.ai.textReader.d.ets |
+| 新增API | NA | 类名：TextReader； API声明：function on(type: 'requestMore', callback: Callback&lt;string&gt;): void; 差异内容：function on(type: 'requestMore', callback: Callback&lt;string&gt;): void; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：TextReader； API声明：function resetParam(paramName: ResetParamType): void; 差异内容：function resetParam(paramName: ResetParamType): void; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：TextReader； API声明：function showMinibar(): void; 差异内容：function showMinibar(): void; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：TextReader； API声明：function hideMinibar(): void; 差异内容：function hideMinibar(): void; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：TextReader； API声明：function queryReadStateByCategoryId(categoryId: string): ReadState; 差异内容：function queryReadStateByCategoryId(categoryId: string): ReadState; | api/@hms.ai.textReader.d.ets |
-| 新增API | NA | 类名：TextReader； API声明：function on(type: 'readProgress', callback: Callback<ReadProgress>): void; 差异内容：function on(type: 'readProgress', callback: Callback<ReadProgress>): void; | api/@hms.ai.textReader.d.ets |
-| 新增API | NA | 类名：TextReader； API声明：function off(type: 'readProgress', callback?: Callback<ReadProgress>): void; 差异内容：function off(type: 'readProgress', callback?: Callback<ReadProgress>): void; | api/@hms.ai.textReader.d.ets |
+| 新增API | NA | 类名：TextReader； API声明：function on(type: 'readProgress', callback: Callback&lt;ReadProgress&gt;): void; 差异内容：function on(type: 'readProgress', callback: Callback&lt;ReadProgress&gt;): void; | api/@hms.ai.textReader.d.ets |
+| 新增API | NA | 类名：TextReader； API声明：function off(type: 'readProgress', callback?: Callback&lt;ReadProgress&gt;): void; 差异内容：function off(type: 'readProgress', callback?: Callback&lt;ReadProgress&gt;): void; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：TextReader； API声明： enum ResetParamType 差异内容： enum ResetParamType | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：ResetParamType； API声明：BAR_PARAM = 1 差异内容：BAR_PARAM = 1 | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：ResetParamType； API声明：ALL = 2 差异内容：ALL = 2 | api/@hms.ai.textReader.d.ets |
@@ -62,7 +62,7 @@
 | 新增API | NA | 类名：CustomFeature； API声明：type: CustomFeatureType; 差异内容：type: CustomFeatureType; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：CustomFeature； API声明：name: string; 差异内容：name: string; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：CustomFeature； API声明：icon?: ResourceStr; 差异内容：icon?: ResourceStr; | api/@hms.ai.textReader.d.ets |
-| 新增API | NA | 类名：CustomFeature； API声明：callback?: Callback<string>; 差异内容：callback?: Callback<string>; | api/@hms.ai.textReader.d.ets |
+| 新增API | NA | 类名：CustomFeature； API声明：callback?: Callback&lt;string&gt;; 差异内容：callback?: Callback&lt;string&gt;; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：TextReader； API声明： interface BodyInfo 差异内容： interface BodyInfo | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：BodyInfo； API声明：type: BodyInfoType; 差异内容：type: BodyInfoType; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：BodyInfo； API声明：body?: string; 差异内容：body?: string; | api/@hms.ai.textReader.d.ets |

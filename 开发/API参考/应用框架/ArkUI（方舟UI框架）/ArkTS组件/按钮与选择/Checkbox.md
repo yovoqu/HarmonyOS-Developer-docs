@@ -1,26 +1,24 @@
 # Checkbox
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供多选框组件，通常用于某选项的打开或关闭。
 
-
 > [!NOTE]
-> API version 11开始，Checkbox默认样式由圆角方形变为圆形。
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> API version 11开始，Checkbox默认样式由圆角方形变为圆形。 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件默认有 margin 间距，默认值为：{ top: '14px', right: '14px', bottom: '14px', left: '14px' }。
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 Checkbox(options?: CheckboxOptions)
 
@@ -34,41 +32,41 @@ Checkbox(options?: CheckboxOptions)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [CheckboxOptions](#checkboxoptions对象说明) | 否 | 配置多选框的参数。 |
+| options | CheckboxOptions | 否 | 配置多选框的参数。 |
 
 
-## CheckboxOptions对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CheckboxOptions对象说明
 
 多选框的信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | string | 否 | 是 | 指定多选框名称。          默认值：undefined，取值为undefined无效果。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| group | string | 否 | 是 | 用于指定多选框所属群组的名称（即所属CheckboxGroup的名称）。          默认值：undefined，默认状态下配合[CheckboxGroupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkboxgroup#checkboxgroupoptions对象说明)属性group信息为undefined的节点使用。          说明：          未配合使用[CheckboxGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkboxgroup)组件时，此值无用。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| indicatorBuilder12+ | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 否 | 是 | 配置多选框的选中样式为自定义组件。自定义组件与Checkbox组件为中心点对齐显示。indicatorBuilder设置为undefined/null时，默认为indicatorBuilder未设置状态。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| name | string | 否 | 是 | 指定多选框名称。 默认值：undefined，取值为undefined无效果。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| group | string | 否 | 是 | 用于指定多选框所属群组的名称（即所属CheckboxGroup的名称）。 默认值：undefined，默认状态下配合CheckboxGroupOptions属性group信息为undefined的节点使用。 说明： 未配合使用CheckboxGroup组件时，此值无用。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| indicatorBuilder12+ | CustomBuilder | 否 | 是 | 配置多选框的选中样式为自定义组件。自定义组件与Checkbox组件为中心点对齐显示。indicatorBuilder设置为undefined/null时，默认为indicatorBuilder未设置状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### select
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### select
 
 select(value: boolean)
 
 设置多选框选中状态。
 
-从API version 10开始，该属性支持[\$\$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
+从API version 10开始，该属性支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
 
 从API version 18开始，该属性支持[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。
 
@@ -80,37 +78,37 @@ select(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 多选框是否选中。          默认值：false          值为true时，多选框被选中。值为false时，多选框未选中。 |
+| value | boolean | 是 | 多选框是否选中。 默认值：false 值为true时，多选框被选中。值为false时，多选框未选中。 |
 
 
-### select18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-select(isSelected: Optional<boolean>)
+
+##### select18+
+
+select(isSelected: Optional&lt;boolean&gt;)
 
 设置多选框选中状态。与[select](#select)相比，isSelected参数新增了对undefined类型的支持。
 
-该属性支持[\$\$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)、[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。
+该属性支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)、[!!](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-binding#系统组件参数双向绑定)双向绑定变量。
 
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
-**元服务API：** 从API version 18开始，���接口支持在元服务中使用。
+**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isSelected | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;boolean&gt; | 是 | 多选框是否选中。          当isSelected的值为undefined时取默认值false。          值为true时，多选框被选中。值为false时，多选框未选中。 |
+| isSelected | Optional&lt;boolean&gt; | 是 | 多选框是否选中。 当isSelected的值为undefined时取默认值false。 值为true时，多选框被选中。值为false时，多选框未选中。 |
 
 
-### selectedColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### selectedColor
 
 selectedColor(value: ResourceColor)
 
@@ -124,16 +122,16 @@ selectedColor(value: ResourceColor)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 是 | 多选框选中状态颜色。          默认值：\$r('sys.color.ohos_id_color_text_primary_activated')          异常值按照默认值处理。 |
+| value | ResourceColor | 是 | 多选框选中状态颜色。 默认值：\$r('sys.color.ohos_id_color_text_primary_activated') 异常值按照默认值处理。 |
 
 
-### selectedColor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-selectedColor(resColor: Optional<ResourceColor>)
+
+##### selectedColor18+
+
+selectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 设置多选框选中状态颜色。与[selectedColor](#selectedcolor)相比，resColor参数新增了对undefined类型的支持。
 
@@ -145,14 +143,14 @@ selectedColor(resColor: Optional<ResourceColor>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| resColor | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)&gt; | 是 | 多选框选中状态颜色。          当resColor的值为undefined时取默认值\$r('sys.color.ohos_id_color_text_primary_activated')。          异常值按照默认值处理。 |
+| resColor | Optional&lt;ResourceColor&gt; | 是 | 多选框选中状态颜色。 当resColor的值为undefined时取默认值\$r('sys.color.ohos_id_color_text_primary_activated')。 异常值按照默认值处理。 |
 
 
-### unselectedColor10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### unselectedColor10+
 
 unselectedColor(value: ResourceColor)
 
@@ -164,16 +162,16 @@ unselectedColor(value: ResourceColor)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 是 | 多选框非选中状态边框颜色。          默认值：\$r('sys.color.ohos_id_color_switch_outline_off') |
+| value | ResourceColor | 是 | 多选框非选中状态边框颜色。 默认值：\$r('sys.color.ohos_id_color_switch_outline_off') |
 
 
-### unselectedColor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-unselectedColor(resColor: Optional<ResourceColor>)
+
+##### unselectedColor18+
+
+unselectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 设置多选框非选中状态的边框颜色。与[unselectedColor](#unselectedcolor10)10+相比，resColor参数新增了对undefined类型的支持。
 
@@ -183,14 +181,14 @@ unselectedColor(resColor: Optional<ResourceColor>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| resColor | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)&gt; | 是 | 多选框非选中状态边框颜色。          当resColor的值为undefined时取默认值\$r('sys.color.ohos_id_color_switch_outline_off') |
+| resColor | Optional&lt;ResourceColor&gt; | 是 | 多选框非选中状态边框颜色。 当resColor的值为undefined时取默认值\$r('sys.color.ohos_id_color_switch_outline_off') |
 
 
-### mark10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### mark10+
 
 mark(value: MarkStyle)
 
@@ -202,16 +200,16 @@ mark(value: MarkStyle)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [MarkStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#markstyle10对象说明) | 是 | 多选框内部图标样式。 从API version 12开始，设置了indicatorBuilder时，按照indicatorBuilder中的内容显示。          默认值：{          strokeColor : \$r('sys.color.ohos_id_color_foreground_contrary'),          strokeWidth: \$r('sys.float.ohos_id_checkbox_stroke_width'),          size: '20vp'          } |
+| value | MarkStyle | 是 | 多选框内部图标样式。 从API version 12开始，设置了indicatorBuilder时，按照indicatorBuilder中的内容显示。 默认值：{ strokeColor : \$r('sys.color.ohos_id_color_foreground_contrary'), strokeWidth: \$r('sys.float.ohos_id_checkbox_stroke_width'), size: '20vp' } |
 
 
-### mark18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-mark(style: Optional<MarkStyle>)
+
+##### mark18+
+
+mark(style: Optional&lt;MarkStyle&gt;)
 
 设置多选框内部图标的样式。与[mark](#mark10)10+相比，style参数新增了对undefined类型的支持。
 
@@ -221,14 +219,14 @@ mark(style: Optional<MarkStyle>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[MarkStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#markstyle10对象说明)&gt; | 是 | 多选框内部图标样式。 设置了indicatorBuilder时，按照indicatorBuilder中的内容显示。          当style的值为undefined时，默认值：{          strokeColor : \$r('sys.color.ohos_id_color_foreground_contrary'),          strokeWidth: \$r('sys.float.ohos_id_checkbox_stroke_width'),          size: '20vp'          } |
+| style | Optional&lt;MarkStyle&gt; | 是 | 多选框内部图标样式。 设置了indicatorBuilder时，按照indicatorBuilder中的内容显示。 当style的值为undefined时，默认值：{ strokeColor : \$r('sys.color.ohos_id_color_foreground_contrary'), strokeWidth: \$r('sys.float.ohos_id_checkbox_stroke_width'), size: '20vp' } |
 
 
-### shape11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### shape11+
 
 shape(value: CheckBoxShape)
 
@@ -242,18 +240,18 @@ shape(value: CheckBoxShape)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [CheckBoxShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#checkboxshape11) | 是 | Checkbox组件形状，包括圆形和圆角方形。          默认值：CheckBoxShape.CIRCLE |
+| value | CheckBoxShape | 是 | Checkbox组件形状，包括圆形和圆角方形。 默认值：CheckBoxShape.CIRCLE |
 
 
-### shape18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-shape(shape: Optional<CheckBoxShape>)
 
-设置Checkbox组件形状，包括圆形和圆角方形。与[shape](#shape11)11+相比，shape参数新增��对undefined类型的支持。如果想要调整当前Checkbox的样式，需使用[contentModifier](#contentmodifier12)属性自定义Checkbox样式。
+##### shape18+
+
+shape(shape: Optional&lt;CheckBoxShape&gt;)
+
+设置Checkbox组件形状，包括圆形和圆角方形。与[shape](#shape11)11+相比，shape参数新增了对undefined类型的支持。如果想要调整当前Checkbox的样式，需使用[contentModifier](#contentmodifier12)属性自定义Checkbox样式。
 
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
 
@@ -263,16 +261,16 @@ shape(shape: Optional<CheckBoxShape>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shape | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[CheckBoxShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#checkboxshape11)&gt; | 是 | Checkbox组件形状，包括圆形和圆角方形。          当shape的值为undefined时，默认值为CheckBoxShape.CIRCLE。 |
+| shape | Optional&lt;CheckBoxShape&gt; | 是 | Checkbox组件形状，包括圆形和圆角方形。 当shape的值为undefined时，默认值为CheckBoxShape.CIRCLE。 |
 
 
-### contentModifier12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-contentModifier(modifier: ContentModifier<CheckBoxConfiguration>)
+
+##### contentModifier12+
+
+contentModifier(modifier: ContentModifier&lt;CheckBoxConfiguration&gt;)
 
 定制Checkbox内容区的方法。设置该属性时，会导致其他属性设置失效。
 
@@ -282,16 +280,16 @@ contentModifier(modifier: ContentModifier<CheckBoxConfiguration>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| modifier | [ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)[&lt;CheckBoxConfiguration&gt;](#checkboxconfiguration12对象说明) | 是 | 在Checkbox组件上，定制内容区的方法。          modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 |
+| modifier | ContentModifier&lt;CheckBoxConfiguration&gt; | 是 | 在Checkbox组件上，定制内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 |
 
 
-### contentModifier18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-contentModifier(modifier: Optional<ContentModifier<CheckBoxConfiguration>>)
+
+##### contentModifier18+
+
+contentModifier(modifier: Optional<ContentModifier&lt;CheckBoxConfiguration&gt;>)
 
 定制Checkbox内容区的方法。与[contentModifier](#contentmodifier12)12+相比，modifier参数新增了对undefined类型的支持。设置该属性时，会导致其他属性设置失效。
 
@@ -301,20 +299,20 @@ contentModifier(modifier: Optional<ContentModifier<CheckBoxConfiguration>>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| modifier | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)[&lt;CheckBoxConfiguration&gt;](#checkboxconfiguration12对象说明)&gt; | 是 | 在Checkbox组件上，定制内容区的方法。          modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。          当modifier的值为undefined时，不使用内容修改器。 |
+| modifier | Optional<ContentModifier&lt;CheckBoxConfiguration&gt;> | 是 | 在Checkbox组件上，定制内容区的方法。 modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。 当modifier的值为undefined时，不使用内容修改器。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
-### onChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onChange
 
 onChange(callback: OnCheckboxChangeCallback)
 
@@ -328,16 +326,16 @@ onChange(callback: OnCheckboxChangeCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [OnCheckboxChangeCallback](#oncheckboxchangecallback18) | 是 | 返回选中的状态。 |
+| callback | OnCheckboxChangeCallback | 是 | 返回选中的状态。 |
 
 
-### onChange18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-onChange(callback: Optional<OnCheckboxChangeCallback>)
+
+##### onChange18+
+
+onChange(callback: Optional&lt;OnCheckboxChangeCallback&gt;)
 
 当选中状态发生变化时，触发该回调。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
 
@@ -349,14 +347,14 @@ onChange(callback: Optional<OnCheckboxChangeCallback>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[OnCheckboxChangeCallback](#oncheckboxchangecallback18)&gt; | 是 | 返回选中的状态。          当callback的值为undefined时，不使用回调函数。 |
+| callback | Optional&lt;OnCheckboxChangeCallback&gt; | 是 | 返回选中的状态。 当callback的值为undefined时，不使用回调函数。 |
 
 
-## OnCheckboxChangeCallback18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnCheckboxChangeCallback18+
 
 type OnCheckboxChangeCallback = (value: boolean) => void
 
@@ -370,14 +368,14 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | boolean | 是 | 返回true表示已选中。返回false表示未选中。 |
 
 
-## CheckBoxConfiguration12+对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CheckBoxConfiguration12+对象说明
 
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
@@ -385,24 +383,24 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 当前多选框名称。 |
-| selected | boolean | 否 | 否 | 指示多选框是否被选中，值为true时，多选框被选中。值为false时，多选框未选中。          如果select属性没有设置默认值是false。          如果设置select属性，此值与设置select属性的值相同。 |
+| selected | boolean | 否 | 否 | 指示多选框是否被选中，值为true时，多选框被选中。值为false时，多选框未选中。 如果select属性没有设置默认值是false。 如果设置select属性，此值与设置select属性的值相同。 |
 | triggerChange | Callback&lt;boolean&gt; | 否 | 否 | 触发多选框选中状态变化。true表示从未选中变为选中，false表示从选中变为未选中。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 示例1（设置多选框形状）
+##### 示例
+
+
+
+##### 示例1（设置多选框形状）
 
 该示例通过配置CheckBoxShape实现圆形和圆角方形多选框样式。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -410,33 +408,35 @@ struct CheckboxExample {
   build() {
     Flex({ justifyContent: FlexAlign.SpaceEvenly }) {
       Checkbox({ name: 'checkbox1', group: 'checkboxGroup' })
-      .select(true)
-      .selectedColor(0xed6f21)
-      .shape(CheckBoxShape.CIRCLE)
-      .onChange((value: boolean) => {
-        console.info('Checkbox1 change is' + value);
-      })
+        .select(true)
+        .selectedColor(0xed6f21)
+        .shape(CheckBoxShape.CIRCLE)
+        .onChange((value: boolean) => {
+          console.info('Checkbox1 change is' + value);
+        })
       Checkbox({ name: 'checkbox2', group: 'checkboxGroup' })
-      .select(false)
-      .selectedColor(0x39a2db)
-      .shape(CheckBoxShape.ROUNDED_SQUARE)
-      .onChange((value: boolean) => {
-        console.info('Checkbox2 change is' + value);
-      })
+        .select(false)
+        .selectedColor(0x39a2db)
+        .shape(CheckBoxShape.ROUNDED_SQUARE)
+        .onChange((value: boolean) => {
+          console.info('Checkbox2 change is' + value);
+        })
     }
   }
 }
 ```
 
-![](assets/Checkbox/file-20260514164014516-0.gif)
+
+![](assets/Checkbox/file-20260514164014516-1.gif)
 
 
-### 示例2（设置多选框颜色）
+
+
+##### 示例2（设置多选框颜色）
 
 该示例通过配置mark实现自定义多选框的颜色。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -447,30 +447,30 @@ struct Index {
       Column() {
         Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
           Checkbox({ name: 'checkbox1', group: 'checkboxGroup' })
-          .selectedColor(0x39a2db)
-          .shape(CheckBoxShape.ROUNDED_SQUARE)
-          .onChange((value: boolean) => {
-            console.info('Checkbox1 change is'+ value);
-          })
-          .mark({
-            strokeColor:Color.Black,
-            size: 50,
-            strokeWidth: 5
-          })
-          .unselectedColor(Color.Red)
-          .width(30)
-          .height(30)
+            .selectedColor(0x39a2db)
+            .shape(CheckBoxShape.ROUNDED_SQUARE)
+            .onChange((value: boolean) => {
+              console.info('Checkbox1 change is'+ value);
+            })
+            .mark({
+              strokeColor:Color.Black,
+              size: 50,
+              strokeWidth: 5
+            })
+            .unselectedColor(Color.Red)
+            .width(30)
+            .height(30)
           Text('Checkbox1').fontSize(20)
         }
         Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
           Checkbox({ name: 'checkbox2', group: 'checkboxGroup' })
-          .selectedColor(0x39a2db)
-          .shape(CheckBoxShape.ROUNDED_SQUARE)
-          .onChange((value: boolean) => {
-            console.info('Checkbox2 change is' + value);
-          })
-          .width(30)
-          .height(30)
+            .selectedColor(0x39a2db)
+            .shape(CheckBoxShape.ROUNDED_SQUARE)
+            .onChange((value: boolean) => {
+              console.info('Checkbox2 change is' + value);
+            })
+            .width(30)
+            .height(30)
           Text('Checkbox2').fontSize(20)
         }
       }
@@ -481,15 +481,17 @@ struct Index {
 }
 ```
 
-![](assets/Checkbox/file-20260514164014516-1.gif)
+
+![](assets/Checkbox/file-20260514164014516-2.gif)
 
 
-### 示例3（自定义多选框样式）
+
+
+##### 示例3（自定义多选框样式）
 
 该示例通过[contentModifier](#contentmodifier12)属性实现了自定义多选框样式的功能，自定义样式实现了一个五边形多选框，如果选中，内部会出现红色三角图案，标题会显示选中字样，如果取消选中，红色三角图案消失，标题会显示非选中字样。
 
-
-```ts
+```ArkTS
 // xxx.ets
 class MyCheckboxStyle implements ContentModifier<CheckBoxConfiguration> {
   selectedColor: Color = Color.White;
@@ -510,28 +512,28 @@ function buildCheckbox(config: CheckBoxConfiguration) {
     Text(config.enabled ? "enabled true" : "enabled false").margin({ right: 110 })
     Shape() {
       Path()
-      .width(100)
-      .height(100)
-      .commands('M100 0 L0 100 L50 200 L150 200 L200 100 Z')
-      .fillOpacity(0)
-      .strokeWidth(3)
-      .onClick(() => {
-        if (config.selected) {
-          config.triggerChange(false);
-        } else {
-          config.triggerChange(true);
-        }
-      })
-      .opacity(config.enabled ? 1 : 0.1)
+        .width(100)
+        .height(100)
+        .commands('M100 0 L0 100 L50 200 L150 200 L200 100 Z')
+        .fillOpacity(0)
+        .strokeWidth(3)
+        .onClick(() => {
+          if (config.selected) {
+            config.triggerChange(false);
+          } else {
+            config.triggerChange(true);
+          }
+        })
+        .opacity(config.enabled ? 1 : 0.1)
       Path()
-      .width(10)
-      .height(10)
-      .commands('M50 0 L100 100 L0 100 Z')
-      .visibility(config.selected ? Visibility.Visible : Visibility.Hidden)
-      .fill(config.selected ? (config.contentModifier as MyCheckboxStyle).selectedColor : Color.Black)
-      .stroke((config.contentModifier as MyCheckboxStyle).selectedColor)
-      .margin({ left: 10, top: 10 })
-      .opacity(config.enabled ? 1 : 0.1)
+        .width(10)
+        .height(10)
+        .commands('M50 0 L100 100 L0 100 Z')
+        .visibility(config.selected ? Visibility.Visible : Visibility.Hidden)
+        .fill(config.selected ? (config.contentModifier as MyCheckboxStyle).selectedColor : Color.Black)
+        .stroke((config.contentModifier as MyCheckboxStyle).selectedColor)
+        .margin({ left: 10, top: 10 })
+        .opacity(config.enabled ? 1 : 0.1)
     }
     .width(300)
     .height(200)
@@ -555,10 +557,10 @@ struct Index {
   build() {
     Column({ space: 100 }) {
       Checkbox({ name: '多选框状态', group: 'checkboxGroup' })
-      .contentModifier(new MyCheckboxStyle(Color.Red))
-      .onChange((value: boolean) => {
-        console.info('Checkbox change is' + value);
-      }).enabled(this.checkboxEnabled)
+        .contentModifier(new MyCheckboxStyle(Color.Red))
+        .onChange((value: boolean) => {
+          console.info('Checkbox change is' + value);
+        }).enabled(this.checkboxEnabled)
 
       Row() {
         Toggle({ type: ToggleType.Switch, isOn: true }).onChange((value: boolean) => {
@@ -568,21 +570,23 @@ struct Index {
             this.checkboxEnabled = false;
           }
         })
-    }.position({ x: 50, y: 130 })
-  }.margin({ top: 30 })
+      }.position({ x: 50, y: 130 })
+    }.margin({ top: 30 })
   }
 }
 ```
 
-![](assets/Checkbox/file-20260514164014516-2.gif)
+
+![](assets/Checkbox/file-20260514164014516-3.gif)
 
 
-### 示例4（设置文本多选框样式）
+
+
+##### 示例4（设置文本多选框样式）
 
 该示例通过配置indicatorBuilder实现选中样式为Text。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -591,10 +595,10 @@ struct CheckboxExample {
   indicatorBuilder(value: number) {
     Column(){
       Text(value > 99 ? '99+': value.toString())
-      .textAlign(TextAlign.Center)
-      .fontSize(value > 99 ?  '16vp': '20vp')
-      .fontWeight(FontWeight.Medium)
-      .fontColor('#ffffffff')
+        .textAlign(TextAlign.Center)
+        .fontSize(value > 99 ?  '16vp': '20vp')
+        .fontWeight(FontWeight.Medium)
+        .fontColor('#ffffffff')
     }
   }
   build() {
@@ -602,27 +606,27 @@ struct CheckboxExample {
       Column() {
         Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center}) {
           Checkbox({ name: 'checkbox1', group: 'checkboxGroup', indicatorBuilder:()=>{this.indicatorBuilder(9)}})
-          .shape(CheckBoxShape.CIRCLE)
-          .onChange((value: boolean) => {
-            console.info('Checkbox1 change is'+ value);
-          })
-          .mark({
-            strokeColor:Color.Black,
-            size: 50,
-            strokeWidth: 5
-          })
-          .width(30)
-          .height(30)
+            .shape(CheckBoxShape.CIRCLE)
+            .onChange((value: boolean) => {
+              console.info('Checkbox1 change is'+ value);
+            })
+            .mark({
+              strokeColor:Color.Black,
+              size: 50,
+              strokeWidth: 5
+            })
+            .width(30)
+            .height(30)
           Text('Checkbox1').fontSize(20)
         }.padding(15)
         Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
           Checkbox({ name: 'checkbox2', group: 'checkboxGroup', indicatorBuilder:()=>{this.indicatorBuilder(100)}})
-          .shape(CheckBoxShape.ROUNDED_SQUARE)
-          .onChange((value: boolean) => {
-            console.info('Checkbox2 change is' + value);
-          })
-          .width(30)
-          .height(30)
+            .shape(CheckBoxShape.ROUNDED_SQUARE)
+            .onChange((value: boolean) => {
+              console.info('Checkbox2 change is' + value);
+            })
+            .width(30)
+            .height(30)
           Text('Checkbox2').fontSize(20)
         }
       }
@@ -633,15 +637,17 @@ struct CheckboxExample {
 }
 ```
 
-![](assets/Checkbox/file-20260514164014516-3.gif)
+
+![](assets/Checkbox/file-20260514164014516-4.gif)
 
 
-### 示例5（获取多选框选中信息）
+
+
+##### 示例5（获取多选框选中信息）
 
 该示例通过选中Checkbox以及CheckboxGroup多选框来获取选中的信息。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -659,13 +665,13 @@ struct CheckboxExample {
       // 单元项全选按钮
       Flex({ justifyContent: FlexAlign.Start, alignItems: ItemAlign.Center }) {
         CheckboxGroup({ group: 'checkboxGroupOne' })
-        .selectAll(this.selected)
-        .checkboxShape(CheckBoxShape.ROUNDED_SQUARE)
-        .selectedColor('#007DFF')
-        .onChange((itemName: CheckboxGroupResult) => {
-          this.infoOne = "checkboxGroupOne" + JSON.stringify(itemName);
-          console.info("checkboxGroupOne" + JSON.stringify(itemName));
-        })
+          .selectAll(this.selected)
+          .checkboxShape(CheckBoxShape.ROUNDED_SQUARE)
+          .selectedColor('#007DFF')
+          .onChange((itemName: CheckboxGroupResult) => {
+            this.infoOne = "checkboxGroupOne" + JSON.stringify(itemName);
+            console.info("checkboxGroupOne" + JSON.stringify(itemName));
+          })
         Text('checkboxGroupOne Select All').fontSize(14).lineHeight(20).fontColor('#182431').fontWeight(500)
       }
 
@@ -675,32 +681,32 @@ struct CheckboxExample {
           ForEach(this.arrOne, (item: string) => {
             Row() {
               Checkbox({ name: 'checkbox' + item, group: 'checkboxGroupOne' })
-              .selectedColor('#007DFF')
-              .shape(CheckBoxShape.ROUNDED_SQUARE)
-              .onChange((value: boolean) => {
-                console.info('Checkbox' + item + 'change is' + value);
-              })
-              .margin({ left: 20 })
+                .selectedColor('#007DFF')
+                .shape(CheckBoxShape.ROUNDED_SQUARE)
+                .onChange((value: boolean) => {
+                  console.info('Checkbox' + item + 'change is' + value);
+                })
+                .margin({ left: 20 })
               Text('Checkbox' + item)
-              .fontSize(14)
-              .lineHeight(20)
-              .fontColor('#182431')
-              .fontWeight(500)
-              .margin({ left: 10 })
+                .fontSize(14)
+                .lineHeight(20)
+                .fontColor('#182431')
+                .fontWeight(500)
+                .margin({ left: 10 })
             }
           }, (item: string) => item)
         }
-    }.margin({ bottom: 15 })
+      }.margin({ bottom: 15 })
 
       Flex({ justifyContent: FlexAlign.Start, alignItems: ItemAlign.Center }) {
         CheckboxGroup({ group: 'checkboxGroupTwo' })
-        .selectAll(this.selected)
-        .checkboxShape(CheckBoxShape.ROUNDED_SQUARE)
-        .selectedColor('#007DFF')
-        .onChange((itemName: CheckboxGroupResult) => {
-          this.infoTwo = "checkboxGroupTwo" + JSON.stringify(itemName);
-          console.info("checkboxGroupTwo" + JSON.stringify(itemName));
-        })
+          .selectAll(this.selected)
+          .checkboxShape(CheckBoxShape.ROUNDED_SQUARE)
+          .selectedColor('#007DFF')
+          .onChange((itemName: CheckboxGroupResult) => {
+            this.infoTwo = "checkboxGroupTwo" + JSON.stringify(itemName);
+            console.info("checkboxGroupTwo" + JSON.stringify(itemName));
+          })
         Text('checkboxGroupTwo Select All').fontSize(14).lineHeight(20).fontColor('#182431').fontWeight(500)
       }
 
@@ -710,32 +716,32 @@ struct CheckboxExample {
           ForEach(this.arrTwo, (item: string) => {
             Row() {
               Checkbox({ name: 'checkbox' + item, group: 'checkboxGroupTwo' })
-              .selectedColor('#007DFF')
-              .shape(CheckBoxShape.ROUNDED_SQUARE)
-              .onChange((value: boolean) => {
-                console.info('Checkbox' + item + 'change is' + value);
-              })
-              .margin({ left: 20 })
+                .selectedColor('#007DFF')
+                .shape(CheckBoxShape.ROUNDED_SQUARE)
+                .onChange((value: boolean) => {
+                  console.info('Checkbox' + item + 'change is' + value);
+                })
+                .margin({ left: 20 })
               Text('Checkbox' + item)
-              .fontSize(14)
-              .lineHeight(20)
-              .fontColor('#182431')
-              .fontWeight(500)
-              .margin({ left: 10 })
+                .fontSize(14)
+                .lineHeight(20)
+                .fontColor('#182431')
+                .fontWeight(500)
+                .margin({ left: 10 })
             }
           }, (item: string) => item)
         }
-    }.margin({ bottom: 15 })
+      }.margin({ bottom: 15 })
 
       Flex({ justifyContent: FlexAlign.Start, alignItems: ItemAlign.Center }) {
         CheckboxGroup({ group: 'checkboxGroupThree' })
-        .selectAll(this.selected)
-        .checkboxShape(CheckBoxShape.ROUNDED_SQUARE)
-        .selectedColor('#007DFF')
-        .onChange((itemName: CheckboxGroupResult) => {
-          this.infoThree = "checkboxGroupThree" + JSON.stringify(itemName);
-          console.info("checkboxGroupThree" + JSON.stringify(itemName));
-        })
+          .selectAll(this.selected)
+          .checkboxShape(CheckBoxShape.ROUNDED_SQUARE)
+          .selectedColor('#007DFF')
+          .onChange((itemName: CheckboxGroupResult) => {
+            this.infoThree = "checkboxGroupThree" + JSON.stringify(itemName);
+            console.info("checkboxGroupThree" + JSON.stringify(itemName));
+          })
         Text('checkboxGroupThree Select All').fontSize(14).lineHeight(20).fontColor('#182431').fontWeight(500)
       }
 
@@ -745,65 +751,67 @@ struct CheckboxExample {
           ForEach(this.arrThree, (item: string) => {
             Row() {
               Checkbox({ name: 'checkbox' + item, group: 'checkboxGroupThree' })
-              .selectedColor('#007DFF')
-              .shape(CheckBoxShape.ROUNDED_SQUARE)
-              .onChange((value: boolean) => {
-                console.info('Checkbox' + item + 'change is' + value);
-              })
-              .margin({ left: 20 })
+                .selectedColor('#007DFF')
+                .shape(CheckBoxShape.ROUNDED_SQUARE)
+                .onChange((value: boolean) => {
+                  console.info('Checkbox' + item + 'change is' + value);
+                })
+                .margin({ left: 20 })
               Text('Checkbox' + item)
-              .fontSize(14)
-              .lineHeight(20)
-              .fontColor('#182431')
-              .fontWeight(500)
-              .margin({ left: 10 })
+                .fontSize(14)
+                .lineHeight(20)
+                .fontColor('#182431')
+                .fontWeight(500)
+                .margin({ left: 10 })
             }
           }, (item: string) => item)
         }
-    }.margin({ bottom: 15 })
+      }.margin({ bottom: 15 })
 
       // 全选按钮
       Flex({ justifyContent: FlexAlign.Start, alignItems: ItemAlign.Center }) {
         Row() {
           CheckboxGroup({ group: 'checkboxGroup' })
-          .checkboxShape(CheckBoxShape.CIRCLE)
-          .selectedColor('#007DFF')
-          .width(30)
-          .margin({ left: 10 })
-          .onChange(() => {
-            this.selected = !this.selected
-          })
+            .checkboxShape(CheckBoxShape.CIRCLE)
+            .selectedColor('#007DFF')
+            .width(30)
+            .margin({ left: 10 })
+            .onChange(() => {
+              this.selected = !this.selected
+            })
           Text('Select All')
-          .fontSize(14)
-          .lineHeight(20)
-          .fontColor('#182431')
-          .fontWeight(500)
-          .margin({ left: 10 })
+            .fontSize(14)
+            .lineHeight(20)
+            .fontColor('#182431')
+            .fontWeight(500)
+            .margin({ left: 10 })
         }
-    }.margin({ bottom: 15 })
+      }.margin({ bottom: 15 })
 
       // 获取选中信息
       Button('get selected info')
-      .margin({ top: 10 })
-      .onClick(() => {
-        this.getUIContext().getPromptAction().showToast({
-          message: 'selected info: ' + this.infoOne + '\n' + this.infoTwo + '\n' + this.infoThree
+        .margin({ top: 10 })
+        .onClick(() => {
+          this.getUIContext().getPromptAction().showToast({
+            message: 'selected info: ' + this.infoOne + '\n' + this.infoTwo + '\n' + this.infoThree
+          })
         })
-      })
     }.padding(10)
   }
 }
 ```
 
-![](assets/Checkbox/file-20260514164014516-4.gif)
+
+![](assets/Checkbox/file-20260514164014516-5.gif)
 
 
-### 示例6（设置滑动多选）
+
+
+##### 示例6（设置滑动多选）
 
 该示例通过设置手势事件实现Checkbox滑动多选。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { componentUtils, ComponentUtils, UIContext } from '@kit.ArkUI';
 import { LinkedList } from '@kit.ArkTS';
@@ -817,8 +825,8 @@ struct Index {
   selectedPhotos: LinkedList<number> = new LinkedList();
   @State selectedList: number[] = [];
   @State image: Resource[] =
-  // $r('app.media.xxx')需要替换为开发者所需的图像资源文件。
-  [$r("app.media.imageOne"), $r('app.media.imageTwo'), $r('app.media.imageThree'), $r('app.media.imageFour')];
+    // $r('app.media.xxx')需要替换为开发者所需的图像资源文件。
+    [$r("app.media.imageOne"), $r('app.media.imageTwo'), $r('app.media.imageThree'), $r('app.media.imageFour')];
   private selectedState: SelectedState = SelectedState.None;
   private componentUtils: ComponentUtils = this.getUIContext().getComponentUtils();
   private listScroller: ListScroller = new ListScroller();
@@ -849,7 +857,7 @@ struct Index {
     }
     return this.selectedEnd;
   }
-
+  
   onSelectedEndChange() {
     let start: number = -1;
     let end: number = -1;
@@ -900,13 +908,13 @@ struct Index {
       if (this.isChoosing) {
         Row() {
           Text('取消')
-          .onClick(() => {
-            this.isChoosing = false;
-            this.selectedStart = -1;
-            this.selectedEnd = -1;
-            this.selectedPhotos.clear();
-            this.selectedList = [];
-          })
+            .onClick(() => {
+              this.isChoosing = false;
+              this.selectedStart = -1;
+              this.selectedEnd = -1;
+              this.selectedPhotos.clear();
+              this.selectedList = [];
+            })
         }
         .width('100%')
         .justifyContent(FlexAlign.SpaceEvenly)
@@ -916,12 +924,12 @@ struct Index {
           ListItem() {
             Stack({ alignContent: Alignment.TopEnd }) {
               Image(this.image[(index % 4)])
-              .width('100%')
-              .draggable(false)
+                .width('100%')
+                .draggable(false)
               Checkbox({ name: index.toString() })
-              .shape(CheckBoxShape.CIRCLE)
-              .visibility(this.isChoosing ? Visibility.Visible : Visibility.None)
-              .select(this.selectedList.includes(index))
+                .shape(CheckBoxShape.CIRCLE)
+                .visibility(this.isChoosing ? Visibility.Visible : Visibility.None)
+                .select(this.selectedList.includes(index))
             }
             .id(`stack${index}`)
             .width('100%')
@@ -938,68 +946,68 @@ struct Index {
         this.currentOffsetY = this.listScroller.currentOffset().yOffset;
       })
       .gesture(
-      GestureGroup(GestureMode.Exclusive,
-      GestureGroup(GestureMode.Sequence,
-      LongPressGesture()
-      .onAction(() => {
-        this.isChoosing = true;
-      }),
-      PanGesture()
-      .onActionStart(event => {
-        if (!this.isChoosing) {
-          return;
-        }
-        const fingerInfo = event.fingerList[event.fingerList.length - 1];
-        const fingerX = fingerInfo.globalX;
-        const fingerY = fingerInfo.globalY;
-        this.selectedStart = this.getIndex(fingerX, fingerY);
-        if (this.selectedPhotos.has(this.selectedStart)) {
-          this.selectedState = SelectedState.Remove;
-        } else {
-          this.selectedState = SelectedState.Selected;
-        }
-      })
-      .onActionUpdate(event => {
-        if (!this.isChoosing) {
-          return;
-        }
-        this.onPanGestureUpdate(event);
-      })
-      .onActionEnd(() => {
-        if (!this.isChoosing) {
-          return;
-        }
-        this.selectedState = SelectedState.None;
-      })
-      ),
-      PanGesture()
-      .onActionStart(event => {
-        if (!this.isChoosing) {
-          return;
-        }
-        const fingerInfo = event.fingerList[event.fingerList.length - 1];
-        const fingerX = fingerInfo.globalX;
-        const fingerY = fingerInfo.globalY;
-        this.selectedStart = this.getIndex(fingerX, fingerY);
-        if (this.selectedPhotos.has(this.selectedStart)) {
-          this.selectedState = SelectedState.Remove;
-        } else {
-          this.selectedState = SelectedState.Selected;
-        }
-      })
-      .onActionUpdate(event => {
-        if (!this.isChoosing) {
-          return;
-        }
-        this.onPanGestureUpdate(event);
-      })
-      .onActionEnd(() => {
-        if (!this.isChoosing) {
-          return;
-        }
-        this.selectedState = SelectedState.None;
-      })
-      )
+        GestureGroup(GestureMode.Exclusive,
+          GestureGroup(GestureMode.Sequence,
+            LongPressGesture()
+              .onAction(() => {
+                this.isChoosing = true;
+              }),
+            PanGesture()
+              .onActionStart(event => {
+                if (!this.isChoosing) {
+                  return;
+                }
+                const fingerInfo = event.fingerList[event.fingerList.length - 1];
+                const fingerX = fingerInfo.globalX;
+                const fingerY = fingerInfo.globalY;
+                this.selectedStart = this.getIndex(fingerX, fingerY);
+                if (this.selectedPhotos.has(this.selectedStart)) {
+                  this.selectedState = SelectedState.Remove;
+                } else {
+                  this.selectedState = SelectedState.Selected;
+                }
+              })
+              .onActionUpdate(event => {
+                if (!this.isChoosing) {
+                  return;
+                }
+                this.onPanGestureUpdate(event);
+              })
+              .onActionEnd(() => {
+                if (!this.isChoosing) {
+                  return;
+                }
+                this.selectedState = SelectedState.None;
+              })
+          ),
+          PanGesture()
+            .onActionStart(event => {
+              if (!this.isChoosing) {
+                return;
+              }
+              const fingerInfo = event.fingerList[event.fingerList.length - 1];
+              const fingerX = fingerInfo.globalX;
+              const fingerY = fingerInfo.globalY;
+              this.selectedStart = this.getIndex(fingerX, fingerY);
+              if (this.selectedPhotos.has(this.selectedStart)) {
+                this.selectedState = SelectedState.Remove;
+              } else {
+                this.selectedState = SelectedState.Selected;
+              }
+            })
+            .onActionUpdate(event => {
+              if (!this.isChoosing) {
+                return;
+              }
+              this.onPanGestureUpdate(event);
+            })
+            .onActionEnd(() => {
+              if (!this.isChoosing) {
+                return;
+              }
+              this.selectedState = SelectedState.None;
+            })
+        )
       )
     }
   }
@@ -1012,4 +1020,5 @@ enum SelectedState {
 }
 ```
 
-![](assets/Checkbox/file-20260514164014516-5.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1yNpfQeSRamES9UXktkc5Q/zh-cn_image_0000002611755769.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=8F061BBABD0E0299055BB3B1F1DE2638B884EBEB77EC306066D0DC8BF0C0D8F8)

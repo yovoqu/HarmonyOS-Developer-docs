@@ -4,66 +4,154 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-gn-build-project
 
-## 概述
+##### 概述
 
-本文将介绍如何在GN工程中配置HarmonyOS工具链，然后通过HarmonyOS工具链编译出可以在HarmonyOS环境下使用的三方库。 HarmonyOS编译子系统是以GN和Ninja构建为基座，对构建和配置粒度进行部件化抽象、对内建模块进行功能增强、对业务模块进行功能扩展的系统，该系统提供以下基本功能： 以部件为最小粒度拼装产品和独立编译。支持轻量、小型、标准三种系统的解决方案级版本构建，以及用于支撑应用开发者使用DevEco Studio开发的SDK开发套件的构建。支持芯片解决方案厂商的灵活定制和独立编译。 **Ninja：** 是一个专注于快速编译的小型构建系统。 **GN：** Generate Ninja的缩写，用于产生Ninja文件。
+本文将介绍如何在GN工程中配置HarmonyOS工具链，然后通过HarmonyOS工具链编译出可以在HarmonyOS环境下使用的三方库。
+ 
+HarmonyOS编译子系统是以GN和Ninja构建为基座，对构建和配置粒度进行部件化抽象、对内建模块进行功能增强、对业务模块进行功能扩展的系统，该系统提供以下基本功能：
+ 
+- 以部件为最小粒度拼装产品和独立编译。
+- 支持轻量、小型、标准三种系统的解决方案级版本构建，以及用于支撑应用开发者使用DevEco Studio开发的SDK开发套件的构建。
+- 支持芯片解决方案厂商的灵活定制和独立编译。
 
-## 编译环境配置
+ 
+**Ninja：** 是一个专注于快速编译的小型构建系统。
+ 
+**GN：** Generate Ninja的缩写，用于产生Ninja文件。
+ 
+  
 
-Linux编译环境搭建（如果已有对应版本的Linux开发环境，可跳过Linux环境搭建过程）：详细指导见以下链接。  [使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)。  [Ubuntu分发版本获取及安装说明](https://learn.microsoft.com/zh-cn/windows/wsl/install-manual)。  编译环境目前主要支持Ubuntu18.04和Ubuntu20.04。  HarmonyOS SDK镜像下载：  从HarmonyOS官网门户选择Linux版本的Command Line Tools下载即可。  [下载链接](https://developer.huawei.com/consumer/cn/download/)。  安装构建工具depot_tools并添加到环境变量。  任意位置创建工作目录depot_tools，cd到自己创建的目录，拉取工具（需要网络环境）：
-```text
+##### 编译环境配置
+1. Linux编译环境搭建（如果已有对应版本的Linux开发环境，可跳过Linux环境搭建过程）：详细指导见以下链接。
+
+  [使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)。
+
+  [Ubuntu分发版本获取及安装说明](https://learn.microsoft.com/zh-cn/windows/wsl/install-manual)。
+
+  编译环境目前主要支持Ubuntu18.04和Ubuntu20.04。
+2. HarmonyOS SDK镜像下载：
+
+  从HarmonyOS官网门户选择Linux版本的Command Line Tools下载即可。
+
+  [下载链接](https://developer.huawei.com/consumer/cn/download/)。
+3. 安装构建工具depot_tools并添加到环境变量。
+
+  任意位置创建工作目录depot_tools，cd到自己创建的目录，拉取工具（需要网络环境）：
+
+  
+```bash
 mkdir depot_tools
 cd depot_tools
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 ```
+  将depot_tools的路径加到环境变量中：
 
-将depot_tools的路径加到环境变量中：  编辑.bashrc文件将depot_tools路径信息加到最后一行。
-```text
+  编辑.bashrc文件将depot_tools路径信息加到最后一行。
+
+  
+```bash
 vi ~/.bashrc
 ```
+  在.bashrc文件的最后添加下面一行代码。
 
-在.bashrc文件的最后添加下面一行代码。
+  
 ![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-0.png)
-```text
+
+
+  
+```bash
 export PATH="$PATH:/xxx/depot_tools"
 ```
+  此处需配置绝对路径信息，例如这里创建的本地路径是/mnt/d/my_code/depot_tools，故此处配置如上图。
 
-此处需配置绝对路径信息，例如这里创建的本地路径是/mnt/d/my_code/depot_tools，故此处配置如上图。  刷新环境变量使其生效：
-```text
+  刷新环境变量使其生效：
+
+  
+```bash
 source ~/.bashrc
 ```
 
-使用GN需要Python环境，安装Python环境。
-```text
+4. 使用GN需要Python环境，安装Python环境。
+
+  
+```bash
 sudo apt update
 sudo apt install python
 ```
+  直接输入指令sudo apt install python可能会安装失败，需要先输入sudo apt update更新一下可用包的最新列表。
 
-直接输入指令sudo apt install python可能会安装失败，需要先输入sudo apt update更新一下可用包的最新列表。
+  
 ![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-1.png)
-判断python是否安装成功：  输入python显示python版本即可。
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-2.png)
 
-## GN构建工程适配流程
 
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-3.png)
-新增HarmonyOS平台的宏定义。配置HarmonyOS平台的工具链核心信息，涵盖clang工具链路径，sysroot系统根目录以及clang版本等关键参数。在toolchain目录下，为各架构分别配置对应的ohos_clang_toolchain。扩充gcc_toolchain模版功能，补充HarmonyOS启动引导程序所需的.o文件相关配置。设置HarmonyOS编译参数，重点配置基础编译选项、宏定义等核心内容。在BUILD.gn文件的各架构平台分支逻辑中，新增HarmonyOS平台对应的分支配置；对于暂未适配HarmonyOS的三方库，可暂时沿用Linux分支的编译配置。
+  判断python是否安装成功：
 
-## webRTC适配案例
+  输入python显示python版本即可。
 
-本文将通过webRTC的GN构建工程案例来对上一章节的流程进行实操讲解。WebRTC (Web Real-Time Communications) 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输。下面了解下如何通过GN构建工程将webRTC适配到HarmonyOS系统上。 三方库获取地址：[下载链接](https://gitee.com/openharmony/build)。
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-10.png)
 
-## 适配流程
+ 
+  
 
-**添加HarmonyOS平台宏定义**  这里主要在build/config/BUILDCONFIG.gn文件中适配HarmonyOS的default_compiler_configs和_default_toolchain。在GN工程里面，BUILDCONFIG.gn是第一位被解析的，里面定义的变量相当于全局变量，可以被后续所有的.gn文件使用。编译过程中可能会配置一些编译选项以及一些头文件搜索路径。default_compiler_configs指向的文件里面会包括一些默认的编译选项以及头文件搜索路径等等。_default_toolchain指向了一个工具链相关的函数。具体修改点如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-4.png)
-**设置HarmonyOS平台clang工具链相关路径**  不同平台的工具链会有一些差别，所以需要使用HarmonyOS的工具链。这里主要修改config/clang/clang.gni文件。.gni文件类似于GN的头文件，会被import到各个.gn文件中使用其定义的一些变量。该文件中的核心修改点在于配置指向HarmonyOS SDK的工具链路径。另外还需修改clang_use_chrome_plugins的值为false，HarmonyOS中默认clang_use_chrome_plugins值为false，不设置可能会报错find-bad-constructs文件找不到。  此处ohos_sdk_native_root的值需要对应修改为自己本地HarmonyOS SDK中的native的路径。具体修改点如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-5.png)
-**设置HarmonyOS平台sysroot路径**  这里主要修改build/config/sysroot.gni文件，sysroot里面包含了许多头文件搜索路径，配置了sysroot之后，编译过程中会去该目录下搜索需要的头文件。SDK里面会提供大量的头文件，这些头文件都会放在sysroot目录下，所以需要引入HarmonyOS对应的sysroot。具体修改点如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-6.png)
-**修改HarmonyOS平台clang版本**  这里主要修改build/toolchain/toolchain.gni文件，在该文件中配置HarmonyOS对应的clang版本号。具体修改点如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-7.png)
-**设置各个架构的ohos_clang_toolchain**  这里主要是在build/toolchain路径下新建一个ohos/BUILD.gn文件，用于配置ohos_clang_toolchain，里面主要配置了HarmonyOS用于启动引导程序的.o文件。同时设置HarmonyOS不同架构(主要包括ohos_clang_arm、ohos_clang_arm64、ohos_clang_x86_64)的ohos_clang_toolchain配置信息。具体添加内容如下：
+##### GN构建工程适配流程
+
+
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-11.png)
+
+ 1. 新增HarmonyOS平台的宏定义。
+2. 配置HarmonyOS平台的工具链核心信息，涵盖clang工具链路径，sysroot系统根目录以及clang版本等关键参数。
+3. 在toolchain目录下，为各架构分别配置对应的ohos_clang_toolchain。
+4. 扩充gcc_toolchain模版功能，补充HarmonyOS启动引导程序所需的.o文件相关配置。
+5. 设置HarmonyOS编译参数，重点配置基础编译选项、宏定义等核心内容。
+6. 在BUILD.gn文件的各架构平台分支逻辑中，新增HarmonyOS平台对应的分支配置；对于暂未适配HarmonyOS的三方库，可暂时沿用Linux分支的编译配置。
+ 
+  
+
+##### webRTC适配案例
+
+本文将通过webRTC的GN构建工程案例来对上一章节的流程进行实操讲解。WebRTC (Web Real-Time Communications) 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输。下面了解下如何通过GN构建工程将webRTC适配到HarmonyOS系统上。
+ 
+三方库获取地址：[下载链接](https://gitee.com/openharmony/build)。
+ 
+  
+
+##### 适配流程
+1. **添加HarmonyOS平台宏定义**
+
+  这里主要在build/config/BUILDCONFIG.gn文件中适配HarmonyOS的default_compiler_configs和_default_toolchain。在GN工程里面，BUILDCONFIG.gn是第一位被解析的，里面定义的变量相当于全局变量，可以被后续所有的.gn文件使用。编译过程中可能会配置一些编译选项以及一些头文件搜索路径。default_compiler_configs指向的文件里面会包括一些默认的编译选项以及头文件搜索路径等等。_default_toolchain指向了一个工具链相关的函数。具体修改点如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-12.png)
+
+2. **设置HarmonyOS平台clang工具链相关路径**
+
+  不同平台的工具链会有一些差别，所以需要使用HarmonyOS的工具链。这里主要修改config/clang/clang.gni文件。.gni文件类似于GN的头文件，会被import到各个.gn文件中使用其定义的一些变量。该文件中的核心修改点在于配置指向HarmonyOS SDK的工具链路径。另外还需修改clang_use_chrome_plugins的值为false，HarmonyOS中默认clang_use_chrome_plugins值为false，不设置可能会报错find-bad-constructs文件找不到。
+
+  此处ohos_sdk_native_root的值需要对应修改为自己本地HarmonyOS SDK中的native的路径。具体修改点如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-13.png)
+
+3. **设置HarmonyOS平台sysroot路径**
+
+  这里主要修改build/config/sysroot.gni文件，sysroot里面包含了许多头文件搜索路径，配置了sysroot之后，编译过程中会去该目录下搜索需要的头文件。SDK里面会提供大量的头文件，这些头文件都会放在sysroot目录下，所以需要引入HarmonyOS对应的sysroot。具体修改点如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-14.png)
+
+4. **修改HarmonyOS平台clang版本**
+
+  这里主要修改build/toolchain/toolchain.gni文件，在该文件中配置HarmonyOS对应的clang版本号。具体修改点如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-15.png)
+
+5. **设置各个架构的ohos_clang_toolchain**
+
+  这里主要是在build/toolchain路径下新建一个ohos/BUILD.gn文件，用于配置ohos_clang_toolchain，里面主要配置了HarmonyOS用于启动引导程序的.o文件。同时设置HarmonyOS不同架构(主要包括ohos_clang_arm、ohos_clang_arm64、ohos_clang_x86_64)的ohos_clang_toolchain配置信息。具体添加内容如下：
+
+  
 ```text
 import("//build/config/sysroot.gni")
 import("//build/toolchain/gcc_toolchain.gni")
@@ -169,14 +257,36 @@ ohos_clang_toolchain("ohos_clang_x86_64") {
 }
 ```
 
-**扩充原本的gcc_toolchain模版功能**  主要修改/build/toolchain/gcc_toolchain.gni文件。GN工程里面默认会配置gcc_toolchain，里面会包括一些tool，例如tool("cc")、tool("cxx")、tool("tolink")等等，编译不同的内容时调用其对应的配置项。这里主要是需要修改tool("solink")、tool("solink_module")中的rspfile_content配置以及tool("link")中的link_comand配置。需要在gcc_toolchain.gni中template("gcc_toolchain")下添加几个参数（libs_section_prefix、libs_section_postfix 、solink_libs_section_prefix、solink_libs_section_postfix ）的识别。这几个参数是指向了上一步骤中配置的用于启动引导程序的.o文件。这些参数会在需要修改的rspfile_content、link_comand参数中用到。具体修改如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-8.png)
-修改tool("solink")和tool("solink_module")中的rspfile_content为rspfile_content = "-Wl,--whole-archive {{inputs}} {{solibs}} -Wl,--no-whole-archive \$solink_libs_section_prefix {{libs}} \$solink_libs_section_postfix"，这里需要用到刚刚定义的参数信息。具体修改如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-9.png)
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-10.png)
-修改tool("link")中link_command为link_command = "\$ld {{ldflags}}\${extra_ldflags} -o \"\$unstripped_outfile\" \$libs_section_prefix \$start_group_flag @\"\$rspfile\" {{solibs}} {{libs}} \$end_group_flag \$libs_section_postfix"，这里需要用到刚刚定义的参数信息。
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-11.png)
-**设置HarmonyOS的一些编译参数，将其加入到BUILDCONFIG.gn中**  这里需要在build/config路径下新建一个ohos/BUILD.gn文件，该文件主要是定义了一个config("compiler")，该config会被注册到所有的编译目标，该config里面主要设置了基础的编译选项、宏定义等。  此处ohos_clang_base_path  的值需要对应修改为自己本地HarmonyOS SDK中的llvm的路径。具体添加内容如下：
+6. **扩充原本的gcc_toolchain模版功能**
+
+  主要修改/build/toolchain/gcc_toolchain.gni文件。GN工程里面默认会配置gcc_toolchain，里面会包括一些tool，例如tool("cc")、tool("cxx")、tool("tolink")等等，编译不同的内容时调用其对应的配置项。这里主要是需要修改tool("solink")、tool("solink_module")中的rspfile_content配置以及tool("link")中的link_comand配置。需要在gcc_toolchain.gni中template("gcc_toolchain")下添加几个参数（libs_section_prefix、libs_section_postfix 、solink_libs_section_prefix、solink_libs_section_postfix ）的识别。这几个参数是指向了上一步骤中配置的用于启动引导程序的.o文件。这些参数会在需要修改的rspfile_content、link_comand参数中用到。具体修改如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-16.png)
+
+
+  修改tool("solink")和tool("solink_module")中的rspfile_content为rspfile_content = "-Wl,--whole-archive {{inputs}} {{solibs}} -Wl,--no-whole-archive $solink_libs_section_prefix {{libs}} $solink_libs_section_postfix"，这里需要用到刚刚定义的参数信息。具体修改如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-17.png)
+
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-18.png)
+
+
+  修改tool("link")中link_command为link_command = "$ld {{ldflags}}${extra_ldflags} -o \"$unstripped_outfile\" $libs_section_prefix $start_group_flag @\"$rspfile\" {{solibs}} {{libs}} $end_group_flag $libs_section_postfix"，这里需要用到刚刚定义的参数信息。
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-19.png)
+
+7. **设置HarmonyOS的一些编译参数，将其加入到BUILDCONFIG.gn中**
+
+  这里需要在build/config路径下新建一个ohos/BUILD.gn文件，该文件主要是定义了一个config("compiler")，该config会被注册到所有的编译目标，该config里面主要设置了基础的编译选项、宏定义等。
+
+  此处ohos_clang_base_path  的值需要对应修改为自己本地HarmonyOS SDK中的llvm的路径。具体添加内容如下：
+
+  
 ```text
 import("//build/config/sysroot.gni")
 assert(is_ohos)
@@ -257,55 +367,190 @@ config("compiler") {
 }
 ```
 
-**build/config/compiler/BUILD.gn中增加对is_ohos的判断**  保证可以正确走HarmonyOS支持的编译分支。这里主要是为了防止clang版本号校验失败导致异常。具体修改如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-12.png)
-**未适配HarmonyOS的三方库走linux编译配置**  当前部分三方库还未适配HarmonyOS，涉及到时可以先走linux的编译配置，例如：需要获取config.h文件时。  修改modules/video_capture的BUILD.gn。具体修改如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-13.png)
-修改third_party/zlib的BUILD.gn。具体修改如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-14.png)
-修改third_party/libevent中的BUILD.gn。HarmonyOS SDK中没有queue.h头文件，需要使用compat dir目录下的queue.h头文件。具体修改如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-15.png)
-**编译**  先通过GN命令生成对应的ninja文件，然后使用ninja编译命令进行编译。
-```text
+8. **build/config/compiler/BUILD.gn中增加对is_ohos的判断**
+
+  保证可以正确走HarmonyOS支持的编译分支。这里主要是为了防止clang版本号校验失败导致异常。具体修改如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-2.png)
+
+9. **未适配HarmonyOS的三方库走linux编译配置**
+
+  当前部分三方库还未适配HarmonyOS，涉及到时可以先走linux的编译配置，例如：需要获取config.h文件时。
+
+  修改modules/video_capture的BUILD.gn。具体修改如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-20.png)
+
+
+  修改third_party/zlib的BUILD.gn。具体修改如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-21.png)
+
+
+  修改third_party/libevent中的BUILD.gn。HarmonyOS SDK中没有queue.h头文件，需要使用compat dir目录下的queue.h头文件。具体修改如下：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-22.png)
+
+10. **编译**
+
+  先通过GN命令生成对应的ninja文件，然后使用ninja编译命令进行编译。
+
+  
+```bash
 gn gen ../out/xxx --args='is_clang=true target_os="ohos" target_cpu="arm64" xxx'
 ninja -v -C ../out/xxx ${target_name} -j16
 ```
+  可以根据需要在编译指令中添加对应参数信息。
 
-可以根据需要在编译指令中添加对应参数信息。  查看具体编译命令：  可以在gn gen命令中添加--ninja-args="-v -dkeeprsp"用于查看具体编译命令，这个命令将会在编译过程中打印详细的编译命令，并且保留编译过程中生成的rsp文件。  查看一个目标被谁依赖：  例如gn refs out/intermediate/arm64_72 //pc:rtc_pc_base。这个命令将显示与目标//pc:rtc_pc_base相关的所有依赖项并列出所有引用了该目标的其他目标或文件。
+  查看具体编译命令：
 
-## 常见问题总结
+  可以在gn gen命令中添加--ninja-args="-v -dkeeprsp"用于查看具体编译命令，这个命令将会在编译过程中打印详细的编译命令，并且保留编译过程中生成的rsp文件。
 
-在对webRTC的GN工程进行HarmonyOS工具链适配过程中，遇到了一些常见问题场景。下面针对这些问题做一个具体分析。 **Assertion failed. Unsupported ARM OS**  **问题详情：**
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-16.png)
-**问题原因/解决措施：**  三方库内部没有做对is_ohos的判断，导致走到错误分支。当前很多业务模块还未适配HarmonyOS，暂时可以走linux分支以保证正常编译。  **具体修改：**  修改third_party/zlib的BUILD.gn文件。
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-17.png)
-**python找不到pkg-config文件：No such file or directory: 'pkg-config'**  **问题详情：**
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-18.png)
-**问题原因/解决措施：**  缺少pkg-config插件，安装该插件。  **具体指令：**
-```text
+  查看一个目标被谁依赖：
+
+  例如gn refs out/intermediate/arm64_72 //pc:rtc_pc_base。这个命令将显示与目标//pc:rtc_pc_base相关的所有依赖项并列出所有引用了该目标的其他目标或文件。
+ 
+  
+
+##### 常见问题总结
+
+在对webRTC的GN工程进行HarmonyOS工具链适配过程中，遇到了一些常见问题场景。下面针对这些问题做一个具体分析。
+ 1. **Assertion failed. Unsupported ARM OS**
+
+  **问题详情：**
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-23.png)
+
+
+  **问题原因/解决措施：**
+
+  三方库内部没有做对is_ohos的判断，导致走到错误分支。当前很多业务模块还未适配HarmonyOS，暂时可以走linux分支以保证正常编译。
+
+  **具体修改：**
+
+  修改third_party/zlib的BUILD.gn文件。
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-24.png)
+
+2. **python找不到pkg-config文件：No such file or directory: 'pkg-config'**
+
+  **问题详情：**
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-25.png)
+
+
+  **问题原因/解决措施：**
+
+  缺少pkg-config插件，安装该插件。
+
+  **具体指令：**
+
+  
+```bash
 sudo apt-get install pkg-config
 ```
 
-**Unknown command line argument '-split-threshold-for-reg-with-hint=0'**  **问题详情：**
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-19.png)
-**问题原因/解决措施：**  编译过程中会提示部分配置不识别，需要将这些配置项删除。  **具体修改：**  在build/config/compiler/BUILD.gn中删除以下配置。
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-20.png)
-**WARN类型导致的ERROR**  **问题详情：**
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-21.png)
-**问题原因/解决措施：**  编译器驱动程序有时（很少）会在调用之前发出警告。实际的链接器需要确保这些警告是否也被视为致命错误。为了避免编译中出现因警告而造成出错，可以添加编译参数treat_warnings_as_errors = false，或者去除config(treat_warnings_as_errors)中配置的“-Werror”，详情如下：
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-22.png)
-**具体修改：**  添加编译指令配置项treat_warnings_as_errors （建议使用）
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-23.png)
-修改源代码，在build/config/compiler/BUILD.gn中删除以下配置。
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-24.png)
-**error: reinterpret_cast from 'pthread_t' (aka 'unsigned long') to 'rtc::PlatformThreadId' (aka 'int') is not allowed**  **问题详情：**
-![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-25.png)
-**问题原因/解决措施：**  rtc_base/platform_thread_types.cc未识别到is_ohos导致内部走错分支导致异常。目前HarmonyOS支持的接口是gettid()，rtc_base/platform_thread_types.cc需要识别到is_ohos然后调用gettid()。由于当前很多业务模块还未进行识别，暂时需要走linux分支，故需要保留linux的定义。  **具体修改：**  首先需要在根目录的BUILD.gn中配置识别HarmonyOS系统的变量is_ohos：
+3. **Unknown command line argument '-split-threshold-for-reg-with-hint=0'**
+
+  **问题详情：**
+
+  
 ![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-26.png)
-修改rtc_base/platform_thread_types.cc业务代码：
+
+
+  **问题原因/解决措施：**
+
+  编译过程中会提示部分配置不识别，需要将这些配置项删除。
+
+  **具体修改：**
+
+  在build/config/compiler/BUILD.gn中删除以下配置。
+
+  
 ![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-27.png)
-**fatal error: 'config.h' file not found**  **fatal error: 'sys/queue.h' file not found**  **问题详情：**
+
+4. **WARN类型导致的ERROR**
+
+  **问题详情：**
+
+  
 ![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-28.png)
+
+
+  **问题原因/解决措施：**
+
+  编译器驱动程序有时（很少）会在调用之前发出警告。实际的链接器需要确保这些警告是否也被视为致命错误。为了避免编译中出现因警告而造成出错，可以添加编译参数treat_warnings_as_errors = false，或者去除config(treat_warnings_as_errors)中配置的“-Werror”，详情如下：
+
+  
 ![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-29.png)
-**问题原因/解决措施：**  找不到config.h头文件，libevent尚未适配HarmonyOS，需要添加is_ohos的判断并走linux的文件路径寻找config.h。  找不到'sys/queue.h'文件，HarmonyOS SDK中没有queue.h头文件，需要使用compat dir目录下的queue.h头文件。  **具体修改：**  修改third_party/libevent中的BUILD.gn。
+
+
+  **具体修改：**
+
+  
+添加编译指令配置项treat_warnings_as_errors （建议使用）
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-3.png)
+
+5. 修改源代码，在build/config/compiler/BUILD.gn中删除以下配置。
+
+  
 ![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-30.png)
+
+6. **error: reinterpret_cast from 'pthread_t' (aka 'unsigned long') to 'rtc::PlatformThreadId' (aka 'int') is not allowed**
+
+  **问题详情：**
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-4.png)
+
+
+  **问题原因/解决措施：**
+
+  rtc_base/platform_thread_types.cc未识别到is_ohos导致内部走错分支导致异常。目前HarmonyOS支持的接口是gettid()，rtc_base/platform_thread_types.cc需要识别到is_ohos然后调用gettid()。由于当前很多业务模块还未进行识别，暂时需要走linux分支，故需要保留linux的定义。
+
+  **具体修改：**
+
+  
+首先需要在根目录的BUILD.gn中配置识别HarmonyOS系统的变量is_ohos：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-5.png)
+
+7. 修改rtc_base/platform_thread_types.cc业务代码：
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-6.png)
+
+8. **fatal error: 'config.h' file not found**
+
+  **fatal error: 'sys/queue.h' file not found**
+
+  **问题详情：**
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-7.png)
+
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-8.png)
+
+
+  **问题原因/解决措施：**
+
+  找不到config.h头文件，libevent尚未适配HarmonyOS，需要添加is_ohos的判断并走linux的文件路径寻找config.h。
+
+  找不到'sys/queue.h'文件，HarmonyOS SDK中没有queue.h头文件，需要使用compat dir目录下的queue.h头文件。
+
+  **具体修改：**
+
+  修改third_party/libevent中的BUILD.gn。
+
+  
+![](assets/GN构建工程配置HarmonyOS编译工具链/file-20260514132736675-9.png)

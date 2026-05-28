@@ -3,22 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-font
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述字型绘制时所使用的属性，如大小、字体等。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## isSubpixel12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isSubpixel12+
 
 isSubpixel(): boolean
 
@@ -30,7 +32,6 @@ isSubpixel(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回字型是否使用次像素渲染的结果，true表示使用，false表示不使用。 |
@@ -38,18 +39,17 @@ isSubpixel(): boolean
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
-font.enableSubpixel(true);
-console.info('values=' + font.isSubpixel());
+font.enableSubpixel(true)
+console.info("values=" + font.isSubpixel());
 ```
 
 
-## isLinearMetrics12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isLinearMetrics12+
 
 isLinearMetrics(): boolean
 
@@ -61,7 +61,6 @@ isLinearMetrics(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回字型是否可线性缩放的结果，true表示可线性缩放，false表示不可线性缩放。 |
@@ -69,18 +68,17 @@ isLinearMetrics(): boolean
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
-font.enableLinearMetrics(true);
-console.info('values=' + font.isLinearMetrics());
+font.enableLinearMetrics(true)
+console.info("values=" + font.isLinearMetrics());
 ```
 
 
-## getSkewX12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getSkewX12+
 
 getSkewX(): number
 
@@ -92,7 +90,6 @@ getSkewX(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回字型在x轴方向上的倾斜度。 |
@@ -100,18 +97,17 @@ getSkewX(): number
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
-font.setSkewX(-1);
-console.info('values=' + font.getSkewX());
+font.setSkewX(-1)
+console.info("values=" + font.getSkewX());
 ```
 
 
-## isEmbolden12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmbolden12+
 
 isEmbolden(): boolean
 
@@ -123,7 +119,6 @@ isEmbolden(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回字型是否设置粗体效果的结果，true表示设置了粗体效果，false表示未设置粗体效果。 |
@@ -131,18 +126,17 @@ isEmbolden(): boolean
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
 font.enableEmbolden(true);
-console.info('values=' + font.isEmbolden());
+console.info("values=" + font.isEmbolden());
 ```
 
 
-## getScaleX12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getScaleX12+
 
 getScaleX(): number
 
@@ -154,7 +148,6 @@ getScaleX(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回字型在x轴方向上的缩放比例。 |
@@ -162,18 +155,17 @@ getScaleX(): number
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
 font.setScaleX(2);
-console.info('values=' + font.getScaleX());
+console.info("values=" + font.getScaleX());
 ```
 
 
-## getHinting12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getHinting12+
 
 getHinting(): FontHinting
 
@@ -185,25 +177,23 @@ getHinting(): FontHinting
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FontHinting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#fonthinting12) | 返回字型轮廓效果。 |
+| FontHinting | 返回字型轮廓效果。 |
 
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
-console.info('values=' + font.getHinting());
+console.info("values=" + font.getHinting());
 ```
 
 
-## getEdging12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getEdging12+
 
 getEdging(): FontEdging
 
@@ -215,25 +205,23 @@ getEdging(): FontEdging
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FontEdging](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#fontedging12) | 返回字型边缘效果。 |
+| FontEdging | 返回字型边缘效果。 |
 
 
 **示例：**
 
-
-```ts
-import { drawing } from '@kit.ArkGraphics2D';
+```text
+import {drawing} from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
-console.info('values=' + font.getEdging());
+console.info("values=" + font.getEdging());
 ```
 
 
-## enableSubpixel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### enableSubpixel
 
 enableSubpixel(isSubpixel: boolean): void
 
@@ -245,7 +233,6 @@ enableSubpixel(isSubpixel: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isSubpixel | boolean | 是 | 表示是否使能字型亚像素级别的文字绘制。true表示使能，false表示不使能。 |
@@ -255,7 +242,6 @@ enableSubpixel(isSubpixel: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -263,8 +249,7 @@ enableSubpixel(isSubpixel: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -272,8 +257,8 @@ font.enableSubpixel(true);
 ```
 
 
-## enableEmbolden
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### enableEmbolden
 
 enableEmbolden(isEmbolden: boolean): void
 
@@ -285,7 +270,6 @@ enableEmbolden(isEmbolden: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isEmbolden | boolean | 是 | 表示是否使能字型粗体。true表示使能，false表示不使能。 |
@@ -295,7 +279,6 @@ enableEmbolden(isEmbolden: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -303,8 +286,7 @@ enableEmbolden(isEmbolden: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -312,8 +294,8 @@ font.enableEmbolden(true);
 ```
 
 
-## enableLinearMetrics
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### enableLinearMetrics
 
 enableLinearMetrics(isLinearMetrics: boolean): void
 
@@ -325,7 +307,6 @@ enableLinearMetrics(isLinearMetrics: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isLinearMetrics | boolean | 是 | 表示是否使能字型的线性缩放。true表示使能，false表示不使能。 |
@@ -335,7 +316,6 @@ enableLinearMetrics(isLinearMetrics: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -343,8 +323,7 @@ enableLinearMetrics(isLinearMetrics: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -352,8 +331,8 @@ font.enableLinearMetrics(true);
 ```
 
 
-## setSize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setSize
 
 setSize(textSize: number): void
 
@@ -365,7 +344,6 @@ setSize(textSize: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | textSize | number | 是 | 字型大小，该参数为浮点数，为负数时字型大小会被置为0。字型大小为0时，绘制的文字不会显示。 |
@@ -375,7 +353,6 @@ setSize(textSize: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed. |
@@ -383,8 +360,7 @@ setSize(textSize: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -392,8 +368,8 @@ font.setSize(5);
 ```
 
 
-## getSize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getSize
 
 getSize(): number
 
@@ -405,7 +381,6 @@ getSize(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 字型大小，浮点数。 |
@@ -413,8 +388,7 @@ getSize(): number
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -423,8 +397,8 @@ let fontSize = font.getSize();
 ```
 
 
-## setTypeface
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setTypeface
 
 setTypeface(typeface: Typeface): void
 
@@ -436,16 +410,14 @@ setTypeface(typeface: Typeface): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必��� | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| typeface | [Typeface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-typeface) | 是 | 字体样式，包括字体名称、粗细、斜体等属性。 |
+| typeface | Typeface | 是 | 字体样式，包括字体名称、粗细、斜体等属性。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -454,8 +426,7 @@ setTypeface(typeface: Typeface): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -463,8 +434,8 @@ font.setTypeface(new drawing.Typeface());
 ```
 
 
-## getTypeface
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getTypeface
 
 getTypeface(): Typeface
 
@@ -476,16 +447,14 @@ getTypeface(): Typeface
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Typeface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-typeface) | 字体。 |
+| Typeface | 字体。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -493,8 +462,8 @@ let typeface = font.getTypeface();
 ```
 
 
-## getMetrics
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getMetrics
 
 getMetrics(): FontMetrics
 
@@ -506,16 +475,14 @@ getMetrics(): FontMetrics
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FontMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-i#fontmetrics) | FontMetrics属性。 |
+| FontMetrics | FontMetrics属性。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -523,16 +490,16 @@ let metrics = font.getMetrics();
 ```
 
 
-## measureText
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### measureText
 
 measureText(text: string, encoding: TextEncoding): number
 
 测量文本的宽度。
 
-
 > [!NOTE]
-> 此接口用于测量原始字符串的文本宽度，若想测量排版后的文本宽度，建议使用[measure.measureText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils#measuretext12)替代。
+> 此接口用于测量原始字符串的文本宽度，若想测量排版后的文本宽度，建议使用 measure.measureText 替代。
+
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -540,15 +507,13 @@ measureText(text: string, encoding: TextEncoding): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 文本内容。 |
-| encoding | [TextEncoding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#textencoding) | 是 | 编码格式。 |
+| encoding | TextEncoding | 是 | 编码格式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -559,7 +524,6 @@ measureText(text: string, encoding: TextEncoding): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -567,17 +531,16 @@ measureText(text: string, encoding: TextEncoding): number
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
-font.measureText('drawing', drawing.TextEncoding.TEXT_ENCODING_UTF8);
+font.measureText("drawing", drawing.TextEncoding.TEXT_ENCODING_UTF8);
 ```
 
 
-## measureSingleCharacter12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### measureSingleCharacter12+
 
 measureSingleCharacter(text: string): number
 
@@ -589,14 +552,12 @@ measureSingleCharacter(text: string): number
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 待测量的单个字符，字符串的长度必须为1。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -607,7 +568,6 @@ measureSingleCharacter(text: string): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed. |
@@ -615,26 +575,25 @@ measureSingleCharacter(text: string): number
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const font = new drawing.Font();
     font.setSize(20);
-    let width = font.measureSingleCharacter('你');
+    let width = font.measureSingleCharacter("你");
   }
 }
 ```
 
 
-## measureSingleCharacterWithFeatures20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): number
+##### measureSingleCharacterWithFeatures20+
+
+measureSingleCharacterWithFeatures(text: string, features: Array&lt;FontFeature&gt;): number
 
 测量单个字符的宽度，字符带有字体特征。当前字型中的字体不支持待测量字符时，退化到使用系统字体测量字符宽度。
 
@@ -644,15 +603,13 @@ measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): 
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 待测量的单个字符。字符串长度必须为1。 |
-| features | Array&lt;[FontFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-i#fontfeature20)&gt; | 是 | 字体特征对象数组。参数为空数组时使用TTF(TrueType Font)文件中预设的字体特征。 |
+| features | Array&lt;FontFeature&gt; | 是 | 字体特征对象数组。参数为空数组时使用TTF(TrueType Font)文件中预设的字体特征。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -663,7 +620,6 @@ measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): 
 
 以下错误码的详细介绍请参见[图形绘制与显示错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drawing)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 25900001 | Parameter error. Possible causes: Incorrect parameter range. |
@@ -671,25 +627,24 @@ measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const font = new drawing.Font();
     font.setSize(20);
-    let fontFeatures: Array<drawing.FontFeature> = [];
-    fontFeatures.push({ name: 'calt', value: 0 });
-    let width = font.measureSingleCharacterWithFeatures('你', fontFeatures);
+    let fontFeatures : Array<drawing.FontFeature> = [];
+    fontFeatures.push({name: 'calt', value: 0});
+    let width = font.measureSingleCharacterWithFeatures("你", fontFeatures);
   }
 }
 ```
 
 
-## setScaleX12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setScaleX12+
 
 setScaleX(scaleX: number): void
 
@@ -701,7 +656,6 @@ setScaleX(scaleX: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scaleX | number | 是 | 文本在x轴上的缩放比例，该参数为浮点数。 |
@@ -711,7 +665,6 @@ setScaleX(scaleX: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -719,34 +672,29 @@ setScaleX(scaleX: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     let font = new drawing.Font();
     font.setSize(100);
     font.setScaleX(2);
-    const textBlob = drawing.TextBlob.makeFromString(
-      'hello',
-      font,
-      drawing.TextEncoding.TEXT_ENCODING_UTF8,
-    );
+    const textBlob = drawing.TextBlob.makeFromString("hello", font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
     canvas.drawTextBlob(textBlob, 200, 200);
   }
 }
 ```
 
 
-## setSkewX12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setSkewX12+
 
 setSkewX(skewX: number): void
 
@@ -758,7 +706,6 @@ setSkewX(skewX: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | skewX | number | 是 | 文本在x轴上的倾斜比例，正数表示往左边倾斜，负数表示往右边倾斜，该参数为浮点数。 |
@@ -768,7 +715,6 @@ setSkewX(skewX: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -776,34 +722,29 @@ setSkewX(skewX: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     let font = new drawing.Font();
     font.setSize(100);
     font.setSkewX(1);
-    const textBlob = drawing.TextBlob.makeFromString(
-      'hello',
-      font,
-      drawing.TextEncoding.TEXT_ENCODING_UTF8,
-    );
+    const textBlob = drawing.TextBlob.makeFromString("hello", font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
     canvas.drawTextBlob(textBlob, 200, 200);
   }
 }
 ```
 
 
-## setEdging12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setEdging12+
 
 setEdging(edging: FontEdging): void
 
@@ -815,16 +756,14 @@ setEdging(edging: FontEdging): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| edging | [FontEdging](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#fontedging12) | 是 | 字型边缘效果。 |
+| edging | FontEdging | 是 | 字型边缘效果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -833,8 +772,7 @@ setEdging(edging: FontEdging): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -842,8 +780,8 @@ font.setEdging(drawing.FontEdging.SUBPIXEL_ANTI_ALIAS);
 ```
 
 
-## setHinting12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setHinting12+
 
 setHinting(hinting: FontHinting): void
 
@@ -855,16 +793,14 @@ setHinting(hinting: FontHinting): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| hinting | [FontHinting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#fonthinting12) | 是 | 字型轮廓效果。 |
+| hinting | FontHinting | 是 | 字型轮廓效果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -873,8 +809,7 @@ setHinting(hinting: FontHinting): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
@@ -882,8 +817,8 @@ font.setHinting(drawing.FontHinting.FULL);
 ```
 
 
-## countText12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### countText12+
 
 countText(text: string): number
 
@@ -895,14 +830,12 @@ countText(text: string): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 文本内容。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -913,7 +846,6 @@ countText(text: string): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -921,18 +853,17 @@ countText(text: string): number
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font = new drawing.Font();
 let resultNumber: number = font.countText('ABCDE');
-console.info('count text number: ' + resultNumber);
+console.info("count text number: " + resultNumber);
 ```
 
 
-## setBaselineSnap12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setBaselineSnap12+
 
 setBaselineSnap(isBaselineSnap: boolean): void
 
@@ -944,7 +875,6 @@ setBaselineSnap(isBaselineSnap: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isBaselineSnap | boolean | 是 | 指示字型基线是否和像素对齐，true表示对齐，false表示不对齐。 |
@@ -954,7 +884,6 @@ setBaselineSnap(isBaselineSnap: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -962,18 +891,17 @@ setBaselineSnap(isBaselineSnap: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setBaselineSnap(true);
-console.info('drawing font isBaselineSnap: ' + font.isBaselineSnap());
+console.info("drawing font isBaselineSnap: " + font.isBaselineSnap());
 ```
 
 
-## isBaselineSnap()12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isBaselineSnap()12+
 
 isBaselineSnap(): boolean
 
@@ -985,7 +913,6 @@ isBaselineSnap(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回字型基线是否与像素对齐，true为对齐，false为没有对齐。 |
@@ -993,19 +920,18 @@ isBaselineSnap(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setTypeface(new drawing.Typeface());
 font.setBaselineSnap(true);
-console.info('drawing font isBaselineSnap: ' + font.isBaselineSnap());
+console.info("drawing font isBaselineSnap: " + font.isBaselineSnap());
 ```
 
 
-## setEmbeddedBitmaps12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setEmbeddedBitmaps12+
 
 setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void
 
@@ -1017,7 +943,6 @@ setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isEmbeddedBitmaps | boolean | 是 | 设置字型是否转换成位图处理，true表示转换成位图处理，false表示不转换成位图处理。 |
@@ -1027,7 +952,6 @@ setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1035,19 +959,18 @@ setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setTypeface(new drawing.Typeface());
 font.setEmbeddedBitmaps(false);
-console.info('draw isEmbeddedBitmaps: ' + font.isEmbeddedBitmaps());
+console.info("draw isEmbeddedBitmaps: " + font.isEmbeddedBitmaps());
 ```
 
 
-## isEmbeddedBitmaps()12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmbeddedBitmaps()12+
 
 isEmbeddedBitmaps(): boolean
 
@@ -1059,7 +982,6 @@ isEmbeddedBitmaps(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回字型是否转换成位图处理结果，true表示转换成位图处理，false表示不转换成位图处理。 |
@@ -1067,19 +989,18 @@ isEmbeddedBitmaps(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setTypeface(new drawing.Typeface());
 font.setEmbeddedBitmaps(true);
-console.info('draw isEmbeddedBitmaps: ' + font.isEmbeddedBitmaps());
+console.info("draw isEmbeddedBitmaps: " + font.isEmbeddedBitmaps());
 ```
 
 
-## setForceAutoHinting12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setForceAutoHinting12+
 
 setForceAutoHinting(isForceAutoHinting: boolean): void
 
@@ -1091,7 +1012,6 @@ setForceAutoHinting(isForceAutoHinting: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isForceAutoHinting | boolean | 是 | 是否自动调整字型轮廓，true为自动调整，false为不自动调整。 |
@@ -1101,7 +1021,6 @@ setForceAutoHinting(isForceAutoHinting: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1109,19 +1028,18 @@ setForceAutoHinting(isForceAutoHinting: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setTypeface(new drawing.Typeface());
 font.setForceAutoHinting(false);
-console.info('drawing isForceAutoHinting:  ' + font.isForceAutoHinting());
+console.info("drawing isForceAutoHinting:  " + font.isForceAutoHinting());
 ```
 
 
-## isForceAutoHinting12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isForceAutoHinting12+
 
 isForceAutoHinting(): boolean
 
@@ -1133,7 +1051,6 @@ isForceAutoHinting(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回字型轮廓是否自动调整，true为自动调整，false为不自动调整。 |
@@ -1141,21 +1058,20 @@ isForceAutoHinting(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setTypeface(new drawing.Typeface());
 font.setForceAutoHinting(false);
-console.info('drawing isForceAutoHinting:  ' + font.isForceAutoHinting());
+console.info("drawing isForceAutoHinting:  " + font.isForceAutoHinting());
 ```
 
 
-## getWidths12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getWidths(glyphs: Array<number>): Array<number>
+##### getWidths12+
+
+getWidths(glyphs: Array&lt;number&gt;): Array&lt;number&gt;
 
 获取字形数组中每个字形对应的宽度。
 
@@ -1165,14 +1081,12 @@ getWidths(glyphs: Array<number>): Array<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| glyphs | Array&lt;number&gt; | 是 | 字形索引数组，可由[textToGlyphs](#texttoglyphs12)生成。 |
+| glyphs | Array&lt;number&gt; | 是 | 字形索引数组，可由textToGlyphs生成。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1183,7 +1097,6 @@ getWidths(glyphs: Array<number>): Array<number>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1191,8 +1104,7 @@ getWidths(glyphs: Array<number>): Array<number>
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
@@ -1200,15 +1112,15 @@ let text: string = 'hello world';
 let glyphs: number[] = font.textToGlyphs(text);
 let fontWidths: Array<number> = font.getWidths(glyphs);
 for (let index = 0; index < fontWidths.length; index++) {
-  console.info('get fontWidths[', index, ']:', fontWidths[index]);
+  console.info("get fontWidths[", index, "]:", fontWidths[index]);
 }
 ```
 
 
-## textToGlyphs12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-textToGlyphs(text: string, glyphCount?: number): Array<number>
+##### textToGlyphs12+
+
+textToGlyphs(text: string, glyphCount?: number): Array&lt;number&gt;
 
 将文本转换为字形索引。
 
@@ -1218,15 +1130,13 @@ textToGlyphs(text: string, glyphCount?: number): Array<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 文本字符串。 |
-| glyphCount | number | 否 | 文本表示的字符数量，必须与[countText](#counttext12)获取的值相等，默认为text的字符数量，该参数为整数。 |
+| glyphCount | number | 否 | 文本表示的字符数量，必须与countText获取的值相等，默认为text的字符数量，该参数为整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1237,7 +1147,6 @@ textToGlyphs(text: string, glyphCount?: number): Array<number>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1245,21 +1154,20 @@ textToGlyphs(text: string, glyphCount?: number): Array<number>
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
-let text: string = 'hello world';
-let glyphs: number[] = font.textToGlyphs(text);
-console.info('drawing text toglyphs OnTestFunction num =  ' + glyphs.length);
+let font : drawing.Font = new drawing.Font();
+let text : string = 'hello world';
+let glyphs : number[] = font.textToGlyphs(text);
+console.info("drawing text toglyphs OnTestFunction num =  " + glyphs.length );
 ```
 
 
-## getBounds18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getBounds(glyphs: Array<number>): Array<common2D.Rect>
+##### getBounds18+
+
+getBounds(glyphs: Array&lt;number&gt;): Array<common2D.Rect>
 
 获取字形数组中每个字形的边界矩形。
 
@@ -1269,24 +1177,21 @@ getBounds(glyphs: Array<number>): Array<common2D.Rect>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| glyphs | Array&lt;number&gt; | 是 | 字形索引数组，可由[textToGlyphs](#texttoglyphs12)生成。 |
+| glyphs | Array&lt;number&gt; | 是 | 字形索引数组，可由textToGlyphs生成。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect)&gt; | 返回字形边界矩形数组。 |
+| Array<common2D.Rect> | 返回字形边界矩形数组。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 let font: drawing.Font = new drawing.Font();
@@ -1294,24 +1199,14 @@ let text: string = 'hello world';
 let glyphs: number[] = font.textToGlyphs(text);
 let fontBounds: Array<common2D.Rect> = font.getBounds(glyphs);
 for (let index = 0; index < fontBounds.length; index++) {
-  console.info(
-    'get fontWidths[',
-    index,
-    '] left:',
-    fontBounds[index].left,
-    ' top:',
-    fontBounds[index].top,
-    ' right:',
-    fontBounds[index].right,
-    ' bottom:',
-    fontBounds[index].bottom,
-  );
+  console.info("get fontWidths[", index, "] left:", fontBounds[index].left, " top:", fontBounds[index].top,
+    " right:", fontBounds[index].right, " bottom:", fontBounds[index].bottom);
 }
 ```
 
 
-## getTextPath18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getTextPath18+
 
 getTextPath(text: string, byteLength: number, x: number, y: number): Path
 
@@ -1323,7 +1218,6 @@ getTextPath(text: string, byteLength: number, x: number, y: number): Path
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 表示存储UTF-8 文本编码的字符。 |
@@ -1334,16 +1228,14 @@ getTextPath(text: string, byteLength: number, x: number, y: number): Path
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 返回获取到的文本的路径轮廓。 |
+| Path | 返回获取到的文本的路径轮廓。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1352,18 +1244,17 @@ getTextPath(text: string, byteLength: number, x: number, y: number): Path
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 import { buffer } from '@kit.ArkTS';
 import { RenderNode } from '@kit.ArkUI';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let font = new drawing.Font();
     font.setSize(50);
-    let myString: string = 'Hello';
+    let myString: string = "Hello";
     let length: number = buffer.from(myString).length;
     let path = font.getTextPath(myString, length, 0, 100);
     canvas.drawPath(path);
@@ -1372,8 +1263,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## createPathForGlyph18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createPathForGlyph18+
 
 createPathForGlyph(index: number): Path
 
@@ -1385,7 +1276,6 @@ createPathForGlyph(index: number): Path
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 字形索引。 |
@@ -1393,37 +1283,35 @@ createPathForGlyph(index: number): Path
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 返回指定字形的路径轮廓。 |
+| Path | 返回指定字形的路径轮廓。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let font = new drawing.Font();
-    font.setSize(50);
+    font.setSize(50)
     let text: string = '你好';
     let glyphs: number[] = font.textToGlyphs(text);
     for (let index = 0; index < glyphs.length; index++) {
-      let path: drawing.Path = font.createPathForGlyph(glyphs[index]);
-      canvas.drawPath(path);
+      let path: drawing.Path = font.createPathForGlyph(glyphs[index])
+      canvas.drawPath(path)
     }
   }
 }
 ```
 
 
-## setThemeFontFollowed15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setThemeFontFollowed15+
 
 setThemeFontFollowed(followed: boolean): void
 
@@ -1435,7 +1323,6 @@ setThemeFontFollowed(followed: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | followed | boolean | 是 | 字型中的字体是否跟随主题字体，true表示跟随主题字体，false表示不跟随主题字体。 |
@@ -1445,7 +1332,6 @@ setThemeFontFollowed(followed: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1453,18 +1339,17 @@ setThemeFontFollowed(followed: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setThemeFontFollowed(true);
-console.info('font is theme font followed: ' + font.isThemeFontFollowed());
+console.info("font is theme font followed: " + font.isThemeFontFollowed());
 ```
 
 
-## isThemeFontFollowed()15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isThemeFontFollowed()15+
 
 isThemeFontFollowed(): boolean
 
@@ -1476,7 +1361,6 @@ isThemeFontFollowed(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回字型中的字体是否跟随主题字体的结果，true表示跟随主题字体，false表示不跟随主题字体。 |
@@ -1484,11 +1368,10 @@ isThemeFontFollowed(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let font: drawing.Font = new drawing.Font();
+let font : drawing.Font = new drawing.Font();
 font.setThemeFontFollowed(true);
-console.info('font is theme font followed: ' + font.isThemeFontFollowed());
+console.info("font is theme font followed: " + font.isThemeFontFollowed());
 ```

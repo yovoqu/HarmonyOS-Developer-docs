@@ -4,17 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-object
 
-## 简介
+##### 简介
 
 Node-API提供了相关接口对object进行基本操作，例如创建对象、获取原型、冻结和密封对象，检查对象的类型等。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-在Node-API接口开发中，经常需要定义和操作对象。例如，创建一个API接口，该接口接受一个对象作为输入参数，对该对象执行某些操作，并返回一个结果对象。在这个过程中，需要确保接口的定义清晰、规范，并且与对象的属性和方法相兼容。 **接口（API）**：接口定义了组件之间的交互协议，包括输入参数、输出结果以及可能的错误处理。通过接口，组件可以相互调用和交换数据，而无需了解对方的内部实现细节。**对象（Object）**：在ArkTS中，对象是一种复合数据类型，允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。
+在Node-API接口开发中，经常需要定义和操作对象。例如，创建一个API接口，该接口接受一个对象作为输入参数，对该对象执行某些操作，并返回一个结果对象。在这个过程中，需要确保接口的定义清晰、规范，并且与对象的属性和方法相兼容。
+ 
+- **接口（API）**：接口定义了组件之间的交互协议，包括输入参数、输出结果以及可能的错误处理。通过接口，组件可以相互调用和交换数据，而无需了解对方的内部实现细节。
+- **对象（Object）**：在ArkTS中，对象是一种复合数据类型，允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。
 
-## 场景和功能介绍
+ 
+  
+
+##### 场景和功能介绍
 
 以下Node-API接口主要用于操作和管理ArkTS对象，使用场景介绍：
+  
 | 接口 | 描述 |
 | --- | --- |
 | napi_get_prototype | 当需要获取一个ArkTS对象的原型时，可以使用这个接口。通过这个接口可以在C/C++中获取到这个原型对象。 |
@@ -28,16 +37,24 @@ Node-API提供了相关接口对object进行基本操作，例如创建对象、
 | napi_create_symbol | 创建一个ArkTS Symbol对象。 |
 | napi_create_external | 用于创建一个ArkTS外部对象，该对象可以用于将C/C++中的自定义数据结构或对象传递到ArkTS中，并且可以在ArkTS中访问其属性和方法。 |
 | napi_get_value_external | 用于获得napi_create_external创建的绑定了外部数据的ArkTS值，此函数可以在ArkTS和C/C++之间传递数据。 |
-
+ 
+ 
 这些接口为开发人员提供了在Node-API模块中处理ArkTS对象的灵活性和功能性，可以实现从创建对象、管理对象属性和类型检查等多种操作。
+ 
+  
 
-## 使用示例
+##### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
+ 
+  
 
-## napi_get_prototype
+##### napi_get_prototype
 
-可以获得给定ArkTS对象的prototype。 cpp部分代码
+可以获得给定ArkTS对象的prototype。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -53,14 +70,16 @@ static napi_value GetPrototype(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const getPrototype: (object: Object) => Object;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -91,11 +110,15 @@ if (applePrototype === Person.prototype) {
   hilog.error(0x0000, 'Node-API', 'get_prototype_fail');
 }
 ```
+ 
+  
 
+##### napi_create_object
 
-## napi_create_object
-
-用于在Node-API模块中创建一个空的ArkTS对象。 cpp部分代码
+用于在Node-API模块中创建一个空的ArkTS对象。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -116,14 +139,16 @@ napi_value NewObject(napi_env env, napi_callback_info info)
     return object;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const createObject: () => { name: string };
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -135,11 +160,15 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_create_object errorCode: %{public}s, errorMessage: %{public}s', error.code, error.message);
 }
 ```
+ 
+  
 
+##### napi_object_freeze
 
-## napi_object_freeze
-
-用于冻结给定的ArkTS对象。冻结对象后，无法再向对象添加新的属性或方法，也无法修改已有属性或方法的值。 cpp部分代码
+用于冻结给定的ArkTS对象。冻结对象后，无法再向对象添加新的属性或方法，也无法修改已有属性或方法的值。
+ 
+cpp部分代码
+ 
 ```text
 #include "hilog/log.h"
 #include "napi/native_api.h"
@@ -161,9 +190,10 @@ static napi_value ObjectFreeze(napi_env env, napi_callback_info info)
     return objFreeze;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export interface Obj {
   data: number
@@ -171,8 +201,9 @@ export interface Obj {
 }
 export const objectFreeze: (objFreeze: Object) => Obj;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -189,11 +220,15 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_object_freeze error: %{public}s', error.message);
 }
 ```
+ 
+  
 
+##### napi_object_seal
 
-## napi_object_seal
-
-封闭一个对象后，无法向其添加新的属性，也无法删除或修改现有属性的可配置性。但是，可以继续修改已有属性的值。 cpp部分代码
+封闭一个对象后，无法向其添加新的属性，也无法删除或修改现有属性的可配置性。但是，可以继续修改已有属性的值。
+ 
+cpp部分代码
+ 
 ```text
 #include "hilog/log.h"
 #include "napi/native_api.h"
@@ -217,9 +252,10 @@ static napi_value ObjectSeal(napi_env env, napi_callback_info info)
     return objSeal;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export interface Obj {
   data: number
@@ -228,8 +264,9 @@ export interface Obj {
 }
 export const objectSeal : (objSeal: Object) => Obj;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -251,11 +288,15 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_object_seal error: %{public}s', error.message);
 }
 ```
+ 
+  
 
+##### napi_typeof
 
-## napi_typeof
-
-这个接口用于获取给定ArkTS value的ArkTS Type。 **注：**napi_typeof可以判断的类型包含：
+这个接口用于获取给定ArkTS value的ArkTS Type。
+ 
+**注：**napi_typeof可以判断的类型包含：
+  
 | 类型 |
 | --- |
 | undefined |
@@ -266,8 +307,10 @@ try {
 | object |
 | function |
 | bigint |
-
+ 
+ 
 cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -319,14 +362,16 @@ static napi_value NapiTypeOf(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
-export const napiTypeOf : (value: T) => string | undefined;
+export const napiTypeOf : <T>(value: T) => string | undefined;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -356,11 +401,15 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_typeof error: %{public}s', error.message);
 }
 ```
+ 
+  
 
+##### napi_instanceof
 
-## napi_instanceof
-
-用于检查一个对象是否是指定构造函数的实例。 cpp部分代码
+用于检查一个对象是否是指定构造函数的实例。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -384,14 +433,16 @@ static napi_value NapiInstanceOf(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const napiInstanceOf: (date: Object, construct: Object) => boolean | undefined;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -418,15 +469,25 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_instanceof error: %{public}s', error.message);
 }
 ```
+ 
+  
 
+##### napi_type_tag_object
 
-## napi_type_tag_object
+使用类型标签type_tag来标记ArkTS对象，后续可以更精确地识别ArkTS对象。
+ 
+ArkTS版本中，napi_type_tag_object接口没有使用private symbol，导致type_tag有被改写的风险，开发者应避免在关键安全场景中使用该接口。
+ 
+  
 
-使用类型标签type_tag来标记ArkTS对象，后续可以更精确地识别ArkTS对象。 ArkTS版本中，napi_type_tag_object接口没有使用private symbol，导致type_tag有被改写的风险，开发者应避免在关键安全场景中使用该接口。
+##### napi_check_object_type_tag
 
-## napi_check_object_type_tag
-
-验证一个ArkTS对象是否带有特定类型标签。 类型标签提供了一种在Node-API模块和ArkTS对象之间建立强类型关联的机制，使得原生代码能够更准确地识别和处理特定的ArkTS对象。 cpp部分代码
+验证一个ArkTS对象是否带有特定类型标签。
+ 
+类型标签提供了一种在Node-API模块和ArkTS对象之间建立强类型关联的机制，使得原生代码能够更准确地识别和处理特定的ArkTS对象。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -480,15 +541,17 @@ static napi_value CheckObjectTypeTag(napi_env env, napi_callback_info info)
     return checked;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const setTypeTagToObject: (obj: Object, index: number) => boolean | undefined;
 export const checkObjectTypeTag: (obj: Object, index: number) => boolean;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -504,14 +567,18 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_type_tag_object objB -> 0: %{p
 hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objA -> 0: %{public}s', testNapi.checkObjectTypeTag(objA, 0));
 hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objB -> 1: %{public}s', testNapi.checkObjectTypeTag(objB, 1));
 ```
+ 
+  
 
+##### napi_create_external
 
-## napi_create_external
-
-创建自定义的C/C++对象并将其公开给ArkTS代码。这种情况下，我们可以使用napi_create_external来创建一个包含指向自定义对象的指针的Node-API值，以便让ArkTS代码能够访问和操作该对象。 cpp部分代码
+创建自定义的C/C++对象并将其公开给ArkTS代码。这种情况下，我们可以使用napi_create_external来创建一个包含指向自定义对象的指针的Node-API值，以便让ArkTS代码能够访问和操作该对象。
+ 
+cpp部分代码
+ 
 ```text
-#include
-#include
+#include <cstdlib>
+#include <string>
 #include "hilog/log.h"
 #include "napi/native_api.h"
 
@@ -561,15 +628,17 @@ static napi_value CreateExternal(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const createExternal: () => Object;
 export const getExternalType: (externalData: Object) => boolean;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -577,11 +646,15 @@ import testNapi from 'libentry.so';
 const externalData = testNapi.createExternal();
 hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_external:%{public}s', testNapi.getExternalType(externalData));
 ```
+ 
+  
 
+##### napi_get_value_external
 
-## napi_get_value_external
-
-napi_create_external可以创建包装自定义的C/C++对象并将其公开给ArkTS代码，而napi_get_value_external就是用来获得napi_create_external所创建的外部对象的。 cpp部分代码
+napi_create_external可以创建包装自定义的C/C++对象并将其公开给ArkTS代码，而napi_get_value_external就是用来获得napi_create_external所创建的外部对象的。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -601,25 +674,31 @@ static napi_value GetValueExternal(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const getValueExternal: () => number;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 hilog.info(0x0000, 'Node-API', 'get_value_external:%{public}d', testNapi.getValueExternal());
 ```
+ 
+  
 
+##### napi_create_symbol
 
-## napi_create_symbol
-
-用于创建一个新的Symbol。Symbol是一种特殊的数据类型，用于表示唯一的标识符。与字符串或数字不同，符号的值是唯一的，即使两个符号具有相同的描述，它们也是不相等的。符号通常用作对象属性的键，以确保属性的唯一性。 cpp部分代码
+用于创建一个新的Symbol。Symbol是一种特殊的数据类型，用于表示唯一的标识符。与字符串或数字不同，符号的值是唯一的，即使两个符号具有相同的描述，它们也是不相等的。符号通常用作对象属性的键，以确保属性的唯一性。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 #include "hilog/log.h"
@@ -644,14 +723,16 @@ static napi_value CreateSymbol(napi_env env, napi_callback_info info)
     return returnSymbol;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const createSymbol : () => symbol;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -659,8 +740,9 @@ import testNapi from 'libentry.so';
 let varSymbol = testNapi.createSymbol();
 hilog.info(0x0000, 'Node-API', 'createSymbol:%{public}s', typeof varSymbol);
 ```
-
- 以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
+以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
 ```text
 // CMakeLists.txt
 add_definitions( "-DLOG_DOMAIN=0xd0d0" )

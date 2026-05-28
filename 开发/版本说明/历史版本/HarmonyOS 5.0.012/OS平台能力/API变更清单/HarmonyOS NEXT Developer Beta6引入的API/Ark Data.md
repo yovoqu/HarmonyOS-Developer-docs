@@ -15,7 +15,7 @@
 | 新增API | NA | 类名：Asset； API声明：modifyTime: string; 差异内容：modifyTime: string; | api/@ohos.data.sendableRelationalStore.d.ets |
 | 新增API | NA | 类名：Asset； API声明：size: string; 差异内容：size: string; | api/@ohos.data.sendableRelationalStore.d.ets |
 | 新增API | NA | 类名：Asset； API声明：status?: number; 差异内容：status?: number; | api/@ohos.data.sendableRelationalStore.d.ets |
-| 新增API | NA | 类名：sendableRelationalStore； API声明：type Assets = collections.Array<Asset>; 差异内容：type Assets = collections.Array<Asset>; | api/@ohos.data.sendableRelationalStore.d.ets |
+| 新增API | NA | 类名：sendableRelationalStore； API声明：type Assets = collections.Array&lt;Asset&gt;; 差异内容：type Assets = collections.Array&lt;Asset&gt;; | api/@ohos.data.sendableRelationalStore.d.ets |
 | 新增API | NA | 类名：sendableRelationalStore； API声明：type ValueType = null \| number \| string \| boolean \| collections.Uint8Array \| Asset \| Assets \| collections.Float32Array \| bigint; 差异内容：type ValueType = null \| number \| string \| boolean \| collections.Uint8Array \| Asset \| Assets \| collections.Float32Array \| bigint; | api/@ohos.data.sendableRelationalStore.d.ets |
 | 新增API | NA | 类名：sendableRelationalStore； API声明：type ValuesBucket = collections.Map<string, ValueType>; 差异内容：type ValuesBucket = collections.Map<string, ValueType>; | api/@ohos.data.sendableRelationalStore.d.ets |
 | 新增API | NA | 类名：sendableRelationalStore； API声明：type NonSendableBucket = relationalStore.ValuesBucket; 差异内容：type NonSendableBucket = relationalStore.ValuesBucket; | api/@ohos.data.sendableRelationalStore.d.ets |

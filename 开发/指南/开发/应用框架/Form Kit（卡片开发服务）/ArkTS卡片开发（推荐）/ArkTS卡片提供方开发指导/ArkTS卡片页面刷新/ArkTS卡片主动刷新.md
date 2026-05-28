@@ -1,20 +1,26 @@
 # ArkTS卡片主动刷新
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-active-refresh
 
 本文主要提供主动刷新的开发指导，刷新流程请参考[主动刷新概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-interaction-overview#主动刷新)。
 
 
-## 卡片提供方主动刷新卡片内容
+##### 卡片提供方主动刷新卡片内容
 
 卡片提供方可以通过[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口进行主动刷新。推荐与卡片生命周期回调[onFormEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonformevent)、[onUpdateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonupdateform)、[onAddForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonaddform)接口搭配使用。
 
-## 开发步骤
 
-下面给出一个示例，实现如下功能：卡片添加至桌面后，点击卡片上的刷新按钮，刷新卡片信息。 [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。 实现卡片布局，在卡片上添加一个刷新按钮，点击按钮后通过[postCardAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-postcardaction#postcardaction-1)接口，触发onFormEvent回调。
-```text
+
+##### 开发步骤
+
+下面给出一个示例，实现如下功能：卡片添加至桌面后，点击卡片上的刷新按钮，刷新卡片信息。
+1. [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。
+2. 实现卡片布局，在卡片上添加一个刷新按钮，点击按钮后通过[postCardAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-postcardaction#postcardaction-1)接口，触发onFormEvent回调。
+
+  
+```ArkTS
 // entry/src/main/ets/updatebymessage/pages/UpdateByMessageCard.ets
 let storageUpdateByMsg = new LocalStorage();
 
@@ -73,8 +79,10 @@ struct UpdateByMessageCard {
 }
 ```
 
-在onFormEvent回调函数的实现中，通过updateForm接口刷新卡片数据。
-```text
+3. 在onFormEvent回调函数的实现中，通过updateForm接口刷新卡片数据。
+
+  
+```ts
 // entry/src/main/ets/entryformability/EntryFormAbility.ts
 import { formBindingData, FormExtensionAbility, formInfo, formProvider } from '@kit.FormKit';
 import { Configuration, Want } from '@kit.AbilityKit';
@@ -91,7 +99,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
     hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onAddForm');
     hilog.info(DOMAIN_NUMBER, TAG, want.parameters?.[formInfo.FormParam.NAME_KEY] as string);
     // 卡片使用方创建卡片时触发，卡片提供方需要返回卡片数据绑定类
-    let obj: Record = {
+    let obj: Record<string, string> = {
       'title': 'titleOnAddForm',
       'detail': 'detailOnAddForm'
     };
@@ -107,7 +115,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
   onUpdateForm(formId: string): void {
     // 若卡片支持定时更新/定点更新/卡片使用方主动请求更新功能，则提供方需要重写该方法以支持数据更新
     hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onUpdateForm');
-    let obj: Record = {
+    let obj: Record<string, string> = {
       'title': 'titleOnUpdateForm',
       'detail': 'detailOnUpdateForm'
     };
@@ -117,7 +125,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
     });
   }
 
-  onChangeFormVisibility(newStatus: Record): void {
+  onChangeFormVisibility(newStatus: Record<string, number>): void {
     // ...
     hilog.info(DOMAIN_NUMBER, TAG, '[EntryFormAbility] onChangeFormVisibility');
   }
@@ -160,8 +168,10 @@ export default class EntryFormAbility extends FormExtensionAbility {
 }
 ```
 
-资源文件如下。
-```text
+4. 资源文件如下。
+
+  
+```json
 // entry/src/main/resources/zh_CN/element/string.json
 {
    "string": [
@@ -183,18 +193,30 @@ export default class EntryFormAbility extends FormExtensionAbility {
 ```
 
 
-## 运行结果
+
+
+##### 运行结果
+
 
 ![](assets/ArkTS卡片主动刷新/file-20260514130936593-0.gif)
 
-## 卡片提供方批量请求刷新卡片内容
+
+
+
+##### 卡片提供方批量请求刷新卡片内容
 
 从API version 22开始，支持卡片提供方批量请求刷新卡片内容。卡片提供方可以通过[reloadForms](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderreloadforms22)和[reloadAllForms](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderreloadallforms22)接口在应用主进程中通知FormExtension进程进行批量更新，仅支持在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中调用。
 
-## 开发步骤
 
-下面给出一个示例，实现如下功能：添加应用的多张卡片至桌面后，点击应用UIAbility中的刷新按钮，批量刷新卡片信息。 [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。 实现卡片布局，在卡片上创建两个待刷新的Text。
-```text
+
+##### 开发步骤
+
+下面给出一个示例，实现如下功能：添加应用的多张卡片至桌面后，点击应用UIAbility中的刷新按钮，批量刷新卡片信息。
+1. [创建卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-creation)。
+2. 实现卡片布局，在卡片上创建两个待刷新的Text。
+
+  
+```ArkTS
 // entry/src/main/ets/reloadbyuiability/pages/ReloadByUIAbilityCard.ets
 let storageReloadForm = new LocalStorage();
 
@@ -224,8 +246,10 @@ struct ReloadByUIAbilityCard {
 }
 ```
 
-在FormExtensionAbility中实现onUpdateForm回调，通过updateForm接口定义卡片刷新逻辑。
-```text
+3. 在FormExtensionAbility中实现onUpdateForm回调，通过updateForm接口定义卡片刷新逻辑。
+
+  
+```ArkTS
 // entry/src/main/ets/entryformability/EntryFormAbility.ets
 import { formBindingData, FormExtensionAbility, formInfo, formProvider } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
@@ -276,8 +300,10 @@ export default class EntryFormAbility extends FormExtensionAbility {
 }
 ```
 
-在UIAbility的界面中添加两个批量刷新按钮，点击按钮后通过reloadForms或reloadAllForms接口，批量触发FormExtensionAbility中的onUpdateForm回调。
-```text
+4. 在UIAbility的界面中添加两个批量刷新按钮，点击按钮后通过reloadForms或reloadAllForms接口，批量触发FormExtensionAbility中的onUpdateForm回调。
+
+  
+```ArkTS
 // entry/src/main/ets/pages/index.ets
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -325,8 +351,10 @@ struct Index {
 }
 ```
 
-资源文件如下。
-```text
+5. 资源文件如下。
+
+  
+```json
 // entry/src/main/resources/base/element/string.json
 {
    "string": [
@@ -344,6 +372,9 @@ struct Index {
 ```
 
 
-## 运行结果
+
+
+##### 运行结果
+
 
 ![](assets/ArkTS卡片主动刷新/file-20260514130936593-1.gif)

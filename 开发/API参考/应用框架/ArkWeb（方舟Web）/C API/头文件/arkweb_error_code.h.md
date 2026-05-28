@@ -3,58 +3,54 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-error-code-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明ArkWeb NDK接口异常错误码。
-
+ 
 **引用文件：** <web/arkweb_error_code.h>
-
+ 
 **库：** libohweb.so
-
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ArkWeb_ErrorCode](#arkweb_errorcode) | ArkWeb_ErrorCode | 定义ArkWeb NDK接口异常错误码。 |
-| [ArkWeb_BlanklessErrorCode](#arkweb_blanklesserrorcode) | ArkWeb_BlanklessErrorCode | 定义无白屏加载的异常错误码。 |
+| ArkWeb_ErrorCode | ArkWeb_ErrorCode | 定义ArkWeb NDK接口异常错误码。 |
+| ArkWeb_BlanklessErrorCode | ArkWeb_BlanklessErrorCode | 定义无白屏加载的异常错误码。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### ArkWeb_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ArkWeb_ErrorCode
 
 ```text
 enum ArkWeb_ErrorCode
 ```
-
+ 
 **描述：**
-
+ 
 定义ArkWeb NDK接口异常错误码。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ARKWEB_SUCCESS = 0 | 成功。 |
@@ -69,23 +65,22 @@ enum ArkWeb_ErrorCode
 | ARKWEB_COOKIE_MANAGER_NOT_INITIALIZED = 17100107 | CookieManager未初始化。 起始版本： 20 |
 | ARKWEB_COOKIE_MANAGER_INITIALIZE_FAILED = 17100108 | CookieManager初始化失败。 起始版本： 20 |
 | ARKWEB_COOKIE_SAVE_FAILED = 17100109 | 保存cookie失败。 起始版本： 20 |
+ 
+ 
+  
 
-
-### ArkWeb_BlanklessErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ArkWeb_BlanklessErrorCode
 
 ```text
 enum ArkWeb_BlanklessErrorCode
 ```
-
+ 
 **描述：**
-
+ 
 定义无白屏加载的异常错误码。
-
+ 
 **起始版本：** 20
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ARKWEB_BLANKLESS_SUCCESS = 0 | 成功。 |

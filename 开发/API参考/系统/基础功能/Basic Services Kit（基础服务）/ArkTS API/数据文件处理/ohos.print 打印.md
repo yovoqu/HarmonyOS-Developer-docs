@@ -3,34 +3,32 @@
 更新时间：2026-05-08 09:27:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-print
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 该模块为基本打印的操作API，提供调用基础打印功能的接口。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { print } from '@kit.BasicServicesKit';
 ```
 
 
-## PrintTask
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PrintTask
 
 打印任务完成后的事件监听回调接口类。
 
 
-### on
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'block', callback: Callback<void>): void
+##### on
+
+on(type: 'block', callback: Callback&lt;void&gt;): void
 
 注册打印任务阻塞的监听，使用callback异步回调。
 
@@ -40,17 +38,15 @@ on(type: 'block', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 注册监听，          监听字段：block，          表示打印任务阻塞。 |
+| type | string | 是 | 注册监听， 监听字段：block， 表示打印任务阻塞。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，通知调用方打印任务阻塞。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -60,31 +56,27 @@ on(type: 'block', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.on('block', () => {
-      console.info('print state is block');
-    });
+        console.info('print state is block');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-### on
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'succeed', callback: Callback<void>): void
+##### on
+
+on(type: 'succeed', callback: Callback&lt;void&gt;): void
 
 注册打印任务成功的监听，使用callback异步回调。
 
@@ -94,17 +86,15 @@ on(type: 'succeed', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 注册监听，          监听字段：succeed，          表示打印任务成功。 |
+| type | string | 是 | 注册监听， 监听字段：succeed， 表示打印任务成功。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，通知调用方打印任务成功。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -114,31 +104,27 @@ on(type: 'succeed', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.on('succeed', () => {
-      console.info('print state is succeed');
-    });
+        console.info('print state is succeed');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-### on
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'fail', callback: Callback<void>): void
+##### on
+
+on(type: 'fail', callback: Callback&lt;void&gt;): void
 
 注册打印任务失败的监听，使用callback异步回调。
 
@@ -148,17 +134,15 @@ on(type: 'fail', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 注册监听，          监听字段：fail，          表示打印任务失败。 |
+| type | string | 是 | 注册监听， 监听字段：fail， 表示打印任务失败。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，通知调用方打印任务失败。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -168,31 +152,27 @@ on(type: 'fail', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.on('fail', () => {
-      console.info('print state is fail');
-    });
+        console.info('print state is fail');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-### on
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'cancel', callback: Callback<void>): void
+##### on
+
+on(type: 'cancel', callback: Callback&lt;void&gt;): void
 
 注册打印任务被取消的监听，使用callback异步回调。
 
@@ -202,17 +182,15 @@ on(type: 'cancel', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 注册监听，          监听字段：cancel，          表示打印任务被取消。 |
+| type | string | 是 | 注册监听， 监听字段：cancel， 表示打印任务被取消。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，通知调用方打印任务被取消。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -222,31 +200,27 @@ on(type: 'cancel', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.on('cancel', () => {
-      console.info('print state is cancel');
-    });
+        console.info('print state is cancel');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-### off
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'block', callback?: Callback<void>): void
+##### off
+
+off(type: 'block', callback?: Callback&lt;void&gt;): void
 
 取消打印任务阻塞的监听，使用callback异步回调。
 
@@ -256,17 +230,15 @@ off(type: 'block', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 取消监听，          监听字段：block，          表示打印任务阻塞。 |
+| type | string | 是 | 取消监听， 监听字段：block， 表示打印任务阻塞。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，取消指定的打印任务阻塞事件订阅。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -276,31 +248,27 @@ off(type: 'block', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.off('block', () => {
-      console.info('unregister state block');
-    });
+        console.info('unregister state block');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-### off
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'succeed', callback?: Callback<void>): void
+##### off
+
+off(type: 'succeed', callback?: Callback&lt;void&gt;): void
 
 取消打印任务成功的监听，使用callback异步回调。
 
@@ -310,17 +278,15 @@ off(type: 'succeed', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 取消监听，          监听字段：succeed，          表示打印任务成功。 |
+| type | string | 是 | 取消监听， 监听字段：succeed， 表示打印任务成功。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，取消指定的打印任务成功事件订阅。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -330,31 +296,27 @@ off(type: 'succeed', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.off('succeed', () => {
-      console.info('unregister state succeed');
-    });
+        console.info('unregister state succeed');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-### off
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'fail', callback?: Callback<void>): void
+##### off
+
+off(type: 'fail', callback?: Callback&lt;void&gt;): void
 
 取消打印任务失败的监听，使用callback异步回调。
 
@@ -364,17 +326,15 @@ off(type: 'fail', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 取消监听，          监听字段：fail，          表示打印任务失败。 |
+| type | string | 是 | 取消监听， 监听字段：fail， 表示打印任务失败。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，取消指定的打印任务失败事件订阅。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -384,31 +344,27 @@ off(type: 'fail', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.off('fail', () => {
-      console.info('unregister state fail');
-    });
+        console.info('unregister state fail');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-### off
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'cancel', callback?: Callback<void>): void
+##### off
+
+off(type: 'cancel', callback?: Callback&lt;void&gt;): void
 
 取消打印任务被取消的监听，使用callback异步回调。
 
@@ -418,17 +374,15 @@ off(type: 'cancel', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 取消监听，          监听字段：cancel，          表示打印任务被取消。 |
+| type | string | 是 | 取消监听， 监听字段：cancel， 表示打印任务被取消。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，取消指定的打印任务被取消事件订阅。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -438,35 +392,31 @@ off(type: 'cancel', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.off('cancel', () => {
-      console.info('unregister state cancel');
-    });
+        console.info('unregister state cancel');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## PrintDocumentAdapter11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PrintDocumentAdapter11+
 
 第三方应用程序实现此接口来渲染要打印的文件。
 
 
-### onStartLayoutWrite11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStartLayoutWrite11+
 
 onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: number, writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void
 
@@ -478,20 +428,18 @@ onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttr
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | jobId | string | 是 | 表示打印任务ID。 |
-| oldAttrs | [PrintAttributes](#printattributes11) | 是 | 表示旧打印参数。 |
-| newAttrs | [PrintAttributes](#printattributes11) | 是 | 表示新打印参数。 |
+| oldAttrs | PrintAttributes | 是 | 表示旧打印参数。 |
+| newAttrs | PrintAttributes | 是 | 表示新打印参数。 |
 | fd | number | 是 | 表示打印文件传给接口调用方的pdf文件的文件描述符。 |
-| writeResultCallback | (jobId: string, writeResult: [PrintFileCreationState](#printfilecreationstate11)) =&gt; void | 是 | 表示三方应用使用新的打印参数更新待打印文件完成后的回调。 |
+| writeResultCallback | (jobId: string, writeResult: PrintFileCreationState) => void | 是 | 表示三方应用使用新的打印参数更新待打印文件完成后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -501,42 +449,33 @@ onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttr
 
 **示例：**
 
-
-```ts
+```text
 import { print } from '@kit.BasicServicesKit';
 
 class MyPrintDocumentAdapter implements print.PrintDocumentAdapter {
-  onStartLayoutWrite(
-    jobId: string,
-    oldAttrs: print.PrintAttributes,
-    newAttrs: print.PrintAttributes,
-    fd: number,
-    writeResultCallback: (
-      jobId: string,
-      writeResult: print.PrintFileCreationState,
-    ) => void,
-  ) {
-    writeResultCallback(jobId, print.PrintFileCreationState.PRINT_FILE_CREATED);
-  }
-  onJobStateChanged(jobId: string, state: print.PrintDocumentAdapterState) {
-    if (state == print.PrintDocumentAdapterState.PREVIEW_DESTROY) {
-      console.info('PREVIEW_DESTROY');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_SUCCEED) {
-      console.info('PRINT_TASK_SUCCEED');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_FAIL) {
-      console.info('PRINT_TASK_FAIL');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_CANCEL) {
-      console.info('PRINT_TASK_CANCEL');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_BLOCK) {
-      console.info('PRINT_TASK_BLOCK');
+    onStartLayoutWrite(jobId: string, oldAttrs: print.PrintAttributes, newAttrs: print.PrintAttributes, fd: number,
+        writeResultCallback: (jobId: string, writeResult: print.PrintFileCreationState) => void) {
+        writeResultCallback(jobId, print.PrintFileCreationState.PRINT_FILE_CREATED);
+    };
+    onJobStateChanged(jobId: string, state: print.PrintDocumentAdapterState) {
+        if (state == print.PrintDocumentAdapterState.PREVIEW_DESTROY) {
+            console.info('PREVIEW_DESTROY');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_SUCCEED) {
+            console.info('PRINT_TASK_SUCCEED');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_FAIL) {
+            console.info('PRINT_TASK_FAIL');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_CANCEL) {
+            console.info('PRINT_TASK_CANCEL');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_BLOCK) {
+            console.info('PRINT_TASK_BLOCK');
+        }
     }
-  }
 }
 ```
 
 
-### onJobStateChanged11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onJobStateChanged11+
 
 onJobStateChanged(jobId: string, state: PrintDocumentAdapterState): void
 
@@ -548,17 +487,15 @@ onJobStateChanged(jobId: string, state: PrintDocumentAdapterState): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | jobId | string | 是 | 表示打印任务ID。 |
-| state | [PrintDocumentAdapterState](#printdocumentadapterstate11) | 是 | 表示打印任务更改为该状态。 |
+| state | PrintDocumentAdapterState | 是 | 表示打印任务更改为该状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -568,45 +505,36 @@ onJobStateChanged(jobId: string, state: PrintDocumentAdapterState): void
 
 **示例：**
 
-
-```ts
+```text
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class MyPrintDocumentAdapter implements print.PrintDocumentAdapter {
-  onStartLayoutWrite(
-    jobId: string,
-    oldAttrs: print.PrintAttributes,
-    newAttrs: print.PrintAttributes,
-    fd: number,
-    writeResultCallback: (
-      jobId: string,
-      writeResult: print.PrintFileCreationState,
-    ) => void,
-  ) {
-    writeResultCallback(jobId, print.PrintFileCreationState.PRINT_FILE_CREATED);
-  }
-  onJobStateChanged(jobId: string, state: print.PrintDocumentAdapterState) {
-    if (state == print.PrintDocumentAdapterState.PREVIEW_DESTROY) {
-      console.info('PREVIEW_DESTROY');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_SUCCEED) {
-      console.info('PRINT_TASK_SUCCEED');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_FAIL) {
-      console.info('PRINT_TASK_FAIL');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_CANCEL) {
-      console.info('PRINT_TASK_CANCEL');
-    } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_BLOCK) {
-      console.info('PRINT_TASK_BLOCK');
+    onStartLayoutWrite(jobId: string, oldAttrs: print.PrintAttributes, newAttrs: print.PrintAttributes, fd: number,
+        writeResultCallback: (jobId: string, writeResult: print.PrintFileCreationState) => void) {
+        writeResultCallback(jobId, print.PrintFileCreationState.PRINT_FILE_CREATED);
+    };
+    onJobStateChanged(jobId: string, state: print.PrintDocumentAdapterState) {
+        if (state == print.PrintDocumentAdapterState.PREVIEW_DESTROY) {
+            console.info('PREVIEW_DESTROY');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_SUCCEED) {
+            console.info('PRINT_TASK_SUCCEED');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_FAIL) {
+            console.info('PRINT_TASK_FAIL');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_CANCEL) {
+            console.info('PRINT_TASK_CANCEL');
+        } else if (state == print.PrintDocumentAdapterState.PRINT_TASK_BLOCK) {
+            console.info('PRINT_TASK_BLOCK');
+        }
     }
-  }
 }
 ```
 
 
-## print.print
-**支持设备：** Phone / PC/2in1 / Tablet
 
-print(files: Array<string>, callback: AsyncCallback<PrintTask>): void
+##### print.print
+
+print(files: Array&lt;string&gt;, callback: AsyncCallback&lt;PrintTask&gt;): void
 
 打印接口，传入文件进行打印，使用callback异步回调。拉起系统打印预览界面，需要使用[print](#printprint11-1)接口，传入context。
 
@@ -616,17 +544,15 @@ print(files: Array<string>, callback: AsyncCallback<PrintTask>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | files | Array&lt;string&gt; | 是 | 待打印文件列表，支持图片（.jpg .png .gif .bmp .webp）和pdf。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取到沙箱uri，再作为参数传入到本接口。 |
-| callback | AsyncCallback&lt;[PrintTask](#printtask)&gt; | 是 | 异步获取打印完成之后的回调。 |
+| callback | AsyncCallback&lt;PrintTask&gt; | 是 | 异步获取打印完成之后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -636,34 +562,30 @@ print(files: Array<string>, callback: AsyncCallback<PrintTask>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 // 传入文件的uri
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print.print(
-  [fileUri.getUriFromPath(filePath)],
-  (err: BusinessError, printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)], (err: BusinessError, printTask: print.PrintTask) => {
     if (err) {
-      console.error('print err ' + JSON.stringify(err));
+        console.error('print err ' + JSON.stringify(err));
     } else {
-      printTask.on('succeed', () => {
-        console.info('print state is succeed');
-      });
-      // ...
+        printTask.on('succeed', () => {
+            console.info('print state is succeed');
+        })
+        // ...
     }
-  },
-);
+})
 ```
 
 
-## print.print
-**支持设备：** Phone / PC/2in1 / Tablet
 
-print(files: Array<string>): Promise<PrintTask>
+##### print.print
+
+print(files: Array&lt;string&gt;): Promise&lt;PrintTask&gt;
 
 打印接口，传入文件进行打印，使用Promise异步回调。拉起系统打印预览界面，需要使用[print](#printprint11-1)接口，传入context。
 
@@ -673,7 +595,6 @@ print(files: Array<string>): Promise<PrintTask>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | files | Array&lt;string&gt; | 是 | 待打印文件列表，支持图片（.jpg .png .gif .bmp .webp）和pdf。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取到沙箱uri，再作为参数传入到本接口。 |
@@ -681,16 +602,14 @@ print(files: Array<string>): Promise<PrintTask>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PrintTask](#printtask)&gt; | Promise对象，返回[PrintTask](#printtask)。 |
+| Promise&lt;PrintTask&gt; | Promise对象，返回PrintTask。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -700,32 +619,28 @@ print(files: Array<string>): Promise<PrintTask>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
 
 // 传入文件的uri
 let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-print
-  .print([fileUri.getUriFromPath(filePath)])
-  .then((printTask: print.PrintTask) => {
+print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask) => {
     printTask.on('succeed', () => {
-      console.info('print state is succeed');
-    });
+        console.info('print state is succeed');
+    })
     // ...
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('print err ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## print.print11+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>): void
+##### print.print11+
+
+print(files: Array&lt;string&gt;, context: Context, callback: AsyncCallback&lt;PrintTask&gt;): void
 
 打印接口，传入文件进行打印，使用callback异步回调。
 
@@ -735,18 +650,16 @@ print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | files | Array&lt;string&gt; | 是 | 待打印文件列表，当前支持的文件类型：".bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt", ".pptm", ".pptx", ".png", ".rtf", ".txt", ".webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx", ".xml"。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取到沙箱uri，再作为参数传入到本接口。 |
 | context | Context | 是 | 用于拉起系统打印界面的UIAbilityContext。 |
-| callback | AsyncCallback&lt;[PrintTask](#printtask)&gt; | 是 | 异步获取打印完成之后的回调。 |
+| callback | AsyncCallback&lt;PrintTask&gt; | 是 | 异步获取打印完成之后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -756,8 +669,7 @@ print(files: Array<string>, context: Context, callback: AsyncCallback<PrintTask>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
@@ -765,38 +677,38 @@ import { fileUri } from '@kit.CoreFileKit';
 @Entry
 @Component
 struct Index {
-  build() {
-    Scroll() {
-      Column({ space: 10 }) {
-        Button("打印").width('90%').height(50).onClick(() => {
-          let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-          let context = this.getUIContext().getHostContext();
-          print.print([fileUri.getUriFromPath(filePath)], context, (err: BusinessError, printTask: print.PrintTask) => {
-            if (err) {
-              console.error('print err ' + JSON.stringify(err));
-            } else {
-              printTask.on('succeed', () => {
-                console.info('print state is succeed');
-              })
-              // ...
+    build() {
+        Scroll() {
+            Column({ space: 10 }) {
+                Button("打印").width('90%').height(50).onClick(() => {
+                    let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
+                    let context = this.getUIContext().getHostContext();
+                    print.print([fileUri.getUriFromPath(filePath)], context, (err: BusinessError, printTask: print.PrintTask) => {
+                        if (err) {
+                            console.error('print err ' + JSON.stringify(err));
+                        } else {
+                            printTask.on('succeed', () => {
+                                console.info('print state is succeed');
+                            })
+                            // ...
+                        }
+                    })
+                })
             }
-          })
-        })
-      }
-      .justifyContent(FlexAlign.Center)
-      .constraintSize({ minHeight: '100%' })
-      .width('100%')
+            .justifyContent(FlexAlign.Center)
+            .constraintSize({ minHeight: '100%' })
+            .width('100%')
+        }
+        .height('100%')
     }
-    .height('100%')
-  }
 }
 ```
 
 
-## print.print11+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-print(files: Array<string>, context: Context): Promise<PrintTask>
+##### print.print11+
+
+print(files: Array&lt;string&gt;, context: Context): Promise&lt;PrintTask&gt;
 
 打印接口，传入文件进行打印，使用Promise异步回调。
 
@@ -806,7 +718,6 @@ print(files: Array<string>, context: Context): Promise<PrintTask>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | files | Array&lt;string&gt; | 是 | 待打印文件列表，当前支持的文件类型：".bm", ".bmp", ".doc", ".docm", ".docx", ".dot", ".dotm", ".dotx", ".gif", ".jfif", ".jpe", ".jpeg", ".jpg", "pdf", ".pot", ".potm", ".potx", ".pps", ".ppsm", ".ppsx", ".ppt", ".pptm", ".pptx", ".png", ".rtf", ".txt", ".webp", ".wps", ".xls", ".xlsb", ".xlsm", ".xlsx", ".xlt", ".xltx", ".xml"。文件需先保存到应用沙箱，通过fileUri.getUriFromPath获取到沙箱uri，再作为参数传入到本接口。 |
@@ -815,16 +726,14 @@ print(files: Array<string>, context: Context): Promise<PrintTask>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PrintTask](#printtask)&gt; | Promise对象，返回[PrintTask](#printtask)。 |
+| Promise&lt;PrintTask&gt; | Promise对象，返回PrintTask。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -834,8 +743,7 @@ print(files: Array<string>, context: Context): Promise<PrintTask>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileUri } from '@kit.CoreFileKit';
@@ -843,36 +751,36 @@ import { fileUri } from '@kit.CoreFileKit';
 @Entry
 @Component
 struct Index {
-  build() {
-    Scroll() {
-      Column({ space: 10 }) {
-        Button("打印").width('90%').height(50).onClick(() => {
-          let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
-          let context = this.getUIContext().getHostContext();
-          print.print([fileUri.getUriFromPath(filePath)], context).then((printTask: print.PrintTask) => {
-            printTask.on('succeed', () => {
-              console.info('print state is succeed');
-            })
-            // ...
-          }).catch((error: BusinessError) => {
-            console.error('print err ' + JSON.stringify(error));
-          })
-        })
-      }
-      .justifyContent(FlexAlign.Center)
-      .constraintSize({ minHeight: '100%' })
-      .width('100%')
+    build() {
+        Scroll() {
+            Column({ space: 10 }) {
+                Button("打印").width('90%').height(50).onClick(() => {
+                    let filePath = '/data/storage/el2/base/haps/entry/files/test.pdf';
+                    let context = this.getUIContext().getHostContext();
+                    print.print([fileUri.getUriFromPath(filePath)], context).then((printTask: print.PrintTask) => {
+                        printTask.on('succeed', () => {
+                            console.info('print state is succeed');
+                        })
+                        // ...
+                    }).catch((error: BusinessError) => {
+                        console.error('print err ' + JSON.stringify(error));
+                    })
+                })
+            }
+            .justifyContent(FlexAlign.Center)
+            .constraintSize({ minHeight: '100%' })
+            .width('100%')
+        }
+        .height('100%')
     }
-    .height('100%')
-  }
 }
 ```
 
 
-## print.print11+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes, context: Context): Promise<PrintTask>
+##### print.print11+
+
+print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes, context: Context): Promise&lt;PrintTask&gt;
 
 打印接口，传入文件进行打印，三方应用需要更新打印文件，使用Promise异步回调。当前支持的文件类型：".pdf"。
 
@@ -882,27 +790,24 @@ print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: Prin
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| jobName | string | 是 | 表示待打印文件名称，例如：test.pdf。当前仅支持".pdf"文件类型。打印侧会通过[onStartLayoutWrite](#onstartlayoutwrite11)接口将空的pdf文件的fd传给接口调用方，由调用方使用新的打印参数更新待打印文件。 |
-| printAdapter | [PrintDocumentAdapter](#printdocumentadapter11) | 是 | 表示三方应用实现的[PrintDocumentAdapter](#printdocumentadapter11)接口实例。 |
-| printAttributes | [PrintAttributes](#printattributes11) | 是 | 表示打印参数。 |
+| jobName | string | 是 | 表示待打印文件名称，例如：test.pdf。当前仅支持".pdf"文件类型。打印侧会通过onStartLayoutWrite接口将空的pdf文件的fd传给接口调用方，由调用方使用新的打印参数更新待打印文件。 |
+| printAdapter | PrintDocumentAdapter | 是 | 表示三方应用实现的PrintDocumentAdapter接口实例。 |
+| printAttributes | PrintAttributes | 是 | 表示打印参数。 |
 | context | Context | 是 | 用于拉起系统打印界面的UIAbilityContext。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PrintTask](#printtask)&gt; | Promise对象，返回[PrintTask](#printtask)。 |
+| Promise&lt;PrintTask&gt; | Promise对象，返回PrintTask。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -912,56 +817,55 @@ print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: Prin
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-  build() {
-    Scroll() {
-      Column({ space: 10 }) {
-        Button("打印").width('90%').height(50).onClick(() => {
-          let jobName : string = "jobName";
-          let printAdapter : print.PrintDocumentAdapter | null = null;
-          let printAttributes : print.PrintAttributes = {
-            copyNumber: 1,
-            pageRange: {
-              startPage: 0,
-              endPage: 5,
-              pages: []
-            },
-            pageSize: print.PrintPageType.PAGE_ISO_A3,
-            directionMode: print.PrintDirectionMode.DIRECTION_MODE_AUTO,
-            colorMode: print.PrintColorMode.COLOR_MODE_MONOCHROME,
-            duplexMode: print.PrintDuplexMode.DUPLEX_MODE_NONE
-          }
-          let context = this.getUIContext().getHostContext();
+    build() {
+        Scroll() {
+            Column({ space: 10 }) {
+                Button("打印").width('90%').height(50).onClick(() => {
+                    let jobName : string = "jobName";
+                    let printAdapter : print.PrintDocumentAdapter | null = null;
+                    let printAttributes : print.PrintAttributes = {
+                        copyNumber: 1,
+                        pageRange: {
+                            startPage: 0,
+                            endPage: 5,
+                            pages: []
+                        },
+                        pageSize: print.PrintPageType.PAGE_ISO_A3,
+                        directionMode: print.PrintDirectionMode.DIRECTION_MODE_AUTO,
+                        colorMode: print.PrintColorMode.COLOR_MODE_MONOCHROME,
+                        duplexMode: print.PrintDuplexMode.DUPLEX_MODE_NONE
+                    }
+                    let context = this.getUIContext().getHostContext();
 
-          print.print(jobName, printAdapter, printAttributes, context).then((printTask: print.PrintTask) => {
-            printTask.on('succeed', () => {
-              console.info('print state is succeed');
-            })
-            // ...
-          }).catch((error: BusinessError) => {
-            console.error('print err ' + JSON.stringify(error));
-          })
-        })
-      }
-      .justifyContent(FlexAlign.Center)
-      .constraintSize({ minHeight: '100%' })
-      .width('100%')
+                    print.print(jobName, printAdapter, printAttributes, context).then((printTask: print.PrintTask) => {
+                        printTask.on('succeed', () => {
+                            console.info('print state is succeed');
+                        })
+                        // ...
+                    }).catch((error: BusinessError) => {
+                        console.error('print err ' + JSON.stringify(error));
+                    })
+                })
+            }
+            .justifyContent(FlexAlign.Center)
+            .constraintSize({ minHeight: '100%' })
+            .width('100%')
+        }
+        .height('100%')
     }
-    .height('100%')
-  }
 }
 ```
 
 
-## PrintAttributes11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PrintAttributes11+
 
 定义打印参数的接口。
 
@@ -969,26 +873,25 @@ struct Index {
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | copyNumber | number | 否 | 是 | 表示文件打印份数。默认值为1。 |
-| pageRange | [PrintPageRange](#printpagerange11) | 否 | 是 | 表示待打印文件的页面范围。 |
-| pageSize | [PrintPageSize](#printpagesize11) \| [PrintPageType](#printpagetype11) | 否 | 是 | 表示待打印文件的纸张类型。 |
-| directionMode | [PrintDirectionMode](#printdirectionmode11) | 否 | 是 | 表示待打印文件的方向。 |
-| colorMode | [PrintColorMode](#printcolormode11) | 否 | 是 | 表示待打印文件的色彩模式。 |
-| duplexMode | [PrintDuplexMode](#printduplexmode11) | 否 | 是 | 表示待打印文件的单双面模式。 |
+| pageRange | PrintPageRange | 否 | 是 | 表示待打印文件的页面范围。 |
+| pageSize | PrintPageSize \| PrintPageType | 否 | 是 | 表示待打印文件的纸张类型。 |
+| directionMode | PrintDirectionMode | 否 | 是 | 表示待打印文件的方向。 |
+| colorMode | PrintColorMode | 否 | 是 | 表示待打印文件的色彩模式。 |
+| duplexMode | PrintDuplexMode | 否 | 是 | 表示待打印文件的单双面模式。 |
 
 
-## PrintPageRange11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintPageRange11+
 
 定义打印范围的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **属性：**
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -997,15 +900,15 @@ struct Index {
 | pages | Array&lt;number&gt; | 否 | 是 | 表示待打印的页面范围的集合。默认值为空。 |
 
 
-## PrintPageSize11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintPageSize11+
 
 定义打印页面尺寸的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **属性：**
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1015,13 +918,13 @@ struct Index {
 | height | number | 否 | 否 | 表示页面高度，单位：毫米。 |
 
 
-## PrintDirectionMode11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintDirectionMode11+
 
 打印纸张方向的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1030,13 +933,13 @@ struct Index {
 | DIRECTION_MODE_LANDSCAPE | 2 | 表示横向打印。 |
 
 
-## PrintColorMode11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintColorMode11+
 
 打印色彩模式的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1044,13 +947,13 @@ struct Index {
 | COLOR_MODE_COLOR | 1 | 表示彩色打印。 |
 
 
-## PrintDuplexMode11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintDuplexMode11+
 
 打印单双面模式的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1059,13 +962,13 @@ struct Index {
 | DUPLEX_MODE_SHORT_EDGE | 2 | 表示双面打印沿短边翻转。 |
 
 
-## PrintPageType11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintPageType11+
 
 打印纸张类型的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1083,13 +986,13 @@ struct Index {
 | PAGE_B_TABLOID | 11 | 表示B Tabloid。 |
 
 
-## PrintDocumentAdapterState11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintDocumentAdapterState11+
 
 打印任务状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1100,13 +1003,13 @@ struct Index {
 | PRINT_TASK_BLOCK | 4 | 表示打印任务阻塞。 |
 
 
-## PrintFileCreationState11+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintFileCreationState11+
 
 打印文件创建状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1115,13 +1018,13 @@ struct Index {
 | PRINT_FILE_CREATED_UNRENDERED | 2 | 表示打印文件创建成功但未渲染。 |
 
 
-## PrinterState14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterState14+
 
 打印机状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1133,13 +1036,13 @@ struct Index {
 | PRINTER_RUNNING | 5 | 表示打印机正在运行。 |
 
 
-## PrintJobState14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintJobState14+
 
 打印任务状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1150,13 +1053,13 @@ struct Index {
 | PRINT_JOB_COMPLETED | 4 | 表示打印任务完成。 |
 
 
-## PrintJobSubState14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintJobSubState14+
 
 打印任务子状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1195,13 +1098,13 @@ struct Index {
 | PRINT_JOB_BLOCK_UNKNOWN | 99 | 表示打印未知问题。 |
 
 
-## PrintErrorCode14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintErrorCode14+
 
 打印错误代码的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1216,18 +1119,18 @@ struct Index {
 | E_PRINT_INVALID_PRINT_JOB | 13100006 | 表示打印任务无效。 |
 | E_PRINT_FILE_IO | 13100007 | 表示文件输入/输出错误。 |
 | E_PRINT_TOO_MANY_FILES18+ | 13100010 | 表示文件数量超过上限，当前上限99个。 |
-| E_PRINT_SMB_LOGIN_LOCKOUT24+ | 13100012 | 表示当前SMB协议共享打印机账号因多次登录失败而被锁定。          模型约束： 此接口仅可在Stage模型下使用。 |
-| E_PRINT_SMB_CONNECTION_FAILURE24+ | 13100013 | 表示SMB协议共享打印机连接失败（发生网络错误、主机不可达或端口被阻止）。          模型约束： 此接口仅可在Stage模型下使用。 |
-| E_PRINT_SMB_INVALID_CREDENTIALS24+ | 13100014 | 表示SMB协议共享打印机账号/密码错误。          模型约束： 此接口仅可在Stage模型下使用。 |
+| E_PRINT_SMB_LOGIN_LOCKOUT24+ | 13100012 | 表示当前SMB协议共享打印机账号因多次登录失败而被锁定。 模型约束： 此接口仅可在Stage模型下使用。 |
+| E_PRINT_SMB_CONNECTION_FAILURE24+ | 13100013 | 表示SMB协议共享打印机连接失败（发生网络错误、主机不可达或端口被阻止）。 模型约束： 此接口仅可在Stage模型下使用。 |
+| E_PRINT_SMB_INVALID_CREDENTIALS24+ | 13100014 | 表示SMB协议共享打印机账号/密码错误。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
-## ApplicationEvent14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### ApplicationEvent14+
 
 打印应用事件的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1236,10 +1139,11 @@ struct Index {
 | APPLICATION_CLOSED_FOR_CANCELED | 2 | 表示由于点击取消而关闭打印应用的事件。 |
 
 
-## print.addPrinterToDiscovery14+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>
+
+##### print.addPrinterToDiscovery14+
+
+addPrinterToDiscovery(printerInformation: PrinterInformation): Promise&lt;void&gt;
 
 添加打印机到系统打印机发现列表，使用Promise异步回调。
 
@@ -1249,14 +1153,12 @@ addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| printerInformation | [PrinterInformation](#printerinformation14) | 是 | 表示新发现的打印机。 |
+| printerInformation | PrinterInformation | 是 | 表示新发现的打印机。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1267,7 +1169,6 @@ addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -1276,35 +1177,31 @@ addPrinterToDiscovery(printerInformation: PrinterInformation): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let printerInformation: print.PrinterInformation = {
-  printerId: 'testPrinterId',
-  printerName: 'testPrinterName',
-  printerStatus: 0,
-  description: 'testDesc',
-  uri: 'testUri',
-  printerMake: 'testPrinterMake',
-  options: 'testOps',
+let printerInformation : print.PrinterInformation = {
+    printerId : 'testPrinterId',
+    printerName : 'testPrinterName',
+    printerStatus : 0,
+    description : 'testDesc',
+    uri : 'testUri',
+    printerMake : 'testPrinterMake',
+    options : 'testOps'
 };
-print
-  .addPrinterToDiscovery(printerInformation)
-  .then(() => {
+print.addPrinterToDiscovery(printerInformation).then(() => {
     console.info('addPrinterToDiscovery success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('addPrinterToDiscovery error : ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## print.updatePrinterInDiscovery14+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>
+##### print.updatePrinterInDiscovery14+
+
+updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise&lt;void&gt;
 
 更新打印机能力到系统打印机发现列表，使用Promise异步回调。
 
@@ -1314,14 +1211,12 @@ updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| printerInformation | [PrinterInformation](#printerinformation14) | 是 | 表示待更新能力的打印机。 |
+| printerInformation | PrinterInformation | 是 | 表示待更新能力的打印机。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1332,7 +1227,6 @@ updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -1341,53 +1235,49 @@ updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let testPageSize: print.PrintPageSize = {
-  id: 'ISO_A4',
-  name: 'iso_a4_210x297mm',
-  width: 8268,
-  height: 11692,
+let testPageSize : print.PrintPageSize = {
+    id : 'ISO_A4',
+    name : 'iso_a4_210x297mm',
+    width : 8268,
+    height : 11692
 };
 
-let testCapability: print.PrinterCapabilities = {
-  supportedPageSizes: [testPageSize],
-  supportedColorModes: [print.PrintColorMode.COLOR_MODE_MONOCHROME],
-  supportedDuplexModes: [print.PrintDuplexMode.DUPLEX_MODE_NONE],
-  supportedMediaTypes: ['stationery'],
-  supportedQualities: [print.PrintQuality.QUALITY_NORMAL],
-  supportedOrientations: [print.PrintOrientationMode.ORIENTATION_MODE_PORTRAIT],
-  options: 'testOptions',
+let testCapability : print.PrinterCapabilities = {
+    supportedPageSizes : [testPageSize],
+    supportedColorModes : [print.PrintColorMode.COLOR_MODE_MONOCHROME],
+    supportedDuplexModes : [print.PrintDuplexMode.DUPLEX_MODE_NONE],
+    supportedMediaTypes : ['stationery'],
+    supportedQualities : [print.PrintQuality.QUALITY_NORMAL],
+    supportedOrientations : [print.PrintOrientationMode.ORIENTATION_MODE_PORTRAIT],
+    options : 'testOptions'
 };
 
-let printerInformation: print.PrinterInformation = {
-  printerId: 'testPrinterId',
-  printerName: 'testPrinterName',
-  printerStatus: 0,
-  description: 'testDesc',
-  capability: testCapability,
-  uri: 'testUri',
-  printerMake: 'testPrinterMake',
-  options: 'testOptions',
+let printerInformation : print.PrinterInformation = {
+    printerId : 'testPrinterId',
+    printerName : 'testPrinterName',
+    printerStatus : 0,
+    description : 'testDesc',
+    capability : testCapability,
+    uri : 'testUri',
+    printerMake : 'testPrinterMake',
+    options : 'testOptions'
 };
-print
-  .updatePrinterInDiscovery(printerInformation)
-  .then(() => {
+print.updatePrinterInDiscovery(printerInformation).then(() => {
     console.info('updatePrinterInDiscovery success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('updatePrinterInDiscovery error : ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## print.removePrinterFromDiscovery14+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-removePrinterFromDiscovery(printerId: string): Promise<void>
+##### print.removePrinterFromDiscovery14+
+
+removePrinterFromDiscovery(printerId: string): Promise&lt;void&gt;
 
 从系统打印机发现列表里移除打印机，使用Promise异步回调。
 
@@ -1397,14 +1287,12 @@ removePrinterFromDiscovery(printerId: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | printerId | string | 是 | 表示待移除的打印机。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1415,7 +1303,6 @@ removePrinterFromDiscovery(printerId: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -1424,29 +1311,23 @@ removePrinterFromDiscovery(printerId: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let printerId: string = 'testPrinterId';
-print
-  .removePrinterFromDiscovery(printerId)
-  .then(() => {
+let printerId : string = 'testPrinterId';
+print.removePrinterFromDiscovery(printerId).then(() => {
     console.info('removePrinterFromDiscovery success');
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      'removePrinterFromDiscovery error : ' + JSON.stringify(error),
-    );
-  });
+}).catch((error: BusinessError) => {
+    console.error('removePrinterFromDiscovery error : ' + JSON.stringify(error));
+})
 ```
 
 
-## print.getPrinterInformationById14+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getPrinterInformationById(printerId: string): Promise<PrinterInformation>
+##### print.getPrinterInformationById14+
+
+getPrinterInformationById(printerId: string): Promise&lt;PrinterInformation&gt;
 
 根据打印机id获取打印机信息，使用Promise异步回调。
 
@@ -1456,7 +1337,6 @@ getPrinterInformationById(printerId: string): Promise<PrinterInformation>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | printerId | string | 是 | 表示待获取信息的打印机id。 |
@@ -1464,16 +1344,14 @@ getPrinterInformationById(printerId: string): Promise<PrinterInformation>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PrinterInformation](#printerinformation14)&gt; | Promise对象，返回打印机信息。 |
+| Promise&lt;PrinterInformation&gt; | Promise对象，返回打印机信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1483,27 +1361,21 @@ getPrinterInformationById(printerId: string): Promise<PrinterInformation>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let printerId: string = 'testPrinterId';
-print
-  .getPrinterInformationById(printerId)
-  .then((printerInformation: print.PrinterInformation) => {
-    console.info(
-      'getPrinterInformationById data : ' + JSON.stringify(printerInformation),
-    );
-  })
-  .catch((error: BusinessError) => {
+let printerId : string = 'testPrinterId';
+print.getPrinterInformationById(printerId).then((printerInformation : print.PrinterInformation) => {
+    console.info('getPrinterInformationById data : ' + JSON.stringify(printerInformation));
+}).catch((error: BusinessError) => {
     console.error('getPrinterInformationById error : ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## PrinterInformation14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PrinterInformation14+
 
 定义打印机信息的接口。
 
@@ -1511,25 +1383,25 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | printerId | string | 否 | 否 | 表示打印机ID。 |
 | printerName | string | 否 | 否 | 表示打印机名称。 |
-| printerStatus | [PrinterStatus](#printerstatus14) | 否 | 否 | 表示当前打印机状态。 |
+| printerStatus | PrinterStatus | 否 | 否 | 表示当前打印机状态。 |
 | description | string | 否 | 是 | 表示打印机说明。 |
-| capability | [PrinterCapabilities](#printercapabilities14) | 否 | 是 | 表示打印机能力。 |
+| capability | PrinterCapabilities | 否 | 是 | 表示打印机能力。 |
 | uri | string | 否 | 是 | 表示打印机uri。 |
 | printerMake | string | 否 | 是 | 表示打印机型号。 |
-| preferences18+ | [PrinterPreferences](#printerpreferences18) | 否 | 是 | 表示打印机首选项。 |
+| preferences18+ | PrinterPreferences | 否 | 是 | 表示打印机首选项。 |
 | alias18+ | string | 否 | 是 | 表示打印机别名。 |
-| selectedDriver24+ | [PpdInfo](#ppdinfo24) | 否 | 是 | 表示添加打印机时选择的驱动的信息。          模型约束： 此接口仅可在Stage模型下使用。 |
-| selectedProtocol24+ | string | 否 | 是 | 表示添加打印机时使用的协议。          模型约束： 此接口仅可在Stage模型下使用。 |
+| selectedDriver24+ | PpdInfo | 否 | 是 | 表示添加打印机时选择的驱动的信息。 模型约束： 此接口仅可在Stage模型下使用。 |
+| selectedProtocol24+ | string | 否 | 是 | 表示添加打印机时使用的协议。 模型约束： 此接口仅可在Stage模型下使用。 |
 | options | string | 否 | 是 | 表示打印机详细信息。 |
 
 
-## PrinterCapabilities14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterCapabilities14+
 
 定义打印机能力的接口。
 
@@ -1537,25 +1409,24 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportedPageSizes | Array&lt;[PrintPageSize](#printpagesize11)&gt; | 否 | 否 | 表示打印机支持的纸张尺寸列表。 |
-| supportedColorModes | Array&lt;[PrintColorMode](#printcolormode11)&gt; | 否 | 否 | 表示打印机支持的色彩模式列表。 |
-| supportedDuplexModes | Array&lt;[PrintDuplexMode](#printduplexmode11)&gt; | 否 | 否 | 表示打印机支持的单双面模式列表。 |
+| supportedPageSizes | Array&lt;PrintPageSize&gt; | 否 | 否 | 表示打印机支持的纸张尺寸列表。 |
+| supportedColorModes | Array&lt;PrintColorMode&gt; | 否 | 否 | 表示打印机支持的色彩模式列表。 |
+| supportedDuplexModes | Array&lt;PrintDuplexMode&gt; | 否 | 否 | 表示打印机支持的单双面模式列表。 |
 | supportedMediaTypes | Array&lt;string&gt; | 否 | 是 | 表示打印机支持的纸张类型列表。 |
-| supportedQualities | Array&lt;[PrintQuality](#printquality14)&gt; | 否 | 是 | 表示打印机支持的打印质量列表。 |
-| supportedOrientations | Array&lt;[PrintOrientationMode](#printorientationmode14)&gt; | 否 | 是 | 表示打印机支持的打印方向列表。 |
+| supportedQualities | Array&lt;PrintQuality&gt; | 否 | 是 | 表示打印机支持的打印质量列表。 |
+| supportedOrientations | Array&lt;PrintOrientationMode&gt; | 否 | 是 | 表示打印机支持的打印方向列表。 |
 | options | string | 否 | 是 | 表示打印机能力详细信息。 |
 
 
-## PrintQuality14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintQuality14+
 
 打印质量的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1564,13 +1435,13 @@ print
 | QUALITY_HIGH | 5 | 表示最佳的打印质量。 |
 
 
-## PrintOrientationMode14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintOrientationMode14+
 
 打印方向的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1581,13 +1452,13 @@ print
 | ORIENTATION_MODE_NONE | 4 | 表示自适应方向打印。 |
 
 
-## PrinterStatus14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterStatus14+
 
 打印机状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1596,8 +1467,9 @@ print
 | PRINTER_UNAVAILABLE | 2 | 表示打印机脱机状态。 |
 
 
-## PrinterPreferences18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterPreferences18+
 
 定义打印机首选项的接口。
 
@@ -1605,28 +1477,27 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| defaultDuplexMode | [PrintDuplexMode](#printduplexmode11) | 否 | 是 | 表示默认单双面模式。 |
-| defaultPrintQuality | [PrintQuality](#printquality14) | 否 | 是 | 表示默认打印质量。 |
+| defaultDuplexMode | PrintDuplexMode | 否 | 是 | 表示默认单双面模式。 |
+| defaultPrintQuality | PrintQuality | 否 | 是 | 表示默认打印质量。 |
 | defaultMediaType | string | 否 | 是 | 表示默认纸张类型。 |
 | defaultPageSizeId | string | 否 | 是 | 表示默认纸张尺寸的ID，其范围包含国际标准化组织定义的标准纸张尺寸，如ISO_A4，和系统中定义的非标准的纸张尺寸，如Custom.178x254mm，表示这种纸张尺寸为178毫米 x 254毫米。 |
-| defaultOrientation | [PrintOrientationMode](#printorientationmode14) | 否 | 是 | 表示默认打印方向。 |
+| defaultOrientation | PrintOrientationMode | 否 | 是 | 表示默认打印方向。 |
 | borderless | boolean | 否 | 是 | 表示是否无边距打印，true表示无边距，false表示有边距。默认值为false。 |
-| defaultColorMode24+ | [PrintColorMode](#printcolormode11) | 否 | 是 | 表示默认色彩模式。默认值为黑白。          模型约束： 此接口仅可在Stage模型下使用。 |
-| defaultCollate24+ | boolean | 否 | 是 | 表示默认出纸顺序。true表示逐份打印，false表示逐页打印。默认值为逐份。          模型约束： 此接口仅可在Stage模型下使用。 |
-| defaultReverse24+ | boolean | 否 | 是 | 表示默认打印顺序。true表示逆序打印，false表示正序打印。默认值为正序打印。          模型约束： 此接口仅可在Stage模型下使用。 |
+| defaultColorMode24+ | PrintColorMode | 否 | 是 | 表示默认色彩模式。默认值为黑白。 模型约束： 此接口仅可在Stage模型下使用。 |
+| defaultCollate24+ | boolean | 否 | 是 | 表示默认出纸顺序。true表示逐份打印，false表示逐页打印。默认值为逐份。 模型约束： 此接口仅可在Stage模型下使用。 |
+| defaultReverse24+ | boolean | 否 | 是 | 表示默认打印顺序。true表示逆序打印，false表示正序打印。默认值为正序打印。 模型约束： 此接口仅可在Stage模型下使用。 |
 | options | string | 否 | 是 | 表示打印机首选项中不在以上字段中的其他字段，查询打印机或者从打印机驱动获取，以json格式存储在string中。 |
 
 
-## PrinterEvent18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterEvent18+
 
 打印机相关事件的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1638,13 +1509,13 @@ print
 | PRINTER_EVENT_LAST_USED_PRINTER_CHANGED | 5 | 表示上次使用的打印机的变化事件。 |
 
 
-## DefaultPrinterType18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### DefaultPrinterType18+
 
 默认打印类型的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1652,10 +1523,11 @@ print
 | DEFAULT_PRINTER_TYPE_LAST_USED_PRINTER | 1 | 表示自动将上次使用的打印机作为当前默认打印机。 |
 
 
-## print.getAddedPrinters18+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getAddedPrinters(): Promise<Array<string>>
+
+##### print.getAddedPrinters18+
+
+getAddedPrinters(): Promise<Array&lt;string&gt;>
 
 获取系统中已添加的打印机列表，使用Promise异步回调。
 
@@ -1665,16 +1537,14 @@ getAddedPrinters(): Promise<Array<string>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;string&gt;&gt; | Promise对象，返回包含所有已添加打印机的打印机ID的列表。 |
+| Promise<Array&lt;string&gt;> | Promise对象，返回包含所有已添加打印机的打印机ID的列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1683,27 +1553,21 @@ getAddedPrinters(): Promise<Array<string>>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-print
-  .getAddedPrinters()
-  .then((printers: string[]) => {
+print.getAddedPrinters().then((printers: string[]) => {
     console.info('getAddedPrinters success ' + JSON.stringify(printers));
     // ...
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      'failed to getAddedPrinters because ' + JSON.stringify(error),
-    );
-  });
+}).catch((error: BusinessError) => {
+    console.error('failed to getAddedPrinters because ' + JSON.stringify(error));
+})
 ```
 
 
-## PrinterChangeCallback18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PrinterChangeCallback18+
 
 type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterInformation) => void
 
@@ -1713,15 +1577,15 @@ type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterIn
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [PrinterEvent](#printerevent18) | 是 | 表示打印机事件。 |
-| printerInformation | [PrinterInformation](#printerinformation14) | 是 | 表示打印机信息。 |
+| event | PrinterEvent | 是 | 表示打印机事件。 |
+| printerInformation | PrinterInformation | 是 | 表示打印机信息。 |
 
 
-## print.on18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### print.on18+
 
 on(type: 'printerChange', callback: PrinterChangeCallback): void
 
@@ -1733,17 +1597,15 @@ on(type: 'printerChange', callback: PrinterChangeCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'printerChange' | 是 | 表示打印机变动事件。 |
-| callback | [PrinterChangeCallback](#printerchangecallback18) | 是 | 打印机变动之后的回调。 |
+| callback | PrinterChangeCallback | 是 | 打印机变动之后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1753,28 +1615,20 @@ on(type: 'printerChange', callback: PrinterChangeCallback): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 
 // Trigger this callback when a added printer is changed.
-let onPrinterChange = (
-  event: print.PrinterEvent,
-  printerInformation: print.PrinterInformation,
-) => {
-  console.info(
-    'printerChange, event: ' +
-      event +
-      ', printerInformation: ' +
-      JSON.stringify(printerInformation),
-  );
-};
+let onPrinterChange =
+    (event: print.PrinterEvent, printerInformation: print.PrinterInformation) => {
+        console.info('printerChange, event: ' + event + ', printerInformation: ' + JSON.stringify(printerInformation));
+    };
 print.on('printerChange', onPrinterChange);
 ```
 
 
-## print.off18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### print.off18+
 
 off(type: 'printerChange', callback?: PrinterChangeCallback): void
 
@@ -1786,17 +1640,15 @@ off(type: 'printerChange', callback?: PrinterChangeCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'printerChange' | 是 | 表示打印机变动事件。 |
-| callback | [PrinterChangeCallback](#printerchangecallback18) | 否 | 表示取消注册打印机变动事件后的回调。 |
+| callback | PrinterChangeCallback | 否 | 表示取消注册打印机变动事件后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1806,31 +1658,23 @@ off(type: 'printerChange', callback?: PrinterChangeCallback): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 
 // Trigger this callback when a added printer is changed.
-let onPrinterChange = (
-  event: print.PrinterEvent,
-  printerInformation: print.PrinterInformation,
-) => {
-  console.info(
-    'printerChange, event: ' +
-      event +
-      ', printerInformation: ' +
-      JSON.stringify(printerInformation),
-  );
-};
+let onPrinterChange =
+    (event: print.PrinterEvent, printerInformation: print.PrinterInformation) => {
+        console.info('printerChange, event: ' + event + ', printerInformation: ' + JSON.stringify(printerInformation));
+    };
 print.on('printerChange', onPrinterChange);
 print.off('printerChange');
 ```
 
 
-## print.startDiscoverPrinter20+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void
+##### print.startDiscoverPrinter20+
+
+startDiscoverPrinter(extensionList: Array&lt;string&gt;, callback: AsyncCallback&lt;void&gt;): void
 
 通过指定“打印扩展能力列表”来发现打印机，发现的打印机具备包含指定的打印扩展能力。如果指定空的打印扩展能力列表，则表示加载所有扩展能力。使用callback异步回调。
 
@@ -1840,17 +1684,15 @@ startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| extensionList | Array&lt;string&gt; | 是 | 要加载的[打印扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-printextensionability)列表，列表成员为打印扩展能力的包名，空列表表示加载所有扩展能力。 |
+| extensionList | Array&lt;string&gt; | 是 | 要加载的打印扩展能力列表，列表成员为打印扩展能力的包名，空列表表示加载所有扩展能力。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 异步开始发现打印机之后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1859,8 +1701,7 @@ startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1869,21 +1710,19 @@ let extensionList: string[] = [];
 // 通过指定自己应用的包名，在发现时加载自己的打印扩展能力
 // let extensionList: string[] = ['com.myapplication.test'];
 print.startDiscoverPrinter(extensionList, (err: BusinessError) => {
-  if (err) {
-    console.error(
-      'failed to start Discover Printer because : ' + JSON.stringify(err),
-    );
-  } else {
-    console.info('start Discover Printer success');
-  }
-});
+    if (err) {
+        console.error('failed to start Discover Printer because : ' + JSON.stringify(err));
+    } else {
+        console.info('start Discover Printer success');
+    }
+})
 ```
 
 
-## print.startDiscoverPrinter20+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-startDiscoverPrinter(extensionList: Array<string>): Promise<void>
+##### print.startDiscoverPrinter20+
+
+startDiscoverPrinter(extensionList: Array&lt;string&gt;): Promise&lt;void&gt;
 
 通过指定“打印扩展能力列表”来发现打印机，发现的打印机具备包含指定的打印扩展能力。如果指定空的打印扩展能力列表，则表示加载所有扩展能力，使用Promise异步回调。
 
@@ -1893,14 +1732,12 @@ startDiscoverPrinter(extensionList: Array<string>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| extensionList | Array&lt;string&gt; | 是 | 要加载的[打印扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-printextensionability)列表，列表成员为打印扩展能力的包名，空列表表示加载所有扩展能力。 |
+| extensionList | Array&lt;string&gt; | 是 | 要加载的打印扩展能力列表，列表成员为打印扩展能力的包名，空列表表示加载所有扩展能力。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1911,7 +1748,6 @@ startDiscoverPrinter(extensionList: Array<string>): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -1919,8 +1755,7 @@ startDiscoverPrinter(extensionList: Array<string>): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1928,23 +1763,18 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let extensionList: string[] = [];
 // 通过指定自己应用的包名，在发现时加载自己的打印扩展能力
 // let extensionList: string[] = ['com.myapplication.test'];
-print
-  .startDiscoverPrinter(extensionList)
-  .then(() => {
+print.startDiscoverPrinter(extensionList).then(() => {
     console.info('start Discovery success');
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      'failed to start Discovery because : ' + JSON.stringify(error),
-    );
-  });
+}).catch((error: BusinessError) => {
+    console.error('failed to start Discovery because : ' + JSON.stringify(error));
+})
 ```
 
 
-## print.stopDiscoverPrinter20+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-stopDiscoverPrinter(callback: AsyncCallback<void>): void
+##### print.stopDiscoverPrinter20+
+
+stopDiscoverPrinter(callback: AsyncCallback&lt;void&gt;): void
 
 停止发现打印机，使用callback异步回调。
 
@@ -1953,7 +1783,6 @@ stopDiscoverPrinter(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1964,7 +1793,6 @@ stopDiscoverPrinter(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -1972,27 +1800,24 @@ stopDiscoverPrinter(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 print.stopDiscoverPrinter((err: BusinessError) => {
-  if (err) {
-    console.error(
-      'failed to stop Discover Printer because : ' + JSON.stringify(err),
-    );
-  } else {
-    console.info('stop Discover Printer success');
-  }
-});
+    if (err) {
+        console.error('failed to stop Discover Printer because : ' + JSON.stringify(err));
+    } else {
+        console.info('stop Discover Printer success');
+    }
+})
 ```
 
 
-## print.stopDiscoverPrinter20+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-stopDiscoverPrinter(): Promise<void>
+##### print.stopDiscoverPrinter20+
+
+stopDiscoverPrinter(): Promise&lt;void&gt;
 
 停止发现打印机，使用Promise异步回调。
 
@@ -2001,7 +1826,6 @@ stopDiscoverPrinter(): Promise<void>
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2012,7 +1836,6 @@ stopDiscoverPrinter(): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -2020,28 +1843,22 @@ stopDiscoverPrinter(): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-print
-  .stopDiscoverPrinter()
-  .then(() => {
+print.stopDiscoverPrinter().then(() => {
     console.info('stop Discovery success');
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      'failed to stop Discovery because : ' + JSON.stringify(error),
-    );
-  });
+}).catch((error: BusinessError) => {
+    console.error('failed to stop Discovery because : ' + JSON.stringify(error));
+})
 ```
 
 
-## print.connectPrinter20+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-connectPrinter(printerId: string, callback: AsyncCallback<void>): void
+##### print.connectPrinter20+
+
+connectPrinter(printerId: string, callback: AsyncCallback&lt;void&gt;): void
 
 通过打印机ID连接打印机，使用callback异步回调。
 
@@ -2050,7 +1867,6 @@ connectPrinter(printerId: string, callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2062,7 +1878,6 @@ connectPrinter(printerId: string, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -2070,26 +1885,25 @@ connectPrinter(printerId: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let printerId: string = 'printerId_32';
 print.connectPrinter(printerId, (err: BusinessError) => {
-  if (err) {
-    console.error('failed to connect Printer because : ' + JSON.stringify(err));
-  } else {
-    console.info('start connect Printer success');
-  }
-});
+    if (err) {
+        console.error('failed to connect Printer because : ' + JSON.stringify(err));
+    } else {
+        console.info('start connect Printer success');
+    }
+})
 ```
 
 
-## print.connectPrinter20+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-connectPrinter(printerId: string): Promise<void>
+##### print.connectPrinter20+
+
+connectPrinter(printerId: string): Promise&lt;void&gt;
 
 通过打印机ID连接打印机，使用Promise异步回调。
 
@@ -2099,14 +1913,12 @@ connectPrinter(printerId: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | printerId | string | 是 | 打印机ID |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2117,7 +1929,6 @@ connectPrinter(printerId: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -2125,29 +1936,23 @@ connectPrinter(printerId: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let printerId: string = 'printerId_32';
-print
-  .connectPrinter(printerId)
-  .then(() => {
+print.connectPrinter(printerId).then(() => {
     console.info('start connect Printer success');
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      'failed to connect Printer because : ' + JSON.stringify(error),
-    );
-  });
+}).catch((error: BusinessError) => {
+    console.error('failed to connect Printer because : ' + JSON.stringify(error));
+})
 ```
 
 
-## print.startPrint23+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-startPrint(job: PrintJobData): Promise<void>
+##### print.startPrint23+
+
+startPrint(job: PrintJobData): Promise&lt;void&gt;
 
 打印接口，传入文件或者二进制数据进行打印，使用Promise异步回调。
 
@@ -2159,14 +1964,12 @@ startPrint(job: PrintJobData): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| job | [PrintJobData](#printjobdata23) | 是 | 打印任务数据。 |
+| job | PrintJobData | 是 | 打印任务数据。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2177,7 +1980,6 @@ startPrint(job: PrintJobData): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -2185,8 +1987,7 @@ startPrint(job: PrintJobData): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -2196,37 +1997,33 @@ let file: fileIo.File;
 file = fileIo.openSync(tempPath, 4);
 
 let printJobData: print.PrintJobData = {
-  printerId: 'printerId',
-  jobName: 'jobName',
-  documentFormat: print.PrintDocumentFormat.DOCUMENT_FORMAT_AUTO,
-  docFlavor: print.DocFlavor.FILE_DESCRIPTOR,
-  copyNumber: 1,
-  isLandscape: false,
-  colorMode: print.PrintColorMode.COLOR_MODE_MONOCHROME,
-  duplexMode: print.PrintDuplexMode.DUPLEX_MODE_NONE,
-  pageSize: { id: 'ISO_A4', name: 'ISO_A4', width: 8268, height: 11692 },
-  fdList: [file.fd],
-};
-print
-  .startPrint(printJobData)
-  .then(() => {
+    printerId: "printerId",
+    jobName: "jobName",
+    documentFormat: print.PrintDocumentFormat.DOCUMENT_FORMAT_AUTO,
+    docFlavor: print.DocFlavor.FILE_DESCRIPTOR,
+    copyNumber: 1,
+    isLandscape: false,
+    colorMode: print.PrintColorMode.COLOR_MODE_MONOCHROME,
+    duplexMode: print.PrintDuplexMode.DUPLEX_MODE_NONE,
+    pageSize: {id: "ISO_A4", name: "ISO_A4", width:8268, height: 11692},
+    fdList: [file.fd],
+}
+print.startPrint(printJobData).then(() => {
     console.info('start print success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('failed to print because : ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## PrintDocumentFormat23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PrintDocumentFormat23+
 
 打印数据格式的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -2238,8 +2035,9 @@ print
 | DOCUMENT_FORMAT_RAW | 5 | 表示RAW格式。 |
 
 
-## DocFlavor23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### DocFlavor23+
 
 打印数据来源形式的枚举。
 
@@ -2247,15 +2045,15 @@ print
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | FILE_DESCRIPTOR | 0 | 表示文件数据。 |
 | BYTES | 1 | 表示二进制数据。 |
 
 
-## PrintJobData23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintJobData23+
 
 定义打印任务的接口。
 
@@ -2263,22 +2061,21 @@ print
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | printerId | string | 否 | 否 | 表示打印机ID。 |
 | jobName | string | 否 | 否 | 表示打印任务名称。 |
-| documentFormat | [PrintDocumentFormat](#printdocumentformat23) | 否 | 否 | 表示打印数据格式。 |
-| docFlavor | [DocFlavor](#docflavor23) | 否 | 否 | 表示打印数据来源形式。 |
+| documentFormat | PrintDocumentFormat | 否 | 否 | 表示打印数据格式。 |
+| docFlavor | DocFlavor | 否 | 否 | 表示打印数据来源形式。 |
 | copyNumber | number | 否 | 否 | 表示文件列表副本数。 |
 | isLandscape | boolean | 否 | 否 | 表示是否横向打印。true表示横向打印，false表示纵向打印。默认值为false。 |
-| colorMode | [PrintColorMode](#printcolormode11) | 否 | 否 | 表示色彩模式。 |
-| duplexMode | [PrintDuplexMode](#printduplexmode11) | 否 | 否 | 表示单双面打印模式。 |
-| pageSize | [PrintPageSize](#printpagesize11) | 否 | 否 | 表示选定的页面尺寸。 |
+| colorMode | PrintColorMode | 否 | 否 | 表示色彩模式。 |
+| duplexMode | PrintDuplexMode | 否 | 否 | 表示单双面打印模式。 |
+| pageSize | PrintPageSize | 否 | 否 | 表示选定的页面尺寸。 |
 | jobId | string | 否 | 是 | 表示打印任务的唯一标识符。 |
 | fdList | number[]; | 否 | 是 | 表示待打印文件fd列表。 |
 | binaryData | Uint8Array | 否 | 是 | 表示待打印二进制数据。 |
-| printQuality | [PrintQuality](#printquality14) | 否 | 是 | 表示打印质量。 |
+| printQuality | PrintQuality | 否 | 是 | 表示打印质量。 |
 | mediaType | string | 否 | 是 | 表示打印纸张类型。 |
 | isBorderless | boolean | 否 | 是 | 表示是否无边框打印。true表示无边框打印，false表示有边框打印。默认值为true。 |
 | isAutoRotate | boolean | 否 | 是 | 表示是否自动旋转页面。true表示自动旋转页面，false表示不自动旋转页面。默认值为true。 |
@@ -2288,15 +2085,15 @@ print
 | options | string | 否 | 是 | 表示以JSON格式字符串化的对象。 |
 
 
-## PrintMargin24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintMargin24+
 
 定义打印页边距的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **属性：**
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2306,15 +2103,15 @@ print
 | right | number | 否 | 是 | 表示页面右边距。默认值为0。单位：毫米。 |
 
 
-## PrinterRange24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterRange24+
 
 定义打印范围的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **属性：**
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2323,8 +2120,9 @@ print
 | pages | Array&lt;number&gt; | 否 | 是 | 表示待打印的页面范围的集合。默认值为空。 |
 
 
-## PreviewAttribute24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PreviewAttribute24+
 
 定义打印预览属性的接口。
 
@@ -2332,22 +2130,21 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| previewRange | [PrinterRange](#printerrange24) | 否 | 否 | 表示预览页面范围。 |
+| previewRange | PrinterRange | 否 | 否 | 表示预览页面范围。 |
 | result | number | 否 | 是 | 表示预览文件结果。默认值为-1。 |
 
 
-## PrintResolution24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintResolution24+
 
 定义打印分辨率的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
 
 **属性：**
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2356,8 +2153,9 @@ print
 | verticalDpi | number | 否 | 否 | 表示垂直DPI。单位：DPI。 |
 
 
-## PrinterCapability24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterCapability24+
 
 定义打印能力的接口。
 
@@ -2365,19 +2163,19 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | colorMode | number | 否 | 否 | 表示色彩模式。 |
 | duplexMode | number | 否 | 否 | 表示单双面打印模式。 |
-| pageSize | Array&lt;[PrintPageSize](#printpagesize11)&gt; | 否 | 否 | 表示打印机支持的页面尺寸列表。 |
-| resolution | Array&lt;[PrintResolution](#printresolution24)&gt; | 否 | 是 | 表示打印机支持的分辨率列表。 |
-| minMargin | [PrintMargin](#printmargin24) | 否 | 是 | 表示打印机最小边距。 |
+| pageSize | Array&lt;PrintPageSize&gt; | 否 | 否 | 表示打印机支持的页面尺寸列表。 |
+| resolution | Array&lt;PrintResolution&gt; | 否 | 是 | 表示打印机支持的分辨率列表。 |
+| minMargin | PrintMargin | 否 | 是 | 表示打印机最小边距。 |
 | options | Object | 否 | 是 | 表示JSON对象字符串。 |
 
 
-## PrinterInfo24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrinterInfo24+
 
 定义打印信息的接口。
 
@@ -2385,20 +2183,20 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | printerId | string | 否 | 否 | 表示打印机ID。 |
 | printerName | string | 否 | 否 | 表示打印机名称。 |
-| printerState | [PrinterState](#printerstate14) | 否 | 否 | 表示当前打印机状态。 |
+| printerState | PrinterState | 否 | 否 | 表示当前打印机状态。 |
 | printerIcon | number | 否 | 是 | 表示打印机图标的资源ID。默认值为-1。 |
 | description | string | 否 | 是 | 表示打印机说明。 |
-| capability | [PrinterCapability](#printercapability24) | 否 | 是 | 表示打印机功能。 |
+| capability | PrinterCapability | 否 | 是 | 表示打印机功能。 |
 | options | Object | 否 | 是 | 表示JSON对象字符串。 |
 
 
-## PrintJob24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PrintJob24+
 
 定义打印任务的接口。
 
@@ -2406,30 +2204,30 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | fdList | Array&lt;number&gt; | 否 | 否 | 表示待打印文件fd列表。 |
 | jobId | string | 否 | 否 | 表示打印任务ID。 |
 | printerId | string | 否 | 否 | 表示负责打印的打印机ID。 |
-| jobState | [PrintJobState](#printjobstate14) | 否 | 否 | 表示当前打印任务状态。 |
-| jobSubstate | [PrintJobSubState](#printjobsubstate14) | 否 | 否 | 表示当前打印任务子状态。 |
+| jobState | PrintJobState | 否 | 否 | 表示当前打印任务状态。 |
+| jobSubstate | PrintJobSubState | 否 | 否 | 表示当前打印任务子状态。 |
 | copyNumber | number | 否 | 否 | 表示文件列表副本。 |
-| pageRange | [PrinterRange](#printerrange24) | 否 | 否 | 表示打印范围大小。 |
+| pageRange | PrinterRange | 否 | 否 | 表示打印范围大小。 |
 | isSequential | boolean | 否 | 否 | 表示是否连续打印。true表示连续打印，false表示不连续打印。默认值为false。 |
-| pageSize | [PrintPageSize](#printpagesize11) | 否 | 否 | 表示选定的页面尺寸。 |
+| pageSize | PrintPageSize | 否 | 否 | 表示选定的页面尺寸。 |
 | isLandscape | boolean | 否 | 否 | 表示是否横向打印。true表示横向打印，false表示纵向打印。默认值为false。 |
 | colorMode | number | 否 | 否 | 表示色彩模式。 |
 | duplexMode | number | 否 | 否 | 表示单双面打印模式。 |
-| margin | [PrintMargin](#printmargin24) | 否 | 是 | 表示当前页边距设置。 |
-| preview | [PreviewAttribute](#previewattribute24) | 否 | 是 | 表示预览设置。 |
+| margin | PrintMargin | 否 | 是 | 表示当前页边距设置。 |
+| preview | PreviewAttribute | 否 | 是 | 表示预览设置。 |
 | options | Object | 否 | 是 | 表示JSON对象字符串。 |
 
 
-## print.updatePrintJobState24+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<void>): void
+
+##### print.updatePrintJobState24+
+
+updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback&lt;void&gt;): void
 
 更新打印任务状态，使用callback异步回调。
 
@@ -2439,19 +2237,17 @@ updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubSt
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | jobId | string | 是 | 表示打印任务ID。 |
-| state | [PrintJobState](#printjobstate14) | 是 | 表示打印任务状态。 |
-| subState | [PrintJobSubState](#printjobsubstate14) | 是 | 表示打印任务子状态。 |
+| state | PrintJobState | 是 | 表示打印任务状态。 |
+| subState | PrintJobSubState | 是 | 表示打印任务子状态。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 异步更新打印任务状态之后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2461,31 +2257,27 @@ updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubSt
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let jobId: string = 'jobId';
-let state: print.PrintJobState = print.PrintJobState.PRINT_JOB_PREPARE;
-let subState: print.PrintJobSubState =
-  print.PrintJobSubState.PRINT_JOB_COMPLETED_SUCCESS;
+let jobId : string = 'jobId';
+let state : print.PrintJobState = print.PrintJobState.PRINT_JOB_PREPARE;
+let subState : print.PrintJobSubState = print.PrintJobSubState.PRINT_JOB_COMPLETED_SUCCESS;
 print.updatePrintJobState(jobId, state, subState, (err: BusinessError) => {
-  if (err) {
-    console.error(
-      'updatePrintJobState failed, because : ' + JSON.stringify(err),
-    );
-  } else {
-    console.info('updatePrintJobState success');
-  }
-});
+    if (err) {
+        console.error('updatePrintJobState failed, because : ' + JSON.stringify(err));
+    } else {
+        console.info('updatePrintJobState success');
+    }
+})
 ```
 
 
-## print.updatePrintJobState24+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>
+##### print.updatePrintJobState24+
+
+updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise&lt;void&gt;
 
 更新打印任务状态，使用Promise异步回调。
 
@@ -2495,16 +2287,14 @@ updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubSt
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | jobId | string | 是 | 表示打印任务ID。 |
-| state | [PrintJobState](#printjobstate14) | 是 | 表示打印任务状态。 |
-| subState | [PrintJobSubState](#printjobsubstate14) | 是 | 表示打印任务子状态。 |
+| state | PrintJobState | 是 | 表示打印任务状态。 |
+| subState | PrintJobSubState | 是 | 表示打印任务子状态。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2515,7 +2305,6 @@ updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubSt
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -2524,30 +2313,25 @@ updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubSt
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let jobId: string = 'jobId';
-let state: print.PrintJobState = print.PrintJobState.PRINT_JOB_PREPARE;
-let subState: print.PrintJobSubState =
-  print.PrintJobSubState.PRINT_JOB_COMPLETED_SUCCESS;
-print
-  .updatePrintJobState(jobId, state, subState)
-  .then(() => {
+let jobId : string = 'jobId';
+let state : print.PrintJobState = print.PrintJobState.PRINT_JOB_PREPARE;
+let subState : print.PrintJobSubState = print.PrintJobSubState.PRINT_JOB_COMPLETED_SUCCESS;
+print.updatePrintJobState(jobId, state, subState).then(() => {
     console.info('update print job state success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('update print job state error : ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## print.updatePrinterInformation24+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>
+##### print.updatePrinterInformation24+
+
+updatePrinterInformation(printerInformation: PrinterInformation): Promise&lt;void&gt;
 
 更新系统中打印机的部分信息，使用Promise异步回调。当前仅允许更新[PrinterInformation](#printerinformation14)的alias和options字段。
 
@@ -2557,14 +2341,12 @@ updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| printerInformation | [PrinterInformation](#printerinformation14) | 是 | 表示待更新信息的打印机。 |
+| printerInformation | PrinterInformation | 是 | 表示待更新信息的打印机。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2575,7 +2357,6 @@ updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -2584,51 +2365,47 @@ updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let testPageSize: print.PrintPageSize = {
-  id: 'ISO_A4',
-  name: 'iso_a4_210x297mm',
-  width: 8268,
-  height: 11692,
+let testPageSize : print.PrintPageSize = {
+    id : 'ISO_A4',
+    name : 'iso_a4_210x297mm',
+    width : 8268,
+    height : 11692
 };
 
-let testCapability: print.PrinterCapabilities = {
-  supportedPageSizes: [testPageSize],
-  supportedColorModes: [print.PrintColorMode.COLOR_MODE_MONOCHROME],
-  supportedDuplexModes: [print.PrintDuplexMode.DUPLEX_MODE_NONE],
-  supportedMediaTypes: ['stationery'],
-  supportedQualities: [print.PrintQuality.QUALITY_NORMAL],
-  supportedOrientations: [print.PrintOrientationMode.ORIENTATION_MODE_PORTRAIT],
-  options: 'testOptions',
+let testCapability : print.PrinterCapabilities = {
+    supportedPageSizes : [testPageSize],
+    supportedColorModes : [print.PrintColorMode.COLOR_MODE_MONOCHROME],
+    supportedDuplexModes : [print.PrintDuplexMode.DUPLEX_MODE_NONE],
+    supportedMediaTypes : ['stationery'],
+    supportedQualities : [print.PrintQuality.QUALITY_NORMAL],
+    supportedOrientations : [print.PrintOrientationMode.ORIENTATION_MODE_PORTRAIT],
+    options : 'testOptions'
 };
 
-let printerInformation: print.PrinterInformation = {
-  printerId: 'testPrinterId',
-  printerName: 'testPrinterName',
-  printerStatus: 0,
-  description: 'testDesc',
-  capability: testCapability,
-  uri: 'testUri',
-  printerMake: 'testPrinterMake',
-  options: 'testOptions',
+let printerInformation : print.PrinterInformation = {
+    printerId : 'testPrinterId',
+    printerName : 'testPrinterName',
+    printerStatus : 0,
+    description : 'testDesc',
+    capability : testCapability,
+    uri : 'testUri',
+    printerMake : 'testPrinterMake',
+    options : 'testOptions'
 };
-print
-  .updatePrinterInformation(printerInformation)
-  .then(() => {
+print.updatePrinterInformation(printerInformation).then(() => {
     console.info('updatePrinterInformation success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('updatePrinterInformation error : ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## PpdInfo24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### PpdInfo24+
 
 定义打印机所使用驱动的PPD文件信息的接口。
 
@@ -2638,7 +2415,6 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | manufacturer | string | 否 | 否 | 表示当前PPD文件内的打印机厂商名称。 |
@@ -2646,8 +2422,9 @@ print
 | ppdName | string | 否 | 否 | 表示当前PPD文件的名称。 |
 
 
-## SharedHost24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### SharedHost24+
 
 定义共享设备信息的接口。
 
@@ -2657,7 +2434,6 @@ print
 
 **属性：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | ip | string | 否 | 否 | 表示共享设备的IP地址。 |
@@ -2665,10 +2441,11 @@ print
 | workgroupName | string | 否 | 否 | 表示共享设备的工作组名称。 |
 
 
-## print.addPrinter24+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise<boolean>
+
+##### print.addPrinter24+
+
+addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise&lt;boolean&gt;
 
 添加打印机到系统中，使用Promise异步回调。
 
@@ -2680,7 +2457,6 @@ addPrinter(printerName: string, uri: string, ppdName?: string, options?: string)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | printerName | string | 是 | 表示打印机名称。 |
@@ -2691,7 +2467,6 @@ addPrinter(printerName: string, uri: string, ppdName?: string, options?: string)
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回添加打印机成功与否的结果。 |
@@ -2701,7 +2476,6 @@ addPrinter(printerName: string, uri: string, ppdName?: string, options?: string)
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | the application does not have permission to call this function. |
@@ -2710,27 +2484,23 @@ addPrinter(printerName: string, uri: string, ppdName?: string, options?: string)
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let printerName: string = 'printerName';
-let uri: string = 'uri';
-let ppdName: string = 'ppdName';
-print
-  .addPrinter(printerName, uri, ppdName)
-  .then(() => {
+let printerName : string = 'printerName';
+let uri : string = 'uri';
+let ppdName : string = 'ppdName';
+print.addPrinter(printerName, uri, ppdName).then(() => {
     console.info('add printer success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('add printer error : ' + JSON.stringify(error));
-  });
+})
 ```
 
 
-## WatermarkHandleResult24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### WatermarkHandleResult24+
 
 强制水印处理结果的枚举。
 
@@ -2738,15 +2508,15 @@ print
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | WATERMARK_HANDLE_SUCCESS | 0 | 表示强制水印处理成功。 |
 | WATERMARK_HANDLE_FAILURE | 1 | 表示强制水印处理失败。 |
 
 
-## print.WatermarkCallback24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### print.WatermarkCallback24+
 
 type WatermarkCallback = (jobId: string, fd: number) => void
 
@@ -2758,15 +2528,15 @@ type WatermarkCallback = (jobId: string, fd: number) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | jobId | string | 是 | 表示当前打印任务的id。 |
 | fd | number | 是 | 表示当前文件的文件描述符。 |
 
 
-## print.registerWatermarkCallback24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### print.registerWatermarkCallback24+
 
 registerWatermarkCallback(callback: WatermarkCallback): void
 
@@ -2780,16 +2550,14 @@ registerWatermarkCallback(callback: WatermarkCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [WatermarkCallback](#printwatermarkcallback24) | 是 | 表示注册强制水印处理的监听事件时使用的回调类型。 |
+| callback | WatermarkCallback | 是 | 表示注册强制水印处理的监听事件时使用的回调类型。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2798,29 +2566,25 @@ registerWatermarkCallback(callback: WatermarkCallback): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let watermarkCallback: print.WatermarkCallback = (
-  jobId: string,
-  fd: number,
-) => {
-  console.info('Watermark callback triggered, jobId: ' + jobId + ', fd: ' + fd);
-};
+let watermarkCallback: print.WatermarkCallback = (jobId: string, fd: number) => {
+    console.info('Watermark callback triggered, jobId: ' + jobId + ', fd: ' + fd);
+}
 
 try {
-  print.registerWatermarkCallback(watermarkCallback);
-  console.info('registerWatermarkCallback success');
+    print.registerWatermarkCallback(watermarkCallback);
+    console.info('registerWatermarkCallback success');
 } catch (error) {
-  console.error('registerWatermarkCallback error: ' + JSON.stringify(error));
+    console.error('registerWatermarkCallback error: ' + JSON.stringify(error));
 }
 ```
 
 
-## print.unregisterWatermarkCallback24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### print.unregisterWatermarkCallback24+
 
 unregisterWatermarkCallback(callback?: WatermarkCallback): void
 
@@ -2834,16 +2598,14 @@ unregisterWatermarkCallback(callback?: WatermarkCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [WatermarkCallback](#printwatermarkcallback24) | 否 | 表示注册监听强制水印处理时使用的回调类型。 |
+| callback | WatermarkCallback | 否 | 表示注册监听强制水印处理时使用的回调类型。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2852,32 +2614,28 @@ unregisterWatermarkCallback(callback?: WatermarkCallback): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let watermarkCallback: print.WatermarkCallback = (
-  jobId: string,
-  fd: number,
-) => {
-  console.info('Watermark callback triggered, jobId: ' + jobId + ', fd: ' + fd);
-};
+let watermarkCallback: print.WatermarkCallback = (jobId: string, fd: number) => {
+    console.info('Watermark callback triggered, jobId: ' + jobId + ', fd: ' + fd);
+}
 
 try {
-  print.registerWatermarkCallback(watermarkCallback);
-  console.info('registerWatermarkCallback success');
-  // 取消注册指定的水印处理回调
-  print.unregisterWatermarkCallback(watermarkCallback);
-  console.info('unregisterWatermarkCallback success');
+    print.registerWatermarkCallback(watermarkCallback);
+    console.info('registerWatermarkCallback success');
+    // 取消注册指定的水印处理回调
+    print.unregisterWatermarkCallback(watermarkCallback);
+    console.info('unregisterWatermarkCallback success');
 } catch (error) {
-  console.error('unregisterWatermarkCallback error: ' + JSON.stringify(error));
+    console.error('unregisterWatermarkCallback error: ' + JSON.stringify(error));
 }
 ```
 
 
-## print.notifyWatermarkComplete24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### print.notifyWatermarkComplete24+
 
 notifyWatermarkComplete(jobId: string, result: WatermarkHandleResult): void
 
@@ -2891,17 +2649,15 @@ notifyWatermarkComplete(jobId: string, result: WatermarkHandleResult): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | jobId | string | 是 | 表示打印任务ID。 |
-| result | [WatermarkHandleResult](#watermarkhandleresult24) | 是 | 表示水印处理结果。 |
+| result | WatermarkHandleResult | 是 | 表示水印处理结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2910,33 +2666,26 @@ notifyWatermarkComplete(jobId: string, result: WatermarkHandleResult): void
 
 **示例：**
 
-
-```ts
+```json
 import { print } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let watermarkCallback: print.WatermarkCallback = (
-  jobId: string,
-  fd: number,
-) => {
-  console.info('Watermark callback triggered, jobId: ' + jobId + ', fd: ' + fd);
+let watermarkCallback: print.WatermarkCallback = (jobId: string, fd: number) => {
+    console.info('Watermark callback triggered, jobId: ' + jobId + ', fd: ' + fd);
 
-  try {
-    // 处理水印后通知系统处理成功
-    print.notifyWatermarkComplete(
-      jobId,
-      print.WatermarkHandleResult.WATERMARK_HANDLE_SUCCESS,
-    );
-    console.info('notifyWatermarkComplete success');
-  } catch (error) {
-    console.error('notifyWatermarkComplete error: ' + JSON.stringify(error));
-  }
-};
+    try {
+        // 处理水印后通知系统处理成功
+        print.notifyWatermarkComplete(jobId, print.WatermarkHandleResult.WATERMARK_HANDLE_SUCCESS);
+        console.info('notifyWatermarkComplete success');
+    } catch (error) {
+        console.error('notifyWatermarkComplete error: ' + JSON.stringify(error));
+    }
+}
 
 try {
-  print.registerWatermarkCallback(watermarkCallback);
-  console.info('registerWatermarkCallback success');
+    print.registerWatermarkCallback(watermarkCallback);
+    console.info('registerWatermarkCallback success');
 } catch (error) {
-  console.error('registerWatermarkCallback error: ' + JSON.stringify(error));
+    console.error('registerWatermarkCallback error: ' + JSON.stringify(error));
 }
 ```

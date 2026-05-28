@@ -3,82 +3,78 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-key-event-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供NativeKeyEvent相关接口定义。
-
+ 
 **引用文件：** <arkui/native_key_event.h>
-
+ 
 **库：** libace_ndk.z.so
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **起始版本：** 14
-
+ 
 **相关模块：** [ArkUI_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule)
-
+ 
 **相关示例：** [NdkKeyEvent](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NdkKeyEvent)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ArkUI_KeyCode](#arkui_keycode) | ArkUI_KeyCode | 按键事件的键码。 |
-| [ArkUI_KeyEventType](#arkui_keyeventtype) | ArkUI_KeyEventType | 按键的类型。 |
-| [ArkUI_KeySourceType](#arkui_keysourcetype) | ArkUI_KeySourceType | 触发当前按键的输入设备类型。 |
-| [ArkUI_KeyIntension](#arkui_keyintension) | ArkUI_KeyIntension | 按键对应的意图。 |
+| ArkUI_KeyCode | ArkUI_KeyCode | 按键事件的键码。 |
+| ArkUI_KeyEventType | ArkUI_KeyEventType | 按键的类型。 |
+| ArkUI_KeySourceType | ArkUI_KeySourceType | 触发当前按键的输入设备类型。 |
+| ArkUI_KeyIntension | ArkUI_KeyIntension | 按键对应的意图。 |
+ 
+ 
+  
 
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 函数
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [ArkUI_KeyEventType OH_ArkUI_KeyEvent_GetType(const ArkUI_UIInputEvent* event)](#oh_arkui_keyevent_gettype) | 获取按键的类型。 |
-| [int32_t OH_ArkUI_KeyEvent_GetKeyCode(const ArkUI_UIInputEvent* event)](#oh_arkui_keyevent_getkeycode) | 获取按键的键码。 |
-| [const char OH_ArkUI_KeyEvent_GetKeyText(const ArkUI_UIInputEvent event)](#oh_arkui_keyevent_getkeytext) | 获取按键的键值。 |
-| [ArkUI_KeySourceType OH_ArkUI_KeyEvent_GetKeySource(const ArkUI_UIInputEvent* event)](#oh_arkui_keyevent_getkeysource) | 获取当前按键的输入设备类型。 |
-| [void OH_ArkUI_KeyEvent_StopPropagation(const ArkUI_UIInputEvent* event, bool stopPropagation)](#oh_arkui_keyevent_stoppropagation) | 阻塞事件冒泡传递。 |
-| [ArkUI_KeyIntension OH_ArkUI_KeyEvent_GetKeyIntensionCode(const ArkUI_UIInputEvent* event)](#oh_arkui_keyevent_getkeyintensioncode) | 获取按键对应的意图。 |
-| [uint32_t OH_ArkUI_KeyEvent_GetUnicode(const ArkUI_UIInputEvent* event)](#oh_arkui_keyevent_getunicode) | 获取按键的Unicode码值。支持范围为非空格的基本拉丁字符：0x0021-0x007E，不支持字符为0。组合键场景下，返回当前keyEvent对应按键的Unicode码值。 |
-| [void OH_ArkUI_KeyEvent_SetConsumed(const ArkUI_UIInputEvent* event, bool isConsumed)](#oh_arkui_keyevent_setconsumed) | 在按键事件回调中，设置事件是否被该回调消费。 |
-| [void OH_ArkUI_KeyEvent_Dispatch(ArkUI_NodeHandle node, const ArkUI_UIInputEvent* event)](#oh_arkui_keyevent_dispatch) | 将按键事件分发到特定组件节点。 |
-| [ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsNumLockOn(const ArkUI_UIInputEvent* event, bool* state)](#oh_arkui_keyevent_isnumlockon) | 获取按键事件发生时NumLock的状态。 |
-| [ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsCapsLockOn(const ArkUI_UIInputEvent* event, bool* state)](#oh_arkui_keyevent_iscapslockon) | 获取按键事件发生时CapsLock的状态。 |
-| [ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsScrollLockOn(const ArkUI_UIInputEvent* event, bool* state)](#oh_arkui_keyevent_isscrolllockon) | 获取按键事件发生时ScrollLock的状态。 |
+| ArkUI_KeyEventType OH_ArkUI_KeyEvent_GetType(const ArkUI_UIInputEvent* event) | 获取按键的类型。 |
+| int32_t OH_ArkUI_KeyEvent_GetKeyCode(const ArkUI_UIInputEvent* event) | 获取按键的键码。 |
+| const char OH_ArkUI_KeyEvent_GetKeyText(const ArkUI_UIInputEvent event) | 获取按键的键值。 |
+| ArkUI_KeySourceType OH_ArkUI_KeyEvent_GetKeySource(const ArkUI_UIInputEvent* event) | 获取当前按键的输入设备类型。 |
+| void OH_ArkUI_KeyEvent_StopPropagation(const ArkUI_UIInputEvent* event, bool stopPropagation) | 阻塞事件冒泡传递。 |
+| ArkUI_KeyIntension OH_ArkUI_KeyEvent_GetKeyIntensionCode(const ArkUI_UIInputEvent* event) | 获取按键对应的意图。 |
+| uint32_t OH_ArkUI_KeyEvent_GetUnicode(const ArkUI_UIInputEvent* event) | 获取按键的Unicode码值。支持范围为非空格的基本拉丁字符：0x0021-0x007E，不支持字符为0。组合键场景下，返回当前keyEvent对应按键的Unicode码值。 |
+| void OH_ArkUI_KeyEvent_SetConsumed(const ArkUI_UIInputEvent* event, bool isConsumed) | 在按键事件回调中，设置事件是否被该回调消费。 |
+| void OH_ArkUI_KeyEvent_Dispatch(ArkUI_NodeHandle node, const ArkUI_UIInputEvent* event) | 将按键事件分发到特定组件节点。 |
+| ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsNumLockOn(const ArkUI_UIInputEvent* event, bool* state) | 获取按键事件发生时NumLock的状态。 |
+| ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsCapsLockOn(const ArkUI_UIInputEvent* event, bool* state) | 获取按键事件发生时CapsLock的状态。 |
+| ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsScrollLockOn(const ArkUI_UIInputEvent* event, bool* state) | 获取按键事件发生时ScrollLock的状态。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### ArkUI_KeyCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ArkUI_KeyCode
 
 ```text
 enum ArkUI_KeyCode
 ```
-
+ 
 **描述：**
-
+ 
 按键事件的键码。
-
+ 
 **起始版本：** 14
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ARKUI_KEYCODE_UNKNOWN = -1 | 未知按键。 |
@@ -186,7 +182,7 @@ enum ArkUI_KeyCode
 | ARKUI_KEYCODE_F3 = 2092 | 按键'F3'。 |
 | ARKUI_KEYCODE_F4 = 2093 | 按键'F4'。 |
 | ARKUI_KEYCODE_F5 = 2094 | 按键'F5'。 |
-| ARKUI_KEYCODE_F6 = 2095 | ��键'F6'。 |
+| ARKUI_KEYCODE_F6 = 2095 | 按键'F6'。 |
 | ARKUI_KEYCODE_F7 = 2096 | 按键'F7'。 |
 | ARKUI_KEYCODE_F8 = 2097 | 按键'F8'。 |
 | ARKUI_KEYCODE_F9 = 2098 | 按键'F9'。 |
@@ -227,23 +223,22 @@ enum ArkUI_KeyCode
 | ARKUI_KEYCODE_BUTTON_MODE = 2313 | 游戏手柄按键'Mode'。 起始版本： 15 |
 | ARKUI_KEYCODE_BUTTON_THUMBL = 2314 | 游戏手柄按键'THUMBL'。 起始版本： 15 |
 | ARKUI_KEYCODE_BUTTON_THUMBR = 2315 | 游戏手柄按键'THUMBR'。 起始版本： 15 |
+ 
+ 
+  
 
-
-### ArkUI_KeyEventType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ArkUI_KeyEventType
 
 ```text
 enum ArkUI_KeyEventType
 ```
-
+ 
 **描述：**
-
+ 
 按键的类型。
-
+ 
 **起始版本：** 14
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ARKUI_KEY_EVENT_UNKNOWN = -1 | 未知类型。 |
@@ -251,46 +246,44 @@ enum ArkUI_KeyEventType
 | ARKUI_KEY_EVENT_UP = 1 | 按键松开。 |
 | ARKUI_KEY_EVENT_LONG_PRESS = 2 | 按键长按。 |
 | ARKUI_KEY_EVENT_CLICK = 3 | 按键点击。 |
+ 
+ 
+  
 
-
-### ArkUI_KeySourceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ArkUI_KeySourceType
 
 ```text
 enum ArkUI_KeySourceType
 ```
-
+ 
 **描述：**
-
+ 
 触发当前按键的输入设备类型。
-
+ 
 **起始版本：** 14
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ARKUI_KEY_SOURCE_UNKNOWN = 0 | 未知类型。 |
 | ARKUI_KEY_SOURCE_TYPE_MOUSE = 1 | 鼠标。 |
 | ARKUI_KEY_SOURCE_TYPE_KEYBOARD = 4 | 键盘。 |
 | ARKUI_KEY_SOURCE_TYPE_JOYSTICK = 5 | 游戏手柄。 起始版本： 15 |
+ 
+ 
+  
 
-
-### ArkUI_KeyIntension
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ArkUI_KeyIntension
 
 ```text
 enum ArkUI_KeyIntension
 ```
-
+ 
 **描述：**
-
+ 
 按键对应的意图。
-
+ 
 **起始版本：** 14
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ARKUI_KEY_INTENSION_UNKNOWN = -1 | 未知意图。 |
@@ -318,349 +311,328 @@ enum ArkUI_KeyIntension
 | ARKUI_KEY_INTENTION_VOLUME_DOWN = 108 | 音量降低。 |
 | ARKUI_KEY_INTENTION_CALL = 200 | 接听电话。 |
 | ARKUI_KEY_INTENTION_CAMERA = 300 | 拍照。 |
+ 
+ 
+  
 
+##### 函数说明
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_ArkUI_KeyEvent_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_GetType()
 
 ```text
 ArkUI_KeyEventType OH_ArkUI_KeyEvent_GetType(const ArkUI_UIInputEvent* event)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键的类型。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
-
-
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [ArkUI_KeyEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-key-event-h#arkui_keyeventtype) | ArkUI_KeyEventType 按键的类型。 |
+| ArkUI_KeyEventType | ArkUI_KeyEventType 按键的类型。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_GetKeyCode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_GetKeyCode()
 
 ```text
 int32_t OH_ArkUI_KeyEvent_GetKeyCode(const ArkUI_UIInputEvent* event)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键的键码。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
-
-
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 按键的键码。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_GetKeyText()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_GetKeyText()
 
 ```text
 const char *OH_ArkUI_KeyEvent_GetKeyText(const ArkUI_UIInputEvent* event)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键的键值。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
-
-
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | const char * | 按键的键值。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_GetKeySource()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_GetKeySource()
 
 ```text
 ArkUI_KeySourceType OH_ArkUI_KeyEvent_GetKeySource(const ArkUI_UIInputEvent* event)
 ```
-
+ 
 **描述：**
-
+ 
 获取当前按键的输入设备类型。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
-
-
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [ArkUI_KeySourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-key-event-h#arkui_keysourcetype) | ArkUI_KeySourceType 当前按键的输入设备类型。 |
+| ArkUI_KeySourceType | ArkUI_KeySourceType 当前按键的输入设备类型。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_StopPropagation()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_StopPropagation()
 
 ```text
 void OH_ArkUI_KeyEvent_StopPropagation(const ArkUI_UIInputEvent* event, bool stopPropagation)
 ```
-
+ 
 **描述：**
-
+ 
 阻塞事件冒泡传递。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
 | bool stopPropagation | 表示是否阻止事件冒泡。true表示阻止事件冒泡，false表示不阻止事件冒泡。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_GetKeyIntensionCode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_GetKeyIntensionCode()
 
 ```text
 ArkUI_KeyIntension OH_ArkUI_KeyEvent_GetKeyIntensionCode(const ArkUI_UIInputEvent* event)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键对应的意图。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
-
-
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [ArkUI_KeyIntension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-key-event-h#arkui_keyintension) | ArkUI_KeyIntension 按键对应的意图。 |
+| ArkUI_KeyIntension | ArkUI_KeyIntension 按键对应的意图。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_GetUnicode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_GetUnicode()
 
 ```text
 uint32_t OH_ArkUI_KeyEvent_GetUnicode(const ArkUI_UIInputEvent* event)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键的Unicode码值。支持范围为非空格的基本拉丁字符：0x0021-0x007E，不支持字符为0。组合键场景下，返回当前keyEvent对应按键的Unicode码值。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
-
-
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | uint32_t | Unicode码值。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_SetConsumed()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_SetConsumed()
 
 ```text
 void OH_ArkUI_KeyEvent_SetConsumed(const ArkUI_UIInputEvent* event, bool isConsumed)
 ```
-
+ 
 **描述：**
-
+ 
 在按键事件回调中，设置事件是否被该回调消费。
-
+ 
 **起始版本：** 14
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
 | bool isConsumed | 事件是否被该回调消费。true表示事件被消费，false表示事件未被消费。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_Dispatch()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_Dispatch()
 
 ```text
 void OH_ArkUI_KeyEvent_Dispatch(ArkUI_NodeHandle node, const ArkUI_UIInputEvent* event)
 ```
-
+ 
 **描述：**
-
+ 
 将按键事件分发到特定组件节点。
-
+ 
 **起始版本：** 15
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [ArkUI_NodeHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-node8h) node | 指定的节点。 |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
+| ArkUI_NodeHandle node | 指定的节点。 |
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_IsNumLockOn()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_IsNumLockOn()
 
 ```text
 ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsNumLockOn(const ArkUI_UIInputEvent* event, bool* state)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键事件发生时NumLock的状态。
-
+ 
 **起始版本：** 19
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
 | bool* state | 输出参数，返回NumLock的状态。true表示处于激活状态，false表示处于未激活状态。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) | 错误码。  [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。  [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_IsCapsLockOn()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_IsCapsLockOn()
 
 ```text
 ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsCapsLockOn(const ArkUI_UIInputEvent* event, bool* state)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键事件发生时CapsLock的状态。
-
+ 
 **起始版本：** 19
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
 | bool* state | 输出参数，返回CapsLock的状态。true表示处于激活状态，false表示处于未激活状态。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) | 错误码。  [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。  [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+ 
+ 
+  
 
-
-### OH_ArkUI_KeyEvent_IsScrollLockOn()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_ArkUI_KeyEvent_IsScrollLockOn()
 
 ```text
 ArkUI_ErrorCode OH_ArkUI_KeyEvent_IsScrollLockOn(const ArkUI_UIInputEvent* event, bool* state)
 ```
-
+ 
 **描述：**
-
+ 
 获取按键事件发生时ScrollLock的状态。
-
+ 
 **起始版本：** 19
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [const ArkUI_UIInputEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-eventmodule-arkui-uiinputevent)* event | ArkUI_UIInputEvent事件指针。 |
+| const ArkUI_UIInputEvent* event | ArkUI_UIInputEvent事件指针。 |
 | bool* state | 输出参数，返回ScrollLock的状态。true表示处于激活状态，false表示处于未激活状态。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) | 错误码。  [ARKUI_ERROR_CODE_NO_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 成功。  [ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode) 函数参数异常。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |

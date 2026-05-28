@@ -3,26 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsmaterial
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供材质效果能力，支持通过配置材质类型、等级等参数，实现多样化的材质表现。
 
 **起始版本：** 6.1.0(23)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 导入模块
 
-
-```ts
+```text
 import { hdsMaterial } from '@kit.UIDesignKit';
 ```
 
 
-## getSystemMaterialTypes
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getSystemMaterialTypes(): Array<MaterialType>
+##### getSystemMaterialTypes
+
+getSystemMaterialTypes(): Array&lt;MaterialType&gt;
 
 获取设备支持的所有材质类型。
 
@@ -36,34 +34,29 @@ getSystemMaterialTypes(): Array<MaterialType>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[MaterialType](#materialtype)&gt; | 设备支持的材质类型。 |
+| Array&lt;MaterialType&gt; | 设备支持的材质类型。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { hdsMaterial } from '@kit.UIDesignKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let materialTypes: Array<hdsMaterial.MaterialType> =
-    hdsMaterial.getSystemMaterialTypes();
+  let materialTypes: Array<hdsMaterial.MaterialType> = hdsMaterial.getSystemMaterialTypes();
 } catch (err) {
   let message = (err as BusinessError).message;
   let code = (err as BusinessError).code;
-  console.error(
-    `getSystemMaterialTypes failed, code: ${code}, message: ${message}`,
-  );
+  console.error(`getSystemMaterialTypes failed, code: ${code}, message: ${message}`);
 }
 ```
 
 
-## MaterialType
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### MaterialType
 
 材质类型枚举。
 
@@ -75,7 +68,6 @@ try {
 
 **起始版本：** 6.1.0(23)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NONE | 0 | 无材质效果。 |
@@ -83,8 +75,9 @@ try {
 | IMMERSIVE | 101 | 沉浸式材质（新材质）。 |
 
 
-## MaterialLevel
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### MaterialLevel
 
 材质等级枚举。各等级效果承载在支持配置材质属性的组件上，其中精美等级材质需要耗费的性能更多，流畅等级材质需要耗费的性能较少。
 
@@ -96,7 +89,6 @@ try {
 
 **起始版本：** 6.1.0(23)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | EXQUISITE | 0 | 精美。 |
@@ -106,4 +98,4 @@ try {
 
 
 > [!NOTE]
-> 详细使用指导： 请参见HDS组件使用沉浸光感材质指南。
+> 推荐使用默认值ADAPTIVE档位： 该模式下，系统会根据当前设备的算力动态调整组件的材质效果，实现性能与显示效果的最佳平衡体验。 若未采用系统自适应能力。 请先调用 getSystemMaterialTypes() 接口查询当前设备支持的材质能力，再根据查询结果选用相应的材质效果枚举： 如果查询结果显示当前设备支持IMMERSIVE材质类型，可选用EXQUISITE或GENTLE效果。 如果查询结果显示当前设备不支持IMMERSIVE材质类型，则建议使用SMOOTH效果，以降低卡顿和发热风险，保障用户体验。 详细使用指导： 请参见 HDS组件使用沉浸光感材质指南 。

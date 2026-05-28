@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-mdns
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 说明文档。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
-
-## 2100002 连接服务失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 2100002 连接服务失败
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Failed to connect to the service.
 检查系统服务运行状态是否正常。
 
 
-## 2100003 系统内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2100003 系统内部错误
 
 **错误信息**
 
@@ -54,8 +53,8 @@ System internal error.
 2.系统异常，请稍后重试或重启设备。
 
 
-## 2204003 重复注册
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2204003 重复注册
 
 **错误信息**
 
@@ -74,7 +73,8 @@ callback 已经存在。
 检查mDNS服务是否存在。
 
 
-## 2204007 服务已存在
+
+##### 2204007 服务已存在
 
 **错误信息**
 
@@ -93,8 +93,8 @@ Service instance duplicated.
 检查mDNS服务是否存在。
 
 
-## 2204008 删除服务失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2204008 删除服务失败
 
 **错误信息**
 
@@ -113,7 +113,8 @@ Failed to delete the service instance.
 检查mDNS服务是否存在。
 
 
-## 2204009 发送数据报文失败
+
+##### 2204009 发送数据报文失败
 
 **错误信息**
 
@@ -132,8 +133,8 @@ Failed to send packet.
 检查当前设备是否连接到了可用的网络。
 
 
-## 2204010 发送消息失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2204010 发送消息失败
 
 **错误信息**
 
@@ -152,8 +153,8 @@ Failed to send the message.
 检查局域网内目标mDNS服务是否存在。
 
 
-## 2204006 解析服务超时
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2204006 解析服务超时
 
 **错误信息**
 

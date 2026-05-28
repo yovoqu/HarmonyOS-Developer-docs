@@ -3,16 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-videoprocessing-videoprocessing-colorspaceinfo
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct VideoProcessing_ColorSpaceInfo {...} VideoProcessing_ColorSpaceInfo
 ```
 
 
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 视频颜色空间信息数据结构。
 
@@ -25,16 +23,15 @@ typedef struct VideoProcessing_ColorSpaceInfo {...} VideoProcessing_ColorSpaceIn
 **所在头文件：** [video_processing_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 汇总
 
 
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 成员变量
 
 | 名称 | 描述 |
 | --- | --- |
-| int32_t metadataType | 视频元数据类型，参考[OH_NativeBuffer_MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h#oh_nativebuffer_metadatatype)。 |
-| int32_t colorSpace | 视频颜色空间类型，参考[OH_NativeBuffer_ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h#oh_nativebuffer_colorspace)。 |
-| int32_t pixelFormat | 视频像素格式，参考[OH_NativeBuffer_Format](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h#oh_nativebuffer_format)。 |
+| int32_t metadataType | 视频元数据类型，参考OH_NativeBuffer_MetadataType。 |
+| int32_t colorSpace | 视频颜色空间类型，参考OH_NativeBuffer_ColorSpace。 |
+| int32_t pixelFormat | 视频像素格式，参考OH_NativeBuffer_Format。 |

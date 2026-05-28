@@ -5,32 +5,29 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk-usbdevicedescriptor
 **支持设备：** PC/2in1
 
-
 ```text
 typedef struct UsbDeviceDescriptor {...} __attribute__((aligned(8))) UsbDeviceDescriptor
 ```
+  
 
-
-## 概述
-**支持设备：** PC/2in1
+##### 概述
 
 标准设备描述符，对应USB协议中Standard Device Descriptor。
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [UsbDdk](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk)
-
+ 
 **所在头文件：** [usb_ddk_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-types-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** PC/2in1
+  
 
-
-### 成员变量
-**支持设备：** PC/2in1
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | uint8_t bLength | 该描述符的大小，单位为字节。 |

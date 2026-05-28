@@ -3,79 +3,75 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony-radio-type-h
-**支持设备：** Phone / Tablet / Wearable
+**支持设备：** Phone | Tablet | Wearable
 
-
-## 概述
-**支持设备：** Phone / Tablet / Wearable
+##### 概述
 
 定义网络搜索模块的C接口需要的数据结构。
-
+ 
 **引用文件：** <telephony/core_service/telephony_radio_type.h>
-
+ 
 **库：** libtelephony_radio.so
-
+ 
 **系统能力：** SystemCapability.Telephony.CoreService
-
+ 
 **起始版本：** 13
-
+ 
 **相关模块：** [Telephony](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / Tablet / Wearable
+  
 
-
-### 结构体
-**支持设备：** Phone / Tablet / Wearable
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Telephony_NetworkState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-telephony-telephony-networkstate) | Telephony_NetworkState | 网络状态信息。 |
+| Telephony_NetworkState | Telephony_NetworkState | 网络状态信息。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / Tablet / Wearable
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Telephony_RadioResult](#telephony_radioresult) | Telephony_RadioResult | 错误码类型枚举。 |
-| [Telephony_RegState](#telephony_regstate) | Telephony_RegState | 设备的网络注册状态类型。 |
-| [Telephony_RadioTechnology](#telephony_radiotechnology) | Telephony_RadioTechnology | 设备的无线接入技术类型。 |
-| [Telephony_NsaState](#telephony_nsastate) | Telephony_NsaState | 设备的NSA网络注册状态类型。 |
+| Telephony_RadioResult | Telephony_RadioResult | 错误码类型枚举。 |
+| Telephony_RegState | Telephony_RegState | 设备的网络注册状态类型。 |
+| Telephony_RadioTechnology | Telephony_RadioTechnology | 设备的无线接入技术类型。 |
+| Telephony_NsaState | Telephony_NsaState | 设备的NSA网络注册状态类型。 |
+ 
+ 
+  
 
-
-### 宏定义
-**支持设备：** Phone / Tablet / Wearable
-
-
+##### 宏定义
+ 
 | 名称 | 描述 |
 | --- | --- |
 | TELEPHONY_MAX_OPERATOR_LEN 64 | 定义运营商名称的最大长度。 起始版本： 13 |
 | TELEPHONY_MAX_PLMN_NUMERIC_LEN 6 | 定义PLMN的最大长度。 起始版本： 13 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / Tablet / Wearable
+  
 
-
-### Telephony_RadioResult
-**支持设备：** Phone / Tablet / Wearable
-
+##### Telephony_RadioResult
 
 ```text
 enum Telephony_RadioResult
 ```
-
+ 
 **描述**
-
+ 
 错误码类型枚举。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | TEL_RADIO_SUCCESS = 0 | 成功。 |
@@ -84,46 +80,44 @@ enum Telephony_RadioResult
 | TEL_RADIO_ERR_MARSHALLING_FAILED = 8300001 | 编组错误，这是一个低概率错误，请稍后在遇到此错误时重试。 |
 | TEL_RADIO_ERR_SERVICE_CONNECTION_FAILED = 8300002 | 连接电话服务错误，当出现此错误时，请稍后重试。 |
 | TEL_RADIO_ERR_OPERATION_FAILED = 8300003 | 操作电话服务错误，当出现此错误时，请稍后重试。 |
+ 
+ 
+  
 
-
-### Telephony_RegState
-**支持设备：** Phone / Tablet / Wearable
-
+##### Telephony_RegState
 
 ```text
 enum Telephony_RegState
 ```
-
+ 
 **描述**
-
+ 
 设备的网络注册状态类型。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | TEL_REG_STATE_NO_SERVICE = 0 | 设备不能使用任何服务。 |
 | TEL_REG_STATE_IN_SERVICE = 1 | 设备可以正常使用服务。 |
 | TEL_REG_STATE_EMERGENCY_CALL_ONLY = 2 | 设备只能使用紧急呼叫业务。 |
 | TEL_REG_STATE_POWER_OFF = 3 | 蜂窝无线电已关闭。 |
+ 
+ 
+  
 
-
-### Telephony_RadioTechnology
-**支持设备：** Phone / Tablet / Wearable
-
+##### Telephony_RadioTechnology
 
 ```text
 enum Telephony_RadioTechnology
 ```
-
+ 
 **描述**
-
+ 
 设备的无线接入技术类型。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | TEL_RADIO_TECHNOLOGY_UNKNOWN = 0 | 未知无线接入技术（RAT）。 |
@@ -139,23 +133,22 @@ enum Telephony_RadioTechnology
 | TEL_RADIO_TECHNOLOGY_LTE_CA = 10 | 无线接入技术LTE_CA（Long Term Evolution_Carrier Aggregation）。 |
 | TEL_RADIO_TECHNOLOGY_IWLAN = 11 | 无线接入技术IWLAN（Industrial Wireless LAN）。 |
 | TEL_RADIO_TECHNOLOGY_NR = 12 | 无线接入技术NR（New Radio）。 |
+ 
+ 
+  
 
-
-### Telephony_NsaState
-**支持设备：** Phone / Tablet / Wearable
-
+##### Telephony_NsaState
 
 ```text
 enum Telephony_NsaState
 ```
-
+ 
 **描述**
-
+ 
 设备的NSA网络注册状态类型。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | TEL_NSA_STATE_NOT_SUPPORTED = 1 | 设备在不支持NSA的LTE小区下处于空闲状态或连接状态。 |

@@ -3,17 +3,21 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-useragentmetadata
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可以通过该类提供的接口配置UserAgentMetadata。
 
-> [!NOTE] 说明
-> 本模块首批接口从API version 24开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。  本Class首批接口从API version 24开始支持。  示例效果请以真机运行为准。
+> [!NOTE]
+> 本模块首批接口从API version 24开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 24开始支持。 示例效果请以真机运行为准。
 
-#### setBrandVersionList
+
+
+##### setBrandVersionList
+
 setBrandVersionList(brandVersionList: Array&lt;UserAgentBrandVersion&gt;): void
+
 设置品牌和版本信息。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -22,14 +26,21 @@ setBrandVersionList(brandVersionList: Array&lt;UserAgentBrandVersion&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| brandVersionList | Array<[UserAgentBrandVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-useragentbrandversion)> | 是 | 对应请求标头的Sec-CH-UA-Full-Version-List。空代表使用ArkWeb默认值。 |
+| brandVersionList | Array&lt;UserAgentBrandVersion&gt; | 是 | 对应请求标头的Sec-CH-UA-Full-Version-List。空代表使用ArkWeb默认值。 |
+
 
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getBrandVersionList
+
+
+##### getBrandVersionList
+
 getBrandVersionList(): Array&lt;UserAgentBrandVersion&gt;
+
 获取品牌和版本信息列表。不调用对应的[setBrandVersionList](#setbrandversionlist)进行设置时，列表默认值：[{"brand":"Chromium","version":[ChromeCompatibleVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent#默认user-agent结构)}, {"brand":"ArkWeb","version":[OSVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent#默认user-agent结构)}]。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -38,14 +49,21 @@ getBrandVersionList(): Array&lt;UserAgentBrandVersion&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array<[UserAgentBrandVersion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-useragentbrandversion)> | 品牌和版本信息列表。 |
+| Array&lt;UserAgentBrandVersion&gt; | 品牌和版本信息列表。 |
+
 
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setArchitecture
+
+
+##### setArchitecture
+
 setArchitecture(arch: string): void
+
 设置平台的架构类型。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -56,12 +74,19 @@ setArchitecture(arch: string): void
 | --- | --- | --- | --- |
 | arch | string | 是 | 对应请求标头的Sec-CH-UA-Arch。空代表使用ArkWeb默认值。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getArchitecture
+
+
+##### getArchitecture
+
 getArchitecture(): string
+
 获取平台的架构类型。不调用对应的[setArchitecture](#setarchitecture)设置时，架构类型默认值：""。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -72,12 +97,19 @@ getArchitecture(): string
 | --- | --- |
 | string | 平台架构类型。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setBitness
+
+
+##### setBitness
+
 setBitness(bitness: string): void
+
 设置平台的位数类型。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -88,12 +120,19 @@ setBitness(bitness: string): void
 | --- | --- | --- | --- |
 | bitness | string | 是 | 对应请求标头的Sec-CH-UA-Bitness。空代表使用ArkWeb默认值。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getBitness
+
+
+##### getBitness
+
 getBitness(): string
+
 获取平台的位数类型。不调用对应的[setBitness](#setbitness)设置时，位数类型默认值：Desktop："64"，其他设备：""。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -104,12 +143,19 @@ getBitness(): string
 | --- | --- |
 | string | 平台位数。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setFormFactors
+
+
+##### setFormFactors
+
 setFormFactors(formFactors: Array&lt;UserAgentFormFactor&gt;): void
+
 设置设备形态信息，如手机、平板等。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -118,14 +164,21 @@ setFormFactors(formFactors: Array&lt;UserAgentFormFactor&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| formFactors | Array<[UserAgentFormFactor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e#useragentformfactor24)> | 是 | 对应请求标头的Sec-CH-UA-Form-Factor。空代表使用ArkWeb默认值。 |
+| formFactors | Array&lt;UserAgentFormFactor&gt; | 是 | 对应请求标头的Sec-CH-UA-Form-Factor。空代表使用ArkWeb默认值。 |
+
 
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getFormFactors
+
+
+##### getFormFactors
+
 getFormFactors(): Array&lt;UserAgentFormFactor&gt;
+
 获取设备形态信息，如手机、平板等。不调用对应的[setFormFactors](#setformfactors)进行设置时，形态信息默认值：手机："Mobile"，手表："Watch"，车机："Automotive"，PC："Desktop"，平板："Tablet"。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -134,14 +187,21 @@ getFormFactors(): Array&lt;UserAgentFormFactor&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array<[UserAgentFormFactor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e#useragentformfactor24)> | 设备形态信息。 |
+| Array&lt;UserAgentFormFactor&gt; | 设备形态信息。 |
+
 
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setFullVersion
+
+
+##### setFullVersion
+
 setFullVersion(fullVersion: string): void
+
 设置完整版本号。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -152,12 +212,19 @@ setFullVersion(fullVersion: string): void
 | --- | --- | --- | --- |
 | fullVersion | string | 是 | 对应请求标头的Sec-CH-UA-Full-Version。空代表使用ArkWeb默认值。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getFullVersion
+
+
+##### getFullVersion
+
 getFullVersion(): string
+
 获取完整版本号。不调用对应的[setFullVersion](#setfullversion)设置时，版本号默认值：""。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -168,12 +235,19 @@ getFullVersion(): string
 | --- | --- |
 | string | 完整版本号。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setMobile
+
+
+##### setMobile
+
 setMobile(isMobile: boolean): void
+
 设置是否为移动设备。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -184,12 +258,19 @@ setMobile(isMobile: boolean): void
 | --- | --- | --- | --- |
 | isMobile | boolean | 是 | 对应请求标头的Sec-CH-UA-Mobile。表示设备是否为移动设备。true为是移动设备，false为不是移动设备。默认值为true。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getMobile
+
+
+##### getMobile
+
 getMobile(): boolean
+
 获取是否为移动设备。不调用对应的[setMobile](#setmobile)设置时，默认值：手机: true，手表、车机、平板、大屏: false。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -200,12 +281,19 @@ getMobile(): boolean
 | --- | --- |
 | boolean | 是否为移动设备，true为移动设备，false为不是移动设备。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setModel
+
+
+##### setModel
+
 setModel(model: string): void
+
 设置设备型号。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -216,12 +304,19 @@ setModel(model: string): void
 | --- | --- | --- | --- |
 | model | string | 是 | 对应请求标头的Sec-CH-UA-Model。 空代表使用ArkWeb默认值。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getModel
+
+
+##### getModel
+
 getModel(): string
+
 获取设备型号。不调用对应的[setModel](#setmodel)设置时，型号默认值：手机根据const.product.model取设备型号，手表、大屏、车机、PC、平板：""。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -232,12 +327,19 @@ getModel(): string
 | --- | --- |
 | string | 设备型号。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setPlatform
+
+
+##### setPlatform
+
 setPlatform(platform: string): void
+
 设置操作系统名称。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -248,12 +350,19 @@ setPlatform(platform: string): void
 | --- | --- | --- | --- |
 | platform | string | 是 | 对应请求标头的Sec-CH-UA-Platform。空代表使用ArkWeb默认值。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getPlatform
+
+
+##### getPlatform
+
 getPlatform(): string
+
 获取操作系统名称。不调用对应的[setPlatform](#setplatform)设置时，名称默认值："HarmonyOS" 。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -264,12 +373,19 @@ getPlatform(): string
 | --- | --- |
 | string | 操作系统名称。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setPlatformVersion
+
+
+##### setPlatformVersion
+
 setPlatformVersion(platformVersion: string): void
+
 设置操作系统版本号。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -280,12 +396,19 @@ setPlatformVersion(platformVersion: string): void
 | --- | --- | --- | --- |
 | platformVersion | string | 是 | 对应请求标头的Sec-CH-UA-Platform-Version。空代表使用ArkWeb默认值。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getPlatformVersion
+
+
+##### getPlatformVersion
+
 getPlatformVersion(): string
+
 获取操作系统版本号。不调用对应的[setPlatformVersion](#setplatformversion)设置时，版本号默认值：按HarmonyOS平台版本号规则，同const.product.os.dist.version。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -296,12 +419,19 @@ getPlatformVersion(): string
 | --- | --- |
 | string | 操作系统版本号。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### setWow64
+
+
+##### setWow64
+
 setWow64(isWow64: boolean): void
+
 设置二进制文件是否在64位Windows上以32位模式运行。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -312,12 +442,19 @@ setWow64(isWow64: boolean): void
 | --- | --- | --- | --- |
 | isWow64 | boolean | 是 | 对应请求标头的Sec-CH-UA-WoW64。表示二进制文件是否在64位Windows上以32位模式运行。true为是，false为不是。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。
 
-#### getWow64
+
+
+##### getWow64
+
 getWow64(): boolean
+
 获取二进制文件是否是在64位Windows上以32位模式运行。不调用对应的[setWow64](#setwow64)设置时，默认值为false。
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -328,5 +465,7 @@ getWow64(): boolean
 | --- | --- |
 | boolean | 表示二进制文件是否在64位Windows上以32位模式运行。true为是，false为不是。 |
 
+
 **示例：**
+
 完整示例代码参考[setUserAgentClientHintsEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setuseragentclienthintsenabled24)。

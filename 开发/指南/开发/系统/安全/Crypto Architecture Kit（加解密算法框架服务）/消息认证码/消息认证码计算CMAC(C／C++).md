@@ -1,23 +1,33 @@
 # 消息认证码计算CMAC(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-compute-cmac-ndk
 
 CMAC通过使用分组密码（如AES）和一个密钥来生成认证码，确保消息在传输过程中未被篡改。
 
 
-## 开发步骤
+##### 开发步骤
 
-在调用update接口传入数据时，可以[一次性传入](#cmac一次性传入)，也可以把数据人工[分段传入](#cmac分段传入)。对于同一段数据而言，是否分段，计算结果没有差异。对于数据量较大的数据，开发者可以根据实际需求选择是否分段传入。 下面分别提供两种方式的示例代码。
+在调用update接口传入数据时，可以[一次性传入](#cmac一次性传入)，也可以把数据人工[分段传入](#cmac分段传入)。对于同一段数据而言，是否分段，计算结果没有差异。对于数据量较大的数据，开发者可以根据实际需求选择是否分段传入。
 
-## CMAC（一次性传入）
+下面分别提供两种方式的示例代码。
 
-调用[OH_CryptoSymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_create)、[OH_CryptoSymKeyGenerator_Generate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_generate)生成密钥算法为AES128的对称密钥（symKey）。 调用[OH_CryptoMac_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_create)，指定字符串参数'CMAC'，创建MAC算法为CMAC的MAC生成器。 调用[OH_CryptoMac_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_setparam)，指定参数CRYPTO_MAC_CIPHER_NAME_STR，设置分组密码算法名称。 调用[OH_CryptoMac_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_init)，指定共享对称密钥（symKey），初始化MAC对象。 调用[OH_CryptoMac_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_update)，传入自定义消息，进行消息认证码计算。 调用[OH_CryptoMac_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_final)，获取MAC计算结果。 调用[OH_CryptoMac_GetLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_getlength)，获取MAC消息认证码的长度，单位为字节。
-```text
+
+
+##### CMAC（一次性传入）
+1. 调用[OH_CryptoSymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_create)、[OH_CryptoSymKeyGenerator_Generate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-sym-key-h#oh_cryptosymkeygenerator_generate)生成密钥算法为AES128的对称密钥（symKey）。
+2. 调用[OH_CryptoMac_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_create)，指定字符串参数'CMAC'，创建MAC算法为CMAC的MAC生成器。
+3. 调用[OH_CryptoMac_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_setparam)，指定参数CRYPTO_MAC_CIPHER_NAME_STR，设置分组密码算法名称。
+4. 调用[OH_CryptoMac_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_init)，指定共享对称密钥（symKey），初始化MAC对象。
+5. 调用[OH_CryptoMac_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_update)，传入自定义消息，进行消息认证码计算。
+6. 调用[OH_CryptoMac_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_final)，获取MAC计算结果。
+7. 调用[OH_CryptoMac_GetLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_getlength)，获取MAC消息认证码的长度，单位为字节。
+
+```cpp
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
-#include
-#include
+#include <cstdio>
+#include <cstring>
 
 static OH_CryptoSymKey *GenerateAesKey(const char *algoName)
 {
@@ -45,7 +55,7 @@ static OH_Crypto_ErrCode CreateCmacContext(OH_CryptoSymKey *keyCtx, OH_CryptoMac
     // 设置分组密码算法名称为AES128。
     const char *cipherName = "AES128";
     Crypto_DataBlob cipherNameData = {
-        .data = reinterpret_cast(const_cast(cipherName)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(cipherName)),
         .len = strlen(cipherName)
     };
     ret = OH_CryptoMac_SetParam(*ctx, CRYPTO_MAC_CIPHER_NAME_STR, &cipherNameData);
@@ -69,7 +79,7 @@ static OH_Crypto_ErrCode UpdateCmacData(OH_CryptoMac *ctx)
     // 一次性传入所有数据。
     const char *message = "cmacTestMessage";
     Crypto_DataBlob input = {
-        .data = reinterpret_cast(const_cast(message)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(message)),
         .len = strlen(message)
     };
     OH_Crypto_ErrCode ret = OH_CryptoMac_Update(ctx, &input);
@@ -143,13 +153,15 @@ cleanup:
 ```
 
 
-## CMAC（分段传入）
+
+##### CMAC（分段传入）
 
 与一次性传入的步骤基本相同，区别在于多次调用[OH_CryptoMac_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-mac-h#oh_cryptomac_update)来处理分段数据。
-```text
+
+```cpp
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
-#include
-#include
+#include <cstdio>
+#include <cstring>
 
 static OH_CryptoSymKey *GenerateAesKey(const char *algoName)
 {
@@ -177,7 +189,7 @@ static OH_Crypto_ErrCode CreateCmacContext(OH_CryptoSymKey *keyCtx, OH_CryptoMac
     // 设置分组密码算法名称为AES128。
     const char *cipherName = "AES128";
     Crypto_DataBlob cipherNameData = {
-        .data = reinterpret_cast(const_cast(cipherName)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(cipherName)),
         .len = strlen(cipherName)
     };
     ret = OH_CryptoMac_SetParam(*ctx, CRYPTO_MAC_CIPHER_NAME_STR, &cipherNameData);
@@ -203,7 +215,10 @@ static OH_Crypto_ErrCode ProcessCmacSegments(OH_CryptoMac *ctx)
     size_t messageLen = strlen(message);
     size_t segmentSize = 20; // 每段20字节。
 
-    for (size_t i = 0; i (const_cast(message + i)),
+    for (size_t i = 0; i < messageLen; i += segmentSize) {
+        size_t currentSize = (i + segmentSize <= messageLen) ? segmentSize : (messageLen - i);
+        Crypto_DataBlob segment = {
+            .data = reinterpret_cast<uint8_t *>(const_cast<char *>(message + i)),
             .len = currentSize
         };
         OH_Crypto_ErrCode ret = OH_CryptoMac_Update(ctx, &segment);

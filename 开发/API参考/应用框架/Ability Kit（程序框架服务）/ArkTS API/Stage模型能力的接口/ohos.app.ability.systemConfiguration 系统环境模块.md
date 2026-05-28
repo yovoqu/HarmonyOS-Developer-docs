@@ -1,69 +1,60 @@
 # @ohos.app.ability.systemConfiguration (系统环境模块)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-systemconfiguration
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 systemConfiguration模块提供系统环境变化监听回调能力，包括系统深浅色模式、系统语言、系统字体大小缩放比例等变化的回调。
-
+ 
 例如，通过对系统深浅色模式变化的监听，应用可感知系统的深浅色模式变化，并动态调整自身应用的深浅色主题以适配系统环境。
-
+ 
 该模块与[EnvironmentCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-environmentcallback)模块的区别在于：
-
-
+ 
 - systemConfiguration模块：用于监听系统环境变量[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)的变化。
 - [EnvironmentCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-environmentcallback)模块：用于监听某个应用环境变量[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)的变化。
 
-
+ 
 > [!NOTE]
 > 本模块首批接口从API version 24 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { systemConfiguration } from '@kit.AbilityKit';
 ```
+ 
+  
 
-
-## UpdatedCallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### UpdatedCallback
 
 UpdatedCallback是监听系统环境变化的回调函数，开发者可通过[ApplicationContext.onSystemConfigurationUpdated](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonsystemconfigurationupdated24)方法注册自定义的UpdatedCallback，来监听系统环境变化。
-
-
-### onColorModeUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onColorModeUpdated(colorMode: ConfigurationConstant.ColorMode): void
-
-在注册系统环境变化的监听后，当系统深浅色模式变化时会触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| colorMode | [ConfigurationConstant.ColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configurationconstant#colormode) | 是 | 变化后的系统深浅色模式。 |
-
-
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| onColorModeUpdated | OnColorModeUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当系统深浅色模式变化时会触发回调。 |
+| onFontSizeScaleUpdated | OnFontSizeScaleUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当系统字体大小缩放比例变化时触发回调。 |
+| onFontWeightScaleUpdated | OnFontWeightScaleUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当系统字体粗细缩放比例变化时触发回调。 |
+| onLanguageUpdated | OnLanguageUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当系统语言变化时触发回调。 |
+| onFontIdUpdated | OnFontIdUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当系统字体ID变化时触发回调。 |
+| onMCCUpdated | OnMCCUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当移动设备国家代码变化时触发回调。 |
+| onMNCUpdated | OnMNCUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当移动设备网络代码变化时触发回调。 |
+| onHasPointerDeviceUpdated | OnHasPointerDeviceUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当指针设备连接或者断开时触发回调。 |
+| onLocaleUpdated | OnLocaleUpdatedFn | 否 | 是 | 在注册系统环境变化的监听后，当系统区域设置变化时触发回调。 |
+ 
+ 
 **示例：**
-
-
-```ts
-import {
-  UIAbility,
-  systemConfiguration,
-  ConfigurationConstant,
-} from '@kit.AbilityKit';
+ 
+```text
+import { UIAbility, systemConfiguration, ConfigurationConstant } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class EntryAbility extends UIAbility {
@@ -72,412 +63,228 @@ export default class EntryAbility extends UIAbility {
       onColorModeUpdated(colorMode: ConfigurationConstant.ColorMode) {
         console.info(`system configuration updated colormode:` + colorMode);
       },
-    };
+      onFontSizeScaleUpdated(fontSizeScale: number) {
+        console.info(`system configuration updated fontSizeScale:` + fontSizeScale);
+      },
+      onFontWeightScaleUpdated(fontWeightScale: number) {
+        console.info(`system configuration updated fontWeightScale:` + fontWeightScale);
+      },
+      onLanguageUpdated(language: string) {
+        console.info(`system configuration updated language:` + language);
+      },
+      onFontIdUpdated(fontId: string) {
+        console.info(`system configuration updated fontId:` + fontId);
+      },
+      onMCCUpdated(mcc: string) {
+        console.info(`system configuration updated mcc:` + mcc);
+      },
+      onMNCUpdated(mnc: string) {
+        console.info(`system configuration updated mnc:` + mnc);
+      },
+      onHasPointerDeviceUpdated(hasPointerDevice: boolean) {
+        console.info(`system configuration updated hasPointerDevice:` + hasPointerDevice);
+      },
+      onLocaleUpdated(locale: string) {
+        console.info(`system configuration updated locale:` + locale);
+      }
+    }
     // 1.通过context属性获取applicationContext
     let applicationContext = this.context.getApplicationContext();
     try {
       // 2.通过applicationContext注册监听
       applicationContext.onSystemConfigurationUpdated(CallBack);
     } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
+      console.error(`error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`);
     }
     console.info(`onSystemConfigurationUpdated finish`);
   }
 }
 ```
+ 
+  
 
+##### OnColorModeUpdatedFn
 
-### onFontSizeScaleUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onFontSizeScaleUpdated(fontSizeScale: number): void
-
-在注册系统环境变化的监听后，当系统字体大小缩放比例变化时触发回调。
-
+type OnColorModeUpdatedFn = (colorMode: ConfigurationConstant.ColorMode) => void
+ 
+在注册系统环境变化的监听后，当系统深浅色模式变化时会触发回调。
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| colorMode | ConfigurationConstant.ColorMode | 是 | 变化后的系统深浅色模式。 |
+ 
+ 
+  
 
+##### OnFontSizeScaleUpdatedFn
 
+type OnFontSizeScaleUpdatedFn = (fontSizeScale: number) => void
+ 
+在注册系统环境变化的监听后，当系统字体大小缩放比例变化时触发回调。
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
+**元服务API**：从API version 24开始，该接口支持在元服务中使用。
+ 
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+ 
+**参数：**
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fontSizeScale | number | 是 | 变化后的系统字体大小缩放比例。 |
+ 
+ 
+  
 
+##### OnFontWeightScaleUpdatedFn
 
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onFontSizeScaleUpdated(fontSizeScale: number) {
-        console.info(`system configuration updated ability:` + fontSizeScale);
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
-
-
-### onFontWeightScaleUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onFontWeightScaleUpdated(fontWeightScale: number): void
-
+type OnFontWeightScaleUpdatedFn = (fontWeightScale: number) => void
+ 
 在注册系统环境变化的监听后，当系统字体粗细缩放比例变化时触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fontWeightScale | number | 是 | 变化后的系统字体粗细缩放比例。 |
+ 
+ 
+  
 
+##### OnLanguageUpdatedFn
 
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onFontWeightScaleUpdated(fontWeightScale: number) {
-        console.info(`system configuration updated ability:` + fontWeightScale);
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
-
-
-### onLanguageUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onLanguageUpdated(language: string): void
-
+type OnLanguageUpdatedFn = (language: string) => void
+ 
 在注册系统环境变化的监听后，当系统语言变化时触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | language | string | 是 | 变化后的系统语言。 |
+ 
+ 
+  
 
+##### OnFontIdUpdatedFn
 
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onLanguageUpdated(language: string) {
-        console.info(`system configuration updated ability:` + language);
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
-
-
-### onFontIdUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onFontIdUpdated(fontId: string): void
-
+type OnFontIdUpdatedFn = (fontId: string) => void
+ 
 在注册系统环境变化的监听后，当系统字体ID变化时触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
-**系统��力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fontId | string | 是 | 变化后的系统字体ID。 |
+ 
+ 
+  
 
+##### OnMCCUpdatedFn
 
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onFontIdUpdated(fontId: string) {
-        console.info(`system configuration updated ability:` + fontId);
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
-
-
-### onMCCUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onMCCUpdated(mcc: string): void
-
+type OnMCCUpdatedFn = (mcc: string) => void
+ 
 在注册系统环境变化的监听后，当移动设备国家代码变化时触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | mcc | string | 是 | 变化后的移动设备国家代码。 |
+ 
+ 
+  
 
+##### OnMNCUpdatedFn
 
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onMCCUpdated(mcc: string) {
-        console.info(`system configuration updated ability:` + mcc);
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
-
-
-### onMNCUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onMNCUpdated(mnc: string): void
-
+type OnMNCUpdatedFn = (mnc: string) => void
+ 
 在注册系统环境变化的监听后，当移动设备网络代码变化时触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | mnc | string | 是 | 变化后的移动设备网络代码。 |
+ 
+ 
+  
 
+##### OnHasPointerDeviceUpdatedFn
 
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onMNCUpdated(mnc: string) {
-        console.info(`system configuration updated ability:` + mnc);
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
-
-
-### onHasPointerDeviceUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onHasPointerDeviceUpdated(hasPointerDevice: boolean): void
-
+type OnHasPointerDeviceUpdatedFn = (hasPointerDevice: boolean) => void
+ 
 在注册系统环境变化的监听后，当指针设备连接或者断开时触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | hasPointerDevice | boolean | 是 | 指针设备是否已连接，如键鼠、触控板等。true表示设备已连接，false表示设备未连接。 |
+ 
+ 
+  
 
+##### OnLocaleUpdatedFn
 
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onHasPointerDeviceUpdated(hasPointerDevice: boolean) {
-        console.info(
-          `system configuration updated ability:` + hasPointerDevice,
-        );
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
-
-
-### onLocaleUpdated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onLocaleUpdated(locale: string): void
-
+type OnLocaleUpdatedFn = (locale: string) => void
+ 
 在注册系统环境变化的监听后，当系统区域设置变化时触发回调。
-
+ 
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| locale | string | 是 | 变化后的系统区域设置，该字段具体解释可以参考[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)。 |
-
-
-**示例：**
-
-
-```ts
-import { UIAbility, systemConfiguration } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-export default class EntryAbility extends UIAbility {
-  onForeground() {
-    let CallBack: systemConfiguration.UpdatedCallback = {
-      onLocaleUpdated(locale: string) {
-        console.info(`system configuration updated ability:` + locale);
-      },
-    };
-    // 1.通过context属性获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册监听
-      applicationContext.onSystemConfigurationUpdated(CallBack);
-    } catch (paramError) {
-      console.error(
-        `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`,
-      );
-    }
-    console.info(`onSystemConfigurationUpdated finish`);
-  }
-}
-```
+| locale | string | 是 | 变化后的系统区域设置，该字段具体解释可以参考Configuration。 |

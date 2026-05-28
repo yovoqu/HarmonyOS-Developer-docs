@@ -12,26 +12,39 @@
 
 **图1** 录制状态变化示意图
 
-![](assets/使用AVRecorder录制视频(ArkTS)
-/file-20260514131548822-0.png)
+
+![](assets/使用AVRecorder录制视频(ArkTS)/file-20260514131548822-0.png)
+
 
 状态的详细说明请参考[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)。
 
 
-## 申请权限
+##### 申请权限
 
-在开发此功能前，开发者应根据实际需求申请相关权限： 当需要使用麦克风时，需要申请**ohos.permission.MICROPHONE**麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。 当需要使用相机拍摄时，需要申请**ohos.permission.CAMERA**相机权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。 当需要从图库读取图片或视频文件时，请优先使用媒体库[Picker选择媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)。 当需要保存图片或视频文件至图库时，请优先使用[安全控件保存媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。
+在开发此功能前，开发者应根据实际需求申请相关权限：
+
+ - 当需要使用麦克风时，需要申请**ohos.permission.MICROPHONE**麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
+ - 当需要使用相机拍摄时，需要申请**ohos.permission.CAMERA**相机权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
+ - 当需要从图库读取图片或视频文件时，请优先使用媒体库[Picker选择媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)。
+ - 当需要保存图片或视频文件至图库时，请优先使用[安全控件保存媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。
+
+
 > [!NOTE]
-> 仅应用需要克隆、备份或同步用户公共目录的图片、视频类文件时，可申请ohos.permission.READ_IMAGEVIDEO、ohos.permission.WRITE_IMAGEVIDEO权限来读写音频文件，申请方式请参考申请受控权限，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合特殊场景的应用被允许申请受限权限。
+> 仅应用需要克隆、备份或同步用户公共目录的图片、视频类文件时，可申请ohos.permission.READ_IMAGEVIDEO、ohos.permission.WRITE_IMAGEVIDEO权限来读写音频文件，申请方式请参考 申请受控权限 ，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合 特殊场景 的应用被允许申请受限权限。
 
 
-## 开发步骤及注意事项
 
+
+##### 开发步骤及注意事项
 
 > [!NOTE]
-> AVRecorder只负责视频数据的处理，需要与视频数据采集模块配合才能完成视频录制。视频数据采集模块需要通过Surface将视频数据传递给AVRecorder进行数据处理。当前主流的数据采集模块为相机模块，详细实现请参考相机-录像。 关于文件的创建与存储操作，请参考应用文件访问与管理，默认存储在应用的沙箱路径之下，如需存储至图库，请使用安全控件保存媒体资源对沙箱内文件进行存储。
+> AVRecorder只负责视频数据的处理，需要与视频数据采集模块配合才能完成视频录制。视频数据采集模块需要通过Surface将视频数据传递给AVRecorder进行数据处理。当前主流的数据采集模块为相机模块，详细实现请参考 相机-录像 。 关于文件的创建与存储操作，请参考 应用文件访问与管理 ，默认存储在应用的沙箱路径之下，如需存储至图库，请使用 安全控件保存媒体资源 对沙箱内文件进行存储。
 
-详细API说明请参考[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)。 创建AVRecorder实例，实例创建完成进入idle状态。
+
+详细API说明请参考[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)。
+1. 创建AVRecorder实例，实例创建完成进入idle状态。
+
+  
 ```text
 import { media } from '@kit.MediaKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -46,13 +59,17 @@ try {
 }
 ```
 
-设置业务需要的监听事件，监听状态变化及错误上报。
+2. 设置业务需要的监听事件，监听状态变化及错误上报。
+
 | 事件类型 | 说明 |
+
 | --- | --- |
+
 | stateChange | 必要事件，监听播放器的state属性改变。 |
+
 | error | 必要事件，监听播放器的错误信息。 |
 
-
+  
 ```text
 import { media } from '@kit.MediaKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -67,11 +84,14 @@ this.avRecorder?.on('error', (error: BusinessError) => {
 });
 ```
 
-配置视频录制参数，调用[prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#prepare9-1)接口，此时进入prepared状态。
-> [!NOTE]
-> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考申请权限。 prepare接口的入参avConfig中仅设置视频相关的配置参数，如示例代码所示。 如果添加了音频参数，系统将认为是“音频+视频录制”。 需要使用支持的录制规格，视频比特率、分辨率、帧率以实际硬件设备支持的范围为准。 录制输出的url地址（即示例里avConfig中的url），形式为fd://xx (fd number)。需要调用基础文件操作接口（Core File Kit的ohos.file.fs）实现应用文件访问能力，获取方式参考应用文件访问与管理。 示例中配置的fileFormat视频文件封装格式、videoCodec视频编码格式请参考录制参数配置。
+3. 配置视频录制参数，调用[prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#prepare9-1)接口，此时进入prepared状态。
+
+  
+> [!WARNING]
+> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考 申请权限 。 prepare接口的入参avConfig中仅设置视频相关的配置参数，如示例代码所示。 如果添加了音频参数，系统将认为是“音频+视频录制”。 需要使用支持的 录制规格 ，视频比特率、分辨率、帧率以实际硬件设备支持的范围为准。 录制输出的url地址（即示例里avConfig中的url），形式为fd://xx (fd number)。需要调用基础文件操作接口（ Core File Kit的ohos.file.fs ）实现应用文件访问能力，获取方式参考 应用文件访问与管理 。 示例中配置的fileFormat视频文件封装格式、videoCodec视频编码格式请参考 录制参数配置 。
 
 
+  
 ```text
 import { media } from '@kit.MediaKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -111,7 +131,13 @@ try {
 }
 ```
 
-获取视频录制需要的SurfaceID。 调用[getInputSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#getinputsurface9-1)接口，接口的返回值SurfaceID用于传递给视频数据输入源模块。常用的输入源模块为相机，以下示例代码中，采用相机作为视频输入源为例。 输入源模块通过SurfaceID可以获取到Surface，通过Surface可以将视频数据流传递给AVRecorder，由AVRecorder再进行视频数据的处理。
+4. 获取视频录制需要的SurfaceID。
+
+  调用[getInputSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#getinputsurface9-1)接口，接口的返回值SurfaceID用于传递给视频数据输入源模块。常用的输入源模块为相机，以下示例代码中，采用相机作为视频输入源为例。
+
+  输入源模块通过SurfaceID可以获取到Surface，通过Surface可以将视频数据流传递给AVRecorder，由AVRecorder再进行视频数据的处理。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -122,11 +148,20 @@ this.avRecorder?.getInputSurface().then((surfaceId: string) => {
 });
 ```
 
-初始化视频数据输入源。该步骤需要在输入源模块完成，以相机为例，需要创建录像输出流，包括创建Camera对象、获取相机列表、创建相机输入流等，相机详细步骤请参考[相机-录像方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording)。 开始录制，启动输入源输入视频数据，例如相机模块调用camera.VideoOutput.start接口启动相机录制。然后调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#start9-1)接口，此时AVRecorder进入started状态。 暂停录制，调用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#pause9-1)接口，此时AVRecorder进入paused状态，同时暂停输入源输入数据。例如相机模块调用camera.VideoOutput.stop停止相机视频数据输入。 恢复录制，调用[resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#resume9-1)接口，此时再次进入started状态。 停止录制，调用[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#stop9-1)接口，此时进入stopped状态，同时停止相机录制。 重置资源，调用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#reset9-1)接口，重新进入idle状态，允许重新配置录制参数。 销毁实例，调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#release9-1)接口，进入released状态，退出录制，释放视频数据输入源相关资源，例如相机资源。
+5. 初始化视频数据输入源。该步骤需要在输入源模块完成，以相机为例，需要创建录像输出流，包括创建Camera对象、获取相机列表、创建相机输入流等，相机详细步骤请参考[相机-录像方案](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording)。
+6. 开始录制，启动输入源输入视频数据，例如相机模块调用camera.VideoOutput.start接口启动相机录制。然后调用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#start9-1)接口，此时AVRecorder进入started状态。
+7. 暂停录制，调用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#pause9-1)接口，此时AVRecorder进入paused状态，同时暂停输入源输入数据。例如相机模块调用camera.VideoOutput.stop停止相机视频数据输入。
+8. 恢复录制，调用[resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#resume9-1)接口，此时再次进入started状态。
+9. 停止录制，调用[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#stop9-1)接口，此时进入stopped状态，同时停止相机录制。
+10. 重置资源，调用[reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#reset9-1)接口，重新进入idle状态，允许重新配置录制参数。
+11. 销毁实例，调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#release9-1)接口，进入released状态，退出录制，释放视频数据输入源相关资源，例如相机资源。
 
-## 完整示例
+
+
+##### 完整示例
 
 参考以下示例，完成“开始录制-暂停录制-恢复录制-停止录制”的完整流程。
+
 ```text
 import { common } from '@kit.AbilityKit';
 import { camera } from '@kit.CameraKit';
@@ -136,7 +171,7 @@ import { fileUri } from '@kit.CoreFileKit';
 import { fileIo } from '@kit.CoreFileKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
-async function videoRecording(context: common.Context): Promise {
+async function videoRecording(context: common.Context): Promise<void> {
   // 创建avRecorder对象。
   let avRecorder: media.AVRecorder | undefined = undefined;
   try {
@@ -146,7 +181,7 @@ async function videoRecording(context: common.Context): Promise {
     console.error(`Failed to create avRecorder, error code: ${err.code}, message: ${err.message}`);
     return;
   }
-
+  
   // 注册avRecorder回调函数。
   try {
     // 状态机变化回调函数。
@@ -253,7 +288,7 @@ async function videoRecording(context: common.Context): Promise {
     let err = error as BusinessError;
     console.error(`Failed to stop avRecorder, error code: ${err.code}, message: ${err.message}`);
   }
-
+  
   // 重置。
   try {
     await avRecorder.reset();
@@ -283,7 +318,7 @@ async function videoRecording(context: common.Context): Promise {
 
   // 释放相机相关实例。
   await releaseCamera();
-
+  
   // 安全控件保存媒体资源至图库。
   let phAccessHelper: photoAccessHelper.PhotoAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
 

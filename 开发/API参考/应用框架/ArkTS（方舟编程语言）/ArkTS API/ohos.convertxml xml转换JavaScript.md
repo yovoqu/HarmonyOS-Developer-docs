@@ -3,39 +3,36 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-convertxml
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供将XML文本转换为JavaScript对象的解析能力。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```xml
 import { convertxml } from '@kit.ArkTS';
 ```
 
 
-## ConvertXML
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ConvertXML
 
 
-### fastConvertToJSObject14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fastConvertToJSObject14+
 
 fastConvertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 转换XML文本为Object类型对象。
 
-
 > [!NOTE]
-> 该接口无法满足解析大数据量的XML文件，当单元素文本内容超过10M时，会打印异常信息并返回一个仅包含XML标签头的基础Object对象。
-> 在Windows环境中，通常以回车符（CR）和换行符（LF）一对字符来表示换行。fastConvertToJSObject接口转换后的对象以换行符（LF）表示换行。
+> 该接口无法满足解析大数据量的XML文件，当单元素文本内容超过10M时，会打印异常信息并返回一个仅包含XML标签头的基础Object对象。 在Windows环境中，通常以回车符（CR）和换行符（LF）一对字符来表示换行。fastConvertToJSObject接口转换后的对象以换行符（LF）表示换行。
+
 
 **元服务API**：从API version 14开始，该接口支持在元服务中使用。
 
@@ -43,15 +40,13 @@ fastConvertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| xml | string | 是 | XML文本，若包含“&amp;”字符，请使用实体引用“&amp;amp;”替换。 |
-| options | [ConvertOptions](#convertoptions) | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
+| xml | string | 是 | XML文本，若包含“&”字符，请使用实体引用“&amp;”替换。 |
+| options | ConvertOptions | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -62,7 +57,6 @@ fastConvertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -71,8 +65,7 @@ fastConvertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 **示例：**
 
-
-```ts
+```json
 try {
   let xml =
     '<?xml version="1.0" encoding="utf-8"?>' +
@@ -83,17 +76,17 @@ try {
   let conv = new convertxml.ConvertXML();
   let options: convertxml.ConvertOptions = {
     trim: false,
-    declarationKey: '_declaration',
-    instructionKey: '_instruction',
-    attributesKey: '_attributes',
-    textKey: '_text',
-    cdataKey: '_cdata',
-    doctypeKey: '_doctype',
-    commentKey: '_comment',
-    parentKey: '_parent',
-    typeKey: '_type',
-    nameKey: '_name',
-    elementsKey: '_elements',
+    declarationKey: "_declaration",
+    instructionKey: "_instruction",
+    attributesKey: "_attributes",
+    textKey: "_text",
+    cdataKey: "_cdata",
+    doctypeKey: "_doctype",
+    commentKey: "_comment",
+    parentKey: "_parent",
+    typeKey: "_type",
+    nameKey: "_name",
+    elementsKey: "_elements"
   };
   let result = JSON.stringify(conv.fastConvertToJSObject(xml, options));
   console.info(result);
@@ -105,17 +98,16 @@ try {
 ```
 
 
-### largeConvertToJSObject23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### largeConvertToJSObject23+
 
 largeConvertToJSObject(xml: string, options?: ConvertOptions): Object
 
 将XML文本转换为Object类型对象，此方法支持解析单个节点大小超过10M的大型XML文本。
 
-
 > [!NOTE]
-> 当传入的XML文本无法正确解析为Object类型对象时，打印异常信息并返回一个仅包含XML标签头的基础Object对象。
-> 在Windows环境中，通常以回车符（CR）和换行符（LF）一对字符来表示换行。本接口转换后的对象以换行符（LF）表示换行。
+> 当传入的XML文本无法正确解析为Object类型对象时，打印异常信息并返回一个仅包含XML标签头的基础Object对象。 在Windows环境中，通常以回车符（CR）和换行符（LF）一对字符来表示换行。本接口转换后的对象以换行符（LF）表示换行。
+
 
 **元服务API**：从API version 23开始，该接口支持在元服务中使用。
 
@@ -125,15 +117,13 @@ largeConvertToJSObject(xml: string, options?: ConvertOptions): Object
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| xml | string | 是 | XML文本，若包含“&amp;”字符，请使用实体引用“&amp;amp;”替换。 |
-| options | [ConvertOptions](#convertoptions) | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
+| xml | string | 是 | XML文本，若包含“&”字符，请使用实体引用“&amp;”替换。 |
+| options | ConvertOptions | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -144,7 +134,6 @@ largeConvertToJSObject(xml: string, options?: ConvertOptions): Object
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200002 | Invalid xml string. |
@@ -152,37 +141,36 @@ largeConvertToJSObject(xml: string, options?: ConvertOptions): Object
 
 **示例：**
 
-
-```ts
+```json
 try {
   let xmlstr =
     '<?xml version="1.0" encoding="utf-8"?>' +
     '<?custom-pi processing="example"?>' +
     '<catalog id="books">' +
-    '<!-- Bestseller Example -->' +
-    '<book category="fiction" ref="B101">' +
-    '<title>Echoes &amp; Whispers</title>' +
-    '<price unit="USD">19.99</price>' +
-    '<descr>' +
-    '<![CDATA[<b>suspense</b>novel & Legendary Stories]]>' +
-    '</descr>' +
-    '<popular/>' +
-    '</book>' +
+      '<!-- Bestseller Example -->' +
+      '<book category="fiction" ref="B101">' +
+        '<title>Echoes & Whispers</title>' +
+        '<price unit="USD">19.99</price>' +
+        '<descr>' +
+          '<![CDATA[<b>suspense</b>novel & Legendary Stories]]>' +
+        '</descr>' +
+        '<popular/>' +
+      '</book>' +
     '</catalog>';
   let conv = new convertxml.ConvertXML();
   let options: convertxml.ConvertOptions = {
     trim: false,
-    declarationKey: '_declaration',
-    instructionKey: '_instruction',
-    attributesKey: '_attributes',
-    textKey: '_text',
-    cdataKey: '_cdata',
-    doctypeKey: '_doctype',
-    commentKey: '_comment',
-    parentKey: '_parent',
-    typeKey: '_type',
-    nameKey: '_name',
-    elementsKey: '_elements',
+    declarationKey: "_declaration",
+    instructionKey: "_instruction",
+    attributesKey: "_attributes",
+    textKey: "_text",
+    cdataKey: "_cdata",
+    doctypeKey: "_doctype",
+    commentKey: "_comment",
+    parentKey: "_parent",
+    typeKey: "_type",
+    nameKey: "_name",
+    elementsKey: "_elements"
   };
   let result = JSON.stringify(conv.largeConvertToJSObject(xmlstr, options));
   console.info(result);
@@ -194,16 +182,16 @@ try {
 ```
 
 
-### convertToJSObject(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### convertToJSObject(deprecated)
 
 convertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 转换XML文本为Object类型对象。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 14开始废弃，建议使用[fastConvertToJSObject14+](#fastconverttojsobject14)替代。
+> 从API version 9开始支持，从API version 14开始废弃，建议使用 fastConvertToJSObject 14+ 替代。
+
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -211,15 +199,13 @@ convertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| xml | string | 是 | 传入的XML文本，若包含“&amp;”字符，请使用实体引用“&amp;amp;”替换。 |
-| options | [ConvertOptions](#convertoptions) | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
+| xml | string | 是 | 传入的XML文本，若包含“&”字符，请使用实体引用“&amp;”替换。 |
+| options | ConvertOptions | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -230,7 +216,6 @@ convertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -239,30 +224,29 @@ convertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 **示例：**
 
-
-```ts
+```json
 try {
   let xml =
     '<?xml version="1.0" encoding="utf-8"?>' +
-    '<note importance="high" logged="true">' +
-    '    <title>Happy</title>' +
-    '    <todo>Work</todo>' +
-    '    <todo>Play</todo>' +
-    '</note>';
+      '<note importance="high" logged="true">' +
+      '    <title>Happy</title>' +
+      '    <todo>Work</todo>' +
+      '    <todo>Play</todo>' +
+      '</note>';
   let conv = new convertxml.ConvertXML();
   let options: convertxml.ConvertOptions = {
     trim: false,
-    declarationKey: '_declaration',
-    instructionKey: '_instruction',
-    attributesKey: '_attributes',
-    textKey: '_text',
-    cdataKey: '_cdata',
-    doctypeKey: '_doctype',
-    commentKey: '_comment',
-    parentKey: '_parent',
-    typeKey: '_type',
-    nameKey: '_name',
-    elementsKey: '_elements',
+    declarationKey: "_declaration",
+    instructionKey: "_instruction",
+    attributesKey: "_attributes",
+    textKey: "_text",
+    cdataKey: "_cdata",
+    doctypeKey: "_doctype",
+    commentKey: "_comment",
+    parentKey: "_parent",
+    typeKey: "_type",
+    nameKey: "_name",
+    elementsKey: "_elements"
   };
   let result = JSON.stringify(conv.convertToJSObject(xml, options));
   console.info(result);
@@ -274,30 +258,28 @@ try {
 ```
 
 
-### convert(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### convert(deprecated)
 
 convert(xml: string, options?: ConvertOptions) : Object
 
 转换XML文本为JavaScript对象。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[fastConvertToJSObject14+](#fastconverttojsobject14)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 fastConvertToJSObject 14+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | xml | string | 是 | 传入的XML文本。 |
-| options | [ConvertOptions](#convertoptions) | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
+| options | ConvertOptions | 否 | 转换选项，默认值是ConvertOptions对象，由其中各个属性的默认值组成。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -306,29 +288,28 @@ convert(xml: string, options?: ConvertOptions) : Object
 
 **示例：**
 
-
-```ts
+```json
 let xml =
   '<?xml version="1.0" encoding="utf-8"?>' +
-  '<note importance="high" logged="true">' +
-  '    <title>Happy</title>' +
-  '    <todo>Work</todo>' +
-  '    <todo>Play</todo>' +
-  '</note>';
+    '<note importance="high" logged="true">' +
+    '    <title>Happy</title>' +
+    '    <todo>Work</todo>' +
+    '    <todo>Play</todo>' +
+    '</note>';
 let conv = new convertxml.ConvertXML();
 let options: convertxml.ConvertOptions = {
   trim: false,
-  declarationKey: '_declaration',
-  instructionKey: '_instruction',
-  attributesKey: '_attributes',
-  textKey: '_text',
-  cdataKey: '_cdata',
-  doctypeKey: '_doctype',
-  commentKey: '_comment',
-  parentKey: '_parent',
-  typeKey: '_type',
-  nameKey: '_name',
-  elementsKey: '_elements',
+  declarationKey: "_declaration",
+  instructionKey: "_instruction",
+  attributesKey: "_attributes",
+  textKey: "_text",
+  cdataKey: "_cdata",
+  doctypeKey: "_doctype",
+  commentKey: "_comment",
+  parentKey: "_parent",
+  typeKey: "_type",
+  nameKey: "_name",
+  elementsKey: "_elements"
 };
 let result = JSON.stringify(conv.convert(xml, options));
 console.info(result);
@@ -337,15 +318,14 @@ console.info(result);
 ```
 
 
-## ConvertOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ConvertOptions
 
 转换选项。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

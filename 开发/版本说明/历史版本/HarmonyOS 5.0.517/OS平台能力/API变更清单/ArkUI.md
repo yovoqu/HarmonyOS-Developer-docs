@@ -6,8 +6,8 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除错误码 | 类名：window； API声明：function createWindow(config: Configuration, callback: AsyncCallback<Window>): void; 差异内容：1300008 | 类名：window； API声明：function createWindow(config: Configuration, callback: AsyncCallback<Window>): void; 差异内容：NA | api/@ohos.window.d.ts |
-| 删除错误码 | 类名：window； API声明：function createWindow(config: Configuration): Promise<Window>; 差异内容：1300008 | 类名：window； API声明：function createWindow(config: Configuration): Promise<Window>; 差异内容：NA | api/@ohos.window.d.ts |
+| 删除错误码 | 类名：window； API声明：function createWindow(config: Configuration, callback: AsyncCallback&lt;Window&gt;): void; 差异内容：1300008 | 类名：window； API声明：function createWindow(config: Configuration, callback: AsyncCallback&lt;Window&gt;): void; 差异内容：NA | api/@ohos.window.d.ts |
+| 删除错误码 | 类名：window； API声明：function createWindow(config: Configuration): Promise&lt;Window&gt;; 差异内容：1300008 | 类名：window； API声明：function createWindow(config: Configuration): Promise&lt;Window&gt;; 差异内容：NA | api/@ohos.window.d.ts |
 | 函数变更 | 类名：SwiperController； API声明：changeIndex(index: number, animationMode: SwiperAnimationMode \| boolean); 差异内容：animationMode: SwiperAnimationMode \| boolean | 类名：SwiperController； API声明：changeIndex(index: number, animationMode?: SwiperAnimationMode \| boolean); 差异内容：animationMode?: SwiperAnimationMode \| boolean | component/swiper.d.ts |
 | 新增API | NA | 类名：NavDestinationState； API声明：ON_ACTIVE = 8 差异内容：ON_ACTIVE = 8 | api/@ohos.arkui.observer.d.ts |
 | 新增API | NA | 类名：NavDestinationState； API声明：ON_INACTIVE = 9 差异内容：ON_INACTIVE = 9 | api/@ohos.arkui.observer.d.ts |
@@ -20,7 +20,7 @@
 | 新增API | NA | 类名：AxisEvent； API声明：x: number; 差异内容：x: number; | component/common.d.ts |
 | 新增API | NA | 类名：AxisEvent； API声明：y: number; 差异内容：y: number; | component/common.d.ts |
 | 新增API | NA | 类名：AxisEvent； API声明：scrollStep?: number; 差异内容：scrollStep?: number; | component/common.d.ts |
-| 新增API | NA | 类名：AxisEvent； API声明：propagation: Callback<void>; 差异内容：propagation: Callback<void>; | component/common.d.ts |
+| 新增API | NA | 类名：AxisEvent； API声明：propagation: Callback&lt;void&gt;; 差异内容：propagation: Callback&lt;void&gt;; | component/common.d.ts |
 | 新增API | NA | 类名：AxisEvent； API声明：getHorizontalAxisValue(): number; 差异内容：getHorizontalAxisValue(): number; | component/common.d.ts |
 | 新增API | NA | 类名：AxisEvent； API声明：getVerticalAxisValue(): number; 差异内容：getVerticalAxisValue(): number; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare enum AxisAction 差异内容：declare enum AxisAction | component/enums.d.ts |
@@ -38,17 +38,17 @@
 | 新增API | NA | 类名：NavDestinationActiveReason； API声明：APP_STATE = 5 差异内容：APP_STATE = 5 | component/nav_destination.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：UIContext； API声明：static createUIContextWithoutWindow(context: common.UIAbilityContext \| common.ExtensionContext): UIContext \| undefined; 差异内容：static createUIContextWithoutWindow(context: common.UIAbilityContext \| common.ExtensionContext): UIContext \| undefined; | api/@ohos.arkui.UIContext.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：UIContext； API声明：static destroyUIContextWithoutWindow(): void; 差异内容：static destroyUIContextWithoutWindow(): void; | api/@ohos.arkui.UIContext.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：CommonMethod； API声明：onAxisEvent(event: Callback<AxisEvent>): T; 差异内容：onAxisEvent(event: Callback<AxisEvent>): T; | component/common.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：CommonMethod； API声明：onAxisEvent(event: Callback&lt;AxisEvent&gt;): T; 差异内容：onAxisEvent(event: Callback&lt;AxisEvent&gt;): T; | component/common.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：CommonMethod； API声明：onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback \| undefined): void; 差异内容：onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback \| undefined): void; | component/common.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：TextContentControllerBase； API声明：clearPreviewText(): void; 差异内容：clearPreviewText(): void; | component/common.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：ImageAnimatorAttribute； API声明：monitorInvisibleArea(monitorInvisibleArea: boolean): ImageAnimatorAttribute; 差异内容：monitorInvisibleArea(monitorInvisibleArea: boolean): ImageAnimatorAttribute; | component/image_animator.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：NavDestinationAttribute； API声明：onActive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute; 差异内容：onActive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：NavDestinationAttribute； API声明：onInactive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute; 差异内容：onInactive(callback: Optional<Callback<NavDestinationActiveReason>>): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：setFollowParentWindowLayoutEnabled(enabled: boolean): Promise<void>; 差异内容：setFollowParentWindowLayoutEnabled(enabled: boolean): Promise<void>; | api/@ohos.window.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：NavDestinationAttribute； API声明：onActive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>): NavDestinationAttribute; 差异内容：onActive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：NavDestinationAttribute； API声明：onInactive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>): NavDestinationAttribute; 差异内容：onInactive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：setFollowParentWindowLayoutEnabled(enabled: boolean): Promise&lt;void&gt;; 差异内容：setFollowParentWindowLayoutEnabled(enabled: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：setWindowShadowRadius(radius: number): void; 差异内容：setWindowShadowRadius(radius: number): void; | api/@ohos.window.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：setWindowCornerRadius(cornerRadius: number): Promise<void>; 差异内容：setWindowCornerRadius(cornerRadius: number): Promise<void>; | api/@ohos.window.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：setWindowCornerRadius(cornerRadius: number): Promise&lt;void&gt;; 差异内容：setWindowCornerRadius(cornerRadius: number): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：getWindowCornerRadius(): number; 差异内容：getWindowCornerRadius(): number; | api/@ohos.window.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：setFollowParentMultiScreenPolicy(enabled: boolean): Promise<void>; 差异内容：setFollowParentMultiScreenPolicy(enabled: boolean): Promise<void>; | api/@ohos.window.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Window； API声明：setFollowParentMultiScreenPolicy(enabled: boolean): Promise&lt;void&gt;; 差异内容：setFollowParentMultiScreenPolicy(enabled: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：PiPConfiguration； API声明：localStorage?: LocalStorage; 差异内容：localStorage?: LocalStorage; | api/@ohos.PiPWindow.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：BaseEvent； API声明：rollAngle?: number; 差异内容：rollAngle?: number; | component/common.d.ts |
-| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：WindowStage； API声明：setWindowRectAutoSave(enabled: boolean): Promise<void>; 差异内容：setWindowRectAutoSave(enabled: boolean): Promise<void>; | 类名：WindowStage； API声明：setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>; 差异内容：setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>; | api/@ohos.window.d.ts |
+| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：WindowStage； API声明：setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;; 差异内容：setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;; | 类名：WindowStage； API声明：setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise&lt;void&gt;; 差异内容：setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |

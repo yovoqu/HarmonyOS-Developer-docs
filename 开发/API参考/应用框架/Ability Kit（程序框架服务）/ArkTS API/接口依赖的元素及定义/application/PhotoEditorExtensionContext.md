@@ -3,30 +3,26 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-photoeditorextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 PhotoEditorExtensionContext是PhotoEditorExtensionAbility的上下文，继承自ExtensionContext，提供PhotoEditorExtensionAbility的相关配置信息以及保存图片接口。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
-> 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 导入模块
 
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
 
-## PhotoEditorExtensionContext.saveEditedContentWithUri
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-saveEditedContentWithUri(uri: string): Promise<AbilityResult>
+##### PhotoEditorExtensionContext.saveEditedContentWithUri
+
+saveEditedContentWithUri(uri: string): Promise&lt;AbilityResult&gt;
 
 传入编辑过的图片的uri并保存。使用Promise异步回调。
 
@@ -36,24 +32,21 @@ saveEditedContentWithUri(uri: string): Promise<AbilityResult>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | string | 是 | 编辑后图片的[uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)，格式为file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。 |
+| uri | string | 是 | 编辑后图片的uri，格式为file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AbilityResult&gt; | Promise对象，返回AbilityResult对象，编辑过的图片uri存在want.uri中，[uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)格式为file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。 |
+| Promise&lt;AbilityResult&gt; | Promise对象，返回AbilityResult对象，编辑过的图片uri存在want.uri中，uri格式为file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。 |
 
 
 **错误码：**
 
 以下错误码详细介绍参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -65,8 +58,7 @@ saveEditedContentWithUri(uri: string): Promise<AbilityResult>
 
 **示例：**
 
-
-```ts
+```json
 import { common, UIExtensionContentSession, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -96,16 +88,16 @@ struct Index {
               let file: fileIo.File | undefined;
               try{
                 file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE
-                | fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC);
+| fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC);
                 let writeLen = fileIo.writeSync(file.fd, data);
                 hilog.info(0x0000, TAG, 'write data to file succeed and size is:'
-                + writeLen);
+                  + writeLen);
                 fileIo.closeSync(file);
                 context.saveEditedContentWithUri(filePath).then
-                (data => {
-                  hilog.info(0x0000, TAG,
-                  `saveContentEditingWithUri result: ${JSON.stringify(data)}`);
-                });
+                  (data => {
+                    hilog.info(0x0000, TAG,
+                      `saveContentEditingWithUri result: ${JSON.stringify(data)}`);
+                  });
               } catch (e) {
                 hilog.info(0x0000, TAG, `writeImage failed:${e}`);
               } finally {
@@ -113,10 +105,10 @@ struct Index {
               }
             }).catch((error: BusinessError) => {
               hilog.error(0x0000, TAG,
-              'Failed to pack the image. And the error is: ' + String(error));
+                'Failed to pack the image. And the error is: ' + String(error));
             })
           })
-      }).margin({ top: 10 })
+        }).margin({ top: 10 })
       }
     }
   }
@@ -124,10 +116,10 @@ struct Index {
 ```
 
 
-## PhotoEditorExtensionContext.saveEditedContentWithImage
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption): Promise<AbilityResult>
+##### PhotoEditorExtensionContext.saveEditedContentWithImage
+
+saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption): Promise&lt;AbilityResult&gt;
 
 传入编辑过的图片的PixelMap对象并保存。使用Promise异步回调。
 
@@ -137,25 +129,22 @@ saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixeMap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 编辑过的图片image.PixelMap。 |
-| option | [image.PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置打包参数。 |
+| pixeMap | image.PixelMap | 是 | 编辑过的图片image.PixelMap。 |
+| option | image.PackingOption | 是 | 设置打包参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AbilityResult&gt; | Promise对象，返回AbilityResult对象，编辑过的图片uri存在want.uri中，[uri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)格式为file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。 |
+| Promise&lt;AbilityResult&gt; | Promise对象，返回AbilityResult对象，编辑过的图片uri存在want.uri中，uri格式为file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。 |
 
 
 **错误码：**
 
 以下错误码详细介绍参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -167,8 +156,7 @@ saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption)
 
 **示例：**
 
-
-```ts
+```json
 import { common, UIExtensionContentSession, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { image } from '@kit.ImageKit';
@@ -192,16 +180,16 @@ struct Index {
             try {
               let context = this.getUIContext().getHostContext() as common.PhotoEditorExtensionContext;
               context.saveEditedContentWithImage(this.originalImage as image.PixelMap,
-              packOpts).then(data => {
-                hilog.info(0x0000, TAG,
-                `saveContentEditingWithImage result: ${JSON.stringify(data)}`);
-              });
+                packOpts).then(data => {
+                  hilog.info(0x0000, TAG,
+                    `saveContentEditingWithImage result: ${JSON.stringify(data)}`);
+                });
             } catch (e) {
               hilog.error(0x0000, TAG, `saveContentEditingWithImage failed:${e}`);
               return;
             }
           })
-      }).margin({ top: 10 })
+        }).margin({ top: 10 })
       }
     }
   }

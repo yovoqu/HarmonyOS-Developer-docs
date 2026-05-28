@@ -4,13 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-image
 
-
 ```text
 enum ArkUI_NodeAttributeType
 ```
 
 
-## 概述
+##### 概述
 
 定义ArkUI在Native侧可以设置的图类组件相关属性样式集合，包含Image和ImageAnimator组件属性设置。
 
@@ -21,8 +20,8 @@ enum ArkUI_NodeAttributeType
 **所在头文件：** [native_node.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h)
 
 
-## NODE_IMAGE_SRC
 
+##### NODE_IMAGE_SRC
 
 ```text
 NODE_IMAGE_SRC = MAX_NODE_SCOPE_NUM * ARKUI_NODE_IMAGE = 4000
@@ -36,24 +35,23 @@ NODE_IMAGE_SRC = MAX_NODE_SCOPE_NUM * ARKUI_NODE_IMAGE = 4000
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .string | 表示image组件地址。 |
-| .object | 表示 PixelMap 图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)；          .object参数和.string参数二选一，不可同时设置。 |
+| .object | 表示 PixelMap 图片数据，参数类型为ArkUI_DrawableDescriptor； .object参数和.string参数二选一，不可同时设置。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .string | 表示image组件地址。 |
-| .object | 表示 PixelMap 图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)。 |
+| .object | 表示 PixelMap 图片数据，参数类型为ArkUI_DrawableDescriptor。 |
 
 
-## NODE_IMAGE_OBJECT_FIT
 
+
+##### NODE_IMAGE_OBJECT_FIT
 
 ```text
 NODE_IMAGE_OBJECT_FIT = 4001
@@ -67,22 +65,21 @@ NODE_IMAGE_OBJECT_FIT = 4001
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 表示图片填充效果，取[ArkUI_ObjectFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_objectfit)枚举值。 |
+| .value[0].i32 | 表示图片填充效果，取ArkUI_ObjectFit枚举值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 表示图片填充效果，取[ArkUI_ObjectFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_objectfit)枚举值。 |
+| .value[0].i32 | 表示图片填充效果，取ArkUI_ObjectFit枚举值。 |
 
 
-## NODE_IMAGE_INTERPOLATION
 
+
+##### NODE_IMAGE_INTERPOLATION
 
 ```text
 NODE_IMAGE_INTERPOLATION = 4002
@@ -96,22 +93,21 @@ NODE_IMAGE_INTERPOLATION = 4002
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 表示插值效果，取[ArkUI_ImageInterpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imageinterpolation)枚举值。 |
+| .value[0].i32 | 表示插值效果，取ArkUI_ImageInterpolation枚举值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 表示插值效果，取[ArkUI_ImageInterpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imageinterpolation)枚举值。 |
+| .value[0].i32 | 表示插值效果，取ArkUI_ImageInterpolation枚举值。 |
 
 
-## NODE_IMAGE_OBJECT_REPEAT
 
+
+##### NODE_IMAGE_OBJECT_REPEAT
 
 ```text
 NODE_IMAGE_OBJECT_REPEAT = 4003
@@ -125,22 +121,21 @@ NODE_IMAGE_OBJECT_REPEAT = 4003
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 表示图片重复样式，取[ArkUI_ImageRepeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerepeat)枚举值。 |
+| .value[0].i32 | 表示图片重复样式，取ArkUI_ImageRepeat枚举值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 表示图片重复样式，取[ArkUI_ImageRepeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerepeat)枚举值。 |
+| .value[0].i32 | 表示图片重复样式，取ArkUI_ImageRepeat枚举值。 |
 
 
-## NODE_IMAGE_COLOR_FILTER
 
+
+##### NODE_IMAGE_COLOR_FILTER
 
 ```text
 NODE_IMAGE_COLOR_FILTER = 4004
@@ -154,16 +149,14 @@ NODE_IMAGE_COLOR_FILTER = 4004
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 ~ .value[19].f32 | 表示滤镜矩阵数组。 |
 | .size | 表示滤镜数组大小 5x4。 |
-| .object | 颜色滤波器指针，参数类型为OH_Drawing_ColorFilter。          .object和.size参数只能二选一，不可同时设置。 |
+| .object | 颜色滤波器指针，参数类型为OH_Drawing_ColorFilter。 .object和.size参数只能二选一，不可同时设置。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -172,8 +165,9 @@ NODE_IMAGE_COLOR_FILTER = 4004
 | .object | 颜色滤波器指针，参数类型为OH_Drawing_ColorFilter。 |
 
 
-## NODE_IMAGE_AUTO_RESIZE
 
+
+##### NODE_IMAGE_AUTO_RESIZE
 
 ```text
 NODE_IMAGE_AUTO_RESIZE = 4005
@@ -187,7 +181,6 @@ NODE_IMAGE_AUTO_RESIZE = 4005
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 表示是否缩放布尔值，默认值：false。false表示关闭图源自动缩放，true表示开启图源自动缩放。 |
@@ -195,14 +188,14 @@ NODE_IMAGE_AUTO_RESIZE = 4005
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 表示是否缩放布尔值。 |
 
 
-## NODE_IMAGE_ALT
 
+
+##### NODE_IMAGE_ALT
 
 ```text
 NODE_IMAGE_ALT = 4006
@@ -216,24 +209,23 @@ NODE_IMAGE_ALT = 4006
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .string | 表示image组件占位图地址。 |
-| .object | 表示 PixelMap 图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)；          .object参数和.string参数二选一，不可同时设置，不支持网络图片。 |
+| .object | 表示 PixelMap 图片数据，参数类型为ArkUI_DrawableDescriptor； .object参数和.string参数二选一，不可同时设置，不支持网络图片。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .string | 表示image组件占位图地址。 |
-| .object | 表示 PixelMap 图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)。 |
+| .object | 表示 PixelMap 图片数据，参数类型为ArkUI_DrawableDescriptor。 |
 
 
-## NODE_IMAGE_DRAGGABLE
 
+
+##### NODE_IMAGE_DRAGGABLE
 
 ```text
 NODE_IMAGE_DRAGGABLE = 4007
@@ -247,7 +239,6 @@ NODE_IMAGE_DRAGGABLE = 4007
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 表示是否支持拖拽，设置为true表示支持。 |
@@ -255,14 +246,14 @@ NODE_IMAGE_DRAGGABLE = 4007
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 表示是否支持拖拽。 |
 
 
-## NODE_IMAGE_RENDER_MODE
 
+
+##### NODE_IMAGE_RENDER_MODE
 
 ```text
 NODE_IMAGE_RENDER_MODE = 4008
@@ -276,22 +267,21 @@ NODE_IMAGE_RENDER_MODE = 4008
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 参数类型[ArkUI_ImageRenderMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerendermode)。 |
+| .value[0].i32 | 参数类型ArkUI_ImageRenderMode。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 参数类型[ArkUI_ImageRenderMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerendermode)。 |
+| .value[0].i32 | 参数类型ArkUI_ImageRenderMode。 |
 
 
-## NODE_IMAGE_FIT_ORIGINAL_SIZE
 
+
+##### NODE_IMAGE_FIT_ORIGINAL_SIZE
 
 ```text
 NODE_IMAGE_FIT_ORIGINAL_SIZE = 4009
@@ -305,7 +295,6 @@ NODE_IMAGE_FIT_ORIGINAL_SIZE = 4009
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 设置图片的显示尺寸是否跟随图源尺寸，1表示跟随，0表示不跟随，默认值为0。 |
@@ -313,14 +302,14 @@ NODE_IMAGE_FIT_ORIGINAL_SIZE = 4009
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 1表示图片的显示尺寸跟随图源尺寸，0表示图片的显示尺寸不跟随图源尺寸。 |
 
 
-## NODE_IMAGE_FILL_COLOR
 
+
+##### NODE_IMAGE_FILL_COLOR
 
 ```text
 NODE_IMAGE_FILL_COLOR = 4010
@@ -334,7 +323,6 @@ NODE_IMAGE_FILL_COLOR = 4010
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].u32 | 填充色数值，0xargb格式，形如 0xFFFF0000 表示红色。 |
@@ -342,20 +330,20 @@ NODE_IMAGE_FILL_COLOR = 4010
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].u32 | 填充色数值，0xargb格式。 |
 
 
-## NODE_IMAGE_RESIZABLE
 
+
+##### NODE_IMAGE_RESIZABLE
 
 ```text
 NODE_IMAGE_RESIZABLE = 4011
 ```
 
-设置图像拉伸时，可调��大小的图像选项。
+设置图像拉伸时，可调整大小的图像选项。
 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
 
@@ -363,18 +351,16 @@ NODE_IMAGE_RESIZABLE = 4011
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 | 图片左部拉伸时，保持不变距离。单位vp。 |
 | .value[1].f32 | 图片上部拉伸时，保持不变距离。单位vp。 |
 | .value[2].f32 | 图片右部拉伸时，保持不变距离。单位vp。 |
 | .value[3].f32 | 图片下部拉伸时，保持不变距离。单位vp。与NODE_IMAGE_ANTIALIASED一起使用时，NODE_IMAGE_ANTIALIASED属性设置不生效。 |
-| .object | 参数类型为[OH_Drawing_Lattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-lattice)。 |
+| .object | 参数类型为OH_Drawing_Lattice。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -382,11 +368,12 @@ NODE_IMAGE_RESIZABLE = 4011
 | .value[1].f32 | 图片上部拉伸时，保持不变距离。单位vp。 |
 | .value[2].f32 | 图片右部拉伸时，保持不变距离。单位vp。 |
 | .value[3].f32 | 图片下部拉伸时，保持不变距离。单位vp。 |
-| .object | 参数类型为[OH_Drawing_Lattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-lattice)。 |
+| .object | 参数类型为OH_Drawing_Lattice。 |
 
 
-## NODE_IMAGE_SYNC_LOAD
 
+
+##### NODE_IMAGE_SYNC_LOAD
 
 ```text
 NODE_IMAGE_SYNC_LOAD = 4012
@@ -400,7 +387,6 @@ NODE_IMAGE_SYNC_LOAD = 4012
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 表示是否同步，默认值：false。false表示异步加载图片，true表示同步加载图片。 |
@@ -408,14 +394,14 @@ NODE_IMAGE_SYNC_LOAD = 4012
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 表示是否同步。 |
 
 
-## NODE_IMAGE_SOURCE_SIZE
 
+
+##### NODE_IMAGE_SOURCE_SIZE
 
 ```text
 NODE_IMAGE_SOURCE_SIZE = 4013
@@ -429,15 +415,13 @@ NODE_IMAGE_SOURCE_SIZE = 4013
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 表示图片解码的宽，单位px。 |
-| .value[1].i32 | 表示图片解码的高，单位px。当任意参数小于等于0时，属性设置失败并返回[ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode)函数参数异常。 |
+| .value[1].i32 | 表示图片解码的高，单位px。当任意参数小于等于0时，属性设置失败并返回ARKUI_ERROR_CODE_PARAM_INVALID函数参数异常。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -445,8 +429,9 @@ NODE_IMAGE_SOURCE_SIZE = 4013
 | .value[1].i32 | 表示图片解码的高，单位px。 |
 
 
-## NODE_IMAGE_IMAGE_MATRIX
 
+
+##### NODE_IMAGE_IMAGE_MATRIX
 
 ```text
 NODE_IMAGE_IMAGE_MATRIX = 4014
@@ -460,22 +445,21 @@ NODE_IMAGE_IMAGE_MATRIX = 4014
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0...15].f32 | 4x4矩阵通过长度为16的浮点数数组来表示。当参数个数小于16，属性设置失败并返回[ARKUI_ERROR_CODE_PARAM_INVALID](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode)函数参数异常；当参数个数大于16，只取前16个数据。 |
+| .value[0...15].f32 | 4x4矩阵通过长度为16的浮点数数组来表示。当参数个数小于16，属性设置失败并返回ARKUI_ERROR_CODE_PARAM_INVALID函数参数异常；当参数个数大于16，只取前16个数据。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | .value[0...15].f32 | 4x4矩阵通过长度为16的浮点数数组来表示。 |
 
 
-## NODE_IMAGE_MATCH_TEXT_DIRECTION
 
+
+##### NODE_IMAGE_MATCH_TEXT_DIRECTION
 
 ```text
 NODE_IMAGE_MATCH_TEXT_DIRECTION = 4015
@@ -489,7 +473,6 @@ NODE_IMAGE_MATCH_TEXT_DIRECTION = 4015
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 图片是否跟随系统语言方向，默认值为false。false表示图片不跟随系统语言方向，true表示图片跟随系统语言方向。 |
@@ -497,14 +480,14 @@ NODE_IMAGE_MATCH_TEXT_DIRECTION = 4015
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 图片是否跟随系统语言方向。false表示图片不跟随系统语言方向，true表示图片跟随系统语言方向。 |
 
 
-## NODE_IMAGE_COPY_OPTION
 
+
+##### NODE_IMAGE_COPY_OPTION
 
 ```text
 NODE_IMAGE_COPY_OPTION = 4016
@@ -518,22 +501,21 @@ NODE_IMAGE_COPY_OPTION = 4016
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 支持图片拷贝的方式[ArkUI_CopyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_copyoptions)，默认值为ARKUI_COPY_OPTIONS_NONE。 |
+| .value[0].i32 | 支持图片拷贝的方式ArkUI_CopyOptions，默认值为ARKUI_COPY_OPTIONS_NONE。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 支持图片拷贝的方式[ArkUI_CopyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_copyoptions)。 |
+| .value[0].i32 | 支持图片拷贝的方式ArkUI_CopyOptions。 |
 
 
-## NODE_IMAGE_ENABLE_ANALYZER
 
+
+##### NODE_IMAGE_ENABLE_ANALYZER
 
 ```text
 NODE_IMAGE_ENABLE_ANALYZER = 4017
@@ -547,7 +529,6 @@ NODE_IMAGE_ENABLE_ANALYZER = 4017
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 是否为图片开启AI分析，默认值为false。false表示组件不支持AI分析，true表示组件支持AI分析。 |
@@ -555,14 +536,14 @@ NODE_IMAGE_ENABLE_ANALYZER = 4017
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 是否为图片开启AI分析。false表示组件不支持AI分析，true表示组件支持AI分析。 |
 
 
-## NODE_IMAGE_DYNAMIC_RANGE_MODE
 
+
+##### NODE_IMAGE_DYNAMIC_RANGE_MODE
 
 ```text
 NODE_IMAGE_DYNAMIC_RANGE_MODE = 4018
@@ -576,22 +557,21 @@ NODE_IMAGE_DYNAMIC_RANGE_MODE = 4018
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 动态范围类型[ArkUI_DynamicRangeMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_dynamicrangemode)，默认值为ARKUI_DYNAMIC_RANGE_MODE_STANDARD。 |
+| .value[0].i32 | 动态范围类型ArkUI_DynamicRangeMode，默认值为ARKUI_DYNAMIC_RANGE_MODE_STANDARD。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 动态范围类型[ArkUI_DynamicRangeMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_dynamicrangemode)。 |
+| .value[0].i32 | 动态范围类型ArkUI_DynamicRangeMode。 |
 
 
-## NODE_IMAGE_HDR_BRIGHTNESS
 
+
+##### NODE_IMAGE_HDR_BRIGHTNESS
 
 ```text
 NODE_IMAGE_HDR_BRIGHTNESS = 4019
@@ -605,7 +585,6 @@ NODE_IMAGE_HDR_BRIGHTNESS = 4019
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 | 可设置的亮度值，取值范围[0, 1]。小于0和大于1.0时取1。0表示图片按照SDR亮度显示，1表示图片按照当前允许的最高HDR亮度显示。 |
@@ -613,14 +592,14 @@ NODE_IMAGE_HDR_BRIGHTNESS = 4019
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].f32 | 可设置的亮度值，取值范围[0, 1]。 |
 
 
-## NODE_IMAGE_ORIENTATION
 
+
+##### NODE_IMAGE_ORIENTATION
 
 ```text
 NODE_IMAGE_ORIENTATION = 4020
@@ -634,22 +613,21 @@ NODE_IMAGE_ORIENTATION = 4020
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 期望的图像内容显示方向[ArkUI_Orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerotateorientation)，默认值为ARKUI_ORIENTATION_UP。 |
+| .value[0].i32 | 期望的图像内容显示方向ArkUI_Orientation，默认值为ARKUI_ORIENTATION_UP。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 期望的图像内容显示方向[ArkUI_Orientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerotateorientation)。 |
+| .value[0].i32 | 期望的图像内容显示方向ArkUI_Orientation。 |
 
 
-## NODE_IMAGE_SUPPORT_SVG2
 
+
+##### NODE_IMAGE_SUPPORT_SVG2
 
 ```text
 NODE_IMAGE_SUPPORT_SVG2 = 4021
@@ -663,7 +641,6 @@ NODE_IMAGE_SUPPORT_SVG2 = 4021
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 是否启用SVG新解析能力开关。 |
@@ -671,14 +648,14 @@ NODE_IMAGE_SUPPORT_SVG2 = 4021
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 是否启用SVG新解析能力开关。 |
 
 
-## NODE_IMAGE_CONTENT_TRANSITION
 
+
+##### NODE_IMAGE_CONTENT_TRANSITION
 
 ```text
 NODE_IMAGE_CONTENT_TRANSITION = 4022
@@ -692,22 +669,21 @@ NODE_IMAGE_CONTENT_TRANSITION = 4022
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .object | 自定义转场动效，参数类型[ArkUI_ContentTransitionEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-arkui-nativemodule-arkui-contenttransitioneffect)。 |
+| .object | 自定义转场动效，参数类型ArkUI_ContentTransitionEffect。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .object | 自定义转场动效，参数类型[ArkUI_ContentTransitionEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-arkui-nativemodule-arkui-contenttransitioneffect)。 |
+| .object | 自定义转场动效，参数类型ArkUI_ContentTransitionEffect。 |
 
 
-## NODE_IMAGE_ALT_PLACEHOLDER
 
+
+##### NODE_IMAGE_ALT_PLACEHOLDER
 
 ```text
 NODE_IMAGE_ALT_PLACEHOLDER  = 4023
@@ -721,24 +697,23 @@ NODE_IMAGE_ALT_PLACEHOLDER  = 4023
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .string | 表示image组件加载过程中的占位图地址。 |
-| .object | 表示PixelMap图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)；          .object参数和.string参数二选一，不可同时设置，不支持网络图片。 |
+| .object | 表示PixelMap图片数据，参数类型为ArkUI_DrawableDescriptor； .object参数和.string参数二选一，不可同时设置，不支持网络图片。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .string | 表示image组件加载过程中的占位图地址。 |
-| .object | 表示PixelMap图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)。 |
+| .object | 表示PixelMap图片数据，参数类型为ArkUI_DrawableDescriptor。 |
 
 
-## NODE_IMAGE_ALT_ERROR
 
+
+##### NODE_IMAGE_ALT_ERROR
 
 ```text
 NODE_IMAGE_ALT_ERROR  = 4024
@@ -752,24 +727,23 @@ NODE_IMAGE_ALT_ERROR  = 4024
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .string | 表示image组件加载失败时的占位图地址。 |
-| .object | 表示PixelMap图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)；          .object参数和.string参数二选一，不可同时设置，不支持网络图片。 |
+| .object | 表示PixelMap图片数据，参数类型为ArkUI_DrawableDescriptor； .object参数和.string参数二选一，不可同时设置，不支持网络图片。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .string | 表示image组件加载失败时的占位图地址。 |
-| .object | 表示PixelMap图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)。 |
+| .object | 表示PixelMap图片数据，参数类型为ArkUI_DrawableDescriptor。 |
 
 
-## NODE_IMAGE_ANTIALIASED
 
+
+##### NODE_IMAGE_ANTIALIASED
 
 ```text
 NODE_IMAGE_ANTIALIASED = 4025
@@ -783,7 +757,6 @@ NODE_IMAGE_ANTIALIASED = 4025
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 表示是否开启位图图片边缘抗锯齿，默认值：false。false表示不开启抗锯齿，true表示开启抗锯齿。与NODE_IMAGE_RESIZABLE一起使用时，该属性不生效。 |
@@ -791,14 +764,14 @@ NODE_IMAGE_ANTIALIASED = 4025
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 表示是否开启位图图片边缘抗锯齿。false表示不开启抗锯齿，true表示开启抗锯齿。 |
 
 
-## NODE_IMAGE_ANIMATOR_IMAGES
 
+
+##### NODE_IMAGE_ANIMATOR_IMAGES
 
 ```text
 NODE_IMAGE_ANIMATOR_IMAGES = ARKUI_NODE_IMAGE_ANIMATOR * MAX_NODE_SCOPE_NUM = 19000
@@ -812,24 +785,23 @@ NODE_IMAGE_ANIMATOR_IMAGES = ARKUI_NODE_IMAGE_ANIMATOR * MAX_NODE_SCOPE_NUM = 19
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .size | 图片帧的数量。 |
-| .object | 图片帧数组，参数类型为[ArkUI_ImageAnimatorFrameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-arkui-nativemodule-arkui-imageanimatorframeinfo)数组。 |
+| .object | 图片帧数组，参数类型为ArkUI_ImageAnimatorFrameInfo数组。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .size | 图片帧的数量。 |
-| .object | 图片帧数组，参数类型为[ArkUI_ImageAnimatorFrameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-arkui-nativemodule-arkui-imageanimatorframeinfo)数组。 |
+| .object | 图片帧数组，参数类型为ArkUI_ImageAnimatorFrameInfo数组。 |
 
 
-## NODE_IMAGE_ANIMATOR_STATE
 
+
+##### NODE_IMAGE_ANIMATOR_STATE
 
 ```text
 NODE_IMAGE_ANIMATOR_STATE = 19001
@@ -843,22 +815,21 @@ NODE_IMAGE_ANIMATOR_STATE = 19001
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 控制动画的播放状态，参数类型为[ArkUI_AnimationStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_animationstatus)，默认值为初始状态。 |
+| .value[0].i32 | 控制动画的播放状态，参数类型为ArkUI_AnimationStatus，默认值为初始状态。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 控制动画的播放状态，参数类型为[ArkUI_AnimationStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_animationstatus)。 |
+| .value[0].i32 | 控制动画的播放状态，参数类型为ArkUI_AnimationStatus。 |
 
 
-## NODE_IMAGE_ANIMATOR_DURATION
 
+
+##### NODE_IMAGE_ANIMATOR_DURATION
 
 ```text
 NODE_IMAGE_ANIMATOR_DURATION = 19002
@@ -872,7 +843,6 @@ NODE_IMAGE_ANIMATOR_DURATION = 19002
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 播放时长，单位为毫秒，默认值1000。 |
@@ -880,14 +850,14 @@ NODE_IMAGE_ANIMATOR_DURATION = 19002
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 播放时长，单位为毫秒，默认值1000。 |
 
 
-## NODE_IMAGE_ANIMATOR_REVERSE
 
+
+##### NODE_IMAGE_ANIMATOR_REVERSE
 
 ```text
 NODE_IMAGE_ANIMATOR_REVERSE = 19003
@@ -901,7 +871,6 @@ NODE_IMAGE_ANIMATOR_REVERSE = 19003
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 播放方向，0表示从第一张图片播放到最后一张，1表示从最后一张图片播放到第一张，默认值为0。 |
@@ -909,14 +878,14 @@ NODE_IMAGE_ANIMATOR_REVERSE = 19003
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 播放方向，0表示从第一张图片播放到最后一张，1表示从最后一张图片播放到第一张。 |
 
 
-## NODE_IMAGE_ANIMATOR_FIXED_SIZE
 
+
+##### NODE_IMAGE_ANIMATOR_FIXED_SIZE
 
 ```text
 NODE_IMAGE_ANIMATOR_FIXED_SIZE = 19004
@@ -930,7 +899,6 @@ NODE_IMAGE_ANIMATOR_FIXED_SIZE = 19004
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 设置图片大小是否固定为组件大小，1表示图片大小与组件大小一致。0表示每一张图片的width、height、top和left都要单独设置，默认值为1。 |
@@ -938,14 +906,14 @@ NODE_IMAGE_ANIMATOR_FIXED_SIZE = 19004
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 设置图片大小是否固定为组件大小，1表示图片大小与组件大小一致。0表示每一张图片的width、height、top和left都要单独设置。 |
 
 
-## NODE_IMAGE_ANIMATOR_FILL_MODE
 
+
+##### NODE_IMAGE_ANIMATOR_FILL_MODE
 
 ```text
 NODE_IMAGE_ANIMATOR_FILL_MODE = 19005
@@ -959,22 +927,21 @@ NODE_IMAGE_ANIMATOR_FILL_MODE = 19005
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 当前播放方向下，动画开始前和结束后的状态，参数类型为[ArkUI_AnimationFillMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_animationfillmode)，默认值为ARKUI_ANIMATION_FILL_MODE_FORWARDS。 |
+| .value[0].i32 | 当前播放方向下，动画开始前和结束后的状态，参数类型为ArkUI_AnimationFillMode，默认值为ARKUI_ANIMATION_FILL_MODE_FORWARDS。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 当前播放方向下，动画开始前和结束后的状态，参数类型为[ArkUI_AnimationFillMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_animationfillmode)。 |
+| .value[0].i32 | 当前播放方向下，动画开始前和结束后的状态，参数类型为ArkUI_AnimationFillMode。 |
 
 
-## NODE_IMAGE_ANIMATOR_ITERATION
 
+
+##### NODE_IMAGE_ANIMATOR_ITERATION
 
 ```text
 NODE_IMAGE_ANIMATOR_ITERATION = 19006
@@ -988,14 +955,12 @@ NODE_IMAGE_ANIMATOR_ITERATION = 19006
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 播放次数。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |

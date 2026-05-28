@@ -3,26 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-
-## HwLocationType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+##### HwLocationType
 
 华为地点类型的枚举类。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
+ 
+  
 
-
-### EATING_DRINKING
-
-
+##### EATING_DRINKING
+ 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | AFRICAN_RESTAURANT 非洲餐厅 | - |
@@ -225,7 +223,7 @@
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | FONDUE_RESTAURANT 芝士火锅店 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | MACROBIOTIC_RESTAURANT 养生餐馆 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | MUSSEL_RESTAURANT 蛤贝店 | - |
-| EATING_DRINKING 饮食 | RESTAURANT 餐厅 | SNACKS_BEVERAGES 小食&amp;酒水 | - |
+| EATING_DRINKING 饮食 | RESTAURANT 餐厅 | SNACKS_BEVERAGES 小食&酒水 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | SOUP_RESTAURANT 汤羹店 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | BUFFET_RESTAURANT 自助餐厅 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | SALAD_BAR 沙拉店 | - |
@@ -245,7 +243,7 @@
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | HOT_DOGS 热狗 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | PASTRIES 糕点类 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | BREWPUB 精酿啤酒吧 | - |
-| EATING_DRINKING 饮食 | RESTAURANT 餐厅 | NATURAL_HEALTHY 天然&amp;健康 | - |
+| EATING_DRINKING 饮食 | RESTAURANT 餐厅 | NATURAL_HEALTHY 天然&健康 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | NOODLES 面食 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | BREAKFAST 早餐 | - |
 | EATING_DRINKING 饮食 | RESTAURANT 餐厅 | BRUNCH 早午餐 | - |
@@ -261,17 +259,18 @@
 | EATING_DRINKING 饮食 | PUB_CAFé 咖啡馆和英式酒吧 | PUB 英式酒吧 | - |
 | EATING_DRINKING 饮食 | PUB_CAFé 咖啡馆和英式酒吧 | INTERNET_CAFé 网咖 | - |
 | EATING_DRINKING 饮食 | PUB_CAFé 咖啡馆和英式酒吧 | TEA_HOUSE 茶馆 | - |
-| EATING_DRINKING 饮食 | PUB_CAFé 咖啡馆和英式酒吧 | COFFEE_TEA 咖啡&amp;茶 | - |
+| EATING_DRINKING 饮食 | PUB_CAFé 咖啡馆和英式酒吧 | COFFEE_TEA 咖啡&茶 | - |
 | EATING_DRINKING 饮食 | PUB_CAFé 咖啡馆和英式酒吧 | MICROBREWERY_BEER_GARDEN 露天酒吧 | - |
 | EATING_DRINKING 饮食 | RESTAURANT_AREA 餐饮区 | FOOD_COURT 美食广场 | - |
 | EATING_DRINKING 饮食 | RESTAURANT_AREA 餐饮区 | HAWKER_CENTRE 小贩中心 | - |
 | EATING_DRINKING 饮食 | EATING_DRINKING_ANCILLARY_FACILITY 美食附属设施 | - | - |
 | EATING_DRINKING 饮食 | BEVERAGE_SHOP 饮品店 | - | - |
+ 
+ 
+  
 
-
-### SHOPPING
-
-
+##### SHOPPING
+ 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
 | SHOPPING 购物 | DEPARTMENT_STORE 百货公司 | - | - |
@@ -314,23 +313,23 @@
 | SHOPPING 购物 | SHOP 店铺 | FOOD_DRINK_SHOP 食品店 | AQUATIC_SEAFOOD_SHOP 水产海鲜店 |
 | SHOPPING 购物 | SHOP 店铺 | GIFT_STORE 礼品店 | - |
 | SHOPPING 购物 | SHOP 店铺 | HAIR_SALON_BARBERSHOP 美发店 | - |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | CARPET_STORE 地毯/地板商店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | CURTAIN_TEXTILE_STORE 窗帘/纺织品商店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | DIY_CENTER DIY中心 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | FURNITURE_AND_ACCESSORIES_STORE 家具配件店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | GARDENING_SERVICES 园艺服务 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | KITCHEN_AND_SANITATION_STORE 厨房及清洁用品店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | LIGHTING_STORE 灯饰店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | PAINTING_DECORATING_STORE 油漆及装饰材料店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | GLASS_WINDOW_STORE 玻璃及窗具店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | FURNITURE_STORE 家具店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | POWER_EQUIPMENT_DEALER 电力设备经销商 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | HOME_SPECIALTY_STORE 家居专卖店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | LUMBER 木材店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | FLOORING_STORE 地板店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | KITCHEN_STORE 厨房用品店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | BATHROOM_STORE 卫浴专卖店 |
-| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&amp;园艺 | LOCKSMITH 锁匠 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | CARPET_STORE 地毯/地板商店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | CURTAIN_TEXTILE_STORE 窗帘/纺织品商店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | DIY_CENTER DIY中心 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | FURNITURE_AND_ACCESSORIES_STORE 家具配件店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | GARDENING_SERVICES 园艺服务 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | KITCHEN_AND_SANITATION_STORE 厨房及清洁用品店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | LIGHTING_STORE 灯饰店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | PAINTING_DECORATING_STORE 油漆及装饰材料店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | GLASS_WINDOW_STORE 玻璃及窗具店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | FURNITURE_STORE 家具店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | POWER_EQUIPMENT_DEALER 电力设备经销商 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | HOME_SPECIALTY_STORE 家居专卖店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | LUMBER 木材店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | FLOORING_STORE 地板店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | KITCHEN_STORE 厨房用品店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | BATHROOM_STORE 卫浴专卖店 |
+| SHOPPING 购物 | SHOP 店铺 | HOUSE_GARDEN 家装&园艺 | LOCKSMITH 锁匠 |
 | SHOPPING 购物 | SHOP 店铺 | JEWELRY_WATCH_STORE 珠宝钟表店 | JEWELRY_STORE 珠宝店 |
 | SHOPPING 购物 | SHOP 店铺 | JEWELRY_WATCH_STORE 珠宝钟表店 | WATCH_STORE 钟表店 |
 | SHOPPING 购物 | SHOP 店铺 | NEWSAGENTS_TOBACCONISTS 报摊和烟草店 | NEWSAGENTS 报刊亭 |
@@ -403,11 +402,12 @@
 | SHOPPING 购物 | SHOP 店铺 | E_CIGARETTE 电子烟 | - |
 | SHOPPING 购物 | SHOPPING_ANCILLARY_FACILITY 购物附属设施 | - | - |
 | SHOPPING 购物 | COMMERCIAL_PEDESTRIAN_STREET 商业步行街 | - | - |
+ 
+ 
+  
 
-
-### LEISURE
-
-
+##### LEISURE
+ 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
 | LEISURE 休闲 | ENTERTAINMENT_PLAZA 娱乐场所 | - | - |
@@ -444,7 +444,7 @@
 | LEISURE 休闲 | ZOO_BOTANICAL_GARDEN 动植物园 | ZOO 动物园 | - |
 | LEISURE 休闲 | ZOO_BOTANICAL_GARDEN 动植物园 | AQUATIC_ZOO_MARINE_PARK 水族馆和海洋公园 | - |
 | LEISURE 休闲 | ZOO_BOTANICAL_GARDEN 动植物园 | WILDLIFE_PARK 野生动物园 | - |
-| LEISURE 休闲 | ZOO_BOTANICAL_GARDEN 动植物园 | PETTING_ZOO 宠物动���园 | - |
+| LEISURE 休闲 | ZOO_BOTANICAL_GARDEN 动植物园 | PETTING_ZOO 宠物动物园 | - |
 | LEISURE 休闲 | LEISURE_CENTER 休闲中心 | SAUNA,_SOLARIUM_MASSAGE_CENTER 桑拿，日光浴室和按摩中心 | SAUNA 桑拿 |
 | LEISURE 休闲 | LEISURE_CENTER 休闲中心 | SAUNA,_SOLARIUM_MASSAGE_CENTER 桑拿，日光浴室和按摩中心 | MASSAGE 按摩 |
 | LEISURE 休闲 | LEISURE_CENTER 休闲中心 | POOL_HALL 台球馆 | - |
@@ -500,11 +500,12 @@
 | LEISURE 休闲 | OUTWARD_BOUND 拓展培训 | - | - |
 | LEISURE 休闲 | PICKING_GARDEN 采摘园 | - | - |
 | LEISURE 休闲 | ESCAPE_ROOM_CENTER 密室逃脱中心 | - | - |
+ 
+ 
+  
 
-
-### SPORT_FITNESS
-
-
+##### SPORT_FITNESS
+ 
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
 | SPORT_FITNESS 体育运动 | SPORTS_CENTER 体育中心 | FITNESS_CLUB_CENTER 健身俱乐部 |
@@ -537,11 +538,12 @@
 | SPORT_FITNESS 体育运动 | WATER_SPORTS_CENTER 水上运动中心 | DIVING_CENTER 潜水中心 |
 | SPORT_FITNESS 体育运动 | MARTIAL_ARTS 武术 | - |
 | SPORT_FITNESS 体育运动 | SPORT_FITNESS_ANCILLARY_FACILITY 体育运动附属设施 | - |
+ 
+ 
+  
 
-
-### TOURISM
-
-
+##### TOURISM
+ 
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
 | TOURISM 旅游 | TOURIST_INFORMATION_OFFICE 旅客问讯处 | - |
@@ -587,11 +589,12 @@
 | TOURISM 旅游 | TICKET_OFFICE 售票处 | - |
 | TOURISM 旅游 | TOURISM_ANCILLARY_FACILITY 旅游附属设施 | EXHIBITION_HALL 展厅 |
 | TOURISM 旅游 | PUNCHING_POINT 打卡点 | - |
+ 
+ 
+  
 
-
-### HEALTH_CARE
-
-
+##### HEALTH_CARE
+ 
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
 | HEALTH_CARE 医疗保健 | HOSPITAL_CLINIC 医院 | GENERAL_HOSPITAL 综合医院 |
@@ -624,11 +627,12 @@
 | HEALTH_CARE 医疗保健 | HEALTH_RESORT 疗养胜地 | KIDS_HEALTH_RESORT 儿童疗养胜地 |
 | HEALTH_CARE 医疗保健 | HEALTH_CARE_ANCILLARY_FACILITY 医疗保健附属设施 | - |
 | HEALTH_CARE 医疗保健 | PET_HOSPITAL 宠物医院 | - |
+ 
+ 
+  
 
-
-### ACCOMMODATION
-
-
+##### ACCOMMODATION
+ 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
 | ACCOMMODATION 住宿 | RESIDENTIAL_ACCOMMODATION 住宅 | RESIDENTIAL_ESTATE 居民小区 | - |
@@ -663,11 +667,12 @@
 | ACCOMMODATION 住宿 | CAMPING_GROUND 露营地 | RECREATIONAL_SITE 休闲露营地 | - |
 | ACCOMMODATION 住宿 | CAMPING_GROUND 露营地 | CARAVAN_SITE 房车露营地 | - |
 | ACCOMMODATION 住宿 | ACCOMMODATION_ANCILLARY_FACILITY 住宿附属设施 | - | - |
+ 
+ 
+  
 
-
-### TRANSPORT
-
-
+##### TRANSPORT
+ 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
 | TRANSPORT 交通运输 | AIRPORT 机场 | PUBLIC_AUTHORITY 民用机场 | - |
@@ -754,11 +759,12 @@
 | TRANSPORT 交通运输 | PUBLIC_TRANSIT_ROUTE 公共交通线路 | BUS_ROUTE 公交车线路 | - |
 | TRANSPORT 交通运输 | PUBLIC_TRANSIT_ROUTE 公共交通线路 | BUS_RAPID_TRANSIT_ROUTE 快速公交线路 | - |
 | TRANSPORT 交通运输 | HIGH_SPEED_PARKING_AREA 高速停车区 | - | - |
+ 
+ 
+  
 
-
-### GOVERNMENT_PUBLIC_SERVICE
-
-
+##### GOVERNMENT_PUBLIC_SERVICE
+ 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | GOVERNMENT_OFFICE 政府机关 | NATIONAL_ORGANIZATION 国家机关 | - |
@@ -780,7 +786,7 @@
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION 教育机构 | COLLEGE_UNIVERSITY 大学 | UNIVERSITY_DEPARTMENT 大学院系 |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION 教育机构 | JUNIOR_COLLEGE_COMMUNITY_COLLEGE 专科院校 | - |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION 教育机构 | CHILD_CARE_FACILITY 托儿所 | - |
-| GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION ���育机构 | PRESCHOOL 学前班 | - |
+| GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION 教育机构 | PRESCHOOL 学前班 | - |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION 教育机构 | PRIMARY_SCHOOL 小学 | - |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION 教育机构 | HIGH_SCHOOL 中学 | - |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | EDUCATIONAL_INSTITUTION 教育机构 | SENIOR_HIGH_SCHOOL 高级中学 | - |
@@ -840,11 +846,12 @@
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | PUBLIC_SECURITY_BUREAU 公安局 | - | - |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | LOCAL_POLICE_STATION 派出所 | - | - |
 | GOVERNMENT_PUBLIC_SERVICE 政府公共服务 | MUNICIPAL_ADMINISTRATIVE_SERVICE_CENTER 市政务服务中心 | - | - |
+ 
+ 
+  
 
-
-### BUSINESS
-
-
+##### BUSINESS
+ 
 | Level 1 | Level 2 | Level 3 | Level 4 |
 | --- | --- | --- | --- |
 | BUSINESS 商业 | BANK 银行 | - | - |
@@ -965,11 +972,12 @@
 | BUSINESS 商业 | BAGGAGE_SERVICE 行李寄存服务 | - | - |
 | BUSINESS 商业 | EXPRESS_STORAGE 快递存放点 | - | - |
 | BUSINESS 商业 | OFFICE_BUILDING 写字楼 | - | - |
+ 
+ 
+  
 
-
-### AUTOMOTIVE
-
-
+##### AUTOMOTIVE
+ 
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
 | AUTOMOTIVE 汽车 | PETROL_STATION 加油站 | - |
@@ -1017,11 +1025,12 @@
 | AUTOMOTIVE 汽车 | BICYCLE_SHARING_LOCATION 共享单车点 | - |
 | AUTOMOTIVE 汽车 | BICYCLE_PARKING_PLACE 自行车停放处 | - |
 | AUTOMOTIVE 汽车 | ELECTRIC_BICYCLE_CHARGING_STATION 电动自行车充电站 | - |
+ 
+ 
+  
 
-
-### MISCELLANEOUS
-
-
+##### MISCELLANEOUS
+ 
 | Level 1 | Level 2 | Level 3 |
 | --- | --- | --- |
 | MISCELLANEOUS 其他 | GEOGRAPHIC_FEATURE 地理特征 | MOUNTAIN_PEAK 山峰 |
@@ -1086,19 +1095,21 @@
 | MISCELLANEOUS 其他 | UNKNOWN 未知 | - |
 | MISCELLANEOUS 其他 | ARCHITECTURE 建筑物 | - |
 | MISCELLANEOUS 其他 | COMMERCIAL_DISTRICT 商圈 | - |
+ 
+ 
+  
 
-
-### CITY_WALK
-
-
+##### CITY_WALK
+ 
 | Level 1 |
 | --- |
 | CITY_WALK 城市漫步 |
+ 
+ 
+  
 
-
-### OTHERS
-
-
+##### OTHERS
+ 
 | Level 1 |
 | --- |
 | ADMINISTRATIVE_AREA_LEVEL_1 一级行政区域 |

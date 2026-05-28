@@ -3,21 +3,20 @@
 更新时间：2026-05-07 09:37:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-resource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供获取应用资源或系统资源信息的接口。应用资源及系统资源的介绍及使用方法可参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## \$r
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### \$r
 
 \$r(value: string, ...params: any[]): Resource
 
-获取应用资源或系统资源的信息。\$r会在编译期由工具链转换为[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resource9)对象。通过\$r访问应用资源或系统资源，可参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
+获取应用资源或系统资源的信息。$r会在编译期由工具链转换为[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resource9)对象。通过$r访问应用资源或系统资源，可参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -27,25 +26,22 @@
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string | 是 | 资源标识符，访问格式为belonging.type.name。          belonging：表示该资源为系统资源、应用资源或HSP包资源，可选值为sys、app或[hsp_name]。          type：资源类型，可选值为boolean，color，float，intarray，integer，pattern，plural，strarray，string或media。          name：资源名称，应用资源名称定义在工程resources目录下，系统资源名称获取可参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。 |
+| value | string | 是 | 资源标识符，访问格式为belonging.type.name。 belonging：表示该资源为系统资源、应用资源或HSP包资源，可选值为sys、app或[hsp_name]。 type：资源类型，可选值为boolean，color，float，intarray，integer，pattern，plural，strarray，string或media。 name：资源名称，应用资源名称定义在工程resources目录下，系统资源名称获取可参考资源分类与访问。 |
 | ...params | any[] | 否 | 开发者传入的剩余参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resource9) | 资源相关信息，包括应用包名、应用模块名、资源id等。 |
+| Resource | 资源相关信息，包括应用包名、应用模块名、资源id等。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Entry
 @Component
 struct Page {
@@ -64,12 +60,12 @@ struct Page {
 访问HSP包的资源示例可参考[访问跨HAP/HSP包资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access#访问跨haphsp包资源)。
 
 
-## \$rawfile
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### \$rawfile
 
 \$rawfile(value: string): Resource
 
-获取工程rawfile目录下的资源信息。\$rawfile会在编译期由工具链转换为[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resource9)对象。通过\$rawfile访问应用资源或系统资源，可参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
+获取工程rawfile目录下的资源信息。$rawfile会在编译期由工具链转换为[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resource9)对象。通过$rawfile访问应用资源或系统资源，可参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -79,7 +75,6 @@ struct Page {
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string | 是 | rawfile目录下的相对路径。文件名需要包含后缀，路径开头不可以"/"开头。 |
@@ -87,13 +82,12 @@ struct Page {
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resource9) | 资源相关信息，包括应用包名、应用模块名、资源id等。 |
+| Resource | 资源相关信息，包括应用包名、应用模块名、资源id等。 |
 
 
-```ts
+```text
 // src/main/resources/rawfile目录下添加startIcon.png。
 
 @Entry

@@ -6,34 +6,56 @@
 
 游戏场景感知包括：
 
+ - Game Service Kit通过游戏提供的精细化场景信息、配置信息和网络信息等数据，以及当前负载情况使用不同策略优化系统资源调度。
+ - Game Service Kit通过感知游戏设备的系统状态信息（包括温度变化趋势数据、GPU性能信息等），并将其反馈给游戏应用，游戏应用可以基于当前设备状态自行调整游戏设置等内容，在系统资源有限的情况下优化玩家的游戏体验。
 
-## 业务流程
 
-![](assets/开发指导(ArkTS)
-/file-20260514131909613-0.png) 游戏启动后调用[gamePerformance.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceinit)接口对游戏场景感知进行初始化。 初始化成功后，游戏调用[gamePerformance.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceondevicestatechanged)接口注册设备状态变化事件监听，订阅设备状态变化通知。 游戏调用[gamePerformance.updateGameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceupdategameinfo)接口向游戏场景感知上报游戏信息（包信息、配置信息、场景信息和网络信息等）。 游戏场景感知广播游戏信息给终端系统。 终端系统根据游戏信息进行系统资源调度。 终端系统会将设备状态变化通知游戏场景感知。 游戏场景感知向游戏客户端反馈设备状态变化。 如不再需要订阅，游戏可调用[gamePerformance.off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceoffdevicestatechanged)接口取消设备状态变化事件监听。 游戏调用[gamePerformance.getDeviceInfoByScope](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformancegetdeviceinfobyscope)接口向游戏场景感知主动查询设备状态信息。
+
+##### 业务流程
+
+
+![](assets/开发指导(ArkTS)/file-20260514131909613-0.png)
+
+1. 游戏启动后调用[gamePerformance.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceinit)接口对游戏场景感知进行初始化。
+2. 初始化成功后，游戏调用[gamePerformance.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceondevicestatechanged)接口注册设备状态变化事件监听，订阅设备状态变化通知。
+3. 游戏调用[gamePerformance.updateGameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceupdategameinfo)接口向游戏场景感知上报游戏信息（包信息、配置信息、场景信息和网络信息等）。
+4. 游戏场景感知广播游戏信息给终端系统。
+5. 终端系统根据游戏信息进行系统资源调度。
+6. 终端系统会将设备状态变化通知游戏场景感知。
+7. 游戏场景感知向游戏客户端反馈设备状态变化。
+8. 如不再需要订阅，游戏可调用[gamePerformance.off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceoffdevicestatechanged)接口取消设备状态变化事件监听。
+9. 游戏调用[gamePerformance.getDeviceInfoByScope](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformancegetdeviceinfobyscope)接口向游戏场景感知主动查询设备状态信息。
+
 > [!NOTE]
 > Mali系列GPU不支持采集GPU性能信息，调用订阅和查询设备状态信息接口时无法获取设备GPU性能信息。
 
 
-## 接口说明
+
+
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceinit)(gamePackageInfo: GamePackageInfo): Promise | 游戏初始化接口，对游戏场景感知进行初始化，通过Promise对象获取返回值。 |
-| [on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceondevicestatechanged)(type: 'deviceStateChanged', callback: Callback): void | 订阅设备状态变化接口，主要用于监听deviceStateChanged（设备状态变化）事件。 |
-| [on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceondevicestatechanged-1)(type: 'deviceStateChanged', callback: Callback, scope: Array): void | 按需订阅设备状态变化接口。主要用于监听deviceStateChanged（设备状态变化）事件，支持传入参数指定订阅的设备状态信息类型。 |
-| [updateGameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceupdategameinfo)(gameInfo: T): Promise | 更新游戏信息接口，主要用于上报游戏信息（包信息、配置信息、场景信息和网络信息等），通过Promise对象获取返回值。 |
-| [off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceoffdevicestatechanged)(type: 'deviceStateChanged', callback?: Callback): void | 取消订阅设备状态变化接口，主要用于取消监听deviceStateChanged（设备状态变化）事件。 |
-| [getDeviceInfoByScope](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformancegetdeviceinfobyscope)(scope: Array): Promise | 查询设备状态信息接口。 |
+| init(gamePackageInfo: GamePackageInfo): Promise&lt;void&gt; | 游戏初始化接口，对游戏场景感知进行初始化，通过Promise对象获取返回值。 |
+| on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;): void | 订阅设备状态变化接口，主要用于监听deviceStateChanged（设备状态变化）事件。 |
+| on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;, scope: Array&lt;DeviceInfoType&gt;): void | 按需订阅设备状态变化接口。主要用于监听deviceStateChanged（设备状态变化）事件，支持传入参数指定订阅的设备状态信息类型。 |
+| updateGameInfo<T extends BaseGameInfo>(gameInfo: T): Promise&lt;void&gt; | 更新游戏信息接口，主要用于上报游戏信息（包信息、配置信息、场景信息和网络信息等），通过Promise对象获取返回值。 |
+| off(type: 'deviceStateChanged', callback?: Callback&lt;DeviceInfo&gt;): void | 取消订阅设备状态变化接口，主要用于取消监听deviceStateChanged（设备状态变化）事件。 |
+| getDeviceInfoByScope(scope: Array&lt;DeviceInfoParameter&gt;): Promise&lt;DeviceInfo&gt; | 查询设备状态信息接口。 |
 
 
-## 接入步骤
 
 
-## 导入模块
+##### 接入步骤
+
+
+
+##### 导入模块
 
 导入Game Service Kit及公共模块。
+
 ```text
 import { gamePerformance } from '@kit.GameServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -41,9 +63,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
 
-## 初始化
+
+##### 初始化
 
 导入相关模块后，需先调用[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceinit)接口对游戏场景感知进行初始化。
+
 > [!NOTE]
 > init接口是调用其他接口的前提，如果未初始化或初始化失败，将无法调用其他接口。
 
@@ -67,9 +91,11 @@ try {
 ```
 
 
-## 订阅设备状态变化
+
+##### 订阅设备状态变化
 
 调用[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceondevicestatechanged)接口可以订阅设备状态变化事件，获取设备状态变化的通知（如设备温控档位）。
+
 ```text
 function onDeviceStateChange(data:gamePerformance.DeviceInfo) {
   // 设备信息详情
@@ -87,6 +113,7 @@ try {
 ```
 
 目前支持订阅GPU和温度变化趋势两种类型的设备状态数据，也可以调用[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceondevicestatechanged-1)接口按需订阅，如只订阅GPU数据：
+
 ```text
 function onDeviceStateChange(data:gamePerformance.DeviceInfo) {
   // data中仅含有gpuInfo
@@ -95,7 +122,7 @@ function onDeviceStateChange(data:gamePerformance.DeviceInfo) {
 
 // 订阅deviceStateChanged事件
 try {
-  let types:Array = [gamePerformance.DeviceInfoType.GPU];
+  let types:Array<gamePerformance.DeviceInfoType> = [gamePerformance.DeviceInfoType.GPU];
   gamePerformance.on('deviceStateChanged', onDeviceStateChange, types);
 } catch (error) {
   // 订阅失败
@@ -105,9 +132,11 @@ try {
 ```
 
 
-## 上报游戏信息
+
+##### 上报游戏信息
 
 初始化成功后，可以通过调用[updateGameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceupdategameinfo)接口上报游戏信息（包信息、配置信息、场景信息和网络信息等）。若需上报自定义数据，可调用[addGameCustomData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceaddgamecustomdata)接口。
+
 ```text
 // 以更新游戏场景信息为例
 let gameSceneInfo: gamePerformance.GameSceneInfo = {
@@ -128,9 +157,11 @@ try {
 ```
 
 
-## 取消订阅设备状态
+
+##### 取消订阅设备状态
 
 如不再需要订阅，则可以通过调用[off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformanceoffdevicestatechanged)接口取消订阅设备状态。
+
 ```text
 function onDeviceStateChange(data:gamePerformance.DeviceInfo) {
   // 设备信息详情
@@ -157,9 +188,11 @@ try {
 ```
 
 
-## 查询设备状态信息
+
+##### 查询设备状态信息
 
 除订阅设备状态变化的方式外，也可以通过调用[getDeviceInfoByScope](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance#gameperformancegetdeviceinfobyscope)接口主动查询设备状态：
+
 ```text
 // 查询设备状态
 try {
@@ -169,7 +202,7 @@ try {
   let thermalParam: gamePerformance.DeviceInfoParameter = {
     deviceInfoType: gamePerformance.DeviceInfoType.THERMAL
   };
-  let gameInfos: Array = [gpuParam, thermalParam];
+  let gameInfos: Array<gamePerformance.DeviceInfoParameter> = [gpuParam, thermalParam];
   gamePerformance.getDeviceInfoByScope(gameInfos).then((deviceInfo:gamePerformance.DeviceInfo) => {
     hilog.info(0x0001, 'demo', `Succeeded in querying device info. tempLevel is ${deviceInfo.tempLevel}`);
   });
@@ -181,13 +214,14 @@ try {
 ```
 
 主动查询接口同样支持按需查询，如只查询温度变化趋势数据：
+
 ```text
 // 只查询设备温度数据
 try {
   let thermalParam: gamePerformance.DeviceInfoParameter = {
     deviceInfoType: gamePerformance.DeviceInfoType.THERMAL
   }
-  let gameInfos: Array = [thermalParam];
+  let gameInfos: Array<gamePerformance.DeviceInfoParameter> = [thermalParam];
   gamePerformance.getDeviceInfoByScope(gameInfos).then((deviceInfo:gamePerformance.DeviceInfo) => {
     // 此处的查询结果中将不含有gpuInfo
     hilog.info(0x0001, 'demo', `Succeeded in querying device info. tempLevel is ${deviceInfo.tempLevel}`);
@@ -198,7 +232,6 @@ try {
   hilog.error(0x0001, 'demo', `Failed to query. Code: ${err.code}, message: ${err.message}`);
 }
 ```
-
 
 > [!NOTE]
 > 查询温度变化趋势需要历史数据作为计算依据，调用该接口时请保证设备已启动至少一分钟，否则会返回1010300003错误。

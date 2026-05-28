@@ -1,53 +1,61 @@
 # 获取网格扫描信息（C/C++）
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-mesh
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-## 约束与限制
+##### 约束与限制
 
-获取网格扫描信息能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_MESH](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
+从5.1.0(18)开始，获取网格扫描信息能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持环境Mesh识别特性（[ARENGINE_FEATURE_TYPE_MESH](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 以下接口为AR网格扫描相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [HMS_AREngine_ARSession_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create) | 创建一个新的[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。 |
-| [HMS_AREngine_ARSession_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_update) | 更新AR Engine的计算结果。 |
-| [HMS_AREngine_ARSession_Configure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_configure) | 配置[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。 |
-| [HMS_AREngine_ARFrame_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_create) | 创建一个新的[AREngine_ARFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arframe)对象，将指针存储到*outFrame中。 |
-| [HMS_AREngine_ARSession_SetDisplayGeometry](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_setdisplaygeometry) | 设置显示的高和宽（以Pixel为单位）。该高度和宽度是显示视图的高度和宽度，如果不一致，会导致显示相机预览出错。 |
-| [HMS_AREngine_ARSession_SetCameraGLTexture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_setcameragltexture) | 设置可用于存储相机预览流数据的openGL纹理。 |
-| [HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables) | 获取所有指定类型的可跟踪对象集合。 |
-| [HMS_AREngine_ARTrackableList_AcquireItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_acquireitem) | 从可跟踪列表中获取指定index的对象。 |
-| [HMS_AREngine_ARPlane_GetCenterPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arplane_getcenterpose) | 获取从平面的局部坐标系到世界坐标系转换的位姿信息。 |
-| [HMS_AREngine_ARFrame_AcquireCamera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquirecamera) | 获取当前帧的相机参数对象。 |
-| [HMS_AREngine_ARPose_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arpose_create) | 分配并初始化一个新的位姿对象。 |
-| [HMS_AREngine_ARCamera_GetPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arcamera_getpose) | 获取当前相机对象在AR世界空间中的位姿。 |
-| [HMS_AREngine_ARFrame_AcquireSceneMesh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquirescenemesh) | 获取当前帧的mesh信息。 |
-| [HMS_AREngine_ARSceneMesh_AcquireVerticesSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireverticessize) | 获取mesh的顶点个数。 |
-| [HMS_AREngine_ARSceneMesh_AcquireVertexList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquirevertexlist) | 获取mesh顶点集合。 |
-| [HMS_AREngine_ARSceneMesh_AcquireIndexListSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireindexlistsize) | 获取mesh面片的索引个数。 |
-| [HMS_AREngine_ARSceneMesh_AcquireIndexList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireindexlist) | 获取mesh面片的索引集合。 |
-| [HMS_AREngine_ARSceneMesh_Release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_release) | 释放当前帧的mesh信息。 |
+| HMS_AREngine_ARSession_Create | 创建一个新的AREngine_ARSession会话。 |
+| HMS_AREngine_ARSession_Update | 更新AR Engine的计算结果。 |
+| HMS_AREngine_ARSession_Configure | 配置AREngine_ARSession会话。 |
+| HMS_AREngine_ARFrame_Create | 创建一个新的AREngine_ARFrame对象，将指针存储到*outFrame中。 |
+| HMS_AREngine_ARSession_SetDisplayGeometry | 设置显示的高和宽（以Pixel为单位）。该高度和宽度是显示视图的高度和宽度，如果不一致，会导致显示相机预览出错。 |
+| HMS_AREngine_ARSession_SetCameraGLTexture | 设置可用于存储相机预览流数据的openGL纹理。 |
+| HMS_AREngine_ARSession_GetAllTrackables | 获取所有指定类型的可跟踪对象集合。 |
+| HMS_AREngine_ARTrackableList_AcquireItem | 从可跟踪列表中获取指定index的对象。 |
+| HMS_AREngine_ARPlane_GetCenterPose | 获取从平面的局部坐标系到世界坐标系转换的位姿信息。 |
+| HMS_AREngine_ARFrame_AcquireCamera | 获取当前帧的相机参数对象。 |
+| HMS_AREngine_ARPose_Create | 分配并初始化一个新的位姿对象。 |
+| HMS_AREngine_ARCamera_GetPose | 获取当前相机对象在AR世界空间中的位姿。 |
+| HMS_AREngine_ARFrame_AcquireSceneMesh | 获取当前帧的mesh信息。 |
+| HMS_AREngine_ARSceneMesh_AcquireVerticesSize | 获取mesh的顶点个数。 |
+| HMS_AREngine_ARSceneMesh_AcquireVertexList | 获取mesh顶点集合。 |
+| HMS_AREngine_ARSceneMesh_AcquireIndexListSize | 获取mesh面片的索引个数。 |
+| HMS_AREngine_ARSceneMesh_AcquireIndexList | 获取mesh面片的索引集合。 |
+| HMS_AREngine_ARSceneMesh_Release | 释放当前帧的mesh信息。 |
 
 
-## 开发步骤
 
-开发者可参考管理AR会话章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession#引入ar-engine)。
 
-## 声明Native接口
+##### 开发步骤
+
+
+
+##### 声明Native接口
 
 开发者可参考AR物体摆放章节的[声明Native接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#声明native接口)。
 
-## 创建UI界面
+
+
+##### 创建UI界面
 
 创建一个UI界面，使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件用于显示相机预览画面，并定时触发每一帧绘制。
-```text
+
+```ArkTS
 // 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARMesh.ets。
 import { deviceInfo } from '@kit.BasicServicesKit';
 import { resourceManager } from '@kit.LocalizationKit';
@@ -115,13 +123,17 @@ struct ARMesh {
 ```
 
 
-## 引入AR Engine
+
+##### 引入AR Engine
 
 开发者可参考AR物体摆放章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#引入ar-engine)。
 
-## 创建AR会话
+
+
+##### 创建AR会话
 
 创建AR会话并配置为开启mesh模式。
+
 ```text
 AREngine_ARSession *arSession = nullptr;
 // 创建AR会话。
@@ -136,9 +148,11 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 ```
 
 
-## 获取当前环境中的mesh信息
+
+##### 获取当前环境中的mesh信息
 
 调用[HMS_AREngine_ARFrame_AcquireSceneMesh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquirescenemesh)函数，获取当前环境中的mesh信息，并将结果存放在sceneMesh中。
+
 ```text
 AREngine_ARFrame *arFrame = nullptr;
 // 创建AR单帧对象
@@ -149,16 +163,20 @@ HMS_AREngine_ARFrame_AcquireSceneMesh(arSession, arFrame, &sceneMesh);
 ```
 
 
-## 获取当前mesh信息对应的mesh顶点信息
 
-调用[HMS_AREngine_ARSceneMesh_AcquireVerticesSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireverticessize)函数，获取mesh顶点信息包含的浮点数数量，每三个浮点数组成一个mesh顶点，将结果存放在meshVerticesSize 中。
+##### 获取当前mesh信息对应的mesh顶点信息
+1. 调用[HMS_AREngine_ARSceneMesh_AcquireVerticesSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireverticessize)函数，获取mesh顶点信息包含的浮点数数量，每三个浮点数组成一个mesh顶点，将结果存放在meshVerticesSize 中。
+
+  
 ```text
 int32_t meshVerticesSize = 0;
 // 获取mesh顶点信息包含的浮点数数量
 HMS_AREngine_ARSceneMesh_AcquireVerticesSize(arSession, sceneMesh, &meshVerticesSize);
 ```
 
-调用[HMS_AREngine_ARSceneMesh_AcquireVertexList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquirevertexlist)函数，获取mesh顶点信息，并将结果保存在meshVertices中。
+2. 调用[HMS_AREngine_ARSceneMesh_AcquireVertexList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquirevertexlist)函数，获取mesh顶点信息，并将结果保存在meshVertices中。
+
+  
 ```text
 float *meshVertices = new float[meshVerticesSize];
 // 获取mesh顶点信息
@@ -168,16 +186,21 @@ int32_t mPointsNum = meshVerticesSize / 3;
 ```
 
 
-## 获取当前mesh信息对应的mesh面片信息
 
-调用[HMS_AREngine_ARSceneMesh_AcquireIndexListSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireindexlistsize)函数，获取mesh面片信息对应顶点的索引个数，每三个顶点索引表示一个mesh面片，将结果存放在triangleIndicesSize 中。
+
+##### 获取当前mesh信息对应的mesh面片信息
+1. 调用[HMS_AREngine_ARSceneMesh_AcquireIndexListSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireindexlistsize)函数，获取mesh面片信息对应顶点的索引个数，每三个顶点索引表示一个mesh面片，将结果存放在triangleIndicesSize 中。
+
+  
 ```text
 int32_t triangleIndicesSize = 0;
 // 获取mesh面片信息对应顶点的索引个数
 HMS_AREngine_ARSceneMesh_AcquireIndexListSize(arSession, sceneMesh, &triangleIndicesSize);
 ```
 
-调用[HMS_AREngine_ARSceneMesh_AcquireIndexList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireindexlist)函数，获取mesh面片信息对应顶点的索引列表，并将结果保存在meshTriangleIndices中。
+2. 调用[HMS_AREngine_ARSceneMesh_AcquireIndexList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arscenemesh_acquireindexlist)函数，获取mesh面片信息对应顶点的索引列表，并将结果保存在meshTriangleIndices中。
+
+  
 ```text
 int32_t *meshTriangleIndices = new int32_t[triangleIndicesSize];
 // 获取mesh面片信息对应顶点的索引列表
@@ -187,8 +210,9 @@ int32_t mTrianglesNum = triangleIndicesSize / 3;
 ```
 
 
-## 使用完毕后，销毁mesh信息
 
+
+##### 使用完毕后，销毁mesh信息
 
 ```text
 void HMS_AREngine_ARSceneMesh_Release(AREngine_ARSceneMesh *sceneMesh);

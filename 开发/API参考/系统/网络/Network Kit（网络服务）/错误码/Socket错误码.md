@@ -3,16 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-socket
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 说明文档。 socket错误码映射关系：2301000 + 内核错误码 。 socket server错误码映射关系：2303100 + 内核错误码 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-> socket错误码映射关系：2301000 + [内核错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-kernel)。
-> socket server错误码映射关系：2303100 + [内核错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-kernel)。
 
-
-## 2301001 操作不允许
+##### 2301001 操作不允许
 
 **错误信息**
 
@@ -31,7 +29,8 @@ Operation not permitted.
 检查操作步骤。
 
 
-## 2301002 文件不存在
+
+##### 2301002 文件不存在
 
 **错误信息**
 
@@ -50,7 +49,8 @@ No such file or directory.
 检查文件名或文件路径。
 
 
-## 2301003 进程不存在
+
+##### 2301003 进程不存在
 
 **错误信息**
 
@@ -69,7 +69,8 @@ No such process.
 排查进程信息。
 
 
-## 2301004 系统调用中断
+
+##### 2301004 系统调用中断
 
 **错误信息**
 
@@ -92,8 +93,8 @@ Interrupted system call.
 TCP/UDP Socket其余错误码映射形式为：2301000 + Linux系统内核错误码errno，关键信息请参考Linux系统内核错误码。
 
 
-## 2300002 系统内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2300002 系统内部错误
 
 **错误信息**
 
@@ -116,8 +117,8 @@ System internal error.
 2.系统异常，请稍后重试或重启设备。
 
 
-## 2301206 SOCKS5连接代理服务器失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301206 SOCKS5连接代理服务器失败
 
 **错误信息**
 
@@ -136,8 +137,8 @@ SOCKS5客户端连接代理服务器失败。
 排查代理服务器地址是否正确。
 
 
-## 2301207 SOCKS5认证用户名或密码无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301207 SOCKS5认证用户名或密码无效
 
 **错误信息**
 
@@ -156,8 +157,8 @@ SOCKS5使用用户名密码认证方式时，用户名或者密码无效。
 排查用户名密码是否设置准确。
 
 
-## 2301208 SOCKS5连接远程服务器失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301208 SOCKS5连接远程服务器失败
 
 **错误信息**
 
@@ -176,8 +177,8 @@ SOCKS5代理连接远程服务器失败。
 排查远程服务器网络状况。
 
 
-## 2301209 SOCKS5协商认证方式失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301209 SOCKS5协商认证方式失败
 
 **错误信息**
 
@@ -196,8 +197,8 @@ SOCKS5协商认证方式失败。
 排查代理服务器是否支持客户端提供的认证方式。
 
 
-## 2301210 SOCKS5发送消息失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301210 SOCKS5发送消息失败
 
 **错误信息**
 
@@ -216,8 +217,8 @@ SOCKS5因系统调用错误，发送消息失败。
 尝试新建socket，再次发起连接。
 
 
-## 2301211 SOCKS5接收消息失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301211 SOCKS5接收消息失败
 
 **错误信息**
 
@@ -236,8 +237,8 @@ SOCKS5因系统调用错误，接收消息失败。
 尝试新建socket，再次发起连接。
 
 
-## 2301212 SOCKS5消息序列化失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301212 SOCKS5消息序列化失败
 
 **错误信息**
 
@@ -256,8 +257,8 @@ SOCKS5消息序列化失败。
 排查用户名密码长度是否过长，代理服务器、远端服务器的地址和协议类型是否匹配。
 
 
-## 2301213 SOCKS5消息反序列化失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2301213 SOCKS5消息反序列化失败
 
 **错误信息**
 
@@ -276,8 +277,8 @@ SOCKS5消息反序列化失败。
 排查服务器响应数据包。
 
 
-## 2303104 中断系统调用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303104 中断系统调用
 
 **错误信息**
 
@@ -296,8 +297,8 @@ Interrupted system call.
 尝试重新走网络连接流程。
 
 
-## 2303109 错误文件编号
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303109 错误文件编号
 
 **错误信息**
 
@@ -316,8 +317,8 @@ socket fd可能被关闭了，所以发生参数无效的错误。
 检查socket是否被意外关闭。
 
 
-## 2303111 资源暂时不可用，请重试
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303111 资源暂时不可用，请重试
 
 **错误信息**
 
@@ -336,8 +337,8 @@ Resource temporarily unavailable. Try again.
 重新调用接口。
 
 
-## 2303188 非套接字的套接字操作
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303188 非套接字的套接字操作
 
 **错误信息**
 
@@ -356,8 +357,8 @@ Not a socket.
 检查代码描述符的获取是否正确。
 
 
-## 2303191 socket协议类型错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303191 socket协议类型错误
 
 **错误信息**
 
@@ -376,8 +377,8 @@ Incorrect socket protocol type.
 检查参数设置是否符合协议类型。
 
 
-## 2303198 网络地址已被使用
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303198 网络地址已被使用
 
 **错误信息**
 
@@ -396,8 +397,8 @@ Address already in use.
 尝试其他地址。
 
 
-## 2303199 不能分配请求的地址
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303199 不能分配请求的地址
 
 **错误信息**
 
@@ -416,7 +417,8 @@ Address not available.
 检查地址或端口是否正确。
 
 
-## 2303200 网络已关闭
+
+##### 2303200 网络已关闭
 
 **错误信息**
 
@@ -435,8 +437,8 @@ Network is down.
 检查网络连接。
 
 
-## 2303210 连接超时
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303210 连接超时
 
 **错误信息**
 
@@ -455,8 +457,8 @@ Connection timed out.
 本地无法处理此问题，需确认远程服务器是否出现故障。
 
 
-## 2303501 SSL为空
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303501 SSL为空
 
 **错误信息**
 
@@ -475,8 +477,8 @@ SSL is null.
 尝试重新执行一遍流程。
 
 
-## 2303502 TLS读取错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303502 TLS读取错误
 
 **错误信息**
 
@@ -495,8 +497,8 @@ An error occurred when reading data on the TLS socket.
 重新执行接收数据的操作。
 
 
-## 2303503 TLS写入错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303503 TLS写入错误
 
 **错误信息**
 
@@ -515,8 +517,8 @@ An error occurred when writing data on the TLS socket.
 需检查服务器状态并进行修复。
 
 
-## 2303504 查找x509时出错
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303504 查找x509时出错
 
 **错误信息**
 
@@ -535,8 +537,8 @@ An error occurred when verifying the x509 certificate.
 检查本地CA根证书和服务器证书是否匹配。
 
 
-## 2303505 TLS系统调用错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303505 TLS系统调用错误
 
 **错误信息**
 
@@ -555,8 +557,8 @@ An error occurred in the TLS system call.
 请参阅Linux系统内核错误码errno以了解详细信息。
 
 
-## 2303506 清除TLS连接出错
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 2303506 清除TLS连接出错
 
 **错误信息**
 

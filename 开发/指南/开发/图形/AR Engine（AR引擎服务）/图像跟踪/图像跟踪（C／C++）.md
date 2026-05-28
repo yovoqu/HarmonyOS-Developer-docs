@@ -1,54 +1,63 @@
 # 图像跟踪（C/C++）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-image-track
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-## 约束与限制
+##### 约束与限制
 
-图像跟踪能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_IMAGE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
+从5.1.0(18)开始，图像跟踪能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持图像跟踪特性（[ARENGINE_FEATURE_TYPE_IMAGE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 以下接口为AR图像跟踪相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [HMS_AREngine_ARSession_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create) | 创建一个新的[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。 |
-| [HMS_AREngine_ARSession_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_update) | 更新AR Engine的计算结果。 |
-| [HMS_AREngine_ARSession_Configure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_configure) | 配置[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。 |
-| [HMS_AREngine_ARFrame_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_create) | 创建一个新的[AREngine_ARFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arframe)对象，将指针存储到中*outFrame。 |
-| [HMS_AREngine_ARSession_SetDisplayGeometry](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_setdisplaygeometry) | 设置显示的高和宽（以Pixel为单位）。该高度和宽度是显示视图的高度和宽度，如果不一致，会导致显示相机预览出错。 |
-| [HMS_AREngine_ARSession_SetCameraGLTexture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_setcameragltexture) | 设置可用于存储相机预览流数据的openGL纹理。 |
-| [HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables) | 获取所有指定类型的可跟踪对象集合。 |
-| [HMS_AREngine_ARTrackableList_AcquireItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_acquireitem) | 从可跟踪列表中获取指定index的对象。 |
-| [HMS_AREngine_ARPlane_GetCenterPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arplane_getcenterpose) | 获取从平面的局部坐标系到世界坐标系转换的位姿信息。 |
-| [HMS_AREngine_ARFrame_AcquireCamera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquirecamera) | 获取当前帧的相机参数对象。 |
-| [HMS_AREngine_ARPose_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arpose_create) | 分配并初始化一个新的位姿对象。 |
-| [HMS_AREngine_ARCamera_GetPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arcamera_getpose) | 获取当前相机对象在AR世界空间中的位姿。 |
-| [HMS_AREngine_ARAugmentedImageDatabase_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_create) | 创建一个空的跟踪图像数据。 |
-| [HMS_AREngine_ARAugmentedImageDatabase_AddImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_addimage) | 将图像添加到图像数据库并输出对应图像的索引。 |
-| [HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize) | 获取此列表中的可跟踪对象的数量。 |
-| [HMS_AREngine_ARAugmentedImage_GetCenterPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getcenterpose) | 获取跟踪图像中心点在世界坐标系中的位姿信息。 |
-| [HMS_AREngine_ARAugmentedImage_GetExtendX](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getextendx) | 获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到X轴上的估计值。 |
-| [HMS_AREngine_ARAugmentedImage_GetExtendZ](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getextendz) | 获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到Z轴上的估计值。 |
-| [HMS_AREngine_ARAugmentedImageDatabase_Serialize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_serialize) | 序列化特征数据库，在添加完图片后，可以将特征库序列化为buffer，用户可以保存此buffer以供下次使用。 |
-| [HMS_AREngine_ARAugmentedImageDatabase_Deserialize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_deserialize) | 反序列化特征数据库，用户可以将上次生成的或者保存的buffer数据反序列化为特征数据库后直接使用。 |
+| HMS_AREngine_ARSession_Create | 创建一个新的AREngine_ARSession会话。 |
+| HMS_AREngine_ARSession_Update | 更新AR Engine的计算结果。 |
+| HMS_AREngine_ARSession_Configure | 配置AREngine_ARSession会话。 |
+| HMS_AREngine_ARFrame_Create | 创建一个新的AREngine_ARFrame对象，将指针存储到中*outFrame。 |
+| HMS_AREngine_ARSession_SetDisplayGeometry | 设置显示的高和宽（以Pixel为单位）。该高度和宽度是显示视图的高度和宽度，如果不一致，会导致显示相机预览出错。 |
+| HMS_AREngine_ARSession_SetCameraGLTexture | 设置可用于存储相机预览流数据的openGL纹理。 |
+| HMS_AREngine_ARSession_GetAllTrackables | 获取所有指定类型的可跟踪对象集合。 |
+| HMS_AREngine_ARTrackableList_AcquireItem | 从可跟踪列表中获取指定index的对象。 |
+| HMS_AREngine_ARPlane_GetCenterPose | 获取从平面的局部坐标系到世界坐标系转换的位姿信息。 |
+| HMS_AREngine_ARFrame_AcquireCamera | 获取当前帧的相机参数对象。 |
+| HMS_AREngine_ARPose_Create | 分配并初始化一个新的位姿对象。 |
+| HMS_AREngine_ARCamera_GetPose | 获取当前相机对象在AR世界空间中的位姿。 |
+| HMS_AREngine_ARAugmentedImageDatabase_Create | 创建一个空的跟踪图像数据。 |
+| HMS_AREngine_ARAugmentedImageDatabase_AddImage | 将图像添加到图像数据库并输出对应图像的索引。 |
+| HMS_AREngine_ARTrackableList_GetSize | 获取此列表中的可跟踪对象的数量。 |
+| HMS_AREngine_ARAugmentedImage_GetCenterPose | 获取跟踪图像中心点在世界坐标系中的位姿信息。 |
+| HMS_AREngine_ARAugmentedImage_GetExtendX | 获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到X轴上的估计值。 |
+| HMS_AREngine_ARAugmentedImage_GetExtendZ | 获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到Z轴上的估计值。 |
+| HMS_AREngine_ARAugmentedImageDatabase_Serialize | 序列化特征数据库，在添加完图片后，可以将特征库序列化为buffer，用户可以保存此buffer以供下次使用。 |
+| HMS_AREngine_ARAugmentedImageDatabase_Deserialize | 反序列化特征数据库，用户可以将上次生成的或者保存的buffer数据反序列化为特征数据库后直接使用。 |
 
 
-## 开发步骤
 
 
-## 声明Native接口
+##### 开发步骤
+
+
+
+##### 声明Native接口
 
 开发者可参考AR物体摆放章节的[声明Native接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#声明native接口)。
 
-## 创建UI界面
+
+
+##### 创建UI界面
 
 首先创建一个起始UI页面“ARImage.ets”，设置两个按钮，用于实现“添加本地图片”和“读取本地数据库”两个功能，分别命名“ARImageByAdd.ets”和“ARImageByDatabase.ets”。配置路由进行页面间跳转，页面路由配置详细可查看[组件导航(Navigation) (推荐)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)。
-```text
+
+```ArkTS
 // 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARImage.ets。
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -117,7 +126,8 @@ struct ARImage {
 ```
 
 创建一个ARImageByAdd.ets，用于选择图片，使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件加载相机预览画面，并定时触发每一帧绘制。
-```text
+
+```ArkTS
 // 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARImageByAdd.ets。
 import { taskpool } from '@kit.ArkTS';
 import { BusinessError, deviceInfo, emitter } from '@kit.BasicServicesKit';
@@ -299,15 +309,79 @@ struct ARImageByAdd {
   }
 }
 
-let errcode: Map = new Map([[0, 'success'], [1, 'size not match'],
+let errcode: Map<number, string> = new Map<number, string>([[0, 'success'], [1, 'size not match'],
   [2, 'too bright or too dark'], [3, 'image color is relatively single'], [4, 'other error']]);
 
 // 异步执行添加图片任务。
 @Concurrent
 async function addImage(componentId: string, imagePathList: string[],
-  errcode: Map): Promise {
-  for (let index = 0; index 创建一个ARImageByDatabase.ets，用于加载本地数据库，加载相机预览画面，并定时触发每一帧绘制。
-```text
+  errcode: Map<number, string>): Promise<void> {
+  for (let index = 0; index < imagePathList.length; index++) {
+    const imagePath: string = imagePathList[index];
+    let file: fileIo.File;
+    try {
+      file = fileIo.openSync(imagePath, fileIo.OpenMode.READ_ONLY);
+    } catch (error) {
+      const err: BusinessError = error as BusinessError;
+      console.error(`Failed to open image. Code is ${err.code}, message is ${err.message}`);
+      this.addFailedImageCounts += 1;
+      continue
+    }
+    let imageName: string = file.name;
+    const imageSourceApi: image.ImageSource = image.createImageSource(file.fd);
+    try {
+      fileIo.closeSync(file);
+    } catch (error) {
+      const err: BusinessError = error as BusinessError;
+      console.error(`Failed to closeSync. Code is ${err.code}, message is ${err.message}.`);
+      imageSourceApi.release();
+      continue;
+    }
+    const imageInfo: image.ImageInfo = imageSourceApi.getImageInfoSync();
+    if (!imageInfo) {
+      console.error(`Failed to obtain the image pixel map information.`);
+      imageSourceApi.release();
+      continue;
+    }
+    const opts: image.DecodingOptions = {
+      editable: true,
+      desiredPixelFormat: image.PixelMapFormat.RGBA_8888,
+      desiredSize: { width: imageInfo.size.width, height: imageInfo.size.height }
+    }
+    const pixelMap: image.PixelMap = imageSourceApi.createPixelMapSync(opts);
+    if (!pixelMap) {
+      console.error('Failed to create pixelMap.');
+      imageSourceApi.release();
+      continue;
+    }
+    const readBuffer: ArrayBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
+    await pixelMap.readPixelsToBuffer(readBuffer);
+    await pixelMap.release();
+
+    let result: number = arEngineDemo.initImage(componentId, imageInfo.size.width, imageInfo.size.height, readBuffer);
+    if (errcode.has(result) === false) {
+      console.error('Failed to add image, break.');
+      imageSourceApi.release();
+      break;
+    }
+    if (result !== 0) {
+      console.error(`Failed to Add image, reason is: ${errcode.get(result)}, imageName is: ${imageName}.`);
+    }
+    let eventData: emitter.EventData = {
+      data: {
+        'addImageReason': result,
+        'imageName': imageName,
+      }
+    }
+    emitter.emit('addImage', eventData);
+    imageSourceApi.release();
+  }
+}
+```
+
+创建一个ARImageByDatabase.ets，用于加载本地数据库，加载相机预览画面，并定时触发每一帧绘制。
+
+```ArkTS
 // 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARImageByDatabase.ets。
 import { deviceInfo } from '@kit.BasicServicesKit';
 import { resourceManager } from '@kit.LocalizationKit';
@@ -315,121 +389,130 @@ import arEngineDemo from 'libentry.so';
 
 @Builder
 export function ARImageByDatabaseBuilder() {
-ARImageByDatabase();
+  ARImageByDatabase();
 }
 
 @Component
 struct ARImageByDatabase {
-pageInfo: NavPathStack = new NavPathStack();
-private isSurfaceDestroy: boolean = false;
-private interval: number = -1;
-private isUpdate: boolean = false;
-private xComponentId = 'ARImage';
-@State context: Context = this.getUIContext().getHostContext() as Context;
-private resMgr: resourceManager.ResourceManager = this.context.resourceManager;
-@State rotation: number = deviceInfo.deviceType === 'tablet' ? 3 : 0;
-@State showPage: boolean = true;
+  pageInfo: NavPathStack = new NavPathStack();
+  private isSurfaceDestroy: boolean = false;
+  private interval: number = -1;
+  private isUpdate: boolean = false;
+  private xComponentId = 'ARImage';
+  @State context: Context = this.getUIContext().getHostContext() as Context;
+  private resMgr: resourceManager.ResourceManager = this.context.resourceManager;
+  @State rotation: number = deviceInfo.deviceType === 'tablet' ? 3 : 0;
+  @State showPage: boolean = true;
 
-build(): void {
-NavDestination() {
-RelativeContainer() {
-XComponent({ id: this.xComponentId, type: XComponentType.SURFACE, libraryname: 'entry' })
-.width('100%')
-.height('100%')
-.visibility(this.showPage ? Visibility.Visible : Visibility.None)
-.alignRules({
-center: { anchor: '__container__', align: VerticalAlign.Center },
-middle: { anchor: '__container__', align: HorizontalAlign.Center }
-})
-.onLoad(() => {
-console.info(`XComponent onLoad ${this.xComponentId}.`);
-this.interval = setInterval(() => {
-if (this.isUpdate) {
-arEngineDemo.update(this.xComponentId);
-}
-}, 33) // 将帧率设置为30fps（每33毫秒刷新一次帧）。
-})
-.onDestroy(() => {
-console.info(`XComponent onDestroy ${this.xComponentId}.`);
-this.isSurfaceDestroy = true;
-clearInterval(this.interval);
-})
-}
-}
-.onAppear(() => {
-arEngineDemo.init(this.resMgr);
-let config: Int32Array = new Int32Array([1, this.rotation]);
-arEngineDemo.start(this.xComponentId, config);
+  build(): void {
+    NavDestination() {
+      RelativeContainer() {
+        XComponent({ id: this.xComponentId, type: XComponentType.SURFACE, libraryname: 'entry' })
+          .width('100%')
+          .height('100%')
+          .visibility(this.showPage ? Visibility.Visible : Visibility.None)
+          .alignRules({
+            center: { anchor: '__container__', align: VerticalAlign.Center },
+            middle: { anchor: '__container__', align: HorizontalAlign.Center }
+          })
+          .onLoad(() => {
+            console.info(`XComponent onLoad ${this.xComponentId}.`);
+            this.interval = setInterval(() => {
+              if (this.isUpdate) {
+                arEngineDemo.update(this.xComponentId);
+              }
+            }, 33) // 将帧率设置为30fps（每33毫秒刷新一次帧）。
+          })
+          .onDestroy(() => {
+            console.info(`XComponent onDestroy ${this.xComponentId}.`);
+            this.isSurfaceDestroy = true;
+            clearInterval(this.interval);
+          })
+      }
+    }
+    .onAppear(() => {
+      arEngineDemo.init(this.resMgr);
+      let config: Int32Array = new Int32Array([1, this.rotation]);
+      arEngineDemo.start(this.xComponentId, config);
 
-arEngineDemo.setPath(this.xComponentId, this.context.filesDir);
+      arEngineDemo.setPath(this.xComponentId, this.context.filesDir);
 
-let imageCountInDatabase: number = arEngineDemo.getImageCount(this.xComponentId);
-console.info(`ImageCountInDatabase: ${imageCountInDatabase}.`);
-if (imageCountInDatabase  {
-arEngineDemo.stop(this.xComponentId);
-})
-.onShown(() => {
-this.isUpdate = true;
-arEngineDemo.show(this.xComponentId);
-})
-.onHidden(() => {
-this.isUpdate = false;
-if (!this.isSurfaceDestroy) {
-arEngineDemo.hide(this.xComponentId);
-}
-})
-.onReady((context: NavDestinationContext) => {
-this.pageInfo = context.pathStack;
-})
-.hideTitleBar(true)
-.hideBackButton(true)
-.hideToolBar(true)
-}
+      let imageCountInDatabase: number = arEngineDemo.getImageCount(this.xComponentId);
+      console.info(`ImageCountInDatabase: ${imageCountInDatabase}.`);
+      if (imageCountInDatabase <= 0) {
+        this.showDialog('请添加有效图片');
+      }
+    })
+    .onWillDisappear(() => {
+      arEngineDemo.stop(this.xComponentId);
+    })
+    .onShown(() => {
+      this.isUpdate = true;
+      arEngineDemo.show(this.xComponentId);
+    })
+    .onHidden(() => {
+      this.isUpdate = false;
+      if (!this.isSurfaceDestroy) {
+        arEngineDemo.hide(this.xComponentId);
+      }
+    })
+    .onReady((context: NavDestinationContext) => {
+      this.pageInfo = context.pathStack;
+    })
+    .hideTitleBar(true)
+    .hideBackButton(true)
+    .hideToolBar(true)
+  }
 
-showDialog(msg: string): void {
-this.getUIContext().showAlertDialog({
-title: '警告',
-message: msg,
-autoCancel: true,
-alignment: DialogAlignment.Center,
-offset: { dx: 0, dy: -20 },
-gridCount: 3,
-transition: TransitionEffect
-.asymmetric(TransitionEffect.OPACITY
-.animation({ duration: 1000, curve: Curve.Sharp })
-.combine(TransitionEffect
-.scale({ x: 1.5, y: 1.5 })
-.animation({ duration: 1000, curve: Curve.Sharp })
-),
-TransitionEffect.OPACITY.animation({ duration: 100, curve: Curve.Smooth })
-.combine(TransitionEffect.scale({ x: 0.5, y: 0.5 })
-.animation({ duration: 100, curve: Curve.Smooth })
-)
-),
-buttons: [{
-enabled: true,
-defaultFocus: true,
-style: DialogButtonStyle.HIGHLIGHT,
-value: '退出',
-action: () => {
-console.info('Callback when the second button is clicked.');
-this.pageInfo.pop();
-}
-}]
-})
-}
+  showDialog(msg: string): void {
+    this.getUIContext().showAlertDialog({
+      title: '警告',
+      message: msg,
+      autoCancel: true,
+      alignment: DialogAlignment.Center,
+      offset: { dx: 0, dy: -20 },
+      gridCount: 3,
+      transition: TransitionEffect
+        .asymmetric(TransitionEffect.OPACITY
+          .animation({ duration: 1000, curve: Curve.Sharp })
+          .combine(TransitionEffect
+            .scale({ x: 1.5, y: 1.5 })
+            .animation({ duration: 1000, curve: Curve.Sharp })
+          ),
+          TransitionEffect.OPACITY.animation({ duration: 100, curve: Curve.Smooth })
+            .combine(TransitionEffect.scale({ x: 0.5, y: 0.5 })
+              .animation({ duration: 100, curve: Curve.Smooth })
+            )
+        ),
+      buttons: [{
+        enabled: true,
+        defaultFocus: true,
+        style: DialogButtonStyle.HIGHLIGHT,
+        value: '退出',
+        action: () => {
+          console.info('Callback when the second button is clicked.');
+          this.pageInfo.pop();
+        }
+      }]
+    })
+  }
 }
 ```
 
-     配置路由进行页面间跳转，页面路由配置详细可查看[组件导航(Navigation) (推荐)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)。
+配置路由进行页面间跳转，页面路由配置详细可查看[组件导航(Navigation) (推荐)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-navigation)。
 
-## 引入AR Engine
 
-     开发者可参考AR物体摆放章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#引入ar-engine)。
 
-## 创建AR会话
+##### 引入AR Engine
 
-     创建AR会话并配置ARType为图像跟踪。
+开发者可参考AR物体摆放章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld#引入ar-engine)。
+
+
+
+##### 创建AR会话
+
+创建AR会话并配置ARType为图像跟踪。
+
 ```text
 AREngine_ARSession *arSession = nullptr;
 // 创建AR会话。
@@ -444,16 +527,19 @@ HMS_AREngine_ARSession_Configure(arSession, arConfig);
 ```
 
 
-## 创建跟踪图像数据库并添加图像
 
-     1.调用[HMS_AREngine_ARAugmentedImageDatabase_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_create)函数，创建跟踪图像数据库。
+##### 创建跟踪图像数据库并添加图像
+
+1.调用[HMS_AREngine_ARAugmentedImageDatabase_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_create)函数，创建跟踪图像数据库。
+
 ```text
 // 创建跟踪图像数据库
 AREngine_ARAugmentedImageDatabase *mDataBase = nullptr;
 HMS_AREngine_ARAugmentedImageDatabase_Create(&mDataBase);
 ```
 
-     2.调用[HMS_AREngine_ARAugmentedImageDatabase_AddImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_addimage)函数，添加图像到数据库，将添加失败的结果保存在reason中。
+2.调用[HMS_AREngine_ARAugmentedImageDatabase_AddImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_addimage)函数，添加图像到数据库，将添加失败的结果保存在reason中。
+
 ```text
 // 添加图像到数据库
 AREngine_ARAddAugmentedImageReason reason = ARENGINE_ADD_AUGMENTED_IMAGE_REASON_NONE;
@@ -464,9 +550,11 @@ auto addRet = HMS_AREngine_ARAugmentedImageDatabase_AddImage(mDataBase, &image, 
 ```
 
 
-## 识别环境中的可跟踪图像
 
-     调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数，检测当前环境中的所有跟踪图像，并将结果存放在augmentList中。
+##### 识别环境中的可跟踪图像
+
+调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数，检测当前环境中的所有跟踪图像，并将结果存放在augmentList中。
+
 ```text
 AREngine_ARTrackableList *augmentList = nullptr;
 HMS_AREngine_ARTrackableList_Create(arSession, &augmentList);
@@ -474,31 +562,50 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, ARENGINE_TRACKABLE_AUGMENTED_
 ```
 
 
-## 获取环境中的可跟踪图像数量
 
-     调用[HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize)函数获取平面数量，结果存放在augmentSize中。
+##### 获取环境中的可跟踪图像数量
+
+调用[HMS_AREngine_ARTrackableList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_getsize)函数获取平面数量，结果存放在augmentSize中。
+
 ```text
 int32_t augmentSize = 0;
 HMS_AREngine_ARTrackableList_GetSize(arSession, augmentList, &augmentSize);
 ```
 
-     应用环境中，可能存在0个、1个或多个可跟踪图像。     当augmentSize等于0时，表示当前环境中不存在可跟踪图像。     当augmentSize等于1时，表示当前环境中仅存在1个可跟踪图像。     当augmentSize大于1时，表示当前环境中存在多个可跟踪图像。
+应用环境中，可能存在0个、1个或多个可跟踪图像。
 
-## 获取跟踪图像示例
+当augmentSize等于0时，表示当前环境中不存在可跟踪图像。
 
-     当存在1个或多个跟踪图像时，可以依次遍历augmentList获取所有跟踪图像。
+当augmentSize等于1时，表示当前环境中仅存在1个可跟踪图像。
+
+当augmentSize大于1时，表示当前环境中存在多个可跟踪图像。
+
+
+
+##### 获取跟踪图像示例
+
+当存在1个或多个跟踪图像时，可以依次遍历augmentList获取所有跟踪图像。
+
 ```text
-for (int i = 0; i 对于第i个跟踪图像，创建并获取跟踪对象，并将其转化为跟踪图像对象[AREngine_ARAugmentedImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_araugmentedimage)。
+for (int i = 0; i < augmentSize; ++i) {
+    // 遍历所有可跟踪对象，根据应用进行处理。
+}
+```
+
+对于第i个跟踪图像，创建并获取跟踪对象，并将其转化为跟踪图像对象[AREngine_ARAugmentedImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_araugmentedimage)。
+
 ```text
 AREngine_ARTrackable *augment = nullptr;
 HMS_AREngine_ARTrackableList_AcquireItem(arSession, augmentList, i, &augment);
-AREngine_ARAugmentedImage *arImage = reinterpret_cast(augment);
+AREngine_ARAugmentedImage *arImage = reinterpret_cast<AREngine_ARAugmentedImage*>(augment);
 ```
 
 
-## 获取跟踪图像中心点在世界坐标系中的位姿信息
+
+##### 获取跟踪图像中心点在世界坐标系中的位姿信息
 
 调用[HMS_AREngine_ARAugmentedImage_GetCenterPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getcenterpose)函数，获取跟踪图像中心点的位姿信息，位姿信息可参考[获取设备位姿](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-pose)。
+
 ```text
 AREngine_ARPose *imagePose = nullptr;
 HMS_AREngine_ARPose_Create(arSession, nullptr, 0, &imagePose);
@@ -506,15 +613,18 @@ HMS_AREngine_ARAugmentedImage_GetCenterPose(arSession, arImage, imagePose);
 ```
 
 
-## 获取跟踪图像的宽度
+
+##### 获取跟踪图像的宽度
 
 调用[HMS_AREngine_ARAugmentedImage_GetExtendX](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getextendx)函数，获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到X轴上的估计值。
+
 ```text
 float extent_x;
 HMS_AREngine_ARAugmentedImage_GetExtendX(arSession, arImage, &extent_x);
 ```
 
 调用[HMS_AREngine_ARAugmentedImage_GetExtendZ](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimage_getextendz)函数，获取图像的中心点为坐标原点，物理图像的宽度（单位为米），得到Z轴上的估计值。
+
 ```text
 float extent_z;
 HMS_AREngine_ARAugmentedImage_GetExtendZ(arSession, arImage, &extent_z);

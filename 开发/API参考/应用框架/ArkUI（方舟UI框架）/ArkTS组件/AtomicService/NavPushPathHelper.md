@@ -3,44 +3,42 @@
 更新时间：2026-03-27 08:08:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-navpushpathhelper
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当跳转的目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)在不同的hsp分包，且未被主包依赖，首次运行元服务只会下载安装主包，需要使用NavPushPathHelper先下载安装相应hsp分包，再将指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈。使[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)支持动态加载hsp分包后再跳转。
-
 
 > [!NOTE]
 > 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { NavPushPathHelper } from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
 
-## NavPushPathHelper
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### NavPushPathHelper
 
 对Navigation路由栈[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)的所有路由跳转接口进行了封装，在NavPushPathHelper中持有一个NavPathStack对象，在封装的跳转接口中，去判断子包是否存在，如果不存在则进行动态下载子包，等结果返回后调用NavPathStack的相应的接口将指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈。使用示例参见[示例](#示例)。
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(navPathStack: NavPathStack)
 
@@ -52,16 +50,16 @@ NavPushPathHelper的构造函数。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| navPathStack | [NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10) | 是 | [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)路由栈。 |
+| navPathStack | NavPathStack | 是 | Navigation路由栈。 |
 
 
-### pushPath
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<void>
+
+##### pushPath
+
+pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将info指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，使用Promise异步回调。
 
@@ -71,16 +69,14 @@ pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| info | [NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10) | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面的信息。 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| info | NavPathInfo | 是 | NavDestination页面的信息。 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -91,16 +87,16 @@ pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<voi
 
 以下错误码的详细介绍请参见[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
 
-### pushPath
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise<void>
+
+##### pushPath
+
+pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将info指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，使用Promise异步回调。
 
@@ -112,16 +108,14 @@ pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Pr
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| info | [NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10) | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面的信息。 |
-| options | [NavigationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationoptions12) | 否 | 页面栈操作选项。默认值为{ launchMode: LaunchMode.STANDARD, animated: true }。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| info | NavPathInfo | 是 | NavDestination页面的信息。 |
+| options | NavigationOptions | 否 | 页面栈操作选项。默认值为{ launchMode: LaunchMode.STANDARD, animated: true }。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -132,16 +126,16 @@ pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Pr
 
 以下错误码的详细介绍请参见[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
 
-### pushPathByName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushPathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise<void>
+
+##### pushPathByName
+
+pushPathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将name指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，传递的数据为param，使用Promise异步回调。
 
@@ -151,17 +145,15 @@ pushPathByName(moduleName: string, name: string, param: Object, animated?: boole
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| name | string | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面名称。 |
-| param | Object | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面详细参数。 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| name | string | 是 | NavDestination页面名称。 |
+| param | Object | 是 | NavDestination页面详细参数。 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -172,16 +164,16 @@ pushPathByName(moduleName: string, name: string, param: Object, animated?: boole
 
 以下错误码的详细介绍请参见[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
 
-### pushPathByName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>
+
+##### pushPathByName
+
+pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback&lt;PopInfo&gt;, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将name指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，传递的数据为param，添加onPop回调接收入栈页面出栈时的返回结果，并进行处理，使用Promise异步回调。
 
@@ -191,18 +183,16 @@ pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| name | string | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面名称。 |
-| param | Object | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面详细参数。 |
-| onPop | Callback&lt;[PopInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#popinfo11)&gt; | 是 | Callback回调，用于页面出栈时触发该回调处理返回结果。 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| name | string | 是 | NavDestination页面名称。 |
+| param | Object | 是 | NavDestination页面详细参数。 |
+| onPop | Callback&lt;PopInfo&gt; | 是 | Callback回调，用于页面出栈时触发该回调处理返回结果。 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -213,16 +203,16 @@ pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback<
 
 以下错误码的详细介绍请参见[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
 
-### pushDestination
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<void>
+
+##### pushDestination
+
+pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将info指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，使用Promise异步回调。
 
@@ -232,16 +222,14 @@ pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Prom
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| info | [NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10) | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面的信息。 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| info | NavPathInfo | 是 | NavDestination页面的信息。 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -252,7 +240,6 @@ pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Prom
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
@@ -262,10 +249,11 @@ pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Prom
 | 300001 | hsp silent install fail. |
 
 
-### pushDestination
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise<void>
+
+##### pushDestination
+
+pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将info指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，使用Promise异步回调。
 
@@ -277,16 +265,14 @@ pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptio
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| info | [NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10) | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面的信息。 |
-| options | [NavigationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationoptions12) | 否 | 页面栈操作选项。默认值为{ launchMode: LaunchMode.STANDARD, animated: true }。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| info | NavPathInfo | 是 | NavDestination页面的信息。 |
+| options | NavigationOptions | 否 | 页面栈操作选项。默认值为{ launchMode: LaunchMode.STANDARD, animated: true }。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -297,7 +283,6 @@ pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptio
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
@@ -307,10 +292,11 @@ pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptio
 | 300001 | hsp silent install fail. |
 
 
-### pushDestinationByName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushDestinationByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise<void>
+
+##### pushDestinationByName
+
+pushDestinationByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将name指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，传递的数据为param，使用Promise异步回调。
 
@@ -320,17 +306,15 @@ pushDestinationByName(moduleName: string, name: string, param: Object, animated?
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| name | string | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面名称。 |
-| param | Object | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面详细参数。 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| name | string | 是 | NavDestination页面名称。 |
+| param | Object | 是 | NavDestination页面详细参数。 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -341,7 +325,6 @@ pushDestinationByName(moduleName: string, name: string, param: Object, animated?
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
@@ -351,10 +334,11 @@ pushDestinationByName(moduleName: string, name: string, param: Object, animated?
 | 300001 | hsp silent install fail. |
 
 
-### pushDestinationByName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Callback<PopInfo>, animated?: boolean): Promise<void>
+
+##### pushDestinationByName
+
+pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Callback&lt;PopInfo&gt;, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将name指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，传递的数据为param，并且添加用于页面出栈时处理返回结果的OnPop回调，使用Promise异步回调。
 
@@ -364,18 +348,16 @@ pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Ca
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| name | string | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面名称。 |
-| param | Object | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面详细参数。 |
-| onPop | Callback&lt;[PopInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#popinfo11)&gt; | 是 | Callback回调，用于页面出栈时处理返回结果。 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| name | string | 是 | NavDestination页面名称。 |
+| param | Object | 是 | NavDestination页面详细参数。 |
+| onPop | Callback&lt;PopInfo&gt; | 是 | Callback回调，用于页面出栈时处理返回结果。 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -386,7 +368,6 @@ pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Ca
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)和[接口调用异常错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-internal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
@@ -396,10 +377,11 @@ pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Ca
 | 300001 | hsp silent install fail. |
 
 
-### replacePath
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<void>
+
+##### replacePath
+
+replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将当前页面栈栈顶退出，将info指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，使用Promise异步回调。
 
@@ -409,16 +391,14 @@ replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| info | [NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10) | 是 | 新栈顶页面参数信息 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| info | NavPathInfo | 是 | 新栈顶页面参数信息 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -429,16 +409,16 @@ replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise<
 
 以下错误码的详细介绍请参见[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
 
-### replacePath
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise<void>
+
+##### replacePath
+
+replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将当前页面栈栈顶退出，使用Promise异步回调。
 
@@ -450,16 +430,14 @@ replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| info | [NavPathInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathinfo10) | 是 | 新栈顶页面参数信息。 |
-| options | [NavigationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationoptions12) | 否 | 页面栈操作选项。默认值为{ launchMode: LaunchMode.STANDARD, animated: true }。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| info | NavPathInfo | 是 | 新栈顶页面参数信息。 |
+| options | NavigationOptions | 否 | 页面栈操作选项。默认值为{ launchMode: LaunchMode.STANDARD, animated: true }。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -470,16 +448,16 @@ replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions):
 
 以下错误码的详细介绍请参见[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
 
-### replacePathByName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replacePathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise<void>
+
+##### replacePathByName
+
+replacePathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将当前页面栈栈顶退出，将name指定的页面入栈，使用Promise异步回调。
 
@@ -489,17 +467,15 @@ replacePathByName(moduleName: string, name: string, param: Object, animated?: bo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| moduleName | string | 是 | 目标[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)所在分包的moduleName。 |
-| name | string | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面名称。 |
-| param | Object | 是 | [NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面详细参数。 |
-| animated | boolean | 否 | 是否支持转场动画。          默认值：true。          true：支持转场动画。          false：不支持转场动画。 |
+| moduleName | string | 是 | 目标NavDestination所在分包的moduleName。 |
+| name | string | 是 | NavDestination页面名称。 |
+| param | Object | 是 | NavDestination页面详细参数。 |
+| animated | boolean | 否 | 是否支持转场动画。 默认值：true。 true：支持转场动画。 false：不支持转场动画。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -510,25 +486,24 @@ replacePathByName(moduleName: string, name: string, param: Object, animated?: bo
 
 以下错误码的详细介绍请参见[页面路由错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-router)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 300001 | hsp silent install fail. |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 示例
 
 主包：
 
-
-```ts
+```ArkTS
 // Index.ets
 import { NavPushPathHelper } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -542,17 +517,17 @@ struct NavigationExample {
     Navigation(this.pageInfo) {
       Column() {
         Button('StartTest', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(40)
-        .margin(20)
-        .onClick(() => {
-          this.helper.pushPath('hsptest1', { name: 'pageOne' }, false)
-          .catch((error: BusinessError) => {
-            console.error(`[pushPath]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.error(`[pushPath]success.`);
-          }); // 将name指定的NavDestination页面信息入栈。
-        })
+          .width('80%')
+          .height(40)
+          .margin(20)
+          .onClick(() => {
+            this.helper.pushPath('hsptest1', { name: 'pageOne' }, false)
+              .catch((error: BusinessError) => {
+              console.error(`[pushPath]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.error(`[pushPath]success.`);
+            }); // 将name指定的NavDestination页面信息入栈。
+          })
       }
     }.title('NavIndex')
   }
@@ -561,8 +536,7 @@ struct NavigationExample {
 
 分包hsptest1：
 
-
-```ts
+```ArkTS
 // PageOne.ets
 import { NavPushPathHelper } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -591,167 +565,167 @@ export struct PageOne {
     NavDestination() {
       Column() {
         Text(this.message)
-        .width('80%')
-        .height(50)
-        .margin(10)
+          .width('80%')
+          .height(50)
+          .margin(10)
 
         Button('pushPath', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          this.helper.pushPath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            this.helper.pushPath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
               this.message = '[pushPath]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-          }}).catch((error: BusinessError) => {
-            console.error(`[pushPath]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.info(`[pushPath]success.`);
-          });
-        })
+            }}).catch((error: BusinessError) => {
+              console.error(`[pushPath]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.info(`[pushPath]success.`);
+            });
+          })
 
         Button('pushPath with NavigationOptions', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          this.helper.pushPath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            this.helper.pushPath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
               this.message = '[pushPath with NavigationOptions]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-        }}, {launchMode:0, animated:true}).catch((error: BusinessError) => {
-            console.error(`[pushPath with NavigationOptions]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.info(`[pushPath with NavigationOptions]success.`);
-          });
-        })
+            }}, {launchMode:0, animated:true}).catch((error: BusinessError) => {
+              console.error(`[pushPath with NavigationOptions]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.info(`[pushPath with NavigationOptions]success.`);
+            });
+          })
 
         Button('pushPathByName', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          let tmp = new TmpClass();
-          this.helper.pushPathByName('hsptest2', 'pageTwo', tmp, (popInfo) => {
-            this.message = '[pushPathByName]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-          }).catch((error: BusinessError) => {
-            console.error(`[pushPathByName]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.info(`[pushPathByName]success.`);
-          });
-        })
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            let tmp = new TmpClass();
+            this.helper.pushPathByName('hsptest2', 'pageTwo', tmp, (popInfo) => {
+              this.message = '[pushPathByName]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
+            }).catch((error: BusinessError) => {
+              console.error(`[pushPathByName]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.info(`[pushPathByName]success.`);
+            });
+          })
 
         Button('pushPathByNameWithoutOnPop', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          let tmp = new TmpClass();
-          this.helper.pushPathByName('hsptest2', 'pageTwo', tmp, true)
-          .catch((error: BusinessError) => {
-            console.error(`[pushPathByNameWithoutOnPop]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.info(`[pushPathByNameWithoutOnPop]success.`);
-          });
-        })
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            let tmp = new TmpClass();
+            this.helper.pushPathByName('hsptest2', 'pageTwo', tmp, true)
+            .catch((error: BusinessError) => {
+              console.error(`[pushPathByNameWithoutOnPop]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.info(`[pushPathByNameWithoutOnPop]success.`);
+            });
+          })
 
         Button('pushDestination', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          let tmp = new TmpClass()
-          this.helper.pushDestination('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            let tmp = new TmpClass()
+            this.helper.pushDestination('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
               this.message = '[pushDestination]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-          }}).catch((error: BusinessError) => {
-            console.error(`[pushDestination]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.error(`[pushDestination]success.`);
-          });
-        })
+            }}).catch((error: BusinessError) => {
+              console.error(`[pushDestination]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.error(`[pushDestination]success.`);
+            });
+          })
 
         Button('pushDestination with NavigationOptions', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          let tmp = new TmpClass();
-          this.helper.pushDestination('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            let tmp = new TmpClass();
+            this.helper.pushDestination('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
               this.message = '[pushDestination with NavigationOptions]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-        }}, {launchMode:0, animated:true}).catch((error: BusinessError) => {
-            console.error(`[pushDestination with NavigationOptions]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.error(`[pushDestination with NavigationOptions]success.`);
-          });
-        })
+            }}, {launchMode:0, animated:true}).catch((error: BusinessError) => {
+              console.error(`[pushDestination with NavigationOptions]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.error(`[pushDestination with NavigationOptions]success.`);
+            });
+          })
 
         Button('pushDestinationByName', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          let tmp = new TmpClass()
-          this.helper.pushDestinationByName('hsptest2','pageTwo', tmp, (popInfo) => {
-            this.message = '[pushDestinationByName]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-          }).catch((error: BusinessError) => {
-            console.error(`[pushDestinationByName]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.error(`[pushDestinationByName]success.`);
-          });
-        })
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            let tmp = new TmpClass()
+            this.helper.pushDestinationByName('hsptest2','pageTwo', tmp, (popInfo) => {
+              this.message = '[pushDestinationByName]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
+            }).catch((error: BusinessError) => {
+              console.error(`[pushDestinationByName]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.error(`[pushDestinationByName]success.`);
+            });
+          })
 
         Button('pushDestinationByNameWithoutOnPop', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          let tmp = new TmpClass()
-          this.helper.pushDestinationByName('hsptest2','pageTwo', tmp, true)
-          .catch((error: BusinessError) => {
-            console.error(`[pushDestinationByNameWithoutOnPop]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.error(`[pushDestinationByNameWithoutOnPop]success.`);
-          });
-        })
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            let tmp = new TmpClass()
+            this.helper.pushDestinationByName('hsptest2','pageTwo', tmp, true)
+              .catch((error: BusinessError) => {
+                console.error(`[pushDestinationByNameWithoutOnPop]failed, error code = ${error.code}, error.message = ${error.message}.`);
+              }).then(() => {
+              console.error(`[pushDestinationByNameWithoutOnPop]success.`);
+            });
+          })
 
         Button('replacePath', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          this.helper.replacePath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            this.helper.replacePath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
               this.message = '[replacePath]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-          }}).catch((error: BusinessError) => {
-            console.error(`[replacePath]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.info(`[replacePath]success.`);
-          });
-        })
+            }}).catch((error: BusinessError) => {
+              console.error(`[replacePath]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.info(`[replacePath]success.`);
+            });
+          })
 
         Button('replacePath with NavigationOptions', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          this.helper.replacePath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            this.helper.replacePath('hsptest2', { name: 'pageTwo', param: new ParamWithOp(), onPop: (popInfo: PopInfo) => {
               this.message = '[replacePath with NavigationOptions]last page is: ' + popInfo.info.name + ', result: ' + JSON.stringify(popInfo.result);
-        }}, {launchMode:0, animated:true}).catch((error: BusinessError) => {
-            console.error(`[replacePath with NavigationOptions]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.info(`[replacePath with NavigationOptions]success.`);
-          });
-        })
+            }}, {launchMode:0, animated:true}).catch((error: BusinessError) => {
+              console.error(`[replacePath with NavigationOptions]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.info(`[replacePath with NavigationOptions]success.`);
+            });
+          })
 
         Button('replacePathByName', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(35)
-        .margin(10)
-        .onClick(() => {
-          let tmp = new TmpClass();
-          this.helper.replacePathByName('hsptest2', 'pageTwo', tmp)
-          .catch((error: BusinessError) => {
-            console.error(`[replacePathByName]failed, error code = ${error.code}, error.message = ${error.message}.`);
-          }).then(() => {
-            console.info(`[replacePathByName]success.`);
-          });
-        })
+          .width('80%')
+          .height(35)
+          .margin(10)
+          .onClick(() => {
+            let tmp = new TmpClass();
+            this.helper.replacePathByName('hsptest2', 'pageTwo', tmp)
+              .catch((error: BusinessError) => {
+              console.error(`[replacePathByName]failed, error code = ${error.code}, error.message = ${error.message}.`);
+            }).then(() => {
+              console.info(`[replacePathByName]success.`);
+            });
+          })
 
       }.width('100%').height('100%')
     }.title('pageOne')
@@ -766,10 +740,9 @@ export struct PageOne {
 }
 ```
 
-工程配置文件module.json5中配置 {"routerMap": "\$profile:route_map"}，在route_map.json文件配置如下：
+工程配置文件module.json5中配置 {"routerMap": "$profile:route_map"}，在route_map.json文件配置如下：
 
-
-```json
+```ArkTS
 {
   "routerMap": [
     {
@@ -786,8 +759,7 @@ export struct PageOne {
 
 分包hsptest2：
 
-
-```ts
+```ArkTS
 // PageTwo.ets
 
 class resultClass {
@@ -810,12 +782,12 @@ export struct PageTwo {
     NavDestination() {
       Column() {
         Button('pop', { stateEffect: true, type: ButtonType.Capsule })
-        .width('80%')
-        .height(40)
-        .margin(20)
-        .onClick(() => {
-          this.pathStack.pop(new resultClass(1)); // 回退到上一个页面，将处理结果传入push的onPop回调中。
-        })
+          .width('80%')
+          .height(40)
+          .margin(20)
+          .onClick(() => {
+            this.pathStack.pop(new resultClass(1)); // 回退到上一个页面，将处理结果传入push的onPop回调中。
+          })
       }.width('100%').height('100%')
     }.title('pageTwo')
     .onBackPressed(() => {
@@ -828,10 +800,9 @@ export struct PageTwo {
 }
 ```
 
-工程配置文件module.json5中配置 {"routerMap": "\$profile:route_map"}，在route_map.json文件配置如下：
+工程配置文件module.json5中配置 {"routerMap": "$profile:route_map"}，在route_map.json文件配置如下：
 
-
-```json
+```ArkTS
 {
   "routerMap": [
     {
@@ -846,4 +817,5 @@ export struct PageTwo {
 }
 ```
 
-![](assets/NavPushPathHelper/file-20260514164150020-0.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/AlnOaMcLTOeJfKIHdMEufg/zh-cn_image_0000002581276310.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013909Z&HW-CC-Expire=86400&HW-CC-Sign=AA0F2CA7A9A80DA5781324C34165FE44052055D916FBCC9086951F599C573C65)

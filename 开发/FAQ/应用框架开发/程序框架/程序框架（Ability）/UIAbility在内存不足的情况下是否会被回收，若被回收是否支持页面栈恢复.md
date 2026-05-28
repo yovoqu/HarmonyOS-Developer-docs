@@ -4,6 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-110
 
-解决方案
-
+**解决方案**
+ 
 当前系统不支持页面栈恢复。

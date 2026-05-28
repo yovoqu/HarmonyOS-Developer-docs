@@ -4,25 +4,49 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-opengtx
 
-## 概述
+##### 概述
 
 OpenGTX是GPU Turbo X的开放式入口，根据游戏开发者主动提供的游戏过程中的关键信息，使能LTPO（动态帧率/刷新率）等游戏加速方案，助力游戏开发者打造高画质、高流畅、低功耗极致体验。LTPO通过动态感知游戏渲染状态、游戏场景、设备状态等关键信息，动态调整游戏的帧率/刷新率以及设备的SOC/DDR频率。
+
+
 ![](assets/OpenGTX功能开发/file-20260514131700037-0.png)
 
-## 业务流程
+
+
+
+##### 业务流程
 
 LTPO的主要业务流程如下：
-![](assets/OpenGTX功能开发/file-20260514131700037-1.png)
-用户进入游戏。 游戏应用调用[HMS_OpenGTX_CreateContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_createcontext)接口创建OpenGTX上下文实例。 游戏应用调用[HMS_OpenGTX_SetConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_setconfiguration)接口初始化配置实例属性，包含LTPO模式、目标帧率、包名、游戏类型、分辨率、游戏关键线程等属性。 游戏应用调用[HMS_OpenGTX_Activate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_activate)接口激活OpenGTX上下文实例。 游戏切换不同游戏场景后调用[HMS_OpenGTX_DispatchGameSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchgamesceneinfo)接口发送游戏场景信息，包含场景类型、指定帧率、调度帧率范围、当前分辨率等信息。 游戏应用在每帧渲染前调用[HMS_OpenGTX_DispatchFrameRenderInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchframerenderinfo)接口发送游戏帧渲染信息，包含游戏主相机的位置和欧拉角。 游戏应用在每帧渲染前如遇到网络时延档位变化，调用[HMS_OpenGTX_DispatchNetworkInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchnetworkinfo)接口发送游戏网络信息，包含服务器IP地址、网络时延等信息。 游戏应用正常绘制。 一帧送显。 每帧结束，将帧尾决策帧率、决策设备频率通知到设备。 用户退出游戏。 游戏应用调用[HMS_OpenGTX_DestroyContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_destroycontext)接口销毁OpenGTX上下文实例并释放内存资源。
 
-## 开发步骤
+
+![](assets/OpenGTX功能开发/file-20260514131700037-1.png)
+
+1. 用户进入游戏。
+2. 游戏应用调用[HMS_OpenGTX_CreateContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_createcontext)接口创建OpenGTX上下文实例。
+3. 游戏应用调用[HMS_OpenGTX_SetConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_setconfiguration)接口初始化配置实例属性，包含LTPO模式、目标帧率、包名、游戏类型、分辨率、游戏关键线程等属性。
+4. 游戏应用调用[HMS_OpenGTX_Activate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_activate)接口激活OpenGTX上下文实例。
+5. 游戏切换不同游戏场景后调用[HMS_OpenGTX_DispatchGameSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchgamesceneinfo)接口发送游戏场景信息，包含场景类型、指定帧率、调度帧率范围、当前分辨率等信息。
+6. 游戏应用在每帧渲染前调用[HMS_OpenGTX_DispatchFrameRenderInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchframerenderinfo)接口发送游戏帧渲染信息，包含游戏主相机的位置和欧拉角。
+7. 游戏应用在每帧渲染前如遇到网络时延档位变化，调用[HMS_OpenGTX_DispatchNetworkInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchnetworkinfo)接口发送游戏网络信息，包含服务器IP地址、网络时延等信息。
+8. 游戏应用正常绘制。
+9. 一帧送显。
+10. 每帧结束，将帧尾决策帧率、决策设备频率通知到设备。
+11. 用户退出游戏。
+12. 游戏应用调用[HMS_OpenGTX_DestroyContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_destroycontext)接口销毁OpenGTX上下文实例并释放内存资源。
+
+
+
+##### 开发步骤
 
 本节介绍OpenGTX的开发接入，从流程上分别阐述每个步骤的实现和调用。详细代码请参考[OpenGTX Sample](https://gitcode.com/harmonyos_samples/open-gtx-samplecode-clientdemo-cpp)。
 
-## 设置项目配置项
+
+
+##### 设置项目配置项
 
 在“src/main/module.json5”的module层级中添加以下配置。
-```text
+
+```json
 "metadata": [
   {
     "name": "GraphicsAccelerateKit_LTPO",
@@ -32,17 +56,19 @@ LTPO的主要业务流程如下：
 ```
 
 
-## 头文件引用
+
+##### 头文件引用
 
 引用Graphics Accelerate Kit OpenGTX头文件：opengtx_base.h。
+
 ```text
 // 引用OpenGTX头文件 opengtx_base.h
-#include
+#include <graphics_game_sdk/opengtx_base.h>
 ```
 
 
-## 编写CMakeLists.txt
 
+##### 编写CMakeLists.txt
 
 ```text
 find_library(
@@ -70,9 +96,13 @@ target_link_libraries(entry PUBLIC
 ```
 
 
-## OpenGTX初始化
 
-在surface创建后，会触发其事件回调函数Core::OnSurfaceCreated()，在该函数中完成OpenGTX上下文实例创建、OpenGTX属性配置和功能激活。其中OpenGTX上下文实例负责管理OpenGTX整个生命周期。 调用[HMS_OpenGTX_CreateContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_createcontext)接口创建OpenGTX上下文实例。如果返回nullptr，则说明OpenGTX上下文实例创建失败，或当前硬件设备不支持开启OpenGTX。
+##### OpenGTX初始化
+
+在surface创建后，会触发其事件回调函数Core::OnSurfaceCreated()，在该函数中完成OpenGTX上下文实例创建、OpenGTX属性配置和功能激活。其中OpenGTX上下文实例负责管理OpenGTX整个生命周期。
+1. 调用[HMS_OpenGTX_CreateContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_createcontext)接口创建OpenGTX上下文实例。如果返回nullptr，则说明OpenGTX上下文实例创建失败，或当前硬件设备不支持开启OpenGTX。
+
+  
 ```text
 // 创建OpenGTX上下文实例
 OpenGTX_Context *context_ = HMS_OpenGTX_CreateContext(nullptr);
@@ -81,7 +111,9 @@ if (context_ == nullptr) {
 }
 ```
 
-调用[HMS_OpenGTX_SetConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_setconfiguration)接口属性配置，包含LTPO模式、目标帧率、包名、游戏类型、分辨率、游戏关键线程等属性。
+2. 调用[HMS_OpenGTX_SetConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_setconfiguration)接口属性配置，包含LTPO模式、目标帧率、包名、游戏类型、分辨率、游戏关键线程等属性。
+
+  
 ```text
 // 初始化OpenGTX接口调用错误码
 OpenGTX_ErrorCode errorCode = OPENGTX_SUCCESS;
@@ -124,7 +156,9 @@ if (errorCode != OPENGTX_SUCCESS) {
 }
 ```
 
-调用[HMS_OpenGTX_Activate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_activate)接口激活OpenGTX上下文实例。
+3. 调用[HMS_OpenGTX_Activate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_activate)接口激活OpenGTX上下文实例。
+
+  
 ```text
 // 激活OpenGTX上下文实例
 errorCode = HMS_OpenGTX_Activate(context_);
@@ -133,7 +167,9 @@ if (errorCode != OPENGTX_SUCCESS) {
 }
 ```
 
-调用[HMS_OpenGTX_Deactivate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_deactivate)接口去激活OpenGTX上下文实例。（在需要关闭OpenGTX功能时调用此接口。去激活后，调用[HMS_OpenGTX_DispatchGameSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchgamesceneinfo)等接口将不会生效）。
+4. 调用[HMS_OpenGTX_Deactivate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_deactivate)接口去激活OpenGTX上下文实例。（在需要关闭OpenGTX功能时调用此接口。去激活后，调用[HMS_OpenGTX_DispatchGameSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchgamesceneinfo)等接口将不会生效）。
+
+  
 ```text
 // 去激活OpenGTX上下文实例
 errorCode = HMS_OpenGTX_Deactivate(context_);
@@ -143,9 +179,12 @@ if (errorCode != OPENGTX_SUCCESS) {
 ```
 
 
-## OpenGTX关键信息更新
 
-游戏切换不同游戏场景后调用[HMS_OpenGTX_DispatchGameSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchgamesceneinfo)接口发送游戏场景信息，包含场景类型、指定帧率、调度帧率范围、当前分辨率等信息。
+
+##### OpenGTX关键信息更新
+1. 游戏切换不同游戏场景后调用[HMS_OpenGTX_DispatchGameSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchgamesceneinfo)接口发送游戏场景信息，包含场景类型、指定帧率、调度帧率范围、当前分辨率等信息。
+
+  
 ```text
 // OpenGTX游戏场景信息结构体
 OpenGTX_GameSceneInfo gameSceneInfo;
@@ -170,7 +209,9 @@ if (errorCode != OPENGTX_SUCCESS) {
 }
 ```
 
-每帧渲染前调用[HMS_OpenGTX_DispatchFrameRenderInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchframerenderinfo)接口发送游戏帧渲染信息，包含游戏主相机的位置和欧拉角。
+2. 每帧渲染前调用[HMS_OpenGTX_DispatchFrameRenderInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchframerenderinfo)接口发送游戏帧渲染信息，包含游戏主相机的位置和欧拉角。
+
+  
 ```text
 // OpenGTX游戏渲染信息结构体
 OpenGTX_FrameRenderInfo frameRenderInfo;
@@ -185,7 +226,9 @@ if (errorCode != OPENGTX_SUCCESS) {
 }
 ```
 
-每帧渲染前如遇到网络时延档位变化，调用[HMS_OpenGTX_DispatchNetworkInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchnetworkinfo)接口发送游戏网络信息。包含服务器IP地址、网络时延等信息。
+3. 每帧渲染前如遇到网络时延档位变化，调用[HMS_OpenGTX_DispatchNetworkInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_dispatchnetworkinfo)接口发送游戏网络信息。包含服务器IP地址、网络时延等信息。
+
+  
 ```text
 // OpenGTX游戏网络信息结构体
 OpenGTX_NetworkInfo networkInfo;
@@ -209,9 +252,14 @@ if (errorCode != OPENGTX_SUCCESS) {
 ```
 
 
-## 销毁OpenGTX实例
 
-在surface销毁时，会触发其事件回调函数Core::OnSurfaceDestroyed()，在该函数中完成OpenGTX实例的销毁。 调用[HMS_OpenGTX_DestroyContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_destroycontext)接口销毁OpenGTX实例，释放内存资源。
+
+##### 销毁OpenGTX实例
+
+在surface销毁时，会触发其事件回调函数Core::OnSurfaceDestroyed()，在该函数中完成OpenGTX实例的销毁。
+
+调用[HMS_OpenGTX_DestroyContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_opengtx_destroycontext)接口销毁OpenGTX实例，释放内存资源。
+
 ```text
 // 销毁OpenGTX上下文实例并释放内存资源
 errorCode = HMS_OpenGTX_DestroyContext(&context_);

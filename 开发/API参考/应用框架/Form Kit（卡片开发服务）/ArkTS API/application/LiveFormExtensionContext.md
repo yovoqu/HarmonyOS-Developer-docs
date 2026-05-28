@@ -3,35 +3,36 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-liveformextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LiveFormExtensionContext是[LiveFormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-liveformextensionability)的上下文，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
+> [!NOTE]
+> 在API version 22以前，需要通过import LiveFormExtensionContext from 'application/LiveFormExtensionContext'; 导入LiveFormExtensionContext。该导入方式在DevEco Studio中标红，但不影响编译运行，可以直接使用LiveFormExtensionContext。 在API version 22及以后，支持通过import { common } from '@kit.AbilityKit'; 导入LiveFormExtensionContext，并通过common.LiveFormExtensionContext的方式使用。
 
-## LiveFormExtensionContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+
+##### LiveFormExtensionContext
 
 LiveFormExtensionContext提供允许访问特定于LiveFormExtensionAbility资源的能力，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
 
-### startAbilityByLiveForm
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityByLiveForm(want: Want): Promise<void>
+##### startAbilityByLiveForm
+
+startAbilityByLiveForm(want: Want): Promise&lt;void&gt;
 
 拉起互动卡片提供方（应用）的页面，使用Promise异步回调。
 
@@ -47,14 +48,12 @@ startAbilityByLiveForm(want: Want): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 需要被拉起的应用页面信息。[仅支持使用显式want。](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-startup-with-explicit-want) |
+| want | Want | 是 | 需要被拉起的应用页面信息。仅支持使用显式want。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -64,7 +63,6 @@ startAbilityByLiveForm(want: Want): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -77,27 +75,22 @@ startAbilityByLiveForm(want: Want): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // MyLiveFormExtensionAbility.ets
 import { formInfo, LiveFormInfo, LiveFormExtensionAbility } from '@kit.FormKit';
 import { UIExtensionContentSession } from '@kit.AbilityKit';
 
 export default class MyLiveFormExtensionAbility extends LiveFormExtensionAbility {
-  onLiveFormCreate(
-    liveFormInfo: LiveFormInfo,
-    session: UIExtensionContentSession,
-  ) {
+  onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession) {
     // 1.将LiveFormExtensionContext传给互动卡片的页面组件
     let storage: LocalStorage = new LocalStorage();
     storage.setOrCreate('context', this.context);
     session.loadContent('pages/MyLiveFormPage', storage);
   }
-}
+};
 ```
 
-
-```ts
+```ArkTS
 // pages/MyLiveFormPage.ets
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -114,19 +107,19 @@ struct MyLiveFormPage {
     this.liveFormContext = this.storageForMyLiveFormPage?.get<common.LiveFormExtensionContext>('context');
   }
 
-  private startAbilityByLiveForm(): void {
+   private startAbilityByLiveForm(): void {
     try {
       // 请开发者替换为实际的want信息
       this.liveFormContext?.startAbilityByLiveForm({
         bundleName: 'com.example.liveformdemo',
         abilityName: 'EntryAbility',
       })
-      .then(() => {
-        console.info('startAbilityByLiveForm succeed');
-      })
-      .catch((err: BusinessError) => {
-        console.error(`startAbilityByLiveForm failed, code is ${err?.code}, message is ${err?.message}`);
-      });
+        .then(() => {
+          console.info('startAbilityByLiveForm succeed');
+        })
+        .catch((err: BusinessError) => {
+          console.error(`startAbilityByLiveForm failed, code is ${err?.code}, message is ${err?.message}`);
+        });
     } catch (e) {
       console.error(`startAbilityByLiveForm failed, code is ${e?.code}, message is ${e?.message}`);
     }
@@ -136,9 +129,9 @@ struct MyLiveFormPage {
     // 请开发者替换为实际的页面
     Stack() {
       Column()
-      .width('50%')
-      .height('50%')
-      .backgroundColor('#2875F5')
+        .width('50%')
+        .height('50%')
+        .backgroundColor('#2875F5')
     }
     .width('100%')
     .height('100%')

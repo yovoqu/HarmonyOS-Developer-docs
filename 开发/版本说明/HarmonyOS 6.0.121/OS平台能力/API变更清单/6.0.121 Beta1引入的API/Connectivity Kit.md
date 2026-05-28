@@ -13,12 +13,12 @@
 | 新增API | NA | 类名：common； API声明：export enum BluetoothAddressType 差异内容：export enum BluetoothAddressType | api/@ohos.bluetooth.common.d.ts |
 | 新增API | NA | 类名：BluetoothAddressType； API声明：VIRTUAL = 1 差异内容：VIRTUAL = 1 | api/@ohos.bluetooth.common.d.ts |
 | 新增API | NA | 类名：BluetoothAddressType； API声明：REAL = 2 差异内容：REAL = 2 | api/@ohos.bluetooth.common.d.ts |
-| 新增API | NA | 类名：ble； API声明：function getConnectedBLEDevices(profile: BleProfile): Array<string>; 差异内容：function getConnectedBLEDevices(profile: BleProfile): Array<string>; | api/@ohos.bluetooth.ble.d.ts |
+| 新增API | NA | 类名：ble； API声明：function getConnectedBLEDevices(profile: BleProfile): Array&lt;string&gt;; 差异内容：function getConnectedBLEDevices(profile: BleProfile): Array&lt;string&gt;; | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：ble； API声明：enum BleProfile 差异内容：enum BleProfile | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：BleProfile； API声明：GATT = 1 差异内容：GATT = 1 | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：BleProfile； API声明：GATT_CLIENT = 2 差异内容：GATT_CLIENT = 2 | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：BleProfile； API声明：GATT_SERVER = 3 差异内容：GATT_SERVER = 3 | api/@ohos.bluetooth.ble.d.ts |
-| 新增API | NA | 类名：connection； API声明：function pairDevice(deviceId: BluetoothAddress): Promise<void>; 差异内容：function pairDevice(deviceId: BluetoothAddress): Promise<void>; | api/@ohos.bluetooth.connection.d.ts |
+| 新增API | NA | 类名：connection； API声明：function pairDevice(deviceId: BluetoothAddress): Promise&lt;void&gt;; 差异内容：function pairDevice(deviceId: BluetoothAddress): Promise&lt;void&gt;; | api/@ohos.bluetooth.connection.d.ts |
 | 新增API | NA | 类名：connection； API声明：type BluetoothAddress = common.BluetoothAddress; 差异内容：type BluetoothAddress = common.BluetoothAddress; | api/@ohos.bluetooth.connection.d.ts |
 | 新增API | NA | 类名：wifiManager； API声明：function startScan(): void; 差异内容：function startScan(): void; | api/@ohos.wifiManager.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@ohos.bluetooth.common.d.ts 差异内容：ConnectivityKit | api/@ohos.bluetooth.common.d.ts |

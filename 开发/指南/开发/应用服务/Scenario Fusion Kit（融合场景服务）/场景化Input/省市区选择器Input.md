@@ -4,25 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-input-zone-selectors
 
-## 场景介绍
+##### 场景介绍
 
-从5.1.0(18)开始，支持省市区选择器Input功能。 省市区选择器Input功能可以帮助开发者调用对应FunctionalInput组件快速拉起选择地区页面，供用户选择地区信息。 运行示例代码后单击“所在地区”文本框，拉起选择地区页面，按照需求选择地址信息，选择完成后将所选地址回填至文本框中。
+从5.1.0(18)开始，支持省市区选择器Input功能。
+
+省市区选择器Input功能可以帮助开发者调用对应FunctionalInput组件快速拉起选择地区页面，供用户选择地区信息。
+
+运行示例代码后单击“所在地区”文本框，拉起选择地区页面，按照需求选择地址信息，选择完成后将所选地址回填至文本框中。
+
+
 ![](assets/省市区选择器Input/file-20260514132142075-0.png)
 
-## 前提条件
+
+
+
+##### 前提条件
 
 参见[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-config-agc)。
 
-## 开发步骤
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { FunctionalInput, functionalInputComponentManager } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { SymbolGlyphModifier, TextInputModifier } from '@kit.ArkUI';
 ```
 
-在容器中声明FunctionalInput，指定FunctionalInput的inputType，并设置对应的回调函数，代码如下：
+2. 在容器中声明FunctionalInput，指定FunctionalInput的inputType，并设置对应的回调函数，代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -80,6 +94,5 @@ struct Index {
 }
 ```
 
-
 > [!NOTE]
-> inputType参数填写"functionalInputComponentManager.InputType.SELECT_DISTRICT"指定Input为省市区选择器类型。 controller参数必须对应填写"new functionalInputComponentManager.FunctionalInputController().onSelectDistrict"。 可从返回结果中自行处理结果回填至组件中。 组件支持显示两种类型的图标：symbol和image，"icon"设置为symbol资源时，请使用"iconSymbolModifier"进行图标事件、样式的设置；设置为image资源时，请使用"iconImgModifier"进行图标事件、样式的设置。 functionalInput支持智能填充，对应支持的ContentType为"ADDRESS_CITY_AND_STATE"。 其他参数请参考：FunctionalInput（Input组件）。
+> inputType参数填写"functionalInputComponentManager.InputType.SELECT_DISTRICT"指定Input为省市区选择器类型。 controller参数必须对应填写"new functionalInputComponentManager.FunctionalInputController().onSelectDistrict"。 可从返回结果中自行处理结果回填至组件中。 组件支持显示两种类型的图标：symbol和image，"icon"设置为symbol资源时，请使用" iconSymbolModifier "进行图标事件、样式的设置；设置为image资源时，请使用" iconImgModifier "进行图标事件、样式的设置。 functionalInput支持 智能填充 ，对应支持的 ContentType 为"ADDRESS_CITY_AND_STATE"。 其他参数请参考： FunctionalInput（Input组件） 。

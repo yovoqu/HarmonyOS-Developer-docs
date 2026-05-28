@@ -6,27 +6,69 @@
 
 启动组件是指一切启动或连接应用组件的行为：
 
+ - 启动[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)、DataShareExtensionAbility，如使用[startAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startability)、[startAbilityByCall()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)、[openLink()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#openlink12)等相关接口。
+ - 连接ServiceExtensionAbility、DataShareExtensionAbility，如使用[connectServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#connectserviceextensionability)、createDataShareHelper()等相关接口。
 
-## 组件启动总体规则
 
-为了保证用户具有更好的使用体验，对以下几种易影响用户体验与系统安全的行为做了限制： 后台应用任意弹框，如各种广告弹窗，影响用户使用。 后台应用相互唤醒，不合理的占用系统资源，导致系统功耗增加或系统卡顿。 前台应用任意跳转至其他应用，如随意跳转到其他应用的支付页面，存在安全风险。 鉴于此，制定了一套组件启动规则，主要包括： **跨应用启动组件，需校验目标组件是否可以被其他应用调用。** 若目标组件exported字段配置为true，表示可以被其他应用调用；若目标组件exported字段配置为false，表示不可以被其他应用调用，还需进一步校验ohos.permission.START_INVISIBLE_ABILITY权限（该权限仅系统应用可申请）。组件exported字段说明可参考[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)。 **位于后台的UIAbility应用，启动组件需校验BACKGROUND权限ohos.permission.START_ABILITIES_FROM_BACKGROUND（该权限仅系统应用可申请）。**
+
+##### 组件启动总体规则
+
+为了保证用户具有更好的使用体验，对以下几种易影响用户体验与系统安全的行为做了限制：
+
+ - 后台应用任意弹框，如各种广告弹窗，影响用户使用。
+ - 后台应用相互唤醒，不合理的占用系统资源，导致系统功耗增加或系统卡顿。
+ - 前台应用任意跳转至其他应用，如随意跳转到其他应用的支付页面，存在安全风险。
+
+
+鉴于此，制定了一套组件启动规则，主要包括：
+
+ - **跨应用启动组件，需校验目标组件是否可以被其他应用调用。**
+
+  若目标组件exported字段配置为true，表示可以被其他应用调用；若目标组件exported字段配置为false，表示不可以被其他应用调用，还需进一步校验ohos.permission.START_INVISIBLE_ABILITY权限（该权限仅系统应用可申请）。组件exported字段说明可参考[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)。
+ - **位于后台的UIAbility应用，启动组件需校验BACKGROUND权限ohos.permission.START_ABILITIES_FROM_BACKGROUND（该权限仅系统应用可申请）。**
+
+  
 > [!NOTE]
 > 前后台应用的判断依据：若应用进程获焦或所属的UIAbility组件位于前台则判定为前台应用，否则为后台应用。 对于2in1和Tablet设备： 从API version 18开始，如果应用已创建在前台显示的悬浮窗，当该应用退至后台时，无需校验BACKGROUND权限也可以拉起其他Ability。 从API version 21开始，如果应用自身已经添加到状态栏，则当应用退至后台时，无需校验BACKGROUND权限也可以拉起自身的UIAbility。
 
-**跨设备使用startAbilityByCall接口，需校验分布式权限ohos.permission.DISTRIBUTED_DATASYNC。** 上述组件启动规则自API 9版本开始生效，新增规则生效版本在规则中单独说明。开发者需熟知组件启动规则，避免业务功能异常。启动组件的具体校验流程见下文。
+ - **跨设备使用startAbilityByCall接口，需校验分布式权限ohos.permission.DISTRIBUTED_DATASYNC。**
 
-## 同设备组件启动规则
 
-设备内启动组件，不同场景下的规则不同，可分为如下三种场景： 启动UIAbility。 启动ServiceExtensionAbility、DataShareExtensionAbility。 通过[startAbilityByCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口启动UIAbility。
+上述组件启动规则自API 9版本开始生效，新增规则生效版本在规则中单独说明。开发者需熟知组件启动规则，避免业务功能异常。启动组件的具体校验流程见下文。
+
+
+
+##### 同设备组件启动规则
+
+设备内启动组件，不同场景下的规则不同，可分为如下三种场景：
+
+ - 启动UIAbility。
+ - 启动ServiceExtensionAbility、DataShareExtensionAbility。
+ - 通过[startAbilityByCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口启动UIAbility。
+
+
 > [!NOTE]
 > 下图中的BACKGROUND权限是指ohos.permission.START_ABILITIES_FROM_BACKGROUND，CALL权限是指ohos.permission.ABILITY_BACKGROUND_COMMUNICATION。
 
-![](assets/组件启动规则（Stage模型）/file-20260514130341121-0.png)
 
-## 分布式跨设备组件启动规则
 
-跨设备启动组件，不同场景下的规则不同，可分为如下三种场景： 启动UIAbility。 启动ServiceExtensionAbility、DataShareExtensionAbility。 通过[startAbilityByCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口启动UIAbility。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/S896r33mTviR-lvgfpUWIA/zh-cn_image_0000002581273622.png?HW-CC-KV=V1&HW-CC-Date=20260528T014844Z&HW-CC-Expire=86400&HW-CC-Sign=9220D8B413438002244028EDA90CE82F4C7CFB0FC5DD94471A52F75A68979C30)
+
+
+
+
+##### 分布式跨设备组件启动规则
+
+跨设备启动组件，不同场景下的规则不同，可分为如下三种场景：
+
+ - 启动UIAbility。
+ - 启动ServiceExtensionAbility、DataShareExtensionAbility。
+ - 通过[startAbilityByCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口启动UIAbility。
+
+
 > [!NOTE]
 > 下图中的BACKGROUND权限是指ohos.permission.START_ABILITIES_FROM_BACKGROUND，DATASYNC权限是指ohos.permission.DISTRIBUTED_DATASYNC。
 
-![](assets/组件启动规则（Stage模型）/file-20260514130341121-1.png)
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/VmL-e6n-T3-f2B-HZs5J4Q/zh-cn_image_0000002611753477.png?HW-CC-KV=V1&HW-CC-Date=20260528T014844Z&HW-CC-Expire=86400&HW-CC-Sign=2C00A6A1E158D11B670ADB302BF986B9895AA8F03CC8B16FBA0710376BA6FD8E)

@@ -4,50 +4,81 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-groupunionid
 
-
-> [!CAUTION] 说明
-> 
-
 ![](assets/通过OpenID或UnionID获取GroupUnionID/file-20260525091450045-001.png)
-> 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。 关于TLS1.2协议及规定内加密套件的信息，可以点击这里进行详细了解：TLS协议及加密套件。
 
-#### 功能介绍
+
+为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
+
+关于TLS1.2协议及规定内加密套件的信息，可以点击这里进行详细了解：[TLS协议及加密套件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#tls协议及加密套件)。
+
+
+
+
+##### 功能介绍
+
 应用服务端调用华为账号服务的接口，通过用户的OpenID或UnionID获取GroupUnionID信息。
 
-#### 场景描述
+
+
+##### 场景描述
+
 不同开发者的应用可通过GroupUnionID关联用户数据，实现数据互通。如果需要实现数据互通的不同开发者应用已具备用户OpenID或UnionID，可以通过该接口批量将用户OpenID或UnionID转换为GroupUnionID。
 
-#### 使用约束
-- 需确保调用端网络正常。
-- 仅对企业开发者开放。
-- 开发者账号必须加入关联主体账号组。具体可通过创建账号组创建关联主体账号组，然后在关联主体账号组中添加账号组成员。
-- 仅能获取当前应用的用户OpenID、UnionID对应的GroupUnionID。
 
-#### 接口原型
-- 承载协议： HTTPS POST
-- 接口方向： 开发者服务器->华为账号服务器
-- 接口URL： https://account-api.cloud.huawei.com/oauth2/v6/groupUnionId/batchGet
-- 数据格式： 请求消息：Content-Type: application/json; charset=utf-8 响应消息：Content-Type: application/json; charset=utf-8
 
-#### 请求参数
-#### Request Header
+##### 使用约束
+
+ - 需确保调用端网络正常。
+ - 仅对企业开发者开放。
+ - 开发者账号必须加入关联主体账号组。具体可通过[创建账号组](https://developer.huawei.com/consumer/cn/doc/start/cag-0000001265390541)创建关联主体账号组，然后在关联主体账号组中[添加账号组成员](https://developer.huawei.com/consumer/cn/doc/start/aai-0000001265430513)。
+ - 仅能获取当前应用的用户OpenID、UnionID对应的GroupUnionID。
+
+
+
+
+##### 接口原型
+
+ - **承载协议：** HTTPS POST
+ - **接口方向：** 开发者服务器->华为账号服务器
+ - **接口URL：** https://account-api.cloud.huawei.com/oauth2/v6/groupUnionId/batchGet
+ - **数据格式：**
+
+  请求消息：Content-Type: application/json; charset=utf-8
+
+  响应消息：Content-Type: application/json; charset=utf-8
+
+
+
+
+##### 请求参数
+
+
+
+##### Request Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | Content-Type | 是 | String | 取值为：application/json; charset=utf-8。 说明： Request Body传参，请务必遵循此请求头格式，否则可能导致请求失败，具体传参方式可参考示例代码。 |
 | Authorization | 是 | String | 接口的访问凭证，通过获取应用级凭证获取的Access Token。 传参格式：Bearer ${Access Token} 样例：Bearer DgEEn******Y+Aj== 说明： - 使用OpenID获取GroupUnionID时，Access Token必须由OpenID所属应用的Client ID获取。 - 使用UnionID获取GroupUnionID场景时，Access Token由UnionID所属开发者下任意一个应用的Client ID获取均可。 |
 
-#### Request Body
+
+
+
+##### Request Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | openIdList | 否 | List&lt;String&gt; | 用户的OpenID列表，每次请求最大支持传100个OpenID。 请求参数unionIdList为空时，此参数必填。 请求参数unionIdList不为空时，此参数不允许填写。 |
 | unionIdList | 否 | List&lt;String&gt; | 用户的UnionID列表，每次请求最大支持传100个UnionID。 当请求参数openIdList为空时，此参数必填。 当请求参数openIdList不为空时，此参数不允许填写。 |
 
-#### 请求示例
+
+
+
+##### 请求示例
+
 请通过POST方式调用，示例如下：
 
-```ts
+```json
 POST /oauth2/v6/groupUnionId/batchGet HTTP/1.1
 Host: account-api.cloud.huawei.com
 Content-Type: application/json; charset=utf-8
@@ -58,50 +89,72 @@ Authorization：Bearer <access_token>
 }
 ```
 
-#### 响应参数
-#### Response Header
+
+
+##### 响应参数
+
+
+
+##### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | Content-Type | 是 | String | 取值为：application/json; charset=utf-8。 |
 
-#### Response Body
+
+
+
+##### Response Body
+
 调用成功时，响应消息体返回如下：
 
-| **参数** | 是否必选 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
-| openIdToGroupUnionIdList | 否 | List<[OpenIdToGroupUnionIdInfo](#openidtogroupunionidinfo)> | 用户的OpenID转GroupUnionID的列表。当传入openIdList参数时返回。 |
-| unionIdToGroupUnionIdList | 否 | List<[UnionIdToGroupUnionIdInfo](#unionidtogroupunionidinfo)> | 用户的UnionID转GroupUnionID的列表，当传入unionIdList参数时返回。 |
+| openIdToGroupUnionIdList | 否 | List&lt;OpenIdToGroupUnionIdInfo&gt; | 用户的OpenID转GroupUnionID的列表。当传入openIdList参数时返回。 |
+| unionIdToGroupUnionIdList | 否 | List&lt;UnionIdToGroupUnionIdInfo&gt; | 用户的UnionID转GroupUnionID的列表，当传入unionIdList参数时返回。 |
 
 
-> [!NOTE] 说明
+> [!NOTE]
 > 响应参数openIdToGroupUnionIdList和unionIdToGroupUnionIdList列表为去重后的结果，因此响应参数的openIdToGroupUnionIdList数量可能与请求参数的openIdList数量不一致；请求参数unionIdList与响应参数unionIdToGroupUnionIdList同理。
+
 
 调用失败时，响应消息体返回如下：
 
-| **参数** | 是否必选 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
-| resultCode | 是 | int | 错误码，详见[错误码](#错误码)。 |
+| resultCode | 是 | int | 错误码，详见错误码。 |
 | resultDesc | 是 | String | 错误描述信息。 |
 
-#### OpenIdToGroupUnionIdInfo
 
-| **参数** | 是否必选 | 参数类型 | 描述 |
+
+
+##### OpenIdToGroupUnionIdInfo
+
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
-| openId | 是 | String | 用户的OpenID，具体格式要求请参考[OpenID和UnionID的格式说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-9)。 |
-| groupUnionId | 是 | String | GroupUnionID是用户在关联主体账号组内的统一身份标识，使用场景详见[不同开发者的应用之间如何实现用户数据互通](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-19)。 |
+| openId | 是 | String | 用户的OpenID，具体格式要求请参考OpenID和UnionID的格式说明。 |
+| groupUnionId | 是 | String | GroupUnionID是用户在关联主体账号组内的统一身份标识，使用场景详见不同开发者的应用之间如何实现用户数据互通。 |
 
-#### UnionIdToGroupUnionIdInfo
 
-| **参数** | 是否必选 | 参数类型 | 描述 |
+
+
+##### UnionIdToGroupUnionIdInfo
+
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
-| unionId | 是 | String | 用户的UnionID，具体格式要求请参考[OpenID和UnionID的格式说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-9)。 |
-| groupUnionId | 是 | String | GroupUnionID是用户在关联主体账号组内的统一身份标识，使用场景详见[不同开发者的应用之间如何实现用户数据互通](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-19)。 |
+| unionId | 是 | String | 用户的UnionID，具体格式要求请参考OpenID和UnionID的格式说明。 |
+| groupUnionId | 是 | String | GroupUnionID是用户在关联主体账号组内的统一身份标识，使用场景详见不同开发者的应用之间如何实现用户数据互通。 |
 
-#### 响应示例
-#### 请求成功时（入参为openIdList场景）
 
-```ts
+
+
+##### 响应示例
+
+
+
+##### 请求成功时（入参为openIdList场景）
+
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -113,9 +166,11 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-#### 请求成功时（入参为unionIdList场景）
 
-```ts
+
+##### 请求成功时（入参为unionIdList场景）
+
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -127,9 +182,11 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-#### 请求失败时
 
-```ts
+
+##### 请求失败时
+
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -139,10 +196,13 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-#### 示例代码
+
+
+##### 示例代码
+
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
-```ts
+```json
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import org.apache.http.client.methods.HttpPost;
@@ -234,25 +294,27 @@ public class GroupUnionIdBatchGetDemo {
 }
 ```
 
-#### 错误码
+
+
+##### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |
-| 200 | 仅表示本次接口调用成功，实际业务处理结果需要通过**Response Body**中的**resultCode（错误码）** 进行判断。 | - |
+| 200 | 仅表示本次接口调用成功，实际业务处理结果需要通过Response Body中的resultCode（错误码） 进行判断。 | - |
 | 400 | 参数错误。 | 请根据文档排查请求参数是否符合规范。 |
-| 403 | 无权限访问。 | 通常是调用方网络安全策略阻止了访问，请检查网络环境配置。若仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
+| 403 | 无权限访问。 | 通常是调用方网络安全策略阻止了访问，请检查网络环境配置。若仍无法解决，请通过在线提单提交问题。 |
 | 404 | 找不到服务。 | 请检查请求URI是否正确。 |
 | 405 | 不支持的http请求method。 | 请检查http请求method是否与接口说明一致。 |
-| 500 | 服务内部错误。 | 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
-| 502 | 请求连接异常，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
+| 500 | 服务内部错误。 | 请通过在线提单提交问题。 |
+| 502 | 请求连接异常，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过在线提单提交问题。 |
 | 503 | 系统流控。 | 触发系统流控，请稍后重试。 |
-| 504 | 请求连接超时，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
-| 590 | 服务内部错误。 | 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
+| 504 | 请求连接超时，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过在线提单提交问题。 |
+| 590 | 服务内部错误。 | 请通过在线提单提交问题。 |
 
 
 | 错误码 | 描述 | 解决方法 |
 | --- | --- | --- |
-| 60010002 | 参数错误。 | 请按照响应描述中的提示，检查并修改[请求参数](#请求参数)。 |
-| 60010003 | 鉴权头Authorization校验不通过。 | 检查并修改[请求参数](#请求参数)中Authorization参数。 |
-| 60170001 | 开发者账号未加入关联主体账号组。 | 可通过[创建账号组](https://developer.huawei.com/consumer/cn/doc/start/cag-0000001265390541)创建关联主体账号组，然后在关联主体账号组中[添加账号组成员](https://developer.huawei.com/consumer/cn/doc/start/aai-0000001265430513)。 |
-| 60010001 | 系统内部错误。 | 可重试，若仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
+| 60010002 | 参数错误。 | 请按照响应描述中的提示，检查并修改请求参数。 |
+| 60010003 | 鉴权头Authorization校验不通过。 | 检查并修改请求参数中Authorization参数。 |
+| 60170001 | 开发者账号未加入关联主体账号组。 | 可通过创建账号组创建关联主体账号组，然后在关联主体账号组中添加账号组成员。 |
+| 60010001 | 系统内部错误。 | 可重试，若仍无法解决，请通过在线提单提交问题。 |

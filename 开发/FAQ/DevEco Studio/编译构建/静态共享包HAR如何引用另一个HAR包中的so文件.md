@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-56
 
 可以将so库导出并放置在libs目录下，然后在CMakeLists.txt中添加以下代码，将libnativeSub.so添加到har包中。
-
+ 
 ```text
 target_link_directories(entry PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${OHOS_ARCH}/)
 target_link_libraries(entry PUBLIC libace_napi.z.so libc++.a libnativeSub.so)

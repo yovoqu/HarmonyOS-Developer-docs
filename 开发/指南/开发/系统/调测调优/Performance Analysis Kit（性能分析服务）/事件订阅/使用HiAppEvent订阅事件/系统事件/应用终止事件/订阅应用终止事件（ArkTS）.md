@@ -4,27 +4,37 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-app-killed-events-arkts
 
-## 应用终止事件规格说明
+##### 应用终止事件规格说明
 
 请参考[应用终止事件介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-app-killed-events)。
 
-## 接口说明
+
+
+##### 接口说明
 
 API接口的具体使用说明（参数使用限制、具体取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent (应用事件打点)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | addWatcher(watcher: Watcher): AppEventPackageHolder | 添加应用事件观察者，以添加对应用事件的订阅。 |
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以移除对应用事件的订阅。 |
 
 
-## 开发步骤
 
-为确保开发阶段顺利接收事件回调，建议采用以下方案：创建新的Native C++工程，在ArkTs代码中实现订阅，搭配C++代码的故障注入代码构造故障以触发应用终止事件。 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块：
+
+##### 开发步骤
+
+为确保开发阶段顺利接收事件回调，建议采用以下方案：创建新的Native C++工程，在ArkTs代码中实现订阅，搭配C++代码的故障注入代码构造故障以触发应用终止事件。
+1. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块：
+
+  
 ```text
 import { hiAppEvent } from '@kit.PerformanceAnalysisKit';
 ```
 
-编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
+2. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
+
+  
 ```text
 hiAppEvent.addWatcher({
   // 开发者可以自定义观察者名称，系统会使用名称来标识不同的观察者
@@ -37,7 +47,7 @@ hiAppEvent.addWatcher({
     }
   ],
   // 开发者可以自行实现订阅实时回调函数，以便对订阅获取到的事件数据进行自定义处理
-  onReceive: (domain: string, appEventGroups: Array) => {
+  onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
     hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
     for (const eventGroup of appEventGroups) {
       // 开发者可以根据事件集合中的事件名称区分不同的系统事件
@@ -60,9 +70,11 @@ hiAppEvent.addWatcher({
 });
 ```
 
-以下为故障注入功能，需要使用C++代码实现，编辑"napi_init.cpp"，新增以下代码：
+3. 以下为故障注入功能，需要使用C++代码实现，编辑"napi_init.cpp"，新增以下代码：
+
+  
 ```text
-#include
+#include <thread>
 
 static void NativeLeak()
 {
@@ -84,7 +96,9 @@ static napi_value Leak(napi_env env, napi_callback_info info) {
 }
 ```
 
-编辑"napi_init.cpp"文件，将Leak注册为ArkTS接口：
+4. 编辑"napi_init.cpp"文件，将Leak注册为ArkTS接口：
+
+  
 ```text
 static napi_value Init(napi_env env, napi_value exports)
 {
@@ -96,12 +110,16 @@ static napi_value Init(napi_env env, napi_value exports)
 }
 ```
 
-编辑"index.d.ts"文件，定义ArkTS接口：
+5. 编辑"index.d.ts"文件，定义ArkTS接口：
+
+  
 ```text
 export const leak: () => void;
 ```
 
-编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，在build下增加OnClick功能，并调用Leak接口的示例代码：
+6. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，在build下增加OnClick功能，并调用Leak接口的示例代码：
+
+  
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -134,7 +152,12 @@ struct Index {
 }
 ```
 
-点击DevEco Studio界面中的运行按钮，运行应用工程，点击屏幕中间的“Start To Leak”按钮，等待2-3分钟，待触发RssThresholdKiller类型的管控终止。 应用被终止后，重新打开应用，会触发终止事件上报，系统会回调应用的onReceive函数，可以在Log窗口看到对系统事件数据的处理日志。 应用终止事件采样栈示例：
+7. 点击DevEco Studio界面中的运行按钮，运行应用工程，点击屏幕中间的“Start To Leak”按钮，等待2-3分钟，待触发RssThresholdKiller类型的管控终止。
+8. 应用被终止后，重新打开应用，会触发终止事件上报，系统会回调应用的onReceive函数，可以在Log窗口看到对系统事件数据的处理日志。
+
+  应用终止事件采样栈示例：
+
+  
 ```text
 HiAppEvent eventInfo.domain=OS
 HiAppEvent eventInfo.name=APP_KILLED

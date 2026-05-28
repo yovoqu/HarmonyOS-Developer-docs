@@ -4,28 +4,50 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/neural-network-runtime-guidelines
 
-## 场景介绍
+##### 场景介绍
 
-Neural Network Runtime作为AI推理引擎和加速芯片的桥梁，为AI推理引擎提供精简的Native接口，满足推理引擎通过加速芯片执行端到端推理的需求。 本文以图1展示的Add单算子模型为例，介绍Neural Network Runtime的开发流程。Add算子包含两个输入、一个参数和一个输出，其中的activation参数用于指定Add算子中激活函数的类型。 **图1** Add单算子网络示意图
+Neural Network Runtime作为AI推理引擎和加速芯片的桥梁，为AI推理引擎提供精简的Native接口，满足推理引擎通过加速芯片执行端到端推理的需求。
+
+本文以图1展示的Add单算子模型为例，介绍Neural Network Runtime的开发流程。Add算子包含两个输入、一个参数和一个输出，其中的activation参数用于指定Add算子中激活函数的类型。
+
+**图1** Add单算子网络示意图
+
+
 ![](assets/Neural%20Network%20Runtime对接AI推理框架开发指导/file-20260514132653566-0.png)
 
-## 环境准备
 
 
-## 环境要求
 
-Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04及以上。 接入设备：系统定义的标准设备，系统中内置AI硬件驱动并已接入Neural Network Runtime。 由于Neural Network Runtime通过Native API对外开放，需要下载对应的SDK并通过Native开发套件编译Neural Network Runtime应用。可以使用DevEco Studio来搭建环境和编译代码。
+##### 环境准备
 
-## 环境搭建
 
-使用Ubuntu编译服务器的终端。 指定native工具链路径来编译代码，可以使用DevEco Studio来下载对应的SDK来进行编译。 DevEco Studio安装目录下的SDK路径可以在DevEco Studio工程界面，点击File > Settings... > 在settings中搜索SDK，下载对应的SDK即可。
 
-## 接口说明
+##### 环境要求
+
+Neural Network Runtime部件的环境要求如下：
+
+ - 开发环境：Ubuntu 18.04及以上。
+ - 接入设备：系统定义的标准设备，系统中内置AI硬件驱动并已接入Neural Network Runtime。
+
+
+由于Neural Network Runtime通过Native API对外开放，需要下载对应的SDK并通过Native开发套件编译Neural Network Runtime应用。可以使用DevEco Studio来搭建环境和编译代码。
+
+
+
+##### 环境搭建
+1. 使用Ubuntu编译服务器的终端。
+2. 指定native工具链路径来编译代码，可以使用DevEco Studio来下载对应的SDK来进行编译。
+3. DevEco Studio安装目录下的SDK路径可以在DevEco Studio工程界面，点击File > Settings... > 在settings中搜索SDK，下载对应的SDK即可。
+
+
+
+##### 接口说明
 
 以下为Neural Network Runtime开发流程中的常用接口，具体可见[NeuralNetworkRuntime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime)。
 
-## 结构体
 
+
+##### 结构体
 
 | 结构体名称 | 描述 |
 | --- | --- |
@@ -37,8 +59,9 @@ Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04
 | typedef struct NN_Tensor NN_Tensor | Neural Network Runtime的张量句柄，用于设置执行器的推理输入和输出张量。 |
 
 
-## 模型构造接口
 
+
+##### 模型构造接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -51,8 +74,9 @@ Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04
 | void OH_NNModel_Destroy(OH_NNModel **model) | 销毁模型实例。 |
 
 
-## 模型编译接口
 
+
+##### 模型编译接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -72,8 +96,9 @@ Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04
 | void OH_NNCompilation_Destroy(OH_NNCompilation **compilation) | 销毁编译实例。 |
 
 
-## 张量描述接口
 
+
+##### 张量描述接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -91,8 +116,9 @@ Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04
 | OH_NN_ReturnCode OH_NNTensorDesc_Destroy(NN_TensorDesc **tensorDesc) | 销毁张量描述实例。 |
 
 
-## 张量接口
 
+
+##### 张量接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -107,8 +133,9 @@ Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04
 | OH_NN_ReturnCode OH_NNTensor_Destroy(NN_Tensor **tensor) | 销毁张量实例。 |
 
 
-## 执行推理接口
 
+
+##### 执行推理接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -126,8 +153,9 @@ Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04
 | void OH_NNExecutor_Destroy(OH_NNExecutor **executor) | 销毁执行器实例。 |
 
 
-## 设备管理接口
 
+
+##### 设备管理接口
 
 | 接口名称 | 描述 |
 | --- | --- |
@@ -136,22 +164,35 @@ Neural Network Runtime部件的环境要求如下： 开发环境：Ubuntu 18.04
 | OH_NN_ReturnCode OH_NNDevice_GetType(size_t deviceID, OH_NN_DeviceType *deviceType) | 获取指定硬件的类别信息。 |
 
 
-## 开发步骤
 
-Neural Network Runtime的开发流程主要包含**模型构造**、**模型编译**和**推理执行**三个阶段。以下开发步骤以Add单算子模型为例，介绍调用Neural Network Runtime接口，开发应用的过程。 创建应用样例文件。 首先，创建Neural Network Runtime应用样例的源文件。在项目目录下执行以下命令，创建nnrt_example/目录，并在目录下创建 nnrt_example.cpp 源文件。
-```text
+
+##### 开发步骤
+
+Neural Network Runtime的开发流程主要包含**模型构造**、**模型编译**和**推理执行**三个阶段。以下开发步骤以Add单算子模型为例，介绍调用Neural Network Runtime接口，开发应用的过程。
+1. 创建应用样例文件。
+
+  首先，创建Neural Network Runtime应用样例的源文件。在项目目录下执行以下命令，创建nnrt_example/目录，并在目录下创建 nnrt_example.cpp 源文件。
+
+  
+```cpp
 mkdir ~/nnrt_example && cd ~/nnrt_example
 touch nnrt_example.cpp
 ```
 
-导入Neural Network Runtime。 在 nnrt_example.cpp 文件的开头添加以下代码，引入Neural Network Runtime。
+2. 导入Neural Network Runtime。
+
+  在 nnrt_example.cpp 文件的开头添加以下代码，引入Neural Network Runtime。
+
+  
 ```text
-#include
-#include
+#include <iostream>
+#include <cstdarg>
 #include "neural_network_runtime/neural_network_runtime.h"
 ```
 
-定义日志打印、设置输入数据、数据打印等辅助函数。
+3. 定义日志打印、设置输入数据、数据打印等辅助函数。
+
+  
 ```text
 // 返回值检查宏
 #define CHECKNEQ(realRet, expectRet, retValue, ...) \
@@ -176,14 +217,31 @@ OH_NN_ReturnCode SetInputData(NN_Tensor* inputTensor[], size_t inputSize)
     OH_NN_DataType dataType(OH_NN_FLOAT32);
     OH_NN_ReturnCode ret{OH_NN_FAILED};
     size_t elementCount = 0;
-    for (size_t i = 0; i (data);
-                for (size_t j = 0; j (j);
+    for (size_t i = 0; i < inputSize; ++i) {
+        // 获取张量的数据内存
+        auto data = OH_NNTensor_GetDataBuffer(inputTensor[i]);
+        CHECKEQ(data, nullptr, OH_NN_FAILED, "Failed to get data buffer.");
+        // 获取张量的描述
+        auto desc = OH_NNTensor_GetTensorDesc(inputTensor[i]);
+        CHECKEQ(desc, nullptr, OH_NN_FAILED, "Failed to get desc.");
+        // 获取张量的数据类型
+        ret = OH_NNTensorDesc_GetDataType(desc, &dataType);
+        CHECKNEQ(ret, OH_NN_SUCCESS, OH_NN_FAILED, "Failed to get data type.");
+        // 获取张量的元素个数
+        ret = OH_NNTensorDesc_GetElementCount(desc, &elementCount);
+        CHECKNEQ(ret, OH_NN_SUCCESS, OH_NN_FAILED, "Failed to get element count.");
+        switch(dataType) {
+            case OH_NN_FLOAT32: {
+                float* floatValue = reinterpret_cast<float*>(data);
+                for (size_t j = 0; j < elementCount; ++j) {
+                    floatValue[j] = static_cast<float>(j);
                 }
                 break;
             }
             case OH_NN_INT32: {
-                int* intValue = reinterpret_cast(data);
-                for (size_t j = 0; j (j);
+                int* intValue = reinterpret_cast<int*>(data);
+                for (size_t j = 0; j < elementCount; ++j) {
+                    intValue[j] = static_cast<int>(j);
                 }
                 break;
             }
@@ -199,139 +257,192 @@ OH_NN_ReturnCode Print(NN_Tensor* outputTensor[], size_t outputSize)
     OH_NN_DataType dataType(OH_NN_FLOAT32);
     OH_NN_ReturnCode ret{OH_NN_FAILED};
     size_t elementCount = 0;
-    for (size_t i = 0; i (data);
-                for (size_t j = 0; j (data);
-                for (size_t j = 0; j              构造模型。       使用Neural Network Runtime的模型构造接口，构造Add单算子样例模型。
-```text
-OH_NN_ReturnCode BuildModel(OH_NNModel** pmodel)
-{
-// 创建模型实例model，进行模型构造
-OH_NNModel* model = OH_NNModel_Construct();
-CHECKEQ(model, nullptr, OH_NN_FAILED, "Create model failed.");
+    for (size_t i = 0; i < outputSize; ++i) {
+        auto data = OH_NNTensor_GetDataBuffer(outputTensor[i]);
+        CHECKEQ(data, nullptr, OH_NN_FAILED, "Failed to get data buffer.");
+        auto desc = OH_NNTensor_GetTensorDesc(outputTensor[i]);
+        CHECKEQ(desc, nullptr, OH_NN_FAILED, "Failed to get desc.");
+        ret = OH_NNTensorDesc_GetDataType(desc, &dataType);
+        CHECKNEQ(ret, OH_NN_SUCCESS, OH_NN_FAILED, "Failed to get data type.");
+        ret = OH_NNTensorDesc_GetElementCount(desc, &elementCount);
+        CHECKNEQ(ret, OH_NN_SUCCESS, OH_NN_FAILED, "Failed to get element count.");
+        switch(dataType) {
+            case OH_NN_FLOAT32: {
+                float* floatValue = reinterpret_cast<float*>(data);
+                for (size_t j = 0; j < elementCount; ++j) {
+                    std::cout << "Output index: " << j << ", value is: " << floatValue[j] << "." << std::endl;
+                }
+                break;
+            }
+            case OH_NN_INT32: {
+                int* intValue = reinterpret_cast<int*>(data);
+                for (size_t j = 0; j < elementCount; ++j) {
+                    std::cout << "Output index: " << j << ", value is: " << intValue[j] << "." << std::endl;
+                }
+                break;
+            }
+            default:
+                return OH_NN_FAILED;
+        }
+    }
 
-// 添加Add算子的第一个输入张量，类型为float32，张量形状为[1, 2, 2, 3]
-NN_TensorDesc* tensorDesc = OH_NNTensorDesc_Create();
-CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
-
-int32_t inputDims[4] = {1, 2, 2, 3};
-auto returnCode = OH_NNTensorDesc_SetShape(tensorDesc, inputDims, 4);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
-
-returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_FLOAT32);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
-
-returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
-
-returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add first TensorDesc to model failed.");
-
-returnCode = OH_NNModel_SetTensorType(model, 0, OH_NN_TENSOR);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
-
-// 添加Add算子的第二个输入张量，类型为float32，张量形状为[1, 2, 2, 3]
-tensorDesc = OH_NNTensorDesc_Create();
-CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
-
-returnCode = OH_NNTensorDesc_SetShape(tensorDesc, inputDims, 4);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
-
-returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_FLOAT32);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
-
-returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
-
-returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add second TensorDesc to model failed.");
-
-returnCode = OH_NNModel_SetTensorType(model, 1, OH_NN_TENSOR);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
-
-// 添加Add算子的参数张量，该参数张量用于指定激活函数的类型，张量的数据类型为int8。
-tensorDesc = OH_NNTensorDesc_Create();
-CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
-
-int32_t activationDims = 1;
-returnCode = OH_NNTensorDesc_SetShape(tensorDesc, &activationDims, 1);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
-
-returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_INT8);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
-
-returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
-
-returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add second TensorDesc to model failed.");
-
-returnCode = OH_NNModel_SetTensorType(model, 2, OH_NN_ADD_ACTIVATIONTYPE);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
-
-// 将激活函数类型设置为OH_NN_FUSED_NONE，表示该算子不添加激活函数。
-int8_t activationValue = OH_NN_FUSED_NONE;
-returnCode = OH_NNModel_SetTensorData(model, 2, &activationValue, sizeof(int8_t));
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor data failed.");
-
-// 设置Add算子的输出张量，类型为float32，张量形状为[1, 2, 2, 3]
-tensorDesc = OH_NNTensorDesc_Create();
-CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
-
-returnCode = OH_NNTensorDesc_SetShape(tensorDesc, inputDims, 4);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
-
-returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_FLOAT32);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
-
-returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
-
-returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add forth TensorDesc to model failed.");
-
-returnCode = OH_NNModel_SetTensorType(model, 3, OH_NN_TENSOR);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
-
-// 指定Add算子的输入张量、参数张量和输出张量的索引
-uint32_t inputIndicesValues[2] = {0, 1};
-uint32_t paramIndicesValues = 2;
-uint32_t outputIndicesValues = 3;
-OH_NN_UInt32Array paramIndices = {&paramIndicesValues, 1};
-OH_NN_UInt32Array inputIndices = {inputIndicesValues, 2};
-OH_NN_UInt32Array outputIndices = {&outputIndicesValues, 1};
-
-// 向模型实例添加Add算子
-returnCode = OH_NNModel_AddOperation(model, OH_NN_OPS_ADD, &paramIndices, &inputIndices, &outputIndices);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add operation to model failed.");
-
-// 设置模型实例的输入张量、输出张量的索引
-returnCode = OH_NNModel_SpecifyInputsAndOutputs(model, &inputIndices, &outputIndices);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Specify model inputs and outputs failed.");
-
-// 完成模型实例的构建
-returnCode = OH_NNModel_Finish(model);
-CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Build model failed.");
-
-// 返回模型实例
-*pmodel = model;
-return OH_NN_SUCCESS;
+    return OH_NN_SUCCESS;
 }
 ```
 
-             查询Neural Network Runtime已经对接的AI加速芯片。       Neural Network Runtime支持通过HDI接口，对接多种AI加速芯片。在执行模型编译前，需要查询当前设备下，Neural Network Runtime已经对接的AI加速芯片。每个AI加速芯片对应唯一的ID值，在编译阶段需要通过设备ID，指定模型编译的芯片。
-```text
-void GetAvailableDevices(std::vector& availableDevice)
-{
-availableDevice.clear();
+4. 构造模型。
 
-// 获取可用的硬件ID
-const size_t* devices = nullptr;
-uint32_t deviceCount = 0;
-OH_NN_ReturnCode ret = OH_NNDevice_GetAllDevicesID(&devices, &deviceCount);
-if (ret != OH_NN_SUCCESS) {
-std::cout 在指定的设备上编译模型。 Neural Network Runtime使用抽象的模型表达描述AI模型的拓扑结构。在AI加速芯片上执行前，需要通过Neural Network Runtime提供的编译模块来创建编译实例，并由编译实例将抽象的模型表达下发至芯片驱动层，转换成可以直接推理计算的格式，即模型编译。
+  使用Neural Network Runtime的模型构造接口，构造Add单算子样例模型。
+
+  
 ```text
-OH_NN_ReturnCode CreateCompilation(OH_NNModel* model, const std::vector& availableDevice,
+OH_NN_ReturnCode BuildModel(OH_NNModel** pmodel)
+{
+    // 创建模型实例model，进行模型构造
+    OH_NNModel* model = OH_NNModel_Construct();
+    CHECKEQ(model, nullptr, OH_NN_FAILED, "Create model failed.");
+
+    // 添加Add算子的第一个输入张量，类型为float32，张量形状为[1, 2, 2, 3]
+    NN_TensorDesc* tensorDesc = OH_NNTensorDesc_Create();
+    CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
+
+    int32_t inputDims[4] = {1, 2, 2, 3};
+    auto returnCode = OH_NNTensorDesc_SetShape(tensorDesc, inputDims, 4);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
+
+    returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_FLOAT32);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
+
+    returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
+
+    returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add first TensorDesc to model failed.");
+
+    returnCode = OH_NNModel_SetTensorType(model, 0, OH_NN_TENSOR);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
+
+    // 添加Add算子的第二个输入张量，类型为float32，张量形状为[1, 2, 2, 3]
+    tensorDesc = OH_NNTensorDesc_Create();
+    CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
+
+    returnCode = OH_NNTensorDesc_SetShape(tensorDesc, inputDims, 4);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
+
+    returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_FLOAT32);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
+
+    returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
+
+    returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add second TensorDesc to model failed.");
+
+    returnCode = OH_NNModel_SetTensorType(model, 1, OH_NN_TENSOR);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
+
+    // 添加Add算子的参数张量，该参数张量用于指定激活函数的类型，张量的数据类型为int8。
+    tensorDesc = OH_NNTensorDesc_Create();
+    CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
+
+    int32_t activationDims = 1;
+    returnCode = OH_NNTensorDesc_SetShape(tensorDesc, &activationDims, 1);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
+
+    returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_INT8);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
+
+    returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
+
+    returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add second TensorDesc to model failed.");
+
+    returnCode = OH_NNModel_SetTensorType(model, 2, OH_NN_ADD_ACTIVATIONTYPE);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
+
+    // 将激活函数类型设置为OH_NN_FUSED_NONE，表示该算子不添加激活函数。
+    int8_t activationValue = OH_NN_FUSED_NONE;
+    returnCode = OH_NNModel_SetTensorData(model, 2, &activationValue, sizeof(int8_t));
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor data failed.");
+
+    // 设置Add算子的输出张量，类型为float32，张量形状为[1, 2, 2, 3]
+    tensorDesc = OH_NNTensorDesc_Create();
+    CHECKEQ(tensorDesc, nullptr, OH_NN_FAILED, "Create TensorDesc failed.");
+
+    returnCode = OH_NNTensorDesc_SetShape(tensorDesc, inputDims, 4);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc shape failed.");
+
+    returnCode = OH_NNTensorDesc_SetDataType(tensorDesc, OH_NN_FLOAT32);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc data type failed.");
+
+    returnCode = OH_NNTensorDesc_SetFormat(tensorDesc, OH_NN_FORMAT_NONE);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set TensorDesc format failed.");
+
+    returnCode = OH_NNModel_AddTensorToModel(model, tensorDesc);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add forth TensorDesc to model failed.");
+
+    returnCode = OH_NNModel_SetTensorType(model, 3, OH_NN_TENSOR);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Set model tensor type failed.");
+
+    // 指定Add算子的输入张量、参数张量和输出张量的索引
+    uint32_t inputIndicesValues[2] = {0, 1};
+    uint32_t paramIndicesValues = 2;
+    uint32_t outputIndicesValues = 3;
+    OH_NN_UInt32Array paramIndices = {&paramIndicesValues, 1};
+    OH_NN_UInt32Array inputIndices = {inputIndicesValues, 2};
+    OH_NN_UInt32Array outputIndices = {&outputIndicesValues, 1};
+
+    // 向模型实例添加Add算子
+    returnCode = OH_NNModel_AddOperation(model, OH_NN_OPS_ADD, &paramIndices, &inputIndices, &outputIndices);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Add operation to model failed.");
+
+    // 设置模型实例的输入张量、输出张量的索引
+    returnCode = OH_NNModel_SpecifyInputsAndOutputs(model, &inputIndices, &outputIndices);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Specify model inputs and outputs failed.");
+
+    // 完成模型实例的构建
+    returnCode = OH_NNModel_Finish(model);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "Build model failed.");
+
+    // 返回模型实例
+    *pmodel = model;
+    return OH_NN_SUCCESS;
+}
+```
+
+5. 查询Neural Network Runtime已经对接的AI加速芯片。
+
+  Neural Network Runtime支持通过HDI接口，对接多种AI加速芯片。在执行模型编译前，需要查询当前设备下，Neural Network Runtime已经对接的AI加速芯片。每个AI加速芯片对应唯一的ID值，在编译阶段需要通过设备ID，指定模型编译的芯片。
+
+  
+```text
+void GetAvailableDevices(std::vector<size_t>& availableDevice)
+{
+    availableDevice.clear();
+
+    // 获取可用的硬件ID
+    const size_t* devices = nullptr;
+    uint32_t deviceCount = 0;
+    OH_NN_ReturnCode ret = OH_NNDevice_GetAllDevicesID(&devices, &deviceCount);
+    if (ret != OH_NN_SUCCESS) {
+        std::cout << "GetAllDevicesID failed, get no available device." << std::endl;
+        return;
+    }
+
+    for (uint32_t i = 0; i < deviceCount; i++) {
+        availableDevice.emplace_back(devices[i]);
+    }
+}
+```
+
+6. 在指定的设备上编译模型。
+
+  Neural Network Runtime使用抽象的模型表达描述AI模型的拓扑结构。在AI加速芯片上执行前，需要通过Neural Network Runtime提供的编译模块来创建编译实例，并由编译实例将抽象的模型表达下发至芯片驱动层，转换成可以直接推理计算的格式，即模型编译。
+
+  
+```text
+OH_NN_ReturnCode CreateCompilation(OH_NNModel* model, const std::vector<size_t>& availableDevice,
                                    OH_NNCompilation** pCompilation)
 {
     // 创建编译实例compilation，将构图的模型实例或MSLite传下来的模型实例传入
@@ -368,7 +479,11 @@ OH_NN_ReturnCode CreateCompilation(OH_NNModel* model, const std::vector& availab
 }
 ```
 
-创建执行器。 完成模型编译后，需要调用Neural Network Runtime的执行模块，通过编译实例创建执行器。模型推理阶段中的设置模型输入、触发推理计算以及获取模型输出等操作均需要围绕执行器完成。
+7. 创建执行器。
+
+  完成模型编译后，需要调用Neural Network Runtime的执行模块，通过编译实例创建执行器。模型推理阶段中的设置模型输入、触发推理计算以及获取模型输出等操作均需要围绕执行器完成。
+
+  
 ```text
 OH_NNExecutor* CreateExecutor(OH_NNCompilation* compilation)
 {
@@ -379,36 +494,162 @@ OH_NNExecutor* CreateExecutor(OH_NNCompilation* compilation)
 }
 ```
 
-执行推理计算，并打印推理结果。 通过执行模块提供的接口，将推理计算所需要的输入数据传递给执行器，触发执行器完成一次推理计算，获取模型的推理结果并打印。
+8. 执行推理计算，并打印推理结果。
+
+  通过执行模块提供的接口，将推理计算所需要的输入数据传递给执行器，触发执行器完成一次推理计算，获取模型的推理结果并打印。
+
+  
 ```text
-OH_NN_ReturnCode Run(OH_NNExecutor* executor, const std::vector& availableDevice)
+OH_NN_ReturnCode Run(OH_NNExecutor* executor, const std::vector<size_t>& availableDevice)
 {
     // 从executor获取输入输出信息
     // 获取输入张量的个数
     size_t inputCount = 0;
     auto returnCode = OH_NNExecutor_GetInputCount(executor, &inputCount);
     CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "OH_NNExecutor_GetInputCount failed.");
-    std::vector inputTensorDescs;
+    std::vector<NN_TensorDesc*> inputTensorDescs;
     NN_TensorDesc* tensorDescTmp = nullptr;
-    for (size_t i = 0; i  outputTensorDescs;
-    for (size_t i = 0; i              构建端到端模型构造-编译-执行流程。       步骤4-步骤8实现了模型的模型构造、编译和执行流程，并封装成多个函数，便于模块化开发。以下示例代码将串联这些函数， 形成一个完整的Neural Network Runtime使用流程。
+    for (size_t i = 0; i < inputCount; ++i) {
+        // 创建输入张量的描述
+        tensorDescTmp = OH_NNExecutor_CreateInputTensorDesc(executor, i);
+        CHECKEQ(tensorDescTmp, nullptr, OH_NN_FAILED, "OH_NNExecutor_CreateInputTensorDesc failed.");
+        inputTensorDescs.emplace_back(tensorDescTmp);
+    }
+    // 获取输出张量的个数
+    size_t outputCount = 0;
+    returnCode = OH_NNExecutor_GetOutputCount(executor, &outputCount);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "OH_NNExecutor_GetOutputCount failed.");
+    std::vector<NN_TensorDesc*> outputTensorDescs;
+    for (size_t i = 0; i < outputCount; ++i) {
+        // 创建输出张量的描述
+        tensorDescTmp = OH_NNExecutor_CreateOutputTensorDesc(executor, i);
+        CHECKEQ(tensorDescTmp, nullptr, OH_NN_FAILED, "OH_NNExecutor_CreateOutputTensorDesc failed.");
+        outputTensorDescs.emplace_back(tensorDescTmp);
+    }
+
+    // 创建输入和输出张量
+    NN_Tensor* inputTensors[inputCount];
+    NN_Tensor* tensor = nullptr;
+    for (size_t i = 0; i < inputCount; ++i) {
+        tensor = nullptr;
+        tensor = OH_NNTensor_Create(availableDevice[0], inputTensorDescs[i]);
+        CHECKEQ(tensor, nullptr, OH_NN_FAILED, "OH_NNTensor_Create failed.");
+        inputTensors[i] = tensor;
+    }
+    NN_Tensor* outputTensors[outputCount];
+    for (size_t i = 0; i < outputCount; ++i) {
+        tensor = nullptr;
+        tensor = OH_NNTensor_Create(availableDevice[0], outputTensorDescs[i]);
+        CHECKEQ(tensor, nullptr, OH_NN_FAILED, "OH_NNTensor_Create failed.");
+        outputTensors[i] = tensor;
+    }
+
+    // 设置输入张量的数据
+    returnCode = SetInputData(inputTensors, inputCount);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "SetInputData failed.");
+
+    // 执行推理
+    returnCode = OH_NNExecutor_RunSync(executor, inputTensors, inputCount, outputTensors, outputCount);
+    CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "OH_NNExecutor_RunSync failed.");
+
+    // 打印输出张量的数据
+    Print(outputTensors, outputCount);
+
+    // 清理输入和输出张量以及张量描述
+    for (size_t i = 0; i < inputCount; ++i) {
+        returnCode = OH_NNTensor_Destroy(&inputTensors[i]);
+        CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "OH_NNTensor_Destroy failed.");
+        returnCode = OH_NNTensorDesc_Destroy(&inputTensorDescs[i]);
+        CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "OH_NNTensorDesc_Destroy failed.");
+    }
+    for (size_t i = 0; i < outputCount; ++i) {
+        returnCode = OH_NNTensor_Destroy(&outputTensors[i]);
+        CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "OH_NNTensor_Destroy failed.");
+        returnCode = OH_NNTensorDesc_Destroy(&outputTensorDescs[i]);
+        CHECKNEQ(returnCode, OH_NN_SUCCESS, OH_NN_FAILED, "OH_NNTensorDesc_Destroy failed.");
+    }
+
+    return OH_NN_SUCCESS;
+}
+```
+
+9. 构建端到端模型构造-编译-执行流程。
+
+  步骤4-步骤8实现了模型的模型构造、编译和执行流程，并封装成多个函数，便于模块化开发。以下示例代码将串联这些函数， 形成一个完整的Neural Network Runtime使用流程。
+
+  
 ```text
 int main(int argc, char** argv)
 {
-OH_NNModel* model = nullptr;
-OH_NNCompilation* compilation = nullptr;
-OH_NNExecutor* executor = nullptr;
-std::vector availableDevices;
+    OH_NNModel* model = nullptr;
+    OH_NNCompilation* compilation = nullptr;
+    OH_NNExecutor* executor = nullptr;
+    std::vector<size_t> availableDevices;
 
-// 模型构造
-OH_NN_ReturnCode ret = BuildModel(&model);
-if (ret != OH_NN_SUCCESS) {
-std::cout
+    // 模型构造
+    OH_NN_ReturnCode ret = BuildModel(&model);
+    if (ret != OH_NN_SUCCESS) {
+        std::cout << "BuildModel failed." << std::endl;
+        OH_NNModel_Destroy(&model);
+        return -1;
+    }
 
-## 调测验证
+    // 获取可执行的设备
+    GetAvailableDevices(availableDevices);
+    if (availableDevices.empty()) {
+        std::cout << "No available device." << std::endl;
+        OH_NNModel_Destroy(&model);
+        return -1;
+    }
 
-准备应用样例的编译配置文件。 新建一个 CMakeLists.txt 文件，为开发步骤中的应用样例文件 nnrt_example.cpp 添加编译配置。以下提供简单的 CMakeLists.txt 示例：
-```text
+    // 模型编译
+    ret = CreateCompilation(model, availableDevices, &compilation);
+    if (ret != OH_NN_SUCCESS) {
+        std::cout << "CreateCompilation failed." << std::endl;
+        OH_NNModel_Destroy(&model);
+        OH_NNCompilation_Destroy(&compilation);
+        return -1;
+    }
+
+    // 销毁模型实例
+    OH_NNModel_Destroy(&model);
+
+    // 创建模型的推理执行器
+    executor = CreateExecutor(compilation);
+    if (executor == nullptr) {
+        std::cout << "CreateExecutor failed, no executor is created." << std::endl;
+        OH_NNCompilation_Destroy(&compilation);
+        return -1;
+    }
+
+    // 销毁编译实例
+    OH_NNCompilation_Destroy(&compilation);
+
+    // 使用上一步创建的执行器，执行推理计算
+    ret = Run(executor, availableDevices);
+    if (ret != OH_NN_SUCCESS) {
+        std::cout << "Run failed." << std::endl;
+        OH_NNExecutor_Destroy(&executor);
+        return -1;
+    }
+
+    // 销毁执行器实例
+    OH_NNExecutor_Destroy(&executor);
+
+    return 0;
+}
+```
+
+
+
+
+##### 调测验证
+1. 准备应用样例的编译配置文件。
+
+  新建一个 CMakeLists.txt 文件，为开发步骤中的应用样例文件 nnrt_example.cpp 添加编译配置。以下提供简单的 CMakeLists.txt 示例：
+
+  
+```cpp
 cmake_minimum_required(VERSION 3.16)
 project(nnrt_example C CXX)
 
@@ -422,15 +663,21 @@ target_link_libraries(nnrt_example
 )
 ```
 
-编译应用样例。 执行以下命令，在当前目录下新建build/目录，在build/目录下编译 nnrt_example.cpp，得到二进制文件 nnrt_example。
-```text
+2. 编译应用样例。
+
+  执行以下命令，在当前目录下新建build/目录，在build/目录下编译 nnrt_example.cpp，得到二进制文件 nnrt_example。
+
+  
+```bash
 mkdir build && cd build
 cmake -DCMAKE_TOOLCHAIN_FILE={交叉编译工具链的路径}/build/cmake/ohos.toolchain.cmake -DOHOS_ARCH=arm64-v8a -DOHOS_PLATFORM=OHOS -DOHOS_STL=c++_static ..
 make
 ```
 
-执行以下代码，将样例推送到设备上执行。
-```text
+3. 执行以下代码，将样例推送到设备上执行。
+
+  
+```bash
 # 将编译得到的 `nnrt_example` 推送到设备上，执行样例。
 hdc_std file send ./nnrt_example /data/local/tmp/.
 
@@ -440,8 +687,9 @@ hdc_std shell "chmod +x /data/local/tmp/nnrt_example"
 # 执行测试用例
 hdc_std shell "/data/local/tmp/nnrt_example"
 ```
-
 如果样例执行正常，应该得到以下输出。
+
+  
 ```text
 Output index: 0, value is: 0.000000.
 Output index: 1, value is: 2.000000.
@@ -457,21 +705,30 @@ Output index: 10, value is: 20.000000.
 Output index: 11, value is: 22.000000.
 ```
 
-检查模型缓存（可选）。 如果在调测环境下，Neural Network Runtime对接的HDI服务支持模型缓存功能，执行完 nnrt_example, 可以在 /data/local/tmp 目录下找到生成的缓存文件。
+4. 检查模型缓存（可选）。
+
+  如果在调测环境下，Neural Network Runtime对接的HDI服务支持模型缓存功能，执行完 nnrt_example, 可以在 /data/local/tmp 目录下找到生成的缓存文件。
+
+  
 > [!NOTE]
 > 模型的IR需要传递到硬件驱动层，由HDI服务将统一的IR图，编译成硬件专用的计算图，编译的过程非常耗时。Neural Network Runtime支持计算图缓存的特性，可以将HDI服务编译生成的计算图，缓存到设备存储中。当下一次在同一个加速芯片上编译同一个模型时，通过指定缓存的路径，Neural Network Runtime可以直接加载缓存文件中的计算图，减少编译消耗的时间。
 
-检查缓存目录下的缓存文件：
-```text
+
+  检查缓存目录下的缓存文件：
+
+  
+```bash
 ls /data/local/tmp
 ```
-
 以下为打印结果：
+
+  
 ```text
 # 0.nncache 1.nncache 2.nncache cache_info.nncache
 ```
-
 如果缓存不再使用，需要手动删除缓存，可以参考以下命令，删除缓存文件。
-```text
+
+  
+```bash
 rm /data/local/tmp/*nncache
 ```

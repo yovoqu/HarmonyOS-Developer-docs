@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：connection； API声明：function getIpNeighTable(): Promise<Array<NetIpMacInfo>>; 差异内容：function getIpNeighTable(): Promise<Array<NetIpMacInfo>>; | api/@ohos.net.connection.d.ts |
+| 新增API | NA | 类名：connection； API声明：function getIpNeighTable(): Promise<Array&lt;NetIpMacInfo&gt;>; 差异内容：function getIpNeighTable(): Promise<Array&lt;NetIpMacInfo&gt;>; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：connection； API声明：export interface NetIpMacInfo 差异内容：export interface NetIpMacInfo | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：NetIpMacInfo； API声明：ipAddress: NetAddress; 差异内容：ipAddress: NetAddress; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：NetIpMacInfo； API声明：macAddress: string; 差异内容：macAddress: string; | api/@ohos.net.connection.d.ts |
@@ -24,12 +24,12 @@
 | 新增API | NA | 类名：http； API声明：export type ChainContinue = boolean; 差异内容：export type ChainContinue = boolean; | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：http； API声明：export interface HttpInterceptor 差异内容：export interface HttpInterceptor | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：HttpInterceptor； API声明：interceptorType: InterceptorType; 差异内容：interceptorType: InterceptorType; | api/@ohos.net.http.d.ts |
-| 新增API | NA | 类名：HttpInterceptor； API声明：interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>; 差异内容：interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise<ChainContinue>; | api/@ohos.net.http.d.ts |
+| 新增API | NA | 类名：HttpInterceptor； API声明：interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise&lt;ChainContinue&gt;; 差异内容：interceptorHandle(reqContext: HttpRequestContext, rspContext: HttpResponse): Promise&lt;ChainContinue&gt;; | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：http； API声明：export class HttpInterceptorChain 差异内容：export class HttpInterceptorChain | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：HttpInterceptorChain； API声明：public getChain(): HttpInterceptor[]; 差异内容：public getChain(): HttpInterceptor[]; | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：HttpInterceptorChain； API声明：public addChain(chain: HttpInterceptor[]): boolean; 差异内容：public addChain(chain: HttpInterceptor[]): boolean; | api/@ohos.net.http.d.ts |
 | 新增API | NA | 类名：HttpInterceptorChain； API声明：public apply(httpRequest: HttpRequest): boolean; 差异内容：public apply(httpRequest: HttpRequest): boolean; | api/@ohos.net.http.d.ts |
-| 新增API | NA | 类名：policy； API声明：function showAppNetPolicySettings(context: Context): Promise<void>; 差异内容：function showAppNetPolicySettings(context: Context): Promise<void>; | api/@ohos.net.policy.d.ts |
+| 新增API | NA | 类名：policy； API声明：function showAppNetPolicySettings(context: Context): Promise&lt;void&gt;; 差异内容：function showAppNetPolicySettings(context: Context): Promise&lt;void&gt;; | api/@ohos.net.policy.d.ts |
 | 新增API | NA | 类名：TLSConnectOptions； API声明：timeout?: number; 差异内容：timeout?: number; | api/@ohos.net.socket.d.ts |
 | 新增API | NA | 类名：statistics； API声明：export interface NetStatsInfo 差异内容：export interface NetStatsInfo | api/@ohos.net.statistics.d.ts |
 | 新增API | NA | 类名：NetStatsInfo； API声明：rxBytes: number; 差异内容：rxBytes: number; | api/@ohos.net.statistics.d.ts |
@@ -41,5 +41,5 @@
 | 新增API | NA | 类名：NetworkInfo； API声明：startTime: number; 差异内容：startTime: number; | api/@ohos.net.statistics.d.ts |
 | 新增API | NA | 类名：NetworkInfo； API声明：endTime: number; 差异内容：endTime: number; | api/@ohos.net.statistics.d.ts |
 | 新增API | NA | 类名：NetworkInfo； API声明：simId?: number; 差异内容：simId?: number; | api/@ohos.net.statistics.d.ts |
-| 新增API | NA | 类名：statistics； API声明：function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>; 差异内容：function getSelfTrafficStats(networkInfo: NetworkInfo): Promise<NetStatsInfo>; | api/@ohos.net.statistics.d.ts |
-| 新增API | NA | 类名：VpnConnection； API声明：protectProcessNet(): Promise<void>; 差异内容：protectProcessNet(): Promise<void>; | api/@ohos.net.vpnExtension.d.ts |
+| 新增API | NA | 类名：statistics； API声明：function getSelfTrafficStats(networkInfo: NetworkInfo): Promise&lt;NetStatsInfo&gt;; 差异内容：function getSelfTrafficStats(networkInfo: NetworkInfo): Promise&lt;NetStatsInfo&gt;; | api/@ohos.net.statistics.d.ts |
+| 新增API | NA | 类名：VpnConnection； API声明：protectProcessNet(): Promise&lt;void&gt;; 差异内容：protectProcessNet(): Promise&lt;void&gt;; | api/@ohos.net.vpnExtension.d.ts |

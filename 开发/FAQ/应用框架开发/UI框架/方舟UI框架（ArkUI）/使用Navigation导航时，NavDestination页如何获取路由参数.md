@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-270
 
-可以使用NavPathStack的getParamByName方法获取页面路由的参数。
+可以使用[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)的[getParamByName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#getparambyname10)方法获取页面路由的参数。

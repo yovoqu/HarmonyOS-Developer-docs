@@ -1,26 +1,29 @@
 # Interface (AVCastController)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avcastcontroller
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 在投播建立后，调用[avSession.getAVCastController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#getavcastcontroller10)后，返回会话控制器实例。控制器可查看会话ID，并可完成对会话发送命令及事件，获取会话元数据，播放状态信息等操作。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 10开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { avSession } from '@kit.AVSessionKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
 
-## getAVPlaybackState10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void
+##### getAVPlaybackState10+
+
+getAVPlaybackState(callback: AsyncCallback&lt;AVPlaybackState&gt;): void
 
 获取当前的远端播放状态。结果通过callback异步回调方式返回。
 
@@ -28,16 +31,14 @@ getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AVPlaybackState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avplaybackstate10)&gt; | 是 | 回调函数，返回远端播放状态。 |
+| callback | AsyncCallback&lt;AVPlaybackState&gt; | 是 | 回调函数，返回远端播放状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -46,18 +47,21 @@ getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void
 
 **示例：**
 
-
-```ts
-avCastController.getAVPlaybackState((state: avSession.AVPlaybackState) => {
+```text
+avCastController.getAVPlaybackState((err: BusinessError, state: avSession.AVPlaybackState) => {
+  if (err) {
+    console.error(`Failed to get AV playback state: ${err.message}`);
+    return;
+  }
   console.info('Succeeded in getting AV playback state.');
 });
 ```
 
 
-## getAVPlaybackState10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getAVPlaybackState(): Promise<AVPlaybackState>
+##### getAVPlaybackState10+
+
+getAVPlaybackState(): Promise&lt;AVPlaybackState&gt;
 
 获取当前的远端播放状态。结果通过Promise异步回调方式返回。
 
@@ -67,16 +71,14 @@ getAVPlaybackState(): Promise<AVPlaybackState>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AVPlaybackState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avplaybackstate10)&gt; | Promise对象。返回远端播放状态。 |
+| Promise&lt;AVPlaybackState&gt; | Promise对象。返回远端播放状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -85,20 +87,19 @@ getAVPlaybackState(): Promise<AVPlaybackState>
 
 **示例：**
 
-
-```ts
-avCastController
-  .getAVPlaybackState()
-  .then((state: avSession.AVPlaybackState) => {
-    console.info('Succeeded in getting AV playback state.');
-  });
+```text
+avCastController.getAVPlaybackState().then((state: avSession.AVPlaybackState) => {
+  console.info('Succeeded in getting AV playback state.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get AV playback state: ${err.message}`);
+});
 ```
 
 
-## getSupportedDecoders19+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getSupportedDecoders(): Promise<Array<DecoderType>>
+##### getSupportedDecoders19+
+
+getSupportedDecoders(): Promise<Array&lt;DecoderType&gt;>
 
 获取当前远端设备的解码方式。使用Promise异步回调。
 
@@ -108,16 +109,14 @@ getSupportedDecoders(): Promise<Array<DecoderType>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[DecoderType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-e#decodertype19)&gt;&gt; | Promise对象。返回远端设备所支持的解码能力列表。 |
+| Promise<Array&lt;DecoderType&gt;> | Promise对象。返回远端设备所支持的解码能力列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -126,27 +125,22 @@ getSupportedDecoders(): Promise<Array<DecoderType>>
 
 **示例：**
 
-
-```ts
-avCastController
-  .getSupportedDecoders()
-  .then((decoderTypes: avSession.DecoderType[]) => {
-    console.info(
-      `Succeeded in getting supported decoders, length: ${decoderTypes.length}`,
-    );
-    if (decoderTypes.length > 0) {
-      console.info(
-        `Succeeded in getting supported decoder: ${decoderTypes[0]}`,
-      );
-    }
-  });
+```text
+avCastController.getSupportedDecoders().then((decoderTypes: avSession.DecoderType[]) => {
+  console.info(`Succeeded in getting supported decoders, length: ${decoderTypes.length}`);
+  if (decoderTypes.length > 0 ) {
+    console.info(`Succeeded in getting supported decoder: ${decoderTypes[0]}`);
+  }
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get supported decoders: ${err.message}`);
+});
 ```
 
 
-## getRecommendedResolutionLevel19+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel>
+##### getRecommendedResolutionLevel19+
+
+getRecommendedResolutionLevel(decoderType: DecoderType): Promise&lt;ResolutionLevel&gt;
 
 通过传递解码方式，获取推荐的分辨率。使用Promise异步回调。
 
@@ -156,24 +150,21 @@ getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| decoderType | [DecoderType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-e#decodertype19) | 是 | 设备所支持的解码格式。          设备所支持的解码格式包括：          'OH_AVCODEC_MIMETYPE_VIDEO_AVC'：VIDEO AVC，          'OH_AVCODEC_MIMETYPE_VIDEO_HEVC'：VIDEO HEVC，          'OH_AVCODEC_MIMETYPE_AUDIO_VIVID'：AUDIO AV3A。 |
+| decoderType | DecoderType | 是 | 设备所支持的解码格式。 设备所支持的解码格式包括： 'OH_AVCODEC_MIMETYPE_VIDEO_AVC'：VIDEO AVC， 'OH_AVCODEC_MIMETYPE_VIDEO_HEVC'：VIDEO HEVC， 'OH_AVCODEC_MIMETYPE_AUDIO_VIVID'：AUDIO AV3A。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ResolutionLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-e#resolutionlevel19)&gt; | Promise对象。返回远端设备推荐的分辨率。 |
+| Promise&lt;ResolutionLevel&gt; | Promise对象。返回远端设备推荐的分辨率。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -182,19 +173,18 @@ getRecommendedResolutionLevel(decoderType: DecoderType): Promise<ResolutionLevel
 
 **示例：**
 
-
-```ts
+```text
 let decoderType = avSession.DecoderType.OH_AVCODEC_MIMETYPE_VIDEO_AVC;
-avCastController
-  .getRecommendedResolutionLevel(decoderType)
-  .then((resolutionLevel: avSession.ResolutionLevel) => {
-    console.info('Succeeded in getting recommended resolution level.');
-  });
+avCastController.getRecommendedResolutionLevel(decoderType).then((resolutionLevel: avSession.ResolutionLevel) => {
+  console.info('Succeeded in getting recommended resolution level.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get recommended resolution level: ${err.message}`);
+});
 ```
 
 
-## getSupportedHdrCapabilities19+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### getSupportedHdrCapabilities19+
 
 getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>
 
@@ -206,16 +196,14 @@ getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[hdrCapability.HDRFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hdrcapability#hdrformat)&gt;&gt; | Promise对象。返回远端设备所支持的HDR能力。 |
+| Promise<Array<hdrCapability.HDRFormat>> | Promise对象。返回远端设备所支持的HDR能力。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -224,29 +212,24 @@ getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>
 
 **示例：**
 
+```text
+import  { type hdrCapability } from '@kit.ArkGraphics2D';
 
-```ts
-import type hdrCapability from './@ohos.graphics.hdrCapability';
-
-avCastController
-  .getSupportedHdrCapabilities()
-  .then((hdrFormats: hdrCapability.HDRFormat[]) => {
-    console.info(
-      `Succeeded in getting supported HDR capabilities, length: ${hdrFormats.length}`,
-    );
-    if (hdrFormats.length > 0) {
-      console.info(
-        `Succeeded in getting supported HDR capability: ${hdrFormats[0]}`,
-      );
-    }
-  });
+avCastController.getSupportedHdrCapabilities().then((hdrFormats: hdrCapability.HDRFormat[]) => {
+  console.info(`Succeeded in getting supported HDR capabilities, length: ${hdrFormats.length}`);
+  if (hdrFormats.length > 0 ) {
+    console.info(`Succeeded in getting supported HDR capability: ${hdrFormats[0]}`);
+  }
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get supported HDR capabilities: ${err.message}`);
+});
 ```
 
 
-## getSupportedPlaySpeeds19+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getSupportedPlaySpeeds(): Promise<Array<number>>
+##### getSupportedPlaySpeeds19+
+
+getSupportedPlaySpeeds(): Promise<Array&lt;number&gt;>
 
 获取当前的远端设备所支持倍速播放列表，仅支持使用cast+协议连接的设备。使用Promise异步回调。
 
@@ -256,16 +239,14 @@ getSupportedPlaySpeeds(): Promise<Array<number>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;number&gt;&gt; | Promise对象。返回远端设备所支持的倍速播放列表。 |
+| Promise<Array&lt;number&gt;> | Promise对象。返回远端设备所支持的倍速播放列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -274,23 +255,22 @@ getSupportedPlaySpeeds(): Promise<Array<number>>
 
 **示例：**
 
-
-```ts
+```text
 avCastController.getSupportedPlaySpeeds().then((nums: number[]) => {
-  console.info(
-    `Succeeded in getting supported play speeds, length: ${nums.length}`,
-  );
-  if (nums.length > 0) {
+  console.info(`Succeeded in getting supported play speeds, length: ${nums.length}`);
+  if (nums.length > 0 ) {
     console.info(`Succeeded in getting supported play speed: ${nums[0]}`);
   }
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get supported play speeds: ${err.message}`);
 });
 ```
 
 
-## sendControlCommand10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-sendControlCommand(command: AVCastControlCommand): Promise<void>
+##### sendControlCommand10+
+
+sendControlCommand(command: AVCastControlCommand): Promise&lt;void&gt;
 
 通过控制器发送命令到其对应的会话。结果通过Promise异步回调方式返回。
 
@@ -300,14 +280,12 @@ sendControlCommand(command: AVCastControlCommand): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| command | [AVCastControlCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avcastcontrolcommand10) | 是 | 会话的相关命令和命令相关参数。 |
+| command | AVCastControlCommand | 是 | 会话的相关命令和命令相关参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -318,7 +296,6 @@ sendControlCommand(command: AVCastControlCommand): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Parameter verification failed. |
@@ -329,19 +306,20 @@ sendControlCommand(command: AVCastControlCommand): Promise<void>
 
 **示例：**
 
-
-```ts
-let avCommand: avSession.AVCastControlCommand = { command: 'play' };
+```text
+let avCommand: avSession.AVCastControlCommand = {command:'play'};
 avCastController.sendControlCommand(avCommand).then(() => {
   console.info('Succeeded in sending control command.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to send control command: ${err.message}`);
 });
 ```
 
 
-## sendControlCommand10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback<void>): void
+##### sendControlCommand10+
+
+sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback&lt;void&gt;): void
 
 通过会话控制器发送命令到其对应的会话。结果通过callback异步回调方式返回。
 
@@ -349,17 +327,15 @@ sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback<void>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| command | [AVCastControlCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avcastcontrolcommand10) | 是 | 会话的相关命令和命令相关参数。 |
+| command | AVCastControlCommand | 是 | 会话的相关命令和命令相关参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当命令发送成功，err为undefined，否则返回错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -371,19 +347,22 @@ sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback<void>)
 
 **示例：**
 
-
-```ts
-let avCommand: avSession.AVCastControlCommand = { command: 'play' };
-avCastController.sendControlCommand(avCommand, () => {
+```text
+let avCommand: avSession.AVCastControlCommand = {command:'play'};
+avCastController.sendControlCommand(avCommand, (err: BusinessError) => {
+  if (err) {
+    console.error(`Failed to send control command: ${err.message}`);
+    return;
+  }
   console.info('Succeeded in sending control command.');
 });
 ```
 
 
-## sendCustomData20+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-sendCustomData(data: Record<string, Object>): Promise<void>
+##### sendCustomData20+
+
+sendCustomData(data: Record<string, Object>): Promise&lt;void&gt;
 
 发送私有数据到远端设备。使用Promise异步回调。
 
@@ -393,14 +372,12 @@ sendCustomData(data: Record<string, Object>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | Record&lt;string, Object&gt; | 是 | 应用程序填充的自定义数据。          服务端仅解析key：string为'customData'，且Object为string类型的对象。 |
+| data | Record<string, Object> | 是 | 应用程序填充的自定义数据。 服务端仅解析key：string为'customData'，且Object为string类型的对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -411,7 +388,6 @@ sendCustomData(data: Record<string, Object>): Promise<void>
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6600101 | Session service exception.You are advised to:1.Scheduled retry.2.Destroy the current session or session controller and re-create it. |
@@ -419,16 +395,19 @@ sendCustomData(data: Record<string, Object>): Promise<void>
 
 **示例：**
 
-
-```ts
-avCastController.sendCustomData({ customData: 'This is custom data' });
+```text
+avCastController.sendCustomData({customData : "This is custom data"}).then(() => {
+  console.info('Succeeded in sending custom data.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to send custom data: ${err.message}`);
+});
 ```
 
 
-## prepare10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-prepare(item: AVQueueItem, callback: AsyncCallback<void>): void
+##### prepare10+
+
+prepare(item: AVQueueItem, callback: AsyncCallback&lt;void&gt;): void
 
 准备播放媒体资源，即进行播放资源的加载和缓冲。结果通过callback异步回调方式返回。
 
@@ -436,17 +415,15 @@ prepare(item: AVQueueItem, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| item | [AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10) | 是 | 播放列表中单项的相关属性。 |
+| item | AVQueueItem | 是 | 播放列表中单项的相关属性。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当命令发送成功，err为undefined，否则返回错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -457,8 +434,7 @@ prepare(item: AVQueueItem, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 // 设置播放参数，开始播放。
 let playItem: avSession.AVQueueItem = {
   itemId: 0,
@@ -471,22 +447,26 @@ let playItem: avSession.AVQueueItem = {
     duration: 0,
     artist: 'mysong',
     albumTitle: 'song1_title',
-    albumCoverUri: 'http://resource1_album_address',
-    lyricUri: 'http://resource1_lyric_address',
-    appName: 'MyMusic',
-  },
+    albumCoverUri: "http://resource1_album_address",
+    lyricUri: "http://resource1_lyric_address",
+    appName: 'MyMusic'
+  }
 };
 // 准备播放，这个不会触发真正的播放，会进行加载和缓冲。
-avCastController.prepare(playItem, () => {
+avCastController.prepare(playItem, (err: BusinessError) => {
+  if (err) {
+    console.error(`Failed to prepare: ${err.message}`);
+    return;
+  }
   console.info('Succeeded in preparing.');
 });
 ```
 
 
-## prepare10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-prepare(item: AVQueueItem): Promise<void>
+##### prepare10+
+
+prepare(item: AVQueueItem): Promise&lt;void&gt;
 
 准备播放媒体资源，即进行播放资源的加载和缓冲。结果通过Promise异步回调方式返回。
 
@@ -496,14 +476,12 @@ prepare(item: AVQueueItem): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| item | [AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10) | 是 | 播放列表中单项的相关属性。 |
+| item | AVQueueItem | 是 | 播放列表中单项的相关属性。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -514,7 +492,6 @@ prepare(item: AVQueueItem): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Parameter verification failed. |
@@ -524,8 +501,7 @@ prepare(item: AVQueueItem): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 // 设置播放参数，开始播放。
 let playItem: avSession.AVQueueItem = {
   itemId: 0,
@@ -538,37 +514,38 @@ let playItem: avSession.AVQueueItem = {
     duration: 0,
     artist: 'mysong',
     albumTitle: 'song1_title',
-    albumCoverUri: 'http://resource1_album_address',
-    lyricUri: 'http://resource1_lyric_address',
-    appName: 'MyMusic',
-  },
+    albumCoverUri: "http://resource1_album_address",
+    lyricUri: "http://resource1_lyric_address",
+    appName: 'MyMusic'
+  }
 };
 // 准备播放，这个不会触发真正的播放，会进行加载和缓冲。
 avCastController.prepare(playItem).then(() => {
   console.info('Succeeded in preparing.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to prepare: ${err.message}`);
 });
 ```
 
 
-## start10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-start(item: AVQueueItem, callback: AsyncCallback<void>): void
+##### start10+
+
+start(item: AVQueueItem, callback: AsyncCallback&lt;void&gt;): void
 
 启动播放某个媒体资源。结果通过callback异步回调方式返回。
 
-
 > [!NOTE]
-> 在音视频投播场景下，当应用程序顺序调用[prepare](#prepare10)和start接口，且assetId不变时，如果prepare已经传入有效的mediaUri或fdSrc，则start接口将复用prepare阶段的完整的AVMediaDescription对象信息。
+> 在音视频投播场景下，当应用程序顺序调用 prepare 和start接口，且assetId不变时，如果prepare已经传入有效的mediaUri或fdSrc，则start接口将复用prepare阶段的完整的AVMediaDescription对象信息。
+
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| item | [AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10) | 是 | 播放列表中单项的相关属性。 |
+| item | AVQueueItem | 是 | 播放列表中单项的相关属性。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当命令发送成功，err为undefined，否则返回错误对象。 |
 
 
@@ -576,7 +553,6 @@ start(item: AVQueueItem, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Parameter verification failed. |
@@ -586,8 +562,7 @@ start(item: AVQueueItem, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 // 设置播放参数，开始播放。
 let playItem: avSession.AVQueueItem = {
   itemId: 0,
@@ -600,29 +575,33 @@ let playItem: avSession.AVQueueItem = {
     duration: 0,
     artist: 'mysong',
     albumTitle: 'song1_title',
-    albumCoverUri: 'http://resource1_album_address',
-    lyricUri: 'http://resource1_lyric_address',
-    appName: 'MyMusic',
-  },
+    albumCoverUri: "http://resource1_album_address",
+    lyricUri: "http://resource1_lyric_address",
+    appName: 'MyMusic'
+  }
 };
 
 // 启动播放。
-avCastController.start(playItem, () => {
+avCastController.start(playItem, (err: BusinessError) => {
+  if (err) {
+    console.error(`Failed to start: ${err.message}`);
+    return;
+  }
   console.info('Succeeded in starting.');
 });
 ```
 
 
-## start10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-start(item: AVQueueItem): Promise<void>
+##### start10+
+
+start(item: AVQueueItem): Promise&lt;void&gt;
 
 启动播放某个媒体资源。结果通过Promise异步回调方式返回。
 
-
 > [!NOTE]
-> 在音视频投播场景下，当应用程序顺序调用[prepare](#prepare10)和start接口，且assetId不变时，如果prepare已经传入有效的mediaUri或fdSrc，则start接口将复用prepare阶段的完整的AVMediaDescription对象信息。
+> 在音视频投播场景下，当应用程序顺序调用 prepare 和start接口，且assetId不变时，如果prepare已经传入有效的mediaUri或fdSrc，则start接口将复用prepare阶段的完整的AVMediaDescription对象信息。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -630,14 +609,12 @@ start(item: AVQueueItem): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| item | [AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10) | 是 | 播放列表中单项的相关属性。 |
+| item | AVQueueItem | 是 | 播放列表中单项的相关属性。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -648,7 +625,6 @@ start(item: AVQueueItem): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Parameter verification failed. |
@@ -658,8 +634,7 @@ start(item: AVQueueItem): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 // 设置播放参数，开始播放。
 let playItem: avSession.AVQueueItem = {
   itemId: 0,
@@ -672,22 +647,24 @@ let playItem: avSession.AVQueueItem = {
     duration: 0,
     artist: 'mysong',
     albumTitle: 'song1_title',
-    albumCoverUri: 'http://resource1_album_address',
-    lyricUri: 'http://resource1_lyric_address',
-    appName: 'MyMusic',
-  },
+    albumCoverUri: "http://resource1_album_address",
+    lyricUri: "http://resource1_lyric_address",
+    appName: 'MyMusic'
+  }
 };
 // 启动播放。
 avCastController.start(playItem).then(() => {
   console.info('Succeeded in starting.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to start: ${err.message}`);
 });
 ```
 
 
-## getCurrentItem10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getCurrentItem(callback: AsyncCallback<AVQueueItem>): void
+##### getCurrentItem10+
+
+getCurrentItem(callback: AsyncCallback&lt;AVQueueItem&gt;): void
 
 获取当前投播的资源信息。结果通过callback异步回调方式返回。
 
@@ -695,16 +672,14 @@ getCurrentItem(callback: AsyncCallback<AVQueueItem>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10)&gt; | 是 | 回调函数。当命令发送成功，err为undefined，否则返回错误对象。 |
+| callback | AsyncCallback&lt;AVQueueItem&gt; | 是 | 回调函数。当命令发送成功，err为undefined，否则返回错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -713,18 +688,21 @@ getCurrentItem(callback: AsyncCallback<AVQueueItem>): void
 
 **示例：**
 
-
-```ts
-avCastController.getCurrentItem((value: avSession.AVQueueItem) => {
+```text
+avCastController.getCurrentItem((err: BusinessError, value: avSession.AVQueueItem) => {
+  if (err) {
+    console.error(`Failed to get current item: ${err.message}`);
+    return;
+  }
   console.info('Succeeded in getting current item.');
 });
 ```
 
 
-## getCurrentItem10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getCurrentItem(): Promise<AVQueueItem>
+##### getCurrentItem10+
+
+getCurrentItem(): Promise&lt;AVQueueItem&gt;
 
 获取当前投播的资源信息。结果通过Promise异步回调方式返回。
 
@@ -734,16 +712,14 @@ getCurrentItem(): Promise<AVQueueItem>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10)&gt; | Promise对象，返回当前的播放资源，否则返回错误对象。 |
+| Promise&lt;AVQueueItem&gt; | Promise对象，返回当前的播放资源，否则返回错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -752,18 +728,19 @@ getCurrentItem(): Promise<AVQueueItem>
 
 **示例：**
 
-
-```ts
+```text
 avCastController.getCurrentItem().then((value: avSession.AVQueueItem) => {
   console.info('Succeeded in getting current item.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get current item: ${err.message}`);
 });
 ```
 
 
-## getValidCommands11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getValidCommands(callback: AsyncCallback<Array<AVCastControlCommandType>>): void
+##### getValidCommands11+
+
+getValidCommands(callback: AsyncCallback<Array&lt;AVCastControlCommandType&gt;>): void
 
 获取当前支持的命令。结果通过callback异步回调方式返回。
 
@@ -771,16 +748,14 @@ getValidCommands(callback: AsyncCallback<Array<AVCastControlCommandType>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[AVCastControlCommandType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avcastcontrolcommandtype10)&gt;&gt; | 是 | 回调函数。返回当前支持的命令。 |
+| callback | AsyncCallback<Array&lt;AVCastControlCommandType&gt;> | 是 | 回调函数。返回当前支持的命令。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -789,20 +764,21 @@ getValidCommands(callback: AsyncCallback<Array<AVCastControlCommandType>>): void
 
 **示例：**
 
-
-```ts
-avCastController.getValidCommands(
-  (state: avSession.AVCastControlCommandType[]) => {
-    console.info('Succeeded in getting valid commands.');
-  },
-);
+```text
+avCastController.getValidCommands((err: BusinessError, state: avSession.AVCastControlCommandType[]) => {
+  if (err) {
+    console.error(`Failed to get valid commands: ${err.message}`);
+    return;
+  }
+  console.info('Succeeded in getting valid commands.');
+});
 ```
 
 
-## getValidCommands11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getValidCommands(): Promise<Array<AVCastControlCommandType>>
+##### getValidCommands11+
+
+getValidCommands(): Promise<Array&lt;AVCastControlCommandType&gt;>
 
 获取当前支持的命令。结果通过Promise异步回调方式返回。
 
@@ -810,16 +786,14 @@ getValidCommands(): Promise<Array<AVCastControlCommandType>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AVCastControlCommandType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avcastcontrolcommandtype10)&gt;&gt; | Promise对象，返回当前支持的命令。 |
+| Promise<Array&lt;AVCastControlCommandType&gt;> | Promise对象，返回当前支持的命令。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -828,20 +802,19 @@ getValidCommands(): Promise<Array<AVCastControlCommandType>>
 
 **示例：**
 
-
-```ts
-avCastController
-  .getValidCommands()
-  .then((state: avSession.AVCastControlCommandType[]) => {
-    console.info('Succeeded in getting valid commands.');
-  });
+```text
+avCastController.getValidCommands().then((state: avSession.AVCastControlCommandType[]) => {
+  console.info('Succeeded in getting valid commands.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get valid commands: ${err.message}`);
+});
 ```
 
 
-## processMediaKeyResponse12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>
+##### processMediaKeyResponse12+
+
+processMediaKeyResponse(assetId: string, response: Uint8Array): Promise&lt;void&gt;
 
 在线DRM资源投播时，处理许可证响应。结果通过Promise异步回调方式返回。
 
@@ -851,7 +824,6 @@ processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | assetId | string | 是 | 媒体ID。 |
@@ -859,7 +831,6 @@ processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -870,7 +841,6 @@ processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Parameter verification failed. |
@@ -879,33 +849,32 @@ processMediaKeyResponse(assetId: string, response: Uint8Array): Promise<void>
 
 **示例：**
 
-
-```ts
-let keyRequestCallback: avSession.KeyRequestCallback = async (
-  assetId: string,
-  requestData: Uint8Array,
-) => {
+```text
+let keyRequestCallback: avSession.KeyRequestCallback = async(assetId: string, requestData: Uint8Array) => {
   // 根据assetId获取对应的DRM url。
   let drmUrl = 'http://license.xxx.xxx.com:8080/drmproxy/getLicense';
   // 从服务器获取许可证，需要开发者根据实际情况进行赋值。
   let licenseResponseData: Uint8Array = new Uint8Array();
   console.info(`Succeeded in get license by ${drmUrl}.`);
-  avCastController.processMediaKeyResponse(assetId, licenseResponseData);
-};
+  avCastController.processMediaKeyResponse(assetId, licenseResponseData).then(() => {
+    console.info('Succeeded in processing media key response.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to process media key response: ${err.message}`);
+  });
+}
 ```
 
 
-## release11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-release(callback: AsyncCallback<void>): void
+##### release11+
+
+release(callback: AsyncCallback&lt;void&gt;): void
 
 销毁当前controller，结果通过callback异步回调方式返回。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -916,7 +885,6 @@ release(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6600101 | Session service exception. |
@@ -924,18 +892,21 @@ release(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
-avCastController.release(() => {
+```text
+avCastController.release((err: BusinessError) => {
+  if (err) {
+    console.error(`Failed to release: ${err.message}`);
+    return;
+  }
   console.info('Succeeded in releasing.');
 });
 ```
 
 
-## release11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-release(): Promise<void>
+##### release11+
+
+release(): Promise&lt;void&gt;
 
 销毁当前controller。结果通过Promise异步回调方式返回。
 
@@ -944,7 +915,6 @@ release(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -955,7 +925,6 @@ release(): Promise<void>
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6600101 | Session service exception. |
@@ -963,16 +932,17 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 avCastController.release().then(() => {
   console.info('Succeeded in releasing.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to release: ${err.message}`);
 });
 ```
 
 
-## on('playbackStateChange')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('playbackStateChange')10+
 
 on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void
 
@@ -986,18 +956,16 @@ on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', ca
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'playbackStateChange'：当播放状态变化时，触发该事件。 |
-| filter | Array&lt;keyof AVPlaybackState&gt;\|'all' | 是 | 'all' 表示关注播放状态所有字段变化；Array&lt;keyof AVPlaybackstate&gt; 表示关注Array中的字段变化。 |
-| callback | (state: [AVPlaybackState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avplaybackstate10)) =&gt; void | 是 | 回调函数，参数state是变化后的播放状态。 |
+| filter | Array<keyof AVPlaybackState>\|'all' | 是 | 'all' 表示关注播放状态所有字段变化；Array<keyof AVPlaybackstate> 表示关注Array中的字段变化。 |
+| callback | (state: AVPlaybackState) => void | 是 | 回调函数，参数state是变化后的播放状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1007,33 +975,20 @@ on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', ca
 
 **示例：**
 
+```text
+avCastController.on('playbackStateChange', 'all', (playbackState: avSession.AVPlaybackState) => {
+  console.info(`on playbackStateChange state : ${playbackState.state}`);
+});
 
-```ts
-avCastController.on(
-  'playbackStateChange',
-  'all',
-  (playbackState: avSession.AVPlaybackState) => {
-    console.info(`on playbackStateChange state : ${playbackState.state}`);
-  },
-);
-
-let playbackFilter: Array<keyof avSession.AVPlaybackState> = [
-  'state',
-  'speed',
-  'loopMode',
-];
-avCastController.on(
-  'playbackStateChange',
-  playbackFilter,
-  (playbackState: avSession.AVPlaybackState) => {
-    console.info(`on playbackStateChange state : ${playbackState.state}`);
-  },
-);
+let playbackFilter: Array<keyof avSession.AVPlaybackState> = ['state', 'speed', 'loopMode'];
+avCastController.on('playbackStateChange', playbackFilter, (playbackState: avSession.AVPlaybackState) => {
+  console.info(`on playbackStateChange state : ${playbackState.state}`);
+});
 ```
 
 
-## off('playbackStateChange')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('playbackStateChange')10+
 
 off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): void
 
@@ -1045,17 +1000,15 @@ off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'playbackStateChange'。 |
-| callback | (state: [AVPlaybackState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avplaybackstate10)) =&gt; void | 否 | 回调函数，参数state是变化后的播放状态。          该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
+| callback | (state: AVPlaybackState) => void | 否 | 回调函数，参数state是变化后的播放状态。 该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1065,16 +1018,15 @@ off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): v
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('playbackStateChange');
 ```
 
 
-## on('mediaItemChange')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'mediaItemChange', callback: Callback<AVQueueItem>): void
+##### on('mediaItemChange')10+
+
+on(type: 'mediaItemChange', callback: Callback&lt;AVQueueItem&gt;): void
 
 设置投播当前播放媒体内容的监听事件。使用callback异步回调。
 
@@ -1086,17 +1038,15 @@ on(type: 'mediaItemChange', callback: Callback<AVQueueItem>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'mediaItemChange'：当播放的媒体内容变化时，触发该事件。 |
-| callback | Callback&lt;[AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10)&gt; | 是 | 回调函数，参数AVQueueItem是当前正在播放的媒体内容。 |
+| callback | Callback&lt;AVQueueItem&gt; | 是 | 回调函数，参数AVQueueItem是当前正在播放的媒体内容。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1106,16 +1056,15 @@ on(type: 'mediaItemChange', callback: Callback<AVQueueItem>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.on('mediaItemChange', (item: avSession.AVQueueItem) => {
   console.info(`on mediaItemChange state : ${item.itemId}`);
 });
 ```
 
 
-## off('mediaItemChange')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('mediaItemChange')10+
 
 off(type: 'mediaItemChange'): void
 
@@ -1127,7 +1076,6 @@ off(type: 'mediaItemChange'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'mediaItemChange'。 |
@@ -1137,7 +1085,6 @@ off(type: 'mediaItemChange'): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1146,16 +1093,15 @@ off(type: 'mediaItemChange'): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('mediaItemChange');
 ```
 
 
-## on('playNext')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'playNext', callback: Callback<void>): void
+##### on('playNext')10+
+
+on(type: 'playNext', callback: Callback&lt;void&gt;): void
 
 设置播放下一首资源的监听事件。
 
@@ -1167,7 +1113,6 @@ on(type: 'playNext', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'playNext'：当播放下一首状态变化时，触发该事件。 |
@@ -1178,7 +1123,6 @@ on(type: 'playNext', callback: Callback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1187,16 +1131,15 @@ on(type: 'playNext', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.on('playNext', () => {
   console.info('on playNext');
 });
 ```
 
 
-## off('playNext')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('playNext')10+
 
 off(type: 'playNext'): void
 
@@ -1208,7 +1151,6 @@ off(type: 'playNext'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'playNext'。 |
@@ -1218,7 +1160,6 @@ off(type: 'playNext'): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1227,16 +1168,15 @@ off(type: 'playNext'): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('playNext');
 ```
 
 
-## on('playPrevious')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'playPrevious', callback: Callback<void>): void
+##### on('playPrevious')10+
+
+on(type: 'playPrevious', callback: Callback&lt;void&gt;): void
 
 设置播放上一首资源的监听事件。
 
@@ -1248,7 +1188,6 @@ on(type: 'playPrevious', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'playPrevious'：当播放上一首状态变化时，触发该事件。 |
@@ -1259,7 +1198,6 @@ on(type: 'playPrevious', callback: Callback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1268,16 +1206,15 @@ on(type: 'playPrevious', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.on('playPrevious', () => {
   console.info('on playPrevious');
 });
 ```
 
 
-## off('playPrevious')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('playPrevious')10+
 
 off(type: 'playPrevious'): void
 
@@ -1289,7 +1226,6 @@ off(type: 'playPrevious'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'playPrevious'。 |
@@ -1299,7 +1235,6 @@ off(type: 'playPrevious'): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1308,16 +1243,15 @@ off(type: 'playPrevious'): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('playPrevious');
 ```
 
 
-## on('requestPlay')11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'requestPlay', callback: Callback<AVQueueItem>): void
+##### on('requestPlay')11+
+
+on(type: 'requestPlay', callback: Callback&lt;AVQueueItem&gt;): void
 
 设置请求播放的监听事件。
 
@@ -1327,17 +1261,15 @@ on(type: 'requestPlay', callback: Callback<AVQueueItem>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'requestPlay'：当请求播放状态变化时，触发该事件。 |
-| callback | Callback&lt;[AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10)&gt; | 是 | 回调函数，参数AVQueueItem是当前正在播放的媒体内容。当监听事件注册成功，err为undefined，否则返回错误对象。 |
+| callback | Callback&lt;AVQueueItem&gt; | 是 | 回调函数，参数AVQueueItem是当前正在播放的媒体内容。当监听事件注册成功，err为undefined，否则返回错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1347,18 +1279,17 @@ on(type: 'requestPlay', callback: Callback<AVQueueItem>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.on('requestPlay', (item: avSession.AVQueueItem) => {
   console.info(`on requestPlay state : ${item.itemId}`);
 });
 ```
 
 
-## off('requestPlay')11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-off(type: 'requestPlay', callback?: Callback<AVQueueItem>): void
+##### off('requestPlay')11+
+
+off(type: 'requestPlay', callback?: Callback&lt;AVQueueItem&gt;): void
 
 取消设置请求播放事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
 
@@ -1366,17 +1297,15 @@ off(type: 'requestPlay', callback?: Callback<AVQueueItem>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'requestPlay'。 |
-| callback | Callback&lt;[AVQueueItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avqueueitem10)&gt; | 否 | 回调函数，参数AVQueueItem是当前正在播放的媒体内容。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
+| callback | Callback&lt;AVQueueItem&gt; | 否 | 回调函数，参数AVQueueItem是当前正在播放的媒体内容。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1386,16 +1315,15 @@ off(type: 'requestPlay', callback?: Callback<AVQueueItem>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('requestPlay');
 ```
 
 
-## on('endOfStream')11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'endOfStream', callback: Callback<void>): void
+##### on('endOfStream')11+
+
+on(type: 'endOfStream', callback: Callback&lt;void&gt;): void
 
 设置播放结束的监听事件。
 
@@ -1404,7 +1332,6 @@ on(type: 'endOfStream', callback: Callback<void>): void
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1416,7 +1343,6 @@ on(type: 'endOfStream', callback: Callback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1425,25 +1351,23 @@ on(type: 'endOfStream', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.on('endOfStream', () => {
   console.info('on endOfStream');
 });
 ```
 
 
-## off('endOfStream')11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-off(type: 'endOfStream', callback?: Callback<void>): void
+##### off('endOfStream')11+
+
+off(type: 'endOfStream', callback?: Callback&lt;void&gt;): void
 
 取消设置播放结束事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1455,7 +1379,6 @@ off(type: 'endOfStream', callback?: Callback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1464,16 +1387,15 @@ off(type: 'endOfStream', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('endOfStream');
 ```
 
 
-## on('seekDone')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'seekDone', callback: Callback<number>): void
+##### on('seekDone')10+
+
+on(type: 'seekDone', callback: Callback&lt;number&gt;): void
 
 设置seek结束的监听事件。
 
@@ -1485,7 +1407,6 @@ on(type: 'seekDone', callback: Callback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'seekDone'：当seek结束时，触发该事件。 |
@@ -1496,7 +1417,6 @@ on(type: 'seekDone', callback: Callback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1505,16 +1425,15 @@ on(type: 'seekDone', callback: Callback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.on('seekDone', (pos: number) => {
   console.info(`on seekDone pos：${pos} `);
 });
 ```
 
 
-## off('seekDone')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('seekDone')10+
 
 off(type: 'seekDone'): void
 
@@ -1522,10 +1441,9 @@ off(type: 'seekDone'): void
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
-**系统能力���** SystemCapability.Multimedia.AVSession.AVCast
+**系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1536,7 +1454,6 @@ off(type: 'seekDone'): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1545,16 +1462,15 @@ off(type: 'seekDone'): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('seekDone');
 ```
 
 
-## on('validCommandChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType>>)
+##### on('validCommandChange')11+
+
+on(type: 'validCommandChange', callback: Callback<Array&lt;AVCastControlCommandType&gt;>)
 
 会话支持的有效命令变化监听事件。
 
@@ -1564,17 +1480,15 @@ on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'validCommandChange'：当检测到会话的合法命令发生改变时，触发该事件。 |
-| callback | Callback&lt;Array&lt;[AVCastControlCommandType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avcastcontrolcommandtype10)&gt;&gt; | 是 | 回调函数。参数commands是有效命令的集合。 |
+| callback | Callback<Array&lt;AVCastControlCommandType&gt;> | 是 | 回调函数。参数commands是有效命令的集合。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1585,26 +1499,18 @@ on(type: 'validCommandChange', callback: Callback<Array<AVCastControlCommandType
 
 **示例：**
 
-
-```ts
-avCastController.on(
-  'validCommandChange',
-  (validCommands: avSession.AVCastControlCommandType[]) => {
-    console.info(
-      `Succeeded in valid command change, size: ${validCommands.length}`,
-    );
-    console.info(
-      `Succeeded in valid command change, validCommands: ${validCommands.values()}`,
-    );
-  },
-);
+```text
+avCastController.on('validCommandChange', (validCommands: avSession.AVCastControlCommandType[]) => {
+  console.info(`Succeeded in valid command change, size: ${validCommands.length}`);
+  console.info(`Succeeded in valid command change, validCommands: ${validCommands.values()}`);
+});
 ```
 
 
-## off('validCommandChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandType>>)
+##### off('validCommandChange')11+
+
+off(type: 'validCommandChange', callback?: Callback<Array&lt;AVCastControlCommandType&gt;>)
 
 取消会话有效命令变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
 
@@ -1612,17 +1518,15 @@ off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandTy
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'validCommandChange'。 |
-| callback | Callback&lt;Array&lt;[AVCastControlCommandType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avcastcontrolcommandtype10)&gt;&gt; | 否 | 回调函数。参数commands是有效命令的集合。          该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
+| callback | Callback<Array&lt;AVCastControlCommandType&gt;> | 否 | 回调函数。参数commands是有效命令的集合。 该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1633,14 +1537,13 @@ off(type: 'validCommandChange', callback?: Callback<Array<AVCastControlCommandTy
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('validCommandChange');
 ```
 
 
-## on('videoSizeChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('videoSizeChange')12+
 
 on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void
 
@@ -1652,17 +1555,15 @@ on(type: 'videoSizeChange', callback: (width: number, height: number) => void): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'videoSizeChange'：当检测到会话的合法命令发生改变时，触发该事件。 |
-| callback | (width: number, height: number) =&gt; void | 是 | 回调函数。 |
+| callback | (width: number, height: number) => void | 是 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1672,16 +1573,15 @@ on(type: 'videoSizeChange', callback: (width: number, height: number) => void): 
 
 **示例：**
 
-
-```ts
+```text
 avCastController.on('videoSizeChange', (width: number, height: number) => {
   console.info(`Succeeded in video size change, size: ${width}, ${height}`);
 });
 ```
 
 
-## off('videoSizeChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('videoSizeChange')12+
 
 off(type: 'videoSizeChange'): void
 
@@ -1690,7 +1590,6 @@ off(type: 'videoSizeChange'): void
 系统能力： SystemCapability.Multimedia.AVSession.AVCast
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1701,8 +1600,7 @@ off(type: 'videoSizeChange'): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-| 错���码ID | 错误信息 |
+| 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
 | 6600101 | Session service exception. |
@@ -1710,14 +1608,13 @@ off(type: 'videoSizeChange'): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('videoSizeChange');
 ```
 
 
-## on('error')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('error')10+
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -1731,7 +1628,6 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'error'，用户操作和系统都会触发此事件。 |
@@ -1741,7 +1637,6 @@ on(type: 'error', callback: ErrorCallback): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)以及[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1757,20 +1652,17 @@ on(type: 'error', callback: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avCastController.on('error', (error: BusinessError) => {
-  console.info(
-    `error happened, error code: ${error.code}, error message : ${error.message}.`,
-  );
-});
+  console.info(`error happened, error code: ${error.code}, error message : ${error.message}.`)
+})
 ```
 
 
-## off('error')10+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('error')10+
 
 off(type: 'error'): void
 
@@ -1782,7 +1674,6 @@ off(type: 'error'): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，取消注册的事件：'error'。 |
@@ -1791,7 +1682,6 @@ off(type: 'error'): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)、[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)以及[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1807,14 +1697,13 @@ off(type: 'error'): void
 
 **示例：**
 
-
-```ts
-avCastController.off('error');
+```text
+avCastController.off('error')
 ```
 
 
-## on('keyRequest')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('keyRequest')12+
 
 on(type: 'keyRequest', callback: KeyRequestCallback): void
 
@@ -1828,17 +1717,15 @@ on(type: 'keyRequest', callback: KeyRequestCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'keyRequest'：当DRM资源播放需要许可证时，触发该事件。 |
-| callback | [KeyRequestCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#keyrequestcallback12) | 是 | 回调函数，媒体资源及许可证请求数据。 |
+| callback | KeyRequestCallback | 是 | 回调函数，媒体资源及许可证请求数据。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1848,22 +1735,16 @@ on(type: 'keyRequest', callback: KeyRequestCallback): void
 
 **示例：**
 
-
-```ts
-let keyRequestCallback: avSession.KeyRequestCallback = async (
-  assetId: string,
-  requestData: Uint8Array,
-) => {
-  console.info(
-    `Succeeded in keyRequestCallback. assetId: ${assetId}, requestData: ${requestData}`,
-  );
-};
+```text
+let keyRequestCallback: avSession.KeyRequestCallback = async(assetId: string, requestData: Uint8Array) => {
+  console.info(`Succeeded in keyRequestCallback. assetId: ${assetId}, requestData: ${requestData}`);
+}
 avCastController.on('keyRequest', keyRequestCallback);
 ```
 
 
-## off('keyRequest')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('keyRequest')12+
 
 off(type: 'keyRequest', callback?: KeyRequestCallback): void
 
@@ -1875,17 +1756,15 @@ off(type: 'keyRequest', callback?: KeyRequestCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'keyRequest'。 |
-| callback | [KeyRequestCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#keyrequestcallback12) | 否 | 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数���则认为取消所有相关会话的事件监听。 |
+| callback | KeyRequestCallback | 否 | 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1895,14 +1774,13 @@ off(type: 'keyRequest', callback?: KeyRequestCallback): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('keyRequest');
 ```
 
 
-## on('castControlGenericError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('castControlGenericError')13+
 
 on(type: 'castControlGenericError', callback: ErrorCallback): void
 
@@ -1916,7 +1794,6 @@ on(type: 'castControlGenericError', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'castControlGenericError'。 |
@@ -1926,7 +1803,6 @@ on(type: 'castControlGenericError', callback: ErrorCallback): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1949,18 +1825,17 @@ on(type: 'castControlGenericError', callback: ErrorCallback): void
 
 **示例：**
 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
 
-```ts
 avCastController.on('castControlGenericError', (error: BusinessError) => {
-  console.info(
-    `castControlGenericError happened, error code: ${error.code}, error message : ${error.message}.`,
-  );
-});
+  console.info(`castControlGenericError happened, error code: ${error.code}, error message : ${error.message}.`)
+})
 ```
 
 
-## off('castControlGenericError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('castControlGenericError')13+
 
 off(type: 'castControlGenericError', callback?: ErrorCallback): void
 
@@ -1972,7 +1847,6 @@ off(type: 'castControlGenericError', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'castControlGenericError'。 |
@@ -1983,7 +1857,6 @@ off(type: 'castControlGenericError', callback?: ErrorCallback): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter check failed. 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1991,14 +1864,13 @@ off(type: 'castControlGenericError', callback?: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('castControlGenericError');
 ```
 
 
-## on('castControlIoError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('castControlIoError')13+
 
 on(type: 'castControlIoError', callback: ErrorCallback): void
 
@@ -2012,7 +1884,6 @@ on(type: 'castControlIoError', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'castControlIoError'。 |
@@ -2022,7 +1893,6 @@ on(type: 'castControlIoError', callback: ErrorCallback): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2048,18 +1918,17 @@ on(type: 'castControlIoError', callback: ErrorCallback): void
 
 **示例：**
 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
 
-```ts
 avCastController.on('castControlIoError', (error: BusinessError) => {
-  console.info(
-    `castControlIoError happened, error code: ${error.code}, error message : ${error.message}.`,
-  );
-});
+  console.info(`castControlIoError happened, error code: ${error.code}, error message : ${error.message}.`)
+})
 ```
 
 
-## off('castControlIoError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('castControlIoError')13+
 
 off(type: 'castControlIoError', callback?: ErrorCallback): void
 
@@ -2071,7 +1940,6 @@ off(type: 'castControlIoError', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'castControlIoError'。 |
@@ -2082,7 +1950,6 @@ off(type: 'castControlIoError', callback?: ErrorCallback): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter check failed. 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2090,14 +1957,13 @@ off(type: 'castControlIoError', callback?: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('castControlIoError');
 ```
 
 
-## on('castControlParsingError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('castControlParsingError')13+
 
 on(type: 'castControlParsingError', callback: ErrorCallback): void
 
@@ -2111,7 +1977,6 @@ on(type: 'castControlParsingError', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'castControlParsingError'。 |
@@ -2121,7 +1986,6 @@ on(type: 'castControlParsingError', callback: ErrorCallback): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2135,18 +1999,17 @@ on(type: 'castControlParsingError', callback: ErrorCallback): void
 
 **示例：**
 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
 
-```ts
 avCastController.on('castControlParsingError', (error: BusinessError) => {
-  console.info(
-    `castControlParsingError happened, error code: ${error.code}, error message : ${error.message}.`,
-  );
-});
+  console.info(`castControlParsingError happened, error code: ${error.code}, error message : ${error.message}.`)
+})
 ```
 
 
-## off('castControlParsingError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('castControlParsingError')13+
 
 off(type: 'castControlParsingError', callback?: ErrorCallback): void
 
@@ -2158,7 +2021,6 @@ off(type: 'castControlParsingError', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'castControlParsingError'。 |
@@ -2169,7 +2031,6 @@ off(type: 'castControlParsingError', callback?: ErrorCallback): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter check failed. 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2177,14 +2038,13 @@ off(type: 'castControlParsingError', callback?: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('castControlParsingError');
 ```
 
 
-## on('castControlDecodingError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('castControlDecodingError')13+
 
 on(type: 'castControlDecodingError', callback: ErrorCallback): void
 
@@ -2198,7 +2058,6 @@ on(type: 'castControlDecodingError', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'castControlDecodingError'。 |
@@ -2208,7 +2067,6 @@ on(type: 'castControlDecodingError', callback: ErrorCallback): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2223,18 +2081,17 @@ on(type: 'castControlDecodingError', callback: ErrorCallback): void
 
 **示例：**
 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
 
-```ts
 avCastController.on('castControlDecodingError', (error: BusinessError) => {
-  console.info(
-    `castControlDecodingError happened, error code: ${error.code}, error message : ${error.message}.`,
-  );
-});
+  console.info(`castControlDecodingError happened, error code: ${error.code}, error message : ${error.message}.`)
+})
 ```
 
 
-## off('castControlDecodingError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('castControlDecodingError')13+
 
 off(type: 'castControlDecodingError', callback?: ErrorCallback): void
 
@@ -2246,7 +2103,6 @@ off(type: 'castControlDecodingError', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'castControlDecodingError'。 |
@@ -2257,7 +2113,6 @@ off(type: 'castControlDecodingError', callback?: ErrorCallback): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter check failed. 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2265,14 +2120,13 @@ off(type: 'castControlDecodingError', callback?: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('castControlDecodingError');
 ```
 
 
-## on('castControlAudioRendererError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('castControlAudioRendererError')13+
 
 on(type: 'castControlAudioRendererError', callback: ErrorCallback): void
 
@@ -2286,7 +2140,6 @@ on(type: 'castControlAudioRendererError', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'castControlAudioRendererError'。 |
@@ -2296,7 +2149,6 @@ on(type: 'castControlAudioRendererError', callback: ErrorCallback): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2308,18 +2160,17 @@ on(type: 'castControlAudioRendererError', callback: ErrorCallback): void
 
 **示例：**
 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
 
-```ts
 avCastController.on('castControlAudioRendererError', (error: BusinessError) => {
-  console.info(
-    `castControlAudioRendererError happened, error code: ${error.code}, error message : ${error.message}.`,
-  );
-});
+  console.info(`castControlAudioRendererError happened, error code: ${error.code}, error message : ${error.message}.`)
+})
 ```
 
 
-## off('castControlAudioRendererError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('castControlAudioRendererError')13+
 
 off(type: 'castControlAudioRendererError', callback?: ErrorCallback): void
 
@@ -2331,7 +2182,6 @@ off(type: 'castControlAudioRendererError', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'castControlAudioRendererError'。 |
@@ -2342,7 +2192,6 @@ off(type: 'castControlAudioRendererError', callback?: ErrorCallback): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter check failed. 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2350,14 +2199,13 @@ off(type: 'castControlAudioRendererError', callback?: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('castControlAudioRendererError');
 ```
 
 
-## on('castControlDrmError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('castControlDrmError')13+
 
 on(type: 'castControlDrmError', callback: ErrorCallback): void
 
@@ -2371,7 +2219,6 @@ on(type: 'castControlDrmError', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'castControlDrmError'。 |
@@ -2381,7 +2228,6 @@ on(type: 'castControlDrmError', callback: ErrorCallback): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2400,18 +2246,17 @@ on(type: 'castControlDrmError', callback: ErrorCallback): void
 
 **示例：**
 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
 
-```ts
 avCastController.on('castControlDrmError', (error: BusinessError) => {
-  console.info(
-    `castControlDrmError happened, error code: ${error.code}, error message : ${error.message}.`,
-  );
-});
+  console.info(`castControlDrmError happened, error code: ${error.code}, error message : ${error.message}.`)
+})
 ```
 
 
-## off('castControlDrmError')13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('castControlDrmError')13+
 
 off(type: 'castControlDrmError', callback?: ErrorCallback): void
 
@@ -2423,7 +2268,6 @@ off(type: 'castControlDrmError', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'castControlDrmError'。 |
@@ -2434,7 +2278,6 @@ off(type: 'castControlDrmError', callback?: ErrorCallback): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter check failed. 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -2442,14 +2285,13 @@ off(type: 'castControlDrmError', callback?: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('castControlDrmError');
 ```
 
 
-## on('customDataChange')20+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('customDataChange')20+
 
 on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void
 
@@ -2461,17 +2303,15 @@ on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持'customDataChange'事件。媒体提供方发送自定义数据时触发。 |
-| callback | Callback&lt;Record&lt;string, Object&gt;&gt; | 是 | 回调函数，用于接收自定义数据。 |
+| callback | Callback<Record<string, Object>> | 是 | 回调函数，用于接收自定义数据。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2480,18 +2320,15 @@ on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void
 
 **示例：**
 
-
-```ts
+```json
 avCastController.on('customDataChange', (callback) => {
-  console.info(
-    `Caught customDataChange event,the new callback is: ${JSON.stringify(callback)}`,
-  );
+    console.info(`Caught customDataChange event,the new callback is: ${JSON.stringify(callback)}`);
 });
 ```
 
 
-## off('customDataChange')20+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('customDataChange')20+
 
 off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void
 
@@ -2503,17 +2340,15 @@ off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持的事件是'customDataChange'。 |
-| callback | Callback&lt;Record&lt;string, Object&gt;&gt; | 否 | 注册监听事件时的回调函数。该参数为可选参数，若不填写该参数，则认为取消会话所有与此事件相关的监听。 |
+| callback | Callback<Record<string, Object>> | 否 | 注册监听事件时的回调函数。该参数为可选参数，若不填写该参数，则认为取消会话所有与此事件相关的监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2522,7 +2357,6 @@ off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void
 
 **示例：**
 
-
-```ts
+```text
 avCastController.off('customDataChange');
 ```

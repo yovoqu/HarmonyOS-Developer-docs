@@ -3,147 +3,141 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-channel-layout-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 在录制和播放时的扬声器布局。
-
+ 
 **引用文件：** <multimedia/native_audio_channel_layout.h>
-
+ 
 **库：** 无
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 11
-
+ 
 **相关模块：** [Core](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_AudioChannelSet](#oh_audiochannelset) | OH_AudioChannelSet | 音频声道集合。  将每一个声道映射为int64的变量。 |
-| [OH_AmbAttributeSet](#oh_ambattributeset) | OH_AmbAttributeSet | 高保真立体声混响设置。  用int64整数来表示高保真立体声混响属性。 |
-| [OH_AudioChannelLayout](#oh_audiochannellayout) | OH_AudioChannelLayout | 音频声道布局。  用int64整数来表示在录制或播放时扬声器的外观和顺序。 |
+| OH_AudioChannelSet | OH_AudioChannelSet | 音频声道集合。 将每一个声道映射为int64的变量。 |
+| OH_AmbAttributeSet | OH_AmbAttributeSet | 高保真立体声混响设置。 用int64整数来表示高保真立体声混响属性。 |
+| OH_AudioChannelLayout | OH_AudioChannelLayout | 音频声道布局。 用int64整数来表示在录制或播放时扬声器的外观和顺序。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_AudioChannelSet
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_AudioChannelSet
 
 ```text
 enum OH_AudioChannelSet
 ```
-
+ 
 **描述**
-
+ 
 音频声道集合。
-
-将每一个声道映射为int64的变量。
-
+ 
+ 将每一个声道映射为int64的变量。
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 11
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
-| CH_SET_FRONT_LEFT = 1ULL &lt;&lt; 0U | 左前声道。 |
-| CH_SET_FRONT_RIGHT = 1ULL &lt;&lt; 1U | 右前声道。 |
-| CH_SET_FRONT_CENTER = 1ULL &lt;&lt; 2U | 中前声道。 |
-| CH_SET_LOW_FREQUENCY = 1ULL &lt;&lt; 3U | 低频声道。 |
-| CH_SET_BACK_LEFT = 1ULL &lt;&lt; 4U | 左后声道。 |
-| CH_SET_BACK_RIGHT = 1ULL &lt;&lt; 5U | 右后声道。 |
-| CH_SET_FRONT_LEFT_OF_CENTER = 1ULL &lt;&lt; 6U | 左前中置声道。 |
-| CH_SET_FRONT_RIGHT_OF_CENTER = 1ULL &lt;&lt; 7U | 右前中置声道。 |
-| CH_SET_BACK_CENTER = 1ULL &lt;&lt; 8U | 后方中置声道。 |
-| CH_SET_SIDE_LEFT = 1ULL &lt;&lt; 9U | 左侧声道。 |
-| CH_SET_SIDE_RIGHT = 1ULL &lt;&lt; 10U | 右侧声道。 |
-| CH_SET_TOP_CENTER = 1ULL &lt;&lt; 11U | 上方中置声道。 |
-| CH_SET_TOP_FRONT_LEFT = 1ULL &lt;&lt; 12U | 上方左前声道。 |
-| CH_SET_TOP_FRONT_CENTER = 1ULL &lt;&lt; 13U | 上方中前声道。 |
-| CH_SET_TOP_FRONT_RIGHT = 1ULL &lt;&lt; 14U | 上方右前声道。 |
-| CH_SET_TOP_BACK_LEFT = 1ULL &lt;&lt; 15U | 上方左后声道。 |
-| CH_SET_TOP_BACK_CENTER = 1ULL &lt;&lt; 16U | 上方中后声道。 |
-| CH_SET_TOP_BACK_RIGHT = 1ULL &lt;&lt; 17U | 上方右后声道。 |
-| CH_SET_STEREO_LEFT = 1ULL &lt;&lt; 29U | 立体声左声道。 |
-| CH_SET_STEREO_RIGHT = 1ULL &lt;&lt; 30U | 立体声右声道。 |
-| CH_SET_WIDE_LEFT = 1ULL &lt;&lt; 31U | 宽左声道。 |
-| CH_SET_WIDE_RIGHT = 1ULL &lt;&lt; 32U | 宽右声道。 |
-| CH_SET_SURROUND_DIRECT_LEFT = 1ULL &lt;&lt; 33U | 左环绕声道。 |
-| CH_SET_SURROUND_DIRECT_RIGHT = 1ULL &lt;&lt; 34U | 右环绕声道。 |
-| CH_SET_LOW_FREQUENCY_2 = 1ULL &lt;&lt; 35U | 低频声道2。 |
-| CH_SET_TOP_SIDE_LEFT = 1ULL &lt;&lt; 36U | 上方左侧声道。 |
-| CH_SET_TOP_SIDE_RIGHT = 1ULL &lt;&lt; 37U | 上方右侧声道。 |
-| CH_SET_BOTTOM_FRONT_CENTER = 1ULL &lt;&lt; 38U | 下方中前声道。 |
-| CH_SET_BOTTOM_FRONT_LEFT = 1ULL &lt;&lt; 39U | 下方左前声道。 |
-| CH_SET_BOTTOM_FRONT_RIGHT = 1ULL &lt;&lt; 40U | 下方右前声道。 |
+| CH_SET_FRONT_LEFT = 1ULL << 0U | 左前声道。 |
+| CH_SET_FRONT_RIGHT = 1ULL << 1U | 右前声道。 |
+| CH_SET_FRONT_CENTER = 1ULL << 2U | 中前声道。 |
+| CH_SET_LOW_FREQUENCY = 1ULL << 3U | 低频声道。 |
+| CH_SET_BACK_LEFT = 1ULL << 4U | 左后声道。 |
+| CH_SET_BACK_RIGHT = 1ULL << 5U | 右后声道。 |
+| CH_SET_FRONT_LEFT_OF_CENTER = 1ULL << 6U | 左前中置声道。 |
+| CH_SET_FRONT_RIGHT_OF_CENTER = 1ULL << 7U | 右前中置声道。 |
+| CH_SET_BACK_CENTER = 1ULL << 8U | 后方中置声道。 |
+| CH_SET_SIDE_LEFT = 1ULL << 9U | 左侧声道。 |
+| CH_SET_SIDE_RIGHT = 1ULL << 10U | 右侧声道。 |
+| CH_SET_TOP_CENTER = 1ULL << 11U | 上方中置声道。 |
+| CH_SET_TOP_FRONT_LEFT = 1ULL << 12U | 上方左前声道。 |
+| CH_SET_TOP_FRONT_CENTER = 1ULL << 13U | 上方中前声道。 |
+| CH_SET_TOP_FRONT_RIGHT = 1ULL << 14U | 上方右前声道。 |
+| CH_SET_TOP_BACK_LEFT = 1ULL << 15U | 上方左后声道。 |
+| CH_SET_TOP_BACK_CENTER = 1ULL << 16U | 上方中后声道。 |
+| CH_SET_TOP_BACK_RIGHT = 1ULL << 17U | 上方右后声道。 |
+| CH_SET_STEREO_LEFT = 1ULL << 29U | 立体声左声道。 |
+| CH_SET_STEREO_RIGHT = 1ULL << 30U | 立体声右声道。 |
+| CH_SET_WIDE_LEFT = 1ULL << 31U | 宽左声道。 |
+| CH_SET_WIDE_RIGHT = 1ULL << 32U | 宽右声道。 |
+| CH_SET_SURROUND_DIRECT_LEFT = 1ULL << 33U | 左环绕声道。 |
+| CH_SET_SURROUND_DIRECT_RIGHT = 1ULL << 34U | 右环绕声道。 |
+| CH_SET_LOW_FREQUENCY_2 = 1ULL << 35U | 低频声道2。 |
+| CH_SET_TOP_SIDE_LEFT = 1ULL << 36U | 上方左侧声道。 |
+| CH_SET_TOP_SIDE_RIGHT = 1ULL << 37U | 上方右侧声道。 |
+| CH_SET_BOTTOM_FRONT_CENTER = 1ULL << 38U | 下方中前声道。 |
+| CH_SET_BOTTOM_FRONT_LEFT = 1ULL << 39U | 下方左前声道。 |
+| CH_SET_BOTTOM_FRONT_RIGHT = 1ULL << 40U | 下方右前声道。 |
+ 
+ 
+  
 
-
-### OH_AmbAttributeSet
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_AmbAttributeSet
 
 ```text
 enum OH_AmbAttributeSet
 ```
-
+ 
 **描述**
-
+ 
 高保真立体声混响设置。
-
-用int64整数来表示高保真立体声混响属性。
-
+ 
+ 用int64整数来表示高保真立体声混响属性。
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 11
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
-| AMB_ORD_1 = 1ULL &lt;&lt; 0U | 一阶高保真立体声混响。 |
-| AMB_ORD_2 = 2ULL &lt;&lt; 0U | 二阶高保真立体声混响。 |
-| AMB_ORD_3 = 3ULL &lt;&lt; 0U | 三阶高保真立体声混响。 |
-| AMB_COM_ACN = 0ULL &lt;&lt; 8U | ACN通道排序的高保真立体声混响。 |
-| AMB_COM_FUMA = 1ULL &lt;&lt; 8U | FUMA通道排序的高保真立体声混响。 |
-| AMB_NOR_N3D = 0ULL &lt;&lt; 12U | N3D归一化的高保真立体声混响。 |
-| AMB_NOR_SN3D = 1ULL &lt;&lt; 12U | SN3D归一化的高保真立体声混响。 |
-| AMB_MODE = 1ULL &lt;&lt; 44U | 高保真立体声混响的声道布局。 |
+| AMB_ORD_1 = 1ULL << 0U | 一阶高保真立体声混响。 |
+| AMB_ORD_2 = 2ULL << 0U | 二阶高保真立体声混响。 |
+| AMB_ORD_3 = 3ULL << 0U | 三阶高保真立体声混响。 |
+| AMB_COM_ACN = 0ULL << 8U | ACN通道排序的高保真立体声混响。 |
+| AMB_COM_FUMA = 1ULL << 8U | FUMA通道排序的高保真立体声混响。 |
+| AMB_NOR_N3D = 0ULL << 12U | N3D归一化的高保真立体声混响。 |
+| AMB_NOR_SN3D = 1ULL << 12U | SN3D归一化的高保真立体声混响。 |
+| AMB_MODE = 1ULL << 44U | 高保真立体声混响的声道布局。 |
+ 
+ 
+  
 
-
-### OH_AudioChannelLayout
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_AudioChannelLayout
 
 ```text
 enum OH_AudioChannelLayout
 ```
-
+ 
 **描述**
-
+ 
 音频声道布局。
-
-用int64整数来表示在录制或播放时扬声器的外观和顺序。
-
+ 
+ 用int64整数来表示在录制或播放时扬声器的外观和顺序。
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 11
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | CH_LAYOUT_UNKNOWN = 0ULL | 未知声道布局。 |

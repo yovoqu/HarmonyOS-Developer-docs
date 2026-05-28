@@ -10,8 +10,8 @@
 | 函数变更 | 类名：Readable； API声明：push(chunk: Uint8Array \| string \| null, encoding?: string): boolean; 差异内容：chunk: Uint8Array \| string \| null | 类名：Readable； API声明：push(chunk: Uint8Array \| string \| undefined \| null, encoding?: string): boolean; 差异内容：chunk: Uint8Array \| string \| undefined \| null | api/@ohos.util.stream.d.ts |
 | 新增API | NA | 类名：Blob； API声明：get size(): number; 差异内容：get size(): number; | api/@ohos.buffer.d.ts |
 | 新增API | NA | 类名：Blob； API声明：get type(): string; 差异内容：get type(): string; | api/@ohos.buffer.d.ts |
-| 新增API | NA | 类名：global； API声明：export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => number; 差异内容：export type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => number; | api/@ohos.util.ArrayList.d.ts |
-| 新增API | NA | 类名：global； API声明：export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => number; 差异内容：export type ListComparatorFn<T> = (firstValue: T, secondValue: T) => number; | api/@ohos.util.List.d.ts |
+| 新增API | NA | 类名：global； API声明：export type ArrayListComparatorFn&lt;T&gt; = (firstValue: T, secondValue: T) => number; 差异内容：export type ArrayListComparatorFn&lt;T&gt; = (firstValue: T, secondValue: T) => number; | api/@ohos.util.ArrayList.d.ts |
+| 新增API | NA | 类名：global； API声明：export type ListComparatorFn&lt;T&gt; = (firstValue: T, secondValue: T) => number; 差异内容：export type ListComparatorFn&lt;T&gt; = (firstValue: T, secondValue: T) => number; | api/@ohos.util.List.d.ts |
 | 新增API | NA | 类名：Writable； API声明：get writableObjectMode(): boolean; 差异内容：get writableObjectMode(): boolean; | api/@ohos.util.stream.d.ts |
 | 新增API | NA | 类名：Writable； API声明：get writableHighWatermark(): number; 差异内容：get writableHighWatermark(): number; | api/@ohos.util.stream.d.ts |
 | 新增API | NA | 类名：Writable； API声明：get writable(): boolean; 差异内容：get writable(): boolean; | api/@ohos.util.stream.d.ts |
@@ -63,5 +63,5 @@
 | 删除API | 类名：Duplex； API声明：readonly writableFinished: boolean; 差异内容：readonly writableFinished: boolean; | NA | api/@ohos.util.stream.d.ts |
 | 删除API | 类名：Decimal； API声明：readonly e: number; 差异内容：readonly e: number; | NA | arkts/@arkts.math.Decimal.d.ets |
 | 删除API | 类名：Decimal； API声明：readonly s: number; 差异内容：readonly s: number; | NA | arkts/@arkts.math.Decimal.d.ets |
-| 函数变更 | 类名：ArrayList； API声明：sort(comparator?: (firstValue: T, secondValue: T) => number): void; 差异内容：comparator?: (firstValue: T, secondValue: T) => number | 类名：ArrayList； API声明：sort(comparator?: ArrayListComparatorFn<T>): void; 差异内容：comparator?: ArrayListComparatorFn<T> | api/@ohos.util.ArrayList.d.ts |
-| 函数变更 | 类名：List； API声明：sort(comparator: (firstValue: T, secondValue: T) => number): void; 差异内容：comparator: (firstValue: T, secondValue: T) => number | 类名：List； API声明：sort(comparator: ListComparatorFn<T>): void; 差异内容：comparator: ListComparatorFn<T> | api/@ohos.util.List.d.ts |
+| 函数变更 | 类名：ArrayList； API声明：sort(comparator?: (firstValue: T, secondValue: T) => number): void; 差异内容：comparator?: (firstValue: T, secondValue: T) => number | 类名：ArrayList； API声明：sort(comparator?: ArrayListComparatorFn&lt;T&gt;): void; 差异内容：comparator?: ArrayListComparatorFn&lt;T&gt; | api/@ohos.util.ArrayList.d.ts |
+| 函数变更 | 类名：List； API声明：sort(comparator: (firstValue: T, secondValue: T) => number): void; 差异内容：comparator: (firstValue: T, secondValue: T) => number | 类名：List； API声明：sort(comparator: ListComparatorFn&lt;T&gt;): void; 差异内容：comparator: ListComparatorFn&lt;T&gt; | api/@ohos.util.List.d.ts |

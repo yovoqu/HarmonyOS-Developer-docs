@@ -4,12 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image-analyzer
 
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 
-## 110001 AI图像分析功能不支持
+##### 110001 AI图像分析功能不支持
 
 **错误信息**
 
@@ -28,7 +28,8 @@ Image analysis feature is unsupported.
 NA
 
 
-## 110002 AI图像分析正在进行中
+
+##### 110002 AI图像分析正在进行中
 
 **错误信息**
 
@@ -47,7 +48,8 @@ Image analysis is currently being executed.
 NA
 
 
-## 110003 AI图像分析已停止
+
+##### 110003 AI图像分析已停止
 
 **错误信息**
 

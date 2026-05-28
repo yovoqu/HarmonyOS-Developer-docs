@@ -4,7 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/icu4c-symbol
 
-
 | 符号类型 | 符号名 | API version起始版本 |
 | --- | --- | --- |
 | FUNC | UCNV_TO_U_CALLBACK_ESCAPE | 12 |

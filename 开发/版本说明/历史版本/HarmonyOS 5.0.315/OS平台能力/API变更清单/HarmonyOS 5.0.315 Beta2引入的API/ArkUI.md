@@ -44,21 +44,21 @@
 | 新增API | NA | 类名：IndicatorComponentAttribute； API声明：style(indicatorStyle: DotIndicator \| DigitIndicator): IndicatorComponentAttribute; 差异内容：style(indicatorStyle: DotIndicator \| DigitIndicator): IndicatorComponentAttribute; | component/indicatorcomponent.d.ts |
 | 新增API | NA | 类名：IndicatorComponentAttribute； API声明：loop(isLoop: boolean): IndicatorComponentAttribute; 差异内容：loop(isLoop: boolean): IndicatorComponentAttribute; | component/indicatorcomponent.d.ts |
 | 新增API | NA | 类名：IndicatorComponentAttribute； API声明：vertical(isVertical: boolean): IndicatorComponentAttribute; 差异内容：vertical(isVertical: boolean): IndicatorComponentAttribute; | component/indicatorcomponent.d.ts |
-| 新增API | NA | 类名：IndicatorComponentAttribute； API声明：onChange(event: Callback<number>): IndicatorComponentAttribute; 差异内容：onChange(event: Callback<number>): IndicatorComponentAttribute; | component/indicatorcomponent.d.ts |
+| 新增API | NA | 类名：IndicatorComponentAttribute； API声明：onChange(event: Callback&lt;number&gt;): IndicatorComponentAttribute; 差异内容：onChange(event: Callback&lt;number&gt;): IndicatorComponentAttribute; | component/indicatorcomponent.d.ts |
 | 新增API | NA | 类名：global； API声明：declare const IndicatorComponent: IndicatorComponentInterface; 差异内容：declare const IndicatorComponent: IndicatorComponentInterface; | component/indicatorcomponent.d.ts |
 | 新增API | NA | 类名：global； API声明：declare const IndicatorComponentInstance: IndicatorComponentAttribute; 差异内容：declare const IndicatorComponentInstance: IndicatorComponentAttribute; | component/indicatorcomponent.d.ts |
-| 新增API | NA | 类名：Window； API声明：setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise<WindowLimits>; 差异内容：setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise<WindowLimits>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：startMoving(offsetX: number, offsetY: number): Promise<void>; 差异内容：startMoving(offsetX: number, offsetY: number): Promise<void>; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise&lt;WindowLimits&gt;; 差异内容：setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise&lt;WindowLimits&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：startMoving(offsetX: number, offsetY: number): Promise&lt;void&gt;; 差异内容：startMoving(offsetX: number, offsetY: number): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface Callback 差异内容： declare interface Callback | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：window； API声明：function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise<void>; 差异内容：function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void; 差异内容：on(type: 'windowWillClose', callback: Callback<void, Promise<boolean>>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void; 差异内容：off(type: 'windowWillClose', callback?: Callback<void, Promise<boolean>>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：on(type: 'windowHighlightChange', callback: Callback<boolean>): void; 差异内容：on(type: 'windowHighlightChange', callback: Callback<boolean>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：off(type: 'windowHighlightChange', callback?: Callback<boolean>): void; 差异内容：off(type: 'windowHighlightChange', callback?: Callback<boolean>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>; 差异内容：setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：setWindowTitle(titleName: string): Promise<void>; 差异内容：setWindowTitle(titleName: string): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：stopMoving(): Promise<void>; 差异内容：stopMoving(): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>; 差异内容：setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：window； API声明：function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise&lt;void&gt;; 差异内容：function shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：on(type: 'windowWillClose', callback: Callback<void, Promise&lt;boolean&gt;>): void; 差异内容：on(type: 'windowWillClose', callback: Callback<void, Promise&lt;boolean&gt;>): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：off(type: 'windowWillClose', callback?: Callback<void, Promise&lt;boolean&gt;>): void; 差异内容：off(type: 'windowWillClose', callback?: Callback<void, Promise&lt;boolean&gt;>): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：on(type: 'windowHighlightChange', callback: Callback&lt;boolean&gt;): void; 差异内容：on(type: 'windowHighlightChange', callback: Callback&lt;boolean&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：off(type: 'windowHighlightChange', callback?: Callback&lt;boolean&gt;): void; 差异内容：off(type: 'windowHighlightChange', callback?: Callback&lt;boolean&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise&lt;void&gt;; 差异内容：setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setWindowTitle(titleName: string): Promise&lt;void&gt;; 差异内容：setWindowTitle(titleName: string): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：stopMoving(): Promise&lt;void&gt;; 差异内容：stopMoving(): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise&lt;void&gt;; 差异内容：setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：FrameNode； API声明：getChild(index: number, expandMode?: ExpandMode): FrameNode \| null; 差异内容：getChild(index: number, expandMode?: ExpandMode): FrameNode \| null; | api/arkui/FrameNode.d.ts |
 | 新增API | NA | 类名：global； API声明： export enum ExpandMode 差异内容： export enum ExpandMode | api/arkui/FrameNode.d.ts |
 | 新增API | NA | 类名：ExpandMode； API声明：NOT_EXPAND = 0 差异内容：NOT_EXPAND = 0 | api/arkui/FrameNode.d.ts |
@@ -90,13 +90,13 @@
 | 新增API | NA | 类名：DropOptions； API声明：disableDataPrefetch?: boolean; 差异内容：disableDataPrefetch?: boolean; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface FocusAxisEvent 差异内容： declare interface FocusAxisEvent | component/common.d.ts |
 | 新增API | NA | 类名：FocusAxisEvent； API声明：axisMap: Map<AxisModel, number>; 差异内容：axisMap: Map<AxisModel, number>; | component/common.d.ts |
-| 新增API | NA | 类名：FocusAxisEvent； API声明：stopPropagation: Callback<void>; 差异内容：stopPropagation: Callback<void>; | component/common.d.ts |
+| 新增API | NA | 类名：FocusAxisEvent； API声明：stopPropagation: Callback&lt;void&gt;; 差异内容：stopPropagation: Callback&lt;void&gt;; | component/common.d.ts |
 | 新增API | NA | 类名：SheetOptions； API声明：radius?: LengthMetrics \| BorderRadiuses \| LocalizedBorderRadiuses; 差异内容：radius?: LengthMetrics \| BorderRadiuses \| LocalizedBorderRadiuses; | component/common.d.ts |
 | 新增API | NA | 类名：SheetOptions； API声明：detentSelection?: SheetSize \| Length; 差异内容：detentSelection?: SheetSize \| Length; | component/common.d.ts |
 | 新增API | NA | 类名：PopupOptions； API声明：keyboardAvoidMode?: KeyboardAvoidMode; 差异内容：keyboardAvoidMode?: KeyboardAvoidMode; | component/common.d.ts |
 | 新增API | NA | 类名：CustomPopupOptions； API声明：keyboardAvoidMode?: KeyboardAvoidMode; 差异内容：keyboardAvoidMode?: KeyboardAvoidMode; | component/common.d.ts |
 | 新增API | NA | 类名：CommonMethod； API声明：onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T; 差异内容：onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T; | component/common.d.ts |
-| 新增API | NA | 类名：CommonMethod； API声明：onFocusAxisEvent(event: Callback<FocusAxisEvent>): T; 差异内容：onFocusAxisEvent(event: Callback<FocusAxisEvent>): T; | component/common.d.ts |
+| 新增API | NA | 类名：CommonMethod； API声明：onFocusAxisEvent(event: Callback&lt;FocusAxisEvent&gt;): T; 差异内容：onFocusAxisEvent(event: Callback&lt;FocusAxisEvent&gt;): T; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface TextContentControllerOptions 差异内容： declare interface TextContentControllerOptions | component/common.d.ts |
 | 新增API | NA | 类名：TextContentControllerOptions； API声明：offset?: number; 差异内容：offset?: number; | component/common.d.ts |
 | 新增API | NA | 类名：TextContentControllerBase； API声明：addText(text: string, textOperationOptions?: TextContentControllerOptions): number; 差异内容：addText(text: string, textOperationOptions?: TextContentControllerOptions): number; | component/common.d.ts |
@@ -114,7 +114,7 @@
 | 新增API | NA | 类名：SwiperAnimationMode； API声明：NO_ANIMATION = 0 差异内容：NO_ANIMATION = 0 | component/swiper.d.ts |
 | 新增API | NA | 类名：SwiperAnimationMode； API声明：DEFAULT_ANIMATION = 1 差异内容：DEFAULT_ANIMATION = 1 | component/swiper.d.ts |
 | 新增API | NA | 类名：SwiperAnimationMode； API声明：FAST_ANIMATION = 2 差异内容：FAST_ANIMATION = 2 | component/swiper.d.ts |
-| 新增API | NA | 类名：SwiperAttribute； API声明：pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute; 差异内容：pageFlipMode(mode: Optional<PageFlipMode>): SwiperAttribute; | component/swiper.d.ts |
+| 新增API | NA | 类名：SwiperAttribute； API声明：pageFlipMode(mode: Optional&lt;PageFlipMode&gt;): SwiperAttribute; 差异内容：pageFlipMode(mode: Optional&lt;PageFlipMode&gt;): SwiperAttribute; | component/swiper.d.ts |
 | 新增API | NA | 类名：TextMenuItem； API声明：labelInfo?: ResourceStr; 差异内容：labelInfo?: ResourceStr; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface TextChangeOptions 差异内容： declare interface TextChangeOptions | component/text_common.d.ts |
 | 新增API | NA | 类名：TextChangeOptions； API声明：rangeBefore: TextRange; 差异内容：rangeBefore: TextRange; | component/text_common.d.ts |
@@ -149,15 +149,15 @@
 | 新增API | NA | 类名：UIContext； API声明：setOverlayManagerOptions(options: OverlayManagerOptions): boolean; 差异内容：setOverlayManagerOptions(options: OverlayManagerOptions): boolean; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：getOverlayManagerOptions(): OverlayManagerOptions; 差异内容：getOverlayManagerOptions(): OverlayManagerOptions; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：dispatchKeyEvent(node: number \| string, event: KeyEvent): boolean; 差异内容：dispatchKeyEvent(node: number \| string, event: KeyEvent): boolean; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：AtomicServiceWeb； API声明：@Prop  nestedScroll?: NestedScrollOptions \| NestedScrollOptionsExt; 差异内容：@Prop  nestedScroll?: NestedScrollOptions \| NestedScrollOptionsExt; | api/@ohos.atomicservice.AtomicServiceWeb.d.ets |
+| 新增API | NA | 类名：AtomicServiceWeb； API声明：@Prop nestedScroll?: NestedScrollOptions \| NestedScrollOptionsExt; 差异内容：@Prop nestedScroll?: NestedScrollOptions \| NestedScrollOptionsExt; | api/@ohos.atomicservice.AtomicServiceWeb.d.ets |
 | 新增API | NA | 类名：FoldStatus； API声明：FOLD_STATUS_EXPANDED_WITH_SECOND_EXPANDED = 11 差异内容：FOLD_STATUS_EXPANDED_WITH_SECOND_EXPANDED = 11 | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：FoldStatus； API声明：FOLD_STATUS_EXPANDED_WITH_SECOND_HALF_FOLDED = 21 差异内容：FOLD_STATUS_EXPANDED_WITH_SECOND_HALF_FOLDED = 21 | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：FoldStatus； API声明：FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12 差异内容：FOLD_STATUS_FOLDED_WITH_SECOND_EXPANDED = 12 | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：FoldStatus； API声明：FOLD_STATUS_FOLDED_WITH_SECOND_HALF_FOLDED = 22 差异内容：FOLD_STATUS_FOLDED_WITH_SECOND_HALF_FOLDED = 22 | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：FoldStatus； API声明：FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13 差异内容：FOLD_STATUS_HALF_FOLDED_WITH_SECOND_EXPANDED = 13 | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：FoldStatus； API声明：FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23 差异内容：FOLD_STATUS_HALF_FOLDED_WITH_SECOND_HALF_FOLDED = 23 | api/@ohos.display.d.ts |
-| 新增API | NA | 类名：PiPController； API声明：on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void; 差异内容：on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void; | api/@ohos.PiPWindow.d.ts |
-| 新增API | NA | 类名：PiPController； API声明：off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void; 差异内容：off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void; | api/@ohos.PiPWindow.d.ts |
+| 新增API | NA | 类名：PiPController； API声明：on(type: 'pipWindowSizeChange', callback: Callback&lt;PiPWindowSize&gt;): void; 差异内容：on(type: 'pipWindowSizeChange', callback: Callback&lt;PiPWindowSize&gt;): void; | api/@ohos.PiPWindow.d.ts |
+| 新增API | NA | 类名：PiPController； API声明：off(type: 'pipWindowSizeChange', callback?: Callback&lt;PiPWindowSize&gt;): void; 差异内容：off(type: 'pipWindowSizeChange', callback?: Callback&lt;PiPWindowSize&gt;): void; | api/@ohos.PiPWindow.d.ts |
 | 新增API | NA | 类名：global； API声明： export enum LevelMode 差异内容： export enum LevelMode | api/@ohos.promptAction.d.ts |
 | 新增API | NA | 类名：LevelMode； API声明：OVERLAY = 0 差异内容：OVERLAY = 0 | api/@ohos.promptAction.d.ts |
 | 新增API | NA | 类名：LevelMode； API声明：EMBEDDED = 1 差异内容：EMBEDDED = 1 | api/@ohos.promptAction.d.ts |
@@ -216,15 +216,15 @@
 | 新增API | NA | 类名：NavigationSystemTransitionType； API声明：SLIDE_RIGHT = 6 差异内容：SLIDE_RIGHT = 6 | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavigationSystemTransitionType； API声明：SLIDE_BOTTOM = 7 差异内容：SLIDE_BOTTOM = 7 | component/nav_destination.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface NavDestinationTransition 差异内容： declare interface NavDestinationTransition | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationTransition； API声明：onTransitionEnd?: Callback<void>; 差异内容：onTransitionEnd?: Callback<void>; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationTransition； API声明：onTransitionEnd?: Callback&lt;void&gt;; 差异内容：onTransitionEnd?: Callback&lt;void&gt;; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavDestinationTransition； API声明：duration?: number; 差异内容：duration?: number; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavDestinationTransition； API声明：curve?: Curve; 差异内容：curve?: Curve; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavDestinationTransition； API声明：delay?: number; 差异内容：delay?: number; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationTransition； API声明：event: Callback<void>; 差异内容：event: Callback<void>; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationAttribute； API声明：hideBackButton(hide: Optional<boolean>): NavDestinationAttribute; 差异内容：hideBackButton(hide: Optional<boolean>): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationAttribute； API声明：onResult(callback: Optional<Callback<ESObject>>): NavDestinationAttribute; 差异内容：onResult(callback: Optional<Callback<ESObject>>): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationTransition； API声明：event: Callback&lt;void&gt;; 差异内容：event: Callback&lt;void&gt;; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationAttribute； API声明：hideBackButton(hide: Optional&lt;boolean&gt;): NavDestinationAttribute; 差异内容：hideBackButton(hide: Optional&lt;boolean&gt;): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationAttribute； API声明：onResult(callback: Optional<Callback&lt;ESObject&gt;>): NavDestinationAttribute; 差异内容：onResult(callback: Optional<Callback&lt;ESObject&gt;>): NavDestinationAttribute; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavDestinationAttribute； API声明：customTransition(delegate: NavDestinationTransitionDelegate): NavDestinationAttribute; 差异内容：customTransition(delegate: NavDestinationTransitionDelegate): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：global； API声明：declare type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> \| undefined; 差异内容：declare type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> \| undefined; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：global； API声明：declare type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array&lt;NavDestinationTransition&gt; \| undefined; 差异内容：declare type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array&lt;NavDestinationTransition&gt; \| undefined; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：CircleStyleOptions； API声明：enableForeground?: boolean; 差异内容：enableForeground?: boolean; | component/pattern_lock.d.ts |
 | 新增API | NA | 类名：PatternLockAttribute； API声明：skipUnselectedPoint(skipped: boolean): PatternLockAttribute; 差异内容：skipUnselectedPoint(skipped: boolean): PatternLockAttribute; | component/pattern_lock.d.ts |
 | 新增API | NA | 类名：RichEditorSpanType； API声明：DEFAULT = 4 差异内容：DEFAULT = 4 | component/rich_editor.d.ts |
@@ -235,7 +235,7 @@
 | 新增API | NA | 类名：SearchAttribute； API声明：onWillChange(callback: Callback<EditableTextChangeValue, boolean>): SearchAttribute; 差异内容：onWillChange(callback: Callback<EditableTextChangeValue, boolean>): SearchAttribute; | component/search.d.ts |
 | 新增API | NA | 类名：ImageAttachment； API声明：readonly colorFilter?: ColorFilterType; 差异内容：readonly colorFilter?: ColorFilterType; | component/styled_string.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface ResourceImageAttachmentOptions 差异内容： declare interface ResourceImageAttachmentOptions | component/styled_string.d.ts |
-| 新增API | NA | 类名：ResourceImageAttachmentOptions； API声明：resourceValue: Optional<ResourceStr>; 差异内容：resourceValue: Optional<ResourceStr>; | component/styled_string.d.ts |
+| 新增API | NA | 类名：ResourceImageAttachmentOptions； API声明：resourceValue: Optional&lt;ResourceStr&gt;; 差异内容：resourceValue: Optional&lt;ResourceStr&gt;; | component/styled_string.d.ts |
 | 新增API | NA | 类名：ResourceImageAttachmentOptions； API声明：size?: SizeOptions; 差异内容：size?: SizeOptions; | component/styled_string.d.ts |
 | 新增API | NA | 类名：ResourceImageAttachmentOptions； API声明：verticalAlign?: ImageSpanAlignment; 差异内容：verticalAlign?: ImageSpanAlignment; | component/styled_string.d.ts |
 | 新增API | NA | 类名：ResourceImageAttachmentOptions； API声明：objectFit?: ImageFit; 差异内容：objectFit?: ImageFit; | component/styled_string.d.ts |
@@ -253,7 +253,7 @@
 | 新增API | NA | 类名：TabsOptions； API声明：index?: number; 差异内容：index?: number; | component/tabs.d.ts |
 | 新增API | NA | 类名：TabsOptions； API声明：controller?: TabsController; 差异内容：controller?: TabsController; | component/tabs.d.ts |
 | 新增API | NA | 类名：TabsOptions； API声明：barModifier?: CommonModifier; 差异内容：barModifier?: CommonModifier; | component/tabs.d.ts |
-| 新增API | NA | 类名：TabsAttribute； API声明：pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute; 差异内容：pageFlipMode(mode: Optional<PageFlipMode>): TabsAttribute; | component/tabs.d.ts |
+| 新增API | NA | 类名：TabsAttribute； API声明：pageFlipMode(mode: Optional&lt;PageFlipMode&gt;): TabsAttribute; 差异内容：pageFlipMode(mode: Optional&lt;PageFlipMode&gt;): TabsAttribute; | component/tabs.d.ts |
 | 新增API | NA | 类名：TextSpanType； API声明：DEFAULT = 3 差异内容：DEFAULT = 3 | component/text.d.ts |
 | 新增API | NA | 类名：TextResponseType； API声明：DEFAULT = 3 差异内容：DEFAULT = 3 | component/text.d.ts |
 | 新增API | NA | 类名：TextAreaAttribute； API声明：onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextAreaAttribute; 差异内容：onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextAreaAttribute; | component/text_area.d.ts |

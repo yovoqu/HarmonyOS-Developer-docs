@@ -4,65 +4,97 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-rest-jwt-public-key
 
-
-> [!CAUTION] 说明
-> 
-
 ![](assets/获取验证ID%20Token的JWT公钥信息/file-20260525091450111-001.png)
-> 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。 关于TLS1.2协议及规定内加密套件的信息，可以点击这里进行详细了解：TLS协议及加密套件。
 
-#### 功能介绍
+
+为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
+
+关于TLS1.2协议及规定内加密套件的信息，可以点击这里进行详细了解：[TLS协议及加密套件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#tls协议及加密套件)。
+
+
+
+
+##### 功能介绍
+
 获取ID Token解析与验证所需的JWT公钥信息。该接口会返回当天及前一天的JWT公钥信息，应用服务端可根据ID Token中的kid与此接口返回的kid进行比对，拿到对应的公钥信息。
 
-#### 场景描述
+
+
+##### 场景描述
+
 应用在获取到ID Token后，需要对其进行解析与验证，解析后可获取用户数据，并验证签名。
 
-> [!NOTE] 说明
-> JWT公钥信息每天0点进行刷新。  PS256与RS256算法的JWT公钥信息一致。具体如何通过JWT公钥解析验证ID Token，详见服务端解析与验证。
+> [!NOTE]
+> JWT公钥信息每天0点进行刷新。 PS256与RS256算法的JWT公钥信息一致。具体如何通过JWT公钥解析验证ID Token，详见 服务端解析与验证 。
 
-#### 使用约束
+
+
+
+##### 使用约束
+
 需确保调用端网络正常。
 
-#### 接口原型
-- 承载协议： HTTPS POST/GET
-- 接口方向： 开发者服务器->华为账号服务器
-- 接口URL： https://oauth-login.cloud.huawei.com/oauth2/v3/certs
-- 数据格式： 响应消息：Content-Type: application/json;charset=utf-8
 
-#### 请求参数
+
+##### 接口原型
+
+ - **承载协议：** HTTPS POST/GET
+ - **接口方向：** 开发者服务器->华为账号服务器
+ - **接口URL：** https://oauth-login.cloud.huawei.com/oauth2/v3/certs
+ - **数据格式：**
+
+  响应消息：Content-Type: application/json;charset=utf-8
+
+
+
+
+##### 请求参数
+
 无
 
-#### 请求示例
+
+
+##### 请求示例
+
 请通过POST方式调用，示例如下：
 
-```ts
+```text
 POST /oauth2/v3/certs HTTP/1.1
 Host: oauth-login.cloud.huawei.com
 ```
 
 请通过GET方式调用，示例如下：
 
-```ts
+```text
 GET /oauth2/v3/certs HTTP/1.1
 Host: oauth-login.cloud.huawei.com
 ```
 
-#### 响应参数
-#### Response Header
+
+
+##### 响应参数
+
+
+
+##### Response Header
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | Content-Type | 是 | String | 取值为：application/json;charset=utf-8。 |
 
-#### Response Body
+
+
+
+##### Response Body
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | keys | 是 | JSONArray | JWT公钥信息数组 |
 
+
 keys数组每个元素中包含字段信息如下：
 
-| **参数** | 是否必选 | 参数类型 | 描述 |
+| 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | kty | 是 | String | JWK type，固定"RSA"。 |
 | e | 是 | String | RSA算法e值。 |
@@ -71,9 +103,12 @@ keys数组每个元素中包含字段信息如下：
 | alg | 是 | String | 算法类型，当前该字段值固定为"RS256"。 |
 | n | 是 | String | RSA算法n值。 |
 
-#### 响应示例
 
-```ts
+
+
+##### 响应示例
+
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=utf-8
 
@@ -99,10 +134,13 @@ Content-Type: application/json;charset=utf-8
 }
 ```
 
-#### 示例代码
+
+
+##### 示例代码
+
 Java示例代码如下，运行前需要进行[示例代码环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-common#示例代码环境配置)（请将此示例代码与工具类CallUtils放于同一路径下，如不在同一路径，请手动添加import）
 
-```ts
+```json
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import org.apache.http.client.methods.HttpGet;
@@ -138,16 +176,18 @@ public class GetIdTokenCerts {
 }
 ```
 
-#### 错误码
+
+
+##### 错误码
 
 | HTTP响应码 | 描述 | 解决方法 |
 | --- | --- | --- |
 | 200 | 成功。 | - |
-| 403 | 无权限访问。 | 通常是调用方网络安全策略阻止了访问，请检查网络环境配置。若仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
+| 403 | 无权限访问。 | 通常是调用方网络安全策略阻止了访问，请检查网络环境配置。若仍无法解决，请通过在线提单提交问题。 |
 | 404 | 找不到服务。 | 请检查请求URI是否正确。 |
 | 405 | 不支持的http请求method。 | 请检查http请求method是否与接口说明一致。 |
-| 500 | 服务内部错误。 | 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
-| 502 | 请求连接异常，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
+| 500 | 服务内部错误。 | 请通过在线提单提交问题。 |
+| 502 | 请求连接异常，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过在线提单提交问题。 |
 | 503 | 系统流控。 | 触发系统流控，请稍后重试。 |
-| 504 | 请求连接超时，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
-| 590 | 服务内部错误。 | 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。 |
+| 504 | 请求连接超时，常见于网络状况不稳定。 | 建议稍后重试，若仍无法解决，请通过在线提单提交问题。 |
+| 590 | 服务内部错误。 | 请通过在线提单提交问题。 |

@@ -1,6 +1,6 @@
 # 证书PKCS12的创建和解析
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-parse-pkcs12
 
@@ -11,21 +11,33 @@
 PKCS12是一种用于存储和传输用户私钥、证书及其相关证书链的标准格式。该格式通过密码保护，将多个密码学对象打包为一个加密的容器文件，支持存储私钥、公钥证书、证书颁发机构证书以及其他相关的密码学数据。PKCS12广泛应用于数字证书的安全存储、跨平台传输和证书备份场景，是实现证书管理和PKI应用的重要标准之一。
 
 
-## 开发步骤
+##### 开发步骤
+1. 导入[证书算法库框架模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
 
-导入[证书算法库框架模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
+  
 ```text
 import { cert } from '@kit.DeviceCertificateKit';
 ```
 
-调用[cert.createPkcs12](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatepkcs1221)创建PKCS12文件。 调用[cert.parsePkcs12](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certparsepkcs1218)解析PKCS12文件。 异步方法示例：
-```text
+2. 调用[cert.createPkcs12](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatepkcs1221)创建PKCS12文件。
+3. 调用[cert.parsePkcs12](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certparsepkcs1218)解析PKCS12文件。
+
+ - 异步方法示例：
+
+
+```ArkTS
 import { cert } from '@kit.DeviceCertificateKit';
 
 // string转Uint8Array。
 function stringToUint8Array(str: string): Uint8Array {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; i++) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+async function createX509Cert(certData: string): Promise<cert.X509Cert> {
   // 证书二进制数据，需业务自行赋值。
   let encodingBlob: cert.EncodingBlob = {
     data: stringToUint8Array(certData),
@@ -172,14 +184,22 @@ async function doTestCreatePkcs12() {
 }
 ```
 
-同步方法示例：
-```text
+ - 同步方法示例：
+
+
+```ArkTS
 import { cert } from '@kit.DeviceCertificateKit';
 
 // string转Uint8Array。
 function stringToUint8Array(str: string): Uint8Array {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; i++) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+async function createX509Cert(certData: string): Promise<cert.X509Cert> {
   // 证书二进制数据，需业务自行赋值。
   let encodingBlob: cert.EncodingBlob = {
     data: stringToUint8Array(certData),

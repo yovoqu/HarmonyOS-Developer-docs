@@ -1,6 +1,6 @@
 # Basic Services Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-basicserviceskit-6111
 
@@ -11,13 +11,13 @@
 | 新增API | NA | 类名：SelectionExtensionAbility； API声明：onConnect(want: Want): rpc.RemoteObject; 差异内容：onConnect(want: Want): rpc.RemoteObject; | api/@ohos.selectionInput.SelectionExtensionAbility.d.ts |
 | 新增API | NA | 类名：SelectionExtensionAbility； API声明：onDisconnect(): void; 差异内容：onDisconnect(): void; | api/@ohos.selectionInput.SelectionExtensionAbility.d.ts |
 | 新增API | NA | 类名：global； API声明：declare class SelectionExtensionContext 差异内容：declare class SelectionExtensionContext | api/@ohos.selectionInput.SelectionExtensionContext.d.ts |
-| 新增API | NA | 类名：SelectionExtensionContext； API声明：startAbility(want: Want): Promise<void>; 差异内容：startAbility(want: Want): Promise<void>; | api/@ohos.selectionInput.SelectionExtensionContext.d.ts |
+| 新增API | NA | 类名：SelectionExtensionContext； API声明：startAbility(want: Want): Promise&lt;void&gt;; 差异内容：startAbility(want: Want): Promise&lt;void&gt;; | api/@ohos.selectionInput.SelectionExtensionContext.d.ts |
 | 新增API | NA | 类名：global； API声明：declare namespace selectionManager 差异内容：declare namespace selectionManager | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：selectionManager； API声明：function on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void; 差异内容：function on(type: 'selectionCompleted', callback: Callback<SelectionInfo>): void; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：selectionManager； API声明：function off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void; 差异内容：function off(type: 'selectionCompleted', callback?: Callback<SelectionInfo>): void; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：selectionManager； API声明：function getSelectionContent(): Promise<string>; 差异内容：function getSelectionContent(): Promise<string>; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：selectionManager； API声明：function createPanel(ctx: Context, info: PanelInfo): Promise<Panel>; 差异内容：function createPanel(ctx: Context, info: PanelInfo): Promise<Panel>; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：selectionManager； API声明：function destroyPanel(panel: Panel): Promise<void>; 差异内容：function destroyPanel(panel: Panel): Promise<void>; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：selectionManager； API声明：function on(type: 'selectionCompleted', callback: Callback&lt;SelectionInfo&gt;): void; 差异内容：function on(type: 'selectionCompleted', callback: Callback&lt;SelectionInfo&gt;): void; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：selectionManager； API声明：function off(type: 'selectionCompleted', callback?: Callback&lt;SelectionInfo&gt;): void; 差异内容：function off(type: 'selectionCompleted', callback?: Callback&lt;SelectionInfo&gt;): void; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：selectionManager； API声明：function getSelectionContent(): Promise&lt;string&gt;; 差异内容：function getSelectionContent(): Promise&lt;string&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：selectionManager； API声明：function createPanel(ctx: Context, info: PanelInfo): Promise&lt;Panel&gt;; 差异内容：function createPanel(ctx: Context, info: PanelInfo): Promise&lt;Panel&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：selectionManager； API声明：function destroyPanel(panel: Panel): Promise&lt;void&gt;; 差异内容：function destroyPanel(panel: Panel): Promise&lt;void&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：selectionManager； API声明：interface SelectionInfo 差异内容：interface SelectionInfo | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：SelectionInfo； API声明：selectionType: SelectionType; 差异内容：selectionType: SelectionType; | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：SelectionInfo； API声明：startDisplayX: number; 差异内容：startDisplayX: number; | api/@ohos.selectionInput.selectionManager.d.ts |
@@ -32,15 +32,15 @@
 | 新增API | NA | 类名：SelectionInfo； API声明：windowID: number; 差异内容：windowID: number; | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：SelectionInfo； API声明：bundleName: string; 差异内容：bundleName: string; | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：selectionManager； API声明：interface Panel 差异内容：interface Panel | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：setUiContent(path: string): Promise<void>; 差异内容：setUiContent(path: string): Promise<void>; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：show(): Promise<void>; 差异内容：show(): Promise<void>; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：hide(): Promise<void>; 差异内容：hide(): Promise<void>; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：startMoving(): Promise<void>; 差异内容：startMoving(): Promise<void>; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：moveToGlobalDisplay(x: number, y: number): Promise<void>; 差异内容：moveToGlobalDisplay(x: number, y: number): Promise<void>; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：on(type: 'destroyed', callback: Callback<void>): void; 差异内容：on(type: 'destroyed', callback: Callback<void>): void; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：off(type: 'destroyed', callback?: Callback<void>): void; 差异内容：off(type: 'destroyed', callback?: Callback<void>): void; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：on(type: 'hidden', callback: Callback<void>): void; 差异内容：on(type: 'hidden', callback: Callback<void>): void; | api/@ohos.selectionInput.selectionManager.d.ts |
-| 新增API | NA | 类名：Panel； API声明：off(type: 'hidden', callback?: Callback<void>): void; 差异内容：off(type: 'hidden', callback?: Callback<void>): void; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：setUiContent(path: string): Promise&lt;void&gt;; 差异内容：setUiContent(path: string): Promise&lt;void&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：show(): Promise&lt;void&gt;; 差异内容：show(): Promise&lt;void&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：hide(): Promise&lt;void&gt;; 差异内容：hide(): Promise&lt;void&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：startMoving(): Promise&lt;void&gt;; 差异内容：startMoving(): Promise&lt;void&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：moveToGlobalDisplay(x: number, y: number): Promise&lt;void&gt;; 差异内容：moveToGlobalDisplay(x: number, y: number): Promise&lt;void&gt;; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：on(type: 'destroyed', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'destroyed', callback: Callback&lt;void&gt;): void; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：off(type: 'destroyed', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'destroyed', callback?: Callback&lt;void&gt;): void; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：on(type: 'hidden', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'hidden', callback: Callback&lt;void&gt;): void; | api/@ohos.selectionInput.selectionManager.d.ts |
+| 新增API | NA | 类名：Panel； API声明：off(type: 'hidden', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'hidden', callback?: Callback&lt;void&gt;): void; | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：selectionManager； API声明：enum SelectionType 差异内容：enum SelectionType | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：SelectionType； API声明：MOUSE_MOVE = 1 差异内容：MOUSE_MOVE = 1 | api/@ohos.selectionInput.selectionManager.d.ts |
 | 新增API | NA | 类名：SelectionType； API声明：DOUBLE_CLICK = 2 差异内容：DOUBLE_CLICK = 2 | api/@ohos.selectionInput.selectionManager.d.ts |
@@ -77,7 +77,7 @@
 | 新增API | NA | 类名：print； API声明：interface PrinterRange 差异内容：interface PrinterRange | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterRange； API声明：startPage?: number; 差异内容：startPage?: number; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterRange； API声明：endPage?: number; 差异内容：endPage?: number; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：PrinterRange； API声明：pages?: Array<number>; 差异内容：pages?: Array<number>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：PrinterRange； API声明：pages?: Array&lt;number&gt;; 差异内容：pages?: Array&lt;number&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：print； API声明：interface PreviewAttribute 差异内容：interface PreviewAttribute | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PreviewAttribute； API声明：previewRange: PrinterRange; 差异内容：previewRange: PrinterRange; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PreviewAttribute； API声明：result?: number; 差异内容：result?: number; | api/@ohos.print.d.ts |
@@ -88,8 +88,8 @@
 | 新增API | NA | 类名：print； API声明：interface PrinterCapability 差异内容：interface PrinterCapability | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterCapability； API声明：colorMode: number; 差异内容：colorMode: number; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterCapability； API声明：duplexMode: number; 差异内容：duplexMode: number; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：PrinterCapability； API声明：pageSize: Array<PrintPageSize>; 差异内容：pageSize: Array<PrintPageSize>; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：PrinterCapability； API声明：resolution?: Array<PrintResolution>; 差异内容：resolution?: Array<PrintResolution>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：PrinterCapability； API声明：pageSize: Array&lt;PrintPageSize&gt;; 差异内容：pageSize: Array&lt;PrintPageSize&gt;; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：PrinterCapability； API声明：resolution?: Array&lt;PrintResolution&gt;; 差异内容：resolution?: Array&lt;PrintResolution&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterCapability； API声明：minMargin?: PrintMargin; 差异内容：minMargin?: PrintMargin; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterCapability； API声明：options?: Object; 差异内容：options?: Object; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：print； API声明：interface PrinterInfo 差异内容：interface PrinterInfo | api/@ohos.print.d.ts |
@@ -101,7 +101,7 @@
 | 新增API | NA | 类名：PrinterInfo； API声明：capability?: PrinterCapability; 差异内容：capability?: PrinterCapability; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterInfo； API声明：options?: Object; 差异内容：options?: Object; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：print； API声明：interface PrintJob 差异内容：interface PrintJob | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：PrintJob； API声明：fdList: Array<number>; 差异内容：fdList: Array<number>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：PrintJob； API声明：fdList: Array&lt;number&gt;; 差异内容：fdList: Array&lt;number&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintJob； API声明：jobId: string; 差异内容：jobId: string; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintJob； API声明：printerId: string; 差异内容：printerId: string; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintJob； API声明：jobState: PrintJobState; 差异内容：jobState: PrintJobState; | api/@ohos.print.d.ts |
@@ -119,14 +119,14 @@
 | 新增API | NA | 类名：PrintErrorCode； API声明：E_PRINT_SMB_LOGIN_LOCKOUT = 13100012 差异内容：E_PRINT_SMB_LOGIN_LOCKOUT = 13100012 | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintErrorCode； API声明：E_PRINT_SMB_CONNECTION_FAILURE = 13100013 差异内容：E_PRINT_SMB_CONNECTION_FAILURE = 13100013 | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintErrorCode； API声明：E_PRINT_SMB_INVALID_CREDENTIALS = 13100014 差异内容：E_PRINT_SMB_INVALID_CREDENTIALS = 13100014 | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<void>): void; 差异内容：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback<void>): void; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>; 差异内容：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise<void>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback&lt;void&gt;): void; 差异内容：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise&lt;void&gt;; 差异内容：function updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise&lt;void&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterInformation； API声明：selectedDriver?: PpdInfo; 差异内容：selectedDriver?: PpdInfo; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterInformation； API声明：selectedProtocol?: string; 差异内容：selectedProtocol?: string; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterPreferences； API声明：defaultColorMode?: PrintColorMode; 差异内容：defaultColorMode?: PrintColorMode; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterPreferences； API声明：defaultCollate?: boolean; 差异内容：defaultCollate?: boolean; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrinterPreferences； API声明：defaultReverse?: boolean; 差异内容：defaultReverse?: boolean; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>; 差异内容：function updatePrinterInformation(printerInformation: PrinterInformation): Promise<void>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function updatePrinterInformation(printerInformation: PrinterInformation): Promise&lt;void&gt;; 差异内容：function updatePrinterInformation(printerInformation: PrinterInformation): Promise&lt;void&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：print； API声明：interface SharedHost 差异内容：interface SharedHost | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：SharedHost； API声明：ip: string; 差异内容：ip: string; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：SharedHost； API声明：shareName: string; 差异内容：shareName: string; | api/@ohos.print.d.ts |
@@ -135,7 +135,7 @@
 | 新增API | NA | 类名：PpdInfo； API声明：manufacturer: string; 差异内容：manufacturer: string; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PpdInfo； API声明：nickName: string; 差异内容：nickName: string; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PpdInfo； API声明：ppdName: string; 差异内容：ppdName: string; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise<boolean>; 差异内容：function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise<boolean>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise&lt;boolean&gt;; 差异内容：function addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise&lt;boolean&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：print； API声明：enum WatermarkHandleResult 差异内容：enum WatermarkHandleResult | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：WatermarkHandleResult； API声明：WATERMARK_HANDLE_SUCCESS = 0 差异内容：WATERMARK_HANDLE_SUCCESS = 0 | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：WatermarkHandleResult； API声明：WATERMARK_HANDLE_FAILURE = 1 差异内容：WATERMARK_HANDLE_FAILURE = 1 | api/@ohos.print.d.ts |
@@ -146,7 +146,7 @@
 | 新增API | NA | 类名：settings； API声明：function openBiometricsSettingsPage(context: Context): void; 差异内容：function openBiometricsSettingsPage(context: Context): void; | api/@ohos.settings.d.ts |
 | 新增API | NA | 类名：settings； API声明：function openNfcSettingsPage(context: Context): void; 差异内容：function openNfcSettingsPage(context: Context): void; | api/@ohos.settings.d.ts |
 | 新增API | NA | 类名：settings； API声明：function openDoubleClickSettingsPage(context: Context): void; 差异内容：function openDoubleClickSettingsPage(context: Context): void; | api/@ohos.settings.d.ts |
-| 新增API | NA | 类名：settings； API声明：function isDoubleClickAppForSelf(): Promise<boolean>; 差异内容：function isDoubleClickAppForSelf(): Promise<boolean>; | api/@ohos.settings.d.ts |
+| 新增API | NA | 类名：settings； API声明：function isDoubleClickAppForSelf(): Promise&lt;boolean&gt;; 差异内容：function isDoubleClickAppForSelf(): Promise&lt;boolean&gt;; | api/@ohos.settings.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@ohos.selectionInput.SelectionExtensionAbility.d.ts 差异内容：BasicServicesKit | api/@ohos.selectionInput.SelectionExtensionAbility.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@ohos.selectionInput.SelectionExtensionContext.d.ts 差异内容：BasicServicesKit | api/@ohos.selectionInput.SelectionExtensionContext.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@ohos.selectionInput.selectionManager.d.ts 差异内容：BasicServicesKit | api/@ohos.selectionInput.selectionManager.d.ts |

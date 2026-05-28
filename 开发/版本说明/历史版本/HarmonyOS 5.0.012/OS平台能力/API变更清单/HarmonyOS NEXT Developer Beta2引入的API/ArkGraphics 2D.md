@@ -79,12 +79,12 @@
 | 新增API | NA | 类名：FontVariation； API声明：axis: string; 差异内容：axis: string; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：FontVariation； API声明：value: number; 差异内容：value: number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextStyle； API声明：baselineShift?: number; 差异内容：baselineShift?: number; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：TextStyle； API声明：fontFeatures?: Array<FontFeature>; 差异内容：fontFeatures?: Array<FontFeature>; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：TextStyle； API声明：textShadows?: Array<TextShadow>; 差异内容：textShadows?: Array<TextShadow>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：TextStyle； API声明：fontFeatures?: Array&lt;FontFeature&gt;; 差异内容：fontFeatures?: Array&lt;FontFeature&gt;; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：TextStyle； API声明：textShadows?: Array&lt;TextShadow&gt;; 差异内容：textShadows?: Array&lt;TextShadow&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：TextStyle； API声明：backgroundRect?: RectStyle; 差异内容：backgroundRect?: RectStyle; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：TextStyle； API声明：fontVariations?: Array<FontVariation>; 差异内容：fontVariations?: Array<FontVariation>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：TextStyle； API声明：fontVariations?: Array&lt;FontVariation&gt;; 差异内容：fontVariations?: Array&lt;FontVariation&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：text； API声明： interface StrutStyle 差异内容： interface StrutStyle | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：StrutStyle； API声明：fontFamilies?: Array<string>; 差异内容：fontFamilies?: Array<string>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：StrutStyle； API声明：fontFamilies?: Array&lt;string&gt;; 差异内容：fontFamilies?: Array&lt;string&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：StrutStyle； API声明：fontStyle?: FontStyle; 差异内容：fontStyle?: FontStyle; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：StrutStyle； API声明：fontWidth?: FontWidth; 差异内容：fontWidth?: FontWidth; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：StrutStyle； API声明：fontWeight?: FontWeight; 差异内容：fontWeight?: FontWeight; | api/@ohos.graphics.text.d.ts |
@@ -98,7 +98,7 @@
 | 新增API | NA | 类名：ParagraphStyle； API声明：strutStyle?: StrutStyle; 差异内容：strutStyle?: StrutStyle; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：ParagraphStyle； API声明：textHeightBehavior?: TextHeightBehavior; 差异内容：textHeightBehavior?: TextHeightBehavior; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getActualTextRange(lineNumber: number, includeSpaces: boolean): Range; 差异内容：getActualTextRange(lineNumber: number, includeSpaces: boolean): Range; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：Paragraph； API声明：getLineMetrics(): Array<LineMetrics>; 差异内容：getLineMetrics(): Array<LineMetrics>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：Paragraph； API声明：getLineMetrics(): Array&lt;LineMetrics&gt;; 差异内容：getLineMetrics(): Array&lt;LineMetrics&gt;; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：Paragraph； API声明：getLineMetrics(lineNumber: number): LineMetrics \| undefined; 差异内容：getLineMetrics(lineNumber: number): LineMetrics \| undefined; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：ParagraphBuilder； API声明：addSymbol(symbolId: number): void; 差异内容：addSymbol(symbolId: number): void; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：text； API声明： interface RunMetrics 差异内容： interface RunMetrics | api/@ohos.graphics.text.d.ts |

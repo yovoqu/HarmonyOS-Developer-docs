@@ -3,27 +3,24 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributed-abilityconnectionmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 abilityConnectionManager模块提供了应用协同接口管理能力。设备组网成功（需登录同账号、双端打开蓝牙）后，系统应用和三方应用可以跨设备拉起同应用的一个[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)，拉起并连接成功后可实现跨设备数据传输（文本信息）。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 18开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 18开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
 ```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 ```
 
 
-## abilityConnectionManager.createAbilityConnectionSession
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### abilityConnectionManager.createAbilityConnectionSession
 
 createAbilityConnectionSession(serviceName: string, context: Context, peerInfo: PeerInfo , connectOptions: ConnectOptions): number
 
@@ -37,17 +34,15 @@ createAbilityConnectionSession(serviceName: string, context: Context, peerInfo: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | serviceName | string | 是 | 应用设置的服务名称（两端必须一致），最大长度为256字符。 |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 表示应用上下文。 |
-| peerInfo | [PeerInfo](#peerinfo) | 是 | 对端的协同信息。 |
-| connectOptions | [ConnectOptions](#connectoptions) | 是 | 应用设置的连接选项。 |
+| context | Context | 是 | 表示应用上下文。 |
+| peerInfo | PeerInfo | 是 | 对端的协同信息。 |
+| connectOptions | ConnectOptions | 是 | 应用设置的连接选项。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -58,7 +53,6 @@ createAbilityConnectionSession(serviceName: string, context: Context, peerInfo: 
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -67,255 +61,113 @@ createAbilityConnectionSession(serviceName: string, context: Context, peerInfo: 
 
 
 **示例：**
+1. 在设备A上，应用需要主动调用createAbilityConnectionSession()接口创建协同会话并返回sessionId。
 
-
-1. 在设备A上，应用需要主动调用createAbilityConnectionSession()接口创建协同会话并返回sessionId。       __PREBLOCK_1__
-2. 在设备B上，对于createAbilityConnectionSession接口的调用，可在应用被拉起后触发协同生命周期函数onCollaborate时，在onCollaborate内进行。       __PREBLOCK_2__
-
-
-## abilityConnectionManager.destroyAbilityConnectionSession
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-destroyAbilityConnectionSession(sessionId: number): void
-
-销毁应用间的协同会话。
-
-**模型约束**：此接口仅可在Stage模型下使用。
-
-**系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| sessionId | number | 是 | 待销毁的协同会话ID。          取值范围是大于100的整数。 |
-
-
-**示例：**
-
-
-```ts
-import { abilityConnectionManager } from '@kit.DistributedServiceKit';
+  
+```json
+import { abilityConnectionManager, distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-hilog.info(0x0000, 'testTag', 'destroyAbilityConnectionSession called');
-let sessionId = 100;
-abilityConnectionManager.destroyAbilityConnectionSession(sessionId);
-```
+let dmClass: distributedDeviceManager.DeviceManager;
 
+function initDmClass(): void {
+  try {
+    dmClass = distributedDeviceManager.createDeviceManager('com.example.remotephotodemo');
+  } catch (err) {
+    hilog.error(0x0000, 'testTag', 'createDeviceManager err: ' + JSON.stringify(err));
+  }
+}
 
-## abilityConnectionManager.getPeerInfoById
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getPeerInfoById(sessionId: number): PeerInfo | undefined
-
-获取指定会话中对端应用信息。
-
-**模型约束**：此接口仅可在Stage模型下使用。
-
-**系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| sessionId | number | 是 | 协同会话ID。 |
-
-
-**返回值：**
-
-
-| 类型 | 说明 |
-| --- | --- |
-| [PeerInfo](#peerinfo) \| undefined | 若存在对应PeerInfo，则返回接收端的协作应用信息。若sessionId未找到，则查询失败，返回undefined。 |
-
-
-**错误码：**
-
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-
-
-**示例：**
-
-
-```ts
-import { abilityConnectionManager } from '@kit.DistributedServiceKit';
-import { hilog } from '@kit.PerformanceAnalysisKit';
-
-hilog.info(0x0000, 'testTag', 'getPeerInfoById called');
-let sessionId = 100;
-const peerInfo = abilityConnectionManager.getPeerInfoById(sessionId);
-```
-
-
-## abilityConnectionManager.connect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-connect(sessionId: number): Promise<ConnectResult>
-
-创建协同会话成功并获得会话ID后，设备A上可进行UIAbility的连接。使用Promise异步回调。
-
-**模型约束**：此接口仅可在Stage模型下使用。
-
-**系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| sessionId | number | 是 | 已创建的协同会话ID。 |
-
-
-**返回值：**
-
-
-| 类型 | 说明 |
-| --- | --- |
-| Promise&lt;ConnectResult&gt; | 以Promise形式返回[连接结果](#connectresult)。 |
-
-
-**错误码：**
-
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-
-
-**示例：**
-
-设备A上的应用在创建协同会话成功并获得会话ID后，调用connect()方法启动UIAbility连接，并拉起设备B应用。
-
-
-```ts
-import { abilityConnectionManager } from '@kit.DistributedServiceKit';
-import { hilog } from '@kit.PerformanceAnalysisKit';
-
-let sessionId = 100;
-abilityConnectionManager
-  .connect(sessionId)
-  .then((ConnectResult) => {
-    if (!ConnectResult.isConnected) {
-      hilog.info(0x0000, 'testTag', 'connect failed');
+function getRemoteDeviceId(): string | undefined {
+  initDmClass();
+  if (typeof dmClass === 'object' && dmClass !== null) {
+    hilog.info(0x0000, 'testTag', 'getRemoteDeviceId begin');
+    let list = dmClass.getAvailableDeviceListSync();
+    if (typeof (list) === 'undefined' || typeof (list.length) === 'undefined') {
+      hilog.info(0x0000, 'testTag', 'getRemoteDeviceId err: list is null');
       return;
     }
-  })
-  .catch(() => {
-    hilog.error(0x0000, 'testTag', 'connect failed');
-  });
+    if (list.length === 0) {
+      hilog.info(0x0000, 'testTag', 'getRemoteDeviceId err: list is empty');
+      return;
+    }
+    return list[0].networkId;
+  } else {
+    hilog.info(0x0000, 'testTag', 'getRemoteDeviceId err: dmClass is null');
+    return;
+  }
+}
+
+@Entry
+@Component
+struct Index {
+  createSession(): void {
+    // 定义peer信息
+    const peerInfo: abilityConnectionManager.PeerInfo = {
+      deviceId: getRemoteDeviceId()!,
+      bundleName: 'com.example.remotephotodemo',
+      moduleName: 'entry',
+      abilityName: 'EntryAbility',
+      serviceName: 'collabTest'
+    };
+    const myRecord: Record<string, string> = {
+      "newKey1": "value1",
+    };
+
+    // 定义连接选项
+    const connectOptions: abilityConnectionManager.ConnectOptions = {
+      needSendData: true,
+      startOptions: abilityConnectionManager.StartOptionParams.START_IN_FOREGROUND,
+      parameters: myRecord
+    };
+    let context = this.getUIContext().getHostContext();
+    try {
+      let sessionId = abilityConnectionManager.createAbilityConnectionSession("collabTest", context, peerInfo, connectOptions);
+      hilog.info(0x0000, 'testTag', 'createSession sessionId is', sessionId);
+    } catch (error) {
+      hilog.error(0x0000, 'testTag', error);
+    }
+  }
+
+  build() {
+  }
+}
 ```
 
+2. 在设备B上，对于createAbilityConnectionSession接口的调用，可在应用被拉起后触发协同生命周期函数onCollaborate时，在onCollaborate内进行。
 
-## abilityConnectionManager.acceptConnect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-acceptConnect(sessionId: number, token: string): Promise<void>
-
-设备B上的应用，在创建协同会话成功并获得会话ID后，调用acceptConnect()方法接受连接。使用Promise异步回调。
-
-**模型约束**：此接口仅可在Stage模型下使用。
-
-**系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| sessionId | number | 是 | 已创建的协同会话ID。 |
-| token | string | 是 | 设备A应用传入的token值。 |
-
-
-**返回值：**
-
-
-| 类型 | 说明 |
-| --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
-
-
-**错误码：**
-
-以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-
-
-**示例：**
-
-设备B上的应用，在createAbilityConnectionSession接口调用并获取sessionId成功后，可调用acceptConnect接口来选择接受连接。
-
-
-```ts
+  
+```text
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-
+ 
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
-  }
-
-  onCollaborate(
-    wantParam: Record<string, Object>,
-  ): AbilityConstant.CollaborateResult {
+  onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult {
     hilog.info(0x0000, 'testTag', '%{public}s', 'on collaborate');
-    let param = wantParam[
-      'ohos.extra.param.key.supportCollaborateIndex'
-    ] as Record<string, Object>;
+    let param = wantParam["ohos.extra.param.key.supportCollaborateIndex"] as Record<string, Object>
     this.onCollab(param);
     return 0;
   }
-
+ 
   onCollab(collabParam: Record<string, Object>) {
     const sessionId = this.createSessionFromWant(collabParam);
     if (sessionId == -1) {
       hilog.info(0x0000, 'testTag', 'Invalid session ID.');
       return;
     }
-    const collabToken = collabParam['ohos.dms.collabToken'] as string;
-    abilityConnectionManager
-      .acceptConnect(sessionId, collabToken)
-      .then(() => {
-        hilog.info(0x0000, 'testTag', 'acceptConnect success');
-      })
-      .catch(() => {
-        hilog.error(0x0000, 'testTag', 'failed');
-      });
   }
-
+ 
   createSessionFromWant(collabParam: Record<string, Object>): number {
     let sessionId = -1;
-    const peerInfo = collabParam[
-      'PeerInfo'
-    ] as abilityConnectionManager.PeerInfo;
+    const peerInfo = collabParam["PeerInfo"] as abilityConnectionManager.PeerInfo;
     if (peerInfo == undefined) {
       return sessionId;
     }
-
-    const options = collabParam[
-      'ConnectOption'
-    ] as abilityConnectionManager.ConnectOptions;
+ 
+    const options = collabParam["ConnectOption"] as abilityConnectionManager.ConnectOptions;
     try {
-      sessionId = abilityConnectionManager.createAbilityConnectionSession(
-        'collabTest',
-        this.context,
-        peerInfo,
-        options,
-      );
+      sessionId = abilityConnectionManager.createAbilityConnectionSession("collabTest", this.context, peerInfo, options);
       AppStorage.setOrCreate('sessionId', sessionId);
       hilog.info(0x0000, 'testTag', 'createSession sessionId is' + sessionId);
     } catch (error) {
@@ -327,8 +179,230 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-## abilityConnectionManager.disconnect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### abilityConnectionManager.destroyAbilityConnectionSession
+
+destroyAbilityConnectionSession(sessionId: number): void
+
+销毁应用间的协同会话。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.DistributedSched.AppCollaboration
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| sessionId | number | 是 | 待销毁的协同会话ID。 取值范围是大于100的整数。 |
+
+
+**示例：**
+
+```text
+import { abilityConnectionManager } from '@kit.DistributedServiceKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+hilog.info(0x0000, 'testTag', 'destroyAbilityConnectionSession called');
+let sessionId = 100;
+abilityConnectionManager.destroyAbilityConnectionSession(sessionId);
+```
+
+
+
+##### abilityConnectionManager.getPeerInfoById
+
+getPeerInfoById(sessionId: number): PeerInfo | undefined
+
+获取指定会话中对端应用信息。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.DistributedSched.AppCollaboration
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| sessionId | number | 是 | 协同会话ID。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| PeerInfo \| undefined | 若存在对应PeerInfo，则返回接收端的协作应用信息。若sessionId未找到，则查询失败，返回undefined。 |
+
+
+**错误码：**
+
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
+
+
+**示例：**
+
+```text
+import { abilityConnectionManager } from '@kit.DistributedServiceKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+hilog.info(0x0000, 'testTag', 'getPeerInfoById called');
+let sessionId = 100;
+const peerInfo = abilityConnectionManager.getPeerInfoById(sessionId);
+```
+
+
+
+##### abilityConnectionManager.connect
+
+connect(sessionId: number): Promise&lt;ConnectResult&gt;
+
+创建协同会话成功并获得会话ID后，设备A上可进行UIAbility的连接。使用Promise异步回调。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.DistributedSched.AppCollaboration
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| sessionId | number | 是 | 已创建的协同会话ID。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;ConnectResult&gt; | 以Promise形式返回连接结果。 |
+
+
+**错误码：**
+
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
+
+
+**示例：**
+
+设备A上的应用在创建协同会话成功并获得会话ID后，调用connect()方法启动UIAbility连接，并拉起设备B应用。
+
+```text
+import { abilityConnectionManager } from '@kit.DistributedServiceKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+let sessionId = 100;
+abilityConnectionManager.connect(sessionId).then((ConnectResult) => {
+  if (!ConnectResult.isConnected) {
+    hilog.info(0x0000, 'testTag', 'connect failed');
+    return;
+  }
+}).catch(() => {
+  hilog.error(0x0000, 'testTag', "connect failed");
+})
+```
+
+
+
+##### abilityConnectionManager.acceptConnect
+
+acceptConnect(sessionId: number, token: string): Promise&lt;void&gt;
+
+设备B上的应用，在创建协同会话成功并获得会话ID后，调用acceptConnect()方法接受连接。使用Promise异步回调。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.DistributedSched.AppCollaboration
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| sessionId | number | 是 | 已创建的协同会话ID。 |
+| token | string | 是 | 设备A应用传入的token值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+
+
+**错误码：**
+
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
+
+
+**示例：**
+
+设备B上的应用，在createAbilityConnectionSession接口调用并获取sessionId成功后，可调用acceptConnect接口来选择接受连接。
+
+```text
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { abilityConnectionManager } from '@kit.DistributedServiceKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+export default class EntryAbility extends UIAbility {
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
+  }
+
+  onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult {
+    hilog.info(0x0000, 'testTag', '%{public}s', 'on collaborate');
+    let param = wantParam["ohos.extra.param.key.supportCollaborateIndex"] as Record<string, Object>
+    this.onCollab(param);
+    return 0;
+  }
+
+  onCollab(collabParam: Record<string, Object>) {
+    const sessionId = this.createSessionFromWant(collabParam);
+    if (sessionId == -1) {
+      hilog.info(0x0000, 'testTag', 'Invalid session ID.');
+      return;
+    }
+    const collabToken = collabParam["ohos.dms.collabToken"] as string;
+    abilityConnectionManager.acceptConnect(sessionId, collabToken).then(() => {
+      hilog.info(0x0000, 'testTag', 'acceptConnect success');
+    }).catch(() => {
+      hilog.error(0x0000, 'testTag', 'failed');
+    })
+  }
+
+  createSessionFromWant(collabParam: Record<string, Object>): number {
+    let sessionId = -1;
+    const peerInfo = collabParam["PeerInfo"] as abilityConnectionManager.PeerInfo;
+    if (peerInfo == undefined) {
+      return sessionId;
+    }
+
+    const options = collabParam["ConnectOption"] as abilityConnectionManager.ConnectOptions;
+    try {
+      sessionId = abilityConnectionManager.createAbilityConnectionSession("collabTest", this.context, peerInfo, options);
+      AppStorage.setOrCreate('sessionId', sessionId);
+      hilog.info(0x0000, 'testTag', 'createSession sessionId is' + sessionId);
+    } catch (error) {
+      hilog.error(0x0000, 'testTag', error);
+    }
+    return sessionId;
+  }
+}
+```
+
+
+
+##### abilityConnectionManager.disconnect
 
 disconnect(sessionId: number): void
 
@@ -340,7 +414,6 @@ disconnect(sessionId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | number | 是 | 协同会话ID |
@@ -348,8 +421,7 @@ disconnect(sessionId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -359,8 +431,8 @@ abilityConnectionManager.disconnect(sessionId);
 ```
 
 
-## abilityConnectionManager.reject
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### abilityConnectionManager.reject
 
 reject(token: string, reason: string): void;
 
@@ -372,7 +444,6 @@ reject(token: string, reason: string): void;
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | token | string | 是 | 用于协作服务管理的令牌。 |
@@ -383,7 +454,6 @@ reject(token: string, reason: string): void;
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -391,34 +461,29 @@ reject(token: string, reason: string): void;
 
 **示例：**
 
-
-```ts
-import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+```text
+import { AbilityConstant, UIAbility, Want} from '@kit.AbilityKit';
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 export default class EntryAbility extends UIAbility {
-  onCollaborate(
-    wantParam: Record<string, Object>,
-  ): AbilityConstant.CollaborateResult {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'on collaborate');
-    let collabParam = wantParam[
-      'ohos.extra.param.key.supportCollaborateIndex'
-    ] as Record<string, Object>;
-    const collabToken = collabParam['ohos.dms.collabToken'] as string;
-    const reason = 'test';
-    hilog.info(0x0000, 'testTag', 'reject begin');
-    abilityConnectionManager.reject(collabToken, reason);
-    return AbilityConstant.CollaborateResult.REJECT;
-  }
+    onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult {
+      hilog.info(0x0000, 'testTag', '%{public}s', 'on collaborate');
+      let collabParam = wantParam["ohos.extra.param.key.supportCollaborateIndex"] as Record<string, Object>;
+      const collabToken = collabParam["ohos.dms.collabToken"] as string;
+      const reason = "test";
+      hilog.info(0x0000, 'testTag', 'reject begin');
+      abilityConnectionManager.reject(collabToken, reason);
+      return AbilityConstant.CollaborateResult.REJECT;
+    }
 }
 ```
 
 
-## abilityConnectionManager.on('connect')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'connect', sessionId: number, callback: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.on('connect')
+
+on(type: 'connect', sessionId: number, callback: Callback&lt;EventCallbackInfo&gt;): void
 
 注册connect事件的回调监听。使用callback异步回调。
 
@@ -428,18 +493,16 @@ on(type: 'connect', sessionId: number, callback: Callback<EventCallbackInfo>): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为'connect'，完成[abilityConnectionManager.connect()](#abilityconnectionmanagerconnect)调用，触发该事件。 |
+| type | string | 是 | 事件回调类型，支持的事件为'connect'，完成abilityConnectionManager.connect()调用，触发该事件。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 是 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 是 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -448,27 +511,21 @@ on(type: 'connect', sessionId: number, callback: Callback<EventCallbackInfo>): v
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager.on('connect', sessionId, (callbackInfo) => {
-  hilog.info(
-    0x0000,
-    'testTag',
-    'session connect, sessionId is',
-    callbackInfo.sessionId,
-  );
+abilityConnectionManager.on("connect", sessionId,(callbackInfo) => {
+  hilog.info(0x0000, 'testTag', 'session connect, sessionId is', callbackInfo.sessionId);
 });
 ```
 
 
-## abilityConnectionManager.off('connect')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'connect', sessionId: number, callback?: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.off('connect')
+
+off(type: 'connect', sessionId: number, callback?: Callback&lt;EventCallbackInfo&gt;): void
 
 取消connect事件的回调监听。
 
@@ -478,18 +535,16 @@ off(type: 'connect', sessionId: number, callback?: Callback<EventCallbackInfo>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'connect'。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 否 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 否 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -498,19 +553,18 @@ off(type: 'connect', sessionId: number, callback?: Callback<EventCallbackInfo>):
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 
 let sessionId = 100;
-abilityConnectionManager.off('connect', sessionId);
+abilityConnectionManager.off("connect", sessionId);
 ```
 
 
-## abilityConnectionManager.on('disconnect')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'disconnect', sessionId: number, callback: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.on('disconnect')
+
+on(type: 'disconnect', sessionId: number, callback: Callback&lt;EventCallbackInfo&gt;): void
 
 注册disconnect事件的回调监听。
 
@@ -520,18 +574,16 @@ on(type: 'disconnect', sessionId: number, callback: Callback<EventCallbackInfo>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为'disconnect'，完成[abilityConnectionManager.disconnect()](#abilityconnectionmanagerdisconnect)调用，触发该事件。 |
+| type | string | 是 | 事件回调类型，支持的事件为'disconnect'，完成abilityConnectionManager.disconnect()调用，触发该事件。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 是 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 是 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -540,27 +592,21 @@ on(type: 'disconnect', sessionId: number, callback: Callback<EventCallbackInfo>)
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager.on('disconnect', sessionId, (callbackInfo) => {
-  hilog.info(
-    0x0000,
-    'testTag',
-    'session disconnect, sessionId is',
-    callbackInfo.sessionId,
-  );
+abilityConnectionManager.on("disconnect", sessionId,(callbackInfo) => {
+  hilog.info(0x0000, 'testTag', 'session disconnect, sessionId is', callbackInfo.sessionId);
 });
 ```
 
 
-## abilityConnectionManager.off('disconnect')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'disconnect', sessionId: number, callback?: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.off('disconnect')
+
+off(type: 'disconnect', sessionId: number, callback?: Callback&lt;EventCallbackInfo&gt;): void
 
 取消disconnect事件的回调监听。
 
@@ -570,18 +616,16 @@ off(type: 'disconnect', sessionId: number, callback?: Callback<EventCallbackInfo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'disconnect'。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 否 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 否 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -590,20 +634,19 @@ off(type: 'disconnect', sessionId: number, callback?: Callback<EventCallbackInfo
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager.off('disconnect', sessionId);
+abilityConnectionManager.off("disconnect", sessionId);
 ```
 
 
-## abilityConnectionManager.on('receiveMessage')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'receiveMessage', sessionId: number, callback: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.on('receiveMessage')
+
+on(type: 'receiveMessage', sessionId: number, callback: Callback&lt;EventCallbackInfo&gt;): void
 
 注册receiveMessage事件的回调监听。
 
@@ -613,18 +656,16 @@ on(type: 'receiveMessage', sessionId: number, callback: Callback<EventCallbackIn
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为'receiveMessage'，完成[abilityConnectionManager.sendMessage()](#abilityconnectionmanagersendmessage)调用，触发该事件。 |
+| type | string | 是 | 事件回调类型，支持的事件为'receiveMessage'，完成abilityConnectionManager.sendMessage()调用，触发该事件。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 是 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 是 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -633,27 +674,21 @@ on(type: 'receiveMessage', sessionId: number, callback: Callback<EventCallbackIn
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager.on('receiveMessage', sessionId, (callbackInfo) => {
-  hilog.info(
-    0x0000,
-    'testTag',
-    'receiveMessage, sessionId is',
-    callbackInfo.sessionId,
-  );
+abilityConnectionManager.on("receiveMessage", sessionId,(callbackInfo) => {
+  hilog.info(0x0000, 'testTag', 'receiveMessage, sessionId is', callbackInfo.sessionId);
 });
 ```
 
 
-## abilityConnectionManager.off('receiveMessage')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'receiveMessage', sessionId: number, callback?: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.off('receiveMessage')
+
+off(type: 'receiveMessage', sessionId: number, callback?: Callback&lt;EventCallbackInfo&gt;): void
 
 取消receiveMessage事件的回调监听。
 
@@ -663,18 +698,16 @@ off(type: 'receiveMessage', sessionId: number, callback?: Callback<EventCallback
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'receiveMessage'。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 否 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 否 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -683,20 +716,19 @@ off(type: 'receiveMessage', sessionId: number, callback?: Callback<EventCallback
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager.off('receiveMessage', sessionId);
+abilityConnectionManager.off("receiveMessage", sessionId);
 ```
 
 
-## abilityConnectionManager.on('receiveData')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'receiveData', sessionId: number, callback: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.on('receiveData')
+
+on(type: 'receiveData', sessionId: number, callback: Callback&lt;EventCallbackInfo&gt;): void
 
 注册receiveData事件的回调监听。
 
@@ -706,18 +738,16 @@ on(type: 'receiveData', sessionId: number, callback: Callback<EventCallbackInfo>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 事件回调类型，支持的事件为'receiveData'，完成[abilityConnectionManager.sendData()](#abilityconnectionmanagersenddata)调用，触发该事件。 |
+| type | string | 是 | 事件回调类型，支持的事件为'receiveData'，完成abilityConnectionManager.sendData()调用，触发该事件。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 是 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 是 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -726,27 +756,21 @@ on(type: 'receiveData', sessionId: number, callback: Callback<EventCallbackInfo>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager.on('receiveData', sessionId, (callbackInfo) => {
-  hilog.info(
-    0x0000,
-    'testTag',
-    'receiveData, sessionId is',
-    callbackInfo.sessionId,
-  );
+abilityConnectionManager.on("receiveData", sessionId,(callbackInfo) => {
+  hilog.info(0x0000, 'testTag', 'receiveData, sessionId is', callbackInfo.sessionId);
 });
 ```
 
 
-## abilityConnectionManager.off('receiveData')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'receiveData', sessionId: number, callback?: Callback<EventCallbackInfo>): void
+##### abilityConnectionManager.off('receiveData')
+
+off(type: 'receiveData', sessionId: number, callback?: Callback&lt;EventCallbackInfo&gt;): void
 
 取消receiveData事件的回调监听。
 
@@ -756,18 +780,16 @@ off(type: 'receiveData', sessionId: number, callback?: Callback<EventCallbackInf
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'receiveData'，完成。 |
 | sessionId | number | 是 | 创建的协同会话ID。 |
-| callback | Callback&lt;[EventCallbackInfo](#eventcallbackinfo)&gt; | 否 | 注册的回调函数。 |
+| callback | Callback&lt;EventCallbackInfo&gt; | 否 | 注册的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -776,20 +798,19 @@ off(type: 'receiveData', sessionId: number, callback?: Callback<EventCallbackInf
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager.off('receiveData', sessionId);
+abilityConnectionManager.off("receiveData", sessionId);
 ```
 
 
-## abilityConnectionManager.sendMessage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-sendMessage(sessionId: number, msg: string): Promise<void>
+##### abilityConnectionManager.sendMessage
+
+sendMessage(sessionId: number, msg: string): Promise&lt;void&gt;
 
 应用连接成功后，设备A或设备B可向对端设备发送文本信息。
 
@@ -799,7 +820,6 @@ sendMessage(sessionId: number, msg: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | number | 是 | 协同会话ID。 |
@@ -807,7 +827,6 @@ sendMessage(sessionId: number, msg: string): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -818,7 +837,6 @@ sendMessage(sessionId: number, msg: string): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -826,27 +844,23 @@ sendMessage(sessionId: number, msg: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let sessionId = 100;
-abilityConnectionManager
-  .sendMessage(sessionId, 'message send success')
-  .then(() => {
-    hilog.info(0x0000, 'testTag', 'sendMessage success');
-  })
-  .catch(() => {
-    hilog.error(0x0000, 'testTag', 'connect failed');
-  });
+abilityConnectionManager.sendMessage(sessionId, "message send success").then(() => {
+  hilog.info(0x0000, 'testTag', "sendMessage success");
+}).catch(() => {
+  hilog.error(0x0000, 'testTag', "connect failed");
+})
 ```
 
 
-## abilityConnectionManager.sendData
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-sendData(sessionId: number, data: ArrayBuffer): Promise<void>
+##### abilityConnectionManager.sendData
+
+sendData(sessionId: number, data: ArrayBuffer): Promise&lt;void&gt;
 
 应用连接成功后，设备A或设备B可向对端设备发送[ArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arraybuffer-object)字节流。
 
@@ -856,15 +870,13 @@ sendData(sessionId: number, data: ArrayBuffer): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | number | 是 | 协同会话ID。 |
-| data | [ArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arraybuffer-object) | 是 | 字节流信息。 |
+| data | ArrayBuffer | 是 | 字节流信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -875,7 +887,6 @@ sendData(sessionId: number, data: ArrayBuffer): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -883,36 +894,31 @@ sendData(sessionId: number, data: ArrayBuffer): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { util } from '@kit.ArkTS';
 
-let textEncoder = util.TextEncoder.create('utf-8');
-const arrayBuffer = textEncoder.encodeInto('data send success');
+let textEncoder = util.TextEncoder.create("utf-8");
+const arrayBuffer  = textEncoder.encodeInto("data send success");
 
 let sessionId = 100;
-abilityConnectionManager
-  .sendData(sessionId, arrayBuffer.buffer)
-  .then(() => {
-    hilog.info(0x0000, 'testTag', 'sendMessage success');
-  })
-  .catch(() => {
-    hilog.error(0x0000, 'testTag', 'sendMessage failed');
-  });
+abilityConnectionManager.sendData(sessionId, arrayBuffer.buffer).then(() => {
+  hilog.info(0x0000, 'testTag', "sendMessage success");
+}).catch(() => {
+  hilog.error(0x0000, 'testTag', "sendMessage failed");
+})
 ```
 
 
-## PeerInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### PeerInfo
 
 应用协同信息。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -923,8 +929,9 @@ abilityConnectionManager
 | serviceName | string | 否 | 是 | 应用设置的服务名称。 |
 
 
-## ConnectOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConnectOptions
 
 应用连接时所需的连接选项。
 
@@ -932,16 +939,16 @@ abilityConnectionManager
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | needSendData | boolean | 否 | 是 | true代表需要传输数据，false代表不需要传输数据。 |
-| startOptions | [StartOptionParams](#startoptionparams) | 否 | 是 | 配置应用启动选项。 |
-| parameters | Record&lt;string, string&gt; | 否 | 是 | 配置连接所需的额外信息。 |
+| startOptions | StartOptionParams | 否 | 是 | 配置应用启动选项。 |
+| parameters | Record<string, string> | 否 | 是 | 配置连接所需的额外信息。 |
 
 
-## ConnectResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConnectResult
 
 连接的结果。
 
@@ -949,16 +956,16 @@ abilityConnectionManager
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isConnected | boolean | 否 | 否 | true表示连接成功，false表示连接失败。 |
-| errorCode | [ConnectErrorCode](#connecterrorcode) | 否 | 是 | 表示连接错误码。 |
+| errorCode | ConnectErrorCode | 否 | 是 | 表示连接错误码。 |
 | reason | string | 否 | 是 | 表示拒绝连接的原因。 |
 
 
-## EventCallbackInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### EventCallbackInfo
 
 回调方法的接收信息。
 
@@ -966,17 +973,17 @@ abilityConnectionManager
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | sessionId | number | 否 | 否 | 表示当前事件对应的协同会话ID。 |
-| reason | [DisconnectReason](#disconnectreason) | 否 | 是 | 表示断连原因。 |
+| reason | DisconnectReason | 否 | 是 | 表示断连原因。 |
 | msg | string | 否 | 是 | 表示接收的消息。 |
 | data | ArrayBuffer | 否 | 是 | 表示接收的字节流。 |
 
 
-## CollaborateEventInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CollaborateEventInfo
 
 协同事件信息。
 
@@ -984,22 +991,21 @@ abilityConnectionManager
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| eventType | [CollaborateEventType](#collaborateeventtype) | 否 | 否 | 表示协同事件的类型。 |
+| eventType | CollaborateEventType | 否 | 否 | 表示协同事件的类型。 |
 | eventMsg | string | 否 | 是 | 表示协同事件的消息内容。 |
 
 
-## ConnectErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConnectErrorCode
 
 连接的错误码。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1011,8 +1017,9 @@ abilityConnectionManager
 | SYSTEM_INTERNAL_ERROR | 5 | 表示系统内部错误。 |
 
 
-## StartOptionParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### StartOptionParams
 
 启动选项参数的枚举。
 
@@ -1020,14 +1027,14 @@ abilityConnectionManager
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | START_IN_FOREGROUND | 0 | 表示将对端应用启动至前台。 |
 
 
-## CollaborateEventType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CollaborateEventType
 
 协同事件类型的枚举。
 
@@ -1035,22 +1042,21 @@ abilityConnectionManager
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SEND_FAILURE | 0 | 表示任务发送失败。 |
 | COLOR_SPACE_CONVERSION_FAILURE | 1 | 表示色彩空间转换失败。 |
 
 
-## DisconnectReason
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DisconnectReason
 
 当前断连原因的枚举。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1059,15 +1065,15 @@ abilityConnectionManager
 | NETWORK_DISCONNECTED | 2 | 表示网络断开。 |
 
 
-## CollaborationKeys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CollaborationKeys
 
 应用协作键值的枚举。
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1076,15 +1082,15 @@ abilityConnectionManager
 | COLLABORATE_TYPE | ohos.collaboration.key.abilityCollaborateType | 表示协作类型的键值。 |
 
 
-## CollaborationValues
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CollaborationValues
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
 应用协作相关值的枚举。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

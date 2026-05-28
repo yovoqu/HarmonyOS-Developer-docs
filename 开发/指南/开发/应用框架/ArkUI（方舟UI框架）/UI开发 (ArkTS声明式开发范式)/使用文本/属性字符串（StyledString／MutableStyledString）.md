@@ -1,6 +1,6 @@
 # 属性字符串（StyledString/MutableStyledString）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-styled-string
 
@@ -9,14 +9,15 @@
 属性字符串提供多种类型样式对象，涵盖各种常见的文本样式格式，例如文本装饰线样式、文本行高样式、文本阴影样式等。也可以自行创建[CustomSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#customspan)，以应用自定义样式。
 
 
-## 创建并应用StyledString和MutableStyledString
+##### 创建并应用StyledString和MutableStyledString
 
 可以通过[TextController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textcontroller11)提供的[setStyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#setstyledstring12)方法，将属性字符串附加到文本组件，并推荐在[onPageShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onpageshow)或者文本组件的[onAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide#onappear)回调中触发绑定。
+
 > [!NOTE]
-> 在aboutToAppear中调用setStyledString方法时，由于该方法运行阶段组件尚未完成创建并成功挂载节点树，因此无法在页面初始化时显示属性字符串。 从API version 15开始，在aboutToAppear中调用setStyledString方法，页面初始化时可以显示属性字符串。
+> 在 aboutToAppear 中调用setStyledString方法时，由于该方法运行阶段组件尚未完成创建并成功挂载节点树，因此无法在页面初始化时显示属性字符串。 从API version 15开始，在aboutToAppear中调用setStyledString方法，页面初始化时可以显示属性字符串。
 
 
-```text
+```ArkTS
 @Entry
 @Component
 struct styled_string_demo1 {
@@ -49,12 +50,20 @@ struct styled_string_demo1 {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-0.png)
 
-## 设置文本样式
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-1.png)
 
-属性字符串目前提供了多种Style对象，包括[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textstyle)、[TextShadowStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textshadowstyle)、[DecorationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#decorationstyle)、[BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#baselineoffsetstyle)、[LineHeightStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#lineheightstyle)、[LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#letterspacingstyle)，用于设置文本的各类样式。 创建及应用文本字体样式对象（TextStyle）
-```text
+
+
+
+##### 设置文本样式
+
+属性字符串目前提供了多种Style对象，包括[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textstyle)、[TextShadowStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textshadowstyle)、[DecorationStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#decorationstyle)、[BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#baselineoffsetstyle)、[LineHeightStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#lineheightstyle)、[LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#letterspacingstyle)，用于设置文本的各类样式。
+
+ - 创建及应用文本字体样式对象（TextStyle）
+
+  
+```ArkTS
 import { LengthMetrics } from '@kit.ArkUI';
 
 @Entry
@@ -104,9 +113,12 @@ struct styled_string_demo2 {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-1.png)
-创建及应用文本阴影对象（TextShadowStyle）
-```text
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-10.png)
+
+ - 创建及应用文本阴影对象（TextShadowStyle）
+
+  
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -143,9 +155,12 @@ struct styled_string_demo3 {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-2.png)
-创建及应用文本装饰线对象（DecorationStyle）
-```text
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-11.png)
+
+ - 创建及应用文本装饰线对象（DecorationStyle）
+
+  
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -205,9 +220,12 @@ struct styled_string_demo4 {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-3.jpg)
-创建及应用文本基线偏移量对象（BaselineOffsetStyle）
-```text
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-12.gif)
+
+ - 创建及应用文本基线偏移量对象（BaselineOffsetStyle）
+
+  
+```ArkTS
 import { LengthMetrics } from '@kit.ArkUI';
 
 // xxx.ets
@@ -241,9 +259,12 @@ struct styled_string_demo5 {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-4.png)
-创建及应用文本行高对象（LineHeightStyle）
-```text
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-13.gif)
+
+ - 创建及应用文本行高对象（LineHeightStyle）
+
+  
+```ArkTS
 import { LengthMetrics } from '@kit.ArkUI';
 
 // xxx.ets
@@ -278,9 +299,12 @@ struct styled_string_demo6 {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-5.png)
-创建及应用文本字符间距对象（LetterSpacingStyle）
-```text
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-14.gif)
+
+ - 创建及应用文本字符间距对象（LetterSpacingStyle）
+
+  
+```ArkTS
 import { LengthMetrics, LengthUnit } from '@kit.ArkUI';
 
 // xxx.ets
@@ -313,14 +337,23 @@ struct styled_string_demo7 {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-6.png)
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-15.png)
 
-## 设置段落样式
+
+
+
+
+##### 设置段落样式
 
 可通过[ParagraphStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#paragraphstyle)设置段落样式布局。下图显示了如何分割文本中的段落，段落以换行符 \n 结尾。
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-7.png)
+
+
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-2.png)
+
+
 以下代码示例展示了如何创建ParagraphStyle并应用。如果将ParagraphStyle附加到段落开头、末尾或之间的任何位置，均会应用样式，非段落区间内则不会应用样式。
-```text
+
+```ArkTS
 import { LengthMetrics} from '@kit.ArkUI';
 
 // xxx.ets
@@ -384,9 +417,13 @@ struct Index {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-8.png)
+
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-3.jpg)
+
+
 除了可以在创建属性字符串时就预设样式，也可以后续通过[replaceStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#replacestyle)清空原样式替换新样式，同时需要在附加的文本组件controller上主动触发更新绑定的属性字符串。
-```text
+
+```ArkTS
 import { LengthMetrics } from '@kit.ArkUI';
 
 // xxx.ets
@@ -470,12 +507,20 @@ struct Index {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-9.gif)
 
-## 支持将属性字符串转换成Paragraph
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-4.png)
 
-可通过[getParagraphs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils#getparagraphs20)将属性字符串根据文本布局选项转换成对应的[Paragraph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)数组。 以下示例展示了通过[MeasureUtils](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils)的getParagraphs方法测算文本，当内容超出最大显示行数的时候，截断文本显示并展示“...全文”的效果。
-```text
+
+
+
+##### 支持将属性字符串转换成Paragraph
+
+可通过[getParagraphs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils#getparagraphs20)将属性字符串根据文本布局选项转换成对应的[Paragraph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)数组。
+
+ - 以下示例展示了通过[MeasureUtils](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils)的getParagraphs方法测算文本，当内容超出最大显示行数的时候，截断文本显示并展示“...全文”的效果。
+
+  
+```ArkTS
 import { LengthMetrics } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -563,7 +608,19 @@ struct Index {
   getLineNum(styledString: StyledString, width: LengthMetrics) {
     let paragraphArr = this.getUIContext().getMeasureUtils().getParagraphs(styledString, { constraintWidth: width });
     let res = 0;
-    for (let i = 0; i > 1;
+    for (let i = 0; i < paragraphArr.length; ++i) {
+      res += paragraphArr[i].getLineCount();
+    }
+    return res;
+  }
+
+  // 测算属性字符串显示maxLines行时最多可以显示的字数
+  getCorrectIndex(styledString: MutableStyledString, maxLines: number, width: LengthMetrics) {
+    let low = 0;
+    let high = styledString.length - 1;
+    // 使用二分查找
+    while (low <= high) {
+      let mid = (low + high) >> 1;
       console.info('demo: get ' + low + ' ' + high + ' ' + mid);
       let moreStyledString = new MutableStyledString(this.fullText, [{
         start: 4,
@@ -573,7 +630,59 @@ struct Index {
       }]);
       moreStyledString.insertStyledString(0, styledString.subStyledString(0, mid));
       let lineNum = this.getLineNum(moreStyledString, LengthMetrics.px(500));
-      if (lineNum  {
+      if (lineNum <= maxLines) {
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    return high;
+  }
+
+  mutableStrAllContent = new MutableStyledString(this.str, [
+    {
+      start: 0,
+      length: 3,
+      styledKey: StyledStringKey.FONT,
+      styledValue: new TextStyle({ fontSize: LengthMetrics.px(40) })
+    },
+    {
+      start: 3,
+      length: 3,
+      styledKey: StyledStringKey.FONT,
+      styledValue: new TextStyle({ fontColor: Color.Brown })
+    }
+  ]);
+  customSpan1: MyCustomSpan = new MyCustomSpan('Hello', 120, 10, this.getUIContext());
+  mutableStrAllContent2 = new MutableStyledString(this.str, [
+    {
+      start: 0,
+      length: 3,
+      styledKey: StyledStringKey.FONT,
+      styledValue: new TextStyle({ fontSize: LengthMetrics.px(100) })
+    },
+    {
+      start: 3,
+      length: 3,
+      styledKey: StyledStringKey.FONT,
+      styledValue: new TextStyle({ fontColor: Color.Brown })
+    }
+  ]);
+  controller: TextController = new TextController();
+  controller2: TextController = new TextController();
+  textController: TextController = new TextController();
+  textController2: TextController = new TextController();
+
+  aboutToAppear() {
+    this.mutableStrAllContent2.insertStyledString(0, new StyledString(this.customSpan1));
+    this.mutableStr2.insertStyledString(0, new StyledString(this.customSpan1));
+  }
+
+  build() {
+    Scroll() {
+      Column() {
+        Text(this.originalText)
+        Text(undefined, { controller: this.controller }).width('500px').onAppear(() => {
           this.controller.setStyledString(this.mutableStrAllContent);
         })
         Divider().strokeWidth(8).color('#F1F3F5')
@@ -619,16 +728,23 @@ struct Index {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-10.png)
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-5.png)
 
-## 使用图片
 
-可通过[ImageAttachment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#imageattachment)来添加图片。 以下示例展示了如何将图片和文本附加到同一个[MutableStyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#mutablestyledstring)对象上，并实现图文混排。
+
+
+
+##### 使用图片
+
+可通过[ImageAttachment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#imageattachment)来添加图片。
+
+以下示例展示了如何将图片和文本附加到同一个[MutableStyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#mutablestyledstring)对象上，并实现图文混排。
+
 > [!NOTE]
-> 属性字符串的构造函数constructor中，当入参value的类型为ImageAttachment或CustomSpan时，styles参数不生效。需要设置styles时，通过setStyle、insertStyledString等方法实现。
+> 属性字符串的构造函数 constructor 中，当入参value的类型为ImageAttachment或CustomSpan时，styles参数不生效。需要设置styles时，通过 setStyle 、 insertStyledString 等方法实现。
 
 
-```text
+```ArkTS
 // xxx.ets
 import { image } from '@kit.ImageKit';
 import { LengthMetrics } from '@kit.ArkUI';
@@ -796,12 +912,19 @@ export struct StyledStringImageAttachment {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-11.png)
 
-## 设置事件
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-7.png)
 
-可通过[GestureStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#gesturestyle)设置onClick、onLongPress事件来使文本响应点击长按事件。 除了初始化属性字符串对象即初始样式对象，亦可通过[setStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#setstyle)接口再叠加新样式或更新已有样式，同时需要在附加的文本组件controller上主动触发更新绑定的属性字符串。
-```text
+
+
+
+##### 设置事件
+
+可通过[GestureStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#gesturestyle)设置onClick、onLongPress事件来使文本响应点击长按事件。
+
+除了初始化属性字符串对象即初始样式对象，亦可通过[setStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#setstyle)接口再叠加新样式或更新已有样式，同时需要在附加的文本组件controller上主动触发更新绑定的属性字符串。
+
+```ArkTS
 import { drawing } from '@kit.ArkGraphics2D';
 
 let gUIContext: UIContext;
@@ -952,13 +1075,20 @@ export struct StyledStringGestureStyle {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-12.gif)
 
-## 格式转换
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-8.png)
 
-可以通过[toHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#tohtml14)、[fromHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#fromhtml)接口实现属性字符串与HTML格式字符串的相关转换，当前支持转换的HTML标签范围：、、、
-、、、、、、、、、、。 以下示例展示了如何将属性字符串转换成HTML格式，并展示了如何从HTML格式转换回属性字符串。
-```text
+
+
+
+##### 格式转换
+
+可以通过[toHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#tohtml14)、[fromHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#fromhtml)接口实现属性字符串与HTML格式字符串的相关转换，当前支持转换的HTML标签范围：&lt;p&gt;、&lt;span&gt;、&lt;img&gt;、&lt;br&gt;、&lt;strong&gt;、&lt;b&gt;、&lt;a&gt;、&lt;i&gt;、&lt;em&gt;、&lt;s&gt;、&lt;u&gt;、&lt;del&gt;、&lt;sup&gt;、&lt;sub&gt;。
+
+ - 以下示例展示了如何将属性字符串转换成HTML格式，并展示了如何从HTML格式转换回属性字符串。
+
+
+```ArkTS
 // xxx.ets
 import { image } from '@kit.ImageKit';
 import { LengthMetrics } from '@kit.ArkUI';
@@ -1040,15 +1170,20 @@ export struct StyledStringHtml {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-13.gif)
-将HTML中、、、、、、、、、标签及其style属性中的background-color转换为属性字符串并转回HTML。
-```text
+
+![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-9.gif)
+
+
+ - 将HTML中&lt;strong&gt;、&lt;b&gt;、&lt;a&gt;、&lt;i&gt;、&lt;em&gt;、&lt;s&gt;、&lt;u&gt;、&lt;del&gt;、&lt;sup&gt;、&lt;sub&gt;标签及其style属性中的background-color转换为属性字符串并转回HTML。
+
+  
+```ArkTS
 // xxx.ets
 @Entry
 @Component
 struct HtmlSpanStringDemo {
   @State html: string =
-    "This is **b** **strong** *em* *i* u del s  www.example  red span superscript and subscript";
+    "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s> <span style =   \"foreground-color:blue\"> <a href='https://www.example.com'>www.example</a> </span> <span   style=\"background-color: red;\">red span</span> <sup>superscript</sup> and <sub>subscript</sub></p>";
   @State spanString: StyledString | undefined = undefined;
   @State resultText: string = ''; // 保存结果文本的状态
   controller: TextController = new TextController;
@@ -1101,7 +1236,7 @@ struct HtmlSpanStringDemo {
       // 请将$r('app.string.Reset')替换为实际资源文件，在本示例中该资源文件的value值为"Reset"
       Button($r('app.string.Reset')).onClick(() => {
         this.html =
-          "This is **b** **strong** *em* *i* u del s  www.example  red span superscript and subscript";
+          "<p>This is <b>b</b> <strong>strong</strong> <em>em</em> <i>i</i> <u>u</u> <del>del</del> <s>s</s> <span   style = \"foreground-color:blue\"> <a href='https://www.example.com'>www.example</a> </span> <span   style=\"background-color: red;\">red span</span> <sup>superscript</sup> and <sub>subscript</sub></p>";
         this.spanString = undefined;
         this.controller.setStyledString(new StyledString('')); // 使用空的StyledString实例
         this.resultText = 'Reset HTML and SpanString successfully.';
@@ -1111,12 +1246,17 @@ struct HtmlSpanStringDemo {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-14.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/IbV0F73XRqqB2HKv3stPHQ/zh-cn_image_0000002611753849.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=C34C85C5FAB1F3174475739B32E04EF4FDDFD00270AAF7383A924E26ECF0D984)
 
-## 场景示例
+
+
+
+
+##### 场景示例
 
 该示例通过[ParagraphStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#paragraphstyle)、[LineHeightStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#lineheightstyle)、[TextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#textstyle)对象展示了会员过期提示的效果。
-```text
+
+```ArkTS
 import { LengthMetrics } from '@kit.ArkUI';
 
 @Entry
@@ -1279,4 +1419,5 @@ export struct StyledStringSceneExample {
 }
 ```
 
-![](assets/属性字符串（StyledString／MutableStyledString）/file-20260514130624309-15.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dhuLOyySRK-rpwMzZPysUA/zh-cn_image_0000002581433914.png?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=A8F004CDDA509B0CB50713B6BDCF41A09ED9AE7A8D4173CBA11B82194BFB983D)

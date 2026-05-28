@@ -1,36 +1,44 @@
 # 使用JSVM-API接口进行函数创建和调用
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-function-call
 
-## 简介
+##### 简介
 
 函数调用允许开发者从JSVM模块中调用JavaScript函数，并传参，或者直接在JSVM模块中创建一个JavaScript函数。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
 函数是一种重要的编程概念，用于执行特定任务，提升代码可读性与复用性，简化复杂操作，并实现代码的模块化和结构化，便于理解、维护和扩展。
+ 
+  
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_GetCbInfo | 从给定的callback info中获取有关调用的详细信息，如参数和this指针。 |
 | OH_JSVM_CallFunction | 在C/C++侧调用JavaScript方法。 |
 | OH_JSVM_IsFunction | 判断对象是否为函数对象。 |
 | OH_JSVM_CreateFunction | 用于创建JavaScript函数,用于从JavaScript环境中调用C/C++代码中的函数, 需要设置到一个JavaScript对象中才可以进行调用。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
+ 
+  
 
-## OH_JSVM function整合测试
+##### OH_JSVM function整合测试
 
 cpp测试全量代码，入口为TEST_FUNC
-```text
+ 
+```cpp
 #include "napi/native_api.h"
 #include "hilog/log.h"
 #include "ark_runtime/jsvm.h"
@@ -138,8 +146,9 @@ static int32_t TEST_FUNC()
     return 0;
 }
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 jsvm: jsvm api call function; Hello World!
 jsvm: js source call function; Hello World!

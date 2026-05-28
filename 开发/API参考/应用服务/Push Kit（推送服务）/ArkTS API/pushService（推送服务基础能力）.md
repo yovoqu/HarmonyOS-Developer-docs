@@ -3,7 +3,7 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供Push Kit的基础能力，包括获取和删除推送服务Token、绑定和解绑账号、接收场景化消息、注册和解除注册token更新，以及注册和解除注册分布式消息接收事件监听的功能。
 
@@ -16,19 +16,17 @@
 **起始版本：** 4.0.0(10)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { pushService } from '@kit.PushKit';
 ```
 
 
-## pushService.getToken
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getToken(callback: AsyncCallback<string>): void
+##### pushService.getToken
+
+getToken(callback: AsyncCallback&lt;string&gt;): void
 
 获取推送服务的Token，使用callback异步回调。
 
@@ -44,7 +42,6 @@ getToken(callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。Token获取成功时，字符长度为112，err为undefined；Token获取失败时返回错误对象。 |
@@ -53,7 +50,6 @@ getToken(callback: AsyncCallback<string>): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -70,8 +66,7 @@ getToken(callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -80,34 +75,22 @@ try {
   // data为获取的应用推送服务的Token
   pushService.getToken((err: BusinessError, data: string) => {
     if (err) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to get push token: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Failed to get push token: %{public}d %{public}s', err.code, err.message);
     } else {
       hilog.info(0x0000, 'testTag', 'Succeeded in getting push token');
     }
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to get push token: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to get push token: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.getToken
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getToken(): Promise<string>
+##### pushService.getToken
+
+getToken(): Promise&lt;string&gt;
 
 获取推送服务的Token，使用Promise异步回调。
 
@@ -123,7 +106,6 @@ getToken(): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象。返回Token，字符长度为112。 |
@@ -132,7 +114,6 @@ getToken(): Promise<string>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -148,45 +129,29 @@ getToken(): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   // data为获取的应用推送服务的Token
-  pushService
-    .getToken()
-    .then((data: string) => {
-      hilog.info(0x0000, 'testTag', 'Succeeded in getting push token.');
-    })
-    .catch((err: BusinessError) => {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to get push token: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
-    });
+  pushService.getToken().then((data: string) => {
+    hilog.info(0x0000, 'testTag', 'Succeeded in getting push token.');
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'Failed to get push token: %{public}d %{public}s', err.code, err.message);
+  });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to get push token: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to get push token: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.deleteToken
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteToken(callback: AsyncCallback<void>): void
+##### pushService.deleteToken
+
+deleteToken(callback: AsyncCallback&lt;void&gt;): void
 
 删除推送服务的Token，使用callback异步回调。
 
@@ -202,7 +167,6 @@ deleteToken(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当删除Token成功，err为undefined，否则为错误对象。 |
@@ -211,7 +175,6 @@ deleteToken(callback: AsyncCallback<void>): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -225,8 +188,7 @@ deleteToken(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -234,34 +196,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 try {
   pushService.deleteToken((err: BusinessError) => {
     if (err) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to delete push token: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Failed to delete push token: %{public}d %{public}s', err.code, err.message);
     } else {
       hilog.info(0x0000, 'testTag', 'Succeeded in deleting push token.');
     }
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to delete push token: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to delete push token: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.deleteToken
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteToken(): Promise<void>
+##### pushService.deleteToken
+
+deleteToken(): Promise&lt;void&gt;
 
 删除推送服务的Token，使用Promise异步回调。
 
@@ -277,7 +227,6 @@ deleteToken(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -286,7 +235,6 @@ deleteToken(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -299,44 +247,28 @@ deleteToken(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  pushService
-    .deleteToken()
-    .then(() => {
-      hilog.info(0x0000, 'testTag', 'Succeeded in deleting push token.');
-    })
-    .catch((err: BusinessError) => {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to delete push token: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
-    });
+  pushService.deleteToken().then(() => {
+    hilog.info(0x0000, 'testTag', 'Succeeded in deleting push token.');
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'Failed to delete push token: %{public}d %{public}s', err.code, err.message);
+  });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to delete push token: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to delete push token: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.bindAppProfileId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string, callback: AsyncCallback<void>): void
+##### pushService.bindAppProfileId
+
+bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string, callback: AsyncCallback&lt;void&gt;): void
 
 绑定应用内账号匿名标识，使用callback异步回调。
 
@@ -350,10 +282,9 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appProfileType | pushCommon.[AppProfileType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon#appprofiletype) | 是 | 绑定账号类型，分为华为账号和应用账号。 |
+| appProfileType | pushCommon.AppProfileType | 是 | 绑定账号类型，分为华为账号和应用账号。 |
 | appProfileId | string | 是 | 账号匿名标识，不可为空字符串。不建议使用真实的账号id，推荐使用账号id自行生成对应的匿名标识，能与该账号id建立唯一映射关系即可，生成算法无限制。最大长度为64，若长度超限，调用REST API接口会报错。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当绑定应用内账号成功，err为undefined，否则为错误对象。 |
 
@@ -361,7 +292,6 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -376,8 +306,7 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 
 **示例：**
 
-
-```ts
+```text
 import { pushService, pushCommon } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -385,40 +314,24 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 定义需要绑定的profileId
 const profileId: string = '1****9';
 try {
-  pushService.bindAppProfileId(
-    pushCommon.AppProfileType.PROFILE_TYPE_APPLICATION_ACCOUNT,
-    profileId,
-    (err: BusinessError) => {
-      if (err) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          'Failed to bind app profile id: %{public}d %{public}s',
-          err.code,
-          err.message,
-        );
-      } else {
-        hilog.info(0x0000, 'testTag', 'Succeeded in binding app profile id.');
-      }
-    },
-  );
+  pushService.bindAppProfileId(pushCommon.AppProfileType.PROFILE_TYPE_APPLICATION_ACCOUNT, profileId, (err: BusinessError) => {
+    if (err) {
+      hilog.error(0x0000, 'testTag', 'Failed to bind app profile id: %{public}d %{public}s', err.code, err.message);
+    } else {
+      hilog.info(0x0000, 'testTag', 'Succeeded in binding app profile id.');
+    }
+  });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to bind app profile id: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to bind app profile id: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.bindAppProfileId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string): Promise<void>
+##### pushService.bindAppProfileId
+
+bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string): Promise&lt;void&gt;
 
 绑定应用内账号匿名标识，使用Promise异步回调。
 
@@ -426,21 +339,19 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 
 **系统能力：** SystemCapability.Push.PushService
 
-**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、PC/2in1、Tablet、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正��使用。
+**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、PC/2in1、Tablet、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
 
 **起始版本：** 4.0.0(10)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appProfileType | pushCommon.[AppProfileType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon#appprofiletype) | 是 | 绑定账号类型，分为华为账号和应用账号。 |
+| appProfileType | pushCommon.AppProfileType | 是 | 绑定账号类型，分为华为账号和应用账号。 |
 | appProfileId | string | 是 | 账号匿名标识，不可为空字符串。不建议使用真实的账号id，推荐使用账号id自行生成对应的匿名标识，能与该账号id建立唯一映射关系即可，生成算法无限制。最大长度为64，若长度超限，调用REST API接口会报错。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -451,7 +362,6 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -465,8 +375,7 @@ bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string
 
 **示例：**
 
-
-```ts
+```text
 import { pushService, pushCommon } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -475,40 +384,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 const profileId: string = '1****9';
 try {
   // 绑定应用账号
-  pushService
-    .bindAppProfileId(
-      pushCommon.AppProfileType.PROFILE_TYPE_APPLICATION_ACCOUNT,
-      profileId,
-    )
-    .then(() => {
-      hilog.info(0x0000, 'testTag', 'Succeeded in binding app profile id.');
-    })
-    .catch((err: BusinessError) => {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to bind app profile id: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
-    });
+  pushService.bindAppProfileId(pushCommon.AppProfileType.PROFILE_TYPE_APPLICATION_ACCOUNT, profileId).then(() => {
+    hilog.info(0x0000, 'testTag', 'Succeeded in binding app profile id.');
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'Failed to bind app profile id: %{public}d %{public}s', err.code, err.message);
+  });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to bind app profile id: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to bind app profile id: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.unbindAppProfileId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-unbindAppProfileId(appProfileId: string, callback: AsyncCallback<void>): void
+##### pushService.unbindAppProfileId
+
+unbindAppProfileId(appProfileId: string, callback: AsyncCallback&lt;void&gt;): void
 
 解绑应用内账号匿名标识，使用callback异步回调。
 
@@ -522,17 +413,15 @@ unbindAppProfileId(appProfileId: string, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appProfileId | string | 是 | 账号匿名标识，配置为调用[bindAppProfileId](#pushservicebindappprofileid-1)()时设置的appProfileId。最大长度为64，若长度超限，调用REST API接口会报错。 |
+| appProfileId | string | 是 | 账号匿名标识，配置为调用bindAppProfileId()时设置的appProfileId。最大长度为64，若长度超限，调用REST API接口会报错。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当解绑应用内账号成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -545,8 +434,7 @@ unbindAppProfileId(appProfileId: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -556,34 +444,22 @@ const profileId: string = '1****9';
 try {
   pushService.unbindAppProfileId(profileId, (err: BusinessError) => {
     if (err) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to unbind app profile id: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Failed to unbind app profile id: %{public}d %{public}s', err.code, err.message);
     } else {
       hilog.info(0x0000, 'testTag', 'Succeeded in unbinding app profile id.');
     }
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to unbind app profile id: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to unbind app profile id: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.unbindAppProfileId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-unbindAppProfileId(appProfileId: string): Promise<void>
+##### pushService.unbindAppProfileId
+
+unbindAppProfileId(appProfileId: string): Promise&lt;void&gt;
 
 解绑应用内账号匿名标识，使用Promise异步回调。
 
@@ -597,14 +473,12 @@ unbindAppProfileId(appProfileId: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appProfileId | string | 是 | 账号匿名标识，配置为调用[bindAppProfileId](#pushservicebindappprofileid-1)()时设置的appProfileId。最大长度为64，若长度超限，调用REST API接口会报错。 |
+| appProfileId | string | 是 | 账号匿名标识，配置为调用bindAppProfileId()时设置的appProfileId。最大长度为64，若长度超限，调用REST API接口会报错。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -614,7 +488,6 @@ unbindAppProfileId(appProfileId: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -627,8 +500,7 @@ unbindAppProfileId(appProfileId: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -636,35 +508,20 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 定义需要解绑的profileId
 const profileId: string = '1****9';
 try {
-  pushService
-    .unbindAppProfileId(profileId)
-    .then(() => {
-      hilog.info(0x0000, 'testTag', 'Succeeded in unbinding app profile id.');
-    })
-    .catch((err: BusinessError) => {
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to unbind app profile id: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
-    });
+  pushService.unbindAppProfileId(profileId).then(() => {
+    hilog.info(0x0000, 'testTag', 'Succeeded in unbinding app profile id.');
+  }).catch((err: BusinessError) => {
+    hilog.error(0x0000, 'testTag', 'Failed to unbind app profile id: %{public}d %{public}s', err.code, err.message);
+  });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  hilog.error(
-    0x0000,
-    'testTag',
-    'Failed to unbind app profile id: %{public}d %{public}s',
-    e.code,
-    e.message,
-  );
+  hilog.error(0x0000, 'testTag', 'Failed to unbind app profile id: %{public}d %{public}s', e.code, e.message);
 }
 ```
 
 
-## pushService.PushType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pushService.PushType
 
 type PushType = 'DEFAULT' |'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 
@@ -678,7 +535,6 @@ type PushType = 'DEFAULT' |'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 
 **起始版本：** 5.0.2(14)
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'DEFAULT' | 通知消息场景。 |
@@ -688,8 +544,9 @@ type PushType = 'DEFAULT' |'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 | 'EMERGENCY' | 紧急事件消息场景。 |
 
 
-## pushService.receiveMessage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### pushService.receiveMessage
 
 receiveMessage(pushType: PushType, ability: Ability, onMessage: Callback<pushCommon.PushPayload>): void
 
@@ -705,18 +562,16 @@ receiveMessage(pushType: PushType, ability: Ability, onMessage: Callback<pushCom
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pushType | [PushType](#pushservicepushtype) | 是 | 场景化消息类型。          说明：          · pushService.PushType中EMERGENCY（紧急事件消息场景）起始版本：5.0.0(12)。本场景仅为地震灾害等特殊场景使用。          · pushService.PushType中DEFAULT（通知消息场景）起始版本：5.0.2(14)。调用示例代码请参考[应用在前台时处理通知消息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-alert#应用在前台时处理通知消息)中步骤3。          · IM（语音播报消息场景）调用示例代码请参考[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-send-extend-noti#开发步骤)中步骤3。          · VoIP（应用内通话消息场景）          调用示例代码请参考[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-voip#开发步骤)中步骤2。          · BACKGROUND（后台消息场景）          调用示例代码请参考[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-background#开发步骤)中步骤5。 |
-| ability | [Ability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)。 |
-| onMessage | Callback&lt;pushCommon.[PushPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon#pushpayload)&gt; | 是 | 回调函数，返回接收场景化消息的数据。 |
+| pushType | PushType | 是 | 场景化消息类型。 说明： · pushService.PushType中EMERGENCY（紧急事件消息场景）起始版本：5.0.0(12)。本场景仅为地震灾害等特殊场景使用。 · pushService.PushType中DEFAULT（通知消息场景）起始版本：5.0.2(14)。调用示例代码请参考应用在前台时处理通知消息中步骤3。 · IM（语音播报消息场景）调用示例代码请参考开发步骤中步骤3。 · VoIP（应用内通话消息场景） 调用示例代码请参考开发步骤中步骤2。 · BACKGROUND（后台消息场景） 调用示例代码请参考开发步骤中步骤5。 |
+| ability | Ability | 是 | UIAbility。 |
+| onMessage | Callback<pushCommon.PushPayload> | 是 | 回调函数，返回接收场景化消息的数据。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -727,8 +582,7 @@ receiveMessage(pushType: PushType, ability: Ability, onMessage: Callback<pushCom
 
 **示例：**
 
-
-```ts
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { pushService, pushCommon } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -741,49 +595,28 @@ export default class PushMessageAbility extends UIAbility {
     try {
       // receiveMessage()不能放在异步方法之后，否则可能影响消息接收
       // 注册BACKGROUND场景化消息
-      pushService.receiveMessage(
-        'BACKGROUND',
-        this,
-        (data: pushCommon.PushPayload) => {
-          // process message，并建议对Callback进行try-catch
-          try {
-            hilog.info(
-              0x0000,
-              'testTag',
-              'Receive background message : %{public}s',
-              JSON.stringify(data),
-            );
-          } catch (e) {
-            let errRes: BusinessError = e as BusinessError;
-            hilog.error(
-              0x0000,
-              'testTag',
-              'Failed to process data: %{public}d %{public}s',
-              errRes.code,
-              errRes.message,
-            );
-          }
-        },
-      );
+      pushService.receiveMessage('BACKGROUND', this, (data: pushCommon.PushPayload) => {
+        // process message，并建议对Callback进行try-catch
+        try {
+          hilog.info(0x0000, 'testTag', 'Receive background message : %{public}s', JSON.stringify(data));
+        } catch (e) {
+          let errRes: BusinessError = e as BusinessError;
+          hilog.error(0x0000, 'testTag', 'Failed to process data: %{public}d %{public}s', errRes.code, errRes.message);
+        }
+      });
     } catch (err) {
       let e: BusinessError = err as BusinessError;
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to receive message: %{public}d %{public}s',
-        e.code,
-        e.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Failed to receive message: %{public}d %{public}s', e.code, e.message);
     }
   }
 }
 ```
 
 
-## pushService.on('tokenUpdate')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'tokenUpdate', ability: Ability, callback: Callback<string>): void
+##### pushService.on('tokenUpdate')
+
+on(type: 'tokenUpdate', ability: Ability, callback: Callback&lt;string&gt;): void
 
 注册token更新，使用callback异步回调。
 
@@ -797,18 +630,16 @@ on(type: 'tokenUpdate', ability: Ability, callback: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'tokenUpdate'，即token更新事件。 |
-| ability | [Ability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-ability) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)，包含UI界面的应用组件。 |
+| ability | Ability | 是 | UIAbility，包含UI界面的应用组件。 |
 | callback | Callback&lt;string&gt; | 是 | 回调函数，返回token更新的数据。Token长度为112。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -818,8 +649,7 @@ on(type: 'tokenUpdate', ability: Ability, callback: Callback<string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -833,15 +663,9 @@ export default class PushMessageAbility extends UIAbility {
         hilog.info(0x0000, 'testTag', 'update token: %{public}s', data);
       } catch (e) {
         let err: BusinessError = e as BusinessError;
-        hilog.error(
-          0x0000,
-          'testTag',
-          'Failed to update data: %{public}d %{public}s',
-          err.code,
-          err.message,
-        );
+        hilog.error(0x0000, 'testTag', 'Failed to update data: %{public}d %{public}s', err.code, err.message);
       }
-    };
+    }
 
     try {
       // 注册token更新回调场景
@@ -849,23 +673,17 @@ export default class PushMessageAbility extends UIAbility {
       hilog.info(0x0000, 'testTag', 'Register on success');
     } catch (e) {
       let err: BusinessError = e as BusinessError;
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Register on error: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Register on error: %{public}d %{public}s', err.code, err.message);
     }
   }
 }
 ```
 
 
-## pushService.off('tokenUpdate')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'tokenUpdate', callback?: Callback<string>): void
+##### pushService.off('tokenUpdate')
+
+off(type: 'tokenUpdate', callback?: Callback&lt;string&gt;): void
 
 解除注册token更新，使用callback异步回调。
 
@@ -879,17 +697,15 @@ off(type: 'tokenUpdate', callback?: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'tokenUpdate'，即token更新事件。 |
-| callback | Callback&lt;string&gt; | 否 | 回调函数，用于取消注册tokenUpdate监听事件。          注：若取消注册时不传入callback，则会取消注册tokenUpdate事件下所有的callback。 |
+| callback | Callback&lt;string&gt; | 否 | 回调函数，用于取消注册tokenUpdate监听事件。 注：若取消注册时不传入callback，则会取消注册tokenUpdate事件下所有的callback。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -899,8 +715,7 @@ off(type: 'tokenUpdate', callback?: Callback<string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -915,29 +730,23 @@ export default class PushMessageAbility extends UIAbility {
       hilog.info(0x0000, 'testTag', 'Register off success');
     } catch (e) {
       let err: BusinessError = e as BusinessError;
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Register off error: %{public}d %{public}s',
-        err.code,
-        err.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Register off error: %{public}d %{public}s', err.code, err.message);
     }
   }
 }
 ```
 
 
-## pushService.on('distributedMessageReceive')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pushService.on('distributedMessageReceive')
 
 on(type: 'distributedMessageReceive', callee: Callee, callback: DistributedMessageCallback): void
 
 注册分布式消息接收事件监听，使用callback异步回调。应用需要在UIAbility的onCreate()方法进行注册，每个应用只能注册一次。该UIAbility对应action为**action.ohos.push.distribute.listener**。
 
-
 > [!NOTE]
-> 若调用接收场景化消息接口（[pushService.receiveMessage](#pushservicereceivemessage)）和注册分布式消息事件在同一个UIAbility中，则action.ohos.push.distribute.listener和action.ohos.push.listener定义在同一个actions数组中，否则分别定义在对应UIAbility中的actions中。
+> 若调用接收场景化消息接口（ pushService.receiveMessage ）和注册分布式消息事件在同一个UIAbility中，则action.ohos.push.distribute.listener和action.ohos.push.listener定义在同一个actions数组中，否则分别定义在对应UIAbility中的actions中。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -949,18 +758,16 @@ on(type: 'distributedMessageReceive', callee: Callee, callback: DistributedMessa
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'distributedMessageReceive'，即分布式消息接收事件。 |
-| callee | [Callee](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#callee) | 是 | 通用组件服务端注册和解除客户端[Caller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#caller)通知送信的callback接口，从[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中获取。 |
-| callback | [DistributedMessageCallback](#distributedmessagecallback) | 是 | 回调函数，注册分布式消息接收事件监听的回调，在收到分布式消息后异步执行。 |
+| callee | Callee | 是 | 通用组件服务端注册和解除客户端Caller通知送信的callback接口，从UIAbility中获取。 |
+| callback | DistributedMessageCallback | 是 | 回调函数，注册分布式消息接收事件监听的回调，在收到分布式消息后异步执行。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -970,36 +777,22 @@ on(type: 'distributedMessageReceive', callee: Callee, callback: DistributedMessa
 
 **示例：**
 
-
-```ts
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { pushService, pushCommon } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class PushMessageAbility extends UIAbility {
-  private callback: pushService.DistributedMessageCallback = async (
-    data: pushCommon.PushPayload,
-  ) => {
+  private callback: pushService.DistributedMessageCallback = async (data:  pushCommon.PushPayload) => {
     let resultCode = pushService.ResultCode.SUCCESS;
     try {
-      hilog.info(
-        0x0000,
-        'testTag',
-        'Distribute message: %{public}s',
-        JSON.stringify(data),
-      );
+      hilog.info(0x0000, 'testTag', 'Distribute message: %{public}s', JSON.stringify(data));
       // 处理业务逻辑，如将数据内容发布到穿戴设备上等
     } catch (e) {
       resultCode = pushService.ResultCode.FAILED;
       let errRes: BusinessError = e as BusinessError;
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to receive distribute data: %{public}d %{public}s',
-        errRes.code,
-        errRes.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Failed to receive distribute data: %{public}d %{public}s', errRes.code, errRes.message);
     }
     // 处理结束后，返回执行结果
     return { resultCode };
@@ -1011,21 +804,15 @@ export default class PushMessageAbility extends UIAbility {
       pushService.on('distributedMessageReceive', this.callee, this.callback);
     } catch (err) {
       let e: BusinessError = err as BusinessError;
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Register on error: %{public}d %{public}s',
-        e.code,
-        e.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Register on error: %{public}d %{public}s', e.code, e.message);
     }
   }
 }
 ```
 
 
-## pushService.off('distributedMessageReceive')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pushService.off('distributedMessageReceive')
 
 off(type: 'distributedMessageReceive', callback?: DistributedMessageCallback): void
 
@@ -1041,17 +828,15 @@ off(type: 'distributedMessageReceive', callback?: DistributedMessageCallback): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'distributedMessageReceive'即分布式消息接收事件。 |
-| callback | [DistributedMessageCallback](#distributedmessagecallback) | 否 | 回调函数，用于取消注册distributedMessageReceive监听事件。取消注册后，应用无法在该callback方法中接收分布式消息。          注：若取消注册时不传入callback，则会取消注册distributedMessageReceive事件下所有的callback。 |
+| callback | DistributedMessageCallback | 否 | 回调函数，用于取消注册distributedMessageReceive监听事件。取消注册后，应用无法在该callback方法中接收分布式消息。 注：若取消注册时不传入callback，则会取消注册distributedMessageReceive事件下所有的callback。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1060,36 +845,22 @@ off(type: 'distributedMessageReceive', callback?: DistributedMessageCallback): v
 
 **示例：**
 
-
-```ts
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { pushCommon, pushService } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class PushMessageAbility extends UIAbility {
-  private callback: pushService.DistributedMessageCallback = async (
-    data: pushCommon.PushPayload,
-  ) => {
+  private callback: pushService.DistributedMessageCallback = async (data:  pushCommon.PushPayload) => {
     let resultCode = pushService.ResultCode.SUCCESS;
     try {
-      hilog.info(
-        0x0000,
-        'testTag',
-        'Distribute message: %{public}s',
-        JSON.stringify(data),
-      );
+      hilog.info(0x0000, 'testTag', 'Distribute message: %{public}s', JSON.stringify(data));
       // 处理业务逻辑，如将数据内容发布到穿戴设备上等
     } catch (e) {
       resultCode = pushService.ResultCode.FAILED;
       let errRes: BusinessError = e as BusinessError;
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Failed to receive distribute data: %{public}d %{public}s',
-        errRes.code,
-        errRes.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Failed to receive distribute data: %{public}d %{public}s', errRes.code, errRes.message);
     }
     // 处理结束后，返回执行结果
     return { resultCode };
@@ -1102,23 +873,17 @@ export default class PushMessageAbility extends UIAbility {
       hilog.info(0x0000, 'testTag', 'Register off success');
     } catch (err) {
       let e: BusinessError = err as BusinessError;
-      hilog.error(
-        0x0000,
-        'testTag',
-        'Register off error: %{public}d %{public}s',
-        e.code,
-        e.message,
-      );
+      hilog.error(0x0000, 'testTag', 'Register off error: %{public}d %{public}s', e.code, e.message);
     }
   }
 }
 ```
 
 
-## DistributedMessageCallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type DistributedMessageCallback = (PushPayload: pushCommon.PushPayload) => Promise<DistributedMessageResult>
+##### DistributedMessageCallback
+
+type DistributedMessageCallback = (PushPayload: pushCommon.PushPayload) => Promise&lt;DistributedMessageResult&gt;
 
 分布式消息接收事件中使用的回调函数。
 
@@ -1132,22 +897,21 @@ type DistributedMessageCallback = (PushPayload: pushCommon.PushPayload) => Promi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| PushPayload | pushCommon.[PushPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon#pushpayload) | 是 | 分布式消息数据的参数定义。 |
+| PushPayload | pushCommon.PushPayload | 是 | 分布式消息数据的参数定义。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;DistributedMessageResult&gt; | Promise对象。返回DistributedMessageResult对象，见[DistributedMessageResult](#distributedmessageresult)说明。 |
+| Promise&lt;DistributedMessageResult&gt; | Promise对象。返回DistributedMessageResult对象，见DistributedMessageResult说明。 |
 
 
-## DistributedMessageResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DistributedMessageResult
 
 distributedMessageReceive事件中使用的回调类型。
 
@@ -1161,14 +925,14 @@ distributedMessageReceive事件中使用的回调类型。
 
 **参数：**
 
-
 | 参数名 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| resultCode | [ResultCode](#resultcode) | 否 | 否 | 回调函数执行结果，枚举类型，见枚举[ResultCode](#resultcode)说明。 |
+| resultCode | ResultCode | 否 | 否 | 回调函数执行结果，枚举类型，见枚举ResultCode说明。 |
 
 
-## ResultCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ResultCode
 
 表示[DistributedMessageCallback](#distributedmessagecallback)回调函数执行结果的枚举。
 
@@ -1179,7 +943,6 @@ distributedMessageReceive事件中使用的回调类型。
 **设备行为差异：** 对于6.1.0(23)以前版本，该枚举值在Phone、Tablet中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该枚举值在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。
 
 **起始版本：** 6.0.0(20)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

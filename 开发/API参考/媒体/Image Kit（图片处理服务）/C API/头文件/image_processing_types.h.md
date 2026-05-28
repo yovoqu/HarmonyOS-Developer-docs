@@ -3,114 +3,108 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 图片处理的类型定义。
-
+ 
 **引用文件：** <multimedia/video_processing_engine/image_processing_types.h>
-
+ 
 **库：** libimage_processing.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.VideoProcessingEngine
-
+ 
 **起始版本：** 13
-
+ 
 **相关模块：** [ImageProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageprocessing)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ImageProcessing_ColorSpaceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-imageprocessing-imageprocessing-colorspaceinfo) | ImageProcessing_ColorSpaceInfo | 色彩空间信息，用于色彩空间转换能力查询。 |
-| [OH_ImageProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageprocessing-oh-imageprocessing) | OH_ImageProcessing | 提供OH_ImageProcessing结构体声明。 定义了OH_ImageProcessing的空指针并调用[OH_ImageProcessing_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_create)来创建图片处理实例。在创建实例之前，指针应为空。用户可以为不同的处理类型创建多个图片实例。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) | OH_PixelmapNative | 提供OH_PixelmapNative结构体声明。 |
-| [OH_AVFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core-oh-avformat) | OH_AVFormat | 提供OH_AVFormat结构体声明。 |
+| ImageProcessing_ColorSpaceInfo | ImageProcessing_ColorSpaceInfo | 色彩空间信息，用于色彩空间转换能力查询。 |
+| OH_ImageProcessing | OH_ImageProcessing | 提供OH_ImageProcessing结构体声明。 定义了OH_ImageProcessing的空指针并调用OH_ImageProcessing_Create来创建图片处理实例。在创建实例之前，指针应为空。用户可以为不同的处理类型创建多个图片实例。 |
+| OH_PixelmapNative | OH_PixelmapNative | 提供OH_PixelmapNative结构体声明。 |
+| OH_AVFormat | OH_AVFormat | 提供OH_AVFormat结构体声明。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ImageDetailEnhancer_QualityLevel](#imagedetailenhancer_qualitylevel) | ImageDetailEnhancer_QualityLevel | 质量级别，用于细节增强能力。 键参数的值IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL。 |
-| [ImageProcessing_ErrorCode](#imageprocessing_errorcode) | ImageProcessing_ErrorCode | 图片处理接口错误码说明。 |
+| ImageDetailEnhancer_QualityLevel | ImageDetailEnhancer_QualityLevel | 质量级别，用于细节增强能力。 键参数的值IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL。 |
+| ImageProcessing_ErrorCode | ImageProcessing_ErrorCode | 图片处理接口错误码说明。 |
+ 
+ 
+  
 
-
-### 变量
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
+##### 变量
+ 
 | 名称 | 描述 |
 | --- | --- |
-| const int32_t IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION | 用于创建色彩空间转换的图片处理实例。 色彩空间转换包括单层HDR图片转换SDR图片，SDR图片之间的转换，以及SDR图片转换单层HDR图片，部分能力由厂商支持。使用[OH_ImageProcessing_IsColorSpaceConversionSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_iscolorspaceconversionsupported)查询某种转换是否支持在单层图片之间进行。 起始版本： 13 参考：[OH_ImageProcessing_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_create) |
-| const int32_t IMAGE_PROCESSING_TYPE_COMPOSITION | 用于创建双层HDR图片转换单层HDR图片的图片处理实例。 包括从双层HDR图片转换为单层HDR图片的能力。部分能力由厂商支持。使用[OH_ImageProcessing_IsCompositionSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_iscompositionsupported)查询是否支持从双层HDR图片到单层HDR图片的转换。 起始版本： 13 参考：[OH_ImageProcessing_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_create) |
-| const int32_t IMAGE_PROCESSING_TYPE_DECOMPOSITION | 用于创建单层HDR图片转换双层HDR图片的图片处理实例。 包括从单层HDR图片转换为双层HDR图片的能力。部分能力由厂商支持。使用[OH_ImageProcessing_IsDecompositionSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_isdecompositionsupported)查询是否支持从单层HDR图片到双层HDR图片的转换。 起始版本： 13 参考：[OH_ImageProcessing_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_create) |
-| const int32_t IMAGE_PROCESSING_TYPE_METADATA_GENERATION | 用于创建元数据生成的图片处理实例。 生成单层HDR图片的HDR Vivid元数据。该能力由厂商支持。如果不支持该能力，[OH_ImageProcessing_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_create)将返回[IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h#imageprocessing_errorcode)。 起始版本： 13 参考：[OH_ImageProcessing_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_create) |
-| const int32_t IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER | 用于创建细节增强的图片处理实例。 按指定图像质量缩放或调整图片大小，或仅增强图像细节以在不更改分辨率的情况下渲染图片。 起始版本： 13 参考：[OH_ImageProcessing_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_create) |
-| const char * IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL | 用于设定图像细节增强的质量级别。 使用[ImageDetailEnhancer_QualityLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-types-h#imagedetailenhancer_qualitylevel)获取其值。使用[OH_ImageProcessing_SetParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_setparameter)设置质量级别。使用[OH_ImageProcessing_GetParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_getparameter)获取当前质量级别。 起始版本： 13 |
+| const int32_t IMAGE_PROCESSING_TYPE_COLOR_SPACE_CONVERSION | 用于创建色彩空间转换的图片处理实例。 色彩空间转换包括单层HDR图片转换SDR图片，SDR图片之间的转换，以及SDR图片转换单层HDR图片，部分能力由厂商支持。使用OH_ImageProcessing_IsColorSpaceConversionSupported查询某种转换是否支持在单层图片之间进行。 起始版本： 13 参考：OH_ImageProcessing_Create |
+| const int32_t IMAGE_PROCESSING_TYPE_COMPOSITION | 用于创建双层HDR图片转换单层HDR图片的图片处理实例。 包括从双层HDR图片转换为单层HDR图片的能力。部分能力由厂商支持。使用OH_ImageProcessing_IsCompositionSupported查询是否支持从双层HDR图片到单层HDR图片的转换。 起始版本： 13 参考：OH_ImageProcessing_Create |
+| const int32_t IMAGE_PROCESSING_TYPE_DECOMPOSITION | 用于创建单层HDR图片转换双层HDR图片的图片处理实例。 包括从单层HDR图片转换为双层HDR图片的能力。部分能力由厂商支持。使用OH_ImageProcessing_IsDecompositionSupported查询是否支持从单层HDR图片到双层HDR图片的转换。 起始版本： 13 参考：OH_ImageProcessing_Create |
+| const int32_t IMAGE_PROCESSING_TYPE_METADATA_GENERATION | 用于创建元数据生成的图片处理实例。 生成单层HDR图片的HDR Vivid元数据。该能力由厂商支持。如果不支持该能力，OH_ImageProcessing_Create将返回IMAGE_PROCESSING_ERROR_UNSUPPORTED_PROCESSING。 起始版本： 13 参考：OH_ImageProcessing_Create |
+| const int32_t IMAGE_PROCESSING_TYPE_DETAIL_ENHANCER | 用于创建细节增强的图片处理实例。 按指定图像质量缩放或调整图片大小，或仅增强图像细节以在不更改分辨率的情况下渲染图片。 起始版本： 13 参考：OH_ImageProcessing_Create |
+| const char * IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL | 用于设定图像细节增强的质量级别。 使用ImageDetailEnhancer_QualityLevel获取其值。使用OH_ImageProcessing_SetParameter设置质量级别。使用OH_ImageProcessing_GetParameter获取当前质量级别。 起始版本： 13 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+  
 
-
-### ImageDetailEnhancer_QualityLevel
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
+##### ImageDetailEnhancer_QualityLevel
 
 ```text
 enum ImageDetailEnhancer_QualityLevel
 ```
-
+ 
 **描述**
-
+ 
 质量级别，用于细节增强能力。
-
+ 
 键参数的值IMAGE_DETAIL_ENHANCER_PARAMETER_KEY_QUALITY_LEVEL。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_NONE | 无细节增强。 支持输入分辨率（px）：宽：[32, 3000]，高：[32, 3000]。 支持输出分辨率（px）：宽：[32, 3000]，高：[32, 3000]。 |
 | IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_LOW | 细节增强质量较低，但速度较快。默认级别。 支持输入分辨率（px）：宽：[32, 3000]，高：[32, 3000]。 支持输出分辨率（px）：宽：[32, 3000]，高：[32, 3000]。 |
 | IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_MEDIUM | 细节增强质量中等，速度介于低级别与高级别之间。 支持输入分辨率（px）：宽：[32, 3000]，高：[32, 3000]。 支持输出分辨率（px）：宽：[32, 3000]，高：[32, 3000]。 |
-| IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_HIGH | 细节增强质量较高，但速度较慢。 API version 13-22支持输入分辨率（px）：宽：[512, 2000]，高：[512, 2000]。 API version 13-22支持输出分辨率（px）：宽：[512, 2000]，高：[512, 2000]。 API version 23及以后支持输入分辨率（px）：宽：[180, 2000]，高：[180, 2000]。 API version 23及以后支持输出分辨率（px）��宽：[512, 2000]，高：[512, 2000]。 |
-
-
+| IMAGE_DETAIL_ENHANCER_QUALITY_LEVEL_HIGH | 细节增强质量较高，但速度较慢。 API version 13-22支持输入分辨率（px）：宽：[512, 2000]，高：[512, 2000]。 API version 13-22支持输出分辨率（px）：宽：[512, 2000]，高：[512, 2000]。 API version 23及以后支持输入分辨率（px）：宽：[180, 2000]，高：[180, 2000]。 API version 23及以后支持输出分辨率（px）：宽：[512, 2000]，高：[512, 2000]。 |
+ 
+ 
 **参考：**
-
+ 
 [OH_ImageProcessing_SetParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_setparameter)，[OH_ImageProcessing_GetParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-processing-h#oh_imageprocessing_getparameter)
+ 
+  
 
-
-### ImageProcessing_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
+##### ImageProcessing_ErrorCode
 
 ```text
 enum ImageProcessing_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 图片处理接口错误码说明。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IMAGE_PROCESSING_SUCCESS | 成功。 |

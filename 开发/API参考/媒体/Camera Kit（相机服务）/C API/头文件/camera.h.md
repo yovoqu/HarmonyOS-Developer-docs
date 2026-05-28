@@ -1,13 +1,11 @@
 # camera.h
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义相机的基本接口和功能。
 
@@ -22,102 +20,101 @@
 **相关模块：** [OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-
-| 名称 | typedef关键字 | 描述 |
-| --- | --- | --- |
-| [Camera_DeviceQueryInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-devicequeryinfo) | Camera_DeviceQueryInfo | 相机设备的查询信息。 |
-| [Camera_Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-size) | Camera_Size | 大小参数。 |
-| [Camera_Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-profile) | Camera_Profile | 相机流的配置文件。 |
-| [Camera_FrameRateRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-frameraterange) | Camera_FrameRateRange | 帧速率范围。 |
-| [Camera_VideoProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-videoprofile) | Camera_VideoProfile | 录像配置文件。 |
-| [Camera_OutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-outputcapability) | Camera_OutputCapability | 相机输出能力。 |
-| [Camera_Device](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-device) | Camera_Device | 相机设备对象。 |
-| [Camera_StatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-statusinfo) | Camera_StatusInfo | 相机状态信息。 |
-| [Camera_Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-point) | Camera_Point | 点参数。 |
-| [Camera_Location](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-location) | Camera_Location | 拍照位置。 |
-| [Camera_PhotoCaptureSetting](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-photocapturesetting) | Camera_PhotoCaptureSetting | 要设置的拍照捕获选项。 |
-| [Camera_FrameShutterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-frameshutterinfo) | Camera_FrameShutterInfo | 帧快门回调信息。 |
-| [Camera_CaptureEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-captureendinfo) | Camera_CaptureEndInfo | 捕获结束信息。 |
-| [Camera_Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-rect) | Camera_Rect | 矩形定义。          检测点应在0-1坐标系内，该坐标系左上角为(0，0)，右下角为(1，1)。          此坐标系以设备充电口在右侧时的横向设备方向为基准。          例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为(w，h)， 返回点为(x，y)，则转换后的坐标点为(1-y，x)。 |
-| [Camera_MetadataObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-metadataobject) | Camera_MetadataObject | 元数据对象基础。 |
-| [Camera_TorchStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-torchstatusinfo) | Camera_TorchStatusInfo | 手电筒状态信息。 |
-| [Camera_SmoothZoomInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-smoothzoominfo) | Camera_SmoothZoomInfo | 平滑变焦参数信息。 |
-| [Camera_CaptureStartInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-capturestartinfo) | Camera_CaptureStartInfo | 拍照开始信息。 |
-| [Camera_FrameShutterEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-frameshutterendinfo) | Camera_FrameShutterEndInfo | 拍照曝光结束信息。 |
-| [Camera_FoldStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-foldstatusinfo) | Camera_FoldStatusInfo | 折叠状态信息。 |
-| [Camera_AutoDeviceSwitchStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-autodeviceswitchstatusinfo) | Camera_AutoDeviceSwitchStatusInfo | 自动设备切换状态信息。 |
-| [Camera_ConcurrentInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-concurrentinfo) | Camera_ConcurrentInfo | 相机并发能力信息。 |
-| [Camera_ControlCenterStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-controlcenterstatusinfo) | Camera_ControlCenterStatusInfo | 控制器效果激活状态信息。 |
-| [Camera_OcclusionDetectionResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-occlusiondetectionresult) | Camera_OcclusionDetectionResult | 相机镜头遮挡、脏污检测结果。 |
-| [OH_Camera_ZoomRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-oh-camera-zoomrange) | OH_Camera_ZoomRange | 变焦范围配置。 |
-| [OH_Camera_PhysicalAperture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-oh-camera-physicalaperture) | OH_Camera_PhysicalAperture | 物理光圈配置。 |
-| [Camera_Manager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-manager) | Camera_Manager | 相机管理器对象。          可以使用[OH_Camera_GetCameraManager](#oh_camera_getcameramanager)方法创建指针。 |
-
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Camera_ErrorCode](#camera_errorcode) | Camera_ErrorCode | 相机错误代码的枚举。 |
-| [Camera_Status](#camera_status) | Camera_Status | 相机状态的枚举。 |
-| [Camera_SceneMode](#camera_scenemode) | Camera_SceneMode | 相机模式的枚举。 |
-| [Camera_Position](#camera_position) | Camera_Position | 相机位置的枚举。 |
-| [Camera_Type](#camera_type) | Camera_Type | 相机类型的枚举。 |
-| [Camera_Connection](#camera_connection) | Camera_Connection | 相机连接类型的枚举。 |
-| [OH_Camera_SensorColorFilterArrangement](#oh_camera_sensorcolorfilterarrangement) | OH_Camera_SensorColorFilterArrangement | 传感器滤色阵列排列方式。 |
-| [Camera_Format](#camera_format) | Camera_Format | 相机格式类型的枚举。 |
-| [Camera_FlashMode](#camera_flashmode) | Camera_FlashMode | 闪光模式的枚举。 |
-| [OH_Camera_FlashState](#oh_camera_flashstate) | OH_Camera_FlashState | 闪光灯状态枚举。 |
-| [Camera_ExposureMode](#camera_exposuremode) | Camera_ExposureMode | 曝光模式的枚举。 |
-| [OH_Camera_ExposureMeteringMode](#oh_camera_exposuremeteringmode) | OH_Camera_ExposureMeteringMode | 曝光测光模式枚举。 |
-| [Camera_FocusMode](#camera_focusmode) | Camera_FocusMode | 聚焦模式的枚举。 |
-| [Camera_FocusState](#camera_focusstate) | Camera_FocusState | 焦点状态的枚举。 |
-| [Camera_VideoStabilizationMode](#camera_videostabilizationmode) | Camera_VideoStabilizationMode | 录像防抖模式的枚举。 |
-| [Camera_ImageRotation](#camera_imagerotation) | Camera_ImageRotation | 图像旋转角度的枚举。 |
-| [Camera_QualityLevel](#camera_qualitylevel) | Camera_QualityLevel | 图像质量等级的枚举。 |
-| [Camera_MetadataObjectType](#camera_metadataobjecttype) | Camera_MetadataObjectType | 元数据对象类型的枚举。 |
-| [Camera_TorchMode](#camera_torchmode) | Camera_TorchMode | 手电筒模式的枚举。 |
-| [Camera_SmoothZoomMode](#camera_smoothzoommode) | Camera_SmoothZoomMode | 平滑变焦模式的枚举。 |
-| [Camera_SystemPressureLevel](#camera_systempressurelevel) | Camera_SystemPressureLevel | 系统压力等级的枚举。 |
-| [Camera_PreconfigType](#camera_preconfigtype) | Camera_PreconfigType | 预配置照片分辨率的枚举。 |
-| [Camera_PreconfigRatio](#camera_preconfigratio) | Camera_PreconfigRatio | 预配置照片比例的枚举。 |
-| [Camera_HostDeviceType](#camera_hostdevicetype) | Camera_HostDeviceType | 远程设备类型枚举。 |
-| [Camera_FoldStatus](#camera_foldstatus) | Camera_FoldStatus | 折叠状态枚举。 |
-| [Camera_QualityPrioritization](#camera_qualityprioritization) | Camera_QualityPrioritization | 录像质量优先级的枚举。 |
-| [Camera_ConcurrentType](#camera_concurrenttype) | Camera_ConcurrentType | 相机并发状态的枚举。 |
-| [Camera_WhiteBalanceMode](#camera_whitebalancemode) | Camera_WhiteBalanceMode | 白平衡模式枚举。 |
-| [Camera_ControlCenterEffectType](#camera_controlcentereffecttype) | Camera_ControlCenterEffectType | 控制器效果类型枚举。 |
-| [Camera_PhotoQualityPrioritization](#camera_photoqualityprioritization) | Camera_PhotoQualityPrioritization | 拍照画质优先策略枚举。 |
-| [OH_Camera_OISMode](#oh_camera_oismode) | OH_Camera_OISMode | 光学防抖（Optical Image Stabilization）模式枚举。 |
-| [OH_Camera_OISAxes](#oh_camera_oisaxes) | OH_Camera_OISAxes | 光学防抖（OIS）轴枚举。 |
+| Camera_DeviceQueryInfo | Camera_DeviceQueryInfo | 相机设备的查询信息。 |
+| Camera_Size | Camera_Size | 大小参数。 |
+| Camera_Profile | Camera_Profile | 相机流的配置文件。 |
+| Camera_FrameRateRange | Camera_FrameRateRange | 帧速率范围。 |
+| Camera_VideoProfile | Camera_VideoProfile | 录像配置文件。 |
+| Camera_OutputCapability | Camera_OutputCapability | 相机输出能力。 |
+| Camera_Device | Camera_Device | 相机设备对象。 |
+| Camera_StatusInfo | Camera_StatusInfo | 相机状态信息。 |
+| Camera_Point | Camera_Point | 点参数。 |
+| Camera_Location | Camera_Location | 拍照位置。 |
+| Camera_PhotoCaptureSetting | Camera_PhotoCaptureSetting | 要设置的拍照捕获选项。 |
+| Camera_FrameShutterInfo | Camera_FrameShutterInfo | 帧快门回调信息。 |
+| Camera_CaptureEndInfo | Camera_CaptureEndInfo | 捕获结束信息。 |
+| Camera_Rect | Camera_Rect | 矩形定义。 检测点应在0-1坐标系内，该坐标系左上角为(0，0)，右下角为(1，1)。 此坐标系以设备充电口在右侧时的横向设备方向为基准。 例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为(w，h)， 返回点为(x，y)，则转换后的坐标点为(1-y，x)。 |
+| Camera_MetadataObject | Camera_MetadataObject | 元数据对象基础。 |
+| Camera_TorchStatusInfo | Camera_TorchStatusInfo | 手电筒状态信息。 |
+| Camera_SmoothZoomInfo | Camera_SmoothZoomInfo | 平滑变焦参数信息。 |
+| Camera_CaptureStartInfo | Camera_CaptureStartInfo | 拍照开始信息。 |
+| Camera_FrameShutterEndInfo | Camera_FrameShutterEndInfo | 拍照曝光结束信息。 |
+| Camera_FoldStatusInfo | Camera_FoldStatusInfo | 折叠状态信息。 |
+| Camera_AutoDeviceSwitchStatusInfo | Camera_AutoDeviceSwitchStatusInfo | 自动设备切换状态信息。 |
+| Camera_ConcurrentInfo | Camera_ConcurrentInfo | 相机并发能力信息。 |
+| Camera_ControlCenterStatusInfo | Camera_ControlCenterStatusInfo | 控制器效果激活状态信息。 |
+| Camera_OcclusionDetectionResult | Camera_OcclusionDetectionResult | 相机镜头遮挡、脏污检测结果。 |
+| OH_Camera_ZoomRange | OH_Camera_ZoomRange | 变焦范围配置。 |
+| OH_Camera_PhysicalAperture | OH_Camera_PhysicalAperture | 物理光圈配置。 |
+| Camera_Manager | Camera_Manager | 相机管理器对象。 可以使用OH_Camera_GetCameraManager方法创建指针。 |
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 枚举
+
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| Camera_ErrorCode | Camera_ErrorCode | 相机错误代码的枚举。 |
+| Camera_Status | Camera_Status | 相机状态的枚举。 |
+| Camera_SceneMode | Camera_SceneMode | 相机模式的枚举。 |
+| Camera_Position | Camera_Position | 相机位置的枚举。 |
+| Camera_Type | Camera_Type | 相机类型的枚举。 |
+| Camera_Connection | Camera_Connection | 相机连接类型的枚举。 |
+| OH_Camera_SensorColorFilterArrangement | OH_Camera_SensorColorFilterArrangement | 传感器滤色阵列排列方式。 |
+| Camera_Format | Camera_Format | 相机格式类型的枚举。 |
+| Camera_FlashMode | Camera_FlashMode | 闪光模式的枚举。 |
+| OH_Camera_FlashState | OH_Camera_FlashState | 闪光灯状态枚举。 |
+| Camera_ExposureMode | Camera_ExposureMode | 曝光模式的枚举。 |
+| OH_Camera_ExposureMeteringMode | OH_Camera_ExposureMeteringMode | 曝光测光模式枚举。 |
+| Camera_FocusMode | Camera_FocusMode | 聚焦模式的枚举。 |
+| Camera_FocusState | Camera_FocusState | 焦点状态的枚举。 |
+| Camera_VideoStabilizationMode | Camera_VideoStabilizationMode | 录像防抖模式的枚举。 |
+| Camera_ImageRotation | Camera_ImageRotation | 图像旋转角度的枚举。 |
+| Camera_QualityLevel | Camera_QualityLevel | 图像质量等级的枚举。 |
+| Camera_MetadataObjectType | Camera_MetadataObjectType | 元数据对象类型的枚举。 |
+| Camera_TorchMode | Camera_TorchMode | 手电筒模式的枚举。 |
+| Camera_SmoothZoomMode | Camera_SmoothZoomMode | 平滑变焦模式的枚举。 |
+| Camera_SystemPressureLevel | Camera_SystemPressureLevel | 系统压力等级的枚举。 |
+| Camera_PreconfigType | Camera_PreconfigType | 预配置照片分辨率的枚举。 |
+| Camera_PreconfigRatio | Camera_PreconfigRatio | 预配置照片比例的枚举。 |
+| Camera_HostDeviceType | Camera_HostDeviceType | 远程设备类型枚举。 |
+| Camera_FoldStatus | Camera_FoldStatus | 折叠状态枚举。 |
+| Camera_QualityPrioritization | Camera_QualityPrioritization | 录像质量优先级的枚举。 |
+| Camera_ConcurrentType | Camera_ConcurrentType | 相机并发状态的枚举。 |
+| Camera_WhiteBalanceMode | Camera_WhiteBalanceMode | 白平衡模式枚举。 |
+| Camera_ControlCenterEffectType | Camera_ControlCenterEffectType | 控制器效果类型枚举。 |
+| Camera_PhotoQualityPrioritization | Camera_PhotoQualityPrioritization | 拍照画质优先策略枚举。 |
+| OH_Camera_OISMode | OH_Camera_OISMode | 光学防抖（Optical Image Stabilization）模式枚举。 |
+| OH_Camera_OISAxes | OH_Camera_OISAxes | 光学防抖（OIS）轴枚举。 |
+
+
+
+
+##### 函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [Camera_ErrorCode OH_Camera_GetCameraManager(Camera_Manager** cameraManager)](#oh_camera_getcameramanager) | 创建CameraManager实例。 |
-| [Camera_ErrorCode OH_Camera_DeleteCameraManager(Camera_Manager* cameraManager)](#oh_camera_deletecameramanager) | 删除CameraManager实例。 |
+| Camera_ErrorCode OH_Camera_GetCameraManager(Camera_Manager** cameraManager) | 创建CameraManager实例。 |
+| Camera_ErrorCode OH_Camera_DeleteCameraManager(Camera_Manager* cameraManager) | 删除CameraManager实例。 |
 
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### Camera_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 枚举类型说明
 
+
+
+##### Camera_ErrorCode
 
 ```text
 enum Camera_ErrorCode
@@ -128,7 +125,6 @@ enum Camera_ErrorCode
 相机错误代码的枚举。
 
 **起始版本：** 11
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -142,13 +138,13 @@ enum Camera_ErrorCode
 | CAMERA_CONFLICT_CAMERA = 7400107 | 因冲突而无法使用相机。 |
 | CAMERA_DEVICE_DISABLED = 7400108 | 由于安全原因，相机已禁用。 |
 | CAMERA_DEVICE_PREEMPTED = 7400109 | 因被抢占而无法使用相机。 |
-| CAMERA_UNRESOLVED_CONFLICTS_WITH_CURRENT_CONFIGURATIONS = 7400110 | 与当前配置存在冲突。          起始版本： 12 |
-| CAMERA_SERVICE_FATAL_ERROR = 7400201 | 相机服务异常。          比如没有相机权限、相机服务重启、跨进程调用异常等。 |
+| CAMERA_UNRESOLVED_CONFLICTS_WITH_CURRENT_CONFIGURATIONS = 7400110 | 与当前配置存在冲突。 起始版本： 12 |
+| CAMERA_SERVICE_FATAL_ERROR = 7400201 | 相机服务异常。 比如没有相机权限、相机服务重启、跨进程调用异常等。 |
 
 
-### Camera_Status
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_Status
 
 ```text
 enum Camera_Status
@@ -160,7 +156,6 @@ enum Camera_Status
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CAMERA_STATUS_APPEAR = 0 | 显示状态。 |
@@ -169,9 +164,9 @@ enum Camera_Status
 | CAMERA_STATUS_UNAVAILABLE = 3 | 不可用状态。 |
 
 
-### Camera_SceneMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_SceneMode
 
 ```text
 enum Camera_SceneMode
@@ -183,17 +178,16 @@ enum Camera_SceneMode
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | NORMAL_PHOTO = 1 | 普通相机模式。 |
 | NORMAL_VIDEO = 2 | 普通视频模式。 |
-| SECURE_PHOTO = 12 | 安全相机模式，主要为银行等有活体检测等安全诉求的应用提供。安全相机的使用需要加密算法框架及可信应用服务，详情请参见[Device Certificate Kit简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/device-certificate-kit-intro)。 |
+| SECURE_PHOTO = 12 | 安全相机模式，主要为银行等有活体检测等安全诉求的应用提供。安全相机的使用需要加密算法框架及可信应用服务，详情请参见Device Certificate Kit简介。 |
 
 
-### Camera_Position
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_Position
 
 ```text
 enum Camera_Position
@@ -205,7 +199,6 @@ enum Camera_Position
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CAMERA_POSITION_UNSPECIFIED = 0 | 相对于设备屏幕没有固定的朝向的相机。 |
@@ -213,9 +206,9 @@ enum Camera_Position
 | CAMERA_POSITION_FRONT = 2 | 前置。 |
 
 
-### Camera_Type
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_Type
 
 ```text
 enum Camera_Type
@@ -227,7 +220,6 @@ enum Camera_Type
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CAMERA_TYPE_DEFAULT = 0 | 默认相机类型。 |
@@ -237,9 +229,9 @@ enum Camera_Type
 | CAMERA_TYPE_TRUE_DEPTH = 4 | 景深相机。 |
 
 
-### Camera_Connection
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_Connection
 
 ```text
 enum Camera_Connection
@@ -251,7 +243,6 @@ enum Camera_Connection
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CAMERA_CONNECTION_BUILT_IN = 0 | 内置相机。 |
@@ -259,9 +250,9 @@ enum Camera_Connection
 | CAMERA_CONNECTION_REMOTE = 2 | 远程相机。 |
 
 
-### OH_Camera_SensorColorFilterArrangement
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Camera_SensorColorFilterArrangement
 
 ```text
 enum OH_Camera_SensorColorFilterArrangement
@@ -273,18 +264,17 @@ enum OH_Camera_SensorColorFilterArrangement
 
 **起始版本：** 24
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| OH_CAMERA_SENSOR_CFA_BGGR = 0 | BGGR（Blue-Green-Green-Red）滤色阵列排列。          起始版本： 24 |
-| OH_CAMERA_SENSOR_CFA_GBRG = 1 | GBRG（Green-Blue-Red-Green）滤色阵列排列。          起始版本： 24 |
-| OH_CAMERA_SENSOR_CFA_GRBG = 2 | GRBG（Green-Red-Blue-Green）滤色阵列排列。          起始版本： 24 |
-| OH_CAMERA_SENSOR_CFA_RGGB = 3 | RGGB（Red-Green-Green-Blue）滤色阵列排列。          起始版本： 24 |
+| OH_CAMERA_SENSOR_CFA_BGGR = 0 | BGGR（Blue-Green-Green-Red）滤色阵列排列。 起始版本： 24 |
+| OH_CAMERA_SENSOR_CFA_GBRG = 1 | GBRG（Green-Blue-Red-Green）滤色阵列排列。 起始版本： 24 |
+| OH_CAMERA_SENSOR_CFA_GRBG = 2 | GRBG（Green-Red-Blue-Green）滤色阵列排列。 起始版本： 24 |
+| OH_CAMERA_SENSOR_CFA_RGGB = 3 | RGGB（Red-Green-Green-Blue）滤色阵列排列。 起始版本： 24 |
 
 
-### Camera_Format
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_Format
 
 ```text
 enum Camera_Format
@@ -296,20 +286,20 @@ enum Camera_Format
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CAMERA_FORMAT_RGBA_8888 = 3 | RGBA 8888格式。 |
+| CAMERA_FORMAT_DNG = 4 | DNG格式。 起始版本： 24 |
 | CAMERA_FORMAT_YUV_420_SP = 1003 | YUV 420格式。 |
 | CAMERA_FORMAT_JPEG = 2000 | JPEG格式。 |
-| CAMERA_FORMAT_YCBCR_P010 = 2001 | YCBCR P010 格式。          起始版本： 12 |
-| CAMERA_FORMAT_YCRCB_P010 = 2002 | YCRCB P010 格式。          起始版本： 12 |
-| CAMERA_FORMAT_HEIC = 2003 | HEIC格式。          起始版本： 13 |
+| CAMERA_FORMAT_YCBCR_P010 = 2001 | YCBCR P010 格式。 起始版本： 12 |
+| CAMERA_FORMAT_YCRCB_P010 = 2002 | YCRCB P010 格式。 起始版本： 12 |
+| CAMERA_FORMAT_HEIC = 2003 | HEIC格式。 起始版本： 13 |
 
 
-### Camera_FlashMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_FlashMode
 
 ```text
 enum Camera_FlashMode
@@ -321,7 +311,6 @@ enum Camera_FlashMode
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | FLASH_MODE_CLOSE = 0 | 关闭模式。 |
@@ -330,9 +319,9 @@ enum Camera_FlashMode
 | FLASH_MODE_ALWAYS_OPEN = 3 | 始终打开模式。 |
 
 
-### OH_Camera_FlashState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Camera_FlashState
 
 ```text
 enum OH_Camera_FlashState
@@ -344,17 +333,16 @@ enum OH_Camera_FlashState
 
 **起始版本：** 24
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| OH_CAMERA_FLASH_STATE_UNAVAILABLE = 0 | 闪光灯为不可用状态，为默认值。          起始版本： 24 |
-| OH_CAMERA_FLASH_STATE_READY = 1 | 闪光灯为可用状态。          起始版本： 24 |
-| OH_CAMERA_FLASH_STATE_FLASHING = 2 | 闪光灯已经被打开。          起始版本： 24 |
+| OH_CAMERA_FLASH_STATE_UNAVAILABLE = 0 | 闪光灯为不可用状态，为默认值。 起始版本： 24 |
+| OH_CAMERA_FLASH_STATE_READY = 1 | 闪光灯为可用状态。 起始版本： 24 |
+| OH_CAMERA_FLASH_STATE_FLASHING = 2 | 闪光灯已经被打开。 起始版本： 24 |
 
 
-### Camera_ExposureMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_ExposureMode
 
 ```text
 enum Camera_ExposureMode
@@ -366,18 +354,18 @@ enum Camera_ExposureMode
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| EXPOSURE_MODE_UNSPECIFIED = -1 | 曝光模式未指定。          起始版本： 24 |
-| EXPOSURE_MODE_LOCKED = 0 | 锁定曝光模式。 不支持曝光区域中心点设置。          设置该模式后，每次拍照时曝光都会默认锁定。 |
-| EXPOSURE_MODE_AUTO = 1 | 自动曝光模式。支持曝光区域中心点设置，可以使用[OH_CaptureSession_SetMeteringPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_setmeteringpoint)接口设置曝光区域中心点。          设置该模式后，仅设置后的首次拍照生效。 |
-| EXPOSURE_MODE_CONTINUOUS_AUTO = 2 | 连续自动曝光。          设置该模式后，拍照系统会根据每次的环境变化自动调整曝光。 |
+| EXPOSURE_MODE_UNSPECIFIED = -1 | 曝光模式未指定。 起始版本： 24 |
+| EXPOSURE_MODE_LOCKED = 0 | 锁定曝光模式。 不支持曝光区域中心点设置。 设置该模式后，每次拍照时曝光都会默认锁定。 |
+| EXPOSURE_MODE_AUTO = 1 | 自动曝光模式。支持曝光区域中心点设置，可以使用OH_CaptureSession_SetMeteringPoint接口设置曝光区域中心点。 设置该模式后，仅设置后的首次拍照生效。 |
+| EXPOSURE_MODE_CONTINUOUS_AUTO = 2 | 连续自动曝光。 设置该模式后，拍照系统会根据每次的环境变化自动调整曝光。 |
+| EXPOSURE_MODE_MANUAL = 3 | 手动曝光模式。可以使用OH_CaptureSession_SetExposureDuration接口设置曝光时长。 起始版本： 24 |
 
 
-### OH_Camera_ExposureMeteringMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Camera_ExposureMeteringMode
 
 ```text
 enum OH_Camera_ExposureMeteringMode
@@ -389,17 +377,16 @@ enum OH_Camera_ExposureMeteringMode
 
 **起始版本：** 24
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| OH_CAMERA_EXPOSURE_METERING_MODE_MATRIX = 0 | 矩阵测光模式。对整个画面测光，适用于自然风景拍摄。          起始版本： 24 |
-| OH_CAMERA_EXPOSURE_METERING_MODE_CENTER = 1 | 中央测光模式。对画面中心区域测光，适用于人像拍摄。          起始版本： 24 |
-| OH_CAMERA_EXPOSURE_METERING_MODE_SPOT = 2 | 点测光模式。对指定微小区域测光，适用于拍摄主体细节（如人物眼睛）。          起始版本： 24 |
+| OH_CAMERA_EXPOSURE_METERING_MODE_MATRIX = 0 | 矩阵测光模式。对整个画面测光，适用于自然风景拍摄。 起始版本： 24 |
+| OH_CAMERA_EXPOSURE_METERING_MODE_CENTER = 1 | 中央测光模式。对画面中心区域测光，适用于人像拍摄。 起始版本： 24 |
+| OH_CAMERA_EXPOSURE_METERING_MODE_SPOT = 2 | 点测光模式。对指定微小区域测光，适用于拍摄主体细节（如人物眼睛）。 起始版本： 24 |
 
 
-### Camera_FocusMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_FocusMode
 
 ```text
 enum Camera_FocusMode
@@ -411,7 +398,6 @@ enum Camera_FocusMode
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | FOCUS_MODE_MANUAL = 0 | 手动模式。 |
@@ -420,9 +406,9 @@ enum Camera_FocusMode
 | FOCUS_MODE_LOCKED = 3 | 锁定模式。 |
 
 
-### Camera_FocusState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_FocusState
 
 ```text
 enum Camera_FocusState
@@ -434,7 +420,6 @@ enum Camera_FocusState
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | FOCUS_STATE_SCAN = 0 | 扫描状态。 |
@@ -442,9 +427,9 @@ enum Camera_FocusState
 | FOCUS_STATE_UNFOCUSED = 2 | 非聚焦状态。 |
 
 
-### Camera_VideoStabilizationMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_VideoStabilizationMode
 
 ```text
 enum Camera_VideoStabilizationMode
@@ -456,7 +441,6 @@ enum Camera_VideoStabilizationMode
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | STABILIZATION_MODE_OFF = 0 | 关闭录像防抖。 |
@@ -466,9 +450,9 @@ enum Camera_VideoStabilizationMode
 | STABILIZATION_MODE_AUTO = 4 | 自动选择模式，HDF相机可用。 |
 
 
-### Camera_ImageRotation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_ImageRotation
 
 ```text
 enum Camera_ImageRotation
@@ -480,22 +464,21 @@ enum Camera_ImageRotation
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| IAMGE_ROTATION_0 = 0 | 捕获图像旋转0度。          从API version 23开始，推荐使用新枚举值[CAMERA_IMAGE_ROTATION_0](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_imagerotation)。 |
-| CAMERA_IMAGE_ROTATION_0 = 0 | 捕获图像旋转0度。          起始版本： 23 |
-| IAMGE_ROTATION_90 = 90 | 捕获图像旋转90度。          从API version 23开始，推荐使用新枚举值[CAMERA_IMAGE_ROTATION_90](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_imagerotation)。 |
-| CAMERA_IMAGE_ROTATION_90 = 90 | 捕获图像旋转90度。          起始版本： 23 |
-| IAMGE_ROTATION_180 = 180 | 捕获图像旋转180度。          从API version 23开始，推荐使用新枚举值[CAMERA_IMAGE_ROTATION_180](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_imagerotation)。 |
-| CAMERA_IMAGE_ROTATION_180 = 180 | 捕获图像旋转180度。          起始版本： 23 |
-| IAMGE_ROTATION_270 = 270 | 捕获图像旋转270度。          从API version 23开始，推荐使用新枚举值[CAMERA_IMAGE_ROTATION_270](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_imagerotation)。 |
-| CAMERA_IMAGE_ROTATION_270 = 270 | 捕获图像旋转270度。          起始版本： 23 |
+| IAMGE_ROTATION_0 = 0 | 捕获图像旋转0度。 从API version 23开始，推荐使用新枚举值CAMERA_IMAGE_ROTATION_0。 |
+| CAMERA_IMAGE_ROTATION_0 = 0 | 捕获图像旋转0度。 起始版本： 23 |
+| IAMGE_ROTATION_90 = 90 | 捕获图像旋转90度。 从API version 23开始，推荐使用新枚举值CAMERA_IMAGE_ROTATION_90。 |
+| CAMERA_IMAGE_ROTATION_90 = 90 | 捕获图像旋转90度。 起始版本： 23 |
+| IAMGE_ROTATION_180 = 180 | 捕获图像旋转180度。 从API version 23开始，推荐使用新枚举值CAMERA_IMAGE_ROTATION_180。 |
+| CAMERA_IMAGE_ROTATION_180 = 180 | 捕获图像旋转180度。 起始版本： 23 |
+| IAMGE_ROTATION_270 = 270 | 捕获图像旋转270度。 从API version 23开始，推荐使用新枚举值CAMERA_IMAGE_ROTATION_270。 |
+| CAMERA_IMAGE_ROTATION_270 = 270 | 捕获图像旋转270度。 起始版本： 23 |
 
 
-### Camera_QualityLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_QualityLevel
 
 ```text
 enum Camera_QualityLevel
@@ -507,7 +490,6 @@ enum Camera_QualityLevel
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | QUALITY_LEVEL_HIGH = 0 | 高图像质量。 |
@@ -515,9 +497,9 @@ enum Camera_QualityLevel
 | QUALITY_LEVEL_LOW = 2 | 低图像质量。 |
 
 
-### Camera_MetadataObjectType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_MetadataObjectType
 
 ```text
 enum Camera_MetadataObjectType
@@ -529,17 +511,16 @@ enum Camera_MetadataObjectType
 
 **起始版本：** 11
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| FACE_DETECTION = 0 | 元数据的对象类型，用于人脸检测。          从API version 23开始，推荐使用新枚举值[CAMERA_METADATA_OBJECT_TYPE_FACE_DETECTION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_metadataobjecttype)。 |
-| CAMERA_METADATA_OBJECT_TYPE_FACE_DETECTION = 0 | 元数据的对象类型，用于人脸检测。          起始版本： 23 |
-| CAMERA_METADATA_OBJECT_TYPE_HUMAN_BODY = 1 | 元数据的对象类型，用于人体检测。          起始版本： 23 |
+| FACE_DETECTION = 0 | 元数据的对象类型，用于人脸检测。 从API version 23开始，推荐使用新枚举值CAMERA_METADATA_OBJECT_TYPE_FACE_DETECTION。 |
+| CAMERA_METADATA_OBJECT_TYPE_FACE_DETECTION = 0 | 元数据的对象类型，用于人脸检测。 起始版本： 23 |
+| CAMERA_METADATA_OBJECT_TYPE_HUMAN_BODY = 1 | 元数据的对象类型，用于人体检测。 起始版本： 23 |
 
 
-### Camera_TorchMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_TorchMode
 
 ```text
 enum Camera_TorchMode
@@ -551,20 +532,19 @@ enum Camera_TorchMode
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| OFF = 0 | 设备手电筒常关。          从API version 23开始，推荐使用新枚举值[CAMERA_TORCH_MODE_OFF](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_torchmode)。 |
-| CAMERA_TORCH_MODE_OFF = 0 | 设备手电筒常关。          起始版本： 23 |
-| ON = 1 | 设备手电筒常开。          从API version 23开始，推荐使用新枚举值[CAMERA_TORCH_MODE_ON](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_torchmode)。 |
-| CAMERA_TORCH_MODE_ON = 1 | 设备手电筒常开。          起始版本： 23 |
-| AUTO = 2 | 设备手电筒自动模式，将根据环境光照水平打开手电筒。          从API version 23开始，推荐使用新枚举值[CAMERA_TORCH_MODE_AUTO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_torchmode)。 |
-| CAMERA_TORCH_MODE_AUTO = 2 | 设备手电筒自动模式，将根据环境光照水平打开手电筒。          起始版本： 23 |
+| OFF = 0 | 设备手电筒常关。 从API version 23开始，推荐使用新枚举值CAMERA_TORCH_MODE_OFF。 |
+| CAMERA_TORCH_MODE_OFF = 0 | 设备手电筒常关。 起始版本： 23 |
+| ON = 1 | 设备手电筒常开。 从API version 23开始，推荐使用新枚举值CAMERA_TORCH_MODE_ON。 |
+| CAMERA_TORCH_MODE_ON = 1 | 设备手电筒常开。 起始版本： 23 |
+| AUTO = 2 | 设备手电筒自动模式，将根据环境光照水平打开手电筒。 从API version 23开始，推荐使用新枚举值CAMERA_TORCH_MODE_AUTO。 |
+| CAMERA_TORCH_MODE_AUTO = 2 | 设备手电筒自动模式，将根据环境光照水平打开手电筒。 起始版本： 23 |
 
 
-### Camera_SmoothZoomMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_SmoothZoomMode
 
 ```text
 enum Camera_SmoothZoomMode
@@ -576,16 +556,15 @@ enum Camera_SmoothZoomMode
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| NORMAL = 0 | 贝塞尔曲线模式。          从API version 23开始，推荐使用新枚举值[CAMERA_SMOOTH_ZOOM_MODE_NORMAL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_smoothzoommode)。 |
-| CAMERA_SMOOTH_ZOOM_MODE_NORMAL = 0 | 贝塞尔曲线模式。          起始版本： 23 |
+| NORMAL = 0 | 贝塞尔曲线模式。 从API version 23开始，推荐使用新枚举值CAMERA_SMOOTH_ZOOM_MODE_NORMAL。 |
+| CAMERA_SMOOTH_ZOOM_MODE_NORMAL = 0 | 贝塞尔曲线模式。 起始版本： 23 |
 
 
-### Camera_SystemPressureLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_SystemPressureLevel
 
 ```text
 enum Camera_SystemPressureLevel
@@ -597,7 +576,6 @@ enum Camera_SystemPressureLevel
 
 **起始版本：** 20
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | SYSTEM_PRESSURE_NORMAL = 0 | 系统压力正常。 |
@@ -607,9 +585,9 @@ enum Camera_SystemPressureLevel
 | SYSTEM_PRESSURE_SHUTDOWN = 4 | 系统压力过高，停止工作。 |
 
 
-### Camera_PreconfigType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_PreconfigType
 
 ```text
 enum Camera_PreconfigType
@@ -621,19 +599,18 @@ enum Camera_PreconfigType
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PRECONFIG_720P = 0 | 预配置照片分辨率为720P。 |
 | PRECONFIG_1080P = 1 | 预配置照片分辨率为1080P。 |
 | PRECONFIG_4K = 2 | 预配置照片分辨率为4K。 |
 | PRECONFIG_HIGH_QUALITY = 3 | 预配置照片为高质量。 |
-| PRECONFIG_HIGH_QUALITY_PHOTOSESSION_BT2020 = 4 | 预配置支持预览高动态范围显示和HDR动图拍摄。          起始版本： 23 |
+| PRECONFIG_HIGH_QUALITY_PHOTOSESSION_BT2020 = 4 | 预配置支持预览高动态范围显示和HDR动图拍摄。 起始版本： 23 |
 
 
-### Camera_PreconfigRatio
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_PreconfigRatio
 
 ```text
 enum Camera_PreconfigRatio
@@ -645,7 +622,6 @@ enum Camera_PreconfigRatio
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PRECONFIG_RATIO_1_1 = 0 | 预配置照片比例为1:1。 |
@@ -653,9 +629,9 @@ enum Camera_PreconfigRatio
 | PRECONFIG_RATIO_16_9 = 2 | 预配置照片比例为16:9。 |
 
 
-### Camera_HostDeviceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_HostDeviceType
 
 ```text
 enum Camera_HostDeviceType
@@ -667,7 +643,6 @@ enum Camera_HostDeviceType
 
 **起始版本：** 15
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | HOST_DEVICE_TYPE_UNKNOWN_TYPE = 0 | 未知设备类型。 |
@@ -675,9 +650,9 @@ enum Camera_HostDeviceType
 | HOST_DEVICE_TYPE_TABLET = 0x11 | 平板设备。 |
 
 
-### Camera_FoldStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_FoldStatus
 
 ```text
 enum Camera_FoldStatus
@@ -689,20 +664,19 @@ enum Camera_FoldStatus
 
 **起始版本：** 13
 
-
 | 枚举项 | 描述 |
 | --- | --- |
-| NON_FOLDABLE = 0 | 不可折叠状态。          从API version 23开始，推荐使用新枚举值[CAMERA_FOLD_STATUS_NON_FOLDABLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_foldstatus)。 |
-| CAMERA_FOLD_STATUS_NON_FOLDABLE = 0 | 不可折叠状态。          起始版本： 23 |
-| EXPANDED = 1 | 展开状态。          从API version 23开始，推荐使用新枚举值[CAMERA_FOLD_STATUS_EXPANDED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_foldstatus)。 |
-| CAMERA_FOLD_STATUS_EXPANDED = 1 | 展开状态。          起始版本： 23 |
-| FOLDED = 2 | 折叠状态。          从API version 23开始，推荐使用新枚举值[CAMERA_FOLD_STATUS_FOLDED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_foldstatus)。 |
-| CAMERA_FOLD_STATUS_FOLDED = 2 | 折叠状态。          起始版本： 23 |
+| NON_FOLDABLE = 0 | 不可折叠状态。 从API version 23开始，推荐使用新枚举值CAMERA_FOLD_STATUS_NON_FOLDABLE。 |
+| CAMERA_FOLD_STATUS_NON_FOLDABLE = 0 | 不可折叠状态。 起始版本： 23 |
+| EXPANDED = 1 | 展开状态。 从API version 23开始，推荐使用新枚举值CAMERA_FOLD_STATUS_EXPANDED。 |
+| CAMERA_FOLD_STATUS_EXPANDED = 1 | 展开状态。 起始版本： 23 |
+| FOLDED = 2 | 折叠状态。 从API version 23开始，推荐使用新枚举值CAMERA_FOLD_STATUS_FOLDED。 |
+| CAMERA_FOLD_STATUS_FOLDED = 2 | 折叠状态。 起始版本： 23 |
 
 
-### Camera_QualityPrioritization
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_QualityPrioritization
 
 ```text
 enum Camera_QualityPrioritization
@@ -714,16 +688,15 @@ enum Camera_QualityPrioritization
 
 **起始版本：** 14
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | HIGH_QUALITY = 0 | 高录像质量。 |
 | POWER_BALANCE = 1 | 功耗平衡录像质量。 |
 
 
-### Camera_ConcurrentType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_ConcurrentType
 
 ```text
 enum Camera_ConcurrentType
@@ -735,16 +708,15 @@ enum Camera_ConcurrentType
 
 **起始版本：** 18
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CAMERA_CONCURRENT_TYPE_LIMITED_CAPABILITY = 0 | 相机限制并发。 |
 | CAMERA_CONCURRENT_TYPE_FULL_CAPABILITY = 1 | 相机全量并发。 |
 
 
-### Camera_WhiteBalanceMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_WhiteBalanceMode
 
 ```text
 enum Camera_WhiteBalanceMode
@@ -755,7 +727,6 @@ enum Camera_WhiteBalanceMode
 白平衡模式枚举。
 
 **起始版本：** 20
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -768,9 +739,9 @@ enum Camera_WhiteBalanceMode
 | CAMERA_WHITE_BALANCE_MODE_LOCKED = 6 | 白平衡模式：锁定。 |
 
 
-### Camera_ControlCenterEffectType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_ControlCenterEffectType
 
 ```text
 enum Camera_ControlCenterEffectType
@@ -782,16 +753,16 @@ enum Camera_ControlCenterEffectType
 
 **起始版本：** 20
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CONTROL_CENTER_EFFECT_TYPE_BEAUTY = 0 | 控制器效果类型：美颜。 |
 | CONTROL_CENTER_EFFECT_TYPE_PORTRAIT = 1 | 控制器效果类型：人像虚化。 |
+| CONTROL_CENTER_EFFECT_TYPE_AUTO_FRAMING = 2 | 控制器效果类型：自动对焦。 起始版本： 24 |
 
 
-### Camera_PhotoQualityPrioritization
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Camera_PhotoQualityPrioritization
 
 ```text
 enum Camera_PhotoQualityPrioritization
@@ -803,16 +774,15 @@ enum Camera_PhotoQualityPrioritization
 
 **起始版本：** 21
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | CAMERA_PHOTO_QUALITY_PRIORITIZATION_HIGH_QUALITY = 0 | 画质优先，拍照需要较长的时间，以输出高画质的图片。 |
 | CAMERA_PHOTO_QUALITY_PRIORITIZATION_SPEED = 1 | 性能优先，会降低画质来提升拍照的速度。 |
 
 
-### OH_Camera_OISMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Camera_OISMode
 
 ```text
 enum OH_Camera_OISMode
@@ -824,7 +794,6 @@ enum OH_Camera_OISMode
 
 **起始版本：** 24
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_CAMERA_OIS_MODE_OFF = 0 | 关闭光学防抖模式。 |
@@ -832,9 +801,9 @@ enum OH_Camera_OISMode
 | OH_CAMERA_OIS_MODE_CUSTOM = 2 | 手动光学防抖模式。 |
 
 
-### OH_Camera_OISAxes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Camera_OISAxes
 
 ```text
 enum OH_Camera_OISAxes
@@ -846,20 +815,19 @@ enum OH_Camera_OISAxes
 
 **起始版本：** 24
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_CAMERA_OIS_AXES_PITCH = 0 | 俯仰轴：控制相机机身上下旋转，即机身围绕与镜头水平方向的轴旋转。 |
 | OH_CAMERA_OIS_AXES_YAW = 1 | 偏航轴：控制相机机身左右旋转，即机身围绕与镜头垂直方向的轴旋转。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### OH_Camera_GetCameraManager()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### OH_Camera_GetCameraManager()
 
 ```text
 Camera_ErrorCode OH_Camera_GetCameraManager(Camera_Manager** cameraManager)
@@ -873,23 +841,21 @@ Camera_ErrorCode OH_Camera_GetCameraManager(Camera_Manager** cameraManager)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Camera_Manager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-manager)** cameraManager | 如果方法调用成功，将创建Camera_Manager实例。 |
+| Camera_Manager** cameraManager | 如果方法调用成功，将创建Camera_Manager实例。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode) | CAMERA_OK：方法调用成功。          CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。          CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
 
 
-### OH_Camera_DeleteCameraManager()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Camera_DeleteCameraManager()
 
 ```text
 Camera_ErrorCode OH_Camera_DeleteCameraManager(Camera_Manager* cameraManager)
@@ -903,15 +869,13 @@ Camera_ErrorCode OH_Camera_DeleteCameraManager(Camera_Manager* cameraManager)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Camera_Manager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera-camera-manager)* cameraManager | 要删除的Camera_Manager实例。 |
+| Camera_Manager* cameraManager | 要删除的Camera_Manager实例。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Camera_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#camera_errorcode) | CAMERA_OK：方法调用成功。          CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。          CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |

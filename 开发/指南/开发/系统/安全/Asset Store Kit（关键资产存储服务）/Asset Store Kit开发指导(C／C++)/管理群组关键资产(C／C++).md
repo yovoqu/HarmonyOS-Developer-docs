@@ -1,22 +1,23 @@
 # 管理群组关键资产(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-group-access-control
 
 以下为管理群组关键资产使用示例，请先查看开发指导：
-
-
+ 
 - [新增关键资产(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-add)
 - [删除关键资产(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-remove)
 - [更新关键资产(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-update)
 - [查询关键资产(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-query)
 
+  
 
-## 前置条件
+##### 前置条件
 
 在应用配置文件app.json5中，配置群组ID，如：demo_group_id。群组支持配置多个群组ID。
-```text
+ 
+```json
 {
   "app": {
     // 其他配置项此处省略。
@@ -28,19 +29,22 @@
   }
 }
 ```
-
- 引用头文件。
-```text
+ 
+引用头文件。
+ 
+```cpp
 #include "napi/native_api.h"
-#include
+#include <string.h>
 #include "asset/asset_api.h"
 ```
+ 
+  
 
-
-## 新增群组关键资产
+##### 新增群组关键资产
 
 在群组中新增密码为demo_pwd、别名为demo_alias、附属信息为demo_label的关键资产。
-```text
+ 
+```cpp
 static napi_value AddGroupAsset(napi_env env, napi_callback_info info)
 {
     const char *secretStr = "demo_pwd";
@@ -65,12 +69,14 @@ static napi_value AddGroupAsset(napi_env env, napi_callback_info info)
     return ret;
 }
 ```
+ 
+  
 
-
-## 删除群组关键资产
+##### 删除群组关键资产
 
 在群组中删除别名为demo_alias的关键资产。
-```text
+ 
+```cpp
 static napi_value RemoveGroupAsset(napi_env env, napi_callback_info info)
 {
     const char *aliasStr = "demo_alias";
@@ -89,12 +95,14 @@ static napi_value RemoveGroupAsset(napi_env env, napi_callback_info info)
     return ret;
 }
 ```
+ 
+  
 
-
-## 更新群组关键资产
+##### 更新群组关键资产
 
 在群组中更新别名为demo_alias的关键资产，将关键资产的明文更新为demo_pwd_new，附属信息更新为demo_label_new。
-```text
+ 
+```cpp
 static napi_value UpdateGroupAsset(napi_env env, napi_callback_info info)
 {
     const char *aliasStr = "demo_alias";
@@ -122,17 +130,19 @@ static napi_value UpdateGroupAsset(napi_env env, napi_callback_info info)
     return ret;
 }
 ```
+ 
+  
 
-
-## 查询单条群组关键资产明文
+##### 查询单条群组关键资产明文
 
 在群组中查询别名为demo_alias的关键资产明文。
-```text
+ 
+```cpp
 static napi_value QueryGroupAssetPlaintext(napi_env env, napi_callback_info info)
 {
     const char *aliasStr = "demo_alias";
     const char *groupIdStr = "demo_group_id";
-
+    
     Asset_Blob alias = { (uint32_t)(strlen(aliasStr)), (uint8_t *)aliasStr };
     Asset_Blob group_id = { (uint32_t)(strlen(groupIdStr)), (uint8_t *)groupIdStr };
     Asset_Attr attr[] = {
@@ -145,28 +155,31 @@ static napi_value QueryGroupAssetPlaintext(napi_env env, napi_callback_info info
     int32_t queryResult = OH_Asset_Query(attr, sizeof(attr) / sizeof(attr[0]), &resultSet);
     if (queryResult == ASSET_SUCCESS) {
         // 解析resultSet。
-        for (uint32_t i = 0; i blob.data，长度对应是secret->blob.size。
+        for (uint32_t i = 0; i < resultSet.count; i++) {
+            // 解析secret属性：其中data数据对应是secret->blob.data，长度对应是secret->blob.size。
             Asset_Attr *secret = OH_Asset_ParseAttr(resultSet.results + i, ASSET_TAG_SECRET);
         }
     }
     OH_Asset_FreeResultSet(&resultSet);
-
+    
     napi_value ret;
     napi_create_int32(env, queryResult, &ret);
     return ret;
 }
 ```
+ 
+  
 
-
-## 查询单条群组关键资产属性
+##### 查询单条群组关键资产属性
 
 查询别名为demo_alias的关键资产属性。
-```text
+ 
+```cpp
 static napi_value QueryGroupAssetAttribute(napi_env env, napi_callback_info info)
 {
     const char *aliasStr = "demo_alias";
     const char *groupIdStr = "demo_group_id";
-
+    
     Asset_Blob alias = {(uint32_t)(strlen(aliasStr)), (uint8_t *)aliasStr};
     Asset_Blob group_id = {(uint32_t)(strlen(groupIdStr)), (uint8_t *)groupIdStr};
     Asset_Attr attr[] = {
@@ -179,12 +192,13 @@ static napi_value QueryGroupAssetAttribute(napi_env env, napi_callback_info info
     int32_t queryResult = OH_Asset_Query(attr, sizeof(attr) / sizeof(attr[0]), &resultSet);
     if (queryResult == ASSET_SUCCESS) {
         // 解析结果。
-        for (uint32_t i = 0; i blob.data，长度对应是label->blob.size。
+        for (uint32_t i = 0; i < resultSet.count; i++) {
+            // 解析数据标签：其中数据是label->blob.data，长度对应是label->blob.size。
             Asset_Attr *label = OH_Asset_ParseAttr(resultSet.results + i, ASSET_TAG_DATA_LABEL_NORMAL_1);
         }
     }
     OH_Asset_FreeResultSet(&resultSet);
-
+    
     napi_value ret;
     napi_create_int32(env, queryResult, &ret);
     return ret;

@@ -4,32 +4,41 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensor-getexpanddimstype
 
-## 函数功能
+##### 函数功能
 
 获取shape的补维规则。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 ExpandDimsType GetExpandDimsType() const
 ```
+ 
+  
 
-
-## 参数说明
-
-无
-
-## 返回值
-
-返回shape的补维规则。 关于ExpandDimsType类型的定义，请参见[ExpandDimsType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-expanddimstype-introduction)。
-
-## 约束说明
+##### 参数说明
 
 无
+ 
+  
 
-## 调用示例
+##### 返回值
 
+返回shape的补维规则。
+ 
+关于ExpandDimsType类型的定义，请参见[ExpandDimsType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-expanddimstype-introduction)。
+ 
+  
+
+##### 约束说明
+
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 Tensor tensor{{{8, 3, 224, 224}, {16, 3, 224, 224}}, // shape

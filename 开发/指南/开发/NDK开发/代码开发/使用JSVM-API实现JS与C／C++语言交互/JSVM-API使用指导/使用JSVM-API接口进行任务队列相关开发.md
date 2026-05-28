@@ -1,37 +1,53 @@
 # 使用JSVM-API接口进行任务队列相关开发
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-execute_tasks
 
-## 简介
+##### 简介
 
 在虚拟机内启动任务队列，检查队列中是否有待处理的微任务。任务队列可由外部事件循环执行。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-**任务队列**：用于管理异步任务的调度和执行，确保任务按顺序处理。**微任务**：微任务是一种任务调度机制，主要用于处理那些需要尽快执行的较小任务，它们通常具有较高的优先级。
+- **任务队列**：用于管理异步任务的调度和执行，确保任务按顺序处理。
+- **微任务**：微任务是一种任务调度机制，主要用于处理那些需要尽快执行的较小任务，它们通常具有较高的优先级。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_PumpMessageLoop | 启动任务队列的运行 |
 | OH_JSVM_PerformMicrotaskCheckpoint | 执行任务队列里的微任务 |
 | OH_JSVM_SetMicrotaskPolicy | 设置微任务执行策略 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅展示接口对应的C++相关代码。
+ 
+权限要求：Wasm字节码需要应用拥有JIT权限才能执行，可参考[JSVM 申请JIT权限指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-apply-jit-profile)申请对应权限。
+ 
+运行限制：当前 JSVM 版本在坚盾守护模式下将禁用 WebAssembly 全部功能模块。开发者需针对此限制进行应用兼容性评估，具体技术规范详见[JSVM 坚盾守护模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-secure-shield-mode)。
+ 
+  
 
-JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅展示接口对应的C++相关代码。 权限要求：Wasm字节码需要应用拥有JIT权限才能执行，可参考[JSVM 申请JIT权限指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-apply-jit-profile)申请对应权限。 运行限制：当前 JSVM 版本在坚盾守护模式下将禁用 WebAssembly 全部功能模块。开发者需针对此限制进行应用兼容性评估，具体技术规范详见[JSVM 坚盾守护模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-secure-shield-mode)。
+##### OH_JSVM_PumpMessageLoop & OH_JSVM_PerformMicrotaskCheckpoint
 
-## OH_JSVM_PumpMessageLoop & OH_JSVM_PerformMicrotaskCheckpoint
-
-启动任务队列，执行任务。 cpp部分代码：
-```text
-#include
-#include
+启动任务队列，执行任务。
+ 
+cpp部分代码：
+ 
+```cpp
+#include <chrono>
+#include <cstring>
 // ...
 
 // 待执行的js代码
@@ -120,7 +136,7 @@ static int32_t TestJSVM()
         CHECK_RET(OH_JSVM_PerformMicrotaskCheckpoint(vm));
         // 定时退出
         auto now = std::chrono::system_clock::now();
-        auto cost = std::chrono::duration_cast(now - start).count();
+        auto cost = std::chrono::duration_cast<std::chrono::milliseconds>(now - start).count();
         const int timeoutMs = 100;
         if (cost > timeoutMs) {
             break;
@@ -136,17 +152,28 @@ static int32_t TestJSVM()
     return 0;
 }
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 JSVM API TEST: Called with instance [object Object]
 JSVM API TEST: Called Finally
 ```
+ 
+  
 
+##### OH_JSVM_SetMicrotaskPolicy
 
-## OH_JSVM_SetMicrotaskPolicy
+修改微任务执行策略，通过该接口，用户可以将策略设置为 JSVM_MicrotaskPolicy::JSVM_MICROTASK_EXPLICIT 或 JSVM_MicrotaskPolicy::JSVM_MICROTASK_AUTO。默认模式下，微任务的执行策略为 JSVM_MicrotaskPolicy::JSVM_MICROTASK_AUTO。
+ 
+微任务策略：
+ 
+- JSVM_MicrotaskPolicy::JSVM_MICROTASK_EXPLICIT ： 微任务在用户调用 OH_JSVM_PerformMicrotaskCheckpoint 后执行
+- JSVM_MicrotaskPolicy::JSVM_MICROTASK_AUTO： 微任务在 JS 调用栈为空时自动执行
 
-修改微任务执行策略，通过该接口，用户可以将策略设置为 JSVM_MicrotaskPolicy::JSVM_MICROTASK_EXPLICIT 或 JSVM_MicrotaskPolicy::JSVM_MICROTASK_AUTO。默认模式下，微任务的执行策略为 JSVM_MicrotaskPolicy::JSVM_MICROTASK_AUTO。 微任务策略： JSVM_MicrotaskPolicy::JSVM_MICROTASK_EXPLICIT ： 微任务在用户调用 OH_JSVM_PerformMicrotaskCheckpoint 后执行JSVM_MicrotaskPolicy::JSVM_MICROTASK_AUTO： 微任务在 JS 调用栈为空时自动执行 cpp 部分代码
+ 
+cpp 部分代码
+ 
 ```text
 // OH_JSVM_SetMicrotaskPolicy的样例方法
 static int SetMicrotaskPolicy(JSVM_VM vm, JSVM_Env env) {
@@ -231,8 +258,9 @@ static int32_t TestJSVM() {
     return 0;
 }
 ```
-
- 预期输出结果：
+ 
+预期输出结果：
+ 
 ```text
 Policy :JSVM_MICROTASK_AUTO, evaluateMicrotask : 1
 Policy :JSVM_MICROTASK_AUTO, evaluateMicrotask before calling OH_JSVM_PerformMicrotaskCheckpoint: 0

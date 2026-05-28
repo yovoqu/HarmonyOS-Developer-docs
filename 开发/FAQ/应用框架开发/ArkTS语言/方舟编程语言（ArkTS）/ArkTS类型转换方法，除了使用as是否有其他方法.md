@@ -4,14 +4,15 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-144
 
-问题描述
-
+**问题描述**
+ 
 一个any对象，用as转换成一个具体的Class，但实际上并不一定是这个Class，后续直接调用这个指针会触发崩溃。有没有更安全的类型转换方法？
+ 
+**解决措施**
+ 1. 使用instanceof进行类型检查在尝试转换之前，可以使用“instanceof”操作符来检查对象是否确实是目标类型的实例。这可以防止不安全的类型转换导致的崩溃。
 
-解决措施
-
-1. 使用instanceof进行类型检查在尝试转换之前，可以使用“instanceof”操作符来检查对象是否确实是目标类型的实例。这可以防止不安全的类型转换导致的崩溃。
-```ts
+  
+```ArkTS
 if (anyObject instanceof TargetClass) {
   // Safely use anyObject as an instance of TargetClass
   const targetObject = anyObject as TargetClass;
@@ -20,8 +21,11 @@ if (anyObject instanceof TargetClass) {
   // Handling cases where the object is not a targetClass instance
 }
 ```
+
 2. 使用类型守卫函数您可以定义一个类型守卫函数，该函数不仅检查对象是否是特定类型的实例，还可以执行额外的验证逻辑。
-```ts
+
+  
+```ArkTS
 function isTargetClass(obj: object): boolean {
   return obj instanceof TargetClass && obj.someProperty === 'expectedValue';
 }
@@ -32,8 +36,11 @@ if (isTargetClass(anyObject)) {
   // Dealing with objects that do not conform to the TargetClass
 }
 ```
+
 3. 使用try-catch块处理可能的错误尽管instanceof和类型守卫函数通常足够安全，但在某些情况下，您可能还想使用try-catch块来捕获可能的错误。
-```ts
+
+  
+```ArkTS
 function testFn2(anyObject: object): void {
   try {
     const targetObject = anyObject as TargetClass;
@@ -44,8 +51,11 @@ function testFn2(anyObject: object): void {
   }
 }
 ```
+
 4. 使用类型断言函数虽然这不是ArkTS的标准功能，但您可以创建一个类型断言函数，该函数在内部执行类型检查和转换。
-```ts
+
+  
+```ArkTS
 function assertIsTargetClass(obj: object): void {
   if (!(obj instanceof TargetClass)) {
     throw new Error('Object is not an instance of TargetClass');

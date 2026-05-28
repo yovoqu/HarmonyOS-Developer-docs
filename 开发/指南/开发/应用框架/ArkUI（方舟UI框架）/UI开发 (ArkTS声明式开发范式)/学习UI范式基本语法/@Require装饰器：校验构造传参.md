@@ -1,28 +1,35 @@
 # @Require装饰器：校验构造传参
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-require
 
 @Require是校验@Prop、@State、@Provide、@BuilderParam、@Param和普通变量（无状态装饰器修饰的变量）是否需要构造传参的一个装饰器。
-
-
+ 
 > [!NOTE]
-> 从API version 11开始对@Prop/@BuilderParam进行校验。  从API version 11开始，该装饰器支持在ArkTS卡片中使用。  从API version 11开始，该装饰器支持在元服务中使用。  从API version 12开始对@State/@Provide/@Param/普通变量（无状态装饰器修饰的变量）进行校验。
+> 从API version 11开始对@Prop/@BuilderParam进行校验。 从API version 11开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。 从API version 12开始对@State/@Provide/@Param/普通变量（无状态装饰器修饰的变量）进行校验。
 
+  
 
-## 概述
+##### 概述
 
 当@Require装饰器和[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)、[@Provide](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)、[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)、[@BuilderParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam)、普通变量（无状态装饰器修饰的变量）结合使用时，在构造该自定义组件时，@Prop、@State、@Provide、@Param、@BuilderParam和普通变量（无状态装饰器修饰的变量）必须在构造时传参。
+ 
+  
 
-## 限制条件
+##### 限制条件
 
-@Require装饰器仅用于装饰struct内的@Prop、@State、@Provide、@BuilderParam、@Param和普通变量（无状态装饰器修饰的变量）。 预览器的限制场景请参考[PreviewChecker检测规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-previewer-previewchecker-V5)。
+@Require装饰器仅用于装饰struct内的@Prop、@State、@Provide、@BuilderParam、@Param和普通变量（无状态装饰器修饰的变量）。
+ 
+预览器的限制场景请参考[PreviewChecker检测规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-previewer-previewchecker-V5)。
+ 
+  
 
-## 使用场景
+##### 使用场景
 
 当Child组件内使用@Require装饰器和@Prop、@State、@Provide、@BuilderParam、@Param和普通变量（无状态装饰器修饰的变量）结合使用时，父组件SceneRequire在构造Child时必须传参，否则编译不通过。
-```text
+ 
+```ArkTS
 @Entry
 @Component
 struct SceneRequire {
@@ -76,9 +83,10 @@ struct Child {
   }
 }
 ```
-
- 使用[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)修饰的自定义组件ChildPage通过父组件ParentPage进行初始化，因为有@Require装饰@Param，所以父组件必须进行构造赋值。
-```text
+ 
+使用[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)修饰的自定义组件ChildPage通过父组件ParentPage进行初始化，因为有@Require装饰@Param，所以父组件必须进行构造赋值。
+ 
+```ArkTS
 @ObservedV2
 class Info {
   @Trace public name: string = '';
@@ -138,10 +146,14 @@ struct ParentPage {
   }
 }
 ```
+ 
 
-![](assets/@Require装饰器：校验构造传参/file-20260514130512692-0.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/6VPidjwVQRaJkPsVB8H6vA/zh-cn_image_0000002611833473.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014801Z&HW-CC-Expire=86400&HW-CC-Sign=0B700126BAA2C623102A731200DE2261A5CFDCAE2198E07E4043343D3CFBB3E3)
+
+ 
 从API version 18开始，使用@Require装饰@State、@Prop、@Provide装饰的状态变量，可以在无本地初始值的情况下直接在组件内使用，不会编译报错。
-```text
+ 
+```ArkTS
 @Entry
 @Component
 struct PageOne {
@@ -165,11 +177,15 @@ struct ChildIndex {
   }
 }
 ```
+ 
+  
 
+##### 常见问题
 
-## 常见问题
-
-当状态管理V1组件内将@Require装饰器与@Prop、@State、@Provide、@BuilderParam、普通变量（无状态装饰器修饰的变量）结合使用时，若父组件Index在构造Child时未传递相应参数，则会导致编译失败。当状态管理V2组件内将@Require装饰器与@Param结合使用时，若父组件Index在构造ChildV2时未传递相应参数，则同样会导致编译失败。 【反例】
+当状态管理V1组件内将@Require装饰器与@Prop、@State、@Provide、@BuilderParam、普通变量（无状态装饰器修饰的变量）结合使用时，若父组件Index在构造Child时未传递相应参数，则会导致编译失败。当状态管理V2组件内将@Require装饰器与@Param结合使用时，若父组件Index在构造ChildV2时未传递相应参数，则同样会导致编译失败。
+ 
+【反例】
+ 
 ```text
 @Entry
 @Component
@@ -223,9 +239,12 @@ struct ChildV2 {
   }
 }
 ```
-
- 当父组件Example在构造ChildV1与ChildV2时传递了相应的参数，则编译通过。 【正例】
-```text
+ 
+当父组件Example在构造ChildV1与ChildV2时传递了相应的参数，则编译通过。
+ 
+【正例】
+ 
+```ArkTS
 @Entry
 @Component
 struct Example {

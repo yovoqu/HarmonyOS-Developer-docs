@@ -3,15 +3,14 @@
 更新时间：2026-03-23 08:10:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dlp
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 19100001 入参错误
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 19100001 入参错误
 
 **错误信息**
 
@@ -22,8 +21,6 @@ Invalid parameter value.
 非法参数。
 
 **可能原因**
-
-
 1. 账号长度为空或长度大于1024。
 2. 账号类型错误。
 3. aesKey或iv非法。
@@ -39,8 +36,8 @@ Invalid parameter value.
 请传入正确的参数。
 
 
-## 19100002 加解密出错
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100002 加解密出错
 
 **错误信息**
 
@@ -51,8 +48,6 @@ Credential service busy due to too many tasks or duplicate tasks.
 启动加解密出错。
 
 **可能原因**
-
-
 1. 当前运行的加解密任务数大于100。
 2. 加解密任务重复。
 
@@ -61,8 +56,8 @@ Credential service busy due to too many tasks or duplicate tasks.
 请等待一段时间后重试。
 
 
-## 19100003 加解密超时
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100003 加解密超时
 
 **错误信息**
 
@@ -81,8 +76,8 @@ DLP文件加解密时间超过10秒。
 请等待一段时间后重试。
 
 
-## 19100004 凭据服务错误
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100004 凭据服务错误
 
 **错误信息**
 
@@ -93,8 +88,6 @@ Credential service error.
 凭据服务错误。
 
 **可能原因**
-
-
 1. DLP凭据服务不存在。
 2. DLP凭据服务异常。
 
@@ -103,8 +96,8 @@ Credential service error.
 请等待一段时间后重试，或者重启设备。
 
 
-## 19100005 凭据认证服务器错误
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100005 凭据认证服务器错误
 
 **错误信息**
 
@@ -115,8 +108,6 @@ Credential authentication server error.
 凭据认证服务器错误。
 
 **可能原因**
-
-
 1. 凭据认证服务器无法连接。
 2. 凭据认证服务器不存在。
 
@@ -125,8 +116,8 @@ Credential authentication server error.
 请检查凭据认证服务器后重试。
 
 
-## 19100006 非DLP沙箱应用
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100006 非DLP沙箱应用
 
 **错误信息**
 
@@ -145,8 +136,8 @@ No permission to call this API, which is available only for DLP sandbox applicat
 请确认调用场景后重试。
 
 
-## 19100007 DLP沙箱应用不允许调用此接口
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100007 DLP沙箱应用不允许调用此接口
 
 **错误信息**
 
@@ -165,8 +156,8 @@ No permission to call this API, which is available only for non-DLP sandbox appl
 请确认调用场景后重试。
 
 
-## 19100008 非DLP文件
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100008 非DLP文件
 
 **错误信息**
 
@@ -185,8 +176,8 @@ The file is not a DLP file.
 请使用经过DLP加密的DLP文件。
 
 
-## 19100009 操作DLP文件失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100009 操作DLP文件失败
 
 **错误信息**
 
@@ -197,22 +188,18 @@ Failed to operate the DLP file.
 操作DLP文件失败。
 
 **可能原因**
-
-
 1. 当前用户不在授权范围内。
 2. 安装沙箱应用失败。
 3. 关联link文件失败。
 4. 打开DLP文件数大于1000。
 
 **处理步骤**
-
-
 1. 请确认访问权限。
 2. 请等待一段时间或重启后重试。
 
 
-## 19100011 系统服务工作异常
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100011 系统服务工作异常
 
 **错误信息**
 
@@ -223,8 +210,6 @@ The system ability works abnormally.
 系统服务工作异常。
 
 **可能原因**
-
-
 1. DLP权限服务无法正常启动。
 2. DLP权限服务的RPC对象无法获取。
 3. DLP权限服务依赖的其他服务无法正常启动。
@@ -236,7 +221,8 @@ The system ability works abnormally.
 系统服务内部工作异常，请稍后重试，或者重启设备尝试。
 
 
-## 19100012 内存申请失败
+
+##### 19100012 内存申请失败
 
 **错误信息**
 
@@ -255,8 +241,8 @@ System memory is insufficient.
 系统内存不足，请稍后重试，或者重启设备。
 
 
-## 19100013 用户无权限
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100013 用户无权限
 
 **错误信息**
 
@@ -275,8 +261,8 @@ The user does not have the permission.
 请检查权限。
 
 
-## 19100014 账号未登录
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100014 账号未登录
 
 **错误信息**
 
@@ -295,8 +281,8 @@ Account not logged in.
 请登录账号。
 
 
-## 19100016 want参数中没有uri
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100016 want参数中没有uri
 
 **错误信息**
 
@@ -315,8 +301,8 @@ want参数中没有uri。
 请传入正确的参数。
 
 
-## 19100017 want参数中parameters内没有displayName
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100017 want参数中parameters内没有displayName
 
 **错误信息**
 
@@ -335,8 +321,8 @@ want参数中parameters内没有displayName。
 请传入正确的参数。
 
 
-## 19100018 应用未授权
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100018 应用未授权
 
 **错误信息**
 
@@ -355,8 +341,8 @@ The application is not authorized.
 接入授信应用名单。请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)方式获取技术支持。
 
 
-## 19100021 设置企业应用策略失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19100021 设置企业应用策略失败
 
 **错误信息**
 
@@ -375,8 +361,8 @@ Failed to set the enterprise policy.
 请检查策略格式，并进行重试。
 
 
-## 19110001 参数错误
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19110001 参数错误
 
 **错误信息**
 
@@ -387,8 +373,6 @@ Parameter error.
 参数错误。
 
 **可能原因**
-
-
 1. 策略格式错误。
 2. 参数范围错误。
 
@@ -397,8 +381,8 @@ Parameter error.
 请传入正确的参数。
 
 
-## 19110002 文件敏感信息识别超时
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19110002 文件敏感信息识别超时
 
 **错误信息**
 
@@ -417,8 +401,8 @@ Sensitive file content identification timed out.
 请等待一段时间后重试。
 
 
-## 19110003 文件不支持
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19110003 文件不支持
 
 **错误信息**
 
@@ -429,8 +413,6 @@ The file is not supported.
 文件不支持。
 
 **可能原因**
-
-
 1. 文件路径不存在。
 2. 文件类型不支持。
 3. 文件权限不支持。
@@ -440,8 +422,8 @@ The file is not supported.
 请确认传入的文件是否正确。
 
 
-## 19110004 系统功能运行异常
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 19110004 系统功能运行异常
 
 **错误信息**
 
@@ -452,8 +434,6 @@ A system error has occurred.
 系统功能运行异常。
 
 **可能原因**
-
-
 1. 服务无法正常启动。
 2. 服务依赖的服务无法正常启动。
 3. IPC数据读写失败。

@@ -3,50 +3,50 @@
 更新时间：2026-04-30 09:02:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 UIExtensionContext是[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，提供[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)的相关配置信息以及操作[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的方法，如启动[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)等。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
 
-## UIExtensionContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### UIExtensionContext
 
 
-### startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want, callback: AsyncCallback<void>): void
+##### startAbility
+
+startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 
 启动一个UIAbility。使用callback异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
+| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动UIAbility成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -83,26 +83,24 @@ startAbility(want: Want, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
+
   onForeground() {
     let want: Want = {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
 
     try {
       this.context.startAbility(want, (err: BusinessError) => {
         if (err.code) {
           // 处理业务逻辑错误
-          console.error(
-            `startAbility failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`startAbility failed, code is ${err.code}, message is ${err.message}`);
           return;
         }
         // 执行正常业务
@@ -112,42 +110,38 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `startAbility failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`startAbility failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): void
+##### startAbility
+
+startAbility(want: Want, options: StartOptions, callback: AsyncCallback&lt;void&gt;): void
 
 启动一个UIAbility。使用callback异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
-| options | [StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions) | 是 | 启动UIAbility所携带的额外参数。 |
+| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
+| options | StartOptions | 是 | 启动UIAbility所携带的额外参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动UIAbility成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -182,8 +176,7 @@ startAbility(want: Want, options: StartOptions, callback: AsyncCallback<void>): 
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, Want, StartOptions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -193,19 +186,17 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     let want: Want = {
       deviceId: '',
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
     let options: StartOptions = {
-      displayId: 0,
+      displayId: 0
     };
 
     try {
       this.context.startAbility(want, options, (err: BusinessError) => {
         if (err.code) {
           // 处理业务逻辑错误
-          console.error(
-            `startAbility failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`startAbility failed, code is ${err.code}, message is ${err.message}`);
           return;
         }
         // 执行正常业务
@@ -215,39 +206,35 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `startAbility failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`startAbility failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want, options?: StartOptions): Promise<void>
+##### startAbility
+
+startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 
 启动一个UIAbility。使用Promise异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
-| options | [StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions) | 否 | 启动UIAbility所携带的额外参数。 |
+| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
+| options | StartOptions | 否 | 启动UIAbility所携带的额外参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -258,7 +245,6 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | The application does not have permission to call the interface. |
@@ -294,8 +280,7 @@ startAbility(want: Want, options?: StartOptions): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, Want, StartOptions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -304,69 +289,62 @@ export default class ShareExtAbility extends ShareExtensionAbility {
   onForeground() {
     let want: Want = {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
     let options: StartOptions = {
       displayId: 0,
     };
 
     try {
-      this.context
-        .startAbility(want, options)
+      this.context.startAbility(want, options)
         .then(() => {
           // 执行正常业务
           console.info('startAbility succeed');
         })
         .catch((err: BusinessError) => {
           // 处理业务逻辑错误
-          console.error(
-            `startAbility failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`startAbility failed, code is ${err.code}, message is ${err.message}`);
         });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `startAbility failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`startAbility failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### startAbilityForResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void
+##### startAbilityForResult
+
+startAbilityForResult(want: Want, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
 启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。UIAbility被启动后，有如下情况:
 
-
-- 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
-- 异常情况下比如杀死UIAbility会返回异常信息给调用方, 异常信息中resultCode为-1。
-- 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
+ - 异常情况下比如杀死UIAbility会返回异常信息给调用方, 异常信息中resultCode为-1。
+ - 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
 
 
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
-| callback | AsyncCallback&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | 是 | 回调函数，包含返回给拉起方的信息。 |
+| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
+| callback | AsyncCallback&lt;AbilityResult&gt; | 是 | 回调函数，包含返回给拉起方的信息。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -403,8 +381,7 @@ startAbilityForResult(want: Want, callback: AsyncCallback<AbilityResult>): void
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, Want, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -417,65 +394,56 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     };
 
     try {
-      this.context.startAbilityForResult(
-        want,
-        (err: BusinessError, result: common.AbilityResult) => {
-          if (err.code) {
-            // 处理业务逻辑错误
-            console.error(
-              `startAbilityForResult failed, code is ${err.code}, message is ${err.message}`,
-            );
-            return;
-          }
-          // 执行正常业务
-          console.info('startAbilityForResult succeed');
-        },
-      );
+      this.context.startAbilityForResult(want, (err: BusinessError, result: common.AbilityResult) => {
+        if (err.code) {
+          // 处理业务逻辑错误
+          console.error(`startAbilityForResult failed, code is ${err.code}, message is ${err.message}`);
+          return;
+        }
+        // 执行正常业务
+        console.info('startAbilityForResult succeed');
+      });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `startAbilityForResult failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`startAbilityForResult failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### startAbilityForResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback<AbilityResult>): void
+##### startAbilityForResult
+
+startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
 启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。UIAbility被启动后，有如下情况:
 
-
-- 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
-- 异常情况下比如杀死UIAbility会返回异常信息给调用方，异常信息中resultCode为-1。
-- 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
+ - 异常情况下比如杀死UIAbility会返回异常信息给调用方，异常信息中resultCode为-1。
+ - 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方，其它调用方返回异常信息, 异常信息中resultCode为-1。
 
 
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
-| options | [StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions) | 是 | 启动UIAbility所携带的额外参数。 |
-| callback | AsyncCallback&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | 是 | 回调函数，包含返回给拉起方的信息。 |
+| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
+| options | StartOptions | 是 | 启动UIAbility所携带的额外参数。 |
+| callback | AsyncCallback&lt;AbilityResult&gt; | 是 | 回调函数，包含返回给拉起方的信息。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -510,15 +478,9 @@ startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  ShareExtensionAbility,
-  Want,
-  common,
-  StartOptions,
-} from '@kit.AbilityKit';
+import { ShareExtensionAbility, Want, common, StartOptions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -526,80 +488,69 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     let want: Want = {
       deviceId: '',
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
     let options: StartOptions = {
       displayId: 0,
     };
 
     try {
-      this.context.startAbilityForResult(
-        want,
-        options,
-        (err: BusinessError, result: common.AbilityResult) => {
-          if (err.code) {
-            // 处理业务逻辑错误
-            console.error(
-              `startAbilityForResult failed, code is ${err.code}, message is ${err.message}`,
-            );
-            return;
-          }
-          // 执行正常业务
-          console.info('startAbilityForResult succeed');
-        },
-      );
+      this.context.startAbilityForResult(want, options, (err: BusinessError, result: common.AbilityResult) => {
+        if (err.code) {
+          // 处理业务逻辑错误
+          console.error(`startAbilityForResult failed, code is ${err.code}, message is ${err.message}`);
+          return;
+        }
+        // 执行正常业务
+        console.info('startAbilityForResult succeed');
+      });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `startAbilityForResult failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`startAbilityForResult failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### startAbilityForResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>
+##### startAbilityForResult
+
+startAbilityForResult(want: Want, options?: StartOptions): Promise&lt;AbilityResult&gt;
 
 启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用Promise异步回调。UIAbility被启动后，有如下情况:
 
-
-- 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
-- 异常情况下比如杀死UIAbility会返回异常信息给调用方, 异常信息中resultCode为-1。
-- 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
+ - 异常情况下比如杀死UIAbility会返回异常信息给调用方, 异常信息中resultCode为-1。
+ - 如果被启动的UIAbility模式是单实例模式, 不同应用多次调用该接口启动这个UIAbility，当这个UIAbility调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
 
 
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
-| options | [StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions) | 否 | 启动UIAbility所携带的额外参数。 |
+| want | Want | 是 | 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。 |
+| options | StartOptions | 否 | 启动UIAbility所携带的额外参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | Promise对象，返回被拉起的UIAbility退出时的返回结果。 |
+| Promise&lt;AbilityResult&gt; | Promise对象，返回被拉起的UIAbility退出时的返回结果。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -636,55 +587,44 @@ startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  ShareExtensionAbility,
-  Want,
-  common,
-  StartOptions,
-} from '@kit.AbilityKit';
+import { ShareExtensionAbility, Want, common, StartOptions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
   onForeground() {
     let want: Want = {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
     let options: StartOptions = {
       displayId: 0,
     };
 
     try {
-      this.context
-        .startAbilityForResult(want, options)
+      this.context.startAbilityForResult(want, options)
         .then((result: common.AbilityResult) => {
           // 执行正常业务
           console.info('startAbilityForResult succeed');
         })
         .catch((err: BusinessError) => {
           // 处理业务逻辑错误
-          console.error(
-            `startAbilityForResult failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`startAbilityForResult failed, code is ${err.code}, message is ${err.message}`);
         });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `startAbilityForResult failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`startAbilityForResult failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### connectServiceExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### connectServiceExtensionAbility
 
 connectServiceExtensionAbility(want: Want, options: ConnectOptions): number
 
@@ -692,33 +632,30 @@ connectServiceExtensionAbility(want: Want, options: ConnectOptions): number
 
 ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/extensionability-overview)组件，这类组件由系统提供，通常用于提供指定场景后台服务能力，不支持开发者自定义。ServiceExtensionAbility可以被其他组件连接，并根据调用者的请求信息在后台处理相关事务。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 连接ServiceExtensionAbility的Want信息，包括Ability名称，Bundle名称等。 |
-| options | [ConnectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-connectoptions) | 是 | ConnectOptions类型的回调函数，返回服务连接成功、连接失败、断开的信息。 |
+| want | Want | 是 | 连接ServiceExtensionAbility的Want信息，包括Ability名称，Bundle名称等。 |
+| options | ConnectOptions | 是 | ConnectOptions类型的回调函数，返回服务连接成功、连接失败、断开的信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回连接id，客户端可以通过[disconnectServiceExtensionAbility](#disconnectserviceextensionability)传入该连接id来断开连接。 |
+| number | 返回连接id，客户端可以通过disconnectServiceExtensionAbility传入该连接id来断开连接。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -741,8 +678,7 @@ ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.hu
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, Want, common } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
@@ -753,7 +689,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     let want: Want = {
       deviceId: '',
       bundleName: 'com.example.myapplication',
-      abilityName: 'ServiceExtensionAbility',
+      abilityName: 'ServiceExtensionAbility'
     };
     let commRemote: rpc.IRemoteObject;
     let options: common.ConnectOptions = {
@@ -766,7 +702,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       },
       onFailed(code) {
         console.error(`onFailed, err code: ${code}.`);
-      },
+      }
     };
     let connection: number;
     try {
@@ -775,19 +711,17 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `connectServiceExtensionAbility failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`connectServiceExtensionAbility failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### disconnectServiceExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectServiceExtensionAbility(connection: number): Promise<void>
+##### disconnectServiceExtensionAbility
+
+disconnectServiceExtensionAbility(connection: number): Promise&lt;void&gt;
 
 断开与ServiceExtensionAbility的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用Promise异步回调。
 
@@ -797,14 +731,12 @@ ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.hu
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| connection | number | 是 | 连接的ServiceExtensionAbility的标识Id，即[connectServiceExtensionAbility](#connectserviceextensionability)返回的connectionId。 |
+| connection | number | 是 | 连接的ServiceExtensionAbility的标识Id，即connectServiceExtensionAbility返回的connectionId。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -815,7 +747,6 @@ ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.hu
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -825,8 +756,7 @@ ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.hu
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
@@ -839,37 +769,30 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     let commRemote: rpc.IRemoteObject | null;
 
     try {
-      this.context
-        .disconnectServiceExtensionAbility(connection)
-        .then(() => {
-          commRemote = null;
-          // 执行正常业务
-          console.info('disconnectServiceExtensionAbility succeed');
-        })
-        .catch((err: BusinessError) => {
-          // 处理业务逻辑错误
-          console.error(
-            `disconnectServiceExtensionAbility failed, code is ${err.code}, message is ${err.message}`,
-          );
-        });
+      this.context.disconnectServiceExtensionAbility(connection).then(() => {
+        commRemote = null;
+        // 执行正常业务
+        console.info('disconnectServiceExtensionAbility succeed');
+      }).catch((err: BusinessError) => {
+        // 处理业务逻辑错误
+        console.error(`disconnectServiceExtensionAbility failed, code is ${err.code}, message is ${err.message}`);
+      })
     } catch (err) {
       commRemote = null;
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `disconnectServiceExtensionAbility failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`disconnectServiceExtensionAbility failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### disconnectServiceExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback<void>): void
+##### disconnectServiceExtensionAbility
+
+disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback&lt;void&gt;): void
 
 断开与ServiceExtensionAbility的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用callback异步回调。
 
@@ -878,7 +801,6 @@ ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.hu
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -890,7 +812,6 @@ ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.hu
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -900,8 +821,7 @@ ServiceExtensionAbility是一类特殊的[ExtensionAbility](https://developer.hu
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
@@ -914,46 +834,38 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     let commRemote: rpc.IRemoteObject | null;
 
     try {
-      this.context.disconnectServiceExtensionAbility(
-        connection,
-        (err: BusinessError) => {
-          commRemote = null;
-          if (err.code) {
-            // 处理业务逻辑错误
-            console.error(
-              `disconnectServiceExtensionAbility failed, code is ${err.code}, message is ${err.message}`,
-            );
-            return;
-          }
-          // 执行正常业务
-          console.info('disconnectServiceExtensionAbility succeed');
-        },
-      );
+      this.context.disconnectServiceExtensionAbility(connection, (err: BusinessError) => {
+        commRemote = null;
+        if (err.code) {
+          // 处理业务逻辑错误
+          console.error(`disconnectServiceExtensionAbility failed, code is ${err.code}, message is ${err.message}`);
+          return;
+        }
+        // 执行正常业务
+        console.info('disconnectServiceExtensionAbility succeed');
+      });
     } catch (err) {
       commRemote = null;
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `disconnectServiceExtensionAbility failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`disconnectServiceExtensionAbility failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### terminateSelf12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(callback: AsyncCallback<void>): void
+##### terminateSelf12+
+
+terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIExtensionAbility自身，同时关闭对应的窗口界面。使用callback异步回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -964,7 +876,6 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -972,8 +883,7 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -984,9 +894,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       this.context.terminateSelf((err: BusinessError) => {
         if (err.code) {
           // 处理业务逻辑错误
-          console.error(
-            `terminateSelf failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`terminateSelf failed, code is ${err.code}, message is ${err.message}`);
           return;
         }
         // 执行正常业务
@@ -996,19 +904,17 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       // 捕获同步的参数错误
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `terminateSelf failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`terminateSelf failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### terminateSelf12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(): Promise<void>
+##### terminateSelf12+
+
+terminateSelf(): Promise&lt;void&gt;
 
 销毁UIExtensionAbility自身，同时关闭对应的窗口界面。使用Promise异步回调。
 
@@ -1016,7 +922,6 @@ terminateSelf(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -1024,8 +929,7 @@ terminateSelf(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1033,35 +937,30 @@ import { BusinessError } from '@kit.BasicServicesKit';
 export default class ShareExtAbility extends ShareExtensionAbility {
   onForeground() {
     try {
-      this.context
-        .terminateSelf()
+      this.context.terminateSelf()
         .then(() => {
           // 执行正常业务
           console.info('terminateSelf succeed');
         })
         .catch((err: BusinessError) => {
           // 处理业务逻辑错误
-          console.error(
-            `terminateSelf failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`terminateSelf failed, code is ${err.code}, message is ${err.message}`);
         });
     } catch (err) {
       // 捕获同步的参数错误
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `terminateSelf failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`terminateSelf failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### terminateSelfWithResult12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void
+##### terminateSelfWithResult12+
+
+terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIExtensionAbility自身，同时关闭对应的窗口界面，并将结果返回给UIExtensionAbility的拉起方，拉起方通常为系统服务。使用callback异步回调。
 
@@ -1069,17 +968,15 @@ terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult) | 是 | 返回给UIExtensionAbility拉起方的信息。 |
+| parameter | AbilityResult | 是 | 返回给UIExtensionAbility拉起方的信息。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。UIExtensionAbility停止成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1088,8 +985,7 @@ terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, Want, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1098,47 +994,40 @@ export default class ShareExtAbility extends ShareExtensionAbility {
   onForeground() {
     let want: Want = {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
     let resultCode = 100;
     // 返回给接口调用方AbilityResult信息
     let abilityResult: common.AbilityResult = {
       want,
-      resultCode,
+      resultCode
     };
 
     try {
-      this.context.terminateSelfWithResult(
-        abilityResult,
-        (err: BusinessError) => {
-          if (err.code) {
-            // 处理业务逻辑错误
-            console.error(
-              `terminateSelfWithResult failed, code is ${err.code}, message is ${err.message}`,
-            );
-            return;
-          }
-          // 执行正常业务
-          console.info('terminateSelfWithResult succeed');
-        },
-      );
+      this.context.terminateSelfWithResult(abilityResult, (err: BusinessError) => {
+        if (err.code) {
+          // 处理业务逻辑错误
+          console.error(`terminateSelfWithResult failed, code is ${err.code}, message is ${err.message}`);
+          return;
+        }
+        // 执行正常业务
+        console.info('terminateSelfWithResult succeed');
+      });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `terminateSelfWithResult failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`terminateSelfWithResult failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### terminateSelfWithResult12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelfWithResult(parameter: AbilityResult): Promise<void>
+##### terminateSelfWithResult12+
+
+terminateSelfWithResult(parameter: AbilityResult): Promise&lt;void&gt;
 
 销毁UIExtensionAbility自身，同时关闭对应的窗口界面，并将结果返回给UIExtensionAbility的拉起方，拉起方通常为系统服务。使用Promise异步回调。
 
@@ -1146,14 +1035,12 @@ terminateSelfWithResult(parameter: AbilityResult): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult) | 是 | 返回给UIExtensionAbility拉起方的信息。 |
+| parameter | AbilityResult | 是 | 返回给UIExtensionAbility拉起方的信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1164,13 +1051,12 @@ terminateSelfWithResult(parameter: AbilityResult): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
 
 
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, Want, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1179,52 +1065,46 @@ export default class ShareExtAbility extends ShareExtensionAbility {
   onForeground() {
     let want: Want = {
       bundleName: 'com.example.myapplication',
-      abilityName: 'EntryAbility',
+      abilityName: 'EntryAbility'
     };
     let resultCode = 100;
     // 返回给接口调用方AbilityResult信息
     let abilityResult: common.AbilityResult = {
       want,
-      resultCode,
+      resultCode
     };
 
     try {
-      this.context
-        .terminateSelfWithResult(abilityResult)
+      this.context.terminateSelfWithResult(abilityResult)
         .then(() => {
           // 执行正常业务
           console.info('terminateSelfWithResult succeed');
         })
         .catch((err: BusinessError) => {
           // 处理业务逻辑错误
-          console.error(
-            `terminateSelfWithResult failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`terminateSelfWithResult failed, code is ${err.code}, message is ${err.message}`);
         });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `terminateSelfWithResult failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`terminateSelfWithResult failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### reportDrawnCompleted12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reportDrawnCompleted(callback: AsyncCallback<void>): void
+##### reportDrawnCompleted12+
+
+reportDrawnCompleted(callback: AsyncCallback&lt;void&gt;): void
 
 用于应用通知系统UIExtensionAbility对应的窗口内容已绘制完成。系统会根据开发者调用的时机进行资源分配优化等，以优化应用启动及显示时间。使用callback异步回调。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1235,7 +1115,6 @@ reportDrawnCompleted(callback: AsyncCallback<void>): void
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 16000011 | The context does not exist. |
@@ -1244,14 +1123,9 @@ reportDrawnCompleted(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  ShareExtensionAbility,
-  Want,
-  UIExtensionContentSession,
-} from '@kit.AbilityKit';
+import { ShareExtensionAbility, Want, UIExtensionContentSession } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 const TAG: string = '[testTag] ShareExtAbility';
@@ -1260,7 +1134,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
   onSessionCreate(want: Want, session: UIExtensionContentSession) {
     console.info(TAG, `onSessionCreate, want: ${JSON.stringify(want)}`);
     let data: Record<string, UIExtensionContentSession> = {
-      session: session,
+      'session': session
     };
     let storage: LocalStorage = new LocalStorage(data);
     session.loadContent('pages/extension', storage);
@@ -1268,9 +1142,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       this.context.reportDrawnCompleted((err) => {
         if (err.code) {
           // 处理业务逻辑错误
-          console.error(
-            `reportDrawnCompleted failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`reportDrawnCompleted failed, code is ${err.code}, message is ${err.message}`);
           return;
         }
         // 执行正常业务
@@ -1280,56 +1152,51 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       // 捕获同步的参数错误
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `reportDrawnCompleted failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`reportDrawnCompleted failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### openAtomicService12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<AbilityResult>
+##### openAtomicService12+
+
+openAtomicService(appId: string, options?: AtomicServiceOptions): Promise&lt;AbilityResult&gt;
 
 打开一个独立窗口的元服务，并返回结果。使用Promise异步回调。
 
 分为以下几种情况：
 
-
-- 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
-- 异常情况下比如杀死元服务会返回异常信息给调用方，异常信息中resultCode为-1。
-- 如果不同应用多次调用该接口启动同一个元服务，当这个元服务调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息，异常信息中resultCode为-1。
+ - 正常情况下可通过调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止并且返回结果给调用方。
+ - 异常情况下比如杀死元服务会返回异常信息给调用方，异常信息中resultCode为-1。
+ - 如果不同应用多次调用该接口启动同一个元服务，当这个元服务调用[terminateSelfWithResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#terminateselfwithresult)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息，异常信息中resultCode为-1。
 
 
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | appId | string | 是 | 应用的唯一标识，由云端统一分配。 |
-| options | [AtomicServiceOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-atomicserviceoptions) | 否 | 启动元服务所携带的参数。 |
+| options | AtomicServiceOptions | 否 | 启动元服务所携带的参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | Promise对象。返回给拉起方的信息。 |
+| Promise&lt;AbilityResult&gt; | Promise对象。返回给拉起方的信息。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1346,14 +1213,9 @@ openAtomicService(appId: string, options?: AtomicServiceOptions): Promise<Abilit
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  ShareExtensionAbility,
-  common,
-  AtomicServiceOptions,
-} from '@kit.AbilityKit';
+import { ShareExtensionAbility, common, AtomicServiceOptions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -1364,67 +1226,60 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     };
 
     try {
-      this.context
-        .openAtomicService(appId, options)
+      this.context.openAtomicService(appId, options)
         .then((result: common.AbilityResult) => {
           // 执行正常业务
           console.info('openAtomicService succeed');
         })
         .catch((err: BusinessError) => {
           // 处理业务逻辑错误
-          console.error(
-            `openAtomicService failed, code is ${err.code}, message is ${err.message}`,
-          );
+          console.error(`openAtomicService failed, code is ${err.code}, message is ${err.message}`);
         });
     } catch (err) {
       // 处理入参错误异常
       let code = (err as BusinessError).code;
       let message = (err as BusinessError).message;
-      console.error(
-        `openAtomicService failed, code is ${code}, message is ${message}`,
-      );
+      console.error(`openAtomicService failed, code is ${code}, message is ${message}`);
     }
   }
 }
 ```
 
 
-### openLink12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<AbilityResult>): Promise<void>
+##### openLink12+
+
+openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback&lt;AbilityResult&gt;): Promise&lt;void&gt;
 
 通过App Linking或Deep Linking方式启动UIAbility。使用Promise异步回调。
 
 通过在link字段中传入标准格式的URL，基于隐式want匹配规则拉起目标UIAbility。目标方必须具备以下过滤器特征，才能处理App Linking链接：
 
+ - "actions"列表中包含"ohos.want.action.viewData"。
+ - "entities"列表中包含"entity.system.browsable"。
+ - "uris"列表中包含"scheme"为"https"且"domainVerify"为true的元素。
 
-- "actions"列表中包含"ohos.want.action.viewData"。
-- "entities"列表中包含"entity.system.browsable"。
-- "uris"列表中包含"scheme"为"https"且"domainVerify"为true的元素。
 
 如果希望获取被拉起方终止后的结果，可以设置callback参数，此参数的使用可参照[startAbilityForResult](#startabilityforresult)接口。
 
 传入的参数不合法时，如未设置必选参数或link字符串不是标准格式的URL，接口会直接抛出异常。参数校验通过，拉起目标方时出现的错误通过promise返回错误信息。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | link | string | 是 | 指示要打开的标准格式URL。 |
-| options | [OpenLinkOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-openlinkoptions) | 否 | 打开URL的选项参数。 |
-| callback | AsyncCallback&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | 否 | 回调函数，包含返回给拉起方的信息。 |
+| options | OpenLinkOptions | 否 | 打开URL的选项参数。 |
+| callback | AsyncCallback&lt;AbilityResult&gt; | 否 | 回调函数，包含返回给拉起方的信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1434,7 +1289,6 @@ openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<Abili
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1460,15 +1314,9 @@ openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback<Abili
 
 **示例：**
 
-
-```ts
+```json
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  ShareExtensionAbility,
-  Want,
-  UIExtensionContentSession,
-  OpenLinkOptions,
-} from '@kit.AbilityKit';
+import { ShareExtensionAbility, Want, UIExtensionContentSession, OpenLinkOptions } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -1492,36 +1340,31 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     console.info(`UIExtAbility onSessionCreate`);
     console.info(`UIExtAbility onSessionCreate, want: ${JSON.stringify(want)}`);
     let record: Record<string, UIExtensionContentSession> = {
-      session: session,
+      'session': session
     };
     let storage: LocalStorage = new LocalStorage(record);
     session.loadContent('pages/UIExtensionIndex', storage);
 
     let link: string = 'https://www.example.com';
     let openLinkOptions: OpenLinkOptions = {
-      appLinkingOnly: true,
+      appLinkingOnly: true
     };
     try {
-      this.context
-        .openLink(link, openLinkOptions, (err, result) => {
+      this.context.openLink(
+        link,
+        openLinkOptions,
+        (err, result) => {
           if (err) {
-            console.error(
-              `openLink callback failed, err code: ${err.code}, err msg: ${err.message}.`,
-            );
+            console.error(`openLink callback failed, err code: ${err.code}, err msg: ${err.message}.`);
             return;
           }
-          console.info(
-            `openLink success, result code: ${result.resultCode} result data: ${result.want}.`,
-          );
-        })
-        .then(() => {
-          console.info(`open link success.`);
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `open link failed, err code: ${err.code}, err msg: ${err.message}.`,
-          );
-        });
+          console.info(`openLink success, result code: ${result.resultCode} result data: ${result.want}.`);
+        }
+      ).then(() => {
+        console.info(`open link success.`);
+      }).catch((err: BusinessError) => {
+        console.error(`open link failed, err code: ${err.code}, err msg: ${err.message}.`);
+      });
     } catch (err) {
       let code = (err as BusinessError).code;
       let msg = (err as BusinessError).message;
@@ -1536,29 +1379,27 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 ```
 
 
-### startUIServiceExtensionAbility14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startUIServiceExtensionAbility(want: Want): Promise<void>
+##### startUIServiceExtensionAbility14+
+
+startUIServiceExtensionAbility(want: Want): Promise&lt;void&gt;
 
 启动一个UIServiceExtensionAbility。使用Promise异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动UIServiceExtensionAbility的Want。 |
+| want | Want | 是 | 启动UIServiceExtensionAbility的Want。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1568,7 +1409,6 @@ startUIServiceExtensionAbility(want: Want): Promise<void>
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1590,8 +1430,7 @@ startUIServiceExtensionAbility(want: Want): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1603,26 +1442,26 @@ struct Index {
       Row() {
         // 创建启动按钮
         Button('start ability')
-        .enabled(true)
-        .onClick(() => {
-          let context = this.getUIContext().getHostContext() as common.UIExtensionContext;
-          let startWant: Want = {
-            bundleName: 'com.acts.uiserviceextensionability',
-            abilityName: 'UiServiceExtAbility',
-          };
-          try {
-            // 启动UIServiceExtensionAbility
-            context.startUIServiceExtensionAbility(startWant).then(() => {
-              console.info(`startUIServiceExtensionAbility success.`);
-            }).catch((error: BusinessError) => {
-              console.error(`startUIServiceExtensionAbility failed, err code: ${error.code}, err msg: ${error.message}.`);
-            })
-          } catch (err) {
-            let code = (err as BusinessError).code;
-            let msg = (err as BusinessError).message;
-            console.error(`startUIServiceExtensionAbility failed, err code: ${code}, err msg: ${msg}.`);
-          }
-        })
+          .enabled(true)
+          .onClick(() => {
+            let context = this.getUIContext().getHostContext() as common.UIExtensionContext;
+            let startWant: Want = {
+              bundleName: 'com.acts.uiserviceextensionability',
+              abilityName: 'UiServiceExtAbility',
+            };
+            try {
+              // 启动UIServiceExtensionAbility
+              context.startUIServiceExtensionAbility(startWant).then(() => {
+                console.info(`startUIServiceExtensionAbility success.`);
+              }).catch((error: BusinessError) => {
+                console.error(`startUIServiceExtensionAbility failed, err code: ${error.code}, err msg: ${error.message}.`);
+              })
+            } catch (err) {
+              let code = (err as BusinessError).code;
+              let msg = (err as BusinessError).message;
+              console.error(`startUIServiceExtensionAbility failed, err code: ${code}, err msg: ${msg}.`);
+            }
+          })
       }
     }
   }
@@ -1630,40 +1469,37 @@ struct Index {
 ```
 
 
-### connectUIServiceExtensionAbility14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise<UIServiceProxy>
+##### connectUIServiceExtensionAbility14+
+
+connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise&lt;UIServiceProxy&gt;
 
 连接到一个UIServiceExtensionAbility。使用Promise异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | want | Want | 是 | 用于连接的Want信息。 |
-| callback | [UIServiceExtensionConnectCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nner-application-uiserviceextensionconnectcallback) | 是 | 连接UIServiceExtensionAbility回调。 |
+| callback | UIServiceExtensionConnectCallback | 是 | 连接UIServiceExtensionAbility回调。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;UIServiceProxy&gt; | Promise对象，连接UIServiceExtensionAbility成功时，返回[UIServiceProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiserviceproxy)对象，借助该对象可以往UIServiceExtensionAbility发送数据。 |
+| Promise&lt;UIServiceProxy&gt; | Promise对象，连接UIServiceExtensionAbility成功时，返回UIServiceProxy对象，借助该对象可以往UIServiceExtensionAbility发送数据。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1683,8 +1519,7 @@ connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnect
 
 **示例：**
 
-
-```ts
+```json
 import { common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1727,10 +1562,10 @@ struct Page_UIServiceExtensionAbility {
 ```
 
 
-### disconnectUIServiceExtensionAbility14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>
+##### disconnectUIServiceExtensionAbility14+
+
+disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise&lt;void&gt;
 
 断开UIServiceExtensionAbility。使用Promise异步回调。
 
@@ -1738,14 +1573,12 @@ disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| proxy | [UIServiceProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiserviceproxy) | 是 | [connectUIServiceExtensionAbility](#connectuiserviceextensionability14)返回的Proxy。 |
+| proxy | UIServiceProxy | 是 | connectUIServiceExtensionAbility返回的Proxy。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1756,7 +1589,6 @@ disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1766,8 +1598,7 @@ disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1795,28 +1626,29 @@ struct Page_UIServiceExtensionAbility {
 ```
 
 
-### setColorMode18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setColorMode18+
 
 setColorMode(colorMode: ConfigurationConstant.ColorMode): void
 
 设置UIExtensionAbility的深浅色模式。调用该接口前需要保证该UIExtensionContext对应页面已完成加载。仅支持主线程调用。
+
+> [!NOTE]
+> 调用该接口后会创建新的资源管理器对象，如果此前有缓存资源管理器，需要进行更新。 深浅色模式生效的优先级：UIExtensionAbility的深浅色模式 > 应用的深浅色模式（ ApplicationContext.setColorMode ）> 系统的深浅色模式。
 
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colorMode | [ConfigurationConstant.ColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configurationconstant#colormode) | 是 | 设置颜色模式，包括：          - COLOR_MODE_DARK：深色模式          - COLOR_MODE_LIGHT：浅色模式          - COLOR_MODE_NOT_SET：不设置（跟随系统或应用） |
+| colorMode | ConfigurationConstant.ColorMode | 是 | 设置颜色模式，包括： - COLOR_MODE_DARK：深色模式 - COLOR_MODE_LIGHT：浅色模式 - COLOR_MODE_NOT_SET：不设置（跟随系统或应用） |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1825,17 +1657,14 @@ setColorMode(colorMode: ConfigurationConstant.ColorMode): void
 
 **示例**：
 
-
-```ts
+```text
 // UIExtensionAbility不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
 import { ShareExtensionAbility, ConfigurationConstant } from '@kit.AbilityKit';
 
 export default class MyAbility extends ShareExtensionAbility {
   onForeground() {
     let uiExtensionContext = this.context;
-    uiExtensionContext.setColorMode(
-      ConfigurationConstant.ColorMode.COLOR_MODE_DARK,
-    );
+    uiExtensionContext.setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_DARK);
   }
 }
 ```

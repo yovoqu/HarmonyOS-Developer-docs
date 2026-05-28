@@ -1,26 +1,40 @@
 # 视频播放 (Video)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-video-player
 
 Video组件用于播放视频文件并控制其播放状态，常用于短视频和应用内部视频的列表页面。当视频完整出现时会自动播放，用户点击视频区域则会暂停播放，同时显示播放进度条，通过拖动播放进度条指定视频播放到具体位置。具体用法请参考[Video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)。
 
 
-## 创建视频组件
+##### 创建视频组件
 
-Video通过调用接口来创建，接口调用形式如下： Video(value: VideoOptions)
+Video通过调用接口来创建，接口调用形式如下：
 
-## 加载视频资源
+Video(value: VideoOptions)
+
+
+
+##### 加载视频资源
 
 Video组件支持加载本地视频和网络视频。具体的数据源配置请参考[VideoOptions对象说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videooptions对象说明)。
 
-## 加载本地视频
 
-普通本地视频。 加载本地视频时，需在工程资源的rawfile目录中放置视频文件，如下图所示。
-![](assets/视频播放%20(Video)
-/file-20260514130628048-0.png) 再使用资源访问符\$rawfile()引用视频资源。
-```text
+
+##### 加载本地视频
+
+ - 普通本地视频。
+
+  加载本地视频时，需在工程资源的rawfile目录中放置视频文件，如下图所示。
+
+  
+![](assets/视频播放%20(Video)/file-20260514130628048-0.png)
+
+
+  再使用资源访问符\$rawfile()引用视频资源。
+
+  
+```ArkTS
 // xxx.ets
 // ···
 @Component
@@ -41,8 +55,10 @@ export struct LocalVideo {
 }
 ```
 
-[Data Ability](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataability-overview)提供的视频路径带有dataability://前缀，使用时确保对应视频资源存在。
-```text
+ - [Data Ability](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataability-overview)提供的视频路径带有dataability://前缀，使用时确保对应视频资源存在。
+
+  
+```ArkTS
 // xxx.ets
 // ...
 @Component
@@ -66,10 +82,14 @@ export struct LocalVideoTwo {
 ```
 
 
-## 加载沙箱路径视频
+
+
+
+##### 加载沙箱路径视频
 
 支持file://路径前缀的字符串，用于读取应用沙箱路径内的资源，需要确保应用沙箱目录路径下的文件存在并且有可读权限。
-```text
+
+```ArkTS
 // xxx.ets
 // ···
 @Component
@@ -89,10 +109,12 @@ export struct Sandbox {
 ```
 
 
-## 加载网络视频
+
+##### 加载网络视频
 
 加载网络视频时，需要申请ohos.permission.INTERNET权限，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。此时，Video的src属性为网络视频的链接。
-```text
+
+```ArkTS
 // xxx.ets
 // ···
 @Component
@@ -114,10 +136,12 @@ export struct OnlineVideo {
 ```
 
 
-## 添加属性
+
+##### 添加属性
 
 Video组件[属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#属性)主要用于设置视频的播放形式。例如设置视频播放是否静音、播放是否显示控制条等。
-```text
+
+```ArkTS
 // xxx.ets
 // ···
 @Component
@@ -140,10 +164,12 @@ export struct AttributeVideo {
 ```
 
 
-## 事件调用
+
+##### 事件调用
 
 Video组件回调事件主要包括播放开始、播放暂停、播放结束、播放失败、播放停止、视频准备和操作进度条等事件，除此之外，Video组件也支持通用事件的调用，如点击、触摸等事件的调用。详细事件请参考[事件说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#事件)。
-```text
+
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -173,10 +199,17 @@ struct EventCall {
 ```
 
 
-## Video控制器使用
 
-Video控制器主要用于控制视频的状态，包括播放、暂停、停止以及设置进度等，详细使用请参考[VideoController使用说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videocontroller)。 默认控制器 默认的控制器支持视频的开始、暂停、进度调整、全屏显示四项基本功能。
-```text
+##### Video控制器使用
+
+Video控制器主要用于控制视频的状态，包括播放、暂停、停止以及设置进度等，详细使用请参考[VideoController使用说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video#videocontroller)。
+
+ - 默认控制器
+
+  默认的控制器支持视频的开始、暂停、进度调整、全屏显示四项基本功能。
+
+  
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -201,8 +234,12 @@ struct VideoGuide {
 }
 ```
 
-自定义控制器 使用自定义的控制器，先关闭默认控制器，然后使用[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)以及[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)等组件进行自定义的控制与显示，适合自定义较强的场景下使用。
-```text
+ - 自定义控制器
+
+  使用自定义的控制器，先关闭默认控制器，然后使用[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)以及[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)等组件进行自定义的控制与显示，适合自定义较强的场景下使用。
+
+  
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -261,10 +298,16 @@ struct CustomizedControl {
 ```
 
 
-## 其他说明
+
+
+
+##### 其他说明
 
 Video组件已经封装好了视频播放的基础能力，开发者无需进行视频实例的创建，视频信息的设置获取，只需要设置数据源以及基础信息即可播放视频，相对扩展能力较弱。如果开发者想自定义视频播放，请使用[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/media-kit-intro#avplayer)，下面是一个使用AVPlayer进行播放视频的简单示例，如果需要更详细信息或更复杂功能请参考[视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
-```text
+
+
+
+```ArkTS
 // xxx.ets
 import { window } from '@kit.ArkUI';
 import { AVPlayerController } from '../avplayertool/AVPlayerController';
@@ -297,7 +340,28 @@ const SECOND_TEN = 10;
 function timeCover(time: number): string {
   let min: number = Math.floor(time / MINUTE_UNIT);
   let second: string = ((time % MINUTE_UNIT) / SECOND_UNIT).toFixed(0);
-  return `${min}:${(Number(second)  = ['navigation', 'status'];
+  return `${min}:${(Number(second) < SECOND_TEN ? '0' : '') + second}`;
+}
+
+@Entry
+@Component
+struct XComponentAVPlayer {
+  // 设置视频控制器，可以控制视频的播放状态。
+  @State avPlayerController: AVPlayerController = new AVPlayerController(this.getUIContext().getHostContext()!);
+  // 视频的总时长。
+  @State durationTime: number = 0;
+  // 视频当前进度。
+  @State currentTime: number = 0;
+  // 判断视频是否暂停播放。
+  @State isPause: boolean = true;
+  // 判断视频是否全屏播放。
+  @State isLayoutFullScreen: boolean = false;
+  // 设置XComponent组件控制器。
+  private videoXComponentController: XComponentController = new VideoXComponentController(this.avPlayerController);
+  // 判断窗口是否横屏。
+  @State isLandScape: boolean = false;
+  // 系统导航栏的标识。
+  private WINDOW_SYSTEM_BAR: Array<'status' | 'navigation'> = ['navigation', 'status'];
   // 窗口宽度。
   @State windowWidth:number = 0;
   // 窗口高度。
@@ -447,6 +511,7 @@ function timeCover(time: number): string {
 ```
 
 
-## 示例代码
 
-[媒体库视频](https://gitcode.com/harmonyos_samples/video-show)
+##### 示例代码
+
+ - [媒体库视频](https://gitcode.com/harmonyos_samples/video-show)

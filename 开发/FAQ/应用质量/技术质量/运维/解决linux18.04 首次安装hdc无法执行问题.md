@@ -4,10 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-73
 
-问题现象
-
+**问题现象**
+ 
 首次下载Command Line Tools for Linux解压后在sdk/default/openharmony/toolchains目录下执行hdc -v提示错误：
-
+ 
 ```text
 Command 'hdc' not found, did you mean:
  command 'gdc' from deb gdc
@@ -27,18 +27,19 @@ Command 'hdc' not found, did you mean:
  command 'tdc' from deb tdc
 Try: sudo apt install <deb name>
 ```
-
-可能原因
-
+ 
+**可能原因**
+ 
 终端中执行的hdc命令未找到，默认会从环境变量的PATH中寻找可执行程序路径，首次安装使用未配置环境变量导致出错。
-
-解决措施
-
+ 
+**解决措施**
+ 
 - 使用绝对路径执行hdc命令。
 ```bash
 $ /path/to/hdc -v
 注：实际使用时请替换为安装目录下的真实路径
 ```
+
 - 修改环境变量增加hdc命令所在目录，可参考hdc[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)章节配置环境变量。
 - 将hdc通过软链接方式保存到/usr/bin目录下。
 ```bash

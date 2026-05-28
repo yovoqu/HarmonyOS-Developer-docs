@@ -1,43 +1,48 @@
 # 使用Node-API接口从异步线程向ArkTS线程投递指定优先级和入队方式的任务
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-call-threadsafe-function-with-priority
 
 Node-API中的napi_call_threadsafe_function_with_priority接口的功能是从异步线程向ArkTS线程投递指定优先级和入队方式的任务，底层队列会根据任务的优先级和入队方式来处理任务。
+  
 
-
-## 函数说明
-
+##### 函数说明
 
 ```text
 napi_status napi_call_threadsafe_function_with_priority(napi_threadsafe_function func, void *data,
                                                         napi_task_priority priority, bool isTail);
 ```
-
-
+  
 | 参数 | 说明 |
 | --- | --- |
 | func | 线程安全方法 |
 | data | 异步线程期望传递给主线程的数据 |
-| priority | 指定任务的优先级[napi_task_priority](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-data-types-interfaces#线程安全任务优先级) |
+| priority | 指定任务的优先级napi_task_priority |
 | isTail | 指定任务的入队方式，true代表任务从队列的尾部入队，false代表任务从队列的头部入队 |
+ 
+ 
+  
 
-
-## 场景介绍
+##### 场景介绍
 
 异步线程向ArkTS主线程中投递的任务需要根据任务指定的优先级和入队方式进行处理。
+ 
+  
 
-## 调用异步的ArkTS接口示例
+##### 调用异步的ArkTS接口示例
 
+  
 
-## 示例代码
+##### 示例代码
 
-功能实现
-```text
+- 功能实现
+
+  
+```cpp
 #include "napi/native_api.h"
 // ...
-#include
+#include <hilog/log.h>
 // ...
 static constexpr int INT_ARG_2 = 2; // 入参索引
 static constexpr int INT_ARG_12 = 12; // 入参索引
@@ -78,7 +83,7 @@ static void CallJs(napi_env env, napi_value jsCb, void *context, void *data)
 // 异步线程中调用该接口向ArkTS线程投递指定优先级和入队方式的任务
 static void ExecuteWork(napi_env env, void *data)
 {
-    CallbackData *callbackData = reinterpret_cast(data);
+    CallbackData *callbackData = reinterpret_cast<CallbackData *>(data);
     // 投递指定优先级为napi_priority_idle，入队方式为队列尾部入队的任务
     napi_call_threadsafe_function_with_priority(callbackData->tsfn, nullptr, napi_priority_idle, true);
     // 投递指定优先级为napi_priority_low，入队方式为队列尾部入队的任务
@@ -93,7 +98,7 @@ static void ExecuteWork(napi_env env, void *data)
 
 static void WorkComplete(napi_env env, napi_status status, void *data)
 {
-    CallbackData *callbackData = reinterpret_cast(data);
+    CallbackData *callbackData = reinterpret_cast<CallbackData *>(data);
     if (callbackData->tsfn != nullptr) {
         napi_release_threadsafe_function(callbackData->tsfn, napi_tsfn_release);
         callbackData->tsfn = nullptr;
@@ -139,7 +144,9 @@ static napi_value CallThreadSafeWithPriority(napi_env env, napi_callback_info in
 }
 ```
 
-模块注册
+- 模块注册
+
+  
 ```text
 // 注册模块接口
 EXTERN_C_START
@@ -169,14 +176,20 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule()
 }
 ```
 
-接口声明
-```text
+- 接口声明
+
+  
+```ts
 // index.d.ts
 export const callThreadSafeWithPriority: (cb: (a: number, b: number) => number) => void;
 ```
 
-编译配置  CMakeLists.txt文件需要按照如下配置
-```text
+- 编译配置
+
+  CMakeLists.txt文件需要按照如下配置
+
+  
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
 project(MyApplication3)
@@ -194,13 +207,17 @@ add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 ```
 
-ArkTS导入头文件
+- ArkTS导入头文件
+
+  
 ```text
 import testNapi from 'libentry.so';
 ```
 
-ArkTS代码示例
-```text
+- ArkTS代码示例
+
+  
+```ArkTS
 // index.ets
 let callback = (a: number, b: number): number => {
   console.info('result is ' + (a + b))

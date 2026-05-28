@@ -3,24 +3,22 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-book-parser
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供书籍解析的能力，支持对txt、epub、mobi、azw、azw3格式的书籍文件进行解析。通过提前导入到[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)中的书籍文件，初始化[BookParserHandler](#bookparserhandler)。将书籍基本信息、[书脊](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/reader-introduction#基本概念)内容列表、目录列表和章节内容解析出来。
 
 **起始版本：** 5.0.4(16)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { bookParser } from '@kit.ReaderKit';
 ```
 
 
-## BookInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### BookInfo
 
 书籍基本信息。
 
@@ -30,24 +28,24 @@ import { bookParser } from '@kit.ReaderKit';
 
 **起始版本：** 5.0.4(16)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bookTitle | string | 否 | 否 | 书籍名称。 |
 | bookCreator | string | 否 | 是 | 作者。 |
 | bookPublishDate | string | 否 | 是 | 出版日期。（预留字段，暂不支持。） |
-| bookLanguage | string | 否 | 是 | 书籍语言。          - zh_HK：繁体中文，包括台湾繁体及香港繁体。          - zh_CN：中文简体。          - zh：中文（不支持或非法语言会使用zh作为默认值）。          - en_US：英文。 |
+| bookLanguage | string | 否 | 是 | 书籍语言。 - zh_HK：繁体中文，包括台湾繁体及香港繁体。 - zh_CN：中文简体。 - zh：中文（不支持或非法语言会使用zh作为默认值）。 - en_US：英文。 |
 | bookCoverImage | string | 否 | 是 | 书封图片路径。例如：“OEBPS/images/coverpage.jpg”。 |
-| bookCharset | string | 否 | 是 | 书籍内容的字符集，根据书籍编码格式决定，例如："utf-8"。具体支持格式可参考[TextEncoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util#textencoder)定义。（预留字段，暂不支持。） |
+| bookCharset | string | 否 | 是 | 书籍内容的字符集，根据书籍编码格式决定，例如："utf-8"。具体支持格式可参考TextEncoder定义。（预留字段，暂不支持。） |
 | bookType | string | 否 | 是 | 书籍格式： "txt"、"epub"、"mobi"、"azw"、"azw3"。 |
-| isRtl | boolean | 否 | 是 | 书籍阅读方向。（预留字段，暂不支持。）          - true：从右到左排版          - false：从左到右排版 |
-| renditionLayout | string | 否 | 是 | 书籍排版方式。（预留字段，暂不支持。）          - reflowable：流式排版          - pre-paginated：固定版式排版 |
-| renditionOrientation | string | 否 | 是 | 横竖屏呈现定义。（预留字段，暂不支持。）          - landscape：横屏          - portrait：竖屏          - auto：自适应 |
-| renditionSpread | string | 否 | 是 | 书脊左右页合并场景。（预留字段，暂不支持。）          - none：不合并分页          - landscape：横屏合并          - portrait：竖屏时合并          - auto：自动适配 |
+| isRtl | boolean | 否 | 是 | 书籍阅读方向。（预留字段，暂不支持。） - true：从右到左排版 - false：从左到右排版 |
+| renditionLayout | string | 否 | 是 | 书籍排版方式。（预留字段，暂不支持。） - reflowable：流式排版 - pre-paginated：固定版式排版 |
+| renditionOrientation | string | 否 | 是 | 横竖屏呈现定义。（预留字段，暂不支持。） - landscape：横屏 - portrait：竖屏 - auto：自适应 |
+| renditionSpread | string | 否 | 是 | 书脊左右页合并场景。（预留字段，暂不支持。） - none：不合并分页 - landscape：横屏合并 - portrait：竖屏时合并 - auto：自动适配 |
 
 
-## SpineItem
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### SpineItem
 
 书脊（spine）内容节点，标识着可阅读的一个内容资源（例如：chapter1.xhtml)。
 
@@ -57,17 +55,17 @@ import { bookParser } from '@kit.ReaderKit';
 
 **起始版本：** 5.0.4(16)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | idRef | string | 否 | 否 | 内容节点资源标识，唯一标识一个正文内容文件。 |
 | index | number | 否 | 否 | 内容资源索引，从0开始顺序取值。 |
 | href | string | 否 | 否 | 内容资源在书籍内的引用路径。例如："/OEBPS/Txt/chapter01.xhtml"。 |
-| properties | string | 否 | 否 | 当一屏双页展示时，内容节点的呈现方式。（预留字段，暂不支持。）          - page-spread-left：标识内容在屏幕左侧呈现。          - page-spread-right：标识内容在屏幕右侧呈现。 |
+| properties | string | 否 | 否 | 当一屏双页展示时，内容节点的呈现方式。（预留字段，暂不支持。） - page-spread-left：标识内容在屏幕左侧呈现。 - page-spread-right：标识内容在屏幕右侧呈现。 |
 
 
-## CatalogItem
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CatalogItem
 
 书籍目录节点，可用于目录列表的展示。
 
@@ -77,24 +75,24 @@ import { bookParser } from '@kit.ReaderKit';
 
 **起始版本：** 5.0.4(16)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | catalogId | number | 否 | 否 | 目录节点Id，从0开始取值。 |
 | catalogName | string | 否 | 否 | 目录节点名称。 |
-| catalogLevel | number | 否 | 是 | 目录节点层级。          例如：第一章的目录层级是0，下面有子章节，那子章节的目录层级+1，为1。如果子章节下面还有子章节，则继续+1，为2。          开发者根据目录节点顺序及层级，可识别出目录之间的层级关系。 |
+| catalogLevel | number | 否 | 是 | 目录节点层级。 例如：第一章的目录层级是0，下面有子章节，那子章节的目录层级+1，为1。如果子章节下面还有子章节，则继续+1，为2。 开发者根据目录节点顺序及层级，可识别出目录之间的层级关系。 |
 | playOrder | number | 否 | 是 | 目录节点阅读顺序，从0开始取值。（预留字段，暂不支持。） |
 | idRef | string | 否 | 是 | 目录节点对应内容资源的标识。（预留字段，暂不支持。） |
 | href | string | 否 | 是 | 目录节点带锚点的内容资源路径。 |
-| resourceFile | string | 否 | 是 | 目录节点不带锚点的内容资源路径。          以EPUB书籍为例，该字段则标识着资源以/OEBPS为根目录的相对路径。 |
+| resourceFile | string | 否 | 是 | 目录节点不带锚点的内容资源路径。 以EPUB书籍为例，该字段则标识着资源以/OEBPS为根目录的相对路径。 |
 
 
 > [!NOTE]
 > CatalogItem与SpineItem的区别在于，CatalogItem对应一个目录节点，而SpineItem对应一个内容资源文件，两者并不总是一一对应的。例如：epub书籍一章下面有3个子章节，那就有4个CatalogItem。但是这4个CatalogItem有可能只对应一个SpineItem文件，两者通过CatalogItem.resourceFile及SpineItem.href进行对应。
 
 
-## CallbackRes
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CallbackRes
 
 type CallbackRes<T, V> = (data: T) => V
 
@@ -108,14 +106,12 @@ type CallbackRes<T, V> = (data: T) => V
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | data | T | 是 | 资源请求接口中的参数。例如：获取自定义字体时，该字段代表需要获取字体的名称。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -124,8 +120,7 @@ type CallbackRes<T, V> = (data: T) => V
 
 **示例：**
 
-
-```ts
+```text
 import { bookParser, readerCore, ReadPageComponent } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -183,10 +178,10 @@ struct Reader {
 ```
 
 
-## getDefaultHandler
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getDefaultHandler(path: string): Promise<BookParserHandler>
+##### getDefaultHandler
+
+getDefaultHandler(path: string): Promise&lt;BookParserHandler&gt;
 
 获取书籍默认解析器。使用Promise异步回调。
 
@@ -198,35 +193,31 @@ getDefaultHandler(path: string): Promise<BookParserHandler>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | string | 是 | 本地书籍文件路径（仅支持当前应用下的[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)）。 |
+| path | string | 是 | 本地书籍文件路径（仅支持当前应用下的应用沙箱目录）。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[BookParserHandler](#bookparserhandler)&gt; | Promise对象，返回BookParserHandler类。 |
+| Promise&lt;BookParserHandler&gt; | Promise对象，返回BookParserHandler类。 |
 
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败) | Parameter error. |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error. |
-| [1017010003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010003) | Book file format is unexpected. |
-| [1017010004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010004) | File is not exist. |
+| 401 | Parameter error. |
+| 1017000999 | Other error. |
+| 1017010003 | Book file format is unexpected. |
+| 1017010004 | File is not exist. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -254,8 +245,8 @@ struct Reader {
 ```
 
 
-## BookParserHandler
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### BookParserHandler
 
 书籍解析接口类。
 
@@ -266,8 +257,8 @@ struct Reader {
 **起始版本：** 5.0.4(16)
 
 
-### getBookInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### getBookInfo
 
 getBookInfo(): BookInfo
 
@@ -281,26 +272,23 @@ getBookInfo(): BookInfo
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [BookInfo](#bookinfo) | 书籍基本信息。 |
+| BookInfo | 书籍基本信息。 |
 
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1017000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000001) | Book parser is not initialized. |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error. |
-| [1017010002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010002) | Invalid request. |
+| 1017000001 | Book parser is not initialized. |
+| 1017000999 | Other error. |
+| 1017010002 | Invalid request. |
 
 
 **示例：**
 
-
-```ts
+```json
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -328,8 +316,8 @@ struct Reader {
 ```
 
 
-### getCatalogList
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### getCatalogList
 
 getCatalogList(): CatalogItem[]
 
@@ -343,26 +331,23 @@ getCatalogList(): CatalogItem[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CatalogItem](#catalogitem)[] | 目录节点列表。 |
+| CatalogItem[] | 目录节点列表。 |
 
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1017000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000001) | Book parser is not initialized |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error |
-| [1017010002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010002) | Invalid request |
+| 1017000001 | Book parser is not initialized |
+| 1017000999 | Other error |
+| 1017010002 | Invalid request |
 
 
 **示例：**
 
-
-```ts
+```json
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -390,8 +375,8 @@ struct Reader {
 ```
 
 
-### getSpineList
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### getSpineList
 
 getSpineList(): SpineItem[]
 
@@ -405,26 +390,23 @@ getSpineList(): SpineItem[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SpineItem](#spineitem)[] | 内容节点列表。 |
+| SpineItem[] | 内容节点列表。 |
 
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1017000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000001) | Book parser is not initialized. |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error. |
-| [1017010002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010002) | Invalid request. |
+| 1017000001 | Book parser is not initialized. |
+| 1017000999 | Other error. |
+| 1017010002 | Invalid request. |
 
 
 **示例：**
 
-
-```ts
+```json
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -452,10 +434,10 @@ struct Reader {
 ```
 
 
-### getSpineItemContent
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getSpineItemContent(spineIndex: number): Promise<string>
+##### getSpineItemContent
+
+getSpineItemContent(spineIndex: number): Promise&lt;string&gt;
 
 获取单个书脊资源里的内容，当排版引擎获取资源文件对应内容时会调用。如果不需要自定义排版引擎，开发者不需要关注。使用Promise异步回调。
 
@@ -467,14 +449,12 @@ getSpineItemContent(spineIndex: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| spineIndex | number | 是 | 内容资源索引[SpineItem](#spineitem).index。 |
+| spineIndex | number | 是 | 内容资源索引SpineItem.index。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -483,20 +463,18 @@ getSpineItemContent(spineIndex: number): Promise<string>
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败) | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
-| [1017000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000001) | Book parser is not initialized. |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error. |
-| [1017010001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010001) | Invalid spine item. |
-| [1017010002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010002) | Invalid request. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
+| 1017000001 | Book parser is not initialized. |
+| 1017000999 | Other error. |
+| 1017010001 | Invalid spine item. |
+| 1017010002 | Invalid request. |
 
 
 **示例：**
 
-
-```ts
+```json
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -525,16 +503,16 @@ struct Reader {
 ```
 
 
-### getResourceContent
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### getResourceContent
 
 getResourceContent(spineIndex: number, filePath: string): ArrayBuffer
 
 获取书籍内容资源。
 
-
 > [!NOTE]
-> 开发者通过此接口可获取书封资源。同时排版引擎获取书籍里的图片等资源时，会优先调用��方法，如果获取不到资源会继续调用[on('resourceRequest')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#onresourcerequest)获取资源。
+> 开发者通过此接口可获取书封资源。同时排版引擎获取书籍里的图片等资源时，会优先调用该方法，如果获取不到资源会继续调用 on('resourceRequest') 获取资源。
+
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -544,15 +522,13 @@ getResourceContent(spineIndex: number, filePath: string): ArrayBuffer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| spineIndex | number | 是 | 内容资源索引[SpineItem](#spineitem).index。如果传负数，如-1，代表获取书封。 |
+| spineIndex | number | 是 | 内容资源索引SpineItem.index。如果传负数，如-1，代表获取书封。 |
 | filePath | string | 是 | 书籍中资源文件的相对路径。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -561,20 +537,18 @@ getResourceContent(spineIndex: number, filePath: string): ArrayBuffer
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败) | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
-| [1017000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000001) | Book parser is not initialized. |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error. |
-| [1017010001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010001) | Invalid spine item. |
-| [1017010002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010002) | Invalid request. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
+| 1017000001 | Book parser is not initialized. |
+| 1017000999 | Other error. |
+| 1017010001 | Invalid spine item. |
+| 1017010002 | Invalid request. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -605,8 +579,8 @@ struct Reader {
 ```
 
 
-### getDomPosByCatalogHref
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### getDomPosByCatalogHref
 
 getDomPosByCatalogHref(href: string): string
 
@@ -620,14 +594,12 @@ getDomPosByCatalogHref(href: string): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| href | string | 是 | 目录节点带锚点的内容资源路径[CatalogItem](#catalogitem).href。 |
+| href | string | 是 | 目录节点带锚点的内容资源路径CatalogItem.href。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -636,19 +608,17 @@ getDomPosByCatalogHref(href: string): string
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败) | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
-| [1017000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000001) | Book parser is not initialized. |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error. |
-| [1017010002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010002) | Invalid request. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
+| 1017000001 | Book parser is not initialized. |
+| 1017000999 | Other error. |
+| 1017010002 | Invalid request. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
@@ -678,16 +648,16 @@ struct Reader {
 ```
 
 
-### getAbsoluteResourcePath
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### getAbsoluteResourcePath
 
 getAbsoluteResourcePath(spineIndex: number): string
 
 获取资源的完整文件路径。
 
-
 > [!NOTE]
 > 此方法一般为排版引擎渲染资源时调用，如果不需要自定义排版引擎，开发者不需要关注。
+
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -697,14 +667,12 @@ getAbsoluteResourcePath(spineIndex: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| spineIndex | number | 是 | 内容资源索引[SpineItem](#spineitem).index。 |
+| spineIndex | number | 是 | 内容资源索引SpineItem.index。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -713,20 +681,18 @@ getAbsoluteResourcePath(spineIndex: number): string
 
 **错误码：**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败) | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
-| [1017000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000001) | Book parser is not initialized. |
-| [1017000999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017000999) | Other error. |
-| [1017010002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010002) | Invalid request. |
-| [1017010004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-error-code#section1017010004) | File is not exist. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2. Parameter out of range. |
+| 1017000001 | Book parser is not initialized. |
+| 1017000999 | Other error. |
+| 1017010002 | Invalid request. |
+| 1017010004 | File is not exist. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { bookParser } from '@kit.ReaderKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';

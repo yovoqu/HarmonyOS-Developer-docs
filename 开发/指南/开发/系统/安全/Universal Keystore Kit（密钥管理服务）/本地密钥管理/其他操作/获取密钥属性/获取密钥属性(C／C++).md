@@ -1,34 +1,41 @@
 # 获取密钥属性(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-obtain-key-properties-ndk
 
 HUKS提供了接口供业务获取指定密钥的相关属性。在获取指定密钥属性前，需要确保已在HUKS中生成或导入持久化存储的密钥。
 
-
 > [!NOTE]
 > 轻量级智能穿戴不支持获取密钥属性功能。
+
 
 从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-构造对应参数。 keyAlias：密钥别名，封装成[OH_Huks_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob)结构，密钥别名最大长度为128字节。 paramSetIn：预留参数，暂不需要处理，传空即可。 paramSetOut：用于放置获取到的参数集结果，为[OH_Huks_ParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-paramset)类型对象，需要业务提前申请好内存，需申请足够容纳获取到的密钥属性集的内存大小。 调用接口[OH_Huks_GetKeyItemParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_getkeyitemparamset)，传入上述参数。 返回值为成功码/错误码，获取成功后，从参数集中读取需要的参数。
-```text
+##### 开发步骤
+1. 构造对应参数。
+
+  
+keyAlias：密钥别名，封装成[OH_Huks_Blob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-blob)结构，密钥别名最大长度为128字节。
+2. paramSetIn：预留参数，暂不需要处理，传空即可。
+3. paramSetOut：用于放置获取到的参数集结果，为[OH_Huks_ParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hukstypeapi-oh-huks-paramset)类型对象，需要业务提前申请好内存，需申请足够容纳获取到的密钥属性集的内存大小。
+4. 调用接口[OH_Huks_GetKeyItemParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_getkeyitemparamset)，传入上述参数。
+5. 返回值为成功码/错误码，获取成功后，从参数集中读取需要的参数。
+
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                             uint32_t paramCount)
@@ -90,7 +97,7 @@ static napi_value GetKeyParamSet(napi_env env, napi_callback_info info)
     /* 构造参数：为参数集申请内存
      * 请业务按实际情况评估大小进行申请
      */
-    struct OH_Huks_ParamSet *outParamSet = static_cast(malloc(paramSetSize));
+    struct OH_Huks_ParamSet *outParamSet = static_cast<struct OH_Huks_ParamSet *>(malloc(paramSetSize));
     if (outParamSet == nullptr) {
         return nullptr;
     }

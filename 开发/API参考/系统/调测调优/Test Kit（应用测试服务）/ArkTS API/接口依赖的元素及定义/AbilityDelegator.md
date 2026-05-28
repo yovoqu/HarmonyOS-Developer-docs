@@ -3,35 +3,32 @@
 更新时间：2026-03-26 01:02:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegator
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AbilityDelegator模块可以通过[AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例来监听和管理[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)生命周期的变化。例如获取UIAbility当前状态（如是否已创建/是否在前台等）、查询当前获焦的UIAbility、等待UIAbility进入某个生命周期节点（如等待UIAbility进入onForeground）、启动指定UIAbility、设置超时机制等功能。
 
 AbilityDelegator可以通过[getAbilityDelegator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitydelegatorregistry#abilitydelegatorregistrygetabilitydelegator)方法获取。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在[单元测试框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guidelines)中使用。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在 单元测试框架 中使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 ```
 
 
-## AbilityDelegator
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AbilityDelegator
 
 
-### addAbilityMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void
+##### addAbilityMonitor9+
+
+addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback&lt;void&gt;): void
 
 添加AbilityMonitor实例。使用callback异步回调。不支持多线程并发调用。
 
@@ -41,17 +38,15 @@ addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当添加AbilityMonitor实例成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -61,8 +56,7 @@ addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -70,7 +64,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 
 function onAbilityCreateCallback(data: UIAbility) {
@@ -84,10 +78,10 @@ abilityDelegator.addAbilityMonitor(monitor, (error: BusinessError) => {
 ```
 
 
-### addAbilityMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAbilityMonitor(monitor: AbilityMonitor): Promise<void>
+##### addAbilityMonitor9+
+
+addAbilityMonitor(monitor: AbilityMonitor): Promise&lt;void&gt;
 
 添加AbilityMonitor实例。使用Promise异步回调。不支持多线程并发调用。
 
@@ -97,14 +91,12 @@ addAbilityMonitor(monitor: AbilityMonitor): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -115,7 +107,6 @@ addAbilityMonitor(monitor: AbilityMonitor): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -124,8 +115,7 @@ addAbilityMonitor(monitor: AbilityMonitor): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 
@@ -135,7 +125,7 @@ function onAbilityCreateCallback(data: UIAbility) {
 
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 let abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
 
@@ -145,8 +135,8 @@ abilityDelegator.addAbilityMonitor(monitor).then(() => {
 ```
 
 
-### addAbilityMonitorSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addAbilityMonitorSync10+
 
 addAbilityMonitorSync(monitor: AbilityMonitor): void
 
@@ -158,16 +148,14 @@ addAbilityMonitorSync(monitor: AbilityMonitor): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -177,8 +165,7 @@ addAbilityMonitorSync(monitor: AbilityMonitor): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 
@@ -190,7 +177,7 @@ function onAbilityCreateCallback(data: UIAbility) {
 
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
@@ -198,10 +185,10 @@ abilityDelegator.addAbilityMonitorSync(monitor);
 ```
 
 
-### removeAbilityMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): void
+##### removeAbilityMonitor9+
+
+removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback&lt;void&gt;): void
 
 删除已经添加的AbilityMonitor实例。使用callback异步回调。
 
@@ -211,17 +198,15 @@ removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当删除已经添加的AbilityMonitor实例成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -231,8 +216,7 @@ removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<void>): vo
 
 **示例：**
 
-
-```ts
+```json
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -240,25 +224,25 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 
 function onAbilityCreateCallback(data: UIAbility) {
-  console.info('onAbilityCreateCallback');
+    console.info('onAbilityCreateCallback');
 }
 
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
-  abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+    abilityName: 'abilityName',
+    onAbilityCreate: onAbilityCreateCallback
 };
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
 abilityDelegator.removeAbilityMonitor(monitor, (error: BusinessError) => {
-  console.error(`removeAbilityMonitor fail, error: ${JSON.stringify(error)}`);
+    console.error(`removeAbilityMonitor fail, error: ${JSON.stringify(error)}`);
 });
 ```
 
 
-### removeAbilityMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>
+##### removeAbilityMonitor9+
+
+removeAbilityMonitor(monitor: AbilityMonitor): Promise&lt;void&gt;
 
 删除已经添加的AbilityMonitor实例。使用Promise异步回调。不支持多线程并发调用。
 
@@ -268,14 +252,12 @@ removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -286,24 +268,23 @@ removeAbilityMonitor(monitor: AbilityMonitor): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
 | 16000100 | Calling RemoveAbilityMonitor failed. |
 
 
-- 示例
+ - 示例
 
 
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 
 function onAbilityCreateCallback(data: UIAbility) {
@@ -317,8 +298,8 @@ abilityDelegator.removeAbilityMonitor(monitor).then(() => {
 ```
 
 
-### removeAbilityMonitorSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeAbilityMonitorSync10+
 
 removeAbilityMonitorSync(monitor: AbilityMonitor): void
 
@@ -330,16 +311,14 @@ removeAbilityMonitorSync(monitor: AbilityMonitor): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -349,15 +328,14 @@ removeAbilityMonitorSync(monitor: AbilityMonitor): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 
 function onAbilityCreateCallback(data: UIAbility) {
@@ -369,10 +347,10 @@ abilityDelegator.removeAbilityMonitorSync(monitor);
 ```
 
 
-### waitAbilityMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>): void
+##### waitAbilityMonitor9+
+
+waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback&lt;UIAbility&gt;): void
 
 等待与AbilityMonitor实例匹配的Ability到达OnCreate生命周期，并返回Ability实例。使用callback异步回调。不支持多线程并发调用。
 
@@ -382,17 +360,15 @@ waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
-| callback | AsyncCallback&lt;[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)&gt; | 是 | 回调函数。当等待与AbilityMonitor实例匹配的Ability到达OnCreate生命周期成功，err为undefined，data为获取到的Ability实例，否则为错误对象。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
+| callback | AsyncCallback&lt;UIAbility&gt; | 是 | 回调函数。当等待与AbilityMonitor实例匹配的Ability到达OnCreate生命周期成功，err为undefined，data为获取到的Ability实例，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -402,8 +378,7 @@ waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback<UIAbility>):
 
 **示例：**
 
-
-```ts
+```json
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -411,7 +386,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 
 function onAbilityCreateCallback(data: UIAbility) {
@@ -419,23 +394,20 @@ function onAbilityCreateCallback(data: UIAbility) {
 }
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.waitAbilityMonitor(
-  monitor,
-  (error: BusinessError, data: UIAbility) => {
-    if (error) {
-      console.error(`waitAbilityMonitor fail, error: ${JSON.stringify(error)}`);
-    } else {
-      console.info(`waitAbilityMonitor success, data: ${JSON.stringify(data)}`);
-    }
-  },
-);
+abilityDelegator.waitAbilityMonitor(monitor, (error: BusinessError, data: UIAbility) => {
+  if (error) {
+    console.error(`waitAbilityMonitor fail, error: ${JSON.stringify(error)}`);
+  } else {
+    console.info(`waitAbilityMonitor success, data: ${JSON.stringify(data)}`);
+  }
+});
 ```
 
 
-### waitAbilityMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback<UIAbility>): void
+##### waitAbilityMonitor9+
+
+waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback&lt;UIAbility&gt;): void
 
 设置等待时间，等待与AbilityMonitor实例匹配的Ability到达OnCreate生命周期，并返回Ability实例。使用callback异步回调。不支持多线程并发调用。
 
@@ -445,18 +417,16 @@ waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCall
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 | timeout | number | 是 | 最大等待时间，单位毫秒（ms），默认值为5000毫秒。 |
-| callback | AsyncCallback&lt;[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)&gt; | 是 | 表示指定的回调方法。 |
+| callback | AsyncCallback&lt;UIAbility&gt; | 是 | 表示指定的回调方法。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -466,8 +436,7 @@ waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCall
 
 **示例：**
 
-
-```ts
+```json
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -476,7 +445,7 @@ let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let timeout = 100;
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 
 function onAbilityCreateCallback(data: UIAbility) {
@@ -484,24 +453,20 @@ function onAbilityCreateCallback(data: UIAbility) {
 }
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.waitAbilityMonitor(
-  monitor,
-  timeout,
-  (error: BusinessError, data: UIAbility) => {
-    if (error && error.code !== 0) {
-      console.error(`waitAbilityMonitor fail, error: ${JSON.stringify(error)}`);
-    } else {
-      console.info(`waitAbilityMonitor success, data: ${JSON.stringify(data)}`);
-    }
-  },
-);
+abilityDelegator.waitAbilityMonitor(monitor, timeout, (error: BusinessError, data: UIAbility) => {
+  if (error && error.code !== 0) {
+    console.error(`waitAbilityMonitor fail, error: ${JSON.stringify(error)}`);
+  } else {
+    console.info(`waitAbilityMonitor success, data: ${JSON.stringify(data)}`);
+  }
+});
 ```
 
 
-### waitAbilityMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<UIAbility>
+##### waitAbilityMonitor9+
+
+waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise&lt;UIAbility&gt;
 
 设置等待时间，等待与AbilityMonitor实例匹配的Ability到达OnCreate生命周期，并返回Ability实例。使用Promise异步回调。不支持多线程并发调用。
 
@@ -511,25 +476,22 @@ waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<UIAbility
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor) | 是 | [AbilityMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitymonitor)实例。 |
+| monitor | AbilityMonitor | 是 | AbilityMonitor实例。 |
 | timeout | number | 否 | 最大等待时间，单位毫秒（ms），默认值为5000毫秒。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)&gt; | Promise对象，返回Ability实例。 |
+| Promise&lt;UIAbility&gt; | Promise对象，返回Ability实例。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -539,15 +501,14 @@ waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise<UIAbility
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let monitor: abilityDelegatorRegistry.AbilityMonitor = {
   abilityName: 'abilityName',
-  onAbilityCreate: onAbilityCreateCallback,
+  onAbilityCreate: onAbilityCreateCallback
 };
 
 function onAbilityCreateCallback(data: UIAbility) {
@@ -561,8 +522,8 @@ abilityDelegator.waitAbilityMonitor(monitor).then((data: UIAbility) => {
 ```
 
 
-### getAppContext9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAppContext9+
 
 getAppContext(): Context
 
@@ -574,16 +535,14 @@ getAppContext(): Context
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 应用[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
+| Context | 应用Context。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
@@ -594,8 +553,8 @@ let context = abilityDelegator.getAppContext();
 ```
 
 
-### getAbilityState9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAbilityState9+
 
 getAbilityState(ability: UIAbility): number
 
@@ -607,24 +566,21 @@ getAbilityState(ability: UIAbility): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 指定Ability对象。 |
+| ability | UIAbility | 是 | 指定Ability对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 指定ability的生命周期状态。状态枚举值使用[AbilityLifecycleState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitydelegatorregistry#abilitylifecyclestate)。 |
+| number | 指定ability的生命周期状态。状态枚举值使用AbilityLifecycleState。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -633,8 +589,7 @@ getAbilityState(ability: UIAbility): number
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -652,10 +607,10 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 ```
 
 
-### getCurrentTopAbility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void
+##### getCurrentTopAbility9+
+
+getCurrentTopAbility(callback: AsyncCallback&lt;UIAbility&gt;): void
 
 获取当前应用顶部Ability。使用callback异步回调。不支持Worker线程调用。
 
@@ -665,16 +620,14 @@ getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)&gt; | 是 | 回调函数。当获取当前应用顶部Ability成功，err为undefined，data为获取到的Ability实例；否则为错误对象。 |
+| callback | AsyncCallback&lt;UIAbility&gt; | 是 | 回调函数。当获取当前应用顶部Ability成功，err为undefined，data为获取到的Ability实例；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -684,8 +637,7 @@ getCurrentTopAbility(callback: AsyncCallback<UIAbility>): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -701,10 +653,10 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 ```
 
 
-### getCurrentTopAbility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentTopAbility(): Promise<UIAbility>
+##### getCurrentTopAbility9+
+
+getCurrentTopAbility(): Promise&lt;UIAbility&gt;
 
 获取当前应用顶部Ability。使用Promise异步回调。不支持Worker线程调用。
 
@@ -714,16 +666,14 @@ getCurrentTopAbility(): Promise<UIAbility>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)&gt; | Promise对象，返回前应用顶部Ability。 |
+| Promise&lt;UIAbility&gt; | Promise对象，返回前应用顶部Ability。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -732,8 +682,7 @@ getCurrentTopAbility(): Promise<UIAbility>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 
@@ -748,10 +697,10 @@ abilityDelegator.getCurrentTopAbility().then((data: UIAbility) => {
 ```
 
 
-### startAbility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want, callback: AsyncCallback<void>): void
+##### startAbility9+
+
+startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 
 启动指定Ability。使用callback异步回调。
 
@@ -761,17 +710,15 @@ startAbility(want: Want, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动Ability参数。 |
+| want | Want | 是 | 启动Ability参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动指定Ability成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -795,8 +742,7 @@ startAbility(want: Want, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -804,7 +750,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let want: Want = {
   bundleName: 'bundleName',
-  abilityName: 'abilityName',
+  abilityName: 'abilityName'
 };
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
@@ -814,10 +760,10 @@ abilityDelegator.startAbility(want, (err: BusinessError, data: void) => {
 ```
 
 
-### startAbility9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want): Promise<void>
+##### startAbility9+
+
+startAbility(want: Want): Promise&lt;void&gt;
 
 启动指定Ability。使用Promise异步回调。
 
@@ -827,14 +773,12 @@ startAbility(want: Want): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 启动Ability参数。 |
+| want | Want | 是 | 启动Ability参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -845,7 +789,6 @@ startAbility(want: Want): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -868,15 +811,14 @@ startAbility(want: Want): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { Want } from '@kit.AbilityKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let want: Want = {
   bundleName: 'bundleName',
-  abilityName: 'abilityName',
+  abilityName: 'abilityName'
 };
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
@@ -886,10 +828,10 @@ abilityDelegator.startAbility(want).then((data: void) => {
 ```
 
 
-### doAbilityForeground9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void
+##### doAbilityForeground9+
+
+doAbilityForeground(ability: UIAbility, callback: AsyncCallback&lt;void&gt;): void
 
 调度指定Ability生命周期状态到Foreground状态。使用callback异步回调。
 
@@ -899,17 +841,15 @@ doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 指定Ability对象。 |
+| ability | UIAbility | 是 | 指定Ability对象。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当调度指定Ability生命周期状态到Foreground状态成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -919,8 +859,7 @@ doAbilityForeground(ability: UIAbility, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -933,16 +872,16 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
   console.info('getCurrentTopAbility callback');
   ability = data;
   abilityDelegator.doAbilityForeground(ability, (err: BusinessError) => {
-    console.info('doAbilityForeground callback');
+    console.info("doAbilityForeground callback");
   });
 });
 ```
 
 
-### doAbilityForeground9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-doAbilityForeground(ability: UIAbility): Promise<void>
+##### doAbilityForeground9+
+
+doAbilityForeground(ability: UIAbility): Promise&lt;void&gt;
 
 调度指定Ability生命周期状态到Foreground状态。使用Promise异步回调。
 
@@ -952,14 +891,12 @@ doAbilityForeground(ability: UIAbility): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 指定Ability对象。 |
+| ability | UIAbility | 是 | 指定Ability对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -970,7 +907,6 @@ doAbilityForeground(ability: UIAbility): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -979,8 +915,7 @@ doAbilityForeground(ability: UIAbility): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -993,16 +928,16 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
   console.info('getCurrentTopAbility callback');
   ability = data;
   abilityDelegator.doAbilityForeground(ability).then(() => {
-    console.info('doAbilityForeground promise');
+    console.info("doAbilityForeground promise");
   });
 });
 ```
 
 
-### doAbilityBackground9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void
+##### doAbilityBackground9+
+
+doAbilityBackground(ability: UIAbility, callback: AsyncCallback&lt;void&gt;): void
 
 调度指定Ability生命周期状态到Background状态。使用callback异步回调。
 
@@ -1012,17 +947,15 @@ doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 指定Ability对象。 |
+| ability | UIAbility | 是 | 指定Ability对象。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当调度指定Ability生命周期状态到Background状态成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1032,8 +965,7 @@ doAbilityBackground(ability: UIAbility, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1046,16 +978,16 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
   console.info('getCurrentTopAbility callback');
   ability = data;
   abilityDelegator.doAbilityBackground(ability, (err: BusinessError) => {
-    console.info('doAbilityBackground callback');
+    console.info("doAbilityBackground callback");
   });
 });
 ```
 
 
-### doAbilityBackground9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-doAbilityBackground(ability: UIAbility): Promise<void>
+##### doAbilityBackground9+
+
+doAbilityBackground(ability: UIAbility): Promise&lt;void&gt;
 
 调度指定Ability生命周期状态到Background状态。使用Promise异步回调。
 
@@ -1065,14 +997,12 @@ doAbilityBackground(ability: UIAbility): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 指定Ability对象。 |
+| ability | UIAbility | 是 | 指定Ability对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1083,7 +1013,6 @@ doAbilityBackground(ability: UIAbility): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1092,8 +1021,7 @@ doAbilityBackground(ability: UIAbility): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1106,14 +1034,14 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
   console.info('getCurrentTopAbility callback');
   ability = data;
   abilityDelegator.doAbilityBackground(ability).then(() => {
-    console.info('doAbilityBackground promise');
+    console.info("doAbilityBackground promise");
   });
 });
 ```
 
 
-### printSync9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### printSync9+
 
 printSync(msg: string): void
 
@@ -1125,7 +1053,6 @@ printSync(msg: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | msg | string | 是 | 日志字符串。字符串最大长度为10000。 |
@@ -1135,7 +1062,6 @@ printSync(msg: string): void
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1143,8 +1069,7 @@ printSync(msg: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
@@ -1155,10 +1080,10 @@ abilityDelegator.printSync(msg);
 ```
 
 
-### print
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-print(msg: string, callback: AsyncCallback<void>): void
+##### print
+
+print(msg: string, callback: AsyncCallback&lt;void&gt;): void
 
 打印日志信息到单元测试终端控制台。使用callback异步回调。
 
@@ -1168,7 +1093,6 @@ print(msg: string, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | msg | string | 是 | 日志字符串。字符串最大长度为10000。 |
@@ -1177,8 +1101,7 @@ print(msg: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1192,10 +1115,10 @@ abilityDelegator.print(msg, (err: BusinessError) => {
 ```
 
 
-### print
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-print(msg: string): Promise<void>
+##### print
+
+print(msg: string): Promise&lt;void&gt;
 
 打印日志信息到单元测试终端控制台。使用Promise异步回调。
 
@@ -1205,14 +1128,12 @@ print(msg: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | msg | string | 是 | 日志字符串。字符串最大长度为10000。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1221,8 +1142,7 @@ print(msg: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
@@ -1235,10 +1155,10 @@ abilityDelegator.print(msg).then(() => {
 ```
 
 
-### executeShellCommand
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void
+##### executeShellCommand
+
+executeShellCommand(cmd: string, callback: AsyncCallback&lt;ShellCmdResult&gt;): void
 
 执行指定的shell命令。使用callback异步回调。
 
@@ -1250,17 +1170,15 @@ executeShellCommand(cmd: string, callback: AsyncCallback<ShellCmdResult>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | cmd | string | 是 | shell命令字符串。 |
-| callback | AsyncCallback&lt;[ShellCmdResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-shellcmdresult#shellcmdresult-1)&gt; | 是 | 回调函数。当执行指定的shell命令成功，err为undefined，data为获取到的执行结果；否则为错误对象。 |
+| callback | AsyncCallback&lt;ShellCmdResult&gt; | 是 | 回调函数。当执行指定的shell命令成功，err为undefined，data为获取到的执行结果；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```bash
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1268,19 +1186,16 @@ let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let cmd = 'cmd';
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.executeShellCommand(
-  cmd,
-  (err: BusinessError, data: abilityDelegatorRegistry.ShellCmdResult) => {
-    console.info('executeShellCommand callback');
-  },
-);
+abilityDelegator.executeShellCommand(cmd, (err: BusinessError, data: abilityDelegatorRegistry.ShellCmdResult) => {
+  console.info('executeShellCommand callback');
+});
 ```
 
 
-### executeShellCommand
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<ShellCmdResult>): void
+##### executeShellCommand
+
+executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback&lt;ShellCmdResult&gt;): void
 
 指定超时时间，并执行指定的shell命令。使用callback异步回调。
 
@@ -1292,18 +1207,16 @@ executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback<Sh
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | cmd | string | 是 | shell命令字符串。 |
 | timeoutSecs | number | 是 | 设定命令超时时间，单位秒（s）。 |
-| callback | AsyncCallback&lt;[ShellCmdResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-shellcmdresult#shellcmdresult-1)&gt; | 是 | 回调函数。当执行指定的shell命令成功，err为undefined，data为获取到的执行结果；否则为错误对象。 |
+| callback | AsyncCallback&lt;ShellCmdResult&gt; | 是 | 回调函数。当执行指定的shell命令成功，err为undefined，data为获取到的执行结果；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```bash
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1312,20 +1225,16 @@ let cmd = 'cmd';
 let timeout = 100;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.executeShellCommand(
-  cmd,
-  timeout,
-  (err: BusinessError, data: abilityDelegatorRegistry.ShellCmdResult) => {
-    console.info('executeShellCommand callback');
-  },
-);
+abilityDelegator.executeShellCommand(cmd, timeout, (err: BusinessError, data: abilityDelegatorRegistry.ShellCmdResult) => {
+  console.info('executeShellCommand callback');
+});
 ```
 
 
-### executeShellCommand
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>
+##### executeShellCommand
+
+executeShellCommand(cmd: string, timeoutSecs?: number): Promise&lt;ShellCmdResult&gt;
 
 指定超时时间，并执行指定的shell命令。使用Promise异步回调。
 
@@ -1337,7 +1246,6 @@ executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | cmd | string | 是 | shell命令字符串。 |
@@ -1346,16 +1254,14 @@ executeShellCommand(cmd: string, timeoutSecs?: number): Promise<ShellCmdResult>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ShellCmdResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-shellcmdresult#shellcmdresult-1)&gt; | Promise对象，返回Shell命令执行结果[ShellCmdResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-shellcmdresult#shellcmdresult-1)对象。 |
+| Promise&lt;ShellCmdResult&gt; | Promise对象，返回Shell命令执行结果ShellCmdResult对象。 |
 
 
 **示例：**
 
-
-```ts
+```bash
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
@@ -1369,10 +1275,10 @@ abilityDelegator.executeShellCommand(cmd, timeout).then((data) => {
 ```
 
 
-### finishTest9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-finishTest(msg: string, code: number, callback: AsyncCallback<void>): void
+##### finishTest9+
+
+finishTest(msg: string, code: number, callback: AsyncCallback&lt;void&gt;): void
 
 结束测试并打印日志信息到单元测试终端控制台。使用callback异步回调。
 
@@ -1381,7 +1287,6 @@ finishTest(msg: string, code: number, callback: AsyncCallback<void>): void
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1394,7 +1299,6 @@ finishTest(msg: string, code: number, callback: AsyncCallback<void>): void
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1403,8 +1307,7 @@ finishTest(msg: string, code: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1418,10 +1321,10 @@ abilityDelegator.finishTest(msg, 0, (err: BusinessError) => {
 ```
 
 
-### finishTest9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-finishTest(msg: string, code: number): Promise<void>
+##### finishTest9+
+
+finishTest(msg: string, code: number): Promise&lt;void&gt;
 
 结束测试并打印日志信息到单元测试终端控制台。使用Promise异步回调。
 
@@ -1431,7 +1334,6 @@ finishTest(msg: string, code: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | msg | string | 是 | 日志字符串。 |
@@ -1439,7 +1341,6 @@ finishTest(msg: string, code: number): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1450,7 +1351,6 @@ finishTest(msg: string, code: number): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1459,8 +1359,7 @@ finishTest(msg: string, code: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
@@ -1473,10 +1372,10 @@ abilityDelegator.finishTest(msg, 0).then(() => {
 ```
 
 
-### addAbilityStageMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void
+##### addAbilityStageMonitor9+
+
+addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback&lt;void&gt;): void
 
 添加一个AbilityStageMonitor对象，用于监视指定AbilityStage的生命周期状态更改。使用callback异步回调。
 
@@ -1486,17 +1385,15 @@ addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当添加一个用于监视指定AbilityStage的生命周期状态更改的AbilityStageMonitor对象成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1506,30 +1403,26 @@ addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<voi
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.addAbilityStageMonitor(
-  {
-    moduleName: 'moduleName',
-    srcEntrance: 'srcEntrance',
-  },
-  (err: BusinessError) => {
-    console.info('addAbilityStageMonitor callback');
-  },
-);
+abilityDelegator.addAbilityStageMonitor({
+  moduleName: 'moduleName',
+  srcEntrance: 'srcEntrance',
+}, (err: BusinessError) => {
+  console.info('addAbilityStageMonitor callback');
+});
 ```
 
 
-### addAbilityStageMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
+##### addAbilityStageMonitor9+
+
+addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise&lt;void&gt;
 
 添加一个AbilityStageMonitor对象，用于监视指定AbilityStage的生命周期状态更改。使用Promise异步回调。
 
@@ -1539,14 +1432,12 @@ addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1557,7 +1448,6 @@ addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1566,26 +1456,23 @@ addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator
-  .addAbilityStageMonitor({
-    moduleName: 'moduleName',
-    srcEntrance: 'srcEntrance',
-  })
-  .then(() => {
-    console.info('addAbilityStageMonitor promise');
-  });
+abilityDelegator.addAbilityStageMonitor({
+  moduleName: 'moduleName',
+  srcEntrance: 'srcEntrance',
+}).then(() => {
+  console.info('addAbilityStageMonitor promise');
+});
 ```
 
 
-### addAbilityStageMonitorSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addAbilityStageMonitorSync10+
 
 addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
@@ -1597,16 +1484,14 @@ addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1616,8 +1501,7 @@ addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
@@ -1630,10 +1514,10 @@ abilityDelegator.addAbilityStageMonitorSync({
 ```
 
 
-### removeAbilityStageMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<void>): void
+##### removeAbilityStageMonitor9+
+
+removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback&lt;void&gt;): void
 
 从应用程序内存中删除指定的AbilityStageMonitor对象。使用callback异步回调。
 
@@ -1643,17 +1527,15 @@ removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当从应用程序内存中删除指定的AbilityStageMonitor对象成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1663,30 +1545,26 @@ removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.removeAbilityStageMonitor(
-  {
-    moduleName: 'moduleName',
-    srcEntrance: 'srcEntrance',
-  },
-  (err: BusinessError) => {
-    console.info('removeAbilityStageMonitor callback');
-  },
-);
+abilityDelegator.removeAbilityStageMonitor({
+  moduleName: 'moduleName',
+  srcEntrance: 'srcEntrance',
+}, (err: BusinessError) => {
+  console.info('removeAbilityStageMonitor callback');
+});
 ```
 
 
-### removeAbilityStageMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
+##### removeAbilityStageMonitor9+
+
+removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise&lt;void&gt;
 
 从应用程序内存中删除指定的AbilityStageMonitor对象。使用Promise异步回调。
 
@@ -1696,14 +1574,12 @@ removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1714,7 +1590,6 @@ removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1723,26 +1598,23 @@ removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator
-  .removeAbilityStageMonitor({
-    moduleName: 'moduleName',
-    srcEntrance: 'srcEntrance',
-  })
-  .then(() => {
-    console.info('removeAbilityStageMonitor promise');
-  });
+abilityDelegator.removeAbilityStageMonitor({
+  moduleName: 'moduleName',
+  srcEntrance: 'srcEntrance',
+}).then(() => {
+  console.info('removeAbilityStageMonitor promise');
+});
 ```
 
 
-### removeAbilityStageMonitorSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeAbilityStageMonitorSync10+
 
 removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
@@ -1754,16 +1626,14 @@ removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1773,8 +1643,7 @@ removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
@@ -1787,10 +1656,10 @@ abilityDelegator.removeAbilityStageMonitorSync({
 ```
 
 
-### waitAbilityStageMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>): void
+##### waitAbilityStageMonitor9+
+
+waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback&lt;AbilityStage&gt;): void
 
 返回与AbilityStageMonitor中设置条件相匹配的AbilityStage对象。使用callback异步回调。
 
@@ -1800,17 +1669,15 @@ waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<Ab
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
-| callback | AsyncCallback&lt;AbilityStage&gt; | 是 | 回调函数。当等待并返回与给定AbilityStageMonitor中设置的条件匹配的AbilityStage对象的操作成功，err为undefined，data为获取到的[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)对象；否则为错误对象。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
+| callback | AsyncCallback&lt;AbilityStage&gt; | 是 | 回调函数。当等待并返回与给定AbilityStageMonitor中设置的条件匹配的AbilityStage对象的操作成功，err为undefined，data为获取到的AbilityStage对象；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1820,8 +1687,7 @@ waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<Ab
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { AbilityStage } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1829,22 +1695,19 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.waitAbilityStageMonitor(
-  {
-    moduleName: 'moduleName',
-    srcEntrance: 'srcEntrance',
-  },
-  (err: BusinessError, data: AbilityStage) => {
-    console.info('waitAbilityStageMonitor callback');
-  },
-);
+abilityDelegator.waitAbilityStageMonitor({
+  moduleName: 'moduleName',
+  srcEntrance: 'srcEntrance',
+}, (err: BusinessError, data: AbilityStage) => {
+  console.info('waitAbilityStageMonitor callback');
+});
 ```
 
 
-### waitAbilityStageMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise<AbilityStage>
+##### waitAbilityStageMonitor9+
+
+waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise&lt;AbilityStage&gt;
 
 返回与AbilityStageMonitor中设置条件相匹配的AbilityStage对象，支持设置超时最大等待时间。使用Promise异步回调。
 
@@ -1854,25 +1717,22 @@ waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 | timeout | number | 否 | 超时最大等待时间，单位毫秒（ms），默认值为5000毫秒。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AbilityStage&gt; | Promise对象，返回[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)对象。 |
+| Promise&lt;AbilityStage&gt; | Promise对象，返回AbilityStage对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1882,29 +1742,26 @@ waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { AbilityStage } from '@kit.AbilityKit';
 
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator
-  .waitAbilityStageMonitor({
-    moduleName: 'moduleName',
-    srcEntrance: 'srcEntrance',
-  })
-  .then((data: AbilityStage) => {
-    console.info('waitAbilityStageMonitor promise');
-  });
+abilityDelegator.waitAbilityStageMonitor({
+  moduleName: 'moduleName',
+  srcEntrance: 'srcEntrance',
+}).then((data: AbilityStage) => {
+  console.info('waitAbilityStageMonitor promise');
+});
 ```
 
 
-### waitAbilityStageMonitor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback<AbilityStage>): void
+##### waitAbilityStageMonitor9+
+
+waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback&lt;AbilityStage&gt;): void
 
 在指定的超时最大等待时间内，返回与AbilityStageMonitor中设置条件相匹配的AbilityStage对象。使用callback异步回调。
 
@@ -1914,18 +1771,16 @@ waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback:
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitor | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) | 是 | [AbilityStageMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagemonitor) 实例。 |
+| monitor | AbilityStageMonitor | 是 | AbilityStageMonitor 实例。 |
 | timeout | number | 是 | 超时最大等待时间，单位毫秒（ms），默认值为5000毫秒。 |
-| callback | AsyncCallback&lt;AbilityStage&gt; | 是 | 回调函数。当等待并返回与给定AbilityStageMonitor中设置的条件匹配的AbilityStage对象的操作成功，err为undefined，data为获取到的[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitystage)对象；否则为错误对象。 |
+| callback | AsyncCallback&lt;AbilityStage&gt; | 是 | 回调函数。当等待并返回与给定AbilityStageMonitor中设置的条件匹配的AbilityStage对象的操作成功，err为undefined，data为获取到的AbilityStage对象；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1935,8 +1790,7 @@ waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback:
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { AbilityStage } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1945,21 +1799,17 @@ let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let timeout = 100;
 
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
-abilityDelegator.waitAbilityStageMonitor(
-  {
-    moduleName: 'moduleName',
-    srcEntrance: 'srcEntrance',
-  },
-  timeout,
-  (err: BusinessError, data: AbilityStage) => {
-    console.info('waitAbilityStageMonitor callback');
-  },
-);
+abilityDelegator.waitAbilityStageMonitor({
+  moduleName: 'moduleName',
+  srcEntrance: 'srcEntrance',
+}, timeout, (err: BusinessError, data: AbilityStage) => {
+  console.info('waitAbilityStageMonitor callback');
+});
 ```
 
 
-### setMockList11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setMockList11+
 
 setMockList(mockList: Record<string, string>): void
 
@@ -1971,16 +1821,14 @@ setMockList(mockList: Record<string, string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mockList | Record&lt;string, string&gt; | 是 | 模块mock替换关系的键值对象，其中key为待���换的目标路径，value为用于替换的mock实现文件的路径。 |
+| mockList | Record<string, string> | 是 | 模块mock替换关系的键值对象，其中key为待替换的目标路径，value为用于替换的mock实现文件的路径。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1990,8 +1838,7 @@ setMockList(mockList: Record<string, string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 let mockList: Record<string, string> = {

@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-immersive-effect-check
 
 若应用通过[setWindowLayoutFullScreen()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowlayoutfullscreen9)接口设置窗口布局，建议调用[getWindowAvoidArea()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowavoidarea9)和[on('avoidAreaChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onavoidareachange9)获取和动态监听避让区域的变更信息，使页面布局根据避让区域信息进行动态调整。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -18,16 +17,18 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
+##### 正例
 
-
-```text
+```ArkTS
 // EntryAbility.ets
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -71,12 +72,12 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
+ 
+ 
 
+##### 反例
 
-## 反例
-
-
-```text
+```ArkTS
 // EntryAbility.ets
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -100,13 +101,13 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@cross-device-app-dev/all
+<span style="color: rgb(80,160,79);">plugin:@cross-device-app-dev/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

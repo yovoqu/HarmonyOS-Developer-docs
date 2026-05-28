@@ -5,16 +5,16 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-json-object-api
 
 Entity返回值中jsonObject的参数详细说明。
+  
 
+##### 基础类
 
-## 基础类
+  
 
-
-### 时间实体
+##### 时间实体
 
 识别文本中出现的时间，返回类型为JSONObject，键为“time”，键对应的值类型为JSONArray，数组里值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | repeat | string | false | 周期。 |
@@ -44,24 +44,24 @@ Entity返回值中jsonObject的参数详细说明。
 | oriFestival | string | false | 时间里包含的节日文本。 |
 | timestampZone | string | true | 时间戳所在时区，即设备上报时区。 |
 | originTimestamp | number | true | 入参文本时间戳，即设备上报时间。 |
+ 
+ 
+  
 
-
-### 地点实体
+##### 地点实体
 
 识别文本中出现的地点，返回类型为JSONObject，键为“location”，键对应的值类型为JSONArray，数组里值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | type | string | true | 地点类型：首层核心地点的实际类型。 type：参考邮政局的类型。 |
 | coreLocation | JSONObject | true | 核心地点信息组成元素集合。 coreLocation：“邮政局”对应的组成元素分析结果。 |
 | adornLocation | JSONObject | false | 修饰核心地点的组成元素集合，引用location定义。 adornLocation：“小肥羊旁边的”对应的组成元素分析结果。 |
 | isAbstract | number | false | 0：非抽象地点。 1：和意图相关的抽象地点。 默认为0。 |
-
-
+ 
+ 
 地点实体内，coreLocation参数的定义，具体字段如下表。
-
-
+  
 | 子参数 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | oriText | string | true | 地点实体。 |
@@ -78,109 +78,120 @@ Entity返回值中jsonObject的参数详细说明。
 | road | JSONObject | false | 道路。 |
 | default | JSONObject | false | 未分类区域，语义无法区分出该区域类地点属于哪个类型，比如 福永既可能是镇、也可能是街道，文本中只出现福永且上下文无法判断类型时输出到该字段。 |
 | location | JSONObject | false | 地图poi信息/组织机构/抽象地点。 |
-
-
+ 
+ 
 coreLocation内，参数类型为JSONObject的参数的定义，具体字段如下表。
-
-
+  
 | 子参数 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | value | string | false | 地点类型对应的地点信息。 |
 | extend | JSONObject | false | 地点扩展信息。 |
+ 
+ 
+  
 
-
-### 姓名实体
+##### 姓名实体
 
 识别文本中出现的人名，返回类型为JSONObject，键为“name”，键对应的值类型为JSONArray，数组里的值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | type | string | true | nr（正式），nrn（昵称），nrt（称谓），nrx（其他）。 |
+ 
+ 
+  
 
-
-### 手机号实体
+##### 手机号实体
 
 识别文本中出现的电话号码，返回类型为JSONObject，键为“phoneNum”，键对应的值类型为JSONArray，数组里的值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | type | number | true | 号码类型，0（固话）、1（手机）。 |
 | number | string | true | 号码（去除分机号）。 |
 | extNumber | string | false | 分机号，当类型为固话时可能存在该字段。 |
+ 
+ 
+  
 
-
-### 邮箱实体
+##### 邮箱实体
 
 识别文本中出现的邮箱，返回类型为JSONObject，键为“email”，键对应的值为空。
+ 
+  
 
-
-### URL实体
+##### URL实体
 
 识别文本中出现的URL，返回类型为JSONObject， 键为“url”，键对应的值为空。
+ 
+  
 
+##### 娱乐类
 
-## 娱乐类
+  
 
-
-### 火车车次实体
+##### 火车车次实体
 
 识别文本中出现的火车车次，返回类型为JSONObject， 键为“trainNo”，键对应的值类型为JSONArray，数组里的值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | sequence | number | true | 对应实体出现频率。 |
+ 
+ 
+  
 
-
-### 航班号实体
+##### 航班号实体
 
 识别文本中出现的飞机航班，返回类型为JSONObject， 键为“flightNo”，键对应的值为空。
+ 
+  
 
+##### 生活类
 
-## 生活类
+  
 
-
-### 快递单号实体
+##### 快递单号实体
 
 识别文本中出现的快递单号，返回类型为JSONObject，键为“expressNo”，键对应的值类型为JSONArray，数组里的值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | isTailNum | number | true | 是否为单号尾号，0（不是尾号）、1（是尾号）。 |
+ 
+ 
+  
 
-
-### 身份证号实体
+##### 身份证号实体
 
 识别文本中出现的身份证号，返回类型为JSONObject， 键为“idNo”，键对应的值类型为JSONArray，数组里的值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | number | string | true | 身份证号码字串。 |
 | sequence | number | true | 对应实体出现频率。 |
 | type | number | true | 0（身份证）、1（护照）。 |
 | isComplete | number | true | “1”（证件号是完整的，不含*等字符），“0”（证件号不是完整的，含有*等字符，例如321***********1234）。 |
+ 
+ 
+  
 
-
-### 验证码实体
+##### 验证码实体
 
 识别文本中出现的验证码，返回类型为JSONObject， 键为“verificationCode”，键对应的值类型为JSONArray，数组里的值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | type | string | true | 验证码类型（取原文内容，如：验证码、校验码等）。 |
 | supplier | string | false | 验证码提供商。 |
+ 
+ 
+  
 
-
-### 银行卡号实体
+##### 银行卡号实体
 
 识别文本中出现的银行卡号，返回类型为JSONObject， 键为“bankCardNo”，键对应的值类型为JSONArray，数组里的值类型为JSONObject，具体字段如下表。
-
-
+  
 | 参数名 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
 | number | number | true | 银行卡号中的数字。 |

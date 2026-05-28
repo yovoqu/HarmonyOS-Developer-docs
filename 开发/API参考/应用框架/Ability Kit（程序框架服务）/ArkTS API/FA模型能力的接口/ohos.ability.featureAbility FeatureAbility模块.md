@@ -3,41 +3,38 @@
 更新时间：2026-04-13 09:29:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-ability-featureability
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FeatureAbility模块提供与用户进行交互的Ability的能力，包括启动新的Ability、停止Ability、获取dataAbilityHelper对象、获取当前Ability对应的窗口，连接断连Service等。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在FA模型下使用。
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在FA模型下使用。
 
 
-## 使用限制
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 使用限制
 
 FeatureAbility模块的接口只能在Page类型的Ability中调用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { featureAbility } from '@kit.AbilityKit';
 ```
 
 
-## featureAbility.startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>): void
+##### featureAbility.startAbility
+
+startAbility(parameter: StartAbilityParameter, callback: AsyncCallback&lt;number&gt;): void
 
 启动新的Ability。使用callback异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
+> 组件启动规则详见： 组件启动规则（FA模型） 。
+
 
 **模型约束**：此接口仅可在FA模型下使用。
 
@@ -45,22 +42,21 @@ startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [StartAbilityParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-startabilityparameter) | 是 | 表示被启动的Ability。 |
+| parameter | StartAbilityParameter | 是 | 表示被启动的Ability。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当启动Ability成功，err为undefined，data为0表示启动成功，data为其他表示启动失败；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility, wantConstant } from '@kit.AbilityKit';
 
 featureAbility.startAbility(
   {
-    want: {
+    want:
+    {
       action: '',
       entities: [''],
       type: '',
@@ -69,7 +65,7 @@ featureAbility.startAbility(
       bundleName: 'com.example.myapplication',
       /* FA模型中abilityName由package + Ability name组成 */
       abilityName: 'com.example.myapplication.secondAbility',
-      uri: '',
+      uri: ''
     },
   },
   (error, data) => {
@@ -78,21 +74,21 @@ featureAbility.startAbility(
     } else {
       console.info(`startAbility success, data: ${JSON.stringify(data)}`);
     }
-  },
+  }
 );
 ```
 
 
-## featureAbility.startAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(parameter: StartAbilityParameter): Promise<number>
+##### featureAbility.startAbility
+
+startAbility(parameter: StartAbilityParameter): Promise&lt;number&gt;
 
 启动新的Ability。使用Promise异步回调。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
+> 组件启动规则详见： 组件启动规则（FA模型） 。
+
 
 **模型约束**：此接口仅可在FA模型下使用。
 
@@ -100,14 +96,12 @@ startAbility(parameter: StartAbilityParameter): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [StartAbilityParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-startabilityparameter) | 是 | 表示被启动的Ability。 |
+| parameter | StartAbilityParameter | 是 | 表示被启动的Ability。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -116,13 +110,13 @@ startAbility(parameter: StartAbilityParameter): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility, wantConstant } from '@kit.AbilityKit';
 
-featureAbility
-  .startAbility({
-    want: {
+featureAbility.startAbility(
+  {
+    want:
+    {
       action: 'ohos.want.action.home',
       entities: ['entity.system.home'],
       type: 'MIMETYPE',
@@ -131,33 +125,31 @@ featureAbility
       bundleName: 'com.example.myapplication',
       /* FA模型中abilityName由package + Ability name组成 */
       abilityName: 'com.example.myapplication.secondAbility',
-      uri: '',
+      uri: ''
     },
-  })
-  .then((data) => {
-    console.info(`startAbility data: ${JSON.stringify(data)}`);
-  });
+  }
+).then((data) => {
+  console.info(`startAbility data: ${JSON.stringify(data)}`);
+});
 ```
 
 
-## featureAbility.acquireDataAbilityHelper7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### featureAbility.acquireDataAbilityHelper7+
 
 acquireDataAbilityHelper(uri: string): DataAbilityHelper
 
 获取dataAbilityHelper对象。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
-> 跨应用访问dataAbility，对端应用需配置关联启动。
+> 组件启动规则详见： 组件启动规则（FA模型） 。 跨应用访问dataAbility，对端应用需配置关联启动。
+
 
 **模型约束**：此接口仅可在FA模型下使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -166,39 +158,37 @@ acquireDataAbilityHelper(uri: string): DataAbilityHelper
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DataAbilityHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-dataabilityhelper) | 用来协助其他Ability访问DataAbility的工具类。 |
+| DataAbilityHelper | 用来协助其他Ability访问DataAbility的工具类。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { featureAbility } from '@kit.AbilityKit';
 
 let dataAbilityHelper = featureAbility.acquireDataAbilityHelper(
-  'dataability:///com.example.DataAbility',
+  'dataability:///com.example.DataAbility'
 );
 ```
 
 
-## featureAbility.startAbilityForResult7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>): void
+##### featureAbility.startAbilityForResult7+
+
+startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
 启动一个Ability。使用callback异步回调。启动Ability后，存在如下几种情况：
 
-
-- 正常情况下可通过调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止并且返回结果给调用方。
-- 异常情况下比如杀死Ability会返回异常信息给调用方, 异常信息中resultCode为-1。
-- 如果被启动的Ability模式是单实例模式, 不同应用多次调用该接口启动这个Ability，当这个Ability调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 正常情况下可通过调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止并且返回结果给调用方。
+ - 异常情况下比如杀死Ability会返回异常信息给调用方, 异常信息中resultCode为-1。
+ - 如果被启动的Ability模式是单实例模式, 不同应用多次调用该接口启动这个Ability，当这个Ability调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
 
 
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
+> 组件启动规则详见： 组件启动规则（FA模型） 。
+
 
 **模型约束**：此接口仅可在FA模型下使用。
 
@@ -206,22 +196,21 @@ startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [StartAbilityParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-startabilityparameter) | 是 | 表示被启动的Ability。 |
-| callback | AsyncCallback&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | 是 | 回调函数。当启动Ability成功，err为undefined，data为ability的启动结果；否则为错误对象。 |
+| parameter | StartAbilityParameter | 是 | 表示被启动的Ability。 |
+| callback | AsyncCallback&lt;AbilityResult&gt; | 是 | 回调函数。当启动Ability成功，err为undefined，data为ability的启动结果；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility, wantConstant } from '@kit.AbilityKit';
 
 featureAbility.startAbilityForResult(
   {
-    want: {
+    want:
+    {
       action: 'ohos.want.action.home',
       entities: ['entity.system.home'],
       type: 'MIMETYPE',
@@ -230,39 +219,35 @@ featureAbility.startAbilityForResult(
       bundleName: 'com.example.myapplication',
       /* FA模型中abilityName由package + Ability name组成 */
       abilityName: 'com.example.myapplication.secondAbility',
-      uri: '',
+      uri: ''
     },
   },
   (error, data) => {
     if (error && error.code !== 0) {
-      console.error(
-        `startAbilityForResult fail, error: ${JSON.stringify(error)}`,
-      );
+      console.error(`startAbilityForResult fail, error: ${JSON.stringify(error)}`);
     } else {
-      console.info(
-        `startAbilityForResult success, data: ${JSON.stringify(data)}`,
-      );
+      console.info(`startAbilityForResult success, data: ${JSON.stringify(data)}`);
     }
-  },
+  }
 );
 ```
 
 
-## featureAbility.startAbilityForResult7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>
+##### featureAbility.startAbilityForResult7+
+
+startAbilityForResult(parameter: StartAbilityParameter): Promise&lt;AbilityResult&gt;
 
 启动一个Ability。使用Promise异步回调。启动Ability后，存在如下几种情况：
 
-
-- 正常情况下可通过调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止并且返回结果给调用方。
-- 异常情况下比如杀死Ability会返回异常信息给调用方, 异常信息中resultCode为-1。
-- 如果被启动的Ability模式是单实例模式, 不同应用多次调用该接口启动这个Ability，当这个Ability调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
+ - 正常情况下可通过调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止并且返回结果给调用方。
+ - 异常情况下比如杀死Ability会返回异常信息给调用方, 异常信息中resultCode为-1。
+ - 如果被启动的Ability模式是单实例模式, 不同应用多次调用该接口启动这个Ability，当这个Ability调用[terminateSelfWithResult](#featureabilityterminateselfwithresult7)接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。
 
 
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
+> 组件启动规则详见： 组件启动规则（FA模型） 。
+
 
 **模型约束**：此接口仅可在FA模型下使用。
 
@@ -270,29 +255,27 @@ startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [StartAbilityParameter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-startabilityparameter) | 是 | 表示被启动的Ability。 |
+| parameter | StartAbilityParameter | 是 | 表示被启动的Ability。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | Promise对象，返回启动Ability的结果。 |
+| Promise&lt;AbilityResult&gt; | Promise对象，返回启动Ability的结果。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility, wantConstant } from '@kit.AbilityKit';
 
-featureAbility
-  .startAbilityForResult({
-    want: {
+featureAbility.startAbilityForResult(
+  {
+    want:
+    {
       action: 'ohos.want.action.home',
       entities: ['entity.system.home'],
       type: 'MIMETYPE',
@@ -302,7 +285,8 @@ featureAbility
       /* FA模型中abilityName由package + Ability name组成 */
       abilityName: 'com.example.myapplication.secondAbility',
       uri: '',
-      parameters: {
+      parameters:
+      {
         mykey0: 1111,
         mykey1: [1, 2, 3],
         mykey2: '[1, 2, 3]',
@@ -313,17 +297,17 @@ featureAbility
         mykey7: true,
       },
     },
-  })
-  .then((data) => {
-    console.info(`startAbilityForResult data: ${JSON.stringify(data)}`);
-  });
+  },
+).then((data) => {
+  console.info(`startAbilityForResult data: ${JSON.stringify(data)}`);
+});
 ```
 
 
-## featureAbility.terminateSelfWithResult7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void
+##### featureAbility.terminateSelfWithResult7+
+
+terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;void&gt;): void
 
 停止当前的Ability。使用callback异步回调。如果该Ability是通过调用[startAbilityForResult](#featureabilitystartabilityforresult7)接口被拉起的，调用terminateSelfWithResult接口时会将结果返回给调用者，如果该Ability不是通过调用[startAbilityForResult](#featureabilitystartabilityforresult7)接口被拉起的，调用terminateSelfWithResult接口时不会有结果返回给调用者。
 
@@ -333,23 +317,22 @@ terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult) | 是 | 表示停止Ability之后返回的结果。 |
+| parameter | AbilityResult | 是 | 表示停止Ability之后返回的结果。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当停止当前Ability成功，err为undefined，否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility, wantConstant } from '@kit.AbilityKit';
 
 featureAbility.terminateSelfWithResult(
   {
     resultCode: 1,
-    want: {
+    want:
+    {
       action: 'ohos.want.action.home',
       entities: ['entity.system.home'],
       type: 'MIMETYPE',
@@ -368,20 +351,20 @@ featureAbility.terminateSelfWithResult(
         mykey5: [false, true, false],
         mykey6: ['qqqqq', 'wwwwww', 'aaaaaaaaaaaaaaaaa'],
         mykey7: true,
-      },
+      }
     },
   },
   (error) => {
     console.error(`error: ${JSON.stringify(error)}`);
-  },
+  }
 );
 ```
 
 
-## featureAbility.terminateSelfWithResult7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelfWithResult(parameter: AbilityResult): Promise<void>
+##### featureAbility.terminateSelfWithResult7+
+
+terminateSelfWithResult(parameter: AbilityResult): Promise&lt;void&gt;
 
 停止当前的Ability。使用Promise异步回调。如果该Ability是通过调用[startAbilityForResult](#featureabilitystartabilityforresult7)接口被拉起的，调用terminateSelfWithResult接口时会将结果返回给调用者，如果该Ability不是通过调用[startAbilityForResult](#featureabilitystartabilityforresult7)接口被拉起的，调用terminateSelfWithResult接口时不会有结果返回给调用者。
 
@@ -391,14 +374,12 @@ terminateSelfWithResult(parameter: AbilityResult): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult) | 是 | 表示停止Ability之后返回的结果。 |
+| parameter | AbilityResult | 是 | 表示停止Ability之后返回的结果。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -407,14 +388,14 @@ terminateSelfWithResult(parameter: AbilityResult): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { featureAbility, wantConstant } from '@kit.AbilityKit';
 
-featureAbility
-  .terminateSelfWithResult({
+featureAbility.terminateSelfWithResult(
+  {
     resultCode: 1,
-    want: {
+    want:
+    {
       action: 'ohos.want.action.home',
       entities: ['entity.system.home'],
       type: 'MIMETYPE',
@@ -423,7 +404,7 @@ featureAbility
       bundleName: 'com.example.myapplication',
       /* FA模型中abilityName由package + Ability name组成 */
       abilityName: 'com.example.myapplication.secondAbility',
-      uri: '',
+      uri:'',
       parameters: {
         mykey0: 2222,
         mykey1: [1, 2, 3],
@@ -433,21 +414,19 @@ featureAbility
         mykey5: [false, true, false],
         mykey6: ['qqqqq', 'wwwwww', 'aaaaaaaaaaaaaaaaa'],
         mykey7: true,
-      },
+      }
     },
-  })
-  .then(() => {
-    console.info(
-      '==========================>terminateSelfWithResult=======================>',
-    );
-  });
+  }
+).then(() => {
+  console.info('==========================>terminateSelfWithResult=======================>');
+});
 ```
 
 
-## featureAbility.hasWindowFocus7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-hasWindowFocus(callback: AsyncCallback<boolean>): void
+##### featureAbility.hasWindowFocus7+
+
+hasWindowFocus(callback: AsyncCallback&lt;boolean&gt;): void
 
 检查Ability的主窗口是否具有窗口焦点。使用callback异步回调。
 
@@ -457,16 +436,14 @@ hasWindowFocus(callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。          如果此Ability当前具有视窗焦点，则返回true；否则返回false。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。 如果此Ability当前具有视窗焦点，则返回true；否则返回false。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 
 featureAbility.hasWindowFocus((error, data) => {
@@ -479,10 +456,10 @@ featureAbility.hasWindowFocus((error, data) => {
 ```
 
 
-## featureAbility.hasWindowFocus7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-hasWindowFocus(): Promise<boolean>
+##### featureAbility.hasWindowFocus7+
+
+hasWindowFocus(): Promise&lt;boolean&gt;
 
 检查Ability的主窗口是否具有窗口焦点。使用Promise异步回调。
 
@@ -492,7 +469,6 @@ hasWindowFocus(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。如果此Ability当前具有视窗焦点，则返回true；否则返回false。 |
@@ -500,8 +476,7 @@ hasWindowFocus(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 
 featureAbility.hasWindowFocus().then((data) => {
@@ -510,10 +485,10 @@ featureAbility.hasWindowFocus().then((data) => {
 ```
 
 
-## featureAbility.getWant
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getWant(callback: AsyncCallback<Want>): void
+##### featureAbility.getWant
+
+getWant(callback: AsyncCallback&lt;Want&gt;): void
 
 获取要拉起的Ability对应的Want。使用callback异步回调。
 
@@ -523,16 +498,14 @@ getWant(callback: AsyncCallback<Want>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want)&gt; | 是 | 回调函数，当获取要拉起的Ability对应的Want成功，err为undefined，data为当前Ability对应的Want；否则为错误对象。 |
+| callback | AsyncCallback&lt;Want&gt; | 是 | 回调函数，当获取要拉起的Ability对应的Want成功，err为undefined，data为当前Ability对应的Want；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 
 featureAbility.getWant((error, data) => {
@@ -545,10 +518,10 @@ featureAbility.getWant((error, data) => {
 ```
 
 
-## featureAbility.getWant
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getWant(): Promise<Want>
+##### featureAbility.getWant
+
+getWant(): Promise&lt;Want&gt;
 
 获取要拉起的Ability对应的Want。使用Promise异步回调。
 
@@ -558,16 +531,14 @@ getWant(): Promise<Want>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want)&gt; | Promise对象，返回want信息。 |
+| Promise&lt;Want&gt; | Promise对象，返回want信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 
 featureAbility.getWant().then((data) => {
@@ -576,8 +547,8 @@ featureAbility.getWant().then((data) => {
 ```
 
 
-## featureAbility.getContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### featureAbility.getContext
 
 getContext(): Context
 
@@ -589,7 +560,6 @@ getContext(): Context
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Context | 返回应用程序上下文。 |
@@ -597,8 +567,7 @@ getContext(): Context
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 
 let context = featureAbility.getContext();
@@ -612,10 +581,10 @@ context.getBundleName((error, data) => {
 ```
 
 
-## featureAbility.terminateSelf7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(callback: AsyncCallback<void>): void
+##### featureAbility.terminateSelf7+
+
+terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 停止当前的Ability。使用callback异步回调。
 
@@ -625,7 +594,6 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当停止当前的Ability成功，err为undefined，否则为错误对象。 |
@@ -633,20 +601,21 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 
-featureAbility.terminateSelf((error) => {
-  console.error(`error: ${JSON.stringify(error)}`);
-});
+featureAbility.terminateSelf(
+  (error) => {
+    console.error(`error: ${JSON.stringify(error)}`);
+  }
+)
 ```
 
 
-## featureAbility.terminateSelf7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(): Promise<void>
+##### featureAbility.terminateSelf7+
+
+terminateSelf(): Promise&lt;void&gt;
 
 停止当前的Ability。使用Promise异步回调。
 
@@ -656,7 +625,6 @@ terminateSelf(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -664,37 +632,28 @@ terminateSelf(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { featureAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-featureAbility
-  .terminateSelf()
-  .then(() => {
-    console.info(
-      '==========================>terminateSelf=======================>',
-    );
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `terminateSelf failed, error.code: ${error.code}, error.message: ${error.message}`,
-    );
-  });
+featureAbility.terminateSelf().then(() => {
+  console.info('==========================>terminateSelf=======================>');
+}).catch((error: BusinessError) => {
+  console.error(`terminateSelf failed, error.code: ${error.code}, error.message: ${error.message}`);
+});
 ```
 
 
-## featureAbility.connectAbility7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### featureAbility.connectAbility7+
 
 connectAbility(request: Want, options:ConnectOptions): number
 
 将当前Ability与指定的ServiceAbility进行连接。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules-fa)。
-> 跨应用连接serviceAbility，对端应用需配置关联启动。
+> 组件启动规则详见： 组件启动规则（FA模型） 。 跨应用连接serviceAbility，对端应用需配置关联启动。
+
 
 **模型约束**：此接口仅可在FA模型下使用。
 
@@ -702,15 +661,13 @@ connectAbility(request: Want, options:ConnectOptions): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want) | 是 | 表示被连接的ServiceAbility。 |
-| options | [ConnectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-connectoptions) | 是 | 表示连接回调函数。 |
+| request | Want | 是 | 表示被连接的ServiceAbility。 |
+| options | ConnectOptions | 是 | 表示连接回调函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -719,8 +676,7 @@ connectAbility(request: Want, options:ConnectOptions): number
 
 **示例：**
 
-
-```ts
+```text
 import { featureAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 
@@ -732,29 +688,23 @@ let connectId = featureAbility.connectAbility(
   },
   {
     onConnect: (element, remote) => {
-      console.info(
-        `ConnectAbility onConnect remote is proxy: ${remote instanceof rpc.RemoteProxy}`,
-      );
+      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);
     },
     onDisconnect: (element) => {
-      console.info(
-        `ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`,
-      );
+      console.info(`ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`);
     },
     onFailed: (code) => {
-      console.error(
-        `featureAbilityTest ConnectAbility onFailed errCode : ${code}`,
-      );
+      console.error(`featureAbilityTest ConnectAbility onFailed errCode : ${code}`);
     },
   },
 );
 ```
 
 
-## featureAbility.disconnectAbility7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectAbility(connection: number, callback:AsyncCallback<void>): void
+##### featureAbility.disconnectAbility7+
+
+disconnectAbility(connection: number, callback:AsyncCallback&lt;void&gt;): void
 
 断开与指定ServiceAbility的连接。使用callback异步回调。
 
@@ -764,7 +714,6 @@ disconnectAbility(connection: number, callback:AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | connection | number | 是 | 表示断开连接的ServiceAbility的ID。 |
@@ -773,8 +722,7 @@ disconnectAbility(connection: number, callback:AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 
@@ -785,28 +733,20 @@ let connectId = featureAbility.connectAbility(
   },
   {
     onConnect: (element, remote) => {
-      console.info(
-        `ConnectAbility onConnect remote is proxy: ${remote instanceof rpc.RemoteProxy}`,
-      );
+      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);
     },
     onDisconnect: (element) => {
-      console.info(
-        `ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`,
-      );
+      console.info(`ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`);
     },
     onFailed: (code) => {
-      console.error(
-        `featureAbilityTest ConnectAbility onFailed errCode : ${code}`,
-      );
+      console.error(`featureAbilityTest ConnectAbility onFailed errCode : ${code}`);
     },
   },
 );
 
 featureAbility.disconnectAbility(connectId, (error) => {
   if (error && error.code !== 0) {
-    console.error(
-      `disconnectAbility fail, connectId: ${connectId}, error: ${JSON.stringify(error)}`,
-    );
+    console.error(`disconnectAbility fail, connectId: ${connectId}, error: ${JSON.stringify(error)}`);
   } else {
     console.info(`disconnectAbility success， connectId: ${connectId}`);
   }
@@ -814,10 +754,10 @@ featureAbility.disconnectAbility(connectId, (error) => {
 ```
 
 
-## featureAbility.disconnectAbility7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disconnectAbility(connection: number): Promise<void>
+##### featureAbility.disconnectAbility7+
+
+disconnectAbility(connection: number): Promise&lt;void&gt;
 
 断开与指定ServiceAbility的连接。使用Promise异步回调。
 
@@ -827,14 +767,12 @@ disconnectAbility(connection: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | connection | number | 是 | 表示断开连接的ServiceAbility的ID。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -843,8 +781,7 @@ disconnectAbility(connection: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { featureAbility } from '@kit.AbilityKit';
 import { rpc } from '@kit.IPCKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -856,36 +793,27 @@ let connectId = featureAbility.connectAbility(
   },
   {
     onConnect: (element, remote) => {
-      console.info(
-        `ConnectAbility onConnect remote is proxy: ${remote instanceof rpc.RemoteProxy}`,
-      );
+      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);
     },
     onDisconnect: (element) => {
-      console.info(
-        `ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`,
-      );
+      console.info(`ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`);
     },
     onFailed: (code) => {
-      console.error(
-        `featureAbilityTest ConnectAbility onFailed errCode : ${code}`,
-      );
+      console.error(`featureAbilityTest ConnectAbility onFailed errCode : ${code}`);
     },
   },
 );
 
-featureAbility
-  .disconnectAbility(connectId)
-  .then(() => {
-    console.info('disconnectAbility success');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`featureAbilityTest result errCode : ${error.code}`);
-  });
+featureAbility.disconnectAbility(connectId).then(() => {
+  console.info('disconnectAbility success');
+}).catch((error: BusinessError)=>{
+  console.error(`featureAbilityTest result errCode : ${error.code}`);
+});
 ```
 
 
-## featureAbility.getWindow7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### featureAbility.getWindow7+
 
 getWindow(callback: AsyncCallback<window.Window>): void
 
@@ -897,16 +825,14 @@ getWindow(callback: AsyncCallback<window.Window>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[window.Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt; | 是 | 回调函数。当获取窗口成功，err为undefined，data为当前Ability对应的窗口；否则为错误对象。 |
+| callback | AsyncCallback<window.Window> | 是 | 回调函数。当获取窗口成功，err为undefined，data为当前Ability对应的窗口；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -915,14 +841,14 @@ featureAbility.getWindow((error: BusinessError, data: window.Window) => {
   if (error && error.code !== 0) {
     console.error(`getWindow fail, error: ${JSON.stringify(error)}`);
   } else {
-    console.info(`getWindow success, data: ${typeof data}`);
+    console.info(`getWindow success, data: ${typeof(data)}`);
   }
 });
 ```
 
 
-## featureAbility.getWindow7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### featureAbility.getWindow7+
 
 getWindow(): Promise<window.Window>
 
@@ -934,40 +860,34 @@ getWindow(): Promise<window.Window>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[window.Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt; | Promise对象，返回当前Ability对应的窗口。 |
+| Promise<window.Window> | Promise对象，返回当前Ability对应的窗口。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { featureAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-featureAbility
-  .getWindow()
-  .then((data: window.Window) => {
-    console.info(`getWindow success, data: ${typeof data}`);
-  })
-  .catch((error: BusinessError) => {
-    console.error(`getWindow fail, error: ${JSON.stringify(error)}`);
-  });
+featureAbility.getWindow().then((data: window.Window) => {
+  console.info(`getWindow success, data: ${typeof(data)}`);
+}).catch((error: BusinessError)=>{
+  console.error(`getWindow fail, error: ${JSON.stringify(error)}`);
+});
 ```
 
 
-## AbilityWindowConfiguration7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AbilityWindowConfiguration7+
 
 表示当前Ability对应的窗口配置项，使用时通过featureAbility.AbilityWindowConfiguration获取。
 
 **模型约束**：此接口仅可在FA模型下使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -980,16 +900,15 @@ featureAbility
 
 **示例：**
 
-
-```ts
+```text
 import { featureAbility } from '@kit.AbilityKit';
 
-featureAbility.AbilityWindowConfiguration.WINDOW_MODE_UNDEFINED;
+featureAbility.AbilityWindowConfiguration.WINDOW_MODE_UNDEFINED
 ```
 
 
-## AbilityStartSetting7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AbilityStartSetting7+
 
 表示当前Ability对应的窗口属性，abilityStartSetting属性是一个定义为[key: string]: any的对象，key对应设定类型为：AbilityStartSetting枚举类型，value对应设定类型为：AbilityWindowConfiguration枚举类型。
 
@@ -998,7 +917,6 @@ featureAbility.AbilityWindowConfiguration.WINDOW_MODE_UNDEFINED;
 **模型约束**：此接口仅可在FA模型下使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1009,23 +927,21 @@ featureAbility.AbilityWindowConfiguration.WINDOW_MODE_UNDEFINED;
 
 **示例：**
 
-
-```ts
+```text
 import { featureAbility } from '@kit.AbilityKit';
 
-featureAbility.AbilityStartSetting.BOUNDS_KEY;
+featureAbility.AbilityStartSetting.BOUNDS_KEY
 ```
 
 
-## ErrorCode7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ErrorCode7+
 
 定义启动Ability时返回的错误码。
 
 **模型约束**：此接口仅可在FA模型下使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1035,15 +951,15 @@ featureAbility.AbilityStartSetting.BOUNDS_KEY;
 | PERMISSION_DENY | -3 | 权限拒绝。 |
 
 
-## DataAbilityOperationType7+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataAbilityOperationType7+
 
 表示数据的操作类型。DataAbility批量操作数据时可以通过该枚举值指定操作类型。
 
 **模型约束**：此接口仅可在FA模型下使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.FAModel
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1053,8 +969,9 @@ featureAbility.AbilityStartSetting.BOUNDS_KEY;
 | TYPE_ASSERT | 4 | 声明类型。 |
 
 
-## Context9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Context9+
 
 type Context = _Context
 
@@ -1064,14 +981,14 @@ Context模块。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context) | Context模块。 |
+| _Context | Context模块。 |
 
 
-## AppVersionInfo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AppVersionInfo9+
 
 type AppVersionInfo = _AppVersionInfo
 
@@ -1081,14 +998,14 @@ type AppVersionInfo = _AppVersionInfo
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_AppVersionInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-appversioninfo) | 应用版本信息。 |
+| _AppVersionInfo | 应用版本信息。 |
 
 
-## ProcessInfo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ProcessInfo9+
 
 type ProcessInfo = _ProcessInfo
 
@@ -1098,7 +1015,6 @@ type ProcessInfo = _ProcessInfo
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_ProcessInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-processinfo) | 进程信息。 |
+| _ProcessInfo | 进程信息。 |

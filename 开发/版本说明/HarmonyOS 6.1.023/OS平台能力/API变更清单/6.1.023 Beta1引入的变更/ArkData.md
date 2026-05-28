@@ -7,12 +7,12 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | API模型切换 | 类名：ValueType； API声明：FLOAT 差异内容：NA | 类名：ValueType； API声明：FLOAT 差异内容：stagemodelonly | api/@ohos.data.distributedKVStore.d.ts |
-| 新增错误码 | 类名：SingleKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback<number>): void; 差异内容：NA | 类名：SingleKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback<number>): void; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
-| 新增错误码 | 类名：SingleKVStore； API声明：getResultSize(query: Query): Promise<number>; 差异内容：NA | 类名：SingleKVStore； API声明：getResultSize(query: Query): Promise<number>; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
-| 新增错误码 | 类名：DeviceKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback<number>): void; 差异内容：NA | 类名：DeviceKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback<number>): void; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
-| 新增错误码 | 类名：DeviceKVStore； API声明：getResultSize(query: Query): Promise<number>; 差异内容：NA | 类名：DeviceKVStore； API声明：getResultSize(query: Query): Promise<number>; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
+| 新增错误码 | 类名：SingleKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback&lt;number&gt;): void; 差异内容：NA | 类名：SingleKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback&lt;number&gt;): void; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
+| 新增错误码 | 类名：SingleKVStore； API声明：getResultSize(query: Query): Promise&lt;number&gt;; 差异内容：NA | 类名：SingleKVStore； API声明：getResultSize(query: Query): Promise&lt;number&gt;; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
+| 新增错误码 | 类名：DeviceKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback&lt;number&gt;): void; 差异内容：NA | 类名：DeviceKVStore； API声明：getResultSize(query: Query, callback: AsyncCallback&lt;number&gt;): void; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
+| 新增错误码 | 类名：DeviceKVStore； API声明：getResultSize(query: Query): Promise&lt;number&gt;; 差异内容：NA | 类名：DeviceKVStore； API声明：getResultSize(query: Query): Promise&lt;number&gt;; 差异内容：15100004 | api/@ohos.data.distributedKVStore.d.ts |
 | 新增API | NA | 类名：Schema； API声明：get root(): FieldNode; 差异内容：get root(): FieldNode; | api/@ohos.data.distributedKVStore.d.ts |
-| 新增API | NA | 类名：Schema； API声明：get indexes(): Array<string>; 差异内容：get indexes(): Array<string>; | api/@ohos.data.distributedKVStore.d.ts |
+| 新增API | NA | 类名：Schema； API声明：get indexes(): Array&lt;string&gt;; 差异内容：get indexes(): Array&lt;string&gt;; | api/@ohos.data.distributedKVStore.d.ts |
 | 新增API | NA | 类名：Schema； API声明：get mode(): number; 差异内容：get mode(): number; | api/@ohos.data.distributedKVStore.d.ts |
 | 新增API | NA | 类名：Schema； API声明：get skip(): number; 差异内容：get skip(): number; | api/@ohos.data.distributedKVStore.d.ts |
 | 新增API | NA | 类名：FieldNode； API声明：get nullable(): boolean; 差异内容：get nullable(): boolean; | api/@ohos.data.distributedKVStore.d.ts |
@@ -43,12 +43,12 @@
 | 新增API | NA | 类名：ApplicationDefinedRecord； API声明：get applicationDefinedType(): string; 差异内容：get applicationDefinedType(): string; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：ApplicationDefinedRecord； API声明：get rawData(): Uint8Array; 差异内容：get rawData(): Uint8Array; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：TypeDescriptor； API声明：get typeId(): string; 差异内容：get typeId(): string; | api/@ohos.data.uniformTypeDescriptor.d.ts |
-| 新增API | NA | 类名：TypeDescriptor； API声明：get belongingToTypes(): Array<string>; 差异内容：get belongingToTypes(): Array<string>; | api/@ohos.data.uniformTypeDescriptor.d.ts |
+| 新增API | NA | 类名：TypeDescriptor； API声明：get belongingToTypes(): Array&lt;string&gt;; 差异内容：get belongingToTypes(): Array&lt;string&gt;; | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 新增API | NA | 类名：TypeDescriptor； API声明：get description(): string; 差异内容：get description(): string; | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 新增API | NA | 类名：TypeDescriptor； API声明：get referenceURL(): string; 差异内容：get referenceURL(): string; | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 新增API | NA | 类名：TypeDescriptor； API声明：get iconFile(): string; 差异内容：get iconFile(): string; | api/@ohos.data.uniformTypeDescriptor.d.ts |
-| 新增API | NA | 类名：TypeDescriptor； API声明：get filenameExtensions(): Array<string>; 差异内容：get filenameExtensions(): Array<string>; | api/@ohos.data.uniformTypeDescriptor.d.ts |
-| 新增API | NA | 类名：TypeDescriptor； API声明：get mimeTypes(): Array<string>; 差异内容：get mimeTypes(): Array<string>; | api/@ohos.data.uniformTypeDescriptor.d.ts |
+| 新增API | NA | 类名：TypeDescriptor； API声明：get filenameExtensions(): Array&lt;string&gt;; 差异内容：get filenameExtensions(): Array&lt;string&gt;; | api/@ohos.data.uniformTypeDescriptor.d.ts |
+| 新增API | NA | 类名：TypeDescriptor； API声明：get mimeTypes(): Array&lt;string&gt;; 差异内容：get mimeTypes(): Array&lt;string&gt;; | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 新增API | NA | 类名：DataSharePredicates； API声明：notEqualTo(field: string, value: ValueType): DataSharePredicates; 差异内容：notEqualTo(field: string, value: ValueType): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
 | 新增API | NA | 类名：DataSharePredicates； API声明：beginWrap(): DataSharePredicates; 差异内容：beginWrap(): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
 | 新增API | NA | 类名：DataSharePredicates； API声明：endWrap(): DataSharePredicates; 差异内容：endWrap(): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
@@ -60,27 +60,27 @@
 | 新增API | NA | 类名：DataSharePredicates； API声明：lessThan(field: string, value: ValueType): DataSharePredicates; 差异内容：lessThan(field: string, value: ValueType): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
 | 新增API | NA | 类名：DataSharePredicates； API声明：greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates; 差异内容：greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
 | 新增API | NA | 类名：DataSharePredicates； API声明：lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates; 差异内容：lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
-| 新增API | NA | 类名：DataSharePredicates； API声明：notIn(field: string, value: Array<ValueType>): DataSharePredicates; 差异内容：notIn(field: string, value: Array<ValueType>): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
-| 新增API | NA | 类名：relationalStore； API声明：type RowData = Array<ValueType>; 差异内容：type RowData = Array<ValueType>; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：relationalStore； API声明：type RowsData = Array<RowData>; 差异内容：type RowsData = Array<RowData>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：DataSharePredicates； API声明：notIn(field: string, value: Array&lt;ValueType&gt;): DataSharePredicates; 差异内容：notIn(field: string, value: Array&lt;ValueType&gt;): DataSharePredicates; | api/@ohos.data.dataSharePredicates.d.ts |
+| 新增API | NA | 类名：relationalStore； API声明：type RowData = Array&lt;ValueType&gt;; 差异内容：type RowData = Array&lt;ValueType&gt;; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：relationalStore； API声明：type RowsData = Array&lt;RowData&gt;; 差异内容：type RowsData = Array&lt;RowData&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：relationalStore； API声明：enum DistributedTableType 差异内容：enum DistributedTableType | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：DistributedTableType； API声明：DEVICE_COLLABORATION = 0 差异内容：DEVICE_COLLABORATION = 0 | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：DistributedTableType； API声明：SINGLE_VERSION = 1 差异内容：SINGLE_VERSION = 1 | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：DistributedConfig； API声明：tableType?: DistributedTableType; 差异内容：tableType?: DistributedTableType; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：relationalStore； API声明：interface ReturningConfig 差异内容：interface ReturningConfig | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：ReturningConfig； API声明：columns: Array<string>; 差异内容：columns: Array<string>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：ReturningConfig； API声明：columns: Array&lt;string&gt;; 差异内容：columns: Array&lt;string&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：ReturningConfig； API声明：maxReturningCount?: number; 差异内容：maxReturningCount?: number; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：relationalStore； API声明：interface Result 差异内容：interface Result | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：Result； API声明：readonly changed: number; 差异内容：readonly changed: number; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：Result； API声明：readonly resultSet: LiteResultSet; 差异内容：readonly resultSet: LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：ResultSet； API声明：getColumnNames(): Array<string>; 差异内容：getColumnNames(): Array<string>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：ResultSet； API声明：getColumnNames(): Array&lt;string&gt;; 差异内容：getColumnNames(): Array&lt;string&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：ResultSet； API声明：getCurrentRowData(): RowData; 差异内容：getCurrentRowData(): RowData; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：ResultSet； API声明：getRowsData(maxCount: number, position?: number): Promise<RowsData>; 差异内容：getRowsData(maxCount: number, position?: number): Promise<RowsData>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：ResultSet； API声明：getRowsData(maxCount: number, position?: number): Promise&lt;RowsData&gt;; 差异内容：getRowsData(maxCount: number, position?: number): Promise&lt;RowsData&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：relationalStore； API声明：class LiteResultSet 差异内容：class LiteResultSet | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：LiteResultSet； API声明：getColumnNames(): Array<string>; 差异内容：getColumnNames(): Array<string>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：LiteResultSet； API声明：getColumnNames(): Array&lt;string&gt;; 差异内容：getColumnNames(): Array&lt;string&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：getColumnIndex(columnName: string): number; 差异内容：getColumnIndex(columnName: string): number; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：getColumnName(columnIndex: number): string; 差异内容：getColumnName(columnIndex: number): string; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：LiteResultSet； API声明：getColumnType(columnIdentifier: number \| string): Promise<ColumnType>; 差异内容：getColumnType(columnIdentifier: number \| string): Promise<ColumnType>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：LiteResultSet； API声明：getColumnType(columnIdentifier: number \| string): Promise&lt;ColumnType&gt;; 差异内容：getColumnType(columnIdentifier: number \| string): Promise&lt;ColumnType&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：getColumnTypeSync(columnIdentifier: number \| string): ColumnType; 差异内容：getColumnTypeSync(columnIdentifier: number \| string): ColumnType; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：goToNextRow(): boolean; 差异内容：goToNextRow(): boolean; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：getBlob(columnIndex: number): Uint8Array; 差异内容：getBlob(columnIndex: number): Uint8Array; | api/@ohos.data.relationalStore.d.ts |
@@ -91,33 +91,33 @@
 | 新增API | NA | 类名：LiteResultSet； API声明：getAssets(columnIndex: number): Assets; 差异内容：getAssets(columnIndex: number): Assets; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：getValue(columnIndex: number): ValueType; 差异内容：getValue(columnIndex: number): ValueType; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：getRow(): ValuesBucket; 差异内容：getRow(): ValuesBucket; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：LiteResultSet； API声明：getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>; 差异内容：getRows(maxCount: number, position?: number): Promise<Array<ValuesBucket>>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：LiteResultSet； API声明：getRows(maxCount: number, position?: number): Promise<Array&lt;ValuesBucket&gt;>; 差异内容：getRows(maxCount: number, position?: number): Promise<Array&lt;ValuesBucket&gt;>; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：getCurrentRowData(): RowData; 差异内容：getCurrentRowData(): RowData; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：LiteResultSet； API声明：getRowsData(maxCount: number, position?: number): Promise<RowsData>; 差异内容：getRowsData(maxCount: number, position?: number): Promise<RowsData>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：LiteResultSet； API声明：getRowsData(maxCount: number, position?: number): Promise&lt;RowsData&gt;; 差异内容：getRowsData(maxCount: number, position?: number): Promise&lt;RowsData&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：isColumnNull(columnIndex: number): boolean; 差异内容：isColumnNull(columnIndex: number): boolean; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：LiteResultSet； API声明：close(): void; 差异内容：close(): void; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; 差异内容：batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：batchInsertWithReturningSync(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Result; 差异内容：batchInsertWithReturningSync(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Result; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; 差异内容：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; 差异内容：batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Result; 差异内容：batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Result; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; 差异内容：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：RdbStore； API声明：updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Result; 差异内容：updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Result; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise<Result>; 差异内容：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise<Result>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise&lt;Result&gt;; 差异内容：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise&lt;Result&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：RdbStore； API声明：deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result; 差异内容：deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array<string>): Promise<LiteResultSet>; 差异内容：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array<string>): Promise<LiteResultSet>; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array<string>): LiteResultSet; 差异内容：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array<string>): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：querySqlWithoutRowCount(sql: string, bindArgs?: Array<ValueType>): Promise<LiteResultSet>; 差异内容：querySqlWithoutRowCount(sql: string, bindArgs?: Array<ValueType>): Promise<LiteResultSet>; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet; 差异内容：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; 差异内容：batchInsertWithReturning(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：batchInsertWithReturningSync(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Result; 差异内容：batchInsertWithReturningSync(table: string, values: Array<ValuesBucket>, config: ReturningConfig, conflict?: ConflictResolution): Result; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; 差异内容：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise<Result>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array&lt;string&gt;): Promise&lt;LiteResultSet&gt;; 差异内容：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array&lt;string&gt;): Promise&lt;LiteResultSet&gt;; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array&lt;string&gt;): LiteResultSet; 差异内容：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array&lt;string&gt;): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：querySqlWithoutRowCount(sql: string, bindArgs?: Array&lt;ValueType&gt;): Promise&lt;LiteResultSet&gt;; 差异内容：querySqlWithoutRowCount(sql: string, bindArgs?: Array&lt;ValueType&gt;): Promise&lt;LiteResultSet&gt;; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;): LiteResultSet; 差异内容：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; 差异内容：batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Result; 差异内容：batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Result; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; 差异内容：updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：Transaction； API声明：updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Result; 差异内容：updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Result; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise<Result>; 差异内容：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise<Result>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise&lt;Result&gt;; 差异内容：deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise&lt;Result&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：Transaction； API声明：deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result; 差异内容：deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array<string>): Promise<LiteResultSet>; 差异内容：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array<string>): Promise<LiteResultSet>; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array<string>): LiteResultSet; 差异内容：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array<string>): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：querySqlWithoutRowCount(sql: string, bindArgs?: Array<ValueType>): Promise<LiteResultSet>; 差异内容：querySqlWithoutRowCount(sql: string, bindArgs?: Array<ValueType>): Promise<LiteResultSet>; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：Transaction； API声明：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet; 差异内容：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array<ValueType>): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array&lt;string&gt;): Promise&lt;LiteResultSet&gt;; 差异内容：queryWithoutRowCount(predicates: RdbPredicates, columns?: Array&lt;string&gt;): Promise&lt;LiteResultSet&gt;; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array&lt;string&gt;): LiteResultSet; 差异内容：queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array&lt;string&gt;): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：querySqlWithoutRowCount(sql: string, bindArgs?: Array&lt;ValueType&gt;): Promise&lt;LiteResultSet&gt;; 差异内容：querySqlWithoutRowCount(sql: string, bindArgs?: Array&lt;ValueType&gt;): Promise&lt;LiteResultSet&gt;; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：Transaction； API声明：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;): LiteResultSet; 差异内容：querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;): LiteResultSet; | api/@ohos.data.relationalStore.d.ts |
 | 删除API | 类名：Schema； API声明：root: FieldNode; 差异内容：root: FieldNode; | NA | api/@ohos.data.distributedKVStore.d.ts |
-| 删除API | 类名：Schema； API声明：indexes: Array<string>; 差异内容：indexes: Array<string>; | NA | api/@ohos.data.distributedKVStore.d.ts |
+| 删除API | 类名：Schema； API声明：indexes: Array&lt;string&gt;; 差异内容：indexes: Array&lt;string&gt;; | NA | api/@ohos.data.distributedKVStore.d.ts |
 | 删除API | 类名：Schema； API声明：mode: number; 差异内容：mode: number; | NA | api/@ohos.data.distributedKVStore.d.ts |
 | 删除API | 类名：Schema； API声明：skip: number; 差异内容：skip: number; | NA | api/@ohos.data.distributedKVStore.d.ts |
 | 删除API | 类名：FieldNode； API声明：nullable: boolean; 差异内容：nullable: boolean; | NA | api/@ohos.data.distributedKVStore.d.ts |
@@ -148,9 +148,9 @@
 | 删除API | 类名：ApplicationDefinedRecord； API声明：applicationDefinedType: string; 差异内容：applicationDefinedType: string; | NA | api/@ohos.data.unifiedDataChannel.d.ts |
 | 删除API | 类名：ApplicationDefinedRecord； API声明：rawData: Uint8Array; 差异内容：rawData: Uint8Array; | NA | api/@ohos.data.unifiedDataChannel.d.ts |
 | 删除API | 类名：TypeDescriptor； API声明：typeId: string; 差异内容：typeId: string; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
-| 删除API | 类名：TypeDescriptor； API声明：belongingToTypes: Array<string>; 差异内容：belongingToTypes: Array<string>; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
+| 删除API | 类名：TypeDescriptor； API声明：belongingToTypes: Array&lt;string&gt;; 差异内容：belongingToTypes: Array&lt;string&gt;; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 删除API | 类名：TypeDescriptor； API声明：description: string; 差异内容：description: string; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 删除API | 类名：TypeDescriptor； API声明：referenceURL: string; 差异内容：referenceURL: string; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 删除API | 类名：TypeDescriptor； API声明：iconFile: string; 差异内容：iconFile: string; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
-| 删除API | 类名：TypeDescriptor； API声明：filenameExtensions: Array<string>; 差异内容：filenameExtensions: Array<string>; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
-| 删除API | 类名：TypeDescriptor； API声明：mimeTypes: Array<string>; 差异内容：mimeTypes: Array<string>; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
+| 删除API | 类名：TypeDescriptor； API声明：filenameExtensions: Array&lt;string&gt;; 差异内容：filenameExtensions: Array&lt;string&gt;; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |
+| 删除API | 类名：TypeDescriptor； API声明：mimeTypes: Array&lt;string&gt;; 差异内容：mimeTypes: Array&lt;string&gt;; | NA | api/@ohos.data.uniformTypeDescriptor.d.ts |

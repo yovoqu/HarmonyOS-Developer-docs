@@ -11,7 +11,7 @@
 | 新增API | NA | 类名：BookParserHandler； API声明：public getBookInfo(): BookInfo; 差异内容：public getBookInfo(): BookInfo; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：BookParserHandler； API声明：public getCatalogList(): CatalogItem[]; 差异内容：public getCatalogList(): CatalogItem[]; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：BookParserHandler； API声明：public getSpineList(): SpineItem[]; 差异内容：public getSpineList(): SpineItem[]; | api/@hms.core.readerservice.bookParser.d.ts |
-| 新增API | NA | 类名：BookParserHandler； API声明：public getSpineItemContent(spineIndex: number): Promise<string>; 差异内容：public getSpineItemContent(spineIndex: number): Promise<string>; | api/@hms.core.readerservice.bookParser.d.ts |
+| 新增API | NA | 类名：BookParserHandler； API声明：public getSpineItemContent(spineIndex: number): Promise&lt;string&gt;; 差异内容：public getSpineItemContent(spineIndex: number): Promise&lt;string&gt;; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：BookParserHandler； API声明：public getResourceContent(spineIndex: number, filePath: string): ArrayBuffer; 差异内容：public getResourceContent(spineIndex: number, filePath: string): ArrayBuffer; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：BookParserHandler； API声明：public getDomPosByCatalogHref(href: string): string; 差异内容：public getDomPosByCatalogHref(href: string): string; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：BookParserHandler； API声明：public getAbsoluteResourcePath(spineIndex: number): string; 差异内容：public getAbsoluteResourcePath(spineIndex: number): string; | api/@hms.core.readerservice.bookParser.d.ts |
@@ -41,7 +41,7 @@
 | 新增API | NA | 类名：BookInfo； API声明：renditionOrientation?: string; 差异内容：renditionOrientation?: string; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：BookInfo； API声明：renditionSpread?: string; 差异内容：renditionSpread?: string; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：bookParser； API声明：type CallbackRes<T, V> = (data: T) => V; 差异内容：type CallbackRes<T, V> = (data: T) => V; | api/@hms.core.readerservice.bookParser.d.ts |
-| 新增API | NA | 类名：bookParser； API声明：function getDefaultHandler(path: string): Promise<BookParserHandler>; 差异内容：function getDefaultHandler(path: string): Promise<BookParserHandler>; | api/@hms.core.readerservice.bookParser.d.ts |
+| 新增API | NA | 类名：bookParser； API声明：function getDefaultHandler(path: string): Promise&lt;BookParserHandler&gt;; 差异内容：function getDefaultHandler(path: string): Promise&lt;BookParserHandler&gt;; | api/@hms.core.readerservice.bookParser.d.ts |
 | 新增API | NA | 类名：global； API声明： declare struct ReadPageComponent 差异内容： declare struct ReadPageComponent | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReadPageComponent； API声明：controller: readerCore.ReaderComponentController; 差异内容：controller: readerCore.ReaderComponentController; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReadPageComponent； API声明：readerCallback: AsyncCallback<readerCore.ReaderComponentController>; 差异内容：readerCallback: AsyncCallback<readerCore.ReaderComponentController>; | api/@hms.core.readerservice.readerComponent.d.ets |
@@ -62,14 +62,14 @@
 | 新增API | NA | 类名：ReaderSetting； API声明：viewPortWidth: number; 差异内容：viewPortWidth: number; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReaderSetting； API声明：viewPortHeight: number; 差异内容：viewPortHeight: number; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：readerCore； API声明： class ReaderComponentController 差异内容： class ReaderComponentController | api/@hms.core.readerservice.readerComponent.d.ets |
-| 新增API | NA | 类名：ReaderComponentController； API声明：public init(context: common.UIAbilityContext): Promise<void>; 差异内容：public init(context: common.UIAbilityContext): Promise<void>; | api/@hms.core.readerservice.readerComponent.d.ets |
-| 新增API | NA | 类名：ReaderComponentController； API声明：public startPlay(spineIndex: number, domPos: string): Promise<void>; 差异内容：public startPlay(spineIndex: number, domPos: string): Promise<void>; | api/@hms.core.readerservice.readerComponent.d.ets |
+| 新增API | NA | 类名：ReaderComponentController； API声明：public init(context: common.UIAbilityContext): Promise&lt;void&gt;; 差异内容：public init(context: common.UIAbilityContext): Promise&lt;void&gt;; | api/@hms.core.readerservice.readerComponent.d.ets |
+| 新增API | NA | 类名：ReaderComponentController； API声明：public startPlay(spineIndex: number, domPos: string): Promise&lt;void&gt;; 差异内容：public startPlay(spineIndex: number, domPos: string): Promise&lt;void&gt;; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReaderComponentController； API声明：public flipPage(isNext: boolean): void; 差异内容：public flipPage(isNext: boolean): void; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReaderComponentController； API声明：public setPageConfig(pageConfig: ReaderSetting): void; 差异内容：public setPageConfig(pageConfig: ReaderSetting): void; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReaderComponentController； API声明：public releaseBook(): void; 差异内容：public releaseBook(): void; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReaderComponentController； API声明：public registerBookParser(bookParserHandler: bookParser.BookParserHandler): void; 差异内容：public registerBookParser(bookParserHandler: bookParser.BookParserHandler): void; | api/@hms.core.readerservice.readerComponent.d.ets |
-| 新增API | NA | 类名：ReaderComponentController； API声明：public on(type: 'pageShow', callback: Callback<PageDataInfo>): void; 差异内容：public on(type: 'pageShow', callback: Callback<PageDataInfo>): void; | api/@hms.core.readerservice.readerComponent.d.ets |
-| 新增API | NA | 类名：ReaderComponentController； API声明：public off(type: 'pageShow', callback?: Callback<PageDataInfo>): void; 差异内容：public off(type: 'pageShow', callback?: Callback<PageDataInfo>): void; | api/@hms.core.readerservice.readerComponent.d.ets |
+| 新增API | NA | 类名：ReaderComponentController； API声明：public on(type: 'pageShow', callback: Callback&lt;PageDataInfo&gt;): void; 差异内容：public on(type: 'pageShow', callback: Callback&lt;PageDataInfo&gt;): void; | api/@hms.core.readerservice.readerComponent.d.ets |
+| 新增API | NA | 类名：ReaderComponentController； API声明：public off(type: 'pageShow', callback?: Callback&lt;PageDataInfo&gt;): void; 差异内容：public off(type: 'pageShow', callback?: Callback&lt;PageDataInfo&gt;): void; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReaderComponentController； API声明：public on(type: 'resourceRequest', callback: bookParser.CallbackRes<string, ArrayBuffer>): void; 差异内容：public on(type: 'resourceRequest', callback: bookParser.CallbackRes<string, ArrayBuffer>): void; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：ReaderComponentController； API声明：public off(type: 'resourceRequest', callback?: bookParser.CallbackRes<string, ArrayBuffer>): void; 差异内容：public off(type: 'resourceRequest', callback?: bookParser.CallbackRes<string, ArrayBuffer>): void; | api/@hms.core.readerservice.readerComponent.d.ets |
 | 新增API | NA | 类名：readerCore； API声明： class PageDatabaseBean 差异内容： class PageDatabaseBean | api/@hms.core.readerservice.readerComponent.d.ets |

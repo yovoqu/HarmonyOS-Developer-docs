@@ -1,23 +1,57 @@
 # 相机基础动效(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-animation
 
 在使用相机过程中，当遇到相机模式切换、前后置镜头切换等场景时，会不可避免地出现预览流替换。为优化用户体验，可合理使用动效过渡。本文主要介绍如何使用预览流截图，并通过ArkUI提供的[animateToImmediately](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animatetoimmediately23)接口触发显式动画功能，实现下方三种核心场景动效。
 
+ - 模式切换动效，使用预览流截图做模糊动效过渡。
 
-## 闪黑动效
+  图片为从录像模式切换为拍照模式的效果。
 
-使用组件覆盖的形式实现闪黑效果。 以下步骤中的示例代码均为自定义组件（即被@Component修饰的组件）的内部方法或逻辑。 导入依赖，需要导入相机框架、图片、ArkUI相关领域依赖。
-```text
+  
+![](assets/相机基础动效(ArkTS)/file-20260514131518231-0.png)
+
+ - 前后置切换动效，使用预览流截图做翻转模糊动效过渡。
+
+  图片为从前置相机切换为后置相机的效果。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/Sz0jsZkTTiqhS7X79SlN3A/zh-cn_image_0000002581274744.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014700Z&HW-CC-Expire=86400&HW-CC-Sign=B15353E13C941AF0979AD8D5AB91D851D49B250706A3BC2CAE00902B21F9217D)
+
+ - 拍照闪黑动效，使用闪黑组件覆盖预览流实现闪黑动效过渡。
+
+  图片为点击完成拍摄的效果。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/nUSDkqEfQvSzVfkPyn5XKQ/zh-cn_image_0000002611754597.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014700Z&HW-CC-Expire=86400&HW-CC-Sign=F43EC91D8D28A4DE6A08012143190D04F5EC8111E6B7732505894FFA5D40F928)
+
+
+
+
+##### 闪黑动效
+
+使用组件覆盖的形式实现闪黑效果。
+
+以下步骤中的示例代码均为自定义组件（即被@Component修饰的组件）的内部方法或逻辑。
+1. 导入依赖，需要导入相机框架、图片、ArkUI相关领域依赖。
+
+  
+```ArkTS
 import { camera } from '@kit.CameraKit';
 import { image } from '@kit.ImageKit';
 import { curves } from '@kit.ArkUI';
 ```
 
-构建闪黑组件。 此处定义一个闪黑组件，在拍照闪黑及前后置切换时显示，用来遮挡XComponent组件。 属性定义：
-```text
+2. 构建闪黑组件。
+
+  此处定义一个闪黑组件，在拍照闪黑及前后置切换时显示，用来遮挡XComponent组件。
+
+  属性定义：
+
+  
+```ArkTS
 @State isShowBlur: boolean = false;
 @State isShowBlack: boolean = false;
 @StorageLink('modeChange') @Watch('onModeChange') modeChangeFlag: number = 0;
@@ -32,9 +66,10 @@ import { curves } from '@kit.ArkUI';
 @State shotImgRotation: RotateOptions = { y: BlurAnimateUtil.ROTATE_AXIS, angle: BlurAnimateUtil.IMG_FLIP_ANGLE_0 }
 @State flashBlackOpacity: number = 1;
 ```
-
 闪黑组件的实现逻辑参考：
-```text
+
+  
+```ArkTS
 // 拍照闪黑及前后置切换时显示，用来遮挡XComponent组件。
 if (this.isShowBlack) {
   Column()
@@ -46,8 +81,10 @@ if (this.isShowBlack) {
 }
 ```
 
-实现闪黑动效。
-```text
+3. 实现闪黑动效。
+
+  
+```ArkTS
 private flashBlackAnim() {
   Logger.info(TAG, 'flashBlackAnim E');
   this.flashBlackOpacity = 1;
@@ -66,8 +103,12 @@ private flashBlackAnim() {
 }
 ```
 
-触发闪黑动效。 点击或触控拍照按钮，更新[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)绑定CaptureClick的值，触发onCaptureClick方法，动效开始播放。
-```text
+4. 触发闪黑动效。
+
+  点击或触控拍照按钮，更新[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)绑定CaptureClick的值，触发onCaptureClick方法，动效开始播放。
+
+  
+```ArkTS
 onCaptureClick(): void {
   Logger.info(TAG, 'onCaptureClick');
   this.flashBlackAnim();
@@ -75,17 +116,28 @@ onCaptureClick(): void {
 ```
 
 
-## 模糊动效
 
-通过预览流截图，实现模糊动效，从而完成模式切换，或是前后置切换的动效。 以下除了步骤2，其他步骤中的示例代码均为自定义组件（即被@Component修饰的组件）的内部方法或逻辑。 导入依赖，需要导入相机框架、图片、ArkUI相关领域依赖。
-```text
+
+##### 模糊动效
+
+通过预览流截图，实现模糊动效，从而完成模式切换，或是前后置切换的动效。
+
+以下除了步骤2，其他步骤中的示例代码均为自定义组件（即被@Component修饰的组件）的内部方法或逻辑。
+1. 导入依赖，需要导入相机框架、图片、ArkUI相关领域依赖。
+
+  
+```ArkTS
 import { camera } from '@kit.CameraKit';
 import { image } from '@kit.ImageKit';
 import { curves } from '@kit.ArkUI';
 ```
 
-获取预览流截图。 预览流截图通过图形提供的[image.createPixelMapFromSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapfromsurface11)接口实现，surfaceId为当前预览流的surfaceId，size为当前预览流profile的宽高。创建截图工具类（ts文件），导入依赖，导出获取截图方法供页面使用，截图工具类实现参考：
-```text
+2. 获取预览流截图。
+
+  预览流截图通过图形提供的[image.createPixelMapFromSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapfromsurface11)接口实现，surfaceId为当前预览流的surfaceId，size为当前预览流profile的宽高。创建截图工具类（ts文件），导入依赖，导出获取截图方法供页面使用，截图工具类实现参考：
+
+  
+```ts
 export class BlurAnimateUtil {
   public static surfaceShot: image.PixelMap;
   // ...
@@ -123,8 +175,14 @@ export class BlurAnimateUtil {
 }
 ```
 
-构建截图组件。 此处定义一个截图组件，置于预览流XComponent组件之上，用来遮挡XComponent组件。 属性定义：
-```text
+3. 构建截图组件。
+
+  此处定义一个截图组件，置于预览流XComponent组件之上，用来遮挡XComponent组件。
+
+  属性定义：
+
+  
+```ArkTS
 @State isShowBlur: boolean = false;
 @State isShowBlack: boolean = false;
 @StorageLink('modeChange') @Watch('onModeChange') modeChangeFlag: number = 0;
@@ -139,9 +197,10 @@ export class BlurAnimateUtil {
 @State shotImgRotation: RotateOptions = { y: BlurAnimateUtil.ROTATE_AXIS, angle: BlurAnimateUtil.IMG_FLIP_ANGLE_0 }
 @State flashBlackOpacity: number = 1;
 ```
-
 截图组件的实现参考：
-```text
+
+  
+```ArkTS
 if (this.isShowBlur) {
   Column() {
     Image(this.screenshotPixelMap)
@@ -158,10 +217,20 @@ if (this.isShowBlur) {
 }
 ```
 
-（按实际情况选择）实现模糊出现动效。 模式切换动效分两段实现，模糊出现动效和模糊消失动效。 模糊出现动效：用户点击或触控事件触发预览流截图，显示截图组件，截图清晰到模糊，覆盖旧预览流。
-![](assets/相机基础动效(ArkTS)
-/file-20260514131518231-0.png) 由于图形提供的[image.createPixelMapFromSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapfromsurface11)接口是通过截取surface内容获取[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)，其内容和[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件绘制逻辑不同，需要根据**前后置**镜头做不同的**图片内容旋转补偿**和**组件旋转补偿**。
-```text
+4. （按实际情况选择）实现模糊出现动效。
+
+  模式切换动效分两段实现，模糊出现动效和模糊消失动效。
+
+  模糊出现动效：用户点击或触控事件触发预览流截图，显示截图组件，截图清晰到模糊，覆盖旧预览流。
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/M5YzruQRTfSUothNFdTxxA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014700Z&HW-CC-Expire=86400&HW-CC-Sign=C60AAED40A91715EF444D5B325AE2157A28ED112611E8EF1F82206B4A8D03634)
+ 
+
+  由于图形提供的[image.createPixelMapFromSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapfromsurface11)接口是通过截取surface内容获取[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)，其内容和[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件绘制逻辑不同，需要根据**前后置**镜头做不同的**图片内容旋转补偿**和**组件旋转补偿**。
+
+  
+```ArkTS
 private async showBlurAnim() {
   Logger.info(TAG, 'showBlurAnim E');
   // 获取已完成的surface截图。
@@ -202,8 +271,12 @@ private async showBlurAnim() {
 }
 ```
 
-实现模糊消失动效。 模糊消失动效：由新模式预览流首帧回调[on('frameStart')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#onframestart)触发，截图组件模糊到清晰，显示新预览流。
-```text
+5. 实现模糊消失动效。
+
+  模糊消失动效：由新模式预览流首帧回调[on('frameStart')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#onframestart)触发，截图组件模糊到清晰，显示新预览流。
+
+  
+```ArkTS
 private hideBlurAnim(): void {
   this.isShowBlack = false;
   Logger.info(TAG, 'hideBlurAnim E');
@@ -224,8 +297,16 @@ private hideBlurAnim(): void {
 }
 ```
 
-（按实际情况选择）实现模糊翻转动效。 模糊翻转动效分两段实现，模糊翻转动效和模糊消失动效，其中模糊消失动效同第5步。 模糊翻转动效：分两段组件翻转实现，先向外翻转90°再向内翻转90°，同时还执行了模糊度、透明度、比例缩放等动效。 为保证预览流在翻转时不露出，需要构建一个闪黑组件用于遮挡XComponent组件，构建方式参考[闪黑动效](#闪黑动效)-步骤2。
-```text
+6. （按实际情况选择）实现模糊翻转动效。
+
+  模糊翻转动效分两段实现，模糊翻转动效和模糊消失动效，其中模糊消失动效同第5步。
+
+  模糊翻转动效：分两段组件翻转实现，先向外翻转90°再向内翻转90°，同时还执行了模糊度、透明度、比例缩放等动效。
+
+  为保证预览流在翻转时不露出，需要构建一个闪黑组件用于遮挡XComponent组件，构建方式参考[闪黑动效](#闪黑动效)-步骤2。
+
+  
+```ArkTS
 /**
  * 先向外翻转90°，前后置切换触发
  */
@@ -360,25 +441,31 @@ blurSecondAnim() {
 }
 ```
 
-按需触发动效。 模式切换动效触发：点击或触控模式按钮立即执行doSurfaceShot截图方法，更新[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)绑定modeChange的值，触发onModeChange方法，开始动效。
-```text
+7. 按需触发动效。
+
+  模式切换动效触发：点击或触控模式按钮立即执行doSurfaceShot截图方法，更新[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)绑定modeChange的值，触发onModeChange方法，开始动效。
+
+  
+```ArkTS
 onModeChange(): void {
   Logger.info(TAG, 'onModeChange');
   this.showBlurAnim();
 }
 ```
-
 前后置切换动效触发：点击或触控前后置切换按钮立即执行doSurfaceShot截图方法，更新[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)绑定switchCamera的值，触发onSwitchCamera方法，开始动效。
-```text
+
+  
+```ArkTS
 onSwitchCamera(): void {
   Logger.info(TAG, 'onSwitchCamera');
   this.blurFirstAnim();
   this.rotateFirstAnim();
 }
 ```
-
 模糊消失动效触发：监听预览流首帧回调[on('frameStart')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#onframestart)，更新[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)绑定frameStart的值，触发onFrameStart方法，开始动效。
-```text
+
+  
+```ArkTS
 onFrameStart(): void {
   Logger.info(TAG, 'onFrameStart');
   this.hideBlurAnim();

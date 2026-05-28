@@ -1,6 +1,6 @@
 # Notification Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-notificationkit-6111
 
@@ -10,5 +10,5 @@
 | 新增API | NA | 类名：NotificationParameters； API声明：wantAction?: string; 差异内容：wantAction?: string; | api/notification/notificationRequest.d.ts |
 | 新增API | NA | 类名：NotificationParameters； API声明：wantUri?: string; 差异内容：wantUri?: string; | api/notification/notificationRequest.d.ts |
 | 新增API | NA | 类名：NotificationParameters； API声明：wantParameters?: Record<string, Object>; 差异内容：wantParameters?: Record<string, Object>; | api/notification/notificationRequest.d.ts |
-| 新增API | NA | 类名：notificationManager； API声明：function getNotificationParameters(id: number, label?: string): Promise<NotificationParameters>; 差异内容：function getNotificationParameters(id: number, label?: string): Promise<NotificationParameters>; | api/@ohos.notificationManager.d.ts |
+| 新增API | NA | 类名：notificationManager； API声明：function getNotificationParameters(id: number, label?: string): Promise&lt;NotificationParameters&gt;; 差异内容：function getNotificationParameters(id: number, label?: string): Promise&lt;NotificationParameters&gt;; | api/@ohos.notificationManager.d.ts |
 | 新增API | NA | 类名：notificationManager； API声明：export type NotificationParameters = _NotificationParameters; 差异内容：export type NotificationParameters = _NotificationParameters; | api/@ohos.notificationManager.d.ts |

@@ -1,48 +1,88 @@
 # 通过关系型数据库实现数据持久化 (ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-rdb-store
 
-## 场景介绍
+##### 场景介绍
 
-关系型数据库基于SQLite组件，适用于存储包含复杂关系数据的场景，比如一个班级的学生信息，需要包括姓名、学号、各科成绩等，又或者公司的雇员信息，需要包括姓名、工号、职位等，由于数据之间有较强的对应关系，复杂程度比键值型数据更高，此时需要使用关系型数据库来持久化保存数据。 大数据量场景下查询数据可能会导致耗时长甚至应用卡死，如有相关操作可参考文档[批量数据写数据库场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/batch-database-operations-guide)，且有建议如下： 单次查询数据量不超过5000条。 在[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool)中查询。 拼接SQL语句尽量简洁。 合理地分批次查询。
+关系型数据库基于SQLite组件，适用于存储包含复杂关系数据的场景，比如一个班级的学生信息，需要包括姓名、学号、各科成绩等，又或者公司的雇员信息，需要包括姓名、工号、职位等，由于数据之间有较强的对应关系，复杂程度比键值型数据更高，此时需要使用关系型数据库来持久化保存数据。
 
-## 基本概念
+大数据量场景下查询数据可能会导致耗时长甚至应用卡死，如有相关操作可参考文档[批量数据写数据库场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/batch-database-operations-guide)，且有建议如下：
 
-**谓词**：数据库中用来代表数据实体的性质、特征或者数据实体之间关系的词项，主要用来定义数据库的操作条件。 **结果集**：指用户查询之后的结果集合，可以对数据进行访问。结果集提供了灵活的数据访问方式，可以更方便地拿到用户想要的数据。
+ - 单次查询数据量不超过5000条。
+ - 在[TaskPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool)中查询。
+ - 拼接SQL语句尽量简洁。
+ - 合理地分批次查询。
 
-## 运作机制
 
-关系型数据库对应用提供通用的操作接口，底层使用SQLite作为持久化存储引擎，支持SQLite具有的数据库特性，包括但不限于事务、索引、视图、触发器、外键、参数化查询和预编译SQL语句。 **图1** 关系型数据库运作机制
-![](assets/通过关系型数据库实现数据持久化%20(ArkTS)
-/file-20260514130415759-0.jpg)
 
-## 约束限制
 
-系统默认日志方式是[WAL](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#wal模式)（Write Ahead Log）模式，系统默认落盘方式是[FULL模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#full模式)。 数据库中常驻有4个读连接和1个写连接。读连接会动态扩充，无可用读连接时，会创建新的读连接执行读操作。写连接不会动态扩充，无可用写连接时，会等待连接释放后执行写操作。 为保证数据的准确性，数据库同一时间只能支持一个写操作。 当应用被卸载完成后，设备上的相关数据库文件及临时文件会被自动清除。 ArkTS侧支持的基本数据类型：number、string、二进制类型数据、boolean。 为保证插入并读取数据成功，建议一条数据不要超过2M。超出该大小，插入成功，读取失败。
+##### 基本概念
 
-## 接口说明
+ - **谓词**：数据库中用来代表数据实体的性质、特征或者数据实体之间关系的词项，主要用来定义数据库的操作条件。
+ - **结果集**：指用户查询之后的结果集合，可以对数据进行访问。结果集提供了灵活的数据访问方式，可以更方便地拿到用户想要的数据。
+
+
+
+
+##### 运作机制
+
+关系型数据库对应用提供通用的操作接口，底层使用SQLite作为持久化存储引擎，支持SQLite具有的数据库特性，包括但不限于事务、索引、视图、触发器、外键、参数化查询和预编译SQL语句。
+
+**图1** 关系型数据库运作机制
+
+
+![](assets/通过关系型数据库实现数据持久化%20(ArkTS)/file-20260514130415759-0.jpg)
+
+
+
+
+##### 约束限制
+
+ - 系统默认日志方式是[WAL](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#wal模式)（Write Ahead Log）模式，系统默认落盘方式是[FULL模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-terminology#full模式)。
+ - 数据库中常驻有4个读连接和1个写连接。读连接会动态扩充，无可用读连接时，会创建新的读连接执行读操作。写连接不会动态扩充，无可用写连接时，会等待连接释放后执行写操作。
+ - 为保证数据的准确性，数据库同一时间只能支持一个写操作。
+ - 当应用被卸载完成后，设备上的相关数据库文件及临时文件会被自动清除。
+ - ArkTS侧支持的基本数据类型：number、string、二进制类型数据、boolean。
+ - 为保证插入并读取数据成功，建议一条数据不要超过2M。超出该大小，插入成功，读取失败。
+
+
+
+
+##### 接口说明
 
 以下是关系型数据库持久化功能的相关接口，更多接口及使用方式请见[@ohos.data.relationalStore (关系型数据库)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore)。
+
 | 接口名称 | 描述 |
 | --- | --- |
-| getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback): void | 获得一个RdbStore，操作关系型数据库，用户可以根据自己的需求配置RdbStore的参数，然后通过RdbStore调用相关接口可以执行相关的数据操作。 |
-| createTransaction(options?: TransactionOptions): Promise | 创建一个事务对象并开始事务。 |
-| execute(sql: string, args?: Array):Promise | 执行包含指定参数的SQL语句。 |
-| querySql(sql: string, bindArgs?: Array):Promise | 根据指定SQL语句查询数据库中的数据。 |
-| insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise | 向目标表中插入一行数据。 |
-| update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback):void | 根据predicates的指定实例对象更新数据库中的数据。 |
-| delete(predicates: RdbPredicates, callback: AsyncCallback):void | 根据predicates的指定实例对象从数据库中删除数据。 |
-| query(predicates: RdbPredicates, columns: Array, callback: AsyncCallback):void | 根据指定条件查询数据库中的数据。 |
-| deleteRdbStore(context: Context, name: string, callback: AsyncCallback): void | 删除数据库。 |
+| getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback&lt;RdbStore&gt;): void | 获得一个RdbStore，操作关系型数据库，用户可以根据自己的需求配置RdbStore的参数，然后通过RdbStore调用相关接口可以执行相关的数据操作。 |
+| createTransaction(options?: TransactionOptions): Promise&lt;Transaction&gt; | 创建一个事务对象并开始事务。 |
+| execute(sql: string, args?: Array&lt;ValueType&gt;):Promise&lt;ValueType&gt; | 执行包含指定参数的SQL语句。 |
+| querySql(sql: string, bindArgs?: Array&lt;ValueType&gt;):Promise&lt;ResultSet&gt; | 根据指定SQL语句查询数据库中的数据。 |
+| insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise&lt;number&gt; | 向目标表中插入一行数据。 |
+| update(values: ValuesBucket, predicates: RdbPredicates, callback: AsyncCallback&lt;number&gt;):void | 根据predicates的指定实例对象更新数据库中的数据。 |
+| delete(predicates: RdbPredicates, callback: AsyncCallback&lt;number&gt;):void | 根据predicates的指定实例对象从数据库中删除数据。 |
+| query(predicates: RdbPredicates, columns: Array&lt;string&gt;, callback: AsyncCallback&lt;ResultSet&gt;):void | 根据指定条件查询数据库中的数据。 |
+| deleteRdbStore(context: Context, name: string, callback: AsyncCallback&lt;void&gt;): void | 删除数据库。 |
 | isTokenizerSupported(tokenizer: Tokenizer): boolean | 判断当前平台是否支持传入的分词器（将文本分解为更小单元的工具，这些单元可以是单词、子词、字符或者其他语言片段）。 |
 
 
-## 开发步骤
 
-因Stage模型、FA模型的差异，个别示例代码提供了在两种模型下的对应示例；示例代码未区分模型或没有对应注释说明时默认在两种模型下均适用。 关系型数据库操作或者存储过程中，有可能会因为各种原因发生非预期的数据库异常情况（抛出14800011），此时需要对数据库进行重建并恢复数据，以保障正常的应用开发，具体可见[关系型数据库异常重建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore#关系型数据库异常重建)。 使用关系型数据库实现数据持久化，需要获取一个RdbStore，其中包括建库、建表、升降级等操作。推荐使用事务接口保证数据库升级流程原子性。 示例代码如下所示： Stage模型示例：
-```text
+
+##### 开发步骤
+
+因Stage模型、FA模型的差异，个别示例代码提供了在两种模型下的对应示例；示例代码未区分模型或没有对应注释说明时默认在两种模型下均适用。
+
+关系型数据库操作或者存储过程中，有可能会因为各种原因发生非预期的数据库异常情况（抛出14800011），此时需要对数据库进行重建并恢复数据，以保障正常的应用开发，具体可见[关系型数据库异常重建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore#关系型数据库异常重建)。
+1. 使用关系型数据库实现数据持久化，需要获取一个RdbStore，其中包括建库、建表、升降级等操作。推荐使用事务接口保证数据库升级流程原子性。
+
+  示例代码如下所示：
+
+  Stage模型示例：
+
+  
+```ArkTS
 import { relationalStore } from '@kit.ArkData'; // 导入模块
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -139,8 +179,9 @@ const STORE_CONFIG: relationalStore.StoreConfig = {
     // 请确保获取到RdbStore实例，完成数据表创建后，再进行数据库的增、删、改、查等操作
   }
 ```
-
 FA模型示例：
+
+  
 ```text
 import { relationalStore } from '@kit.ArkData'; // 导入模块
 import { featureAbility } from '@kit.AbilityKit';
@@ -209,12 +250,13 @@ relationalStore.getRdbStore(context, STORE_CONFIG, async (err, store) => {
 });
 ```
 
-
 > [!NOTE]
-> 应用创建的数据库与其上下文（Context）有关，即使使用同样的数据库名称，但不同的应用上下文，会产生多个数据库，例如每个UIAbility都有各自的上下文。 当应用首次获取数据库（调用getRdbStore）后，在应用沙箱内会产生对应的数据库文件。使用数据库的过程中，在与数据库文件相同的目录下可能会产生以-wal和-shm结尾的临时文件。此时若开发者希望移动数据库文件到其它地方使用查看，则需要同时移动这些临时文件，当应用被卸载完成后，其在设备上产生的数据库文件及临时文件也会被移除。 错误码的详细介绍请参见通用错误码和关系型数据库错误码。
+> 应用创建的数据库与其上下文（Context）有关，即使使用同样的数据库名称，但不同的应用上下文，会产生多个数据库，例如每个UIAbility都有各自的上下文。 当应用首次获取数据库（调用getRdbStore）后，在应用沙箱内会产生对应的数据库文件。使用数据库的过程中，在与数据库文件相同的目录下可能会产生以-wal和-shm结尾的临时文件。此时若开发者希望移动数据库文件到其它地方使用查看，则需要同时移动这些临时文件，当应用被卸载完成后，其在设备上产生的数据库文件及临时文件也会被移除。 错误码的详细介绍请参见 通用错误码 和 关系型数据库错误码 。
 
-获取到RdbStore，完成数据表创建后，调用insert()接口插入数据。示例代码如下所示：
-```text
+2. 获取到RdbStore，完成数据表创建后，调用insert()接口插入数据。示例代码如下所示：
+
+  
+```ArkTS
 // 插入数据
 let value1 = 'Lisa';
 let value2 = 18;
@@ -239,12 +281,15 @@ if (store !== undefined) {
 }
 ```
 
-
 > [!NOTE]
 > 关系型数据库没有显式的flush操作实现持久化，数据插入即保存在持久化文件。
 
-根据谓词指定的实例对象，对数据进行修改或删除。 调用update()方法修改数据，调用delete()方法删除数据。示例代码如下所示：
-```text
+3. 根据谓词指定的实例对象，对数据进行修改或删除。
+
+  调用update()方法修改数据，调用delete()方法删除数据。示例代码如下所示：
+
+  
+```ArkTS
 // 修改数据、删除数据
 let value6 = 'Rose';
 let value7 = 22;
@@ -286,8 +331,12 @@ if (store !== undefined) {
 }
 ```
 
-根据谓词指定的查询条件查找数据。 调用query()方法查找数据，返回一个ResultSet结果集。示例代码如下所示：
-```text
+4. 根据谓词指定的查询条件查找数据。
+
+  调用query()方法查找数据，返回一个ResultSet结果集。示例代码如下所示：
+
+  
+```ArkTS
 // 查找数据
 let predicates2 = new relationalStore.RdbPredicates('EMPLOYEE');
 predicates2.equalTo('NAME', 'Rose');
@@ -313,12 +362,16 @@ if (store !== undefined) {
 }
 ```
 
-
 > [!NOTE]
 > 当应用完成查询数据操作，不再使用结果集（ResultSet）时，请及时调用close方法关闭结果集，释放系统为其分配的内存。
 
-当前RDB还支持进行FTS全文检索，可以根据中文或者英文进行文本检索，针对中文分词器支持ICU分词器。 以中文关键字检索为例：
-```text
+
+  当前RDB还支持进行FTS全文检索，可以根据中文或者英文进行文本检索，针对中文分词器支持ICU分词器。
+
+  以中文关键字检索为例：
+
+  
+```ArkTS
 // 中文关键字检索，查找数据
 if (store !== undefined && tokenTypeSupported) {
   // 创建全文检索表
@@ -346,8 +399,16 @@ if (store !== undefined) {
 }
 ```
 
-使用事务对象执行数据的插入、删除和更新操作。 调用createTransaction方法创建事务对象并执行相应操作。 支持配置的事务类型有DEFERRED、IMMEDIATE和EXCLUSIVE，默认为DEFERRED。 具体信息请参见[关系型数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#createtransaction14)。
-```text
+5. 使用事务对象执行数据的插入、删除和更新操作。
+
+  调用createTransaction方法创建事务对象并执行相应操作。
+
+  支持配置的事务类型有DEFERRED、IMMEDIATE和EXCLUSIVE，默认为DEFERRED。
+
+  具体信息请参见[createTransaction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#createtransaction14)。
+
+  
+```ArkTS
 // 使用事务对象执行数据的插入、删除和更新操作
 if (store !== undefined) {
   // 创建事务对象
@@ -404,8 +465,12 @@ if (store !== undefined) {
 }
 ```
 
-在同路径下备份数据库。关系型数据库支持手动备份和自动备份（仅系统应用可用）两种方式，具体可见[关系型数据库备份](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore#关系型数据库备份)。 此处以手动备份为例：
-```text
+6. 在同路径下备份数据库。关系型数据库支持手动备份和自动备份（仅系统应用可用）两种方式，具体可见[关系型数据库备份](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore#关系型数据库备份)。
+
+  此处以手动备份为例：
+
+  
+```ArkTS
 // 在同路径下备份数据库
 if (store !== undefined) {
   // 'Backup.db'为备份数据库文件名，默认在RdbStore同路径下备份。也可指定路径：customDir + 'Backup.db'
@@ -419,8 +484,12 @@ if (store !== undefined) {
 }
 ```
 
-从备份数据库中恢复数据。关系型数据库支持两种方式：恢复手动备份数据和恢复自动备份数据（仅系统应用可用），具体可见[关系型数据库数据恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore#关系型数据库数据恢复)。 此处以调用[restore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#restore)接口恢复手动备份数据为例：
-```text
+7. 从备份数据库中恢复数据。关系型数据库支持两种方式：恢复手动备份数据和恢复自动备份数据（仅系统应用可用），具体可见[关系型数据库数据恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore#关系型数据库数据恢复)。
+
+  此处以调用[restore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#restore)接口恢复手动备份数据为例：
+
+  
+```ArkTS
 // 备份数据库中恢复数据
 if (store !== undefined) {
   (store as relationalStore.RdbStore).restore('Backup.db', (err: BusinessError) => {
@@ -433,8 +502,14 @@ if (store !== undefined) {
 }
 ```
 
-删除数据库。 调用deleteRdbStore()方法，删除数据库及数据库相关文件。示例代码如下： Stage模型示例：
-```text
+8. 删除数据库。
+
+  调用deleteRdbStore()方法，删除数据库及数据库相关文件。示例代码如下：
+
+  Stage模型示例：
+
+  
+```ArkTS
 // 删除数据库
 relationalStore.deleteRdbStore(context, 'RdbTest.db', (err: BusinessError) => {
   if (err) {

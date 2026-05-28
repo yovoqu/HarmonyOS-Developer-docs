@@ -7,51 +7,81 @@
 本章节介绍如何拉起导航类应用扩展面板。
 
 
-## 导航类应用扩展面板参数说明
+##### 导航类应用扩展面板参数说明
 
 startAbilityByType接口中type字段为navigation，支持路线规划、导航、位置搜索三种意图场景，对应的wantParam参数如下：
+
 > [!NOTE]
 > 本文中的经纬度均采用GCJ-02坐标系统。
 
-路线规划场景
+
+ - 路线规划场景
+
 | 参数名 | 类型 | 必填 | 说明 |
+
 | --- | --- | --- | --- |
+
 | sceneType | number | 否 | 意图场景，表明本次请求对应的操作意图。默认为1，路线规划场景填1或不填。 |
+
 | originName | string | 否 | 起点名称。 |
+
 | originLatitude | number | 否 | 起点纬度。 |
+
 | originLongitude | number | 否 | 起点经度。 |
-| originPoiIds | Record | 否 | 起点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
+
+| originPoiIds | Record<number, string> | 否 | 起点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
+
 | destinationName | string | 否 | 终点名称。 |
+
 | destinationLatitude | number | 是 | 终点纬度。 |
+
 | destinationLongitude | number | 是 | 终点经度。 |
-| destinationPoiIds | Record | 否 | 终点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
+
+| destinationPoiIds | Record<number, string> | 否 | 终点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
+
 | vehicleType | number | 否 | 交通出行工具，取值：0-驾车，1-步行，2-骑行，3-公交。 |
+ - 导航场景
 
-导航场景
 | 参数名 | 类型 | 必填 | 说明 |
+
 | --- | --- | --- | --- |
+
 | sceneType | number | 是 | 意图场景，表明本次请求对应的操作意图。导航场景填2。 |
-| destinationName | string | 否 | 终点名称。 |
-| destinationLatitude | number | 是 | 终点纬度。 |
-| destinationLongitude | number | 是 | 终点经度。 |
-| destinationPoiIds | Record | 否 | 终点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
 
-位置搜索场景
+| destinationName | string | 否 | 终点名称。 |
+
+| destinationLatitude | number | 是 | 终点纬度。 |
+
+| destinationLongitude | number | 是 | 终点经度。 |
+
+| destinationPoiIds | Record<number, string> | 否 | 终点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
+ - 位置搜索场景
+
 | 参数名 | 类型 | 必填 | 说明 |
+
 | --- | --- | --- | --- |
+
 | sceneType | number | 是 | 意图场景，表明本次请求对应的操作意图。位置搜索场景填3。 |
+
 | destinationName | string | 是 | 地点名称。 |
 
 
-## 拉起方开发步骤
 
-导入相关模块。
+
+##### 拉起方开发步骤
+1. 导入相关模块。
+
+  
 ```text
 import { common } from '@kit.AbilityKit';
 ```
 
-构造接口参数并调用startAbilityByType接口。 终点POI ID列表（destinationPoiIds）和起点POI ID列表（originPoiIds）需开发者自行从各地图系统中获取，并按照对应关系传参。
-```text
+2. 构造接口参数并调用startAbilityByType接口。
+
+  终点POI ID列表（destinationPoiIds）和起点POI ID列表（originPoiIds）需开发者自行从各地图系统中获取，并按照对应关系传参。
+
+  
+```json
 @Entry
 @Component
 struct Index {
@@ -65,7 +95,7 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .onClick(() => {
             let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-            let wantParam: Record = {
+            let wantParam: Record<string, Object> = {
               'sceneType': 1,
               'destinationLatitude': 32.060844,
               'destinationLongitude': 118.78315,
@@ -74,7 +104,7 @@ struct Index {
                 1: '1001', // key为1代表花瓣地图，value需为花瓣地图POI
                 2: '2002', // key为2代表高德地图，value需为高德地图POI
                 3: '3003'  // key为3代表百度地图，value需为百度地图POI
-              } as Record,
+              } as Record<number, string>,
               'originName': 'xx市xx公园',
               'originLatitude': 31.060844,
               'originLongitude': 120.78315,
@@ -82,7 +112,7 @@ struct Index {
                 1: '1101', // key为1代表花瓣地图，value需为花瓣地图POI
                 2: '2202', // key为2代表高德地图，value需为高德地图POI
                 3: '3303'  // key为3代表百度地图，value需为百度地图POI
-              } as Record,
+              } as Record<number, string>,
               'vehicleType': 0
             };
             let abilityStartCallback: common.AbilityStartCallback = {
@@ -110,21 +140,34 @@ struct Index {
   }
 }
 ```
-
 效果示例图：
-![](assets/拉起导航类应用（startAbilityByType）/file-20260514130346643-0.png)
 
-## 目标方开发步骤
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/o69x4LfiRHKv-LAEpkR2Gw/zh-cn_image_0000002581433550.png?HW-CC-KV=V1&HW-CC-Date=20260528T014843Z&HW-CC-Expire=86400&HW-CC-Sign=C240232AFED439DACD348C6F147A4783ADEB0A1098F3E5AEFD7E2CE647E197DD)
 
-在module.json5中配置[uris](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)，步骤如下： 设置linkFeature属性以声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
+
+
+
+##### 目标方开发步骤
+1. 在module.json5中配置[uris](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)，步骤如下：
+
+  
+ - 设置linkFeature属性以声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
+
 | 取值 | 含义 |
+
 | --- | --- |
+
 | Navigation | 声明应用支持导航功能 |
+
 | RoutePlan | 声明应用支持路线规划功能 |
+
 | PlaceSearch | 声明应用支持位置搜索功能 |
 
-设置scheme、host、port、path/pathStartWith属性，与Want中URI相匹配，以便区分不同功能。
-```text
+2. 设置scheme、host、port、path/pathStartWith属性，与Want中URI相匹配，以便区分不同功能。
+
+  
+```json
 {
   "abilities": [
       {
@@ -157,39 +200,68 @@ struct Index {
 }
 ```
 
-解析参数并做对应处理。
+ - 解析参数并做对应处理。
+
+  
 ```text
 UIAbility.onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
 ```
+在参数**want.uri**中会携带目标方配置的linkFeature对应的uri。
 
-在参数**want.uri**中会携带目标方配置的linkFeature对应的uri。 在参数**want.parameters**中会携带Caller方传入的参数，不同场景参数如下所示。 路线规划场景
+  在参数**want.parameters**中会携带Caller方传入的参数，不同场景参数如下所示。
+
+  
+路线规划场景
+
 | 参数名 | 类型 | 必填 | 说明 |
+
 | --- | --- | --- | --- |
+
 | originName | string | 否 | 起点名称。 |
+
 | originLatitude | number | 否 | 起点纬度。 |
+
 | originLongitude | number | 否 | 起点经度。 |
+
 | originPoiId | string | 否 | 起点POI ID，当前仅支持花瓣地图、高德地图、百度地图获取此参数。 |
+
 | destinationName | string | 否 | 终点名称。 |
+
 | destinationLatitude | number | 是 | 终点纬度。 |
+
 | destinationLongitude | number | 是 | 终点经度。 |
+
 | destinationPoiId | string | 否 | 终点POI ID，当前仅支持花瓣地图、高德地图、百度地图获取此参数。 |
+
 | vehicleType | number | 否 | 交通出行工具，取值：0-驾车，1-步行，2-骑行，3-公交。 |
+ - 导航场景
 
-导航场景
 | 参数名 | 类型 | 必填 | 说明 |
+
 | --- | --- | --- | --- |
+
 | destinationName | string | 否 | 终点名称。 |
-| destinationLatitude | number | 是 | 终点纬度。 |
-| destinationLongitude | number | 是 | 终点经度。 |
-| destinationPoiId | string | 否 | 终点POI ID，当前仅支持花瓣地图、高德地图、百度地图获取此参数。 |
 
-位置搜索场景
+| destinationLatitude | number | 是 | 终点纬度。 |
+
+| destinationLongitude | number | 是 | 终点经度。 |
+
+| destinationPoiId | string | 否 | 终点POI ID，当前仅支持花瓣地图、高德地图、百度地图获取此参数。 |
+ - 位置搜索场景
+
 | 参数名 | 类型 | 必填 | 说明 |
+
 | --- | --- | --- | --- |
+
 | destinationName | string | 是 | 地点名称。 |
 
-应用可根据[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)中定义的特性功能，比如路线规划、导航和位置搜索，结合接收到的uri和参数开发不同的样式页面。 **完整示例：**
-```text
+
+应用可根据[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)中定义的特性功能，比如路线规划、导航和位置搜索，结合接收到的uri和参数开发不同的样式页面。
+
+
+**完整示例：**
+
+```json
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -249,7 +321,7 @@ export default class EntryAbility extends UIAbility {
                 "destinationLatitude": this.destinationLatitude,
                 "destinationLongitude": this.destinationLongitude,
                 "destinationPoiId": this.destinationPoiId
-            } as Record);
+            } as Record<string, Object>);
             // 拉起导航页面
             windowStage.loadContent('pages/NavigationPage', storage)
         } else if (this.uri === 'maps://routePlan') {
@@ -264,14 +336,14 @@ export default class EntryAbility extends UIAbility {
                 "vehicleType": this.vehicleType,
                 "destinationPoiId": this.destinationPoiId,
                 "originPoiId": this.originPoiId
-            } as Record);
+            } as Record<string, Object>);
             // 拉起路径规划页面
             windowStage.loadContent('pages/RoutePlanPage', storage)
         }  else if (this.uri === 'maps://search') {
             // 构建位置搜索场景参数
             const storage: LocalStorage = new LocalStorage({
                 "destinationName": this.destinationName
-            } as Record);
+            } as Record<string, Object>);
             // 拉起位置搜索页面
             windowStage.loadContent('pages/PlaceSearchPage', storage)
         } else {

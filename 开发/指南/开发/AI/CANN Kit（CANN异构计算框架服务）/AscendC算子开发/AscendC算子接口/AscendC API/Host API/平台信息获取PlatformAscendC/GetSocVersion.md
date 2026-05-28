@@ -4,32 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getsocversion
 
-## 函数功能
+##### 函数功能
 
 获取当前硬件平台版本型号。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 SocVersion GetSocVersion(void) const;
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 无
+ 
+  
 
-## 返回值
+##### 返回值
 
 当前硬件平台版本型号的枚举类。该枚举类和AI处理器型号的对应关系请通过CANN DDK包里的ddk/ai_ddk_lib/include/tiling/platform/platform_ascendc.h头文件获取。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 ge::graphStatus TilingXXX(gert::TilingContext* context) {

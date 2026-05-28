@@ -5,32 +5,29 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk-usbdevicememmap
 **支持设备：** PC/2in1
 
-
 ```text
 typedef struct UsbDeviceMemMap {...} UsbDeviceMemMap
 ```
+  
 
-
-## 概述
-**支持设备：** PC/2in1
+##### 概述
 
 设备内存映射，通过[OH_Usb_CreateDeviceMemMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-api-h#oh_usb_createdevicememmap)创建设备内存映射，使用内存映射后的缓冲区，可提升数据传输性能。
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [UsbDdk](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk)
-
+ 
 **所在头文件：** [usb_ddk_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-types-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** PC/2in1
+  
 
-
-### 成员变量
-**支持设备：** PC/2in1
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | uint8_t* const address | 映射后的缓冲区地址。 |

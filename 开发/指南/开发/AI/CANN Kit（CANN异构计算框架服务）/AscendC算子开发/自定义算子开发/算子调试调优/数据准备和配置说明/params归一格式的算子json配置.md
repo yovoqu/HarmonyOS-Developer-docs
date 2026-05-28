@@ -4,14 +4,17 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-json-configuration
 
-## json配置说明
+##### json配置说明
 
 为了支持输入/输出参数交叉配置的场景，params归一配置格式应运而生，所有输入/输出参数均放在“params”配置项中。该算子json配置文件中参数可以按**输入/输出规则排布**，也可以按**输入/输出交叉排布**，只要保证参数顺序与Kernel入口函数的参数顺序保持一致即可。
+ 
 > [!NOTE]
-> 调试工具暂不支持该配置。  输入/输出规则排布（所有输出参数排布在输入参数之后）：例如Kernel入口函数的参数排布为extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2, GM_ADDR input3,GM_ADDR output)。  输入/输出交叉排布（输入/输出参数排布顺序有交叉）：例如Kernel入口函数的参数排布为extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2, GM_ADDR output, GM_ADDR input3)，output参数排在input3之前。  核函数直调工程场景的开发人员一般按此方式配置。
+> 调试工具暂不支持该配置 。 输入/输出规则排布 （所有输出参数排布在输入参数之后）：例如Kernel入口函数的参数排布为extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2, GM_ADDR input3, GM_ADDR output )。 输入/输出交叉排布 （输入/输出参数排布顺序有交叉）：例如Kernel入口函数的参数排布为extern "C" __global__ __aicore__ void add_custom(GM_ADDR input1, GM_ADDR input2, GM_ADDR output , GM_ADDR input3)，output参数排在input3之前。 核函数直调工程场景 的开发人员一般按此方式配置。
 
- 以AddCustom算子为例，对应的json配置示例如下，参数说明参见表1。
-```text
+ 
+以AddCustom算子为例，对应的json配置示例如下，参数说明参见表1。
+ 
+```cpp
 {
     "op_type": "add_custom",
     "data_script": "",
@@ -45,8 +48,9 @@
     }
 }
 ```
-
- **表1** params归一格式的算子json全量参数说明
+ 
+**表1** params归一格式的算子json全量参数说明
+  
 | 参数名 | 参数名 | 数据类型 | 参数说明 | 取值说明 | 是否必选 |
 | --- | --- | --- | --- | --- | --- |
 | op_type | - | string | 算子名。 | 与待调测算子严格匹配。 | 是 |
@@ -61,12 +65,18 @@
 | kernel_info 说明： 仅核函数直调工程场景需要设置kernel文件相关的配置。 | kernel_source | string | Kernel入口源文件绝对路径，注意格式是“绝对路径+文件名”。 | 根据开发的核函数信息填写。 | 是 |
 | kernel_info | kernel_name | string | Kernel入口函数名。 | 根据开发的核函数信息填写。 | 是 |
 | kernel_info | kernel_includes | list | Kernel文件依赖的头文件所在的路径。 | 可为[]，也可填入多个路径。 | 是 |
+ 
+ 
+  
 
+##### 特殊格式输入
 
-## 特殊格式输入
+- **场景1：支持Scalar格式的输入。**
 
-**场景1：支持Scalar格式的输入。**  当输入为Scalar格式，json中“params”配置项中删除data_file，param_type配为“input”，shape配为null，data_value配为指定的标量值。
-```text
+  当输入为Scalar格式，json中“params”配置项中删除data_file，param_type配为“input”，shape配为null，data_value配为指定的标量值。
+
+  
+```json
 {
      "op_type": "xxxx",
      "data_script": "",
@@ -82,8 +92,12 @@
  }
 ```
 
-**场景2：支持TensorList格式的输入。**  当输入为TensorList格式，该参数需要用[ ]表示，List中的每一项表示一个Tensor，示例如下。
-```text
+- **场景2：支持TensorList格式的输入。**
+
+  当输入为TensorList格式，该参数需要用[ ]表示，List中的每一项表示一个Tensor，示例如下。
+
+  
+```cpp
 {
      "op_type": "xxxx",
      "data_script": "",
@@ -119,8 +133,16 @@
  }
 ```
 
-**场景3：支持原地算子格式的输入。**  当算子为[原地算子(in-place op)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-tools#基本概念)时，输入和输出地址一样，配置算子json时除了“param_type”和“data_file”不同，其他配置项均保持一致。配置示例如下。  param_type：分别配为input、output。data_file：输入数据为x.bin，输出数据为标杆数据golden_x.bin。
-```text
+- **场景3：支持原地算子格式的输入。**
+
+  当算子为[原地算子(in-place op)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-commissioning-tools#基本概念)时，输入和输出地址一样，配置算子json时除了“param_type”和“data_file”不同，其他配置项均保持一致。配置示例如下。
+
+  
+param_type：分别配为input、output。
+- data_file：输入数据为x.bin，输出数据为标杆数据golden_x.bin。
+
+  
+```cpp
 {
      "op_type": "add_custom",
      "data_script": "",

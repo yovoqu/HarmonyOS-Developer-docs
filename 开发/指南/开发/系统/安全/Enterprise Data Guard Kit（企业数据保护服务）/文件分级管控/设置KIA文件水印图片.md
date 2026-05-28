@@ -4,28 +4,36 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-set-kia-watermark
 
-## 场景介绍
+##### 场景介绍
 
 为应用提供设置KIA文件水印图片能力。
 
-## 接口说明
+
+
+##### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [setKiaWatermarkImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#setkiawatermarkimage)(image: Uint8Array, info: string): Promise | 使用Promise方式设置KIA文件水印图片。 |
+| setKiaWatermarkImage(image: Uint8Array, info: string): Promise&lt;void&gt; | 使用Promise方式设置KIA文件水印图片。 |
 
 
-## 开发步骤
 
-导入模块。
+
+##### 开发步骤
+1. 导入模块。
+
+  
 ```text
 import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 import { fileIo } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[setKiaWatermarkImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#setkiawatermarkimage)，设置KIA文件水印图片。
+2. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[setKiaWatermarkImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#setkiawatermarkimage)，设置KIA文件水印图片。
+
+  
 ```text
 async function testSetKiaWaterMarkImage() {
   try {

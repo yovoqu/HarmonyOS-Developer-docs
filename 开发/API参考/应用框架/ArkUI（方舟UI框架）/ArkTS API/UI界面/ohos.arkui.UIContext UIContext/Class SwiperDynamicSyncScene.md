@@ -3,28 +3,29 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-swiperdynamicsyncscene
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供Swiper组件相关帧率的配置。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 SwiperDynamicSyncScene继承自 DynamicSyncScene ，对应Swiper的动态帧率场景。
 
+  
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type12+ | [SwiperDynamicSyncSceneType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-e#swiperdynamicsyncscenetype12) | 是 | 否 | Swiper的动态帧率场景。 |
-
-
+| type12+ | SwiperDynamicSyncSceneType | 是 | 否 | Swiper的动态帧率场景。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { SwiperDynamicSyncSceneType, SwiperDynamicSyncScene } from '@kit.ArkUI';
 
 @Entry
@@ -58,18 +59,18 @@ struct Frame {
       }
 
       Button("set frame")
-      .onClick(() => {
-        this.scenes.forEach((scenes: SwiperDynamicSyncScene) => {
+        .onClick(() => {
+          this.scenes.forEach((scenes: SwiperDynamicSyncScene) => {
 
-          if (scenes.type == SwiperDynamicSyncSceneType.ANIMATION) {
-            scenes.setFrameRateRange(this.ANIMATION);
-          }
+            if (scenes.type == SwiperDynamicSyncSceneType.ANIMATION) {
+              scenes.setFrameRateRange(this.ANIMATION);
+            }
 
-          if (scenes.type == SwiperDynamicSyncSceneType.GESTURE) {
-            scenes.setFrameRateRange(this.GESTURE);
-          }
-        });
-      })
+            if (scenes.type == SwiperDynamicSyncSceneType.GESTURE) {
+              scenes.setFrameRateRange(this.GESTURE);
+            }
+          });
+        })
     }
   }
 }

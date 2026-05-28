@@ -18,9 +18,9 @@
 | 新增API | NA | 类名：Stat； API声明：readonly atimeNs?: bigint; 差异内容：readonly atimeNs?: bigint; | api/@ohos.file.fs.d.ts |
 | 新增API | NA | 类名：Stat； API声明：readonly mtimeNs?: bigint; 差异内容：readonly mtimeNs?: bigint; | api/@ohos.file.fs.d.ts |
 | 新增API | NA | 类名：Stat； API声明：readonly ctimeNs?: bigint; 差异内容：readonly ctimeNs?: bigint; | api/@ohos.file.fs.d.ts |
-| 新增API | NA | 类名：storageStatistics； API声明：function getTotalSize(callback: AsyncCallback<number>): void; 差异内容：function getTotalSize(callback: AsyncCallback<number>): void; | api/@ohos.file.storageStatistics.d.ts |
-| 新增API | NA | 类名：storageStatistics； API声明：function getTotalSize(): Promise<number>; 差异内容：function getTotalSize(): Promise<number>; | api/@ohos.file.storageStatistics.d.ts |
+| 新增API | NA | 类名：storageStatistics； API声明：function getTotalSize(callback: AsyncCallback&lt;number&gt;): void; 差异内容：function getTotalSize(callback: AsyncCallback&lt;number&gt;): void; | api/@ohos.file.storageStatistics.d.ts |
+| 新增API | NA | 类名：storageStatistics； API声明：function getTotalSize(): Promise&lt;number&gt;; 差异内容：function getTotalSize(): Promise&lt;number&gt;; | api/@ohos.file.storageStatistics.d.ts |
 | 新增API | NA | 类名：storageStatistics； API声明：function getTotalSizeSync(): number; 差异内容：function getTotalSizeSync(): number; | api/@ohos.file.storageStatistics.d.ts |
-| 新增API | NA | 类名：storageStatistics； API声明：function getFreeSize(callback: AsyncCallback<number>): void; 差异内容：function getFreeSize(callback: AsyncCallback<number>): void; | api/@ohos.file.storageStatistics.d.ts |
-| 新增API | NA | 类名：storageStatistics； API声明：function getFreeSize(): Promise<number>; 差异内容：function getFreeSize(): Promise<number>; | api/@ohos.file.storageStatistics.d.ts |
+| 新增API | NA | 类名：storageStatistics； API声明：function getFreeSize(callback: AsyncCallback&lt;number&gt;): void; 差异内容：function getFreeSize(callback: AsyncCallback&lt;number&gt;): void; | api/@ohos.file.storageStatistics.d.ts |
+| 新增API | NA | 类名：storageStatistics； API声明：function getFreeSize(): Promise&lt;number&gt;; 差异内容：function getFreeSize(): Promise&lt;number&gt;; | api/@ohos.file.storageStatistics.d.ts |
 | 新增API | NA | 类名：storageStatistics； API声明：function getFreeSizeSync(): number; 差异内容：function getFreeSizeSync(): number; | api/@ohos.file.storageStatistics.d.ts |

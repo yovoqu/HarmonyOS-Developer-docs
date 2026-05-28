@@ -4,21 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-convert-img
 
-## 场景介绍
+##### 场景介绍
 
-将整个PDF文档的页面转换为图片，每页为一张图片，并且所有图片存放在指定的同一个文件夹下。 当前支持的图片格式请参考[ImageFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#imageformat)。
+将整个PDF文档的页面转换为图片，每页为一张图片，并且所有图片存放在指定的同一个文件夹下。
 
-## 接口说明
+当前支持的图片格式请参考[ImageFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#imageformat)。
 
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [convertToImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#converttoimage)(path: string, format: ImageFormat, onProgress?: (progress: number) => number): boolean | 转换PDF文档为图片。 |
+| convertToImage(path: string, format: ImageFormat, onProgress?: (progress: number) => number): boolean | 转换PDF文档为图片。 |
 
 
-## 示例代码
 
-调用loadDocument方法，加载PDF文档。 设置要输出图片的文件夹，调用convertToImage方法转化PDF文档所有页面为图片。
+
+##### 示例代码
+1. 调用loadDocument方法，加载PDF文档。
+2. 设置要输出图片的文件夹，调用convertToImage方法转化PDF文档所有页面为图片。
+
 ```text
 import { fileIo as fs } from '@kit.CoreFileKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

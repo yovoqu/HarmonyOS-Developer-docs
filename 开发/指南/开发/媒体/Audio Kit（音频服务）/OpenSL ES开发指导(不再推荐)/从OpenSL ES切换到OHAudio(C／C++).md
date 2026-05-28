@@ -5,11 +5,14 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/replace-opensles-by-ohaudio
 
 由于OpenSL ES无法满足音频系统的能力拓展，建议开发者使用OHAudio替代OpenSL ES开发音频业务。本文将介绍如何从使用OpenSL ES接口开发音频业务，切换为使用OHAudio接口。
+  
 
+##### 支持的功能差异
 
-## 支持的功能差异
-
-两者支持的功能范围略有差异，OHAudio增加支持低时延播放/录制、监听业务变化等功能。 具体差异如下表所示。
+两者支持的功能范围略有差异，OHAudio增加支持低时延播放/录制、监听业务变化等功能。
+ 
+具体差异如下表所示。
+  
 | 功能 | OpenSL ES | OHAudio |
 | --- | --- | --- |
 | 音频流式播放 | √ | √ |
@@ -24,15 +27,24 @@
 | 监听音频流事件 | × | √ |
 | 监听流异常事件 | × | √ |
 | 监听播放设备变化事件 | × | √ |
+ 
+ 
+  
 
+##### 开发模式差异
 
-## 开发模式差异
+此小节将结合开发步骤，对比介绍OHAudio和OpenSL ES在开发模式上的差异。
+ 
+音频播放和录制的实现类似，此处以音频播放为例说明。
+ 
+  
 
-此小节将结合开发步骤，对比介绍OHAudio和OpenSL ES在开发模式上的差异。 音频播放和录制的实现类似，此处以音频播放为例说明。
+##### 构造实例
 
-## 构造实例
-
-OpenSL ES: 通过全局接口获取到Engine对象，基于Engine结合不同输入输出配置参数，构造出不同音频播放对象。
+OpenSL ES:
+ 
+通过全局接口获取到Engine对象，基于Engine结合不同输入输出配置参数，构造出不同音频播放对象。
+ 
 ```text
 // 生成Engine Interface对象。
 SLEngineItf engine;
@@ -59,8 +71,11 @@ SLObjectItf playerObject;
 (*playerObject)->Realize(playerObject,
                          SL_BOOLEAN_FALSE);
 ```
-
- OHAudio: 采用建造器模式，通过建造器，配合自定义参数设置，生成音频播放对象。
+ 
+OHAudio:
+ 
+采用建造器模式，通过建造器，配合自定义参数设置，生成音频播放对象。
+ 
 ```text
 // 创建建造器。
 OH_AudioStreamBuilder *builder;
@@ -79,11 +94,15 @@ OH_AudioStreamBuilder_SetRendererInfo(builder, AUDIOSTREAM_USAGE_MUSIC);
 OH_AudioRenderer *audioRenderer;
 OH_AudioStreamBuilder_GenerateRenderer(builder, &audioRenderer);
 ```
+ 
+  
 
+##### 状态切换
 
-## 状态切换
-
-OpenSL ES: 基于Object获取状态切换Interface，使用Interface接口切换状态，只有SL_PLAYSTATE_STOPPED、SL_PLAYSTATE_PAUSED、SL_PLAYSTATE_PLAYING三种状态。
+OpenSL ES:
+ 
+基于Object获取状态切换Interface，使用Interface接口切换状态，只有SL_PLAYSTATE_STOPPED、SL_PLAYSTATE_PAUSED、SL_PLAYSTATE_PLAYING三种状态。
+ 
 ```text
 // 基于播放对象，获取播放操作Interface。
 SLPlayItf playItf = nullptr;
@@ -93,19 +112,26 @@ SLPlayItf playItf = nullptr;
 (*playItf)->SetPlayState(playItf, SL_PLAYSTATE_PAUSED);
 (*playItf)->SetPlayState(playItf, SL_PLAYSTATE_STOPPED);
 ```
-
- OHAudio: 有独立的状态切换接口，基于状态机进行状态切换，共6个OH_AudioStream_State状态，主要在AUDIOSTREAM_STATE_PREPARED、AUDIOSTREAM_STATE_RUNNING、AUDIOSTREAM_STATE_STOPPED、AUDIOSTREAM_STATE_PAUSED、AUDIOSTREAM_STATE_RELEASED状态间切换。
+ 
+OHAudio:
+ 
+有独立的状态切换接口，基于状态机进行状态切换，共6个OH_AudioStream_State状态，主要在AUDIOSTREAM_STATE_PREPARED、AUDIOSTREAM_STATE_RUNNING、AUDIOSTREAM_STATE_STOPPED、AUDIOSTREAM_STATE_PAUSED、AUDIOSTREAM_STATE_RELEASED状态间切换。
+ 
 ```text
 // 状态切换。
 OH_AudioRenderer_Start(audioRenderer);
 OH_AudioRenderer_Pause(audioRenderer);
 OH_AudioRenderer_Stop(audioRenderer);
 ```
+ 
+  
 
+##### 数据处理
 
-## 数据处理
-
-OpenSL ES: 基于扩展的OHBufferQueue接口，通过注册自定义的Callback函数，根据数据请求时机，将待播放数据填入系统内提供的缓冲区中。
+OpenSL ES:
+ 
+基于扩展的OHBufferQueue接口，通过注册自定义的Callback函数，根据数据请求时机，将待播放数据填入系统内提供的缓冲区中。
+ 
 ```text
 static void MyBufferQueueCallback(SLOHBufferQueueItf bufferQueueItf, void *pContext, SLuint32 size)
 {
@@ -126,8 +152,11 @@ SLOHBufferQueueItf bufferQueueItf;
 void *pContext;
 (*bufferQueueItf)->RegisterCallback(bufferQueueItf, MyBufferQueueCallback, pContext);
 ```
-
- OHAudio: 统一使用回调模式，在构造时注册数据输入回调，实现自定义的数据填充函数，在播放过程中会跟随系统调度和时延配置情况，自动在合适时机触发数据请求回调。
+ 
+OHAudio:
+ 
+统一使用回调模式，在构造时注册数据输入回调，实现自定义的数据填充函数，在播放过程中会跟随系统调度和时延配置情况，自动在合适时机触发数据请求回调。
+ 
 ```text
 static int32_t MyOnWriteData(
     OH_AudioRenderer *renderer,
@@ -146,17 +175,24 @@ callbacks.OH_AudioRenderer_OnWriteData = MyOnWriteData;
 void *userData = nullptr;
 OH_AudioStreamBuilder_SetRendererCallback(builder, callbacks, userData);
 ```
+ 
+  
 
+##### 资源释放
 
-## 资源释放
-
-OpenSL ES: 使用SLObjectItf接口实现对象资源释放。
+OpenSL ES:
+ 
+使用SLObjectItf接口实现对象资源释放。
+ 
 ```text
 // 释放播放对象资源。
 (*playerObject)->Destroy(playerObject);
 ```
-
- OHAudio: 使用对应模块的释放接口实现对象资源释放。
+ 
+OHAudio:
+ 
+使用对应模块的释放接口实现对象资源释放。
+ 
 ```text
 // 释放建造器资源。
 OH_AudioStreamBuilder_Destroy(builder);

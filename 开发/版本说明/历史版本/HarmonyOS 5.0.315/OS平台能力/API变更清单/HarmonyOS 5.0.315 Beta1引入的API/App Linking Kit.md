@@ -7,4 +7,4 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace deferredLink 差异内容： declare namespace deferredLink | api/@hms.bundle.applinking.deferredLink.d.ts |
-| 新增API | NA | 类名：deferredLink； API声明：function popDeferredLink(): Promise<string>; 差异内容：function popDeferredLink(): Promise<string>; | api/@hms.bundle.applinking.deferredLink.d.ts |
+| 新增API | NA | 类名：deferredLink； API声明：function popDeferredLink(): Promise&lt;string&gt;; 差异内容：function popDeferredLink(): Promise&lt;string&gt;; | api/@hms.bundle.applinking.deferredLink.d.ts |

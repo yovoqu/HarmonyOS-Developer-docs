@@ -13,7 +13,7 @@
 | 删除错误码 | 类名：Canvas； API声明：quickRejectRect(rect: common2D.Rect): boolean; 差异内容：401 | 类名：Canvas； API声明：quickRejectRect(rect: common2D.Rect): boolean; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
 | 删除错误码 | 类名：Typeface； API声明：static makeFromRawFile(rawfile: Resource): Typeface; 差异内容：401 | 类名：Typeface； API声明：static makeFromRawFile(rawfile: Resource): Typeface; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
 | 删除错误码 | 类名：Font； API声明：createPathForGlyph(index: number): Path; 差异内容：401 | 类名：Font； API声明：createPathForGlyph(index: number): Path; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
-| 删除错误码 | 类名：Font； API声明：getBounds(glyphs: Array<number>): Array<common2D.Rect>; 差异内容：401 | 类名：Font； API声明：getBounds(glyphs: Array<number>): Array<common2D.Rect>; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
+| 删除错误码 | 类名：Font； API声明：getBounds(glyphs: Array&lt;number&gt;): Array<common2D.Rect>; 差异内容：401 | 类名：Font； API声明：getBounds(glyphs: Array&lt;number&gt;): Array<common2D.Rect>; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
 | 删除错误码 | 类名：PathEffect； API声明：static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number): PathEffect; 差异内容：401 | 类名：PathEffect； API声明：static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number): PathEffect; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
 | 删除错误码 | 类名：PathEffect； API声明：static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect; 差异内容：401 | 类名：PathEffect； API声明：static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
 | 删除错误码 | 类名：PathEffect； API声明：static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect; 差异内容：401 | 类名：PathEffect； API声明：static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect; 差异内容：NA | api/@ohos.graphics.drawing.d.ts |
@@ -23,6 +23,6 @@
 | 删除错误码 | 类名：TextLine； API声明：getOffsetForStringIndex(index: number): number; 差异内容：401 | 类名：TextLine； API声明：getOffsetForStringIndex(index: number): number; 差异内容：NA | api/@ohos.graphics.text.d.ts |
 | 删除错误码 | 类名：TextLine； API声明：enumerateCaretOffsets(callback: CaretOffsetsCallback): void; 差异内容：401 | 类名：TextLine； API声明：enumerateCaretOffsets(callback: CaretOffsetsCallback): void; 差异内容：NA | api/@ohos.graphics.text.d.ts |
 | 删除错误码 | 类名：TextLine； API声明：getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number; 差异内容：401 | 类名：TextLine； API声明：getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number; 差异内容：NA | api/@ohos.graphics.text.d.ts |
-| 删除错误码 | 类名：Run； API声明：getGlyphs(range: Range): Array<number>; 差异内容：401 | 类名：Run； API声明：getGlyphs(range: Range): Array<number>; 差异内容：NA | api/@ohos.graphics.text.d.ts |
+| 删除错误码 | 类名：Run； API声明：getGlyphs(range: Range): Array&lt;number&gt;; 差异内容：401 | 类名：Run； API声明：getGlyphs(range: Range): Array&lt;number&gt;; 差异内容：NA | api/@ohos.graphics.text.d.ts |
 | 删除错误码 | 类名：Run； API声明：getPositions(range: Range): Array<common2D.Point>; 差异内容：401 | 类名：Run； API声明：getPositions(range: Range): Array<common2D.Point>; 差异内容：NA | api/@ohos.graphics.text.d.ts |
-| 删除错误码 | 类名：Run； API声明：getStringIndices(range?: Range): Array<number>; 差异内容：401 | 类名：Run； API声明：getStringIndices(range?: Range): Array<number>; 差异内容：NA | api/@ohos.graphics.text.d.ts |
+| 删除错误码 | 类名：Run； API声明：getStringIndices(range?: Range): Array&lt;number&gt;; 差异内容：401 | 类名：Run； API声明：getStringIndices(range?: Range): Array&lt;number&gt;; 差异内容：NA | api/@ohos.graphics.text.d.ts |

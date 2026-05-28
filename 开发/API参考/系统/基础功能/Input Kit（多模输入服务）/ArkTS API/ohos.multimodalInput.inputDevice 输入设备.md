@@ -3,24 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputdevice
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供输入设备管理能力，包括监听输入设备的连接和断开状态，查询设备名称等输入设备信息。
 
+> [!NOTE]
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 导入模块
 
 ```text
 import { inputDevice } from '@kit.InputKit';
 ```
 
 
-## inputDevice.getDeviceList9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDeviceList(callback: AsyncCallback<Array<number>>): void
+##### inputDevice.getDeviceList9+
+
+getDeviceList(callback: AsyncCallback<Array&lt;number&gt;>): void
 
 获取所有输入设备的ID列表，使用callback异步回调。
 
@@ -28,16 +30,14 @@ getDeviceList(callback: AsyncCallback<Array<number>>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;number&gt;&gt; | 是 | 回调函数，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
+| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 回调函数，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -46,40 +46,39 @@ getDeviceList(callback: AsyncCallback<Array<number>>): void
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-try {
-inputDevice.getDeviceList((error: BusinessError, ids: Array<number>) => {
-if (error) {
-console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
-return;
-}
-console.info(`Device id list: ${JSON.stringify(ids)}`);
-});
-} catch (error) {
-console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          try {
+            inputDevice.getDeviceList((error: BusinessError, ids: Array<number>) => {
+              if (error) {
+                console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                return;
+              }
+              console.info(`Device id list: ${JSON.stringify(ids)}`);
+            });
+          } catch (error) {
+            console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDeviceList9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDeviceList(): Promise<Array<number>>
+##### inputDevice.getDeviceList9+
+
+getDeviceList(): Promise<Array&lt;number&gt;>
 
 获取所有输入设备的ID列表，使用Promise异步回调。
 
@@ -87,46 +86,44 @@ getDeviceList(): Promise<Array<number>>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;number&gt;&gt; | Promise对象，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
+| Promise<Array&lt;number&gt;> | Promise对象，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
 
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-try {
-inputDevice.getDeviceList().then((ids: Array<number>) => {
-console.info(`Device id list: ${JSON.stringify(ids)}`);
-}).catch((error: BusinessError) => {
-console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
-});
-} catch (error) {
-console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          try {
+            inputDevice.getDeviceList().then((ids: Array<number>) => {
+              console.info(`Device id list: ${JSON.stringify(ids)}`);
+            }).catch((error: BusinessError) => {
+              console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            });
+          } catch (error) {
+            console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDeviceInfo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void
+##### inputDevice.getDeviceInfo9+
+
+getDeviceInfo(deviceId: number, callback: AsyncCallback&lt;InputDeviceData&gt;): void
 
 获取指定输入设备的信息，使用callback异步回调。
 
@@ -134,17 +131,15 @@ getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
-| callback | AsyncCallback&lt;[InputDeviceData](#inputdevicedata)&gt; | 是 | 回调函数。返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
+| callback | AsyncCallback&lt;InputDeviceData&gt; | 是 | 回调函数。返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -153,48 +148,46 @@ getDeviceInfo(deviceId: number, callback: AsyncCallback<InputDeviceData>): void
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 获取输入设备ID为1的设备信息。
-try {
-inputDevice.getDeviceInfo(1, (error: BusinessError, deviceData: inputDevice.InputDeviceData) => {
-if (error) {
-console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
-return;
-}
-console.info(`Device info: ${JSON.stringify(deviceData)}`);
-});
-} catch (error) {
-console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 获取输入设备ID为1的设备信息。
+          try {
+            inputDevice.getDeviceInfo(1, (error: BusinessError, deviceData: inputDevice.InputDeviceData) => {
+              if (error) {
+                console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                return;
+              }
+              console.info(`Device info: ${JSON.stringify(deviceData)}`);
+            });
+          } catch (error) {
+            console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDeviceInfo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDeviceInfo(deviceId: number): Promise<InputDeviceData>
+##### inputDevice.getDeviceInfo9+
+
+getDeviceInfo(deviceId: number): Promise&lt;InputDeviceData&gt;
 
 获取指定id的输入设备信息，使用Promise异步回调。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
 **参数**：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -203,16 +196,14 @@ getDeviceInfo(deviceId: number): Promise<InputDeviceData>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[InputDeviceData](#inputdevicedata)&gt; | Promise对象，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
+| Promise&lt;InputDeviceData&gt; | Promise对象，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -221,37 +212,36 @@ getDeviceInfo(deviceId: number): Promise<InputDeviceData>
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 获取输入设备ID为1的设备信息。
-try {
-inputDevice.getDeviceInfo(1).then((deviceData: inputDevice.InputDeviceData) => {
-console.info(`Device info: ${JSON.stringify(deviceData)}`);
-}).catch((error: BusinessError) => {
-console.error(`Get device info failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-});
-} catch (error) {
-console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 获取输入设备ID为1的设备信息。
+          try {
+            inputDevice.getDeviceInfo(1).then((deviceData: inputDevice.InputDeviceData) => {
+              console.info(`Device info: ${JSON.stringify(deviceData)}`);
+            }).catch((error: BusinessError) => {
+              console.error(`Get device info failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            });
+          } catch (error) {
+            console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDeviceInfoSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### inputDevice.getDeviceInfoSync10+
 
 getDeviceInfoSync(deviceId: number): InputDeviceData
 
@@ -261,7 +251,6 @@ getDeviceInfoSync(deviceId: number): InputDeviceData
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
@@ -269,16 +258,14 @@ getDeviceInfoSync(deviceId: number): InputDeviceData
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [InputDeviceData](#inputdevicedata) | 返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
+| InputDeviceData | 返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -287,35 +274,34 @@ getDeviceInfoSync(deviceId: number): InputDeviceData
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 获取输入设备ID为1的设备信息。
-try {
-let deviceData: inputDevice.InputDeviceData = inputDevice.getDeviceInfoSync(1);
-console.info(`Device info: ${JSON.stringify(deviceData)}`);
-} catch (error) {
-console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 获取输入设备ID为1的设备信息。
+          try {
+            let deviceData: inputDevice.InputDeviceData = inputDevice.getDeviceInfoSync(1);
+            console.info(`Device info: ${JSON.stringify(deviceData)}`);
+          } catch (error) {
+            console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.on('change')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: "change", listener: Callback<DeviceListener>): void
+##### inputDevice.on('change')9+
+
+on(type: "change", listener: Callback&lt;DeviceListener&gt;): void
 
 注册监听输入设备的热插拔事件，使用时需连接鼠标、键盘、触摸屏等外部设备。使用callback异步回调。
 
@@ -323,17 +309,15 @@ on(type: "change", listener: Callback<DeviceListener>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 输入设备的事件类型，固定值为'change'。 |
-| listener | Callback&lt;[DeviceListener](#devicelistener9)&gt; | 是 | 回调函数，异步上报输入设备热插拔事件。 |
+| listener | Callback&lt;DeviceListener&gt; | 是 | 回调函数，异步上报输入设备热插拔事件。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -342,8 +326,7 @@ on(type: "change", listener: Callback<DeviceListener>): void
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -352,65 +335,65 @@ const DOMAIN = 0x0000;
 @Entry
 @Component
 struct Index {
-@State isPhysicalKeyboardExist: boolean = false;
-@State message: string = "Click to obtain the device list and monitor device hot-plug events";
-keyBoards: Map<number, inputDevice.KeyboardType> = new Map();
+  @State isPhysicalKeyboardExist: boolean = false;
+  @State message: string = "Click to obtain the device list and monitor device hot-plug events";
+  keyBoards: Map<number, inputDevice.KeyboardType> = new Map();
 
-build() {
-RelativeContainer() {
-Column() {
-Text(this.message)
-.onClick(() => {
-try {
-// 1.获取设备列表，判断是否有物理键盘连接
-inputDevice.getDeviceList().then(data => {
-for (let i = 0; i < data.length; ++i) {
-inputDevice.getKeyboardType(data[i]).then(type => {
-if (type === inputDevice.KeyboardType.ALPHABETIC_KEYBOARD) {
-// 物理键盘已连接
-this.isPhysicalKeyboardExist = true;
-this.keyBoards.set(data[i], type);
-}
-});
-}
-});
-// 2.监听设备热插拔
-inputDevice.on("change", (data) => {
-hilog.info(DOMAIN, 'InputDevice', `Device event info: %{public}s`, JSON.stringify(data));
-inputDevice.getKeyboardType(data.deviceId).then((type) => {
-hilog.info(DOMAIN, 'InputDevice', 'The keyboard type is: %{public}d', type);
-if (type === inputDevice.KeyboardType.ALPHABETIC_KEYBOARD && data.type === 'add') {
-// 物理键盘已插入
-this.isPhysicalKeyboardExist = true;
-this.keyBoards.set(data.deviceId, type);
-}
-});
-if (this.keyBoards.get(data.deviceId) === inputDevice.KeyboardType.ALPHABETIC_KEYBOARD &&
-data.type === 'remove') {
-// 物理键盘已拔掉
-this.isPhysicalKeyboardExist = false;
-this.keyBoards.delete(data.deviceId);
-}
-});
-this.message = "Device monitoring enabled successfully"
-} catch (error) {
-hilog.error(DOMAIN, 'InputDevice', `Execute failed, error: %{public}s`,
-JSON.stringify(error, ["code", "message"]));
-this.message = `Failed to enable device monitoring. Click to retry. Error message:${JSON.stringify(error,
-["code", "message"])}`
-}
-})
-}
-}
-}
+  build() {
+    RelativeContainer() {
+      Column() {
+        Text(this.message)
+          .onClick(() => {
+            try {
+              // 1.获取设备列表，判断是否有物理键盘连接
+              inputDevice.getDeviceList().then(data => {
+                for (let i = 0; i < data.length; ++i) {
+                  inputDevice.getKeyboardType(data[i]).then(type => {
+                    if (type === inputDevice.KeyboardType.ALPHABETIC_KEYBOARD) {
+                      // 物理键盘已连接
+                      this.isPhysicalKeyboardExist = true;
+                      this.keyBoards.set(data[i], type);
+                    }
+                  });
+                }
+              });
+              // 2.监听设备热插拔
+              inputDevice.on("change", (data) => {
+                hilog.info(DOMAIN, 'InputDevice', `Device event info: %{public}s`, JSON.stringify(data));
+                inputDevice.getKeyboardType(data.deviceId).then((type) => {
+                  hilog.info(DOMAIN, 'InputDevice', 'The keyboard type is: %{public}d', type);
+                  if (type === inputDevice.KeyboardType.ALPHABETIC_KEYBOARD && data.type === 'add') {
+                    // 物理键盘已插入
+                    this.isPhysicalKeyboardExist = true;
+                    this.keyBoards.set(data.deviceId, type);
+                  }
+                });
+                if (this.keyBoards.get(data.deviceId) === inputDevice.KeyboardType.ALPHABETIC_KEYBOARD &&
+                  data.type === 'remove') {
+                  // 物理键盘已拔掉
+                  this.isPhysicalKeyboardExist = false;
+                  this.keyBoards.delete(data.deviceId);
+                }
+              });
+              this.message = "Device monitoring enabled successfully"
+            } catch (error) {
+              hilog.error(DOMAIN, 'InputDevice', `Execute failed, error: %{public}s`,
+                JSON.stringify(error, ["code", "message"]));
+              this.message = `Failed to enable device monitoring. Click to retry. Error message:${JSON.stringify(error,
+                ["code", "message"])}`
+            }
+          })
+      }
+    }
+  }
 }
 ```
 
 
-## inputDevice.off('change')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: "change", listener?: Callback<DeviceListener>): void
+##### inputDevice.off('change')9+
+
+off(type: "change", listener?: Callback&lt;DeviceListener&gt;): void
 
 取消监听输入设备的热插拔事件。在应用退出前调用，取消监听。使用callback异步回调。
 
@@ -418,17 +401,15 @@ off(type: "change", listener?: Callback<DeviceListener>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 输入设备的事件类型，固定值为'change'。 |
-| listener | Callback&lt;[DeviceListener](#devicelistener9)&gt; | 否 | 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。 |
+| listener | Callback&lt;DeviceListener&gt; | 否 | 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -437,209 +418,201 @@ off(type: "change", listener?: Callback<DeviceListener>): void
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-let callback = (data: inputDevice.DeviceListener) => {
-console.info(`Report device event info: ${JSON.stringify(data, [`type`, `deviceId`])}`);
-};
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          let callback = (data: inputDevice.DeviceListener) => {
+            console.info(`Report device event info: ${JSON.stringify(data, [`type`, `deviceId`])}`);
+          };
 
-try {
-inputDevice.on("change", callback);
-} catch (error) {
-console.error(`Listen device event failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
+          try {
+            inputDevice.on("change", callback);
+          } catch (error) {
+            console.error(`Listen device event failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
 
-// 取消指定的监听。
-try {
-inputDevice.off("change", callback);
-} catch (error) {
-console.error(`Cancel listening device event failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
+          // 取消指定的监听。
+          try {
+            inputDevice.off("change", callback);
+          } catch (error) {
+            console.error(`Cancel listening device event failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
 
-// 取消所有监听。
-try {
-inputDevice.off("change");
-} catch (error) {
-console.error(`Cancel all listening device event failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+          // 取消所有监听。
+          try {
+            inputDevice.off("change");
+          } catch (error) {
+            console.error(`Cancel all listening device event failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDeviceIds(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDeviceIds(callback: AsyncCallback<Array<number>>): void
+##### inputDevice.getDeviceIds(deprecated)
+
+getDeviceIds(callback: AsyncCallback<Array&lt;number&gt;>): void
 
 获取所有输入设备的ID列表，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用[inputDevice.getDeviceList](#inputdevicegetdevicelist9)替代。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 inputDevice.getDeviceList 替代。
+
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;number&gt;&gt; | 是 | 回调函数，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
+| callback | AsyncCallback<Array&lt;number&gt;> | 是 | 回调函数，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
 
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-inputDevice.getDeviceIds((error: BusinessError, ids: Array<number>) => {
-if (error) {
-console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
-return;
-}
-console.info(`Device id list: ${JSON.stringify(ids)}`);
-});
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          inputDevice.getDeviceIds((error: BusinessError, ids: Array<number>) => {
+            if (error) {
+              console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              return;
+            }
+            console.info(`Device id list: ${JSON.stringify(ids)}`);
+          });
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDeviceIds(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDeviceIds(): Promise<Array<number>>
+##### inputDevice.getDeviceIds(deprecated)
+
+getDeviceIds(): Promise<Array&lt;number&gt;>
 
 获取所有输入设备的ID列表，使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用[inputDevice.getDeviceList](#inputdevicegetdevicelist9)替代。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 inputDevice.getDeviceList 替代。
+
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;number&gt;&gt; | Promise对象，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
+| Promise<Array&lt;number&gt;> | Promise对象，返回所有输入设备的ID列表。ID是输入设备的唯一标识。 |
 
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-inputDevice.getDeviceIds().then((ids: Array<number>) => {
-console.info(`Device id list: ${JSON.stringify(ids)}`);
-}).catch((error: BusinessError) => {
-console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
-})
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          inputDevice.getDeviceIds().then((ids: Array<number>) => {
+            console.info(`Device id list: ${JSON.stringify(ids)}`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to get device id list, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          })
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDevice(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void
+##### inputDevice.getDevice(deprecated)
+
+getDevice(deviceId: number, callback: AsyncCallback&lt;InputDeviceData&gt;): void
 
 获取指定id的输入设备信息，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用[inputDevice.getDeviceInfo](#inputdevicegetdeviceinfo9)替代。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 inputDevice.getDeviceInfo 替代。
+
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
-| callback | AsyncCallback&lt;[InputDeviceData](#inputdevicedata)&gt; | 是 | 回调函数，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
+| callback | AsyncCallback&lt;InputDeviceData&gt; | 是 | 回调函数，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
 
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 获取输入设备ID为1的设备信息。
-inputDevice.getDevice(1, (error: BusinessError, deviceData: inputDevice.InputDeviceData) => {
-if (error) {
-console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
-return;
-}
-console.info(`Device info: ${JSON.stringify(deviceData)}`);
-});
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 获取输入设备ID为1的设备信息。
+          inputDevice.getDevice(1, (error: BusinessError, deviceData: inputDevice.InputDeviceData) => {
+            if (error) {
+              console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              return;
+            }
+            console.info(`Device info: ${JSON.stringify(deviceData)}`);
+          });
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getDevice(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDevice(deviceId: number): Promise<InputDeviceData>
+##### inputDevice.getDevice(deprecated)
+
+getDevice(deviceId: number): Promise&lt;InputDeviceData&gt;
 
 获取指定id的输入设备信息，使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用[inputDevice.getDeviceInfo](#inputdevicegetdeviceinfo9)替代。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 inputDevice.getDeviceInfo 替代。
+
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
 **参数**：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -648,43 +621,41 @@ getDevice(deviceId: number): Promise<InputDeviceData>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[InputDeviceData](#inputdevicedata)&gt; | Promise对象，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
+| Promise&lt;InputDeviceData&gt; | Promise对象，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。 |
 
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 获取输入设备ID为1的设备信息。
-inputDevice.getDevice(1).then((deviceData: inputDevice.InputDeviceData) => {
-console.info(`Device info: ${JSON.stringify(deviceData)}`);
-}).catch((error: BusinessError) => {
-console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
-})
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 获取输入设备ID为1的设备信息。
+          inputDevice.getDevice(1).then((deviceData: inputDevice.InputDeviceData) => {
+            console.info(`Device info: ${JSON.stringify(deviceData)}`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to get device info, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          })
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.supportKeys9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback <Array<boolean>>): void
+##### inputDevice.supportKeys9+
+
+supportKeys(deviceId: number, keys: Array&lt;KeyCode&gt;, callback: AsyncCallback <Array&lt;boolean&gt;>): void
 
 查询指定输入设备是否支持指定按键，使用Callback异步回调。
 
@@ -692,18 +663,16 @@ supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback <Arr
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
-| keys | Array[&lt;KeyCode&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode#keycode) | 是 | 需要查询的键值，最多支持5个按键查询。 |
-| callback | AsyncCallback&lt;Array&lt;boolean&gt;&gt; | 是 | 回调函数，返回查询结果。 |
+| keys | Array&lt;KeyCode&gt; | 是 | 需要查询的键值，最多支持5个按键查询。 |
+| callback | AsyncCallback<Array&lt;boolean&gt;> | 是 | 回调函数，返回查询结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -712,37 +681,36 @@ supportKeys(deviceId: number, keys: Array<KeyCode>, callback: AsyncCallback <Arr
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 查询ID为1的输入设备对于17、22和2055按键的支持情况。
-try {
-inputDevice.supportKeys(1, [17, 22, 2055], (error: BusinessError, supportResult: Array<Boolean>) => {
-console.info(`Query result: ${JSON.stringify(supportResult)}`);
-});
-} catch (error) {
-console.error(`Query failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 查询ID为1的输入设备对于17、22和2055按键的支持情况。
+          try {
+            inputDevice.supportKeys(1, [17, 22, 2055], (error: BusinessError, supportResult: Array<Boolean>) => {
+              console.info(`Query result: ${JSON.stringify(supportResult)}`);
+            });
+          } catch (error) {
+            console.error(`Query failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.supportKeys9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>
+##### inputDevice.supportKeys9+
+
+supportKeys(deviceId: number, keys: Array&lt;KeyCode&gt;): Promise<Array&lt;boolean&gt;>
 
 查询指定输入设备是否支持指定按键，使用Promise异步回调。
 
@@ -750,25 +718,22 @@ supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
-| keys | Array[&lt;KeyCode&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode#keycode) | 是 | 需要查询的键值，最多支持查询5个按键。 |
+| keys | Array&lt;KeyCode&gt; | 是 | 需要查询的键值，最多支持查询5个按键。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;boolean&gt;&gt; | Promise对象，返回查询结果。true 表示支持，false表示不支持。 |
+| Promise<Array&lt;boolean&gt;> | Promise对象，返回查询结果。true 表示支持，false表示不支持。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -777,39 +742,38 @@ supportKeys(deviceId: number, keys: Array<KeyCode>): Promise<Array<boolean>>
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 查询ID为1的输入设备对于17、22和2055按键的支持情况。
-try {
-inputDevice.supportKeys(1, [17, 22, 2055]).then((supportResult: Array<Boolean>) => {
-console.info(`Query result: ${JSON.stringify(supportResult)}`);
-}).catch((error: BusinessError) => {
-console.error(`Query support Keys failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-});
-} catch (error) {
-console.error(`Query failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 查询ID为1的输入设备对于17、22和2055按键的支持情况。
+          try {
+            inputDevice.supportKeys(1, [17, 22, 2055]).then((supportResult: Array<Boolean>) => {
+              console.info(`Query result: ${JSON.stringify(supportResult)}`);
+            }).catch((error: BusinessError) => {
+              console.error(`Query support Keys failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            });
+          } catch (error) {
+            console.error(`Query failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.supportKeysSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-supportKeysSync(deviceId: number, keys: Array<KeyCode>): Array<boolean>
+##### inputDevice.supportKeysSync10+
+
+supportKeysSync(deviceId: number, keys: Array&lt;KeyCode&gt;): Array&lt;boolean&gt;
 
 查询指定id的输入设备对指定键值的支持情况。
 
@@ -817,15 +781,13 @@ supportKeysSync(deviceId: number, keys: Array<KeyCode>): Array<boolean>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
-| keys | Array[&lt;KeyCode&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode#keycode) | 是 | 需要查询的键值，最多支持查询5个按键。 |
+| keys | Array&lt;KeyCode&gt; | 是 | 需要查询的键值，最多支持查询5个按键。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -836,7 +798,6 @@ supportKeysSync(deviceId: number, keys: Array<KeyCode>): Array<boolean>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -844,35 +805,34 @@ supportKeysSync(deviceId: number, keys: Array<KeyCode>): Array<boolean>
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 查询ID为1的输入设备对于17、22和2055按键的支持情况。
-try {
-let supportResult: Array<Boolean> = inputDevice.supportKeysSync(1, [17, 22, 2055])
-console.info(`Query result: ${JSON.stringify(supportResult)}`)
-} catch (error) {
-console.error(`Query failed, error: ${JSON.stringify(error, [`code`, `message`])}`)
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 查询ID为1的输入设备对于17、22和2055按键的支持情况。
+          try {
+            let supportResult: Array<Boolean> = inputDevice.supportKeysSync(1, [17, 22, 2055])
+            console.info(`Query result: ${JSON.stringify(supportResult)}`)
+          } catch (error) {
+            console.error(`Query failed, error: ${JSON.stringify(error, [`code`, `message`])}`)
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getKeyboardType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void
+##### inputDevice.getKeyboardType9+
+
+getKeyboardType(deviceId: number, callback: AsyncCallback&lt;KeyboardType&gt;): void
 
 获取输入设备的键盘类型，如全键盘、小键盘等，使用callback异步回调。输入设备的键盘类型以接口返回结果为准。
 
@@ -880,17 +840,15 @@ getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
-| callback | AsyncCallback&lt;[KeyboardType](#keyboardtype9)&gt; | 是 | 回调函数，返回查询结果。 |
+| callback | AsyncCallback&lt;KeyboardType&gt; | 是 | 回调函数，返回查询结果。 |
 
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)���
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -899,48 +857,46 @@ getKeyboardType(deviceId: number, callback: AsyncCallback<KeyboardType>): void
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 查询ID为1的输入设备的键盘类型。
-try {
-inputDevice.getKeyboardType(1, (error: BusinessError, type: number) => {
-if (error) {
-console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`);
-return;
-}
-console.info(`Keyboard type: ${JSON.stringify(type)}`);
-});
-} catch (error) {
-console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 查询ID为1的输入设备的键盘类型。
+          try {
+            inputDevice.getKeyboardType(1, (error: BusinessError, type: number) => {
+              if (error) {
+                console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                return;
+              }
+              console.info(`Keyboard type: ${JSON.stringify(type)}`);
+            });
+          } catch (error) {
+            console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getKeyboardType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getKeyboardType(deviceId: number): Promise<KeyboardType>
+##### inputDevice.getKeyboardType9+
+
+getKeyboardType(deviceId: number): Promise&lt;KeyboardType&gt;
 
 获取输入设备的键盘类型，使用Promise异步回调。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
 **参数**：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -949,16 +905,14 @@ getKeyboardType(deviceId: number): Promise<KeyboardType>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[KeyboardType](#keyboardtype9)&gt; | Promise对象，返回查询结果。 |
+| Promise&lt;KeyboardType&gt; | Promise对象，返回查询结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -967,37 +921,36 @@ getKeyboardType(deviceId: number): Promise<KeyboardType>
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 示例查询设备ID为1的设备键盘类型。
-try {
-inputDevice.getKeyboardType(1).then((type: number) => {
-console.info(`Keyboard type: ${JSON.stringify(type)}`);
-}).catch((error: BusinessError) => {
-console.error(`Get keyboard type failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-})
-} catch (error) {
-console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 示例查询设备ID为1的设备键盘类型。
+          try {
+            inputDevice.getKeyboardType(1).then((type: number) => {
+              console.info(`Keyboard type: ${JSON.stringify(type)}`);
+            }).catch((error: BusinessError) => {
+              console.error(`Get keyboard type failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            })
+          } catch (error) {
+            console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getKeyboardTypeSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### inputDevice.getKeyboardTypeSync10+
 
 getKeyboardTypeSync(deviceId: number): KeyboardType
 
@@ -1007,7 +960,6 @@ getKeyboardTypeSync(deviceId: number): KeyboardType
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | number | 是 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
@@ -1015,16 +967,14 @@ getKeyboardTypeSync(deviceId: number): KeyboardType
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [KeyboardType](#keyboardtype9) | 返回查询结果。 |
+| KeyboardType | 返回查询结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1033,35 +983,34 @@ getKeyboardTypeSync(deviceId: number): KeyboardType
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-// 示例查询设备ID为1的设备键盘类型。
-try {
-let type: number = inputDevice.getKeyboardTypeSync(1)
-console.info(`Keyboard type: ${JSON.stringify(type)}`)
-} catch (error) {
-console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`)
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          // 示例查询设备ID为1的设备键盘类型。
+          try {
+            let type: number = inputDevice.getKeyboardTypeSync(1)
+            console.info(`Keyboard type: ${JSON.stringify(type)}`)
+          } catch (error) {
+            console.error(`Failed to get keyboard type, error: ${JSON.stringify(error, [`code`, `message`])}`)
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.isFunctionKeyEnabled15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>
+##### inputDevice.isFunctionKeyEnabled15+
+
+isFunctionKeyEnabled(functionKey: FunctionKey): Promise&lt;boolean&gt;
 
 检查功能键（如：CapsLock键）是否使能。使用Promise异步回调。
 
@@ -1069,14 +1018,12 @@ isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| functionKey | [FunctionKey](#functionkey15) | 是 | 需要设置的功能键类型。 |
+| functionKey | FunctionKey | 是 | 需要设置的功能键类型。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1087,7 +1034,6 @@ isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[输入设备错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputdevice)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1096,38 +1042,37 @@ isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-try {
-inputDevice.isFunctionKeyEnabled(inputDevice.FunctionKey.CAPS_LOCK).then((state: boolean) => {
-console.info(`capslock state: ${JSON.stringify(state)}`);
-}).catch((error: BusinessError) => {
-console.error(`Get capslock state failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-})
-} catch (error) {
-console.error(`Failed to get capslock state, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          try {
+            inputDevice.isFunctionKeyEnabled(inputDevice.FunctionKey.CAPS_LOCK).then((state: boolean) => {
+              console.info(`capslock state: ${JSON.stringify(state)}`);
+            }).catch((error: BusinessError) => {
+              console.error(`Get capslock state failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            })
+          } catch (error) {
+            console.error(`Failed to get capslock state, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.setFunctionKeyEnabled15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>
+##### inputDevice.setFunctionKeyEnabled15+
+
+setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise&lt;void&gt;
 
 设置功能键（如：CapsLock键）使能状态。使用Promise异步回调。
 
@@ -1137,15 +1082,13 @@ setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| functionKey | [FunctionKey](#functionkey15) | 是 | 需要设置的功能键类型。 |
+| functionKey | FunctionKey | 是 | 需要设置的功能键类型。 |
 | enabled | boolean | 是 | 功能键使能状态。取值为true表示使能功能键，取值为false表示不使能功能键。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1155,7 +1098,6 @@ setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[输入设备错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputdevice)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1167,45 +1109,43 @@ setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-try {
-inputDevice.setFunctionKeyEnabled(inputDevice.FunctionKey.CAPS_LOCK, true).then(() => {
-console.info(`Set capslock state success`);
-}).catch((error: BusinessError) => {
-console.error(`Set capslock state failed, error=${JSON.stringify(error)}`);
-});
-} catch (error) {
-console.error(`Set capslock enable error`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          try {
+            inputDevice.setFunctionKeyEnabled(inputDevice.FunctionKey.CAPS_LOCK, true).then(() => {
+              console.info(`Set capslock state success`);
+            }).catch((error: BusinessError) => {
+              console.error(`Set capslock state failed, error=${JSON.stringify(error)}`);
+            });
+          } catch (error) {
+            console.error(`Set capslock enable error`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## inputDevice.getIntervalSinceLastInput14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getIntervalSinceLastInput(): Promise<number>
+##### inputDevice.getIntervalSinceLastInput14+
+
+getIntervalSinceLastInput(): Promise&lt;number&gt;
 
 获取距离上次系统输入事件的时间间隔（包含设备休眠时间），使用Promise异步回调。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1214,77 +1154,75 @@ getIntervalSinceLastInput(): Promise<number>
 
 **示例**：
 
-
-```text
+```json
 import { inputDevice } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-inputDevice.getIntervalSinceLastInput().then((timeInterval: number) => {
-console.info(`Interval since last input: ${JSON.stringify(timeInterval)}`);
-}).catch((error: BusinessError) => {
-console.error(`Get interval since last input failed, error: ${JSON.stringify(error)}`);
-})
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          inputDevice.getIntervalSinceLastInput().then((timeInterval: number) => {
+            console.info(`Interval since last input: ${JSON.stringify(timeInterval)}`);
+          }).catch((error: BusinessError) => {
+            console.error(`Get interval since last input failed, error: ${JSON.stringify(error)}`);
+          })
+        })
+    }
+  }
 }
 ```
 
 
-## DeviceListener9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### DeviceListener9+
 
 描述输入设备热插拔的信息。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [ChangedType](#changedtype9) | 否 | 否 | 输入设备插入或者移除。 |
+| type | ChangedType | 否 | 否 | 输入设备插入或者移除。 |
 | deviceId | number | 否 | 否 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
 
 
-## InputDeviceData
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### InputDeviceData
 
 描述输入设备的信息。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | id | number | 否 | 否 | 输入设备的唯一标识，同一个物理设备反复插拔，设备ID可能会发生变化。 |
 | name | string | 否 | 否 | 输入设备的名称。 |
-| sources | Array&lt;[SourceType](#sourcetype9)&gt; | 否 | 否 | 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。 |
-| axisRanges | Array&lt;[AxisRange](#axisrange)&gt; | 否 | 否 | 输入设备的轴信息。 |
+| sources | Array&lt;SourceType&gt; | 否 | 否 | 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。 |
+| axisRanges | Array&lt;AxisRange&gt; | 否 | 否 | 输入设备的轴信息。 |
 | bus9+ | number | 否 | 否 | 输入设备的总线类型，该值以输入设备上报为准。 |
 | product9+ | number | 否 | 否 | 输入设备的产品信息。 |
 | vendor9+ | number | 否 | 否 | 输入设备的厂商信息。 |
 | version9+ | number | 否 | 否 | 输入设备的版本信息。 |
 | phys9+ | string | 否 | 否 | 输入设备的物理地址。 |
 | uniq9+ | string | 否 | 否 | 输入设备的唯一标识。 |
-| isVirtual23+ | boolean | 否 | 是 | 输入设备是否为虚拟设备。          true表示是虚拟设备，false表示是非虚拟设备。 |
-| isLocal23+ | boolean | 否 | 是 | 输入设备是否为本地设备。          true表示是本地设备，false表示是非本地设备。 |
+| isVirtual23+ | boolean | 否 | 是 | 输入设备是否为虚拟设备。 true表示是虚拟设备，false表示是非虚拟设备。 |
+| isLocal23+ | boolean | 否 | 是 | 输入设备是否为本地设备。 true表示是本地设备，false表示是非本地设备。 |
 
 
-## AxisType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AxisType9+
 
 type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null'
 
 输入设备的轴类型。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1299,18 +1237,18 @@ type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'press
 | 'null' | 无。 |
 
 
-## AxisRange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AxisRange
 
 输入设备的轴信息。
 
 **系统能力**： SystemCapability.MultimodalInput.Input.InputDevice
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| source | [SourceType](#sourcetype9) | 否 | 否 | 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。 |
-| axis | [AxisType](#axistype9) | 否 | 否 | 输入设备的轴类型。 |
+| source | SourceType | 否 | 否 | 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。 |
+| axis | AxisType | 否 | 否 | 输入设备的轴类型。 |
 | max | number | 否 | 否 | 轴的最大值。 |
 | min | number | 否 | 否 | 轴的最小值。 |
 | fuzz9+ | number | 否 | 否 | 轴的模糊值。 |
@@ -1318,15 +1256,15 @@ type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'press
 | resolution9+ | number | 否 | 否 | 轴的分辨率。 |
 
 
-## SourceType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SourceType9+
 
 type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball'
 
 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1338,8 +1276,9 @@ type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick'
 | 'joystick' | 表示输入设备是操纵杆。 |
 
 
-## ChangedType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ChangedType9+
 
 type ChangedType = 'add' | 'remove'
 
@@ -1347,20 +1286,19 @@ type ChangedType = 'add' | 'remove'
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'add' | 插入输入设备。 |
 | 'remove' | 移除输入设备。 |
 
 
-## KeyboardType9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### KeyboardType9+
 
 键盘输入设备的类型。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1372,13 +1310,13 @@ type ChangedType = 'add' | 'remove'
 | REMOTE_CONTROL | 5 | 表示遥控器设备。 |
 
 
-## FunctionKey15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FunctionKey15+
 
 功能键的类型。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

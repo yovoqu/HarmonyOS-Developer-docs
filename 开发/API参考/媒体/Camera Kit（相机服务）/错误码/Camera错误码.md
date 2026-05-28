@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 7400101 无效入参
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 7400101 无效入参
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Parameter missing or parameter type incorrect.
 根据接口文档，传入正确的入参。
 
 
-## 7400102 非法操作
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400102 非法操作
 
 **错误信息**
 
@@ -50,8 +49,8 @@ Operation not allowed.
 根据接口文档与指导文档，按照正确步骤进行操作。
 
 
-## 7400103 会话未配置
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400103 会话未配置
 
 **错误信息**
 
@@ -70,8 +69,8 @@ Session not config.
 先进行会话配置。
 
 
-## 7400104 会话未运行
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400104 会话未运行
 
 **错误信息**
 
@@ -90,8 +89,8 @@ Session not running.
 先执行会话运行操作。
 
 
-## 7400105 会话配置被锁定
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400105 会话配置被锁定
 
 **错误信息**
 
@@ -110,7 +109,8 @@ Session config locked.
 等待会话配置锁定被释放。
 
 
-## 7400106 设备配置被锁定
+
+##### 7400106 设备配置被锁定
 
 **错误信息**
 
@@ -129,8 +129,8 @@ Device setting locked.
 等待设备配置锁定被释放。
 
 
-## 7400107 相机冲突
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400107 相机冲突
 
 **错误信息**
 
@@ -149,8 +149,8 @@ Can not use camera cause of conflict.
 等待冲突的相机被释放。
 
 
-## 7400108 安全策略无法使用相机
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400108 安全策略无法使用相机
 
 **错误信息**
 
@@ -169,7 +169,8 @@ Camera disabled cause of security reason.
 应用进入前台状态后打开相机。
 
 
-## 7400109 相机设备被抢占
+
+##### 7400109 相机设备被抢占
 
 **错误信息**
 
@@ -188,8 +189,8 @@ Can not use camera cause of preempted.
 将当前开启的摄像头关闭。
 
 
-## 7400110 与当前配置存在冲突
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400110 与当前配置存在冲突
 
 **错误信息**
 
@@ -208,8 +209,8 @@ Unresolved conflicts with current configurations.
 检测当前提交的配置是否符合设备所支持的配置。
 
 
-## 7400201 相机服务异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7400201 相机服务异常
 
 **错误信息**
 

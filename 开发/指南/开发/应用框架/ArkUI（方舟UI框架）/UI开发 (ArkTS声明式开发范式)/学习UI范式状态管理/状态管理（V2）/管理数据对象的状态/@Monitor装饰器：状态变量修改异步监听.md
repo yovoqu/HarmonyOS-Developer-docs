@@ -1,6 +1,6 @@
 # @Monitor装饰器：状态变量修改异步监听
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor
 
@@ -8,19 +8,32 @@
 
 @Monitor提供了对V2状态变量的监听。在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)，[@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)，[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)。
 
-
 > [!NOTE]
 > @Monitor装饰器从API version 12开始支持。 从API version 12开始，该装饰器支持在元服务中使用。 从API version 23开始，该装饰器支持在ArkTS卡片中使用。
 
 
-## 概述
 
-@Monitor装饰器用于监听状态变量修改，使得状态变量具有深度监听的能力： @Monitor装饰器支持在@ComponentV2装饰的自定义组件中使用，未被状态变量装饰器[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)、[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)、[@Provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)、[@Consumer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)、[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)装饰的变量无法被@Monitor监听到变化。 @Monitor装饰器支持在类中与[@ObservedV2、@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)配合使用，不允许在未被@ObservedV2装饰的类中使用@Monitor装饰器。未被@Trace装饰的属性无法被@Monitor监听到变化。 当观测的属性变化时，@Monitor装饰器定义的回调方法将被调用。判断属性是否变化使用的是严格相等（===），当严格相等判断的结果是false（即不相等）的情况下，就会触发@Monitor的回调。当在一次事件中多次改变同一个属性时，将会使用初始值和最终值进行比较以判断是否变化。 单个@Monitor装饰器能够同时监听多个属性的变化，当这些属性在一次事件中共同变化时，只会触发一次@Monitor的回调方法。 @Monitor装饰器具有深度监听的能力，能够监听嵌套类、多维数组、对象数组中指定项的变化。对于嵌套类、对象数组中成员属性变化的监听要求该类被@ObservedV2装饰且该属性被@Trace装饰。 当@Monitor监听整个数组时，更改数组的某一项不会被监听到。无法监听内置类型（Array、Map、Date、Set）的API调用引起的变化。 在继承类场景中，可以在父子组件中对同一个属性分别定义@Monitor进行监听，当属性变化时，父子组件中定义的@Monitor回调均会被调用。 和[@Watch装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)类似，开发者需要自己定义回调函数，区别在于@Watch装饰器将函数名作为参数，而@Monitor直接装饰回调函数。@Monitor与@Watch的对比可以查看[@Monitor与@Watch的对比](#monitor与watch对比)。
+##### 概述
 
-## 状态管理V1版本@Watch装饰器的局限性
+@Monitor装饰器用于监听状态变量修改，使得状态变量具有深度监听的能力：
+
+ - @Monitor装饰器支持在@ComponentV2装饰的自定义组件中使用，未被状态变量装饰器[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)、[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)、[@Provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)、[@Consumer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)、[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)装饰的变量无法被@Monitor监听到变化。
+ - @Monitor装饰器支持在类中与[@ObservedV2、@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)配合使用，不允许在未被@ObservedV2装饰的类中使用@Monitor装饰器。未被@Trace装饰的属性无法被@Monitor监听到变化。
+ - 当观测的属性变化时，@Monitor装饰器定义的回调方法将被调用。判断属性是否变化使用的是严格相等（===），当严格相等判断的结果是false（即不相等）的情况下，就会触发@Monitor的回调。当在一次事件中多次改变同一个属性时，将会使用初始值和最终值进行比较以判断是否变化。
+ - 单个@Monitor装饰器能够同时监听多个属性的变化，当这些属性在一次事件中共同变化时，只会触发一次@Monitor的回调方法。
+ - @Monitor装饰器具有深度监听的能力，能够监听嵌套类、多维数组、对象数组中指定项的变化。对于嵌套类、对象数组中成员属性变化的监听要求该类被@ObservedV2装饰且该属性被@Trace装饰。
+ - 当@Monitor监听整个数组时，更改数组的某一项不会被监听到。无法监听内置类型（Array、Map、Date、Set）的API调用引起的变化。
+ - 在继承类场景中，可以在父子组件中对同一个属性分别定义@Monitor进行监听，当属性变化时，父子组件中定义的@Monitor回调均会被调用。
+ - 和[@Watch装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)类似，开发者需要自己定义回调函数，区别在于@Watch装饰器将函数名作为参数，而@Monitor直接装饰回调函数。@Monitor与@Watch的对比可以查看[@Monitor与@Watch的对比](#monitor与watch对比)。
+
+
+
+
+##### 状态管理V1版本@Watch装饰器的局限性
 
 现有状态管理V1版本无法实现对对象、数组中某一单个属性或数组项变化的监听，且无法获取变化之前的值。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Observed
@@ -73,26 +86,36 @@ struct Index {
 
 上述代码中，点击"change info name"更改info中的name属性或点击"change info age"更改age时，均会触发info注册的@Watch回调。点击"change numArr[2]"更改numArr中的第3个元素或点击"change numArr[3]"更改第4个元素时，均会触发numArr注册的@Watch回调。在这两个回调中，由于无法获取数据更改前的值，在业务逻辑更加复杂的场景下，无法准确知道是哪一个属性或元素发生了改变从而触发了@Watch事件，这不便于开发者对变量的更改进行准确监听。因此推出@Monitor装饰器实现对对象、数组中某一单个属性或数组项变化的监听，并且能够获取到变化之前的值。
 
-## 装饰器说明
 
+
+##### 装饰器说明
 
 | @Monitor属性装饰器 | 说明 |
 | --- | --- |
-| 装饰器参数 | 字符串类型的对象属性名。可同时监听多个对象属性，每个属性以逗号隔开，例如@Monitor('prop1', 'prop2')。可监听深层的属性变化，如多维数组中的某一个元素，嵌套对象或对象数组中的某一个属性。详见[监听变化](#监听变化)。 |
-| 装饰对象 | @Monitor装饰成员方法。当监听的属性发生变化时，会触发该回调方法。该回调方法以[IMonitor类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor#imonitor12)的变量作为参数，开发者可以从该参数中获取变化前后的相关信息。 |
+| 装饰器参数 | 字符串类型的对象属性名。可同时监听多个对象属性，每个属性以逗号隔开，例如@Monitor('prop1', 'prop2')。可监听深层的属性变化，如多维数组中的某一个元素，嵌套对象或对象数组中的某一个属性。详见监听变化。 |
+| 装饰对象 | @Monitor装饰成员方法。当监听的属性发生变化时，会触发该回调方法。该回调方法以IMonitor类型的变量作为参数，开发者可以从该参数中获取变化前后的相关信息。 |
 
 
-## 接口说明
-
-IMonitor类型和IMonitorValue类型的接口说明参考API文档：[状态变量变化监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor)。
-
-## 监听变化
 
 
-## 在@ComponentV2装饰的自定义组件中使用@Monitor
+##### 接口说明
 
-使用@Monitor监听的状态变量发生变化时，会触发@Monitor的回调方法。 @Monitor监听的变量需要被@Local、@Param、@Provider、@Consumer、@Computed装饰，未被状态变量装饰器装饰的变量在变化时无法被监听。@Monitor可以同时监听多个状态变量，这些变量名之间用","隔开。
-```text
+IMonitor类型和IMonitorValue&lt;T&gt;类型的接口说明参考API文档：[状态变量变化监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management-watch-monitor)。
+
+
+
+##### 监听变化
+
+
+
+##### 在@ComponentV2装饰的自定义组件中使用@Monitor
+
+使用@Monitor监听的状态变量发生变化时，会触发@Monitor的回调方法。
+
+ - @Monitor监听的变量需要被@Local、@Param、@Provider、@Consumer、@Computed装饰，未被状态变量装饰器装饰的变量在变化时无法被监听。@Monitor可以同时监听多个状态变量，这些变量名之间用","隔开。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Entry
@@ -123,8 +146,10 @@ struct Index {
 }
 ```
 
-@Monitor监听的状态变量为类对象时，仅能监听对象整体的变化。监听类属性的变化需要类属性被@Trace装饰。
-```text
+ - @Monitor监听的状态变量为类对象时，仅能监听对象整体的变化。监听类属性的变化需要类属性被@Trace装饰。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 class Info {
@@ -169,10 +194,17 @@ struct Index {
 ```
 
 
-## 在@ObservedV2装饰的类中使用@Monitor
 
-使用@Monitor监听的属性发生变化时，会触发@Monitor的回调方法。 @Monitor监听的对象属性需要被@Trace装饰，未被@Trace装饰的属性的变化无法被监听。@Monitor可以同时监听多个属性，这些属性之间用","隔开。
-```text
+
+
+##### 在@ObservedV2装饰的类中使用@Monitor
+
+使用@Monitor监听的属性发生变化时，会触发@Monitor的回调方法。
+
+ - @Monitor监听的对象属性需要被@Trace装饰，未被@Trace装饰的属性的变化无法被监听。@Monitor可以同时监听多个属性，这些属性之间用","隔开。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -234,8 +266,10 @@ struct Index {
 }
 ```
 
-@Monitor可以监听深层属性的变化，该深层属性需要被@Trace装饰。
-```text
+ - @Monitor可以监听深层属性的变化，该深层属性需要被@Trace装饰。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -270,8 +304,10 @@ struct Index {
 }
 ```
 
-在继承类场景下，可以在继承链中对同一个属性进行多次监听。
-```text
+ - 在继承类场景下，可以在继承链中对同一个属性进行多次监听。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -319,10 +355,17 @@ struct Index {
 ```
 
 
-## 通用监听能力
 
-@Monitor还有一些通用的监听能力。 @Monitor支持对数组中的项进行监听，包括多维数组，对象数组。@Monitor无法监听内置类型（Array、Map、Date、Set）的API调用引起的变化。当@Monitor监听数组整体时，只能观测到数组整体的赋值。可以通过监听数组的长度变化来判断数组是否有插入、删除等变化。当前仅支持使用"."的方式表达深层属性、数组项的监听。
-```text
+
+
+##### 通用监听能力
+
+@Monitor还有一些通用的监听能力。
+
+ - @Monitor支持对数组中的项进行监听，包括多维数组，对象数组。@Monitor无法监听内置类型（Array、Map、Date、Set）的API调用引起的变化。当@Monitor监听数组整体时，只能观测到数组整体的赋值。可以通过监听数组的长度变化来判断数组是否有插入、删除等变化。当前仅支持使用"."的方式表达深层属性、数组项的监听。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -422,8 +465,14 @@ struct Index {
 }
 ```
 
-对象整体改变，但监听的属性不变时，不触发@Monitor回调。 下面的示例按照Step1-Step2-Step3的顺序点击，表现为代码注释中的行为。 如果只点击Step2或Step3，改变name、age的值，此时会触发onNameChange和onAgeChange方法。
-```text
+ - 对象整体改变，但监听的属性不变时，不触发@Monitor回调。
+
+  下面的示例按照Step1-Step2-Step3的顺序点击，表现为代码注释中的行为。
+
+  如果只点击Step2或Step3，改变name、age的值，此时会触发onNameChange和onAgeChange方法。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -482,8 +531,10 @@ struct Index {
 }
 ```
 
-在一次事件中多次改变被@Monitor监听的属性，以最后一次修改为准。
-```text
+ - 在一次事件中多次改变被@Monitor监听的属性，以最后一次修改为准。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -506,7 +557,12 @@ struct Index {
     Column() {
       Button('change count to 1000')
         .onClick(() => {
-          for (let i = 1; i  {
+          for (let i = 1; i <= 1000; i++) {
+            this.frequency.count = i;
+          }
+        })
+      Button('change count to 0 then to 1000')
+        .onClick(() => {
           for (let i = 999; i >= 0; i--) {
             this.frequency.count = i;
           }
@@ -517,12 +573,20 @@ struct Index {
 }
 ```
 
+
+
 在点击按钮"change count to 1000"后，会触发一次onCountChange方法，并输出日志"count change from 0 to 1000"。在点击按钮"change count to 0 then to 1000"后，由于事件前后属性count的值并没有改变，都为1000，所以不触发onCountChange方法。
 
-## 限制条件
 
-使用@Monitor需要注意如下限制条件： 不建议在一个类中对同一个属性进行多次@Monitor的监听。当一个类中存在对一个属性的多次监听时，只有最后一个定义的监听方法会生效。
-```text
+
+##### 限制条件
+
+使用@Monitor需要注意如下限制条件：
+
+ - 不建议在一个类中对同一个属性进行多次@Monitor的监听。当一个类中存在对一个属性的多次监听时，只有最后一个定义的监听方法会生效。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -556,8 +620,10 @@ struct Index {
 }
 ```
 
-当@Monitor传入多个路径参数时，以参数的全拼接结果判断是否重复监听。全拼接时会在参数间加空格，以区分不同参数。例如，'ab', 'c'的全拼接结果为'ab c'，'a', 'bc'的全拼接结果为'a bc'，二者全拼接不相等。以下示例中，Monitor 1、Monitor 2与Monitor 3都监听了name属性的变化。由于Monitor 2与Monitor 3的入参全拼接相等（都为'name position'），因此Monitor 2不生效，仅Monitor 3生效。当name属性变化时，将同时触发onNameAgeChange与onNamePositionChangeDuplicate方法。但请注意，Monitor 2与Monitor 3的写法仍然被视作在一个类中对同一个属性进行多次@Monitor的监听，这是不建议的。
-```text
+ - 当@Monitor传入多个路径参数时，以参数的全拼接结果判断是否重复监听。全拼接时会在参数间加空格，以区分不同参数。例如，'ab', 'c'的全拼接结果为'ab c'，'a', 'bc'的全拼接结果为'a bc'，二者全拼接不相等。以下示例中，Monitor 1、Monitor 2与Monitor 3都监听了name属性的变化。由于Monitor 2与Monitor 3的入参全拼接相等（都为'name position'），因此Monitor 2不生效，仅Monitor 3生效。当name属性变化时，将同时触发onNameAgeChange与onNamePositionChangeDuplicate方法。但请注意，Monitor 2与Monitor 3的写法仍然被视作在一个类中对同一个属性进行多次@Monitor的监听，这是不建议的。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -608,8 +674,10 @@ struct Index {
 }
 ```
 
-@Monitor的参数需要为监听属性名的字符串，仅可以使用字符串字面量、const常量、enum枚举值作为参数。如果使用变量作为参数，仅会监听@Monitor初始化时，变量值所对应的属性。当更改变量时，@Monitor无法实时改变监听的属性，即@Monitor监听的目标属性从初始化时便已经确定，无法动态更改。不建议开发者使用变量作为@Monitor的参数进行初始化。
-```text
+ - @Monitor的参数需要为监听属性名的字符串，仅可以使用字符串字面量、const常量、enum枚举值作为参数。如果使用变量作为参数，仅会监听@Monitor初始化时，变量值所对应的属性。当更改变量时，@Monitor无法实时改变监听的属性，即@Monitor监听的目标属性从初始化时便已经确定，无法动态更改。不建议开发者使用变量作为@Monitor的参数进行初始化。
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const t2: string = 't2'; // const常量
@@ -689,7 +757,9 @@ struct Index {
 }
 ```
 
-建议开发者避免在@Monitor中再次更改被监听的属性，这会导致无限循环。
+ - 建议开发者避免在@Monitor中再次更改被监听的属性，这会导致无限循环。
+
+  
 ```text
 @ObservedV2
 class Info {
@@ -702,9 +772,13 @@ class Info {
 ```
 
 
-## @Monitor与@Watch对比
+
+
+
+##### @Monitor与@Watch对比
 
 @Monitor与@Watch的用法、功能对比如下：
+
 | 用法 | @Watch | @Monitor |
 | --- | --- | --- |
 | 参数 | 回调方法名。 | 监听状态变量名、属性名。 |
@@ -715,13 +789,19 @@ class Info {
 | 使用限制 | 仅能在@Component装饰的自定义组件中使用。 | 能在@ComponentV2装饰的自定义组件中使用，也能在@ObservedV2装饰的类中使用。 |
 
 
-## 使用场景
 
 
-## 监听深层属性变化
+##### 使用场景
 
-@Monitor可以监听深层属性的变化，并能够根据更改前后的值做分类处理。 下面的示例中监听了属性value的变化，并根据变化的幅度改变Text组件显示的样式。
-```text
+
+
+##### 监听深层属性变化
+
+@Monitor可以监听深层属性的变化，并能够根据更改前后的值做分类处理。
+
+下面的示例中监听了属性value的变化，并根据变化的幅度改变Text组件显示的样式。
+
+```ArkTS
 @ObservedV2
 class Info {
   @Trace public value: number = 50;
@@ -743,7 +823,29 @@ class UIStyle {
       if (diffPercent > 0.1) {
         this.color = Color.Red;
         this.fontSize = 50;
-      } else if (diffPercent  {
+      } else if (diffPercent < -0.1) {
+        this.color = Color.Green;
+        this.fontSize = 40;
+      } else {
+        this.color = Color.Black;
+        this.fontSize = 45;
+      }
+    }
+  }
+}
+
+@Entry
+@ComponentV2
+struct Index {
+  textStyle: UIStyle = new UIStyle();
+
+  build() {
+    Column() {
+      Text(`Important Value: ${this.textStyle.info.value}`)
+        .fontColor(this.textStyle.color)
+        .fontSize(this.textStyle.fontSize)
+      Button('change!')
+        .onClick(() => {
           this.textStyle.info.value = Math.floor(Math.random() * 100) + 1;
         })
     }
@@ -752,13 +854,16 @@ class UIStyle {
 ```
 
 
-## 常见问题
+
+##### 常见问题
 
 
-## 自定义组件中@Monitor对变量监听的生效及失效时间
+
+##### 自定义组件中@Monitor对变量监听的生效及失效时间
 
 当@Monitor定义在@ComponentV2装饰的自定义组件中时，@Monitor会在状态变量初始化完成之后生效，并在组件销毁时失效。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -835,12 +940,25 @@ struct Index {
 }
 ```
 
-在上面的例子中，可以通过创建和销毁Child组件来观察定义在自定义组件中的@Monitor的生效和失效时机。推荐按如下顺序进行操作： 当Index组件创建Info类实例时，日志输出in constructor message change to initialized。此时Index组件的@Monitor还未初始化成功，因此不会监听到message的变化。 当Index组件创建完成，页面加载完成后，点击按钮“change message in Index”，此时Index组件中的@Monitor能够监听到变化，日志输出Index message change from initialized to Index click to change Message。 点击按钮“show/hide Child”，创建Child组件，在Child组件初始化@Param装饰的变量以及@Monitor之后，调用Child组件的aboutToAppear回调，改变message。此时Index组件与Child组件的@Monitor均能监听到变化，日志输出Index message change from Index click to change Message to Child aboutToAppear以及Child message change from Index click to change Message to Child aboutToAppear。 点击按钮“change message in Child”，改变message。此时Index组件与Child组件的@Monitor均能监听到变化，日志输出Index message change from Child aboutToAppear to Child click to change Message以及Child message change from Child aboutToAppear to Child click to change Message。 点击按钮”show/hide Child“，销毁Child组件，调用Child组件的aboutToDisappear回调，改变message。此时Index组件与Child组件的@Monitor均能监听到变化，日志输出Child aboutToDisappear，Index message change from Child click to change Message to Child aboutToDisappear以及Child message change from Child click to change Message to Child aboutToDisappear。 点击按钮“change message in Index”，改变message。此时Child组件已销毁，其注册的@Monitor监听也被解注册，仅有Index组件的@Monitor能够监听到变化，日志输出Index message change from Child aboutToDisappear to Index click to change Message。 这表明Child组件中定义的@Monitor监听随着Child组件的创建初始化生效，随着Child组件的销毁失效。
+在上面的例子中，可以通过创建和销毁Child组件来观察定义在自定义组件中的@Monitor的生效和失效时机。推荐按如下顺序进行操作：
 
-## 类中@Monitor对变量监听的生效及失效时间
+ - 当Index组件创建Info类实例时，日志输出in constructor message change to initialized。此时Index组件的@Monitor还未初始化成功，因此不会监听到message的变化。
+ - 当Index组件创建完成，页面加载完成后，点击按钮“change message in Index”，此时Index组件中的@Monitor能够监听到变化，日志输出Index message change from initialized to Index click to change Message。
+ - 点击按钮“show/hide Child”，创建Child组件，在Child组件初始化@Param装饰的变量以及@Monitor之后，调用Child组件的aboutToAppear回调，改变message。此时Index组件与Child组件的@Monitor均能监听到变化，日志输出Index message change from Index click to change Message to Child aboutToAppear以及Child message change from Index click to change Message to Child aboutToAppear。
+ - 点击按钮“change message in Child”，改变message。此时Index组件与Child组件的@Monitor均能监听到变化，日志输出Index message change from Child aboutToAppear to Child click to change Message以及Child message change from Child aboutToAppear to Child click to change Message。
+ - 点击按钮”show/hide Child“，销毁Child组件，调用Child组件的aboutToDisappear回调，改变message。此时Index组件与Child组件的@Monitor均能监听到变化，日志输出Child aboutToDisappear，Index message change from Child click to change Message to Child aboutToDisappear以及Child message change from Child click to change Message to Child aboutToDisappear。
+ - 点击按钮“change message in Index”，改变message。此时Child组件已销毁，其注册的@Monitor监听也被解注册，仅有Index组件的@Monitor能够监听到变化，日志输出Index message change from Child aboutToDisappear to Index click to change Message。
+
+
+这表明Child组件中定义的@Monitor监听随着Child组件的创建初始化生效，随着Child组件的销毁失效。
+
+
+
+##### 类中@Monitor对变量监听的生效及失效时间
 
 当@Monitor定义在@ObservedV2装饰的类中时，@Monitor会在类的实例创建完成后生效，在类的实例销毁时失效。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -880,13 +998,15 @@ struct Index {
 ```
 
 上面的例子中，@Monitor会在info创建完成后生效，这个时机晚于类的constructor，早于自定义组件的aboutToAppear。当界面加载完成后，点击“change message”，修改message变量。此时日志输出信息如下：
+
 ```text
 message change from initialized to Index aboutToAppear
 message change from Index aboutToAppear to Index click to change message
 ```
 
 类中定义的@Monitor随着类的销毁失效。而由于类的实际销毁释放依赖于垃圾回收机制，因此会出现即使所在自定义组件已经销毁，类却还未及时销毁，导致类中定义的@Monitor仍在监听变化的情况。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -935,7 +1055,15 @@ struct Index {
   @Local showFlag: boolean = true;
 
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < 5; i++) {
+      this.dataArray.push(new Info(i));
+    }
+  }
+
+  build() {
+    Column() {
+      Button('change showFlag')
+        .onClick(() => {
           this.showFlag = !this.showFlag;
         })
       Button('change number')
@@ -960,8 +1088,13 @@ struct Index {
 }
 ```
 
-在上面的例子中，当点击“change showFlag”切换if组件的条件时，Child组件会被销毁。此时，点击“change number”修改age的值时，可以通过日志观察到InfoWrapper中定义的@Monitor回调仍然被触发了。这是因为此时自定义组件Child虽然执行了aboutToDisappear，但是其成员变量infoWrapper还没有被立刻回收，当变量发生变化时，依然能够调用到infoWrapper中定义的onInfoAgeChange方法，所以从现象上看@Monitor回调仍会被触发。 借助垃圾回收机制去取消@Monitor的监听是不稳定的，开发者可以采用以下两种方式去管理@Monitor的失效时间： 1、将@Monitor定义在自定义组件中。由于自定义组件在销毁时，状态管理框架会手动取消@Monitor的监听，因此在自定义组件调用完aboutToDisappear，尽管自定义组件的数据不一定已经被释放，但@Monitor回调已不会再被触发。
-```text
+在上面的例子中，当点击“change showFlag”切换if组件的条件时，Child组件会被销毁。此时，点击“change number”修改age的值时，可以通过日志观察到InfoWrapper中定义的@Monitor回调仍然被触发了。这是因为此时自定义组件Child虽然执行了aboutToDisappear，但是其成员变量infoWrapper还没有被立刻回收，当变量发生变化时，依然能够调用到infoWrapper中定义的onInfoAgeChange方法，所以从现象上看@Monitor回调仍会被触发。
+
+借助垃圾回收机制去取消@Monitor的监听是不稳定的，开发者可以采用以下两种方式去管理@Monitor的失效时间：
+
+1、将@Monitor定义在自定义组件中。由于自定义组件在销毁时，状态管理框架会手动取消@Monitor的监听，因此在自定义组件调用完aboutToDisappear，尽管自定义组件的数据不一定已经被释放，但@Monitor回调已不会再被触发。
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1010,7 +1143,16 @@ struct Index {
   @Local showFlag: boolean = true;
 
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < 5; i++) {
+      this.dataArray.push(new Info(i));
+    }
+  }
+
+  build() {
+    Column() {
+      // 点击Button切换showFlag，触发Child组件的创建/销毁
+      Button('change showFlag')
+        .onClick(() => {
           this.showFlag = !this.showFlag;
         })
       Button('change number')
@@ -1036,7 +1178,8 @@ struct Index {
 ```
 
 2、主动置空监听的对象。当自定义组件即将销毁时，主动置空@Monitor的监听目标，这样@Monitor无法再监听原监听目标的变化，达到取消@Monitor监听的效果。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1086,7 +1229,16 @@ struct Index {
   @Local showFlag: boolean = true;
 
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < 5; i++) {
+      this.dataArray.push(new Info(i));
+    }
+  }
+
+  build() {
+    Column() {
+      // 点击Button切换showFlag，触发Child组件的创建/销毁
+      Button('change showFlag')
+        .onClick(() => {
           this.showFlag = !this.showFlag;
         })
       Button('change number')
@@ -1112,10 +1264,14 @@ struct Index {
 ```
 
 
-## 正确设置@Monitor入参
 
-从API version 23起，增加了对@Monitor入参的编译时校验。当@Monitor的入参不符合监听条件时（如传入非状态变量、不存在的变量等），将会有编辑、编译告警，但@Monitor回调仍会被触发。开发者应正确传入@Monitor入参，避免监听非状态变量，防止功能异常或行为与预期不符。 【反例1】
-```text
+##### 正确设置@Monitor入参
+
+从API version 23起，增加了对@Monitor入参的编译时校验。当@Monitor的入参不符合监听条件时（如传入非状态变量、不存在的变量等），将会有编辑、编译告警，但@Monitor回调仍会被触发。开发者应正确传入@Monitor入参，避免监听非状态变量，防止功能异常或行为与预期不符。
+
+【反例1】
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1152,13 +1308,17 @@ struct Index {
 ```
 
 上面的代码中，当点击按钮同时更改状态变量age和非状态变量name时，会输出以下日志：
+
 ```text
 property path:age change from 24 to 25
 property path:name change from John to Johny
 ```
 
-实际上name属性本身并不是可被观测的变量，不应被加入到@Monitor的入参当中。建议开发者去除对name属性的监听或者给name加上@Trace装饰成为状态变量。 【正例1】
-```text
+实际上name属性本身并不是可被观测的变量，不应被加入到@Monitor的入参当中。建议开发者去除对name属性的监听或者给name加上@Trace装饰成为状态变量。
+
+【正例1】
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1194,7 +1354,8 @@ struct Index {
 ```
 
 【反例2】
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1229,8 +1390,13 @@ struct Index {
 }
 ```
 
-上面的代码中，@Monitor的入参为一个getter访问器的名字，但该getter访问器本身并未被@Computed装饰，不是一个可被监听的变量。但由于使用了状态变量参与了计算，在状态变量变化后，myAge也被认为发生了变化，因此触发了@Monitor回调。建议开发者给myAge添加@Computed装饰器或当getter访问器直接返回状态变量时，不监听getter访问器而是直接监听状态变量本身。 【正例2】 将myAge变为状态变量：
-```text
+上面的代码中，@Monitor的入参为一个getter访问器的名字，但该getter访问器本身并未被@Computed装饰，不是一个可被监听的变量。但由于使用了状态变量参与了计算，在状态变量变化后，myAge也被认为发生了变化，因此触发了@Monitor回调。建议开发者给myAge添加@Computed装饰器或当getter访问器直接返回状态变量时，不监听getter访问器而是直接监听状态变量本身。
+
+【正例2】
+
+将myAge变为状态变量：
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1268,7 +1434,8 @@ struct Index {
 ```
 
 或直接监听状态变量本身：
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2
@@ -1300,10 +1467,14 @@ struct Index {
 ```
 
 
-## 无法监听变量从可访问变为不可访问和从不可访问变为可访问
 
-@Monitor仅会保存变量可访问时的值，当状态变量变为不可访问的状态时，并不会记录其值的变化。在下面的例子中，点击三个Button，均不会触发onChange的回调。 从API version 20开始，如果需要监听可访问到不可访问和不可访问到可访问的状态变化，可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor#监听变量从可访问到不访问和从不可访问到可访问)。
-```text
+##### 无法监听变量从可访问变为不可访问和从不可访问变为可访问
+
+@Monitor仅会保存变量可访问时的值，当状态变量变为不可访问的状态时，并不会记录其值的变化。在下面的例子中，点击三个Button，均不会触发onChange的回调。
+
+从API version 20开始，如果需要监听可访问到不可访问和不可访问到可访问的状态变化，可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor#监听变量从可访问到不访问和从不可访问到可访问)。
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @ObservedV2

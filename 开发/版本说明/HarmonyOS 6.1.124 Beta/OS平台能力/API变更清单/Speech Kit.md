@@ -1,6 +1,6 @@
 # Speech Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-speechkit-6111
 
@@ -18,6 +18,6 @@
 | 新增API | NA | 类名：AICaptionOptions； API声明：fontColor?: ResourceColor; 差异内容：fontColor?: ResourceColor; | api/@hms.ai.AICaption.d.ets |
 | 新增API | NA | 类名：global； API声明：export type UpReadState = (readState: ReadStateCode) => void; 差异内容：export type UpReadState = (readState: ReadStateCode) => void; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：global； API声明：export struct TextReaderIconV2 差异内容：export struct TextReaderIconV2 | api/@hms.ai.textReader.d.ets |
-| 新增API | NA | 类名：TextReaderIconV2； API声明：@Param  readState: ReadStateCode; 差异内容：@Param  readState: ReadStateCode; | api/@hms.ai.textReader.d.ets |
-| 新增API | NA | 类名：TextReaderIconV2； API声明：@Event  upReadState: UpReadState; 差异内容：@Event  upReadState: UpReadState; | api/@hms.ai.textReader.d.ets |
+| 新增API | NA | 类名：TextReaderIconV2； API声明：@Param readState: ReadStateCode; 差异内容：@Param readState: ReadStateCode; | api/@hms.ai.textReader.d.ets |
+| 新增API | NA | 类名：TextReaderIconV2； API声明：@Event upReadState: UpReadState; 差异内容：@Event upReadState: UpReadState; | api/@hms.ai.textReader.d.ets |
 | 新增API | NA | 类名：TextReaderIconV2； API声明：build(): void; 差异内容：build(): void; | api/@hms.ai.textReader.d.ets |

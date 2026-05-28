@@ -1,18 +1,20 @@
 # 订阅崩溃事件（ArkTS）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events-arkts
 
-## 简介
+##### 简介
 
 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅应用崩溃事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
+
 > [!NOTE]
 > 使用ArkTS接口可以订阅JsError和NativeCrash两种崩溃事件。
 
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -20,21 +22,31 @@
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以移除对应用事件的订阅。 |
 
 
-## 开发步骤
 
 
-## 添加事件观察者
+##### 开发步骤
 
-**建议在应用启动后、执行业务逻辑前添加事件观察者，以确保能够订阅到崩溃事件。** 以订阅用户点击按钮触发崩溃生成的崩溃事件为例，说明开发步骤。 DevEco Studio新建Native C++模板工程，编辑“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块。示例代码如下：
-```text
+
+
+##### 添加事件观察者
+
+**建议在应用启动后、执行业务逻辑前添加事件观察者，以确保能够订阅到崩溃事件。**
+
+以订阅用户点击按钮触发崩溃生成的崩溃事件为例，说明开发步骤。
+1. DevEco Studio新建Native C++模板工程，编辑“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块。示例代码如下：
+
+  
+```ArkTS
 import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
 import { deviceInfo } from '@kit.BasicServicesKit';
 ```
 
-编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中设置事件的[崩溃事件自定义参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃事件自定义参数设置)和[崩溃日志规格自定义参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃日志规格自定义参数设置)，示例代码如下：
-```text
+2. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中设置事件的[崩溃事件自定义参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃事件自定义参数设置)和[崩溃日志规格自定义参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃日志规格自定义参数设置)，示例代码如下：
+
+  
+```ArkTS
 // 构建崩溃事件的自定义参数
-let crashParams: Record = {
+let crashParams: Record<string, hiAppEvent.ParamType> = {
   "test_data": 100, // test_data为自定义数据，开发者可根据实际需求自定义params参数。
 };
 // 开发者可以设置崩溃事件的自定义参数
@@ -46,7 +58,7 @@ hiAppEvent.setEventParam(crashParams, hiAppEvent.domain.OS, hiAppEvent.event.APP
 
 if (deviceInfo.sdkApiVersion >= 20) {  // API Version 20及以后版本，支持设置崩溃日志配置参数
   // 构建崩溃日志规格自定义参数
-  let crashConfigParams: Record = {
+  let crashConfigParams: Record<string, hiAppEvent.ParamType> = {
     "extend_pc_lr_printing": true, // 使能扩展打印pc和lr寄存器附近的内存值
     "log_file_cutoff_sz_bytes": 1024000, // 截断崩溃日志到1000KB
     "simplify_vma_printing": true // 使能精简打印maps
@@ -75,8 +87,10 @@ if (deviceInfo.sdkApiVersion >= 24) {  // API Version 24及以后版本，支持
 }
 ```
 
-编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在 onCreate 函数中订阅系统事件。示例代码如下：
-```text
+3. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在 onCreate 函数中订阅系统事件。示例代码如下：
+
+  
+```ArkTS
 // 添加崩溃事件观察者
 let watcher: hiAppEvent.Watcher = {
   // 开发者可以自定义观察者名称，系统会使用名称来标识不同的观察者
@@ -89,7 +103,7 @@ let watcher: hiAppEvent.Watcher = {
     }
   ],
   // 开发者可以自行实现订阅实时回调函数，以便对订阅获取到的事件数据进行自定义处理
-  onReceive: (domain: string, appEventGroups: Array) => {
+  onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
     hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
     for (const eventGroup of appEventGroups) {
       // 开发者可以根据事件集合中的事件名称区分不同的系统事件
@@ -141,8 +155,15 @@ let watcher: hiAppEvent.Watcher = {
 hiAppEvent.addWatcher(watcher);
 ```
 
-构造崩溃场景 构造NativeCrash类型崩溃 编辑工程中的“entry > src > main > cpp > napi_init.cpp”文件，添加TestNullptr方法，并将TestNullptr注册为ArkTS接口，增加如下代码：
-```text
+4. 构造崩溃场景
+
+  
+构造NativeCrash类型崩溃
+
+  编辑工程中的“entry > src > main > cpp > napi_init.cpp”文件，添加TestNullptr方法，并将TestNullptr注册为ArkTS接口，增加如下代码：
+
+  
+```cpp
 static napi_value TestNullptr(napi_env env, napi_callback_info info)
 {
     int *p = nullptr;
@@ -151,8 +172,7 @@ static napi_value TestNullptr(napi_env env, napi_callback_info info)
 }
 ```
 
-
-```text
+```cpp
 static napi_value Init(napi_env env, napi_value exports)
 {
     napi_property_descriptor desc[] = {
@@ -164,14 +184,16 @@ static napi_value Init(napi_env env, napi_value exports)
     return exports;
 }
 ```
-
 在"index.d.ts"文件中，定义ArkTS接口：
-```text
+
+  
+```ts
 export const testNullptr: () => void;
 ```
-
 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数中构造崩溃场景，以触发崩溃事件。示例代码如下：
-```text
+
+  
+```ArkTS
 Button('NativeCrash')
   .type(ButtonType.Capsule)
   .margin({
@@ -186,8 +208,12 @@ Button('NativeCrash')
   })
 ```
 
-构造JsError类型崩溃 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数中构造崩溃场景，以触发崩溃事件。示例代码如下：
-```text
+5. 构造JsError类型崩溃
+
+  编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数中构造崩溃场景，以触发崩溃事件。示例代码如下：
+
+  
+```ArkTS
 Button('JsError')
   .type(ButtonType.Capsule)
   .margin({
@@ -202,15 +228,35 @@ Button('JsError')
   })
 ```
 
-点击DevEco Studio界面的运行按钮，启动应用工程。在应用界面中点击“NativeCrash”或“JsError”按钮，触发崩溃事件。系统根据崩溃类型生成相应的日志并进行回调。
+6. 点击DevEco Studio界面的运行按钮，启动应用工程。在应用界面中点击“NativeCrash”或“JsError”按钮，触发崩溃事件。系统根据崩溃类型生成相应的日志并进行回调。
+
 > [!NOTE]
 > JsError通过进程内采集故障信息触发回调，速度快，而NativeCrash采取进程外采集故障信息，平均耗时约2秒，具体受业务线程数量和进程间通信影响。开发者可订阅崩溃事件，故障信息采集完成后异步上报，不阻塞当前业务。
 
 
-## 验证观察者是否订阅到崩溃事件
 
-在应用主动捕获崩溃异常和未主动捕获崩溃异常的场景下，崩溃事件的回调时机不同，需在不同时间验证是否订阅到崩溃事件。 **应用未主动捕获崩溃异常场景** 若应用未主动捕获崩溃异常，系统处理崩溃后应用将退出。**应用下次启动时**，HiAppEvent将崩溃事件上报给已注册的监听，完成回调。 若应用无法启动或长时间未启动，开发者可以参考[使用FaultLogExtensionAbility订阅事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fault-log-extension-app-events-arkts)回调重写的函数，进行延迟上报。 **应用主动捕获崩溃异常场景** 若应用主动捕获崩溃异常，崩溃事件将在**应用退出前**回调，例如以下两种情况： 异常处理中未主动退出，应用崩溃后将不会退出。 采用[errorManager.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-errormanager#errormanageronerror)方法捕获异常会导致JsError类型的崩溃事件在应用退出前回调。若应用主动注册[崩溃信号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#系统处理的崩溃信号)处理函数但未主动退出，会导致NativeCrash类型的崩溃事件在应用退出前回调。 异常处理耗时过长，导致应用退出延迟。 在开发调试阶段，HiAppEvent上报事件完成回调后，可以在DevEco Studio的HiLog窗口查看JsError类型崩溃事件内容。NativeCrash类型崩溃事件内容略有不同，具体参见[崩溃事件字段说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#事件字段说明)。JsError类型崩溃事件内容样例如下：
-```text
+
+##### 验证观察者是否订阅到崩溃事件
+
+在应用主动捕获崩溃异常和未主动捕获崩溃异常的场景下，崩溃事件的回调时机不同，需在不同时间验证是否订阅到崩溃事件。
+
+**应用未主动捕获崩溃异常场景**
+
+若应用未主动捕获崩溃异常，系统处理崩溃后应用将退出。**应用下次启动时**，HiAppEvent将崩溃事件上报给已注册的监听，完成回调。
+
+若应用无法启动或长时间未启动，开发者可以参考[使用FaultLogExtensionAbility订阅事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fault-log-extension-app-events-arkts)回调重写的函数，进行延迟上报。
+
+**应用主动捕获崩溃异常场景**
+
+若应用主动捕获崩溃异常，崩溃事件将在**应用退出前**回调，例如以下两种情况：
+1. 异常处理中未主动退出，应用崩溃后将不会退出。
+
+  采用[errorManager.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-errormanager#errormanageronerror)方法捕获异常会导致JsError类型的崩溃事件在应用退出前回调。若应用主动注册[崩溃信号](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines#系统处理的崩溃信号)处理函数但未主动退出，会导致NativeCrash类型的崩溃事件在应用退出前回调。
+2. 异常处理耗时过长，导致应用退出延迟。
+
+在开发调试阶段，HiAppEvent上报事件完成回调后，可以在DevEco Studio的HiLog窗口查看JsError类型崩溃事件内容。NativeCrash类型崩溃事件内容略有不同，具体参见[崩溃事件字段说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#事件字段说明)。JsError类型崩溃事件内容样例如下：
+
+```json
 HiAppEvent onReceive: domain=OS
 HiAppEvent eventName=APP_CRASH
 HiAppEvent eventInfo.domain=OS
@@ -238,15 +284,27 @@ HiAppEvent eventInfo.params.test_data=100
 ```
 
 
-## 从Faultlogger接口迁移崩溃事件
 
-[@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅崩溃事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅崩溃事件。 在Faultlogger的[FaultType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faulttype)里定义的CPP_CRASH和JS_CRASH都属于崩溃故障类型。 在hiAppEvent的hiAppEvent.addWatcher接口中设置事件名称为hiAppEvent.event.APP_CRASH、事件领域为hiAppEvent.domain.OS，可以订阅崩溃事件。 通过[hiAppEvent.AppEventInfo.params](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#params字段说明)中的crash_type字段可以区分具体是哪种崩溃事件。 两者对应关系如下：
+##### 从Faultlogger接口迁移崩溃事件
+
+[@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅崩溃事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅崩溃事件。
+
+在Faultlogger的[FaultType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faulttype)里定义的CPP_CRASH和JS_CRASH都属于崩溃故障类型。
+
+在hiAppEvent的hiAppEvent.addWatcher接口中设置事件名称为hiAppEvent.event.APP_CRASH、事件领域为hiAppEvent.domain.OS，可以订阅崩溃事件。
+
+通过[hiAppEvent.AppEventInfo.params](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#params字段说明)中的crash_type字段可以区分具体是哪种崩溃事件。
+
+两者对应关系如下：
+
 | Faultlogger.FaultType | hiAppEvent.AppEventInfo.params.crash_type |
 | --- | --- |
 | CPP_CRASH | NativeCrash |
 | JS_CRASH | JsError |
 
+
 [FaultLogInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloginfo)与[hiAppEvent.AppEventInfo.params](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#params字段说明)的对应关系如下：
+
 | Faultlogger.FaultLogInfo | hiAppEvent.AppEventInfo.params | 说明 |
 | --- | --- | --- |
 | pid | pid | 无 |
@@ -258,4 +316,7 @@ HiAppEvent eventInfo.params.test_data=100
 | reason | external_log文件内容中的Reason字段 | 无 |
 | summary | external_log文件内容中的一部分 | CPP_CRASH的summary对应external_log文件内容中的Fault thread info字段；JS_CRASH的summary对应external_log文件内容中的Error name、Error message、 Stacktrace、HybridStack字段。 |
 
-[FaultLogger.query(使用callback回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9)和[FaultLogger.query(使用Promise回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9-1)都可以使用[hiAppEvent.addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)实现相同功能。 查阅[开发步骤](#开发步骤)和[验证观察者是否订阅到崩溃事件](#验证观察者是否订阅到崩溃事件)，了解使用hiAppEvent订阅崩溃事件（ArkTS）的具体步骤。
+
+[FaultLogger.query(使用callback回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9)和[FaultLogger.query(使用Promise回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9-1)都可以使用[hiAppEvent.addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)实现相同功能。
+
+查阅[开发步骤](#开发步骤)和[验证观察者是否订阅到崩溃事件](#验证观察者是否订阅到崩溃事件)，了解使用hiAppEvent订阅崩溃事件（ArkTS）的具体步骤。

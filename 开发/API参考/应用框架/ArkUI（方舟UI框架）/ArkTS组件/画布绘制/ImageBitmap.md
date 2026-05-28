@@ -1,19 +1,18 @@
 # ImageBitmap
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImageBitmap对象可以存储canvas渲染的像素数据。从API version 11开始，当应用创建[Worker线程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)，支持使用postMessage将ImageBitmap实例传到Worker中进行绘制，并使用onmessage接收Worker线程发送的绘制结果进行显示。
 
-
 > [!NOTE]
-> 从 API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从 API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 ImageBitmap对象仅支持加载静态图片，如需播放动图，建议使用 Image 组件。
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(src: string)
 
@@ -27,14 +26,14 @@ constructor(src: string)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | string | 是 | 图片的数据源支持本地图片。          1、string格式用于加载本地图片，例如ImageBitmap("common/images/example.jpg")，type为"entry"和"feature"类型的Module，其图片加载路径的起点为当前Module的ets文件夹，type为"har"和"shared"类型的Module，其图片加载路径的起点为当前构建的"entry"或"feature"类型Module的ets文件夹。          type为"har"和"shared"类型的Module中推荐使用[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)图片解码方式将资源图片解码为统一的PixelMap加载使用。          2、支持本地图片类型：bmp、jpg、png、svg和webp类型。          说明：          - ArkTS卡片上不支持http://等网络相关路径前缀、datashare://路径前缀以及file://data/storage路径前缀的字符串。 |
+| src | string | 是 | 图片的数据源支持本地图片。 1、string格式用于加载本地图片，例如ImageBitmap("common/images/example.jpg")，type为"entry"和"feature"类型的Module，其图片加载路径的起点为当前Module的ets文件夹，type为"har"和"shared"类型的Module，其图片加载路径的起点为当前构建的"entry"或"feature"类型Module的ets文件夹。 type为"har"和"shared"类型的Module中推荐使用ImageSource图片解码方式将资源图片解码为统一的PixelMap加载使用。 2、支持本地图片类型：bmp、jpg、png、svg和webp类型。 说明： - ArkTS卡片上不支持http://等网络相关路径前缀、datashare://路径前缀以及file://data/storage路径前缀的字符串。 |
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(data: PixelMap)
 
@@ -46,14 +45,14 @@ constructor(data: PixelMap)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 图片的数据源支持PixelMap对象。 |
+| data | PixelMap | 是 | 图片的数据源支持PixelMap对象。 |
 
 
-## constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor12+
 
 constructor(src: string, unit: LengthMetricsUnit)
 
@@ -67,15 +66,15 @@ constructor(src: string, unit: LengthMetricsUnit)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| src | string | 是 | 图片的数据源支持本地图片。          1、string格式用于加载本地图片，例如ImageBitmap("common/images/example.jpg")，type为"entry"和"feature"类型的Module，其图片加载路径的起点为当前Module的ets文件夹，type为"har"和"shared"类型的Module，其图片加载路径的起点为当前构建的"entry"或"feature"类型Module的ets文件夹。          type为"har"和"shared"类型的Module中推荐使用[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)图片解码方式将资源图片解码为统一的PixelMap加载使用。          2、支持本地图片类型：bmp、jpg、png、svg和webp类型。          说明：          - ArkTS卡片上不支持http://等网络相关路径前缀、datashare://路径前缀以及file://data/storage路径前缀的字符串。 |
-| unit | [LengthMetricsUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetricsunit12) | 是 | 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)。          异常值undefined、NaN和Infinity按默认值处理。 |
+| src | string | 是 | 图片的数据源支持本地图片。 1、string格式用于加载本地图片，例如ImageBitmap("common/images/example.jpg")，type为"entry"和"feature"类型的Module，其图片加载路径的起点为当前Module的ets文件夹，type为"har"和"shared"类型的Module，其图片加载路径的起点为当前构建的"entry"或"feature"类型Module的ets文件夹。 type为"har"和"shared"类型的Module中推荐使用ImageSource图片解码方式将资源图片解码为统一的PixelMap加载使用。 2、支持本地图片类型：bmp、jpg、png、svg和webp类型。 说明： - ArkTS卡片上不支持http://等网络相关路径前缀、datashare://路径前缀以及file://data/storage路径前缀的字符串。 |
+| unit | LengthMetricsUnit | 是 | 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，配置方法同CanvasRenderingContext2D。 异常值undefined、NaN和Infinity按默认值处理。 |
 
 
-## constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor12+
 
 constructor(data: PixelMap, unit: LengthMetricsUnit)
 
@@ -87,15 +86,15 @@ constructor(data: PixelMap, unit: LengthMetricsUnit)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 图片的数据源支持PixelMap对象。 |
-| unit | [LengthMetricsUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetricsunit12) | 是 | 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)。 |
+| data | PixelMap | 是 | 图片的数据源支持PixelMap对象。 |
+| unit | LengthMetricsUnit | 是 | 用来配置ImageBitmap对象的单位模式，配置后无法动态更改，配置方法同CanvasRenderingContext2D。 |
 
 
-## close
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### close
 
 close(): void
 
@@ -108,8 +107,8 @@ close(): void
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -117,27 +116,27 @@ close(): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width | number | 是 | 否 | ImageBitmap的像素宽度。          默认单位为vp。 |
-| height | number | 是 | 否 | ImageBitmap的像素高度。          默认单位为vp。 |
+| width | number | 是 | 否 | ImageBitmap的像素宽度。 默认单位为vp。 |
+| height | number | 是 | 否 | ImageBitmap的像素高度。 默认单位为vp。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 示例1（加载图片）
+##### 示例
+
+
+
+##### 示例1（加载图片）
 
 通过ImageBitmap加载本地图片。
 
-
 > [!NOTE]
-> 此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中[copyCodeResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile#table1476161719356)相关介绍。
+> 此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中 copyCodeResource 相关介绍。
 
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -150,13 +149,13 @@ struct ImageExample {
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Canvas(this.context)
-      .width('100%')
-      .height('100%')
-      .backgroundColor('#ffff00')
-      .onReady(() => {
-        this.context.drawImage(this.img, 0, 0, 500, 500, 0, 0, 400, 200)
-        this.img.close()
-      })
+        .width('100%')
+        .height('100%')
+        .backgroundColor('#ffff00')
+        .onReady(() => {
+          this.context.drawImage(this.img, 0, 0, 500, 500, 0, 0, 400, 200)
+          this.img.close()
+        })
     }
     .width('100%')
     .height('100%')
@@ -164,19 +163,21 @@ struct ImageExample {
 }
 ```
 
-![](assets/ImageBitmap/file-20260514164109431-0.png)
+
+![](assets/ImageBitmap/file-20260514164109431-2.png)
 
 
-### 示例2（创建ImageBitmap）
+
+
+##### 示例2（创建ImageBitmap）
 
 通过PixelMap创建ImageBitmap对象。
-
 
 > [!NOTE]
 > DevEco Studio的预览器不支持getPixelMap接口，不支持显示PixelMap绘制的内容。
 
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -187,16 +188,16 @@ struct Demo {
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Canvas(this.context)
-      .width('100%')
-      .height('50%')
-      .backgroundColor('#ffff00')
-      .onReady(() => {
-        this.context.fillStyle = "#00ff00"
-        this.context.fillRect(0, 0, 100, 100)
-        let pixel = this.context.getPixelMap(0, 0, 100, 100)
-        let image = new ImageBitmap(pixel)
-        this.context.drawImage(image, 100, 100)
-      })
+        .width('100%')
+        .height('50%')
+        .backgroundColor('#ffff00')
+        .onReady(() => {
+          this.context.fillStyle = "#00ff00"
+          this.context.fillRect(0, 0, 100, 100)
+          let pixel = this.context.getPixelMap(0, 0, 100, 100)
+          let image = new ImageBitmap(pixel)
+          this.context.drawImage(image, 100, 100)
+        })
 
     }
     .width('100%')
@@ -205,19 +206,21 @@ struct Demo {
 }
 ```
 
-![](assets/ImageBitmap/file-20260514164109431-1.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/_fwpy3a0ScKOqs1oJ2XwLg/zh-cn_image_0000002611756043.png?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=B5192F5C8B6B7BE2688D5A0AC1096BB7C00BACD4EE3CCD9DC6024B59DE3225A3)
 
 
-### 示例3（支持并发线程绘制）
+
+
+##### 示例3（支持并发线程绘制）
 
 通过创建Worker线程，实现并发线程绘制。
-
 
 > [!NOTE]
 > DevEco Studio的预览器不支持显示在Worker线程中绘制的内容。
 
 
-```ts
+```ArkTS
 import { worker } from '@kit.ArkTS';
 
 @Entry
@@ -232,18 +235,18 @@ struct imageBitmapExamplePage {
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Canvas(this.context)
-      .width('100%')
-      .height('100%')
-      .backgroundColor('#ffff00')
-      .onReady(() => {
-        this.myWorker.postMessage({ myImage: this.img });
-        this.myWorker.onmessage = (e): void => {
-          if (e.data.myImage) {
-            let image: ImageBitmap = e.data.myImage
-            this.context.transferFromImageBitmap(image)
+        .width('100%')
+        .height('100%')
+        .backgroundColor('#ffff00')
+        .onReady(() => {
+          this.myWorker.postMessage({ myImage: this.img });
+          this.myWorker.onmessage = (e): void => {
+            if (e.data.myImage) {
+              let image: ImageBitmap = e.data.myImage
+              this.context.transferFromImageBitmap(image)
+            }
           }
-        }
-      })
+        })
     }
     .width('100%')
     .height('100%')
@@ -253,22 +256,22 @@ struct imageBitmapExamplePage {
 
 Worker线程在onmessage中接收到主线程postMessage发送的ImageBitmap，并进行绘制。
 
-
-```ts
+```text
 import { MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { image } from '@kit.ImageKit';
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 workerPort.onmessage = (e: MessageEvents) => {
   if (e.data.myImage) {
-    let img: ImageBitmap = e.data.myImage;
-    let offCanvas = new OffscreenCanvas(600, 600);
-    let offContext = offCanvas.getContext('2d');
-    offContext.drawImage(img, 0, 0, 500, 500, 0, 0, 400, 200);
-    let image = offCanvas.transferToImageBitmap();
+    let img: ImageBitmap = e.data.myImage
+    let offCanvas = new OffscreenCanvas(600, 600)
+    let offContext = offCanvas.getContext("2d")
+    offContext.drawImage(img, 0, 0, 500, 500, 0, 0, 400, 200)
+    let image = offCanvas.transferToImageBitmap()
     workerPort.postMessage({ myImage: image });
   }
-};
+}
 ```
 
-![](assets/ImageBitmap/file-20260514164109431-2.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/vsP6IALjQRujd5un2Hoccw/zh-cn_image_0000002581276188.png?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=1C359FA53CAA40E9827A222B47E5434E9C2524C6CF56AA3BEC9B2183D0A9CC7B)

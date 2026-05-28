@@ -3,51 +3,71 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+##### 概述
 
-#### 概述
 声明图像常用的枚举值和结构体。
+ 
 **引用文件：** <multimedia/image_framework/image_mdk_common.h>
-
+ 
 **库：** libimage_ndk.z.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)
+ 
+  
 
-#### 汇总
-#### 宏定义
+##### 汇总
 
+  
+
+##### 宏定义
+ 
 | 名称 | 描述 |
 | --- | --- |
 | IMAGE_RESULT_BASE 62980096 | 通用图像错误码，含义为操作失败。 起始版本： 10 |
+ 
+ 
+  
 
-#### 结构体
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OhosImageSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagesize) | - | 定义图像大小。是[OhosImageDecodingOps](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagedecodingops)的成员变量。 |
+| OhosImageSize | - | 定义图像大小。是OhosImageDecodingOps的成员变量。 |
+ 
+ 
+  
 
-#### 枚举
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [IRNdkErrCode](#irndkerrcode) | IRNdkErrCode | 被使用的接口返回值的枚举。 |
+| IRNdkErrCode | IRNdkErrCode | 被使用的接口返回值的枚举。 |
+ 
+ 
+  
 
-#### 枚举类型说明
-#### IRNdkErrCode
+##### 枚举类型说明
 
-```ts
+  
+
+##### IRNdkErrCode
+
+```text
 enum IRNdkErrCode
 ```
-
+ 
 **描述**
+ 
 被使用的接口返回值的枚举。
+ 
 **起始版本：** 10
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IMAGE_RESULT_SUCCESS = 0 | 操作成功。 |

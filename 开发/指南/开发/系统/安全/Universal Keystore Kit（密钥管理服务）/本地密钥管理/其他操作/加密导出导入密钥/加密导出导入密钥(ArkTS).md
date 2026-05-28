@@ -8,26 +8,30 @@
 
 当前指导提供以下加密导出导入密钥示例：
 
-
-- [加密导出导入普通密钥](#加密导出导入普通密钥)
-- [普通密钥导入为群组密钥](#普通密钥导入为群组密钥)
-
-
-## 开发步骤
-
-初始化生成密钥属性集，需要设置[HUKS_TAG_IS_ALLOWED_WRAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，指定密钥允许导出。 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 调用[wrapKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukswrapkeyitem20)加密导出密钥。 调用[unwrapKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksunwrapkeyitem20)加密导入密钥。如果是从普通密钥导入为群组密钥，需要传入TUI PIN类型的AuthToken，认证TUI PIN并获取AuthToken请参考[数字盾服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-trustedauth-verifybypwd#开发步骤)。
-
-## 开发案例
+ - [加密导出导入普通密钥](#加密导出导入普通密钥)
+ - [普通密钥导入为群组密钥](#普通密钥导入为群组密钥)
 
 
-## 加密导出导入普通密钥
+
+##### 开发步骤
+1. 初始化生成密钥属性集，需要设置[HUKS_TAG_IS_ALLOWED_WRAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)，指定密钥允许导出。
+2. 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+3. 调用[wrapKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukswrapkeyitem20)加密导出密钥。
+4. 调用[unwrapKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksunwrapkeyitem20)加密导入密钥。如果是从普通密钥导入为群组密钥，需要传入TUI PIN类型的AuthToken，认证TUI PIN并获取AuthToken请参考[数字盾服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-trustedauth-verifybypwd#开发步骤)。
 
 
-```text
+
+##### 开发案例
+
+
+
+##### 加密导出导入普通密钥
+
+```json
 import { huks } from '@kit.UniversalKeystoreKit';
 
 let keyAlias = "testWrapKey";
-let properties: Array = [
+let properties: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
@@ -59,7 +63,7 @@ let options: huks.HuksOptions = {
   properties: properties,
 };
 
-let wrapKeyProperties: Array = [
+let wrapKeyProperties: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_KEY_WRAP_TYPE,
     value: huks.HuksKeyWrapType.HUKS_KEY_WRAP_TYPE_HUK_BASED
@@ -105,15 +109,17 @@ async function testWrapKey(){
 ```
 
 
-## 普通密钥导入为群组密钥
+
+##### 普通密钥导入为群组密钥
 
 从API 23开始，支持从普通密钥导入为群组密钥。
-```text
+
+```json
 import { huks } from '@kit.UniversalKeystoreKit';
 import { trustedAuthentication } from '@kit.DeviceSecurityKit';
 
 let keyAlias = "testWrapKey";
-let properties: Array = [
+let properties: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
@@ -145,7 +151,7 @@ let options: huks.HuksOptions = {
   properties: properties,
 };
 
-let wrapKeyProperties: Array = [
+let wrapKeyProperties: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_KEY_WRAP_TYPE,
     value: huks.HuksKeyWrapType.HUKS_KEY_WRAP_TYPE_HUK_BASED

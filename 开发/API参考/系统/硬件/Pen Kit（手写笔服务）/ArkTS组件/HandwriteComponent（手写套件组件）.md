@@ -1,92 +1,129 @@
 # HandwriteComponent（手写套件组件）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecomponent
-
-支持设备：Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供手写套件组件，组件包含画布和手写工具栏，集成之后可快速实现手写能力。
+
 需要提供手写画布功能入口和回调，画布将在初始化、加载和保存动作完成时触发回调，可以在回调中自定义应用的行为。
+
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.0.0(12)
 
-#### 导入模块
 
-```ts
+##### 导入模块
+
+```text
 import { HandwriteController,HandwriteComponent, PenHspInfo, PenType } from '@kit.Penkit';
 ```
 
-#### HandwriteComponent
+
+
+##### HandwriteComponent
+
 **模型约束：** 此接口仅可在Stage模型下使用。
+
 **装饰器类型**：@Component
+
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.0.0(12)
+
 **参数**：
 
-| 名称 | **类型** | 只读 | 可选 | **说明** |
+| 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| handwriteController | [HandwriteController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecontroller) | 否 | 否 | 手写套件功能类实例。 |
-| onInit | [InitCallback](#initcallback) | 否 | 是 | InitCallback：() => void，套件初始化的回调。 |
-| onScale | [ScaleCallback](#scalecallback) | 否 | 是 | ScaleCallback：(scale: number) => void，画布缩放的回调。回调方法的参数是当前画布的缩放值。 |
-| defaultPenType | [PenType](#pentype) | 否 | 是 | 设置默认笔刷特性。5.1.0(18)版本仅支持通过number类型传参。支持的笔刷有 - 钢笔 - 1 - 圆珠笔 - 2 - 铅笔 - 3 - 马克笔 - 4 - 荧光笔 - 5 - 马赛克笔 - 7 - 橡皮擦 - 8 - 套索 - 9 - 激光笔 - 10 起始版本：5.1.0(18) |
-| defaultPenInfo | [PenHspInfo](#penhspinfo)[] | 否 | 是 | 设置各笔刷的默认宽度。 起始版本：5.1.0(18) |
+| handwriteController | HandwriteController | 否 | 否 | 手写套件功能类实例。 |
+| onInit | InitCallback | 否 | 是 | InitCallback：() => void，套件初始化的回调。 |
+| onScale | ScaleCallback | 否 | 是 | ScaleCallback：(scale: number) => void，画布缩放的回调。回调方法的参数是当前画布的缩放值。 |
+| defaultPenType | PenType | 否 | 是 | 设置默认笔刷特性。5.1.0(18)版本仅支持通过number类型传参。支持的笔刷有 - 钢笔 - 1 - 圆珠笔 - 2 - 铅笔 - 3 - 马克笔 - 4 - 荧光笔 - 5 - 马赛克笔 - 7 - 橡皮擦 - 8 - 套索 - 9 - 激光笔 - 10 起始版本：5.1.0(18) |
+| defaultPenInfo | PenHspInfo[] | 否 | 是 | 设置各笔刷的默认宽度。 起始版本：5.1.0(18) |
 | widthRatio | number | 否 | 是 | 画布宽度占比。取值范围：[0, 1]。默认为1。 起始版本：6.0.0(20) |
 | heightRatio | number | 否 | 是 | 画布高度占比。取值范围：[0, 1]。默认为1。 起始版本：6.0.0(20) |
 | maxCanvasHeight | number | 否 | 是 | 长画布最大高度。单位vp。取值范围：大于0。默认为无限大。 起始版本：6.1.0(23) |
 | scaleDisabled | boolean | 否 | 是 | 是否禁用画布缩放。true代表禁用缩放，false代表不禁用缩放。默认为false。设置scaleDisabled为true时，用户将无法通过手势缩放画布，适用于固定比例展示的场景。 起始版本：6.1.0(23) |
-| onDidScroll | [DidScrollCallback](#didscrollcallback) | 否 | 是 | 画布滚动时的回调。当需要监听画布滚动位置时，可使用此回调。 起始版本：6.1.0(23) |
+| onDidScroll | DidScrollCallback | 否 | 是 | 画布滚动时的回调。当需要监听画布滚动位置时，可使用此回调。 起始版本：6.1.0(23) |
 
-#### build
+
+
+
+##### build
+
 build(): void
+
 struct的默认构造函数，无法直接调用此方法。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.0.0(12)
 
-#### InitCallback
+
+
+##### InitCallback
+
 type InitCallback = () => void
+
 套件初始化的回调。使用callback异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.1.0(18)
 
-#### ScaleCallback
+
+
+##### ScaleCallback
+
 type ScaleCallback = (scale: number) => void
+
 画布缩放的回调。使用callback异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.1.0(18)
+
 **参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scale | number | 是 | 回调函数，返回当前画布的缩放值。 |
 
-#### DidScrollCallback
+
+
+
+##### DidScrollCallback
+
 type DidScrollCallback = (yOffset: number) => void
+
 画布滚动的回调。在画布滚动时触发，用于获取当前画布的偏移量。使用callback异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 6.1.0(23)
+
 **参数**：
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | yOffset | number | 是 | 当前画布的偏移量。单位vp。 |
 
-#### PenType
+
+
+
+##### PenType
+
 笔刷number枚举类型。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -105,8 +142,13 @@ type DidScrollCallback = (yOffset: number) => void
 | LASSO | 9 | 套索。 |
 | LASER | 10 | 激光笔。 |
 
-#### PenHspInfo
+
+
+
+##### PenHspInfo
+
 笔刷类型及笔宽。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -117,12 +159,13 @@ type DidScrollCallback = (yOffset: number) => void
 
 | 参数名 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| penType | [PenType](#pentype) | 否 | 否 | 笔刷类型。 5.1.0(18)版本仅支持通过number类型传参。 |
+| penType | PenType | 否 | 否 | 笔刷类型。 5.1.0(18)版本仅支持通过number类型传参。 |
 | penWidth | number | 否 | 否 | 笔宽。各笔刷默认笔宽和取值范围如下： - 钢笔 4(2-10) - 圆珠笔 4(2-10) - 铅笔 8(4-20) - 马克笔 32(16-80) - 荧光笔 32(16-80) - 马赛克笔 40(8-40) - 橡皮擦 50(10-120) - 激光笔 20(8-48) |
+
 
 **示例**:
 
-```ts
+```text
 import { HandwriteController, HandwriteComponent, PenType, PenHspInfo } from '@kit.Penkit';
 
 @Entry
@@ -170,12 +213,12 @@ struct HandWriteDemoComp {
           }
         })
         // 保存及获取缩略图。非必要组件，用户可自行调整或删除。
-        Button("save")
+        Button('save')
           .onClick(async () => {
             // 需根据应用存储规则，获取到手写文件保存的路径，此处仅为实例参考。
             const path = this.getUIContext().getHostContext()?.filesDir + '/aa';
             await this.controller?.save(path).then().catch((error: Error) => {
-              console.error("err：" + error);
+              console.error('err：' + error);
             })
             // 获取缩略图。
             this.controller.getThumbnail(this.controller?.getContentRange())?.then((pixelMap: PixelMap) => {
@@ -203,6 +246,5 @@ struct HandWriteDemoComp {
 }
 ```
 
-
-> [!NOTE] 说明
-> HandwriteController中的方法需要放在上述示例的画布控件初始化的回调中运行或自定义的方法中运行。 使用前需要先设置context信息。 完整示例代码可参考手写笔服务（ArkTS）。
+> [!NOTE]
+> HandwriteController中的方法需要放在上述示例的画布控件初始化的回调中运行或自定义的方法中运行。 使用前需要先 设置context信息 。 完整示例代码可参考 手写笔服务（ArkTS） 。

@@ -3,28 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-deviceinfo
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供企业设备信息管理能力，包括获取设备序列号、设备名称等。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
-> 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考 MDM Kit开发指南 。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { deviceInfo } from '@kit.MDMKit';
 ```
 
 
-## deviceInfo.getDeviceInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### deviceInfo.getDeviceInfo
 
 getDeviceInfo(admin: Want, label: string): string
 
@@ -38,25 +34,22 @@ getDeviceInfo(admin: Want, label: string): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| label | string | 是 | 支持获取的设备信息标签。          - deviceName：设备名称。          - deviceSerial：设备序列号。          - simInfo：SIM卡信息。          - disk：硬盘信息。          - memory：内存信息，当前仅支持PC/2in1设备使用。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| label | string | 是 | 支持获取的设备信息标签。 - deviceName：设备名称。 - deviceSerial：设备序列号。 - simInfo：SIM卡信息。 - disk：硬盘信息。 - memory：内存信息，当前仅支持PC/2in1设备使用。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| string | 返回label对应的参数值。          当label为simInfo时，返回值为表示SIM卡信息的JSON字符串。例如：[{"slotId": 0, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}, {"slotId": 1, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}]，其中：slotId:0表示卡槽1，slotId:1表示卡槽2。 NUMBER：从API version 23开始支持，表示手机号码，格式为包含国家码的E.164国际标准格式（如 +8612345678901）。 |
+| string | 返回label对应的参数值。 当label为simInfo时，返回值为表示SIM卡信息的JSON字符串。例如：[{"slotId": 0, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}, {"slotId": 1, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}]，其中：slotId:0表示卡槽1，slotId:1表示卡槽2。 NUMBER：从API version 23开始支持，表示手机号码，格式为包含国家码的E.164国际标准格式（如 +8612345678901）。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -68,15 +61,14 @@ getDeviceInfo(admin: Want, label: string): string
 
 **示例：**
 
-
-```ts
+```text
 import { deviceInfo } from '@kit.MDMKit';
 import { Want } from '@kit.AbilityKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 
 try {
@@ -84,8 +76,6 @@ try {
   let result: string = deviceInfo.getDeviceInfo(wantTemp, 'deviceName');
   console.info(`Succeeded in getting device name, result : ${result}`);
 } catch (err) {
-  console.error(
-    `Failed to get device name. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to get device name. Code: ${err.code}, message: ${err.message}`);
 }
 ```

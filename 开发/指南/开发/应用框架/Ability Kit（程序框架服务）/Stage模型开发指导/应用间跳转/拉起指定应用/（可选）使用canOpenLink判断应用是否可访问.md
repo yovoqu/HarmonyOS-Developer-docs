@@ -4,28 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canopenlink
 
-## 使用场景
+##### 使用场景
 
 在应用A想要拉起应用B的场景中，应用A可先调用canOpenLink接口判断应用B是否可访问，如果可访问，再拉起应用B。
+
 > [!NOTE]
 > canOpenLink接口不支持判断以App Linking方式跳转的目标应用是否可访问。
 
 
-## 约束限制
+
+
+##### 约束限制
 
 在entry模块的module.json5文件中的[querySchemes](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)字段中，从API version 21开始，最多允许配置200个URL scheme。API version 20及之前的版本，最多允许配置50个URL scheme。
 
-## 接口说明
-
-canOpenLink是[bundleManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagercanopenlink12)提供的支持判断目标应用是否可访问的接口。 匹配规则请参考[显式Want与隐式Want匹配规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/explicit-implicit-want-mappings)。
-
-## 操作步骤
 
 
-## 调用方操作步骤
+##### 接口说明
 
-在entry模块的module.json5文件中配置[querySchemes](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)属性，声明想要查询的URL scheme。
-```text
+canOpenLink是[bundleManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagercanopenlink12)提供的支持判断目标应用是否可访问的接口。
+
+匹配规则请参考[显式Want与隐式Want匹配规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/explicit-implicit-want-mappings)。
+
+
+
+##### 操作步骤
+
+
+
+##### 调用方操作步骤
+1. 在entry模块的module.json5文件中配置[querySchemes](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)属性，声明想要查询的URL scheme。
+
+  
+```json
 {
   "module": {
     // ...
@@ -36,8 +47,11 @@ canOpenLink是[bundleManager](https://developer.huawei.com/consumer/cn/doc/harmo
 }
 ```
 
-导入ohos.bundle.bundleManager模块。 调用canOpenLink接口。
-```text
+2. 导入ohos.bundle.bundleManager模块。
+3. 调用canOpenLink接口。
+
+  
+```json
 import { bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -53,10 +67,13 @@ try {
 ```
 
 
-## 目标方操作步骤
+
+
+##### 目标方操作步骤
 
 在module.json5文件中配置[uris](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)属性。
-```text
+
+```json
 {
   "module": {
     // ...
@@ -85,6 +102,10 @@ try {
 ```
 
 
-## FAQ
 
-为什么限制querySchemes中配置的URL scheme个数？ canOpenLink()接口提供了判断应用是否可以访问的能力。通过该能力，应用可以间接获取到指定应用是否安装等信息。 为了保护系统安全和用户隐私，避免恶意应用扫描应用安装列表等行为，要求开发者在使用canOpenLink()接口时必须配置querySchemes属性，从API version 21开始，最多允许配置200个URL scheme。API version 20及之前的版本，最多允许配置50个URL scheme。
+##### FAQ
+1. 为什么限制querySchemes中配置的URL scheme个数？
+
+  canOpenLink()接口提供了判断应用是否可以访问的能力。通过该能力，应用可以间接获取到指定应用是否安装等信息。
+
+  为了保护系统安全和用户隐私，避免恶意应用扫描应用安装列表等行为，要求开发者在使用canOpenLink()接口时必须配置querySchemes属性，从API version 21开始，最多允许配置200个URL scheme。API version 20及之前的版本，最多允许配置50个URL scheme。

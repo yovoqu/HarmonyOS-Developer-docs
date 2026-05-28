@@ -3,29 +3,32 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctech
-**支持设备：** Phone / Wearable
+**支持设备：** Phone | Wearable
 
 本模块主要用于采用不同Nfc技术的Tag的读写操作。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/z-Ob1yTiTeCLq0Yz1hlaCQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084547Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=947B9224688BCA2CB878315B916257EA8EF5A1AE06A28F7560842AA72EAF47E8)
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/_7r_iPorQ3qY9s5VXMw8kg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013553Z&HW-CC-Expire=86400&HW-CC-Sign=03D08E03A4E45CB617AE3FCD6DB9CDD1E08EAFA8061BDDD1B986E6E44C32F13F)
+
+
 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考[syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
 
 
-## 导入模块
-**支持设备：** Phone / Wearable
 
+
+##### 导入模块
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
 ```
 
 
-## NfcATag
-**支持设备：** Phone / Wearable
+
+##### NfcATag
 
 NfcATag 提供 NFC-A(ISO 14443-3A)技术的属性和I/O操作的访问，继承自[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
 
@@ -36,8 +39,8 @@ NfcATag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 以下是NfcATag的独有接口。
 
 
-### NfcATag.getSak
-**支持设备：** Phone / Wearable
+
+##### NfcATag.getSak
 
 getSak(): number
 
@@ -49,14 +52,12 @@ getSak(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | NfcA 标签的SAK值，十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -67,8 +68,8 @@ console.info("nfcA sak: " + sak);
 ```
 
 
-### NfcATag.getAtqa
-**支持设备：** Phone / Wearable
+
+##### NfcATag.getAtqa
 
 getAtqa(): number[]
 
@@ -80,14 +81,12 @@ getAtqa(): number[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number[] | NfcA 标签的Atqa值，每个number十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -98,8 +97,8 @@ console.info("nfcA atqa: " + atqa);
 ```
 
 
-## NfcBTag
-**支持设备：** Phone / Wearable
+
+##### NfcBTag
 
 NfcBTag 提供对NFC-B(ISO 14443-3B)技术的属性和I/O操作的访问，继承自TagSession。
 
@@ -110,8 +109,8 @@ NfcBTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 以下是NfcBTag的独有接口。
 
 
-### NfcBTag.getRespAppData
-**支持设备：** Phone / Wearable
+
+##### NfcBTag.getRespAppData
 
 getRespAppData(): number[]
 
@@ -123,14 +122,12 @@ getRespAppData(): number[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number[] | NfcB 标签的应用程序数据，每个number十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -141,8 +138,8 @@ console.info("nfcB respAppData: " + respAppData);
 ```
 
 
-### NfcBTag.getRespProtocol
-**支持设备：** Phone / Wearable
+
+##### NfcBTag.getRespProtocol
 
 getRespProtocol(): number[]
 
@@ -154,14 +151,12 @@ getRespProtocol(): number[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number[] | NfcB 标签的协议信息，每个number十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -172,8 +167,8 @@ console.info("nfcB respProtocol: " + respProtocol);
 ```
 
 
-## NfcFTag
-**支持设备：** Phone / Wearable
+
+##### NfcFTag
 
 NfcFTag 提供对NFC-F(JIS 6319-4)技术的属性和I/O操作的访问，继承自TagSession。
 
@@ -184,8 +179,8 @@ NfcFTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 以下是NfcFTag的独有接口。
 
 
-### NfcFTag.getSystemCode
-**支持设备：** Phone / Wearable
+
+##### NfcFTag.getSystemCode
 
 getSystemCode(): number[]
 
@@ -197,14 +192,12 @@ getSystemCode(): number[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number[] | NfcF 标签的系统代码，每个number十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -215,8 +208,8 @@ console.info("nfcF systemCode: " + systemCode);
 ```
 
 
-### NfcFTag.getPmm
-**支持设备：** Phone / Wearable
+
+##### NfcFTag.getPmm
 
 getPmm(): number[]
 
@@ -228,14 +221,12 @@ getPmm(): number[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number[] | NfcF 标签的PMm信息，每个number十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -246,8 +237,8 @@ console.info("nfcF pmm: " + pmm);
 ```
 
 
-## NfcVTag
-**支持设备：** Phone / Wearable
+
+##### NfcVTag
 
 NfcVTag 提供对NFC-V(ISO 15693)技术的属性和I/O操作的访问，继承自TagSession。
 
@@ -258,8 +249,8 @@ NfcVTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 以下是NfcVTag的独有接口。
 
 
-### NfcVTag.getResponseFlags
-**支持设备：** Phone / Wearable
+
+##### NfcVTag.getResponseFlags
 
 getResponseFlags(): number
 
@@ -271,14 +262,12 @@ getResponseFlags(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | NfcV 标签的响应标志，十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -289,8 +278,8 @@ console.info("nfcV responseFlags: " + responseFlags);
 ```
 
 
-### NfcVTag.getDsfId
-**支持设备：** Phone / Wearable
+
+##### NfcVTag.getDsfId
 
 getDsfId(): number
 
@@ -302,14 +291,12 @@ getDsfId(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | NfcV 标签的数据存储格式标识符，十六进制表示，范围是0x00~0xFF。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -320,8 +307,8 @@ console.info("nfcV dsfId: " + dsfId);
 ```
 
 
-## IsoDepTag9+
-**支持设备：** Phone / Wearable
+
+##### IsoDepTag9+
 
 IsoDepTag 提供对ISO-DEP(ISO 14443-4)技术的属性和I/O操作的访问，继承自TagSession。
 
@@ -332,8 +319,8 @@ IsoDepTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com
 以下是IsoDepTag的独有接口。
 
 
-### IsoDepTag.getHistoricalBytes9+
-**支持设备：** Phone / Wearable
+
+##### IsoDepTag.getHistoricalBytes9+
 
 getHistoricalBytes(): number[]
 
@@ -345,14 +332,12 @@ getHistoricalBytes(): number[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number[] | IsoDepTag 标签的历史字节，每个number十六进制表示，范围是0x00~0xFF。如果该IsoDep类型Tag是基于NfcB技术的，则该返回值为空。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -363,8 +348,8 @@ console.info("isoDep historicalBytes: " + historicalBytes);
 ```
 
 
-### IsoDepTag.getHiLayerResponse9+
-**支持设备：** Phone / Wearable
+
+##### IsoDepTag.getHiLayerResponse9+
 
 getHiLayerResponse(): number[]
 
@@ -376,14 +361,12 @@ getHiLayerResponse(): number[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number[] | IsoDepTag 标签的更高层响应字节，每个number十六进制表示，范围是0x00~0xFF。如果该IsoDep类型Tag是基于NfcA技术的，则该返回值为空。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -394,10 +377,10 @@ console.info("isoDep hiLayerResponse: " + hiLayerResponse);
 ```
 
 
-### IsoDepTag.isExtendedApduSupported9+
-**支持设备：** Phone / Wearable
 
-isExtendedApduSupported(): Promise<boolean>
+##### IsoDepTag.isExtendedApduSupported9+
+
+isExtendedApduSupported(): Promise&lt;boolean&gt;
 
 检查是否支持扩展的APDU，使用Promise异步回调。
 
@@ -409,7 +392,6 @@ isExtendedApduSupported(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。返回true表示支持；返回false表示不支持。 |
@@ -419,17 +401,15 @@ isExtendedApduSupported(): Promise<boolean>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -437,31 +417,31 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 isoDep
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!isoDep.isTagConnected()) {
-if (!isoDep.connectTag()) {
-console.error("isoDep connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!isoDep.isTagConnected()) {
+        if (!isoDep.connectTag()) {
+            console.error("isoDep connectTag failed.");
+            return;
+        }
+    }
 
-try {
-isoDep.isExtendedApduSupported().then((response: boolean) => {
-console.info("isoDep isExtendedApduSupported Promise response: " + response);
-}).catch((err: BusinessError) => {
-console.error(`isoDep isExtendedApduSupported Promise Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`isoDep isExtendedApduSupported Promise Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        isoDep.isExtendedApduSupported().then((response: boolean) => {
+            console.info("isoDep isExtendedApduSupported Promise response: " + response);
+        }).catch((err: BusinessError) => {
+            console.error(`isoDep isExtendedApduSupported Promise Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`isoDep isExtendedApduSupported Promise Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### IsoDepTag.isExtendedApduSupported9+
-**支持设备：** Phone / Wearable
 
-isExtendedApduSupported(callback: AsyncCallback<boolean>): void
+##### IsoDepTag.isExtendedApduSupported9+
+
+isExtendedApduSupported(callback: AsyncCallback&lt;boolean&gt;): void
 
 检查是否支持扩展的APDU。使用callback异步回调。
 
@@ -473,7 +453,6 @@ isExtendedApduSupported(callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数，true: 支持， false: 不支持。 |
@@ -483,17 +462,15 @@ isExtendedApduSupported(callback: AsyncCallback<boolean>): void
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -501,35 +478,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 isoDep
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!isoDep.isTagConnected()) {
-if (!isoDep.connectTag()) {
-console.error("isoDep connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!isoDep.isTagConnected()) {
+        if (!isoDep.connectTag()) {
+            console.error("isoDep connectTag failed.");
+            return;
+        }
+    }
 
-try {
-isoDep.isExtendedApduSupported((err: BusinessError, response: boolean) => {
-if (err) {
-console.error(`isoDep isExtendedApduSupported AsyncCallback Code: ${err.code}, message: ${err. message}`);
-} else {
-console.info("isoDep isExtendedApduSupported AsyncCallback response: " + response);
-}
-});
-} catch (businessError) {
-console.error(`isoDep isExtendedApduSupported AsyncCallback Code: ${(businessError as Business).code}, message: ${(businessError as Business).message}`);
-}
+    try {
+        isoDep.isExtendedApduSupported((err: BusinessError, response: boolean) => {
+            if (err) {
+                console.error(`isoDep isExtendedApduSupported AsyncCallback Code: ${err.code}, message: ${err. message}`);
+            } else {
+                console.info("isoDep isExtendedApduSupported AsyncCallback response: " + response);
+            }
+        });
+    } catch (businessError) {
+        console.error(`isoDep isExtendedApduSupported AsyncCallback Code: ${(businessError as Business).code}, message: ${(businessError as Business).message}`);
+    }
 }
 ```
 
 
-## NdefMessage9+
-**支持设备：** Phone / Wearable
+
+##### NdefMessage9+
 
 
-### NdefMessage.getNdefRecords9+
-**支持设备：** Phone / Wearable
+
+##### NdefMessage.getNdefRecords9+
 
 getNdefRecords(): [tag.NdefRecord](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#ndefrecord9)[]
 
@@ -541,14 +518,12 @@ getNdefRecords(): [tag.NdefRecord](https://developer.huawei.com/consumer/cn/doc/
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [tag.NdefRecord](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#ndefrecord9)[] | NDEF标签的Record列表，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。 |
+| tag.NdefRecord[] | NDEF标签的Record列表，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -562,10 +537,10 @@ console.info("ndef ndefRecords number: " + ndefRecords.length);
 ```
 
 
-## NdefTag9+
-**支持设备：** Phone / Wearable
 
-提供对已格式化为NDEF的NFC标签的���据和操作的访问，继承自TagSession。
+##### NdefTag9+
+
+提供对已格式化为NDEF的NFC标签的数据和操作的访问，继承自TagSession。
 
 TagSession是所有NFC Tag技术类型的基类，提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
 
@@ -574,8 +549,8 @@ NdefTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 以下是NdefTag的独有接口。
 
 
-### NdefTag.getNdefTagType9+
-**支持设备：** Phone / Wearable
+
+##### NdefTag.getNdefTagType9+
 
 getNdefTagType(): [tag.NfcForumType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#nfcforumtype9)
 
@@ -587,14 +562,12 @@ getNdefTagType(): [tag.NfcForumType](https://developer.huawei.com/consumer/cn/do
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [tag.NfcForumType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#nfcforumtype9) | NDEF标签类型，包括NFC FORUM TYPE 1/2/3/4等。 |
+| tag.NfcForumType | NDEF标签类型，包括NFC FORUM TYPE 1/2/3/4等。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -605,8 +578,8 @@ console.info("ndef ndefTagType: " + ndefTagType);
 ```
 
 
-### NdefTag.getNdefMessage9+
-**支持设备：** Phone / Wearable
+
+##### NdefTag.getNdefMessage9+
 
 getNdefMessage(): [NdefMessage](#ndefmessage9)
 
@@ -618,14 +591,12 @@ getNdefMessage(): [NdefMessage](#ndefmessage9)
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [NdefMessage](#ndefmessage9) | NDEF标签的Message，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。 |
+| NdefMessage | NDEF标签的Message，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -636,8 +607,8 @@ console.info("ndef ndefMessage: " + ndefMessage);
 ```
 
 
-### NdefTag.isNdefWritable9+
-**支持设备：** Phone / Wearable
+
+##### NdefTag.isNdefWritable9+
 
 isNdefWritable(): boolean
 
@@ -649,14 +620,12 @@ isNdefWritable(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 检查结果，true: 可写， false: 不可写。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -667,8 +636,8 @@ console.info("ndef isNdefWritable: " + isWritable);
 ```
 
 
-### NdefTag.readNdef9+
-**支持设备：** Phone / Wearable
+
+##### NdefTag.readNdef9+
 
 readNdef(): Promise<[NdefMessage](#ndefmessage9)>
 
@@ -682,27 +651,24 @@ readNdef(): Promise<[NdefMessage](#ndefmessage9)>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NdefMessage](#ndefmessage9)&gt; | Promise对象。返回从NDEF标签中读取到的Message数据对象。 |
+| Promise&lt;NdefMessage&gt; | Promise对象。返回从NDEF标签中读取到的Message数据对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -710,29 +676,29 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefTag
 function nfcTechDemo(){
-// 如果没有连接Tag，请先连接
-if (!ndefTag.isTagConnected()) {
-if (!ndefTag.connectTag()) {
-console.error("ndefTag connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefTag.isTagConnected()) {
+        if (!ndefTag.connectTag()) {
+            console.error("ndefTag connectTag failed.");
+            return;
+        }
+    }
 
-try {
-ndefTag.readNdef().then((ndefmessage : tag.NdefMessage) => {
-console.info("ndef readNdef Promise ndefmessage: " + ndefmessage);
-}).catch((err : BusinessError)=> {
-console.error("ndef readNdef Promise err Code: ${err.code}, message: ${err.message}");
-});
-} catch (businessError) {
-console.error(`ndef readNdef Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        ndefTag.readNdef().then((ndefmessage : tag.NdefMessage) => {
+            console.info("ndef readNdef Promise ndefmessage: " + ndefmessage);
+        }).catch((err : BusinessError)=> {
+            console.error("ndef readNdef Promise err Code: ${err.code}, message: ${err.message}");
+        });
+    } catch (businessError) {
+        console.error(`ndef readNdef Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefTag.readNdef9+
-**支持设备：** Phone / Wearable
+
+##### NdefTag.readNdef9+
 
 readNdef(callback: AsyncCallback<[NdefMessage](#ndefmessage9)>): void
 
@@ -746,27 +712,24 @@ readNdef(callback: AsyncCallback<[NdefMessage](#ndefmessage9)>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[NdefMessage](#ndefmessage9)&gt; | 是 | 回调函数，返回从NDEF标签中读取到的Message信息。 |
+| callback | AsyncCallback&lt;NdefMessage&gt; | 是 | 回调函数，返回从NDEF标签中读取到的Message信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -774,33 +737,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefTag
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefTag.isTagConnected()) {
-if (!ndefTag.connectTag()) {
-console.error("ndefTag connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefTag.isTagConnected()) {
+        if (!ndefTag.connectTag()) {
+            console.error("ndefTag connectTag failed.");
+            return;
+        }
+    }
 
-try {
-ndefTag.readNdef((err : BusinessError, ndefmessage : tag.NdefMessage)=> {
-if (err) {
-console.error(`ndef readNdef AsyncCallback err Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("ndef readNdef AsyncCallback ndefmessage: " + ndefmessage);
-}
-});
-} catch (businessError) {
-console.error(`ndef readNdef AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        ndefTag.readNdef((err : BusinessError, ndefmessage : tag.NdefMessage)=> {
+            if (err) {
+                console.error(`ndef readNdef AsyncCallback err Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("ndef readNdef AsyncCallback ndefmessage: " + ndefmessage);
+            }
+        });
+    } catch (businessError) {
+        console.error(`ndef readNdef AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefTag.writeNdef9+
-**支持设备：** Phone / Wearable
 
-writeNdef(msg: [NdefMessage](#ndefmessage9)): Promise<void>
+##### NdefTag.writeNdef9+
+
+writeNdef(msg: [NdefMessage](#ndefmessage9)): Promise&lt;void&gt;
 
 将NDEF Message数据对象写入标签。使用Promise异步回调。
 
@@ -812,14 +775,12 @@ writeNdef(msg: [NdefMessage](#ndefmessage9)): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| msg | [NdefMessage](#ndefmessage9) | 是 | NDEF Message数据对象。 |
+| msg | NdefMessage | 是 | NDEF Message数据对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -830,17 +791,15 @@ writeNdef(msg: [NdefMessage](#ndefmessage9)): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -849,35 +808,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefTag
 // 从原始数据创建的ndefMessage，例如：
 let ndefMessage : tag.NdefMessage =
-tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);  // 必须是可以被解析的NDEF记录。
+    tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);  // 必须是可以被解析的NDEF记录。
 // 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefTag.isTagConnected()) {
-if (!ndefTag.connectTag()) {
-console.error("ndefTag connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefTag.isTagConnected()) {
+        if (!ndefTag.connectTag()) {
+            console.error("ndefTag connectTag failed.");
+            return;
+        }
+    }
 
-try {
-ndefTag.writeNdef(ndefMessage).then(() => {
-console.info("ndef writeNdef Promise success.");
-}).catch((err : BusinessError)=> {
-console.error(`ndef writeNdef err Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`ndef writeNdef Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        ndefTag.writeNdef(ndefMessage).then(() => {
+            console.info("ndef writeNdef Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error(`ndef writeNdef err Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`ndef writeNdef Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefTag.writeNdef9+
-**支持设备：** Phone / Wearable
 
-writeNdef(msg: [NdefMessage](#ndefmessage9), callback: AsyncCallback<void>): void
+##### NdefTag.writeNdef9+
+
+writeNdef(msg: [NdefMessage](#ndefmessage9), callback: AsyncCallback&lt;void&gt;): void
 
 将NDEF Message数据对象写入此标签。使用callback异步回调。
 
@@ -889,10 +848,9 @@ writeNdef(msg: [NdefMessage](#ndefmessage9), callback: AsyncCallback<void>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| msg | [NdefMessage](#ndefmessage9) | 是 | NDEF Message数据对象。 |
+| msg | NdefMessage | 是 | NDEF Message数据对象。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当NDEF Message数据对象写入成功时，err为undefined，否则为错误对象。 |
 
 
@@ -900,17 +858,15 @@ writeNdef(msg: [NdefMessage](#ndefmessage9), callback: AsyncCallback<void>): voi
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -919,35 +875,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefTag
 // 从原始数据创建的ndefMessage，例如：
 let ndefMessage : tag.NdefMessage =
-tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);  // 必须是可以被解析的NDEF记录。
+    tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);  // 必须是可以被解析的NDEF记录。
 // 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefTag.isTagConnected()) {
-if (!ndefTag.connectTag()) {
-console.error("ndefTag connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefTag.isTagConnected()) {
+        if (!ndefTag.connectTag()) {
+            console.error("ndefTag connectTag failed.");
+            return;
+        }
+    }
 
-try {
-ndefTag.writeNdef(ndefMessage, (err : BusinessError)=> {
-if (err) {
-console.error("ndef writeNdef AsyncCallback Code: ${err.code}, message: ${err.message}");
-} else {
-console.info("ndef writeNdef AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`ndef writeNdef AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        ndefTag.writeNdef(ndefMessage, (err : BusinessError)=> {
+            if (err) {
+                console.error("ndef writeNdef AsyncCallback Code: ${err.code}, message: ${err.message}");
+            } else {
+                console.info("ndef writeNdef AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`ndef writeNdef AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefTag.canSetReadOnly9+
-**支持设备：** Phone / Wearable
+
+##### NdefTag.canSetReadOnly9+
 
 canSetReadOnly(): boolean
 
@@ -961,7 +917,6 @@ canSetReadOnly(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | true: NDEF标签可设置为只读， false: NDEF标签不可设置为只读。 |
@@ -971,7 +926,6 @@ canSetReadOnly(): boolean
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -979,7 +933,6 @@ canSetReadOnly(): boolean
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -990,10 +943,10 @@ console.info("ndef canSetReadOnly: " + canSetReadOnly);
 ```
 
 
-### NdefTag.setReadOnly9+
-**支持设备：** Phone / Wearable
 
-setReadOnly(): Promise<void>
+##### NdefTag.setReadOnly9+
+
+setReadOnly(): Promise&lt;void&gt;
 
 将NDEF标签设置为只读。使用Promise异步回调。
 
@@ -1005,7 +958,6 @@ setReadOnly(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -1015,17 +967,15 @@ setReadOnly(): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1034,31 +984,31 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefTag
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefTag.isTagConnected()) {
-if (!ndefTag.connectTag()) {
-console.error("ndefTag connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefTag.isTagConnected()) {
+        if (!ndefTag.connectTag()) {
+            console.error("ndefTag connectTag failed.");
+            return;
+        }
+    }
 
-try {
-ndefTag.setReadOnly().then(() => {
-console.info("ndef setReadOnly Promise success.");
-}).catch((err : BusinessError)=> {
-console.error("ndef setReadOnly Promise err Code: ${err.code}, message: ${err.message}");
-});
-} catch (businessError) {
-console.error(`ndef setReadOnly Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        ndefTag.setReadOnly().then(() => {
+            console.info("ndef setReadOnly Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error("ndef setReadOnly Promise err Code: ${err.code}, message: ${err.message}");
+        });
+    } catch (businessError) {
+        console.error(`ndef setReadOnly Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefTag.setReadOnly9+
-**支持设备：** Phone / Wearable
 
-setReadOnly(callback: AsyncCallback<void>): void
+##### NdefTag.setReadOnly9+
+
+setReadOnly(callback: AsyncCallback&lt;void&gt;): void
 
 将NDEF标签设置为只读。使用callback异步回调。
 
@@ -1070,7 +1020,6 @@ setReadOnly(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当NDEF标签设置为只读成功时，err为undefined，否则为错误对象。 |
@@ -1080,17 +1029,15 @@ setReadOnly(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1099,31 +1046,31 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefTag
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefTag.isTagConnected()) {
-if (!ndefTag.connectTag()) {
-console.error("ndefTag connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefTag.isTagConnected()) {
+        if (!ndefTag.connectTag()) {
+            console.error("ndefTag connectTag failed.");
+            return;
+        }
+    }
 
-try {
-ndefTag.setReadOnly((err : BusinessError)=> {
-if (err) {
-console.error(`ndef setReadOnly AsyncCallback err Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("ndef setReadOnly AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`ndef setReadOnly AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        ndefTag.setReadOnly((err : BusinessError)=> {
+            if (err) {
+                console.error(`ndef setReadOnly AsyncCallback err Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("ndef setReadOnly AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`ndef setReadOnly AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefTag.getNdefTagTypeString9+
-**支持设备：** Phone / Wearable
+
+##### NdefTag.getNdefTagTypeString9+
 
 getNdefTagTypeString(type: [tag.NfcForumType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#nfcforumtype9)): string
 
@@ -1135,14 +1082,12 @@ getNdefTagTypeString(type: [tag.NfcForumType](https://developer.huawei.com/consu
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [tag.NfcForumType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#nfcforumtype9) | 是 | NDEF标签类型，包括NFC FORUM TYPE 1/2/3/4等。 |
+| type | tag.NfcForumType | 是 | NDEF标签类型，包括NFC FORUM TYPE 1/2/3/4等。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1153,14 +1098,12 @@ getNdefTagTypeString(type: [tag.NfcForumType](https://developer.huawei.com/consu
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1169,16 +1112,16 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefTag
 
 try {
-let ndefTypeString : string = ndefTag.getNdefTagTypeString(tag.NfcForumType.NFC_FORUM_TYPE_1);
-console.info("ndef ndefTypeString: " + ndefTypeString);
+    let ndefTypeString : string = ndefTag.getNdefTagTypeString(tag.NfcForumType.NFC_FORUM_TYPE_1);
+    console.info("ndef ndefTypeString: " + ndefTypeString);
 } catch (businessError) {
-console.error(`ndef getNdefTagTypeString catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    console.error(`ndef getNdefTagTypeString catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
 }
 ```
 
 
-## MifareClassicTag9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag9+
 
 MifareClassicTag提供对MIFARE Classic属性和I/O操作的访问，继承自[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
 
@@ -1189,10 +1132,10 @@ MifareClassicTag获取方式请参考[nfc-tag开发指南](https://developer.hua
 以下是MifareClassicTag的独有接口。
 
 
-### MifareClassicTag.authenticateSector9+
-**支持设备：** Phone / Wearable
 
-authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise<void>
+##### MifareClassicTag.authenticateSector9+
+
+authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise&lt;void&gt;
 
 使用密钥对扇区进行身份验证，只有身份验证成功的扇区可以进行操作。使用Promise异步回调。
 
@@ -1204,7 +1147,6 @@ authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sectorIndex | number | 是 | 待验证的扇区索引，从0开始。 |
@@ -1213,7 +1155,6 @@ authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1224,17 +1165,15 @@ authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1243,33 +1182,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let sectorIndex = 1; // 将其更改为正确的 index
-let key = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06]  // 必须是6个字节，将其更改为正确的key
-mifareClassic.authenticateSector(sectorIndex, key, true).then(() => {
-console.info("mifareClassic authenticateSector Promise success.");
-}).catch((err : BusinessError)=> {
-console.error("mifareClassic authenticateSector Promise errCode: ${err.code}, " + "message: ${err.message}");
-});
-} catch (businessError) {
-console.error(`mifareClassic authenticateSector Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let sectorIndex = 1; // 将其更改为正确的 index
+        let key = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06]  // 必须是6个字节，将其更改为正确的key
+        mifareClassic.authenticateSector(sectorIndex, key, true).then(() => {
+            console.info("mifareClassic authenticateSector Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error("mifareClassic authenticateSector Promise errCode: ${err.code}, " + "message: ${err.message}");
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic authenticateSector Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.authenticateSector9+
-**支持设备：** Phone / Wearable
 
-authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback: AsyncCallback<void>): void
+##### MifareClassicTag.authenticateSector9+
+
+authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 使用密钥对扇区进行身份验证，只有身份验证成功的扇区可以进行操作。使用callback异步回调。
 
@@ -1280,7 +1219,6 @@ authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1294,17 +1232,15 @@ authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1313,33 +1249,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let sectorIndex = 1; // 将其更改为正确的 index
-let key = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06]  // 必须是6个字节，将其更改为正确的key
-mifareClassic.authenticateSector(sectorIndex, key, true, (err : BusinessError)=> {
-if (err) {
-console.error(`mifareClassic authenticateSector AsyncCallback errCode: ${err.code}, message: ${err.message}`);
-} else {
-console.info("mifareClassic authenticateSector AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`mifareClassic authenticateSector AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let sectorIndex = 1; // 将其更改为正确的 index
+        let key = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06]  // 必须是6个字节，将其更改为正确的key
+        mifareClassic.authenticateSector(sectorIndex, key, true, (err : BusinessError)=> {
+            if (err) {
+                console.error(`mifareClassic authenticateSector AsyncCallback errCode: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("mifareClassic authenticateSector AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic authenticateSector AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.readSingleBlock9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.readSingleBlock9+
 
 readSingleBlock(blockIndex: number): Promise<number[]>
 
@@ -1353,7 +1289,6 @@ readSingleBlock(blockIndex: number): Promise<number[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 要读取的块索引，从0开始。 |
@@ -1361,27 +1296,24 @@ readSingleBlock(blockIndex: number): Promise<number[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number[]&gt; | Promise对象。返回读取的块数据。 |
+| Promise<number[]> | Promise对象。返回读取的块数据。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1390,30 +1322,30 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-mifareClassic.readSingleBlock(blockIndex).then((data : number[]) => {
-console.info("mifareClassic readSingleBlock Promise data: " + data);
-}).catch((err : BusinessError)=> {
-console.error(`mifareClassic readSingleBlock Promise errCode: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`mifareClassic readSingleBlock Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        mifareClassic.readSingleBlock(blockIndex).then((data : number[]) => {
+            console.info("mifareClassic readSingleBlock Promise data: " + data);
+        }).catch((err : BusinessError)=> {
+            console.error(`mifareClassic readSingleBlock Promise errCode: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic readSingleBlock Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.readSingleBlock9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.readSingleBlock9+
 
 readSingleBlock(blockIndex: number, callback: AsyncCallback<number[]>): void
 
@@ -1427,28 +1359,25 @@ readSingleBlock(blockIndex: number, callback: AsyncCallback<number[]>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 要读取的块索引，从0开始。 |
-| callback | AsyncCallback&lt;number[]&gt; | 是 | 以callback形式异步返回读取到的块数据。 |
+| callback | AsyncCallback<number[]> | 是 | 以callback形式异步返回读取到的块数据。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1457,34 +1386,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1;  // 将其更改为正确的 index
-mifareClassic.readSingleBlock(blockIndex, (err : BusinessError, data : number[])=> {
-if (err) {
-console.error("mifareClassic readSingleBlock AsyncCallback err: " + err);
-} else {
-console.info("mifareClassic readSingleBlock AsyncCallback data: " + data);
-}
-});
-} catch (businessError) {
-console.error(`mifareClassic readSingleBlock AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1;  // 将其更改为正确的 index
+        mifareClassic.readSingleBlock(blockIndex, (err : BusinessError, data : number[])=> {
+            if (err) {
+                console.error("mifareClassic readSingleBlock AsyncCallback err: " + err);
+            } else {
+                console.info("mifareClassic readSingleBlock AsyncCallback data: " + data);
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic readSingleBlock AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.writeSingleBlock9+
-**支持设备：** Phone / Wearable
 
-writeSingleBlock(blockIndex: number, data: number[]): Promise<void>
+##### MifareClassicTag.writeSingleBlock9+
+
+writeSingleBlock(blockIndex: number, data: number[]): Promise&lt;void&gt;
 
 向标签中一个块存储写入内容，一个块大小为16字节。使用Promise异步回调。
 
@@ -1496,7 +1425,6 @@ writeSingleBlock(blockIndex: number, data: number[]): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 要写入的块索引，从0开始。 |
@@ -1504,7 +1432,6 @@ writeSingleBlock(blockIndex: number, data: number[]): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1515,17 +1442,15 @@ writeSingleBlock(blockIndex: number, data: number[]): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1534,34 +1459,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-let rawData = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A,
-0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10]; // 必须是16个字节，将其更改为正确的key
-mifareClassic.writeSingleBlock(blockIndex, rawData).then(() => {
-console.info("mifareClassic writeSingleBlock Promise success.");
-}).catch((err : BusinessError)=> {
-console.error("mifareClassic writeSingleBlock Promise errCode: ${err.code}, message: ${err.message}");
-});
-} catch (businessError) {
-console.error(`mifareClassic writeSingleBlock Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        let rawData = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A,
+            0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10]; // 必须是16个字节，将其更改为正确的key
+        mifareClassic.writeSingleBlock(blockIndex, rawData).then(() => {
+            console.info("mifareClassic writeSingleBlock Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error("mifareClassic writeSingleBlock Promise errCode: ${err.code}, message: ${err.message}");
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic writeSingleBlock Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.writeSingleBlock9+
-**支持设备：** Phone / Wearable
 
-writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback<void>): void
+##### MifareClassicTag.writeSingleBlock9+
+
+writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback&lt;void&gt;): void
 
 向标签中一个块存储写入内容，一个块大小为16字节。使用callback异步回调。
 
@@ -1572,7 +1497,6 @@ writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback<voi
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1585,17 +1509,15 @@ writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback<voi
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1604,36 +1526,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-let rawData = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A,
-0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10]; // 必须是16个字节，将其更改为正确的data
-mifareClassic.writeSingleBlock(blockIndex, rawData, (err : BusinessError)=> {
-if (err) {
-console.error(`mifareClassic writeSingleBlock AsyncCallback err Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("mifareClassic writeSingleBlock AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`mifareClassic writeSingleBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        let rawData = [0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A,
+            0x0B, 0x0C, 0x0D, 0x0E, 0x0F, 0x10]; // 必须是16个字节，将其更改为正确的data
+        mifareClassic.writeSingleBlock(blockIndex, rawData, (err : BusinessError)=> {
+            if (err) {
+                console.error(`mifareClassic writeSingleBlock AsyncCallback err Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("mifareClassic writeSingleBlock AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic writeSingleBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.incrementBlock9+
-**支持设备：** Phone / Wearable
 
-incrementBlock(blockIndex: number, value: number): Promise<void>
+##### MifareClassicTag.incrementBlock9+
+
+incrementBlock(blockIndex: number, value: number): Promise&lt;void&gt;
 
 对指定块的内容，增加指定的数值，并将结果存储在内部传输缓冲器中。使用Promise异步回调。
 
@@ -1645,7 +1567,6 @@ incrementBlock(blockIndex: number, value: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 要指定增加的块索引，从0开始。 |
@@ -1653,7 +1574,6 @@ incrementBlock(blockIndex: number, value: number): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1664,17 +1584,15 @@ incrementBlock(blockIndex: number, value: number): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1683,33 +1601,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-let value = 0x20; // 将其更改为正确的数据
-mifareClassic.incrementBlock(blockIndex, value).then(() => {
-console.info("mifareClassic incrementBlock Promise success.");
-}).catch((err : BusinessError)=> {
-console.error(`mifareClassic incrementBlock Promise err Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`mifareClassic incrementBlock Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        let value = 0x20; // 将其更改为正确的数据
+        mifareClassic.incrementBlock(blockIndex, value).then(() => {
+            console.info("mifareClassic incrementBlock Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error(`mifareClassic incrementBlock Promise err Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic incrementBlock Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.incrementBlock9+
-**支持设备：** Phone / Wearable
 
-incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void
+##### MifareClassicTag.incrementBlock9+
+
+incrementBlock(blockIndex: number, value: number, callback: AsyncCallback&lt;void&gt;): void
 
 对指定块的内容，增加指定的数值，并将结果存储在内部传输缓冲器中。使用callback异步回调。
 
@@ -1720,7 +1638,6 @@ incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>)
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1733,17 +1650,15 @@ incrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>)
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1752,35 +1667,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-let value = 0x20; // 将其更改为正确的数据
-mifareClassic.incrementBlock(blockIndex, value, (err : BusinessError)=> {
-if (err) {
-console.error(`mifareClassic incrementBlock AsyncCallback err Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("mifareClassic incrementBlock AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`mifareClassic incrementBlock AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        let value = 0x20; // 将其更改为正确的数据
+        mifareClassic.incrementBlock(blockIndex, value, (err : BusinessError)=> {
+            if (err) {
+                console.error(`mifareClassic incrementBlock AsyncCallback err Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("mifareClassic incrementBlock AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic incrementBlock AsyncCallback catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.decrementBlock9+
-**支持设备：** Phone / Wearable
 
-decrementBlock(blockIndex: number, value: number): Promise<void>
+##### MifareClassicTag.decrementBlock9+
+
+decrementBlock(blockIndex: number, value: number): Promise&lt;void&gt;
 
 对指定块的内容，减少指定的数值，并将结果存储在内部传输缓冲器中。使用Promise异步回调。
 
@@ -1792,7 +1707,6 @@ decrementBlock(blockIndex: number, value: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 要被运算的块索引，从0开始。 |
@@ -1800,7 +1714,6 @@ decrementBlock(blockIndex: number, value: number): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1811,17 +1724,15 @@ decrementBlock(blockIndex: number, value: number): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1830,33 +1741,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-let value = 0x20; // 将其更改为正确的数据
-mifareClassic.decrementBlock(blockIndex, value).then(() => {
-console.info("mifareClassic decrementBlock Promise success.");
-}).catch((err : BusinessError)=> {
-console.error("mifareClassic decrementBlock Promise errCode: ${err.code}, message: ${err.message}");
-});
-} catch (businessError) {
-console.error(`mifareClassic decrementBlock Promise catch businessError: Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        let value = 0x20; // 将其更改为正确的数据
+        mifareClassic.decrementBlock(blockIndex, value).then(() => {
+            console.info("mifareClassic decrementBlock Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error("mifareClassic decrementBlock Promise errCode: ${err.code}, message: ${err.message}");
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic decrementBlock Promise catch businessError: Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.decrementBlock9+
-**支持设备：** Phone / Wearable
 
-decrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>): void
+##### MifareClassicTag.decrementBlock9+
+
+decrementBlock(blockIndex: number, value: number, callback: AsyncCallback&lt;void&gt;): void
 
 对指定块的内容，减少指定的数值。使用callback异步回调。
 
@@ -1867,7 +1778,6 @@ decrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>)
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1880,17 +1790,15 @@ decrementBlock(blockIndex: number, value: number, callback: AsyncCallback<void>)
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1899,36 +1807,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-let value = 0x20; // 将其更改为正确的数据
-mifareClassic.decrementBlock(blockIndex, value, (err : BusinessError)=> {
-if (err) {
-console.error("mifareClassic decrementBlock AsyncCallback errCode:" +
-"${err.code}, message: ${err.message}");
-} else {
-console.info("mifareClassic decrementBlock AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`mifareClassic decrementBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        let value = 0x20; // 将其更改为正确的数据
+        mifareClassic.decrementBlock(blockIndex, value, (err : BusinessError)=> {
+            if (err) {
+                console.error("mifareClassic decrementBlock AsyncCallback errCode:" +
+                  "${err.code}, message: ${err.message}");
+            } else {
+                console.info("mifareClassic decrementBlock AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic decrementBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.transferToBlock9+
-**支持设备：** Phone / Wearable
 
-transferToBlock(blockIndex: number): Promise<void>
+##### MifareClassicTag.transferToBlock9+
+
+transferToBlock(blockIndex: number): Promise&lt;void&gt;
 
 将临时寄存器的值转移到指定的块。使用Promise异步异步回调。
 
@@ -1940,14 +1848,12 @@ transferToBlock(blockIndex: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 被操作的块的索引，从0开始。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1958,17 +1864,15 @@ transferToBlock(blockIndex: number): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -1977,32 +1881,32 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-mifareClassic.transferToBlock(blockIndex).then(() => {
-console.info("mifareClassic transferToBlock Promise success.");
-}).catch((err : BusinessError)=> {
-console.error(`mifareClassic transferToBlock Promise err Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`mifareClassic transferToBlock Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        mifareClassic.transferToBlock(blockIndex).then(() => {
+            console.info("mifareClassic transferToBlock Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error(`mifareClassic transferToBlock Promise err Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic transferToBlock Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.transferToBlock9+
-**支持设备：** Phone / Wearable
 
-transferToBlock(blockIndex: number, callback: AsyncCallback<void>): void
+##### MifareClassicTag.transferToBlock9+
+
+transferToBlock(blockIndex: number, callback: AsyncCallback&lt;void&gt;): void
 
 将临时寄存器的值转移到指定的块。使用callback异步回调。
 
@@ -2014,7 +1918,6 @@ transferToBlock(blockIndex: number, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 被操作的块的索引，从0开始。 |
@@ -2025,17 +1928,15 @@ transferToBlock(blockIndex: number, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2044,34 +1945,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-mifareClassic.transferToBlock(blockIndex, (err : BusinessError)=> {
-if (err) {
-console.error(`mifareClassic transferToBlock AsyncCallback errCode: ${err.code}, message: ${err.message}`);
-} else {
-console.info("mifareClassic transferToBlock AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`mifareClassic transferToBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        mifareClassic.transferToBlock(blockIndex, (err : BusinessError)=> {
+            if (err) {
+                console.error(`mifareClassic transferToBlock AsyncCallback errCode: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("mifareClassic transferToBlock AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic transferToBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.restoreFromBlock9+
-**支持设备：** Phone / Wearable
 
-restoreFromBlock(blockIndex: number): Promise<void>
+##### MifareClassicTag.restoreFromBlock9+
+
+restoreFromBlock(blockIndex: number): Promise&lt;void&gt;
 
 将指定块的值复制到临时寄存器。使用Promise异步回调。
 
@@ -2083,14 +1984,12 @@ restoreFromBlock(blockIndex: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 被操作的块的索引，从0开始。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2101,17 +2000,15 @@ restoreFromBlock(blockIndex: number): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2120,32 +2017,32 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-mifareClassic.restoreFromBlock(blockIndex).then(() => {
-console.info("mifareClassic restoreFromBlock Promise success.");
-}).catch((err : BusinessError)=> {
-console.error(`mifareClassic restoreFromBlock Promise errCode: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`mifareClassic restoreFromBlock Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        mifareClassic.restoreFromBlock(blockIndex).then(() => {
+            console.info("mifareClassic restoreFromBlock Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error(`mifareClassic restoreFromBlock Promise errCode: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic restoreFromBlock Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.restoreFromBlock9+
-**支持设备：** Phone / Wearable
 
-restoreFromBlock(blockIndex: number, callback: AsyncCallback<void>): void
+##### MifareClassicTag.restoreFromBlock9+
+
+restoreFromBlock(blockIndex: number, callback: AsyncCallback&lt;void&gt;): void
 
 将指定块的值复制到临时寄存器。使用callback异步回调。
 
@@ -2157,7 +2054,6 @@ restoreFromBlock(blockIndex: number, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 被操作的块的索引，从0开始。 |
@@ -2168,17 +2064,15 @@ restoreFromBlock(blockIndex: number, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2187,32 +2081,32 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareClassic.isTagConnected()) {
-if (!mifareClassic.connectTag()) {
-console.error("mifareClassic connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareClassic.isTagConnected()) {
+        if (!mifareClassic.connectTag()) {
+            console.error("mifareClassic connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let blockIndex = 1; // 将其更改为正确的 index
-mifareClassic.restoreFromBlock(blockIndex, (err : BusinessError)=> {
-if (err) {
-console.error(`mifareClassic restoreFromBlock AsyncCallback err Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("mifareClassic restoreFromBlock AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`mifareClassic restoreFromBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let blockIndex = 1; // 将其更改为正确的 index
+        mifareClassic.restoreFromBlock(blockIndex, (err : BusinessError)=> {
+            if (err) {
+                console.error(`mifareClassic restoreFromBlock AsyncCallback err Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("mifareClassic restoreFromBlock AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareClassic restoreFromBlock AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareClassicTag.getSectorCount9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.getSectorCount9+
 
 getSectorCount(): number
 
@@ -2224,14 +2118,12 @@ getSectorCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 标签中的扇区数量。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2243,8 +2135,8 @@ console.info("mifareClassic sectorCount: " + sectorCount);
 ```
 
 
-### MifareClassicTag.getBlockCountInSector9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.getBlockCountInSector9+
 
 getBlockCountInSector(sectorIndex: number): number
 
@@ -2256,14 +2148,12 @@ getBlockCountInSector(sectorIndex: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sectorIndex | number | 是 | 扇区序号，从0开始。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2274,14 +2164,12 @@ getBlockCountInSector(sectorIndex: number): number
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2290,17 +2178,17 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 try {
-let sectorIndex = 1; // 将其更改为正确的 index
-let blockCnt : number = mifareClassic.getBlockCountInSector(sectorIndex);
-console.info("mifareClassic blockCnt: " + blockCnt);
+    let sectorIndex = 1; // 将其更改为正确的 index
+    let blockCnt : number = mifareClassic.getBlockCountInSector(sectorIndex);
+    console.info("mifareClassic blockCnt: " + blockCnt);
 } catch (businessError) {
-console.error(`mifareClassic getBlockCountInSector catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    console.error(`mifareClassic getBlockCountInSector catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
 }
 ```
 
 
-### MifareClassicTag.getType9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.getType9+
 
 getType(): [tag.MifareClassicType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#mifareclassictype9)
 
@@ -2312,14 +2200,12 @@ getType(): [tag.MifareClassicType](https://developer.huawei.com/consumer/cn/doc/
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [tag.MifareClassicType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#mifareclassictype9) | MifareClassic标签的类型。 |
+| tag.MifareClassicType | MifareClassic标签的类型。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2330,8 +2216,8 @@ console.info("mifareClassic getType: " + getType);
 ```
 
 
-### MifareClassicTag.getTagSize9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.getTagSize9+
 
 getTagSize(): number
 
@@ -2343,14 +2229,12 @@ getTagSize(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 标签的大小，单位为字节，请参见[MifareClassicSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#mifareclassicsize9)。 |
+| number | 标签的大小，单位为字节，请参见MifareClassicSize。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2362,8 +2246,8 @@ console.info("mifareClassic tagSize: " + tagSize);
 ```
 
 
-### MifareClassicTag.isEmulatedTag9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.isEmulatedTag9+
 
 isEmulatedTag(): boolean
 
@@ -2375,14 +2259,12 @@ isEmulatedTag(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 检查结果，true: 是；false：否。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2394,8 +2276,8 @@ console.info("mifareClassic isEmulatedTag: " + isEmulatedTag);
 ```
 
 
-### MifareClassicTag.getBlockIndex9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.getBlockIndex9+
 
 getBlockIndex(sectorIndex: number): number
 
@@ -2407,14 +2289,12 @@ getBlockIndex(sectorIndex: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sectorIndex | number | 是 | 扇区序号，从0开始。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2425,14 +2305,12 @@ getBlockIndex(sectorIndex: number): number
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2441,17 +2319,17 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 try {
-let sectorIndex = 1; // 将其更改为正确的 index
-let blockIndex : number = mifareClassic.getBlockIndex(sectorIndex);
-console.info("mifareClassic blockIndex: " + blockIndex);
+    let sectorIndex = 1; // 将其更改为正确的 index
+    let blockIndex : number = mifareClassic.getBlockIndex(sectorIndex);
+    console.info("mifareClassic blockIndex: " + blockIndex);
 } catch (businessError) {
-console.error(`mifareClassic getBlockIndex catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    console.error(`mifareClassic getBlockIndex catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
 }
 ```
 
 
-### MifareClassicTag.getSectorIndex9+
-**支持设备：** Phone / Wearable
+
+##### MifareClassicTag.getSectorIndex9+
 
 getSectorIndex(blockIndex: number): number
 
@@ -2463,14 +2341,12 @@ getSectorIndex(blockIndex: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blockIndex | number | 是 | 块序号，从0开始。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2481,14 +2357,12 @@ getSectorIndex(blockIndex: number): number
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2497,17 +2371,17 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareClassic
 
 try {
-let blockIndex = 1; // 将其更改为正确的 index
-let sectorIndex : number = mifareClassic.getSectorIndex(blockIndex);
-console.info("mifareClassic sectorIndex: " + sectorIndex);
+    let blockIndex = 1; // 将其更改为正确的 index
+    let sectorIndex : number = mifareClassic.getSectorIndex(blockIndex);
+    console.info("mifareClassic sectorIndex: " + sectorIndex);
 } catch (businessError) {
-console.error(`mifareClassic getSectorIndex catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    console.error(`mifareClassic getSectorIndex catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
 }
 ```
 
 
-## MifareUltralightTag9+
-**支持设备：** Phone / Wearable
+
+##### MifareUltralightTag9+
 
 MifareUltralightTag 提供对MIFARE Ultralight属性和I/O操作的访问，继承自TagSession。
 
@@ -2518,8 +2392,8 @@ MifareUltralightTag获取方式请参考[nfc-tag开发指南](https://developer.
 以下是MifareUltralightTag的独有接口。
 
 
-### MifareUltralightTag.readMultiplePages9+
-**支持设备：** Phone / Wearable
+
+##### MifareUltralightTag.readMultiplePages9+
 
 readMultiplePages(pageIndex: number): Promise<number[]>
 
@@ -2533,7 +2407,6 @@ readMultiplePages(pageIndex: number): Promise<number[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pageIndex | number | 是 | 要读取页面的索引，从0开始。 |
@@ -2541,27 +2414,24 @@ readMultiplePages(pageIndex: number): Promise<number[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number[]&gt; | Promise对象。以Promise形式返回读取的4页的数据，共16字节。 |
+| Promise<number[]> | Promise对象。以Promise形式返回读取的4页的数据，共16字节。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2570,30 +2440,30 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareUltralight
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareUltralight.isTagConnected()) {
-if (!mifareUltralight.connectTag()) {
-console.error("mifareUltralight connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareUltralight.isTagConnected()) {
+        if (!mifareUltralight.connectTag()) {
+            console.error("mifareUltralight connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let pageIndex = 1; // 将其更改为正确的 index
-mifareUltralight.readMultiplePages(pageIndex).then((data : number[]) => {
-console.info("mifareUltralight readMultiplePages Promise data = " + data);
-}).catch((err : BusinessError)=> {
-console.error(`mifareUltralight readMultiplePages Promise Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`mifareUltralight readMultiplePages Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let pageIndex = 1; // 将其更改为正确的 index
+        mifareUltralight.readMultiplePages(pageIndex).then((data : number[]) => {
+            console.info("mifareUltralight readMultiplePages Promise data = " + data);
+        }).catch((err : BusinessError)=> {
+            console.error(`mifareUltralight readMultiplePages Promise Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`mifareUltralight readMultiplePages Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareUltralightTag.readMultiplePages9+
-**支持设备：** Phone / Wearable
+
+##### MifareUltralightTag.readMultiplePages9+
 
 readMultiplePages(pageIndex: number, callback: AsyncCallback<number[]>): void
 
@@ -2607,28 +2477,25 @@ readMultiplePages(pageIndex: number, callback: AsyncCallback<number[]>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pageIndex | number | 是 | 要读取页面的索引，从0开始。 |
-| callback | AsyncCallback&lt;number[]&gt; | 是 | 以callback形式异步返回页操作结果。返回读取到的数据，共16字节。 |
+| callback | AsyncCallback<number[]> | 是 | 以callback形式异步返回页操作结果。返回读取到的数据，共16字节。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2637,34 +2504,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareUltralight
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareUltralight.isTagConnected()) {
-if (!mifareUltralight.connectTag()) {
-console.error("mifareUltralight connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareUltralight.isTagConnected()) {
+        if (!mifareUltralight.connectTag()) {
+            console.error("mifareUltralight connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let pageIndex = 1; // 将其更改为正确的 index
-mifareUltralight.readMultiplePages(pageIndex, (err : BusinessError, data : number[])=> {
-if (err) {
-console.error(`mifareUltralight readMultiplePages AsyncCallback Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("mifareUltralight readMultiplePages AsyncCallback data: " + data);
-}
-});
-} catch (businessError) {
-console.error(`mifareUltralight readMultiplePages AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let pageIndex = 1; // 将其更改为正确的 index
+        mifareUltralight.readMultiplePages(pageIndex, (err : BusinessError, data : number[])=> {
+            if (err) {
+                console.error(`mifareUltralight readMultiplePages AsyncCallback Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("mifareUltralight readMultiplePages AsyncCallback data: " + data);
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareUltralight readMultiplePages AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareUltralightTag.writeSinglePage9+
-**支持设备：** Phone / Wearable
 
-writeSinglePage(pageIndex: number, data: number[]): Promise<void>
+##### MifareUltralightTag.writeSinglePage9+
+
+writeSinglePage(pageIndex: number, data: number[]): Promise&lt;void&gt;
 
 写入一页数据，数据大小为4字节。使用Promise异步回调。
 
@@ -2676,7 +2543,6 @@ writeSinglePage(pageIndex: number, data: number[]): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pageIndex | number | 是 | 要写入页面的索引，从0开始。 |
@@ -2684,7 +2550,6 @@ writeSinglePage(pageIndex: number, data: number[]): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2695,17 +2560,15 @@ writeSinglePage(pageIndex: number, data: number[]): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2714,33 +2577,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareUltralight
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareUltralight.isTagConnected()) {
-if (!mifareUltralight.connectTag()) {
-console.error("mifareUltralight connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareUltralight.isTagConnected()) {
+        if (!mifareUltralight.connectTag()) {
+            console.error("mifareUltralight connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let pageIndex = 1; // 将其更改为正确的 index
-let rawData = [0x01, 0x02, 0x03, 0x04]; // 必须是4个字节，将其更改为正确的data
-mifareUltralight.writeSinglePage(pageIndex, rawData).then(() => {
-console.info("mifareUltralight writeSinglePage Promise success.");
-}).catch((err : BusinessError)=> {
-console.error(`mifareUltralight writeSinglePage Promise err Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`mifareUltralight writeSinglePage Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let pageIndex = 1; // 将其更改为正确的 index
+        let rawData = [0x01, 0x02, 0x03, 0x04]; // 必须是4个字节，将其更改为正确的data
+        mifareUltralight.writeSinglePage(pageIndex, rawData).then(() => {
+            console.info("mifareUltralight writeSinglePage Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error(`mifareUltralight writeSinglePage Promise err Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`mifareUltralight writeSinglePage Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareUltralightTag.writeSinglePage9+
-**支持设备：** Phone / Wearable
 
-writeSinglePage(pageIndex: number, data: number[], callback: AsyncCallback<void>): void
+##### MifareUltralightTag.writeSinglePage9+
+
+writeSinglePage(pageIndex: number, data: number[], callback: AsyncCallback&lt;void&gt;): void
 
 写入一页数据，数据大小为4字节。使用callback异步回调。
 
@@ -2751,7 +2614,6 @@ writeSinglePage(pageIndex: number, data: number[], callback: AsyncCallback<void>
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2764,17 +2626,15 @@ writeSinglePage(pageIndex: number, data: number[], callback: AsyncCallback<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2783,33 +2643,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 mifareUltralight
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!mifareUltralight.isTagConnected()) {
-if (!mifareUltralight.connectTag()) {
-console.error("mifareUltralight connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!mifareUltralight.isTagConnected()) {
+        if (!mifareUltralight.connectTag()) {
+            console.error("mifareUltralight connectTag failed.");
+            return;
+        }
+    }
 
-try {
-let pageIndex = 1; // 将其更改为正确的 index
-let rawData = [0x01, 0x02, 0x03, 0x04];  // 必须是4个字节，将其更改为正确的data
-mifareUltralight.writeSinglePage(pageIndex, rawData, (err : BusinessError)=> {
-if (err) {
-console.error(`mifareUltralight writeSinglePage AsyncCallback Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("mifareUltralight writeSinglePage AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`mifareUltralight writeSinglePage AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+    try {
+        let pageIndex = 1; // 将其更改为正确的 index
+        let rawData = [0x01, 0x02, 0x03, 0x04];  // 必须是4个字节，将其更改为正确的data
+        mifareUltralight.writeSinglePage(pageIndex, rawData, (err : BusinessError)=> {
+        if (err) {
+                console.error(`mifareUltralight writeSinglePage AsyncCallback Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("mifareUltralight writeSinglePage AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`mifareUltralight writeSinglePage AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### MifareUltralightTag.getType9+
-**支持设备：** Phone / Wearable
+
+##### MifareUltralightTag.getType9+
 
 getType(): [tag.MifareUltralightType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#mifareultralighttype9)
 
@@ -2821,14 +2681,12 @@ getType(): [tag.MifareUltralightType](https://developer.huawei.com/consumer/cn/d
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [tag.MifareUltralightType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#mifareultralighttype9) | MIFARE Ultralight标签的类型。 |
+| tag.MifareUltralightType | MIFARE Ultralight标签的类型。 |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2839,8 +2697,8 @@ console.info("mifareUltralight getType: " + getType);
 ```
 
 
-## NdefFormatableTag9+
-**支持设备：** Phone / Wearable
+
+##### NdefFormatableTag9+
 
 NdefFormatableTag为NDEF Formattable的标签提供格式化操作，继承自TagSession。
 
@@ -2851,10 +2709,10 @@ NdefFormatableTag获取方式请参考[nfc-tag开发指南](https://developer.hu
 以下是NdefFormatableTag的独有接口。
 
 
-### NdefFormatableTag.format9+
-**支持设备：** Phone / Wearable
 
-format(message: [NdefMessage](#ndefmessage9)): Promise<void>
+##### NdefFormatableTag.format9+
+
+format(message: [NdefMessage](#ndefmessage9)): Promise&lt;void&gt;
 
 将标签格式化为NDEF标签，将NDEF消息写入NDEF标签。使用Promise异步回调。
 
@@ -2866,14 +2724,12 @@ format(message: [NdefMessage](#ndefmessage9)): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| message | [NdefMessage](#ndefmessage9) | 是 | 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。 |
+| message | NdefMessage | 是 | 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2884,17 +2740,15 @@ format(message: [NdefMessage](#ndefmessage9)): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2903,36 +2757,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefFormatable
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefFormatable.isTagConnected()) {
-if (!ndefFormatable.connectTag()) {
-console.error("ndefFormatable connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefFormatable.isTagConnected()) {
+        if (!ndefFormatable.connectTag()) {
+            console.error("ndefFormatable connectTag failed.");
+            return;
+        }
+    }
 
-try {
-// 从原始数据创建的ndefMessage，例如：
-let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);
-// 必须是可以被解析的NDEF记录
-// 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
+    try {
+        // 从原始数据创建的ndefMessage，例如：
+        let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);
+        // 必须是可以被解析的NDEF记录
+        // 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
 
-ndefFormatable.format(ndefMessage).then(() => {
-console.info("ndefFormatable format Promise success.");
-}).catch((err : BusinessError)=> {
-console.error(`ndefFormatable format Promise err Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`ndefFormatable format Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+        ndefFormatable.format(ndefMessage).then(() => {
+            console.info("ndefFormatable format Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error(`ndefFormatable format Promise err Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`ndefFormatable format Promise catch businessError Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefFormatableTag.format9+
-**支持设备：** Phone / Wearable
 
-format(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback<void>): void
+##### NdefFormatableTag.format9+
+
+format(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback&lt;void&gt;): void
 
 将标签格式化为NDEF标签，然后将NDEF消息写入NDEF标签。使用callback异步回调。
 
@@ -2944,10 +2798,9 @@ format(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback<void>): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| message | [NdefMessage](#ndefmessage9) | 是 | 格式化成功时要写入的Ndef消息。可以为null，为null时仅格式化标签，不写入内容。 |
+| message | NdefMessage | 是 | 格式化成功时要写入的Ndef消息。可以为null，为null时仅格式化标签，不写入内容。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当NDEF消息写入标签成功时，err为undefined，否则为错误对象。 |
 
 
@@ -2955,17 +2808,15 @@ format(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback<void>): vo
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -2974,37 +2825,37 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefFormatable
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefFormatable.isTagConnected()) {
-if (!ndefFormatable.connectTag()) {
-console.error("ndefFormatable connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefFormatable.isTagConnected()) {
+        if (!ndefFormatable.connectTag()) {
+            console.error("ndefFormatable connectTag failed.");
+            return;
+        }
+    }
 
-try {
-// 从原始数据创建的ndefMessage，例如：
-let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);  // 必须是可以被解析的NDEF记录
-// 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
+    try {
+        // 从原始数据创建的ndefMessage，例如：
+        let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);  // 必须是可以被解析的NDEF记录
+        // 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
 
-ndefFormatable.format(ndefMessage, (err : BusinessError)=> {
-if (err) {
-console.error(`ndefFormatable format AsyncCallback Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("ndefFormatable format AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`ndefFormatable format AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+        ndefFormatable.format(ndefMessage, (err : BusinessError)=> {
+            if (err) {
+                console.error(`ndefFormatable format AsyncCallback Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("ndefFormatable format AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`ndefFormatable format AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefFormatableTag.formatReadOnly9+
-**支持设备：** Phone / Wearable
 
-formatReadOnly(message: [NdefMessage](#ndefmessage9)): Promise<void>
+##### NdefFormatableTag.formatReadOnly9+
+
+formatReadOnly(message: [NdefMessage](#ndefmessage9)): Promise&lt;void&gt;
 
 将标签格式化为NDEF标签，将NDEF消息写入NDEF标签，之后将标签设置为只读。使用Promise异步回调。
 
@@ -3016,14 +2867,12 @@ formatReadOnly(message: [NdefMessage](#ndefmessage9)): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| message | [NdefMessage](#ndefmessage9) | 是 | 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。 |
+| message | NdefMessage | 是 | 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3034,17 +2883,15 @@ formatReadOnly(message: [NdefMessage](#ndefmessage9)): Promise<void>
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -3053,36 +2900,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefFormatable
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefFormatable.isTagConnected()) {
-if (!ndefFormatable.connectTag()) {
-console.error("ndefFormatable connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefFormatable.isTagConnected()) {
+        if (!ndefFormatable.connectTag()) {
+            console.error("ndefFormatable connectTag failed.");
+            return;
+        }
+    }
 
-try {
-// 从原始数据创建的ndefMessage，例如：
-let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);
-// 必须是可以被解析的NDEF记录
-// 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
+    try {
+        // 从原始数据创建的ndefMessage，例如：
+        let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);
+        // 必须是可以被解析的NDEF记录
+        // 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
 
-ndefFormatable.formatReadOnly(ndefMessage).then(() => {
-console.info("ndefFormatable formatReadOnly Promise success.");
-}).catch((err : BusinessError)=> {
-console.error(`ndefFormatable formatReadOnly Promise Code: ${err.code}, message: ${err.message}`);
-});
-} catch (businessError) {
-console.error(`ndefFormatable formatReadOnly Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+        ndefFormatable.formatReadOnly(ndefMessage).then(() => {
+            console.info("ndefFormatable formatReadOnly Promise success.");
+        }).catch((err : BusinessError)=> {
+            console.error(`ndefFormatable formatReadOnly Promise Code: ${err.code}, message: ${err.message}`);
+        });
+    } catch (businessError) {
+        console.error(`ndefFormatable formatReadOnly Promise catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-### NdefFormatableTag.formatReadOnly9+
-**支持设备：** Phone / Wearable
 
-formatReadOnly(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback<void>): void
+##### NdefFormatableTag.formatReadOnly9+
+
+formatReadOnly(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback&lt;void&gt;): void
 
 将标签格式化为NDEF标签，然后将NDEF消息写入NDEF标签，之后将标签设置为只读。使用callback异步回调。
 
@@ -3094,10 +2941,9 @@ formatReadOnly(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback<vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| message | [NdefMessage](#ndefmessage9) | 是 | 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。 |
+| message | NdefMessage | 是 | 格式化成功时要写入的NDEF消息。可以为null，为null时仅格式化标签，不写入内容。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当NDEF消息写入NDEF标签成功时，err为undefined，否则为错误对象。 |
 
 
@@ -3105,17 +2951,15 @@ formatReadOnly(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback<vo
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-| 401 | The parameter check failed. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameters types.          3. Parameter verification failed. |
+| 401 | The parameter check failed. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameters types. 3. Parameter verification failed. |
 | 3100201 | The tag running state is abnormal in the service. |
 | 3100204 | The Tag I/O operation failed. |
 
 
 **示例：**
-
 
 ```text
 import { tag } from '@kit.ConnectivityKit';
@@ -3124,36 +2968,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // 参考 @ohos.nfc.tag（标准NFC-Tag）中 tag.TagInfo 接口，获取正确的 ndefFormatable
 
 function nfcTechDemo() {
-// 如果没有连接Tag，请先连接
-if (!ndefFormatable.isTagConnected()) {
-if (!ndefFormatable.connectTag()) {
-console.error("ndefFormatable connectTag failed.");
-return;
-}
-}
+    // 如果没有连接Tag，请先连接
+    if (!ndefFormatable.isTagConnected()) {
+        if (!ndefFormatable.connectTag()) {
+            console.error("ndefFormatable connectTag failed.");
+            return;
+        }
+    }
 
-try {
-// 从原始数据创建的ndefMessage，例如：
-let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);
-// 必须是可以被解析的NDEF记录
-// 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
+    try {
+        // 从原始数据创建的ndefMessage，例如：
+        let ndefMessage = tag.ndef.createNdefMessage([0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]);
+        // 必须是可以被解析的NDEF记录
+        // 或从 tag.ndef.createNdefMessage(ndefRecords:NdefRecord[]) 创建 ndefMessage
 
-ndefFormatable.formatReadOnly(ndefMessage, (err : BusinessError)=> {
-if (err) {
-console.error(`ndefFormatable formatReadOnly AsyncCallback err Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info("ndefFormatable formatReadOnly AsyncCallback success.");
-}
-});
-} catch (businessError) {
-console.error(`ndefFormatable formatReadOnly AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
-}
+        ndefFormatable.formatReadOnly(ndefMessage, (err : BusinessError)=> {
+            if (err) {
+                console.error(`ndefFormatable formatReadOnly AsyncCallback err Code: ${err.code}, message: ${err.message}`);
+            } else {
+                console.info("ndefFormatable formatReadOnly AsyncCallback success.");
+            }
+        });
+    } catch (businessError) {
+        console.error(`ndefFormatable formatReadOnly AsyncCallback catch Code: ${(businessError as BusinessError).code}, message: ${(businessError as BusinessError).message}`);
+    }
 }
 ```
 
 
-## BarcodeTag18+
-**支持设备：** Phone / Wearable
+
+##### BarcodeTag18+
 
 BarcodeTag提供读取条形码标签的属性和访问I/O操作的能力，继承自TagSession。
 
@@ -3164,10 +3008,10 @@ BarcodeTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.co
 以下是BarcodeTag的独有接口。
 
 
-### BarcodeTag.getBarcode18+
-**支持设备：** Phone / Wearable
 
-getBarcode(): Promise<ArrayBuffer>
+##### BarcodeTag.getBarcode18+
+
+getBarcode(): Promise&lt;ArrayBuffer&gt;
 
 获取读到的Barcode类型的完整Tag。使用Promise异步回调。
 
@@ -3179,7 +3023,6 @@ getBarcode(): Promise<ArrayBuffer>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象。返回BarCode类型的 tag。 |
@@ -3188,7 +3031,6 @@ getBarcode(): Promise<ArrayBuffer>
 **错误码：**
 
 以下错误码的详细介绍请参见[NFC错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |

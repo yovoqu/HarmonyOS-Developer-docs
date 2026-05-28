@@ -3,15 +3,14 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV / lite_wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 17620001 内存操作失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV / lite_wearable
+##### 17620001 内存操作失败
 
 **错误信息**
 
@@ -26,14 +25,12 @@ Memory operation failed.
 当前系统内存分配失败。
 
 **处理步骤**
-
-
 1. 检查当前系统功能是否正常。
 2. 业务检查数据是否超长，导致系统无法分配内存。
 
 
-## 17620002 ArkTS和C之间转换参数失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV / lite_wearable
+
+##### 17620002 ArkTS和C之间转换参数失败
 
 **错误信息**
 
@@ -52,8 +49,8 @@ ArkTS和C之间转换参数失败。
 检查当前系统功能是否正常。
 
 
-## 17620003 参数校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 17620003 参数校验失败
 
 **错误信息**
 
@@ -72,8 +69,8 @@ Parameter check failed.
 检查当前输入的参数是否在支持的范围内。
 
 
-## 17630001 算法相关的操作错误，调用三方算法库API出错
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV / lite_wearable
+
+##### 17630001 算法相关的操作错误，调用三方算法库API出错
 
 **错误信息**
 

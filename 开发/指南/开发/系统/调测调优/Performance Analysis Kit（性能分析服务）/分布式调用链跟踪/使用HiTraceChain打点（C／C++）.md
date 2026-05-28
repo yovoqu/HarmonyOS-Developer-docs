@@ -1,12 +1,15 @@
 # 使用HiTraceChain打点（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-guidelines-ndk
 
-## 接口说明
+##### 接口说明
 
-分布式跟踪接口由HiTraceChain模块提供，详细API请参考[trace.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trace-h)。 下表所示的接口提供基本的分布式跟踪功能，ArkTS中也有相应的接口。
+分布式跟踪接口由HiTraceChain模块提供，详细API请参考[trace.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-trace-h)。
+
+下表所示的接口提供基本的分布式跟踪功能，ArkTS中也有相应的接口。
+
 | 方法 | 接口描述 |
 | --- | --- |
 | HiTraceId OH_HiTrace_BeginChain(const char *name, int flags) | 开始跟踪，并返回创建的HiTraceId。 |
@@ -15,12 +18,14 @@
 | void OH_HiTrace_SetId(const HiTraceId *id) | 将当前线程TLS中的跟踪标识设置为id。 |
 | void OH_HiTrace_ClearId(void) | 清除当前线程的跟踪标识。 |
 | HiTraceId OH_HiTrace_CreateSpan(void) | 创建跟踪分支。创建一个HiTraceId，使用当前线程TLS中的chainId、spanId初始化HiTraceId的chainId、parentSpanId，并为HiTraceId生成一个新的spanId，返回该HiTraceId。 |
-| bool OH_HiTrace_IsIdValid(const HiTraceId *id) | 判断HiTraceId是否有效。          true：HiTraceId有效；false：HiTraceId无效。 |
-| bool OH_HiTrace_IsFlagEnabled(const HiTraceId *id, HiTrace_Flag flag) | 判断HiTraceId中指定的跟踪标志是否已启用。          true：指定的跟踪标志已启用；false：指定的跟踪标志未启用。 |
+| bool OH_HiTrace_IsIdValid(const HiTraceId *id) | 判断HiTraceId是否有效。 true：HiTraceId有效；false：HiTraceId无效。 |
+| bool OH_HiTrace_IsFlagEnabled(const HiTraceId *id, HiTrace_Flag flag) | 判断HiTraceId中指定的跟踪标志是否已启用。 true：指定的跟踪标志已启用；false：指定的跟踪标志未启用。 |
 | void OH_HiTrace_EnableFlag(const HiTraceId *id, HiTrace_Flag flag) | 启用HiTraceId中指定的跟踪标志。 |
 | void OH_HiTrace_Tracepoint(HiTrace_Communication_Mode mode, HiTrace_Tracepoint_Type type, const HiTraceId *id, const char *fmt, ...) | HiTraceMeter跟踪信息埋点。 |
 
+
 下表所示的接口提供对HiTraceId的一些拓展操作，这些接口仅在C/C++中提供。
+
 | 方法 | 接口描述 |
 | --- | --- |
 | void OH_HiTrace_InitId(HiTraceId *id) | 初始化HiTraceId。 |
@@ -36,10 +41,15 @@
 | void OH_HiTrace_IdFromBytes(HiTraceId *id, const uint8_t *pIdArray, int len) | 根据字节数组创建HiTraceId。 |
 
 
-## 开发步骤
 
-std::thread不支持自动传递HiTraceId，开发示例展示了该场景下分布式跟踪的使用方法。开发者可参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-intro#约束与限制)，了解常见的支持与不支持HiTraceChain自动传递的机制。 在DevEco Studio中新建工程，选择“Native C++”，工程的目录结构如下：
-```text
+
+##### 开发步骤
+
+std::thread不支持自动传递HiTraceId，开发示例展示了该场景下分布式跟踪的使用方法。开发者可参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-intro#约束与限制)，了解常见的支持与不支持HiTraceChain自动传递的机制。
+1. 在DevEco Studio中新建工程，选择“Native C++”，工程的目录结构如下：
+
+  
+```ArkTS
 ├── entry
 │   ├── src
 │       ├── main
@@ -59,8 +69,10 @@ std::thread不支持自动传递HiTraceId，开发示例展示了该场景下分
 │       │   │       └── Index.ets
 ```
 
-在“entry > src > main > cpp > CMakeLists.txt”文件中新增libhitrace_ndk.z.so和libhilog_ndk.z.so动态链接库，完整的文件内容如下：
-```text
+2. 在“entry > src > main > cpp > CMakeLists.txt”文件中新增libhitrace_ndk.z.so和libhilog_ndk.z.so动态链接库，完整的文件内容如下：
+
+  
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
 project(HiTraceChainTest03)
@@ -78,9 +90,11 @@ add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libhitrace_ndk.z.so libhilog_ndk.z.so)
 ```
 
-编辑“entry > src > main > cpp > napi_init.cpp”文件，使用HiTraceChain跟踪多线程任务，完整的示例代码如下：
-```text
-#include
+3. 编辑“entry > src > main > cpp > napi_init.cpp”文件，使用HiTraceChain跟踪多线程任务，完整的示例代码如下：
+
+  
+```cpp
+#include <thread>
 
 #include "hilog/log.h"
 #include "hitrace/trace.h"
@@ -188,9 +202,10 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
     napi_module_register(&demoModule);
 }
 ```
-
 编辑“entry > src > main > ets > pages > Index.ets”文件，在按钮点击事件里调用Add方法，完整的示例代码如下：
-```text
+
+  
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
@@ -224,7 +239,14 @@ struct Index {
 }
 ```
 
-点击DevEco Studio界面中的运行按钮，运行应用工程。然后点击设备上“clickTime=0”按钮，触发业务逻辑。 在DevEco Studio Log窗口查看分布式跟踪的相关信息。 设备屏幕上按钮显示“clickTime=1”，表示已点击了按钮一次并触发业务逻辑。 示例所有hilog打印均使用了“testTag”，因此可以使用“testTag”关键字过滤日志，查看该业务代码打印的hilog信息。
+4. 点击DevEco Studio界面中的运行按钮，运行应用工程。然后点击设备上“clickTime=0”按钮，触发业务逻辑。
+5. 在DevEco Studio Log窗口查看分布式跟踪的相关信息。
+
+  
+设备屏幕上按钮显示“clickTime=1”，表示已点击了按钮一次并触发业务逻辑。
+6. 示例所有hilog打印均使用了“testTag”，因此可以使用“testTag”关键字过滤日志，查看该业务代码打印的hilog信息。
+
+  
 ```text
 06-05 21:26:01.006   9944-9944     C02D33/com.exa...tion/HiTraceC  com.examp...lication  I     [a92ab19ae90197d 0 0]HiTraceBegin name:testTag: hiTraceChain begin flags:0x00.
 06-05 21:26:01.006   9944-9944     A00000/com.exa...ation/testTag  com.examp...lication  I     [a92ab19ae90197d 0 0]HiTraceId is valid
@@ -237,4 +259,6 @@ struct Index {
 06-05 21:26:01.008   9944-13962    A00000/com.exa...ation/testTag  com.examp...lication  I     Print2, HiTraceChain end
 ```
 
-hilog日志前附加的[chainId spanId parentSpanId]格式的信息即为HiTraceId信息，例如[a92ab19ae90197d 236699a 2544fdb]表示跟踪链标识chainId值为a92ab19ae90197d，分支标识spanId值为236699a，父分支标识parentSpanId值为2544fdb。 通过手动传递HiTraceId，创建spanId，并将其设置到std::thread创建的子线程中，子线程中运行的Print1和Print2业务的hilog日志也携带上同主线程一致的跟踪标识“a92ab19ae90197d”。 使用OH_HiTrace_EndChain()或OH_HiTrace_ClearId()结束分布式跟踪后，hilog打印信息不再携带HiTraceId信息。
+7. hilog日志前附加的[chainId spanId parentSpanId]格式的信息即为HiTraceId信息，例如[a92ab19ae90197d 236699a 2544fdb]表示跟踪链标识chainId值为a92ab19ae90197d，分支标识spanId值为236699a，父分支标识parentSpanId值为2544fdb。
+8. 通过手动传递HiTraceId，创建spanId，并将其设置到std::thread创建的子线程中，子线程中运行的Print1和Print2业务的hilog日志也携带上同主线程一致的跟踪标识“a92ab19ae90197d”。
+9. 使用OH_HiTrace_EndChain()或OH_HiTrace_ClearId()结束分布式跟踪后，hilog打印信息不再携带HiTraceId信息。

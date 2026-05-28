@@ -10,4 +10,4 @@
 | 新增API | NA | 类名：util； API声明：interface AutoFinalizer 差异内容：interface AutoFinalizer | api/@ohos.util.d.ts |
 | 新增API | NA | 类名：AutoFinalizer； API声明：onFinalization(heldValue: T): void; 差异内容：onFinalization(heldValue: T): void; | api/@ohos.util.d.ts |
 | 新增API | NA | 类名：util； API声明：class AutoFinalizerCleaner 差异内容：class AutoFinalizerCleaner | api/@ohos.util.d.ts |
-| 新增API | NA | 类名：AutoFinalizerCleaner； API声明：static register<T>(obj: AutoFinalizer<T>, heldValue: T): void; 差异内容：static register<T>(obj: AutoFinalizer<T>, heldValue: T): void; | api/@ohos.util.d.ts |
+| 新增API | NA | 类名：AutoFinalizerCleaner； API声明：static register&lt;T&gt;(obj: AutoFinalizer&lt;T&gt;, heldValue: T): void; 差异内容：static register&lt;T&gt;(obj: AutoFinalizer&lt;T&gt;, heldValue: T): void; | api/@ohos.util.d.ts |

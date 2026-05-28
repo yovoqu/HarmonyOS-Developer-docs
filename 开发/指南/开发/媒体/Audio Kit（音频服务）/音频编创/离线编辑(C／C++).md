@@ -1,50 +1,69 @@
 # 离线编辑(C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering
 
 从API version 22开始，[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)给开发者提供音频离线编辑能力，允许在非实时播放场景下对音频数据进行处理，开发者可以组合多个音频节点实现复杂的音频处理流程。
 
 
-## 开发基础配置
+##### 开发基础配置
 
 开发者使用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)提供的离线编辑能力，添加对应的头文件。
 
-## 在CMake脚本中链接动态库
 
+
+##### 在CMake脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libohaudiosuite.so)
 ```
 
 
-## 添加头文件
 
-开发者通过引入头文件和，使用音频编创相关API。
+##### 添加头文件
+
+开发者通过引入头文件<[native_audio_suite_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h)>和<[native_audio_suite_engine.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h)>，使用音频编创相关API。
+
 ```text
-#include
-#include
+#include <ohaudiosuite/native_audio_suite_base.h>
+#include <ohaudiosuite/native_audio_suite_engine.h>
 ```
 
 
-## 开发步骤
 
-详细的API说明请参考：[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)。 开发者参考本节内容实现音频离线编辑功能。
+##### 开发步骤
 
-## 指定音频节点类型
+详细的API说明请参考：[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)。
+
+开发者参考本节内容实现音频离线编辑功能。
+
+
+
+##### 指定音频节点类型
 
 开发者需要根据业务场景，调用[OH_AudioSuiteNodeBuilder_SetNodeType()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setnodetype)接口，指定对应的[OH_AudioNode_Type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)。
 
-## 指定音频节点格式
 
-开发者需要根据业务场景，调用[OH_AudioSuiteNodeBuilder_SetFormat()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setformat)或者[OH_AudioSuiteEngine_SetAudioFormat()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setaudioformat)接口，设置音频格式（[位深](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_sampleformat)、[采样率](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_samplerate)、[声道数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-channel-layout-h#oh_audiochannellayout)等）。
 
-## 基础离线编辑
+##### 指定音频节点格式
 
-使用效果节点（如均衡器效果节点）处理输入的PCM（Pulse Code Modulation）音频数据，输出带有该音效的PCM音频数据。 **图1**：基础离线编辑示意图
-![](assets/离线编辑(C／C++)
-/file-20260514131449269-0.png) 创建引擎和管线。
+开发者需要根据业务场景，调用[OH_AudioSuiteNodeBuilder_SetFormat()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setformat)或者[OH_AudioSuiteEngine_SetAudioFormat()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_setaudioformat)接口，设置音频格式（位深（[OH_Audio_SampleFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_sampleformat)）、采样率（[OH_Audio_SampleRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_samplerate)）、声道数（[OH_AudioChannelLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-channel-layout-h#oh_audiochannellayout)）等）。
+
+
+
+##### 基础离线编辑
+
+使用效果节点（如均衡器效果节点）处理输入的PCM（Pulse Code Modulation）音频数据，输出带有该音效的PCM音频数据。
+
+**图1**：基础离线编辑示意图
+
+
+![](assets/离线编辑(C／C++)/file-20260514131449269-0.png)
+
+1. 创建引擎和管线。
+
+  
 ```text
 // 创建引擎。
 OH_AudioSuiteEngine *audioSuiteEngine = nullptr;
@@ -56,7 +75,11 @@ OH_AudioSuiteEngine_CreatePipeline(
     audioSuiteEngine, &audioSuitePipeline, OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_EDIT_MODE);
 ```
 
-创建输入、输出、均衡器节点并连接组网。 创建输入节点需要实现自定义回调函数InputNodeWriteDataCallBack，函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)，调用[OH_AudioSuiteNodeBuilder_SetRequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setrequestdatacallback)接口设置回调函数。
+2. 创建输入、输出、均衡器节点并连接组网。
+
+  创建输入节点需要实现自定义回调函数InputNodeWriteDataCallBack，函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)，调用[OH_AudioSuiteNodeBuilder_SetRequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setrequestdatacallback)接口设置回调函数。
+
+  
 ```text
 struct AudioDataInfo {
     uint8_t *buffer = nullptr;  // 音频数据。
@@ -73,11 +96,15 @@ static int32_t InputNodeWriteDataCallBack(
     bool *finished)
 {
     if ((audioNode == nullptr) || (userData == nullptr) ||
-        (audioData == nullptr) || (audioDataSize (userData);
+        (audioData == nullptr) || (audioDataSize <= 0) || (finished == nullptr)) {
+        return -1;
+    }
+
+    struct AudioDataInfo *info = static_cast<struct AudioDataInfo *>(userData);
     // 要处理的音频大小。
     int32_t actualDataSize = std::min(audioDataSize, info->bufferSize - info->totalWriteSize);
     // 将PCM音频数据写入audioData。
-    memcpy(static_cast(audioData), info->buffer + info->totalWriteSize, actualDataSize);
+    memcpy(static_cast<void *>(audioData), info->buffer + info->totalWriteSize, actualDataSize);
     info->totalWriteSize += actualDataSize;
 
     // 音频数据全部处理完。
@@ -105,7 +132,7 @@ struct AudioDataInfo audioInfo;
 audioInfo.buffer = nullptr; // 开发者根据业务场景存放要处理的音频数据。
 audioInfo.bufferSize = 0; // 开发者根据业务场景存放要处理的音频数据大小。
 audioInfo.totalWriteSize = 0;
-void *userData = static_cast(&audioInfo);
+void *userData = static_cast<void *>(&audioInfo);
 OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataCallBack, userData);
 // 创建输入节点。
 OH_AudioNode *inputNode = nullptr;
@@ -143,7 +170,11 @@ OH_AudioSuiteEngine_ConnectNodes(inputNode, eqNode);
 OH_AudioSuiteEngine_ConnectNodes(eqNode, outputNode);
 ```
 
-渲染音频数据。 开发者调用[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口渲染并获取PCM音频数据。
+3. 渲染音频数据。
+
+  开发者调用[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口渲染并获取PCM音频数据。
+
+  
 ```text
 int32_t byteSize = 2; // OH_Audio_SampleFormat::AUDIO_SAMPLE_S16LE格式对应的字节大小。
 // 根据输出节点的格式计算单帧处理数据大小。
@@ -158,8 +189,22 @@ bool finished = false;
 OH_AudioSuiteEngine_StartPipeline(audioSuitePipeline);
 do {
     OH_AudioSuite_Result result = OH_AudioSuiteEngine_RenderFrame(
-        audioSuitePipeline, static_cast(audioData), frameSize, &responseSize, &finished);
-    if ((result != OH_AudioSuite_Result::AUDIOSUITE_SUCCESS) || (responseSize              资源销毁。
+        audioSuitePipeline, static_cast<void *>(audioData), frameSize, &responseSize, &finished);
+    if ((result != OH_AudioSuite_Result::AUDIOSUITE_SUCCESS) || (responseSize <= 0)) {
+        // 本次音频编创渲染失败。
+        break;
+    } else {
+        // audioData是渲染过后的音频数据，音频数据长度为responseSize，开发者根据业务场景自行使用或者保存。
+    }
+} while (!finished);
+OH_AudioSuiteEngine_StopPipeline(audioSuitePipeline);
+free(audioData);
+audioData = nullptr;
+```
+
+4. 资源销毁。
+
+  
 ```text
 // 销毁节点。
 OH_AudioSuiteEngine_DestroyNode(inputNode);
@@ -174,9 +219,22 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 ```
 
 
-## 音源分离场景
 
-     使用音源分离节点分离输入的PCM音频数据为人声和背景声，然后通过输出节点分别输出这两路数据。     **图2**：音源分离编辑示意图     ![](assets/离线编辑(C／C++)/file-20260514131449269-1.png)     示例代码如下：                  创建引擎和管线。
+
+##### 音源分离场景
+
+使用音源分离节点分离输入的PCM音频数据为人声和背景声，然后通过输出节点分别输出这两路数据。
+
+**图2**：音源分离编辑示意图
+
+
+![](assets/离线编辑(C／C++)/file-20260514131449269-1.png)
+
+
+示例代码如下：
+1. 创建引擎和管线。
+
+  
 ```text
 // 创建引擎。
 OH_AudioSuiteEngine *audioSuiteEngine = nullptr;
@@ -185,38 +243,46 @@ OH_AudioSuiteEngine_Create(&audioSuiteEngine);
 // 创建管线。
 OH_AudioSuitePipeline *audioSuitePipeline = nullptr;
 OH_AudioSuiteEngine_CreatePipeline(
-audioSuiteEngine, &audioSuitePipeline, OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_EDIT_MODE);
+    audioSuiteEngine, &audioSuitePipeline, OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_EDIT_MODE);
 ```
 
-             创建输入、输出、音源分离节点并连接。       创建输入节点需要实现自定义回调函数InputNodeWriteDataCallBack，函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)，调用[OH_AudioSuiteNodeBuilder_SetRequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setrequestdatacallback)接口设置回调函数。
+2. 创建输入、输出、音源分离节点并连接。
+
+  创建输入节点需要实现自定义回调函数InputNodeWriteDataCallBack，函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)，调用[OH_AudioSuiteNodeBuilder_SetRequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuitenodebuilder_setrequestdatacallback)接口设置回调函数。
+
+  
 ```text
 struct AudioDataInfo {
-uint8_t *buffer = nullptr;  // 音频数据。
-int32_t bufferSize = 0; // 音频数据总大小。
-int32_t totalWriteSize = 0; // 处理过的音频数据总大小。
+    uint8_t *buffer = nullptr;  // 音频数据。
+    int32_t bufferSize = 0;     // 音频数据总大小。
+    int32_t totalWriteSize = 0; // 处理过的音频数据总大小。
 };
 
 // 输入节点请求数据的回调函数。
 static int32_t InputNodeWriteDataCallBack(
-OH_AudioNode *audioNode,
-void *userData,
-void *audioData,
-int32_t audioDataSize,
-bool *finished)
+    OH_AudioNode *audioNode,
+    void *userData,
+    void *audioData,
+    int32_t audioDataSize,
+    bool *finished)
 {
-if ((audioNode == nullptr) || (userData == nullptr) ||
-(audioData == nullptr) || (audioDataSize (userData);
-// 要处理的音频大小。
-int32_t actualDataSize = std::min(audioDataSize, info->bufferSize - info->totalWriteSize);
-// 将PCM音频数据写入audioData。
-memcpy(static_cast(audioData), info->buffer + info->totalWriteSize, actualDataSize);
-info->totalWriteSize += actualDataSize;
+    if ((audioNode == nullptr) || (userData == nullptr) ||
+        (audioData == nullptr) || (audioDataSize <= 0) || (finished == nullptr)) {
+        return -1;
+    }
 
-// 音频数据全部处理完。
-if (info->totalWriteSize >= info->bufferSize) {
-*finished = true;
-}
-return actualDataSize;
+    struct AudioDataInfo *info = static_cast<struct AudioDataInfo *>(userData);
+    // 要处理的音频大小。
+    int32_t actualDataSize = std::min(audioDataSize, info->bufferSize - info->totalWriteSize);
+    // 将PCM音频数据写入audioData。
+    memcpy(static_cast<void *>(audioData), info->buffer + info->totalWriteSize, actualDataSize);
+    info->totalWriteSize += actualDataSize;
+
+    // 音频数据全部处理完。
+    if (info->totalWriteSize >= info->bufferSize) {
+        *finished = true;
+    }
+    return actualDataSize;
 }
 
 // 创建节点构造器。
@@ -237,7 +303,7 @@ struct AudioDataInfo audioInfo;
 audioInfo.buffer = nullptr; // 开发者根据业务场景存放要处理的音频数据。
 audioInfo.bufferSize = 0; // 开发者根据业务场景存放要处理的音频数据大小。
 audioInfo.totalWriteSize = 0;
-void *userData = static_cast(&audioInfo);
+void *userData = static_cast<void *>(&audioInfo);
 // 设置音频流的回调。
 OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataCallBack, userData);
 
@@ -248,7 +314,7 @@ OH_AudioSuiteEngine_CreateNode(audioSuitePipeline, nodeBuilder, &inputNode);
 // 重置构造器配置并设置为音源分离节点类型。
 OH_AudioSuiteNodeBuilder_Reset(nodeBuilder);
 OH_AudioSuiteNodeBuilder_SetNodeType(
-nodeBuilder, OH_AudioNode_Type::EFFECT_MULTII_OUTPUT_NODE_TYPE_AUDIO_SEPARATION);
+    nodeBuilder, OH_AudioNode_Type::EFFECT_MULTII_OUTPUT_NODE_TYPE_AUDIO_SEPARATION);
 
 // 创建音源分离节点。
 OH_AudioNode *aissNode = nullptr;
@@ -278,7 +344,11 @@ OH_AudioSuiteEngine_ConnectNodes(inputNode, aissNode);
 OH_AudioSuiteEngine_ConnectNodes(aissNode, outputNode);
 ```
 
-             渲染音频数据。       包含音源分离节点的管线使用[OH_AudioSuiteEngine_MultiRenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_multirenderframe)接口渲染并获取两路PCM音频数据。
+3. 渲染音频数据。
+
+  包含音源分离节点的管线使用[OH_AudioSuiteEngine_MultiRenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_multirenderframe)接口渲染并获取两路PCM音频数据。
+
+  
 ```text
 int32_t byteSize = 2; // OH_Audio_SampleFormat::AUDIO_SAMPLE_S16LE格式对应的字节大小。
 // 根据输出节点的格式计算单帧处理数据大小。
@@ -288,7 +358,41 @@ int32_t frameSize = 20 * audioFormatOutput.samplingRate * audioFormatOutput.chan
 OH_AudioDataArray audioDataArray;
 int32_t outPutNum = 2;
 audioDataArray.audioDataArray = (void **)malloc(outPutNum * sizeof(void *));
-for(int32_t i = 0; i 资源销毁。
+for(int32_t i = 0; i < outPutNum; i++) {
+    audioDataArray.audioDataArray[i] = (void *)malloc(frameSize);
+}
+audioDataArray.arraySize = outPutNum;
+audioDataArray.requestFrameSize = frameSize;
+int32_t responseSize = 0;
+bool finished = false;
+
+// 渲染。
+OH_AudioSuiteEngine_StartPipeline(audioSuitePipeline);
+do {
+    OH_AudioSuite_Result result = OH_AudioSuiteEngine_MultiRenderFrame(
+        audioSuitePipeline, &audioDataArray, &responseSize, &finished);
+    if ((result != OH_AudioSuite_Result::AUDIOSUITE_SUCCESS) || (responseSize <= 0)) {
+        // 本次音频编创渲染失败。
+        break;
+    } else {
+        // audioDataArray.audioDataArray[0]是提取的人声。
+        // audioDataArray.audioDataArray[1]是提取的背景声。
+        // 音频数据长度为responseSize，开发者根据业务场景自行使用或者保存。
+    }
+} while (!finished);
+OH_AudioSuiteEngine_StopPipeline(audioSuitePipeline);
+
+for(int32_t i = 0; i < outPutNum; i++) {
+    free(audioDataArray.audioDataArray[i]);
+    audioDataArray.audioDataArray[i] = nullptr;
+}
+free(audioDataArray.audioDataArray);
+audioDataArray.audioDataArray = nullptr;
+```
+
+4. 资源销毁。
+
+  
 ```text
 // 销毁节点。
 OH_AudioSuiteEngine_DestroyNode(inputNode);
@@ -303,11 +407,22 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 ```
 
 
-## 混音与级联
 
-输入多路PCM音频数据，使用混音节点进行混音，输出混音后的PCM音频数据。 **图3**：级联编辑示意图
-![](assets/离线编辑(C／C++)
-/file-20260514131449269-2.png) 示例代码如下： 创建引擎和管线。
+
+##### 混音与级联
+
+输入多路PCM音频数据，使用混音节点进行混音，输出混音后的PCM音频数据。
+
+**图3**：级联编辑示意图
+
+
+![](assets/离线编辑(C／C++)/file-20260514131449269-2.png)
+
+
+示例代码如下：
+1. 创建引擎和管线。
+
+  
 ```text
 // 创建引擎。
 OH_AudioSuiteEngine *audioSuiteEngine = nullptr;
@@ -319,7 +434,11 @@ OH_AudioSuiteEngine_CreatePipeline(
     audioSuiteEngine, &audioSuitePipeline, OH_AudioSuite_PipelineWorkMode::AUDIOSUITE_PIPELINE_EDIT_MODE);
 ```
 
-创建输入、输出、效果类节点并连接。 由于混音功能有多个输入节点，需单独设置回调函数InputNodeWriteDataCallBack中的userData参数来区分多个输入节点，从而实现多个PCM音频数据的输入。InputNodeWriteDataCallBack函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)。
+2. 创建输入、输出、效果类节点并连接。
+
+  由于混音功能有多个输入节点，需单独设置回调函数InputNodeWriteDataCallBack中的userData参数来区分多个输入节点，从而实现多个PCM音频数据的输入。InputNodeWriteDataCallBack函数类型为[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)。
+
+  
 ```text
 struct AudioDataInfo {
     uint8_t *buffer = nullptr;  // 音频数据。
@@ -336,11 +455,15 @@ static int32_t InputNodeWriteDataCallBack(
     bool *finished)
 {
     if ((audioNode == nullptr) || (userData == nullptr) ||
-        (audioData == nullptr) || (audioDataSize (userData);
+        (audioData == nullptr) || (audioDataSize <= 0) || (finished == nullptr)) {
+        return -1;
+    }
+
+    struct AudioDataInfo *info = static_cast<struct AudioDataInfo *>(userData);
     // 要处理的音频大小。
     int32_t actualDataSize = std::min(audioDataSize, info->bufferSize - info->totalWriteSize);
     // 将PCM音频数据写入audioData。
-    memcpy(static_cast(audioData), info->buffer + info->totalWriteSize, actualDataSize);
+    memcpy(static_cast<void *>(audioData), info->buffer + info->totalWriteSize, actualDataSize);
     info->totalWriteSize += actualDataSize;
 
     // 音频数据全部处理完。
@@ -367,7 +490,7 @@ struct AudioDataInfo audioInfoForField;
 audioInfoForField.buffer = nullptr; // 开发者根据业务场景存放要处理的音频数据。
 audioInfoForField.bufferSize = 0; // 开发者根据业务场景存放要处理的音频数据大小。
 audioInfoForField.totalWriteSize = 0;
-void *userData = static_cast(&audioInfoForField);
+void *userData = static_cast<void *>(&audioInfoForField);
 OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataCallBack, userData);
 // 创建第一个输入节点。
 OH_AudioNode *inputNodeForField = nullptr;
@@ -382,7 +505,7 @@ struct AudioDataInfo audioInfoForMix;
 audioInfoForMix.buffer = nullptr; // 开发者根据业务场景存放要处理的音频数据。
 audioInfoForMix.bufferSize = 0; // 开发者根据业务场景存放要处理的音频数据大小。
 audioInfoForMix.totalWriteSize = 0;
-userData = static_cast(&audioInfoForMix);
+userData = static_cast<void *>(&audioInfoForMix);
 OH_AudioSuiteNodeBuilder_SetRequestDataCallback(nodeBuilder, InputNodeWriteDataCallBack, userData);
 // 创建第二个输入节点。
 OH_AudioNode *inputNodeForMix = nullptr;
@@ -428,7 +551,11 @@ OH_AudioSuiteEngine_ConnectNodes(inputNodeForMix, mixerNode);
 OH_AudioSuiteEngine_ConnectNodes(mixerNode, outputNode);
 ```
 
-渲染音频数据。 开发者调用[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口渲染并获取PCM音频数据。
+3. 渲染音频数据。
+
+  开发者调用[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)接口渲染并获取PCM音频数据。
+
+  
 ```text
 int32_t byteSize = 2; // OH_Audio_SampleFormat::AUDIO_SAMPLE_S16LE格式对应的字节大小。
 // 根据输出节点的格式计算单帧处理数据大小。
@@ -443,8 +570,22 @@ bool finished = false;
 OH_AudioSuiteEngine_StartPipeline(audioSuitePipeline);
 do {
     OH_AudioSuite_Result result = OH_AudioSuiteEngine_RenderFrame(
-        audioSuitePipeline, static_cast(audioData), frameSize, &responseSize, &finished);
-    if ((result != OH_AudioSuite_Result::AUDIOSUITE_SUCCESS) || (responseSize              资源销毁。
+        audioSuitePipeline, static_cast<void *>(audioData), frameSize, &responseSize, &finished);
+    if ((result != OH_AudioSuite_Result::AUDIOSUITE_SUCCESS) || (responseSize <= 0)) {
+        // 本次音频编创渲染失败。
+        break;
+    } else {
+        // audioData是渲染过后的音频数据，音频数据长度为responseSize，开发者根据业务场景自行使用或者保存。
+    }
+} while (!finished);
+OH_AudioSuiteEngine_StopPipeline(audioSuitePipeline);
+free(audioData);
+audioData = nullptr;
+```
+
+4. 资源销毁。
+
+  
 ```text
 // 销毁节点。
 OH_AudioSuiteEngine_DestroyNode(inputNodeForMix);

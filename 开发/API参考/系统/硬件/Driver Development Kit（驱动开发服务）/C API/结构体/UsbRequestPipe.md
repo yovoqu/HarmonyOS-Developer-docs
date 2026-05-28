@@ -5,32 +5,29 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk-usbrequestpipe
 **支持设备：** PC/2in1
 
-
 ```text
 typedef struct UsbRequestPipe {...} __attribute__((aligned(8))) UsbRequestPipe
 ```
+  
 
-
-## 概述
-**支持设备：** PC/2in1
+##### 概述
 
 请求管道。
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [UsbDdk](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usbddk)
-
+ 
 **所在头文件：** [usb_ddk_types.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-types-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** PC/2in1
+  
 
-
-### 成员变量
-**支持设备：** PC/2in1
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | uint64_t interfaceHandle | 接口操作句柄。 |

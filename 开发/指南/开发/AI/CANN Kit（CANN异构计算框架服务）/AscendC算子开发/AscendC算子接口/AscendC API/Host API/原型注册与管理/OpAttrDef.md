@@ -4,12 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-opattrdef
 
-## 功能说明
+##### 功能说明
 
 定义算子属性。
+ 
+  
 
-## 定义原型
-
+##### 定义原型
 
 ```text
 class OpAttrDef {
@@ -28,22 +29,24 @@ public:
   OpAttrDef &String(void);
   OpAttrDef &String(const char *value);
   OpAttrDef &ListBool(void);
-  OpAttrDef &ListBool(std::vector value);
+  OpAttrDef &ListBool(std::vector<bool> value);
   OpAttrDef &ListFloat(void);
-  OpAttrDef &ListFloat(std::vector value);
+  OpAttrDef &ListFloat(std::vector<float> value);
   OpAttrDef &ListInt(void);
-  OpAttrDef &ListInt(std::vector value);
+  OpAttrDef &ListInt(std::vector<int64_t> value);
   ge::AscendString &GetName(void) const;
   bool IsRequired(void);
 private:
   // ...
 };
 ```
+ 
+  
 
-
-## 函数说明
+##### 函数说明
 
 **表1** OpAttrDef类成员函数说明
+  
 | 函数名称 | 入参说明 | 功能说明 |
 | --- | --- | --- |
 | AttrType | attr_type: 属性类型 | 设置算子属性类型，取值为：OPTIONAL（可选）、REQUIRED（必选）。 |

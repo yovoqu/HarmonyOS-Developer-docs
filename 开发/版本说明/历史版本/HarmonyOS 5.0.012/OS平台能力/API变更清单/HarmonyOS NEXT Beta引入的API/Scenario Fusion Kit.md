@@ -14,4 +14,4 @@
 | 新增API | NA | 类名：SubscribeLiveViewParam； API声明：startTime: number; 差异内容：startTime: number; | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |
 | 新增API | NA | 类名：functionalButtonComponentManager； API声明： export interface SubscribeLiveViewResult 差异内容： export interface SubscribeLiveViewResult | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |
 | 新增API | NA | 类名：SubscribeLiveViewResult； API声明：subscribeId: string; 差异内容：subscribeId: string; | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |
-| 新增API | NA | 类名：FunctionalButtonController； API声明：onSubscribeLiveView(callback: AsyncCallback<SubscribeLiveViewResult>): FunctionalButtonController; 差异内容：onSubscribeLiveView(callback: AsyncCallback<SubscribeLiveViewResult>): FunctionalButtonController; | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |
+| 新增API | NA | 类名：FunctionalButtonController； API声明：onSubscribeLiveView(callback: AsyncCallback&lt;SubscribeLiveViewResult&gt;): FunctionalButtonController; 差异内容：onSubscribeLiveView(callback: AsyncCallback&lt;SubscribeLiveViewResult&gt;): FunctionalButtonController; | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |

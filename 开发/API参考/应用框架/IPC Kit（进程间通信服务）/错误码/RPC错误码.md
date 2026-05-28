@@ -3,17 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-rpc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 从API version 9起，IPC支持异常返回功能。错误码对应数值及含义如下。
 
 
-## 1900001 系统调用mmap失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 1900001 系统调用mmap失败
 
 **错误信息**
 
@@ -24,20 +23,16 @@ Failed to call mmap.
 执行系统调用mmap失败。
 
 **可能原因**
-
-
 1. 映射区域过大。
 2. 系统内存压力大，没有足够内存可以用来进行映射。
 
 **处理步骤**
-
-
 1. 请检查调用Ashmem::create()时是否指定了超大内存。
 2. 请检查执行映射时系统是否有足够的内存可用。
 
 
-## 1900002 系统调用ioctl失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900002 系统调用ioctl失败
 
 **错误信息**
 
@@ -48,20 +43,16 @@ Failed to call ioctl.
 在共享内存文件描述符上执行系统调用ioctl失败。
 
 **可能原因**
-
-
 1. 设置的参数为内核非法参数。
 2. 设置的类型超过了共享内存映射时指定的类型。
 
 **处理步骤**
-
-
 1. 请检查调用指定的参数是否来自Ashmem类的PROT_EXEC、PROT_READ和PROT_WRITE。
 2. 请检查指定的参数是否为映射共享内存时所指类型的子集。
 
 
-## 1900003 共享内存写数据失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900003 共享内存写数据失败
 
 **错误信息**
 
@@ -72,20 +63,16 @@ Failed to write data to the shared memory.
 向共享内存写数据失败。
 
 **可能原因**
-
-
 1. 单次写或者连续写的总内容超过了映射的共享内存大小。
 2. 没有对共享内存设置PROT_WRITE模式。
 
 **处理步骤**
-
-
 1. 请检查当前向共享内存所写内容是否已经超过了映射的总大小。
 2. 请检查是否设置了PROT_WRITE保护权限。
 
 
-## 1900004 共享内存读数据失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900004 共享内存读数据失败
 
 **错误信息**
 
@@ -96,20 +83,16 @@ Failed to read data from the shared memory.
 从共享内存读数据失败。
 
 **可能原因**
-
-
 1. 单次写或者连续写的总内容超过了映射的共享内存大小。
 2. 没有对共享内存设置PROT_READ模式。
 
 **处理步骤**
-
-
 1. 请检查当前向共享内存所写内容是否已经超过了映射的总大小。
 2. 请检查是否设置了PROT_READ保护权限。
 
 
-## 1900005 ipc对象权限错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900005 ipc对象权限错误
 
 **错误信息**
 
@@ -128,8 +111,8 @@ Operation allowed only for the proxy object.
 请检查是否在RemoteObject对象上调用了只有RemoteProxy对象支持的方法。
 
 
-## 1900006 ipc对象权限错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900006 ipc对象权限错误
 
 **错误信息**
 
@@ -148,8 +131,8 @@ Operation allowed only for the remote object.
 请检查是否在RemoteProxy对象上调用了只有RemoteObject对象支持的方法。
 
 
-## 1900007 远端对象通信失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900007 远端对象通信失败
 
 **错误信息**
 
@@ -160,20 +143,16 @@ Communication failed.
 和远端对象进行进程间通信失败。
 
 **可能原因**
-
-
 1. 远端对象已经销毁。
 2. 远端对象发生了销毁然后重新创建，本端持有的代理对象已经过期。
 
 **处理步骤**
-
-
 1. 请检查远端对象是否已经销毁。
 2. 请检查是否注册了死亡监听，并且远端对象发生析构又重新创建。
 
 
-## 1900008 非法的ipc对象
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900008 非法的ipc对象
 
 **错误信息**
 
@@ -184,20 +163,16 @@ The proxy or remote object is invalid.
 非法的代理对象或者远端对象。
 
 **可能原因**
-
-
 1. 代理对象已经失效。
 2. 远端对象已经销毁。
 
 **处理步骤**
-
-
 1. 请检查proxy对象获取过程是否有异常。
 2. 请检查远端对象是否已经析构。
 
 
-## 1900009 向MessageSequence写入数据失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900009 向MessageSequence写入数据失败
 
 **错误信息**
 
@@ -216,8 +191,8 @@ sequence默认空间已满。
 请使用MessageSequence提供的获取缓冲区空间相关方法确认是否还有剩余空间。
 
 
-## 1900010 读取MessageSequence数据失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900010 读取MessageSequence数据失败
 
 **错误信息**
 
@@ -236,8 +211,8 @@ Failed to read data from the message sequence.
 请检查读取的顺序和写入的顺序保持严格一致。
 
 
-## 1900011 内存分配失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900011 内存分配失败
 
 **错误信息**
 
@@ -256,8 +231,8 @@ Memory allocation failed.
 请检查写入的数据或者设置的参数是否过大。
 
 
-## 1900012 JS方法失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900012 JS方法失败
 
 **错误信息**
 
@@ -276,8 +251,8 @@ Failed to call the JS callback function.
 请检查业务JS方法是否执行成功。
 
 
-## 1900013 系统调用dup失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1900013 系统调用dup失败
 
 **错误信息**
 
@@ -288,13 +263,9 @@ Failed to call dup.
 执行系统调用dup失败。
 
 **可能原因**
-
-
 1. 进程的文件句柄资源已经耗尽。
 2. 入参fd已经被关闭。
 
 **处理步骤**
-
-
 1. 请检查入参fd是否依然有效。
 2. 请排查进程是否已经耗尽了fd资源。

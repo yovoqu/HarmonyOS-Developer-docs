@@ -7,8 +7,8 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace intelligence 差异内容： declare namespace intelligence | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：intelligence； API声明：function getTextEmbeddingModel(config: ModelConfig): Promise<TextEmbedding>; 差异内容：function getTextEmbeddingModel(config: ModelConfig): Promise<TextEmbedding>; | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：intelligence； API声明：function getImageEmbeddingModel(config: ModelConfig): Promise<ImageEmbedding>; 差异内容：function getImageEmbeddingModel(config: ModelConfig): Promise<ImageEmbedding>; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：intelligence； API声明：function getTextEmbeddingModel(config: ModelConfig): Promise&lt;TextEmbedding&gt;; 差异内容：function getTextEmbeddingModel(config: ModelConfig): Promise&lt;TextEmbedding&gt;; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：intelligence； API声明：function getImageEmbeddingModel(config: ModelConfig): Promise&lt;ImageEmbedding&gt;; 差异内容：function getImageEmbeddingModel(config: ModelConfig): Promise&lt;ImageEmbedding&gt;; | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：intelligence； API声明： interface ModelConfig 差异内容： interface ModelConfig | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：ModelConfig； API声明：version: ModelVersion; 差异内容：version: ModelVersion; | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：ModelConfig； API声明：isNpuAvailable: boolean; 差异内容：isNpuAvailable: boolean; | api/@ohos.data.intelligence.d.ts |
@@ -16,16 +16,16 @@
 | 新增API | NA | 类名：intelligence； API声明： enum ModelVersion 差异内容： enum ModelVersion | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：ModelVersion； API声明：BASIC_MODEL = 0 差异内容：BASIC_MODEL = 0 | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：intelligence； API声明： interface TextEmbedding 差异内容： interface TextEmbedding | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：TextEmbedding； API声明：loadModel(): Promise<void>; 差异内容：loadModel(): Promise<void>; | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：TextEmbedding； API声明：releaseModel(): Promise<void>; 差异内容：releaseModel(): Promise<void>; | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：TextEmbedding； API声明：getEmbedding(text: string): Promise<Array<number>>; 差异内容：getEmbedding(text: string): Promise<Array<number>>; | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：TextEmbedding； API声明：getEmbedding(batchTexts: Array<string>): Promise<Array<Array<number>>>; 差异内容：getEmbedding(batchTexts: Array<string>): Promise<Array<Array<number>>>; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：TextEmbedding； API声明：loadModel(): Promise&lt;void&gt;; 差异内容：loadModel(): Promise&lt;void&gt;; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：TextEmbedding； API声明：releaseModel(): Promise&lt;void&gt;; 差异内容：releaseModel(): Promise&lt;void&gt;; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：TextEmbedding； API声明：getEmbedding(text: string): Promise<Array&lt;number&gt;>; 差异内容：getEmbedding(text: string): Promise<Array&lt;number&gt;>; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：TextEmbedding； API声明：getEmbedding(batchTexts: Array&lt;string&gt;): Promise<Array<Array&lt;number&gt;>>; 差异内容：getEmbedding(batchTexts: Array&lt;string&gt;): Promise<Array<Array&lt;number&gt;>>; | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：intelligence； API声明： interface ImageEmbedding 差异内容： interface ImageEmbedding | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：ImageEmbedding； API声明：loadModel(): Promise<void>; 差异内容：loadModel(): Promise<void>; | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：ImageEmbedding； API声明：releaseModel(): Promise<void>; 差异内容：releaseModel(): Promise<void>; | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：ImageEmbedding； API声明：getEmbedding(image: Image): Promise<Array<number>>; 差异内容：getEmbedding(image: Image): Promise<Array<number>>; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：ImageEmbedding； API声明：loadModel(): Promise&lt;void&gt;; 差异内容：loadModel(): Promise&lt;void&gt;; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：ImageEmbedding； API声明：releaseModel(): Promise&lt;void&gt;; 差异内容：releaseModel(): Promise&lt;void&gt;; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：ImageEmbedding； API声明：getEmbedding(image: Image): Promise<Array&lt;number&gt;>; 差异内容：getEmbedding(image: Image): Promise<Array&lt;number&gt;>; | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：intelligence； API声明：type Image = string; 差异内容：type Image = string; | api/@ohos.data.intelligence.d.ts |
-| 新增API | NA | 类名：intelligence； API声明：function splitText(text: string, config: SplitConfig): Promise<Array<string>>; 差异内容：function splitText(text: string, config: SplitConfig): Promise<Array<string>>; | api/@ohos.data.intelligence.d.ts |
+| 新增API | NA | 类名：intelligence； API声明：function splitText(text: string, config: SplitConfig): Promise<Array&lt;string&gt;>; 差异内容：function splitText(text: string, config: SplitConfig): Promise<Array&lt;string&gt;>; | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：intelligence； API声明： interface SplitConfig 差异内容： interface SplitConfig | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：SplitConfig； API声明：size: number; 差异内容：size: number; | api/@ohos.data.intelligence.d.ts |
 | 新增API | NA | 类名：SplitConfig； API声明：overlapRatio: number; 差异内容：overlapRatio: number; | api/@ohos.data.intelligence.d.ts |

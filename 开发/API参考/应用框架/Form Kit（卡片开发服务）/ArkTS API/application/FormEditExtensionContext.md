@@ -3,33 +3,30 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-formeditextensioncontext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FormEditExtensionContext是[FormEditExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formeditextensionability)的上下文，继承自[UIExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiextensioncontext)。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 18开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 18开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { FormEditExtensionAbility } from '@kit.FormKit';
 ```
 
 
-## FormEditExtensionContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### FormEditExtensionContext
 
 FormEditExtensionContext提供允许访问特定于FormEditExtensionAbility资源的能力。
 
 
-### startSecondPage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### startSecondPage
 
 startSecondPage(want: Want): Promise<[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)>
 
@@ -41,24 +38,21 @@ startSecondPage(want: Want): Promise<[AbilityResult](https://developer.huawei.co
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 第三方应用需要被桌面拉起的编辑页面信息。 |
+| want | Want | 是 | 第三方应用需要被桌面拉起的编辑页面信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)&gt; | Promise对象，返回AbilityResult。 |
+| Promise&lt;AbilityResult&gt; | Promise对象，返回AbilityResult。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -70,44 +64,39 @@ startSecondPage(want: Want): Promise<[AbilityResult](https://developer.huawei.co
 
 **示例：**
 
-
-```ts
+```text
 import { FormEditExtensionAbility } from '@kit.FormKit';
 import { UIExtensionContentSession, Want } from '@kit.AbilityKit';
 
-const TAG: string = '[testTag] ExampleFormEditExtensionAbility';
+const TAG: string = '[testTag] ExampleFormEditExtensionAbility'
 
 export default class ExampleFormEditAbility extends FormEditExtensionAbility {
-  abilityName: string = 'FormEditSecPageAbility';
+  abilityName: string = 'FormEditSecPageAbility'
 
   onSessionCreate(want: Want, session: UIExtensionContentSession) {
     try {
-      this.context
-        .startSecondPage({
-          bundleName: 'com.example.formEditDemo',
-          parameters: {
-            secPageAbilityName: this.abilityName,
-          },
-        })
-        .then((data) => {
-          console.info(TAG, `startSecondPage result want: ${data.resultCode}`);
-        });
+      this.context.startSecondPage({
+        bundleName: 'com.example.formEditDemo',
+        parameters: {
+          "secPageAbilityName": this.abilityName
+        }
+
+      }).then(data => {
+        console.info(TAG, `startSecondPage result want: ${data.resultCode}`)
+      });
     } catch (e) {
-      console.error(
-        TAG,
-        `startSecondPage failed, code: ${e.code}, message: ${e.message}`,
-      );
-      return;
+      console.error(TAG, `startSecondPage failed, code: ${e.code}, message: ${e.message}`)
+      return
     }
   }
 }
 ```
 
 
-### startUIAbility23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startUIAbility(want: Want): Promise<void>
+##### startUIAbility23+
+
+startUIAbility(want: Want): Promise&lt;void&gt;
 
 拉起卡片所属应用的UIAbility。使用Promise异步回调。
 
@@ -117,14 +106,12 @@ startUIAbility(want: Want): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want#want) | 是 | 应用自身UIAbility的ability信息。 |
+| want | Want | 是 | 应用自身UIAbility的ability信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -134,7 +121,6 @@ startUIAbility(want: Want): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -147,31 +133,25 @@ startUIAbility(want: Want): Promise<void>
 
 **示例：**
 
-
-```ts
-import { FormEditExtensionAbility } from '@kit.FormKit';
+```text
+import { FormEditExtensionAbility } from '@kit.FormKit'
 import { Want, UIExtensionContentSession } from '@kit.AbilityKit';
 
-const TAG: string = '[testTag] ExampleFormEditExtensionAbility';
+const TAG: string = '[testTag] ExampleFormEditExtensionAbility'
 
 export default class ExampleFormEditAbility extends FormEditExtensionAbility {
-  abilityName: string = 'FormEditSecPageAbility';
+  abilityName: string = 'FormEditSecPageAbility'
 
   onSessionCreate(want: Want, session: UIExtensionContentSession) {
     try {
-      this.context
-        .startUIAbility({
-          abilityName: 'EntryAbility1',
-        })
-        .then(() => {
-          console.info(TAG, `startUIAbility success`);
-        });
+      this.context.startUIAbility({
+        abilityName: 'EntryAbility1',
+      }).then(() => {
+        console.info(TAG, `startUIAbility success`);
+      });
     } catch (e) {
-      console.error(
-        TAG,
-        `startUIAbility failed, code: ${e.code}, message: ${e.message}`,
-      );
-      return;
+      console.error(TAG, `startUIAbility failed, code: ${e.code}, message: ${e.message}`);
+      return
     }
   }
 }

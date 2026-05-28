@@ -4,17 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-buffer
 
-## 简介
+##### 简介
 
 在ArkTS中，Buffer是一种用于处理二进制数据的数据类型。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-使用Node-API接口进行buffer相关开发时，可以通过Buffer对象实现ArkTS代码与Node-API模块之间的二进制数据交互，包括创建、操作Buffer对象，以处理I/O、网络传输等场景中的二进制数据。 **Buffer对象**：用于表示一段二进制数据的对象。**外部Buffer**：在Node-API模块中创建的Buffer，可以与现有的数据关联起来而不需要复制数据到新的Buffer中。
+使用Node-API接口进行buffer相关开发时，可以通过Buffer对象实现ArkTS代码与Node-API模块之间的二进制数据交互，包括创建、操作Buffer对象，以处理I/O、网络传输等场景中的二进制数据。
+ 
+- **Buffer对象**：用于表示一段二进制数据的对象。
+- **外部Buffer**：在Node-API模块中创建的Buffer，可以与现有的数据关联起来而不需要复制数据到新的Buffer中。
 
-## 场景和功能使用
+ 
+  
+
+##### 场景和功能使用
 
 以下这些接口用于有效地与ArkTS层进行交互，这使Node-API模块能够更好地处理ArkTS层的二进制数据，比如处理文件I/O、网络传输等操作：
+  
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_buffer | 用于创建并获取一个指定大小的ArkTS Buffer。 |
@@ -23,17 +32,24 @@
 | napi_get_buffer_info | 获取ArkTS Buffer底层数据缓冲区及其长度。 |
 | napi_is_buffer | 判断给定ArkTS value是否为Buffer对象。 |
 | napi_create_external_arraybuffer | 用于分配一个附加有外部数据的ArkTS ArrayBuffer。外部ArrayBuffer是一个特殊类型的ArrayBuffer，它持有对外部数据的引用而不实际拥有数据存储。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
+ 
+  
 
-## napi_create_buffer
+##### napi_create_buffer
 
-此接口用于创建Buffer对象。Buffer对象是用于在Node-API模块中操作二进制数据的一种特殊类型。 cpp部分代码
+此接口用于创建Buffer对象。Buffer对象是用于在Node-API模块中操作二进制数据的一种特殊类型。
+ 
+cpp部分代码
+ 
 ```text
-#include
+#include <string>
 #include "hilog/log.h"
 #include "napi/native_api.h"
 
@@ -54,14 +70,16 @@ static napi_value CreateBuffer(napi_env env, napi_callback_info info)
     return buffer;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const createBuffer: () => string;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -71,13 +89,17 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_create_buffer error');
 }
 ```
+ 
+  
 
+##### napi_create_buffer_copy
 
-## napi_create_buffer_copy
-
-本接口是Node-API中用于创建并复制数据到Buffer对象的函数。它可以在Node-API模块中创建一个新的Buffer对象，并将指定的数据复制到该Buffer对象中。 cpp部分代码
+本接口是Node-API中用于创建并复制数据到Buffer对象的函数。它可以在Node-API模块中创建一个新的Buffer对象，并将指定的数据复制到该Buffer对象中。
+ 
+cpp部分代码
+ 
 ```text
-#include
+#include <string>
 #include "hilog/log.h"
 #include "napi/native_api.h"
 
@@ -94,21 +116,23 @@ static napi_value CreateBufferCopy(napi_env env, napi_callback_info info)
         return nullptr;
     }
     if (resultData != nullptr) {
-        OH_LOG_INFO(LOG_APP, "Node-API resultData is : %{public}s.", reinterpret_cast (resultData));
+        OH_LOG_INFO(LOG_APP, "Node-API resultData is : %{public}s.", reinterpret_cast <const char*>(resultData));
     } else {
         OH_LOG_INFO(LOG_APP, "Node-API resultData is nullptr.");
     }
     return buffer;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const createBufferCopy: () => string;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -118,15 +142,19 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_create_buffer_copy error');
 }
 ```
+ 
+  
 
+##### napi_create_external_buffer
 
-## napi_create_external_buffer
-
-当希望在ArkTS中使用现有的Node-API模块内存块，而不需要额外的拷贝时，可以使用napi_create_external_buffer。这将允许ArkTS层直接访问并操作该内存，避免额外的内存分配和拷贝操作。 cpp部分代码
+当希望在ArkTS中使用现有的Node-API模块内存块，而不需要额外的拷贝时，可以使用napi_create_external_buffer。这将允许ArkTS层直接访问并操作该内存，避免额外的内存分配和拷贝操作。
+ 
+cpp部分代码
+ 
 ```text
-#include
-#include
-#include
+#include <cstdlib>
+#include <string>
+#include <hilog/log.h>
 #include "napi/native_api.h"
 
 // 回调函数，用于释放内存
@@ -163,14 +191,16 @@ static napi_value CreateExternalBuffer(napi_env env, napi_callback_info info)
     return buffer;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const createExternalBuffer: () => string;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -181,13 +211,17 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_create_external_buffer error');
 }
 ```
+ 
+  
 
+##### napi_get_buffer_info
 
-## napi_get_buffer_info
-
-在ArkTS中需要对Buffer对象中的数据执行特定的操作时，可以使用此接口来获取指向数据的指针和数据长度。这样可以在Node-API模块直接对数据进行操作，而无需进行数据的拷贝。 cpp部分代码
+在ArkTS中需要对Buffer对象中的数据执行特定的操作时，可以使用此接口来获取指向数据的指针和数据长度。这样可以在Node-API模块直接对数据进行操作，而无需进行数据的拷贝。
+ 
+cpp部分代码
+ 
 ```text
-#include
+#include <string>
 #include "hilog/log.h"
 #include "napi/native_api.h"
 
@@ -220,14 +254,16 @@ static napi_value GetBufferInfo(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const getBufferInfo: () => string;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -237,13 +273,17 @@ try {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_get_buffer_info error');
 }
 ```
+ 
+  
 
+##### napi_is_buffer
 
-## napi_is_buffer
-
-判断给定ArkTS value是否为Buffer对象。 cpp部分代码
+判断给定ArkTS value是否为Buffer对象。
+ 
+cpp部分代码
+ 
 ```text
-#include
+#include <string>
 #include "napi/native_api.h"
 
 static napi_value IsBuffer(napi_env env, napi_callback_info info)
@@ -263,15 +303,17 @@ static napi_value IsBuffer(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const isBuffer: () => boolean;
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```json
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 try {
@@ -280,11 +322,15 @@ try {
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_is_buffer error');
 }
 ```
+ 
+  
 
+##### napi_create_external_arraybuffer
 
-## napi_create_external_arraybuffer
-
-分配一个附加有外部数据的ArkTS ArrayBuffer。 cpp部分代码
+分配一个附加有外部数据的ArkTS ArrayBuffer。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -296,7 +342,7 @@ typedef struct {
 void FinalizeCallback(napi_env env, void *finalize_data, void *finalize_hint)
 {
     // 获取终结时的数据
-    BufferData *bufferData = static_cast(finalize_hint);
+    BufferData *bufferData = static_cast<BufferData *>(finalize_hint);
 
     // 执行清理操作，比如释放资源
     delete[] bufferData->data;
@@ -331,23 +377,26 @@ napi_value CreateExternalArraybuffer(napi_env env, napi_callback_info info)
     return outputArray;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const createExternalArraybuffer: () => ArrayBuffer | undefined;
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```json
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 hilog.info(0x0000, 'testTag', 'Node-API createExternalArraybuffer: %{public}s',
            JSON.stringify(testNapi.createExternalArraybuffer()));
 ```
-
- 以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
+以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
 ```text
 // CMakeLists.txt
 add_definitions( "-DLOG_DOMAIN=0xd0d0" )

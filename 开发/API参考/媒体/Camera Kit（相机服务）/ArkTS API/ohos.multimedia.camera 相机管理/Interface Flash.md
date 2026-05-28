@@ -3,61 +3,58 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flash
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Flash继承自[FlashQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flashquery)。
-
+ 
 闪光灯类，对设备闪光灯操作。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 11开始支持。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 ```
+ 
+  
 
-
-## setFlashMode11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### setFlashMode11+
 
 setFlashMode(flashMode: FlashMode): void
-
+ 
 设置闪光灯模式。
-
+ 
 进行设置之前，需要先检查：
-
-
-1. 设备是否支持闪光灯，可使用方法[hasFlash](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flashquery#hasflash11)。
+ 1. 设备是否支持闪光灯，可使用方法[hasFlash](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flashquery#hasflash11)。
 2. 设备是否支持指定的闪光灯模式，可使用方法[isFlashModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flashquery#isflashmodesupported11)。
-
+ 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| flashMode | [FlashMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#flashmode) | 是 | 指定闪光灯模式。传参为null或者undefined，作为0处理，闪光灯关闭。 |
-
-
+| flashMode | FlashMode | 是 | 指定闪光灯模式。传参为null或者undefined，作为0处理，闪光灯关闭。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400103 | Session not config. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function setFlashMode(photoSession: camera.PhotoSession): void {
@@ -70,46 +67,41 @@ function setFlashMode(photoSession: camera.PhotoSession): void {
   }
 }
 ```
+ 
+  
 
-
-## getFlashMode11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### getFlashMode11+
 
 getFlashMode(): FlashMode
-
+ 
 获取当前设备的闪光灯模式。
-
+ 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [FlashMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#flashmode) | 获取当前设备的闪光灯模式。接口调用失败会抛出相应错误码并返回undefined，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
-
-
+| FlashMode | 获取当前设备的闪光灯模式。接口调用失败会抛出相应错误码并返回undefined，错误码类型CameraErrorCode。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400103 | Session not config. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getFlashMode(
-  photoSession: camera.PhotoSession,
-): camera.FlashMode | undefined {
+function getFlashMode(photoSession: camera.PhotoSession): camera.FlashMode | undefined {
   let flashMode: camera.FlashMode | undefined = undefined;
   try {
     flashMode = photoSession.getFlashMode();
@@ -121,66 +113,62 @@ function getFlashMode(
   return flashMode;
 }
 ```
+ 
+  
 
+##### onFlashStateChange24+
 
-## onFlashStateChange24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-onFlashStateChange(callback: Callback<FlashState>): void
-
+onFlashStateChange(callback: Callback&lt;FlashState&gt;): void
+ 
 订阅闪光灯状态变化事件回调。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[FlashState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#flashstate24)&gt; | 是 | 回调函数，用于获取闪光灯状态变化信息。 |
-
-
+| callback | Callback&lt;FlashState&gt; | 是 | 回调函数，用于获取闪光灯状态变化信息。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 function onFlashStateChange(photoSession: camera.PhotoSession): void {
   photoSession.onFlashStateChange((flashState: camera.FlashState) => {
     console.info(`Flash state changed: ${flashState}`);
   });
 }
 ```
+ 
+  
 
+##### offFlashStateChange24+
 
-## offFlashStateChange24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-offFlashStateChange(callback?: Callback<FlashState>): void
-
+offFlashStateChange(callback?: Callback&lt;FlashState&gt;): void
+ 
 取消订阅闪光灯状态变化事件回调。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[FlashState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#flashstate24)&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
-
-
+| callback | Callback&lt;FlashState&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 function offFlashStateChange(photoSession: camera.PhotoSession): void {
   photoSession.offFlashStateChange();
 }

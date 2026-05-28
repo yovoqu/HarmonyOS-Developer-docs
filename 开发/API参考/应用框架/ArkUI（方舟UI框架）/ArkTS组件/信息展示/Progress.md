@@ -3,53 +3,70 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-progress
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 进度条组件，用于显示内容加载或操作处理等进度。
-
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 子组件
+  
+
+##### 子组件
+
 无
+ 
+  
 
-#### 接口
+##### 接口
+
 Progress(options: ProgressOptions)
+ 
 创建进度条组件。
+ 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [ProgressOptions](#progressoptions对象说明) | 是 | 按进度条类型不同，设置不同属性的进度条组件参数。 |
+| options | ProgressOptions | 是 | 按进度条类型不同，设置不同属性的进度条组件参数。 |
+ 
+ 
+  
 
-#### ProgressOptions对象说明
+##### ProgressOptions对象说明
+
 进度条选项。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | number | 否 | 否 | 指定当前进度值。设置小于0的数值时置为0，设置大于total的数值时置为total。 默认值：0 取值范围：[0, total] 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
 | total | number | 否 | 是 | 指定进度总长。设置小于等于0的数值时置为100。 默认值：100 取值范围：[0, 2147483647] 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 |
-| type^8+ | [ProgressType](#progresstype8枚举说明) | 否 | 是 | 指定进度条类型。 默认值：ProgressType.Linear 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 说明： 不同的type需分别对应相应的style属性设置，详细映射关系参考ProgressStyleMap。 |
-| style^(deprecated) | [ProgressStyle](#progressstyle枚举说明) | 否 | 是 | 指定进度条样式。 该参数从API version8开始废弃，建议使用type替代。 默认值：ProgressStyle.Linear |
+| type8+ | ProgressType | 否 | 是 | 指定进度条类型。 默认值：ProgressType.Linear 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 说明： 不同的type需分别对应相应的style属性设置，详细映射关系参考ProgressStyleMap。 |
+| style(deprecated) | ProgressStyle | 否 | 是 | 指定进度条样式。 该参数从API version8开始废弃，建议使用type替代。 默认值：ProgressStyle.Linear |
+ 
+ 
+  
 
-#### ProgressType8+枚举说明
+##### ProgressType8+枚举说明
+
 进度条类型。
+ 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | Linear | 0 | 线性样式。从API version 9开始，当高度大于宽度时，自适应垂直显示。 |
@@ -57,245 +74,356 @@ Progress(options: ProgressOptions)
 | Eclipse | 2 | 圆形样式，显示类似月圆月缺的进度展示效果，从月牙逐渐变化至满月。 |
 | ScaleRing | 3 | 环形有刻度样式，显示类似时钟刻度形式的进度展示效果。从API version 9开始，刻度外圈出现重叠时自动转换为环形无刻度进度条。 |
 | Capsule | 4 | 胶囊样式，头尾两端圆弧处的进度展示效果与Eclipse相同，中段的进度展示效果与Linear相同。当高度大于宽度时，自适应垂直显示。 |
+ 
+ 
+  
 
-#### ProgressStyle枚举说明
+##### ProgressStyle枚举说明
+
 进度条样式。
+ 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | Linear | 0 | 线性样式。 |
-| Ring^8+ | 1 | 环形圆环逐渐显示直至完全填充。 |
+| Ring8+ | 1 | 环形圆环逐渐显示直至完全填充。 |
 | Eclipse | 2 | 圆形样式，显示类似月圆月缺的进度展示效果，从月牙逐渐变化至满月。 |
-| ScaleRing^8+ | 3 | 环形有刻度样式，显示类似时钟刻度形式的进度展示效果。 |
-| Capsule^8+ | 4 | 胶囊样式，头尾两端圆弧处的进度展示效果与Eclipse相同，中段的进度展示效果与Linear相同。当高度大于宽度时，自适应垂直显示。 |
+| ScaleRing8+ | 3 | 环形有刻度样式，显示类似时钟刻度形式的进度展示效果。 |
+| Capsule8+ | 4 | 胶囊样式，头尾两端圆弧处的进度展示效果与Eclipse相同，中段的进度展示效果与Linear相同。当高度大于宽度时，自适应垂直显示。 |
+ 
+ 
+  
 
-#### ProgressStyleMap10+对象说明
+##### ProgressStyleMap10+对象说明
+
 进度条类型和样式的映射表。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 |
 | --- | --- |
-| ProgressType.Linear | [LinearStyleOptions10+](#linearstyleoptions10)  \|  [ProgressStyleOptions](#progressstyleoptions8) |
-| ProgressType.Ring | [RingStyleOptions10+](#ringstyleoptions10)  \|  [ProgressStyleOptions](#progressstyleoptions8) |
-| ProgressType.Eclipse | [EclipseStyleOptions10+](#eclipsestyleoptions10)  \|  [ProgressStyleOptions](#progressstyleoptions8) |
-| ProgressType.ScaleRing | [ScaleRingStyleOptions10+](#scaleringstyleoptions10)  \|  [ProgressStyleOptions](#progressstyleoptions8) |
-| ProgressType.Capsule | [CapsuleStyleOptions10+](#capsulestyleoptions10)  \|  [ProgressStyleOptions](#progressstyleoptions8) |
+| ProgressType.Linear | LinearStyleOptions10+ \| ProgressStyleOptions |
+| ProgressType.Ring | RingStyleOptions10+ \| ProgressStyleOptions |
+| ProgressType.Eclipse | EclipseStyleOptions10+ \| ProgressStyleOptions |
+| ProgressType.ScaleRing | ScaleRingStyleOptions10+ \| ProgressStyleOptions |
+| ProgressType.Capsule | CapsuleStyleOptions10+ \| ProgressStyleOptions |
+ 
+ 
+  
 
-#### 属性
+##### 属性
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
+ 
+> [!NOTE]
+> 该组件重写了通用属性 backgroundColor ，直接添加在Progress组件上，设置进度条的底色。如需设置整个Progress组件的背景色，需要在外层容器上添加backgroundColor，并用该容器包裹Progress组件。
 
-> [!NOTE] 说明
-> 该组件重写了通用属性backgroundColor，直接添加在Progress组件上，设置进度条的底色。如需设置整个Progress组件的背景色，需要在外层容器上添加backgroundColor，并用该容器包裹Progress组件。
+ 
+  
 
-#### value
+##### value
+
 value(value: number)
+ 
 设置当前进度值。设置小于0的数值时置为0，设置大于total的数值时置为total。非法数值不生效。
+ 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 当前进度值。  默认值：0 |
+| value | number | 是 | 当前进度值。 默认值：0 |
+ 
+ 
+  
 
-#### color
+##### color
+
 color(value: ResourceColor | LinearGradient)
+ 
 设置进度条前景色。
+ 
 从API version 10开始支持利用[LinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel#lineargradient10)设置Ring样式的渐变色。Ring类型不建议设置透明度，如需设置透明度，建议使用[DataPanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel)。
+ 
 从API version 23开始支持利用[LinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel#lineargradient10)设置Linear样式和Capsule样式的渐变色。API version 22及之前版本利用LinearGradient设置Linear样式和Capsule样式的渐变色时，会以默认主题色显示。
+ 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用，暂不支持LinearGradient。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) \| [LinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-datapanel#lineargradient10) | 是 | 进度条前景色。 默认值： - Capsule：    API version 9及以下：'#ff007dff'    API version 10：'#33006cde'    API version 11及以上：'#33007dff' - Ring：    API version 9及以下：'#ff007dff'    API version 10及以上：起始端：'#ff86c1ff'，结束端：'#ff254ff7' - 其他样式：'#ff007dff' |
+| value | ResourceColor \| LinearGradient | 是 | 进度条前景色。 默认值： - Capsule： API version 9及以下：'#ff007dff' API version 10：'#33006cde' API version 11及以上：'#33007dff' - Ring： API version 9及以下：'#ff007dff' API version 10及以上：起始端：'#ff86c1ff'，结束端：'#ff254ff7' - 其他样式：'#ff007dff' |
+ 
+ 
+  
 
-#### style8+
+##### style8+
+
 style(value: ProgressStyleOptions | CapsuleStyleOptions | RingStyleOptions | LinearStyleOptions | ScaleRingStyleOptions | EclipseStyleOptions)
+ 
 设置组件的样式。
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | ProgressStyleOptions8+ \| CapsuleStyleOptions10+ \|  RingStyleOptions10+ \| LinearStyleOptions10+ \|  ScaleRingStyleOptions10+ \| EclipseStyleOptions10+ | 是 | 组件的样式。 - CapsuleStyleOptions：设置Capsule的样式。 - RingStyleOptions：设置Ring的样式。 - LinearStyleOptions：设置Linear的样式。 - ScaleRingStyleOptions：设置ScaleRing的样式。 - EclipseStyleOptions：设置Eclipse的样式。 - ProgressStyleOptions：仅可设置各类型进度条的strokeWidth、scaleCount、scaleWidth，仅对支持这些样式设置的进度条生效。 |
+| value | ProgressStyleOptions8+ \| CapsuleStyleOptions10+ \| RingStyleOptions10+ \| LinearStyleOptions10+ \| ScaleRingStyleOptions10+ \| EclipseStyleOptions10+ | 是 | 组件的样式。 - CapsuleStyleOptions：设置Capsule的样式。 - RingStyleOptions：设置Ring的样式。 - LinearStyleOptions：设置Linear的样式。 - ScaleRingStyleOptions：设置ScaleRing的样式。 - EclipseStyleOptions：设置Eclipse的样式。 - ProgressStyleOptions：仅可设置各类型进度条的strokeWidth、scaleCount、scaleWidth，仅对支持这些样式设置的进度条生效。 |
+ 
+ 
+  
 
-#### contentModifier12+
+##### contentModifier12+
+
 contentModifier(modifier:ContentModifier&lt;ProgressConfiguration&gt;)
+ 
 定制progress内容区的方法。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| modifier | [ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)<[ProgressConfiguration](#progressconfiguration12)> | 是 | 在progress组件上，定制内容区的方法。 modifier： 内容修改器，开发者需要自定义class实现ContentModifier接口。 |
+| modifier | ContentModifier&lt;ProgressConfiguration&gt; | 是 | 在progress组件上，定制内容区的方法。 modifier： 内容修改器，开发者需要自定义class实现ContentModifier接口。 |
+ 
+ 
+  
 
-#### privacySensitive12+
+##### privacySensitive12+
+
 privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
+ 
 设置隐私敏感。
+ 
+> [!NOTE]
+> 从API version 20开始，该接口支持在 attributeModifier 中调用。
 
-> [!NOTE] 说明
-> 从API version 20开始，该接口支持在attributeModifier中调用。
-
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isPrivacySensitiveMode | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;boolean&gt; | 是 | 设置隐私敏感，隐私模式下进度清零，文字将被遮罩。true：打开隐私敏感；false：关闭隐私敏感。  默认值：false 说明：  设置null表示不敏感。 |
+| isPrivacySensitiveMode | Optional&lt;boolean&gt; | 是 | 设置隐私敏感，隐私模式下进度清零，文字将被遮罩。true：打开隐私敏感；false：关闭隐私敏感。 默认值：false 说明： 设置null表示不敏感。 |
+ 
+ 
+  
 
-#### ProgressConfiguration12+
+##### ProgressConfiguration12+
+
 进度条配置。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | number | 否 | 否 | 当前进度值。当设置的数值小于0时，将其置为0。当设置的数值大于total时，将其置为total。 默认值：0 取值范围：[0, total] |
-| total | number | 否 | 否 | 进度总长。 取值范围：[0, 2147483647] 说明：  total是负数时，按照100处理。 |
+| total | number | 否 | 否 | 进度总长。 取值范围：[0, 2147483647] 说明： total是负数时，按照100处理。 |
+ 
+ 
+  
 
-#### CommonProgressStyleOptions10+
+##### CommonProgressStyleOptions10+
+
 进度条通用样式选项。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | enableSmoothEffect | boolean | 否 | 是 | 进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，页面会有进度变化的动效；否则进度从当前值突变至设定值，页面无动效。 true：表示开启进度平滑动效。 false：表示关闭进度平滑动效。 默认值：true |
+ 
+ 
+  
 
-#### ScanEffectOptions10+
+##### ScanEffectOptions10+
+
 扫光效果选项。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | enableScanEffect | boolean | 否 | 是 | 扫光效果的开关。仅支持ProgressType类型为Linear、Ring、Capsule的进度条。 true：表示开启扫光效果。 false：表示关闭扫光效果。 默认值：false |
+ 
+ 
+  
 
-#### ProgressStyleOptions8+
+##### ProgressStyleOptions8+
+
 进度条样式选项。
+ 
 继承自[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
+ 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| strokeWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp 超出取值范围按默认值处理。 |
-| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120vp  取值范围：[2, min(width, height)/scaleWidth/2/π]，超出取值范围时，样式显示为环形无刻度进度条。默认情况下宽高最小为77vp。 |
-| scaleWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 设置环形进度条刻度粗细（不支持百分比设置）。刻度粗细大于进度条宽度时，为系统默认粗细。 默认值：2.0vp |
+| strokeWidth | Length | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp 超出取值范围按默认值处理。 |
+| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120vp 取值范围：[2, min(width, height)/scaleWidth/2/π]，超出取值范围时，样式显示为环形无刻度进度条。默认情况下宽高最小为77vp。 |
+| scaleWidth | Length | 否 | 是 | 设置环形进度条刻度粗细（不支持百分比设置）。刻度粗细大于进度条宽度时，为系统默认粗细。 默认值：2.0vp |
+ 
+ 
+  
 
-#### CapsuleStyleOptions10+
+##### CapsuleStyleOptions10+
+
 胶囊样式选项。
+ 
 继承自[ScanEffectOptions](#scaneffectoptions10)和[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| borderColor | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 内描边颜色。 默认值： API version 10：'#33006cde' API version 11及以上：'#33007dff' |
-| borderWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 内描边宽度（不支持百分比设置）。 默认值：1vp |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 文本内容，应用可自定义。 从API version 20开始，支持Resource类型。 |
-| font | [Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#font) | 否 | 是 | 文本样式。 默认值： 文本大小（不支持百分比设置）：12fp  其他文本参数跟随Text组件的主题值。 |
-| fontColor | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 文本颜色。 默认值：'#ff182431' |
+| borderColor | ResourceColor | 否 | 是 | 内描边颜色。 默认值： API version 10：'#33006cde' API version 11及以上：'#33007dff' |
+| borderWidth | Length | 否 | 是 | 内描边宽度（不支持百分比设置）。 默认值：1vp |
+| content | ResourceStr | 否 | 是 | 文本内容，应用可自定义。 从API version 20开始，支持Resource类型。 |
+| font | Font | 否 | 是 | 文本样式。 默认值： 文本大小（不支持百分比设置）：12fp 其他文本参数跟随Text组件的主题值。 |
+| fontColor | ResourceColor | 否 | 是 | 文本颜色。 默认值：'#ff182431' |
 | showDefaultPercentage | boolean | 否 | 是 | 显示百分比文本的开关。开启后，进度条上显示当前进度的百分比。设置了content属性时该属性不生效。 true：表示显示百分比文本；false：表示不显示百分比文本。 默认值：false |
-| borderRadius^18+ | [LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | 否 | 是 | Capsule进度条圆角半径（不支持百分比设置）。 取值范围：[0, height/2]。默认值：height / 2。 设置非法数值时，按照默认值处理。 |
+| borderRadius18+ | LengthMetrics | 否 | 是 | Capsule进度条圆角半径（不支持百分比设置）。 取值范围：[0, height/2]。默认值：height / 2。 设置非法数值时，按照默认值处理。 |
+ 
+ 
+  
 
-#### RingStyleOptions10+
+##### RingStyleOptions10+
+
 环形无刻度样式选项。
+ 
 继承自[ScanEffectOptions](#scaneffectoptions10)和[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| strokeWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 设置进度条宽度（不支持百分比设置）。当宽度大于等于半径时，宽度默认修改为半径值的二分之一。 默认值：4.0vp |
+| strokeWidth | Length | 否 | 是 | 设置进度条宽度（不支持百分比设置）。当宽度大于等于半径时，宽度默认修改为半径值的二分之一。 默认值：4.0vp |
 | shadow | boolean | 否 | 是 | 进度条阴影开关。 true：表示打开进度条阴影；false：表示关闭进度条阴影。 默认值：false |
-| status | [ProgressStatus10+](#progressstatus10枚举说明) | 否 | 是 | 设置进度条状态。当设置为ProgressStatus.LOADING时会开启检查更新动效，此时设置进度值不生效。当从ProgressStatus.LOADING设置为ProgressStatus.PROGRESSING时，检查更新动效会执行到终点再停止。 默认值：ProgressStatus.PROGRESSING |
+| status | ProgressStatus10+ | 否 | 是 | 设置进度条状态。当设置为ProgressStatus.LOADING时会开启检查更新动效，此时设置进度值不生效。当从ProgressStatus.LOADING设置为ProgressStatus.PROGRESSING时，检查更新动效会执行到终点再停止。 默认值：ProgressStatus.PROGRESSING |
+ 
+ 
+  
 
-#### LinearStyleOptions10+
+##### LinearStyleOptions10+
+
 线性样式选项。
+ 
 继承自[ScanEffectOptions](#scaneffectoptions10)和[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| strokeWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp |
-| strokeRadius | [PX](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#px10) \| [VP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#vp10) \| [LPX](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#lpx10) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 是 | 设置线性进度条的圆角半径。 取值范围[0, strokeWidth / 2]。默认值：strokeWidth / 2。 |
+| strokeWidth | Length | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp |
+| strokeRadius | PX \| VP \| LPX \| Resource | 否 | 是 | 设置线性进度条的圆角半径。 取值范围[0, strokeWidth / 2]。默认值：strokeWidth / 2。 |
+ 
+ 
+  
 
-#### ScaleRingStyleOptions10+
+##### ScaleRingStyleOptions10+
+
 环形有刻度样式选项。
+ 
 继承自[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| strokeWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp |
-| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120vp  取值范围：[2, min(width, height)/scaleWidth/2/π]，超出取值范围时，样式显示为环形无刻度进度条。默认情况下宽高最小为77vp。 |
-| scaleWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 设置环形进度条刻度粗细（不支持百分比设置）。刻度粗细大于进度条宽度时，为系统默认粗细。 默认值：2.0vp |
+| strokeWidth | Length | 否 | 是 | 设置进度条宽度（不支持百分比设置）。 默认值：4.0vp |
+| scaleCount | number | 否 | 是 | 设置环形进度条总刻度数。 默认值：120vp 取值范围：[2, min(width, height)/scaleWidth/2/π]，超出取值范围时，样式显示为环形无刻度进度条。默认情况下宽高最小为77vp。 |
+| scaleWidth | Length | 否 | 是 | 设置环形进度条刻度粗细（不支持百分比设置）。刻度粗细大于进度条宽度时，为系统默认粗细。 默认值：2.0vp |
+ 
+ 
+  
 
-#### EclipseStyleOptions10+
+##### EclipseStyleOptions10+
+
 圆形样式选项。圆形样式的显示类似月圆月缺的进度展示效果，从月牙逐渐变化至满月。
+ 
 继承自[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### ProgressStatus10+枚举说明
+##### ProgressStatus10+枚举说明
+
 进度条的当前状态。
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | LOADING | 'LOADING' | 加载中。 |
 | PROGRESSING | 'PROGRESSING' | 进度更新中。 |
+ 
+ 
+  
 
-#### 事件
+##### 事件
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ 
+  
 
-#### 示例
-#### 示例1（设置进度条的类型）
+##### 示例
+
+  
+
+##### 示例1（设置进度条的类型）
+
 该示例通过[ProgressOptions](#progressoptions对象说明)的入参type，实现了设置进度条类型的功能。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -352,13 +480,18 @@ struct ProgressExample {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257787-001.png)
+![](assets/Progress/file-20260514164058724-3.png)
 
-#### 示例2（设置环形进度条属性）
+ 
+  
+
+##### 示例2（设置环形进度条属性）
+
 该示例通过[style](#style8)接口的strokeWidth和shadow属性，实现了环形进度条视觉属性设置功能。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -381,13 +514,18 @@ struct ProgressExample {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257787-002.png)
+![](assets/Progress/file-20260514164058724-4.gif)
 
-#### 示例3（设置环形进度条动画）
+ 
+  
+
+##### 示例3（设置环形进度条动画）
+
 该示例通过[style](#style8)接口的status和enableScanEffect属性，实现了环形进度条动效的开关功能。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -407,13 +545,18 @@ struct ProgressExample {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257787-003.gif)
+![](assets/Progress/file-20260514164058724-5.gif)
 
-#### 示例4（设置胶囊形进度条属性）
+ 
+  
+
+##### 示例4（设置胶囊形进度条属性）
+
 该示例通过[style](#style8)接口的borderColor、borderWidth、content、font、fontColor、enableScanEffect、showDefaultPercentage属性，实现胶囊形进度条的视觉属性设置。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -436,13 +579,18 @@ struct ProgressExample {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257788-004.png)
+![](assets/Progress/file-20260514164058724-6.gif)
 
-#### 示例5（设置进度平滑动效）
+ 
+  
+
+##### 示例5（设置进度平滑动效）
+
 该示例通过[style](#style8)接口的enableSmoothEffect属性，实现了进度平滑动效开关的功能。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -477,13 +625,18 @@ struct Index {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257788-005.gif)
+![](assets/Progress/file-20260514164058724-7.png)
 
-#### 示例6（设置定制内容区）
+ 
+  
+
+##### 示例6（设置定制内容区）
+
 该示例通过[contentModifier](#contentmodifier12)接口，实现了自定义进度条的功能，自定义实现星形，其中总进度为3，且当前值可通过按钮进行增减，达到的进度使用自定义颜色填充。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 class MyProgressModifier implements ContentModifier<ProgressConfiguration> {
   color: ResourceColor = Color.White;
@@ -557,13 +710,18 @@ struct Index {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257788-006.gif)
+![](assets/Progress/file-20260514164058724-8.png)
 
-#### 示例7（设置隐私隐藏）
+ 
+  
+
+##### 示例7（设置隐私隐藏）
+
 该示例通过[privacySensitive](#privacysensitive12)属性，实现了隐私隐藏效果。效果展示需要卡片框架支持。
-
-```ts
+ 
+```text
 @Entry
 @Component
 struct ProgressExample {
@@ -593,14 +751,20 @@ struct ProgressExample {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257788-007.gif)
+![](assets/Progress/file-20260525091257787-001.png)
 
-#### 示例8（设置Capsule进度条圆角半径）
+ 
+  
+
+##### 示例8（设置Capsule进度条圆角半径）
+
 该示例通过[CapsuleStyleOptions](#capsulestyleoptions10)的入参borderRadius，实现了Capsule类型进度条圆角半径设置。
+ 
 从API version 18开始，新增borderRadius属性。
-
-```ts
+ 
+```text
 import { LengthMetrics } from '@kit.ArkUI';
 
 @Entry
@@ -628,13 +792,18 @@ struct ProgressExample {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257788-008.png)
+![](assets/Progress/file-20260525091257787-002.png)
 
-#### 示例9（设置线性进度条和胶囊进度条属性）
+ 
+  
+
+##### 示例9（设置线性进度条和胶囊进度条属性）
+
 从API version 23开始，该示例通过[color](#color)属性中的LinearGradient，实现线性进度条和胶囊进度条渐变色的功能。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -659,5 +828,6 @@ struct ProgressExample {
   }
 }
 ```
+ 
 
-![](assets/Progress/file-20260525091257788-009.png)
+![](assets/Progress/file-20260525091257787-003.gif)

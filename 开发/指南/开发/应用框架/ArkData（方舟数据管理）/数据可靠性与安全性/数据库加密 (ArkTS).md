@@ -1,17 +1,26 @@
 # 数据库加密 (ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-encryption
 
-## 场景介绍
+##### 场景介绍
 
-为了增强数据库的安全性，数据库提供了一个安全适用的数据库加密能力，从而对数据库存储的内容实施有效保护。通过数据库加密等安全方法实现了数据库数据存储的保密性和完整性要求，使得数据库以密文方式存储并在密态方式下工作，确保了数据安全。 键值型数据库的加密属性在创建时确定，不可修改；关系型数据库从API version 22开始，支持通过[rekeyEx](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#rekeyex22)接口调整其加密属性。 键值型数据库和关系型数据库均支持数据库加密操作，其中关系型数据库支持自定义加密/解密的密钥和其他参数。
+为了增强数据库的安全性，数据库提供了一个安全适用的数据库加密能力，从而对数据库存储的内容实施有效保护。通过数据库加密等安全方法实现了数据库数据存储的保密性和完整性要求，使得数据库以密文方式存储并在密态方式下工作，确保了数据安全。
 
-## 键值型数据库加密
+键值型数据库的加密属性在创建时确定，不可修改；关系型数据库从API version 22开始，支持通过[rekeyEx](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#rekeyex22)接口调整其加密属性。
 
-键值型数据库，通过options中encrypt参数来设置是否加密，默认为false，表示不加密。encrypt参数为true时表示加密。 具体接口及功能，可见[分布式键值数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore)。
-```text
+键值型数据库和关系型数据库均支持数据库加密操作，其中关系型数据库支持自定义加密/解密的密钥和其他参数。
+
+
+
+##### 键值型数据库加密
+
+键值型数据库，通过options中encrypt参数来设置是否加密，默认为false，表示不加密。encrypt参数为true时表示加密。
+
+具体接口及功能，可见[分布式键值数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore)。
+
+```ArkTS
 // 导入模块
 // 在pages目录下新建KvStoreInterface.ets
 import { distributedKVStore } from '@kit.ArkData';
@@ -31,8 +40,7 @@ export class KvInterface {
 }
 ```
 
-
-```text
+```ArkTS
 public CreateKvManager = (() => {
   Logger.info('CreateKvManager start');
   if (typeof (kvManager) === 'undefined') {
@@ -53,8 +61,7 @@ public CreateKvManager = (() => {
 })
 ```
 
-
-```text
+```ArkTS
 public GetKvStore = (() => {
   Logger.info('GetKvStore start');
   if (kvManager === undefined) {
@@ -93,7 +100,7 @@ public GetKvStore = (() => {
       // schema未定义可以不填，定义方法请参考上方schema示例。
       securityLevel: distributedKVStore.SecurityLevel.S3
     };
-    kvManager.getKVStore(storeId, options,
+    kvManager.getKVStore<distributedKVStore.SingleKVStore>(storeId, options,
       (err, store: distributedKVStore.SingleKVStore) => {
         if (err) {
           Logger.error(`Failed to get KVStore: Code:${err.code},message:${err.message}`);
@@ -111,10 +118,18 @@ public GetKvStore = (() => {
 ```
 
 
-## 关系型数据库加密
 
-关系型数据库，通过[StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)中encrypt属性来设置是否加密。encrypt参数为true时表示加密；为false时表示不加密；默认值为false。 当encrypt为true时，支持开发者通过ArkTS API中的可选属性cryptoParam设置自定义的加密/解密密钥和算法等参数。 针对cryptoParam的配置与否，有如下两种场景： 场景1：不配置cryptoParam属性，此时会使用默认的加密配置进行数据库的加密/解密。
-```text
+##### 关系型数据库加密
+
+关系型数据库，通过[StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)中encrypt属性来设置是否加密。encrypt参数为true时表示加密；为false时表示不加密；默认值为false。
+
+当encrypt为true时，支持开发者通过ArkTS API中的可选属性cryptoParam设置自定义的加密/解密密钥和算法等参数。
+
+针对cryptoParam的配置与否，有如下两种场景：
+
+场景1：不配置cryptoParam属性，此时会使用默认的加密配置进行数据库的加密/解密。
+
+```ArkTS
 import { relationalStore } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit'
@@ -122,8 +137,7 @@ import { UIContext } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 ```
 
-
-```text
+```ArkTS
 let store: relationalStore.RdbStore | undefined = undefined;
 
 /* context为应用的上下文信息，由调用方自行获取，此处仅为示例。 */
@@ -143,8 +157,48 @@ try {
 ```
 
 场景2：配置cryptoParam属性，此时会使用开发者自定义的密钥和算法参数进行数据库的加密/解密。
-```text
+
+```ArkTS
 let store: relationalStore.RdbStore | undefined = undefined;
 // 初始化需要使用的密钥，示例中使用硬编码密钥仅用于演示目的， 实际应用中应使用安全的密钥管理服务
 let key = new Uint8Array(32);
-for (let i = 0; i 如果开发者不关心加密使用的算法及参数，则无需配置cryptoParam属性，使用默认加密配置即可。当开发者需要自定义加密配置，或需要打开非默认配置的加密数据库时，则需要配置cryptoParam属性。
+for (let i = 0; i < 32; i++) {
+  key[i] = i;
+}
+
+// 初始化加密算法
+const CRYPTO_PARAM: relationalStore.CryptoParam = {
+  encryptionKey: key, // 必选参数，使用指定的密钥打开加密数据库。为空则由数据库负责生成并保存密钥，并使用生成的密钥打开数据库文件。
+  iterationCount: 25000, // 可选参数，迭代次数。迭代次数必须大于零。不指定或等于零则使用默认值10000和默认加密算法。
+  encryptionAlgo: relationalStore.EncryptionAlgo.AES_256_CBC, // 可选参数，加密/解密算法。如不指定，默认算法为AES_256_GCM。
+  hmacAlgo: relationalStore.HmacAlgo.SHA256, // 可选参数，HMAC算法。如不指定，默认值为SHA256。
+  kdfAlgo: relationalStore.KdfAlgo.KDF_SHA512, // 可选参数，KDF算法。如不指定，默认值和HMAC算法相等。
+  cryptoPageSize: 2048 // 可选参数，加密/解密时使用的页大小。必须为1024到65536范围内的整数并且为2的幂。如不指定，默认值为1024。
+}
+
+const STORE_CONFIG: relationalStore.StoreConfig = {
+  name: 'encrypted.db',
+  securityLevel: relationalStore.SecurityLevel.S3,
+  encrypt: true,
+  cryptoParam: CRYPTO_PARAM
+}
+
+/* context为应用的上下文信息，由调用方自行获取，此处仅为示例。 */
+const context = new UIContext().getHostContext() as common.UIAbilityContext;
+try {
+  store = await relationalStore.getRdbStore(context, STORE_CONFIG);
+  if (store == null) {
+    hilog.error(DOMAIN, 'Encryption', 'Failed to get RdbStore.');
+  } else {
+    hilog.info(DOMAIN, 'Encryption', 'Succeeded in getting RdbStore.');
+  }
+  // 调用完后需要将密钥清零
+  CRYPTO_PARAM.encryptionKey.fill(0);
+  key.fill(0);
+} catch (e) {
+  const err = e as BusinessError;
+  hilog.error(DOMAIN, 'Encryption', `Failed to get RdbStore. Code:${err.code}, message:${err.message}`);
+}
+```
+
+如果开发者不关心加密使用的算法及参数，则无需配置cryptoParam属性，使用默认加密配置即可。当开发者需要自定义加密配置，或需要打开非默认配置的加密数据库时，则需要配置cryptoParam属性。

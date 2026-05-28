@@ -3,25 +3,22 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-shortcutinfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用配置文件中定义的快捷方式信息，[FA模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#fa模型)配置在[config.json](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-configuration-file-overview-fa)文件中进行配置，[Stage模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#stage模型)配置在开发视图的resources/base/profile下面定义配置文件即可。
 
+> [!NOTE]
+> 本模块首批接口从API version 7 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9开始，该模块不再维护。建议使用 bundleManager-ShortcutInfo 替代。
+
+
+
+##### ShortcutInfo(deprecated)
 
 > [!NOTE]
-> 本模块首批接口从API version 7 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 从API version 9开始，该模块不再维护。建议使用[bundleManager-ShortcutInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-shortcutinfo)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager-ShortcutInfo 替代。
 
-
-## ShortcutInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager-ShortcutInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-shortcutinfo#shortcutinfo-1)替代。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

@@ -1,26 +1,40 @@
 # 建立应用侧与前端页面数据通道(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkweb-ndk-page-data-channel
 
 前端页面和应用侧之间可以使用Native方法实现两端通信（以下简称Native PostWebMessage），可解决ArkTS环境的冗余切换，同时允许发送消息、回调在非UI线程上运行，避免造成UI阻塞。当前只支持string和buffer数据类型。
 
 
-## 适用的应用架构
+##### 适用的应用架构
 
 应用使用ArkTS、C++语言混合开发，或本身应用架构较贴近于小程序架构，自带C++侧环境，推荐使用ArkWeb在Native侧提供的[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_WebMessageAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageapi)、[ArkWeb_WebMessagePortAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageportapi)实现PostWebMessage功能。
-![](assets/建立应用侧与前端页面数据通道(C／C++)
-/file-20260514130835569-0.png) 上图展示了具有普遍适用性的小程序的通用架构。在这一架构中，逻辑层依赖于应用程序自带的JavaScript运行时，该运行时在一个已有的C++环境中运行。通过Native接口，逻辑层能够直接在C++环境中与视图层（其中ArkWeb充当渲染器）进行通信，无需回退至ArkTS环境使用ArkTS PostWebMessage接口。 左图是使用ArkTS PostWebMessage接口构建小程序的方案，如红框所示，应用需要先调用到ArkTS环境，再调用到C++环境。右图是使用Native PostWebMessage接口构建小程序的方案，不需要ArkTS环境和C++环境的切换，执行效率更高。
-![](assets/建立应用侧与前端页面数据通道(C／C++)
-/file-20260514130835569-1.png)
-
-## 使用Native接口实现PostWebMessage通信
 
 
-## 使用Native接口绑定ArkWeb
+![](assets/建立应用侧与前端页面数据通道(C／C++)/file-20260514130835569-0.png)
 
-ArkWeb组件声明在ArkTS侧，需要用户自定义一个标识webTag，并将webTag通过Node-API传至应用C++侧。后续ArkWeb Native接口使用时，均需webTag作为对应组件的唯一标识。 ArkTS侧
+
+上图展示了具有普遍适用性的小程序的通用架构。在这一架构中，逻辑层依赖于应用程序自带的JavaScript运行时，该运行时在一个已有的C++环境中运行。通过Native接口，逻辑层能够直接在C++环境中与视图层（其中ArkWeb充当渲染器）进行通信，无需回退至ArkTS环境使用ArkTS PostWebMessage接口。
+
+左图是使用ArkTS PostWebMessage接口构建小程序的方案，如红框所示，应用需要先调用到ArkTS环境，再调用到C++环境。右图是使用Native PostWebMessage接口构建小程序的方案，不需要ArkTS环境和C++环境的切换，执行效率更高。
+
+
+![](assets/建立应用侧与前端页面数据通道(C／C++)/file-20260514130835569-1.png)
+
+
+
+
+##### 使用Native接口实现PostWebMessage通信
+
+
+
+##### 使用Native接口绑定ArkWeb
+
+ - ArkWeb组件声明在ArkTS侧，需要用户自定义一个标识webTag，并将webTag通过Node-API传至应用C++侧。后续ArkWeb Native接口使用时，均需webTag作为对应组件的唯一标识。
+ - ArkTS侧
+
+  
 ```text
 import { webview } from '@kit.ArkWeb';
 // 自定义webTag，在WebviewController创建时作为入参传入，建立controller与webTag的映射关系
@@ -37,33 +51,46 @@ aboutToAppear() {
 ```
 
 
-## 使用Native接口获取API结构体
+
+
+
+##### 使用Native接口获取API结构体
 
 ArkWeb Native侧需先获取API结构体，才能调用结构体里的Native API。ArkWeb Native侧API通过函数[OH_ArkWeb_GetNativeAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-interface-h#oh_arkweb_getnativeapi)获取，根据入参type不同，可获取对应的函数指针结构体。其中本指导涉及[ArkWeb_ControllerAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi)、[ArkWeb_WebMessageAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageapi)、[ArkWeb_WebMessagePortAPI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageportapi)。
+
 ```text
 static ArkWeb_ControllerAPI *controller = nullptr;
 static ArkWeb_WebMessagePortAPI *webMessagePort = nullptr;
 static ArkWeb_WebMessageAPI *webMessage = nullptr;
 // ...
-controller = reinterpret_cast(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_CONTROLLER));
+controller = reinterpret_cast<ArkWeb_ControllerAPI *>(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_CONTROLLER));
 webMessagePort =
-    reinterpret_cast(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE_PORT));
-webMessage = reinterpret_cast(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE));
+    reinterpret_cast<ArkWeb_WebMessagePortAPI *>(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE_PORT));
+webMessage = reinterpret_cast<ArkWeb_WebMessageAPI *>(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE));
 ```
 
 
-## 完整示例
 
-在调用API前建议通过[ARKWEB_MEMBER_MISSING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h#宏定义)校验该函数结构体是否有对应函数指针，避免SDK与设备ROM不匹配导致crash问题。[createWebMessagePorts](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#createwebmessageports)、[postWebMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#postwebmessage)、[close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageportapi#close)需运行在UI线程。 前端页面代码
-```text
+##### 完整示例
 
+在调用API前建议通过[ARKWEB_MEMBER_MISSING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h#宏定义)校验该函数结构体是否有对应函数指针，避免SDK与设备ROM不匹配导致crash问题。[createWebMessagePorts](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#createwebmessageports)、[postWebMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi#postwebmessage)、[close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-webmessageportapi#close)需运行在UI线程。
 
-etsRunJavaScriptExt测试demo
+ - 前端页面代码
 
-Receive string:
-Receive arraybuffer:
+  
+```json
+<!-- entry/src/main/resources/rawfile/index.html -->
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en-gb">
+<body>
+<h1>etsRunJavaScriptExt测试demo</h1>
+<h1 id="h1"></h1>
+<h3 id="msg">Receive string:</h3>
+<h3 id="msg2">Receive arraybuffer:</h3>
 
-
+</body>
+<script type="text/javascript">
 var h5Port;
 
 window.addEventListener('message', function (event) {
@@ -175,11 +202,14 @@ function postObjectToApp() {
     }
 }
 
-
+</script>
+</html>
 ```
 
-ArkTS侧代码
-```text
+ - ArkTS侧代码
+
+  
+```ArkTS
 import testNapi from 'libentry.so';
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -354,7 +384,15 @@ struct Index {
               .id('h5_send_string_btn')
               .onClick(() => {
                 try {
-                  this.controller.runJavaScript('for(var i = 0; i  {
+                  this.controller.runJavaScript('for(var i = 0; i < 2000; i++) postStringToApp()');
+                } catch (error) {
+                  console.error(
+                    `ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+                }
+              })
+            Button('H5Buffer')
+              .id('h5_send_buffer_btn')
+              .onClick(() => {
                 try {
                   this.controller.runJavaScript('postBufferToApp()');
                 } catch (error) {
@@ -431,8 +469,10 @@ struct Index {
 }
 ```
 
-Node-API侧暴露ArkTS接口
-```text
+ - Node-API侧暴露ArkTS接口
+
+  
+```ts
 // entry5/src/main/cpp/types/libentry5/index.d.ts
 export const nativeWebInit: (webName: string) => void;
 export const createWebMessagePorts: (webName: string) => void;
@@ -447,8 +487,10 @@ export const setMessageEventHandlerThread: (webName: string) => void;
 export const postMessageThread: (webName: string) => void;
 ```
 
-Node-API侧编译配置
-```text
+ - Node-API侧编译配置
+
+  
+```cpp
 # entry/src/main/cpp/CMakeLists.txt
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.4.1)
@@ -476,13 +518,15 @@ find_library(
 target_link_libraries(entry PUBLIC libace_napi.z.so ${hilog-lib} libohweb.so)
 ```
 
-Node-API层代码
-```text
+ - Node-API层代码
+
+  
+```cpp
 #include "hilog/log.h"
 #include "napi/native_api.h"
 #include "web/arkweb_interface.h"
-#include
-#include
+#include <string>
+#include <thread>
 
 constexpr unsigned int LOG_PRINT_DOMAIN = 0xFF00;
 ArkWeb_ControllerAPI *controller = nullptr;
@@ -528,16 +572,16 @@ static napi_value NativeWebInit(napi_env env, napi_callback_info info)
         LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "ArkWeb",
         "Native Development Kit NativeWebInit webTag:%{public}s", webTagValue);
 
-    controller = reinterpret_cast(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_CONTROLLER));
+    controller = reinterpret_cast<ArkWeb_ControllerAPI *>(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_CONTROLLER));
     if (controller)
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "ArkWeb", "get ArkWeb_ControllerAPI success");
 
     webMessagePort =
-        reinterpret_cast(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE_PORT));
+        reinterpret_cast<ArkWeb_WebMessagePortAPI *>(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE_PORT));
     if (webMessagePort)
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "ArkWeb", "get ArkWeb_WebMessagePortAPI success");
 
-    webMessage = reinterpret_cast(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE));
+    webMessage = reinterpret_cast<ArkWeb_WebMessageAPI *>(OH_ArkWeb_GetNativeAPI(ARKWEB_NATIVE_WEB_MESSAGE));
     if (webMessage)
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "ArkWeb", "get ArkWeb_WebMessageAPI success");
 
@@ -622,7 +666,10 @@ static napi_value postMessage(napi_env env, napi_callback_info info)
 void sendMessage(const char *webTag, const ArkWeb_WebMessagePtr message)
 {
     // 发送1000次
-    for (int i = 0; i postMessage(g_web_message_port_arr[1], webTag, message);
+    for (int i = 0; i < 1000; i++) {
+        OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "ArkWeb", "sendMessage in thread %{public}d", i);
+        if (g_web_message_port_arr && webTag && message) {
+                webMessagePort->postMessage(g_web_message_port_arr[1], webTag, message);
         }
     }
 }
@@ -657,7 +704,23 @@ static napi_value postMessageThread(napi_env env, napi_callback_info info)
     std::thread threads[numThreads];
 
     // 创建线程
-    for (int i = 0; i setMessageEventHandler(g_web_message_port_arr[1], webTag, WebMessagePortCallback, NULL);
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i] = std::thread(sendMessage, webTagValue, message);
+    }
+
+    // 等待所有线程完成
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i].join();
+    }
+    delete[] webTagValue;
+    return nullptr;
+}
+
+// 在线程中注册回调
+void SetHandler(const char *webTag)
+{
+    OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "ArkWeb", "setMessageEventHandler in thread");
+    webMessagePort->setMessageEventHandler(g_web_message_port_arr[1], webTag, WebMessagePortCallback, NULL);
 }
 
 static napi_value setMessageEventHandlerThread(napi_env env, napi_callback_info info)

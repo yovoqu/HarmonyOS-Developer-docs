@@ -3,59 +3,55 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-averrors-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 媒体框架错误码。
-
+ 
 **引用文件：** <multimedia/player_framework/native_averrors.h>
-
+ 
 **库：** libnative_media_core.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 9
-
+ 
 **相关模块：** [Core](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_AVErrCode](#oh_averrcode) | OH_AVErrCode | 媒体框架错误码。 |
+| OH_AVErrCode | OH_AVErrCode | 媒体框架错误码。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_AVErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_AVErrCode
 
 ```text
 enum OH_AVErrCode
 ```
-
+ 
 **描述**
-
+ 
 媒体框架错误码。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 9
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | AV_ERR_OK = 0 | 操作成功。 |
@@ -87,7 +83,7 @@ enum OH_AVErrCode
 | AV_ERR_IO_SSL_SERVER_CERT_UNTRUSTED = 5411010 | SSL服务器证书不受信任。 起始版本： 14 |
 | AV_ERR_IO_UNSUPPORTED_REQUEST = 5411011 | 网络协议不支持该请求。 起始版本： 14 |
 | AV_ERR_IO_CLEARTEXT_NOT_PERMITTED = 5411012 | 不允许HTTP明文访问。 起始版本： 23 |
-| AV_ERR_STREAM_CHANGED = 5410005 | 同步模式下流格式发生变更。可以通过调用接口[OH_VideoEncoder_GetOutputDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videoencoder-h#oh_videoencoder_getoutputdescription)（视频编码）、[OH_VideoDecoder_GetOutputDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h#oh_videodecoder_getoutputdescription)（视频解码）、[OH_AudioCodec_GetOutputDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-audiocodec-h#oh_audiocodec_getoutputdescription)（音频编解码）来获取更新后流的配置信息。 起始版本： 20 |
+| AV_ERR_STREAM_CHANGED = 5410005 | 同步模式下流格式发生变更。可以通过调用接口OH_VideoEncoder_GetOutputDescription（视频编码）、OH_VideoDecoder_GetOutputDescription（视频解码）、OH_AudioCodec_GetOutputDescription（音频编解码）来获取更新后流的配置信息。 起始版本： 20 |
 | AV_ERR_TRY_AGAIN_LATER = 5410006 | 同步模式下临时缓冲区查询失败，建议等待短暂间隔后重试操作。 起始版本： 20 |
 | AV_ERR_SUPER_RESOLUTION_UNSUPPORTED = 5410003 | 该媒体源或者当前设备不支持超分。 起始版本： 23 |
 | AV_ERR_SUPER_RESOLUTION_NOT_ENABLED = 5410004 | 未使能超分。 起始版本： 23 |

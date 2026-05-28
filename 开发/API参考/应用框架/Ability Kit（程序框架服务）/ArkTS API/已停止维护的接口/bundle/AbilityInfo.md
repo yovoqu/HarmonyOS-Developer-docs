@@ -3,26 +3,23 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Ability信息，未做特殊说明的属性，均通过[bundle.getAbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle#bundlegetabilityinfodeprecated)获取。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 7 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9开始，该模块不再维护，建议使用 bundleManager-AbilityInfo 替代。
 
+  
+
+##### AbilityInfo(deprecated)
 
 > [!NOTE]
-> 本模块首批接口从API version 7 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 从API version 9开始，该模块不再维护，建议使用[bundleManager-AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-abilityinfo)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager-AbilityInfo 替代。
 
-
-## AbilityInfo(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-> [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager-AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-abilityinfo#abilityinfo-1)替代。
-
+ 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bundleName | string | 是 | 否 | 应用Bundle名称。 |
@@ -39,16 +36,16 @@ Ability信息，未做特殊说明的属性，均通过[bundle.getAbilityInfo](h
 | isVisible | boolean | 是 | 否 | 判断Ability是否可以被其他应用调用，取值为true表示Ability可以被其他应用调用，取值为false表示Ability不可以被其他应用调用。 |
 | formEnabled | boolean | 是 | 否 | 判断Ability是否提供卡片能力，取值为true表示Ability提供卡片能力，取值为false表示Ability不提供卡片能力。 模型约束： 此接口仅可在FA模型下使用。 |
 | type | bundle.AbilityType | 是 | 否 | Ability类型。 模型约束： 此接口仅可在FA模型下使用。 |
-| orientation | [bundle.DisplayOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle#displayorientationdeprecated) | 是 | 否 | Ability的显示模式。 |
-| launchMode | [bundle.LaunchMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle#launchmodedeprecated) | 是 | 否 | Ability的启动模式。 |
-| permissions | Array&lt;string&gt; | 是 | 否 | 被其他应用Ability调用时需要申请的权限集合。 通过调用[bundle.getAbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle#bundlegetabilityinfodeprecated)接口时，传入GET_ABILITY_INFO_WITH_PERMISSION获取。 |
+| orientation | bundle.DisplayOrientation | 是 | 否 | Ability的显示模式。 |
+| launchMode | bundle.LaunchMode | 是 | 否 | Ability的启动模式。 |
+| permissions | Array&lt;string&gt; | 是 | 否 | 被其他应用Ability调用时需要申请的权限集合。 通过调用bundle.getAbilityInfo接口时，传入GET_ABILITY_INFO_WITH_PERMISSION获取。 |
 | deviceTypes | Array&lt;string&gt; | 是 | 否 | Ability支持的设备类型。 |
 | deviceCapabilities | Array&lt;string&gt; | 是 | 否 | Ability需要的设备能力。 |
 | readPermission | string | 是 | 否 | 读取Ability数据所需的权限。 模型约束： 此接口仅可在FA模型下使用。 |
 | writePermission | string | 是 | 否 | 向Ability写数据所需的权限。 模型约束： 此接口仅可在FA模型下使用。 |
-| applicationInfo | [ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo) | 是 | 否 | 应用程序的配置信息。 通过调用[bundle.getAbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle#bundlegetabilityinfodeprecated)接口时，传入GET_ABILITY_INFO_WITH_APPLICATION获取。 |
+| applicationInfo | ApplicationInfo | 是 | 否 | 应用程序的配置信息。 通过调用bundle.getAbilityInfo接口时，传入GET_ABILITY_INFO_WITH_APPLICATION获取。 |
 | uri | string | 是 | 否 | 获取Ability的统一资源标识符（URI）。 模型约束： 此接口仅可在FA模型下使用。 |
 | labelId | number | 是 | 否 | Ability的标签的资源id值。 |
 | subType | bundle.AbilitySubType | 是 | 否 | Ability中枚举使用的模板的子类型。 模型约束： 此接口仅可在FA模型下使用。 |
-| metaData8+ | Array&lt;[CustomizeData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-customizedata)&gt; | 是 | 否 | Ability的元信息。 通过调用[bundle.getAbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle#bundlegetabilityinfodeprecated)接口时，传入GET_ABILITY_INFO_WITH_METADATA获取。 |
+| metaData8+ | Array&lt;CustomizeData&gt; | 是 | 否 | Ability的元信息。 通过调用bundle.getAbilityInfo接口时，传入GET_ABILITY_INFO_WITH_METADATA获取。 |
 | enabled8+ | boolean | 是 | 否 | Ability是否可用，取值为true表示Ability可用，取值为false表示Ability不可用。 |

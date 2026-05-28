@@ -6,5 +6,5 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：hidebug； API声明：function getGraphicsMemory(): Promise<number>; 差异内容：function getGraphicsMemory(): Promise<number>; | api/@ohos.hidebug.d.ts |
+| 新增API | NA | 类名：hidebug； API声明：function getGraphicsMemory(): Promise&lt;number&gt;; 差异内容：function getGraphicsMemory(): Promise&lt;number&gt;; | api/@ohos.hidebug.d.ts |
 | 新增API | NA | 类名：hidebug； API声明：function getGraphicsMemorySync(): number; 差异内容：function getGraphicsMemorySync(): number; | api/@ohos.hidebug.d.ts |

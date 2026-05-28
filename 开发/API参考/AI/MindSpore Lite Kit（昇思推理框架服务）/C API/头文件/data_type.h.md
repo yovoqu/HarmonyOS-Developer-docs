@@ -3,57 +3,53 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-data-type-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明了张量的数据的类型。
-
+ 
 **引用文件：** <mindspore/data_type.h>
-
+ 
 **库：** libmindspore_lite_ndk.so
-
+ 
 **系统能力：** SystemCapability.Ai.MindSpore
-
+ 
 **起始版本：** 9
-
+ 
 **相关模块：** [MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_AI_DataType](#oh_ai_datatype) | OH_AI_DataType | MSTensor保存的数据支持的类型。 |
+| OH_AI_DataType | OH_AI_DataType | MSTensor保存的数据支持的类型。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_AI_DataType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_AI_DataType
 
 ```text
 enum OH_AI_DataType
 ```
-
+ 
 **描述**
-
+ 
 MSTensor保存的数据支持的类型。
-
+ 
 **起始版本：** 9
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_AI_DATATYPE_UNKNOWN = 0 | 未知的数据类型。 |

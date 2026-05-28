@@ -4,23 +4,32 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-cpo
 
-## 约束与限制
+##### 约束与限制
 
 通过配置Configuration优化传输性能能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
+ 
+  
 
-## 导入模块
-
+##### 导入模块
 
 ```text
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
+ 
+  
 
+##### 请求预处理阶段
 
-## 请求预处理阶段
+- 基于Session抽象的高并发网络框架
+- 支持创建多个Session
+- 支持请求动态取消
+- 支持关闭Session
+- Session中的资源互相独立、互不影响
+- 应用可以通过使用Session来获取最佳的网络性能体验
 
-基于Session抽象的高并发网络框架  支持创建多个Session  支持请求动态取消  支持关闭Session  Session中的资源互相独立、互不影响  应用可以通过使用Session来获取最佳的网络性能体验
-```text
+  
+```json
 const session1 = rcp.createSession({
   requestConfiguration: {
     transfer: {
@@ -50,10 +59,14 @@ session1.cancel(request1); // 取消request1请求
 ```
 
 
-## DNS阶段
+ 
+  
+
+##### DNS阶段
 
 应用可[定制DNS](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customdnsconfig)请求规则，如定制DNS服务器、重写DNS解析函数，从而获取最佳的DNS性能体验。
-```text
+ 
+```json
 // 定制DNS解析函数
 const session = rcp.createSession();
 const request = new rcp.Request('https://example.com');
@@ -73,9 +86,8 @@ session.fetch(request).then((response) => {
   console.error(`err: error code is ${err.code}, error data is ${err.data}`);
 });
 ```
-
-
-```text
+ 
+```json
 // 定制DNS服务器
 const session = rcp.createSession();
 const request = new rcp.Request('https://example.com');
@@ -95,31 +107,39 @@ session.fetch(request).then((response) => {
   console.error(`err: error code is ${err.code}, error data is ${err.data}`);
 });
 ```
+ 
+  
 
-
-## 连接阶段
+##### 连接阶段
 
 根据资源特征动态调整连接池大小
-```text
+ 
+```json
 const session = rcp.createSession({
   connectionConfiguration: {
     maxConnectionsPerHost: 16,
     maxTotalConnections: 1024,
   }
 });
-for (let i = 0; i  {
+for (let i = 0; i < 1024; ++i) {
+  session.get('https://example' + i.toString() + '.com/image.png').then((response) => {
     console.info(`Request succeeded, message is ${JSON.stringify(response)}`);
   }).catch((err: BusinessError) => {
     console.error(`err: error code is ${err.code}, error data is ${err.data}`);
   });
 }
 ```
+ 
+  
 
+##### HTTP请求阶段
 
-## HTTP请求阶段
+- 支持响应体分段返回，以节省内存
+- 支持直接将响应写入文件，以节省内存
+- 支持请求体分段上传，以节省内存
 
-支持响应体分段返回，以节省内存  支持直接将响应写入文件，以节省内存  支持请求体分段上传，以节省内存
-```text
+  
+```json
 // 使用响应体直接写入文件
 const session = rcp.createSession();
 try {
@@ -134,9 +154,8 @@ try {
   session.close();
 }
 ```
-
-
-```text
+  
+```json
 // 分段上传数据
 const session = rcp.createSession();
 try {
@@ -152,9 +171,13 @@ try {
 ```
 
 
-## HTTP响应阶段
+ 
+  
+
+##### HTTP响应阶段
 
 获取响应各阶段耗时动态判断网络质量，动态调整请求（请求不同质量的资源、降低资源缓存数量）。更详细的示例请移步[HTTP请求过程中各时间点详解](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-tpms#http请求过程中各时间点详解)。
+ 
 ```text
 // 获取各个阶段的耗时信息
 const session = rcp.createSession();

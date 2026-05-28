@@ -3,52 +3,49 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetadata-extractor-base-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义AVMetadataExtractor常量。
-
+ 
 **引用文件：** <multimedia/player_framework/avmetadata_extractor_base.h>
-
+ 
 **库：** libavmetadata_extractor.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.AVMetadataExtractor
-
+ 
 **起始版本：** 18
-
+ 
 **相关模块：** [AVMetadataExtractor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetadataextractor)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_AVMetadataExtractor_FrameInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/metadataextractor-oh-avmetadataextractor-frameinfo) | OH_AVMetadataExtractor_FrameInfo | 定义从视频中提取出的帧的信息。 |
-| [OH_AVMetadataExtractor_OutputParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/tadataextractor-oh-avmetadataextractor-outputparam) | OH_AVMetadataExtractor_OutputParam | 定义由AVMetadataExtractor提取的帧的输出参数。 |
+| OH_AVMetadataExtractor_FrameInfo | OH_AVMetadataExtractor_FrameInfo | 定义从视频中提取出的帧的信息。 |
+| OH_AVMetadataExtractor_OutputParam | OH_AVMetadataExtractor_OutputParam | 定义由AVMetadataExtractor提取的帧的输出参数。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_AVMetadataExtractor_FetchState](#oh_avmetadataextractor_fetchstate) | OH_AVMetadataExtractor_FetchState | 枚举帧提取操作的结果状态。 |
+| OH_AVMetadataExtractor_FetchState | OH_AVMetadataExtractor_FetchState | 枚举帧提取操作的结果状态。 |
+ 
+ 
+  
 
-
-### 变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | static const char * OH_AVMETADATA_EXTRACTOR_ALBUM = "album" | 获取专辑标题的关键字，对应值类型为const char*。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
@@ -69,30 +66,29 @@
 | static const char * OH_AVMETADATA_EXTRACTOR_VIDEO_HEIGHT = "videoHeight" | 获取视频高度的关键字，对应值类型为int32_t，单位为像素。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
 | static const char * OH_AVMETADATA_EXTRACTOR_VIDEO_WIDTH = "videoWidth" | 获取视频宽度的关键字，对应值类型为int32_t，单位为像素。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
 | static const char * OH_AVMETADATA_EXTRACTOR_VIDEO_ORIENTATION = "videoOrientation" | 获取视频旋转方向的关键字，对应值类型为int32_t，单位为度（°）。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
-| static const char * OH_AVMETADATA_EXTRACTOR_VIDEO_IS_HDR_VIVID = "hdrType" | 获取是否是HDR Vivid视频的关键字，对应值类型为int32_t。  详情请参阅media_types.h中的[OH_Core_HdrType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-media-types-h#oh_core_hdrtype)。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
+| static const char * OH_AVMETADATA_EXTRACTOR_VIDEO_IS_HDR_VIVID = "hdrType" | 获取是否是HDR Vivid视频的关键字，对应值类型为int32_t。 详情请参阅media_types.h中的OH_Core_HdrType。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
 | static const char * OH_AVMETADATA_EXTRACTOR_LOCATION_LATITUDE = "latitude" | 获取地理位置中的纬度值的关键字，对应值类型为float。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
 | static const char * OH_AVMETADATA_EXTRACTOR_LOCATION_LONGITUDE = "longitude" | 获取地理位置中的经度值的关键字，对应值类型为float。 起始版本： 18 系统能力： SystemCapability.Multimedia.Media.AVMetadataExtractor |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_AVMetadataExtractor_FetchState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_AVMetadataExtractor_FetchState
 
 ```text
 enum OH_AVMetadataExtractor_FetchState
 ```
-
+ 
 **描述**
-
+ 
 枚举帧提取操作的结果状态。
-
+ 
 **起始版本：** 23
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_AVMETADATA_EXTRACTOR_FETCH_FAILED = 0 | 提取操作失败。 |

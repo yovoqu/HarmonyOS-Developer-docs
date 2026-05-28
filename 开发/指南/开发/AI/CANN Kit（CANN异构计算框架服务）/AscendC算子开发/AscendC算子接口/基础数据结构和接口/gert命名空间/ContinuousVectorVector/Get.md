@@ -4,36 +4,42 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-get
 
-## 函数功能
+##### 函数功能
 
 获取第index个元素的首地址。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 const ContinuousVector *Get(const size_t index) const
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | index | 输入 | 元素index。 |
+ 
+ 
+  
 
-
-## 返回值
+##### 返回值
 
 第index个元素的首地址。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 // 创建ContinuousVectorVector对象cvv

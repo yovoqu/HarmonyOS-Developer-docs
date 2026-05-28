@@ -5,10 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-66
 
 Worker底层采用Actor模型，线程间隔离，内存不共享。要实现内存共享，可以传输SharedArrayBuffer对象。
+ 
 在使用SharedArrayBuffer对象存储数据时，需要通过原子操作确保同步性，即下一个操作必须在上一个操作完成后开始。
+ 
 参考代码如下：
+ 
 1.在Index.ets中创建两个ThreadWorker。
-
+ 
 ```ArkTS
 import { worker } from '@kit.ArkTS';
 
@@ -31,10 +34,10 @@ export struct ThreadWorkerView {
   }
 }
 ```
-
+ 
 2.在build-profile.json5的buildOption中添加字段。
-
-```json
+ 
+```ArkTS
 "buildOption": {
   "sourceOption": {
     "workers": [
@@ -44,10 +47,11 @@ export struct ThreadWorkerView {
   }
 },
 ```
-
+ 
 3.编写worker_producer.ets脚本。
+ 
 Atomics.notify(typedArray, index, count)是静态方法可以唤醒一些在等待队列中休眠的代理。typedArray是基于SharedArrayBuffer的Int32Array，index是typedArray中要唤醒的位置，count是要唤醒的休眠代理的数量。
-
+ 
 ```ArkTS
 import { MessageEvents, worker } from '@kit.ArkTS';
 
@@ -64,10 +68,11 @@ workerPort.onmessage = (e: MessageEvents): void => {
   }, 2000);
 }
 ```
-
+ 
 4.编写worker_consumer.ets脚本。
+ 
 Atomics.wait(typedArray, index, value) 静态方法验证共享内存特定位置是否仍然包含给定值，如果是则休眠，直到被唤醒或超时。typedArray是基于SharedArrayBuffer的Int32Array，index是typedArray中要等待的位置，value是测试期望值。
-
+ 
 ```ArkTS
 import { MessageEvents, worker } from '@kit.ArkTS';
 
@@ -85,9 +90,13 @@ workerPort.onmessage = (e: MessageEvents): void => {
   }
 }
 ```
-
+ 
 **参考链接**
+ 
 [@ohos.worker (启动一个Worker)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)
+ 
 [多线程并发概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview)
+ 
 [Actor模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview#actor模型)
+ 
 [内存共享模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview#内存共享模型)

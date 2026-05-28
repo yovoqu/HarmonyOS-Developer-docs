@@ -1,71 +1,126 @@
 # 延迟任务(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/work-scheduler
 
-## 概述
+##### 概述
 
 
-## 功能介绍
+
+##### 功能介绍
 
 应用退至后台后，需要执行时效性要求不高的任务，例如有网络时不定期主动获取邮件等，可以使用延迟任务。当应用满足设定的触发条件（包括网络类型、充电类型、存储状态、电池状态、定时状态等）时，将任务添加到执行队列，系统会根据内存、功耗、设备温度、用户使用习惯等统一调度拉起应用，执行相应的延迟任务。
 
-## 运行原理
+
+
+##### 运行原理
 
 **图1** 延迟任务实现原理
-![](assets/延迟任务(ArkTS)
-/file-20260514130859464-0.png) 应用调用延迟任务接口添加、删除、查询延迟任务，延迟任务管理模块会根据任务设置的条件（通过[WorkInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workinfo)参数设置，包括网络类型、充电类型、存储状态等）和系统状态（包括内存、功耗、设备温度、用户使用习惯等）统一决策调度时机。 当满足调度条件或调度结束时，系统会回调应用[WorkSchedulerExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)中 onWorkStart() 或 onWorkStop() 的方法，同时会为应用单独创建一个Extension扩展进程用以承载[WorkSchedulerExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)，并给[WorkSchedulerExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)一定的活动周期，开发者可以在对应回调方法中实现自己的任务逻辑。
 
-## 约束与限制
 
-**数量限制**：一个应用同一时刻最多申请10个延迟任务。 **执行频率限制**：系统会根据应用的活跃分组，对延迟任务做分级管控，限制延迟任务调度的执行频率。 **表1** 应用活跃程度分组
+![](assets/延迟任务(ArkTS)/file-20260514130859464-0.png)
+
+
+应用调用延迟任务接口添加、删除、查询延迟任务，延迟任务管理模块会根据任务设置的条件（通过[WorkInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workinfo)参数设置，包括网络类型、充电类型、存储状态等）和系统状态（包括内存、功耗、设备温度、用户使用习惯等）统一决策调度时机。
+
+当满足调度条件或调度结束时，系统会回调应用[WorkSchedulerExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)中 onWorkStart() 或 onWorkStop() 的方法，同时会为应用单独创建一个Extension扩展进程用以承载[WorkSchedulerExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)，并给[WorkSchedulerExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)一定的活动周期，开发者可以在对应回调方法中实现自己的任务逻辑。
+
+
+
+##### 约束与限制
+
+ - **数量限制**：一个应用同一时刻最多申请10个延迟任务。
+ - **执行频率限制**：系统会根据应用的活跃分组，对延迟任务做分级管控，限制延迟任务调度的执行频率。
+
+  **表1** 应用活跃程度分组
+
 | 应用活跃分组 | 延迟任务执行频率 |
+
 | --- | --- |
+
 | 活跃分组 | 最小间隔2小时 |
+
 | 经常使用分组 | 最小间隔4小时 |
+
 | 常用分组 | 最小间隔24小时 |
+
 | 极少使用分组 | 最小间隔48小时 |
+
 | 受限使用分组 | 禁止 |
+
 | 从未使用分组 | 禁止 |
+ - **超时**：WorkSchedulerExtensionAbility单次回调最长运行2分钟。如果超时不取消，系统会终止对应的Extension进程。
+ - **调度延迟**：系统会根据内存、功耗、设备温度、用户使用习惯等统一调度，如当系统内存资源不足或温度达到一定档位时，系统将延迟调度该任务。
+ - **WorkSchedulerExtensionAbility接口调用限制**：为保障系统安全性和稳定性，防止延迟任务滥用系统资源，对WorkSchedulerExtensionAbility能力进行管控，在WorkSchedulerExtensionAbility中限制以下接口的调用：
 
-**超时**：WorkSchedulerExtensionAbility单次回调最长运行2分钟。如果超时不取消，系统会终止对应的Extension进程。 **调度延迟**：系统会根据内存、功耗、设备温度、用户使用习惯等统一调度，如当系统内存资源不足或温度达到一定档位时，系统将延迟调度该任务。 **WorkSchedulerExtensionAbility接口调用限制**：为保障系统安全性和稳定性，防止延迟任务滥用系统资源，对WorkSchedulerExtensionAbility能力进行管控，在WorkSchedulerExtensionAbility中限制以下接口的调用： [@ohos.resourceschedule.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager) [@ohos.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-backgroundtaskmanager) [@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera) [@ohos.multimedia.audio (音频管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio) [@ohos.multimedia.media (媒体服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)
+  [@ohos.resourceschedule.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager)
 
-## 接口说明
+  [@ohos.backgroundTaskManager (后台任务管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-backgroundtaskmanager)
 
-**表2** 延迟任务主要接口 以下是延迟任务开发使用的相关接口，更多接口及使用方式请见[延迟任务调度](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler)文档。
+  [@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)
+
+  [@ohos.multimedia.audio (音频管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio)
+
+  [@ohos.multimedia.media (媒体服务)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)
+
+
+
+
+##### 接口说明
+
+**表2** 延迟任务主要接口
+
+以下是延迟任务开发使用的相关接口，更多接口及使用方式请见[延迟任务调度](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler)文档。
+
 | 接口名 | 接口描述 |
 | --- | --- |
-| [startWork(work: WorkInfo): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerstartwork) | 申请延迟任务。 |
-| [stopWork(work: WorkInfo, needCancel?: boolean): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerstopwork) | 取消延迟任务。 |
-| [getWorkStatus(workId: number, callback: AsyncCallback): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulergetworkstatus) | 获取延迟任务状态（Callback形式）。 |
-| [getWorkStatus(workId: number): Promise](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulergetworkstatus-1) | 获取延迟任务状态（Promise形式）。 |
-| [obtainAllWorks(callback: AsyncCallback>): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerobtainallworks10) | 获取所有延迟任务（Callback形式）。 |
-| [obtainAllWorks(): Promise>](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerobtainallworks) | 获取所有延迟任务（Promise形式）。 |
-| [stopAndClearWorks(): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerstopandclearworks) | 停止并清除任务。 |
-| [isLastWorkTimeOut(workId: number, callback: AsyncCallback): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerislastworktimeout10) | 获取上次任务是否超时（针对RepeatWork，Callback形式）。 |
-| [isLastWorkTimeOut(workId: number): Promise](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler#workschedulerislastworktimeout) | 获取上次任务是否超时（针对RepeatWork，Promise形式）。 |
+| startWork(work: WorkInfo): void | 申请延迟任务。 |
+| stopWork(work: WorkInfo, needCancel?: boolean): void | 取消延迟任务。 |
+| getWorkStatus(workId: number, callback: AsyncCallback&lt;WorkInfo&gt;): void | 获取延迟任务状态（Callback形式）。 |
+| getWorkStatus(workId: number): Promise&lt;WorkInfo&gt; | 获取延迟任务状态（Promise形式）。 |
+| obtainAllWorks(callback: AsyncCallback<Array&lt;WorkInfo&gt;>): void | 获取所有延迟任务（Callback形式）。 |
+| obtainAllWorks(): Promise<Array&lt;WorkInfo&gt;> | 获取所有延迟任务（Promise形式）。 |
+| stopAndClearWorks(): void | 停止并清除任务。 |
+| isLastWorkTimeOut(workId: number, callback: AsyncCallback&lt;boolean&gt;): void | 获取上次任务是否超时（针对RepeatWork，Callback形式）。 |
+| isLastWorkTimeOut(workId: number): Promise&lt;boolean&gt; | 获取上次任务是否超时（针对RepeatWork，Promise形式）。 |
 
-**表3** 延迟任务回调接口 以下是延迟任务回调开发使用的相关接口，更多接口及使用方式请见[延迟任务调度回调](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)文档。
+
+**表3** 延迟任务回调接口
+
+以下是延迟任务回调开发使用的相关接口，更多接口及使用方式请见[延迟任务调度回调](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability)文档。
+
 | 接口名 | 接口描述 |
 | --- | --- |
-| [onWorkStart(work: workScheduler.WorkInfo): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability#onworkstart) | 延迟调度任务开始的回调。 |
-| [onWorkStop(work: workScheduler.WorkInfo): void](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-workschedulerextensionability#onworkstop) | 延迟调度任务结束的回调。 |
+| onWorkStart(work: workScheduler.WorkInfo): void | 延迟调度任务开始的回调。 |
+| onWorkStop(work: workScheduler.WorkInfo): void | 延迟调度任务结束的回调。 |
 
 
-## 开发步骤
 
-延迟任务调度开发步骤分为两步：实现延迟任务调度扩展能力、实现延迟任务调度。 **延迟任务调度扩展能力**：实现WorkSchedulerExtensionAbility开始和结束的回调接口。 **延迟任务调度**：调用延迟任务接口，实现延迟任务申请、取消等功能。
 
-## 实现延迟任务回调扩展能力
+##### 开发步骤
 
-新建工程目录。 在工程entry Module对应的ets目录(./entry/src/main/ets)下，新建目录及ArkTS文件，例如新建一个目录并命名为WorkSchedulerExtension。在WorkSchedulerExtension目录下，新建一个ArkTS文件并命名为WorkSchedulerExtension.ets，用以实现延迟任务回调接口。 导入模块。
-```text
-import { WorkSchedulerExtensionAbility, workScheduler } from '@kit.BackgroundTasksKit';
+延迟任务调度开发步骤分为两步：实现延迟任务调度扩展能力、实现延迟任务调度。
+1. **延迟任务调度扩展能力**：实现WorkSchedulerExtensionAbility开始和结束的回调接口。
+2. **延迟任务调度**：调用延迟任务接口，实现延迟任务申请、取消等功能。
+
+
+
+##### 实现延迟任务回调扩展能力
+1. 新建工程目录。
+
+  在工程entry Module对应的ets目录(./entry/src/main/ets)下，新建目录及ArkTS文件，例如新建一个目录并命名为WorkSchedulerAbility。在WorkSchedulerAbility目录下，新建一个ArkTS文件并命名为WorkSchedulerAbility.ets，用以实现延迟任务回调接口。
+2. 导入模块。
+
+  
+```ArkTS
+import {workScheduler, WorkSchedulerExtensionAbility} from '@kit.BackgroundTasksKit';
 ```
 
-实现WorkSchedulerExtension生命周期接口。
-```text
+3. 实现WorkSchedulerExtension生命周期接口。
+
+  
+```ArkTS
 export default class WorkSchedulerAbility extends WorkSchedulerExtensionAbility {
   // 延迟任务开始回调
   onWorkStart(workInfo: workScheduler.WorkInfo) {
@@ -81,32 +136,27 @@ export default class WorkSchedulerAbility extends WorkSchedulerExtensionAbility 
 }
 ```
 
-在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中注册WorkSchedulerExtensionAbility，并设置如下标签： type标签设置为“workScheduler”。 srcEntry标签设置为当前ExtensionAbility组件所对应的代码路径。
-```text
-{
-  "module": {
-      "extensionAbilities": [
-        {
-          "name": "MyWorkSchedulerExtensionAbility",
-          "srcEntry": "./ets/WorkSchedulerExtension/WorkSchedulerExtension.ets",
-          "type": "workScheduler"
-        }
-      ]
-  }
-}
-```
+4. 在[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中注册WorkSchedulerExtensionAbility，并设置如下标签：
+
+  
+type标签设置为“workScheduler”。
+5. srcEntry标签设置为当前ExtensionAbility组件所对应的代码路径。
 
 
-## 实现延迟任务调度
 
-导入模块。
-```text
-import { workScheduler } from '@kit.BackgroundTasksKit';
+##### 实现延迟任务调度
+1. 导入模块。
+
+  
+```ArkTS
 import { BusinessError } from '@kit.BasicServicesKit';
+import { workScheduler } from '@kit.BackgroundTasksKit';
 ```
 
-申请延迟任务。
-```text
+2. 申请延迟任务。
+
+  
+```ArkTS
 let workInfo: workScheduler.WorkInfo = {
   workId: 1,
   networkType: workScheduler.NetworkType.NETWORK_TYPE_ANY,
@@ -124,8 +174,10 @@ catch (error) {
 }
 ```
 
-取消延迟任务。
-```text
+3. 取消延迟任务。
+
+  
+```ArkTS
 // 创建workinfo
 let workInfo: workScheduler.WorkInfo = {
   workId: 1,
@@ -143,9 +195,14 @@ try {
 ```
 
 
-## 延迟任务调度功能验证
 
-确认延迟任务WorkSchedulerExtensionAbility回调方法onWorkStart、onWorkStop实现是否正确、是否可以成功回调 延迟任务申请成功之后，需要等到条件满足后才可以执行延迟任务回调，为了快速验证延迟任务回调功能是否正确，可以通过以下[hidumper命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper)手动触发延迟任务执行回调。
+
+##### 延迟任务调度功能验证
+
+确认延迟任务WorkSchedulerExtensionAbility回调方法onWorkStart、onWorkStop实现是否正确、是否可以成功回调
+
+延迟任务申请成功之后，需要等到条件满足后才可以执行延迟任务回调，为了快速验证延迟任务回调功能是否正确，可以通过以下[hidumper命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper)手动触发延迟任务执行回调。
+
 ```text
 $ hidumper -s 1904 -a '-t com.example.application MyWorkSchedulerExtensionAbility'
 

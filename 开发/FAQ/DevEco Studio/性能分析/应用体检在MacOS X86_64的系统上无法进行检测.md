@@ -4,10 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-profiler-9
 
-问题现象
-
+**问题现象**
+ 
 MacOS X86_64上无法使用应用体检，加载FFmpeg 7.1-1.5.11库异常或者有DevEco Studio Crash问题。
-
+ 
 ```text
 java.lang.UnsatisfiedLinkError: no jniavutil in java.library.path: /Users/username/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
 at java.base/java.lang.ClassLoader.loadLibrary(ClassLoader.java:2458)
@@ -52,8 +52,8 @@ at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java
 at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
 at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
 Caused by: java.lang.UnsatisfiedLinkError: /Users/username/.javacpp/cache/ffmpeg-7.1-1.5.11-macosx-x86_64.jar/org/bytedeco/ffmpeg/macosx-x86_64/libjniavutil.dylib: dlopen(/Users/username/.javacpp/cache/ffmpeg-7.1-1.5.11-macosx-x86_64.jar/org/bytedeco/ffmpeg/macosx-x86_64/libjniavutil.dylib, 1): Symbol not found: _CVBufferCopyAttachments
-Referenced from: /Users/username/.javacpp/cache/ffmpeg-7.1-1.5.11-macosx-x86_64.jar/org/bytedeco/ffmpeg/macosx-x86_64/./libavutil.59.dylib (which was built for Mac OS X 12.0)
-Expected in: /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+  Referenced from: /Users/username/.javacpp/cache/ffmpeg-7.1-1.5.11-macosx-x86_64.jar/org/bytedeco/ffmpeg/macosx-x86_64/./libavutil.59.dylib (which was built for Mac OS X 12.0)
+  Expected in: /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
 
 at java.base/jdk.internal.loader.NativeLibraries.load(Native Method)
 at java.base/jdk.internal.loader.NativeLibraries$NativeLibraryImpl.open(NativeLibraries.java:331)
@@ -64,12 +64,13 @@ at java.base/java.lang.Runtime.load0(Runtime.java:852)
 at java.base/java.lang.System.load(System.java:2025)
 at org.bytedeco.javacpp.Loader.loadLibrary(Loader.java:1779)
 ```
-
-可能原因
-
+ 
+**可能原因**
+ 
 FFmpeg 7.1-1.5.11与MacOS X86_64系统低版本有兼容性问题。
+ 
 
-
-解决措施
-
+ 
+**解决措施**
+ 
 需要升级最新版本的MacOSX86_64系统。

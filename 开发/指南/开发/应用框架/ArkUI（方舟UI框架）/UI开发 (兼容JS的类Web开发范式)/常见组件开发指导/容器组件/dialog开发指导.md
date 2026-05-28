@@ -7,17 +7,21 @@
 dialog组件用于创建自定义弹窗，通常用来展示用户当前需要或用户必须关注的信息或操作。具体用法请参考[dialog API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-dialog)。
 
 
-## 创建dialog组件
+##### 创建dialog组件
 
 在pages/index目录下的hml文件中创建一个dialog组件，并添加Button组件来触发dialog。dialog组件仅支持width、height、margin、margin-[left|top|right|bottom]、margin-[start|end]样式。
+
 ```text
-
-
-      this is a dialog
-
-
+<!-- xxx.hml -->
+<div class="doc-page">
+  <dialog class="dialogClass" id="dialogId" dragable="true">
+    <div class="content">
+      <text>this is a dialog</text>
+    </div>
+  </dialog>
+  <button value="click me" onclick="openDialog"></button>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -52,7 +56,6 @@ button{
 }
 ```
 
-
 ```text
 // xxx.js
 export default {
@@ -63,19 +66,28 @@ export default {
 }
 ```
 
+
 ![](assets/dialog开发指导/file-20260514130743963-0.gif)
 
-## 设置弹窗响应
+
+
+
+##### 设置弹窗响应
 
 开发者点击页面上非dialog的区域时，将触发cancel事件而关闭弹窗。同时也可以通过对dialog添加show和close方法来显示和关闭弹窗。
+
 ```text
-
-
-      dialog
-
-
+<!-- xxx.hml -->
+<div class="doc-page">
+  <dialog class="dialogClass" id="dialogId" oncancel="cancelDialog">
+    <div class="dialogDiv">
+      <text>dialog</text>
+      <button value="confirm" onclick="confirmClick"></button>
+    </div>
+  </dialog>
+  <button value="click me" onclick="openDialog"></button>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -110,7 +122,6 @@ button{
 }
 ```
 
-
 ```text
 // xxx.js
 import promptAction from '@ohos.promptAction';
@@ -135,33 +146,53 @@ export default {
 }
 ```
 
+
 ![](assets/dialog开发指导/file-20260514130743963-1.gif)
+
+
 > [!NOTE]
 > 仅支持单个子组件。 dialog属性、样式均不支持动态更新。 dialog组件不支持focusable、click-effect属性。
 
 
-## 场景示例
+
+
+##### 场景示例
 
 在本场景中，开发者可以通过dialog组件实现一个日程表。弹窗在打开状态下，利用[textarea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-textarea)组件输入当前日程，点击确认按钮后获取当前时间并保存输入文本。最后以列表形式将各日程进行展示。
+
 ```text
-
-
-    {{date}} events
-
-
-    +
-
-
-        {{date}}  event
-        {{$item.schedule}}
-
-
-        {{date}}
-        New event
-
-
+<!-- xxx.hml -->
+<div class="doc-page">
+  <text style="margin-top: 60px;margin-left: 30px;">
+    <span>{{date}} events</span>
+  </text>
+  <div class="btnDiv">
+    <button type="circle" class="btn" onclick="addSchedule">+</button>
+  </div>
+<!--  for Render events data  -->
+  <list style="width: 100%;">
+    <list-item type="item" for="scheduleList" style="width:100%;height: 200px;">
+      <div class="scheduleDiv">
+        <text class="text1">{{date}}  event</text>
+        <text class="text2">{{$item.schedule}}</text>
+      </div>
+    </list-item>
+  </list>
+  <dialog id="dateDialog" oncancel="cancelDialog" >
+    <div class="dialogDiv">
+      <div class="innerTxt">
+        <text class="text3">{{date}}</text>
+        <text class="text4">New event</text>
+      </div>
+      <textarea placeholder="Event information" onchange="getSchedule" class="area" extend="true"></textarea>
+      <div class="innerBtn">
+        <button type="text" value="Cancel" onclick="cancelSchedule" class="innerBtn"></button>
+        <button type="text" value="OK" onclick="setSchedule" class="innerBtn"></button>
+      </div>
+    </div>
+  </dialog>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -229,7 +260,6 @@ export default {
 }
 ```
 
-
 ```text
 // xxx.js
 var info = null;
@@ -283,4 +313,5 @@ export default {
 }
 ```
 
-![](assets/dialog开发指导/file-20260514130743963-2.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/tk4UfDtARAKi5bp16DuIJA/zh-cn_image_0000002611833985.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014756Z&HW-CC-Expire=86400&HW-CC-Sign=475AA735D83E18607B825D711DDF70AD7692E4808F07DD8EF20444CED137FBB3)

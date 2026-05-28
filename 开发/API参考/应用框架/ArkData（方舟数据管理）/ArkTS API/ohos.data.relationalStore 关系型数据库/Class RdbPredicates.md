@@ -3,26 +3,24 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示关系型数据库（RDB）的谓词。该类确定RDB中条件表达式的值是true还是false。谓词间支持多语句拼接，拼接时默认使用and()连接。不支持Sendable跨线程传递。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { relationalStore } from '@kit.ArkData';
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(name: string)
 
@@ -31,7 +29,6 @@ constructor(name: string)
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -42,7 +39,6 @@ constructor(name: string)
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -50,28 +46,25 @@ constructor(name: string)
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
 ```
 
 
-## inDevices
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-inDevices(devices: Array<string>): RdbPredicates
+##### inDevices
+
+inDevices(devices: Array&lt;string&gt;): RdbPredicates
 
 同步分布式数据库时连接到组网内指定的远程设备。
 
-
 > [!NOTE]
-> 其中devices通过调用[deviceManager.getAvailableDeviceListSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager#getavailabledevicelistsync)方法得到。
-> 数据库同步时调用Sync接口，需要在入参谓词中调用inDevices接口选择设备。如果不调用inDevices接口即默认连接组网内所有的设备。
+> 其中devices通过调用 deviceManager.getAvailableDeviceListSync 方法得到。 数据库同步时调用Sync接口，需要在入参谓词中调用inDevices接口选择设备。如果不调用inDevices接口即默认连接组网内所有的设备。
+
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -80,16 +73,14 @@ inDevices(devices: Array<string>): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -98,8 +89,7 @@ inDevices(devices: Array<string>): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -107,29 +97,24 @@ let dmInstance: distributedDeviceManager.DeviceManager;
 let deviceIds: Array<string> = [];
 
 try {
-  dmInstance = distributedDeviceManager.createDeviceManager(
-    'com.example.appdatamgrverify',
-  );
-  let devices: Array<distributedDeviceManager.DeviceBasicInfo> =
-    dmInstance.getAvailableDeviceListSync();
+  dmInstance = distributedDeviceManager.createDeviceManager("com.example.appdatamgrverify");
+  let devices: Array<distributedDeviceManager.DeviceBasicInfo> = dmInstance.getAvailableDeviceListSync();
   for (let i = 0; i < devices.length; i++) {
     deviceIds[i] = devices[i].networkId!;
   }
 } catch (err) {
   let code = (err as BusinessError).code;
   let message = (err as BusinessError).message;
-  console.error(
-    'createDeviceManager errCode:' + code + ',errMessage:' + message,
-  );
+  console.error("createDeviceManager errCode:" + code + ",errMessage:" + message);
 }
 
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
 predicates.inDevices(deviceIds);
 ```
 
 
-## inAllDevices
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### inAllDevices
 
 inAllDevices(): RdbPredicates
 
@@ -139,23 +124,21 @@ inAllDevices(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
 predicates.inAllDevices();
 ```
 
 
-## equalTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### equalTo
 
 equalTo(field: string, value: ValueType): RdbPredicates
 
@@ -165,25 +148,22 @@ equalTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -192,16 +172,15 @@ equalTo(field: string, value: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中值为"Lisa"的字段
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Lisa");
 ```
 
 
-## notEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notEqualTo
 
 notEqualTo(field: string, value: ValueType): RdbPredicates
 
@@ -211,25 +190,22 @@ notEqualTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -238,16 +214,15 @@ notEqualTo(field: string, value: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中值不为"Lisa"的字段
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.notEqualTo('NAME', 'Lisa');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.notEqualTo("NAME", "Lisa");
 ```
 
 
-## beginWrap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### beginWrap
 
 beginWrap(): RdbPredicates
 
@@ -257,29 +232,26 @@ beginWrap(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回带有左括号的Rdb谓词。 |
+| RdbPredicates | 返回带有左括号的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates
-  .equalTo('NAME', 'Lisa')
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Lisa")
   .beginWrap()
-  .equalTo('AGE', 18)
+  .equalTo("AGE", 18)
   .or()
-  .equalTo('SALARY', 200.5)
+  .equalTo("SALARY", 200.5)
   .endWrap();
 ```
 
 
-## endWrap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### endWrap
 
 endWrap(): RdbPredicates
 
@@ -289,29 +261,26 @@ endWrap(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回带有右括号的Rdb谓词。 |
+| RdbPredicates | 返回带有右括号的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates
-  .equalTo('NAME', 'Lisa')
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Lisa")
   .beginWrap()
-  .equalTo('AGE', 18)
+  .equalTo("AGE", 18)
   .or()
-  .equalTo('SALARY', 200.5)
+  .equalTo("SALARY", 200.5)
   .endWrap();
 ```
 
 
-## or
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### or
 
 or(): RdbPredicates
 
@@ -321,24 +290,24 @@ or(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回带有或条件的Rdb谓词。 |
+| RdbPredicates | 返回带有或条件的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中值为"Lisa"或"Rose"的字段
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa').or().equalTo('NAME', 'Rose');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Lisa")
+  .or()
+  .equalTo("NAME", "Rose");
 ```
 
 
-## and
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### and
 
 and(): RdbPredicates
 
@@ -348,24 +317,24 @@ and(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回带有和条件的Rdb谓词。 |
+| RdbPredicates | 返回带有和条件的Rdb谓词。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中值为"Lisa"且"SALARY"列中值为"200.5"的字段
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Lisa').and().equalTo('SALARY', 200.5);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Lisa")
+  .and()
+  .equalTo("SALARY", 200.5);
 ```
 
 
-## contains
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### contains
 
 contains(field: string, value: string): RdbPredicates
 
@@ -375,7 +344,6 @@ contains(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -384,16 +352,14 @@ contains(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -402,16 +368,15 @@ contains(field: string, value: string): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中包含"os"的字段，如"Rose"
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.contains('NAME', 'os');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.contains("NAME", "os");
 ```
 
 
-## beginsWith
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### beginsWith
 
 beginsWith(field: string, value: string): RdbPredicates
 
@@ -421,7 +386,6 @@ beginsWith(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -430,16 +394,14 @@ beginsWith(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -448,16 +410,15 @@ beginsWith(field: string, value: string): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中以"Li"开头的字段，如"Lisa"
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.beginsWith('NAME', 'Li');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.beginsWith("NAME", "Li");
 ```
 
 
-## endsWith
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### endsWith
 
 endsWith(field: string, value: string): RdbPredicates
 
@@ -467,7 +428,6 @@ endsWith(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -476,16 +436,14 @@ endsWith(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -494,16 +452,15 @@ endsWith(field: string, value: string): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中以"se"结尾的字段，如"Rose"
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.endsWith('NAME', 'se');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.endsWith("NAME", "se");
 ```
 
 
-## isNull
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isNull
 
 isNull(field: string): RdbPredicates
 
@@ -513,7 +470,6 @@ isNull(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -521,16 +477,14 @@ isNull(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -539,15 +493,14 @@ isNull(field: string): RdbPredicates
 
 **示例**：
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.isNull('NAME');
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.isNull("NAME");
 ```
 
 
-## isNotNull
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isNotNull
 
 isNotNull(field: string): RdbPredicates
 
@@ -557,7 +510,6 @@ isNotNull(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -565,16 +517,14 @@ isNotNull(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -583,15 +533,14 @@ isNotNull(field: string): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.isNotNull('NAME');
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.isNotNull("NAME");
 ```
 
 
-## like
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### like
 
 like(field: string, value: string): RdbPredicates
 
@@ -601,7 +550,6 @@ like(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -610,16 +558,14 @@ like(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -628,16 +574,15 @@ like(field: string, value: string): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 查询NAME列中包含"os"子串的数据，例如会匹配"Rose"。
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.like('NAME', '%os%');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.like("NAME", "%os%");
 ```
 
 
-## glob
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### glob
 
 glob(field: string, value: string): RdbPredicates
 
@@ -647,25 +592,22 @@ glob(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | string | 是 | 指示要与谓词匹配的值。          支持通配符，*表示0个、1个或多个数字或字符，?表示1个数字或字符。 |
+| value | string | 是 | 指示要与谓词匹配的值。 支持通配符，*表示0个、1个或多个数字或字符，?表示1个数字或字符。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -674,16 +616,15 @@ glob(field: string, value: string): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中类型为string且值为"?h*g"的字段
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.glob('NAME', '?h*g');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.glob("NAME", "?h*g");
 ```
 
 
-## between
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### between
 
 between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
@@ -693,26 +634,23 @@ between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| low | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示与谓词匹配的最小值。 |
-| high | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示与谓词匹配的最大值。 |
+| low | ValueType | 是 | 指示与谓词匹配的最小值。 |
+| high | ValueType | 是 | 指示与谓词匹配的最大值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -721,16 +659,15 @@ between(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"AGE"列中大于等于10且小于等于50的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.between('AGE', 10, 50);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.between("AGE", 10, 50);
 ```
 
 
-## notBetween
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notBetween
 
 notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
@@ -740,26 +677,23 @@ notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| low | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示与谓词匹配的最小值。 |
-| high | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示要与谓词匹配的最大值。 |
+| low | ValueType | 是 | 指示与谓词匹配的最小值。 |
+| high | ValueType | 是 | 指示要与谓词匹配的最大值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -768,16 +702,15 @@ notBetween(field: string, low: ValueType, high: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"AGE"列中小于10或大于50的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.notBetween('AGE', 10, 50);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.notBetween("AGE", 10, 50);
 ```
 
 
-## greaterThan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### greaterThan
 
 greaterThan(field: string, value: ValueType): RdbPredicates
 
@@ -787,25 +720,22 @@ greaterThan(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -814,16 +744,15 @@ greaterThan(field: string, value: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"AGE"列中大于18的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.greaterThan('AGE', 18);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.greaterThan("AGE", 18);
 ```
 
 
-## lessThan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lessThan
 
 lessThan(field: string, value: ValueType): RdbPredicates
 
@@ -833,25 +762,22 @@ lessThan(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -860,16 +786,15 @@ lessThan(field: string, value: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"AGE"列中小于20的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.lessThan('AGE', 20);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.lessThan("AGE", 20);
 ```
 
 
-## greaterThanOrEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### greaterThanOrEqualTo
 
 greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
@@ -879,25 +804,22 @@ greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -906,16 +828,15 @@ greaterThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"AGE"列中大于等于18的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.greaterThanOrEqualTo('AGE', 18);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.greaterThanOrEqualTo("AGE", 18);
 ```
 
 
-## lessThanOrEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lessThanOrEqualTo
 
 lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
@@ -925,25 +846,22 @@ lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | [ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype) | 是 | 指示要与谓词匹配的值。 |
+| value | ValueType | 是 | 指示要与谓词匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -952,26 +870,24 @@ lessThanOrEqualTo(field: string, value: ValueType): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"AGE"列中小于等于20的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.lessThanOrEqualTo('AGE', 20);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.lessThanOrEqualTo("AGE", 20);
 ```
 
 
-## orderByAsc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### orderByAsc
 
 orderByAsc(field: string): RdbPredicates
 
-配置谓词以匹配数据表的field列中值按升序排序的列��
+配置谓词以匹配数据表的field列中值按升序排序的列。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -979,16 +895,14 @@ orderByAsc(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -997,15 +911,14 @@ orderByAsc(field: string): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.orderByAsc('NAME');
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.orderByAsc("NAME");
 ```
 
 
-## orderByDesc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### orderByDesc
 
 orderByDesc(field: string): RdbPredicates
 
@@ -1015,7 +928,6 @@ orderByDesc(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -1023,16 +935,14 @@ orderByDesc(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1041,15 +951,14 @@ orderByDesc(field: string): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.orderByDesc('AGE');
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.orderByDesc("AGE");
 ```
 
 
-## distinct
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### distinct
 
 distinct(): RdbPredicates
 
@@ -1059,23 +968,21 @@ distinct(): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回可用于过滤重复记录的谓词。 |
+| RdbPredicates | 返回可用于过滤重复记录的谓词。 |
 
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose').distinct(); // 对NAME列值为Rose的结果集去重
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Rose").distinct(); // 对NAME列值为Rose的结果集去重
 ```
 
 
-## limitAs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### limitAs
 
 limitAs(value: number): RdbPredicates
 
@@ -1085,7 +992,6 @@ limitAs(value: number): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 最大数据记录数，取值应为正整数，传入值小于等于0时，不会限制记录数量。 |
@@ -1093,16 +999,14 @@ limitAs(value: number): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回可用于设置最大数据记录数的谓词。 |
+| RdbPredicates | 返回可用于设置最大数据记录数的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1111,15 +1015,14 @@ limitAs(value: number): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose').limitAs(3);
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Rose").limitAs(3);
 ```
 
 
-## offsetAs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### offsetAs
 
 offsetAs(rowOffset: number): RdbPredicates
 
@@ -1129,7 +1032,6 @@ offsetAs(rowOffset: number): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | rowOffset | number | 是 | 指定查询结果的起始位置，默认初始位置为结果集的最前端。当rowOffset为负数时，起始位置为结果集的最前端。当rowOffset超出结果集最后位置时，查询结果为空。 |
@@ -1137,16 +1039,14 @@ offsetAs(rowOffset: number): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回具有指定返回结果起始位置的谓词。 |
+| RdbPredicates | 返回具有指定返回结果起始位置的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1155,24 +1055,22 @@ offsetAs(rowOffset: number): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.equalTo('NAME', 'Rose').limitAs(-1).offsetAs(3);
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.equalTo("NAME", "Rose").limitAs(-1).offsetAs(3);
 ```
 
 
-## groupBy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-groupBy(fields: Array<string>): RdbPredicates
+##### groupBy
+
+groupBy(fields: Array&lt;string&gt;): RdbPredicates
 
 配置谓词按指定列分组查询结果。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1181,16 +1079,14 @@ groupBy(fields: Array<string>): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回分组查询列的谓词。 |
+| RdbPredicates | 返回分组查询列的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1199,15 +1095,14 @@ groupBy(fields: Array<string>): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.groupBy(['AGE', 'NAME']);
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.groupBy(["AGE", "NAME"]);
 ```
 
 
-## indexedBy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### indexedBy
 
 indexedBy(field: string): RdbPredicates
 
@@ -1217,7 +1112,6 @@ indexedBy(field: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 索引列的名称。 |
@@ -1225,16 +1119,14 @@ indexedBy(field: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回具有指定索引列的RdbPredicates。 |
+| RdbPredicates | 返回具有指定索引列的RdbPredicates。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1243,47 +1135,43 @@ indexedBy(field: string): RdbPredicates
 
 **示例：**
 
-
-```ts
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.indexedBy('SALARY');
+```text
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.indexedBy("SALARY");
 ```
 
 
-## in
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-in(field: string, value: Array<ValueType>): RdbPredicates
+##### in
+
+in(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 配置谓词条件，表示字段field的值必须在给定的value集合内。
 
-
 > [!NOTE]
 > value集合不能为空。如果传入空集，此条件将失效，导致操作针对所有数据（如全量查询、更新或删除）。请在调用前判断value是否为空集，避免误操作。
+
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | Array&lt;[ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype)&gt; | 是 | 以ValueType型数组形式指定的要匹配的值。 |
+| value | Array&lt;ValueType&gt; | 是 | 以ValueType型数组形式指定的要匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1292,18 +1180,17 @@ in(field: string, value: Array<ValueType>): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"AGE"列中在[18，20]中的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.in('AGE', [18, 20]);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.in("AGE", [18, 20]);
 ```
 
 
-## notIn
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-notIn(field: string, value: Array<ValueType>): RdbPredicates
+##### notIn
+
+notIn(field: string, value: Array&lt;ValueType&gt;): RdbPredicates
 
 将谓词配置为匹配数据字段为ValueType且值超出给定范围的指定字段。
 
@@ -1311,25 +1198,22 @@ notIn(field: string, value: Array<ValueType>): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
-| value | Array&lt;[ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype)&gt; | 是 | 以ValueType数组形式指定的要匹配的值。 |
+| value | Array&lt;ValueType&gt; | 是 | 以ValueType数组形式指定的要匹配的值。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1338,16 +1222,15 @@ notIn(field: string, value: Array<ValueType>): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中不在["Lisa", "Rose"]中的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.notIn('NAME', ['Lisa', 'Rose']);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.notIn("NAME", ["Lisa", "Rose"]);
 ```
 
 
-## notContains12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notContains12+
 
 notContains(field: string, value: string): RdbPredicates
 
@@ -1357,7 +1240,6 @@ notContains(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -1366,16 +1248,14 @@ notContains(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1384,16 +1264,15 @@ notContains(field: string, value: string): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 匹配数据表的"NAME"列中不包含"os"的字段，如列表中的"Lisa"
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.notContains('NAME', 'os');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.notContains("NAME", "os");
 ```
 
 
-## notLike12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notLike12+
 
 notLike(field: string, value: string): RdbPredicates
 
@@ -1403,7 +1282,6 @@ notLike(field: string, value: string): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 数据库表中的列名。 |
@@ -1412,16 +1290,14 @@ notLike(field: string, value: string): RdbPredicates
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1430,18 +1306,17 @@ notLike(field: string, value: string): RdbPredicates
 
 **示例：**
 
-
-```ts
+```text
 // 查询NAME列中不包含"os"子串的数据，例如不会匹配"Rose"。
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.notLike('NAME', '%os%');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.notLike("NAME", "%os%");
 ```
 
 
-## having20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-having(conditions:string, args?: Array<ValueType>): RdbPredicates
+##### having20+
+
+having(conditions:string, args?: Array&lt;ValueType&gt;): RdbPredicates
 
 筛选符合条件的分组数据。
 
@@ -1449,25 +1324,22 @@ having(conditions:string, args?: Array<ValueType>): RdbPredicates
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| conditions | string | 是 | 用于过滤使用[groupBy](#groupby)获得的数据，不能为空且必须与[groupBy](#groupby)配合使用。 |
-| args | Array&lt;[ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype)&gt; | 否 | 条件中使用的参数，用来替换条件语句中的占位符，不传时默认为空数组。 |
+| conditions | string | 是 | 用于过滤使用groupBy获得的数据，不能为空且必须与groupBy配合使用。 |
+| args | Array&lt;ValueType&gt; | 否 | 条件中使用的参数，用来替换条件语句中的占位符，不传时默认为空数组。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 返回与指定字段匹配的谓词。 |
+| RdbPredicates | 返回与指定字段匹配的谓词。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1476,20 +1348,18 @@ having(conditions:string, args?: Array<ValueType>): RdbPredicates
 
 **示例1：**
 
-
-```ts
+```text
 // 传递完整的条件
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.groupBy(['AGE']);
-predicates.having('NAME = zhangsan');
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.groupBy(["AGE"]);
+predicates.having("NAME = zhangsan");
 ```
 
 **示例2：**
 
-
-```ts
+```text
 // 条件中使用占位符替代，args参数传入替换占位符的值
-let predicates = new relationalStore.RdbPredicates('EMPLOYEE');
-predicates.groupBy(['AGE']);
-predicates.having('NAME = ?', ['zhangsan']);
+let predicates = new relationalStore.RdbPredicates("EMPLOYEE");
+predicates.groupBy(["AGE"]);
+predicates.having("NAME = ?", ["zhangsan"]);
 ```

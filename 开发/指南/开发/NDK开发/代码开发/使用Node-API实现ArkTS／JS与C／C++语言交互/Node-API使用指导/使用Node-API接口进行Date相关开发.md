@@ -1,36 +1,52 @@
 # 使用Node-API接口进行Date相关开发
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-date
 
-## 简介
+##### 简介
 
 Node-API中date相关接口用于处理ArkTS Date对象，并在Node-API模块和ArkTS代码之间进行日期数据的转换和处理。这对于在Node-API模块中处理时间和日期相关逻辑非常有用。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-在Node-API中，ArkTS Date对象的数据表示从UTC时间1970年1月1日0时0分0秒起至现在的总毫秒数。 ArkTS Date对象提供了一种在ArkTS中表示和操作日期和时间的方式。它们允许您创建表示特定时刻的日期对象，执行各种日期和时间相关的计算（如添加或减去时间间隔），以及格式化日期为字符串以供显示。 在Node-API中，通过提供与Date对象交互的函数，Node-API模块能够更紧密地与ArkTS环境集成，执行更复杂的日期和时间相关操作。
+在Node-API中，ArkTS Date对象的数据表示从UTC时间1970年1月1日0时0分0秒起至现在的总毫秒数。
+ 
+ArkTS Date对象提供了一种在ArkTS中表示和操作日期和时间的方式。它们允许您创建表示特定时刻的日期对象，执行各种日期和时间相关的计算（如添加或减去时间间隔），以及格式化日期为字符串以供显示。
+ 
+在Node-API中，通过提供与Date对象交互的函数，Node-API模块能够更紧密地与ArkTS环境集成，执行更复杂的日期和时间相关操作。
+ 
+  
 
-## 场景和功能介绍
+##### 场景和功能介绍
 
 以下Node-API函数通常在开发Node-API模块中与ArkTS的Date对象进行交互时使用，来处理和操作日期数据。以下是一些可能的使用场景：
+  
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_date | 在需要根据当前系统时间或特定计算生成一个Date对象时，可通过使用此接口创建表示这些时间的ArkTS Date对象，然后将其传递给ArkTS代码进行进一步处理。 |
 | napi_get_date_value | 在Node-API模块中接收到一个ArkTS的Date对象，并且需要获取其对应的时间戳或日期值时，可以使用此接口。 |
 | napi_is_date | 在需要确定一个ArkTS对象是否为Date对象时，可使用此接口判断给定的值是否为Date对象。例如，在接收函数参数时，需要验证参数是否为Date对象以确保正确的数据类型。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应的C++及ArkTS相关代码进行展示。
+ 
+  
 
-## napi_create_date
+##### napi_create_date
 
-通过一个C++的double数据创建ArkTS的Date对象。 cpp部分代码
-```text
-#include
+通过一个C++的double数据创建ArkTS的Date对象。
+ 
+cpp部分代码
+ 
+```cpp
+#include <hilog/log.h>
 #include "napi/native_api.h"
 
 // napi_create_date
@@ -44,24 +60,30 @@ static napi_value CreateDate(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const createDate: () => Date; // napi_create_date
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_create_date
 hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_date: %{public}s',
   testNapi.createDate().toString());
 ```
+ 
+  
 
+##### napi_get_date_value
 
-## napi_get_date_value
-
-获取给定ArkTS Date对应的C++ double值。 cpp部分代码
-```text
+获取给定ArkTS Date对应的C++ double值。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_get_date_value
 static napi_value GetDateValue(napi_env env, napi_callback_info info)
 {
@@ -86,14 +108,16 @@ static napi_value GetDateValue(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const getDateValue: (date: Date) => number | undefined; // napi_get_date_value
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_get_date_value
 try {
   const date = new Date();
@@ -107,12 +131,16 @@ try {
   // ...
 }
 ```
+ 
+  
 
+##### napi_is_date
 
-## napi_is_date
-
-判断给定ArkTS value是否为ArkTS Date对象。 cpp部分代码
-```text
+判断给定ArkTS value是否为ArkTS Date对象。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_is_date
 static napi_value IsDate(napi_env env, napi_callback_info info)
 {
@@ -135,14 +163,16 @@ static napi_value IsDate(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
-export const isDate: (date: T) => boolean | undefined; // napi_is_date
+ 
+接口声明
+ 
+```ts
+export const isDate: <T>(date: T) => boolean | undefined; // napi_is_date
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_is_date
 try {
   let now: Date = new Date();
@@ -155,8 +185,9 @@ try {
   // ...
 }
 ```
-
- 以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
+以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
 ```text
 // CMakeLists.txt
 add_definitions( "-DLOG_DOMAIN=0xd0d0" )

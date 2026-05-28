@@ -8,36 +8,50 @@
 > 从6.1.1(24)版本开始，新增HDC鉴权密钥设置接口，支持用户在企业设备上开展安全调试，进一步强化设备安全性。
 
 
-## 场景介绍
+
+##### 场景介绍
 
 该接口可为上位机和下位机配置HDC鉴权密钥，确保仅在双方均为企业设备的特定场景下才允许连接和调试，从而有效保障企业资产不被篡改和泄露。
 
-## 接口说明
+
+
+##### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [setHdcAuthenticationKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#sethdcauthenticationkey)(devType: AuthenticateDeviceType, keyType: AuthenticateKeyType, key: Uint8Array): Promise | 使用Promise方式设置上下位机间的HDC鉴权密钥。 |
+| setHdcAuthenticationKey(devType: AuthenticateDeviceType, keyType: AuthenticateKeyType, key: Uint8Array): Promise&lt;void&gt; | 使用Promise方式设置上下位机间的HDC鉴权密钥。 |
 
 
-## 开发步骤
 
-应用需要通过OpenSSL在本地生成一个3072位的RSA密钥对。 通过OpenSSL生成私钥：
+
+##### 开发步骤
+1. 应用需要通过OpenSSL在本地生成一个3072位的RSA密钥对。
+
+  通过OpenSSL生成私钥：
+
+  
 ```text
 openssl genpkey -algorithm RSA -out private_key_3072.pem -pkeyopt rsa_keygen_bits:3072
 ```
-
 根据私钥提取公钥：
+
+  
 ```text
 openssl rsa -in private_key_3072.pem -pubout -out public_key_3072.pem
 ```
 
-导入模块。
+2. 导入模块。
+
+  
 ```text
 import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 ```
 
-初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[setHdcAuthenticationKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#sethdcauthenticationkey)，设置上下位机之间的HDC鉴权密钥。上位机需要下发私钥，下位机下发公钥，从而实现上位机对下位机的安全调试。
+3. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[setHdcAuthenticationKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#sethdcauthenticationkey)，设置上下位机之间的HDC鉴权密钥。上位机需要下发私钥，下位机下发公钥，从而实现上位机对下位机的安全调试。
+
+  
 ```text
 function testSetHdcAuthenticationKey() {
   let guard: fileGuard.FileGuard = new fileGuard.FileGuard();

@@ -4,8 +4,8 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-161
 
-支持calc属性，参考文档示例1（设置组件的宽高和边距）。
-
-参考链接
-
-尺寸设置
+支持calc属性，参考文档[示例1（设置组件的宽高和边距）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#示例1设置组件的宽高和边距)。
+ 
+**参考链接**
+ 
+[尺寸设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size)

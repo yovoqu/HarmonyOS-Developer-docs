@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-perftest
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 32400001 初始化失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 32400001 初始化失败
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Initialization failed.
 使用ps等shell命令查看，确保测试应用进程存在。
 
 
-## 32400002 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 32400002 内部错误
 
 **错误信息**
 
@@ -42,20 +41,16 @@ Internal error.
 框架内部运行出现错误。
 
 **可能原因**
-
-
 1. IPC传输失败。
 2. PerfTest对象不存在。
 
 **处理步骤**
-
-
 1. 尝试通过重试解决IPC传输失败问题。
 2. 判断PerfTest对象是否已被销毁，若已销毁需要重新[创建PerfTest对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-perftest#create)。
 
 
-## 32400003 参数校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 32400003 参数校验失败
 
 **错误信息**
 
@@ -74,8 +69,8 @@ Parameter verification failed.
 检查接口入参是否符合要求。
 
 
-## 32400004 执行回调函数失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 32400004 执行回调函数失败
 
 **错误信息**
 
@@ -86,8 +81,6 @@ Failed to execute the callback.
 执行回调代码段失败。
 
 **可能原因**
-
-
 1. 回调函数内部抛出异常。
 2. 回调函数执行超时。
 
@@ -96,8 +89,8 @@ Failed to execute the callback.
 检查回调函数内部逻辑，确保回调函数执行不会抛出异常或超时。
 
 
-## 32400005 采集性能数据失败
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 32400005 采集性能数据失败
 
 **错误信息**
 
@@ -116,8 +109,8 @@ Failed to collect metric data.
 使用ps等shell命令查看，确保采集性能数据时被测应用进程存在。
 
 
-## 32400006 无法获取性能数据
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 32400006 无法获取性能数据
 
 **错误信息**
 
@@ -136,8 +129,8 @@ Failed to obtain the measurement result.
 首先保证[PerfTest.run](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-perftest#run)接口已执行完成且未抛出异常，确保测试数据已采集完成，再获取指定数据。
 
 
-## 32400007 接口不支持并行调用
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 32400007 接口不支持并行调用
 
 **错误信息**
 

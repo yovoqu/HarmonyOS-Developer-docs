@@ -31,24 +31,24 @@
 | API废弃版本变更 | 类名：AVRecorderConfig； API声明：location?: Location; 差异内容：NA | 类名：AVRecorderConfig； API声明：location?: Location; 差异内容：12 | api/@ohos.multimedia.media.d.ts |
 | 错误码变更 | 类名：AVRecorder； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：201,401,5400101,5400102,5400103,5400104,5400105,5400106,801 | 类名：AVRecorder； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：201,401,5400101,5400102,5400103,5400104,5400105,5400106,5400107,801 | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明：function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource; 差异内容：function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo, callback: AsyncCallback<SoundPool>): void; 差异内容：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo, callback: AsyncCallback<SoundPool>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>; 差异内容：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder>; 差异内容：function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo, callback: AsyncCallback&lt;SoundPool&gt;): void; 差异内容：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo, callback: AsyncCallback&lt;SoundPool&gt;): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise&lt;SoundPool&gt;; 差异内容：function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise&lt;SoundPool&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：function createAVScreenCaptureRecorder(): Promise&lt;AVScreenCaptureRecorder&gt;; 差异内容：function createAVScreenCaptureRecorder(): Promise&lt;AVScreenCaptureRecorder&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明：type SoundPool = _SoundPool; 差异内容：type SoundPool = _SoundPool; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明：type PlayParameters = _PlayParameters; 差异内容：type PlayParameters = _PlayParameters; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：function createAVMetadataExtractor(): Promise<AVMetadataExtractor>; 差异内容：function createAVMetadataExtractor(): Promise<AVMetadataExtractor>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：function createAVMetadataExtractor(callback: AsyncCallback<AVMetadataExtractor>): void; 差异内容：function createAVMetadataExtractor(callback: AsyncCallback<AVMetadataExtractor>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：function createAVImageGenerator(): Promise<AVImageGenerator>; 差异内容：function createAVImageGenerator(): Promise<AVImageGenerator>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void; 差异内容：function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：function createAVMetadataExtractor(): Promise&lt;AVMetadataExtractor&gt;; 差异内容：function createAVMetadataExtractor(): Promise&lt;AVMetadataExtractor&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：function createAVMetadataExtractor(callback: AsyncCallback&lt;AVMetadataExtractor&gt;): void; 差异内容：function createAVMetadataExtractor(callback: AsyncCallback&lt;AVMetadataExtractor&gt;): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：function createAVImageGenerator(): Promise&lt;AVImageGenerator&gt;; 差异内容：function createAVImageGenerator(): Promise&lt;AVImageGenerator&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：function createAVImageGenerator(callback: AsyncCallback&lt;AVImageGenerator&gt;): void; 差异内容：function createAVImageGenerator(callback: AsyncCallback&lt;AVImageGenerator&gt;): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明： interface AVMetadataExtractor 差异内容： interface AVMetadataExtractor | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetadataExtractor； API声明：fdSrc?: AVFileDescriptor; 差异内容：fdSrc?: AVFileDescriptor; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetadataExtractor； API声明：dataSrc?: AVDataSrcDescriptor; 差异内容：dataSrc?: AVDataSrcDescriptor; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(callback: AsyncCallback<AVMetadata>): void; 差异内容：fetchMetadata(callback: AsyncCallback<AVMetadata>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(): Promise<AVMetadata>; 差异内容：fetchMetadata(): Promise<AVMetadata>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(callback: AsyncCallback&lt;AVMetadata&gt;): void; 差异内容：fetchMetadata(callback: AsyncCallback&lt;AVMetadata&gt;): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(): Promise&lt;AVMetadata&gt;; 差异内容：fetchMetadata(): Promise&lt;AVMetadata&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetadataExtractor； API声明：fetchAlbumCover(callback: AsyncCallback<image.PixelMap>): void; 差异内容：fetchAlbumCover(callback: AsyncCallback<image.PixelMap>): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetadataExtractor； API声明：fetchAlbumCover(): Promise<image.PixelMap>; 差异内容：fetchAlbumCover(): Promise<image.PixelMap>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVMetadataExtractor； API声明：release(callback: AsyncCallback<void>): void; 差异内容：release(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVMetadataExtractor； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVMetadataExtractor； API声明：release(callback: AsyncCallback&lt;void&gt;): void; 差异内容：release(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVMetadataExtractor； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明： interface AVMetadata 差异内容： interface AVMetadata | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetadata； API声明：album?: string; 差异内容：album?: string; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetadata； API声明：albumArtist?: string; 差异内容：albumArtist?: string; | api/@ohos.multimedia.media.d.ts |
@@ -78,8 +78,8 @@
 | 新增API | NA | 类名：AVImageGenerator； API声明：fdSrc?: AVFileDescriptor; 差异内容：fdSrc?: AVFileDescriptor; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVImageGenerator； API声明：fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams, callback: AsyncCallback<image.PixelMap>): void; 差异内容：fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams, callback: AsyncCallback<image.PixelMap>): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVImageGenerator； API声明：fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>; 差异内容：fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVImageGenerator； API声明：release(callback: AsyncCallback<void>): void; 差异内容：release(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVImageGenerator； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVImageGenerator； API声明：release(callback: AsyncCallback&lt;void&gt;): void; 差异内容：release(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVImageGenerator； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明： enum AVImageQueryOptions 差异内容： enum AVImageQueryOptions | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVImageQueryOptions； API声明：AV_IMAGE_QUERY_NEXT_SYNC 差异内容：AV_IMAGE_QUERY_NEXT_SYNC | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVImageQueryOptions； API声明：AV_IMAGE_QUERY_PREVIOUS_SYNC 差异内容：AV_IMAGE_QUERY_PREVIOUS_SYNC | api/@ohos.multimedia.media.d.ts |
@@ -88,7 +88,7 @@
 | 新增API | NA | 类名：PixelMapParams； API声明：width?: number; 差异内容：width?: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：PixelMapParams； API声明：height?: number; 差异内容：height?: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVErrorCode； API声明：AVERR_AUDIO_INTERRUPTED = 5400107 差异内容：AVERR_AUDIO_INTERRUPTED = 5400107 | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVPlayer； API声明：setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>; 差异内容：setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise<void>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVPlayer； API声明：setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise&lt;void&gt;; 差异内容：setMediaSource(src: MediaSource, strategy?: PlaybackStrategy): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVPlayer； API声明：dataSrc?: AVDataSrcDescriptor; 差异内容：dataSrc?: AVDataSrcDescriptor; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVPlayer； API声明：audioRendererInfo?: audio.AudioRendererInfo; 差异内容：audioRendererInfo?: audio.AudioRendererInfo; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVPlayer； API声明：audioEffectMode?: audio.AudioEffectMode; 差异内容：audioEffectMode?: audio.AudioEffectMode; | api/@ohos.multimedia.media.d.ts |
@@ -110,15 +110,15 @@
 | 新增API | NA | 类名：media； API声明： interface AVDataSrcDescriptor 差异内容： interface AVDataSrcDescriptor | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVDataSrcDescriptor； API声明：fileSize: number; 差异内容：fileSize: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVDataSrcDescriptor； API声明：callback: (buffer: ArrayBuffer, length: number, pos?: number) => number; 差异内容：callback: (buffer: ArrayBuffer, length: number, pos?: number) => number; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVRecorder； API声明：getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void; 差异内容：getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVRecorder； API声明：getAVRecorderConfig(): Promise<AVRecorderConfig>; 差异内容：getAVRecorderConfig(): Promise<AVRecorderConfig>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVRecorder； API声明：updateRotation(rotation: number): Promise<void>; 差异内容：updateRotation(rotation: number): Promise<void>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVRecorder； API声明：getAVRecorderConfig(callback: AsyncCallback&lt;AVRecorderConfig&gt;): void; 差异内容：getAVRecorderConfig(callback: AsyncCallback&lt;AVRecorderConfig&gt;): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVRecorder； API声明：getAVRecorderConfig(): Promise&lt;AVRecorderConfig&gt;; 差异内容：getAVRecorderConfig(): Promise&lt;AVRecorderConfig&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVRecorder； API声明：updateRotation(rotation: number): Promise&lt;void&gt;; 差异内容：updateRotation(rotation: number): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVRecorder； API声明：getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void; 差异内容：getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVRecorder； API声明：getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>; 差异内容：getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVRecorder； API声明：getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void; 差异内容：getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVRecorder； API声明：getAudioCapturerMaxAmplitude(): Promise<number>; 差异内容：getAudioCapturerMaxAmplitude(): Promise<number>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVRecorder； API声明：getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void; 差异内容：getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVRecorder； API声明：getAvailableEncoder(): Promise<Array<EncoderInfo>>; 差异内容：getAvailableEncoder(): Promise<Array<EncoderInfo>>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVRecorder； API声明：getAudioCapturerMaxAmplitude(callback: AsyncCallback&lt;number&gt;): void; 差异内容：getAudioCapturerMaxAmplitude(callback: AsyncCallback&lt;number&gt;): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVRecorder； API声明：getAudioCapturerMaxAmplitude(): Promise&lt;number&gt;; 差异内容：getAudioCapturerMaxAmplitude(): Promise&lt;number&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVRecorder； API声明：getAvailableEncoder(callback: AsyncCallback<Array&lt;EncoderInfo&gt;>): void; 差异内容：getAvailableEncoder(callback: AsyncCallback<Array&lt;EncoderInfo&gt;>): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVRecorder； API声明：getAvailableEncoder(): Promise<Array&lt;EncoderInfo&gt;>; 差异内容：getAvailableEncoder(): Promise<Array&lt;EncoderInfo&gt;>; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVRecorder； API声明：on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void; 差异内容：on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVRecorder； API声明：off(type: 'audioCapturerChange'): void; 差异内容：off(type: 'audioCapturerChange'): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：PlaybackSpeed； API声明：SPEED_FORWARD_0_50_X = 5 差异内容：SPEED_FORWARD_0_50_X = 5 | api/@ohos.multimedia.media.d.ts |
@@ -132,7 +132,7 @@
 | 新增API | NA | 类名：EncoderInfo； API声明：width?: Range; 差异内容：width?: Range; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：EncoderInfo； API声明：height?: Range; 差异内容：height?: Range; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：EncoderInfo； API声明：channels?: Range; 差异内容：channels?: Range; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：EncoderInfo； API声明：sampleRate?: Array<number>; 差异内容：sampleRate?: Array<number>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：EncoderInfo； API声明：sampleRate?: Array&lt;number&gt;; 差异内容：sampleRate?: Array&lt;number&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明： interface Range 差异内容： interface Range | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：Range； API声明：min: number; 差异内容：min: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：Range； API声明：max: number; 差异内容：max: number; | api/@ohos.multimedia.media.d.ts |
@@ -165,14 +165,14 @@
 | 新增API | NA | 类名：AVScreenCaptureRecordConfig； API声明：audioBitrate?: number; 差异内容：audioBitrate?: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVScreenCaptureRecordConfig； API声明：preset?: AVScreenCaptureRecordPreset; 差异内容：preset?: AVScreenCaptureRecordPreset; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明： interface AVScreenCaptureRecorder 差异内容： interface AVScreenCaptureRecorder | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：init(config: AVScreenCaptureRecordConfig): Promise<void>; 差异内容：init(config: AVScreenCaptureRecordConfig): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：startRecording(): Promise<void>; 差异内容：startRecording(): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：stopRecording(): Promise<void>; 差异内容：stopRecording(): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：setMicEnabled(enable: boolean): Promise<void>; 差异内容：setMicEnabled(enable: boolean): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void; 差异内容：on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：init(config: AVScreenCaptureRecordConfig): Promise&lt;void&gt;; 差异内容：init(config: AVScreenCaptureRecordConfig): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：startRecording(): Promise&lt;void&gt;; 差异内容：startRecording(): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：stopRecording(): Promise&lt;void&gt;; 差异内容：stopRecording(): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：setMicEnabled(enable: boolean): Promise&lt;void&gt;; 差异内容：setMicEnabled(enable: boolean): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：on(type: 'stateChange', callback: Callback&lt;AVScreenCaptureStateCode&gt;): void; 差异内容：on(type: 'stateChange', callback: Callback&lt;AVScreenCaptureStateCode&gt;): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void; 差异内容：off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：off(type: 'stateChange', callback?: Callback&lt;AVScreenCaptureStateCode&gt;): void; 差异内容：off(type: 'stateChange', callback?: Callback&lt;AVScreenCaptureStateCode&gt;): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：global； API声明： export interface PlayParameters 差异内容： export interface PlayParameters | api/multimedia/soundPool.d.ts |
 | 新增API | NA | 类名：PlayParameters； API声明：loop?: number; 差异内容：loop?: number; | api/multimedia/soundPool.d.ts |
@@ -181,30 +181,30 @@
 | 新增API | NA | 类名：PlayParameters； API声明：rightVolume?: number; 差异内容：rightVolume?: number; | api/multimedia/soundPool.d.ts |
 | 新增API | NA | 类名：PlayParameters； API声明：priority?: number; 差异内容：priority?: number; | api/multimedia/soundPool.d.ts |
 | 新增API | NA | 类名：global； API声明： export interface SoundPool 差异内容： export interface SoundPool | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：load(uri: string, callback: AsyncCallback<number>): void; 差异内容：load(uri: string, callback: AsyncCallback<number>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：load(uri: string): Promise<number>; 差异内容：load(uri: string): Promise<number>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void; 差异内容：load(fd: number, offset: number, length: number, callback: AsyncCallback<number>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：load(fd: number, offset: number, length: number): Promise<number>; 差异内容：load(fd: number, offset: number, length: number): Promise<number>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void; 差异内容：play(soundID: number, params: PlayParameters, callback: AsyncCallback<number>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：play(soundID: number, callback: AsyncCallback<number>): void; 差异内容：play(soundID: number, callback: AsyncCallback<number>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：play(soundID: number, params?: PlayParameters): Promise<number>; 差异内容：play(soundID: number, params?: PlayParameters): Promise<number>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：stop(streamID: number, callback: AsyncCallback<void>): void; 差异内容：stop(streamID: number, callback: AsyncCallback<void>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：stop(streamID: number): Promise<void>; 差异内容：stop(streamID: number): Promise<void>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void; 差异内容：setLoop(streamID: number, loop: number, callback: AsyncCallback<void>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setLoop(streamID: number, loop: number): Promise<void>; 差异内容：setLoop(streamID: number, loop: number): Promise<void>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): void; 差异内容：setPriority(streamID: number, priority: number, callback: AsyncCallback<void>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setPriority(streamID: number, priority: number): Promise<void>; 差异内容：setPriority(streamID: number, priority: number): Promise<void>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void; 差异内容：setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback<void>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>; 差异内容：setRate(streamID: number, rate: audio.AudioRendererRate): Promise<void>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void; 差异内容：setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback<void>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<void>; 差异内容：setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise<void>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：unload(soundID: number, callback: AsyncCallback<void>): void; 差异内容：unload(soundID: number, callback: AsyncCallback<void>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：unload(soundID: number): Promise<void>; 差异内容：unload(soundID: number): Promise<void>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：release(callback: AsyncCallback<void>): void; 差异内容：release(callback: AsyncCallback<void>): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：on(type: 'loadComplete', callback: Callback<number>): void; 差异内容：on(type: 'loadComplete', callback: Callback<number>): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：load(uri: string, callback: AsyncCallback&lt;number&gt;): void; 差异内容：load(uri: string, callback: AsyncCallback&lt;number&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：load(uri: string): Promise&lt;number&gt;; 差异内容：load(uri: string): Promise&lt;number&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：load(fd: number, offset: number, length: number, callback: AsyncCallback&lt;number&gt;): void; 差异内容：load(fd: number, offset: number, length: number, callback: AsyncCallback&lt;number&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：load(fd: number, offset: number, length: number): Promise&lt;number&gt;; 差异内容：load(fd: number, offset: number, length: number): Promise&lt;number&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：play(soundID: number, params: PlayParameters, callback: AsyncCallback&lt;number&gt;): void; 差异内容：play(soundID: number, params: PlayParameters, callback: AsyncCallback&lt;number&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：play(soundID: number, callback: AsyncCallback&lt;number&gt;): void; 差异内容：play(soundID: number, callback: AsyncCallback&lt;number&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：play(soundID: number, params?: PlayParameters): Promise&lt;number&gt;; 差异内容：play(soundID: number, params?: PlayParameters): Promise&lt;number&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：stop(streamID: number, callback: AsyncCallback&lt;void&gt;): void; 差异内容：stop(streamID: number, callback: AsyncCallback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：stop(streamID: number): Promise&lt;void&gt;; 差异内容：stop(streamID: number): Promise&lt;void&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setLoop(streamID: number, loop: number, callback: AsyncCallback&lt;void&gt;): void; 差异内容：setLoop(streamID: number, loop: number, callback: AsyncCallback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setLoop(streamID: number, loop: number): Promise&lt;void&gt;; 差异内容：setLoop(streamID: number, loop: number): Promise&lt;void&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setPriority(streamID: number, priority: number, callback: AsyncCallback&lt;void&gt;): void; 差异内容：setPriority(streamID: number, priority: number, callback: AsyncCallback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setPriority(streamID: number, priority: number): Promise&lt;void&gt;; 差异内容：setPriority(streamID: number, priority: number): Promise&lt;void&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback&lt;void&gt;): void; 差异内容：setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setRate(streamID: number, rate: audio.AudioRendererRate): Promise&lt;void&gt;; 差异内容：setRate(streamID: number, rate: audio.AudioRendererRate): Promise&lt;void&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback&lt;void&gt;): void; 差异内容：setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise&lt;void&gt;; 差异内容：setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise&lt;void&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：unload(soundID: number, callback: AsyncCallback&lt;void&gt;): void; 差异内容：unload(soundID: number, callback: AsyncCallback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：unload(soundID: number): Promise&lt;void&gt;; 差异内容：unload(soundID: number): Promise&lt;void&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：release(callback: AsyncCallback&lt;void&gt;): void; 差异内容：release(callback: AsyncCallback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：on(type: 'loadComplete', callback: Callback&lt;number&gt;): void; 差异内容：on(type: 'loadComplete', callback: Callback&lt;number&gt;): void; | api/multimedia/soundPool.d.ts |
 | 新增API | NA | 类名：SoundPool； API声明：off(type: 'loadComplete'): void; 差异内容：off(type: 'loadComplete'): void; | api/multimedia/soundPool.d.ts |
-| 新增API | NA | 类名：SoundPool； API声明：on(type: 'playFinished', callback: Callback<void>): void; 差异内容：on(type: 'playFinished', callback: Callback<void>): void; | api/multimedia/soundPool.d.ts |
+| 新增API | NA | 类名：SoundPool； API声明：on(type: 'playFinished', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'playFinished', callback: Callback&lt;void&gt;): void; | api/multimedia/soundPool.d.ts |
 | 新增API | NA | 类名：SoundPool； API声明：off(type: 'playFinished'): void; 差异内容：off(type: 'playFinished'): void; | api/multimedia/soundPool.d.ts |
 | 新增API | NA | 类名：SoundPool； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | api/multimedia/soundPool.d.ts |
 | 新增API | NA | 类名：SoundPool； API声明：off(type: 'error'): void; 差异内容：off(type: 'error'): void; | api/multimedia/soundPool.d.ts |

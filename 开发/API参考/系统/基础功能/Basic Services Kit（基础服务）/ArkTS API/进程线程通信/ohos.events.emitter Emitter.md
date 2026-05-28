@@ -3,28 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了在同一进程不同线程间或同一线程内发送和处理事件的能力，支持持续订阅事件、单次订阅事件、取消订阅事件及发送事件到事件队列。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { emitter } from '@kit.BasicServicesKit';
 ```
 
 
-## emitter.on
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(event: InnerEvent, callback: Callback<EventData>): void
+##### emitter.on
+
+on(event: InnerEvent, callback: Callback&lt;EventData&gt;): void
 
 持续订阅指定的事件，并在接收到该事件时，执行对应的回调处理函数。
 
@@ -34,36 +32,34 @@ on(event: InnerEvent, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [InnerEvent](#innerevent) | 是 | 持续订阅的事件，其中[EventPriority](#eventpriority)，在订阅事件时无需指定，也不生效。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
+| event | InnerEvent | 是 | 持续订阅的事件，其中EventPriority，在订阅事件时无需指定，也不生效。 |
+| callback | Callback&lt;EventData&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let innerEvent: emitter.InnerEvent = {
-  eventId: 1,
+  eventId: 1
 };
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 
 // 收到eventId为1的事件后执行回调函数
 emitter.on(innerEvent, callback);
 ```
 
 
-## emitter.on11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(eventId: string, callback: Callback<EventData>): void
+##### emitter.on11+
+
+on(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 持续订阅指定的事件，并在接收到该事件时，执行对应的回调处理函数。
 
@@ -73,31 +69,29 @@ on(eventId: string, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
+| callback | Callback&lt;EventData&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 // 收到eventId为"eventId"的事件后执行回调函数
 emitter.on(`eventId`, callback);
 ```
 
 
-## emitter.on12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
+##### emitter.on12+
+
+on&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
 持续订阅指定的事件，并在接收到该事件时，执行对应的回调处理函数。
 
@@ -107,17 +101,15 @@ on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[GenericEventData&lt;T&gt;](#genericeventdatat12)&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
+| callback | Callback<GenericEventData&lt;T&gt;> | 是 | 接收到该事件时需要执行的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 @Sendable
@@ -131,23 +123,21 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (
-  eventData: emitter.GenericEventData<Sample>,
-): void => {
+let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
   }
-};
+}
 // 收到eventId为"eventId"的事件后执行回调函数
-emitter.on('eventId', callback);
+emitter.on("eventId", callback);
 ```
 
 
-## emitter.once
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-once(event: InnerEvent, callback: Callback<EventData>): void
+##### emitter.once
+
+once(event: InnerEvent, callback: Callback&lt;EventData&gt;): void
 
 单次订阅指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。
 
@@ -157,35 +147,33 @@ once(event: InnerEvent, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [InnerEvent](#innerevent) | 是 | 单次订阅的事件，其中[EventPriority](#eventpriority)，在订阅事件时无需指定，也不生效。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
+| event | InnerEvent | 是 | 单次订阅的事件，其中EventPriority，在订阅事件时无需指定，也不生效。 |
+| callback | Callback&lt;EventData&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let innerEvent: emitter.InnerEvent = {
-  eventId: 1,
+  eventId: 1
 };
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 // 收到eventId为1的事件后执行该回调函数
 emitter.once(innerEvent, callback);
 ```
 
 
-## emitter.once11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-once(eventId: string, callback: Callback<EventData>): void
+##### emitter.once11+
+
+once(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 单次订阅指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。
 
@@ -195,31 +183,29 @@ once(eventId: string, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
+| callback | Callback&lt;EventData&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 // 收到eventId为"eventId"的事件后执行该回调函数
-emitter.once('eventId', callback);
+emitter.once("eventId", callback);
 ```
 
 
-## emitter.once12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
+##### emitter.once12+
+
+once&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
 单次订阅指定的事件，在接收到该事件且执行完相应的回调函数后，自动取消订阅。
 
@@ -229,17 +215,15 @@ once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[GenericEventData&lt;T&gt;](#genericeventdatat12)&gt; | 是 | 接收到该事件时需要执行的回调处理函数。 |
+| callback | Callback<GenericEventData&lt;T&gt;> | 是 | 接收到该事件时需要执行的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 @Sendable
@@ -253,21 +237,19 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (
-  eventData: emitter.GenericEventData<Sample>,
-): void => {
+let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
   }
-};
+}
 // 收到eventId为"eventId"的事件后执行回调函数
-emitter.once('eventId', callback);
+emitter.once("eventId", callback);
 ```
 
 
-## emitter.off
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emitter.off
 
 off(eventId: number): void
 
@@ -281,7 +263,6 @@ off(eventId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | number | 是 | 事件ID。 |
@@ -289,15 +270,14 @@ off(eventId: number): void
 
 **示例：**
 
-
-```ts
+```text
 // 取消eventId为1的所有事件回调处理函数
 emitter.off(1);
 ```
 
 
-## emitter.off11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emitter.off11+
 
 off(eventId: string): void
 
@@ -311,7 +291,6 @@ off(eventId: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
@@ -319,17 +298,16 @@ off(eventId: string): void
 
 **示例：**
 
-
-```ts
+```text
 // 取消eventId为"eventId1"的所有事件回调处理函数
-emitter.off('eventId1');
+emitter.off("eventId1");
 ```
 
 
-## emitter.off10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(eventId: number, callback: Callback<EventData>): void
+##### emitter.off10+
+
+off(eventId: number, callback: Callback&lt;EventData&gt;): void
 
 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on](#emitteron)或[once](#emitteronce)接口订阅callback时，该接口才生效。
 
@@ -341,32 +319,30 @@ off(eventId: number, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | number | 是 | 事件ID。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 事件的回调处理函数。 |
+| callback | Callback&lt;EventData&gt; | 是 | 事件的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 // 取消eventId为1的事件回调处理函数，callback对象应使用订阅时的对象
 // 如果该回调处理函数没有被订阅，则不做任何处理
 emitter.off(1, callback);
 ```
 
 
-## emitter.off11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(eventId: string, callback: Callback<EventData>): void
+##### emitter.off11+
+
+off(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on](#emitteron11)或[once](#emitteronce11)接口订阅callback时，该接口才生效。
 
@@ -378,32 +354,30 @@ off(eventId: string, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 事件的回调处理函数。 |
+| callback | Callback&lt;EventData&gt; | 是 | 事件的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 // 取消eventId为"eventId1"的事件回调处理函数，callback对象应使用订阅时的对象
 // 如果该回调处理函数没有被订阅，则不做任何处理
-emitter.off('eventId1', callback);
+emitter.off("eventId1", callback);
 ```
 
 
-## emitter.off12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
+##### emitter.off12+
+
+off&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on](#emitteron12)或[once](#emitteronce12)接口订阅callback时，该接口才生效。
 
@@ -415,17 +389,15 @@ off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[GenericEventData&lt;T&gt;](#genericeventdatat12)&gt; | 是 | 事件的回调处理函数。 |
+| callback | Callback<GenericEventData&lt;T&gt;> | 是 | 事件的回调处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 @Sendable
@@ -439,22 +411,20 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (
-  eventData: emitter.GenericEventData<Sample>,
-): void => {
+let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
   }
-};
+}
 // 取消eventId为"eventId1"的事件回调处理函数，callback对象应使用订阅时的对象
 // 如果该回调处理函数没有被订阅，则不做任何处理
-emitter.off('eventId1', callback);
+emitter.off("eventId1", callback);
 ```
 
 
-## emitter.emit
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emitter.emit
 
 emit(event: InnerEvent, data?: EventData): void
 
@@ -470,35 +440,33 @@ emit(event: InnerEvent, data?: EventData): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [InnerEvent](#innerevent) | 是 | 发送的事件，其中[EventPriority](#eventpriority)用于指定事件被发送的优先级。 |
-| data | [EventData](#eventdata) | 否 | 事件携带的数据，默认为空。 |
+| event | InnerEvent | 是 | 发送的事件，其中EventPriority用于指定事件被发送的优先级。 |
+| data | EventData | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let eventData: emitter.EventData = {
   data: {
-    content: 'content',
-    id: 1,
-  },
+    "content": "content",
+    "id": 1,
+  }
 };
 
 let innerEvent: emitter.InnerEvent = {
   eventId: 1,
-  priority: emitter.EventPriority.HIGH,
+  priority: emitter.EventPriority.HIGH
 };
 
 emitter.emit(innerEvent, eventData);
 ```
 
 
-## emitter.emit11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emitter.emit11+
 
 emit(eventId: string, data?: EventData): void
 
@@ -514,32 +482,30 @@ emit(eventId: string, data?: EventData): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| data | [EventData](#eventdata) | 否 | 事件携带的数据，默认为空。 |
+| data | EventData | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let eventData: emitter.EventData = {
   data: {
-    content: 'content',
-    id: 1,
-  },
+  "content": "content",
+  "id": 1,
+  }
 };
 
-emitter.emit('eventId', eventData);
+emitter.emit("eventId", eventData);
 ```
 
 
-## emitter.emit12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-emit<T>(eventId: string, data?: GenericEventData<T>): void
+##### emitter.emit12+
+
+emit&lt;T&gt;(eventId: string, data?: GenericEventData&lt;T&gt;): void
 
 发送指定事件。
 
@@ -553,17 +519,15 @@ emit<T>(eventId: string, data?: GenericEventData<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| data | [GenericEventData&lt;T&gt;](#genericeventdatat12) | 否 | 事件携带的数据，默认为空。 |
+| data | GenericEventData&lt;T&gt; | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Sendable
 class Sample {
   constructor() {
@@ -576,14 +540,14 @@ class Sample {
 }
 
 let eventData: emitter.GenericEventData<Sample> = {
-  data: new Sample(),
+  data: new Sample()
 };
-emitter.emit('eventId', eventData);
+emitter.emit("eventId", eventData);
 ```
 
 
-## emitter.emit11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emitter.emit11+
 
 emit(eventId: string, options: Options, data?: EventData): void
 
@@ -599,37 +563,35 @@ emit(eventId: string, options: Options, data?: EventData): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| options | [Options](#options11) | 是 | 事件优先级。 |
-| data | [EventData](#eventdata) | 否 | 事件携带的数据，默认为空。 |
+| options | Options | 是 | 事件优先级。 |
+| data | EventData | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let eventData: emitter.EventData = {
   data: {
-    content: 'content',
-    id: 1,
-  },
+    "content": "content",
+    "id": 1,
+  }
 };
 
 let options: emitter.Options = {
-  priority: emitter.EventPriority.HIGH,
+  priority: emitter.EventPriority.HIGH
 };
 
-emitter.emit('eventId', options, eventData);
+emitter.emit("eventId", options, eventData);
 ```
 
 
-## emitter.emit12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void
+##### emitter.emit12+
+
+emit&lt;T&gt;(eventId: string, options: Options, data?: GenericEventData&lt;T&gt;): void
 
 发送指定优先级事件。
 
@@ -643,18 +605,16 @@ emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| options | [Options](#options11) | 是 | 事件优先级。 |
-| data | [GenericEventData&lt;T&gt;](#genericeventdatat12) | 否 | 事件携带的数据，默认为空。 |
+| options | Options | 是 | 事件优先级。 |
+| data | GenericEventData&lt;T&gt; | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Sendable
 class Sample {
   constructor() {
@@ -667,18 +627,18 @@ class Sample {
 }
 
 let options: emitter.Options = {
-  priority: emitter.EventPriority.HIGH,
+  priority: emitter.EventPriority.HIGH
 };
 let eventData: emitter.GenericEventData<Sample> = {
-  data: new Sample(),
+  data: new Sample()
 };
 
-emitter.emit('eventId', options, eventData);
+emitter.emit("eventId", options, eventData);
 ```
 
 
-## emitter.getListenerCount11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emitter.getListenerCount11+
 
 getListenerCount(eventId: number | string): number
 
@@ -690,14 +650,12 @@ getListenerCount(eventId: number | string): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | number \| string | 是 | 事件ID，string类型的eventId取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -706,21 +664,19 @@ getListenerCount(eventId: number | string): number
 
 **示例：**
 
-
-```ts
-let count: number = emitter.getListenerCount('eventId');
+```text
+let count: number = emitter.getListenerCount("eventId");
 ```
 
 
-## EventPriority
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### EventPriority
 
 表示事件的优先级。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**： SystemCapability.Notification.Emitter
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -730,8 +686,9 @@ let count: number = emitter.getListenerCount('eventId');
 | IDLE | 3 | 表示在没有其他事件的情况下，才投递该事件。 |
 
 
-## InnerEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### InnerEvent
 
 订阅或发送的事件，订阅事件时EventPriority不生效。
 
@@ -739,15 +696,15 @@ let count: number = emitter.getListenerCount('eventId');
 
 **系统能力**：SystemCapability.Notification.Emitter
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | eventId | number | 否 | 否 | 事件ID，由开发者定义，用于辨别事件。 |
-| priority | [EventPriority](#eventpriority) | 否 | 是 | 事件的优先级，默认值为EventPriority.LOW。 |
+| priority | EventPriority | 否 | 是 | 事件的优先级，默认值为EventPriority.LOW。 |
 
 
-## EventData
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### EventData
 
 发送事件时传递的数据。
 
@@ -755,14 +712,14 @@ let count: number = emitter.getListenerCount('eventId');
 
 **系统能力**：SystemCapability.Notification.Emitter
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | data | { [key: string]: any } | 否 | 是 | 发送事件时传递的数据，支持数据类型包括Array、ArrayBuffer、Boolean、DataView、Date、Error、Map、Number、Object、Primitive（除了symbol）、RegExp、Set、String、TypedArray，数据大小最大为16M。 |
 
 
-## Options11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Options11+
 
 发送事件的优先级。
 
@@ -770,14 +727,14 @@ let count: number = emitter.getListenerCount('eventId');
 
 **系统能力**：SystemCapability.Notification.Emitter
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| priority | [EventPriority](#eventpriority) | 否 | 是 | 事件的优先级，默认值为EventPriority.LOW。 |
+| priority | EventPriority | 否 | 是 | 事件的优先级，默认值为EventPriority.LOW。 |
 
 
-## GenericEventData&lt;T&gt;12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### GenericEventData&lt;T&gt;12+
 
 发送事件时传递的泛型数据。
 
@@ -785,14 +742,14 @@ let count: number = emitter.getListenerCount('eventId');
 
 **系统能力**：SystemCapability.Notification.Emitter
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | data | T | 否 | 是 | 发送事件时传递的数据。T：泛型类型。 |
 
 
-## Emitter22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Emitter22+
 
 该功能支持在同一进程的同一Emitter类实例中，跨不同线程或同一线程内发送和处理事件。它能够实现持续订阅事件、单次订阅事件、取消订阅事件以及将事件发送到事件队列。
 
@@ -801,8 +758,8 @@ let count: number = emitter.getListenerCount('eventId');
 **系统能力：** SystemCapability.Notification.Emitter
 
 
-### constructor22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor22+
 
 constructor()
 
@@ -814,16 +771,15 @@ constructor()
 
 **示例：**
 
-
-```ts
+```text
 let emitter1: emitter.Emitter = new emitter.Emitter();
 ```
 
 
-### on22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(eventId: string, callback: Callback<EventData>): void
+##### on22+
+
+on(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 持续订阅当前Emitter类实例指定的事件，并在接收到该事件时，使用callback异步回调。
 
@@ -833,33 +789,31 @@ on(eventId: string, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 回调函数，在接收到该事件时被调用。 |
+| callback | Callback&lt;EventData&gt; | 是 | 回调函数，在接收到该事件时被调用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 
 emitter1.on(`eventId`, callback);
 ```
 
 
-### on22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
+##### on22+
+
+on&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
 持续订阅当前Emitter类实例指定的事件，并在接收到该事件时，使用callback异步回调。
 
@@ -869,17 +823,15 @@ on<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 持续订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[GenericEventData&lt;T&gt;](#genericeventdatat12)&gt; | 是 | 回调函数，在接收到该事件时被调用。 |
+| callback | Callback<GenericEventData&lt;T&gt;> | 是 | 回调函数，在接收到该事件时被调用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
@@ -895,23 +847,21 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (
-  eventData: emitter.GenericEventData<Sample>,
-): void => {
+let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
   }
-};
+}
 
-emitter1.on('eventId', callback);
+emitter1.on("eventId", callback);
 ```
 
 
-### once22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-once(eventId: string, callback: Callback<EventData>): void
+##### once22+
+
+once(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 单次订阅当前Emitter类实例指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。使用callback异步回调。
 
@@ -921,33 +871,31 @@ once(eventId: string, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 回调函数，在接收到该事件时被调用。 |
+| callback | Callback&lt;EventData&gt; | 是 | 回调函数，在接收到该事件时被调用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 
-emitter1.once('eventId', callback);
+emitter1.once("eventId", callback);
 ```
 
 
-### once22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
+##### once22+
+
+once&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
 单次订阅当前Emitter类实例指定的事件，在接收到该事件且执行完相应的回调函数后，自动取消订阅。使用callback异步回调。
 
@@ -957,17 +905,15 @@ once<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 单次订阅的事件。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[GenericEventData&lt;T&gt;](#genericeventdatat12)&gt; | 是 | 回调函数，在接收到该事件时被调用。 |
+| callback | Callback<GenericEventData&lt;T&gt;> | 是 | 回调函数，在接收到该事件时被调用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
@@ -983,21 +929,19 @@ class Sample {
   count: number;
 }
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (
-  eventData: emitter.GenericEventData<Sample>,
-): void => {
+let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
   }
-};
+}
 
-emitter1.once('eventId', callback);
+emitter1.once("eventId", callback);
 ```
 
 
-### off22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off22+
 
 off(eventId: string): void
 
@@ -1011,7 +955,6 @@ off(eventId: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
@@ -1019,18 +962,17 @@ off(eventId: string): void
 
 **示例：**
 
-
-```ts
+```text
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
-emitter1.off('eventId');
+emitter1.off("eventId");
 ```
 
 
-### off22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(eventId: string, callback: Callback<EventData>): void
+##### off22+
+
+off(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 取消订阅当前Emitter类实例的事件。仅当已使用[on](#on22)或[once](#once22)接口订阅了事件ID为eventId且回调处理函数为callback的事件时，该接口才生效。
 
@@ -1042,33 +984,31 @@ off(eventId: string, callback: Callback<EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[EventData](#eventdata)&gt; | 是 | 回调函数，指定要取消订阅的事件处理函数。 |
+| callback | Callback&lt;EventData&gt; | 是 | 回调函数，指定要取消订阅的事件处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
 let callback: Callback<emitter.EventData> = (eventData: emitter.EventData) => {
   console.info(`eventData: ${JSON.stringify(eventData)}`);
-};
+}
 
-emitter1.off('eventId', callback);
+emitter1.off("eventId", callback);
 ```
 
 
-### off22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
+##### off22+
+
+off&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
 取消订阅当前Emitter类实例的事件。仅当已使用[on](#on22-1)或[once](#once22-1)接口订阅了事件ID为eventId且回调处理函数为callback的事件时，该接口才生效。
 
@@ -1080,17 +1020,15 @@ off<T>(eventId: string, callback: Callback<GenericEventData<T>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| callback | Callback&lt;[GenericEventData&lt;T&gt;](#genericeventdatat12)&gt; | 是 | 回调函数，指定要取消订阅的事件处理函数。 |
+| callback | Callback<GenericEventData&lt;T&gt;> | 是 | 回调函数，指定要取消订阅的事件处理函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Callback } from '@kit.BasicServicesKit';
 
 @Sendable
@@ -1106,21 +1044,19 @@ class Sample {
 
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
-let callback: Callback<emitter.GenericEventData<Sample>> = (
-  eventData: emitter.GenericEventData<Sample>,
-): void => {
+let callback: Callback<emitter.GenericEventData<Sample>> = (eventData: emitter.GenericEventData<Sample>): void => {
   console.info(`eventData: ${JSON.stringify(eventData?.data)}`);
   if (eventData?.data instanceof Sample) {
     eventData?.data?.printCount();
   }
-};
+}
 
-emitter1.off('eventId', callback);
+emitter1.off("eventId", callback);
 ```
 
 
-### emit22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emit22+
 
 emit(eventId: string, data?: EventData): void
 
@@ -1136,33 +1072,31 @@ emit(eventId: string, data?: EventData): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| data | [EventData](#eventdata) | 否 | 事件携带的数据，默认为空。 |
+| data | EventData | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let emitter1: emitter.Emitter = new emitter.Emitter();
 let eventData: emitter.EventData = {
   data: {
-    content: 'content',
-    id: 1,
-  },
+  "content": "content",
+  "id": 1,
+  }
 };
 
-emitter1.emit('eventId', eventData);
+emitter1.emit("eventId", eventData);
 ```
 
 
-### emit22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-emit<T>(eventId: string, data?: GenericEventData<T>): void
+##### emit22+
+
+emit&lt;T&gt;(eventId: string, data?: GenericEventData&lt;T&gt;): void
 
 发送指定事件到当前Emitter类实例。
 
@@ -1176,17 +1110,15 @@ emit<T>(eventId: string, data?: GenericEventData<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| data | [GenericEventData&lt;T&gt;](#genericeventdatat12) | 否 | 事件携带的数据，默认为空。 |
+| data | GenericEventData&lt;T&gt; | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Sendable
 class Sample {
   constructor() {
@@ -1201,15 +1133,15 @@ class Sample {
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
 let eventData: emitter.GenericEventData<Sample> = {
-  data: new Sample(),
+  data: new Sample()
 };
 
-emitter1.emit('eventId', eventData);
+emitter1.emit("eventId", eventData);
 ```
 
 
-### emit22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### emit22+
 
 emit(eventId: string, options: Options, data?: EventData): void
 
@@ -1225,38 +1157,36 @@ emit(eventId: string, options: Options, data?: EventData): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| options | [Options](#options11) | 是 | 事件优先级。 |
-| data | [EventData](#eventdata) | 否 | 事件携带的数据，默认为空。 |
+| options | Options | 是 | 事件优先级。 |
+| data | EventData | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
 let options: emitter.Options = {
-  priority: emitter.EventPriority.HIGH,
+  priority: emitter.EventPriority.HIGH
 };
 let eventData: emitter.EventData = {
   data: {
-    content: 'content',
-    id: 1,
-  },
+  "content": "content",
+  "id": 1,
+  }
 };
 
-emitter1.emit('eventId', options, eventData);
+emitter1.emit("eventId", options, eventData);
 ```
 
 
-### emit22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void
+##### emit22+
+
+emit&lt;T&gt;(eventId: string, options: Options, data?: GenericEventData&lt;T&gt;): void
 
 发送指定优先级事件到当前Emitter类实例。
 
@@ -1270,18 +1200,16 @@ emit<T>(eventId: string, options: Options, data?: GenericEventData<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 发送的事件ID。取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
-| options | [Options](#options11) | 是 | 事件优先级。 |
-| data | [GenericEventData&lt;T&gt;](#genericeventdatat12) | 否 | 事件携带的数据，默认为空。 |
+| options | Options | 是 | 事件优先级。 |
+| data | GenericEventData&lt;T&gt; | 否 | 事件携带的数据，默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Sendable
 class Sample {
   constructor() {
@@ -1296,18 +1224,18 @@ class Sample {
 let emitter1: emitter.Emitter = new emitter.Emitter();
 
 let options: emitter.Options = {
-  priority: emitter.EventPriority.HIGH,
+  priority: emitter.EventPriority.HIGH
 };
 let eventData: emitter.GenericEventData<Sample> = {
-  data: new Sample(),
+  data: new Sample()
 };
 
-emitter1.emit('eventId', options, eventData);
+emitter1.emit("eventId", options, eventData);
 ```
 
 
-### getListenerCount22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getListenerCount22+
 
 getListenerCount(eventId: string): number
 
@@ -1319,14 +1247,12 @@ getListenerCount(eventId: string): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventId | string | 是 | 事件ID，取值为长度不超过10240字节的自定义字符串，且不可为空字符。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1335,8 +1261,7 @@ getListenerCount(eventId: string): number
 
 **示例：**
 
-
-```ts
+```text
 let emitter1: emitter.Emitter = new emitter.Emitter();
-let count = emitter1.getListenerCount('eventId');
+let count = emitter1.getListenerCount("eventId");
 ```

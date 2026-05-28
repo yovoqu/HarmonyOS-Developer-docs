@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-multimedia-use-stride-in-image-receiver
 
 在使用ImageReceiver组件中[readNextImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver#readnextimage9)接口时，建议设置且调用rowStride属性，避免出现相机获取预览流数据异常的问题。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -18,14 +17,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -43,8 +44,8 @@ function onImageArrival(receiver: image.ImageReceiver): void {
           console.error('getComponent failed');
         }
         if (imgComponent.byteBuffer) {
-          let width = nextImage.size.width;
-          let height = nextImage.size.height;
+          let width = nextImage.size.width; 
+          let height = nextImage.size.height; 
           let stride = imgComponent.rowStride;  // 调用rowStride
           console.debug(`getComponent with width:${width} height:${height} stride:${stride}`);
           if (stride == width) {
@@ -55,45 +56,63 @@ function onImageArrival(receiver: image.ImageReceiver): void {
           } else {
             const dstBufferSize = width * height * 1.5
             const dstArr = new Uint8Array(dstBufferSize)
-            for (let j = 0; j
+            for (let j = 0; j < height * 1.5; j++) {
+              const srcBuf = new Uint8Array(imgComponent.byteBuffer, j * stride, width)
+              dstArr.set(srcBuf, j * width)
+            }
+            let pixelMap = await image.createPixelMap(dstArr.buffer, {
+              size: { height: height, width: width },
+              srcPixelFormat: 8,
+            })
+          }
+        } else {
+          console.error('byteBuffer is null');
+        }
+        nextImage.release();
+      })
+    })
+  })
+}
+```
+ 
+ 
 
-## 反例
-
+##### 反例
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 
 function onImageArrival(receiver: image.ImageReceiver): void {
-receiver.on('imageArrival', () => {
-receiver.readNextImage((err: BusinessError, nextImage: image.Image) => {
-if (err || nextImage === undefined) {
-console.error('readNextImage failed');
-return;
-}
-nextImage.getComponent(image.ComponentType.JPEG, async (err: BusinessError, imgComponent: image.Component) => {
-if (err || imgComponent === undefined) {
-console.error('getComponent failed');
-}
-if (imgComponent.byteBuffer) {
-let width = nextImage.size.width;
-let height = nextImage.size.height; // 未调用rowStride
-} else {
-console.error('byteBuffer is null');
-}
-nextImage.release();
-})
-})
-})
+  receiver.on('imageArrival', () => {
+    receiver.readNextImage((err: BusinessError, nextImage: image.Image) => {
+      if (err || nextImage === undefined) {
+        console.error('readNextImage failed');
+        return;
+      }
+      nextImage.getComponent(image.ComponentType.JPEG, async (err: BusinessError, imgComponent: image.Component) => {
+        if (err || imgComponent === undefined) {
+          console.error('getComponent failed');
+        }
+        if (imgComponent.byteBuffer) {
+          let width = nextImage.size.width;
+          let height = nextImage.size.height; // 未调用rowStride
+        } else {
+          console.error('byteBuffer is null');
+        }
+        nextImage.release();
+      })
+    })
+  })
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@correctness/all
+<span style="color: rgb(80,160,79);">plugin:@correctness/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

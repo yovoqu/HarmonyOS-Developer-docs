@@ -3,31 +3,32 @@
 更新时间：2026-04-08 07:25:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webhttpbodystream
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 POST、PUT请求的数据体，支持BYTES、FILE、BLOB、CHUNKED类型的数据。注意本类中其他接口需要在[initialize](#initialize12)成功后才能调用。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 12开始支持。 示例效果请以真机运行为准。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { webview } from '@kit.ArkWeb';
 ```
 
 
-## initialize12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-initialize(): Promise<void>
+##### initialize12+
+
+initialize(): Promise&lt;void&gt;
 
 初始化WebHttpBodyStream。
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -38,7 +39,6 @@ initialize(): Promise<void>
 
 以下错误码的详细介绍请参见[Webview错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100022 | Failed to initialize the HTTP body stream. |
@@ -46,8 +46,7 @@ initialize(): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -63,75 +62,75 @@ struct WebComponent {
   build() {
     Column() {
       Button('postUrl')
-      .onClick(() => {
-        try {
-          let postData = buffer.from(this.htmlData);
-          this.controller.postUrl('https://www.example.com', postData.buffer);
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
+        .onClick(() => {
+          try {
+            let postData = buffer.from(this.htmlData);
+            this.controller.postUrl('https://www.example.com', postData.buffer);
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
       Web({ src: 'https://www.example.com', controller: this.controller })
-      .onControllerAttached(() => {
-        try {
-          this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest, resourceHandler: webview.WebResourceHandler) => {
-            console.info("[schemeHandler] onRequestStart");
-            try {
-              let stream = request.getHttpBodyStream();
-              if (stream) {
-                stream.initialize().then(() => {
-                  if (!stream) {
-                    return;
-                  }
-                  console.info("[schemeHandler] onRequestStart postDataStream size:" + stream.getSize());
-                  console.info("[schemeHandler] onRequestStart postDataStream position:" + stream.getPosition());
-                  console.info("[schemeHandler] onRequestStart postDataStream isChunked:" + stream.isChunked());
-                  console.info("[schemeHandler] onRequestStart postDataStream isEof:" + stream.isEof());
-                  console.info("[schemeHandler] onRequestStart postDataStream isInMemory:" + stream.isInMemory());
-                  stream.read(stream.getSize()).then((buffer) => {
+        .onControllerAttached(() => {
+          try {
+            this.schemeHandler.onRequestStart((request: webview.WebSchemeHandlerRequest, resourceHandler: webview.WebResourceHandler) => {
+              console.info("[schemeHandler] onRequestStart");
+              try {
+                let stream = request.getHttpBodyStream();
+                if (stream) {
+                  stream.initialize().then(() => {
                     if (!stream) {
                       return;
                     }
-                    console.info("[schemeHandler] onRequestStart postDataStream readlength:" + buffer.byteLength);
-                    console.info("[schemeHandler] onRequestStart postDataStream isEof:" + stream.isEof());
+                    console.info("[schemeHandler] onRequestStart postDataStream size:" + stream.getSize());
                     console.info("[schemeHandler] onRequestStart postDataStream position:" + stream.getPosition());
+                    console.info("[schemeHandler] onRequestStart postDataStream isChunked:" + stream.isChunked());
+                    console.info("[schemeHandler] onRequestStart postDataStream isEof:" + stream.isEof());
+                    console.info("[schemeHandler] onRequestStart postDataStream isInMemory:" + stream.isInMemory());
+                    stream.read(stream.getSize()).then((buffer) => {
+                      if (!stream) {
+                        return;
+                      }
+                      console.info("[schemeHandler] onRequestStart postDataStream readlength:" + buffer.byteLength);
+                      console.info("[schemeHandler] onRequestStart postDataStream isEof:" + stream.isEof());
+                      console.info("[schemeHandler] onRequestStart postDataStream position:" + stream.getPosition());
+                    }).catch((error: BusinessError) => {
+                      console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
+                    })
                   }).catch((error: BusinessError) => {
                     console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
                   })
-                }).catch((error: BusinessError) => {
-                  console.error(`ErrorCode: ${error.code},  Message: ${error.message}`);
-                })
-              } else {
-                console.info("[schemeHandler] onRequestStart has no http body stream");
+                } else {
+                  console.info("[schemeHandler] onRequestStart has no http body stream");
+                }
+              } catch (error) {
+                console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
               }
-            } catch (error) {
-              console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-            }
 
-            return false;
-          })
+              return false;
+            })
 
-          this.schemeHandler.onRequestStop((request: webview.WebSchemeHandlerRequest) => {
-            console.info("[schemeHandler] onRequestStop");
-          });
+            this.schemeHandler.onRequestStop((request: webview.WebSchemeHandlerRequest) => {
+              console.info("[schemeHandler] onRequestStop");
+            });
 
-          this.controller.setWebSchemeHandler('https', this.schemeHandler);
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
-      .javaScriptAccess(true)
-      .domStorageAccess(true)
+            this.controller.setWebSchemeHandler('https', this.schemeHandler);
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
+        .javaScriptAccess(true)
+        .domStorageAccess(true)
     }
   }
 }
 ```
 
 
-## read12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-read(size: number): Promise<ArrayBuffer>
+##### read12+
+
+read(size: number): Promise&lt;ArrayBuffer&gt;
 
 读取WebHttpBodyStream中的数据。
 
@@ -139,14 +138,12 @@ read(size: number): Promise<ArrayBuffer>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | size | number | 是 | 读取WebHttpBodyStream中的字节数。单位：字节。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -156,7 +153,6 @@ read(size: number): Promise<ArrayBuffer>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -168,8 +164,8 @@ read(size: number): Promise<ArrayBuffer>
 完整示例代码参考[initialize](#initialize12)。
 
 
-## getSize12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getSize12+
 
 getSize(): number
 
@@ -178,7 +174,6 @@ getSize(): number
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -190,8 +185,8 @@ getSize(): number
 完整示例代码参考[initialize](#initialize12)。
 
 
-## getPosition12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getPosition12+
 
 getPosition(): number
 
@@ -200,7 +195,6 @@ getPosition(): number
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -212,8 +206,8 @@ getPosition(): number
 完整示例代码参考[initialize](#initialize12)。
 
 
-## isChunked12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isChunked12+
 
 isChunked(): boolean
 
@@ -222,7 +216,6 @@ WebHttpBodyStream是否采用分块传输。
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -234,8 +227,8 @@ WebHttpBodyStream是否采用分块传输。
 完整示例代码参考[initialize](#initialize12)。
 
 
-## isEof12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEof12+
 
 isEof(): boolean
 
@@ -245,10 +238,9 @@ isEof(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | WebHttpBodyStream中的所有数据是否都已被读取。          如果所有数据都已被读取，则返回true。对于分块传输类型的WebHttpBodyStream，在第一次读取尝试之前返回false。 |
+| boolean | WebHttpBodyStream中的所有数据是否都已被读取。 如果所有数据都已被读取，则返回true。对于分块传输类型的WebHttpBodyStream，在第一次读取尝试之前返回false。 |
 
 
 **示例：**
@@ -256,8 +248,8 @@ isEof(): boolean
 完整示例代码参考[initialize](#initialize12)。
 
 
-## isInMemory12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isInMemory12+
 
 isInMemory(): boolean
 
@@ -267,10 +259,9 @@ isInMemory(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | WebHttpBodyStream中的上传数据是否在内存中。          如果WebHttpBodyStream中的上传数据完全在内存中，并且所有读取请求都将同步成功，则返回true。对于分块传输类型的数据，预期返回false。 |
+| boolean | WebHttpBodyStream中的上传数据是否在内存中。 如果WebHttpBodyStream中的上传数据完全在内存中，并且所有读取请求都将同步成功，则返回true。对于分块传输类型的数据，预期返回false。 |
 
 
 **示例：**

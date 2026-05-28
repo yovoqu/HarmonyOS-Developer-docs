@@ -6,15 +6,15 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除错误码 | 类名：GattClientDevice； API声明：getRssiValue(callback: AsyncCallback<number>): void; 差异内容：2900011 | 类名：GattClientDevice； API声明：getRssiValue(callback: AsyncCallback<number>): void; 差异内容：NA | api/@ohos.bluetooth.ble.d.ts |
-| 删除错误码 | 类名：GattClientDevice； API声明：getRssiValue(): Promise<number>; 差异内容：2900011 | 类名：GattClientDevice； API声明：getRssiValue(): Promise<number>; 差异内容：NA | api/@ohos.bluetooth.ble.d.ts |
+| 删除错误码 | 类名：GattClientDevice； API声明：getRssiValue(callback: AsyncCallback&lt;number&gt;): void; 差异内容：2900011 | 类名：GattClientDevice； API声明：getRssiValue(callback: AsyncCallback&lt;number&gt;): void; 差异内容：NA | api/@ohos.bluetooth.ble.d.ts |
+| 删除错误码 | 类名：GattClientDevice； API声明：getRssiValue(): Promise&lt;number&gt;; 差异内容：2900011 | 类名：GattClientDevice； API声明：getRssiValue(): Promise&lt;number&gt;; 差异内容：NA | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：GattServer； API声明：getService(serviceUuid: string): GattService; 差异内容：getService(serviceUuid: string): GattService; | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：GattServer； API声明：getServices(): GattService[]; 差异内容：getServices(): GattService[]; | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：GattServer； API声明：getConnectedState(deviceId: string): ProfileConnectionState; 差异内容：getConnectedState(deviceId: string): ProfileConnectionState; | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：GattClientDevice； API声明：getConnectedState(): ProfileConnectionState; 差异内容：getConnectedState(): ProfileConnectionState; | api/@ohos.bluetooth.ble.d.ts |
-| 新增API | NA | 类名：GattClientDevice； API声明：updateConnectionParam(param: ConnectionParam): Promise<void>; 差异内容：updateConnectionParam(param: ConnectionParam): Promise<void>; | api/@ohos.bluetooth.ble.d.ts |
-| 新增API | NA | 类名：GattClientDevice； API声明：on(type: 'serviceChange', callback: Callback<void>): void; 差异内容：on(type: 'serviceChange', callback: Callback<void>): void; | api/@ohos.bluetooth.ble.d.ts |
-| 新增API | NA | 类名：GattClientDevice； API声明：off(type: 'serviceChange', callback?: Callback<void>): void; 差异内容：off(type: 'serviceChange', callback?: Callback<void>): void; | api/@ohos.bluetooth.ble.d.ts |
+| 新增API | NA | 类名：GattClientDevice； API声明：updateConnectionParam(param: ConnectionParam): Promise&lt;void&gt;; 差异内容：updateConnectionParam(param: ConnectionParam): Promise&lt;void&gt;; | api/@ohos.bluetooth.ble.d.ts |
+| 新增API | NA | 类名：GattClientDevice； API声明：on(type: 'serviceChange', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'serviceChange', callback: Callback&lt;void&gt;): void; | api/@ohos.bluetooth.ble.d.ts |
+| 新增API | NA | 类名：GattClientDevice； API声明：off(type: 'serviceChange', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'serviceChange', callback?: Callback&lt;void&gt;): void; | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：ScanResult； API声明：advertiseFlags?: number; 差异内容：advertiseFlags?: number; | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：ScanResult； API声明：manufacturerDataMap?: Map<number, Uint8Array>; 差异内容：manufacturerDataMap?: Map<number, Uint8Array>; | api/@ohos.bluetooth.ble.d.ts |
 | 新增API | NA | 类名：ScanResult； API声明：serviceDataMap?: Map<string, Uint8Array>; 差异内容：serviceDataMap?: Map<string, Uint8Array>; | api/@ohos.bluetooth.ble.d.ts |

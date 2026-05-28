@@ -3,528 +3,738 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 显示图标小符号的组件。相关资源可参考[系统图标](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962)。
-
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 子组件
+  
+
+##### 子组件
+
 不支持子组件。
+ 
+  
 
-#### 接口
+##### 接口
+
 SymbolGlyph(value?: Resource)
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | SymbolGlyph组件的资源名，如 \$r('sys.symbol.ohos_wifi')。 |
-
-
-> [!NOTE] 说明
+| value | Resource | 否 | SymbolGlyph组件的资源名，如 \$r('sys.symbol.ohos_wifi')。 |
+ 
+ 
+> [!NOTE]
 > \$r('sys.symbol.ohos_wifi')中引用的资源为系统预置，SymbolGlyph仅支持系统预置的symbol资源名，引用非symbol资源将显示异常。
 
-#### 属性
+ 
+  
+
+##### 属性
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)，不支持文本通用属性，仅支持以下特有属性：
+ 
+  
 
-#### fontColor
+##### fontColor
+
 fontColor(value: Array&lt;ResourceColor&gt;)
+ 
 设置SymbolGlyph组件颜色。
+ 
+> [!NOTE]
+> 从API version 12开始，该接口支持在 attributeModifier 中调用。
 
-> [!NOTE] 说明
-> 从API version 12开始，该接口支持在attributeModifier中调用。
-
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array<[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)> | 是 | SymbolGlyph组件颜色。  默认值：不同渲染策略下默认值不同。 |
+| value | Array&lt;ResourceColor&gt; | 是 | SymbolGlyph组件颜色。 默认值：不同渲染策略下默认值不同。 |
+ 
+ 
+  
 
-#### fontSize
+##### fontSize
+
 fontSize(value: number | string | Resource)
+ 
 设置SymbolGlyph组件大小。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
+ 
 组件的图标显示大小由fontSize控制，设置width或height后，其他通用属性仅对组件的占位大小生效。
+ 
+> [!NOTE]
+> 从API version 12开始，该接口支持在 attributeModifier 中调用。
 
-> [!NOTE] 说明
-> 从API version 12开始，该接口支持在attributeModifier中调用。
-
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 是 | SymbolGlyph组件大小。 默认值：16fp 单位：fp 不支持设置百分比字符串。 |
+| value | number \| string \| Resource | 是 | SymbolGlyph组件大小。 默认值：16fp 单位：fp 不支持设置百分比字符串。 |
+ 
+ 
+  
 
-#### fontWeight
+##### fontWeight
+
 fontWeight(value: number | FontWeight | string)
+ 
 设置SymbolGlyph组件粗细。number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。
+ 
 sys.symbol.ohos_lungs图标不支持设置fontWeight。
+ 
+> [!NOTE]
+> 从API version 12开始，该接口支持在 attributeModifier 中调用。
 
-> [!NOTE] 说明
-> 从API version 12开始，该接口支持在attributeModifier中调用。
-
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| [FontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) \| string | 是 | SymbolGlyph组件粗细。 默认值：FontWeight.Normal |
+| value | number \| FontWeight \| string | 是 | SymbolGlyph组件粗细。 默认值：FontWeight.Normal |
+ 
+ 
+  
 
-#### renderingStrategy
+##### renderingStrategy
+
 renderingStrategy(value: SymbolRenderingStrategy)
+ 
 设置SymbolGlyph组件渲染策略。
+ 
+> [!NOTE]
+> 从API version 12开始，该接口支持在 attributeModifier 中调用。
 
-> [!NOTE] 说明
-> 从API version 12开始，该接口支持在attributeModifier中调用。
-
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [SymbolRenderingStrategy](#symbolrenderingstrategy11枚举说明) | 是 | SymbolGlyph组件渲染策略。 默认值：SymbolRenderingStrategy.SINGLE |
-
+| value | SymbolRenderingStrategy | 是 | SymbolGlyph组件渲染策略。 默认值：SymbolRenderingStrategy.SINGLE |
+ 
+ 
 不同渲染策略效果可参考以下示意图。
+ 
 
-![](assets/SymbolGlyph/file-20260525091243419-001.png)
+![](assets/SymbolGlyph/file-20260525091243424-003.gif)
 
-#### effectStrategy
+ 
+  
+
+##### effectStrategy
+
 effectStrategy(value: SymbolEffectStrategy)
+ 
 设置SymbolGlyph组件动效策略。
+ 
+> [!NOTE]
+> 从API version 12开始，该接口支持在 attributeModifier 中调用。
 
-> [!NOTE] 说明
-> 从API version 12开始，该接口支持在attributeModifier中调用。
-
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [SymbolEffectStrategy](#symboleffectstrategy11枚举说明) | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffectStrategy.NONE |
+| value | SymbolEffectStrategy | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffectStrategy.NONE |
+ 
+ 
+  
 
-#### symbolEffect12+
+##### symbolEffect12+
+
 symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)
+ 
 设置SymbolGlyph组件动效策略及播放状态。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| symbolEffect | [SymbolEffect](#symboleffect12对象说明) | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffect |
+| symbolEffect | SymbolEffect | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffect |
 | isActive | boolean | 否 | SymbolGlyph组件动效播放状态。 true表示播放，false表示不播放。 默认值：false |
+ 
+ 
+  
 
-#### symbolEffect12+
+##### symbolEffect12+
+
 symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number)
+ 
 设置SymbolGlyph组件动效策略及播放触发器。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| symbolEffect | [SymbolEffect](#symboleffect12对象说明) | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffect |
+| symbolEffect | SymbolEffect | 是 | SymbolGlyph组件动效策略。 默认值：SymbolEffect |
 | triggerValue | number | 否 | SymbolGlyph组件动效播放触发器，在数值变更时触发动效。 如果首次不希望触发动效，设置-1。 |
-
-
-> [!NOTE] 说明
+ 
+ 
+> [!NOTE]
 > 动效属性，仅支持使用effectStrategy属性或单个symbolEffect属性，不支持多种动效属性混合使用。
 
-#### minFontScale18+
+ 
+  
+
+##### minFontScale18+
+
 minFontScale(scale: Optional<number | Resource>)
+ 
 设置SymbolGlyph组件最小的字体缩放倍数。
+ 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)> | 是 | SymbolGlyph组件最小的字体缩放倍数。 取值范围：[0, 1]  设置为0，缩放最小。 说明：  设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。 |
+| scale | Optional<number \| Resource> | 是 | SymbolGlyph组件最小的字体缩放倍数。 取值范围：[0, 1] 设置为0，缩放最小。 说明： 设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。 |
+ 
+ 
+  
 
-#### maxFontScale18+
+##### maxFontScale18+
+
 maxFontScale(scale: Optional<number | Resource>)
+ 
 设置SymbolGlyph组件最大的字体缩放倍数。
+ 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scale | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)> | 是 | SymbolGlyph组件最大的字体缩放倍数。 取值范围：[1, +∞) 说明：  设置的值小于1时，按值为1处理，异常值默认不生效。 |
+| scale | Optional<number \| Resource> | 是 | SymbolGlyph组件最大的字体缩放倍数。 取值范围：[1, +∞) 说明： 设置的值小于1时，按值为1处理，异常值默认不生效。 |
+ 
+ 
+  
 
-#### shaderStyle20+
+##### shaderStyle20+
+
 shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle)
+ 
 设置SymbolGlyph组件的渐变色效果。
+ 
 可以显示为径向渐变[RadialGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#radialgradientstyle20)或线性渐变[LinearGradientStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#lineargradientstyle20)或纯色[ColorShaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#colorshaderstyle20)的效果，shaderStyle的优先级高于[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)和AI识别，纯色建议使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)。
+ 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shader | Array<[ShaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#shaderstyle20) \| undefined> \| [ShaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#shaderstyle20) | 是 | 径向渐变或线性渐变或纯色。 传入ShaderStyle时，覆盖所有层；传入数组时，数据项是ShaderStyle，则应用该层；数组项是undefined，则该层使用SymbolGlyph默认颜色，未设置的层也应用默认颜色。根据传入的参数区分处理径向渐变RadialGradientStyle或线性渐变LinearGradientStyle或纯色ColorShaderStyle，最终设置到SymbolGlyph组件上显示为渐变色效果。 说明：  单位：vp 中心点请按百分比使用。如果使用的是非百分比（例如10PX），效果等同于设置1000%。 半径建议使用百分比。 百分比是基于图标大小的百分比，建议取值范围[0, 1)。 |
+| shader | Array<ShaderStyle \| undefined> \| ShaderStyle | 是 | 径向渐变或线性渐变或纯色。 传入ShaderStyle时，覆盖所有层；传入数组时，数据项是ShaderStyle，则应用该层；数组项是undefined，则该层使用SymbolGlyph默认颜色，未设置的层也应用默认颜色。根据传入的参数区分处理径向渐变RadialGradientStyle或线性渐变LinearGradientStyle或纯色ColorShaderStyle，最终设置到SymbolGlyph组件上显示为渐变色效果。 说明： 单位：vp 中心点请按百分比使用。如果使用的是非百分比（例如10PX），效果等同于设置1000%。 半径建议使用百分比。 百分比是基于图标大小的百分比，建议取值范围[0, 1)。 |
+ 
+ 
+  
 
-#### symbolShadow20+
+##### symbolShadow20+
+
 symbolShadow(shadow: Optional&lt;ShadowOptions&gt;)
+ 
 设置SymbolGlyph组件的阴影效果。
+ 
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| shadow | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)<[ShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowoptions对象说明)> | 是 | SymbolGlyph组件的阴影效果。 单位：vp 默认值：{ radius：0, color：Color.Black, offsetX：0, offsetY：0 }  不支持fill、type属性和color中的ColoringStrategy枚举值。 |
+| shadow | Optional&lt;ShadowOptions&gt; | 是 | SymbolGlyph组件的阴影效果。 单位：vp 默认值：{ radius：0, color：Color.Black, offsetX：0, offsetY：0 } 不支持fill、type属性和color中的ColoringStrategy枚举值。 |
+ 
+ 
+  
 
-#### ScaleSymbolEffect12+
+##### ScaleSymbolEffect12+
+
 ScaleSymbolEffect继承自父类SymbolEffect。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### 属性
-
+##### 属性
+ 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | [EffectDirection](#effectdirection12枚举说明) | 否 | 是 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 是 | 动效方向。 默认值：EffectDirection.DOWN |
+ 
+ 
+  
 
-#### constructor12+
+##### constructor12+
+
 constructor(scope?: EffectScope, direction?: EffectDirection)
+ 
 ScaleSymbolEffect的构造函数，缩放动效。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | [EffectDirection](#effectdirection12枚举说明) | 否 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 动效方向。 默认值：EffectDirection.DOWN |
+ 
+ 
+  
 
-#### HierarchicalSymbolEffect12+
+##### HierarchicalSymbolEffect12+
+
 HierarchicalSymbolEffect继承自父类SymbolEffect。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### 属性
-
+##### 属性
+ 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fillStyle | [EffectFillStyle](#effectfillstyle12枚举说明) | 否 | 是 | 动效模式。 默认值：EffectFillStyle.CUMULATIVE |
+| fillStyle | EffectFillStyle | 否 | 是 | 动效模式。 默认值：EffectFillStyle.CUMULATIVE |
+ 
+ 
+  
 
-#### constructor12+
+##### constructor12+
+
 constructor(fillStyle?: EffectFillStyle)
+ 
 HierarchicalSymbolEffect的构造函数，层级动效。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| fillStyle | [EffectFillStyle](#effectfillstyle12枚举说明) | 否 | 动效模式。 默认值：EffectFillStyle.CUMULATIVE |
+| fillStyle | EffectFillStyle | 否 | 动效模式。 默认值：EffectFillStyle.CUMULATIVE |
+ 
+ 
+  
 
-#### AppearSymbolEffect12+
+##### AppearSymbolEffect12+
+
 AppearSymbolEffect继承自父类SymbolEffect。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### 属性
-
+##### 属性
+ 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+ 
+ 
+  
 
-#### constructor12+
+##### constructor12+
+
 constructor(scope?: EffectScope)
+ 
 AppearSymbolEffect的构造函数，出现动效。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+ 
+ 
+  
 
-#### DisappearSymbolEffect12+
+##### DisappearSymbolEffect12+
+
 DisappearSymbolEffect继承自父类SymbolEffect。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### 属性
-
+##### 属性
+ 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+ 
+ 
+  
 
-#### constructor12+
+##### constructor12+
+
 constructor(scope?: EffectScope)
+ 
 DisappearSymbolEffect的构造函数，消失动效。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+ 
+ 
+  
 
-#### BounceSymbolEffect12+
+##### BounceSymbolEffect12+
+
 BounceSymbolEffect继承自父类SymbolEffect。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### 属性
-
+##### 属性
+ 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | [EffectDirection](#effectdirection12枚举说明) | 否 | 是 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 是 | 动效方向。 默认值：EffectDirection.DOWN |
+ 
+ 
+  
 
-#### constructor12+
+##### constructor12+
+
 constructor(scope?: EffectScope, direction?: EffectDirection)
+ 
 BounceSymbolEffect的构造函数，弹跳动效。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 动效范围。 默认值：EffectScope.LAYER |
-| direction | [EffectDirection](#effectdirection12枚举说明) | 否 | 动效方向。 默认值：EffectDirection.DOWN |
+| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| direction | EffectDirection | 否 | 动效方向。 默认值：EffectDirection.DOWN |
+ 
+ 
+  
 
-#### ReplaceSymbolEffect12+
+##### ReplaceSymbolEffect12+
+
 ReplaceSymbolEffect继承自父类SymbolEffect。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
-#### 属性
-**系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER  卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。  元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| replaceType^20+ | [ReplaceEffectType](#replaceeffecttype20枚举说明) | 否 | 是 | 替换动效类型。 默认值：ReplaceEffectType.SEQUENTIAL  卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。  元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| scope | EffectScope | 否 | 是 | 动效范围。 默认值：EffectScope.LAYER 卡片能力： 从API version 12开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| replaceType20+ | ReplaceEffectType | 否 | 是 | 替换动效类型。 默认值：ReplaceEffectType.SEQUENTIAL 卡片能力： 从API version 20开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+ 
+ 
+  
 
-#### constructor12+
+##### constructor12+
+
 constructor(scope?: EffectScope)
+ 
 ReplaceSymbolEffect的构造函数，替换动效。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+ 
+ 
+  
 
-#### constructor20+
+##### constructor20+
+
 constructor(scope?: EffectScope, replaceType?: ReplaceEffectType)
+ 
 ReplaceSymbolEffect的构造函数，替换动效。支持指定具体的替换动效类型。
+ 
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scope | [EffectScope](#effectscope12枚举说明) | 否 | 动效范围。 默认值：EffectScope.LAYER |
-| replaceType | [ReplaceEffectType](#replaceeffecttype20枚举说明) | 否 | 替换动效类型。 默认值：ReplaceEffectType.SEQUENTIAL |
+| scope | EffectScope | 否 | 动效范围。 默认值：EffectScope.LAYER |
+| replaceType | ReplaceEffectType | 否 | 替换动效类型。 默认值：ReplaceEffectType.SEQUENTIAL |
+ 
+ 
+  
 
-#### SymbolEffectStrategy11+枚举说明
+##### SymbolEffectStrategy11+枚举说明
+
 动效类型的枚举值。设置动效后，动效启动即生效，无需触发。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NONE | 0 | 无动效（默认值）。 |
 | SCALE | 1 | 整体缩放动效。 |
 | HIERARCHICAL | 2 | 层级动效。 |
+ 
+ 
+  
 
-#### SymbolRenderingStrategy11+枚举说明
+##### SymbolRenderingStrategy11+枚举说明
+
 渲染模式的枚举值。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| SINGLE | 0 | 单色模式（默认值）。  可以设置一个或者多个颜色，默认为黑色。  当设置多个颜色时，仅生效第一个颜色。 |
-| MULTIPLE_COLOR | 1 | 多色模式。  最多可以设置三个颜色。当只设置一个颜色时，修改symbol图标的第一层颜色，其他颜色保持默认颜色。  颜色设置顺序与图标分层顺序匹配，当颜色数量大于图标分层时，多余的颜色不生效。 |
-| MULTIPLE_OPACITY | 2 | 分层模式。  默认为黑色，可以设置一个或者多个颜色。当设置多个颜色时，仅生效第一个颜色。 不透明度与图层相关，symbol通用图标的默认第一层透明度为100%、第二层透明度为50%、第三层透明度为20%。当设置的颜色包含透明度时，设置的透明度与每个图层的默认透明度进行叠加。 |
+| SINGLE | 0 | 单色模式（默认值）。 可以设置一个或者多个颜色，默认为黑色。 当设置多个颜色时，仅生效第一个颜色。 |
+| MULTIPLE_COLOR | 1 | 多色模式。 最多可以设置三个颜色。当只设置一个颜色时，修改symbol图标的第一层颜色，其他颜色保持默认颜色。 颜色设置顺序与图标分层顺序匹配，当颜色数量大于图标分层时，多余的颜色不生效。 |
+| MULTIPLE_OPACITY | 2 | 分层模式。 默认为黑色，可以设置一个或者多个颜色。当设置多个颜色时，仅生效第一个颜色。 不透明度与图层相关，symbol通用图标的默认第一层透明度为100%、第二层透明度为50%、第三层透明度为20%。当设置的颜色包含透明度时，设置的透明度与每个图层的默认透明度进行叠加。 |
+ 
+ 
+  
 
-#### SymbolEffect12+对象说明
+##### SymbolEffect12+对象说明
+
 定义SymbolEffect类。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### PulseSymbolEffect12+对象说明
+##### PulseSymbolEffect12+对象说明
+
 PulseSymbolEffect继承自父类SymbolEffect，脉冲动效。
+ 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+ 
+  
 
-#### EffectDirection12+枚举说明
+##### EffectDirection12+枚举说明
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DOWN | 0 | 图标缩小再复原。 |
 | UP | 1 | 图标放大再复原。 |
+ 
+ 
+  
 
-#### EffectScope12+枚举说明
+##### EffectScope12+枚举说明
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | LAYER | 0 | 分层模式。 |
 | WHOLE | 1 | 整体模式。 |
+ 
+ 
+  
 
-#### EffectFillStyle12+枚举说明
+##### EffectFillStyle12+枚举说明
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CUMULATIVE | 0 | 累加模式。 |
 | ITERATIVE | 1 | 迭代模式。 |
+ 
+ 
+  
 
-#### ReplaceEffectType20+枚举说明
+##### ReplaceEffectType20+枚举说明
+
 替换动效类型的枚举值。
+ 
 **卡片能力：** 从API version 20开始，该接口支持在ArkTS卡片中使用。
-
+ 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SEQUENTIAL | 0 | 默认替换动效：当前symbol完全消失后，新symbol出现。 |
 | CROSS_FADE | 1 | 快速替换动效：当前symbol淡出的同时，新symbol淡入，产生更流畅、更快速的过渡效果。 |
 | SLASH_OVERLAY | 2 | 禁用动效：用带有斜杠遮罩层的symbol替换当前symbol，通常用于表示禁用或非活动状态。 |
+ 
+ 
+  
 
-#### 事件
+##### 事件
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ 
+  
 
-#### 示例
-#### 示例1（设置渲染和动效策略）
+##### 示例
+
+  
+
+##### 示例1（设置渲染和动效策略）
+
 从API version 11开始，该示例通过[renderingStrategy](#renderingstrategy)、[effectStrategy](#effectstrategy)属性展示了不同的渲染和动效策略。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -606,13 +816,18 @@ struct Index {
   }
 }
 ```
+ 
 
-![](assets/SymbolGlyph/file-20260525091243424-002.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/U-nmltmeTPSVH7vSJ1mtUw/zh-cn_image_0000002611835781.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013933Z&HW-CC-Expire=86400&HW-CC-Sign=3D17C6C7FEA94D5FC1C58AE1520638C6B87D30A2430FEFBE827AC633795B3961)
 
-#### 示例2（设置动效和阴影）
+ 
+  
+
+##### 示例2（设置动效和阴影）
+
 从API version 12开始，该示例通过[symbolEffect](#symboleffect12)属性展示了各种动效的效果以及结合[symbolShadow](#symbolshadow20)（从API version 20开始）的阴影效果。
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -709,13 +924,18 @@ struct Index {
   }
 }
 ```
+ 
 
-![](assets/SymbolGlyph/file-20260525091243424-003.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/X5Ra7hn6QomNDuPqgX7ZFA/zh-cn_image_0000002581276034.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013933Z&HW-CC-Expire=86400&HW-CC-Sign=E52E6CD5C14B44BD007506F7874A14EA26DF49A6CBF4D2DAEA764B45FD4B10AC)
 
-#### 示例3（设置颜色渐变）
+ 
+  
+
+##### 示例3（设置颜色渐变）
+
 从API version 20开始，该示例通过[shaderStyle](#shaderstyle20)接口实现了symbolGlyph组件显示为渐变色的功能。
-
-```ts
+ 
+```text
 @Entry
 @Component
 struct Index {
@@ -849,5 +1069,6 @@ struct Index {
   }
 }
 ```
+ 
 
-![](assets/SymbolGlyph/file-20260525091243425-004.jpeg)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/omjLwxSAS_iUKuJYy5KeEg/zh-cn_image_0000002611755889.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013933Z&HW-CC-Expire=86400&HW-CC-Sign=43A1590ADC58229CE01ADA92F577D01F9003D47F0834A68A336B37A37A62387C)

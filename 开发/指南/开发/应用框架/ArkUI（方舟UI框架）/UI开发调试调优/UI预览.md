@@ -10,40 +10,98 @@ DevEco Studio为开发者提供了UI预览功能，方便查看UI效果并随时
 ![](assets/UI预览/file-20260514130808233-1.png)
 表示组件预览。
 
-
 > [!NOTE]
 > 操作系统和真机设备的差异可能导致预览效果与真机效果不同。预览效果仅作参考，实际效果以真机为准。
 
+
 **图1** 预览图标
 
-![](assets/UI预览/file-20260514130808233-2.png)
+
+![](assets/UI预览/file-20260514130808233-11.gif)
 
 
-## 页面预览
 
-ArkTS应用/元服务均支持页面预览。页面预览通过在工程的ets文件中，给自定义组件添加[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)装饰器，即可以查看当前UI页面效果。 启动方式：选中需要预览的ets页面，点击右侧侧边栏的Previewer按钮，启动页面预览。 热加载：在启动页面预览的前提下，添加、删除或修改UI组件后，通过Ctrl+S保存，预览器会同步刷新预览效果，无需重新启动预览。 路由能力：支持通过路由能力进行页面切换查看其它页面预览效果。 在页面预览的基础上，提供了极速预览和Inspector双向预览两种特性。下面将详细说明这两种特性。
+##### 页面预览
 
-## 极速预览
+ArkTS应用/元服务均支持页面预览。页面预览通过在工程的ets文件中，给自定义组件添加[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)装饰器，即可以查看当前UI页面效果。
+
+ - 启动方式：选中需要预览的ets页面，点击右侧侧边栏的Previewer按钮，启动页面预览。
+ - 热加载：在启动页面预览的前提下，添加、删除或修改UI组件后，通过Ctrl+S保存，预览器会同步刷新预览效果，无需重新启动预览。
+ - 路由能力：支持通过路由能力进行页面切换查看其它页面预览效果。
+
+
+在页面预览的基础上，提供了极速预览和Inspector双向预览两种特性。下面将详细说明这两种特性。
+
+
+
+##### 极速预览
 
 支持在修改组件的属性时，无需使用Ctrl+S进行保存，可以直接观察到修改后的预览效果。极速预览默认开启，若需关闭，点击预览器右上角按钮
-![](assets/UI预览/file-20260514130808233-3.png)
+![](assets/UI预览/file-20260514130808233-2.png)
 即可。
-![](assets/UI预览/file-20260514130808233-4.png)
-部分应用场景不支持极速预览： 不显示的组件。 新增或删除组件。 包含private变量或无类型的controller的组件。 使用了[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)、[@Style](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style)、[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)等装饰器的组件。 修改使用import导入外部组件/模块的组件。 修改状态变量。 效果如图2所示： **图2** 极速预览演示图
-![](assets/UI预览/file-20260514130808233-5.gif)
 
-## inspector双向预览
+
+![](assets/UI预览/file-20260514130808233-3.png)
+
+
+部分应用场景不支持极速预览：
+
+ - 不显示的组件。
+ - 新增或删除组件。
+ - 包含private变量或无类型的controller的组件。
+ - 使用了[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)、[@Style](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style)、[@Extend](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend)等装饰器的组件。
+ - 修改使用import导入外部组件/模块的组件。
+ - 修改状态变量。
+
+
+
+
+效果如图2所示：
+
+**图2** 极速预览演示图
+
+
+![](assets/UI预览/file-20260514130808233-4.png)
+
+
+
+
+##### inspector双向预览
 
 支持ets文件与预览器的双向预览。使用时，点击预览器界面图标
+![](assets/UI预览/file-20260514130808233-5.gif)
+开启双向预览功能。
+
+开启双向预览功能后，支持代码编辑器、UI界面和组件树之间的联动：
+1. 选中预览器界面中的组件，组件树上对应的组件将被选中，同时代码编辑器中的布局文件中对应的代码块高亮显示。
+2. 选中布局文件中的代码块，预览器界面将高亮显示，组件树上的组件节点将呈现被选中的状态。
+3. 选中组件树中的组件，对应的代码块和预览器界面将高亮显示。
+4. 在预览界面，通过组件的属性面板修改可修改的属性或样式。预览界面的修改会自动同步到代码编辑器中，并实时刷新预览器界面。代码编辑器中的源码修改也会实时刷新预览器界面，并更新组件树信息及组件属性。
+
+效果如图3所示：
+
+**图3** inspector双向预览演示图
+
+
 ![](assets/UI预览/file-20260514130808233-6.png)
-开启双向预览功能。 开启双向预览功能后，支持代码编辑器、UI界面和组件树之间的联动： 选中预览器界面中的组件，组件树上对应的组件将被选中，同时代码编辑器中的布局文件中对应的代码块高亮显示。 选中布局文件中的代码块，预览器界面将高亮显示，组件树上的组件节点将呈现被选中的状态。 选中组件树中的组件，对应的代码块和预览器界面将高亮显示。 在预览界面，通过组件的属性面板修改可修改的属性或样式。预览界面的修改会自动同步到代码编辑器中，并实时刷新预览器界面。代码编辑器中的源码修改也会实时刷新预览器界面，并更新组件树信息及组件属性。 效果如图3所示： **图3** inspector双向预览演示图
+
+
+
+
+##### 组件预览
+
+ArkTS应用/元服务支持组件预览功能。组件预览通过在自定义组件前添加[@Preview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer#preview装饰器)装饰器实现。在单个源文件中，最多可以使用10个@Preview装饰自定义组件。启动方式：
+
+ - 当组件被@Entry和@Preview装饰时，点击右侧侧边栏的Previewer按钮，启动页面预览，页面加载成功后，点击
 ![](assets/UI预览/file-20260514130808233-7.gif)
+，切换到组件预览。
+ - 当组件仅被@Preview装饰时，点击右侧侧边栏的Previewer按钮，则默认为组件预览。
 
-## 组件预览
 
-ArkTS应用/元服务支持组件预览功能。组件预览通过在自定义组件前添加[@Preview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer#preview装饰器)装饰器实现。在单个源文件中，最多可以使用10个@Preview装饰自定义组件。启动方式： 当组件被@Entry和@Preview装饰时，点击右侧侧边栏的Previewer按钮，启动页面预览，页面加载成功后，点击
-![](assets/UI预览/file-20260514130808233-8.png)
-，切换到组件预览。 当组件仅被@Preview装饰时，点击右侧侧边栏的Previewer按钮，则默认为组件预览。 组件预览时，使用@Preview装饰器的默认属性（请参考[PreviewParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer#previewparams9)）进行效果显示。可以通过设置@Preview的参数，指定预览设备的相关属性，包括设备类型、屏幕形状等。 @Preview的使用参考如下示例：
+组件预览时，使用@Preview装饰器的默认属性（请参考[PreviewParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-previewer#previewparams9)）进行效果显示。可以通过设置@Preview的参数，指定预览设备的相关属性，包括设备类型、屏幕形状等。
+
+@Preview的使用参考如下示例：
+
 ```text
 @Entry
 @Preview
@@ -80,12 +138,25 @@ struct ComponentPreviewTwo {
 }
 ```
 
-效果如图4所示： **图4** 组件预览效果图
-![](assets/UI预览/file-20260514130808233-9.png)
+效果如图4所示：
 
-## 动态修改分辨率
+**图4** 组件预览效果图
+
+
+![](assets/UI预览/file-20260514130808233-8.png)
+
+
+
+
+##### 动态修改分辨率
 
 同一个应用/元服务可以运行在多个设备上，因不同设备的屏幕分辨率、形状、大小等不同，开发者需要在不同的设备上查看应用/元服务的UI布局和交互效果。预览支持动态修改分辨率，方便开发者随时查看不同设备上的页面显示效果。启动方式：启动页面预览后，点击右上角
-![](assets/UI预览/file-20260514130808233-10.png)
-，即可拖动页面选中框动态修改当前设备的屏幕大小。 效果如图5所示： **图5** 动态修改分辨率效果图
-![](assets/UI预览/file-20260514130808233-11.gif)
+![](assets/UI预览/file-20260514130808233-9.png)
+，即可拖动页面选中框动态修改当前设备的屏幕大小。
+
+效果如图5所示：
+
+**图5** 动态修改分辨率效果图
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/lxWF0DWqT5mkgP64Lq0WKQ/zh-cn_image_0000002611834057.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014747Z&HW-CC-Expire=86400&HW-CC-Sign=A9D39A932C56330A5177867FE1E7CCCF81786BF55ECD0370817276C8F1894EF9)

@@ -4,17 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-method-promise
 
-## 场景介绍
+##### 场景介绍
 
 当ArkTS的返回值为Promise时，可以按以下方式在创建的ArkTS运行环境中调用异步接口。
+ 
+  
 
-## 调用异步的ArkTS接口示例
+##### 调用异步的ArkTS接口示例
 
-使用C++通过NAPI调用返回Promise的ArkTS方法。 处理[Promise](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-promise)对象：将Promise与C++回调绑定，处理异步结果。 转换数据类型：在回调中将JavaScript结果转换为c++可用的数据。
+使用C++通过NAPI调用返回Promise的ArkTS方法。
+ 
+处理[Promise](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-promise)对象：将Promise与C++回调绑定，处理异步结果。
+ 
+转换数据类型：在回调中将JavaScript结果转换为c++可用的数据。
+ 
+  
 
-## 示例代码
+##### 示例代码
 
-模块注册
+- 模块注册
+
+  
 ```text
 #include "hilog/log.h"
 #include "napi/native_api.h"
@@ -106,14 +116,18 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule()
 }
 ```
 
-接口声明
-```text
+- 接口声明
+
+  
+```ts
 // index.d.ts
 export const callArkTSAsync: (func: Function) => void;
 ```
 
-CMakeLists.txt文件需要按照以下配置：
-```text
+- CMakeLists.txt文件需要按照以下配置：
+
+  
+```cpp
 // CMakeLists.txt
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.4.1)
@@ -135,12 +149,14 @@ add_library(entry SHARED napi_init.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 ```
 
-ArkTS代码示例
-```text
+- ArkTS代码示例
+
+  
+```ArkTS
 // index.ets
 import testNapi from 'libentry.so';
 
-export function SetTimeout() : Promise {
+export function SetTimeout() : Promise<number> {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(42);

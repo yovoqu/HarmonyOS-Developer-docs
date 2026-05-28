@@ -4,26 +4,36 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-launchapp
 
-## 场景介绍
+##### 场景介绍
 
-打开APP功能可以帮助调用对应Button组件打开另一个应用。 运行示例代码单击“打开APP”按钮，出现提示弹窗，单击“允许”，跳转至新的应用页面。
+打开APP功能可以帮助调用对应Button组件打开另一个应用。
+
+运行示例代码单击“打开APP”按钮，出现提示弹窗，单击“允许”，跳转至新的应用页面。
+
 > [!NOTE]
 > 弹窗是否弹出以及弹窗效果与跳转目标APP相关。
 
 
-## 约束与限制
+
+
+##### 约束与限制
 
 打开APP Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
 
-## 开发步骤
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { FunctionalButton, functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+2. 在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -67,6 +77,5 @@ struct Index {
 }
 ```
 
-
 > [!NOTE]
-> openType参数填写"functionalButtonComponentManager.OpenType.LAUNCH_APP"指定Button为打开APP类型。 openType为"functionalButtonComponentManager.OpenType.LAUNCH_APP"时，appParam参数必填。 "bundleName"为包名，"abilityName"为Ability名称。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onLaunchApp"。 可使用自定义Modifier设置按钮样式，参考示例。 其他参数请参考：FunctionalButton（Button组件）。
+> openType参数填写"functionalButtonComponentManager.OpenType.LAUNCH_APP"指定Button为打开APP类型。 openType为"functionalButtonComponentManager.OpenType.LAUNCH_APP"时，appParam参数必填。 "bundleName"为包名，"abilityName"为Ability名称。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onLaunchApp"。 可使用自定义Modifier设置按钮样式，参考 示例 。 其他参数请参考： FunctionalButton（Button组件） 。

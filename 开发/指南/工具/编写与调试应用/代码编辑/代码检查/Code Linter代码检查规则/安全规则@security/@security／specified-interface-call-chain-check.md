@@ -5,16 +5,15 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-specified-interface-call-chain-check
 
 该规则旨在标识指定接口的调用链，方便接口管理，调用链最大数量为5000。
-
-
+ 
 > [!NOTE]
-> code-linter.json5配置文件中的overrides字段对该规则不生效。
+> code-linter.json5配置文件中的 overrides 字段对该规则不生效。
 
+ 
 
-## 规则配置
+##### 规则配置
 
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -46,16 +45,20 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
+##### 正例
 
 下文中Absolute-Path1.ets为依赖代码：
-```text
+ 
+```ArkTS
 // Absolute-Path1.ets
 
 export class Cls1 {
@@ -67,21 +70,24 @@ export class Cls1 {
   }
 }
 ```
-
- 下文中Correct.ets为正例测试代码，依赖上文中Absolute-Path1.ets：
-```text
+ 
+下文中Correct.ets为正例测试代码，依赖上文中Absolute-Path1.ets：
+ 
+```ArkTS
 // Correct.ets
 
 import { Cls1 } from './Absolute-Path1';
 let testClass = new Cls1();
 testClass.func2();
 ```
+ 
+ 
 
-
-## 反例
+##### 反例
 
 下文中absolute-path-1.ets为依赖代码：
-```text
+ 
+```ArkTS
 // absolute-path-1.ets
 
 export class cls1 {
@@ -93,22 +99,23 @@ export class cls1 {
   }
 }
 ```
-
- 下文中incorrect.ets为反例测试代码，依赖上文中absolute-path-1.ets：
-```text
+ 
+下文中incorrect.ets为反例测试代码，依赖上文中absolute-path-1.ets：
+ 
+```ArkTS
 // incorrect.ets
 
 import { cls1 } from './absolute-path-1';
 let testClass = new cls1();
 testClass.func1();
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
 plugin:@security/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

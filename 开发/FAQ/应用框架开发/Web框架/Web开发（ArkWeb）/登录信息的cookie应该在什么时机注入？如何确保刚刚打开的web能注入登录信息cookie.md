@@ -4,25 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-26
 
-webview.once可以订阅一次指定类型Web事件的回调。一般在web初始化完成后可以注入。
-
-```ts
+[webview.once](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-f#webviewonce)可以订阅一次指定类型Web事件的回调。一般在web初始化完成后可以注入。
+ 
+```ArkTS
 import { webview } from '@kit.ArkWeb'
 
 webview.once("webInited", () => {
-console.log("setCookie");
-webview.WebCookieManager.configCookie("https://www.example.com", 'a=b,c=d,e=f');
+  console.log("setCookie");
+  webview.WebCookieManager.configCookie("https://www.example.com", 'a=b,c=d,e=f');
 })
 
 @Entry
 @Component
 struct WebComponent {
-controller: webview.WebviewController = new webview.WebviewController();
+  controller: webview.WebviewController = new webview.WebviewController();
 
-build() {
-Column() {
-Web({ src: 'www.example.com', controller: this.controller })
-}
-}
+  build() {
+    Column() {
+      Web({ src: 'www.example.com', controller: this.controller })
+    }
+  }
 }
 ```

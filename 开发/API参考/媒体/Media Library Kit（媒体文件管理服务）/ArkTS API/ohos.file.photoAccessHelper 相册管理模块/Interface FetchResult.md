@@ -1,28 +1,26 @@
 # Interface (FetchResult)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-fetchresult
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文件检索结果集。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 导入模块
 
-```ts
+```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
 
 
-## getCount
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### getCount
 
 getCount(): number
 
@@ -34,7 +32,6 @@ getCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 检索到的文件总数。 |
@@ -43,7 +40,6 @@ getCount(): number
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -55,28 +51,25 @@ getCount(): number
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getCountDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   let fetchCount = fetchResult.getCount();
   console.info('fetchCount = ', fetchCount);
 }
 ```
 
 
-## isAfterLast
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### isAfterLast
 
 isAfterLast(): boolean
 
@@ -88,16 +81,14 @@ isAfterLast(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 当读到最后一条记录后，后续没有记录返回true，否则返回false。 |
+| boolean | 当结果集指向最后一行时返回true，否则返回false。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -109,28 +100,21 @@ isAfterLast(): boolean
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   let fetchCount = fetchResult.getCount();
   console.info('count:' + fetchCount);
-  let photoAsset: photoAccessHelper.PhotoAsset =
-    await fetchResult.getLastObject();
+  let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getLastObject();
   if (fetchResult.isAfterLast()) {
-    console.info(
-      'photoAsset isAfterLast displayName = ',
-      photoAsset.displayName,
-    );
+    console.info('photoAsset isAfterLast displayName = ', photoAsset.displayName);
   } else {
     console.info('photoAsset not isAfterLast.');
   }
@@ -138,12 +122,12 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## close
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### close
 
 close(): void
 
-释放FetchResult实例并使其失效，无法再调用其他方法。
+释放FetchResult实例并使其失效，释放后无法再调用其他方法。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -153,7 +137,6 @@ close(): void
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900020 | Invalid argument. |
@@ -164,21 +147,18 @@ close(): void
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('fetchResultCloseDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   try {
-    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-      await phAccessHelper.getAssets(fetchOption);
+    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
     fetchResult.close();
     console.info('close succeed.');
   } catch (err) {
@@ -188,10 +168,10 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getFirstObject
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getFirstObject(callback: AsyncCallback<T>): void
+##### getFirstObject
+
+getFirstObject(callback: AsyncCallback&lt;T&gt;): void
 
 获取文件检索结果中的第一个文件资产。使用callback异步回调。
 
@@ -200,7 +180,6 @@ getFirstObject(callback: AsyncCallback<T>): void
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -211,7 +190,6 @@ getFirstObject(callback: AsyncCallback<T>): void
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900020 | Invalid argument. |
@@ -222,20 +200,17 @@ getFirstObject(callback: AsyncCallback<T>): void
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getFirstObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   fetchResult.getFirstObject((err, photoAsset) => {
     if (photoAsset !== undefined) {
       console.info('photoAsset displayName: ', photoAsset.displayName);
@@ -247,10 +222,10 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getFirstObject
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getFirstObject(): Promise<T>
+##### getFirstObject
+
+getFirstObject(): Promise&lt;T&gt;
 
 获取文件检索结果中的第一个文件资产。使用Promise异步回调。
 
@@ -260,7 +235,6 @@ getFirstObject(): Promise<T>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;T&gt; | Promise对象，返回结果集中第一个对象。 |
@@ -269,7 +243,6 @@ getFirstObject(): Promise<T>
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -281,31 +254,27 @@ getFirstObject(): Promise<T>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getFirstObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
-  let photoAsset: photoAccessHelper.PhotoAsset =
-    await fetchResult.getFirstObject();
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
+  let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
   console.info('photoAsset displayName: ', photoAsset.displayName);
 }
 ```
 
 
-## getNextObject
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getNextObject(callback: AsyncCallback<T>): void
+##### getNextObject
+
+getNextObject(callback: AsyncCallback&lt;T&gt;): void
 
 获取文件检索结果中的下一个文件资产。使用callback异步回调。
 
@@ -317,7 +286,6 @@ getNextObject(callback: AsyncCallback<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;T&gt; | 是 | 回调函数。当获取结果集中的下一个文件资产成功，err为undefined，data为具体检索结果；否则为错误对象。 |
@@ -326,7 +294,6 @@ getNextObject(callback: AsyncCallback<T>): void
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -338,29 +305,24 @@ getNextObject(callback: AsyncCallback<T>): void
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getNextObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   await fetchResult.getFirstObject();
   if (!fetchResult.isAfterLast()) {
     fetchResult.getNextObject((err, photoAsset) => {
       if (photoAsset !== undefined) {
         console.info('photoAsset displayName: ', photoAsset.displayName);
       } else {
-        console.error(
-          `photoAsset failed with err: ${err.code}, ${err.message}`,
-        );
+        console.error(`photoAsset failed with err: ${err.code}, ${err.message}`);
       }
     });
   }
@@ -368,10 +330,10 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getNextObject
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getNextObject(): Promise<T>
+##### getNextObject
+
+getNextObject(): Promise&lt;T&gt;
 
 获取文件检索结果中的下一个文件资产。使用Promise异步回调。
 
@@ -383,7 +345,6 @@ getNextObject(): Promise<T>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;T&gt; | Promise对象，返回结果集中下一个对象。 |
@@ -392,7 +353,6 @@ getNextObject(): Promise<T>
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -404,34 +364,30 @@ getNextObject(): Promise<T>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getNextObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   await fetchResult.getFirstObject();
   if (!fetchResult.isAfterLast()) {
-    let photoAsset: photoAccessHelper.PhotoAsset =
-      await fetchResult.getNextObject();
+    let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getNextObject();
     console.info('photoAsset displayName: ', photoAsset.displayName);
   }
 }
 ```
 
 
-## getLastObject
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getLastObject(callback: AsyncCallback<T>): void
+##### getLastObject
+
+getLastObject(callback: AsyncCallback&lt;T&gt;): void
 
 获取文件检索结果中的最后一个文件资产。使用callback异步回调。
 
@@ -440,7 +396,6 @@ getLastObject(callback: AsyncCallback<T>): void
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -451,7 +406,6 @@ getLastObject(callback: AsyncCallback<T>): void
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900020 | Invalid argument. |
@@ -462,20 +416,17 @@ getLastObject(callback: AsyncCallback<T>): void
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getLastObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   fetchResult.getLastObject((err, photoAsset) => {
     if (photoAsset !== undefined) {
       console.info('photoAsset displayName: ', photoAsset.displayName);
@@ -487,10 +438,10 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getLastObject
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getLastObject(): Promise<T>
+##### getLastObject
+
+getLastObject(): Promise&lt;T&gt;
 
 获取文件检索结果中的最后一个文件资产。使用Promise异步回调。
 
@@ -500,7 +451,6 @@ getLastObject(): Promise<T>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;T&gt; | Promise对象，返回结果集中的最后一个对象。 |
@@ -509,7 +459,6 @@ getLastObject(): Promise<T>
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -521,31 +470,27 @@ getLastObject(): Promise<T>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getLastObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
-  let photoAsset: photoAccessHelper.PhotoAsset =
-    await fetchResult.getLastObject();
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
+  let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getLastObject();
   console.info('photoAsset displayName: ', photoAsset.displayName);
 }
 ```
 
 
-## getObjectByPosition
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getObjectByPosition(index: number, callback: AsyncCallback<T>): void
+##### getObjectByPosition
+
+getObjectByPosition(index: number, callback: AsyncCallback&lt;T&gt;): void
 
 获取文件检索结果中具有指定索引的文件资产。使用callback异步回调。
 
@@ -554,7 +499,6 @@ getObjectByPosition(index: number, callback: AsyncCallback<T>): void
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -566,7 +510,6 @@ getObjectByPosition(index: number, callback: AsyncCallback<T>): void
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900020 | Invalid argument. |
@@ -577,20 +520,17 @@ getObjectByPosition(index: number, callback: AsyncCallback<T>): void
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getObjectByPositionDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   fetchResult.getObjectByPosition(0, (err, photoAsset) => {
     if (photoAsset !== undefined) {
       console.info('photoAsset displayName: ', photoAsset.displayName);
@@ -602,10 +542,10 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getObjectByPosition
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getObjectByPosition(index: number): Promise<T>
+##### getObjectByPosition
+
+getObjectByPosition(index: number): Promise&lt;T&gt;
 
 获取文件检索结果中指定索引的文件资产。使用Promise异步回调。
 
@@ -615,14 +555,12 @@ getObjectByPosition(index: number): Promise<T>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 要获取的文件的索引，从0开始。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -633,7 +571,6 @@ getObjectByPosition(index: number): Promise<T>
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900020 | Invalid argument. |
@@ -644,35 +581,31 @@ getObjectByPosition(index: number): Promise<T>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getObjectByPositionDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   if (fetchResult === undefined) {
     console.error('fetchResult is undefined');
     return;
   }
-  let photoAsset: photoAccessHelper.PhotoAsset =
-    await fetchResult.getObjectByPosition(0);
+  let photoAsset: photoAccessHelper.PhotoAsset = await fetchResult.getObjectByPosition(0);
   console.info('photoAsset displayName: ', photoAsset.displayName);
 }
 ```
 
 
-## getAllObjects
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getAllObjects(callback: AsyncCallback<Array<T>>): void
+##### getAllObjects
+
+getAllObjects(callback: AsyncCallback<Array&lt;T&gt;>): void
 
 获取文件检索结果中的所有文件资产。使用callback异步回调。
 
@@ -682,16 +615,14 @@ getAllObjects(callback: AsyncCallback<Array<T>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;T&gt;&gt; | 是 | 回调函数。当获取结果集中的所有文件资产成功，err为undefined，data为具体检索结果；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;T&gt;> | 是 | 回调函数。当获取结果集中的所有文件资产成功，err为undefined，data为具体检索结果；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -703,39 +634,34 @@ getAllObjects(callback: AsyncCallback<Array<T>>): void
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getAllObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
   fetchResult.getAllObjects((err, photoAssetList) => {
     if (photoAssetList !== undefined) {
       console.info('photoAssetList length: ', photoAssetList.length);
     } else {
-      console.error(
-        `photoAssetList failed with err:${err.code}, ${err.message}`,
-      );
+      console.error(`photoAssetList failed with err:${err.code}, ${err.message}`);
     }
   });
 }
 ```
 
 
-## getAllObjects
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getAllObjects(): Promise<Array<T>>
+##### getAllObjects
 
-获取文件检索结果中的所有文件���产。使用Promise异步回调。
+getAllObjects(): Promise<Array&lt;T&gt;>
+
+获取文件检索结果中的所有文件资产。使用Promise异步回调。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -743,16 +669,14 @@ getAllObjects(): Promise<Array<T>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;T&gt;&gt; | Promise对象，返回所有文件资产的数组。 |
+| Promise<Array&lt;T&gt;> | Promise对象，返回所有文件资产的数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -764,31 +688,27 @@ getAllObjects(): Promise<Array<T>>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getAllObjectDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
-  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOption);
-  let photoAssetList: Array<photoAccessHelper.PhotoAsset> =
-    await fetchResult.getAllObjects();
+  let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
+  let photoAssetList: Array<photoAccessHelper.PhotoAsset> = await fetchResult.getAllObjects();
   console.info('photoAssetList length: ', photoAssetList.length);
 }
 ```
 
 
-## contains23+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-contains(object: T): Promise<boolean>
+##### contains23+
+
+contains(object: T): Promise&lt;boolean&gt;
 
 判断文件检索结果中是否包含指定的文件资产。使用Promise异步回调。
 
@@ -800,14 +720,12 @@ contains(object: T): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | object | T | 是 | 指定的文件资产。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -818,23 +736,19 @@ contains(object: T): Promise<boolean>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('fetchResultContainsDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   try {
-    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-      await phAccessHelper.getAssets(fetchOption);
-    let asset: photoAccessHelper.PhotoAsset =
-      await fetchResult.getFirstObject();
+    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
+    let asset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
     let ret: boolean = await fetchResult.contains(asset);
     console.info(`succeed. ${ret}`);
   } catch (err) {
@@ -844,8 +758,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getObjectsByIndexSet23+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### getObjectsByIndexSet23+
 
 getObjectsByIndexSet(indexSet: number[]): Promise<T[]>
 
@@ -859,7 +773,6 @@ getObjectsByIndexSet(indexSet: number[]): Promise<T[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | indexSet | number[] | 是 | 指定的索引集合。 |
@@ -867,16 +780,14 @@ getObjectsByIndexSet(indexSet: number[]): Promise<T[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;T[]&gt; | Promise对象，返回指定索引集合所对应的文件资产数组。 |
+| Promise<T[]> | Promise对象，返回指定索引集合所对应的文件资产数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-medialibrary)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -887,24 +798,20 @@ getObjectsByIndexSet(indexSet: number[]): Promise<T[]>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('fetchResultGetObjectsByIndexSetDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   try {
-    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-      await phAccessHelper.getAssets(fetchOption);
+    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
     let indexSet: number[] = [0, 1];
-    let ret: photoAccessHelper.PhotoAsset[] =
-      await fetchResult.getObjectsByIndexSet(indexSet);
+    let ret: photoAccessHelper.PhotoAsset[] = await fetchResult.getObjectsByIndexSet(indexSet);
     console.info(`succeed. ${ret.length}`);
   } catch (err) {
     console.error(`fail. error: ${err.code}, ${err.message}`);
@@ -913,10 +820,10 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getIndex23+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-getIndex(object: T): Promise<number>
+##### getIndex23+
+
+getIndex(object: T): Promise&lt;number&gt;
 
 获取指定文件资产在文件检索结果中的索引。使用Promise异步回调。
 
@@ -928,14 +835,12 @@ getIndex(object: T): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | object | T | 是 | 指定的文件资产。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -946,23 +851,19 @@ getIndex(object: T): Promise<number>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('fetchResultGetIndexDemo');
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOption: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   try {
-    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-      await phAccessHelper.getAssets(fetchOption);
-    let asset: photoAccessHelper.PhotoAsset =
-      await fetchResult.getFirstObject();
+    let fetchResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);
+    let asset: photoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();
     let ret: number = await fetchResult.getIndex(asset);
     console.info(`succeed. ${ret}`);
   } catch (err) {
@@ -972,8 +873,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 ```
 
 
-## getRangeObjects23+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### getRangeObjects23+
 
 getRangeObjects(index: number, offset: number): Promise<T[]>
 
@@ -983,25 +884,22 @@ getRangeObjects(index: number, offset: number): Promise<T[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 开始获取的文件资产索引，大于等于0，小于文件检索结果中对象数量。 |
-| offset | number | 是 | 要获取的文件资产数量，大于0。          index和offset之和需要小于检索结果中的对象数量，否则抛出23800151错误码。 |
+| offset | number | 是 | 要获取的文件资产数量，大于0。 index和offset之和需要小于检索结果中的对象数量，否则抛出23800151错误码。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;T[]&gt; | 返回Promise异步回调数组。 |
+| Promise<T[]> | 返回Promise异步回调数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[媒体库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-medialibrary)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1013,34 +911,30 @@ getRangeObjects(index: number, offset: number): Promise<T[]>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
-import { photoAccessHelper } from '@kit.MediaLibraryKit';
+import { photoAccessHelper} from '@kit.MediaLibraryKit';
 
 async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
   console.info('getRangeObjectsDemo');
   type PhotoAsset = photoAccessHelper.PhotoAsset;
-  let testNum: string = 'getRangeObjects_test_003';
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
+  let testNum: string = "getRangeObjects_test_003";
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
   let fetchOptions: photoAccessHelper.FetchOptions = {
-    fetchColumns: [],
-    predicates: predicates,
+      fetchColumns: [],
+      predicates: predicates
   };
   let fetchResult1: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOptions);
+      await phAccessHelper.getAssets(fetchOptions);
   let fetchResult2: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOptions);
+      await phAccessHelper.getAssets(fetchOptions);
   let count: number = fetchResult1.getCount();
   const half: number = Math.ceil(count / 2);
   let promises: Promise<PhotoAsset[]>[] = [];
   promises[0] = fetchResult1.getRangeObjects(0, half);
   promises[1] = fetchResult2.getRangeObjects(half, count - half);
   let photoAssetsArray: PhotoAsset[][] = await Promise.all(promises);
-  let photoAssets: PhotoAsset[] = photoAssetsArray[0].concat(
-    photoAssetsArray[1],
-  );
+  let photoAssets: PhotoAsset[] = photoAssetsArray[0].concat(photoAssetsArray[1]);
   console.info('photoAssets length: ', photoAssets.length);
 }
 ```

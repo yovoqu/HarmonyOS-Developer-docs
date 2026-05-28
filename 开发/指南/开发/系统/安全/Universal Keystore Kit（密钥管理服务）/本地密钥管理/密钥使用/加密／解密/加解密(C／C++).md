@@ -1,35 +1,75 @@
 # 加解密(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-ndk
 
 以AES256、RSA1024、SM2和DES64为例，完成加解密。具体的场景介绍及支持的算法规格，请参考[加解密支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-overview#支持的算法)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-**生成密钥** 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。 调用[OH_Huks_GenerateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_generatekeyitem)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。 **加密** 获取密钥别名。 获取待加密的数据。 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。 文档中提供多个示例，当使用不同算法时，请注意配置对应参数。 使用AES算法加密，选取的分组模式为CBC、填充模式为PKCS7时，参数IV必选，请见开发案例：[AES/CBC/PKCS7](#aescbcpkcs7)。 使用AES算法加密，选取的分组模式为GCM时，参数NONCE可选，AAD可选，请见开发案例：[AES/GCM/NoPadding](#aesgcmnopadding)。 使用AES算法加密，选取的分组模式为CCM时，参数NONCE可选，AAD可选，请见开发案例：[AES/CCM/NoPadding](#aesccmnopadding)。 使用RSA算法加密，需要选择相对应的分组模式、填充模式以及摘要算法DIGEST，请见开发案例：[RSA/ECB/PKCS1_V1_5](#rsaecbpkcs1_v1_5)和[RSA/ECB/OAEP/SHA256](#rsaecboaepsha256)。 使用SM2算法加密，摘要算法DIGEST需要指定为SM3，请见开发案例：[SM2](#sm2)。 详细规格请参考[加密/解密介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-overview)。 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取加密后的密文。 **解密** 获取密钥别名。 获取待解密的密文。 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。 文档中提供多个示例，当使用不同算法时，请注意配置对应参数。 使用AES算法解密，用例中选取的分组模式为GCM时，必须要填参数NONCE和参数AEAD，AAD可选，请见开发案例：[AES/GCM/NoPadding](#aesgcmnopadding)。 其余示例参数与加密要求一致。 详细规格请参考[加密/解密介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-encryption-decryption-overview)。 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取解密后的数据。 **删除密钥** 当密钥废弃不用时，需要调用OH_Huks_DeleteKeyItem删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-ndk)。
+##### 开发步骤
 
-## 开发案例
+**生成密钥**
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。
+3. 调用[OH_Huks_GenerateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_generatekeyitem)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+
+除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。
+
+**加密**
+1. 获取密钥别名。
+2. 获取待加密的数据。
+3. 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。
+
+  文档中提供多个示例，当使用不同算法时，请注意配置对应参数。
+
+  
+使用AES算法加密，选取的分组模式为CBC、填充模式为PKCS7时，参数IV必选，请见开发案例：[AES/CBC/PKCS7](#aescbcpkcs7)。
+4. 使用AES算法加密，选取的分组模式为GCM时，参数NONCE可选，AAD可选，请见开发案例：[AES/GCM/NoPadding](#aesgcmnopadding)。
+5. 使用AES算法加密，选取的分组模式为CCM时，参数NONCE可选，AAD可选，请见开发案例：[AES/CCM/NoPadding](#aesccmnopadding)。
+6. 使用RSA算法加密，需要选择相对应的分组模式、填充模式以及摘要算法DIGEST，请见开发案例：[RSA/ECB/PKCS1_V1_5](#rsaecbpkcs1_v1_5)和[RSA/ECB/OAEP/SHA256](#rsaecboaepsha256)。
+7. 使用SM2算法加密，摘要算法DIGEST需要指定为SM3，请见开发案例：[SM2](#sm2)。
+8. 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。
+9. 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取加密后的密文。
+
+**解密**
+1. 获取密钥别名。
+2. 获取待解密的密文。
+3. 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置。
+
+  文档中提供多个示例，当使用不同算法时，请注意配置对应参数。
+
+  
+使用AES算法解密，用例中选取的分组模式为GCM时，必须要填参数NONCE和参数AEAD，AAD可选，请见开发案例：[AES/GCM/NoPadding](#aesgcmnopadding)。
+4. 其余示例参数与加密要求一致。
+5. 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。
+6. 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取解密后的数据。
+
+**删除密钥**
+
+当密钥废弃不用时，需要调用OH_Huks_DeleteKeyItem删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-ndk)。
 
 
-## AES/CBC/PKCS7
+
+##### 开发案例
 
 
-```text
+
+##### AES/CBC/PKCS7
+
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
@@ -203,7 +243,7 @@ napi_value TestAesCbc(napi_env env, napi_callback_info info)
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&encryptParamSet);
     OH_Huks_FreeParamSet(&decryptParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -211,14 +251,16 @@ napi_value TestAesCbc(napi_env env, napi_callback_info info)
 ```
 
 
-## AES/GCM/NoPadding
+
+##### AES/GCM/NoPadding
 
 准备加解密密钥材料：
-```text
+
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
@@ -257,7 +299,7 @@ static OH_Crypto_ErrCode genRandomNumber(uint32_t randomLength, uint8_t *out)
         return ret;
     }
     OH_CryptoRand_Destroy(rand);
-
+ 
     return CRYPTO_SUCCESS;
 }
 
@@ -346,7 +388,8 @@ OH_Huks_Result HksAesGcmTestDecrypt(const struct OH_Huks_Blob *keyAlias,
 ```
 
 执行加解密流程：
-```text
+
+```cpp
 napi_value TestAesGcm(napi_env env, napi_callback_info info)
 {
     char tmpKeyAlias[] = "test_enc_dec";
@@ -417,7 +460,7 @@ napi_value TestAesGcm(napi_env env, napi_callback_info info)
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&encryptParamSet);
     OH_Huks_FreeParamSet(&decryptParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -425,14 +468,14 @@ napi_value TestAesGcm(napi_env env, napi_callback_info info)
 ```
 
 
-## AES/CCM/NoPadding
 
+##### AES/CCM/NoPadding
 
 ```text
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <string.h>
 
 static const uint32_t IV_SIZE = 16;
 static const uint32_t AEAD_TAG_LEN = 14;
@@ -676,11 +719,11 @@ static napi_value EncDecKey(napi_env env, napi_callback_info info)
     * 4.2. 调用deleteKeyItem删除密钥
     */
     (void)OH_Huks_DeleteKeyItem(&keyAlias, genParamSet);
-
+        
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&encryptParamSet);
     OH_Huks_FreeParamSet(&decryptParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -688,14 +731,14 @@ static napi_value EncDecKey(napi_env env, napi_callback_info info)
 ```
 
 
-## RSA/ECB/PKCS1_V1_5
 
+##### RSA/ECB/PKCS1_V1_5
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                                    uint32_t paramCount)
@@ -838,7 +881,7 @@ napi_value TestRsaEcbPkcs(napi_env env, napi_callback_info info)
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&encryptParamSet);
     OH_Huks_FreeParamSet(&decryptParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -846,14 +889,14 @@ napi_value TestRsaEcbPkcs(napi_env env, napi_callback_info info)
 ```
 
 
-## RSA/ECB/OAEP/SHA256
 
+##### RSA/ECB/OAEP/SHA256
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
     uint32_t paramCount)
@@ -996,7 +1039,7 @@ napi_value TestRsaEcbOaep(napi_env env, napi_callback_info info)
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&encryptParamSet);
     OH_Huks_FreeParamSet(&decryptParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -1004,14 +1047,14 @@ napi_value TestRsaEcbOaep(napi_env env, napi_callback_info info)
 ```
 
 
-## SM2
 
+##### SM2
 
-```text
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 static OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
     uint32_t paramCount)
@@ -1148,7 +1191,7 @@ napi_value TestSm2(napi_env env, napi_callback_info info)
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&encryptParamSet);
     OH_Huks_FreeParamSet(&decryptParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;

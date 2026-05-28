@@ -1,21 +1,27 @@
 # 动态布局 (DynamicLayout)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-dynamiclayout
 
-#### 概述
+##### 概述
+
 从API version 24开始，支持动态布局容器组件[DynamicLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout)。DynamicLayout支持在运行时动态切换不同的布局算法，同时保持子组件的状态不变。通过DynamicLayout，开发者可以灵活实现同一种内容在不同场景下的多种布局展示。DynamicLayout组件支持的布局算法类包括[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)、[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)、[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)、[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)和自定义布局算法类[CustomLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#customlayoutalgorithm)。
 
-#### 约束与限制
+
+
+##### 约束与限制
 1. 布局算法类使用[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰，不支持[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)装饰器。
 2. 切换布局算法时，子组件的状态（如输入框内容、滚动位置等）保持不变。
 3. 在自定义布局算法的[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)和[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)方法中不允许修改状态变量，避免不可预期的行为。
 
-#### 创建DynamicLayout
+
+
+##### 创建DynamicLayout
+
 通过传入[LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1)类型入参，创建[DynamicLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout#接口)组件并设置布局算法。[LayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#layoutalgorithm-1)类型变量支持赋值具体的布局算法类对象，包括[内置布局算法](#内置布局算法)和[自定义布局算法](#自定义布局算法)。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute,RowLayoutAlgorithm, ColumnLayoutAlgorithm, LayoutAlgorithm
 } from '@kit.ArkUI';
@@ -57,16 +63,25 @@ struct CreateDynamicLayout {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### 内置布局算法
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-0.gif)
+
+
+
+
+##### 内置布局算法
+
 线性布局算法[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)和[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)具有自适应拉伸、缩放的能力，可以用于界面元素自适应布局的场景。堆叠布局算法[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)具有较强的页面层叠、位置定位能力，可以用于广告、卡片层叠等页面场景。网格布局算法[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)具有较好的规律结构，适合展示同类项目集合，例如显示图片、视频、音乐、新闻、商品等。
 
-#### RowLayoutAlgorithm
+
+
+##### RowLayoutAlgorithm
+
 [RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)是水平方向线性布局算法，子组件沿水平方向依次排列。该算法支持设置子组件间距、子组件在主轴（水平方向）上的对齐方式、在交叉轴（垂直方向）上的对齐方式，以及是否反转子组件的排列方向。该布局算法与[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)组件布局效果一致，详细效果说明请参考[线性布局（Row/Column）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-linear)。下述示例通过修改RowLayoutAlgorithm对象的space、justifyContent、alignItems和isReverse成员变量，调整子组件间距、主轴（水平方向）对齐方式、交叉轴（竖直方向）对齐方式和排列方向。
+
 从API version 24开始，新增[RowLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#rowlayoutalgorithm)的[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性)、[justifyContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性)、[alignItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性)、[isReverse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性)属性。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, RowLayoutAlgorithm, LengthMetrics
 } from '@kit.ArkUI';
@@ -135,13 +150,19 @@ struct RowLayoutExample {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### ColumnLayoutAlgorithm
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-1.gif)
+
+
+
+
+##### ColumnLayoutAlgorithm
+
 [ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)是垂直方向线性布局算法，子组件沿垂直方向依次排列。该算法支持设置子组件间距、子组件在主轴（垂直方向）上的对齐方式、在交叉轴（水平方向）上的对齐方式，以及是否反转子组件的排列方向。该布局算法与[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)组件布局效果一致，详细效果说明请参考[线性布局（Row/Column）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-linear)。下述示例通过修改ColumnLayoutAlgorithm的space、justifyContent、alignItems和isReverse属性，调整子组件间距、主轴（竖直方向）对齐方式、交叉轴（水平方向）对齐方式和排列方向。
+
 从API version 24开始，新增[ColumnLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#columnlayoutalgorithm)的[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-1)、[justifyContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-1)、[alignItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-1)、[isReverse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-1)属性。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, ColumnLayoutAlgorithm, LengthMetrics
 } from '@kit.ArkUI';
@@ -210,13 +231,19 @@ struct ColumnLayoutExample {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### StackLayoutAlgorithm
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-10.gif)
+
+
+
+
+##### StackLayoutAlgorithm
+
 [StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)是堆叠布局算法，子组件堆叠排列，后添加的子组件覆盖先添加的子组件。该算法支持通过alignContent设置子组件在容器中的九宫格对齐位置，子组件可以通过[layoutGravity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#layoutgravity20)属性单独设置自己的对齐方式，优先级高于容器的alignContent。该布局算法与[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)组件布局效果一致，详细效果说明请参考[堆叠布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout)。下述示例通过修改[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)的[alignContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-2)属性，调整子组件在容器中的九宫格对齐位置。
+
 从API version 24开始，新增[StackLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#stacklayoutalgorithm)的[alignContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-2)属性。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, StackLayoutAlgorithm
 } from '@kit.ArkUI';
@@ -279,13 +306,19 @@ struct StackLayoutExample {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### GridLayoutAlgorithm
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-11.gif)
+
+
+
+
+##### GridLayoutAlgorithm
+
 [GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)是垂直方向网格布局算法。该算法支持通过[columnsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout#columnstemplate)或[ItemFillPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#itemfillpolicy22)设置列数，设置[ItemFillPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#itemfillpolicy22)为BREAKPOINT_DEFAULT时行为与[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)一致，行数由子节点数量和列数决定。该算法支持通过[LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12)设置行间距和列间距，通过[align](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#align20)设置组件在网格中的对齐方式。下述示例修改GridLayoutAlgorithm的columnsTemplate属性调整网格列数。
+
 从API version 24开始，新增[GridLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#gridlayoutalgorithm)的[columnsTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#属性-3)属性。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, GridLayoutAlgorithm, LengthMetrics
 } from '@kit.ArkUI';
@@ -383,15 +416,23 @@ struct GridLayoutExample {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### 自定义布局算法
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-12.gif)
+
+
+
+
+##### 自定义布局算法
+
 自定义布局算法通过继承[CustomLayoutAlgorithm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#customlayoutalgorithm)类，重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)和[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)方法实现。开发者可以根据具体业务需求，自定义子组件的大小测量和位置排列，实现内置布局算法无法满足的个性化布局效果，如瀑布流、标签云等不规则布局。
 
-#### 自定义布局算法实现指导
+
+
+##### 自定义布局算法实现指导
+
 通过调用[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#framenode-1)的[getChildrenCount()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getchildrencount12)和[getChild()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getchild12)方法，开发者可以获取所有子组件FrameNode。在onMeasure方法中，调用[measure()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#measure12)方法可以自定义测量子组件大小。在onLayout方法中，调用[getMeasuredSize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getmeasuredsize12)可以获取子组件测量后的尺寸，调用[layout()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#layout12)方法可以自定义排列子组件位置。下述示例展示如何重写[onMeasure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onmeasure)和[onLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-layoutalgorithm#onlayout)方法，调用[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#framenode-1)的相关方法实现水平方向线性布局的效果。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, CustomLayoutAlgorithm, FrameNode, LayoutConstraint, Position, LayoutAlgorithm
 } from '@kit.ArkUI';
@@ -483,12 +524,17 @@ struct CustomLayoutBasic {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### 瀑布流布局
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-13.gif)
+
+
+
+
+##### 瀑布流布局
+
 下述示例实现了自定义瀑布流布局算法，将子组件按列排列，每列中的子组件依次堆叠，适用于商品展示的场景。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, CustomLayoutAlgorithm, LayoutAlgorithm, FrameNode, LayoutConstraint, Position
 } from '@kit.ArkUI';
@@ -645,12 +691,17 @@ interface Product {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### 网格布局
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-2.gif)
+
+
+
+
+##### 网格布局
+
 下述示例实现一个自定义网格布局算法，将子组件按网格排列，同一行的子组件高度保持一致。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, CustomLayoutAlgorithm, LayoutAlgorithm, FrameNode, LayoutConstraint, Position
 } from '@kit.ArkUI';
@@ -799,12 +850,17 @@ struct GridLayoutExample {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### 标签云布局
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-3.gif)
+
+
+
+
+##### 标签云布局
+
 下述示例实现一个自定义标签云布局，标签自动换行排列，适合展示搜索历史、热门标签、技能标签等不规则布局的场景。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, CustomLayoutAlgorithm, LayoutAlgorithm, FrameNode, LayoutConstraint, Position
 } from '@kit.ArkUI';
@@ -944,12 +1000,17 @@ struct TagCloudExample {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
 
-#### 切换布局算法
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-4.gif)
+
+
+
+
+##### 切换布局算法
+
 DynamicLayout在切换布局算法时会保持子组件的状态不变，比如输入框内容、开关状态、进度条值等。下述示例展示[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#接口)、[Toggle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-toggle#接口)、[Slider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider#接口)和[CheckBox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-checkbox)组件在布局切换过程中保持状态，同时使用[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)为布局切换添加平滑的动画效果。
 
-```ts
+```ArkTS
 import {
   DynamicLayout, DynamicLayoutAttribute, ColumnLayoutAlgorithm, LayoutAlgorithm, curves, LengthMetrics,
   GridLayoutAlgorithm
@@ -1082,9 +1143,19 @@ struct StatePreservationExample {
 }
 ```
 
-![](assets/动态布局%20(DynamicLayout)
+
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-5.png)
+
+
 DynamicLayout支持以下几种方式触发重新布局：
-- 通过状态变量切换布局算法。 开发者使用@Local装饰器修饰布局算法变量，可以实现运行时动态切换布局。 import {
+
+ - 通过状态变量切换布局算法。
+
+  开发者使用@Local装饰器修饰布局算法变量，可以实现运行时动态切换布局。
+
+  
+```ArkTS
+import {
   DynamicLayout, DynamicLayoutAttribute, RowLayoutAlgorithm, ColumnLayoutAlgorithm,
   StackLayoutAlgorithm, GridLayoutAlgorithm, LayoutAlgorithm, LengthMetrics
 } from '@kit.ArkUI';
@@ -1093,103 +1164,113 @@ DynamicLayout支持以下几种方式触发重新布局：
 @ComponentV2
 struct LayoutSwitchExample {
   @Local algorithm: LayoutAlgorithm = new RowLayoutAlgorithm({
- space: LengthMetrics.vp(10),
- alignItems: VerticalAlign.Center
+    space: LengthMetrics.vp(10),
+    alignItems: VerticalAlign.Center
   });
   @Local childWidth: string = '20%'
   @Local childHeight: string = '20%'
 
   build() {
- Column() {
- // 使用状态变量控制布局算法
- DynamicLayout(this.algorithm) {
- Text('Item 1')
- .width(this.childWidth)
- .height(this.childHeight)
- .fontSize(14)
- .textAlign(TextAlign.Center)
- .backgroundColor(0xF5DEB3)
- .borderRadius(8)
- .layoutGravity(LocalizedAlignment.TOP_START)
- Text('Item 2')
- .width(this.childWidth)
- .height(this.childHeight)
- .fontSize(14)
- .textAlign(TextAlign.Center)
- .backgroundColor(0xF5DEB3)
- .borderRadius(8)
- .layoutGravity(LocalizedAlignment.TOP_END)
- Text('Item 3')
- .width(this.childWidth)
- .height(this.childHeight)
- .fontSize(14)
- .textAlign(TextAlign.Center)
- .backgroundColor(0xF5DEB3)
- .borderRadius(8)
- .layoutGravity(LocalizedAlignment.BOTTOM_START)
- Text('Item 4')
- .width(this.childWidth)
- .height(this.childHeight)
- .fontSize(14)
- .textAlign(TextAlign.Center)
- .backgroundColor(0xF5DEB3)
- .borderRadius(8)
- .layoutGravity(LocalizedAlignment.BOTTOM_END)
- }
- .width(300)
- .height(280)
- .backgroundColor(0xEFEFEF)
- .borderRadius(12)
- .padding(10)
+    Column() {
+      // 使用状态变量控制布局算法
+      DynamicLayout(this.algorithm) {
+        Text('Item 1')
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.TOP_START)
+        Text('Item 2')
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.TOP_END)
+        Text('Item 3')
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.BOTTOM_START)
+        Text('Item 4')
+          .width(this.childWidth)
+          .height(this.childHeight)
+          .fontSize(14)
+          .textAlign(TextAlign.Center)
+          .backgroundColor(0xF5DEB3)
+          .borderRadius(8)
+          .layoutGravity(LocalizedAlignment.BOTTOM_END)
+      }
+      .width(300)
+      .height(280)
+      .backgroundColor(0xEFEFEF)
+      .borderRadius(12)
+      .padding(10)
 
- Column({ space: 10 }) {
- Row({ space: 10 }) {
- Button('Row布局')
- .onClick(() => {
- this.algorithm = new RowLayoutAlgorithm({
- space: LengthMetrics.vp(10),
- alignItems: VerticalAlign.Center
- });
- this.childWidth = '20%'
- this.childHeight = '20%'
- })
- Button('Column布局')
- .onClick(() => {
- this.algorithm = new ColumnLayoutAlgorithm({
- space: LengthMetrics.vp(10),
- alignItems: HorizontalAlign.Center
- });
- this.childWidth = '20%'
- this.childHeight = '20%'
- })
- }
- Row({ space: 10 }) {
- Button('Stack布局')
- .onClick(() => {
- this.algorithm = new StackLayoutAlgorithm({
- alignContent: LocalizedAlignment.CENTER
- });
- this.childWidth = '20%'
- this.childHeight = '20%'
- })
- Button('Grid布局')
- .onClick(() => {
- this.algorithm = new GridLayoutAlgorithm({
- columnsTemplate: '1fr 1fr',
- rowsGap: LengthMetrics.vp(5),
- columnsGap: LengthMetrics.vp(5)
- });
- this.childWidth = '100%'
- this.childHeight = '50%'
- })
- }
- }
- .margin({ top: 20 })
- }
- .padding(20)
+      Column({ space: 10 }) {
+        Row({ space: 10 }) {
+          Button('Row布局')
+            .onClick(() => {
+              this.algorithm = new RowLayoutAlgorithm({
+                space: LengthMetrics.vp(10),
+                alignItems: VerticalAlign.Center
+              });
+              this.childWidth = '20%'
+              this.childHeight = '20%'
+            })
+          Button('Column布局')
+            .onClick(() => {
+              this.algorithm = new ColumnLayoutAlgorithm({
+                space: LengthMetrics.vp(10),
+                alignItems: HorizontalAlign.Center
+              });
+              this.childWidth = '20%'
+              this.childHeight = '20%'
+            })
+        }
+        Row({ space: 10 }) {
+          Button('Stack布局')
+            .onClick(() => {
+              this.algorithm = new StackLayoutAlgorithm({
+                alignContent: LocalizedAlignment.CENTER
+              });
+              this.childWidth = '20%'
+              this.childHeight = '20%'
+            })
+          Button('Grid布局')
+            .onClick(() => {
+              this.algorithm = new GridLayoutAlgorithm({
+                columnsTemplate: '1fr 1fr',
+                rowsGap: LengthMetrics.vp(5),
+                columnsGap: LengthMetrics.vp(5)
+              });
+              this.childWidth = '100%'
+              this.childHeight = '50%'
+            })
+        }
+      }
+      .margin({ top: 20 })
+    }
+    .padding(20)
   }
 }
-- 通过条件运算符切换布局算法。 开发者可以使用条件运算符，根据状态变量的值选择合适的布局算法。 import {
+```
+
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-6.gif)
+
+ - 通过条件运算符切换布局算法。
+
+  开发者可以使用条件运算符，根据状态变量的值选择合适的布局算法。
+
+  
+```ArkTS
+import {
   DynamicLayout, DynamicLayoutAttribute, RowLayoutAlgorithm, ColumnLayoutAlgorithm, LengthMetrics
 } from '@kit.ArkUI';
 
@@ -1199,42 +1280,52 @@ struct ConditionalLayoutExample {
   @Local isHorizontal: boolean = true;
 
   build() {
- Column() {
- // 使用三元运算符根据条件选择布局算法
- DynamicLayout(
- this.isHorizontal
- ? new RowLayoutAlgorithm({ space: LengthMetrics.vp(10) })
- : new ColumnLayoutAlgorithm({ space: LengthMetrics.vp(10) })
- ) {
- Text('Item 1')
- .width(80)
- .height(40)
- .fontSize(14)
- .backgroundColor(0xF5DEB3)
- Text('Item 2')
- .width(80)
- .height(40)
- .fontSize(14)
- .backgroundColor(0xD2B48C)
- Text('Item 3')
- .width(80)
- .height(40)
- .fontSize(14)
- .backgroundColor(0xF5DEB3)
- }
- .width('100%')
- .height(150)
- .backgroundColor(0xEFEFEF)
+    Column() {
+      // 使用三元运算符根据条件选择布局算法
+      DynamicLayout(
+        this.isHorizontal
+          ? new RowLayoutAlgorithm({ space: LengthMetrics.vp(10) })
+          : new ColumnLayoutAlgorithm({ space: LengthMetrics.vp(10) })
+      ) {
+        Text('Item 1')
+          .width(80)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xF5DEB3)
+        Text('Item 2')
+          .width(80)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xD2B48C)
+        Text('Item 3')
+          .width(80)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xF5DEB3)
+      }
+      .width('100%')
+      .height(150)
+      .backgroundColor(0xEFEFEF)
 
- Button('切换方向')
- .onClick(() => {
- this.isHorizontal = !this.isHorizontal;
- })
- }
- .padding(20)
+      Button('切换方向')
+        .onClick(() => {
+          this.isHorizontal = !this.isHorizontal;
+        })
+    }
+    .padding(20)
   }
 }
-- 通过修改算法属性触发重新布局。 布局算法类使用@ObservedV2装饰，布局算法成员属性使用@Trace装饰，修改属性值可以触发DynamicLayout组件重新布局。 import {
+```
+
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-7.png)
+
+ - 通过修改算法属性触发重新布局。
+
+  布局算法类使用[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰，布局算法成员属性使用[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰，修改属性值可以触发DynamicLayout组件重新布局。
+
+  
+```ArkTS
+import {
   DynamicLayout, DynamicLayoutAttribute, RowLayoutAlgorithm, LengthMetrics
 } from '@kit.ArkUI';
 
@@ -1242,59 +1333,69 @@ struct ConditionalLayoutExample {
 @ComponentV2
 struct PropertyChangeExample {
   @Local algorithm: RowLayoutAlgorithm = new RowLayoutAlgorithm({
- space: LengthMetrics.vp(10),
- justifyContent: FlexAlign.Start
+    space: LengthMetrics.vp(10),
+    justifyContent: FlexAlign.Start
   });
 
   build() {
- Column() {
- DynamicLayout(this.algorithm) {
- Text('Item 1')
- .width(60)
- .height(40)
- .fontSize(14)
- .backgroundColor(0xF5DEB3)
- Text('Item 2')
- .width(60)
- .height(40)
- .fontSize(14)
- .backgroundColor(0xD2B48C)
- Text('Item 3')
- .width(60)
- .height(40)
- .fontSize(14)
- .backgroundColor(0xF5DEB3)
- }
- .width('100%')
- .height(80)
- .backgroundColor(0xEFEFEF)
+    Column() {
+      DynamicLayout(this.algorithm) {
+        Text('Item 1')
+          .width(60)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xF5DEB3)
+        Text('Item 2')
+          .width(60)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xD2B48C)
+        Text('Item 3')
+          .width(60)
+          .height(40)
+          .fontSize(14)
+          .backgroundColor(0xF5DEB3)
+      }
+      .width('100%')
+      .height(80)
+      .backgroundColor(0xEFEFEF)
 
- Row({ space: 10 }) {
- Button('增加间距')
- .fontSize(14)
- .onClick(() => {
- // 修改space属性触发重新布局
- const currentSpace = this.algorithm.space?.value;
- this.algorithm.space = LengthMetrics.vp(currentSpace as number + 5);
- })
- Button('居中对齐')
- .fontSize(14)
- .onClick(() => {
- // 修改justifyContent属性触发重新布局
- this.algorithm.justifyContent = FlexAlign.Center;
- })
- Button('两端对齐')
- .fontSize(14)
- .onClick(() => {
- this.algorithm.justifyContent = FlexAlign.SpaceBetween;
- })
- }
- .margin({ top: 20 })
- }
- .padding(20)
+      Row({ space: 10 }) {
+        Button('增加间距')
+          .fontSize(14)
+          .onClick(() => {
+            // 修改space属性触发重新布局
+            const currentSpace = this.algorithm.space?.value;
+            this.algorithm.space = LengthMetrics.vp(currentSpace as number + 5);
+          })
+        Button('居中对齐')
+          .fontSize(14)
+          .onClick(() => {
+            // 修改justifyContent属性触发重新布局
+            this.algorithm.justifyContent = FlexAlign.Center;
+          })
+        Button('两端对齐')
+          .fontSize(14)
+          .onClick(() => {
+            this.algorithm.justifyContent = FlexAlign.SpaceBetween;
+          })
+      }
+      .margin({ top: 20 })
+    }
+    .padding(20)
   }
 }
-- 响应式布局算法切换。 开发者可以结合mediaquery接口监听屏幕方向变化，自动切换商品列表的布局方式。竖屏时使用列表视图（每行一个商品），横屏时使用网格视图（2x2网格布局）。 import {
+```
+
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-8.png)
+
+ - 响应式布局算法切换。
+
+  开发者可以结合[mediaquery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-mediaquery)接口监听屏幕方向变化，自动切换商品列表的布局方式。竖屏时使用列表视图（每行一个商品），横屏时使用网格视图（2x2网格布局）。
+
+  
+```ArkTS
+import {
   DynamicLayout, DynamicLayoutAttribute, ColumnLayoutAlgorithm, LayoutAlgorithm, LengthMetrics, mediaquery,
   GridLayoutAlgorithm
 } from '@kit.ArkUI';
@@ -1311,15 +1412,15 @@ interface Product {
 @ComponentV2
 struct ProductListExample {
   @Local algorithm: LayoutAlgorithm = new ColumnLayoutAlgorithm({
- space: LengthMetrics.vp(12)
+    space: LengthMetrics.vp(12)
   });
   @Local currentOrientation: string = '竖屏';
   // 商品数据
   private products: Product[] = [
- { id: '1', name: '智能手机 Pro', price: '¥5999', image: '商品' },
- { id: '2', name: '无线耳机', price: '¥899', image: '商品' },
- { id: '3', name: '智能手表', price: '¥1999', image: '商品' },
- { id: '4', name: '平板电脑', price: '¥3999', image: '商品' }
+    { id: '1', name: '智能手机 Pro', price: '¥5999', image: '商品' },
+    { id: '2', name: '无线耳机', price: '¥899', image: '商品' },
+    { id: '3', name: '智能手表', price: '¥1999', image: '商品' },
+    { id: '4', name: '平板电脑', price: '¥3999', image: '商品' }
   ];
 
   // 监听横屏事件
@@ -1327,111 +1428,114 @@ struct ProductListExample {
 
   // 当满足媒体查询条件时，触发回调
   onOrientationChange(mediaQueryResult: mediaquery.MediaQueryResult) {
- if (mediaQueryResult.matches) {
- // 横屏：使用2x2网格布局
- this.algorithm = new GridLayoutAlgorithm({
- columnsTemplate: '1fr 1fr',
- columnsGap: LengthMetrics.vp(10),
- rowsGap: LengthMetrics.vp(10)
- });
- this.currentOrientation = '横屏';
- } else {
- // 竖屏：使用列表布局（每行一个商品）
- this.algorithm = new ColumnLayoutAlgorithm({
- space: LengthMetrics.vp(12)
- });
- this.currentOrientation = '竖屏';
- }
+    if (mediaQueryResult.matches) {
+      // 横屏：使用2x2网格布局
+      this.algorithm = new GridLayoutAlgorithm({
+        columnsTemplate: '1fr 1fr',
+        columnsGap: LengthMetrics.vp(10),
+        rowsGap: LengthMetrics.vp(10)
+      });
+      this.currentOrientation = '横屏';
+    } else {
+      // 竖屏：使用列表布局（每行一个商品）
+      this.algorithm = new ColumnLayoutAlgorithm({
+        space: LengthMetrics.vp(12)
+      });
+      this.currentOrientation = '竖屏';
+    }
   }
 
   aboutToAppear() {
- // 绑定回调函数
- this.listener.on('change', (mediaQueryResult: mediaquery.MediaQueryResult) => {
- this.onOrientationChange(mediaQueryResult);
- });
+    // 绑定回调函数
+    this.listener.on('change', (mediaQueryResult: mediaquery.MediaQueryResult) => {
+      this.onOrientationChange(mediaQueryResult);
+    });
   }
 
   aboutToDisappear() {
- // 解绑listener中注册的回调函数
- this.listener.off('change');
+    // 解绑listener中注册的回调函数
+    this.listener.off('change');
   }
 
   // 商品卡片组件
   @Builder ProductCard(product: Product) {
- Row() {
- Text(product.image)
- .fontSize(20)
- .margin({ right: 12 })
- Column() {
- Text(product.name)
- .fontSize(16)
- .fontWeight(FontWeight.Medium)
- .fontColor(0x333333)
- .margin({ bottom: 4 })
- Text(product.price)
- .fontSize(18)
- .fontColor(0xFF6B35)
- .fontWeight(FontWeight.Bold)
- }
- .alignItems(HorizontalAlign.Start)
- .layoutWeight(1)
- .margin({ right: 12 })
- Button('购买')
- .fontSize(14)
- .height(32)
- }
- .width('100%')
- .padding(16)
- .backgroundColor(0xFAFAFA)
- .borderRadius(8)
- .border({ width: 1, color: 0xE0E0E0 })
+    Row() {
+      Text(product.image)
+        .fontSize(20)
+        .margin({ right: 12 })
+      Column() {
+        Text(product.name)
+          .fontSize(16)
+          .fontWeight(FontWeight.Medium)
+          .fontColor(0x333333)
+          .margin({ bottom: 4 })
+        Text(product.price)
+          .fontSize(18)
+          .fontColor(0xFF6B35)
+          .fontWeight(FontWeight.Bold)
+      }
+      .alignItems(HorizontalAlign.Start)
+      .layoutWeight(1)
+      .margin({ right: 12 })
+      Button('购买')
+        .fontSize(14)
+        .height(32)
+    }
+    .width('100%')
+    .padding(16)
+    .backgroundColor(0xFAFAFA)
+    .borderRadius(8)
+    .border({ width: 1, color: 0xE0E0E0 })
   }
 
   build() {
- Column() {
- // 标题栏
- Row() {
- Text('商品列表')
- .fontSize(20)
- .fontWeight(FontWeight.Bold)
- .fontColor(0x333333)
- Blank()
- Text(`${this.currentOrientation}`)
- .fontSize(12)
- .fontColor(0x999999)
- .padding({ left: 8, right: 8, top: 4, bottom: 4 })
- .backgroundColor(0xF0F0F0)
- .borderRadius(4)
- }
- .width('100%')
- .padding({ left: 16, right: 16, top: 12, bottom: 12 })
- .backgroundColor(Color.White)
+    Column() {
+      // 标题栏
+      Row() {
+        Text('商品列表')
+          .fontSize(20)
+          .fontWeight(FontWeight.Bold)
+          .fontColor(0x333333)
+        Blank()
+        Text(`${this.currentOrientation}`)
+          .fontSize(12)
+          .fontColor(0x999999)
+          .padding({ left: 8, right: 8, top: 4, bottom: 4 })
+          .backgroundColor(0xF0F0F0)
+          .borderRadius(4)
+      }
+      .width('100%')
+      .padding({ left: 16, right: 16, top: 12, bottom: 12 })
+      .backgroundColor(Color.White)
 
- // 商品列表
- Scroll() {
- DynamicLayout(this.algorithm) {
- ForEach(this.products, (product: Product) => {
- this.ProductCard(product)
- })
- }
- .width('100%')
- .layoutWeight(1)
- .padding(12)
- }
- .layoutWeight(1)
- .width('100%')
- .backgroundColor(0xF5F5F5)
+      // 商品列表
+      Scroll() {
+        DynamicLayout(this.algorithm) {
+          ForEach(this.products, (product: Product) => {
+            this.ProductCard(product)
+          })
+        }
+        .width('100%')
+        .layoutWeight(1)
+        .padding(12)
+      }
+      .layoutWeight(1)
+      .width('100%')
+      .backgroundColor(0xF5F5F5)
 
- // 提示信息
- Text('旋转设备可查看不同布局效果')
- .fontSize(12)
- .fontColor(0x999999)
- .textAlign(TextAlign.Center)
- .padding(12)
- .width('100%')
- .backgroundColor(Color.White)
- }
- .width('100%')
- .height('100%')
+      // 提示信息
+      Text('旋转设备可查看不同布局效果')
+        .fontSize(12)
+        .fontColor(0x999999)
+        .textAlign(TextAlign.Center)
+        .padding(12)
+        .width('100%')
+        .backgroundColor(Color.White)
+    }
+    .width('100%')
+    .height('100%')
   }
 }
+```
+
+![](assets/动态布局%20(DynamicLayout)/file-20260514130602315-9.gif)

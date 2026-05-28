@@ -5,33 +5,34 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-lottie-animation-destroy-check
 
 该规则检测使用lottie加载的动画是否都正确销毁。
+ 
+当使用lottie加载动画时，一般需要先通过lottie.loadAnimation将动画加载到内存，动画执行完毕后需要在合适的时机（例如：onDisAppear，onPageHide，aboutToDisappear）通过调用animationItem的destroy方法将单个动画销毁或者调用lottie.destroy()方法将当前页面所有动画销毁，如果动画未被销毁就会造成资源浪费，影响应用性能体验。
+ 
+内存优化场景下，建议优先修改。
+ 
 
- 当使用lottie加载动画时，一般需要先通过lottie.loadAnimation将动画加载到内存，动画执行完毕后需要在合适的时机（例如：onDisAppear，onPageHide，aboutToDisappear）通过调用animationItem的destroy方法将单个动画销毁或者调用lottie.destroy()方法将当前页面所有动画销毁，如果动画未被销毁就会造成资源浪费，影响应用性能体验。
+##### 规则配置
 
- 内存优化场景下，建议优先修改。
-
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
-    "@performance/lottie-animation-destroy-check": "suggestion",
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
+    <span style="color: rgb(135,16,148);">"@performance/lottie-animation-destroy-check"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例1
+##### 正例1
 
-
-```text
+```json
 import lottie from '@ohos/lottie';   //需安装@ohos/lottie依赖后import
 import { AnimationItem } from '@ohos/lottie';    //需安装@ohos/lottie依赖后import
 
@@ -68,28 +69,28 @@ struct LottieAnimation1 {
   }
 }
 ```
+ 
+ 
 
+##### 正例2
 
-## 正例2
-
-
-```text
+```json
 import lottie from '@ohos/lottie';
 import { AnimationItem } from '@ohos/lottie';
 
 // 动画播放的起始帧
-const FRAME_START: number = 60;
+const FRAME_START: number = 60; 
 // 动画播放的终止帧
-const FRAME_END: number = 120;
+const FRAME_END: number = 120; 
 
 @Entry
 @Component
 struct LottieAnimation2 {
   private politeChickyController: CanvasRenderingContext2D = new CanvasRenderingContext2D();
   // 动画名称
-  private politeChicky: string = 'politeChicky';
+  private politeChicky: string = 'politeChicky'; 
   // hap包内动画资源文件路径，仅支持json格式
-  private politeChickyPath: string = 'media/politeChicky.json';
+  private politeChickyPath: string = 'media/politeChicky.json'; 
   private animateItem: AnimationItem | null = null;
 
   build() {
@@ -126,12 +127,12 @@ struct LottieAnimation2 {
   }
 }
 ```
+ 
+ 
 
+##### 反例1
 
-## 反例1
-
-
-```text
+```json
 import lottie from '@ohos/lottie';
 import { AnimationItem } from '@ohos/lottie';
 
@@ -167,32 +168,32 @@ struct LottieAnimation1 {
   }
 }
 ```
+ 
+ 
 
+##### 反例2
 
-## 反例2
-
-
-```text
+```json
 import lottie from '@ohos/lottie';
 import { AnimationItem } from '@ohos/lottie';
 
 // 动画播放的起始帧
-const FRAME_START: number = 60;
+const FRAME_START: number = 60; 
 // 动画播放的终止帧
-const FRAME_END: number = 120;
+const FRAME_END: number = 120; 
 
 //调用多次loadAnimation，但是只在onDisAppear销毁一次
 @Entry
 @Component
 struct LottieAnimation4 {
   private politeChickyController: CanvasRenderingContext2D = new CanvasRenderingContext2D();
-  // 动画名称
-  private politeChicky: string = 'politeChicky';
+  // 动画名称  
+  private politeChicky: string = 'politeChicky'; 
   // hap包内动画资源文件路径，仅支持json格式
-  private politeChickyPath: string = 'media/politeChicky.json';
+  private politeChickyPath: string = 'media/politeChicky.json'; 
   private animateItem: AnimationItem | null = null;
-  // 初始化点击次数
-  @State times: number = 0;
+  // 初始化点击次数 
+  @State times: number = 0; 
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
@@ -238,29 +239,29 @@ struct LottieAnimation4 {
   }
 }
 ```
+ 
+ 
 
+##### 反例3
 
-## 反例3
-
-
-```text
+```json
 import lottie from '@ohos/lottie';
 import { AnimationItem } from '@ohos/lottie';
 
 // 动画播放的起始帧
-const FRAME_START: number = 60;
+const FRAME_START: number = 60; 
 // 动画播放的终止帧
-const FRAME_END: number = 120;
+const FRAME_END: number = 120; 
 
 //调用了销毁，但是不是全部销毁，上报
 @Entry
 @Component
 struct LottieAnimation5 {
   private politeChickyController: CanvasRenderingContext2D = new CanvasRenderingContext2D();
-  // 动画名称
-  private politeChicky: string = 'politeChicky';
+  // 动画名称 
+  private politeChicky: string = 'politeChicky'; 
   // hap包内动画资源文件路径，仅支持json格式
-  private politeChickyPath: string = 'media/politeChicky.json';
+  private politeChickyPath: string = 'media/politeChicky.json'; 
   private animateItem: AnimationItem | null = null;
 
   build() {
@@ -298,13 +299,13 @@ struct LottieAnimation5 {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/all
+<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

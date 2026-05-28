@@ -10,8 +10,8 @@
 | 新增API | NA | 类名：connection； API声明：function getPacFileUrl(): string; 差异内容：function getPacFileUrl(): string; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：connection； API声明：function findProxyForUrl(url: string): string; 差异内容：function findProxyForUrl(url: string): string; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：http； API声明：export type SslType = 'TLS' \| 'TLCP'; 差异内容：export type SslType = 'TLS' \| 'TLCP'; | api/@ohos.net.http.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：VpnConnection； API声明：generateVpnId(): Promise<string>; 差异内容：generateVpnId(): Promise<string>; | api/@ohos.net.vpnExtension.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：VpnConnection； API声明：generateVpnId(): Promise&lt;string&gt;; 差异内容：generateVpnId(): Promise&lt;string&gt;; | api/@ohos.net.vpnExtension.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：VpnConfig； API声明：vpnId?: string; 差异内容：vpnId?: string; | api/@ohos.net.vpnExtension.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：HttpRequestOptions； API声明：sslType?: SslType; 差异内容：sslType?: SslType; | api/@ohos.net.http.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：HttpRequestOptions； API声明：clientEncCert?: ClientCert; 差异内容：clientEncCert?: ClientCert; | api/@ohos.net.http.d.ts |
-| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：VpnConnection； API声明：destroy(): Promise<void>; 差异内容：destroy(): Promise<void>; | 类名：VpnConnection； API声明：destroy(vpnId: string): Promise<void>; 差异内容：destroy(vpnId: string): Promise<void>; | api/@ohos.net.vpnExtension.d.ts |
+| 接口新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：VpnConnection； API声明：destroy(): Promise&lt;void&gt;; 差异内容：destroy(): Promise&lt;void&gt;; | 类名：VpnConnection； API声明：destroy(vpnId: string): Promise&lt;void&gt;; 差异内容：destroy(vpnId: string): Promise&lt;void&gt;; | api/@ohos.net.vpnExtension.d.ts |

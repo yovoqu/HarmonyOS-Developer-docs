@@ -5,10 +5,10 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-2
 
 在UIAbility中使用EventHub订阅事件，EventHub模块提供了事件中心，订阅、取消订阅、触发事件的能力。
-
+ 
 参考代码如下：
-
-```ts
+ 
+```ArkTS
 import { UIAbility } from '@kit.AbilityKit';
 
 export default class EntryAbility extends UIAbility {
@@ -30,7 +30,7 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
-
-参考链接
-
-使用EventHub进行数据通信
+ 
+**参考链接**
+ 
+[使用EventHub进行数据通信](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-data-sync-with-ui#使用eventhub进行数据通信)

@@ -8,4 +8,4 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：geoLocationManager； API声明：function getDistanceBetweenLocations(location1: Location, location2: Location): number; 差异内容：function getDistanceBetweenLocations(location1: Location, location2: Location): number; | api/@ohos.geoLocationManager.d.ts |
 | 新增API | NA | 类名：geoLocationManager； API声明：function isPoiServiceSupported(): boolean; 差异内容：function isPoiServiceSupported(): boolean; | api/@ohos.geoLocationManager.d.ts |
-| 新增API | NA | 类名：geoLocationManager； API声明：function getPoiInfo(): Promise<PoiInfo>; 差异内容：function getPoiInfo(): Promise<PoiInfo>; | api/@ohos.geoLocationManager.d.ts |
+| 新增API | NA | 类名：geoLocationManager； API声明：function getPoiInfo(): Promise&lt;PoiInfo&gt;; 差异内容：function getPoiInfo(): Promise&lt;PoiInfo&gt;; | api/@ohos.geoLocationManager.d.ts |

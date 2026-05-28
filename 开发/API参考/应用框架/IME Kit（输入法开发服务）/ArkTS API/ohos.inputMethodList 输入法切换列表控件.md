@@ -3,92 +3,89 @@
 更新时间：2026-04-10 09:55:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodlist
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块主要面向系统应用和输入法应用，提供输入法切换列表控件，控件中显示默认输入法子类型和三方输入法应用列表，对于默认输入法应用，提供模式切换入口。
-
-
+ 
 > [!NOTE]
 > 该组件从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { InputMethodListDialog } from '@kit.IMEKit';
 ```
+ 
+  
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 无
+ 
+  
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
+ 
+  
 
-
-## InputMethodListDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### InputMethodListDialog
 
 InputMethodListDialog({controller: CustomDialogController, patternOptions?: PatternOptions})
-
+ 
 输入法切换列表弹窗。
-
+ 
 **装饰器类型：**@CustomDialog
-
+ 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
-
+ 
 **参数：**
-
-
+  
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| controller | [CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller) | 是 | - | 输入法切换列表弹窗控制器。 |
-| patternOptions | [PatternOptions](#patternoptions) | 否 | - | 输入法模式选项（仅系统预置输入法支持）。 |
+| controller | CustomDialogController | 是 | - | 输入法切换列表弹窗控制器。 |
+| patternOptions | PatternOptions | 否 | - | 输入法模式选项（仅系统预置输入法支持）。 |
+ 
+ 
+  
 
-
-## PatternOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### PatternOptions
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | defaultSelected | number | 否 | 是 | 非必填。默认选择的模式。 |
-| patterns | Array&lt;[Pattern](#pattern)&gt; | 否 | 否 | 必填。模式选项的资源。 |
-| action | (index: number) =&gt; void | 否 | 否 | 必填。模式选项改变时的回调。 |
+| patterns | Array&lt;Pattern&gt; | 否 | 否 | 必填。模式选项的资源。 |
+| action | (index: number) => void | 否 | 否 | 必填。模式选项改变时的回调。 |
+ 
+ 
+  
 
-
-## Pattern
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Pattern
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 否 | 必填。默认图片资源。 |
-| selectedIcon | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 否 | 必填。选中时的图片资源。 |
+| icon | Resource | 否 | 否 | 必填。默认图片资源。 |
+| selectedIcon | Resource | 否 | 否 | 必填。选中时的图片资源。 |
+ 
+ 
+  
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
+ 
+  
 
+##### 示例
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```ts
+```text
 import { Pattern, PatternOptions } from '@kit.IMEKit';
 
 @Entry
@@ -99,18 +96,18 @@ struct SettingsItem {
   private oneHandAction: PatternOptions = {
     defaultSelected: this.defaultPattern,
     patterns: [ // patterns中的图标需要在工程的resource中添加对应图标资源后使用
-    {
-      icon: $r('app.media.hand_icon'), // 此处为输入法模式选项的图标资源，例如单手模式图标
-      selectedIcon: $r('app.media.hand_icon_selected') // 此处为输入法模式选项的图标资源选中状态，例如单手模式选中状态的图标
-    },
-    {
-      icon: $r('app.media.hand_icon1'),
-      selectedIcon: $r('app.media.hand_icon_selected1')
-    },
-    {
-      icon: $r('app.media.hand_icon2'),
-      selectedIcon: $r('app.media.hand_icon_selected2'),
-    }],
+      {
+        icon: $r('app.media.hand_icon'), // 此处为输入法模式选项的图标资源，例如单手模式图标
+        selectedIcon: $r('app.media.hand_icon_selected') // 此处为输入法模式选项的图标资源选中状态，例如单手模式选中状态的图标
+      },
+      {
+        icon: $r('app.media.hand_icon1'),
+        selectedIcon: $r('app.media.hand_icon_selected1')
+      },
+      {
+        icon: $r('app.media.hand_icon2'),
+        selectedIcon: $r('app.media.hand_icon_selected2'),
+      }],
     action:(index: number)=>{
       console.info(`pattern is changed, current is ${index}`);
       this.defaultPattern = index;
@@ -137,7 +134,8 @@ struct SettingsItem {
   }
 }
 ```
-
+ 
 示例效果图：
+ 
 
-![](assets/ohos.inputMethodList%20输入法切换列表控件/file-20260514164440374-0.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Xv_81034QqKCwbpT_qKXvg/zh-cn_image_0000002611836487.png?HW-CC-KV=V1&HW-CC-Date=20260528T013754Z&HW-CC-Expire=86400&HW-CC-Sign=F2793468E431082DEE20B38CD9A44A4ADDA59E0B81D133E285BA7902CD9047B0)

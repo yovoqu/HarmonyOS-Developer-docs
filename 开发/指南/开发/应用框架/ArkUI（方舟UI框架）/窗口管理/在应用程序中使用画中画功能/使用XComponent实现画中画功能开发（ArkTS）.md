@@ -5,16 +5,38 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-xcomponent
 
 本文以视频播放为例，介绍通过XComponent实现画中画功能的基本开发步骤。
+  
 
+##### 约束与限制
 
-## 约束与限制
+- HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用XComponent实现画中画功能开发；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用XComponent实现画中画功能开发。
+- 仅支持以[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)作为媒体流播放组件的界面进入画中画模式，XComponent的type必须为XComponentType.SURFACE。
+- UIAbility使用[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)管理页面时，需要设置Navigation控件的id属性，并将该id传递给画中画控制器，确保还原时可以正常恢复原页面。
+- 如果应用主窗口不在前台，不建议在画中画回调方法中执行UI操作，例如页面push/pop等，这些操作不会立即执行，可能产生预期之外的结果。
+- 在关闭画中画时，需要检查自定义组件节点是否释放，避免出现内存泄漏。
 
-HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用XComponent实现画中画功能开发；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用XComponent实现画中画功能开发。  仅支持以[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)作为媒体流播放组件的界面进入画中画模式，XComponent的type必须为XComponentType.SURFACE。  UIAbility使用[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)管理页面时，需要设置Navigation控件的id属性，并将该id传递给画中画控制器，确保还原时可以正常恢复原页面。  如果应用主窗口不在前台，不建议在画中画回调方法中执行UI操作，例如页面push/pop等，这些操作不会立即执行，可能产生预期之外的结果。  在关闭画中画时，需要检查自定义组件节点是否释放，避免出现内存泄漏。
+ 
+  
 
-## 开发步骤
+##### 开发步骤
+1. 创建画中画控制器，注册生命周期事件以及控制事件回调。
 
-创建画中画控制器，注册生命周期事件以及控制事件回调。  通过create(config: PiPConfiguration)接口创建画中画控制器实例。  通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。  通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。  通过画中画控制器实例的on('controlPanelActionEvent')接口注册控制事件回调。 启动画中画。  创建画中画控制器实例后，通过startPiP接口启动画中画。  更新媒体源尺寸信息。  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。  关闭画中画。  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画。
-```text
+  
+通过create(config: PiPConfiguration)接口创建画中画控制器实例。
+2. 通过画中画控制器实例的setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画。
+3. 通过画中画控制器实例的on('stateChange')接口注册生命周期事件回调。
+4. 通过画中画控制器实例的on('controlPanelActionEvent')接口注册控制事件回调。
+5. 启动画中画。
+
+  创建画中画控制器实例后，通过startPiP接口启动画中画。
+6. 更新媒体源尺寸信息。
+
+  画中画媒体源更新后（如切换视频），通过画中画控制器实例的updateContentSize接口更新媒体源尺寸信息，以调整画中画窗口比例。
+7. 关闭画中画。
+
+  当不再需要显示画中画时，可根据业务需要，通过画中画控制器实例的stopPiP接口关闭画中画。
+ 
+```ArkTS
 // pages/XComponentImplementPage.ets
 // 该页面用于展示Navigation在画中画场景的使用。如果UIAbility是单页面，则无需使用Navigation
 import { Page1 } from '../xcomponent/Page1'
@@ -58,9 +80,10 @@ struct XComponentImplementPage {
   }
 }
 ```
-
- 示例中的视频播放需要使用AVPlayer，具体示例可参考[视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
-```text
+ 
+示例中的视频播放需要使用AVPlayer，具体示例可参考[视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-playback)。
+ 
+```ArkTS
 // xcomponent/Page1.ets
 // 该页面用于展示画中画功能的基本使用
 import { AVPlayer } from '../model/AVPlayer';
@@ -93,7 +116,7 @@ function buildText(params: Params) {
 // 开发者可通过继承NodeController实现自定义UI控制器
 class TextNodeController extends NodeController {
   private message: string;
-  private textNode: BuilderNode | null = null;
+  private textNode: BuilderNode<[Params]> | null = null;
 
   constructor(message: string) {
     super();
@@ -103,7 +126,7 @@ class TextNodeController extends NodeController {
   // 通过BuilderNode加载自定义布局
   makeNode(context: UIContext): FrameNode | null {
     this.textNode = new BuilderNode(context);
-    this.textNode.build(wrapBuilder(buildText), new Params(this.message));
+    this.textNode.build(wrapBuilder<[Params]>(buildText), new Params(this.message));
     return this.textNode.getFrameNode();
   }
 
@@ -317,7 +340,7 @@ export struct Page1 {
   // 步骤4：当不再需要显示画中画时，通过stopPiP接口关闭画中画
   stopPip() {
     if (this.pipController) {
-      let promise: Promise = this.pipController.stopPiP();
+      let promise: Promise<void> = this.pipController.stopPiP();
       promise.then(() => {
         Logger.info(`Succeeded in stopping pip.`);
         this.pipController?.off('stateChange'); // 如果已注册stateChange回调，停止画中画时取消注册该回调
@@ -329,6 +352,8 @@ export struct Page1 {
   }
 }
 ```
-
+ 
 以上示例代码对应的示意图如下所示：
+ 
+
 ![](assets/使用XComponent实现画中画功能开发（ArkTS）/file-20260514130817716-0.gif)

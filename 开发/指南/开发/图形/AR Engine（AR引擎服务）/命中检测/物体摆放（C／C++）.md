@@ -1,47 +1,54 @@
 # 物体摆放（C/C++）
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arworld
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/harmonyos_samples/arengine_-sample-code_-clientdemo_cpp)。
 
 
-## 约束与限制
+##### 约束与限制
 
-物体摆放能力支持部分Phone、Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
+从5.0.0(12)开始，物体摆放能力支持部分Phone、Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_featuretype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 以下接口为AR物体摆放相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [HMS_AREngine_ARSession_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create) | 创建一个新的[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。 |
-| [HMS_AREngine_ARSession_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_update) | 更新AR Engine的计算结果。 |
-| [HMS_AREngine_ARSession_Configure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_configure) | 配置[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。 |
-| [HMS_AREngine_ARFrame_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_create) | 创建一个新的[AREngine_ARFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arframe)对象，将指针存储到中*outFrame。 |
-| [HMS_AREngine_ARSession_SetDisplayGeometry](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_setdisplaygeometry) | 设置显示的高和宽（以Pixel为单位）。该高度和宽度是显示视图的高度和宽度，如果不一致，会导致显示相机预览出错。 |
-| [HMS_AREngine_ARSession_SetCameraGLTexture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_setcameragltexture) | 设置可用于存储相机预览流数据的openGL纹理。 |
-| [HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables) | 获取所有指定类型的可跟踪对象集合。 |
-| [HMS_AREngine_ARTrackableList_AcquireItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_artrackablelist_acquireitem) | 从可跟踪列表中获取指定index的对象。 |
-| [HMS_AREngine_ARPlane_GetCenterPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arplane_getcenterpose) | 获取从平面的局部坐标系到世界坐标系转换的位姿信息。 |
-| [HMS_AREngine_ARFrame_HitTest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_hittest) | 根据屏幕上兴趣点位置获取命中检测结果。 |
-| [HMS_AREngine_ARHitResultList_GetSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresultlist_getsize) | 获取命中检测结果对象列表中包含的对象数。 |
-| [HMS_AREngine_ARHitResultList_GetItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresultlist_getitem) | 在命中检测结果列表中获取指定索引的命中检测结果对象。 |
-| [HMS_AREngine_ARHitResult_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresult_create) | 创建一个空的命中检测结果对象。 |
-| [HMS_AREngine_ARHitResult_AcquireNewAnchor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresult_acquirenewanchor) | 在碰撞命中位置创建一个新的锚点。 |
-| [HMS_AREngine_ARHitResult_AcquireTrackable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresult_acquiretrackable) | 获取被命中的可追踪对象。 |
-| [HMS_AREngine_ARFrame_AcquireCamera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_acquirecamera) | 获取当前帧的相机参数对象。 |
-| [HMS_AREngine_ARPose_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arpose_create) | 分配并初始化一个新的位姿对象。 |
-| [HMS_AREngine_ARCamera_GetPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arcamera_getpose) | 获取当前相机对象在AR世界空间中的位姿。 |
+| HMS_AREngine_ARSession_Create | 创建一个新的AREngine_ARSession会话。 |
+| HMS_AREngine_ARSession_Update | 更新AR Engine的计算结果。 |
+| HMS_AREngine_ARSession_Configure | 配置AREngine_ARSession会话。 |
+| HMS_AREngine_ARFrame_Create | 创建一个新的AREngine_ARFrame对象，将指针存储到中*outFrame。 |
+| HMS_AREngine_ARSession_SetDisplayGeometry | 设置显示的高和宽（以Pixel为单位）。该高度和宽度是显示视图的高度和宽度，如果不一致，会导致显示相机预览出错。 |
+| HMS_AREngine_ARSession_SetCameraGLTexture | 设置可用于存储相机预览流数据的openGL纹理。 |
+| HMS_AREngine_ARSession_GetAllTrackables | 获取所有指定类型的可跟踪对象集合。 |
+| HMS_AREngine_ARTrackableList_AcquireItem | 从可跟踪列表中获取指定index的对象。 |
+| HMS_AREngine_ARPlane_GetCenterPose | 获取从平面的局部坐标系到世界坐标系转换的位姿信息。 |
+| HMS_AREngine_ARFrame_HitTest | 根据屏幕上兴趣点位置获取命中检测结果。 |
+| HMS_AREngine_ARHitResultList_GetSize | 获取命中检测结果对象列表中包含的对象数。 |
+| HMS_AREngine_ARHitResultList_GetItem | 在命中检测结果列表中获取指定索引的命中检测结果对象。 |
+| HMS_AREngine_ARHitResult_Create | 创建一个空的命中检测结果对象。 |
+| HMS_AREngine_ARHitResult_AcquireNewAnchor | 在碰撞命中位置创建一个新的锚点。 |
+| HMS_AREngine_ARHitResult_AcquireTrackable | 获取被命中的可追踪对象。 |
+| HMS_AREngine_ARFrame_AcquireCamera | 获取当前帧的相机参数对象。 |
+| HMS_AREngine_ARPose_Create | 分配并初始化一个新的位姿对象。 |
+| HMS_AREngine_ARCamera_GetPose | 获取当前相机对象在AR世界空间中的位姿。 |
 
 
-## 开发步骤
 
 
-## 声明Native接口
+##### 开发步骤
+
+
+
+##### 声明Native接口
 
 ArkTS接口声明。
+
 ```text
 import { resourceManager } from '@kit.LocalizationKit';
 
@@ -60,6 +67,7 @@ export const getVolume: (id: string) => string;
 ```
 
 建立ArkTS接口与C++接口之间的映射。
+
 ```text
 napi_property_descriptor desc[] = {
     {"init", nullptr, Global::Init, nullptr, nullptr, nullptr, napi_default, nullptr},
@@ -79,10 +87,12 @@ napi_property_descriptor desc[] = {
 ```
 
 
-## 创建UI界面
+
+##### 创建UI界面
 
 创建一个UI界面，使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件用于显示相机预览画面，并定时触发每一帧绘制。
-```text
+
+```ArkTS
 // 此代码可参考示例代码：ARSample/entry/src/main/ets/pages/ARWorld.ets。
 import { PromptAction } from '@kit.ArkUI';
 import { deviceInfo } from '@kit.BasicServicesKit';
@@ -163,7 +173,16 @@ struct ARWorld {
   }
 
   private planeNum(): void {
-    if (this.numberOfPlans  10000) {
+    if (this.numberOfPlans < 1) {
+      // 平面数量少于1
+      let tempMillisecond: number = new Date().getTime();
+      // 为首次启动的时间分配一个值
+      if (this.currentMillisecond === 0) {
+        this.currentMillisecond = tempMillisecond;
+        return;
+      }
+      // 当识别平面时间超过10s，则展示一个弹窗
+      if (tempMillisecond - this.currentMillisecond > 10000) {
         this.messageNotification();
         this.currentMillisecond = 0;
       }
@@ -175,13 +194,18 @@ struct ARWorld {
 ```
 
 
-## 引入AR Engine
+
+##### 引入AR Engine
 
 开发者可参考管理AR会话章节的[引入AR Engine](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession#引入ar-engine)。
 
-## 创建AR场景
 
-调用[HMS_AREngine_ARSession_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create)函数创建[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。您可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession)创建ARSession。 配置AR会话及预览尺寸。
+
+##### 创建AR场景
+1. 调用[HMS_AREngine_ARSession_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_create)函数创建[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)会话。您可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-arsession)创建ARSession。
+2. 配置AR会话及预览尺寸。
+
+  
 ```text
 // 【可选】创建一个拥有合理默认配置的配置对象。
 AREngine_ARConfig *arConfig = nullptr;
@@ -203,29 +227,38 @@ AREngine_ARPoseType displayRotation = ARENGINE_POSE_TYPE_IDENTITY;
 HMS_AREngine_ARSession_SetDisplayGeometry(arSession, displayRotation, width, height);
 ```
 
-通过OpenGL接口获取纹理ID。
+3. 通过OpenGL接口获取纹理ID。
+
+  
 ```text
 // 通过openGL接口获取纹理ID。
 GLuint textureId = 0;
 glGenTextures(1, &textureId);
 ```
 
-设置OpenGL纹理，存储相机预览流数据。
+4. 设置OpenGL纹理，存储相机预览流数据。
+
+  
 ```text
 // 设置可用于存储相机预览流数据的openGL纹理。
 HMS_AREngine_ARSession_SetCameraGLTexture(arSession, textureId );
 ```
 
 
-## 获取平面
 
-调用[HMS_AREngine_ARSession_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_update)函数更新当前[AREngine_ARFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arframe)对象。
+
+##### 获取平面
+1. 调用[HMS_AREngine_ARSession_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_update)函数更新当前[AREngine_ARFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arframe)对象。
+
+  
 ```text
 // 获取帧数据AREngine_ARFrame。
 HMS_AREngine_ARSession_Update(arSession, arFrame);
 ```
 
-获取相机的视图矩阵和相机的投影矩阵，用于后续渲染。
+2. 获取相机的视图矩阵和相机的投影矩阵，用于后续渲染。
+
+  
 ```text
 // 根据AREngine_ARFrame对象可以获取相机对象AREngine_ARCamera。
 AREngine_ARCamera *arCamera = nullptr;
@@ -236,11 +269,12 @@ HMS_AREngine_ARCamera_GetViewMatrix(arSession, arCamera, glm::value_ptr(*viewMat
 HMS_AREngine_ARCamera_GetProjectionMatrix(arSession, arCamera, {0.1f, 100.f}, glm::value_ptr(*projectionMat), 16);
 ```
 
-
 > [!NOTE]
-> 这里直接获取相机的视图矩阵和相机的投影矩阵，是为了便于渲染。获取相机运动中的位姿变化，还可以调用HMS_AREngine_ARCamera_GetPose函数配合HMS_AREngine_ARPose_GetPoseRaw函数进行获取。详细可参考获取设备当前位姿。
+> 这里直接获取相机的视图矩阵和相机的投影矩阵，是为了便于渲染。获取相机运动中的位姿变化，还可以调用 HMS_AREngine_ARCamera_GetPose 函数配合 HMS_AREngine_ARPose_GetPoseRaw 函数进行获取。详细可参考 获取设备当前位姿 。
 
-调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数获取平面列表。详细可参考[检测环境中的平面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane)章节。
+3. 调用[HMS_AREngine_ARSession_GetAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_getalltrackables)函数获取平面列表。详细可参考[检测环境中的平面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-c-get-plane)章节。
+
+  
 ```text
 // 获取当前检测到的平面列表。
 AREngine_ARTrackableList *planeList = nullptr;
@@ -252,7 +286,11 @@ HMS_AREngine_ARSession_GetAllTrackables(arSession, planeTrackedType, planeList);
 int32_t planeListSize = 0;
 // 获取此列表中的可跟踪对象的数量。
 HMS_AREngine_ARTrackableList_GetSize(arSession, planeList, &planeListSize);
-for (int i = 0; i (arTrackable);
+for (int i = 0; i < planeListSize; ++i) {
+    AREngine_ARTrackable *arTrackable = nullptr;
+    // 从可跟踪列表中获取指定index的对象。
+    HMS_AREngine_ARTrackableList_AcquireItem(arSession, planeList, i, &arTrackable);
+    AREngine_ARPlane *arPlane = reinterpret_cast<AREngine_ARPlane*>(arTrackable);
     // 获取当前可跟踪对象的跟踪状态。如果状态为：ARENGINE_TRACKING_STATE_TRACKING（可跟踪状态）才进行绘制。
     AREngine_ARTrackingState outTrackingState;
     HMS_AREngine_ARTrackable_GetTrackingState(arSession, arTrackable, &outTrackingState);
@@ -260,7 +298,7 @@ for (int i = 0; i (arTrackable);
     // 获取平面的父平面（一个平面被另一个平面合并时，会产生父平面），如果无父平面返回为NULL。
      HMS_AREngine_ARPlane_AcquireSubsumedBy(arSession, arPlane, &subsumePlane);
     if (subsumePlane != nullptr) {
-        HMS_AREngine_ARTrackable_Release(reinterpret_cast(subsumePlane));
+        HMS_AREngine_ARTrackable_Release(reinterpret_cast<AREngine_ARTrackable*>(subsumePlane));
         // 如果当前平面有父平面，则当前平面不进行展示。否则会出现双平面。
         continue;
     }
@@ -274,7 +312,9 @@ HMS_AREngine_ARTrackableList_Destroy(planeList);
 planeList = nullptr;
 ```
 
-调用[HMS_AREngine_ARPlane_GetPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arplane_getpolygon)函数获取平面的二维顶点坐标数组，用于绘制平面边界。
+4. 调用[HMS_AREngine_ARPlane_GetPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arplane_getpolygon)函数获取平面的二维顶点坐标数组，用于绘制平面边界。
+
+  
 ```text
 // 获取检测到平面的二维顶点数组大小。
 int32_t polygonLength = 0;
@@ -282,14 +322,21 @@ HMS_AREngine_ARPlane_GetPolygonSize(arSession, arPlane, &polygonLength);
 
 // 获取检测到平面的二维顶点数组，格式为[x1，z1，x2，z2，...]。
 const int32_t verticesSize = polygonLength / 2;
-std::vector raw_vertices(verticesSize);
+std::vector<glm::vec2> raw_vertices(verticesSize);
 HMS_AREngine_ARPlane_GetPolygon(arSession, arPlane, glm::value_ptr(raw_vertices.front()), polygonLength);
 
 // 局部坐标系顶点坐标。
-for (int32_t i = 0; i  [!NOTE]
-> 调用HMS_AREngine_ARPlane_GetPolygon函数获取平面的二维顶点坐标数组格式为[x1，z1，x2，z2，...]。这些值均在平面局部坐标系的x-z平面中定义，须先调用HMS_AREngine_ARPlane_GetCenterPose函数获取从平面的局部坐标系到世界坐标系转换的位姿数据，然后调用HMS_AREngine_ARPose_GetMatrix函数将位姿数据转换成4X4的矩阵，该矩阵与局部坐标系的坐标点做乘法，可以得到局部坐标系到世界坐标系的转换。
+for (int32_t i = 0; i < verticesSize; ++i) {
+    vertices.emplace_back(raw_vertices[i].x, raw_vertices[i].y, 0.75f);
+}
+```
 
-                    将平面的二维顶点坐标转换到世界坐标系，并绘制平面。
+> [!NOTE]
+> 调用 HMS_AREngine_ARPlane_GetPolygon 函数获取平面的二维顶点坐标数组格式为[x1，z1，x2，z2，...]。这些值均在平面局部坐标系的x-z平面中定义，须先调用 HMS_AREngine_ARPlane_GetCenterPose 函数获取从平面的局部坐标系到世界坐标系转换的位姿数据，然后调用 HMS_AREngine_ARPose_GetMatrix 函数将位姿数据转换成4X4的矩阵，该矩阵与局部坐标系的坐标点做乘法，可以得到局部坐标系到世界坐标系的转换。
+
+5. 将平面的二维顶点坐标转换到世界坐标系，并绘制平面。
+
+  
 ```text
 // 获取从平面的局部坐标系到世界坐标系转换的位姿信息。
 AREngine_ARPose *scopedArPose = nullptr;
@@ -303,16 +350,32 @@ HMS_AREngine_ARPose_Destroy(scopedArPose);
 
 // 构筑绘制渲染平面所需的数据。
 // 生成三角形。
-for (int i = 1; i
-
-## 点击屏幕
-
-用户点击屏幕后，基于点击事件获取屏幕坐标。可参考[Native XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent)。 添加头文件：native_interface_xcomponent.h。
-```text
-#include
+for (int i = 1; i < verticesSize - 1; ++i) {
+    triangles.push_back(0);
+    triangles.push_back(i);
+    triangles.push_back(i + 1);
+}
+// 生成平面包围线。
+for (int i = 0; i < verticesSize; ++i) {
+    lines.push_back(i);
+}
 ```
 
+
+
+
+##### 点击屏幕
+1. 用户点击屏幕后，基于点击事件获取屏幕坐标。可参考[Native XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent)。
+
+  添加头文件：native_interface_xcomponent.h。
+
+  
+```text
+#include <ace/xcomponent/native_interface_xcomponent.h>
+```
 通过点击事件获取屏幕点击坐标。
+
+  
 ```text
 float pixelX= 0.0f;
 float pixelY= 0.0f;
@@ -328,7 +391,9 @@ if (ret == OH_NATIVEXCOMPONENT_RESULT_SUCCESS) {
 }
 ```
 
-调用[HMS_AREngine_ARFrame_HitTest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_hittest)函数进行碰撞检测，结果存放在碰撞检测结果列表中。
+2. 调用[HMS_AREngine_ARFrame_HitTest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arframe_hittest)函数进行碰撞检测，结果存放在碰撞检测结果列表中。
+
+  
 ```text
 // 创建一个命中检测结果对象列表，arSession为创建AR场景步骤中创建的会话对象。
 AREngine_ARHitResultList *hitResultList = nullptr;
@@ -338,14 +403,16 @@ HMS_AREngine_ARHitResultList_Create(arSession, &hitResultList);
 HMS_AREngine_ARFrame_HitTest(arSession, arFrame, pixelX, pixelY, hitResultList);
 ```
 
-
 > [!NOTE]
 > 碰撞结果按照交点与设备的距离从近到远进行排序，存放在碰撞结果列表中。
 
 
-## 放置虚拟物体
 
-调用[HMS_AREngine_ARHitResultList_GetItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresultlist_getitem)函数遍历碰撞检测结果列表，获取命中的可跟踪对象。
+
+##### 放置虚拟物体
+1. 调用[HMS_AREngine_ARHitResultList_GetItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arhitresultlist_getitem)函数遍历碰撞检测结果列表，获取命中的可跟踪对象。
+
+  
 ```text
 // 创建命中检测结果对象。
 AREngine_ARHitResult *arHit = nullptr;
@@ -359,7 +426,9 @@ AREngine_ARTrackable *arHitTrackable = nullptr;
 HMS_AREngine_ARHitResult_AcquireTrackable(arSession, arHit, &arHitTrackable);
 ```
 
-判断碰撞结果是否存在于平面内部。
+2. 判断碰撞结果是否存在于平面内部。
+
+  
 ```text
 AREngine_ARTrackableType ar_trackable_type = ARENGINE_TRACKABLE_INVALID;
 HMS_AREngine_ARTrackable_GetType(arSession, arTrackable, &ar_trackable_type);
@@ -377,7 +446,9 @@ if (ARENGINE_TRACKABLE_PLANE == ar_trackable_type) {
 }
 ```
 
-在碰撞结果位置创建一个新的锚点，并基于此锚点放置虚拟模型。
+3. 在碰撞结果位置创建一个新的锚点，并基于此锚点放置虚拟模型。
+
+  
 ```text
 // 在碰撞命中位置创建一个新的锚点。
 AREngine_ARAnchor *anchor = nullptr;
@@ -392,8 +463,12 @@ if (trackingState != ARENGINE_TRACKING_STATE_TRACKING) {
 }
 ```
 
-绘制模型。 调用[HMS_AREngine_ARAnchor_GetPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_aranchor_getpose)函数获取锚点位姿，并基于该位姿绘制虚拟模型。
-```text
+4. 绘制模型。
+
+  调用[HMS_AREngine_ARAnchor_GetPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_aranchor_getpose)函数获取锚点位姿，并基于该位姿绘制虚拟模型。
+
+  
+```cpp
 // 获取锚点的位姿。
 AREngine_ARPose *pose = nullptr;
 HMS_AREngine_ARPose_Create(arSession, nullptr, 0, &pose);

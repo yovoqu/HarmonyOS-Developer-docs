@@ -28,5 +28,5 @@
 | 新增API | NA | 类名：FontDescriptor； API声明：italic?: number; 差异内容：italic?: number; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：FontDescriptor； API声明：monoSpace?: boolean; 差异内容：monoSpace?: boolean; | api/@ohos.graphics.text.d.ts |
 | 新增API | NA | 类名：FontDescriptor； API声明：symbolic?: boolean; 差异内容：symbolic?: boolean; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：text； API声明：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>; 差异内容：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：text； API声明：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>; 差异内容：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：text； API声明：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array&lt;string&gt;>; 差异内容：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array&lt;string&gt;>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：text； API声明：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise&lt;FontDescriptor&gt;; 差异内容：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise&lt;FontDescriptor&gt;; | api/@ohos.graphics.text.d.ts |

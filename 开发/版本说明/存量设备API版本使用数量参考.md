@@ -5,11 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/sdk-version-percentage
 
 截止2026年5月17日，HarmonyOS设备各API版本使用量占比如下，开发者可根据占比来为应用合理定义需要兼容的API版本。
-
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > 本数据约15天进行一次更新。
 
-
+  
 | API版本 | 设备量占比 |
 | --- | --- |
 | 6.1.0(24) Beta | 0.08% |

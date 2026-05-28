@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-reasonable-gps-use-check
 
 无长时任务的应用退到后台时，禁止使用定位服务。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -18,16 +17,18 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
+##### 正例
 
-
-```text
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { geoLocationManager } from '@kit.LocationKit';
 
@@ -53,12 +54,12 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
+ 
+ 
 
+##### 反例
 
-## 反例
-
-
-```text
+```json
 import { UIAbility } from '@kit.AbilityKit';
 import { geoLocationManager } from '@kit.LocationKit';
 
@@ -82,13 +83,13 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/all
+<span style="color: rgb(80,160,79);">plugin:@performance/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

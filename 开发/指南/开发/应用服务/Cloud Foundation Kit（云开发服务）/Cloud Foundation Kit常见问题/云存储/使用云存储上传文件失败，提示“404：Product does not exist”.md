@@ -5,11 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-faq-1
 
 **问题现象**
+ 
+使用云存储上传文件失败，HiLog提示“404:Product does not exist”。
+ 
 
- 使用云存储上传文件失败，HiLog提示“404:Product does not exist”。
+![](assets/使用云存储上传文件失败，提示“404：Product%20does%20not%20exist”/file-20260514131848501-0.png)
 
- ![](assets/使用云存储上传文件失败，提示“404：Product%20does%20not%20exist”/file-20260514131848501-0.png)
-
- **解决措施**
-
- 此错误由云存储服务端返回，原因是云存储服务未开通。请[开通云存储服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-enable-storage)。
+ 
+**解决措施**
+ 
+此错误由云存储服务端返回，原因是云存储服务未开通。请[开通云存储服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cloudfoundation-enable-storage)。

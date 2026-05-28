@@ -3,34 +3,31 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohospixelmapcreateops
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 struct OhosPixelMapCreateOps {...}
 ```
+  
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 用于定义创建 pixel map 设置选项的相关信息。
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)
-
+ 
 **所在头文件：** [image_pixel_map_mdk.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-pixel-map-mdk-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 成员变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | uint32_t width | 图片的宽，用pixels表示。 |

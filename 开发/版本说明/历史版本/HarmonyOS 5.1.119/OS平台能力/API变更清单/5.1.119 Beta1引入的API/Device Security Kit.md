@@ -19,4 +19,4 @@
 | 新增API | NA | 类名：SingleAntifraudAppInfo； API声明：appId: string; 差异内容：appId: string; | api/@hms.security.antifraudPicker.d.ts |
 | 新增API | NA | 类名：SingleAntifraudAppInfo； API声明：label: string; 差异内容：label: string; | api/@hms.security.antifraudPicker.d.ts |
 | 新增API | NA | 类名：SingleAntifraudAppInfo； API声明：installSource: string; 差异内容：installSource: string; | api/@hms.security.antifraudPicker.d.ts |
-| 新增API | NA | 类名：antifraudPicker； API声明：function selectFraudApp(context: common.Context, options?: AntifraudAppOptions): Promise<AntifraudAppResult>; 差异内容：function selectFraudApp(context: common.Context, options?: AntifraudAppOptions): Promise<AntifraudAppResult>; | api/@hms.security.antifraudPicker.d.ts |
+| 新增API | NA | 类名：antifraudPicker； API声明：function selectFraudApp(context: common.Context, options?: AntifraudAppOptions): Promise&lt;AntifraudAppResult&gt;; 差异内容：function selectFraudApp(context: common.Context, options?: AntifraudAppOptions): Promise&lt;AntifraudAppResult&gt;; | api/@hms.security.antifraudPicker.d.ts |

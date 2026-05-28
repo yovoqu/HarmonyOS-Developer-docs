@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-image-interpolation-check
 
 在使用Image组件[interpolation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image#interpolation)接口时，建议不要使用最邻近插值，避免出现明显锯齿问题。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@correctness/image-interpolation-check": "warn"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 const ADAPTIVE_SCALE = 1.5;
@@ -67,10 +68,10 @@ export struct AppIcon {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 const ADAPTIVE_SCALE = 1.5;
@@ -115,13 +116,13 @@ export struct AppIcon {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@correctness/all
+<span style="color: rgb(6,125,23);">plugin:@correctness/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

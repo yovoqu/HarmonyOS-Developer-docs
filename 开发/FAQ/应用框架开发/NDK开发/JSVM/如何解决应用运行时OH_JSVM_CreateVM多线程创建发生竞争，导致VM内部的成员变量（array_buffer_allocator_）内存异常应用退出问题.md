@@ -4,10 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-7
 
-问题现象
-
+**问题现象**
+ 
 崩溃的调用栈如下：
-
+ 
 ```text
 #00 pc 00000000017793f8 /system/lib64/ndk/libjsvm.so
 #01 pc 000000000163cef4 /system/lib64/ndk/libjsvm.so(v8::internal::Heap::AllocateExternalBackingStore(std::__h::function<void* (unsigned long)> const&, unsigned long)+212)
@@ -20,59 +20,59 @@
 #08 pc 0000000000ee9b88 /system/lib64/ndk/libjsvm.so(Builtins_InterpreterEntryTrampoline+264)
 #09 pc 0000000000ee9b88 /system/lib64/ndk/libjsvm.so(Builtins_InterpreterEntryTrampoline+264)
 ```
-
-原因分析
-
+ 
+**原因分析**
+ 
 从调用栈分析，错误发生在 libjsvm.so 库中的 v8::internal::Heap::AllocateExternalBackingStore 函数。该函数在尝试分配外部存储时调用了 allocate 函数，并在 allocate 函数中出现了空指针异常。
-
+ 
 ```cpp
 std::unique_ptr<BackingStore> BackingStore::Allocate(
-Isolate* isolate, size_t byte_length, SharedFlag shared,
-InitializedFlag initialized) {
-...
-auto allocator = isolate->array_buffer_allocator();
-...
-auto allocate_buffer = [allocator, initialized](size_t byte_length) {
-if (initialized == InitializedFlag::kUninitialized) {
-return allocator->AllocateUninitialized(byte_length);
-}
-void* buffer_start = allocator->Allocate(byte_length);
-if (buffer_start) {
-// TODO(wasm): node does not implement the zero-initialization API.
-// Reenable this debug check when node does implement it properly.
-constexpr bool
-kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI = true;
-if ((!(kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI)) &&
-!v8_flags.mock_arraybuffer_allocator) {
-DebugCheckZero(buffer_start, byte_length);
-}
-}
-return buffer_start;
-};
-buffer_start = isolate->heap()->AllocateExternalBackingStore(
-allocate_buffer, byte_length);
-...
+    Isolate* isolate, size_t byte_length, SharedFlag shared,
+    InitializedFlag initialized) {
+  ...
+  auto allocator = isolate->array_buffer_allocator();
+  ...
+  auto allocate_buffer = [allocator, initialized](size_t byte_length) {
+      if (initialized == InitializedFlag::kUninitialized) {
+        return allocator->AllocateUninitialized(byte_length);
+      }
+      void* buffer_start = allocator->Allocate(byte_length);
+      if (buffer_start) {
+        // TODO(wasm): node does not implement the zero-initialization API.
+        // Reenable this debug check when node does implement it properly.
+        constexpr bool
+            kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI = true;
+        if ((!(kDebugCheckZeroDisabledDueToNodeNotImplementingZeroInitAPI)) &&
+            !v8_flags.mock_arraybuffer_allocator) {
+          DebugCheckZero(buffer_start, byte_length);
+        }
+      }
+      return buffer_start;
+  };
+  buffer_start = isolate->heap()->AllocateExternalBackingStore(
+      allocate_buffer, byte_length);
+  ...
 }
 ```
-
+ 
 根据代码逻辑推断，错误的根本原因是 allocator为空。allocator 由 Isolate 的 array_buffer_allocator()方法返回，而 Isolate 是在 OH_JSVM_CreateVM 函数中通过 v8::Isolate::New(create_params)创建的。因此，array_buffer_allocator 的初始化过程可能存在问题。array_buffer_allocator是在 OH_JSVM_CreateVM 函数中通过 GetOrCreateDefaultArrayBufferAllocator() 创建的。如果在多线程环境下，多个线程同时调用 OH_JSVM_CreateVM 函数，可能会导致 array_buffer_allocator 的创建过程出现竞争条件，从而引发内存异常。
-
+ 
 在多线程环境下，OH_JSVM_CreateVM 函数的调用导致了 array_buffer_allocator 的创建过程出现竞争条件，从而使 allocator 对象为空。最终，AllocateExternalBackingStore 函数中引发了空指针异常。
-
-解决措施
-
+ 
+**解决措施**
+ 
 应用方需加锁处理，确保 OH_JSVM_CreateVM 调用期间，其他线程无法同时进入该代码块。这样可以确保每次只有一个线程可以创建 VM 实例，从而避免竞争条件。示例如下：
-
+ 
 ```cpp
 // Create an instance of JSVM.
 const JSVM_CreateVMOptions* options = new JSVM_CreateVMOptions();
 JSVM_Status res = USVM_OK;
 {
-std::Lock_guard<std::mutex> Lock(create_jsym_mutex_);
-res = OH_JSVM_CreateVM(options, &vm_);
+  std::Lock_guard<std::mutex> Lock(create_jsym_mutex_);
+  res = OH_JSVM_CreateVM(options, &vm_);
 }
 if (res != JSVM_OK vm_ == nullptr) {
-XLOG(ERROR) << "JSVM create vm failed";
+  XLOG(ERROR) << "JSVM create vm failed";
 }
 // When we start, open vm scope.
 ```

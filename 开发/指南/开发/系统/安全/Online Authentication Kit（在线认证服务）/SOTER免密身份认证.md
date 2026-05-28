@@ -4,21 +4,38 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-soter
 
-## 场景介绍
+##### 场景介绍
 
-用户可以利用生物特征来代替传统的密码验证，实现免密身份认证。 开通：提供移动端开通SOTER生物特征（指纹/3D人脸）免密身份认证的能力。 认证：提供移动端采用生物特征（指纹/3D人脸）进行SOTER免密身份认证的能力。 注销：提供移动端注销SOTER生物特征（指纹/3D人脸）免密身份认证的能力。
+用户可以利用生物特征来代替传统的密码验证，实现免密身份认证。
 
-## 基本概念
+ - 开通：提供移动端开通SOTER生物特征（指纹/3D人脸）免密身份认证的能力。
+ - 认证：提供移动端采用生物特征（指纹/3D人脸）进行SOTER免密身份认证的能力。
+ - 注销：提供移动端注销SOTER生物特征（指纹/3D人脸）免密身份认证的能力。
+
+
+
+
+##### 基本概念
 
 SOTER旨在提供一套生物认证平台和标准，使得业务可以采用设备上的传感器（如人脸传感器/指纹传感器）进行安全、高效的免密登录、免密支付等操作，当前已广泛应用于微信小程序/公众号、指纹支付等业务场景。
 
-## 相关权限
 
-获取网络权限：ohos.permission.INTERNET。 获取振动权限：ohos.permission.VIBRATE。 获取生物识别权限：ohos.permission.ACCESS_BIOMETRIC。
 
-## 约束与限制
+##### 相关权限
 
-开发者应用需要部署SOTER服务器。 移动端设备需要支持生物特征（指纹/3D人脸），查询当前移动端设备是否支持ATL4级别的认证可信等级。
+ - 获取网络权限：ohos.permission.INTERNET。
+ - 获取振动权限：ohos.permission.VIBRATE。
+ - 获取生物识别权限：ohos.permission.ACCESS_BIOMETRIC。
+
+
+
+
+##### 约束与限制
+
+ - 开发者应用需要部署SOTER服务器。
+ - 移动端设备需要支持生物特征（指纹/3D人脸），查询当前移动端设备是否支持ATL4级别的认证可信等级。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { userAuth } from '@kit.UserAuthenticationKit';
@@ -33,54 +50,69 @@ try {
 }
 ```
 
-移动端设备使用此服务时需要处于联网状态。
+ - 移动端设备使用此服务时需要处于联网状态。
 
-## 业务流程
+
+
+
+##### 业务流程
+
 
 ![](assets/SOTER免密身份认证/file-20260514131155607-0.png)
 
-## 接口说明
+
+
+
+##### 接口说明
 
 **表1** 开通、认证、注销的所需要的接口
+
 | 接口名 | 描述 |
 | --- | --- |
-| [generateAppSecureKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#generateappsecurekey)(keyType: [KeyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#keytype)): Promise | 生成应用密钥。 |
-| [generateAuthKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#generateauthkey)(keyAlias: string, keyType: [KeyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#keytype)): Promise | 生成认证密钥。 |
-| [generateChallengeSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#generatechallengesync)(keyAlias: string): Uint8Array | 生成Challenge。 |
-| [signWithAuthKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#signwithauthkeysync)(keyAlias: string, authToken: Uint8Array, info: string): [SignedResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#signedresult) | 使用认证密钥对业务数据签名。 |
-| [deleteAuthKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api#deleteauthkey)(keyAlias: string): Promise | 删除认证密钥。 |
+| generateAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt; | 生成应用密钥。 |
+| generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt; | 生成认证密钥。 |
+| generateChallengeSync(keyAlias: string): Uint8Array | 生成Challenge。 |
+| signWithAuthKeySync(keyAlias: string, authToken: Uint8Array, info: string): SignedResult | 使用认证密钥对业务数据签名。 |
+| deleteAuthKey(keyAlias: string): Promise&lt;void&gt; | 删除认证密钥。 |
 
 
-## 开发步骤
 
-导入SOTER模块。
+
+##### 开发步骤
+1. 导入SOTER模块。
+
+  
 ```text
 import { soter } from '@kit.OnlineAuthenticationKit';
 import { userAuth } from '@kit.UserAuthenticationKit';
 ```
 
-生成应用密钥和认证密钥用于后续的开通、认证流程。
+2. 生成应用密钥和认证密钥用于后续的开通、认证流程。
+
+  
 ```text
 let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 加密类型，只支持ECC_P256
 let keyAlias: string = 'keyAlias'; // 开发者自定义密钥别名
 
 // 生成应用密钥
 try {
-  let appSecureKey: Promise = soter.generateAppSecureKey(keyType);
+  let appSecureKey: Promise<Uint8Array> = soter.generateAppSecureKey(keyType);
 } catch (error) {
   const err = error as BusinessError;
   console.error(`Failed to generate app secure key. Code is ${err.code}, message is ${err.message}`);
 }
 // 生成AuthKey
 try {
-  let authKey: Promise = soter.generateAuthKey(keyAlias, keyType);
+  let authKey: Promise<soter.SignedResult> = soter.generateAuthKey(keyAlias, keyType);
 } catch (error) {
   const err = error as BusinessError;
   console.error(`Failed to generate auth key. Code is ${err.code}, message is ${err.message}`);
 }
 ```
 
-使用认证密钥签名，实现SOTER免密认证。
+3. 使用认证密钥签名，实现SOTER免密认证。
+
+  
 ```text
 let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 加密类型，只支持ECC_P256
 let keyAlias: string = 'keyAlias'; // 开发者自定义密钥别名
@@ -125,7 +157,9 @@ try {
 }
 ```
 
-关闭免密认证时，删除认证密钥。
+4. 关闭免密认证时，删除认证密钥。
+
+  
 ```text
 // 删除AuthKey
 let keyAlias: string = 'keyAlias'; // 开发者自定义密钥别名

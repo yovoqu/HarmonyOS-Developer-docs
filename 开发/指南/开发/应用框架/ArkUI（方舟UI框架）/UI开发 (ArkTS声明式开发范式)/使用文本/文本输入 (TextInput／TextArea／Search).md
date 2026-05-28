@@ -1,47 +1,54 @@
 # 文本输入 (TextInput/TextArea/Search)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-text-input
 
 TextInput、TextArea是输入框组件，用于响应用户输入，比如评论区的输入、聊天框的输入、表格的输入等，也可以结合其它组件构建功能页面，例如登录注册页面。具体用法请参考[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)和[TextArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea)组件的API文档。Search是特殊的输入框组件，称为搜索框，默认样式包含搜索图标。具体用法请参考[Search](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-search)组件的API文档。
 
-
 > [!NOTE]
-> 仅支持单文本样式，若需实现富文本样式，建议使用RichEditor组件。
+> 仅支持单文本样式，若需实现富文本样式，建议使用 RichEditor 组件。
 
 
-## 创建输入框
+
+##### 创建输入框
 
 TextInput是单行输入框，TextArea是多行输入框，Search是搜索框。通过以下接口创建这些组件。
+
 ```text
 TextInput(value?:{placeholder?: ResourceStr, text?: ResourceStr, controller?: TextInputController})
 ```
-
 
 ```text
 TextArea(value?:{placeholder?: ResourceStr, text?: ResourceStr, controller?: TextAreaController})
 ```
 
-
 ```text
 Search(options?:{placeholder?: ResourceStr, value?: ResourceStr, controller?: SearchController, icon?: string})
 ```
 
-单行输入框。
-```text
+ - 单行输入框。
+
+  
+```ArkTS
 TextInput()
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-0.png) 多行输入框。
-```text
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-1.png)
+
+ - 多行输入框。
+
+  
+```ArkTS
 TextArea()
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-1.png) 多行输入框文字超出一行时会自动折行。
-```text
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-10.png)
+
+ - 多行输入框文字超出一行时会自动折行。
+
+  
+```ArkTS
 /* 请将$r('app.string.CreatTextInput_textContent')替换为实际资源文件，在本示例中该资源文件的value值为
  * "我是TextArea我是TextArea我是TextArea我是TextArea"
  */
@@ -49,135 +56,190 @@ TextArea({ text: $r('app.string.CreatTextInput_textContent') })
   .width(300)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-2.png) 搜索框。
-```text
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-11.gif)
+
+ - 搜索框。
+
+  
+```ArkTS
 Search()
   // 请将$r('app.string.Creat_TextInput_Content')替换为实际资源文件，在本示例中该资源文件的value值为"搜索"
   .searchButton($r('app.string.Creat_TextInput_Content'))
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-3.png)
-
-## 设置输入框类型
-
-TextInput、TextArea和Search都支持设置输入框类型，通过type属性进行设置，但是各组件的枚举值略有不同。下面以单行输入框为例进行说明。 TextInput有以下类型可选择：Normal基本输入模式、Password密码输入模式、Email邮箱地址输入模式、Number纯数字输入模式、PhoneNumber电话号码输入模式、USER_NAME用户名输入模式、NEW_PASSWORD新密码输入模式、NUMBER_PASSWORD纯数字密码输入模式、NUMBER_DECIMAL带小数点的数字输入模式、带URL的输入模式。通过[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#type)属性进行设置：
-
-## 基本输入模式（默认类型）
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-12.gif)
 
 
-```text
+
+
+
+##### 设置输入框类型
+
+TextInput、TextArea和Search都支持设置输入框类型，通过type属性进行设置，但是各组件的枚举值略有不同。下面以单行输入框为例进行说明。
+
+TextInput有以下类型可选择：Normal基本输入模式、Password密码输入模式、Email邮箱地址输入模式、Number纯数字输入模式、PhoneNumber电话号码输入模式、USER_NAME用户名输入模式、NEW_PASSWORD新密码输入模式、NUMBER_PASSWORD纯数字密码输入模式、NUMBER_DECIMAL带小数点的数字输入模式、带URL的输入模式。通过[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#type)属性进行设置：
+
+
+
+##### 基本输入模式（默认类型）
+
+```ArkTS
 TextInput()
   .type(InputType.Normal)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-4.png)
 
-## 密码模式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-13.png)
 
-包括Password密码输入模式、NUMBER_PASSWORD纯数字密码模式、NEW_PASSWORD新密码输入模式。 以下示例是Password密码输入模式的输入框。
-```text
+
+
+
+##### 密码模式
+
+包括Password密码输入模式、NUMBER_PASSWORD纯数字密码模式、NEW_PASSWORD新密码输入模式。
+
+以下示例是Password密码输入模式的输入框。
+
+```ArkTS
 TextInput()
   .type(InputType.Password)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-5.png)
 
-## 邮箱地址输入模式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-14.png)
+
+
+
+
+##### 邮箱地址输入模式
 
 邮箱地址输入模式的输入框，只能存在一个@符号。
-```text
+
+```ArkTS
 TextInput()
   .type(InputType.Email)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-6.png)
 
-## 纯数字输入模式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-15.png)
+
+
+
+
+##### 纯数字输入模式
 
 纯数字输入模式的输入框，只能输入数字[0-9]。
-```text
+
+```ArkTS
 TextInput()
   .type(InputType.Number)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-7.png)
 
-## 电话号码输入模式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-16.gif)
+
+
+
+
+##### 电话号码输入模式
 
 电话号码输入模式的输入框，支持输入数字、空格、+ 、-、*、#、(、)，长度不限。
-```text
+
+```ArkTS
 TextInput()
   .type(InputType.PhoneNumber)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-8.png)
 
-## 带小数点的数字输入模式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-17.jpg)
+
+
+
+
+##### 带小数点的数字输入模式
 
 带小数点的数字输入模式的输入框，只能输入数字[0-9]和小数点，只能存在一个小数点。
-```text
+
+```ArkTS
 TextInput()
   .type(InputType.NUMBER_DECIMAL)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-9.png)
 
-## 带URL的输入模式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-18.jpg)
+
+
+
+
+##### 带URL的输入模式
 
 带URL的输入模式，无特殊限制。
-```text
+
+```ArkTS
 TextInput()
   .type(InputType.URL)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-10.png)
 
-## 设置输入框多态样式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-19.gif)
 
-TextInput、TextArea支持设置输入框多态样式，通过[style](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#style10)属性进行设置。下面以多行输入框TextArea为例进行说明。 TextArea有以下2种类型可选择：默认风格，入参是TextContentStyle.DEFAULT；内联模式，也称内联输入风格，入参是TextContentStyle.INLINE。
 
-## 默认风格
+
+
+##### 设置输入框多态样式
+
+TextInput、TextArea支持设置输入框多态样式，通过[style](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#style10)属性进行设置。下面以多行输入框TextArea为例进行说明。
+
+TextArea有以下2种类型可选择：默认风格，入参是TextContentStyle.DEFAULT；内联模式，也称内联输入风格，入参是TextContentStyle.INLINE。
+
+
+
+##### 默认风格
 
 默认风格的输入框，在编辑态和非编辑态，样式没有区别。
-```text
+
+```ArkTS
 TextArea()
   .style(TextContentStyle.DEFAULT)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-11.gif)
 
-## 内联模式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-2.png)
+
+
+
+
+##### 内联模式
 
 内联模式，也称内联输入风格。内联模式的输入框在编辑态和非编辑态样式有明显区分。
-```text
+
+```ArkTS
 TextArea()
   .style(TextContentStyle.INLINE)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-12.gif)
 
-## 自定义样式
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-20.png)
 
-设置无输入时的提示文本。
-```text
+
+
+
+##### 自定义样式
+
+ - 设置无输入时的提示文本。
+
+  
+```ArkTS
 // 请将$r('app.string.i_am_placeholder')替换为实际资源文件，在本示例中该资源文件的value值为"我是提示文本"
 TextInput({ placeholder: $r('app.string.i_am_placeholder') })
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-13.png) 设置输入框当前的文本内容。
-```text
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-21.jpg)
+
+ - 设置输入框当前的文本内容。
+
+  
+```ArkTS
 TextInput({
   // 请将$r('app.string.i_am_placeholder')替换为实际资源文件，在本示例中该资源文件的value值为"我是提示文本"
   placeholder: $r('app.string.i_am_placeholder'),
@@ -186,9 +248,12 @@ TextInput({
 })
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-14.png) 添加backgroundColor改变输入框的背景颜色。
-```text
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-22.jpg)
+
+ - 添加backgroundColor改变输入框的背景颜色。
+
+  
+```ArkTS
 TextInput({
   // 请将$r('app.string.i_am_placeholder')替换为实际资源文件，在本示例中该资源文件的value值为"我是提示文本"
   placeholder: $r('app.string.i_am_placeholder'),
@@ -198,17 +263,23 @@ TextInput({
   .backgroundColor(Color.Pink)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-15.png) 更丰富的样式可以结合[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)实现。
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-23.jpg)
 
-## 添加事件
+
+  更丰富的样式可以结合[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)实现。
+
+
+
+
+##### 添加事件
 
 文本框主要用于获取用户输入的信息，并将信息处理成数据进行上传，绑定[onChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#onchange)事件可以获取输入框内改变的文本内容，绑定[onSubmit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#onsubmit)事件可以获取回车提交的文本信息，绑定[onTextSelectionChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ontextselectionchange10)事件可以获取文本选中时手柄的位置信息或者编辑时光标的位置信息等等。用户也可以使用通用事件进行相应的交互操作。
+
 > [!NOTE]
-> 在密码模式下，设置showPassword属性时，在onSecurityStateChange回调中，建议增加状态同步，具体详见如下示例。 onWillInsert、onDidInsert、onWillDelete、onDidDelete回调仅支持系统输入法的场景。 onWillChange的回调时序晚于onWillInsert、onWillDelete，早于onDidInsert、onDidDelete。
+> 在密码模式下，设置 showPassword 属性时，在 onSecurityStateChange 回调中，建议增加状态同步，具体详见如下示例。 onWillInsert 、 onDidInsert 、 onWillDelete 、 onDidDelete 回调仅支持系统输入法的场景。 onWillChange 的回调时序晚于 onWillInsert 、 onWillDelete ，早于 onDidInsert 、 onDidDelete 。
 
 
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const TAG = '[Sample_Textcomponent]';
@@ -297,31 +368,45 @@ struct TextInputEventAdd {
 }
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-16.gif)
 
-## 选中菜单
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-25.gif)
 
-输入框中的文字被选中时会弹出包含剪切、复制、翻译、分享的菜单。 TextInput:
-```text
+
+
+
+##### 选中菜单
+
+输入框中的文字被选中时会弹出包含剪切、复制、翻译、分享的菜单。
+
+TextInput:
+
+```ArkTS
 // 请将$r('app.string.show_selected_menu')替换为实际资源文件，在本示例中该资源文件的value值为"这是一段文本，用来展示选中菜单"
 TextInput({ text: $r('app.string.show_selected_menu') })
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-17.jpg) TextArea:
-```text
+
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-26.gif)
+
+
+TextArea:
+
+```ArkTS
 // 请将$r('app.string.show_selected_menu')替换为实际资源文件，在本示例中该资源文件的value值为"这是一段文本，用来展示选中菜单"
 TextArea({ text: $r('app.string.show_selected_menu') })
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-18.jpg)
 
-## 禁用系统服务类菜单
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-3.png)
+
+
+
+
+##### 禁用系统服务类菜单
 
 从API version 20开始，支持使用[disableSystemServiceMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablesystemservicemenuitems20)方法屏蔽文本选择菜单中的所有系统服务菜单项。更多详见[disableSystemServiceMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablesystemservicemenuitems20)的API文档接口说明。以下示例只是完整示例工程中的一个示例，为了不影响工程其他页面示例效果，仅在页面的出现和消失生命周期中进行系统服务菜单的禁用和恢复，实际场景可自行选择其他时机，比如[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)和[onDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#ondestroy)。
-```text
+
+```ArkTS
 import { TextMenuController } from '@kit.ArkUI';
 
 @Entry
@@ -348,7 +433,7 @@ struct DisableSystemServiceMenuItem {
           .textAlign(TextAlign.Center)
           .caretStyle({ width: '4vp' })
           .editMenuOptions({
-            onCreateMenu: (menuItems: Array) => {
+            onCreateMenu: (menuItems: Array<TextMenuItem>) => {
               // menuItems不包含被屏蔽的系统菜单项
               return menuItems
             },
@@ -363,9 +448,13 @@ struct DisableSystemServiceMenuItem {
 }
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-19.gif) 从API version 20开始，支持使用[disableMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablemenuitems20)方法屏蔽文本选择菜单中指定的系统服务菜单项。更多详见[disableMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablemenuitems20)的API文档接口说明。以下示例只是完整示例工程中的一个示例，为了不影响工程其他页面示例效果，仅在页面的出现和消失生命周期中进行系统服务菜单的禁用和恢复，实际场景可自行选择其他时机，比如[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)和[onDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#ondestroy)。
-```text
+
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-4.png)
+
+
+从API version 20开始，支持使用[disableMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablemenuitems20)方法屏蔽文本选择菜单中指定的系统服务菜单项。更多详见[disableMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller#disablemenuitems20)的API文档接口说明。以下示例只是完整示例工程中的一个示例，为了不影响工程其他页面示例效果，仅在页面的出现和消失生命周期中进行系统服务菜单的禁用和恢复，实际场景可自行选择其他时机，比如[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)和[onDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#ondestroy)。
+
+```ArkTS
 import { TextMenuController } from '@kit.ArkUI';
 
 @Entry
@@ -392,7 +481,7 @@ struct DisableMenuItem {
           .textAlign(TextAlign.Center)
           .caretStyle({ width: '4vp' })
           .editMenuOptions({
-            onCreateMenu: (menuItems: Array) => {
+            onCreateMenu: (menuItems: Array<TextMenuItem>) => {
               // menuItems不包含搜索和翻译
               return menuItems;
             },
@@ -407,13 +496,19 @@ struct DisableMenuItem {
 }
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-20.png)
 
-## 自动填充
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-5.png)
 
-输入框可以通过[contentType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#contenttype12)属性设置自动填充类型。 支持的类型请参考[ContentType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#contenttype12枚举说明)。
-```text
+
+
+
+##### 自动填充
+
+输入框可以通过[contentType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#contenttype12)属性设置自动填充类型。
+
+支持的类型请参考[ContentType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#contenttype12枚举说明)。
+
+```ArkTS
 // 请将$r('app.string.Auto_Fill_PlaceHolder')替换为实际资源文件，在本示例中该资源文件的value值为"输入你的邮箱..."
 TextInput({ placeholder: $r('app.string.Auto_Fill_PlaceHolder') })
   .width('95%')
@@ -423,10 +518,17 @@ TextInput({ placeholder: $r('app.string.Auto_Fill_PlaceHolder') })
 ```
 
 
-## 设置属性
 
-设置省略属性。 输入框可以通过[ellipsisMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ellipsismode18)属性设置省略位置。 ellipsisMode属性需要配合[textOverflow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#textoverflow12)属性设置为TextOverflow.Ellipsis使用，单独设置ellipsisMode属性不生效。
-```text
+##### 设置属性
+
+ - 设置省略属性。
+
+  输入框可以通过[ellipsisMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#ellipsismode18)属性设置省略位置。
+
+  ellipsisMode属性需要配合[textOverflow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#textoverflow12)属性设置为TextOverflow.Ellipsis使用，单独设置ellipsisMode属性不生效。
+
+  
+```ArkTS
 // 请将$r('app.string.Set_Omission_Property_textContent')替换为实际资源文件，在本示例中该资源文件的value值为"这是一段文本，用来展示省略模式"
 TextInput({ text: $r('app.string.Set_Omission_Property_textContent') })
   .textOverflow(TextOverflow.Ellipsis)
@@ -436,9 +538,14 @@ TextInput({ text: $r('app.string.Set_Omission_Property_textContent') })
   .margin(30)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-21.jpg) 设置文本描边属性。 从API version 20开始，输入框可以通过[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#strokewidth20)和[strokeColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#strokecolor20)属性设置文本的描边宽度及颜色。
-```text
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-6.png)
+
+ - 设置文本描边属性。
+
+  从API version 20开始，输入框可以通过[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#strokewidth20)和[strokeColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#strokecolor20)属性设置文本的描边宽度及颜色。
+
+  
+```ArkTS
 TextInput({ text: 'Text with stroke' })
   .width('100%')
   .height(60)
@@ -448,13 +555,17 @@ TextInput({ text: 'Text with stroke' })
   .strokeColor(Color.Red)
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-22.jpg)
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-7.png)
 
-## 设置文本行间距
+
+
+
+
+##### 设置文本行间距
 
 从API version 20开始，支持通过[lineSpacing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#linespacing20)设置文本的行间距。如果不配置[LineSpacingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#linespacingoptions20对象说明)时，首行上方和尾行下方默认会有行间距。如果onlyBetweenLines设置为true时，行间距仅适用于行与行之间，首行上方无额外行间距。
-```text
+
+```ArkTS
 TextArea({
   text: 'The line spacing of this TextArea is set to 20_px, and the spacing is effective only between the lines.'
 })
@@ -462,13 +573,17 @@ TextArea({
   .lineSpacing(LengthMetrics.px(20), { onlyBetweenLines: true })
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-23.jpg)
 
-## 键盘避让
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-8.png)
+
+
+
+
+##### 键盘避让
 
 键盘抬起后，具有滚动能力的容器组件在横竖屏切换时，才会生效键盘避让，若希望无滚动能力的容器组件也生效键盘避让，建议在组件外嵌套一层具有滚动能力的容器组件，比如[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct KeyboardAvoid {
@@ -490,20 +605,25 @@ struct KeyboardAvoid {
 }
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-24.gif)
 
-## 光标避让
+![](assets/文本输入%20(TextInput／TextArea／Search)/file-20260514130619198-9.png)
 
-[keyBoardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-e#keyboardavoidmode11)枚举中的OFFSET和RESIZE在键盘抬起后，不支持二次避让。如果想要支持光标位置在点击或者通过接口设置变化后发生二次避让，可以考虑使用OFFSET_WITH_CARET和RESIZE_CARET替换原有的OFFSET和RESIZE模式。 对于滚动容器更推荐使用RESIZE_WITH_CARET，非滚动容器应该使用OFFSET_WITH_CARET。
-```text
+
+
+
+##### 光标避让
+
+[keyBoardAvoidMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-e#keyboardavoidmode11)枚举中的OFFSET和RESIZE在键盘抬起后，不支持二次避让。如果想要支持光标位置在点击或者通过接口设置变化后发生二次避让，可以考虑使用OFFSET_WITH_CARET和RESIZE_CARET替换原有的OFFSET和RESIZE模式。
+
+对于滚动容器更推荐使用RESIZE_WITH_CARET，非滚动容器应该使用OFFSET_WITH_CARET。
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 import { KeyboardAvoidMode } from '@kit.ArkUI';
 ```
 
-
-```text
+```ArkTS
 // Used in UIAbility
 onWindowStageCreate(windowStage: window.WindowStage): void {
   // Main window is created, set main page for this ability
@@ -521,8 +641,7 @@ onWindowStageCreate(windowStage: window.WindowStage): void {
 }
 ```
 
-
-```text
+```ArkTS
 @Entry
 @Component
 struct CursorAvoid {
@@ -565,16 +684,27 @@ struct CursorAvoid {
 }
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-25.gif)
 
-## 常见问题
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/7eZI34WhQ3S0z5cv6iDoAA/zh-cn_image_0000002581273966.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=D48E3A8D8C9AA7D0C1525B7CCDD858B038E65FC3E16416FECC6D58BF630ED667)
 
 
-## 如何设置TextArea的文本最少展示行数并自适应高度
 
-**问题现象** 设置TextArea的初始高度来控制最少文本展示行数，当输入文本超过初始高度时，TextArea的高度自适应。 **解决措施** 设置[minLines](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#minlines20)（从API version 20开始），或者设置height为"auto"，并使用[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)自行计算高度。
-```text
+
+##### 常见问题
+
+
+
+##### 如何设置TextArea的文本最少展示行数并自适应高度
+
+**问题现象**
+
+设置TextArea的初始高度来控制最少文本展示行数，当输入文本超过初始高度时，TextArea的高度自适应。
+
+**解决措施**
+
+设置[minLines](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea#minlines20)（从API version 20开始），或者设置height为"auto"，并使用[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)自行计算高度。
+
+```ArkTS
 import { MeasureUtils } from '@kit.ArkUI';
 
 @Entry
@@ -629,5 +759,5 @@ struct TextExample {
 }
 ```
 
-![](assets/文本输入%20(TextInput／TextArea／Search)
-/file-20260514130619198-26.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/2l0k5panQXeQNy7w6gZWAA/zh-cn_image_0000002611753821.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014807Z&HW-CC-Expire=86400&HW-CC-Sign=92EE094DD437235CEDB84D42A6BAC430F78FC8175D13E74D5EEE40AD3D846C05)

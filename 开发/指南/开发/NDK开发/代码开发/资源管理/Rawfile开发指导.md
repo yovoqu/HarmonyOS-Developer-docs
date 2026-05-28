@@ -1,15 +1,18 @@
 # Rawfile开发指导
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawfile-guidelines
 
-## 场景介绍
+##### 场景介绍
 
-开发者可以通过本指导了解在HarmonyOS应用中，如何使用Native Rawfile接口操作Rawfile目录和文件。功能包括文件列表遍历、文件打开、搜索、读取和关闭Rawfile。 64后缀相关接口属于新增接口，新接口支持打开更大的rawfile文件(超过2G建议使用)，具体请参考：[Rawfile接口介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rawfile)。64相关的开发步骤和非64一致，将非64接口替换为64接口即可，例如：OH_ResourceManager_OpenRawFile替换为OH_ResourceManager_OpenRawFile64。
+开发者可以通过本指导了解在HarmonyOS应用中，如何使用Native Rawfile接口操作Rawfile目录和文件。功能包括文件列表遍历、文件打开、搜索、读取和关闭Rawfile。
 
-## 接口说明
+64后缀相关接口属于新增接口，新接口支持打开更大的rawfile文件(超过2G建议使用)，具体请参考：[Rawfile接口介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rawfile)。64相关的开发步骤和非64一致，将非64接口替换为64接口即可，例如：OH_ResourceManager_OpenRawFile替换为OH_ResourceManager_OpenRawFile64。
 
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -26,28 +29,48 @@
 | void OH_ResourceManager_ReleaseNativeResourceManager(NativeResourceManager *resMgr) | 释放native resource manager相关资源。 |
 | bool OH_ResourceManager_IsRawDir(const NativeResourceManager *mgr, const char *path) | 判断路径是否是rawfile下的目录。 |
 
+
 详细的接口说明请参考[rawfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rawfile)。
 
-## 开发步骤
 
-以ArkTS侧获取rawfile文件列表、获取rawfile文件内容、获取rawfile描述符（fd, offset, length）、判断是否是rawfile下的目录四种调用方式为例。 **1. 创建工程**
+
+##### 开发步骤
+
+以ArkTS侧获取rawfile文件列表、获取rawfile文件内容、获取rawfile描述符（fd, offset, length）、判断是否是rawfile下的目录四种调用方式为例。
+
+**1. 创建工程**
+
+
 ![](assets/Rawfile开发指导/file-20260514132734906-0.png)
-**2. 添加依赖** 创建完成后，DevEco Studio会在工程中生成cpp目录，目录下有libentry/index.d.ts、hello.cpp、CMakeLists.txt等文件。 打开src/main/cpp/CMakeLists.txt，在target_link_libraries依赖中添加rawfile依赖librawfile.z.so以及日志依赖libhilog_ndk.z.so。
+
+
+**2. 添加依赖**
+
+创建完成后，DevEco Studio会在工程中生成cpp目录，目录下有libentry/index.d.ts、hello.cpp、CMakeLists.txt等文件。
+1. 打开src/main/cpp/CMakeLists.txt，在target_link_libraries依赖中添加rawfile依赖librawfile.z.so以及日志依赖libhilog_ndk.z.so。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so librawfile.z.so)
 ```
 
-打开src/main/cpp/types/libentry/index.d.ts文件，在此文件中声明ArkTS侧接口getFileList、getRawFileContent、getRawFileDescriptor、isRawDir。
-```text
+2. 打开src/main/cpp/types/libentry/index.d.ts文件，在此文件中声明ArkTS侧接口getFileList、getRawFileContent、getRawFileDescriptor、isRawDir。
+
+  
+```ts
 import { resourceManager } from '@kit.LocalizationKit';
-export const getFileList: (resMgr: resourceManager.ResourceManager, path: string) => Array;
+export const getFileList: (resMgr: resourceManager.ResourceManager, path: string) => Array<String>;
 export const getRawFileContent: (resMgr: resourceManager.ResourceManager, path: string) => Uint8Array;
 export const getRawFileDescriptor: (resMgr: resourceManager.ResourceManager, path: string) => resourceManager.RawFileDescriptor;
 export const isRawDir: (resMgr: resourceManager.ResourceManager, path: string) => boolean;
 ```
 
-**3. 修改源文件** 打开src/main/cpp/hello.cpp文件，在Init方法中添加ArkTS接口与C++接口的映射。ArkTS侧接口getFileList、getRawFileContent、getRawFileDescriptor、isRawDir，映射C++接口分别为GetFileList、GetRawFileContent、GetRawFileDescriptor、IsRawDir。
-```text
+
+**3. 修改源文件**
+1. 打开src/main/cpp/hello.cpp文件，在Init方法中添加ArkTS接口与C++接口的映射。ArkTS侧接口getFileList、getRawFileContent、getRawFileDescriptor、isRawDir，映射C++接口分别为GetFileList、GetRawFileContent、GetRawFileDescriptor、IsRawDir。
+
+  
+```cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
@@ -64,16 +87,18 @@ static napi_value Init(napi_env env, napi_value exports)
 EXTERN_C_END
 ```
 
-在src/main/cpp/目录下创建hello.h文件，在hello.h文件中增加对应的四个方法，如下所示：
-```text
+2. 在src/main/cpp/目录下创建hello.h文件，在hello.h文件中增加对应的四个方法，如下所示：
+
+  
+```cpp
 #ifndef RAWFILE_HELLO_H
 #define RAWFILE_HELLO_H
 
-#include
-#include
-#include
-#include
-#include
+#include <js_native_api.h>
+#include <js_native_api_types.h>
+#include <string>
+#include <vector>
+#include <cstdlib>
 #include "napi/native_api.h"
 
 napi_value GetFileList(napi_env env, napi_callback_info info);
@@ -84,23 +109,29 @@ napi_value IsRawDir(napi_env env, napi_callback_info info);
 #endif // RAWFILE_HELLO_H
 ```
 
-在hello.cpp文件中实现上述四个方法。通过env和info获取Js的资源管理对象，并转换为Native的资源管理对象，即可调用Native资源管理对象的接口，示例代码如下： 导入头文件
-```text
+3. 在hello.cpp文件中实现上述四个方法。通过env和info获取Js的资源管理对象，并转换为Native的资源管理对象，即可调用Native资源管理对象的接口，示例代码如下：
+
+  导入头文件
+
+  
+```cpp
 #include "hello.h"
 #include "rawfile/raw_file_manager.h"
 #include "rawfile/raw_file.h"
 #include "rawfile/raw_dir.h"
 #include "hilog/log.h"
 ```
-
 声明hilog日志打印的DOMAIN和TAG常量
-```text
+
+  
+```cpp
 const int GLOBAL_RESMGR = 0xFF00;
 const char *TAG = "[Sample_rawfile]";
 ```
-
 示例：
-```text
+
+  
+```cpp
 // 示例一：获取rawfile文件列表 GetFileList
 napi_value GetFileList(napi_env env, napi_callback_info info)
 {
@@ -126,14 +157,37 @@ napi_value GetFileList(napi_env env, napi_callback_info info)
     int count = OH_ResourceManager_GetRawFileCount(rawDir);
 
     // 遍历获取文件名称，并保存
-    std::vector tempArray;
-    for (int i = 0; i  &data, long length)
+    std::vector<std::string> tempArray;
+    for (int i = 0; i < count; i++) {
+        std::string filename = OH_ResourceManager_GetRawFileName(rawDir, i);
+        tempArray.emplace_back(filename);
+    }
+
+    // 转为js数组
+    napi_value fileList;
+    napi_create_array(env, &fileList);
+    for (size_t i = 0; i < tempArray.size(); i++) {
+        napi_value jsString;
+        napi_create_string_utf8(env, tempArray[i].c_str(), NAPI_AUTO_LENGTH, &jsString);
+        napi_set_element(env, fileList, i, jsString);
+    }
+
+    // 关闭打开的指针对象
+    OH_ResourceManager_CloseRawDir(rawDir);
+    OH_ResourceManager_ReleaseNativeResourceManager(mNativeResMgr);
+    return fileList;
+}
+```
+
+```cpp
+// 示例二：获取rawfile文件内容 GetRawFileContent
+napi_value CreateJsArrayValue(napi_env env, std::unique_ptr<uint8_t[]> &data, long length)
 {
     // 创建js外部ArrayBuffer
     napi_value buffer;
     napi_status status = napi_create_external_arraybuffer(env, data.get(), length,
         [](napi_env env, void *data, void *hint) {
-            delete[] static_cast(data);
+            delete[] static_cast<char*>(data);
         }, nullptr, &buffer);
     // 检测ArrayBuffer是否创建成功
     if (status != napi_ok) {
@@ -173,7 +227,7 @@ napi_value GetRawFileContent(napi_env env, napi_callback_info info)
     }
     // 获取rawfile大小并申请内存
     long len = OH_ResourceManager_GetRawFileSize(rawFile);
-    std::unique_ptr data = std::make_unique(len);
+    std::unique_ptr<uint8_t[]> data = std::make_unique<uint8_t[]>(len);
 
     // 一次性读取rawfile全部内容
     int res = OH_ResourceManager_ReadRawFile(rawFile, data.get(), len);
@@ -186,8 +240,7 @@ napi_value GetRawFileContent(napi_env env, napi_callback_info info)
 }
 ```
 
-
-```text
+```cpp
 // 示例三：获取rawfile文件描述符 GetRawFileDescriptor
 // 定义一个函数，将RawFileDescriptor转为js对象
 napi_value createJsFileDescriptor(napi_env env, RawFileDescriptor& descriptor)
@@ -264,8 +317,7 @@ napi_value GetRawFileDescriptor(napi_env env, napi_callback_info info)
 }
 ```
 
-
-```text
+```cpp
 // 示例四：判断路径是否是rawfile下的目录 IsRawDir
 napi_value CreateJsBool(napi_env env, bool &bValue)
 {
@@ -305,8 +357,22 @@ napi_value IsRawDir(napi_env env, napi_callback_info info)
 }
 ```
 
-**4. ArkTS侧调用** 打开src\main\ets\pages\index.ets, 导入"libentry.so"。 资源获取包括获取本应用包资源、应用内跨包资源、跨应用包资源。 通过context.resourceManager获取本应用包resourceManager对象。 通过context.createModuleContext().resourceManager获取应用内跨包resourceManager对象。 Context的更多使用信息请参考[应用上下文Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)。 调用src/main/cpp/types/libentry/index.d.ts中声明的接口，如getFileList，传入js的资源管理对象以及rawfile文件夹的相对路径。 获取本应用包资源resourceManager对象的示例如下：
-```text
+
+**4. ArkTS侧调用**
+1. 打开src\main\ets\pages\index.ets, 导入"libentry.so"。
+2. 资源获取包括获取本应用包资源、应用内跨包资源、跨应用包资源。
+
+  通过context.resourceManager获取本应用包resourceManager对象。
+
+  通过context.createModuleContext().resourceManager获取应用内跨包resourceManager对象。
+
+  Context的更多使用信息请参考[应用上下文Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage)。
+3. 调用src/main/cpp/types/libentry/index.d.ts中声明的接口，如getFileList，传入js的资源管理对象以及rawfile文件夹的相对路径。
+
+  获取本应用包资源resourceManager对象的示例如下：
+
+  
+```ArkTS
 import { util } from '@kit.ArkTS';
 import { resourceManager } from '@kit.LocalizationKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -334,7 +400,7 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .onClick(async () => {
             // 传入资源管理对象，以及访问的rawfile文件夹名称
-            let rawFileList: Array = testNapi.getFileList(this.resMgr, '');
+            let rawFileList: Array<String> = testNapi.getFileList(this.resMgr, '');
             this.rawfileListMsg = 'FileList = ' + rawFileList;
             hilog.info(DOMAIN, TAG, this.rawfileListMsg);
 

@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：call； API声明：function makeCall(context: Context, phoneNumber: string): Promise<void>; 差异内容：function makeCall(context: Context, phoneNumber: string): Promise<void>; | api/@ohos.telephony.call.d.ts |
+| 新增API | NA | 类名：call； API声明：function makeCall(context: Context, phoneNumber: string): Promise&lt;void&gt;; 差异内容：function makeCall(context: Context, phoneNumber: string): Promise&lt;void&gt;; | api/@ohos.telephony.call.d.ts |

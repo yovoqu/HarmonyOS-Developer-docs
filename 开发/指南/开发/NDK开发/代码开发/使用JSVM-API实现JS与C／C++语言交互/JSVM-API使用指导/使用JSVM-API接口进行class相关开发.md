@@ -4,17 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-class
 
-## 简介
+##### 简介
 
 使用JSVM-API接口进行class相关开发，处理JavaScript中的类，例如定义类、构造实例等。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-在使用JSVM-API接口进行class相关开发时，需要理解以下基本概念： **类**：类是用于创建对象的模板。它提供了一种封装数据和行为的方式，以便于对数据进行处理和操作。类在JavaScript中是建立在原型（prototype）的基础上的，并且还引入了一些类独有的语法和语义。**实例**：实例是通过类创建具体的对象。类定义了对象的结构和行为，而实例则是类的具体表现。通过实例化类，我们可以访问类中定义的属性和方法，并且每个实例都具有自己的属性值。
+在使用JSVM-API接口进行class相关开发时，需要理解以下基本概念：
+ 
+- **类**：类是用于创建对象的模板。它提供了一种封装数据和行为的方式，以便于对数据进行处理和操作。类在JavaScript中是建立在原型（prototype）的基础上的，并且还引入了一些类独有的语法和语义。
+- **实例**：实例是通过类创建具体的对象。类定义了对象的结构和行为，而实例则是类的具体表现。通过实例化类，我们可以访问类中定义的属性和方法，并且每个实例都具有自己的属性值。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_NewInstance | 通过给定的构造函数，创建一个实例。 |
@@ -24,19 +31,26 @@
 | OH_JSVM_Unwrap | 解包先前封装在JavaScript对象中的原生实例。 |
 | OH_JSVM_RemoveWrap | 解包先前封装在JavaScript对象中的原生实例，并释放封装。 |
 | OH_JSVM_DefineClassWithOptions | 定义一个具有给定类名、构造函数、属性和回调处理程序、父类的JavaScript类，并根据传入了DefineClassOptions来决定是否需要为所定义的Class设置属性代理、预留internal-field槽位、为class作为函数进行调用时设置函数回调。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
+ 
+  
 
-## OH_JSVM_NewInstance
+##### OH_JSVM_NewInstance
 
-通过给定的构造函数，构建一个实例。 cpp部分代码
-```text
+通过给定的构造函数，构建一个实例。
+ 
+cpp部分代码
+ 
+```cpp
 // hello.cpp
-#include
-#include
+#include <string.h>
+#include <fstream>
 
 std::string ToString(JSVM_Env env, JSVM_Value val) {
     JSVM_Value jsonString = nullptr;
@@ -79,8 +93,9 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"newInstance", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- **样例JS**
+ 
+**样例JS**
+ 
 ```text
 const char *srcCallNative = R"JS(
    function Fruit(name) {
@@ -89,23 +104,32 @@ const char *srcCallNative = R"JS(
    newInstance(Fruit, "apple");
 )JS";
 ```
-
- **执行结果** 在LOG中输出下面的结果：
+ 
+**执行结果**
+ 
+在LOG中输出下面的结果：
+ 
 ```text
 NewInstance:{"name":"apple"}
 ```
+ 
+  
 
-
-## OH_JSVM_GetNewTarget
+##### OH_JSVM_GetNewTarget
 
 用于获取函数的元属性new.target值。在JavaScript中，new.target是一个特殊的元属性，用于检测函数或构造函数是否是通过 'new' 运算符被调用的。
+ 
+  
 
-## OH_JSVM_DefineClass
+##### OH_JSVM_DefineClass
 
-用于在JavaScript中定义一个类，并与对应的C类进行封装和交互。它提供了创建类的构造函数、定义属性和方法的能力，以及在C和JavaScript之间进行数据交互的支持。 cpp部分代码
-```text
+用于在JavaScript中定义一个类，并与对应的C类进行封装和交互。它提供了创建类的构造函数、定义属性和方法的能力，以及在C和JavaScript之间进行数据交互的支持。
+ 
+cpp部分代码
+ 
+```cpp
 // hello.cpp
-#include
+#include <string>
 
 JSVM_Value CreateInstance(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_Value newTarget;
@@ -150,7 +174,7 @@ JSVM_Value DefineClass(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_CALL(OH_JSVM_NewInstance(env, cons, 0, nullptr, &instanceValue));
     std::string str = ToString(env, instanceValue);
     OH_LOG_INFO(LOG_APP, "NewInstance:%{public}s", str.c_str());
-
+    
     // 作为普通的函数调用
     JSVM_Value global = nullptr;
     JSVM_CALL(OH_JSVM_GetGlobal(env, &global));
@@ -176,15 +200,19 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"defineClass", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- **样例JS**
+ 
+**样例JS**
+ 
 ```text
 const char *srcCallNative = R"JS(
     defineClass();
 )JS";
 ```
-
- **执行结果** 在LOG中输出下面的结果：
+ 
+**执行结果**
+ 
+在LOG中输出下面的结果：
+ 
 ```text
 Create Instance
 
@@ -198,22 +226,30 @@ NAPI MyObject::New newTarget == nullptr
 
 NewInstance:{"name":"lilei"}
 ```
+ 
+  
 
-
-## OH_JSVM_Wrap
+##### OH_JSVM_Wrap
 
 在JavaScript对象中封装原生实例。稍后可以使用OH_JSVM_Unwrap()解包原生实例
+ 
+  
 
-## OH_JSVM_Unwrap
+##### OH_JSVM_Unwrap
 
 解包JavaScript对象中先前封装的原生实例
+ 
+  
 
-## OH_JSVM_RemoveWrap
+##### OH_JSVM_RemoveWrap
 
-解包先前封装在JavaScript对象中的原生实例并释放封装 cpp部分代码
-```text
+解包先前封装在JavaScript对象中的原生实例并释放封装
+ 
+cpp部分代码
+ 
+```cpp
 // hello.cpp
-#include
+#include <string>
 
 // OH_JSVM_GetNewTarget、OH_JSVM_DefineClass、OH_JSVM_Wrap、OH_JSVM_Unwrap、OH_JSVM_RemoveWrap的样例方法
 
@@ -241,10 +277,10 @@ static JSVM_Value WrapObject(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_Value toWrap = nullptr;
     JSVM_CALL(OH_JSVM_GetCbInfo(env, info, &argc, &toWrap, nullptr, nullptr));
     // OH_JSVM_Wrap将自定义结构Object进行封装
-    JSVM_CALL(OH_JSVM_Wrap(env, toWrap, reinterpret_cast(objPointer), DerefItem, NULL, NULL));
+    JSVM_CALL(OH_JSVM_Wrap(env, toWrap, reinterpret_cast<void *>(objPointer), DerefItem, NULL, NULL));
     Object *data;
     // OH_JSVM_UnWrap解包先前封装在JavaScript对象中的原生实例
-    JSVM_CALL(OH_JSVM_Unwrap(env, toWrap, reinterpret_cast(&data)));
+    JSVM_CALL(OH_JSVM_Unwrap(env, toWrap, reinterpret_cast<void **>(&data)));
     OH_LOG_INFO(LOG_APP, "JSVM name: %{public}s", data->name.c_str());
     OH_LOG_INFO(LOG_APP, "JSVM age: %{public}d", data->age);
     return nullptr;
@@ -262,12 +298,12 @@ static JSVM_Value RemoveWrap(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_Value toWrap = nullptr;
     JSVM_CALL(OH_JSVM_GetCbInfo(env, info, &argc, &toWrap, nullptr, nullptr));
     // 将自定义结构Object封装
-    JSVM_CALL(OH_JSVM_Wrap(env, toWrap, reinterpret_cast(objPointer), DerefItem, NULL, NULL));
+    JSVM_CALL(OH_JSVM_Wrap(env, toWrap, reinterpret_cast<void *>(objPointer), DerefItem, NULL, NULL));
     Object *data;
     // 解包先前封装的object，并移除封装
-    JSVM_CALL(OH_JSVM_RemoveWrap(env, toWrap, reinterpret_cast(&objPointer)));
+    JSVM_CALL(OH_JSVM_RemoveWrap(env, toWrap, reinterpret_cast<void **>(&objPointer)));
     // 检查是否已被移除
-    JSVM_Status status = OH_JSVM_Unwrap(env, toWrap, reinterpret_cast(&data));
+    JSVM_Status status = OH_JSVM_Unwrap(env, toWrap, reinterpret_cast<void **>(&data));
     if (status != JSVM_OK) {
         OH_LOG_INFO(LOG_APP, "JSVM OH_JSVM_RemoveWrap success");
     }
@@ -286,8 +322,9 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"removeWrap", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- **样例JS**
+ 
+**样例JS**
+ 
 ```text
 const char *srcCallNative = R"JS(
     class Obj {};
@@ -295,8 +332,11 @@ const char *srcCallNative = R"JS(
     removeWrap(new Obj());
 )JS";
 ```
-
- **执行结果** 在LOG中输出下面的结果：
+ 
+**执行结果**
+ 
+在LOG中输出下面的结果：
+ 
 ```text
 JSVM wrap
 
@@ -310,14 +350,27 @@ JSVM OH_JSVM_RemoveWrap success
 
 JSVM deref_item
 ```
+ 
+  
 
+##### OH_JSVM_DefineClassWithOptions
+ 
+**Note:**
+  
+传入的父类class必须是通过OH_JSVM_DefineClass系列接口创建出来的，否则被视为无效参数，返回JSVM_INVALID_ARG错误码。
+ 
+目前支持以下的DefineClassOptions:
+  
+- JSVM_DEFINE_CLASS_NORMAL: 按正常模式创建Class。默认缺省状态为JSVM_DEFINE_CLASS_NORMAL状态。
+- JSVM_DEFINE_CLASS_WITH_COUNT: 为所创建的Class预留interfield槽位。
+- JSVM_DEFINE_CLASS_WITH_PROPERTY_HANDLER: 为所创建的Class设置监听拦截属性以及设置作为函数调用时回调函数。
 
-## OH_JSVM_DefineClassWithOptions
-
- **Note:**  传入的父类class必须是通过OH_JSVM_DefineClass系列接口创建出来的，否则被视为无效参数，返回JSVM_INVALID_ARG错误码。 目前支持以下的DefineClassOptions:  JSVM_DEFINE_CLASS_NORMAL: 按正常模式创建Class。默认缺省状态为JSVM_DEFINE_CLASS_NORMAL状态。JSVM_DEFINE_CLASS_WITH_COUNT: 为所创建的Class预留interfield槽位。JSVM_DEFINE_CLASS_WITH_PROPERTY_HANDLER: 为所创建的Class设置监听拦截属性以及设置作为函数调用时回调函数。 cpp部分代码
+ 
+cpp部分代码
+ 
 ```text
-#include
-#include
+#include <string>
+#include <memory>
 static JSVM_PropertyHandlerConfigurationStruct propertyCfg{
   nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr
 };
@@ -355,7 +408,7 @@ std::string ToString(JSVM_Env jsvm_env, JSVM_Value val)
     size_t length = 0;
     OH_JSVM_GetValueStringUtf8(jsvm_env, js_string, NULL, 0, &length);
     size_t capacity = length + 1;
-    auto buffer = std::make_unique(capacity);
+    auto buffer = std::make_unique<char[]>(capacity);
     size_t copy_length = 0;
     OH_JSVM_GetValueStringUtf8(jsvm_env, js_string, buffer.get(), capacity, &copy_length);
     std::string str(buffer.get());
@@ -410,7 +463,7 @@ static JSVM_Value TestDefineClassWithOptions(JSVM_Env env, JSVM_CallbackInfo inf
     options[0].content.num = 3;
     JSVM_CALL(OH_JSVM_DefineClassWithOptions(env, "parentClass", JSVM_AUTO_LENGTH, &parentClassConstructor, 2, des,
         nullptr, 1, options, &parentClass));
-
+  
     // 2. Define sub-class.
     JSVM_Value subClass = nullptr;
     JSVM_CallbackStruct subClassConstructor;
@@ -482,13 +535,17 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"testDefineClassWithOptions", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- **样例JS**
+ 
+**样例JS**
+ 
 ```text
 const char *srcCallNative = R"JS(testDefineClassWithOptions();)JS";
 ```
-
- **执行结果** 在LOG中输出下面的结果：
+ 
+**执行结果**
+ 
+在LOG中输出下面的结果：
+ 
 ```text
 Run OH_JSVM_DefineClassWithOptions: Success
 ```

@@ -3,46 +3,43 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供[企业设备管理扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#企业设备管理扩展能力)。
 
 设备管理应用需要存在一个EnterpriseAdminExtensionAbility并重写相关接口，以此具备模块提供的各项能力，比如接收由系统发送的该应用被激活或者解除激活的通知。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 12 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 ```
 
 
-## EnterpriseAdminExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### EnterpriseAdminExtensionAbility
 
 企业设备管理扩展能力组件，是设备管理应用必备组件。当开发者为企业开发设备管理应用时，需继承EnterpriseAdminExtensionAbility，在EnterpriseAdminExtensionAbility实例中实现MDM业务逻辑，EnterpriseAdminExtensionAbility实现了系统管理状态变化通知功能，并定义了管理应用激活、去激活、应用安装、卸载事件等回调接口。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 属性
 
 **系统能力**：SystemCapability.Customization.EnterpriseDeviceManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context23+ | [EnterpriseAdminExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-apis-application-enterpriseadminextensioncontext) | 否 | 否 | EnterpriseAdminExtensionAbility的上下文。继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。 |
+| context23+ | EnterpriseAdminExtensionContext | 否 | 否 | EnterpriseAdminExtensionAbility的上下文。继承自ExtensionContext。 |
 
 
-### onAdminEnabled
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### onAdminEnabled
 
 onAdminEnabled(): void
 
@@ -54,18 +51,18 @@ onAdminEnabled(): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
-  onAdminEnabled() {}
+  onAdminEnabled() {
+  }
 }
 ```
 
 
-### onAdminDisabled
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onAdminDisabled
 
 onAdminDisabled(): void
 
@@ -77,18 +74,18 @@ onAdminDisabled(): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
-  onAdminDisabled() {}
+  onAdminDisabled() {
+  }
 }
 ```
 
 
-### onBundleAdded
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onBundleAdded
 
 onBundleAdded(bundleName: string): void
 
@@ -100,7 +97,6 @@ onBundleAdded(bundleName: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 被安装应用的包名。 |
@@ -108,22 +104,19 @@ onBundleAdded(bundleName: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onBundleAdded(bundleName: string) {
-    console.info(
-      `Succeeded in calling onBundleAdded callback, added bundle name : ${bundleName}`,
-    );
+    console.info(`Succeeded in calling onBundleAdded callback, added bundle name : ${bundleName}`);
   }
 }
 ```
 
 
-### onBundleAdded14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onBundleAdded14+
 
 onBundleAdded(bundleName: string, accountId: number): void
 
@@ -135,7 +128,6 @@ onBundleAdded(bundleName: string, accountId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 被安装应用的包名。 |
@@ -144,23 +136,20 @@ onBundleAdded(bundleName: string, accountId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   // 由于存在同名回调方法onBundleAdded(bundleName: string)，该回调方法无accountId参数，因此在实际调用时accountId必须为可选参数，写法请参考示例代码。如果删除accountId后的问号"?"，编译会报错。
   onBundleAdded(bundleName: string, accountId?: number) {
-    console.info(
-      `Succeeded in calling onBundleAdded callback, added bundle name : ${bundleName}, accountId: ${accountId}`,
-    );
+    console.info(`Succeeded in calling onBundleAdded callback, added bundle name : ${bundleName}, accountId: ${accountId}`);
   }
 }
 ```
 
 
-### onBundleRemoved
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onBundleRemoved
 
 onBundleRemoved(bundleName: string): void
 
@@ -172,7 +161,6 @@ onBundleRemoved(bundleName: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 被卸载应用的包名。 |
@@ -180,22 +168,19 @@ onBundleRemoved(bundleName: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onBundleRemoved(bundleName: string) {
-    console.info(
-      `Succeeded in calling onBundleRemoved callback, removed bundle name : ${bundleName}`,
-    );
+    console.info(`Succeeded in calling onBundleRemoved callback, removed bundle name : ${bundleName}`);
   }
 }
 ```
 
 
-### onBundleRemoved14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onBundleRemoved14+
 
 onBundleRemoved(bundleName: string, accountId: number): void
 
@@ -207,7 +192,6 @@ onBundleRemoved(bundleName: string, accountId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 被卸载应用的包名。 |
@@ -216,23 +200,20 @@ onBundleRemoved(bundleName: string, accountId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   // 由于存在同名回调方法onBundleRemoved(bundleName: string)，该回调方法无accountId参数，因此在实际调用时accountId必须为可选参数，写法请参考示例代码。如果删除accountId后的问号"?"，编译会报错。
   onBundleRemoved(bundleName: string, accountId?: number) {
-    console.info(
-      `Succeeded in calling onBundleRemoved callback, removed bundle name : ${bundleName}, accountId: ${accountId}`,
-    );
+    console.info(`Succeeded in calling onBundleRemoved callback, removed bundle name : ${bundleName}, accountId: ${accountId}`);
   }
 }
 ```
 
 
-### onAppStart
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onAppStart
 
 onAppStart(bundleName: string): void
 
@@ -244,7 +225,6 @@ onAppStart(bundleName: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 启动应用的包名。 |
@@ -252,22 +232,19 @@ onAppStart(bundleName: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onAppStart(bundleName: string) {
-    console.info(
-      `Succeeded in calling onAppStart callback, started bundle name : ${bundleName}`,
-    );
+    console.info(`Succeeded in calling onAppStart callback, started bundle name : ${bundleName}`);
   }
 }
 ```
 
 
-### onAppStop
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onAppStop
 
 onAppStop(bundleName: string): void
 
@@ -279,7 +256,6 @@ onAppStop(bundleName: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 停止应用的包名。 |
@@ -287,22 +263,19 @@ onAppStop(bundleName: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onAppStop(bundleName: string) {
-    console.info(
-      `Succeeded in calling onAppStop callback, stopped bundle name : ${bundleName}`,
-    );
+    console.info(`Succeeded in calling onAppStop callback, stopped bundle name : ${bundleName}`);
   }
 }
 ```
 
 
-### onSystemUpdate
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onSystemUpdate
 
 onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo): void
 
@@ -314,31 +287,27 @@ onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| systemUpdateInfo | [systemManager.SystemUpdateInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#systemupdateinfo) | 是 | 系统更新的版本信息。 |
+| systemUpdateInfo | systemManager.SystemUpdateInfo | 是 | 系统更新的版本信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 import { systemManager } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo) {
-    console.info(
-      `Succeeded in calling onSystemUpdate callback, version name  : ${systemUpdateInfo.versionName}`,
-    );
+    console.info(`Succeeded in calling onSystemUpdate callback, version name  : ${systemUpdateInfo.versionName}`);
   }
 }
 ```
 
 
-### onStart
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStart
 
 onStart(): void
 
@@ -350,8 +319,7 @@ EnterpriseAdminExtensionAbility启动事件回调。
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
@@ -362,8 +330,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 ```
 
 
-### onAccountAdded18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onAccountAdded18+
 
 onAccountAdded(accountId: number): void
 
@@ -375,7 +343,6 @@ onAccountAdded(accountId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | accountId | number | 是 | 新增的用户ID。 |
@@ -383,22 +350,19 @@ onAccountAdded(accountId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onAccountAdded(accountId: number) {
-    console.info(
-      `Succeeded in calling onAccountAdded callback, added accountId: ${accountId}`,
-    );
+    console.info(`Succeeded in calling onAccountAdded callback, added accountId: ${accountId}`);
   }
 }
 ```
 
 
-### onAccountSwitched18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onAccountSwitched18+
 
 onAccountSwitched(accountId: number): void
 
@@ -410,7 +374,6 @@ onAccountSwitched(accountId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | accountId | number | 是 | 切换后的用户ID。 |
@@ -418,22 +381,19 @@ onAccountSwitched(accountId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onAccountSwitched(accountId: number) {
-    console.info(
-      `Succeeded in calling onAccountSwitched callback, switched accountId: ${accountId}`,
-    );
+    console.info(`Succeeded in calling onAccountSwitched callback, switched accountId: ${accountId}`);
   }
 }
 ```
 
 
-### onAccountRemoved18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onAccountRemoved18+
 
 onAccountRemoved(accountId: number): void
 
@@ -445,7 +405,6 @@ onAccountRemoved(accountId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | accountId | number | 是 | 被删除的用户ID。 |
@@ -453,22 +412,19 @@ onAccountRemoved(accountId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onAccountRemoved(accountId: number) {
-    console.info(
-      `Succeeded in calling onAccountRemoved callback, removed accountId: ${accountId}`,
-    );
+    console.info(`Succeeded in calling onAccountRemoved callback, removed accountId: ${accountId}`);
   }
 }
 ```
 
 
-### onKioskModeEntering20+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onKioskModeEntering20+
 
 onKioskModeEntering(bundleName: string, accountId: number): void
 
@@ -482,7 +438,6 @@ Kiosk模式为系统层面提供的一种应用运行模式，该模式下会将
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 进入Kiosk模式应用的包名。 |
@@ -491,22 +446,19 @@ Kiosk模式为系统层面提供的一种应用运行模式，该模式下会将
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onKioskModeEntering(bundleName: string, accountId: number): void {
-    console.info(
-      `Succeeded in calling onKioskModeEntering callback, bundleName:${bundleName}, accountId:${accountId}`,
-    );
+    console.info(`Succeeded in calling onKioskModeEntering callback, bundleName:${bundleName}, accountId:${accountId}`);
   }
 }
 ```
 
 
-### onKioskModeExiting20+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onKioskModeExiting20+
 
 onKioskModeExiting(bundleName: string, accountId: number): void
 
@@ -518,7 +470,6 @@ onKioskModeExiting(bundleName: string, accountId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 退出Kiosk模式应用的包名。 |
@@ -527,22 +478,19 @@ onKioskModeExiting(bundleName: string, accountId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onKioskModeExiting(bundleName: string, accountId: number): void {
-    console.info(
-      `Succeeded in calling onKioskModeExiting callback, bundleName:${bundleName}, accountId:${accountId}`,
-    );
+    console.info(`Succeeded in calling onKioskModeExiting callback, bundleName:${bundleName}, accountId:${accountId}`);
   }
 }
 ```
 
 
-### onMarketAppInstallResult22+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onMarketAppInstallResult22+
 
 onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void
 
@@ -554,34 +502,27 @@ onMarketAppInstallResult(bundleName: string, result: common.InstallationResult):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 应用市场应用包名。 |
-| result | [common.InstallationResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-common#installationresult) | 是 | 安装结果。 |
+| result | common.InstallationResult | 是 | 安装结果。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility, common } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
-  onMarketAppInstallResult(
-    bundleName: string,
-    result: common.InstallationResult,
-  ): void {
-    console.info(
-      `Succeeded in calling onMarketAppInstallResult callback, bundleName:${bundleName}, result:${result}`,
-    );
+  onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void {
+    console.info(`Succeeded in calling onMarketAppInstallResult callback, bundleName:${bundleName}, result:${result}`);
   }
 }
 ```
 
 
-### onDeviceAdminEnabled23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onDeviceAdminEnabled23+
 
 onDeviceAdminEnabled(bundleName: string): void
 
@@ -593,7 +534,6 @@ onDeviceAdminEnabled(bundleName: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 被激活应用的包名。 |
@@ -601,18 +541,18 @@ onDeviceAdminEnabled(bundleName: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
-  onDeviceAdminEnabled(bundleName: string) {}
+  onDeviceAdminEnabled(bundleName: string) {
+  }
 }
 ```
 
 
-### onDeviceAdminDisabled23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onDeviceAdminDisabled23+
 
 onDeviceAdminDisabled(bundleName: string): void
 
@@ -624,7 +564,6 @@ onDeviceAdminDisabled(bundleName: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 被解除激活应用的包名。 |
@@ -632,18 +571,18 @@ onDeviceAdminDisabled(bundleName: string): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
-  onDeviceAdminDisabled(bundleName: string) {}
+  onDeviceAdminDisabled(bundleName: string) {
+  }
 }
 ```
 
 
-### onKeyEvent23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onKeyEvent23+
 
 onKeyEvent(keyEvent: systemManager.KeyEvent): void
 
@@ -661,124 +600,121 @@ onKeyEvent(keyEvent: systemManager.KeyEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyEvent | [systemManager.KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#keyevent23) | 是 | 当前发生的按键事件信息。 |
+| keyEvent | systemManager.KeyEvent | 是 | 当前发生的按键事件信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 import { systemManager } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
-  /* MDM应用下发按键事件监听后，用户按键行为匹配监听策略时，将触发该事件，事件回调携带当前匹配的按键信息。
-   *
-   * 例如：
-   * 1.用户短按电源键时触发回调（以电源键为例）
-   * 1.1 下发按键监听事件
-   * 请参考systemManager.addKeyEventPolicies。
-   * 下发keyCode为0，keyPolicy为1。
-   * 1.2 用户短按电源键
-   * 1.3 触发回调
-   * 结果：按下：onKeyEvent event:{"actionTime": 1895101259, "keyCode": 0, "keyAction": 0,
-   *          "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 1895101259}]}
-   *       抬起：onKeyEvent event:{"actionTime": 1895478977, "keyCode": 0, "keyAction": 1,
-   *         "keyItems": [{"pressed": false, "keyCode": 0, "downTime": 1895101259}]}
-   *
-   * 2.用户长按电源键时触发回调（以电源键为例）
-   * 2.1 下发按键监听事件
-   * 请参考systemManager.addKeyEventPolicies。
-   * 下发keyCode为0，keyPolicy为1。
-   * 2.2 用户长按电源键
-   * 2.3 触发回调
-   * 结果：按下：onKeyEvent event:{"actionTime": 14468236859, "keyCode": 0, "keyAction": 0,
-   *         "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 14468236859}]}
-   *      长按：onKeyEvent event:{"actionTime": 14468236859, "keyCode": 0, "keyAction": 0,
-   *         "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 14468236859}]}
-   *          ......
-   *       抬起：onKeyEvent event:{"actionTime": 14471425448, "keyCode": 0, "keyAction": 1,
-   *         "keyItems": [{"pressed": false, "keyCode": 0, "downTime": 14468236859}]}
-   *
-   * 组合键根据下发策略不同，分为下面多种场景：
-   * 3.用户按组合键触发回调1（以电源键和音量+键为例）
-   * 3.1 下发按键监听事件
-   * 请参考systemManager.addKeyEventPolicies。
-   * 下发keyCode为0，keyPolicy为1；keyCode为1，keyPolicy为1；
-   * 3.2 用户同时按下电源键和音量+键
-   * 3.3 触发回调
-   * 结果：同时按下（电源键先，音量+键后）
-   *      onKeyEvent event:{"actionTime": 20991450446, "keyCode": 1, "keyAction": 0,
-   *   "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 20991432293}，
-   *   {"pressed": true, "keyCode": 1, "downTime": 20991450446}]}
-   *      同时抬起 （音量+键先，电源键后）
-   *      onKeyEvent event:{"actionTime": 20590590293, "keyCode": 1, "keyAction": 1,
-   *   "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 28588682984}，
-   *   {"pressed": false, "keyCode": 1, "downTime": 21588900860}]}
-   *
-   * 4.用户按组合键触发回调2（以电源键和音量+键为例）
-   * 4.1 下发按键监听事件
-   * 请参考systemManager.addKeyEventPolicies。
-   * 下发keyCode为0，keyPolicy为1；keyCode为1，keyPolicy为0；
-   * 4.2 用户同时按下电源键和音量+键
-   * 4.3 触发回调
-   * 结果：同时按下（音量+键先，电源键后）
-   *      onKeyEvent event:{"actionTime": 28991115400, "keyCode": 0, "keyAction": 0,
-   *   "keyItems": [{"pressed": true, "keyCode": 1, "downTime": 28990731985}，
-   *   {"pressed": true, "keyCode": 0, "downTime": 20991115400}]}
-   *      同时抬起 （音量+键先，电源键后）
-   *      onKeyEvent event:{"actionTime": 28992721560, "keyCode": 0, "keyAction": 1,
-   *   "keyItems": [{"pressed": false, "keyCode": 0, "downTime": 28991115400}]}
-   *
-   * 5.用户按组合键触发回调3（以电源键和音量+键为例）
-   * 5.1 下发按键监听事件
-   * 请参考systemManager.addKeyEventPolicies。
-   * 下发keyCode为0，keyPolicy为1；
-   * 5.2 用户同时按下电源键和音量+键
-   * 5.3 触发回调
-   * 结果：同时按下（音量+键先，电源键后）
-   *      onKeyEvent event:{"actionTime": 29979014190, "keyCode": 0, "keyAction": 0,
-   *   "keyItems": [{"pressed": true, "keyCode": 1, "downTime": 29978420634}，
-   *   {"pressed": true, "keyCode": 0, "downTime": 29979014190}]}
-   *      同时抬起 （电源键先，音量+键后）
-   *      onKeyEvent event:{"actionTime": 29982420773, "keyCode": 0, "keyAction": 1,
-   *   "keyItems": [{"pressed": true, "keyCode": 1, "downTime": 29978420634}，
-   *   {"pressed": false, "keyCode": 0, "downTime": 29979014190}]}
-   *
-   * 6.用户按组合键触发回调4（以电源键和导航键-最近打开为例）
-   * 6.1 下发按键监听事件
-   * 请参考systemManager.addKeyEventPolicies。
-   * 下发keyCode为0，keyPolicy为1；keyCode为5，keyPolicy为1；
-   * 6.2 用户同时按下电源键和导航键-最近打开
-   * 6.3 触发回调
-   * 结果：同时按下（各自执行回调，互不影响）
-   *      onKeyEvent event:{"actionTime": 34073626894, "keyCode": 0, "keyAction": 0,
-   *   "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 34073626894}]}
-   *      onKeyEvent event:{"actionTime": 34075144844, "keyCode": 5, "keyAction": 0,
-   *   "keyItems": [{"pressed": true, "keyCode": 5, "downTime": 0}]}
-   */
+
+ /* MDM应用下发按键事件监听后，用户按键行为匹配监听策略时，将触发该事件，事件回调携带当前匹配的按键信息。
+  *
+  * 例如：
+  * 1.用户短按电源键时触发回调（以电源键为例）
+  * 1.1 下发按键监听事件
+  * 请参考systemManager.addKeyEventPolicies。
+  * 下发keyCode为0，keyPolicy为1。
+  * 1.2 用户短按电源键
+  * 1.3 触发回调
+  * 结果：按下：onKeyEvent event:{"actionTime": 1895101259, "keyCode": 0, "keyAction": 0,
+  *          "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 1895101259}]}
+  *       抬起：onKeyEvent event:{"actionTime": 1895478977, "keyCode": 0, "keyAction": 1,
+  *         "keyItems": [{"pressed": false, "keyCode": 0, "downTime": 1895101259}]}
+  *
+  * 2.用户长按电源键时触发回调（以电源键为例）
+  * 2.1 下发按键监听事件
+  * 请参考systemManager.addKeyEventPolicies。
+  * 下发keyCode为0，keyPolicy为1。
+  * 2.2 用户长按电源键
+  * 2.3 触发回调
+  * 结果：按下：onKeyEvent event:{"actionTime": 14468236859, "keyCode": 0, "keyAction": 0,
+  *         "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 14468236859}]}
+  *      长按：onKeyEvent event:{"actionTime": 14468236859, "keyCode": 0, "keyAction": 0,
+  *         "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 14468236859}]}
+  *          ......
+  *       抬起：onKeyEvent event:{"actionTime": 14471425448, "keyCode": 0, "keyAction": 1,
+  *         "keyItems": [{"pressed": false, "keyCode": 0, "downTime": 14468236859}]}
+  *
+  * 组合键根据下发策略不同，分为下面多种场景：
+  * 3.用户按组合键触发回调1（以电源键和音量+键为例）
+  * 3.1 下发按键监听事件
+  * 请参考systemManager.addKeyEventPolicies。
+  * 下发keyCode为0，keyPolicy为1；keyCode为1，keyPolicy为1；
+  * 3.2 用户同时按下电源键和音量+键
+  * 3.3 触发回调
+  * 结果：同时按下（电源键先，音量+键后）
+  *      onKeyEvent event:{"actionTime": 20991450446, "keyCode": 1, "keyAction": 0,
+  *   "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 20991432293}，
+  *   {"pressed": true, "keyCode": 1, "downTime": 20991450446}]}
+  *      同时抬起 （音量+键先，电源键后）
+  *      onKeyEvent event:{"actionTime": 20590590293, "keyCode": 1, "keyAction": 1,
+  *   "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 28588682984}，
+  *   {"pressed": false, "keyCode": 1, "downTime": 21588900860}]}
+  *
+  * 4.用户按组合键触发回调2（以电源键和音量+键为例）
+  * 4.1 下发按键监听事件
+  * 请参考systemManager.addKeyEventPolicies。
+  * 下发keyCode为0，keyPolicy为1；keyCode为1，keyPolicy为0；
+  * 4.2 用户同时按下电源键和音量+键
+  * 4.3 触发回调
+  * 结果：同时按下（音量+键先，电源键后）
+  *      onKeyEvent event:{"actionTime": 28991115400, "keyCode": 0, "keyAction": 0,
+  *   "keyItems": [{"pressed": true, "keyCode": 1, "downTime": 28990731985}，
+  *   {"pressed": true, "keyCode": 0, "downTime": 20991115400}]}
+  *      同时抬起 （音量+键先，电源键后）
+  *      onKeyEvent event:{"actionTime": 28992721560, "keyCode": 0, "keyAction": 1,
+  *   "keyItems": [{"pressed": false, "keyCode": 0, "downTime": 28991115400}]}
+  *
+  * 5.用户按组合键触发回调3（以电源键和音量+键为例）
+  * 5.1 下发按键监听事件
+  * 请参考systemManager.addKeyEventPolicies。
+  * 下发keyCode为0，keyPolicy为1；
+  * 5.2 用户同时按下电源键和音量+键
+  * 5.3 触发回调
+  * 结果：同时按下（音量+键先，电源键后）
+  *      onKeyEvent event:{"actionTime": 29979014190, "keyCode": 0, "keyAction": 0,
+  *   "keyItems": [{"pressed": true, "keyCode": 1, "downTime": 29978420634}，
+  *   {"pressed": true, "keyCode": 0, "downTime": 29979014190}]}
+  *      同时抬起 （电源键先，音量+键后）
+  *      onKeyEvent event:{"actionTime": 29982420773, "keyCode": 0, "keyAction": 1,
+  *   "keyItems": [{"pressed": true, "keyCode": 1, "downTime": 29978420634}，
+  *   {"pressed": false, "keyCode": 0, "downTime": 29979014190}]}
+  *
+  * 6.用户按组合键触发回调4（以电源键和导航键-最近打开为例）
+  * 6.1 下发按键监听事件
+  * 请参考systemManager.addKeyEventPolicies。
+  * 下发keyCode为0，keyPolicy为1；keyCode为5，keyPolicy为1；
+  * 6.2 用户同时按下电源键和导航键-最近打开
+  * 6.3 触发回调
+  * 结果：同时按下（各自执行回调，互不影响）
+  *      onKeyEvent event:{"actionTime": 34073626894, "keyCode": 0, "keyAction": 0,
+  *   "keyItems": [{"pressed": true, "keyCode": 0, "downTime": 34073626894}]}
+  *      onKeyEvent event:{"actionTime": 34075144844, "keyCode": 5, "keyAction": 0,
+  *   "keyItems": [{"pressed": true, "keyCode": 5, "downTime": 0}]}
+  */
   onKeyEvent(keyEvent: systemManager.KeyEvent): void {
-    console.info(
-      `Succeeded in calling onKeyEvent callback, key event:${JSON.stringify(keyEvent)}`,
-    );
+    console.info(`Succeeded in calling onKeyEvent callback, key event:${JSON.stringify(keyEvent)}`);
   }
 }
 ```
 
 
-### onLogCollected23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onLogCollected23+
 
 onLogCollected(result: common.Result): void
 
 通过[systemManager.startCollectLog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#systemmanagerstartcollectlog23)接口成功创建日志收集任务后，当日志收集完成时，将触发该回调。回调中包含日志收集结果。
 
-
 > [!NOTE]
-> 日志收集成功时，必须在应用的EnterpriseAdminExtensionAbility中访问沙箱目录（/data/edm/log）获取日志，获取日志方式参考下列示例代码。应用取走日志后，建议调用[systemManager.finishLogCollected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#systemmanagerfinishlogcollected23)删除已收集到的日志。
+> 日志收集成功时，必须在应用的EnterpriseAdminExtensionAbility中访问沙箱目录（/data/edm/log）获取日志，获取日志方式参考下列示例代码。应用取走日志后，建议调用 systemManager.finishLogCollected 删除已收集到的日志。
+
 
 **系统能力**：SystemCapability.Customization.EnterpriseDeviceManager
 
@@ -786,22 +722,16 @@ onLogCollected(result: common.Result): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| result | [common.Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-common#result) | 是 | 日志收集结果。 |
+| result | common.Result | 是 | 日志收集结果。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { Want } from '@kit.AbilityKit';
-import {
-  EnterpriseAdminExtensionAbility,
-  common,
-  systemManager,
-} from '@kit.MDMKit';
+import { EnterpriseAdminExtensionAbility, common, systemManager } from '@kit.MDMKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
@@ -811,9 +741,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
    * 若result为common.Result.FAIL，表示日志收集失败。
    */
   onLogCollected(result: common.Result): void {
-    console.info(
-      `Succeeded in calling onLogCollected callback, result:${result}`,
-    );
+    console.info(`Succeeded in calling onLogCollected callback, result:${result}`);
     if (result === common.Result.SUCCESS) {
       let filesDir = '/data/edm/log';
       // 应用沙箱路径，需根据实际情况进行替换
@@ -821,29 +749,29 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
       try {
         let files: string[] = fs.listFileSync(filesDir);
         // 从/data/edm/log沙箱目录取走日志
-        files.forEach((value) => {
+        files.forEach(value => {
           fs.copyFileSync(filesDir + '/' + value, targetPath + '/' + value);
         });
         let wantTemp: Want = {
           // 需根据实际情况进行替换
           bundleName: 'com.example.myapplication',
-          abilityName: 'EnterpriseAdminAbility',
+          abilityName: 'EnterpriseAdminAbility'
         };
         systemManager.finishLogCollected(wantTemp);
       } catch (error) {
-        console.info('onLogCollected', 'error: ' + JSON.stringify(error));
+          console.info("onLogCollected", "error: " + JSON.stringify(error))
       }
     }
     if (result === common.Result.FAIL) {
-      console.error('onLogCollected', 'Failed to collect log.');
+      console.error("onLogCollected", "Failed to collect log.")
     }
   }
 }
 ```
 
 
-### onStartupGuideCompleted24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStartupGuideCompleted24+
 
 onStartupGuideCompleted(scene: common.StartupScene): void
 
@@ -855,16 +783,14 @@ onStartupGuideCompleted(scene: common.StartupScene): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| scene | [common.StartupScene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-common#startupscene24) | 是 | 开机向导完成场景。 |
+| scene | common.StartupScene | 是 | 开机向导完成场景。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility, common } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
@@ -881,8 +807,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 ```
 
 
-### onDeviceBootCompleted24+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onDeviceBootCompleted24+
 
 onDeviceBootCompleted(): void
 
@@ -894,13 +820,12 @@ onDeviceBootCompleted(): void
 
 **示例：**
 
-
-```ts
+```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
   onDeviceBootCompleted() {
-    console.info('EnterpriseAdminExtensionAbility onDeviceBootCompleted');
+    console.info("EnterpriseAdminExtensionAbility onDeviceBootCompleted");
   }
 }
 ```

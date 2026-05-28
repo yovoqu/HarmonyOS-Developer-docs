@@ -3,24 +3,22 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-text-recognition-api
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 通用文字识别服务提供图像信息转换为字符信息的能力。通过拍照、扫描等光学输入方式，把各种票据、卡证、表格、报刊、书籍等印刷品文字转化为图像信息，再利用文字识别技术将图像信息转化为计算机等设备可以使用的字符信息，便于用户提取字符内容、屏幕坐标及外框。目前本服务支持识别的语言有：简体中文、英文、日文、韩文、繁体中文五种语言。
 
 **起始版本：** 4.0.0(10)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { textRecognition } from '@kit.CoreVisionKit';
 ```
 
 
-## TextRecognitionConfiguration
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### TextRecognitionConfiguration
 
 通用文本识别的配置项，用于配置是否支持朝向检测。
 
@@ -28,14 +26,14 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isDirectionDetectionSupported | boolean | 否 | 是 | 表示是否支持文字朝向检测。          true：表示支持朝向检测；false：表示不支持朝向检测。          默认是true，支持朝向检测。如果能判断当前图片是正向的，则可考虑将该属性设置为false，以提升性能。 |
+| isDirectionDetectionSupported | boolean | 否 | 是 | 表示是否支持文字朝向检测。 true：表示支持朝向检测；false：表示不支持朝向检测。 默认是true，支持朝向检测。如果能判断当前图片是正向的，则可考虑将该属性设置为false，以提升性能。 |
 
 
-## VisionInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### VisionInfo
 
 待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)类型的视觉信息。
 
@@ -43,14 +41,14 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pixelMap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 否 | 待识别的图片。          具体规格请参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-introduction#约束与限制)。 |
+| pixelMap | image.PixelMap | 是 | 否 | 待识别的图片。 具体规格请参考约束与限制。 |
 
 
-## PixelPoint
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### PixelPoint
 
 指示像素点的位置。
 
@@ -58,15 +56,15 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | x | number | 是 | 否 | 像素点横向x坐标。 |
 | y | number | 是 | 否 | 像素点纵向y坐标。 |
 
 
-## TextWord
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### TextWord
 
 描述一个单词的信息，包括内容，以及外框的坐标。
 
@@ -74,15 +72,15 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | string | 是 | 否 | 单词的文本内容。 |
-| cornerPoints | Array&lt;[PixelPoint](#pixelpoint)&gt; | 是 | 否 | 以顺时针返回的单词外框位置点列表，数组第一个元素表示左上角。 |
+| cornerPoints | Array&lt;PixelPoint&gt; | 是 | 否 | 以顺时针返回的单词外框位置点列表，数组第一个元素表示左上角。 |
 
 
-## TextLine
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### TextLine
 
 描述图像中的一行文本。
 
@@ -90,16 +88,16 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | string | 是 | 否 | 文本行的文本内容。 |
-| cornerPoints | Array&lt;[PixelPoint](#pixelpoint)&gt; | 是 | 否 | 以顺时针返回该文本行的外框位置点列表，数组第一个元素表示左上角。 |
-| words | Array&lt;[TextWord](#textword)&gt; | 是 | 否 | 该行包含的单词信息。 |
+| cornerPoints | Array&lt;PixelPoint&gt; | 是 | 否 | 以顺时针返回该文本行的外框位置点列表，数组第一个元素表示左上角。 |
+| words | Array&lt;TextWord&gt; | 是 | 否 | 该行包含的单词信息。 |
 
 
-## TextBlock
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### TextBlock
 
 描述图像中的文本块。
 
@@ -107,15 +105,15 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | string | 是 | 否 | 段落的文本内容。 |
-| lines | Array&lt;[TextLine](#textline)&gt; | 是 | 否 | 该段落包含的文本行内容。 |
+| lines | Array&lt;TextLine&gt; | 是 | 否 | 该段落包含的文本行内容。 |
 
 
-## TextRecognitionResult
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### TextRecognitionResult
 
 文本识别的结果信息，包括文本内容和坐标信息。
 
@@ -123,17 +121,17 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | string | 是 | 否 | 所识别的文本内容。 |
-| blocks | Array&lt;[TextBlock](#textblock)&gt; | 是 | 否 | 文本内容中的具体段落信息。 |
+| blocks | Array&lt;TextBlock&gt; | 是 | 否 | 文本内容中的具体段落信息。 |
 
 
-## textRecognition.init
-**支持设备：** Phone / PC/2in1 / Tablet
 
-init(): Promise<boolean>
+
+##### textRecognition.init
+
+init(): Promise&lt;boolean&gt;
 
 初始化文字识别服务。使用Promise异步回调。
 
@@ -143,16 +141,14 @@ init(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。          true：初始化成功；false：初始化失败。 |
+| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。 true：初始化成功；false：初始化失败。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { textRecognition } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -191,10 +187,10 @@ struct Page {
 ```
 
 
-## textRecognition.release
-**支持设备：** Phone / PC/2in1 / Tablet
 
-release(): Promise<void>
+##### textRecognition.release
+
+release(): Promise&lt;void&gt;
 
 释放文字识别服务。使用Promise异步回调。
 
@@ -204,7 +200,6 @@ release(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -212,8 +207,7 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { textRecognition } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -252,10 +246,10 @@ struct Page {
 ```
 
 
-## textRecognition.recognizeText
-**支持设备：** Phone / PC/2in1 / Tablet
 
-recognizeText(visionInfo: VisionInfo, callback: AsyncCallback<TextRecognitionResult>): void
+##### textRecognition.recognizeText
+
+recognizeText(visionInfo: VisionInfo, callback: AsyncCallback&lt;TextRecognitionResult&gt;): void
 
 识别视觉信息内包含的文本。使用Callback异步回调。
 
@@ -265,17 +259,15 @@ recognizeText(visionInfo: VisionInfo, callback: AsyncCallback<TextRecognitionRes
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| visionInfo | [VisionInfo](#visioninfo) | 是 | 待识别的视觉信息。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;[TextRecognitionResult](#textrecognitionresult)&gt; | 是 | 回调函数，识别成功时返回文字识别的结果。 |
+| visionInfo | VisionInfo | 是 | 待识别的视觉信息。 |
+| callback | AsyncCallback&lt;TextRecognitionResult&gt; | 是 | 回调函数，识别成功时返回文字识别的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -287,8 +279,7 @@ recognizeText(visionInfo: VisionInfo, callback: AsyncCallback<TextRecognitionRes
 
 **示例：**
 
-
-```ts
+```json
 import { textRecognition } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -359,10 +350,10 @@ struct Page {
 ```
 
 
-## textRecognition.recognizeText
-**支持设备：** Phone / PC/2in1 / Tablet
 
-recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfiguration): Promise<TextRecognitionResult>
+##### textRecognition.recognizeText
+
+recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfiguration): Promise&lt;TextRecognitionResult&gt;
 
 识别视觉信息内包含的文本，可以通过自定义配置项进行更详细的设置。使用Promise异步回调。
 
@@ -372,25 +363,22 @@ recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfigurat
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| visionInfo | [VisionInfo](#visioninfo) | 是 | 待识别的视觉信息。 |
-| configuration | [TextRecognitionConfiguration](#textrecognitionconfiguration) | 否 | 识别的配置项。 |
+| visionInfo | VisionInfo | 是 | 待识别的视觉信息。 |
+| configuration | TextRecognitionConfiguration | 否 | 识别的配置项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[TextRecognitionResult](#textrecognitionresult)&gt; | Promise对象，返回文字识别的结果对象。 |
+| Promise&lt;TextRecognitionResult&gt; | Promise对象，返回文字识别的结果对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -402,8 +390,7 @@ recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfigurat
 
 **示例：**
 
-
-```ts
+```json
 import { textRecognition } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -469,10 +456,10 @@ struct Page {
 ```
 
 
-## textRecognition.recognizeText
-**支持设备：** Phone / PC/2in1 / Tablet
 
-recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguration, callback: AsyncCallback<TextRecognitionResult>): void
+##### textRecognition.recognizeText
+
+recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguration, callback: AsyncCallback&lt;TextRecognitionResult&gt;): void
 
 通过自定义配置项对识别能力进行更详细的设置，识别视觉信息内包含的文本。使用Callback异步回调。
 
@@ -482,18 +469,16 @@ recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguratio
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| visionInfo | [VisionInfo](#visioninfo) | 是 | 待识别的视觉信息。 |
-| configuration | [TextRecognitionConfiguration](#textrecognitionconfiguration) | 是 | 识别的配置项。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;[TextRecognitionResult](#textrecognitionresult)&gt; | 是 | 回调函数，识别成功时返回文字识别的结果。 |
+| visionInfo | VisionInfo | 是 | 待识别的视觉信息。 |
+| configuration | TextRecognitionConfiguration | 是 | 识别的配置项。 |
+| callback | AsyncCallback&lt;TextRecognitionResult&gt; | 是 | 回调函数，识别成功时返回文字识别的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -505,8 +490,7 @@ recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguratio
 
 **示例：**
 
-
-```ts
+```json
 import { textRecognition } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -546,22 +530,22 @@ async function recognizeTextTest() {
     isDirectionDetectionSupported: false
   };
   textRecognition.recognizeText(
-  visionInfo,
-  textConfiguration,
-  (error: BusinessError, data: textRecognition.TextRecognitionResult) => {
-    if (error.code !== 0) {
-      hilog.error(0x0000, 'OCRDemo', `Failed to recognize text. Code: ${error.code}, message: ${error.message}`);
-      return;
-    }
-    // 识别成功，获取对应的结果
-    let recognitionString = JSON.stringify(data);
-    hilog.info(0x0000, 'OCRDemo', `Succeeded in recognizing text: ${recognitionString}`);
+    visionInfo,
+    textConfiguration,
+    (error: BusinessError, data: textRecognition.TextRecognitionResult) => {
+      if (error.code !== 0) {
+        hilog.error(0x0000, 'OCRDemo', `Failed to recognize text. Code: ${error.code}, message: ${error.message}`);
+        return;
+      }
+      // 识别成功，获取对应的结果
+      let recognitionString = JSON.stringify(data);
+      hilog.info(0x0000, 'OCRDemo', `Succeeded in recognizing text: ${recognitionString}`);
 
-    if (chooseImage && imageSource) {
-      void chooseImage.release();
-      void imageSource.release();
+      if (chooseImage && imageSource) {
+        void chooseImage.release();
+        void imageSource.release();
+      }
     }
-  }
   );
   if (fileSource) {
     await fileIo.close(fileSource);
@@ -584,10 +568,10 @@ struct Page {
 ```
 
 
-## textRecognition.getSupportedLanguages
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getSupportedLanguages(): Promise<Array<string>>
+##### textRecognition.getSupportedLanguages
+
+getSupportedLanguages(): Promise<Array&lt;string&gt;>
 
 获取当前文本识别所支持的语言类型列表。使用Promise异步回调。
 
@@ -597,16 +581,14 @@ getSupportedLanguages(): Promise<Array<string>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;string&gt;&gt; | Promise对象，返回所支持的[语言类型列表](#语言类型列表)。 |
+| Promise<Array&lt;string&gt;> | Promise对象，返回所支持的语言类型列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -616,8 +598,7 @@ getSupportedLanguages(): Promise<Array<string>>
 
 **示例：**
 
-
-```ts
+```text
 import { textRecognition } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -641,10 +622,10 @@ struct Page {
 ```
 
 
-## textRecognition.getSupportedLanguages
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getSupportedLanguages(callback: AsyncCallback<Array<string>>): void
+##### textRecognition.getSupportedLanguages
+
+getSupportedLanguages(callback: AsyncCallback<Array&lt;string&gt;>): void
 
 获取当前文本识别所支持的语言类型列表。使用Callback异步回调。
 
@@ -654,16 +635,14 @@ getSupportedLanguages(callback: AsyncCallback<Array<string>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;Array&lt;string&gt;&gt; | 是 | 回调函数，返回所支持的[语言类型列表](#语言类型列表)。 |
+| callback | AsyncCallback<Array&lt;string&gt;> | 是 | 回调函数，返回所支持的语言类型列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -673,8 +652,7 @@ getSupportedLanguages(callback: AsyncCallback<Array<string>>): void
 
 **示例：**
 
-
-```ts
+```text
 import { textRecognition } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -699,9 +677,8 @@ struct Page {
 ```
 
 
-## 语言类型列表
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 语言类型列表
 
 | 语言（英） | 语言（中） |
 | --- | --- |

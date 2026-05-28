@@ -3,13 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-basic-components-web-clientauthenticationhandler
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Web组件返回的SSL客户端证书请求事件的处理对象。示例代码参考[onClientAuthenticationRequest事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onclientauthenticationrequest9)。
 
+> [!NOTE]
+> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。
 
-## constructor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor9+
 
 constructor()
 
@@ -18,8 +21,8 @@ ClientAuthenticationHandler的构造函数。
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## confirm9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### confirm9+
 
 confirm(priKeyFile : string, certChainFile : string): void
 
@@ -29,28 +32,27 @@ confirm(priKeyFile : string, certChainFile : string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | priKeyFile | string | 是 | 存放私钥文件的完整路径。 |
 | certChainFile | string | 是 | 存放证书链文件的完整路径。 |
 
 
-## confirm10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### confirm10+
 
 confirm(authUri : string): void
 
 通知Web组件使用指定的凭据(从证书管理模块获得)。
 
-
 > [!NOTE]
 > 需要配置权限：ohos.permission.ACCESS_CERT_MANAGER。
+
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -58,7 +60,6 @@ confirm(authUri : string): void
 
 
 支持的证书签名算法以及密钥长度详见下表。
-
 
 | 签名算法 | 密钥长度 |
 | --- | --- |
@@ -73,8 +74,9 @@ confirm(authUri : string): void
 | SSL_SIGN_ECDSA_SECP521R1_SHA512 | 521 |
 
 
-## confirm22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### confirm22+
 
 confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string): void
 
@@ -84,25 +86,24 @@ confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | identity | string | 是 | 用于识别凭据的唯一标识值。 |
-| credentialTypeOrCertChainFile | [CredentialType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#credentialtype22) \| string | 是 | 类型为[CredentialType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#credentialtype22)时，代表凭据类型；类型为string时，表示证书链文件路径。 |
+| credentialTypeOrCertChainFile | CredentialType \| string | 是 | 类型为CredentialType时，代表凭据类型；类型为string时，表示证书链文件路径。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. |
 
 
-## cancel9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### cancel9+
 
 cancel(): void
 
@@ -111,8 +112,8 @@ cancel(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## ignore9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ignore9+
 
 ignore(): void
 

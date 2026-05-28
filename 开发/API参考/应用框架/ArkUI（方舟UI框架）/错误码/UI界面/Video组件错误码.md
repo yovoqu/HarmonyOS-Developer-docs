@@ -4,12 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-video
 
-
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，媒体错误码请参考[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，媒体错误码请参考 Media错误码 ，通用错误码请参考 通用错误码 。
 
 
-## 103601 播放器创建失败
+
+##### 103601 播放器创建失败
 
 **错误信息**
 
@@ -28,7 +28,8 @@ Failed to create the media player.
 销毁当前实例，并重新创建，如果重新创建失败，则停止相关操作。
 
 
-## 103602 视频资源设置无效
+
+##### 103602 视频资源设置无效
 
 **错误信息**
 

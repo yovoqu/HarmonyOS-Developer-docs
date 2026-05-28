@@ -11,22 +11,29 @@
 Metadata主要是通过一个TAG（Key），去找对应的Data，用于传递参数和配置信息，减少内存拷贝操作。
 
 
-## 适用场景
+##### 适用场景
 
 检测图片中的人脸，返回高精度的人脸矩形框坐标。应用可基于人脸定位结果，灵活集成后处理算法，将其应用于多样化场景。
 
-## 开发步骤
 
-详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。 导入相关接口，导入方法如下。
+
+##### 开发步骤
+
+详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
+1. 导入相关接口，导入方法如下。
+
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-调用[CameraOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameraoutputcapability)中的supportedMetadataObjectTypes属性，获取当前设备支持的元数据类型，并通过[createMetadataOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createmetadataoutput)方法创建元数据输出流。
+2. 调用[CameraOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameraoutputcapability)中的supportedMetadataObjectTypes属性，获取当前设备支持的元数据类型，并通过[createMetadataOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createmetadataoutput)方法创建元数据输出流。
+
+  
 ```text
 function getMetadataOutput(cameraManager: camera.CameraManager, cameraOutputCapability: camera.CameraOutputCapability): camera.MetadataOutput | undefined {
-  let metadataObjectTypes: Array = cameraOutputCapability.supportedMetadataObjectTypes;
+  let metadataObjectTypes: Array<camera.MetadataObjectType> = cameraOutputCapability.supportedMetadataObjectTypes;
   let metadataOutput: camera.MetadataOutput | undefined = undefined;
   try {
     metadataOutput = cameraManager.createMetadataOutput(metadataObjectTypes);
@@ -38,10 +45,14 @@ function getMetadataOutput(cameraManager: camera.CameraManager, cameraOutputCapa
 }
 ```
 
-调用[Session.start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)方法开启metadata数据输出，再通过监听事件metadataObjectsAvailable回调拿到数据，接口调用失败时，会返回相应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 previewOutput获取方式请参考[相机预览开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preview#开发步骤)。
+3. 调用[Session.start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)方法开启metadata数据输出，再通过监听事件metadataObjectsAvailable回调拿到数据，接口调用失败时，会返回相应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+
+  previewOutput获取方式请参考[相机预览开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preview#开发步骤)。
+
+  
 ```text
-async function startMetadataOutput(previewOutput: camera.PreviewOutput, metadataOutput: camera.MetadataOutput, cameraManager: camera.CameraManager): Promise {
-  let cameraArray: Array = [];
+async function startMetadataOutput(previewOutput: camera.PreviewOutput, metadataOutput: camera.MetadataOutput, cameraManager: camera.CameraManager): Promise<void> {
+  let cameraArray: Array<camera.CameraDevice> = [];
   try {
     cameraArray = cameraManager.getSupportedCameras();
     if (cameraArray.length == 0) {
@@ -51,7 +62,7 @@ async function startMetadataOutput(previewOutput: camera.PreviewOutput, metadata
     // 示例代码默认选择第一个镜头，实际开发需根据所需镜头。
     const cameraDevice: camera.CameraDevice = cameraArray[0];
     // 获取支持的模式类型。
-    let sceneModes: Array = cameraManager.getSupportedSceneModes(cameraDevice);
+    let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraDevice);
     let isSupportPhotoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_PHOTO) >= 0;
     if (!isSupportPhotoMode) {
       console.error('photo mode not support');
@@ -83,7 +94,9 @@ async function startMetadataOutput(previewOutput: camera.PreviewOutput, metadata
 }
 ```
 
-调用[Session.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#stop11)方法停止输出metadata数据，接口调用失败会返回相应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+4. 调用[Session.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#stop11)方法停止输出metadata数据，接口调用失败会返回相应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+
+  
 ```text
 function stopMetadataOutput(session: camera.Session): void {
   session.stop().then(() => {
@@ -95,12 +108,18 @@ function stopMetadataOutput(session: camera.Session): void {
 ```
 
 
-## 状态监听
 
-在相机应用开发过程中，可以随时监听metadata数据以及输出流的状态。 通过注册监听获取metadata对象，监听事件固定为metadataObjectsAvailable。检测到有效metadata数据时，callback返回相应的metadata数据信息，metadataOutput创建成功时可监听。
+
+##### 状态监听
+
+在相机应用开发过程中，可以随时监听metadata数据以及输出流的状态。
+
+ - 通过注册监听获取metadata对象，监听事件固定为metadataObjectsAvailable。检测到有效metadata数据时，callback返回相应的metadata数据信息，metadataOutput创建成功时可监听。
+
+  
 ```text
 function onMetadataObjectsAvailable(metadataOutput: camera.MetadataOutput): void {
-  metadataOutput.on('metadataObjectsAvailable', (err: BusinessError, metadataObjectArr: Array) => {
+  metadataOutput.on('metadataObjectsAvailable', (err: BusinessError, metadataObjectArr: Array<camera.MetadataObject>) => {
     if (err !== undefined && err.code !== 0) {
       return;
     }
@@ -109,11 +128,12 @@ function onMetadataObjectsAvailable(metadataOutput: camera.MetadataOutput): void
 }
 ```
 
-
 > [!NOTE]
 > 当前的元数据类型仅支持人脸检测（FACE_DETECTION）功能。元数据信息对象为识别到的人脸区域的矩形信息（Rect），包含矩形区域的左上角x坐标、y坐标和矩形的宽高数据。
 
-通过注册回调函数，获取监听metadata流的错误结果，callback返回metadata输出接口使用错误时返回的错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+ - 通过注册回调函数，获取监听metadata流的错误结果，callback返回metadata输出接口使用错误时返回的错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+
+  
 ```text
 function onMetadataError(metadataOutput: camera.MetadataOutput): void {
   metadataOutput.on('error', (metadataOutputError: BusinessError) => {

@@ -33,4 +33,4 @@
 | 新增API | NA | 类名：DownloadProgress； API声明：downloadedSize: number; 差异内容：downloadedSize: number; | api/@ohos.file.cloudSyncManager.d.ts |
 | 新增API | NA | 类名：DownloadProgress； API声明：totalSize: number; 差异内容：totalSize: number; | api/@ohos.file.cloudSyncManager.d.ts |
 | 新增API | NA | 类名：DownloadProgress； API声明：stopReason: DownloadStopReason; 差异内容：stopReason: DownloadStopReason; | api/@ohos.file.cloudSyncManager.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：BackupExtensionAbility； API声明：onRelease(scenario: number): Promise<void>; 差异内容：onRelease(scenario: number): Promise<void>; | api/@ohos.application.BackupExtensionAbility.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：BackupExtensionAbility； API声明：onRelease(scenario: number): Promise&lt;void&gt;; 差异内容：onRelease(scenario: number): Promise&lt;void&gt;; | api/@ohos.application.BackupExtensionAbility.d.ts |

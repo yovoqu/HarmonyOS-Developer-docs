@@ -3,22 +3,24 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avcastpickerhelper
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 投播半模态对象，可拉起半模态窗口，选择投播设备。在使用前，需要创建AVCastPickerHelper实例。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 14开始支持。 AVCastPickerHelper样式显示为半模态，实际会绑定 全模态页面（bindContentCover） 。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { avSession } from '@kit.AVSessionKit';
 ```
 
 
-## constructor14+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### constructor14+
 
 constructor(context: Context)
 
@@ -30,16 +32,14 @@ constructor(context: Context)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用上下文（仅支持[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)）。 |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext）。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -49,8 +49,7 @@ constructor(context: Context)
 
 **示例：**
 
-
-```ts
+```text
 import { avSession } from '@kit.AVSessionKit';
 
 @Entry
@@ -62,12 +61,12 @@ struct Index {
     Row() {
       Column() {
         Text(this.message)
-        .fontSize(40)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {
-          let context = this.getUIContext().getHostContext() as Context;
-          let avCastPicker = new avSession.AVCastPickerHelper(context);
-        })
+          .fontSize(40)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            let context = this.getUIContext().getHostContext() as Context;
+            let avCastPicker = new avSession.AVCastPickerHelper(context);
+          })
       }
       .width('100%')
     }
@@ -77,10 +76,10 @@ struct Index {
 ```
 
 
-## select14+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-select(options?: AVCastPickerOptions): Promise<void>
+##### select14+
+
+select(options?: AVCastPickerOptions): Promise&lt;void&gt;
 
 通过选择模式拉起AVCastPicker界面，用户可以选择投播设备。接口采用Promise异步返回形式，传入可选参数AVCastPickerOptions对象，无返回值。
 
@@ -90,14 +89,12 @@ select(options?: AVCastPickerOptions): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [AVCastPickerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avcastpickeroptions14) | 否 | AVCastPicker选择选项。无此参数时，以AVCastPickerOptions默认值拉起。 |
+| options | AVCastPickerOptions | 否 | AVCastPicker选择选项。无此参数时，以AVCastPickerOptions默认值拉起。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -108,7 +105,6 @@ select(options?: AVCastPickerOptions): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | parameter check failed. 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -116,8 +112,7 @@ select(options?: AVCastPickerOptions): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { avSession } from '@kit.AVSessionKit';
 
@@ -133,18 +128,18 @@ class MyPage {
       sessionType: 'video',
     };
 
-    this.avCastPicker.select(avCastPickerOptions).then(() => {
-      console.info('Succeeded in selecting.');
-    });
+this.avCastPicker.select(avCastPickerOptions).then(() => {
+  console.info('Succeeded in selecting.');
+});
   }
 }
 ```
 
 
-## resetCommunicationDevice21+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-resetCommunicationDevice(): Promise<void>
+##### resetCommunicationDevice21+
+
+resetCommunicationDevice(): Promise&lt;void&gt;
 
 将应用通话设备恢复至默认设备。比如在语音通话场景下，手机设备的通话装置将恢复成听筒。使用Promise异步回调。
 
@@ -154,7 +149,6 @@ resetCommunicationDevice(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -162,8 +156,7 @@ resetCommunicationDevice(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { avSession } from '@kit.AVSessionKit';
 
@@ -176,10 +169,10 @@ async function avCastPicker(context: common.Context) {
 ```
 
 
-## on('pickerStateChange')14+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void
+##### on('pickerStateChange')14+
+
+on(type: 'pickerStateChange', callback: Callback&lt;AVCastPickerState&gt;) : void
 
 设置半模态窗口变化的监听事件。
 
@@ -191,17 +184,15 @@ on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持事件'pickerStateChange'：当半模态窗口变化时，触发该事件。 |
-| callback | Callback&lt;[AVCastPickerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-avcastpickerparam#avcastpickerstate)&gt; | 是 | 回调函数，参数state是变化后的半模态窗口状态。 |
+| callback | Callback&lt;AVCastPickerState&gt; | 是 | 回调函数，参数state是变化后的半模态窗口状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -211,8 +202,7 @@ on(type: 'pickerStateChange', callback: Callback<AVCastPickerState>) : void
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { AVCastPickerState } from '@kit.AVSessionKit';
 import { avSession } from '@kit.AVSessionKit';
@@ -226,10 +216,10 @@ async function onPickerStateChange(context: common.Context) {
 ```
 
 
-## off('pickerStateChange')14+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void
+##### off('pickerStateChange')14+
+
+off(type: 'pickerStateChange', callback?: Callback&lt;AVCastPickerState&gt;) : void
 
 取消半模态窗口变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
 
@@ -239,17 +229,15 @@ off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消对应的监听事件，支持事件'pickerStateChange'。 |
-| callback | Callback&lt;[AVCastPickerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-avcastpickerparam#avcastpickerstate)&gt; | 否 | 回调函数，参数state是变化后的半模态窗口状态。          当监听事件取消成功，err为undefined，否则返回错误对象。          该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
+| callback | Callback&lt;AVCastPickerState&gt; | 否 | 回调函数，参数state是变化后的半模态窗口状态。 当监听事件取消成功，err为undefined，否则返回错误对象。 该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[媒体会话管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avsession)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -259,8 +247,7 @@ off(type: 'pickerStateChange', callback?: Callback<AVCastPickerState>) : void
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { avSession } from '@kit.AVSessionKit';
 

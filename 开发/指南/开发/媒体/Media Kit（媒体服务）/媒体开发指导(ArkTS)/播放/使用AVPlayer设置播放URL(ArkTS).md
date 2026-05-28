@@ -10,14 +10,15 @@
 
 当前开发指导将提供以下设置播放URL的方法：
 
+ - [流媒体播放场景下设置URL](#流媒体播放场景下设置url)
+ - [本地Raw文件播放场景下设置URL](#本地raw文件播放场景下设置url)
 
-- [流媒体播放场景下设置URL](#流媒体播放场景下设置url)
-- [本地Raw文件播放场景下设置URL](#本地raw文件播放场景下设置url)
 
 
-## 流媒体播放场景下设置URL
+##### 流媒体播放场景下设置URL
 
 **情况一：播放HTTP/HTTPS媒体资源**
+
 ```text
 import { media } from '@kit.MediaKit';
  // 类成员定义avPlayer。
@@ -36,6 +37,7 @@ import { media } from '@kit.MediaKit';
 ```
 
 **情况二：HLS媒体资源播放（点播/直播）**
+
 ```text
 import { media } from '@kit.MediaKit';
  // 类成员定义avPlayer。
@@ -53,7 +55,10 @@ import { media } from '@kit.MediaKit';
  this.avPlayer.url = url;
 ```
 
-**情况三：设置HTTP请求头信息播放** 当服务器需要校验HTTP请求头信息时，可通过[createMediaSourceWithUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatemediasourcewithurl12)设置HTTP请求头信息。
+**情况三：设置HTTP请求头信息播放**
+
+当服务器需要校验HTTP请求头信息时，可通过[createMediaSourceWithUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatemediasourcewithurl12)设置HTTP请求头信息。
+
 ```text
 import { media } from '@kit.MediaKit';
  // 类成员定义avPlayer。
@@ -75,7 +80,10 @@ import { media } from '@kit.MediaKit';
  this.avPlayer.setMediaSource(mediaSource, playbackStrategy);
 ```
 
-**情况四：通过本地Raw文件中的m3u8文件播放在线流媒体资源** 当应用需要通过解析本地Raw文件中的m3u8文件，播放在线流媒体资源时，可以通过[resourceManager.getRawFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9)获取文件描述符，将其拼接成fdUrl，并通过[setMimeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasource#setmimetype12)设置MIME类型为APPLICATION_M3U8。
+**情况四：通过本地Raw文件中的m3u8文件播放在线流媒体资源**
+
+当应用需要通过解析本地Raw文件中的m3u8文件，播放在线流媒体资源时，可以通过[resourceManager.getRawFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9)获取文件描述符，将其拼接成fdUrl，并通过[setMimeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasource#setmimetype12)设置MIME类型为APPLICATION_M3U8。
+
 ```text
 import { media } from '@kit.MediaKit';
  import { common } from '@kit.AbilityKit';
@@ -92,7 +100,7 @@ import { media } from '@kit.MediaKit';
  let fdUrl : string = "fd://" + fileDescriptor.fd +
    "?offset=" + fileDescriptor.offset + "&size=" + fileDescriptor.length;
  // 按需设置HTTP请求头。
- let headers : Record = {"User-Agent" : "User-Agent-Value", "Cookie" : "Cookie-Value"};
+ let headers : Record<string,string> = {"User-Agent" : "User-Agent-Value", "Cookie" : "Cookie-Value"};
  // 通过本地m3u8的URL和HTTP请求头构造mediaSource媒体来源。
  let mediaSource : media.MediaSource = media.createMediaSourceWithUrl(fdUrl, headers);
 
@@ -106,7 +114,10 @@ import { media } from '@kit.MediaKit';
  this.avPlayer.setMediaSource(mediaSource, playbackStrategy);
 ```
 
-**情况五：通过应用沙箱中的m3u8文件播放在线流媒体资源** 当应用需要通过解析应用沙箱中的m3u8文件，播放在线流媒体资源时，可以通过[fileIo.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)获取文件句柄，将其拼接成fdUrl，并通过[setMimeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasource#setmimetype12)设置MIME类型为APPLICATION_M3U8。
+**情况五：通过应用沙箱中的m3u8文件播放在线流媒体资源**
+
+当应用需要通过解析应用沙箱中的m3u8文件，播放在线流媒体资源时，可以通过[fileIo.openSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopensync)获取文件句柄，将其拼接成fdUrl，并通过[setMimeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasource#setmimetype12)设置MIME类型为APPLICATION_M3U8。
+
 ```text
 import { media } from '@kit.MediaKit';
  import { fileIo } from '@kit.CoreFileKit';
@@ -130,7 +141,7 @@ import { media } from '@kit.MediaKit';
  let fdUrl : string = "fd://" + fd + "?offset=" + "0" + "&size=" + "0";
 
  // 按需设置HTTP请求头。
- let headers : Record = {"User-Agent" : "User-Agent-Value", "Cookie" : "Cookie-Value"};
+ let headers : Record<string,string> = {"User-Agent" : "User-Agent-Value", "Cookie" : "Cookie-Value"};
  // 通过本地m3u8的URL和HTTP请求头构造mediaSource媒体来源。
  let mediaSource : media.MediaSource = media.createMediaSourceWithUrl(fdUrl, headers);
 
@@ -145,9 +156,11 @@ import { media } from '@kit.MediaKit';
 ```
 
 
-## 本地raw文件播放场景下设置URL
+
+##### 本地raw文件播放场景下设置URL
 
 **情况一：应用沙箱文件播放**
+
 ```text
 import { media } from '@kit.MediaKit';
  import { fileIo } from '@kit.CoreFileKit';
@@ -172,6 +185,7 @@ import { media } from '@kit.MediaKit';
 ```
 
 **情况二：本地文件播放**
+
 > [!NOTE]
 > 当使用AVPlayer播放本地资源时，AVPlayer会独占此fd。
 
@@ -198,10 +212,12 @@ import { media } from '@kit.MediaKit';
 ```
 
 
-## 运行完整示例
 
-新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSURL)（也可直接运行），并将示例工程的以下资源复制到对应目录。
-```text
+##### 运行完整示例
+1. 新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSURL)（也可直接运行），并将示例工程的以下资源复制到对应目录。
+
+  
+```ArkTS
 AVPlayerArkTSURL
 entry/src/main/ets/
 └── pages
@@ -220,8 +236,10 @@ entry/src/main/resources/
     └── test_01.mp3 （音频资源）
 ```
 
-在/entry/src/main/module.json5中，申请使用网络的权限（或直接替换为示例工程的module.json5）。
-```text
+2. 在/entry/src/main/module.json5中，申请使用网络的权限（或直接替换为示例工程的module.json5）。
+
+  
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.INTERNET"
@@ -232,8 +250,11 @@ entry/src/main/resources/
 ]
 ```
 
-通过注释、解注释/entry/src/main/ets/pages/Index.ets中的上文示例的各种情况，编译并运行。 在安装应用后，可将示例工程的/entry/src/main/resources/rawfile/test.m3u8通过以下命令加入应用沙箱，从而运行应用沙箱相关示例:（为物理路径，以示例工程为例，可通过console.info打印"this.context.filesDir"得到应用沙箱路径，再根据[应用沙箱指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)的应用沙箱路径和真实物理路径的对应关系表找到物理路径）。
+3. 通过注释、解注释/entry/src/main/ets/pages/Index.ets中的上文示例的各种情况，编译并运行。
+4. 在安装应用后，可将示例工程的/entry/src/main/resources/rawfile/test.m3u8通过以下命令加入应用沙箱，从而运行应用沙箱相关示例:（&lt;FILESDIR&gt;为物理路径，以示例工程为例，可通过console.info打印"this.context.filesDir"得到应用沙箱路径，再根据[应用沙箱指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)的应用沙箱路径和真实物理路径的对应关系表找到物理路径）。
+
+  
 ```text
-hdc file send "[目录]\test.m3u8"
-hdc file send "[目录]\test_01.mp3"
+hdc file send "[目录]\test.m3u8" <FILESDIR>
+hdc file send "[目录]\test_01.mp3" <FILESDIR>
 ```

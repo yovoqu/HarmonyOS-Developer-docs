@@ -1,6 +1,6 @@
 # Health Service Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-healthservicekit-6111
 
@@ -9,7 +9,7 @@
 | 新增API | NA | 类名：workout； API声明：interface SportInfo 差异内容：interface SportInfo | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：SportInfo； API声明：sportType: number; 差异内容：sportType: number; | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：SportInfo； API声明：sportState: SportState; 差异内容：sportState: SportState; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function getCurrentSportInfo(): Promise<SportInfo>; 差异内容：function getCurrentSportInfo(): Promise<SportInfo>; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function getCurrentSportInfo(): Promise&lt;SportInfo&gt;; 差异内容：function getCurrentSportInfo(): Promise&lt;SportInfo&gt;; | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：workout； API声明：enum SportState 差异内容：enum SportState | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：SportState； API声明：IDLE = 0 差异内容：IDLE = 0 | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：SportState； API声明：READY = 1 差异内容：READY = 1 | api/@hms.health.service.d.ts |
@@ -17,8 +17,8 @@
 | 新增API | NA | 类名：SportState； API声明：PAUSED = 3 差异内容：PAUSED = 3 | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：SportState； API声明：STOPPED = 4 差异内容：STOPPED = 4 | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：healthDataTypes； API声明：const MENSTRUAL_CYCLE: healthStore.DataType; 差异内容：const MENSTRUAL_CYCLE: healthStore.DataType; | api/@hms.health.store.d.ts |
-| 新增API | NA | 类名：healthFields； API声明：type MenstrualCycle = {  status: number;  remarks?: string;  }; 差异内容：type MenstrualCycle = {  status: number;  remarks?: string;  }; | api/@hms.health.store.d.ts |
-| 新增API | NA | 类名：healthFields； API声明：type MenstrualCycleDetail = {  menstrualFlow?: MenstrualFlow[];  dysmenorrhea?: Dysmenorrhea[];  physicalSymptoms?: PhysicalSymptoms[];  mood?: Mood[];  skin?: Skin[];  sexuality?: Sexuality[];  ovulationTestPaper?: OvulationTestPaper[];  cervicalMucus?: CervicalMucus[];  }; 差异内容：type MenstrualCycleDetail = {  menstrualFlow?: MenstrualFlow[];  dysmenorrhea?: Dysmenorrhea[];  physicalSymptoms?: PhysicalSymptoms[];  mood?: Mood[];  skin?: Skin[];  sexuality?: Sexuality[];  ovulationTestPaper?: OvulationTestPaper[];  cervicalMucus?: CervicalMucus[];  }; | api/@hms.health.store.d.ts |
+| 新增API | NA | 类名：healthFields； API声明：type MenstrualCycle = { status: number; remarks?: string; }; 差异内容：type MenstrualCycle = { status: number; remarks?: string; }; | api/@hms.health.store.d.ts |
+| 新增API | NA | 类名：healthFields； API声明：type MenstrualCycleDetail = { menstrualFlow?: MenstrualFlow[]; dysmenorrhea?: Dysmenorrhea[]; physicalSymptoms?: PhysicalSymptoms[]; mood?: Mood[]; skin?: Skin[]; sexuality?: Sexuality[]; ovulationTestPaper?: OvulationTestPaper[]; cervicalMucus?: CervicalMucus[]; }; 差异内容：type MenstrualCycleDetail = { menstrualFlow?: MenstrualFlow[]; dysmenorrhea?: Dysmenorrhea[]; physicalSymptoms?: PhysicalSymptoms[]; mood?: Mood[]; skin?: Skin[]; sexuality?: Sexuality[]; ovulationTestPaper?: OvulationTestPaper[]; cervicalMucus?: CervicalMucus[]; }; | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：healthFields； API声明：interface MenstrualFlow 差异内容：interface MenstrualFlow | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：MenstrualFlow； API声明：volume: number; 差异内容：volume: number; | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：healthFields； API声明：interface Dysmenorrhea 差异内容：interface Dysmenorrhea | api/@hms.health.store.d.ts |

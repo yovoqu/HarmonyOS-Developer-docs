@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / lite_wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 3100101 开关NFC异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+##### 3100101 开关NFC异常
 
 **错误信息**
 
@@ -22,8 +21,6 @@ The NFC state is abnormal in the service.
 NFC服务内部执行NFC打开或关闭异常。
 
 **可能原因**
-
-
 1. 和NFC服务建立通信异常。
 2. NFC芯片通信异常。
 
@@ -32,8 +29,8 @@ NFC服务内部执行NFC打开或关闭异常。
 重新执行打开或关闭NFC或重启设备尝试。
 
 
-## 3100201 NFC服务读写Tag错误
-**支持设备：** Phone / Wearable
+
+##### 3100201 NFC服务读写Tag错误
 
 **错误信息**
 
@@ -44,8 +41,6 @@ The tag running state is abnormal in the service.
 NFC服务执行Tag业务逻辑遇到错误。
 
 **可能原因**
-
-
 1. Tag参数值和实际调用函数要求不匹配。
 2. Tag操作时，NFC状态是关闭的。
 3. Tag操作前，已经处在断开状态。
@@ -53,8 +48,6 @@ NFC服务执行Tag业务逻辑遇到错误。
 5. 和NFC服务没有建立绑定关系，无法调用接口。
 
 **处理步骤**
-
-
 1. 检查NFC参数是否和所调用接口匹配。
 2. 判断NFC是关闭状态时，提示打开NFC。
 3. 先调用连接，再执行读写操作。
@@ -62,8 +55,8 @@ NFC服务执行Tag业务逻辑遇到错误。
 5. 退出应用后，重新读取卡片。
 
 
-## 3100202 应用状态错误
-**支持设备：** Phone / Wearable
+
+##### 3100202 应用状态错误
 
 **错误信息**
 
@@ -82,8 +75,8 @@ The element state is invalid.
 只允许进入应用前台的页面调用该接口。
 
 
-## 3100203 接口调用顺序错误
-**支持设备：** Phone / Wearable
+
+##### 3100203 接口调用顺序错误
 
 **错误信息**
 
@@ -102,8 +95,8 @@ The off() API can be called only when the on() has been called.
 应用程序的前台页面先执行on()接口，在页面退出时调用off()接口。
 
 
-## 3100204 NFC芯片I/O异常
-**支持设备：** Phone / Wearable
+
+##### 3100204 NFC芯片I/O异常
 
 **错误信息**
 
@@ -122,7 +115,8 @@ NFC Tag不支持所执行的读写操作。
 应用程序根据业务场景进行异常处理或提示。
 
 
-## 3100205 NFC标签状态异常
+
+##### 3100205 NFC标签状态异常
 
 **错误信息**
 
@@ -141,8 +135,8 @@ NFC标签已离开nfc设备感应范围。
 重新将标签靠近nfc读卡设备。
 
 
-## 3100301 NFC卡模拟状态异常
-**支持设备：** Phone / Wearable / lite_wearable
+
+##### 3100301 NFC卡模拟状态异常
 
 **错误信息**
 
@@ -153,20 +147,16 @@ Card emulation running state is abnormal in service.
 NFC服务执行卡模拟业务逻辑遇到错误。
 
 **可能原因**
-
-
 1. 卡模拟时NFC状态是关闭的。
 2. NFC芯片返回错误状态或响应超时。
 
 **处理步骤**
-
-
 1. 判断NFC是关闭状态时，提示打开NFC。
 2. 提示关开NFC，重新初始化硬件。
 
 
-## 3200101 有源NFC标签状态异常
-**支持设备：** PC/2in1
+
+##### 3200101 有源NFC标签状态异常
 
 **错误信息**
 
@@ -177,13 +167,9 @@ Connected NFC tag running state is abnormal in service.
 执行有源NFC Tag业务逻辑遇到错误。
 
 **可能原因**
-
-
 1. 有源NFC Tag参数值和实际调用函数要求不匹配。
 2. 有源NFC Tag芯片返回错误状态或响应超时。
 
 **处理步骤**
-
-
 1. 检查有源NFC Tag参数是否和所调用接口匹配。
 2. 重新触碰读取卡片。

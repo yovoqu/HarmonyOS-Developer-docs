@@ -3,47 +3,44 @@
 更新时间：2026-04-03 09:39:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-set
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 一种存储唯一值的非线性数据结构，能够高效地进行元素存在性检测和去重操作。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+
 
 文档中存在泛型的使用，涉及以下泛型标记符：
 
+ - T：Type，支持[Sendable支持的数据类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable支持的数据类型)。
 
-- T：Type，支持[Sendable支持的数据类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable支持的数据类型)。
 
 **装饰器类型：**@Sendable
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { collections } from '@kit.ArkTS';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | size | number | 是 | 否 | Set的元素个数。 |
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(values?: readonly T[] | null)
 
@@ -55,7 +52,6 @@ constructor(values?: readonly T[] | null)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | values | readonly T[] \| null | 否 | 数组或其它可迭代对象。默认值为null，创建一个空Set对象。 |
@@ -65,7 +61,6 @@ constructor(values?: readonly T[] | null)
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -74,42 +69,36 @@ constructor(values?: readonly T[] | null)
 
 **示例：**
 
-
-```ts
+```text
 // 正例1：
 const mySet = new collections.Set<number>();
 ```
 
-
-```ts
+```text
 // 正例2：
 const mySet = new collections.Set<number>([1, 2, 3, 4, 5]);
 ```
 
-
-```ts
+```text
 // 反例：
 @Sendable
 class SharedClass {
-  constructor() {}
+  constructor() {
+  }
 }
 
 let sObj = new SharedClass();
-const mySet1: collections.Set<number | SharedClass> = new collections.Set<
-  number | SharedClass
->([1, sObj]);
+const mySet1: collections.Set<number|SharedClass> = new collections.Set<number|SharedClass>([1, sObj]);
 // Type arguments of generic "Sendable" type must be a "Sendable" data type (arkts-sendable-generic-types)
 let obj = new Object();
-const mySet2: collections.Set<number | SharedClass> = new collections.Set<
-  number | Object
->([1, obj]);
+const mySet2: collections.Set<number|SharedClass> = new collections.Set<number|Object>([1, obj]);
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-constructor(iterable: Iterable<T>)
+##### constructor
+
+constructor(iterable: Iterable&lt;T&gt;)
 
 创建ArkTS Set对象的构造函数。
 
@@ -118,7 +107,6 @@ constructor(iterable: Iterable<T>)
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -129,7 +117,6 @@ constructor(iterable: Iterable<T>)
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -138,8 +125,7 @@ constructor(iterable: Iterable<T>)
 
 **示例：**
 
-
-```ts
+```text
 const mapper = new Map([
   ['1', 'a'],
   ['2', 'b'],
@@ -150,8 +136,8 @@ console.info(newSet.has('b').toString()); // 预期输出： true
 ```
 
 
-## entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[T, T]>
 
@@ -163,16 +149,14 @@ entries(): IterableIterator<[T, T]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[T, T]&gt; | 返回一个Set迭代器对象，该对象包含了此Set中每个元素的键值对。 |
+| IterableIterator<[T, T]> | 返回一个Set迭代器对象，该对象包含了此Set中每个元素的键值对。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -182,8 +166,7 @@ entries(): IterableIterator<[T, T]>
 
 **示例：**
 
-
-```ts
+```text
 const mySet = new collections.Set<number>([0, 1, 2, 3]);
 
 const iterator = mySet.entries();
@@ -194,10 +177,10 @@ console.info(iterator.next().value);
 ```
 
 
-## keys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-keys(): IterableIterator<T>
+##### keys
+
+keys(): IterableIterator&lt;T&gt;
 
 返回一个Set迭代器对象，该对象包含了此Set中每个元素的键。
 
@@ -206,7 +189,6 @@ keys(): IterableIterator<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -217,7 +199,6 @@ keys(): IterableIterator<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The keys method cannot be bound with non-sendable. |
@@ -226,8 +207,7 @@ keys(): IterableIterator<T>
 
 **示例：**
 
-
-```ts
+```text
 const mySet = new collections.Set<number>([0, 1, 2, 3]);
 
 const iterator = mySet.keys();
@@ -238,10 +218,10 @@ console.info(iterator.next().value);
 ```
 
 
-## values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<T>
+##### values
+
+values(): IterableIterator&lt;T&gt;
 
 返回一个Set迭代器对象，该对象包含了此Set中每个元素的值。
 
@@ -250,7 +230,6 @@ values(): IterableIterator<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -261,7 +240,6 @@ values(): IterableIterator<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The values method cannot be bound with non-sendable. |
@@ -270,8 +248,7 @@ values(): IterableIterator<T>
 
 **示例：**
 
-
-```ts
+```text
 // 例1：
 const mySet = new collections.Set<number>([0, 1, 2, 3]);
 
@@ -282,25 +259,24 @@ console.info(iterator.next().value);
 console.info(iterator.next().value);
 ```
 
-
-```ts
+```text
 // 例2：
 const mySet = new collections.Set<number>([0, 1, 2, 3]);
 
 const valueIter = mySet.values();
 for (let value of valueIter) {
-  if (value % 2 == 0) {
-    mySet.delete(value);
-  }
+    if (value % 2 == 0) {
+        mySet.delete(value);
+    }
 }
 
 // Expected output: 2
-console.info('size:' + mySet.size);
+console.info("size:" + mySet.size);
 ```
 
 
-## clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -314,7 +290,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound with non-sendable. |
@@ -323,19 +298,18 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 const mySet = new collections.Set<number>([0, 1]);
 // Expected output: 2
-console.info('size:' + mySet.size);
+console.info("size:" + mySet.size);
 mySet.clear();
 // Expected output: 0
-console.info('size:' + mySet.size);
+console.info("size:" + mySet.size);
 ```
 
 
-## delete
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### delete
 
 delete(value: T): boolean
 
@@ -347,14 +321,12 @@ delete(value: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | T | 是 | 待删除元素的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -365,7 +337,6 @@ delete(value: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The delete method cannot be bound with non-sendable. |
@@ -374,22 +345,21 @@ delete(value: T): boolean
 
 **示例：**
 
-
-```ts
-const mySet = new collections.Set<string>(['hello', 'world']);
+```text
+const mySet = new collections.Set<string>(["hello", "world"]);
 // Expected result: true
-console.info('result:' + mySet.delete('hello'));
+console.info("result:" + mySet.delete("hello"));
 // Expected result: false
-console.info('result:' + mySet.has('hello'));
+console.info("result:" + mySet.has("hello"));
 // Expected result: false
-console.info('result:' + mySet.delete('hello'));
+console.info("result:" + mySet.delete("hello"));
 ```
 
 
-## forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value: T, value2: T, set: Set<T>) => void): void
+##### forEach
+
+forEach(callbackFn: (value: T, value2: T, set: Set&lt;T&gt;) => void): void
 
 按插入顺序对该Set中的每个键/值对执行一次回调函数。
 
@@ -399,14 +369,12 @@ forEach(callbackFn: (value: T, value2: T, set: Set<T>) => void): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | (value: T, value2: T, set: Set&lt;T&gt;) =&gt; void | 是 | 回调函数。 |
+| callbackFn | (value: T, value2: T, set: Set&lt;T&gt;) => void | 是 | 回调函数。 |
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -419,7 +387,6 @@ callbackFn的参数说明：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -429,30 +396,24 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 // 正例：
-new collections.Set<string>(['foo', 'bar', 'baz']).forEach(
-  (value1, value2, set) => {
-    console.info(`s[${value1}] = ${value2}`);
-  },
-);
+new collections.Set<string>(['foo', 'bar', 'baz']).forEach((value1, value2, set) => {
+  console.info(`s[${value1}] = ${value2}`);
+});
 ```
 
-
-```ts
+```text
 // 反例：
-new collections.Set<string>(['foo', 'bar', 'baz']).forEach(
-  (value1, value2, set) => {
-    // Throw exception `Concurrent modification error.`
-    set.delete(value1);
-  },
-);
+new collections.Set<string>(['foo', 'bar', 'baz']).forEach((value1, value2, set) => {
+  // Throw exception `Concurrent modification error.`
+  set.delete(value1);
+});
 ```
 
 
-## has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(value: T): boolean
 
@@ -464,14 +425,12 @@ has(value: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | T | 是 | 待查找元素的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -482,7 +441,6 @@ has(value: T): boolean
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -492,20 +450,19 @@ has(value: T): boolean
 
 **示例：**
 
-
-```ts
-const mySet = new collections.Set<string>(['hello', 'world']);
+```text
+const mySet = new collections.Set<string>(["hello", "world"]);
 // Expected output: true
-console.info('result:' + mySet.has('hello'));
+console.info("result:" + mySet.has("hello"));
 // Expected output: true
-console.info('result:' + mySet.has('world'));
+console.info("result:" + mySet.has("world"));
 ```
 
 
-## add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-add(value: T): Set<T>
+##### add
+
+add(value: T): Set&lt;T&gt;
 
 如果没有相同元素，则在该Set中插入一个新元素。
 
@@ -515,14 +472,12 @@ add(value: T): Set<T>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | T | 是 | 待插入元素的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -533,7 +488,6 @@ add(value: T): Set<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The add method cannot be bound with non-sendable. |
@@ -542,15 +496,13 @@ add(value: T): Set<T>
 
 **示例：**
 
-
-```ts
+```text
 // 正例：
 const mySet: collections.Set<string> = new collections.Set<string>();
-mySet.add('foo');
+mySet.add("foo");
 ```
 
-
-```ts
+```text
 // 反例：
 let obj = new Object();
 const mySet: collections.Set<Object> = new collections.Set<Object>();
@@ -559,23 +511,22 @@ mySet.add(obj);
 ```
 
 
-## [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<T>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;T&gt;
 
 返回一个迭代器，迭代器的每一项都是一个JavaScript对象，并返回该对象。
 
-
 > [!NOTE]
 > 本接口不支持在.ets文件中使用。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -586,7 +537,6 @@ mySet.add(obj);
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -594,12 +544,11 @@ mySet.add(obj);
 
 **示例：**
 
-
-```ts
+```text
 let set = new collections.Set<number>([1, 2, 3, 4, 5]);
 
 let val: Array<number> = Array.from(set.values());
 for (let item of val) {
-  console.info('value: ' + item);
+  console.info("value: " + item);
 }
 ```

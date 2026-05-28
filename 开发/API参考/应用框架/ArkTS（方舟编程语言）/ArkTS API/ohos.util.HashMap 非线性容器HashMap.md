@@ -3,7 +3,7 @@
 更新时间：2026-04-02 08:41:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hashmap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 HashMap底层采用数组、链表和红黑树实现，支持高效查询、插入和删除。HashMap存储内容基于key-value的键值对映射，不允许重复的key，且一个key只能对应一个value。
 
@@ -15,44 +15,41 @@ HashMap和[TreeMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 文档中使用了泛型，包含以下泛型标记符：
 
-
-- K：Key，键
-- V：Value，值
+ - K：Key，键
+ - V：Value，值
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { HashMap } from '@kit.ArkTS';
 ```
 
 
-## HashMap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### HashMap
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | HashMap的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -66,7 +63,6 @@ HashMap的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The HashMap's constructor cannot be directly invoked. |
@@ -74,14 +70,13 @@ HashMap的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
 ```
 
 
-### isEmpty
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty
 
 isEmpty(): boolean
 
@@ -93,7 +88,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 为空返回true，不为空返回false。 |
@@ -103,7 +97,6 @@ isEmpty(): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The isEmpty method cannot be bound. |
@@ -111,16 +104,15 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 const hashMap = new HashMap<string, number>();
 let result = hashMap.isEmpty();
-console.info('result = ', result); // result = true
+console.info("result = ", result) // result = true
 ```
 
 
-### hasKey
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hasKey
 
 hasKey(key: K): boolean
 
@@ -132,14 +124,12 @@ hasKey(key: K): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 指定Key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -150,7 +140,6 @@ hasKey(key: K): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The hasKey method cannot be bound. |
@@ -158,17 +147,16 @@ hasKey(key: K): boolean
 
 **示例：**
 
-
-```ts
+```text
 const hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-let result = hashMap.hasKey('squirrel');
-console.info('result:', result); // result: true
+hashMap.set("squirrel", 123);
+let result = hashMap.hasKey("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### hasValue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hasValue
 
 hasValue(value: V): boolean
 
@@ -180,14 +168,12 @@ hasValue(value: V): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | V | 是 | 指定value。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -198,7 +184,6 @@ hasValue(value: V): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The hasValue method cannot be bound. |
@@ -206,17 +191,16 @@ hasValue(value: V): boolean
 
 **示例：**
 
-
-```ts
+```text
 const hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
+hashMap.set("squirrel", 123);
 let result = hashMap.hasValue(123);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### get
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### get
 
 get(key: K): V
 
@@ -228,14 +212,12 @@ get(key: K): V
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 查找的指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -246,7 +228,6 @@ get(key: K): V
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The get method cannot be bound. |
@@ -254,18 +235,17 @@ get(key: K): V
 
 **示例：**
 
-
-```ts
+```text
 const hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
-let result = hashMap.get('sparrow');
-console.info('result:', result); // result: 356
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
+let result = hashMap.get("sparrow");
+console.info("result:", result);  // result: 356
 ```
 
 
-### setAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAll
 
 setAll(map: HashMap<K, V>): void
 
@@ -277,16 +257,14 @@ setAll(map: HashMap<K, V>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| map | HashMap&lt;K, V&gt; | 是 | 被添加元素的HashMap。 |
+| map | HashMap<K, V> | 是 | 被添加元素的HashMap。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -296,21 +274,20 @@ setAll(map: HashMap<K, V>): void
 
 **示例：**
 
-
-```ts
+```text
 const hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
 let newHashMap = new HashMap<string, number>();
-newHashMap.set('newMap', 99);
+newHashMap.set("newMap", 99);
 hashMap.setAll(newHashMap);
-let result = hashMap.hasKey('newMap');
-console.info('result:', result); // result: true
+let result = hashMap.hasKey("newMap");
+console.info("result:", result);  // result: true
 ```
 
 
-### set
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### set
 
 set(key: K, value: V): Object
 
@@ -322,7 +299,6 @@ set(key: K, value: V): Object
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 添加或更新成员数据的键名。 |
@@ -330,7 +306,6 @@ set(key: K, value: V): Object
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -341,7 +316,6 @@ set(key: K, value: V): Object
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. |
@@ -350,16 +324,15 @@ set(key: K, value: V): Object
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-console.info('result:', hashMap.get('squirrel')); // result: 123
+hashMap.set("squirrel", 123)
+console.info("result:", hashMap.get("squirrel"));  // result: 123
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove
 
 remove(key: K): V
 
@@ -371,14 +344,12 @@ remove(key: K): V
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -389,7 +360,6 @@ remove(key: K): V
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The remove method cannot be bound. |
@@ -397,18 +367,17 @@ remove(key: K): V
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
-let result = hashMap.remove('sparrow');
-console.info('result:', result); // result: 356
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
+let result = hashMap.remove("sparrow");
+console.info("result:", result);  // result: 356
 ```
 
 
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -422,7 +391,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound. |
@@ -430,21 +398,20 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
 hashMap.clear();
 let result = hashMap.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### keys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-keys(): IterableIterator<K>
+##### keys
+
+keys(): IterableIterator&lt;K&gt;
 
 返回新迭代器对象，包含此映射中所有的键。
 
@@ -453,7 +420,6 @@ keys(): IterableIterator<K>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -464,7 +430,6 @@ keys(): IterableIterator<K>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The keys method cannot be bound. |
@@ -472,24 +437,23 @@ keys(): IterableIterator<K>
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
 let keys = hashMap.keys();
 for (let key of keys) {
-  console.info('key:' + key);
+  console.info("key:" + key);
 }
 // key:squirrel
 // key:sparrow
 ```
 
 
-### values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<V>
+##### values
+
+values(): IterableIterator&lt;V&gt;
 
 返回新迭代器对象，包含此映射中所有键对应的值。
 
@@ -498,7 +462,6 @@ values(): IterableIterator<V>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -509,7 +472,6 @@ values(): IterableIterator<V>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The values method cannot be bound. |
@@ -517,22 +479,21 @@ values(): IterableIterator<V>
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
 let values = hashMap.values();
 for (let value of values) {
-  console.info('value:', value);
+  console.info("value:", value)
 }
 // value: 123
 // value: 356
 ```
 
 
-### replace
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### replace
 
 replace(key: K, newValue: V): boolean
 
@@ -544,7 +505,6 @@ replace(key: K, newValue: V): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 依据key指定替换的元素。 |
@@ -552,7 +512,6 @@ replace(key: K, newValue: V): boolean
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -563,7 +522,6 @@ replace(key: K, newValue: V): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The replace method cannot be bound. |
@@ -571,17 +529,16 @@ replace(key: K, newValue: V): boolean
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('sparrow', 123);
-let result = hashMap.replace('sparrow', 357);
-console.info('result:', result); // result: true
+hashMap.set("sparrow", 123);
+let result = hashMap.replace("sparrow", 357);
+console.info("result:", result);  // result: true
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### forEach
 
 forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?: Object): void
 
@@ -593,7 +550,6 @@ forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?:
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -602,18 +558,16 @@ forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?:
 
 callbackFn的参数说明：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | V | 否 | 当前遍历到的元素键值对的值。 |
 | key | K | 否 | 当前遍历到的元素键值对的键。 |
-| map | HashMap&lt;K, V&gt; | 否 | 当前调用forEach方法的实例对象，默认值为当前实例对象。 |
+| map | HashMap<K, V> | 否 | 当前调用forEach方法的实例对象，默认值为当前实例对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -623,34 +577,32 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('sparrow', 123);
-hashMap.set('gull', 357);
+hashMap.set("sparrow", 123);
+hashMap.set("gull", 357);
 hashMap.forEach((value: number, key: string) => {
-  console.info('value: ' + value, 'key: ' + key);
+  console.info("value: " + value, "key: " + key);
 });
 // value: 123 key: sparrow
 // value: 357 key: gull
 ```
 
-
-```ts
+```text
 // 不建议在forEach中使用set、remove方法，因其可能导致迭代过程中的状态异常，建议使用for循环来进行安全的插入与删除操作。
 let hashMap = new HashMap<string, number>();
-for (let i = 0; i < 10; i++) {
-  hashMap.set('sparrow' + i, 123);
+for(let i = 0; i < 10; i++) {
+  hashMap.set("sparrow" + i, 123);
 }
 
-for (let i = 0; i < 10; i++) {
-  hashMap.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  hashMap.remove("sparrow" + i);
 }
 ```
 
 
-### entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[K, V]>
 
@@ -662,16 +614,14 @@ entries(): IterableIterator<[K, V]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[K, V]&gt; | 返回一个迭代器。 |
+| IterableIterator<[K, V]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -680,36 +630,34 @@ entries(): IterableIterator<[K, V]>
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
 let iter = hashMap.entries();
 let temp: IteratorResult<Object[]> = iter.next();
-while (!temp.done) {
-  console.info('key:' + temp.value[0]);
-  console.info('value:' + temp.value[1]);
+while(!temp.done) {
+  console.info("key:" + temp.value[0]);
+  console.info("value:" + temp.value[1]);
   temp = iter.next();
 }
 ```
 
-
-```ts
+```text
 // 不建议在entries中使用set、remove方法，因其可能导致迭代过程中的状态异常，建议使用for循环来进行安全的插入与删除操作。
 let hashMap = new HashMap<string, number>();
-for (let i = 0; i < 10; i++) {
-  hashMap.set('sparrow' + i, 123);
+for(let i = 0; i < 10; i++) {
+  hashMap.set("sparrow" + i, 123);
 }
 
-for (let i = 0; i < 10; i++) {
-  hashMap.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  hashMap.remove("sparrow" + i);
 }
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### [Symbol.iterator]
 
 [Symbol.iterator](): IterableIterator<[K, V]>
 
@@ -721,16 +669,14 @@ for (let i = 0; i < 10; i++) {
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[K, V]&gt; | 返回一个迭代器。 |
+| IterableIterator<[K, V]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -739,16 +685,15 @@ for (let i = 0; i < 10; i++) {
 
 **示例：**
 
-
-```ts
+```text
 let hashMap = new HashMap<string, number>();
-hashMap.set('squirrel', 123);
-hashMap.set('sparrow', 356);
+hashMap.set("squirrel", 123);
+hashMap.set("sparrow", 356);
 
 // 使用方法一：
 for (let item of hashMap) {
-  console.info('key:', item[0]);
-  console.info('value:', item[1]);
+  console.info("key:", item[0]);
+  console.info("value:", item[1]);
 }
 // key: squirrel
 // value: 123
@@ -758,9 +703,9 @@ for (let item of hashMap) {
 // 使用方法二：
 let iter = hashMap[Symbol.iterator]();
 let temp: IteratorResult<Object[]> = iter.next();
-while (!temp.done) {
-  console.info('key:', temp.value[0]);
-  console.info('value:', temp.value[1]);
+while(!temp.done) {
+  console.info("key:", temp.value[0]);
+  console.info("value:", temp.value[1]);
   temp = iter.next();
 }
 // key: squirrel
@@ -769,15 +714,14 @@ while (!temp.done) {
 // value: 356
 ```
 
-
-```ts
+```text
 // 不建议在Symbol.iterator中使用set、remove方法，因其可能导致迭代过程中的状态异常，建议使用for循环来进行安全的插入与删除操作。
 let hashMap = new HashMap<string, number>();
-for (let i = 0; i < 10; i++) {
-  hashMap.set('sparrow' + i, 123);
+for(let i = 0; i < 10; i++) {
+  hashMap.set("sparrow" + i, 123);
 }
 
-for (let i = 0; i < 10; i++) {
-  hashMap.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  hashMap.remove("sparrow" + i);
 }
 ```

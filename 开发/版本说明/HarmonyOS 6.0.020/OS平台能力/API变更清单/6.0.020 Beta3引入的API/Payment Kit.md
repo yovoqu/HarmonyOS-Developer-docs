@@ -9,7 +9,7 @@
 | 新增API | NA | 类名：global； API声明：declare namespace thirdPaymentService 差异内容：declare namespace thirdPaymentService | api/@hms.core.payment.thirdPaymentService.d.ts |
 | 新增API | NA | 类名：thirdPaymentService； API声明：class ThirdPayClient 差异内容：class ThirdPayClient | api/@hms.core.payment.thirdPaymentService.d.ts |
 | 新增API | NA | 类名：ThirdPayClient； API声明：handlePayCallback(want: Want): boolean; 差异内容：handlePayCallback(want: Want): boolean; | api/@hms.core.payment.thirdPaymentService.d.ts |
-| 新增API | NA | 类名：ThirdPayClient； API声明：pay(payInfo: string): Promise<void>; 差异内容：pay(payInfo: string): Promise<void>; | api/@hms.core.payment.thirdPaymentService.d.ts |
+| 新增API | NA | 类名：ThirdPayClient； API声明：pay(payInfo: string): Promise&lt;void&gt;; 差异内容：pay(payInfo: string): Promise&lt;void&gt;; | api/@hms.core.payment.thirdPaymentService.d.ts |
 | 新增API | NA | 类名：thirdPaymentService； API声明：enum PayMethod 差异内容：enum PayMethod | api/@hms.core.payment.thirdPaymentService.d.ts |
 | 新增API | NA | 类名：PayMethod； API声明：WECHAT_PAY = 'wechat_pay' 差异内容：WECHAT_PAY = 'wechat_pay' | api/@hms.core.payment.thirdPaymentService.d.ts |
 | 新增API | NA | 类名：PayMethod； API声明：ALI_PAY = 'ali_pay' 差异内容：ALI_PAY = 'ali_pay' | api/@hms.core.payment.thirdPaymentService.d.ts |

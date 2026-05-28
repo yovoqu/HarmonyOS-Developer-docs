@@ -4,28 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-get-file-url
 
-## 场景介绍
+##### 场景介绍
 
 Enterprise Data Guard Kit为应用提供获取文件路径信息的能力，该路径可被应用直接打开，从而辅助判断是否是KIA文件。
 
-## 接口说明
+
+
+##### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [getFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#getfileuri)(path: string, callback: AsyncCallback): void | 使用Callback方式获取文件路径信息。 |
-| [getFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#getfileuri-1)(path: string): Promise | 使用Promise方式获取文件路径信息。 |
+| getFileUri(path: string, callback: AsyncCallback&lt;FilePathInfo&gt;): void | 使用Callback方式获取文件路径信息。 |
+| getFileUri(path: string): Promise&lt;FilePathInfo&gt; | 使用Promise方式获取文件路径信息。 |
 
 
-## 开发步骤
 
-导入模块。
+
+##### 开发步骤
+1. 导入模块。
+
+  
 ```text
 import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口getFileUri，获取文件URI。 通过回调函数方式，获取文件URI。
+2. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口getFileUri，获取文件URI。
+
+  
+通过回调函数方式，获取文件URI。
+
+  
 ```text
 function getFileUriCallback() {
   let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
@@ -40,7 +51,9 @@ function getFileUriCallback() {
 }
 ```
 
-通过Promise方式，获取文件URI。
+3. 通过Promise方式，获取文件URI。
+
+  
 ```text
 function getFileUriPromise() {
   let guard: fileGuard.FileGuard = new fileGuard.FileGuard();

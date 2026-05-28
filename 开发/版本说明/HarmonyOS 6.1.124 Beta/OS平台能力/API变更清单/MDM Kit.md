@@ -1,6 +1,6 @@
 # MDM Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mdmkit-6111
 
@@ -16,7 +16,7 @@
 | 新增API | NA | 类名：DockInfo； API声明：index: number; 差异内容：index: number; | api/@ohos.enterprise.applicationManager.d.ts |
 | 新增API | NA | 类名：applicationManager； API声明：function addDockApp(admin: Want, bundleName: string, abilityName: string, index?: number): void; 差异内容：function addDockApp(admin: Want, bundleName: string, abilityName: string, index?: number): void; | api/@ohos.enterprise.applicationManager.d.ts |
 | 新增API | NA | 类名：applicationManager； API声明：function removeDockApp(admin: Want, bundleName: string, abilityName: string): void; 差异内容：function removeDockApp(admin: Want, bundleName: string, abilityName: string): void; | api/@ohos.enterprise.applicationManager.d.ts |
-| 新增API | NA | 类名：applicationManager； API声明：function getDockApps(admin: Want): Array<DockInfo>; 差异内容：function getDockApps(admin: Want): Array<DockInfo>; | api/@ohos.enterprise.applicationManager.d.ts |
+| 新增API | NA | 类名：applicationManager； API声明：function getDockApps(admin: Want): Array&lt;DockInfo&gt;; 差异内容：function getDockApps(admin: Want): Array&lt;DockInfo&gt;; | api/@ohos.enterprise.applicationManager.d.ts |
 | 新增API | NA | 类名：common； API声明：export enum StartupScene 差异内容：export enum StartupScene | api/@ohos.enterprise.common.d.ts |
 | 新增API | NA | 类名：StartupScene； API声明：USER_SETUP = 0 差异内容：USER_SETUP = 0 | api/@ohos.enterprise.common.d.ts |
 | 新增API | NA | 类名：StartupScene； API声明：OTA = 1 差异内容：OTA = 1 | api/@ohos.enterprise.common.d.ts |

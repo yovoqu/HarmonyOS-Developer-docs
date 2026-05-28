@@ -14,10 +14,10 @@
 | 新增API | NA | 类名：FoldStatus； API声明：NON_FOLDABLE = 0 差异内容：NON_FOLDABLE = 0 | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：FoldStatus； API声明：EXPANDED = 1 差异内容：EXPANDED = 1 | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：FoldStatus； API声明：FOLDED = 2 差异内容：FOLDED = 2 | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：CameraManager； API声明：on(type: 'foldStatusChange', callback: AsyncCallback<FoldStatusInfo>): void; 差异内容：on(type: 'foldStatusChange', callback: AsyncCallback<FoldStatusInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：CameraManager； API声明：off(type: 'foldStatusChange', callback?: AsyncCallback<FoldStatusInfo>): void; 差异内容：off(type: 'foldStatusChange', callback?: AsyncCallback<FoldStatusInfo>): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：CameraManager； API声明：on(type: 'foldStatusChange', callback: AsyncCallback&lt;FoldStatusInfo&gt;): void; 差异内容：on(type: 'foldStatusChange', callback: AsyncCallback&lt;FoldStatusInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：CameraManager； API声明：off(type: 'foldStatusChange', callback?: AsyncCallback&lt;FoldStatusInfo&gt;): void; 差异内容：off(type: 'foldStatusChange', callback?: AsyncCallback&lt;FoldStatusInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： interface FoldStatusInfo 差异内容： interface FoldStatusInfo | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：FoldStatusInfo； API声明：readonly supportedCameras: Array<CameraDevice>; 差异内容：readonly supportedCameras: Array<CameraDevice>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：FoldStatusInfo； API声明：readonly supportedCameras: Array&lt;CameraDevice&gt;; 差异内容：readonly supportedCameras: Array&lt;CameraDevice&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：FoldStatusInfo； API声明：readonly foldStatus: FoldStatus; 差异内容：readonly foldStatus: FoldStatus; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： enum PreconfigType 差异内容： enum PreconfigType | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PreconfigType； API声明：PRECONFIG_720P = 0 差异内容：PRECONFIG_720P = 0 | api/@ohos.multimedia.camera.d.ts |
@@ -33,20 +33,20 @@
 | 新增API | NA | 类名：VideoSession； API声明：canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean; 差异内容：canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoSession； API声明：preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void; 差异内容：preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： interface CameraOutput 差异内容： interface CameraOutput | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：CameraOutput； API声明：release(callback: AsyncCallback<void>): void; 差异内容：release(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：CameraOutput； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：CameraOutput； API声明：release(callback: AsyncCallback&lt;void&gt;): void; 差异内容：release(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：CameraOutput； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： interface PreviewOutput 差异内容： interface PreviewOutput | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：start(callback: AsyncCallback<void>): void; 差异内容：start(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：start(): Promise<void>; 差异内容：start(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：stop(callback: AsyncCallback<void>): void; 差异内容：stop(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：stop(): Promise<void>; 差异内容：stop(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：on(type: 'frameStart', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：start(callback: AsyncCallback&lt;void&gt;): void; 差异内容：start(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：start(): Promise&lt;void&gt;; 差异内容：start(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：stop(callback: AsyncCallback&lt;void&gt;): void; 差异内容：stop(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：stop(): Promise&lt;void&gt;; 差异内容：stop(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PreviewOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PreviewOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PreviewOutput； API声明：getSupportedFrameRates(): Array<FrameRateRange>; 差异内容：getSupportedFrameRates(): Array<FrameRateRange>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PreviewOutput； API声明：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; 差异内容：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PreviewOutput； API声明：setFrameRate(minFps: number, maxFps: number): void; 差异内容：setFrameRate(minFps: number, maxFps: number): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PreviewOutput； API声明：getActiveFrameRate(): FrameRateRange; 差异内容：getActiveFrameRate(): FrameRateRange; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PreviewOutput； API声明：getActiveProfile(): Profile; 差异内容：getActiveProfile(): Profile; | api/@ohos.multimedia.camera.d.ts |
@@ -72,31 +72,31 @@
 | 新增API | NA | 类名：PhotoCaptureSetting； API声明：mirror?: boolean; 差异内容：mirror?: boolean; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： interface Photo 差异内容： interface Photo | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：Photo； API声明：main: image.Image; 差异内容：main: image.Image; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：Photo； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：Photo； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： interface PhotoOutput 差异内容： interface PhotoOutput | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：capture(callback: AsyncCallback<void>): void; 差异内容：capture(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：capture(): Promise<void>; 差异内容：capture(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void; 差异内容：capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting): Promise<void>; 差异内容：capture(setting: PhotoCaptureSetting): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void; 差异内容：on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void; 差异内容：off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：capture(callback: AsyncCallback&lt;void&gt;): void; 差异内容：capture(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：capture(): Promise&lt;void&gt;; 差异内容：capture(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting, callback: AsyncCallback&lt;void&gt;): void; 差异内容：capture(setting: PhotoCaptureSetting, callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting): Promise&lt;void&gt;; 差异内容：capture(setting: PhotoCaptureSetting): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'photoAvailable', callback: AsyncCallback&lt;Photo&gt;): void; 差异内容：on(type: 'photoAvailable', callback: AsyncCallback&lt;Photo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'photoAvailable', callback?: AsyncCallback&lt;Photo&gt;): void; 差异内容：off(type: 'photoAvailable', callback?: AsyncCallback&lt;Photo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void; 差异内容：on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void; 差异内容：off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：isMirrorSupported(): boolean; 差异内容：isMirrorSupported(): boolean; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureStart', callback: AsyncCallback<number>): void; 差异内容：on(type: 'captureStart', callback: AsyncCallback<number>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureStart', callback?: AsyncCallback<number>): void; 差异内容：off(type: 'captureStart', callback?: AsyncCallback<number>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void; 差异内容：on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): void; 差异内容：off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void; 差异内容：on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void; 差异内容：off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'frameShutterEnd', callback: AsyncCallback<FrameShutterEndInfo>): void; 差异内容：on(type: 'frameShutterEnd', callback: AsyncCallback<FrameShutterEndInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'frameShutterEnd', callback?: AsyncCallback<FrameShutterEndInfo>): void; 差异内容：off(type: 'frameShutterEnd', callback?: AsyncCallback<FrameShutterEndInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void; 差异内容：on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void; 差异内容：off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureReady', callback: AsyncCallback<void>): void; 差异内容：on(type: 'captureReady', callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureReady', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'captureReady', callback?: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'estimatedCaptureDuration', callback: AsyncCallback<number>): void; 差异内容：on(type: 'estimatedCaptureDuration', callback: AsyncCallback<number>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<number>): void; 差异内容：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<number>): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureStart', callback: AsyncCallback&lt;number&gt;): void; 差异内容：on(type: 'captureStart', callback: AsyncCallback&lt;number&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureStart', callback?: AsyncCallback&lt;number&gt;): void; 差异内容：off(type: 'captureStart', callback?: AsyncCallback&lt;number&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureStartWithInfo', callback: AsyncCallback&lt;CaptureStartInfo&gt;): void; 差异内容：on(type: 'captureStartWithInfo', callback: AsyncCallback&lt;CaptureStartInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureStartWithInfo', callback?: AsyncCallback&lt;CaptureStartInfo&gt;): void; 差异内容：off(type: 'captureStartWithInfo', callback?: AsyncCallback&lt;CaptureStartInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'frameShutter', callback: AsyncCallback&lt;FrameShutterInfo&gt;): void; 差异内容：on(type: 'frameShutter', callback: AsyncCallback&lt;FrameShutterInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'frameShutter', callback?: AsyncCallback&lt;FrameShutterInfo&gt;): void; 差异内容：off(type: 'frameShutter', callback?: AsyncCallback&lt;FrameShutterInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'frameShutterEnd', callback: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; 差异内容：on(type: 'frameShutterEnd', callback: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'frameShutterEnd', callback?: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; 差异内容：off(type: 'frameShutterEnd', callback?: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureEnd', callback: AsyncCallback&lt;CaptureEndInfo&gt;): void; 差异内容：on(type: 'captureEnd', callback: AsyncCallback&lt;CaptureEndInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureEnd', callback?: AsyncCallback&lt;CaptureEndInfo&gt;): void; 差异内容：off(type: 'captureEnd', callback?: AsyncCallback&lt;CaptureEndInfo&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'captureReady', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'captureReady', callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'captureReady', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'captureReady', callback?: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'estimatedCaptureDuration', callback: AsyncCallback&lt;number&gt;): void; 差异内容：on(type: 'estimatedCaptureDuration', callback: AsyncCallback&lt;number&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback&lt;number&gt;): void; 差异内容：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback&lt;number&gt;): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：getActiveProfile(): Profile; 差异内容：getActiveProfile(): Profile; | api/@ohos.multimedia.camera.d.ts |
@@ -115,18 +115,18 @@
 | 新增API | NA | 类名：CaptureEndInfo； API声明：captureId: number; 差异内容：captureId: number; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：CaptureEndInfo； API声明：frameCount: number; 差异内容：frameCount: number; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： interface VideoOutput 差异内容： interface VideoOutput | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：start(callback: AsyncCallback<void>): void; 差异内容：start(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：start(): Promise<void>; 差异内容：start(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：stop(callback: AsyncCallback<void>): void; 差异内容：stop(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：stop(): Promise<void>; 差异内容：stop(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：getSupportedFrameRates(): Array<FrameRateRange>; 差异内容：getSupportedFrameRates(): Array<FrameRateRange>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：start(callback: AsyncCallback&lt;void&gt;): void; 差异内容：start(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：start(): Promise&lt;void&gt;; 差异内容：start(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：stop(callback: AsyncCallback&lt;void&gt;): void; 差异内容：stop(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：stop(): Promise&lt;void&gt;; 差异内容：stop(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; 差异内容：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoOutput； API声明：setFrameRate(minFps: number, maxFps: number): void; 差异内容：setFrameRate(minFps: number, maxFps: number): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoOutput； API声明：getActiveFrameRate(): FrameRateRange; 差异内容：getActiveFrameRate(): FrameRateRange; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoOutput； API声明：getVideoRotation(deviceDegree: number): ImageRotation; 差异内容：getVideoRotation(deviceDegree: number): ImageRotation; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：on(type: 'frameStart', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：VideoOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：VideoOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoOutput； API声明：getActiveProfile(): VideoProfile; 差异内容：getActiveProfile(): VideoProfile; | api/@ohos.multimedia.camera.d.ts |
@@ -142,29 +142,29 @@
 | 新增API | NA | 类名：MetadataObject； API声明：readonly timestamp: number; 差异内容：readonly timestamp: number; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：MetadataObject； API声明：readonly boundingBox: Rect; 差异内容：readonly boundingBox: Rect; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明： interface MetadataOutput 差异内容： interface MetadataOutput | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：MetadataOutput； API声明：start(callback: AsyncCallback<void>): void; 差异内容：start(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：MetadataOutput； API声明：start(): Promise<void>; 差异内容：start(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：MetadataOutput； API声明：stop(callback: AsyncCallback<void>): void; 差异内容：stop(callback: AsyncCallback<void>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：MetadataOutput； API声明：stop(): Promise<void>; 差异内容：stop(): Promise<void>; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：MetadataOutput； API声明：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void; 差异内容：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：MetadataOutput； API声明：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void; 差异内容：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：MetadataOutput； API声明：start(callback: AsyncCallback&lt;void&gt;): void; 差异内容：start(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：MetadataOutput； API声明：start(): Promise&lt;void&gt;; 差异内容：start(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：MetadataOutput； API声明：stop(callback: AsyncCallback&lt;void&gt;): void; 差异内容：stop(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：MetadataOutput； API声明：stop(): Promise&lt;void&gt;; 差异内容：stop(): Promise&lt;void&gt;; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：MetadataOutput； API声明：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array&lt;MetadataObject&gt;>): void; 差异内容：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array&lt;MetadataObject&gt;>): void; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：MetadataOutput； API声明：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array&lt;MetadataObject&gt;>): void; 差异内容：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array&lt;MetadataObject&gt;>): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：MetadataOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：MetadataOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： interface CameraOutput 差异内容： interface CameraOutput | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：CameraOutput； API声明：release(callback: AsyncCallback<void>): void; 差异内容：release(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：CameraOutput； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：CameraOutput； API声明：release(callback: AsyncCallback&lt;void&gt;): void; 差异内容：release(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：CameraOutput； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： interface PreviewOutput 差异内容： interface PreviewOutput | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：start(callback: AsyncCallback<void>): void; 差异内容：start(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：start(): Promise<void>; 差异内容：start(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：stop(callback: AsyncCallback<void>): void; 差异内容：stop(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：stop(): Promise<void>; 差异内容：stop(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：on(type: 'frameStart', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：start(callback: AsyncCallback&lt;void&gt;): void; 差异内容：start(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：start(): Promise&lt;void&gt;; 差异内容：start(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：stop(callback: AsyncCallback&lt;void&gt;): void; 差异内容：stop(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：stop(): Promise&lt;void&gt;; 差异内容：stop(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PreviewOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PreviewOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PreviewOutput； API声明：getSupportedFrameRates(): Array<FrameRateRange>; 差异内容：getSupportedFrameRates(): Array<FrameRateRange>; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PreviewOutput； API声明：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; 差异内容：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PreviewOutput； API声明：setFrameRate(minFps: number, maxFps: number): void; 差异内容：setFrameRate(minFps: number, maxFps: number): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PreviewOutput； API声明：getActiveFrameRate(): FrameRateRange; 差异内容：getActiveFrameRate(): FrameRateRange; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： enum ImageRotation 差异内容： enum ImageRotation | NA | api/@ohos.multimedia.camera.d.ts |
@@ -187,31 +187,31 @@
 | 删除API | 类名：PhotoCaptureSetting； API声明：mirror?: boolean; 差异内容：mirror?: boolean; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： interface Photo 差异内容： interface Photo | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：Photo； API声明：main: image.Image; 差异内容：main: image.Image; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：Photo； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：Photo； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： interface PhotoOutput 差异内容： interface PhotoOutput | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：capture(callback: AsyncCallback<void>): void; 差异内容：capture(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：capture(): Promise<void>; 差异内容：capture(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void; 差异内容：capture(setting: PhotoCaptureSetting, callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting): Promise<void>; 差异内容：capture(setting: PhotoCaptureSetting): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void; 差异内容：on(type: 'photoAvailable', callback: AsyncCallback<Photo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void; 差异内容：off(type: 'photoAvailable', callback?: AsyncCallback<Photo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：capture(callback: AsyncCallback&lt;void&gt;): void; 差异内容：capture(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：capture(): Promise&lt;void&gt;; 差异内容：capture(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting, callback: AsyncCallback&lt;void&gt;): void; 差异内容：capture(setting: PhotoCaptureSetting, callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：capture(setting: PhotoCaptureSetting): Promise&lt;void&gt;; 差异内容：capture(setting: PhotoCaptureSetting): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'photoAvailable', callback: AsyncCallback&lt;Photo&gt;): void; 差异内容：on(type: 'photoAvailable', callback: AsyncCallback&lt;Photo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'photoAvailable', callback?: AsyncCallback&lt;Photo&gt;): void; 差异内容：off(type: 'photoAvailable', callback?: AsyncCallback&lt;Photo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PhotoOutput； API声明：on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void; 差异内容：on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PhotoOutput； API声明：off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void; 差异内容：off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PhotoOutput； API声明：isMirrorSupported(): boolean; 差异内容：isMirrorSupported(): boolean; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureStart', callback: AsyncCallback<number>): void; 差异内容：on(type: 'captureStart', callback: AsyncCallback<number>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureStart', callback?: AsyncCallback<number>): void; 差异内容：off(type: 'captureStart', callback?: AsyncCallback<number>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void; 差异内容：on(type: 'captureStartWithInfo', callback: AsyncCallback<CaptureStartInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): void; 差异内容：off(type: 'captureStartWithInfo', callback?: AsyncCallback<CaptureStartInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void; 差异内容：on(type: 'frameShutter', callback: AsyncCallback<FrameShutterInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void; 差异内容：off(type: 'frameShutter', callback?: AsyncCallback<FrameShutterInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'frameShutterEnd', callback: AsyncCallback<FrameShutterEndInfo>): void; 差异内容：on(type: 'frameShutterEnd', callback: AsyncCallback<FrameShutterEndInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'frameShutterEnd', callback?: AsyncCallback<FrameShutterEndInfo>): void; 差异内容：off(type: 'frameShutterEnd', callback?: AsyncCallback<FrameShutterEndInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void; 差异内容：on(type: 'captureEnd', callback: AsyncCallback<CaptureEndInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void; 差异内容：off(type: 'captureEnd', callback?: AsyncCallback<CaptureEndInfo>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureReady', callback: AsyncCallback<void>): void; 差异内容：on(type: 'captureReady', callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureReady', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'captureReady', callback?: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：on(type: 'estimatedCaptureDuration', callback: AsyncCallback<number>): void; 差异内容：on(type: 'estimatedCaptureDuration', callback: AsyncCallback<number>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：PhotoOutput； API声明：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<number>): void; 差异内容：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback<number>): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureStart', callback: AsyncCallback&lt;number&gt;): void; 差异内容：on(type: 'captureStart', callback: AsyncCallback&lt;number&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureStart', callback?: AsyncCallback&lt;number&gt;): void; 差异内容：off(type: 'captureStart', callback?: AsyncCallback&lt;number&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureStartWithInfo', callback: AsyncCallback&lt;CaptureStartInfo&gt;): void; 差异内容：on(type: 'captureStartWithInfo', callback: AsyncCallback&lt;CaptureStartInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureStartWithInfo', callback?: AsyncCallback&lt;CaptureStartInfo&gt;): void; 差异内容：off(type: 'captureStartWithInfo', callback?: AsyncCallback&lt;CaptureStartInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'frameShutter', callback: AsyncCallback&lt;FrameShutterInfo&gt;): void; 差异内容：on(type: 'frameShutter', callback: AsyncCallback&lt;FrameShutterInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'frameShutter', callback?: AsyncCallback&lt;FrameShutterInfo&gt;): void; 差异内容：off(type: 'frameShutter', callback?: AsyncCallback&lt;FrameShutterInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'frameShutterEnd', callback: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; 差异内容：on(type: 'frameShutterEnd', callback: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'frameShutterEnd', callback?: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; 差异内容：off(type: 'frameShutterEnd', callback?: AsyncCallback&lt;FrameShutterEndInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureEnd', callback: AsyncCallback&lt;CaptureEndInfo&gt;): void; 差异内容：on(type: 'captureEnd', callback: AsyncCallback&lt;CaptureEndInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureEnd', callback?: AsyncCallback&lt;CaptureEndInfo&gt;): void; 差异内容：off(type: 'captureEnd', callback?: AsyncCallback&lt;CaptureEndInfo&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'captureReady', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'captureReady', callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'captureReady', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'captureReady', callback?: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：on(type: 'estimatedCaptureDuration', callback: AsyncCallback&lt;number&gt;): void; 差异内容：on(type: 'estimatedCaptureDuration', callback: AsyncCallback&lt;number&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：PhotoOutput； API声明：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback&lt;number&gt;): void; 差异内容：off(type: 'estimatedCaptureDuration', callback?: AsyncCallback&lt;number&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PhotoOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PhotoOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：PhotoOutput； API声明：isMovingPhotoSupported(): boolean; 差异内容：isMovingPhotoSupported(): boolean; | NA | api/@ohos.multimedia.camera.d.ts |
@@ -228,17 +228,17 @@
 | 删除API | 类名：CaptureEndInfo； API声明：captureId: number; 差异内容：captureId: number; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：CaptureEndInfo； API声明：frameCount: number; 差异内容：frameCount: number; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： interface VideoOutput 差异内容： interface VideoOutput | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：start(callback: AsyncCallback<void>): void; 差异内容：start(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：start(): Promise<void>; 差异内容：start(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：stop(callback: AsyncCallback<void>): void; 差异内容：stop(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：stop(): Promise<void>; 差异内容：stop(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：getSupportedFrameRates(): Array<FrameRateRange>; 差异内容：getSupportedFrameRates(): Array<FrameRateRange>; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：start(callback: AsyncCallback&lt;void&gt;): void; 差异内容：start(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：start(): Promise&lt;void&gt;; 差异内容：start(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：stop(callback: AsyncCallback&lt;void&gt;): void; 差异内容：stop(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：stop(): Promise&lt;void&gt;; 差异内容：stop(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; 差异内容：getSupportedFrameRates(): Array&lt;FrameRateRange&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：VideoOutput； API声明：setFrameRate(minFps: number, maxFps: number): void; 差异内容：setFrameRate(minFps: number, maxFps: number): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：VideoOutput； API声明：getActiveFrameRate(): FrameRateRange; 差异内容：getActiveFrameRate(): FrameRateRange; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：on(type: 'frameStart', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback<void>): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：VideoOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; 差异内容：on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：VideoOutput； API声明：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; 差异内容：off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：VideoOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：VideoOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： enum MetadataObjectType 差异内容： enum MetadataObjectType | NA | api/@ohos.multimedia.camera.d.ts |
@@ -253,11 +253,11 @@
 | 删除API | 类名：MetadataObject； API声明：readonly timestamp: number; 差异内容：readonly timestamp: number; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：MetadataObject； API声明：readonly boundingBox: Rect; 差异内容：readonly boundingBox: Rect; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：global； API声明： interface MetadataOutput 差异内容： interface MetadataOutput | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：MetadataOutput； API声明：start(callback: AsyncCallback<void>): void; 差异内容：start(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：MetadataOutput； API声明：start(): Promise<void>; 差异内容：start(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：MetadataOutput； API声明：stop(callback: AsyncCallback<void>): void; 差异内容：stop(callback: AsyncCallback<void>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：MetadataOutput； API声明：stop(): Promise<void>; 差异内容：stop(): Promise<void>; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：MetadataOutput； API声明：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void; 差异内容：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array<MetadataObject>>): void; | NA | api/@ohos.multimedia.camera.d.ts |
-| 删除API | 类名：MetadataOutput； API声明：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void; 差异内容：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array<MetadataObject>>): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：MetadataOutput； API声明：start(callback: AsyncCallback&lt;void&gt;): void; 差异内容：start(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：MetadataOutput； API声明：start(): Promise&lt;void&gt;; 差异内容：start(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：MetadataOutput； API声明：stop(callback: AsyncCallback&lt;void&gt;): void; 差异内容：stop(callback: AsyncCallback&lt;void&gt;): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：MetadataOutput； API声明：stop(): Promise&lt;void&gt;; 差异内容：stop(): Promise&lt;void&gt;; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：MetadataOutput； API声明：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array&lt;MetadataObject&gt;>): void; 差异内容：on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array&lt;MetadataObject&gt;>): void; | NA | api/@ohos.multimedia.camera.d.ts |
+| 删除API | 类名：MetadataOutput； API声明：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array&lt;MetadataObject&gt;>): void; 差异内容：off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array&lt;MetadataObject&gt;>): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：MetadataOutput； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：on(type: 'error', callback: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |
 | 删除API | 类名：MetadataOutput； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：off(type: 'error', callback?: ErrorCallback): void; | NA | api/@ohos.multimedia.camera.d.ts |

@@ -3,42 +3,41 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-useriam-userauthicon
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 提供应用界面上展示的人脸、指纹认证图标，具体功能如下：
-
-
 1. 提供嵌入式的人脸、指纹认证控件图标，可被应用集成。
 2. 支持自定义图标的颜色和大小，但图标样式不可变更。
 3. 点击控件图标后将以系统弹窗的方式，拉起人脸、指纹认证控件。
 
+> [!NOTE]
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
 
-```ts
+##### 导入模块
+
+```text
 import { userAuth, UserAuthIcon } from '@kit.UserAuthenticationKit';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 子组件
 
 无
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 属性
 
 不支持通用属性。
 
 
-## UserAuthIcon
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
+##### UserAuthIcon
 
-```ts
+```text
 UserAuthIcon({
   authParam: userAuth.AuthParam,
   widgetParam: userAuth.WidgetParam,
@@ -57,28 +56,27 @@ UserAuthIcon({
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| authParam | [userAuth.AuthParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-useriam-userauth#authparam10) | 是 | 用户认证相关参数。 |
-| widgetParam | [userAuth.WidgetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-useriam-userauth#widgetparam10) | 是 | 用户认证界面配置相关参数。 |
-| iconHeight | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 否 | 设置icon的高度，宽高比1:1，默认64fp，不支持百分比字符串。 |
-| iconColor | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 设置icon的颜色，默认值：\$r('sys.color.ohos_id_color_activated')。 |
-| onIconClick | ()=&gt;void | 否 | 用户点击icon回调接口。 |
-| onAuthResult | (result: [userAuth.UserAuthResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-useriam-userauth#userauthresult10))=&gt;void | 是 | 用户认证结果信息回调接口。          应用需要申请ohos.permission.ACCESS_BIOMETRIC权限，否则应用将仅展示图标，无法正常拉起身份认证控件。 |
+| authParam | userAuth.AuthParam | 是 | 用户认证相关参数。 |
+| widgetParam | userAuth.WidgetParam | 是 | 用户认证界面配置相关参数。 |
+| iconHeight | Dimension | 否 | 设置icon的高度，宽高比1:1，默认64fp，不支持百分比字符串。 |
+| iconColor | ResourceColor | 否 | 设置icon的颜色，默认值：\$r('sys.color.ohos_id_color_activated')。 |
+| onIconClick | ()=>void | 否 | 用户点击icon回调接口。 |
+| onAuthResult | (result: userAuth.UserAuthResult)=>void | 是 | 用户认证结果信息回调接口。 应用需要申请ohos.permission.ACCESS_BIOMETRIC权限，否则应用将仅展示图标，无法正常拉起身份认证控件。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### 事件
 
 不支持通用事件。
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
+##### 示例
 
-```ts
+```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { userAuth, UserAuthIcon } from '@kit.UserAuthenticationKit';
 
@@ -122,8 +120,11 @@ struct Index {
 
 **人脸认证图例：**
 
-![](assets/ohos.userIAM.userAuthIcon%20嵌入式用户身份认证控件/file-20260514164541410-0.png)
+
+![](assets/ohos.userIAM.userAuthIcon%20嵌入式用户身份认证控件/file-20260514164541410-1.png)
+
 
 **指纹认证图例：**
 
-![](assets/ohos.userIAM.userAuthIcon%20嵌入式用户身份认证控件/file-20260514164541410-1.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/uatYieYaRxuyXPcl1klBkw/zh-cn_image_0000002611756615.png?HW-CC-KV=V1&HW-CC-Date=20260528T013626Z&HW-CC-Expire=86400&HW-CC-Sign=32EF5415876C27825C0473B9AA2E93EAB7325E6FBFC91CC47C145E0904BABC38)

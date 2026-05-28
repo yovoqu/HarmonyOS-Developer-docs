@@ -3,51 +3,59 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-pointpredictor
-
-支持设备：Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Stylus.Handwrite
-
+ 
 **起始版本：** 5.0.0(12)
+  
 
-#### 导入模块
+##### 导入模块
 
-```ts
+```text
 import { PointPredictor } from '@kit.Penkit';
 ```
-
+ 
 本模块提供以下方法。
-
+  
 | 方法名称 | 说明 |
 | --- | --- |
-| [getPredictionPoint](#getpredictionpoint) | 获取预测点信息。 |
+| getPredictionPoint | 获取预测点信息。 |
+ 
+ 
+  
 
-#### getPredictionPoint
+##### getPredictionPoint
+
 getPredictionPoint(event: TouchEvent): TouchPoint
+ 
 获取预测点信息。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Stylus.Handwrite
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数：**
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#touchevent对象说明) | 是 | 当前点信息。 |
-
+| event | TouchEvent | 是 | 当前点信息。 |
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [TouchPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#touchpoint11) | 预测点信息。 |
-
+| TouchPoint | 预测点信息。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { PointPredictor } from '@kit.Penkit';
 
 @Entry

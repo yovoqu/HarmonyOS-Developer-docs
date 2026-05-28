@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：image； API声明：function createPixelMapUsingAllocator(colors: ArrayBuffer, options: InitializationOptions, allocatorType?: AllocatorType): Promise<PixelMap>; 差异内容：function createPixelMapUsingAllocator(colors: ArrayBuffer, options: InitializationOptions, allocatorType?: AllocatorType): Promise<PixelMap>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：image； API声明：function createPixelMapUsingAllocator(colors: ArrayBuffer, options: InitializationOptions, allocatorType?: AllocatorType): Promise&lt;PixelMap&gt;; 差异内容：function createPixelMapUsingAllocator(colors: ArrayBuffer, options: InitializationOptions, allocatorType?: AllocatorType): Promise&lt;PixelMap&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：function createPixelMapUsingAllocatorSync(colors: ArrayBuffer, options: InitializationOptions, allocatorType?: AllocatorType): PixelMap; 差异内容：function createPixelMapUsingAllocatorSync(colors: ArrayBuffer, options: InitializationOptions, allocatorType?: AllocatorType): PixelMap; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：function createPixelMapUsingAllocatorSync(options: InitializationOptions, allocatorType?: AllocatorType): PixelMap; 差异内容：function createPixelMapUsingAllocatorSync(options: InitializationOptions, allocatorType?: AllocatorType): PixelMap; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：function getImageSourceSupportedFormats(): string[]; 差异内容：function getImageSourceSupportedFormats(): string[]; | api/@ohos.multimedia.image.d.ts |

@@ -3,148 +3,122 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供3D图形中场景资源节点的类型及操作方法。SceneNode是3D场景的基础构建单元，它允许开发者通过层级结构管理场景中的对象，实现高效的场景组织与交互控制。
-
-
+ 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持，后续版本的新增接口，采用上角标标记接口的起始版本。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
-import {
-  LayerMask,
-  NodeType,
-  Container,
-  Node,
-  Geometry,
-  LightType,
-  Light,
-  SpotLight,
-  DirectionalLight,
-  Camera,
-} from '@kit.ArkGraphics3D';
+```text
+import { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight,
+  Camera } from '@kit.ArkGraphics3D';
 ```
+ 
+  
 
-
-## LayerMask
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### LayerMask
 
 用于定义节点的图层掩码。
+ 
+  
 
-
-### getEnabled
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### getEnabled
 
 getEnabled(index: number): boolean
-
+ 
 获取指定图层下标图层掩码的使能状态。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 要使能图层的下标，值域为大于等于0的整数。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回特定下标的图层是否使能。true表示使用图层掩码，false表示不使用。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function layerMask(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
-  scene
-    .then(async (result: Scene) => {
-      if (result) {
-        let node: Node | null = result.getNodeByPath('rootNode_');
-        if (node) {
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
+  scene.then(async (result: Scene) => {
+    if (result) {
+      let node : Node | null = result.getNodeByPath("rootNode_");
+      if (node) {
           // 获取掩码的使能状态，可根据业务需求对返回值进行后续处理
           let enabled: boolean = node.layerMask.getEnabled(1);
-        }
       }
-    })
-    .catch((error: Error) => {
-      console.error('Scene load failed:', error);
-    });
+    }
+  }).catch((error: Error) => {
+    console.error('Scene load failed:', error);
+  });
 }
 ```
+ 
+  
 
-
-### setEnabled
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### setEnabled
 
 setEnabled(index: number, enabled: boolean): void
-
+ 
 将特定下标的图层掩码使能。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 要使能图层的下标，值域为大于等于0的整数。 |
 | enabled | boolean | 是 | 要设置的使能状态。true表示使用图层掩码，false表示不使用。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function layerMask(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
-  scene
-    .then(async (result: Scene) => {
-      if (result) {
-        let node: Node | null = result.getNodeByPath('rootNode/Scene/');
-        if (node) {
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
+  scene.then(async (result: Scene) => {
+    if (result) {
+      let node : Node | null = result.getNodeByPath("rootNode/Scene/");
+      if (node) {
           // 设置掩码状态
           node.layerMask.setEnabled(1, true);
-        }
       }
-    })
-    .catch((error: Error) => {
-      console.error('Scene load failed:', error);
-    });
+    }
+  }).catch((error: Error) => {
+    console.error('Scene load failed:', error);
+  });
 }
 ```
+ 
+  
 
-
-## NodeType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### NodeType
 
 节点类型枚举。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NODE | 1 | 节点是空节点。 |
@@ -152,269 +126,236 @@ function layerMask(): void {
 | CAMERA | 3 | 相机类型节点。 |
 | LIGHT | 4 | 灯光类型节点。 |
 | CUSTOM21+ | 255 | 自定义类型节点，通常这意味着该节点是在扩展插件中定义的类型。 |
+ 
+ 
+  
 
-
-## Container&lt;T&gt;
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Container&lt;T&gt;
 
 定义场景对象的容器。容器提供了一种将场景对象分组到层次结构中的方法。
+ 
+  
 
-
-### append
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### append
 
 append(item: T): void
-
+ 
 追加一个对象到容器。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | item | T | 是 | T类型对象。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function append(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
-  scene
-    .then(async (result: Scene) => {
-      if (result) {
-        let node: Node | null = result.getNodeByPath('rootNode/Scene/');
-        if (node) {
-          // append 节点，如果node已经在children中，数量不会增加，但操作仍然生效
-          result.root?.children.get(0)?.children.append(node);
-        }
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
+  scene.then(async (result: Scene) => {
+    if (result) {
+      let node : Node | null = result.getNodeByPath("rootNode/Scene/");
+      if (node) {
+        // append 节点，如果node已经在children中，数量不会增加，但操作仍然生效
+        result.root?.children.get(0)?.children.append(node);
       }
-    })
-    .catch((error: Error) => {
-      console.error('Scene load failed:', error);
-    });
+    }
+  }).catch((error: Error) => {
+    console.error('Scene load failed:', error);
+  });
 }
 ```
+ 
+  
 
-
-### insertAfter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### insertAfter
 
 insertAfter(item: T, sibling: T | null): void
-
+ 
 在兄弟节点后面插入对象。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | item | T | 是 | 要插入节点。 |
 | sibling | T \| null | 是 | 兄弟节点。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function insertAfter(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
-  scene
-    .then(async (result: Scene) => {
-      if (result) {
-        let node: Node | null = result.getNodeByPath('rootNode/Scene/');
-        if (node) {
-          // insertAfter 节点，如果node已经在children中，数量不会增加，但操作仍然生效
-          result.root?.children.get(0)?.children.insertAfter(node, null);
-        }
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
+  scene.then(async (result: Scene) => {
+    if (result) {
+      let node : Node | null = result.getNodeByPath("rootNode/Scene/");
+      if (node) {
+        // insertAfter 节点，如果node已经在children中，数量不会增加，但操作仍然生效
+        result.root?.children.get(0)?.children.insertAfter(node, null);
       }
-    })
-    .catch((error: Error) => {
-      console.error('Scene load failed:', error);
-    });
+    }
+  }).catch((error: Error) => {
+    console.error('Scene load failed:', error);
+  });
 }
 ```
+ 
+  
 
-
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### remove
 
 remove(item: T): void
-
+ 
 移除指定对象。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | item | T | 是 | 要移除的对象。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function remove(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
-  scene
-    .then(async (result: Scene) => {
-      if (result) {
-        let node: Node | null = result.getNodeByPath('rootNode/Scene/');
-        if (node) {
-          // remove 节点
-          result.root?.children.remove(node);
-        }
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
+  scene.then(async (result: Scene) => {
+    if (result) {
+      let node : Node | null = result.getNodeByPath("rootNode/Scene/");
+      if (node) {
+        // remove 节点
+        result.root?.children.remove(node);
       }
-    })
-    .catch((error: Error) => {
-      console.error('Scene load failed:', error);
-    });
+    }
+  }).catch((error: Error) => {
+    console.error('Scene load failed:', error);
+  });
 }
 ```
+ 
+  
 
-
-### get
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### get
 
 get(index: number): T | null
-
+ 
 获取特定下标对象，获取不到则返回空。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 要获取对象的下标，取值范围是大于等于0的整数。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | T \| null | 返回获取到的对象，获取不到则返回空值。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function get(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
-  scene
-    .then(async (result: Scene) => {
-      if (result) {
-        let node: Node | null = result.getNodeByPath('rootNode/Scene/');
-        // 从children中get 0号节点
-        result.root?.children.get(0)?.children.insertAfter(node, null);
-      }
-    })
-    .catch((error: Error) => {
-      console.error('Scene load failed:', error);
-    });
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
+  scene.then(async (result: Scene) => {
+    if (result) {
+      let node : Node | null = result.getNodeByPath("rootNode/Scene/");
+      // 从children中get 0号节点
+      result.root?.children.get(0)?.children.insertAfter(node, null);
+    }
+  }).catch((error: Error) => {
+    console.error('Scene load failed:', error);
+  });
 }
 ```
+ 
+  
 
-
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### clear
 
 clear(): void
-
+ 
 清空容器内的所有对象。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function clear(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
-  scene
-    .then(async (result: Scene) => {
-      if (result) {
-        let node: Node | null = result.getNodeByPath('rootNode/Scene/');
-        if (node) {
-          // 清空 node 节点下的所有子节点
-          node.children.clear();
-        }
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
+  scene.then(async (result: Scene) => {
+    if (result) {
+      let node : Node | null = result.getNodeByPath("rootNode/Scene/");
+      if (node) {
+        // 清空 node 节点下的所有子节点
+        node.children.clear();
       }
-    })
-    .catch((error: Error) => {
-      console.error('Scene load failed:', error);
-    });
+    }
+  }).catch((error: Error) => {
+    console.error('Scene load failed:', error);
+  });
 }
 ```
+ 
+  
 
-
-### count
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### count
 
 count(): number
-
+ 
 获取容器中对象的数量。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回容器中对象个数，取值范围是非负整数。 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Container, Scene, Node } from '@kit.ArkGraphics3D';
 
 function count(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result) {
-      let node: Node | null = result.getNodeByPath('rootNode_');
+      let node : Node | null = result.getNodeByPath("rootNode_");
       if (node) {
         let container: Container<Node> = node.children;
         // 获取children中的节点数
@@ -424,242 +365,221 @@ function count(): void {
   });
 }
 ```
+ 
+  
 
-
-## Node
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Node
 
 3D场景由树状层次结构的节点组成，其中每个节点都实现了Node接口。继承自[SceneResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources#sceneresource-1)。
+ 
+  
 
-
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| position | [Position3](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#position3) | 否 | 否 | 节点位置，单位为世界坐标系下的场景单位（比如cm、m、km等）。 |
-| rotation | [Quaternion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#quaternion) | 否 | 否 | 节点旋转角度。 |
-| scale | [Scale3](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#scale3) | 否 | 否 | 节点缩放。 |
+| position | Position3 | 否 | 否 | 节点位置，单位为世界坐标系下的场景单位（比如cm、m、km等）。 |
+| rotation | Quaternion | 否 | 否 | 节点旋转角度。 |
+| scale | Scale3 | 否 | 否 | 节点缩放。 |
 | visible | boolean | 否 | 否 | 节点是否可见。true表示该节点可见，false表示不可见。 |
-| nodeType | [NodeType](#nodetype) | 是 | 否 | 节点类型。 |
-| layerMask | [LayerMask](#layermask) | 是 | 否 | 节点的图层掩码。 |
+| nodeType | NodeType | 是 | 否 | 节点类型。 |
+| layerMask | LayerMask | 是 | 否 | 节点的图层掩码。 |
 | path | string | 是 | 否 | 节点路径。 |
-| parent | [Node](#node) \| null | 是 | 否 | 节点的父节点，不存在则为空值。 |
-| children | [Container](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes#containert)&lt;[Node](#node)&gt; | 是 | 否 | 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如[append()](#append)、[insertAfter()](#insertafter)、[remove()](#remove)或[clear()](#clear)）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；添加新节点才会真正增加子节点数量。 |
+| parent | Node \| null | 是 | 否 | 节点的父节点，不存在则为空值。 |
+| children | Container&lt;Node&gt; | 是 | 否 | 节点的子节点，不存在则为空值。为只读属性，表示不能替换整个children容器，但可以通过容器方法操作子节点（如append()、insertAfter()、remove()或clear()）。如果append或insertAfter的节点已存在于容器中，容器会先移除该节点再插入，因此数量不会增加，看似“无效”；添加新节点才会真正增加子节点数量。 |
+ 
+ 
+  
 
-
-### getNodeByPath
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### getNodeByPath
 
 getNodeByPath(path: string): Node | null
-
+ 
 根据路径获取节点，如果获取不到则返回空。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 场景节点层次中的路径。每层之间使用'/'符号进行分割。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [Node](#node) \| null | 返回节点对象。 |
-
-
+| Node \| null | 返回节点对象。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { Scene, Node } from '@kit.ArkGraphics3D';
 
 function getNode(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.root) {
       // 查找节点
-      let geo: Node | null = result.root.getNodeByPath('scene/node');
+      let geo : Node | null = result.root.getNodeByPath("scene/node");
     }
   });
 }
 ```
+ 
+  
 
-
-## Geometry
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Geometry
 
 几何节点类型，用于承载可渲染的网格数据，并支持可选的形变功能，继承自[Node](#node)。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| mesh | [Mesh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources#mesh) | 是 | 否 | 网格属性。 |
-| morpher20+ | [Morpher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources#morpher20) | 是 | 是 | 可选的形变器，用于为几何体添加基于顶点的形变或动画效果。若未设置，则该几何体不支持形变功能。 |
+| mesh | Mesh | 是 | 否 | 网格属性。 |
+| morpher20+ | Morpher | 是 | 是 | 可选的形变器，用于为几何体添加基于顶点的形变或动画效果。若未设置，则该几何体不支持形变功能。 |
+ 
+ 
+  
 
-
-## LightType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### LightType
 
 光源类型枚举。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DIRECTIONAL | 1 | 平行光类型。 |
 | SPOT | 2 | 点光源类型。 |
+ 
+ 
+  
 
-
-## Light
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Light
 
 光源，继承自[Node](#node)。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| lightType | [LightType](#lighttype) | 是 | 否 | 光源类型。 |
-| color | [Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#color) | 否 | 否 | 颜色。 |
+| lightType | LightType | 是 | 否 | 光源类型。 |
+| color | Color | 否 | 否 | 颜色。 |
 | intensity | number | 否 | 否 | 光照密度，单位为坎德拉（cd），取值范围是大于0的实数。 |
 | shadowEnabled | boolean | 否 | 否 | 是否使能阴影。true表示添加阴影，false表示没有阴影效果。 |
 | enabled | boolean | 否 | 否 | 是否使能光源。true表示使用光源，false表示不使用。 |
+ 
+ 
+  
 
-
-## SpotLight
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### SpotLight
 
 聚光灯类型，继承自[Light](#light)。
-
+ 
 聚光灯会朝某个方向发出锥形光，强度随着圆锥角度的衰减由innerAngle和outerAngle两个参数定义。另外与点光源类似，强度也会随着距离光源位置的增加而衰减。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | innerAngle23+ | number | 否 | 是 | 从聚光灯中心到开始衰减的角度，对应圆锥的半顶角，在这个圆锥体内光强不随角度衰减。单位为弧度（rad），默认值为0。设置的值必须大于等于0，小于等于outerAngle。 |
 | outerAngle23+ | number | 否 | 是 | 从聚光灯中心到衰减结束的角度，对应圆锥的半顶角，在这个圆锥体外不再有光强度。单位为弧度（rad），默认值为PI/4。设置的值必须大于等于innerAngle，小于等于PI/2。 |
+ 
+ 
 
-
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/Mnee2_NwRheJp_CHDNGVug/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T085042Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=8DC6254EB6142CDA2FD55AA844F87856D9B66CDEDCB27DD9A81017C5CE42245B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/16M3GdY4R8GxwesvGfTfeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014034Z&HW-CC-Expire=86400&HW-CC-Sign=3FB6F83243F5F706A42964B842EF573AE0EE10027738DB26A66144891FA3BE10)
+ 
+ 
 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
+  
 
+ 
+  
 
-## DirectionalLight
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### DirectionalLight
 
 平行光类型，继承自[Light](#light)。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
+ 
+  
 
-
-## Camera
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### Camera
 
 相机类型，Camera继承自[Node](#node)。
+ 
+  
 
-
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | fov | number | 否 | 否 | 视场，单位为弧度（rad），取值在0到π弧度之间。 |
 | nearPlane | number | 否 | 否 | 近平面，单位为世界坐标系下的场景单位（比如cm、m、km等），取值大于0。 |
 | farPlane | number | 否 | 否 | 远平面，单位为世界坐标系下的场景单位（比如cm、m、km等），取值大于nearPlane。 |
 | enabled | boolean | 否 | 否 | 是否使能相机。true表示使用相机，false表示不使用相机。 |
-| postProcess | [PostProcessSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-post-process-settings#postprocesssettings) \| null | 否 | 否 | 后处理设置。 |
-| effects21+ | [Container](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes#containert)&lt;[Effect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources#effect21)&gt; | 是 | 否 | 应用于相机输出的后处理特效。 |
-| clearColor | [Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#color) \| null | 否 | 否 | 将渲染目标（render target）清空后的特定颜色。 |
-| msaa22+ | boolean | 否 | 是 | 控制MSAA是否使能。true表示使能MSAA��false表示不使能MSAA。若未设置，默认为false。 |
-| renderingPipeline21+ | [RenderingPipelineType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#renderingpipelinetype21) | 否 | 是 | 控制渲染管线。若未设置，默认使用轻量级前向渲染管线。（如果选择了FORWARD_LIGHTWEIGHT管线，某些功能将不可用。） |
+| postProcess | PostProcessSettings \| null | 否 | 否 | 后处理设置。 |
+| effects21+ | Container&lt;Effect&gt; | 是 | 否 | 应用于相机输出的后处理特效。 |
+| clearColor | Color \| null | 否 | 否 | 将渲染目标（render target）清空后的特定颜色。 |
+| msaa22+ | boolean | 否 | 是 | 控制MSAA是否使能。true表示使能MSAA，false表示不使能MSAA。若未设置，默认为false。 |
+| renderingPipeline21+ | RenderingPipelineType | 否 | 是 | 控制渲染管线。若未设置，默认使用轻量级前向渲染管线。（如果选择了FORWARD_LIGHTWEIGHT管线，某些功能将不可用。） |
+ 
+ 
+  
 
-
-### raycast20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### raycast20+
 
 raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>
-
+ 
 从屏幕指定位置发射射线，检测并返回所有命中的3D物体信息。使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| viewPosition | [Vec2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec2) | 是 | 使用屏幕归一化坐标，取值范围为[0, 1]。其中(0,0)表示Component3D控件的左上角，(1,1)表示Component3D控件的右下角。 |
-| params | [RaycastParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene#raycastparameters20) | 是 | 射线检测的配置参数（如检测范围、过滤节点等）。 |
-
-
+| viewPosition | Vec2 | 是 | 使用屏幕归一化坐标，取值范围为[0, 1]。其中(0,0)表示Component3D控件的左上角，(1,1)表示Component3D控件的右下角。 |
+| params | RaycastParameters | 是 | 射线检测的配置参数（如检测范围、过滤节点等）。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[RaycastResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene#raycastresult20)[]&gt; | 返回命中的结果数组（按距离从近到远排序），若无命中则返回空数组。 |
-
-
+| Promise<RaycastResult[]> | 返回命中的结果数组（按距离从近到远排序），若无命中则返回空数组。 |
+ 
+ 
 **示例：**
-
-
-```ts
-import {
-  SceneNodeParameters,
-  Camera,
-  SceneResourceFactory,
-  Scene,
-  Node,
-  Vec2,
-  Vec3,
-  Quaternion,
-  RaycastParameters,
-} from '@kit.ArkGraphics3D';
+ 
+```text
+import { SceneNodeParameters, Camera, SceneResourceFactory, Scene, Node, Vec2, Vec3, Quaternion,
+  RaycastParameters } from '@kit.ArkGraphics3D';
 
 function Raycast(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  Scene.load($rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb')).then(
-    async (result: Scene) => {
+  Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"))
+    .then(async (result: Scene) => {
       if (!result.root) {
         return;
       }
-      let node: Node | null | undefined = result.root.getNodeByPath(
-        'rootNode_/Unnamed Node 1/AnimatedCube',
-      );
+      let node: Node | null | undefined = result.root.getNodeByPath("rootNode_/Unnamed Node 1/AnimatedCube");
       let sceneFactory: SceneResourceFactory = result.getResourceFactory();
-      let sceneCameraParameter: SceneNodeParameters = { name: 'camera1' };
+      let sceneCameraParameter: SceneNodeParameters = { name: "camera1" };
       // 创建相机
-      let camera: Camera =
-        await sceneFactory.createCamera(sceneCameraParameter);
+      let camera: Camera = await sceneFactory.createCamera(sceneCameraParameter);
       camera.enabled = true;
       // 设置相机视角
-      lookAt(
-        camera,
-        { x: 0, y: 0, z: -3 },
-        { x: 0, y: 0, z: 0 },
-        { x: 0, y: 1, z: 0 },
-      );
+      lookAt(camera, { x: 0, y: 0, z: -3 }, { x: 0, y: 0, z: 0 }, { x: 0, y: 1, z: 0 });
 
       let viewPos: Vec2 = { x: 0.5, y: 0.5 };
       let raycastParams: RaycastParameters = {};
@@ -667,8 +587,7 @@ function Raycast(): void {
         raycastParams.rootNode = node;
       }
       return camera.raycast(viewPos, raycastParams);
-    },
-  );
+    });
 }
 
 // 向量减法，返回l - r的结果
@@ -686,11 +605,7 @@ function Normalize(l: Vec3): Vec3 {
 }
 // 向量叉积，返回l和r的叉乘结果
 function Cross(l: Vec3, r: Vec3): Vec3 {
-  return {
-    x: l.y * r.z - l.z * r.y,
-    y: l.z * r.x - l.x * r.z,
-    z: l.x * r.y - l.y * r.x,
-  };
+  return { x: (l.y * r.z - l.z * r.y), y: (l.z * r.x - l.x * r.z), z: (l.x * r.y - l.y * r.x) };
 }
 // 四元数标量乘法，返回四元数l乘以标量d的结果
 function Mul(l: Quaternion, d: number): Quaternion {
@@ -698,18 +613,19 @@ function Mul(l: Quaternion, d: number): Quaternion {
     x: l.x * d,
     y: l.y * d,
     z: l.z * d,
-    w: l.w * d,
+    w: l.w * d
   };
 }
 // lookAt函数：将节点的位置和朝向设置为从eye位置看向center位置，up为上方向
 function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
+
   let t: number;
 
   let q: Quaternion = {
     x: 0.0,
     y: 0.0,
     z: 0.0,
-    w: 0.0,
+    w: 0.0
   };
   let f = Normalize(Sub(center, eye));
   let m0 = Normalize(Cross(f, up));
@@ -722,7 +638,7 @@ function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
         x: t,
         y: m0.y + m1.x,
         z: m2.x + m0.z,
-        w: m1.z - m2.y,
+        w: m1.z - m2.y
       };
     } else {
       t = 1.0 - m0.x + m1.y - m2.z;
@@ -730,7 +646,7 @@ function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
         x: m0.y + m1.x,
         y: t,
         z: m1.z + m2.y,
-        w: m2.x - m0.z,
+        w: m2.x - m0.z
       };
     }
   } else {
@@ -740,7 +656,7 @@ function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
         x: m2.x + m0.z,
         y: m1.z + m2.y,
         z: t,
-        w: m0.y - m1.x,
+        w: m0.y - m1.x
       };
     } else {
       t = 1.0 + m0.x + m1.y + m2.z;
@@ -748,111 +664,91 @@ function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
         x: m1.z - m2.y,
         y: m2.x - m0.z,
         z: m0.y - m1.x,
-        w: t,
-      };
+        w: t
+      }
     }
   }
   node.position = eye;
   node.rotation = Mul(q, 0.5 / Math.sqrt(t));
 }
 ```
+ 
+  
 
-
-### getViewMatrix23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### getViewMatrix23+
 
 getViewMatrix(): Mat4x4
-
+ 
 获取相机的视图矩阵。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [Mat4x4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#mat4x423) | 返回相机的视图矩阵。 |
-
-
+| Mat4x4 | 返回相机的视图矩阵。 |
+ 
+ 
 **示例：**
-
-
-```ts
-import {
-  Scene,
-  SceneResourceFactory,
-  SceneNodeParameters,
-  Camera,
-  Mat4x4,
-} from '@kit.ArkGraphics3D';
+ 
+```text
+import { Scene, SceneResourceFactory, SceneNodeParameters, Camera, Mat4x4 } from '@kit.ArkGraphics3D';
 
 function GetViewMatrix(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  Scene.load($rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb')).then(
-    async (result: Scene) => {
+  Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"))
+    .then(async (result: Scene) => {
       if (!result.root) {
         return;
       }
       let sceneFactory: SceneResourceFactory = result.getResourceFactory();
-      let sceneCameraParameter: SceneNodeParameters = { name: 'camera1' };
+      let sceneCameraParameter: SceneNodeParameters = { name: "camera1" };
       // 创建相机
-      let camera: Camera =
-        await sceneFactory.createCamera(sceneCameraParameter);
+      let camera: Camera = await sceneFactory.createCamera(sceneCameraParameter);
       camera.enabled = true;
       // 获取相机的视图矩阵
       let viewMatrix: Mat4x4 = camera.getViewMatrix();
-    },
-  );
+    });
 }
 ```
+ 
+  
 
-
-### getProjectionMatrix23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### getProjectionMatrix23+
 
 getProjectionMatrix(): Mat4x4
-
+ 
 获取相机的投影矩阵。
-
+ 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [Mat4x4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#mat4x423) | 返回相机的投影矩阵。 |
-
-
+| Mat4x4 | 返回相机的投影矩阵。 |
+ 
+ 
 **示例：**
-
-
-```ts
-import {
-  Scene,
-  SceneResourceFactory,
-  SceneNodeParameters,
-  Camera,
-  Mat4x4,
-} from '@kit.ArkGraphics3D';
+ 
+```text
+import { Scene, SceneResourceFactory, SceneNodeParameters, Camera, Mat4x4 } from '@kit.ArkGraphics3D';
 
 function GetProjectionMatrix(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  Scene.load($rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb')).then(
-    async (result: Scene) => {
+  Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"))
+    .then(async (result: Scene) => {
       if (!result.root) {
         return;
       }
       let sceneFactory: SceneResourceFactory = result.getResourceFactory();
-      let sceneCameraParameter: SceneNodeParameters = { name: 'camera1' };
+      let sceneCameraParameter: SceneNodeParameters = { name: "camera1" };
       // 创建相机
-      let camera: Camera =
-        await sceneFactory.createCamera(sceneCameraParameter);
+      let camera: Camera = await sceneFactory.createCamera(sceneCameraParameter);
       camera.enabled = true;
       // 获取相机的投影矩阵
       let projectionMatrix: Mat4x4 = camera.getProjectionMatrix();
-    },
-  );
+    });
 }
 ```

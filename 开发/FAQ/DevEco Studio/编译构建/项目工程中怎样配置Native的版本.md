@@ -5,15 +5,15 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-55
 
 在工程级build-profile.json5的app.products中如下进行配置：
-
+ 
 ```json
 "products": [
-{
-"name": "default",
-"signingConfig": "default",
-"compatibleSdkVersion": "5.0.5(17)",
-"targetSdkVersion": "5.0.5(17)",
-"runtimeOS": "HarmonyOS",
-}
+  {
+    "name": "default",
+    "signingConfig": "default",
+    "compatibleSdkVersion": "5.0.5(17)",
+    "targetSdkVersion": "5.0.5(17)",
+    "runtimeOS": "HarmonyOS",
+  }
 ],
 ```

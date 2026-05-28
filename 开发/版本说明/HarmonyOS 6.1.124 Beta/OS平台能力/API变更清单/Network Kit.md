@@ -1,17 +1,17 @@
 # Network Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-networkkit-6111
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：WebSocketServer； API声明：start(config: WebSocketServerConfig): Promise<boolean>; 差异内容：NA | 类名：WebSocketServer； API声明：start(config: WebSocketServerConfig): Promise<boolean>; 差异内容：2302007 | api/@ohos.net.webSocket.d.ts |
-| 属性变更 | 类名：TLSSecureOptions； API声明：cert?: string; 差异内容：string | 类名：TLSSecureOptions； API声明：cert?: string \| Array<string>; 差异内容：string,Array<string> | api/@ohos.net.socket.d.ts |
-| 新增API | NA | 类名：connection； API声明：function getSystemNetPortStates(): Promise<NetPortStatesInfo>; 差异内容：function getSystemNetPortStates(): Promise<NetPortStatesInfo>; | api/@ohos.net.connection.d.ts |
+| 新增错误码 | 类名：WebSocketServer； API声明：start(config: WebSocketServerConfig): Promise&lt;boolean&gt;; 差异内容：NA | 类名：WebSocketServer； API声明：start(config: WebSocketServerConfig): Promise&lt;boolean&gt;; 差异内容：2302007 | api/@ohos.net.webSocket.d.ts |
+| 属性变更 | 类名：TLSSecureOptions； API声明：cert?: string; 差异内容：string | 类名：TLSSecureOptions； API声明：cert?: string \| Array&lt;string&gt;; 差异内容：string,Array&lt;string&gt; | api/@ohos.net.socket.d.ts |
+| 新增API | NA | 类名：connection； API声明：function getSystemNetPortStates(): Promise&lt;NetPortStatesInfo&gt;; 差异内容：function getSystemNetPortStates(): Promise&lt;NetPortStatesInfo&gt;; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：connection； API声明：export interface NetPortStatesInfo 差异内容：export interface NetPortStatesInfo | api/@ohos.net.connection.d.ts |
-| 新增API | NA | 类名：NetPortStatesInfo； API声明：tcpPortStatesInfo?: Array<TcpNetPortStatesInfo>; 差异内容：tcpPortStatesInfo?: Array<TcpNetPortStatesInfo>; | api/@ohos.net.connection.d.ts |
-| 新增API | NA | 类名：NetPortStatesInfo； API声明：udpPortStatesInfo?: Array<UdpNetPortStatesInfo>; 差异内容：udpPortStatesInfo?: Array<UdpNetPortStatesInfo>; | api/@ohos.net.connection.d.ts |
+| 新增API | NA | 类名：NetPortStatesInfo； API声明：tcpPortStatesInfo?: Array&lt;TcpNetPortStatesInfo&gt;; 差异内容：tcpPortStatesInfo?: Array&lt;TcpNetPortStatesInfo&gt;; | api/@ohos.net.connection.d.ts |
+| 新增API | NA | 类名：NetPortStatesInfo； API声明：udpPortStatesInfo?: Array&lt;UdpNetPortStatesInfo&gt;; 差异内容：udpPortStatesInfo?: Array&lt;UdpNetPortStatesInfo&gt;; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：connection； API声明：export interface TcpNetPortStatesInfo 差异内容：export interface TcpNetPortStatesInfo | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：TcpNetPortStatesInfo； API声明：tcpLocalIp: string; 差异内容：tcpLocalIp: string; | api/@ohos.net.connection.d.ts |
 | 新增API | NA | 类名：TcpNetPortStatesInfo； API声明：tcpLocalPort: number; 差异内容：tcpLocalPort: number; | api/@ohos.net.connection.d.ts |

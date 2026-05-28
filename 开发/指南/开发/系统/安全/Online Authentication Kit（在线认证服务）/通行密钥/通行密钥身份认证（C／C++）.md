@@ -4,25 +4,34 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-passkey-cpp
 
-## 接口说明
+##### 接口说明
 
 通行密钥服务主要接口如下表。
+
 | 接口名 | 描述 |
 | --- | --- |
-| FIDO2_ErrorCode [HMS_FIDO2_getClientCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey#hms_fido2_getclientcapability)([FIDO2_CapabilityArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___capability_array) ** capability) | 查询当前设备支持的客户端能力列表。 |
-| FIDO2_ErrorCode [HMS_FIDO2_getPlatformAuthenticator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey#hms_fido2_getplatformauthenticator)([FIDO2_AuthenticatorMetadataArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_metadata_array) **authenticators) | 查询当前设备支持的平台认证器能力列表（人脸、指纹、PIN码）。 |
-| FIDO2_ErrorCode [HMS_FIDO2_register](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey#hms_fido2_register)(const [FIDO2_CredentialCreationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___credential_creation_options) options, const [FIDO2_TokenBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___token_binding) tokenBinding, const char * origin, [FIDO2_PublicKeyAttestationCredential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_attestation_credential) ** publicKeyAttestationCredential ) | 进行通行密钥的注册。 |
-| FIDO2_ErrorCode [HMS_FIDO2_authenticate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/passkey#hms_fido2_authenticate)(const [FIDO2_CredentialRequestOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___credential_request_options) options, const [FIDO2_TokenBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___token_binding) tokenBinding, const char *origin, [FIDO2_PublicKeyAssertionCredential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_assertion_credential) **publicKeyAssertionCredential) | 进行通行密钥的认证。 |
+| FIDO2_ErrorCode HMS_FIDO2_getClientCapability(FIDO2_CapabilityArray ** capability) | 查询当前设备支持的客户端能力列表。 |
+| FIDO2_ErrorCode HMS_FIDO2_getPlatformAuthenticator(FIDO2_AuthenticatorMetadataArray **authenticators) | 查询当前设备支持的平台认证器能力列表（人脸、指纹、PIN码）。 |
+| FIDO2_ErrorCode HMS_FIDO2_register(const FIDO2_CredentialCreationOptions options, const FIDO2_TokenBinding tokenBinding, const char * origin, FIDO2_PublicKeyAttestationCredential ** publicKeyAttestationCredential ) | 进行通行密钥的注册。 |
+| FIDO2_ErrorCode HMS_FIDO2_authenticate(const FIDO2_CredentialRequestOptions options, const FIDO2_TokenBinding tokenBinding, const char *origin, FIDO2_PublicKeyAssertionCredential **publicKeyAssertionCredential) | 进行通行密钥的认证。 |
 
 
-## 开发步骤
 
-通行密钥服务提供基于FIDO2标准协议的FIDO客户端实现，这里仅演示FIDO客户端相关API的使用，涉及FIDO服务器的相关处理由开发者自行实现，这里不做介绍，请参考[FIDO2标准协议](https://fidoalliance.org/passkeys/)（见[网站链接免责声明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-website-disclaimer)）。 在CMake脚本中链接相关动态库。
+
+##### 开发步骤
+
+通行密钥服务提供基于FIDO2标准协议的FIDO客户端实现，这里仅演示FIDO客户端相关API的使用，涉及FIDO服务器的相关处理由开发者自行实现，这里不做介绍，请参考[FIDO2标准协议](https://fidoalliance.org/passkeys/)（见[网站链接免责声明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-website-disclaimer)）。
+
+在CMake脚本中链接相关动态库。
+
 ```text
 target_link_libraries(projectName libfido2_ndk.z.so)
 ```
+1. 需要业务方自行根据FIDO2标准协议部署FIDO服务器。
+2. 注册通行密钥。
 
-需要业务方自行根据FIDO2标准协议部署FIDO服务器。 注册通行密钥。 获取能力信息，调用HMS_FIDO2_getClientCapability接口获取客户端能力列表，并且调用HMS_FIDO2_getPlatformAuthenticator接口获取平台认证器能力信息。
+  
+ - 获取能力信息，调用HMS_FIDO2_getClientCapability接口获取客户端能力列表，并且调用HMS_FIDO2_getPlatformAuthenticator接口获取平台认证器能力信息。         
 ```text
 #include "OnlineAuthenticationKit/fido2_api.h"
 
@@ -55,7 +64,8 @@ FIDO2_ErrorCode GetPlatformAuthenticator()
 }
 ```
 
-访问FIDO服务器，获取注册报文，调用HMS_FIDO2_register接口进行注册。
+
+3. 访问FIDO服务器，获取注册报文，调用HMS_FIDO2_register接口进行注册。         
 ```text
 FIDO2_ErrorCode TestReg()
 {
@@ -90,7 +100,11 @@ FIDO2_ErrorCode TestReg()
 }
 ```
 
-应用使用注册结果（publicKeyAttestationCredential）组装注册响应报文，发送至FIDO服务端进行验证，获取注册结果报文。 使用通行密钥进行身份认证。 获取能力信息，调用HMS_FIDO2_getClientCapability接口获取客户端能力列表，并且调用HMS_FIDO2_getPlatformAuthenticator接口获取平台认证器能力信息。
+
+4. 应用使用注册结果（publicKeyAttestationCredential）组装注册响应报文，发送至FIDO服务端进行验证，获取注册结果报文。
+ - 使用通行密钥进行身份认证。
+
+1. 获取能力信息，调用HMS_FIDO2_getClientCapability接口获取客户端能力列表，并且调用HMS_FIDO2_getPlatformAuthenticator接口获取平台认证器能力信息。         
 ```text
 #include "OnlineAuthenticationKit/fido2_api.h"
 
@@ -123,7 +137,8 @@ FIDO2_ErrorCode GetPlatformAuthenticator()
 }
 ```
 
-访问FIDO服务器，获取认证报文，调用HMS_FIDO2_authenticate接口进行认证。
+
+2. 访问FIDO服务器，获取认证报文，调用HMS_FIDO2_authenticate接口进行认证。         
 ```text
 FIDO2_ErrorCode TestAuth()
 {
@@ -158,4 +173,5 @@ FIDO2_ErrorCode TestAuth()
 }
 ```
 
-应用使用认证结果（assertionCredential）组装认证响应报文，发送至FIDO服务端进行验证，获取认证结果报文。
+
+3. 应用使用认证结果（assertionCredential）组装认证响应报文，发送至FIDO服务端进行验证，获取认证结果报文。

@@ -1,16 +1,17 @@
 # 不依赖UI组件的全局菜单 (openMenu)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-menu
 
 [菜单控制 (Menu)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-menu)在使用时依赖绑定UI组件，否则无法使用。从API version 18开始，可以通过使用全局接口[openMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openmenu18)的方式，在无UI组件的场景下直接或封装使用，例如在事件回调中使用或封装后对外提供能力。
 
 
-## 弹出菜单
+##### 弹出菜单
 
 通过[openMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openmenu18)可以弹出菜单。
-```text
+
+```ArkTS
 this.getUIContext().getPromptAction()
   .openMenu(this.contentNode, { id: targetId }, {
     enableArrow: true
@@ -23,19 +24,24 @@ this.getUIContext().getPromptAction()
   });
 ```
 
-![](assets/不依赖UI组件的全局菜单%20(openMenu)
-/file-20260514130643941-0.gif)
 
-## 创建ComponentContent
+![](assets/不依赖UI组件的全局菜单%20(openMenu)/file-20260514130643941-0.gif)
+
+
+
+
+##### 创建ComponentContent
 
 通过调用openMenu接口弹出菜单，需要定义ComponentContent，以提供自定义弹出框的内容。详细规格可参考[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)说明。
-```text
-private contentNode: ComponentContent =
+
+```ArkTS
+private contentNode: ComponentContent<Object> =
   new ComponentContent(this.getUIContext(), wrapBuilder(buildText), this.message);
 ```
 
 如果在wrapBuilder中包含其他组件（例如：[Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup)、[Chip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chip)组件），则应在创建ComponentContent时设置[nestingBuilderSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#buildoptions12)属性为true。
-```text
+
+```ArkTS
 @Builder
 export function buildText(params: Params) {
   Popup({
@@ -81,21 +87,30 @@ export function buildText(params: Params) {
   })
 }
 
-let contentNode: ComponentContent =
+let contentNode: ComponentContent<Object> =
   new ComponentContent(uiContext, wrapBuilder(buildText), message, { nestingBuilderSupported: true });
 ```
 
 
-## 绑定组件信息
 
-通过调用openMenu接口弹出菜单，需要提供绑定组件的信息[TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18)。若未传入有效的target，菜单将无法弹出。 目前有两种设置target的方式。 target的id属性设置为number类型，此时需要将id设置为对应组件的UniqueID，组件的UniqueID由系统保证唯一性。
-```text
+##### 绑定组件信息
+
+通过调用openMenu接口弹出菜单，需要提供绑定组件的信息[TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18)。若未传入有效的target，菜单将无法弹出。
+
+目前有两种设置target的方式。
+
+ - target的id属性设置为number类型，此时需要将id设置为对应组件的UniqueID，组件的UniqueID由系统保证唯一性。
+
+  
+```ArkTS
 let frameNode: FrameNode | null = this.getUIContext().getFrameNodeByUniqueId(this.getUniqueId());
 let targetId = frameNode?.getChild(0)?.getUniqueId();
 ```
 
-target的id属性设置为string类型，此时需要将id设置为对应组件的通用属性[id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)值。当无法保证id的唯一性时，如多团队开发或者复用自定义组件，可以通过设置componentId属性明确指定此id的范围来精确指定target，此时componentId属性可以设置为对应组件的父组件或者所在自定义组件的UniqueID。
-```text
+ - target的id属性设置为string类型，此时需要将id设置为对应组件的通用属性[id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)值。当无法保证id的唯一性时，如多团队开发或者复用自定义组件，可以通过设置componentId属性明确指定此id的范围来精确指定target，此时componentId属性可以设置为对应组件的父组件或者所在自定义组件的UniqueID。
+
+  
+```ArkTS
 build() {
   NavDestination() {
     Column() {
@@ -134,18 +149,24 @@ build() {
 ```
 
 
-## 设置弹出菜单样式
+
+
+
+##### 设置弹出菜单样式
 
 通过调用openMenu接口弹出菜单，可以设置[MenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menuoptions10)中的属性调整菜单样式。title属性不生效。preview参数仅支持设置[MenuPreviewMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menupreviewmode11)类型。
-```text
+
+```ArkTS
 private options: MenuOptions = { enableArrow: true, placement: Placement.Bottom };
 ```
 
 
-## 更新菜单样式
+
+##### 更新菜单样式
 
 从API version 18开始，通过[updateMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatemenu18)可以更新菜单的样式。支持全量更新和增量更新其菜单样式，不支持更新[MenuOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-menu#menuoptions10)中的showInSubWindow、preview、previewAnimationOptions、transition、onAppear、aboutToAppear、onDisappear、aboutToDisappear、onWillAppear、onDidAppear、onWillDisappear和onDidDisappear属性。
-```text
+
+```ArkTS
 this.getUIContext().getPromptAction()
   .updateMenu(this.contentNode, {
     enableArrow: false
@@ -158,13 +179,17 @@ this.getUIContext().getPromptAction()
   });
 ```
 
-![](assets/不依赖UI组件的全局菜单%20(openMenu)
-/file-20260514130643941-1.gif)
 
-## 关闭菜单
+![](assets/不依赖UI组件的全局菜单%20(openMenu)/file-20260514130643941-1.gif)
+
+
+
+
+##### 关闭菜单
 
 从API version 18开始，通过调用[closeMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#closemenu18)可以关闭菜单。
-```text
+
+```ArkTS
 this.getUIContext().getPromptAction()
   .closeMenu(this.contentNode)
   .then(() => {
@@ -175,12 +200,18 @@ this.getUIContext().getPromptAction()
   });
 ```
 
-![](assets/不依赖UI组件的全局菜单%20(openMenu)
-/file-20260514130643941-2.gif)
+
+![](assets/不依赖UI组件的全局菜单%20(openMenu)/file-20260514130643941-2.gif)
+
+
 > [!NOTE]
-> 由于updateMenu和closeMenu依赖content来更新或者关闭指定的菜单，开发者需自行维护传入的content。
+> 由于 updateMenu 和 closeMenu 依赖content来更新或者关闭指定的菜单，开发者需自行维护传入的content。
 
 
-## 在HAR包中使用全局菜单
 
-可以通过[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)包封装一个Menu，从而对外提供菜单的弹出、更新和关闭能力。 具体调用方式参考[在HAR包中使用全局气泡提示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup#在har包中使用全局气泡提示)。
+
+##### 在HAR包中使用全局菜单
+
+可以通过[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)包封装一个Menu，从而对外提供菜单的弹出、更新和关闭能力。
+
+具体调用方式参考[在HAR包中使用全局气泡提示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup#在har包中使用全局气泡提示)。

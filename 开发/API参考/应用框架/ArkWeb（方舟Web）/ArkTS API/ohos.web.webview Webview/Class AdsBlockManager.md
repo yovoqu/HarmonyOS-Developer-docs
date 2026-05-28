@@ -3,35 +3,36 @@
 更新时间：2026-04-13 09:29:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-adsblockmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过AdsBlockManager可以向Web组件中设置自定义的广告过滤配置、关闭特定网站的广告过滤功能，其中每个应用中的所有Web组件都共享一个AdsBlockManager实例。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 12开始支持。 示例效果请以真机运行为准。 静态方法必须在用户界面（UI）线程上使用。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { webview } from '@kit.ArkWeb';
 ```
 
 
-## setAdsBlockRules12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setAdsBlockRules12+
 
 static setAdsBlockRules(rulesFile: string, replace: boolean): void
 
 向Web组件中设置自定义的符合通用easylist语法规则的广告过滤配置文件。
 
-
 > [!NOTE]
 > 此接口设置的广告过滤规则，内部解析成功后会持久化存储，应用重启后不需要重复设置。
+
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -41,12 +42,11 @@ static setAdsBlockRules(rulesFile: string, replace: boolean): void
 
 **错误码：**
 
-
 > [!NOTE]
 > 从API version 18开始，在不支持广告过滤功能的设备上调用该API会抛出801异常。
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -56,8 +56,7 @@ static setAdsBlockRules(rulesFile: string, replace: boolean): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { picker, fileUri } from '@kit.CoreFileKit';
@@ -96,22 +95,20 @@ struct WebComponent {
 ```
 
 
-## addAdsBlockDisallowedList12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void
+##### addAdsBlockDisallowedList12+
+
+static addAdsBlockDisallowedList(domainSuffixes: Array&lt;string&gt;): void
 
 向AdsBlockManager的DisallowedList中添加一组域名。广告过滤功能开启时，将禁用这些网站的广告过滤功能。
 
-
 > [!NOTE]
-> 此接口设置的域名不会持久化，应用重启需要重新设置。
-> 广告过滤特性会使用后缀匹配的方式判断domainSuffix和当前站点的url是否能匹配，例如，当前Web组件打开的网站是https://www.example.com，设置的DisallowedList中有'example.com'或者'www.example.com'，后缀匹配成功，此网站将禁用广告过滤，访问'https://m.example.com'也将禁用广告过滤。
+> 此接口设置的域名不会持久化，应用重启需要重新设置。 广告过滤特性会使用后缀匹配的方式判断domainSuffix和当前站点的url是否能匹配，例如，当前Web组件打开的网站是https://www.example.com，设置的DisallowedList中有'example.com'或者'www.example.com'，后缀匹配成功，此网站将禁用广告过滤，访问'https://m.example.com'也将禁用广告过滤。
+
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -120,12 +117,11 @@ static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void
 
 **错误码：**
 
-
 > [!NOTE]
 > 从API version 18开始，在不支持广告过滤功能的设备上调用该API会抛出801异常。
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -135,8 +131,7 @@ static addAdsBlockDisallowedList(domainSuffixes: Array<string>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 
@@ -154,13 +149,13 @@ struct WebComponent {
       Row() {
         Flex() {
           TextInput({ text: this.input_text, placeholder: this.main_url, controller: this.text_input_controller})
-          .id("input_url")
-          .height(40)
-          .margin(5)
-          .borderColor(Color.Blue)
-          .onChange((value: string) => {
-            this.input_text = value;
-          })
+            .id("input_url")
+            .height(40)
+            .margin(5)
+            .borderColor(Color.Blue)
+            .onChange((value: string) => {
+              this.input_text = value;
+            })
 
           Button({type: ButtonType.Capsule}) { Text("Go") }
           .onClick(() => {
@@ -177,30 +172,29 @@ struct WebComponent {
         }
       }
       Web({ src: this.main_url, controller: this.controller })
-      .onControllerAttached(()=>{
-        this.controller.enableAdsBlock(true);
-      })
+        .onControllerAttached(()=>{
+          this.controller.enableAdsBlock(true);
+        })
     }
   }
 }
 ```
 
 
-## removeAdsBlockDisallowedList12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void
+##### removeAdsBlockDisallowedList12+
+
+static removeAdsBlockDisallowedList(domainSuffixes: Array&lt;string&gt;): void
 
 从AdsBlockManager的DisallowedList中删除一组域名。
-
 
 > [!NOTE]
 > AdsBlockManager的DisallowedList不会持久化，应用重启需要重新设置。删除不存在的条目不会触发异常。
 
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -209,12 +203,11 @@ static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void
 
 **错误码：**
 
-
 > [!NOTE]
 > 从API version 18开始，在不支持广告过滤功能的设备上调用该API会抛出801异常。
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -224,8 +217,7 @@ static removeAdsBlockDisallowedList(domainSuffixes: Array<string>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 
@@ -243,13 +235,13 @@ struct WebComponent {
       Row() {
         Flex() {
           TextInput({ text: this.input_text, placeholder: this.main_url, controller: this.text_input_controller})
-          .id("input_url")
-          .height(40)
-          .margin(5)
-          .borderColor(Color.Blue)
-          .onChange((value: string) => {
-            this.input_text = value;
-          })
+            .id("input_url")
+            .height(40)
+            .margin(5)
+            .borderColor(Color.Blue)
+            .onChange((value: string) => {
+              this.input_text = value;
+            })
 
           Button({type: ButtonType.Capsule}) { Text("Go") }
           .onClick(() => {
@@ -266,17 +258,17 @@ struct WebComponent {
         }
       }
       Web({ src: this.main_url, controller: this.controller })
-      .onControllerAttached(()=>{
-        this.controller.enableAdsBlock(true);
-      })
+        .onControllerAttached(()=>{
+          this.controller.enableAdsBlock(true);
+        })
     }
   }
 }
 ```
 
 
-## clearAdsBlockDisallowedList12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clearAdsBlockDisallowedList12+
 
 static clearAdsBlockDisallowedList(): void
 
@@ -286,12 +278,11 @@ static clearAdsBlockDisallowedList(): void
 
 **错误码：**
 
-
 > [!NOTE]
 > 从API version 18开始，在不支持广告过滤功能的设备上调用该API会抛出801异常。
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -300,8 +291,7 @@ static clearAdsBlockDisallowedList(): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 
@@ -318,13 +308,13 @@ struct WebComponent {
       Row() {
         Flex() {
           TextInput({ text: this.input_text, placeholder: this.main_url, controller: this.text_input_controller})
-          .id("input_url")
-          .height(40)
-          .margin(5)
-          .borderColor(Color.Blue)
-          .onChange((value: string) => {
-            this.input_text = value;
-          })
+            .id("input_url")
+            .height(40)
+            .margin(5)
+            .borderColor(Color.Blue)
+            .onChange((value: string) => {
+              this.input_text = value;
+            })
 
           Button({type: ButtonType.Capsule}) { Text("Go") }
           .onClick(() => {
@@ -338,31 +328,29 @@ struct WebComponent {
         }
       }
       Web({ src: this.main_url, controller: this.controller })
-      .onControllerAttached(()=>{
-        this.controller.enableAdsBlock(true);
-      })
+        .onControllerAttached(()=>{
+          this.controller.enableAdsBlock(true);
+        })
     }
   }
 }
 ```
 
 
-## addAdsBlockAllowedList12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static addAdsBlockAllowedList(domainSuffixes: Array<string>): void
+##### addAdsBlockAllowedList12+
+
+static addAdsBlockAllowedList(domainSuffixes: Array&lt;string&gt;): void
 
 向AdsBlockManager的AllowedList中添加一组域名，主要用于重新开启DisallowedList中的部分网站的广告过滤。
 
-
 > [!NOTE]
-> 此接口设置的域名不会持久化，应用重启需要重新设置。
-> AllowedList的优先级比DisallowedList高，例如，DisallowedList中配置了['example.com']，禁用了所有example.com域名下的网页，此时如果需要开启'news.example.com'下的广告过滤，可以使用addAdsBlockAllowedList(['news.example.com'])。
+> 此接口设置的域名不会持久化，应用重启需要重新设置。 AllowedList的优先级比DisallowedList高，例如，DisallowedList中配置了['example.com']，禁用了所有example.com域名下的网页，此时如果需要开启'news.example.com'下的广告过滤，可以使用addAdsBlockAllowedList(['news.example.com'])。
+
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -371,12 +359,11 @@ static addAdsBlockAllowedList(domainSuffixes: Array<string>): void
 
 **错误码：**
 
-
 > [!NOTE]
 > 从API version 18开始，在不支持广告过滤功能的设备上调用该API会抛出801异常。
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -386,8 +373,7 @@ static addAdsBlockAllowedList(domainSuffixes: Array<string>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 
@@ -405,13 +391,13 @@ struct WebComponent {
       Row() {
         Flex() {
           TextInput({ text: this.input_text, placeholder: this.main_url, controller: this.text_input_controller})
-          .id("input_url")
-          .height(40)
-          .margin(5)
-          .borderColor(Color.Blue)
-          .onChange((value: string) => {
-            this.input_text = value;
-          })
+            .id("input_url")
+            .height(40)
+            .margin(5)
+            .borderColor(Color.Blue)
+            .onChange((value: string) => {
+              this.input_text = value;
+            })
 
           Button({type: ButtonType.Capsule}) { Text("Go") }
           .onClick(() => {
@@ -431,30 +417,29 @@ struct WebComponent {
         }
       }
       Web({ src: this.main_url, controller: this.controller })
-      .onControllerAttached(()=>{
-        this.controller.enableAdsBlock(true)
-      })
+        .onControllerAttached(()=>{
+          this.controller.enableAdsBlock(true)
+        })
     }
   }
 }
 ```
 
 
-## removeAdsBlockAllowedList12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void
+##### removeAdsBlockAllowedList12+
+
+static removeAdsBlockAllowedList(domainSuffixes: Array&lt;string&gt;): void
 
 从AdsBlockManager的AllowedList中删除一组域名。
-
 
 > [!NOTE]
 > AdsBlockManager的AllowedList不会持久化，应用重启需要重新设置。删除不存在的条目不会触发异常。
 
+
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -463,12 +448,11 @@ static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void
 
 **错误码：**
 
-
 > [!NOTE]
 > 从API version 18开始，在不支持广告过滤功能的设备上调用该API会抛出801异常。
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -478,8 +462,7 @@ static removeAdsBlockAllowedList(domainSuffixes: Array<string>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 
@@ -497,13 +480,13 @@ struct WebComponent {
       Row() {
         Flex() {
           TextInput({ text: this.input_text, placeholder: this.main_url, controller: this.text_input_controller})
-          .id("input_url")
-          .height(40)
-          .margin(5)
-          .borderColor(Color.Blue)
-          .onChange((value: string) => {
-            this.input_text = value;
-          })
+            .id("input_url")
+            .height(40)
+            .margin(5)
+            .borderColor(Color.Blue)
+            .onChange((value: string) => {
+              this.input_text = value;
+            })
 
           Button({type: ButtonType.Capsule}) { Text("Go") }
           .onClick(() => {
@@ -520,17 +503,17 @@ struct WebComponent {
         }
       }
       Web({ src: this.main_url, controller: this.controller })
-      .onControllerAttached(()=>{
-        this.controller.enableAdsBlock(true);
-      })
+        .onControllerAttached(()=>{
+          this.controller.enableAdsBlock(true);
+        })
     }
   }
 }
 ```
 
 
-## clearAdsBlockAllowedList12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clearAdsBlockAllowedList12+
 
 static clearAdsBlockAllowedList(): void
 
@@ -540,12 +523,11 @@ static clearAdsBlockAllowedList(): void
 
 **错误码：**
 
-
 > [!NOTE]
 > 从API version 18开始，在不支持广告过滤功能的设备上调用该API会抛出801异常。
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -554,8 +536,7 @@ static clearAdsBlockAllowedList(): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 
@@ -573,13 +554,13 @@ struct WebComponent {
       Row() {
         Flex() {
           TextInput({ text: this.input_text, placeholder: this.main_url, controller: this.text_input_controller})
-          .id("input_url")
-          .height(40)
-          .margin(5)
-          .borderColor(Color.Blue)
-          .onChange((value: string) => {
-            this.input_text = value;
-          })
+            .id("input_url")
+            .height(40)
+            .margin(5)
+            .borderColor(Color.Blue)
+            .onChange((value: string) => {
+              this.input_text = value;
+            })
 
           Button({type: ButtonType.Capsule}) { Text("Go") }
           .onClick(() => {

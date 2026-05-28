@@ -11,7 +11,7 @@
 | 新增API | NA | 类名：OperatingHandStatus； API声明：UNKNOWN_STATUS = 0 差异内容：UNKNOWN_STATUS = 0 | api/@ohos.multimodalAwareness.motion.d.ts |
 | 新增API | NA | 类名：OperatingHandStatus； API声明：LEFT_HAND_OPERATED = 1 差异内容：LEFT_HAND_OPERATED = 1 | api/@ohos.multimodalAwareness.motion.d.ts |
 | 新增API | NA | 类名：OperatingHandStatus； API声明：RIGHT_HAND_OPERATED = 2 差异内容：RIGHT_HAND_OPERATED = 2 | api/@ohos.multimodalAwareness.motion.d.ts |
-| 新增API | NA | 类名：motion； API声明：function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void; 差异内容：function on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void; | api/@ohos.multimodalAwareness.motion.d.ts |
-| 新增API | NA | 类名：motion； API声明：function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void; 差异内容：function off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void; | api/@ohos.multimodalAwareness.motion.d.ts |
+| 新增API | NA | 类名：motion； API声明：function on(type: 'operatingHandChanged', callback: Callback&lt;OperatingHandStatus&gt;): void; 差异内容：function on(type: 'operatingHandChanged', callback: Callback&lt;OperatingHandStatus&gt;): void; | api/@ohos.multimodalAwareness.motion.d.ts |
+| 新增API | NA | 类名：motion； API声明：function off(type: 'operatingHandChanged', callback?: Callback&lt;OperatingHandStatus&gt;): void; 差异内容：function off(type: 'operatingHandChanged', callback?: Callback&lt;OperatingHandStatus&gt;): void; | api/@ohos.multimodalAwareness.motion.d.ts |
 | 新增API | NA | 类名：motion； API声明：function getRecentOperatingHandStatus(): OperatingHandStatus; 差异内容：function getRecentOperatingHandStatus(): OperatingHandStatus; | api/@ohos.multimodalAwareness.motion.d.ts |
 | kit变更 | NA | MultimodalAwarenessKit | api/@ohos.multimodalAwareness.motion.d.ts |

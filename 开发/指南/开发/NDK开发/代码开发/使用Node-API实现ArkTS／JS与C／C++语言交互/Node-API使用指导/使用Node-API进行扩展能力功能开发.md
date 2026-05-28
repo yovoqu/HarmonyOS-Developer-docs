@@ -1,45 +1,67 @@
 # 使用Node-API进行扩展能力功能开发
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-extension
 
-## 简介
+##### 简介
 
-[扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-data-types-interfaces#扩展能力)接口进一步扩展了Node-API的功能，提供了一些额外的接口，用于在Node-API模块中与ArkTS进行更灵活的交互和定制，这些接口可以用于创建自定义ArkTS对象等场景。 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。 本文cpp部分代码所需引用的头文件如下：
+[扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-data-types-interfaces#扩展能力)接口进一步扩展了Node-API的功能，提供了一些额外的接口，用于在Node-API模块中与ArkTS进行更灵活的交互和定制，这些接口可以用于创建自定义ArkTS对象等场景。
+ 
+Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
+ 
+本文cpp部分代码所需引用的头文件如下：
+ 
 ```text
 #include "napi/native_api.h"
-#include
-#include
-#include
-#include
+#include <bits/alltypes.h>
+#include <mutex>
+#include <unordered_set>
+#include <uv.h>
 #include "hilog/log.h"
 ```
-
- 本文ArkTS侧示例代码所需的模块导入如下：
+ 
+本文ArkTS侧示例代码所需的模块导入如下：
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 import { taskpool } from '@kit.ArkTS';
 ```
+ 
+  
 
+##### 模块加载
 
-## 模块加载
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_load_module | 用于在Node-API模块中将abc文件作为模块加载，返回模块的命名空间，适用于需要在运行时动态加载模块或资源的应用程序，从而实现灵活的扩展和定制。 |
-| napi_load_module_with_info | 用于在Node-API中进行模块的加载，当模块加载出来之后，可以使用函数napi_get_property获取模块导出的变量，也可以使用napi_get_named_property获取模块导出的函数，该函数可以在[新创建的ArkTS基础运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)中使用。 |
+| napi_load_module_with_info | 用于在Node-API中进行模块的加载，当模块加载出来之后，可以使用函数napi_get_property获取模块导出的变量，也可以使用napi_get_named_property获取模块导出的函数，该函数可以在新创建的ArkTS基础运行时环境中使用。 |
 | napi_module_register | 有些功能可能需要通过Node-API模块来实现以获得更好的性能，通过将这些功能实现为自定义模块并注册到ArkTS环境中，可以在一定程度上提高整体的性能。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
-
-**napi_load_module** [使用Node-API接口在主线程中进行模块加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module) **napi_load_module_with_info** [使用Node-API接口进行模块加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module-with-info) **napi_module_register** 在ArkTS代码环境中使用Node-API模块编写的代码来实现特定的功能，可以将这部分功能封装成自定义模块，然后通过napi_module_register将其注册到ArkTS代码环境中，以实现功能的扩展和复用。 cpp部分代码
+**napi_load_module**
+ 
+[使用Node-API接口在主线程中进行模块加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module)
+ 
+**napi_load_module_with_info**
+ 
+[使用Node-API接口进行模块加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module-with-info)
+ 
+**napi_module_register**
+ 
+在ArkTS代码环境中使用Node-API模块编写的代码来实现特定的功能，可以将这部分功能封装成自定义模块，然后通过napi_module_register将其注册到ArkTS代码环境中，以实现功能的扩展和复用。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -95,34 +117,44 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
     napi_module_register(&demoModule);
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const add: (a: number, b: number) => number; // 模块加载
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 hilog.info(0x0000, 'testTag', 'Test Node-API 2 + 3 = %{public}d', testNapi.add(2, 3));
 ```
+ 
+  
 
+##### ArkTS Object相关
 
-## ArkTS Object相关
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_object_with_properties | 用于在Node-API模块中使用给定的napi_property_descriptor创建ArkTS Object。descriptor的键名必须为string，且不可转为number。 |
 | napi_create_object_with_named_properties | 用于在Node-API模块中使用给定的napi_value和键名创建ArkTS Object。键名必须为string，且不可转为number。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
-
-**napi_create_object_with_properties** 用给定的napi_property_descriptor作为属性去创建一个ArkTS对象，并且descriptor的键名必须为string，且不可转为number。 cpp部分代码
-```text
+**napi_create_object_with_properties**
+ 
+用给定的napi_property_descriptor作为属性去创建一个ArkTS对象，并且descriptor的键名必须为string，且不可转为number。
+ 
+cpp部分代码
+ 
+```cpp
 // ArkTS Object相关 napi_create_object_with_properties
 static napi_value CreateObjectWithProperties(napi_env env, napi_callback_info info)
 {
@@ -143,22 +175,29 @@ static napi_value CreateObjectWithProperties(napi_env env, napi_callback_info in
     }
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const createObjectWithProperties: (data: string) => {name:string}; // ArkTS Object相关 napi_create_object_with_properties
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // ArkTS Object相关 napi_create_object_with_properties
 let value1 = testNapi.createObjectWithProperties('createObject');
 hilog.info(0x0000, 'testTag', 'Node-API napi_create_object_with_properties:%{public}s',
   JSON.stringify(value1));
 ```
-
- **napi_create_object_with_named_properties** 用于使用给定的napi_value和键名创建一个ArkTS对象，并且给定的键名必须为string，且不可转为number。 cpp部分代码
-```text
+ 
+**napi_create_object_with_named_properties**
+ 
+用于使用给定的napi_value和键名创建一个ArkTS对象，并且给定的键名必须为string，且不可转为number。
+ 
+cpp部分代码
+ 
+```cpp
 // ArkTS Object相关 napi_create_object_with_named_properties
 static napi_value CreateObjectWithNameProperties(napi_env env, napi_callback_info info)
 {
@@ -184,14 +223,16 @@ static napi_value CreateObjectWithNameProperties(napi_env env, napi_callback_inf
     return obj;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const createObjectWithNameProperties: (data: string) => undefined | { name: string }; // ArkTS Object相关 napi_create_object_with_named_properties
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // ArkTS Object相关 napi_create_object_with_named_properties
 let value2 = testNapi.createObjectWithNameProperties('ls');
 try {
@@ -200,25 +241,39 @@ try {
   hilog.error(0x0000, 'testTag', 'Node-API napi_create_object_with_named_properties: %{public}s', error.message);
 }
 ```
+ 
+  
 
+##### 运行指定abc文件
 
-## 运行指定abc文件
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_run_script_path | 用于在Node-API模块中运行指定abc文件。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_run_script_path**
+ 
+在Node-API模块中运行abc文件。
+ 
 
-**napi_run_script_path** 在Node-API模块中运行abc文件。
 ![](assets/使用Node-API进行扩展能力功能开发/file-20260514132704695-0.png)
-在信号函数中调用不安全，直接调用可能导致栈溢出。   cpp部分代码
-```text
+ 
+ 
+在信号函数中调用不安全，直接调用可能导致栈溢出。
+  
+
+ 
+cpp部分代码
+ 
+```cpp
 // 运行指定abc文件 napi_run_script_path
 static napi_value RunScriptPath(napi_env env, napi_callback_info info)
 {
@@ -237,14 +292,16 @@ static napi_value RunScriptPath(napi_env env, napi_callback_info info)
     return returnValue;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const runScriptPath: () => boolean; // 运行指定abc文件 napi_run_script_path
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // 运行指定abc文件 napi_run_script_path
 try { // 在此处执行错误返回false，成功就返回true
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_run_script_path: %{public}s',
@@ -256,49 +313,68 @@ try { // 在此处执行错误返回false，成功就返回true
   // ···
 }
 ```
-
- test.js代码，将JS代码编译为.abc文件，步骤如下： 在SDK的ets/build-tools/ets-loader/bin/ark/build-win/bin目录下放置test.js文件执行命令如es2abc.exe test.js --output test.abc后便可生成test.abc文件 放入指定路径中：/entry/resources/rawfile
+ 
+test.js代码，将JS代码编译为.abc文件，步骤如下：
+ 1. 在SDK的ets/build-tools/ets-loader/bin/ark/build-win/bin目录下放置test.js文件
+2. 执行命令如es2abc.exe test.js --output test.abc后便可生成test.abc文件
+ 
+放入指定路径中：/entry/resources/rawfile
+ 
 ```text
 function add(a, b) {
   return a + b;
 }
 add(1, 2);
 ```
+ 
+  
 
+##### 异步工作对象加入队列并指定优先级
 
-## 异步工作对象加入队列并指定优先级
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_queue_async_work_with_qos | 用于将异步工作对象加入队列，让开发者能够根据QoS优先级来管理和调度异步工作的执行，从而更好地满足程序的性能和响应需求。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_queue_async_work_with_qos**
+ 
+将异步工作对象加到队列，由底层根据传入的qos优先级去调度执行。
+ 
+  
 
-**napi_queue_async_work_with_qos** 将异步工作对象加到队列，由底层根据传入的qos优先级去调度执行。
+##### 给ArkTS对象绑定回调和回调所需的参数
 
-## 给ArkTS对象绑定回调和回调所需的参数
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_coerce_to_native_binding_object | 用于给ArkTS对象绑定回调和回调所需的参数，其作用是为了给ArkTS对象携带Native信息。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
-
-**napi_coerce_to_native_binding_object** 用于给ArkTS Object绑定回调和回调所需的参数，给ArkTS Object携带Native信息。 cpp部分代码
+**napi_coerce_to_native_binding_object**
+ 
+用于给ArkTS Object绑定回调和回调所需的参数，给ArkTS Object携带Native信息。
+ 
+cpp部分代码
+ 
 ```text
-#include
-#include
-#include
+#include <hilog/log.h>
+#include <mutex>
+#include <unordered_set>
 #include "napi/native_api.h"
 
 class Object {
@@ -324,7 +400,7 @@ public:
         if (object == nullptr) {
             return nullptr;
         }
-        uint64_t addressVal = reinterpret_cast(object);
+        uint64_t addressVal = reinterpret_cast<uint64_t>(object);
         napi_value address = nullptr;
         napi_create_bigint_uint64(env, addressVal, &address);
         return address;
@@ -343,8 +419,8 @@ public:
         if (object == nullptr) {
             return nullptr;
         }
-        std::lock_guard lock(reinterpret_cast(object)->numberSetMutex_);
-        uint32_t setSize = reinterpret_cast(object)->numberSet_.size();
+        std::lock_guard<std::mutex> lock(reinterpret_cast<Object*>(object)->numberSetMutex_);
+        uint32_t setSize = reinterpret_cast<Object*>(object)->numberSet_.size();
         napi_value napiSize = nullptr;
         napi_create_uint32(env, setSize, &napiSize);
         return napiSize;
@@ -377,8 +453,8 @@ public:
         if (object == nullptr) {
             return nullptr;
         }
-        std::lock_guard lock(reinterpret_cast(object)->numberSetMutex_);
-        reinterpret_cast(object)-> numberSet_.insert(value);
+        std::lock_guard<std::mutex> lock(reinterpret_cast<Object*>(object)->numberSetMutex_);
+        reinterpret_cast<Object *>(object)-> numberSet_.insert(value);
         return nullptr;
     }
 
@@ -409,8 +485,8 @@ public:
         if (object == nullptr) {
             return nullptr;
         }
-        std::lock_guard lock(reinterpret_cast(object)->numberSetMutex_);
-        reinterpret_cast(object)->numberSet_.erase(value);
+        std::lock_guard<std::mutex> lock(reinterpret_cast<Object*>(object)->numberSetMutex_);
+        reinterpret_cast<Object *>(object)->numberSet_.erase(value);
         return nullptr;
     }
 
@@ -427,8 +503,8 @@ public:
         if (object == nullptr) {
             return nullptr;
         }
-        std::lock_guard lock(reinterpret_cast(object)->numberSetMutex_);
-        reinterpret_cast(object)->numberSet_.clear();
+        std::lock_guard<std::mutex> lock(reinterpret_cast<Object*>(object)->numberSetMutex_);
+        reinterpret_cast<Object *>(object)->numberSet_.clear();
         return nullptr;
     }
 
@@ -436,7 +512,7 @@ private:
     Object(const Object &) = delete;
     Object &operator=(const Object &) = delete;
 
-    std::unordered_set numberSet_{};
+    std::unordered_set<uint32_t> numberSet_{};
     std::mutex numberSetMutex_{};
 };
 
@@ -484,11 +560,11 @@ static napi_value Init(napi_env env, napi_value exports)
         {"clear", nullptr, Object::Clear, nullptr, nullptr, nullptr, napi_default, nullptr}};
     napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
     auto object = Object::GetInstance();
-    napi_status status = napi_wrap(env, exports, reinterpret_cast(object), FinalizerCallback, nullptr, nullptr);
+    napi_status status = napi_wrap(env, exports, reinterpret_cast<void*>(object), FinalizerCallback, nullptr, nullptr);
     if (status != napi_ok) {
         OH_LOG_INFO(LOG_APP, "Node-API napi_wrap is failed.");
     }
-    napi_coerce_to_native_binding_object(env, exports, DetachCallback, AttachCallback, reinterpret_cast(object),
+    napi_coerce_to_native_binding_object(env, exports, DetachCallback, AttachCallback, reinterpret_cast<void*>(object),
                                          nullptr);
     return exports;
 }
@@ -509,9 +585,10 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
     napi_module_register(&demoModule);
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // 给ArkTS对象绑定回调和回调所需的参数 napi_coerce_to_native_binding_object
 export const getAddress: () => number;
 
@@ -523,9 +600,10 @@ export const erase: (a: number) => void;
 
 export const clear: () => void;
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // index.ets
 import testNapi from 'libentry.so';
 import { taskpool } from '@kit.ArkTS';
@@ -565,7 +643,7 @@ function clear() {
   console.info("set size is " + size + " after clear");
 }
 
-async function test01(): Promise {
+async function test01(): Promise<void> {
     let address:number = testNapi.getAddress();
     console.info("host thread address is " + address);
 
@@ -590,59 +668,85 @@ async function test01(): Promise {
 
 test01();
 ```
+ 
+**注意事项**
+ 
+对ArkTS对象A调用napi_coerce_to_native_binding_object将开发者实现的detach/attach回调和native对象信息加到A上，再将A跨线程传递。跨线程传递需要对A进行序列化和反序列化。此处的序列化与反序列化是人为控制的，需要调用后文介绍的napi_serialize、napi_deserialize接口。过程如下图所示：在当前线程thread1序列化A得到数据data，序列化阶段执行detach回调。然后将data传给目标线程thread2，在thread2中反序列化data，执行attach回调，最终得到ArkTS对象A。此处的detach/attach是告知开发者序列化与反序列化执行完毕的回调。
+ 
 
-**注意事项** 对ArkTS对象A调用napi_coerce_to_native_binding_object将开发者实现的detach/attach回调和native对象信息加到A上，再将A跨线程传递。跨线程传递需要对A进行序列化和反序列化。此处的序列化与反序列化是人为控制的，需要调用后文介绍的napi_serialize、napi_deserialize接口。过程如下图所示：在当前线程thread1序列化A得到数据data，序列化阶段执行detach回调。然后将data传给目标线程thread2，在thread2中反序列化data，执行attach回调，最终得到ArkTS对象A。此处的detach/attach是告知开发者序列化与反序列化执行完毕的回调。
 ![](assets/使用Node-API进行扩展能力功能开发/file-20260514132704695-1.png)
 
-## 事件循环
+ 
+  
 
+##### 事件循环
 
-## 接口描述
+  
 
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_run_event_loop | 触发底层的事件循环。 |
 | napi_stop_event_loop | 停止底层的事件循环。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_run_event_loop、napi_stop_event_loop**
+ 
+[使用扩展的Node-API接口在异步线程中运行和停止事件循环](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-event-loop)
+ 
+  
 
-**napi_run_event_loop、napi_stop_event_loop** [使用扩展的Node-API接口在异步线程中运行和停止事件循环](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-event-loop)
+##### ArkTS基础运行时环境
 
-## ArkTS基础运行时环境
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_ark_runtime | 创建基础运行时环境。 |
 | napi_destroy_ark_runtime | 销毁基础运行时环境。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_create_ark_runtime、napi_destroy_ark_runtime**
+ 
+[使用Node-API接口创建ArkTS运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)
+ 
+  
 
-**napi_create_ark_runtime、napi_destroy_ark_runtime** [使用Node-API接口创建ArkTS运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)
+##### 序列化和反序列化
 
-## 序列化和反序列化
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_serialize | 将ArkTS对象转换为native数据。第一个参数env是接口执行的ArkTS环境；第二个参数object是待序列化的ArkTS对象；第三个参数transfer_list是存放需要以transfer传递的arrayBuffer的array，如不涉及可传undefined；第四个参数clone_list是存放需要克隆传递的Sendable对象的array，如不涉及可传undefined；第五个参数result是序列化结果。 |
 | napi_deserialize | 将native数据转为ArkTS对象。第一个参数env是接口执行的ArkTS环境；第二个参数buffer是序列化数据；第三个参数object是反序列化得到的结果。 |
 | napi_delete_serialization_data | 删除序列化数据。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
-
-**napi_serialize、napi_deserialize、napi_delete_serialization_data** 用于将ArkTS对象转换为native数据、将native数据转为ArkTS对象、删除序列化数据等操作。 cpp部分代码
-```text
+**napi_serialize、napi_deserialize、napi_delete_serialization_data**
+ 
+用于将ArkTS对象转换为native数据、将native数据转为ArkTS对象、删除序列化数据等操作。
+ 
+cpp部分代码
+ 
+```cpp
 // 序列化和反序列化
 static napi_value AboutSerialize(napi_env env, napi_callback_info info)
 {
@@ -679,48 +783,56 @@ static napi_value AboutSerialize(napi_env env, napi_callback_info info)
     return number;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const aboutSerialize: (obj: {numKey:number}) => number | undefined; // 序列化和反序列化
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 class Obj {
   numKey: number = 0;
 }
 ```
-
-
-```text
+ 
+```ArkTS
 // 序列化和反序列化
 let obj: Obj = { numKey: 500 };
 hilog.info(0x0000, 'testTag', ' Node-API aboutSerialize: %{public}d', testNapi.aboutSerialize(obj));
 ```
+ 
+  
 
+##### 根据任务指定的优先级和入队方式进行处理异步线程向ArkTS线程投递的任务
 
-## 根据任务指定的优先级和入队方式进行处理异步线程向ArkTS线程投递的任务
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_call_threadsafe_function_with_priority | 将指定优先级和入队方式的任务投递到ArkTS主线程。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_call_threadsafe_function_with_priority**
+ 
+[使用Node-API接口从异步线程向ArkTS线程投递指定优先级和入队方式的的任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-call-threadsafe-function-with-priority)
+ 
+  
 
-**napi_call_threadsafe_function_with_priority** [使用Node-API接口从异步线程向ArkTS线程投递指定优先级和入队方式的的任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-call-threadsafe-function-with-priority)
+##### Sendable相关
 
-## Sendable相关
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_is_sendable | 判断给定ArkTS value是否是Sendable的。 |
@@ -734,12 +846,19 @@ hilog.info(0x0000, 'testTag', ' Node-API aboutSerialize: %{public}d', testNapi.a
 | napi_wrap_sendable_with_size | 包裹一个native实例到ArkTS对象中并指定大小。 |
 | napi_unwrap_sendable | 获取ArkTS对象包裹的native实例。 |
 | napi_remove_wrap_sendable | 移除并获取ArkTS对象包裹的native实例，移除后回调将不再触发，需手动delete释放内存。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
-
-**napi_is_sendable** 判断给定ArkTS value是否是Sendable的。 cpp部分代码
-```text
+**napi_is_sendable**
+ 
+判断给定ArkTS value是否是Sendable的。
+ 
+cpp部分代码
+ 
+```cpp
 // Sendable相关 napi_is_sendable
 static napi_value IsSendable(napi_env env, napi_callback_info info)
 {
@@ -753,20 +872,27 @@ static napi_value IsSendable(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
-export const isSendable: (a: T) => boolean; // Sendable相关 napi_is_sendable
+ 
+接口声明
+ 
+```ts
+export const isSendable: <T>(a: T) => boolean; // Sendable相关 napi_is_sendable
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // Sendable相关 napi_is_sendable
 let value = testNapi.isSendable('createObject');
 hilog.info(0x0000, 'testTag', 'Node-API napi_is_sendable: %{public}s', JSON.stringify(value));
 ```
-
- **napi_define_sendable_class** 创建一个sendable类。 cpp部分代码
+ 
+**napi_define_sendable_class**
+ 
+创建一个sendable类。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -782,9 +908,18 @@ static napi_value DefineSendableClass(napi_env env) {
 
     napi_property_descriptor props[] = {
         {"staticStr", nullptr, nullptr, nullptr, nullptr, str,
-         static_cast(napi_static | napi_writable), nullptr},
+         static_cast<napi_property_attributes>(napi_static | napi_writable), nullptr},
         {"staticFunc", nullptr, func, nullptr, nullptr, nullptr, napi_static, nullptr},
-        {"str", nullptr, nullptr, nullptr, nullptr, str, static_cast(1 (1  napi_value {
+        {"str", nullptr, nullptr, nullptr, nullptr, str, static_cast<napi_property_attributes>(1 << 9 | napi_writable),
+         nullptr},
+        {"func", nullptr, nullptr, nullptr, nullptr, nullptr,
+         static_cast<napi_property_attributes>(1 << 11 | napi_writable), nullptr},
+    };
+
+    napi_value sendableClass = nullptr;
+    napi_define_sendable_class(
+        env, "SendableClass", NAPI_AUTO_LENGTH,
+        [](napi_env env, napi_callback_info info) -> napi_value {
             napi_value thisVar = nullptr;
             napi_get_cb_info(env, info, nullptr, nullptr, &thisVar, nullptr);
             napi_value str;
@@ -827,9 +962,10 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
     napi_module_register(&demoModule);
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 @Sendable
 export class SendableClass {
   static staticStr: string;
@@ -838,16 +974,22 @@ export class SendableClass {
   func(): string;
 } // Sendable相关 napi_define_sendable_class
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // Sendable相关 napi_define_sendable_class
 let value = new testNapi.SendableClass();
 hilog.info(0x0000, 'testTag', 'Node-API napi_define_sendable_class: %{public}s', value.str);
 ```
-
- **napi_create_sendable_object_with_properties** 使用给定的napi_property_descriptor创建一个sendable对象。 cpp部分代码
-```text
+ 
+**napi_create_sendable_object_with_properties**
+ 
+使用给定的napi_property_descriptor创建一个sendable对象。
+ 
+cpp部分代码
+ 
+```cpp
 // Sendable相关 napi_create_sendable_object_with_properties
 static napi_value GetSendableObject(napi_env env, napi_callback_info info)
 {
@@ -861,22 +1003,29 @@ static napi_value GetSendableObject(napi_env env, napi_callback_info info)
     return obj;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const getSendableObject: () => { x: true }; // Sendable相关 napi_create_sendable_object_with_properties
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // Sendable相关 napi_create_sendable_object_with_properties
 let value = testNapi.getSendableObject();
 hilog.info(0x0000, 'testTag', 'Node-API napi_create_sendable_object_with_properties: %{public}s',
   JSON.stringify(value));
 ```
-
- **napi_create_sendable_array** 创建一个sendable数组。 cpp部分代码
-```text
+ 
+**napi_create_sendable_array**
+ 
+创建一个sendable数组。
+ 
+cpp部分代码
+ 
+```cpp
 // Sendable相关 napi_create_sendable_array
 static napi_value GetSendableArray(napi_env env, napi_callback_info info)
 {
@@ -885,22 +1034,29 @@ static napi_value GetSendableArray(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const getSendableArray: () => []; // Sendable相关 napi_create_sendable_array
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // Sendable相关 napi_create_sendable_array
 let value = testNapi.getSendableArray();
 hilog.info(0x0000, 'testTag', 'Node-API napi_create_sendable_array: %{public}s',
   JSON.stringify(value));
 ```
-
- **napi_create_sendable_array_with_length** 创建一个指定长度的sendable数组。 cpp部分代码
-```text
+ 
+**napi_create_sendable_array_with_length**
+ 
+创建一个指定长度的sendable数组。
+ 
+cpp部分代码
+ 
+```cpp
 // Sendable相关 napi_create_sendable_array_with_length
 static napi_value GetSendableArrayWithLength(napi_env env, napi_callback_info info)
 {
@@ -909,20 +1065,27 @@ static napi_value GetSendableArrayWithLength(napi_env env, napi_callback_info in
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const getSendableArrayWithLength: () => [];
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```json
 let value = testNapi.getSendableArrayWithLength();
 hilog.info(0x0000, 'testTag', 'Node-API napi_create_sendable_array_with_length: %{public}s', JSON.stringify(value.length));
 ```
-
- **napi_create_sendable_arraybuffer** 创建一个sendable ArrayBuffer。 cpp部分代码
+ 
+**napi_create_sendable_arraybuffer**
+ 
+创建一个sendable ArrayBuffer。
+ 
+cpp部分代码
+ 
 ```text
 static napi_value GetSendableArrayBuffer(napi_env env, napi_callback_info info) {
     static size_t LENGTH = 1024;
@@ -935,19 +1098,26 @@ static napi_value GetSendableArrayBuffer(napi_env env, napi_callback_info info) 
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const getSendableArrayBuffer: () => ArrayBuffer;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 testNapi.getSendableArrayBuffer();
 ```
-
- **napi_create_sendable_typedarray** 创建一个sendable TypedArray。 cpp部分代码
+ 
+**napi_create_sendable_typedarray**
+ 
+创建一个sendable TypedArray。
+ 
+cpp部分代码
+ 
 ```text
 static napi_value GetSendableTypedArray(napi_env env, napi_callback_info info) {
     static size_t LENGTH = 1024;
@@ -964,22 +1134,29 @@ static napi_value GetSendableTypedArray(napi_env env, napi_callback_info info) {
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const getSendableTypedArray: () => void;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 testNapi.getSendableTypedArray();
 ```
-
- **napi_wrap_sendable** 包裹一个native实例到ArkTS对象中。 cpp部分代码
+ 
+**napi_wrap_sendable**
+ 
+包裹一个native实例到ArkTS对象中。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -998,22 +1175,29 @@ static napi_value WrapSendable(napi_env env, napi_callback_info info) {
     return nullptr;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const wrapSendable: () => void;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 testNapi.wrapSendable();
 ```
-
- **napi_wrap_sendable_with_size** 包裹一个native实例到ArkTS对象中并指定大小。 cpp部分代码
+ 
+**napi_wrap_sendable_with_size**
+ 
+包裹一个native实例到ArkTS对象中并指定大小。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -1032,22 +1216,29 @@ static napi_value WrapSendableWithSize(napi_env env, napi_callback_info info) {
     return nullptr;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const wrapSendableWithSize: () => void;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 testNapi.wrapSendableWithSize();
 ```
-
- **napi_unwrap_sendable** 获取ArkTS对象包裹的native实例。 cpp部分代码
+ 
+**napi_unwrap_sendable**
+ 
+获取ArkTS对象包裹的native实例。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -1070,22 +1261,29 @@ static napi_value UnwrapSendable(napi_env env, napi_callback_info info) {
     return nullptr;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const unwrapSendable: () => void;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 testNapi.unwrapSendable();
 ```
-
- **napi_remove_wrap_sendable** 移除并获取ArkTS对象包裹的native实例，移除后回调将不再触发，需手动delete释放内存。 cpp部分代码
+ 
+**napi_remove_wrap_sendable**
+ 
+移除并获取ArkTS对象包裹的native实例，移除后回调将不再触发，需手动delete释放内存。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -1108,43 +1306,54 @@ static napi_value RemoveWrapSendable(napi_env env, napi_callback_info info) {
     return nullptr;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const removeWrapSendable: () => void;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 testNapi.removeWrapSendable();
 ```
-
- 以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
+以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
 ```text
 // CMakeLists.txt
 target_compile_definitions(entry PRIVATE LOG_DOMAIN=0xd0d0 LOG_TAG="testTag")
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so)
 ```
+ 
+  
 
+##### napi_wrap接口增强
 
-## napi_wrap接口增强
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_wrap_enhance | 在ArkTS对象上绑定一个native对象实例并指定实例大小，运行时会统计传入的实例大小并将其累加，当累计大小达到GC触发阈值时，运行时会启动垃圾回收流程。开发者可以指定绑定的回调函数是否异步执行，如果是异步执行，回调函数必须保证是线程安全的。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
-
-**napi_wrap_enhance** 在ArkTS对象上绑定一个native对象实例并指定实例大小，运行时会统计传入的实例大小并将其累加，当累计大小达到GC触发阈值时，运行时会启动垃圾回收流程。开发者可以指定绑定的回调函数是否异步执行，如果是异步执行，回调函数必须保证是线程安全的。 cpp部分代码
+**napi_wrap_enhance**
+ 
+在ArkTS对象上绑定一个native对象实例并指定实例大小，运行时会统计传入的实例大小并将其累加，当累计大小达到GC触发阈值时，运行时会启动垃圾回收流程。开发者可以指定绑定的回调函数是否异步执行，如果是异步执行，回调函数必须保证是线程安全的。
+ 
+cpp部分代码
+ 
 ```text
 #include "napi/native_api.h"
 
@@ -1168,115 +1377,152 @@ static napi_value TestNapiWrapEnhance(napi_env env, napi_callback_info info)
     return nullptr;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 // index.d.ts
 export const testNapiWrapEnhance: () => void;
 ```
-
- ArkTS侧示例代码
+ 
+ArkTS侧示例代码
+ 
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
 testNapi.testNapiWrapEnhance();
 ```
+ 
+  
 
+##### napi提供多上下文环境能力
 
-## napi提供多上下文环境能力
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_ark_context | 创建基础运行时上下文环境。 |
 | napi_switch_ark_context | 切换到指定的运行时上下文环境。 |
 | napi_destroy_ark_context | 销毁基础运行时上下文环境。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_create_ark_context、napi_switch_ark_context、napi_destroy_ark_context**
+ 
+[使用扩展的Node-API接口创建、切换和销毁上下文环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-context)
+ 
+  
 
-**napi_create_ark_context、napi_switch_ark_context、napi_destroy_ark_context** [使用扩展的Node-API接口创建、切换和销毁上下文环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-context)
+##### napi提供通过指针访问ArkTS String内存数据的功能
 
-## napi提供通过指针访问ArkTS String内存数据的功能
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_get_buffer_string_utf16_in_critical_scope | 获取以Utf16编码的ArkTS String的内存数据缓冲区 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_get_buffer_string_utf16_in_critical_scope**
+ 
+[使用扩展的Node-API接口创建和销毁临界区作用域及访问字符串内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-critical)
+ 
+  
 
-**napi_get_buffer_string_utf16_in_critical_scope** [使用扩展的Node-API接口创建和销毁临界区作用域及访问字符串内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-critical)
+##### napi实现临界区作用域
 
-## napi实现临界区作用域
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_open_critical_scope | 打开临界区作用域 |
 | napi_close_critical_scope | 关闭临界区作用域 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_open_critical_scope、napi_close_critical_scope**
+ 
+[使用扩展的Node-API接口创建和销毁临界区作用域及访问字符串内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-critical)
+ 
+  
 
-**napi_open_critical_scope、napi_close_critical_scope** [使用扩展的Node-API接口创建和销毁临界区作用域及访问字符串内容](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-critical)
+##### napi支持创建轻量级的强引用对象
 
-## napi支持创建轻量级的强引用对象
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_strong_reference | 创建指向ArkTS对象的强引用 |
 | napi_delete_strong_reference | 删除强引用 |
 | napi_get_strong_reference_value | 根据强引用对象获取其关联的ArkTS对象值 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_create_strong_reference、napi_delete_strong_reference、napi_get_value_strong_reference**
+ 
+[使用扩展的Node-API接口创建、销毁和使用强引用对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-strong-reference)
+ 
+  
 
-**napi_create_strong_reference、napi_delete_strong_reference、napi_get_value_strong_reference** [使用扩展的Node-API接口创建、销毁和使用强引用对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-strong-reference)
+##### napi支持创建Sendable的强引用
 
-## napi支持创建Sendable的强引用
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_strong_sendable_reference | 创建指向Sendable ArkTS对象的Sendable强引用。 |
 | napi_delete_strong_sendable_reference | 删除Sendable强引用。 |
 | napi_get_strong_sendable_reference_value | 根据Sendable强引用获取其关联的ArkTS对象值。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+**napi_create_strong_sendable_reference、napi_delete_strong_sendable_reference、napi_get_strong_sendable_reference_value**
+ 
+[使用扩展的Node-API接口创建、销毁和使用Sendable强引用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-sendable-reference)
+ 
+  
 
-**napi_create_strong_sendable_reference、napi_delete_strong_sendable_reference、napi_get_strong_sendable_reference_value** [使用扩展的Node-API接口创建、销毁和使用Sendable强引用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-sendable-reference)
+##### napi支持抛出错误对象的code属性类型为number的ArkTS Error
 
-## napi支持抛出错误对象的code属性类型为number的ArkTS Error
+  
 
-
-## 接口描述
-
-
+##### 接口描述
+ 
 | 接口 | 描述 |
 | --- | --- |
 | napi_throw_business_error | 抛出带文本信息的ArkTS Error，其错误对象的code属性类型为number。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
-
-**napi_throw_business_error** [使用扩展的Node-API接口抛出ArkTS异常](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-error)
+**napi_throw_business_error**
+ 
+[使用扩展的Node-API接口抛出ArkTS异常](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-error)

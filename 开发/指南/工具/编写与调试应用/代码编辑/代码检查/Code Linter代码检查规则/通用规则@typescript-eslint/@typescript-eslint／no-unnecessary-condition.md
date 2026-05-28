@@ -5,27 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-unnecessary-condition
 
 不允许使用类型始终为真或始终为假的表达式作为判断条件。
+ 
 
+ 
 
-## 规则配置
+##### 规则配置
 
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-unnecessary-condition": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-unnecessary-condition选项](https://typescript-eslint.nodejs.cn/rules/no-unnecessary-condition/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 const index = 0;
@@ -49,10 +52,10 @@ export function bar(arg?: string | null) {
   return arg?.length;
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 const index = 0;
@@ -76,13 +79,13 @@ export function bar(arg: string) {
   return arg?.length;
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

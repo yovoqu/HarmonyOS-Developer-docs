@@ -3,67 +3,63 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明与绘图模块中的错误码相关的函数。
-
+ 
 **引用文件：** <native_drawing/drawing_error_code.h>
-
+ 
 **库：** libnative_drawing.so
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [Drawing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_Drawing_ErrorCode](#oh_drawing_errorcode) | OH_Drawing_ErrorCode | 枚举本模块可能产生的错误码。 |
+| OH_Drawing_ErrorCode | OH_Drawing_ErrorCode | 枚举本模块可能产生的错误码。 |
+ 
+ 
+  
 
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 函数
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [OH_Drawing_ErrorCode OH_Drawing_ErrorCodeGet()](#oh_drawing_errorcodeget) | 获取本模块的错误码。 |
-| [void OH_Drawing_ErrorCodeReset(void)](#oh_drawing_errorcodereset) | 将本模块的错误码重置为OH_DRAWING_SUCCESS。 通过[OH_Drawing_ErrorCodeGet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcodeget)获取的本模块错误码会在不以错误码为返回值的接口执行失败时被置为对应的错误编号，但是不会在执行成功后被重置为OH_DRAWING_SUCCESS。 调用本接口可将错误码重置为OH_DRAWING_SUCCESS，避免多个接口间互相干扰，方便开发者调试。 |
+| OH_Drawing_ErrorCode OH_Drawing_ErrorCodeGet() | 获取本模块的错误码。 |
+| void OH_Drawing_ErrorCodeReset(void) | 将本模块的错误码重置为OH_DRAWING_SUCCESS。 通过OH_Drawing_ErrorCodeGet获取的本模块错误码会在不以错误码为返回值的接口执行失败时被置为对应的错误编号，但是不会在执行成功后被重置为OH_DRAWING_SUCCESS。 调用本接口可将错误码重置为OH_DRAWING_SUCCESS，避免多个接口间互相干扰，方便开发者调试。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_Drawing_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Drawing_ErrorCode
 
 ```text
 enum OH_Drawing_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 枚举本模块可能产生的错误码。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_DRAWING_SUCCESS = 0 | 操作成功完成。 |
@@ -80,52 +76,51 @@ enum OH_Drawing_ErrorCode
 | OH_DRAWING_ERROR_READ_FILE_FAILED = 26200009 | 读取文件失败，文件无法完整读取或包含不可读数据。 起始版本： 23 |
 | OH_DRAWING_ERROR_EMPTY_FILE = 26200010 | 文件为空，指定的字体文件为空，不包含有效数据。 起始版本： 23 |
 | OH_DRAWING_ERROR_FILE_CORRUPTED = 26200011 | 文件损坏，文件内容无效或损坏，无法解析。 起始版本： 23 |
+ 
+ 
+  
 
+##### 函数说明
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_Drawing_ErrorCodeGet()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Drawing_ErrorCodeGet()
 
 ```text
 OH_Drawing_ErrorCode OH_Drawing_ErrorCodeGet()
 ```
-
+ 
 **描述**
-
+ 
 获取本模块的错误码。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
-
+ 
 **起始版本：** 12
-
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [OH_Drawing_ErrorCode](#oh_drawing_errorcode) | 获取本模块的最近一次的错误码。当函数成功运行后，本函数返回的错误码不会被修改。 |
+| OH_Drawing_ErrorCode | 获取本模块的最近一次的错误码。当函数成功运行后，本函数返回的错误码不会被修改。 |
+ 
+ 
+  
 
-
-### OH_Drawing_ErrorCodeReset()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Drawing_ErrorCodeReset()
 
 ```text
 void OH_Drawing_ErrorCodeReset(void)
 ```
-
+ 
 **描述**
-
+ 
 将本模块的错误码重置为OH_DRAWING_SUCCESS。
-
+ 
 通过[OH_Drawing_ErrorCodeGet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcodeget)获取的本模块错误码会在不以错误码为返回值的接口执行失败时被置为对应的错误编号，但是不会在执行成功后被重置为OH_DRAWING_SUCCESS。
-
+ 
 调用本接口可将错误码重置为OH_DRAWING_SUCCESS，避免多个接口间互相干扰，方便开发者调试。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
-
+ 
 **起始版本：** 18

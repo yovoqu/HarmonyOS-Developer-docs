@@ -8,4 +8,4 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：FormLocation； API声明：STANDBY = 8 差异内容：STANDBY = 8 | api/@ohos.app.form.formInfo.d.ts |
 | 新增API | NA | 类名：formProvider； API声明：function closeFormEditAbility(isMainPage?: boolean): void; 差异内容：function closeFormEditAbility(isMainPage?: boolean): void; | api/@ohos.app.form.formProvider.d.ts |
-| 新增API | NA | 类名：FormEditExtensionContext； API声明：startUIAbility(want: Want): Promise<void>; 差异内容：startUIAbility(want: Want): Promise<void>; | api/application/FormEditExtensionContext.d.ts |
+| 新增API | NA | 类名：FormEditExtensionContext； API声明：startUIAbility(want: Want): Promise&lt;void&gt;; 差异内容：startUIAbility(want: Want): Promise&lt;void&gt;; | api/application/FormEditExtensionContext.d.ts |

@@ -3,7 +3,7 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-linkedlist
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LinkedList底层通过双向链表实现，每个节点都包含对前一个元素和后一个元素的引用。查询元素时，可以从头或从尾部遍历，插入和删除效率高，查询效率低。LinkedList允许元素为null。
 
@@ -11,50 +11,52 @@ LinkedList和[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 LinkedList和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist)相比，LinkedList插入数据效率高于ArrayList，而ArrayList查询效率高于LinkedList。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/3FSCBfvGTMqQ1yXZTWQakQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T083820Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=3280EBFEBE99CD8AA6D4EC1E8CBB1E2BBDB68D52CBF114C4A93E223ADFFF1198)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/1MB6r2PwSOKX67C1I4KQTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014018Z&HW-CC-Expire=86400&HW-CC-Sign=4675FB52214A8B3A3736304DD34862E2AFF05C68498BE5ECD543F18FFA8CE55C)
+
+
 在LinkedList中使用[index]的方式获取元素可能导致未定义结果，推荐使用get()方法。
+
+
 
 **推荐使用场景：** 当需要频繁的插入删除元素且需要使用双向链表时，推荐使用LinkedList。
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- T： Type，类
+ - T： Type，类
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { LinkedList } from '@kit.ArkTS';
 ```
 
 
-## LinkedList
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### LinkedList
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | LinkedList的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -68,7 +70,6 @@ LinkedList的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The LinkedList's constructor cannot be directly invoked. |
@@ -76,14 +77,13 @@ LinkedList的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<string | number | boolean | object>();
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 add(element: T): boolean
 
@@ -95,14 +95,12 @@ add(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 待插入的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -113,7 +111,6 @@ add(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The add method cannot be bound. |
@@ -121,26 +118,25 @@ add(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<string | number | boolean | object>();
-let result = linkedList.add('a');
+let result = linkedList.add("a");
 let result1 = linkedList.add(1);
 let b = [1, 2, 3];
 let result2 = linkedList.add(b);
 class C {
-  name: string = '';
-  age: string = '';
+  name: string = ''
+  age: string = ''
 }
-let c: C = { name: 'Dylan', age: '13' };
+let c: C = {name : "Dylan", age : "13"};
 let result3 = linkedList.add(c);
 let result4 = linkedList.add(false);
-console.info('result = ', result4); // result =  true
+console.info("result = ", result4) // result =  true
 ```
 
 
-### addFirst
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addFirst
 
 addFirst(element: T): void
 
@@ -152,7 +148,6 @@ addFirst(element: T): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 待插入的元素。 |
@@ -162,7 +157,6 @@ addFirst(element: T): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The addFirst method cannot be bound. |
@@ -170,27 +164,26 @@ addFirst(element: T): void
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<string | number | boolean | object>();
-linkedList.addFirst('a');
+linkedList.addFirst("a");
 linkedList.addFirst(1);
 let b = [1, 2, 3];
 linkedList.addFirst(b);
 class C {
-  name: string = '';
-  age: string = '';
+  name: string = ''
+  age: string = ''
 }
-let c: C = { name: 'Dylan', age: '13' };
+let c: C = {name : "Dylan", age : "13"};
 linkedList.addFirst(c);
 linkedList.addFirst(false);
 let result = linkedList.get(2);
-console.info('result:', result); // result: 1,2,3
+console.info("result:", result);  // result: 1,2,3
 ```
 
 
-### insert
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### insert
 
 insert(index: number, element: T): void
 
@@ -202,7 +195,6 @@ insert(index: number, element: T): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 插入位置索引。需要小于等于int32_max即2147483647。 |
@@ -213,7 +205,6 @@ insert(index: number, element: T): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -223,19 +214,18 @@ insert(index: number, element: T): void
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<string | number | boolean | object>();
-linkedList.insert(0, 'A');
+linkedList.insert(0, "A");
 linkedList.insert(1, 0);
 linkedList.insert(2, true);
 let result = linkedList.get(1);
-console.info('result:', result); // result: 0
+console.info("result:", result);  // result: 0
 ```
 
 
-### has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(element: T): boolean
 
@@ -247,14 +237,12 @@ has(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -265,7 +253,6 @@ has(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The has method cannot be bound. |
@@ -273,17 +260,16 @@ has(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<string>();
-linkedList.add('squirrel');
-let result = linkedList.has('squirrel');
-console.info('result:', result); // result: true
+linkedList.add("squirrel");
+let result = linkedList.has("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### get
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### get
 
 get(index: number): T
 
@@ -295,14 +281,12 @@ get(index: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定的下标值。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -313,7 +297,6 @@ get(index: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -322,8 +305,7 @@ get(index: number): T
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -333,12 +315,12 @@ linkedList.add(1);
 linkedList.add(2);
 linkedList.add(4);
 let result = linkedList.get(2);
-console.info('result:', result); // result: 5
+console.info("result:", result);  // result: 5
 ```
 
 
-### getLastIndexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLastIndexOf
 
 getLastIndexOf(element: T): number
 
@@ -350,14 +332,12 @@ getLastIndexOf(element: T): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -368,7 +348,6 @@ getLastIndexOf(element: T): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getLastIndexOf method cannot be bound. |
@@ -376,8 +355,7 @@ getLastIndexOf(element: T): number
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -387,12 +365,12 @@ linkedList.add(1);
 linkedList.add(2);
 linkedList.add(4);
 let result = linkedList.getLastIndexOf(2);
-console.info('result:', result); // result: 5
+console.info("result:", result);  // result: 5
 ```
 
 
-### getIndexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getIndexOf
 
 getIndexOf(element: T): number
 
@@ -404,14 +382,12 @@ getIndexOf(element: T): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -422,7 +398,6 @@ getIndexOf(element: T): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getIndexOf method cannot be bound. |
@@ -430,8 +405,7 @@ getIndexOf(element: T): number
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -441,12 +415,12 @@ linkedList.add(1);
 linkedList.add(2);
 linkedList.add(4);
 let result = linkedList.getIndexOf(2);
-console.info('result:', result); // result: 0
+console.info("result:", result);  // result: 0
 ```
 
 
-### removeByIndex
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeByIndex
 
 removeByIndex(index: number): T
 
@@ -458,14 +432,12 @@ removeByIndex(index: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定元素的下标值。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -476,7 +448,6 @@ removeByIndex(index: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -486,8 +457,7 @@ removeByIndex(index: number): T
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -495,12 +465,12 @@ linkedList.add(5);
 linkedList.add(2);
 linkedList.add(4);
 let result = linkedList.removeByIndex(2);
-console.info('result:', result); // result: 5
+console.info("result:", result);  // result: 5
 ```
 
 
-### removeFirst
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeFirst
 
 removeFirst(): T
 
@@ -512,7 +482,6 @@ removeFirst(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回删除的元素。 |
@@ -522,7 +491,6 @@ removeFirst(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200010 | Container is empty. |
@@ -531,8 +499,7 @@ removeFirst(): T
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -540,12 +507,12 @@ linkedList.add(5);
 linkedList.add(2);
 linkedList.add(4);
 let result = linkedList.removeFirst();
-console.info('result:', result); // result: 2
+console.info("result:", result);  // result: 2
 ```
 
 
-### removeLast
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeLast
 
 removeLast(): T
 
@@ -557,7 +524,6 @@ removeLast(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回删除的元素。 |
@@ -567,7 +533,6 @@ removeLast(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200010 | Container is empty. |
@@ -576,8 +541,7 @@ removeLast(): T
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -585,12 +549,12 @@ linkedList.add(5);
 linkedList.add(2);
 linkedList.add(4);
 let result = linkedList.removeLast();
-console.info('result:', result); // result: 4
+console.info("result:", result);  // result: 4
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove
 
 remove(element: T): boolean
 
@@ -602,14 +566,12 @@ remove(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -620,7 +582,6 @@ remove(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The remove method cannot be bound. |
@@ -628,20 +589,19 @@ remove(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 let result = linkedList.remove(2);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### removeFirstFound
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeFirstFound
 
 removeFirstFound(element: T): boolean
 
@@ -653,14 +613,12 @@ removeFirstFound(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -671,7 +629,6 @@ removeFirstFound(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200010 | Container is empty. |
@@ -681,20 +638,19 @@ removeFirstFound(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 let result = linkedList.removeFirstFound(4);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### removeLastFound
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeLastFound
 
 removeLastFound(element: T): boolean
 
@@ -706,14 +662,12 @@ removeLastFound(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -724,7 +678,6 @@ removeLastFound(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200010 | Container is empty. |
@@ -734,22 +687,21 @@ removeLastFound(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 let result = linkedList.removeLastFound(4);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### clone
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-clone(): LinkedList<T>
+##### clone
+
+clone(): LinkedList&lt;T&gt;
 
 克隆一个与LinkedList相同的实例并返回。修改克隆后的实例并不会影响原实例。
 
@@ -758,7 +710,6 @@ clone(): LinkedList<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -769,7 +720,6 @@ clone(): LinkedList<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clone method cannot be bound. |
@@ -777,22 +727,21 @@ clone(): LinkedList<T>
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 let result = linkedList.clone();
-console.info('result:', result.has(4)); // result: true
+console.info("result:", result.has(4));  // result: true
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => void, thisArg?: Object): void
+##### forEach
+
+forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList&lt;T&gt;) => void, thisArg?: Object): void
 
 通过回调函数来遍历LinkedList实例对象上的元素以及其下标。
 
@@ -802,7 +751,6 @@ forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -810,7 +758,6 @@ forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList<T>) => vo
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -823,7 +770,6 @@ callbackFn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -832,15 +778,14 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 linkedList.forEach((value: number, index: number) => {
-  console.info('value:' + value, 'index:' + index);
+  console.info("value:" + value, "index:" + index);
 });
 // value:2 index:0
 // value:4 index:1
@@ -849,8 +794,8 @@ linkedList.forEach((value: number, index: number) => {
 ```
 
 
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -864,7 +809,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound. |
@@ -872,8 +816,7 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -881,12 +824,12 @@ linkedList.add(5);
 linkedList.add(4);
 linkedList.clear();
 let result = linkedList.has(2);
-console.info('result:', result); // result: false
+console.info("result:", result);  // result: false
 ```
 
 
-### set
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### set
 
 set(index: number, element: T): T
 
@@ -898,7 +841,6 @@ set(index: number, element: T): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 查找的下标值。需要小于等于int32_max即2147483647。 |
@@ -906,7 +848,6 @@ set(index: number, element: T): T
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -917,7 +858,6 @@ set(index: number, element: T): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -927,22 +867,21 @@ set(index: number, element: T): T
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number | string>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
-let result = linkedList.set(2, 'b');
-console.info('result:', result); // result: b
+let result = linkedList.set(2, "b");
+console.info("result:", result);  // result: b
 ```
 
 
-### convertToArray
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-convertToArray(): Array<T>
+##### convertToArray
+
+convertToArray(): Array&lt;T&gt;
 
 将当前LinkedList实例转换成数组并返回。
 
@@ -951,7 +890,6 @@ convertToArray(): Array<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -962,7 +900,6 @@ convertToArray(): Array<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The convertToArray method cannot be bound. |
@@ -970,20 +907,19 @@ convertToArray(): Array<T>
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 let result = linkedList.convertToArray();
-console.info('result:', result); // result: 2,4,5,4
+console.info("result:", result);  // result: 2,4,5,4
 ```
 
 
-### getFirst
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFirst
 
 getFirst(): T
 
@@ -995,7 +931,6 @@ getFirst(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回对应元素，若元素为空则返回undefined。 |
@@ -1005,7 +940,6 @@ getFirst(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getFirst method cannot be bound. |
@@ -1013,20 +947,19 @@ getFirst(): T
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 let result = linkedList.getFirst();
-console.info('result:', result); // result: 2
+console.info("result:", result);  // result: 2
 ```
 
 
-### getLast
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLast
 
 getLast(): T
 
@@ -1038,7 +971,6 @@ getLast(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回对应元素，若元素为空则返回undefined。 |
@@ -1048,7 +980,6 @@ getLast(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getLast method cannot be bound. |
@@ -1056,22 +987,21 @@ getLast(): T
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
 linkedList.add(5);
 linkedList.add(4);
 let result = linkedList.getLast();
-console.info('result:', result); // result: 4
+console.info("result:", result);  // result: 4
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<T>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;T&gt;
 
 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
 
@@ -1080,7 +1010,6 @@ console.info('result:', result); // result: 4
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1091,7 +1020,6 @@ console.info('result:', result); // result: 4
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -1099,8 +1027,7 @@ console.info('result:', result); // result: 4
 
 **示例：**
 
-
-```ts
+```text
 let linkedList = new LinkedList<number>();
 linkedList.add(2);
 linkedList.add(4);
@@ -1109,7 +1036,7 @@ linkedList.add(4);
 
 // 使用方法一：
 for (let item of linkedList) {
-  console.info('value:', item);
+  console.info("value:", item);
 }
 // value: 2
 // value: 4
@@ -1119,8 +1046,8 @@ for (let item of linkedList) {
 // 使用方法二：
 let iter = linkedList[Symbol.iterator]();
 let temp: IteratorResult<number> = iter.next();
-while (!temp.done) {
-  console.info('value:', temp.value);
+while(!temp.done) {
+  console.info("value:", temp.value);
   temp = iter.next();
 }
 // value: 2

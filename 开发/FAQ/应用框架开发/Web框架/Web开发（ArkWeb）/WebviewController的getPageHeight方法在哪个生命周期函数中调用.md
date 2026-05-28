@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-89
 
-在网页渲染完成的回调onFirstContentfulPaint中使用Web的getPageHeight方法获取高度。
+在网页渲染完成的回调[onFirstContentfulPaint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onfirstcontentfulpaint10)中使用Web的getPageHeight方法获取高度。

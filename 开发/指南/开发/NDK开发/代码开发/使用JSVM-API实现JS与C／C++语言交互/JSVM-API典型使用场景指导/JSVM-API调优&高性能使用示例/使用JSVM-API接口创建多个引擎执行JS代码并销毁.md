@@ -4,22 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-runtime-task
 
-## 场景介绍
+##### 场景介绍
 
 开发者通过createJsCore方法来创建一个新的JS运行时环境，并通过该方法获得一个CoreID。然后，通过evaluateJS方法使用CoreID对应的运行环境来运行JS代码，在JS代码中创建promise并异步执行函数。最后，使用releaseJsCore方法来销毁CoreID对应的运行环境。
+ 
+  
 
-## 使用示例
+##### 使用示例
 
-JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。 创建多个JS运行时环境并运行JS代码
-```text
-#include
-#include
-#include
+JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
+ 
+创建多个JS运行时环境并运行JS代码
+ 
+```json
+#include <map>
+#include <mutex>
+#include <deque>
 using namespace std;
 // 定义map管理每个独立vm环境
-static map g_vmMap;
-static map g_envMap;
-static map g_callBackStructMap;
+static map<int, JSVM_VM *> g_vmMap;
+static map<int, JSVM_Env *> g_envMap;
+static map<int, JSVM_CallbackStruct *> g_callBackStructMap;
 static uint32_t ENVTAG_NUMBER = 0;
 static std::mutex envMapLock;
 static int g_aa = 0;
@@ -37,7 +42,7 @@ public:
     virtual ~Task() = default;
     virtual void Run() = 0;
 };
-static map> g_taskQueueMap;
+static map<int, deque<Task *>> g_taskQueueMap;
 
 // 自定义ConsoleInfo方法
 static JSVM_Value ConsoleInfo(JSVM_Env env, JSVM_CallbackInfo info) {
@@ -147,7 +152,7 @@ static int fromOHStringValue(JSVM_Env &env, JSVM_Value &value, std::string &resu
 // 提供创建JSVM运行环境的对外接口并返回对应唯一ID
 static int CreateJsCore(uint32_t *result) {
     OH_LOG_INFO(LOG_APP, "JSVM CreateJsCore START");
-    g_taskQueueMap[ENVTAG_NUMBER] = deque{};
+    g_taskQueueMap[ENVTAG_NUMBER] = deque<Task *>{};
 
     if (g_aa == 0) {
         JSVM_InitOptions init_options;
@@ -155,7 +160,7 @@ static int CreateJsCore(uint32_t *result) {
         CHECK(OH_JSVM_Init(&init_options));
         g_aa++;
     }
-    std::lock_guard lock_guard(envMapLock);
+    std::lock_guard<std::mutex> lock_guard(envMapLock);
 
     // 虚拟机实例
     g_vmMap[ENVTAG_NUMBER] = new JSVM_VM;
@@ -170,8 +175,33 @@ static int CreateJsCore(uint32_t *result) {
     g_callBackStructMap[ENVTAG_NUMBER] = new JSVM_CallbackStruct[4];
 
     // 注册用户提供的本地函数的回调函数指针和数据，通过JSVM-API暴露给js
-    for (int i = 0; i  lock_guard(envMapLock);
+    for (int i = 0; i < 4; i++) {
+        g_callBackStructMap[ENVTAG_NUMBER][i].data = nullptr;
+    }
+    g_callBackStructMap[ENVTAG_NUMBER][0].callback = ConsoleInfo;
+    g_callBackStructMap[ENVTAG_NUMBER][1].callback = Add;
+    g_callBackStructMap[ENVTAG_NUMBER][2].callback = AssertEqual;
+    g_callBackStructMap[ENVTAG_NUMBER][3].callback = CreatePromise;
+    JSVM_PropertyDescriptor descriptors[] = {
+        {"consoleinfo", NULL, &g_callBackStructMap[ENVTAG_NUMBER][0], NULL, NULL, NULL, JSVM_DEFAULT},
+        {"add", NULL, &g_callBackStructMap[ENVTAG_NUMBER][1], NULL, NULL, NULL, JSVM_DEFAULT},
+        {"assertEqual", NULL, &g_callBackStructMap[ENVTAG_NUMBER][2], NULL, NULL, NULL, JSVM_DEFAULT},
+        {"createPromise", NULL, &g_callBackStructMap[ENVTAG_NUMBER][3], NULL, NULL, NULL, JSVM_DEFAULT},
+    };
+    CHECK(OH_JSVM_CreateEnv(*g_vmMap[ENVTAG_NUMBER], sizeof(descriptors) / sizeof(descriptors[0]), descriptors,
+                            g_envMap[ENVTAG_NUMBER]));
+    CHECK(OH_JSVM_CloseVMScope(*g_vmMap[ENVTAG_NUMBER], vmScope));
 
+    OH_LOG_INFO(LOG_APP, "JSVM CreateJsCore END");
+    *result = ENVTAG_NUMBER;
+    ENVTAG_NUMBER++;
+    return 0;
+}
+
+// 对外提供释放JSVM环境接口，通过envId释放对应环境
+static int ReleaseJsCore(uint32_t coreEnvId) {
+    std::lock_guard<std::mutex> lock_guard(envMapLock);
+    
     OH_LOG_INFO(LOG_APP, "JSVM ReleaseJsCore START");
     CHECK_COND(g_envMap.count(coreEnvId) != 0 && g_envMap[coreEnvId] != nullptr);
 
@@ -204,7 +234,7 @@ static int EvaluateJS(uint32_t envId, const char *source, std::string &res) {
     JSVM_HandleScope handleScope;
     JSVM_Value result;
 
-    std::lock_guard lock_guard(mutexLock);
+    std::lock_guard<std::mutex> lock_guard(mutexLock);
     {
         // 创建JSVM环境
         CHECK_RET(OH_JSVM_OpenVMScope(vm, &vmScope));
@@ -307,8 +337,9 @@ static int32_t TestJSVM() {
     return 0;
 }
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM CreateJsCore START
 JSVM CreateJsCore END

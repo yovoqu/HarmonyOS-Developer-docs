@@ -1,28 +1,30 @@
 # Class (Canvas)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 承载绘制内容与绘制状态的载体。
+
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
 
 > [!NOTE]
 > 画布自带一个默认画刷，该画刷为黑色，开启反走样，不具备其他任何样式效果。当画布中没有主动设置画刷和画笔时，该默认画刷生效。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(pixelmap: image.PixelMap)
 
@@ -34,16 +36,14 @@ constructor(pixelmap: image.PixelMap)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 构造函数入参。 |
+| pixelmap | image.PixelMap | 是 | 构造函数入参。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -52,28 +52,27 @@ constructor(pixelmap: image.PixelMap)
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 import { image } from '@kit.ImageKit';
 
 const color = new ArrayBuffer(96);
-let opts: image.InitializationOptions = {
+let opts : image.InitializationOptions = {
   editable: true,
   pixelFormat: 3,
   size: {
     height: 4,
-    width: 6,
-  },
-};
+    width: 6
+  }
+}
 image.createPixelMap(color, opts).then((pixelMap) => {
   const canvas = new drawing.Canvas(pixelMap);
-});
+})
 ```
 
 
-## drawRect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawRect
 
 drawRect(rect: common2D.Rect): void
 
@@ -83,16 +82,14 @@ drawRect(rect: common2D.Rect): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 绘制的矩形区域。 |
+| rect | common2D.Rect | 是 | 绘制的矩形区域。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -101,27 +98,26 @@ drawRect(rect: common2D.Rect): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
-    canvas.drawRect({ left: 0, right: 10, top: 0, bottom: 10 });
+    canvas.drawRect({ left : 0, right : 10, top : 0, bottom : 10 });
     canvas.detachPen();
   }
 }
 ```
 
 
-## drawRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawRect12+
 
 drawRect(left: number, top: number, right: number, bottom: number): void
 
@@ -130,7 +126,6 @@ drawRect(left: number, top: number, right: number, bottom: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -144,7 +139,6 @@ drawRect(left: number, top: number, right: number, bottom: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -152,17 +146,17 @@ drawRect(left: number, top: number, right: number, bottom: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.drawRect(0, 0, 10, 10);
     canvas.detachPen();
@@ -171,8 +165,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawRoundRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawRoundRect12+
 
 drawRoundRect(roundRect: RoundRect): void
 
@@ -182,16 +176,14 @@ drawRoundRect(roundRect: RoundRect): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| roundRect | [RoundRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-roundrect) | 是 | 圆角矩形对象。 |
+| roundRect | RoundRect | 是 | 圆角矩形对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -200,15 +192,14 @@ drawRoundRect(roundRect: RoundRect): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let rect: common2D.Rect = { left: 100, top: 100, right: 400, bottom: 500 };
+    let rect: common2D.Rect = { left : 100, top : 100, right : 400, bottom : 500 };
     let roundRect = new drawing.RoundRect(rect, 10, 10);
     canvas.drawRoundRect(roundRect);
   }
@@ -216,8 +207,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawNestedRoundRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawNestedRoundRect12+
 
 drawNestedRoundRect(outer: RoundRect, inner: RoundRect): void
 
@@ -227,17 +218,15 @@ drawNestedRoundRect(outer: RoundRect, inner: RoundRect): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| outer | [RoundRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-roundrect) | 是 | 圆角矩形对象，表示外部圆角矩形边界。 |
-| inner | [RoundRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-roundrect) | 是 | 圆角矩形对象，表示内部圆角矩形边界。 |
+| outer | RoundRect | 是 | 圆角矩形对象，表示外部圆角矩形边界。 |
+| inner | RoundRect | 是 | 圆角矩形对象，表示内部圆角矩形边界。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -246,26 +235,15 @@ drawNestedRoundRect(outer: RoundRect, inner: RoundRect): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let inRect: common2D.Rect = {
-      left: 200,
-      top: 200,
-      right: 400,
-      bottom: 500,
-    };
-    let outRect: common2D.Rect = {
-      left: 100,
-      top: 100,
-      right: 400,
-      bottom: 500,
-    };
+    let inRect: common2D.Rect = { left : 200, top : 200, right : 400, bottom : 500 };
+    let outRect: common2D.Rect = { left : 100, top : 100, right : 400, bottom : 500 };
     let outRoundRect = new drawing.RoundRect(outRect, 10, 10);
     let inRoundRect = new drawing.RoundRect(inRect, 10, 10);
     canvas.drawNestedRoundRect(outRoundRect, inRoundRect);
@@ -275,8 +253,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawBackground12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawBackground12+
 
 drawBackground(brush: Brush): void
 
@@ -286,16 +264,14 @@ drawBackground(brush: Brush): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| brush | [Brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-brush) | 是 | 画刷对象。 |
+| brush | Brush | 是 | 画刷对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -304,16 +280,15 @@ drawBackground(brush: Brush): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const brush = new drawing.Brush();
-    const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
     brush.setColor(color);
     canvas.drawBackground(brush);
   }
@@ -321,8 +296,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawShadow12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawShadow12+
 
 drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number, ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void
 
@@ -332,22 +307,20 @@ drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Poin
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 路径对象，可生成阴影。 |
-| planeParams | [common2D.Point3d](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point3d12) | 是 | 表示一个三维向量，用于计算遮挡物相对于画布在z轴上的偏移量，其值取决于x与y坐标。 |
-| devLightPos | [common2D.Point3d](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point3d12) | 是 | 光线相对于画布的位置。 |
+| path | Path | 是 | 路径对象，可生成阴影。 |
+| planeParams | common2D.Point3d | 是 | 表示一个三维向量，用于计算遮挡物相对于画布在z轴上的偏移量，其值取决于x与y坐标。 |
+| devLightPos | common2D.Point3d | 是 | 光线相对于画布的位置。 |
 | lightRadius | number | 是 | 圆形灯半径，该参数为浮点数。 |
-| ambientColor | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) | 是 | 环境阴影颜色。 |
-| spotColor | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) | 是 | 点阴影颜色。 |
-| flag | [ShadowFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#shadowflag12) | 是 | 阴影标志枚举。 |
+| ambientColor | common2D.Color | 是 | 环境阴影颜色。 |
+| spotColor | common2D.Color | 是 | 点阴影颜色。 |
+| flag | ShadowFlag | 是 | 阴影标志枚举。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -356,49 +329,38 @@ drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Poin
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const path = new drawing.Path();
     path.addCircle(100, 200, 100, drawing.PathDirection.CLOCKWISE);
     let pen = new drawing.Pen();
     pen.setAntiAlias(true);
-    let pen_color: common2D.Color = {
-      alpha: 0xff,
-      red: 0xff,
-      green: 0x00,
-      blue: 0x00,
-    };
+    let pen_color : common2D.Color = { alpha: 0xFF, red: 0xFF, green: 0x00, blue: 0x00 };
     pen.setColor(pen_color);
     pen.setStrokeWidth(10.0);
     canvas.attachPen(pen);
     let brush = new drawing.Brush();
-    let brush_color: common2D.Color = {
-      alpha: 0xff,
-      red: 0x00,
-      green: 0xff,
-      blue: 0x00,
-    };
+    let brush_color : common2D.Color = { alpha: 0xFF, red: 0x00, green: 0xFF, blue: 0x00 };
     brush.setColor(brush_color);
     canvas.attachBrush(brush);
-    let point1: common2D.Point3d = { x: 100, y: 80, z: 80 };
-    let point2: common2D.Point3d = { x: 200, y: 10, z: 40 };
-    let color1: common2D.Color = { alpha: 0xff, red: 0, green: 0, blue: 0xff };
-    let color2: common2D.Color = { alpha: 0xff, red: 0xff, green: 0, blue: 0 };
-    let shadowFlag: drawing.ShadowFlag = drawing.ShadowFlag.ALL;
+    let point1 : common2D.Point3d = {x: 100, y: 80, z:80};
+    let point2 : common2D.Point3d = {x: 200, y: 10, z:40};
+    let color1 : common2D.Color = {alpha: 0xFF, red:0, green:0, blue:0xFF};
+    let color2 : common2D.Color = {alpha: 0xFF, red:0xFF, green:0, blue:0};
+    let shadowFlag : drawing.ShadowFlag = drawing.ShadowFlag.ALL;
     canvas.drawShadow(path, point1, point2, 30, color1, color2, shadowFlag);
   }
 }
 ```
 
 
-## drawShadow18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawShadow18+
 
 drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number, ambientColor: common2D.Color | number, spotColor: common2D.Color | number, flag: ShadowFlag) : void
 
@@ -408,22 +370,20 @@ drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Poin
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 路径对象，可生成阴影。 |
-| planeParams | [common2D.Point3d](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point3d12) | 是 | 表示一个三维向量，用于计算z轴方向的偏移量。 |
-| devLightPos | [common2D.Point3d](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point3d12) | 是 | 光线相对于画布的位置。 |
+| path | Path | 是 | 路径对象，可生成阴影。 |
+| planeParams | common2D.Point3d | 是 | 表示一个三维向量，用于计算z轴方向的偏移量。 |
+| devLightPos | common2D.Point3d | 是 | 光线相对于画布的位置。 |
 | lightRadius | number | 是 | 圆形灯半径，该参数为浮点数。 |
-| ambientColor | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) \| number | 是 | 环境阴影颜色，可以用16进制ARGB格式的32位无符号整数表示。 |
-| spotColor | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) \| number | 是 | 点阴影颜色，可以用16进制ARGB格式的32位无符号整数表示。 |
-| flag | [ShadowFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#shadowflag12) | 是 | 阴影标志枚举。 |
+| ambientColor | common2D.Color \| number | 是 | 环境阴影颜色，可以用16进制ARGB格式的32位无符号整数表示。 |
+| spotColor | common2D.Color \| number | 是 | 点阴影颜色，可以用16进制ARGB格式的32位无符号整数表示。 |
+| flag | ShadowFlag | 是 | 阴影标志枚举。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -432,35 +392,26 @@ drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Poin
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const path = new drawing.Path();
     path.addCircle(300, 600, 100, drawing.PathDirection.CLOCKWISE);
-    let point1: common2D.Point3d = { x: 100, y: 80, z: 80 };
-    let point2: common2D.Point3d = { x: 200, y: 10, z: 40 };
-    let shadowFlag: drawing.ShadowFlag = drawing.ShadowFlag.ALL;
-    canvas.drawShadow(
-      path,
-      point1,
-      point2,
-      30,
-      0xff0000ff,
-      0xffff0000,
-      shadowFlag,
-    );
+    let point1 : common2D.Point3d = {x: 100, y: 80, z:80};
+    let point2 : common2D.Point3d = {x: 200, y: 10, z:40};
+    let shadowFlag : drawing.ShadowFlag = drawing.ShadowFlag.ALL;
+    canvas.drawShadow(path, point1, point2, 30, 0xFF0000FF, 0xFFFF0000, shadowFlag);
   }
 }
 ```
 
 
-## getLocalClipBounds12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLocalClipBounds12+
 
 getLocalClipBounds(): common2D.Rect
 
@@ -470,41 +421,36 @@ getLocalClipBounds(): common2D.Rect
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 返回画布裁剪区域的矩形边界。 |
+| common2D.Rect | 返回画布裁剪区域的矩形边界。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let clipRect: common2D.Rect = {
-      left: 150,
-      top: 150,
-      right: 300,
-      bottom: 400,
+      left : 150, top : 150, right : 300, bottom : 400
     };
-    canvas.clipRect(clipRect, drawing.ClipOp.DIFFERENCE, true);
-    console.info('test rect.left: ' + clipRect.left);
-    console.info('test rect.top: ' + clipRect.top);
-    console.info('test rect.right: ' + clipRect.right);
-    console.info('test rect.bottom: ' + clipRect.bottom);
+    canvas.clipRect(clipRect,drawing.ClipOp.DIFFERENCE, true);
+    console.info("test rect.left: " + clipRect.left);
+    console.info("test rect.top: " + clipRect.top);
+    console.info("test rect.right: " + clipRect.right);
+    console.info("test rect.bottom: " + clipRect.bottom);
     canvas.getLocalClipBounds();
   }
 }
 ```
 
 
-## getTotalMatrix12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getTotalMatrix12+
 
 getTotalMatrix(): Matrix
 
@@ -514,33 +460,31 @@ getTotalMatrix(): Matrix
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 返回画布矩阵。 |
+| Matrix | 返回画布矩阵。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let matrix = new drawing.Matrix();
     matrix.setMatrix([5, 0, 0, 0, 1, 1, 0, 0, 1]);
     canvas.setMatrix(matrix);
-    let matrixResult = canvas.getTotalMatrix();
+    let matrixResult =canvas.getTotalMatrix();
   }
 }
 ```
 
 
-## drawCircle
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawCircle
 
 drawCircle(x: number, y: number, radius: number): void
 
@@ -549,7 +493,6 @@ drawCircle(x: number, y: number, radius: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -562,7 +505,6 @@ drawCircle(x: number, y: number, radius: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed. |
@@ -570,17 +512,16 @@ drawCircle(x: number, y: number, radius: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.drawCircle(10, 10, 2);
     canvas.detachPen();
@@ -589,8 +530,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawImage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawImage
 
 drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?: SamplingOptions): void
 
@@ -600,19 +541,17 @@ drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?:
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 图片的PixelMap。 |
+| pixelmap | image.PixelMap | 是 | 图片的PixelMap。 |
 | left | number | 是 | 图片位置的左上角x轴坐标，该参数为浮点数。 |
 | top | number | 是 | 图片位置的左上角y轴坐标，该参数为浮点数。 |
-| samplingOptions12+ | [SamplingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-samplingoptions) | 否 | 采样选项对象，默认为不使用任何参数构造的原始采样选项对象。 |
+| samplingOptions12+ | SamplingOptions | 否 | 采样选项对象，默认为不使用任何参数构造的原始采样选项对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -621,14 +560,13 @@ drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?:
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const width = 1000;
     const height = 1000;
     const bufferSize = width * height * 4;
@@ -637,22 +575,20 @@ class DrawingRenderNode extends RenderNode {
     const colorData = new Uint8Array(color);
     for (let i = 0; i < colorData.length; i += 4) {
       colorData[i] = 255;
-      colorData[i + 1] = 156;
-      colorData[i + 2] = 0;
-      colorData[i + 3] = 255;
+      colorData[i+1] = 156;
+      colorData[i+2] = 0;
+      colorData[i+3] = 255;
     }
 
-    let opts: image.InitializationOptions = {
+    let opts : image.InitializationOptions = {
       editable: true,
       pixelFormat: 3,
-      size: { height, width },
-    };
+      size: { height, width }
+    }
 
     let pixelMap: image.PixelMap = image.createPixelMapSync(color, opts);
     const canvas = context.canvas;
-    let options = new drawing.SamplingOptions(
-      drawing.FilterMode.FILTER_MODE_NEAREST,
-    );
+    let options = new drawing.SamplingOptions(drawing.FilterMode.FILTER_MODE_NEAREST);
     if (pixelMap != null) {
       canvas.drawImage(pixelMap, 0, 0, options);
     }
@@ -661,8 +597,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawImageRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawImageRect12+
 
 drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void
 
@@ -672,18 +608,16 @@ drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 图片的PixelMap。 |
-| dstRect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 矩形对象，用于指定画布上图片的绘制区域。 |
-| samplingOptions | [SamplingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-samplingoptions) | 否 | 采样选项对象，默认为不使用任何参数构造的原始采样选项对象。 |
+| pixelmap | image.PixelMap | 是 | 图片的PixelMap。 |
+| dstRect | common2D.Rect | 是 | 矩形对象，用于指定画布上图片的绘制区域。 |
+| samplingOptions | SamplingOptions | 否 | 采样选项对象，默认为不使用任何参数构造的原始采样选项对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -692,14 +626,13 @@ drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const width = 1000;
     const height = 1000;
     const bufferSize = width * height * 4;
@@ -708,16 +641,16 @@ class DrawingRenderNode extends RenderNode {
     const colorData = new Uint8Array(color);
     for (let i = 0; i < colorData.length; i += 4) {
       colorData[i] = 255;
-      colorData[i + 1] = 156;
-      colorData[i + 2] = 0;
-      colorData[i + 3] = 255;
+      colorData[i+1] = 156;
+      colorData[i+2] = 0;
+      colorData[i+3] = 255;
     }
 
-    let opts: image.InitializationOptions = {
+    let opts : image.InitializationOptions = {
       editable: true,
       pixelFormat: 3,
-      size: { height, width },
-    };
+      size: { height, width }
+    }
 
     let pixelMap: image.PixelMap = image.createPixelMapSync(color, opts);
     const canvas = context.canvas;
@@ -731,8 +664,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawImageRectWithSrc12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawImageRectWithSrc12+
 
 drawImageRectWithSrc(pixelmap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect, samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void
 
@@ -742,20 +675,18 @@ drawImageRectWithSrc(pixelmap: image.PixelMap, srcRect: common2D.Rect, dstRect: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 图片的PixelMap。 |
-| srcRect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 矩形对象，用于指定图片的待绘制区域。 |
-| dstRect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 矩形对象，用于指定画布上图片的绘制区域。 |
-| samplingOptions | [SamplingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-samplingoptions) | 否 | 采样选项对象，默认为不使用任何参数构造的原始采样选项对象。 |
-| constraint | [SrcRectConstraint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#srcrectconstraint12) | 否 | 源矩形区域约束类型，默认为STRICT。 |
+| pixelmap | image.PixelMap | 是 | 图片的PixelMap。 |
+| srcRect | common2D.Rect | 是 | 矩形对象，用于指定图片的待绘制区域。 |
+| dstRect | common2D.Rect | 是 | 矩形对象，用于指定画布上图片的绘制区域。 |
+| samplingOptions | SamplingOptions | 否 | 采样选项对象，默认为不使用任何参数构造的原始采样选项对象。 |
+| constraint | SrcRectConstraint | 否 | 源矩形区域约束类型，默认为STRICT。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -764,14 +695,13 @@ drawImageRectWithSrc(pixelmap: image.PixelMap, srcRect: common2D.Rect, dstRect: 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const width = 1000;
     const height = 1000;
     const bufferSize = width * height * 4;
@@ -780,28 +710,23 @@ class DrawingRenderNode extends RenderNode {
     const colorData = new Uint8Array(color);
     for (let i = 0; i < colorData.length; i += 4) {
       colorData[i] = 255;
-      colorData[i + 1] = 156;
-      colorData[i + 2] = 0;
-      colorData[i + 3] = 255;
+      colorData[i+1] = 156;
+      colorData[i+2] = 0;
+      colorData[i+3] = 255;
     }
 
-    let opts: image.InitializationOptions = {
+    let opts : image.InitializationOptions = {
       editable: true,
       pixelFormat: 3,
-      size: { height, width },
-    };
+      size: { height, width }
+    }
 
     let pixelMap: image.PixelMap = image.createPixelMapSync(color, opts);
     const canvas = context.canvas;
     let pen = new drawing.Pen();
     canvas.attachPen(pen);
     let srcRect: common2D.Rect = { left: 0, top: 0, right: 100, bottom: 100 };
-    let dstRect: common2D.Rect = {
-      left: 100,
-      top: 100,
-      right: 200,
-      bottom: 200,
-    };
+    let dstRect: common2D.Rect = { left: 100, top: 100, right: 200, bottom: 200 };
     canvas.drawImageRectWithSrc(pixelMap, srcRect, dstRect);
     canvas.detachPen();
   }
@@ -809,8 +734,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawColor
 
 drawColor(color: common2D.Color, blendMode?: BlendMode): void
 
@@ -820,17 +745,15 @@ drawColor(color: common2D.Color, blendMode?: BlendMode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
-| blendMode | [BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode) | 否 | 颜色混合模式，默认模式为SRC_OVER。 |
+| color | common2D.Color | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
+| blendMode | BlendMode | 否 | 颜色混合模式，默认模式为SRC_OVER。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -839,28 +762,27 @@ drawColor(color: common2D.Color, blendMode?: BlendMode): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let color: common2D.Color = {
-      alpha: 255,
+      alpha : 255,
       red: 0,
       green: 10,
-      blue: 10,
-    };
+      blue: 10
+    }
     canvas.drawColor(color, drawing.BlendMode.CLEAR);
   }
 }
 ```
 
 
-## drawColor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawColor12+
 
 drawColor(alpha: number, red: number, green: number, blue: number, blendMode?: BlendMode): void
 
@@ -870,20 +792,18 @@ drawColor(alpha: number, red: number, green: number, blue: number, blendMode?: B
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | alpha | number | 是 | ARGB格式颜色的透明度通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。 |
 | red | number | 是 | ARGB格式颜色的红色通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。 |
 | green | number | 是 | ARGB格式颜色的绿色通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。 |
 | blue | number | 是 | ARGB格式颜色的蓝色通道值，该参数是0到255之间的整数，传入范围内的浮点数会向下取整。 |
-| blendMode | [BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode) | 否 | 颜色混合模式，默认模式为SRC_OVER。 |
+| blendMode | BlendMode | 否 | 颜色混合模式，默认模式为SRC_OVER。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -892,13 +812,12 @@ drawColor(alpha: number, red: number, green: number, blue: number, blendMode?: B
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     canvas.drawColor(255, 0, 10, 10, drawing.BlendMode.CLEAR);
   }
@@ -906,8 +825,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawColor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawColor18+
 
 drawColor(color: number, blendMode?: BlendMode): void
 
@@ -917,17 +836,15 @@ drawColor(color: number, blendMode?: BlendMode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | color | number | 是 | 16进制ARGB格式的颜色。 |
-| blendMode | [BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode) | 否 | 颜色混合模式，默认模式为SRC_OVER。 |
+| blendMode | BlendMode | 否 | 颜色混合模式，默认模式为SRC_OVER。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -936,13 +853,12 @@ drawColor(color: number, blendMode?: BlendMode): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     canvas.drawColor(0xff000a0a, drawing.BlendMode.CLEAR);
   }
@@ -950,10 +866,10 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawVertices23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-drawVertices(vertexMode: VertexMode, vertexCount: number, positions: Array<common2D.Point>, texs: Array<common2D.Point> | null, colors: Array<number> | null, indexCount: number, indices: Array<number> | null, mode: BlendMode): void
+##### drawVertices23+
+
+drawVertices(vertexMode: VertexMode, vertexCount: number, positions: Array<common2D.Point>, texs: Array<common2D.Point> | null, colors: Array&lt;number&gt; | null, indexCount: number, indices: Array&lt;number&gt; | null, mode: BlendMode): void
 
 绘制顶点数组描述的三角网格。
 
@@ -961,23 +877,21 @@ drawVertices(vertexMode: VertexMode, vertexCount: number, positions: Array<commo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| vertexMode | [VertexMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#vertexmode23) | 是 | 绘制顶点的连接方式。 |
+| vertexMode | VertexMode | 是 | 绘制顶点的连接方式。 |
 | vertexCount | number | 是 | 顶点数组元素的数量，值为大于等于3的整数。 |
-| positions | [Array&lt;common2D.Point&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12) | 是 | 描述顶点位置的数组，不能为空，其长度必须等于vertexCount。 |
-| texs | [Array&lt;common2D.Point&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12) \| null | 是 | 描述顶点对应纹理空间坐标的数组。其可以为空，表明纹理空间失效；若不为空，其长度必须等于vertexCount。 |
+| positions | Array<common2D.Point> | 是 | 描述顶点位置的数组，不能为空，其长度必须等于vertexCount。 |
+| texs | Array<common2D.Point> \| null | 是 | 描述顶点对应纹理空间坐标的数组。其可以为空，表明纹理空间失效；若不为空，其长度必须等于vertexCount。 |
 | colors | Array&lt;number&gt; \| null | 是 | 描述顶点对应颜色的数组，用于在三角形中进行插值。其可以为空，表明颜色效果为用户所设置的默认色；若不为空其长度必须等于vertexCount。 |
 | indexCount | number | 是 | 索引的数量。其值可以为0，且indices数组长度为0时可以画图；若不为0，则值必须为大于等于3的整数。 |
 | indices | Array&lt;number&gt; \| null | 是 | 描述顶点对应索引的数组。其可以为空，此时将忽略indexCount的合理传值（大于等于3的整数或等于0）；若不为空其长度必须等于indexCount。 |
-| mode | [BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode) | 是 | 颜色混合模式。 |
+| mode | BlendMode | 是 | 颜色混合模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[图形绘制与显示错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drawing)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -986,8 +900,7 @@ drawVertices(vertexMode: VertexMode, vertexCount: number, positions: Array<commo
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
@@ -1008,27 +921,18 @@ class DrawingRenderNode extends RenderNode {
     texsArray.push(texs1);
     texsArray.push(texs2);
     texsArray.push(texs3);
-    const colors = [0xffff0000, 0xff00ff00, 0xff0000ff];
+    const colors = [0xFFFF0000, 0xFF00FF00, 0xFF0000FF];
     const indices = [0, 1, 2];
-    canvas.drawVertices(
-      drawing.VertexMode.TRIANGLESSTRIP_VERTEXMODE,
-      3,
-      pointsArray,
-      texsArray,
-      colors,
-      3,
-      indices,
-      drawing.BlendMode.SRC,
-    );
+    canvas.drawVertices(drawing.VertexMode.TRIANGLESSTRIP_VERTEXMODE, 3, pointsArray, texsArray, colors, 3, indices,drawing.BlendMode.SRC);
   }
 }
 ```
 
 
-## drawPixelMapMesh12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number, vertices: Array<number>, vertOffset: number, colors: Array<number>, colorOffset: number): void
+##### drawPixelMapMesh12+
+
+drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number, vertices: Array&lt;number&gt;, vertOffset: number, colors: Array&lt;number&gt; | null, colorOffset: number): void
 
 在网格上绘制像素图，网格均匀分布在像素图上。（只支持brush，使用pen没有绘制效果。）
 
@@ -1036,22 +940,20 @@ drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 用于绘制网格的像素图。 |
+| pixelmap | image.PixelMap | 是 | 用于绘制网格的像素图。 |
 | meshWidth | number | 是 | 网格中的列数，大于0的整数。 |
 | meshHeight | number | 是 | 网格中的行数，大于0的整数。 |
 | vertices | Array&lt;number&gt; | 是 | 顶点数组，指定网格的绘制位置，浮点数组，大小必须为((meshWidth+1) * (meshHeight+1) + vertOffset) * 2。 |
 | vertOffset | number | 是 | 绘图前要跳过的vert元素数，大于等于0的整数。 |
-| colors | Array&lt;number&gt; | 是 | 颜色数组，在每个顶点指定一种颜色，整数数组，可为null，大小必须为(meshWidth+1) * (meshHeight+1) + colorOffset。 |
+| colors | Array&lt;number&gt; \| null | 是 | 颜色数组，在每个顶点指定一种颜色，整数数组，可为null，大小必须为(meshWidth+1) * (meshHeight+1) + colorOffset。 |
 | colorOffset | number | 是 | 绘制前要跳过的颜色元素数，大于等于0的整数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1060,14 +962,13 @@ drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const width = 1000;
     const height = 1000;
     const bufferSize = width * height * 4;
@@ -1076,26 +977,23 @@ class DrawingRenderNode extends RenderNode {
     const colorData = new Uint8Array(color);
     for (let i = 0; i < colorData.length; i += 4) {
       colorData[i] = 255;
-      colorData[i + 1] = 156;
-      colorData[i + 2] = 0;
-      colorData[i + 3] = 255;
+      colorData[i+1] = 156;
+      colorData[i+2] = 0;
+      colorData[i+3] = 255;
     }
 
-    let opts: image.InitializationOptions = {
+    let opts : image.InitializationOptions = {
       editable: true,
       pixelFormat: 3,
-      size: { height, width },
-    };
+      size: { height, width }
+    }
 
     let pixelMap: image.PixelMap = image.createPixelMapSync(color, opts);
     const canvas = context.canvas;
     if (pixelMap != null) {
       const brush = new drawing.Brush(); // 只支持brush，使用pen没有绘制效果。
       canvas.attachBrush(brush);
-      let verts: Array<number> = [
-        0, 0, 50, 0, 410, 0, 0, 180, 50, 180, 410, 180, 0, 360, 50, 360, 410,
-        360,
-      ]; // 18
+      let verts : Array<number> = [0, 0, 50, 0, 410, 0, 0, 180, 50, 180, 410, 180, 0, 360, 50, 360, 410, 360]; // 18
       canvas.drawPixelMapMesh(pixelMap, 2, 2, verts, 0, null, 0);
       canvas.detachBrush();
     }
@@ -1104,8 +1002,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## clear12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear12+
 
 clear(color: common2D.Color): void
 
@@ -1115,16 +1013,14 @@ clear(color: common2D.Color): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
+| color | common2D.Color | 是 | ARGB格式的颜色，每个颜色通道的值是0到255之间的整数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1133,23 +1029,22 @@ clear(color: common2D.Color): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    let color: common2D.Color = {alpha: 255, red: 255, green: 0, blue: 0};
     canvas.clear(color);
   }
 }
 ```
 
 
-## clear18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear18+
 
 clear(color: common2D.Color | number): void
 
@@ -1159,21 +1054,19 @@ clear(color: common2D.Color | number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [common2D.Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#color) \| number | 是 | 颜色，可以用16进制ARGB格式的无符号整数表示。 |
+| color | common2D.Color \| number | 是 | 颜色，可以用16进制ARGB格式的无符号整数表示。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let color: number = 0xffff0000;
     canvas.clear(color);
@@ -1182,8 +1075,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## getWidth12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getWidth12+
 
 getWidth(): number
 
@@ -1193,7 +1086,6 @@ getWidth(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回画布的宽度，该参数为浮点数。 |
@@ -1201,13 +1093,12 @@ getWidth(): number
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let width = canvas.getWidth();
     console.info('get canvas width:' + width);
@@ -1216,8 +1107,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## getHeight12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getHeight12+
 
 getHeight(): number
 
@@ -1227,7 +1118,6 @@ getHeight(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回画布的高度，该参数为浮点数。 |
@@ -1235,13 +1125,12 @@ getHeight(): number
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let height = canvas.getHeight();
     console.info('get canvas height:' + height);
@@ -1250,8 +1139,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawOval12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawOval12+
 
 drawOval(oval: common2D.Rect): void
 
@@ -1261,16 +1150,14 @@ drawOval(oval: common2D.Rect): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| oval | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 矩形区域，该矩形的内切椭圆即为待绘制椭圆。 |
+| oval | common2D.Rect | 是 | 矩形区域，该矩形的内切椭圆即为待绘制椭圆。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1279,20 +1166,19 @@ drawOval(oval: common2D.Rect): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
     pen.setColor(color);
     canvas.attachPen(pen);
-    const rect: common2D.Rect = { left: 100, top: 50, right: 400, bottom: 500 };
+    const rect: common2D.Rect = {left:100, top:50, right:400, bottom:500};
     canvas.drawOval(rect);
     canvas.detachPen();
   }
@@ -1300,8 +1186,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawArc12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawArc12+
 
 drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void
 
@@ -1311,10 +1197,9 @@ drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| arc | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 包含要绘制的圆弧的椭圆的矩形边界。 |
+| arc | common2D.Rect | 是 | 包含要绘制的圆弧的椭圆的矩形边界。 |
 | startAngle | number | 是 | 弧的起始角度，单位为度，该参数为浮点数。0度时起始点位于椭圆的右端点，正数时以顺时针方向放置起始点，负数时以逆时针方向放置起始点。 |
 | sweepAngle | number | 是 | 弧的扫描角度，单位为度，该参数为浮点数。为正数时顺时针扫描，为负数时逆时针扫描。它的有效范围在-360度到360度之间，当绝对值大于360度时，该方法绘制的是一个椭圆。 |
 
@@ -1323,7 +1208,6 @@ drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1331,20 +1215,19 @@ drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
     pen.setColor(color);
     canvas.attachPen(pen);
-    const rect: common2D.Rect = { left: 100, top: 50, right: 400, bottom: 200 };
+    const rect: common2D.Rect = {left:100, top:50, right:400, bottom:200};
     canvas.drawArc(rect, 90, 180);
     canvas.detachPen();
   }
@@ -1352,8 +1235,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawPoint
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawPoint
 
 drawPoint(x: number, y: number): void
 
@@ -1362,7 +1245,6 @@ drawPoint(x: number, y: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1374,7 +1256,6 @@ drawPoint(x: number, y: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1382,17 +1263,16 @@ drawPoint(x: number, y: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.drawPoint(10, 10);
     canvas.detachPen();
@@ -1401,8 +1281,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawPoints12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawPoints12+
 
 drawPoints(points: Array<common2D.Point>, mode?: PointMode): void
 
@@ -1412,17 +1292,15 @@ drawPoints(points: Array<common2D.Point>, mode?: PointMode): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| points | Array&lt;[common2D.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12)&gt; | 是 | 要绘制的点的数组。长度不能为0。 |
-| mode | [PointMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#pointmode12) | 否 | 绘制数组中的点的方式，默认为drawing.PointMode.POINTS。 |
+| points | Array<common2D.Point> | 是 | 要绘制的点的数组。长度不能为0。 |
+| mode | PointMode | 否 | 绘制数组中的点的方式，默认为drawing.PointMode.POINTS。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1431,35 +1309,27 @@ drawPoints(points: Array<common2D.Point>, mode?: PointMode): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(30);
-    const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
     pen.setColor(color);
     canvas.attachPen(pen);
-    canvas.drawPoints(
-      [
-        { x: 100, y: 200 },
-        { x: 150, y: 230 },
-        { x: 200, y: 300 },
-      ],
-      drawing.PointMode.POINTS,
-    );
+    canvas.drawPoints([{x: 100, y: 200}, {x: 150, y: 230}, {x: 200, y: 300}], drawing.PointMode.POINTS);
     canvas.detachPen();
   }
 }
 ```
 
 
-## drawPath
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawPath
 
 drawPath(path: Path): void
 
@@ -1469,16 +1339,14 @@ drawPath(path: Path): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 要绘制的路径对象。 |
+| path | Path | 是 | 要绘制的路径对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1487,19 +1355,18 @@ drawPath(path: Path): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     let path = new drawing.Path();
-    path.moveTo(10, 10);
+    path.moveTo(10,10);
     path.cubicTo(10, 10, 10, 10, 15, 15);
     path.close();
     canvas.attachPen(pen);
@@ -1510,8 +1377,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawLine
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawLine
 
 drawLine(x0: number, y0: number, x1: number, y1: number): void
 
@@ -1520,7 +1387,6 @@ drawLine(x0: number, y0: number, x1: number, y1: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1534,7 +1400,6 @@ drawLine(x0: number, y0: number, x1: number, y1: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -1542,17 +1407,16 @@ drawLine(x0: number, y0: number, x1: number, y1: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.drawLine(0, 0, 20, 20);
     canvas.detachPen();
@@ -1561,8 +1425,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawTextBlob
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawTextBlob
 
 drawTextBlob(blob: TextBlob, x: number, y: number): void
 
@@ -1572,20 +1436,20 @@ drawTextBlob(blob: TextBlob, x: number, y: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| blob | [TextBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-textblob) | 是 | TextBlob对象。 |
+| blob | TextBlob | 是 | TextBlob对象。 |
 | x | number | 是 | 所绘制出的文字基线（下图蓝线）的左端点（下图红点）的横坐标，该参数为浮点数。 |
 | y | number | 是 | 所绘制出的文字基线（下图蓝线）的左端点（下图红点）的纵坐标，该参数为浮点数。 |
 
 
-![](assets/Class%20Canvas/file-20260514165002749-0.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/jrrXJDcERqKNZVnG0exiVg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T014040Z&HW-CC-Expire=86400&HW-CC-Sign=6C24A8307ABD5F4862C945210B68EABAE12BE771C4F6FD545EAD685AB42B227F)
+
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1594,23 +1458,18 @@ drawTextBlob(blob: TextBlob, x: number, y: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const brush = new drawing.Brush();
-    brush.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    brush.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     const font = new drawing.Font();
     font.setSize(20);
-    const textBlob = drawing.TextBlob.makeFromString(
-      'Hello, drawing',
-      font,
-      drawing.TextEncoding.TEXT_ENCODING_UTF8,
-    );
+    const textBlob = drawing.TextBlob.makeFromString("Hello, drawing", font, drawing.TextEncoding.TEXT_ENCODING_UTF8);
     canvas.attachBrush(brush);
     canvas.drawTextBlob(textBlob, 20, 20);
     canvas.detachBrush();
@@ -1619,8 +1478,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawSingleCharacter12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawSingleCharacter12+
 
 drawSingleCharacter(text: string, font: Font, x: number, y: number): void
 
@@ -1630,21 +1489,21 @@ drawSingleCharacter(text: string, font: Font, x: number, y: number): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 待绘制的单个字符，字符串的长度必须为1。 |
-| font | [Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-font) | 是 | 字型对象。 |
+| font | Font | 是 | 字型对象。 |
 | x | number | 是 | 所绘制出的字符基线（下图蓝线）的左端点（下图红点）的横坐标，该参数为浮点数。 |
 | y | number | 是 | 所绘制出的字符基线（下图蓝线）的左端点（下图红点）的纵坐标，该参数为浮点数。 |
 
 
-![](assets/Class%20Canvas/file-20260514165002749-1.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/5BbKcd6oQR2OyWjnXCqucg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T014040Z&HW-CC-Expire=86400&HW-CC-Sign=112404393B5D6920A45200AB2BDB64D9EB7E3331EC9B80B4D0CA88B46279E875)
+
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1653,31 +1512,30 @@ drawSingleCharacter(text: string, font: Font, x: number, y: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const brush = new drawing.Brush();
-    brush.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    brush.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     const font = new drawing.Font();
     font.setSize(20);
     canvas.attachBrush(brush);
-    canvas.drawSingleCharacter('你', font, 100, 100);
-    canvas.drawSingleCharacter('好', font, 120, 100);
+    canvas.drawSingleCharacter("你", font, 100, 100);
+    canvas.drawSingleCharacter("好", font, 120, 100);
     canvas.detachBrush();
   }
 }
 ```
 
 
-## drawSingleCharacterWithFeatures20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-drawSingleCharacterWithFeatures(text: string, font: Font, x: number, y: number, features: Array<FontFeature>): void
+##### drawSingleCharacterWithFeatures20+
+
+drawSingleCharacterWithFeatures(text: string, font: Font, x: number, y: number, features: Array&lt;FontFeature&gt;): void
 
 绘制单个字符，字符带有字体特征。当前字型中的字体不支持待绘制字符时，退化到使用系统字体绘制字符。
 
@@ -1685,20 +1543,18 @@ drawSingleCharacterWithFeatures(text: string, font: Font, x: number, y: number, 
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | text | string | 是 | 待绘制的单个字符，字符串长度必须为1。 |
-| font | [Font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-font) | 是 | 字型对象。 |
+| font | Font | 是 | 字型对象。 |
 | x | number | 是 | 所绘制字符基线左端点的横坐标，该参数为浮点数。 |
 | y | number | 是 | 所绘制字符基线左端点的纵坐标，该参数为浮点数。 |
-| features | Array&lt;[FontFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-i#fontfeature20)&gt; | 是 | 字体特征对象数组。参数为空数组时使用TTF(TrueType Font)文件中预设的字体特征。 |
+| features | Array&lt;FontFeature&gt; | 是 | 字体特征对象数组。参数为空数组时使用TTF(TrueType Font)文件中预设的字体特征。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[图形绘制与显示错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drawing)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1707,31 +1563,30 @@ drawSingleCharacterWithFeatures(text: string, font: Font, x: number, y: number, 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const brush = new drawing.Brush();
-    brush.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    brush.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     const font = new drawing.Font();
     font.setSize(20);
-    let fontFeatures: Array<drawing.FontFeature> = [];
-    fontFeatures.push({ name: 'calt', value: 0 });
+    let fontFeatures : Array<drawing.FontFeature> = [];
+    fontFeatures.push({name: 'calt', value: 0});
     canvas.attachBrush(brush);
-    canvas.drawSingleCharacterWithFeatures('你', font, 100, 100, fontFeatures);
-    canvas.drawSingleCharacterWithFeatures('好', font, 180, 100, fontFeatures);
+    canvas.drawSingleCharacterWithFeatures("你", font, 100, 100, fontFeatures);
+    canvas.drawSingleCharacterWithFeatures("好", font, 180, 100, fontFeatures);
     canvas.detachBrush();
   }
 }
 ```
 
 
-## drawRegion12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawRegion12+
 
 drawRegion(region: Region): void
 
@@ -1741,16 +1596,14 @@ drawRegion(region: Region): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| region | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 绘制的区域。 |
+| region | Region | 是 | 绘制的区域。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1759,13 +1612,12 @@ drawRegion(region: Region): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     let region = new drawing.Region();
@@ -1780,31 +1632,29 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## attachPen
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### attachPen
 
 attachPen(pen: Pen): void
 
 绑定画笔到画布上，在画布上进行绘制时，将使用画笔的样式去绘制图形形状的轮廓。
 
-
 > [!NOTE]
 > 执行该方法后，若pen的效果发生改变并且开发者希望该变化生效于接下来的绘制动作，需要再次执行该方法以确保变化生效。
+
 
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pen | [Pen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-pen) | 是 | 画笔对象。 |
+| pen | Pen | 是 | 画笔对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1813,50 +1663,47 @@ attachPen(pen: Pen): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
-    canvas.drawRect({ left: 0, right: 10, top: 0, bottom: 10 });
+    canvas.drawRect({ left : 0, right : 10, top : 0, bottom : 10 });
     canvas.detachPen();
   }
 }
 ```
 
 
-## attachBrush
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### attachBrush
 
 attachBrush(brush: Brush): void
 
 绑定画刷到画布上，在画布上进行绘制时，将使用画刷的样式对绘制图形形状的内部进行填充。
 
-
 > [!NOTE]
 > 执行该方法后，若brush的效果发生改变并且开发者希望该变化生效于接下来的绘制动作，需要再次执行该方法以确保变化生效。
+
 
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| brush | [Brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-brush) | 是 | 画刷对象。 |
+| brush | Brush | 是 | 画刷对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1865,26 +1712,25 @@ attachBrush(brush: Brush): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const brush = new drawing.Brush();
-    brush.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    brush.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachBrush(brush);
-    canvas.drawRect({ left: 0, right: 10, top: 0, bottom: 10 });
+    canvas.drawRect({ left : 0, right : 10, top : 0, bottom : 10 });
     canvas.detachBrush();
   }
 }
 ```
 
 
-## detachPen
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### detachPen
 
 detachPen(): void
 
@@ -1894,27 +1740,26 @@ detachPen(): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
-    canvas.drawRect({ left: 0, right: 10, top: 0, bottom: 10 });
+    canvas.drawRect({ left : 0, right : 10, top : 0, bottom : 10 });
     canvas.detachPen();
   }
 }
 ```
 
 
-## detachBrush
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### detachBrush
 
 detachBrush(): void
 
@@ -1924,26 +1769,25 @@ detachBrush(): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const brush = new drawing.Brush();
-    brush.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    brush.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachBrush(brush);
-    canvas.drawRect({ left: 0, right: 10, top: 0, bottom: 10 });
+    canvas.drawRect({ left : 0, right : 10, top : 0, bottom : 10 });
     canvas.detachBrush();
   }
 }
 ```
 
 
-## clipPath12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clipPath12+
 
 clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
@@ -1953,18 +1797,16 @@ clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 路径对象。 |
-| clipOp | [ClipOp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#clipop12) | 否 | 裁剪方式。默认为INTERSECT。 |
+| path | Path | 是 | 路径对象。 |
+| clipOp | ClipOp | 否 | 裁剪方式。默认为INTERSECT。 |
 | doAntiAlias | boolean | 否 | 表示是否使能抗锯齿绘制。true表示使能，false表示不使能。默认为false。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1973,27 +1815,26 @@ clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let path = new drawing.Path();
     path.moveTo(10, 10);
     path.cubicTo(100, 100, 80, 150, 300, 150);
     path.close();
     canvas.clipPath(path, drawing.ClipOp.INTERSECT, true);
-    canvas.clear({ alpha: 255, red: 255, green: 0, blue: 0 });
+    canvas.clear({alpha: 255, red: 255, green: 0, blue: 0});
   }
 }
 ```
 
 
-## clipRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clipRect12+
 
 clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
@@ -2003,18 +1844,16 @@ clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 需要裁剪的矩形区域。 |
-| clipOp | [ClipOp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#clipop12) | 否 | 裁剪方式。默认为INTERSECT。 |
+| rect | common2D.Rect | 是 | 需要裁剪的矩形区域。 |
+| clipOp | ClipOp | 否 | 裁剪方式。默认为INTERSECT。 |
 | doAntiAlias | boolean | 否 | 表示是否使能抗锯齿绘制。true表示使能，false表示不使能。默认为false。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2023,27 +1862,22 @@ clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    canvas.clipRect(
-      { left: 10, right: 500, top: 300, bottom: 900 },
-      drawing.ClipOp.DIFFERENCE,
-      true,
-    );
-    canvas.clear({ alpha: 255, red: 255, green: 0, blue: 0 });
+    canvas.clipRect({left : 10, right : 500, top : 300, bottom : 900}, drawing.ClipOp.DIFFERENCE, true);
+    canvas.clear({alpha: 255, red: 255, green: 0, blue: 0});
   }
 }
 ```
 
 
-## save12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### save12+
 
 save(): number
 
@@ -2053,7 +1887,6 @@ save(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 画布状态个数，该参数为正整数。 |
@@ -2061,15 +1894,14 @@ save(): number
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let rect: common2D.Rect = { left: 10, right: 200, top: 100, bottom: 300 };
+    let rect: common2D.Rect = {left: 10, right: 200, top: 100, bottom: 300};
     canvas.drawRect(rect);
     canvas.save();
   }
@@ -2077,8 +1909,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## saveLayer12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### saveLayer12+
 
 saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number
 
@@ -2088,15 +1920,13 @@ saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) \| null | 否 | 矩形对象，用于限制图层大小，默认为当前画布大小。 |
-| brush | [Brush](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-brush) \| null | 否 | 画刷对象，绘制位图时会应用画刷对象的透明度，颜色滤波器效果和混合模式，默认不设置额外效果。 |
+| rect | common2D.Rect \| null | 否 | 矩形对象，用于限制图层大小，默认为当前画布大小。 |
+| brush | Brush \| null | 否 | 画刷对象，绘制位图时会应用画刷对象的透明度，颜色滤波器效果和混合模式，默认不设置额外效果。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2107,7 +1937,6 @@ saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: Mandatory parameters are left unspecified. |
@@ -2115,30 +1944,19 @@ saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     canvas.saveLayer(null, null);
     const brushRect = new drawing.Brush();
-    const colorRect: common2D.Color = {
-      alpha: 255,
-      red: 255,
-      green: 255,
-      blue: 0,
-    };
+    const colorRect: common2D.Color = {alpha: 255, red: 255, green: 255, blue: 0};
     brushRect.setColor(colorRect);
     canvas.attachBrush(brushRect);
-    const rect: common2D.Rect = {
-      left: 100,
-      top: 100,
-      right: 500,
-      bottom: 500,
-    };
+    const rect: common2D.Rect = {left:100, top:100, right:500, bottom:500};
     canvas.drawRect(rect);
 
     const brush = new drawing.Brush();
@@ -2146,12 +1964,7 @@ class DrawingRenderNode extends RenderNode {
     canvas.saveLayer(rect, brush);
 
     const brushCircle = new drawing.Brush();
-    const colorCircle: common2D.Color = {
-      alpha: 255,
-      red: 0,
-      green: 0,
-      blue: 255,
-    };
+    const colorCircle: common2D.Color = {alpha: 255, red: 0, green: 0, blue: 255};
     brushCircle.setColor(colorCircle);
     canvas.attachBrush(brushCircle);
     canvas.drawCircle(500, 500, 200);
@@ -2163,8 +1976,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## scale12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### scale12+
 
 scale(sx: number, sy: number): void
 
@@ -2173,7 +1986,6 @@ scale(sx: number, sy: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2185,7 +1997,6 @@ scale(sx: number, sy: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -2193,28 +2004,27 @@ scale(sx: number, sy: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.scale(2, 0.5);
-    canvas.drawRect({ left: 10, right: 500, top: 300, bottom: 900 });
+    canvas.drawRect({left : 10, right : 500, top : 300, bottom : 900});
     canvas.detachPen();
   }
 }
 ```
 
 
-## skew12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### skew12+
 
 skew(sx: number, sy: number) : void
 
@@ -2223,7 +2033,6 @@ skew(sx: number, sy: number) : void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2235,7 +2044,6 @@ skew(sx: number, sy: number) : void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -2243,28 +2051,27 @@ skew(sx: number, sy: number) : void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.skew(0.1, 0.1);
-    canvas.drawRect({ left: 10, right: 500, top: 300, bottom: 900 });
+    canvas.drawRect({left : 10, right : 500, top : 300, bottom : 900});
     canvas.detachPen();
   }
 }
 ```
 
 
-## rotate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### rotate12+
 
 rotate(degrees: number, sx: number, sy: number) : void
 
@@ -2273,7 +2080,6 @@ rotate(degrees: number, sx: number, sy: number) : void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2286,7 +2092,6 @@ rotate(degrees: number, sx: number, sy: number) : void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -2294,28 +2099,27 @@ rotate(degrees: number, sx: number, sy: number) : void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.rotate(30, 100, 100);
-    canvas.drawRect({ left: 10, right: 500, top: 300, bottom: 900 });
+    canvas.drawRect({left : 10, right : 500, top : 300, bottom : 900});
     canvas.detachPen();
   }
 }
 ```
 
 
-## translate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### translate12+
 
 translate(dx: number, dy: number): void
 
@@ -2324,7 +2128,6 @@ translate(dx: number, dy: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2336,7 +2139,6 @@ translate(dx: number, dy: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -2344,28 +2146,27 @@ translate(dx: number, dy: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.translate(10, 10);
-    canvas.drawRect({ left: 10, right: 500, top: 300, bottom: 900 });
+    canvas.drawRect({left : 10, right : 500, top : 300, bottom : 900});
     canvas.detachPen();
   }
 }
 ```
 
 
-## getSaveCount12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getSaveCount12+
 
 getSaveCount(): number
 
@@ -2375,7 +2176,6 @@ getSaveCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 已保存的画布状态的数量，该参数为正整数。 |
@@ -2383,21 +2183,20 @@ getSaveCount(): number
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
-    canvas.drawRect({ left: 10, right: 200, top: 100, bottom: 300 });
+    canvas.drawRect({left: 10, right: 200, top: 100, bottom: 300});
     canvas.save();
-    canvas.drawRect({ left: 10, right: 500, top: 300, bottom: 900 });
+    canvas.drawRect({left : 10, right : 500, top : 300, bottom : 900});
     canvas.getSaveCount();
     canvas.detachPen();
   }
@@ -2405,8 +2204,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## restoreToCount12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### restoreToCount12+
 
 restoreToCount(count: number): void
 
@@ -2415,7 +2214,6 @@ restoreToCount(count: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -2426,7 +2224,6 @@ restoreToCount(count: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -2434,34 +2231,33 @@ restoreToCount(count: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
-    canvas.drawRect({ left: 10, right: 200, top: 100, bottom: 300 });
+    canvas.drawRect({left: 10, right: 200, top: 100, bottom: 300});
     canvas.save();
-    canvas.drawRect({ left: 10, right: 200, top: 100, bottom: 500 });
+    canvas.drawRect({left: 10, right: 200, top: 100, bottom: 500});
     canvas.save();
-    canvas.drawRect({ left: 100, right: 300, top: 100, bottom: 500 });
+    canvas.drawRect({left: 100, right: 300, top: 100, bottom: 500});
     canvas.save();
     canvas.restoreToCount(2);
-    canvas.drawRect({ left: 10, right: 500, top: 300, bottom: 900 });
+    canvas.drawRect({left : 10, right : 500, top : 300, bottom : 900});
     canvas.detachPen();
   }
 }
 ```
 
 
-## restore12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### restore12+
 
 restore(): void
 
@@ -2471,17 +2267,16 @@ restore(): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    pen.setColor({ alpha: 255, red: 255, green: 0, blue: 0 });
+    pen.setColor({alpha: 255, red: 255, green: 0, blue: 0});
     canvas.attachPen(pen);
     canvas.restore();
     canvas.detachPen();
@@ -2490,8 +2285,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## concatMatrix12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### concatMatrix12+
 
 concatMatrix(matrix: Matrix): void
 
@@ -2501,16 +2296,14 @@ concatMatrix(matrix: Matrix): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 矩阵对象。 |
+| matrix | Matrix | 是 | 矩阵对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2519,25 +2312,24 @@ concatMatrix(matrix: Matrix): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let matrix = new drawing.Matrix();
     matrix.setMatrix([5, 0, 0, 0, 1, 2, 0, 0, 1]);
     canvas.concatMatrix(matrix);
-    canvas.drawRect({ left: 10, right: 200, top: 100, bottom: 500 });
+    canvas.drawRect({left: 10, right: 200, top: 100, bottom: 500});
   }
 }
 ```
 
 
-## setMatrix12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setMatrix12+
 
 setMatrix(matrix: Matrix): void
 
@@ -2547,16 +2339,14 @@ setMatrix(matrix: Matrix): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| matrix | [Matrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-matrix) | 是 | 矩阵对象。 |
+| matrix | Matrix | 是 | 矩阵对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2565,25 +2355,24 @@ setMatrix(matrix: Matrix): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let matrix = new drawing.Matrix();
+    let matrix = new drawing.Matrix()
     matrix.setMatrix([5, 0, 0, 0, 1, 1, 0, 0, 1]);
     canvas.setMatrix(matrix);
-    canvas.drawRect({ left: 10, right: 200, top: 100, bottom: 500 });
+    canvas.drawRect({left: 10, right: 200, top: 100, bottom: 500});
   }
 }
 ```
 
 
-## isClipEmpty12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isClipEmpty12+
 
 isClipEmpty(): boolean
 
@@ -2593,7 +2382,6 @@ isClipEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回画布的可绘制区域是否为空的结果，true表示为空，false表示不为空。 |
@@ -2601,26 +2389,25 @@ isClipEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     if (canvas.isClipEmpty()) {
-      console.info('canvas.isClipEmpty() returned true');
+      console.info("canvas.isClipEmpty() returned true");
     } else {
-      console.info('canvas.isClipEmpty() returned false');
+      console.info("canvas.isClipEmpty() returned false");
     }
   }
 }
 ```
 
 
-## clipRegion12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clipRegion12+
 
 clipRegion(region: Region, clipOp?: ClipOp): void
 
@@ -2630,17 +2417,15 @@ clipRegion(region: Region, clipOp?: ClipOp): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| region | [Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-region) | 是 | 区域对象，表示裁剪范围。 |
-| clipOp | [ClipOp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#clipop12) | 否 | 裁剪方式，默认为INTERSECT。 |
+| region | Region | 是 | 区域对象，表示裁剪范围。 |
+| clipOp | ClipOp | 否 | 裁剪方式，默认为INTERSECT。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2649,26 +2434,25 @@ clipRegion(region: Region, clipOp?: ClipOp): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let region: drawing.Region = new drawing.Region();
+    let region : drawing.Region = new drawing.Region();
     region.setRect(0, 0, 500, 500);
     canvas.clipRegion(region);
-    let color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    let color: common2D.Color = {alpha: 255, red: 255, green: 0, blue: 0};
     canvas.clear(color);
   }
 }
 ```
 
 
-## clipRoundRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clipRoundRect12+
 
 clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
@@ -2678,18 +2462,16 @@ clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| roundRect | [RoundRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-roundrect) | 是 | 圆角矩形对象，表示裁剪范围。 |
-| clipOp | [ClipOp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#clipop12) | 否 | 裁剪方式，默认为INTERSECT。 |
+| roundRect | RoundRect | 是 | 圆角矩形对象，表示裁剪范围。 |
+| clipOp | ClipOp | 否 | 裁剪方式，默认为INTERSECT。 |
 | doAntiAlias | boolean | 否 | 表示是否使能抗锯齿。true表示使能，false表示不使能。默认为false。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2698,26 +2480,25 @@ clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): voi
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let rect: common2D.Rect = { left: 10, top: 100, right: 200, bottom: 300 };
     let roundRect = new drawing.RoundRect(rect, 10, 10);
     canvas.clipRoundRect(roundRect);
-    let color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    let color: common2D.Color = {alpha: 255, red: 255, green: 0, blue: 0};
     canvas.clear(color);
   }
 }
 ```
 
 
-## resetMatrix12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### resetMatrix12+
 
 resetMatrix(): void
 
@@ -2727,13 +2508,12 @@ resetMatrix(): void
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     canvas.scale(4, 6);
     canvas.resetMatrix();
@@ -2742,8 +2522,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## quickRejectPath18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### quickRejectPath18+
 
 quickRejectPath(path: Path): boolean
 
@@ -2753,14 +2533,12 @@ quickRejectPath(path: Path): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 路径对象。 |
+| path | Path | 是 | 路径对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2769,30 +2547,29 @@ quickRejectPath(path: Path): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let path = new drawing.Path();
     path.moveTo(10, 10);
     path.cubicTo(10, 10, 10, 10, 15, 15);
     path.close();
     if (canvas.quickRejectPath(path)) {
-      console.info('canvas and path do not intersect.');
+      console.info("canvas and path do not intersect.");
     } else {
-      console.info('canvas and path intersect.');
+      console.info("canvas and path intersect.");
     }
   }
 }
 ```
 
 
-## quickRejectRect18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### quickRejectRect18+
 
 quickRejectRect(rect: common2D.Rect): boolean
 
@@ -2802,14 +2579,12 @@ quickRejectRect(rect: common2D.Rect): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 矩形区域。 |
+| rect | common2D.Rect | 是 | 矩形区域。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2818,27 +2593,26 @@ quickRejectRect(rect: common2D.Rect): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let rect: common2D.Rect = { left: 10, top: 20, right: 50, bottom: 30 };
+    let rect: common2D.Rect = { left : 10, top : 20, right : 50, bottom : 30 };
     if (canvas.quickRejectRect(rect)) {
-      console.info('canvas and rect do not intersect.');
+      console.info("canvas and rect do not intersect.");
     } else {
-      console.info('canvas and rect intersect.');
+      console.info("canvas and rect intersect.");
     }
   }
 }
 ```
 
 
-## drawArcWithCenter18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawArcWithCenter18+
 
 drawArcWithCenter(arc: common2D.Rect, startAngle: number, sweepAngle: number, useCenter: boolean): void
 
@@ -2848,10 +2622,9 @@ drawArcWithCenter(arc: common2D.Rect, startAngle: number, sweepAngle: number, us
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| arc | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 包含要绘制的圆弧的椭圆的矩形边界。 |
+| arc | common2D.Rect | 是 | 包含要绘制的圆弧的椭圆的矩形边界。 |
 | startAngle | number | 是 | 弧的起始角度，单位为度，该参数为浮点数。0度时起始点位于椭圆的右端点，为正数时以顺时针方向放置起始点，为负数时以逆时针方向放置起始点。 |
 | sweepAngle | number | 是 | 弧的扫描角度，单位为度，该参数为浮点数。为正数时顺时针扫描，为负数时逆时针扫描。扫描角度可以超过360度，将绘制一个完整的椭圆。 |
 | useCenter | boolean | 是 | 绘制时弧形的起点和终点是否连接弧形的中心点。true表示连接，false表示不连接。 |
@@ -2859,17 +2632,16 @@ drawArcWithCenter(arc: common2D.Rect, startAngle: number, sweepAngle: number, us
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const pen = new drawing.Pen();
     pen.setStrokeWidth(5);
-    const color: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
+    const color : common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 };
     pen.setColor(color);
     canvas.attachPen(pen);
     const rect: common2D.Rect = { left: 100, top: 50, right: 400, bottom: 200 };
@@ -2880,8 +2652,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## drawImageNine18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawImageNine18+
 
 drawImageNine(pixelmap: image.PixelMap, center: common2D.Rect, dstRect: common2D.Rect, filterMode: FilterMode): void
 
@@ -2893,19 +2665,17 @@ drawImageNine(pixelmap: image.PixelMap, center: common2D.Rect, dstRect: common2D
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 用于绘制网格的像素图。 |
-| center | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 分割图像的中心矩形。矩形四条边所在的直线将图像分成了9个部分。 |
-| dstRect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 在画布上绘制的目标矩形区域。 |
-| filterMode | [FilterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#filtermode12) | 是 | 过滤模式。 |
+| pixelmap | image.PixelMap | 是 | 用于绘制网格的像素图。 |
+| center | common2D.Rect | 是 | 分割图像的中心矩形。矩形四条边所在的直线将图像分成了9个部分。 |
+| dstRect | common2D.Rect | 是 | 在画布上绘制的目标矩形区域。 |
+| filterMode | FilterMode | 是 | 过滤模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2914,14 +2684,13 @@ drawImageNine(pixelmap: image.PixelMap, center: common2D.Rect, dstRect: common2D
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 import { image } from '@kit.ImageKit';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const width = 1000;
     const height = 1000;
@@ -2939,48 +2708,38 @@ class DrawingRenderNode extends RenderNode {
         // 通过方块坐标的奇偶性决定颜色
         if ((blockX + blockY) % 2 === 0) {
           // 红色方块 (R, G, B, A)
-          colorData[index] = 255; // R
-          colorData[index + 1] = 0; // G
-          colorData[index + 2] = 0; // B
+          colorData[index] = 255;     // R
+          colorData[index + 1] = 0;   // G
+          colorData[index + 2] = 0;   // B
         } else {
           // 蓝色方块
-          colorData[index] = 0; // R
-          colorData[index + 1] = 0; // G
+          colorData[index] = 0;       // R
+          colorData[index + 1] = 0;   // G
           colorData[index + 2] = 255; // B
         }
-        colorData[index + 3] = 255; // Alpha 始终为 255（不透明）
+        colorData[index + 3] = 255;   // Alpha 始终为 255（不透明）
       }
     }
 
-    let opts: image.InitializationOptions = {
+    let opts : image.InitializationOptions = {
       editable: true,
       pixelFormat: 3,
-      size: { height, width },
-    };
+      size: { height, width }
+    }
     let pixelMap: image.PixelMap = image.createPixelMapSync(color, opts);
     canvas.drawImage(pixelMap, 0, 0); // 原图
     let center: common2D.Rect = { left: 20, top: 10, right: 50, bottom: 40 };
     let dst: common2D.Rect = { left: 70, top: 0, right: 100, bottom: 30 };
     let dst1: common2D.Rect = { left: 110, top: 0, right: 200, bottom: 90 };
-    canvas.drawImageNine(
-      pixelMap,
-      center,
-      dst,
-      drawing.FilterMode.FILTER_MODE_NEAREST,
-    ); // 示例1
-    canvas.drawImageNine(
-      pixelMap,
-      center,
-      dst1,
-      drawing.FilterMode.FILTER_MODE_NEAREST,
-    ); // 示例2
+    canvas.drawImageNine(pixelMap, center, dst, drawing.FilterMode.FILTER_MODE_NEAREST); // 示例1
+    canvas.drawImageNine(pixelMap, center, dst1, drawing.FilterMode.FILTER_MODE_NEAREST); // 示例2
   }
 }
 ```
 
 
-## drawImageLattice18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### drawImageLattice18+
 
 drawImageLattice(pixelmap: image.PixelMap, lattice: Lattice, dstRect: common2D.Rect, filterMode: FilterMode): void
 
@@ -2992,19 +2751,17 @@ drawImageLattice(pixelmap: image.PixelMap, lattice: Lattice, dstRect: common2D.R
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 用于绘制网格的像素图。 |
-| lattice | [Lattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-lattice) | 是 | 矩形网格对象。 |
-| dstRect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 目标矩形区域。 |
-| filterMode | [FilterMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#filtermode12) | 是 | 过滤模式。 |
+| pixelmap | image.PixelMap | 是 | 用于绘制网格的像素图。 |
+| lattice | Lattice | 是 | 矩形网格对象。 |
+| dstRect | common2D.Rect | 是 | 目标矩形区域。 |
+| filterMode | FilterMode | 是 | 过滤模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3013,14 +2770,13 @@ drawImageLattice(pixelmap: image.PixelMap, lattice: Lattice, dstRect: common2D.R
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 import { image } from '@kit.ImageKit';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     const width = 1000;
     const height = 1000;
@@ -3038,24 +2794,24 @@ class DrawingRenderNode extends RenderNode {
         // 通过方块坐标的奇偶性决定颜色
         if ((blockX + blockY) % 2 === 0) {
           // 红色方块 (R, G, B, A)
-          colorData[index] = 255; // R
-          colorData[index + 1] = 0; // G
-          colorData[index + 2] = 0; // B
+          colorData[index] = 255;     // R
+          colorData[index + 1] = 0;   // G
+          colorData[index + 2] = 0;   // B
         } else {
           // 蓝色方块
-          colorData[index] = 0; // R
-          colorData[index + 1] = 0; // G
+          colorData[index] = 0;       // R
+          colorData[index + 1] = 0;   // G
           colorData[index + 2] = 255; // B
         }
-        colorData[index + 3] = 255; // Alpha 始终为 255（不透明）
+        colorData[index + 3] = 255;   // Alpha 始终为 255（不透明）
       }
     }
 
-    let opts: image.InitializationOptions = {
+    let opts : image.InitializationOptions = {
       editable: true,
       pixelFormat: 3,
-      size: { height, width },
-    };
+      size: { height, width }
+    }
     let pixelMap: image.PixelMap = image.createPixelMapSync(color, opts);
     canvas.drawImage(pixelMap, 0, 0); // 原图
     let xDivs: Array<number> = [28, 36, 44, 52];
@@ -3063,18 +2819,8 @@ class DrawingRenderNode extends RenderNode {
     let lattice = drawing.Lattice.createImageLattice(xDivs, yDivs, 4, 4);
     let dst: common2D.Rect = { left: 100, top: 0, right: 164, bottom: 64 };
     let dst1: common2D.Rect = { left: 200, top: 0, right: 360, bottom: 160 };
-    canvas.drawImageLattice(
-      pixelMap,
-      lattice,
-      dst,
-      drawing.FilterMode.FILTER_MODE_NEAREST,
-    ); // 示例1
-    canvas.drawImageLattice(
-      pixelMap,
-      lattice,
-      dst1,
-      drawing.FilterMode.FILTER_MODE_NEAREST,
-    ); // 示例2
+    canvas.drawImageLattice(pixelMap, lattice, dst, drawing.FilterMode.FILTER_MODE_NEAREST); // 示例1
+    canvas.drawImageLattice(pixelMap, lattice, dst1, drawing.FilterMode.FILTER_MODE_NEAREST); // 示例2
   }
 }
 ```

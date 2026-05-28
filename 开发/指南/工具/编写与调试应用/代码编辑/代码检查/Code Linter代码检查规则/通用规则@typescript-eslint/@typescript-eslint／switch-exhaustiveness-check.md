@@ -5,39 +5,40 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_switch-exhaustiveness-check
 
 要求switch语句对于联合类型中值的判断是详尽无遗的。
+ 
+当switch语句中的判断条件是字面量值的集合或者是一个枚举类型，如果case语句中缺少任何一个值的判断，并且没有default语句时，此规则会告警。
+ 
 
- 当switch语句中的判断条件是字面量值的集合或者是一个枚举类型，如果case语句中缺少任何一个值的判断，并且没有default语句时，此规则会告警。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/switch-exhaustiveness-check": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/switch-exhaustiveness-check选项](https://typescript-eslint.nodejs.cn/rules/switch-exhaustiveness-check/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 type Day =
-  | 'Monday'
-  | 'Tuesday'
-  | 'Wednesday'
-  | 'Thursday'
-  | 'Friday'
-  | 'Saturday'
-  | 'Sunday';
+| 'Monday'
+| 'Tuesday'
+| 'Wednesday'
+| 'Thursday'
+| 'Friday'
+| 'Saturday'
+| 'Sunday';
 
 declare const day1: Day;
 
@@ -102,20 +103,20 @@ switch (fruit) {
     break;
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 type Day =
-  | 'Monday'
-  | 'Tuesday'
-  | 'Wednesday'
-  | 'Thursday'
-  | 'Friday'
-  | 'Saturday'
-  | 'Sunday';
+| 'Monday'
+| 'Tuesday'
+| 'Wednesday'
+| 'Thursday'
+| 'Friday'
+| 'Saturday'
+| 'Sunday';
 
 declare const day: Day;
 let result = '0';
@@ -128,13 +129,13 @@ switch (day) {
 }
 console.info(result);
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -1,6 +1,6 @@
 # 证书链校验时下载缺失的中间CA证书
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/allow-download-intermediate-cert
 
@@ -9,19 +9,22 @@
 以创建X509证书链为例，完成证书链对象的创建，创建过程校验时允许下载缺失的中间证书。
 
 
-## 开发步骤
+##### 开发步骤
+1. 导入[证书算法库框架模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
 
-导入[证书算法库框架模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
+  
 ```text
 import { cert } from '@kit.DeviceCertificateKit';
 ```
 
-基于已有的证书数据，调用[cert.createX509Cert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatex509cert-1)创建X509证书对象，并返回结果。 调用[cert.buildX509CertChain](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certbuildx509certchain12)创建X509证书链对象，将validationParameters的allowDownloadIntermediateCa参数设置为true，开启允许校验过程中从网络下载缺失的中间CA。
+2. 基于已有的证书数据，调用[cert.createX509Cert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatex509cert-1)创建X509证书对象，并返回结果。
+3. 调用[cert.buildX509CertChain](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certbuildx509certchain12)创建X509证书链对象，将validationParameters的allowDownloadIntermediateCa参数设置为true，开启允许校验过程中从网络下载缺失的中间CA。
+
 > [!NOTE]
-> 本开发指导中提供的示例代码需要在配置网络的前提下执行。需要申请ohos.permission.INTERNET权限，配置方式请参见声明权限。
+> 本开发指导中提供的示例代码需要在配置网络的前提下执行。需要申请ohos.permission.INTERNET权限，配置方式请参见 声明权限 。
 
 
-```text
+```ArkTS
 import { cert } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
@@ -91,7 +94,7 @@ function stringToUint8Array(str: string): Uint8Array {
   return encoder.encodeInto(str);
 }
 
-async function createX509Cert(certData: string): Promise {
+async function createX509Cert(certData: string): Promise<cert.X509Cert> {
   // 证书二进制数据，需业务自行赋值。
   let encodingBlob: cert.EncodingBlob = {
     data: stringToUint8Array(certData),

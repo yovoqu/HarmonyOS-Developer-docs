@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：geoLocationManager； API声明：function isWlanBssidMatched(wlanBssidArray: Array<string>, rssiThreshold: number, needStartScan: boolean): Promise<boolean>; 差异内容：function isWlanBssidMatched(wlanBssidArray: Array<string>, rssiThreshold: number, needStartScan: boolean): Promise<boolean>; | api/@ohos.geoLocationManager.d.ts |
+| 新增API | NA | 类名：geoLocationManager； API声明：function isWlanBssidMatched(wlanBssidArray: Array&lt;string&gt;, rssiThreshold: number, needStartScan: boolean): Promise&lt;boolean&gt;; 差异内容：function isWlanBssidMatched(wlanBssidArray: Array&lt;string&gt;, rssiThreshold: number, needStartScan: boolean): Promise&lt;boolean&gt;; | api/@ohos.geoLocationManager.d.ts |

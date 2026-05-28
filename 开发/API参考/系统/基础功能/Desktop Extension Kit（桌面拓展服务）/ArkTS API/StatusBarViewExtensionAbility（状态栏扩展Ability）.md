@@ -6,32 +6,29 @@
 **支持设备：** PC/2in1
 
 StatusBarViewExtensionAbility为状态栏扩展Ability，继承自[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#uiextensionability)，用于给应用提供接入状态栏图标左键业务弹窗的能力。
-
-
+ 
 > [!NOTE]
 > 本模块接口仅可在Stage模型下使用。
 
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
-
+ 
 **起始版本：** 5.0.0(12)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** PC/2in1
-
-
-```ts
+```text
 import { StatusBarViewExtensionAbility } from '@kit.DeskTopExtensionKit';
 ```
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { StatusBarViewExtensionAbility } from '@kit.DeskTopExtensionKit';
 import { UIExtensionContentSession, Want } from '@kit.AbilityKit';
 
-let TAG = 'MyStatusBarViewAbility';
+let TAG = "MyStatusBarViewAbility";
 
 export default class MyStatusBarViewAbility extends StatusBarViewExtensionAbility {
   onCreate() {

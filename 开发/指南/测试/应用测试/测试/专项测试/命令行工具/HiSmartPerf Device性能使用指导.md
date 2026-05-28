@@ -4,33 +4,57 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/smartperf-guidelines
 
-## 工具简介
+##### 工具简介
 
 HiSmartPerf Device是一款性能功耗测试工具，支持监测性能、功耗相关指标，包括FPS、CPU、GPU、RAM、Temp等，并提供Device hap端和Device daemon端。Device hap适用于有屏设备，支持可视化操作，测试过程中可通过悬浮窗的开始和暂停来实时展示性能指标数据，保存后可生成数据报告，在报告中可分析各指标数据详情。Device daemon端支持shell命令行方式，同时适用于有屏和无屏设备。
+ 
+ 
 
-## 指标说明
+##### 指标说明
 
-CPU：每秒读取一次设备节点下CPU大中小核的频点和各核使用率，衡量应用占用CPU资源的情况，占用过多的CPU资源会导致芯片发烫。GPU：每秒读取一次设备节点下GPU的频点和负载信息，衡量应用占用GPU资源的情况，当GPU占用过多时，会导致性能下降，应用程序的运行速度变慢。FPS：应用界面每秒刷新次数，衡量应用画面的流畅度，FPS越高通常表示图像流畅度越好，用户体验越好。TEMP：每秒读取一次设备节点下GPU温度、系统芯片温度信息。RAM：每秒读取一次应用进程的实际物理内存，衡量应用的内存占比情况。snapshot：每2秒截取一张应用界面截图。
+- CPU：每秒读取一次设备节点下CPU大中小核的频点和各核使用率，衡量应用占用CPU资源的情况，占用过多的CPU资源会导致芯片发烫。
+- GPU：每秒读取一次设备节点下GPU的频点和负载信息，衡量应用占用GPU资源的情况，当GPU占用过多时，会导致性能下降，应用程序的运行速度变慢。
+- FPS：应用界面每秒刷新次数，衡量应用画面的流畅度，FPS越高通常表示图像流畅度越好，用户体验越好。
+- TEMP：每秒读取一次设备节点下GPU温度、系统芯片温度信息。
+- RAM：每秒读取一次应用进程的实际物理内存，衡量应用的内存占比情况。
+- snapshot：每2秒截取一张应用界面截图。
 
-## 实现原理
+ 
+ 
+
+##### 实现原理
 
 下图展示了HiSmartPerf Device工具的主要功能组成。Device hap端设置好采集项和采集参数后，启动应用，FPS、RAM、Trace等指标通过消息发送给Device daemon端，Device daemon端进行数据采集、数据持久化和数据分析，将生成的报告回传给Device hap端，Device hap端进行可视化显示。
+ 
+
 ![](assets/HiSmartPerf%20Device性能使用指导/file-20260514134439629-0.png)
 
-## 约束与限制
+ 
+ 
 
-Device daemon端从API version 9开始预置使用。 Device daemon端执行需连接硬件设备，Device hap端需在有屏幕设备使用。 Device daemon端执行前需完成[hdc环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)，并进入shell环境拉起daemon进程。
-```text
+##### 约束与限制
+1. Device daemon端从API version 9开始预置使用。
+2. Device daemon端执行需连接硬件设备，Device hap端需在有屏幕设备使用。
+3. Device daemon端执行前需完成[hdc环境配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)，并进入shell环境拉起daemon进程。
+
+  
+```bash
 C:\Users\issusser>hdc shell
 $
 ```
 
- Device hap端从API version 20开始支持自动拉起Device daemon端的功能。
+4. Device hap端从API version 20开始支持自动拉起Device daemon端的功能。
+
+  
 > [!NOTE]
 > 在使用可以自动拉起Device daemon进程的Device hap端时，点击性能/功耗测试，选择测试应用后，待hap端界面显示采集器连接成功，即Device daemon进程已被拉起。
 
- 拉起和查看daemon进程（手动拉起daemon进程）。
-```text
+
+  
+- 拉起和查看daemon进程（手动拉起daemon进程）。
+
+  
+```bash
 C:\Users\issusser>hdc shell
 // 拉起daemon进程
 $ SP_daemon
@@ -41,8 +65,11 @@ shell          1595  1574 3 21:51:02 pts/0 00:00:00 grep SP_daemon
 $
 ```
 
- 拉起和查看daemon进程（自动拉起daemon进程）。
-```text
+
+5. 拉起和查看daemon进程（自动拉起daemon进程）。
+
+  
+```bash
 C:\Users\issusser>hdc shell
 // 查看daemon进程是否存在
 $ ps -ef | grep SP_daemon
@@ -52,14 +79,21 @@ $
 ```
 
 
-## HiSmartPerf Device-hap端
+  
 
-工具使用说明请参见[操作指导](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smartperf-tool-device-haromnyos-0000002086884884#section91681917183510)，请前往[工具下载中心](https://developer.huawei.com/consumer/cn/download/hismartperf)获取HiSmartPerf工具。
+  ##### HiSmartPerf Device-hap端
 
-## HiSmartPerf Device-daemon端
+  工具使用说明请参见[操作指导](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/smartperf-tool-device-haromnyos-0000002086884884#section91681917183510)，请前往[工具下载中心](https://developer.huawei.com/consumer/cn/download/hismartperf)获取HiSmartPerf工具。
 
+  
+
+  ##### HiSmartPerf Device-daemon端
+
+  
 执行和查看帮助命令。
-```text
+
+  
+```bash
 $ SP_daemon --help
   HarmonyOS performance testing tool SmartPerf command-line version
   Usage: SP_daemon [options] [arguments]
@@ -121,9 +155,15 @@ $ SP_daemon --help
 ```
 
 
-## 基础采集
+ 
+ 
 
-基础采集主要采集整机或者应用的gpu、fps、CPU、DDR、内存等，支持秒级采集和启停采集，并将采集的结果写入data.csv。 **1. 秒级采集**
+##### 基础采集
+
+基础采集主要采集整机或者应用的gpu、fps、CPU、DDR、内存等，支持秒级采集和启停采集，并将采集的结果写入data.csv。
+ 
+**1. 秒级采集**
+  
 | 命令参数 | 必选 | 说明 |
 | --- | --- | --- |
 | -N | 是 | 设置采集次数，一秒采集一次。 |
@@ -142,9 +182,12 @@ $ SP_daemon --help
 | -VIEW | 否 | 设置图层，需要先获取应用图层名。 |
 | -d | 否 | 采集DDR。 |
 | -sections | 否 | 设置分段采集。 |
+ 
+ 
+- 设置包名并采集1次应用的线程数量。
 
-设置包名并采集1次应用的线程数量。
-```text
+  
+```bash
 $ SP_daemon -N 1 -PKG ohos.samples.ecg -threads
 
 order:0 timestamp=1741415592481
@@ -154,13 +197,14 @@ order:2 tids=18847:43411 43409 43350 43236 25783 25622 25384 25381 19423 19170 1
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
- 采集2次整机CPU大中小核频率、各核使用率。
-```text
+- 采集2次整机CPU大中小核频率、各核使用率。
+
+  
+```bash
 $ SP_daemon -N 2 -c
 
 order:0 timestamp=1739348046398
@@ -188,8 +232,10 @@ command exec finished!
 $
 ```
 
- 设置包名并采集2次整机CPU大中小核频率、各核使用率以及进程CPU使用率、负载。
-```text
+- 设置包名并采集2次整机CPU大中小核频率、各核使用率以及进程CPU使用率、负载。
+
+  
+```bash
 $ SP_daemon -N 2 -PKG ohos.samples.ecg -c
 
 order:0 timestamp=1741415021814
@@ -222,13 +268,14 @@ order:24 cpu0irqUsage=0.000000
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
- 设置进程ID并采集2次整机CPU大中小核频率、各核使用率以及进程CPU使用率、负载。
-```text
+- 设置进程ID并采集2次整机CPU大中小核频率、各核使用率以及进程CPU使用率、负载。
+
+  
+```bash
 $ SP_daemon -N 2 -PID 18847 -c
 
 order:0 timestamp=1741415133211
@@ -261,13 +308,14 @@ order:24 cpu0irqUsage=0.000000
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
- 采集1次整机GPU频率和负载。
-```text
+- 采集1次整机GPU频率和负载。
+
+  
+```bash
 $ SP_daemon -N 1 -g
 
 order:0 timestamp=1705041456507
@@ -278,8 +326,10 @@ command exec finished!
 $
 ```
 
- 采集2次整机温度。
-```text
+- 采集2次整机温度。
+
+  
+```bash
 $ SP_daemon -N 2 -t
 
 order:0 timestamp=1739348774378
@@ -306,8 +356,10 @@ command exec finished!
 $
 ```
 
- 采集1次整机电流和电压。
-```text
+- 采集1次整机电流和电压。
+
+  
+```bash
 $ SP_daemon -N 1 -p
 
 order:0 timestamp=1705041491090
@@ -318,8 +370,10 @@ command exec finished!
 $
 ```
 
- 采集2次整机内存。
-```text
+- 采集2次整机内存。
+
+  
+```bash
 $ SP_daemon -N 2 -r
 
 order:0 timestamp=1705041562521
@@ -336,8 +390,10 @@ command exec finished!
 $
 ```
 
- 设置包名并采集1次整机和指定应用进程内存。
-```text
+- 设置包名并采集1次整机和指定应用进程内存。
+
+  
+```bash
 $ SP_daemon -N 1 -PKG ohos.samples.ecg -r
 
 order:0 timestamp=1741415257059
@@ -378,13 +434,14 @@ order:33 swapPss=25356
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需要拉起被测应用的进程。
 
- 设置进程ID并采集1次整机和指定应用进程内存。
-```text
+- 设置进程ID并采集1次整机和指定应用进程内存。
+
+  
+```bash
 $ SP_daemon -N 1 -PID 18847 -r
 
 order:0 timestamp=1741415293198
@@ -425,13 +482,14 @@ order:33 swapPss=25356
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需要拉起被测应用的进程。
 
- 采集1整机cpu指令数。
-```text
+- 采集1整机cpu指令数。
+
+  
+```bash
 $ SP_daemon -N 1 -ci
 
 order:0 hw-cpu-cycles=2168073451.00000
@@ -442,8 +500,10 @@ command exec finished!
 $
 ```
 
- 采集1整机和指定应用cpu指令数。
-```text
+- 采集1整机和指定应用cpu指令数。
+
+  
+```bash
 $ SP_daemon -N 1 -pkg ohos.samples.ecg -ci
 
 order:0 cycles per instruction=2.617221
@@ -454,13 +514,14 @@ order:3 timestamp=1501838024624
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需进入被测应用内。
 
- 采集2次截图。
-```text
+- 采集2次截图。
+
+  
+```bash
 $ SP_daemon -N 2 -snapshot
 
 order:0 timestamp=1739349178766
@@ -472,13 +533,14 @@ order:1 capture=NA
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 截图采集是2秒截取一次。 截图报告存放路径为：data/local/tmp/capture。 采集结束后：进入 data/local/tmp/capture 查看生成的截图。 导出截图示例：hdc file recv data/local/tmp/capture/screenCap_1700725192774.png D:\。
 
- 采集2次网络速率。
-```text
+- 采集2次网络速率。
+
+  
+```bash
 $ SP_daemon -N 2 -net
 
 order:0 timestamp=1739349429109
@@ -493,8 +555,10 @@ command exec finished!
 $
 ```
 
- 设置包名并采集5次指定应用帧率。
-```text
+- 设置包名并采集5次指定应用帧率。
+
+  
+```bash
 $ SP_daemon -N 5 -PKG ohos.samples.ecg -f
 
 order:0 fps=32
@@ -511,13 +575,14 @@ order:3 timestamp=1773042669243
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内滑动或切换应用。
 
- 设置进程ID采集5次指定应用帧率。
-```text
+- 设置进程ID采集5次指定应用帧率。
+
+  
+```bash
 $ SP_daemon -N 5 -PID 18847 -f
 
 order:0 timestamp=1741415862598
@@ -529,13 +594,14 @@ order:3 refreshrate=60
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内滑动或切换应用。
 
- 采集10次指定图层帧率。
-```text
+- 采集10次指定图层帧率。
+
+  
+```bash
 $ SP_daemon -N 10 -VIEW DisplayNode -f
 
 order:0 timestamp=1705306822850
@@ -552,13 +618,14 @@ order:3 refreshrate=120
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > DisplayNode 是指定的图层名。 使用该命令采集时，需在传入的图层上操作页面。 该命令不能与指定应用帧率一起采集（SP_daemon -N 20 -PKG ohos.samples.ecg -f 或 SP_daemon -N 20 -VIEW DisplayNode -f）。
 
- 采集1次DDR信息。
-```text
+- 采集1次DDR信息。
+
+  
+```bash
 $ SP_daemon -N 1 -d
 
 order:0 timestamp=1739349607442
@@ -568,8 +635,10 @@ command exec finished!
 $
 ```
 
- 全量采集示例1，采集10次整机信息，包括cpu、gpu、温度、功耗、内存信息、DDR信息、网络速率、屏幕截图。
-```text
+- 全量采集示例1，采集10次整机信息，包括cpu、gpu、温度、功耗、内存信息、DDR信息、网络速率、屏幕截图。
+
+  
+```bash
 $ SP_daemon -N 10 -c -g -t -p -r -d -net -snapshot
 
 order:0 Battery=34.000000
@@ -618,8 +687,10 @@ command exec finished!
 $
 ```
 
- 全量采集示例2，设置包名并采集指定应用信息，包括cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图。
-```text
+- 全量采集示例2，设置包名并采集指定应用信息，包括cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图。
+
+  
+```bash
 $ SP_daemon -N 10 -PKG ohos.samples.ecg -c -g -t -p -f -r -d -net -snapshot -threads
 
 order:0 Battery=36.000000
@@ -701,13 +772,14 @@ order:185 voltageNow=3768445
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内。
 
- 全量采集示例3，设置进程ID并采集指定应用信息，包括cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图。
-```text
+- 全量采集示例3，设置进程ID并采集指定应用信息，包括cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图。
+
+  
+```bash
 $ SP_daemon -N 10 -PID 48875 -c -g -t -p -f -r -d -net -snapshot -threads
 
 oorder:0 Battery=37.000000
@@ -800,20 +872,27 @@ order:185 voltageNow=3719892
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 使用该命令采集时需要进入被测应用内。
 
-**2. 启停采集** 先执行start开始采集命令，然后操作设备或应用，最后执行stop结束采集命令。
+
+ 
+**2. 启停采集**
+ 
+先执行start开始采集命令，然后操作设备或应用，最后执行stop结束采集命令。
+  
 | 启停采集命令参数 | 必选 | 说明 |
 | --- | --- | --- |
 | -start | 是 | 开始采集，该命令参数后可添加基础采集命令，一秒采集一次。 |
 | -stop | 是 | 结束采集，执行后会生成采集报告。 |
 | -print | 否 | 一秒打印一次启停采集信息。 |
+ 
+ 
+- 启停采集整机CPU大中小核频率、各核使用率。
 
-启停采集整机CPU大中小核频率、各核使用率。
-```text
+  
+```bash
 # 开始采集
 $ SP_daemon -start -c
 SP_daemon Collection begins
@@ -830,8 +909,10 @@ command exec finished!
 $
 ```
 
- 启停采集并打印整机CPU大中小核频率、各核使用率。
-```text
+- 启停采集并打印整机CPU大中小核频率、各核使用率。
+
+  
+```bash
 # 开始采集（打印启停采集信息）
 $ SP_daemon -start -c -print
 SP_daemon Collection begins
@@ -875,7 +956,7 @@ order:34 cpu11userUsage=0.000000
 
 command exec finished!
 $
-
+    
 # 结束采集（在启停打印时，需重新开启命令框执行此命令）
 $ SP_daemon -stop
 SP_daemon Collection ended
@@ -884,13 +965,21 @@ Output Path: data/local/tmp/smartperf/1/t_index_info.csv
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 开始采集示例1（采整机cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图）：SP_daemon -start -c -g -t -p -r -d -net -snapshot。 开始采集示例2（采整机和进程cpu负载、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符）：SP_daemon -start -PKG ohos.samples.ecg -c -g -t -p -f -r -d -net -snapshot -threads。 开始采集示例3（采整机和进程cpu负载、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符）：SP_daemon -start -PID 18847 -c -g -t -p -f -r -d -net -snapshot -threads。 开始采集示例4（采整机cpu、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符并且打印采集信息）：SP_daemon -start -c -g -t -p -r -d -net -snapshot -threads -print。 开始采集示例5（采整机和进程cpu负载、gpu、温度、功耗、fps、内存信息、DDR信息、网络速率、屏幕截图、线程数、文件描述符并且打印采集信息）：SP_daemon -start -PID 18847 -c -g -t -p -f -r -d -net -snapshot -threads -print。 开始采集需和结束采集结合使用，先执行开始采集命令，执行完后操作设备中的应用，最后执行结束采集命令。 在执行启停打印采集时，执行停止命令需重新打开命令框执行停止命令。 结束采集，文件输出路径为：data/local/tmp/smartperf/1/t_index_info.csv。 导出示例：hdc file recv data/local/tmp/smartperf/1/t_index_info.csv D:\。
 
-**3. 查看csv采集结果** 若采集结果保存在csv文件中，可以按照如下操作导出和查看结果内容。 通过-N开启采集，采集结果默认输出路径：/data/local/tmp/data.csv。 查看文件位置。
-```text
+
+ 
+**3. 查看csv采集结果**
+ 
+若采集结果保存在csv文件中，可以按照如下操作导出和查看结果内容。
+ 
+- 通过-N开启采集，采集结果默认输出路径：/data/local/tmp/data.csv。
+- 查看文件位置。
+
+  
+```bash
 C:\Users\issusser>hdc shell
 $ cd data/local/tmp
 $ ls
@@ -898,8 +987,10 @@ data.csv
 $
 ```
 
- 导出文件到指定路径。
-```text
+- 导出文件到指定路径。
+
+  
+```bash
 C:\Users\issusser>hdc file recv data/local/tmp/data.csv D:\
 [I][2023-11-08 16:16:41] HdcFile::TransferSummary success
 FileTransfer finish, Size:429, File count = 1, time:6ms rate:71.50kB/s
@@ -907,97 +998,182 @@ FileTransfer finish, Size:429, File count = 1, time:6ms rate:71.50kB/s
 C:\Users\issusser>
 ```
 
- 打开data.csv查看数据。 在自定义导出路径里找到data.csv文件打开查看采集数据表，data.csv数据名描述如下：
+- 打开data.csv查看数据。
+
+  在自定义导出路径里找到data.csv文件打开查看采集数据表，data.csv数据名描述如下：
+
 | 数据项 | 说明 | 备注 |
+
 | --- | --- | --- |
+
 | cpuFrequency | CPU大中小核频率。 | 单位：Hz |
+
 | cpuUasge | CPU各核使用率。 | % |
+
 | cpuidleUsage | CPU空闲态使用率。 | % |
+
 | cpuioWaitUsage | 等待I/O的使用率。 | % |
+
 | cpuirqUsage | 硬中断的使用率。 | % |
+
 | cpuniceUsage | 低优先级用户态使用率。 | % |
+
 | cpusoftIrqUsage | 软中断的使用率。 | % |
+
 | cpusystemUsage | 系统/内核态使用率。 | % |
+
 | cpuuserUsage | 用户态使用率。 | % |
+
 | ProcId | 进程id。 | - |
+
 | ProcAppName | app包名。 | - |
+
 | ProcCpuLoad | 进程CPU负载占比。 | % |
+
 | ProcCpuUsage | 进程CPU使用率。 | % |
+
 | ProcUCpuUsage | 进程用户态CPU使用率。 | % |
+
 | ProcSCpuUsage | 进程内核态CPU使用率。 | % |
+
 | TotalcpuUsage | CPU总使用率。 | % |
+
 | TotalcpuidleUsage | CPU总空闲态使用率。 | % |
+
 | TotalcpuioWaitUsage | CPU总等待I/O使用率。 | % |
+
 | TotalcpuirqUsage | CPU总硬中断使用率。 | % |
+
 | TotalcpuniceUsage | CPU总低优先级用户态使用率。 | % |
+
 | TotalcpusoftIrqUsage | CPU总软中断使用率。 | % |
+
 | TotalcpusystemUsage | CPU总系统/内核态使用率。 | % |
+
 | TotalcpuuserUsage | CPU总用户态使用率。 | % |
+
 | gpuFrequency | 整机GPU的频率。 | % |
+
 | gpuLoad | 整机GPU的负载占比。 | % |
+
 | currentNow | 当前读到的电流值。 | 单位：mA |
+
 | voltageNow | 当前读到的电压值。 | 单位：μV |
+
 | fps | 每秒帧数。 | 单位：fps |
+
 | fpsJitters | 每一帧绘制间隔。 | 单位：ns |
+
 | refreshrate | 屏幕刷新率。 | 单位：Hz |
+
 | networkDown | 下行速率。 | 单位：byte/s |
+
 | networkUp | 上行速率。 | 单位：byte/s |
+
 | ddrFrequency | DDR频率。 | 单位：Hz |
+
 | shell_front | 前壳温度。 | 单位：°C |
+
 | shell_frame | 边框温度。 | 单位：°C |
+
 | shell_back | 后壳温度。 | 单位：°C |
+
 | soc_thermal | 系统芯片温度。 | 单位：°C |
+
 | system_h | 系统温度。 | 单位：°C |
+
 | Battery | 电池温度。 | 单位：°C |
+
 | cluster0 | CPU温度。 | 单位：°C |
+
 | gpu | GPU温度。 | 单位：°C |
+
 | npu_thermal | NPU温度。 | 单位：°C |
+
 | memAvailable | 整机可用内存。 | 单位：KB |
+
 | memFree | 整机空闲内存。 | 单位：KB |
+
 | memTotal | 整机总内存。 | 单位：KB |
+
 | pss | 进程实际使用内存。 | 单位：KB |
+
 | Childpss | 子进程实际使用内存。 | 单位：KB |
+
 | sharedClean | 进程共享的未改写页面。 | 单位：KB |
+
 | ChildsharedClean | 子进程共享的未改写页面。 | 单位：KB |
+
 | sharedDirty | 进程共享的已改写页面。 | 单位：KB |
+
 | ChildsharedDirty | 子进程共享的已改写页面。 | 单位：KB |
+
 | privateClean | 进程私有的未改写页面。 | 单位：KB |
+
 | ChildprivateClean | 子进程私有的未改写页面。 | 单位：KB |
+
 | privateDirty | 进程私有的已改写页面。 | 单位：KB |
+
 | ChildprivateDirty | 子进程私有的已改写页面。 | 单位：KB |
+
 | swapTotal | 进程总的交换内存。 | 单位：KB |
+
 | ChildswapTotal | 子进程总的交换内存。 | 单位：KB |
+
 | swapPss | 进程交换的pss内存。 | 单位：KB |
+
 | ChildswapPss | 子进程交换的pss内存。 | 单位：KB |
+
 | HeapSize | 进程堆内存大小。 | 单位：KB |
+
 | ChildHeapSize | 子进程堆内存大小。 | 单位：KB |
+
 | HeapAlloc | 进程可分配的堆内存大小。 | 单位：KB |
+
 | ChildHeapAlloc | 子进程可分配的堆内存大小。 | 单位：KB |
+
 | HeapFree | 进程剩余的堆内存大小。 | 单位：KB |
+
 | ChildHeapFree | 子进程剩余的堆内存大小。 | 单位：KB |
+
 | gpuPss | 进程使用的gpu内存大小。 | 单位：KB |
+
 | ChildgpuPss | 子进程使用的gpu内存大小。 | 单位：KB |
+
 | graphicPss | 进程使用的图形内存大小。 | 单位：KB |
+
 | ChildgraphicPss | 子进程使用的图形内存大小。 | 单位：KB |
+
 | arktsHeapPss | 进程使用的arkts内存大小。 | 单位：KB |
+
 | ChildarktsHeapPss | 子进程使用的arkts内存大小。 | 单位：KB |
+
 | nativeHeapPss | 进程使用的native内存大小。 | 单位：KB |
+
 | ChildnativeHeapPss | 子进程使用的native内存大小。 | 单位：KB |
+
 | stackPss | 进程使用的栈内存大小。 | 单位：KB |
+
 | ChildstackPss | 子进程使用的栈内存大小。 | 单位：KB |
+
 | timeStamp | 当前时间戳。 | 对应采集时间 |
 
+ 
+ 
 
-## 场景化采集
+##### 场景化采集
 
-除基本采集外，还支持采集响应和完成时延等内容。场景化采集结果不写入data.csv，采集结果直接在命令框显示。 场景化采集是对应用页面滑动、切换场景下的性能测试，针对不同操作场景执行相对应的采集命令，获取应用性能数据，包括页面的滑动帧率、页面切换或滑动的卡顿率、响应时延、完成时延以及最大连续丢帧，对采集数据进行输出打印，以便用户分析并优化应用性能。
+除基本采集外，还支持采集响应和完成时延等内容。场景化采集结果不写入data.csv，采集结果直接在命令框显示。
+ 
+场景化采集是对应用页面滑动、切换场景下的性能测试，针对不同操作场景执行相对应的采集命令，获取应用性能数据，包括页面的滑动帧率、页面切换或滑动的卡顿率、响应时延、完成时延以及最大连续丢帧，对采集数据进行输出打印，以便用户分析并优化应用性能。
+  
 | 场景化采集命令参数 | 必选 | 说明 |
 | --- | --- | --- |
 | -editor | 是 | 采集类型为场景化。 |
 | timeDelay | 否 | 页面切换（支持ArKUI子系统的router、navigation、tabs、swiper控件内的页面切换/内容切换）。 |
 | slideList | 否 | 页面滑动（支持ArKUI子系统的List、grid、scroll、waterflow等组件内的页面滑动）。 |
-
-
+ 
+  
 | 场景化采集数据项 | 说明 | 备注 |
 | --- | --- | --- |
 | ResponseTime | 页面切换、页面滑动的响应时延。 | 单位：ms |
@@ -1005,9 +1181,19 @@ C:\Users\issusser>
 | HitchTimeRate | 页面切换、页面滑动的卡顿率。 | 单位：ms/s |
 | MAX_RENDER_SEQ_MISSED_FRAMES | 页面切换、页面滑动的最大连续丢帧。 | NA |
 | FPS | 页面滑动帧率 | 单位：fps |
-
-**页面切换** 步骤1：打开被测应用，进入需要测试的页面。 步骤2：在cmd命令行中输入命令并回车：SP_daemon -editor timeDelay。 步骤3：等待1-2秒钟，然后手动点击页面内的按钮，跳转到下一个页面，等待测试完成。 测试完成后，打印结果示例如下：
-```text
+ 
+ 
+**页面切换**
+ 
+步骤1：打开被测应用，进入需要测试的页面。
+ 
+步骤2：在cmd命令行中输入命令并回车：SP_daemon -editor timeDelay。
+ 
+步骤3：等待1-2秒钟，然后手动点击页面内的按钮，跳转到下一个页面，等待测试完成。
+ 
+测试完成后，打印结果示例如下：
+ 
+```bash
 $ SP_daemon -editor timeDelay
 ResponseTime:41ms
 CompleteTime:593ms
@@ -1015,13 +1201,22 @@ HitchTimeRate:68.65ms/s
 MAX_RENDER_SEQ_MISSED_FRAMES:3
 $
 ```
-
-
+ 
 > [!NOTE]
 > 时延计算受系统打点上报限制，开始时间为点击事件上报时间点，响应时延结束时间点为点击后系统响应首帧的上屏时间点，完成时延是切换后页面的首帧上屏时间点，与端到端用户感知时延存在差异。 页面切换卡顿率：目前只支持ArKUI子系统的router、navigation、tabs、swiper控件内的页面切换/内容切换。计算公式：页面切换卡顿率=页面切换动效时间内每一帧的累计丢帧时间（ms）/ 动效时长（s）。 最大连续丢帧受系统打点上报限制，与端到端用户感知时延存在差异。 页面切换同时会抓取trace，文件路径：data/local/tmp/sp_trace_delay.ftrace，通过hdc file recv的方式导出查看trace。
 
- **页面滑动** 步骤1：打开被测应用，进入需要测试的页面。 步骤2：在cmd命令行中输入命令并回车：SP_daemon -editor slideList。 步骤3：等待1-2秒钟，然后触摸屏幕滑动一次页面，等待测试完成。 测试完成后，打印结果示例如下：
-```text
+ 
+**页面滑动**
+ 
+步骤1：打开被测应用，进入需要测试的页面。
+ 
+步骤2：在cmd命令行中输入命令并回车：SP_daemon -editor slideList。
+ 
+步骤3：等待1-2秒钟，然后触摸屏幕滑动一次页面，等待测试完成。
+ 
+测试完成后，打印结果示例如下：
+ 
+```bash
 $ SP_daemon -editor slideList
 FPS:107.181fps
 ResponseTime:20ms
@@ -1029,15 +1224,17 @@ HitchTimeRate:1.49ms/s
 MAX_RENDER_SEQ_MISSED_FRAMES:0
 $
 ```
-
-
-> [!NOTE]
+ 
+> [!WARNING]
 > 时延计算受系统打点上报限制，开始时间为点击事件上报时间点，响应时延结束时间点为滑动后系统响应首帧的上屏时间点，与端到端用户感知时延存在差异，需要注意的是，滑动场景时延计算不支持Web组件。 页面滑动帧率：指的是在页面滑动时，屏幕能够刷新的频率。需要注意的是，该场景目前只支持滑动一次页面。 页面滑动卡顿率：目前只支持ArKUI子系统的List、grid、scroll、waterflow滚动组件。计算公式：页面滑动卡顿率=页面滑动动效时间内每一帧的累计丢帧时间（ms）/ 动效时长（s）。 最大连续丢帧受系统打点上报限制，与端到端用户感知时延存在差异。 页面滑动同时会抓取trace，文件路径：data/local/tmp/sp_trace_fps.ftrace，通过hdc file recv的方式导出查看trace。
 
+ 
+ 
 
-## 其他采集
+##### 其他采集
 
 当前设备电量采集结果可写入csv文件，其它命令需单独采集，采集结果不写入data.csv，仅在命令框显示。
+  
 | 命令参数 | 必选 | 说明 |
 | --- | --- | --- |
 | -screen | 否 | 采集屏幕分辨率和刷新率。 |
@@ -1046,22 +1243,26 @@ $
 | -clear | 否 | 清除所有SP_daemon进程。 |
 | -recordcapacity | 否 | 获取当前设备电量。 |
 | -profilerfps | 否 | 采集当前界面fps。 |
+ 
+ 
+- 获取屏幕分辨率。
 
-获取屏幕分辨率。
-```text
+  
+```bash
 $ SP_daemon -screen
 activeMode: 1260x2720, refreshrate=60
 
 command exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > activeMode表示当前屏幕分辨率，refreshrate表示屏幕刷新率。
 
- 获取设备信息。
-```text
+- 获取设备信息。
+
+  
+```bash
 $ SP_daemon -deviceinfo
   abilist: default
   activeMode: 1260x2720
@@ -1091,21 +1292,24 @@ $ SP_daemon -deviceinfo
   $
 ```
 
- 启动一个进程来监听start和stop命令的socket消息
-```text
+- 启动一个进程来监听start和stop命令的socket消息
+
+  
+```bash
 $ SP_daemon -server
 $
 $ pidof SP_daemon
 7024
 $
 ```
-
-
+ 
 > [!NOTE]
 > 可执行pidof SP_daemon查看进程id。
 
- 清除SP_daemon进程ID
-```text
+- 清除SP_daemon进程ID
+
+  
+```bash
 $ pidof SP_daemon
 9923 11402
 $ SP_daemon -clear
@@ -1113,13 +1317,14 @@ $
 $ pidof SP_daemon
 $
 ```
-
-
+ 
 > [!NOTE]
 > 可执行pidof SP_daemon查看进程id。
 
- 采集当前界面fps。
-```text
+- 采集当前界面fps。
+
+  
+```bash
 $ SP_daemon -profilerfps 10
 set num:10 success
 fps:31|1739353731123
@@ -1135,13 +1340,14 @@ fps:19|1739353740123
 SP_daemon exec finished!
 $
 ```
-
-
+ 
 > [!NOTE]
 > 该条命令里的10表示采集的次数（一秒采集一次），可以设置为其他正整数。
 
- 采集当前界面fps（分段采集）。
-```text
+- 采集当前界面fps（分段采集）。
+
+  
+```bash
 $ SP_daemon -profilerfps 100 -sections 10
 set num:100 success
 fps:33|1739353780123
@@ -1172,19 +1378,19 @@ sectionsFps:60|1739353799123
 
 SP_daemon exec finished!
 ```
-
-
+ 
 > [!NOTE]
 > 该条命令里的100表示采集的次数（一秒采集一次），可以设置为其他正整数，10表示分段：目前支持设置 1-10（正整数）段采集。
 
- 获取电池电量。
-```text
+- 获取电池电量。
+
+  
+```bash
 $ SP_daemon -recordcapacity
 recordTime: 1726903063
 recordPower: 5502
 $
 ```
-
-
+ 
 > [!NOTE]
 > recordTime表示时间戳，recordPower表示当前时刻的电量。 该命令需单独采集，采集结果写入/data/local/tmp/powerLeftRecord.csv，可以使用hdc file recv导出到本地。具体请参考查看csv采集结果。

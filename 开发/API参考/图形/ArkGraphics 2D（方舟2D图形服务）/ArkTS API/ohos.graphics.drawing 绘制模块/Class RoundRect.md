@@ -3,22 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-roundrect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 圆角矩形对象。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## constructor20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor20+
 
 constructor(roundRect: RoundRect)
 
@@ -28,26 +30,24 @@ constructor(roundRect: RoundRect)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| roundRect | [RoundRect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-roundrect) | 是 | 用于拷贝的圆角矩形。 |
+| roundRect | RoundRect | 是 | 用于拷贝的圆角矩形。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
-let rect: common2D.Rect = { left: 100, top: 100, right: 500, bottom: 300 };
+let rect: common2D.Rect = {left : 100, top : 100, right : 500, bottom : 300};
 let roundRect = new drawing.RoundRect(rect, 50, 50);
 let roundRect2 = new drawing.RoundRect(roundRect);
 ```
 
 
-## constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor12+
 
 constructor(rect: common2D.Rect, xRadii: number, yRadii: number)
 
@@ -57,10 +57,9 @@ constructor(rect: common2D.Rect, xRadii: number, yRadii: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 是 | 需要创建的圆角矩形区域。 |
+| rect | common2D.Rect | 是 | 需要创建的圆角矩形区域。 |
 | xRadii | number | 是 | X轴上的圆角半径，该参数为浮点数，小于等于0时无效。 |
 | yRadii | number | 是 | Y轴上的圆角半径，该参数为浮点数，小于等于0时无效。 |
 
@@ -69,7 +68,6 @@ constructor(rect: common2D.Rect, xRadii: number, yRadii: number)
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -77,17 +75,16 @@ constructor(rect: common2D.Rect, xRadii: number, yRadii: number)
 
 **示例：**
 
-
-```ts
+```text
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
-let rect: common2D.Rect = { left: 100, top: 100, right: 500, bottom: 300 };
+let rect: common2D.Rect = {left : 100, top : 100, right : 500, bottom : 300};
 let roundRect = new drawing.RoundRect(rect, 50, 50);
 ```
 
 
-## setCorner12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setCorner12+
 
 setCorner(pos: CornerPos, x: number, y: number): void
 
@@ -97,10 +94,9 @@ setCorner(pos: CornerPos, x: number, y: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pos | [CornerPos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#cornerpos12) | 是 | 圆角位置。 |
+| pos | CornerPos | 是 | 圆角位置。 |
 | x | number | 是 | x轴方向的圆角半径，该参数为浮点数，小于等于0时无效。 |
 | y | number | 是 | y轴方向的圆角半径，该参数为浮点数，小于等于0时无效。 |
 
@@ -109,7 +105,6 @@ setCorner(pos: CornerPos, x: number, y: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed. |
@@ -117,21 +112,16 @@ setCorner(pos: CornerPos, x: number, y: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let roundRect: drawing.RoundRect = new drawing.RoundRect(
-  { left: 0, top: 0, right: 300, bottom: 300 },
-  50,
-  50,
-);
+let roundRect : drawing.RoundRect = new drawing.RoundRect({left: 0, top: 0, right: 300, bottom: 300}, 50, 50);
 roundRect.setCorner(drawing.CornerPos.TOP_LEFT_POS, 150, 150);
 ```
 
 
-## getCorner12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCorner12+
 
 getCorner(pos: CornerPos): common2D.Point
 
@@ -141,24 +131,21 @@ getCorner(pos: CornerPos): common2D.Point
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pos | [CornerPos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#cornerpos12) | 是 | 圆角位置。 |
+| pos | CornerPos | 是 | 圆角位置。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [common2D.Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#point12) | 返回一个点，其横坐标表示圆角x轴方向上的半径，纵坐标表示y轴方向上的半径。 |
+| common2D.Point | 返回一个点，其横坐标表示圆角x轴方向上的半径，纵坐标表示y轴方向上的半径。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -167,23 +154,18 @@ getCorner(pos: CornerPos): common2D.Point
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let roundRect: drawing.RoundRect = new drawing.RoundRect(
-  { left: 0, top: 0, right: 300, bottom: 300 },
-  50,
-  50,
-);
+let roundRect : drawing.RoundRect = new drawing.RoundRect({left: 0, top: 0, right: 300, bottom: 300}, 50, 50);
 let cornerRadius = roundRect.getCorner(drawing.CornerPos.BOTTOM_LEFT_POS);
-console.info('getCorner---' + cornerRadius.x);
-console.info('getCorner---' + cornerRadius.y);
+console.info("getCorner---"+cornerRadius.x)
+console.info("getCorner---"+cornerRadius.y)
 ```
 
 
-## offset12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### offset12+
 
 offset(dx: number, dy: number): void
 
@@ -192,7 +174,6 @@ offset(dx: number, dy: number): void
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -204,7 +185,6 @@ offset(dx: number, dy: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -212,14 +192,9 @@ offset(dx: number, dy: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 
-let roundRect: drawing.RoundRect = new drawing.RoundRect(
-  { left: 0, top: 0, right: 300, bottom: 300 },
-  50,
-  50,
-);
+let roundRect : drawing.RoundRect = new drawing.RoundRect({left: 0, top: 0, right: 300, bottom: 300}, 50, 50);
 roundRect.offset(100, 100);
 ```

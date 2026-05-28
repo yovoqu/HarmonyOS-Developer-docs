@@ -9,7 +9,7 @@
 | 新增API | NA | 类名：MediaAssetChangeRequest； API声明：saveCameraPhoto(imageFileType: ImageFileType): void; 差异内容：saveCameraPhoto(imageFileType: ImageFileType): void; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明： interface QuickImageDataHandler 差异内容： interface QuickImageDataHandler | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：QuickImageDataHandler； API声明：onDataPrepared(data: T, imageSource: image.ImageSource, map: Map<string, string>): void; 差异内容：onDataPrepared(data: T, imageSource: image.ImageSource, map: Map<string, string>): void; | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：MediaAssetManager； API声明：static quickRequestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: QuickImageDataHandler<image.Picture>): Promise<string>; 差异内容：static quickRequestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: QuickImageDataHandler<image.Picture>): Promise<string>; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：MediaAssetManager； API声明：static quickRequestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: QuickImageDataHandler<image.Picture>): Promise&lt;string&gt;; 差异内容：static quickRequestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: QuickImageDataHandler<image.Picture>): Promise&lt;string&gt;; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明： enum ImageFileType 差异内容： enum ImageFileType | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：ImageFileType； API声明：JPEG = 1 差异内容：JPEG = 1 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：ImageFileType； API声明：HEIF = 2 差异内容：HEIF = 2 | api/@ohos.file.photoAccessHelper.d.ts |
@@ -19,13 +19,13 @@
 | 新增API | NA | 类名：PhotoPickerComponent； API声明：onSelectedItemsDeleted?: ItemsDeletedCallback; 差异内容：onSelectedItemsDeleted?: ItemsDeletedCallback; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：PhotoPickerComponent； API声明：onExceedMaxSelected?: ExceedMaxSelectedCallback; 差异内容：onExceedMaxSelected?: ExceedMaxSelectedCallback; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：PhotoPickerComponent； API声明：onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback; 差异内容：onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback; | api/@ohos.file.PhotoPickerComponent.d.ets |
-| 新增API | NA | 类名：global； API声明：export type ItemsDeletedCallback = (baseItemInfos: Array<BaseItemInfo>) => void; 差异内容：export type ItemsDeletedCallback = (baseItemInfos: Array<BaseItemInfo>) => void; | api/@ohos.file.PhotoPickerComponent.d.ets |
+| 新增API | NA | 类名：global； API声明：export type ItemsDeletedCallback = (baseItemInfos: Array&lt;BaseItemInfo&gt;) => void; 差异内容：export type ItemsDeletedCallback = (baseItemInfos: Array&lt;BaseItemInfo&gt;) => void; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void; 差异内容：export type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export type CurrentAlbumDeletedCallback = () => void; 差异内容：export type CurrentAlbumDeletedCallback = () => void; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：PickerController； API声明：exitPhotoBrowser(): void; 差异内容：exitPhotoBrowser(): void; | api/@ohos.file.PhotoPickerComponent.d.ets |
-| 新增API | NA | 类名：PickerController； API声明：setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void; 差异内容：setPhotoBrowserUIElementVisibility(elements: Array<PhotoBrowserUIElement>, isVisible: boolean): void; | api/@ohos.file.PhotoPickerComponent.d.ets |
+| 新增API | NA | 类名：PickerController； API声明：setPhotoBrowserUIElementVisibility(elements: Array&lt;PhotoBrowserUIElement&gt;, isVisible: boolean): void; 差异内容：setPhotoBrowserUIElementVisibility(elements: Array&lt;PhotoBrowserUIElement&gt;, isVisible: boolean): void; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：PickerOptions； API声明：isSlidingSelectionSupported?: boolean; 差异内容：isSlidingSelectionSupported?: boolean; | api/@ohos.file.PhotoPickerComponent.d.ets |
-| 新增API | NA | 类名：PickerOptions； API声明：photoBrowserCheckboxPosition?: [  number,  number  ]; 差异内容：photoBrowserCheckboxPosition?: [  number,  number  ]; | api/@ohos.file.PhotoPickerComponent.d.ets |
+| 新增API | NA | 类名：PickerOptions； API声明：photoBrowserCheckboxPosition?: [ number, number ]; 差异内容：photoBrowserCheckboxPosition?: [ number, number ]; | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：global； API声明： export declare enum PhotoBrowserUIElement 差异内容： export declare enum PhotoBrowserUIElement | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：PhotoBrowserUIElement； API声明：CHECKBOX = 0 差异内容：CHECKBOX = 0 | api/@ohos.file.PhotoPickerComponent.d.ets |
 | 新增API | NA | 类名：PhotoBrowserUIElement； API声明：BACK_BUTTON = 1 差异内容：BACK_BUTTON = 1 | api/@ohos.file.PhotoPickerComponent.d.ets |

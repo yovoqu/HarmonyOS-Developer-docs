@@ -3,13 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-mediaquery
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供根据不同媒体类型定义不同的样式。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 10开始支持。 以下API需先使用UIContext中的 getMediaQuery() 方法获取到MediaQuery对象，再通过该对象调用对应方法。
 
-## matchMediaSync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### matchMediaSync
 
 matchMediaSync(condition: string): mediaQuery.MediaQueryListener
 
@@ -21,18 +24,16 @@ matchMediaSync(condition: string): mediaQuery.MediaQueryListener
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| condition | string | 是 | 媒体事件的匹配条件，具体可参考[媒体查询语法规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-media-query#语法规则)。 |
+| condition | string | 是 | 媒体事件的匹配条件，具体可参考媒体查询语法规则。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [mediaQuery.MediaQueryListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mediaquery#mediaquerylistener) | 媒体事件监听句柄，用于注册和去注册监听回调。 |
+| mediaQuery.MediaQueryListener | 媒体事件监听句柄，用于注册和去注册监听回调。 |
 
 
 **示例：**

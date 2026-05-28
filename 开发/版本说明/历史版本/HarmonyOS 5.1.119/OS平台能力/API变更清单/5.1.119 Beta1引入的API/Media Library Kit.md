@@ -15,7 +15,7 @@
 | 新增API | NA | 类名：FilterOperator； API声明：LESS_THAN_OR_EQUAL_TO = 5 差异内容：LESS_THAN_OR_EQUAL_TO = 5 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：FilterOperator； API声明：BETWEEN = 6 差异内容：BETWEEN = 6 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明：class MimeTypeFilter 差异内容：class MimeTypeFilter | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：MimeTypeFilter； API声明：mimeTypeArray: Array<string>; 差异内容：mimeTypeArray: Array<string>; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：MimeTypeFilter； API声明：mimeTypeArray: Array&lt;string&gt;; 差异内容：mimeTypeArray: Array&lt;string&gt;; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明：class FileSizeFilter 差异内容：class FileSizeFilter | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：FileSizeFilter； API声明：filterOperator: FilterOperator; 差异内容：filterOperator: FilterOperator; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：FileSizeFilter； API声明：fileSize: number; 差异内容：fileSize: number; | api/@ohos.file.photoAccessHelper.d.ts |

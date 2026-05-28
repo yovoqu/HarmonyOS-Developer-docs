@@ -1,48 +1,64 @@
 # 绘制几何图形 (Shape)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-geometric-shape-drawing
 
 绘制组件用于在页面绘制图形，Shape组件是绘制组件的父组件，包含所有绘制组件的通用属性。具体用法请参考[Shape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-shape)。
 
 
-## 创建绘制组件
+##### 创建绘制组件
 
-绘制组件可以由以下两种形式创建： 绘制组件使用Shape作为父组件，实现类似SVG的效果。接口调用为以下形式：
+绘制组件可以由以下两种形式创建：
+
+ - 绘制组件使用Shape作为父组件，实现类似SVG的效果。接口调用为以下形式：
+
+  
 ```text
 Shape(value?: PixelMap)
 ```
-
 该接口用于创建带有父组件的绘制组件，其中value用于设置绘制目标，可将图形绘制在指定的PixelMap对象中，若未设置，则在当前绘制目标中进行绘制。
-```text
+
+  
+```ArkTS
 Shape() {
   Rect().width(300).height(50)
 }
 ```
 
-绘制组件单独使用，用于在页面上绘制指定的图形。有7种绘制类型，分别为[Circle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle)（圆形）、[Ellipse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-ellipse)（椭圆形）、[Line](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-line)（直线）、[Polyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline)（折线）、[Polygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polygon)（多边形）、[Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path)（路径）、[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-rect)（矩形）。以Circle的接口调用为例：
+ - 绘制组件单独使用，用于在页面上绘制指定的图形。有7种绘制类型，分别为[Circle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle)（圆形）、[Ellipse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-ellipse)（椭圆形）、[Line](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-line)（直线）、[Polyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline)（折线）、[Polygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polygon)（多边形）、[Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path)（路径）、[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-rect)（矩形）。以Circle的接口调用为例：
+
+  
 ```text
 Circle(value?: { width?: string | number, height?: string | number })
 ```
-
 该接口用于在页面绘制圆形，其中width用于设置圆形的宽度，height用于设置圆形的高度，圆形直径由宽高最小值确定。
-```text
+
+  
+```ArkTS
 Circle({ width: 150, height: 150 })
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-0.jpg)
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-0.jpg)
 
-## 形状视口viewPort
 
+
+
+
+##### 形状视口viewPort
 
 ```text
 viewPort(value: { x?: number | string, y?: number | string, width?: number | string, height?: number | string })
 ```
 
-形状视口viewPort指定用户空间中的一个矩形，该矩形映射到为关联的SVG元素建立的视区边界。viewPort属性的值包含x、y、width和height四个可选参数，x和y表示视区的左上角坐标，width和height表示其尺寸。 以下三个示例说明如何使用viewPort： 通过形状视口对图形进行放大与缩小。
-```text
+形状视口viewPort指定用户空间中的一个矩形，该矩形映射到为关联的SVG元素建立的视区边界。viewPort属性的值包含x、y、width和height四个可选参数，x和y表示视区的左上角坐标，width和height表示其尺寸。
+
+以下三个示例说明如何使用viewPort：
+
+ - 通过形状视口对图形进行放大与缩小。
+
+  
+```ArkTS
 class Tmp {
   public x: number = 0;
   public y: number = 0;
@@ -108,9 +124,12 @@ struct ViewPort1 {
 }
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-1.png) 创建一个宽高都为300的shape组件，背景色为黄色，创建一个宽高都为300的viewPort。用一个蓝色的矩形来填充viewPort，在viewPort中绘制一个半径为75的圆。
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-1.png)
+
+ - 创建一个宽高都为300的shape组件，背景色为黄色，创建一个宽高都为300的viewPort。用一个蓝色的矩形来填充viewPort，在viewPort中绘制一个半径为75的圆。
+
+  
+```ArkTS
 class TmpTwo {
   public x: number = 0;
   public y: number = 0;
@@ -138,9 +157,12 @@ struct ViewPort2 {
 }
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-2.jpg) 创建一个宽高都为300的shape组件，背景色为黄色，创建一个宽高都为300的viewPort。用一个蓝色的矩形来填充viewPort，在viewPort中绘制一个半径为75的圆，将viewPort向右方和下方各平移150。
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-10.jpg)
+
+ - 创建一个宽高都为300的shape组件，背景色为黄色，创建一个宽高都为300的viewPort。用一个蓝色的矩形来填充viewPort，在viewPort中绘制一个半径为75的圆，将viewPort向右方和下方各平移150。
+
+  
+```ArkTS
 class TmpThree {
   public x: number = -150;
   public y: number = -150;
@@ -168,17 +190,24 @@ struct ViewPort3 {
 }
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-3.jpg)
-
-## 自定义样式
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-11.png)
 
 
-> [!NOTE]
-> 示例通过commands来绘制路径，commands参数说明请参考SVG路径描述规范。
 
-绘制组件支持通过各种属性更改组件样式。 通过[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#fill)可以设置组件填充区域颜色。
-```text
+
+
+##### 自定义样式
+
+> [!TIP]
+> 示例通过commands来绘制路径，commands参数说明请参考 SVG路径描述规范 。
+
+
+绘制组件支持通过各种属性更改组件样式。
+
+ - 通过[fill](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#fill)可以设置组件填充区域颜色。
+
+  
+```ArkTS
 Path()
   .width(100)
   .height(100)
@@ -187,9 +216,12 @@ Path()
   .strokeWidth(0)
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-4.jpg) 通过[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#stroke)可以设置组件边框颜色。
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-13.jpg)
+
+ - 通过[stroke](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#stroke)可以设置组件边框颜色。
+
+  
+```ArkTS
 Path()
   .width(100)
   .height(100)
@@ -198,9 +230,12 @@ Path()
   .stroke(Color.Red)
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-5.jpg) 通过[strokeOpacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#strokeopacity)可以设置边框透明度。
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-14.jpg)
+
+ - 通过[strokeOpacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#strokeopacity)可以设置边框透明度。
+
+  
+```ArkTS
 Path()
   .width(100)
   .height(100)
@@ -211,9 +246,12 @@ Path()
   .strokeOpacity(0.2)
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-6.jpg) 通过[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokelinejoin)可以设置线条拐角绘制样式。拐角绘制样式分为Bevel(使用斜角连接路径段)、Miter(使用尖角连接路径段)、Round(使用圆角连接路径段)。
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-2.jpg)
+
+ - 通过[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokelinejoin)可以设置线条拐角绘制样式。拐角绘制样式分为Bevel(使用斜角连接路径段)、Miter(使用尖角连接路径段)、Round(使用圆角连接路径段)。
+
+  
+```ArkTS
 Polyline()
   .width(100)
   .height(100)
@@ -225,9 +263,16 @@ Polyline()
   .strokeLineJoin(LineJoinStyle.Round)
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-7.jpg) 通过[strokeMiterLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokemiterlimit)设置斜接长度与边框宽度比值的极限值。 斜接长度表示外边框外边交点到内边交点的距离，边框宽度即[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokewidth)属性的值。 strokeMiterLimit取值需大于等于1，且在[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokelinejoin)属性取值LineJoinStyle.Miter时生效。
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-3.jpg)
+
+ - 通过[strokeMiterLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokemiterlimit)设置斜接长度与边框宽度比值的极限值。
+
+  斜接长度表示外边框外边交点到内边交点的距离，边框宽度即[strokeWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokewidth)属性的值。
+
+  strokeMiterLimit取值需大于等于1，且在[strokeLineJoin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline#strokelinejoin)属性取值LineJoinStyle.Miter时生效。
+
+  
+```ArkTS
 Polyline()
   .width(100)
   .height(100)
@@ -250,9 +295,12 @@ Polyline()
   .strokeMiterLimit(1.42)
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-8.jpg) 通过[antiAlias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle#antialias)设置是否开启抗锯齿，默认值为true（开启抗锯齿）。
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-4.jpg)
+
+ - 通过[antiAlias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle#antialias)设置是否开启抗锯齿，默认值为true（开启抗锯齿）。
+
+  
+```ArkTS
 // 开启抗锯齿
 Circle()
   .width(150)
@@ -262,9 +310,11 @@ Circle()
   .stroke(Color.Black)
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-9.png)
-```text
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-5.jpg)
+
+
+  
+```ArkTS
 // 关闭抗锯齿
 Circle()
   .width(150)
@@ -275,13 +325,17 @@ Circle()
   .antiAlias(false)
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-10.jpg) 通过[mesh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-shape#mesh8)设置网格效果，实现图像局部扭曲。
-> [!NOTE]
-> 示例通过commands来绘制路径，commands参数说明请参考SVG路径描述规范。
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-6.jpg)
+
+ - 通过[mesh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-shape#mesh8)设置网格效果，实现图像局部扭曲。
+
+  
+> [!TIP]
+> 示例通过commands来绘制路径，commands参数说明请参考 SVG路径描述规范 。
 
 
-```text
+  
+```ArkTS
 import { FrameNode, NodeController, RenderNode } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { drawing } from '@kit.ArkGraphics2D';
@@ -290,9 +344,9 @@ let offCanvas: OffscreenCanvas = new OffscreenCanvas(150, 150);
 let ctx = offCanvas.getContext('2d');
 
 class DrawingRenderNode extends RenderNode {
-  private verts_: Array = [0, 0, 50, 0, 410, 0, 0, 180, 50, 180, 410, 180, 0, 360, 50, 360, 410, 360];
+  private verts_: Array<number> = [0, 0, 50, 0, 410, 0, 0, 180, 50, 180, 410, 180, 0, 360, 50, 360, 410, 360];
 
-  setVerts(verts: Array): void {
+  setVerts(verts: Array<number>): void {
     this.verts_ = verts
   }
 
@@ -338,7 +392,7 @@ struct Mesh {
   @State pixelMap: image.PixelMap | undefined = undefined;
   @State shapeWidth: number = 150;
   @State strokeWidth: number = 1;
-  @State meshArray: Array = [0, 0, 50, 0, 410, 0, 0, 180, 50, 180, 410, 180, 0, 360, 50, 360, 410, 360];
+  @State meshArray: Array<number> = [0, 0, 50, 0, 410, 0, 0, 180, 50, 180, 410, 180, 0, 360, 50, 360, 410, 360];
 
   aboutToAppear(): void {
     // 'resources/base/media/image.png'需要替换为开发者所需的图像资源文件
@@ -433,20 +487,25 @@ struct Mesh {
 }
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-11.png)
-
-## 场景示例
+![](assets/绘制几何图形%20(Shape)/file-20260514130648675-8.jpg)
 
 
-## 绘制封闭路径
+
+
+
+##### 场景示例
+
+
+
+##### 绘制封闭路径
 
 在Shape的(-80, -5)点绘制一个封闭路径，填充颜色0x317AF7，线条宽度3，边框颜色红色，拐角样式锐角（默认值）。
-> [!NOTE]
-> 示例通过commands来绘制路径，commands参数说明请参考SVG路径描述规范。
+
+> [!TIP]
+> 示例通过commands来绘制路径，commands参数说明请参考 SVG路径描述规范 。
 
 
-```text
+```ArkTS
 @Entry
 @Component
 struct ShapeExample {
@@ -471,17 +530,21 @@ struct ShapeExample {
 }
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-12.png)
 
-## 绘制圆和圆环
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/fIrVNuU8Q9qub7oAiiWq2Q/zh-cn_image_0000002581274080.png?HW-CC-KV=V1&HW-CC-Date=20260528T014827Z&HW-CC-Expire=86400&HW-CC-Sign=E85419610193A2D94175E660FBEE76D29231730CEAD3C6F00FBD76B9C3AE6764)
+
+
+
+
+##### 绘制圆和圆环
 
 绘制一个直径为150的圆，和一个直径为150、线条为红色虚线的圆环（宽高设置不一致时以短边为直径）。
+
 > [!NOTE]
-> 本示例通过strokeDashArray属性设置边框间隙来实现红色虚线的圆环，strokeDashArray属性参考strokeDashArray。
+> 本示例通过strokeDashArray属性设置边框间隙来实现红色虚线的圆环，strokeDashArray属性参考 strokeDashArray 。
 
 
-```text
+```ArkTS
 @Entry
 @Component
 struct CircleExample {
@@ -503,17 +566,19 @@ struct CircleExample {
 }
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-13.jpg)
 
-## UI视觉属性作用效果
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/yS_HnafuQfCPAqVgskIj4A/zh-cn_image_0000002611753935.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014827Z&HW-CC-Expire=86400&HW-CC-Sign=7368FBBD4B0B382BC5FAAA57684A987F344B0FC373324941B6573973CDB28C1A)
 
+
+
+
+##### UI视觉属性作用效果
 
 > [!NOTE]
-> backgroundColor、linearGradient等通用属性作用于组件的背景区域，而不会在组件具体的内容区域生效。
+> backgroundColor 、 linearGradient 等通用属性作用于组件的背景区域，而不会在组件具体的内容区域生效。
 
 
-```text
+```ArkTS
 @Entry
 @Component
 struct CircleExample {
@@ -530,5 +595,5 @@ struct CircleExample {
 }
 ```
 
-![](assets/绘制几何图形%20(Shape)
-/file-20260514130648675-14.jpg)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/Xbi3dRNVRWWbs-SRPGNLxQ/zh-cn_image_0000002581434000.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014827Z&HW-CC-Expire=86400&HW-CC-Sign=18139DF24B40893AFD12A96EF0F9C270CCB7B9E5CD099D9CF37AA186198EB039)

@@ -6,13 +6,13 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：healthStore； API声明：function syncAll(): Promise<void>; 差异内容：function syncAll(): Promise<void>; | api/@hms.health.store.d.ts |
-| 新增API | NA | 类名：healthStore； API声明：function on(type: 'serviceDie', callback: Callback<void>): void; 差异内容：function on(type: 'serviceDie', callback: Callback<void>): void; | api/@hms.health.store.d.ts |
-| 新增API | NA | 类名：healthStore； API声明：function off(type: 'serviceDie', callback?: Callback<void>): void; 差异内容：function off(type: 'serviceDie', callback?: Callback<void>): void; | api/@hms.health.store.d.ts |
+| 新增API | NA | 类名：healthStore； API声明：function syncAll(): Promise&lt;void&gt;; 差异内容：function syncAll(): Promise&lt;void&gt;; | api/@hms.health.store.d.ts |
+| 新增API | NA | 类名：healthStore； API声明：function on(type: 'serviceDie', callback: Callback&lt;void&gt;): void; 差异内容：function on(type: 'serviceDie', callback: Callback&lt;void&gt;): void; | api/@hms.health.store.d.ts |
+| 新增API | NA | 类名：healthStore； API声明：function off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void; 差异内容：function off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void; | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：healthDataTypes； API声明：const HEART_RATE_VARIABILITY: healthStore.DataType; 差异内容：const HEART_RATE_VARIABILITY: healthStore.DataType; | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：healthDataTypes； API声明：const EMOTION: healthStore.DataType; 差异内容：const EMOTION: healthStore.DataType; | api/@hms.health.store.d.ts |
-| 新增API | NA | 类名：healthFields； API声明：type HeartRateVariability = {  /**  * heart rate variability, value must be (0, 200].  *  * @type { number }  * @syscap SystemCapability.Health.HealthStore  * @since 5.1.0(18)  */  heartRateVariabilityRMSSD: number;  }; 差异内容：type HeartRateVariability = {  /**  * heart rate variability, value must be (0, 200].  *  * @type { number }  * @syscap SystemCapability.Health.HealthStore  * @since 5.1.0(18)  */  heartRateVariabilityRMSSD: number;  }; | api/@hms.health.store.d.ts |
-| 新增API | NA | 类名：healthFields； API声明：type Emotion = {  /**  * current emotional state, value must be [0, 100).  *  * @type { number }  * @syscap SystemCapability.Health.HealthStore  * @since 5.1.0(18)  */  emotionStatus: number;  }; 差异内容：type Emotion = {  /**  * current emotional state, value must be [0, 100).  *  * @type { number }  * @syscap SystemCapability.Health.HealthStore  * @since 5.1.0(18)  */  emotionStatus: number;  }; | api/@hms.health.store.d.ts |
+| 新增API | NA | 类名：healthFields； API声明：type HeartRateVariability = { /** * heart rate variability, value must be (0, 200]. * * @type { number } * @syscap SystemCapability.Health.HealthStore * @since 5.1.0(18) */ heartRateVariabilityRMSSD: number; }; 差异内容：type HeartRateVariability = { /** * heart rate variability, value must be (0, 200]. * * @type { number } * @syscap SystemCapability.Health.HealthStore * @since 5.1.0(18) */ heartRateVariabilityRMSSD: number; }; | api/@hms.health.store.d.ts |
+| 新增API | NA | 类名：healthFields； API声明：type Emotion = { /** * current emotional state, value must be [0, 100). * * @type { number } * @syscap SystemCapability.Health.HealthStore * @since 5.1.0(18) */ emotionStatus: number; }; 差异内容：type Emotion = { /** * current emotional state, value must be [0, 100). * * @type { number } * @syscap SystemCapability.Health.HealthStore * @since 5.1.0(18) */ emotionStatus: number; }; | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：healthModels； API声明：type HeartRateVariability = healthStore.SamplePoint<healthFields.HeartRateVariability>; 差异内容：type HeartRateVariability = healthStore.SamplePoint<healthFields.HeartRateVariability>; | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：healthModels； API声明：type Emotion = healthStore.SamplePoint<healthFields.Emotion>; 差异内容：type Emotion = healthStore.SamplePoint<healthFields.Emotion>; | api/@hms.health.store.d.ts |
 | 新增API | NA | 类名：samplePointHelper； API声明：namespace heartRateVariability 差异内容：namespace heartRateVariability | api/@hms.health.store.d.ts |
@@ -43,19 +43,19 @@
 | 新增API | NA | 类名：workout； API声明：interface Goal 差异内容：interface Goal | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：Goal； API声明：type: number; 差异内容：type: number; | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：Goal； API声明：value: number; 差异内容：value: number; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function config(workoutConfig: WorkoutConfig): Promise<void>; 差异内容：function config(workoutConfig: WorkoutConfig): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function start(): Promise<StartResult>; 差异内容：function start(): Promise<StartResult>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function pause(): Promise<void>; 差异内容：function pause(): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function resume(): Promise<void>; 差异内容：function resume(): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function stop(): Promise<void>; 差异内容：function stop(): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function onData(dataType: undefined, listener: Callback<SampleReal[]>): Promise<void>; 差异内容：function onData(dataType: undefined, listener: Callback<SampleReal[]>): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function onData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise<void>; 差异内容：function onData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function offData(dataType: undefined, listener: Callback<SampleReal[]>): Promise<void>; 差异内容：function offData(dataType: undefined, listener: Callback<SampleReal[]>): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function offData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise<void>; 差异内容：function offData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function sendData(sampleReal: SampleReal[]): Promise<void>; 差异内容：function sendData(sampleReal: SampleReal[]): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function onEvent(event: " ", listener: Callback<SampleEvent>): Promise<void>; 差异内容：function onEvent(event: " ", listener: Callback<SampleEvent>): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function offEvent(event: " ", listener: Callback<SampleEvent>): Promise<void>; 差异内容：function offEvent(event: " ", listener: Callback<SampleEvent>): Promise<void>; | api/@hms.health.service.d.ts |
-| 新增API | NA | 类名：workout； API声明：function sendEvent(event: SampleEvent): Promise<void>; 差异内容：function sendEvent(event: SampleEvent): Promise<void>; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function config(workoutConfig: WorkoutConfig): Promise&lt;void&gt;; 差异内容：function config(workoutConfig: WorkoutConfig): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function start(): Promise&lt;StartResult&gt;; 差异内容：function start(): Promise&lt;StartResult&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function pause(): Promise&lt;void&gt;; 差异内容：function pause(): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function resume(): Promise&lt;void&gt;; 差异内容：function resume(): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function stop(): Promise&lt;void&gt;; 差异内容：function stop(): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function onData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; 差异内容：function onData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function onData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; 差异内容：function onData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function offData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; 差异内容：function offData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function offData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; 差异内容：function offData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function sendData(sampleReal: SampleReal[]): Promise&lt;void&gt;; 差异内容：function sendData(sampleReal: SampleReal[]): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function onEvent(event: " ", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;; 差异内容：function onEvent(event: " ", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function offEvent(event: " ", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;; 差异内容：function offEvent(event: " ", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
+| 新增API | NA | 类名：workout； API声明：function sendEvent(event: SampleEvent): Promise&lt;void&gt;; 差异内容：function sendEvent(event: SampleEvent): Promise&lt;void&gt;; | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：workout； API声明：enum StartCode 差异内容：enum StartCode | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：StartCode； API声明：SUCCESS = 0 差异内容：SUCCESS = 0 | api/@hms.health.service.d.ts |
 | 新增API | NA | 类名：StartCode； API声明：WORKOUT_WORKING = 1 差异内容：WORKOUT_WORKING = 1 | api/@hms.health.service.d.ts |

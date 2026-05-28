@@ -1,15 +1,16 @@
 # 订阅任务执行超时事件（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-apphicollie-events-ndk
 
-## 简介
+##### 简介
 
 本文介绍如何使用HiAppEvent提供的C/C++接口订阅任务执行超时事件。接口的详细使用说明（参数限制、取值范围等）请参考[hiappevent.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-h)。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -17,13 +18,20 @@
 | int OH_HiAppEvent_RemoveWatcher(HiAppEvent_Watcher *watcher) | 移除应用事件观察者，以移除对应用事件的订阅。 |
 
 
-## 开发步骤
 
 
-## 添加事件观察者
+##### 开发步骤
 
-以实现对用户点击按钮触发卡顿场景生成的卡顿事件订阅为例，说明开发步骤。 获取该示例工程依赖的jsoncpp文件，打开链接[HiAppEvent示例工程EventSub](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/PerformanceAnalysisKit/HiAppEvent/EventSub)，点击“下载当前目录”，下载EventSub工程文件。 新建Native C++工程，从解压后的EventSub工程中拷贝jsoncpp库文件（entry/libs和entry/src/main/cpp/thirdparty文件夹）到新建的工程之中，新工程目录结构如下：
-```text
+
+
+##### 添加事件观察者
+
+以实现对用户点击按钮触发卡顿场景生成的卡顿事件订阅为例，说明开发步骤。
+1. 获取该示例工程依赖的jsoncpp文件，打开链接[HiAppEvent示例工程EventSub](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/PerformanceAnalysisKit/HiAppEvent/EventSub)，点击“下载当前目录”，下载EventSub工程文件。
+2. 新建Native C++工程，从解压后的EventSub工程中拷贝jsoncpp库文件（entry/libs和entry/src/main/cpp/thirdparty文件夹）到新建的工程之中，新工程目录结构如下：
+
+  
+```ArkTS
 entry:
   libs:    //  放置jsoncpp关联三方库的文件夹
   src:
@@ -42,9 +50,11 @@ entry:
         pages:
           - Index.ets
 ```
+该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz)。
+3. 编辑“CMakeLists.txt”文件，添加所需源文件及动态库。
 
-该示例工程中jsoncpp库文件对应的源码来自[三方开源库jsoncpp](https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz)。 编辑“CMakeLists.txt”文件，添加所需源文件及动态库。
-```text
+  
+```cpp
 add_library(entry SHARED napi_init.cpp)
 # 新增动态库依赖libhiappevent_ndk.z.so、libhilog_ndk.z.so（日志输出）及libohhicollie.so（hicollie检测）
 target_link_libraries(entry PUBLIC libace_napi.z.so libhilog_ndk.z.so libohhicollie.so libhiappevent_ndk.z.so)
@@ -62,8 +72,10 @@ target_link_libraries(entry PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/jsonc
 target_include_directories(entry PRIVATE ${DEST_DIR}/jsoncpp-1.9.6/include/json)
 ```
 
-编辑“napi_init.cpp”文件，导入依赖的头文件，并定义LOG_TAG。
-```text
+4. 编辑“napi_init.cpp”文件，导入依赖的头文件，并定义LOG_TAG。
+
+  
+```cpp
 #include "napi/native_api.h"
 // 根据工程中三方库jsoncpp的位置适配引用json.h的路径
 #include "../../../build/jsoncpp-1.9.6/include/json/json.h"
@@ -74,79 +86,22 @@ target_include_directories(entry PRIVATE ${DEST_DIR}/jsoncpp-1.9.6/include/json)
 #define LOG_TAG "testTag"
 ```
 
-订阅系统事件： onReceive类型观察者 编辑“napi_init.cpp”文件，定义onReceive类型观察者相关函数：
-```text
-// 定义一变量，用来缓存创建的观察者的指针。
-static HiAppEvent_Watcher *appHicollieWatcherR;
-```
+5. 订阅系统事件：
 
+  
+onReceive类型观察者
+6. onTrigger类型观察者
+7. 新增TestHiCollieTimerNdk函数。
 
-```text
-static void OnReceiveAppHicollie(const struct HiAppEvent_AppEventGroup *appEventGroups, int i, int j)
-{
-    if (strcmp(appEventGroups[i].appEventInfos[j].domain, DOMAIN_OS) == 0 &&
-        strcmp(appEventGroups[i].appEventInfos[j].name, EVENT_APP_HICOLLIE) == 0) {
-        Json::Value params;
-        Json::Reader reader(Json::Features::strictMode());
-        Json::FastWriter writer;
-        if (reader.parse(appEventGroups[i].appEventInfos[j].params, params)) {
-            auto time = params["time"].asInt64();
-            auto foreground = params["foreground"].asBool();
-            auto bundleVersion = params["bundle_version"].asString();
-            auto processName = params["process_name"].asString();
-            auto pid = params["pid"].asInt();
-            auto uid = params["uid"].asInt();
-            auto uuid = params["uuid"].asString();
-            auto exception = writer.write(params["exception"]);
-            auto hilogSize = params["hilog"].size();
-            auto peerBindSize =  params["peer_binder"].size();
-            auto memory =  writer.write(params["memory"]);
-            auto externalLog = writer.write(params["external_log"]);
-            auto logOverLimit = params["log_over_limit"].asBool();
-            auto externalCallbackLog = params["external_callback_log"].asString();
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.time=%{public}lld", time);
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.foreground=%{public}d", foreground);
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.bundle_version=%{public}s",
-                bundleVersion.c_str());
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.process_name=%{public}s", processName.c_str());
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.pid=%{public}d", pid);
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.uid=%{public}d", uid);
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.uuid=%{public}s", uuid.c_str());
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.exception=%{public}s", exception.c_str());
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.hilog.size=%{public}d", hilogSize);
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.peer_binder.size=%{public}d", peerBindSize);
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.memory=%{public}s", memory.c_str());
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.external_log=%{public}s", externalLog.c_str());
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.log_over_limit=%{public}d", logOverLimit);
-            OH_LOG_INFO(LogType::LOG_APP, "HiAppEvent eventInfo.params.external_callback_log=%{public}s", externalCallbackLog.c_str());
-        }
-    }
-}
+  编辑“napi_init.cpp”文件，新增TestHiCollieTimerNdk函数，构造任务执行超时事件：
 
-static void AppHicollieOnReceive(const char *domain, const struct HiAppEvent_AppEventGroup *appEventGroups,
-    uint32_t groupLen)
-{
-    for (int i = 0; i         onTrigger类型观察者              编辑“napi_init.cpp”文件，定义OnTrigger类型观察者相关函数：
-```text
-// 定义一变量，用来缓存创建的观察者的指针。
-static HiAppEvent_Watcher *appHicollieWatcherT;
-```
-
-
-```text
-// 开发者可以自行实现获取已监听到事件的回调函数，其中events指针指向内容仅在该函数内有效。
-static void AppHicollieOnTake(const char *const *events, uint32_t eventLen)
-{
-Json::Reader reader(Json::Features::strictMode());
-Json::FastWriter writer;
-for (int i = 0; i 新增TestHiCollieTimerNdk函数。 编辑“napi_init.cpp”文件，新增TestHiCollieTimerNdk函数，构造任务执行超时事件：
-```text
-#include
+  
+```cpp
+#include <unistd.h>
 #include "hicollie/hicollie.h"
 ```
 
-
-```text
+```cpp
 // 定义回调函数
 void CallBack(void*)
 {
@@ -168,63 +123,67 @@ static napi_value TestHiCollieTimerNdk(napi_env env, napi_callback_info info)
 }
 ```
 
-将RegisterWatcher及TestHiCollieTimerNdk注册为ArkTS接口。 编辑“napi_init.cpp”文件，在Init函数中的desc[]数组中将TestHiCollieTimerNdk、RegisterAppHicollieWatcherR及RegisterAppHicollieWatcherR方法注册为ArkTS接口。
-```text
+8. 将RegisterWatcher及TestHiCollieTimerNdk注册为ArkTS接口。
+
+  编辑“napi_init.cpp”文件，在Init函数中的desc[]数组中将TestHiCollieTimerNdk、RegisterAppHicollieWatcherR及RegisterAppHicollieWatcherR方法注册为ArkTS接口。
+
+  
+```cpp
 // 将TestHiCollieTimerNdk注册为ArkTS接口
 { "TestHiCollieTimerNdk", nullptr, TestHiCollieTimerNdk, nullptr, nullptr, nullptr, napi_default, nullptr },
 ```
 
-
-```text
+```cpp
 { "RegisterAppHicollieWatcherR", nullptr, RegisterAppHicollieWatcherR, nullptr, nullptr, nullptr,
     napi_default, nullptr },
 ```
 
-
-```text
+```cpp
 { "RegisterAppHicollieWatcherT", nullptr, RegisterAppHicollieWatcherT, nullptr, nullptr, nullptr,
     napi_default, nullptr },
 ```
-
 编辑“index.d.ts”文件，定义ArkTS接口：
-```text
+
+  
+```ts
 export const TestHiCollieTimerNdk: () => void;
 ```
 
-
-```text
+```ts
 export const RegisterAppHicollieWatcherR: () => void;
 ```
 
-
-```text
+```ts
 export const RegisterAppHicollieWatcherT: () => void;
 ```
 
-编辑“EntryAbility.ets”文件，在onCreate()函数中新增接口调用。
-```text
+9. 编辑“EntryAbility.ets”文件，在onCreate()函数中新增接口调用。
+
+  
+```ArkTS
 import testNapi from 'libentry.so';
 ```
 
-
-```text
+```ArkTS
 // 在onCreate()函数中新增接口调用，启动时注册系统事件观察者R
 testNapi.RegisterAppHicollieWatcherR();
 ```
 
-
-```text
+```ArkTS
 // 在onCreate()函数中新增接口调用，启动时注册系统事件观察者T
 testNapi.RegisterAppHicollieWatcherT();
 ```
 
-编辑“Index.ets”文件，新增按钮触发任务执行超时事件。
-```text
+10. 编辑“Index.ets”文件，新增按钮触发任务执行超时事件。
+
+  
+```ArkTS
 import testNapi from 'libentry.so';
 ```
-
 在Index页面新增触发TestHiCollieTimerNdk方法的按钮。
-```text
+
+  
+```ArkTS
 // 添加点击事件，触发TestHiCollieTimerNdk方法。
 Button('TestHiCollieTimerNdk')
   .type(ButtonType.Capsule)
@@ -239,11 +198,14 @@ Button('TestHiCollieTimerNdk')
   })
 ```
 
-点击DevEco Studio界面中的运行按钮，运行应用工程，然后在应用界面中点击按钮“TestHiCollieTimerNdk”，触发任务执行超时事件。
+11. 点击DevEco Studio界面中的运行按钮，运行应用工程，然后在应用界面中点击按钮“TestHiCollieTimerNdk”，触发任务执行超时事件。
 
-## 验证观察者是否订阅到任务执行超时事件
+
+
+##### 验证观察者是否订阅到任务执行超时事件
 
 应用工程崩溃退出后再次运行可以在Log窗口看到对系统事件数据的处理日志。
+
 ```text
 HiAppEvent eventInfo.domain=OS
 HiAppEvent eventInfo.name=APP_HICOLLIE
@@ -265,10 +227,12 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 ```
 
 
-## 移除并销毁事件观察者
 
-移除事件观察者。
-```text
+##### 移除并销毁事件观察者
+1. 移除事件观察者。
+
+  
+```cpp
 static napi_value RemoveWatcher(napi_env env, napi_callback_info info)
 {
     // 使观察者停止监听事件
@@ -280,8 +244,10 @@ static napi_value RemoveWatcher(napi_env env, napi_callback_info info)
 }
 ```
 
-销毁事件观察者。
-```text
+2. 销毁事件观察者。
+
+  
+```cpp
 static napi_value DestroyWatcher(napi_env env, napi_callback_info info)
 {
     // 销毁创建的观察者，并置eventWatcher为nullptr。

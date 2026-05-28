@@ -1,20 +1,25 @@
 # 应用文件访问(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-fileio-guidelines
 
-## 场景介绍
+##### 场景介绍
 
 FileIO模块提供了部分文件基础操作能力，其他能力请参考[libc标准库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl)/[c++标准库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cpp)。
 
-## 约束限制
+
+
+##### 约束限制
 
 进行文件操作之前，必须保证传入正确有效的URI或path。
 
-## 接口说明
+
+
+##### 接口说明
 
 接口的详细说明，请参考[FileIO](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-fileio-h)。
+
 | 接口名称 | 描述 |
 | --- | --- |
 | FileManagement_ErrCode OH_FileIO_GetFileLocation(char *uri, int uriLength, FileIO_FileLocation *location) | 获取文件存储位置。 |
@@ -22,22 +27,29 @@ FileIO模块提供了部分文件基础操作能力，其他能力请参考[libc
 | enum FileManagement_ErrCode FileManagement_ErrCode | 文件管理模块错误码。 |
 
 
-## 开发步骤
 
-**在CMake脚本中链接动态库** CMakeLists.txt中添加以下lib。
+
+##### 开发步骤
+
+**在CMake脚本中链接动态库**
+
+CMakeLists.txt中添加以下lib。
+
 ```text
 target_link_libraries(sample PUBLIC libohfileio.so)
 ```
 
 **添加头文件**
+
 ```text
-#include
-#include
-#include
+#include <cstdio>
+#include <cstring>
+#include <filemanagement/fileio/oh_fileio.h>
 ```
 
 调用OH_FileIO_GetFileLocation接口获取文件存储位置。示例代码如下所示：
-```text
+
+```cpp
 void GetFileLocationExample(char *uri)
 {
     FileIO_FileLocation location;

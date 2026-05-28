@@ -1,6 +1,6 @@
 # ASON解析与生成
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ason-parsing-generation
 
@@ -8,15 +8,16 @@
 
 ASON.stringify方法还支持将Map和Set对象转换为字符串，可转换的Map和Set类型包括：Map、Set、[collections.Map](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-map)、[collections.Set](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-set)、[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hashmap#hashmap)、[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hashset#hashset)。
 
-
 > [!NOTE]
-> ASON.parse默认生成的对象为Sendable对象，布局不可变，不支持增删属性。如果返回的对象需要支持增删属性，可以指定返回类型为collections.Map对象。
+> ASON.parse默认生成的对象为Sendable对象，布局不可变，不支持增删属性。如果返回的对象需要支持增删属性，可以指定返回类型为 collections.Map 对象。
 
 
-## 使用示例
+
+##### 使用示例
 
 使用ASON提供的接口，对[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)进行序列化、反序列化。
-```text
+
+```ArkTS
 import { ArkTSUtils, collections } from '@kit.ArkTS';
 
 ArkTSUtils.ASON.parse("{}")

@@ -1,18 +1,17 @@
 # @ohos.arkui.StateManagement (状态管理)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 状态管理模块提供了应用程序的数据存储能力、持久化数据管理能力、UIAbility数据存储能力和应用程序需要的环境状态、工具。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持，后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-本文中T和S的含义如下：
 
+本文中T和S的含义如下：
 
 | 类型 | 说明 |
 | --- | --- |
@@ -20,31 +19,30 @@
 | S | number，boolean，string。 |
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { AppStorageV2, PersistenceV2, UIUtils } from '@kit.ArkUI';
 ```
 
 
-## AppStorageV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AppStorageV2
 
 AppStorageV2具体UI使用说明，详见[AppStorageV2(应用全局的UI状态存储)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2)。
 
 
-### connect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### connect
 
 static connect<T extends object>(
 
-type: TypeConstructorWithArgs<T>,
+type: TypeConstructorWithArgs&lt;T&gt;,
 
-keyOrDefaultCreator?: string | StorageDefaultCreator<T>,
+keyOrDefaultCreator?: string | StorageDefaultCreator&lt;T&gt;,
 
-defaultCreator?: StorageDefaultCreator<T>
+defaultCreator?: StorageDefaultCreator&lt;T&gt;
 
 ): T | undefined
 
@@ -56,22 +54,18 @@ defaultCreator?: StorageDefaultCreator<T>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [TypeConstructorWithArgs&lt;T&gt;](#typeconstructorwithargst) | 是 | 指定的类型，若未指定key，则使用type的name作为key。 |
-| keyOrDefaultCreator | string \| [StorageDefaultCreator&lt;T&gt;](#storagedefaultcreatort) | 否 | 指定的key，或者是获取默认值的构造器。默认值为undefined。 |
+| type | TypeConstructorWithArgs&lt;T&gt; | 是 | 指定的类型，若未指定key，则使用type的name作为key。 |
+| keyOrDefaultCreator | string \| StorageDefaultCreator&lt;T&gt; | 否 | 指定的key，或者是获取默认值的构造器。默认值为undefined。 |
 | defaultCreator | StorageDefaultCreator&lt;T&gt; | 否 | 获取默认值的构造器。默认值为undefined。 |
 
 
 > [!NOTE]
-> 1、若未指定key，使用第二个参数作为默认构造器；否则使用第三个参数作为默认构造器（第二个参数非法也使用第三个参数作为默认构造器）。
-> 2、确保数据已经存储在AppStorageV2中，可省略默认构造器，获取存储的数据；否则必须指定默认构造器，不指定将导致应用异常。
-> 3、同一个key，connect不同类型的数据会导致应用异常，应用需要确保类型匹配。
-> 4、key建议使用有意义的值，长度不超过255，使用非法字符或空字符的行为是未定义的。
+> 1、若未指定key，使用第二个参数作为默认构造器；否则使用第三个参数作为默认构造器（第二个参数非法也使用第三个参数作为默认构造器）。 2、确保数据已经存储在AppStorageV2中，可省略默认构造器，获取存储的数据；否则必须指定默认构造器，不指定将导致应用异常。 3、同一个key，connect不同类型的数据会导致应用异常，应用需要确保类型匹配。 4、key建议使用有意义的值，长度不超过255，使用非法字符或空字符的行为是未定义的。
+
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -80,8 +74,7 @@ defaultCreator?: StorageDefaultCreator<T>
 
 **示例：**
 
-
-```ts
+```text
 import { AppStorageV2 } from '@kit.ArkUI';
 
 @ObservedV2
@@ -90,27 +83,20 @@ class SampleClass {
 }
 
 // 将key为SampleClass、value为new SampleClass()对象的键值对存储到内存中，并赋值给as1
-const as1: SampleClass | undefined = AppStorageV2.connect(
-  SampleClass,
-  () => new SampleClass(),
-);
+const as1: SampleClass | undefined = AppStorageV2.connect(SampleClass, () => new SampleClass());
 
 // 将key为key_as2、value为new SampleClass()对象的键值对存储到内存中，并赋值给as2
-const as2: SampleClass = AppStorageV2.connect(
-  SampleClass,
-  'key_as2',
-  () => new SampleClass(),
-)!;
+const as2: SampleClass = AppStorageV2.connect(SampleClass, 'key_as2', () => new SampleClass())!;
 
 // key为SampleClass已经在AppStorageV2中，将key为SampleClass的值返回给as3
 const as3: SampleClass = AppStorageV2.connect(SampleClass) as SampleClass;
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static remove<T>(keyOrType: string | TypeConstructorWithArgs<T>): void
+##### remove
+
+static remove&lt;T&gt;(keyOrType: string | TypeConstructorWithArgs&lt;T&gt;): void
 
 将指定的键值对数据从[AppStorageV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2)里面删除。如果指定的键值不存在于AppStorageV2中，将删除失败。
 
@@ -120,19 +106,18 @@ static remove<T>(keyOrType: string | TypeConstructorWithArgs<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyOrType | string \| [TypeConstructorWithArgs](#typeconstructorwithargst)&lt;T&gt; | 是 | 需要删除的key；如果指定的是type类型，删除的key为type的name。 |
+| keyOrType | string \| TypeConstructorWithArgs&lt;T&gt; | 是 | 需要删除的key；如果指定的是type类型，删除的key为type的name。 |
 
 
-> [!NOTE]
+> [!WARNING]
 > 删除AppStorageV2中不存在的key会报警告。
+
 
 **示例：**
 
-
-```ts
+```text
 // 假设AppStorageV2中存在key为key_as2的键，从AppStorageV2中删除该键值对数据
 AppStorageV2.remove('key_as2');
 
@@ -144,10 +129,10 @@ AppStorageV2.remove('key_as1');
 ```
 
 
-### keys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static keys(): Array<string>
+##### keys
+
+static keys(): Array&lt;string&gt;
 
 获取[AppStorageV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2)中的所有key。
 
@@ -157,7 +142,6 @@ static keys(): Array<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Array&lt;string&gt; | 所有AppStorageV2中的key。 |
@@ -166,25 +150,25 @@ static keys(): Array<string>
 > [!NOTE]
 > key在Array中的顺序是无序的，与key插入到AppStorageV2中的顺序无关。
 
+
 **示例：**
 
-
-```ts
+```text
 // 假设AppStorageV2中存在两个key（key_as1、key_as2），返回[key_as1、key_as2]赋值给keys
 const keys: Array<string> = AppStorageV2.keys();
 ```
 
 
-## PersistenceV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### PersistenceV2
 
 继承自[AppStorageV2](#appstoragev2)，PersistenceV2具体UI使用说明，详见[PersistenceV2(持久化存储UI状态)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)。
 
 
-### globalConnect18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static globalConnect<T extends object>(type: ConnectOptions<T>): T | undefined
+##### globalConnect18+
+
+static globalConnect<T extends object>(type: ConnectOptions&lt;T&gt;): T | undefined
 
 将键值对数据储存在应用磁盘中。如果给定的key已经存在于[PersistenceV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)中，返回对应的值；否则，会通过获取默认值的构造器构造默认值，并返回。如果globalConnect的是[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)对象，该对象[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)属性的变化，会触发整个关联对象的自动刷新；非@Trace属性变化则不会，如有必要，可调用[PersistenceV2.save](#save)接口手动存储。
 
@@ -194,37 +178,27 @@ static globalConnect<T extends object>(type: ConnectOptions<T>): T | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [ConnectOptions&lt;T&gt;](#connectoptions18) | 是 | 传入的connect参数，详细说明见ConnectOptions参数说明。 |
+| type | ConnectOptions&lt;T&gt; | 是 | 传入的connect参数，详细说明见ConnectOptions参数说明。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | T \| undefined | 创建或获取数据成功时，返回数据；否则返回undefined。 |
 
 
-> [!NOTE]
-> 1、若未指定key，使用第二个参数作为默认构造器；否则使用第三个参数作为默认构造器（第二个参数非法也使用第三个参数作为默认构造器）。
-> 2、确保数据已经存储在PersistenceV2中，可省略默认构造器，获取存储的数据；否则必须指定默认构造器，不指定将导致应用异常。
-> 3、同一个key，globalConnect不同类型的数据会导致应用异常，应用需要确保类型匹配。
-> 4、key建议使用有意义的值，可由字母、数字、下划线组成，长度不超过255，使用非法字符或空字符的行为是未定义的。
-> 5、关联[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)对象时，因为该类型的name属性未定义，需要指定key或者自定义name属性。
-> 6、数据的存储路径为应用级别，不同module使用相同的key和相同的加密分区进行globalConnect，存储的数据副本应用仅有一份。
-> 7、globalConnect使用同一个key但设置了不同的加密级别，数据为第一个使用globalConnect的加密级别，并且PersistenceV2中的数据也会存入最先使用key的加密级别。
-> 8、connect和globalConnect不建议混用，因为数据副本路径不同，如果混用，则key不可以一样，否则会crash。
-> 9、EL5加密要想生效，需要开发者在module.json中配置字段ohos.permission.PROTECT_SCREEN_LOCK_DATA，使用说明见[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+> [!TIP]
+> 1、若未指定key，使用第二个参数作为默认构造器；否则使用第三个参数作为默认构造器（第二个参数非法也使用第三个参数作为默认构造器）。 2、确保数据已经存储在PersistenceV2中，可省略默认构造器，获取存储的数据；否则必须指定默认构造器，不指定将导致应用异常。 3、同一个key，globalConnect不同类型的数据会导致应用异常，应用需要确保类型匹配。 4、key建议使用有意义的值，可由字母、数字、下划线组成，长度不超过255，使用非法字符或空字符的行为是未定义的。 5、关联 @Observed 对象时，因为该类型的name属性未定义，需要指定key或者自定义name属性。 6、数据的存储路径为应用级别，不同module使用相同的key和相同的加密分区进行globalConnect，存储的数据副本应用仅有一份。 7、globalConnect使用同一个key但设置了不同的加密级别，数据为第一个使用globalConnect的加密级别，并且PersistenceV2中的数据也会存入最先使用key的加密级别。 8、connect和globalConnect不建议混用，因为数据副本路径不同，如果混用，则key不可以一样，否则会crash。 9、EL5加密要想生效，需要开发者在module.json中配置字段ohos.permission.PROTECT_SCREEN_LOCK_DATA，使用说明见 声明权限 。
+
 
 **示例：**
 
 仅供开发者了解globalConnect用法，完整使用需开发者自己写出@Entry组件。
 
-
-```ts
+```text
 import { PersistenceV2, Type } from '@kit.ArkUI';
 import { contextConstant } from '@kit.AbilityKit';
 
@@ -238,51 +212,43 @@ class SampleChild {
 export class Sample {
   // 对于复杂对象需要@Type修饰，确保序列化成功
   @Type(SampleChild)
-  @Trace
-  father: SampleChild = new SampleChild();
+  @Trace father: SampleChild = new SampleChild();
 }
 
 // key不传入尝试用为type的name作为key，加密参数不传入默认加密等级为EL2
-const p: Sample = PersistenceV2.globalConnect({
-  type: Sample,
-  defaultCreator: () => new Sample(),
-})!;
+const p: Sample = PersistenceV2.globalConnect({ type: Sample, defaultCreator: () => new Sample() })!;
 
 // 使用key:global1连接，传入加密等级为EL1
 const p1: Sample = PersistenceV2.globalConnect({
   type: Sample,
   key: 'global1',
   defaultCreator: () => new Sample(),
-  areaMode: contextConstant.AreaMode.EL1,
+  areaMode: contextConstant.AreaMode.EL1
 })!;
 
 // 使用key:global2连接，使用构造函数形式，加密参数不传入默认加密等级为EL2
-const p2: Sample = PersistenceV2.globalConnect({
-  type: Sample,
-  key: 'global2',
-  defaultCreator: () => new Sample(),
-})!;
+const p2: Sample = PersistenceV2.globalConnect({ type: Sample, key: 'global2', defaultCreator: () => new Sample() })!;
 
 // 使用key:global3连接，直接写加密数值，范围只能在0-4，否则运行会crash,例如加密设置为EL3
 const p3: Sample = PersistenceV2.globalConnect({
   type: Sample,
   key: 'global3',
   defaultCreator: () => new Sample(),
-  areaMode: 3,
+  areaMode: 3
 })!;
 ```
 
 
-### globalConnect23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static globalConnect<T extends CollectionType<S>, S extends object>(
+##### globalConnect23+
 
-type: ConnectOptionsCollections<T, S> | ConnectOptions<T>
+static globalConnect<T extends CollectionType&lt;S&gt;, S extends object>(
+
+type: ConnectOptionsCollections<T, S> | ConnectOptions&lt;T&gt;
 
 ): T | undefined
 
-将键值对数据储存在应用磁盘中。支持集合类型[Array，Map，Set，Date，collections.Array, collections.Map, collections.Set类型的持久化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2#globalconnect支持集合的类型)。注意在持久化Array<ClassA>类型的数据时，需要调用[makeObserved](#makeobserved)使返回的对象被观察到。不支持多个嵌套集合，例如不支持Array<Array<ClassA>>的持久化。
+将键值对数据储存在应用磁盘中。支持集合类型[Array，Map，Set，Date，collections.Array, collections.Map, collections.Set类型的持久化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2#globalconnect支持集合的类型)。注意在持久化Array&lt;ClassA&gt;类型的数据时，需要调用[makeObserved](#makeobserved)使返回的对象被观察到。不支持多个嵌套集合，例如不支持Array<Array&lt;ClassA&gt;>的持久化。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
@@ -292,18 +258,16 @@ type: ConnectOptionsCollections<T, S> | ConnectOptions<T>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [ConnectOptionsCollections&lt;T, S&gt;](#connectoptionscollections23)\| [ConnectOptions&lt;T&gt;](#connectoptions18) | 是 | 传入的globalConnect参数，详细说明见ConnectOptions和ConnectOptionsCollections参数说明。          当开发者在ConnectOptionsCollections中提供默认defaultSubCreator时，则需要同时提供默认创建器defaultCreator，如果不提供，会导致持久化失败。且集合项类型S必须与defaultSubCreator的返回类型相同。如果返回类型不一致，编译会报错。 |
+| type | ConnectOptionsCollections<T, S>\| ConnectOptions&lt;T&gt; | 是 | 传入的globalConnect参数，详细说明见ConnectOptions和ConnectOptionsCollections参数说明。 当开发者在ConnectOptionsCollections中提供默认defaultSubCreator时，则需要同时提供默认创建器defaultCreator，如果不提供，会导致持久化失败。且集合项类型S必须与defaultSubCreator的返回类型相同。如果返回类型不一致，编译会报错。 |
 
 
 当开发者在globalConnect中使用defaultSubCreator选项时，必须要提供defaultCreator。且defaultSubCreator函数的返回类型必须与defaultCreator返回的集合项类型相同。
 
-当globalConnect持久化Array<ClassA>类型的数据时，开发者需要使用defaultSubCreator选项去告诉状态管理框架创建ClassA类的一个实例。如下是globalConnect持久化Array<ClassA>类型的数据的示例：
+当globalConnect持久化Array&lt;ClassA&gt;类型的数据时，开发者需要使用defaultSubCreator选项去告诉状态管理框架创建ClassA类的一个实例。如下是globalConnect持久化Array&lt;ClassA&gt;类型的数据的示例：
 
-
-```ts
+```text
 class ClassA {
   propA: number;
   // ...
@@ -325,7 +289,6 @@ struct Page1 {
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T \| undefined | 创建或获取数据成功时，返回数据；否则返回undefined。 |
@@ -335,8 +298,7 @@ struct Page1 {
 
 如下展示globalConnect持久化Map类型的示例代码：
 
-
-```ts
+```text
 import { PersistenceV2, ConnectOptions } from '@kit.ArkUI';
 
 @Entry
@@ -364,7 +326,7 @@ struct Page1 {
     Column() {
       Row() {
         Text(this.output.join('\n\n'))
-        .fontSize(24)
+          .fontSize(24)
       }
     }
     .width('100%')
@@ -373,10 +335,10 @@ struct Page1 {
 ```
 
 
-### save
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static save<T>(keyOrType: string | TypeConstructorWithArgs<T>): void
+##### save
+
+static save&lt;T&gt;(keyOrType: string | TypeConstructorWithArgs&lt;T&gt;): void
 
 将指定的键值对数据持久化一次。
 
@@ -386,20 +348,18 @@ static save<T>(keyOrType: string | TypeConstructorWithArgs<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyOrType | string \| [TypeConstructorWithArgs&lt;T&gt;](#typeconstructorwithargst) | 是 | 需要持久化的key；如果指定的是type类型，持久化的key为type的name。 |
+| keyOrType | string \| TypeConstructorWithArgs&lt;T&gt; | 是 | 需要持久化的key；如果指定的是type类型，持久化的key为type的name。 |
 
 
 > [!NOTE]
-> 由于非[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)的数据改变不会触发[PersistenceV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)的自动持久化，如有必要，可调用该接口持久化对应key的数据。
-> 手动持久化当前内存中不处于connect状态的key是无意义的。
+> 由于非 @Trace 的数据改变不会触发 PersistenceV2 的自动持久化，如有必要，可调用该接口持久化对应key的数据。 手动持久化当前内存中不处于connect状态的key是无意义的。
+
 
 **示例：**
 
-
-```ts
+```text
 @ObservedV2
 class SampleClass {
   @Trace p: number = 0;
@@ -416,8 +376,8 @@ PersistenceV2.save('key_as1');
 ```
 
 
-### notifyOnError
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### notifyOnError
 
 static notifyOnError(callback: PersistenceErrorCallback | undefined): void
 
@@ -429,16 +389,14 @@ static notifyOnError(callback: PersistenceErrorCallback | undefined): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [PersistenceErrorCallback](#persistenceerrorcallback) \| undefined | 是 | 持久化失败时调用。 |
+| callback | PersistenceErrorCallback \| undefined | 是 | 持久化失败时调用。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 持久化失败时调用
 PersistenceV2.notifyOnError((key: string, reason: string, msg: string) => {
   console.error(`error key: ${key}, reason: ${reason}, message: ${msg}`);
@@ -446,8 +404,8 @@ PersistenceV2.notifyOnError((key: string, reason: string, msg: string) => {
 ```
 
 
-## ConnectOptions18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ConnectOptions&lt;T&gt;18+
 
 globalConnect参数类型。
 
@@ -455,19 +413,19 @@ globalConnect参数类型。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [TypeConstructorWithArgs&lt;T&gt;](#typeconstructorwithargst) | 否 | 否 | 指定的类型。 |
+| type | TypeConstructorWithArgs&lt;T&gt; | 否 | 否 | 指定的类型。 |
 | key | string | 否 | 是 | 传入的key，不传则使用type的名字作为key。 |
-| defaultCreator | [StorageDefaultCreator&lt;T&gt;](#storagedefaultcreatort) | 否 | 是 | 默认数据的构造器，建议传递，如果globalConnect是第一次连接key，不传会报错。 |
-| areaMode | [contextConstant.AreaMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#areamode) | 否 | 是 | 加密级别：EL1-EL5，详见[加密级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取和修改加密分区)，对应数值：0-4，不传时默认为EL2，不同加密级别对应不同的加密分区，即不同的存储路径，传入的加密等级数值不在0-4会直接运行crash。 |
+| defaultCreator | StorageDefaultCreator&lt;T&gt; | 否 | 是 | 默认数据的构造器，建议传递，如果globalConnect是第一次连接key，不传会报错。 |
+| areaMode | contextConstant.AreaMode | 否 | 是 | 加密级别：EL1-EL5，详见加密级别，对应数值：0-4，不传时默认为EL2，不同加密级别对应不同的加密分区，即不同的存储路径，传入的加密等级数值不在0-4会直接运行crash。 |
 
 
-## ConnectOptionsCollections23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[globalConnect](#globalconnect23)接口参数类型，ConnectOptionsCollections继承自[ConnectOptions](#connectoptions18)。当开发者需要持久化容器类型数据（如Array<S>）时，需要使用ConnectOptionsCollections入参。
+
+##### ConnectOptionsCollections<T, S>23+
+
+[globalConnect](#globalconnect23)接口参数类型，ConnectOptionsCollections<T, S>继承自[ConnectOptions&lt;T&gt;](#connectoptionst18)。当开发者需要持久化容器类型数据（如Array&lt;S&gt;）时，需要使用ConnectOptionsCollections入参。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
@@ -475,19 +433,17 @@ globalConnect参数类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| defaultCreator | [StorageDefaultCreator&lt;T&gt;](#storagedefaultcreatort) | 否 | 是 | 用于持久化容器类型数据，当提供默认defaultSubCreator时，则需要同时提供默认创建器defaultCreator，不提供默认创建器，会导致无法持久化容器类型数据。集合项类型S必须与defaultSubCreator的返回类型相同。如果提供defaultSubCreator，没有提供defaultCreator，会导致持久化失败。 |
-| defaultSubCreator | [StorageDefaultCreator&lt;S&gt;](#storagedefaultcreatort) | 否 | 是 | 使用该集合项默认构造函数，用于持久化容器类数据。如果defaultSubCreator返回的是undefined或null，会导致持久化失败。 当持久化用户自定义class类集合（如Array&lt;ClassA&gt;）时，defaultCreator中的泛型类型T为Array&lt;ClassA&gt;，则defaultSubCreator中的泛型类型S为ClassA。 |
+| defaultCreator | StorageDefaultCreator&lt;T&gt; | 否 | 是 | 用于持久化容器类型数据，当提供默认defaultSubCreator时，则需要同时提供默认创建器defaultCreator，不提供默认创建器，会导致无法持久化容器类型数据。集合项类型S必须与defaultSubCreator的返回类型相同。如果提供defaultSubCreator，没有提供defaultCreator，会导致持久化失败。 |
+| defaultSubCreator | StorageDefaultCreator&lt;S&gt; | 否 | 是 | 使用该集合项默认构造函数，用于持久化容器类数据。如果defaultSubCreator返回的是undefined或null，会导致持久化失败。 当持久化用户自定义class类集合（如Array&lt;ClassA&gt;）时，defaultCreator中的泛型类型T为Array&lt;ClassA&gt;，则defaultSubCreator中的泛型类型S为ClassA。 |
 
 
-如下展示StorageDefaultCreator<T>和StorageDefaultCreator<S>示例：
+如下展示StorageDefaultCreator&lt;T&gt;和StorageDefaultCreator&lt;S&gt;示例：
 
 **示例：**
 
-
-```ts
+```text
 class ClassA {
   propA: number;
   // ...
@@ -495,7 +451,7 @@ class ClassA {
 
 @ComponentV2
 struct Page {
-  // StorageDefaultCreator<T>默认��建器为`() => UIUtils.makeObserved(new Array<ClassA>())`, 其中`T`的类型是指`Array<ClassA>`
+  // StorageDefaultCreator<T>默认创建器为`() => UIUtils.makeObserved(new Array<ClassA>())`, 其中`T`的类型是指`Array<ClassA>`
   // StorageDefaultCreator<S> 默认创建器为`() =>UIUtils.makeObserved(new ClassA())`，其中，`S`的类型是指`ClassA`
   @Local arr: Array<ClassA> = PersistenceV2.globalConnect({
     type: Array<ClassA>,
@@ -508,10 +464,9 @@ struct Page {
 }
 ```
 
-当StorageDefaultCreator<S>返回值为undefined或null时，持久化会失败。当StorageDefaultCreator<S>直接设置为undefined或null时,状态管理框架会按照原始的类型（如Object类型）进行持久化，但是会丢失class对象中的方法。在如下示例中，StorageDefaultCreator<S>直接被设置为undefined或null时，持久化过程中ClassA对象中的report方法将被丢失。
+当StorageDefaultCreator&lt;S&gt;返回值为undefined或null时，持久化会失败。当StorageDefaultCreator&lt;S&gt;直接设置为undefined或null时,状态管理框架会按照原始的类型（如Object类型）进行持久化，但是会丢失class对象中的方法。在如下示例中，StorageDefaultCreator&lt;S&gt;直接被设置为undefined或null时，持久化过程中ClassA对象中的report方法将被丢失。
 
-
-```ts
+```text
 import { PersistenceV2, UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -546,34 +501,34 @@ struct Comp {
   build() {
     Column() {
       Repeat(this.arr)
-      .each(ri => {
-        Row() {
-          Text(`propA '${ri.item.propA}'`)
-          Text(`propB '${ri.item.propB}'`)
-          Text(`report?.() '${ri.item.report?.()}'`)
-        }
-      })
+        .each(ri => {
+          Row() {
+            Text(`propA '${ri.item.propA}'`)
+            Text(`propB '${ri.item.propB}'`)
+            Text(`report?.() '${ri.item.report?.()}'`)
+          }
+        })
       // 步骤1：点击'add item'，显示`propA 'a' propB 'b'report?.'a' - 'b'`。
       // 步骤2：关闭应用。
       Button('add item')
-      .onClick(() => {
-        let temp: ClassA = new ClassA();
-        temp.propA = 'a';
-        temp.propB = 'b';
-        this.arr.push(temp);
-      })
+        .onClick(() => {
+          let temp: ClassA = new ClassA();
+          temp.propA = 'a';
+          temp.propB = 'b';
+          this.arr.push(temp);
+        })
     }
   }
 }
 ```
 
 
-## CollectionType23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type CollectionType<S> = Array<S> | Map<string | number, S> |
+##### CollectionType23+
 
-Set<S> | collections.Array<S> | collections.Map<string | number, S> | collections.Set<S>
+type CollectionType&lt;S&gt; = Array&lt;S&gt; | Map<string | number, S> |
+
+Set&lt;S&gt; | collections.Array&lt;S&gt; | collections.Map<string | number, S> | collections.Set&lt;S&gt;
 
 globalConnect的入参泛型，用于定义globalConnect支持的持久化集合数据类型。
 
@@ -583,19 +538,19 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Array&lt;S&gt; | 表示值类型为Array类型。 |
-| Map&lt;string \| number, S&gt; | 表示值类型为Map类型。 |
+| Map<string \| number, S> | 表示值类型为Map类型。 |
 | Set&lt;S&gt; | 表示值类型为Set类型。 |
-| [collections.Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array)&lt;S&gt; | 表示值类型为collections.Array类型。 |
-| [collections.Map](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-map)&lt;string \| number, S&gt; | 表示值类型为collections.Map类型。 |
-| [collections.Set](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-set)&lt;S&gt; | 表示值类型为collections.Set类型。 |
+| collections.Array&lt;S&gt; | 表示值类型为collections.Array类型。 |
+| collections.Map<string \| number, S> | 表示值类型为collections.Map类型。 |
+| collections.Set&lt;S&gt; | 表示值类型为collections.Set类型。 |
 
 
-## ObservedResult23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ObservedResult23+
 
 对象是否可被观察的结果。
 
@@ -605,16 +560,16 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isObserved | boolean | 否 | 否 | 对象是否可被观察。          true：表示是可被观察对象。          false：表示不是可被观察对象。 |
-| reason | string | 否 | 否 | 对象是否可被观察的原因。          不可被观察原因：对象本身是不可被观察的。          可被观察原因或使用场景：          1. V1对象被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器装饰或对象是被[makeV1Observed](#makev1observed19)方法转换的。          2. V1对象被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器装饰或对象是被[makeV1Observed](#makev1observed19)方法转换的，但对象没有被UI组件使用。          3. V1对象被[enableV2Compatibility](#enablev2compatibility19)方法转换后传入V2组件。          4. V1对象被[enableV2Compatibility](#enablev2compatibility19)方法转换后传入V2组件，但没有被V2组件使用。          5. V2对象是被[@ObservedV2/@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的。          6. V2对象是被[makeObserved](#makeobserved)方法转换的。          7. V2对象属于Array/Map/Set/Date类型。          8. V2对象是被[@ObservedV2/@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的，但对象没有被UI组件使用。          9. V2对象是被[makeObserved](#makeobserved)方法转换的，但没有被UI组件使用。          10. V2对象属于Array/Map/Set/Date类型，但没有被UI组件使用。 |
-| decoratorInfo | Array&lt;[DecoratorInfo](#decoratorinfo23)&gt; | 否 | 否 | 对象可被观察时，数组中内容为对象关联的装饰器和组件信息。对象不可被观察时，此数组为空。 |
+| isObserved | boolean | 否 | 否 | 对象是否可被观察。 true：表示是可被观察对象。 false：表示不是可被观察对象。 |
+| reason | string | 否 | 否 | 对象是否可被观察的原因。 不可被观察原因：对象本身是不可被观察的。 可被观察原因或使用场景： 1. V1对象被@Observed装饰器装饰或对象是被makeV1Observed方法转换的。 2. V1对象被@Observed装饰器装饰或对象是被makeV1Observed方法转换的，但对象没有被UI组件使用。 3. V1对象被enableV2Compatibility方法转换后传入V2组件。 4. V1对象被enableV2Compatibility方法转换后传入V2组件，但没有被V2组件使用。 5. V2对象是被@ObservedV2/@Trace装饰的。 6. V2对象是被makeObserved方法转换的。 7. V2对象属于Array/Map/Set/Date类型。 8. V2对象是被@ObservedV2/@Trace装饰的，但对象没有被UI组件使用。 9. V2对象是被makeObserved方法转换的，但没有被UI组件使用。 10. V2对象属于Array/Map/Set/Date类型，但没有被UI组件使用。 |
+| decoratorInfo | Array&lt;DecoratorInfo&gt; | 否 | 否 | 对象可被观察时，数组中内容为对象关联的装饰器和组件信息。对象不可被观察时，此数组为空。 |
 
 
-## DecoratorInfo23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DecoratorInfo23+
 
 可被观察对象关联的装饰器和组件信息。
 
@@ -624,18 +579,18 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| decoratorName | string | 否 | 否 | 当对象是V1对象时，值是对象关联的装饰器名称。          当V1对象使用[@Track](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track)时，值为：'@Track'。          当V2对象使用[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)时，值为：'@Trace'。          当V2对象使用[makeObserved](#makeobserved)时，值为：'MakeObserved'。          当V2对象使用[enableV2Compatibility](#enablev2compatibility19)时，值为：'EnableV2Compatible'。          当V2对象使用built-in类型数据时，值为：'ProxyObservedV2'。 |
+| decoratorName | string | 否 | 否 | 当对象是V1对象时，值是对象关联的装饰器名称。 当V1对象使用@Track时，值为：'@Track'。 当V2对象使用@Trace时，值为：'@Trace'。 当V2对象使用makeObserved时，值为：'MakeObserved'。 当V2对象使用enableV2Compatibility时，值为：'EnableV2Compatible'。 当V2对象使用built-in类型数据时，值为：'ProxyObservedV2'。 |
 | stateVariableName | string | 否 | 否 | 被装饰器装饰的属性名称。 |
-| owningComponentOrClassName | string | 否 | 否 | V1对象返回被使用的组件名称。          V1对象有属性使用[@Track](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track)装饰器时返回对象名称。          V2对象返回对象名称。 |
-| owningComponentId | number | 否 | 否 | V1对象返回被使用的组件id。          V1对象有属性使用[@Track](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track)装饰器时和V2对象返回的是对象名称，无组件id，返回-1。 |
-| dependentInfo | Array&lt;[ElementInfo](#elementinfo23)&gt; | 否 | 否 | 使用该可观察对象的组件信息。若对象没有用在任何UI上，则返回空数组。 |
+| owningComponentOrClassName | string | 否 | 否 | V1对象返回被使用的组件名称。 V1对象有属性使用@Track装饰器时返回对象名称。 V2对象返回对象名称。 |
+| owningComponentId | number | 否 | 否 | V1对象返回被使用的组件id。 V1对象有属性使用@Track装饰器时和V2对象返回的是对象名称，无组件id，返回-1。 |
+| dependentInfo | Array&lt;ElementInfo&gt; | 否 | 否 | 使用该可观察对象的组件信息。若对象没有用在任何UI上，则返回空数组。 |
 
 
-## ElementInfo23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ElementInfo23+
 
 可被观察对象关联的组件信息，包含系统组件和自定义组件。
 
@@ -645,21 +600,21 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | elementName | string | 否 | 否 | 组件的名称。 |
 | elementId | number | 否 | 否 | 组件的ID。 |
 
 
-## UIUtils
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### UIUtils
 
 UIUtils提供一些方法，用于处理状态管理相关的数据转换。
 
 
-### getTarget
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getTarget
 
 static getTarget<T extends object>(source: T): T
 
@@ -671,14 +626,12 @@ static getTarget<T extends object>(source: T): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | source | T | 是 | 数据源对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -687,8 +640,7 @@ static getTarget<T extends object>(source: T): T
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 class NonObservedClass {
@@ -713,8 +665,8 @@ struct Index {
 ```
 
 
-### getLifecycle23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLifecycle23+
 
 static getLifecycle<T extends BaseCustomComponent>(customComponent: T): CustomComponentLifecycle
 
@@ -728,7 +680,6 @@ getLifecycle用于获取[自定义组件的生命周期](https://developer.huawe
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | customComponent | T | 是 | 自定义组件实例。 |
@@ -736,16 +687,14 @@ getLifecycle用于获取[自定义组件的生命周期](https://developer.huawe
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [CustomComponentLifecycle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-new-lifecycle#customcomponentlifecycle) | 自定义组件的生命周期实例。 |
+| CustomComponentLifecycle | 自定义组件的生命周期实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils, ComponentAppear } from '@kit.ArkUI';
 
 @Entry
@@ -767,8 +716,8 @@ struct Index {
 ```
 
 
-### canBeObserved23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### canBeObserved23+
 
 static canBeObserved<T extends object>(source: T): ObservedResult
 
@@ -782,24 +731,21 @@ static canBeObserved<T extends object>(source: T): ObservedResult
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | T | 是 | 输入一个数据对象，判断其是否可被观察。支持Array、Map、Set和Date类型数据。          具体使用规则，详见[canBeObserved接口：判断对象是否为可被观察对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-canbeobserved)。 |
+| source | T | 是 | 输入一个数据对象，判断其是否可被观察。支持Array、Map、Set和Date类型数据。 具体使用规则，详见canBeObserved接口：判断对象是否为可被观察对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ObservedResult](#observedresult23) | 返回对象是否可被观察的结果。 |
+| ObservedResult | 返回对象是否可被观察的结果。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { UIUtils } from '@kit.ArkUI';
 import { DecoratorInfo, ElementInfo } from '@ohos.arkui.StateManagement';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -861,10 +807,10 @@ struct Index {
       Classroom({ student: this.student })
       Home({ student: this.student })
       Button('test')
-      .onClick(() => {
-        // 开发者可以在任意页面中使用接口来判断当前对象是否为可被观察对象
-        this.student.test();
-      })
+        .onClick(() => {
+          // 开发者可以在任意页面中使用接口来判断当前对象是否为可被观察对象
+          this.student.test();
+        })
     }
     .height('100%')
     .width('100%')
@@ -909,8 +855,8 @@ export struct School {
 ```
 
 
-### makeObserved
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### makeObserved
 
 static makeObserved<T extends object>(source: T): T
 
@@ -922,14 +868,12 @@ static makeObserved<T extends object>(source: T): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | T | 是 | 数据源对象。支持非@Observed和@ObservedV2装饰的class，JSON.parse返回的Object和@Sendable修饰的class。          支持Array、Map、Set和Date。          支持collections.Array, collections.Set和collections.Map。          具体使用规则，详见[makeObserved接口：将非观察数据变为可观察数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)。 |
+| source | T | 是 | 数据源对象。支持非@Observed和@ObservedV2装饰的class，JSON.parse返回的Object和@Sendable修饰的class。 支持Array、Map、Set和Date。 支持collections.Array, collections.Set和collections.Map。 具体使用规则，详见makeObserved接口：将非观察数据变为可观察数据。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -938,8 +882,7 @@ static makeObserved<T extends object>(source: T): T
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 class NonObservedClass {
@@ -955,21 +898,21 @@ struct Index {
   build() {
     Column() {
       Text(`observedClass: ${this.observedClass.name}`)
-      .onClick(() => {
-        this.observedClass.name = 'Jane'; // 刷新
-      })
+        .onClick(() => {
+          this.observedClass.name = 'Jane'; // 刷新
+        })
       Text(`observedClass: ${this.nonObservedClass.name}`)
-      .onClick(() => {
-        this.nonObservedClass.name = 'Jane'; // 不刷新
-      })
+        .onClick(() => {
+          this.nonObservedClass.name = 'Jane'; // 不刷新
+        })
     }
   }
 }
 ```
 
 
-### enableV2Compatibility19+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### enableV2Compatibility19+
 
 static enableV2Compatibility<T extends object>(source: T): T
 
@@ -981,14 +924,12 @@ static enableV2Compatibility<T extends object>(source: T): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | source | T | 是 | 数据源，仅支持V1状态数据。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -997,8 +938,7 @@ static enableV2Compatibility<T extends object>(source: T): T
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 @Observed
@@ -1014,9 +954,9 @@ struct CompV1 {
   build() {
     Column() {
       Text(`@State observedClass: ${this.observedClass.name}`)
-      .onClick(() => {
-        this.observedClass.name = 'State'; // 刷新
-      })
+        .onClick(() => {
+          this.observedClass.name = 'State'; // 刷新
+        })
       // 将V1的状态变量使能V2的观察能力
       CompV2({ observedClass: UIUtils.enableV2Compatibility(this.observedClass) })
     }
@@ -1030,16 +970,16 @@ struct CompV2 {
   build() {
     // V1状态变量在使能V2观察能力后，可以在V2观察第一层的变化
     Text(`@Param observedClass: ${this.observedClass.name}`)
-    .onClick(() => {
-      this.observedClass.name = 'Param'; // 刷新
-    })
+      .onClick(() => {
+        this.observedClass.name = 'Param'; // 刷新
+      })
   }
 }
 ```
 
 
-### makeV1Observed19+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### makeV1Observed19+
 
 static makeV1Observed<T extends object>(source: T): T
 
@@ -1053,14 +993,12 @@ static makeV1Observed<T extends object>(source: T): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | T | 是 | 数据源。支持普通class、Array、Map、Set、Date类型。          不支持[collections类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections)和[@Sendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)修饰的class。          不支持undefined和null。不支持状态管理V2的数据和[makeObserved](#makeobserved)的返回值。 |
+| source | T | 是 | 数据源。支持普通class、Array、Map、Set、Date类型。 不支持collections类型和@Sendable修饰的class。 不支持undefined和null。不支持状态管理V2的数据和makeObserved的返回值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1069,8 +1007,7 @@ static makeV1Observed<T extends object>(source: T): T
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 class Outer {
@@ -1107,18 +1044,18 @@ struct Child {
 
   build() {
     Text(`${this.inner.interValue}`)
-    .onClick(() => {
-      this.inner.interValue += '!';
-    })
+      .onClick(() => {
+        this.inner.interValue += '!';
+      })
   }
 }
 ```
 
 
-### makeBinding20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static makeBinding<T>(getter: GetterCallback<T>): Binding<T>
+##### makeBinding20+
+
+static makeBinding&lt;T&gt;(getter: GetterCallback&lt;T&gt;): Binding&lt;T&gt;
 
 创建只读的单向数据绑定实例，用于构建[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)函数中参数类型为Binding的对应实参。
 
@@ -1128,33 +1065,30 @@ static makeBinding<T>(getter: GetterCallback<T>): Binding<T>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| getter | [GetterCallback&lt;T&gt;](#gettercallback20) | 是 | 获取值的回调函数，每次访问值都会重新执行函数，获取最新值。 |
+| getter | GetterCallback&lt;T&gt; | 是 | 获取值的回调函数，每次访问值都会重新执行函数，获取最新值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Binding&lt;T&gt;](#bindingt20) | 仅包含一个value属性，用于获取当前绑定的值。只能读取值，不能直接修改。 |
+| Binding&lt;T&gt; | 仅包含一个value属性，用于获取当前绑定的值。只能读取值，不能直接修改。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { Binding, MutableBinding, UIUtils } from '@kit.ArkUI';
 
 @Builder
 function CustomButton(num1: Binding<number>) {
   Row() {
     Button(`Custom Button: ${num1.value}`)
-    .onClick(() => {
-      // num1.value += 1; 会报错，Binding类型不支持修改
-    })
+      .onClick(() => {
+        // num1.value += 1; 会报错，Binding类型不支持修改
+      })
   }
 }
 
@@ -1169,18 +1103,18 @@ struct CompV2 {
       Text('parent component')
 
       CustomButton(
-      /**
-      * 创建只读绑定实例
-      * @param getter - 返回this.number1的函数
-      * @returns 只读的Binding<number>对象
-      *
-      * 特点：
-      * 1. 每次访问.value时重新计算
-      * 2. 不能直接修改值
-      */
-      UIUtils.makeBinding<number>(
-      () => this.number1 // GetterCallback
-      )
+        /**
+         * 创建只读绑定实例
+         * @param getter - 返回this.number1的函数
+         * @returns 只读的Binding<number>对象
+         *
+         * 特点：
+         * 1. 每次访问.value时重新计算
+         * 2. 不能直接修改值
+         */
+        UIUtils.makeBinding<number>(
+          () => this.number1 // GetterCallback
+        )
       )
     }
   }
@@ -1188,10 +1122,10 @@ struct CompV2 {
 ```
 
 
-### makeBinding20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): MutableBinding<T>
+##### makeBinding20+
+
+static makeBinding&lt;T&gt;(getter: GetterCallback&lt;T&gt;, setter: SetterCallback&lt;T&gt;): MutableBinding&lt;T&gt;
 
 创建可修改的双向数据绑定实例，用于构建@Builder函数中参数类型为MutableBinding的对应实参。
 
@@ -1201,35 +1135,32 @@ static makeBinding<T>(getter: GetterCallback<T>, setter: SetterCallback<T>): Mut
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| getter | [GetterCallback&lt;T&gt;](#gettercallback20) | 是 | 获取值的回调函数，每次访问值都会重新执行函数，获取最新值。 |
-| setter | [SetterCallback&lt;T&gt;](#settercallback20) | 是 | 定义如何更新值，当.value被修改时自动调用此函数。 |
+| getter | GetterCallback&lt;T&gt; | 是 | 获取值的回调函数，每次访问值都会重新执行函数，获取最新值。 |
+| setter | SetterCallback&lt;T&gt; | 是 | 定义如何更新值，当.value被修改时自动调用此函数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [MutableBinding&lt;T&gt;](#mutablebindingt20) | 包含一个value属性，支持通过.value读取和修改数据，设置值时会检查类型是否匹配泛型T。 |
+| MutableBinding&lt;T&gt; | 包含一个value属性，支持通过.value读取和修改数据，设置值时会检查类型是否匹配泛型T。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { Binding, MutableBinding, UIUtils } from '@kit.ArkUI';
 
 @Builder
 function CustomButton(num2: MutableBinding<number>) {
   Row() {
     Button(`Custom Button: ${num2.value}`)
-    .onClick(() => {
-      // MutableBinding类型支持修改
-      num2.value += 1;
-    })
+      .onClick(() => {
+        // MutableBinding类型支持修改
+        num2.value += 1;
+      })
   }
 }
 
@@ -1244,21 +1175,21 @@ struct CompV2 {
       Text('parent component')
 
       CustomButton(
-      /**
-      * 创建可变绑定
-      * @param getter - 返回this.number2的函数
-      * @param setter - 当绑定值修改时调用的回调
-      * @returns 可变的MutableBinding<number>对象
-      *
-      * 特点：
-      * 1. 支持读取和写入操作
-      * 2. 修改.value时会自动调用setter回调
-      */
-      UIUtils.makeBinding<number>(
-      () => this.number2, // GetterCallback
-      (val: number) => {
-        this.number2 = val;
-      }) // SetterCallback
+        /**
+         * 创建可变绑定
+         * @param getter - 返回this.number2的函数
+         * @param setter - 当绑定值修改时调用的回调
+         * @returns 可变的MutableBinding<number>对象
+         *
+         * 特点：
+         * 1. 支持读取和写入操作
+         * 2. 修改.value时会自动调用setter回调
+         */
+        UIUtils.makeBinding<number>(
+          () => this.number2, // GetterCallback
+          (val: number) => {
+            this.number2 = val;
+          }) // SetterCallback
       )
     }
   }
@@ -1266,8 +1197,8 @@ struct CompV2 {
 ```
 
 
-### addMonitor20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addMonitor20+
 
 static addMonitor(target: object, path: string | string[], monitorCallback: MonitorCallback, options?: MonitorOptions): void
 
@@ -1279,19 +1210,17 @@ static addMonitor(target: object, path: string | string[], monitorCallback: Moni
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| target | object | 是 | 目标对象，仅支持[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)和[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)实例。          对于不支持的类型，会抛出运行时错误，错误码见表格。 |
-| path | string \| string[] | 是 | 添加监听的变量名路径。可指定一个路径或者传入string数组用于一次性指定多个监听的变量路径。          仅支持string和string数组，对于不支持的类型，会抛出运行时错误，错误码见表格。 |
-| monitorCallback | [MonitorCallback](#monitorcallback20) | 是 | 给对应的状态变量注册的监听函数，即path路径对应的状态变量改变时，会回调对应的函数。          对于不支持的类型，会抛出运行时错误，错误码见表格。 |
-| options | [MonitorOptions](#monitoroptions20) | 否 | 监听函数的配置项，具体可见[MonitorOptions](#monitoroptions20)。默认为异步回调。 |
+| target | object | 是 | 目标对象，仅支持@ComponentV2和@ObservedV2实例。 对于不支持的类型，会抛出运行时错误，错误码见表格。 |
+| path | string \| string[] | 是 | 添加监听的变量名路径。可指定一个路径或者传入string数组用于一次性指定多个监听的变量路径。 仅支持string和string数组，对于不支持的类型，会抛出运行时错误，错误码见表格。 |
+| monitorCallback | MonitorCallback | 是 | 给对应的状态变量注册的监听函数，即path路径对应的状态变量改变时，会回调对应的函数。 对于不支持的类型，会抛出运行时错误，错误码见表格。 |
+| options | MonitorOptions | 否 | 监听函数的配置项，具体可见MonitorOptions。默认为异步回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[状态管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1303,58 +1232,54 @@ static addMonitor(target: object, path: string | string[], monitorCallback: Moni
 **示例：**
 
 下面的示例：
-
-
 1. 在ObservedClass的构造方法里，添加对name属性的同步监听回调onChange。
 2. 点击Text组件，将name改为Jack和Jane，触发两次onChange回调，打印日志如下。
-
 
 ```text
 ObservedClass property name change from Tom to Jack
 ObservedClass property name change from Jack to Jane
 ```
 
-
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
 @ObservedV2
 class ObservedClass {
-@Trace name: string = 'Tom';
+  @Trace name: string = 'Tom';
 
-onChange(mon: IMonitor) {
-mon.dirty.forEach((path: string) => {
-console.info(`ObservedClass property ${path} change from ${mon.value(path)?.before} to ${mon.value(path)?.now}`);
-});
-}
+  onChange(mon: IMonitor) {
+    mon.dirty.forEach((path: string) => {
+      console.info(`ObservedClass property ${path} change from ${mon.value(path)?.before} to ${mon.value(path)?.now}`);
+    });
+  }
 
-constructor() {
-// 给当前ObservedClass的实例this添加对属性name的监听回调this.onChange，且当前监听回调是同步监听
-UIUtils.addMonitor(this, 'name', this.onChange, { isSynchronous: true });
-}
+  constructor() {
+    // 给当前ObservedClass的实例this添加对属性name的监听回调this.onChange，且当前监听回调是同步监听
+    UIUtils.addMonitor(this, 'name', this.onChange, { isSynchronous: true });
+  }
 }
 
 @Entry
 @ComponentV2
 struct Index {
-@Local observedClass: ObservedClass = new ObservedClass();
+  @Local observedClass: ObservedClass = new ObservedClass();
 
-build() {
-Column() {
-Text(`name: ${this.observedClass.name}`)
-.fontSize(20)
-.onClick(() => {
-this.observedClass.name = 'Jack';
-this.observedClass.name = 'Jane';
-})
-}
-}
+  build() {
+    Column() {
+      Text(`name: ${this.observedClass.name}`)
+        .fontSize(20)
+        .onClick(() => {
+          this.observedClass.name = 'Jack';
+          this.observedClass.name = 'Jane';
+        })
+    }
+  }
 }
 ```
 
 
-### clearMonitor20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clearMonitor20+
 
 static clearMonitor(target: object, path: string | string[], monitorCallback?: MonitorCallback): void
 
@@ -1366,18 +1291,16 @@ static clearMonitor(target: object, path: string | string[], monitorCallback?: M
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| target | object | 是 | 目标对象，仅支持[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)和[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)实例。          对于不支持的类型，会抛出运行时错误，错误码见表格。 |
-| path | string \| string[] | 是 | 删除监听的变量名路径。可指定一个路径或者传入string数组用于一次性指定删除多个状态变量的监听函数。          仅支持string和数组，对于不支持的类型，会抛出运行时错误，错误码见表格。 |
-| monitorCallback | [MonitorCallback](#monitorcallback20) | 否 | 指定被删除的监听函数。          当开发者不传此参数时，将删除path对应变量注册的所有监听函数。          对于不支持的类型，会抛出运行时错误，错误码见表格。 |
+| target | object | 是 | 目标对象，仅支持@ComponentV2和@ObservedV2实例。 对于不支持的类型，会抛出运行时错误，错误码见表格。 |
+| path | string \| string[] | 是 | 删除监听的变量名路径。可指定一个路径或者传入string数组用于一次性指定删除多个状态变量的监听函数。 仅支持string和数组，对于不支持的类型，会抛出运行时错误，错误码见表格。 |
+| monitorCallback | MonitorCallback | 否 | 指定被删除的监听函数。 当开发者不传此参数时，将删除path对应变量注册的所有监听函数。 对于不支持的类型，会抛出运行时错误，错误码见表格。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[状态管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1389,15 +1312,16 @@ static clearMonitor(target: object, path: string | string[], monitorCallback?: M
 **示例：**
 
 在下面的示例中：
-
-
 1. 在ObservedClass的构造方法中，添加对age属性的同步监听回调onChange。
-2. 点击Text组件，触发age自增，onChange的监听回调函数被触发。打印日志如下。        __PREBLOCK_21__
+2. 点击Text组件，触发age自增，onChange的监听回调函数被触发。打印日志如下。        
+```text
+ObservedClass property age change from 10 to 11
+```
+
 3. 点击clear monitor，删除age的监听函数onChange。
 4. 再次点击Text组件，触发age自增，onChange不会被触发。
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 @ObservedV2
@@ -1424,27 +1348,27 @@ struct Index {
   build() {
     Column() {
       Text(`age: ${this.observedClass.age}`)
-      .fontSize(20)
-      .onClick(() => {
-        // 点击触发age++，触发onChange回调
-        this.observedClass.age++;
-      })
+        .fontSize(20)
+        .onClick(() => {
+          // 点击触发age++，触发onChange回调
+          this.observedClass.age++;
+        })
       Button('clear monitor')
-      .onClick(() => {
-        // 点击clearMonitor，删除this.observedClass中age的监听函数onChange
-        // 再次点击触发age++，没有触发监听函数onChange
-        UIUtils.clearMonitor(this.observedClass, 'age', this.observedClass.onChange);
-      })
+        .onClick(() => {
+          // 点击clearMonitor，删除this.observedClass中age的监听函数onChange
+          // 再次点击触发age++，没有触发监听函数onChange
+          UIUtils.clearMonitor(this.observedClass, 'age', this.observedClass.onChange);
+        })
     }
   }
 }
 ```
 
 
-### applySync22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static applySync<T>(task: TaskCallback): T
+##### applySync22+
+
+static applySync&lt;T&gt;(task: TaskCallback): T
 
 同步刷新指定的状态变量，该接口接收一个闭包函数，仅刷新闭包函数内的修改，包括更新[@Computed计算](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)、[@Monitor回调](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)以及重新渲染UI节点，详见[applySync/flushUpdates/flushUIUpdates接口：同步刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)。
 
@@ -1454,14 +1378,12 @@ static applySync<T>(task: TaskCallback): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| task | [TaskCallback](#taskcallback22) | 是 | 闭包函数，该闭包中产生的状态变量修改会同步执行。 |
+| task | TaskCallback | 是 | 闭包函数，该闭包中产生的状态变量修改会同步执行。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1472,7 +1394,6 @@ static applySync<T>(task: TaskCallback): T
 
 以下错误码的详细介绍请参见[状态管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 140001 | The function is not allowed to be called in @Computed. |
@@ -1480,8 +1401,7 @@ static applySync<T>(task: TaskCallback): T
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry
@@ -1494,25 +1414,25 @@ struct Index {
   build() {
     Column() {
       Button('change size')
-      .margin(20)
-      .onClick(() => {
-        // 在执行动画前，存在额外的修改
-        UIUtils.applySync(() => {
-          this.w = 100;
-          this.h = 100;
-          this.message = 'Hello World';
-        });
-        // 动画在1s内，Column方框的尺寸由（100*100）渐变为（200*200），方框内的文本变为Hello ArkUI
-        this.getUIContext().animateTo({
-          duration: 1000
-        }, () => {
-          console.info(`animateTo-in, w=${this.w}, h=${this.h}`);
-          this.w = 200;
-          this.h = 200;
-          this.message = 'Hello ArkUI';
-          console.info(`animateTo-out, w=${this.w}, h=${this.h}`);
-        });
-      })
+        .margin(20)
+        .onClick(() => {
+          // 在执行动画前，存在额外的修改
+          UIUtils.applySync(() => {
+            this.w = 100;
+            this.h = 100;
+            this.message = 'Hello World';
+          });
+          // 动画在1s内，Column方框的尺寸由（100*100）渐变为（200*200），方框内的文本变为Hello ArkUI
+          this.getUIContext().animateTo({
+            duration: 1000
+          }, () => {
+            console.info(`animateTo-in, w=${this.w}, h=${this.h}`);
+            this.w = 200;
+            this.h = 200;
+            this.message = 'Hello ArkUI';
+            console.info(`animateTo-out, w=${this.w}, h=${this.h}`);
+          });
+        })
       // Column方框
       Column() {
         Text(`${this.message}`)
@@ -1526,8 +1446,8 @@ struct Index {
 ```
 
 
-### flushUpdates22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### flushUpdates22+
 
 static flushUpdates(): void
 
@@ -1541,7 +1461,6 @@ static flushUpdates(): void
 
 以下错误码的详细介绍请参见[状态管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 140001 | The function is not allowed to be called in @Computed. |
@@ -1550,8 +1469,7 @@ static flushUpdates(): void
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry
@@ -1564,24 +1482,24 @@ struct Index {
   build() {
     Column() {
       Button('change size')
-      .margin(20)
-      .onClick(() => {
-        // 在执行动画前，存在额外的修改
-        this.w = 100;
-        this.h = 100;
-        this.message = 'Hello World';
-        UIUtils.flushUpdates();
-        // 动画在1s内，Column方框的尺寸由（100*100）渐变为（200*200），方框内的文本变为Hello ArkUI
-        this.getUIContext().animateTo({
-          duration: 1000
-        }, () => {
-          console.info(`animateTo-in, w=${this.w}, h=${this.h}`);
-          this.w = 200;
-          this.h = 200;
-          this.message = 'Hello ArkUI';
-          console.info(`animateTo-out, w=${this.w}, h=${this.h}`);
-        });
-      })
+        .margin(20)
+        .onClick(() => {
+          // 在执行动画前，存在额外的修改
+          this.w = 100;
+          this.h = 100;
+          this.message = 'Hello World';
+          UIUtils.flushUpdates();
+          // 动画在1s内，Column方框的尺寸由（100*100）渐变为（200*200），方框内的文本变为Hello ArkUI
+          this.getUIContext().animateTo({
+            duration: 1000
+          }, () => {
+            console.info(`animateTo-in, w=${this.w}, h=${this.h}`);
+            this.w = 200;
+            this.h = 200;
+            this.message = 'Hello ArkUI';
+            console.info(`animateTo-out, w=${this.w}, h=${this.h}`);
+          });
+        })
       // Column方框
       Column() {
         Text(`${this.message}`)
@@ -1595,8 +1513,8 @@ struct Index {
 ```
 
 
-### flushUIUpdates22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### flushUIUpdates22+
 
 static flushUIUpdates(): void
 
@@ -1610,7 +1528,6 @@ static flushUIUpdates(): void
 
 以下错误码的详细介绍请参见[状态管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 140001 | The function is not allowed to be called in @Computed. |
@@ -1619,8 +1536,7 @@ static flushUIUpdates(): void
 
 **示例：**
 
-
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry
@@ -1633,24 +1549,24 @@ struct Index {
   build() {
     Column() {
       Button('change size')
-      .margin(20)
-      .onClick(() => {
-        // 在执行动画前，存在额外的修改
-        this.w = 100;
-        this.h = 100;
-        this.message = 'Hello World';
-        UIUtils.flushUIUpdates();
-        // 动画在1s内，Column方框的尺寸由（100*100）渐变为（200*200），方框内的文本变为Hello ArkUI
-        this.getUIContext().animateTo({
-          duration: 1000
-        }, () => {
-          console.info(`animateTo-in, w=${this.w}, h=${this.h}`);
-          this.w = 200;
-          this.h = 200;
-          this.message = 'Hello ArkUI';
-          console.info(`animateTo-out, w=${this.w}, h=${this.h}`);
-        });
-      })
+        .margin(20)
+        .onClick(() => {
+          // 在执行动画前，存在额外的修改
+          this.w = 100;
+          this.h = 100;
+          this.message = 'Hello World';
+          UIUtils.flushUIUpdates();
+          // 动画在1s内，Column方框的尺寸由（100*100）渐变为（200*200），方框内的文本变为Hello ArkUI
+          this.getUIContext().animateTo({
+            duration: 1000
+          }, () => {
+            console.info(`animateTo-in, w=${this.w}, h=${this.h}`);
+            this.w = 200;
+            this.h = 200;
+            this.message = 'Hello ArkUI';
+            console.info(`animateTo-out, w=${this.w}, h=${this.h}`);
+          });
+        })
       // Column方框
       Column() {
         Text(`${this.message}`)
@@ -1664,8 +1580,8 @@ struct Index {
 ```
 
 
-## TaskCallback22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### TaskCallback22+
 
 type TaskCallback = () => T
 
@@ -1677,14 +1593,14 @@ type TaskCallback = () => T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 闭包函数执行得到的返回值。 |
 
 
-## MonitorOptions20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MonitorOptions20+
 
 [addMonitor](#addmonitor20)的可选参数，用于配置回调类型。
 
@@ -1692,14 +1608,14 @@ type TaskCallback = () => T
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isSynchronous | boolean | 否 | 是 | 配置当前回调函数否是为同步回调。true为同步回调。默认值为false，即异步回调。 |
+| isSynchronous | boolean | 否 | 是 | 配置当前回调函数是否为同步回调。true为同步回调。默认值为false，即异步回调。 |
 
 
-## MonitorCallback20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MonitorCallback20+
 
 type MonitorCallback = (monitorValue: IMonitor) => void
 
@@ -1711,16 +1627,16 @@ type MonitorCallback = (monitorValue: IMonitor) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | monitorValue | IMonitor | 是 | 回调函数传入的变化信息。 |
 
 
-## StorageDefaultCreator&lt;T&gt;
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type StorageDefaultCreator<T> = () => T
+
+##### StorageDefaultCreator&lt;T&gt;
+
+type StorageDefaultCreator&lt;T&gt; = () => T
 
 返回默认构造器的函数。
 
@@ -1730,7 +1646,6 @@ type StorageDefaultCreator<T> = () => T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 默认构造器执行得到的返回值。 |
@@ -1738,8 +1653,7 @@ type StorageDefaultCreator<T> = () => T
 
 **示例：**
 
-
-```ts
+```text
 import { PersistenceV2 } from '@kit.ArkUI';
 
 @ObservedV2
@@ -1771,14 +1685,14 @@ struct SampleComp {
 ```
 
 
-## TypeConstructorWithArgs&lt;T&gt;
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### TypeConstructorWithArgs&lt;T&gt;
 
 含有任意入参的类构造器。
 
 
-### new
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### new
 
 new(...args: any): T
 
@@ -1790,14 +1704,12 @@ new(...args: any): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | ...args | any | 否 | 函数入参。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1806,12 +1718,11 @@ new(...args: any): T
 
 **示例：**
 
-
-```ts
+```text
 import { PersistenceV2 } from '@kit.ArkUI';
 
 @ObservedV2
-// TypeConstructorWithArgs 指的是 SampleClass
+  // TypeConstructorWithArgs 指的是 SampleClass
 class SampleClass {
   @Trace id: number = 0;
   count: number = 1;
@@ -1839,8 +1750,8 @@ struct SampleComp {
 ```
 
 
-## PersistenceErrorCallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### PersistenceErrorCallback
 
 type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', message: string) => void
 
@@ -1852,7 +1763,6 @@ type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 出错的键值。 |
@@ -1862,8 +1772,7 @@ type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' 
 
 **示例：**
 
-
-```ts
+```text
 import { PersistenceV2, Type } from '@kit.ArkUI';
 
 @ObservedV2
@@ -1895,23 +1804,23 @@ struct Index {
 
   build() {
     Text(`Index add 1 to data.id: ${this.data.sampleChild.id}`)
-    .fontSize(30)
-    .onClick(() => {
-      this.data.sampleChild.id++;
-    })
+      .fontSize(30)
+      .onClick(() => {
+        this.data.sampleChild.id++;
+      })
   }
 }
 ```
 
 
-## TypeConstructor&lt;T&gt;
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### TypeConstructor&lt;T&gt;
 
 类构造函数。
 
 
-### new
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### new
 
 new(): T
 
@@ -1923,7 +1832,6 @@ new(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | T类型的实例。 |
@@ -1931,8 +1839,7 @@ new(): T
 
 **示例：**
 
-
-```ts
+```text
 import { PersistenceV2, Type } from '@kit.ArkUI';
 
 @ObservedV2
@@ -1957,20 +1864,20 @@ struct Index {
   build() {
     Column() {
       Text(`Index add 1 to data.id: ${this.data.sampleChild.id}`)
-      .fontSize(30)
-      .onClick(() => {
-        this.data.sampleChild.id++;
-      })
+        .fontSize(30)
+        .onClick(() => {
+          this.data.sampleChild.id++;
+        })
     }
   }
 }
 ```
 
 
-## TypeDecorator
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator
+##### TypeDecorator
+
+type TypeDecorator = &lt;T&gt;(type: TypeConstructor&lt;T&gt;) => PropertyDecorator
 
 属性装饰器，用于装饰嵌套类中属于自定义class类的属性。
 
@@ -1980,14 +1887,12 @@ type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [TypeConstructor&lt;T&gt;](#typeconstructort) | 是 | 标记类属性的类型。 |
+| type | TypeConstructor&lt;T&gt; | 是 | 标记类属性的类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1996,8 +1901,7 @@ type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator
 
 **示例：**
 
-
-```ts
+```text
 import { PersistenceV2, Type } from '@kit.ArkUI';
 
 @ObservedV2
@@ -2022,10 +1926,10 @@ struct Index {
   build() {
     Column() {
       Text(`Index add 1 to data.id: ${this.data.sampleChild.id}`)
-      .fontSize(30)
-      .onClick(() => {
-        this.data.sampleChild.id++;
-      })
+        .fontSize(30)
+        .onClick(() => {
+          this.data.sampleChild.id++;
+        })
     }
   }
 }
@@ -2033,8 +1937,7 @@ struct Index {
 
 在使用@Type装饰嵌套类属性时，仅支持自定义class类型，传入其他类型会持久化失败。
 
-
-```ts
+```text
 @ObservedV2
 class SampleChild {
   @Trace id: number = 0;
@@ -2045,21 +1948,19 @@ class SampleChild {
 class Sample {
   // 建议用法，装饰自定义Sample类中的sampleChild属性，其类型为SampleChild类型
   @Type(SampleChild)
-  @Trace
-  sampleChild: SampleChild = new SampleChild();
+  @Trace sampleChild: SampleChild = new SampleChild();
 
   // 不建议用法，装饰的嵌套类属性类型是Array<number>
   @Type(Array<number>)
-  @Trace
-  value: Array<Array<number>> = new Array();
+  @Trace value: Array<Array<number>> = new Array();
 }
 ```
 
 
-## GetterCallback20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type GetterCallback<T> = () => T
+##### GetterCallback20+
+
+type GetterCallback&lt;T&gt; = () => T
 
 获取值的回调方法。
 
@@ -2069,7 +1970,6 @@ type GetterCallback<T> = () => T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | T类型的值。 |
@@ -2077,17 +1977,16 @@ type GetterCallback<T> = () => T
 
 **示例：**
 
-
-```ts
+```text
 import { Binding, UIUtils } from '@kit.ArkUI';
 
 @Builder
 function CustomButton(num1: Binding<number>) {
   Row() {
     Button(`Custom Button: ${num1.value}`)
-    .onClick(() => {
-      // num1.value += 1; 会报错，Binding类型不支持修改
-    })
+      .onClick(() => {
+        // num1.value += 1; 会报错，Binding类型不支持修改
+      })
   }
 }
 
@@ -2102,10 +2001,10 @@ struct CompV2 {
       Text('parent component')
 
       CustomButton(
-      // 对于UIUtils.makeBinding函数的第一个参数需要传入GetterCallback
-      UIUtils.makeBinding<number>(
-      () => this.number1 // GetterCallback
-      )
+        // 对于UIUtils.makeBinding函数的第一个参数需要传入GetterCallback
+        UIUtils.makeBinding<number>(
+          () => this.number1 // GetterCallback
+        )
       )
     }
   }
@@ -2113,10 +2012,10 @@ struct CompV2 {
 ```
 
 
-## SetterCallback20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type SetterCallback<T> = (newValue: T) => void
+##### SetterCallback20+
+
+type SetterCallback&lt;T&gt; = (newValue: T) => void
 
 设置值的回调方法。
 
@@ -2126,7 +2025,6 @@ type SetterCallback<T> = (newValue: T) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newValue | T | 是 | 类型为T的参数。 |
@@ -2134,18 +2032,17 @@ type SetterCallback<T> = (newValue: T) => void
 
 **示例：**
 
-
-```ts
+```text
 import { MutableBinding, UIUtils } from '@kit.ArkUI';
 
 @Builder
 function CustomButton(num2: MutableBinding<number>) {
   Row() {
     Button(`Custom Button: ${num2.value}`)
-    .onClick(() => {
-      // MutableBinding支持可变，可以修改num2.value
-      num2.value += 1;
-    })
+      .onClick(() => {
+        // MutableBinding支持可变，可以修改num2.value
+        num2.value += 1;
+      })
   }
 }
 
@@ -2160,12 +2057,12 @@ struct CompV2 {
       Text('parent component')
 
       CustomButton(
-      // 对于UIUtils.makeBinding函数的第二个参数需要传入SetterCallback
-      UIUtils.makeBinding<number>(
-      () => this.number2, // GetterCallback
-      (val: number) => {
-        this.number2 = val;
-      }) // SetterCallback 必须提供，否则触发时会造成运行时错误
+        // 对于UIUtils.makeBinding函数的第二个参数需要传入SetterCallback
+        UIUtils.makeBinding<number>(
+          () => this.number2, // GetterCallback
+          (val: number) => {
+            this.number2 = val;
+          }) // SetterCallback 必须提供，否则触发时会造成运行时错误
       )
     }
   }
@@ -2173,14 +2070,14 @@ struct CompV2 {
 ```
 
 
-## Binding&lt;T&gt;20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Binding&lt;T&gt;20+
 
 只读数据绑定的泛型类，可以绑定任意类型的数据。
 
 
-### value20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### value20+
 
 get value(): T
 
@@ -2192,7 +2089,6 @@ get value(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回值类型为泛型参数T，与Binding&lt;T&gt;定义的类型一致。 |
@@ -2200,8 +2096,7 @@ get value(): T
 
 **示例：**
 
-
-```ts
+```text
 import { Binding, UIUtils } from '@kit.ArkUI';
 
 @Builder
@@ -2210,9 +2105,9 @@ function CustomButton(num1: Binding<number>) {
   Row() {
     // num1.value Binding类可以使用绑定的值
     Button(`Custom Button: ${num1.value}`)
-    .onClick(() => {
-      // num1.value += 1; 会报错，只读数据绑定的泛型类不能修改值
-    })
+      .onClick(() => {
+        // num1.value += 1; 会报错，只读数据绑定的泛型类不能修改值
+      })
   }
 }
 
@@ -2227,9 +2122,9 @@ struct CompV2 {
       Text('parent component')
 
       CustomButton(
-      UIUtils.makeBinding<number>(
-      () => this.number1 // GetterCallback
-      )
+        UIUtils.makeBinding<number>(
+          () => this.number1 // GetterCallback
+        )
       )
     }
   }
@@ -2237,14 +2132,14 @@ struct CompV2 {
 ```
 
 
-## MutableBinding&lt;T&gt;20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### MutableBinding&lt;T&gt;20+
 
 可变数据绑定的泛型类，允许对绑定值进行读写操作，提供完整的get和set访问器。
 
 
-### value20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### value20+
 
 set value(newValue: T)
 
@@ -2256,14 +2151,14 @@ set value(newValue: T)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newValue | T | 是 | 参数类型为泛型参数T，与MutableBinding&lt;T&gt;定义的类型一致。 |
 
 
-### value20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### value20+
 
 get value(): T
 
@@ -2275,7 +2170,6 @@ get value(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回值类型为泛型参数T，与Binding&lt;T&gt;定义的类型一致。 |
@@ -2283,8 +2177,7 @@ get value(): T
 
 **示例：**
 
-
-```ts
+```text
 import { MutableBinding, UIUtils } from '@kit.ArkUI';
 
 @Builder
@@ -2292,10 +2185,10 @@ function CustomButton(num2: MutableBinding<number>) {
   // CustomButton的第二个参数为MutableBinding，一个可变数据绑定的泛型类
   Row() {
     Button(`Custom Button: ${num2.value}`)
-    .onClick(() => {
-      // 可变数据绑定的泛型类可以修改绑定的值
-      num2.value += 1;
-    })
+      .onClick(() => {
+        // 可变数据绑定的泛型类可以修改绑定的值
+        num2.value += 1;
+      })
   }
 }
 
@@ -2310,11 +2203,11 @@ struct CompV2 {
       Text('parent component')
 
       CustomButton(
-      UIUtils.makeBinding<number>(
-      () => this.number2, // GetterCallback
-      (val: number) => {
-        this.number2 = val;
-      }) // SetterCallback 必须提供，否则触发时会造成运行时错误
+        UIUtils.makeBinding<number>(
+          () => this.number2, // GetterCallback
+          (val: number) => {
+            this.number2 = val;
+          }) // SetterCallback 必须提供，否则触发时会造成运行时错误
       )
     }
   }

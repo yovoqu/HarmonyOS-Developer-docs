@@ -1,19 +1,20 @@
 # UTD预置列表
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-type-list
 
 标准化数据类型（Uniform Type Descriptor，简称UTD）用于解决系统中的类型模糊问题，即针对同一种数据类型，存在不同的类型描述方式：MIME Type、文件扩展名等。例如描述jpg/jpeg类型图片时，可以使用image/jpeg、.jpg、.jpeg或image/picture等方式进行描述，详情可见[UTD基础类型](#基础类型)表格。
+ 
+当相关类型的数据进行跨应用、跨设备传输时，目标端应用/设备需要进行多方面的适配，才能够对数据内容进行相关处理，且存在无法识别的情况。
+ 
+为了方便业务使用，系统中预置了一部分常用类型，从通用性、场景以及归属等角度将预置类型分为三类：[基础类型](#基础类型)，[系统关联类型](#系统关联类型)以及[应用定义类型](#应用定义类型)。
+  
 
- 当相关类型的数据进行跨应用、跨设备传输时，目标端应用/设备需要进行多方面的适配，才能够对数据内容进行相关处理，且存在无法识别的情况。
-
- 为了方便业务使用，系统中预置了一部分常用类型，从通用性、场景以及归属等角度将预置类型分为三类：[基础类型](#基础类型)，[系统关联类型](#系统关联类型)以及[应用定义类型](#应用定义类型)。
-
-
-## 基础类型
+##### 基础类型
 
 基础类型表示通用数据类型，进行跨应用、跨设备设置跨平台交互时，能够被绝大多数应用、设备以及平台识别，标识UTD-ID为general.xxx。当前系统中预定义的通用类型列表如下：
+  
 | UTD-ID | BelongingTo类型 | 后缀名 | MIMEType类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | general.entity | - | - | - | 所有表示物理存储类型的基类型。 |
@@ -138,8 +139,8 @@
 | general.pem | general.text | .pem | application/x-pem-file | 增强私隐邮件证书文件类型。 |
 | general.log | general.text | .log | text/plain | 日志文件类型。 |
 | general.tel | general.text | .tel | - | 包含器件封装、网络拓扑、编码信息等的原理图信息文件类型。 |
-| general.ion | general.text | .ion | text/plain | 文件内容描述类型。 |
-| general.conf | general.text | .conf | text/plain | 通用配置文件类型。 |
+| general.ion | general.text | .ion | - | 文件内容描述类型。 |
+| general.conf | general.text | .conf | - | 通用配置文件类型。 |
 | general.calendar | general.text | - | - | 所有日程类数据的基类型。 |
 | general.vcs | general.calendar | .vcs | text/calendar | VCalendar日历数据类型。 |
 | general.ics | general.calendar | .ics | text/calendar | ICalendar日历数据类型。 |
@@ -214,11 +215,16 @@
 | com.apple.iwork.keynote.key | general.composite-object,com.apple.iwork | .key | application/vnd.apple.keynote | iWork Keynote演示文稿文件。从HarmonyOS 6.0.2开始支持此类型。 |
 | com.apple.iwork.numbers.numbers | general.composite-object,com.apple.iwork | .numbers | application/vnd.apple.numbers | iWork Numbers电子表格文件。从HarmonyOS 6.0.2开始支持此类型。 |
 | com.apple.iwork.pages.pages | general.composite-object,com.apple.iwork | .pages | application/vnd.apple.pages | iWork Pages文档文件。从HarmonyOS 6.0.2开始支持此类型。 |
+| com.huawei.hmos.musiccreate.gofile | general.archive | .gomusic | - | musiccreate文件格式。从HarmonyOS 6.1.0开始支持此类型。 |
+| com.apple.coreaudio-format | general.audio | .caf | audio/x-caf | CAF音频数据文件。从HarmonyOS 6.1.0开始支持此类型。 |
+ 
+ 
+  
 
-
-## 系统关联类型
+##### 系统关联类型
 
 系统定义数据类型与具体的平台/操作系统有较为深入的关联，支持系统/平台内的跨应用交互，标识UTD-ID为os-name.xxx。当前系统中预定义的系统关联类型列表如下：
+  
 | UTD-ID | BelongingTo类型 | 后缀名 | MIMEType类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | openharmony.form | general.object | - | - | HarmonyOS系统定义的Form类型。 |
@@ -241,11 +247,14 @@
 | redhat.rpm-archive | general.archive | .rpm | application/x-rpm | RedHat软件安装包类型。 |
 | com.huawei.hmos.settings.wifi | general.text | .hmoswifi | - | HarmonyOS wifi分享配置文件类型。 |
 | openharmony.dlp | general.composite-object | .dlp | - | HarmonyOS系统定义的基于账号身份加密的文件类型。 |
+ 
+ 
+  
 
-
-## 应用定义类型
+##### 应用定义类型
 
 应用定义类型表示该类型由具体的应用或者组织进行定义与维护，数据的交互依赖特定的应用进行识别，标识UTD-ID为com.company-name.xxx或org.organization-name.xxx。当前系统中预定义的应用定义类型列表如下：
+  
 | UTD-ID | BelongingTo类型 | 后缀名 | MIMEType类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | com.microsoft.bmp | general.image | .bmp, .bm | image/bmp, image/x-ms-bmp | WINDOWS位图图像类型。 |

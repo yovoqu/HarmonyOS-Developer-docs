@@ -1,6 +1,6 @@
 # Desktop Extension Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-desktopextensionkit-6111
 
@@ -8,9 +8,9 @@
 | --- | --- | --- | --- |
 | API废弃版本变更 | 类名：StatusBarMenuAction； API声明：menuCode?: string; 差异内容：NA | 类名：StatusBarMenuAction； API声明：menuCode?: string; 差异内容：24 | api/@hms.pcService.statusBarManager.d.ts |
 | 新增错误码 | 类名：statusBarManager； API声明：function addToStatusBar(context: common.Context, statusBarItem: StatusBarItem): void; 差异内容：NA | 类名：statusBarManager； API声明：function addToStatusBar(context: common.Context, statusBarItem: StatusBarItem): void; 差异内容：1010710007 | api/@hms.pcService.statusBarManager.d.ts |
-| 新增错误码 | 类名：statusBarManager； API声明：function addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: AsyncCallback<void>): void; 差异内容：NA | 类名：statusBarManager； API声明：function addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: AsyncCallback<void>): void; 差异内容：1010710007 | api/@hms.pcService.statusBarManager.d.ts |
+| 新增错误码 | 类名：statusBarManager； API声明：function addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：statusBarManager； API声明：function addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: AsyncCallback&lt;void&gt;): void; 差异内容：1010710007 | api/@hms.pcService.statusBarManager.d.ts |
 | 新增错误码 | 类名：statusBarManager； API声明：function updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[]): void; 差异内容：NA | 类名：statusBarManager； API声明：function updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[]): void; 差异内容：1010710007 | api/@hms.pcService.statusBarManager.d.ts |
-| 新增错误码 | 类名：statusBarManager； API声明：function updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[], callback: AsyncCallback<void>): void; 差异内容：NA | 类名：statusBarManager； API声明：function updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[], callback: AsyncCallback<void>): void; 差异内容：1010710007 | api/@hms.pcService.statusBarManager.d.ts |
+| 新增错误码 | 类名：statusBarManager； API声明：function updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[], callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：statusBarManager； API声明：function updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[], callback: AsyncCallback&lt;void&gt;): void; 差异内容：1010710007 | api/@hms.pcService.statusBarManager.d.ts |
 | 新增API | NA | 类名：StatusBarMenuItem； API声明：menuCode?: string; 差异内容：menuCode?: string; | api/@hms.pcService.statusBarManager.d.ts |
 | 新增API | NA | 类名：StatusBarMenuItem； API声明：options?: StatusBarMenuItemOptions; 差异内容：options?: StatusBarMenuItemOptions; | api/@hms.pcService.statusBarManager.d.ts |
 | 新增API | NA | 类名：StatusBarSubMenuItem； API声明：menuCode?: string; 差异内容：menuCode?: string; | api/@hms.pcService.statusBarManager.d.ts |
@@ -20,5 +20,5 @@
 | 新增API | NA | 类名：StatusBarMenuItemOptions； API声明：icon?: StatusBarItemIcon; 差异内容：icon?: StatusBarItemIcon; | api/@hms.pcService.statusBarManager.d.ts |
 | 新增API | NA | 类名：StatusBarMenuItemOptions； API声明：selected?: boolean; 差异内容：selected?: boolean; | api/@hms.pcService.statusBarManager.d.ts |
 | 新增API | NA | 类名：StatusBarMenuItemOptions； API声明：selectedIcon?: StatusBarItemIcon; 差异内容：selectedIcon?: StatusBarItemIcon; | api/@hms.pcService.statusBarManager.d.ts |
-| 新增API | NA | 类名：statusBarManager； API声明：function updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promise<void>; 差异内容：function updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promise<void>; | api/@hms.pcService.statusBarManager.d.ts |
-| 新增API | NA | 类名：statusBarManager； API声明：function updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem): Promise<void>; 差异内容：function updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem): Promise<void>; | api/@hms.pcService.statusBarManager.d.ts |
+| 新增API | NA | 类名：statusBarManager； API声明：function updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promise&lt;void&gt;; 差异内容：function updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promise&lt;void&gt;; | api/@hms.pcService.statusBarManager.d.ts |
+| 新增API | NA | 类名：statusBarManager； API声明：function updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem): Promise&lt;void&gt;; 差异内容：function updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem): Promise&lt;void&gt;; | api/@hms.pcService.statusBarManager.d.ts |

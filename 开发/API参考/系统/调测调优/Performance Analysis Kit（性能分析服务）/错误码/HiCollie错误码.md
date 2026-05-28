@@ -4,12 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hicollie
 
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 
-## 29800001 系统服务获取失败
+##### 29800001 系统服务获取失败
 
 **错误信息**
 
@@ -28,7 +28,8 @@ Wrong thread context.The function can not be called from main thread.
 在非主线程调用该接口服务。
 
 
-## 29800002 远程调用失败
+
+##### 29800002 远程调用失败
 
 **错误信息**
 
@@ -47,7 +48,8 @@ Remote call failed.
 建议重试。
 
 
-## 29800003 无效的timer名称
+
+##### 29800003 无效的timer名称
 
 **错误信息**
 
@@ -66,7 +68,8 @@ timer name是无效的。
 检查传入的name参数，确保其为非空字符指针，且指向非空字符串。
 
 
-## 29800004 无效的timeout值
+
+##### 29800004 无效的timeout值
 
 **错误信息**
 
@@ -85,7 +88,8 @@ timeout值是无效的。
 检查传入的timeout，确保其大于0。
 
 
-## 29800005 错误的进程上下文
+
+##### 29800005 错误的进程上下文
 
 **错误信息**
 
@@ -104,7 +108,8 @@ Wrong process context.
 请勿在appspawn和nativespawn进程中接入hicollie检测。
 
 
-## 29800006 错误的timer id参数
+
+##### 29800006 错误的timer id参数
 
 **错误信息**
 
@@ -116,12 +121,11 @@ Wrong timer id output param.
 
 **可能原因**
 
+ - 传入的整型指针id为nullptr；
+ - 接入函数执行时长检测机制的进程中hicollie插件同时存在任务数达到最大值128。
 
-- 传入的整型指针id为nullptr；
-- 接入函数执行时长检测机制的进程中hicollie插件同时存在任务数达到最大值128。
 
 **处理步骤**
 
-
-- 检查传入的id参数，确保其为非空整型指针；
-- 重试或减少该进程中hicollie检测机制的在其他地方的调用。
+ - 检查传入的id参数，确保其为非空整型指针；
+ - 重试或减少该进程中hicollie检测机制的在其他地方的调用。

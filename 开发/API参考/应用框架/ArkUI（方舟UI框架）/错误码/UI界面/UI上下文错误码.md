@@ -3,14 +3,14 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uicontext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 190001 无效的UIContext对象
+##### 190001 无效的UIContext对象
 
 **错误信息**
 
@@ -29,7 +29,8 @@ The uiContext is invalid.
 传入有效的UIContext对象。
 
 
-## 190002 无效的回调函数
+
+##### 190002 无效的回调函数
 
 **错误信息**
 
@@ -48,8 +49,8 @@ The callback function is invalid.
 传入正确类型的回调函数。
 
 
-## 100101 小于0的非法值
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 100101 小于0的非法值
 
 **错误信息**
 
@@ -68,8 +69,8 @@ The parameter value cannot be less than 0.
 传入正常范围的参数。
 
 
-## 100102 参数类型错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 100102 参数类型错误
 
 **错误信息**
 
@@ -88,8 +89,8 @@ The parameter value cannot be a floating-point number.
 传入整数。
 
 
-## 100103 调用线程错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 100103 调用线程错误
 
 **错误信息**
 
@@ -108,8 +109,8 @@ The function cannot be called from a non-main thread.
 在主线程中调用该函数。
 
 
-## 120007 实例不存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 120007 实例不存在
 
 **错误信息**
 

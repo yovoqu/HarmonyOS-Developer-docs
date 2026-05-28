@@ -1,23 +1,43 @@
 # 密钥协商(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-agreement-ndk
 
 以X25519、DH和ECDH协商密钥类型为例，在密钥由HUKS管理的情况下，完成密钥协商。具体的场景介绍及支持的算法规格，请参考[密钥协商支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-agreement-overview#支持的算法)。
+  
 
-
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
+ 
+  
 
+##### 开发步骤
 
-## 开发步骤
+**生成密钥**
+ 
+设备A、设备B各自生成一个非对称密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)或[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)。
+ 
+密钥生成时，可指定参数，OH_HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG（可选），用于标识此步骤生成的密钥是否由HUKS管理。
+ 
+**导出密钥**
+ 
+设备A、B导出非对称密钥对的公钥材料，具体请参考[密钥导出](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-export-key-arkts)。
+ 
+**密钥协商**
+ 
+设备A、B分别基于本端私钥和对端设备的公钥，协商出共享密钥。
+ 
+密钥协商时，可指定参数OH_HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG（可选），用于标识协商得到的密钥是否由HUKS管理。
+ 
+- 当TAG设置为OH_HUKS_STORAGE_ONLY_USED_IN_HUKS时，表示基于该密钥协商出的密钥，由HUKS管理，可保证协商密钥全生命周期不出安全环境。
+- 当TAG设置为OH_HUKS_STORAGE_KEY_EXPORT_ALLOWED时，表示基于该密钥协商出的密钥，返回给调用方管理，由业务自行保证密钥安全。
+- 若业务未设置TAG的具体值，表示基于该密钥协商出的密钥，既可由HUKS管理，也可返回给调用方管理，业务可在后续协商时再选择使用何种方式保护密钥。
 
-**生成密钥** 设备A、设备B各自生成一个非对称密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)或[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)。 密钥生成时，可指定参数，OH_HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG（可选），用于标识此步骤生成的密钥是否由HUKS管理。 **导出密钥** 设备A、B导出非对称密钥对的公钥材料，具体请参考[密钥导出](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-export-key-arkts)。 **密钥协商** 设备A、B分别基于本端私钥和对端设备的公钥，协商出共享密钥。 密钥协商时，可指定参数OH_HUKS_TAG_DERIVED_AGREED_KEY_STORAGE_FLAG（可选），用于标识协商得到的密钥是否由HUKS管理。 当TAG设置为OH_HUKS_STORAGE_ONLY_USED_IN_HUKS时，表示基于该密钥协商出的密钥，由HUKS管理，可保证协商密钥全生命周期不出安全环境。  当TAG设置为OH_HUKS_STORAGE_KEY_EXPORT_ALLOWED时，表示基于该密钥协商出的密钥，返回给调用方管理，由业务自行保证密钥安全。  若业务未设置TAG的具体值，表示基于该密钥协商出的密钥，既可由HUKS管理，也可返回给调用方管理，业务可在后续协商时再选择使用何种方式保护密钥。
+  
 | 生成 | 协商 | 规格 |
 | --- | --- | --- |
 | OH_HUKS_STORAGE_ONLY_USED_IN_HUKS | OH_HUKS_STORAGE_ONLY_USED_IN_HUKS | 密钥由HUKS管理 |
@@ -25,21 +45,31 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 | 未指定TAG具体值 | OH_HUKS_STORAGE_ONLY_USED_IN_HUKS | 密钥由HUKS管理 |
 | 未指定TAG具体值 | OH_HUKS_STORAGE_KEY_EXPORT_ALLOWED | 密钥返回给调用方管理 |
 | 未指定TAG具体值 | 未指定TAG具体值 | 密钥返回给调用方管理 |
+ 
+ 
+注：协商时指定的TAG值，不可与生成时指定的TAG值冲突。表格中仅列举有效的指定方式。
+ 
+**删除密钥**
+ 
+当密钥废弃不用时，设备A、B均需要删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-ndk)。
+ 
+  
 
-注：协商时指定的TAG值，不可与生成时指定的TAG值冲突。表格中仅列举有效的指定方式。 **删除密钥** 当密钥废弃不用时，设备A、B均需要删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-ndk)。
-
-## 开发案例
+##### 开发案例
 
 下面分别以X25519、DH和ECDH密钥为例，进行协商。
+ 
+  
 
-## X25519非对称密钥协商用例
+##### X25519非对称密钥协商用例
 
 准备X25519密钥协商材料：
-```text
+ 
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "file.h"
 
 /* 初始化参数 */
@@ -106,9 +136,10 @@ static struct OH_Huks_Blob g_keyAlias01001 = {(uint32_t)strlen("HksX25519AgreeKe
 static struct OH_Huks_Blob g_keyAlias02001 = {(uint32_t)strlen("HksX25519AgreeKeyAliasTest001_2"),
                                               (uint8_t *)"HksX25519AgreeKeyAliasTest001_2"};
 ```
-
- 执行密钥协商：
-```text
+ 
+执行密钥协商：
+ 
+```cpp
 /* 导出密钥 */
 OH_Huks_Result HksX25519AgreeExport(const struct OH_Huks_Blob *keyAlias1, const struct OH_Huks_Blob *keyAlias2,
     struct OH_Huks_Blob *publicKey1, struct OH_Huks_Blob *publicKey2,
@@ -157,7 +188,7 @@ static OH_Huks_Result InitializeAgreeParamSets(struct OH_Huks_ParamSet **genPara
     struct OH_Huks_ParamSet **finishParamSet02)
 {
     OH_Huks_Result ohResult;
-
+    
     ohResult = InitParamSet(genParamSet, g_genAgreeParams,
                             sizeof(g_genAgreeParams) / sizeof(OH_Huks_Param));
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
@@ -186,13 +217,13 @@ static OH_Huks_Result InitializeAgreeParamSets(struct OH_Huks_ParamSet **genPara
 static OH_Huks_Result GenerateKeyPair(struct OH_Huks_ParamSet *genParamSet)
 {
     OH_Huks_Result ohResult;
-
+    
     /* 设备A生成密钥 */
     ohResult = OH_Huks_GenerateKeyItem(&g_keyAlias01001, genParamSet, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     /* 设备B生成密钥 */
     ohResult = OH_Huks_GenerateKeyItem(&g_keyAlias02001, genParamSet, nullptr);
     return ohResult;
@@ -205,7 +236,7 @@ static OH_Huks_Result KeyAgreement(struct OH_Huks_Blob *g_keyAlias,
     struct OH_Huks_ParamSet *finishParamSet)
 {
     OH_Huks_Result ohResult;
-
+    
     ohResult = MallocAndCheckBlobData(outData, outData->size);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -286,16 +317,18 @@ napi_value X25519AgreeKey(napi_env env, napi_callback_info info)
     return ret;
 }
 ```
+ 
+  
 
-
-## DH密钥协商用例
+##### DH密钥协商用例
 
 准备DH密钥协商材料：
-```text
+ 
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "file.h"
 
 /* 初始化参数 */
@@ -377,9 +410,10 @@ static struct OH_Huks_Blob g_keyAlias01001 = {(uint32_t)strlen("HksDHAgreeKeyAli
 static struct OH_Huks_Blob g_keyAlias02001 = {(uint32_t)strlen("HksDHAgreeKeyAliasTest001_2"),
                                               (uint8_t *)"HksDHAgreeKeyAliasTest001_2"};
 ```
-
- 执行密钥协商：
-```text
+ 
+执行密钥协商：
+ 
+```cpp
 static OH_Huks_Result MallocAndCheckBlobData(struct OH_Huks_Blob *blob, const uint32_t blobSize)
 {
     struct OH_Huks_Result ret;
@@ -442,7 +476,7 @@ static OH_Huks_Result InitializeAgreeParamSets(struct OH_Huks_ParamSet **genPara
     struct OH_Huks_ParamSet **finishParamSet02)
 {
     OH_Huks_Result ohResult;
-
+    
     ohResult = InitParamSet(genParamSet, g_genAgreeParams,
                             sizeof(g_genAgreeParams) / sizeof(OH_Huks_Param));
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
@@ -471,13 +505,13 @@ static OH_Huks_Result InitializeAgreeParamSets(struct OH_Huks_ParamSet **genPara
 static OH_Huks_Result GenerateKeyPair(struct OH_Huks_ParamSet *genParamSet)
 {
     OH_Huks_Result ohResult;
-
+    
     /* 设备A生成密钥 */
     ohResult = OH_Huks_GenerateKeyItem(&g_keyAlias01001, genParamSet, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     /* 设备B生成密钥 */
     ohResult = OH_Huks_GenerateKeyItem(&g_keyAlias02001, genParamSet, nullptr);
     return ohResult;
@@ -490,7 +524,7 @@ static OH_Huks_Result KeyAgreement(struct OH_Huks_Blob *g_keyAlias,
     struct OH_Huks_ParamSet *finishParamSet)
 {
     OH_Huks_Result ohResult;
-
+    
     ohResult = MallocAndCheckBlobData(outData, outData->size);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -572,16 +606,18 @@ napi_value DhAgreeKey(napi_env env, napi_callback_info info)
     return ret;
 }
 ```
+ 
+  
 
-
-## ECDH密钥协商用例
+##### ECDH密钥协商用例
 
 准备ECDH密钥协商材料：
-```text
+ 
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "file.h"
 
 /* 初始化参数 */
@@ -646,9 +682,10 @@ static struct OH_Huks_Blob g_keyAlias01001 = {(uint32_t)strlen("HksECDHAgreeKeyA
 static struct OH_Huks_Blob g_keyAlias02001 = {(uint32_t)strlen("HksECDHAgreeKeyAliasTest001_2"),
                                               (uint8_t *)"HksECDHAgreeKeyAliasTest001_2"};
 ```
-
- ECDH密钥协商的功能函数实现，包括内存分配、参数初始化、密钥生成、和资源清理等：
-```text
+ 
+ECDH密钥协商的功能函数实现，包括内存分配、参数初始化、密钥生成、和资源清理等：
+ 
+```cpp
 static OH_Huks_Result MallocAndCheckBlobData(struct OH_Huks_Blob *blob, const uint32_t blobSize)
 {
     struct OH_Huks_Result ret;
@@ -715,7 +752,7 @@ static OH_Huks_Result InitializeAgreeParamSets(struct OH_Huks_ParamSet **genPara
     struct OH_Huks_ParamSet **finishParamSet02)
 {
     OH_Huks_Result ohResult;
-
+    
     ohResult = InitParamSet(genParamSet, g_genAgreeParams,
                             sizeof(g_genAgreeParams) / sizeof(OH_Huks_Param));
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
@@ -744,13 +781,13 @@ static OH_Huks_Result InitializeAgreeParamSets(struct OH_Huks_ParamSet **genPara
 static OH_Huks_Result GenerateKeyPair(struct OH_Huks_ParamSet *genParamSet)
 {
     OH_Huks_Result ohResult;
-
+    
     /* 设备A生成密钥 */
     ohResult = OH_Huks_GenerateKeyItem(&g_keyAlias01001, genParamSet, nullptr);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
     }
-
+    
     /* 设备B生成密钥 */
     ohResult = OH_Huks_GenerateKeyItem(&g_keyAlias02001, genParamSet, nullptr);
     return ohResult;
@@ -763,7 +800,7 @@ static OH_Huks_Result KeyAgreement(struct OH_Huks_Blob *g_keyAlias,
     struct OH_Huks_ParamSet *finishParamSet)
 {
     OH_Huks_Result ohResult;
-
+    
     ohResult = MallocAndCheckBlobData(outData, outData->size);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {
         return ohResult;
@@ -785,9 +822,10 @@ static void CleanKey(struct OH_Huks_Blob *genKeyAlias,
     OH_Huks_FreeParamSet(finishParamSet);
 }
 ```
-
- ECDH密钥协商的完整流程实现：
-```text
+ 
+ECDH密钥协商的完整流程实现：
+ 
+```cpp
 /* 协商密钥整体流程 */
 napi_value EcdhAgreeKey(napi_env env, napi_callback_info info)
 {

@@ -1,23 +1,26 @@
 # 预览流二次处理(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview-imagereceiver
 
 通过ImageReceiver创建预览输出，获取预览流实时数据，以供后续进行图像二次处理，比如应用可以对其添加滤镜算法等。
 
 
-## 开发步骤
+##### 开发步骤
 
-详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。 导入NDK接口，接口中提供了相机相关的属性和方法，导入方法如下。
-```text
-#include
-#include
+详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
+1. 导入NDK接口，接口中提供了相机相关的属性和方法，导入方法如下。
+
+  
+```cpp
+#include <cstdint>
+#include <cstdlib>
 #include "hilog/log.h"
-#include
-#include
-#include
-#include
+#include <memory>
+#include <new>
+#include <multimedia/image_framework/image/image_native.h>
+#include <multimedia/image_framework/image/image_receiver_native.h>
 #include "ohcamera/camera.h"
 #include "ohcamera/camera_input.h"
 #include "ohcamera/camera_device.h"
@@ -27,13 +30,15 @@
 #include "ohcamera/video_output.h"
 #include "ohcamera/camera_manager.h"
 
-#include
-#include
-#include
-#include
+#include <multimedia/media_library/media_asset_manager_capi.h>
+#include <multimedia/media_library/media_asset_change_request_capi.h>
+#include <multimedia/media_library/media_access_helper_capi.h>
+#include <multimedia/image_framework/image/image_packer_native.h>
 ```
 
-在CMake脚本中链接相关动态库。
+2. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC
     libace_napi.z.so
@@ -46,8 +51,12 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
-初始化图片接收器[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-receiver-c)实例，获取SurfaceId。 通过image的OH_ImageReceiverNative_Create方法创建OH_ImageReceiverNative实例，再通过实例的OH_ImageReceiverNative_GetReceivingSurfaceId方法获取SurfaceId。
-```text
+3. 初始化图片接收器[ImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-receiver-c)实例，获取SurfaceId。
+
+  通过image的OH_ImageReceiverNative_Create方法创建OH_ImageReceiverNative实例，再通过实例的OH_ImageReceiverNative_GetReceivingSurfaceId方法获取SurfaceId。
+
+  
+```cpp
 void InitImageReceiver(uint64_t &receiverSurfaceID)
 {
     OH_ImageReceiverOptions *options = nullptr;
@@ -95,8 +104,12 @@ void InitImageReceiver(uint64_t &receiverSurfaceID)
 }
 ```
 
-通过上一步获取到的SurfaceId创建预览流（在创建预览流之前需要将SurfaceId类型转成char *），参考[预览(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview)步骤4。 创建会话，使能会话，参考[会话管理(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-session-management)。 注册ImageReceiver图片接收器的回调，监听获取每帧上报图像内容。
-```text
+4. 通过上一步获取到的SurfaceId创建预览流（在创建预览流之前需要将SurfaceId类型转成char *），参考[预览(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview)步骤4。
+5. 创建会话，使能会话，参考[会话管理(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-session-management)。
+6. 注册ImageReceiver图片接收器的回调，监听获取每帧上报图像内容。
+
+  
+```cpp
 void copyBuffer(OH_NativeBuffer *srcBuffer, size_t srcSize, OHNativeWindowBuffer *dstBuffer)
 {
     OH_LOG_INFO(LOG_APP, "ImageReceiverNativeCTest %{public}s IN", __func__);
@@ -111,7 +124,7 @@ void copyBuffer(OH_NativeBuffer *srcBuffer, size_t srcSize, OHNativeWindowBuffer
 
     void *mappedAddr =
         mmap(bufferHandle->virAddr, bufferHandle->size, PROT_READ | PROT_WRITE, MAP_SHARED, bufferHandle->fd, 0);
-    std::memcpy(static_cast(mappedAddr), static_cast(srcVir), srcSize);
+    std::memcpy(static_cast<unsigned char *>(mappedAddr), static_cast<unsigned char *>(srcVir), srcSize);
     munmap(mappedAddr, bufferHandle->size);
 
     OH_NativeBuffer_Unmap(srcBuffer);

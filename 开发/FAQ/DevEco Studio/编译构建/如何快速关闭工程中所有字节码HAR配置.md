@@ -4,21 +4,16 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-169
 
-解决措施
-
-方案一：适用于HAR文件较少的场景，直接修改字段byteCodeHar为false，详细字段可在以下链接中查询：模块级build-profile.json5
-
+**解决措施**
+ 
+方案一：适用于HAR文件较少的场景，直接修改字段byteCodeHar为false，详细字段可在以下链接中查询：[模块级build-profile.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile)
+ 
 方案二：适用于HAR文件数量较多的场景。单独为每个HAR包配置较为繁琐，可以通过自定义插件直接修改所有HAR包的byteCodeHar字段值。该方法在编译时生效，但不会修改build-profile.json5文件中的字段值。
-
+ 
 ```ts
 // Engineering-level hvigorfile.ts file
 import { hvigor, HvigorNode, HvigorPlugin } from '@ohos/hvigor';
-import {
-  appTasks,
-  OhosHarContext,
-  OhosPluginId,
-  Target,
-} from '@ohos/hvigor-ohos-plugin';
+import { appTasks, OhosHarContext, OhosPluginId, Target } from '@ohos/hvigor-ohos-plugin';
 // Implement custom plugins
 export function customPlugin(): HvigorPlugin {
   return {
@@ -28,12 +23,12 @@ export function customPlugin(): HvigorPlugin {
         // Register module-level tasks
         harTask(currentNode);
       });
-    },
+    }
   };
 }
 function harTask(currentNode: HvigorNode) {
   currentNode.subNodes((node: HvigorNode) => {
-    const context = node.getContext(OhosPluginId.OHOS_HAR_PLUGIN);
+    const context = node.getContext(OhosPluginId.OHOS_HAR_PLUGIN)
     context?.targets((target: Target) => {
       const targetName = target.getTargetName();
       node.registerTask({
@@ -43,27 +38,23 @@ function harTask(currentNode: HvigorNode) {
         run() {
           if (context.getBuildProfileOpt) {
             const buildProfile = context.getBuildProfileOpt();
-            console.log(buildProfile);
+            console.log(buildProfile)
             // Set the bytecode har config to false
-            buildProfile['buildOption'] = {
-              arkOptions: { byteCodeHar: false },
-            };
-            console.log(buildProfile);
+            buildProfile["buildOption"] = { arkOptions: { byteCodeHar: false } };
+            console.log(buildProfile)
             context.setBuildProfileOpt(buildProfile);
           }
         },
         // Configure the dependency of the pre-task
         dependencies: [`${targetName}@PackageHar`],
         // Post-task dependency for configuring tasks
-        postDependencies: ['assembleHar'],
+        postDependencies: ['assembleHar']
       });
     });
   });
 }
 export default {
-  system: appTasks /* Built-in plugin of Hvigor. It cannot be modified. */,
-  plugins: [
-    customPlugin(),
-  ] /* Custom plugin to extend the functionality of Hvigor. */,
-};
+  system: appTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+  plugins:[customPlugin()]  /* Custom plugin to extend the functionality of Hvigor. */
+}
 ```

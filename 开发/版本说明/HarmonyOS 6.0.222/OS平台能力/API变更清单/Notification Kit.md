@@ -19,14 +19,14 @@
 | 新增API | NA | 类名：NotificationSubscriberExtensionAbility； API声明：context: NotificationSubscriberExtensionContext; 差异内容：context: NotificationSubscriberExtensionContext; | api/@ohos.application.NotificationSubscriberExtensionAbility.d.ts |
 | 新增API | NA | 类名：NotificationSubscriberExtensionAbility； API声明：onDestroy(): void; 差异内容：onDestroy(): void; | api/@ohos.application.NotificationSubscriberExtensionAbility.d.ts |
 | 新增API | NA | 类名：NotificationSubscriberExtensionAbility； API声明：onReceiveMessage(notificationInfo: NotificationInfo): void; 差异内容：onReceiveMessage(notificationInfo: NotificationInfo): void; | api/@ohos.application.NotificationSubscriberExtensionAbility.d.ts |
-| 新增API | NA | 类名：NotificationSubscriberExtensionAbility； API声明：onCancelMessages(hashCodes: Array<string>): void; 差异内容：onCancelMessages(hashCodes: Array<string>): void; | api/@ohos.application.NotificationSubscriberExtensionAbility.d.ts |
+| 新增API | NA | 类名：NotificationSubscriberExtensionAbility； API声明：onCancelMessages(hashCodes: Array&lt;string&gt;): void; 差异内容：onCancelMessages(hashCodes: Array&lt;string&gt;): void; | api/@ohos.application.NotificationSubscriberExtensionAbility.d.ts |
 | 新增API | NA | 类名：global； API声明：export default class NotificationSubscriberExtensionContext 差异内容：export default class NotificationSubscriberExtensionContext | api/@ohos.application.NotificationSubscriberExtensionContext.d.ts |
 | 新增API | NA | 类名：global； API声明：declare namespace notificationExtensionSubscription 差异内容：declare namespace notificationExtensionSubscription | api/@ohos.notificationExtensionSubscription.d.ts |
-| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function openSubscriptionSettings(context: UIAbilityContext): Promise<void>; 差异内容：function openSubscriptionSettings(context: UIAbilityContext): Promise<void>; | api/@ohos.notificationExtensionSubscription.d.ts |
-| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>; 差异内容：function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>; | api/@ohos.notificationExtensionSubscription.d.ts |
-| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function unsubscribe(): Promise<void>; 差异内容：function unsubscribe(): Promise<void>; | api/@ohos.notificationExtensionSubscription.d.ts |
+| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function openSubscriptionSettings(context: UIAbilityContext): Promise&lt;void&gt;; 差异内容：function openSubscriptionSettings(context: UIAbilityContext): Promise&lt;void&gt;; | api/@ohos.notificationExtensionSubscription.d.ts |
+| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise&lt;void&gt;; 差异内容：function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise&lt;void&gt;; | api/@ohos.notificationExtensionSubscription.d.ts |
+| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function unsubscribe(): Promise&lt;void&gt;; 差异内容：function unsubscribe(): Promise&lt;void&gt;; | api/@ohos.notificationExtensionSubscription.d.ts |
 | 新增API | NA | 类名：notificationExtensionSubscription； API声明：function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>; 差异内容：function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>; | api/@ohos.notificationExtensionSubscription.d.ts |
-| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function isUserGranted(): Promise<boolean>; 差异内容：function isUserGranted(): Promise<boolean>; | api/@ohos.notificationExtensionSubscription.d.ts |
+| 新增API | NA | 类名：notificationExtensionSubscription； API声明：function isUserGranted(): Promise&lt;boolean&gt;; 差异内容：function isUserGranted(): Promise&lt;boolean&gt;; | api/@ohos.notificationExtensionSubscription.d.ts |
 | 新增API | NA | 类名：notificationExtensionSubscription； API声明：function getUserGrantedEnabledBundles(): Promise<GrantedBundleInfo[]>; 差异内容：function getUserGrantedEnabledBundles(): Promise<GrantedBundleInfo[]>; | api/@ohos.notificationExtensionSubscription.d.ts |
 | 新增API | NA | 类名：notificationExtensionSubscription； API声明：export enum SubscribeType 差异内容：export enum SubscribeType | api/@ohos.notificationExtensionSubscription.d.ts |
 | 新增API | NA | 类名：SubscribeType； API声明：BLUETOOTH = 0 差异内容：BLUETOOTH = 0 | api/@ohos.notificationExtensionSubscription.d.ts |
@@ -53,7 +53,7 @@
 | 新增API | NA | 类名：GrantedBundleInfo； API声明：bundleName: string; 差异内容：bundleName: string; | api/notification/NotificationCommonDef.d.ts |
 | 新增API | NA | 类名：GrantedBundleInfo； API声明：readonly appIndex: number; 差异内容：readonly appIndex: number; | api/notification/NotificationCommonDef.d.ts |
 | 新增API | NA | 类名：GrantedBundleInfo； API声明：readonly appName?: string; 差异内容：readonly appName?: string; | api/notification/NotificationCommonDef.d.ts |
-| 新增API | NA | 类名：notificationManager； API声明：function getBadgeNumber(): Promise<number>; 差异内容：function getBadgeNumber(): Promise<number>; | api/@ohos.notificationManager.d.ts |
+| 新增API | NA | 类名：notificationManager； API声明：function getBadgeNumber(): Promise&lt;number&gt;; 差异内容：function getBadgeNumber(): Promise&lt;number&gt;; | api/@ohos.notificationManager.d.ts |
 | 删除API | 类名：global； API声明：export interface NotificationIconButton 差异内容：export interface NotificationIconButton | NA | api/notification/notificationContent.d.ts |
 | 删除API | 类名：notificationManager； API声明：export interface RingtoneInfo 差异内容：export interface RingtoneInfo | NA | api/@ohos.notificationManager.d.ts |
 | 删除API | 类名：RingtoneInfo； API声明：ringtoneType: RingtoneType; 差异内容：ringtoneType: RingtoneType; | NA | api/@ohos.notificationManager.d.ts |

@@ -3,7 +3,7 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-object-detection-api
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 多目标识别服务提供了从图像中识别多个目标的能力。通过拍照、录像等光学输入方式，把各种场景下的图像转化为数字图像信息，再利用AI底层能力对图像进行分析，从中定位并识别出多个感兴趣的目标对象，如人脸、动物、植物等，便于用户提取目标的类别、边框位置、置信度等信息。
 
@@ -12,17 +12,15 @@
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 ```
 
 
-## VisionObject
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### VisionObject
 
 视觉信息对象。
 
@@ -30,17 +28,17 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| boundingBox | visionBase.[BoundingBox](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#boundingbox) | 否 | 否 | visionObject的边界框。 |
+| boundingBox | visionBase.BoundingBox | 否 | 否 | visionObject的边界框。 |
 | score | number | 否 | 否 | visionObject的置信度。范围为(0,1)。0表示置信度最低，1表示置信度最高。置信度越高，说明这个点的位置越可靠。 |
-| labels | Array&lt;number&gt; | 否 | 否 | 识别物体的类型标签。          0：风景。          1：动物。          2：植物。          3：建筑。          5：人脸。          6：表格。          7：文本。          8：人头。          9：猫头。          10：狗头。          11：食物。          12：汽车。          13：人体。          21：文档。          22：卡证。 |
+| labels | Array&lt;number&gt; | 否 | 否 | 识别物体的类型标签。 0：风景。 1：动物。 2：植物。 3：建筑。 5：人脸。 6：表格。 7：文本。 8：人头。 9：猫头。 10：狗头。 11：食物。 12：汽车。 13：人体。 21：文档。 22：卡证。 |
 | id | number | 否 | 否 | visionObject的唯一标识符。ID为从0开始递增的整数编号。 |
 
 
-## ObjectDetectionResponse
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### ObjectDetectionResponse
 
 多目标检测的结果类。继承自visionBase基类的[Response](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#response)。
 
@@ -48,27 +46,26 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| objects | Array&lt;[VisionObject](#visionobject)&gt; | 否 | 否 | 多目标检测结果。可以是单个对象或多个对象的数组。 |
+| objects | Array&lt;VisionObject&gt; | 否 | 否 | 多目标检测结果。可以是单个对象或多个对象的数组。 |
 
 
-## ObjectDetector
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### ObjectDetector
 
 定义多目标识别的接口和基本结构。继承自[visionBase.Analyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#analyzer)类。它有以下功能函数：
 
+ - private constructor()：这是一个私有构造函数，意味着不能直接通过new关键字实例化ObjectDetector，必须通过 create() 静态方法来创建实例。
+ - static create(): Promise&lt;ObjectDetector&gt;：这是一个静态方法，用于创建 ObjectDetector 的实例。使用Promise异步回调。
+ - process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;：这是一个实例方法，用于处理多目标识别请求。使用Promise异步回调。
+ - destroy(): Promise&lt;void&gt;：这是一个实例方法，用于销毁多目标识别的进程。使用Promise异步回调。
 
-- private constructor()：这是一个私有构造函数，意味着不能直接通过new关键字实例化ObjectDetector，必须通过 create() 静态方法来创建实例。
-- static create(): Promise<ObjectDetector>：这是一个静态方法，用于创建 ObjectDetector 的实例。使用Promise异步回调。
-- process(request: visionBase.Request): Promise<ObjectDetectionResponse>：这是一个实例方法，用于处理多目标识别请求。使用Promise异步回调。
-- destroy(): Promise<void>：这是一个实例方法，用于销毁多目标识别的进程。使用Promise异步回调。
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
 
 **起始版本：** 5.0.0(12)
-
 
 | 名称 | 说明 |
 | --- | --- |
@@ -78,10 +75,11 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 | destroy | 多目标识别进程的销毁接口。 |
 
 
-### create
-**支持设备：** Phone / PC/2in1 / Tablet
 
-static create(): Promise<ObjectDetector>
+
+##### create
+
+static create(): Promise&lt;ObjectDetector&gt;
 
 多目标识别的初始化接口。使用Promise异步回调。
 
@@ -91,16 +89,14 @@ static create(): Promise<ObjectDetector>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ObjectDetector](#objectdetector)&gt; | Promise对象，返回ObjectDetector实例。 |
+| Promise&lt;ObjectDetector&gt; | Promise对象，返回ObjectDetector实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -110,8 +106,7 @@ static create(): Promise<ObjectDetector>
 
 **示例：**
 
-
-```ts
+```text
 import { objectDetection } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -150,10 +145,10 @@ struct Page {
 ```
 
 
-### destroy
-**支持设备：** Phone / PC/2in1 / Tablet
 
-destroy(): Promise<void>
+##### destroy
+
+destroy(): Promise&lt;void&gt;
 
 销毁多目标识别的进程。使用Promise异步回调。
 
@@ -163,7 +158,6 @@ destroy(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -171,8 +165,7 @@ destroy(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { objectDetection } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -211,10 +204,10 @@ struct Page {
 ```
 
 
-### process
-**支持设备：** Phone / PC/2in1 / Tablet
 
-process(request: visionBase.Request): Promise<ObjectDetectionResponse>
+##### process
+
+process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;
 
 创建多目标识别实例并执行多目标识别。使用Promise异步回调。
 
@@ -224,24 +217,21 @@ process(request: visionBase.Request): Promise<ObjectDetectionResponse>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | visionBase.[Request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#request) | 是 | 图片实例。多目标识别接口仅支持传入一张图片，不支持传入多张图片。          具体规格请参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-introduction#约束与限制)。 |
+| request | visionBase.Request | 是 | 图片实例。多目标识别接口仅支持传入一张图片，不支持传入多张图片。 具体规格请参考约束与限制。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ObjectDetectionResponse](#objectdetectionresponse)&gt; | Promise对象，返回多目标识别的结果。 |
+| Promise&lt;ObjectDetectionResponse&gt; | Promise对象，返回多目标识别的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -253,8 +243,7 @@ process(request: visionBase.Request): Promise<ObjectDetectionResponse>
 
 **示例：**
 
-
-```ts
+```json
 import { objectDetection, visionBase } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

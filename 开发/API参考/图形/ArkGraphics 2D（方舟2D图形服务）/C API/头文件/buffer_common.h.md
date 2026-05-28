@@ -3,79 +3,75 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供NativeBuffer模块的公共类型定义。
-
+ 
 **引用文件：** <native_buffer/buffer_common.h>
-
+ 
 **库：** libnative_buffer.so
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeBuffer
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_NativeBuffer_ColorXY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer-oh-nativebuffer-colorxy) | OH_NativeBuffer_ColorXY | 表示基色的X和Y坐标。 |
-| [OH_NativeBuffer_Smpte2086](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer-oh-nativebuffer-smpte2086) | OH_NativeBuffer_Smpte2086 | 表示smpte2086静态元数据。 |
-| [OH_NativeBuffer_Cta861](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer-oh-nativebuffer-cta861) | OH_NativeBuffer_Cta861 | 表示CTA-861.3静态元数据。 |
-| [OH_NativeBuffer_StaticMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-oh-nativebuffer-oh-nativebuffer-staticmetadata) | OH_NativeBuffer_StaticMetadata | 表示HDR静态元数据。 |
+| OH_NativeBuffer_ColorXY | OH_NativeBuffer_ColorXY | 表示基色的X和Y坐标。 |
+| OH_NativeBuffer_Smpte2086 | OH_NativeBuffer_Smpte2086 | 表示smpte2086静态元数据。 |
+| OH_NativeBuffer_Cta861 | OH_NativeBuffer_Cta861 | 表示CTA-861.3静态元数据。 |
+| OH_NativeBuffer_StaticMetadata | OH_NativeBuffer_StaticMetadata | 表示HDR静态元数据。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_NativeBuffer_ColorSpace](#oh_nativebuffer_colorspace) | OH_NativeBuffer_ColorSpace | OH_NativeBuffer的颜色空间。 |
-| [OH_NativeBuffer_MetadataType](#oh_nativebuffer_metadatatype) | OH_NativeBuffer_MetadataType | OH_NativeBuffer的图像标准。 |
-| [OH_NativeBuffer_MetadataKey](#oh_nativebuffer_metadatakey) | OH_NativeBuffer_MetadataKey | 表示OH_NativeBuffer的描述信息的键值，如HDR元数据，ROI元数据等。 |
-| [OH_NativeBuffer_Format](#oh_nativebuffer_format) | OH_NativeBuffer_Format | OH_NativeBuffer格式的枚举。 |
-| [OH_NativeBuffer_TransformType](#oh_nativebuffer_transformtype) | OH_NativeBuffer_TransformType | OH_NativeBuffer转换类型的枚举。 |
+| OH_NativeBuffer_ColorSpace | OH_NativeBuffer_ColorSpace | OH_NativeBuffer的颜色空间。 |
+| OH_NativeBuffer_MetadataType | OH_NativeBuffer_MetadataType | OH_NativeBuffer的图像标准。 |
+| OH_NativeBuffer_MetadataKey | OH_NativeBuffer_MetadataKey | 表示OH_NativeBuffer的描述信息的键值，如HDR元数据，ROI元数据等。 |
+| OH_NativeBuffer_Format | OH_NativeBuffer_Format | OH_NativeBuffer格式的枚举。 |
+| OH_NativeBuffer_TransformType | OH_NativeBuffer_TransformType | OH_NativeBuffer转换类型的枚举。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_NativeBuffer_ColorSpace
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeBuffer_ColorSpace
 
 ```text
 enum OH_NativeBuffer_ColorSpace
 ```
-
+ 
 **描述**
-
+ 
 OH_NativeBuffer的颜色空间。
-
+ 
 从API version 12开始，此枚举由native_buffer.h移动至此头文件。
-
+ 
 API version 12之前，使用该枚举请引用native_buffer.h头文件；从API version 12开始，引用native_buffer.h或buffer_common.h均可正常使用该枚举。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeBuffer
-
+ 
 **起始版本：** 11
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_COLORSPACE_NONE | 无颜色空间。 |
@@ -110,25 +106,24 @@ API version 12之前，使用该枚举请引用native_buffer.h头文件；从API
 | OH_COLORSPACE_DISPLAY_BT2020_SRGB | 色域范围为BT2020，传递函数为SRGB，转换矩阵为BT2020，数据范围为RANGE_FULL。 |
 | OH_COLORSPACE_DISPLAY_BT2020_HLG | 等同于 OH_COLORSPACE_BT2020_HLG_FULL。 |
 | OH_COLORSPACE_DISPLAY_BT2020_PQ | 等同于OH_COLORSPACE_BT2020_PQ_FULL。 |
+ 
+ 
+  
 
-
-### OH_NativeBuffer_MetadataType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeBuffer_MetadataType
 
 ```text
 enum OH_NativeBuffer_MetadataType
 ```
-
+ 
 **描述**
-
+ 
 OH_NativeBuffer的图像标准。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeBuffer
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_VIDEO_HDR_HLG | 视频HLG。 |
@@ -139,54 +134,52 @@ OH_NativeBuffer的图像标准。
 | OH_IMAGE_HDR_ISO_DUAL | 图片HDR ISO DUAL。 起始版本： 23 |
 | OH_IMAGE_HDR_ISO_SINGLE | 图片HDR ISO SINGLE。 起始版本： 23 |
 | OH_VIDEO_NONE = -1 | 无元数据。 起始版本： 13 |
+ 
+ 
+  
 
-
-### OH_NativeBuffer_MetadataKey
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeBuffer_MetadataKey
 
 ```text
 enum OH_NativeBuffer_MetadataKey
 ```
-
+ 
 **描述**
-
+ 
 表示OH_NativeBuffer的描述信息的键值，如HDR元数据，ROI元数据等。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeBuffer
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
-| OH_HDR_METADATA_TYPE | 元数据类型，其值见[OH_NativeBuffer_MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h#oh_nativebuffer_metadatatype)，size为OH_NativeBuffer_MetadataType大小。 |
-| OH_HDR_STATIC_METADATA | 静态元数据，其值见[OH_NativeBuffer_StaticMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-oh-nativebuffer-oh-nativebuffer-staticmetadata)，size为OH_NativeBuffer_StaticMetadata大小。 |
+| OH_HDR_METADATA_TYPE | 元数据类型，其值见OH_NativeBuffer_MetadataType，size为OH_NativeBuffer_MetadataType大小。 |
+| OH_HDR_STATIC_METADATA | 静态元数据，其值见OH_NativeBuffer_StaticMetadata，size为OH_NativeBuffer_StaticMetadata大小。 |
 | OH_HDR_DYNAMIC_METADATA | 动态元数据，其值见视频流中SEI的字节流，size的取值范围为1-3000。 |
-| OH_REGION_OF_INTEREST_METADATA | 视频编解码感兴趣区域（ROI）元数据，配置格式示例：“Top1,Left1-Bottom1,Right1=QpOffset1;Top2,Left2-Bottom2,Right2=QpOffset2;”。 每个ROI框由位置信息（Top,Left-Bottom,Right），编码质量偏移信息（QpOffset）组成，到分号结束。 ROI框的编码质量偏移信息可以缺省，缺省值为-3，缺省时配置示例：“Top1,Left1-Bottom1,Right1;Top2,Left2-Bottom2,Right2;”。 每组ROI元数据最多支持同时配置6个ROI，且其累计面积不超过全图的1/5。 该枚举值仅支持通过[OH_NativeBuffer_SetMetadataValue()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-buffer-h#oh_nativebuffer_setmetadatavalue)接口调用。 起始版本： 22 |
+| OH_REGION_OF_INTEREST_METADATA | 视频编解码感兴趣区域（ROI）元数据，配置格式示例：“Top1,Left1-Bottom1,Right1=QpOffset1;Top2,Left2-Bottom2,Right2=QpOffset2;”。 每个ROI框由位置信息（Top,Left-Bottom,Right），编码质量偏移信息（QpOffset）组成，到分号结束。 ROI框的编码质量偏移信息可以缺省，缺省值为-3，缺省时配置示例：“Top1,Left1-Bottom1,Right1;Top2,Left2-Bottom2,Right2;”。 每组ROI元数据最多支持同时配置6个ROI，且其累计面积不超过全图的1/5。 该枚举值仅支持通过OH_NativeBuffer_SetMetadataValue()接口调用。 起始版本： 22 |
+ 
+ 
+  
 
-
-### OH_NativeBuffer_Format
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeBuffer_Format
 
 ```text
 enum OH_NativeBuffer_Format
 ```
-
+ 
 **描述**
-
+ 
 OH_NativeBuffer格式的枚举。
-
+ 
 从API version 22开始，此枚举由native_buffer.h移动至此头文件。
-
+ 
 API version 22之前，使用该枚举请引用native_buffer.h头文件；从API version 22开始，引用native_buffer.h或buffer_common.h均可正常使用该枚举。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeBuffer
-
+ 
 **起始版本：** 10
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | NATIVEBUFFER_PIXEL_FMT_CLUT8 = 0 | CLUT8格式。 起始版本： 12 |
@@ -233,29 +226,28 @@ API version 22之前，使用该枚举请引用native_buffer.h头文件；从API
 | NATIVEBUFFER_PIXEL_FMT_Y16 = 41 | Y16格式。 起始版本： 20 |
 | NATIVEBUFFER_PIXEL_FMT_VENDER_MASK = 0X7FFF0000 | vender mask 格式。 起始版本： 12 |
 | NATIVEBUFFER_PIXEL_FMT_BUTT = 0X7FFFFFFF | 无效格式。 |
+ 
+ 
+  
 
-
-### OH_NativeBuffer_TransformType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeBuffer_TransformType
 
 ```text
 enum OH_NativeBuffer_TransformType
 ```
-
+ 
 **描述**
-
+ 
 OH_NativeBuffer转换类型的枚举。
-
+ 
 从API version 22开始，此枚举由native_buffer.h移动至此头文件。
-
+ 
 API version 22之前，使用该枚举请引用native_buffer.h头文件；从API version 22开始，引用native_buffer.h或buffer_common.h均可正常使用该枚举。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeBuffer
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | NATIVEBUFFER_ROTATE_NONE = 0 | 不旋转。 |

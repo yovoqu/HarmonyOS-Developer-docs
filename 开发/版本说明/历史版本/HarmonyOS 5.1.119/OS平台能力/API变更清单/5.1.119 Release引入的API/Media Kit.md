@@ -6,9 +6,9 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'volumeChange', callback?: Callback<number>): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'volumeChange', callback?: Callback<number>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'endOfStream', callback?: Callback<void>): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'endOfStream', callback?: Callback<void>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'speedDone', callback?: Callback<number>): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'speedDone', callback?: Callback<number>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'bitrateDone', callback?: Callback<number>): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'bitrateDone', callback?: Callback<number>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'durationUpdate', callback?: Callback<number>): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'durationUpdate', callback?: Callback<number>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'startRenderFrame', callback?: Callback<void>): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'startRenderFrame', callback?: Callback<void>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'volumeChange', callback?: Callback&lt;number&gt;): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'volumeChange', callback?: Callback&lt;number&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'endOfStream', callback?: Callback&lt;void&gt;): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'endOfStream', callback?: Callback&lt;void&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'speedDone', callback?: Callback&lt;number&gt;): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'speedDone', callback?: Callback&lt;number&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'bitrateDone', callback?: Callback&lt;number&gt;): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'bitrateDone', callback?: Callback&lt;number&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'durationUpdate', callback?: Callback&lt;number&gt;): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'durationUpdate', callback?: Callback&lt;number&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVPlayer； API声明：off(type: 'startRenderFrame', callback?: Callback&lt;void&gt;): void; 差异内容：NA | 类名：AVPlayer； API声明：off(type: 'startRenderFrame', callback?: Callback&lt;void&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |

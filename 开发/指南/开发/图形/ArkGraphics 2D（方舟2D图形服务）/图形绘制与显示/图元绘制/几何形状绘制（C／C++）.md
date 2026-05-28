@@ -1,16 +1,30 @@
 # 几何形状绘制（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/geometric-shape-drawing-c
 
-## 场景介绍
+##### 场景介绍
 
-当前支持绘制的几何形状，主要包括以下几种： 点 圆弧 圆 路径 区域 矩形 圆角矩形 大部分的几何形状均可以选择使用画笔或者使用画刷来实现绘制，其中点的绘制只能使用画笔。
+当前支持绘制的几何形状，主要包括以下几种：
 
-## 接口说明
+ - 点
+ - 圆弧
+ - 圆
+ - 路径
+ - 区域
+ - 矩形
+ - 圆角矩形
+
+
+大部分的几何形状均可以选择使用画笔或者使用画刷来实现绘制，其中点的绘制只能使用画笔。
+
+
+
+##### 接口说明
 
 几何形状绘制的常用接口如下表所示，详细的使用和参数说明请见[drawing_canvas.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h)。
+
 | 接口 | 描述 |
 | --- | --- |
 | OH_Drawing_Point* OH_Drawing_PointCreate (float x, float y) | 用于创建一个坐标点对象。 |
@@ -27,10 +41,15 @@
 | void OH_Drawing_CanvasDrawRoundRect (OH_Drawing_Canvas*, const OH_Drawing_RoundRect*) | 用于画一个圆角矩形。 |
 
 
-## 绘制点
 
-点只能基于画笔在画布上进行绘制，通过使用OH_Drawing_CanvasDrawPoint()接口绘制点。接口接受两个参数，一个是画布对象Canvas，请确保已创建或获取得到画布Canvas，具体可见[画布的获取与绘制结果的显示（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)；另一个是要绘制的点的指针。 简单示例如下：
-```text
+
+##### 绘制点
+
+点只能基于画笔在画布上进行绘制，通过使用OH_Drawing_CanvasDrawPoint()接口绘制点。接口接受两个参数，一个是画布对象Canvas，请确保已创建或获取得到画布Canvas，具体可见[画布的获取与绘制结果的显示（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)；另一个是要绘制的点的指针。
+
+简单示例如下：
+
+```cpp
 // 创建画笔对象
 OH_Drawing_Pen* pen = OH_Drawing_PenCreate();
 // 设置画笔颜色
@@ -58,12 +77,26 @@ OH_Drawing_PenDestroy(pen);
 ```
 
 效果如下：
+
+
 ![](assets/几何形状绘制（C／C++）/file-20260514131639968-0.png)
 
-## 绘制圆弧
 
-可以使用画笔或画刷在画布上进行圆弧的绘制，通过使用OH_Drawing_CanvasDrawArc()接口绘制圆弧。使用接口需要传入4个参数，分别如下： 需要画布对象Canvas，请确保已创建或获取得到画布Canvas，具体可见[画布的获取与绘制结果的显示（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。 绘制圆弧还需要一个矩形，会以矩形的边为轮廓进行绘制。 需要一个浮点参数，表示弧形的起始角度。 需要另一个浮点参数，表示弧形的扫描角度。 此处以使用画笔绘制圆弧为例，简单示例如下：
-```text
+
+
+##### 绘制圆弧
+
+可以使用画笔或画刷在画布上进行圆弧的绘制，通过使用OH_Drawing_CanvasDrawArc()接口绘制圆弧。使用接口需要传入4个参数，分别如下：
+
+ - 需要画布对象Canvas，请确保已创建或获取得到画布Canvas，具体可见[画布的获取与绘制结果的显示（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。
+ - 绘制圆弧还需要一个矩形，会以矩形的边为轮廓进行绘制。
+ - 需要一个浮点参数，表示弧形的起始角度。
+ - 需要另一个浮点参数，表示弧形的扫描角度。
+
+
+此处以使用画笔绘制圆弧为例，简单示例如下：
+
+```cpp
 // 创建画笔对象
 OH_Drawing_Pen* pen = OH_Drawing_PenCreate();
 // 设置画笔描边颜色
@@ -84,12 +117,25 @@ OH_Drawing_RectDestroy(rect);
 ```
 
 效果如下：
+
+
 ![](assets/几何形状绘制（C／C++）/file-20260514131639968-1.png)
 
-## 绘制圆
 
-可以使用画笔或画刷在画布上进行圆的绘制，通过使用OH_Drawing_CanvasDrawCircle()接口绘制圆。使用接口需要传入3个参数，分别如下： 需要画布对象Canvas，请确保已创建或获取得到画布Canvas，具体可见[画布的获取与绘制结果的显示（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。 绘制圆还需要一个指向圆心点对象的指针，会以此点为圆心进行绘制。 最后需要一个浮点参数，表示圆的半径。 此处以使用画笔绘制圆为例，简单示例如下：
-```text
+
+
+##### 绘制圆
+
+可以使用画笔或画刷在画布上进行圆的绘制，通过使用OH_Drawing_CanvasDrawCircle()接口绘制圆。使用接口需要传入3个参数，分别如下：
+
+ - 需要画布对象Canvas，请确保已创建或获取得到画布Canvas，具体可见[画布的获取与绘制结果的显示（C/C++）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。
+ - 绘制圆还需要一个指向圆心点对象的指针，会以此点为圆心进行绘制。
+ - 最后需要一个浮点参数，表示圆的半径。
+
+
+此处以使用画笔绘制圆为例，简单示例如下：
+
+```cpp
 // 创建画笔对象
 OH_Drawing_Pen* pen = OH_Drawing_PenCreate();
 // 设置画笔描边颜色
@@ -110,12 +156,25 @@ OH_Drawing_PointDestroy(point);
 ```
 
 效果如下：
+
+
 ![](assets/几何形状绘制（C／C++）/file-20260514131639968-2.png)
 
-## 绘制路径
 
-可以使用画笔或画刷在画布上进行路径的绘制，路径具体可以用于绘制直线、弧线、贝塞尔曲线等，也可以通过路径组合的方式组成其他复杂的形状。 绘制路径的相关接口和实现如下，详细的使用和参数说明请见[drawing_path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-path-h)。常用的接口如下： 使用OH_Drawing_PathCreate()接口可以创建一个路径对象。 使用OH_Drawing_PathMoveTo()接口可以设置自定义路径的起始点位置。 使用OH_Drawing_PathLineTo()接口可以添加一条从起始点或路径的最后点位置（若路径没有内容则默认为(0,0)）到目标点位置的线段。 此处以使用画笔和画刷绘制五角星为例，示例如下：
-```text
+
+
+##### 绘制路径
+
+可以使用画笔或画刷在画布上进行路径的绘制，路径具体可以用于绘制直线、弧线、贝塞尔曲线等，也可以通过路径组合的方式组成其他复杂的形状。
+
+绘制路径的相关接口和实现如下，详细的使用和参数说明请见[drawing_path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-path-h)。常用的接口如下：
+1. 使用OH_Drawing_PathCreate()接口可以创建一个路径对象。
+2. 使用OH_Drawing_PathMoveTo()接口可以设置自定义路径的起始点位置。
+3. 使用OH_Drawing_PathLineTo()接口可以添加一条从起始点或路径的最后点位置（若路径没有内容则默认为(0,0)）到目标点位置的线段。
+
+此处以使用画笔和画刷绘制五角星为例，示例如下：
+
+```cpp
 // 创建画笔对象
 OH_Drawing_Pen* pen = OH_Drawing_PenCreate();
 // 设置画笔描边颜色
@@ -165,12 +224,22 @@ OH_Drawing_PathDestroy(path);
 ```
 
 效果如下：
+
+
 ![](assets/几何形状绘制（C／C++）/file-20260514131639968-3.png)
 
-## 绘制区域
 
-区域不是一个特定的形状，可以设置为指定的矩形或路径，也可以对两个区域进行组合操作。可以使用画笔或画刷在画布上进行区域的绘制。详细的API说明请参考[drawing_region.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-region-h)。 目前支持设置矩形区域和路径区域，分别通过OH_Drawing_RegionSetRect()接口和OH_Drawing_RegionSetPath()接口来设置。 此处以使用画刷绘制矩形的组合区域为例，示例如下：
-```text
+
+
+##### 绘制区域
+
+区域不是一个特定的形状，可以设置为指定的矩形或路径，也可以对两个区域进行组合操作。可以使用画笔或画刷在画布上进行区域的绘制。详细的API说明请参考[drawing_region.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-region-h)。
+
+目前支持设置矩形区域和路径区域，分别通过OH_Drawing_RegionSetRect()接口和OH_Drawing_RegionSetPath()接口来设置。
+
+此处以使用画刷绘制矩形的组合区域为例，示例如下：
+
+```cpp
 // 创建画刷对象
 OH_Drawing_Brush* brush = OH_Drawing_BrushCreate();
 // 设置画刷填充颜色
@@ -199,12 +268,20 @@ OH_Drawing_RectDestroy(rect2);
 ```
 
 效果如下：
+
+
 ![](assets/几何形状绘制（C／C++）/file-20260514131639968-4.jpg)
 
-## 绘制矩形
 
-可以使用画笔或画刷在画布上进行矩形的绘制。使用OH_Drawing_RectCreate()接口创建矩形。接口需要传入四个浮点数，分别表示矩形的左、上、右、下四个位置的坐标，连接这4个坐标形成一个矩形。 简单示例如下：
-```text
+
+
+##### 绘制矩形
+
+可以使用画笔或画刷在画布上进行矩形的绘制。使用OH_Drawing_RectCreate()接口创建矩形。接口需要传入四个浮点数，分别表示矩形的左、上、右、下四个位置的坐标，连接这4个坐标形成一个矩形。
+
+简单示例如下：
+
+```cpp
 // 创建画刷对象
 OH_Drawing_Brush *brush = OH_Drawing_BrushCreate();
 // 设置画刷的填充颜色
@@ -222,12 +299,25 @@ OH_Drawing_RectDestroy(rect);
 ```
 
 效果如下：
+
+
 ![](assets/几何形状绘制（C／C++）/file-20260514131639968-5.png)
 
-## 绘制圆角矩形
 
-可以使用画笔或画刷在画布上进行圆角矩形的绘制。使用OH_Drawing_RoundRectCreate()接口创建圆角矩形。接口需要传入3个参数，分别如下： 需要传入指向OH_Drawing_Rect矩形对象的指针，用于在此矩形的基础上切圆角进行绘制。 需要一个浮点参数，表示x轴上的圆角半径。 还需要一个浮点参数，表示y轴上的圆角半径。 简单示例如下：
-```text
+
+
+##### 绘制圆角矩形
+
+可以使用画笔或画刷在画布上进行圆角矩形的绘制。使用OH_Drawing_RoundRectCreate()接口创建圆角矩形。接口需要传入3个参数，分别如下：
+
+ - 需要传入指向OH_Drawing_Rect矩形对象的指针，用于在此矩形的基础上切圆角进行绘制。
+ - 需要一个浮点参数，表示x轴上的圆角半径。
+ - 还需要一个浮点参数，表示y轴上的圆角半径。
+
+
+简单示例如下：
+
+```cpp
 // 创建画刷对象
 OH_Drawing_Brush *brush = OH_Drawing_BrushCreate();
 // 设置画刷的填充颜色
@@ -249,8 +339,13 @@ OH_Drawing_RoundRectDestroy(roundRect);
 ```
 
 效果如下：
+
+
 ![](assets/几何形状绘制（C／C++）/file-20260514131639968-6.png)
 
-## 示例代码
 
-[图形绘制（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKGraphicsDraw)
+
+
+##### 示例代码
+
+ - [图形绘制（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKGraphicsDraw)

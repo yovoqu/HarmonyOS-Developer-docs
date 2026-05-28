@@ -5,8 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-expanding-sample
 
 示例：在工程级hvigorfile.ts文件中分别注册工程级与模块级任务。
-
-
+ 
 ```text
 // 工程级hvigorfile.ts文件
 import { hvigor, HvigorNode, HvigorPlugin } from '@ohos/hvigor';
@@ -21,7 +20,7 @@ export function customPlugin(): HvigorPlugin {
         data: 'customPlugin xxx'
       };
     },
-    async apply(currentNode: HvigorNode): Promise {
+    async apply(currentNode: HvigorNode): Promise<void> {
       hvigor.nodesEvaluated(async () => {
         // 注册模块级任务
         hapTask(currentNode);

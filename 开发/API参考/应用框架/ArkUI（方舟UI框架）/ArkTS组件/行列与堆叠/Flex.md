@@ -3,21 +3,24 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Flex是以弹性方式布局子组件的容器组件，能够高效地排列、对齐子元素并分配剩余空间。
 
 具体指南请参考[弹性布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-flex-layout)。
 
+> [!NOTE]
+> 该组件从API version 7开始支持。后续版本如有新增内容将采用上角标单独标记该内容的起始版本。 Flex组件在渲染时存在二次布局过程，因此在对性能有严格要求的场景下建议使用 Column 、 Row 代替。最佳实践请参考 布局优化指导-合理使用布局组件 。 Flex组件主轴不设置长度时默认撑满父容器，如果包含设置 position 的子组件，此时Flex组件不会撑满父容器。 Column 、 Row 组件主轴不设置长度时默认跟随子节点大小。 Flex、Column、Row组件在没有子节点且不设置宽高时，默认宽高为-1。 主轴长度可设置为auto使Flex自适应子组件布局，自适应时，Flex长度受 constraintSize 属性以及父容器传递的最大最小长度限制，且constraintSize属性优先级更高。
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 子组件
 
 可以包含子组件。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 Flex(value?: FlexOptions)
 
@@ -31,32 +34,32 @@ Flex布局容器。
 
 **参数:**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [FlexOptions](#flexoptions对象说明) | 否 | 弹性布局子组件参数。 |
+| value | FlexOptions | 否 | 弹性布局子组件参数。 |
 
 
-## FlexOptions对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FlexOptions对象说明
 
 设置Flex子组件的排列对齐方式。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| direction | [FlexDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexdirection) | 否 | 是 | 子组件在Flex容器上排列的方向，即主轴的方向。          默认值：FlexDirection.Row          异常值按默认值处理。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| wrap | [FlexWrap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexwrap) | 否 | 是 | Flex容器是单行/列还是多行/列排列。          默认值：FlexWrap.NoWrap          异常值按默认值处理。          说明：          在多行布局时，通过交叉轴方向，确认新行堆叠方向。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| justifyContent | [FlexAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexalign) | 否 | 是 | 所有子组件在Flex容器主轴上的对齐格式。          默认值：FlexAlign.Start          异常值按默认值处理。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| alignItems | [ItemAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#itemalign) | 否 | 是 | 所有子组件在Flex容器交叉轴上的对齐格式。          默认值：ItemAlign.Start          异常值按默认值处理。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| alignContent | [FlexAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexalign) | 否 | 是 | 当交叉轴存在额外空间时，多行内容之间的对齐方式。仅在wrap为Wrap或WrapReverse下生效。          默认值：FlexAlign.Start          异常值按默认值处理。          卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| space12+ | [FlexSpaceOptions12+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flex#flexspaceoptions12) | 否 | 是 | 所有子组件在Flex容器主轴或交叉轴的间距。          默认值：{main: LengthMetrics.px(0), cross: LengthMetrics.px(0)}          非法值：按默认值处理。          space为负数、百分比或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时不生效。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| direction | FlexDirection | 否 | 是 | 子组件在Flex容器上排列的方向，即主轴的方向。 默认值：FlexDirection.Row 异常值按默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| wrap | FlexWrap | 否 | 是 | Flex容器是单行/列还是多行/列排列。 默认值：FlexWrap.NoWrap 异常值按默认值处理。 说明： 在多行布局时，通过交叉轴方向，确认新行堆叠方向。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| justifyContent | FlexAlign | 否 | 是 | 所有子组件在Flex容器主轴上的对齐格式。 默认值：FlexAlign.Start 异常值按默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| alignItems | ItemAlign | 否 | 是 | 所有子组件在Flex容器交叉轴上的对齐格式。 默认值：ItemAlign.Start 异常值按默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| alignContent | FlexAlign | 否 | 是 | 当交叉轴存在额外空间时，多行内容之间的对齐方式。仅在wrap为Wrap或WrapReverse下生效。 默认值：FlexAlign.Start 异常值按默认值处理。 卡片能力： 从API version 9开始，该接口支持在ArkTS卡片中使用。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| space12+ | FlexSpaceOptions12+ | 否 | 是 | 所有子组件在Flex容器主轴或交叉轴的间距。 默认值：{main: LengthMetrics.px(0), cross: LengthMetrics.px(0)} 非法值：按默认值处理。 space为负数、百分比或者justifyContent设置为FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时不生效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## FlexSpaceOptions12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FlexSpaceOptions12+
 
 设置Flex容器的子组件在主轴或交叉轴的间距。
 
@@ -64,35 +67,35 @@ Flex布局容器。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| main | [LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | 否 | 是 | Flex容器主轴上的space。          默认值：LengthMetrics.px(0) |
-| cross | [LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | 否 | 是 | Flex容器交叉轴上的space。          默认值：LengthMetrics.px(0) |
+| main | LengthMetrics | 否 | 是 | Flex容器主轴上的space。 默认值：LengthMetrics.px(0) |
+| cross | LengthMetrics | 否 | 是 | Flex容器交叉轴上的space。 默认值：LengthMetrics.px(0) |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 事件
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 示例
 
 
-### 示例1（子组件排列方向）
+
+##### 示例1（子组件排列方向）
 
 该示例通过设置direction实现不同的子组件排列方向效果。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -147,21 +150,23 @@ struct FlexExample1 {
         .width('90%')
         .padding(10)
         .backgroundColor(0xAFEEEE)
-    }.width('100%').margin({ top: 5 })
+      }.width('100%').margin({ top: 5 })
     }.width('100%')
   }
 }
 ```
 
-![](assets/Flex/file-20260514163940535-0.png)
+
+![](assets/Flex/file-20260514163940535-1.png)
 
 
-### 示例2（子组件单/多行排列）
+
+
+##### 示例2（子组件单/多行排列）
 
 该示例通过设置wrap实现子组件单行或多行的排列效果。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -199,21 +204,23 @@ struct FlexExample2 {
         .height(120)
         .padding(10)
         .backgroundColor(0xAFEEEE)
-    }.width('100%').margin({ top: 5 })
+      }.width('100%').margin({ top: 5 })
     }.width('100%')
   }
 }
 ```
 
-![](assets/Flex/file-20260514163940535-1.png)
+
+![](assets/Flex/file-20260514163940535-2.png)
 
 
-### 示例3（子组件在主轴上的对齐格式）
+
+
+##### 示例3（子组件在主轴上的对齐格式）
 
 该示例通过设置justifyContent实现子组件在主轴上不同的对齐效果。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Component
 struct JustifyContentFlex {
@@ -254,21 +261,23 @@ struct FlexExample3 {
 
         Text('justifyContent:SpaceEvenly').fontSize(9).fontColor(0xCCCCCC).width('90%')
         JustifyContentFlex({ justifyContent: FlexAlign.SpaceEvenly }) // 子组件在容器主轴上均分容器布局，子组件之间的距离与第一子组件到行首、最后一个子组件到行尾的距离相等
-    }.width('100%').margin({ top: 5 })
+      }.width('100%').margin({ top: 5 })
     }.width('100%')
   }
 }
 ```
 
-![](assets/Flex/file-20260514163940535-2.png)
+
+![](assets/Flex/file-20260514163940535-3.png)
 
 
-### 示例4（子组件在交叉轴上的对齐方式）
+
+
+##### 示例4（子组件在交叉轴上的对齐方式）
 
 该示例通过设置alignItems实现子组件在交叉轴上的不同的对齐效果。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Component
 struct AlignItemsFlex {
@@ -309,21 +318,23 @@ struct FlexExample4 {
 
         Text('alignItems:Baseline').fontSize(9).fontColor(0xCCCCCC).width('90%')
         AlignItemsFlex({ alignItems: ItemAlign.Baseline }) // 子组件在容器交叉轴上与文本基线对齐
-    }.width('100%').margin({ top: 5 })
+      }.width('100%').margin({ top: 5 })
     }.width('100%')
   }
 }
 ```
 
-![](assets/Flex/file-20260514163940535-3.png)
+
+![](assets/Flex/file-20260514163940535-4.png)
 
 
-### 示例5（多行内容的对齐方式）
+
+
+##### 示例5（多行内容的对齐方式）
 
 该示例通过设置alignContent实现多行内容的不同对齐效果。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Component
 struct AlignContentFlex {
@@ -376,21 +387,23 @@ struct FlexExample5 {
         .size({ width: '90%', height: 100 })
         .padding({ left: 10, right: 10 })
         .backgroundColor(0xAFEEEE)
-    }.width('100%').margin({ top: 5 })
+      }.width('100%').margin({ top: 5 })
     }.width('100%')
   }
 }
 ```
 
-![](assets/Flex/file-20260514163940535-4.png)
+
+![](assets/Flex/file-20260514163940535-5.png)
 
 
-### 示例6（子组件单/多行排列时的主/交叉轴间距）
+
+
+##### 示例6（子组件单/多行排列时的主/交叉轴间距）
 
 该示例通过设置space为单/多行排列的子组件确定在主/交叉轴上的间距。
 
-
-```ts
+```text
 import {LengthMetrics} from '@kit.ArkUI';
 
 @Entry
@@ -429,21 +442,23 @@ struct FlexExample2 {
         .height(120)
         .padding(10)
         .backgroundColor(0xAFEEEE)
-    }.width('100%').margin({ top: 5 })
+      }.width('100%').margin({ top: 5 })
     }.width('100%')
   }
 }
 ```
 
-![](assets/Flex/file-20260514163940535-5.png)
+
+![](assets/Flex/file-20260514163940535-6.png)
 
 
-### 示例7（宽度自适应的Flex容器）
+
+
+##### 示例7（宽度自适应的Flex容器）
 
 该示例实现了Flex在宽度设置auto后可以自适应子组件布局的能力。
 
-
-```ts
+```text
 @Component
 struct Demo {
   @Require @Prop text: string
@@ -452,23 +467,23 @@ struct Demo {
     Button() {
       Flex() {
         Image($r('sys.media.ohos_ic_public_voice'))
-        .width(16)
-        .height(16)
+          .width(16)
+          .height(16)
 
         Row() {
           Text(this.text)
-          .margin({
-            left: 6,
-            right: 6
-          })
-          .fontSize(14)
-          .maxLines(1)
-          .textOverflow({ overflow: TextOverflow.Ellipsis })
+            .margin({
+              left: 6,
+              right: 6
+            })
+            .fontSize(14)
+            .maxLines(1)
+            .textOverflow({ overflow: TextOverflow.Ellipsis })
         }
 
         Image($r('sys.media.ohos_ic_public_sound'))
-        .width(16)
-        .height(16)
+          .width(16)
+          .height(16)
       }.width('auto')
     }
     .backgroundColor(0xAFEEEE)
@@ -493,4 +508,5 @@ struct Index {
 }
 ```
 
-![](assets/Flex/file-20260514163940535-6.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/TemSR8gpQ-K1oVohGRXtog/zh-cn_image_0000002581275804.png?HW-CC-KV=V1&HW-CC-Date=20260528T013902Z&HW-CC-Expire=86400&HW-CC-Sign=0510A2FA6128BAB80A9866E991E1EB39DB487799E821B143EC4FAD4167D20E34)

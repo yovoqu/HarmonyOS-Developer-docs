@@ -9,79 +9,92 @@
 向量计算支持单精度（float）和双精度（double）两种数据类型，并针对ARM NEON指令集进行了优化，在步长为 1 的连续存储场景下可获得显著性能提升。需要注意的是，为了提升性能，部分接口对浮点数的计算顺序进行了调整，可能影响结果精度。
 
 
-## 接口说明
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast)。
 
-## 最大值与索引计算
 
 
-| 名称 | 描述 |
-| --- | --- |
-| float [HMS_FAST_DSP_Maxmgv](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_maxmgv) (const float* input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（单精度）。 |
-| double [HMS_FAST_DSP_MaxmgvD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_maxmgvd) (const double* input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（双精度）。 |
-| void [HMS_FAST_DSP_Maxvi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_maxvi) (const float* input, size_t stride, size_t length, float* value, size_t* index) | 查找步长实值向量中的最大值及其索引（单精度）。 |
-| void [HMS_FAST_DSP_MaxviD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_maxvid) (const double* input, size_t stride, size_t length, double* value, size_t* index) | 查找步长实值向量中的最大值及其索引（双精度）。 |
-
-
-## 统计计算
-
+##### 最大值与索引计算
 
 | 名称 | 描述 |
 | --- | --- |
-| float [HMS_FAST_DSP_Sve](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_sve) (const float* input, size_t stride, size_t length) | 计算步长实值向量的和（单精度）。 |
-| double [HMS_FAST_DSP_SveD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_sved) (const double* input, size_t stride, size_t length) | 计算步长实值向量的和（双精度）。 |
-| float [HMS_FAST_DSP_Svemg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_svemg) (const float* input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（单精度）。 |
-| double [HMS_FAST_DSP_SvemgD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_svemgd) (const double* input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（双精度）。 |
-| float [HMS_FAST_DSP_Meamgv](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_meamgv) (const float* input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（单精度）。 |
-| double [HMS_FAST_DSP_MeamgvD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_meamgvd) (const double* input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（双精度）。 |
+| float HMS_FAST_DSP_Maxmgv (const float* input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（单精度）。 |
+| double HMS_FAST_DSP_MaxmgvD (const double* input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（双精度）。 |
+| void HMS_FAST_DSP_Maxvi (const float* input, size_t stride, size_t length, float* value, size_t* index) | 查找步长实值向量中的最大值及其索引（单精度）。 |
+| void HMS_FAST_DSP_MaxviD (const double* input, size_t stride, size_t length, double* value, size_t* index) | 查找步长实值向量中的最大值及其索引（双精度）。 |
 
 
-## 向量运算
 
 
-| 名称 | 描述 |
-| --- | --- |
-| float [HMS_FAST_DSP_Dotpr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_dotpr) (const float* inputA, size_t strideA, const float* inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（单精度）。 |
-| double [HMS_FAST_DSP_DotprD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_dotprd) (const double* inputA, size_t strideA, const double* inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（双精度）。 |
-| void [HMS_FAST_DSP_Vsbsm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_vsbsm) (const float* inputA, size_t strideA, const float* inputB, size_t strideB, float scalar, float* outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（单精度）。 |
-| void [HMS_FAST_DSP_VsbsmD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_vsbsmd) (const double* inputA, size_t strideA, const double* inputB, size_t strideB, double scalar, double* outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（双精度）。 |
-
-
-## 复数格式转换
-
+##### 统计计算
 
 | 名称 | 描述 |
 | --- | --- |
-| void [HMS_FAST_DSP_Ctoz](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_ctoz) (const float* input, size_t strideInput, FAST_SplitComplex* output, size_t strideOutput, size_t length) | 将交错复数数组转换为分离格式（单精度）。 |
-| void [HMS_FAST_DSP_CtozD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_ctozd) (const double* input, size_t strideInput, FAST_SplitComplexD* output, size_t strideOutput, size_t length) | 将交错复数数组转换为分离格式（双精度）。 |
-| void [HMS_FAST_DSP_Ztoc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_ztoc) (const FAST_SplitComplex* input, size_t strideInput, float* output, size_t strideOutput, size_t length) | 将分离复数数组转换为交错格式（单精度）。 |
-| void [HMS_FAST_DSP_ZtocD](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast#hms_fast_dsp_ztocd) (const FAST_SplitComplexD* input, size_t strideInput, double* output, size_t strideOutput, size_t length) | 将分离复数数组转换为交错格式（双精度）。 |
+| float HMS_FAST_DSP_Sve (const float* input, size_t stride, size_t length) | 计算步长实值向量的和（单精度）。 |
+| double HMS_FAST_DSP_SveD (const double* input, size_t stride, size_t length) | 计算步长实值向量的和（双精度）。 |
+| float HMS_FAST_DSP_Svemg (const float* input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（单精度）。 |
+| double HMS_FAST_DSP_SvemgD (const double* input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（双精度）。 |
+| float HMS_FAST_DSP_Meamgv (const float* input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（单精度）。 |
+| double HMS_FAST_DSP_MeamgvD (const double* input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（双精度）。 |
 
 
-## 开发步骤
 
-在CMake脚本中链接相关动态库。
+
+##### 向量运算
+
+| 名称 | 描述 |
+| --- | --- |
+| float HMS_FAST_DSP_Dotpr (const float* inputA, size_t strideA, const float* inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（单精度）。 |
+| double HMS_FAST_DSP_DotprD (const double* inputA, size_t strideA, const double* inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（双精度）。 |
+| void HMS_FAST_DSP_Vsbsm (const float* inputA, size_t strideA, const float* inputB, size_t strideB, float scalar, float* outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（单精度）。 |
+| void HMS_FAST_DSP_VsbsmD (const double* inputA, size_t strideA, const double* inputB, size_t strideB, double scalar, double* outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（双精度）。 |
+
+
+
+
+##### 复数格式转换
+
+| 名称 | 描述 |
+| --- | --- |
+| void HMS_FAST_DSP_Ctoz (const float* input, size_t strideInput, FAST_SplitComplex* output, size_t strideOutput, size_t length) | 将交错复数数组转换为分离格式（单精度）。 |
+| void HMS_FAST_DSP_CtozD (const double* input, size_t strideInput, FAST_SplitComplexD* output, size_t strideOutput, size_t length) | 将交错复数数组转换为分离格式（双精度）。 |
+| void HMS_FAST_DSP_Ztoc (const FAST_SplitComplex* input, size_t strideInput, float* output, size_t strideOutput, size_t length) | 将分离复数数组转换为交错格式（单精度）。 |
+| void HMS_FAST_DSP_ZtocD (const FAST_SplitComplexD* input, size_t strideInput, double* output, size_t strideOutput, size_t length) | 将分离复数数组转换为交错格式（双精度）。 |
+
+
+
+
+##### 开发步骤
+1. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libfast_dsp.so)
 ```
 
-引入头文件。
+2. 引入头文件。
+
+  
 ```text
 #include "FASTKit/fast_dsp_common.h"
 ```
 
-根据数据类型选择对应的函数（单精度无后缀，双精度带D后缀）。 调用向量计算函数，注意设置正确的stride参数（连续存储时stride为1）。 检查返回结果。
+3. 根据数据类型选择对应的函数（单精度无后缀，双精度带D后缀）。
+4. 调用向量计算函数，注意设置正确的stride参数（连续存储时stride为1）。
+5. 检查返回结果。
 
-## 代码示例
 
 
-## 最大值查找示例
+##### 代码示例
 
+
+
+##### 最大值查找示例
 
 ```text
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode max_value_demo() {
@@ -105,12 +118,12 @@ FAST_ErrorCode max_value_demo() {
 ```
 
 
-## 统计计算示例
 
+##### 统计计算示例
 
 ```text
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode statistics_demo() {
@@ -136,12 +149,12 @@ FAST_ErrorCode statistics_demo() {
 ```
 
 
-## 向量运算示例
 
+##### 向量运算示例
 
 ```text
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode vector_operations_demo() {
@@ -161,43 +174,73 @@ FAST_ErrorCode vector_operations_demo() {
     HMS_FAST_DSP_Vsbsm(inputA, stride, inputB, stride, scalar, outputC, stride, length);
 
     printf("Vector subtraction result:\n");
-    for (size_t i = 0; i
+    for (size_t i = 0; i < length; ++i) {
+        printf("  outputC[%zu] = %f\n", i, outputC[i]);
+    }
+    // 输出: 1.0, 2.0, 3.0, 4.0, 5.0
 
-## 复数格式转换示例
+    return FAST_ERROR_CODE_SUCCESS;
+}
+```
 
+
+
+##### 复数格式转换示例
 
 ```text
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode complex_conversion_demo() {
-// 定义交错格式复数输入 (real, imag, real, imag...)
-float interleaved[] = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
-size_t length = 3;  // 3个复数
-size_t stride_input = 1;
+    // 定义交错格式复数输入 (real, imag, real, imag...)
+    float interleaved[] = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f};
+    size_t length = 3;  // 3个复数
+    size_t stride_input = 1;
 
-// 准备分离格式输出
-float real_array[3];
-float imag_array[3];
-FAST_SplitComplex split_output = {
-.real = real_array,
-.imag = imag_array
-};
-size_t stride_output = 1;
+    // 准备分离格式输出
+    float real_array[3];
+    float imag_array[3];
+    FAST_SplitComplex split_output = {
+        .real = real_array,
+        .imag = imag_array
+    };
+    size_t stride_output = 1;
 
-// 转换为分离格式
-HMS_FAST_DSP_Ctoz(interleaved, stride_input, &split_output, stride_output, length);
+    // 转换为分离格式
+    HMS_FAST_DSP_Ctoz(interleaved, stride_input, &split_output, stride_output, length);
 
-printf("Split format:\n");
-for (size_t i = 0; i
+    printf("Split format:\n");
+    for (size_t i = 0; i < length; ++i) {
+        printf("  Complex[%zu] = %f + %fi\n", i, real_array[i], imag_array[i]);
+    }
+    /* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+        Split format:
+        Complex[0] = 1.000000 + 2.000000i
+        Complex[1] = 3.000000 + 4.000000i
+        Complex[2] = 5.000000 + 6.000000i
+     */
 
-## 非连续存储示例
+    // 转换回交错格式
+    float interleaved_output[6];
+    HMS_FAST_DSP_Ztoc(&split_output, stride_output, interleaved_output, stride_input, length);
 
+    printf("Interleaved format:\n");
+    for (size_t i = 0; i < length; ++i) {
+        printf("  Complex[%zu] = %f + %fi\n", i, interleaved_output[i * 2], interleaved_output[i * 2 + 1]);
+    }
+
+    return FAST_ERROR_CODE_SUCCESS;
+}
+```
+
+
+
+##### 非连续存储示例
 
 ```text
-#include
-#include
+#include <cstdio>
+#include <cstdlib>
 #include "FASTKit/fast_dsp_common.h"
 
 FAST_ErrorCode strided_access_demo() {

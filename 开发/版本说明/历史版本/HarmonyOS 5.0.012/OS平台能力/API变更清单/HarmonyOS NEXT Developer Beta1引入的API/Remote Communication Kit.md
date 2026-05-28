@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-remotecommunicationkit-hdc
 
-本Kit为HarmonyOS NEXT新增Kit，具体信息请参见API参考
+本Kit为HarmonyOS NEXT新增Kit，具体信息请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/remote-communication-api-V5)

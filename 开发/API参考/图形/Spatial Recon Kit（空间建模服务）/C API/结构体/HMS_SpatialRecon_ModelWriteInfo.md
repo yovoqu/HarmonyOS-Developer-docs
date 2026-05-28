@@ -4,29 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon-hms-spatialrecon-modelwriteinfo
 
-
 ```text
 typedef struct HMS_SpatialRecon_ModelWriteInfo {...} HMS_SpatialRecon_ModelWriteInfo
 ```
+  
 
-
-## 概述
+##### 概述
 
 空间重建模型写入的结构体。
-
+ 
 **起始版本：** 6.1.0(23)
-
+ 
 **相关模块：** [SpatialRecon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatialrecon)
-
+ 
 **所在头文件：** [spatial_recon_interface.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatial-recon-interface-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
+  
 
-
-### 成员变量
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | float longitude = 0.0 | 用于地理定位参考的经度坐标（十进制度）。正值表示东经，负值表示西经。 |

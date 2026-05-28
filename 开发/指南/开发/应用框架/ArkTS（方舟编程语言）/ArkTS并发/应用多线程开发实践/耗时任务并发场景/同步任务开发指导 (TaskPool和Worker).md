@@ -1,6 +1,6 @@
 # 同步任务开发指导 (TaskPool和Worker)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sync-task-development
 
@@ -11,26 +11,37 @@
 当同步任务之间相对独立时，推荐使用TaskPool，例如一系列导入的静态方法或单例实现的方法。如果同步任务之间有关联性，则需要使用Worker。
 
 
-## 使用TaskPool处理同步任务
+##### 使用TaskPool处理同步任务
 
-以下场景推荐使用TaskPool。 调度相互独立的任务。 静态方法实现的任务。 单例构造的句柄或者类对象跨线程使用。
+以下场景推荐使用TaskPool。
+
+ - 调度相互独立的任务。
+ - 静态方法实现的任务。
+ - 单例构造的句柄或者类对象跨线程使用。
+
+
 > [!NOTE]
-> 由于Actor模型不同线程间内存隔离的特性，非线程安全的单例无法在不同线程间使用。可通过共享模块导出单例解决此问题。
+> 由于 Actor模型 不同线程间内存隔离的特性，非线程安全的单例无法在不同线程间使用。可通过共享模块导出单例解决此问题。
 
-定义并发函数，实现业务逻辑。 创建任务[Task](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#task)，通过[execute()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#taskpoolexecute-1)接口执行该任务。 对任务返回的结果进行操作。 如下示例中业务使用TaskPool调用相关同步方法的代码，首先定义并发函数taskpoolFunc，需要注意必须使用[@Concurrent装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction#concurrent装饰器)装饰该函数；其次定义函数mainFunc，该函数功能为创建任务，执行任务并处理任务返回的结果。
-```text
+1. 定义并发函数，实现业务逻辑。
+2. 创建任务[Task](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#task)，通过[execute()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#taskpoolexecute-1)接口执行该任务。
+3. 对任务返回的结果进行操作。
+
+如下示例中业务使用TaskPool调用相关同步方法的代码，首先定义并发函数taskpoolFunc，需要注意必须使用[@Concurrent装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction#concurrent装饰器)装饰该函数；其次定义函数mainFunc，该函数功能为创建任务，执行任务并处理任务返回的结果。
+
+```ArkTS
 import { taskpool } from '@kit.ArkTS';
 // ...
 
 // 步骤1: 定义并发函数，实现业务逻辑
 @Concurrent
-async function taskpoolFunc(num: number): Promise {
+async function taskpoolFunc(num: number): Promise<number> {
   // 根据业务逻辑实现相应的功能
   let tmpNum: number = num + 100;
   return tmpNum;
 }
 
-async function mainFunc(): Promise {
+async function mainFunc(): Promise<void> {
   // 步骤2: 创建任务并执行
   let task1: taskpool.Task = new taskpool.Task(taskpoolFunc, 1);
   let res1: number = await taskpool.execute(task1) as number;
@@ -65,10 +76,14 @@ struct Index {
 ```
 
 
-## 使用Worker处理关联的同步任务
 
-当一系列同步任务需要使用同一个句柄调度，或者需要依赖某个类对象调度，且无法在不同任务池之间共享时，需要使用Worker。 在UI主线程中创建Worker对象并接收Worker线程发送的消息。DevEco Studio支持一键生成Worker。在{moduleName}目录下任意位置，点击鼠标右键 > New > Worker，即可生成Worker的模板文件及配置信息。
-```text
+##### 使用Worker处理关联的同步任务
+
+当一系列同步任务需要使用同一个句柄调度，或者需要依赖某个类对象调度，且无法在不同任务池之间共享时，需要使用Worker。
+1. 在UI主线程中创建Worker对象并接收Worker线程发送的消息。DevEco Studio支持一键生成Worker。在{moduleName}目录下任意位置，点击鼠标右键 > New > Worker，即可生成Worker的模板文件及配置信息。
+
+  
+```ArkTS
 import { MessageEvents, worker } from '@kit.ArkTS';
 // ...
 @Entry
@@ -106,8 +121,10 @@ struct Index {
 }
 ```
 
-在Worker线程中绑定Worker对象，同时处理同步任务逻辑。
-```text
+2. 在Worker线程中绑定Worker对象，同时处理同步任务逻辑。
+
+  
+```ts
 export default class Handle {
   id: number = 0;
 
@@ -122,8 +139,7 @@ export default class Handle {
 }
 ```
 
-
-```text
+```ts
 import { worker, ThreadWorkerGlobalScope, MessageEvents } from '@kit.ArkTS';
 // 返回句柄
 import Handle from './handle';

@@ -10,6 +10,6 @@
 | 新增API | NA | 类名：camera； API声明： enum VideoCodecType 差异内容： enum VideoCodecType | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoCodecType； API声明：AVC = 0 差异内容：AVC = 0 | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：VideoCodecType； API声明：HEVC = 1 差异内容：HEVC = 1 | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：PhotoOutput； API声明：getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>; 差异内容：getSupportedMovingPhotoVideoCodecTypes(): Array<VideoCodecType>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：PhotoOutput； API声明：getSupportedMovingPhotoVideoCodecTypes(): Array&lt;VideoCodecType&gt;; 差异内容：getSupportedMovingPhotoVideoCodecTypes(): Array&lt;VideoCodecType&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：setMovingPhotoVideoCodecType(codecType: VideoCodecType): void; 差异内容：setMovingPhotoVideoCodecType(codecType: VideoCodecType): void; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：PhotoOutput； API声明：enableMirror(enabled: boolean): void; 差异内容：enableMirror(enabled: boolean): void; | api/@ohos.multimedia.camera.d.ts |

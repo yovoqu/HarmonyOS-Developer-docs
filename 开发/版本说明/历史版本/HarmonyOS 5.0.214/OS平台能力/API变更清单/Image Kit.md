@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| syscap变更 | 类名：DecodingOptionsForPicture； API声明：desiredAuxiliaryPictures: Array<AuxiliaryPictureType>; 差异内容：SystemCapability.Multimedia.Image.Core | 类名：DecodingOptionsForPicture； API声明：desiredAuxiliaryPictures: Array<AuxiliaryPictureType>; 差异内容：SystemCapability.Multimedia.Image.ImageSource | api/@ohos.multimedia.image.d.ts |
+| syscap变更 | 类名：DecodingOptionsForPicture； API声明：desiredAuxiliaryPictures: Array&lt;AuxiliaryPictureType&gt;; 差异内容：SystemCapability.Multimedia.Image.Core | 类名：DecodingOptionsForPicture； API声明：desiredAuxiliaryPictures: Array&lt;AuxiliaryPictureType&gt;; 差异内容：SystemCapability.Multimedia.Image.ImageSource | api/@ohos.multimedia.image.d.ts |

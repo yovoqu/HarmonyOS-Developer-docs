@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_grid-columns-span
 
 不推荐开发者将栅格中所有的GridCol子组件只设置span属性，且值与父组件的columns属性相等。这等效于子组件宽度始终为父容器的100%，栅格系统没有发挥作用，徒增页面组件树复杂度，影响性能。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
-    "@cross-device-app-dev/grid-columns-span": "warn"
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
+    <span style="color: rgb(135,16,148);">"@cross-device-app-dev/grid-columns-span"</span>: <span style="color: rgb(6,125,23);">"warn"</span>
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 @Entry
@@ -46,10 +47,10 @@ struct Index {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 @Entry
@@ -70,14 +71,14 @@ struct Index {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@cross-device-app-dev/recommended
-plugin:@cross-device-app-dev/all
+<span style="color: rgb(6,125,23);">plugin:@cross-device-app-dev/recommended</span>
+<span style="color: rgb(6,125,23);">plugin:@cross-device-app-dev/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -3,26 +3,24 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-esim
-**支持设备：** Phone / Wearable
+**支持设备：** Phone | Wearable
 
 eSIM卡管理模块提供了eSIM卡管理的基础能力，包括获取指定卡槽是否支持eSIM功能，如果支持则允许用户添加单个配置文件。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 18开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / Wearable
 
+##### 导入模块
 
-```ts
+```text
 import { eSIM } from '@kit.TelephonyKit';
 ```
 
 
-## eSIM.isSupported
-**支持设备：** Phone / Wearable
+
+##### eSIM.isSupported
 
 isSupported(slotId: number): boolean
 
@@ -32,14 +30,12 @@ isSupported(slotId: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -50,7 +46,6 @@ isSupported(slotId: number): boolean
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
@@ -60,8 +55,7 @@ isSupported(slotId: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { eSIM } from '@kit.TelephonyKit';
 
 let isSupported: boolean = eSIM.isSupported(1);
@@ -69,10 +63,10 @@ console.info(`the esim is Supported:` + isSupported);
 ```
 
 
-## eSIM.addProfile
-**支持设备：** Phone / Wearable
 
-addProfile(profile: DownloadableProfile): Promise<boolean>
+##### eSIM.addProfile
+
+addProfile(profile: DownloadableProfile): Promise&lt;boolean&gt;
 
 通过该接口拉起下载界面，允许用户添加单个配置文件。使用Promise异步回调。
 
@@ -82,14 +76,12 @@ addProfile(profile: DownloadableProfile): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| profile | [DownloadableProfile](#downloadableprofile) | 是 | 可下载的配置文件信息。 |
+| profile | DownloadableProfile | 是 | 可下载的配置文件信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -99,7 +91,6 @@ addProfile(profile: DownloadableProfile): Promise<boolean>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -112,58 +103,51 @@ addProfile(profile: DownloadableProfile): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { eSIM } from '@kit.TelephonyKit';
 
 let profile: eSIM.DownloadableProfile = {
-  activationCode: '1',
-  confirmationCode: '1',
-  carrierName: 'test',
-  accessRules: [
-    {
-      certificateHashHexStr: 'test',
-      packageName: 'com.example.testcoreservice',
-      accessType: 0,
-    },
-  ],
+  activationCode:'1',
+  confirmationCode:'1',
+  carrierName:'test',
+  accessRules:[{
+    certificateHashHexStr:'test',
+    packageName:'com.example.testcoreservice',
+    accessType:0
+  }]
 };
 
-eSIM
-  .addProfile(profile)
-  .then(() => {
+eSIM.addProfile(profile).then(() => {
     console.info(`addProfile invoking succeeded.`);
-  })
-  .catch((err: BusinessError<void>) => {
+}).catch((err: BusinessError<void>) => {
     console.error(`addProfile, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## DownloadableProfile
-**支持设备：** Phone / Wearable
+
+##### DownloadableProfile
 
 可下载的配置文件。
 
 **系统能力**：SystemCapability.Telephony.CoreService.Esim
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | activationCode | string | 否 | 否 | 激活码。对于不基于激活码的配置文件，可能为空。 |
 | confirmationCode | string | 否 | 是 | 确认码。 |
 | carrierName | string | 否 | 是 | 订阅名称。 |
-| accessRules | Array&lt;[AccessRule](#accessrule20)&gt; | 否 | 是 | 访问规则数组。 |
+| accessRules | Array&lt;AccessRule&gt; | 否 | 是 | 访问规则数组。 |
 
 
-## AccessRule20+
-**支持设备：** Phone / Wearable
+
+
+##### AccessRule20+
 
 访问规则。
 
 **系统能力**：SystemCapability.Telephony.CoreService.Esim
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

@@ -3,11 +3,9 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供事件注入和关键状态查询等功能。
 
@@ -22,250 +20,249 @@
 **相关模块：** [input](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-
-| 名称 | typedef关键字 | 描述 |
-| --- | --- | --- |
-| [Input_InterceptorEventCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-interceptoreventcallback) | Input_InterceptorEventCallback | 拦截回调事件结构体，拦截鼠标事件、触屏输入事件和轴事件。 |
-| [Input_DeviceListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-devicelistener) | Input_DeviceListener | 定义一个结构体用于监听设备热插拔。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-oh-pixelmapnative) | OH_PixelmapNative | 像素图。 |
-| [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate) | Input_KeyState | 定义按键信息，用于标识按键行为。例如，“Ctrl”按键信息包含键值和键类型。 |
-| [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent) | Input_KeyEvent | 按键事件对象。 |
-| [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent) | Input_MouseEvent | 鼠标事件对象。 |
-| [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent) | Input_TouchEvent | 触屏输入事件对象。 |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent) | Input_AxisEvent | 轴事件对象。 |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) | Input_Hotkey | 定义快捷键结构体。 |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) | Input_DeviceInfo | 输入设备信息。 |
-| [Input_InterceptorOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-interceptoroptions) | Input_InterceptorOptions | 事件拦截选项。 |
-| [Input_CustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-customcursor) | Input_CustomCursor | 自定义鼠标光标像素图资源。 |
-| [Input_CursorConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorconfig) | Input_CursorConfig | 自定义鼠标光标配置。 |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo) | Input_CursorInfo | 定义鼠标光标信息，包括光标显示状态、光标样式、光标大小档位、光标颜色。 |
-
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Input_KeyStateAction](#input_keystateaction) | Input_KeyStateAction | 按键状态的枚举值。 |
-| [Input_KeyEventAction](#input_keyeventaction) | Input_KeyEventAction | 按键事件类型的枚举值。 |
-| [Input_MouseEventAction](#input_mouseeventaction) | Input_MouseEventAction | 鼠标动作的枚举值。 |
-| [InputEvent_MouseAxis](#inputevent_mouseaxis) | InputEvent_MouseAxis | 鼠标轴事件类型。 |
-| [Input_MouseEventButton](#input_mouseeventbutton) | Input_MouseEventButton | 鼠标按键的枚举值。 |
-| [Input_TouchEventAction](#input_toucheventaction) | Input_TouchEventAction | 触屏动作的枚举值。 |
-| [Input_InjectionStatus](#input_injectionstatus) | Input_InjectionStatus | 注入权限状态枚举值。 |
-| [InputEvent_SourceType](#inputevent_sourcetype) | InputEvent_SourceType | 输入事件源类型。 |
-| [Input_KeyboardType](#input_keyboardtype) | Input_KeyboardType | 输入设备的键盘类型。 |
-| [Input_Result](#input_result) | Input_Result | 返回值枚举值。 |
-| [Input_TouchEventToolType](#input_toucheventtooltype) | Input_TouchEventToolType | 输入设备的触屏事件工具类型。 |
+| Input_InterceptorEventCallback | Input_InterceptorEventCallback | 拦截回调事件结构体，拦截鼠标事件、触屏输入事件和轴事件。 |
+| Input_DeviceListener | Input_DeviceListener | 定义一个结构体用于监听设备热插拔。 |
+| OH_PixelmapNative | OH_PixelmapNative | 像素图。 |
+| Input_KeyState | Input_KeyState | 定义按键信息，用于标识按键行为。例如，“Ctrl”按键信息包含键值和键类型。 |
+| Input_KeyEvent | Input_KeyEvent | 按键事件对象。 |
+| Input_MouseEvent | Input_MouseEvent | 鼠标事件对象。 |
+| Input_TouchEvent | Input_TouchEvent | 触屏输入事件对象。 |
+| Input_AxisEvent | Input_AxisEvent | 轴事件对象。 |
+| Input_Hotkey | Input_Hotkey | 定义快捷键结构体。 |
+| Input_DeviceInfo | Input_DeviceInfo | 输入设备信息。 |
+| Input_InterceptorOptions | Input_InterceptorOptions | 事件拦截选项。 |
+| Input_CustomCursor | Input_CustomCursor | 自定义鼠标光标像素图资源。 |
+| Input_CursorConfig | Input_CursorConfig | 自定义鼠标光标配置。 |
+| Input_CursorInfo | Input_CursorInfo | 定义鼠标光标信息，包括光标显示状态、光标样式、光标大小档位、光标颜色。 |
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 枚举
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [typedef void (*Input_HotkeyCallback)(Input_Hotkey* hotkey)](#input_hotkeycallback) | Input_HotkeyCallback | 回调函数，用于回调快捷键事件。 |
-| [typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent)](#input_keyeventcallback) | Input_KeyEventCallback | 按键事件的回调函数，keyEvent的生命周期为回调函数内。 |
-| [typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent)](#input_mouseeventcallback) | Input_MouseEventCallback | 鼠标事件的回调函数，mouseEvent的生命周期为回调函数内。 |
-| [typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent)](#input_toucheventcallback) | Input_TouchEventCallback | 触屏输入事件的回调函数，touchEvent的生命周期为回调函数内。 |
-| [typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent)](#input_axiseventcallback) | Input_AxisEventCallback | 轴事件的回调函数，axisEvent的生命周期为回调函数内。 |
-| [typedef void (*Input_DeviceAddedCallback)(int32_t deviceId)](#input_deviceaddedcallback) | Input_DeviceAddedCallback | 回调函数，用于回调输入设备的热插事件。 |
-| [typedef void (*Input_DeviceRemovedCallback)(int32_t deviceId)](#input_deviceremovedcallback) | Input_DeviceRemovedCallback | 回调函数，用于回调输入设备的热拔事件。 |
-| [typedef void (*Input_InjectAuthorizeCallback)(Input_InjectionStatus authorizedStatus)](#input_injectauthorizecallback) | Input_InjectAuthorizeCallback | 回调函数，用于获取注入权限状态。 |
-| [Input_Result OH_Input_GetKeyState(struct Input_KeyState* keyState)](#oh_input_getkeystate) | - | 查询按键状态的枚举对象。 |
-| [struct Input_KeyState* OH_Input_CreateKeyState()](#oh_input_createkeystate) | - | 创建按键状态的枚举对象。通过调用[OH_Input_DestroyKeyState](#oh_input_destroykeystate)销毁按键状态的枚举对象。 |
-| [void OH_Input_DestroyKeyState(struct Input_KeyState** keyState)](#oh_input_destroykeystate) | - | 销毁按键状态的枚举对象。 |
-| [void OH_Input_SetKeyCode(struct Input_KeyState* keyState, int32_t keyCode)](#oh_input_setkeycode) | - | 设置按键状态对象的键值。 |
-| [int32_t OH_Input_GetKeyCode(const struct Input_KeyState* keyState)](#oh_input_getkeycode) | - | 获取按键状态对象的键值。 |
-| [void OH_Input_SetKeyPressed(struct Input_KeyState* keyState, int32_t keyAction)](#oh_input_setkeypressed) | - | 设置按键状态对象的按键是否按下。 |
-| [int32_t OH_Input_GetKeyPressed(const struct Input_KeyState* keyState)](#oh_input_getkeypressed) | - | 获取按键状态对象的按键是否按下。 |
-| [void OH_Input_SetKeySwitch(struct Input_KeyState* keyState, int32_t keySwitch)](#oh_input_setkeyswitch) | - | 设置按键状态对象的按键开关。 |
-| [int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState)](#oh_input_getkeyswitch) | - | 获取按键状态对象的按键开关。 |
-| [int32_t OH_Input_InjectKeyEvent(const struct Input_KeyEvent* keyEvent)](#oh_input_injectkeyevent) | - | 注入按键事件。 |
-| [struct Input_KeyEvent* OH_Input_CreateKeyEvent()](#oh_input_createkeyevent) | - | 创建按键事件对象。通过调用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)销毁按键事件对象。 |
-| [void OH_Input_DestroyKeyEvent(struct Input_KeyEvent** keyEvent)](#oh_input_destroykeyevent) | - | 销毁按键事件对象。 |
-| [void OH_Input_SetKeyEventAction(struct Input_KeyEvent* keyEvent, int32_t action)](#oh_input_setkeyeventaction) | - | 设置按键事件类型。 |
-| [int32_t OH_Input_GetKeyEventAction(const struct Input_KeyEvent* keyEvent)](#oh_input_getkeyeventaction) | - | 获取按键事件类型。 |
-| [void OH_Input_SetKeyEventKeyCode(struct Input_KeyEvent* keyEvent, int32_t keyCode)](#oh_input_setkeyeventkeycode) | - | 设置按键事件的键值。 |
-| [int32_t OH_Input_GetKeyEventKeyCode(const struct Input_KeyEvent* keyEvent)](#oh_input_getkeyeventkeycode) | - | 获取按键事件的键值。 |
-| [void OH_Input_SetKeyEventActionTime(struct Input_KeyEvent* keyEvent, int64_t actionTime)](#oh_input_setkeyeventactiontime) | - | 设置按键事件发生的时间。 |
-| [int64_t OH_Input_GetKeyEventActionTime(const struct Input_KeyEvent* keyEvent)](#oh_input_getkeyeventactiontime) | - | 获取按键事件发生的时间。 |
-| [void OH_Input_SetKeyEventWindowId(struct Input_KeyEvent* keyEvent, int32_t windowId)](#oh_input_setkeyeventwindowid) | - | 设置按键事件的窗口ID。 |
-| [int32_t OH_Input_GetKeyEventWindowId(const struct Input_KeyEvent* keyEvent)](#oh_input_getkeyeventwindowid) | - | 获取按键事件的窗口ID。 |
-| [void OH_Input_SetKeyEventDisplayId(struct Input_KeyEvent* keyEvent, int32_t displayId)](#oh_input_setkeyeventdisplayid) | - | 设置按键事件的屏幕ID。 |
-| [int32_t OH_Input_GetKeyEventDisplayId(const struct Input_KeyEvent* keyEvent)](#oh_input_getkeyeventdisplayid) | - | 获取按键事件的屏幕ID。 |
-| [struct Input_MouseEvent* OH_Input_CreateMouseEvent()](#oh_input_createmouseevent) | - | 创建鼠标事件对象。通过调用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)销毁鼠标事件对象。 |
-| [void OH_Input_DestroyMouseEvent(struct Input_MouseEvent** mouseEvent)](#oh_input_destroymouseevent) | - | 销毁鼠标事件对象。 |
-| [void OH_Input_SetMouseEventAction(struct Input_MouseEvent* mouseEvent, int32_t action)](#oh_input_setmouseeventaction) | - | 设置鼠标事件的动作。 |
-| [int32_t OH_Input_GetMouseEventAction(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventaction) | - | 获取鼠标事件的动作。 |
-| [void OH_Input_SetMouseEventDisplayX(struct Input_MouseEvent* mouseEvent, int32_t displayX)](#oh_input_setmouseeventdisplayx) | - | 设置鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
-| [int32_t OH_Input_GetMouseEventDisplayX(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventdisplayx) | - | 获取鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
-| [void OH_Input_SetMouseEventDisplayY(struct Input_MouseEvent* mouseEvent, int32_t displayY)](#oh_input_setmouseeventdisplayy) | - | 设置鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
-| [int32_t OH_Input_GetMouseEventDisplayY(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventdisplayy) | - | 获取鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
-| [void OH_Input_SetMouseEventButton(struct Input_MouseEvent* mouseEvent, int32_t button)](#oh_input_setmouseeventbutton) | - | 设置鼠标事件的按键。 |
-| [int32_t OH_Input_GetMouseEventButton(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventbutton) | - | 获取鼠标事件的按键。 |
-| [void OH_Input_SetMouseEventAxisType(struct Input_MouseEvent* mouseEvent, int32_t axisType)](#oh_input_setmouseeventaxistype) | - | 设置鼠标轴事件的类型。 |
-| [int32_t OH_Input_GetMouseEventAxisType(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventaxistype) | - | 获取鼠标轴事件的类型。 |
-| [void OH_Input_SetMouseEventAxisValue(struct Input_MouseEvent* mouseEvent, float axisValue)](#oh_input_setmouseeventaxisvalue) | - | 设置鼠标轴事件的值。 |
-| [float OH_Input_GetMouseEventAxisValue(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventaxisvalue) | - | 获取鼠标轴事件的值。 |
-| [void OH_Input_SetMouseEventActionTime(struct Input_MouseEvent* mouseEvent, int64_t actionTime)](#oh_input_setmouseeventactiontime) | - | 设置鼠标事件发生的时间。 |
-| [int64_t OH_Input_GetMouseEventActionTime(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventactiontime) | - | 获取鼠标事件发生的时间。 |
-| [void OH_Input_SetMouseEventWindowId(struct Input_MouseEvent* mouseEvent, int32_t windowId)](#oh_input_setmouseeventwindowid) | - | 设置鼠标事件的窗口ID。 |
-| [int32_t OH_Input_GetMouseEventWindowId(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventwindowid) | - | 获取鼠标事件的窗口ID。 |
-| [void OH_Input_SetMouseEventDisplayId(struct Input_MouseEvent* mouseEvent, int32_t displayId)](#oh_input_setmouseeventdisplayid) | - | 设置鼠标事件的屏幕ID。 |
-| [struct Input_TouchEvent* OH_Input_CreateTouchEvent()](#oh_input_createtouchevent) | - | 创建触屏输入事件对象。通过调用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)销毁触屏输入事件对象。 |
-| [void OH_Input_DestroyTouchEvent(struct Input_TouchEvent** touchEvent)](#oh_input_destroytouchevent) | - | 销毁触屏输入事件对象。 |
-| [void OH_Input_SetTouchEventAction(struct Input_TouchEvent* touchEvent, int32_t action)](#oh_input_settoucheventaction) | - | 设置触屏输入事件的动作。 |
-| [int32_t OH_Input_GetTouchEventAction(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventaction) | - | 获取触屏输入事件的动作。 |
-| [void OH_Input_SetTouchEventFingerId(struct Input_TouchEvent* touchEvent, int32_t id)](#oh_input_settoucheventfingerid) | - | 设置触屏输入事件的手指ID。 |
-| [int32_t OH_Input_GetTouchEventFingerId(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventfingerid) | - | 获取触屏输入事件的手指ID。 |
-| [void OH_Input_SetTouchEventDisplayX(struct Input_TouchEvent* touchEvent, int32_t displayX)](#oh_input_settoucheventdisplayx) | - | 设置触屏输入事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
-| [int32_t OH_Input_GetTouchEventDisplayX(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventdisplayx) | - | 获取触屏输入事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
-| [void OH_Input_SetTouchEventDisplayY(struct Input_TouchEvent* touchEvent, int32_t displayY)](#oh_input_settoucheventdisplayy) | - | 设置触屏输入事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
-| [int32_t OH_Input_GetTouchEventDisplayY(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventdisplayy) | - | 获取触屏输入事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
-| [void OH_Input_SetTouchEventActionTime(struct Input_TouchEvent* touchEvent, int64_t actionTime)](#oh_input_settoucheventactiontime) | - | 设置触屏输入事件发生的时间。 |
-| [int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventactiontime) | - | 获取触屏输入事件发生的时间。 |
-| [void OH_Input_SetTouchEventWindowId(struct Input_TouchEvent* touchEvent, int32_t windowId)](#oh_input_settoucheventwindowid) | - | 设置触屏输入事件的窗口ID。 |
-| [int32_t OH_Input_GetTouchEventWindowId(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventwindowid) | - | 获取触屏输入事件的窗口ID。 |
-| [void OH_Input_SetTouchEventDisplayId(struct Input_TouchEvent* touchEvent, int32_t displayId)](#oh_input_settoucheventdisplayid) | - | 设置触屏输入事件的屏幕ID。 |
-| [int32_t OH_Input_GetTouchEventDisplayId(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventdisplayid) | - | 获取触屏输入事件的屏幕ID。 |
-| [void OH_Input_CancelInjection()](#oh_input_cancelinjection) | - | 取消事件注入并撤销授权。 |
-| [Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback)](#oh_input_requestinjection) | - | 当前应用申请注入权限，包括申请注入按键事件[OH_Input_InjectKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#oh_input_injectkeyevent)、注入触屏输入事件[OH_Input_InjectTouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#oh_input_injecttouchevent)、注入鼠标事件[OH_Input_InjectMouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#oh_input_injectmouseevent)等注入操作的权限。 |
-| [Input_Result OH_Input_QueryAuthorizedStatus(Input_InjectionStatus* status)](#oh_input_queryauthorizedstatus) | - | 查询当前应用注入的权限状态。 |
-| [Input_AxisEvent* OH_Input_CreateAxisEvent(void)](#oh_input_createaxisevent) | - | 创建轴事件对象。通过调用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)销毁轴事件对象。 |
-| [Input_Result OH_Input_DestroyAxisEvent(Input_AxisEvent** axisEvent)](#oh_input_destroyaxisevent) | - | 销毁轴事件对象。 |
-| [Input_Result OH_Input_SetAxisEventAction(Input_AxisEvent* axisEvent, InputEvent_AxisAction action)](#oh_input_setaxiseventaction) | - | 设置轴事件的动作。 |
-| [Input_Result OH_Input_GetAxisEventAction(const Input_AxisEvent* axisEvent, InputEvent_AxisAction *action)](#oh_input_getaxiseventaction) | - | 获取轴事件的动作。 |
-| [Input_Result OH_Input_SetAxisEventDisplayX(Input_AxisEvent* axisEvent, float displayX)](#oh_input_setaxiseventdisplayx) | - | 设置轴事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
-| [Input_Result OH_Input_GetAxisEventDisplayX(const Input_AxisEvent* axisEvent, float* displayX)](#oh_input_getaxiseventdisplayx) | - | 获取轴事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
-| [Input_Result OH_Input_SetAxisEventDisplayY(Input_AxisEvent* axisEvent, float displayY)](#oh_input_setaxiseventdisplayy) | - | 设置轴事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
-| [Input_Result OH_Input_GetAxisEventDisplayY(const Input_AxisEvent* axisEvent, float* displayY)](#oh_input_getaxiseventdisplayy) | - | 获取轴事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
-| [Input_Result OH_Input_SetAxisEventAxisValue(Input_AxisEvent* axisEvent,InputEvent_AxisType axisType, double axisValue)](#oh_input_setaxiseventaxisvalue) | - | 设置轴事件指定轴类型的轴值。 |
-| [Input_Result OH_Input_GetAxisEventAxisValue(const Input_AxisEvent* axisEvent,InputEvent_AxisType axisType, double* axisValue)](#oh_input_getaxiseventaxisvalue) | - | 获取轴事件指定轴类型的轴值。 |
-| [Input_Result OH_Input_SetAxisEventActionTime(Input_AxisEvent* axisEvent, int64_t actionTime)](#oh_input_setaxiseventactiontime) | - | 设置轴事件发生的时间。 |
-| [Input_Result OH_Input_GetAxisEventActionTime(const Input_AxisEvent* axisEvent, int64_t* actionTime)](#oh_input_getaxiseventactiontime) | - | 获取轴事件发生的时间。 |
-| [Input_Result OH_Input_SetAxisEventType(Input_AxisEvent* axisEvent, InputEvent_AxisEventType axisEventType)](#oh_input_setaxiseventtype) | - | 设置轴事件类型。 |
-| [Input_Result OH_Input_GetAxisEventType(const Input_AxisEvent* axisEvent, InputEvent_AxisEventType* axisEventType)](#oh_input_getaxiseventtype) | - | 获取轴事件类型。 |
-| [Input_Result OH_Input_SetAxisEventSourceType(Input_AxisEvent* axisEvent, InputEvent_SourceType sourceType)](#oh_input_setaxiseventsourcetype) | - | 设置轴事件源类型。 |
-| [Input_Result OH_Input_GetAxisEventSourceType(const Input_AxisEvent* axisEvent, InputEvent_SourceType* sourceType)](#oh_input_getaxiseventsourcetype) | - | 获取轴事件源类型。 |
-| [Input_Result OH_Input_SetAxisEventWindowId(Input_AxisEvent* axisEvent, int32_t windowId)](#oh_input_setaxiseventwindowid) | - | 设置轴事件的窗口ID。 |
-| [Input_Result OH_Input_GetAxisEventWindowId(const Input_AxisEvent* axisEvent, int32_t* windowId)](#oh_input_getaxiseventwindowid) | - | 获取轴事件的窗口ID。 |
-| [Input_Result OH_Input_SetAxisEventDisplayId(Input_AxisEvent* axisEvent, int32_t displayId)](#oh_input_setaxiseventdisplayid) | - | 设置轴事件的屏幕ID。 |
-| [Input_Result OH_Input_GetAxisEventDisplayId(const Input_AxisEvent* axisEvent, int32_t* displayId)](#oh_input_getaxiseventdisplayid) | - | 获取轴事件的屏幕ID。 |
-| [Input_Result OH_Input_AddKeyEventMonitor(Input_KeyEventCallback callback)](#oh_input_addkeyeventmonitor) | - | 添加按键事件监听。重复添加只有第一次生效，后续添加请求将被忽略。 |
-| [Input_Result OH_Input_AddMouseEventMonitor(Input_MouseEventCallback callback)](#oh_input_addmouseeventmonitor) | - | 添加鼠标事件监听，包含鼠标点击，移动，不包含滚轮事件，滚轮事件归属于轴事件。 |
-| [Input_Result OH_Input_AddTouchEventMonitor(Input_TouchEventCallback callback)](#oh_input_addtoucheventmonitor) | - | 添加触屏输入事件监听。 |
-| [Input_Result OH_Input_AddAxisEventMonitorForAll(Input_AxisEventCallback callback)](#oh_input_addaxiseventmonitorforall) | - | 添加所有类型轴事件监听，轴事件类型定义在[InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)中。 |
-| [Input_Result OH_Input_AddAxisEventMonitor(InputEvent_AxisEventType axisEventType, Input_AxisEventCallback callback)](#oh_input_addaxiseventmonitor) | - | 添加指定类型的轴事件监听，轴事件类型定义在[InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)中。 |
-| [Input_Result OH_Input_RemoveKeyEventMonitor(Input_KeyEventCallback callback)](#oh_input_removekeyeventmonitor) | - | 移除按键事件监听。 |
-| [Input_Result OH_Input_RemoveMouseEventMonitor(Input_MouseEventCallback callback)](#oh_input_removemouseeventmonitor) | - | 移除鼠标事件监听。 |
-| [Input_Result OH_Input_RemoveTouchEventMonitor(Input_TouchEventCallback callback)](#oh_input_removetoucheventmonitor) | - | 移除触屏输入事件监听。 |
-| [Input_Result OH_Input_RemoveAxisEventMonitorForAll(Input_AxisEventCallback callback)](#oh_input_removeaxiseventmonitorforall) | - | 移除所有类型轴事件监听。 |
-| [Input_Result OH_Input_RemoveAxisEventMonitor(InputEvent_AxisEventType axisEventType, Input_AxisEventCallback callback)](#oh_input_removeaxiseventmonitor) | - | 移除指定类型轴事件监听，轴事件类型定义在[InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)中。 |
-| [Input_Result OH_Input_AddKeyEventInterceptor(Input_KeyEventCallback callback, Input_InterceptorOptions *option)](#oh_input_addkeyeventinterceptor) | - | 添加按键事件的拦截，重复添加只有第一次生效，后续添加请求返回错误码[INPUT_REPEAT_INTERCEPTOR](#input_result)。仅在应用获焦时拦截按键事件。 |
-| [Input_Result OH_Input_AddInputEventInterceptor(Input_InterceptorEventCallback *callback,Input_InterceptorOptions *option)](#oh_input_addinputeventinterceptor) | - | 添加输入事件拦截，包括鼠标、触屏和轴事件。重复添加只有第一次生效，后续添加请求返回错误码[INPUT_REPEAT_INTERCEPTOR](#input_result)。仅命中应用窗口时拦截输入事件。 |
-| [Input_Result OH_Input_RemoveKeyEventInterceptor(void)](#oh_input_removekeyeventinterceptor) | - | 移除按键事件拦截。 |
-| [Input_Result OH_Input_RemoveInputEventInterceptor(void)](#oh_input_removeinputeventinterceptor) | - | 移除输入事件拦截，包括鼠标、触屏和轴事件。 |
-| [Input_Result OH_Input_GetIntervalSinceLastInput(int64_t *timeInterval)](#oh_input_getintervalsincelastinput) | - | 获取距离上次系统输入事件的时间间隔。 |
-| [Input_Hotkey *OH_Input_CreateHotkey(void)](#oh_input_createhotkey) | - | 创建快捷键对象。通过调用[OH_Input_DestroyHotkey](#oh_input_destroyhotkey)销毁快捷键对象。 |
-| [void OH_Input_DestroyHotkey(Input_Hotkey **hotkey)](#oh_input_destroyhotkey) | - | 销毁快捷键对象。 |
-| [void OH_Input_SetPreKeys(Input_Hotkey *hotkey, int32_t *preKeys, int32_t size)](#oh_input_setprekeys) | - | 设置修饰键。 |
-| [Input_Result OH_Input_GetPreKeys(const Input_Hotkey *hotkey, int32_t **preKeys, int32_t *preKeyCount)](#oh_input_getprekeys) | - | 获取修饰键。 |
-| [void OH_Input_SetFinalKey(Input_Hotkey* hotkey, int32_t finalKey)](#oh_input_setfinalkey) | - | 设置被修饰键。 |
-| [Input_Result OH_Input_GetFinalKey(const Input_Hotkey* hotkey, int32_t *finalKeyCode)](#oh_input_getfinalkey) | - | 获取被修饰键。 |
-| [Input_Hotkey **OH_Input_CreateAllSystemHotkeys(int32_t count)](#oh_input_createallsystemhotkeys) | - | 创建[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)类型实例的数组。通过调用[OH_Input_DestroyAllSystemHotkeys](#oh_input_destroyallsystemhotkeys)销毁[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)实例数组并回收内存。 |
-| [void OH_Input_DestroyAllSystemHotkeys(Input_Hotkey **hotkeys, int32_t count)](#oh_input_destroyallsystemhotkeys) | - | 销毁[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)实例数组并回收内存。 |
-| [Input_Result OH_Input_GetAllSystemHotkeys(Input_Hotkey **hotkey, int32_t *count)](#oh_input_getallsystemhotkeys) | - | 获取设置的所有快捷键。 |
-| [void OH_Input_SetRepeat(Input_Hotkey* hotkey, bool isRepeat)](#oh_input_setrepeat) | - | 设置是否上报重复key事件。 |
-| [Input_Result OH_Input_GetRepeat(const Input_Hotkey* hotkey, bool *isRepeat)](#oh_input_getrepeat) | - | 获取是否上报重复key事件。 |
-| [Input_Result OH_Input_AddHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyCallback callback)](#oh_input_addhotkeymonitor) | - | 订阅快捷键事件。 |
-| [Input_Result OH_Input_RemoveHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyCallback callback)](#oh_input_removehotkeymonitor) | - | 取消订阅快捷键。 |
-| [Input_Result OH_Input_RegisterDeviceListener(Input_DeviceListener* listener)](#oh_input_registerdevicelistener) | - | 注册设备热插拔的监听器。 |
-| [Input_Result OH_Input_UnregisterDeviceListener(Input_DeviceListener* listener)](#oh_input_unregisterdevicelistener) | - | 取消注册设备热插拔的监听。 |
-| [Input_Result OH_Input_UnregisterDeviceListeners()](#oh_input_unregisterdevicelisteners) | - | 取消注册所有的设备热插拔的监听。 |
-| [Input_Result OH_Input_GetDeviceIds(int32_t *deviceIds, int32_t inSize, int32_t *outSize)](#oh_input_getdeviceids) | - | 获取所有输入设备的ID列表。 |
-| [Input_Result OH_Input_GetDevice(int32_t deviceId, Input_DeviceInfo **deviceInfo)](#oh_input_getdevice) | - | 获取输入设备信息。 |
-| [Input_DeviceInfo* OH_Input_CreateDeviceInfo(void)](#oh_input_createdeviceinfo) | - | 创建输入设备信息的对象。通过调用[OH_Input_DestroyDeviceInfo](#oh_input_destroydeviceinfo)销毁输入设备信息的对象。 |
-| [void OH_Input_DestroyDeviceInfo(Input_DeviceInfo **deviceInfo)](#oh_input_destroydeviceinfo) | - | 销毁输入设备信息的对象。 |
-| [Input_Result OH_Input_GetKeyboardType(int32_t deviceId, int32_t *keyboardType)](#oh_input_getkeyboardtype) | - | 获取输入设备的键盘类型。 |
-| [Input_Result OH_Input_GetDeviceId(Input_DeviceInfo *deviceInfo, int32_t *id)](#oh_input_getdeviceid) | - | 获取输入设备的ID。 |
-| [Input_Result OH_Input_GetDeviceName(Input_DeviceInfo *deviceInfo, char **name)](#oh_input_getdevicename) | - | 获取输入设备的名称。 |
-| [Input_Result OH_Input_GetCapabilities(Input_DeviceInfo *deviceInfo, int32_t *capabilities)](#oh_input_getcapabilities) | - | 获取有关输入设备能力信息，比如设备是触摸屏、触控板、键盘等。 |
-| [Input_Result OH_Input_GetDeviceVersion(Input_DeviceInfo *deviceInfo, int32_t *version)](#oh_input_getdeviceversion) | - | 获取输入设备的版本信息。 |
-| [Input_Result OH_Input_GetDeviceProduct(Input_DeviceInfo *deviceInfo, int32_t *product)](#oh_input_getdeviceproduct) | - | 获取输入设备的产品信息。 |
-| [Input_Result OH_Input_GetDeviceVendor(Input_DeviceInfo *deviceInfo, int32_t *vendor)](#oh_input_getdevicevendor) | - | 获取输入设备的厂商信息。 |
-| [Input_Result OH_Input_GetDeviceAddress(Input_DeviceInfo *deviceInfo, char **address)](#oh_input_getdeviceaddress) | - | 获取输入设备的物理地址。 |
-| [Input_Result OH_Input_GetFunctionKeyState(int32_t keyCode, int32_t *state)](#oh_input_getfunctionkeystate) | - | 获取功能键状态。 |
-| [int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent)](#oh_input_injecttouchevent) | - | 使用以指定屏幕左上角为原点的相对坐标系的坐标注入触屏输入事件。 |
-| [int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent)](#oh_input_injectmouseevent) | - | 使用以指定屏幕左上角为原点的相对坐标系的坐标注入鼠标事件。 |
-| [int32_t OH_Input_GetMouseEventDisplayId(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventdisplayid) | - | 获取鼠标事件的屏幕ID。 |
-| [Input_Result OH_Input_QueryMaxTouchPoints(int32_t *count)](#oh_input_querymaxtouchpoints) | - | 查询设备支持的最大触屏报点数。 |
-| [int32_t OH_Input_InjectMouseEventGlobal(const struct Input_MouseEvent* mouseEvent)](#oh_input_injectmouseeventglobal) | - | 使用以主屏左上角为原点的全局坐标系的坐标注入鼠标事件。 |
-| [void OH_Input_SetMouseEventGlobalX(struct Input_MouseEvent* mouseEvent, int32_t globalX)](#oh_input_setmouseeventglobalx) | - | 设置鼠标事件以主屏左上角为原点的全局坐标系的X坐标。 |
-| [int32_t OH_Input_GetMouseEventGlobalX(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventglobalx) | - | 获取鼠标事件以主屏左上角为原点的全局坐标系的X坐标。 |
-| [void OH_Input_SetMouseEventGlobalY(struct Input_MouseEvent* mouseEvent, int32_t globalY)](#oh_input_setmouseeventglobaly) | - | 设置鼠标事件以主屏左上角为原点的全局坐标系的Y坐标。 |
-| [int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent)](#oh_input_getmouseeventglobaly) | - | 获取鼠标事件以主屏左上角为原点的全局坐标系的Y坐标。 |
-| [int32_t OH_Input_InjectTouchEventGlobal(const struct Input_TouchEvent* touchEvent)](#oh_input_injecttoucheventglobal) | - | 使用以主屏左上角为原点的全局坐标系的坐标注入触屏输入事件。 |
-| [void OH_Input_SetTouchEventGlobalX(struct Input_TouchEvent* touchEvent, int32_t globalX)](#oh_input_settoucheventglobalx) | - | 设置触屏输入事件以主屏左上角为原点的全局坐标系的X坐标。 |
-| [int32_t OH_Input_GetTouchEventGlobalX(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventglobalx) | - | 获取触屏输入事件以主屏左上角为原点的全局坐标系的X坐标。 |
-| [void OH_Input_SetTouchEventGlobalY(struct Input_TouchEvent* touchEvent, int32_t globalY)](#oh_input_settoucheventglobaly) | - | 设置触屏输入事件以主屏左上角为原点的全局坐标系的Y坐标。 |
-| [int32_t OH_Input_GetTouchEventGlobalY(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventglobaly) | - | 获取触屏输入事件以主屏左上角为原点的全局坐标系的Y坐标。 |
-| [Input_Result OH_Input_SetAxisEventGlobalX(struct Input_AxisEvent* axisEvent, int32_t globalX)](#oh_input_setaxiseventglobalx) | - | 设置轴事件以主屏左上角为原点的全局坐标系的X坐标。 |
-| [Input_Result OH_Input_GetAxisEventGlobalX(const Input_AxisEvent* axisEvent, int32_t* globalX)](#oh_input_getaxiseventglobalx) | - | 获取轴事件以主屏左上角为原点的全局坐标系的X坐标。 |
-| [Input_Result OH_Input_SetAxisEventGlobalY(struct Input_AxisEvent* axisEvent, int32_t globalY)](#oh_input_setaxiseventglobaly) | - | 设置轴事件以主屏左上角为原点的全局坐标系的Y坐标。 |
-| [Input_Result OH_Input_GetAxisEventGlobalY(const Input_AxisEvent* axisEvent, int32_t* globalY)](#oh_input_getaxiseventglobaly) | - | 获取轴事件以主屏左上角为原点的全局坐标系的Y坐标。 |
-| [Input_Result OH_Input_GetPointerLocation(int32_t *displayId, double *displayX, double *displayY)](#oh_input_getpointerlocation) | - | 获取鼠标在屏幕上的坐标点。 |
-| [Input_Result OH_Input_GetKeyEventId(const struct Input_KeyEvent* keyEvent, int32_t* eventId)](#oh_input_getkeyeventid) | - | 获取按键事件的ID。 |
-| [Input_Result OH_Input_AddKeyEventHook(Input_KeyEventCallback callback)](#oh_input_addkeyeventhook) | - | 添加一个按键事件拦截钩子函数。 |
-| [Input_Result OH_Input_RemoveKeyEventHook(Input_KeyEventCallback callback)](#oh_input_removekeyeventhook) | - | 移除按键事件拦截钩子函数。 |
-| [Input_Result OH_Input_DispatchToNextHandler(int32_t eventId)](#oh_input_dispatchtonexthandler) | - | 重新分发按键事件。 |
-| [Input_Result OH_Input_SetPointerVisible(bool visible)](#oh_input_setpointervisible) | - | 设置当前窗口的鼠标光标的显示或隐藏状态。 |
-| [Input_Result OH_Input_GetPointerStyle(int32_t windowId, int32_t *pointerStyle)](#oh_input_getpointerstyle) | - | 获取指定窗口的鼠标光标样式。 |
-| [Input_Result OH_Input_SetPointerStyle(int32_t windowId, int32_t pointerStyle)](#oh_input_setpointerstyle) | - | 设置指定窗口的鼠标光标样式。 |
-| [Input_CustomCursor* OH_Input_CustomCursor_Create(OH_PixelmapNative* pixelMap, int32_t anchorX, int32_t anchorY)](#oh_input_customcursor_create) | - | 创建自定义鼠标光标资源对象。通过调用[OH_Input_CustomCursor_Destroy](#oh_input_customcursor_destroy)销毁自定义鼠标光标资源对象。 |
-| [void OH_Input_CustomCursor_Destroy(Input_CustomCursor** customCursor)](#oh_input_customcursor_destroy) | - | 销毁自定义鼠标光标资源对象。 |
-| [Input_Result OH_Input_CustomCursor_GetPixelMap(Input_CustomCursor* customCursor, OH_PixelmapNative** pixelMap)](#oh_input_customcursor_getpixelmap) | - | 获取指定自定义鼠标光标资源的自定义鼠标光标像素图。 |
-| [Input_Result OH_Input_CustomCursor_GetAnchor(Input_CustomCursor* customCursor, int32_t* anchorX, int32_t* anchorY)](#oh_input_customcursor_getanchor) | - | 获取指定自定义鼠标光标资源的焦点坐标。 |
-| [Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem)](#oh_input_cursorconfig_create) | - | 创建自定义鼠标光标配置对象。通过调用[OH_Input_CursorConfig_Destroy](#oh_input_cursorconfig_destroy)销毁自定义鼠标光标配置对象。 |
-| [void OH_Input_CursorConfig_Destroy(Input_CursorConfig** cursorConfig)](#oh_input_cursorconfig_destroy) | - | 销毁自定义鼠标光标配置对象。 |
-| [Input_Result OH_Input_CursorConfig_IsFollowSystem(Input_CursorConfig *cursorConfig, bool *followSystem)](#oh_input_cursorconfig_isfollowsystem) | - | 查询自定义鼠标光标配置是否跟随系统设置调整光标大小。 |
-| [Input_Result OH_Input_SetCustomCursor(int32_t windowId, Input_CustomCursor* customCursor, Input_CursorConfig* cursorConfig)](#oh_input_setcustomcursor) | - | 设置自定义鼠标光标样式。 |
-| [struct Input_CursorInfo* OH_Input_CursorInfo_Create()](#oh_input_cursorinfo_create) | - | 创建鼠标光标信息对象。通过调用[OH_Input_CursorInfo_Destroy](#oh_input_cursorinfo_destroy)销毁鼠标光标信息对象。 |
-| [void OH_Input_CursorInfo_Destroy(Input_CursorInfo** cursorInfo)](#oh_input_cursorinfo_destroy) | - | 销毁鼠标光标信息对象。 |
-| [Input_Result OH_Input_CursorInfo_IsVisible(Input_CursorInfo* cursorInfo, bool* visible)](#oh_input_cursorinfo_isvisible) | - | 获取指定鼠标光标信息对象对应的光标显示状态。 |
-| [Input_Result OH_Input_CursorInfo_GetStyle(Input_CursorInfo* cursorInfo, Input_PointerStyle* style)](#oh_input_cursorinfo_getstyle) | - | 获取指定鼠标光标信息对象对应的光标样式。 |
-| [Input_Result OH_Input_CursorInfo_GetSizeLevel(Input_CursorInfo* cursorInfo, int32_t* sizeLevel)](#oh_input_cursorinfo_getsizelevel) | - | 获取指定鼠标光标信息对象对应的光标大小档位。 |
-| [Input_Result OH_Input_CursorInfo_GetColor(Input_CursorInfo* cursorInfo, uint32_t* color)](#oh_input_cursorinfo_getcolor) | - | 获取指定鼠标光标信息对象对应的光标颜色, 使用32位ARGB整数表示。 |
-| [Input_Result OH_Input_GetMouseEventCursorInfo(const struct Input_MouseEvent* mouseEvent, Input_CursorInfo* cursorInfo)](#oh_input_getmouseeventcursorinfo) | - | 获取鼠标事件的鼠标光标信息，包括光标显示状态、光标样式、光标大小档位、光标颜色。 |
-| [Input_Result OH_Input_GetCursorInfo(Input_CursorInfo* cursorInfo, OH_PixelmapNative** pixelmap)](#oh_input_getcursorinfo) | - | 查询当前鼠标光标信息，包括光标显示状态、光标样式、光标大小档位、光标颜色。如果pixelmap参数非空，且光标样式为[DEVELOPER_DEFINED_ICON](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h#input_pointerstyle)，则会同时返回光标的PixelMap位图对象。 |
-| [Input_Result OH_Input_SetTouchEventPressure(struct Input_TouchEvent* touchEvent, double pressure)](#oh_input_settoucheventpressure) | - | 设置触屏输入事件的压力。 |
-| [double OH_Input_GetTouchEventPressure(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventpressure) | - | 获取触屏输入事件的压力。 |
-| [void OH_Input_SetTouchEventWindowX(struct Input_TouchEvent* touchEvent, int32_t windowX)](#oh_input_settoucheventwindowx) | - | 设置触屏输入事件以指定窗口左上角为原点的相对坐标系的X坐标。 |
-| [int32_t OH_Input_GetTouchEventWindowX(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventwindowx) | - | 获取触屏输入事件以指定窗口左上角为原点的相对坐标系的X坐标。 |
-| [void OH_Input_SetTouchEventWindowY(struct Input_TouchEvent* touchEvent, int32_t windowY)](#oh_input_settoucheventwindowy) | - | 设置触屏输入事件以指定窗口左上角为原点的相对坐标系的Y坐标。 |
-| [int32_t OH_Input_GetTouchEventWindowY(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventwindowy) | - | 获取触屏输入事件以指定窗口左上角为原点的相对坐标系的Y坐标。 |
-| [void OH_Input_SetTouchEventDownTime(struct Input_TouchEvent* touchEvent, int64_t downTime)](#oh_input_settoucheventdowntime) | - | 设置当前触屏事件对应手指/其他触屏外设最近一次按下事件发生的时间。 |
-| [int64_t OH_Input_GetTouchEventDownTime(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventdowntime) | - | 获取当前触屏事件对应手指/其他触屏外设最近一次按下事件发生的时间。 |
-| [Input_Result OH_Input_SetTouchEventToolType(struct Input_TouchEvent* touchEvent, Input_TouchEventToolType toolType)](#oh_input_settoucheventtooltype) | - | 设置触屏输入事件的工具类型。 |
-| [Input_TouchEventToolType OH_Input_GetTouchEventToolType(const struct Input_TouchEvent* touchEvent)](#oh_input_gettoucheventtooltype) | - | 获取触屏输入事件的工具类型。 |
+| Input_KeyStateAction | Input_KeyStateAction | 按键状态的枚举值。 |
+| Input_KeyEventAction | Input_KeyEventAction | 按键事件类型的枚举值。 |
+| Input_MouseEventAction | Input_MouseEventAction | 鼠标动作的枚举值。 |
+| InputEvent_MouseAxis | InputEvent_MouseAxis | 鼠标轴事件类型。 |
+| Input_MouseEventButton | Input_MouseEventButton | 鼠标按键的枚举值。 |
+| Input_TouchEventAction | Input_TouchEventAction | 触屏动作的枚举值。 |
+| Input_InjectionStatus | Input_InjectionStatus | 注入权限状态枚举值。 |
+| InputEvent_SourceType | InputEvent_SourceType | 输入事件源类型。 |
+| Input_KeyboardType | Input_KeyboardType | 输入设备的键盘类型。 |
+| Input_Result | Input_Result | 返回值枚举值。 |
+| Input_TouchEventToolType | Input_TouchEventToolType | 输入设备的触屏事件工具类型。 |
 
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### Input_KeyStateAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数
 
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| typedef void (*Input_HotkeyCallback)(Input_Hotkey* hotkey) | Input_HotkeyCallback | 回调函数，用于回调快捷键事件。 |
+| typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent) | Input_KeyEventCallback | 按键事件的回调函数，keyEvent的生命周期为回调函数内。 |
+| typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent) | Input_MouseEventCallback | 鼠标事件的回调函数，mouseEvent的生命周期为回调函数内。 |
+| typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent) | Input_TouchEventCallback | 触屏输入事件的回调函数，touchEvent的生命周期为回调函数内。 |
+| typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent) | Input_AxisEventCallback | 轴事件的回调函数，axisEvent的生命周期为回调函数内。 |
+| typedef void (*Input_DeviceAddedCallback)(int32_t deviceId) | Input_DeviceAddedCallback | 回调函数，用于回调输入设备的热插事件。 |
+| typedef void (*Input_DeviceRemovedCallback)(int32_t deviceId) | Input_DeviceRemovedCallback | 回调函数，用于回调输入设备的热拔事件。 |
+| typedef void (*Input_InjectAuthorizeCallback)(Input_InjectionStatus authorizedStatus) | Input_InjectAuthorizeCallback | 回调函数，用于获取注入权限状态。 |
+| Input_Result OH_Input_GetKeyState(struct Input_KeyState* keyState) | - | 查询按键状态的枚举对象。 |
+| struct Input_KeyState* OH_Input_CreateKeyState() | - | 创建按键状态的枚举对象。通过调用OH_Input_DestroyKeyState销毁按键状态的枚举对象。 |
+| void OH_Input_DestroyKeyState(struct Input_KeyState** keyState) | - | 销毁按键状态的枚举对象。 |
+| void OH_Input_SetKeyCode(struct Input_KeyState* keyState, int32_t keyCode) | - | 设置按键状态对象的键值。 |
+| int32_t OH_Input_GetKeyCode(const struct Input_KeyState* keyState) | - | 获取按键状态对象的键值。 |
+| void OH_Input_SetKeyPressed(struct Input_KeyState* keyState, int32_t keyAction) | - | 设置按键状态对象的按键是否按下。 |
+| int32_t OH_Input_GetKeyPressed(const struct Input_KeyState* keyState) | - | 获取按键状态对象的按键是否按下。 |
+| void OH_Input_SetKeySwitch(struct Input_KeyState* keyState, int32_t keySwitch) | - | 设置按键状态对象的按键开关。 |
+| int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState) | - | 获取按键状态对象的按键开关。 |
+| int32_t OH_Input_InjectKeyEvent(const struct Input_KeyEvent* keyEvent) | - | 注入按键事件。 |
+| struct Input_KeyEvent* OH_Input_CreateKeyEvent() | - | 创建按键事件对象。通过调用OH_Input_DestroyKeyEvent销毁按键事件对象。 |
+| void OH_Input_DestroyKeyEvent(struct Input_KeyEvent** keyEvent) | - | 销毁按键事件对象。 |
+| void OH_Input_SetKeyEventAction(struct Input_KeyEvent* keyEvent, int32_t action) | - | 设置按键事件类型。 |
+| int32_t OH_Input_GetKeyEventAction(const struct Input_KeyEvent* keyEvent) | - | 获取按键事件类型。 |
+| void OH_Input_SetKeyEventKeyCode(struct Input_KeyEvent* keyEvent, int32_t keyCode) | - | 设置按键事件的键值。 |
+| int32_t OH_Input_GetKeyEventKeyCode(const struct Input_KeyEvent* keyEvent) | - | 获取按键事件的键值。 |
+| void OH_Input_SetKeyEventActionTime(struct Input_KeyEvent* keyEvent, int64_t actionTime) | - | 设置按键事件发生的时间。 |
+| int64_t OH_Input_GetKeyEventActionTime(const struct Input_KeyEvent* keyEvent) | - | 获取按键事件发生的时间。 |
+| void OH_Input_SetKeyEventWindowId(struct Input_KeyEvent* keyEvent, int32_t windowId) | - | 设置按键事件的窗口ID。 |
+| int32_t OH_Input_GetKeyEventWindowId(const struct Input_KeyEvent* keyEvent) | - | 获取按键事件的窗口ID。 |
+| void OH_Input_SetKeyEventDisplayId(struct Input_KeyEvent* keyEvent, int32_t displayId) | - | 设置按键事件的屏幕ID。 |
+| int32_t OH_Input_GetKeyEventDisplayId(const struct Input_KeyEvent* keyEvent) | - | 获取按键事件的屏幕ID。 |
+| struct Input_MouseEvent* OH_Input_CreateMouseEvent() | - | 创建鼠标事件对象。通过调用OH_Input_DestroyMouseEvent销毁鼠标事件对象。 |
+| void OH_Input_DestroyMouseEvent(struct Input_MouseEvent** mouseEvent) | - | 销毁鼠标事件对象。 |
+| void OH_Input_SetMouseEventAction(struct Input_MouseEvent* mouseEvent, int32_t action) | - | 设置鼠标事件的动作。 |
+| int32_t OH_Input_GetMouseEventAction(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件的动作。 |
+| void OH_Input_SetMouseEventDisplayX(struct Input_MouseEvent* mouseEvent, int32_t displayX) | - | 设置鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
+| int32_t OH_Input_GetMouseEventDisplayX(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
+| void OH_Input_SetMouseEventDisplayY(struct Input_MouseEvent* mouseEvent, int32_t displayY) | - | 设置鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
+| int32_t OH_Input_GetMouseEventDisplayY(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
+| void OH_Input_SetMouseEventButton(struct Input_MouseEvent* mouseEvent, int32_t button) | - | 设置鼠标事件的按键。 |
+| int32_t OH_Input_GetMouseEventButton(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件的按键。 |
+| void OH_Input_SetMouseEventAxisType(struct Input_MouseEvent* mouseEvent, int32_t axisType) | - | 设置鼠标轴事件的类型。 |
+| int32_t OH_Input_GetMouseEventAxisType(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标轴事件的类型。 |
+| void OH_Input_SetMouseEventAxisValue(struct Input_MouseEvent* mouseEvent, float axisValue) | - | 设置鼠标轴事件的值。 |
+| float OH_Input_GetMouseEventAxisValue(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标轴事件的值。 |
+| void OH_Input_SetMouseEventActionTime(struct Input_MouseEvent* mouseEvent, int64_t actionTime) | - | 设置鼠标事件发生的时间。 |
+| int64_t OH_Input_GetMouseEventActionTime(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件发生的时间。 |
+| void OH_Input_SetMouseEventWindowId(struct Input_MouseEvent* mouseEvent, int32_t windowId) | - | 设置鼠标事件的窗口ID。 |
+| int32_t OH_Input_GetMouseEventWindowId(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件的窗口ID。 |
+| void OH_Input_SetMouseEventDisplayId(struct Input_MouseEvent* mouseEvent, int32_t displayId) | - | 设置鼠标事件的屏幕ID。 |
+| struct Input_TouchEvent* OH_Input_CreateTouchEvent() | - | 创建触屏输入事件对象。通过调用OH_Input_DestroyTouchEvent销毁触屏输入事件对象。 |
+| void OH_Input_DestroyTouchEvent(struct Input_TouchEvent** touchEvent) | - | 销毁触屏输入事件对象。 |
+| void OH_Input_SetTouchEventAction(struct Input_TouchEvent* touchEvent, int32_t action) | - | 设置触屏输入事件的动作。 |
+| int32_t OH_Input_GetTouchEventAction(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件的动作。 |
+| void OH_Input_SetTouchEventFingerId(struct Input_TouchEvent* touchEvent, int32_t id) | - | 设置触屏输入事件的手指ID。 |
+| int32_t OH_Input_GetTouchEventFingerId(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件的手指ID。 |
+| void OH_Input_SetTouchEventDisplayX(struct Input_TouchEvent* touchEvent, int32_t displayX) | - | 设置触屏输入事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
+| int32_t OH_Input_GetTouchEventDisplayX(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
+| void OH_Input_SetTouchEventDisplayY(struct Input_TouchEvent* touchEvent, int32_t displayY) | - | 设置触屏输入事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
+| int32_t OH_Input_GetTouchEventDisplayY(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
+| void OH_Input_SetTouchEventActionTime(struct Input_TouchEvent* touchEvent, int64_t actionTime) | - | 设置触屏输入事件发生的时间。 |
+| int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件发生的时间。 |
+| void OH_Input_SetTouchEventWindowId(struct Input_TouchEvent* touchEvent, int32_t windowId) | - | 设置触屏输入事件的窗口ID。 |
+| int32_t OH_Input_GetTouchEventWindowId(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件的窗口ID。 |
+| void OH_Input_SetTouchEventDisplayId(struct Input_TouchEvent* touchEvent, int32_t displayId) | - | 设置触屏输入事件的屏幕ID。 |
+| int32_t OH_Input_GetTouchEventDisplayId(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件的屏幕ID。 |
+| void OH_Input_CancelInjection() | - | 取消事件注入并撤销授权。 |
+| Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback) | - | 当前应用申请注入权限，包括申请注入按键事件OH_Input_InjectKeyEvent、注入触屏输入事件OH_Input_InjectTouchEvent、注入鼠标事件OH_Input_InjectMouseEvent等注入操作的权限。 |
+| Input_Result OH_Input_QueryAuthorizedStatus(Input_InjectionStatus* status) | - | 查询当前应用注入的权限状态。 |
+| Input_AxisEvent* OH_Input_CreateAxisEvent(void) | - | 创建轴事件对象。通过调用OH_Input_DestroyAxisEvent销毁轴事件对象。 |
+| Input_Result OH_Input_DestroyAxisEvent(Input_AxisEvent** axisEvent) | - | 销毁轴事件对象。 |
+| Input_Result OH_Input_SetAxisEventAction(Input_AxisEvent* axisEvent, InputEvent_AxisAction action) | - | 设置轴事件的动作。 |
+| Input_Result OH_Input_GetAxisEventAction(const Input_AxisEvent* axisEvent, InputEvent_AxisAction *action) | - | 获取轴事件的动作。 |
+| Input_Result OH_Input_SetAxisEventDisplayX(Input_AxisEvent* axisEvent, float displayX) | - | 设置轴事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
+| Input_Result OH_Input_GetAxisEventDisplayX(const Input_AxisEvent* axisEvent, float* displayX) | - | 获取轴事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
+| Input_Result OH_Input_SetAxisEventDisplayY(Input_AxisEvent* axisEvent, float displayY) | - | 设置轴事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
+| Input_Result OH_Input_GetAxisEventDisplayY(const Input_AxisEvent* axisEvent, float* displayY) | - | 获取轴事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
+| Input_Result OH_Input_SetAxisEventAxisValue(Input_AxisEvent* axisEvent,InputEvent_AxisType axisType, double axisValue) | - | 设置轴事件指定轴类型的轴值。 |
+| Input_Result OH_Input_GetAxisEventAxisValue(const Input_AxisEvent* axisEvent,InputEvent_AxisType axisType, double* axisValue) | - | 获取轴事件指定轴类型的轴值。 |
+| Input_Result OH_Input_SetAxisEventActionTime(Input_AxisEvent* axisEvent, int64_t actionTime) | - | 设置轴事件发生的时间。 |
+| Input_Result OH_Input_GetAxisEventActionTime(const Input_AxisEvent* axisEvent, int64_t* actionTime) | - | 获取轴事件发生的时间。 |
+| Input_Result OH_Input_SetAxisEventType(Input_AxisEvent* axisEvent, InputEvent_AxisEventType axisEventType) | - | 设置轴事件类型。 |
+| Input_Result OH_Input_GetAxisEventType(const Input_AxisEvent* axisEvent, InputEvent_AxisEventType* axisEventType) | - | 获取轴事件类型。 |
+| Input_Result OH_Input_SetAxisEventSourceType(Input_AxisEvent* axisEvent, InputEvent_SourceType sourceType) | - | 设置轴事件源类型。 |
+| Input_Result OH_Input_GetAxisEventSourceType(const Input_AxisEvent* axisEvent, InputEvent_SourceType* sourceType) | - | 获取轴事件源类型。 |
+| Input_Result OH_Input_SetAxisEventWindowId(Input_AxisEvent* axisEvent, int32_t windowId) | - | 设置轴事件的窗口ID。 |
+| Input_Result OH_Input_GetAxisEventWindowId(const Input_AxisEvent* axisEvent, int32_t* windowId) | - | 获取轴事件的窗口ID。 |
+| Input_Result OH_Input_SetAxisEventDisplayId(Input_AxisEvent* axisEvent, int32_t displayId) | - | 设置轴事件的屏幕ID。 |
+| Input_Result OH_Input_GetAxisEventDisplayId(const Input_AxisEvent* axisEvent, int32_t* displayId) | - | 获取轴事件的屏幕ID。 |
+| Input_Result OH_Input_AddKeyEventMonitor(Input_KeyEventCallback callback) | - | 添加按键事件监听。重复添加只有第一次生效，后续添加请求将被忽略。 |
+| Input_Result OH_Input_AddMouseEventMonitor(Input_MouseEventCallback callback) | - | 添加鼠标事件监听，包含鼠标点击，移动，不包含滚轮事件，滚轮事件归属于轴事件。 |
+| Input_Result OH_Input_AddTouchEventMonitor(Input_TouchEventCallback callback) | - | 添加触屏输入事件监听。 |
+| Input_Result OH_Input_AddAxisEventMonitorForAll(Input_AxisEventCallback callback) | - | 添加所有类型轴事件监听，轴事件类型定义在InputEvent_AxisEventType中。 |
+| Input_Result OH_Input_AddAxisEventMonitor(InputEvent_AxisEventType axisEventType, Input_AxisEventCallback callback) | - | 添加指定类型的轴事件监听，轴事件类型定义在InputEvent_AxisEventType中。 |
+| Input_Result OH_Input_RemoveKeyEventMonitor(Input_KeyEventCallback callback) | - | 移除按键事件监听。 |
+| Input_Result OH_Input_RemoveMouseEventMonitor(Input_MouseEventCallback callback) | - | 移除鼠标事件监听。 |
+| Input_Result OH_Input_RemoveTouchEventMonitor(Input_TouchEventCallback callback) | - | 移除触屏输入事件监听。 |
+| Input_Result OH_Input_RemoveAxisEventMonitorForAll(Input_AxisEventCallback callback) | - | 移除所有类型轴事件监听。 |
+| Input_Result OH_Input_RemoveAxisEventMonitor(InputEvent_AxisEventType axisEventType, Input_AxisEventCallback callback) | - | 移除指定类型轴事件监听，轴事件类型定义在InputEvent_AxisEventType中。 |
+| Input_Result OH_Input_AddKeyEventInterceptor(Input_KeyEventCallback callback, Input_InterceptorOptions *option) | - | 添加按键事件的拦截，重复添加只有第一次生效，后续添加请求返回错误码INPUT_REPEAT_INTERCEPTOR。仅在应用获焦时拦截按键事件。 |
+| Input_Result OH_Input_AddInputEventInterceptor(Input_InterceptorEventCallback *callback,Input_InterceptorOptions *option) | - | 添加输入事件拦截，包括鼠标、触屏和轴事件。重复添加只有第一次生效，后续添加请求返回错误码INPUT_REPEAT_INTERCEPTOR。仅命中应用窗口时拦截输入事件。 |
+| Input_Result OH_Input_RemoveKeyEventInterceptor(void) | - | 移除按键事件拦截。 |
+| Input_Result OH_Input_RemoveInputEventInterceptor(void) | - | 移除输入事件拦截，包括鼠标、触屏和轴事件。 |
+| Input_Result OH_Input_GetIntervalSinceLastInput(int64_t *timeInterval) | - | 获取距离上次系统输入事件的时间间隔。 |
+| Input_Hotkey *OH_Input_CreateHotkey(void) | - | 创建快捷键对象。通过调用OH_Input_DestroyHotkey销毁快捷键对象。 |
+| void OH_Input_DestroyHotkey(Input_Hotkey **hotkey) | - | 销毁快捷键对象。 |
+| void OH_Input_SetPreKeys(Input_Hotkey *hotkey, int32_t *preKeys, int32_t size) | - | 设置修饰键。 |
+| Input_Result OH_Input_GetPreKeys(const Input_Hotkey *hotkey, int32_t **preKeys, int32_t *preKeyCount) | - | 获取修饰键。 |
+| void OH_Input_SetFinalKey(Input_Hotkey* hotkey, int32_t finalKey) | - | 设置被修饰键。 |
+| Input_Result OH_Input_GetFinalKey(const Input_Hotkey* hotkey, int32_t *finalKeyCode) | - | 获取被修饰键。 |
+| Input_Hotkey **OH_Input_CreateAllSystemHotkeys(int32_t count) | - | 创建Input_Hotkey类型实例的数组。通过调用OH_Input_DestroyAllSystemHotkeys销毁Input_Hotkey实例数组并回收内存。 |
+| void OH_Input_DestroyAllSystemHotkeys(Input_Hotkey **hotkeys, int32_t count) | - | 销毁Input_Hotkey实例数组并回收内存。 |
+| Input_Result OH_Input_GetAllSystemHotkeys(Input_Hotkey **hotkey, int32_t *count) | - | 获取设置的所有快捷键。 |
+| void OH_Input_SetRepeat(Input_Hotkey* hotkey, bool isRepeat) | - | 设置是否上报重复key事件。 |
+| Input_Result OH_Input_GetRepeat(const Input_Hotkey* hotkey, bool *isRepeat) | - | 获取是否上报重复key事件。 |
+| Input_Result OH_Input_AddHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyCallback callback) | - | 订阅快捷键事件。 |
+| Input_Result OH_Input_RemoveHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyCallback callback) | - | 取消订阅快捷键。 |
+| Input_Result OH_Input_RegisterDeviceListener(Input_DeviceListener* listener) | - | 注册设备热插拔的监听器。 |
+| Input_Result OH_Input_UnregisterDeviceListener(Input_DeviceListener* listener) | - | 取消注册设备热插拔的监听。 |
+| Input_Result OH_Input_UnregisterDeviceListeners() | - | 取消注册所有的设备热插拔的监听。 |
+| Input_Result OH_Input_GetDeviceIds(int32_t *deviceIds, int32_t inSize, int32_t *outSize) | - | 获取所有输入设备的ID列表。 |
+| Input_Result OH_Input_GetDevice(int32_t deviceId, Input_DeviceInfo **deviceInfo) | - | 获取输入设备信息。 |
+| Input_DeviceInfo* OH_Input_CreateDeviceInfo(void) | - | 创建输入设备信息的对象。通过调用OH_Input_DestroyDeviceInfo销毁输入设备信息的对象。 |
+| void OH_Input_DestroyDeviceInfo(Input_DeviceInfo **deviceInfo) | - | 销毁输入设备信息的对象。 |
+| Input_Result OH_Input_GetKeyboardType(int32_t deviceId, int32_t *keyboardType) | - | 获取输入设备的键盘类型。 |
+| Input_Result OH_Input_GetDeviceId(Input_DeviceInfo *deviceInfo, int32_t *id) | - | 获取输入设备的ID。 |
+| Input_Result OH_Input_GetDeviceName(Input_DeviceInfo *deviceInfo, char **name) | - | 获取输入设备的名称。 |
+| Input_Result OH_Input_GetCapabilities(Input_DeviceInfo *deviceInfo, int32_t *capabilities) | - | 获取有关输入设备能力信息，比如设备是触摸屏、触控板、键盘等。 |
+| Input_Result OH_Input_GetDeviceVersion(Input_DeviceInfo *deviceInfo, int32_t *version) | - | 获取输入设备的版本信息。 |
+| Input_Result OH_Input_GetDeviceProduct(Input_DeviceInfo *deviceInfo, int32_t *product) | - | 获取输入设备的产品信息。 |
+| Input_Result OH_Input_GetDeviceVendor(Input_DeviceInfo *deviceInfo, int32_t *vendor) | - | 获取输入设备的厂商信息。 |
+| Input_Result OH_Input_GetDeviceAddress(Input_DeviceInfo *deviceInfo, char **address) | - | 获取输入设备的物理地址。 |
+| Input_Result OH_Input_GetFunctionKeyState(int32_t keyCode, int32_t *state) | - | 获取功能键状态。 |
+| int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent) | - | 使用以指定屏幕左上角为原点的相对坐标系的坐标注入触屏输入事件。 |
+| int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent) | - | 使用以指定屏幕左上角为原点的相对坐标系的坐标注入鼠标事件。 |
+| int32_t OH_Input_GetMouseEventDisplayId(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件的屏幕ID。 |
+| Input_Result OH_Input_QueryMaxTouchPoints(int32_t *count) | - | 查询设备支持的最大触屏报点数。 |
+| int32_t OH_Input_InjectMouseEventGlobal(const struct Input_MouseEvent* mouseEvent) | - | 使用以主屏左上角为原点的全局坐标系的坐标注入鼠标事件。 |
+| void OH_Input_SetMouseEventGlobalX(struct Input_MouseEvent* mouseEvent, int32_t globalX) | - | 设置鼠标事件以主屏左上角为原点的全局坐标系的X坐标。 |
+| int32_t OH_Input_GetMouseEventGlobalX(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件以主屏左上角为原点的全局坐标系的X坐标。 |
+| void OH_Input_SetMouseEventGlobalY(struct Input_MouseEvent* mouseEvent, int32_t globalY) | - | 设置鼠标事件以主屏左上角为原点的全局坐标系的Y坐标。 |
+| int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent) | - | 获取鼠标事件以主屏左上角为原点的全局坐标系的Y坐标。 |
+| int32_t OH_Input_InjectTouchEventGlobal(const struct Input_TouchEvent* touchEvent) | - | 使用以主屏左上角为原点的全局坐标系的坐标注入触屏输入事件。 |
+| void OH_Input_SetTouchEventGlobalX(struct Input_TouchEvent* touchEvent, int32_t globalX) | - | 设置触屏输入事件以主屏左上角为原点的全局坐标系的X坐标。 |
+| int32_t OH_Input_GetTouchEventGlobalX(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件以主屏左上角为原点的全局坐标系的X坐标。 |
+| void OH_Input_SetTouchEventGlobalY(struct Input_TouchEvent* touchEvent, int32_t globalY) | - | 设置触屏输入事件以主屏左上角为原点的全局坐标系的Y坐标。 |
+| int32_t OH_Input_GetTouchEventGlobalY(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件以主屏左上角为原点的全局坐标系的Y坐标。 |
+| Input_Result OH_Input_SetAxisEventGlobalX(struct Input_AxisEvent* axisEvent, int32_t globalX) | - | 设置轴事件以主屏左上角为原点的全局坐标系的X坐标。 |
+| Input_Result OH_Input_GetAxisEventGlobalX(const Input_AxisEvent* axisEvent, int32_t* globalX) | - | 获取轴事件以主屏左上角为原点的全局坐标系的X坐标。 |
+| Input_Result OH_Input_SetAxisEventGlobalY(struct Input_AxisEvent* axisEvent, int32_t globalY) | - | 设置轴事件以主屏左上角为原点的全局坐标系的Y坐标。 |
+| Input_Result OH_Input_GetAxisEventGlobalY(const Input_AxisEvent* axisEvent, int32_t* globalY) | - | 获取轴事件以主屏左上角为原点的全局坐标系的Y坐标。 |
+| Input_Result OH_Input_GetPointerLocation(int32_t *displayId, double *displayX, double *displayY) | - | 获取鼠标在屏幕上的坐标点。 |
+| Input_Result OH_Input_GetKeyEventId(const struct Input_KeyEvent* keyEvent, int32_t* eventId) | - | 获取按键事件的ID。 |
+| Input_Result OH_Input_AddKeyEventHook(Input_KeyEventCallback callback) | - | 添加一个按键事件拦截钩子函数。 |
+| Input_Result OH_Input_RemoveKeyEventHook(Input_KeyEventCallback callback) | - | 移除按键事件拦截钩子函数。 |
+| Input_Result OH_Input_DispatchToNextHandler(int32_t eventId) | - | 重新分发按键事件。 |
+| Input_Result OH_Input_SetPointerVisible(bool visible) | - | 设置当前窗口的鼠标光标的显示或隐藏状态。 |
+| Input_Result OH_Input_GetPointerStyle(int32_t windowId, int32_t *pointerStyle) | - | 获取指定窗口的鼠标光标样式。 |
+| Input_Result OH_Input_SetPointerStyle(int32_t windowId, int32_t pointerStyle) | - | 设置指定窗口的鼠标光标样式。 |
+| Input_CustomCursor* OH_Input_CustomCursor_Create(OH_PixelmapNative* pixelMap, int32_t anchorX, int32_t anchorY) | - | 创建自定义鼠标光标资源对象。通过调用OH_Input_CustomCursor_Destroy销毁自定义鼠标光标资源对象。 |
+| void OH_Input_CustomCursor_Destroy(Input_CustomCursor** customCursor) | - | 销毁自定义鼠标光标资源对象。 |
+| Input_Result OH_Input_CustomCursor_GetPixelMap(Input_CustomCursor* customCursor, OH_PixelmapNative** pixelMap) | - | 获取指定自定义鼠标光标资源的自定义鼠标光标像素图。 |
+| Input_Result OH_Input_CustomCursor_GetAnchor(Input_CustomCursor* customCursor, int32_t* anchorX, int32_t* anchorY) | - | 获取指定自定义鼠标光标资源的焦点坐标。 |
+| Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem) | - | 创建自定义鼠标光标配置对象。通过调用OH_Input_CursorConfig_Destroy销毁自定义鼠标光标配置对象。 |
+| void OH_Input_CursorConfig_Destroy(Input_CursorConfig** cursorConfig) | - | 销毁自定义鼠标光标配置对象。 |
+| Input_Result OH_Input_CursorConfig_IsFollowSystem(Input_CursorConfig *cursorConfig, bool *followSystem) | - | 查询自定义鼠标光标配置是否跟随系统设置调整光标大小。 |
+| Input_Result OH_Input_SetCustomCursor(int32_t windowId, Input_CustomCursor* customCursor, Input_CursorConfig* cursorConfig) | - | 设置自定义鼠标光标样式。 |
+| struct Input_CursorInfo* OH_Input_CursorInfo_Create() | - | 创建鼠标光标信息对象。通过调用OH_Input_CursorInfo_Destroy销毁鼠标光标信息对象。 |
+| void OH_Input_CursorInfo_Destroy(Input_CursorInfo** cursorInfo) | - | 销毁鼠标光标信息对象。 |
+| Input_Result OH_Input_CursorInfo_IsVisible(Input_CursorInfo* cursorInfo, bool* visible) | - | 获取指定鼠标光标信息对象对应的光标显示状态。 |
+| Input_Result OH_Input_CursorInfo_GetStyle(Input_CursorInfo* cursorInfo, Input_PointerStyle* style) | - | 获取指定鼠标光标信息对象对应的光标样式。 |
+| Input_Result OH_Input_CursorInfo_GetSizeLevel(Input_CursorInfo* cursorInfo, int32_t* sizeLevel) | - | 获取指定鼠标光标信息对象对应的光标大小档位。 |
+| Input_Result OH_Input_CursorInfo_GetColor(Input_CursorInfo* cursorInfo, uint32_t* color) | - | 获取指定鼠标光标信息对象对应的光标颜色, 使用32位ARGB整数表示。 |
+| Input_Result OH_Input_GetMouseEventCursorInfo(const struct Input_MouseEvent* mouseEvent, Input_CursorInfo* cursorInfo) | - | 获取鼠标事件的鼠标光标信息，包括光标显示状态、光标样式、光标大小档位、光标颜色。 |
+| Input_Result OH_Input_GetCursorInfo(Input_CursorInfo* cursorInfo, OH_PixelmapNative** pixelmap) | - | 查询当前鼠标光标信息，包括光标显示状态、光标样式、光标大小档位、光标颜色。如果pixelmap参数非空，且光标样式为DEVELOPER_DEFINED_ICON，则会同时返回光标的PixelMap位图对象。 |
+| Input_Result OH_Input_SetTouchEventPressure(struct Input_TouchEvent* touchEvent, double pressure) | - | 设置触屏输入事件的压力。 |
+| double OH_Input_GetTouchEventPressure(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件的压力。 |
+| void OH_Input_SetTouchEventWindowX(struct Input_TouchEvent* touchEvent, int32_t windowX) | - | 设置触屏输入事件以指定窗口左上角为原点的相对坐标系的X坐标。 |
+| int32_t OH_Input_GetTouchEventWindowX(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件以指定窗口左上角为原点的相对坐标系的X坐标。 |
+| void OH_Input_SetTouchEventWindowY(struct Input_TouchEvent* touchEvent, int32_t windowY) | - | 设置触屏输入事件以指定窗口左上角为原点的相对坐标系的Y坐标。 |
+| int32_t OH_Input_GetTouchEventWindowY(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件以指定窗口左上角为原点的相对坐标系的Y坐标。 |
+| void OH_Input_SetTouchEventDownTime(struct Input_TouchEvent* touchEvent, int64_t downTime) | - | 设置当前触屏事件对应手指/其他触屏外设最近一次按下事件发生的时间。 |
+| int64_t OH_Input_GetTouchEventDownTime(const struct Input_TouchEvent* touchEvent) | - | 获取当前触屏事件对应手指/其他触屏外设最近一次按下事件发生的时间。 |
+| Input_Result OH_Input_SetTouchEventToolType(struct Input_TouchEvent* touchEvent, Input_TouchEventToolType toolType) | - | 设置触屏输入事件的工具类型。 |
+| Input_TouchEventToolType OH_Input_GetTouchEventToolType(const struct Input_TouchEvent* touchEvent) | - | 获取触屏输入事件的工具类型。 |
+
+
+
+
+##### 枚举类型说明
+
+
+
+##### Input_KeyStateAction
 
 ```text
 enum Input_KeyStateAction
@@ -277,7 +274,6 @@ enum Input_KeyStateAction
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | KEY_DEFAULT = -1 | 默认状态。 |
@@ -287,9 +283,9 @@ enum Input_KeyStateAction
 | KEY_SWITCH_OFF = 3 | 按键开关去使能。 |
 
 
-### Input_KeyEventAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_KeyEventAction
 
 ```text
 enum Input_KeyEventAction
@@ -301,7 +297,6 @@ enum Input_KeyEventAction
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | KEY_ACTION_CANCEL = 0 | 按键动作取消。 |
@@ -309,9 +304,9 @@ enum Input_KeyEventAction
 | KEY_ACTION_UP = 2 | 按键抬起。 |
 
 
-### Input_MouseEventAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_MouseEventAction
 
 ```text
 enum Input_MouseEventAction
@@ -322,7 +317,6 @@ enum Input_MouseEventAction
 鼠标动作的枚举值。
 
 **起始版本：** 12
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -335,9 +329,9 @@ enum Input_MouseEventAction
 | MOUSE_ACTION_AXIS_END = 6 | 鼠标轴事件结束。 |
 
 
-### InputEvent_MouseAxis
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### InputEvent_MouseAxis
 
 ```text
 enum InputEvent_MouseAxis
@@ -349,16 +343,15 @@ enum InputEvent_MouseAxis
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | MOUSE_AXIS_SCROLL_VERTICAL = 0 | 垂直滚动轴。 |
 | MOUSE_AXIS_SCROLL_HORIZONTAL = 1 | 水平滚动轴。 |
 
 
-### Input_MouseEventButton
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_MouseEventButton
 
 ```text
 enum Input_MouseEventButton
@@ -370,7 +363,6 @@ enum Input_MouseEventButton
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | MOUSE_BUTTON_NONE = -1 | 无效按键。 |
@@ -381,9 +373,9 @@ enum Input_MouseEventButton
 | MOUSE_BUTTON_BACK = 4 | 鼠标返回键。 |
 
 
-### Input_TouchEventAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_TouchEventAction
 
 ```text
 enum Input_TouchEventAction
@@ -395,7 +387,6 @@ enum Input_TouchEventAction
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | TOUCH_ACTION_CANCEL = 0 | 触屏取消。 |
@@ -404,9 +395,9 @@ enum Input_TouchEventAction
 | TOUCH_ACTION_UP = 3 | 触屏抬起。 |
 
 
-### Input_InjectionStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_InjectionStatus
 
 ```text
 enum Input_InjectionStatus
@@ -418,7 +409,6 @@ enum Input_InjectionStatus
 
 **起始版本：** 20
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | UNAUTHORIZED = 0 | 未授权。 |
@@ -426,9 +416,9 @@ enum Input_InjectionStatus
 | AUTHORIZED = 2 | 已授权。 |
 
 
-### InputEvent_SourceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### InputEvent_SourceType
 
 ```text
 enum InputEvent_SourceType
@@ -440,7 +430,6 @@ enum InputEvent_SourceType
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | SOURCE_TYPE_MOUSE = 1 | 表示输入源生成鼠标光标移动、按键按下和释放以及滚轮滚动的事件。 |
@@ -448,9 +437,9 @@ enum InputEvent_SourceType
 | SOURCE_TYPE_TOUCHPAD = 3 | 表示输入源产生触控板多点触屏输入事件。 |
 
 
-### Input_KeyboardType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_KeyboardType
 
 ```text
 enum Input_KeyboardType
@@ -462,7 +451,6 @@ enum Input_KeyboardType
 
 **起始版本：** 13
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | KEYBOARD_TYPE_NONE = 0 | 表示无按键设备。 |
@@ -473,9 +461,9 @@ enum Input_KeyboardType
 | KEYBOARD_TYPE_REMOTE_CONTROL = 5 | 表示遥控器设备。 |
 
 
-### Input_Result
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_Result
 
 ```text
 enum Input_Result
@@ -487,7 +475,6 @@ enum Input_Result
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | INPUT_SUCCESS = 0 | 操作成功。 |
@@ -497,21 +484,21 @@ enum Input_Result
 | INPUT_DEVICE_NOT_SUPPORTED = 801 | 表示不支持该功能。 |
 | INPUT_SERVICE_EXCEPTION = 3800001 | 服务异常。 |
 | INPUT_REPEAT_INTERCEPTOR = 4200001 | 应用创建拦截后，再次执行创建拦截的操作。 |
-| INPUT_OCCUPIED_BY_SYSTEM = 4200002 | 已经被系统应用占用。          起始版本： 14。 |
-| INPUT_OCCUPIED_BY_OTHER = 4200003 | 已经被其他应用占用。          起始版本： 14。 |
-| INPUT_KEYBOARD_DEVICE_NOT_EXIST = 3900002 | 未连接键盘设备。          起始版本： 15。 |
-| INPUT_INJECTION_AUTHORIZING = 3900005 | 正在授权中。          起始版本： 20。 |
-| INPUT_INJECTION_OPERATION_FREQUENT = 3900006 | 重复请求。          起始版本： 20。 |
-| INPUT_INJECTION_AUTHORIZED = 3900007 | 当前应用已经授权。          起始版本： 20。 |
-| INPUT_INJECTION_AUTHORIZED_OTHERS = 3900008 | 其它应用已经授权。          起始版本： 20。 |
-| INPUT_APP_NOT_FOCUSED = 3900009 | 当前应用不是焦点应用。          起始版本： 20。 |
-| INPUT_DEVICE_NO_POINTER = 3900010 | 无鼠标类输入外设。          起始版本： 20。 |
-| INPUT_INVALID_WINDOWID = 26500001 | 无效的窗口ID。          起始版本： 22。 |
+| INPUT_OCCUPIED_BY_SYSTEM = 4200002 | 已经被系统应用占用。 起始版本： 14。 |
+| INPUT_OCCUPIED_BY_OTHER = 4200003 | 已经被其他应用占用。 起始版本： 14。 |
+| INPUT_KEYBOARD_DEVICE_NOT_EXIST = 3900002 | 未连接键盘设备。 起始版本： 15。 |
+| INPUT_INJECTION_AUTHORIZING = 3900005 | 正在授权中。 起始版本： 20。 |
+| INPUT_INJECTION_OPERATION_FREQUENT = 3900006 | 重复请求。 起始版本： 20。 |
+| INPUT_INJECTION_AUTHORIZED = 3900007 | 当前应用已经授权。 起始版本： 20。 |
+| INPUT_INJECTION_AUTHORIZED_OTHERS = 3900008 | 其它应用已经授权。 起始版本： 20。 |
+| INPUT_APP_NOT_FOCUSED = 3900009 | 当前应用不是焦点应用。 起始版本： 20。 |
+| INPUT_DEVICE_NO_POINTER = 3900010 | 无鼠标类输入外设。 起始版本： 20。 |
+| INPUT_INVALID_WINDOWID = 26500001 | 无效的窗口ID。 起始版本： 22。 |
 
 
-### Input_TouchEventToolType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_TouchEventToolType
 
 ```text
 enum Input_TouchEventToolType
@@ -522,7 +509,6 @@ enum Input_TouchEventToolType
 输入设备的触屏事件工具类型。
 
 **起始版本：** 24
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -536,13 +522,13 @@ enum Input_TouchEventToolType
 | TOOL_TYPE_LENS = 7 | 表示透镜类设备。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### Input_HotkeyCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### Input_HotkeyCallback()
 
 ```text
 typedef void (*Input_HotkeyCallback)(Input_Hotkey* hotkey)
@@ -556,15 +542,14 @@ typedef void (*Input_HotkeyCallback)(Input_Hotkey* hotkey)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)* hotkey | hotkey 快捷键对象的实例。 |
+| Input_Hotkey* hotkey | hotkey 快捷键对象的实例。 |
 
 
-### Input_KeyEventCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_KeyEventCallback()
 
 ```text
 typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent)
@@ -578,15 +563,14 @@ typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| const Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 
 
-### Input_MouseEventCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_MouseEventCallback()
 
 ```text
 typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent)
@@ -600,15 +584,14 @@ typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
-### Input_TouchEventCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_TouchEventCallback()
 
 ```text
 typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent)
@@ -622,15 +605,14 @@ typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
-### Input_AxisEventCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_AxisEventCallback()
 
 ```text
 typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent)
@@ -644,15 +626,14 @@ typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 
 
-### Input_DeviceAddedCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_DeviceAddedCallback()
 
 ```text
 typedef void (*Input_DeviceAddedCallback)(int32_t deviceId)
@@ -666,15 +647,14 @@ typedef void (*Input_DeviceAddedCallback)(int32_t deviceId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t deviceId | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
 
 
-### Input_DeviceRemovedCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_DeviceRemovedCallback()
 
 ```text
 typedef void (*Input_DeviceRemovedCallback)(int32_t deviceId)
@@ -688,15 +668,14 @@ typedef void (*Input_DeviceRemovedCallback)(int32_t deviceId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t deviceId | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
 
 
-### Input_InjectAuthorizeCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Input_InjectAuthorizeCallback()
 
 ```text
 typedef void (*Input_InjectAuthorizeCallback)(Input_InjectionStatus authorizedStatus)
@@ -710,15 +689,14 @@ typedef void (*Input_InjectAuthorizeCallback)(Input_InjectionStatus authorizedSt
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_InjectionStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_injectionstatus) authorizedStatus | 注入权限状态。 |
+| Input_InjectionStatus authorizedStatus | 注入权限状态。 |
 
 
-### OH_Input_GetKeyState()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyState()
 
 ```text
 Input_Result OH_Input_GetKeyState(struct Input_KeyState* keyState)
@@ -734,23 +712,21 @@ Input_Result OH_Input_GetKeyState(struct Input_KeyState* keyState)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)* keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](#input_keystateaction)。 |
+| struct Input_KeyState* keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 如果操作成功，@return返回[INPUT_SUCCESS](#input_result)；          否则返回[Input_Result](#input_result)中定义的其他错误代码。 |
+| Input_Result | 如果操作成功，@return返回INPUT_SUCCESS； 否则返回Input_Result中定义的其他错误代码。 |
 
 
-### OH_Input_CreateKeyState()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateKeyState()
 
 ```text
 struct Input_KeyState* OH_Input_CreateKeyState()
@@ -766,15 +742,14 @@ struct Input_KeyState* OH_Input_CreateKeyState()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| struct | 如果操作成功，@return返回一个[Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)指针对象；否则返回空指针。 |
+| struct | 如果操作成功，@return返回一个Input_KeyState指针对象；否则返回空指针。 |
 
 
-### OH_Input_DestroyKeyState()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyKeyState()
 
 ```text
 void OH_Input_DestroyKeyState(struct Input_KeyState** keyState)
@@ -790,15 +765,14 @@ void OH_Input_DestroyKeyState(struct Input_KeyState** keyState)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)** keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](#input_keystateaction)。 |
+| struct Input_KeyState** keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
 
 
-### OH_Input_SetKeyCode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeyCode()
 
 ```text
 void OH_Input_SetKeyCode(struct Input_KeyState* keyState, int32_t keyCode)
@@ -814,16 +788,15 @@ void OH_Input_SetKeyCode(struct Input_KeyState* keyState, int32_t keyCode)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)* keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](#input_keystateaction)。 |
+| struct Input_KeyState* keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
 | int32_t keyCode | 按键键值。 |
 
 
-### OH_Input_GetKeyCode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyCode()
 
 ```text
 int32_t OH_Input_GetKeyCode(const struct Input_KeyState* keyState)
@@ -839,23 +812,21 @@ int32_t OH_Input_GetKeyCode(const struct Input_KeyState* keyState)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)* keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_keystateaction)。 |
+| const struct Input_KeyState* keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回按键状态对象的键值。相关取值可参考[Input_KeyStateAction](#input_keystateaction)。 |
+| int32_t | 返回按键状态对象的键值。相关取值可参考Input_KeyStateAction。 |
 
 
-### OH_Input_SetKeyPressed()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeyPressed()
 
 ```text
 void OH_Input_SetKeyPressed(struct Input_KeyState* keyState, int32_t keyAction)
@@ -871,16 +842,15 @@ void OH_Input_SetKeyPressed(struct Input_KeyState* keyState, int32_t keyAction)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)* keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](#input_keystateaction)。 |
-| int32_t keyAction | 按键是否按下，具体请参考[Input_KeyEventAction](#input_keyeventaction)。 |
+| struct Input_KeyState* keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
+| int32_t keyAction | 按键是否按下，具体请参考Input_KeyEventAction。 |
 
 
-### OH_Input_GetKeyPressed()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyPressed()
 
 ```text
 int32_t OH_Input_GetKeyPressed(const struct Input_KeyState* keyState)
@@ -896,23 +866,21 @@ int32_t OH_Input_GetKeyPressed(const struct Input_KeyState* keyState)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)* keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_keystateaction)。 |
+| const struct Input_KeyState* keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回按键状态对象的按键按下状态。相关取值可参考[Input_KeyStateAction](#input_keystateaction)。 |
+| int32_t | 返回按键状态对象的按键按下状态。相关取值可参考Input_KeyStateAction。 |
 
 
-### OH_Input_SetKeySwitch()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeySwitch()
 
 ```text
 void OH_Input_SetKeySwitch(struct Input_KeyState* keyState, int32_t keySwitch)
@@ -928,16 +896,15 @@ void OH_Input_SetKeySwitch(struct Input_KeyState* keyState, int32_t keySwitch)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)* keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](#input_keystateaction)。 |
+| struct Input_KeyState* keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
 | int32_t keySwitch | 按键开关。 |
 
 
-### OH_Input_GetKeySwitch()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeySwitch()
 
 ```text
 int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState)
@@ -953,23 +920,21 @@ int32_t OH_Input_GetKeySwitch(const struct Input_KeyState* keyState)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate)* keyState | 按键状态的枚举对象，具体请参考[Input_KeyStateAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_keystateaction)。 |
+| const struct Input_KeyState* keyState | 按键状态的枚举对象，具体请参考Input_KeyStateAction。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回按键状态对象的按键开关。相关取值可参考[Input_KeyStateAction](#input_keystateaction)。 |
+| int32_t | 返回按键状态对象的按键开关。相关取值可参考Input_KeyStateAction。 |
 
 
-### OH_Input_InjectKeyEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_InjectKeyEvent()
 
 ```text
 int32_t OH_Input_InjectKeyEvent(const struct Input_KeyEvent* keyEvent)
@@ -991,23 +956,21 @@ int32_t OH_Input_InjectKeyEvent(const struct Input_KeyEvent* keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。并通过[OH_Input_SetKeyEventKeyCode](#oh_input_setkeyeventkeycode)、[OH_Input_SetKeyEventAction](#oh_input_setkeyeventaction)接口可以设置按键事件的键值和按键事件的类型。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| const struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。并通过OH_Input_SetKeyEventKeyCode、OH_Input_SetKeyEventAction接口可以设置按键事件的键值和按键事件的类型。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | OH_Input_InjectKeyEvent 函数返回值。          若注入成功，返回[INPUT_SUCCESS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result)；          若缺少权限，返回[INPUT_PERMISSION_DENIED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result)；          若参数错误，返回[INPUT_PARAMETER_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result)。 |
+| int32_t | OH_Input_InjectKeyEvent 函数返回值。 若注入成功，返回INPUT_SUCCESS； 若缺少权限，返回INPUT_PERMISSION_DENIED； 若参数错误，返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_CreateKeyEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateKeyEvent()
 
 ```text
 struct Input_KeyEvent* OH_Input_CreateKeyEvent()
@@ -1023,15 +986,14 @@ struct Input_KeyEvent* OH_Input_CreateKeyEvent()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| struct | 如果操作成功返回一个[Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)指针对象，否则返回空指针。 |
+| struct | 如果操作成功返回一个Input_KeyEvent指针对象，否则返回空指针。 |
 
 
-### OH_Input_DestroyKeyEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyKeyEvent()
 
 ```text
 void OH_Input_DestroyKeyEvent(struct Input_KeyEvent** keyEvent)
@@ -1047,15 +1009,14 @@ void OH_Input_DestroyKeyEvent(struct Input_KeyEvent** keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)** keyEvent | 按键事件对象。 |
+| struct Input_KeyEvent** keyEvent | 按键事件对象。 |
 
 
-### OH_Input_SetKeyEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeyEventAction()
 
 ```text
 void OH_Input_SetKeyEventAction(struct Input_KeyEvent* keyEvent, int32_t action)
@@ -1071,16 +1032,15 @@ void OH_Input_SetKeyEventAction(struct Input_KeyEvent* keyEvent, int32_t action)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
-| int32_t action | 按键事件类型。相关取值可参考[Input_KeyEventAction](#input_keyeventaction)。 |
+| struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
+| int32_t action | 按键事件类型。相关取值可参考Input_KeyEventAction。 |
 
 
-### OH_Input_GetKeyEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyEventAction()
 
 ```text
 int32_t OH_Input_GetKeyEventAction(const struct Input_KeyEvent* keyEvent)
@@ -1096,23 +1056,21 @@ int32_t OH_Input_GetKeyEventAction(const struct Input_KeyEvent* keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| const struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回按键事件类型。相关取值可参考[Input_KeyEventAction](#input_keyeventaction)。 |
+| int32_t | 返回按键事件类型。相关取值可参考Input_KeyEventAction。 |
 
 
-### OH_Input_SetKeyEventKeyCode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeyEventKeyCode()
 
 ```text
 void OH_Input_SetKeyEventKeyCode(struct Input_KeyEvent* keyEvent, int32_t keyCode)
@@ -1128,16 +1086,15 @@ void OH_Input_SetKeyEventKeyCode(struct Input_KeyEvent* keyEvent, int32_t keyCod
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 | int32_t keyCode | 按键的键值。 |
 
 
-### OH_Input_GetKeyEventKeyCode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyEventKeyCode()
 
 ```text
 int32_t OH_Input_GetKeyEventKeyCode(const struct Input_KeyEvent* keyEvent)
@@ -1153,23 +1110,21 @@ int32_t OH_Input_GetKeyEventKeyCode(const struct Input_KeyEvent* keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| const struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回按键事件的键值。相关取值可参考[Input_KeyCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-key-code-h#input_keycode)。 |
+| int32_t | 返回按键事件的键值。相关取值可参考Input_KeyCode。 |
 
 
-### OH_Input_SetKeyEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeyEventActionTime()
 
 ```text
 void OH_Input_SetKeyEventActionTime(struct Input_KeyEvent* keyEvent, int64_t actionTime)
@@ -1185,16 +1140,15 @@ void OH_Input_SetKeyEventActionTime(struct Input_KeyEvent* keyEvent, int64_t act
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 | int64_t actionTime | 按键事件发生的时间，表示系统启动运行至今逝去的微秒数。 |
 
 
-### OH_Input_GetKeyEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyEventActionTime()
 
 ```text
 int64_t OH_Input_GetKeyEventActionTime(const struct Input_KeyEvent* keyEvent)
@@ -1210,23 +1164,21 @@ int64_t OH_Input_GetKeyEventActionTime(const struct Input_KeyEvent* keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| const struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int64_t | 返回按键事件发生的时间。 |
 
 
-### OH_Input_SetKeyEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeyEventWindowId()
 
 ```text
 void OH_Input_SetKeyEventWindowId(struct Input_KeyEvent* keyEvent, int32_t windowId)
@@ -1242,16 +1194,15 @@ void OH_Input_SetKeyEventWindowId(struct Input_KeyEvent* keyEvent, int32_t windo
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 | int32_t windowId | 按键事件对应的窗口ID。 |
 
 
-### OH_Input_GetKeyEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyEventWindowId()
 
 ```text
 int32_t OH_Input_GetKeyEventWindowId(const struct Input_KeyEvent* keyEvent)
@@ -1267,23 +1218,21 @@ int32_t OH_Input_GetKeyEventWindowId(const struct Input_KeyEvent* keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| const struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 按键事件的窗口ID。 |
 
 
-### OH_Input_GetKeyEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyEventDisplayId()
 
 ```text
 int32_t OH_Input_GetKeyEventDisplayId(const struct Input_KeyEvent* keyEvent)
@@ -1299,23 +1248,21 @@ int32_t OH_Input_GetKeyEventDisplayId(const struct Input_KeyEvent* keyEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| const struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 按键事件的屏幕ID。 |
 
 
-### OH_Input_SetKeyEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetKeyEventDisplayId()
 
 ```text
 void OH_Input_SetKeyEventDisplayId(struct Input_KeyEvent* keyEvent, int32_t displayId)
@@ -1331,16 +1278,15 @@ void OH_Input_SetKeyEventDisplayId(struct Input_KeyEvent* keyEvent, int32_t disp
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| struct Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 | int32_t displayId | 按键事件对应的屏幕ID。 |
 
 
-### OH_Input_CreateMouseEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateMouseEvent()
 
 ```text
 struct Input_MouseEvent* OH_Input_CreateMouseEvent()
@@ -1356,15 +1302,14 @@ struct Input_MouseEvent* OH_Input_CreateMouseEvent()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| struct | 如果操作成功返回一个[Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)指针对象，否则返回空指针。 |
+| struct | 如果操作成功返回一个Input_MouseEvent指针对象，否则返回空指针。 |
 
 
-### OH_Input_DestroyMouseEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyMouseEvent()
 
 ```text
 void OH_Input_DestroyMouseEvent(struct Input_MouseEvent** mouseEvent)
@@ -1380,15 +1325,14 @@ void OH_Input_DestroyMouseEvent(struct Input_MouseEvent** mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)** mouseEvent | 鼠标事件对象。 |
+| struct Input_MouseEvent** mouseEvent | 鼠标事件对象。 |
 
 
-### OH_Input_SetMouseEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventAction()
 
 ```text
 void OH_Input_SetMouseEventAction(struct Input_MouseEvent* mouseEvent, int32_t action)
@@ -1404,16 +1348,15 @@ void OH_Input_SetMouseEventAction(struct Input_MouseEvent* mouseEvent, int32_t a
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
-| int32_t action | 鼠标的动作。相关取值可参考[Input_MouseEventAction](#input_mouseeventaction)。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
+| int32_t action | 鼠标的动作。相关取值可参考Input_MouseEventAction。 |
 
 
-### OH_Input_GetMouseEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventAction()
 
 ```text
 int32_t OH_Input_GetMouseEventAction(const struct Input_MouseEvent* mouseEvent)
@@ -1429,23 +1372,21 @@ int32_t OH_Input_GetMouseEventAction(const struct Input_MouseEvent* mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 鼠标的动作。相关取值可参考[Input_MouseEventAction](#input_mouseeventaction)。 |
+| int32_t | 鼠标的动作。相关取值可参考Input_MouseEventAction。 |
 
 
-### OH_Input_SetMouseEventDisplayX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventDisplayX()
 
 ```text
 void OH_Input_SetMouseEventDisplayX(struct Input_MouseEvent* mouseEvent, int32_t displayX)
@@ -1461,16 +1402,15 @@ void OH_Input_SetMouseEventDisplayX(struct Input_MouseEvent* mouseEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | int32_t displayX | 鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
 
 
-### OH_Input_GetMouseEventDisplayX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventDisplayX()
 
 ```text
 int32_t OH_Input_GetMouseEventDisplayX(const struct Input_MouseEvent* mouseEvent)
@@ -1486,23 +1426,21 @@ int32_t OH_Input_GetMouseEventDisplayX(const struct Input_MouseEvent* mouseEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
 
 
-### OH_Input_SetMouseEventDisplayY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventDisplayY()
 
 ```text
 void OH_Input_SetMouseEventDisplayY(struct Input_MouseEvent* mouseEvent, int32_t displayY)
@@ -1518,16 +1456,15 @@ void OH_Input_SetMouseEventDisplayY(struct Input_MouseEvent* mouseEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | int32_t displayY | 鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
 
 
-### OH_Input_GetMouseEventDisplayY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventDisplayY()
 
 ```text
 int32_t OH_Input_GetMouseEventDisplayY(const struct Input_MouseEvent* mouseEvent)
@@ -1543,23 +1480,21 @@ int32_t OH_Input_GetMouseEventDisplayY(const struct Input_MouseEvent* mouseEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
 
 
-### OH_Input_SetMouseEventButton()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventButton()
 
 ```text
 void OH_Input_SetMouseEventButton(struct Input_MouseEvent* mouseEvent, int32_t button)
@@ -1575,16 +1510,15 @@ void OH_Input_SetMouseEventButton(struct Input_MouseEvent* mouseEvent, int32_t b
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
-| int32_t button | 鼠标按键。相关取值可参考[Input_MouseEventButton](#input_mouseeventbutton)。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
+| int32_t button | 鼠标按键。相关取值可参考Input_MouseEventButton。 |
 
 
-### OH_Input_GetMouseEventButton()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventButton()
 
 ```text
 int32_t OH_Input_GetMouseEventButton(const struct Input_MouseEvent* mouseEvent)
@@ -1600,23 +1534,21 @@ int32_t OH_Input_GetMouseEventButton(const struct Input_MouseEvent* mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 鼠标按键。相关取值可参考[Input_MouseEventButton](#input_mouseeventbutton)。 |
+| int32_t | 鼠标按键。相关取值可参考Input_MouseEventButton。 |
 
 
-### OH_Input_SetMouseEventAxisType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventAxisType()
 
 ```text
 void OH_Input_SetMouseEventAxisType(struct Input_MouseEvent* mouseEvent, int32_t axisType)
@@ -1632,16 +1564,15 @@ void OH_Input_SetMouseEventAxisType(struct Input_MouseEvent* mouseEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
-| int32_t axisType | 鼠标轴类型，比如垂直轴、水平轴。相关取值可参考[InputEvent_MouseAxis](#inputevent_mouseaxis)。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
+| int32_t axisType | 鼠标轴类型，比如垂直轴、水平轴。相关取值可参考InputEvent_MouseAxis。 |
 
 
-### OH_Input_GetMouseEventAxisType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventAxisType()
 
 ```text
 int32_t OH_Input_GetMouseEventAxisType(const struct Input_MouseEvent* mouseEvent)
@@ -1657,23 +1588,21 @@ int32_t OH_Input_GetMouseEventAxisType(const struct Input_MouseEvent* mouseEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 鼠标轴类型。相关取值可参考[InputEvent_MouseAxis](#inputevent_mouseaxis)。 |
+| int32_t | 鼠标轴类型。相关取值可参考InputEvent_MouseAxis。 |
 
 
-### OH_Input_SetMouseEventAxisValue()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventAxisValue()
 
 ```text
 void OH_Input_SetMouseEventAxisValue(struct Input_MouseEvent* mouseEvent, float axisValue)
@@ -1689,16 +1618,15 @@ void OH_Input_SetMouseEventAxisValue(struct Input_MouseEvent* mouseEvent, float 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | float axisValue | 轴事件的值，正数向前滚动（例如，1.0表示向前滚动一个单位），负数向后滚动（例如，-1.0表示向后滚动一个单位）,零表示没有滚动。 |
 
 
-### OH_Input_GetMouseEventAxisValue()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventAxisValue()
 
 ```text
 float OH_Input_GetMouseEventAxisValue(const struct Input_MouseEvent* mouseEvent)
@@ -1714,23 +1642,21 @@ float OH_Input_GetMouseEventAxisValue(const struct Input_MouseEvent* mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | float | 轴事件的值。 |
 
 
-### OH_Input_SetMouseEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventActionTime()
 
 ```text
 void OH_Input_SetMouseEventActionTime(struct Input_MouseEvent* mouseEvent, int64_t actionTime)
@@ -1746,16 +1672,15 @@ void OH_Input_SetMouseEventActionTime(struct Input_MouseEvent* mouseEvent, int64
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | int64_t actionTime | 鼠标事件发生的时间，表示系统启动运行至今逝去的微秒数。 |
 
 
-### OH_Input_GetMouseEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventActionTime()
 
 ```text
 int64_t OH_Input_GetMouseEventActionTime(const struct Input_MouseEvent* mouseEvent)
@@ -1771,23 +1696,21 @@ int64_t OH_Input_GetMouseEventActionTime(const struct Input_MouseEvent* mouseEve
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int64_t | 返回鼠标事件发生的时间。 |
 
 
-### OH_Input_SetMouseEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventWindowId()
 
 ```text
 void OH_Input_SetMouseEventWindowId(struct Input_MouseEvent* mouseEvent, int32_t windowId)
@@ -1803,16 +1726,15 @@ void OH_Input_SetMouseEventWindowId(struct Input_MouseEvent* mouseEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | int32_t windowId | 鼠标事件的窗口ID。 |
 
 
-### OH_Input_GetMouseEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventWindowId()
 
 ```text
 int32_t OH_Input_GetMouseEventWindowId(const struct Input_MouseEvent* mouseEvent)
@@ -1828,23 +1750,21 @@ int32_t OH_Input_GetMouseEventWindowId(const struct Input_MouseEvent* mouseEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 鼠标事件的窗口ID。 |
 
 
-### OH_Input_SetMouseEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventDisplayId()
 
 ```text
 void OH_Input_SetMouseEventDisplayId(struct Input_MouseEvent* mouseEvent, int32_t displayId)
@@ -1860,16 +1780,15 @@ void OH_Input_SetMouseEventDisplayId(struct Input_MouseEvent* mouseEvent, int32_
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | int32_t displayId | 鼠标事件的屏幕ID。 |
 
 
-### OH_Input_CreateTouchEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateTouchEvent()
 
 ```text
 struct Input_TouchEvent* OH_Input_CreateTouchEvent()
@@ -1885,15 +1804,14 @@ struct Input_TouchEvent* OH_Input_CreateTouchEvent()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| struct | 如果操作成功返回一个[Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)指针对象，否则返回空指针。 |
+| struct | 如果操作成功返回一个Input_TouchEvent指针对象，否则返回空指针。 |
 
 
-### OH_Input_DestroyTouchEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyTouchEvent()
 
 ```text
 void OH_Input_DestroyTouchEvent(struct Input_TouchEvent** touchEvent)
@@ -1909,15 +1827,14 @@ void OH_Input_DestroyTouchEvent(struct Input_TouchEvent** touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)** touchEvent | 触屏输入事件对象。 |
+| struct Input_TouchEvent** touchEvent | 触屏输入事件对象。 |
 
 
-### OH_Input_SetTouchEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventAction()
 
 ```text
 void OH_Input_SetTouchEventAction(struct Input_TouchEvent* touchEvent, int32_t action)
@@ -1933,16 +1850,15 @@ void OH_Input_SetTouchEventAction(struct Input_TouchEvent* touchEvent, int32_t a
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
-| int32_t action | 触屏的动作。相关取值可参考[Input_TouchEventAction](#input_toucheventaction)。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
+| int32_t action | 触屏的动作。相关取值可参考Input_TouchEventAction。 |
 
 
-### OH_Input_GetTouchEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventAction()
 
 ```text
 int32_t OH_Input_GetTouchEventAction(const struct Input_TouchEvent* touchEvent)
@@ -1958,23 +1874,21 @@ int32_t OH_Input_GetTouchEventAction(const struct Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 触屏的动作。相关取值可参考[Input_TouchEventAction](#input_toucheventaction)。 |
+| int32_t | 触屏的动作。相关取值可参考Input_TouchEventAction。 |
 
 
-### OH_Input_SetTouchEventFingerId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventFingerId()
 
 ```text
 void OH_Input_SetTouchEventFingerId(struct Input_TouchEvent* touchEvent, int32_t id)
@@ -1990,16 +1904,15 @@ void OH_Input_SetTouchEventFingerId(struct Input_TouchEvent* touchEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t id | 触屏的手指ID。第一个手指碰到屏幕，ID就是0，第二个手指碰到屏幕，ID就是1，依次累加。 |
 
 
-### OH_Input_GetTouchEventFingerId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventFingerId()
 
 ```text
 int32_t OH_Input_GetTouchEventFingerId(const struct Input_TouchEvent* touchEvent)
@@ -2015,23 +1928,21 @@ int32_t OH_Input_GetTouchEventFingerId(const struct Input_TouchEvent* touchEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 触屏的手指ID。第一个手指碰到屏幕，ID就是0，第二个手指碰到屏幕，ID就是1，依次累加。 |
 
 
-### OH_Input_SetTouchEventDisplayX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventDisplayX()
 
 ```text
 void OH_Input_SetTouchEventDisplayX(struct Input_TouchEvent* touchEvent, int32_t displayX)
@@ -2047,16 +1958,15 @@ void OH_Input_SetTouchEventDisplayX(struct Input_TouchEvent* touchEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t displayX | 触屏输入事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
 
 
-### OH_Input_GetTouchEventDisplayX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventDisplayX()
 
 ```text
 int32_t OH_Input_GetTouchEventDisplayX(const struct Input_TouchEvent* touchEvent)
@@ -2072,23 +1982,21 @@ int32_t OH_Input_GetTouchEventDisplayX(const struct Input_TouchEvent* touchEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 触屏输入事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
 
 
-### OH_Input_SetTouchEventDisplayY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventDisplayY()
 
 ```text
 void OH_Input_SetTouchEventDisplayY(struct Input_TouchEvent* touchEvent, int32_t displayY)
@@ -2104,16 +2012,15 @@ void OH_Input_SetTouchEventDisplayY(struct Input_TouchEvent* touchEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t displayY | 触屏输入事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
 
 
-### OH_Input_GetTouchEventDisplayY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventDisplayY()
 
 ```text
 int32_t OH_Input_GetTouchEventDisplayY(const struct Input_TouchEvent* touchEvent)
@@ -2129,23 +2036,21 @@ int32_t OH_Input_GetTouchEventDisplayY(const struct Input_TouchEvent* touchEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 触屏输入事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
 
 
-### OH_Input_SetTouchEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventActionTime()
 
 ```text
 void OH_Input_SetTouchEventActionTime(struct Input_TouchEvent* touchEvent, int64_t actionTime)
@@ -2161,16 +2066,15 @@ void OH_Input_SetTouchEventActionTime(struct Input_TouchEvent* touchEvent, int64
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int64_t actionTime | 触屏输入事件发生的时间，表示系统启动运行至今逝去的微秒数。 |
 
 
-### OH_Input_GetTouchEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventActionTime()
 
 ```text
 int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEvent)
@@ -2186,23 +2090,21 @@ int64_t OH_Input_GetTouchEventActionTime(const struct Input_TouchEvent* touchEve
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int64_t | 返回触屏输入事件发生的时间。 |
 
 
-### OH_Input_SetTouchEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventWindowId()
 
 ```text
 void OH_Input_SetTouchEventWindowId(struct Input_TouchEvent* touchEvent, int32_t windowId)
@@ -2218,16 +2120,15 @@ void OH_Input_SetTouchEventWindowId(struct Input_TouchEvent* touchEvent, int32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t windowId | 触屏输入事件的窗口ID。 |
 
 
-### OH_Input_GetTouchEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventWindowId()
 
 ```text
 int32_t OH_Input_GetTouchEventWindowId(const struct Input_TouchEvent* touchEvent)
@@ -2243,23 +2144,21 @@ int32_t OH_Input_GetTouchEventWindowId(const struct Input_TouchEvent* touchEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 触屏输入事件的窗口ID。 |
 
 
-### OH_Input_SetTouchEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventDisplayId()
 
 ```text
 void OH_Input_SetTouchEventDisplayId(struct Input_TouchEvent* touchEvent, int32_t displayId)
@@ -2275,16 +2174,15 @@ void OH_Input_SetTouchEventDisplayId(struct Input_TouchEvent* touchEvent, int32_
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t displayId | 触屏输入事件的屏幕ID。 |
 
 
-### OH_Input_GetTouchEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventDisplayId()
 
 ```text
 int32_t OH_Input_GetTouchEventDisplayId(const struct Input_TouchEvent* touchEvent)
@@ -2300,23 +2198,21 @@ int32_t OH_Input_GetTouchEventDisplayId(const struct Input_TouchEvent* touchEven
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 触屏输入事件的屏幕ID。 |
 
 
-### OH_Input_CancelInjection()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CancelInjection()
 
 ```text
 void OH_Input_CancelInjection()
@@ -2331,9 +2227,8 @@ void OH_Input_CancelInjection()
 **起始版本：** 12
 
 
-### OH_Input_RequestInjection()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### OH_Input_RequestInjection()
 
 ```text
 Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback)
@@ -2351,23 +2246,21 @@ Input_Result OH_Input_RequestInjection(Input_InjectAuthorizeCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_InjectAuthorizeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_injectauthorizecallback) callback | 授权状态回调，具体请参考[Input_InjectAuthorizeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_injectauthorizecallback)。 |
+| Input_InjectAuthorizeCallback callback | 授权状态回调，具体请参考Input_InjectAuthorizeCallback。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result) | 函数返回值，参见[Input_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result)。          INPUT_SUCCESS = 0 申请授权成功，等待用户授权结果并回调授权状态。          INPUT_PARAMETER_ERROR = 401 参数错误，参数callback为空。          INPUT_DEVICE_NOT_SUPPORTED = 801 表示不支持该功能。          INPUT_SERVICE_EXCEPTION = 3800001 服务异常。          INPUT_INJECTION_AUTHORIZING = 3900005 正在授权中。          INPUT_INJECTION_OPERATION_FREQUENT = 3900006 重复请求（当前应用连续申请授权弹窗成功，间隔时间不超过3秒）。          INPUT_INJECTION_AUTHORIZED = 3900007 当前应用已经授权。          INPUT_INJECTION_AUTHORIZED_OTHERS = 3900008 其它应用已经授权。 |
+| Input_Result | 函数返回值，参见Input_Result。 INPUT_SUCCESS = 0 申请授权成功，等待用户授权结果并回调授权状态。 INPUT_PARAMETER_ERROR = 401 参数错误，参数callback为空。 INPUT_DEVICE_NOT_SUPPORTED = 801 表示不支持该功能。 INPUT_SERVICE_EXCEPTION = 3800001 服务异常。 INPUT_INJECTION_AUTHORIZING = 3900005 正在授权中。 INPUT_INJECTION_OPERATION_FREQUENT = 3900006 重复请求（当前应用连续申请授权弹窗成功，间隔时间不超过3秒）。 INPUT_INJECTION_AUTHORIZED = 3900007 当前应用已经授权。 INPUT_INJECTION_AUTHORIZED_OTHERS = 3900008 其它应用已经授权。 |
 
 
-### OH_Input_QueryAuthorizedStatus()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_QueryAuthorizedStatus()
 
 ```text
 Input_Result OH_Input_QueryAuthorizedStatus(Input_InjectionStatus* status)
@@ -2381,23 +2274,21 @@ Input_Result OH_Input_QueryAuthorizedStatus(Input_InjectionStatus* status)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_InjectionStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_injectionstatus)* status | 当前应用注入权限状态。参见[Input_InjectionStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_injectionstatus)。 |
+| Input_InjectionStatus* status | 当前应用注入权限状态。参见Input_InjectionStatus。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result) | 函数返回值，参见[Input_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result)。          INPUT_SUCCESS = 0 查询成功。          INPUT_PARAMETER_ERROR = 401 参数错误，参数status为空。          INPUT_SERVICE_EXCEPTION = 3800001 服务异常。 |
+| Input_Result | 函数返回值，参见Input_Result。 INPUT_SUCCESS = 0 查询成功。 INPUT_PARAMETER_ERROR = 401 参数错误，参数status为空。 INPUT_SERVICE_EXCEPTION = 3800001 服务异常。 |
 
 
-### OH_Input_CreateAxisEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateAxisEvent()
 
 ```text
 Input_AxisEvent* OH_Input_CreateAxisEvent(void)
@@ -2413,15 +2304,14 @@ Input_AxisEvent* OH_Input_CreateAxisEvent(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Input_AxisEvent* | 成功返回[Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)对象实例，失败则返回null。 |
+| Input_AxisEvent* | 成功返回Input_AxisEvent对象实例，失败则返回null。 |
 
 
-### OH_Input_DestroyAxisEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyAxisEvent()
 
 ```text
 Input_Result OH_Input_DestroyAxisEvent(Input_AxisEvent** axisEvent)
@@ -2437,23 +2327,21 @@ Input_Result OH_Input_DestroyAxisEvent(Input_AxisEvent** axisEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)** axisEvent | 轴事件对象实例的指针。 |
+| Input_AxisEvent** axisEvent | 轴事件对象实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若销毁成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL或者axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若销毁成功，则返回INPUT_SUCCESS；若axisEvent为NULL或者axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventAction()
 
 ```text
 Input_Result OH_Input_SetAxisEventAction(Input_AxisEvent* axisEvent, InputEvent_AxisAction action)
@@ -2469,24 +2357,22 @@ Input_Result OH_Input_SetAxisEventAction(Input_AxisEvent* axisEvent, InputEvent_
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_AxisAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axisaction) action | 轴事件动作，具体请参考[InputEvent_AxisAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axisaction)。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_AxisAction action | 轴事件动作，具体请参考InputEvent_AxisAction。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件的动作成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件的动作成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventAction()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventAction()
 
 ```text
 Input_Result OH_Input_GetAxisEventAction(const Input_AxisEvent* axisEvent, InputEvent_AxisAction *action)
@@ -2502,24 +2388,22 @@ Input_Result OH_Input_GetAxisEventAction(const Input_AxisEvent* axisEvent, Input
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_AxisAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axisaction) *action | action 出参，返回轴事件动作，具体请参考在[InputEvent_AxisAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axisaction)。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_AxisAction *action | action 出参，返回轴事件动作，具体请参考在InputEvent_AxisAction。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件的动作成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者action为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件的动作成功，则返回INPUT_SUCCESS；若axisEvent或者action为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventDisplayX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventDisplayX()
 
 ```text
 Input_Result OH_Input_SetAxisEventDisplayX(Input_AxisEvent* axisEvent, float displayX)
@@ -2535,24 +2419,22 @@ Input_Result OH_Input_SetAxisEventDisplayX(Input_AxisEvent* axisEvent, float dis
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | float displayX | 轴事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件的X坐标成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件的X坐标成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventDisplayX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventDisplayX()
 
 ```text
 Input_Result OH_Input_GetAxisEventDisplayX(const Input_AxisEvent* axisEvent, float* displayX)
@@ -2568,24 +2450,22 @@ Input_Result OH_Input_GetAxisEventDisplayX(const Input_AxisEvent* axisEvent, flo
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | float* displayX | 出参，返回轴事件以指定屏幕左上角为原点的相对坐标系的X坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件的X坐标成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者displayX为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件的X坐标成功，则返回INPUT_SUCCESS；若axisEvent或者displayX为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventDisplayY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventDisplayY()
 
 ```text
 Input_Result OH_Input_SetAxisEventDisplayY(Input_AxisEvent* axisEvent, float displayY)
@@ -2601,24 +2481,22 @@ Input_Result OH_Input_SetAxisEventDisplayY(Input_AxisEvent* axisEvent, float dis
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | float displayY | 轴事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件的Y坐标成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件的Y坐标成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventDisplayY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventDisplayY()
 
 ```text
 Input_Result OH_Input_GetAxisEventDisplayY(const Input_AxisEvent* axisEvent, float* displayY)
@@ -2634,24 +2512,22 @@ Input_Result OH_Input_GetAxisEventDisplayY(const Input_AxisEvent* axisEvent, flo
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| float* displayY | 出参，返回轴���件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| float* displayY | 出参，返回轴事件以指定屏幕左上角为原点的相对坐标系的Y坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件的Y坐标成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者displayY为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件的Y坐标成功，则返回INPUT_SUCCESS；若axisEvent或者displayY为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventAxisValue()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventAxisValue()
 
 ```text
 Input_Result OH_Input_SetAxisEventAxisValue(Input_AxisEvent* axisEvent,InputEvent_AxisType axisType, double axisValue)
@@ -2667,25 +2543,23 @@ Input_Result OH_Input_SetAxisEventAxisValue(Input_AxisEvent* axisEvent,InputEven
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_AxisType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axistype) axisType | 轴类型，具体请参考[InputEvent_AxisType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axistype)。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_AxisType axisType | 轴类型，具体请参考InputEvent_AxisType。 |
 | double axisValue | 轴事件的值，正数向前滚动（例如，1.0表示向前滚动一个单位），负数向后滚动（例如，-1.0表示向后滚动一个单位）,零表示没有滚动。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件指定轴类型的轴值成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件指定轴类型的轴值成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventAxisValue()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventAxisValue()
 
 ```text
 Input_Result OH_Input_GetAxisEventAxisValue(const Input_AxisEvent* axisEvent,InputEvent_AxisType axisType, double* axisValue)
@@ -2701,25 +2575,23 @@ Input_Result OH_Input_GetAxisEventAxisValue(const Input_AxisEvent* axisEvent,Inp
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_AxisType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axistype) axisType | 轴类型，具体请参考[InputEvent_AxisType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axistype)。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_AxisType axisType | 轴类型，具体请参考InputEvent_AxisType。 |
 | double* axisValue | 出参，返回轴事件的值，正数向前滚动（例如，1.0表示向前滚动一个单位），负数向后滚动（例如，-1.0表示向后滚动一个单位）,零表示没有滚动。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件指定轴类型的轴值成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者axisValue为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件指定轴类型的轴值成功，则返回INPUT_SUCCESS；若axisEvent或者axisValue为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventActionTime()
 
 ```text
 Input_Result OH_Input_SetAxisEventActionTime(Input_AxisEvent* axisEvent, int64_t actionTime)
@@ -2735,24 +2607,22 @@ Input_Result OH_Input_SetAxisEventActionTime(Input_AxisEvent* axisEvent, int64_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int64_t actionTime | 轴事件发生的时间，表示系统启动运行至今逝去的微秒数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件发生的时间成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件发生的时间成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventActionTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventActionTime()
 
 ```text
 Input_Result OH_Input_GetAxisEventActionTime(const Input_AxisEvent* axisEvent, int64_t* actionTime)
@@ -2768,24 +2638,22 @@ Input_Result OH_Input_GetAxisEventActionTime(const Input_AxisEvent* axisEvent, i
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int64_t* actionTime | 出参，返回轴事件发生的时间，表示系统启动运行至今逝去的微秒数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件发生的时间成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者actionTime为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件发生的时间成功，则返回INPUT_SUCCESS；若axisEvent或者actionTime为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventType()
 
 ```text
 Input_Result OH_Input_SetAxisEventType(Input_AxisEvent* axisEvent, InputEvent_AxisEventType axisEventType)
@@ -2801,24 +2669,22 @@ Input_Result OH_Input_SetAxisEventType(Input_AxisEvent* axisEvent, InputEvent_Ax
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype) axisEventType | 轴事件类型，具体请参考[InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_AxisEventType axisEventType | 轴事件类型，具体请参考InputEvent_AxisEventType。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件类型成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件类型成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventType()
 
 ```text
 Input_Result OH_Input_GetAxisEventType(const Input_AxisEvent* axisEvent, InputEvent_AxisEventType* axisEventType)
@@ -2834,24 +2700,22 @@ Input_Result OH_Input_GetAxisEventType(const Input_AxisEvent* axisEvent, InputEv
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)* axisEventType | 出参，返回轴事件类型，具体请参考[InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_AxisEventType* axisEventType | 出参，返回轴事件类型，具体请参考InputEvent_AxisEventType。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件类型成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者axisEventType为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件类型成功，则返回INPUT_SUCCESS；若axisEvent或者axisEventType为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventSourceType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventSourceType()
 
 ```text
 Input_Result OH_Input_SetAxisEventSourceType(Input_AxisEvent* axisEvent, InputEvent_SourceType sourceType)
@@ -2867,24 +2731,22 @@ Input_Result OH_Input_SetAxisEventSourceType(Input_AxisEvent* axisEvent, InputEv
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_SourceType](#inputevent_sourcetype) sourceType | 轴事件源类型,具体请参考[InputEvent_SourceType](#inputevent_sourcetype)。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_SourceType sourceType | 轴事件源类型,具体请参考InputEvent_SourceType。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件源类型成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件源类型成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventSourceType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventSourceType()
 
 ```text
 Input_Result OH_Input_GetAxisEventSourceType(const Input_AxisEvent* axisEvent, InputEvent_SourceType* sourceType)
@@ -2900,24 +2762,22 @@ Input_Result OH_Input_GetAxisEventSourceType(const Input_AxisEvent* axisEvent, I
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
-| [InputEvent_SourceType](#inputevent_sourcetype)* sourceType | 出参，返回轴事件源类型，具体请参考[InputEvent_SourceType](#inputevent_sourcetype)。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
+| InputEvent_SourceType* sourceType | 出参，返回轴事件源类型，具体请参考InputEvent_SourceType。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件源类型成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者sourceType为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件源类型成功，则返回INPUT_SUCCESS；若axisEvent或者sourceType为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventWindowId()
 
 ```text
 Input_Result OH_Input_SetAxisEventWindowId(Input_AxisEvent* axisEvent, int32_t windowId)
@@ -2933,24 +2793,22 @@ Input_Result OH_Input_SetAxisEventWindowId(Input_AxisEvent* axisEvent, int32_t w
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t windowId | 轴事件窗口ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件的窗口ID成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件的窗口ID成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventWindowId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventWindowId()
 
 ```text
 Input_Result OH_Input_GetAxisEventWindowId(const Input_AxisEvent* axisEvent, int32_t* windowId)
@@ -2966,24 +2824,22 @@ Input_Result OH_Input_GetAxisEventWindowId(const Input_AxisEvent* axisEvent, int
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t* windowId | 出参，返回轴事件窗口ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件的窗口ID成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者windowId为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件的窗口ID成功，则返回INPUT_SUCCESS；若axisEvent或者windowId为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetAxisEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventDisplayId()
 
 ```text
 Input_Result OH_Input_SetAxisEventDisplayId(Input_AxisEvent* axisEvent, int32_t displayId)
@@ -2999,24 +2855,22 @@ Input_Result OH_Input_SetAxisEventDisplayId(Input_AxisEvent* axisEvent, int32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t displayId | 轴事件屏幕ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若设置轴事件的屏幕ID成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若设置轴事件的屏幕ID成功，则返回INPUT_SUCCESS；若axisEvent为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_GetAxisEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventDisplayId()
 
 ```text
 Input_Result OH_Input_GetAxisEventDisplayId(const Input_AxisEvent* axisEvent, int32_t* displayId)
@@ -3032,24 +2886,22 @@ Input_Result OH_Input_GetAxisEventDisplayId(const Input_AxisEvent* axisEvent, in
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t* displayId | 出参，返回轴事件屏幕ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若获取轴事件的屏幕ID成功，则返回[INPUT_SUCCESS](#input_result)；若axisEvent或者displayId为NULL，则返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | 若获取轴事件的屏幕ID成功，则返回INPUT_SUCCESS；若axisEvent或者displayId为NULL，则返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_AddKeyEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddKeyEventMonitor()
 
 ```text
 Input_Result OH_Input_AddKeyEventMonitor(Input_KeyEventCallback callback)
@@ -3069,23 +2921,21 @@ Input_Result OH_Input_AddKeyEventMonitor(Input_KeyEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_KeyEventCallback](#input_keyeventcallback) callback | 回调函数，用于接收按键事件。 |
+| Input_KeyEventCallback callback | 回调函数，用于接收按键事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若添加按键事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若添加按键事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_AddMouseEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddMouseEventMonitor()
 
 ```text
 Input_Result OH_Input_AddMouseEventMonitor(Input_MouseEventCallback callback)
@@ -3107,23 +2957,21 @@ Input_Result OH_Input_AddMouseEventMonitor(Input_MouseEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_MouseEventCallback](#input_mouseeventcallback) callback | 回调函数，用于接收鼠标事件。 |
+| Input_MouseEventCallback callback | 回调函数，用于接收鼠标事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若添加鼠标事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若添加鼠标事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_AddTouchEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddTouchEventMonitor()
 
 ```text
 Input_Result OH_Input_AddTouchEventMonitor(Input_TouchEventCallback callback)
@@ -3143,23 +2991,21 @@ Input_Result OH_Input_AddTouchEventMonitor(Input_TouchEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_TouchEventCallback](#input_toucheventcallback) callback | 回调函数，用于接收触屏输入事件。 |
+| Input_TouchEventCallback callback | 回调函数，用于接收触屏输入事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若添加触屏输入事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若添加触屏输入事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_AddAxisEventMonitorForAll()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddAxisEventMonitorForAll()
 
 ```text
 Input_Result OH_Input_AddAxisEventMonitorForAll(Input_AxisEventCallback callback)
@@ -3179,23 +3025,21 @@ Input_Result OH_Input_AddAxisEventMonitorForAll(Input_AxisEventCallback callback
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEventCallback](#input_axiseventcallback) callback | 回调函数，用于接收轴事件。 |
+| Input_AxisEventCallback callback | 回调函数，用于接收轴事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若添加轴事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若添加轴事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_AddAxisEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddAxisEventMonitor()
 
 ```text
 Input_Result OH_Input_AddAxisEventMonitor(InputEvent_AxisEventType axisEventType, Input_AxisEventCallback callback)
@@ -3215,24 +3059,22 @@ Input_Result OH_Input_AddAxisEventMonitor(InputEvent_AxisEventType axisEventType
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype) axisEventType | 要监听的轴事件类型，轴事件类型定义在[InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)中。 |
-| [Input_AxisEventCallback](#input_axiseventcallback) callback | 回调函数，用于接收指定类型的轴事件 |
+| InputEvent_AxisEventType axisEventType | 要监听的轴事件类型，轴事件类型定义在InputEvent_AxisEventType中。 |
+| Input_AxisEventCallback callback | 回调函数，用于接收指定类型的轴事件 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若添加轴事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若添加轴事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_RemoveKeyEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveKeyEventMonitor()
 
 ```text
 Input_Result OH_Input_RemoveKeyEventMonitor(Input_KeyEventCallback callback)
@@ -3252,23 +3094,21 @@ Input_Result OH_Input_RemoveKeyEventMonitor(Input_KeyEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_KeyEventCallback](#input_keyeventcallback) callback | 指定要被移除的用于按键事件监听的回调函数。 |
+| Input_KeyEventCallback callback | 指定要被移除的用于按键事件监听的回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若移除按键事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空或者没有被添加监听，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若移除按键事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空或者没有被添加监听，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_RemoveMouseEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveMouseEventMonitor()
 
 ```text
 Input_Result OH_Input_RemoveMouseEventMonitor(Input_MouseEventCallback callback)
@@ -3288,23 +3128,21 @@ Input_Result OH_Input_RemoveMouseEventMonitor(Input_MouseEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_MouseEventCallback](#input_mouseeventcallback) callback | 指定要被移除的用于鼠标事件监听的回调函数。 |
+| Input_MouseEventCallback callback | 指定要被移除的用于鼠标事件监听的回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若移除鼠标事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空或者没有被添加监听，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若移除鼠标事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空或者没有被添加监听，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_RemoveTouchEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveTouchEventMonitor()
 
 ```text
 Input_Result OH_Input_RemoveTouchEventMonitor(Input_TouchEventCallback callback)
@@ -3324,23 +3162,21 @@ Input_Result OH_Input_RemoveTouchEventMonitor(Input_TouchEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_TouchEventCallback](#input_toucheventcallback) callback | 指定要被移除的用于触屏输入事件监听的回调函数。 |
+| Input_TouchEventCallback callback | 指定要被移除的用于触屏输入事件监听的回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若移除触屏输入事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空或者没有被添加监听，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若移除触屏输入事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空或者没有被添加监听，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_RemoveAxisEventMonitorForAll()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveAxisEventMonitorForAll()
 
 ```text
 Input_Result OH_Input_RemoveAxisEventMonitorForAll(Input_AxisEventCallback callback)
@@ -3360,23 +3196,21 @@ Input_Result OH_Input_RemoveAxisEventMonitorForAll(Input_AxisEventCallback callb
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_AxisEventCallback](#input_axiseventcallback) callback | 指定要被移除的用于所有类型轴事件监听的回调函数。 |
+| Input_AxisEventCallback callback | 指定要被移除的用于所有类型轴事件监听的回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若移除轴事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空或者没有被添加监听，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若移除轴事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空或者没有被添加监听，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_RemoveAxisEventMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveAxisEventMonitor()
 
 ```text
 Input_Result OH_Input_RemoveAxisEventMonitor(InputEvent_AxisEventType axisEventType, Input_AxisEventCallback callback)
@@ -3396,24 +3230,22 @@ Input_Result OH_Input_RemoveAxisEventMonitor(InputEvent_AxisEventType axisEventT
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype) axisEventType | 指定要移除监听的轴事件类型，轴事件类型定义在[InputEvent_AxisEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h#inputevent_axiseventtype)中。 |
-| [Input_AxisEventCallback](#input_axiseventcallback) callback | 指定要被移除的用于指定类型轴事件监听的回调函数。 |
+| InputEvent_AxisEventType axisEventType | 指定要移除监听的轴事件类型，轴事件类型定义在InputEvent_AxisEventType中。 |
+| Input_AxisEventCallback callback | 指定要被移除的用于指定类型轴事件监听的回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若移除轴事件监听成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空或者没有被添加监听，则返回[INPUT_PARAMETER_ERROR](#input_result)；若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若移除轴事件监听成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空或者没有被添加监听，则返回INPUT_PARAMETER_ERROR；若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_AddKeyEventInterceptor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddKeyEventInterceptor()
 
 ```text
 Input_Result OH_Input_AddKeyEventInterceptor(Input_KeyEventCallback callback, Input_InterceptorOptions *option)
@@ -3433,24 +3265,22 @@ Input_Result OH_Input_AddKeyEventInterceptor(Input_KeyEventCallback callback, In
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_KeyEventCallback](#input_keyeventcallback) callback | 回调函数，用于接收按键事件。 |
-| [Input_InterceptorOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-interceptoroptions) *option | option 输入事件拦截的可选项，传null则使用默认值。 |
+| Input_KeyEventCallback callback | 回调函数，用于接收按键事件。 |
+| Input_InterceptorOptions *option | option 输入事件拦截的可选项，传null则使用默认值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若添加按键事件的拦截成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空，则返回[INPUT_PARAMETER_ERROR](#input_result)；若重复添加拦截器，则返回[INPUT_REPEAT_INTERCEPTOR](#input_result)；          若服务异常；则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若添加按键事件的拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若重复添加拦截器，则返回INPUT_REPEAT_INTERCEPTOR； 若服务异常；则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_AddInputEventInterceptor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddInputEventInterceptor()
 
 ```text
 Input_Result OH_Input_AddInputEventInterceptor(Input_InterceptorEventCallback *callback,Input_InterceptorOptions *option)
@@ -3470,24 +3300,22 @@ Input_Result OH_Input_AddInputEventInterceptor(Input_InterceptorEventCallback *c
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_InterceptorEventCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-interceptoreventcallback) *callback | callback 用于回调输入事件的结构体指针，请参考定义[Input_InterceptorEventCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-interceptoreventcallback)。 |
-| [Input_InterceptorOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-interceptoroptions) *option | option 输入事件拦截的可选项，传null则使用默认值。 |
+| Input_InterceptorEventCallback *callback | callback 用于回调输入事件的结构体指针，请参考定义Input_InterceptorEventCallback。 |
+| Input_InterceptorOptions *option | option 输入事件拦截的可选项，传null则使用默认值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若添加输入事件的拦截成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若callback为空，则返回[INPUT_PARAMETER_ERROR](#input_result)；若重复添加拦截器，则返回[INPUT_REPEAT_INTERCEPTOR](#input_result)；          若服务异常；则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若添加输入事件的拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若callback为空，则返回INPUT_PARAMETER_ERROR；若重复添加拦截器，则返回INPUT_REPEAT_INTERCEPTOR； 若服务异常；则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_RemoveKeyEventInterceptor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveKeyEventInterceptor()
 
 ```text
 Input_Result OH_Input_RemoveKeyEventInterceptor(void)
@@ -3507,15 +3335,14 @@ Input_Result OH_Input_RemoveKeyEventInterceptor(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若移除按键事件拦截成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若移除按键事件拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_RemoveInputEventInterceptor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveInputEventInterceptor()
 
 ```text
 Input_Result OH_Input_RemoveInputEventInterceptor(void)
@@ -3535,15 +3362,14 @@ Input_Result OH_Input_RemoveInputEventInterceptor(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | 若移除输入事件拦截成功，则返回[INPUT_SUCCESS](#input_result)；若权限校验失败，则返回[INPUT_PERMISSION_DENIED](#input_result)；          若服务异常，则返回[INPUT_SERVICE_EXCEPTION](#input_result)。 |
+| Input_Result | 若移除输入事件拦截成功，则返回INPUT_SUCCESS；若权限校验失败，则返回INPUT_PERMISSION_DENIED； 若服务异常，则返回INPUT_SERVICE_EXCEPTION。 |
 
 
-### OH_Input_GetIntervalSinceLastInput()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetIntervalSinceLastInput()
 
 ```text
 Input_Result OH_Input_GetIntervalSinceLastInput(int64_t *timeInterval)
@@ -3559,7 +3385,6 @@ Input_Result OH_Input_GetIntervalSinceLastInput(int64_t *timeInterval)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int64_t *timeInterval | timeInterval 时间间隔，单位：μs。 |
@@ -3567,15 +3392,14 @@ Input_Result OH_Input_GetIntervalSinceLastInput(int64_t *timeInterval)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetIntervalSinceLastInput 函数返回值。          若获取时间间隔成功，则返回[INPUT_SUCCESS](#input_result)；若服务异常，返回[INPUT_SERVICE_EXCEPTION](#input_result)；若参数错误，返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | OH_Input_GetIntervalSinceLastInput 函数返回值。 若获取时间间隔成功，则返回INPUT_SUCCESS；若服务异常，返回INPUT_SERVICE_EXCEPTION；若参数错误，返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_CreateHotkey()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateHotkey()
 
 ```text
 Input_Hotkey *OH_Input_CreateHotkey(void)
@@ -3591,15 +3415,14 @@ Input_Hotkey *OH_Input_CreateHotkey(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) | 如果操作成功,则返回一个[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)指针对象。否则, 返回一个空指针， 可能的原因是内存分配失败。 |
+| Input_Hotkey | 如果操作成功,则返回一个Input_Hotkey指针对象。否则, 返回一个空指针， 可能的原因是内存分配失败。 |
 
 
-### OH_Input_DestroyHotkey()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyHotkey()
 
 ```text
 void OH_Input_DestroyHotkey(Input_Hotkey **hotkey)
@@ -3615,15 +3438,14 @@ void OH_Input_DestroyHotkey(Input_Hotkey **hotkey)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) **hotkey | hotkey 快捷键对象的实例。 |
+| Input_Hotkey **hotkey | hotkey 快捷键对象的实例。 |
 
 
-### OH_Input_SetPreKeys()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetPreKeys()
 
 ```text
 void OH_Input_SetPreKeys(Input_Hotkey *hotkey, int32_t *preKeys, int32_t size)
@@ -3639,17 +3461,16 @@ void OH_Input_SetPreKeys(Input_Hotkey *hotkey, int32_t *preKeys, int32_t size)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) *hotkey | hotkey 快捷键对象的实例。 |
+| Input_Hotkey *hotkey | hotkey 快捷键对象的实例。 |
 | int32_t *preKeys | preKeys 修饰键列表。 |
 | int32_t size | 修饰键个数， 取值范围1~2个。 |
 
 
-### OH_Input_GetPreKeys()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetPreKeys()
 
 ```text
 Input_Result OH_Input_GetPreKeys(const Input_Hotkey *hotkey, int32_t **preKeys, int32_t *preKeyCount)
@@ -3665,25 +3486,23 @@ Input_Result OH_Input_GetPreKeys(const Input_Hotkey *hotkey, int32_t **preKeys, 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) *hotkey | hotkey 快捷键对象的实例。 |
+| const Input_Hotkey *hotkey | hotkey 快捷键对象的实例。 |
 | int32_t **preKeys | preKeys 返回修饰键列表。 |
 | int32_t *preKeyCount | preKeyCount 返回修饰键个数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetPreKeys 函数返回值。          若获取成功，返回[INPUT_SUCCESS](#input_result)；若获取失败，返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | OH_Input_GetPreKeys 函数返回值。 若获取成功，返回INPUT_SUCCESS；若获取失败，返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetFinalKey()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetFinalKey()
 
 ```text
 void OH_Input_SetFinalKey(Input_Hotkey* hotkey, int32_t finalKey)
@@ -3699,16 +3518,15 @@ void OH_Input_SetFinalKey(Input_Hotkey* hotkey, int32_t finalKey)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)* hotkey | 快捷键对象的实例。 |
+| Input_Hotkey* hotkey | 快捷键对象的实例。 |
 | int32_t finalKey | 被修饰键值，被修饰键值只能是1个。 |
 
 
-### OH_Input_GetFinalKey()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetFinalKey()
 
 ```text
 Input_Result OH_Input_GetFinalKey(const Input_Hotkey* hotkey, int32_t *finalKeyCode)
@@ -3724,24 +3542,22 @@ Input_Result OH_Input_GetFinalKey(const Input_Hotkey* hotkey, int32_t *finalKeyC
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)* hotkey | 快捷键对象的实例。 |
+| const Input_Hotkey* hotkey | 快捷键对象的实例。 |
 | int32_t *finalKeyCode | finalKeyCode 返回被修饰键键值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetFinalKey 函数返回值。          若获取成功，返回[INPUT_SUCCESS](#input_result)；          若获取失败，返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | OH_Input_GetFinalKey 函数返回值。 若获取成功，返回INPUT_SUCCESS； 若获取失败，返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_CreateAllSystemHotkeys()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateAllSystemHotkeys()
 
 ```text
 Input_Hotkey **OH_Input_CreateAllSystemHotkeys(int32_t count)
@@ -3759,23 +3575,21 @@ Input_Hotkey **OH_Input_CreateAllSystemHotkeys(int32_t count)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t count | 创建[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)实例的数量。 |
+| int32_t count | 创建Input_Hotkey实例的数量。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) | OH_Input_CreateAllSystemHotkeys 函数返回值。          [INPUT_SUCCESS](#input_result) 创建实例数组的双指针成功。 |
+| Input_Hotkey | OH_Input_CreateAllSystemHotkeys 函数返回值。 INPUT_SUCCESS 创建实例数组的双指针成功。 |
 
 
-### OH_Input_DestroyAllSystemHotkeys()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyAllSystemHotkeys()
 
 ```text
 void OH_Input_DestroyAllSystemHotkeys(Input_Hotkey **hotkeys, int32_t count)
@@ -3791,16 +3605,15 @@ void OH_Input_DestroyAllSystemHotkeys(Input_Hotkey **hotkeys, int32_t count)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) **hotkeys | hotkeys 指向[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)实例数组的双指针。 |
-| int32_t count | 销毁[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)实例的数量。 |
+| Input_Hotkey **hotkeys | hotkeys 指向Input_Hotkey实例数组的双指针。 |
+| int32_t count | 销毁Input_Hotkey实例的数量。 |
 
 
-### OH_Input_GetAllSystemHotkeys()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAllSystemHotkeys()
 
 ```text
 Input_Result OH_Input_GetAllSystemHotkeys(Input_Hotkey **hotkey, int32_t *count)
@@ -3818,24 +3631,22 @@ Input_Result OH_Input_GetAllSystemHotkeys(Input_Hotkey **hotkey, int32_t *count)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) **hotkey | hotkey 返回[Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey) 类型实例数组。首次调用可传入NULL，可获取数组长度。 |
+| Input_Hotkey **hotkey | hotkey 返回Input_Hotkey 类型实例数组。首次调用可传入NULL，可获取数组长度。 |
 | int32_t *count | count 返回支持快捷键的个数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetAllSystemHotkeys 函数返回值。          若获取成功，返回[INPUT_SUCCESS](#input_result)；          若获取失败，返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | OH_Input_GetAllSystemHotkeys 函数返回值。 若获取成功，返回INPUT_SUCCESS； 若获取失败，返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_SetRepeat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetRepeat()
 
 ```text
 void OH_Input_SetRepeat(Input_Hotkey* hotkey, bool isRepeat)
@@ -3851,16 +3662,15 @@ void OH_Input_SetRepeat(Input_Hotkey* hotkey, bool isRepeat)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)* hotkey | 快捷键对象的实例。 |
+| Input_Hotkey* hotkey | 快捷键对象的实例。 |
 | bool isRepeat | 是否上报重复key事件。true表示上报，false表示不上报。 |
 
 
-### OH_Input_GetRepeat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetRepeat()
 
 ```text
 Input_Result OH_Input_GetRepeat(const Input_Hotkey* hotkey, bool *isRepeat)
@@ -3876,24 +3686,22 @@ Input_Result OH_Input_GetRepeat(const Input_Hotkey* hotkey, bool *isRepeat)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)* hotkey | 快捷键对象的实例。 |
+| const Input_Hotkey* hotkey | 快捷键对象的实例。 |
 | bool *isRepeat | isRepeat 返回Key事件是否重复。true表示重复，false表示不重复。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetRepeat 函数返回值。          若获取成功，返回[INPUT_SUCCESS](#input_result)；          若获取失败，返回[INPUT_PARAMETER_ERROR](#input_result)。 |
+| Input_Result | OH_Input_GetRepeat 函数返回值。 若获取成功，返回INPUT_SUCCESS； 若获取失败，返回INPUT_PARAMETER_ERROR。 |
 
 
-### OH_Input_AddHotkeyMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddHotkeyMonitor()
 
 ```text
 Input_Result OH_Input_AddHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyCallback callback)
@@ -3903,9 +3711,9 @@ Input_Result OH_Input_AddHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyC
 
 订阅快捷键事件。
 
-
 > [!NOTE]
-> 订阅快捷键事件时，对于preKeys和finalKey有以下约束：
+> 订阅快捷键事件时，对于preKeys和finalKey有以下约束： preKeys：修饰键（包括 Ctrl、Shift 和 Alt）集合，数量范围[1, 4]，无顺序要求。例如，Ctrl+Shift+Esc中，Ctrl+Shift称为修饰键。 finalKey：被修饰键，除修饰键和Meta键以外的按键，详细按键介绍请参见 按键设备的键值 。例如，Ctrl+Shift+Esc中，Esc称为被修饰键。
+
 
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
 
@@ -3915,24 +3723,22 @@ Input_Result OH_Input_AddHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyC
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)* hotkey | 指定要订阅的快捷键对象。 |
-| [Input_HotkeyCallback](#input_hotkeycallback) callback | 回调函数，用于回调快捷键事件。 |
+| const Input_Hotkey* hotkey | 指定要订阅的快捷键对象。 |
+| Input_HotkeyCallback callback | 回调函数，用于回调快捷键事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_AddHotkeyMonitor 函数返回值。          [INPUT_SUCCESS](#input_result) 表示订阅组合按键成功。          [INPUT_PARAMETER_ERROR](#input_result) 参数检查失败。          [INPUT_OCCUPIED_BY_SYSTEM](#input_result) 该快捷键已被系统占用，可以通过接口[OH_Input_GetAllSystemHotkeys](#oh_input_getallsystemhotkeys)查询所有的系统快捷键。          [INPUT_OCCUPIED_BY_OTHER](#input_result) 已被抢占订阅。          [INPUT_DEVICE_NOT_SUPPORTED](#input_result) 表示不支持该功能。 |
+| Input_Result | OH_Input_AddHotkeyMonitor 函数返回值。 INPUT_SUCCESS 表示订阅组合按键成功。 INPUT_PARAMETER_ERROR 参数检查失败。 INPUT_OCCUPIED_BY_SYSTEM 该快捷键已被系统占用，可以通过接口OH_Input_GetAllSystemHotkeys查询所有的系统快捷键。 INPUT_OCCUPIED_BY_OTHER 已被抢占订阅。 INPUT_DEVICE_NOT_SUPPORTED 表示不支持该功能。 |
 
 
-### OH_Input_RemoveHotkeyMonitor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveHotkeyMonitor()
 
 ```text
 Input_Result OH_Input_RemoveHotkeyMonitor(const Input_Hotkey* hotkey, Input_HotkeyCallback callback)
@@ -3948,24 +3754,22 @@ Input_Result OH_Input_RemoveHotkeyMonitor(const Input_Hotkey* hotkey, Input_Hotk
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_Hotkey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-hotkey)* hotkey | 指定要取消订阅的快捷键对象。 |
-| [Input_HotkeyCallback](#input_hotkeycallback) callback | 回调函数，用于回调快捷键事件。 |
+| const Input_Hotkey* hotkey | 指定要取消订阅的快捷键对象。 |
+| Input_HotkeyCallback callback | 回调函数，用于回调快捷键事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_RemoveHotkeyMonitor 函数返回值。          [INPUT_SUCCESS](#input_result) 取消订阅组合按键成功， [INPUT_PARAMETER_ERROR](#input_result) 参数检查失败。 |
+| Input_Result | OH_Input_RemoveHotkeyMonitor 函数返回值。 INPUT_SUCCESS 取消订阅组合按键成功， INPUT_PARAMETER_ERROR 参数检查失败。 |
 
 
-### OH_Input_RegisterDeviceListener()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RegisterDeviceListener()
 
 ```text
 Input_Result OH_Input_RegisterDeviceListener(Input_DeviceListener* listener)
@@ -3981,23 +3785,21 @@ Input_Result OH_Input_RegisterDeviceListener(Input_DeviceListener* listener)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-devicelistener)* listener | 指向设备热插拔监听器[Input_DeviceListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-devicelistener)的指针。 |
+| Input_DeviceListener* listener | 指向设备热插拔监听器Input_DeviceListener的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_RegisterDeviceListener 函数返回值。          [INPUT_SUCCESS](#input_result) 表示注册成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示listener 为NULL。 |
+| Input_Result | OH_Input_RegisterDeviceListener 函数返回值。 INPUT_SUCCESS 表示注册成功。 INPUT_PARAMETER_ERROR 表示listener 为NULL。 |
 
 
-### OH_Input_UnregisterDeviceListener()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_UnregisterDeviceListener()
 
 ```text
 Input_Result OH_Input_UnregisterDeviceListener(Input_DeviceListener* listener)
@@ -4013,23 +3815,21 @@ Input_Result OH_Input_UnregisterDeviceListener(Input_DeviceListener* listener)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-devicelistener)* listener | 指向设备热插拔监听器[Input_DeviceListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-devicelistener)的指针。 |
+| Input_DeviceListener* listener | 指向设备热插拔监听器Input_DeviceListener的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_UnregisterDeviceListener 函数返回值。          [INPUT_SUCCESS](#input_result) 表示取消注册成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示listener 为 NULL 或者 listener 未被注册。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示由于服务异常调用失败。 |
+| Input_Result | OH_Input_UnregisterDeviceListener 函数返回值。 INPUT_SUCCESS 表示取消注册成功。 INPUT_PARAMETER_ERROR 表示listener 为 NULL 或者 listener 未被注册。 INPUT_SERVICE_EXCEPTION 表示由于服务异常调用失败。 |
 
 
-### OH_Input_UnregisterDeviceListeners()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_UnregisterDeviceListeners()
 
 ```text
 Input_Result OH_Input_UnregisterDeviceListeners()
@@ -4045,15 +3845,14 @@ Input_Result OH_Input_UnregisterDeviceListeners()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_UnregisterDeviceListener 函数返回值。          [INPUT_SUCCESS](#input_result) 表示调用成功。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示由于服务异常调用失败。 |
+| Input_Result | OH_Input_UnregisterDeviceListener 函数返回值。 INPUT_SUCCESS 表示调用成功。 INPUT_SERVICE_EXCEPTION 表示由于服务异常调用失败。 |
 
 
-### OH_Input_GetDeviceIds()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDeviceIds()
 
 ```text
 Input_Result OH_Input_GetDeviceIds(int32_t *deviceIds, int32_t inSize, int32_t *outSize)
@@ -4069,7 +3868,6 @@ Input_Result OH_Input_GetDeviceIds(int32_t *deviceIds, int32_t inSize, int32_t *
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t *deviceIds | deviceIds 保存输入设备ID的列表。 |
@@ -4079,15 +3877,14 @@ Input_Result OH_Input_GetDeviceIds(int32_t *deviceIds, int32_t inSize, int32_t *
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceIds或outSize为空指针或inSize小于0。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceIds或outSize为空指针或inSize小于0。 |
 
 
-### OH_Input_GetDevice()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDevice()
 
 ```text
 Input_Result OH_Input_GetDevice(int32_t deviceId, Input_DeviceInfo **deviceInfo)
@@ -4103,24 +3900,22 @@ Input_Result OH_Input_GetDevice(int32_t deviceId, Input_DeviceInfo **deviceInfo)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t deviceId | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) **deviceInfo | deviceInfo 指向输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)的指针。 |
+| Input_DeviceInfo **deviceInfo | deviceInfo 指向输入设备信息Input_DeviceInfo的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo为空指针或deviceId无效。          可以通过 [OH_Input_GetDeviceIds](#oh_input_getdeviceids) 表示接口查询系统支持的设备ID。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo为空指针或deviceId无效。 可以通过 OH_Input_GetDeviceIds 表示接口查询系统支持的设备ID。 |
 
 
-### OH_Input_CreateDeviceInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CreateDeviceInfo()
 
 ```text
 Input_DeviceInfo* OH_Input_CreateDeviceInfo(void)
@@ -4136,15 +3931,14 @@ Input_DeviceInfo* OH_Input_CreateDeviceInfo(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Input_DeviceInfo* | 如果操作成功，返回设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)实例的指针。否则返回空指针，可能的原因是分配内存失败。 |
+| Input_DeviceInfo* | 如果操作成功，返回设备信息Input_DeviceInfo实例的指针。否则返回空指针，可能的原因是分配内存失败。 |
 
 
-### OH_Input_DestroyDeviceInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DestroyDeviceInfo()
 
 ```text
 void OH_Input_DestroyDeviceInfo(Input_DeviceInfo **deviceInfo)
@@ -4160,15 +3954,14 @@ void OH_Input_DestroyDeviceInfo(Input_DeviceInfo **deviceInfo)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) **deviceInfo | deviceInfo 设备信息的对象。 |
+| Input_DeviceInfo **deviceInfo | deviceInfo 设备信息的对象。 |
 
 
-### OH_Input_GetKeyboardType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyboardType()
 
 ```text
 Input_Result OH_Input_GetKeyboardType(int32_t deviceId, int32_t *keyboardType)
@@ -4184,7 +3977,6 @@ Input_Result OH_Input_GetKeyboardType(int32_t deviceId, int32_t *keyboardType)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t deviceId | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
@@ -4193,15 +3985,14 @@ Input_Result OH_Input_GetKeyboardType(int32_t deviceId, int32_t *keyboardType)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示设备ID为无效值或者keyboardType是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示设备ID为无效值或者keyboardType是空指针。 |
 
 
-### OH_Input_GetDeviceId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDeviceId()
 
 ```text
 Input_Result OH_Input_GetDeviceId(Input_DeviceInfo *deviceInfo, int32_t *id)
@@ -4217,24 +4008,22 @@ Input_Result OH_Input_GetDeviceId(Input_DeviceInfo *deviceInfo, int32_t *id)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) *deviceInfo | deviceInfo 输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)。 |
+| Input_DeviceInfo *deviceInfo | deviceInfo 输入设备信息Input_DeviceInfo。 |
 | int32_t *id | id 指向输入设备ID的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo或者ID是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo或者ID是空指针。 |
 
 
-### OH_Input_GetDeviceName()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDeviceName()
 
 ```text
 Input_Result OH_Input_GetDeviceName(Input_DeviceInfo *deviceInfo, char **name)
@@ -4250,24 +4039,22 @@ Input_Result OH_Input_GetDeviceName(Input_DeviceInfo *deviceInfo, char **name)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) *deviceInfo | deviceInfo 输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)。 |
+| Input_DeviceInfo *deviceInfo | deviceInfo 输入设备信息Input_DeviceInfo。 |
 | char **name | name 指向输入设备名称的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo或者name是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo或者name是空指针。 |
 
 
-### OH_Input_GetCapabilities()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetCapabilities()
 
 ```text
 Input_Result OH_Input_GetCapabilities(Input_DeviceInfo *deviceInfo, int32_t *capabilities)
@@ -4283,24 +4070,22 @@ Input_Result OH_Input_GetCapabilities(Input_DeviceInfo *deviceInfo, int32_t *cap
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) *deviceInfo | deviceInfo 输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)。 |
+| Input_DeviceInfo *deviceInfo | deviceInfo 输入设备信息Input_DeviceInfo。 |
 | int32_t *capabilities | capabilities 指向输入设备能力信息的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo或者capabilities是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo或者capabilities是空指针。 |
 
 
-### OH_Input_GetDeviceVersion()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDeviceVersion()
 
 ```text
 Input_Result OH_Input_GetDeviceVersion(Input_DeviceInfo *deviceInfo, int32_t *version)
@@ -4316,24 +4101,22 @@ Input_Result OH_Input_GetDeviceVersion(Input_DeviceInfo *deviceInfo, int32_t *ve
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) *deviceInfo | deviceInfo 输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)。 |
+| Input_DeviceInfo *deviceInfo | deviceInfo 输入设备信息Input_DeviceInfo。 |
 | int32_t *version | version 指向输入设备版本信息的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo或者version是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo或者version是空指针。 |
 
 
-### OH_Input_GetDeviceProduct()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDeviceProduct()
 
 ```text
 Input_Result OH_Input_GetDeviceProduct(Input_DeviceInfo *deviceInfo, int32_t *product)
@@ -4349,24 +4132,22 @@ Input_Result OH_Input_GetDeviceProduct(Input_DeviceInfo *deviceInfo, int32_t *pr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) *deviceInfo | deviceInfo 输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)。 |
+| Input_DeviceInfo *deviceInfo | deviceInfo 输入设备信息Input_DeviceInfo。 |
 | int32_t *product | product 指向输入设备产品信息的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo或者product是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo或者product是空指针。 |
 
 
-### OH_Input_GetDeviceVendor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDeviceVendor()
 
 ```text
 Input_Result OH_Input_GetDeviceVendor(Input_DeviceInfo *deviceInfo, int32_t *vendor)
@@ -4382,24 +4163,22 @@ Input_Result OH_Input_GetDeviceVendor(Input_DeviceInfo *deviceInfo, int32_t *ven
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) *deviceInfo | deviceInfo 输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)。 |
+| Input_DeviceInfo *deviceInfo | deviceInfo 输入设备信息Input_DeviceInfo。 |
 | int32_t *vendor | vendor 指向输入设备厂商信息的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo或者vendor是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo或者vendor是空指针。 |
 
 
-### OH_Input_GetDeviceAddress()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetDeviceAddress()
 
 ```text
 Input_Result OH_Input_GetDeviceAddress(Input_DeviceInfo *deviceInfo, char **address)
@@ -4415,24 +4194,22 @@ Input_Result OH_Input_GetDeviceAddress(Input_DeviceInfo *deviceInfo, char **addr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo) *deviceInfo | deviceInfo 输入设备信息[Input_DeviceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo)。 |
+| Input_DeviceInfo *deviceInfo | deviceInfo 输入设备信息Input_DeviceInfo。 |
 | char **address | address 指向输入设备物理地址的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示deviceInfo或者address是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示deviceInfo或者address是空指针。 |
 
 
-### OH_Input_GetFunctionKeyState()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetFunctionKeyState()
 
 ```text
 Input_Result OH_Input_GetFunctionKeyState(int32_t keyCode, int32_t *state)
@@ -4446,7 +4223,6 @@ Input_Result OH_Input_GetFunctionKeyState(int32_t keyCode, int32_t *state)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t keyCode | 功能键值。目前仅支持CapsLock键，键值为1。 |
@@ -4455,15 +4231,14 @@ Input_Result OH_Input_GetFunctionKeyState(int32_t keyCode, int32_t *state)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetFunctionKeyState 函数返回值。          [INPUT_SUCCESS](#input_result) 表示获取状态成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数错误。          [INPUT_KEYBOARD_DEVICE_NOT_EXIST](#input_result) 表示键盘设备不存在。 |
+| Input_Result | OH_Input_GetFunctionKeyState 函数返回值。 INPUT_SUCCESS 表示获取状态成功。 INPUT_PARAMETER_ERROR 表示参数错误。 INPUT_KEYBOARD_DEVICE_NOT_EXIST 表示键盘设备不存在。 |
 
 
-### OH_Input_InjectTouchEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_InjectTouchEvent()
 
 ```text
 int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent)
@@ -4473,7 +4248,7 @@ int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent)
 
 使用以指定屏幕左上角为原点的相对坐标系的坐标注入触屏输入事件。
 
-如果当前处于用户未授权状���，调用该接口注入事件不生效。
+如果当前处于用户未授权状态，调用该接口注入事件不生效。
 
 从API version 20开始，建议先使用[OH_Input_RequestInjection](#oh_input_requestinjection)请求授权。然后通过[OH_Input_QueryAuthorizedStatus](#oh_input_queryauthorizedstatus)查询授权状态，当授权状态为[AUTHORIZED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_injectionstatus)时，再使用该接口。
 
@@ -4483,23 +4258,21 @@ int32_t OH_Input_InjectTouchEvent(const struct Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | OH_Input_InjectTouchEvent 函数返回值。          [INPUT_SUCCESS](#input_result) 表示注入成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数错误。          [INPUT_PERMISSION_DENIED](#input_result) 表示缺少权限。 |
+| int32_t | OH_Input_InjectTouchEvent 函数返回值。 INPUT_SUCCESS 表示注入成功。 INPUT_PARAMETER_ERROR 表示参数错误。 INPUT_PERMISSION_DENIED 表示缺少权限。 |
 
 
-### OH_Input_InjectMouseEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_InjectMouseEvent()
 
 ```text
 int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent)
@@ -4519,23 +4292,21 @@ int32_t OH_Input_InjectMouseEvent(const struct Input_MouseEvent* mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | OH_Input_InjectTouchEvent 函数返回值。          [INPUT_SUCCESS](#input_result) 表示注入成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数错误。          [INPUT_PERMISSION_DENIED](#input_result) 表示缺少权限。 |
+| int32_t | OH_Input_InjectTouchEvent 函数返回值。 INPUT_SUCCESS 表示注入成功。 INPUT_PARAMETER_ERROR 表示参数错误。 INPUT_PERMISSION_DENIED 表示缺少权限。 |
 
 
-### OH_Input_GetMouseEventDisplayId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventDisplayId()
 
 ```text
 int32_t OH_Input_GetMouseEventDisplayId(const struct Input_MouseEvent* mouseEvent)
@@ -4551,23 +4322,21 @@ int32_t OH_Input_GetMouseEventDisplayId(const struct Input_MouseEvent* mouseEven
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 若获取鼠标事件的屏幕ID成功，则返回鼠标事件的屏幕ID；若mouseEvent为NULL，则返回-1。 |
 
 
-### OH_Input_QueryMaxTouchPoints()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_QueryMaxTouchPoints()
 
 ```text
 Input_Result OH_Input_QueryMaxTouchPoints(int32_t *count)
@@ -4581,7 +4350,6 @@ Input_Result OH_Input_QueryMaxTouchPoints(int32_t *count)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t *count | 设备支持的最大触屏报点数，count取值范围为0-10，-1表示未知数量。 |
@@ -4589,15 +4357,14 @@ Input_Result OH_Input_QueryMaxTouchPoints(int32_t *count)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result) | OH_Input_QueryMaxTouchPoints 函数返回值：          [INPUT_SUCCESS](#input_result) 表示查询成功。          [INPUT_PARAMETER_ERROR](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-input-manager-h#input_result) 表示参数错误。 |
+| Input_Result | OH_Input_QueryMaxTouchPoints 函数返回值： INPUT_SUCCESS 表示查询成功。 INPUT_PARAMETER_ERROR 表示参数错误。 |
 
 
-### OH_Input_InjectMouseEventGlobal()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_InjectMouseEventGlobal()
 
 ```text
 int32_t OH_Input_InjectMouseEventGlobal(const struct Input_MouseEvent* mouseEvent)
@@ -4615,23 +4382,21 @@ int32_t OH_Input_InjectMouseEventGlobal(const struct Input_MouseEvent* mouseEven
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | OH_Input_InjectMouseEventGlobal 函数返回值。          [INPUT_SUCCESS](#input_result) 表示注入成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数错误。          [INPUT_PERMISSION_DENIED](#input_result) 表示缺少权限。 |
+| int32_t | OH_Input_InjectMouseEventGlobal 函数返回值。 INPUT_SUCCESS 表示注入成功。 INPUT_PARAMETER_ERROR 表示参数错误。 INPUT_PERMISSION_DENIED 表示缺少权限。 |
 
 
-### OH_Input_SetMouseEventGlobalX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventGlobalX()
 
 ```text
 void OH_Input_SetMouseEventGlobalX(struct Input_MouseEvent* mouseEvent, int32_t globalX)
@@ -4645,16 +4410,15 @@ void OH_Input_SetMouseEventGlobalX(struct Input_MouseEvent* mouseEvent, int32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | int32_t globalX | 鼠标事件以主屏左上角为原点的全局坐标系的X坐标。 |
 
 
-### OH_Input_GetMouseEventGlobalX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventGlobalX()
 
 ```text
 int32_t OH_Input_GetMouseEventGlobalX(const struct Input_MouseEvent* mouseEvent)
@@ -4668,23 +4432,21 @@ int32_t OH_Input_GetMouseEventGlobalX(const struct Input_MouseEvent* mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 鼠标事件以主屏左上角为原点的全局坐标系的X坐标。 |
 
 
-### OH_Input_SetMouseEventGlobalY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetMouseEventGlobalY()
 
 ```text
 void OH_Input_SetMouseEventGlobalY(struct Input_MouseEvent* mouseEvent, int32_t globalY)
@@ -4698,16 +4460,15 @@ void OH_Input_SetMouseEventGlobalY(struct Input_MouseEvent* mouseEvent, int32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 | int32_t globalY | 鼠标事件以主屏左上角为原点的全局坐标系的Y坐标。 |
 
 
-### OH_Input_GetMouseEventGlobalY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventGlobalY()
 
 ```text
 int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent)
@@ -4721,23 +4482,21 @@ int32_t OH_Input_GetMouseEventGlobalY(const struct Input_MouseEvent* mouseEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象，通过[OH_Input_CreateMouseEvent](#oh_input_createmouseevent)接口可以创建鼠标事件对象。          使用完需使用[OH_Input_DestroyMouseEvent](#oh_input_destroymouseevent)接口销毁鼠标事件对象。 |
+| const struct Input_MouseEvent* mouseEvent | 鼠标事件对象，通过OH_Input_CreateMouseEvent接口可以创建鼠标事件对象。 使用完需使用OH_Input_DestroyMouseEvent接口销毁鼠标事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 鼠标事件以主屏左上角为原点的全局坐标系的Y坐标。 |
 
 
-### OH_Input_InjectTouchEventGlobal()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_InjectTouchEventGlobal()
 
 ```text
 int32_t OH_Input_InjectTouchEventGlobal(const struct Input_TouchEvent* touchEvent)
@@ -4755,23 +4514,21 @@ int32_t OH_Input_InjectTouchEventGlobal(const struct Input_TouchEvent* touchEven
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | OH_Input_InjectTouchEventGlobal 函数返回值。          [INPUT_SUCCESS](#input_result) 表示注入成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数错误。          [INPUT_PERMISSION_DENIED](#input_result) 表示缺少权限。 |
+| int32_t | OH_Input_InjectTouchEventGlobal 函数返回值。 INPUT_SUCCESS 表示注入成功。 INPUT_PARAMETER_ERROR 表示参数错误。 INPUT_PERMISSION_DENIED 表示缺少权限。 |
 
 
-### OH_Input_SetTouchEventGlobalX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventGlobalX()
 
 ```text
 void OH_Input_SetTouchEventGlobalX(struct Input_TouchEvent* touchEvent, int32_t globalX)
@@ -4785,16 +4542,15 @@ void OH_Input_SetTouchEventGlobalX(struct Input_TouchEvent* touchEvent, int32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t globalX | 触屏输入事件以主屏左上角为原点的全局坐标系的X坐标。 |
 
 
-### OH_Input_GetTouchEventGlobalX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventGlobalX()
 
 ```text
 int32_t OH_Input_GetTouchEventGlobalX(const struct Input_TouchEvent* touchEvent)
@@ -4808,23 +4564,21 @@ int32_t OH_Input_GetTouchEventGlobalX(const struct Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 触屏输入事件以主屏左上角为原点的全局坐标系的X坐标。 |
 
 
-### OH_Input_SetTouchEventGlobalY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventGlobalY()
 
 ```text
 void OH_Input_SetTouchEventGlobalY(struct Input_TouchEvent* touchEvent, int32_t globalY)
@@ -4838,16 +4592,15 @@ void OH_Input_SetTouchEventGlobalY(struct Input_TouchEvent* touchEvent, int32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t globalY | 触屏输入事件以主屏左上角为原点的全局坐标系的Y坐标。 |
 
 
-### OH_Input_GetTouchEventGlobalY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventGlobalY()
 
 ```text
 int32_t OH_Input_GetTouchEventGlobalY(const struct Input_TouchEvent* touchEvent)
@@ -4861,23 +4614,21 @@ int32_t OH_Input_GetTouchEventGlobalY(const struct Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 触屏输入事件以主屏左上角为原点的全局坐标系的Y坐标。 |
 
 
-### OH_Input_SetAxisEventGlobalX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventGlobalX()
 
 ```text
 Input_Result OH_Input_SetAxisEventGlobalX(struct Input_AxisEvent* axisEvent, int32_t globalX)
@@ -4891,24 +4642,22 @@ Input_Result OH_Input_SetAxisEventGlobalX(struct Input_AxisEvent* axisEvent, int
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t globalX | 轴事件以主屏左上角为原点的全局坐标系的X坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示axisEvent是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示axisEvent是空指针。 |
 
 
-### OH_Input_GetAxisEventGlobalX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventGlobalX()
 
 ```text
 Input_Result OH_Input_GetAxisEventGlobalX(const Input_AxisEvent* axisEvent, int32_t* globalX)
@@ -4922,24 +4671,22 @@ Input_Result OH_Input_GetAxisEventGlobalX(const Input_AxisEvent* axisEvent, int3
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t* globalX | 轴事件以主屏左上角为原点的全局坐标系的X坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示axisEvent或者globalX是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示axisEvent或者globalX是空指针。 |
 
 
-### OH_Input_SetAxisEventGlobalY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetAxisEventGlobalY()
 
 ```text
 Input_Result OH_Input_SetAxisEventGlobalY(struct Input_AxisEvent* axisEvent, int32_t globalY)
@@ -4953,24 +4700,22 @@ Input_Result OH_Input_SetAxisEventGlobalY(struct Input_AxisEvent* axisEvent, int
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t globalY | 轴事件以主屏左上角为原点的全局坐标系的Y坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示axisEvent是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示axisEvent是空指针。 |
 
 
-### OH_Input_GetAxisEventGlobalY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetAxisEventGlobalY()
 
 ```text
 Input_Result OH_Input_GetAxisEventGlobalY(const Input_AxisEvent* axisEvent, int32_t* globalY)
@@ -4984,24 +4729,22 @@ Input_Result OH_Input_GetAxisEventGlobalY(const Input_AxisEvent* axisEvent, int3
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_AxisEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent)* axisEvent | 轴事件对象，通过[OH_Input_CreateAxisEvent](#oh_input_createaxisevent)接口可以创建轴事件对象。          使用完需使用[OH_Input_DestroyAxisEvent](#oh_input_destroyaxisevent)接口销毁轴事件对象。 |
+| const Input_AxisEvent* axisEvent | 轴事件对象，通过OH_Input_CreateAxisEvent接口可以创建轴事件对象。 使用完需使用OH_Input_DestroyAxisEvent接口销毁轴事件对象。 |
 | int32_t* globalY | 轴事件以主屏左上角为原点的全局坐标系的Y坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示axisEvent或者globalY是空指针。 |
+| Input_Result | INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示axisEvent或者globalY是空指针。 |
 
 
-### OH_Input_GetPointerLocation()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetPointerLocation()
 
 ```text
 Input_Result OH_Input_GetPointerLocation(int32_t *displayId, double *displayX, double *displayY)
@@ -5017,7 +4760,6 @@ Input_Result OH_Input_GetPointerLocation(int32_t *displayId, double *displayX, d
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t *displayId | 当前屏幕的屏幕ID。 |
@@ -5027,15 +4769,14 @@ Input_Result OH_Input_GetPointerLocation(int32_t *displayId, double *displayX, d
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetPointerLocation 函数返回值：          [INPUT_SUCCESS](#input_result) 表示查询成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数错误。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常。          [INPUT_APP_NOT_FOCUSED](#input_result) 表示当前应用不是焦点应用。          [INPUT_DEVICE_NO_POINTER](#input_result) 表示无鼠标类输入外设。 |
+| Input_Result | OH_Input_GetPointerLocation 函数返回值： INPUT_SUCCESS 表示查询成功。 INPUT_PARAMETER_ERROR 表示参数错误。 INPUT_SERVICE_EXCEPTION 表示服务异常。 INPUT_APP_NOT_FOCUSED 表示当前应用不是焦点应用。 INPUT_DEVICE_NO_POINTER 表示无鼠标类输入外设。 |
 
 
-### OH_Input_GetKeyEventId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetKeyEventId()
 
 ```text
 Input_Result OH_Input_GetKeyEventId(const struct Input_KeyEvent* keyEvent, int32_t* eventId)
@@ -5049,24 +4790,22 @@ Input_Result OH_Input_GetKeyEventId(const struct Input_KeyEvent* keyEvent, int32
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent)* keyEvent | 按键事件对象，通过[OH_Input_CreateKeyEvent](#oh_input_createkeyevent)接口可以创建按键事件对象。          使用完需使用[OH_Input_DestroyKeyEvent](#oh_input_destroykeyevent)接口销毁按键事件对象。 |
+| Input_KeyEvent* keyEvent | 按键事件对象，通过OH_Input_CreateKeyEvent接口可以创建按键事件对象。 使用完需使用OH_Input_DestroyKeyEvent接口销毁按键事件对象。 |
 | int32_t* eventId | 按键事件的ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetKeyEventId 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_GetKeyEventId 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_AddKeyEventHook()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_AddKeyEventHook()
 
 ```text
 Input_Result OH_Input_AddKeyEventHook(Input_KeyEventCallback callback)
@@ -5088,23 +4827,21 @@ Input_Result OH_Input_AddKeyEventHook(Input_KeyEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_KeyEventCallback](#input_keyeventcallback) callback | 钩子函数，用于拦截待分发的所有按键事件。 |
+| Input_KeyEventCallback callback | 钩子函数，用于拦截待分发的所有按键事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_AddKeyEventHook 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。          [INPUT_DEVICE_NOT_SUPPORTED](#input_result) 表示不支持该功能。          [INPUT_PERMISSION_DENIED](#input_result) 表示权限验证失败。          [INPUT_REPEAT_INTERCEPTOR](#input_result) 表示重复设置钩子。一个进程仅支持设置一个钩子。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_AddKeyEventHook 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 INPUT_DEVICE_NOT_SUPPORTED 表示不支持该功能。 INPUT_PERMISSION_DENIED 表示权限验证失败。 INPUT_REPEAT_INTERCEPTOR 表示重复设置钩子。一个进程仅支持设置一个钩子。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_RemoveKeyEventHook()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_RemoveKeyEventHook()
 
 ```text
 Input_Result OH_Input_RemoveKeyEventHook(Input_KeyEventCallback callback)
@@ -5122,23 +4859,21 @@ Input_Result OH_Input_RemoveKeyEventHook(Input_KeyEventCallback callback)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_KeyEventCallback](#input_keyeventcallback) callback | 钩子函数，用于拦截待分发的所有按键事件。 |
+| Input_KeyEventCallback callback | 钩子函数，用于拦截待分发的所有按键事件。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_RemoveKeyEventHook 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。如果之前没有添加对应钩子，移除时也会返回成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_RemoveKeyEventHook 函数返回值： INPUT_SUCCESS 表示操作成功。如果之前没有添加对应钩子，移除时也会返回成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_DispatchToNextHandler()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_DispatchToNextHandler()
 
 ```text
 Input_Result OH_Input_DispatchToNextHandler(int32_t eventId)
@@ -5164,23 +4899,21 @@ Input_Result OH_Input_DispatchToNextHandler(int32_t eventId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t eventId | 按键事件的ID。可以通过[OH_Input_GetKeyEventId](#oh_input_getkeyeventid)接口获取。 |
+| int32_t eventId | 按键事件的ID。可以通过OH_Input_GetKeyEventId接口获取。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_DispatchToNextHandler 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。可通过[OH_Input_GetKeyEventId](#oh_input_getkeyeventid)查看传入的eventId是否准确。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_DispatchToNextHandler 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。可通过OH_Input_GetKeyEventId查看传入的eventId是否准确。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_SetPointerVisible()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetPointerVisible()
 
 ```text
 Input_Result OH_Input_SetPointerVisible(bool visible)
@@ -5196,7 +4929,6 @@ Input_Result OH_Input_SetPointerVisible(bool visible)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | bool visible | 鼠标光标是否显示。true表示显示，false表示不显示。 |
@@ -5204,15 +4936,14 @@ Input_Result OH_Input_SetPointerVisible(bool visible)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_SetPointerVisible 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_DEVICE_NOT_SUPPORTED](#input_result) 表示设备不支持。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_SetPointerVisible 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_DEVICE_NOT_SUPPORTED 表示设备不支持。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_GetPointerStyle()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetPointerStyle()
 
 ```text
 Input_Result OH_Input_GetPointerStyle(int32_t windowId, int32_t *pointerStyle)
@@ -5228,24 +4959,22 @@ Input_Result OH_Input_GetPointerStyle(int32_t windowId, int32_t *pointerStyle)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t windowId | 窗口ID。取值范围为大于等于-1的整数，取值为-1时表示全局窗口。          仅支持传入当前窗口和全局窗口的ID，传入其他ID返回全局窗口的默认光标样式，当前窗口ID可以通过[getWindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)获取。 |
+| int32_t windowId | 窗口ID。取值范围为大于等于-1的整数，取值为-1时表示全局窗口。 仅支持传入当前窗口和全局窗口的ID，传入其他ID返回全局窗口的默认光标样式，当前窗口ID可以通过getWindowProperties获取。 |
 | int32_t* pointerStyle | 鼠标光标样式的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetPointerStyle 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_GetPointerStyle 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_SetPointerStyle()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetPointerStyle()
 
 ```text
 Input_Result OH_Input_SetPointerStyle(int32_t windowId, int32_t pointerStyle)
@@ -5261,24 +4990,22 @@ Input_Result OH_Input_SetPointerStyle(int32_t windowId, int32_t pointerStyle)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t windowId | 窗口ID。取值范围为大于等于0的整数。          仅支持传入当前窗口的光标样式，传入其他窗口ID本接口可以运行成功但设置不生效，当前窗口ID可以通过[getWindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)获取。 |
-| int32_t pointerStyle | 鼠标光标样式，取值为[Input_PointerStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h#input_pointerstyle)的枚举值。 |
+| int32_t windowId | 窗口ID。取值范围为大于等于0的整数。 仅支持传入当前窗口的光标样式，传入其他窗口ID本接口可以运行成功但设置不生效，当前窗口ID可以通过getWindowProperties获取。 |
+| int32_t pointerStyle | 鼠标光标样式，取值为Input_PointerStyle的枚举值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_SetPointerStyle 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_SetPointerStyle 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_CustomCursor_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CustomCursor_Create()
 
 ```text
 Input_CustomCursor* OH_Input_CustomCursor_Create(OH_PixelmapNative* pixelMap, int32_t anchorX, int32_t anchorY)
@@ -5292,25 +5019,23 @@ Input_CustomCursor* OH_Input_CustomCursor_Create(OH_PixelmapNative* pixelMap, in
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| OH_PixelmapNative* pixelMap | [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative)自定义鼠标光标像素图。最小限制为资源图本身的最小限制。最大限制为256 x 256px。 |
+| OH_PixelmapNative* pixelMap | OH_PixelmapNative自定义鼠标光标像素图。最小限制为资源图本身的最小限制。最大限制为256 x 256px。 |
 | int32_t anchorX | 自定义鼠标光标焦点的水平坐标。该坐标受自定义鼠标光标大小的限制。最小值为0，最大值为资源图的宽度最大值，单位为px。 |
 | int32_t anchorY | 自定义鼠标光标焦点的垂直坐标。该坐标受自定义鼠标光标大小的限制。最小值为0，最大值为资源图的高度最大值，单位为px。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Input_CustomCursor* | [Input_CustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-customcursor)对象。操作成功时返回自定义鼠标光标资源对象的指针。异常时返回空指针。 |
+| Input_CustomCursor* | Input_CustomCursor对象。操作成功时返回自定义鼠标光标资源对象的指针。异常时返回空指针。 |
 
 
-### OH_Input_CustomCursor_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CustomCursor_Destroy()
 
 ```text
 void OH_Input_CustomCursor_Destroy(Input_CustomCursor** customCursor)
@@ -5324,15 +5049,14 @@ void OH_Input_CustomCursor_Destroy(Input_CustomCursor** customCursor)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| Input_CustomCursor** customCursor | 自定义鼠标光标资源[Input_CustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-customcursor)。 |
+| Input_CustomCursor** customCursor | 自定义鼠标光标资源Input_CustomCursor。 |
 
 
-### OH_Input_CustomCursor_GetPixelMap()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CustomCursor_GetPixelMap()
 
 ```text
 Input_Result OH_Input_CustomCursor_GetPixelMap(Input_CustomCursor* customCursor, OH_PixelmapNative** pixelMap)
@@ -5346,24 +5070,22 @@ Input_Result OH_Input_CustomCursor_GetPixelMap(Input_CustomCursor* customCursor,
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| Input_CustomCursor* customCursor | 自定义鼠标光标资源[Input_CustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-customcursor)。 |
-| OH_PixelmapNative** pixelMap | [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative)自定义鼠标光标像素图。 |
+| Input_CustomCursor* customCursor | 自定义鼠标光标资源Input_CustomCursor。 |
+| OH_PixelmapNative** pixelMap | OH_PixelmapNative自定义鼠标光标像素图。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_CustomCursor_GetPixelMap 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_CustomCursor_GetPixelMap 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_CustomCursor_GetAnchor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CustomCursor_GetAnchor()
 
 ```text
 Input_Result OH_Input_CustomCursor_GetAnchor(Input_CustomCursor* customCursor, int32_t* anchorX, int32_t* anchorY)
@@ -5377,25 +5099,23 @@ Input_Result OH_Input_CustomCursor_GetAnchor(Input_CustomCursor* customCursor, i
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| Input_CustomCursor* customCursor | 自定义鼠标光标资源[Input_CustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-customcursor)。 |
+| Input_CustomCursor* customCursor | 自定义鼠标光标资源Input_CustomCursor。 |
 | int32_t* anchorX | 自定义鼠标光标资源的焦点水平坐标，单位为px。 |
 | int32_t* anchorY | 自定义鼠标光标资源的焦点垂直坐标，单位为px。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_CustomCursor_GetAnchor 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_CustomCursor_GetAnchor 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_CursorConfig_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorConfig_Create()
 
 ```text
 Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem)
@@ -5409,7 +5129,6 @@ Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | bool followSystem | 是否根据系统设置调整鼠标光标大小。false表示使用自定义鼠标光标样式大小，true表示根据系统设置调整鼠标光标大小，可调整范围为：[光标资源图大小，256×256]，单位为px。 |
@@ -5417,15 +5136,14 @@ Input_CursorConfig* OH_Input_CursorConfig_Create(bool followSystem)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Input_CursorConfig* | 自定义鼠标光标配置[Input_CursorConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorconfig)对象。 |
+| Input_CursorConfig* | 自定义鼠标光标配置Input_CursorConfig对象。 |
 
 
-### OH_Input_CursorConfig_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorConfig_Destroy()
 
 ```text
 void OH_Input_CursorConfig_Destroy(Input_CursorConfig** cursorConfig)
@@ -5439,15 +5157,14 @@ void OH_Input_CursorConfig_Destroy(Input_CursorConfig** cursorConfig)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| Input_CursorConfig** cursorConfig | 自定义鼠标光标配置[Input_CursorConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorconfig)对象。 |
+| Input_CursorConfig** cursorConfig | 自定义鼠标光标配置Input_CursorConfig对象。 |
 
 
-### OH_Input_CursorConfig_IsFollowSystem()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorConfig_IsFollowSystem()
 
 ```text
 Input_Result OH_Input_CursorConfig_IsFollowSystem(Input_CursorConfig *cursorConfig, bool *followSystem)
@@ -5461,24 +5178,22 @@ Input_Result OH_Input_CursorConfig_IsFollowSystem(Input_CursorConfig *cursorConf
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| Input_CursorConfig* cursorConfig | 自定义鼠标光标配置[Input_CursorConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorconfig)。 |
+| Input_CursorConfig* cursorConfig | 自定义鼠标光标配置Input_CursorConfig。 |
 | bool* followSystem | 是否根据系统设置调整光标大小，取值为true表示根据系统设置调整鼠标光标大小，取值为false表示使用自定义鼠标光标样式大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_CursorConfig_IsFollowSystem 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_CursorConfig_IsFollowSystem 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_SetCustomCursor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetCustomCursor()
 
 ```text
 Input_Result OH_Input_SetCustomCursor(int32_t windowId, Input_CustomCursor* customCursor, Input_CursorConfig* cursorConfig)
@@ -5496,25 +5211,23 @@ Input_Result OH_Input_SetCustomCursor(int32_t windowId, Input_CustomCursor* cust
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 窗口ID。取值范围为大于等于0的整数，仅支持传入当前窗口的光标样式。 |
-| Input_CustomCursor* customCursor | 自定义鼠标光标资源[Input_CustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-customcursor)。 |
-| Input_CursorConfig* cursorConfig | 自定义鼠标光标配置[Input_CursorConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorconfig)。 |
+| Input_CustomCursor* customCursor | 自定义鼠标光标资源Input_CustomCursor。 |
+| Input_CursorConfig* cursorConfig | 自定义鼠标光标配置Input_CursorConfig。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_SetCustomCursor 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。          [INPUT_INVALID_WINDOWID](#input_result) 表示窗口ID无效。          [INPUT_DEVICE_NOT_SUPPORTED](#input_result) 表示设备不支持。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_SetCustomCursor 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 INPUT_INVALID_WINDOWID 表示窗口ID无效。 INPUT_DEVICE_NOT_SUPPORTED 表示设备不支持。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_CursorInfo_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorInfo_Create()
 
 ```text
 struct Input_CursorInfo* OH_Input_CursorInfo_Create()
@@ -5528,15 +5241,14 @@ struct Input_CursorInfo* OH_Input_CursorInfo_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| struct Input_CursorInfo* | 创建成功返回一个[Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)对象，否则返回空指针，可能原因是内存分配失败。 |
+| struct Input_CursorInfo* | 创建成功返回一个Input_CursorInfo对象，否则返回空指针，可能原因是内存分配失败。 |
 
 
-### OH_Input_CursorInfo_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorInfo_Destroy()
 
 ```text
 void OH_Input_CursorInfo_Destroy(Input_CursorInfo** cursorInfo)
@@ -5550,15 +5262,14 @@ void OH_Input_CursorInfo_Destroy(Input_CursorInfo** cursorInfo)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)** cursorInfo | 鼠标光标信息对象。 |
+| Input_CursorInfo** cursorInfo | 鼠标光标信息对象。 |
 
 
-### OH_Input_CursorInfo_IsVisible()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorInfo_IsVisible()
 
 ```text
 Input_Result OH_Input_CursorInfo_IsVisible(Input_CursorInfo* cursorInfo, bool* visible)
@@ -5572,24 +5283,22 @@ Input_Result OH_Input_CursorInfo_IsVisible(Input_CursorInfo* cursorInfo, bool* v
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)* cursorInfo | 指定鼠标光标信息对象。可以通过[OH_Input_GetMouseEventCursorInfo](#oh_input_getmouseeventcursorinfo)查询指定鼠标事件的鼠标光标信息、或通过[OH_Input_GetCursorInfo](#oh_input_getcursorinfo)接口查询当前的鼠标光标信息。 |
+| Input_CursorInfo* cursorInfo | 指定鼠标光标信息对象。可以通过OH_Input_GetMouseEventCursorInfo查询指定鼠标事件的鼠标光标信息、或通过OH_Input_GetCursorInfo接口查询当前的鼠标光标信息。 |
 | bool* visible | 鼠标光标显示或隐藏状态。true代表显示状态，false代表隐藏状态。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_CursorInfo_IsVisible 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_CursorInfo_IsVisible 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_CursorInfo_GetStyle()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorInfo_GetStyle()
 
 ```text
 Input_Result OH_Input_CursorInfo_GetStyle(Input_CursorInfo* cursorInfo, Input_PointerStyle* style)
@@ -5603,24 +5312,22 @@ Input_Result OH_Input_CursorInfo_GetStyle(Input_CursorInfo* cursorInfo, Input_Po
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)* cursorInfo | 指定鼠标光标信息对象。可以通过[OH_Input_GetMouseEventCursorInfo](#oh_input_getmouseeventcursorinfo)查询指定鼠标事件的鼠标光标信息、或通过[OH_Input_GetCursorInfo](#oh_input_getcursorinfo)接口查询当前的鼠标光标信息。 |
-| [Input_PointerStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h) | 鼠标光标信息的光标样式枚举，具体请参考[Input_PointerStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h#input_pointerstyle)。 |
+| Input_CursorInfo* cursorInfo | 指定鼠标光标信息对象。可以通过OH_Input_GetMouseEventCursorInfo查询指定鼠标事件的鼠标光标信息、或通过OH_Input_GetCursorInfo接口查询当前的鼠标光标信息。 |
+| Input_PointerStyle | 鼠标光标信息的光标样式枚举，具体请参考Input_PointerStyle。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_CursorInfo_GetStyle 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败或者光标不可见。 |
+| Input_Result | OH_Input_CursorInfo_GetStyle 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败或者光标不可见。 |
 
 
-### OH_Input_CursorInfo_GetSizeLevel()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorInfo_GetSizeLevel()
 
 ```text
 Input_Result OH_Input_CursorInfo_GetSizeLevel(Input_CursorInfo* cursorInfo, int32_t* sizeLevel)
@@ -5634,24 +5341,22 @@ Input_Result OH_Input_CursorInfo_GetSizeLevel(Input_CursorInfo* cursorInfo, int3
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)* cursorInfo | 指定鼠标光标信息对象。可以通过[OH_Input_GetMouseEventCursorInfo](#oh_input_getmouseeventcursorinfo)查询���定鼠标事件的鼠标光标信息、或通过[OH_Input_GetCursorInfo](#oh_input_getcursorinfo)接口查询当前的鼠标光标信息。 |
-| int32_t* sizeLevel | 鼠标光标信息的光标大小档位。取值范围为整数1~7，数值越大则光标越大。应用自定义光标[DEVELOPER_DEFINED_ICON](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h#input_pointerstyle)请以实际位图大小为准。 |
+| Input_CursorInfo* cursorInfo | 指定鼠标光标信息对象。可以通过OH_Input_GetMouseEventCursorInfo查询指定鼠标事件的鼠标光标信息、或通过OH_Input_GetCursorInfo接口查询当前的鼠标光标信息。 |
+| int32_t* sizeLevel | 鼠标光标信息的光标大小档位。取值范围为整数1~7，数值越大则光标越大。应用自定义光标DEVELOPER_DEFINED_ICON请以实际位图大小为准。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_CursorInfo_GetSizeLevel 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败或者光标不可见。 |
+| Input_Result | OH_Input_CursorInfo_GetSizeLevel 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败或者光标不可见。 |
 
 
-### OH_Input_CursorInfo_GetColor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_CursorInfo_GetColor()
 
 ```text
 Input_Result OH_Input_CursorInfo_GetColor(Input_CursorInfo* cursorInfo, uint32_t* color)
@@ -5665,24 +5370,22 @@ Input_Result OH_Input_CursorInfo_GetColor(Input_CursorInfo* cursorInfo, uint32_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)* cursorInfo | 指定鼠标光标信息对象。可以通过[OH_Input_GetMouseEventCursorInfo](#oh_input_getmouseeventcursorinfo)查询指定鼠标事件的鼠标光标信息、或通过[OH_Input_GetCursorInfo](#oh_input_getcursorinfo)接口查询当前的鼠标光标信息。 |
-| uint32_t* color | 鼠标光标信息的光标颜色, 使用32位ARGB整数表示。应用自定义光标[DEVELOPER_DEFINED_ICON](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pointer-style-h#input_pointerstyle)请以实际位图颜色为准。 |
+| Input_CursorInfo* cursorInfo | 指定鼠标光标信息对象。可以通过OH_Input_GetMouseEventCursorInfo查询指定鼠标事件的鼠标光标信息、或通过OH_Input_GetCursorInfo接口查询当前的鼠标光标信息。 |
+| uint32_t* color | 鼠标光标信息的光标颜色, 使用32位ARGB整数表示。应用自定义光标DEVELOPER_DEFINED_ICON请以实际位图颜色为准。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_CursorInfo_GetColor 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败或者光标不可见。 |
+| Input_Result | OH_Input_CursorInfo_GetColor 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败或者光标不可见。 |
 
 
-### OH_Input_GetMouseEventCursorInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetMouseEventCursorInfo()
 
 ```text
 Input_Result OH_Input_GetMouseEventCursorInfo(const struct Input_MouseEvent* mouseEvent, Input_CursorInfo* cursorInfo)
@@ -5696,24 +5399,22 @@ Input_Result OH_Input_GetMouseEventCursorInfo(const struct Input_MouseEvent* mou
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Input_MouseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-mouseevent)* mouseEvent | 鼠标事件对象。可以通过[OH_Input_AddMouseEventMonitor](#oh_input_addmouseeventmonitor)或者[OH_Input_AddInputEventInterceptor](#oh_input_addinputeventinterceptor)接口的回调函数中获取鼠标事件对象。 |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)* cursorInfo | 鼠标光标信息对象，可以通过[OH_Input_CursorInfo_Create](#oh_input_cursorinfo_create)接口创建鼠标光标信息对象。 |
+| const Input_MouseEvent* mouseEvent | 鼠标事件对象。可以通过OH_Input_AddMouseEventMonitor或者OH_Input_AddInputEventInterceptor接口的回调函数中获取鼠标事件对象。 |
+| Input_CursorInfo* cursorInfo | 鼠标光标信息对象，可以通过OH_Input_CursorInfo_Create接口创建鼠标光标信息对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetMouseEventCursorInfo 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_GetMouseEventCursorInfo 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_GetCursorInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetCursorInfo()
 
 ```text
 Input_Result OH_Input_GetCursorInfo(Input_CursorInfo* cursorInfo, OH_PixelmapNative** pixelmap)
@@ -5729,24 +5430,22 @@ Input_Result OH_Input_GetCursorInfo(Input_CursorInfo* cursorInfo, OH_PixelmapNat
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Input_CursorInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo)* cursorInfo | 鼠标光标信息对象，可以通过[OH_Input_CursorInfo_Create](#oh_input_cursorinfo_create)接口创建鼠标光标信息对象。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative)** pixelmap | PixelMap位图对象，如果该参数非空且光标为应用自定义，则会返回光标的PixelMap位图对象，否则不返回PixelMap位图对象。首先通过[OH_PixelmapInitializationOptions_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapinitializationoptions_create)接口创建OH_PixelmapInitializationOptions对象，然后调用[OH_PixelmapInitializationOptions_SetWidth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapinitializationoptions_setwidth)接口设置大于0的宽度，调用[OH_PixelmapInitializationOptions_SetHeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapinitializationoptions_setheight)接口设置大于0的高度，最后以该OH_PixelmapInitializationOptions对象作为入参调用[OH_PixelmapNative_CreateEmptyPixelmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_createemptypixelmap)接口创建PixelMap位图对象。          使用完需要先调用[OH_PixelmapNative_Release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_release)接口释放PixelMap位图对象，然后调用[OH_PixelmapNative_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_destroy)接口销毁PixelMap位图对象。 |
+| Input_CursorInfo* cursorInfo | 鼠标光标信息对象，可以通过OH_Input_CursorInfo_Create接口创建鼠标光标信息对象。 |
+| OH_PixelmapNative** pixelmap | PixelMap位图对象，如果该参数非空且光标为应用自定义，则会返回光标的PixelMap位图对象，否则不返回PixelMap位图对象。首先通过OH_PixelmapInitializationOptions_Create接口创建OH_PixelmapInitializationOptions对象，然后调用OH_PixelmapInitializationOptions_SetWidth接口设置大于0的宽度，调用OH_PixelmapInitializationOptions_SetHeight接口设置大于0的高度，最后以该OH_PixelmapInitializationOptions对象作为入参调用OH_PixelmapNative_CreateEmptyPixelmap接口创建PixelMap位图对象。 使用完需要先调用OH_PixelmapNative_Release接口释放PixelMap位图对象，然后调用OH_PixelmapNative_Destroy接口销毁PixelMap位图对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_GetCursorInfo 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。          [INPUT_SERVICE_EXCEPTION](#input_result) 表示服务异常，请重试。 |
+| Input_Result | OH_Input_GetCursorInfo 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 INPUT_SERVICE_EXCEPTION 表示服务异常，请重试。 |
 
 
-### OH_Input_SetTouchEventPressure()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventPressure()
 
 ```text
 Input_Result OH_Input_SetTouchEventPressure(struct Input_TouchEvent* touchEvent, double pressure)
@@ -5760,24 +5459,22 @@ Input_Result OH_Input_SetTouchEventPressure(struct Input_TouchEvent* touchEvent,
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | double pressure | 压力值，范围[0.0, 1.0]，当前触屏可感知的最小压力程度为0.0，最大压力程度为1.0，无单位。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_SetTouchEventPressure 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_SetTouchEventPressure 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_GetTouchEventPressure()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventPressure()
 
 ```text
 double OH_Input_GetTouchEventPressure(const struct Input_TouchEvent* touchEvent)
@@ -5791,23 +5488,21 @@ double OH_Input_GetTouchEventPressure(const struct Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | double | 压力值，无单位。 |
 
 
-### OH_Input_SetTouchEventWindowX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventWindowX()
 
 ```text
 void OH_Input_SetTouchEventWindowX(struct Input_TouchEvent* touchEvent, int32_t windowX)
@@ -5821,16 +5516,15 @@ void OH_Input_SetTouchEventWindowX(struct Input_TouchEvent* touchEvent, int32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t windowX | 指定窗口左上角为原点的相对坐标系的X坐标，单位：px。 |
 
 
-### OH_Input_GetTouchEventWindowX()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventWindowX()
 
 ```text
 int32_t OH_Input_GetTouchEventWindowX(const struct Input_TouchEvent* touchEvent)
@@ -5844,23 +5538,21 @@ int32_t OH_Input_GetTouchEventWindowX(const struct Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 指定窗口左上角为原点的相对坐标系的X坐标，单位：px。 |
 
 
-### OH_Input_SetTouchEventWindowY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventWindowY()
 
 ```text
 void OH_Input_SetTouchEventWindowY(struct Input_TouchEvent* touchEvent, int32_t windowY)
@@ -5874,16 +5566,15 @@ void OH_Input_SetTouchEventWindowY(struct Input_TouchEvent* touchEvent, int32_t 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int32_t windowY | 指定窗口左上角为原点的相对坐标系的Y坐标，单位：px。 |
 
 
-### OH_Input_GetTouchEventWindowY()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventWindowY()
 
 ```text
 int32_t OH_Input_GetTouchEventWindowY(const struct Input_TouchEvent* touchEvent)
@@ -5897,23 +5588,21 @@ int32_t OH_Input_GetTouchEventWindowY(const struct Input_TouchEvent* touchEvent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 指定窗口左上角为原点的相对坐标系的Y坐标，单位：px。 |
 
 
-### OH_Input_SetTouchEventDownTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventDownTime()
 
 ```text
 void OH_Input_SetTouchEventDownTime(struct Input_TouchEvent* touchEvent, int64_t downTime)
@@ -5927,16 +5616,15 @@ void OH_Input_SetTouchEventDownTime(struct Input_TouchEvent* touchEvent, int64_t
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 | int64_t downTime | 当前触屏事件对应手指/其他触屏外设最近一次按下事件发生的时间，表示系统启动运行至今逝去的微秒数。 |
 
 
-### OH_Input_GetTouchEventDownTime()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventDownTime()
 
 ```text
 int64_t OH_Input_GetTouchEventDownTime(const struct Input_TouchEvent* touchEvent)
@@ -5950,23 +5638,21 @@ int64_t OH_Input_GetTouchEventDownTime(const struct Input_TouchEvent* touchEvent
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int64_t | 当前触屏事件对应手指/其他触屏外设最近一次按下事件发生的时间，表示系统启动运行至今逝去的微秒数。 |
 
 
-### OH_Input_SetTouchEventToolType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_SetTouchEventToolType()
 
 ```text
 Input_Result OH_Input_SetTouchEventToolType(struct Input_TouchEvent* touchEvent, Input_TouchEventToolType toolType)
@@ -5980,24 +5666,22 @@ Input_Result OH_Input_SetTouchEventToolType(struct Input_TouchEvent* touchEvent,
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
-| [Input_TouchEventToolType](#input_toucheventtooltype) toolType | 工具类型。 |
+| struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
+| Input_TouchEventToolType toolType | 工具类型。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_Result](#input_result) | OH_Input_SetTouchEventToolType 函数返回值：          [INPUT_SUCCESS](#input_result) 表示操作成功。          [INPUT_PARAMETER_ERROR](#input_result) 表示参数检查失败。 |
+| Input_Result | OH_Input_SetTouchEventToolType 函数返回值： INPUT_SUCCESS 表示操作成功。 INPUT_PARAMETER_ERROR 表示参数检查失败。 |
 
 
-### OH_Input_GetTouchEventToolType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Input_GetTouchEventToolType()
 
 ```text
 Input_TouchEventToolType OH_Input_GetTouchEventToolType(const struct Input_TouchEvent* touchEvent)
@@ -6011,15 +5695,13 @@ Input_TouchEventToolType OH_Input_GetTouchEventToolType(const struct Input_Touch
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const struct [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 触屏输入事件对象，通过[OH_Input_CreateTouchEvent](#oh_input_createtouchevent)接口可以创建触屏输入事件对象。          使用完需使用[OH_Input_DestroyTouchEvent](#oh_input_destroytouchevent)接口销毁触屏输入事件对象。 |
+| const struct Input_TouchEvent* touchEvent | 触屏输入事件对象，通过OH_Input_CreateTouchEvent接口可以创建触屏输入事件对象。 使用完需使用OH_Input_DestroyTouchEvent接口销毁触屏输入事件对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Input_TouchEventToolType](#input_toucheventtooltype) | 工具类型。 |
+| Input_TouchEventToolType | 工具类型。 |

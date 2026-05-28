@@ -3,13 +3,16 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuresult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 实现长按页面元素或鼠标右键弹出来的菜单所执行的响应事件。示例代码参考[onContextMenuShow事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontextmenushow9)。
 
+> [!NOTE]
+> 该组件首批接口从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。
 
-## constructor9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor9+
 
 constructor()
 
@@ -18,8 +21,8 @@ WebContextMenuResult的构造函数。
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## closeContextMenu9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### closeContextMenu9+
 
 closeContextMenu(): void
 
@@ -28,8 +31,8 @@ closeContextMenu(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## copyImage9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### copyImage9+
 
 copyImage(): void
 
@@ -38,8 +41,8 @@ copyImage(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## copy9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### copy9+
 
 copy(): void
 
@@ -48,22 +51,22 @@ copy(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## paste9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### paste9+
 
 paste(): void
 
 执行粘贴操作。
 
-
 > [!NOTE]
-> 需要配置权限：[ohos.permission.READ_PASTEBOARD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_pasteboard)。
+> 需要配置权限： ohos.permission.READ_PASTEBOARD 。
+
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## cut9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cut9+
 
 cut(): void
 
@@ -72,8 +75,8 @@ cut(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## selectAll9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### selectAll9+
 
 selectAll(): void
 
@@ -82,8 +85,8 @@ selectAll(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## undo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### undo20+
 
 undo(): void
 
@@ -92,8 +95,8 @@ undo(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## redo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### redo20+
 
 redo(): void
 
@@ -102,22 +105,22 @@ redo(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## pasteAndMatchStyle20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pasteAndMatchStyle20+
 
 pasteAndMatchStyle(): void
 
 执行与此上下文菜单相关的粘贴操作，粘贴的内容会匹配目标格式，以纯文本形式呈现。
 
-
 > [!NOTE]
-> 需要配置权限：[ohos.permission.READ_PASTEBOARD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionread_pasteboard)。
+> 需要配置权限： ohos.permission.READ_PASTEBOARD 。
+
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## requestPasswordAutoFill23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### requestPasswordAutoFill23+
 
 requestPasswordAutoFill(): void
 
@@ -126,8 +129,8 @@ requestPasswordAutoFill(): void
 **系统能力：** SystemCapability.Web.Webview.Core
 
 
-## saveImage24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### saveImage24+
 
 saveImage(): void
 

@@ -3,33 +3,29 @@
 更新时间：2026-04-03 09:39:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-scan
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 该模块为扫描框架的js-api接口文档，提供发现和连接扫描仪的能力。
-
-
+ 
 > [!NOTE]
-> 本模块首批接口从API version 20开始支持。
-> 当前界面仅包含本模块的公开接口。
+> 本模块首批接口从API version 20开始支持。 当前界面仅包含本模块的公开接口。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { scan } from '@kit.BasicServicesKit';
 ```
+ 
+  
 
-
-## ScanErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ScanErrorCode
 
 定义扫描错误码的枚举。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SCAN_ERROR_NO_PERMISSION | 201 | 无权限。 |
@@ -47,32 +43,32 @@ import { scan } from '@kit.BasicServicesKit';
 | SCAN_ERROR_COVER_OPEN | 13100010 | 盖子打开。 |
 | SCAN_ERROR_IO_ERROR | 13100011 | I/O错误。 |
 | SCAN_ERROR_NO_MEMORY | 13100012 | 内存不足。 |
+ 
+ 
+  
 
-
-## ConstraintType
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ConstraintType
 
 定义参数限制类型的枚举。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SCAN_CONSTRAINT_NONE | 0 | 无限制。 |
 | SCAN_CONSTRAINT_RANGE | 1 | 范围限制。 |
 | SCAN_CONSTRAINT_WORD_LIST | 2 | 数字列表。 |
 | SCAN_CONSTRAINT_STRING_LIST | 3 | 字符串列表。 |
+ 
+ 
+  
 
-
-## PhysicalUnit
-**支持设备：** Phone / PC/2in1 / Tablet
+##### PhysicalUnit
 
 定义物理单位的枚举。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SCAN_UNIT_NONE | 0 | 无单位。 |
@@ -82,968 +78,868 @@ import { scan } from '@kit.BasicServicesKit';
 | SCAN_UNIT_DPI | 4 | DPI单位。 |
 | SCAN_UNIT_PERCENT | 5 | 百分比单位。 |
 | SCAN_UNIT_MICROSECOND | 6 | 微秒单位。 |
+ 
+ 
+  
 
-
-## OptionValueType
-**支持设备：** Phone / PC/2in1 / Tablet
+##### OptionValueType
 
 定义选项值类型的枚举。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SCAN_TYPE_BOOL | 0 | 布尔类型。 |
 | SCAN_TYPE_INT | 1 | 整数类型。 |
 | SCAN_TYPE_FIXED | 2 | 定点数类型。 |
 | SCAN_TYPE_STRING | 3 | 字符串类型。 |
+ 
+ 
+  
 
-
-## ScannerSyncMode
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ScannerSyncMode
 
 定义扫描仪同步码的枚举。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UPDATE_STR | 'update' | 更新码，表示扫描仪id的变化。 |
 | DELETE_STR | 'delete' | 删除码，表示扫描仪掉线。 |
+ 
+ 
+  
 
-
-## ScannerDiscoveryMode
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ScannerDiscoveryMode
 
 定义扫描仪发现方式的枚举。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | TCP_STR | 'TCP' | 网络扫描仪的发现模式。 |
 | USB_STR | 'USB' | USB扫描仪的发现模式。 |
+ 
+ 
+  
 
-
-## Range
-**支持设备：** Phone / PC/2in1 / Tablet
+##### Range
 
 定义范围的接口。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **属性：**
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | minValue | number | 否 | 否 | 范围的最小值。 |
 | maxValue | number | 否 | 否 | 范围的最大值。 |
 | quantValue | number | 否 | 否 | 范围的量化值。 |
+ 
+ 
+  
 
-
-## ScannerParameter
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ScannerParameter
 
 定义扫描仪参数的接口。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **属性：**
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | optionName | string | 否 | 否 | 选项名称。 |
 | optionIndex | number | 否 | 否 | 选项索引。 |
 | optionTitle | string | 否 | 否 | 选项标题。 |
 | optionDesc | string | 否 | 否 | 选项描述。 |
-| optionType | [OptionValueType](#optionvaluetype) | 否 | 否 | 选项值类型。 |
-| optionUnit | [PhysicalUnit](#physicalunit) | 否 | 否 | 选项物理单位。 |
-| optionConstraintType | [ConstraintType](#constrainttype) | 否 | 否 | 选项约束类型。 |
+| optionType | OptionValueType | 否 | 否 | 选项值类型。 |
+| optionUnit | PhysicalUnit | 否 | 否 | 选项物理单位。 |
+| optionConstraintType | ConstraintType | 否 | 否 | 选项约束类型。 |
 | optionConstraintString | string[] | 否 | 是 | 选项字符串约束。 |
 | optionConstraintInt | number[] | 否 | 是 | 选项整数约束。 |
-| optionConstraintRange | [Range](#range) | 否 | 是 | 选项范围约束。 |
+| optionConstraintRange | Range | 否 | 是 | 选项范围约束。 |
+ 
+ 
+  
 
-
-## ScannerOptionValue
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ScannerOptionValue
 
 定义扫描仪选项值的接口。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **属性：**
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| valueType | [OptionValueType](#optionvaluetype) | 否 | 否 | 值类型。 |
+| valueType | OptionValueType | 否 | 否 | 值类型。 |
 | numValue | number | 否 | 是 | 数值。 |
 | strValue | string | 否 | 是 | 字符串值。 |
 | boolValue | boolean | 否 | 是 | 布尔值。 |
+ 
+ 
+  
 
-
-## PictureScanProgress
-**支持设备：** Phone / PC/2in1 / Tablet
+##### PictureScanProgress
 
 定义图片扫描进度的接口。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **属性：**
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | progress | number | 否 | 否 | 当前进度百分比，范围从0~100。单位：百分比。 |
 | pictureFd | number | 否 | 否 | 扫描图片的文件描述符。 |
 | isFinal | boolean | 否 | 否 | 是否是本次扫描的最后一张图片。true表示是最后一张图片，false表示不是最后一张图片。 |
+ 
+ 
+  
 
-
-## ScannerDevice
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ScannerDevice
 
 定义扫描仪设备的接口。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **属性：**
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | scannerId | string | 否 | 否 | 扫描仪的唯一标识符。 |
-| discoveryMode | [ScannerDiscoveryMode](#scannerdiscoverymode) | 否 | 否 | 扫描仪的发现模式。 |
+| discoveryMode | ScannerDiscoveryMode | 否 | 否 | 扫描仪的发现模式。 |
 | uniqueId | string | 否 | 否 | 扫描仪的唯一ID。 |
 | manufacturer | string | 否 | 否 | 扫描仪的制造商。 |
 | model | string | 否 | 否 | 扫描仪的型号。 |
 | deviceName | string | 否 | 否 | 扫描仪的设备名称。 |
+ 
+ 
+  
 
-
-## ScannerSyncDevice
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ScannerSyncDevice
 
 定义扫描仪同步设备的接口。
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **属性：**
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | scannerId | string | 否 | 否 | 扫描仪ID。 |
-| discoveryMode | [ScannerDiscoveryMode](#scannerdiscoverymode) | 否 | 否 | 发现模式。 |
+| discoveryMode | ScannerDiscoveryMode | 否 | 否 | 发现模式。 |
 | uniqueId | string | 否 | 否 | 唯一ID。 |
-| syncMode | [ScannerSyncMode](#scannersyncmode) | 否 | 否 | 同步模式。 |
+| syncMode | ScannerSyncMode | 否 | 否 | 同步模式。 |
 | oldScannerId | string | 否 | 是 | 旧的扫描仪ID，仅在syncMode为"update"时有效。 |
+ 
+ 
+  
 
+##### scan.init
 
-## scan.init
-**支持设备：** Phone / PC/2in1 / Tablet
-
-init(): Promise<void>
-
+init(): Promise&lt;void&gt;
+ 
 初始化扫描服务。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-scan
-  .init()
-  .then(() => {
+scan.init().then(() => {
     console.info('scan init success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('scan init failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.exit
 
-## scan.exit
-**支持设备：** Phone / PC/2in1 / Tablet
-
-exit(): Promise<void>
-
+exit(): Promise&lt;void&gt;
+ 
 退出扫描服务。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-scan
-  .exit()
-  .then(() => {
+scan.exit().then(() => {
     console.info('scan exit success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('scan exit failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.startScannerDiscovery
 
-## scan.startScannerDiscovery
-**支持设备：** Phone / PC/2in1 / Tablet
-
-startScannerDiscovery(): Promise<void>
-
+startScannerDiscovery(): Promise&lt;void&gt;
+ 
 开始发现扫描仪。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-scan
-  .startScannerDiscovery()
-  .then(() => {
+scan.startScannerDiscovery().then(() => {
     console.info('start scanner discovery success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('start scanner discovery failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.openScanner
 
-## scan.openScanner
-**支持设备：** Phone / PC/2in1 / Tablet
-
-openScanner(scannerId: string): Promise<void>
-
+openScanner(scannerId: string): Promise&lt;void&gt;
+ 
 打开扫描仪。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 要打开的扫描仪的ID。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
-scan
-  .openScanner(scannerId)
-  .then(() => {
+scan.openScanner(scannerId).then(() => {
     console.info('open scanner success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('open scanner failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.closeScanner
 
-## scan.closeScanner
-**支持设备：** Phone / PC/2in1 / Tablet
-
-closeScanner(scannerId: string): Promise<void>
-
+closeScanner(scannerId: string): Promise&lt;void&gt;
+ 
 关闭扫描仪。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 要关闭的扫描仪的ID。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
-scan
-  .closeScanner(scannerId)
-  .then(() => {
+scan.closeScanner(scannerId).then(() => {
     console.info('close scanner success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('close scanner failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
-
-## scan.getScannerParameter
-**支持设备：** Phone / PC/2in1 / Tablet
+##### scan.getScannerParameter
 
 getScannerParameter(scannerId: string): Promise<ScannerParameter[]>
-
+ 
 获取扫描仪参数。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 扫描仪的ID。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ScannerParameter](#scannerparameter)[]&gt; | Promise对象，返回扫描仪参数数组。 |
-
-
+| Promise<ScannerParameter[]> | Promise对象，返回扫描仪参数数组。 |
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
-scan
-  .getScannerParameter(scannerId)
-  .then((parameters: scan.ScannerParameter[]) => {
-    console.info(
-      'get scanner parameters success: ' + JSON.stringify(parameters),
-    );
-  })
-  .catch((error: BusinessError) => {
+scan.getScannerParameter(scannerId).then((parameters: scan.ScannerParameter[]) => {
+    console.info('get scanner parameters success: ' + JSON.stringify(parameters));
+}).catch((error: BusinessError) => {
     console.error('get scanner parameters failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.setScannerParameter
 
-## scan.setScannerParameter
-**支持设备：** Phone / PC/2in1 / Tablet
-
-setScannerParameter(scannerId: string, optionIndex: number, value: ScannerOptionValue): Promise<void>
-
+setScannerParameter(scannerId: string, optionIndex: number, value: ScannerOptionValue): Promise&lt;void&gt;
+ 
 设置扫描仪参数。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 扫描仪的ID。 |
 | optionIndex | number | 是 | 要设置的选项的索引。 |
-| value | [ScannerOptionValue](#scanneroptionvalue) | 是 | 要设置的值。 |
-
-
+| value | ScannerOptionValue | 是 | 要设置的值。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
 let optionIndex: number = 1;
 let value: scan.ScannerOptionValue = {
-  valueType: scan.OptionValueType.SCAN_TYPE_INT,
-  numValue: 100,
+    valueType: scan.OptionValueType.SCAN_TYPE_INT,
+    numValue: 100
 };
-scan
-  .setScannerParameter(scannerId, optionIndex, value)
-  .then(() => {
+scan.setScannerParameter(scannerId, optionIndex, value).then(() => {
     console.info('set scanner parameter success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('set scanner parameter failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.setScanAutoOption
 
-## scan.setScanAutoOption
-**支持设备：** Phone / PC/2in1 / Tablet
-
-setScanAutoOption(scannerId: string, optionIndex: number): Promise<void>
-
+setScanAutoOption(scannerId: string, optionIndex: number): Promise&lt;void&gt;
+ 
 设置扫描选项为自动模式。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 扫描仪的ID。 |
 | optionIndex | number | 是 | 要设置为自动的选项的索引。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
 let optionIndex: number = 1;
-scan
-  .setScanAutoOption(scannerId, optionIndex)
-  .then(() => {
+scan.setScanAutoOption(scannerId, optionIndex).then(() => {
     console.info('set scan auto option success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('set scan auto option failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.getScannerCurrentSetting
 
-## scan.getScannerCurrentSetting
-**支持设备：** Phone / PC/2in1 / Tablet
-
-getScannerCurrentSetting(scannerId: string, optionIndex: number): Promise<ScannerOptionValue>
-
+getScannerCurrentSetting(scannerId: string, optionIndex: number): Promise&lt;ScannerOptionValue&gt;
+ 
 获取当前扫描仪设置。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 扫描仪的ID。 |
 | optionIndex | number | 是 | 要获取的选项的索引。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ScannerOptionValue](#scanneroptionvalue)&gt; | Promise对象，返回扫描仪选项值。 |
-
-
+| Promise&lt;ScannerOptionValue&gt; | Promise对象，返回扫描仪选项值。 |
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
 let optionIndex: number = 1;
-scan
-  .getScannerCurrentSetting(scannerId, optionIndex)
-  .then((value: scan.ScannerOptionValue) => {
-    console.info(
-      'get scanner current setting success: ' + JSON.stringify(value),
-    );
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      'get scanner current setting failed: ' + JSON.stringify(error),
-    );
-  });
+scan.getScannerCurrentSetting(scannerId, optionIndex).then((value: scan.ScannerOptionValue) => {
+    console.info('get scanner current setting success: ' + JSON.stringify(value));
+}).catch((error: BusinessError) => {
+    console.error('get scanner current setting failed: ' + JSON.stringify(error));
+})
 ```
+ 
+  
 
+##### scan.startScan
 
-## scan.startScan
-**支持设备：** Phone / PC/2in1 / Tablet
-
-startScan(scannerId: string, batchMode: boolean): Promise<void>
-
+startScan(scannerId: string, batchMode: boolean): Promise&lt;void&gt;
+ 
 开始扫描。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 扫描仪的ID。 |
 | batchMode | boolean | 是 | 是否使用批处理模式。true表示使用批处理模式，false表示不使用批处理模式。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
 let batchMode: boolean = true;
-scan
-  .startScan(scannerId, batchMode)
-  .then(() => {
+scan.startScan(scannerId, batchMode).then(() => {
     console.info('start scan success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('start scan failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.cancelScan
 
-## scan.cancelScan
-**支持设备：** Phone / PC/2in1 / Tablet
-
-cancelScan(scannerId: string): Promise<void>
-
+cancelScan(scannerId: string): Promise&lt;void&gt;
+ 
 取消扫描。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 扫描仪的ID。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
-scan
-  .cancelScan(scannerId)
-  .then(() => {
+scan.cancelScan(scannerId).then(() => {
     console.info('cancel scan success');
-  })
-  .catch((error: BusinessError) => {
+}).catch((error: BusinessError) => {
     console.error('cancel scan failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.getPictureScanProgress
 
-## scan.getPictureScanProgress
-**支持设备：** Phone / PC/2in1 / Tablet
-
-getPictureScanProgress(scannerId: string): Promise<PictureScanProgress>
-
+getPictureScanProgress(scannerId: string): Promise&lt;PictureScanProgress&gt;
+ 
 获取图片扫描进度。使用Promise异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scannerId | string | 是 | 扫描仪的ID。 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PictureScanProgress](#picturescanprogress)&gt; | Promise对象，返回图片扫描进度信息。 |
-
-
+| Promise&lt;PictureScanProgress&gt; | Promise对象，返回图片扫描进度信息。 |
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let scannerId: string = 'scanner_001';
-scan
-  .getPictureScanProgress(scannerId)
-  .then((progress: scan.PictureScanProgress) => {
-    console.info(
-      'get picture scan progress success: ' + JSON.stringify(progress),
-    );
-  })
-  .catch((error: BusinessError) => {
+scan.getPictureScanProgress(scannerId).then((progress: scan.PictureScanProgress) => {
+    console.info('get picture scan progress success: ' + JSON.stringify(progress));
+}).catch((error: BusinessError) => {
     console.error('get picture scan progress failed: ' + JSON.stringify(error));
-  });
+})
 ```
+ 
+  
 
+##### scan.on
 
-## scan.on
-**支持设备：** Phone / PC/2in1 / Tablet
-
-on(type: 'scanDeviceFound', callback: Callback<ScannerDevice>): void
-
+on(type: 'scanDeviceFound', callback: Callback&lt;ScannerDevice&gt;): void
+ 
 注册扫描仪设备发现事件回调。使用callback异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'scanDeviceFound' | 是 | 事件类型。 |
-| callback | Callback&lt;[ScannerDevice](#scannerdevice)&gt; | 是 | 回调函数，返回扫描仪设备发现信息。 |
-
-
+| callback | Callback&lt;ScannerDevice&gt; | 是 | 回调函数，返回扫描仪设备发现信息。 |
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 
 scan.on('scanDeviceFound', (device: scan.ScannerDevice) => {
-  console.info('scan device found: ' + JSON.stringify(device));
-});
+    console.info('scan device found: ' + JSON.stringify(device));
+})
 ```
+ 
+  
 
+##### scan.off
 
-## scan.off
-**支持设备：** Phone / PC/2in1 / Tablet
-
-off(type: 'scanDeviceFound', callback?: Callback<ScannerDevice>): void
-
+off(type: 'scanDeviceFound', callback?: Callback&lt;ScannerDevice&gt;): void
+ 
 取消注册扫描仪设备发现事件回调。使用callback异步回调。
-
+ 
 **需要权限：** ohos.permission.PRINT
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'scanDeviceFound' | 是 | 事件类型。 |
-| callback | Callback&lt;[ScannerDevice](#scannerdevice)&gt; | 否 | 回调函数，返回扫描仪设备发现信息。 |
-
-
+| callback | Callback&lt;ScannerDevice&gt; | 否 | 回调函数，返回扫描仪设备发现信息。 |
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 
 let callback = (device: scan.ScannerDevice) => {
-  console.info('scan device found: ' + JSON.stringify(device));
+    console.info('scan device found: ' + JSON.stringify(device));
 };
 scan.on('scanDeviceFound', callback);
 // 取消注册
 scan.off('scanDeviceFound', callback);
 ```
+ 
+  
 
+##### scan.on
 
-## scan.on
-**支持设备：** Phone / PC/2in1 / Tablet
-
-on(type: 'scanDeviceSync', callback: Callback<ScannerSyncDevice>): void
-
+on(type: 'scanDeviceSync', callback: Callback&lt;ScannerSyncDevice&gt;): void
+ 
 注册扫描仪设备同步事件回调。使用callback异步回调。
-
+ 
 **需要权限：** ohos.permission.MANAGE_PRINT_JOB
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'scanDeviceSync' | 是 | 事件类型。 |
-| callback | Callback&lt;[ScannerSyncDevice](#scannersyncdevice)&gt; | 是 | 回调函数，返回扫描仪设备同步信息。 |
-
-
+| callback | Callback&lt;ScannerSyncDevice&gt; | 是 | 回调函数，返回扫描仪设备同步信息。 |
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 
 scan.on('scanDeviceSync', (device: scan.ScannerSyncDevice) => {
-  console.info('scan device sync: ' + JSON.stringify(device));
-});
+    console.info('scan device sync: ' + JSON.stringify(device));
+})
 ```
+ 
+  
 
+##### scan.off
 
-## scan.off
-**支持设备：** Phone / PC/2in1 / Tablet
-
-off(type: 'scanDeviceSync', callback?: Callback<ScannerSyncDevice>): void
-
+off(type: 'scanDeviceSync', callback?: Callback&lt;ScannerSyncDevice&gt;): void
+ 
 取消注册扫描仪设备同步事件回调。使用callback异步回调。
-
+ 
 **需要权限：** ohos.permission.MANAGE_PRINT_JOB
-
+ 
 **系统能力：** SystemCapability.Print.PrintFramework
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'scanDeviceSync' | 是 | 事件类型。 |
-| callback | Callback&lt;[ScannerSyncDevice](#scannersyncdevice)&gt; | 否 | 回调函数，返回扫描仪设备同步信息。 |
-
-
+| callback | Callback&lt;ScannerSyncDevice&gt; | 否 | 回调函数，返回扫描仪设备同步信息。 |
+ 
+ 
 **错误码：**
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { scan } from '@kit.BasicServicesKit';
 
 let callback = (device: scan.ScannerSyncDevice) => {
-  console.info('scan device sync: ' + JSON.stringify(device));
+    console.info('scan device sync: ' + JSON.stringify(device));
 };
 scan.on('scanDeviceSync', callback);
 // 取消注册

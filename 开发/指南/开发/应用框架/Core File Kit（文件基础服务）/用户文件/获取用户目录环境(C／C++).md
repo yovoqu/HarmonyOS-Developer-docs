@@ -1,20 +1,27 @@
 # 获取用户目录环境(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-environment-guidelines
 
-## 场景介绍
+##### 场景介绍
 
 [Environment](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-environment-h)提供了获取公共文件用户目录路径的能力，以支持三方应用在公共文件用户目录下进行文件访问操作。
 
-## 约束限制
 
-使用此接口，需确认设备具有以下系统能力：SystemCapability.FileManagement.File.Environment.FolderObtain。 此接口仅用作公共沙箱目录路径的获取接口，操作对应的公共目录及其子目录需获取通过弹窗授权方式向用户申请授予对应目录的权限，具体参考[访问控制-向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
 
-## 接口说明
+##### 约束限制
+
+ - 使用此接口，需确认设备具有以下系统能力：SystemCapability.FileManagement.File.Environment.FolderObtain。
+ - 此接口仅用作公共沙箱目录路径的获取接口，操作对应的公共目录及其子目录需获取通过弹窗授权方式向用户申请授予对应目录的权限，具体参考[访问控制-向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
+
+
+
+
+##### 接口说明
 
 接口的详细说明，请参考[oh_environment.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-environment-h)。
+
 | 接口名称 | 描述 |
 | --- | --- |
 | FileManagement_ErrCode OH_Environment_GetUserDownloadDir (char **result) | 获取用户Download目录沙箱路径。只支持2in1设备。 |
@@ -22,23 +29,30 @@
 | FileManagement_ErrCode OH_Environment_GetUserDocumentDir (char **result) | 获取用户Document目录沙箱路径。只支持2in1设备。 |
 
 
-## 开发步骤
 
-**在CMake脚本中链接动态库** CMakeLists.txt中添加以下lib。
+
+##### 开发步骤
+
+**在CMake脚本中链接动态库**
+
+CMakeLists.txt中添加以下lib。
+
 ```text
 target_link_libraries(sample PUBLIC libohenvironment.so libhilog_ndk.z.so)
 ```
 
 **添加头文件**
-```text
-#include
-#include
-#include
-#include
-```
 
-调用OH_Environment_GetUserDownloadDir接口获取用户Download目录沙箱路径，在接口中使用malloc申请的内存需要在使用完后释放因此需要free对应的内存。示例代码如下所示：
 ```text
+#include <cstdlib>
+#include <filemanagement/environment/oh_environment.h>
+#include <filemanagement/fileio/oh_fileio.h>
+#include <hilog/log.h>
+```
+1. 调用OH_Environment_GetUserDownloadDir接口获取用户Download目录沙箱路径，在接口中使用malloc申请的内存需要在使用完后释放因此需要free对应的内存。示例代码如下所示：
+
+  
+```cpp
 void GetUserDownloadDirPathExample()
 {
     char *downloadPath = nullptr;
@@ -52,8 +66,10 @@ void GetUserDownloadDirPathExample()
 }
 ```
 
-调用OH_Environment_GetUserDesktopDir接口获取用户Desktop目录沙箱路径，在接口中使用malloc申请的内存需要在使用完后释放因此需要free对应的内存。示例代码如下所示：
-```text
+2. 调用OH_Environment_GetUserDesktopDir接口获取用户Desktop目录沙箱路径，在接口中使用malloc申请的内存需要在使用完后释放因此需要free对应的内存。示例代码如下所示：
+
+  
+```cpp
 void GetUserDesktopDirPathExample()
 {
     char *desktopPath = nullptr;
@@ -67,8 +83,10 @@ void GetUserDesktopDirPathExample()
 }
 ```
 
-调用OH_Environment_GetUserDocumentDir接口获取用户Document目录沙箱路径，在接口中使用malloc申请的内存需要在使用完后释放因此需要free对应的内存。示例代码如下所示：
-```text
+3. 调用OH_Environment_GetUserDocumentDir接口获取用户Document目录沙箱路径，在接口中使用malloc申请的内存需要在使用完后释放因此需要free对应的内存。示例代码如下所示：
+
+  
+```cpp
 void GetUserDocumentDirPathExample()
 {
     char *documentPath = nullptr;
@@ -82,13 +100,16 @@ void GetUserDocumentDirPathExample()
 }
 ```
 
-调用OH_Environment_GetUserDocumentDir接口获取用户Document目录沙箱路径，使用stat函数判断Document目录空间大小。示例代码如下所示： 使用前需要引入如下头文件：
+4. 调用OH_Environment_GetUserDocumentDir接口获取用户Document目录沙箱路径，使用stat函数判断Document目录空间大小。示例代码如下所示：
+
+  使用前需要引入如下头文件：
+
+  
 ```text
-#include
+#include <sys/stat.h>
 ```
 
-
-```text
+```cpp
 void GetUserDownloadDirSizeExample()
 {
     char *documentPath = nullptr;

@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：data； API声明：function getActiveApnName(): Promise<string>; 差异内容：function getActiveApnName(): Promise<string>; | api/@ohos.telephony.data.d.ts |
+| 新增API | NA | 类名：data； API声明：function getActiveApnName(): Promise&lt;string&gt;; 差异内容：function getActiveApnName(): Promise&lt;string&gt;; | api/@ohos.telephony.data.d.ts |

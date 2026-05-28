@@ -4,10 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-6
 
-问题现象
-
+**问题现象**
+ 
 崩溃的调用栈如下：
-
+ 
 ```text
 #00 pc 0000000001d2cfa8 /system/lib64/ndk/libjsvm.so(v8::base::OS::Abort()+28)
 #01 pc 0000000001d21bfc /system/lib64/ndk/libjsvm.so(V8_Fatal(char const*, ...)+384)
@@ -20,11 +20,11 @@
 #25 pc 0000000000c65f5c /system/lib64/ndk/libjsvm.so(non-virtual thunk to v8impl::Reference::Finalize()+108)
 #26 pc 0000000000c65fdc /system/lib64/ndk/libjsvm.so(v8impl::Reference::WeakCallback(v8::WeakCallbackInfo<v8impl::Reference> const&)+76)
 ```
-
-原因分析
-
+ 
+**原因分析**
+ 
 目前JSVM注册的Finalizer方法中禁止执行JS代码，在崩溃调用栈中，Finalizer方法调用了OH_JSVM_CallFunction执行了JS代码。
-
-解决措施
-
+ 
+**解决措施**
+ 
 在Finalizer中，仅清理与JS对象生命周期绑定的对象，不调用JSVM API。 若要在JS对象生命周期结束后执行一段JS代码，可在Finalizer方法中将相关代码的执行加入到外层事件循环队列中，等待下次事件循环时调用，从而实现时序上的顺序。

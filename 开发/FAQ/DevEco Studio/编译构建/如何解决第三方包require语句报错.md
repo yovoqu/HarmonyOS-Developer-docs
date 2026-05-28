@@ -4,92 +4,92 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-125
 
-问题现象
-
+**问题现象**
+ 
 引入第三方包时，编译出现错误。
-
-报错原因
-
+ 
+**报错原因**
+ 
 部分第三方包由npm迁移而来，其开发环境为Node。其中的require语法ArkCompiler不完全支持，导致运行时出现错误。
-
-场景1：
-
-```text
-// Module/src/test.json
-{a: 1, b: 2}
-//use.js
-let test = require("Module/src/test.json")
+ 
+**场景1**：
+ 
+```json
+<span style="color: rgb(153,153,136);">// Module/src/test.json</span>
+{a: <span style="color: rgb(0,128,128);">1</span>, b: <span style="color: rgb(0,128,128);">2</span>}
+<span style="color: rgb(128,128,128);">//use.js</span>
+let test = <span style="color: rgb(0,0,255);">require</span>(<span style="color: rgb(255,0,0);">"Module/src/test.json"</span>)
 ```
-
-需修改为：
-
+ 
+**需修改为：**
+ 
 // Module/src/test.json
-
+ 
 ```json
 module.exports = {a: 1, b: 2}
 ```
-
+ 
 //use.js
-
+ 
 ```text
 let test = require("Module/src/test")
 ```
-
-场景2：
-
-```text
-// Module/package.json
+ 
+**场景2：**
+ 
+```json
+<span style="color: rgb(153,153,136);">// Module/package.json</span>
 ...
-main: "./src"
+main: <span style="color: rgb(221,17,68);">"./src"</span>
 ...
-// use.js
-let module = require("Module")
+<span style="color: rgb(153,153,136);">// use.js</span>
+let module = <span style="color: rgb(0,134,179);">require</span>(<span style="color: rgb(221,17,68);">"Module"</span>)
 ```
-
-需修改为：
-
+ 
+**需修改为：**
+ 
 // Module/package.json
-
+ 
 ```json
 "main": "./src/index.js",
 ```
-
+ 
 // use.js
-
+ 
 ```text
 let module = require("Module")
 ```
-
-场景3：
-
+ 
+**场景3：**
+ 
 编译时出现警告信息：
-
+ 
 ```text
 Plugin node-resolve: preferring built-in module 'util' over local alternative at '/Users/~/Documents/fe-module/demo/node_modules/util/util.js', pass 'preferBuiltins: false' to disable this behavior or 'preferBuiltins: true' to disable this warning
 ```
-
-解决方案
-
+ 
+**解决方案**
+ 
 修改rollup.config.js中的preferBuiltins字段。
-
+ 
 ```text
 plugins: [
-resolve({
-preferBuiltins: false, // true or false
-mainFields: ['module', 'main'],
-extensions
-})
+    resolve({
+        preferBuiltins: false,    // true or false
+        mainFields: ['module', 'main'],
+        extensions
+    })
 ];
 ```
-
-场景4：
-
+ 
+**场景4：**
+ 
 ```text
-import {Buffer} from 'buffer'
+import {Buffer} from <span style="color: rgb(221,17,68);">'buffer'</span>
 ```
-
-需修改为：
-
+ 
+**需修改为：**
+ 
 ```text
 import {Buffer} from 'buffer/'
 ```

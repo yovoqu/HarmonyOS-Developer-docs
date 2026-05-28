@@ -16,12 +16,12 @@
 | 新增API | NA | 类名：Answer； API声明：questionId: number; 差异内容：questionId: number; | api/@hms.data.localChatModel.d.ts |
 | 新增API | NA | 类名：Answer； API声明：content: string; 差异内容：content: string; | api/@hms.data.localChatModel.d.ts |
 | 新增API | NA | 类名：Answer； API声明：isFinished: boolean; 差异内容：isFinished: boolean; | api/@hms.data.localChatModel.d.ts |
-| 新增API | NA | 类名：localChatModel； API声明：function init(): Promise<boolean>; 差异内容：function init(): Promise<boolean>; | api/@hms.data.localChatModel.d.ts |
-| 新增API | NA | 类名：localChatModel； API声明：function chat(info: QuestionInfo, config: Config, callback: AsyncCallback<Answer>): Promise<void>; 差异内容：function chat(info: QuestionInfo, config: Config, callback: AsyncCallback<Answer>): Promise<void>; | api/@hms.data.localChatModel.d.ts |
+| 新增API | NA | 类名：localChatModel； API声明：function init(): Promise&lt;boolean&gt;; 差异内容：function init(): Promise&lt;boolean&gt;; | api/@hms.data.localChatModel.d.ts |
+| 新增API | NA | 类名：localChatModel； API声明：function chat(info: QuestionInfo, config: Config, callback: AsyncCallback&lt;Answer&gt;): Promise&lt;void&gt;; 差异内容：function chat(info: QuestionInfo, config: Config, callback: AsyncCallback&lt;Answer&gt;): Promise&lt;void&gt;; | api/@hms.data.localChatModel.d.ts |
 | 新增API | NA | 类名：retrieval； API声明：interface ExplanationConfig 差异内容：interface ExplanationConfig | api/@hms.data.retrieval.d.ts |
-| 新增API | NA | 类名：ExplanationConfig； API声明：groundTruths: Array<string>; 差异内容：groundTruths: Array<string>; | api/@hms.data.retrieval.d.ts |
+| 新增API | NA | 类名：ExplanationConfig； API声明：groundTruths: Array&lt;string&gt;; 差异内容：groundTruths: Array&lt;string&gt;; | api/@hms.data.retrieval.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.data.localChatModel.d.ts 差异内容：DataAugmentationKit | api/@hms.data.localChatModel.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：ChatLLM； API声明：abstract cancel(chatId: number): void; 差异内容：abstract cancel(chatId: number): void; | api/@hms.data.rag.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：RagSession； API声明：cancel(runId: number): Promise<void>; 差异内容：cancel(runId: number): Promise<void>; | api/@hms.data.rag.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：RagSession； API声明：cancel(runId: number): Promise&lt;void&gt;; 差异内容：cancel(runId: number): Promise&lt;void&gt;; | api/@hms.data.rag.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：RetrievalCondition； API声明：explanation?: ExplanationConfig; 差异内容：explanation?: ExplanationConfig; | api/@hms.data.retrieval.d.ts |
-| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：RdbRecords； API声明：missedGroundTruths?: Array<ItemInfo>; 差异内容：missedGroundTruths?: Array<ItemInfo>; | api/@hms.data.retrieval.d.ts |
+| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：RdbRecords； API声明：missedGroundTruths?: Array&lt;ItemInfo&gt;; 差异内容：missedGroundTruths?: Array&lt;ItemInfo&gt;; | api/@hms.data.retrieval.d.ts |

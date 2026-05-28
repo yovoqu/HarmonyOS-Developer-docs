@@ -1,27 +1,47 @@
 # 通过键值型数据库实现数据持久化 (ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-persistence-by-kv-store
 
-## 场景介绍
+##### 场景介绍
 
 键值型数据库存储键值对形式的数据，当需要存储的数据没有复杂的关系模型，比如存储商品名称及对应价格、员工工号及今日是否已出勤等，由于数据复杂度低，更容易兼容不同数据库版本和设备类型，因此推荐使用键值型数据库持久化此类数据。
 
-## 约束限制
-
-设备协同数据库，针对每条记录，Key的长度≤896 Byte，Value的长度(storeId: string, options: Options, callback: AsyncCallback): void | 指定options和storeId，创建并得到指定类型的KVStore数据库。 |
-| put(key: string, value: Uint8Array \| string \| number \| boolean, callback: AsyncCallback): void | 添加指定类型的键值对到数据库。 |
-| get(key: string, callback: AsyncCallback): void | 获取指定键的值。 |
-| delete(key: string, callback: AsyncCallback): void | 从数据库中删除指定键值的数据。 |
-| closeKVStore(appId: string, storeId: string, callback: AsyncCallback): void | 通过storeId的值关闭指定的分布式键值数据库。 |
-| deleteKVStore(appId: string, storeId: string, callback: AsyncCallback): void | 通过storeId的值删除指定的分布式键值数据库。 |
 
 
-## 开发步骤
+##### 约束限制
 
-若要使用键值型数据库，首先要使用createKVManager()方法获取一个KVManager实例，用于管理数据库对象。示例代码如下所示：
-```text
+ - 设备协同数据库，针对每条记录，Key的长度≤896 Byte，Value的长度<4 MB。
+ - 单版本数据库，针对每条记录，Key的长度≤1 KB，Value的长度<4 MB。
+ - 每个应用程序最多支持同时打开16个键值型分布式数据库。
+ - 键值型数据库事件回调方法中不允许进行阻塞操作，例如修改UI组件。
+
+
+
+
+##### 接口说明
+
+以下是键值型数据库持久化功能的相关接口，更多接口及使用方式请见[分布式键值数据库](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore)。
+
+| 接口名称 | 描述 |
+| --- | --- |
+| createKVManager(config: KVManagerConfig): KVManager | 创建一个KVManager对象实例，用于管理数据库对象。 |
+| getKVStore&lt;T&gt;(storeId: string, options: Options, callback: AsyncCallback&lt;T&gt;): void | 指定options和storeId，创建并得到指定类型的KVStore数据库。 |
+| put(key: string, value: Uint8Array \| string \| number \| boolean, callback: AsyncCallback&lt;void&gt;): void | 添加指定类型的键值对到数据库。 |
+| get(key: string, callback: AsyncCallback<boolean \| string \| number \| Uint8Array>): void | 获取指定键的值。 |
+| delete(key: string, callback: AsyncCallback&lt;void&gt;): void | 从数据库中删除指定键值的数据。 |
+| closeKVStore(appId: string, storeId: string, callback: AsyncCallback&lt;void&gt;): void | 通过storeId的值关闭指定的分布式键值数据库。 |
+| deleteKVStore(appId: string, storeId: string, callback: AsyncCallback&lt;void&gt;): void | 通过storeId的值删除指定的分布式键值数据库。 |
+
+
+
+
+##### 开发步骤
+1. 若要使用键值型数据库，首先要使用createKVManager()方法获取一个KVManager实例，用于管理数据库对象。示例代码如下所示：
+
+  
+```ArkTS
 // 导入模块
 // 在pages目录下新建KvStoreInterface.ets
 import { distributedKVStore } from '@kit.ArkData';
@@ -48,8 +68,7 @@ export class KvInterface {
 }
 ```
 
-
-```text
+```ArkTS
 public CreateKvManager = (() => {
   Logger.info('CreateKvManager start');
   if (typeof (kvManager) === 'undefined') {
@@ -70,8 +89,10 @@ public CreateKvManager = (() => {
 })
 ```
 
-使用getKVStore()方法创建并获取键值数据库。示例代码如下所示：
-```text
+2. 使用getKVStore()方法创建并获取键值数据库。示例代码如下所示：
+
+  
+```ArkTS
 public GetKvStore = (() => {
   Logger.info('GetKvStore start');
   if (kvManager === undefined) {
@@ -110,7 +131,7 @@ public GetKvStore = (() => {
       // schema未定义可以不填，定义方法请参考上方schema示例。
       securityLevel: distributedKVStore.SecurityLevel.S3
     };
-    kvManager.getKVStore(storeId, options,
+    kvManager.getKVStore<distributedKVStore.SingleKVStore>(storeId, options,
       (err, store: distributedKVStore.SingleKVStore) => {
         if (err) {
           Logger.error(`Failed to get KVStore: Code:${err.code},message:${err.message}`);
@@ -127,8 +148,10 @@ public GetKvStore = (() => {
 })
 ```
 
-使用on()方法订阅分布式数据变化，如需关闭订阅分布式数据变化，调用[off('dataChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore#offdatachange)关闭。示例代码如下所示：
-```text
+3. 使用on()方法订阅分布式数据变化，如需关闭订阅分布式数据变化，调用[off('dataChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore#offdatachange)关闭。示例代码如下所示：
+
+  
+```ArkTS
 public On = (() =>{
   Logger.info('On start');
   if(kvStore === undefined) {
@@ -146,8 +169,10 @@ public On = (() =>{
 })
 ```
 
-调用put()方法向键值数据库中插入数据。示例代码如下所示：
-```text
+4. 调用put()方法向键值数据库中插入数据。示例代码如下所示：
+
+  
+```ArkTS
 public Put = (() => {
   Logger.info('Put start');
   if (kvStore === undefined) {
@@ -172,12 +197,13 @@ public Put = (() => {
 })
 ```
 
-
 > [!NOTE]
 > 当Key值存在时，put()方法会修改其值，否则新增一条数据。
 
-调用get()方法获取指定键的值。示例代码如下所示：
-```text
+5. 调用get()方法获取指定键的值。示例代码如下所示：
+
+  
+```ArkTS
 public Get = (() => {
   Logger.info('Get start');
   if (kvStore === undefined) {
@@ -200,8 +226,10 @@ public Get = (() => {
 })
 ```
 
-调用delete()方法删除指定键值的数据。示例代码如下所示：
-```text
+6. 调用delete()方法删除指定键值的数据。示例代码如下所示：
+
+  
+```ArkTS
 public Delete = (() => {
   Logger.info('DeleteData start');
   if (kvStore === undefined) {
@@ -224,8 +252,10 @@ public Delete = (() => {
 })
 ```
 
-调用closeKVStore()方法通过storeId的值关闭指定的分布式键值数据库。示例代码如下所示：
-```text
+7. 调用closeKVStore()方法通过storeId的值关闭指定的分布式键值数据库。示例代码如下所示：
+
+  
+```ArkTS
 public CloseKVStore = (()=>{
   Logger.info('CloseKVStore start');
   if (kvManager === undefined) {
@@ -249,8 +279,10 @@ public CloseKVStore = (()=>{
 })
 ```
 
-调用deleteKVStore()方法通过storeId的值删除指定的分布式键值数据库。示例代码如下所示：
-```text
+8. 调用deleteKVStore()方法通过storeId的值删除指定的分布式键值数据库。示例代码如下所示：
+
+  
+```ArkTS
 public DeleteKvStore = (()=>{
   Logger.info('DeleteKvStore start');
   if (kvManager === undefined) {
@@ -275,6 +307,8 @@ public DeleteKvStore = (()=>{
 ```
 
 
-## 示例代码
 
-[实现键值型数据库读写功能](https://gitcode.com/HarmonyOS_Samples/KVStore)
+
+##### 示例代码
+
+ - [实现键值型数据库读写功能](https://gitcode.com/HarmonyOS_Samples/KVStore)

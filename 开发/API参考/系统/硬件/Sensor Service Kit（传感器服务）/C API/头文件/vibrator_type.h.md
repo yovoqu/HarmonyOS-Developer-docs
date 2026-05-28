@@ -3,91 +3,86 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator-type-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 为您提供标准的开放API，用于控制马达振动的启停
-
+ 
 **引用文件：** <sensors/vibrator_type.h>
-
+ 
 **库：** libohvibrator.z.so
-
+ 
 **系统能力：** SystemCapability.Sensors.MiscDevice
-
+ 
 **起始版本：** 11
-
+ 
 **相关模块：** [Vibrator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Vibrator_Attribute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator-vibrator-attribute) | Vibrator_Attribute | 马达属性。 |
-| [Vibrator_FileDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator-vibrator-filedescription) | Vibrator_FileDescription | 振动文件描述。 |
+| Vibrator_Attribute | Vibrator_Attribute | 马达属性。 |
+| Vibrator_FileDescription | Vibrator_FileDescription | 振动文件描述。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Vibrator_ErrorCode](#vibrator_errorcode) | Vibrator_ErrorCode | 为用户定义错误码。 |
-| [Vibrator_Usage](#vibrator_usage) | Vibrator_Usage | 振动优先级。 |
+| Vibrator_ErrorCode | Vibrator_ErrorCode | 为用户定义错误码。 |
+| Vibrator_Usage | Vibrator_Usage | 振动优先级。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### Vibrator_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Vibrator_ErrorCode
 
 ```text
 enum Vibrator_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 为用户定义错误码。
-
+ 
 **起始版本：** 11
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | PERMISSION_DENIED = 201 | 权限校验失败。 |
 | PARAMETER_ERROR = 401 | 参数检查失败，包括必选参数没有传入，参数类型错误等。 |
 | UNSUPPORTED = 801 | 该设备不支持此 API，通常用于在设备已支持该 SysCap 时，针对其少量的 API 的支持处理。 |
 | DEVICE_OPERATION_FAILED = 14600101 | 设备操作失败。 |
+ 
+ 
+  
 
-
-### Vibrator_Usage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Vibrator_Usage
 
 ```text
 enum Vibrator_Usage
 ```
-
+ 
 **描述**
-
+ 
 振动优先级。
-
+ 
 **起始版本：** 11
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | VIBRATOR_USAGE_UNKNOWN = 0 | 未知场景 |

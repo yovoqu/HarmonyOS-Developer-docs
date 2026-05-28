@@ -3,23 +3,29 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 formProvider模块提供了获取卡片信息、更新卡片、设置卡片更新时间等能力。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
 
-```ts
+
+##### 导入模块
+
+```text
 import { formProvider } from '@kit.FormKit';
 ```
 
-#### formProvider.setFormNextRefreshTime
+
+
+##### formProvider.setFormNextRefreshTime
+
 setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&lt;void&gt;): void
+
 设置指定卡片的下一次更新时间，使用callback异步回调。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -32,7 +38,9 @@ setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&l
 | minute | number | 是 | 指定卡片多久之后更新，取值范围：大于等于5，单位：min。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -46,9 +54,10 @@ setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&l
 | 16501002 | The number of forms exceeds the maximum allowed. |
 | 16501003 | The form cannot be operated by the current application. |
 
+
 **示例：**
 
-```ts
+```text
 import { formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -66,9 +75,14 @@ try {
 }
 ```
 
-#### formProvider.setFormNextRefreshTime
+
+
+##### formProvider.setFormNextRefreshTime
+
 setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;
+
 设置指定卡片的下一次更新时间，使用Promise异步回调。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -80,13 +94,16 @@ setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;
 | formId | string | 是 | 卡片标识。 |
 | minute | number | 是 | 指定卡片多久之后更新，取值范围：大于等于5，单位：min。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -100,9 +117,10 @@ setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;
 | 16501002 | The number of forms exceeds the maximum allowed. |
 | 16501003 | The form cannot be operated by the current application. |
 
+
 **示例：**
 
-```ts
+```text
 import { formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -118,12 +136,17 @@ try {
 }
 ```
 
-#### formProvider.updateForm
+
+
+##### formProvider.updateForm
+
 updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback&lt;void&gt;): void
+
 更新指定的卡片，使用callback异步回调。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图片会显示异常。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -134,10 +157,12 @@ updateForm(formId: string, formBindingData: formBindingData.FormBindingData, cal
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 请求更新的卡片标识。 |
-| formBindingData | [formBindingData.FormBindingData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formbindingdata#formbindingdata) | 是 | 用于更新的数据。 |
+| formBindingData | formBindingData.FormBindingData | 是 | 用于更新的数据。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -150,9 +175,10 @@ updateForm(formId: string, formBindingData: formBindingData.FormBindingData, cal
 | 16501001 | The ID of the form to be operated does not exist. |
 | 16501003 | The form cannot be operated by the current application. |
 
+
 **示例：**
 
-```ts
+```text
 import { formBindingData, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -175,12 +201,17 @@ try {
 }
 ```
 
-#### formProvider.updateForm
+
+
+##### formProvider.updateForm
+
 updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise&lt;void&gt;
+
 更新指定的卡片，使用Promise异步回调。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图片会显示异常。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -191,7 +222,8 @@ updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Pr
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 请求更新的卡片标识。 |
-| formBindingData | [formBindingData.FormBindingData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formbindingdata#formbindingdata) | 是 | 用于更新的数据。 |
+| formBindingData | formBindingData.FormBindingData | 是 | 用于更新的数据。 |
+
 
 **返回值：**
 
@@ -199,7 +231,9 @@ updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Pr
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -212,9 +246,10 @@ updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Pr
 | 16501001 | The ID of the form to be operated does not exist. |
 | 16501003 | The form cannot be operated by the current application. |
 
+
 **示例：**
 
-```ts
+```text
 import { formBindingData, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -235,9 +270,14 @@ try {
 }
 ```
 
-#### formProvider.getFormsInfo
-getFormsInfo(callback: AsyncCallback<Array&lt;formInfo.FormInfo&gt;>): void
+
+
+##### formProvider.getFormsInfo
+
+getFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void
+
 获取设备上当前应用程序的卡片信息，使用callback异步回调。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -246,9 +286,11 @@ getFormsInfo(callback: AsyncCallback<Array&lt;formInfo.FormInfo&gt;>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<Array<[formInfo.FormInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo)>> | 是 | 回调函数。返回查询到的卡片信息。 |
+| callback | AsyncCallback<Array<formInfo.FormInfo>> | 是 | 回调函数。返回查询到的卡片信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -258,9 +300,10 @@ getFormsInfo(callback: AsyncCallback<Array&lt;formInfo.FormInfo&gt;>): void
 | 16500100 | Failed to obtain the configuration information. |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```json
 import { formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -277,9 +320,14 @@ try {
 }
 ```
 
-#### formProvider.getFormsInfo
-getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array&lt;formInfo.FormInfo&gt;>): void
+
+
+##### formProvider.getFormsInfo
+
+getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array<formInfo.FormInfo>>): void
+
 获取设备上当前应用程序的卡片信息，并筛选符合条件的信息，使用callback异步回调。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -288,10 +336,12 @@ getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array&lt;f
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| filter | [formInfo.FormInfoFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#forminfofilter) | 是 | 卡片信息过滤器。 |
-| callback | AsyncCallback<Array<[formInfo.FormInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo)>> | 是 | 回调函数。返回查询到符合条件的卡片信息。 |
+| filter | formInfo.FormInfoFilter | 是 | 卡片信息过滤器。 |
+| callback | AsyncCallback<Array<formInfo.FormInfo>> | 是 | 回调函数。返回查询到符合条件的卡片信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -301,9 +351,10 @@ getFormsInfo(filter: formInfo.FormInfoFilter, callback: AsyncCallback<Array&lt;f
 | 16500100 | Failed to obtain the configuration information. |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```json
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -324,9 +375,14 @@ try {
 }
 ```
 
-#### formProvider.getFormsInfo
-getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array&lt;formInfo.FormInfo&gt;>
+
+
+##### formProvider.getFormsInfo
+
+getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>
+
 获取设备上当前应用符合条件的卡片信息，使用Promise异步回调。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -335,15 +391,18 @@ getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array&lt;formInfo.FormIn
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| filter | [formInfo.FormInfoFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#forminfofilter) | 否 | 卡片信息过滤器, 默认为空，不进行过滤。 |
+| filter | formInfo.FormInfoFilter | 否 | 卡片信息过滤器, 默认为空，不进行过滤。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array<[formInfo.FormInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo)>> | Promise对象。返回查询到符合条件的卡片信息。 |
+| Promise<Array<formInfo.FormInfo>> | Promise对象。返回查询到符合条件的卡片信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -353,9 +412,10 @@ getFormsInfo(filter?: formInfo.FormInfoFilter): Promise<Array&lt;formInfo.FormIn
 | 16500100 | Failed to obtain the configuration information. |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```json
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -374,9 +434,14 @@ try {
 }
 ```
 
-#### formProvider.openFormEditAbility18+
+
+
+##### formProvider.openFormEditAbility18+
+
 openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): void
+
 打开卡片编辑页。
+
 **系统能力：** SystemCapability.Ability.Form
 
 **参数：**
@@ -387,7 +452,9 @@ openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): 
 | formId | string | 是 | 卡片标识。 |
 | isMainPage | boolean | 否 | 是否为主编辑页。 - true：表示是主编辑页。 - false：表示不是主编辑页。 默认值：true。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -399,9 +466,10 @@ openFormEditAbility(abilityName: string, formId: string, isMainPage?: boolean): 
 | 16501003 | The form cannot be operated by the current application. |
 | 16501007 | Form is not trust. |
 
+
 **示例：**
 
-```ts
+```text
 import { formProvider } from '@kit.FormKit';
 
 const TAG: string = 'FormEditDemo-Page] -->';
@@ -436,9 +504,14 @@ struct Page {
 }
 ```
 
-#### formProvider.closeFormEditAbility23+
+
+
+##### formProvider.closeFormEditAbility23+
+
 closeFormEditAbility(isMainPage?: boolean): void
+
 关闭卡片编辑页。
+
 **系统能力：** SystemCapability.Ability.Form
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -449,7 +522,9 @@ closeFormEditAbility(isMainPage?: boolean): void
 | --- | --- | --- | --- |
 | isMainPage | boolean | 否 | 是否关闭一级卡片编辑页，true表示关闭一级编辑页，false表示关闭非一级编辑页。 默认值：true。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -458,9 +533,10 @@ closeFormEditAbility(isMainPage?: boolean): void
 | 16500050 | IPC connection error. |
 | 16501015 | Cannot close the widget editing page opened by other apps. |
 
+
 **示例：**
 
-```ts
+```text
 import { formProvider } from '@kit.FormKit';
 
 const TAG: string = 'FormEditDemo-Page] -->';
@@ -500,9 +576,14 @@ struct Page {
 }
 ```
 
-#### formProvider.openFormManager18+
+
+
+##### formProvider.openFormManager18+
+
 openFormManager(want: Want): void
+
 打开当前应用的卡片管理页面。
+
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -513,13 +594,15 @@ openFormManager(want: Want): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 打开卡片管理页面的请求中的want参数，需包含以下字段。 bundleName: 卡片所属应用的包名。 abilityName: 卡片所属的ability名称。 parameters: - ohos.extra.param.key.form_dimension: 卡片尺寸。 - ohos.extra.param.key.form_name: 卡片名称。 - ohos.extra.param.key.module_name: 卡片所属的模块名称。 |
+| want | Want | 是 | 打开卡片管理页面的请求中的want参数，需包含以下字段。 bundleName: 卡片所属应用的包名。 abilityName: 卡片所属的ability名称。 parameters: - ohos.extra.param.key.form_dimension: 卡片尺寸。 - ohos.extra.param.key.form_name: 卡片名称。 - ohos.extra.param.key.module_name: 卡片所属的模块名称。 |
 
 
-> [!NOTE] 说明
-> 如果parameters参数没有填完整或者指定的卡片不存在，就会默认展示form_config.json中配置的默认卡片。
+> [!NOTE]
+> 如果parameters参数没有填完整或者指定的卡片不存在，就会默认展示 form_config.json 中配置的默认卡片。
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -528,9 +611,10 @@ openFormManager(want: Want): void
 | 16500100 | Failed to obtain the configuration information. |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```text
 import { formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { Want } from '@kit.AbilityKit';
@@ -551,13 +635,19 @@ try {
 }
 ```
 
-#### formProvider.getPublishedFormInfoById(deprecated)
-getPublishedFormInfoById(formId: string): Promise&lt;formInfo.FormInfo&gt;
+
+
+##### formProvider.getPublishedFormInfoById(deprecated)
+
+getPublishedFormInfoById(formId: string): Promise<formInfo.FormInfo>
+
 获取设备上当前应用程序已经加桌的指定卡片信息，使用Promise异步回调。
+
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-> [!NOTE] 说明
-> 该字段从API version 18开始支持，从API version 20开始废弃，建议使用getPublishedRunningFormInfoById替代。
+> [!NOTE]
+> 该字段从API version 18开始支持，从API version 20开始废弃，建议使用 getPublishedRunningFormInfoById 替代。
+
 
 **系统能力：** SystemCapability.Ability.Form
 
@@ -567,13 +657,16 @@ getPublishedFormInfoById(formId: string): Promise&lt;formInfo.FormInfo&gt;
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片标识。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[formInfo.FormInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#forminfo)> | Promise对象。返回查询到符合条件的卡片信息。 |
+| Promise<formInfo.FormInfo> | Promise对象。返回查询到符合条件的卡片信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -582,9 +675,10 @@ getPublishedFormInfoById(formId: string): Promise&lt;formInfo.FormInfo&gt;
 | 16500100 | Failed to obtain the configuration information. |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```json
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -600,13 +694,19 @@ try {
 }
 ```
 
-#### formProvider.getPublishedFormInfos(deprecated)
-getPublishedFormInfos(): Promise<Array&lt;formInfo.FormInfo&gt;>
+
+
+##### formProvider.getPublishedFormInfos(deprecated)
+
+getPublishedFormInfos(): Promise<Array<formInfo.FormInfo>>
+
 获取设备上当前应用程序所有已经加桌的卡片信息，使用Promise异步回调。
+
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
-> [!NOTE] 说明
-> 该字段从API version 18开始支持，从API version 20开始废弃，建议使用getPublishedRunningFormInfos替代。
+> [!NOTE]
+> 该字段从API version 18开始支持，从API version 20开始废弃，建议使用 getPublishedRunningFormInfos 替代。
+
 
 **系统能力：** SystemCapability.Ability.Form
 
@@ -614,9 +714,11 @@ getPublishedFormInfos(): Promise<Array&lt;formInfo.FormInfo&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array<[formInfo.FormInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo)>> | Promise对象。返回查询到符合条件的卡片信息。 |
+| Promise<Array<formInfo.FormInfo>> | Promise对象。返回查询到符合条件的卡片信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -625,9 +727,10 @@ getPublishedFormInfos(): Promise<Array&lt;formInfo.FormInfo&gt;>
 | 16500100 | Failed to obtain the configuration information. |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```json
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -642,12 +745,17 @@ try {
 }
 ```
 
-#### formProvider.requestOverflow20+
+
+
+##### formProvider.requestOverflow20+
+
 requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise&lt;void&gt;
+
 卡片提供方发起互动卡片动效请求，只针对[场景动效类型互动卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#sceneanimationparams标签)生效，使用Promise异步回调。
 
-> [!NOTE] 说明
-> 该接口在省电模式场景下不可使用，会报16501000错误码。 当设备热档位进入HOT场景并且没有点击事件的场景下，该接口会报16501000错误码；当热档位进入OVERHEATED时，任何情况下都会报16501000错误码。热档位信息具体可参考热档位信息。
+> [!NOTE]
+> 该接口在省电模式场景下不可使用，会报16501000错误码。 当设备热档位进入HOT场景并且没有点击事件的场景下，该接口会报16501000错误码；当热档位进入OVERHEATED时，任何情况下都会报16501000错误码。热档位信息具体可参考 热档位信息 。
+
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -658,7 +766,8 @@ requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise&lt
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片id标识。 |
-| overflowInfo | [formInfo.OverflowInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#overflowinfo20) | 是 | 动效请求参数信息。 |
+| overflowInfo | formInfo.OverflowInfo | 是 | 动效请求参数信息。 |
+
 
 **返回值：**
 
@@ -666,7 +775,9 @@ requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise&lt
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -680,9 +791,10 @@ requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise&lt
 | 16501003 | The form cannot be operated by the current application. |
 | 16501011 | The form can not support this operation. |
 
+
 **示例：**
 
-```ts
+```text
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -709,9 +821,14 @@ try {
 }
 ```
 
-#### formProvider.cancelOverflow20+
+
+
+##### formProvider.cancelOverflow20+
+
 cancelOverflow(formId: string): Promise&lt;void&gt;
+
 卡片提供方发起取消互动卡片动效请求，只针对[场景动效类型互动卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#sceneanimationparams标签)生效，使用Promise异步回调。
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -722,13 +839,16 @@ cancelOverflow(formId: string): Promise&lt;void&gt;
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片id。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -742,9 +862,10 @@ cancelOverflow(formId: string): Promise&lt;void&gt;
 | 16501003 | The form cannot be operated by the current application. |
 | 16501011 | The form can not support this operation. |
 
+
 **示例：**
 
-```ts
+```text
 import { formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -761,9 +882,14 @@ try {
 }
 ```
 
-#### formProvider.getFormRect20+
-getFormRect(formId: string): Promise&lt;formInfo.Rect&gt;
+
+
+##### formProvider.getFormRect20+
+
+getFormRect(formId: string): Promise<formInfo.Rect>
+
 查询卡片位置、尺寸，使用Promise异步回调。
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -774,13 +900,16 @@ getFormRect(formId: string): Promise&lt;formInfo.Rect&gt;
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片id标识。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[formInfo.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#rect20)> | Promise对象，返回卡片相对屏幕左上角的位置信息和卡片尺寸信息。 |
+| Promise<formInfo.Rect> | Promise对象，返回卡片相对屏幕左上角的位置信息和卡片尺寸信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -793,9 +922,10 @@ getFormRect(formId: string): Promise&lt;formInfo.Rect&gt;
 | 16501001 | The ID of the form to be operated does not exist. |
 | 16501003 | The form cannot be operated by the current application. |
 
+
 **示例：**
 
-```ts
+```json
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -810,9 +940,14 @@ try {
 }
 ```
 
-#### formProvider.getPublishedRunningFormInfoById20+
-getPublishedRunningFormInfoById(formId: string): Promise&lt;formInfo.RunningFormInfo&gt;
+
+
+##### formProvider.getPublishedRunningFormInfoById20+
+
+getPublishedRunningFormInfoById(formId: string): Promise<formInfo.RunningFormInfo>
+
 获取当前应用已加桌卡片中指定的卡片信息，使用Promise异步回调。
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -823,13 +958,16 @@ getPublishedRunningFormInfoById(formId: string): Promise&lt;formInfo.RunningForm
 | --- | --- | --- | --- |
 | formId | string | 是 | 卡片标识。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[formInfo.RunningFormInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#runningforminfo20)> | Promise对象。返回符合条件的卡片信息，包括卡片名称、尺寸等。 |
+| Promise<formInfo.RunningFormInfo> | Promise对象。返回符合条件的卡片信息，包括卡片名称、尺寸等。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -840,9 +978,10 @@ getPublishedRunningFormInfoById(formId: string): Promise&lt;formInfo.RunningForm
 | 16501001 | The ID of the form to be operated does not exist. |
 | 16501003 | The form cannot be operated by the current application. |
 
+
 **示例：**
 
-```ts
+```json
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -859,9 +998,14 @@ try {
 }
 ```
 
-#### formProvider.getPublishedRunningFormInfos20+
-getPublishedRunningFormInfos(): Promise<Array&lt;formInfo.RunningFormInfo&gt;>
+
+
+##### formProvider.getPublishedRunningFormInfos20+
+
+getPublishedRunningFormInfos(): Promise<Array<formInfo.RunningFormInfo>>
+
 获取所有已加桌的卡片信息，使用Promise异步回调。
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Ability.Form
@@ -870,9 +1014,11 @@ getPublishedRunningFormInfos(): Promise<Array&lt;formInfo.RunningFormInfo&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array<[formInfo.RunningFormInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-forminfo#runningforminfo20)>> | Promise对象。返回符合条件的卡片信息。 |
+| Promise<Array<formInfo.RunningFormInfo>> | Promise对象。返回符合条件的卡片信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
@@ -881,9 +1027,10 @@ getPublishedRunningFormInfos(): Promise<Array&lt;formInfo.RunningFormInfo&gt;>
 | 16500100 | Failed to obtain the configuration information. |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```json
 import { formInfo, formProvider } from '@kit.FormKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -898,9 +1045,14 @@ try {
 }
 ```
 
-#### formProvider.reloadForms22+
+
+
+##### formProvider.reloadForms22+
+
 reloadForms(context: UIAbilityContext, moduleName: string, abilityName: string, formName: string): Promise&lt;number&gt;
+
 对于当前应用程序相同moduleName、abilityName、formName的卡片，多次加桌后会每张卡片会有不同的卡片id。卡片提供方可以通过本接口批量更新不同的卡片id但moduleName、abilityName、formName相同的卡片。在应用主进程通过本接口通知FormExtension进程进行批量更新，仅支持在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中调用，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -911,10 +1063,11 @@ reloadForms(context: UIAbilityContext, moduleName: string, abilityName: string, 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的上下文，做校验使用。 |
+| context | UIAbilityContext | 是 | UIAbility的上下文，做校验使用。 |
 | moduleName | string | 是 | 指定卡片的moduleName。 |
 | abilityName | string | 是 | 指定卡片的abilityName。 |
-| formName | string | 是 | 指定卡片在[form_config.json](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#配置文件字段说明)中配置的卡片名称。 |
+| formName | string | 是 | 指定卡片在form_config.json中配置的卡片名称。 |
+
 
 **返回值：**
 
@@ -922,16 +1075,19 @@ reloadForms(context: UIAbilityContext, moduleName: string, abilityName: string, 
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象。返回请求更新卡片的数量。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { formProvider } from '@kit.FormKit';
@@ -953,9 +1109,14 @@ try {
 }
 ```
 
-#### formProvider.reloadAllForms22+
+
+
+##### formProvider.reloadAllForms22+
+
 reloadAllForms(context: UIAbilityContext): Promise&lt;number&gt;
+
 在应用主进程通过本接口可以通知FormExtension进程批量更新当前应用程序下已经加桌的所有卡片，仅支持在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中调用，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -966,7 +1127,8 @@ reloadAllForms(context: UIAbilityContext): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的上下文，做校验使用。 |
+| context | UIAbilityContext | 是 | UIAbility的上下文，做校验使用。 |
+
 
 **返回值：**
 
@@ -974,16 +1136,19 @@ reloadAllForms(context: UIAbilityContext): Promise&lt;number&gt;
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象。返回请求更新卡片的数量。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[卡片错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-form)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 16501000 | An internal functional error occurred. |
 
+
 **示例：**
 
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { formProvider } from '@kit.FormKit';

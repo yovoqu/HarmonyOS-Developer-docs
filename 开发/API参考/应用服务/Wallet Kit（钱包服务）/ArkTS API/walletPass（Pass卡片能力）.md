@@ -10,17 +10,15 @@
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone
+##### 导入模块
 
-
-```ts
+```text
 import { walletPass } from '@kit.WalletKit';
 ```
 
 
-## WalletPassClient
-**支持设备：** Phone
+
+##### WalletPassClient
 
 钱包卡券的功能入口类，与钱包卡券有关的所有方法从此处接入。
 
@@ -31,8 +29,8 @@ import { walletPass } from '@kit.WalletKit';
 **起始版本：** 5.0.0(12)
 
 
-### constructor
-**支持设备：** Phone
+
+##### constructor
 
 constructor(context: common.UIAbilityContext)
 
@@ -46,16 +44,14 @@ constructor(context: common.UIAbilityContext)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | UIAbility上下文。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 
@@ -71,10 +67,10 @@ struct Index {
 ```
 
 
-### queryPassDeviceInfo
-**支持设备：** Phone
 
-queryPassDeviceInfo(passStr: string): Promise<string>
+##### queryPassDeviceInfo
+
+queryPassDeviceInfo(passStr: string): Promise&lt;string&gt;
 
 查询当前设备唯一标识及设备能力，用于关联已开通的云侧卡券，同时开卡过程可指定目标设备标识，提升安全性。
 
@@ -90,24 +86,21 @@ queryPassDeviceInfo(passStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、targetDeviceType。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - targetDeviceType：目标设备类型。取值如下          - phone：手机          - wear：穿戴          - all：手机+穿戴 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、targetDeviceType。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - targetDeviceType：目标设备类型。取值如下 - phone：手机 - wear：穿戴 - all：手机+穿戴 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在数组类型的JSON String中，并通过该参数传出。          key包括deviceType、passDeviceId、deviceModel、passCapabilityVersion、deviceModelNumber、deviceCapabilities。          - deviceType：设备类型。取值如下          - phone：手机          - wear：穿戴          - passDeviceId：账号/设备联合标识符。          - deviceModel：设备名，用于展示可开通的设备名称。          - passCapabilityVersion：WalletKit开放能力版本号，用于版本兼容处理，初始为 1。          - deviceModelNumber：设备型号编码，用于获取匹配的标定数据。          - deviceCapabilities：能力集，同步返回是否支持NFC/BLE/UWB/SLE          - NFC：0200          - NFC+BLE：0201          - UWB：0202          - SLE：0203 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在数组类型的JSON String中，并通过该参数传出。 key包括deviceType、passDeviceId、deviceModel、passCapabilityVersion、deviceModelNumber、deviceCapabilities。 - deviceType：设备类型。取值如下 - phone：手机 - wear：穿戴 - passDeviceId：账号/设备联合标识符。 - deviceModel：设备名，用于展示可开通的设备名称。 - passCapabilityVersion：WalletKit开放能力版本号，用于版本兼容处理，初始为 1。 - deviceModelNumber：设备型号编码，用于获取匹配的标定数据。 - deviceCapabilities：能力集，同步返回是否支持NFC/BLE/UWB/SLE - NFC：0200 - NFC+BLE：0201 - UWB：0202 - SLE：0203 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -124,8 +117,7 @@ queryPassDeviceInfo(passStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -156,10 +148,10 @@ struct Index {
 ```
 
 
-### canAddPass
-**支持设备：** Phone
 
-canAddPass(passStr: string): Promise<string>
+##### canAddPass
+
+canAddPass(passStr: string): Promise&lt;string&gt;
 
 检查当前设备是否支持添加卡券，返回结果码。
 
@@ -175,24 +167,21 @@ canAddPass(passStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、targetDeviceType。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - targetDeviceType：目标设备类型。取值如下          - phone: 手机          - wear：穿戴          - all：手机+穿戴 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、targetDeviceType。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - targetDeviceType：目标设备类型。取值如下 - phone: 手机 - wear：穿戴 - all：手机+穿戴 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在数组类型的JSON String中，并通过该参数传出。          key包括passType、deviceType、passDeviceId、deviceModel、result。          - passType：服务号          - deviceType：设备类型。取值如下          - phone：手机          - wear：穿戴          - passDeviceId：账号/设备联合标识符。          - deviceModel：设备名，用于展示可开通的设备名称。          - result：结果码。取值如下          0：支持添加          1：ROM版本过低          2：钱包版本过低          3：ROM版本和钱包版本均过低 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在数组类型的JSON String中，并通过该参数传出。 key包括passType、deviceType、passDeviceId、deviceModel、result。 - passType：服务号 - deviceType：设备类型。取值如下 - phone：手机 - wear：穿戴 - passDeviceId：账号/设备联合标识符。 - deviceModel：设备名，用于展示可开通的设备名称。 - result：结果码。取值如下 0：支持添加 1：ROM版本过低 2：钱包版本过低 3：ROM版本和钱包版本均过低 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -215,8 +204,7 @@ canAddPass(passStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -247,10 +235,10 @@ struct Index {
 ```
 
 
-### initWalletEnvironment
-**支持设备：** Phone
 
-initWalletEnvironment(passStr: string): Promise<void>
+##### initWalletEnvironment
+
+initWalletEnvironment(passStr: string): Promise&lt;void&gt;
 
 初始化钱包开通卡券的同意协议或是登录账号，引导用户跳转钱包完成应用初始化。
 
@@ -266,14 +254,12 @@ initWalletEnvironment(passStr: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括targetDeviceType。          - targetDeviceType：目标设备类型。取值如下          - phone: 手机          - wear：穿戴          - all：手机+穿戴 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括targetDeviceType。 - targetDeviceType：目标设备类型。取值如下 - phone: 手机 - wear：穿戴 - all：手机+穿戴 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -283,7 +269,6 @@ initWalletEnvironment(passStr: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -298,8 +283,7 @@ initWalletEnvironment(passStr: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -328,10 +312,10 @@ struct Index {
 ```
 
 
-### addPass
-**支持设备：** Phone
 
-addPass(passStr: string): Promise<string>
+##### addPass
+
+addPass(passStr: string): Promise&lt;string&gt;
 
 用户主动发起开卡时，跳转钱包应用，携带开卡JWE数据，开通卡券到钱包并激活。
 
@@ -347,24 +331,21 @@ addPass(passStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括jweContent。          - jweContent：[生成JWE数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#生成jwe数据)章节生成的开卡签名数据包。 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括jweContent。 - jweContent：生成JWE数据章节生成的开卡签名数据包。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括passType、serialNumber��deviceType、passDeviceId。          - passType： 开通的卡片服务号 。          - serialNumber： 开通的 Pass 卡片唯一标识 。          - deviceType：开卡设备的类型。取值如下          - phone: 手机          - wear：穿戴          - all：手机+穿戴          - passDeviceId： 开卡设备的帐号/设备联合标识符。 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括passType、serialNumber、deviceType、passDeviceId。 - passType： 开通的卡片服务号 。 - serialNumber： 开通的 Pass 卡片唯一标识 。 - deviceType：开卡设备的类型。取值如下 - phone: 手机 - wear：穿戴 - all：手机+穿戴 - passDeviceId： 开卡设备的帐号/设备联合标识符。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -391,8 +372,7 @@ addPass(passStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -421,10 +401,10 @@ struct Index {
 ```
 
 
-### queryPass
-**支持设备：** Phone
 
-queryPass(passStr: string): Promise<string>
+##### queryPass
+
+queryPass(passStr: string): Promise&lt;string&gt;
 
 检查当前设备卡券的开通情况。
 
@@ -440,24 +420,21 @@ queryPass(passStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、serialNumber。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - serialNumber：[申请钥匙卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#申请钥匙卡片)时定义的卡券唯一标识。 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、serialNumber。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - serialNumber：申请钥匙卡片时定义的卡券唯一标识。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在数组类型的JSON String中，并通过该参数传出。          key包括passType、serialNumber、deviceType、passDeviceId、deviceModel、cardStatus。          - passType：服务号          - serialNumber：卡券唯一标识          - deviceType：设备类型。取值如下          - phone：手机          - wear：穿戴          - passDeviceId：账号/设备联合标识符。          - deviceModel：设备名，用于展示可开通的设备名称。          - cardStatus：卡片状态 。取值如下          0：可用          1：不可用 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在数组类型的JSON String中，并通过该参数传出。 key包括passType、serialNumber、deviceType、passDeviceId、deviceModel、cardStatus。 - passType：服务号 - serialNumber：卡券唯一标识 - deviceType：设备类型。取值如下 - phone：手机 - wear：穿戴 - passDeviceId：账号/设备联合标识符。 - deviceModel：设备名，用于展示可开通的设备名称。 - cardStatus：卡片状态 。取值如下 0：可用 1：不可用 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -473,8 +450,7 @@ queryPass(passStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -505,10 +481,10 @@ struct Index {
 ```
 
 
-### viewPass
-**支持设备：** Phone
 
-viewPass(passStr: string): Promise<void>
+##### viewPass
+
+viewPass(passStr: string): Promise&lt;void&gt;
 
 跳转钱包查看已开通的卡券详情页。
 
@@ -524,24 +500,21 @@ viewPass(passStr: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、serialNumber。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - serialNumber：[申请钥匙卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#申请钥匙卡片)时定义的卡券唯一标识。 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、serialNumber。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - serialNumber：申请钥匙卡片时定义的卡券唯一标识。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise���象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -551,8 +524,7 @@ viewPass(passStr: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 
@@ -583,10 +555,10 @@ struct Index {
 ```
 
 
-### updatePass
-**支持设备：** Phone
 
-updatePass(passStr: string): Promise<string>
+##### updatePass
+
+updatePass(passStr: string): Promise&lt;string&gt;
 
 卡券更新（预留接口，暂不提供具体功能）。
 
@@ -602,24 +574,21 @@ updatePass(passStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、serialNumber。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - serialNumber：[申请钥匙卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#申请钥匙卡片)时定义的卡券唯一标识。 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、serialNumber。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - serialNumber：申请钥匙卡片时定义的卡券唯一标识。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括result。          - result：卡券更新结果0，全部更新完成后返回操作成功。 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括result。 - result：卡券更新结果0，全部更新完成后返回操作成功。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -638,8 +607,7 @@ updatePass(passStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -670,10 +638,10 @@ struct Index {
 ```
 
 
-### deletePass
-**支持设备：** Phone
 
-deletePass(passStr: string): Promise<string>
+##### deletePass
+
+deletePass(passStr: string): Promise&lt;string&gt;
 
 卡券删除（预留接口，暂不提供具体功能）。
 
@@ -689,24 +657,21 @@ deletePass(passStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、serialNumber。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - serialNumber：[申请钥匙卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#申请钥匙卡片)时定义的卡券唯一标识。 |
+| passStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、serialNumber。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - serialNumber：申请钥匙卡片时定义的卡券唯一标识。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括result。          - result：卡券删除结果0，全部删除完成后返回操作成功。 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括result。 - result：卡券删除结果0，全部删除完成后返回操作成功。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -726,8 +691,7 @@ deletePass(passStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -758,10 +722,10 @@ struct Index {
 ```
 
 
-### queryICCEConnectionState
-**支持设备：** Phone
 
-queryICCEConnectionState(rkeStr: string): Promise<string>
+##### queryICCEConnectionState
+
+queryICCEConnectionState(rkeStr: string): Promise&lt;string&gt;
 
 查询车控连接状态。
 
@@ -777,24 +741,21 @@ queryICCEConnectionState(rkeStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、serialNumber。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - serialNumber：[申请钥匙卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#申请钥匙卡片)时定义的卡券唯一标识。 |
+| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、serialNumber。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - serialNumber：申请钥匙卡片时定义的卡券唯一标识。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括deviceType、passDeviceId、deviceModel、connectionState、authState。          - deviceType：设备类型。取值如下          - phone：手机          - wear：穿戴          - passDeviceId：账号/设备联合标识符。          - deviceModel：设备名，用于展示可开通的设备名称。          - connectionState：连接状态。取值如下          0：异常状态          1：正在连接          2：连接成功          3：未连接          4：连接超时          10：未配对          11：配对中          12：已配对          - authState：认证状态。取值如下          0：未认证/认证失败          1：认证成功 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括deviceType、passDeviceId、deviceModel、connectionState、authState。 - deviceType：设备类型。取值如下 - phone：手机 - wear：穿戴 - passDeviceId：账号/设备联合标识符。 - deviceModel：设备名，用于展示可开通的设备名称。 - connectionState：连接状态。取值如下 0：异常状态 1：正在连接 2：连接成功 3：未连接 4：连接超时 10：未配对 11：配对中 12：已配对 - authState：认证状态。取值如下 0：未认证/认证失败 1：认证成功 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -810,8 +771,7 @@ queryICCEConnectionState(rkeStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -842,10 +802,10 @@ struct Index {
 ```
 
 
-### startICCEConnection
-**支持设备：** Phone
 
-startICCEConnection(rkeStr: string): Promise<string>
+##### startICCEConnection
+
+startICCEConnection(rkeStr: string): Promise&lt;string&gt;
 
 车控连接。
 
@@ -861,24 +821,21 @@ startICCEConnection(rkeStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、serialNumber。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - serialNumber：[申请钥匙卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#申请钥匙卡片)时定义的卡券唯一标识。 |
+| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、serialNumber。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - serialNumber：申请钥匙卡片时定义的卡券唯一标识。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括result、deviceType、passDeviceId、deviceModel、connectionState、authState、reasonCode。          result：认证状态。取值如下          0：已配对已连接          1：已配对未连接          2：未配对          deviceType：设备类型。取值如下          phone：手机          wear：穿戴          passDeviceId：账号/设备联合标识符。          deviceModel：设备名，用于展示可开通的设备名称。          connectionState：连接状态。取值如下          0：异常状态          1：正在连接          2：连接成功          3：未连接          4：连接超时          10：未配对          11：配对中          12：已配对          authState：认证状态。取值如下          0：未认证/认证失败          1：认证成功          reasonCode：异常原因码，只有result为2时才会返回。取值如下          1：表侧星闪开关未开启 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括result、deviceType、passDeviceId、deviceModel、connectionState、authState、reasonCode。 result：认证状态。取值如下 0：已配对已连接 1：已配对未连接 2：未配对 deviceType：设备类型。取值如下 phone：手机 wear：穿戴 passDeviceId：账号/设备联合标识符。 deviceModel：设备名，用于展示可开通的设备名称。 connectionState：连接状态。取值如下 0：异常状态 1：正在连接 2：连接成功 3：未连接 4：连接超时 10：未配对 11：配对中 12：已配对 authState：认证状态。取值如下 0：未认证/认证失败 1：认证成功 reasonCode：异常原因码，只有result为2时才会返回。取值如下 1：表侧星闪开关未开启 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -898,8 +855,7 @@ startICCEConnection(rkeStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -930,10 +886,10 @@ struct Index {
 ```
 
 
-### registerICCEListener
-**支持设备：** Phone
 
-registerICCEListener(rkeStr: string, eventNotifyListener: rpc.RemoteObject): Promise<string>
+##### registerICCEListener
+
+registerICCEListener(rkeStr: string, eventNotifyListener: rpc.RemoteObject): Promise&lt;string&gt;
 
 注册监听。
 
@@ -949,25 +905,22 @@ registerICCEListener(rkeStr: string, eventNotifyListener: rpc.RemoteObject): Pro
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、registerName。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - registerName：注册监听的应用名称，一般为包名。 |
-| eventNotifyListener | [rpc.RemoteObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#remoteobject) | 是 | 回调事件，[rpc.RemoteObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#remoteobject)格式。 |
+| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、registerName。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - registerName：注册监听的应用名称，一般为包名。 |
+| eventNotifyListener | rpc.RemoteObject | 是 | 回调事件，rpc.RemoteObject格式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括result。          result：注册成功结果0。 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括result。 result：注册成功结果0。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -982,8 +935,7 @@ registerICCEListener(rkeStr: string, eventNotifyListener: rpc.RemoteObject): Pro
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1029,10 +981,10 @@ struct Index {
 ```
 
 
-### unregisterICCEListener
-**支持设备：** Phone
 
-unregisterICCEListener(rkeStr: string): Promise<string>
+##### unregisterICCEListener
+
+unregisterICCEListener(rkeStr: string): Promise&lt;string&gt;
 
 解注册监听。
 
@@ -1048,24 +1000,21 @@ unregisterICCEListener(rkeStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、registerName。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - registerName：注册监听的应用名称，一般为包名。 |
+| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、registerName。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - registerName：注册监听的应用名称，一般为包名。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括result。          result：解注册成功结果0。 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括result。 result：解注册成功结果0。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1079,8 +1028,7 @@ unregisterICCEListener(rkeStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1115,10 +1063,10 @@ struct Index {
 ```
 
 
-### sendICCERKEMessage
-**支持设备：** Phone
 
-sendICCERKEMessage(rkeStr: string): Promise<string>
+##### sendICCERKEMessage
+
+sendICCERKEMessage(rkeStr: string): Promise&lt;string&gt;
 
 发送车控指令。
 
@@ -1134,24 +1082,21 @@ sendICCERKEMessage(rkeStr: string): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          key包括passType、serialNumber、rkeCommand、encryptFlag、directionFlag。          - passType：[创建Wallet Kit服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wallet-preparations)时注册的服务号，需要开发者到华为AGC网站申请。          - serialNumber：[申请钥匙卡片](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-rest-api-carkey#申请钥匙卡片)时定义的卡券唯一标识。          - rkeCommand：请求���令。          - encryptFlag：加密指示位。取值如下          0：不加密          1：需要基于通道会话秘钥加密          - directionFlag：方向指示位。取值如下          0：上报结果          1：发送指令 |
+| rkeStr | string | 是 | 要求JSON String格式，传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 key包括passType、serialNumber、rkeCommand、encryptFlag、directionFlag。 - passType：创建Wallet Kit服务时注册的服务号，需要开发者到华为AGC网站申请。 - serialNumber：申请钥匙卡片时定义的卡券唯一标识。 - rkeCommand：请求指令。 - encryptFlag：加密指示位。取值如下 0：不加密 1：需要基于通道会话秘钥加密 - directionFlag：方向指示位。取值如下 0：上报结果 1：发送指令 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。          key包括deviceType、passDeviceId、deviceModel、result。          - deviceType：设备类型。取值如下          - phone：手机          - wear：穿戴          - passDeviceId：账号/设备联合标识符。          - deviceModel：设备名，用于展示可开通的设备名称。          - result：车控发起结果，发送至车辆后立即返回。取值如下          - 0：发送成功 |
+| Promise&lt;string&gt; | Promise对象，JSON String格式，传出的字段以key-value的形式设置在JSON String中，并通过该参数传出。 key包括deviceType、passDeviceId、deviceModel、result。 - deviceType：设备类型。取值如下 - phone：手机 - wear：穿戴 - passDeviceId：账号/设备联合标识符。 - deviceModel：设备名，用于展示可开通的设备名称。 - result：车控发起结果，发送至车辆后立即返回。取值如下 - 0：发送成功 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1170,8 +1115,7 @@ sendICCERKEMessage(rkeStr: string): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { common } from '@kit.AbilityKit';
 import { walletPass } from '@kit.WalletKit';
 import { BusinessError } from '@kit.BasicServicesKit';

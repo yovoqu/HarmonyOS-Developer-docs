@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hp-arkui-wrap-waterflow-if-else-footer
 
 建议使用容器包裹waterflow中footer的if-else逻辑。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -18,14 +17,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // 源码文件，请以工程实际为准
@@ -38,14 +39,28 @@ struct MyComponent{
   private showFooterStatus = 2;
 
   aboutToAppear() {
-    for (let i = 0; i  this.itemFoot() }) {
+    for (let i = 0; i <= 20; i++) {
+      this.datasource.pushData(i)
+    }
+  }
+
+  build() {
+    Column({ space: 2 }) {
+      WaterFlow({ footer: (): void => this.itemFoot() }) {
         LazyForEach(this.datasource, (item: number) => {
           FlowItem() {
             ReusableFlowItem({ item: item })
 
           }.onAppear(() => {
             if (item + 20 == this.datasource.totalCount()) {
-              for (let i = 0; i  item)
+              for (let i = 0; i < 100; i++) {
+                this.datasource.addLastItem()
+              }
+            }
+          })
+
+          .width('100%')
+        }, (item: string) => item)
       }
       .columnsTemplate('1fr 1fr 1fr 1fr')
       .columnsGap(10)
@@ -75,7 +90,7 @@ struct MyComponent{
 struct ReusableFlowItem {
   @State item: number = 0
 
-  aboutToReuse(params: Record) {
+  aboutToReuse(params: Record<string, ESObject>) {
     this.item = params.item;
   }
 
@@ -92,10 +107,10 @@ struct ReusableFlowItem {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // 源码文件，请以工程实际为准
@@ -108,14 +123,28 @@ struct MyComponent{
   private showFooterStatus = 2;
 
   aboutToAppear() {
-    for (let i = 0; i  this.itemFoot() }) {
+    for (let i = 0; i <= 20; i++) {
+      this.datasource.pushData(i)
+    }
+  }
+
+  build() {
+    Column({ space: 2 }) {
+      WaterFlow({ footer: (): void => this.itemFoot() }) {
         LazyForEach(this.datasource, (item: number) => {
           FlowItem() {
             ReusableFlowItem({ item: item })
 
           }.onAppear(() => {
             if (item + 20 == this.datasource.totalCount()) {
-              for (let i = 0; i  item)
+              for (let i = 0; i < 100; i++) {
+                this.datasource.addLastItem()
+              }
+            }
+          })
+
+          .width('100%')
+        }, (item: string) => item)
       }
       .columnsTemplate('1fr 1fr 1fr 1fr')
       .columnsGap(10)
@@ -143,7 +172,7 @@ struct MyComponent{
 struct ReusableFlowItem {
   @State item: number = 0
 
-  aboutToReuse(params: Record) {
+  aboutToReuse(params: Record<string, ESObject>) {
     this.item = params.item;
   }
 
@@ -160,13 +189,14 @@ struct ReusableFlowItem {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/all
+<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
 ```
-
+ 
+ 
 Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

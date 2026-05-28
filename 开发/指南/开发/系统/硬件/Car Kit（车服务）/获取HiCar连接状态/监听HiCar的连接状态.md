@@ -4,34 +4,51 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/car-listener-connect-status
 
-## 场景介绍
+##### 场景介绍
 
 生态应用可以通过监听智慧出行连接状态接口获取连接信息，适配HiCar业务（如：应用流转）。
+
+
 ![](assets/监听HiCar的连接状态/file-20260514131332326-0.png)
 
-## 接口说明
+
+
+
+##### 接口说明
 
 监听HiCar的连接状态使用接口如下：
+
 | 接口名 | 描述 |
 | --- | --- |
-| [on('smartMobilityStatus')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-smartmobilitycommon#onsmartmobilitystatus) | 注册智慧出行连接状态的监听。 |
-| [off('smartMobilityStatus')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-smartmobilitycommon#offsmartmobilitystatus) | 取消注册智慧出行连接状态的监听。 |
+| on('smartMobilityStatus') | 注册智慧出行连接状态的监听。 |
+| off('smartMobilityStatus') | 取消注册智慧出行连接状态的监听。 |
 
 
-## 开发流程
+
+
+##### 开发流程
+
 
 ![](assets/监听HiCar的连接状态/file-20260514131332326-1.png)
 
-## 开发步骤
 
-导入相关模块。
+
+
+##### 开发步骤
+1. 导入相关模块。
+
+  
 ```text
 import { smartMobilityCommon } from '@kit.CarKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-监听HiCar连接状态。 应用在适配HiCar时，需要注册智慧出行连接状态的监听，用于对应的业务逻辑处理。
-```text
+2. 监听HiCar连接状态。
+
+  应用在适配HiCar时，需要注册智慧出行连接状态的监听，用于对应的业务逻辑处理。
+
+  
+```json
 try {
   // 获取SmartMobilityAwareness实例
   let awareness: smartMobilityCommon.SmartMobilityAwareness = smartMobilityCommon.getSmartMobilityAwareness();
@@ -57,7 +74,11 @@ try {
 }
 ```
 
-取消监听。 在应用退出时，需要取消之前注册的监听，减少系统不必要的资源消耗。
+3. 取消监听。
+
+  在应用退出时，需要取消之前注册的监听，减少系统不必要的资源消耗。
+
+  
 ```text
 try {
   // 获取SmartMobilityAwareness实例

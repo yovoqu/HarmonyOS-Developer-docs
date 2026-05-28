@@ -3,50 +3,47 @@
 更新时间：2026-04-10 09:55:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-map
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 一种基于键值对存储的非线性数据结构。能够高效地通过唯一键来存取对应的值。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+
 
 文档中存在泛型的使用，涉及以下泛型标记符：
 
+ - K：Key，键
+ - V：Value，值
 
-- K：Key，键
-- V：Value，值
 
 K和V类型都需为[Sendable支持的数据类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable支持的数据类型)。
 
 **装饰器类型：**@Sendable
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { collections } from '@kit.ArkTS';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | size | number | 是 | 否 | Map的元素个数。 |
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(entries?: readonly (readonly [K, V])[] | null)
 
@@ -58,7 +55,6 @@ constructor(entries?: readonly (readonly [K, V])[] | null)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | entries | readonly (readonly [K, V])[] \| null | 否 | 键值对数组或其它可迭代对象。默认值为null，创建一个空Map对象。 |
@@ -68,7 +64,6 @@ constructor(entries?: readonly (readonly [K, V])[] | null)
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -77,45 +72,37 @@ constructor(entries?: readonly (readonly [K, V])[] | null)
 
 **示例：**
 
-
-```ts
+```text
 // 正例1：
 const myMap = new collections.Map<number, number>();
 ```
 
-
-```ts
+```text
 // 正例2：
 const myMap = new collections.Map<number, string>([
-  [1, 'one'],
-  [2, 'two'],
-  [3, 'three'],
+  [1, "one"],
+  [2, "two"],
+  [3, "three"]
 ]);
 ```
 
-
-```ts
+```text
 // 反例：
 @Sendable
 class SharedClass {
-  constructor() {}
+  constructor() {
+  }
 }
 let sObj = new SharedClass();
-const myMap1: collections.Map<number, SharedClass> = new collections.Map<
-  number,
-  SharedClass
->([[1, sObj]]);
+const myMap1: collections.Map<number, SharedClass> = new collections.Map<number, SharedClass>([[1, sObj]]);
 // Type arguments of generic "Sendable" type must be a "Sendable" data type (arkts-sendable-generic-types)
 let obj = new Object();
-const myMap2: collections.Map<number, Object> = new collections.Map<
-  number,
-  Object
->([[1, obj]]);
+const myMap2: collections.Map<number, Object> = new collections.Map<number, Object>([[1, obj]]);
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(iterable: Iterable<readonly [K, V]>)
 
@@ -127,16 +114,14 @@ constructor(iterable: Iterable<readonly [K, V]>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| iterable | Iterable&lt;readonly [K, V]&gt; | 是 | 用于构造ArkTS Map的对象。 |
+| iterable | Iterable<readonly [K, V]> | 是 | 用于构造ArkTS Map的对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -146,8 +131,7 @@ constructor(iterable: Iterable<readonly [K, V]>)
 
 **示例：**
 
-
-```ts
+```text
 const mapper = new Map([
   ['1', 'a'],
   ['2', 'b'],
@@ -158,8 +142,8 @@ console.info(newMap.get('2')); // 预期输出： b
 ```
 
 
-## entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[K, V]>
 
@@ -171,16 +155,14 @@ entries(): IterableIterator<[K, V]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[K, V]&gt; | 返回一个Map迭代器对象。 |
+| IterableIterator<[K, V]> | 返回一个Map迭代器对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -190,12 +172,11 @@ entries(): IterableIterator<[K, V]>
 
 **示例：**
 
-
-```ts
+```text
 // 例1：
 const myMap = new collections.Map<number, string>([
-  [0, 'foo'],
-  [1, 'bar'],
+  [0, "foo"],
+  [1, "bar"]
 ]);
 
 const iterator = myMap.entries();
@@ -205,17 +186,13 @@ console.info(iterator.next().value);
 console.info(iterator.next().value);
 ```
 
-
-```ts
+```text
 // 例2：
-const myMap: collections.Map<number, string> = new collections.Map<
-  number,
-  string
->([
-  [0, 'one'],
-  [1, 'two'],
-  [2, 'three'],
-  [3, 'four'],
+const myMap: collections.Map<number, string> = new collections.Map<number, string>([
+  [0, "one"],
+  [1, "two"],
+  [2, "three"],
+  [3, "four"]
 ]);
 // 返回一个myMap迭代器对象，该对象包含了此myMap中的每个元素的[number, string]键值对。
 const entriesIter: IterableIterator<[number, string]> = myMap.entries();
@@ -226,14 +203,14 @@ for (const entry of entriesIter) {
   }
 }
 // Expected output: 2
-console.info('size:' + myMap.size);
+console.info("size:" + myMap.size);
 ```
 
 
-## keys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-keys(): IterableIterator<K>
+##### keys
+
+keys(): IterableIterator&lt;K&gt;
 
 返回一个Map迭代器对象，该对象包含了此Map中每个元素的键。
 
@@ -242,7 +219,6 @@ keys(): IterableIterator<K>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -253,7 +229,6 @@ keys(): IterableIterator<K>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The keys method cannot be bound with non-sendable. |
@@ -262,11 +237,10 @@ keys(): IterableIterator<K>
 
 **示例：**
 
-
-```ts
+```text
 const myMap = new collections.Map<number, string>([
-  [0, 'foo'],
-  [1, 'bar'],
+  [0, "foo"],
+  [1, "bar"]
 ]);
 
 const iterator = myMap.keys();
@@ -277,10 +251,10 @@ console.info(iterator.next().value);
 ```
 
 
-## values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<V>
+##### values
+
+values(): IterableIterator&lt;V&gt;
 
 返回一个Map迭代器对象，该对象包含此Map中每个元素的值。
 
@@ -289,7 +263,6 @@ values(): IterableIterator<V>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -300,7 +273,6 @@ values(): IterableIterator<V>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The values method cannot be bound with non-sendable. |
@@ -309,11 +281,10 @@ values(): IterableIterator<V>
 
 **示例：**
 
-
-```ts
+```text
 const myMap = new collections.Map<number, string>([
-  [0, 'foo'],
-  [1, 'bar'],
+  [0, "foo"],
+  [1, "bar"]
 ]);
 
 const iterator = myMap.values();
@@ -324,8 +295,8 @@ console.info(iterator.next().value);
 ```
 
 
-## clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -339,7 +310,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound with non-sendable. |
@@ -348,22 +318,21 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 const myMap = new collections.Map<number, string>([
-  [0, 'foo'],
-  [1, 'bar'],
+  [0, "foo"],
+  [1, "bar"]
 ]);
 // Expected output: 2
-console.info('size:' + myMap.size);
+console.info("size:" + myMap.size);
 myMap.clear();
 // Expected output: 0
-console.info('size:' + myMap.size);
+console.info("size:" + myMap.size);
 ```
 
 
-## delete
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### delete
 
 delete(key: K): boolean
 
@@ -375,14 +344,12 @@ delete(key: K): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 待删除元素的键。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -393,7 +360,6 @@ delete(key: K): boolean
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -403,20 +369,21 @@ delete(key: K): boolean
 
 **示例：**
 
-
-```ts
-const myMap = new collections.Map<string, string>([['hello', 'world']]);
+```text
+const myMap = new collections.Map<string, string>([
+  ["hello", "world"],
+]);
 // Expected result: true
-console.info('result:' + myMap.delete('hello'));
+console.info("result:" + myMap.delete("hello"));
 // Expected result: false
-console.info('result:' + myMap.has('hello'));
+console.info("result:" + myMap.has("hello"));
 // Expected result: false
-console.info('result:' + myMap.delete('hello'));
+console.info("result:" + myMap.delete("hello"));
 ```
 
 
-## forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### forEach
 
 forEach(callbackFn: (value: V, key: K, map: Map<K, V>) => void): void
 
@@ -428,26 +395,23 @@ forEach(callbackFn: (value: V, key: K, map: Map<K, V>) => void): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | (value: V, key: K, map: Map&lt;K, V&gt;) =&gt; void | 是 | 回调函数。 |
+| callbackFn | (value: V, key: K, map: Map<K, V>) => void | 是 | 回调函数。 |
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | V | 否 | 当前遍历到的元素键值对的值。 |
 | key | K | 否 | 当前遍历到的元素键值对的键。 |
-| map | Map&lt;K, V&gt; | 否 | 当前map实例对象。 |
+| map | Map<K, V> | 否 | 当前map实例对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -458,8 +422,7 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 // 正例：
 new collections.Map<string, number>([
   ['foo', 0],
@@ -470,8 +433,7 @@ new collections.Map<string, number>([
 });
 ```
 
-
-```ts
+```text
 // 反例：
 new collections.Map<string, number>([
   ['foo', 0],
@@ -484,8 +446,8 @@ new collections.Map<string, number>([
 ```
 
 
-## get
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### get
 
 get(key: K): V | undefined
 
@@ -497,14 +459,12 @@ get(key: K): V | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -515,7 +475,6 @@ get(key: K): V | undefined
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -525,18 +484,19 @@ get(key: K): V | undefined
 
 **示例：**
 
-
-```ts
-const myMap = new collections.Map<string, string>([['hello', 'world']]);
+```text
+const myMap = new collections.Map<string, string>([
+  ["hello", "world"],
+]);
 // Expected output: "world"
-console.info(myMap.get('hello'));
+console.info(myMap.get("hello"));
 // Expected output: undefined
-console.info(myMap.get('hel'));
+console.info(myMap.get("hel"));
 ```
 
 
-## has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(key: K): boolean
 
@@ -548,14 +508,12 @@ has(key: K): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 待查找元素的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -566,7 +524,6 @@ has(key: K): boolean
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -576,18 +533,19 @@ has(key: K): boolean
 
 **示例：**
 
-
-```ts
-const myMap = new collections.Map<string, string>([['hello', 'world']]);
+```text
+const myMap = new collections.Map<string, string>([
+  ["hello", "world"],
+]);
 // Expected output: true
-console.info('result:' + myMap.has('hello'));
+console.info("result:" + myMap.has("hello"));
 // Expected output: false
-console.info('result:' + myMap.has('world'));
+console.info("result:" + myMap.has("world"));
 ```
 
 
-## set
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### set
 
 set(key: K, value: V): Map<K, V>
 
@@ -599,7 +557,6 @@ set(key: K, value: V): Map<K, V>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 添加或更新指定元素的键。 |
@@ -608,16 +565,14 @@ set(key: K, value: V): Map<K, V>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Map&lt;K, V&gt; | Map对象 |
+| Map<K, V> | Map对象 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -628,36 +583,31 @@ set(key: K, value: V): Map<K, V>
 
 **示例：**
 
-
-```ts
+```text
 // 正例：
 const myMap = new collections.Map<string, string>();
-myMap.set('foo', 'bar');
+myMap.set("foo", "bar");
 ```
 
-
-```ts
+```text
 // 反例：
 let obj = new Object();
-const myMap: collections.Map<string, Object> = new collections.Map<
-  string,
-  Object
->();
+const myMap: collections.Map<string, Object> = new collections.Map<string, Object>();
 // Type arguments of generic "Sendable" type must be a "Sendable" data type (arkts-sendable-generic-types)
-myMap.set('foo', obj);
+myMap.set("foo", obj);
 ```
 
 
-## [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### [Symbol.iterator]
 
 [Symbol.iterator](): IterableIterator<[K, V]>
 
 返回一个迭代器，迭代器的每一项都是一个JavaScript对象，并返回该对象。
 
-
 > [!NOTE]
 > 本接口不支持在.ets文件中使用。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -665,16 +615,14 @@ myMap.set('foo', obj);
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[K, V]&gt; | 返回一个迭代器。 |
+| IterableIterator<[K, V]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -683,18 +631,17 @@ myMap.set('foo', obj);
 
 **示例：**
 
-
-```ts
+```text
 let map = new collections.Map<number, string>([
-  [0, 'one'],
-  [1, 'two'],
-  [2, 'three'],
-  [3, 'four'],
+    [0, "one"],
+    [1, "two"],
+    [2, "three"],
+    [3, "four"]
 ]);
 
 let keys = Array.from(map.keys());
 for (let key of keys) {
-  console.info('key:' + key);
-  console.info('value:' + map.get(key));
+  console.info("key:" + key);
+  console.info("value:" + map.get(key));
 }
 ```

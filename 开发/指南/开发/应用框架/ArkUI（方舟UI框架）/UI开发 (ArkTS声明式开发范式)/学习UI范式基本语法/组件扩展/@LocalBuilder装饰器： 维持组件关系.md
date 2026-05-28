@@ -1,6 +1,6 @@
 # @LocalBuilder装饰器： 维持组件关系
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder
 
@@ -8,18 +8,20 @@
 
 在阅读本文档前，建议提前阅读：[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)。
 
-
 > [!NOTE]
 > 从API version 12开始支持。 从API version 12开始，该装饰器支持在ArkTS卡片中使用。 从API version 12开始，该装饰器支持在元服务中使用。
 
 
-## 装饰器使用说明
+
+##### 装饰器使用说明
 
 
-## 自定义组件内自定义构建函数
+
+##### 自定义组件内自定义构建函数
 
 定义的语法：
-```text
+
+```ArkTS
 @LocalBuilder
 myBuilderFunction() {
   // ···
@@ -27,21 +29,33 @@ myBuilderFunction() {
 ```
 
 使用方法：
-```text
+
+```ArkTS
 this.myBuilderFunction()
 ```
 
-允许在自定义组件内定义一个或多个@LocalBuilder函数，该函数被视为是该组件的私有、特殊类型的成员函数。 自定义构建函数可以在所属组件的build函数和其他自定义构建函数中调用，但不允许在组件外调用。 在自定义函数体中，this指代当前所属组件，组件的状态变量可以在自定义构建函数内访问。建议通过this访问自定义组件的状态变量而不是参数传递。
+ - 允许在自定义组件内定义一个或多个@LocalBuilder函数，该函数被视为是该组件的私有、特殊类型的成员函数。
+ - 自定义构建函数可以在所属组件的build函数和其他自定义构建函数中调用，但不允许在组件外调用。
+ - 在自定义函数体中，this指代当前所属组件，组件的状态变量可以在自定义构建函数内访问。建议通过this访问自定义组件的状态变量而不是参数传递。
 
-## @LocalBuilder和局部@Builder使用区别
+
+
+
+##### @LocalBuilder和局部@Builder使用区别
 
 跨组件传递局部@Builder函数时，会使用.bind(this)更改函数上下文，但这可能会导致组件的父子关系与状态管理的父子关系不一致。而@LocalBuilder无论是否使用.bind(this)，都不会改变组件的父子关系，即@LocalBuilder中定义组件所属的父组件是确定的，无法被改变。
-![](assets/@LocalBuilder装饰器：%20维持组件关系/file-20260514130509123-0.png)
+
+
+![](assets/@LocalBuilder装饰器：%20维持组件关系/file-20260514130509123-1.gif)
+
+
 > [!NOTE]
 > bind()方法创建一个新的函数，称为绑定函数，当调用者绑定bind()时，该绑定函数会以创建时传入的第一个this作为原函数的this。
 
+
 下方用例中，当函数componentBuilder被@Builder修饰时，显示效果为“Child”；当函数componentBuilder被@LocalBuilder修饰时，显示效果是“Parent”。
-```text
+
+```ArkTS
 @Component
 struct Child {
   label: string = 'Child';
@@ -84,18 +98,34 @@ struct Parent {
 ```
 
 
-## 限制条件
 
-@LocalBuilder只能在所属组件内声明，不允许全局声明。 @LocalBuilder不能与内置装饰器或自定义装饰器一起使用。 在自定义组件中，@LocalBuilder不能用来装饰静态函数。 关于@LocalBuilder函数的传递方式，建议优先传递函数本身，或使用 () => { 函数调用 } 的形式，避免直接传递函数的执行结果。
+##### 限制条件
 
-## 参数传递规则
+ - @LocalBuilder只能在所属组件内声明，不允许全局声明。
+ - @LocalBuilder不能与内置装饰器或自定义装饰器一起使用。
+ - 在自定义组件中，@LocalBuilder不能用来装饰静态函数。
+ - 关于@LocalBuilder函数的传递方式，建议优先传递函数本身，或使用 () => { 函数调用 } 的形式，避免直接传递函数的执行结果。
 
-@LocalBuilder函数的参数传递有[按回调传递](#按回调传递参数)，[按引用传递](#按引用传递参数)和[按值传递](#按值传递参数)，均需遵守以下规则： 参数的类型必须与参数声明的类型一致，且不允许为undefined、null。 在@LocalBuilder修饰的函数内部，不允许改变参数值。 @LocalBuilder内的UI语法遵循[UI语法规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#build函数实现规则)。 按回调传递和按引用传递时，支持@Builder函数内UI组件刷新。按引用传递只在传入一个参数且该参数直接传入对象字面量时生效，有多个参数时不支持@Builder函数内UI组件刷新。
 
-## 按回调传递参数
+
+
+##### 参数传递规则
+
+@LocalBuilder函数的参数传递有[按回调传递](#按回调传递参数)，[按引用传递](#按引用传递参数)和[按值传递](#按值传递参数)，均需遵守以下规则：
+
+ - 参数的类型必须与参数声明的类型一致，且不允许为undefined、null。
+ - 在@LocalBuilder修饰的函数内部，不允许改变参数值。
+ - @LocalBuilder内的UI语法遵循[UI语法规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#build函数实现规则)。
+ - 按回调传递和按引用传递时，支持@Builder函数内UI组件刷新。按引用传递只在传入一个参数且该参数直接传入对象字面量时生效，有多个参数时不支持@Builder函数内UI组件刷新。
+
+
+
+
+##### 按回调传递参数
 
 从API version 20开始，开发者可以通过使用UIUtils.makeBinding()函数、Binding类和MutableBinding类实现@Builder函数中状态变量的刷新。详情请参考[状态管理API文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makebinding20)。
-```text
+
+```ArkTS
 import { UIUtils, Binding } from '@kit.ArkUI';
 
 @Entry
@@ -104,7 +134,7 @@ struct Parent {
   @State variableValue: string = 'Hello World';
 
   @LocalBuilder
-  citeLocalBuilder(params: Binding) {
+  citeLocalBuilder(params: Binding<string>) {
     Row() {
       Text(`UseStateVarByReference: ${params.value}`)
     }
@@ -113,7 +143,7 @@ struct Parent {
   build() {
     Column() {
       // 通过UIUtils.makeBinding()方法和Binding类，实现@Builder函数中状态变量的刷新
-      this.citeLocalBuilder(UIUtils.makeBinding(() => this.variableValue))
+      this.citeLocalBuilder(UIUtils.makeBinding<string>(() => this.variableValue))
       Button('Click me')
         .onClick(() => {
           this.variableValue = 'Hi World';
@@ -124,14 +154,18 @@ struct Parent {
 ```
 
 
-## 按引用传递参数
+
+##### 按引用传递参数
 
 按引用传递参数时，传递的参数可为状态变量，且状态变量的改变会引起@LocalBuilder函数内的UI刷新。
+
 > [!NOTE]
-> 若@LocalBuilder函数和\$\$参数一起使用，子组件调用父组件的@LocalBuilder函数，子组件传入的参数发生变化，不会引起@LocalBuilder函数内的UI刷新。见常见错误@LocalBuilder函数和\$\$参数一起使用UI不刷新。
+> 若@LocalBuilder函数和$$参数一起使用，子组件调用父组件的@LocalBuilder函数，子组件传入的参数发生变化，不会引起@LocalBuilder函数内的UI刷新。见常见错误 @LocalBuilder函数和$$参数一起使用UI不刷新 。
+
 
 组件Parent内的@LocalBuilder函数在build函数内调用，按键值对写法进行传值，当点击Click me时，@LocalBuilder内的Text文本内容会随着状态变量内容的改变而改变。
-```text
+
+```ArkTS
 class ReferenceType {
   paramString: string = '';
 }
@@ -160,8 +194,11 @@ struct Parent {
 }
 ```
 
-按引用传递参数时，如果在@LocalBuilder函数内调用自定义组件，ArkUI提供\$\$作为按引用传递参数的范式。 组件Parent内的@LocalBuilder函数内调用自定义组件，且按照引用传递参数将值传递到自定义组件，当Parent组件内状态变量值发生变化时，@LocalBuilder函数内的自定义组件HelloComponent的message值也会随之更新。
-```text
+按引用传递参数时，如果在@LocalBuilder函数内调用自定义组件，ArkUI提供$$作为按引用传递参数的范式。
+
+组件Parent内的@LocalBuilder函数内调用自定义组件，且按照引用传递参数将值传递到自定义组件，当Parent组件内状态变量值发生变化时，@LocalBuilder函数内的自定义组件HelloComponent的message值也会随之更新。
+
+```ArkTS
 class ReferenceType {
   paramString: string = '';
 }
@@ -204,8 +241,11 @@ struct Parent {
 }
 ```
 
-当子组件引用父组件的@LocalBuilder函数并传入状态变量时，状态变量的改变不会触发@LocalBuilder函数内的UI刷新。这是因为调用@LocalBuilder装饰的函数创建出来的组件绑定于父组件，而状态变量的刷新机制仅作用于当前组件及其子组件，对父组件无效。而使用@Builder修饰函数可触发UI刷新，原因在于@Builder改变了函数的this指向，使创建出来的组件绑定到子组件上，从而在子组件修改变量能够实现@Builder中的UI刷新。 下面示例中，组件Child将状态变量传递到Parent的@Builder和@LocalBuilder函数内。在@Builder函数内，this指向Child，参数变化能触发UI刷新。在@LocalBuilder函数内，this指向Parent，参数变化不会触发UI刷新。若@LocalBuilder函数内引用Parent的状态变量发生变化，UI能正常刷新。
-```text
+当子组件引用父组件的@LocalBuilder函数并传入状态变量时，状态变量的改变不会触发@LocalBuilder函数内的UI刷新。这是因为调用@LocalBuilder装饰的函数创建出来的组件绑定于父组件，而状态变量的刷新机制仅作用于当前组件及其子组件，对父组件无效。而使用@Builder修饰函数可触发UI刷新，原因在于@Builder改变了函数的this指向，使创建出来的组件绑定到子组件上，从而在子组件修改变量能够实现@Builder中的UI刷新。
+
+下面示例中，组件Child将状态变量传递到Parent的@Builder和@LocalBuilder函数内。在@Builder函数内，this指向Child，参数变化能触发UI刷新。在@LocalBuilder函数内，this指向Parent，参数变化不会触发UI刷新。若@LocalBuilder函数内引用Parent的状态变量发生变化，UI能正常刷新。
+
+```ArkTS
 class Data {
   public size: number = 0;
 }
@@ -280,10 +320,14 @@ struct Child {
 ```
 
 
-## 按值传递参数
 
-调用@LocalBuilder装饰的函数默认按值传递。当传递的参数为状态变量时，状态变量的改变不会引起@LocalBuilder函数内的UI刷新。所以当使用状态变量的时候，推荐使用[按回调传递](#按回调传递参数)或[按引用传递](#按引用传递参数)。 组件Parent将@State修饰的label值按照函数传参方式传递到@LocalBuilder函数内，此时@LocalBuilder函数获取到的值为普通变量值，所以改变@State修饰的label值时，@LocalBuilder函数内的值不会发生改变。
-```text
+##### 按值传递参数
+
+调用@LocalBuilder装饰的函数默认按值传递。当传递的参数为状态变量时，状态变量的改变不会引起@LocalBuilder函数内的UI刷新。所以当使用状态变量的时候，推荐使用[按回调传递](#按回调传递参数)或[按引用传递](#按引用传递参数)。
+
+组件Parent将@State修饰的label值按照函数传参方式传递到@LocalBuilder函数内，此时@LocalBuilder函数获取到的值为普通变量值，所以改变@State修饰的label值时，@LocalBuilder函数内的值不会发生改变。
+
+```ArkTS
 @Entry
 @Component
 struct Parent {
@@ -307,13 +351,16 @@ struct Parent {
 ```
 
 
-## 使用场景
+
+##### 使用场景
 
 
-## @LocalBuilder在@ComponentV2修饰的自定义组件中使用
+
+##### @LocalBuilder在@ComponentV2修饰的自定义组件中使用
 
 在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中使用局部的@LocalBuilder，修改变量时会触发UI刷新。
-```text
+
+```ArkTS
 @ObservedV2
 class Info {
   @Trace name: string = '';
@@ -415,13 +462,18 @@ struct ParentPage {
 ```
 
 
-## 常见问题
+
+##### 常见问题
 
 
-## @LocalBuilder函数和\$\$参数一起使用UI不刷新
 
-若@LocalBuilder函数和\$\$参数一起使用，子组件调用父组件的@LocalBuilder函数，子组件传入的参数发生变化，不会引起@LocalBuilder函数内的UI刷新。 【反例】
-```text
+##### @LocalBuilder函数和$$参数一起使用UI不刷新
+
+若@LocalBuilder函数和$$参数一起使用，子组件调用父组件的@LocalBuilder函数，子组件传入的参数发生变化，不会引起@LocalBuilder函数内的UI刷新。
+
+【反例】
+
+```ArkTS
 class LayoutSize {
   public size: number = 0;
 }
@@ -466,8 +518,11 @@ struct Child {
 }
 ```
 
-【正例】 在声明@LocalBuilder的组件下创建状态变量并在@LocalBuilder函数内访问，可以在状态变量变化时更新@LocalBuilder内的UI组件。
-```text
+【正例】
+
+在声明@LocalBuilder的组件下创建状态变量并在@LocalBuilder函数内访问，可以在状态变量变化时更新@LocalBuilder内的UI组件。
+
+```ArkTS
 class LayoutSize {
   public size: number = 0;
 }
@@ -512,12 +567,19 @@ struct Child {
 }
 ```
 
-![](assets/@LocalBuilder装饰器：%20维持组件关系/file-20260514130509123-1.gif)
 
-## @LocalBuilder函数在参数处直接调用出现布局错乱
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/UjErW3rNTyeOaR0S4mR0Sw/zh-cn_image_0000002611753569.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014802Z&HW-CC-Expire=86400&HW-CC-Sign=59E69C7175806E44137B588903C7A6D9B2EEDA2377093A422DEE71499C49710D)
 
-@LocalBuilder装饰的函数作为参数时，直接传递函数的执行结果，会导致布局和预期效果有偏差。 【反例】
-```text
+
+
+
+##### @LocalBuilder函数在参数处直接调用出现布局错乱
+
+@LocalBuilder装饰的函数作为参数时，直接传递函数的执行结果，会导致布局和预期效果有偏差。
+
+【反例】
+
+```ArkTS
 @Entry
 @Component
 struct Page {
@@ -549,9 +611,15 @@ struct Page {
 }
 ```
 
-![](assets/@LocalBuilder装饰器：%20维持组件关系/file-20260514130509123-2.png)
-【正例】 @LocalBuilder装饰的函数作为参数时，使用 () => { 函数调用 } 的形式，布局能够符合预期效果。
-```text
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/g2B2mTBXQgqtw95YbYS2mA/zh-cn_image_0000002581433634.png?HW-CC-KV=V1&HW-CC-Date=20260528T014802Z&HW-CC-Expire=86400&HW-CC-Sign=35570F5DFC8ACA4D15F57840A8F3AEA75AB527917A9AE45CF0660D10D1A9CDD2)
+
+
+【正例】
+
+@LocalBuilder装饰的函数作为参数时，使用 () => { 函数调用 } 的形式，布局能够符合预期效果。
+
+```ArkTS
 @Entry
 @Component
 struct Page {
@@ -583,4 +651,5 @@ struct Page {
 }
 ```
 
-![](assets/@LocalBuilder装饰器：%20维持组件关系/file-20260514130509123-3.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/4F0-Qm7bQRmKifTEFiR8Lw/zh-cn_image_0000002611833463.png?HW-CC-KV=V1&HW-CC-Date=20260528T014802Z&HW-CC-Expire=86400&HW-CC-Sign=894A19EAFFC7702229AC671E5D30400FA00AA1396D0647B73C4D14554E448156)

@@ -32,17 +32,17 @@
 | 新增API | NA | 类名：PhotoAsset； API声明：readonly displayName: string; 差异内容：readonly displayName: string; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：PhotoAsset； API声明：get(member: string): photoAccessHelper.MemberType; 差异内容：get(member: string): photoAccessHelper.MemberType; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：PhotoAsset； API声明：set(member: string, value: string): void; 差异内容：set(member: string, value: string): void; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：PhotoAsset； API声明：commitModify(): Promise<void>; 差异内容：commitModify(): Promise<void>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：PhotoAsset； API声明：commitModify(): Promise&lt;void&gt;; 差异内容：commitModify(): Promise&lt;void&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：PhotoAsset； API声明：getThumbnail(size?: image.Size): Promise<image.PixelMap>; 差异内容：getThumbnail(size?: image.Size): Promise<image.PixelMap>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：PhotoAsset； API声明：convertToPhotoAsset(): photoAccessHelper.PhotoAsset; 差异内容：convertToPhotoAsset(): photoAccessHelper.PhotoAsset; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：sendablePhotoAccessHelper； API声明： interface FetchResult 差异内容： interface FetchResult | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：FetchResult； API声明：getCount(): number; 差异内容：getCount(): number; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：FetchResult； API声明：isAfterLast(): boolean; 差异内容：isAfterLast(): boolean; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：FetchResult； API声明：getFirstObject(): Promise<T>; 差异内容：getFirstObject(): Promise<T>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：FetchResult； API声明：getNextObject(): Promise<T>; 差异内容：getNextObject(): Promise<T>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：FetchResult； API声明：getLastObject(): Promise<T>; 差异内容：getLastObject(): Promise<T>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：FetchResult； API声明：getObjectByPosition(index: number): Promise<T>; 差异内容：getObjectByPosition(index: number): Promise<T>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：FetchResult； API声明：getAllObjects(): Promise<Array<T>>; 差异内容：getAllObjects(): Promise<Array<T>>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：FetchResult； API声明：getFirstObject(): Promise&lt;T&gt;; 差异内容：getFirstObject(): Promise&lt;T&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：FetchResult； API声明：getNextObject(): Promise&lt;T&gt;; 差异内容：getNextObject(): Promise&lt;T&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：FetchResult； API声明：getLastObject(): Promise&lt;T&gt;; 差异内容：getLastObject(): Promise&lt;T&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：FetchResult； API声明：getObjectByPosition(index: number): Promise&lt;T&gt;; 差异内容：getObjectByPosition(index: number): Promise&lt;T&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：FetchResult； API声明：getAllObjects(): Promise<Array&lt;T&gt;>; 差异内容：getAllObjects(): Promise<Array&lt;T&gt;>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：FetchResult； API声明：close(): void; 差异内容：close(): void; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：sendablePhotoAccessHelper； API声明： const enum AlbumType 差异内容： const enum AlbumType | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：AlbumType； API声明：USER = 0 差异内容：USER = 0 | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
@@ -60,19 +60,19 @@
 | 新增API | NA | 类名：AbsAlbum； API声明：readonly albumUri: string; 差异内容：readonly albumUri: string; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：AbsAlbum； API声明：readonly count: number; 差异内容：readonly count: number; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：AbsAlbum； API声明：readonly coverUri: string; 差异内容：readonly coverUri: string; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：AbsAlbum； API声明：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>; 差异内容：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：AbsAlbum； API声明：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>; 差异内容：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：sendablePhotoAccessHelper； API声明： interface Album 差异内容： interface Album | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：Album； API声明：readonly imageCount?: number; 差异内容：readonly imageCount?: number; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：Album； API声明：readonly videoCount?: number; 差异内容：readonly videoCount?: number; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：Album； API声明：commitModify(): Promise<void>; 差异内容：commitModify(): Promise<void>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：Album； API声明：commitModify(): Promise&lt;void&gt;; 差异内容：commitModify(): Promise&lt;void&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：Album； API声明：convertToPhotoAlbum(): photoAccessHelper.Album; 差异内容：convertToPhotoAlbum(): photoAccessHelper.Album; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：sendablePhotoAccessHelper； API声明： interface PhotoAccessHelper 差异内容： interface PhotoAccessHelper | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>; 差异内容：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>; 差异内容：getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise<string>; 差异内容：createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise<string>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAlbums(options: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>; 差异内容：getAlbums(options: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>; 差异内容：getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>; 差异内容：getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>; 差异内容：getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise&lt;string&gt;; 差异内容：createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise&lt;string&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAlbums(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;Album&gt;>; 差异内容：getAlbums(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;Album&gt;>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;Album&gt;>; 差异内容：getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;Album&gt;>; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@ohos.file.sendablePhotoAccessHelper.d.ets |
 | 新增API | NA | 类名：AlbumInfo； API声明：albumName?: string; 差异内容：albumName?: string; | api/@ohos.file.AlbumPickerComponent.d.ets |
 | 新增API | NA | 类名：PhotoKeys； API声明：LCD_SIZE = 'lcd_size' 差异内容：LCD_SIZE = 'lcd_size' | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：PhotoKeys； API声明：THM_SIZE = 'thm_size' 差异内容：THM_SIZE = 'thm_size' | api/@ohos.file.photoAccessHelper.d.ts |

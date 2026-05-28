@@ -4,11 +4,11 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-2
 
-问题现象
-
+**问题现象**
+ 
 在Linux环境下，系统内存为64G，Hvigorw脚本中配置--max-old-space-size=40960，但在编译构建时，实际在使用内存未达到配置的内存（例如使用到20G左右）就出现报错“JavaScript heap out of memory”。
-
-```text
+ 
+```json
 FATAL ERROR: NewSpace::Rebalance Allocation failed - JavaScript heap out of memory
 Writing Node.js report to file: report.20200512.172528.47517.24.011.json
 Node.js report completed
@@ -28,24 +28,26 @@ Node.js report completed
 14: 0x13a5a99 [node]
 Aborted (core dumped)
 ```
+ 
 
-
-问题原因
-
+ 
+**问题原因**
+ 
 vm.max_map_count是一个与内核虚拟内存子系统相关的参数，用于控制进程可以拥有的内存映射区域的最大数量。它通常用于限制一个进程可以打开的文件数量，特别是在使用大量内存映射文件的情况下。
-
+ 
 在Linux系统上，vm.max_map_count参数的默认值通常是较小的数值，例如65530。对于需要大量内存映射的应用程序或特定使用场景，建议将该参数值增加到更高，以支持更多内存映射区域。
-
+ 
 当vm.max_map_count不足时，即使物理内存充足，V8引擎也无法建立足够的内存映射区域，导致提前触发OOM。
-
-解决措施
-
+ 
+**解决措施**
+ 
 修改vm.max_map_count的值：
-
+ 
 - 临时修改，建议设置为262144（即默认值的4倍）或更高，具体数值需根据应用需求调整：
 ```bash
 sysctl -w vm.max_map_count=新值
 ```
+
 - 永久修改：如果希望永久修改参数的值，可以编辑/etc/sysctl.conf文件，并添加或修改以下行：
 ```bash
 # 需要root权限执行
@@ -53,6 +55,8 @@ sysctl -w vm.max_map_count=新值
 vm.max_map_count=新值
 ```
  保存文件后，使用以下命令使更改生效：
+
+  
 ```bash
 sysctl -p
 ```

@@ -3,82 +3,78 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-color-space-manager-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义创建和使用色彩空间的相关函数。
-
+ 
 **引用文件：** <native_color_space_manager/native_color_space_manager.h>
-
+ 
 **库：** libnative_color_space_manager.so
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
-
+ 
 **起始版本：** 13
-
+ 
 **相关模块：** [NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ColorSpacePrimaries](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-colorspaceprimaries) | ColorSpacePrimaries | 提供色彩原色结构体声明。 |
-| [WhitePointArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-whitepointarray) | WhitePointArray | 提供白点数组结构体，白点是指在当前色域中表示白色的坐标。 |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager) | OH_NativeColorSpaceManager | 提供OH_NativeColorSpaceManager结构体声明。 |
+| ColorSpacePrimaries | ColorSpacePrimaries | 提供色彩原色结构体声明。 |
+| WhitePointArray | WhitePointArray | 提供白点数组结构体，白点是指在当前色域中表示白色的坐标。 |
+| OH_NativeColorSpaceManager | OH_NativeColorSpaceManager | 提供OH_NativeColorSpaceManager结构体声明。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ColorSpaceName](#colorspacename) | ColorSpaceName | 色彩空间枚举。 |
+| ColorSpaceName | ColorSpaceName | 色彩空间枚举。 |
+ 
+ 
+  
 
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 函数
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpaceName colorSpaceName)](#oh_nativecolorspacemanager_createfromname) | 通过colorSpaceName创建OH_NativeColorSpaceManager实例。 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。 |
-| [OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma(ColorSpacePrimaries primaries, float gamma)](#oh_nativecolorspacemanager_createfromprimariesandgamma) | 通过原色和伽马值创建OH_NativeColorSpaceManager实例。 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。 |
-| [void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorSpaceManager)](#oh_nativecolorspacemanager_destroy) | 销毁OH_NativeColorSpaceManager实例。 |
-| [int OH_NativeColorSpaceManager_GetColorSpaceName(OH_NativeColorSpaceManager* nativeColorSpaceManager)](#oh_nativecolorspacemanager_getcolorspacename) | 获取色彩空间名称。 |
-| [WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(OH_NativeColorSpaceManager* nativeColorSpaceManager)](#oh_nativecolorspacemanager_getwhitepoint) | 获取白点。 |
-| [float OH_NativeColorSpaceManager_GetGamma(OH_NativeColorSpaceManager* nativeColorSpaceManager)](#oh_nativecolorspacemanager_getgamma) | 获取伽马值。 |
+| OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpaceName colorSpaceName) | 通过colorSpaceName创建OH_NativeColorSpaceManager实例。 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。 |
+| OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma(ColorSpacePrimaries primaries, float gamma) | 通过原色和伽马值创建OH_NativeColorSpaceManager实例。 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。 |
+| void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 销毁OH_NativeColorSpaceManager实例。 |
+| int OH_NativeColorSpaceManager_GetColorSpaceName(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 获取色彩空间名称。 |
+| WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 获取白点。 |
+| float OH_NativeColorSpaceManager_GetGamma(OH_NativeColorSpaceManager* nativeColorSpaceManager) | 获取伽马值。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### ColorSpaceName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ColorSpaceName
 
 ```text
 enum ColorSpaceName
 ```
-
+ 
 **描述**
-
+ 
 色彩空间枚举。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | NONE = 0 | 表示未知的色彩空间。 |
@@ -112,196 +108,185 @@ enum ColorSpaceName
 | DISPLAY_P3_HLG = P3_HLG | 表示色彩原色为P3_D65，传输特性为HLG，色彩范围为Full的色彩空间。 |
 | DISPLAY_P3_PQ = P3_PQ | 表示色彩原色为P3_D65，传输特性为PQ，色彩范围为Full的色彩空间。 |
 | CUSTOM = 5 | 表示自定义色彩空间。 |
+ 
+ 
+  
 
+##### 函数说明
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_NativeColorSpaceManager_CreateFromName()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeColorSpaceManager_CreateFromName()
 
 ```text
 OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromName(ColorSpaceName colorSpaceName)
 ```
-
+ 
 **描述**
-
+ 
 通过colorSpaceName创建OH_NativeColorSpaceManager实例。
-
+ 
 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
-
+ 
 **起始版本：** 13
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [ColorSpaceName](#colorspacename) colorSpaceName | 表示创建[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)的色彩空间名称。 |
-
-
+| ColorSpaceName colorSpaceName | 表示创建OH_NativeColorSpaceManager的色彩空间名称。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)* | 返回一个指向[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)实例的指针。内存不足时，会导致创建OH_NativeColorSpaceManager实例失败。 |
+| OH_NativeColorSpaceManager* | 返回一个指向OH_NativeColorSpaceManager实例的指针。内存不足时，会导致创建OH_NativeColorSpaceManager实例失败。 |
+ 
+ 
+  
 
-
-### OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma()
 
 ```text
 OH_NativeColorSpaceManager* OH_NativeColorSpaceManager_CreateFromPrimariesAndGamma(ColorSpacePrimaries primaries, float gamma)
 ```
-
+ 
 **描述**
-
+ 
 通过原色和伽马值创建OH_NativeColorSpaceManager实例。
-
+ 
 每次调用此函数时，都会创建一个新的OH_NativeColorSpaceManager实例。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
-
+ 
 **起始版本：** 13
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [ColorSpacePrimaries](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-colorspaceprimaries) primaries | 表示创建[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)的色彩原色。 |
-| float gamma | 表示创建[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)的伽马值，伽马值为一个浮点数，用于校正亮度范围。 伽马值通常为正值，负值会使弱光区域更亮，强光区域变暗，伽马值为0表示线性色彩空间。 |
-
-
+| ColorSpacePrimaries primaries | 表示创建OH_NativeColorSpaceManager的色彩原色。 |
+| float gamma | 表示创建OH_NativeColorSpaceManager的伽马值，伽马值为一个浮点数，用于校正亮度范围。 伽马值通常为正值，负值会使弱光区域更亮，强光区域变暗，伽马值为0表示线性色彩空间。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)* | 返回一个指向[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)实例的指针。  内存不足时，会导致创建OH_NativeColorSpaceManager实例失败。 |
+| OH_NativeColorSpaceManager* | 返回一个指向OH_NativeColorSpaceManager实例的指针。 内存不足时，会导致创建OH_NativeColorSpaceManager实例失败。 |
+ 
+ 
+  
 
-
-### OH_NativeColorSpaceManager_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeColorSpaceManager_Destroy()
 
 ```text
 void OH_NativeColorSpaceManager_Destroy(OH_NativeColorSpaceManager* nativeColorSpaceManager)
 ```
-
+ 
 **描述**
-
+ 
 销毁OH_NativeColorSpaceManager实例。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
-
+ 
 **起始版本：** 13
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
+| OH_NativeColorSpaceManager* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
+ 
+ 
+  
 
-
-### OH_NativeColorSpaceManager_GetColorSpaceName()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeColorSpaceManager_GetColorSpaceName()
 
 ```text
 int OH_NativeColorSpaceManager_GetColorSpaceName(OH_NativeColorSpaceManager* nativeColorSpaceManager)
 ```
-
+ 
 **描述**
-
+ 
 获取色彩空间名称。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
-
+ 
 **起始版本：** 13
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
-
-
+| OH_NativeColorSpaceManager* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回色彩空间枚举[ColorSpaceName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-color-space-manager-h#colorspacename)对应的值。其中，当返回值为0时，表示接口操作失败。 |
+| int | 返回色彩空间枚举ColorSpaceName对应的值。其中，当返回值为0时，表示接口操作失败。 |
+ 
+ 
+  
 
-
-### OH_NativeColorSpaceManager_GetWhitePoint()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeColorSpaceManager_GetWhitePoint()
 
 ```text
 WhitePointArray OH_NativeColorSpaceManager_GetWhitePoint(OH_NativeColorSpaceManager* nativeColorSpaceManager)
 ```
-
+ 
 **描述**
-
+ 
 获取白点。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
-
+ 
 **起始版本：** 13
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
-
-
+| OH_NativeColorSpaceManager* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [WhitePointArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-whitepointarray) | 返回值为float数组，返回值为&lt;0.0, 0.0&gt;表示接口操作失败，其余返回值表示操作成功。 |
+| WhitePointArray | 返回值为float数组，返回值为<0.0, 0.0>表示接口操作失败，其余返回值表示操作成功。 |
+ 
+ 
+  
 
-
-### OH_NativeColorSpaceManager_GetGamma()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_NativeColorSpaceManager_GetGamma()
 
 ```text
 float OH_NativeColorSpaceManager_GetGamma(OH_NativeColorSpaceManager* nativeColorSpaceManager)
 ```
-
+ 
 **描述**
-
+ 
 获取伽马值。
-
+ 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
-
+ 
 **起始版本：** 13
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
-
-
+| OH_NativeColorSpaceManager* nativeColorSpaceManager | 表示指向OH_NativeColorSpaceManager实例的指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | float | 返回值为float类型，返回值为0.0表示接口操作失败，其余返回值表示操作成功。 |

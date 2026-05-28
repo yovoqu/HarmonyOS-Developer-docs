@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_explicit-function-return-type
 
 函数和类方法需要显式的定义返回类型。
+ 
+该规则仅支持对.ts文件进行检查。通过配置选项，可以支持对.ets文件进行检查。
+ 
 
- 该规则仅支持对.ts文件进行检查。通过配置选项，可以支持对.ets文件进行检查。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/explicit-function-return-type": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则支持配置以下选项：
-```text
+ 
+```ArkTS
 type Options = [
   {
     // 是否忽略.ets文件的检查，默认为false，不检查.ets文件
@@ -33,9 +34,10 @@ type Options = [
   }
 ]
 ```
-
- 配置示例：
-```text
+ 
+配置示例：
+ 
+```json
 // code-linter.json5
 {
   "rules": {
@@ -43,11 +45,12 @@ type Options = [
   }
 }
 ```
+ 
+其余配置详情请参考[@typescript-eslint/explicit-function-return-type选项](https://typescript-eslint.nodejs.cn/rules/explicit-function-return-type/#options)。
+ 
+ 
 
- 其余配置详情请参考[@typescript-eslint/explicit-function-return-type选项](https://typescript-eslint.nodejs.cn/rules/explicit-function-return-type/#options)。
-
-## 正例
-
+##### 正例
 
 ```text
 // No return value should be expected (void)
@@ -72,10 +75,10 @@ class Test {
 
 export { test, fn, arrowFn, Test };
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // Should indicate that no value is returned (void)
@@ -100,14 +103,14 @@ class Test {
 
 export { test, fn, arrowFn, Test };
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/recommended
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

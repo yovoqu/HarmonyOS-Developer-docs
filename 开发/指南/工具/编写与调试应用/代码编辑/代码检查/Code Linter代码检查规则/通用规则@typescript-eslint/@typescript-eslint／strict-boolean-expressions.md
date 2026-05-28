@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_strict-boolean-expressions
 
 不允许在布尔表达式中使用非布尔类型。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/strict-boolean-expressions": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/strict-boolean-expressions选项](https://typescript-eslint.nodejs.cn/rules/strict-boolean-expressions/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // nullable values should be checked explicitly against null or undefined
@@ -47,10 +48,10 @@ if (str !== null) {
   console.log('str is not empty');
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // nullable values should be checked explicitly against null or undefined
@@ -72,13 +73,13 @@ if (str) {
   console.log('str is not empty');
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

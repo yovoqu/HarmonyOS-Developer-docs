@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| API废弃版本变更 | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise<number>; 差异内容：NA | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise<number>; 差异内容：8 | api/@ohos.userIAM.userAuth.d.ts |
+| API废弃版本变更 | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise&lt;number&gt;; 差异内容：NA | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise&lt;number&gt;; 差异内容：8 | api/@ohos.userIAM.userAuth.d.ts |
 | API废弃版本变更 | 类名：AuthResult； API声明：token?: Uint8Array; 差异内容：NA | 类名：AuthResult； API声明：token?: Uint8Array; 差异内容：9 | api/@ohos.userIAM.userAuth.d.ts |
 | API废弃版本变更 | 类名：AuthResult； API声明：remainTimes?: number; 差异内容：NA | 类名：AuthResult； API声明：remainTimes?: number; 差异内容：9 | api/@ohos.userIAM.userAuth.d.ts |
 | API废弃版本变更 | 类名：AuthResult； API声明：freezingTime?: number; 差异内容：NA | 类名：AuthResult； API声明：freezingTime?: number; 差异内容：9 | api/@ohos.userIAM.userAuth.d.ts |
@@ -47,7 +47,7 @@
 | API废弃版本变更 | 类名：AuthInstance； API声明：start: () => void; 差异内容：NA | 类名：AuthInstance； API声明：start: () => void; 差异内容：10 | api/@ohos.userIAM.userAuth.d.ts |
 | API废弃版本变更 | 类名：AuthInstance； API声明：cancel: () => void; 差异内容：NA | 类名：AuthInstance； API声明：cancel: () => void; 差异内容：10 | api/@ohos.userIAM.userAuth.d.ts |
 | API废弃版本变更 | 类名：userAuth； API声明：function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance; 差异内容：NA | 类名：userAuth； API声明：function getAuthInstance(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel): AuthInstance; 差异内容：10 | api/@ohos.userIAM.userAuth.d.ts |
-| 权限变更 | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise<number>; 差异内容：NA | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise<number>; 差异内容：ohos.permission.ACCESS_BIOMETRIC | api/@ohos.userIAM.userAuth.d.ts |
+| 权限变更 | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise&lt;number&gt;; 差异内容：NA | 类名：Authenticator； API声明：execute(type: AuthType, level: SecureLevel): Promise&lt;number&gt;; 差异内容：ohos.permission.ACCESS_BIOMETRIC | api/@ohos.userIAM.userAuth.d.ts |
 | 自定义类型变更 | 类名：userAuth； API声明：type AuthType = "ALL" \| "FACE_ONLY"; 差异内容："ALL" \| "FACE_ONLY" | 类名：userAuth； API声明：type AuthType = 'ALL' \| 'FACE_ONLY'; 差异内容：'ALL' \| 'FACE_ONLY' | api/@ohos.userIAM.userAuth.d.ts |
 | 自定义类型变更 | 类名：userAuth； API声明：type SecureLevel = "S1" \| "S2" \| "S3" \| "S4"; 差异内容："S1" \| "S2" \| "S3" \| "S4" | 类名：userAuth； API声明：type SecureLevel = 'S1' \| 'S2' \| 'S3' \| 'S4'; 差异内容：'S1' \| 'S2' \| 'S3' \| 'S4' | api/@ohos.userIAM.userAuth.d.ts |
 | 自定义类型变更 | 类名：userAuth； API声明：type AuthEventKey = "result" \| "tip"; 差异内容："result" \| "tip" | 类名：userAuth； API声明：type AuthEventKey = 'result' \| 'tip'; 差异内容：'result' \| 'tip' | api/@ohos.userIAM.userAuth.d.ts |

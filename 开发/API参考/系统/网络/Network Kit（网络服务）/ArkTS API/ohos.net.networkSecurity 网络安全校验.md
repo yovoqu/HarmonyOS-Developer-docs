@@ -3,29 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-networksecurity
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供网络安全校验能力。应用可以通过证书校验API完成证书校验功能。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { networkSecurity } from '@kit.NetworkKit';
 ```
 
 
-## 完整示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 完整示例
 
-```ts
+```text
 import { networkSecurity } from '@kit.NetworkKit';
 
 // Define certificate blobs
@@ -40,8 +37,7 @@ const caCert: networkSecurity.CertBlob = {
 };
 
 // Perform asynchronous certificate verification
-networkSecurity
-  .certVerification(cert, caCert)
+networkSecurity.certVerification(cert, caCert)
   .then((result) => {
     console.info('Certificate verification result:', result);
   })
@@ -50,17 +46,21 @@ networkSecurity
   });
 ```
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/i2vkPmX0SvqwC7DIyF0IjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084600Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=DED41B77FABF9AE8B3179E7549A663A34EACEEEE31EFB8DF5BDB8F663FB308FF)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Vf8ui1P0Ro-oHyQhcVDtXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013539Z&HW-CC-Expire=86400&HW-CC-Sign=89C2EB332C2F4FD92D4A6A081E65629CC2694FCC537A9BB0F458E793AFA70BB5)
+
+
 请务必将示例中的证书数据替换为实际的证书内容。
 
 
-## CertType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+
+##### CertType
 
 证书编码类型。
 
 **系统能力**: SystemCapability.Communication.NetStack
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -68,13 +68,13 @@ networkSecurity
 | CERT_TYPE_DER | 1 | DER格式证书。 |
 
 
-## CertBlob
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CertBlob
 
 证书数据。
 
 **系统能力**: SystemCapability.Communication.NetStack
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -82,17 +82,17 @@ networkSecurity
 | data | string \| ArrayBuffer | 否 | 否 | 证书内容。 |
 
 
-## networkSecurity.certVerification
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-certVerification(cert: CertBlob, caCert?: CertBlob): Promise<number>
+
+##### networkSecurity.certVerification
+
+certVerification(cert: CertBlob, caCert?: CertBlob): Promise&lt;number&gt;
 
 系统将使用证书管理中的预置CA证书和用户安装的CA证书来校验应用传入的证书。使用Promise异步回调。
 
 **系统能力**: SystemCapability.Communication.NetStack
 
 **参数**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -101,7 +101,6 @@ certVerification(cert: CertBlob, caCert?: CertBlob): Promise<number>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -112,7 +111,6 @@ certVerification(cert: CertBlob, caCert?: CertBlob): Promise<number>
 
 以下错误码的详细介绍请参见[网络安全校验错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-networksecurity)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -138,26 +136,25 @@ certVerification(cert: CertBlob, caCert?: CertBlob): Promise<number>
 > [!NOTE]
 > 这些错误代码对应于证书验证过程中的各种失败。
 
+
 **示例：**
 
-
-```ts
+```text
 import { networkSecurity } from '@kit.NetworkKit';
 
 // Define certificate blobs
-const cert: networkSecurity.CertBlob = {
+const cert:networkSecurity.CertBlob = {
   type: networkSecurity.CertType.CERT_TYPE_PEM,
   data: '-----BEGIN CERTIFICATE-----\n... (certificate data) ...\n-----END CERTIFICATE-----',
 };
 
-const caCert: networkSecurity.CertBlob = {
+const caCert:networkSecurity.CertBlob = {
   type: networkSecurity.CertType.CERT_TYPE_PEM,
   data: '-----BEGIN CERTIFICATE-----\n... (CA certificate data) ...\n-----END CERTIFICATE-----',
 };
 
 // Perform asynchronous certificate verification
-networkSecurity
-  .certVerification(cert, caCert)
+networkSecurity.certVerification(cert, caCert)
   .then((result) => {
     console.info('Certificate verification result:', result);
   })
@@ -166,12 +163,17 @@ networkSecurity
   });
 ```
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/vJkTYhBbS4qS0AOHf9rd3g/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084600Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=86817B8A10F5E96B192852E5EA6775ADBCD50E4ECFAABFF2F587E8A5F9041592)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/GBU5UxlES_m6NyTXpl3pww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013539Z&HW-CC-Expire=86400&HW-CC-Sign=BC26F90EF5B41ADE8404B95F4E1AD2DA5C90F492ED39CA43DCAC03D4EEE382B5)
+
+
 请务必将示例中的证书数据替换为实际的证书内容。
 
 
-## networkSecurity.certVerificationSync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+
+##### networkSecurity.certVerificationSync
 
 certVerificationSync(cert: CertBlob, caCert?: CertBlob): number
 
@@ -181,7 +183,6 @@ certVerificationSync(cert: CertBlob, caCert?: CertBlob): number
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | cert | CertBlob | 是 | 被校验的证书。 |
@@ -189,7 +190,6 @@ certVerificationSync(cert: CertBlob, caCert?: CertBlob): number
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -200,7 +200,6 @@ certVerificationSync(cert: CertBlob, caCert?: CertBlob): number
 
 以下错误码的详细介绍请参见[网络安全校验错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-networksecurity)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -226,26 +225,25 @@ certVerificationSync(cert: CertBlob, caCert?: CertBlob): number
 > [!NOTE]
 > 这些错误代码对应于证书验证过程中的各种失败。
 
+
 **示例：**
 
-
-```ts
+```text
 import { networkSecurity } from '@kit.NetworkKit';
 
 // Create certificate blobs
 const cert: networkSecurity.CertBlob = {
   type: networkSecurity.CertType.CERT_TYPE_PEM,
-  data: '-----BEGIN CERTIFICATE-----\n...',
+  data: '-----BEGIN CERTIFICATE-----\n...'
 };
 
 const caCert: networkSecurity.CertBlob = {
   type: networkSecurity.CertType.CERT_TYPE_PEM,
-  data: '-----BEGIN CERTIFICATE-----\n...',
+  data: '-----BEGIN CERTIFICATE-----\n...'
 };
 
 // Asynchronous verification
-networkSecurity
-  .certVerification(cert, caCert)
+networkSecurity.certVerification(cert, caCert)
   .then((result) => {
     console.info('Verification Result:', result);
   })
@@ -258,12 +256,17 @@ let resultSync: number = networkSecurity.certVerificationSync(cert, caCert);
 console.info('Synchronous Verification Result:', resultSync);
 ```
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/_eLmFAp5SMGdXT6FSIphfw/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084600Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=856E6542AE72C9885941D71C1488E2D862843316DDBFBB34F5F9069351F85E39)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/JFcuPj8PQ0e3DFUW9SRO2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013539Z&HW-CC-Expire=86400&HW-CC-Sign=466F3C2C0FAB8CA832CA405CF6FFF3CE8F05EB7A46CC7B54861C85DFD4A23FB8)
+
+
 请务必将示例中的证书数据替换为实际的证书内容。
 
 
-## networkSecurity.isCleartextPermitted18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+
+##### networkSecurity.isCleartextPermitted18+
 
 isCleartextPermitted(): boolean
 
@@ -275,7 +278,6 @@ isCleartextPermitted(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 整体明文HTTP是否允许。返回true表示允许访问明文HTTP，false表示不允许。默认返回true。 |
@@ -285,7 +287,6 @@ isCleartextPermitted(): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -293,8 +294,7 @@ isCleartextPermitted(): boolean
 
 **示例：**
 
-
-```ts
+```json
 import { networkSecurity } from '@kit.NetworkKit';
 
 try {
@@ -306,8 +306,8 @@ try {
 ```
 
 
-## networkSecurity.isCleartextPermittedByHostName18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### networkSecurity.isCleartextPermittedByHostName18+
 
 isCleartextPermittedByHostName(hostName: string): boolean
 
@@ -319,14 +319,12 @@ isCleartextPermittedByHostName(hostName: string): boolean
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | hostName | string | 是 | 需要查询的主机名。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -337,7 +335,6 @@ isCleartextPermittedByHostName(hostName: string): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -345,12 +342,11 @@ isCleartextPermittedByHostName(hostName: string): boolean
 
 **示例：**
 
-
-```ts
+```json
 import { networkSecurity } from '@kit.NetworkKit';
 
 try {
-  let result: boolean = networkSecurity.isCleartextPermittedByHostName('xxx');
+  let result: boolean = networkSecurity.isCleartextPermittedByHostName("xxx");
   console.info(`isCleartextPermitted Result: ${JSON.stringify(result)}`);
 } catch (error) {
   console.error(`isCleartextPermitted Error: ${JSON.stringify(error)}`);

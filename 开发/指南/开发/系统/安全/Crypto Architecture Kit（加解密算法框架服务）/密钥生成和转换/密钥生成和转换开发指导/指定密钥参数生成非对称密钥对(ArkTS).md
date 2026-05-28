@@ -1,6 +1,6 @@
 # 指定密钥参数生成非对称密钥对(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-asym-key-pair-from-key-spec
 
@@ -9,10 +9,25 @@
 该对象可用于后续的加解密等操作。获取的密钥参数属性可用于存储或传输。
 
 
-## 指定密钥参数生成RSA公钥
+##### 指定密钥参数生成RSA公钥
 
-对应的算法规格请查看[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#rsa)。 构造[RSACommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#rsacommonparamsspec10)对象，用于指定RSA算法中公私钥包含的公共参数（n）。 RSACommonParamsSpec是AsyKeySpec的子类。需要通过参数algName指定算法'RSA'；指定密钥参数类型AsyKeySpecType.COMMON_PARAMS_SPEC，表示是公私钥中包含的公共参数。 使用密钥参数生成密钥时，bigint类型参数需采用大端字节序输入，且值应为正数以满足数学运算要求。 创建[RSAPubKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#rsapubkeyspec10)对象，用于指定RSA算法中公钥包含的参数（n, pk）。 RSAPubKeySpec是AsyKeySpec的子类。通过参数algName指定算法'RSA'；指定密钥参数类型AsyKeySpecType.PUBLIC_KEY_SPEC，表示是公钥中包含的参数。 调用[cryptoFramework.createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，将RSAPubKeySpec对象传入，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。 调用[AsyKeyGeneratorBySpec.generatePubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatepubkey10)，获得指定的公钥（PubKey）。 调用[PubKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)，获取模数n和公钥pk（即公钥指数e）。 以使用callback方式根据密钥参数生成RSA公钥为例：
-```text
+对应的算法规格请查看[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#rsa)。
+1. 构造[RSACommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#rsacommonparamsspec10)对象，用于指定RSA算法中公私钥包含的公共参数（n）。
+
+  RSACommonParamsSpec是AsyKeySpec的子类。需要通过参数algName指定算法'RSA'；指定密钥参数类型AsyKeySpecType.COMMON_PARAMS_SPEC，表示是公私钥中包含的公共参数。
+
+  使用密钥参数生成密钥时，bigint类型参数需采用大端字节序输入，且值应为正数以满足数学运算要求。
+2. 创建[RSAPubKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#rsapubkeyspec10)对象，用于指定RSA算法中公钥包含的参数（n, pk）。
+
+  RSAPubKeySpec是AsyKeySpec的子类。通过参数algName指定算法'RSA'；指定密钥参数类型AsyKeySpecType.PUBLIC_KEY_SPEC，表示是公钥中包含的参数。
+3. 调用[cryptoFramework.createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，将RSAPubKeySpec对象传入，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。
+4. 调用[AsyKeyGeneratorBySpec.generatePubKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatepubkey10)，获得指定的公钥（PubKey）。
+5. 调用[PubKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)，获取模数n和公钥pk（即公钥指数e）。
+
+ - 以使用callback方式根据密钥参数生成RSA公钥为例：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 // RSA公钥密钥参数生成函数
@@ -83,8 +98,10 @@ function rsaUsePubKeySpecGetCallback() {
 }
 ```
 
-同步返回结果（调用方法[generatePubKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatepubkeysync12)）：
-```text
+ - 同步返回结果（调用方法[generatePubKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatepubkeysync12)）：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 // RSA公钥密钥参数生成函数
@@ -159,10 +176,25 @@ function rsaUsePubKeySpecGetSync() {
 ```
 
 
-## 指定密钥参数生成ECC密钥对
 
-对应的算法规格请查看[非对称密钥生成和转换规格：ECC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#ecc)。 构造[ECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecccommonparamsspec10)对象，用于指定ECC算法中公私钥包含的公共参数。 ECCCommonParamsSpec是AsyKeySpec的子类。需要通过参数algName指定算法'ECC'；指定密钥参数类型AsyKeySpecType.COMMON_PARAMS_SPEC，表示是公私钥中包含的公共参数。 使用密钥参数生成密钥时，bigint类型参数需采用大端字节序输入，且值应为正数以满足数学运算要求。 调用[cryptoFramework.createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，将ECCCommonParamsSpec对象传入，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。 调用[AsyKeyGeneratorBySpec.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair10)，得到随机生成的密钥对（KeyPair）。 分别传入密钥对中的私钥和公钥，调用[PriKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10-1)、[PubKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)，获取ECC算法中私钥和公钥的各种密钥参数。 以使用Promise方式根据密钥参数生成ECC密钥为例：
-```text
+
+
+##### 指定密钥参数生成ECC密钥对
+
+对应的算法规格请查看[非对称密钥生成和转换规格：ECC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#ecc)。
+1. 构造[ECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecccommonparamsspec10)对象，用于指定ECC算法中公私钥包含的公共参数。
+
+  ECCCommonParamsSpec是AsyKeySpec的子类。需要通过参数algName指定算法'ECC'；指定密钥参数类型AsyKeySpecType.COMMON_PARAMS_SPEC，表示是公私钥中包含的公共参数。
+
+  使用密钥参数生成密钥时，bigint类型参数需采用大端字节序输入，且值应为正数以满足数学运算要求。
+2. 调用[cryptoFramework.createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，将ECCCommonParamsSpec对象传入，创建非对称密钥生成器（AsyKeyGeneratorBySpec）。
+3. 调用[AsyKeyGeneratorBySpec.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair10)，得到随机生成的密钥对（KeyPair）。
+4. 分别传入密钥对中的私钥和公钥，调用[PriKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10-1)、[PubKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10)，获取ECC算法中私钥和公钥的各种密钥参数。
+
+ - 以使用Promise方式根据密钥参数生成ECC密钥为例：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -265,8 +297,10 @@ function testEccUseCommKeySpecGet() {
 }
 ```
 
-同步返回结果（调用方法[generateKeyPairSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypairsync12)）：
-```text
+ - 同步返回结果（调用方法[generateKeyPairSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypairsync12)）：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function showBigIntInfo(bnName: string, bnValue: bigint | string | number) {
@@ -365,10 +399,24 @@ function testEccUseCommKeySpecGetSync() {
 ```
 
 
-## 根据椭圆曲线名生成SM2密钥对
 
-对应的算法规格请查看[非对称密钥生成和转换规格：SM2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#sm2)。 构造[ECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecccommonparamsspec10)对象，用于指定非对称公共密钥参数。根据[genECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genecccommonparamsspec11)接口传入相应的NID字符串名称生成相应的非对称公共密钥参数。 使用密钥参数生成密钥时，bigint类型参数需采用大端字节序输入，且值应为正数以满足数学运算要求。 创建[ECCKeyPairSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecckeypairspec10)对象，并且algName设置为SM2，用于指定SM2算法中密钥对包含的参数。 调用[cryptoFramework.createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，将ECCKeyPairSpec对象传入，创建非对称密钥生成器。 调用[AsyKeyGeneratorBySpec.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair10)，得到各项数据与密钥参数一致的密钥对（KeyPair）。 调用[PriKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10-1)，获取SM2算法中椭圆曲线参数。 以使用Promise方式根据椭圆曲线名生成SM2密钥为例：
-```text
+
+
+##### 根据椭圆曲线名生成SM2密钥对
+
+对应的算法规格请查看[非对称密钥生成和转换规格：SM2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#sm2)。
+1. 构造[ECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecccommonparamsspec10)对象，用于指定非对称公共密钥参数。根据[genECCCommonParamsSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genecccommonparamsspec11)接口传入相应的NID字符串名称生成相应的非对称公共密钥参数。
+
+  使用密钥参数生成密钥时，bigint类型参数需采用大端字节序输入，且值应为正数以满足数学运算要求。
+2. 创建[ECCKeyPairSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#ecckeypairspec10)对象，并且algName设置为SM2，用于指定SM2算法中密钥对包含的参数。
+3. 调用[cryptoFramework.createAsyKeyGeneratorBySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygeneratorbyspec10)，将ECCKeyPairSpec对象传入，创建非对称密钥生成器。
+4. 调用[AsyKeyGeneratorBySpec.generateKeyPair](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypair10)，得到各项数据与密钥参数一致的密钥对（KeyPair）。
+5. 调用[PriKey.getAsyKeySpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getasykeyspec10-1)，获取SM2算法中椭圆曲线参数。
+
+ - 以使用Promise方式根据椭圆曲线名生成SM2密钥为例：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function genSM2KeyPairSpec() {
@@ -395,8 +443,10 @@ async function sm2Test() {
 }
 ```
 
-同步返回结果（调用方法[generateKeyPairSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypairsync12)）：
-```text
+ - 同步返回结果（调用方法[generateKeyPairSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatekeypairsync12)）：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function genSM2KeyPairSpec() {

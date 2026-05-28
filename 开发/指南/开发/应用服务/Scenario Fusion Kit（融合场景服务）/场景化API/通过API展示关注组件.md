@@ -4,34 +4,57 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-followcomponent
 
-## 场景介绍
+##### 场景介绍
 
-从6.0.1(21)版本开始，支持关注组件API功能。 Scenario Fusion Kit提供服务号关注组件功能，调用该接口可以在业务应用/元服务页面展示服务号关注组件，用户点击关注按钮可关注上对应服务号。 用户关注服务号成功，按钮会变为已关注并置灰，在1.5秒后关注组件会自动消失。 用户关注服务号失败，则会出现错误提示。
+从6.0.1(21)版本开始，支持关注组件API功能。
+
+Scenario Fusion Kit提供服务号关注组件功能，调用该接口可以在业务应用/元服务页面展示服务号关注组件，用户点击关注按钮可关注上对应服务号。
+
+ - 用户关注服务号成功，按钮会变为已关注并置灰，在1.5秒后关注组件会自动消失。
+ - 用户关注服务号失败，则会出现错误提示。
+
+  
 ![](assets/通过API展示关注组件/file-20260514132143453-0.png)
+ 
 ![](assets/通过API展示关注组件/file-20260514132143453-1.png)
 
-## 前提条件
 
-在[华为开发者联盟服务号管理首页](https://developer.huawei.com/consumer/cn/console/service/FastService/service/1063)，申请华为服务号，并获取服务号id。 使用企业开发者账号登录，并完成企业认证。 申请服务号并完成认证。 元服务/应用须与服务号处于同一个开发者账号下。
 
-## 接口说明
+
+
+##### 前提条件
+
+在[华为开发者联盟服务号管理首页](https://developer.huawei.com/consumer/cn/console/service/FastService/service/1063)，申请华为服务号，并获取服务号id。
+1. 使用企业开发者账号登录，并完成企业认证。
+2. 申请服务号并完成认证。
+3. 元服务/应用须与服务号处于同一个开发者账号下。
+
+
+
+##### 接口说明
 
 以下是关注组件的接口说明，更多接口及使用方法请参见[atomicService（融合场景化API）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [showFollowComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice#showfollowcomponent)(ctx: [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-api#uicontext), params: [FollowComponentParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice#followcomponentparams), callback: [FollowComponentCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice#followcomponentcallback)): Promise | 调用该方法展示关注组件。 |
+| showFollowComponent(ctx: UIContext, params: FollowComponentParams, callback: FollowComponentCallback): Promise&lt;void&gt; | 调用该方法展示关注组件。 |
 
 
-## 开发步骤
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { atomicService } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-在需要添加关注组件的页面，调用接口展示关注组件，示例代码如下：
+2. 在需要添加关注组件的页面，调用接口展示关注组件，示例代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -60,7 +83,7 @@ struct Index {
       }
     }
     // 展示关注组件。
-    atomicService.showFollowComponent(this.getUIContext(), params, callbacks).catch((error: BusinessError) => {
+    atomicService.showFollowComponent(this.getUIContext(), params, callbacks).catch((error: BusinessError<void>) => {
       hilog.error(0x0000, 'testTag', 'showFollowComponent failReason: %{public}d %{public}s:', error.code,
         error.message);
     })

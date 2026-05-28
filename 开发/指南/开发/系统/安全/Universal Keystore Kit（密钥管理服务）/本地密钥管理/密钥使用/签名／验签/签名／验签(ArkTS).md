@@ -1,34 +1,60 @@
 # 签名/验签(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-arkts
 
 当前指导提供以下示例，供开发者参考完成签名、验签开发：
 
+ - 密钥算法为ECC256、摘要算法为SHA256，请见开发案例：[ECC256/SHA256](#ecc256sha256)
+ - 密钥算法为SM2、摘要算法为SM3，请见开发案例：[SM2/SM3](#sm2sm3)
+ - 密钥算法为SM2、摘要算法为NoDigest，请见开发案例：[SM2/NoDigest](#sm2nodigest)
+ - 密钥算法为RSA、摘要算法为SHA256、填充模式为PSS，请见开发案例：[RSA/SHA256/PSS](#rsasha256pss)
+ - 密钥算法为RSA、摘要算法为SHA256、填充模式为PKCS1_V1_5，请见开发案例：[RSA/SHA256/PKCS1_V1_5](#rsasha256pkcs1_v1_5)
+ - 密钥算法为RSA、摘要算法为SHA384、填充模式为PSS，请见开发案例：[RSA2048/SHA384/PSS](#rsa2048sha384pss)
+ - [密钥算法为ECC、摘要算法为SHA256、用户认证类型包含TUI PIN、携带认证信息的签名类型](#eccsha256携带认证信息的签名类型)
 
-- 密钥算法为ECC256、摘要算法为SHA256，请见开发案例：[ECC256/SHA256](#ecc256sha256)
-- 密钥算法为SM2、摘要算法为SM3，请见开发案例：[SM2/SM3](#sm2sm3)
-- 密钥算法为SM2、摘要算法为NoDigest，请见开发案例：[SM2/NoDigest](#sm2nodigest)
-- 密钥算法为RSA、摘要算法为SHA256、填充模式为PSS，请见开发案例：[RSA/SHA256/PSS](#rsasha256pss)
-- 密钥算法为RSA、摘要算法为SHA256、填充模式为PKCS1_V1_5，请见开发案例：[RSA/SHA256/PKCS1_V1_5](#rsasha256pkcs1_v1_5)
-- 密钥算法为RSA、摘要算法为SHA384、填充模式为PSS，请见开发案例：[RSA2048/SHA384/PSS](#rsa2048sha384pss)
-- [密钥算法为ECC、摘要算法为SHA256、用户认证类型包含TUI PIN、携带认证信息的签名类型](#eccsha256携带认证信息的签名类型)
 
 具体的场景介绍及支持的算法规格，请参考[签名/验签支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-overview#支持的算法)。
 
 
-## 开发步骤
+##### 开发步骤
 
-**生成密钥** 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。 **签名** 获取密钥别名。 指定待签名的明文数据。 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入明文数据，properties使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置算法参数配置。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取签名signature。 **验签** 获取密钥别名。 获取待验证的签名signature。 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入签名signature，properties使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置算法参数配置。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[updateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksupdatesession9)更新密钥会话。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，验证签名。 **删除密钥** 当密钥废弃不用时，需要调用[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。
+**生成密钥**
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。
+3. 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)生成密钥，具体请参考[密钥生成](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
 
-## 开发案例
+除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview)，导入已有的密钥。
+
+**签名**
+1. 获取密钥别名。
+2. 指定待签名的明文数据。
+3. 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入明文数据，properties使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置算法参数配置。
+4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取签名signature。
+
+**验签**
+1. 获取密钥别名。
+2. 获取待验证的签名signature。
+3. 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入签名signature，properties使用[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)设置算法参数配置。
+4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[updateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksupdatesession9)更新密钥会话。
+6. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，验证签名。
+
+**删除密钥**
+
+当密钥废弃不用时，需要调用[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)删除密钥，具体请参考[密钥删除](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts)。
 
 
-## ECC256/SHA256
+
+##### 开发案例
 
 
-```text
+
+##### ECC256/SHA256
+
+```ArkTS
 /*
  * 密钥算法为ECC256、摘要算法为SHA256
  */
@@ -41,7 +67,79 @@ let signature: Uint8Array;
 
 function stringToUint8Array(str: String) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function getEccGenerateProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_ECC
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_AES_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN |
+    huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }];
+  return properties;
+}
+
+function getEccSignProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_ECC
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_AES_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }];
+  return properties;
+}
+
+function getEccVerifyProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_ECC
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_AES_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }];
+  return properties;
+}
+
+async function generateEccKey(keyAlias: string) {
+  let genProperties = getEccGenerateProperties();
+  let options: huks.HuksOptions = {
+    properties: genProperties
+  }
+  await huks.generateKeyItem(keyAlias, options)
+    .then((data) => {
       console.info(`promise: generate ECC Key success, data = ${JSON.stringify(data)}`);
     }).catch((err: Error) => {
       console.error(`promise: generate ECC Key failed, error: ` + JSON.stringify(err));
@@ -124,10 +222,10 @@ async function testSignVerify() {
 ```
 
 
-## SM2/SM3
 
+##### SM2/SM3
 
-```text
+```ArkTS
 /*
  * 密钥算法为SM2、摘要算法为SM3
  */
@@ -140,7 +238,79 @@ let signature: Uint8Array;
 
 function stringToUint8Array(str: String) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function getSm2GenerateProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_SM2
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_AES_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN |
+    huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SM3
+  }];
+  return properties;
+}
+
+function getSm2SignProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_SM2
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_AES_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SM3
+  }];
+  return properties;
+}
+
+function getSm2VerifyProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_SM2
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_AES_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SM3
+  }];
+  return properties;
+}
+
+async function generateSm2Key(keyAlias: string) {
+  let genProperties = getSm2GenerateProperties();
+  let options: huks.HuksOptions = {
+    properties: genProperties
+  }
+  await huks.generateKeyItem(keyAlias, options)
+    .then((data) => {
       console.info(`promise: generate Sm2 Key success, data = ${JSON.stringify(data)}`);
     }).catch((err: Error) => {
       console.error(`promise: generate Sm2 Key failed, error: ` + JSON.stringify(err));
@@ -223,10 +393,10 @@ export async function testSignVerify() {
 ```
 
 
-## SM2/NoDigest
 
+##### SM2/NoDigest
 
-```text
+```ArkTS
 /*
  * 密钥算法为SM2、摘要算法为NoDigest，由业务自己做SM3摘要
  */
@@ -240,7 +410,80 @@ let signature: Uint8Array;
 
 function stringToUint8Array(str: string) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function getSm2GenerateProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_SM2
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_SM2_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN |
+    huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_NONE
+  }];
+  return properties;
+}
+
+function getSm2SignProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_SM2
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_SM2_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_NONE
+  }];
+  return properties;
+}
+
+function getSm2VerifyProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_SM2
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_SM2_KEY_SIZE_256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_NONE
+  }];
+  return properties;
+}
+
+async function generateSm2Key(keyAlias: string) {
+  console.info(`enter generateSm2Key`);
+  let genProperties = getSm2GenerateProperties();
+  let options: huks.HuksOptions = {
+    properties: genProperties
+  };
+  await huks.generateKeyItem(keyAlias, options)
+    .then(() => {
       console.info(`promise: generateSm2Key success`);
     }).catch((error: BusinessError) => {
       console.error(`promise: generateSm2Key failed, errCode : ${error.code}, errMsg : ${error.message}`);
@@ -324,10 +567,10 @@ async function testSignVerify() {
 ```
 
 
-## RSA/SHA256/PSS
 
+##### RSA/SHA256/PSS
 
-```text
+```ArkTS
 /*
  * 密钥算法为RSA，摘要算法为SHA256，填充模式为PSS
  */
@@ -340,7 +583,82 @@ let signature: Uint8Array;
 
 function stringToUint8Array(str: string) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function getRsaGenerateProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN |
+    huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PSS
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }];
+  return properties;
+}
+
+function getRsaSignProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PSS
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN
+  }];
+  return properties;
+}
+
+function getRsaVerifyProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PSS
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }];
+  return properties;
+}
+
+async function generateRsaKey(keyAlias: string) {
+  let genProperties = getRsaGenerateProperties();
+  let options: huks.HuksOptions = {
+    properties: genProperties
+  };
+  await huks.generateKeyItem(keyAlias, options)
+    .then((data) => {
       console.info(`promise: generate RSA Key success, data = ${JSON.stringify(data)}`);
     }).catch((err: Error) => {
       console.error(`promise: generate RSA Key failed, error: ` + JSON.stringify(err));
@@ -430,10 +748,10 @@ export async function testSignVerify() {
 ```
 
 
-## RSA/SHA256/PKCS1_V1_5
 
+##### RSA/SHA256/PKCS1_V1_5
 
-```text
+```ArkTS
 /*
  * 密钥算法为RSA，摘要算法为SHA256，填充模式为PKCS1_V1_5
  */
@@ -446,7 +764,81 @@ let signature: Uint8Array;
 
 function stringToUint8Array(str: String) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function getRsaGenerateProperties() {
+  let properties: huks.HuksParam[] = [
+    { tag: huks.HuksTag.HUKS_TAG_ALGORITHM, value: huks.HuksKeyAlg.HUKS_ALG_RSA },
+    { tag: huks.HuksTag.HUKS_TAG_KEY_SIZE, value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048 },
+    {
+      tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+      value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN | huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+    },
+    { tag: huks.HuksTag.HUKS_TAG_PADDING, value: huks.HuksKeyPadding.HUKS_PADDING_PKCS1_V1_5 },
+    { tag: huks.HuksTag.HUKS_TAG_DIGEST, value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256 }
+  ];
+  return properties;
+}
+
+function getRsaSignProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PKCS1_V1_5
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }];
+  return properties;
+}
+
+function getRsaVerifyProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PKCS1_V1_5
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+  }];
+  return properties;
+}
+
+async function generateRsaKey(keyAlias: string) {
+  let genProperties = getRsaGenerateProperties();
+  let options: huks.HuksOptions = {
+    properties: genProperties
+  }
+  await huks.generateKeyItem(keyAlias, options)
+    .then((data) => {
       console.info(`promise: generate RSA Key success, data = ${JSON.stringify(data)}`);
     }).catch((err: Error) => {
       console.error(`promise: generate RSA Key failed, error: ` + JSON.stringify(err));
@@ -529,10 +921,10 @@ export async function testSignVerify() {
 ```
 
 
-## RSA2048/SHA384/PSS
 
+##### RSA2048/SHA384/PSS
 
-```text
+```ArkTS
 /*
  * 密钥算法为RSA2048、摘要算法为SHA384、填充模式为PSS
  */
@@ -545,7 +937,88 @@ let signature: Uint8Array;
 
 function stringToUint8Array(str: String) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  {
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function getRsaGenerateProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN |
+    huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PSS
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA384
+  }];
+  return properties;
+}
+
+function getRsaSignProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PSS
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA384
+  }];
+  return properties;
+}
+
+function getRsaVerifyProperties() {
+  let properties: huks.HuksParam[] = [{
+    tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+    value: huks.HuksKeyAlg.HUKS_ALG_RSA
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+    value: huks.HuksKeySize.HUKS_RSA_KEY_SIZE_2048
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+    value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_PADDING,
+    value: huks.HuksKeyPadding.HUKS_PADDING_PSS
+  }, {
+    tag: huks.HuksTag.HUKS_TAG_DIGEST,
+    value: huks.HuksKeyDigest.HUKS_DIGEST_SHA384
+  }];
+  return properties;
+}
+
+async function generateRsaKey(keyAlias: string) {
+  let genProperties = getRsaGenerateProperties();
+  let options: huks.HuksOptions = {
+    properties: genProperties
+  }
+  await huks.generateKeyItem(keyAlias, options)
+    .then((data) => {
       console.info(`promise: generate RSA Key success, data = ${JSON.stringify(data)}`);
     }).catch((err: Error) => {
       console.error(`promise: generate RSA Key failed, error: ` + JSON.stringify(err));
@@ -628,10 +1101,12 @@ async function testSignVerify() {
 ```
 
 
-## ECC/SHA256/携带认证信息的签名类型
+
+##### ECC/SHA256/携带认证信息的签名类型
 
 前提条件：此功能的示例代码依赖数字盾服务的设置数字盾密码和验证数字盾密码，请参考[数字盾服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-trustedauth-service)的数字盾密码管理和交易信息密码认证。
-```text
+
+```json
 /*
  * 密钥算法为ECC，摘要算法为SHA256，用户认证类型包含TUI PIN，携带认证信息的签名类型
  * 在签名参数中加上HUKS_TAG_KEY_SECURE_SIGN_TYPE，值为HUKS_SECURE_SIGN_WITH_AUTHINFO即可使用携带认证信息的签名类型
@@ -648,7 +1123,22 @@ let signature: Uint8Array;
 
 function stringToUint8Array(str: String) {
   let arr: number[] = new Array();
-  for (let i = 0, j = str.length; i  = [{
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function GetEccGenerateProperties() {
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_ECC
   }, {
@@ -678,7 +1168,7 @@ function stringToUint8Array(str: String) {
 }
 
 function GetEccSignProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_ECC
   }, {
@@ -698,7 +1188,7 @@ function GetEccSignProperties() {
 }
 
 function GetEccVerifyProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_ECC
   }, {

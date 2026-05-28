@@ -3,67 +3,66 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-videoplayer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 视频播放管理类，用于管理和播放视频媒体。在调用VideoPlayer的方法前，需要先通过[createVideoPlayer()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatevideoplayerdeprecated)构建一个VideoPlayer实例。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer 替代。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { media } from '@kit.MediaKit';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| url8+ | string | 否 | 否 | 视频媒体URL，支持当前主流的视频格式(mp4、mpeg-ts、mkv)。          支持路径示例：          1. fd类型播放：fd://xx                    2. http网络播放: http://xx          3. https网络播放: https://xx          4. hls网络播放路径：http://xx或者https://xx          5. file类型: file://xx          说明：          从API version 11开始不支持webm。 |
-| fdSrc9+ | [AVFileDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avfiledescriptor9) | 否 | 否 | 视频媒体文件描述，使用场景：应用中的视频资源被连续存储在同一个文件中。          使用示例：          假设一个连续存储的音乐文件:          视频1(地址偏移:0，字节长度:100)          视频2(地址偏移:101，字节长度:50)          视频3(地址偏移:151，字节长度:150)          1. 播放视频1：AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; }          2. 播放视频2：AVFileDescriptor { fd = 资源句柄; offset = 101; length = 50; }          3. 播放视频3：AVFileDescriptor { fd = 资源句柄; offset = 151; length = 150; }          假设是一个独立的视频文件: 请使用src=fd://xx |
+| url8+ | string | 否 | 否 | 视频媒体URL，支持当前主流的视频格式(mp4、mpeg-ts、mkv)。 支持路径示例： 1. fd类型播放：fd://xx 2. http网络播放: http://xx 3. https网络播放: https://xx 4. hls网络播放路径：http://xx或者https://xx 5. file类型: file://xx 说明： 从API version 11开始不支持webm。 |
+| fdSrc9+ | AVFileDescriptor | 否 | 否 | 视频媒体文件描述，使用场景：应用中的视频资源被连续存储在同一个文件中。 使用示例： 假设一个连续存储的音乐文件: 视频1(地址偏移:0，字节长度:100) 视频2(地址偏移:101，字节长度:50) 视频3(地址偏移:151，字节长度:150) 1. 播放视频1：AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; } 2. 播放视频2：AVFileDescriptor { fd = 资源句柄; offset = 101; length = 50; } 3. 播放视频3：AVFileDescriptor { fd = 资源句柄; offset = 151; length = 150; } 假设是一个独立的视频文件: 请使用src=fd://xx |
 | loop8+ | boolean | 否 | 否 | 视频循环播放属性，设置为'true'表示循环播放。 |
-| videoScaleType9+ | [VideoScaleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#videoscaletype9) | 否 | 是 | 视频缩放模式。默认值为VIDEO_SCALE_TYPE_FIT。 |
-| audioInterruptMode9+ | [audio.InterruptMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#interruptmode9) | 否 | 是 | 音频焦点模式。 |
+| videoScaleType9+ | VideoScaleType | 否 | 是 | 视频缩放模式。默认值为VIDEO_SCALE_TYPE_FIT。 |
+| audioInterruptMode9+ | audio.InterruptMode | 否 | 是 | 音频焦点模式。 |
 | currentTime8+ | number | 是 | 否 | 视频的当前播放位置，单位为毫秒（ms）。 |
 | duration8+ | number | 是 | 否 | 视频时长，单位为毫秒（ms），返回-1表示直播模式。 |
-| state8+ | [VideoPlayState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#videoplaystatedeprecated) | 是 | 否 | 视频播放的状态。 |
+| state8+ | VideoPlayState | 是 | 否 | 视频播放的状态。 |
 | width8+ | number | 是 | 否 | 视频宽，单位为像素（px）。 |
 | height8+ | number | 是 | 否 | 视频高，单位为像素（px）。 |
 
 
-## setDisplaySurface(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setDisplaySurface(surfaceId: string, callback: AsyncCallback<void>): void
+
+##### setDisplaySurface(deprecated)
+
+setDisplaySurface(surfaceId: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置SurfaceId。通过回调函数获取返回值。
+
+> [!NOTE]
+> SetDisplaySurface需要在设置url和Prepare之间，无音频的视频流必须设置Surface否则Prepare失败。 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.surfaceId 替代。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| surfaceId | string | 是 | 指定SurfaceId，应从XComponent组件获取，获取方式请参考[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。 |
+| surfaceId | string | 是 | 指定SurfaceId，应从XComponent组件获取，获取方式请参考XComponent。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置SurfaceId成功，err为undefined，否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let surfaceId: string = '';
@@ -77,26 +76,27 @@ videoPlayer.setDisplaySurface(surfaceId, (err: BusinessError) => {
 ```
 
 
-## setDisplaySurface(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setDisplaySurface(surfaceId: string): Promise<void>
+##### setDisplaySurface(deprecated)
+
+setDisplaySurface(surfaceId: string): Promise&lt;void&gt;
 
 设置SurfaceId。通过Promise获取返回值。
+
+> [!NOTE]
+> SetDisplaySurface需要在设置url和Prepare之间，无音频的视频流必须设置Surface否则Prepare失败。 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.surfaceId 替代。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| surfaceId | string | 是 | 指定SurfaceId，应从XComponent组件获取，获取方式请参考[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。 |
+| surfaceId | string | 是 | 指定SurfaceId，应从XComponent组件获取，获取方式请参考XComponent。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -105,37 +105,32 @@ setDisplaySurface(surfaceId: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let surfaceId: string = '';
-videoPlayer
-  .setDisplaySurface(surfaceId)
-  .then(() => {
-    console.info('Succeeded in setting DisplaySurface');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.setDisplaySurface(surfaceId).then(() => {
+  console.info('Succeeded in setting DisplaySurface');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## prepare(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-prepare(callback: AsyncCallback<void>): void
+##### prepare(deprecated)
+
+prepare(callback: AsyncCallback&lt;void&gt;): void
 
 准备播放视频。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#prepare9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.prepare 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -144,8 +139,7 @@ prepare(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 videoPlayer.prepare((err: BusinessError) => {
@@ -158,21 +152,20 @@ videoPlayer.prepare((err: BusinessError) => {
 ```
 
 
-## prepare(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-prepare(): Promise<void>
+##### prepare(deprecated)
+
+prepare(): Promise&lt;void&gt;
 
 准备播放视频。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#prepare9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.prepare 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -181,36 +174,31 @@ prepare(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer
-  .prepare()
-  .then(() => {
-    console.info('Succeeded in preparing');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.prepare().then(() => {
+  console.info('Succeeded in preparing');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## play(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-play(callback: AsyncCallback<void>): void
+##### play(deprecated)
+
+play(callback: AsyncCallback&lt;void&gt;): void
 
 开始播放视频。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.play](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#play9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.play 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -219,8 +207,7 @@ play(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 videoPlayer.play((err: BusinessError) => {
@@ -233,21 +220,20 @@ videoPlayer.play((err: BusinessError) => {
 ```
 
 
-## play(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-play(): Promise<void>
+##### play(deprecated)
+
+play(): Promise&lt;void&gt;
 
 开始播放视频。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.play](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#play9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.play 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -256,36 +242,31 @@ play(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer
-  .play()
-  .then(() => {
-    console.info('Succeeded in playing');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.play().then(() => {
+  console.info('Succeeded in playing');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## pause(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pause(callback: AsyncCallback<void>): void
+##### pause(deprecated)
+
+pause(callback: AsyncCallback&lt;void&gt;): void
 
 通过回调方式暂停播放视频。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#pause9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.pause 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -294,8 +275,7 @@ pause(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 videoPlayer.pause((err: BusinessError) => {
@@ -308,21 +288,20 @@ videoPlayer.pause((err: BusinessError) => {
 ```
 
 
-## pause(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pause(): Promise<void>
+##### pause(deprecated)
+
+pause(): Promise&lt;void&gt;
 
 暂停播放视频。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#pause9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.pause 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -331,36 +310,31 @@ pause(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer
-  .pause()
-  .then(() => {
-    console.info('Succeeded in pausing');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.pause().then(() => {
+  console.info('Succeeded in pausing');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## stop(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(callback: AsyncCallback<void>): void
+##### stop(deprecated)
+
+stop(callback: AsyncCallback&lt;void&gt;): void
 
 通过回调方式停止播放视频。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#stop9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.stop 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -369,8 +343,7 @@ stop(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 videoPlayer.stop((err: BusinessError) => {
@@ -383,21 +356,20 @@ videoPlayer.stop((err: BusinessError) => {
 ```
 
 
-## stop(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(): Promise<void>
+##### stop(deprecated)
+
+stop(): Promise&lt;void&gt;
 
 停止播放视频。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#stop9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.stop 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -406,36 +378,31 @@ stop(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer
-  .stop()
-  .then(() => {
-    console.info('Succeeded in stopping');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.stop().then(() => {
+  console.info('Succeeded in stopping');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## reset(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reset(callback: AsyncCallback<void>): void
+##### reset(deprecated)
+
+reset(callback: AsyncCallback&lt;void&gt;): void
 
 重置播放视频。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#reset9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.reset 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -444,8 +411,7 @@ reset(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 videoPlayer.reset((err: BusinessError) => {
@@ -458,21 +424,20 @@ videoPlayer.reset((err: BusinessError) => {
 ```
 
 
-## reset(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reset(): Promise<void>
+##### reset(deprecated)
+
+reset(): Promise&lt;void&gt;
 
 重置播放视频。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.reset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#reset9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.reset 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -481,36 +446,31 @@ reset(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer
-  .reset()
-  .then(() => {
-    console.info('Succeeded in resetting');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.reset().then(() => {
+  console.info('Succeeded in resetting');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## seek(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-seek(timeMs: number, callback: AsyncCallback<number>): void
+##### seek(deprecated)
+
+seek(timeMs: number, callback: AsyncCallback&lt;number&gt;): void
 
 跳转到指定播放位置，默认跳转到指定时间点的上一个关键帧。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.seek](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.seek 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -520,8 +480,7 @@ seek(timeMs: number, callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let videoPlayer: media.VideoPlayer;
@@ -545,33 +504,31 @@ videoPlayer.seek(seekTime, (err: BusinessError, result: number) => {
 ```
 
 
-## seek(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-seek(timeMs: number, mode:SeekMode, callback: AsyncCallback<number>): void
+##### seek(deprecated)
+
+seek(timeMs: number, mode:SeekMode, callback: AsyncCallback&lt;number&gt;): void
 
 跳转到指定播放位置。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.seek](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.seek 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | timeMs | number | 是 | 指定的跳转时间节点，单位毫秒（ms），取值范围为[0, duration]。 |
-| mode | [SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8) | 是 | 跳转模式。 |
+| mode | SeekMode | 是 | 跳转模式。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。跳转到指定播放位置成功时，err为undefined，data为获取到的跳转到的播放位置，否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let videoPlayer: media.VideoPlayer | null = null;
@@ -585,45 +542,39 @@ media.createVideoPlayer((error: BusinessError, video: media.VideoPlayer) => {
 });
 let seekTime: number = 5000;
 if (videoPlayer) {
-  (videoPlayer as media.VideoPlayer).seek(
-    seekTime,
-    media.SeekMode.SEEK_NEXT_SYNC,
-    (err: BusinessError, result: number) => {
-      if (err) {
-        console.error('Failed to do seek!');
-      } else {
-        console.info('Succeeded in doing seek!');
-      }
-    },
-  );
+  (videoPlayer as media.VideoPlayer).seek(seekTime, media.SeekMode.SEEK_NEXT_SYNC, (err: BusinessError, result: number) => {
+    if (err) {
+      console.error('Failed to do seek!');
+    } else {
+      console.info('Succeeded in doing seek!');
+    }
+  });
 }
 ```
 
 
-## seek(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-seek(timeMs: number, mode?:SeekMode): Promise<number>
+##### seek(deprecated)
+
+seek(timeMs: number, mode?:SeekMode): Promise&lt;number&gt;
 
 跳转到指定播放位置，如果没有设置mode则跳转到指定时间点的上一个关键帧。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.seek](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#seek9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.seek 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | timeMs | number | 是 | 指定的跳转时间节点，单位毫秒（ms），取值范围为[0, duration]。 |
-| mode | [SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8) | 否 | 基于视频I帧的跳转模式，默认为SEEK_PREV_SYNC模式。 |
+| mode | SeekMode | 否 | 基于视频I帧的跳转模式，默认为SEEK_PREV_SYNC模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -632,8 +583,7 @@ seek(timeMs: number, mode?:SeekMode): Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let videoPlayer: media.VideoPlayer | null = null;
@@ -647,43 +597,35 @@ media.createVideoPlayer((error: BusinessError, video: media.VideoPlayer) => {
 });
 let seekTime: number = 5000;
 if (videoPlayer) {
-  (videoPlayer as media.VideoPlayer)
-    .seek(seekTime)
-    .then((seekDoneTime: number) => {
-      // seekDoneTime表示seek完成后的时间点。
-      console.info('Succeeded in doing seek');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`video catchCallback, error:${error}`);
-    });
+  (videoPlayer as media.VideoPlayer).seek(seekTime).then((seekDoneTime: number) => { // seekDoneTime表示seek完成后的时间点。
+    console.info('Succeeded in doing seek');
+  }).catch((error: BusinessError) => {
+    console.error(`video catchCallback, error:${error}`);
+  });
 
-  (videoPlayer as media.VideoPlayer)
-    .seek(seekTime, media.SeekMode.SEEK_NEXT_SYNC)
-    .then((seekDoneTime: number) => {
-      console.info('Succeeded in doing seek');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`video catchCallback, error:${error}`);
-    });
+  (videoPlayer as media.VideoPlayer).seek(seekTime, media.SeekMode.SEEK_NEXT_SYNC).then((seekDoneTime: number) => {
+    console.info('Succeeded in doing seek');
+  }).catch((error: BusinessError) => {
+    console.error(`video catchCallback, error:${error}`);
+  });
 }
 ```
 
 
-## setVolume(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setVolume(vol: number, callback: AsyncCallback<void>): void
+##### setVolume(deprecated)
+
+setVolume(vol: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置音量。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.setVolume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setvolume9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.setVolume 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -693,8 +635,7 @@ setVolume(vol: number, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let vol: number = 0.5;
@@ -708,21 +649,20 @@ videoPlayer.setVolume(vol, (err: BusinessError) => {
 ```
 
 
-## setVolume(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setVolume(vol: number): Promise<void>
+##### setVolume(deprecated)
+
+setVolume(vol: number): Promise&lt;void&gt;
 
 设置音量。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.setVolume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setvolume9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.setVolume 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -731,7 +671,6 @@ setVolume(vol: number): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 设置音量的Promise返回值。 |
@@ -739,37 +678,32 @@ setVolume(vol: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let vol: number = 0.5;
-videoPlayer
-  .setVolume(vol)
-  .then(() => {
-    console.info('Succeeded in setting Volume');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.setVolume(vol).then(() => {
+  console.info('Succeeded in setting Volume');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## release(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(callback: AsyncCallback<void>): void
+##### release(deprecated)
+
+release(callback: AsyncCallback&lt;void&gt;): void
 
 释放视频资源。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#release9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.release 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -778,8 +712,7 @@ release(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 videoPlayer.release((err: BusinessError) => {
@@ -792,21 +725,20 @@ videoPlayer.release((err: BusinessError) => {
 ```
 
 
-## release(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(): Promise<void>
+##### release(deprecated)
+
+release(): Promise&lt;void&gt;
 
 释放视频资源。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#release9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.release 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -815,128 +747,113 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer
-  .release()
-  .then(() => {
-    console.info('Succeeded in releasing');
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.release().then(() => {
+  console.info('Succeeded in releasing');
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## getTrackDescription(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getTrackDescription(callback: AsyncCallback<Array<MediaDescription>>): void
+##### getTrackDescription(deprecated)
+
+getTrackDescription(callback: AsyncCallback<Array&lt;MediaDescription&gt;>): void
 
 获取视频轨道信息。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.getTrackDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#gettrackdescription9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.getTrackDescription 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)&gt;&gt; | 是 | 回调函数。获取视频轨道信息成功时，err为undefined，data为获取到的视频轨道信息MediaDescription数组，否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;MediaDescription&gt;> | 是 | 回调函数。获取视频轨道信息成功时，err为undefined，data为获取到的视频轨道信息MediaDescription数组，否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer.getTrackDescription(
-  (error: BusinessError, arrList: Array<media.MediaDescription>) => {
-    if (arrList != null) {
-      console.info('Succeeded in getting TrackDescription');
-    } else {
-      console.error(`Failed to get TrackDescription, error:${error}`);
-    }
-  },
-);
+videoPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.MediaDescription>) => {
+  if ((arrList) != null) {
+    console.info('Succeeded in getting TrackDescription');
+  } else {
+    console.error(`Failed to get TrackDescription, error:${error}`);
+  }
+});
 ```
 
 
-## getTrackDescription(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getTrackDescription(): Promise<Array<MediaDescription>>
+##### getTrackDescription(deprecated)
+
+getTrackDescription(): Promise<Array&lt;MediaDescription&gt;>
 
 获取视频轨道信息。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.getTrackDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#gettrackdescription9-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.getTrackDescription 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[MediaDescription](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#mediadescription8)&gt;&gt; | Promise对象，返回获取的视频轨道信息MediaDescription数组。 |
+| Promise<Array&lt;MediaDescription&gt;> | Promise对象，返回获取的视频轨道信息MediaDescription数组。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer
-  .getTrackDescription()
-  .then((arrList: Array<media.MediaDescription>) => {
-    if (arrList != null) {
-      console.info('Succeeded in getting TrackDescription');
-    } else {
-      console.error('Failed to get TrackDescription');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(`video catchCallback, error:${error}`);
-  });
+videoPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) => {
+  if (arrList != null) {
+    console.info('Succeeded in getting TrackDescription');
+  } else {
+    console.error('Failed to get TrackDescription');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`video catchCallback, error:${error}`);
+});
 ```
 
 
-## setSpeed(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSpeed(speed: number, callback: AsyncCallback<number>): void
+##### setSpeed(deprecated)
+
+setSpeed(speed: number, callback: AsyncCallback&lt;number&gt;): void
 
 设置播放速度。通过回调函数获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.setSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setspeed9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.setSpeed 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| speed | number | 是 | 指定播放视频速度，具体见[PlaybackSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#playbackspeed8)。 |
+| speed | number | 是 | 指定播放视频速度，具体见PlaybackSpeed。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。设置播放速度成功时，err为undefined，data为设置的播放速度，否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let videoPlayer: media.VideoPlayer | null = null;
@@ -950,53 +867,47 @@ media.createVideoPlayer((error: BusinessError, video: media.VideoPlayer) => {
 });
 let speed = media.PlaybackSpeed.SPEED_FORWARD_2_00_X;
 if (videoPlayer) {
-  (videoPlayer as media.VideoPlayer).setSpeed(
-    speed,
-    (err: BusinessError, result: number) => {
-      if (err) {
-        console.error('Failed to set Speed!');
-      } else {
-        console.info('Succeeded in setting Speed!');
-      }
-    },
-  );
+  (videoPlayer as media.VideoPlayer).setSpeed(speed, (err: BusinessError, result: number) => {
+    if (err) {
+      console.error('Failed to set Speed!');
+    } else {
+      console.info('Succeeded in setting Speed!');
+    }
+  });
 }
 ```
 
 
-## setSpeed(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSpeed(speed: number): Promise<number>
+##### setSpeed(deprecated)
+
+setSpeed(speed: number): Promise&lt;number&gt;
 
 设置播放速度。通过Promise获取返回值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.setSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setspeed9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.setSpeed 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| speed | number | 是 | 指定播放视频速度，具体见[PlaybackSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#playbackspeed8)。 |
+| speed | number | 是 | 指定播放视频速度，具体见PlaybackSpeed。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象，返回设置的播放速度，具体见[PlaybackSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#playbackspeed8)。 |
+| Promise&lt;number&gt; | Promise对象，返回设置的播放速度，具体见PlaybackSpeed。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let videoPlayer: media.VideoPlayer | null = null;
@@ -1010,33 +921,29 @@ media.createVideoPlayer((error: BusinessError, video: media.VideoPlayer) => {
 });
 let speed = media.PlaybackSpeed.SPEED_FORWARD_2_00_X;
 if (videoPlayer) {
-  (videoPlayer as media.VideoPlayer)
-    .setSpeed(speed)
-    .then((result: number) => {
-      console.info('Succeeded in setting Speed');
-    })
-    .catch((error: BusinessError) => {
-      console.error(`Failed to set Speed, error:${error}`); // todo:: error.
-    });
+  (videoPlayer as media.VideoPlayer).setSpeed(speed).then((result: number) => {
+    console.info('Succeeded in setting Speed');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to set Speed, error:${error}`);// todo:: error.
+  });
 }
 ```
 
 
-## on('playbackCompleted')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'playbackCompleted', callback: Callback<void>): void
+##### on('playbackCompleted')(deprecated)
+
+on(type: 'playbackCompleted', callback: Callback&lt;void&gt;): void
 
 开始监听视频播放完成事件。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.on('stateChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onstatechange9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.on('stateChange') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1046,65 +953,58 @@ on(type: 'playbackCompleted', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 videoPlayer.on('playbackCompleted', () => {
   console.info('playbackCompleted called!');
 });
 ```
 
 
-## on('bufferingUpdate')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('bufferingUpdate')(deprecated)
 
 on(type: 'bufferingUpdate', callback: (infoType: BufferingInfoType, value: number) => void): void
 
 开始监听视频缓存更新事件。仅网络播放支持该订阅事件。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.on('bufferingUpdate')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onbufferingupdate9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.on('bufferingUpdate') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 视频缓存事件回调类型，支持的事件：'bufferingUpdate'。 |
-| callback | function | 是 | 视频缓存事件回调方法。          [BufferingInfoType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#bufferinginfotype8)value值固定为0。 |
+| callback | function | 是 | 视频缓存事件回调方法。 BufferingInfoTypevalue值固定为0。 |
 
 
 **示例：**
 
-
-```ts
-videoPlayer.on(
-  'bufferingUpdate',
-  (infoType: media.BufferingInfoType, value: number) => {
-    console.info('video bufferingInfo type: ' + infoType);
-    console.info('video bufferingInfo value: ' + value);
-  },
-);
+```text
+videoPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: number) => {
+  console.info('video bufferingInfo type: ' + infoType);
+  console.info('video bufferingInfo value: ' + value);
+});
 ```
 
 
-## on('startRenderFrame')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'startRenderFrame', callback: Callback<void>): void
+##### on('startRenderFrame')(deprecated)
+
+on(type: 'startRenderFrame', callback: Callback&lt;void&gt;): void
 
 开始监听视频播放首帧送显上报事件。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.on('startRenderFrame')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onstartrenderframe9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.on('startRenderFrame') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1114,29 +1014,27 @@ on(type: 'startRenderFrame', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 videoPlayer.on('startRenderFrame', () => {
   console.info('startRenderFrame called!');
 });
 ```
 
 
-## on('videoSizeChanged')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('videoSizeChanged')(deprecated)
 
 on(type: 'videoSizeChanged', callback: (width: number, height: number) => void): void
 
 开始监听视频播放宽高变化事件。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.on('videoSizeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onvideosizechange9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.on('videoSizeChange') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1146,8 +1044,7 @@ on(type: 'videoSizeChanged', callback: (width: number, height: number) => void):
 
 **示例：**
 
-
-```ts
+```text
 videoPlayer.on('videoSizeChanged', (width: number, height: number) => {
   console.info('video width is: ' + width);
   console.info('video height is: ' + height);
@@ -1155,21 +1052,20 @@ videoPlayer.on('videoSizeChanged', (width: number, height: number) => {
 ```
 
 
-## on('audioInterrupt')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('audioInterrupt')(deprecated)
 
 on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void
 
 监听音频焦点变化事件，参考[audio.InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 9开始废弃，建议使用[AVPlayer.on('audioInterrupt')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onaudiointerrupt9)替代。
+> 从API version 9开始支持，从API version 9开始废弃，建议使用 AVPlayer.on('audioInterrupt') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1179,8 +1075,7 @@ on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void
 
 **示例：**
 
-
-```ts
+```text
 import { audio } from '@kit.AudioKit';
 
 videoPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
@@ -1189,37 +1084,34 @@ videoPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
 ```
 
 
-## on('error')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('error')(deprecated)
 
 on(type: 'error', callback: ErrorCallback): void
 
 开始监听视频播放错误事件，当上报error错误事件后，用户需处理error事件，退出播放操作。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[AVPlayer.on('error')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onerror9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 AVPlayer.on('error') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 播放错误事件回调类型，支持的事件包括：'error'。          - 'error'：视频播放中发生错误，触发该事件。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 播放错误事件回调方法。 |
+| type | string | 是 | 播放错误事件回调类型，支持的事件包括：'error'。 - 'error'：视频播放中发生错误，触发该事件。 |
+| callback | ErrorCallback | 是 | 播放错误事件回调方法。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-videoPlayer.on('error', (error: BusinessError) => {
-  // 设置'error'事件回调。
+videoPlayer.on('error', (error: BusinessError) => {  // 设置'error'事件回调。
   console.error(`video error called, error: ${error}`);
 });
-videoPlayer.url = 'fd://error'; // 设置错误的播放地址，触发'error'事件。
+videoPlayer.url = 'fd://error';  // 设置错误的播放地址，触发'error'事件。
 ```

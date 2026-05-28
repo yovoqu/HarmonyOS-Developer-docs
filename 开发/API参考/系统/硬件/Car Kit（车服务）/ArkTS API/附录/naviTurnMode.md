@@ -5,8 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-appendix-naviturnmode
 
 导航转向映射关系。
-
-
+  
 | naviTurnMode（16进制） | 显示内容参考样式 | 含义 |
 | --- | --- | --- |
 | 0001 |  | 自车图标。 |

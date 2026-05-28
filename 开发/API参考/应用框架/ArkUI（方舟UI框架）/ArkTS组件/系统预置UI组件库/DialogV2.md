@@ -1,40 +1,34 @@
 # DialogV2
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialogv2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 弹出框是一种模态窗口，通常用于在保持当前的上下文环境时，临时展示用户需关注的信息或待处理的操作，用户在模态弹出框内完成上述交互任务。模态弹出框需要用户进行交互才能够退出模态模式。
 
 该组件基于[状态管理（V2）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview#状态管理v2)实现，相较于[状态管理（V1）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组件层级。借助状态管理（V2），开发者可以通过该组件更灵活地控制弹出框的数据和状态，实现更高效的用户界面刷新。
 
+> [!NOTE]
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果DialogV2设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到DialogV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议DialogV2设置通用属性和通用事件。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
-import {
-  TipsDialogV2,
-  SelectDialogV2,
-  ConfirmDialogV2,
-  AlertDialogV2,
-  LoadingDialogV2,
-  CustomContentDialogV2,
-  PopoverDialogV2,
-} from '@kit.ArkUI';
+##### 导入模块
+
+```text
+import { TipsDialogV2, SelectDialogV2, ConfirmDialogV2, AlertDialogV2, LoadingDialogV2, CustomContentDialogV2, PopoverDialogV2 } from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## TipsDialogV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### TipsDialogV2
 
 TipsDialogV2({imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, imageBorderColor: ColorMetrics, imageBorderWidth: LengthMetrics, title?: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, checked?: boolean, onCheckedChange?: AdvancedDialogV2OnCheckedChange, primaryButton?: AdvancedDialogV2Button, secondaryButton?: AdvancedDialogV2Button})
 
@@ -46,24 +40,24 @@ TipsDialogV2({imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, imageBo
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| imageRes | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | @Param          @Require | 展示的图片。 |
-| imageSize | [SizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#sizeoptions) | 否 | @Param | 自定义图片尺寸。          默认值：64*64vp |
-| imageBorderColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | @Param | 图片描边颜色。          默认值：Color.Black |
-| imageBorderWidth | [LengthMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetrics12) | 否 | @Param | 图片描边宽度。          默认无描边效果。 |
-| title | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 提示弹出框标题。          默认不显示。          说明： 标题超过两行会显示“...”。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 提示弹出框内容。          默认不显示。 |
-| checkTips | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 选择框的提示内容。          默认不显示。 |
-| checked | boolean | 否 | @Param | checked为true时，表示选择框已选中。checked为false时，表示选择框未选中。          默认值：false |
-| onCheckedChange | [AdvancedDialogV2OnCheckedChange](#advanceddialogv2oncheckedchange) | 否 | @Param | 选择框的选中状态改变事件。          默认无事件。 |
-| primaryButton | [AdvancedDialogV2Button](#advanceddialogv2button) | 否 | @Param | 提示弹出框左侧按钮。          默认不显示。 |
-| secondaryButton | [AdvancedDialogV2Button](#advanceddialogv2button) | 否 | @Param | 提示弹出框右侧按钮。          默认不显示。 |
+| imageRes | ResourceStr \| PixelMap | 是 | @Param @Require | 展示的图片。 |
+| imageSize | SizeOptions | 否 | @Param | 自定义图片尺寸。 默认值：64*64vp |
+| imageBorderColor | ColorMetrics | 否 | @Param | 图片描边颜色。 默认值：Color.Black |
+| imageBorderWidth | LengthMetrics | 否 | @Param | 图片描边宽度。 默认无描边效果。 |
+| title | ResourceStr | 否 | @Param | 提示弹出框标题。 默认不显示。 说明： 标题超过两行会显示“...”。 |
+| content | ResourceStr | 否 | @Param | 提示弹出框内容。 默认不显示。 |
+| checkTips | ResourceStr | 否 | @Param | 选择框的提示内容。 默认不显示。 |
+| checked | boolean | 否 | @Param | checked为true时，表示选择框已选中。checked为false时，表示选择框未选中。 默认值：false |
+| onCheckedChange | AdvancedDialogV2OnCheckedChange | 否 | @Param | 选择框的选中状态改变事件。 默认无事件。 |
+| primaryButton | AdvancedDialogV2Button | 否 | @Param | 提示弹出框左侧按钮。 默认不显示。 |
+| secondaryButton | AdvancedDialogV2Button | 否 | @Param | 提示弹出框右侧按钮。 默认不显示。 |
 
 
-## AdvancedDialogV2OnCheckedChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AdvancedDialogV2OnCheckedChange
 
 type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
 
@@ -75,14 +69,14 @@ type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| checked | boolean | 是 | 表示选择框选中状态。          checked为true时，表示选择框已选中。checked为false时，表示选择框未选中。 |
+| checked | boolean | 是 | 表示选择框选中状态。 checked为true时，表示选择框已选中。checked为false时，表示选择框未选中。 |
 
 
-## SelectDialogV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SelectDialogV2
 
 SelectDialogV2({title: ResourceStr, content?: ResourceStr, selectedIndex?: number, confirm?: AdvancedDialogV2Button, radioContent: SheetInfo[]})
 
@@ -94,18 +88,18 @@ SelectDialogV2({title: ResourceStr, content?: ResourceStr, selectedIndex?: numbe
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| title | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | @Param          @Require | 选择弹出框标题。          说明： 标题超过两行会显示“...”。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 选择弹出框内容。默认不显示。 |
-| selectedIndex | number | 否 | @Param | 选择弹出框的选中项。          默认值：-1，没有选中项。若设置数值不在取值范围，按没有选中项处理。          取值范围：小于选择弹出框的子项内容列表长度。 |
-| confirm | [AdvancedDialogV2Button](#advanceddialogv2button) | 否 | @Param | 选择弹出框底部按钮。          默认不显示。 |
-| radioContent | [SheetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#sheetinfo对象说明)[] | 是 | @Param          @Require | 选择弹出框的子项内容列表，每个选择项支持设置文本和选中的回调事件。 |
+| title | ResourceStr | 是 | @Param @Require | 选择弹出框标题。 说明： 标题超过两行会显示“...”。 |
+| content | ResourceStr | 否 | @Param | 选择弹出框内容。默认不显示。 |
+| selectedIndex | number | 否 | @Param | 选择弹出框的选中项。 默认值：-1，没有选中项。若设置数值不在取值范围，按没有选中项处理。 取值范围：小于选择弹出框的子项内容列表长度。 |
+| confirm | AdvancedDialogV2Button | 否 | @Param | 选择弹出框底部按钮。 默认不显示。 |
+| radioContent | SheetInfo[] | 是 | @Param @Require | 选择弹出框的子项内容列表，每个选择项支持设置文本和选中的回调事件。 |
 
 
-## ConfirmDialogV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConfirmDialogV2
 
 ConfirmDialogV2({title: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, checked?: boolean, onCheckedChange: AdvancedDialogV2OnCheckedChange, primaryButton?: AdvancedDialogV2Button, secondaryButton?: AdvancedDialogV2Button})
 
@@ -117,20 +111,20 @@ ConfirmDialogV2({title: ResourceStr, content?: ResourceStr, checkTips?: Resource
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| title | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | @Param          @Require | 确认弹出框标题。          说明： 标题超过两行会显示“...”。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 确认弹出框内容。          默认不显示。 |
-| checkTips | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | checkbox的提示内容。          默认不显示。 |
-| checked | boolean | 否 | @Param | checked为true时，表示checkbox已选中，为false时，表示未选中。          默认值：false |
-| onCheckedChange | [AdvancedDialogV2OnCheckedChange](#advanceddialogv2oncheckedchange) | 否 | @Param | checkbox的选中状态改变事件。          默认无事件。 |
-| primaryButton | [AdvancedDialogV2Button](#advanceddialogv2button) | 否 | @Param | 确认弹出框左侧按钮。          默认不显示。 |
-| secondaryButton | [AdvancedDialogV2Button](#advanceddialogv2button) | 否 | @Param | 确认弹出框右侧按钮。          默认不显示。 |
+| title | ResourceStr | 是 | @Param @Require | 确认弹出框标题。 说明： 标题超过两行会显示“...”。 |
+| content | ResourceStr | 否 | @Param | 确认弹出框内容。 默认不显示。 |
+| checkTips | ResourceStr | 否 | @Param | checkbox的提示内容。 默认不显示。 |
+| checked | boolean | 否 | @Param | checked为true时，表示checkbox已选中，为false时，表示未选中。 默认值：false |
+| onCheckedChange | AdvancedDialogV2OnCheckedChange | 否 | @Param | checkbox的选中状态改变事件。 默认无事件。 |
+| primaryButton | AdvancedDialogV2Button | 否 | @Param | 确认弹出框左侧按钮。 默认不显示。 |
+| secondaryButton | AdvancedDialogV2Button | 否 | @Param | 确认弹出框右侧按钮。 默认不显示。 |
 
 
-## AlertDialogV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AlertDialogV2
 
 AlertDialogV2({primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content: ResourceStr, primaryButton?: AdvancedDialogV2Button, secondaryButton?: AdvancedDialogV2Button})
 
@@ -142,18 +136,18 @@ AlertDialogV2({primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| primaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 确认弹出框一级标题。          默认不显示。          说明： 标题超过两行会显示“...”。 |
-| secondaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 确认弹出框二级标题。          默认不显示。          说明： 标题超过两行会显示“...”。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | @Param          @Require | 确认弹出框内容。 |
-| primaryButton | [AdvancedDialogV2Button](#advanceddialogv2button) | 否 | @Param | 确认弹出框左侧按钮。          默认不显示。 |
-| secondaryButton | [AdvancedDialogV2Button](#advanceddialogv2button) | 否 | @Param | 确认弹出框右侧按钮。          默认不显示。 |
+| primaryTitle | ResourceStr | 否 | @Param | 确认弹出框一级标题。 默认不显示。 说明： 标题超过两行会显示“...”。 |
+| secondaryTitle | ResourceStr | 否 | @Param | 确认弹出框二级标题。 默认不显示。 说明： 标题超过两行会显示“...”。 |
+| content | ResourceStr | 是 | @Param @Require | 确认弹出框内容。 |
+| primaryButton | AdvancedDialogV2Button | 否 | @Param | 确认弹出框左侧按钮。 默认不显示。 |
+| secondaryButton | AdvancedDialogV2Button | 否 | @Param | 确认弹出框右侧按钮。 默认不显示。 |
 
 
-## LoadingDialogV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### LoadingDialogV2
 
 LoadingDialogV2({content?: ResourceStr})
 
@@ -165,14 +159,14 @@ LoadingDialogV2({content?: ResourceStr})
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 加载弹出框内容。          默认为空。          说明： 内容超过十行会显示“...”。 |
+| content | ResourceStr | 否 | @Param | 加载弹出框内容。 默认为空。 说明： 内容超过十行会显示“...”。 |
 
 
-## CustomContentDialogV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CustomContentDialogV2
 
 CustomContentDialogV2({contentBuilder: () => void, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, contentAreaPadding?: LocalizedPadding, buttons?: AdvancedDialogV2Button[]})
 
@@ -184,18 +178,18 @@ CustomContentDialogV2({contentBuilder: () => void, primaryTitle?: ResourceStr, s
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| contentBuilder | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 是 | @BuilderParam | 弹出框内容。 |
-| primaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 弹出框标题。          默认不显示。          说明： 标题超过两行会显示“...”。 |
-| secondaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | @Param | 弹出框辅助文本。          默认不显示。          说明： 辅助文本超过两行会显示“...”。 |
-| contentAreaPadding | [LocalizedPadding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizedpadding12) | 否 | @Param | 弹出框内容区内边距。          默认不显示。 |
-| buttons | [AdvancedDialogV2Button](#advanceddialogv2button)[] | 否 | @Param | 弹出框操作区按钮，最多支持4个按钮。          默认不显示。 |
+| contentBuilder | CustomBuilder | 是 | @BuilderParam | 弹出框内容。 |
+| primaryTitle | ResourceStr | 否 | @Param | 弹出框标题。 默认不显示。 说明： 标题超过两行会显示“...”。 |
+| secondaryTitle | ResourceStr | 否 | @Param | 弹出框辅助文本。 默认不显示。 说明： 辅助文本超过两行会显示“...”。 |
+| contentAreaPadding | LocalizedPadding | 否 | @Param | 弹出框内容区内边距。 默认不显示。 |
+| buttons | AdvancedDialogV2Button[] | 否 | @Param | 弹出框操作区按钮，最多支持4个按钮。 默认不显示。 |
 
 
-## PopoverDialogV2OnVisibleChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PopoverDialogV2OnVisibleChange
 
 type PopoverDialogV2OnVisibleChange = (visible: boolean) => void
 
@@ -207,16 +201,16 @@ type PopoverDialogV2OnVisibleChange = (visible: boolean) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| visible | boolean | 是 | 表示跟手弹出框显示状态。          值为true时跟手弹出框显示，为false时隐藏。 |
+| visible | boolean | 是 | 表示跟手弹出框显示状态。 值为true时跟手弹出框显示，为false时隐藏。 |
 
 
-## PopoverDialogV2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-PopoverDialogV2({visible: boolean, \$visible: PopoverDialogV2OnVisibleChange, popover: PopoverDialogV2Options, targetBuilder: CustomBuilder})
+
+##### PopoverDialogV2
+
+PopoverDialogV2({visible: boolean, $visible: PopoverDialogV2OnVisibleChange, popover: PopoverDialogV2Options, targetBuilder: CustomBuilder})
 
 跟手弹出框，基于目标组件位置弹出，上文中的TipsDialogV2、SelectDialogV2、ConfirmDialogV2、AlertDialogV2、LoadingDialogV2、CustomContentDialogV2都可作为弹出框内容。
 
@@ -226,33 +220,33 @@ PopoverDialogV2({visible: boolean, \$visible: PopoverDialogV2OnVisibleChange, po
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| visible | boolean | 是 | @Param          @Require | 跟手弹出框的显示状态。          值为true时跟手弹出框显示，为false时隐藏。 |
-| \$visible | [PopoverDialogV2OnVisibleChange](#popoverdialogv2onvisiblechange) | 否 | @Event | 修改跟手弹出框的显示状态时触发的回调函数，建议在visible后使用!!语法设置双向同步。          默认无事件。 |
-| popover | [PopoverDialogV2Options](#popoverdialogv2options) | 是 | @Param          @Require | 配置跟手弹出框的参数。 |
-| targetBuilder | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 是 | @BuilderParam | 跟手弹出框基于的目标组件。 |
+| visible | boolean | 是 | @Param @Require | 跟手弹出框的显示状态。 值为true时跟手弹出框显示，为false时隐藏。 |
+| $visible | PopoverDialogV2OnVisibleChange | 否 | @Event | 修改跟手弹出框的显示状态时触发的回调函数，建议在visible后使用!!语法设置双向同步。 默认无事件。 |
+| popover | PopoverDialogV2Options | 是 | @Param @Require | 配置跟手弹出框的参数。 |
+| targetBuilder | CustomBuilder | 是 | @BuilderParam | 跟手弹出框基于的目标组件。 |
 
 
-## PopoverDialogV2Options
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PopoverDialogV2Options
 
 跟手弹出框参数，用于设置弹出框内容、位置属性等。
 
 继承自[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)。
 
-
 > [!NOTE]
 > radius默认值为32vp。
+
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-## AdvancedDialogV2ButtonAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AdvancedDialogV2ButtonAction
 
 type AdvancedDialogV2ButtonAction = () => void
 
@@ -263,8 +257,8 @@ type AdvancedDialogV2ButtonAction = () => void
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-## AdvancedDialogV2Button
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AdvancedDialogV2Button
 
 弹出框操作区按钮。
 
@@ -272,27 +266,26 @@ type AdvancedDialogV2ButtonAction = () => void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 按钮的内容。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| action | [AdvancedDialogV2ButtonAction](#advanceddialogv2buttonaction) | 否 | 是 | 按钮的点击事件。          默认无事件。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| background | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 按钮的背景。          默认值跟随buttonStyle。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 按钮的字体颜色。          默认值跟随buttonStyle。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| buttonStyle | [ButtonStyleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonstylemode11枚举说明) | 否 | 是 | 按钮的样式。          默认值：2in1设备为ButtonStyleMode.NORMAL，其他设备为ButtonStyleMode.TEXTUAL。          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| role | [ButtonRole](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonrole12枚举说明) | 否 | 是 | 按钮的角色。          默认值：ButtonRole.NORMAL          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus | boolean | 否 | 是 | 是否为默认焦点。          true：按钮是默认焦点。          false：按钮不是默认焦点。          默认值：false          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| enabled | boolean | 否 | 是 | 是否可用。          true：按钮可用。          false：按钮不可用。          默认值：true          装饰器类型：@Trace          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| textAlign24+ | [TextAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#textalign) | 否 | 是 | 按钮文本的对齐方式。          默认值：TextAlign.Start          装饰器类型：@Trace          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 否 | 否 | 按钮的内容。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| action | AdvancedDialogV2ButtonAction | 否 | 是 | 按钮的点击事件。 默认无事件。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| background | ColorMetrics | 否 | 是 | 按钮的背景。 默认值跟随buttonStyle。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| fontColor | ColorMetrics | 否 | 是 | 按钮的字体颜色。 默认值跟随buttonStyle。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| buttonStyle | ButtonStyleMode | 否 | 是 | 按钮的样式。 默认值：2in1设备为ButtonStyleMode.NORMAL，其他设备为ButtonStyleMode.TEXTUAL。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| role | ButtonRole | 否 | 是 | 按钮的角色。 默认值：ButtonRole.NORMAL 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| defaultFocus | boolean | 否 | 是 | 是否为默认焦点。 true：按钮是默认焦点。 false：按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| enabled | boolean | 否 | 是 | 是否可用。 true：按钮可用。 false：按钮不可用。 默认值：true 元服务API： 从API version 18开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
+| textAlign24+ | TextAlign | 否 | 是 | 按钮文本的对齐方式。 默认值：TextAlign.Start 元服务API： 从API version 24开始，该接口支持在元服务中使用。 装饰器类型：@Trace |
 
 
 > [!NOTE]
-> buttonStyle和role优先级高于fontColor和background。如果buttonStyle和role设置的是默认值，那么fontColor和background可生效。
-> 若同时给多个按钮设置defaultFocus，那么默认焦点为设置defaultFocus按钮显示顺序的第一个。
+> buttonStyle和role优先级高于fontColor和background。如果buttonStyle和role设置的是默认值，那么fontColor和background可生效。 若同时给多个按钮设置defaultFocus，那么默认焦点为设置defaultFocus按钮显示顺序的第一个。
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(options: AdvancedDialogV2ButtonOptions)
 
@@ -304,43 +297,43 @@ AdvancedDialogV2Button的构造函数。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [AdvancedDialogV2ButtonOptions](#advanceddialogv2buttonoptions) | 是 | 按钮配置信息。 |
+| options | AdvancedDialogV2ButtonOptions | 是 | 按钮配置信息。 |
 
 
-## AdvancedDialogV2ButtonOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AdvancedDialogV2ButtonOptions
 
 用于初始化AdvancedDialogV2Button对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 按钮的内容。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| action | [AdvancedDialogV2ButtonAction](#advanceddialogv2buttonaction) | 否 | 是 | 按钮的点击事件。          默认无事件。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| background | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 按钮的背景。          默认值跟随buttonStyle。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| fontColor | [ColorMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#colormetrics12) | 否 | 是 | 按钮的字体颜色。          默认值跟随buttonStyle。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| buttonStyle | [ButtonStyleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonstylemode11枚举说明) | 否 | 是 | 按钮的样式。          默认值：2in1设备为ButtonStyleMode.NORMAL，其他设备为ButtonStyleMode.TEXTUAL。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| role | [ButtonRole](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonrole12枚举说明) | 否 | 是 | 按钮的角色。          默认值：ButtonRole.NORMAL          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| defaultFocus | boolean | 否 | 是 | 是否为默认焦点。          true：按钮是默认焦点。          false：按钮不是默认焦点。          默认值：false          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| enabled | boolean | 否 | 是 | 是否可用。          true：按钮可用。          false：按钮不可用。          默认值：true          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| textAlign24+ | [TextAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#textalign) | 否 | 是 | 按钮文本的对齐方式。          默认值：TextAlign.Start          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 否 | 否 | 按钮的内容。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| action | AdvancedDialogV2ButtonAction | 否 | 是 | 按钮的点击事件。 默认无事件。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| background | ColorMetrics | 否 | 是 | 按钮的背景。 默认值跟随buttonStyle。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| fontColor | ColorMetrics | 否 | 是 | 按钮的字体颜色。 默认值跟随buttonStyle。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| buttonStyle | ButtonStyleMode | 否 | 是 | 按钮的样式。 默认值：2in1设备为ButtonStyleMode.NORMAL，其他设备为ButtonStyleMode.TEXTUAL。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| role | ButtonRole | 否 | 是 | 按钮的角色。 默认值：ButtonRole.NORMAL 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| defaultFocus | boolean | 否 | 是 | 是否为默认焦点。 true：按钮是默认焦点。 false：按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| enabled | boolean | 否 | 是 | 是否可用。 true：按钮可用。 false：按钮不可用。 默认值：true 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| textAlign24+ | TextAlign | 否 | 是 | 按钮文本的对齐方式。 默认值：TextAlign.Start 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 示例1（上图下文弹出框）
+##### 示例
+
+
+
+##### 示例1（上图下文弹出框）
 
 上图下文弹出框，包含imageRes、content等内容。
 
-
-```ts
+```text
 import { TipsDialogV2, AdvancedDialogV2Button, UIContext  } from '@kit.ArkUI';
 
 @Entry
@@ -381,17 +374,17 @@ struct Index {
       Stack() {
         Column() {
           Button("打开TipsDialogV2弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            let uiContext: UIContext = this.getUIContext();
-            uiContext.getPromptAction().openCustomDialog({
-              builder: () => {
-                this.dialogBuilder();
-              },
-            });
-          })
-      }.margin({ bottom: 300 })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              let uiContext: UIContext = this.getUIContext();
+              uiContext.getPromptAction().openCustomDialog({
+                builder: () => {
+                  this.dialogBuilder();
+                },
+              });
+            })
+        }.margin({ bottom: 300 })
       }.align(Alignment.Bottom)
       .width('100%').height('100%')
     }
@@ -401,15 +394,17 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-0.png)
+
+![](assets/DialogV2/file-20260514164156149-3.png)
 
 
-### 示例2（纯列表弹出框）
+
+
+##### 示例2（纯列表弹出框）
 
 纯列表弹出框，包含selectedIndex、radioContent等内容。
 
-
-```ts
+```text
 import { SelectDialogV2, AdvancedDialogV2Button ,UIContext  } from '@kit.ArkUI';
 
 @Entry
@@ -426,24 +421,24 @@ struct Index {
         action: () => {},
       }),
       radioContent: [
-      {
-        title: '文本文本文本文本文本',
-        action: () => {
-          this.radioIndex = 0
-        }
-      },
-      {
-        title: '文本文本文本文本',
-        action: () => {
-          this.radioIndex = 1
-        }
-      },
-      {
-        title: '文本文本文本文本',
-        action: () => {
-          this.radioIndex = 2
-        }
-      },
+        {
+          title: '文本文本文本文本文本',
+          action: () => {
+            this.radioIndex = 0
+          }
+        },
+        {
+          title: '文本文本文本文本',
+          action: () => {
+            this.radioIndex = 1
+          }
+        },
+        {
+          title: '文本文本文本文本',
+          action: () => {
+            this.radioIndex = 2
+          }
+        },
       ]
     })
   }
@@ -452,17 +447,17 @@ struct Index {
       Stack() {
         Column() {
           Button("纯列表弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            let uiContext: UIContext = this.getUIContext();
-            uiContext.getPromptAction().openCustomDialog({
-              builder: () => {
-                this.dialogBuilder();
-              }
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              let uiContext: UIContext = this.getUIContext();
+              uiContext.getPromptAction().openCustomDialog({
+                builder: () => {
+                  this.dialogBuilder();
+                }
+              })
             })
-          })
-      }.margin({ bottom: 300 })
+        }.margin({ bottom: 300 })
       }.align(Alignment.Bottom)
       .width('100%').height('100%')
     }
@@ -472,15 +467,17 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-1.png)
+
+![](assets/DialogV2/file-20260514164156149-4.gif)
 
 
-### 示例3（文本与勾选弹出框）
+
+
+##### 示例3（文本与勾选弹出框）
 
 文本与勾选弹出框，包含content、checkTips等内容。
 
-
-```ts
+```text
 import { ConfirmDialogV2, AdvancedDialogV2Button, UIContext  } from '@kit.ArkUI';
 
 @Entry
@@ -520,18 +517,18 @@ struct Index {
       Stack() {
         Column() {
           Button("打开ConfirmDialogV2弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            let uiContext: UIContext = this.getUIContext();
-            uiContext.getPromptAction().openCustomDialog({
-              builder: () => {
-                this.dialogBuilder();
-              },
-              alignment: DialogAlignment.Bottom
-            });
-          })
-      }.margin({ bottom: 300 })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              let uiContext: UIContext = this.getUIContext();
+              uiContext.getPromptAction().openCustomDialog({
+                builder: () => {
+                  this.dialogBuilder();
+                },
+                alignment: DialogAlignment.Bottom
+              });
+            })
+        }.margin({ bottom: 300 })
       }.align(Alignment.Bottom)
       .width('100%').height('100%')
     }
@@ -541,15 +538,17 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-2.png)
+
+![](assets/DialogV2/file-20260514164156149-5.png)
 
 
-### 示例4（纯文本弹出框）
+
+
+##### 示例4（纯文本弹出框）
 
 纯文本弹出框，包含primaryTitle、secondaryTitle、content等内容。
 
-
-```ts
+```text
 import { AlertDialogV2, AdvancedDialogV2Button, UIContext  } from '@kit.ArkUI';
 
 @Entry
@@ -582,17 +581,17 @@ struct Index {
       Stack() {
         Column() {
           Button("打开AlertDialogV2弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            let uiContext: UIContext = this.getUIContext();
-            uiContext.getPromptAction().openCustomDialog({
-              builder: () => {
-                this.dialogBuilder();
-              }
-            });
-          })
-      }.margin({ bottom: 300 })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              let uiContext: UIContext = this.getUIContext();
+              uiContext.getPromptAction().openCustomDialog({
+                builder: () => {
+                  this.dialogBuilder();
+                }
+              });
+            })
+        }.margin({ bottom: 300 })
       }.align(Alignment.Bottom)
       .width('100%').height('100%')
     }
@@ -602,15 +601,17 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-3.png)
+
+![](assets/DialogV2/file-20260514164156149-6.png)
 
 
-### 示例5（进度加载类弹出框）
+
+
+##### 示例5（进度加载类弹出框）
 
 进度加载类弹出框，包含content等内容。
 
-
-```ts
+```text
 import { LoadingDialogV2, UIContext  } from '@kit.ArkUI';
 
 @Entry
@@ -628,17 +629,17 @@ struct Index {
       Stack() {
         Column() {
           Button("打开LoadingDialogV2弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            let uiContext: UIContext = this.getUIContext();
-            uiContext.getPromptAction().openCustomDialog({
-              builder: () => {
-                this.dialogBuilder();
-              }
-            });
-          })
-      }.margin({ bottom: 300 })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              let uiContext: UIContext = this.getUIContext();
+              uiContext.getPromptAction().openCustomDialog({
+                builder: () => {
+                  this.dialogBuilder();
+                }
+              });
+            })
+        }.margin({ bottom: 300 })
       }.align(Alignment.Bottom)
       .width('100%').height('100%')
     }
@@ -648,15 +649,17 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-4.gif)
+
+![](assets/DialogV2/file-20260514164156149-7.png)
 
 
-### 示例6（自定义主题风格弹出框）
+
+
+##### 示例6（自定义主题风格弹出框）
 
 自定义主题风格弹出框，包含content、theme等内容。
 
-
-```ts
+```text
 import { CustomColors, CustomTheme, LoadingDialogV2, UIContext  } from '@kit.ArkUI';
 
 class CustomThemeImpl implements CustomTheme {
@@ -689,17 +692,17 @@ struct Index {
       Stack() {
         Column() {
           Button("打开LoadingDialogV2弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            let uiContext: UIContext = this.getUIContext();
-            uiContext.getPromptAction().openCustomDialog({
-              builder: () => {
-                this.dialogBuilder();
-              }
-            });
-          })
-      }.margin({ bottom: 300 })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              let uiContext: UIContext = this.getUIContext();
+              uiContext.getPromptAction().openCustomDialog({
+                builder: () => {
+                  this.dialogBuilder();
+                }
+              });
+            })
+        }.margin({ bottom: 300 })
       }.align(Alignment.Bottom)
       .width('100%').height('100%')
     }
@@ -709,15 +712,17 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-5.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/c_WeIwWkSsinXi_9rlNhGQ/zh-cn_image_0000002581276324.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=89DB6A99BC4D3C1DF8247BA9C92471F4D5404759ADC009DF91BA23F1E4DA3FA1)
 
 
-### 示例7（自定义内容弹出框）
+
+
+##### 示例7（自定义内容弹出框）
 
 支持自定义内容弹出框，包含contentBuilder、buttons等内容。
 
-
-```ts
+```text
 import { CustomContentDialogV2, AdvancedDialogV2Button, UIContext  } from '@kit.ArkUI';
 
 @Entry
@@ -732,15 +737,15 @@ struct Index {
         this.buildContent();
       },
       buttons: [
-      new AdvancedDialogV2Button({
-        content: '按钮1', buttonStyle: ButtonStyleMode.TEXTUAL,
-        action: () => {
-          console.info('Callback when the button is clicked');
-        }
-      }),
-      new AdvancedDialogV2Button({
-        content: '按钮2', buttonStyle: ButtonStyleMode.TEXTUAL, role: ButtonRole.ERROR,
-      })
+        new AdvancedDialogV2Button({
+          content: '按钮1', buttonStyle: ButtonStyleMode.TEXTUAL,
+          action: () => {
+            console.info('Callback when the button is clicked');
+          }
+        }),
+        new AdvancedDialogV2Button({
+          content: '按钮2', buttonStyle: ButtonStyleMode.TEXTUAL, role: ButtonRole.ERROR,
+        })
       ],
     })
   }
@@ -748,14 +753,14 @@ struct Index {
   build() {
     Column() {
       Button("打开CustomContentDialogV2弹出框")
-      .onClick(() => {
-        let uiContext: UIContext = this.getUIContext();
-        uiContext.getPromptAction().openCustomDialog({
-          builder: () => {
-            this.dialogBuilder();
-          }
+        .onClick(() => {
+            let uiContext: UIContext = this.getUIContext();
+            uiContext.getPromptAction().openCustomDialog({
+            builder: () => {
+              this.dialogBuilder();
+            }
+          })
         })
-      })
     }
     .width('100%')
     .height('100%')
@@ -771,15 +776,17 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-6.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nBjTgBGAQEm1_VEkxKiPJA/zh-cn_image_0000002611756179.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=20875930778C689CF34A85ACDDA80859DD6FB72A71901121888A007AC1121524)
 
 
-### 示例8（跟手弹出框）
+
+
+##### 示例8（跟手弹出框）
 
 跟手弹出框（警告弹出框为例），包含visible、popover、targetBuilder等内容。
 
-
-```ts
+```text
 import { AlertDialogV2, PopoverDialogV2, PopoverDialogV2Options, AdvancedDialogV2Button} from '@kit.ArkUI';
 
 @Entry
@@ -830,4 +837,5 @@ struct Index {
 }
 ```
 
-![](assets/DialogV2/file-20260514164156149-7.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/RIrbfSMtSgOc7ybEk4-LZw/zh-cn_image_0000002581436240.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=4B6C32E3119D861E6B3C47D84973899A6FCDB3579B55431A55C7170C0918F504)

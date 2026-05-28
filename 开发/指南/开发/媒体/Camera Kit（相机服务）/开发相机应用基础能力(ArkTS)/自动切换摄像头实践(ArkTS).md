@@ -8,7 +8,13 @@
 
 例如，折叠设备拥有三颗摄像头：后置摄像头A、前置摄像头B和前置摄像头C。在展开状态下，通过[CameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口可获取到后置摄像头A和前置摄像头B；在折叠状态下，可获取到后置摄像头A和前置摄像头C。在当前折叠状态下启用前置摄像头，并调用[enableAutoDeviceSwitch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitch#enableautodeviceswitch13)开启自动切换镜头；这样，在下次折叠屏状态变化时，会自动切换到对应折叠状态下的前置摄像头。
 
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/XJ6xTC9gSZ68OWcKaZ1YdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014701Z&HW-CC-Expire=86400&HW-CC-Sign=880343CB5FE8922A0DB556374DD1514381C3C63ABE27301F650127E80FB86EEA)
+
+
 自动切换镜头功能由系统自动完成输入设备切换，会话配置和参数接续。当系统发现镜头切换时，两颗镜头的变焦范围不一致，则会通过AutoDeviceSwitchStatus中的isDeviceCapabilityChanged字段告知应用，此时需要应用自己处理UX的变更（如变焦范围的调整，需要重新通过getZoomRatioRange接口获取数据并更新UX）。因此如相机拍照或录像等复杂场景的镜头选择，请参阅[适配不同折叠状态的摄像头变更](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-foldable-display)。
+
+
 
 详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
 
@@ -17,8 +23,7 @@ Context获取方式请参考：[获取UIAbility的上下文信息](https://devel
 在开发相机应用时，需要先[申请相关权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preparation)。
 
 
-## 导入相关依赖
-
+##### 导入相关依赖
 
 ```text
 import { camera } from '@kit.CameraKit';
@@ -27,9 +32,11 @@ import { abilityAccessCtrl } from '@kit.AbilityKit';
 ```
 
 
-## 创建XComponent
+
+##### 创建XComponent
 
 使用[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)展示摄像头的预览画面。
+
 ```text
 @Entry
 @Component
@@ -72,9 +79,11 @@ struct Index {
 ```
 
 
-## 开启自动切换摄像头
+
+##### 开启自动切换摄像头
 
 调用[enableAutoDeviceSwitch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitch#enableautodeviceswitch13)接口前需要通过[isAutoDeviceSwitchSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitchquery#isautodeviceswitchsupported13)接口查询当前设备是否支持自动切换摄像头能力。
+
 ```text
 function enableAutoDeviceSwitch(session: camera.PhotoSession) {
   if (session.isAutoDeviceSwitchSupported()) {
@@ -89,9 +98,13 @@ function enableAutoDeviceSwitch(session: camera.PhotoSession) {
 ```
 
 
-## 监听或解监听自动切换摄像头状态
 
-可以通过[on('autoDeviceSwitchStatusChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#onautodeviceswitchstatuschange13)监听自动切换摄像头的结果。系统自动切换镜头结束后会触发该回调。 自动切换摄像头期间，禁止调用任何[session](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session)相关接口。
+##### 监听或解监听自动切换摄像头状态
+
+可以通过[on('autoDeviceSwitchStatusChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#onautodeviceswitchstatuschange13)监听自动切换摄像头的结果。系统自动切换镜头结束后会触发该回调。
+
+自动切换摄像头期间，禁止调用任何[session](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session)相关接口。
+
 ```text
 function callback(err: BusinessError, autoDeviceSwitchStatus: camera.AutoDeviceSwitchStatus): void {
   if (err !== undefined && err.code !== 0) {
@@ -110,10 +123,10 @@ function unregisterAutoDeviceSwitchStatus(photoSession: camera.PhotoSession): vo
 ```
 
 
-## 完整示例代码
 
+##### 完整示例代码
 
-```text
+```json
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { abilityAccessCtrl } from '@kit.AbilityKit';
@@ -187,15 +200,15 @@ struct Index {
     this.initCameraManager();
   }
 
-  async aboutToDisappear(): Promise {
+  async aboutToDisappear(): Promise<void> {
     await this.releaseCamera();
   }
 
-  async onPageShow(): Promise {
+  async onPageShow(): Promise<void> {
     await this.initCamera(this.mSurfaceId, this.mCameraPosition);
   }
 
-  async releaseCamera(): Promise {
+  async releaseCamera(): Promise<void> {
     // 停止当前会话。
     try {
       await this.mPhotoSession?.stop();
@@ -234,7 +247,7 @@ struct Index {
     this.mPhotoSession = undefined;
   }
 
-  async loadXComponent(): Promise {
+  async loadXComponent(): Promise<void> {
     this.mSurfaceId = this.mXComponentController.getXComponentSurfaceId();
     console.info(TAG + `mCameraPosition: ${this.mCameraPosition}`)
     await this.initCamera(this.mSurfaceId, this.mCameraPosition);
@@ -242,7 +255,10 @@ struct Index {
 
   getPreviewProfile(cameraOutputCapability: camera.CameraOutputCapability): camera.Profile | undefined {
     let previewProfiles = cameraOutputCapability.previewProfiles;
-    if (previewProfiles.length  {
+    if (previewProfiles.length < 1) {
+      return undefined;
+    }
+    let index = previewProfiles.findIndex((previewProfile: camera.Profile) => {
       return previewProfile.size.width === this.previewProfileObj.size.width &&
         previewProfile.size.height === this.previewProfileObj.size.height &&
         previewProfile.format === this.previewProfileObj.format;
@@ -254,7 +270,7 @@ struct Index {
   }
 
   async initCamera(surfaceId: string, cameraPosition: camera.CameraPosition,
-    connectionType: camera.ConnectionType = camera.ConnectionType.CAMERA_CONNECTION_BUILT_IN): Promise {
+    connectionType: camera.ConnectionType = camera.ConnectionType.CAMERA_CONNECTION_BUILT_IN): Promise<void> {
     await this.releaseCamera();
     // 创建CameraManager对象。
     if (!this.mCameraManager) {
@@ -263,8 +279,20 @@ struct Index {
     }
 
     // 获取相机列表。
-    let cameraArray: Array = this.mCameraManager.getSupportedCameras();
-    if (cameraArray.length  {
+    let cameraArray: Array<camera.CameraDevice> = this.mCameraManager.getSupportedCameras();
+    if (cameraArray.length <= 0) {
+      console.error(TAG + 'cameraManager.getSupportedCameras error');
+      return;
+    }
+
+    for (let index = 0; index < cameraArray.length; index++) {
+      console.info(TAG + 'cameraId : ' + cameraArray[index].cameraId); // 获取相机ID。
+      console.info(TAG + 'cameraPosition : ' + cameraArray[index].cameraPosition); // 获取相机位置。
+      console.info(TAG + 'cameraType : ' + cameraArray[index].cameraType); // 获取相机类型。
+      console.info(TAG + 'connectionType : ' + cameraArray[index].connectionType); // 获取相机连接类型。
+    }
+
+    let deviceIndex = cameraArray.findIndex((cameraDevice: camera.CameraDevice) => {
       return cameraDevice.cameraPosition === cameraPosition && cameraDevice.connectionType === connectionType;
     })
     // 没有找到对应位置的摄像头，可选择其他摄像头，具体场景具体对待。
@@ -294,7 +322,7 @@ struct Index {
     }
 
     // 获取支持的模式类型。
-    let sceneModes: Array = this.mCameraManager.getSupportedSceneModes(this.curCameraDevice);
+    let sceneModes: Array<camera.SceneMode> = this.mCameraManager.getSupportedSceneModes(this.curCameraDevice);
     let isSupportPhotoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_PHOTO) >= 0;
     if (!isSupportPhotoMode) {
       console.error(TAG + 'photo mode not support');

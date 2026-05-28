@@ -1,9 +1,9 @@
 # textToSpeech（文本转语音）
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 文本转语音服务提供将文本信息转换为语音并进行播报的能力，便于用户与设备进行互动，实现实时语音交互，文本播报。
 
@@ -12,19 +12,17 @@
 **起始版本：** 4.1.0(11)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 ```
 
 
-## textToSpeech.createEngine
-**支持设备：** Phone / PC/2in1 / Tablet
 
-createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback<TextToSpeechEngine>): void
+##### textToSpeech.createEngine
+
+createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;TextToSpeechEngine&gt;): void
 
 创建[TextToSpeechEngine](#texttospeechengine)实例，并初始化引擎。使用callback异步回调。
 
@@ -36,17 +34,15 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback<Tex
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| createEngineParams | [CreateEngineParams](#createengineparams) | 是 | 创建引擎实例的配置项。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;[TextToSpeechEngine](#texttospeechengine)&gt; | 是 | 回调函数。引擎实例的回调。 |
+| createEngineParams | CreateEngineParams | 是 | 创建引擎实例的配置项。 |
+| callback | AsyncCallback&lt;TextToSpeechEngine&gt; | 是 | 回调函数。引擎实例的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -58,8 +54,7 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback<Tex
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
@@ -94,10 +89,10 @@ struct Page {
 ```
 
 
-## textToSpeech.createEngine
-**支持设备：** Phone / PC/2in1 / Tablet
 
-createEngine(createEngineParams: CreateEngineParams): Promise<TextToSpeechEngine>
+##### textToSpeech.createEngine
+
+createEngine(createEngineParams: CreateEngineParams): Promise&lt;TextToSpeechEngine&gt;
 
 创建[TextToSpeechEngine](#texttospeechengine)实例，并初始化引擎。使用Promise异步回调。
 
@@ -109,24 +104,21 @@ createEngine(createEngineParams: CreateEngineParams): Promise<TextToSpeechEngine
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| createEngineParams | [CreateEngineParams](#createengineparams) | 是 | 创建引擎实例的配置项。 |
+| createEngineParams | CreateEngineParams | 是 | 创建引擎实例的配置项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[TextToSpeechEngine](#texttospeechengine)&gt; | Promise对象。返回创建的引擎实例。 |
+| Promise&lt;TextToSpeechEngine&gt; | Promise对象。返回创建的引擎实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -138,8 +130,7 @@ createEngine(createEngineParams: CreateEngineParams): Promise<TextToSpeechEngine
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
@@ -173,8 +164,8 @@ struct Page {
 ```
 
 
-## textToSpeech.listVoices
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### textToSpeech.listVoices
 
 listVoices(queryParams: VoiceQuery): Promise<VoiceInfo[]>
 
@@ -188,24 +179,21 @@ listVoices(queryParams: VoiceQuery): Promise<VoiceInfo[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| queryParams | [VoiceQuery](#voicequery) | 是 | 查询语种音色信息请求参数。 |
+| queryParams | VoiceQuery | 是 | 查询语种音色信息请求参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[VoiceInfo](#voiceinfo)[]&gt; | Promise对象，返回查询的结果。 |
+| Promise<VoiceInfo[]> | Promise对象，返回查询的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -214,8 +202,7 @@ listVoices(queryParams: VoiceQuery): Promise<VoiceInfo[]>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
@@ -230,25 +217,25 @@ let voicesQuery: textToSpeech.VoiceQuery = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 调用listVoices方法
-      textToSpeech.listVoices(voicesQuery).then((res: textToSpeech.VoiceInfo[]) => {
-        // 获得目前支持的语种音色等信息
-        console.info(`Succeeded in listing voices, result: ${JSON.stringify(res)}.`);
-      }).catch((err: BusinessError) =>{
-        console.error(`Failed to list voices. Code: ${err.code}, message: ${err.message}.`);
-      });
-    })
+      .id('Button')
+      .onClick( () => {
+        // 调用listVoices方法
+        textToSpeech.listVoices(voicesQuery).then((res: textToSpeech.VoiceInfo[]) => {
+          // 获得目前支持的语种音色等信息
+          console.info(`Succeeded in listing voices, result: ${JSON.stringify(res)}.`);
+        }).catch((err: BusinessError) =>{
+          console.error(`Failed to list voices. Code: ${err.code}, message: ${err.message}.`);
+        });
+      })
   }
 }
 ```
 
 
-## textToSpeech.downloadVoice
-**支持设备：** Phone / PC/2in1 / Tablet
 
-downloadVoice(downloadParams: VoiceDownload, callback: AsyncCallback<DownloadResponse>): void
+##### textToSpeech.downloadVoice
+
+downloadVoice(downloadParams: VoiceDownload, callback: AsyncCallback&lt;DownloadResponse&gt;): void
 
 下载支持的语种音色。使用callback异步回调。
 
@@ -262,29 +249,26 @@ downloadVoice(downloadParams: VoiceDownload, callback: AsyncCallback<DownloadRes
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| downloadParams | [VoiceDownload](#voicedownload) | 是 | 下载语种音色请求参数。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;[DownloadResponse](#downloadresponse)&gt; | 是 | 回调函数，下载的音色模型及信息。 |
+| downloadParams | VoiceDownload | 是 | 下载语种音色请求参数。 |
+| callback | AsyncCallback&lt;DownloadResponse&gt; | 是 | 回调函数，下载的音色模型及信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1002300008 | Failed to download voice. |
-| 1002300009 | Parameter error. Possible causes:          1. Mandatory parameters are left unspecified.          2. Incorrect parameter types.          3. Parameter verification failed. |
+| 1002300009 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1002300010 | Voice has already been downloaded. |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError, Callback, ErrorCallback } from '@kit.BasicServicesKit';
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
@@ -301,80 +285,80 @@ let voicesDownload: textToSpeech.VoiceDownload = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick(() => {
-      // 调用downloadVoice方法
-      textToSpeech.downloadVoice(voicesDownload,
-      (error: BusinessError, downloadResponse: textToSpeech.DownloadResponse) => {
-        if (error) {
-          console.error(`Failed to download voice. code: ${error.code}, message: ${error.message}`);
-          return;
-        }
-        if (!downloadResponse) {
-          console.error(`Failed to download voice. downloadResponse is null`);
-          return
-        }
-        let requestId: string = downloadResponse.requestId;
+      .id('Button')
+      .onClick(() => {
+        // 调用downloadVoice方法
+        textToSpeech.downloadVoice(voicesDownload,
+          (error: BusinessError, downloadResponse: textToSpeech.DownloadResponse) => {
+            if (error) {
+              console.error(`Failed to download voice. code: ${error.code}, message: ${error.message}`);
+              return;
+            }
+            if (!downloadResponse) {
+              console.error(`Failed to download voice. downloadResponse is null`);
+              return
+            }
+            let requestId: string = downloadResponse.requestId;
 
-        // 定义函数
-        let startCallback: Callback<string> = (info: string) => {
-          // 下载开始回调
-          console.info(`download voice start, requestId: ${requestId}, info:${info}}`);
-        };
+            // 定义函数
+            let startCallback: Callback<string> = (info: string) => {
+              // 下载开始回调
+              console.info(`download voice start, requestId: ${requestId}, info:${info}`);
+            };
 
-        // 定义函数
-        let progressCallback: Callback<string> = (schedule: string) => {
-          // 下载进度回调
-          console.info(`download voice schedule, requestId: ${requestId} scheduleInfo: ${schedule}`);
-        };
+            // 定义函数
+            let progressCallback: Callback<string> = (schedule: string) => {
+              // 下载进度回调
+              console.info(`download voice schedule, requestId: ${requestId} scheduleInfo: ${schedule}`);
+            };
 
-        // 定义函数
-        let completeCallback: Callback<textToSpeech.VoiceInfo> = (voiceInfo: textToSpeech.VoiceInfo) => {
-          // 下载完成回调
-          console.info(`download voice complete, requestId: ${requestId} voiceInfo: ${JSON.stringify(voiceInfo)}`);
-          // 取消下载开始事件回调注册
-          downloadResponse.off('start', startCallback);
-          // 取消下载进度事件回调注册
-          downloadResponse.off('progress', progressCallback);
-          // 取消下载完成事件回调注册
-          downloadResponse.off('complete', completeCallback);
-          // 取消下载取消事件回调注册
-          downloadResponse.off('cancel', cancelCallback);
-          // 取消下载过程错误事件回调注册
-          downloadResponse.off('error', errorCallback);
-        };
+            // 定义函数
+            let completeCallback: Callback<textToSpeech.VoiceInfo> = (voiceInfo: textToSpeech.VoiceInfo) => {
+              // 下载完成回调
+              console.info(`download voice complete, requestId: ${requestId} voiceInfo: ${JSON.stringify(voiceInfo)}`);
+              // 取消下载开始事件回调注册
+              downloadResponse.off('start', startCallback);
+              // 取消下载进度事件回调注册
+              downloadResponse.off('progress', progressCallback);
+              // 取消下载完成事件回调注册
+              downloadResponse.off('complete', completeCallback);
+              // 取消下载取消事件回调注册
+              downloadResponse.off('cancel', cancelCallback);
+              // 取消下载过程错误事件回调注册
+              downloadResponse.off('error', errorCallback);
+            };
 
-        // 定义函数
-        let cancelCallback: Callback<string> = (cancelInfo: string) => {
-          // 用户取消下载回调
-          console.error(`download voice cancel, requestId: ${requestId} cancelInfo: ${cancelInfo}`);
-        };
+            // 定义函数
+            let cancelCallback: Callback<string> = (cancelInfo: string) => {
+              // 用户取消下载回调
+              console.error(`download voice cancel, requestId: ${requestId} cancelInfo: ${cancelInfo}`);
+            };
 
-        // 定义函数
-        let errorCallback: ErrorCallback<BusinessError> = (err: BusinessError) => {
-          // 下载过程错误回调
-          console.error(`download voice error, requestId: ${requestId} errorCode: ${err.code} errorMessage: ${err.message}`);
-        };
+            // 定义函数
+            let errorCallback: ErrorCallback<BusinessError> = (err: BusinessError) => {
+              // 下载过程错误回调
+              console.error(`download voice error, requestId: ${requestId} errorCode: ${err.code} errorMessage: ${err.message}`);
+            };
 
-        // 注册下载开始事件回调
-        downloadResponse.on('start', startCallback);
-        // 注册下载进度事件回调
-        downloadResponse.on('progress', progressCallback);
-        // 注册下载完成事件回调
-        downloadResponse.on('complete', completeCallback);
-        // 注册下载取消事件回调
-        downloadResponse.on('cancel', cancelCallback);
-        // 注册下载过程错误事件回调
-        downloadResponse.on('error', errorCallback);
+            // 注册下载开始事件回调
+            downloadResponse.on('start', startCallback);
+            // 注册下载进度事件回调
+            downloadResponse.on('progress', progressCallback);
+            // 注册下载完成事件回调
+            downloadResponse.on('complete', completeCallback);
+            // 注册下载取消事件回调
+            downloadResponse.on('cancel', cancelCallback);
+            // 注册下载过程错误事件回调
+            downloadResponse.on('error', errorCallback);
+          })
       })
-    })
   }
 }
 ```
 
 
-## TextToSpeechEngine
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### TextToSpeechEngine
 
 文本转语音类，用于执行文本转语音过程中的相关操作。在调用TextToSpeechEngine的方法前，需要先通过[createEngine](#texttospeechcreateengine)方法创建一个[TextToSpeechEngine](#texttospeechengine)实例。
 
@@ -385,10 +369,10 @@ struct Page {
 **起始版本：** 4.1.0(11)
 
 
-### listVoices
-**支持设备：** Phone / PC/2in1 / Tablet
 
-listVoices(params: VoiceQuery, callback: AsyncCallback<Array<VoiceInfo>>): void
+##### listVoices
+
+listVoices(params: VoiceQuery, callback: AsyncCallback<Array&lt;VoiceInfo&gt;>): void
 
 查询支持的语种音色。使用callback异步回调。
 
@@ -400,17 +384,15 @@ listVoices(params: VoiceQuery, callback: AsyncCallback<Array<VoiceInfo>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [VoiceQuery](#voicequery) | 是 | 查询语种音色信息请求参数。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;Array&lt;[VoiceInfo](#voiceinfo)&gt;&gt; | 是 | 回调函数，接收返回的查询结果。 |
+| params | VoiceQuery | 是 | 查询语种音色信息请求参数。 |
+| callback | AsyncCallback<Array&lt;VoiceInfo&gt;> | 是 | 回调函数，接收返回的查询结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -419,8 +401,7 @@ listVoices(params: VoiceQuery, callback: AsyncCallback<Array<VoiceInfo>>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
@@ -436,27 +417,27 @@ let voicesQuery: textToSpeech.VoiceQuery = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 调用listVoices方法，以callback返回
-      ttsEngine.listVoices(voicesQuery, (err: BusinessError, voiceInfo: textToSpeech.VoiceInfo[]) => {
-        if (!err) {
-          // 接收目前支持的语种音色等信息
-          console.info(`Succeeded in listing voices, voiceInfo is ${JSON.stringify(voiceInfo)}.`);
-        } else {
-          console.error(`Failed to list voices. Code: ${err.code}, message: ${err.message}.`);
-        }
-      });
-    })
+      .id('Button')
+      .onClick( () => {
+        // 调用listVoices方法，以callback返回
+        ttsEngine.listVoices(voicesQuery, (err: BusinessError, voiceInfo: textToSpeech.VoiceInfo[]) => {
+          if (!err) {
+            // 接收目前支持的语种音色等信息
+            console.info(`Succeeded in listing voices, voiceInfo is ${JSON.stringify(voiceInfo)}.`);
+          } else {
+            console.error(`Failed to list voices. Code: ${err.code}, message: ${err.message}.`);
+          }
+        });
+      })
   }
 }
 ```
 
 
-### listVoices
-**支持设备：** Phone / PC/2in1 / Tablet
 
-listVoices(params: VoiceQuery): Promise<Array<VoiceInfo>>
+##### listVoices
+
+listVoices(params: VoiceQuery): Promise<Array&lt;VoiceInfo&gt;>
 
 查询支持的语种音色。使用Promise异步回调。
 
@@ -468,24 +449,21 @@ listVoices(params: VoiceQuery): Promise<Array<VoiceInfo>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [VoiceQuery](#voicequery) | 是 | 查询语种音色信息请求参数。 |
+| params | VoiceQuery | 是 | 查询语种音色信息请求参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[VoiceInfo](#voiceinfo)&gt;&gt; | Promise对象，接收返回的查询结果。 |
+| Promise<Array&lt;VoiceInfo&gt;> | Promise对象，接收返回的查询结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -494,8 +472,7 @@ listVoices(params: VoiceQuery): Promise<Array<VoiceInfo>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
@@ -511,23 +488,23 @@ let voicesQuery: textToSpeech.VoiceQuery = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 调用listVoices方法
-      ttsEngine.listVoices(voicesQuery).then((res: textToSpeech.VoiceInfo[]) => {
-        // 获得目前支持的语种音色等信息
-        console.info(`Succeeded in listing voices, result: ${JSON.stringify(res)}.`);
-      }).catch((err: BusinessError) =>{
-        console.error(`Failed to list voices. Code: ${err.code}, message: ${err.message}.`);
-      });
-    })
+      .id('Button')
+      .onClick( () => {
+        // 调用listVoices方法
+        ttsEngine.listVoices(voicesQuery).then((res: textToSpeech.VoiceInfo[]) => {
+          // 获得目前支持的语种音色等信息
+          console.info(`Succeeded in listing voices, result: ${JSON.stringify(res)}.`);
+        }).catch((err: BusinessError) =>{
+          console.error(`Failed to list voices. Code: ${err.code}, message: ${err.message}.`);
+        });
+      })
   }
 }
 ```
 
 
-### setListener
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### setListener
 
 setListener(listener: SpeakListener): void
 
@@ -541,16 +518,14 @@ setListener(listener: SpeakListener): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| listener | [SpeakListener](#speaklistener) | 是 | 合成播报相关事件的回调。 |
+| listener | SpeakListener | 是 | 合成播报相关事件的回调。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
@@ -583,18 +558,18 @@ let speakListener: textToSpeech.SpeakListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      ttsEngine.setListener(speakListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        ttsEngine.setListener(speakListener);
+      })
   }
 }
 ```
 
 
-### speak
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### speak
 
 speak(text: string, speakParams: SpeakParams): void
 
@@ -608,17 +583,15 @@ speak(text: string, speakParams: SpeakParams): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | 待播报的文本。根据不同场景的实际需求，可主动设置单词发音方式、数字播报策略、指定汉字发音以及在播报时插入静音停顿。具体方式请参考[设置播报策略](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/texttospeech-guide#设置播报策略)。          文本长度不得超过10000字符数（不包括文本开头与结尾的空格）。 |
-| speakParams | [SpeakParams](#speakparams) | 是 | 合成播报音频的相关参数。 |
+| text | string | 是 | 待播报的文本。根据不同场景的实际需求，可主动设置单词发音方式、数字播报策略、指定汉字发音以及在播报时插入静音停顿。具体方式请参考设置播报策略。 文本长度不得超过10000字符数（不包括文本开头与结尾的空格）。 |
+| speakParams | SpeakParams | 是 | 合成播报音频的相关参数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -628,14 +601,13 @@ speak(text: string, speakParams: SpeakParams): void
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
 // 设置播报内容
 let originalText: string = '\n\t\t古人学问无遗力，少壮工夫老始成；\n\t\t' +
-'纸上得来终觉浅，绝知此事要躬行。\n\t\t';
+  '纸上得来终觉浅，绝知此事要躬行。\n\t\t';
 
 // 合成及播报相关的参数
 let extraParam: Record<string, Object> = {
@@ -655,18 +627,18 @@ let speakParams: textToSpeech.SpeakParams = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 传入文本originalText，调用speak接口
-      ttsEngine.speak(originalText, speakParams);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 传入文本originalText，调用speak接口
+        ttsEngine.speak(originalText, speakParams);
+      })
   }
 }
 ```
 
 
-### stop
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### stop
 
 stop(): void
 
@@ -680,14 +652,13 @@ stop(): void
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
 // 设置播报内容
 let originalText: string = '\n\t\t古人学问无遗力，少壮工夫老始成；\n\t\t' +
-'纸上得来终觉浅，绝知此事要躬行。\n\t\t';
+  '纸上得来终觉浅，绝知此事要躬行。\n\t\t';
 
 // 合成及播报相关的参数
 let extraParam: Record<string, Object> = {
@@ -707,26 +678,26 @@ struct Page {
   build() {
     Column(){
       Button()
-      .id('Button')
-      .onClick( () => {
-        // 传入文本originalText，调用speak接口
-        ttsEngine.speak(originalText, speakParams);
-      })
+        .id('Button')
+        .onClick( () => {
+          // 传入文本originalText，调用speak接口
+          ttsEngine.speak(originalText, speakParams);
+        })
 
       Button()
-      .id('Stop')
-      .onClick( () => {
-        // 调用stop接口
-        ttsEngine.stop();
-      })
+        .id('Stop')
+        .onClick( () => {
+          // 调用stop接口
+          ttsEngine.stop();
+        })
     }
   }
 }
 ```
 
 
-### isBusy
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### isBusy
 
 isBusy(): boolean
 
@@ -740,22 +711,20 @@ isBusy(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 服务是否处于合成或播报状态的返回值。          - true：引擎正处于合成或播报状态。          - false：引擎没有处于合成或播报状态。 |
+| boolean | 服务是否处于合成或播报状态的返回值。 - true：引擎正处于合成或播报状态。 - false：引擎没有处于合成或播报状态。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
 // 设置播报内容
 let originalText: string = '\n\t\t古人学问无遗力，少壮工夫老始成；\n\t\t' +
-'纸上得来终觉浅，绝知此事要躬行。\n\t\t';
+  '纸上得来终觉浅，绝知此事要躬行。\n\t\t';
 
 // 合成及播报相关的参数
 let extraParam: Record<string, Object> = {
@@ -775,27 +744,27 @@ struct Page {
   build() {
     Column(){
       Button()
-      .id('Button')
-      .onClick( () => {
-        // 传入文本originalText，调用speak接口
-        ttsEngine.speak(originalText, speakParams);
-      })
+        .id('Button')
+        .onClick( () => {
+          // 传入文本originalText，调用speak接口
+          ttsEngine.speak(originalText, speakParams);
+        })
 
       Button()
-      .id('isBusy')
-      .onClick( () => {
-        // 调用isBusy接口
-        let isBusy = ttsEngine.isBusy();
-        console.info(`isBusy: ${isBusy}`);
-      })
+        .id('isBusy')
+        .onClick( () => {
+          // 调用isBusy接口
+          let isBusy = ttsEngine.isBusy();
+          console.info(`isBusy: ${isBusy}`);
+        })
     }
   }
 }
 ```
 
 
-### shutdown
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### shutdown
 
 shutdown(): void
 
@@ -809,14 +778,13 @@ shutdown(): void
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
 // 设置播报内容
 let originalText: string = '\n\t\t古人学问无遗力，少壮工夫老始成；\n\t\t' +
-'纸上得来终觉浅，绝知此事要躬行。\n\t\t';
+  '纸上得来终觉浅，绝知此事要躬行。\n\t\t';
 
 // 合成及播报相关的参数
 let extraParam: Record<string, Object> = {
@@ -836,26 +804,26 @@ struct Page {
   build() {
     Column(){
       Button()
-      .id('Button')
-      .onClick( () => {
-        // 传入文本originalText，调用speak接口
-        ttsEngine.speak(originalText, speakParams);
-      })
+        .id('Button')
+        .onClick( () => {
+          // 传入文本originalText，调用speak接口
+          ttsEngine.speak(originalText, speakParams);
+        })
 
       Button()
-      .id('shutdown')
-      .onClick( () => {
-        // 调用shutdown接口
-        ttsEngine.shutdown();
-      })
+        .id('shutdown')
+        .onClick( () => {
+          // 调用shutdown接口
+          ttsEngine.shutdown();
+        })
     }
   }
 }
 ```
 
 
-## SpeakListener
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### SpeakListener
 
 合成及播报的回调对象，通过此对象可返回合成及播报过程的相关状态，例如开始合成及播报、合成完成、播报完成、停止播报完成等。
 
@@ -866,8 +834,8 @@ struct Page {
 **起始版本：** 4.1.0(11)
 
 
-### onStart
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStart
 
 onStart(requestId: string, response: StartResponse): void
 
@@ -881,17 +849,15 @@ onStart(requestId: string, response: StartResponse): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| requestId | string | 是 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
-| response | [StartResponse](#startresponse) | 是 | 播报相关参数。 |
+| requestId | string | 是 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
+| response | StartResponse | 是 | 播报相关参数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
@@ -924,18 +890,18 @@ let speakListener: textToSpeech.SpeakListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      ttsEngine.setListener(speakListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        ttsEngine.setListener(speakListener);
+      })
   }
 }
 ```
 
 
-### onStop
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onStop
 
 onStop(requestId: string, response: StopResponse): void
 
@@ -949,17 +915,15 @@ onStop(requestId: string, response: StopResponse): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| requestId | string | 是 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
-| response | [StopResponse](#stopresponse) | 是 | 响应停止事件的相关信息。 |
+| requestId | string | 是 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
+| response | StopResponse | 是 | 响应停止事件的相关信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
@@ -992,18 +956,18 @@ let speakListener: textToSpeech.SpeakListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      ttsEngine.setListener(speakListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        ttsEngine.setListener(speakListener);
+      })
   }
 }
 ```
 
 
-### onComplete
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onComplete
 
 onComplete(requestId: string, response: CompleteResponse): void
 
@@ -1017,20 +981,19 @@ onComplete(requestId: string, response: CompleteResponse): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| requestId | string | 是 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
-| response | [CompleteResponse](#completeresponse) | 是 | 完成播报相关信息。 |
+| requestId | string | 是 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
+| response | CompleteResponse | 是 | 完成播报相关信息。 |
 
 
 > [!NOTE]
 > onData 可能并未返回完毕，请继续接收 onData 回调。
 
+
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
@@ -1063,26 +1026,26 @@ let speakListener: textToSpeech.SpeakListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      ttsEngine.setListener(speakListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        ttsEngine.setListener(speakListener);
+      })
   }
 }
 ```
 
 
-### onData
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onData
 
 onData?: OnDataCallback
 
 合成播报过程中回调此接口，返回请求ID，音频流信息，音频附加信息如格式、时长等。若需要返回音频流信息，请实现此接口。
 
-
 > [!NOTE]
 > 因为异步ipc会导致onData音频流顺序小规模错乱，需要调用方在播放前对音频流按照sequence排序。
+
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
@@ -1092,16 +1055,14 @@ onData?: OnDataCallback
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| onData | [OnDataCallback](#ondatacallback) | 否 | 合成的回调，通过音频的参数返回音频数据。 |
+| onData | OnDataCallback | 否 | 合成的回调，通过音频的参数返回音频数据。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
@@ -1134,18 +1095,18 @@ let speakListener: textToSpeech.SpeakListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      ttsEngine.setListener(speakListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        ttsEngine.setListener(speakListener);
+      })
   }
 }
 ```
 
 
-### onError
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### onError
 
 onError(requestId: string, errorCode: number, errorMessage: string): void
 
@@ -1159,18 +1120,16 @@ onError(requestId: string, errorCode: number, errorMessage: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| requestId | string | 是 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
-| errorCode | number | 是 | 返回的错误码：          401 参数检查失败          1002300001 文本长度非法          1002300002 语言不支持          1002300003 音色不支持          1002300009 下载参数错误          错误码详细信息参见：[Core Speech Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech)。 |
+| requestId | string | 是 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
+| errorCode | number | 是 | 返回的错误码： 401 参数检查失败 1002300001 文本长度非法 1002300002 语言不支持 1002300003 音色不支持 1002300009 下载参数错误 错误码详细信息参见：Core Speech Kit错误码。 |
 | errorMessage | string | 是 | 错误信息描述。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 let ttsEngine: textToSpeech.TextToSpeechEngine;
@@ -1203,18 +1162,18 @@ let speakListener: textToSpeech.SpeakListener = {
 struct Page {
   build() {
     Button()
-    .id('Button')
-    .onClick( () => {
-      // 设置回调
-      ttsEngine.setListener(speakListener);
-    })
+      .id('Button')
+      .onClick( () => {
+        // 设置回调
+        ttsEngine.setListener(speakListener);
+      })
   }
 }
 ```
 
 
-## OnDataCallback
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### OnDataCallback
 
 type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: SynthesisResponse) => void
 
@@ -1228,16 +1187,16 @@ type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: Synthesi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| requestId | string | 是 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
+| requestId | string | 是 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
 | audio | ArrayBuffer | 是 | 音频流。 |
-| response | [SynthesisResponse](#synthesisresponse) | 是 | 返回的音频流相关信息。 |
+| response | SynthesisResponse | 是 | 返回的音频流相关信息。 |
 
 
-## CreateEngineParams
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CreateEngineParams
 
 创建引擎实例的相关参数，用于配置语种、模式、音色和风格等。
 
@@ -1247,19 +1206,17 @@ type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: Synthesi
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| language | string | 否 | 否 | 语种，当前支持中文、英文。          中文推荐使用“zh-CN”格式，兼容“zh_CN”格式。          英文推荐使用“en-US”格式，兼容“en_US”格式。 |
-| online | number | 否 | 否 | 模式。          0为在线，目前不支持；1为离线，当前仅支持离线模式。 |
-| person | number | 否 | 否 | 音色。          中文：13为聆小珊女声音色（推荐使用13，同时支持0）；21为凌飞哲男声音色（需下载）。          英文：8为英语（美国）劳拉女声音色（需下载）。 |
-| extraParams | Record&lt;string, Object&gt; | 否 | 是 | - &lt;'style', string&gt; 风格。          可选，不设置时默认为“interaction-broadcast”，当前仅支持“interaction-broadcast”。          interaction-broadcast：广播风格。          - &lt;'locate', string&gt; 区域信息。          可选，不设置时默认为“CN”，当前仅支持“CN”。          CN:中国。          - &lt;'name', string&gt; 引擎名称。          可选，引擎名称，不可以是随机数，不设置时默认为空，当前支持多应用、多实例，同一个设备上所有应用一共最多支持3个实例。          - &lt;'isBackStage', boolean&gt; 是否支持后台播报。          可选，不设置时默认不支持后台播报。设置'isBackStage': true时，TTS支持后台播报。 |
+| language | string | 否 | 否 | 语种，当前支持中文、英文。 中文推荐使用“zh-CN”格式，兼容“zh_CN”格式。 英文推荐使用“en-US”格式，兼容“en_US”格式。 |
+| online | number | 否 | 否 | 模式。 0为在线，目前不支持；1为离线，当前仅支持离线模式。 |
+| person | number | 否 | 否 | 音色。 中文：13为聆小珊女声音色（推荐使用13，同时支持0）；21为凌飞哲男声音色（需下载）。 英文：8为英语（美国）劳拉女声音色（需下载）。 |
+| extraParams | Record<string, Object> | 否 | 是 | - <'style', string> 风格。 可选，不设置时默认为“interaction-broadcast”，当前仅支持“interaction-broadcast”。 interaction-broadcast：广播风格。 - <'locate', string> 区域信息。 可选，不设置时默认为“CN”，当前仅支持“CN”。 CN:中国。 - <'name', string> 引擎名称。 可选，引擎名称，不可以是随机数，不设置时默认为空，当前支持多应用、多实例，同一个设备上所有应用一共最多支持3个实例。 - <'isBackStage', boolean> 是否支持后台播报。 可选，不设置时默认不支持后台播报。设置'isBackStage': true时，TTS支持后台播报。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 // 设置创建引擎参数
@@ -1282,8 +1239,8 @@ struct Page {
 ```
 
 
-## VoiceQuery
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### VoiceQuery
 
 查询音色语种信息的相关参数。例如查询离线模式、中文语种所支持的音色信息，需将online参数设置为1，language参数设置为“zh-CN”。
 
@@ -1293,18 +1250,16 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| requestId | string | 否 | 否 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
-| online | number | 否 | 否 | 模式。          0为在线，目前不支持；1为离线，当前仅支持离线。 |
-| extraParams | Record&lt;string, Object&gt; | 否 | 是 | - &lt;'language', string&gt; 查询的语种。          可选，当前支持“zh-CN”中文，“en-US”英文。不填时查询全量列表。          - &lt;'person', number&gt; 查询的音色。          可选，非空时则language必填。不填时查询全量列表。          中文支持：          13. 聆小珊女声音色（推荐使用13，同时支持0）；          21. 凌飞哲男声音色（需下载）。          英文支持：          8. 英语（美国）劳拉女声音色（需下载）。 |
+| requestId | string | 否 | 否 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
+| online | number | 否 | 否 | 模式。 0为在线，目前不支持；1为离线，当前仅支持离线。 |
+| extraParams | Record<string, Object> | 否 | 是 | - <'language', string> 查询的语种。 可选，当前支持“zh-CN”中文，“en-US”英文。不填时查询全量列表。 - <'person', number> 查询的音色。 可选，非空时则language必填。不填时查询全量列表。 中文支持： 13. 聆小珊女声音色（推荐使用13，同时支持0）； 21. 凌飞哲男声音色（需下载）。 英文支持： 8. 英语（美国）劳拉女声音色（需下载）。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 // 设置创建引擎参数
@@ -1326,8 +1281,8 @@ struct Page {
 ```
 
 
-## VoiceDownload
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### VoiceDownload
 
 下载音色时的相关参数，所有参数通过listVoices接口获取。
 
@@ -1337,19 +1292,17 @@ struct Page {
 
 **起始版本：** 5.1.1(19)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| requestId | string | 否 | 否 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
-| language | string | 否 | 否 | 支持下载的语种，有效范围通过[listVoices（Callback异步回调）](#listvoices)和[listVoices（Promise异步回调）](#listvoices-1)获取。 |
-| person | number | 否 | 否 | 支持下载的音色，有效范围通过[listVoices（Callback异步回调）](#listvoices)和[listVoices（Promise异步回调）](#listvoices-1)获取。 |
-| style | string | 否 | 否 | 支持下载的音色风格，有效范围通过[listVoices（Callback异步回调）](#listvoices)和[listVoices（Promise异步回调）](#listvoices-1)获取。 |
+| requestId | string | 否 | 否 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
+| language | string | 否 | 否 | 支持下载的语种，有效范围通过listVoices（Callback异步回调）和listVoices（Promise异步回调）获取。 |
+| person | number | 否 | 否 | 支持下载的音色，有效范围通过listVoices（Callback异步回调）和listVoices（Promise异步回调）获取。 |
+| style | string | 否 | 否 | 支持下载的音色风格，有效范围通过listVoices（Callback异步回调）和listVoices（Promise异步回调）获取。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 // 设置下载音色相关参数
@@ -1357,13 +1310,13 @@ let voicesDownload: textToSpeech.VoiceDownload = {
   requestId: '12345678-b', // 请求ID，ID不可重复
   language: 'en-US',
   person: 8,
-  style: 'interaction-broadcast',
+  style: 'interaction-broadcast'
 };
 ```
 
 
-## DownloadResponse
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### DownloadResponse
 
 下载音色语种时的回调对象。
 
@@ -1375,16 +1328,16 @@ let voicesDownload: textToSpeech.VoiceDownload = {
 
 **参数：**
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| requestId | string | 否 | 否 | 请求ID。唯一标识一条请求。          支持英文字符，数字和中文，长度不限制。 |
+| requestId | string | 否 | 否 | 请求ID。唯一标识一条请求。 支持英文字符，数字和中文，长度不限制。 |
 
 
-### on('start')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'start', callback: Callback<string>): void
+
+##### on('start')
+
+on(type: 'start', callback: Callback&lt;string&gt;): void
 
 音色下载开始时，触发此接口，接收下载开始信息。
 
@@ -1396,21 +1349,19 @@ on(type: 'start', callback: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“start”。监听音色下载开始事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;string&gt; | 是 | callback回调，接收下载开始信息。 |
+| callback | Callback&lt;string&gt; | 是 | callback回调，接收下载开始信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 定义函数
 let startCallback: Callback<string> = (info: string) => {
   // 开始下载回调
-  console.info(`download voice start, info:${info}}`);
+  console.info(`download voice start, info:${info}`);
 };
 // downloadResponse由接口textToSpeech.downloadVoice中获取
 // 注册下载开始事件回调
@@ -1420,10 +1371,10 @@ downloadResponse.off('start', startCallback);
 ```
 
 
-### on('progress')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'progress', callback: Callback<string>): void
+##### on('progress')
+
+on(type: 'progress', callback: Callback&lt;string&gt;): void
 
 音色下载过程中，触发此接口，接收下载进度信息。
 
@@ -1435,17 +1386,15 @@ on(type: 'progress', callback: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“progress”。监听音色下载进度事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;string&gt; | 是 | callback回调，接收下载进度信息。 |
+| callback | Callback&lt;string&gt; | 是 | callback回调，接收下载进度信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 定义函数
 let progressCallback: Callback<string> = (schedule: string) => {
   // 下载进度回调
@@ -1459,10 +1408,10 @@ downloadResponse.off('progress', progressCallback);
 ```
 
 
-### on('complete')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'complete', callback: Callback<VoiceInfo>): void
+##### on('complete')
+
+on(type: 'complete', callback: Callback&lt;VoiceInfo&gt;): void
 
 音色下载完成时，触发此接口，接收下载完成音色信息。
 
@@ -1474,26 +1423,20 @@ on(type: 'complete', callback: Callback<VoiceInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“complete”。监听音色下载完成事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;[VoiceInfo](#voiceinfo)&gt; | 是 | callback回调，接收下载完成的音色信息。 |
+| callback | Callback&lt;VoiceInfo&gt; | 是 | callback回调，接收下载完成的音色信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 // 定义函数
-let completeCallback: Callback<textToSpeech.VoiceInfo> = (
-  voiceInfo: textToSpeech.VoiceInfo,
-) => {
+let completeCallback: Callback<textToSpeech.VoiceInfo> = (voiceInfo: textToSpeech.VoiceInfo) => {
   // 下载完成回调
-  console.info(
-    `download voice complete, voiceInfo: ${JSON.stringify(voiceInfo)}`,
-  );
+  console.info(`download voice complete, voiceInfo: ${JSON.stringify(voiceInfo)}`);
 };
 // downloadResponse由接口textToSpeech.downloadVoice中获取
 // 注册下载完成事件回调
@@ -1503,10 +1446,10 @@ downloadResponse.off('complete', completeCallback);
 ```
 
 
-### on('cancel')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'cancel', callback: Callback<string>): void
+##### on('cancel')
+
+on(type: 'cancel', callback: Callback&lt;string&gt;): void
 
 用户点击进度框上关闭按钮，取消下载时，触发此接口，接收取消下载信息。
 
@@ -1518,20 +1461,19 @@ on(type: 'cancel', callback: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“cancel”。监听用户取消音色下载事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;string&gt; | 是 | callback回调，接收用户取消下载信息。 |
+| callback | Callback&lt;string&gt; | 是 | callback回调，接收用户取消下载信息。 |
 
 
 > [!NOTE]
 > 点击下载同意弹窗上的“取消”按钮不会触发此回调。
 
+
 **示例：**
 
-
-```ts
+```text
 // 定义函数
 let cancelCallback: Callback<string> = (cancelInfo: string) => {
   // 用户取消下载回调
@@ -1545,10 +1487,10 @@ downloadResponse.off('cancel', cancelCallback);
 ```
 
 
-### on('error')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-on(type: 'error', callback: ErrorCallback<BusinessError>): void
+##### on('error')
+
+on(type: 'error', callback: ErrorCallback&lt;BusinessError&gt;): void
 
 音色下载错误时，触发此接口，接收下载错误信息。
 
@@ -1560,24 +1502,20 @@ on(type: 'error', callback: ErrorCallback<BusinessError>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“error”。监听音色下载出错事件。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback)&lt;[BusinessError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)&gt; | 是 | callback回调，接收下载错误信息。 |
+| callback | ErrorCallback&lt;BusinessError&gt; | 是 | callback回调，接收下载错误信息。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError, ErrorCallback } from '@kit.BasicServicesKit';
 // 定义函数
 let errorCallback: ErrorCallback<BusinessError> = (err: BusinessError) => {
   // 下载过程错误回调
-  console.error(
-    `download voice error, errorCode: ${err.code} errorMessage: ${err.message}`,
-  );
+  console.error(`download voice error, errorCode: ${err.code} errorMessage: ${err.message}`);
 };
 // downloadResponse由接口textToSpeech.downloadVoice中获取
 // 注册下载过程出错事件回调
@@ -1587,10 +1525,10 @@ downloadResponse.off('error', errorCallback);
 ```
 
 
-### off('start')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'start', callback?: Callback<string>): void
+##### off('start')
+
+off(type: 'start', callback?: Callback&lt;string&gt;): void
 
 取消监听音色下载开始事件。
 
@@ -1602,21 +1540,19 @@ off(type: 'start', callback?: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“start”。取消监听下载开始事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;string&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
+| callback | Callback&lt;string&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 定义函数
 let startCallback: Callback<string> = (info: string) => {
   // 开始下载回调
-  console.info(`download voice start, info:${info}}`);
+  console.info(`download voice start, info:${info}`);
 };
 // downloadResponse由接口textToSpeech.downloadVoice中获取
 // 注册下载开始事件回调
@@ -1626,10 +1562,10 @@ downloadResponse.off('start', startCallback);
 ```
 
 
-### off('progress')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'progress', callback?: Callback<string>): void
+##### off('progress')
+
+off(type: 'progress', callback?: Callback&lt;string&gt;): void
 
 取消监听音色下载过程事件。
 
@@ -1641,17 +1577,15 @@ off(type: 'progress', callback?: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“progress”。取消监听下载过程事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;string&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
+| callback | Callback&lt;string&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 定义函数
 let progressCallback: Callback<string> = (schedule: string) => {
   // 下载进度回调
@@ -1665,10 +1599,10 @@ downloadResponse.off('progress', progressCallback);
 ```
 
 
-### off('complete')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'complete', callback?: Callback<VoiceInfo>): void
+##### off('complete')
+
+off(type: 'complete', callback?: Callback&lt;VoiceInfo&gt;): void
 
 取消监听音色下载完成事件。
 
@@ -1680,26 +1614,20 @@ off(type: 'complete', callback?: Callback<VoiceInfo>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“complete”。取消监听下载完成事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;[VoiceInfo](#voiceinfo)&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
+| callback | Callback&lt;VoiceInfo&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { textToSpeech } from '@kit.CoreSpeechKit';
 // 定义函数
-let completeCallback: Callback<textToSpeech.VoiceInfo> = (
-  voiceInfo: textToSpeech.VoiceInfo,
-) => {
+let completeCallback: Callback<textToSpeech.VoiceInfo> = (voiceInfo: textToSpeech.VoiceInfo) => {
   // 下载完成回调
-  console.info(
-    `download voice complete, voiceInfo: ${JSON.stringify(voiceInfo)}`,
-  );
+  console.info(`download voice complete, voiceInfo: ${JSON.stringify(voiceInfo)}`);
 };
 // downloadResponse由接口textToSpeech.downloadVoice中获取
 // 注册下载完成事件回调
@@ -1709,14 +1637,14 @@ downloadResponse.off('complete', completeCallback);
 ```
 
 
-### off('cancel')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'cancel', callback?: Callback<string>): void
+##### off('cancel')
+
+off(type: 'cancel', callback?: Callback&lt;string&gt;): void
 
 取消监听音色下载取消事件。
 
-**元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用���
+**元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
@@ -1724,17 +1652,15 @@ off(type: 'cancel', callback?: Callback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“cancel”。取消监听下载取消事件。 |
-| callback | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;string&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
+| callback | Callback&lt;string&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 // 定义函数
 let cancelCallback: Callback<string> = (cancelInfo: string) => {
   // 用户取消下载回调
@@ -1748,10 +1674,10 @@ downloadResponse.off('cancel', cancelCallback);
 ```
 
 
-### off('error')
-**支持设备：** Phone / PC/2in1 / Tablet
 
-off(type: 'error', callback?: ErrorCallback<BusinessError>): void
+##### off('error')
+
+off(type: 'error', callback?: ErrorCallback&lt;BusinessError&gt;): void
 
 取消监听音色下载错误事件。
 
@@ -1763,24 +1689,20 @@ off(type: 'error', callback?: ErrorCallback<BusinessError>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定字符串“error”。取消监听下载错误事件。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback)&lt;[BusinessError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
+| callback | ErrorCallback&lt;BusinessError&gt; | 否 | 需要取消注册的回调函数，需与监听时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError, ErrorCallback } from '@kit.BasicServicesKit';
 // 定义函数
 let errorCallback: ErrorCallback<BusinessError> = (err: BusinessError) => {
   // 下载过程错误回调
-  console.error(
-    `download voice error, errorCode: ${err.code} errorMessage: ${err.message}`,
-  );
+  console.error(`download voice error, errorCode: ${err.code} errorMessage: ${err.message}`);
 };
 // downloadResponse由接口textToSpeech.downloadVoice中获取
 // 注册下载过程出错事件回调
@@ -1790,8 +1712,8 @@ downloadResponse.off('error', errorCallback);
 ```
 
 
-## SpeakParams
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### SpeakParams
 
 合成播报音频流的相关参数，用于配置语速、音量、音调、合成类型等。
 
@@ -1801,17 +1723,15 @@ downloadResponse.off('error', errorCallback);
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| requestId | string | 否 | 否 | 合成播报ID，全局不允许重复。          此字段用于区分不同请求，长度不限制。 |
-| extraParams | Record&lt;string, Object&gt; | 否 | 是 | - &lt;'speed', number&gt; 语速。          可选，支持范围[0.5-2]，不传参时默认为1，使用一倍语速合成音频流。          - &lt;'volume', number&gt; 音量。          可选，支持范围[0-2]，不传参时默认为1，使用一倍音量合成音频流。          - &lt;'pitch', number&gt; 音调。          可选，支持范围[0.5-2]，不传参时默认为1，使用正常音调合成音频流。          - &lt;'languageContext', string&gt; 语境，播放阿拉伯数字用的语种。          可选，当前支持“zh-CN”中文与“en-US”英文，不传参时默认“zh-CN”。          - &lt;'audioType', string&gt; 音频类型。          可选，当前仅支持“pcm”，不传参时默认为“pcm”（PCM 即脉冲编码调制 (Pulse Code Modulation)）。          - &lt;'playType', number&gt; 合成类型。          可选，不传参时默认为1。          0：仅合成不播报，返回音频流。          1：合成与播报不返回音频流。          - &lt;'soundChannel', number&gt; 播报通道。          可选，参数范围请参考[音频流使用](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage)来选择适合自己的音频场景，范围之外会播报异常。          不传参时默认为3，语音助手通道。          说明：          如果使用了通道1或12，设备息屏场景下，会出现播报截断的问题，原因是进入了音频的[低功耗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/power-saving-for-playback)。          - &lt;'queueMode', number&gt; 播报模式。          可选，不传参时默认为0。          0：排队模式播报。          1：抢占模式播报。 |
+| requestId | string | 否 | 否 | 合成播报ID，全局不允许重复。 此字段用于区分不同请求，长度不限制。 |
+| extraParams | Record<string, Object> | 否 | 是 | - <'speed', number> 语速。 可选，支持范围[0.5-2]，不传参时默认为1，使用一倍语速合成音频流。 - <'volume', number> 音量。 可选，支持范围[0-2]，不传参时默认为1，使用一倍音量合成音频流。 - <'pitch', number> 音调。 可选，支持范围[0.5-2]，不传参时默认为1，使用正常音调合成音频流。 - <'languageContext', string> 语境，播放阿拉伯数字用的语种。 可选，当前支持“zh-CN”中文与“en-US”英文，不传参时默认“zh-CN”。 - <'audioType', string> 音频类型。 可选，当前仅支持“pcm”，不传参时默认为“pcm”（PCM 即脉冲编码调制 (Pulse Code Modulation)）。 - <'playType', number> 合成类型。 可选，不传参时默认为1。 0：仅合成不播报，返回音频流。 1：合成与播报不返回音频流。 - <'soundChannel', number> 播报通道。 可选，参数范围请参考音频流使用来选择适合自己的音频场景，范围之外会播报异常。 不传参时默认为3，语音助手通道。 说明： 如果使用了通道1或12，设备息屏场景下，会出现播报截断的问题，原因是进入了音频的低功耗模式。 - <'queueMode', number> 播报模式。 可选，不传参时默认为0。 0：排队模式播报。 1：抢占模式播报。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 
 // 设置播报相关参数
@@ -1841,8 +1761,8 @@ struct Page {
 ```
 
 
-## VoiceInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### VoiceInfo
 
 返回查询的相关参数。
 
@@ -1852,19 +1772,19 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| language | string | 否 | 否 | 支持的语种信息。当前支持中文、英文。          中文推荐使用“zh-CN”格式，兼容“zh_CN”格式。          英文推荐使用“en-US”格式，兼容“en_US”格式。 |
-| person | number | 否 | 否 | 支持的音色信息。          中文：13为聆小珊女声音色（推荐使用13，同时支持0）；21为凌飞哲男声音色（需下载）。          英文：8为英语（美国）劳拉女声音色（需下载）。 |
-| style | string | 否 | 否 | 风格。          - interaction-broadcast：普通话播报。 |
-| gender | string | 否 | 否 | 性别。          - Male：男性。          - Female：女性。 |
+| language | string | 否 | 否 | 支持的语种信息。当前支持中文、英文。 中文推荐使用“zh-CN”格式，兼容“zh_CN”格式。 英文推荐使用“en-US”格式，兼容“en_US”格式。 |
+| person | number | 否 | 否 | 支持的音色信息。 中文：13为聆小珊女声音色（推荐使用13，同时支持0）；21为凌飞哲男声音色（需下载）。 英文：8为英语（美国）劳拉女声音色（需下载）。 |
+| style | string | 否 | 否 | 风格。 - interaction-broadcast：普通话播报。 |
+| gender | string | 否 | 否 | 性别。 - Male：男性。 - Female：女性。 |
 | description | string | 否 | 否 | 语音的描述，角色属性、支持的情感等说明。 |
-| status | string | 否 | 是 | 音色模型状态。          - 'GA'：音色可下载。          - 'INSTALLED'：音色已下载。          - 'EOM'：音色不可用。          起始版本： 5.1.1(19) |
+| status | string | 否 | 是 | 音色模型状态。 - 'GA'：音色可下载。 - 'INSTALLED'：音色已下载。 - 'EOM'：音色不可用。 起始版本： 5.1.1(19) |
 
 
-## StartResponse
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### StartResponse
 
 返回播放的相关参数。
 
@@ -1873,7 +1793,6 @@ struct Page {
 **系统能力：** SystemCapability.AI.TextToSpeech
 
 **起始版本：** 4.1.0(11)
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1884,8 +1803,9 @@ struct Page {
 | compressRate | number | 否 | 否 | pcm格式默认为0（PCM 即脉冲编码调制（Pulse Code Modulation））。 |
 
 
-## StopResponse
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### StopResponse
 
 返回停止播报时的相关参数。
 
@@ -1895,15 +1815,15 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | number | 否 | 否 | 代表结束的类型。          0：同时结束合成和播报。          1：只结束播报。 |
-| message | string | 否 | 否 | 返回信息说明。          字符长度范围[0, 30]。 |
+| type | number | 否 | 否 | 代表结束的类型。 0：同时结束合成和播报。 1：只结束播报。 |
+| message | string | 否 | 否 | 返回信息说明。 字符长度范围[0, 30]。 |
 
 
-## CompleteResponse
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CompleteResponse
 
 返回完成播报时的相关参数。
 
@@ -1913,15 +1833,15 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | number | 否 | 否 | 代表合成或播报结束。          0：合成结束。          1：播报结束。 |
-| message | string | 否 | 否 | 返回信息说明。          字符长度范围[0, 30]。 |
+| type | number | 否 | 否 | 代表合成或播报结束。 0：合成结束。 1：播报结束。 |
+| message | string | 否 | 否 | 返回信息说明。 字符长度范围[0, 30]。 |
 
 
-## SynthesisResponse
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### SynthesisResponse
 
 返回的音频流相关信息。
 
@@ -1931,8 +1851,7 @@ struct Page {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| sequence | number | 否 | 否 | 代表返回的音频数据的次序。          从0开始，每次加1。          取值范围[0, 100000]。 |
+| sequence | number | 否 | 否 | 代表返回的音频数据的次序。 从0开始，每次加1。 取值范围[0, 100000]。 |
 | audioType | string | 否 | 否 | 返回的音频数据类型，当前仅支持‘pcm’类型（PCM 即脉冲编码调制 (Pulse Code Modulation)）。 |

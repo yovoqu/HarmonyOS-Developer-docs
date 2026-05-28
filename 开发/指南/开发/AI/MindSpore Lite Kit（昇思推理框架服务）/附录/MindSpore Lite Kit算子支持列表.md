@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-supported-operators
 
 本文档介绍了MindSpore Lite Kit与ONNX Opset18相比所支持的CPU后端算子列表以及对应关系。在使用模型转换工具将ONNX模型转换为ms模型进行部署时，通过查询此表可以知道MindSpore Lite Kit所支持的常用ONNX算子，以确保模型转换成功。
-
-
+ 
 > [!NOTE]
 > 以下所有算子，均不支持int64类型输入。
 
-
+  
 | MindSpore Lite算子名称 | 算子功能 | 对应ONNX算子名称 | 算子规格 |
 | --- | --- | --- | --- |
 | Abs | 逐元素计算绝对值 | Abs | 不支持uint8类型。不支持输入张量量化参数为空。 |

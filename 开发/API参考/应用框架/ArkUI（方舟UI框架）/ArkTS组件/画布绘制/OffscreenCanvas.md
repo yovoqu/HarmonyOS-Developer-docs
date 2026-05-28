@@ -3,22 +3,33 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-offscreencanvas
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 OffscreenCanvas组件用于绘制自定义图形。
+
 使用[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)组件或[CanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d)对象时，渲染、动画和用户交互通常发生在应用程序的主线程上，与画布动画和渲染相关的计算可能会影响应用程序性能。OffscreenCanvas提供了一个可以在屏幕外渲染的画布，这样可以在单独的线程中运行一些任务，从而避免影响应用程序主线程性能。
 
-> [!NOTE] 说明
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 OffscreenCanvas无法在ServiceExtensionAbility中使用，ServiceExtensionAbility中建议使用绘制模块进行离屏绘制。
+> [!NOTE]
+> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 OffscreenCanvas无法在ServiceExtensionAbility中使用，ServiceExtensionAbility中建议使用 绘制模块 进行离屏绘制。
 
-#### 子组件
+
+
+##### 子组件
+
 不支持。
 
-#### 构造函数
-#### constructor
+
+
+##### 构造函数
+
+
+
+##### constructor
+
 constructor(width: number, height: number)
+
 构造用于创建离屏画布对象的OffscreenCanvas。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -32,9 +43,15 @@ constructor(width: number, height: number)
 | width | number | 是 | OffscreenCanvas组件的宽度。 异常值NaN和Infinity按无效值处理。 默认单位为vp。 |
 | height | number | 是 | OffscreenCanvas组件的高度。 异常值NaN和Infinity按无效值处理。 默认单位为vp。 |
 
-#### constructor12+
+
+
+
+##### constructor12+
+
 constructor(width: number, height: number, unit: LengthMetricsUnit)
+
 构造用于创建离屏画布对象的OffscreenCanvas，支持配置OffscreenCanvas的单位模式。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -47,14 +64,19 @@ constructor(width: number, height: number, unit: LengthMetricsUnit)
 | --- | --- | --- | --- |
 | width | number | 是 | OffscreenCanvas组件的宽度。 异常值NaN和Infinity按无效值处理。 默认单位为vp。 |
 | height | number | 是 | OffscreenCanvas组件的高度。 异常值NaN和Infinity按无效值处理。 默认单位为vp。 |
-| unit | [LengthMetricsUnit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics#lengthmetricsunit12) | 是 | 用来配置OffscreenCanvas对象的单位模式，配置后无法动态更改，配置方法同CanvasRenderingContext2D。 异常值NaN和Infinity按默认值处理。 默认值：DEFAULT |
+| unit | LengthMetricsUnit | 是 | 用来配置OffscreenCanvas对象的单位模式，配置后无法动态更改，配置方法同CanvasRenderingContext2D。 异常值NaN和Infinity按默认值处理。 默认值：DEFAULT |
 
-#### 属性
+
+
+
+##### 属性
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
 OffscreenCanvas支持以下属性：
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -62,9 +84,12 @@ OffscreenCanvas支持以下属性：
 | width | number | 否 | 否 | OffscreenCanvas组件的宽度。 默认单位为vp。 |
 | height | number | 否 | 否 | OffscreenCanvas组件的高度。 默认单位为vp。 |
 
-#### width
 
-```ts
+
+
+##### width
+
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -96,11 +121,15 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](assets/OffscreenCanvas/file-20260525091331199-001.png)
 
-#### height
+![](assets/OffscreenCanvas/file-20260514164110672-1.png)
 
-```ts
+
+
+
+##### height
+
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -132,12 +161,22 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](assets/OffscreenCanvas/file-20260525091331200-002.png)
 
-#### 方法
-#### transferToImageBitmap
+![](assets/OffscreenCanvas/file-20260514164110672-2.png)
+
+
+
+
+##### 方法
+
+
+
+##### transferToImageBitmap
+
 transferToImageBitmap(): ImageBitmap
+
 从OffscreenCanvas组件中最近渲染的图像创建一个ImageBitmap对象。
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -148,11 +187,12 @@ transferToImageBitmap(): ImageBitmap
 
 | 类型 | 说明 |
 | --- | --- |
-| [ImageBitmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagebitmap) | 创建的ImageBitmap对象。 |
+| ImageBitmap | 创建的ImageBitmap对象。 |
+
 
 **示例：**
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -186,11 +226,18 @@ struct OffscreenCanvasPage {
 }
 ```
 
-![](assets/OffscreenCanvas/file-20260525091331200-003.png)
 
-#### getContext10+
+![](assets/OffscreenCanvas/file-20260514164110672-3.png)
+
+
+
+
+##### getContext10+
+
 getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D
+
 返回OffscreenCanvas组件的绘图上下文。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -200,17 +247,19 @@ getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanv
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | contextType | string | 是 | OffscreenCanvas组件绘图上下文的类型，当前仅支持"2d"类型。 "2d"：创建一个表示二维渲染上下文的OffscreenCanvasRenderingContext2D对象。 异常值undefined和null按无效值处理，当前接口返回undefined。 |
-| options | [RenderingContextSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#renderingcontextsettings) | 否 | 用来配置OffscreenCanvasRenderingContext2D对象的参数，见RenderingContextSettings。 异常值undefined和null按RenderingContextSettings的默认值处理。 默认值：null |
+| options | RenderingContextSettings | 否 | 用来配置OffscreenCanvasRenderingContext2D对象的参数，见RenderingContextSettings。 异常值undefined和null按RenderingContextSettings的默认值处理。 默认值：null |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [OffscreenCanvasRenderingContext2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-offscreencanvasrenderingcontext2d) | OffscreenCanvas组件的绘图上下文。如果getContext方法的入参contextType为"2d"以外类型（包括null或者undefined），返回undefined，使用前应判断返回值是否为undefined。 |
+| OffscreenCanvasRenderingContext2D | OffscreenCanvas组件的绘图上下文。如果getContext方法的入参contextType为"2d"以外类型（包括null或者undefined），返回undefined，使用前应判断返回值是否为undefined。 |
+
 
 **示例：**
 
-```ts
+```text
 @Entry
 @Component
 struct OffscreenCanvasExamplePage {
@@ -257,17 +306,23 @@ struct OffscreenCanvasExamplePage {
 }
 ```
 
-![](assets/OffscreenCanvas/file-20260525091331200-004.png)
 
-#### OffscreenCanvas支持并发线程绘制
+![](assets/OffscreenCanvas/file-20260514164110672-4.png)
+
+
+
+
+##### OffscreenCanvas支持并发线程绘制
+
 从API version 11开始，当应用创建[Worker线程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)，支持使用postMessage将OffscreenCanvas实例传到Worker中进行绘制，并使用onmessage接收Worker线程发送的绘制结果进行显示。
 
-> [!NOTE] 说明
+> [!NOTE]
 > OffscreenCanvas对象使用getContext获取绘图上下文后，不允许通过postMessage传该对象给其他线程，否则抛出异常。 已经通过postMessage传OffscreenCanvas对象到某一线程，声明该对象的线程不允许该对象使用getContext和transferToImageBitmap方法，否则抛出异常。 已经通过postMessage传OffscreenCanvas对象到某一线程，不允许再将该对象通过postMessage传给其他线程，否则抛出异常。 DevEco Studio的预览器不支持显示在Worker线程中绘制的内容。
+
 
 **示例：**
 
-```ts
+```ArkTS
 import { worker } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
@@ -324,7 +379,7 @@ struct OffscreenCanvasExamplePage {
 
 Worker线程在onmessage中接收到主线程postMessage发送的OffscreenCanvas，并进行绘制。
 
-```ts
+```ArkTS
 // entry/src/main/ets/workers/Worker.ets
 import { MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { image } from '@kit.ImageKit';
@@ -362,4 +417,5 @@ workerPort.onmessage = (e: MessageEvents) => {
 }
 ```
 
-![](assets/OffscreenCanvas/file-20260525091331200-005.png)
+
+![](assets/OffscreenCanvas/file-20260525091331200-002.png)

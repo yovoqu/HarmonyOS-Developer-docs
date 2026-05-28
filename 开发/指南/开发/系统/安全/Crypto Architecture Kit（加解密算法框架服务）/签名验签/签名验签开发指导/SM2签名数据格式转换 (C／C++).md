@@ -1,6 +1,6 @@
 # SM2签名数据格式转换 (C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm2-sign-data-format-conversion-ndk
 
@@ -9,9 +9,12 @@
 开发者可指定SM2密文的参数，将其转换成DER格式密文。反之，也可以从DER格式密文中提取出SM2的具体密文参数。
 
 **指定密文参数，转换为DER格式**
+1. 调用[OH_CryptoEccSignatureSpec_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoeccsignaturespec_create)，创建[OH_CryptoEccSignatureSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptosignatureapi-oh-cryptoeccsignaturespec)对象，用于设置SM2密文参数。
+2. 调用[OH_CryptoEccSignatureSpec_SetRAndS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoeccsignaturespec_setrands)，将R、S设置到OH_CryptoEccSignatureSpec对象中。
+3. 调用[OH_CryptoEccSignatureSpec_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoeccsignaturespec_encode)得到转换后的DER格式的密文。
+4. 调用[OH_CryptoEccSignatureSpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoeccsignaturespec_destroy)释放对象。
 
-
-```text
+```cpp
 #include "CryptoArchitectureKit/crypto_common.h"
 #include "CryptoArchitectureKit/crypto_asym_key.h"
 #include "CryptoArchitectureKit/crypto_signature.h"
@@ -60,9 +63,11 @@ OH_Crypto_ErrCode DoTestSm2RStoDER()
 ```
 
 **指定DER格式，转换为r、s格式**
+1. 调用[OH_CryptoEccSignatureSpec_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoeccsignaturespec_create)传入签名数据，创建[OH_CryptoEccSignatureSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptosignatureapi-oh-cryptoeccsignaturespec)对象，用于获取转换后的数据。
+2. 调用[OH_CryptoEccSignatureSpec_GetRAndS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoeccsignaturespec_getrands)拿到转换后的数据r、s。
+3. 调用[OH_CryptoEccSignatureSpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoeccsignaturespec_destroy)释放内存。
 
-
-```text
+```cpp
 #include "CryptoArchitectureKit/crypto_common.h"
 #include "CryptoArchitectureKit/crypto_asym_key.h"
 #include "CryptoArchitectureKit/crypto_signature.h"
@@ -77,7 +82,7 @@ OH_Crypto_ErrCode DoTestSm2DerConvertRS()
         0x01, 0x18, 0xc5,
     };
     Crypto_DataBlob signBlob = {
-        .data = reinterpret_cast(signText),
+        .data = reinterpret_cast<uint8_t *>(signText),
         .len = sizeof(signText)};
 
     OH_CryptoEccSignatureSpec *eccSignSpec = nullptr;

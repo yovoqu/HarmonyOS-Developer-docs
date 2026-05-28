@@ -4,36 +4,44 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getlistlistint
 
-## 函数功能
+##### 函数功能
 
 获取ContinuousVectorVector *类型的属性值，即二维数组且每个元素类型为int。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 const ContinuousVectorVector *GetListListInt(const size_t index) const
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | index | 输入 | 属性在IR原型定义中的索引。 |
+ 
+ 
+  
 
+##### 返回值
 
-## 返回值
+指向属性值的指针。
+ 
+关于ContinuousVectorVector类型的定义，请参见[ContinuousVectorVector](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-continuousvectorvector-introduction)。
+ 
+  
 
-指向属性值的指针。 关于ContinuousVectorVector类型的定义，请参见[ContinuousVectorVector](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-continuousvectorvector-introduction)。
-
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 // 假设某算子的IR原型定义中，第一个属性的值是二维数组int类型

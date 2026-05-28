@@ -3,33 +3,37 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-markerclusterinfo
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable
+##### 导入模块
 
-#### 导入模块
-
-```ts
+```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
+ 
+  
 
-#### MarkerClusterInfo
+##### MarkerClusterInfo
+
 聚合图层的标记的信息。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.3(15)
-
-| **名称** | **类型** | 只读 | 可选 | **说明** |
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| marker | [Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker) | 否 | 否 | 聚合图层的标记。 |
-| clusterItems | Array<[mapCommon.ClusterItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#clusteritem)> | 否 | 否 | 聚合节点数组。 |
-
+| marker | Marker | 否 | 否 | 聚合图层的标记。 |
+| clusterItems | Array<mapCommon.ClusterItem> | 否 | 否 | 聚合节点数组。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let clusterItem1: mapCommon.ClusterItem = {
   position: {
     latitude: 31.984,

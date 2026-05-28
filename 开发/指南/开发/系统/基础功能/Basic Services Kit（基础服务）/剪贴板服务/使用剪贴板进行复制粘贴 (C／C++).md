@@ -1,24 +1,40 @@
 # 使用剪贴板进行复制粘贴 (C/C++)
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-use-pasteboard
 
-## 场景介绍
+##### 场景介绍
 
 剪贴板为开发者提供数据的复制粘贴能力。支持对纯文本、超文本、URI等内容的操作。
 
-## 基本概念
 
-[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)：剪贴板数据变更观察者对象，用以监听剪贴板数据变更事件。 [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)：剪贴板对象，用来进行查询、写入等操作。 [OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)：统一数据对象。
 
-## 约束限制
+##### 基本概念
 
-剪贴板内容包含剪贴板系统服务元数据和应用设置的数据，总大小上限默认为128MB，PC/2in1设备可通过系统配置修改上限，有效范围为1MB~2GB。 为保证剪贴板数据的准确性，同一时间只能支持一个复制操作。 当前支持的数据类型：纯文本类型(OH_UdsPlainText)、超文本标记语言类型(OH_UdsHtml)、文件Uri类型(OH_UdsFileUri)、像素图片类型(OH_UdsPixelMap)、超链接类型(OH_UdsHyperlink)、桌面图标类型(OH_UdsAppItem)、自定义类型。ArkTS接口与NDK接口支持数据类型不完全一致，使用时须匹配接口支持类型，详情见[ArkTS接口与NDK接口数据类型对应关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-pasteboard-to-copy-and-paste#arkts接口与ndk接口数据类型对应关系)。 自定义类型数据在复制粘贴时，指定的类型名称不能和已有的类型名称重复。 API version 12及之后，系统为提升用户隐私安全保护能力，剪贴板读取接口增加[权限管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/get-pastedata-permission-guidelines)。 API version 12中新增的复制、粘贴接口[setUnifiedData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard#setunifieddata12)/[getUnifiedData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard#getunifieddata12)与本文档中的复制、粘贴接口[OH_Pasteboard_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#oh_pasteboard_setdata)/[OH_Pasteboard_GetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#oh_pasteboard_getdata)当前相互独立，进行写入、读取操作时请使用对应配套接口。
+ - [**OH_PasteboardObserver**](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)：剪贴板数据变更观察者对象，用以监听剪贴板数据变更事件。
+ - [**OH_Pasteboard**](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)：剪贴板对象，用来进行查询、写入等操作。
+ - [**OH_UdmfData**](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)：统一数据对象。
 
-## 接口说明
+
+
+
+##### 约束限制
+
+ - 剪贴板内容包含剪贴板系统服务元数据和应用设置的数据，总大小上限默认为128MB，PC/2in1设备可通过系统配置修改上限，有效范围为1MB~2GB。
+ - 为保证剪贴板数据的准确性，同一时间只能支持一个复制操作。
+ - 当前支持的数据类型：纯文本类型(OH_UdsPlainText)、超文本标记语言类型(OH_UdsHtml)、文件Uri类型(OH_UdsFileUri)、像素图片类型(OH_UdsPixelMap)、超链接类型(OH_UdsHyperlink)、桌面图标类型(OH_UdsAppItem)、自定义类型。ArkTS接口与NDK接口支持数据类型不完全一致，使用时须匹配接口支持类型，详情见[ArkTS接口与NDK接口数据类型对应关系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-pasteboard-to-copy-and-paste#arkts接口与ndk接口数据类型对应关系)。
+ - 自定义类型数据在复制粘贴时，指定的类型名称不能和已有的类型名称重复。
+ - API version 12及之后，系统为提升用户隐私安全保护能力，剪贴板读取接口增加[权限管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/get-pastedata-permission-guidelines)。
+ - API version 12中新增的复制、粘贴接口[setUnifiedData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard#setunifieddata12)/[getUnifiedData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard#getunifieddata12)与本文档中的复制、粘贴接口[OH_Pasteboard_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#oh_pasteboard_setdata)/[OH_Pasteboard_GetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#oh_pasteboard_getdata)当前相互独立，进行写入、读取操作时请使用对应配套接口。
+
+
+
+
+##### 接口说明
 
 详细接口见[Pasteboard文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard)。
+
 | 接口名称 | 描述 |
 | --- | --- |
 | OH_PasteboardObserver* OH_PasteboardObserver_Create() | 创建一个剪贴板数据变更观察者对象。 |
@@ -39,27 +55,34 @@
 | void (*Pasteboard_Finalize)(void* context) | 剪贴板数据变更观察者对象销毁时，释放context上下文资源。 |
 
 
-## 开发步骤
 
-添加动态链接库。
+
+##### 开发步骤
+1. 添加动态链接库。
+
+  
 ```text
 # CMakeLists.txt中添加以下lib
 libudmf.so
 libpasteboard.so
 ```
 
-引用头文件。
-```text
-#include
-#include
-#include
-#include
-#include
-#include
+2. 引用头文件。
+
+  
+```cpp
+#include <cstdio>
+#include <cstring>
+#include <hilog/log.h>
+#include <database/pasteboard/oh_pasteboard.h>
+#include <database/udmf/udmf.h>
+#include <database/udmf/uds.h>
 ```
 
-定义剪贴板变化监听的回调函数。
-```text
+3. 定义剪贴板变化监听的回调函数。
+
+  
+```cpp
 // 定义剪贴板数据内容变更时的通知回调函数
 static void PasteboardNotifyImpl2(void* context, Pasteboard_NotifyType type)
 {
@@ -72,8 +95,10 @@ static void PasteboardFinalizeImpl2(void* context)
 }
 ```
 
-订阅剪贴板变化。
-```text
+4. 订阅剪贴板变化。
+
+  
+```cpp
 static void PasteboardTestObserver()
 {
     // 1. 创建一个剪贴板实例
@@ -87,8 +112,10 @@ static void PasteboardTestObserver()
 }
 ```
 
-向剪贴板写入数据。
-```text
+5. 向剪贴板写入数据。
+
+  
+```cpp
 static napi_value NAPI_Pasteboard_set(napi_env env, napi_callback_info info)
 {
     napi_value args[1];
@@ -126,8 +153,10 @@ static napi_value NAPI_Pasteboard_set(napi_env env, napi_callback_info info)
 }
 ```
 
-从剪贴板读取数据。
-```text
+6. 从剪贴板读取数据。
+
+  
+```cpp
 static napi_value NAPI_Pasteboard_get(napi_env env, napi_callback_info info)
 {
     // 1. 创建一个剪贴板实例

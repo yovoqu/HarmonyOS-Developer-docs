@@ -4,21 +4,26 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-pdfview-page2img
 
-## 场景介绍
+##### 场景介绍
 
 调用[getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#getpagepixelmap)方法，将指定PDF缩略图转化为图片。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [getPagePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfviewmanage#getpagepixelmap)(pageIndex: number, isSync?: boolean): Promise | 获取对应PDF页面的缩略图，使用Promise异步回调。 |
+| getPagePixelMap(pageIndex: number, isSync?: boolean): Promise<image.PixelMap> | 获取对应PDF页面的缩略图，使用Promise异步回调。 |
 
 
-## 示例代码
 
-调用loadDocument方法，加载PDF文档。 调用getPagePixelMap方法，获取image.PixelMap对象。 将image.PixelMap转化为二进制图片文件并保存。
+
+##### 示例代码
+1. 调用loadDocument方法，加载PDF文档。
+2. 调用getPagePixelMap方法，获取image.PixelMap对象。
+3. 将image.PixelMap转化为二进制图片文件并保存。
+
 ```text
 import { pdfService, pdfViewManager } from '@kit.PDFKit';
 import { image } from '@kit.ImageKit';
@@ -42,7 +47,7 @@ struct PdfPage {
   }
 
   // 将 pixelMap 转成图片格式
-  pixelMap2Buffer(pixelMap: image.PixelMap): Promise {
+  pixelMap2Buffer(pixelMap: image.PixelMap): Promise<ArrayBuffer> {
     return new Promise((resolve, reject) => {
       /**
        设置打包参数

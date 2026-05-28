@@ -3,25 +3,28 @@
 更新时间：2026-04-13 09:29:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-hyperlink
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 超链接组件，组件宽高范围内点击实现跳转。
 
+> [!NOTE]
+> 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅支持与系统浏览器配合使用。
 
-## 需要权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 需要权限
 
 跳转的目标应用使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 可以包含[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)子组件。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 Hyperlink(address: string | Resource, content?: string | Resource)
 
@@ -31,21 +34,21 @@ Hyperlink(address: string | Resource, content?: string | Resource)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| address | string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 是 | Hyperlink组件跳转的网页。 |
-| content | string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | Hyperlink组件中超链接显示文本。          默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值链接地址。          说明：          组件内有子组件时，不显示超链接文本。 |
+| address | string \| Resource | 是 | Hyperlink组件跳转的网页。 |
+| content | string \| Resource | 否 | Hyperlink组件中超链接显示文本。 默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值链接地址。 说明： 组件内有子组件时，不显示超链接文本。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### color
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### color
 
 color(value: Color | number | string | Resource)
 
@@ -57,19 +60,18 @@ color(value: Color | number | string | Resource)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Color](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#color) \| number \| string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 是 | 超链接文本的颜色。          phone默认值为'#ff007dff'，wearable设备默认值'#1F71FF'，tv设备默认值为'#266EFB'，均显示为蓝色。 |
+| value | Color \| number \| string \| Resource | 是 | 超链接文本的颜色。 phone默认值为'#ff007dff'，wearable设备默认值'#1F71FF'，tv设备默认值为'#266EFB'，均显示为蓝色。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 示例
 
 该示例展示了超链接图片和文本跳转的效果。
 
-
-```ts
+```text
 @Entry
 @Component
 struct HyperlinkExample {
@@ -79,8 +81,8 @@ struct HyperlinkExample {
         Hyperlink('https://example.com/') {
           // $r('app.media.bg')需要替换为开发者所需的图像资源文件。
           Image($r('app.media.bg'))
-          .width(200)
-          .height(100)
+            .width(200)
+            .height(100)
         }
       }
 
@@ -94,4 +96,5 @@ struct HyperlinkExample {
 }
 ```
 
-![](assets/Hyperlink/file-20260514164044203-0.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/TllbxEXuTLiArCbO6MmtFg/zh-cn_image_0000002581435952.png?HW-CC-KV=V1&HW-CC-Date=20260528T013932Z&HW-CC-Expire=86400&HW-CC-Sign=ACB3A020E36120BD8ACC72A6D09255C3BED0DD6C0D97840951EC7654D48242BA)

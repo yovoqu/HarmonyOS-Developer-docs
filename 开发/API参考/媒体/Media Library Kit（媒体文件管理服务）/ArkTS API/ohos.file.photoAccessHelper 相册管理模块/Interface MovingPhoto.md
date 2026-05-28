@@ -1,24 +1,26 @@
 # Interface (MovingPhoto)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-movingphoto
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 动态照片对象。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 12开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
 
 
-## getUri12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### getUri12+
 
 getUri(): string
 
@@ -30,7 +32,6 @@ getUri(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 动态照片的uri。 |
@@ -39,7 +40,6 @@ getUri(): string
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -51,8 +51,7 @@ getUri(): string
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<photoAccessHelper.MovingPhoto> {
@@ -61,29 +60,19 @@ class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<phot
       console.error('Error occurred when preparing data');
       return;
     }
-    console.info(
-      'moving photo acquired successfully, uri: ' + movingPhoto.getUri(),
-    );
+    console.info("moving photo acquired successfully, uri: " + movingPhoto.getUri());
   }
 }
 
-async function example(
-  phAccessHelper: photoAccessHelper.PhotoAccessHelper,
-  context: Context,
-) {
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
-  predicates.equalTo(
-    photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE,
-    photoAccessHelper.PhotoSubtype.MOVING_PHOTO,
-  );
+async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, context: Context) {
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
+  predicates.equalTo(photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE, photoAccessHelper.PhotoSubtype.MOVING_PHOTO);
   let fetchOptions: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   // 请确保图库内存在动态照片。
-  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOptions);
+  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOptions);
   let asset: photoAccessHelper.PhotoAsset = await assetResult.getFirstObject();
   if (asset === undefined) {
     console.error('asset is undefined');
@@ -91,32 +80,22 @@ async function example(
   }
   let requestOptions: photoAccessHelper.RequestOptions = {
     deliveryMode: photoAccessHelper.DeliveryMode.FAST_MODE,
-  };
+  }
   const handler = new MovingPhotoHandler();
   try {
-    let requestId: string =
-      await photoAccessHelper.MediaAssetManager.requestMovingPhoto(
-        context,
-        asset,
-        requestOptions,
-        handler,
-      );
-    console.info(
-      'moving photo requested successfully, requestId: ' + requestId,
-    );
+    let requestId: string = await photoAccessHelper.MediaAssetManager.requestMovingPhoto(context, asset, requestOptions, handler);
+    console.info("moving photo requested successfully, requestId: " + requestId);
   } catch (err) {
-    console.error(
-      `failed to request moving photo, error code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`failed to request moving photo, error code is ${err.code}, message is ${err.message}`);
   }
 }
 ```
 
 
-## requestContent12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-requestContent(imageFileUri: string, videoFileUri: string): Promise<void>
+##### requestContent12+
+
+requestContent(imageFileUri: string, videoFileUri: string): Promise&lt;void&gt;
 
 同时请求动态照片的图片内容和视频内容，并写入参数指定的对应的uri中。使用Promise异步回调。
 
@@ -126,12 +105,11 @@ requestContent(imageFileUri: string, videoFileUri: string): Promise<void>
 
 **需要权限**：ohos.permission.READ_IMAGEVIDEO
 
+ - 通过picker的方式调用该接口来请求动态照片对象并读取内容，不需要申请'ohos.permission.READ_IMAGEVIDEO'权限，详情请参考[开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-movingphoto)。
+ - 对于本应用保存到媒体库的动态照片资源，应用无需额外申请'ohos.permission.READ_IMAGEVIDEO'权限即可访问。
 
-- 通过picker的方式调用该接口来请求动态照片对象并读取内容，不需要申请'ohos.permission.READ_IMAGEVIDEO'权限，详情请参考[开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-movingphoto)。
-- 对于本应用保存到媒体库的动态照片资源，应用无需额外申请'ohos.permission.READ_IMAGEVIDEO'权限即可访问。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -141,7 +119,6 @@ requestContent(imageFileUri: string, videoFileUri: string): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -150,7 +127,6 @@ requestContent(imageFileUri: string, videoFileUri: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -163,8 +139,7 @@ requestContent(imageFileUri: string, videoFileUri: string): Promise<void>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<photoAccessHelper.MovingPhoto> {
@@ -174,38 +149,26 @@ class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<phot
       return;
     }
     // 应用需要确保待写入的uri是有效的。
-    let imageFileUri: string =
-      'file://com.example.temptest/data/storage/el2/base/haps/ImageFile.jpg';
-    let videoFileUri: string =
-      'file://com.example.temptest/data/storage/el2/base/haps/VideoFile.mp4';
+    let imageFileUri: string = "file://com.example.temptest/data/storage/el2/base/haps/ImageFile.jpg";
+    let videoFileUri: string = "file://com.example.temptest/data/storage/el2/base/haps/VideoFile.mp4";
     try {
       await movingPhoto.requestContent(imageFileUri, videoFileUri);
-      console.info('moving photo contents retrieved successfully');
+      console.info("moving photo contents retrieved successfully");
     } catch (err) {
-      console.error(
-        `failed to retrieve contents of moving photo, error code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`failed to retrieve contents of moving photo, error code is ${err.code}, message is ${err.message}`);
     }
   }
 }
 
-async function example(
-  phAccessHelper: photoAccessHelper.PhotoAccessHelper,
-  context: Context,
-) {
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
-  predicates.equalTo(
-    photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE,
-    photoAccessHelper.PhotoSubtype.MOVING_PHOTO,
-  );
+async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, context: Context) {
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
+  predicates.equalTo(photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE, photoAccessHelper.PhotoSubtype.MOVING_PHOTO);
   let fetchOptions: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   // 请确保图库内存在动态照片。
-  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOptions);
+  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOptions);
   if (assetResult === undefined) {
     console.error('assetResult is undefined');
     return;
@@ -217,32 +180,22 @@ async function example(
   }
   let requestOptions: photoAccessHelper.RequestOptions = {
     deliveryMode: photoAccessHelper.DeliveryMode.FAST_MODE,
-  };
+  }
   const handler = new MovingPhotoHandler();
   try {
-    let requestId: string =
-      await photoAccessHelper.MediaAssetManager.requestMovingPhoto(
-        context,
-        asset,
-        requestOptions,
-        handler,
-      );
-    console.info(
-      'moving photo requested successfully, requestId: ' + requestId,
-    );
+    let requestId: string = await photoAccessHelper.MediaAssetManager.requestMovingPhoto(context, asset, requestOptions, handler);
+    console.info("moving photo requested successfully, requestId: " + requestId);
   } catch (err) {
-    console.error(
-      `failed to request moving photo, error code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`failed to request moving photo, error code is ${err.code}, message is ${err.message}`);
   }
 }
 ```
 
 
-## requestContent12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-requestContent(resourceType: ResourceType, fileUri: string): Promise<void>
+##### requestContent12+
+
+requestContent(resourceType: ResourceType, fileUri: string): Promise&lt;void&gt;
 
 请求指定资源类型的动态照片内容，并写入参数指定的uri中。使用Promise异步回调。
 
@@ -252,21 +205,19 @@ requestContent(resourceType: ResourceType, fileUri: string): Promise<void>
 
 **需要权限**：ohos.permission.READ_IMAGEVIDEO
 
+ - 通过picker调用接口请求动态照片对象并读取内容，不需要申请'ohos.permission.READ_IMAGEVIDEO'权限，详情请参考[开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-movingphoto)。
+ - 对于本应用保存到媒体库的动态照片资源，应用无需额外申请'ohos.permission.READ_IMAGEVIDEO'权限即可访问。
 
-- 通过picker调用接口请求动态照片对象并读取内容，不需要申请'ohos.permission.READ_IMAGEVIDEO'权限，详情请参考[开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-movingphoto)。
-- 对于本应用保存到媒体��的动态照片资源，应用无需额外申请'ohos.permission.READ_IMAGEVIDEO'权限即可访问。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| resourceType | [ResourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#resourcetype11) | 是 | 所请求动态照片内容的资源类型。 |
+| resourceType | ResourceType | 是 | 所请求动态照片内容的资源类型。 |
 | fileUri | string | 是 | 待写入动态照片内容的uri。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -277,7 +228,6 @@ requestContent(resourceType: ResourceType, fileUri: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied |
@@ -289,8 +239,7 @@ requestContent(resourceType: ResourceType, fileUri: string): Promise<void>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<photoAccessHelper.MovingPhoto> {
@@ -300,39 +249,25 @@ class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<phot
       return;
     }
     // 应用需要确保待写入的uri是有效的。
-    let imageFileUri: string =
-      'file://com.example.temptest/data/storage/el2/base/haps/ImageFile.jpg';
+    let imageFileUri: string = "file://com.example.temptest/data/storage/el2/base/haps/ImageFile.jpg";
     try {
-      await movingPhoto.requestContent(
-        photoAccessHelper.ResourceType.IMAGE_RESOURCE,
-        imageFileUri,
-      );
-      console.info('moving photo image content retrieved successfully');
+      await movingPhoto.requestContent(photoAccessHelper.ResourceType.IMAGE_RESOURCE, imageFileUri);
+      console.info("moving photo image content retrieved successfully");
     } catch (err) {
-      console.error(
-        `failed to retrieve image content of moving photo, error code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`failed to retrieve image content of moving photo, error code is ${err.code}, message is ${err.message}`);
     }
   }
 }
 
-async function example(
-  phAccessHelper: photoAccessHelper.PhotoAccessHelper,
-  context: Context,
-) {
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
-  predicates.equalTo(
-    photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE,
-    photoAccessHelper.PhotoSubtype.MOVING_PHOTO,
-  );
+async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, context: Context) {
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
+  predicates.equalTo(photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE, photoAccessHelper.PhotoSubtype.MOVING_PHOTO);
   let fetchOptions: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   // 请确保图库内存在动态照片。
-  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOptions);
+  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOptions);
   let asset: photoAccessHelper.PhotoAsset = await assetResult.getFirstObject();
   if (asset === undefined) {
     console.error('asset is undefined');
@@ -340,32 +275,22 @@ async function example(
   }
   let requestOptions: photoAccessHelper.RequestOptions = {
     deliveryMode: photoAccessHelper.DeliveryMode.FAST_MODE,
-  };
+  }
   const handler = new MovingPhotoHandler();
   try {
-    let requestId: string =
-      await photoAccessHelper.MediaAssetManager.requestMovingPhoto(
-        context,
-        asset,
-        requestOptions,
-        handler,
-      );
-    console.info(
-      'moving photo requested successfully, requestId: ' + requestId,
-    );
+    let requestId: string = await photoAccessHelper.MediaAssetManager.requestMovingPhoto(context, asset, requestOptions, handler);
+    console.info("moving photo requested successfully, requestId: " + requestId);
   } catch (err) {
-    console.error(
-      `failed to request moving photo, error code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`failed to request moving photo, error code is ${err.code}, message is ${err.message}`);
   }
 }
 ```
 
 
-## requestContent12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-requestContent(resourceType: ResourceType): Promise<ArrayBuffer>
+##### requestContent12+
+
+requestContent(resourceType: ResourceType): Promise&lt;ArrayBuffer&gt;
 
 请求指定资源类型的动态照片内容，以ArrayBuffer的形式返回。使用Promise异步回调。
 
@@ -375,20 +300,18 @@ requestContent(resourceType: ResourceType): Promise<ArrayBuffer>
 
 **需要权限**：ohos.permission.READ_IMAGEVIDEO
 
+ - 使用picker调用该接口请求动态照片对象并读取内容时，不需要申请'ohos.permission.READ_IMAGEVIDEO'权限，详情请参考[开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-movingphoto)。
+ - 对于本应用保存到媒体库的动态照片资源，应用无需额外申请'ohos.permission.READ_IMAGEVIDEO'权限即可访问。
 
-- 使用picker调用该接口请求动态照片对象并读取内容时，不需要申请'ohos.permission.READ_IMAGEVIDEO'权限，详情请参考[开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-movingphoto)。
-- 对于本应用保存到媒体库的动态照片资源，应用无需额外申请'ohos.permission.READ_IMAGEVIDEO'权限即可访问。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| resourceType | [ResourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e#resourcetype11) | 是 | 所请求动态照片内容的资源类型。 |
+| resourceType | ResourceType | 是 | 所请求动态照片内容的资源类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -399,7 +322,6 @@ requestContent(resourceType: ResourceType): Promise<ArrayBuffer>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[文件管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied |
@@ -411,8 +333,7 @@ requestContent(resourceType: ResourceType): Promise<ArrayBuffer>
 
 phAccessHelper的创建请参考[photoAccessHelper.getPhotoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-f#photoaccesshelpergetphotoaccesshelper)的示例使用。
 
-
-```ts
+```text
 import { dataSharePredicates } from '@kit.ArkData';
 
 class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<photoAccessHelper.MovingPhoto> {
@@ -422,38 +343,23 @@ class MovingPhotoHandler implements photoAccessHelper.MediaAssetDataHandler<phot
       return;
     }
     try {
-      let buffer: ArrayBuffer = await movingPhoto.requestContent(
-        photoAccessHelper.ResourceType.IMAGE_RESOURCE,
-      );
-      console.info(
-        'moving photo image content retrieved successfully, buffer length: ' +
-          buffer.byteLength,
-      );
+      let buffer: ArrayBuffer = await movingPhoto.requestContent(photoAccessHelper.ResourceType.IMAGE_RESOURCE);
+      console.info("moving photo image content retrieved successfully, buffer length: " + buffer.byteLength);
     } catch (err) {
-      console.error(
-        `failed to retrieve image content of moving photo, error code is ${err.code}, message is ${err.message}`,
-      );
+      console.error(`failed to retrieve image content of moving photo, error code is ${err.code}, message is ${err.message}`);
     }
   }
 }
 
-async function example(
-  phAccessHelper: photoAccessHelper.PhotoAccessHelper,
-  context: Context,
-) {
-  let predicates: dataSharePredicates.DataSharePredicates =
-    new dataSharePredicates.DataSharePredicates();
-  predicates.equalTo(
-    photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE,
-    photoAccessHelper.PhotoSubtype.MOVING_PHOTO,
-  );
+async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, context: Context) {
+  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();
+  predicates.equalTo(photoAccessHelper.PhotoKeys.PHOTO_SUBTYPE, photoAccessHelper.PhotoSubtype.MOVING_PHOTO);
   let fetchOptions: photoAccessHelper.FetchOptions = {
     fetchColumns: [],
-    predicates: predicates,
+    predicates: predicates
   };
   // 请确保图库内存在动态照片。
-  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> =
-    await phAccessHelper.getAssets(fetchOptions);
+  let assetResult: photoAccessHelper.FetchResult<photoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOptions);
   let asset: photoAccessHelper.PhotoAsset = await assetResult.getFirstObject();
   if (asset === undefined) {
     console.error('asset is undefined');
@@ -461,23 +367,13 @@ async function example(
   }
   let requestOptions: photoAccessHelper.RequestOptions = {
     deliveryMode: photoAccessHelper.DeliveryMode.FAST_MODE,
-  };
+  }
   const handler = new MovingPhotoHandler();
   try {
-    let requestId: string =
-      await photoAccessHelper.MediaAssetManager.requestMovingPhoto(
-        context,
-        asset,
-        requestOptions,
-        handler,
-      );
-    console.info(
-      'moving photo requested successfully, requestId: ' + requestId,
-    );
+    let requestId: string = await photoAccessHelper.MediaAssetManager.requestMovingPhoto(context, asset, requestOptions, handler);
+    console.info("moving photo requested successfully, requestId: " + requestId);
   } catch (err) {
-    console.error(
-      `failed to request moving photo, error code is ${err.code}, message is ${err.message}`,
-    );
+    console.error(`failed to request moving photo, error code is ${err.code}, message is ${err.message}`);
   }
 }
 ```

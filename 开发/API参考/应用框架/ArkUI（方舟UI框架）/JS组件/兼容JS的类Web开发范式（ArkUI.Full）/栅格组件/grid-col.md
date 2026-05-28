@@ -3,33 +3,31 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-grid-col
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 5开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
+ 
 grid-col是栅格布局容器grid-row的子容器组件。
+  
 
-
-## 权限列表
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 权限列表
 
 无
+ 
+  
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 支持。
+ 
+  
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | xs | number \| object | - | 否 | 在分辨率为xs模式下，设置该项占用列数与偏移列数，当值为number类型时，仅设置列数，也可通过object同时设置占用列数与偏移列数。如 {"span": 1, "offset": 0} |
@@ -38,14 +36,14 @@ grid-col是栅格布局容器grid-row的子容器组件。
 | lg | number \| object | - | 否 | 在分辨率为lg模式下，该项占用列数与偏移列数，当值为number类型时，仅设置列数，也可通过object同时设置占用列数与偏移列数。如 {"span": 1, "offset": 0} |
 | span | number | 1 | 否 | 在未设置明确断点时，默认占用列数。 |
 | offset | number | 0 | 否 | 未设置具体分辨率模式下偏移时，当前元素沿容器布局方向，默认偏移的列数。 |
+ 
+ 
+  
 
-
-## 样式
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 样式
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | flex-direction | string | row | 否 | flex容器主轴方向。可选项有： - column：垂直方向从上到下 - row：水平方向从左到右 |
@@ -58,79 +56,78 @@ grid-col是栅格布局容器grid-row的子容器组件。
 | grid-[columns\|rows]-gap | &lt;length&gt; | 0 | 否 | 用于设置行与行的间距或者列与列的间距，也可以支持通过grid-gap设置相同的行列间距，仅当display为grid时生效。 |
 | grid-row-[start\|end] | number | - | 否 | 用于设置当前元素在网格布局中的起止行号，仅当父组件display样式为grid时生效（仅div支持display样式设置为grid）。 |
 | grid-column-[start\|end] | number | - | 否 | 用于设置当前元素在网格布局中的起止列号，仅当父组件display样式为grid时生效（仅div支持display样式设置为grid）。 |
-
-
+ 
+ 
 > [!NOTE]
 > 不支持宽度相关样式。
 
+ 
+  
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)。
+ 
+  
 
-
-## 方法
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 方法
 
 支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)。
+ 
+  
 
-
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 示例
 
 ```text
 <!-- index.hml -->
 <div class="container">
-<grid-container id="mygrid" columns="5" gutter="20px" style="background-color: pink;">
-<grid-row style="height:400px;justify-content:space-around;">
-<grid-col span="2">
-<div style="align-items: center;justify-content: center;height: 100%;width: 100%;">
-<text style="color: dodgerblue;" onclick="getCol">Element text</text>
-</div>
-</grid-col>
-<grid-col span="3" style="background-color:orange;">
-<div style="width: 100%;height: 100%;padding: 20px;align-items: center;">
-<text onclick="getColWidth">Element text</text>
-</div>
-</grid-col>
-</grid-row>
-</grid-container>
+  <grid-container id="mygrid" columns="5" gutter="20px" style="background-color: pink;">
+    <grid-row style="height:400px;justify-content:space-around;">
+      <grid-col span="2">
+        <div style="align-items: center;justify-content: center;height: 100%;width: 100%;">
+          <text style="color: dodgerblue;" onclick="getCol">Element text</text>
+        </div>
+      </grid-col>
+      <grid-col span="3" style="background-color:orange;">
+        <div style="width: 100%;height: 100%;padding: 20px;align-items: center;">
+          <text onclick="getColWidth">Element text</text>
+        </div>
+      </grid-col>
+    </grid-row>
+  </grid-container>
 </div>
 ```
-
-
+ 
 ```text
 /* index.css */
 .container {
-flex-direction: column;
-padding-top: 80px;
+  flex-direction: column;
+  padding-top: 80px;
 }
 ```
-
-
+ 
 ```text
 // index.js
 import promptAction from '@ohos.promptAction';
 export default {
-getCol(e) {
-this.$element('mygrid').getColumns(function (result) {
-promptAction.showToast({
-message: e.target.id + ' result = ' + result,
-duration: 3000,
-});
-})
-},
-getColWidth(e) {
-this.$element('mygrid').getColumnWidth(function (result) {
-promptAction.showToast({
-message: e.target.id + ' result = ' + result,
-duration: 3000,
-});
-})
-}
+  getCol(e) {
+    this.$element('mygrid').getColumns(function (result) {
+      promptAction.showToast({
+        message: e.target.id + ' result = ' + result,
+        duration: 3000,
+      });
+    })
+  },
+  getColWidth(e) {
+    this.$element('mygrid').getColumnWidth(function (result) {
+      promptAction.showToast({
+        message: e.target.id + ' result = ' + result,
+        duration: 3000,
+      });
+    })
+  }
 }
 ```
+ 
 
-![](assets/grid-col/file-20260514164236787-0.gif)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/3Ry3RdzNQHC_OIFus45IOg/zh-cn_image_0000002611756319.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013808Z&HW-CC-Expire=86400&HW-CC-Sign=162F5585768DA2F3692B33EAB2D5FCD25D7863DF22D5084D51C4F284EDB678BE)

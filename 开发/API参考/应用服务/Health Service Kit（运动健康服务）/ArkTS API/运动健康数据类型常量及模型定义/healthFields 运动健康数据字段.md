@@ -3,86 +3,83 @@
 更新时间：2026-04-30 09:02:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields
-**支持设备：** Phone / Tablet / Wearable
+**支持设备：** Phone | Tablet | Wearable
 
 本模块提供运动健康数据字段列表。
-
+ 
 **起始版本：** 5.0.0(12)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / Tablet / Wearable
-
-
-```ts
+```text
 import { healthStore } from '@kit.HealthServiceKit';
 ```
-
-
+ 
 > [!NOTE]
 > 此模块为healthStore子模块，需通过healthStore.healthFields方式使用。
 
+ 
+  
 
-## AdventuresDetail
-**支持设备：** Phone / Tablet / Wearable
+##### AdventuresDetail
 
 户外探险详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| markPoint | [MarkPoint](#markpoint)[] | 否 | 是 | 标记点采样详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| markPoint | MarkPoint[] | 否 | 是 | 标记点采样详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## AdventuresSummary
-**支持设备：** Phone / Tablet / Wearable
+##### AdventuresSummary
 
 户外探险统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 探险航点里程统计。 |
-| step | [StepSummary](#stepsummary) | 否 | 是 | 步数统计，若未填写，默认为空。 |
-| cadence | [CadenceSummary](#cadencesummary) | 否 | 是 | 步频统计，若未填写，默认为空。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| distance | DistanceSummary | 否 | 否 | 探险航点里程统计。 |
+| step | StepSummary | 否 | 是 | 步数统计，若未填写，默认为空。 |
+| cadence | CadenceSummary | 否 | 是 | 步频统计，若未填写，默认为空。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Altitude
-**支持设备：** Phone / Tablet / Wearable
+##### Altitude
 
 海拔详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | altitude | number | 否 | 否 | 海拔。 单位：米 |
+ 
+ 
+  
 
-
-## AltitudeSummary
-**支持设备：** Phone / Tablet / Wearable
+##### AltitudeSummary
 
 海拔统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | max | number | 否 | 否 | 最大值。 单位：米 |
@@ -90,35 +87,35 @@ import { healthStore } from '@kit.HealthServiceKit';
 | avg | number | 否 | 是 | 平均值，若未填写，默认为空。 单位：米 |
 | totalAscent | number | 否 | 是 | 累计爬升，若未填写，默认为空。 单位：米 取值范围：[0, ∞) |
 | totalDescent | number | 否 | 是 | 累计下降，若未填写，默认为空。 单位：米 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## BasketballDetail
-**支持设备：** Phone / Tablet / Wearable
+##### BasketballDetail
 
 篮球详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| jump | [Jump](#jump)[] | 否 | 是 | 跳跃详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| jump | Jump[] | 否 | 是 | 跳跃详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BasketballFeature
-**支持设备：** Phone / Tablet / Wearable
+##### BasketballFeature
 
 篮球特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | overallScore | number | 否 | 否 | 综合评分。 |
@@ -127,98 +124,98 @@ import { healthStore } from '@kit.HealthServiceKit';
 | runScore | number | 否 | 是 | 跑动得分，若未填写，默认为空。 |
 | breakthroughScore | number | 否 | 是 | 突破移动得分，若未填写，默认为空。 |
 | sportIntensityScore | number | 否 | 是 | 运动强度得分，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BasketballSummary
-**支持设备：** Phone / Tablet / Wearable
+##### BasketballSummary
 
 篮球统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| basketballFeature | [BasketballFeature](#basketballfeature) | 否 | 否 | 篮球特征数据。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| jump | [JumpSummary](#jumpsummary) | 否 | 否 | 跳跃统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| basketballFeature | BasketballFeature | 否 | 否 | 篮球特征数据。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| jump | JumpSummary | 否 | 否 | 跳跃统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BiathlonDetail
-**支持设备：** Phone / Tablet / Wearable
+##### BiathlonDetail
 
 冬季两项详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BiathlonSummary
-**支持设备：** Phone / Tablet / Wearable
+##### BiathlonSummary
 
 冬季两项统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BloodOxygenSaturation
-**支持设备：** Phone / Tablet / Wearable
+##### BloodOxygenSaturation
 
 血氧采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | spo2 | number | 否 | 否 | 血氧饱和度。 单位：百分比 取值范围：(0, 100]。 |
+ 
+ 
+  
 
-
-## BloodOxygenSaturationAggregation
-**支持设备：** Phone / Tablet / Wearable
+##### BloodOxygenSaturationAggregation
 
 血氧聚合统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| spo2 | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'sum' \| 'count'&gt; | 否 | 否 | 血氧饱和度聚合统计。 |
+| spo2 | Omit<AggregateMetrics, 'sum' \| 'count'> | 否 | 否 | 血氧饱和度聚合统计。 |
+ 
+ 
+  
 
-
-## BloodPressure
-**支持设备：** Phone / Tablet / Wearable
+##### BloodPressure
 
 血压采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bloodPressureSystolic | number | 否 | 否 | 收缩压，即高压。 单位：mmHg 取值范围： (0, ∞) |
@@ -226,250 +223,250 @@ import { healthStore } from '@kit.HealthServiceKit';
 | sphygmus | number | 否 | 是 | 脉搏，若未填写，默认为空。 单位：次/分钟 取值范围： (0, ∞) |
 | measurementAnomalyFlag | number | 否 | 是 | 测量异常事件，若未填写，默认为空。 取值范围： (0, ∞) 取值参考如下： 1：正常 2：测量时未和心脏平齐 3：测量时有轻微抖动 4：测量前没有至少5min休息 |
 | beforeMeasureActivity | number | 否 | 是 | 测量前活动，若未填写，默认为空。 取值范围： (0, ∞) 取值参考如下： 1：剧烈运动 2：吸烟 3：进食 4：饮酒 5：喝咖啡 6：无活动 7：起床后 8：睡前 100：自定义 |
+ 
+ 
+  
 
-
-## BodyTemperature
-**支持设备：** Phone / Tablet / Wearable
+##### BodyTemperature
 
 体温采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bodyTemperature | number | 否 | 否 | 体温。 单位：摄氏度 取值范围：[34, 42]。 |
+ 
+ 
+  
 
-
-## BodyTemperatureAggregation
-**支持设备：** Phone / Tablet / Wearable
+##### BodyTemperatureAggregation
 
 体温聚合统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| bodyTemperature | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'sum' \| 'last'&gt; | 否 | 否 | 体温聚合统计。 |
+| bodyTemperature | Omit<AggregateMetrics, 'sum' \| 'last'> | 否 | 否 | 体温聚合统计。 |
+ 
+ 
+  
 
-
-## BreathHoldingTestDetail
-**支持设备：** Phone / Tablet / Wearable
+##### BreathHoldingTestDetail
 
 闭气测试详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BreathHoldingTestFeature
-**支持设备：** Phone / Tablet / Wearable
+##### BreathHoldingTestFeature
 
 闭气测试特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | diaphragmTime | number | 否 | 否 | 横膈膜打点时间。 单位：秒 |
+ 
+ 
+  
 
-
-## BreathHoldingTestSummary
-**支持设备：** Phone / Tablet / Wearable
+##### BreathHoldingTestSummary
 
 闭气测试统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| breathHoldingTestFeature | [BreathHoldingTestFeature](#breathholdingtestfeature) | 否 | 否 | 闭气测试特征统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| breathHoldingTestFeature | BreathHoldingTestFeature | 否 | 否 | 闭气测试特征统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BreathHoldingTrainDetail
-**支持设备：** Phone / Tablet / Wearable
+##### BreathHoldingTrainDetail
 
 闭气训练详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## BreathHoldingTrainFeature
-**支持设备：** Phone / Tablet / Wearable
+##### BreathHoldingTrainFeature
 
 闭气训练特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | breathTime | number | 否 | 否 | 呼吸时间。 单位：秒 |
 | breathHoldingTime | number | 否 | 否 | 闭气时间。 单位：秒 |
 | breathHoldingTrainRhythm | number | 否 | 是 | 闭气训练节奏数，若未填写，默认为空。 单位：次 |
+ 
+ 
+  
 
-
-## BreathHoldingTrainSummary
-**支持设备：** Phone / Tablet / Wearable
+##### BreathHoldingTrainSummary
 
 闭气训练统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| breathHoldingTrainFeature | [BreathHoldingTrainFeature](#breathholdingtrainfeature) | 否 | 否 | 闭气训练特征统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| breathHoldingTrainFeature | BreathHoldingTrainFeature | 否 | 否 | 闭气训练特征统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Cadence
-**支持设备：** Phone / Tablet / Wearable
+##### Cadence
 
 步频详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | cadence | number | 否 | 否 | 步频。 单位：步数/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## CadenceSummary
-**支持设备：** Phone / Tablet / Wearable
+##### CadenceSummary
 
 步频统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：步数/分钟 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：步数/分钟 取值范围：[0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：步数/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## CalorieSummary
-**支持设备：** Phone / Tablet / Wearable
+##### CalorieSummary
 
 卡路里统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | totalCalories | number | 否 | 否 | 卡路里总和。 单位：卡 取值范围：(0, ∞) |
+ 
+ 
+  
 
-
-## CervicalMucus
-**支持设备：** Phone / Tablet / Wearable
+##### CervicalMucus
 
 私处分泌物采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | cervicalMucus | number | 否 | 否 | 私处分泌物。 取值参考如下： 0：未选中 1：干燥 2：粘稠 3：蛋清状 4：水状 5：乳液状 |
+ 
+ 
+  
 
-
-## CyclingDetail
-**支持设备：** Phone / Tablet / Wearable
+##### CyclingDetail
 
 骑行详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| pedalingCadence | [PedalingCadence](#pedalingcadence)[] | 否 | 是 | 踏频详情列表，若未填写，默认为空。 |
-| power | [Power](#power)[] | 否 | 是 | 功率详情列表，若未填写，默认为空。 |
-| location | [Location](#location)[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
-| resistance | [Resistance](#resistance)[] | 否 | 是 | 阻力详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| pedalingCadence | PedalingCadence[] | 否 | 是 | 踏频详情列表，若未填写，默认为空。 |
+| power | Power[] | 否 | 是 | 功率详情列表，若未填写，默认为空。 |
+| location | Location[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| resistance | Resistance[] | 否 | 是 | 阻力详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## CyclingSummary
-**支持设备：** Phone / Tablet / Wearable
+##### CyclingSummary
 
 骑行统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| speed | [SpeedSummary](#speedsummary) | 否 | 否 | 速度统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| resistance | [ResistanceSummary](#resistancesummary) | 否 | 是 | 阻力统计，若未填写，默认为空。 |
-| pedalingCadence | [PedalingCadenceSummary](#pedalingcadencesummary) | 否 | 是 | 踏频统计，若未填写，默认为空。 |
-| power | [PowerSummary](#powersummary) | 否 | 是 | 功率统计，若未填写，默认为空。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
-| location | [LocationSummary](#locationsummary) | 否 | 是 | 位置统计，若未填写，默认为空。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| speed | SpeedSummary | 否 | 否 | 速度统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| resistance | ResistanceSummary | 否 | 是 | 阻力统计，若未填写，默认为空。 |
+| pedalingCadence | PedalingCadenceSummary | 否 | 是 | 踏频统计，若未填写，默认为空。 |
+| power | PowerSummary | 否 | 是 | 功率统计，若未填写，默认为空。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| location | LocationSummary | 否 | 是 | 位置统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## DailyActivities
-**支持设备：** Phone / Tablet / Wearable
+##### DailyActivities
 
 日常活动采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | step | number | 否 | 否 | 步数。 单位：步 取值范围：[0, 500) |
@@ -480,102 +477,102 @@ import { healthStore } from '@kit.HealthServiceKit';
 | isIntensity | number | 否 | 是 | 是否中高强度，若未填写，默认为空。 取值范围： 0：否 1：是 |
 | climbHighAltitude | number | 否 | 是 | 爬高海拔差（支持正负），若未填写，默认为空。 单位：米 |
 | isStand | number | 否 | 是 | 是否站立（一个小时有活动记录，就标志这个小时的第一分钟为1），若未填写，默认为空。 取值范围： 0：否 1：是 |
+ 
+ 
+  
 
-
-## DailyActivitiesAggregation
-**支持设备：** Phone / Tablet / Wearable
+##### DailyActivitiesAggregation
 
 日常活动聚合统计数据字段列表。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| step | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'max' \| 'min' \| 'avg' \| 'last' \| 'count'&gt; | 否 | 否 | 步数聚合统计。 |
-| calorie | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'max' \| 'min' \| 'avg' \| 'last' \| 'count'&gt; | 否 | 否 | 卡路里聚合统计。 |
-| distance | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'max' \| 'min' \| 'avg' \| 'last' \| 'count'&gt; | 否 | 否 | 距离聚合统计。 |
-| climbHighAltitude | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'max' \| 'min' \| 'avg' \| 'last' \| 'count'&gt; | 否 | 否 | 爬高海拔差聚合统计。 |
-| isIntensity | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'max' \| 'min' \| 'avg' \| 'last' \| 'count'&gt; | 否 | 否 | 中高强度聚合统计。 |
-| isStand | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'max' \| 'min' \| 'avg' \| 'last' \| 'count'&gt; | 否 | 否 | 站立聚合统计。 |
+| step | Omit<AggregateMetrics, 'max' \| 'min' \| 'avg' \| 'last' \| 'count'> | 否 | 否 | 步数聚合统计。 |
+| calorie | Omit<AggregateMetrics, 'max' \| 'min' \| 'avg' \| 'last' \| 'count'> | 否 | 否 | 卡路里聚合统计。 |
+| distance | Omit<AggregateMetrics, 'max' \| 'min' \| 'avg' \| 'last' \| 'count'> | 否 | 否 | 距离聚合统计。 |
+| climbHighAltitude | Omit<AggregateMetrics, 'max' \| 'min' \| 'avg' \| 'last' \| 'count'> | 否 | 否 | 爬高海拔差聚合统计。 |
+| isIntensity | Omit<AggregateMetrics, 'max' \| 'min' \| 'avg' \| 'last' \| 'count'> | 否 | 否 | 中高强度聚合统计。 |
+| isStand | Omit<AggregateMetrics, 'max' \| 'min' \| 'avg' \| 'last' \| 'count'> | 否 | 否 | 站立聚合统计。 |
+ 
+ 
+  
 
-
-## DistanceSummary
-**支持设备：** Phone / Tablet / Wearable
+##### DistanceSummary
 
 距离统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | totalDistance | number | 否 | 否 | 距离统计。 单位：米 取值范围：(0, ∞) |
+ 
+ 
+  
 
-
-## DivingDepth
-**支持设备：** Phone / Tablet / Wearable
+##### DivingDepth
 
 潜水深度详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | depth | number | 否 | 否 | 潜水深度。 单位：米 |
+ 
+ 
+  
 
-
-## DivingDepthSummary
-**支持设备：** Phone / Tablet / Wearable
+##### DivingDepthSummary
 
 潜水深度统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：米 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：米 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## DivingDetail
-**支持设备：** Phone / Tablet / Wearable
+##### DivingDetail
 
 自由潜水详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| divingDepth | [DivingDepth](#divingdepth)[] | 否 | 是 | 潜水深度详情列表，若未填写，默认为空。 |
-| waterTemperature | [WaterTemperature](#watertemperature)[] | 否 | 是 | 水温详情列表，若未填写，默认为空。 |
+| divingDepth | DivingDepth[] | 否 | 是 | 潜水深度详情列表，若未填写，默认为空。 |
+| waterTemperature | WaterTemperature[] | 否 | 是 | 水温详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## DivingFeature
-**支持设备：** Phone / Tablet / Wearable
+##### DivingFeature
 
 自由潜水特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | divingTime | number | 否 | 否 | 潜水时间。 单位：秒 |
@@ -588,158 +585,158 @@ import { healthStore } from '@kit.HealthServiceKit';
 | waterDensity | number | 否 | 是 | 水密度，若未填写，默认为空。 单位：千克/升 |
 | maxAscentSpeed | number | 否 | 是 | 最大上升速度，若未填写，默认为空。 单位：米/秒 |
 | maxDescentSpeed | number | 否 | 是 | 最大下降速度，若未填写，默认为空。 单位：米/秒 |
+ 
+ 
+  
 
-
-## DivingSummary
-**支持设备：** Phone / Tablet / Wearable
+##### DivingSummary
 
 自由潜水统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| divingFeature | [DivingFeature](#divingfeature) | 否 | 否 | 自由潜水特征数据。 |
-| location | [LocationSummary](#locationsummary) | 否 | 是 | 位置统计，若未填写，默认为空。 |
-| divingDepth | [DivingDepthSummary](#divingdepthsummary) | 否 | 是 | 潜水深度统计，若未填写，默认为空。 |
-| waterTemperature | [WaterTemperatureSummary](#watertemperaturesummary) | 否 | 是 | 水温统计，若未填写，默认为空。 |
+| divingFeature | DivingFeature | 否 | 否 | 自由潜水特征数据。 |
+| location | LocationSummary | 否 | 是 | 位置统计，若未填写，默认为空。 |
+| divingDepth | DivingDepthSummary | 否 | 是 | 潜水深度统计，若未填写，默认为空。 |
+| waterTemperature | WaterTemperatureSummary | 否 | 是 | 水温统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Dysmenorrhea
-**支持设备：** Phone / Tablet / Wearable
+##### Dysmenorrhea
 
 痛经程度采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | level | number | 否 | 否 | 痛经程度。 取值参考如下： 0：未选中 1：轻 2：中 3：重 |
+ 
+ 
+  
 
-
-## EllipticalDetail
-**支持设备：** Phone / Tablet / Wearable
+##### EllipticalDetail
 
 椭圆机详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| pedalingCadence | [PedalingCadence](#pedalingcadence)[] | 否 | 是 | 脚踏节奏详情列表，若未填写，默认为空。 |
-| power | [Power](#power)[] | 否 | 是 | 功率详情列表，若未填写，默认为空。 |
-| cadence | [Cadence[]](#cadence) | 否 | 是 | 步频详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| pedalingCadence | PedalingCadence[] | 否 | 是 | 脚踏节奏详情列表，若未填写，默认为空。 |
+| power | Power[] | 否 | 是 | 功率详情列表，若未填写，默认为空。 |
+| cadence | Cadence[] | 否 | 是 | 步频详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## EllipticalSummary
-**支持设备：** Phone / Tablet / Wearable
+##### EllipticalSummary
 
 椭圆机统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| distance | [DistanceSummary](#distancesummary) | 否 | 是 | 距离统计，若未填写，默认为空。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| speed | [SpeedSummary](#speedsummary) | 否 | 是 | 速度统计，若未填写，默认为空。 |
-| step | [StepSummary](#stepsummary) | 否 | 是 | 步数统计，若未填写，默认为空。 |
-| cadence | [CadenceSummary](#cadencesummary) | 否 | 是 | 步频统计，若未填写，默认为空。 |
-| resistance | [ResistanceSummary](#resistancesummary) | 否 | 是 | 阻力统计，若未填写，默认为空。 |
-| pedalingCadence | [PedalingCadenceSummary](#pedalingcadencesummary) | 否 | 是 | 脚踏节奏统计，若未填写，默认为空。 |
-| power | [PowerSummary](#powersummary) | 否 | 是 | 功率统计，若未填写，默认为空。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| distance | DistanceSummary | 否 | 是 | 距离统计，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| speed | SpeedSummary | 否 | 是 | 速度统计，若未填写，默认为空。 |
+| step | StepSummary | 否 | 是 | 步数统计，若未填写，默认为空。 |
+| cadence | CadenceSummary | 否 | 是 | 步频统计，若未填写，默认为空。 |
+| resistance | ResistanceSummary | 否 | 是 | 阻力统计，若未填写，默认为空。 |
+| pedalingCadence | PedalingCadenceSummary | 否 | 是 | 脚踏节奏统计，若未填写，默认为空。 |
+| power | PowerSummary | 否 | 是 | 功率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Emotion
-**支持设备：** Phone / Tablet / Wearable
+##### Emotion
 
 情绪采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.1.0(18)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | emotionStatus | number | 否 | 否 | 情绪状态。 取值范围：[0, 100) 当前运动健康App仅展示以下值： 1：不愉悦 2：平静 3：愉悦 |
+ 
+ 
+  
 
-
-## ExerciseHeartRate
-**支持设备：** Phone / Tablet / Wearable
+##### ExerciseHeartRate
 
 运动心率详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bpm | number | 否 | 否 | 运动心率详情。 单位：次/分钟 取值范围：(0, 255) |
+ 
+ 
+  
 
-
-## ExerciseHeartRateSummary
-**支持设备：** Phone / Tablet / Wearable
+##### ExerciseHeartRateSummary
 
 运动心率统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：次/分钟 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：次/分钟 取值范围：[0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：次/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## GolfCourseModelDetail
-**支持设备：** Phone / Tablet / Wearable
+##### GolfCourseModelDetail
 
 高尔夫场地模式详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## GolfCourseModelFeature
-**支持设备：** Phone / Tablet / Wearable
+##### GolfCourseModelFeature
 
 高尔夫场地模式特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | golfSwingCount | number | 否 | 否 | 总挥杆数。 |
@@ -765,54 +762,54 @@ import { healthStore } from '@kit.HealthServiceKit';
 | avgHandicap | number | 否 | 是 | 平均杆差，若未填写，默认为空。 |
 | bestHandicap | number | 否 | 是 | 最佳杆差，若未填写，默认为空。 |
 | totalHandicap | number | 否 | 是 | 总杆差，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## GolfCourseModelSummary
-**支持设备：** Phone / Tablet / Wearable
+##### GolfCourseModelSummary
 
 高尔夫场地模式统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| golfCourseModelFeature | [GolfCourseModelFeature](#golfcoursemodelfeature) | 否 | 否 | 高尔夫场地模式特征数据。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| step | [StepSummary](#stepsummary) | 否 | 否 | 步数统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| distance | [DistanceSummary](#distancesummary) | 否 | 是 | 距离统计，若未填写，默认为空。 |
-| cadence | [CadenceSummary](#cadencesummary) | 否 | 是 | 步频统计，若未填写，默认为空。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| golfCourseModelFeature | GolfCourseModelFeature | 否 | 否 | 高尔夫场地模式特征数据。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| step | StepSummary | 否 | 否 | 步数统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| distance | DistanceSummary | 否 | 是 | 距离统计，若未填写，默认为空。 |
+| cadence | CadenceSummary | 否 | 是 | 步频统计，若未填写，默认为空。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## GolfPracticeDetail
-**支持设备：** Phone / Tablet / Wearable
+##### GolfPracticeDetail
 
 高尔夫练习场模式详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## GolfPracticeFeature
-**支持设备：** Phone / Tablet / Wearable
+##### GolfPracticeFeature
 
 高尔夫练习场模式特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | golfSwingCount | number | 否 | 否 | 总挥杆数。 |
@@ -821,127 +818,127 @@ import { healthStore } from '@kit.HealthServiceKit';
 | golfSwingTempo | number | 否 | 是 | 平均挥杆节奏（平均上杆时间/平均下杆时间），若未填写，默认为空。 |
 | golfDownSwingTime | number | 否 | 是 | 平均下杆时间，若未填写，默认为空。 单位：毫秒 |
 | golfBackSwingTime | number | 否 | 是 | 平均上杆时间，若未填写，默认为空。 单位：毫秒 |
+ 
+ 
+  
 
-
-## GolfPracticeSummary
-**支持设备：** Phone / Tablet / Wearable
+##### GolfPracticeSummary
 
 高尔夫练习场模式统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| golfPracticeFeature | [GolfPracticeFeature](#golfpracticefeature) | 否 | 否 | 高尔夫练习场模式特征数据。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| golfPracticeFeature | GolfPracticeFeature | 否 | 否 | 高尔夫练习场模式特征数据。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## HeartRate
-**支持设备：** Phone / Tablet / Wearable
+##### HeartRate
 
 动态心率采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bpm | number | 否 | 否 | 动态心率。 单位：次/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## HeartRateAggregation
-**支持设备：** Phone / Tablet / Wearable
+##### HeartRateAggregation
 
 动态心率聚合统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| bpm | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'avg' \| 'sum' \| 'count'&gt; | 否 | 否 | 动态心率聚合统计。 |
+| bpm | Omit<AggregateMetrics, 'avg' \| 'sum' \| 'count'> | 否 | 否 | 动态心率聚合统计。 |
+ 
+ 
+  
 
-
-## HeartRateVariability
-**支持设备：** Phone / Tablet / Wearable
+##### HeartRateVariability
 
 心率变异性采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.1.0(18)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | heartRateVariabilityRMSSD | number | 否 | 否 | 心率变异性。 单位：毫秒 取值范围：(0, 200] |
+ 
+ 
+  
 
-
-## Height
-**支持设备：** Phone / Tablet / Wearable
+##### Height
 
 身高采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | height | number | 否 | 否 | 身高。 单位：厘米 |
+ 
+ 
+  
 
-
-## Jump
-**支持设备：** Phone / Tablet / Wearable
+##### Jump
 
 跳跃详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | jumpHeight | number | 否 | 否 | 纵跃高度。 单位：米 |
 | passageDuration | number | 否 | 否 | 滞空时间。 单位：毫秒 |
+ 
+ 
+  
 
-
-## JumpingRopeDetail
-**支持设备：** Phone / Tablet / Wearable
+##### JumpingRopeDetail
 
 跳绳详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| skipSpeed | [SkipSpeed](#skipspeed)[] | 否 | 是 | 跳跃速度详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| skipSpeed | SkipSpeed[] | 否 | 是 | 跳跃速度详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## JumpingRopeFeature
-**支持设备：** Phone / Tablet / Wearable
+##### JumpingRopeFeature
 
 跳绳特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | skipNum | number | 否 | 否 | 跳绳个数。 取值范围：[0, ∞) |
@@ -949,69 +946,69 @@ import { healthStore } from '@kit.HealthServiceKit';
 | longestStreak | number | 否 | 是 | 最多连跳，若未填写，默认为空。 取值范围：[0, ∞) |
 | doubleUnders | number | 否 | 是 | 双摇个数，若未填写，默认为空。 取值范围：[0, ∞) |
 | tripleUnders | number | 否 | 是 | 三摇个数，若未填写，默认为空。 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## JumpingRopeSummary
-**支持设备：** Phone / Tablet / Wearable
+##### JumpingRopeSummary
 
 跳绳统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| jumpingRopeFeature | [JumpingRopeFeature](#jumpingropefeature) | 否 | 否 | 跳绳特征数据。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| skipSpeed | [SkipSpeedSummary](#skipspeedsummary) | 否 | 否 | 跳跃速度统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| jumpingRopeFeature | JumpingRopeFeature | 否 | 否 | 跳绳特征数据。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| skipSpeed | SkipSpeedSummary | 否 | 否 | 跳跃速度统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## JumpSummary
-**支持设备：** Phone / Tablet / Wearable
+##### JumpSummary
 
 跳跃统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | jumpTimes | number | 否 | 否 | 跳跃次数。 |
 | maxJumpHeight | number | 否 | 是 | 最大跳跃高度，若未填写，默认为空。 单位：米 |
 | maxPassageDuration | number | 否 | 是 | 最大滞空时间，若未填写，默认为空。 单位：毫秒 |
+ 
+ 
+  
 
-
-## Location
-**支持设备：** Phone / Tablet / Wearable
+##### Location
 
 位置详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | latitude | number | 否 | 否 | 纬度。 单位：度 取值范围：[-90, 90] |
 | longitude | number | 否 | 否 | 经度。 单位：度 取值范围：[-180, 180] |
+ 
+ 
+  
 
-
-## LocationSummary
-**支持设备：** Phone / Tablet / Wearable
+##### LocationSummary
 
 位置统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | coordinate | string | 否 | 否 | 坐标系。 取值参考如下： 'GCJ02' 'WGS84' 'BD09' |
@@ -1019,18 +1016,18 @@ import { healthStore } from '@kit.HealthServiceKit';
 | endLat | number | 否 | 是 | 结束点纬度，若未填写，默认为空。 单位：度 取值范围：[-90, 90] |
 | startLon | number | 否 | 是 | 起始点经度，若未填写，默认为空。 单位：度 取值范围：[-180, 180] |
 | endLon | number | 否 | 是 | 结束点经度，若未填写，默认为空。 单位：度 取值范围：[-180, 180] |
+ 
+ 
+  
 
-
-## MarkPoint
-**支持设备：** Phone / Tablet / Wearable
+##### MarkPoint
 
 标记点采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | sn | number | 否 | 否 | 序号。 |
@@ -1039,373 +1036,373 @@ import { healthStore } from '@kit.HealthServiceKit';
 | latitude | number | 否 | 否 | 纬度。 单位：度 |
 | mode | number | 否 | 否 | 标记方式。 取值参考如下： 0：自动 1：手动 |
 | color | number | 否 | 是 | 颜色，若未填写，默认为空。 取值参考如下： 0：橙色 1：红色 2：蓝色 3：黄色 4：灰色 5：绿色 255：自动标记点颜色 |
+ 
+ 
+  
 
-
-## MenstrualCycle
-**支持设备：** Phone / Tablet / Wearable
+##### MenstrualCycle
 
 生理周期数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | status | number | 否 | 否 | 当日状态。 取值参考如下： 0：普通状态 100：普通经期 101：经期第一天 102：经期最后一天 2：排卵日 300：普通预测经期 301：预测经期第一天 302：预测经期最后一天 400：普通易孕期 401：易孕期第一天 402：易孕期最后一天 403：易孕期只有一天 |
 | remarks | string | 否 | 是 | 备注。 |
+ 
+ 
+  
 
-
-## MenstrualCycleDetail
-**支持设备：** Phone / Tablet / Wearable
+##### MenstrualCycleDetail
 
 生理周期详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| menstrualFlow | [MenstrualFlow](#menstrualflow)[] | 否 | 是 | 月经流量采样列表，若未填写，默���为空。 |
-| dysmenorrhea | [Dysmenorrhea](#dysmenorrhea)[] | 否 | 是 | 痛经程度采样列表，若未填写，默认为空。 |
-| physicalSymptoms | [PhysicalSymptoms](#physicalsymptoms)[] | 否 | 是 | 身体状况采样列表，若未填写，默认为空。 |
-| mood | [Mood](#mood)[] | 否 | 是 | 心情采样列表，若未填写，默认为空。 |
-| skin | [Skin](#skin)[] | 否 | 是 | 皮肤状态采样列表，若未填写，默认为空。 |
-| sexuality | [Sexuality](#sexuality)[] | 否 | 是 | 性行为采样列表，若未填写，默认为空。 |
-| ovulationTestPaper | [OvulationTestPaper](#ovulationtestpaper)[] | 否 | 是 | 排卵试纸采样列表，若未填写，默认为空。 |
-| cervicalMucus | [CervicalMucus](#cervicalmucus)[] | 否 | 是 | 私处分泌物采样列表，若未填写，默认为空。 |
+| menstrualFlow | MenstrualFlow[] | 否 | 是 | 月经流量采样列表，若未填写，默认为空。 |
+| dysmenorrhea | Dysmenorrhea[] | 否 | 是 | 痛经程度采样列表，若未填写，默认为空。 |
+| physicalSymptoms | PhysicalSymptoms[] | 否 | 是 | 身体状况采样列表，若未填写，默认为空。 |
+| mood | Mood[] | 否 | 是 | 心情采样列表，若未填写，默认为空。 |
+| skin | Skin[] | 否 | 是 | 皮肤状态采样列表，若未填写，默认为空。 |
+| sexuality | Sexuality[] | 否 | 是 | 性行为采样列表，若未填写，默认为空。 |
+| ovulationTestPaper | OvulationTestPaper[] | 否 | 是 | 排卵试纸采样列表，若未填写，默认为空。 |
+| cervicalMucus | CervicalMucus[] | 否 | 是 | 私处分泌物采样列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## MenstrualFlow
-**支持设备：** Phone / Tablet / Wearable
+##### MenstrualFlow
 
 月经流量采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | volume | number | 否 | 否 | 月经流量。 取值参考如下： 0：未选中 1：少 2：正常 3：多 |
+ 
+ 
+  
 
-
-## Mood
-**支持设备：** Phone / Tablet / Wearable
+##### Mood
 
 心情采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | mood | string | 否 | 否 | 心情。 取值为逗号间隔的字符串，例：'1,2,3'。 取值参考如下： 0：开心 1：悲伤 2：敏感 3：焦虑 4：生气 5：兴奋 6：压抑 7：放松 |
+ 
+ 
+  
 
-
-## MountainHikeDetail
-**支持设备：** Phone / Tablet / Wearable
+##### MountainHikeDetail
 
 登山详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| location | [Location](#location)[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| location | Location[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## MountainHikeSummary
-**支持设备：** Phone / Tablet / Wearable
+##### MountainHikeSummary
 
 登山统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| step | [StepSummary](#stepsummary) | 否 | 是 | 步数统计，若未填写，默认为空。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| step | StepSummary | 否 | 是 | 步数统计，若未填写，默认为空。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## OpenWaterSwimDetail
-**支持设备：** Phone / Tablet / Wearable
+##### OpenWaterSwimDetail
 
 开放水域游泳详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| location | [Location](#location)[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| swimStrokeRate | [SwimStrokeRate](#swimstrokerate)[] | 否 | 是 | 划水频率详情列表，若未填写，默认为空。 |
-| swolf | [Swolf](#swolf)[] | 否 | 是 | SWOLF详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| location | Location[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| swimStrokeRate | SwimStrokeRate[] | 否 | 是 | 划水频率详情列表，若未填写，默认为空。 |
+| swolf | Swolf[] | 否 | 是 | SWOLF详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## OpenWaterSwimFeature
-**支持设备：** Phone / Tablet / Wearable
+##### OpenWaterSwimFeature
 
 开放水域游泳特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | pullTimes | number | 否 | 否 | 划水次数。 |
 | swimmingStroke | number | 否 | 是 | 主泳姿，若未填写，默认为空。 取值参考如下： 1：蛙泳 2：自由泳 3：蝶泳 4：仰泳 5：混合泳 |
+ 
+ 
+  
 
-
-## OpenWaterSwimSummary
-**支持设备：** Phone / Tablet / Wearable
+##### OpenWaterSwimSummary
 
 开放水域游泳统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| openWaterSwimFeature | [OpenWaterSwimFeature](#openwaterswimfeature) | 否 | 否 | 开放水域游泳特征数据。 |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| swimStrokeRate | [SwimStrokeRateSummary](#swimstrokeratesummary) | 否 | 是 | 划水频率统计，若未填写，默认为空。 |
-| swolf | [SwolfSummary](#swolfsummary) | 否 | 是 | SWOLF统计，若未填写，默认为空。 |
+| openWaterSwimFeature | OpenWaterSwimFeature | 否 | 否 | 开放水域游泳特征数据。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| swimStrokeRate | SwimStrokeRateSummary | 否 | 是 | 划水频率统计，若未填写，默认为空。 |
+| swolf | SwolfSummary | 否 | 是 | SWOLF统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## OvulationTestPaper
-**支持设备：** Phone / Tablet / Wearable
+##### OvulationTestPaper
 
 排卵试纸采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | result | number | 否 | 否 | 结果。 取值参考如下： 0：未选中 1：阴 2：弱阳 3：强阳 |
+ 
+ 
+  
 
-
-## PedalingCadence
-**支持设备：** Phone / Tablet / Wearable
+##### PedalingCadence
 
 踏频详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | rpm | number | 否 | 否 | 踏频详情。 单位：转/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## PedalingCadenceSummary
-**支持设备：** Phone / Tablet / Wearable
+##### PedalingCadenceSummary
 
 踏频统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：转/分钟 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：转/分钟 取值范围：[0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：转/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## PhysicalSymptoms
-**支持设备：** Phone / Tablet / Wearable
+##### PhysicalSymptoms
 
 身体症状采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | physicalSymptoms | string | 否 | 否 | 身体症状。 取值为逗号间隔的字符串，例：'1,2,3'。 取值参考如下： 1：腹部胀痛 2：疲劳 3：呕吐 4：腰背酸痛 6：眩晕 7：头痛 8：乳房胀痛 9：腹部绞痛 10：一切正常 11：抽筋 12：浮肿 13：失眠 14：腹泻 15：小腹坠疼 16：潮热 17：点滴出血 |
+ 
+ 
+  
 
-
-## PoolSwimDetail
-**支持设备：** Phone / Tablet / Wearable
+##### PoolSwimDetail
 
 泳池游泳详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| swimStrokeRate | [SwimStrokeRate](#swimstrokerate)[] | 否 | 是 | 划水频率详情列表，若未填写，默认为空。 |
-| swolf | [Swolf](#swolf)[] | 否 | 是 | SWOLF详���列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| swimStrokeRate | SwimStrokeRate[] | 否 | 是 | 划水频率详情列表，若未填写，默认为空。 |
+| swolf | Swolf[] | 否 | 是 | SWOLF详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## PoolSwimFeature
-**支持设备：** Phone / Tablet / Wearable
+##### PoolSwimFeature
 
 泳池游泳特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | pullTimes | number | 否 | 否 | 划水次数。 |
 | tripTimes | number | 否 | 否 | 趟数。 |
 | poolLength | number | 否 | 是 | 泳池长度，若未填写，默认为空。 单位：米 |
 | swimmingStroke | number | 否 | 是 | 主泳姿，若未填写，默认为空。 取值参考如下： 1：蛙泳 2：自由泳 3：蝶泳 4：仰泳 5：混合泳 |
+ 
+ 
+  
 
-
-## PoolSwimSummary
-**支持设备：** Phone / Tablet / Wearable
+##### PoolSwimSummary
 
 泳池游泳统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| poolSwimFeature | [PoolSwimFeature](#poolswimfeature) | 否 | 否 | 泳池游泳特征数据。 |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| speed | [SpeedSummary](#speedsummary) | 否 | 是 | 速度统计，若未填写，默认为空。 |
-| swimStrokeRate | [SwimStrokeRateSummary](#swimstrokeratesummary) | 否 | 是 | 划水频率统计，若未填写，默认为空。 |
-| swolf | [SwolfSummary](#swolfsummary) | 否 | 是 | SWOLF统计，若未填写，默认为空。 |
+| poolSwimFeature | PoolSwimFeature | 否 | 否 | 泳池游泳特征数据。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| speed | SpeedSummary | 否 | 是 | 速度统计，若未填写，默认为空。 |
+| swimStrokeRate | SwimStrokeRateSummary | 否 | 是 | 划水频率统计，若未填写，默认为空。 |
+| swolf | SwolfSummary | 否 | 是 | SWOLF统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Power
-**支持设备：** Phone / Tablet / Wearable
+##### Power
 
 功率详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | power | number | 否 | 否 | 功率详情。 单位：瓦 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## PowerSummary
-**支持设备：** Phone / Tablet / Wearable
+##### PowerSummary
 
 功率统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：瓦 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：瓦 取值范围：[0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：瓦 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## QuantitySummary
-**支持设备：** Phone / Tablet / Wearable
+##### QuantitySummary
 
 统计基类数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 取值范围：[0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## Resistance
-**支持设备：** Phone / Tablet / Wearable
+##### Resistance
 
 阻力详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | resLevel | number | 否 | 否 | 阻力等级。 取值范围：[1, 100] |
+ 
+ 
+  
 
-
-## ResistanceSummary
-**支持设备：** Phone / Tablet / Wearable
+##### ResistanceSummary
 
 阻力统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | resLv1LowerLimit | number | 否 | 否 | 阻力区间1下限。 取值范围：[1, 100] |
@@ -1421,192 +1418,192 @@ import { healthStore } from '@kit.HealthServiceKit';
 | resLv5Duration | number | 否 | 否 | 在阻力区间5内运动时长。 单位：分钟 取值范围：[0, ∞) |
 | maxRes | number | 否 | 是 | 设备可设置的最大阻力级别，若未填写，默认为空。 取值范围：[1, 100] |
 | minRes | number | 否 | 是 | 设备可设置的最小阻力级别，若未填写，默认为空。 取值范围：[1, 100] |
+ 
+ 
+  
 
-
-## RestingHeartRate
-**支持设备：** Phone / Tablet / Wearable
+##### RestingHeartRate
 
 静息心率数据字段列表.
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | restBpm | number | 否 | 否 | 静息心率。 单位：次/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## RestingHeartRateAggregation
-**支持设备：** Phone / Tablet / Wearable
+##### RestingHeartRateAggregation
 
 静息心率聚合统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| restBpm | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'sum' \| 'count' \| 'max' \| 'min' \| 'avg'&gt; | 否 | 否 | 静息心率聚合统计。 |
+| restBpm | Omit<AggregateMetrics, 'sum' \| 'count' \| 'max' \| 'min' \| 'avg'> | 否 | 否 | 静息心率聚合统计。 |
+ 
+ 
+  
 
-
-## RowerDetail
-**支持设备：** Phone / Tablet / Wearable
+##### RowerDetail
 
 划船机详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| power | [Power](#power)[] | 否 | 是 | 功率详情列表，若未填写，默认为空。 |
-| resistance | [Resistance](#resistance)[] | 否 | 是 | 阻力详情列表，若未填写，默认为空。 |
-| strokeRate | [StrokeRate](#strokerate)[] | 否 | 是 | 桨频详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| power | Power[] | 否 | 是 | 功率详情列表，若未填写，默认为空。 |
+| resistance | Resistance[] | 否 | 是 | 阻力详情列表，若未填写，默认为空。 |
+| strokeRate | StrokeRate[] | 否 | 是 | 桨频详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## RowerFeature
-**支持设备：** Phone / Tablet / Wearable
+##### RowerFeature
 
 划船机特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | strokesNum | number | 否 | 否 | 累计桨次。 |
+ 
+ 
+  
 
-
-## RowerSummary
-**支持设备：** Phone / Tablet / Wearable
+##### RowerSummary
 
 划船机统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| rowerFeature | [RowerFeature](#rowerfeature) | 否 | 否 | 划船机特征数据。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| distance | [DistanceSummary](#distancesummary) | 否 | 是 | 距离统计，若未填写，默认为空。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| speed | [SpeedSummary](#speedsummary) | 否 | 是 | 速度统计，若未填写，默认为空。 |
-| resistance | [ResistanceSummary](#resistancesummary) | 否 | 是 | 阻力统计，若未填写，默认为空。 |
-| power | [PowerSummary](#powersummary) | 否 | 是 | 功率统计，若未填写，默认为空。 |
-| strokeRate | [StrokeRateSummary](#strokeratesummary) | 否 | 是 | 桨频统计，若未填写，默认为空。 |
+| rowerFeature | RowerFeature | 否 | 否 | 划船机特征数据。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| distance | DistanceSummary | 否 | 是 | 距离统计，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| speed | SpeedSummary | 否 | 是 | 速度统计，若未填写，默认为空。 |
+| resistance | ResistanceSummary | 否 | 是 | 阻力统计，若未填写，默认为空。 |
+| power | PowerSummary | 否 | 是 | 功率统计，若未填写，默认为空。 |
+| strokeRate | StrokeRateSummary | 否 | 是 | 桨频统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## RowingDetail
-**支持设备：** Phone / Tablet / Wearable
+##### RowingDetail
 
 赛艇详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| strokeRate | [StrokeRate](#strokerate)[] | 否 | 是 | 桨频详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| strokeRate | StrokeRate[] | 否 | 是 | 桨频详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## RowingFeature
-**支持设备：** Phone / Tablet / Wearable
+##### RowingFeature
 
 赛艇特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | strokesNum | number | 否 | 否 | 累计桨次。 |
+ 
+ 
+  
 
-
-## RowingSummary
-**支持设备：** Phone / Tablet / Wearable
+##### RowingSummary
 
 赛艇统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| rowingFeature | [RowingFeature](#rowingfeature) | 否 | 否 | 赛艇特征数据。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 卡路里统计。 |
-| distance | [DistanceSummary](#distancesummary) | 否 | 是 | 距离统计，若未填写，默认为空。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| strokeRate | [StrokeRateSummary](#strokeratesummary) | 否 | 是 | 桨频统计，若未填写，默认为空。 |
+| rowingFeature | RowingFeature | 否 | 否 | 赛艇特征数据。 |
+| calorie | CalorieSummary | 否 | 否 | 卡路里统计。 |
+| distance | DistanceSummary | 否 | 是 | 距离统计，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| strokeRate | StrokeRateSummary | 否 | 是 | 桨频统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## RunningDetail
-**支持设备：** Phone / Tablet / Wearable
+##### RunningDetail
 
 跑步详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| cadence | [Cadence](#cadence)[] | 否 | 是 | 步频详情列表，若未填写，默认为空。 |
-| runningForm | [RunningForm](#runningform)[] | 否 | 是 | 跑姿详情列表，若未填写，默认为空。 |
-| location | [Location](#location)[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| cadence | Cadence[] | 否 | 是 | 步频详情列表，若未填写，默认为空。 |
+| runningForm | RunningForm[] | 否 | 是 | 跑姿详情列表，若未填写，默认为空。 |
+| location | Location[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## RunningFeature
-**支持设备：** Phone / Tablet / Wearable
+##### RunningFeature
 
 跑步特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avgPace | number | 否 | 否 | 平均配速。 取值范围：[0, ∞) 单位：秒/公里 |
 | bestPace | number | 否 | 否 | 最快配速。 取值范围：[0, ∞) 单位：秒/公里 |
-| paceMap | [healthStore.PaceValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#pacevaluetype) | 否 | 是 | 每公里的配速，若未填写，默认为空。单位：秒/公里 例如 '1.0':407.945 '2.0':473.98846 '2.170':473.98846 最后不满一公里的部分，按比例换算为整公里的配速存入。 |
-| partTimeMap | [healthStore.PaceValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#pacevaluetype) | 否 | 是 | 公制分段数据表（key：公里，value：秒），若未填写，默认为空。 其中公里保留到小数点后4位。 Value是一个累积到当前公里的时间如： - '1.0':3.0 - '2.0':6.0 - '3.0':9.0 - '21.0975':7020.0 - '42.195':18000.0 其中，21.0975，42.195分别为半马和全马的距离（仅半马全马key值小数点后不为0）。 |
+| paceMap | healthStore.PaceValueType | 否 | 是 | 每公里的配速，若未填写，默认为空。单位：秒/公里 例如 '1.0':407.945 '2.0':473.98846 '2.170':473.98846 最后不满一公里的部分，按比例换算为整公里的配速存入。 |
+| partTimeMap | healthStore.PaceValueType | 否 | 是 | 公制分段数据表（key：公里，value：秒），若未填写，默认为空。 其中公里保留到小数点后4位。 Value是一个累积到当前公里的时间如： - '1.0':3.0 - '2.0':6.0 - '3.0':9.0 - '21.0975':7020.0 - '42.195':18000.0 其中，21.0975，42.195分别为半马和全马的距离（仅半马全马key值小数点后不为0）。 |
+ 
+ 
+  
 
-
-## RunningForm
-**支持设备：** Phone / Tablet / Wearable
+##### RunningForm
 
 跑姿详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | groundContactTime | number | 否 | 否 | 触地时间。 单位：毫秒 取值范围：[0, 5000] |
@@ -1622,18 +1619,18 @@ import { healthStore } from '@kit.HealthServiceKit';
 | verticalOscillation | number | 否 | 是 | 垂直振幅，若未填写，默认为空。 单位：厘米 取值范围：[0, 25.6] |
 | verticalRatio | number | 否 | 是 | 垂直步幅比，若未填写，默认为空。 单位：百分比 取值范围：[0, 100] |
 | gcTimeBalance | number | 否 | 是 | 左右触地平衡，若未填写，默认为空。 单位：百分比（返回数据为左脚的触地平衡，右脚需自行计算，二者之和为100%） 取值范围：[0, 100] |
+ 
+ 
+  
 
-
-## RunningFormSummary
-**支持设备：** Phone / Tablet / Wearable
+##### RunningFormSummary
 
 跑姿统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avgGroundContactTime | number | 否 | 否 | 平均触地时间。 单位：毫秒 取值范围：[0, 5000] |
@@ -1650,58 +1647,58 @@ import { healthStore } from '@kit.HealthServiceKit';
 | avgVerticalOscillation | number | 否 | 是 | 平均垂直振幅，若未填写，默认为空。 单位：厘米 |
 | avgVerticalRatio | number | 否 | 是 | 平均垂直步幅比，若未填写，默认为空。 单位：百分比 |
 | avgGcTimeBalance | number | 否 | 是 | 平均左右触地平衡，若未填写，默认为空。 单位：百分比（返回数据为左脚的触地平衡，右脚需自行计算，二者之和为100%） |
+ 
+ 
+  
 
-
-## RunningSummary
-**支持设备：** Phone / Tablet / Wearable
+##### RunningSummary
 
 跑步统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| speed | [SpeedSummary](#speedsummary) | 否 | 否 | 速度统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| step | [StepSummary](#stepsummary) | 否 | 是 | 步数统计，若未填写，默认为空。 |
-| cadence | [CadenceSummary](#cadencesummary) | 否 | 是 | 步频统计，若未填写，默认为空。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
-| location | [LocationSummary](#locationsummary) | 否 | 是 | 位置统计，若未填写，默认为空。 |
-| runningForm | [RunningFormSummary](#runningformsummary) | 否 | 是 | 跑姿统计，若未填写，默认为空。 |
-| runningFeature | [RunningFeature](#runningfeature) | 否 | 是 | 跑步特征数据，若未填写，默认为空。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| speed | SpeedSummary | 否 | 否 | 速度统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| step | StepSummary | 否 | 是 | 步数统计，若未填写，默认为空。 |
+| cadence | CadenceSummary | 否 | 是 | 步频统计，若未填写，默认为空。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| location | LocationSummary | 否 | 是 | 位置统计，若未填写，默认为空。 |
+| runningForm | RunningFormSummary | 否 | 是 | 跑姿统计，若未填写，默认为空。 |
+| runningFeature | RunningFeature | 否 | 是 | 跑步特征数据，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## ScubaDivingDetail
-**支持设备：** Phone / Tablet / Wearable
+##### ScubaDivingDetail
 
 水肺潜水详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| divingDepth | [DivingDepth](#divingdepth)[] | 否 | 是 | 潜水深度详情列表，若未填写，默认为空。 |
-| waterTemperature | [WaterTemperature](#watertemperature)[] | 否 | 是 | 水温详情列表，若未填写，默认为空。 |
+| divingDepth | DivingDepth[] | 否 | 是 | 潜水深度详情列表，若未填写，默认为空。 |
+| waterTemperature | WaterTemperature[] | 否 | 是 | 水温详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## ScubaDivingFeature
-**支持设备：** Phone / Tablet / Wearable
+##### ScubaDivingFeature
 
 水肺潜水特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | divingTime | number | 否 | 否 | 潜水时间。 单位：秒 |
@@ -1716,71 +1713,71 @@ import { healthStore } from '@kit.HealthServiceKit';
 | waterDensity | number | 否 | 是 | 水密度，若未填写，默认为空。 单位：千克/升 |
 | maxAscentSpeed | number | 否 | 是 | 最大上升速度，若未填写，默认为空。 单位：米/秒 |
 | maxDescentSpeed | number | 否 | 是 | 最大下降速度，若未填写，默认为空。 单位：米/秒 |
+ 
+ 
+  
 
-
-## ScubaDivingSummary
-**支持设备：** Phone / Tablet / Wearable
+##### ScubaDivingSummary
 
 水肺潜水统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scubaDivingFeature | [ScubaDivingFeature](#scubadivingfeature) | 否 | 否 | 水肺潜水特征数据。 |
-| location | [LocationSummary](#locationsummary) | 否 | 是 | 位置统计，若未填写，默认为空。 |
-| divingDepth | [DivingDepthSummary](#divingdepthsummary) | 否 | 是 | 潜水深度统计，若未填写，默认为空。 |
-| waterTemperature | [WaterTemperatureSummary](#watertemperaturesummary) | 否 | 是 | 水温统计，若未填写，默认为空。 |
+| scubaDivingFeature | ScubaDivingFeature | 否 | 否 | 水肺潜水特征数据。 |
+| location | LocationSummary | 否 | 是 | 位置统计，若未填写，默认为空。 |
+| divingDepth | DivingDepthSummary | 否 | 是 | 潜水深度统计，若未填写，默认为空。 |
+| waterTemperature | WaterTemperatureSummary | 否 | 是 | 水温统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Sexuality
-**支持设备：** Phone / Tablet / Wearable
+##### Sexuality
 
 性行为采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | sexuality | number | 否 | 否 | 性行为。 取值参考如下： 0：未选中 1：无 2：有保护 3：无保护 |
+ 
+ 
+  
 
-
-## SkiingDetail
-**支持设备：** Phone / Tablet / Wearable
+##### SkiingDetail
 
 滑雪详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| location | [Location](#location)[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| location | Location[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## SkiingFeature
-**支持设备：** Phone / Tablet / Wearable
+##### SkiingFeature
 
 滑雪特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | tripTimes | number | 否 | 否 | 趟数。 |
@@ -1788,148 +1785,148 @@ import { healthStore } from '@kit.HealthServiceKit';
 | maxSlopeDegree | number | 否 | 是 | 滑雪最大坡，若未填写，默认为空。 单位：度 |
 | totalTime | number | 否 | 是 | 滑行时间，若未填写，默认为空。 单位：毫秒 |
 | totalDistance | number | 否 | 是 | 滑行距离，若未填写，默认为空。 单位：米 |
+ 
+ 
+  
 
-
-## SkiingSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SkiingSummary
 
 滑雪统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| skiingFeature | [SkiingFeature](#skiingfeature) | 否 | 否 | 滑雪特征数据。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| skiingFeature | SkiingFeature | 否 | 否 | 滑雪特征数据。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Skin
-**支持设备：** Phone / Tablet / Wearable
+##### Skin
 
 皮肤状态采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | skinStatus | number | 否 | 否 | 皮肤状态。 取值参考如下： 0：未选中 1：好 2：出油 4：干燥 8：粉刺 16：冒痘 |
+ 
+ 
+  
 
-
-## SkinTemperature
-**支持设备：** Phone / Tablet / Wearable
+##### SkinTemperature
 
 皮肤体温详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | skinTemperature | number | 否 | 否 | 皮肤温度。 单位：摄氏度 取值范围：[20, 42] |
+ 
+ 
+  
 
-
-## SkinTemperatureAggregation
-**支持设备：** Phone / Tablet / Wearable
+##### SkinTemperatureAggregation
 
 皮肤体温聚合统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| skinTemperature | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'sum' \| 'last'&gt; | 否 | 否 | 皮肤体温聚合统计。 |
+| skinTemperature | Omit<AggregateMetrics, 'sum' \| 'last'> | 否 | 否 | 皮肤体温聚合统计。 |
+ 
+ 
+  
 
-
-## SkipSpeed
-**支持设备：** Phone / Tablet / Wearable
+##### SkipSpeed
 
 跳绳速度详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | skipSpeed | number | 否 | 否 | 跳绳速度详情。 单位：个/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## SkipSpeedSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SkipSpeedSummary
 
 跳绳速度统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：个/分钟 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：个/分钟 取值范围：[0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：个/分钟 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## SledDetail
-**支持设备：** Phone / Tablet / Wearable
+##### SledDetail
 
 滑雪橇详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## SledSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SledSummary
 
 滑雪橇统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Sleep
-**支持设备：** Phone / Tablet / Wearable
+##### Sleep
 
 夜间睡眠数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | fallAsleepTime | number | 否 | 否 | 分期睡眠最早入睡时间点。 单位：毫秒 取值范围：[0, ∞) |
@@ -1953,83 +1950,83 @@ import { healthStore } from '@kit.HealthServiceKit';
 | sleepEndReason | number | 否 | 是 | 睡眠结束原因，若未填写，默认为空。 取值范围：[0, ∞) 取值参考如下： 0：手动结束睡眠监测 1：自动结束睡眠监测 2：中断睡眠监测 3：电量过低结束 |
 | sleepSymptoms | string | 否 | 是 | 睡眠症状，若未填写，默认为空。 |
 | sleepType | number | 否 | 是 | 睡眠数据类型。 取值范围： 1：科学睡眠 2：普通睡眠 3：手动输入睡眠 4：手机记录睡眠 未设置时，默认值为2。 |
+ 
+ 
+  
 
-
-## SleepDetail
-**支持设备：** Phone / Tablet / Wearable
+##### SleepDetail
 
 睡眠详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| sleepSegment | [SleepSegment](#sleepsegment)[] | 否 | 是 | 睡眠状态采样列表，若未填写，默认设置覆盖全部睡眠时间的详情，睡眠状态值为7。 |
+| sleepSegment | SleepSegment[] | 否 | 是 | 睡眠状态采样列表，若未填写，默认设置覆盖全部睡眠时间的详情，睡眠状态值为7。 |
+ 
+ 
+  
 
-
-## SleepNap
-**支持设备：** Phone / Tablet / Wearable
+##### SleepNap
 
 零星小睡数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | noonDuration | number | 否 | 否 | 午睡时长(零星小睡）。 单位：秒 取值范围：[0, ∞) |
 | noonRecordDuration | number | 否 | 是 | 零星小睡记录时长，若未填写，默认为记录结束时间减去开始时间。 单位：秒 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## SleepSegment
-**支持设备：** Phone / Tablet / Wearable
+##### SleepSegment
 
 睡眠状态采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | sleepStatus | number | 否 | 否 | 睡眠状态。 取值范围： 0：未知 1：深睡 2：浅睡 3：REM 4：清醒 5：午睡（零星小睡） 6：卧床 7：睡眠（手工） |
 | endTime | number | 否 | 否 | 结束时间。 单位：毫秒 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## SnowboardingDetail
-**支持设备：** Phone / Tablet / Wearable
+##### SnowboardingDetail
 
 单板滑雪详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| location | [Location](#location)[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| location | Location[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## SnowboardingFeature
-**支持设备：** Phone / Tablet / Wearable
+##### SnowboardingFeature
 
 单板滑雪特征数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | tripTimes | number | 否 | 否 | 趟数。 |
@@ -2037,310 +2034,310 @@ import { healthStore } from '@kit.HealthServiceKit';
 | maxSlopeDegree | number | 否 | 是 | 滑雪最大坡，若未填写，默认为空。 单位：度 |
 | totalTime | number | 否 | 是 | 滑行时间，若未填写，默认为空。 单位：毫秒 |
 | totalDistance | number | 否 | 是 | 滑行距离，若未填写，默认为空。 单位：米 |
+ 
+ 
+  
 
-
-## SnowboardingSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SnowboardingSummary
 
 单板滑雪统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| snowboardingFeature | [SnowboardingFeature](#snowboardingfeature) | 否 | 否 | 单板滑雪特征数据。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| snowboardingFeature | SnowboardingFeature | 否 | 否 | 单板滑雪特征数据。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## Speed
-**支持设备：** Phone / Tablet / Wearable
+##### Speed
 
 速度详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | speed | number | 否 | 否 | 速度详情。 单位：米/秒 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## SpeedSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SpeedSummary
 
 速度统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：米/秒 取值范围：[0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：米/秒 取值范围：[0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：米/秒 取值范围：[0, ∞) |
+ 
+ 
+  
 
-
-## SportsDetail
-**支持设备：** Phone / Tablet / Wearable
+##### SportsDetail
 
 通用详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## SportsSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SportsSummary
 
 通用统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## StepSummary
-**支持设备：** Phone / Tablet / Wearable
+##### StepSummary
 
 步数统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | totalSteps | number | 否 | 否 | 步数总值。 取值范围：(0, ∞) |
+ 
+ 
+  
 
-
-## Stress
-**支持设备：** Phone / Tablet / Wearable
+##### Stress
 
 压力采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | stressScore | number | 否 | 否 | 压力得分。 取值范围：[1, 99] |
+ 
+ 
+  
 
-
-## StressAggregation
-**支持设备：** Phone / Tablet / Wearable
+##### StressAggregation
 
 压力得分聚合统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| stressScore | Omit&lt;[AggregateMetrics](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#aggregatemetrics), 'sum'&gt; | 否 | 否 | 压力得分聚合统计。 |
+| stressScore | Omit<AggregateMetrics, 'sum'> | 否 | 否 | 压力得分聚合统计。 |
+ 
+ 
+  
 
-
-## StrokeRate
-**支持设备：** Phone / Tablet / Wearable
+##### StrokeRate
 
 桨频采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | spm | number | 否 | 否 | 桨频。 单位：次/分钟 |
+ 
+ 
+  
 
-
-## StrokeRateSummary
-**支持设备：** Phone / Tablet / Wearable
+##### StrokeRateSummary
 
 桨频统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：次/分钟 取值范围: [0, ∞) |
 | max | number | 否 | 否 | 最大值。 单位：次/分钟 取值范围: [0, ∞) |
+ 
+ 
+  
 
-
-## SwimStrokeRate
-**支持设备：** Phone / Tablet / Wearable
+##### SwimStrokeRate
 
 划水频率采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | spm | number | 否 | 否 | 游泳划水频率。 单位：次/分钟 |
+ 
+ 
+  
 
-
-## SwimStrokeRateSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SwimStrokeRateSummary
 
 划水频率统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 单位：次/分钟 取值范围: [0, ∞) |
+ 
+ 
+  
 
-
-## Swolf
-**支持设备：** Phone / Tablet / Wearable
+##### Swolf
 
 SWOLF采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | swolf | number | 否 | 否 | SWOLF. |
+ 
+ 
+  
 
-
-## SwolfSummary
-**支持设备：** Phone / Tablet / Wearable
+##### SwolfSummary
 
 SWOLF统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | avg | number | 否 | 否 | 平均值。 取值范围: [0, ∞) |
 | max | number | 否 | 否 | 最大值。 取值范围: [0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 取值范围: [0, ∞) |
+ 
+ 
+  
 
-
-## WalkingDetail
-**支持设备：** Phone / Tablet / Wearable
+##### WalkingDetail
 
 健走详情数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| exerciseHeartRate | [ExerciseHeartRate](#exerciseheartrate)[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
-| speed | [Speed](#speed)[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
-| cadence | [Cadence](#cadence)[] | 否 | 是 | 步频详情列表，若未填写，默认为空。 |
-| location | [Location](#location)[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
-| altitude | [Altitude](#altitude)[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+| exerciseHeartRate | ExerciseHeartRate[] | 否 | 是 | 运动心率详情列表，若未填写，默认为空。 |
+| speed | Speed[] | 否 | 是 | 速度详情列表，若未填写，默认为空。 |
+| cadence | Cadence[] | 否 | 是 | 步频详情列表，若未填写，默认为空。 |
+| location | Location[] | 否 | 是 | 位置详情列表，若未填写，默认为空。 |
+| altitude | Altitude[] | 否 | 是 | 海拔详情列表，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## WalkingSummary
-**支持设备：** Phone / Tablet / Wearable
+##### WalkingSummary
 
 健走统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| distance | [DistanceSummary](#distancesummary) | 否 | 否 | 距离统计。 |
-| calorie | [CalorieSummary](#caloriesummary) | 否 | 否 | 热量统计。 |
-| speed | [SpeedSummary](#speedsummary) | 否 | 否 | 速度统计。 |
-| exerciseHeartRate | [ExerciseHeartRateSummary](#exerciseheartratesummary) | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
-| step | [StepSummary](#stepsummary) | 否 | 是 | 步数统计，若未填写，默认为空。 |
-| cadence | [CadenceSummary](#cadencesummary) | 否 | 是 | 步频统计，若未填写，默认为空。 |
-| altitude | [AltitudeSummary](#altitudesummary) | 否 | 是 | 海拔统计，若未填写，默认为空。 |
-| location | [LocationSummary](#locationsummary) | 否 | 是 | 位置统计，若未填写，默认为空。 |
+| distance | DistanceSummary | 否 | 否 | 距离统计。 |
+| calorie | CalorieSummary | 否 | 否 | 热量统计。 |
+| speed | SpeedSummary | 否 | 否 | 速度统计。 |
+| exerciseHeartRate | ExerciseHeartRateSummary | 否 | 是 | 运动心率统计，若未填写，默认为空。 |
+| step | StepSummary | 否 | 是 | 步数统计，若未填写，默认为空。 |
+| cadence | CadenceSummary | 否 | 是 | 步频统计，若未填写，默认为空。 |
+| altitude | AltitudeSummary | 否 | 是 | 海拔统计，若未填写，默认为空。 |
+| location | LocationSummary | 否 | 是 | 位置统计，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## WaterTemperature
-**支持设备：** Phone / Tablet / Wearable
+##### WaterTemperature
 
 水温采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | temperature | number | 否 | 否 | 温度。 单位：摄氏度 |
+ 
+ 
+  
 
-
-## WaterTemperatureSummary
-**支持设备：** Phone / Tablet / Wearable
+##### WaterTemperatureSummary
 
 水温统计数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | max | number | 否 | 否 | 最大值。 单位：摄氏度 取值范围: [0, ∞) |
 | min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：摄氏度 取值范围: [0, ∞) |
+ 
+ 
+  
 
-
-## Weight
-**支持设备：** Phone / Tablet / Wearable
+##### Weight
 
 体重采样数据字段列表。
-
+ 
 **系统能力：** SystemCapability.Health.HealthStore
-
+ 
 **起始版本：** 5.0.0(12)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bodyWeight | number | 否 | 否 | 体重。 单位：千克 取值范围：[0.1, 500] |

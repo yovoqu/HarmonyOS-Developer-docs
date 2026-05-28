@@ -6,8 +6,8 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：geoLocationManager； API声明：function on(type: 'bluetoothScanResultChange', callback: Callback<BluetoothScanResult>): void; 差异内容：function on(type: 'bluetoothScanResultChange', callback: Callback<BluetoothScanResult>): void; | api/@ohos.geoLocationManager.d.ts |
-| 新增API | NA | 类名：geoLocationManager； API声明：function off(type: 'bluetoothScanResultChange', callback?: Callback<BluetoothScanResult>): void; 差异内容：function off(type: 'bluetoothScanResultChange', callback?: Callback<BluetoothScanResult>): void; | api/@ohos.geoLocationManager.d.ts |
+| 新增API | NA | 类名：geoLocationManager； API声明：function on(type: 'bluetoothScanResultChange', callback: Callback&lt;BluetoothScanResult&gt;): void; 差异内容：function on(type: 'bluetoothScanResultChange', callback: Callback&lt;BluetoothScanResult&gt;): void; | api/@ohos.geoLocationManager.d.ts |
+| 新增API | NA | 类名：geoLocationManager； API声明：function off(type: 'bluetoothScanResultChange', callback?: Callback&lt;BluetoothScanResult&gt;): void; 差异内容：function off(type: 'bluetoothScanResultChange', callback?: Callback&lt;BluetoothScanResult&gt;): void; | api/@ohos.geoLocationManager.d.ts |
 | 新增API | NA | 类名：geoLocationManager； API声明： export interface BluetoothScanResult 差异内容： export interface BluetoothScanResult | api/@ohos.geoLocationManager.d.ts |
 | 新增API | NA | 类名：BluetoothScanResult； API声明：deviceId: string; 差异内容：deviceId: string; | api/@ohos.geoLocationManager.d.ts |
 | 新增API | NA | 类名：BluetoothScanResult； API声明：rssi: number; 差异内容：rssi: number; | api/@ohos.geoLocationManager.d.ts |

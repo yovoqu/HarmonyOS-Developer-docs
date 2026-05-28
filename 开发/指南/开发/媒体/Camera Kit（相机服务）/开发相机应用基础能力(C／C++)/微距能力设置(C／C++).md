@@ -1,27 +1,30 @@
 # 微距能力设置(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-macro
 
 从API version 19开始，支持设置微距能力。微距能力是指通过光学设计与算法优化，实现近距离对焦并清晰捕捉微小物体细节的相机功能。
 
 
-## 开发步骤
+##### 开发步骤
 
-详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。 导入NDK接口。选择系统提供的NDK接口能力，导入NDK接口的方法如下。
-```text
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
+详细的API说明请参考[OH_Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-camera)。
+1. 导入NDK接口。选择系统提供的NDK接口能力，导入NDK接口的方法如下。
+
+  
+```cpp
+#include <cstdint>
+#include <native_buffer/buffer_common.h>
+#include <unistd.h>
+#include <string>
+#include <thread>
+#include <cstdio>
+#include <fcntl.h>
+#include <map>
+#include <string>
+#include <vector>
+#include <native_buffer/native_buffer.h>
 #include "iostream"
 #include "mutex"
 
@@ -34,8 +37,8 @@
 #include "ohcamera/video_output.h"
 #include "napi/native_api.h"
 #include "ohcamera/camera_manager.h"
-#include
-#include
+#include <window_manager/oh_display_info.h>
+#include <window_manager/oh_display_manager.h>
 
 namespace OHOS_CAMERA_SAMPLE {
 class NDKCamera {
@@ -55,7 +58,9 @@ class NDKCamera {
 } // namespace OHOS_CAMERA_SAMPLE
 ```
 
-在CMake脚本中链接相关动态库。
+2. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC
     libace_napi.z.so
@@ -64,8 +69,10 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
-通过[OH_CaptureSession_IsMacroSupported()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_ismacrosupported)方法，检测当前设备是否支持微距能力。
-```text
+3. 通过[OH_CaptureSession_IsMacroSupported()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_ismacrosupported)方法，检测当前设备是否支持微距能力。
+
+  
+```cpp
 bool NDKCamera::IsMacroSupported(Camera_CaptureSession* captureSession)
 {
     // 判断设备是否支持微距能力。
@@ -87,8 +94,10 @@ bool NDKCamera::IsMacroSupported(Camera_CaptureSession* captureSession)
 }
 ```
 
-使用[OH_CaptureSession_EnableMacro()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_enablemacro)方法开启或关闭微距能力。
-```text
+4. 使用[OH_CaptureSession_EnableMacro()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_enablemacro)方法开启或关闭微距能力。
+
+  
+```cpp
 void NDKCamera::EnableMacro(bool isMacro)
 {
     OH_LOG_INFO(LOG_APP, "EnableMacro: isMacro is %{public}d", isMacro);
@@ -102,10 +111,15 @@ void NDKCamera::EnableMacro(bool isMacro)
 ```
 
 
-## 状态监听
 
-从API version 20开始，支持监听微距能力是否发生改变。 通过[OH_CaptureSession_RegisterMacroStatusChangeCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_registermacrostatuschangecallback)函数注册回调，返回监听结果。
-```text
+
+##### 状态监听
+
+从API version 20开始，支持监听微距能力是否发生改变。
+
+通过[OH_CaptureSession_RegisterMacroStatusChangeCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_registermacrostatuschangecallback)函数注册回调，返回监听结果。
+
+```cpp
 void MacroStatusCallback(Camera_CaptureSession *captureSession, bool isMacroDetected)
 {
     OH_LOG_INFO(LOG_APP, "MacroStatusCallback isMacro: %{public}d", isMacroDetected);

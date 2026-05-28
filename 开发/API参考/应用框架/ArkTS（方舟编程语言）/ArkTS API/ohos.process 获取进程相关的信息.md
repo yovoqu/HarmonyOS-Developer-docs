@@ -3,31 +3,28 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-process
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 获取进程相关的信息，提供进程管理的相关功能。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { process } from '@kit.ArkTS';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -36,8 +33,9 @@ import { process } from '@kit.ArkTS';
 | tid8+ | number | 是 | 否 | 当前线程的tid。 |
 
 
-## EventListener
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### EventListener
 
 type EventListener = (evt: Object) => void
 
@@ -49,14 +47,14 @@ type EventListener = (evt: Object) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | evt | Object | 是 | 用户事件。 |
 
 
-## process.isIsolatedProcess8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### process.isIsolatedProcess8+
 
 isIsolatedProcess(): boolean
 
@@ -68,7 +66,6 @@ isIsolatedProcess(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回判断结果。如果进程被隔离则返回true，否则返回false。 |
@@ -76,14 +73,13 @@ isIsolatedProcess(): boolean
 
 **示例：**
 
-
 ```text
 let result = process.isIsolatedProcess();
 ```
 
 
-## process.is64Bit8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.is64Bit8+
 
 is64Bit(): boolean
 
@@ -95,7 +91,6 @@ is64Bit(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回判断结果。如果运行环境是64位则返回true，否则返回false。 |
@@ -103,14 +98,13 @@ is64Bit(): boolean
 
 **示例：**
 
-
 ```text
 let result = process.is64Bit();
 ```
 
 
-## process.getStartRealtime8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.getStartRealtime8+
 
 getStartRealtime(): number
 
@@ -122,7 +116,6 @@ getStartRealtime(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回经过的实时时间。单位：毫秒。 |
@@ -130,14 +123,13 @@ getStartRealtime(): number
 
 **示例：**
 
-
 ```text
 let realtime = process.getStartRealtime();
 ```
 
 
-## process.getPastCpuTime8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.getPastCpuTime8+
 
 getPastCpuTime(): number
 
@@ -149,7 +141,6 @@ getPastCpuTime(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回经过的CPU时间。单位：毫秒。 |
@@ -157,14 +148,13 @@ getPastCpuTime(): number
 
 **示例：**
 
-
 ```text
 let result = process.getPastCpuTime();
 ```
 
 
-## process.abort
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.abort
 
 abort(): void
 
@@ -176,14 +166,13 @@ abort(): void
 
 **示例：**
 
-
 ```text
 process.abort();
 ```
 
 
-## process.uptime
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.uptime
 
 uptime(): number
 
@@ -195,7 +184,6 @@ uptime(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 当前系统已运行的时间。单位：秒。 |
@@ -203,27 +191,25 @@ uptime(): number
 
 **示例：**
 
-
 ```text
 let time = process.uptime();
 ```
 
 
-## process.kill(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.kill(deprecated)
 
 kill(signal: number, pid: number): boolean
 
 发送信号到指定进程，结束该进程。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[kill9+](#kill9)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 kill 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -233,7 +219,6 @@ kill(signal: number, pid: number): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 信号发送成功返回true，失败返回false。 |
@@ -241,15 +226,14 @@ kill(signal: number, pid: number): boolean
 
 **示例：**
 
-
 ```text
 let pres = process.pid;
 let result = process.kill(28, pres);
 ```
 
 
-## process.exit(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.exit(deprecated)
 
 exit(code: number): void
 
@@ -257,14 +241,13 @@ exit(code: number): void
 
 请谨慎使用此接口。调用此接口后应用将退出。如果输入参数非0，可能会导致数据丢失或出现异常。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[exit9+](#exit9)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 exit 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -273,27 +256,25 @@ exit(code: number): void
 
 **示例：**
 
-
 ```text
 process.exit(0);
 ```
 
 
-## process.getUidForName(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.getUidForName(deprecated)
 
 getUidForName(v: string): number
 
 根据指定的用户名，从系统的用户数据库中获取该用户的uid。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[getUidForName9+](#getuidforname9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getUidForName 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -302,7 +283,6 @@ getUidForName(v: string): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回用户uid。 |
@@ -310,27 +290,25 @@ getUidForName(v: string): number
 
 **示例：**
 
-
 ```text
 let pres = process.getUidForName("tool");
 ```
 
 
-## process.getThreadPriority(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.getThreadPriority(deprecated)
 
 getThreadPriority(v: number): number
 
 根据指定的tid获取线程优先级，优先级顺序取决于当前操作系统。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[getThreadPriority9+](#getthreadpriority9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getThreadPriority 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -339,7 +317,6 @@ getThreadPriority(v: number): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回线程的优先级。优先级顺序取决于当前操作系统。 |
@@ -347,28 +324,26 @@ getThreadPriority(v: number): number
 
 **示例：**
 
-
 ```text
 let tid = process.tid;
 let pres = process.getThreadPriority(tid);
 ```
 
 
-## process.isAppUid(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.isAppUid(deprecated)
 
 isAppUid(v: number): boolean
 
 判断uid是否属于应用程序。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[isAppUid9+](#isappuid9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 isAppUid 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -377,7 +352,6 @@ isAppUid(v: number): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回判断结果。如果是应用程序的uid则返回true，否则返回false。 |
@@ -385,27 +359,25 @@ isAppUid(v: number): boolean
 
 **示例：**
 
-
 ```text
 let result = process.isAppUid(688);
 ```
 
 
-## process.getSystemConfig(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.getSystemConfig(deprecated)
 
 getSystemConfig(name: number): number
 
 获取系统配置信息。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[getSystemConfig9+](#getsystemconfig9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getSystemConfig 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -414,7 +386,6 @@ getSystemConfig(name: number): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回系统配置信息。 |
@@ -422,28 +393,26 @@ getSystemConfig(name: number): number
 
 **示例：**
 
-
 ```text
 let _SC_ARG_MAX = 0;
 let pres = process.getSystemConfig(_SC_ARG_MAX);
 ```
 
 
-## process.getEnvironmentVar(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### process.getEnvironmentVar(deprecated)
 
 getEnvironmentVar(name: string): string
 
 获取环境变量名对应的值。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[getEnvironmentVar9+](#getenvironmentvar9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getEnvironmentVar 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -452,7 +421,6 @@ getEnvironmentVar(name: string): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回环境变量名对应的值。 |
@@ -460,22 +428,21 @@ getEnvironmentVar(name: string): string
 
 **示例：**
 
-
 ```text
 let pres = process.getEnvironmentVar("PATH");
 ```
 
 
-## ProcessManager9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ProcessManager9+
 
 提供进程管理相关接口，包括进程UID判断、用户信息查询、线程优先级获取、环境变量获取、进程退出和信号发送等功能。
 
 通过new process.ProcessManager()构造ProcessManager对象。
 
 
-### isAppUid9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isAppUid9+
 
 isAppUid(v: number): boolean
 
@@ -487,14 +454,12 @@ isAppUid(v: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | v | number | 是 | 应用程序的uid。可通过process.uid获取。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -505,14 +470,12 @@ isAppUid(v: number): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**
-
 
 ```text
 let pro = new process.ProcessManager();
@@ -523,8 +486,8 @@ console.info("result: " + result); // result: true
 ```
 
 
-### getUidForName9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getUidForName9+
 
 getUidForName(v: string): number
 
@@ -536,14 +499,12 @@ getUidForName(v: string): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | v | string | 是 | 用户名。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -554,7 +515,6 @@ getUidForName(v: string): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -562,15 +522,14 @@ getUidForName(v: string): number
 
 **示例：**
 
-
 ```text
 let pro = new process.ProcessManager();
 let pres = pro.getUidForName("tool");
 ```
 
 
-### getThreadPriority9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getThreadPriority9+
 
 getThreadPriority(v: number): number
 
@@ -582,14 +541,12 @@ getThreadPriority(v: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | v | number | 是 | 指定的线程tid。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -600,14 +557,12 @@ getThreadPriority(v: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**
-
 
 ```text
 let pro = new process.ProcessManager();
@@ -616,8 +571,8 @@ let pres = pro.getThreadPriority(tid);
 ```
 
 
-### getSystemConfig9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getSystemConfig9+
 
 getSystemConfig(name: number): number
 
@@ -629,14 +584,12 @@ getSystemConfig(name: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | number | 是 | 指定系统配置参数名。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -647,14 +600,12 @@ getSystemConfig(name: number): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**
-
 
 ```text
 let pro = new process.ProcessManager();
@@ -663,8 +614,8 @@ let pres = pro.getSystemConfig(_SC_ARG_MAX);
 ```
 
 
-### getEnvironmentVar9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getEnvironmentVar9+
 
 getEnvironmentVar(name: string): string
 
@@ -676,14 +627,12 @@ getEnvironmentVar(name: string): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 环境变量名。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -694,7 +643,6 @@ getEnvironmentVar(name: string): string
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -702,15 +650,14 @@ getEnvironmentVar(name: string): string
 
 **示例：**
 
-
 ```text
 let pro = new process.ProcessManager();
 let pres = pro.getEnvironmentVar("PATH");
 ```
 
 
-### exit9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### exit9+
 
 exit(code: number): void
 
@@ -724,7 +671,6 @@ exit(code: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | code | number | 是 | 进程的退出码。 |
@@ -734,7 +680,6 @@ exit(code: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -742,15 +687,14 @@ exit(code: number): void
 
 **示例：**
 
-
 ```text
 let pro = new process.ProcessManager();
 pro.exit(0);
 ```
 
 
-### kill9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### kill9+
 
 kill(signal: number, pid: number): boolean
 
@@ -762,15 +706,13 @@ kill(signal: number, pid: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| signal | number | 是 | 发送特定的信号给目标进程。 取值范围：1 &lt;= signal &lt;= 64。 |
+| signal | number | 是 | 发送特定的信号给目标进程。 取值范围：1 <= signal <= 64。 |
 | pid | number | 是 | 进程的id。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -781,14 +723,12 @@ kill(signal: number, pid: number): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 
 
 **示例：**
-
 
 ```text
 let pro = new process.ProcessManager();

@@ -1,39 +1,55 @@
 # 量化基模外挂LoRA微调
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-external-lora-fine-tuning
 
-## 简介
+##### 简介
 
-Transform结构作为基模完成量化后，可支持基模结构挂载LoRA分支进行特定场景训练。即量化基模+浮点LoRA的结构微调，作用于量化损失修复和下游场景任务续训。 微调准备： 浮点模型：Huggingface开源形式加载即可  量化策略文件：基于基模量化，需要新增LoRA config配置  量化基模权重：基于基模量化保存的trained.pth  微调框架：Transform Trainer库架构，或者用户自定义训练架构   微调步骤： 修改基模量化策略文件，增加LoRA相关配置  使用插件式接口进行模型改造  微调模型  保存训练后模型参数  导出量化参数  导出ONNX模型
+Transform结构作为基模完成量化后，可支持基模结构挂载LoRA分支进行特定场景训练。即量化基模+浮点LoRA的结构微调，作用于量化损失修复和下游场景任务续训。
+ 
+微调准备：
+ 1. 浮点模型：Huggingface开源形式加载即可
+2. 量化策略文件：基于基模量化，需要新增LoRA config配置
+3. 量化基模权重：基于基模量化保存的trained.pth
+4. 微调框架：Transform Trainer库架构，或者用户自定义训练架构
+ 
+微调步骤：
+ 1. 修改基模量化策略文件，增加LoRA相关配置
+2. 使用插件式接口进行模型改造
+3. 微调模型
+4. 保存训练后模型参数
+5. 导出量化参数
+6. 导出ONNX模型
+ 
+  
 
-## 修改基模配置文件
+##### 修改基模配置文件
 
-
-```text
+```json
 {
     "layer_strategy": {
         "time_embedding.linear_1": {
-            "type": "",
+            "type": "<class 'torch.nn.modules.linear.Linear'>",
             "quant_strategy": "XXX",  ### 基模策略
             ### 新增外挂lora，追加以下内容
             "lora_config": {
-                "rank": 32,
-                "alpha": 32,
-                "quant_state": false
+                "rank": 32, ### LoRA秩大小，影响模型表达能力
+                "alpha": 32, ### LoRA缩放因子，通常设置为与rank相同的值
+                "quant_state": false ### 是否启用量化状态，在LoRA训练中建议设为False
             }
         }
 }
 }
 ```
+ 
+quant_state为LoRA结构的量化使能标志，训练时建议使用false，即使用浮点LoRA训练。
+ 
+  
 
- quant_state为LoRA结构的量化使能标志，训练时建议使用false，即使用浮点LoRA训练。
+##### 插件式接口使用
 
-## 插件式接口使用
-
-
-```text
+```json
 import os
 import torch
 from dopt.dopt_lm.do_opt import (
@@ -53,12 +69,14 @@ model = set_trainable_lora(model, initia_method='gaussian')
 ## 即可获得外挂浮点lora+量化基模的torch模型，且支持lora参数可学习，其余参数冻结，支持lora微调。
 ## initia_method：初始化方法可选："kaiming", "gaussian", "pissa" , 或者不传参默认全0构造。
 ```
+ 
+  
 
-
-## 微调模型
+##### 微调模型
 
 简单示例：可根据自己需求设计训练框架。
-```text
+ 
+```json
 import torch
 from datasets import load_dataset
 from transformers import (
@@ -151,16 +169,20 @@ print("="*20 + " 训练完成 " + "="*20)
 # -------------------- 6. 保存 LoRA 适配器 --------------------
 torch.save(model.state_dict(), 'trained_lora.pth')
 ```
+ 
+  
 
-
-## 导出量化参数
+##### 导出量化参数
 
 参考[量化参数提取导出](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-plug-in-quantification#量化参数提取导出)。量化参数导出的作用是输出量化文件和导出onnx所用的fake_quant_weight.pth。
+ 
+  
 
-## 导出ONNX模型
+##### 导出ONNX模型
 
 示例
-```text
+ 
+```json
 import os
 import sys
 import onnx

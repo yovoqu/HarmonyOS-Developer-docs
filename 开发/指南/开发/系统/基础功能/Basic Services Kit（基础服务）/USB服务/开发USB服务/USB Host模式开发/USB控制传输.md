@@ -1,52 +1,80 @@
 # USB控制传输
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/controltransfer
 
-## 场景介绍
+##### 场景介绍
 
 控制传输主要用于主机（Host）和设备（Device）进行设备状态的获取和设置，进行设备属性状态的控制。根据设备支持的端点类型支持控制传输读和写。
 
-## 环境准备
 
 
-## 环境要求
-
-开发工具及配置： DevEco Studio作为驱动开发工具，是进行驱动开发必备条件之一，开发者可以使用该工具进行开发、调试、打包等操作。请[下载安装](https://developer.huawei.com/consumer/cn/download/)该工具，并参考[DevEco Studio使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)中的[创建工程及运行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)进行基本的操作验证，保证DevEco Studio可正常运行。 SDK版本配置： 扩展外设管理提供的ArkTs接口，所需SDK版本为API16及以上才可使用。 HDC配置： HDC（HarmonyOS Device Connector）是为开发人员提供的用于调试的命令行工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互，详细参考[HDC配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)。
-
-## 搭建环境
-
-在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。 将public-SDK更新到API 16或以上。 PC安装HDC工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互。 用USB线缆将搭载HarmonyOS的设备连接到PC。
-
-## 开发指导
+##### 环境准备
 
 
-## 接口说明
 
+##### 环境要求
+
+ - 开发工具及配置：
+
+  DevEco Studio作为驱动开发工具，是进行驱动开发必备条件之一，开发者可以使用该工具进行开发、调试、打包等操作。请[下载安装](https://developer.huawei.com/consumer/cn/download/)该工具，并参考[DevEco Studio使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)中的[创建工程及运行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)进行基本的操作验证，保证DevEco Studio可正常运行。
+ - SDK版本配置：
+
+  扩展外设管理提供的ArkTs接口，所需SDK版本为API16及以上才可使用。
+ - HDC配置：
+
+  HDC（HarmonyOS Device Connector）是为开发人员提供的用于调试的命令行工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互，详细参考[HDC配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)。
+
+
+
+
+##### 搭建环境
+
+ - 在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。
+ - 将public-SDK更新到API 16或以上。
+ - PC安装HDC工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互。
+ - 用USB线缆将搭载HarmonyOS的设备连接到PC。
+
+
+
+
+##### 开发指导
+
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise | 控制传输。 |
+| usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: number): Promise&lt;number&gt; | 控制传输。 |
+
 
 更多关于设备管理和传输模式的详细接口介绍，请查阅[@ohos.usbManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-usbmanager)。
 
-## 开发步骤
+
+
+##### 开发步骤
 
 主机（Host）连接设备（Device），通过usbControlTransfer接口进行数据传输。以下步骤描述了如何使用控制传输方式来传输数据：
+
 > [!NOTE]
 > 以下示例代码只是使用控制传输方式来传输数据的必要流程，需要放入具体的方法中执行。在实际调用时，设备开发者需要遵循设备相关协议进行调用，确保数据的正确传输和设备的兼容性。
 
-导入模块。
-```text
+1. 导入模块。
+
+  
+```ArkTS
 // 导入usbManager模块
 import { usbManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
 ```
 
-获取设备列表。
-```text
+2. 获取设备列表。
+
+  
+```ArkTS
 // 获取设备列表。
 let deviceList: usbManager.USBDevice[] = usbManager.getDevices();
 console.info(`deviceList: ${deviceList}`);
@@ -110,8 +138,10 @@ deviceList结构示例
 this.deviceList_ = deviceList;
 ```
 
-获取设备操作权限。
-```text
+3. 获取设备操作权限。
+
+  
+```ArkTS
 if (this.deviceList_ === undefined || this.deviceList_.length === 0) {
   console.error('deviceList is empty');
   this.logInfo_ += '\n[ERROR] deviceList is empty';
@@ -129,8 +159,10 @@ usbManager.requestRight(deviceName).then((hasRight: boolean) => {
 });
 ```
 
-打开设备。
-```text
+4. 打开设备。
+
+  
+```ArkTS
 if (this.deviceList_ === undefined || this.deviceList_.length === 0) {
   console.error('deviceList_ is empty');
   this.logInfo_ += '\n[ERROR] deviceList is empty';
@@ -161,8 +193,10 @@ console.info('open device success');
 this.logInfo_ += '\n[INFO] open device success';
 ```
 
-数据传输。
-```text
+5. 数据传输。
+
+  
+```ArkTS
 if (this.pipe_ === undefined) {
   console.error('pipe_ is null');
   this.logInfo_ += '\n[ERROR] pipe_ is null';
@@ -175,14 +209,22 @@ let pipe: usbManager.USBDevicePipe = this.pipe_;
 let param: usbManager.USBDeviceRequestParams = {
   bmRequestType: 0x80, // 0x80指一次由设备到主机的标准请求命令
   bRequest: 0x06, // 0x06指获取描述符
-  wValue: 0x01  {
+  wValue: 0x01 << 8 | 0, // 该值为2个字节，高字节指描述符类型，此处0x01指设备描述符；低字节指描述符索引，设备描述符不涉及，填0
+  wIndex: 0, // 索引值，可填0
+  wLength: 18, // 描述符的长度，此处18表示设备描述符长度，最大支持1024
+  data: new Uint8Array(18)
+};
+
+usbManager.usbControlTransfer(pipe, param).then((ret: number) => {
   console.info(`usbControlTransfer = ${ret}`);
   this.logInfo_ += '\n[INFO] usbControlTransfer = ' + JSON.stringify(ret);
 })
 ```
 
-释放接口，关闭设备。
-```text
+6. 释放接口，关闭设备。
+
+  
+```ArkTS
 if (this.pipe_ === undefined || this.interface_ === undefined) {
   console.error('pipe_ or interface_ is null');
   this.logInfo_ += '\n[ERROR] pipe_ or interface_ is null';

@@ -3,14 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uiextension
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 1011 Ability启动失败
+##### 1011 Ability启动失败
 
 **错误信息**
 
@@ -21,8 +21,6 @@ Failed to start the UIExtension ability.
 扩展Ability拉起失败，请检查扩展Ability的Want参数。
 
 **可能原因**
-
-
 1. Want参数配置错误；
 2. type类型不一致；
 3. 提供方应用未安装；
@@ -32,7 +30,8 @@ Failed to start the UIExtension ability.
 检查Want参数配置、应用是否安装等。
 
 
-## 1012 Ability切后台失败
+
+##### 1012 Ability切后台失败
 
 **错误信息**
 
@@ -51,7 +50,8 @@ Failed to switch the UIExtension ability to the background.
 根据AMS日志进行分析。
 
 
-## 1013 Ability终止失败
+
+##### 1013 Ability终止失败
 
 **错误信息**
 
@@ -70,7 +70,8 @@ Failed to destroy the UIExtension ability.
 根据AMS日志进行分析。
 
 
-## 100011 未注册同步回调
+
+##### 100011 未注册同步回调
 
 **错误信息**
 
@@ -85,13 +86,12 @@ No callback has been registered to respond to this request.
 组件使用方调用sendSync接口向被拉起的Ability发送数据前，扩展Ability未注册同步回调监听。
 
 **处理步骤**
-
-
 1. 扩展Ability注册同步回调监听；
 2. 组件使用方调用sendSync接口向被拉起的Ability发送数据。
 
 
-## 100012 数据发送失败
+
+##### 100012 数据发送失败
 
 **错误信息**
 
@@ -110,7 +110,8 @@ Transferring data failed.
 根据AMS日志进行分析。
 
 
-## 100013 禁止嵌套
+
+##### 100013 禁止嵌套
 
 **错误信息**
 
@@ -129,7 +130,8 @@ Cascading UIExtension components is not allowed.
 请确认UIExtension组件规格，避免特殊场景嵌套。
 
 
-## 100014 Ability退出异常
+
+##### 100014 Ability退出异常
 
 **错误信息**
 
@@ -148,7 +150,8 @@ The UIExtension ability exited unexpectedly.
 根据AMS日志进行分析。
 
 
-## 100015 生命周期超时
+
+##### 100015 生命周期超时
 
 **错误信息**
 
@@ -167,7 +170,8 @@ The lifecycle of the UIExtension ability has timed out.
 根据AMS日志进行分析。
 
 
-## 100016 Key事件处理超时
+
+##### 100016 Key事件处理超时
 
 **错误信息**
 
@@ -186,7 +190,8 @@ Key event processing by the UIExtension ability has timed out.
 根据AMS日志进行分析。
 
 
-## 100018 Ability启动失败
+
+##### 100018 Ability启动失败
 
 **错误信息**
 
@@ -197,8 +202,6 @@ Failed to start the UIExtension ability.
 设置onTerminated回调场景下，扩展Ability拉起失败，请检查扩展Ability的Want参数。
 
 **可能原因**
-
-
 1. Want参数配置错误；
 2. type类型不一致，具体请参考[EmbeddedComponent组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component#接口)；
 3. 提供方应用未安装；
@@ -209,7 +212,8 @@ Failed to start the UIExtension ability.
 检查Want参数配置、应用是否安装、当前能力是否支持此设备类型等。
 
 
-## 100019 Ability切后台失败
+
+##### 100019 Ability切后台失败
 
 **错误信息**
 
@@ -228,7 +232,8 @@ Failed to switch the UIExtension ability to the background.
 根据AMS日志进行分析。
 
 
-## 100020 Ability终止失败
+
+##### 100020 Ability终止失败
 
 **错误信息**
 
@@ -247,8 +252,8 @@ Failed to destroy the UIExtension ability.
 根据AMS日志进行分析。
 
 
-## 100021 窗口透明检测
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 100021 窗口透明检测
 
 **错误信息**
 

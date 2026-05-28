@@ -3,28 +3,31 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable
+##### 导入模块
 
-#### 导入模块
-
-```ts
+```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
+ 
+  
 
-#### MapPolyline
+##### MapPolyline
+
 折线，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addpolyline)方法时会返回该类型的实例。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { image } from '@kit.ImageKit';
 
 // 数组存放图片内容
@@ -46,441 +49,555 @@ let polylineOption: mapCommon.MapPolylineOptions = {
 };
 let mapPolyline = await this.mapController.addPolyline(polylineOption);
 ```
+ 
+  
 
-#### getColor
+##### getColor
+
 getColor(): number
+ 
 获取折线的颜色值。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number | ARGB格式颜色值。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let color: number = mapPolyline.getColor();
 ```
+ 
+  
 
-#### getColors
+##### getColors
+
 getColors(): Array&lt;number&gt;
+ 
 获取折线的分段颜色值数组。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Array&lt;number&gt; | 折线的分段颜色值数组。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let colors: Array<number> = mapPolyline.getColors();
 ```
+ 
+  
 
-#### getEndCap
+##### getEndCap
+
 getEndCap(): mapCommon.CapStyle
+ 
 获取折线的末尾端点样式。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [mapCommon.CapStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#capstyle) | 折线的末尾端点样式。 |
-
+| mapCommon.CapStyle | 折线的末尾端点样式。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let endCap: mapCommon.CapStyle = mapPolyline.getEndCap();
 ```
+ 
+  
 
-#### getJointType
+##### getJointType
+
 getJointType(): mapCommon.JointType
+ 
 获取折线除起始和结束顶点之外的所有顶点的节点类型属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [mapCommon.JointType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#jointtype) | 折线除起始和结束顶点之外的所有顶点的节点类型属性。 |
-
+| mapCommon.JointType | 折线除起始和结束顶点之外的所有顶点的节点类型属性。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let jointType: mapCommon.JointType = mapPolyline.getJointType();
 ```
+ 
+  
 
-#### getPatterns
-getPatterns(): Array&lt;mapCommon.PatternItem&gt;
+##### getPatterns
+
+getPatterns(): Array<mapCommon.PatternItem>
+ 
 获取折线的样式属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Array<[mapCommon.PatternItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#patternitem)> | 折线的样式属性。 |
-
+| Array<mapCommon.PatternItem> | 折线的样式属性。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let patterns: Array<mapCommon.PatternItem> = mapPolyline.getPatterns();
 ```
+ 
+  
 
-#### getPoints
-getPoints(): Array&lt;mapCommon.LatLng&gt;
+##### getPoints
+
+getPoints(): Array<mapCommon.LatLng>
+ 
 获取折线的顶点坐标属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Array<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 折线的顶点坐标属性。 |
-
+| Array<mapCommon.LatLng> | 折线的顶点坐标属性。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let points: Array<mapCommon.LatLng> = mapPolyline.getPoints();
 ```
+ 
+  
 
-#### getStartCap
+##### getStartCap
+
 getStartCap(): mapCommon.CapStyle
+ 
 获取折线的起始端点样式。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [mapCommon.CapStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#capstyle) | 折线的起始端点样式。 |
-
+| mapCommon.CapStyle | 折线的起始端点样式。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let startCap: mapCommon.CapStyle = mapPolyline.getStartCap();
 ```
+ 
+  
 
-#### getWidth
+##### getWidth
+
 getWidth(): number
+ 
 获取折线的宽度属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number | 折线的宽度属性，单位：px。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let width: number = mapPolyline.getWidth();
 ```
+ 
+  
 
-#### isClickable
+##### isClickable
+
 isClickable(): boolean
+ 
 获取折线的可点击属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 折线的可点击性。 - true：可点击 - false：不可点击 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let isClickable: boolean = mapPolyline.isClickable();
 ```
+ 
+  
 
-#### isGeodesic
+##### isGeodesic
+
 isGeodesic(): boolean
+ 
 获取折线的大地线属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 折线的大地线属性。 - true：大地线 - false：非大地线 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let isGeodesic: boolean = mapPolyline.isGeodesic();
 ```
+ 
+  
 
-#### isGradient
+##### isGradient
+
 isGradient(): boolean
+ 
 获取折线的渐变属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 折线的渐变属性。 - true：渐变 - false：不渐变 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let isGradient: boolean = mapPolyline.isGradient();
 ```
+ 
+  
 
-#### setClickable
+##### setClickable
+
 setClickable(clickable: boolean): void
+ 
 设置折线是否可以点击。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | clickable | boolean | 是 | 设置折线是否可以点击，异常值不处理。 - true：可以 - false：不可以 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setClickable(true);
 ```
+ 
+  
 
-#### setColor
+##### setColor
+
 setColor(color: number): void
+ 
 设置折线的颜色值。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | color | number | 是 | ARGB格式颜色值，异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setColor(0xff000000);
 ```
+ 
+  
 
-#### setColors
+##### setColors
+
 setColors(colors: Array&lt;number&gt;): void
+ 
 设置折线的多段颜色值数组。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | colors | Array&lt;number&gt; | 是 | 多段颜色，ARGB格式颜色值数组，异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setColors([0xffffff00, 0xff000000]);
 ```
+ 
+  
 
-#### setEndCap
+##### setEndCap
+
 setEndCap(endCap: mapCommon.CapStyle): void
+ 
 设置折线的末尾端点样式。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| endCap | [mapCommon.CapStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#capstyle) | 是 | 折线的末尾端点样式，异常值不处理。 |
-
+| endCap | mapCommon.CapStyle | 是 | 折线的末尾端点样式，异常值不处理。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setEndCap(mapCommon.CapStyle.BUTT);
 ```
+ 
+  
 
-#### setGeodesic
+##### setGeodesic
+
 setGeodesic(geodesic: boolean): void
+ 
 设置是否将折线的每个线段绘制为大地线。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | geodesic | boolean | 是 | 将折线的每个线段绘制为大地线，异常值不处理。 - true：每段绘制为大地线 - false：不是大地线 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setGeodesic(true);
 ```
+ 
+  
 
-#### setGradient
+##### setGradient
+
 setGradient(gradient: boolean): void
+ 
 设置折线的渐变属性是否启用。需设置折线颜色方可生效。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | gradient | boolean | 是 | 设置折线的渐变属性是否启用，异常值不处理。 - true：渐变 - false：不渐变 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setGradient(true);
 ```
+ 
+  
 
-#### setJointType
+##### setJointType
+
 setJointType(jointType: mapCommon.JointType): void
+ 
 设置折线除起始和结束顶点之外的所有顶点的节点类型。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| jointType | [mapCommon.JointType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#jointtype) | 是 | 节点类型，异常值不处理。 |
-
+| jointType | mapCommon.JointType | 是 | 节点类型，异常值不处理。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setJointType(mapCommon.JointType.DEFAULT);
 ```
+ 
+  
 
-#### setPatterns
-setPatterns(patterns: Array&lt;mapCommon.PatternItem&gt;): void
+##### setPatterns
+
+setPatterns(patterns: Array<mapCommon.PatternItem>): void
+ 
 设置折线的样式。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| patterns | Array<[mapCommon.PatternItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#patternitem)> | 是 | [PatternItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#patternitem)对象的集合，异常值不处理。 |
-
+| patterns | Array<mapCommon.PatternItem> | 是 | PatternItem对象的集合，异常值不处理。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let linePattern: Array<mapCommon.PatternItem> = [
   { type: mapCommon.PatternItemType.DASH, length: 100 },
   { type: mapCommon.PatternItemType.DOT, length: 100 },
@@ -488,27 +605,33 @@ let linePattern: Array<mapCommon.PatternItem> = [
 ];
 mapPolyline.setPatterns(linePattern);
 ```
+ 
+  
 
-#### setPoints
-setPoints(points: Array&lt;mapCommon.LatLng&gt;): void
+##### setPoints
+
+setPoints(points: Array<mapCommon.LatLng>): void
+ 
 设置折线的顶点坐标。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| points | Array<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 是 | 折线顶点的集合。默认情况下，折线不闭合；要形成闭合的折线，起点和终点必须相同，异常值不处理。 |
-
+| points | Array<mapCommon.LatLng> | 是 | 折线顶点的集合。默认情况下，折线不闭合；要形成闭合的折线，起点和终点必须相同，异常值不处理。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let points: Array<mapCommon.LatLng> = [
   { latitude: 31.18, longitude: 118.766 },
   { latitude: 31.38, longitude: 118.366 },
@@ -518,146 +641,181 @@ let points: Array<mapCommon.LatLng> = [
 ];
 mapPolyline.setPoints(points);
 ```
+ 
+  
 
-#### setStartCap
+##### setStartCap
+
 setStartCap(startCap: mapCommon.CapStyle): void
+ 
 设置折线的起始端点样式。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| startCap | [mapCommon.CapStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#capstyle) | 是 | 折线的起始端点样式，异常值不处理。 |
-
+| startCap | mapCommon.CapStyle | 是 | 折线的起始端点样式，异常值不处理。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setStartCap(mapCommon.CapStyle.BUTT);
 ```
+ 
+  
 
-#### setWidth
+##### setWidth
+
 setWidth(width: number): void
+ 
 设置折线的宽度。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | width | number | 是 | 折线的宽度，单位：px，取值范围：大于等于0，异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 mapPolyline.setWidth(20);
 ```
+ 
+  
 
-#### setCustomTexture
+##### setCustomTexture
+
 setCustomTexture(customTexture: ResourceStr | image.PixelMap): Promise&lt;void&gt;
+ 
 设置折线纹理。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| customTexture | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 折线纹理。建议纹理使用没有背景色（透明色）的图片，异常值不处理。 |
-
+| customTexture | ResourceStr \| image.PixelMap | 是 | 折线纹理。建议纹理使用没有背景色（透明色）的图片，异常值不处理。 |
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 // 图标存放在resources/rawfile目录下
 await mapPolyline.setCustomTexture("icon/naviline_arrow.png");
 ```
+ 
+  
 
-#### setCustomTexture
+##### setCustomTexture
+
 setCustomTexture(customTexture: ResourceStr | image.PixelMap, isTextureMappingUsed: boolean): Promise&lt;void&gt;
+ 
 设置折线纹理。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.3(15)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| customTexture | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 折线纹理。建议纹理使用没有背景色（透明色）的图片，异常值不处理。 |
+| customTexture | ResourceStr \| image.PixelMap | 是 | 折线纹理。建议纹理使用没有背景色（透明色）的图片，异常值不处理。 |
 | isTextureMappingUsed | boolean | 是 | 是否使用贴图模式进行纹理绘制，异常值不处理。 - true：使用贴图模式 - false：不使用贴图模式，建议纹理没有背景色（使用透明色） |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 // 图标需存放在resources/rawfile目录下
 await mapPolyline.setCustomTexture("icon/naviline_arrow.png", true);
 ```
+ 
+  
 
-#### setCustomTextureIndexes
+##### setCustomTextureIndexes
+
 setCustomTextureIndexes(customTextureIndexes: number[]): Promise&lt;void&gt;
+ 
 动态设置自定义纹理索引。折线设置纹理后，该接口可以将已有的纹理资源动态应用在各个折线段上。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.3(15)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | customTextureIndexes | number[] | 是 | 每个坐标对应的纹理索引。数组长度需要和points的数量保持一致，数组中的元素取值范围：自然数，异常值不处理。 |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
-
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Invalid input parameter. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 await mapPolyline.setCustomTextureIndexes([0,1,0]);
 ```

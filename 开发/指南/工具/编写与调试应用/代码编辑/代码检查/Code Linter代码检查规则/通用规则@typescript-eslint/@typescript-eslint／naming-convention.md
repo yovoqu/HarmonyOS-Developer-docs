@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_naming-convention
 
 强制标识符使用一致的命名风格。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/naming-convention": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/naming-convention选项](https://typescript-eslint.nodejs.cn/rules/naming-convention/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // 默认类名为大驼峰的命名风格，函数名为小驼峰的命名风格
@@ -39,10 +40,10 @@ export function foo() {
   console.info('function');
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // 默认类名为大驼峰的命名风格，函数名为小驼峰的命名风格
@@ -56,13 +57,13 @@ export function Foo() {
   console.info('function');
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

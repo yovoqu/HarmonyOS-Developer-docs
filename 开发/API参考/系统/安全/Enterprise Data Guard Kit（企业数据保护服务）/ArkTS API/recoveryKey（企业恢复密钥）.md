@@ -1,6 +1,6 @@
 # recoveryKey（企业恢复密钥）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-recoverykey
 **支持设备：** PC/2in1
@@ -12,24 +12,21 @@
 **起始版本：** 5.0.3(15)
 
 
-## 导入模块
-**支持设备：** PC/2in1
+##### 导入模块
 
-
-```ts
+```text
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 ```
 
 
-## EnterpriseRecoveryKeyInfo
-**支持设备：** PC/2in1
+
+##### EnterpriseRecoveryKeyInfo
 
 企业恢复密钥及相关加密参数。
 
 **系统能力：** SystemCapability.PCService.RecoveryKeyService
 
 **起始版本：** 5.0.3(15)
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -39,10 +36,11 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 | tag | Uint8Array | 否 | 否 | AES-GCM-256加密时使用的tag。 |
 
 
-## getEnterpriseRecoveryKey
-**支持设备：** PC/2in1
 
-getEnterpriseRecoveryKey(userId: number): Promise<EnterpriseRecoveryKeyInfo>
+
+##### getEnterpriseRecoveryKey
+
+getEnterpriseRecoveryKey(userId: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;
 
 获取企业恢复密钥。使用Promise异步回调。
 
@@ -54,7 +52,6 @@ getEnterpriseRecoveryKey(userId: number): Promise<EnterpriseRecoveryKeyInfo>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | userId | number | 是 | 需要获取企业恢复密钥的用户ID。 |
@@ -62,16 +59,14 @@ getEnterpriseRecoveryKey(userId: number): Promise<EnterpriseRecoveryKeyInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[EnterpriseRecoveryKeyInfo](#enterpriserecoverykeyinfo)&gt; | Promise对象，返回企业恢复密钥及相关加密参数的对象。 |
+| Promise&lt;EnterpriseRecoveryKeyInfo&gt; | Promise对象，返回企业恢复密钥及相关加密参数的对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -85,54 +80,36 @@ getEnterpriseRecoveryKey(userId: number): Promise<EnterpriseRecoveryKeyInfo>
 
 **示例：**
 
-
-```ts
+```text
 import { buffer } from '@kit.ArkTS';
 import { BusinessError, osAccount } from '@kit.BasicServicesKit';
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 async function getEnterpriseRecoveryKey() {
   try {
-    let accountManager: osAccount.AccountManager =
-      osAccount.getAccountManager();
+    let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
     let userId: number = await accountManager.getOsAccountLocalId();
-    recoveryKey
-      .getEnterpriseRecoveryKey(userId)
-      .then((info: recoveryKey.EnterpriseRecoveryKeyInfo) => {
-        console.info(`Succeeded in getting enterprise recovery key.`);
-        console.info(
-          `EnterpriseRecoveryKeyInfo enterpriseRecoveryKey: ${buffer
-            .from(info.enterpriseRecoveryKey)
-            .toString('hex')}`,
-        );
-        console.info(
-          `EnterpriseRecoveryKeyInfo exportPublicKey: ${buffer.from(info.exportPublicKey).toString('hex')}`,
-        );
-        console.info(
-          `EnterpriseRecoveryKeyInfo iv: ${buffer.from(info.iv).toString('hex')}`,
-        );
-        console.info(
-          `EnterpriseRecoveryKeyInfo tag: ${buffer.from(info.tag).toString('hex')}`,
-        );
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `Failed to get enterprise recovery key. Code: ${error.code}, message: ${error.message}`,
-        );
-      });
+    recoveryKey.getEnterpriseRecoveryKey(userId).then((info: recoveryKey.EnterpriseRecoveryKeyInfo) => {
+      console.info(`Succeeded in getting enterprise recovery key.`);
+      console.info(`EnterpriseRecoveryKeyInfo enterpriseRecoveryKey: ${buffer.from(info.enterpriseRecoveryKey)
+        .toString('hex')}`);
+      console.info(`EnterpriseRecoveryKeyInfo exportPublicKey: ${buffer.from(info.exportPublicKey).toString('hex')}`);
+      console.info(`EnterpriseRecoveryKeyInfo iv: ${buffer.from(info.iv).toString('hex')}`);
+      console.info(`EnterpriseRecoveryKeyInfo tag: ${buffer.from(info.tag).toString('hex')}`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to get enterprise recovery key. Code: ${error.code}, message: ${error.message}`);
+    });
   } catch (e) {
-    console.error(
-      `Failed to testGetEnterpriseRecoveryKey. Code: ${e.code}, message: ${e.message}`,
-    );
+    console.error(`Failed to testGetEnterpriseRecoveryKey. Code: ${e.code}, message: ${e.message}`);
   }
 }
 ```
 
 
-## getAuthChallenge
-**支持设备：** PC/2in1
 
-getAuthChallenge(): Promise<Uint8Array>
+##### getAuthChallenge
+
+getAuthChallenge(): Promise&lt;Uint8Array&gt;
 
 获取挑战值，在发起更新企业公钥证书、删除企业恢复密钥数据流程前，需要先获取挑战值。使用Promise异步回调。
 
@@ -144,7 +121,6 @@ getAuthChallenge(): Promise<Uint8Array>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;Uint8Array&gt; | Promise对象，返回用于更新企业公钥证书或删除企业恢复密钥数据时的挑战值。 |
@@ -152,8 +128,7 @@ getAuthChallenge(): Promise<Uint8Array>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -164,31 +139,23 @@ getAuthChallenge(): Promise<Uint8Array>
 
 **示例：**
 
-
-```ts
+```text
 import { buffer } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
-recoveryKey
-  .getAuthChallenge()
-  .then((challenge: Uint8Array) => {
-    console.info(
-      `Succeeded in getting challenge. challenge is: ${buffer.from(challenge).toString('hex')}`,
-    );
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to get challenge. Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+recoveryKey.getAuthChallenge().then((challenge: Uint8Array) => {
+  console.info(`Succeeded in getting challenge. challenge is: ${buffer.from(challenge).toString('hex')}`);
+}).catch((error: BusinessError) => {
+  console.error(`Failed to get challenge. Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## updateEnterpriseCertificate
-**支持设备：** PC/2in1
 
-updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise<number>
+##### updateEnterpriseCertificate
+
+updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise&lt;number&gt;
 
 更新企业公钥证书流程，需要先调[getAuthChallenge](#getauthchallenge)接口获取挑战值并[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。使用Promise异步回调。
 
@@ -200,15 +167,13 @@ updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise<nu
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| signature | Uint8Array | 是 | 挑战值的[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。 |
+| signature | Uint8Array | 是 | 挑战值的签名。 |
 | cert | Uint8Array | 是 | PEM格式的公钥证书，以二进制的格式完整传递。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -217,8 +182,7 @@ updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise<nu
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -232,8 +196,7 @@ updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise<nu
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
@@ -241,23 +204,18 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 let signature: Uint8Array = new Uint8Array([0]);
 // 在实际应用中，cert 应需替换为企业证书数据。
 let cert: Uint8Array = new Uint8Array([0]);
-recoveryKey
-  .updateEnterpriseCertificate(signature, cert)
-  .then((ret: number) => {
-    console.info(`Succeeded in updating certificate. result is: ${ret}`);
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to update certificate. Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+recoveryKey.updateEnterpriseCertificate(signature, cert).then((ret: number)=>{
+  console.info(`Succeeded in updating certificate. result is: ${ret}`);
+}).catch((error: BusinessError) => {
+  console.error(`Failed to update certificate. Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## deleteEnterpriseRecoveryKey
-**支持设备：** PC/2in1
 
-deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise<number>
+##### deleteEnterpriseRecoveryKey
+
+deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise&lt;number&gt;
 
 删除企业恢复密钥相关数据，需要先调[getAuthChallenge](#getauthchallenge)接口获取挑战值并[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。使用Promise异步回调。
 
@@ -269,15 +227,13 @@ deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise<numb
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | userId | number | 是 | 需要删除企业恢复密钥的用户ID。 |
-| signature | Uint8Array | 是 | 挑战值的[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。 |
+| signature | Uint8Array | 是 | 挑战值的签名。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -286,8 +242,7 @@ deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise<numb
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -301,8 +256,7 @@ deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise<numb
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError, osAccount } from '@kit.BasicServicesKit';
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
@@ -310,34 +264,24 @@ async function deleteEnterpriseRecoveryKey() {
   try {
     // 在实际应用中，signature 应替换为由企业的公钥、私钥和挑战值生成的签名。
     let signature: Uint8Array = new Uint8Array([0]);
-    let accountManager: osAccount.AccountManager =
-      osAccount.getAccountManager();
+    let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
     let userId: number = await accountManager.getOsAccountLocalId();
-    recoveryKey
-      .deleteEnterpriseRecoveryKey(userId, signature)
-      .then((ret: number) => {
-        console.info(
-          `Succeeded in deleting enterprise recovery key. result is: ${ret}`,
-        );
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `Failed to delete enterprise recovery key. Code: ${error.code}, message: ${error.message}`,
-        );
-      });
+    recoveryKey.deleteEnterpriseRecoveryKey(userId, signature).then((ret: number)=>{
+      console.info(`Succeeded in deleting enterprise recovery key. result is: ${ret}`);
+    }).catch((error: BusinessError)=>{
+      console.error(`Failed to delete enterprise recovery key. Code: ${error.code}, message: ${error.message}`);
+    });
   } catch (e) {
-    console.error(
-      `Failed to deleteEnterpriseRecoveryKey. Code: ${e.code}, message: ${e.message}`,
-    );
+    console.error(`Failed to deleteEnterpriseRecoveryKey. Code: ${e.code}, message: ${e.message}`);
   }
 }
 ```
 
 
-## verifyUserIdentityEnterprise
-**支持设备：** PC/2in1
 
-verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string): Promise<void>
+##### verifyUserIdentityEnterprise
+
+verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string): Promise&lt;void&gt;
 
 验证企业用户身份。在导出企业恢复密钥以重置锁屏密码之前，请先验证用户的锁屏密码。使用Promise异步回调。
 
@@ -349,16 +293,14 @@ verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | userId | number | 是 | 需要导出企业恢复密钥的用户ID。 |
-| userType | number | 是 | [用户类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccounttype) 。可以通过调用[getOsAccountType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#getosaccounttype9)获取。 |
+| userType | number | 是 | 用户类型。可以通过调用getOsAccountType获取。 |
 | pinCode | string | 是 | 用户锁屏密码，字符长度不超过64位。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -367,8 +309,7 @@ verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string):
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -381,8 +322,7 @@ verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string):
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError, osAccount } from '@kit.BasicServicesKit';
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
@@ -391,36 +331,27 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
  */
 async function verifyUserIdentityEnterprise(pinCode: string) {
   try {
-    let accountManager: osAccount.AccountManager =
-      osAccount.getAccountManager();
-    let accountType: osAccount.OsAccountType =
-      await accountManager.getOsAccountType();
+    let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+    let accountType: osAccount.OsAccountType = await accountManager.getOsAccountType();
 
     let userId: number = await accountManager.getOsAccountLocalId();
     let userType: number = accountType.valueOf();
-    recoveryKey
-      .verifyUserIdentityEnterprise(userId, userType, pinCode)
-      .then(() => {
-        console.info(`Succeeded in verifying user identity.`);
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `Failed to verified user identity. Code: ${error.code}, message: ${error.message}`,
-        );
-      });
+    recoveryKey.verifyUserIdentityEnterprise(userId, userType, pinCode).then(() => {
+      console.info(`Succeeded in verifying user identity.`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to verified user identity. Code: ${error.code}, message: ${error.message}`);
+    })
   } catch (e) {
-    console.error(
-      `Failed to verifyUserIdentityEnterprise. Code: ${e.code}, message: ${e.message}`,
-    );
+    console.error(`Failed to verifyUserIdentityEnterprise. Code: ${e.code}, message: ${e.message}`);
   }
 }
 ```
 
 
-## verifyUserByDialog
-**支持设备：** PC/2in1
 
-verifyUserByDialog(userId: number): Promise<void>
+##### verifyUserByDialog
+
+verifyUserByDialog(userId: number): Promise&lt;void&gt;
 
 通过弹框验证企业用户身份。在导出企业恢复密钥以重置锁屏密码之前，通过弹框验证企业用户身份。使用Promise异步回调。
 
@@ -434,14 +365,12 @@ verifyUserByDialog(userId: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | userId | number | 是 | 需要导出企业恢复密钥的用户ID，需为正整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -450,8 +379,7 @@ verifyUserByDialog(userId: number): Promise<void>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -465,39 +393,30 @@ verifyUserByDialog(userId: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { osAccount, BusinessError } from '@kit.BasicServicesKit';
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 async function getEnterpriseRecoveryKeyForPinByDialog() {
   try {
-    let accountManager: osAccount.AccountManager =
-      osAccount.getAccountManager();
+    let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
     let userId: number = await accountManager.getOsAccountLocalId();
-    recoveryKey
-      .verifyUserByDialog(userId)
-      .then(() => {
-        console.info(`Succeeded in verifing user identity by dialog.`);
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `Failed to verified user identity by dialog. Code: ${error.code}, message: ${error.message}`,
-        );
-      });
+    recoveryKey.verifyUserByDialog(userId).then(() => {
+      console.info(`Succeeded in verifying user identity by dialog.`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to verified user identity by dialog. Code: ${error.code}, message: ${error.message}`);
+    })
   } catch (e) {
-    console.error(
-      `Failed to getEnterpriseRecoveryKeyForPinByDialog. Code: ${e.code}, message: ${e.message}`,
-    );
+    console.error(`Failed to getEnterpriseRecoveryKeyForPinByDialog. Code: ${e.code}, message: ${e.message}`);
   }
 }
 ```
 
 
-## getEnterpriseRecoveryKeyForResettingPin
-**支持设备：** PC/2in1
 
-getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise<EnterpriseRecoveryKeyInfo>
+##### getEnterpriseRecoveryKeyForResettingPin
+
+getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;
 
 导出用于重置锁屏密码的企业恢复密钥。先需要调用[verifyUserIdentityEnterprise](#verifyuseridentityenterprise)或[verifyUserByDialog](#verifyuserbydialog)接口验证身份，并在30秒内调用此接口。若超时后调用，系统会返回异常代码[1014400001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code#section1014400001-系统内部错误)。使用Promise异步回调。
 
@@ -509,25 +428,22 @@ getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | userId | number | 是 | 需要导出企业恢复密钥的用户ID。 |
-| userType | number | 是 | [用户类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#osaccounttype) 。可以通过调用[getOsAccountType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount#getosaccounttype9)获取。 |
+| userType | number | 是 | 用户类型。可以通过调用getOsAccountType获取。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[EnterpriseRecoveryKeyInfo](#enterpriserecoverykeyinfo)&gt; | Promise对象，返回企业恢复密钥及相关加密参数的对象。 |
+| Promise&lt;EnterpriseRecoveryKeyInfo&gt; | Promise对象，返回企业恢复密钥及相关加密参数的对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -539,55 +455,34 @@ getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promi
 
 **示例：**
 
-
-```ts
+```text
 import { buffer } from '@kit.ArkTS';
 import { BusinessError, osAccount } from '@kit.BasicServicesKit';
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 async function getEnterpriseRecoveryKeyForResettingPin() {
   try {
-    let accountManager: osAccount.AccountManager =
-      osAccount.getAccountManager();
-    let accountType: osAccount.OsAccountType =
-      await accountManager.getOsAccountType();
+    let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
+    let accountType: osAccount.OsAccountType = await accountManager.getOsAccountType();
     // 获取用户ID
     let userId: number = await accountManager.getOsAccountLocalId();
     // 获取用户类型
     let userType: number = accountType.valueOf();
-    recoveryKey
-      .getEnterpriseRecoveryKeyForResettingPin(userId, userType)
+    recoveryKey.getEnterpriseRecoveryKeyForResettingPin(userId, userType)
       .then((info: recoveryKey.EnterpriseRecoveryKeyInfo) => {
-        console.info(
-          `Succeeded in getting enterprise recovery key for resetting pin.`,
-        );
+        console.info(`Succeeded in getting enterprise recovery key for resetting pin.`);
         // 打印企业恢复密钥及相关加密参数
-        console.info(
-          `EnterpriseRecoveryKeyInfo enterpriseRecoveryKey: ${buffer
-            .from(info.enterpriseRecoveryKey)
-            .toString('hex')}`,
-        );
-        console.info(
-          `EnterpriseRecoveryKeyInfo exportPublicKey: ${buffer
-            .from(info.exportPublicKey)
-            .toString('hex')}`,
-        );
-        console.info(
-          `EnterpriseRecoveryKeyInfo iv: ${buffer.from(info.iv).toString('hex')}`,
-        );
-        console.info(
-          `EnterpriseRecoveryKeyInfo tag: ${buffer.from(info.tag).toString('hex')}`,
-        );
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Failed to get enterprise recovery key for resetting pin. Code: ${err.code}, message: ${err.message}`,
-        );
-      });
+        console.info(`EnterpriseRecoveryKeyInfo enterpriseRecoveryKey: ${buffer.from(info.enterpriseRecoveryKey)
+          .toString('hex')}`);
+        console.info(`EnterpriseRecoveryKeyInfo exportPublicKey: ${buffer.from(info.exportPublicKey)
+          .toString('hex')}`);
+        console.info(`EnterpriseRecoveryKeyInfo iv: ${buffer.from(info.iv).toString('hex')}`);
+        console.info(`EnterpriseRecoveryKeyInfo tag: ${buffer.from(info.tag).toString('hex')}`);
+      }).catch((err: BusinessError) => {
+      console.error(`Failed to get enterprise recovery key for resetting pin. Code: ${err.code}, message: ${err.message}`);
+    })
   } catch (e) {
-    console.error(
-      `Failed to getEnterpriseRecoveryKeyForResettingPin. Code: ${e.code}, message: ${e.message}`,
-    );
+    console.error(`Failed to getEnterpriseRecoveryKeyForResettingPin. Code: ${e.code}, message: ${e.message}`);
   }
 }
 ```

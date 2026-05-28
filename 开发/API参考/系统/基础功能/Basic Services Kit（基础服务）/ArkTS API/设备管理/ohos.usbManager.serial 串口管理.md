@@ -7,24 +7,22 @@
 
 本模块主要提供串口管理功能，包括打开和关闭设备的串口、写入和读取数据、设置和获取串口的配置参数、权限管理等。
 
-
 > [!NOTE]
 > 本模块首批接口从API version 19开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** PC/2in1
 
+##### 导入模块
 
-```ts
+```text
 import { serialManager } from '@kit.BasicServicesKit';
 ```
 
 
-## serialManager.getPortList
-**支持设备：** PC/2in1
 
-getPortList(): Readonly<SerialPort>[]
+##### serialManager.getPortList
+
+getPortList(): Readonly&lt;SerialPort&gt;[]
 
 查询串口设备清单，包括设备名称和对应的端口号。
 
@@ -32,20 +30,18 @@ getPortList(): Readonly<SerialPort>[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Readonly&lt;[SerialPort](#serialport)&gt;[] | 串口信息列表。 |
+| Readonly&lt;SerialPort&gt;[] | 串口信息列表。 |
 
 
 **示例：**
-
 
 > [!NOTE]
 > 以下示例代码只是调用getPortList接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -62,8 +58,8 @@ function getPortList() {
 ```
 
 
-## serialManager.hasSerialRight
-**支持设备：** PC/2in1
+
+##### serialManager.hasSerialRight
 
 hasSerialRight(portId: number): boolean
 
@@ -73,14 +69,12 @@ hasSerialRight(portId: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -90,7 +84,6 @@ hasSerialRight(portId: number): boolean
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -102,12 +95,11 @@ hasSerialRight(portId: number): boolean
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用hasSerialRight接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -131,10 +123,10 @@ function hasSerialRight() {
 ```
 
 
-## serialManager.requestSerialRight
-**支持设备：** PC/2in1
 
-requestSerialRight(portId: number): Promise<boolean>
+##### serialManager.requestSerialRight
+
+requestSerialRight(portId: number): Promise&lt;boolean&gt;
 
 请求应用程序访问串口设备的权限。应用退出自动移除对串口设备的访问权限，在应用重启后需要重新申请授权。使用Promise异步回调。
 
@@ -142,14 +134,12 @@ requestSerialRight(portId: number): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -159,7 +149,6 @@ requestSerialRight(portId: number): Promise<boolean>
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -171,12 +160,11 @@ requestSerialRight(portId: number): Promise<boolean>
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用requestSerialRight接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -192,7 +180,7 @@ function requestSerialRight() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -206,8 +194,8 @@ function requestSerialRight() {
 ```
 
 
-## serialManager.open
-**支持设备：** PC/2in1
+
+##### serialManager.open
 
 open(portId: number): void
 
@@ -217,16 +205,14 @@ open(portId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -239,12 +225,11 @@ open(portId: number): void
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用open接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -260,7 +245,7 @@ function open() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -273,7 +258,7 @@ function open() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
@@ -282,10 +267,10 @@ function open() {
 ```
 
 
-## serialManager.getAttribute
-**支持设备：** PC/2in1
 
-getAttribute(portId: number): Readonly<SerialAttribute>
+##### serialManager.getAttribute
+
+getAttribute(portId: number): Readonly&lt;SerialAttribute&gt;
 
 获取指定串口的配置参数。
 
@@ -293,24 +278,21 @@ getAttribute(portId: number): Readonly<SerialAttribute>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Readonly&lt;[SerialAttribute](#serialattribute)&gt; | 返回串口的配置参数。 |
+| Readonly&lt;SerialAttribute&gt; | 返回串口的配置参数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -322,12 +304,11 @@ getAttribute(portId: number): Readonly<SerialAttribute>
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用getAttribute接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -343,7 +324,7 @@ function getAttribute() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -356,7 +337,7 @@ function getAttribute() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
@@ -365,15 +346,11 @@ function getAttribute() {
 
   // 获取串口配置
   try {
-    let attribute: serialManager.SerialAttribute =
-      serialManager.getAttribute(portId);
+    let attribute: serialManager.SerialAttribute = serialManager.getAttribute(portId);
     if (attribute === undefined) {
       console.error('getAttribute usbSerial error, attribute is undefined');
     } else {
-      console.info(
-        'getAttribute usbSerial success, attribute: ' +
-          JSON.stringify(attribute),
-      );
+      console.info('getAttribute usbSerial success, attribute: ' + JSON.stringify(attribute));
     }
   } catch (error) {
     console.error('getAttribute usbSerial error, ' + JSON.stringify(error));
@@ -382,8 +359,8 @@ function getAttribute() {
 ```
 
 
-## serialManager.setAttribute
-**支持设备：** PC/2in1
+
+##### serialManager.setAttribute
 
 setAttribute(portId: number, attribute: SerialAttribute): void
 
@@ -393,17 +370,15 @@ setAttribute(portId: number, attribute: SerialAttribute): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
-| attribute | [SerialAttribute](#serialattribute) | 是 | 串口参数。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
+| attribute | SerialAttribute | 是 | 串口参数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -415,12 +390,11 @@ setAttribute(portId: number, attribute: SerialAttribute): void
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用setAttribute接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -436,7 +410,7 @@ function setAttribute() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -449,7 +423,7 @@ function setAttribute() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
@@ -462,12 +436,10 @@ function setAttribute() {
       baudRate: serialManager.BaudRates.BAUDRATE_9600,
       dataBits: serialManager.DataBits.DATABIT_8,
       parity: serialManager.Parity.PARITY_NONE,
-      stopBits: serialManager.StopBits.STOPBIT_1,
-    };
+      stopBits: serialManager.StopBits.STOPBIT_1
+    }
     serialManager.setAttribute(portId, attribute);
-    console.info(
-      'setAttribute usbSerial success, attribute: ' + JSON.stringify(attribute),
-    );
+    console.info('setAttribute usbSerial success, attribute: ' + JSON.stringify(attribute));
   } catch (error) {
     console.error('setAttribute usbSerial error, ' + JSON.stringify(error));
   }
@@ -475,10 +447,10 @@ function setAttribute() {
 ```
 
 
-## serialManager.read
-**支持设备：** PC/2in1
 
-read(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
+##### serialManager.read
+
+read(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&gt;
 
 从串口设备异步读取数据。使用Promise异步回调。
 
@@ -486,16 +458,14 @@ read(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 读取数据的缓冲区。 |
 | timeout | number | 否 | 超时时间（单位：ms）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -505,7 +475,6 @@ read(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -519,12 +488,11 @@ read(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用read接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -540,7 +508,7 @@ function read() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -553,7 +521,7 @@ function read() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
@@ -561,22 +529,17 @@ function read() {
 
   // 异步读取
   let readBuffer: Uint8Array = new Uint8Array(64);
-  serialManager
-    .read(portId, readBuffer, 2000)
-    .then((size: number) => {
-      console.info(
-        'read usbSerial success, readBuffer: ' + readBuffer.toString(),
-      );
-    })
-    .catch((error: Error) => {
-      console.error('read usbSerial error, ' + JSON.stringify(error));
-    });
+  serialManager.read(portId, readBuffer, 2000).then((size: number) => {
+    console.info('read usbSerial success, readBuffer: ' + readBuffer.toString());
+  }).catch((error: Error) => {
+    console.error('read usbSerial error, ' + JSON.stringify(error));
+  })
 }
 ```
 
 
-## serialManager.readSync
-**支持设备：** PC/2in1
+
+##### serialManager.readSync
 
 readSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
@@ -586,16 +549,14 @@ readSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 读取数据的缓冲区。 |
 | timeout | number | 否 | 超时时间（单位：ms）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -605,7 +566,6 @@ readSync(portId: number, buffer: Uint8Array, timeout?: number): number
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -619,12 +579,11 @@ readSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用readSync接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -640,7 +599,7 @@ function readSync() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -653,7 +612,7 @@ function readSync() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
@@ -663,10 +622,7 @@ function readSync() {
   let readSyncBuffer: Uint8Array = new Uint8Array(64);
   try {
     serialManager.readSync(portId, readSyncBuffer, 2000);
-    console.info(
-      'readSync usbSerial success, readSyncBuffer: ' +
-        readSyncBuffer.toString(),
-    );
+    console.info('readSync usbSerial success, readSyncBuffer: ' + readSyncBuffer.toString());
   } catch (error) {
     console.error('readSync usbSerial error, ' + JSON.stringify(error));
   }
@@ -674,10 +630,10 @@ function readSync() {
 ```
 
 
-## serialManager.write
-**支持设备：** PC/2in1
 
-write(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
+##### serialManager.write
+
+write(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&gt;
 
 向串口设备异步写数据，每次写入数据长度不超过4KB，数据过大会导致数据丢失，长数据建议分包写入。使用Promise异步回调。
 
@@ -685,16 +641,14 @@ write(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 写入数据的缓冲区。 |
 | timeout | number | 否 | 超时时间（单位：ms），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -704,7 +658,6 @@ write(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -718,12 +671,11 @@ write(portId: number, buffer: Uint8Array, timeout?: number): Promise<number>
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用write接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { buffer } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
@@ -740,7 +692,7 @@ function write() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -753,32 +705,25 @@ function write() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
   }
 
   // 异步写入
-  let writeBuffer: Uint8Array = new Uint8Array(
-    buffer.from('Hello World', 'utf-8').buffer,
-  );
-  serialManager
-    .write(portId, writeBuffer, 2000)
-    .then((size: number) => {
-      console.info(
-        'write usbSerial success, writeBuffer: ' + writeBuffer.toString(),
-      );
-    })
-    .catch((error: Error) => {
-      console.error('write usbSerial error, ' + JSON.stringify(error));
-    });
+  let writeBuffer: Uint8Array = new Uint8Array(buffer.from('Hello World', 'utf-8').buffer)
+  serialManager.write(portId, writeBuffer, 2000).then((size: number) => {
+    console.info('write usbSerial success, writeBuffer: ' + writeBuffer.toString());
+  }).catch((error: Error) => {
+    console.error('write usbSerial error, ' + JSON.stringify(error));
+  })
 }
 ```
 
 
-## serialManager.writeSync
-**支持设备：** PC/2in1
+
+##### serialManager.writeSync
 
 writeSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
@@ -788,16 +733,14 @@ writeSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 写入目标缓冲区。 |
 | timeout | number | 否 | 超时时间（单位：ms），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -807,7 +750,6 @@ writeSync(portId: number, buffer: Uint8Array, timeout?: number): number
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -821,12 +763,11 @@ writeSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用writeSync接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { buffer } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
@@ -843,7 +784,7 @@ function writeSync() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -856,22 +797,17 @@ function writeSync() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
   }
 
   // 同步写入
-  let writeSyncBuffer: Uint8Array = new Uint8Array(
-    buffer.from('Hello World', 'utf-8').buffer,
-  );
+  let writeSyncBuffer: Uint8Array = new Uint8Array(buffer.from('Hello World', 'utf-8').buffer)
   try {
     serialManager.writeSync(portId, writeSyncBuffer, 2000);
-    console.info(
-      'writeSync usbSerial success, writeSyncBuffer: ' +
-        writeSyncBuffer.toString(),
-    );
+    console.info('writeSync usbSerial success, writeSyncBuffer: ' + writeSyncBuffer.toString());
   } catch (error) {
     console.error('writeSync usbSerial error, ' + JSON.stringify(error));
   }
@@ -879,8 +815,8 @@ function writeSync() {
 ```
 
 
-## serialManager.close
-**支持设备：** PC/2in1
+
+##### serialManager.close
 
 close(portId: number): void
 
@@ -890,16 +826,14 @@ close(portId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -911,12 +845,11 @@ close(portId: number): void
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用close接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -932,7 +865,7 @@ function close() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -945,7 +878,7 @@ function close() {
 
   // 打开设备
   try {
-    serialManager.open(portId);
+    serialManager.open(portId)
     console.info('open usbSerial success, portId: ' + portId);
   } catch (error) {
     console.error('open usbSerial error, ' + JSON.stringify(error));
@@ -963,8 +896,8 @@ function close() {
 ```
 
 
-## serialManager.cancelSerialRight
-**支持设备：** PC/2in1
+
+##### serialManager.cancelSerialRight
 
 cancelSerialRight(portId: number): void
 
@@ -974,16 +907,14 @@ cancelSerialRight(portId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| portId | number | 是 | 端口号，来自[getPortList](#serialmanagergetportlist)获取的串口参数SerialPort。 |
+| portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[USB服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-usb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -996,12 +927,11 @@ cancelSerialRight(portId: number): void
 
 **示例：**
 
-
 > [!NOTE]
 > 以下示例代码只是调用cancelSerialRight接口的必要流程，需要放入具体的方法中执行。实际调用时，设备开发者需要遵循设备相关协议进行调用。
 
 
-```ts
+```json
 import { JSON } from '@kit.ArkTS';
 import { serialManager } from '@kit.BasicServicesKit';
 
@@ -1017,7 +947,7 @@ function cancelSerialRight() {
 
   // 检测设备是否可被应用访问
   if (!serialManager.hasSerialRight(portId)) {
-    serialManager.requestSerialRight(portId).then((result) => {
+    serialManager.requestSerialRight(portId).then(result => {
       if (!result) {
         // 没有访问设备的权限且用户不授权则退出
         console.error('user is not granted the operation permission');
@@ -1039,29 +969,28 @@ function cancelSerialRight() {
 ```
 
 
-## SerialAttribute
-**支持设备：** PC/2in1
+
+##### SerialAttribute
 
 串口的配置参数。
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| baudRate | [BaudRates](#baudrates) | 否 | 否 | 串口波特率。 |
-| dataBits | [DataBits](#databits) | 否 | 是 | 串口数据位，默认值为8位。 |
-| parity | [Parity](#parity) | 否 | 是 | 串口奇偶校验，默认值为None，无奇偶校验。 |
-| stopBits | [StopBits](#stopbits) | 否 | 是 | 串口停止位，默认值为1位。 |
+| baudRate | BaudRates | 否 | 否 | 串口波特率。 |
+| dataBits | DataBits | 否 | 是 | 串口数据位，默认值为8位。 |
+| parity | Parity | 否 | 是 | 串口奇偶校验，默认值为None，无奇偶校验。 |
+| stopBits | StopBits | 否 | 是 | 串口停止位，默认值为1位。 |
 
 
-## SerialPort
-**支持设备：** PC/2in1
+
+
+##### SerialPort
 
 串口参数。
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1069,13 +998,13 @@ function cancelSerialRight() {
 | deviceName | string | 否 | 否 | 串口设备名称。 |
 
 
-## BaudRates
-**支持设备：** PC/2in1
+
+
+##### BaudRates
 
 表示波特率的枚举
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1111,13 +1040,13 @@ function cancelSerialRight() {
 | BAUDRATE_4000000 | 4000000 | 传输波特率为4000000。 |
 
 
-## DataBits
-**支持设备：** PC/2in1
+
+
+##### DataBits
 
 表示数据位宽的枚举
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1127,13 +1056,13 @@ function cancelSerialRight() {
 | DATABIT_5 | 5 | 报文的有效数据位宽为5比特。 |
 
 
-## Parity
-**支持设备：** PC/2in1
+
+
+##### Parity
 
 表示校验位的校验方式的枚举
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1144,13 +1073,13 @@ function cancelSerialRight() {
 | PARITY_SPACE | 4 | 固定为0。 |
 
 
-## StopBits
-**支持设备：** PC/2in1
+
+
+##### StopBits
 
 表示停止位宽的枚举
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

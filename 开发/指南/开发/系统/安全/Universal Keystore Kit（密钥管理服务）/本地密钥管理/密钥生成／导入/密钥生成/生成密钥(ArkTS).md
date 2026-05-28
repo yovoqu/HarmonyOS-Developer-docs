@@ -1,24 +1,34 @@
 # 生成密钥(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-arkts
 
 以DH算法为例，生成随机密钥。具体的场景介绍及支持的算法规格，请参考[密钥生成支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview#支持的算法)。
 
+
+![](assets/生成密钥(ArkTS)/file-20260514131158721-0.png)
+
+
 密钥别名中禁止包含个人数据等敏感信息。
 
 
-## 开发步骤
 
-指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。 通过[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)封装密钥属性，搭配Array组成密钥属性集，并赋值给[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)中的properties字段。 密钥属性集中必须包含[HuksKeyAlg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeyalg)、[HuksKeySize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeysize)、[HuksKeyPurpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeypurpose)属性，即必传TAG：HUKS_TAG_ALGORITHM、HUKS_TAG_PURPOSE、HUKS_TAG_KEY_SIZE。
-![](assets/生成密钥(ArkTS)
-/file-20260514131158721-0.png) 一个密钥只能有一类PURPOSE，并且生成密钥时指定的用途要与使用时的方式一致，否则会导致异常。 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)，传入密钥别名和密钥属性集，生成密钥。
+
+##### 开发步骤
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。
+
+  
+通过[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam)封装密钥属性，搭配Array组成密钥属性集，并赋值给[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)中的properties字段。
+3. 密钥属性集中必须包含[HuksKeyAlg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeyalg)、[HuksKeySize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeysize)、[HuksKeyPurpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeypurpose)属性，即必传TAG：HUKS_TAG_ALGORITHM、HUKS_TAG_PURPOSE、HUKS_TAG_KEY_SIZE。
+4. 调用[generateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksgeneratekeyitem9)，传入密钥别名和密钥属性集，生成密钥。
+
 > [!NOTE]
 > 如果业务再次使用相同别名调用HUKS生成密钥，HUKS将生成新密钥并直接覆盖历史的密钥文件。
 
 
-```text
+```ArkTS
 import { huks } from '@kit.UniversalKeystoreKit';
 
 /* 1.确定密钥别名 */
@@ -46,7 +56,7 @@ let huksOptions: huks.HuksOptions = {
 
 /* 3.生成密钥 */
 function generateKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     try {
       huks.generateKeyItem(keyAlias, huksOptions, (error, data) => {
         if (error) {
@@ -61,7 +71,7 @@ function generateKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
   });
 }
 
-async function publicGenKeyFunc(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function publicGenKeyFunc(keyAlias: string, huksOptions: huks.HuksOptions): Promise<string> {
   console.info(`enter promise generateKeyItem`);
   try {
     await generateKeyItem(keyAlias, huksOptions)
@@ -78,7 +88,7 @@ async function publicGenKeyFunc(keyAlias: string, huksOptions: huks.HuksOptions)
   }
 }
 
-async function testGenKey(): Promise {
+async function testGenKey(): Promise<string> {
   let ret = await publicGenKeyFunc(keyAlias, huksOptions);
   return ret;
 }

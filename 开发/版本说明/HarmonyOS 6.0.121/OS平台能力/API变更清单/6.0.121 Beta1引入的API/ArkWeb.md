@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除错误码 | 类名：WebviewController； API声明：static setUserAgentForHosts(userAgent: string, hosts: Array<string>): void; 差异内容：401 | 类名：WebviewController； API声明：static setUserAgentForHosts(userAgent: string, hosts: Array<string>): void; 差异内容：NA | api/@ohos.web.webview.d.ts |
+| 删除错误码 | 类名：WebviewController； API声明：static setUserAgentForHosts(userAgent: string, hosts: Array&lt;string&gt;): void; 差异内容：401 | 类名：WebviewController； API声明：static setUserAgentForHosts(userAgent: string, hosts: Array&lt;string&gt;): void; 差异内容：NA | api/@ohos.web.webview.d.ts |
 | API废弃版本变更 | 类名：global； API声明：declare enum HitTestType 差异内容：NA | 类名：global； API声明：declare enum HitTestType 差异内容：21 | component/web.d.ts |
 | API废弃版本变更 | 类名：HitTestType； API声明：EditText = 0 差异内容：NA | 类名：HitTestType； API声明：EditText = 0 差异内容：21 | component/web.d.ts |
 | API废弃版本变更 | 类名：HitTestType； API声明：Email = 1 差异内容：NA | 类名：HitTestType； API声明：Email = 1 差异内容：21 | component/web.d.ts |
@@ -29,7 +29,7 @@
 | 新增API | NA | 类名：global； API声明：declare interface NativeEmbedParamDataInfo 差异内容：declare interface NativeEmbedParamDataInfo | component/web.d.ts |
 | 新增API | NA | 类名：NativeEmbedParamDataInfo； API声明：embedId: string; 差异内容：embedId: string; | component/web.d.ts |
 | 新增API | NA | 类名：NativeEmbedParamDataInfo； API声明：objectAttributeId?: string; 差异内容：objectAttributeId?: string; | component/web.d.ts |
-| 新增API | NA | 类名：NativeEmbedParamDataInfo； API声明：paramItems?: Array<NativeEmbedParamItem>; 差异内容：paramItems?: Array<NativeEmbedParamItem>; | component/web.d.ts |
+| 新增API | NA | 类名：NativeEmbedParamDataInfo； API声明：paramItems?: Array&lt;NativeEmbedParamItem&gt;; 差异内容：paramItems?: Array&lt;NativeEmbedParamItem&gt;; | component/web.d.ts |
 | 新增API | NA | 类名：WebElementType； API声明：TEXT = 3 差异内容：TEXT = 3 | component/web.d.ts |
 | 新增API | NA | 类名：WebResponseType； API声明：RIGHT_CLICK = 2 差异内容：RIGHT_CLICK = 2 | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：export interface ConnectionInfo 差异内容：export interface ConnectionInfo | api/@ohos.web.WebNativeMessagingExtensionAbility.d.ts |
@@ -44,9 +44,9 @@
 | 新增API | NA | 类名：WebNativeMessagingExtensionAbility； API声明：onDisconnectNative(info: ConnectionInfo): void; 差异内容：onDisconnectNative(info: ConnectionInfo): void; | api/@ohos.web.WebNativeMessagingExtensionAbility.d.ts |
 | 新增API | NA | 类名：WebNativeMessagingExtensionAbility； API声明：onDestroy(): void; 差异内容：onDestroy(): void; | api/@ohos.web.WebNativeMessagingExtensionAbility.d.ts |
 | 新增API | NA | 类名：global； API声明：export default class WebNativeMessagingExtensionContext 差异内容：export default class WebNativeMessagingExtensionContext | api/@ohos.web.WebNativeMessagingExtensionContext.d.ts |
-| 新增API | NA | 类名：WebNativeMessagingExtensionContext； API声明：startAbility(want: Want, options?: StartOptions): Promise<void>; 差异内容：startAbility(want: Want, options?: StartOptions): Promise<void>; | api/@ohos.web.WebNativeMessagingExtensionContext.d.ts |
-| 新增API | NA | 类名：WebNativeMessagingExtensionContext； API声明：terminateSelf(): Promise<void>; 差异内容：terminateSelf(): Promise<void>; | api/@ohos.web.WebNativeMessagingExtensionContext.d.ts |
-| 新增API | NA | 类名：WebNativeMessagingExtensionContext； API声明：stopNativeConnection(connectionId: number): Promise<void>; 差异内容：stopNativeConnection(connectionId: number): Promise<void>; | api/@ohos.web.WebNativeMessagingExtensionContext.d.ts |
+| 新增API | NA | 类名：WebNativeMessagingExtensionContext； API声明：startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;; 差异内容：startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;; | api/@ohos.web.WebNativeMessagingExtensionContext.d.ts |
+| 新增API | NA | 类名：WebNativeMessagingExtensionContext； API声明：terminateSelf(): Promise&lt;void&gt;; 差异内容：terminateSelf(): Promise&lt;void&gt;; | api/@ohos.web.WebNativeMessagingExtensionContext.d.ts |
+| 新增API | NA | 类名：WebNativeMessagingExtensionContext； API声明：stopNativeConnection(connectionId: number): Promise&lt;void&gt;; 差异内容：stopNativeConnection(connectionId: number): Promise&lt;void&gt;; | api/@ohos.web.WebNativeMessagingExtensionContext.d.ts |
 | 新增API | NA | 类名：global； API声明：declare namespace webNativeMessagingExtensionManager 差异内容：declare namespace webNativeMessagingExtensionManager | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
 | 新增API | NA | 类名：webNativeMessagingExtensionManager； API声明：interface ConnectionNativeInfo 差异内容：interface ConnectionNativeInfo | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
 | 新增API | NA | 类名：ConnectionNativeInfo； API声明：connectionId: number; 差异内容：connectionId: number; | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
@@ -62,7 +62,7 @@
 | 新增API | NA | 类名：WebExtensionConnectionCallback； API声明：onDisconnect(connection: ConnectionNativeInfo): void; 差异内容：onDisconnect(connection: ConnectionNativeInfo): void; | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
 | 新增API | NA | 类名：WebExtensionConnectionCallback； API声明：onFailed(code: NmErrorCode, errMsg: string): void; 差异内容：onFailed(code: NmErrorCode, errMsg: string): void; | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
 | 新增API | NA | 类名：webNativeMessagingExtensionManager； API声明：function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): number; 差异内容：function connectNative(context: UIAbilityContext, want: Want, callback: WebExtensionConnectionCallback): number; | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
-| 新增API | NA | 类名：webNativeMessagingExtensionManager； API声明：function disconnectNative(connectionId: number): Promise<void>; 差异内容：function disconnectNative(connectionId: number): Promise<void>; | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
+| 新增API | NA | 类名：webNativeMessagingExtensionManager； API声明：function disconnectNative(connectionId: number): Promise&lt;void&gt;; 差异内容：function disconnectNative(connectionId: number): Promise&lt;void&gt;; | api/@ohos.web.webNativeMessagingExtensionManager.d.ts |
 | 新增API | NA | 类名：webview； API声明：enum SiteIsolationMode 差异内容：enum SiteIsolationMode | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：SiteIsolationMode； API声明：PARTIAL = 0 差异内容：PARTIAL = 0 | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：SiteIsolationMode； API声明：STRICT = 1 差异内容：STRICT = 1 | api/@ohos.web.webview.d.ts |
@@ -74,8 +74,8 @@
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：static setSocketIdleTimeout(timeout: number): void; 差异内容：static setSocketIdleTimeout(timeout: number): void; | api/@ohos.web.webview.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：static setSiteIsolationMode(mode: SiteIsolationMode): void; 差异内容：static setSiteIsolationMode(mode: SiteIsolationMode): void; | api/@ohos.web.webview.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：static getSiteIsolationMode(): SiteIsolationMode; 差异内容：static getSiteIsolationMode(): SiteIsolationMode; | api/@ohos.web.webview.d.ts |
-| 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：WebviewController； API声明：static customizeSchemes(schemes: Array<WebCustomScheme>): void; 差异内容：static customizeSchemes(schemes: Array<WebCustomScheme>): void; | 类名：WebviewController； API声明：static customizeSchemes(schemes: Array<WebCustomScheme>, lazyInitWebEngine: boolean): void; 差异内容：static customizeSchemes(schemes: Array<WebCustomScheme>, lazyInitWebEngine: boolean): void; | api/@ohos.web.webview.d.ts |
+| 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：WebviewController； API声明：static customizeSchemes(schemes: Array&lt;WebCustomScheme&gt;): void; 差异内容：static customizeSchemes(schemes: Array&lt;WebCustomScheme&gt;): void; | 类名：WebviewController； API声明：static customizeSchemes(schemes: Array&lt;WebCustomScheme&gt;, lazyInitWebEngine: boolean): void; 差异内容：static customizeSchemes(schemes: Array&lt;WebCustomScheme&gt;, lazyInitWebEngine: boolean): void; | api/@ohos.web.webview.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebAttribute； API声明：onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback): WebAttribute; 差异内容：onNativeEmbedObjectParamChange(callback: OnNativeEmbedObjectParamChangeCallback): WebAttribute; | component/web.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebAttribute； API声明：forceEnableZoom(enable: boolean): WebAttribute; 差异内容：forceEnableZoom(enable: boolean): WebAttribute; | component/web.d.ts |
-| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SelectionMenuOptionsExt； API声明：onMenuShow?: Callback<void>; 差异内容：onMenuShow?: Callback<void>; | component/web.d.ts |
-| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SelectionMenuOptionsExt； API声明：onMenuHide?: Callback<void>; 差异内容：onMenuHide?: Callback<void>; | component/web.d.ts |
+| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SelectionMenuOptionsExt； API声明：onMenuShow?: Callback&lt;void&gt;; 差异内容：onMenuShow?: Callback&lt;void&gt;; | component/web.d.ts |
+| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SelectionMenuOptionsExt； API声明：onMenuHide?: Callback&lt;void&gt;; 差异内容：onMenuHide?: Callback&lt;void&gt;; | component/web.d.ts |

@@ -3,30 +3,32 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiserviceproxy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 UIServiceProxy提供代理能力，可以从UIServiceExtension客户端发送数据到服务端。
 
+> [!NOTE]
+> 本模块首批接口从API version 14开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口需要在主线程中使用，不要在Worker、TaskPool等子线程中使用。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { common } from '@kit.AbilityKit';
 ```
 
 
-## UIServiceProxy.sendData
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### UIServiceProxy.sendData
 
 sendData(data: Record<string, Object>): void
 
 给UIServiceExtension服务端发送数据。
 
-
 > [!NOTE]
-> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+> 组件启动规则详见： 组件启动规则（Stage模型） 。
+
 
 **元服务API**：从 API version 14开始，该接口支持在元服务中使用。
 
@@ -34,16 +36,14 @@ sendData(data: Record<string, Object>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | Record&lt;string, Object&gt; | 是 | 待发送给UIServiceExtension服务端的数据。 |
+| data | Record<string, Object> | 是 | 待发送给UIServiceExtension服务端的数据。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -53,8 +53,7 @@ sendData(data: Record<string, Object>): void
 
 **示例：**
 
-
-```ts
+```json
 import { common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -79,19 +78,19 @@ struct UIServiceExtensionAbility {
       Column() {
         // 创建一个连接UIServiceExtension的按钮
         Button('connectUIServiceExtensionAbility', { type: ButtonType.Capsule, stateEffect: true })
-        .margin({
-          top: 5,
-          left: 10,
-          right: 10,
-          bottom: 5
-        })
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          this.myConnectUIServiceExtensionAbility()
-        });
+          .margin({
+            top: 5,
+            left: 10,
+            right: 10,
+            bottom: 5
+          })
+          .alignRules({
+            center: { anchor: '__container__', align: VerticalAlign.Center },
+            middle: { anchor: '__container__', align: HorizontalAlign.Center }
+          })
+          .onClick(() => {
+            this.myConnectUIServiceExtensionAbility()
+          });
       }
       .width('100%')
     }
@@ -110,22 +109,22 @@ struct UIServiceExtensionAbility {
     try {
       // 连接UIServiceExtension
       context.connectUIServiceExtensionAbility(startWant, this.dataCallBack)
-      .then((proxy: common.UIServiceProxy) => {
-        console.info(TAG + `try to connectUIServiceExtensionAbility ${proxy}}`);
-        this.comProxy = proxy;
-        let formData: Record<string, string> = {
-          'PATH': '/tmp/aaa.jpg'
-        };
-        try {
-          console.info(`${TAG} sendData.`);
-          // 给UIServiceExtension发送数据
-          this.comProxy.sendData(formData);
-        } catch (err) {
-          let code = (err as BusinessError).code;
-          let message = (err as BusinessError).message;
-          console.error(`${TAG} sendData failed, code is ${code}, message is ${message}.`);
-        }
-      }).catch((err: Error) => {
+        .then((proxy: common.UIServiceProxy) => {
+          console.info(TAG + `try to connectUIServiceExtensionAbility ${proxy}}`);
+          this.comProxy = proxy;
+          let formData: Record<string, string> = {
+            'PATH': '/tmp/aaa.jpg'
+          };
+          try {
+            console.info(`${TAG} sendData.`);
+            // 给UIServiceExtension发送数据
+            this.comProxy.sendData(formData);
+          } catch (err) {
+            let code = (err as BusinessError).code;
+            let message = (err as BusinessError).message;
+            console.error(`${TAG} sendData failed, code is ${code}, message is ${message}.`);
+          }
+        }).catch((err: Error) => {
         let code = (err as BusinessError).code;
         let message = (err as BusinessError).message;
         console.error(`${TAG} connectUIServiceExtensionAbility failed, code is ${code}, message is ${message}.`);

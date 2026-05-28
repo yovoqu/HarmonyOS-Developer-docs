@@ -3,21 +3,29 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可以进行页面下拉操作并显示刷新动效的容器组件。
 
-> [!NOTE] 说明
-> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。  该组件从API version 12开始支持与垂直滚动的Swiper和Web的联动。当Swiper设置loop属性为true时，Refresh无法和Swiper产生联动。  Refresh和内容大小小于组件自身的List组件嵌套使用并且中间还有其他组件时，手势可能会被中间组件响应，导致Refresh未产生下拉刷新效果，可以将alwaysEnabled参数设为true，此时List会响应手势并通过嵌套滚动带动Refresh组件产生下拉刷新效果，具体可以参考示例9（不满一屏场景实现下拉刷新）。  组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考手势拦截增强进行处理。  组件无法通过鼠标按下拖动操作进行下拉刷新。
+> [!TIP]
+> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件从API version 12开始支持与垂直滚动的 Swiper 和 Web 的联动。当 Swiper 设置 loop 属性为true时，Refresh无法和 Swiper 产生联动。 Refresh和内容大小小于组件自身的 List 组件嵌套使用并且中间还有其他组件时，手势可能会被中间组件响应，导致Refresh未产生下拉刷新效果，可以将 alwaysEnabled 参数设为true，此时 List 会响应手势并通过嵌套滚动带动Refresh组件产生下拉刷新效果，具体可以参考 示例9（不满一屏场景实现下拉刷新） 。 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考 手势拦截增强 进行处理。 组件无法通过鼠标按下拖动操作进行下拉刷新。
 
-#### 子组件
+
+
+##### 子组件
+
 支持单个子组件。
+
 从API version 11开始，Refresh子组件会跟随手势下拉而下移。
 
-#### 接口
+
+
+##### 接口
+
 Refresh(value: RefreshOptions)
+
 创建Refresh容器。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -26,31 +34,45 @@ Refresh(value: RefreshOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [RefreshOptions](#refreshoptions对象说明) | 是 | 刷新组件参数。 |
+| value | RefreshOptions | 是 | 刷新组件参数。 |
 
-#### RefreshOptions对象说明
+
+
+
+##### RefreshOptions对象说明
+
 用于设置Refresh组件参数。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | refreshing | boolean | 否 | 否 | 组件当前是否处于刷新中状态。true表示处于刷新中状态，false表示未处于刷新中状态。 默认值：false 该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| offset^(deprecated) | number \| string | 否 | 是 | 下拉起点距离组件顶部的距离。 默认值：16，单位vp。类型为string时，需要显式指定像素单位，如'10px'；未指定像素单位时，如'10'，单位为vp。 说明： 从API version 8开始支持，从API version 11开始废弃，无替代接口。 说明： offset取值范围[0vp,64vp]。大于64vp按照64vp处理。不支持百分比，不支持负数。 |
-| friction^(deprecated) | number \| string | 否 | 是 | 下拉摩擦系数，取值范围为0到100。 默认值：62 - 0表示下拉刷新容器不跟随手势下拉而下拉。 - 100表示下拉刷新容器紧紧跟随手势下拉而下拉。 - 数值越大，下拉刷新容器跟随手势下拉的反应越灵敏。 说明： 从API version 8开始支持，从API version 11开始废弃，建议使用pullDownRatio替代。 |
-| builder^10+ | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 否 | 是 | 自定义刷新区域显示内容。 说明： API version 10及之前版本，自定义组件的高度限制在64vp之内。API version 11及以后版本没有此限制。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例3。 从API version 12开始，建议使用refreshingContent参数替代builder参数自定义刷新区域显示内容，以避免刷新过程中因自定义组件销毁重建造成的动画中断问题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| promptText^12+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 设置刷新区域底部显示的自定义文本。 说明： 输入文本的限制参考Text组件，使用builder或refreshingContent参数自定义刷新区域显示内容时，promptText不显示。 promptText设置有效时，refreshOffset属性默认值为96vp。 自定义文本最大的字体缩放倍数maxFontScale为2。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| refreshingContent^12+ | [ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 否 | 是 | 自定义刷新区域显示内容。 说明： 与builder参数同时设置时builder参数不生效。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例4。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| offset(deprecated) | number \| string | 否 | 是 | 下拉起点距离组件顶部的距离。 默认值：16，单位vp。类型为string时，需要显式指定像素单位，如'10px'；未指定像素单位时，如'10'，单位为vp。 说明： 从API version 8开始支持，从API version 11开始废弃，无替代接口。 说明： offset取值范围[0vp,64vp]。大于64vp按照64vp处理。不支持百分比，不支持负数。 |
+| friction(deprecated) | number \| string | 否 | 是 | 下拉摩擦系数，取值范围为0到100。 默认值：62 - 0表示下拉刷新容器不跟随手势下拉而下拉。 - 100表示下拉刷新容器紧紧跟随手势下拉而下拉。 - 数值越大，下拉刷新容器跟随手势下拉的反应越灵敏。 说明： 从API version 8开始支持，从API version 11开始废弃，建议使用pullDownRatio替代。 |
+| builder10+ | CustomBuilder | 否 | 是 | 自定义刷新区域显示内容。 说明： API version 10及之前版本，自定义组件的高度限制在64vp之内。API version 11及以后版本没有此限制。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例3。 从API version 12开始，建议使用refreshingContent参数替代builder参数自定义刷新区域显示内容，以避免刷新过程中因自定义组件销毁重建造成的动画中断问题。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| promptText12+ | ResourceStr | 否 | 是 | 设置刷新区域底部显示的自定义文本。 说明： 输入文本的限制参考Text组件，使用builder或refreshingContent参数自定义刷新区域显示内容时，promptText不显示。 promptText设置有效时，refreshOffset属性默认值为96vp。 自定义文本最大的字体缩放倍数maxFontScale为2。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| refreshingContent12+ | ComponentContent | 否 | 是 | 自定义刷新区域显示内容。 说明： 与builder参数同时设置时builder参数不生效。 自定义组件设置了固定高度时，自定义组件会以固定高度显示在刷新区域下方；自定义组件未设置高度时，自定义组件高度会自适应刷新区域高度，会发生自定义组件高度跟随刷新区域变化至0的现象。建议对自定义组件设置最小高度约束来避免自定义组件高度小于预期的情况发生，具体可参照示例4。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-> [!NOTE] 说明
-> 当未设置builder或refreshingContent时，是通过更新子组件的translate属性实现的下拉位移效果，下拉位移过程中不会触发子组件的onAreaChange事件，子组件设置translate属性时不会生效。 当设置了builder或refreshingContent时，是通过更新子组件相对于Refresh组件的位置实现的下拉位移效果，下拉位移过程中可以触发子组件的onAreaChange事件，子组件设置position属性时会固定子组件相对于Refresh组件的位置导致子组件不会跟手进行下拉位移。 通过builder参数设置的自定义组件在未指定宽度和高度时，其尺寸将自适应子组件，在指定宽度而未指定高度时，其高度将自适应下拉距离。通过refreshingContent参数设置的自定义组件若未指定高度，其高度同样会自适应下拉距离。当自定义组件高度自适应下拉距离时，随着下拉距离的增加，该组件的高度亦随之增加；当自定义组件的高度设定为固定值或达到最大高度限制时，随着下拉距离的增加，自定义组件与Refresh组件上边界之间的间距亦会随之增加。
+> [!NOTE]
+> 当未设置builder或refreshingContent时，是通过更新子组件的 translate 属性实现的下拉位移效果，下拉位移过程中不会触发子组件的 onAreaChange 事件，子组件设置 translate 属性时不会生效。 当设置了builder或refreshingContent时，是通过更新子组件相对于Refresh组件的位置实现的下拉位移效果，下拉位移过程中可以触发子组件的 onAreaChange 事件，子组件设置 position 属性时会固定子组件相对于Refresh组件的位置导致子组件不会跟手进行下拉位移。 通过builder参数设置的自定义组件在未指定宽度和高度时，其尺寸将自适应子组件，在指定宽度而未指定高度时，其高度将自适应下拉距离。通过refreshingContent参数设置的自定义组件若未指定高度，其高度同样会自适应下拉距离。当自定义组件高度自适应下拉距离时，随着下拉距离的增加，该组件的高度亦随之增加；当自定义组件的高度设定为固定值或达到最大高度限制时，随着下拉距离的增加，自定义组件与Refresh组件上边界之间的间距亦会随之增加。
 
-#### 属性
+
+
+
+##### 属性
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-#### refreshOffset12+
+
+
+##### refreshOffset12+
+
 refreshOffset(value: number)
+
 设置触发刷新的下拉偏移量，当下拉距离小于该属性设置值时离手不会触发刷新。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -61,9 +83,15 @@ refreshOffset(value: number)
 | --- | --- | --- | --- |
 | value | number | 是 | 下拉偏移量，单位vp。 默认值：未设置promptText参数时为64vp，设置了promptText参数时为96vp。 如果取值为0或负数的时候此接口采用默认值。 |
 
-#### pullToRefresh12+
+
+
+
+##### pullToRefresh12+
+
 pullToRefresh(value: boolean)
+
 设置当下拉距离超过[refreshOffset](#refreshoffset12)时是否能触发刷新。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -74,9 +102,15 @@ pullToRefresh(value: boolean)
 | --- | --- | --- | --- |
 | value | boolean | 是 | 当下拉距离超过refreshOffset时是否能触发刷新。true表示能触发刷新，false表示不能触发刷新。 默认值：true |
 
-#### pullUpToCancelRefresh23+
+
+
+
+##### pullUpToCancelRefresh23+
+
 pullUpToCancelRefresh(enabled: boolean | undefined)
+
 设置上划是否取消刷新。
+
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -87,9 +121,15 @@ pullUpToCancelRefresh(enabled: boolean | undefined)
 | --- | --- | --- | --- |
 | enabled | boolean \| undefined | 是 | 设置上划是否取消刷新。 true表示取消刷新；false表示不取消刷新。 值为undefined时，上划取消刷新。 |
 
-#### pullDownRatio12+
+
+
+
+##### pullDownRatio12+
+
 pullDownRatio(ratio: [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;number&gt;)
+
 设置下拉跟手系数。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -98,11 +138,17 @@ pullDownRatio(ratio: [Optional](https://developer.huawei.com/consumer/cn/doc/har
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ratio | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;number&gt; | 是 | 下拉跟手系数。数值越大，跟随手势下拉的反应越灵敏。0表示不跟随手势下拉，1表示等比例跟随手势下拉。 没有设置或设置为undefined时，默认使用动态下拉跟手系数，下拉距离越大，跟手系数越小。 有效值为0-1之间的值，小于0的值会被视为0，大于1的值会被视为1。 |
+| ratio | Optional&lt;number&gt; | 是 | 下拉跟手系数。数值越大，跟随手势下拉的反应越灵敏。0表示不跟随手势下拉，1表示等比例跟随手势下拉。 没有设置或设置为undefined时，默认使用动态下拉跟手系数，下拉距离越大，跟手系数越小。 有效值为0-1之间的值，小于0的值会被视为0，大于1的值会被视为1。 |
 
-#### maxPullDownDistance20+
+
+
+
+##### maxPullDownDistance20+
+
 maxPullDownDistance(distance: Optional&lt;number&gt;)
+
 设置最大下拉距离。
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -111,14 +157,23 @@ maxPullDownDistance(distance: Optional&lt;number&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| distance | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;number&gt; | 是 | 最大下拉距离。最大下拉距离的最小值为0，小于0按0处理。当该值小于刷新的下拉偏移量refreshOffset时，Refresh下拉离手不会触发刷新。 undefined和null按没有设置此属性处理。 默认值：undefined 单位：vp |
+| distance | Optional&lt;number&gt; | 是 | 最大下拉距离。最大下拉距离的最小值为0，小于0按0处理。当该值小于刷新的下拉偏移量refreshOffset时，Refresh下拉离手不会触发刷新。 undefined和null按没有设置此属性处理。 默认值：undefined 单位：vp |
 
-#### 事件
+
+
+
+##### 事件
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
-#### onStateChange
+
+
+##### onStateChange
+
 onStateChange(callback: (state: RefreshStatus) => void)
+
 当前刷新状态变更时，触发回调。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -127,11 +182,17 @@ onStateChange(callback: (state: RefreshStatus) => void)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| state | [RefreshStatus](#refreshstatus枚举说明) | 是 | 刷新状态。 |
+| state | RefreshStatus | 是 | 刷新状态。 |
 
-#### onRefreshing
+
+
+
+##### onRefreshing
+
 onRefreshing(callback: () => void)
+
 进入刷新状态时触发回调。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -142,12 +203,18 @@ onRefreshing(callback: () => void)
 | --- | --- | --- | --- |
 | callback | () => void | 是 | 进入刷新状态时触发的回调。 |
 
-#### onOffsetChange12+
+
+
+
+##### onOffsetChange12+
+
 onOffsetChange(callback: Callback&lt;number&gt;)
+
 下拉距离发生变化时触发回调。
 
-> [!NOTE] 说明
-> 从API version 20开始，该接口支持在attributeModifier中调用。
+> [!NOTE]
+> 从API version 20开始，该接口支持在 attributeModifier 中调用。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -159,8 +226,13 @@ onOffsetChange(callback: Callback&lt;number&gt;)
 | --- | --- | --- | --- |
 | callback | Callback&lt;number&gt; | 是 | 回调函数，用于监听下拉距离的变化。当下拉距离发生变化时触发，回调参数为当前的下拉距离。 单位：vp |
 
-#### RefreshStatus枚举说明
+
+
+
+##### RefreshStatus枚举说明
+
 RefreshStatus刷新状态枚举。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -173,11 +245,18 @@ RefreshStatus刷新状态枚举。
 | Refresh | 3 | 下拉结束，回弹至刷新距离，进入刷新中状态。 |
 | Done | 4 | 刷新结束，返回初始状态（顶部）。 |
 
-#### 示例
-#### 示例1（默认刷新样式）
+
+
+
+##### 示例
+
+
+
+##### 示例1（默认刷新样式）
+
 刷新区域使用默认刷新样式。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -239,12 +318,17 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201236-001.gif)
 
-#### 示例2（设置刷新区域显示文本）
+![](assets/Refresh/file-20260514164001676-3.gif)
+
+
+
+
+##### 示例2（设置刷新区域显示文本）
+
 通过[promptText](#refreshoptions对象说明)参数设置刷新区域显示文本。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -298,12 +382,17 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201236-002.gif)
 
-#### 示例3（自定义刷新区域显示内容-builder）
+![](assets/Refresh/file-20260514164001676-4.gif)
+
+
+
+
+##### 示例3（自定义刷新区域显示内容-builder）
+
 通过[builder](#refreshoptions对象说明)参数自定义刷新区域显示内容。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -369,12 +458,17 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201236-003.gif)
 
-#### 示例4（自定义刷新区域显示内容-refreshingContent）
+![](assets/Refresh/file-20260514164001676-5.gif)
+
+
+
+
+##### 示例4（自定义刷新区域显示内容-refreshingContent）
+
 通过[refreshingContent](#refreshoptions对象说明)参数自定义刷新区域显示内容。
 
-```ts
+```ArkTS
 // xxx.ets
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -462,12 +556,17 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201237-004.gif)
 
-#### 示例5（实现最大下拉距离）
+![](assets/Refresh/file-20260514164001676-6.gif)
+
+
+
+
+##### 示例5（实现最大下拉距离）
+
 通过[pullDownRatio](#pulldownratio12)属性和[onOffsetChange](#onoffsetchange12)事件实现最大下拉距离。
 
-```ts
+```ArkTS
 // xxx.ets
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -547,12 +646,17 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201237-005.gif)
 
-#### 示例6（实现下拉刷新上拉加载更多）
+![](assets/Refresh/file-20260514164001676-7.gif)
+
+
+
+
+##### 示例6（实现下拉刷新上拉加载更多）
+
 Refresh组件与[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件组合实现下拉刷新上拉加载更多效果。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -646,12 +750,17 @@ struct ListRefreshLoad {
 }
 ```
 
-![](assets/Refresh/file-20260525091201237-006.gif)
 
-#### 示例7（设置最大下拉距离）
+![](assets/Refresh/file-20260514164001676-8.gif)
+
+
+
+
+##### 示例7（设置最大下拉距离）
+
 从API version 20开始，通过[maxPullDownDistance](#maxpulldowndistance20)属性设置最大下拉距离。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -705,12 +814,17 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201238-007.gif)
 
-#### 示例8（禁止下拉刷新）
+![](assets/Refresh/file-20260514164001676-9.gif)
+
+
+
+
+##### 示例8（禁止下拉刷新）
+
 通过[pullDownRatio](#pulldownratio12)属性禁止下拉刷新。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -773,12 +887,17 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201238-008.gif)
 
-#### 示例9（不满一屏场景实现下拉刷新）
+![](assets/Refresh/file-20260525091201236-001.gif)
+
+
+
+
+##### 示例9（不满一屏场景实现下拉刷新）
+
 调用[edgeEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#edgeeffect11)时，将options参数的[alwaysEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#edgeeffectoptions11对象说明)设置为true，可以在不满一屏的情况下实现Refresh组件的下拉刷新效果。
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -836,13 +955,19 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201238-009.gif)
 
-#### 示例10（上划不取消刷新）
+![](assets/Refresh/file-20260525091201236-002.gif)
+
+
+
+
+##### 示例10（上划不取消刷新）
+
 该示例通过[pullUpToCancelRefresh](#pulluptocancelrefresh23)接口设置上划不取消刷新。
+
 从API version 23开始，新增pullUpToCancelRefresh接口。
 
-```ts
+```ArkTS
 // xxx.ets
 import { ComponentContent } from '@kit.ArkUI';
 
@@ -936,4 +1061,5 @@ struct RefreshExample {
 }
 ```
 
-![](assets/Refresh/file-20260525091201238-010.gif)
+
+![](assets/Refresh/file-20260525091201236-003.gif)

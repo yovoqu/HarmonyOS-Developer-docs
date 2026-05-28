@@ -3,57 +3,54 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentexecutor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供意图执行基类，开发者通过本模块对接端侧[意图框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/insight-intent-overview)，[通过配置文件开发意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/insight-intent-config-development)实现意图的业务逻辑。
 
 除了可以通过配置文件开发意图，还可以通过装饰器开发意图。对于API version 20及以后的版本，推荐使用[通过装饰器开发意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/insight-intent-decorator-development)。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { InsightIntentExecutor } from '@kit.AbilityKit';
 ```
 
 
-## InsightIntentExecutor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### InsightIntentExecutor
 
 表示意图执行基类。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | [InsightIntentContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentcontext) | 否 | 否 | 意图执行上下文。 |
+| context | InsightIntentContext | 否 | 否 | 意图执行上下文。 |
 
 
-### onExecuteInUIAbilityForegroundMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onExecuteInUIAbilityForegroundMode
 
 onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 
 当意图执行依赖[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件前台启动时，会在UIAbility组件生命周期执行中触发本意图执行接口。支持同步返回和使用Promise异步返回。
 
+ - 若UIAbility组件冷启动，意图执行时UIAbility组件生命周期触发顺序：[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)、[onWindowStageCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)、onExecuteInUIAbilityForegroundMode、[onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onforeground)。
+ - 若UIAbility组件热启动，且启动时UIAbility组件处于后台，意图执行时UIAbility组件生命周期触发顺序：[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)、onExecuteInUIAbilityForegroundMode、[onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onforeground)。
+ - 若UIAbility组件热启动，且启动时UIAbility组件处于前台，意图执行时UIAbility组件生命周期触发顺序：onExecuteInUIAbilityForegroundMode。
 
-- 若UIAbility组件冷启动，意图执行时UIAbility组件生命周期触发顺序：[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)、[onWindowStageCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)、onExecuteInUIAbilityForegroundMode、[onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onforeground)。
-- 若UIAbility组件热启动，且启动时UIAbility组件处于后台，意图执行时UIAbility组件生命周期触发顺序：[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)、onExecuteInUIAbilityForegroundMode、[onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onforeground)。
-- 若UIAbility组件热启动，且启动时UIAbility组件处于前台，意图执行时UIAbility组件生命周期触发顺序：onExecuteInUIAbilityForegroundMode。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -61,52 +58,41 @@ onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 意图名称。 |
-| param | Record&lt;string, Object&gt; | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
-| pageLoader | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 表示windowStage实例对象，和[onWindowStageCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)接口的windowStage实例是同一个，可用于加载意图执行的页面。 |
+| param | Record<string, Object> | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
+| pageLoader | window.WindowStage | 是 | 表示windowStage实例对象，和onWindowStageCreate接口的windowStage实例是同一个，可用于加载意图执行的页面。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult) \| Promise&lt;[insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult)&gt; | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
+| insightIntent.ExecuteResult \| Promise<insightIntent.ExecuteResult> | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
 
 
 **示例：**
 
 同步返回意图执行结果的示例如下：
 
-
-```ts
+```json
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
-  onExecuteInUIAbilityForegroundMode(
-    name: string,
-    param: Record<string, Object>,
-    pageLoader: window.WindowStage,
-  ): insightIntent.ExecuteResult {
+  onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>,
+    pageLoader: window.WindowStage): insightIntent.ExecuteResult {
     let result: insightIntent.ExecuteResult;
     if (name !== 'SupportedInsightIntentName') {
-      hilog.warn(
-        0x0000,
-        'testTag',
-        'Unsupported insight intent %{public}s',
-        name,
-      );
+      hilog.warn(0x0000, 'testTag', 'Unsupported insight intent %{public}s', name);
       result = {
         // 由开发者定义
         code: 404,
         result: {
           message: 'Unsupported insight intent.',
-        },
+        }
       };
       return result;
     }
@@ -114,19 +100,9 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
     // 若开发者需要加载意图内容，pages/IntentPage即为意图页面
     pageLoader.loadContent('pages/IntentPage', (err, data) => {
       if (err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          'Failed to load the content. Cause: %{public}s',
-          JSON.stringify(err),
-        );
+        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
       } else {
-        hilog.info(
-          0x0000,
-          'testTag',
-          '%{public}s',
-          'Succeeded in loading the content',
-        );
+        hilog.info(0x0000, 'testTag', '%{public}s', 'Succeeded in loading the content');
       }
     });
 
@@ -134,7 +110,7 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     return result;
   }
@@ -143,47 +119,36 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 使用Promise异步返回意图执行结果的示例如下：
 
-
-```ts
+```text
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-async function executeInsightIntent(
-  param: Record<string, Object>,
-): Promise<insightIntent.ExecuteResult> {
+async function executeInsightIntent(param: Record<string, Object>): Promise<insightIntent.ExecuteResult> {
   return new Promise((resolve, reject) => {
     let result: insightIntent.ExecuteResult = {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     resolve(result);
-  });
+  })
 }
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
   // 实现异步接口需要使用async/await语法糖，通过async声明该接口是一个异步函数
-  async onExecuteInUIAbilityForegroundMode(
-    name: string,
-    param: Record<string, Object>,
-    pageLoader: window.WindowStage,
-  ): Promise<insightIntent.ExecuteResult> {
+  async onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>,
+    pageLoader: window.WindowStage): Promise<insightIntent.ExecuteResult> {
     let result: insightIntent.ExecuteResult;
     if (name !== 'SupportedInsightIntentName') {
-      hilog.warn(
-        0x0000,
-        'testTag',
-        'Unsupported insight intent %{public}s',
-        name,
-      );
+      hilog.warn(0x0000, 'testTag', 'Unsupported insight intent %{public}s', name);
       result = {
         // 由开发者定义
         code: 404,
         result: {
           message: 'Unsupported insight intent.',
-        },
+        }
       };
       return result;
     }
@@ -195,16 +160,16 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 ```
 
 
-### onExecuteInUIAbilityBackgroundMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onExecuteInUIAbilityBackgroundMode
 
 onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 
 当意图执行依赖[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件后台启动时，会在UIAbility组件生命周期执行中触发本意图执行接口。支持同步返回和使用Promise异步返回。
 
+ - 若UIAbility组件冷启动，意图执行时UIAbility组件生命周期触发顺序：[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)、onExecuteInUIAbilityBackgroundMode、[onBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onbackground)。
+ - 若UIAbility组件热启动，意图执行时UIAbility组件生命周期触发顺序：onExecuteInUIAbilityBackgroundMode。
 
-- 若UIAbility组件冷启动，意图执行时UIAbility组件生命周期触发顺序：[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)、onExecuteInUIAbilityBackgroundMode、[onBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onbackground)。
-- 若UIAbility组件热启动，意图执行时UIAbility组件生命周期触发顺序：onExecuteInUIAbilityBackgroundMode。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -212,39 +177,33 @@ onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 意图名称。 |
-| param | Record&lt;string, Object&gt; | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
+| param | Record<string, Object> | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult) \| Promise&lt;[insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult)&gt; | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
+| insightIntent.ExecuteResult \| Promise<insightIntent.ExecuteResult> | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
 
 
 **示例：**
 
 同步返回意图执行结果的示例如下：
 
-
-```ts
+```text
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
-  onExecuteInUIAbilityBackgroundMode(
-    name: string,
-    param: Record<string, Object>,
-  ): insightIntent.ExecuteResult {
+  onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>): insightIntent.ExecuteResult {
     let result: insightIntent.ExecuteResult = {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     return result;
   }
@@ -253,30 +212,25 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 使用Promise异步返回意图执行结果的示例如下：
 
-
-```ts
+```text
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 
-async function executeInsightIntent(
-  param: Record<string, Object>,
-): Promise<insightIntent.ExecuteResult> {
+async function executeInsightIntent(param: Record<string, Object>): Promise<insightIntent.ExecuteResult> {
   return new Promise((resolve, reject) => {
     let result: insightIntent.ExecuteResult = {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     resolve(result);
-  });
+  })
 }
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
   // 实现异步接口需要使用async/await语法糖，通过async声明该接口是一个异步函数
-  async onExecuteInUIAbilityBackgroundMode(
-    name: string,
-    param: Record<string, Object>,
-  ): Promise<insightIntent.ExecuteResult> {
+  async onExecuteInUIAbilityBackgroundMode(name: string,
+    param: Record<string, Object>): Promise<insightIntent.ExecuteResult> {
     let result: insightIntent.ExecuteResult = await executeInsightIntent(param);
     return result;
   }
@@ -284,69 +238,54 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 ```
 
 
-### onExecuteInUIExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onExecuteInUIExtensionAbility
 
 onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 
 当意图执行依赖[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)启动时，会在UIExtensionAbility组件生命周期执行中触发本意图执行接口。支持同步返回和使用Promise异步返回。
 
+ - 意图执行时UIExtensionAbility生命周期触发顺序：[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#oncreate)、[onSessionCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onsessioncreate)、onExecuteInUIExtensionAbility、[onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onforeground)。
 
-- 意图执行时UIExtensionAbility生命周期触发顺序：[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#oncreate)、[onSessionCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onsessioncreate)、onExecuteInUIExtensionAbility、[onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onforeground)。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 意图名称。 |
-| param | Record&lt;string, Object&gt; | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
-| pageLoader | [UIExtensionContentSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensioncontentsession) | 是 | 表示UIExtensionContentSession实例对象，和[onSessionCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onsessioncreate)接口的UIExtensionContentSession实例是同一个，可用于加载意图执行的页面。 |
+| param | Record<string, Object> | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
+| pageLoader | UIExtensionContentSession | 是 | 表示UIExtensionContentSession实例对象，和onSessionCreate接口的UIExtensionContentSession实例是同一个，可用于加载意图执行的页面。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult) \| Promise&lt;[insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult)&gt; | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
+| insightIntent.ExecuteResult \| Promise<insightIntent.ExecuteResult> | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
 
 
 **示例：**
 
 同步返回意图执行结果的示例如下：
 
-
-```ts
-import {
-  InsightIntentExecutor,
-  insightIntent,
-  UIExtensionContentSession,
-} from '@kit.AbilityKit';
+```text
+import { InsightIntentExecutor, insightIntent, UIExtensionContentSession } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
-  onExecuteInUIExtensionAbility(
-    name: string,
-    param: Record<string, Object>,
-    pageLoader: UIExtensionContentSession,
-  ): insightIntent.ExecuteResult {
+  onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>,
+    pageLoader: UIExtensionContentSession): insightIntent.ExecuteResult {
     let result: insightIntent.ExecuteResult;
     if (name !== 'SupportedInsightIntentName') {
-      hilog.warn(
-        0x0000,
-        'testTag',
-        'Unsupported insight intent %{public}s',
-        name,
-      );
+      hilog.warn(0x0000, 'testTag', 'Unsupported insight intent %{public}s', name);
       result = {
         // 由开发者定义
         code: 404,
         result: {
           message: 'Unsupported insight intent.',
-        },
+        }
       };
       return result;
     }
@@ -358,7 +297,7 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     return result;
   }
@@ -367,50 +306,35 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 使用Promise异步返回意图执行结果的示例如下：
 
-
-```ts
-import {
-  InsightIntentExecutor,
-  insightIntent,
-  UIExtensionContentSession,
-} from '@kit.AbilityKit';
+```text
+import { InsightIntentExecutor, insightIntent, UIExtensionContentSession } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-async function executeInsightIntent(
-  param: Record<string, Object>,
-): Promise<insightIntent.ExecuteResult> {
+async function executeInsightIntent(param: Record<string, Object>): Promise<insightIntent.ExecuteResult> {
   return new Promise((resolve, reject) => {
     let result: insightIntent.ExecuteResult = {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     resolve(result);
-  });
+  })
 }
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
   // 实现异步接口需要使用async/await语法糖，通过async声明该接口是一个异步函数
-  async onExecuteInUIExtensionAbility(
-    name: string,
-    param: Record<string, Object>,
-    pageLoader: UIExtensionContentSession,
-  ): Promise<insightIntent.ExecuteResult> {
+  async onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>,
+    pageLoader: UIExtensionContentSession): Promise<insightIntent.ExecuteResult> {
     let result: insightIntent.ExecuteResult;
     if (name !== 'SupportedInsightIntentName') {
-      hilog.warn(
-        0x0000,
-        'testTag',
-        'Unsupported insight intent %{public}s',
-        name,
-      );
+      hilog.warn(0x0000, 'testTag', 'Unsupported insight intent %{public}s', name);
       result = {
         // 由开发者定义
         code: 404,
         result: {
           message: 'Unsupported insight intent.',
-        },
+        }
       };
       return result;
     }
@@ -422,63 +346,52 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 ```
 
 
-### onExecuteInServiceExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onExecuteInServiceExtensionAbility
 
 onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 
 当意图执行依赖ServiceExtensionAbility组件启动时，会在ServiceExtensionAbility组件生命周期执行中触发本意图执行接口。支持同步返回和使用Promise异步返回。
 
+ - 意图执行时ServiceExtensionAbility生命周期触发顺序：onCreate、onRequest、onExecuteInServiceExtensionAbility。
 
-- 意图执行时ServiceExtensionAbility生命周期触发顺序：onCreate、onRequest、onExecuteInServiceExtensionAbility。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 意图名称。 |
-| param | Record&lt;string, Object&gt; | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
+| param | Record<string, Object> | 是 | 意图参数，表示本次意图执行由系统入口传递给应用的数据。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult) \| Promise&lt;[insightIntent.ExecuteResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executeresult)&gt; | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
+| insightIntent.ExecuteResult \| Promise<insightIntent.ExecuteResult> | 返回意图执行结果或返回带有意图执行结果的Promise对象，表示本次意图执行返回给系统入口的数据。 |
 
 
 **示例：**
 
 同步返回意图执行结果的示例如下：
 
-
-```ts
+```text
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
-  onExecuteInServiceExtensionAbility(
-    name: string,
-    param: Record<string, Object>,
-  ): insightIntent.ExecuteResult {
+  onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>): insightIntent.ExecuteResult {
     let result: insightIntent.ExecuteResult;
     if (name !== 'SupportedInsightIntentName') {
-      hilog.warn(
-        0x0000,
-        'testTag',
-        'Unsupported insight intent %{public}s',
-        name,
-      );
+      hilog.warn(0x0000, 'testTag', 'Unsupported insight intent %{public}s', name);
       result = {
         // 由开发者定义
         code: 404,
         result: {
           message: 'Unsupported insight intent.',
-        },
+        }
       };
       return result;
     }
@@ -487,7 +400,7 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     return result;
   }
@@ -496,20 +409,17 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 使用Promise异步返回意图执行结果的示例如下：
 
-
-```ts
+```text
 import { InsightIntentExecutor, insightIntent } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-async function executeInsightIntent(
-  param: Record<string, Object>,
-): Promise<insightIntent.ExecuteResult> {
+async function executeInsightIntent(param: Record<string, Object>): Promise<insightIntent.ExecuteResult> {
   return new Promise((resolve, reject) => {
     let result: insightIntent.ExecuteResult = {
       code: 0,
       result: {
         message: 'Execute insight intent succeed.',
-      },
+      }
     };
     resolve(result);
   });
@@ -517,24 +427,17 @@ async function executeInsightIntent(
 
 export default class IntentExecutorImpl extends InsightIntentExecutor {
   // 实现异步接口需要使用async/await语法糖，通过async声明该接口是一个异步函数
-  async onExecuteInServiceExtensionAbility(
-    name: string,
-    param: Record<string, Object>,
-  ): Promise<insightIntent.ExecuteResult> {
+  async onExecuteInServiceExtensionAbility(name: string,
+    param: Record<string, Object>): Promise<insightIntent.ExecuteResult> {
     let result: insightIntent.ExecuteResult;
     if (name !== 'SupportedInsightIntentName') {
-      hilog.warn(
-        0x0000,
-        'testTag',
-        'Unsupported insight intent %{public}s',
-        name,
-      );
+      hilog.warn(0x0000, 'testTag', 'Unsupported insight intent %{public}s', name);
       result = {
         // 由开发者定义
         code: 404,
         result: {
           message: 'Unsupported insight intent.',
-        },
+        }
       };
       return result;
     }

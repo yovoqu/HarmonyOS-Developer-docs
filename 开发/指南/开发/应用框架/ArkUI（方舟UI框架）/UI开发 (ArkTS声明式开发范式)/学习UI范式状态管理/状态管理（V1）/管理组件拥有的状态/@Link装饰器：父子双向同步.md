@@ -1,19 +1,25 @@
 # @Link装饰器：父子双向同步
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link
 
 子组件中被@Link装饰的变量与其父组件中对应的数据源建立双向数据绑定。
+
 在阅读@Link文档前，建议先熟悉[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)的基本用法。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
 
-#### 概述
+
+
+##### 概述
+
 @Link装饰的变量与其父组件中的数据源共享相同的值。
 
-#### 装饰器使用规则说明
+
+
+##### 装饰器使用规则说明
 
 | @Link变量装饰器 | 说明 |
 | --- | --- |
@@ -23,7 +29,10 @@
 | 不允许装饰的变量类型 | 不支持装饰Function类型。 |
 | 被装饰变量的初始值 | 禁止本地初始化。 |
 
-#### 变量的传递/访问规则说明
+
+
+
+##### 变量的传递/访问规则说明
 
 | 传递/访问 | 说明 |
 | --- | --- |
@@ -31,34 +40,81 @@
 | 用于初始化子组件 | 允许，可用于初始化常规变量、@State、@Link、@Prop、@Provide。 |
 | 是否支持组件外访问 | 私有，只能在所属组件内访问。 |
 
+
 **图1** 初始化规则示意图
 
-![](assets/@Link装饰器：父子双向同步/file-20260525091526175-001.png)
 
-#### 观察变化和行为表现
-#### 观察变化
-- 当装饰的数据类型为boolean、string、number类型时，可以同步观察到数值的变化，示例请参考[简单类型和类对象类型的@Link](#简单类型和类对象类型的link)。
-- 当装饰的数据类型为class或者Object时，可以观察到赋值和属性赋值的变化，即Object.keys(observedObject)返回的所有属性，示例请参考[简单类型和类对象类型的@Link](#简单类型和类对象类型的link)。@Link仅能观察对象本身及其一层属性的变化，无法观察嵌套场景（如嵌套对象、对象数组）内层数据的变化，该场景请参考[@Observed装饰器与@ObjectLink装饰器的使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink#使用场景)。
-- 当装饰的对象是Array时，可以观察到数组添加、删除、更新数组单元的变化，示例请参考[数组类型的@Link](#数组类型的link)。
-- 当装饰的对象是Date时，可以观察到Date的整体赋值，以及通过调用setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds方法更新其属性，示例请参考[装饰Date类型变量](#装饰date类型变量)。
-- 当装饰的变量是Map时，可以观察到Map整体的赋值，以及可通过调用Map的set、clear、delete接口更新Map的值，示例请参考[装饰Map类型变量](#装饰map类型变量)。
-- 当装饰的变量是Set时，可以观察Set整体的赋值，以及通过调用Set的add、clear、delete接口更新其值，示例请参考[装饰Set类型变量](#装饰set类型变量)。
+![](assets/@Link装饰器：父子双向同步/file-20260514130517874-1.gif)
 
-#### 框架行为
+
+
+
+##### 观察变化和行为表现
+
+
+
+##### 观察变化
+
+ - 当装饰的数据类型为boolean、string、number类型时，可以同步观察到数值的变化，示例请参考[简单类型和类对象类型的@Link](#简单类型和类对象类型的link)。
+ - 当装饰的数据类型为class或者Object时，可以观察到赋值和属性赋值的变化，即Object.keys(observedObject)返回的所有属性，示例请参考[简单类型和类对象类型的@Link](#简单类型和类对象类型的link)。@Link仅能观察对象本身及其一层属性的变化，无法观察嵌套场景（如嵌套对象、对象数组）内层数据的变化，该场景请参考[@Observed装饰器与@ObjectLink装饰器的使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink#使用场景)。
+ - 当装饰的对象是Array时，可以观察到数组添加、删除、更新数组单元的变化，示例请参考[数组类型的@Link](#数组类型的link)。
+ - 当装饰的对象是Date时，可以观察到Date的整体赋值，以及通过调用setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds方法更新其属性，示例请参考[装饰Date类型变量](#装饰date类型变量)。
+ - 当装饰的变量是Map时，可以观察到Map整体的赋值，以及可通过调用Map的set、clear、delete接口更新Map的值，示例请参考[装饰Map类型变量](#装饰map类型变量)。
+ - 当装饰的变量是Set时，可以观察Set整体的赋值，以及通过调用Set的add、clear、delete接口更新其值，示例请参考[装饰Set类型变量](#装饰set类型变量)。
+
+
+
+
+##### 框架行为
+
 @Link装饰的变量和所属的自定义组件共享生命周期。
-为了了解@Link变量的初始化和更新机制，有必要先了解父组件和拥有@Link变量的子组件的关系，以及初始渲染和双向更新的流程（以父组件为@State为例）。
-1. 初始渲染：执行父组件的 build() 函数，创建子组件的新实例。初始化过程如下：  指定父组件中的@State变量用于初始化子组件的@Link变量。子组件的@Link变量值与其父组件的数据源变量保持双向数据同步。 父组件的@State状态变量包装类通过构造函数传给子组件，子组件的@Link包装类拿到父组件的@State的状态变量后，将当前@Link包装类实例注册给父组件的@State变量。
-2. @Link的数据源的更新：即父组件中状态变量更新，引起相关子组件的@Link的更新。处理步骤：  通过初始渲染的步骤可知，子组件@Link包装类把当前this指针注册给父组件。父组件@State变量变更后，会遍历更新所有依赖它的系统组件和状态变量（例如：@Link包装类）。 通知@Link包装类更新后，子组件中所有依赖@Link状态变量的系统组件都会被通知更新。以此实现父组件对子组件的状态数据同步。
-3. @Link的更新：当子组件中@Link更新后，处理步骤如下（以父组件为@State为例）：  @Link更新后，调用父组件的@State包装类的set方法，将数值同步回父组件。 子组件@Link和父组件@State分别遍历依赖的系统组件，更新对应的UI。从而实现子组件@Link与父组件@State的同步。
 
-#### 限制条件
-1. @Link装饰器不建议在@Entry装饰的自定义组件中使用，否则编译时会抛出警告；若该自定义组件作为页面根节点使用，则会抛出运行时错误。
-2. @Link装饰的变量禁止本地初始化，否则编译期会报错。 // 错误写法，编译报错
+为了了解@Link变量的初始化和更新机制，有必要先了解父组件和拥有@Link变量的子组件的关系，以及初始渲染和双向更新的流程（以父组件为@State为例）。
+1. 初始渲染：执行父组件的 build() 函数，创建子组件的新实例。初始化过程如下：
+
+  
+ - 指定父组件中的@State变量用于初始化子组件的@Link变量。子组件的@Link变量值与其父组件的数据源变量保持双向数据同步。
+
+2. 父组件的@State状态变量包装类通过构造函数传给子组件，子组件的@Link包装类拿到父组件的@State的状态变量后，将当前@Link包装类实例注册给父组件的@State变量。
+ - @Link的数据源的更新：即父组件中状态变量更新，引起相关子组件的@Link的更新。处理步骤：
+
+1. 通过初始渲染的步骤可知，子组件@Link包装类把当前this指针注册给父组件。父组件@State变量变更后，会遍历更新所有依赖它的系统组件和状态变量（例如：@Link包装类）。
+
+2. 通知@Link包装类更新后，子组件中所有依赖@Link状态变量的系统组件都会被通知更新。以此实现父组件对子组件的状态数据同步。
+ - @Link的更新：当子组件中@Link更新后，处理步骤如下（以父组件为@State为例）：
+
+1. @Link更新后，调用父组件的@State包装类的set方法，将数值同步回父组件。
+
+2. 子组件@Link和父组件@State分别遍历依赖的系统组件，更新对应的UI。从而实现子组件@Link与父组件@State的同步。
+
+
+
+
+##### 限制条件
+1. @Link装饰器不建议在[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)装饰的自定义组件中使用，否则编译时会抛出警告；若该自定义组件作为页面根节点使用，则会抛出运行时错误。
+2. @Link装饰的变量禁止本地初始化，否则编译期会报错。
+
+  
+```text
+// 错误写法，编译报错
 @Link count: number = 10;
 
 // 正确写法
 @Link count: number;
-3. @Link装饰的变量的类型要和数据源类型保持一致，否则编译期会报错。同时，数据源必须是状态变量，否则框架会抛出运行时错误。 从API version 23开始，添加对@Link数据源错误的校验，运行时错误变为编译期报错。详情参见UI相关应用崩溃常见问题。   【反例】 class Info {
+```
+
+3. @Link装饰的变量的类型要和数据源类型保持一致，否则编译期会报错。同时，数据源必须是状态变量，否则框架会抛出运行时错误。
+
+  
+> [!NOTE]
+> 从API version 23开始，添加对@Link数据源错误的校验，运行时错误变为编译期报错。详情参见 UI相关应用崩溃常见问题 。
+
+
+  【反例】
+
+  
+```text
+class Info {
   value: string = 'Hello';
 }
 
@@ -74,10 +130,10 @@ struct Child {
   @Link testStr: string;
 
   build() {
- Column() {
- Text(this.test.name)
- Text(this.testStr)
- }
+    Column() {
+      Text(this.test.name)
+      Text(this.testStr)
+    }
   }
 }
 
@@ -87,16 +143,22 @@ struct LinkExample {
   @State info: Info = new Info();
 
   build() {
- Column() {
- Child({
- // 错误写法1：@Link装饰的变量与@State装饰的变量类型不一致
- test: this.info,
- // 错误写法2：数据源非状态变量
- testStr: this.info.value
- })
- }
+    Column() {
+      Child({
+        // 错误写法1：@Link装饰的变量与@State装饰的变量类型不一致
+        test: this.info,
+        // 错误写法2：数据源非状态变量
+        testStr: this.info.value
+      })
+    }
   }
-} 【正例】 class LinkInfo {
+}
+```
+【正例】
+
+  
+```ArkTS
+class LinkInfo {
   public value: string = 'Hello';
 }
 
@@ -106,7 +168,7 @@ struct LinkChild {
   @Link test: LinkInfo;
 
   build() {
- Text(this.test.value)
+    Text(this.test.value)
   }
 }
 
@@ -116,13 +178,21 @@ struct LinkExample {
   @State info: LinkInfo = new LinkInfo();
 
   build() {
- Column() {
- // 在父组件中，使用@State装饰的info变量初始化LinkChild组件的test变量
- LinkChild({test: this.info})
- }
+    Column() {
+      // 在父组件中，使用@State装饰的info变量初始化LinkChild组件的test变量
+      LinkChild({test: this.info})
+    }
   }
 }
-4. @Link装饰的变量仅能被状态变量初始化，不能使用常规变量初始化，否则编译期会给出告警，并在运行时崩溃。 【反例】 class Info {
+```
+
+4. @Link装饰的变量仅能被状态变量初始化，不能使用常规变量初始化，否则编译期会给出告警，并在运行时崩溃。
+
+  【反例】
+
+  
+```text
+class Info {
   info: string = 'Hello';
 }
 
@@ -132,7 +202,7 @@ struct Child {
   @Link info: string;
 
   build() {
- Text(this.msg + this.info)
+    Text(this.msg + this.info)
   }
 }
 
@@ -143,12 +213,18 @@ struct LinkExample {
   @State info: Info = new Info();
 
   build() {
- Column() {
- // 错误写法，常规变量不能初始化@Link
- Child({msg: 'World', info: this.info.info})
- }
+    Column() {
+      // 错误写法，常规变量不能初始化@Link
+      Child({msg: 'World', info: this.info.info})
+    }
   }
-} 【正例】 class LinkInfo2 {
+}
+```
+【正例】
+
+  
+```ArkTS
+class LinkInfo2 {
   public info: string = 'Hello';
 }
 
@@ -158,7 +234,7 @@ struct LinkChild2 {
   @Link info: LinkInfo2;
 
   build() {
- Text(this.msg + this.info.info)
+    Text(this.msg + this.info.info)
   }
 }
 
@@ -169,18 +245,30 @@ struct LinkExample2 {
   @State info: LinkInfo2 = new LinkInfo2();
 
   build() {
- Column() {
- // 正确写法
- LinkChild2({msg: this.message, info: this.info})
- }
+    Column() {
+      // 正确写法
+      LinkChild2({msg: this.message, info: this.info})
+    }
   }
 }
-5. @Link不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。 从API version 23开始，在应用编译时添加了相关校验，@Link装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@Link装饰器。
+```
 
-#### 使用场景
-#### 简单类型和类对象类型的@Link
+5. @Link不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
+
+  从API version 23开始，在应用编译时添加了相关校验，@Link装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@Link装饰器。
+
+
+
+##### 使用场景
+
+
+
+##### 简单类型和类对象类型的@Link
+
 以下示例中，点击父组件ShufflingContainer中的“Parent View: Set yellowButton”和“Parent View: Set GreenButton”，可以从父组件将变化同步给子组件。
+
 1.点击子组件GreenButton和YellowButton中的Button，子组件会发生相应变化，将变化同步给父组件。因为@Link是双向同步，会将变化同步给@State。
+
 2.当点击父组件ShufflingContainer中的Button时，@State会发生变化，并同步给@Link，子组件也会进行对应的刷新。
 
 ```ArkTS
@@ -268,9 +356,13 @@ struct ShufflingContainer {
 }
 ```
 
-![](assets/@Link装饰器：父子双向同步/file-20260525091526176-002.gif)
 
-#### 数组类型的@Link
+![](assets/@Link装饰器：父子双向同步/file-20260525091526175-001.png)
+
+
+
+
+##### 数组类型的@Link
 
 ```ArkTS
 @Component
@@ -325,13 +417,19 @@ struct ArrayTypes {
 }
 ```
 
-![](assets/@Link装饰器：父子双向同步/file-20260525091526176-003.gif)
+
+![](assets/@Link装饰器：父子双向同步/file-20260525091526176-002.gif)
+
+
 状态管理框架可以观察到数组元素的添加、删除和替换。在该示例中，@State和@Link的类型均为number[]，不支持将@Link定义成number类型（@Link item : number），并用@State数组中的每个数据项在父组件中创建子组件。如需使用这种场景，可以参考[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)和[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)。
 
-#### 装饰Map类型变量
 
-> [!NOTE] 说明
+
+##### 装饰Map类型变量
+
+> [!NOTE]
 > 从API version 11开始，@Link支持Map类型。
+
 
 在下面的示例中，value类型为Map<number, string>，点击Button改变message的值，视图会随之刷新。
 
@@ -385,10 +483,13 @@ struct MapSample {
 }
 ```
 
-#### 装饰Set类型变量
 
-> [!NOTE] 说明
+
+##### 装饰Set类型变量
+
+> [!NOTE]
 > 从API version 11开始，@Link支持Set类型。
+
 
 在下面的示例中，message类型为Set&lt;number&gt;，点击Button改变message的值，视图会随之刷新。
 
@@ -439,7 +540,10 @@ struct SetSample {
 }
 ```
 
-#### 装饰Date类型变量
+
+
+##### 装饰Date类型变量
+
 在下面的示例中，selectedDate类型为Date，点击Button改变selectedDate的值，视图会随之刷新。
 
 ```ArkTS
@@ -497,8 +601,12 @@ struct ParentComponent {
 }
 ```
 
-#### 使用双向同步机制更改本地其他变量
+
+
+##### 使用双向同步机制更改本地其他变量
+
 通过[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)可以在双向同步时更改本地变量。
+
 以下示例中，在@Link的@Watch里面修改了一个@State装饰的变量memberMessage，实现父子组件间的变量同步。但是@State装饰的变量memberMessage在本地修改不会影响到父组件中的变量改变。
 
 ```ArkTS
@@ -544,7 +652,10 @@ struct ChangeVariablesChild {
 }
 ```
 
-#### Link支持联合类型实例
+
+
+##### Link支持联合类型实例
+
 @Link支持联合类型、undefined和null。在以下示例中，name类型为string | undefined。点击父组件UnionTypes中的按钮可以改变name的属性或类型，UnionChild组件也会相应刷新。
 
 ```ArkTS

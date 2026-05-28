@@ -6,11 +6,11 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：AVMetadataExtractor； API声明：fetchMetadata(callback: AsyncCallback<AVMetadata>): void; 差异内容：NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(callback: AsyncCallback<AVMetadata>): void; 差异内容：5411012 | api/@ohos.multimedia.media.d.ts |
-| 新增错误码 | 类名：AVMetadataExtractor； API声明：fetchMetadata(): Promise<AVMetadata>; 差异内容：NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(): Promise<AVMetadata>; 差异内容：5411012 | api/@ohos.multimedia.media.d.ts |
+| 新增错误码 | 类名：AVMetadataExtractor； API声明：fetchMetadata(callback: AsyncCallback&lt;AVMetadata&gt;): void; 差异内容：NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(callback: AsyncCallback&lt;AVMetadata&gt;): void; 差异内容：5411012 | api/@ohos.multimedia.media.d.ts |
+| 新增错误码 | 类名：AVMetadataExtractor； API声明：fetchMetadata(): Promise&lt;AVMetadata&gt;; 差异内容：NA | 类名：AVMetadataExtractor； API声明：fetchMetadata(): Promise&lt;AVMetadata&gt;; 差异内容：5411012 | api/@ohos.multimedia.media.d.ts |
 | 新增错误码 | 类名：AVMetadataExtractor； API声明：fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>; 差异内容：NA | 类名：AVMetadataExtractor； API声明：fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>; 差异内容：5411012 | api/@ohos.multimedia.media.d.ts |
 | 新增错误码 | 类名：AVPlayer； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：NA | 类名：AVPlayer； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：5411012 | api/@ohos.multimedia.media.d.ts |
-| 权限变更 | 类名：AVRecorder； API声明：prepare(config: AVRecorderConfig): Promise<void>; 差异内容：ohos.permission.MICROPHONE | 类名：AVRecorder； API声明：prepare(config: AVRecorderConfig): Promise<void>; 差异内容：ohos.permission.MICROPHONE This permission is required only if audio recording is involved. | api/@ohos.multimedia.media.d.ts |
+| 权限变更 | 类名：AVRecorder； API声明：prepare(config: AVRecorderConfig): Promise&lt;void&gt;; 差异内容：ohos.permission.MICROPHONE | 类名：AVRecorder； API声明：prepare(config: AVRecorderConfig): Promise&lt;void&gt;; 差异内容：ohos.permission.MICROPHONE This permission is required only if audio recording is involved. | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明：enum SoundInterruptMode 差异内容：enum SoundInterruptMode | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：SoundInterruptMode； API声明：NO_INTERRUPT = 0 差异内容：NO_INTERRUPT = 0 | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：SoundInterruptMode； API声明：SAME_SOUND_INTERRUPT = 1 差异内容：SAME_SOUND_INTERRUPT = 1 | api/@ohos.multimedia.media.d.ts |
@@ -26,7 +26,7 @@
 | 新增API | NA | 类名：FrameInfo； API声明：actualTimeUs?: number; 差异内容：actualTimeUs?: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：FrameInfo； API声明：image?: image.PixelMap; 差异内容：image?: image.PixelMap; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：FrameInfo； API声明：result: FetchResult; 差异内容：result: FetchResult; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：media； API声明：type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError<void>) => void; 差异内容：type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError<void>) => void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：media； API声明：type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError&lt;void&gt;) => void; 差异内容：type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError&lt;void&gt;) => void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVErrorCode； API声明：AVERR_IO_CLEARTEXT_NOT_PERMITTED = 5411012 差异内容：AVERR_IO_CLEARTEXT_NOT_PERMITTED = 5411012 | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明：enum AVMetricsEventType 差异内容：enum AVMetricsEventType | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetricsEventType； API声明：AV_METRICS_EVENT_STALLING = 1 差异内容：AV_METRICS_EVENT_STALLING = 1 | api/@ohos.multimedia.media.d.ts |
@@ -35,11 +35,11 @@
 | 新增API | NA | 类名：AVMetricsEvent； API声明：timeStamp: number; 差异内容：timeStamp: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetricsEvent； API声明：playbackPosition: number; 差异内容：playbackPosition: number; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVMetricsEvent； API声明：details: Record<string, Object>; 差异内容：details: Record<string, Object>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVPlayer； API声明：getPlaybackStatisticMetrics(): Promise<PlaybackMetrics>; 差异内容：getPlaybackStatisticMetrics(): Promise<PlaybackMetrics>; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVPlayer； API声明：getPlaybackStatisticMetrics(): Promise&lt;PlaybackMetrics&gt;; 差异内容：getPlaybackStatisticMetrics(): Promise&lt;PlaybackMetrics&gt;; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVPlayer； API声明：getCurrentPresentationTimestamp(): number; 差异内容：getCurrentPresentationTimestamp(): number; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVPlayer； API声明：getPlaybackRate(): Promise<number>; 差异内容：getPlaybackRate(): Promise<number>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVPlayer； API声明：onMetricsEvent(callback: Callback<Array<AVMetricsEvent>>): void; 差异内容：onMetricsEvent(callback: Callback<Array<AVMetricsEvent>>): void; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVPlayer； API声明：offMetricsEvent(callback?: Callback<Array<AVMetricsEvent>>): void; 差异内容：offMetricsEvent(callback?: Callback<Array<AVMetricsEvent>>): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVPlayer； API声明：getPlaybackRate(): Promise&lt;number&gt;; 差异内容：getPlaybackRate(): Promise&lt;number&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVPlayer； API声明：onMetricsEvent(callback: Callback<Array&lt;AVMetricsEvent&gt;>): void; 差异内容：onMetricsEvent(callback: Callback<Array&lt;AVMetricsEvent&gt;>): void; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVPlayer； API声明：offMetricsEvent(callback?: Callback<Array&lt;AVMetricsEvent&gt;>): void; 差异内容：offMetricsEvent(callback?: Callback<Array&lt;AVMetricsEvent&gt;>): void; | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：media； API声明：enum PlaybackMetricsKey 差异内容：enum PlaybackMetricsKey | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：PlaybackMetricsKey； API声明：PREPARE_DURATION = 'prepare_duration' 差异内容：PREPARE_DURATION = 'prepare_duration' | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：PlaybackMetricsKey； API声明：RESOURCE_CONNECTION_DURATION = 'resource_connection_duration' 差异内容：RESOURCE_CONNECTION_DURATION = 'resource_connection_duration' | api/@ohos.multimedia.media.d.ts |

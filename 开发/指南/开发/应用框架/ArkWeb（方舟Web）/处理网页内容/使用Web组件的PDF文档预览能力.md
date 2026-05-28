@@ -1,15 +1,14 @@
 # 使用Web组件的PDF文档预览能力
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-pdf-preview
 
-[Web组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)支持在网页中预览PDF。应用通过[WebOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)的src参数和[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载PDF文档。具体场景包括：网络PDF文档、应用沙箱内PDF文档和本地PDF文档。
+[Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)组件支持在网页中预览PDF。但受限于性能表现，部分场景存在掉帧现象。若对流畅度有要求，建议使用[PdfView](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfview-component)，或第三方解析库[PDF.js](https://github.com/mozilla/pdf.js)。应用通过[WebOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)的src参数和[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载PDF文档。具体场景包括：网络PDF文档、应用沙箱内PDF文档和本地PDF文档。
 
 若涉及网络文档获取，需在module.json5中配置网络访问权限。添加方法请参考[在配置文件中声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions#在配置文件中声明权限)。
 
-
-```text
+```json
 "requestPermissions":[
   {
     "name" : "ohos.permission.INTERNET"
@@ -18,10 +17,11 @@
 ```
 
 
-## 通过不同的方式加载PDF文档
+##### 通过不同的方式加载PDF文档
 
 在下面的示例中，Web组件创建时指定默认加载的网络PDF文档https://www.example.com/test.pdf。使用时需替换为真实的可访问URL。
-```text
+
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -46,11 +46,18 @@ struct WebComponent {
 ```
 
 PDF预览页面会根据用户操作使用window.localStorage记录侧导航栏的展开状态，因此需要开启文档对象模型存储[domStorageAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#domstorageaccess)权限:
+
 ```text
 Web().domStorageAccess(true)
 ```
 
-在创建[Web组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)时，指定默认加载的PDF文档。默认PDF文档加载完成后，若需变更Web组件显示的PDF文档，通过调用[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载指定的PDF文档。[WebOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)的第一个参数变量src不能通过状态变量（例如：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)）动态更改地址，如需更改，请通过[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)重新加载。 包含三种PDF文档加载预览场景： 预览加载网络PDF文档。
+在创建[Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web)组件时，指定默认加载的PDF文档。默认PDF文档加载完成后，若需变更Web组件显示的PDF文档，通过调用[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)接口加载指定的PDF文档。[WebOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#weboptions)的第一个参数变量src不能通过状态变量（例如：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)）动态更改地址，如需更改，请通过[loadUrl()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#loadurl)重新加载。
+
+包含三种PDF文档加载预览场景：
+
+ - 预览加载网络PDF文档。
+
+  
 ```text
 Web({
   src: "https://www.example.com/test.pdf",
@@ -59,7 +66,9 @@ Web({
   .domStorageAccess(true)
 ```
 
-预览加载应用沙箱内PDF文档需要开启文件系统的[fileAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#fileaccess)权限。
+ - 预览加载应用沙箱内PDF文档需要开启文件系统的[fileAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#fileaccess)权限。
+
+  
 ```text
 Web({
   src: this.getUIContext().getHostContext()!.filesDir + "/test.pdf",
@@ -69,7 +78,9 @@ Web({
   .fileAccess(true)
 ```
 
-预览加载本地PDF文档。
+ - 预览加载本地PDF文档。
+
+  
 ```text
 Web({
   src: "resource://rawfile/test.pdf",            // 格式一 加载本地PDF文档
@@ -80,9 +91,13 @@ Web({
 ```
 
 
-## 通过配置PDF文件预览参数，控制打开预览时页面状态
+
+
+
+##### 通过配置PDF文件预览参数，控制打开预览时页面状态
 
 当前支持如下参数:
+
 | 语法 | 描述 |
 | --- | --- |
 | nameddest=destination | 指定PDF文档中的命名目标。 |
@@ -92,7 +107,9 @@ Web({
 | navpanes=1 or 0 | 1表示打开侧边导航窗格。0表示关闭侧边导航窗格。 |
 | pdfbackgroundcolor=color | 从HarmonyOS 6.0系统版本开始，支持指定PDF文档背景色，color为标准的六位十六进制RGB（取值范围为000000~ffffff，例如白色为：ffffff）。 |
 
+
 URL示例:
+
 ```text
 https://example.com/test.pdf#nameddest=Chapter6
 https://example.com/test.pdf#page=3
@@ -104,9 +121,16 @@ https://example.com/test.pdf#pdfbackgroundcolor=ffffff
 ```
 
 
-## PDF文档预览回调功能
 
-从API version 20开始，PDF文档预览支持两种回调功能：加载成功/失败回调和滚动到底部事件回调。 在下面的示例中，Web组件创建时指定默认加载的网络PDF文档https://www.example.com/test.pdf。使用时需替换为真实的可访问URL。 加载成功/失败回调。
+##### PDF文档预览回调功能
+
+从API version 20开始，PDF文档预览支持两种回调功能：加载成功/失败回调和滚动到底部事件回调。
+
+在下面的示例中，Web组件创建时指定默认加载的网络PDF文档https://www.example.com/test.pdf。使用时需替换为真实的可访问URL。
+
+ - 加载成功/失败回调。
+
+  
 ```text
 Web({
   src: 'https://www.example.com/test.pdf',
@@ -119,7 +143,9 @@ Web({
   )
 ```
 
-滚动到底部事件回调。
+ - 滚动到底部事件回调。
+
+  
 ```text
 Web({
   src: 'https://www.example.com/test.pdf',
@@ -133,6 +159,9 @@ Web({
 ```
 
 
-## 示例代码
 
-[Web组件预览PDF文件](https://gitcode.com/harmonyos_samples/web-pdfviewer)
+
+
+##### 示例代码
+
+ - [Web组件预览PDF文件](https://gitcode.com/harmonyos_samples/web-pdfviewer)

@@ -1,28 +1,33 @@
 # @ohos.mediaquery (媒体查询)
 
-更新时间：2026-03-27 08:08:20
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mediaquery
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供根据不同媒体类型定义不同的样式。
 
+> [!TIP]
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该模块不支持在 UIAbility 的文件声明处使用，即不能在UIAbility的生命周期中调用，需要在创建组件实例后使用。 本模块功能依赖UI的执行上下文，不可在 UI上下文不明确 的地方使用，参见 UIContext 说明。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { mediaquery } from '@kit.ArkUI';
 ```
 
 
-## mediaquery.matchMediaSync(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mediaquery.matchMediaSync(deprecated)
 
 matchMediaSync(condition: string): MediaQueryListener
 
 设置媒体查询的查询条件，并返回对应的监听句柄。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 18开始废弃，建议使用 matchMediaSync 替代。matchMediaSync需先通过 UIContext 中的 getMediaQuery 方法获取 MediaQuery 对象，然后通过该对象进行调用。 从API version 10开始，可以通过使用 UIContext 中的 getMediaQuery 方法获取当前UI上下文关联的 MediaQuery 对象。
 
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -33,34 +38,29 @@ matchMediaSync(condition: string): MediaQueryListener
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| condition | string | 是 | 媒体事件的匹配条件，具体可参考[媒体查询语法规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-media-query#语法规则)。 |
+| condition | string | 是 | 媒体事件的匹配条件，具体可参考媒体查询语法规则。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [MediaQueryListener](#mediaquerylistener) | 媒体事件监听句柄，用于注册和去注册监听回调。 |
+| MediaQueryListener | 媒体事件监听句柄，用于注册和注销监听回调。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { mediaquery } from '@kit.ArkUI';
 
-let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync(
-  '(orientation: landscape)',
-); // 监听横屏事件
+let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync('(orientation: landscape)'); // 监听横屏事件
 ```
 
 
-## MediaQueryListener
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### MediaQueryListener
 
 媒体查询的句柄，并包含了申请句柄时的首次查询结果。媒体查询根据设置的条件语句，比如'(width <= 600vp)'，比较系统信息，若首次查询时相关信息未初始化，matches返回false。
 
@@ -73,16 +73,16 @@ let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync(
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### on('change')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'change', callback: Callback<MediaQueryResult>): void
+##### on('change')
+
+on(type: 'change', callback: Callback&lt;MediaQueryResult&gt;): void
 
 通过句柄向对应的查询条件注册回调，当媒体属性发生变更时会触发该回调。
 
-
 > [!NOTE]
 > 注册的回调中不允许进一步调用on或off。
+
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -92,11 +92,10 @@ on(type: 'change', callback: Callback<MediaQueryResult>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 必须填写字符串'change'。 |
-| callback | Callback&lt;[MediaQueryResult](#mediaqueryresult)&gt; | 是 | 向媒体查询注册的回调。 |
+| callback | Callback&lt;MediaQueryResult&gt; | 是 | 向媒体查询注册的回调。 |
 
 
 **示例：**
@@ -104,10 +103,10 @@ on(type: 'change', callback: Callback<MediaQueryResult>): void
 详见[off('change')](#offchange)示例。
 
 
-### off('change')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'change', callback?: Callback<MediaQueryResult>): void
+##### off('change')
+
+off(type: 'change', callback?: Callback&lt;MediaQueryResult&gt;): void
 
 通过句柄向对应的查询条件取消注册回调，当媒体属性发生变更时不再触发指定的回调。
 
@@ -119,36 +118,32 @@ off(type: 'change', callback?: Callback<MediaQueryResult>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 必须填写字符串'change'。 |
-| callback | Callback&lt;[MediaQueryResult](#mediaqueryresult)&gt; | 否 | 需要取消注册的回调，如果参数缺省则去注册该句柄下所有的回调。 |
+| callback | Callback&lt;MediaQueryResult&gt; | 否 | 需要取消注册的回调，如果参数缺省则注销该句柄下所有的回调。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { mediaquery } from '@kit.ArkUI';
 
-let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync(
-  '(orientation: landscape)',
-); // 监听横屏事件
-function onPortrait(mediaQueryResult: mediaquery.MediaQueryResult) {
+let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync('(orientation: landscape)'); // 监听横屏事件
+function onPortrait(mediaQueryResult:mediaquery.MediaQueryResult) {
   if (mediaQueryResult.matches) {
     // do something here
   } else {
     // do something here
   }
 }
-listener.on('change', onPortrait); // 注册回调
-listener.off('change', onPortrait); // 取消注册回调
+listener.on('change', onPortrait) // 注册回调
+listener.off('change', onPortrait) // 注销回调
 ```
 
 
-## MediaQueryResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### MediaQueryResult
 
 用于执行媒体查询操作。
 
@@ -159,8 +154,8 @@ listener.off('change', onPortrait); // 取消注册回调
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### 属性
 
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -168,14 +163,15 @@ listener.off('change', onPortrait); // 取消注册回调
 | media | string | 是 | 否 | 媒体事件的匹配条件。 |
 
 
-### 示例
 
+
+##### 示例
 
 > [!NOTE]
-> 推荐通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getMediaQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getmediaquery)方法获取当前UI上下文关联的[MediaQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-mediaquery)对象。
+> 推荐通过使用 UIContext 中的 getMediaQuery 方法获取当前UI上下文关联的 MediaQuery 对象。
 
 
-```ts
+```text
 import { mediaquery } from '@kit.ArkUI';
 
 @Entry
@@ -215,4 +211,5 @@ struct MediaQueryExample {
 }
 ```
 
-![](assets/ohos.mediaquery%20媒体查询/file-20260514163841371-0.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/fOUYHbrvR2m7TFrbxXKcsg/zh-cn_image_0000002581435550.png?HW-CC-KV=V1&HW-CC-Date=20260528T013817Z&HW-CC-Expire=86400&HW-CC-Sign=CCF4542B38811C88A7F6861411FA7894A935F5C8290B95FCDC8C81CED988CC4F)

@@ -4,14 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-3
 
-问题现象
-
+**问题现象**
+ 
 Web组件设置onKeyEvent监听键盘事件，该事件不触发。
-
-解决措施
-
+ 
+**解决措施**
+ 
 onKeyEvent为通用键盘事件API，当前Web组件不支持该事件。Web组件监听键盘事件可以使用onInterceptKeyEvent回调函数。
-
-参考链接
-
-onInterceptKeyEvent
+ 
+**参考链接**
+ 
+[onInterceptKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptkeyevent9)

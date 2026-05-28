@@ -3,28 +3,31 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-traceoverlay
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable
+##### 导入模块
 
-#### 导入模块
-
-```ts
+```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
+ 
+  
 
-#### TraceOverlay
+##### TraceOverlay
+
 动态轨迹。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 // marker1的参数
 let markerOptions1: mapCommon.MarkerOptions = {
   position: {
@@ -165,77 +168,98 @@ markers.push(markerBoy1, markerBoy2);
 // 新增轨迹点动画
 let traceOverlay: map.TraceOverlay = await this.mapController.addTraceOverlay(traceOptions, markers);
 ```
+ 
+  
 
-#### getId
+##### getId
+
 getId(): string
+ 
 返回动态轨迹的ID。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回动态轨迹的ID。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let id: string = traceOverlay.getId();
 ```
+ 
+  
 
-#### remove
+##### remove
+
 remove(): void
+ 
 删除动态轨迹。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 traceOverlay.remove();
 ```
+ 
+  
 
-#### pause
+##### pause
+
 pause(): void
+ 
 暂停动态轨迹回放。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 traceOverlay.pause();
 ```
+ 
+  
 
-#### resume
+##### resume
+
 resume(): void
+ 
 恢复动态轨迹回放。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 traceOverlay.resume();
 ```

@@ -9,7 +9,7 @@
 | 新增API | NA | 类名：ARType； API声明：BODY = 0x02 差异内容：BODY = 0x02 | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARType； API声明：FACE = 0x10 差异内容：FACE = 0x10 | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARTrackableType； API声明：FACE = 0x50000002 差异内容：FACE = 0x50000002 | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARFrame； API声明：acquireBodySkeleton(): Array<ARBody>; 差异内容：acquireBodySkeleton(): Array<ARBody>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARFrame； API声明：acquireBodySkeleton(): Array&lt;ARBody&gt;; 差异内容：acquireBodySkeleton(): Array&lt;ARBody&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARFaceAnchor 差异内容：class ARFaceAnchor | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARFaceAnchor； API声明：getFace(): ARFace; 差异内容：getFace(): ARFace; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARConfig； API声明：cameraLensFacing?: ARCameraLensFacing; 差异内容：cameraLensFacing?: ARCameraLensFacing; | api/@hms.core.ar.arengine.d.ts |
@@ -120,17 +120,17 @@
 | 新增API | NA | 类名：ARGeometry； API声明：getTexCoord(): ArrayBuffer; 差异内容：getTexCoord(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARGeometry； API声明：getIndices(): ArrayBuffer; 差异内容：getIndices(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARGeometry； API声明：getTriangleLabels(): ArrayBuffer; 差异内容：getTriangleLabels(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARGeometry； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARGeometry； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARBlendShapes 差异内容：class ARBlendShapes | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARBlendShapes； API声明：readonly count: number; 差异内容：readonly count: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARBlendShapes； API声明：getData(): ArrayBuffer; 差异内容：getData(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARBlendShapes； API声明：getTypes(): Array<ARBlendShapeType>; 差异内容：getTypes(): Array<ARBlendShapeType>; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARBlendShapes； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARBlendShapes； API声明：getTypes(): Array&lt;ARBlendShapeType&gt;; 差异内容：getTypes(): Array&lt;ARBlendShapeType&gt;; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARBlendShapes； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：class ARLandmark 差异内容：class ARLandmark | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARLandmark； API声明：readonly count: number; 差异内容：readonly count: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARLandmark； API声明：getVertices2D(): ArrayBuffer; 差异内容：getVertices2D(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARLandmark； API声明：getVertices3D(): ArrayBuffer; 差异内容：getVertices3D(): ArrayBuffer; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARLandmark； API声明：release(): Promise<void>; 差异内容：release(): Promise<void>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARLandmark； API声明：release(): Promise&lt;void&gt;; 差异内容：release(): Promise&lt;void&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arEngine； API声明：enum ARBodyLandmarkType 差异内容：enum ARBodyLandmarkType | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARBodyLandmarkType； API声明：NECK = 1 差异内容：NECK = 1 | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARBodyLandmarkType； API声明：RIGHT_SHOULDER = 2 差异内容：RIGHT_SHOULDER = 2 | api/@hms.core.ar.arengine.d.ts |
@@ -161,7 +161,7 @@
 | 新增API | NA | 类名：arEngine； API声明：class ARBody 差异内容：class ARBody | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARBody； API声明：readonly trackId: number; 差异内容：readonly trackId: number; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：ARBody； API声明：readonly timeStamp: number; 差异内容：readonly timeStamp: number; | api/@hms.core.ar.arengine.d.ts |
-| 新增API | NA | 类名：ARBody； API声明：getLandmarks2D(): Array<ARBodyLandmark2D>; 差异内容：getLandmarks2D(): Array<ARBodyLandmark2D>; | api/@hms.core.ar.arengine.d.ts |
+| 新增API | NA | 类名：ARBody； API声明：getLandmarks2D(): Array&lt;ARBodyLandmark2D&gt;; 差异内容：getLandmarks2D(): Array&lt;ARBodyLandmark2D&gt;; | api/@hms.core.ar.arengine.d.ts |
 | 新增API | NA | 类名：arViewController； API声明：enum LandmarkType 差异内容：enum LandmarkType | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：LandmarkType； API声明：LEFT_EYE = 0 差异内容：LEFT_EYE = 0 | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：LandmarkType； API声明：LEFT_SIDE_OF_MOUTH = 1 差异内容：LEFT_SIDE_OF_MOUTH = 1 | api/@hms.core.ar.arview.d.ets |
@@ -169,9 +169,9 @@
 | 新增API | NA | 类名：LandmarkType； API声明：RIGHT_SIDE_OF_MOUTH = 3 差异内容：RIGHT_SIDE_OF_MOUTH = 3 | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：LandmarkType； API声明：TIP_OF_NOSE = 4 差异内容：TIP_OF_NOSE = 4 | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：LandmarkType； API声明：CENTER_OF_FACE = 5 差异内容：CENTER_OF_FACE = 5 | api/@hms.core.ar.arview.d.ets |
-| 新增API | NA | 类名：ARViewContext； API声明：loadAsset(resourcePath: ResourceStr, landmark: LandmarkType): Promise<void>; 差异内容：loadAsset(resourcePath: ResourceStr, landmark: LandmarkType): Promise<void>; | api/@hms.core.ar.arview.d.ets |
-| 新增API | NA | 类名：ARViewContext； API声明：removeAsset(landmark: LandmarkType): Promise<void>; 差异内容：removeAsset(landmark: LandmarkType): Promise<void>; | api/@hms.core.ar.arview.d.ets |
-| 新增API | NA | 类名：ARViewContext； API声明：clearResource(): Promise<void>; 差异内容：clearResource(): Promise<void>; | api/@hms.core.ar.arview.d.ets |
+| 新增API | NA | 类名：ARViewContext； API声明：loadAsset(resourcePath: ResourceStr, landmark: LandmarkType): Promise&lt;void&gt;; 差异内容：loadAsset(resourcePath: ResourceStr, landmark: LandmarkType): Promise&lt;void&gt;; | api/@hms.core.ar.arview.d.ets |
+| 新增API | NA | 类名：ARViewContext； API声明：removeAsset(landmark: LandmarkType): Promise&lt;void&gt;; 差异内容：removeAsset(landmark: LandmarkType): Promise&lt;void&gt;; | api/@hms.core.ar.arview.d.ets |
+| 新增API | NA | 类名：ARViewContext； API声明：clearResource(): Promise&lt;void&gt;; 差异内容：clearResource(): Promise&lt;void&gt;; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewContext； API声明：setBlendShapeWeight(node: Node, type: arEngine.ARBlendShapeType, weight: number): boolean; 差异内容：setBlendShapeWeight(node: Node, type: arEngine.ARBlendShapeType, weight: number): boolean; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewContext； API声明：getBlendShapeWeight(node: Node, type: arEngine.ARBlendShapeType): number \| null; 差异内容：getBlendShapeWeight(node: Node, type: arEngine.ARBlendShapeType): number \| null; | api/@hms.core.ar.arview.d.ets |
 | 新增API | NA | 类名：ARViewContext； API声明：transformPose(position: Vec3, rotation: Quaternion): arEngine.ARPose \| null; 差异内容：transformPose(position: Vec3, rotation: Quaternion): arEngine.ARPose \| null; | api/@hms.core.ar.arview.d.ets |

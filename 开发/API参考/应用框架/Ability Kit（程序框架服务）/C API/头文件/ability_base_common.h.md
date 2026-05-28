@@ -3,57 +3,53 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ability-base-common-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明AbilityBase定义的相关错误码。
-
+ 
 **引用文件**：<AbilityKit/ability_base/ability_base_common.h>
-
+ 
 **库：** libability_base_want.so
-
+ 
 **系统能力：** SystemCapability.Ability.AbilityBase
-
+ 
 **起始版本：** 15
-
+ 
 **相关模块：** [AbilityBase](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilitybase)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [AbilityBase_ErrorCode](#abilitybase_errorcode) | AbilityBase_ErrorCode | AbilityBase相关错误码枚举。 |
+| AbilityBase_ErrorCode | AbilityBase_ErrorCode | AbilityBase相关错误码枚举。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### AbilityBase_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### AbilityBase_ErrorCode
 
 ```text
 enum AbilityBase_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 AbilityBase相关错误码枚举。
-
+ 
 **起始版本：** 15
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ABILITY_BASE_ERROR_CODE_NO_ERROR = 0 | 操作成功。 |

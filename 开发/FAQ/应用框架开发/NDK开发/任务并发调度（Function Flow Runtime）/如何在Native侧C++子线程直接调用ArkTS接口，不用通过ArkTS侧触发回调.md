@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-8
 
 当前版本仅支持在ArkTS侧触发Native方法后回调ArkTS接口。
-
-参考链接
-
-Node-API典型使用场景
+ 
+**参考链接**
+ 
+[Node-API典型使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-scenarios)

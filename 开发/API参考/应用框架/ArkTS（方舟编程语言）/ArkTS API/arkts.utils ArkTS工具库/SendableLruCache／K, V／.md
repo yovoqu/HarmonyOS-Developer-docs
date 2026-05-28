@@ -3,35 +3,33 @@
 更新时间：2026-04-10 09:55:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-sendablelrucache
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+## SendableLruCache<K, V>
+   
 
 SendableLruCache在缓存空间不足时，会用新数据替换近期最少使用的数据。此设计基于资源访问的考虑：近期访问的数据可能在不久的将来再次访问，因此最少访问的数据价值最小，应优先移出缓存。SendableLruCache支持Sendable特性，可保存Sendable对象，确保跨线程安全访问。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> SendableLruCache首批接口从API version 18开始支持。
-> 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 SendableLruCache首批接口从API version 18开始支持。 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+
 
 **装饰器类型：**@Sendable
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
-import { ArkTSUtils } from '@kit.ArkTS';
+```text
+import { ArkTSUtils } from '@kit.ArkTS'
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -40,8 +38,7 @@ import { ArkTSUtils } from '@kit.ArkTS';
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 pro.put(1, 8);
@@ -51,8 +48,8 @@ console.info('result = ' + result);
 ```
 
 
-## constructor18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor18+
 
 constructor(capacity?: number)
 
@@ -64,7 +61,6 @@ constructor(capacity?: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | capacity | number | 否 | 指示缓冲区的自定义容量。不传时，默认值为64，最大值不能超过2147483647；小于等于0时会抛出异常。 |
@@ -72,14 +68,13 @@ constructor(capacity?: number)
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 ```
 
 
-## updateCapacity18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### updateCapacity18+
 
 updateCapacity(newCapacity: number): void
 
@@ -91,7 +86,6 @@ updateCapacity(newCapacity: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newCapacity | number | 是 | 指示要为缓冲区自定义的容量，最大值不能超过2147483647；小于等于0时会抛出异常。 |
@@ -101,7 +95,6 @@ updateCapacity(newCapacity: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;2.Incorrect parameter types. |
@@ -109,15 +102,14 @@ updateCapacity(newCapacity: number): void
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.updateCapacity(100);
 ```
 
 
-## toString18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString18+
 
 toString(): string
 
@@ -129,7 +121,6 @@ toString(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回对象的字符串表示形式。 返回字符串格式是：SendableLruCache[ maxSize = (maxSize), hits = (hitCount), misses = (missCount), hitRate = (hitRate) ]。 (maxSize)表示缓存区最大值，(hitCount)表示查询值匹配成功的次数，(missCount)表示查询值匹配失败的次数，(hitRate)表示查询值匹配率。 |
@@ -137,8 +128,7 @@ toString(): string
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 pro.get(2);
@@ -149,8 +139,8 @@ console.info(pro.toString());
 ```
 
 
-## getCapacity18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCapacity18+
 
 getCapacity(): number
 
@@ -162,7 +152,6 @@ getCapacity(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回当前缓冲区的容量。 |
@@ -170,8 +159,7 @@ getCapacity(): number
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 let result = pro.getCapacity();
 console.info('result = ' + result);
@@ -179,8 +167,8 @@ console.info('result = ' + result);
 ```
 
 
-## clear18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear18+
 
 clear(): void
 
@@ -192,8 +180,7 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 let result = pro.length;
@@ -206,8 +193,8 @@ console.info('res = ' + res);
 ```
 
 
-## getCreateCount18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCreateCount18+
 
 getCreateCount(): number
 
@@ -219,7 +206,6 @@ getCreateCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回使用内部默认接口创建对象的次数。 |
@@ -227,8 +213,7 @@ getCreateCount(): number
 
 **示例：**
 
-
-```ts
+```text
 @Sendable
 class ChildLRUCache extends ArkTSUtils.SendableLruCache<number, number> {
   constructor() {
@@ -251,8 +236,8 @@ console.info('res = ' + res);
 ```
 
 
-## getMissCount18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getMissCount18+
 
 getMissCount(): number
 
@@ -264,7 +249,6 @@ getMissCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回查询值不匹配的次数。 |
@@ -272,8 +256,7 @@ getMissCount(): number
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 pro.get(2);
@@ -283,8 +266,8 @@ console.info('result = ' + result);
 ```
 
 
-## getRemoveCount18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getRemoveCount18+
 
 getRemoveCount(): number
 
@@ -296,7 +279,6 @@ getRemoveCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回缓冲区键值对回收的次数。 |
@@ -304,8 +286,7 @@ getRemoveCount(): number
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 pro.updateCapacity(2);
@@ -316,8 +297,8 @@ console.info('result = ' + result);
 ```
 
 
-## getMatchCount18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getMatchCount18+
 
 getMatchCount(): number
 
@@ -329,7 +310,6 @@ getMatchCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回查询值匹配成功的次数。 |
@@ -337,8 +317,7 @@ getMatchCount(): number
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 pro.get(2);
@@ -348,8 +327,8 @@ console.info('result = ' + result);
 ```
 
 
-## getPutCount18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getPutCount18+
 
 getPutCount(): number
 
@@ -361,7 +340,6 @@ getPutCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回将值添加到缓冲区的次数。 |
@@ -369,8 +347,7 @@ getPutCount(): number
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 let result = pro.getPutCount();
@@ -379,8 +356,8 @@ console.info('result = ' + result);
 ```
 
 
-## isEmpty18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty18+
 
 isEmpty(): boolean
 
@@ -392,7 +369,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回true表示当前缓冲区为空，不包含任何键值对；返回false表示当前缓冲区不为空。 |
@@ -400,8 +376,7 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 let result = pro.isEmpty();
@@ -410,8 +385,8 @@ console.info('result = ' + result);
 ```
 
 
-## get18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### get18+
 
 get(key: K): V | undefined
 
@@ -423,14 +398,12 @@ get(key: K): V | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要查询的键。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -439,18 +412,17 @@ get(key: K): V | undefined
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
-let result = pro.get(2);
+let result  = pro.get(2);
 console.info('result = ' + result);
 // 预期输出：result = 10
 ```
 
 
-## put18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### put18+
 
 put(key: K,value: V): V
 
@@ -462,7 +434,6 @@ put(key: K,value: V): V
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要添加的键。 |
@@ -471,7 +442,6 @@ put(key: K,value: V): V
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | V | 返回与添加的键关联的值。 |
@@ -479,8 +449,7 @@ put(key: K,value: V): V
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 let result = pro.put(2, 10);
 console.info('result = ' + result);
@@ -488,8 +457,8 @@ console.info('result = ' + result);
 ```
 
 
-## values18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### values18+
 
 values(): V[]
 
@@ -501,7 +470,6 @@ values(): V[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | V [] | 返回当前缓冲区中所有值的列表，按从最近访问到最少访问的顺序排列。 |
@@ -509,20 +477,19 @@ values(): V[]
 
 **示例：**
 
-
-```ts
-let pro = new ArkTSUtils.SendableLruCache<number | string, number | string>();
+```text
+let pro = new ArkTSUtils.SendableLruCache<number|string,number|string>();
 pro.put(2, 10);
-pro.put(2, 'anhu');
-pro.put('afaf', 'grfb');
+pro.put(2, "anhu");
+pro.put("afaf", "grfb");
 let result = pro.values();
 console.info('result = ' + result);
 // 预期输出：result = anhu,grfb
 ```
 
 
-## keys18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### keys18+
 
 keys(): K[]
 
@@ -534,7 +501,6 @@ keys(): K[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | K [] | 返回当前缓冲区中所有键的列表，按从最近访问到最少访问的顺序排列。 |
@@ -542,8 +508,7 @@ keys(): K[]
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 pro.put(3, 1);
@@ -553,8 +518,8 @@ console.info('result = ' + result);
 ```
 
 
-## remove18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove18+
 
 remove(key: K): V | undefined
 
@@ -566,14 +531,12 @@ remove(key: K): V | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 要删除的键值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -582,8 +545,7 @@ remove(key: K): V | undefined
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 let result = pro.remove(20);
@@ -592,8 +554,8 @@ console.info('result = ' + result);
 ```
 
 
-## contains18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### contains18+
 
 contains(key: K): boolean
 
@@ -605,14 +567,12 @@ contains(key: K): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | K | 是 | 表示要检查的键。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -621,8 +581,7 @@ contains(key: K): boolean
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 let result = pro.contains(2);
@@ -631,8 +590,8 @@ console.info('result = ' + result);
 ```
 
 
-## entries18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries18+
 
 entries(): IterableIterator<[K,V]>
 
@@ -644,23 +603,21 @@ entries(): IterableIterator<[K,V]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[K, V]&gt; | 返回一个可迭代数组。 |
+| IterableIterator<[K, V]> | 返回一个可迭代数组。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let pro = new ArkTSUtils.SendableLruCache<number, number>();
 pro.put(2, 10);
 pro.put(3, 15);
-let pair: Iterable<Object[]> = pro.entries();
+let pair:Iterable<Object[]> = pro.entries();
 let arrayValue = Array.from(pair);
 for (let value of arrayValue) {
-  console.info(value[0] + ', ' + value[1]);
+  console.info(value[0]+ ', '+ value[1]);
   // 预期输出：
   // 2, 10
   // 3, 15

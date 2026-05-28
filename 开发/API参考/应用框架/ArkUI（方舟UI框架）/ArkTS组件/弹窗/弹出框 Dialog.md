@@ -1,39 +1,34 @@
 # 弹出框 (Dialog)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 弹出框是一种模态窗口，用于临时展示用户需关注的信息或待处理的操作，同时保持当前上下文环境。用户必须完成交互才能退出该模式。
 
+> [!NOTE]
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果Dialog设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到Dialog本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议Dialog设置通用属性和通用事件。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
-import {
-  TipsDialog,
-  SelectDialog,
-  ConfirmDialog,
-  AlertDialog,
-  LoadingDialog,
-  CustomContentDialog,
-} from '@kit.ArkUI';
+##### 导入模块
+
+```text
+import { TipsDialog, SelectDialog, ConfirmDialog, AlertDialog, LoadingDialog, CustomContentDialog } from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## TipsDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, title?: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, checkAction?: (isChecked: boolean) => void, onCheckedChange?: Callback<boolean>, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
+##### TipsDialog
+
+TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, title?: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, checkAction?: (isChecked: boolean) => void, onCheckedChange?: Callback&lt;boolean&gt;, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 提示弹出框，即为带图形确认弹出框，必要时可通过图形化方式展现确认弹出框。
 
@@ -41,28 +36,28 @@ TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| controller | [CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller) | 是 | - | 提示弹出框控制器。          说明： 未使用@Require装饰，构造时不强制校验参数。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| imageRes | [ResourceStr12+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [PixelMap12+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | - | 展示的图片。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| imageSize | [SizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#sizeoptions) | 否 | - | 自定义图片尺寸。          默认值：64*64vp          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| title | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | - | 提示弹出框标题。          默认不设置或设置为undefined，弹出框标题不显示。          说明： 标题超过两行会显示“...”。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | - | 提示弹出框内容。          默认不设置或设置为undefined，弹出框内容不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| checkTips | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | - | checkbox的提示内容。          默认不设置或设置为undefined，提示内容不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isChecked | boolean | 否 | @Prop | value为true时，表示checkbox已选中，value为false时，表示未选中。          默认值：false          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| checkAction12+ | (isChecked: boolean) =&gt; void | 否 | - | checkbox的选中状态改变事件。isChecked为true时，表示checkbox已选中，isChecked为false时，表示checkbox未选中。现推荐使用onCheckedChange12+。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| onCheckedChange12+ | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#callback12)&lt;boolean&gt; | 否 | - | checkbox的选中状态改变事件回调。回调参数类型为boolean，true表示checkbox已选中，false表示checkbox未选中。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| primaryButton | [ButtonOptions](#buttonoptions) | 否 | - | 提示弹出框左侧按钮。          默认不设置或设置为undefined，左侧按钮不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| secondaryButton | [ButtonOptions](#buttonoptions) | 否 | - | 提示弹出框右侧按钮。          默认不设置或设置为undefined，右侧按钮不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| theme12+ | [Theme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#theme) \| [CustomTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#customtheme) | 否 | - | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| themeColorMode12+ | [ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明) | 否 | - | 自定义弹出框深浅色模式。          默认值：ThemeColorMode.SYSTEM          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | - | 提示弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| imageRes | ResourceStr \| PixelMap | 是 | - | 展示的图片。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| imageSize | SizeOptions | 否 | - | 自定义图片尺寸。 默认值：64*64vp 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| title | ResourceStr | 否 | - | 提示弹出框标题。 默认不设置或设置为undefined，弹出框标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 否 | - | 提示弹出框内容。 默认不设置或设置为undefined，弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| checkTips | ResourceStr | 否 | - | checkbox的提示内容。 默认不设置或设置为undefined，提示内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| isChecked | boolean | 否 | @Prop | value为true时，表示checkbox已选中，value为false时，表示未选中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| checkAction12+ | (isChecked: boolean) => void | 否 | - | checkbox的选中状态改变事件。isChecked为true时，表示checkbox已选中，isChecked为false时，表示checkbox未选中。现推荐使用onCheckedChange12+。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| onCheckedChange12+ | Callback&lt;boolean&gt; | 否 | - | checkbox的选中状态改变事件回调。回调参数类型为boolean，true表示checkbox已选中，false表示checkbox未选中。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| primaryButton | ButtonOptions | 否 | - | 提示弹出框左侧按钮。 默认不设置或设置为undefined，左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| secondaryButton | ButtonOptions | 否 | - | 提示弹出框右侧按钮。 默认不设置或设置为undefined，右侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| theme12+ | Theme \| CustomTheme | 否 | - | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| themeColorMode12+ | ThemeColorMode | 否 | - | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## SelectDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, selectedIndex?: number, confirm?: ButtonOptions, radioContent: Array<SheetInfo>, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
+
+##### SelectDialog
+
+SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, selectedIndex?: number, confirm?: ButtonOptions, radioContent: Array&lt;SheetInfo&gt;, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 选择类弹出框，弹框中以列表或网格的形式提供可选的内容。
 
@@ -70,21 +65,21 @@ SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: 
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controller | [CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller) | 是 | 选择弹出框控制器。          说明： 未使用@Require装饰，构造时不强制校验参数。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| title | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 选择弹出框标题。          说明： 标题超过两行会显示“...”。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 选择弹出框内容。          默认不设置或设置为undefined，弹出框内容不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| selectedIndex | number | 否 | 选择弹出框的选中项。          取值范围：大于等于-1的整数。          默认值：-1，没有选中项。若设置数值小于-1，按没有选中项处理。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| confirm | [ButtonOptions](#buttonoptions) | 否 | 选择弹出框底部按钮。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| radioContent | Array&lt;[SheetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-action-sheet#sheetinfo对象说明)&gt; | 是 | 选择弹出框的子项内容列表，每个选择项支持设置文本和选中的回调事件。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| theme12+ | [Theme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#theme) \| [CustomTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#customtheme) | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| themeColorMode12+ | [ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明) | 否 | 自定义弹出框深浅色模式。          默认值：ThemeColorMode.SYSTEM          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | 选择弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| title | ResourceStr | 是 | 选择弹出框标题。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 否 | 选择弹出框内容。 默认不设置或设置为undefined，弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| selectedIndex | number | 否 | 选择弹出框的选中项。 取值范围：大于等于-1的整数。 默认值：-1，没有选中项。若设置数值小于-1，按没有选中项处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| confirm | ButtonOptions | 否 | 选择弹出框底部按钮。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| radioContent | Array&lt;SheetInfo&gt; | 是 | 选择弹出框的子项内容列表，每个选择项支持设置文本和选中的回调事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| theme12+ | Theme \| CustomTheme | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| themeColorMode12+ | ThemeColorMode | 否 | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## ConfirmDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConfirmDialog
 
 ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -94,23 +89,23 @@ ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?:
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| controller | [CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller) | 是 | - | 确认弹出框控制器。          说明： 未使用@Require装饰，构造时不强制校验参数。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| title | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | - | 确认弹出框标题。          说明： 标题超过两行会显示“...”。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | - | 确认弹出框内容。          默认不设置或设置为undefined，确认弹出框内容不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| checkTips | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | - | checkbox的提示内容。          默认不设置或设置为undefined，checkbox的提示内容不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| isChecked | boolean | 否 | @Prop | value为true时，表示checkbox已选中，value为false时，表示未选中。          默认值：false          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| onCheckedChange12+ | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#callback12)&lt;boolean&gt; | 否 | - | checkbox的选中状态改变事件回调。回调参数类型为boolean，true表示checkbox已选中，false表示checkbox未选中。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| primaryButton | [ButtonOptions](#buttonoptions) | 否 | - | 确认弹出框左侧按钮。          默认不设置或设置为undefined，确认弹出框左侧按钮不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| secondaryButton | [ButtonOptions](#buttonoptions) | 否 | - | 确认弹出框右侧按钮。          默认不设置或设置为undefined，确认弹出框右侧按钮不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| theme12+ | [Theme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#theme) \| [CustomTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#customtheme) | 否 | - | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| themeColorMode12+ | [ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明) | 否 | - | 自定义弹出框深浅色模式。          默认值：ThemeColorMode.SYSTEM          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | - | 确认弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| title | ResourceStr | 是 | - | 确认弹出框标题。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 否 | - | 确认弹出框内容。 默认不设置或设置为undefined，确认弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| checkTips | ResourceStr | 否 | - | checkbox的提示内容。 默认不设置或设置为undefined，checkbox的提示内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| isChecked | boolean | 否 | @Prop | value为true时，表示checkbox已选中，value为false时，表示未选中。 默认值：false 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| onCheckedChange12+ | Callback&lt;boolean&gt; | 否 | - | checkbox的选中状态改变事件回调。回调参数类型为boolean，true表示checkbox已选中，false表示checkbox未选中。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| primaryButton | ButtonOptions | 否 | - | 确认弹出框左侧按钮。 默认不设置或设置为undefined，确认弹出框左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| secondaryButton | ButtonOptions | 否 | - | 确认弹出框右侧按钮。 默认不设置或设置为undefined，确认弹出框右侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| theme12+ | Theme \| CustomTheme | 否 | - | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| themeColorMode12+ | ThemeColorMode | 否 | - | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## AlertDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AlertDialog
 
 AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content: ResourceStr, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -120,21 +115,21 @@ AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, sec
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controller | [CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller) | 是 | 确认弹出框控制器。          说明： 未使用@Require装饰，构造时不强制校验参数。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| primaryTitle12+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 确认弹出框一级标题。          默认不设置或设置为undefined，确认弹出框一级标题不显示。          说明： 标题超过两行会显示“...”。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| secondaryTitle12+ | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 确认弹出框二级标题。          默认不设置或设置为undefined，确认弹出框二级标题不显示。          说明： 标题超过两行会显示“...”。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 确认弹出框内容。          默认不设置或设置为undefined，确认弹出框内容不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| primaryButton | [ButtonOptions](#buttonoptions) | 否 | 确认弹出框左侧按钮。          默认不设置或设置为undefined，确认弹出框左侧按钮不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| secondaryButton | [ButtonOptions](#buttonoptions) | 否 | 确认弹出框右侧按钮。          默认不设置或设置为undefined，确认弹出框右侧按钮不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| theme12+ | [Theme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#theme) \| [CustomTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#customtheme) | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| themeColorMode12+ | [ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明) | 否 | 自定义弹出框深浅色模式。          默认值：ThemeColorMode.SYSTEM          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| controller | CustomDialogController | 是 | 确认弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| primaryTitle12+ | ResourceStr | 否 | 确认弹出框一级标题。 默认不设置或设置为undefined，确认弹出框一级标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| secondaryTitle12+ | ResourceStr | 否 | 确认弹出框二级标题。 默认不设置或设置为undefined，确认弹出框二级标题不显示。 说明： 标题超过两行会显示“...”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 是 | 确认弹出框内容。 默认不设置或设置为undefined，确认弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| primaryButton | ButtonOptions | 否 | 确认弹出框左侧按钮。 默认不设置或设置为undefined，确认弹出框左侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| secondaryButton | ButtonOptions | 否 | 确认弹出框右侧按钮。 默认不设置或设置为undefined，确认弹出框右侧按钮不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| theme12+ | Theme \| CustomTheme | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| themeColorMode12+ | ThemeColorMode | 否 | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## LoadingDialog
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### LoadingDialog
 
 LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -144,17 +139,17 @@ LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| Controller | [CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller) | 是 | 加载弹出框控制器。          说明： 未使用@Require装饰，构造时不强制校验参数。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| content | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 加载弹出框内容。          默认不设置或设置为undefined，加载弹出框内容不显示。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| theme12+ | [Theme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#theme) \| [CustomTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#customtheme) | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| themeColorMode12+ | [ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明) | 否 | 自定义弹出框深浅色模式。          默认值：ThemeColorMode.SYSTEM          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| Controller | CustomDialogController | 是 | 加载弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| content | ResourceStr | 否 | 加载弹出框内容。 默认不设置或设置为undefined，加载弹出框内容不显示。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| theme12+ | Theme \| CustomTheme | 否 | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| themeColorMode12+ | ThemeColorMode | 否 | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-## CustomContentDialog12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CustomContentDialog12+
 
 CustomContentDialog({controller: CustomDialogController, contentBuilder: () => void, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, contentAreaPadding?: Padding, buttons?: ButtonOptions[], theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -166,29 +161,28 @@ CustomContentDialog({controller: CustomDialogController, contentBuilder: () => v
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| controller | [CustomDialogController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-custom-dialog-box#customdialogcontroller) | 是 | - | 弹出框控制器。          说明： 未使用@Require装饰，构造时不强制校验参数。 |
-| contentBuilder | () =&gt; void | 是 | @BuilderParam | 弹出框内容。 |
-| primaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | - | 弹出框标题。          默认不设置或设置为undefined，弹出框标题不显示。          说明： 标题超过两行会显示“...”。 |
-| secondaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | - | 弹出框辅助文本。          默认不设置或设置为undefined，弹出框辅助文本不显示。          说明： 辅助文本超过两行会显示“...”。 |
-| localizedContentAreaPadding | [LocalizedPadding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#localizedpadding12) | 否 | - | 弹出框内容区内边距。 |
-| contentAreaPadding | [Padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#padding) | 否 | - | 弹出框内容区内边距。设置了localizedContentAreaPadding属性时该属性不生效。 |
-| buttons | [ButtonOptions](#buttonoptions)[] | 否 | - | 弹出框操作区按钮，最多支持4个按钮。 |
-| theme | [Theme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#theme) \| [CustomTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-theme#customtheme) | 否 | - | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 |
-| themeColorMode | [ThemeColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-foreground-blur-style#themecolormode枚举说明) | 否 | - | 自定义弹出框深浅色模式。          默认值：ThemeColorMode.SYSTEM |
+| controller | CustomDialogController | 是 | - | 弹出框控制器。 说明： 未使用@Require装饰，构造时不强制校验参数。 |
+| contentBuilder | () => void | 是 | @BuilderParam | 弹出框内容。 |
+| primaryTitle | ResourceStr | 否 | - | 弹出框标题。 默认不设置或设置为undefined，弹出框标题不显示。 说明： 标题超过两行会显示“...”。 |
+| secondaryTitle | ResourceStr | 否 | - | 弹出框辅助文本。 默认不设置或设置为undefined，弹出框辅助文本不显示。 说明： 辅助文本超过两行会显示“...”。 |
+| localizedContentAreaPadding | LocalizedPadding | 否 | - | 弹出框内容区内边距。 |
+| contentAreaPadding | Padding | 否 | - | 弹出框内容区内边距。设置了localizedContentAreaPadding属性时该属性不生效。 |
+| buttons | ButtonOptions[] | 否 | - | 弹出框操作区按钮，最多支持4个按钮。 |
+| theme | Theme \| CustomTheme | 否 | - | 主题信息，可以是CustomTheme或从onWillApplyTheme中获取的Theme实例。 |
+| themeColorMode | ThemeColorMode | 否 | - | 自定义弹出框深浅色模式。 默认值：ThemeColorMode.SYSTEM |
 
 
 > [!NOTE]
-> 当弹框高度不足时，触发全局滚动的规格为contentBuilder被压缩，压缩至小于100vp时启动全局滚动。
-> CustomContentDialog内容区的滚动需由开发者自定义，内容区自定义滚动必须配合属性nestedScroll，nestedScroll({ scrollForward: NestedScrollMode.PARALLEL, scrollBackward: NestedScrollMode.PARALLEL })
+> 当弹框高度不足时，触发全局滚动的规格为contentBuilder被压缩，压缩至小于100vp时启动全局滚动。 CustomContentDialog内容区的滚动需由开发者自定义，内容区自定义滚动必须配合属性nestedScroll，nestedScroll({ scrollForward: NestedScrollMode.PARALLEL, scrollBackward: NestedScrollMode.PARALLEL })
 
 
-## PopoverDialog14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callback<void>})
+
+##### PopoverDialog14+
+
+PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callback&lt;void&gt;})
 
 跟手弹出框，基于目标组件位置弹出，上文中的TipsDialog、SelectDialog、ConfirmDialog、AlertDialog、LoadingDialog、CustomContentDialog都可作为弹出框内容。
 
@@ -198,69 +192,68 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| visible | boolean | 是 | @Link | 跟手弹出框显示状态。value为true时，表示显示弹出框，value为false时，表示隐藏弹出框。          默认值为false，隐藏弹出框。 |
-| popover | [PopoverOptions](#popoveroptions14) | 是 | @Prop          @Require | 配置跟手弹出框的参数。 |
-| targetBuilder | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#callback12)&lt;void&gt; | 是 | @Require          @BuilderParam | 跟手弹出框基于的目标组件。 |
+| visible | boolean | 是 | @Link | 跟手弹出框显示状态。value为true时，表示显示弹出框，value为false时，表示隐藏弹出框。 默认值为false，隐藏弹出框。 |
+| popover | PopoverOptions | 是 | @Prop @Require | 配置跟手弹出框的参数。 |
+| targetBuilder | Callback&lt;void&gt; | 是 | @Require @BuilderParam | 跟手弹出框基于的目标组件。 |
 
 
-## ButtonOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ButtonOptions
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| value | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 按钮的内容。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| action | () =&gt; void | 否 | 是 | 按钮的点击事件。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| background | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 按钮的背景色。          默认值跟随buttonStyle。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fontColor | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 按钮的字体颜色。          默认值跟随buttonStyle。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| buttonStyle12+ | [ButtonStyleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonstylemode11枚举说明) | 否 | 是 | 按钮的样式。          默认值：2in1设备为ButtonStyleMode.NORMAL，其他设备为ButtonStyleMode.TEXTUAL。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| role12+ | [ButtonRole](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button#buttonrole12枚举说明) | 否 | 是 | 按钮的角色。          默认值：ButtonRole.NORMAL          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| defaultFocus18+ | boolean | 否 | 是 | 按钮是否设置默认焦点。          true：按钮是默认焦点。          false：按钮不是默认焦点。          默认值：false          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| textAlign24+ | [TextAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#textalign) | 否 | 是 | 按钮文本的对齐方式。          默认值：TextAlign.Start          元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| value | ResourceStr | 否 | 否 | 按钮的内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| action | () => void | 否 | 是 | 按钮的点击事件。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| background | ResourceColor | 否 | 是 | 按钮的背景色。 默认值跟随buttonStyle。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fontColor | ResourceColor | 否 | 是 | 按钮的字体颜色。 默认值跟随buttonStyle。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| buttonStyle12+ | ButtonStyleMode | 否 | 是 | 按钮的样式。 默认值：2in1设备为ButtonStyleMode.NORMAL，其他设备为ButtonStyleMode.TEXTUAL。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| role12+ | ButtonRole | 否 | 是 | 按钮的角色。 默认值：ButtonRole.NORMAL 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| defaultFocus18+ | boolean | 否 | 是 | 按钮是否设置默认焦点。 true：按钮是默认焦点。 false：按钮不是默认焦点。 默认值：false 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| textAlign24+ | TextAlign | 否 | 是 | 按钮文本的对齐方式。 默认值：TextAlign.Start 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 
 
 > [!NOTE]
-> buttonStyle和role优先级高于fontColor和background。当buttonStyle和role设置的是默认值时，fontColor和background生效。
-> 若同时给多个按钮设置defaultFocus，则默认焦点为设置defaultFocus按钮中显示顺序的第一个按钮。
+> buttonStyle和role优先级高于fontColor和background。当buttonStyle和role设置的是默认值时，fontColor和background生效。 若同时给多个按钮设置defaultFocus，则默认焦点为设置defaultFocus按钮中显示顺序的第一个按钮。
 
 
-## PopoverOptions14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PopoverOptions14+
 
 跟手弹出框参数，用于设置弹出框内容、位置属性等。
 
 继承自[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)。
 
-
 > [!NOTE]
 > radius默认值为32vp。
+
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 示例
 
 
-### 示例1（上图下文弹出框）
+
+##### 示例1（上图下文弹出框）
 
 上图下文弹出框，包含imageRes、content等内容。
 
-
-```ts
+```text
 import { TipsDialog } from '@kit.ArkUI';
 
 @Entry
@@ -294,12 +287,12 @@ struct Index {
       Stack() {
         Column(){
           Button("上图下文弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogControllerImage.open()
-          })
-      }.margin({bottom: 300})
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogControllerImage.open()
+            })
+        }.margin({bottom: 300})
       }.align(Alignment.Bottom)
       .width('100%').height('100%')
     }
@@ -309,15 +302,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-0.png)
+
+![](assets/弹出框%20Dialog/file-20260514164142653-4.gif)
 
 
-### 示例2（纯列表弹出框）
+
+
+##### 示例2（纯列表弹出框）
 
 纯列表弹出框，包含selectedIndex、radioContent等内容。
 
-
-```ts
+```text
 import { SelectDialog } from '@kit.ArkUI';
 
 @Entry
@@ -334,24 +329,24 @@ struct Index {
         action: () => {},
       },
       radioContent: [
-      {
-        title: '文本文本文本文本文本',
-        action: () => {
-          this.radioIndex = 0
-        }
-      },
-      {
-        title: '文本文本文本文本',
-        action: () => {
-          this.radioIndex = 1
-        }
-      },
-      {
-        title: '文本文本文本文本',
-        action: () => {
-          this.radioIndex = 2
-        }
-      },
+        {
+          title: '文本文本文本文本文本',
+          action: () => {
+            this.radioIndex = 0
+          }
+        },
+        {
+          title: '文本文本文本文本',
+          action: () => {
+            this.radioIndex = 1
+          }
+        },
+        {
+          title: '文本文本文本文本',
+          action: () => {
+            this.radioIndex = 2
+          }
+        },
       ]
     }),
   })
@@ -361,12 +356,12 @@ struct Index {
       Stack() {
         Column() {
           Button("纯列表弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogControllerList.open()
-          })
-      }.margin({ bottom: 300 })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogControllerList.open()
+            })
+        }.margin({ bottom: 300 })
       }
       .align(Alignment.Bottom)
       .width('100%')
@@ -378,15 +373,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-1.png)
+
+![](assets/弹出框%20Dialog/file-20260514164142653-5.png)
 
 
-### 示例3（文本与勾选弹出框）
+
+
+##### 示例3（文本与勾选弹出框）
 
 文本与勾选弹出框，包含content、checkTips等内容。
 
-
-```ts
+```text
 import { ConfirmDialog } from '@kit.ArkUI';
 
 @Entry
@@ -425,11 +422,11 @@ struct Index {
       Stack() {
         Column(){
           Button("文本+勾选弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogControllerCheckBox.open()
-          })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogControllerCheckBox.open()
+            })
         }
         .margin({bottom: 300})
       }
@@ -443,15 +440,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-2.png)
+
+![](assets/弹出框%20Dialog/file-20260514164142653-6.png)
 
 
-### 示例4（纯文本弹出框）
+
+
+##### 示例4（纯文本弹出框）
 
 纯文本弹出框，包含primaryTitle、secondaryTitle、content等内容。
 
-
-```ts
+```text
 import { AlertDialog } from '@kit.ArkUI';
 
 @Entry
@@ -482,11 +481,11 @@ struct Index {
       Stack() {
         Column() {
           Button("纯文本弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogControllerConfirm.open()
-          })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogControllerConfirm.open()
+            })
         }
         .margin({ bottom: 300 })
       }
@@ -500,15 +499,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-3.png)
+
+![](assets/弹出框%20Dialog/file-20260514164142653-7.png)
 
 
-### 示例5（进度加载类弹出框）
+
+
+##### 示例5（进度加载类弹出框）
 
 进度加载类弹出框，包含content等内容。
 
-
-```ts
+```text
 import { LoadingDialog } from '@kit.ArkUI';
 
 @Entry
@@ -525,11 +526,11 @@ struct Index {
       Stack() {
         Column() {
           Button("进度加载类弹出框")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogControllerProgress.open()
-          })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogControllerProgress.open()
+            })
         }
         .margin({ bottom: 300 })
       }
@@ -543,15 +544,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-4.gif)
+
+![](assets/弹出框%20Dialog/file-20260514164142653-8.png)
 
 
-### 示例6（自定义主题风格弹出框）
+
+
+##### 示例6（自定义主题风格弹出框）
 
 自定义主题风格弹出框，包含content、theme等内容。
 
-
-```ts
+```text
 import { CustomColors, CustomTheme, LoadingDialog } from '@kit.ArkUI';
 
 class CustomThemeImpl implements CustomTheme {
@@ -584,11 +587,11 @@ struct Index {
       Stack() {
         Column() {
           Button('dialog')
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogController.open();
-          })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogController.open();
+            })
         }
         .margin({ bottom: 300 })
       }
@@ -602,15 +605,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-5.png)
+
+![](assets/弹出框%20Dialog/file-20260514164142653-9.png)
 
 
-### 示例7（自定义深浅色模式弹出框）
+
+
+##### 示例7（自定义深浅色模式弹出框）
 
 自定义深浅色模式弹出框，包含content、themeColorMode等内容。
 
-
-```ts
+```text
 import { LoadingDialog } from '@kit.ArkUI';
 
 @Entry
@@ -628,11 +633,11 @@ struct Index {
       Stack() {
         Column() {
           Button('Dialog')
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogController.open();
-          })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogController.open();
+            })
         }
         .margin({ bottom: 300 })
       }
@@ -646,15 +651,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-6.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/-dHkEEAnTLa0B18TnJ2Cng/zh-cn_image_0000002611756145.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=DB374D911BDAE363197E97D195A87BBC126B200C1C93811779254766CB92EF8C)
 
 
-### 示例8（自定义内容弹出框）
+
+
+##### 示例8（自定义内容弹出框）
 
 支持自定义内容弹出框，包含contentBuilder、buttons等内容。
 
-
-```ts
+```text
 import { CustomContentDialog } from '@kit.ArkUI';
 
 @Entry
@@ -668,18 +675,18 @@ struct Index {
         this.buildContent();
       },
       buttons: [
-      {
-        value: '按钮1',
-        buttonStyle: ButtonStyleMode.TEXTUAL,
-        action: () => {
-          console.info('Callback when the button is clicked')
+        {
+          value: '按钮1',
+          buttonStyle: ButtonStyleMode.TEXTUAL,
+          action: () => {
+            console.info('Callback when the button is clicked')
+          }
+        },
+        {
+          value: '按钮2',
+          buttonStyle: ButtonStyleMode.TEXTUAL,
+          role: ButtonRole.ERROR
         }
-      },
-      {
-        value: '按钮2',
-        buttonStyle: ButtonStyleMode.TEXTUAL,
-        role: ButtonRole.ERROR
-      }
       ],
     }),
   });
@@ -687,15 +694,15 @@ struct Index {
   build() {
     Column() {
       Button("支持自定义内容弹出框")
-      .onClick(() => {
-        this.dialogController.open()
-      })
+        .onClick(() => {
+          this.dialogController.open()
+        })
     }
     .width('100%')
     .height('100%')
     .justifyContent(FlexAlign.Center)
   }
-
+  
   // 自定义弹出框的内容区
   @Builder
   buildContent(): void {
@@ -707,15 +714,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-7.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/sNDnlva0QpOT86dFMW93PQ/zh-cn_image_0000002581436208.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=8A68614E36E3BBF50999EFB0FBC26F22B6879BCC2763047D8EA4A136F4E10597)
 
 
-### 示例9（跟手弹出框）
+
+
+##### 示例9（跟手弹出框）
 
 从API version 14开始，该示例展示了设置跟手弹出框（警告弹出框为例），包含visible、popover、targetBuilder等内容。
 
-
-```ts
+```text
 import { AlertDialog, PopoverDialog, PopoverOptions } from '@kit.ArkUI';
 
 @Entry
@@ -728,7 +737,7 @@ struct Index {
     },
     width: 320,
   }
-
+  
   // 跟手弹出框内容
   @Builder dialogBuilder() {
     AlertDialog({
@@ -747,7 +756,7 @@ struct Index {
       },
     });
   }
-
+  
   // 跟手弹出框绑定的builder
   @Builder buttonBuilder() {
     Button('跟手弹出框目标组件')
@@ -770,15 +779,17 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-8.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/t6z0Q40CT2GEqX0CAMZ9yQ/zh-cn_image_0000002611836039.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=EFFA0CADB34039F644150D83411EC9776B56ADE0CA891FA5D8DC666307C0502E)
 
 
-### 示例10（弹出框按钮设置默认获焦）
+
+
+##### 示例10（弹出框按钮设置默认获焦）
 
 从API version 18开始，该示例展示了设置默认获焦按钮弹出框（以AlertDialog为例），包含defaultFocus等内容。
 
-
-```ts
+```text
 import { AlertDialog } from '@kit.ArkUI';
 
 @Entry
@@ -806,11 +817,11 @@ struct Index {
       Stack() {
         Column() {
           Button("AlertDialog")
-          .width(96)
-          .height(40)
-          .onClick(() => {
-            this.dialogController.open()
-          })
+            .width(96)
+            .height(40)
+            .onClick(() => {
+              this.dialogController.open()
+            })
         }
         .margin({ bottom: 300 })
       }
@@ -824,4 +835,5 @@ struct Index {
 }
 ```
 
-![](assets/弹出框%20Dialog/file-20260514164142653-9.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/wrFh7PX_RNWOQiYDFx7btw/zh-cn_image_0000002581276294.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=6D035712540465F5D1F2C794B4CF63E4AE9FD26F80E4DF9AE67ED2D6D9A0176A)

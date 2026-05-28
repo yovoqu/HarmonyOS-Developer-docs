@@ -3,56 +3,55 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uri
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供URI字符串解析功能。URI遵循RFC3986规范标准，该规范定义了编码和解析网络资源标识符的方法，不支持非标准场景解析。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { uri } from '@kit.ArkTS';
 ```
 
 
-## URI
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### URI
 
 构造一个URI对象，并提供判断两个URI是否相等、对URI路径部分进行编码规范化等方法。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Utils.Lang
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scheme | string | 否 | 否 | 获取和设置URI的协议部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| userInfo | string | 否 | 否 | 获取和设置URI的用户信息部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| host | string | 是 | 否 | 获取URI的主机名部分（不带端口），若无此部分则返回null对象。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| port | string | 是 | 否 | 获取URI的端口部分。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| path | string | 否 | 否 | 获取和设置URI的路径部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| query | string | 否 | 否 | 获取和设置URI的查询部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| fragment | string | 否 | 否 | 获取和设置URI的片段部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| authority | string | 否 | 否 | 获取和设置此URI的解码权限组件部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| ssp | string | 否 | 否 | 获取和设置URI的解码方案特定部分，方案特定部分是URI的一部分，它包含了特定于协议或方案的信息。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| encodedUserInfo12+ | string | 否 | 否 | 获取和设置URI的编码用户信息部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| encodedPath12+ | string | 否 | 否 | 获取和设置URI的编码路径部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| encodedQuery12+ | string | 否 | 否 | 获取和设置URI的编码查询部分，若无此部分则返回null���象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| encodedFragment12+ | string | 否 | 否 | 获取和设置URI的编码片段部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| encodedAuthority12+ | string | 否 | 否 | 获取和设置URI的编码权限组件部分，若无此部分则返回null对象。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| encodedSSP12+ | string | 否 | 否 | 获取和设置URI的编码方案特定部分。          此属性在API version 19之前为只读属性，不可写，修改此属性会报错。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| scheme | string | 否 | 否 | 获取和设置URI的协议部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| userInfo | string | 否 | 否 | 获取和设置URI的用户信息部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| host | string | 是 | 否 | 获取URI的主机名部分（不带端口），若无此部分则返回null对象。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| port | string | 是 | 否 | 获取URI的端口部分。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| path | string | 否 | 否 | 获取和设置URI的路径部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| query | string | 否 | 否 | 获取和设置URI的查询部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| fragment | string | 否 | 否 | 获取和设置URI的片段部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| authority | string | 否 | 否 | 获取和设置此URI的解码权限组件部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| ssp | string | 否 | 否 | 获取和设置URI的解码方案特定部分，方案特定部分是URI的一部分，它包含了特定于协议或方案的信息。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| encodedUserInfo12+ | string | 否 | 否 | 获取和设置URI的编码用户信息部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| encodedPath12+ | string | 否 | 否 | 获取和设置URI的编码路径部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| encodedQuery12+ | string | 否 | 否 | 获取和设置URI的编码查询部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| encodedFragment12+ | string | 否 | 否 | 获取和设置URI的编码片段部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| encodedAuthority12+ | string | 否 | 否 | 获取和设置URI的编码权限组件部分，若无此部分则返回null对象。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| encodedSSP12+ | string | 否 | 否 | 获取和设置URI的编码方案特定部分。 此属性在API version 19之前为只读属性，不可写，修改此属性会报错。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
-### 命名规则
+
+
+##### 命名规则
 
 **命名形式：**
 
@@ -62,19 +61,23 @@ import { uri } from '@kit.ArkTS';
 
 将URI格式进一步细化，可以分为：[scheme:][//[user-info@]host[:port]][path][?query][#fragment]。
 
+ - scheme: 协议名，与scheme-specific-part以:进行分隔，包含scheme部分的URI为绝对URI，不包含scheme部分的URI为相对URI，根据需要填写。例如http、https、ftp、datashare等。
+ - scheme-specific-part: URI的特定解码方案特定部分，位于[scheme:]和[#fragment]之间由[//][authority][path][?query]组成，此部分以/开头的为分层URI，不以/开头的为不透明URI，根据需要填写。       
+authority: URI的解码权限组件部分。由[userinfo@]host[:port]组成，根据需要填写。         
+userinfo: 用户信息，与host通过@进行分隔，根据需要填写。
+ - host: 服务器的主机名部分，当authority存在时，此项必填。
+ - port: 服务器端口，默认值为-1。根据需要填写。
 
-- scheme: 协议名，与scheme-specific-part以:进行分隔，包含scheme部分的URI为绝对URI，不包含scheme部分的URI为相对URI，根据需要填写。例如http、https、ftp、datashare等。
-- scheme-specific-part: URI的特定解码方案特定部分，位于[scheme:]和[#fragment]之间由[//][authority][path][?query]组成，此部分以/开头的为分层URI，不以/开头的为不透明URI，根据需要填写。               authority: URI的解码权限组件部分。由[userinfo@]host[:port]组成，根据需要填写。                   userinfo: 用户信息，与host通过@进行分隔，根据需要填写。
-- host: 服务器的主机名部分，当authority存在时，此项必填。
-- port: 服务器端口，默认值为-1。根据需要填写。
+        - path: 路径信息，位于host与query之间以 / 进行分割，根据需要填写。
+ - query: 查询部分，位于path和fragment之间，以 ? 开头的键值对格式，以&分割键值对，以=分割键值，根据需要填写。
 
-path: 路径信息，位于host与query之间以 / 进行分割，根据需要填写。        query: 查询部分，位于path和fragment之间，以 ? 开头的键值对格式，以&amp;分割键值对，以=分割键值，根据需要填写。             fragment: 片段部分，以#与scheme-specific-part进行分隔，根据需要填写。
+      - fragment: 片段部分，以#与scheme-specific-part进行分隔，根据需要填写。
+
 
 **URI示例：**
 
-
-```ts
-const uriObj1 = new uri.URI('ftp://ftp.aaa.bbb.ccc/dddd/eee.txt');
+```text
+const uriObj1 = new uri.URI("ftp://ftp.aaa.bbb.ccc/dddd/eee.txt");
 console.info(uriObj1.host); // ftp.aaa.bbb.ccc
 console.info(uriObj1.fragment); // null
 console.info(uriObj1.path); // /dddd/eee.txt
@@ -83,9 +86,7 @@ console.info(uriObj1.userInfo); // null
 console.info(uriObj1.port); // -1
 console.info(uriObj1.query); // null
 
-const uriObj2 = new uri.URI(
-  'gopher://spinaltap.micro.umn.edu/00/Weather/California/Los%20Angeles#fragment',
-);
+const uriObj2 = new uri.URI("gopher://spinaltap.micro.umn.edu/00/Weather/California/Los%20Angeles#fragment");
 console.info(uriObj2.host); // spinaltap.micro.umn.edu
 console.info(uriObj2.fragment); // fragment
 console.info(uriObj2.path); // /00/Weather/California/Los Angeles
@@ -94,9 +95,7 @@ console.info(uriObj2.userInfo); // null
 console.info(uriObj2.port); // -1
 console.info(uriObj2.query); // null
 
-const uriObj3 = new uri.URI(
-  'datashare:///com.samples.datasharetest.DataShare/DB00/TBL00',
-);
+const uriObj3 = new uri.URI("datashare:///com.samples.datasharetest.DataShare/DB00/TBL00");
 console.info(uriObj3.host); // null
 console.info(uriObj3.fragment); // null
 console.info(uriObj3.path); // /com.samples.datasharetest.DataShare/DB00/TBL00
@@ -105,9 +104,7 @@ console.info(uriObj3.userInfo); // null
 console.info(uriObj3.port); // -1
 console.info(uriObj3.query); // null
 
-const uriObj4 = new uri.URI(
-  'https://username:password@host:8080/directory/file?foo=1&bar=2#fragment',
-);
+const uriObj4 = new uri.URI("https://username:password@host:8080/directory/file?foo=1&bar=2#fragment");
 console.info(uriObj4.host); // host
 console.info(uriObj4.fragment); // fragment
 console.info(uriObj4.path); // /directory/file
@@ -116,7 +113,7 @@ console.info(uriObj4.userInfo); // username:password
 console.info(uriObj4.port); // 8080
 console.info(uriObj4.query); // foo=1&bar=2
 
-const uriObj5 = new uri.URI('dataability:///com.example.DataAbility');
+const uriObj5 = new uri.URI("dataability:///com.example.DataAbility");
 console.info(uriObj5.host); // null
 console.info(uriObj5.fragment); // null
 console.info(uriObj5.path); // /com.example.DataAbility:
@@ -125,9 +122,7 @@ console.info(uriObj5.userInfo); // null
 console.info(uriObj5.port); // -1
 console.info(uriObj5.query); // null
 
-const uriObj6 = new uri.URI(
-  'https://username:my+name@host:8080/directory/my+file?foo=1&bar=2#fragment',
-);
+const uriObj6 = new uri.URI("https://username:my+name@host:8080/directory/my+file?foo=1&bar=2#fragment");
 console.info(uriObj6.encodedUserInfo); // username:my+name
 console.info(uriObj6.encodedPath); // /directory/my+file
 console.info(uriObj6.encodedQuery); // foo=1&bar=2
@@ -135,7 +130,7 @@ console.info(uriObj6.encodedFragment); // fragment
 console.info(uriObj6.encodedAuthority); // username:my+name@host:8080
 console.info(uriObj6.encodedSSP); // //username:my+name@host:8080/directory/my+file?foo=1&bar=2
 
-let uriObj7 = new uri.URI('www.abc.com:8080/directory/file?ab=pppppp#qwer=da');
+let uriObj7 = new uri.URI("www.abc.com:8080/directory/file?ab=pppppp#qwer=da");
 console.info(uriObj7.scheme); // www.abc.com
 console.info(uriObj7.host); // null
 console.info(uriObj7.port); // -1
@@ -144,12 +139,12 @@ console.info(uriObj7.query); // null
 console.info(uriObj7.authority); // null
 console.info(uriObj7.fragment); // qwer=da
 console.info(uriObj7.ssp); // 8080/directory/file?ab=pppppp
-console.info('result:', uriObj7.checkIsAbsolute()); // result: true
+console.info("result:", uriObj7.checkIsAbsolute()); // result: true
 ```
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(uri: string)
 
@@ -161,7 +156,6 @@ constructor(uri: string)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uri | string | 是 | 入参对象。 |
@@ -171,7 +165,6 @@ constructor(uri: string)
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -180,21 +173,18 @@ constructor(uri: string)
 
 **示例：**
 
-
-```ts
-let mm =
-  'https://username:password@host:8080/directory/file?foo=1&bar=2#fragment';
+```text
+let mm = 'https://username:password@host:8080/directory/file?foo=1&bar=2#fragment';
 new uri.URI(mm);
 ```
 
-
-```ts
+```text
 new uri.URI('https://username:password@host:8080');
 ```
 
 
-### toString
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString
 
 toString(): string
 
@@ -206,7 +196,6 @@ toString(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回URI的字符串序列化。 |
@@ -214,17 +203,14 @@ toString(): string
 
 **示例：**
 
-
-```ts
-const result = new uri.URI(
-  'https://username:password@host:8080/directory/file?ab=pppppp#qwer da',
-);
+```text
+const result = new uri.URI('https://username:password@host:8080/directory/file?ab=pppppp#qwer da');
 let result1 = result.toString(); // https://username:password@host:8080/directory/file?ab=pppppp#qwer%20da
 ```
 
 
-### equalsTo9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### equalsTo9+
 
 equalsTo(other: URI): boolean
 
@@ -236,14 +222,12 @@ equalsTo(other: URI): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| other | [URI](#uri) | 是 | 需要比较的URI对象。 |
+| other | URI | 是 | 需要比较的URI对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -254,7 +238,6 @@ equalsTo(other: URI): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -262,20 +245,15 @@ equalsTo(other: URI): boolean
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI(
-  'https://username:password@host:8080/directory/file?query=pppppp#qwer=da',
-);
-const uriInstance1 = new uri.URI(
-  'https://username:password@host:8080/directory/file?query=pppppp#qwer=da',
-);
+```text
+const uriInstance = new uri.URI('https://username:password@host:8080/directory/file?query=pppppp#qwer=da');
+const uriInstance1 = new uri.URI('https://username:password@host:8080/directory/file?query=pppppp#qwer=da');
 let result = uriInstance.equalsTo(uriInstance1); // true
 ```
 
 
-### checkIsAbsolute
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### checkIsAbsolute
 
 checkIsAbsolute(): boolean
 
@@ -287,7 +265,6 @@ checkIsAbsolute(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是绝对URI返回true，否则返回false。 |
@@ -295,30 +272,24 @@ checkIsAbsolute(): boolean
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI(
-  'https://username:password@www.qwer.com:8080?query=pppppp',
-);
+```text
+const uriInstance = new uri.URI('https://username:password@www.qwer.com:8080?query=pppppp');
 console.info(`${uriInstance.checkIsAbsolute()}`); // true
 const uriInstance1 = new uri.URI('xxx.com/suppliers.htm');
 console.info(`${uriInstance1.checkIsAbsolute()}`); // false
 ```
 
 
-### normalize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### normalize
 
 normalize(): URI
 
 规范化此URI的路径。
 
-
 > [!NOTE]
-> 如果此URI是不透明的，或者其路径已经是规范形式，则返回该URI。否则将构造一个新的URI，该URI与当前URI相同，唯一的区别是其路径通过规范化当前URI的路径来计算，具体规则如下：
-> 1.移除所有的 .（点）段。
-> 2.如果 ..（双点）段前面有一个非 .. 段，则将这两个段一起移除。重复此步骤，直到不再适用为止。
-> 如果路径规范化后以 ..（双点）段开头，这表明之前没有足够的非 .. 段可以移除，因此路径将以 .. 段开始。
+> 如果此URI是不透明的，或者其路径已经是规范形式，则返回该URI。否则将构造一个新的URI，该URI与当前URI相同，唯一的区别是其路径通过规范化当前URI的路径来计算，具体规则如下： 1.移除所有的 .（点）段。 2.如果 ..（双点）段前面有一个非 .. 段，则将这两个段一起移除。重复此步骤，直到不再适用为止。 如果路径规范化后以 ..（双点）段开头，这表明之前没有足够的非 .. 段可以移除，因此路径将以 .. 段开始。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -326,26 +297,20 @@ normalize(): URI
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [URI](#uri) | 返回一个path被规范化后的URI对象。 |
+| URI | 返回一个path被规范化后的URI对象。 |
 
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI(
-  'https://username:password@www.qwer.com:8080/path/path1/../path2/./path3?query=pppppp',
-);
+```text
+const uriInstance = new uri.URI('https://username:password@www.qwer.com:8080/path/path1/../path2/./path3?query=pppppp');
 console.info(uriInstance.path); // /path/path1/../path2/./path3
 // 规范化path后，移除所有的.（点）段,如果 ..（双点）段前面有一个非 .. 段，则将这两个段一起移除。
 let uriInstance1 = uriInstance.normalize();
 console.info(uriInstance1.path); // /path/path2/path3
-let uri1 = new uri.URI(
-  'http://www.test.com/../../patch/path1/../path2/path3/./path4/../',
-);
+let uri1 = new uri.URI('http://www.test.com/../../patch/path1/../path2/path3/./path4/../');
 console.info(uri1.path); // /../../patch/path1/../path2/path3/./path4/../
 // 如果路径规范化后以 ..（双点）段开头，这表明之前没有足够的非 .. 段可以移除，因此路径将以 .. 段开始。
 let uri2 = uri1.normalize();
@@ -353,8 +318,8 @@ console.info(uri2.path); // /../../patch/path2/path3
 ```
 
 
-### checkRelative12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### checkRelative12+
 
 checkRelative(): boolean
 
@@ -366,7 +331,6 @@ checkRelative(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是相对URI返回true，否则返回false。 |
@@ -374,19 +338,16 @@ checkRelative(): boolean
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI(
-  'https://username:password@www.qwer.com:8080?query=p',
-);
+```text
+const uriInstance = new uri.URI("https://username:password@www.qwer.com:8080?query=p");
 console.info(`${uriInstance.checkRelative()}`); // false
-const uriInstance1 = new uri.URI('/images/pic.jpg');
+const uriInstance1 = new uri.URI("/images/pic.jpg");
 console.info(`${uriInstance1.checkRelative()}`); // true
 ```
 
 
-### checkOpaque12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### checkOpaque12+
 
 checkOpaque(): boolean
 
@@ -398,7 +359,6 @@ checkOpaque(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是不透明的URI返回true，否则返回false。 |
@@ -406,17 +366,16 @@ checkOpaque(): boolean
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('http://www.test.com/images/pic.jpg');
+```text
+const uriInstance = new uri.URI("http://www.test.com/images/pic.jpg");
 console.info(`${uriInstance.checkOpaque()}`); // false
-const uriInstance1 = new uri.URI('mailto:user@example.com');
+const uriInstance1 = new uri.URI("mailto:user@example.com");
 console.info(`${uriInstance1.checkOpaque()}`); // true
 ```
 
 
-### checkHierarchical12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### checkHierarchical12+
 
 checkHierarchical(): boolean
 
@@ -428,7 +387,6 @@ checkHierarchical(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 如果是分层的URI返回true，否则返回false。 |
@@ -436,17 +394,16 @@ checkHierarchical(): boolean
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('http://www.test.com/images/pic.jpg');
+```text
+const uriInstance = new uri.URI("http://www.test.com/images/pic.jpg");
 console.info(`${uriInstance.checkHierarchical()}`); // true
-const uriInstance1 = new uri.URI('mailto:user@example.com');
+const uriInstance1 = new uri.URI("mailto:user@example.com");
 console.info(`${uriInstance1.checkHierarchical()}`); // false
 ```
 
 
-### getQueryValue12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getQueryValue12+
 
 getQueryValue(key: string): string
 
@@ -460,14 +417,12 @@ getQueryValue(key: string): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 此URI查询参数的名称。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -478,7 +433,6 @@ getQueryValue(key: string): string
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -486,18 +440,17 @@ getQueryValue(key: string): string
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('https://www.com?param1=value1&param2=value2');
-console.info(uriInstance.getQueryValue('param1')); // value1
+```text
+const uriInstance = new uri.URI("https://www.com?param1=value1&param2=value2");
+console.info(uriInstance.getQueryValue("param1")); // value1
 let uriInstance1 = new uri.URI('https://www.zyy.ss?sa%3D=po%7E');
-console.info(uriInstance1.getQueryValue('sa=')); // po~
-console.info(uriInstance1.getQueryValue('abc')); // null
+console.info(uriInstance1.getQueryValue('sa=')) // po~
+console.info(uriInstance1.getQueryValue('abc')) // null
 ```
 
 
-### addQueryValue12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addQueryValue12+
 
 addQueryValue(key: string, value: string): URI
 
@@ -509,7 +462,6 @@ addQueryValue(key: string, value: string): URI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 需要添加查询参数的名称。 |
@@ -518,16 +470,14 @@ addQueryValue(key: string, value: string): URI
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [URI](#uri) | 返回添加查询部分后的URI对象。 |
+| URI | 返回添加查询部分后的URI对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -536,16 +486,15 @@ addQueryValue(key: string, value: string): URI
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('https://www.test.com');
-const newRoute = uriInstance.addQueryValue('param1', 'hello world');
+```text
+const uriInstance = new uri.URI("https://www.test.com");
+const newRoute = uriInstance.addQueryValue("param1", "hello world");
 console.info(newRoute.toString()); // https://www.test.com?param1=hello%20world
 ```
 
 
-### addSegment12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addSegment12+
 
 addSegment(pathSegment: string): URI
 
@@ -557,7 +506,6 @@ addSegment(pathSegment: string): URI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pathSegment | string | 是 | 需要追加到路径部分的字段。 |
@@ -565,16 +513,14 @@ addSegment(pathSegment: string): URI
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [URI](#uri) | 返回已追加字段的URI对象。 |
+| URI | 返回已追加字段的URI对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -583,16 +529,15 @@ addSegment(pathSegment: string): URI
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('http://www.test.com');
-const newRoute = uriInstance.addSegment('my image.jpg');
+```text
+const uriInstance = new uri.URI("http://www.test.com");
+const newRoute = uriInstance.addSegment("my image.jpg");
 console.info(newRoute.toString()); // http://www.test.com/my%20image.jpg
 ```
 
 
-### addEncodedSegment12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addEncodedSegment12+
 
 addEncodedSegment(pathSegment: string): URI
 
@@ -604,7 +549,6 @@ addEncodedSegment(pathSegment: string): URI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pathSegment | string | 是 | 需要追加到路径部分的编码字段。 |
@@ -612,16 +556,14 @@ addEncodedSegment(pathSegment: string): URI
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [URI](#uri) | 返回已追加字段的URI对象。 |
+| URI | 返回已追加字段的URI对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -630,16 +572,15 @@ addEncodedSegment(pathSegment: string): URI
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('http://www.test.com');
-const newRoute = uriInstance.addEncodedSegment('my%20image.jpg');
+```text
+const uriInstance = new uri.URI("http://www.test.com");
+const newRoute = uriInstance.addEncodedSegment("my%20image.jpg");
 console.info(newRoute.toString()); // http://www.test.com/my%20image.jpg
 ```
 
 
-### getQueryNames12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getQueryNames12+
 
 getQueryNames(): string[]
 
@@ -651,7 +592,6 @@ getQueryNames(): string[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string[] | 返回URI查询部分中所有不重复的已解码参数名集合。 |
@@ -659,18 +599,15 @@ getQueryNames(): string[]
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI(
-  'https://www.test.com?param1=value1&param2=value2',
-);
+```text
+const uriInstance = new uri.URI("https://www.test.com?param1=value1&param2=value2");
 const paramNames = uriInstance.getQueryNames();
 console.info(paramNames.toString()); // param1,param2
 ```
 
 
-### getQueryValues12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getQueryValues12+
 
 getQueryValues(key: string): string[]
 
@@ -684,14 +621,12 @@ getQueryValues(key: string): string[]
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 指定键的名称。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -702,7 +637,6 @@ getQueryValues(key: string): string[]
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -710,18 +644,15 @@ getQueryValues(key: string): string[]
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI(
-  'https://www.test.com/search?query=name&query=my',
-);
-console.info(uriInstance.getQueryValues('query').toString()); // name,my
-console.info(JSON.stringify(uriInstance.getQueryValues('abc'))); // []
+```json
+const uriInstance = new uri.URI("https://www.test.com/search?query=name&query=my");
+console.info(uriInstance.getQueryValues("query").toString()); // name,my
+console.info(JSON.stringify(uriInstance.getQueryValues("abc"))); // []
 ```
 
 
-### getBooleanQueryValue12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getBooleanQueryValue12+
 
 getBooleanQueryValue(key: string, defaultValue: boolean): boolean
 
@@ -733,7 +664,6 @@ getBooleanQueryValue(key: string, defaultValue: boolean): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 要获取的查询参数的名称。 |
@@ -741,7 +671,6 @@ getBooleanQueryValue(key: string, defaultValue: boolean): boolean
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -752,7 +681,6 @@ getBooleanQueryValue(key: string, defaultValue: boolean): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -760,25 +688,22 @@ getBooleanQueryValue(key: string, defaultValue: boolean): boolean
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('https://www.test.com/search?active=true');
-console.info(`${uriInstance.getBooleanQueryValue('active', false)}`); // true
-const uriInstance1 = new uri.URI('https://www.test.com/search');
-console.info(`${uriInstance1.getBooleanQueryValue('active', false)}`); // false
-const uriInstance2 = new uri.URI(
-  'https://www.test.com/search?active=aa&active=false',
-);
-console.info(`${uriInstance2.getBooleanQueryValue('active', false)}`); // true
-const uriInstance3 = new uri.URI('https://www.test.com/search?active=0');
-console.info(`${uriInstance3.getBooleanQueryValue('active', true)}`); // false
-const uriInstance4 = new uri.URI('https://www.test.com/search');
-console.info(`${uriInstance4.getBooleanQueryValue('active', true)}`); // true
+```text
+const uriInstance = new uri.URI("https://www.test.com/search?active=true");
+console.info(`${uriInstance.getBooleanQueryValue("active", false)}`); // true
+const uriInstance1 = new uri.URI("https://www.test.com/search");
+console.info(`${uriInstance1.getBooleanQueryValue("active", false)}`); // false
+const uriInstance2 = new uri.URI("https://www.test.com/search?active=aa&active=false");
+console.info(`${uriInstance2.getBooleanQueryValue("active", false)}`); // true
+const uriInstance3 = new uri.URI("https://www.test.com/search?active=0");
+console.info(`${uriInstance3.getBooleanQueryValue("active", true)}`); // false
+const uriInstance4 = new uri.URI("https://www.test.com/search");
+console.info(`${uriInstance4.getBooleanQueryValue("active", true)}`); // true
 ```
 
 
-### clearQuery12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clearQuery12+
 
 clearQuery(): URI
 
@@ -790,23 +715,21 @@ clearQuery(): URI
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [URI](#uri) | 返回一个已被清除查询部分的URI对象。 |
+| URI | 返回一个已被清除查询部分的URI对象。 |
 
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('https://www.test.com?param1=value1');
+```text
+const uriInstance = new uri.URI("https://www.test.com?param1=value1");
 console.info(uriInstance.clearQuery().toString()); // https://www.test.com
 ```
 
 
-### getLastSegment12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLastSegment12+
 
 getLastSegment(): string
 
@@ -818,7 +741,6 @@ getLastSegment(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回此URI路径中的最后一个段，如果路径为空则返回null。 |
@@ -826,15 +748,14 @@ getLastSegment(): string
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('content://com.test.provider/files/image.jpg');
+```text
+const uriInstance = new uri.URI("content://com.test.provider/files/image.jpg");
 console.info(uriInstance.getLastSegment()); // image.jpg
 ```
 
 
-### getSegment12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getSegment12+
 
 getSegment(): string[]
 
@@ -846,7 +767,6 @@ getSegment(): string[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string[] | 返回此URI中已解码的所有路径段，各段前后均不含 “/”。 |
@@ -854,15 +774,14 @@ getSegment(): string[]
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI('http://www.test.com/path/to/image.jpg');
+```text
+const uriInstance = new uri.URI("http://www.test.com/path/to/image.jpg");
 console.info(uriInstance.getSegment().toString()); // path,to,image.jpg
 ```
 
 
-### createFromParts12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createFromParts12+
 
 createFromParts(scheme: string, ssp: string, fragment: string): URI
 
@@ -874,7 +793,6 @@ createFromParts(scheme: string, ssp: string, fragment: string): URI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | scheme | string | 是 | 此URI协议部分。该参数需符合URI协议标准。 |
@@ -884,16 +802,14 @@ createFromParts(scheme: string, ssp: string, fragment: string): URI
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [URI](#uri) | 返回由给定协议、协议特定部分和片段创建的URI对象。 |
+| URI | 返回由给定协议、协议特定部分和片段创建的URI对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -902,36 +818,33 @@ createFromParts(scheme: string, ssp: string, fragment: string): URI
 
 **示例：**
 
-
-```ts
-const uriInstance = uri.URI.createFromParts('mailto', 'no body', 'top');
+```text
+const uriInstance = uri.URI.createFromParts("mailto", "no body", "top");
 console.info(uriInstance.toString()); // mailto:no%20body#top
 ```
 
 
-### equals(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### equals(deprecated)
 
 equals(other: URI): boolean
 
 判断此URI是否与其他URI对象相等。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[equalsTo9+](#equalsto9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 equalsTo 9+ 替代。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| other | [URI](#uri) | 是 | 需要比较的URI对象。 |
+| other | URI | 是 | 需要比较的URI对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -940,13 +853,8 @@ equals(other: URI): boolean
 
 **示例：**
 
-
-```ts
-const uriInstance = new uri.URI(
-  'https://username:password@host:8080/directory/file?query=pppppp#qwer=da',
-);
-const uriInstance1 = new uri.URI(
-  'https://username:password@host:8080/directory/file?query=pppppp#qwer=da',
-);
+```text
+const uriInstance = new uri.URI('https://username:password@host:8080/directory/file?query=pppppp#qwer=da');
+const uriInstance1 = new uri.URI('https://username:password@host:8080/directory/file?query=pppppp#qwer=da');
 uriInstance.equals(uriInstance1); // true
 ```

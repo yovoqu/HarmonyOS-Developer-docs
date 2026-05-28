@@ -3,31 +3,32 @@
 更新时间：2026-03-19 08:47:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avcastpicker
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供创建投播组件AVCastPicker的功能，提供设备发现连接的统一入口。
 
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 示例效果请以真机为准，当前DevEco Studio预览器无实际投播功能。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### 导入模块
 
 ```text
 import { AVCastPicker } from '@kit.AVSessionKit';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 属性
 
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
-## AVCastPicker
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### AVCastPicker
 
-```ts
+```text
 AVCastPicker({
   normalColor?: Color | number | string;
   activeColor?: Color | number | string;
@@ -49,33 +50,32 @@ AVCastPicker({
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| normalColor11+ | Color \| number \| string | 否 | @Prop | 指正常状态下投播组件的颜色。          未设置将采用colorMode下的颜色设置。 |
+| normalColor11+ | Color \| number \| string | 否 | @Prop | 指正常状态下投播组件的颜色。 未设置将采用colorMode下的颜色设置。 |
 | activeColor11+ | Color \| number \| string | 否 | @Prop | 指设备切换成功状态下投播组件的颜色。未设置系统将优先根据normalColor的颜色匹配；如果normalColor也未设置，将采用colorMode下的颜色设置。 |
-| pickerStyle12+ | [AVCastPickerStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-avcastpickerparam#avcastpickerstyle12) | 否 | @Prop | 投播样式。          - 当sessionType是audio或者video时，默认值为STYLE_PANEL。          - 当sessionType是voice_call或者video_call时，默认值为STYLE_MENU，且不可修改为STYLE_PANEL。 |
-| colorMode12+ | [AVCastPickerColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-avcastpickerparam#avcastpickercolormode12) | 否 | @Prop | 显示模式。默认值为AUTO。          - 当colorMode设置为AUTO时，跟随系统的深浅色模式的默认色值。          - 当colorMode设置为DARK、LIGHT时，使用对应模式的系统预设色值。 |
-| sessionType12+ | string | 否 | @Prop | 会话类型，可参考[AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10)。默认值为当前应用创建的AVSessionType。 |
-| customPicker12+ | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 否 | @Prop | 自定义样式。建议应用自定义组件样式，可有效提升组件显示速度。 |
-| onStateChange11+ | (state: [AVCastPickerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-avcastpickerparam#avcastpickerstate)) =&gt; void | 否 | - | 投播状态更改回调。 |
+| pickerStyle12+ | AVCastPickerStyle | 否 | @Prop | 投播样式。 - 当sessionType是audio或者video时，默认值为STYLE_PANEL。 - 当sessionType是voice_call或者video_call时，默认值为STYLE_MENU，且不可修改为STYLE_PANEL。 |
+| colorMode12+ | AVCastPickerColorMode | 否 | @Prop | 显示模式。默认值为AUTO。 - 当colorMode设置为AUTO时，跟随系统的深浅色模式的默认色值。 - 当colorMode设置为DARK、LIGHT时，使用对应模式的系统预设色值。 |
+| sessionType12+ | string | 否 | @Prop | 会话类型，可参考AVSessionType。默认值为当前应用创建的AVSessionType。 |
+| customPicker12+ | CustomBuilder | 否 | @Prop | 自定义样式。建议应用自定义组件样式，可有效提升组件显示速度。 |
+| onStateChange11+ | (state: AVCastPickerState) => void | 否 | - | 投播状态更改回调。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### 事件
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 示例
 
 投播功能的示例说明参考如下。
 
 体验完整功能请具体参考[播放类开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/distributed-playback-guide)和[通话类开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-switch-call-devices)。
 
-
-```ts
+```text
 import { AVCastPickerState, AVCastPicker } from '@kit.AVSessionKit';
 
 @Entry
@@ -95,9 +95,9 @@ struct Index {
   @Builder
   customPickerBuilder() {
     Image(this.pickerImage)
-    .width('100%')
-    .height('100%')
-    .fillColor(Color.Black)
+      .width('100%')
+      .height('100%')
+      .fillColor(Color.Black)
   }
 
   build() {
@@ -108,9 +108,9 @@ struct Index {
           customPicker: () => this.customPickerBuilder(),
           onStateChange: this.onStateChange
         })
-        .width('40vp')
-        .height('40vp')
-        .border({ width: 1, color: Color.Red })
+          .width('40vp')
+          .height('40vp')
+          .border({ width: 1, color: Color.Red })
       }.height('50%')
     }.width('50%')
   }

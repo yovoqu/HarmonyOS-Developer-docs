@@ -4,30 +4,34 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk
 
-## 打开资源
+##### 打开资源
 
 从API 22开始，huksExternalCrypto提供打开/关闭资源功能接口。应用在密钥操作之前（密钥操作、通用操作、PIN码认证等），需要先调用[OH_Huks_OpenResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_openresource)打开资源。打开资源需要获取resourceId，resourceId通过调用证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取。
 
-## 在CMake脚本中链接相关动态库
 
+
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so)
 ```
 
 
-## 开发步骤
 
-通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)，并将其作为resourceId。 初始化参数集：通过[OH_Huks_InitExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_initexternalcryptoparamset)、[OH_Huks_AddExternalCryptoParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_addexternalcryptoparams)、[OH_Huks_BuildExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_buildexternalcryptoparamset)构造参数集paramSet。 调用[OH_Huks_OpenResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_openresource)打开资源。
+##### 开发步骤
+1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)，并将其作为resourceId。
+2. 初始化参数集：通过[OH_Huks_InitExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_initexternalcryptoparamset)、[OH_Huks_AddExternalCryptoParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_addexternalcryptoparams)、[OH_Huks_BuildExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_buildexternalcryptoparamset)构造参数集paramSet。
+3. 调用[OH_Huks_OpenResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_openresource)打开资源。
 
-## 开发案例
 
+
+##### 开发案例
 
 ```text
 #include "huks/native_huks_external_crypto_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <string.h>
 
 OH_Huks_Result InitParamSet(
     struct OH_Huks_ExternalCryptoParamSet **paramSet,
@@ -75,7 +79,7 @@ static napi_value OpenResource(napi_env env, napi_callback_info info)
         }
     } while (0);
     OH_Huks_FreeExternalCryptoParamSet(&openResourceParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -83,24 +87,29 @@ static napi_value OpenResource(napi_env env, napi_callback_info info)
 ```
 
 
-## 关闭资源
+
+##### 关闭资源
 
 生态应用调用证书HAP界面，展示证书列表，用户选择证书，生态应用拿到对应的resourceId，关闭资源依赖于对应的resourceId。具体的场景介绍及规格，请参考[资源管理介绍及规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-resource-management-overview)。
 
-## 在CMake脚本中链接相关动态库
 
+
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so)
 ```
 
 
-## 开发步骤
 
-通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取resourceId。 初始化参数集：通过[OH_Huks_InitExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_initexternalcryptoparamset)、[OH_Huks_AddExternalCryptoParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_addexternalcryptoparams)、[OH_Huks_BuildExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_buildexternalcryptoparamset)构造参数集paramSet。 调用[OH_Huks_CloseResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_closeresource)关闭资源。该接口会回调[onClearUkeyPinAuthState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#cryptoextensionabilityonclearukeypinauthstate)清理该资源关联的PIN认证状态，以及会回调[onFinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#cryptoextensionabilityonfinishsession)清理该资源关联的会话handle。
+##### 开发步骤
+1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取resourceId。
+2. 初始化参数集：通过[OH_Huks_InitExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_initexternalcryptoparamset)、[OH_Huks_AddExternalCryptoParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_addexternalcryptoparams)、[OH_Huks_BuildExternalCryptoParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_buildexternalcryptoparamset)构造参数集paramSet。
+3. 调用[OH_Huks_CloseResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h#oh_huks_closeresource)关闭资源。该接口会回调[onClearUkeyPinAuthState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#cryptoextensionabilityonclearukeypinauthstate)清理该资源关联的PIN认证状态，以及会回调[onFinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoextensionability#cryptoextensionabilityonfinishsession)清理该资源关联的会话handle。
 
-## 开发案例
 
+
+##### 开发案例
 
 ```text
 #include "huks/native_huks_external_crypto_api.h"
@@ -108,7 +117,7 @@ target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so
 #include "huks/native_huks_type.h"
 #include "huks/native_huks_api.h"
 #include "napi/native_api.h"
-#include
+#include <string.h>
 
 OH_Huks_Result InitParamSet(
     struct OH_Huks_ExternalCryptoParamSet **paramSet,
@@ -156,7 +165,7 @@ static napi_value CloseResource(napi_env env, napi_callback_info info)
         }
     } while (0);
     OH_Huks_FreeExternalCryptoParamSet(&closeResourceParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;

@@ -4,9 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-aipp-configuration-file
 
-## 模型转换AIPP配置文件说明
+##### 模型转换AIPP配置文件说明
 
 一份功能完整的AIPP配置文件示例如下：
+ 
 ```text
 # AIPP的配置以aipp_op开始，标识这是一个AIPP算子的配置，aipp_op支持配置多个
 aipp_op {
@@ -131,22 +132,42 @@ aipp_op {
     }
 }
 ```
+ 
+  
 
+##### AIPP配置多输入支持
 
-## AIPP配置多输入支持
+AIPP支持对一个多输入模型的多个输入分别配置AIPP，也支持在一个输入Data算子有多个输出分支的情况下，对不同的输出分支分别配置AIPP。
+ 
+AIPP配置的多输入支持由2组共4个配置参数控制：input_name和related_input_rank用于指定对哪一个输入进行AIPP处理，node_after_aipp和input_edge_idx用于指定对Data算子的多个输出中的哪一个输出进行AIPP处理。
+ 
+input_name和related_input_rank两个参数推荐使用input_name，related_input_rank参数用于模型输入名称不确定的场景，如果同时配置这两个参数，则两个参数互为校验；如果两个参数都没有被配置，默认对模型的第一个输入进行AIPP处理。
+ 
+node_after_aipp和input_edge_idx两个参数推荐使用node_after_aipp，input_edge_idx用于Data算子的多个输出分支衔接的算子名称重复或不确定的场景，如果同时配置这两个参数，则两个参数互为校验；如果两个参数都没有被配置，则该Data算子的所有输出分支使用同一个AIPP处理。
+ 
+  
 
-AIPP支持对一个多输入模型的多个输入分别配置AIPP，也支持在一个输入Data算子有多个输出分支的情况下，对不同的输出分支分别配置AIPP。 AIPP配置的多输入支持由2组共4个配置参数控制：input_name和related_input_rank用于指定对哪一个输入进行AIPP处理，node_after_aipp和input_edge_idx用于指定对Data算子的多个输出中的哪一个输出进行AIPP处理。 input_name和related_input_rank两个参数推荐使用input_name，related_input_rank参数用于模型输入名称不确定的场景，如果同时配置这两个参数，则两个参数互为校验；如果两个参数都没有被配置，默认对模型的第一个输入进行AIPP处理。 node_after_aipp和input_edge_idx两个参数推荐使用node_after_aipp，input_edge_idx用于Data算子的多个输出分支衔接的算子名称重复或不确定的场景，如果同时配置这两个参数，则两个参数互为校验；如果两个参数都没有被配置，则该Data算子的所有输出分支使用同一个AIPP处理。
+##### AIPP配置区分动态AIPP与静态AIPP
 
-## AIPP配置区分动态AIPP与静态AIPP
+只要有一个AIPP子功能的dynamic开关配置为true，或者没有打开任何一个子功能的开关，则生成的DaVinci模型为动态AIPP模型，需要在模型推理阶段传入AIPP配置参数；相反没有任何子功能的dynamic开关配置为true，并且至少有一个子功能的开关是打开的，则生成的DaVinci模型为静态AIPP模型，模型推理阶段使用配置文件中定义的AIPP配置参数。
+ 
+对于动态AIPP的场景，AIPP可以允许输入图片的长宽，以及图片类型不确定，对应即src_image_size_w、src_image_size_h和input_format三个参数不配置，此时开发者需要指定动态AIPP处理时的最大图片尺寸，配置max_src_image_size。
+ 
+  
 
-只要有一个AIPP子功能的dynamic开关配置为true，或者没有打开任何一个子功能的开关，则生成的DaVinci模型为动态AIPP模型，需要在模型推理阶段传入AIPP配置参数；相反没有任何子功能的dynamic开关配置为true，并且至少有一个子功能的开关是打开的，则生成的DaVinci模型为静态AIPP模型，模型推理阶段使用配置文件中定义的AIPP配置参数。 对于动态AIPP的场景，AIPP可以允许输入图片的长宽，以及图片类型不确定，对应即src_image_size_w、src_image_size_h和input_format三个参数不配置，此时开发者需要指定动态AIPP处理时的最大图片尺寸，配置max_src_image_size。
+##### 图片裁剪(Crop)
 
-## 图片裁剪(Crop)
+图片裁剪功能是指在原始图片中从指定的起点裁剪出指定大小的子图。
+ 
+dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+ 
+- 静态配置时，crop_size_w和crop_size_h以设定的值作为输出shape。
+- 动态配置时，crop_size_w和crop_size_h为预分配的最大输出shape，实际运行时设置的参数值不超过预分配的最大值。
 
-图片裁剪功能是指在原始图片中从指定的起点裁剪出指定大小的子图。 dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。 静态配置时，crop_size_w和crop_size_h以设定的值作为输出shape。  动态配置时，crop_size_w和crop_size_h为预分配的最大输出shape，实际运行时设置的参数值不超过预分配的最大值。
+ 
+  
 
-## 静态配置
-
+##### 静态配置
 
 ```text
 crop_func {
@@ -157,10 +178,10 @@ crop_func {
     crop_size_h: 150
 }
 ```
+ 
+  
 
-
-## 动态配置
-
+##### 动态配置
 
 ```text
 crop_func {
@@ -172,14 +193,23 @@ crop_func {
     crop_size_h: 150
 }
 ```
+ 
+  
 
+##### 通道交换功能(axSwap/uvSwap/rbSwap)
 
-## 通道交换功能(axSwap/uvSwap/rbSwap)
+交换图片的通道支持AX通道交换、UV通道交换、RB通道交换。
+ 
+- AX通道交换：仅支持ARGB8888、XRGB8888、AYUV444格式，其他格式不支持。
+- UV通道交换：仅支持YUV420SP、YUV422SP_U8、YUYV、AYUV444格式，其他格式不支持。
+- RB通道交换：仅支持ARGB8888、XRGB8888、RGB888_U8格式，其他格式不支持。
 
-交换图片的通道支持AX通道交换、UV通道交换、RB通道交换。 AX通道交换：仅支持ARGB8888、XRGB8888、AYUV444格式，其他格式不支持。  UV通道交换：仅支持YUV420SP、YUV422SP_U8、YUYV、AYUV444格式，其他格式不支持。  RB通道交换：仅支持ARGB8888、XRGB8888、RGB888_U8格式，其他格式不支持。   dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+ 
+dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+ 
+  
 
-## 静态配置
-
+##### 静态配置
 
 ```text
 swap_func {
@@ -187,11 +217,13 @@ swap_func {
     rbuv_swap_switch: false
 }
 ```
+ 
+  
 
-
-## 动态配置
+##### 动态配置
 
 可以不写具体的参数，在动态创建input tensor时指定。
+ 
 ```text
 swap_func {
     dynamic: true
@@ -199,15 +231,25 @@ swap_func {
     rbuv_swap_switch: false
 }
 ```
+ 
+  
 
+##### 色域转换功能(CSC)
 
-## 色域转换功能(CSC)
+dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+ 
+支持的转换格式如下：
+ 
+- 支持从YUV420SP、YUYV、YUV422SP、AYUV444转到RGB888、BGR888。
+- 支持从XRGB8888、ARGB8888、RGB888转到YVU444SP、YUV444SP、YUV400。
 
-dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。 支持的转换格式如下： 支持从YUV420SP、YUYV、YUV422SP、AYUV444转到RGB888、BGR888。  支持从XRGB8888、ARGB8888、RGB888转到YVU444SP、YUV444SP、YUV400。
+ 
+  
 
-## 静态配置
+##### 静态配置
 
 静态AIPP配置色域转化矩阵示例如下。
+ 
 ```text
 csc_func {
     switch: true
@@ -228,11 +270,13 @@ csc_func {
     input_bias_2: 128
 }
 ```
+ 
+  
 
-
-## 动态配置
+##### 动态配置
 
 指定输出的色域格式，动态场景下，inputFormat可以改变，但是output_format不可变，否则会报错，因为输出的格式一般是固定的。
+ 
 ```text
 csc_func {
     switch: true
@@ -241,14 +285,18 @@ csc_func {
     color_space: JPEG
 }
 ```
+ 
+  
 
+##### 图片缩放(Resize)
 
-## 图片缩放(Resize)
+图片缩放功能支持图片放大缩小，采用双线性插值方式进行缩放。缩放输出图片最小为16x16，缩放输出最大为448x448。
+ 
+dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+ 
+  
 
-图片缩放功能支持图片放大缩小，采用双线性插值方式进行缩放。缩放输出图片最小为16x16，缩放输出最大为448x448。 dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
-
-## 静态配置
-
+##### 静态配置
 
 ```text
 resize_func {
@@ -257,11 +305,13 @@ resize_func {
     resize_output_h: 182
 }
 ```
+ 
+  
 
-
-## 动态配置
+##### 动态配置
 
 resize_output_w、resize_output_h为预分配最大size。
+ 
 ```text
 resize_func {
     switch: true
@@ -270,14 +320,18 @@ resize_func {
     resize_output_h: 200
 }
 ```
+ 
+  
 
+##### 数据类型转换(DTC)
 
-## 数据类型转换(DTC)
+数据类型转化功能是指将输入的图片数据类型通过转化公式转换为FP16类型送给后续模块计算，实际为依次执行减均值、减最小值和乘方差操作。
+ 
+dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+ 
+  
 
-数据类型转化功能是指将输入的图片数据类型通过转化公式转换为FP16类型送给后续模块计算，实际为依次执行减均值、减最小值和乘方差操作。 dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
-
-## 静态配置
-
+##### 静态配置
 
 ```text
 dtc_func {
@@ -293,22 +347,26 @@ dtc_func {
     var_reci_chn_2: 2.0
 }
 ```
+ 
+  
 
-
-## 动态配置
+##### 动态配置
 
 可以不写具体的参数，在动态创建input tensor时指定。
+ 
 ```text
 dtc_func {
     switch: true
     dynamic: true
 }
 ```
+ 
+  
 
-
-## 图片旋转(Rotation)
+##### 图片旋转(Rotation)
 
 旋转功能支持图片旋转90°、180°和270°，以适配手机在不同方向时的图像数据。当前旋转功能只支持静态单算子场景，动态场景以及卷积融合场景不支持。静态配置如下。
+ 
 ```text
 rotate_para {
     switch: true
@@ -316,14 +374,27 @@ rotate_para {
     rotation_angle: 0.0
 }
 ```
+ 
+  
 
+##### 图片补边
 
-## 图片补边
+图片补边功能支持在图片上下左右padding指定大小的数据。 padding的数据可以按通道来设置不同的值，最多补四个通道，如果有的通道没有设置的话，就默认补0，上下左右Padding的大小最大为32，即最多上下各补32行，左右各补32列。
+ 
+- 当crop或resize作为最后一个AIPP算子时，它的输出shape固定，即输出shape不可动态调整。后面如果接卷积，卷积的输入shape就是crop或resize的输出shape。
+- 当crop或者resize后接padding算子时
 
-图片补边功能支持在图片上下左右padding指定大小的数据。 padding的数据可以按通道来设置不同的值，最多补四个通道，如果有的通道没有设置的话，就默认补0，上下左右Padding的大小最大为32，即最多上下各补32行，左右各补32列。 当crop或resize作为最后一个AIPP算子时，它的输出shape固定，即输出shape不可动态调整。后面如果接卷积，卷积的输入shape就是crop或resize的输出shape。  当crop或者resize后接padding算子时  如果padding算子是静态的，那么padding算子前面的crop或resize也相当于是静态的，输出shape固定不变，crop或resize的输出shape加上padding的值就是后面卷积的shape。如果padding算子是动态的，那么padding算子的四个padding值就写0。此时，padding算子前的crop或resize的输出就是后面卷积的shape。动态时可以调整参数值，但是要保证最终的输出等于卷积的输入。   dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+  
+如果padding算子是静态的，那么padding算子前面的crop或resize也相当于是静态的，输出shape固定不变，crop或resize的输出shape加上padding的值就是后面卷积的shape。
+- 如果padding算子是动态的，那么padding算子的四个padding值就写0。此时，padding算子前的crop或resize的输出就是后面卷积的shape。动态时可以调整参数值，但是要保证最终的输出等于卷积的输入。
 
-## 静态配置
+  
+ 
+dynamic不写或者写成"false"表示静态配置，写成"true"表示动态配置。
+ 
+  
 
+##### 静态配置
 
 ```text
 padding_func {
@@ -338,11 +409,13 @@ padding_func {
     padding_value_chn_3: 20.0
 }
 ```
+ 
+  
 
-
-## 动态配置
+##### 动态配置
 
 padding算子是动态的，padding算子的四个padding值就写0，padding value的值在动态创建input tensor时指定。
+ 
 ```text
 padding_func {
     switch: true
@@ -353,10 +426,10 @@ padding_func {
     bottom_padding_size: 0
 }
 ```
+ 
+  
 
-
-## 完整AIPP动态配置示例
-
+##### 完整AIPP动态配置示例
 
 ```text
 aipp_op {
@@ -404,10 +477,10 @@ aipp_op {
     }
 }
 ```
+ 
+  
 
-
-## 完整AIPP静态配置
-
+##### 完整AIPP静态配置
 
 ```text
 aipp_op {
@@ -476,11 +549,13 @@ aipp_op {
     }
 }
 ```
+ 
+  
 
-
-## 动静态混合配置示例
+##### 动静态混合配置示例
 
 动静混合场景不支持配置rotate旋转参数，因为此时模型是动态的，动态场景暂不支持rotate旋转参数的配置。
+ 
 ```text
 aipp_op {
     input_para {

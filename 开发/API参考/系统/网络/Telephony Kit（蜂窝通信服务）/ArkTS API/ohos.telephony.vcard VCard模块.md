@@ -3,28 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vcard
-**支持设备：** Phone / Tablet / Wearable
+**支持设备：** Phone | Tablet | Wearable
 
 VCard是电子名片的文件格式标准，它可包含的信息有：姓名、地址资讯、电话号码、URL、logo、相片等。VCard模块提供了VCard能力，包括将VCard文件导入联系人数据库和将联系人数据导出为VCard文件等。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / Tablet / Wearable
 
+##### 导入模块
 
-```ts
+```text
 import { vcard } from '@kit.TelephonyKit';
 ```
 
 
-## vcard.importVCard
-**支持设备：** Phone / Tablet / Wearable
 
-importVCard(context: Context, filePath: string, accountId: number, callback: AsyncCallback<void>): void
+##### vcard.importVCard
+
+importVCard(context: Context, filePath: string, accountId: number, callback: AsyncCallback&lt;void&gt;): void
 
 将VCard文件导入联系人数据库。使用callback异步回调。
 
@@ -34,10 +32,9 @@ importVCard(context: Context, filePath: string, accountId: number, callback: Asy
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 应用上下文。 |
+| context | Context | 是 | 应用上下文。 |
 | filePath | string | 是 | VCF(vcard file)文件地址。 |
 | accountId | number | 是 | 联系人账户ID。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，返回导入成功或失败的状态码。 |
@@ -46,7 +43,6 @@ importVCard(context: Context, filePath: string, accountId: number, callback: Asy
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -59,34 +55,28 @@ importVCard(context: Context, filePath: string, accountId: number, callback: Asy
 
 **示例：**
 
-
-```ts
+```json
 import { window } from '@kit.ArkUI';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { vcard } from '@kit.TelephonyKit';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    let filePath: string = '/data/storage/vcf/contacts.vcf';
-    let accountId: number = 0;
-    vcard.importVCard(
-      this.context,
-      filePath,
-      accountId,
-      (err: BusinessError) => {
-        console.error(`callback: err->${JSON.stringify(err)}`);
-      },
-    );
-  }
+    onWindowStageCreate(windowStage: window.WindowStage) {
+        let filePath: string = "/data/storage/vcf/contacts.vcf";
+        let accountId: number = 0;
+        vcard.importVCard(this.context, filePath, accountId, (err: BusinessError) => {
+            console.error(`callback: err->${JSON.stringify(err)}`);
+        });
+    }
 }
 ```
 
 
-## vcard.importVCard
-**支持设备：** Phone / Tablet / Wearable
 
-importVCard(context: Context, filePath: string, accountId?: number): Promise<void>
+##### vcard.importVCard
+
+importVCard(context: Context, filePath: string, accountId?: number): Promise&lt;void&gt;
 
 将VCard文件导入联系人数据库。使用Promise异步回调。
 
@@ -96,16 +86,14 @@ importVCard(context: Context, filePath: string, accountId?: number): Promise<voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 应用上下文。 |
+| context | Context | 是 | 应用上下文。 |
 | filePath | string | 是 | VCF(vcard file)文件地址。 |
 | accountId | number | 否 | 联系人账户ID。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -116,7 +104,6 @@ importVCard(context: Context, filePath: string, accountId?: number): Promise<voi
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -128,36 +115,30 @@ importVCard(context: Context, filePath: string, accountId?: number): Promise<voi
 
 **示例：**
 
-
-```ts
+```json
 import { window } from '@kit.ArkUI';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { vcard } from '@kit.TelephonyKit';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    let filePath: string = '/data/storage/vcf/contacts.vcf';
-    let accountId: number = 0;
-    vcard
-      .importVCard(this.context, filePath, accountId)
-      .then(() => {
-        console.info(`importVCard success.`);
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `importVCard failed, promise: err->${JSON.stringify(err)}`,
-        );
-      });
-  }
+    onWindowStageCreate(windowStage: window.WindowStage) {
+        let filePath: string = "/data/storage/vcf/contacts.vcf";
+        let accountId: number = 0;
+        vcard.importVCard(this.context, filePath, accountId).then(() => {
+            console.info(`importVCard success.`);
+        }).catch((err: BusinessError) => {
+            console.error(`importVCard failed, promise: err->${JSON.stringify(err)}`);
+        });
+    }
 }
 ```
 
 
-## vcard.importVCard
-**支持设备：** Phone / Tablet / Wearable
 
-importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): void
+##### vcard.importVCard
+
+importVCard(context: Context, filePath: string, callback: AsyncCallback&lt;void&gt;): void
 
 将VCard文件导入联系人数据库。使用callback异步回调。
 
@@ -167,10 +148,9 @@ importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 应用上下文。 |
+| context | Context | 是 | 应用上下文。 |
 | filePath | string | 是 | VCF(vcard file)文件地址。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，返回导入成功或失败的状态码。 |
 
@@ -178,7 +158,6 @@ importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): 
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -191,28 +170,27 @@ importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): 
 
 **示例：**
 
-
-```ts
+```json
 import { window } from '@kit.ArkUI';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { vcard } from '@kit.TelephonyKit';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    let filePath: string = '/data/storage/vcf/contacts.vcf';
-    vcard.importVCard(this.context, filePath, (err: BusinessError) => {
-      console.error(`callback: err->${JSON.stringify(err)}`);
-    });
-  }
+    onWindowStageCreate(windowStage: window.WindowStage) {
+        let filePath: string = "/data/storage/vcf/contacts.vcf";
+        vcard.importVCard(this.context, filePath, (err: BusinessError) => {
+            console.error(`callback: err->${JSON.stringify(err)}`);
+        });
+    }
 }
 ```
 
 
-## vcard.exportVCard
-**支持设备：** Phone / Tablet / Wearable
 
-exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback<string>): void
+##### vcard.exportVCard
+
+exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback&lt;string&gt;): void
 
 将联系人导出为 VCF(vcard file)文件。使用callback异步回调。
 
@@ -222,11 +200,10 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 应用上下文。 |
-| predicates | [dataSharePredicates.DataSharePredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates) | 是 | 查询语句。 |
+| context | Context | 是 | 应用上下文。 |
+| predicates | dataSharePredicates.DataSharePredicates | 是 | 查询语句。 |
 | options | VCardBuilderOptions | 是 | VCard版本与编码类型。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。生成的 VCF(vcard file)文件地址。 |
 
@@ -234,7 +211,6 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -247,8 +223,7 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 
 **示例：**
 
-
-```ts
+```json
 import { window } from '@kit.ArkUI';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -256,32 +231,25 @@ import { vcard } from '@kit.TelephonyKit';
 import { dataSharePredicates } from '@kit.ArkData';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    let predicates = new dataSharePredicates.DataSharePredicates();
-    predicates.equalTo('NAME', 'Rose');
-    let options: vcard.VCardBuilderOptions = {
-      cardType: vcard.VCardType.VERSION_21,
-      charset: 'UTF-8',
-    };
-    vcard.exportVCard(
-      this.context,
-      predicates,
-      options,
-      (err: BusinessError, data: string) => {
-        console.error(
-          `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-        );
-      },
-    );
-  }
+    onWindowStageCreate(windowStage: window.WindowStage) {
+        let predicates = new dataSharePredicates.DataSharePredicates();
+        predicates.equalTo("NAME", "Rose");
+        let options: vcard.VCardBuilderOptions = {
+            cardType: vcard.VCardType.VERSION_21,
+            charset: "UTF-8"
+        };
+        vcard.exportVCard(this.context, predicates, options, (err: BusinessError, data: string) => {
+            console.error(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
+        });
+    }
 }
 ```
 
 
-## vcard.exportVCard
-**支持设备：** Phone / Tablet / Wearable
 
-exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options?: VCardBuilderOptions): Promise<string>
+##### vcard.exportVCard
+
+exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options?: VCardBuilderOptions): Promise&lt;string&gt;
 
 将联系人导出为 VCF(vcard file)文件。使用Promise异步回调。
 
@@ -291,16 +259,14 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 应用上下文。 |
-| predicates | [dataSharePredicates.DataSharePredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates) | 是 | 查询语句。 |
+| context | Context | 是 | 应用上下文。 |
+| predicates | dataSharePredicates.DataSharePredicates | 是 | 查询语句。 |
 | options | VCardBuilderOptions | 否 | VCard版本与编码类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -311,7 +277,6 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -323,8 +288,7 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 
 **示例：**
 
-
-```ts
+```json
 import { window } from '@kit.ArkUI';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -332,32 +296,27 @@ import { vcard } from '@kit.TelephonyKit';
 import { dataSharePredicates } from '@kit.ArkData';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    let predicates = new dataSharePredicates.DataSharePredicates();
-    predicates.equalTo('NAME', 'Rose');
-    let options: vcard.VCardBuilderOptions = {
-      cardType: vcard.VCardType.VERSION_21,
-      charset: 'UTF-8',
-    };
-    vcard
-      .exportVCard(this.context, predicates, options)
-      .then(() => {
-        console.info(`exportVCard success.`);
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `exportVCard failed, promise: err->${JSON.stringify(err)}`,
-        );
-      });
-  }
+    onWindowStageCreate(windowStage: window.WindowStage) {
+        let predicates = new dataSharePredicates.DataSharePredicates();
+        predicates.equalTo("NAME", "Rose");
+        let options: vcard.VCardBuilderOptions = {
+            cardType: vcard.VCardType.VERSION_21,
+            charset: "UTF-8"
+        };
+        vcard.exportVCard(this.context, predicates, options).then(() => {
+            console.info(`exportVCard success.`);
+        }).catch((err: BusinessError) => {
+            console.error(`exportVCard failed, promise: err->${JSON.stringify(err)}`);
+        });
+    }
 }
 ```
 
 
-## vcard.exportVCard
-**支持设备：** Phone / Tablet / Wearable
 
-exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<string>): void
+##### vcard.exportVCard
+
+exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback&lt;string&gt;): void
 
 将联系人导出为 VCF(vcard file)文件。使用callback异步回调。
 
@@ -367,18 +326,16 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 应用上下文。 |
-| predicates | [dataSharePredicates.DataSharePredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datasharepredicates) | 是 | 查询语句。 |
+| context | Context | 是 | 应用上下文。 |
+| predicates | dataSharePredicates.DataSharePredicates | 是 | 查询语句。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。生成的 VCF(vcard file)文件地址。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -391,8 +348,7 @@ exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicate
 
 **示例：**
 
-
-```ts
+```json
 import { window } from '@kit.ArkUI';
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -400,45 +356,38 @@ import { vcard } from '@kit.TelephonyKit';
 import { dataSharePredicates } from '@kit.ArkData';
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    let predicates = new dataSharePredicates.DataSharePredicates();
-    predicates.equalTo('NAME', 'Rose');
+    onWindowStageCreate(windowStage: window.WindowStage) {
+        let predicates = new dataSharePredicates.DataSharePredicates();
+        predicates.equalTo("NAME", "Rose");
 
-    vcard.exportVCard(
-      this.context,
-      predicates,
-      (err: BusinessError, data: string) => {
-        console.error(
-          `callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`,
-        );
-      },
-    );
-  }
+        vcard.exportVCard(this.context, predicates, (err: BusinessError, data: string) => {
+            console.error(`callback: err->${JSON.stringify(err)}, data->${JSON.stringify(data)}`);
+        });
+    }
 }
 ```
 
 
-## VCardBuilderOptions
-**支持设备：** Phone / Tablet / Wearable
+
+##### VCardBuilderOptions
 
 VCard版本和编码信息。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| cardType | [VCardType](#vcardtype) | 否 | 是 | VCard版本类型 (默认值为VERSION_21)。 |
+| cardType | VCardType | 否 | 是 | VCard版本类型 (默认值为VERSION_21)。 |
 | charset | string | 否 | 是 | VCard编码类型（默认值为'UTF-8'）。 |
 
 
-## VCardType
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### VCardType
 
 VCard版本类型。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

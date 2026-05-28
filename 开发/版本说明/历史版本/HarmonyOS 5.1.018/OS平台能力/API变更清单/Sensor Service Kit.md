@@ -24,10 +24,10 @@
 | 新增API | NA | 类名：VibratorEvent； API声明：intensity?: number; 差异内容：intensity?: number; | api/@ohos.vibrator.d.ts |
 | 新增API | NA | 类名：VibratorEvent； API声明：frequency?: number; 差异内容：frequency?: number; | api/@ohos.vibrator.d.ts |
 | 新增API | NA | 类名：VibratorEvent； API声明：index?: number; 差异内容：index?: number; | api/@ohos.vibrator.d.ts |
-| 新增API | NA | 类名：VibratorEvent； API声明：points?: Array<VibratorCurvePoint>; 差异内容：points?: Array<VibratorCurvePoint>; | api/@ohos.vibrator.d.ts |
+| 新增API | NA | 类名：VibratorEvent； API声明：points?: Array&lt;VibratorCurvePoint&gt;; 差异内容：points?: Array&lt;VibratorCurvePoint&gt;; | api/@ohos.vibrator.d.ts |
 | 新增API | NA | 类名：vibrator； API声明：interface VibratorPattern 差异内容：interface VibratorPattern | api/@ohos.vibrator.d.ts |
 | 新增API | NA | 类名：VibratorPattern； API声明：time: number; 差异内容：time: number; | api/@ohos.vibrator.d.ts |
-| 新增API | NA | 类名：VibratorPattern； API声明：events: Array<VibratorEvent>; 差异内容：events: Array<VibratorEvent>; | api/@ohos.vibrator.d.ts |
+| 新增API | NA | 类名：VibratorPattern； API声明：events: Array&lt;VibratorEvent&gt;; 差异内容：events: Array&lt;VibratorEvent&gt;; | api/@ohos.vibrator.d.ts |
 | 新增API | NA | 类名：vibrator； API声明：interface ContinuousParam 差异内容：interface ContinuousParam | api/@ohos.vibrator.d.ts |
 | 新增API | NA | 类名：ContinuousParam； API声明：intensity?: number; 差异内容：intensity?: number; | api/@ohos.vibrator.d.ts |
 | 新增API | NA | 类名：ContinuousParam； API声明：frequency?: number; 差异内容：frequency?: number; | api/@ohos.vibrator.d.ts |

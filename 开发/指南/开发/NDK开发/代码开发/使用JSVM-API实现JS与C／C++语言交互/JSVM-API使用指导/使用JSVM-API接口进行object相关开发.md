@@ -4,17 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-object
 
-## 简介
+##### 简介
 
 使用JSVM-API接口进行object相关开发，处理JavaScript对象的基本操作，例如创建对象、获取原型、冻结和密封对象，检查对象的类型等。这些操作是在处理JavaScript对象时非常常见的，提供了一种与JavaScript对象交互的方式。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-在JSVM接口开发中，经常需要定义和操作对象。例如，创建一个接口，该接口接受一个对象作为输入参数，对该对象执行某些操作，并返回一个结果对象。在这个过程中，需要确保接口的定义清晰、规范，并且与对象的属性和方法相兼容。 **接口（API）**：接口定义了组件之间的交互协议，包括输入参数、输出结果以及可能的错误处理。通过接口，组件可以相互调用和交换数据，而无需了解对方的内部实现细节。**对象（Object）**：在JavaScript中，对象是一种复合数据类型，允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。
+在JSVM接口开发中，经常需要定义和操作对象。例如，创建一个接口，该接口接受一个对象作为输入参数，对该对象执行某些操作，并返回一个结果对象。在这个过程中，需要确保接口的定义清晰、规范，并且与对象的属性和方法相兼容。
+ 
+- **接口（API）**：接口定义了组件之间的交互协议，包括输入参数、输出结果以及可能的错误处理。通过接口，组件可以相互调用和交换数据，而无需了解对方的内部实现细节。
+- **对象（Object）**：在JavaScript中，对象是一种复合数据类型，允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_GetPrototype | 获取给定JavaScript对象的原型。 |
@@ -29,22 +36,29 @@
 | OH_JSVM_SymbolFor | 在全局注册表中搜索具有给定描述的现有Symbol，如果该Symbol已经存在，它将被返回，否则将在注册表中创建一个新Symbol。 |
 | OH_JSVM_CreateExternal | 创建一个包装了外部指针的JavaScript对象。 |
 | OH_JSVM_GetValueExternal | 获取先前传递给OH_JSVM_CreateExternal的外部数据指针。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
+ 
+  
 
-## OH_JSVM_GetPrototype
+##### OH_JSVM_GetPrototype
 
-该函数用于获取给定JavaScript对象的原型。 cpp部分代码：
-```text
+该函数用于获取给定JavaScript对象的原型。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
-#include
-#include
+#include <hilog/log.h>
+#include <fstream>
+#include <string>
 // GetPrototype注册回调
 // OH_JSVM_GetPrototype的样例方法
 static JSVM_Value GetPrototype(JSVM_Env env, JSVM_CallbackInfo info)
@@ -74,22 +88,27 @@ const char* srcCallNative = R"JS(const myObject = {};
     const proto = getPrototype(myObject);
     console.info(proto === Object.prototype);)JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM GetPrototype success
 ```
+ 
+  
 
+##### OH_JSVM_CreateObject
 
-## OH_JSVM_CreateObject
-
-该函数创建一个默认的JavaScript Object对象。 cpp部分代码：
-```text
+该函数创建一个默认的JavaScript Object对象。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
-#include
+#include <hilog/log.h>
+#include <fstream>
 // OH_JSVM_CreateObject的样例方法
 static JSVM_Value CreateObject(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -124,21 +143,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(createObject())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM CreateObject success
 ```
+ 
+  
 
+##### OH_JSVM_ObjectFreeze
 
-## OH_JSVM_ObjectFreeze
-
-冻结给定的对象，防止向其添加新属性，移除现有属性，防止更改现有属性的可枚举性、可配置性或可写性，并防止更改现有属性的值。 cpp部分代码：
-```text
+冻结给定的对象，防止向其添加新属性，移除现有属性，防止更改现有属性的可枚举性、可配置性或可写性，并防止更改现有属性的值。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_ObjectFreeze的样例方法
 static JSVM_Value ObjectFreeze(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -171,21 +195,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 const char* srcCallNative = R"JS(let obj = { data: 55, message: "hello world"};
   objectFreeze(obj))JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 Test JSVM OH_JSVM_ObjectFreeze success
 ```
+ 
+  
 
+##### OH_JSVM_ObjectSeal
 
-## OH_JSVM_ObjectSeal
-
-密封给定的对象。这可以防止向该对象添加新属性，以及将所有现有属性标记为不可配置。 cpp部分代码：
-```text
+密封给定的对象。这可以防止向该对象添加新属性，以及将所有现有属性标记为不可配置。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_ObjectSeal的样例方法
 static JSVM_Value ObjectSeal(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -231,21 +260,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 const char* srcCallNative = R"JS( let obj = { data: 55, message: "hello world"};
   objectSeal(obj))JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 Test JSVM OH_JSVM_ObjectSeal success
 ```
+ 
+  
 
+##### OH_JSVM_Typeof
 
-## OH_JSVM_Typeof
-
-返回JavaScript对象的类型。 cpp部分代码：
-```text
+返回JavaScript对象的类型。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_Typeof的样例方法
 static JSVM_Value GetTypeof(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -315,21 +349,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(getTypeof(true);)JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM Input type is boolean
 ```
+ 
+  
 
+##### OH_JSVM_Instanceof
 
-## OH_JSVM_Instanceof
-
-判断一个对象是否是某个构造函数的实例。 cpp部分代码：
-```text
+判断一个对象是否是某个构造函数的实例。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_Instanceof的样例方法
 static JSVM_Value InstanceOf(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -369,25 +408,32 @@ const char* srcCallNative = R"JS(class Person {
      instanceOf(new Person('Alice', 30), Person);
      ;)JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM InstanceOf：1
 ```
+ 
+  
 
-
-## OH_JSVM_TypeTagObject
+##### OH_JSVM_TypeTagObject
 
 使用类型标签type_tag来标记JavaScript对象，这样在后续操作中可以更精确地识别JavaScript对象。
+ 
+  
 
-## OH_JSVM_CheckObjectTypeTag
+##### OH_JSVM_CheckObjectTypeTag
 
-检查给定的类型标签是否与对象上的类型标签匹配。 cpp部分代码：
-```text
+检查给定的类型标签是否与对象上的类型标签匹配。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 #define NUMBERINT_FOUR 4
 // 定义一个静态常量JSVM_TypeTag数组存储类型标签
 static const JSVM_TypeTag TagsData[NUMBERINT_FOUR] = {
@@ -463,25 +509,36 @@ const char* srcCallNative = R"JS(
          setTypeTagToObject(obj, 0);
          checkObjectTypeTag(obj,0);)JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM SetTypeTagToObject success
 JSVM CheckObjectTypeTag:1
 ```
+ 
+  
 
-
-## OH_JSVM_CreateExternal
+##### OH_JSVM_CreateExternal
 
 创建一个包装了外部指针的JavaScript对象。
+ 
+
 ![](assets/使用JSVM-API接口进行object相关开发/file-20260514132723363-0.png)
-JavaScript对象被垃圾回收时，包装的外部指针指向的内容不被GC直接管理，仅调用传入的第三个参数对应的函数（如果传入时不为nullptr）。   cpp部分代码：
-```text
+ 
+ 
+JavaScript对象被垃圾回收时，包装的外部指针指向的内容不被GC直接管理，仅调用传入的第三个参数对应的函数（如果传入时不为nullptr）。
+  
+
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
-#include
+#include <hilog/log.h>
+#include <fstream>
 // OH_JSVM_CreateExternal的样例方法
 static JSVM_Value CreateExternal(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -518,21 +575,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(createExternal())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM CreateExternal success
 ```
+ 
+  
 
+##### OH_JSVM_GetValueExternal
 
-## OH_JSVM_GetValueExternal
-
-OH_JSVM_CreateExternal可以创建并包装自定义的C/C++对象，并将其公开给JavaScript代码，而OH_JSVM_GetValueExternal则用于获取OH_JSVM_CreateExternal所包装的外部对象的指针。 cpp部分代码：
-```text
+OH_JSVM_CreateExternal可以创建并包装自定义的C/C++对象，并将其公开给JavaScript代码，而OH_JSVM_GetValueExternal则用于获取OH_JSVM_CreateExternal所包装的外部对象的指针。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetValueExternal的样例方法
 static JSVM_Value GetValueExternal(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -553,7 +615,7 @@ static JSVM_Value GetValueExternal(JSVM_Env env, JSVM_CallbackInfo info)
     }
     // 将符号位转化为int类型传出去
     JSVM_Value returnValue = nullptr;
-    int retData = *static_cast(data_value);
+    int retData = *static_cast<int *>(data_value);
     OH_JSVM_CreateInt32(env, retData, &returnValue);
     return returnValue;
 }
@@ -569,22 +631,27 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(getValueExternal())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM OH_JSVM_CreateExternal success
 JSVM GetValueExternal success
 ```
+ 
+  
 
+##### OH_JSVM_CreateSymbol
 
-## OH_JSVM_CreateSymbol
-
-用于创建一个新的Symbol。Symbol是一种特殊的数据类型，用于表示唯一的标识符。与字符串或数字不同，符号的值是唯一的，即使两个符号具有相同的描述，它们也是不相等的。符号通常用作对象属性的键，以确保属性的唯一性。 cpp部分代码：
-```text
+用于创建一个新的Symbol。Symbol是一种特殊的数据类型，用于表示唯一的标识符。与字符串或数字不同，符号的值是唯一的，即使两个符号具有相同的描述，它们也是不相等的。符号通常用作对象属性的键，以确保属性的唯一性。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_CreateSymbol的样例方法
 static JSVM_Value CreateSymbol(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -614,21 +681,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(createSymbol())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM CreateSymbol Success
 ```
+ 
+  
 
+##### OH_JSVM_SymbolFor
 
-## OH_JSVM_SymbolFor
-
-在全局注册表中搜索具有给定描述的现有Symbol，如果该Symbol已经存在，它将被返回，否则将在注册表中创建一个新Symbol。 cpp部分代码：
-```text
+在全局注册表中搜索具有给定描述的现有Symbol，如果该Symbol已经存在，它将被返回，否则将在注册表中创建一个新Symbol。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // 定义一个常量，用于存储最大字符串长度
 static const int MAX_BUFFER_SIZE = 128;
 // OH_JSVM_SymbolFor的样例方法
@@ -664,8 +736,9 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(symbolFor())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM OH_JSVM_SymbolFor success
 ```

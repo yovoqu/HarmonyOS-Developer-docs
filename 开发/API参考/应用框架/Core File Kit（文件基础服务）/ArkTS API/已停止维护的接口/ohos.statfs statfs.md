@@ -3,171 +3,157 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statfs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该模块提供文件系统相关存储信息的功能，向应用程序提供获取文件系统总字节数、空闲字节数的ArkTS接口。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块从API version 9开始废弃，建议使用 @ohos.file.statvfs 替代。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import statfs from '@ohos.statfs';
 ```
+ 
+  
 
+##### Statfs.getFreeBytes
 
-## Statfs.getFreeBytes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getFreeBytes(path:string):Promise<number>
-
+getFreeBytes(path:string):Promise&lt;number&gt;
+ 
 异步方法获取指定文件系统空闲字节数，以Promise形式返回结果。
-
+ 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 需要查询的文件系统的文件路径 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;number&gt; | 返回空闲字节数 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { BusinessError } from '@ohos.base';
-let path = '/dev';
-statfs
-  .getFreeBytes(path)
-  .then((number: number) => {
-    console.info('getFreeBytes promise successfully:' + number);
-  })
-  .catch((err: BusinessError) => {
-    console.error('getFreeBytes failed with error:' + JSON.stringify(err));
-  });
+let path = "/dev";
+statfs.getFreeBytes(path).then((number: number) => {
+  console.info("getFreeBytes promise successfully:" + number);
+}).catch((err: BusinessError) => {
+  console.error("getFreeBytes failed with error:" + JSON.stringify(err));
+});
 ```
+ 
+  
 
+##### Statfs.getFreeBytes
 
-## Statfs.getFreeBytes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getFreeBytes(path:string, callback:AsyncCallback<number>): void
-
+getFreeBytes(path:string, callback:AsyncCallback&lt;number&gt;): void
+ 
 异步方法获取指定文件系统空闲字节数，使用callback形式返回结果。
-
+ 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 需要查询的文件系统的文件路径 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 异步获取空闲字节数之后的回调 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import common from '@ohos.app.ability.common';
 import { BusinessError } from '@ohos.base';
 let context = getContext(this) as common.UIAbilityContext;
 let path = context.filesDir;
-statfs.getFreeBytes(path, (err: BusinessError, freeBytes: Number) => {
-  if (err) {
-    console.error('getFreeBytes callback failed');
-  } else {
-    console.info('getFreeBytes callback success' + freeBytes);
-  }
+statfs.getFreeBytes(path, (err: BusinessError, freeBytes:Number) => {
+    if (err) {
+        console.error('getFreeBytes callback failed');
+    } else {
+        console.info('getFreeBytes callback success' + freeBytes);
+    }
 });
 ```
+ 
+  
 
+##### Statfs.getTotalBytes
 
-## Statfs.getTotalBytes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getTotalBytes(path: string): Promise<number>
-
+getTotalBytes(path: string): Promise&lt;number&gt;
+ 
 异步方法获取指定文件系统总字节数，以Promise形式返回结果。
-
+ 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 需要查询的文件系统的文件路径 |
-
-
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;number&gt; | 返回总字节数 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { BusinessError } from '@ohos.base';
-let path = '/dev';
-statfs
-  .getTotalBytes(path)
-  .then((number: number) => {
-    console.info('getTotalBytes promise successfully:' + number);
-  })
-  .catch((err: BusinessError) => {
-    console.error('getTotalBytes failed with error:' + JSON.stringify(err));
-  });
+let path = "/dev";
+statfs.getTotalBytes(path).then((number: number) => {
+  console.info("getTotalBytes promise successfully:" + number);
+}).catch((err: BusinessError) => {
+  console.error("getTotalBytes failed with error:" + JSON.stringify(err));
+});
 ```
+ 
+  
 
+##### Statfs.getTotalBytes
 
-## Statfs.getTotalBytes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getTotalBytes(path: string, callback: AsyncCallback<number>): void
-
+getTotalBytes(path: string, callback: AsyncCallback&lt;number&gt;): void
+ 
 异步方法获取指定文件系统总字节数，使用callback形式返回结果。
-
+ 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 需要查询的文件系统的文件路径 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 异步获取总字节数之后的回调 |
-
-
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import common from '@ohos.app.ability.common';
 import { BusinessError } from '@ohos.base';
 let context = getContext(this) as common.UIAbilityContext;
 let path = context.filesDir;
-statfs.getTotalBytes(path, (err: BusinessError, totalBytes: Number) => {
-  if (err) {
-    console.error('getTotalBytes callback failed');
-  } else {
-    console.info('getTotalBytes callback success' + totalBytes);
-  }
+statfs.getTotalBytes(path, (err: BusinessError, totalBytes:Number) => {
+    if (err) {
+        console.error('getTotalBytes callback failed');
+    } else {
+        console.info('getTotalBytes callback success' + totalBytes);
+    }
 });
 ```

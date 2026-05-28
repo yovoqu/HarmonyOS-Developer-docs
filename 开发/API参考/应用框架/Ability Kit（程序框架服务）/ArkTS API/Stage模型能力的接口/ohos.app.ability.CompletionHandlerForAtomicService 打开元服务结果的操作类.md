@@ -3,106 +3,98 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/apis-app-ability-completionhandlerforatomicservice
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 CompletionHandlerForAtomicService作为[AtomicServiceOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-atomicserviceoptions)的可选参数，用于接收打开元服务请求的结果。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 20 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { CompletionHandlerForAtomicService } from '@kit.AbilityKit';
 ```
+ 
+  
 
-
-## FailureCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### FailureCode
 
 打开元服务失败的特定错误码。
-
+ 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | FAILURE_CODE_SYSTEM_MALFUNCTION | 0 | 表示由于系统错误（如跳转弹框崩溃）而无法打开元服务。 |
 | FAILURE_CODE_USER_CANCEL | 1 | 用户取消。 |
 | FAILURE_CODE_USER_REFUSE | 2 | 用户拒绝。 |
+ 
+ 
+  
 
-
-## CompletionHandlerForAtomicService
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### CompletionHandlerForAtomicService
 
 CompletionHandlerForAtomicService提供了[onAtomicServiceRequestSuccess](#onatomicservicerequestsuccess)和[onAtomicServiceRequestFailure](#onatomicservicerequestfailure)两个回调函数，分别在打开元服务成功和失败时回调。
+ 
+  
 
-
-### onAtomicServiceRequestSuccess
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### onAtomicServiceRequestSuccess
 
 onAtomicServiceRequestSuccess(appId: string): void
-
+ 
 打开元服务成功时的回调函数。
-
+ 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | appId | string | 是 | 被拉起元服务的appId。 |
-
-
+ 
+ 
 **示例：**
-
+ 
 参见[CompletionHandlerForAtomicService示例](#completionhandlerforatomicservice示例)。
+ 
+  
 
-
-### onAtomicServiceRequestFailure
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### onAtomicServiceRequestFailure
 
 onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string): void
-
+ 
 打开元服务失败时的回调函数。
-
+ 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | appId | string | 是 | 被拉起元服务的appId。 |
-| failureCode | [FailureCode](#failurecode) | 是 | 失败原因的错误码。 |
+| failureCode | FailureCode | 是 | 失败原因的错误码。 |
 | failureMessage | string | 是 | 失败原因的描述。 |
-
-
+ 
+ 
 **示例：**
-
+ 
 参见[CompletionHandlerForAtomicService示例](#completionhandlerforatomicservice示例)。
+ 
+  
 
+##### CompletionHandlerForAtomicService示例
 
-### CompletionHandlerForAtomicService示例
-
-
-```ts
-import {
-  AbilityConstant,
-  AtomicServiceOptions,
-  common,
-  UIAbility,
-  Want,
-  CompletionHandlerForAtomicService,
-  FailureCode,
-} from '@kit.AbilityKit';
+```json
+import { AbilityConstant, AtomicServiceOptions, common, UIAbility, Want, CompletionHandlerForAtomicService, FailureCode } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -112,38 +104,19 @@ export default class EntryAbility extends UIAbility {
       onAtomicServiceRequestSuccess(appId: string) {
         hilog.info(0x0000, 'testTag', `appId:${appId}`);
       },
-      onAtomicServiceRequestFailure(
-        appId: string,
-        failureCode: FailureCode,
-        failureMessage: string,
-      ) {
-        hilog.info(
-          0x0000,
-          'testTag',
-          `appId:${appId}, failureCode:${failureCode}, failureMessage:${failureMessage}`,
-        );
-      },
+      onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string) {
+        hilog.info(0x0000, 'testTag', `appId:${appId}, failureCode:${failureCode}, failureMessage:${failureMessage}`);
+      }
     };
     let options: AtomicServiceOptions = {
-      completionHandlerForAtomicService: completionHandler,
+      completionHandlerForAtomicService: completionHandler
     };
     let appId: string = '5765880207853275489'; // 根据实际appId修改此值
-    this.context
-      .openAtomicService(appId, options)
-      .then((result: common.AbilityResult) => {
-        hilog.info(
-          0x0000,
-          'testTag',
-          `openAtomicService succeed:${JSON.stringify(result)}`,
-        );
-      })
-      .catch((err: BusinessError) => {
-        hilog.error(
-          0x0000,
-          'testTag',
-          `openAtomicService failed:${JSON.stringify(err)}`,
-        );
-      });
+    this.context.openAtomicService(appId, options).then((result: common.AbilityResult) => {
+      hilog.info(0x0000, 'testTag', `openAtomicService succeed:${JSON.stringify(result)}`);
+    }).catch((err: BusinessError) => {
+      hilog.error(0x0000, 'testTag', `openAtomicService failed:${JSON.stringify(err)}`);
+    });
   }
 }
 ```

@@ -3,31 +3,28 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-securitylabel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该模块提供文件数据安全等级的相关功能：向应用程序提供查询、设置文件数据安全等级的ArkTS接口。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { securityLabel } from '@kit.CoreFileKit';
 ```
 
 
-## 使用说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 使用说明
 
 使用该功能模块对文件/目录进行操作前，需要先获取其应用沙箱路径，获取方式及其接口用法请参考：
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 
@@ -42,15 +39,14 @@ export default class EntryAbility extends UIAbility {
 使用该功能模块对文件/目录进行操作前，需要先获取其应用沙箱路径，获取方式及其接口用法请参考：[应用上下文Context-获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。
 
 
-## DataLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### DataLevel
 
 type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4'
 
 数据安全等级。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -64,10 +60,10 @@ type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4'
 数据安全等级详细说明请见[数据安全标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/access-control-by-device-and-data-level#数据安全标签)。
 
 
-## securityLabel.setSecurityLabel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSecurityLabel(path:string, type:DataLevel):Promise<void>
+##### securityLabel.setSecurityLabel
+
+setSecurityLabel(path:string, type:DataLevel):Promise&lt;void&gt;
 
 设置文件或目录的数据安全等级。数据安全等级仅可由低向高或平级设置。使用Promise异步回调。
 
@@ -75,15 +71,13 @@ setSecurityLabel(path:string, type:DataLevel):Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 文件路径。 |
-| type | [DataLevel](#datalevel) | 是 | 数据安全等级，只支持"s0","s1","s2","s3","s4"。 |
+| type | DataLevel | 是 | 数据安全等级，只支持"s0","s1","s2","s3","s4"。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -94,7 +88,6 @@ setSecurityLabel(path:string, type:DataLevel):Promise<void>
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900001 | Operation not permitted |
@@ -109,30 +102,21 @@ setSecurityLabel(path:string, type:DataLevel):Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 let filePath = pathDir + '/test.txt';
-securityLabel
-  .setSecurityLabel(filePath, 's0')
-  .then(() => {
-    console.info('setSecurityLabel successfully');
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      'setSecurityLabel failed with error message: ' +
-        err.message +
-        ', error code: ' +
-        err.code,
-    );
-  });
+securityLabel.setSecurityLabel(filePath, "s0").then(() => {
+  console.info("setSecurityLabel successfully");
+}).catch((err: BusinessError) => {
+  console.error("setSecurityLabel failed with error message: " + err.message + ", error code: " + err.code);
+});
 ```
 
 
-## securityLabel.setSecurityLabel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSecurityLabel(path:string, type:DataLevel, callback: AsyncCallback<void>):void
+##### securityLabel.setSecurityLabel
+
+setSecurityLabel(path:string, type:DataLevel, callback: AsyncCallback&lt;void&gt;):void
 
 设置文件或目录的数据安全等级。数据安全等级仅可由低向高或平级设置。使用callback异步回调。
 
@@ -140,18 +124,16 @@ setSecurityLabel(path:string, type:DataLevel, callback: AsyncCallback<void>):voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 文件路径。 |
-| type | [DataLevel](#datalevel) | 是 | 数据安全等级，只支持"s0","s1","s2","s3","s4"。 |
+| type | DataLevel | 是 | 数据安全等级，只支持"s0","s1","s2","s3","s4"。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 设置数据安全等级之后的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -167,27 +149,21 @@ setSecurityLabel(path:string, type:DataLevel, callback: AsyncCallback<void>):voi
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 let filePath = pathDir + '/test.txt';
-securityLabel.setSecurityLabel(filePath, 's0', (err: BusinessError) => {
+securityLabel.setSecurityLabel(filePath, "s0", (err: BusinessError) => {
   if (err) {
-    console.error(
-      'setSecurityLabel failed with error message: ' +
-        err.message +
-        ', error code: ' +
-        err.code,
-    );
+    console.error("setSecurityLabel failed with error message: " + err.message + ", error code: " + err.code);
   } else {
-    console.info('setSecurityLabel successfully.');
+    console.info("setSecurityLabel successfully.");
   }
 });
 ```
 
 
-## securityLabel.setSecurityLabelSync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### securityLabel.setSecurityLabelSync
 
 setSecurityLabelSync(path:string, type:DataLevel):void
 
@@ -197,17 +173,15 @@ setSecurityLabelSync(path:string, type:DataLevel):void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 文件路径。 |
-| type | [DataLevel](#datalevel) | 是 | 数据安全等级，只支持"s0","s1","s2","s3","s4"。 |
+| type | DataLevel | 是 | 数据安全等级，只支持"s0","s1","s2","s3","s4"。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -223,17 +197,16 @@ setSecurityLabelSync(path:string, type:DataLevel):void
 
 **示例：**
 
-
-```ts
+```text
 let filePath = pathDir + '/test.txt';
-securityLabel.setSecurityLabelSync(filePath, 's0');
+securityLabel.setSecurityLabelSync(filePath, "s0");
 ```
 
 
-## securityLabel.getSecurityLabel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSecurityLabel(path:string):Promise<string>
+##### securityLabel.getSecurityLabel
+
+getSecurityLabel(path:string):Promise&lt;string&gt;
 
 获取文件或目录的数据安全等级。若未设置过数据安全等级则默认返回“s3”。使用Promise异步回调。
 
@@ -241,14 +214,12 @@ getSecurityLabel(path:string):Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 文件路径。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -259,7 +230,6 @@ getSecurityLabel(path:string):Promise<string>
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900001 | Operation not permitted |
@@ -274,37 +244,27 @@ getSecurityLabel(path:string):Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 let filePath = pathDir + '/test.txt';
-securityLabel
-  .getSecurityLabel(filePath)
-  .then((type: string) => {
-    console.info('getSecurityLabel successfully, Label: ' + type);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      'getSecurityLabel failed with error message: ' +
-        err.message +
-        ', error code: ' +
-        err.code,
-    );
-  });
+securityLabel.getSecurityLabel(filePath).then((type: string) => {
+  console.info("getSecurityLabel successfully, Label: " + type);
+}).catch((err: BusinessError) => {
+  console.error("getSecurityLabel failed with error message: " + err.message + ", error code: " + err.code);
+});
 ```
 
 
-## securityLabel.getSecurityLabel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSecurityLabel(path:string, callback:AsyncCallback<string>): void
+##### securityLabel.getSecurityLabel
+
+getSecurityLabel(path:string, callback:AsyncCallback&lt;string&gt;): void
 
 获取文件或目录的数据安全等级。若未设置过数据安全等级则默认返回“s3”。使用callback异步回调。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -316,7 +276,6 @@ getSecurityLabel(path:string, callback:AsyncCallback<string>): void
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900001 | Operation not permitted |
@@ -331,27 +290,21 @@ getSecurityLabel(path:string, callback:AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 let filePath = pathDir + '/test.txt';
 securityLabel.getSecurityLabel(filePath, (err: BusinessError, type: string) => {
   if (err) {
-    console.error(
-      'getSecurityLabel failed with error message: ' +
-        err.message +
-        ', error code: ' +
-        err.code,
-    );
+    console.error("getSecurityLabel failed with error message: " + err.message + ", error code: " + err.code);
   } else {
-    console.info('getSecurityLabel successfully, Label: ' + type);
+    console.info("getSecurityLabel successfully, Label: " + type);
   }
 });
 ```
 
 
-## securityLabel.getSecurityLabelSync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### securityLabel.getSecurityLabelSync
 
 getSecurityLabelSync(path:string):string
 
@@ -361,14 +314,12 @@ getSecurityLabelSync(path:string):string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 文件路径。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -379,7 +330,6 @@ getSecurityLabelSync(path:string):string
 
 以下错误码的详细介绍请参见[基础文件IO错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-filemanagement#基础文件io错误码)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 13900001 | Operation not permitted |
@@ -394,9 +344,8 @@ getSecurityLabelSync(path:string):string
 
 **示例：**
 
-
-```ts
+```text
 let filePath = pathDir + '/test.txt';
 let type = securityLabel.getSecurityLabelSync(filePath);
-console.info('getSecurityLabel successfully, Label: ' + type);
+console.info("getSecurityLabel successfully, Label: " + type);
 ```

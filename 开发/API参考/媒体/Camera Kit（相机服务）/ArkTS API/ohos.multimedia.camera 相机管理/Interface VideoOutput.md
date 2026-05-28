@@ -3,28 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 录像会话中使用的输出信息，继承[CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput)。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 ```
 
 
-## start
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-start(callback: AsyncCallback<void>): void
+##### start
+
+start(callback: AsyncCallback&lt;void&gt;): void
 
 启动录制，通过注册回调函数获取结果。使用callback异步回调。
 
@@ -34,16 +32,14 @@ start(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动录制成功，err为undefined，否则为错误对象。错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动录制成功，err为undefined，否则为错误对象。错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -53,30 +49,25 @@ start(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function startVideoOutput(videoOutput: camera.VideoOutput): void {
   videoOutput.start((err: BusinessError) => {
     if (err.code) {
-      console.error(
-        `Failed to start the video output, error code: ${err.code}.`,
-      );
+      console.error(`Failed to start the video output, error code: ${err.code}.`);
       return;
     }
-    console.info(
-      'Callback invoked to indicate the video output start success.',
-    );
+    console.info('Callback invoked to indicate the video output start success.');
   });
 }
 ```
 
 
-## start
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-start(): Promise<void>
+##### start
+
+start(): Promise&lt;void&gt;
 
 启动录制。使用Promise异步回调。
 
@@ -86,7 +77,6 @@ start(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -96,7 +86,6 @@ start(): Promise<void>
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400103 | Session not config. |
@@ -105,29 +94,23 @@ start(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function startVideoOutput(videoOutput: camera.VideoOutput): void {
-  videoOutput
-    .start()
-    .then(() => {
-      console.info(
-        'Promise returned to indicate that start method execution success.',
-      );
-    })
-    .catch((error: BusinessError) => {
-      console.error(`Failed to video output start, error code: ${error.code}.`);
-    });
+  videoOutput.start().then(() => {
+    console.info('Promise returned to indicate that start method execution success.');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to video output start, error code: ${error.code}.`);
+  });
 }
 ```
 
 
-## stop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(callback: AsyncCallback<void>): void
+##### stop
+
+stop(callback: AsyncCallback&lt;void&gt;): void
 
 结束录制，通过注册回调函数获取结果。使用callback异步回调。
 
@@ -137,7 +120,6 @@ stop(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当结束录制成功，err为undefined，否则为错误对象。 |
@@ -145,8 +127,7 @@ stop(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 function stopVideoOutput(videoOutput: camera.VideoOutput): void {
   videoOutput.stop(() => {
     console.info('Callback invoked to indicate the video output stop success.');
@@ -155,10 +136,10 @@ function stopVideoOutput(videoOutput: camera.VideoOutput): void {
 ```
 
 
-## stop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(): Promise<void>
+##### stop
+
+stop(): Promise&lt;void&gt;
 
 结束录制。使用Promise异步回调。
 
@@ -168,7 +149,6 @@ stop(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -176,42 +156,35 @@ stop(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function stopVideoOutput(videoOutput: camera.VideoOutput): void {
-  videoOutput
-    .stop()
-    .then(() => {
-      console.info(
-        'Promise returned to indicate that stop method execution success.',
-      );
-    })
-    .catch((error: BusinessError) => {
-      console.error(`Failed to video output stop, error code: ${error.code}.`);
-    });
+  videoOutput.stop().then(() => {
+    console.info('Promise returned to indicate that stop method execution success.');
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to video output stop, error code: ${error.code}.`);
+  });
 }
 ```
 
 
-## on('frameStart')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'frameStart', callback: AsyncCallback<void>): void
+##### on('frameStart')
+
+on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void
 
 监听录像开始，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -221,8 +194,7 @@ on(type: 'frameStart', callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function callback(err: BusinessError): void {
@@ -239,23 +211,22 @@ function registerVideoOutputFrameStart(videoOutput: camera.VideoOutput): void {
 ```
 
 
-## off('frameStart')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'frameStart', callback?: AsyncCallback<void>): void
+##### off('frameStart')
+
+off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void
 
 注销监听录像开始。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -265,20 +236,17 @@ off(type: 'frameStart', callback?: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
-function unregisterVideoOutputFrameStart(
-  videoOutput: camera.VideoOutput,
-): void {
+```text
+function unregisterVideoOutputFrameStart(videoOutput: camera.VideoOutput): void {
   videoOutput.off('frameStart');
 }
 ```
 
 
-## on('frameEnd')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'frameEnd', callback: AsyncCallback<void>): void
+##### on('frameEnd')
+
+on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void
 
 监听录像结束，通过注册回调函数获取结果。使用callback异步回调。
 
@@ -288,7 +256,6 @@ on(type: 'frameEnd', callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'frameEnd'，videoOutput创建成功后可监听。录像完全结束最后一帧时触发该事件并返回。 |
@@ -297,8 +264,7 @@ on(type: 'frameEnd', callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function callback(err: BusinessError): void {
@@ -315,10 +281,10 @@ function registerVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
 ```
 
 
-## off('frameEnd')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'frameEnd', callback?: AsyncCallback<void>): void
+##### off('frameEnd')
+
+off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void
 
 注销监听录像结束。
 
@@ -328,7 +294,6 @@ off(type: 'frameEnd', callback?: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'frameEnd'，videoOutput创建成功后可监听。 |
@@ -337,24 +302,23 @@ off(type: 'frameEnd', callback?: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 function unregisterVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
   videoOutput.off('frameEnd');
 }
 ```
 
 
-## on('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('error')
 
 on(type: 'error', callback: ErrorCallback): void
 
 监听录像输出发生错误，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
 > 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -362,17 +326,15 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听事件，固定为'error'，videoOutput创建成功后可监听。录像接口调用出现错误时触发该事件并返回对应错误码，比如调用[start](#start-1)，[CameraOutput.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput#release-1)接口时出现错误返回对应错误信息。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| type | string | 是 | 监听事件，固定为'error'，videoOutput创建成功后可监听。录像接口调用出现错误时触发该事件并返回对应错误码，比如调用start，CameraOutput.release接口时出现错误返回对应错误信息。 |
+| callback | ErrorCallback | 是 | 回调函数，用于获取错误信息。返回错误码，错误码类型CameraErrorCode。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function callback(err: BusinessError): void {
@@ -385,8 +347,8 @@ function registerVideoOutputError(videoOutput: camera.VideoOutput): void {
 ```
 
 
-## off('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('error')
 
 off(type: 'error', callback?: ErrorCallback): void
 
@@ -398,27 +360,25 @@ off(type: 'error', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'error'，photoOutput创建成功后可监听。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | ErrorCallback | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
+```text
 function unregisterVideoOutputError(videoOutput: camera.VideoOutput): void {
   videoOutput.off('error');
 }
 ```
 
 
-## getSupportedFrameRates12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSupportedFrameRates(): Array<FrameRateRange>
+##### getSupportedFrameRates12+
+
+getSupportedFrameRates(): Array&lt;FrameRateRange&gt;
 
 查询支持的帧率范围。
 
@@ -428,28 +388,23 @@ getSupportedFrameRates(): Array<FrameRateRange>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[FrameRateRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#frameraterange)&gt; | 支持的帧率范围列表。若接口调用失败，返回undefined。 |
+| Array&lt;FrameRateRange&gt; | 支持的帧率范围列表。若接口调用失败，返回undefined。 |
 
 
 **示例：**
 
-
-```ts
-function getSupportedFrameRates(
-  videoOutput: camera.VideoOutput,
-): Array<camera.FrameRateRange> {
-  let supportedFrameRatesArray: Array<camera.FrameRateRange> =
-    videoOutput.getSupportedFrameRates();
+```text
+function getSupportedFrameRates(videoOutput: camera.VideoOutput): Array<camera.FrameRateRange> {
+  let supportedFrameRatesArray: Array<camera.FrameRateRange> = videoOutput.getSupportedFrameRates();
   return supportedFrameRatesArray;
 }
 ```
 
 
-## setFrameRate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setFrameRate12+
 
 setFrameRate(minFps: number, maxFps: number): void
 
@@ -457,17 +412,15 @@ setFrameRate(minFps: number, maxFps: number): void
 
 进行设置前，可通过[getSupportedFrameRates](#getsupportedframerates12)查询支持的帧率范围。
 
-
 > [!NOTE]
-> 仅在[PhotoSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession)或[VideoSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession)模式下支持。
-> 接口调用前，先调用[getActiveFrameRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput#getactiveframerate12)接口查询当前VideoSession的帧率，若下发的帧率与当前帧率相等，则下发的帧率不会生效。
+> 仅在 PhotoSession 或 VideoSession 模式下支持。 接口调用前，先调用 getActiveFrameRate 接口查询当前VideoSession的帧率，若下发的帧率与当前帧率相等，则下发的帧率不会生效。
+
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -479,7 +432,6 @@ setFrameRate(minFps: number, maxFps: number): void
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
@@ -488,19 +440,15 @@ setFrameRate(minFps: number, maxFps: number): void
 
 **示例：**
 
-
-```ts
-function setFrameRateRange(
-  videoOutput: camera.VideoOutput,
-  frameRateRange: Array<number>,
-): void {
+```text
+function setFrameRateRange(videoOutput: camera.VideoOutput, frameRateRange: Array<number>): void {
   videoOutput.setFrameRate(frameRateRange[0], frameRateRange[1]);
 }
 ```
 
 
-## getActiveFrameRate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getActiveFrameRate12+
 
 getActiveFrameRate(): FrameRateRange
 
@@ -514,27 +462,23 @@ getActiveFrameRate(): FrameRateRange
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FrameRateRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#frameraterange) | 帧率范围 |
+| FrameRateRange | 帧率范围 |
 
 
 **示例：**
 
-
-```ts
-function getActiveFrameRate(
-  videoOutput: camera.VideoOutput,
-): camera.FrameRateRange {
+```text
+function getActiveFrameRate(videoOutput: camera.VideoOutput): camera.FrameRateRange {
   let activeFrameRate: camera.FrameRateRange = videoOutput.getActiveFrameRate();
   return activeFrameRate;
 }
 ```
 
 
-## getActiveProfile12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getActiveProfile12+
 
 getActiveProfile(): VideoProfile
 
@@ -546,16 +490,14 @@ getActiveProfile(): VideoProfile
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#videoprofile) | 当前生效的配置信息 |
+| VideoProfile | 当前生效的配置信息 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -564,30 +506,25 @@ getActiveProfile(): VideoProfile
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function testGetActiveProfile(
-  videoOutput: camera.VideoOutput,
-): camera.Profile | undefined {
+function testGetActiveProfile(videoOutput: camera.VideoOutput): camera.Profile | undefined {
   let activeProfile: camera.VideoProfile | undefined = undefined;
   try {
     activeProfile = videoOutput.getActiveProfile();
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The videoOutput.getActiveProfile call failed. error code: ${err.code}`,
-    );
+    console.error(`The videoOutput.getActiveProfile call failed. error code: ${err.code}`);
   }
   return activeProfile;
 }
 ```
 
 
-## isMirrorSupported15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isMirrorSupported15+
 
 isMirrorSupported(): boolean
 
@@ -599,7 +536,6 @@ isMirrorSupported(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回是否支持镜像录像，true表示支持，false表示不支持。若接口调用失败，返回undefined。 |
@@ -607,8 +543,7 @@ isMirrorSupported(): boolean
 
 **示例：**
 
-
-```ts
+```text
 function testIsMirrorSupported(videoOutput: camera.VideoOutput): boolean {
   let isSupported: boolean = videoOutput.isMirrorSupported();
   return isSupported;
@@ -616,23 +551,22 @@ function testIsMirrorSupported(videoOutput: camera.VideoOutput): boolean {
 ```
 
 
-## enableMirror15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### enableMirror15+
 
 enableMirror(enabled: boolean): void
 
 启用/关闭镜像录像。
 
+ - 调用该接口前，需要通过[isMirrorSupported](#ismirrorsupported15)查询是否支录像镜像功能。
+ - 启用/关闭录像镜像后，需要通过[getVideoRotation](#getvideorotation12)获取录像旋转角度以及[updateRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#updaterotation12)更新旋转角度。
 
-- 调用该接口前，需要通过[isMirrorSupported](#ismirrorsupported15)查询是否支录像镜像功能。
-- 启用/关闭录像镜像后，需要通过[getVideoRotation](#getvideorotation12)获取录像旋转角度以及[updateRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#updaterotation12)更新旋转角度。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -643,7 +577,6 @@ enableMirror(enabled: boolean): void
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
@@ -652,38 +585,32 @@ enableMirror(enabled: boolean): void
 
 **示例：**
 
-
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 import { media } from '@kit.MediaKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function enableMirror(
-  videoOutput: camera.VideoOutput,
-  mirrorMode: boolean,
-  aVRecorder: media.AVRecorder,
-  deviceDegree: number,
-): void {
-  try {
-    videoOutput.enableMirror(mirrorMode);
-    aVRecorder.updateRotation(videoOutput.getVideoRotation(deviceDegree));
-  } catch (error) {
-    let err = error as BusinessError;
-  }
+function enableMirror(videoOutput: camera.VideoOutput, mirrorMode: boolean, aVRecorder: media.AVRecorder, deviceDegree : number): void {
+    try {
+        videoOutput.enableMirror(mirrorMode);
+        aVRecorder.updateRotation(videoOutput.getVideoRotation(deviceDegree));
+    } catch (error) {
+        let err = error as BusinessError;
+    }
 }
 ```
 
 
-## getVideoRotation12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getVideoRotation12+
 
 getVideoRotation(deviceDegree?: number): ImageRotation
 
 获取录像旋转角度。
 
+ - 设备自然方向：设备默认使用方向。例如，直板机默认使用方向为竖屏（充电口向下）。
+ - 相机镜头角度：值等于相机图像顺时针旋转到设备自然方向的角度。例如，直板机后置相机传感器是横屏安装的，所以需要顺时针旋转90度到设备自然方向。
 
-- 设备自然方向：设备默认使用方向。例如，直板机默认使用方向为竖屏（充电口向下）。
-- 相机镜头角度：值等于相机图像顺时针旋转到设备自然方向的角度。例如，直板机后置相机传感器是横屏安装的，所以需要顺时针旋转90度到设备自然方向。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -693,24 +620,21 @@ getVideoRotation(deviceDegree?: number): ImageRotation
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceDegree | number | 否 | 设备旋转角度，单位度，取值范围[0, 360]。          从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行录像旋转角度计算。 |
+| deviceDegree | number | 否 | 设备旋转角度，单位度，取值范围[0, 360]。 从API version 23开始，入参deviceDegree为可选参数，当不传入参数时，由系统获取deviceDegree进行录像旋转角度计算。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ImageRotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#imagerotation) | 返回录像旋转角度。若接口调用失败，返回undefined。 |
+| ImageRotation | 返回录像旋转角度。若接口调用失败，返回undefined。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -719,16 +643,13 @@ getVideoRotation(deviceDegree?: number): ImageRotation
 
 **示例：**
 
-
-```ts
+```json
 import { camera } from '@kit.CameraKit';
 import { Decimal } from '@kit.ArkTS';
 import { sensor } from '@kit.SensorServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function getVideoRotation(
-  videoOutput: camera.VideoOutput,
-): Promise<camera.ImageRotation> {
+async function getVideoRotation(videoOutput: camera.VideoOutput): Promise<camera.ImageRotation> {
   let deviceDegree = await getDeviceDegree();
   let videoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
@@ -740,9 +661,7 @@ async function getVideoRotation(
   return videoRotation;
 }
 
-function testGetVideoRotationWithOutParam(
-  videoOutput: camera.VideoOutput,
-): camera.ImageRotation {
+function testGetVideoRotationWithOutParam(videoOutput: camera.VideoOutput): camera.ImageRotation {
   let videoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
     videoRotation = videoOutput.getVideoRotation();
@@ -750,9 +669,7 @@ function testGetVideoRotationWithOutParam(
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The videoOutput.testGetVideoRotationWithOutParam call failed. error code: ${err.code}`,
-    );
+    console.error(`The videoOutput.testGetVideoRotationWithOutParam call failed. error code: ${err.code}`);
   }
   return videoRotation;
 }
@@ -762,15 +679,9 @@ function getDeviceDegree(): Promise<number> {
   return new Promise<number>((resolve) => {
     try {
       sensor.once(sensor.SensorId.GRAVITY, (data: sensor.GravityResponse) => {
-        console.info(
-          'Succeeded in invoking once. X-coordinate component: ' + data.x,
-        );
-        console.info(
-          'Succeeded in invoking once. Y-coordinate component: ' + data.y,
-        );
-        console.info(
-          'Succeeded in invoking once. Z-coordinate component: ' + data.z,
-        );
+        console.info('Succeeded in invoking once. X-coordinate component: ' + data.x);
+        console.info('Succeeded in invoking once. Y-coordinate component: ' + data.y);
+        console.info('Succeeded in invoking once. Z-coordinate component: ' + data.z);
         let x = data.x;
         let y = data.y;
         let z = data.z;
@@ -779,18 +690,15 @@ function getDeviceDegree(): Promise<number> {
           deviceDegree = -1;
         } else {
           let sd: Decimal = Decimal.atan2(y, -x);
-          let sc: Decimal = Decimal.round((Number(sd) / 3.141592653589) * 180);
+          let sc: Decimal = Decimal.round(Number(sd) / 3.141592653589 * 180)
           deviceDegree = 90 - Number(sc);
-          deviceDegree =
-            deviceDegree >= 0 ? deviceDegree % 360 : (deviceDegree % 360) + 360;
+          deviceDegree = deviceDegree >= 0 ? deviceDegree% 360 : deviceDegree% 360 + 360;
         }
         resolve(deviceDegree);
       });
     } catch (error) {
       let err = error as BusinessError;
-      console.error(
-        'Failed to register gravity sensor: ' + JSON.stringify(err),
-      );
+      console.error('Failed to register gravity sensor: ' + JSON.stringify(err));
       resolve(-1); // 异常时返回默认值
     }
   });

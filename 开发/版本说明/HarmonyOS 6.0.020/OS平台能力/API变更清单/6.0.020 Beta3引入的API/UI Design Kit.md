@@ -43,8 +43,8 @@
 | 新增API | NA | 类名：global； API声明：export declare type MultiWindowEntryInAPPInterface = (params: MultiWindowEntryInAPPParams) => MultiWindowEntryInAPPAttribute; 差异内容：export declare type MultiWindowEntryInAPPInterface = (params: MultiWindowEntryInAPPParams) => MultiWindowEntryInAPPAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare const MultiWindowEntryInAPP: MultiWindowEntryInAPPInterface; 差异内容：export declare const MultiWindowEntryInAPP: MultiWindowEntryInAPPInterface; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：declare const MultiWindowEntryInAPPInstance: MultiWindowEntryInAPPAttribute; 差异内容：declare const MultiWindowEntryInAPPInstance: MultiWindowEntryInAPPAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Param  blurStrategy?: BlurStrategy; 差异内容：@Param  blurStrategy?: BlurStrategy; | api/@hms.hds.HdsActionBar.d.ets |
-| 类新增可选成员 | 类名：global； API声明： 差异内容：NA | 类名：ActionBarButton； API声明：@Trace  buttonModifier?: ButtonModifier; 差异内容：@Trace  buttonModifier?: ButtonModifier; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Param blurStrategy?: BlurStrategy; 差异内容：@Param blurStrategy?: BlurStrategy; | api/@hms.hds.HdsActionBar.d.ets |
+| 类新增可选成员 | 类名：global； API声明： 差异内容：NA | 类名：ActionBarButton； API声明：@Trace buttonModifier?: ButtonModifier; 差异内容：@Trace buttonModifier?: ButtonModifier; | api/@hms.hds.HdsActionBar.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsTabsAttribute； API声明：blurStrategy(value: BlurStrategy): HdsTabsAttribute; 差异内容：blurStrategy(value: BlurStrategy): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsSideMenuMainItem； API声明：updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuMainItem; 差异内容：updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuMainItem; | api/@hms.hds.HdsSideMenu.d.ets |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：TitleBarStyleOptions； API声明：blurStrategy?: BlurStrategy; 差异内容：blurStrategy?: BlurStrategy; | api/@hms.hds.hdsBaseComponent.d.ets |

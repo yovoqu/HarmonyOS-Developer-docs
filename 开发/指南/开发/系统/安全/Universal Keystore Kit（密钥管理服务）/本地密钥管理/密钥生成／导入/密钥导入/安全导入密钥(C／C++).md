@@ -1,6 +1,6 @@
 # 安全导入密钥(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-import-wrapped-key-ndk
 
@@ -9,26 +9,35 @@
 具体的场景介绍及支持的算法规格，请参考[密钥导入支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-设备A（导入设备）将待导入密钥转换成[HUKS密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#密钥材料格式)To_Import_Key（仅针对非对称密钥，若待导入密钥是对称密钥则可省略此步骤）。 设备B（被导入设备）生成一个安全导入用途的非对称密钥对Wrapping_Key（公钥Wrapping_Pk，私钥Wrapping_Sk），导出Wrapping_Key的公钥材料Wrapping_Pk发送给设备A。 设备A使用和设备B同样的算法，生成一个用于协商的非对称密钥对Caller_Key（公钥Caller_Pk，私钥Caller_Sk），导出Caller_Key的公钥材料Caller_Pk并保存。 设备A生成一个对称密钥Caller_Kek，该密钥用于加密To_Import_Key生成To_Import_Key_Enc。 设备A基于Caller_Key的私钥Caller_Sk和设备B Wrapping_Key的公钥Wrapping_Pk，协商出Shared_Key，使用Shared_Key加密Caller_Kek，生成Caller_Kek_Enc。 设备A封装Caller_Pk、Caller_Kek_Enc、To_Import_Key_Enc等安全导入的密钥材料并发送给设备B，安全导入密钥材料格式见[安全导入密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#安全导入密钥材料格式)。 设备B导入封装的加密密钥材料。 设备A、B删除用于安全导入的密钥。
+##### 开发步骤
+1. 设备A（导入设备）将待导入密钥转换成[HUKS密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#密钥材料格式)To_Import_Key（仅针对非对称密钥，若待导入密钥是对称密钥则可省略此步骤）。
+2. 设备B（被导入设备）生成一个安全导入用途的非对称密钥对Wrapping_Key（公钥Wrapping_Pk，私钥Wrapping_Sk），导出Wrapping_Key的公钥材料Wrapping_Pk发送给设备A。
+3. 设备A使用和设备B同样的算法，生成一个用于协商的非对称密钥对Caller_Key（公钥Caller_Pk，私钥Caller_Sk），导出Caller_Key的公钥材料Caller_Pk并保存。
+4. 设备A生成一个对称密钥Caller_Kek，该密钥用于加密To_Import_Key生成To_Import_Key_Enc。
+5. 设备A基于Caller_Key的私钥Caller_Sk和设备B Wrapping_Key的公钥Wrapping_Pk，协商出Shared_Key，使用Shared_Key加密Caller_Kek，生成Caller_Kek_Enc。
+6. 设备A封装Caller_Pk、Caller_Kek_Enc、To_Import_Key_Enc等安全导入的密钥材料并发送给设备B，安全导入密钥材料格式见[安全导入密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#安全导入密钥材料格式)。
+7. 设备B导入封装的加密密钥材料。
+8. 设备A、B删除用于安全导入的密钥。
 
-## 开发案例
+
+
+##### 开发案例
 
 构造安全导入密钥的参数集
-```text
+
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <algorithm>
 
 #define MAX_MALLOC_SIZE 0x800000
 
@@ -95,8 +104,7 @@ static struct OH_Huks_Blob g_importedAes256PlainKey = {.size = (uint32_t)strlen(
                                                        .data = (uint8_t *)"This is plain key to be imported"};
 ```
 
-
-```text
+```cpp
 static struct OH_Huks_Param g_importWrappedAes256Params[] = {
     {.tag = OH_HUKS_TAG_ALGORITHM, .uint32Param = OH_HUKS_ALG_AES},
     {.tag = OH_HUKS_TAG_PURPOSE, .uint32Param = OH_HUKS_KEY_PURPOSE_ENCRYPT | OH_HUKS_KEY_PURPOSE_DECRYPT},
@@ -155,7 +163,8 @@ static struct OH_Huks_Param g_importAgreeKeyParams[] = {
 ```
 
 安全导入密钥的核心函数实现
-```text
+
+```cpp
 OH_Huks_Result HuksAgreeKey(const struct OH_Huks_ParamSet *paramSet, const struct OH_Huks_Blob *keyAlias,
                             const struct OH_Huks_Blob *peerPublicKey, struct OH_Huks_Blob *agreedKey)
 {
@@ -218,7 +227,26 @@ static OH_Huks_Result HksEncryptLoopUpdate(const struct OH_Huks_Blob *handle, co
     outData->size = 0;
     inDataSeg.size = MAX_UPDATE_SIZE;
     bool isFinished = false;
-    while (inDataSeg.data size += outDataSeg.size;
+    while (inDataSeg.data <= lastPtr) {
+        if (inDataSeg.data + MAX_UPDATE_SIZE <= lastPtr) {
+            outDataSeg.size = MAX_OUTDATA_SIZE;
+        } else {
+            isFinished = true;
+            inDataSeg.size = lastPtr - inDataSeg.data + 1;
+            break;
+        }
+        if (MallocAndCheckBlobData(&outDataSeg, outDataSeg.size).errorCode != (int32_t)OH_HUKS_SUCCESS) {
+            ret.errorCode = OH_HUKS_ERR_CODE_INTERNAL_ERROR;
+            return ret;
+        }
+        ret = OH_Huks_UpdateSession(handle, paramSet, &inDataSeg, &outDataSeg);
+        if (ret.errorCode != (int32_t)OH_HUKS_SUCCESS) {
+            free(outDataSeg.data);
+            return ret;
+        }
+        std::copy(outDataSeg.data, outDataSeg.data + outDataSeg.size, cur);
+        cur += outDataSeg.size;
+        outData->size += outDataSeg.size;
         free(outDataSeg.data);
         if ((isFinished == false) && (inDataSeg.data + MAX_UPDATE_SIZE > lastPtr)) {
             ret.errorCode = OH_HUKS_ERR_CODE_INTERNAL_ERROR;
@@ -260,7 +288,8 @@ static OH_Huks_Result BuildWrappedKeyData(struct OH_Huks_Blob **blobArray, uint3
     struct OH_Huks_Result ret;
     ret.errorCode = OH_HUKS_SUCCESS;
     /* 计算大小 */
-    for (uint32_t i = 0; i size;
+    for (uint32_t i = 0; i < size; ++i) {
+        totalLength += blobArray[i]->size;
     }
     struct OH_Huks_Blob outBlob = {0, nullptr};
     outBlob.size = totalLength;
@@ -270,9 +299,10 @@ static OH_Huks_Result BuildWrappedKeyData(struct OH_Huks_Blob **blobArray, uint3
     }
     uint32_t offset = 0;
     /* 拷贝数据 */
-    for (uint32_t i = 0; i = sizeof(blobArray[i]->size)) {
-            std::copy(reinterpret_cast(&blobArray[i]->size),
-                      reinterpret_cast(&blobArray[i]->size) + sizeof(blobArray[i]->size),
+    for (uint32_t i = 0; i < size; ++i) {
+        if (totalLength - offset >= sizeof(blobArray[i]->size)) {
+            std::copy(reinterpret_cast<uint8_t *>(&blobArray[i]->size),
+                      reinterpret_cast<uint8_t *>(&blobArray[i]->size) + sizeof(blobArray[i]->size),
                       outBlob.data + offset);
         } else {
             ret.errorCode = OH_HUKS_ERR_CODE_INTERNAL_ERROR;
@@ -293,8 +323,7 @@ static OH_Huks_Result BuildWrappedKeyData(struct OH_Huks_Blob **blobArray, uint3
 }
 ```
 
-
-```text
+```cpp
 static OH_Huks_Result CheckParamsValid(const struct HksImportWrappedKeyTestParams *params)
 {
     struct OH_Huks_Result ret;
@@ -395,8 +424,8 @@ static OH_Huks_Result ImportWrappedKey(const struct HksImportWrappedKeyTestParam
                                        struct OH_Huks_Blob *plainCipher, struct OH_Huks_Blob *kekCipherText,
                                        struct OH_Huks_Blob *peerPublicKey, struct OH_Huks_Blob *wrappedKeyData)
 {
-    struct OH_Huks_Blob commonAad = {.size = AAD_SIZE, .data = reinterpret_cast(AAD)};
-    struct OH_Huks_Blob commonNonce = {.size = NONCE_SIZE, .data = reinterpret_cast(NONCE)};
+    struct OH_Huks_Blob commonAad = {.size = AAD_SIZE, .data = reinterpret_cast<uint8_t *>(AAD)};
+    struct OH_Huks_Blob commonNonce = {.size = NONCE_SIZE, .data = reinterpret_cast<uint8_t *>(NONCE)};
     struct OH_Huks_Blob keyMaterialLen = {.size = sizeof(uint32_t), .data = (uint8_t *)&params->keyMaterialLen};
     /* 从密文中拷贝AEAD的tag并缩小其大小 */
     const uint32_t tagSize = AEAD_TAG_SIZE;
@@ -429,7 +458,8 @@ static OH_Huks_Result ImportWrappedKey(const struct HksImportWrappedKeyTestParam
 ```
 
 安全导入密钥的完整流程实现
-```text
+
+```cpp
 OH_Huks_Result HksImportWrappedKeyTestCommonCase(const struct HksImportWrappedKeyTestParams *params)
 {
     OH_Huks_Result ret = CheckParamsValid(params);
@@ -596,14 +626,16 @@ static napi_value IsKeyExist(napi_env env, napi_callback_info info)
 ```
 
 
-## 调测验证
+
+##### 调测验证
 
 调用[OH_Huks_IsKeyItemExist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_iskeyitemexist)验证密钥是否存在，如密钥存在即表示密钥导入成功。
+
 ```text
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <string.h>
 static napi_value IsKeyExist(napi_env env, napi_callback_info info)
 {
     /* 1.指定密钥别名 */
@@ -611,7 +643,7 @@ static napi_value IsKeyExist(napi_env env, napi_callback_info info)
         (uint32_t)strlen("test_key"),
         (uint8_t *)"test_key"
     };
-
+    
     /* 2.调用OH_Huks_IsKeyItemExist判断密钥是否存在 */
     struct OH_Huks_Result ohResult = OH_Huks_IsKeyItemExist(&keyAlias, NULL);
     if (ohResult.errorCode != OH_HUKS_SUCCESS) {

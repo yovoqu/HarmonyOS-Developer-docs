@@ -4,17 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-well-known-symbols
 
-## 简介
+##### 简介
 
 JSVM-API中Well-known symbols相关接口可以通过不同API直接获取对应的11个Well-known symbols。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
 在JSVM-API中，Well-known symbols相关接口能够给用户提供快速获取对应的11个Well-known symbols的能力。
+ 
+  
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_GetSymbolToStringTag | 等价于JS中的Symbol.toStringTag。 |
@@ -28,17 +31,22 @@ JSVM-API中Well-known symbols相关接口可以通过不同API直接获取对应
 | OH_JSVM_GetSymbolUnscopables | 等价于JS中的Symbol.unscopables。 |
 | OH_JSVM_GetSymbolAsyncIterator | 等价于JS中的Symbol.asyncIterator。 |
 | OH_JSVM_GetSymbolIterator | 等价于JS中的Symbol.iterator。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)中的JSVM-API接口开发流程，本文仅展示接口对应的C++代码。
+ 
+  
 
-## 使用接口获取Well-known symbols（以OH_JSVM_GetSymbolToStringTag为例）
+##### 使用接口获取Well-known symbols（以OH_JSVM_GetSymbolToStringTag为例）
 
 cpp部分代码：
+ 
 ```text
-#include
+#include <string>
 
 static JSVM_Value WellKnownSymbols(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_VM vm;
@@ -78,8 +86,9 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试JS
 const char *srcCallNative = R"JS(wellKnownSymbols();)JS";
 ```
-
- 预期输出：
+ 
+预期输出：
+ 
 ```text
 JSVM OH_JSVM_GetSymbolToStringTag result is correct : 1
 ```

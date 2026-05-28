@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-375
 
 自定义构建函数（@Builder）和自定义组件的主要区别包括：
-
+ 
 - 自定义构建函数（@Builder）更轻量。它作为UI元素抽象的方法，实现和调用比自定义组件更简洁。
 - 在自定义组件中，可以定义成员函数和变量，以及组件的生命周期。自定义构建函数（@Builder）不支持定义状态变量和生命周期。
 - 在自定义组件中，状态变量的改变可直接驱动UI刷新。而自定义构建函数（@Builder）默认的按值参数传递方式不支持动态改变组件，当传递的参数为状态变量时，状态变量的改变不会引起@Builder方法内的UI刷新，要实现UI动态刷新需要[按引用传递参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#按引用传递参数)。

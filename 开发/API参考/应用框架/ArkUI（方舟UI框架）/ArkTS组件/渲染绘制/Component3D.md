@@ -3,23 +3,22 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-component3d
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 3D渲染组件，用于将ArkGraphics 3D场景或glTF（.gltf文件和.glb文件）模型渲染到ArkUI界面中，支持自定义场景模式与自动场景模式，并提供自定义渲染管线能力。
-
 
 > [!NOTE]
 > 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 Component3D(sceneOptions?: SceneOptions)
 
@@ -29,14 +28,14 @@ Component3D(sceneOptions?: SceneOptions)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sceneOptions | [SceneOptions](#sceneoptions对象说明) | 否 | 3D场景配置选项，默认值为undefined。          说明：          3D场景配置选项在控件创建后不支持动态修改。 |
+| sceneOptions | SceneOptions | 否 | 3D场景配置选项，默认值为undefined。 说明： 3D场景配置选项在控件创建后不支持动态修改。 |
 
 
-## SceneOptions对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SceneOptions对象说明
 
 Component3D组件配置选项。
 
@@ -44,15 +43,15 @@ Component3D组件配置选项。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scene | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) \| [Scene](#scene12) | 否 | 是 | 3D模型资源文件或场景对象，默认值为undefined。          当传入glTF（.gltf文件和.glb文件）模型时，组件以自动场景模式运行，框架会自动创建基础相机、光源和默认手势交互（旋转、缩放），其相关参数由框架内部管理，不支持外部修改，开发者仅可通过Component3D的属性对展示效果进行配置。          当传入Scene对象时，组件以自定义场景模式运行，相机、光源及交互由开发者通过ArkGraphics 3D API自行创建和管理。          当不填写此参数时，组件仅作为自定义渲染管线（shader/customRender）的输出容器使用。          说明：          自定义场景模式下未内置相机控制器，因此不会自动响应拖拽或缩放手势；如需交互，请开发者接入手势并更新相机的位置与旋转。 |
-| modelType | [ModelType](#modeltype枚举说明) | 否 | 是 | 3D场景显示合成方式。          默认值：ModelType.SURFACE          说明：          设置为ModelType.TEXTURE时通过GPU合成显示。          设置为ModelType.SURFACE时通过专有硬件合成显示。          一般开发者可以使用默认值而无需关心此项设置。 |
+| scene | ResourceStr \| Scene | 否 | 是 | 3D模型资源文件或场景对象，默认值为undefined。 当传入glTF（.gltf文件和.glb文件）模型时，组件以自动场景模式运行，框架会自动创建基础相机、光源和默认手势交互（旋转、缩放），其相关参数由框架内部管理，不支持外部修改，开发者仅可通过Component3D的属性对展示效果进行配置。 当传入Scene对象时，组件以自定义场景模式运行，相机、光源及交互由开发者通过ArkGraphics 3D API自行创建和管理。 当不填写此参数时，组件仅作为自定义渲染管线（shader/customRender）的输出容器使用。 说明： 自定义场景模式下未内置相机控制器，因此不会自动响应拖拽或缩放手势；如需交互，请开发者接入手势并更新相机的位置与旋转。 |
+| modelType | ModelType | 否 | 是 | 3D场景显示合成方式。 默认值：ModelType.SURFACE 说明： 设置为ModelType.TEXTURE时通过GPU合成显示。 设置为ModelType.SURFACE时通过专有硬件合成显示。 一般开发者可以使用默认值而无需关心此项设置。 |
 
 
-## ModelType枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ModelType枚举说明
 
 渲染合成模式类型枚举，用于指定3D场景的渲染输出方式。
 
@@ -60,15 +59,15 @@ Component3D组件配置选项。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | TEXTURE | 0 | 使用GPU合成显示3D场景。 |
 | SURFACE | 1 | 使用专有硬件显示3D场景。 |
 
 
-## Scene12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Scene12+
 
 type Scene = Scene
 
@@ -78,20 +77,20 @@ type Scene = Scene
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Scene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene#scene-1) | 用于设置场景。 |
+| Scene | 用于设置场景。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### environment
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### environment
 
 environment(uri: ResourceStr)
 
@@ -103,14 +102,14 @@ environment(uri: ResourceStr)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 3D环境资源。 |
+| uri | ResourceStr | 是 | 3D环境资源。 |
 
 
-### customRender
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### customRender
 
 customRender(uri: ResourceStr, selfRenderUpdate: boolean)
 
@@ -122,15 +121,15 @@ customRender(uri: ResourceStr, selfRenderUpdate: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 自定义渲染管线的配置文件。 |
-| selfRenderUpdate | boolean | 是 | 当设置为true时外部UI没有更新时也能触发动效渲染。          当设置为false时只有外部UI更新才能触发渲染。 |
+| uri | ResourceStr | 是 | 自定义渲染管线的配置文件。 |
+| selfRenderUpdate | boolean | 是 | 当设置为true时外部UI没有更新时也能触发动效渲染。 当设置为false时只有外部UI更新才能触发渲染。 |
 
 
-### shader
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### shader
 
 shader(uri: ResourceStr)
 
@@ -142,14 +141,14 @@ shader(uri: ResourceStr)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 自定义渲染的shader文件资源。详细.shader文件格式请参考[.shader资源文件格式要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-shader-resource)。 |
+| uri | ResourceStr | 是 | 自定义渲染的shader文件资源。详细.shader文件格式请参考.shader资源文件格式要求。 |
 
 
-### shaderImageTexture
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### shaderImageTexture
 
 shaderImageTexture(uri: ResourceStr)
 
@@ -161,16 +160,16 @@ shaderImageTexture(uri: ResourceStr)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 自定义渲染用到的纹理资源。 |
+| uri | ResourceStr | 是 | 自定义渲染用到的纹理资源。 |
 
 
-### shaderInputBuffer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-shaderInputBuffer(buffer: Array<number>)
+
+##### shaderInputBuffer
+
+shaderInputBuffer(buffer: Array&lt;number&gt;)
 
 设置自定义渲染用到的动效参数。
 
@@ -180,14 +179,14 @@ shaderInputBuffer(buffer: Array<number>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | buffer | Array&lt;number&gt; | 是 | 自定义渲染用到的动效参数，数组长度范围为[0, 1048576]。 |
 
 
-### renderWidth
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### renderWidth
 
 renderWidth(value: Dimension)
 
@@ -203,14 +202,14 @@ renderWidth(value: Dimension)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 是 | 3D渲染分辨率的宽度，当前仅支持设置Dimension.Percentage，取值范围是[0, 100%]。 |
+| value | Dimension | 是 | 3D渲染分辨率的宽度，当前仅支持设置Dimension.Percentage，取值范围是[0, 100%]。 |
 
 
-### renderHeight
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### renderHeight
 
 renderHeight(value: Dimension)
 
@@ -226,27 +225,26 @@ renderHeight(value: Dimension)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 是 | 3D渲染分辨率的高度，当前仅支持设置Dimension.Percentage，取值范围是[0, 100%]。 |
+| value | Dimension | 是 | 3D渲染分辨率的高度，当前仅支持设置Dimension.Percentage，取值范围是[0, 100%]。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 示例
 
 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
 
 GLTF模型加载示例。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -259,8 +257,8 @@ struct Index {
         Text('GLTF Example')
         Component3D( this.scene )
         // 绑定环境资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-        .environment($rawfile('gltf/Environment/glTF/Environment.gltf'))
-        .renderWidth('90%').renderHeight('90%')
+          .environment($rawfile('gltf/Environment/glTF/Environment.gltf'))
+          .renderWidth('90%').renderHeight('90%')
       }.width('100%')
     }
     .height('100%')
@@ -270,8 +268,7 @@ struct Index {
 
 自定义渲染示例。
 
-
-```ts
+```text
 import { AnimatorResult } from '@kit.ArkUI';
 
 class EngineTime {
@@ -323,18 +320,18 @@ struct Index {
       Column() {
         Text('custom rendering')
         Component3D()
-        // 绑定自定义shader脚本，路径和文件名可根据项目实际资源自定义
-        .shader($rawfile('assets/app/shaders/shader/London.shader'))
-        // 绑定贴图资源作为shader输入纹理，路径和文件名可根据项目实际资源自定义
-        .shaderImageTexture($rawfile('assets/London.jpg'))
-        .shaderInputBuffer(this.timeDelta)
-        // 绑定自定义渲染流程文件（如.rng），路径和文件名可根据项目实际资源自定义
-        .customRender($rawfile('assets/app/rendernodegraphs/London.rng'), true)
-        .renderWidth('90%').renderHeight('90%')
-        .onAppear(() => {
-          this.create();
-          this.backAnimator.play();
-        }).width('50%').height('50%')
+          // 绑定自定义shader脚本，路径和文件名可根据项目实际资源自定义
+          .shader($rawfile('assets/app/shaders/shader/London.shader'))
+          // 绑定贴图资源作为shader输入纹理，路径和文件名可根据项目实际资源自定义
+          .shaderImageTexture($rawfile('assets/London.jpg'))
+          .shaderInputBuffer(this.timeDelta)
+          // 绑定自定义渲染流程文件（如.rng），路径和文件名可根据项目实际资源自定义
+          .customRender($rawfile('assets/app/rendernodegraphs/London.rng'), true)
+          .renderWidth('90%').renderHeight('90%')
+          .onAppear(() => {
+            this.create();
+            this.backAnimator.play();
+          }).width('50%').height('50%')
       }.width('100%')
     }
     .height('100%')

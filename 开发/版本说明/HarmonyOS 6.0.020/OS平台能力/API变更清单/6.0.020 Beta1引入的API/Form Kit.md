@@ -20,7 +20,7 @@
 | 新增API | NA | 类名：LiveFormExtensionAbility； API声明：onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession): void; 差异内容：onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession): void; | api/@ohos.app.form.LiveFormExtensionAbility.d.ts |
 | 新增API | NA | 类名：LiveFormExtensionAbility； API声明：onLiveFormDestroy(liveFormInfo: LiveFormInfo): void; 差异内容：onLiveFormDestroy(liveFormInfo: LiveFormInfo): void; | api/@ohos.app.form.LiveFormExtensionAbility.d.ts |
 | 新增API | NA | 类名：global； API声明：export default class LiveFormExtensionContext 差异内容：export default class LiveFormExtensionContext | api/application/LiveFormExtensionContext.d.ts |
-| 新增API | NA | 类名：LiveFormExtensionContext； API声明：setBackgroundImage(res: Resource): Promise<void>; 差异内容：setBackgroundImage(res: Resource): Promise<void>; | api/application/LiveFormExtensionContext.d.ts |
+| 新增API | NA | 类名：LiveFormExtensionContext； API声明：setBackgroundImage(res: Resource): Promise&lt;void&gt;; 差异内容：setBackgroundImage(res: Resource): Promise&lt;void&gt;; | api/application/LiveFormExtensionContext.d.ts |
 | 新增API | NA | 类名：FormParam； API声明：FORM_WIDTH_VP_KEY = 'ohos.extra.param.key.form_width_vp' 差异内容：FORM_WIDTH_VP_KEY = 'ohos.extra.param.key.form_width_vp' | api/@ohos.app.form.formInfo.d.ts |
 | 新增API | NA | 类名：FormParam； API声明：FORM_HEIGHT_VP_KEY = 'ohos.extra.param.key.form_height_vp' 差异内容：FORM_HEIGHT_VP_KEY = 'ohos.extra.param.key.form_height_vp' | api/@ohos.app.form.formInfo.d.ts |
 | 新增API | NA | 类名：formInfo； API声明：interface OverflowInfo 差异内容：interface OverflowInfo | api/@ohos.app.form.formInfo.d.ts |
@@ -31,7 +31,7 @@
 | 新增API | NA | 类名：Rect； API声明：top: number; 差异内容：top: number; | api/@ohos.app.form.formInfo.d.ts |
 | 新增API | NA | 类名：Rect； API声明：width: number; 差异内容：width: number; | api/@ohos.app.form.formInfo.d.ts |
 | 新增API | NA | 类名：Rect； API声明：height: number; 差异内容：height: number; | api/@ohos.app.form.formInfo.d.ts |
-| 新增API | NA | 类名：formProvider； API声明：function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise<void>; 差异内容：function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise<void>; | api/@ohos.app.form.formProvider.d.ts |
-| 新增API | NA | 类名：formProvider； API声明：function cancelOverflow(formId: string): Promise<void>; 差异内容：function cancelOverflow(formId: string): Promise<void>; | api/@ohos.app.form.formProvider.d.ts |
+| 新增API | NA | 类名：formProvider； API声明：function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise&lt;void&gt;; 差异内容：function requestOverflow(formId: string, overflowInfo: formInfo.OverflowInfo): Promise&lt;void&gt;; | api/@ohos.app.form.formProvider.d.ts |
+| 新增API | NA | 类名：formProvider； API声明：function cancelOverflow(formId: string): Promise&lt;void&gt;; 差异内容：function cancelOverflow(formId: string): Promise&lt;void&gt;; | api/@ohos.app.form.formProvider.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@ohos.app.form.LiveFormExtensionAbility.d.ts 差异内容：FormKit | api/@ohos.app.form.LiveFormExtensionAbility.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api\application\LiveFormExtensionContext.d.ts 差异内容：FormKit | api/application/LiveFormExtensionContext.d.ts |

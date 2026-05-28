@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：weatherService； API声明：function getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise<Weather>; 差异内容：function getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise<Weather>; | api/@hms.core.weather.d.ts |
+| 新增API | NA | 类名：weatherService； API声明：function getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise&lt;Weather&gt;; 差异内容：function getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise&lt;Weather&gt;; | api/@hms.core.weather.d.ts |

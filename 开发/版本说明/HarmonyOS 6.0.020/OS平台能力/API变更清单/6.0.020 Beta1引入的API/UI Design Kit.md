@@ -7,20 +7,20 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：export declare struct HdsActionBar 差异内容：export declare struct HdsActionBar | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Param  primaryButton?: ActionBarButton; 差异内容：@Param  primaryButton?: ActionBarButton; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@BuilderParam  primaryButtonBuilder?: CustomBuilder; 差异内容：@BuilderParam  primaryButtonBuilder?: CustomBuilder; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Param  primaryButtonBuilderWidth?: LengthMetrics; 差异内容：@Param  primaryButtonBuilderWidth?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Param  startButtons?: Array<ActionBarButton>; 差异内容：@Param  startButtons?: Array<ActionBarButton>; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Param  endButtons?: Array<ActionBarButton>; 差异内容：@Param  endButtons?: Array<ActionBarButton>; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Param  actionBarStyle?: ActionBarStyle; 差异内容：@Param  actionBarStyle?: ActionBarStyle; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Param  isExpand?: boolean; 差异内容：@Param  isExpand?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：HdsActionBar； API声明：@Event  \$isExpand?: Callback<boolean>; 差异内容：@Event  \$isExpand?: Callback<boolean>; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Param primaryButton?: ActionBarButton; 差异内容：@Param primaryButton?: ActionBarButton; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@BuilderParam primaryButtonBuilder?: CustomBuilder; 差异内容：@BuilderParam primaryButtonBuilder?: CustomBuilder; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Param primaryButtonBuilderWidth?: LengthMetrics; 差异内容：@Param primaryButtonBuilderWidth?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Param startButtons?: Array&lt;ActionBarButton&gt;; 差异内容：@Param startButtons?: Array&lt;ActionBarButton&gt;; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Param endButtons?: Array&lt;ActionBarButton&gt;; 差异内容：@Param endButtons?: Array&lt;ActionBarButton&gt;; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Param actionBarStyle?: ActionBarStyle; 差异内容：@Param actionBarStyle?: ActionBarStyle; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Param isExpand?: boolean; 差异内容：@Param isExpand?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：HdsActionBar； API声明：@Event $isExpand?: Callback&lt;boolean&gt;; 差异内容：@Event $isExpand?: Callback&lt;boolean&gt;; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：global； API声明：export interface ActionBarButtonOptions 差异内容：export interface ActionBarButtonOptions | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：width?: LengthMetrics; 差异内容：width?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：backgroundColor?: ColorMetrics; 差异内容：backgroundColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：shadowStyle?: ShadowOptions \| ShadowStyle; 差异内容：shadowStyle?: ShadowOptions \| ShadowStyle; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：enabled?: boolean; 差异内容：enabled?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButtonOptions； API声明：onClick?: Callback<void>; 差异内容：onClick?: Callback<void>; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButtonOptions； API声明：onClick?: Callback&lt;void&gt;; 差异内容：onClick?: Callback&lt;void&gt;; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：baseIcon?: ResourceStr; 差异内容：baseIcon?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：altIcon?: ResourceStr; 差异内容：altIcon?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：iconFillColor?: ColorMetrics; 差异内容：iconFillColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
@@ -33,21 +33,21 @@
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：id?: string; 差异内容：id?: string; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarButtonOptions； API声明：hoverTips?: ResourceStr; 差异内容：hoverTips?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare class ActionBarButton 差异内容：export declare class ActionBarButton | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  width?: LengthMetrics; 差异内容：@Trace  width?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  backgroundColor?: ColorMetrics; 差异内容：@Trace  backgroundColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  shadowStyle?: ShadowOptions \| ShadowStyle; 差异内容：@Trace  shadowStyle?: ShadowOptions \| ShadowStyle; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  enabled?: boolean; 差异内容：@Trace  enabled?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  baseIcon?: ResourceStr; 差异内容：@Trace  baseIcon?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  altIcon?: ResourceStr; 差异内容：@Trace  altIcon?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  iconFillColor?: ColorMetrics; 差异内容：@Trace  iconFillColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  iconSize?: LengthMetrics; 差异内容：@Trace  iconSize?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  baseIconSymbolGlyphModifier?: SymbolGlyphModifier; 差异内容：@Trace  baseIconSymbolGlyphModifier?: SymbolGlyphModifier; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  altIconSymbolGlyphModifier?: SymbolGlyphModifier; 差异内容：@Trace  altIconSymbolGlyphModifier?: SymbolGlyphModifier; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  accessibilityText?: ResourceStr; 差异内容：@Trace  accessibilityText?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  accessibilityDescription?: ResourceStr; 差异内容：@Trace  accessibilityDescription?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  accessibilityLevel?: string; 差异内容：@Trace  accessibilityLevel?: string; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  id?: string; 差异内容：@Trace  id?: string; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarButton； API声明：@Trace  hoverTips?: ResourceStr; 差异内容：@Trace  hoverTips?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace width?: LengthMetrics; 差异内容：@Trace width?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace backgroundColor?: ColorMetrics; 差异内容：@Trace backgroundColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace shadowStyle?: ShadowOptions \| ShadowStyle; 差异内容：@Trace shadowStyle?: ShadowOptions \| ShadowStyle; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace enabled?: boolean; 差异内容：@Trace enabled?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace baseIcon?: ResourceStr; 差异内容：@Trace baseIcon?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace altIcon?: ResourceStr; 差异内容：@Trace altIcon?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace iconFillColor?: ColorMetrics; 差异内容：@Trace iconFillColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace iconSize?: LengthMetrics; 差异内容：@Trace iconSize?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace baseIconSymbolGlyphModifier?: SymbolGlyphModifier; 差异内容：@Trace baseIconSymbolGlyphModifier?: SymbolGlyphModifier; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace altIconSymbolGlyphModifier?: SymbolGlyphModifier; 差异内容：@Trace altIconSymbolGlyphModifier?: SymbolGlyphModifier; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace accessibilityText?: ResourceStr; 差异内容：@Trace accessibilityText?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace accessibilityDescription?: ResourceStr; 差异内容：@Trace accessibilityDescription?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace accessibilityLevel?: string; 差异内容：@Trace accessibilityLevel?: string; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace id?: string; 差异内容：@Trace id?: string; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarButton； API声明：@Trace hoverTips?: ResourceStr; 差异内容：@Trace hoverTips?: ResourceStr; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：global； API声明：export interface ActionBarStyleOptions 差异内容：export interface ActionBarStyleOptions | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarStyleOptions； API声明：height?: LengthMetrics; 差异内容：height?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarStyleOptions； API声明：backgroundBlurStyle?: BlurStyle; 差异内容：backgroundBlurStyle?: BlurStyle; | api/@hms.hds.HdsActionBar.d.ets |
@@ -59,33 +59,33 @@
 | 新增API | NA | 类名：ActionBarStyleOptions； API声明：isHorizontal?: boolean; 差异内容：isHorizontal?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：ActionBarStyleOptions； API声明：isPrimaryIconChanged?: boolean; 差异内容：isPrimaryIconChanged?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare class ActionBarStyle 差异内容：export declare class ActionBarStyle | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  height?: LengthMetrics; 差异内容：@Trace  height?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  backgroundBlurStyle?: BlurStyle; 差异内容：@Trace  backgroundBlurStyle?: BlurStyle; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  backgroundColor?: ColorMetrics; 差异内容：@Trace  backgroundColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  innerSpace?: LengthMetrics; 差异内容：@Trace  innerSpace?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  startSpace?: LengthMetrics; 差异内容：@Trace  startSpace?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  endSpace?: LengthMetrics; 差异内容：@Trace  endSpace?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  enabled?: boolean; 差异内容：@Trace  enabled?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  isHorizontal?: boolean; 差异内容：@Trace  isHorizontal?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
-| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace  isPrimaryIconChanged?: boolean; 差异内容：@Trace  isPrimaryIconChanged?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace height?: LengthMetrics; 差异内容：@Trace height?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace backgroundBlurStyle?: BlurStyle; 差异内容：@Trace backgroundBlurStyle?: BlurStyle; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace backgroundColor?: ColorMetrics; 差异内容：@Trace backgroundColor?: ColorMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace innerSpace?: LengthMetrics; 差异内容：@Trace innerSpace?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace startSpace?: LengthMetrics; 差异内容：@Trace startSpace?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace endSpace?: LengthMetrics; 差异内容：@Trace endSpace?: LengthMetrics; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace enabled?: boolean; 差异内容：@Trace enabled?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace isHorizontal?: boolean; 差异内容：@Trace isHorizontal?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
+| 新增API | NA | 类名：ActionBarStyle； API声明：@Trace isPrimaryIconChanged?: boolean; 差异内容：@Trace isPrimaryIconChanged?: boolean; | api/@hms.hds.HdsActionBar.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare struct HdsSideBar 差异内容：export declare struct HdsSideBar | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  contentAreaMask?: boolean; 差异内容：@Param  contentAreaMask?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  isShowSideBar?: boolean; 差异内容：@Param  isShowSideBar?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Event  \$isShowSideBar?: Callback<boolean>; 差异内容：@Event  \$isShowSideBar?: Callback<boolean>; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  minSideBarWidth?: Length; 差异内容：@Param  minSideBarWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  maxSideBarWidth?: Length; 差异内容：@Param  maxSideBarWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  minContentWidth?: Length; 差异内容：@Param  minContentWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  sideBarColor?: ResourceColor; 差异内容：@Param  sideBarColor?: ResourceColor; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  contentColor?: ResourceColor; 差异内容：@Param  contentColor?: ResourceColor; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  sideBarWidth?: Length; 差异内容：@Param  sideBarWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  autoHide?: boolean; 差异内容：@Param  autoHide?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  isSideBarBlur?: boolean; 差异内容：@Param  isSideBarBlur?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  sideBarPosition?: SideBarPosition; 差异内容：@Param  sideBarPosition?: SideBarPosition; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  onChange?: Callback<boolean>; 差异内容：@Param  onChange?: Callback<boolean>; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Require  @BuilderParam  sideBarPanelBuilder: CustomBuilder; 差异内容：@Require  @BuilderParam  sideBarPanelBuilder: CustomBuilder; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Require  @BuilderParam  contentPanelBuilder: CustomBuilder; 差异内容：@Require  @BuilderParam  contentPanelBuilder: CustomBuilder; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param contentAreaMask?: boolean; 差异内容：@Param contentAreaMask?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param isShowSideBar?: boolean; 差异内容：@Param isShowSideBar?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Event $isShowSideBar?: Callback&lt;boolean&gt;; 差异内容：@Event $isShowSideBar?: Callback&lt;boolean&gt;; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param minSideBarWidth?: Length; 差异内容：@Param minSideBarWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param maxSideBarWidth?: Length; 差异内容：@Param maxSideBarWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param minContentWidth?: Length; 差异内容：@Param minContentWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param sideBarColor?: ResourceColor; 差异内容：@Param sideBarColor?: ResourceColor; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param contentColor?: ResourceColor; 差异内容：@Param contentColor?: ResourceColor; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param sideBarWidth?: Length; 差异内容：@Param sideBarWidth?: Length; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param autoHide?: boolean; 差异内容：@Param autoHide?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param isSideBarBlur?: boolean; 差异内容：@Param isSideBarBlur?: boolean; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param sideBarPosition?: SideBarPosition; 差异内容：@Param sideBarPosition?: SideBarPosition; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param onChange?: Callback&lt;boolean&gt;; 差异内容：@Param onChange?: Callback&lt;boolean&gt;; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Require @BuilderParam sideBarPanelBuilder: CustomBuilder; 差异内容：@Require @BuilderParam sideBarPanelBuilder: CustomBuilder; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Require @BuilderParam contentPanelBuilder: CustomBuilder; 差异内容：@Require @BuilderParam contentPanelBuilder: CustomBuilder; | api/@hms.hds.HdsSideBar.d.ets |
 | 新增API | NA | 类名：HdsSideBar； API声明：build(): void; 差异内容：build(): void; | api/@hms.hds.HdsSideBar.d.ets |
-| 新增API | NA | 类名：HdsSideBar； API声明：@Param  sideBarContainerType?: SideBarContainerType; 差异内容：@Param  sideBarContainerType?: SideBarContainerType; | api/@hms.hds.HdsSideBar.d.ets |
+| 新增API | NA | 类名：HdsSideBar； API声明：@Param sideBarContainerType?: SideBarContainerType; 差异内容：@Param sideBarContainerType?: SideBarContainerType; | api/@hms.hds.HdsSideBar.d.ets |
 | 新增API | NA | 类名：global； API声明：export type OnSelectedIndexChange = (selectedIndex: number) => void; 差异内容：export type OnSelectedIndexChange = (selectedIndex: number) => void; | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：global； API声明：export interface HdsSideMenuBadgeParam 差异内容：export interface HdsSideMenuBadgeParam | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：HdsSideMenuBadgeParam； API声明：count?: number; 差异内容：count?: number; | api/@hms.hds.HdsSideMenu.d.ets |
@@ -93,7 +93,7 @@
 | 新增API | NA | 类名：global； API声明：export interface HdsSideMenuBaseItemParam 差异内容：export interface HdsSideMenuBaseItemParam | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：HdsSideMenuBaseItemParam； API声明：itemId?: string; 差异内容：itemId?: string; | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：HdsSideMenuBaseItemParam； API声明：label?: ResourceStr; 差异内容：label?: ResourceStr; | api/@hms.hds.HdsSideMenu.d.ets |
-| 新增API | NA | 类名：HdsSideMenuBaseItemParam； API声明：action?: Callback<void>; 差异内容：action?: Callback<void>; | api/@hms.hds.HdsSideMenu.d.ets |
+| 新增API | NA | 类名：HdsSideMenuBaseItemParam； API声明：action?: Callback&lt;void&gt;; 差异内容：action?: Callback&lt;void&gt;; | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：global； API声明：export interface HdsSideMenuMainItemParam 差异内容：export interface HdsSideMenuMainItemParam | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：HdsSideMenuMainItemParam； API声明：icon?: ResourceStr; 差异内容：icon?: ResourceStr; | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：HdsSideMenuMainItemParam； API声明：symbol?: SymbolGlyphModifier; 差异内容：symbol?: SymbolGlyphModifier; | api/@hms.hds.HdsSideMenu.d.ets |
@@ -105,10 +105,10 @@
 | 新增API | NA | 类名：global； API声明：export class HdsSideMenuSubItem 差异内容：export class HdsSideMenuSubItem | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：HdsSideMenuSubItem； API声明：updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuSubItem; 差异内容：updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuSubItem; | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare struct HdsSideMenu 差异内容：export declare struct HdsSideMenu | api/@hms.hds.HdsSideMenu.d.ets |
-| 新增API | NA | 类名：HdsSideMenu； API声明：@Param  items?: HdsSideMenuMainItem[]; 差异内容：@Param  items?: HdsSideMenuMainItem[]; | api/@hms.hds.HdsSideMenu.d.ets |
-| 新增API | NA | 类名：HdsSideMenu； API声明：@Param  @Require  selectedIndex: number; 差异内容：@Param  @Require  selectedIndex: number; | api/@hms.hds.HdsSideMenu.d.ets |
-| 新增API | NA | 类名：HdsSideMenu； API声明：@Event  \$selectedIndex?: OnSelectedIndexChange; 差异内容：@Event  \$selectedIndex?: OnSelectedIndexChange; | api/@hms.hds.HdsSideMenu.d.ets |
-| 新增API | NA | 类名：HdsSideMenu； API声明：@Param  maxItemTextLines?: number; 差异内容：@Param  maxItemTextLines?: number; | api/@hms.hds.HdsSideMenu.d.ets |
+| 新增API | NA | 类名：HdsSideMenu； API声明：@Param items?: HdsSideMenuMainItem[]; 差异内容：@Param items?: HdsSideMenuMainItem[]; | api/@hms.hds.HdsSideMenu.d.ets |
+| 新增API | NA | 类名：HdsSideMenu； API声明：@Param @Require selectedIndex: number; 差异内容：@Param @Require selectedIndex: number; | api/@hms.hds.HdsSideMenu.d.ets |
+| 新增API | NA | 类名：HdsSideMenu； API声明：@Event $selectedIndex?: OnSelectedIndexChange; 差异内容：@Event $selectedIndex?: OnSelectedIndexChange; | api/@hms.hds.HdsSideMenu.d.ets |
+| 新增API | NA | 类名：HdsSideMenu； API声明：@Param maxItemTextLines?: number; 差异内容：@Param maxItemTextLines?: number; | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：HdsSideMenu； API声明：build(): void; 差异内容：build(): void; | api/@hms.hds.HdsSideMenu.d.ets |
 | 新增API | NA | 类名：global； API声明：export class HdsSnackBar 差异内容：export class HdsSnackBar | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：HdsSnackBar； API声明：show(icon: SnackBarIconOptions, message: SnackBarMessageOptions, operation: SnackBarOperationOptions, style?: SnackBarStyleOptions): void; 差异内容：show(icon: SnackBarIconOptions, message: SnackBarMessageOptions, operation: SnackBarOperationOptions, style?: SnackBarStyleOptions): void; | api/@hms.hds.HdsSnackBar.d.ets |
@@ -127,13 +127,13 @@
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：operationType?: SnackBarOperationType; 差异内容：operationType?: SnackBarOperationType; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：content?: ResourceStr; 差异内容：content?: ResourceStr; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：contentColor?: ColorMetrics; 差异内容：contentColor?: ColorMetrics; | api/@hms.hds.HdsSnackBar.d.ets |
-| 新增API | NA | 类名：SnackBarOperationOptions； API声明：onContentClick?: Callback<void>; 差异内容：onContentClick?: Callback<void>; | api/@hms.hds.HdsSnackBar.d.ets |
+| 新增API | NA | 类名：SnackBarOperationOptions； API声明：onContentClick?: Callback&lt;void&gt;; 差异内容：onContentClick?: Callback&lt;void&gt;; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：contentAccessibilityText?: ResourceStr; 差异内容：contentAccessibilityText?: ResourceStr; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：contentAccessibilityDescription?: ResourceStr; 差异内容：contentAccessibilityDescription?: ResourceStr; | api/@hms.hds.HdsSnackBar.d.ets |
-| 新增API | NA | 类名：SnackBarOperationOptions； API声明：onCloseButtonClick?: Callback<void>; 差异内容：onCloseButtonClick?: Callback<void>; | api/@hms.hds.HdsSnackBar.d.ets |
+| 新增API | NA | 类名：SnackBarOperationOptions； API声明：onCloseButtonClick?: Callback&lt;void&gt;; 差异内容：onCloseButtonClick?: Callback&lt;void&gt;; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：closeButtonAccessibilityText?: ResourceStr; 差异内容：closeButtonAccessibilityText?: ResourceStr; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：closeButtonAccessibilityDescription?: ResourceStr; 差异内容：closeButtonAccessibilityDescription?: ResourceStr; | api/@hms.hds.HdsSnackBar.d.ets |
-| 新增API | NA | 类名：SnackBarOperationOptions； API声明：onArrowClick?: Callback<void>; 差异内容：onArrowClick?: Callback<void>; | api/@hms.hds.HdsSnackBar.d.ets |
+| 新增API | NA | 类名：SnackBarOperationOptions； API声明：onArrowClick?: Callback&lt;void&gt;; 差异内容：onArrowClick?: Callback&lt;void&gt;; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：arrowColor?: ColorMetrics[]; 差异内容：arrowColor?: ColorMetrics[]; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：highlightBackBoardColor?: ColorMetrics; 差异内容：highlightBackBoardColor?: ColorMetrics; | api/@hms.hds.HdsSnackBar.d.ets |
 | 新增API | NA | 类名：SnackBarOperationOptions； API声明：textButtonId?: string; 差异内容：textButtonId?: string; | api/@hms.hds.HdsSnackBar.d.ets |
@@ -162,7 +162,7 @@
 | 新增API | NA | 类名：global； API声明：@Builder export declare function bleedIconStyle(builder: CustomTabBuilder): void; 差异内容：@Builder export declare function bleedIconStyle(builder: CustomTabBuilder): void; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare type SwipeIconType = SymbolGlyphModifier \| ImageOptions; 差异内容：export declare type SwipeIconType = SymbolGlyphModifier \| ImageOptions; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：global； API声明：export interface HdsSwipeActionOptions 差异内容：export interface HdsSwipeActionOptions | api/@hms.hds.HdsStyle.d.ets |
-| 新增API | NA | 类名：HdsSwipeActionOptions； API声明：icons?: Array<SwipeIconConfigurations>; 差异内容：icons?: Array<SwipeIconConfigurations>; | api/@hms.hds.HdsStyle.d.ets |
+| 新增API | NA | 类名：HdsSwipeActionOptions； API声明：icons?: Array&lt;SwipeIconConfigurations&gt;; 差异内容：icons?: Array&lt;SwipeIconConfigurations&gt;; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：HdsSwipeActionOptions； API声明：deleteIconOptions?: DeleteIconOptions; 差异内容：deleteIconOptions?: DeleteIconOptions; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：HdsSwipeActionOptions； API声明：fullDeleteOptions?: FullDeleteOptions; 差异内容：fullDeleteOptions?: FullDeleteOptions; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：global； API声明：export interface IconOptions 差异内容：export interface IconOptions | api/@hms.hds.HdsStyle.d.ets |
@@ -185,14 +185,14 @@
 | 新增API | NA | 类名：FullDeleteOptions； API声明：onFullDeleteAction?: SwipeActionCallback; 差异内容：onFullDeleteAction?: SwipeActionCallback; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：global； API声明：declare type SwipeActionCallback = () => void; 差异内容：declare type SwipeActionCallback = () => void; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare struct HdsListItem 差异内容：export declare struct HdsListItem | api/@hms.hds.HdsStyle.d.ets |
-| 新增API | NA | 类名：HdsListItem； API声明：@BuilderParam  customItemBuilder?: CustomBuilder; 差异内容：@BuilderParam  customItemBuilder?: CustomBuilder; | api/@hms.hds.HdsStyle.d.ets |
+| 新增API | NA | 类名：HdsListItem； API声明：@BuilderParam customItemBuilder?: CustomBuilder; 差异内容：@BuilderParam customItemBuilder?: CustomBuilder; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：HdsListItem； API声明：hdsListItemCard?: HdsListItemCardOptions; 差异内容：hdsListItemCard?: HdsListItemCardOptions; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：HdsListItem； API声明：swipeActionOptions?: HdsSwipeActionOptions \| SwipeActionOptions; 差异内容：swipeActionOptions?: HdsSwipeActionOptions \| SwipeActionOptions; | api/@hms.hds.HdsStyle.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare enum HdsSceneType 差异内容：export declare enum HdsSceneType | api/@hms.hds.HdsVisualComponent.d.ets |
 | 新增API | NA | 类名：HdsSceneType； API声明：DUAL_EDGE_FLOW_LIGHT_WITH_BACKGROUND_MASK = 0 差异内容：DUAL_EDGE_FLOW_LIGHT_WITH_BACKGROUND_MASK = 0 | api/@hms.hds.HdsVisualComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：declare type HdsSceneFinishCallback = () => void; 差异内容：declare type HdsSceneFinishCallback = () => void; | api/@hms.hds.HdsVisualComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare interface DualEdgeFlowLightWithMaskParam 差异内容：export declare interface DualEdgeFlowLightWithMaskParam | api/@hms.hds.HdsVisualComponent.d.ets |
-| 新增API | NA | 类名：DualEdgeFlowLightWithMaskParam； API声明：backgroundMaskColors: Array<ResourceColor>; 差异内容：backgroundMaskColors: Array<ResourceColor>; | api/@hms.hds.HdsVisualComponent.d.ets |
+| 新增API | NA | 类名：DualEdgeFlowLightWithMaskParam； API声明：backgroundMaskColors: Array&lt;ResourceColor&gt;; 差异内容：backgroundMaskColors: Array&lt;ResourceColor&gt;; | api/@hms.hds.HdsVisualComponent.d.ets |
 | 新增API | NA | 类名：DualEdgeFlowLightWithMaskParam； API声明：firstEdgeFlowLight: hdsEffect.EdgeFlowLightParam; 差异内容：firstEdgeFlowLight: hdsEffect.EdgeFlowLightParam; | api/@hms.hds.HdsVisualComponent.d.ets |
 | 新增API | NA | 类名：DualEdgeFlowLightWithMaskParam； API声明：secondEdgeFlowLight: hdsEffect.EdgeFlowLightParam; 差异内容：secondEdgeFlowLight: hdsEffect.EdgeFlowLightParam; | api/@hms.hds.HdsVisualComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：declare type SceneParams = DualEdgeFlowLightWithMaskParam; 差异内容：declare type SceneParams = DualEdgeFlowLightWithMaskParam; | api/@hms.hds.HdsVisualComponent.d.ets |
@@ -250,8 +250,8 @@
 | 新增API | NA | 类名：DualEdgeFlowLightParam； API声明：firstEdgeFlowLight: EdgeFlowLightParam; 差异内容：firstEdgeFlowLight: EdgeFlowLightParam; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：DualEdgeFlowLightParam； API声明：secondEdgeFlowLight: EdgeFlowLightParam; 差异内容：secondEdgeFlowLight: EdgeFlowLightParam; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：hdsEffect； API声明：interface UVFlowLightColorParam 差异内容：interface UVFlowLightColorParam | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：UVFlowLightColorParam； API声明：colorSource: Array<ResourceColor>; 差异内容：colorSource: Array<ResourceColor>; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：UVFlowLightColorParam； API声明：colorTarget?: Array<ResourceColor>; 差异内容：colorTarget?: Array<ResourceColor>; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 新增API | NA | 类名：UVFlowLightColorParam； API声明：colorSource: Array&lt;ResourceColor&gt;; 差异内容：colorSource: Array&lt;ResourceColor&gt;; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 新增API | NA | 类名：UVFlowLightColorParam； API声明：colorTarget?: Array&lt;ResourceColor&gt;; 差异内容：colorTarget?: Array&lt;ResourceColor&gt;; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：hdsEffect； API声明：type EffectParams = DualEdgeFlowLightParam \| UVFlowLightColorParam; 差异内容：type EffectParams = DualEdgeFlowLightParam \| UVFlowLightColorParam; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：hdsEffect； API声明：class ShaderEffectController 差异内容：class ShaderEffectController | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：ShaderEffectController； API声明：play(): void; 差异内容：play(): void; | api/@hms.hds.hdsBaseComponent.d.ets |
@@ -397,8 +397,8 @@
 | 新增API | NA | 类名：SelectStyle； API声明：value: ResourceStr; 差异内容：value: ResourceStr; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：SelectStyle； API声明：valueColor?: ResourceColor; 差异内容：valueColor?: ResourceColor; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：SelectStyle； API声明：arrowColor?: ResourceColor; 差异内容：arrowColor?: ResourceColor; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：SelectStyle； API声明：optionValues: Array<ResourceStr>; 差异内容：optionValues: Array<ResourceStr>; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：SelectStyle； API声明：optionSymbol: Array<SymbolGlyphModifier>; 差异内容：optionSymbol: Array<SymbolGlyphModifier>; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 新增API | NA | 类名：SelectStyle； API声明：optionValues: Array&lt;ResourceStr&gt;; 差异内容：optionValues: Array&lt;ResourceStr&gt;; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 新增API | NA | 类名：SelectStyle； API声明：optionSymbol: Array&lt;SymbolGlyphModifier&gt;; 差异内容：optionSymbol: Array&lt;SymbolGlyphModifier&gt;; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：SelectStyle； API声明：onSelect?: OnSelectCallback; 差异内容：onSelect?: OnSelectCallback; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：SelectStyle； API声明：enable?: boolean; 差异内容：enable?: boolean; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：SelectStyle； API声明：selectId?: string; 差异内容：selectId?: string; | api/@hms.hds.hdsBaseComponent.d.ets |
@@ -505,14 +505,14 @@
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：barWidth(value: Length): HdsTabsAttribute; 差异内容：barWidth(value: Length): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：barHeight(value: Length): HdsTabsAttribute; 差异内容：barHeight(value: Length): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：animationDuration(value: number): HdsTabsAttribute; 差异内容：animationDuration(value: number): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：HdsTabsAttribute； API声明：onChange(event: Callback<number>): HdsTabsAttribute; 差异内容：onChange(event: Callback<number>): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 新增API | NA | 类名：HdsTabsAttribute； API声明：onChange(event: Callback&lt;number&gt;): HdsTabsAttribute; 差异内容：onChange(event: Callback&lt;number&gt;): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：onAnimationStart(handler: OnTabsAnimationStartCallback): HdsTabsAttribute; 差异内容：onAnimationStart(handler: OnTabsAnimationStartCallback): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：HdsTabsAttribute； API声明：divider(value: Optional<HdsDividerStyle>): HdsTabsAttribute; 差异内容：divider(value: Optional<HdsDividerStyle>): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 新增API | NA | 类名：HdsTabsAttribute； API声明：divider(value: Optional&lt;HdsDividerStyle&gt;): HdsTabsAttribute; 差异内容：divider(value: Optional&lt;HdsDividerStyle&gt;): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：barOverlap(value: boolean): HdsTabsAttribute; 差异内容：barOverlap(value: boolean): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：barBackgroundColor(value: ResourceColor): HdsTabsAttribute; 差异内容：barBackgroundColor(value: ResourceColor): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：barBackgroundEffect(options: BackgroundEffectOptions): HdsTabsAttribute; 差异内容：barBackgroundEffect(options: BackgroundEffectOptions): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：barBackgroundBlurStyle(style: BlurStyle, options?: BackgroundBlurStyleOptions): HdsTabsAttribute; 差异内容：barBackgroundBlurStyle(style: BlurStyle, options?: BackgroundBlurStyleOptions): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 新增API | NA | 类名：HdsTabsAttribute； API声明：barBackgroundStyle(backgroundStyle: Optional<HdsTabsBackgroundStyle>): HdsTabsAttribute; 差异内容：barBackgroundStyle(backgroundStyle: Optional<HdsTabsBackgroundStyle>): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 新增API | NA | 类名：HdsTabsAttribute； API声明：barBackgroundStyle(backgroundStyle: Optional&lt;HdsTabsBackgroundStyle&gt;): HdsTabsAttribute; 差异内容：barBackgroundStyle(backgroundStyle: Optional&lt;HdsTabsBackgroundStyle&gt;): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：HdsTabsAttribute； API声明：onContentWillChange(handler: OnTabsContentWillChangeCallback): HdsTabsAttribute; 差异内容：onContentWillChange(handler: OnTabsContentWillChangeCallback): HdsTabsAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare enum DividerMode 差异内容：export declare enum DividerMode | api/@hms.hds.hdsBaseComponent.d.ets |
 | 新增API | NA | 类名：DividerMode； API声明：VISIBLE = 0 差异内容：VISIBLE = 0 | api/@hms.hds.hdsBaseComponent.d.ets |
@@ -535,15 +535,15 @@
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.hds.HdsStyle.d.ets 差异内容：UIDesignKit | api/@hms.hds.HdsStyle.d.ets |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.hds.HdsVisualComponent.d.ets 差异内容：UIDesignKit | api/@hms.hds.HdsVisualComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：dynamicHideTitleBar(value: DynamicHideParams): HdsNavigationAttribute; 差异内容：dynamicHideTitleBar(value: DynamicHideParams): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：bindToScrollable(scrollers: Array<Scroller>): HdsNavigationAttribute; 差异内容：bindToScrollable(scrollers: Array<Scroller>): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：bindToNestedScrollable(scrollers: Array<NestedScrollInfo>): HdsNavigationAttribute; 差异内容：bindToNestedScrollable(scrollers: Array<NestedScrollInfo>): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：enableDragBar(isEnabled: Optional<boolean>): HdsNavigationAttribute; 差异内容：enableDragBar(isEnabled: Optional<boolean>): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：enableModeChangeAnimation(isEnabled: Optional<boolean>): HdsNavigationAttribute; 差异内容：enableModeChangeAnimation(isEnabled: Optional<boolean>): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：onTitleModeChange(callback: Callback<HdsNavigationTitleMode>): HdsNavigationAttribute; 差异内容：onTitleModeChange(callback: Callback<HdsNavigationTitleMode>): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：bindToScrollable(scrollers: Array&lt;Scroller&gt;): HdsNavigationAttribute; 差异内容：bindToScrollable(scrollers: Array&lt;Scroller&gt;): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：bindToNestedScrollable(scrollers: Array&lt;NestedScrollInfo&gt;): HdsNavigationAttribute; 差异内容：bindToNestedScrollable(scrollers: Array&lt;NestedScrollInfo&gt;): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：enableDragBar(isEnabled: Optional&lt;boolean&gt;): HdsNavigationAttribute; 差异内容：enableDragBar(isEnabled: Optional&lt;boolean&gt;): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：enableModeChangeAnimation(isEnabled: Optional&lt;boolean&gt;): HdsNavigationAttribute; 差异内容：enableModeChangeAnimation(isEnabled: Optional&lt;boolean&gt;): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：onTitleModeChange(callback: Callback&lt;HdsNavigationTitleMode&gt;): HdsNavigationAttribute; 差异内容：onTitleModeChange(callback: Callback&lt;HdsNavigationTitleMode&gt;): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavigationAttribute； API声明：customNavContentTransition(delegate: CustomTransitionDelegate): HdsNavigationAttribute; 差异内容：customNavContentTransition(delegate: CustomTransitionDelegate): HdsNavigationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：dynamicHideTitleBar(value: DynamicHideParams): HdsNavDestinationAttribute; 差异内容：dynamicHideTitleBar(value: DynamicHideParams): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：bindToScrollable(scrollers: Array<Scroller>): HdsNavDestinationAttribute; 差异内容：bindToScrollable(scrollers: Array<Scroller>): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：bindToNestedScrollable(scrollers: Array<NestedScrollInfo>): HdsNavDestinationAttribute; 差异内容：bindToNestedScrollable(scrollers: Array<NestedScrollInfo>): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：bindToScrollable(scrollers: Array&lt;Scroller&gt;): HdsNavDestinationAttribute; 差异内容：bindToScrollable(scrollers: Array&lt;Scroller&gt;): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：bindToNestedScrollable(scrollers: Array&lt;NestedScrollInfo&gt;): HdsNavDestinationAttribute; 差异内容：bindToNestedScrollable(scrollers: Array&lt;NestedScrollInfo&gt;): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：systemTransition(type: NavigationSystemTransitionType): HdsNavDestinationAttribute; 差异内容：systemTransition(type: NavigationSystemTransitionType): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：customTransition(delegate: NavDestinationTransitionDelegate): HdsNavDestinationAttribute; 差异内容：customTransition(delegate: NavDestinationTransitionDelegate): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HdsNavDestinationAttribute； API声明：onBackPressed(callback: Callback<void, boolean>): HdsNavDestinationAttribute; 差异内容：onBackPressed(callback: Callback<void, boolean>): HdsNavDestinationAttribute; | api/@hms.hds.hdsBaseComponent.d.ets |

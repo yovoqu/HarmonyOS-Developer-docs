@@ -1,35 +1,32 @@
-# @ohos.app.ability.UIExtensionContentSession (UIExtensionAbility界面操作类)
+# @ohos.app.ability.UIExtensionContentSession (带界面扩展能力的界面操作类)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensioncontentsession
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 UIExtensionContentSession是[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)组件的界面操作类，提供页面加载、设置宿主应用（UIExtensionAbility组件的拉起方）窗口隐私模式等功能。当宿主应用拉起指定的UIExtensionAbility组件时，系统创建UIExtensionContentSession对象，并通过[onSessionCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onsessioncreate)回调传递给开发者。一个UIExtensionAbility组件对应一个UIExtensionContentSession对象，每个UIExtensionAbility组件的UIExtensionContentSession对象之间互不影响。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { UIExtensionContentSession } from '@kit.AbilityKit';
 ```
 
 
-## UIExtensionContentSession
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### UIExtensionContentSession
 
 UIExtensionAbility组件的界面操作类，提供页面加载、设置宿主应用窗口隐私模式等功能。
 
 
-### loadContent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### loadContent
 
 loadContent(path: string, storage?: LocalStorage): void
 
@@ -39,17 +36,15 @@ loadContent(path: string, storage?: LocalStorage): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | string | 是 | 要加载的页面所在的路径，该路径通过[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中的[pages标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#pages标签)配置。 |
-| storage | [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) | 否 | 页面级UI状态存储单元，开发者可通过该参数为加载的页面传递状态属性。 |
+| path | string | 是 | 要加载的页面所在的路径，该路径通过module.json5配置文件中的pages标签配置。 |
+| storage | LocalStorage | 否 | 页面级UI状态存储单元，开发者可通过该参数为加载的页面传递状态属性。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -59,14 +54,9 @@ loadContent(path: string, storage?: LocalStorage): void
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility组件不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  UIExtensionContentSession,
-  ShareExtensionAbility,
-  Want,
-} from '@kit.AbilityKit';
+import { UIExtensionContentSession, ShareExtensionAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -89,8 +79,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 ```
 
 
-### loadContentByName18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### loadContentByName18+
 
 loadContentByName(name: string, storage?: LocalStorage): void
 
@@ -100,17 +90,15 @@ loadContentByName(name: string, storage?: LocalStorage): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 命名路由页面的名称。 |
-| storage | [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) | 否 | 页面级UI状态存储单元，开发者可通过该参数为加载的页面传递状态属性。 |
+| storage | LocalStorage | 否 | 页面级UI状态存储单元，开发者可通过该参数为加载的页面传递状态属性。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -121,14 +109,9 @@ loadContentByName(name: string, storage?: LocalStorage): void
 
 UIExtensionAbility组件的实现：
 
-
-```ts
+```ArkTS
 // UIExtensionAbility组件不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  UIExtensionContentSession,
-  ShareExtensionAbility,
-  Want,
-} from '@kit.AbilityKit';
+import { UIExtensionContentSession, ShareExtensionAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import './pages/UIExtensionPage'; // 导入命名路由页面，示例代码以“./pages/UIExtensionPage.ets”文件为例，在实际代码开发过程中修改为真实路径和文件名称。
 
@@ -145,9 +128,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     } catch (error) {
       let code = (error as BusinessError).code;
       let message = (error as BusinessError).message;
-      console.error(
-        `Failed to load content by name ${name}, code: ${code}, msg: ${message}`,
-      );
+      console.error(`Failed to load content by name ${name}, code: ${code}, msg: ${message}`);
     }
   }
 
@@ -157,8 +138,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 UIExtensionAbility组件加载的命名路由页面的实现：
 
-
-```ts
+```ArkTS
 // “./pages/UIExtensionPage.ets”文件的实现。
 import { UIExtensionContentSession } from '@kit.AbilityKit';
 
@@ -173,8 +153,8 @@ struct UIExtensionPage {
     Row() {
       Column() {
         Text(this.message)
-        .fontSize(20)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(20)
+          .fontWeight(FontWeight.Bold)
       }
       .width('100%')
     }
@@ -184,10 +164,10 @@ struct UIExtensionPage {
 ```
 
 
-### terminateSelf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(callback: AsyncCallback<void>): void
+##### terminateSelf
+
+terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIExtensionAbility组件自身，同时关闭对应的宿主应用窗口界面。使用callback异步回调。
 
@@ -195,7 +175,6 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当接口调用成功，err为undefined，否则为错误对象。 |
@@ -205,7 +184,6 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -213,8 +191,7 @@ terminateSelf(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { UIExtensionContentSession } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -223,22 +200,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   storage: LocalStorage | undefined = this.getUIContext().getSharedLocalStorage();
   private session: UIExtensionContentSession | undefined =
-  this.storage?.get<UIExtensionContentSession>('session');
+    this.storage?.get<UIExtensionContentSession>('session');
 
   build() {
     RelativeContainer() {
       Button('TerminateSelf')
-      .onClick(() => {
-        this.session?.terminateSelf((err: BusinessError) => {
-          if (err) {
-            console.error(`Failed to terminate self, code: ${err.code}, msg: ${err.message}`);
-            return;
-          }
-          console.info(`Succeeded in terminating self.`);
-        });
+        .onClick(() => {
+          this.session?.terminateSelf((err: BusinessError) => {
+            if (err) {
+              console.error(`Failed to terminate self, code: ${err.code}, msg: ${err.message}`);
+              return;
+            }
+            console.info(`Succeeded in terminating self.`);
+          });
 
-        this.storage?.clear();
-      })
+          this.storage?.clear();
+        })
     }
     .height('100%')
     .width('100%')
@@ -247,10 +224,10 @@ struct Index {
 ```
 
 
-### terminateSelf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelf(): Promise<void>
+##### terminateSelf
+
+terminateSelf(): Promise&lt;void&gt;
 
 销毁UIExtensionAbility组件自身，同时关闭对应的宿主应用窗口界面。使用Promise异步回调。
 
@@ -258,7 +235,6 @@ terminateSelf(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -266,8 +242,7 @@ terminateSelf(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { UIExtensionContentSession } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -276,22 +251,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   storage: LocalStorage | undefined = this.getUIContext().getSharedLocalStorage();
   private session: UIExtensionContentSession | undefined =
-  this.storage?.get<UIExtensionContentSession>('session');
+    this.storage?.get<UIExtensionContentSession>('session');
 
   build() {
     RelativeContainer() {
       Button('TerminateSelf')
-      .onClick(() => {
-        this.session?.terminateSelf()
-        .then(() => {
-          console.info(`Succeeded in terminating self.`);
-        })
-        .catch((err: BusinessError) => {
-          console.error(`Failed to terminate self, code: ${err.code}, msg: ${err.message}`);
-        });
+        .onClick(() => {
+          this.session?.terminateSelf()
+            .then(() => {
+              console.info(`Succeeded in terminating self.`);
+            })
+            .catch((err: BusinessError) => {
+              console.error(`Failed to terminate self, code: ${err.code}, msg: ${err.message}`);
+            });
 
-        this.storage?.clear();
-      })
+          this.storage?.clear();
+        })
     }
     .height('100%')
     .width('100%')
@@ -300,10 +275,10 @@ struct Index {
 ```
 
 
-### terminateSelfWithResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void
+##### terminateSelfWithResult
+
+terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIExtensionAbility组件自身，关闭对应的宿主应用窗口界面，并将结果返回给宿主应用。使用callback异步回调。
 
@@ -311,17 +286,15 @@ terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult) | 是 | 返回给宿主应用的信息。 |
+| parameter | AbilityResult | 是 | 返回给宿主应用的信息。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当接口调用成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -330,8 +303,7 @@ terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)
 
 **示例：**
 
-
-```ts
+```text
 import { UIExtensionContentSession, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -340,32 +312,32 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   storage: LocalStorage | undefined = this.getUIContext().getSharedLocalStorage();
   private session: UIExtensionContentSession | undefined =
-  this.storage?.get<UIExtensionContentSession>('session');
+    this.storage?.get<UIExtensionContentSession>('session');
 
   build() {
     RelativeContainer() {
       Button('TerminateSelfWithResult')
-      .onClick(() => {
-        let abilityResult: common.AbilityResult = {
-          resultCode: 0,
-          want: {
-            bundleName: 'com.ohos.uiextensioncontentsession',
-            parameters: {
-              'result': 123456
+        .onClick(() => {
+          let abilityResult: common.AbilityResult = {
+            resultCode: 0,
+            want: {
+              bundleName: 'com.ohos.uiextensioncontentsession',
+              parameters: {
+                'result': 123456
+              }
             }
-          }
-        };
+          };
 
-        this.session?.terminateSelfWithResult(abilityResult, (err: BusinessError) => {
-          if (err) {
-            console.error(`Failed to terminate self with result, code: ${err.code}, msg: ${err.message}`);
-            return;
-          }
-          console.info(`Succeeded in terminating self with result.`);
-        });
+          this.session?.terminateSelfWithResult(abilityResult, (err: BusinessError) => {
+            if (err) {
+              console.error(`Failed to terminate self with result, code: ${err.code}, msg: ${err.message}`);
+              return;
+            }
+            console.info(`Succeeded in terminating self with result.`);
+          });
 
-        this.storage?.clear();
-      })
+          this.storage?.clear();
+        })
     }
     .height('100%')
     .width('100%')
@@ -374,10 +346,10 @@ struct Index {
 ```
 
 
-### terminateSelfWithResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-terminateSelfWithResult(parameter: AbilityResult): Promise<void>
+##### terminateSelfWithResult
+
+terminateSelfWithResult(parameter: AbilityResult): Promise&lt;void&gt;
 
 销毁UIExtensionAbility组件自身，关闭对应的宿主应用窗口界面，并将结果返回给宿主应用。使用Promise异步回调。
 
@@ -385,14 +357,12 @@ terminateSelfWithResult(parameter: AbilityResult): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| parameter | [AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult) | 是 | 返回给宿主应用的信息。 |
+| parameter | AbilityResult | 是 | 返回给宿主应用的信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -403,7 +373,6 @@ terminateSelfWithResult(parameter: AbilityResult): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -411,8 +380,7 @@ terminateSelfWithResult(parameter: AbilityResult): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { UIExtensionContentSession, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -421,32 +389,32 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   storage: LocalStorage | undefined = this.getUIContext().getSharedLocalStorage();
   private session: UIExtensionContentSession | undefined =
-  this.storage?.get<UIExtensionContentSession>('session');
+    this.storage?.get<UIExtensionContentSession>('session');
 
   build() {
     RelativeContainer() {
       Button('TerminateSelfWithResult')
-      .onClick(() => {
-        let abilityResult: common.AbilityResult = {
-          resultCode: 0,
-          want: {
-            bundleName: 'com.ohos.uiextensioncontentsession',
-            parameters: {
-              'result': 123456
+        .onClick(() => {
+          let abilityResult: common.AbilityResult = {
+            resultCode: 0,
+            want: {
+              bundleName: 'com.ohos.uiextensioncontentsession',
+              parameters: {
+                'result': 123456
+              }
             }
-          }
-        };
+          };
 
-        this.session?.terminateSelfWithResult(abilityResult)
-        .then(() => {
-          console.info(`Succeeded in terminating self with result.`);
+          this.session?.terminateSelfWithResult(abilityResult)
+            .then(() => {
+              console.info(`Succeeded in terminating self with result.`);
+            })
+            .catch((err: BusinessError) => {
+              console.error(`Failed to terminate self with result, code: ${err.code}, msg: ${err.message}`);
+            });
+
+          this.storage?.clear();
         })
-        .catch((err: BusinessError) => {
-          console.error(`Failed to terminate self with result, code: ${err.code}, msg: ${err.message}`);
-        });
-
-        this.storage?.clear();
-      })
     }
     .height('100%')
     .width('100%')
@@ -455,10 +423,10 @@ struct Index {
 ```
 
 
-### setWindowPrivacyMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>
+##### setWindowPrivacyMode
+
+setWindowPrivacyMode(isPrivacyMode: boolean): Promise&lt;void&gt;
 
 设置宿主应用窗口的隐私模式开启或关闭。设置为隐私模式的窗口，窗口内容将无法被截屏或录屏。使用Promise异步回调。
 
@@ -468,14 +436,12 @@ setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isPrivacyMode | boolean | 是 | 表示是否开启隐私模式。true表示开启；false表示关闭。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -486,7 +452,6 @@ setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | The application does not have permission to call the interface. |
@@ -495,14 +460,9 @@ setWindowPrivacyMode(isPrivacyMode: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility组件不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  UIExtensionContentSession,
-  ShareExtensionAbility,
-  Want,
-} from '@kit.AbilityKit';
+import { UIExtensionContentSession, ShareExtensionAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -511,22 +471,17 @@ export default class ShareExtAbility extends ShareExtensionAbility {
   onSessionCreate(want: Want, session: UIExtensionContentSession): void {
     let isPrivacyMode: boolean = true;
     try {
-      session
-        .setWindowPrivacyMode(isPrivacyMode)
+      session.setWindowPrivacyMode(isPrivacyMode)
         .then(() => {
           console.info(`Succeeded in setting window to privacy mode.`);
         })
         .catch((err: BusinessError) => {
-          console.error(
-            `Failed to set window to privacy mode, code: ${err.code}, msg: ${err.message}`,
-          );
+          console.error(`Failed to set window to privacy mode, code: ${err.code}, msg: ${err.message}`);
         });
     } catch (e) {
       let code = (e as BusinessError).code;
       let msg = (e as BusinessError).message;
-      console.error(
-        `Failed to set window to privacy mode, code: ${code}, msg: ${msg}`,
-      );
+      console.error(`Failed to set window to privacy mode, code: ${code}, msg: ${msg}`);
     }
   }
 
@@ -535,10 +490,10 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 ```
 
 
-### setWindowPrivacyMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): void
+##### setWindowPrivacyMode
+
+setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置宿主应用窗口的隐私模式开启或关闭。设置为隐私模式的窗口，窗口内容将无法被截屏或录屏。使用callback异步回调。
 
@@ -547,7 +502,6 @@ setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): voi
 **需要权限**：ohos.permission.PRIVACY_WINDOW
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -559,7 +513,6 @@ setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): voi
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | The application does not have permission to call the interface. |
@@ -568,14 +521,9 @@ setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback<void>): voi
 
 **示例：**
 
-
-```ts
+```text
 // UIExtensionAbility组件不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  UIExtensionContentSession,
-  ShareExtensionAbility,
-  Want,
-} from '@kit.AbilityKit';
+import { UIExtensionContentSession, ShareExtensionAbility, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -586,9 +534,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     try {
       session.setWindowPrivacyMode(isPrivacyMode, (err: BusinessError) => {
         if (err) {
-          console.error(
-            `Failed to set window to privacy mode, code: ${err.code}, msg: ${err.message}`,
-          );
+          console.error(`Failed to set window to privacy mode, code: ${err.code}, msg: ${err.message}`);
           return;
         }
         console.info(`Succeeded in setting window to privacy mode.`);
@@ -596,9 +542,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
     } catch (e) {
       let code = (e as BusinessError).code;
       let msg = (e as BusinessError).message;
-      console.error(
-        `Failed to set window to privacy mode, code: ${code}, msg: ${msg}`,
-      );
+      console.error(`Failed to set window to privacy mode, code: ${code}, msg: ${msg}`);
     }
   }
 
@@ -607,10 +551,10 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 ```
 
 
-### startAbilityByType11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback, callback: AsyncCallback<void>): void
+##### startAbilityByType11+
+
+startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback, callback: AsyncCallback&lt;void&gt;): void
 
 通过type隐式启动UIExtensionAbility。使用callback异步回调。仅支持处于前台的应用调用。
 
@@ -618,19 +562,17 @@ startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStart
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | UIExtensionAbility组件类型，取值详见[通过startAbilityByType接口拉起垂类面板](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-intent-panel#匹配规则)。 |
-| wantParam | Record&lt;string, Object&gt; | 是 | 表示启动UIExtensionAbility组件时传递的参数。 |
-| abilityStartCallback | [AbilityStartCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystartcallback) | 是 | 表示启动UIExtensionAbility组件的执行结果。 |
+| type | string | 是 | UIExtensionAbility组件类型，取值详见通过startAbilityByType接口拉起垂类面板。 |
+| wantParam | Record<string, Object> | 是 | 表示启动UIExtensionAbility组件时传递的参数。 |
+| abilityStartCallback | AbilityStartCallback | 是 | 表示启动UIExtensionAbility组件的执行结果。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当接口调用成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -640,15 +582,9 @@ startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStart
 
 **示例：**
 
-
-```ts
+```json
 // UIExtensionAbility组件不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  UIExtensionContentSession,
-  ShareExtensionAbility,
-  Want,
-  common,
-} from '@kit.AbilityKit';
+import { UIExtensionContentSession, ShareExtensionAbility, Want, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -656,7 +592,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
   onSessionCreate(want: Want, session: UIExtensionContentSession): void {
     let wantParams: Record<string, Object> = {
-      sceneType: 1,
+      'sceneType': 1
     };
     let abilityStartCallback: common.AbilityStartCallback = {
       onError: (code: number, name: string, message: string) => {
@@ -664,23 +600,16 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       },
       onResult: (result: common.AbilityResult) => {
         console.info(`onResult, result: ${JSON.stringify(result)}`);
-      },
+      }
     };
 
-    session.startAbilityByType(
-      'navigation',
-      wantParams,
-      abilityStartCallback,
-      (err: BusinessError) => {
-        if (err) {
-          console.error(
-            `Failed to startAbilityByType, code: ${err.code}, msg: ${err.message}`,
-          );
-          return;
-        }
-        console.info(`Succeeded in startAbilityByType`);
-      },
-    );
+    session.startAbilityByType('navigation', wantParams, abilityStartCallback, (err: BusinessError) => {
+      if (err) {
+        console.error(`Failed to startAbilityByType, code: ${err.code}, msg: ${err.message}`);
+        return;
+      }
+      console.info(`Succeeded in startAbilityByType`);
+    });
   }
 
   // ...
@@ -688,10 +617,10 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 ```
 
 
-### startAbilityByType11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback): Promise<void>
+##### startAbilityByType11+
+
+startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback): Promise&lt;void&gt;
 
 通过type隐式启动UIExtensionAbility组件。使用Promise异步回调。仅支持处于前台的应用调用。
 
@@ -699,16 +628,14 @@ startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStart
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | UIExtensionAbility组件类型，取值详见[通过startAbilityByType接口拉起垂类面板](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-intent-panel#匹配规则)。 |
-| wantParam | Record&lt;string, Object&gt; | 是 | 表示启动UIExtensionAbility组件时传递的参数。 |
-| abilityStartCallback | [AbilityStartCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystartcallback) | 是 | 表示启动UIExtensionAbility组件的执行结果。 |
+| type | string | 是 | UIExtensionAbility组件类型，取值详见通过startAbilityByType接口拉起垂类面板。 |
+| wantParam | Record<string, Object> | 是 | 表示启动UIExtensionAbility组件时传递的参数。 |
+| abilityStartCallback | AbilityStartCallback | 是 | 表示启动UIExtensionAbility组件的执行结果。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -719,7 +646,6 @@ startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStart
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -728,15 +654,9 @@ startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStart
 
 **示例：**
 
-
-```ts
+```json
 // UIExtensionAbility组件不支持三方应用直接继承，故以派生类ShareExtensionAbility举例说明。
-import {
-  UIExtensionContentSession,
-  ShareExtensionAbility,
-  Want,
-  common,
-} from '@kit.AbilityKit';
+import { UIExtensionContentSession, ShareExtensionAbility, Want, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class ShareExtAbility extends ShareExtensionAbility {
@@ -744,7 +664,7 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
   onSessionCreate(want: Want, session: UIExtensionContentSession): void {
     let wantParams: Record<string, Object> = {
-      sceneType: 1,
+      'sceneType': 1
     };
     let abilityStartCallback: common.AbilityStartCallback = {
       onError: (code: number, name: string, message: string) => {
@@ -752,18 +672,15 @@ export default class ShareExtAbility extends ShareExtensionAbility {
       },
       onResult: (result: common.AbilityResult) => {
         console.info(`onResult, result: ${JSON.stringify(result)}`);
-      },
+      }
     };
 
-    session
-      .startAbilityByType('test', wantParams, abilityStartCallback)
+    session.startAbilityByType('test', wantParams, abilityStartCallback)
       .then(() => {
         console.info(`Succeeded in startAbilityByType`);
       })
       .catch((err: BusinessError) => {
-        console.error(
-          `Failed to startAbilityByType, code: ${err.code}, msg: ${err.message}`,
-        );
+        console.error(`Failed to startAbilityByType, code: ${err.code}, msg: ${err.message}`);
       });
   }
 
@@ -772,8 +689,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 ```
 
 
-### getUIExtensionWindowProxy12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getUIExtensionWindowProxy12+
 
 getUIExtensionWindowProxy(): uiExtension.WindowProxy
 
@@ -783,16 +700,14 @@ getUIExtensionWindowProxy(): uiExtension.WindowProxy
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [uiExtension.WindowProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-uiextension#windowproxy) | UIExtensionAbility组件的宿主应用窗口代理。 |
+| uiExtension.WindowProxy | UIExtensionAbility组件的宿主应用窗口代理。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -801,8 +716,7 @@ getUIExtensionWindowProxy(): uiExtension.WindowProxy
 
 **示例：**
 
-
-```ts
+```ArkTS
 // Index.ets
 import { UIExtensionContentSession } from '@kit.AbilityKit';
 import { uiExtension } from '@kit.ArkUI';
@@ -832,8 +746,8 @@ struct Extension {
   build() {
     Column() {
       Text(this.message)
-      .fontSize(20)
-      .fontWeight(FontWeight.Bold)
+        .fontSize(20)
+        .fontWeight(FontWeight.Bold)
     }
     .width('100%')
   }

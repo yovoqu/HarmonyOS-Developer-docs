@@ -3,35 +3,40 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-makernotehuaweimetadata
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 MakerNoteHuaweiMetadata implements Metadata
+ 
 来自Huawei相机的照片元数据。
-
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
+  
 
-```ts
+##### 导入模块
+
+```text
 import { image } from '@kit.ImageKit';
 ```
+ 
+  
 
-#### 属性
+##### 属性
+
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isXmageSupported | boolean | 否 | 是 | 是否支持XMAGE。true表示支持，false表示不支持。 |
-| xmageWatermarkMode | number | 否 | 是 | XMAGE水印模式。具体取值请参考[Constants](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-c)。 |
+| xmageWatermarkMode | number | 否 | 是 | XMAGE水印模式。具体取值请参考Constants。 |
 | xmageLeft | number | 否 | 是 | 当照片包含XMAGE水印时，原始图片上，有效内容区域（不含水印覆盖范围）的左边界（相对于图片左上角原点）的水平坐标。单位为像素（px）。 |
 | xmageTop | number | 否 | 是 | 当照片包含XMAGE水印时，原始图片上，有效内容区域（不含水印覆盖范围）的上边界（相对于图片左上角原点）的垂直坐标。单位为像素（px）。 |
 | xmageRight | number | 否 | 是 | 当照片包含XMAGE水印时，原始图片上，有效内容区域（不含水印覆盖范围）的右边界（相对于图片左上角原点）的水平坐标。单位为像素（px）。 |
 | xmageBottom | number | 否 | 是 | 当照片包含XMAGE水印时，原始图片上，有效内容区域（不含水印覆盖范围）的下边界（相对于图片左上角原点）的垂直坐标。单位为像素（px）。 |
-| xmageColorMode | [XmageColorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#xmagecolormode23) | 否 | 是 | XMAGE颜色模式。 |
+| xmageColorMode | XmageColorMode | 否 | 是 | XMAGE颜色模式。 |
 | isCloudEnhanced | boolean | 否 | 是 | 图像是否存在云端增强。true表示存在，false表示不存在。 |
 | cloudLabel | string | 否 | 是 | 云增强标签。 |
 | isWindSnapshot | boolean | 否 | 是 | 是否采用风快照模式拍摄。true表示采用，false表示不采用。 该模式是针对拍摄快速移动物体或容易产生模糊场景（如大风中、抓拍运动物体）的专门摄影。 |
@@ -55,24 +60,31 @@ import { image } from '@kit.ImageKit';
 | rollAngle | number | 否 | 是 | 左右滚动角度。 |
 | pitchAngle | number | 否 | 是 | 俯仰角度。 |
 | physicalAperture | number | 否 | 是 | 物理光圈值。单位是fNumber。 |
-| focusMode | [FocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#focusmode23) | 否 | 是 | 镜头对焦控制策略，决定相机如何调整焦距。 |
+| focusMode | FocusMode | 否 | 是 | 镜头对焦控制策略，决定相机如何调整焦距。 |
+ 
+ 
+  
 
-#### createInstance
+##### createInstance
+
 static createInstance(): MakerNoteHuaweiMetadata
+ 
 返回[MakerNoteHuaweiMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-makernotehuaweimetadata)的空实例。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [MakerNoteHuaweiMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-makernotehuaweimetadata) | 返回MakerNoteHuaweiMetadata的空实例。 |
-
+| MakerNoteHuaweiMetadata | 返回MakerNoteHuaweiMetadata的空实例。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 async function makerNoteHuaweiCreateInstance(context: Context) {
   let makerNoteHuaweiMetadata = image.MakerNoteHuaweiMetadata.createInstance();
   if (makerNoteHuaweiMetadata != undefined) {
@@ -80,37 +92,47 @@ async function makerNoteHuaweiCreateInstance(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### getProperties
+##### getProperties
+
 getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
+ 
 获取图像中属性的值。使用Promise异步回调。
+ 
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | Array&lt;string&gt; | 是 | 要获取其值的属性的名称。 |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Record<string, string \| null>> | Promise对象，返回元数据要获取的属性的值，如获取失败则返回错误码。 |
-
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600202 | Unsupported metadata. Possible causes: unsupported metadata type. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -136,37 +158,47 @@ async function makerNoteHuaweiGetProperties(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### setProperties
+##### setProperties
+
 setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
+ 
 批量设置图片元数据中的指定属性的值。使用Promise异步回调。
+ 
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | records | Record<string, string \| null> | 是 | 包含要修改的MakerNoteHuaweiMetadata对象属性键值对的数组。 |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600202 | Unsupported metadata. Possible causes: unsupported metadata type. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -196,23 +228,29 @@ async function makerNoteHuaweiSetProperties(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### getAllProperties
+##### getAllProperties
+
 getAllProperties(): Promise<Record<string, string | null>>
+ 
 获取图片中所有元数据的属性和值。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise<Record<string, string \| null>> | Promise对象，返回元数据中定义的所有键值对。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -239,23 +277,29 @@ async function makerNoteHuaweiGetAllProperties(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### clone
+##### clone
+
 clone(): Promise&lt;MakerNoteHuaweiMetadata&gt;
+ 
 对[MakerNoteHuaweiMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-makernotehuaweimetadata)元数据进行克隆。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[MakerNoteHuaweiMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-makernotehuaweimetadata)> | Promise对象，当成功获取元数据时返回MakerNoteHuaweiMetadata元数据实例。 |
-
+| Promise&lt;MakerNoteHuaweiMetadata&gt; | Promise对象，当成功获取元数据时返回MakerNoteHuaweiMetadata元数据实例。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -282,23 +326,29 @@ async function makerNoteHuaweiClone(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### getBlob
+##### getBlob
+
 getBlob(): Promise&lt;ArrayBuffer&gt;
+ 
 以二进制数据的形式获取元数据。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回元数据的二进制数据。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
@@ -320,36 +370,45 @@ async function makerNoteHuaweiGetBlob(context: Context) {
   }
 }
 ```
+ 
+  
 
-#### setBlob
+##### setBlob
+
 setBlob(blob: ArrayBuffer): Promise&lt;void&gt;
+ 
 使用二进制数据替换当前元数据。使用Promise异步回调。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blob | ArrayBuffer | 是 | 要替换的二进制数据。 |
-
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600206 | Invalid parameter. Possible causes: The blob is empty or has a length of 0. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {

@@ -1,6 +1,6 @@
 # 密钥删除(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-delete-key-arkts
 
@@ -9,10 +9,14 @@
 从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。
 
 
-## 开发步骤
+##### 开发步骤
 
-以删除DH密钥为例。 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。用于删除时指定密钥的属性，删除单个密钥或者非群组密钥，可传空。 调用接口[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)，删除密钥。
-```text
+以删除DH密钥为例。
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。用于删除时指定密钥的属性，删除单个密钥或者非群组密钥，可传空。
+3. 调用接口[deleteKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksdeletekeyitem9)，删除密钥。
+
+```ArkTS
 /*
  * 以下以DH密钥的Promise操作使用为例
  */
@@ -42,7 +46,7 @@ let generateHuksOptions: huks.HuksOptions = {
 
 /* 1.生成密钥 */
 function generateKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     try {
       huks.generateKeyItem(keyAlias, huksOptions, (error, data) => {
         if (error) {
@@ -57,7 +61,7 @@ function generateKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
   });
 }
 
-async function generateKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function generateKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise<void> {
   console.info(`enter promise generateKeyItem`);
   try {
     await generateKeyItem(keyAlias, huksOptions);
@@ -73,7 +77,7 @@ let deleteHuksOptions: huks.HuksOptions = {
 }
 
 function deleteKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     try {
       huks.deleteKeyItem(keyAlias, huksOptions, (error, data) => {
         if (error) {
@@ -88,7 +92,7 @@ function deleteKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
   });
 }
 
-async function deleteKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function deleteKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise<void> {
   console.info(`enter promise deleteKeyItem`);
   try {
     await deleteKeyItem(keyAlias, huksOptions);
@@ -98,7 +102,7 @@ async function deleteKey(keyAlias: string, huksOptions: huks.HuksOptions): Promi
   }
 }
 
-async function executeKeyLifecycle(): Promise {
+async function executeKeyLifecycle(): Promise<string> {
   try {
     /* 1.生成密钥 */
     console.info('start generateKey...');

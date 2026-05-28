@@ -1,56 +1,75 @@
 # 使用MindSpore Lite实现图像分类（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-guidelines-based-native
 
-## 场景说明
+##### 场景说明
 
-开发者可以使用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，在UI代码中直接集成MindSpore Lite能力，快速部署AI算法，进行AI模型推理，实现图像分类的应用。 图像分类可实现对图像中物体的识别，在医学影像分析、自动驾驶、电子商务、人脸识别等领域有广泛的应用。
+开发者可以使用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，在UI代码中直接集成MindSpore Lite能力，快速部署AI算法，进行AI模型推理，实现图像分类的应用。
 
-## 基本概念
+图像分类可实现对图像中物体的识别，在医学影像分析、自动驾驶、电子商务、人脸识别等领域有广泛的应用。
 
-N-API：用于构建ArkTS本地化组件的一套接口。可利用N-API，将C/C++开发的库封装成ArkTS模块。
 
-## 开发流程
 
-选择图像分类模型。 在端侧使用MindSpore Lite推理模型，实现对选择的图片进行分类。
+##### 基本概念
 
-## 开发步骤
+ - N-API：用于构建ArkTS本地化组件的一套接口。可利用N-API，将C/C++开发的库封装成ArkTS模块。
+
+
+
+
+##### 开发流程
+1. 选择图像分类模型。
+2. 在端侧使用MindSpore Lite推理模型，实现对选择的图片进行分类。
+
+
+
+##### 开发步骤
 
 本文以对相册的一张图片进行推理为例，提供使用MindSpore Lite实现图像分类的开发指导。
 
-## 选择模型
 
-本示例程序中使用的图像分类模型文件为[mobilenetv2.ms](https://download.mindspore.cn/model_zoo/official/lite/mobilenetv2_openimage_lite/1.5/mobilenetv2.ms)，放置在entry/src/main/resources/rawfile工程目录下。 如果开发者有其他图像分类的预训练模型，请参考[MindSpore Lite 模型转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-converter-guidelines)介绍，将原始模型转换成.ms格式。
 
-## 编写推理代码
+##### 选择模型
 
-在 entry/src/main/cpp/mslite_napi.cpp，调用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)实现端侧推理，推理代码流程如下。 引用对应的头文件
-```text
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
+本示例程序中使用的图像分类模型文件为[mobilenetv2.ms](https://download.mindspore.cn/model_zoo/official/lite/mobilenetv2_openimage_lite/1.5/mobilenetv2.ms)，放置在entry/src/main/resources/rawfile工程目录下。
+
+如果开发者有其他图像分类的预训练模型，请参考[MindSpore Lite 模型转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-converter-guidelines)介绍，将原始模型转换成.ms格式。
+
+
+
+##### 编写推理代码
+
+在 entry/src/main/cpp/mslite_napi.cpp，调用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)实现端侧推理，推理代码流程如下。
+1. 引用对应的头文件
+
+  
+```cpp
+#include <iostream>
+#include <sstream>
+#include <cstdlib>
+#include <hilog/log.h>
+#include <rawfile/raw_file_manager.h>
+#include <mindspore/types.h>
+#include <mindspore/model.h>
+#include <mindspore/context.h>
+#include <mindspore/status.h>
+#include <mindspore/tensor.h>
 #include "napi/native_api.h"
 ```
 
-读取模型文件
-```text
+2. 读取模型文件
+
+  
+```cpp
 #define LOGI(...) ((void)OH_LOG_Print(LOG_APP, LOG_INFO, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 #define LOGD(...) ((void)OH_LOG_Print(LOG_APP, LOG_DEBUG, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 #define LOGW(...) ((void)OH_LOG_Print(LOG_APP, LOG_WARN, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 #define LOGE(...) ((void)OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 ```
 
-
-```text
+```cpp
 void *ReadModelFile(NativeResourceManager *nativeResourceManager, const std::string &modelName, size_t *modelSize)
 {
     auto rawFile = OH_ResourceManager_OpenRawFile(nativeResourceManager, modelName.c_str());
@@ -60,104 +79,151 @@ void *ReadModelFile(NativeResourceManager *nativeResourceManager, const std::str
         return nullptr;
     }
     long fileSize = OH_ResourceManager_GetRawFileSize(rawFile);
-    if (fileSize              创建上下文，设置线程数、设备类型等参数，并加载模型。本样例模型，不支持使用NNRt推理。
-```text
+    if (fileSize <= 0) {
+        LOGE("MS_LITE_ERR: FileSize not correct");
+    }
+    void *modelBuffer = malloc(fileSize);
+    if (modelBuffer == nullptr) {
+        LOGE("MS_LITE_ERR: malloc failed");
+    }
+    int ret = OH_ResourceManager_ReadRawFile(rawFile, modelBuffer, fileSize);
+    if (ret == 0) {
+        LOGE("MS_LITE_ERR: OH_ResourceManager_ReadRawFile failed");
+        OH_ResourceManager_CloseRawFile(rawFile);
+        return nullptr;
+    }
+    OH_ResourceManager_CloseRawFile(rawFile);
+    *modelSize = fileSize;
+    return modelBuffer;
+}
+```
+
+3. 创建上下文，设置线程数、设备类型等参数，并加载模型。本样例模型，不支持使用NNRt推理。
+
+  
+```cpp
 void DestroyModelBuffer(void **buffer)
 {
-if (buffer == nullptr) {
-return;
-}
-free(*buffer);
-*buffer = nullptr;
+    if (buffer == nullptr) {
+        return;
+    }
+    free(*buffer);
+    *buffer = nullptr;
 }
 
 OH_AI_ContextHandle CreateMSLiteContext(void *modelBuffer)
 {
-// Set executing context for model.
-auto context = OH_AI_ContextCreate();
-if (context == nullptr) {
-DestroyModelBuffer(&modelBuffer);
-LOGE("MS_LITE_ERR: Create MSLite context failed.\n");
-return nullptr;
-}
-// 本样例模型，不支持配置OH_AI_DeviceInfoCreate(OH_AI_DEVICETYPE_NNRT)
-auto cpu_device_info = OH_AI_DeviceInfoCreate(OH_AI_DEVICETYPE_CPU);
+    // Set executing context for model.
+    auto context = OH_AI_ContextCreate();
+    if (context == nullptr) {
+        DestroyModelBuffer(&modelBuffer);
+        LOGE("MS_LITE_ERR: Create MSLite context failed.\n");
+        return nullptr;
+    }
+    // 本样例模型，不支持配置OH_AI_DeviceInfoCreate(OH_AI_DEVICETYPE_NNRT)
+    auto cpu_device_info = OH_AI_DeviceInfoCreate(OH_AI_DEVICETYPE_CPU);
 
-OH_AI_DeviceInfoSetEnableFP16(cpu_device_info, true);
-OH_AI_ContextAddDeviceInfo(context, cpu_device_info);
-
-LOGI("MS_LITE_LOG: Build MSLite context success.\n");
-return context;
+    OH_AI_DeviceInfoSetEnableFP16(cpu_device_info, true);
+    OH_AI_ContextAddDeviceInfo(context, cpu_device_info);
+    
+    LOGI("MS_LITE_LOG: Build MSLite context success.\n");
+    return context;
 }
 
 OH_AI_ModelHandle CreateMSLiteModel(void *modelBuffer, size_t modelSize, OH_AI_ContextHandle context)
 {
-// Create model
-auto model = OH_AI_ModelCreate();
-if (model == nullptr) {
-DestroyModelBuffer(&modelBuffer);
-LOGE("MS_LITE_ERR: Allocate MSLite Model failed.\n");
-return nullptr;
-}
+    // Create model
+    auto model = OH_AI_ModelCreate();
+    if (model == nullptr) {
+        DestroyModelBuffer(&modelBuffer);
+        LOGE("MS_LITE_ERR: Allocate MSLite Model failed.\n");
+        return nullptr;
+    }
 
-// Build model object
-// `OH_AI_MODELTYPE_MINDIR` 适用于 `.ms` 模型文件格式
-auto build_ret = OH_AI_ModelBuild(model, modelBuffer, modelSize, OH_AI_MODELTYPE_MINDIR, context);
-DestroyModelBuffer(&modelBuffer);
-if (build_ret != OH_AI_STATUS_SUCCESS) {
-OH_AI_ModelDestroy(&model);
-LOGE("MS_LITE_ERR: Build MSLite model failed.\n");
-return nullptr;
-}
-LOGI("MS_LITE_LOG: Build MSLite model success.\n");
-return model;
+    // Build model object
+    // `OH_AI_MODELTYPE_MINDIR` 适用于 `.ms` 模型文件格式
+    auto build_ret = OH_AI_ModelBuild(model, modelBuffer, modelSize, OH_AI_MODELTYPE_MINDIR, context);
+    DestroyModelBuffer(&modelBuffer);
+    if (build_ret != OH_AI_STATUS_SUCCESS) {
+        OH_AI_ModelDestroy(&model);
+        LOGE("MS_LITE_ERR: Build MSLite model failed.\n");
+        return nullptr;
+    }
+    LOGI("MS_LITE_LOG: Build MSLite model success.\n");
+    return model;
 }
 ```
 
-             设置模型输入数据，执行模型推理。
-```text
+4. 设置模型输入数据，执行模型推理。
+
+  
+```cpp
 constexpr int K_NUM_PRINT_OF_OUT_DATA = 20;
 ```
 
-
-```text
+```cpp
 // 设置模型输入数据
-int FillInputTensor(OH_AI_TensorHandle input, std::vector input_data)
+int FillInputTensor(OH_AI_TensorHandle input, std::vector<float> input_data)
 {
-if (OH_AI_TensorGetDataType(input) == OH_AI_DATATYPE_NUMBERTYPE_FLOAT32) {
-float *data = (float *)OH_AI_TensorGetMutableData(input);
-for (size_t i = 0; i  input_data)
+    if (OH_AI_TensorGetDataType(input) == OH_AI_DATATYPE_NUMBERTYPE_FLOAT32) {
+        float *data = (float *)OH_AI_TensorGetMutableData(input);
+        for (size_t i = 0; i < OH_AI_TensorGetElementNum(input); i++) {
+            data[i] = input_data[i];
+        }
+        return OH_AI_STATUS_SUCCESS;
+    } else {
+        return OH_AI_STATUS_LITE_ERROR;
+    }
+}
+```
+
+```cpp
+// 执行模型推理
+int RunMSLiteModel(OH_AI_ModelHandle model, std::vector<float> input_data)
 {
-// Set input data for model.
-auto inputs = OH_AI_ModelGetInputs(model);
-auto ret = FillInputTensor(inputs.handle_list[0], input_data);
-if (ret != OH_AI_STATUS_SUCCESS) {
-LOGE("MS_LITE_ERR: RunMSLiteModel set input error.\n");
-return OH_AI_STATUS_LITE_ERROR;
+    // Set input data for model.
+    auto inputs = OH_AI_ModelGetInputs(model);
+    auto ret = FillInputTensor(inputs.handle_list[0], input_data);
+    if (ret != OH_AI_STATUS_SUCCESS) {
+        LOGE("MS_LITE_ERR: RunMSLiteModel set input error.\n");
+        return OH_AI_STATUS_LITE_ERROR;
+    }
+
+    // Get model output.
+    auto outputs = OH_AI_ModelGetOutputs(model);
+
+    // Predict model.
+    auto predict_ret = OH_AI_ModelPredict(model, inputs, &outputs, nullptr, nullptr);
+    if (predict_ret != OH_AI_STATUS_SUCCESS) {
+        LOGE("MS_LITE_ERR: MSLite Predict error.\n");
+        return OH_AI_STATUS_LITE_ERROR;
+    }
+    LOGI("MS_LITE_LOG: Run MSLite model Predict success.\n");
+
+    // Print output tensor data.
+    LOGI("MS_LITE_LOG: Get model outputs:\n");
+    for (size_t i = 0; i < outputs.handle_num; i++) {
+        auto tensor = outputs.handle_list[i];
+        LOGI("MS_LITE_LOG: - Tensor %{public}d name is: %{public}s.\n", static_cast<int>(i),
+             OH_AI_TensorGetName(tensor));
+        LOGI("MS_LITE_LOG: - Tensor %{public}d size is: %{public}d.\n", static_cast<int>(i),
+             (int)OH_AI_TensorGetDataSize(tensor));
+        LOGI("MS_LITE_LOG: - Tensor data is:\n");
+        auto out_data = reinterpret_cast<const float *>(OH_AI_TensorGetData(tensor));
+        std::stringstream outStr;
+        for (int i = 0; (i < OH_AI_TensorGetElementNum(tensor)) && (i <= K_NUM_PRINT_OF_OUT_DATA); i++) {
+            outStr << out_data[i] << " ";
+        }
+        LOGI("MS_LITE_LOG: %{public}s", outStr.str().c_str());
+    }
+    return OH_AI_STATUS_SUCCESS;
 }
+```
 
-// Get model output.
-auto outputs = OH_AI_ModelGetOutputs(model);
+5. 调用以上方法，实现完整的模型推理流程。
 
-// Predict model.
-auto predict_ret = OH_AI_ModelPredict(model, inputs, &outputs, nullptr, nullptr);
-if (predict_ret != OH_AI_STATUS_SUCCESS) {
-LOGE("MS_LITE_ERR: MSLite Predict error.\n");
-return OH_AI_STATUS_LITE_ERROR;
-}
-LOGI("MS_LITE_LOG: Run MSLite model Predict success.\n");
-
-// Print output tensor data.
-LOGI("MS_LITE_LOG: Get model outputs:\n");
-for (size_t i = 0; i (i),
-OH_AI_TensorGetName(tensor));
-LOGI("MS_LITE_LOG: - Tensor %{public}d size is: %{public}d.\n", static_cast(i),
-(int)OH_AI_TensorGetDataSize(tensor));
-LOGI("MS_LITE_LOG: - Tensor data is:\n");
-auto out_data = reinterpret_cast(OH_AI_TensorGetData(tensor));
-std::stringstream outStr;
-for (int i = 0; (i 调用以上方法，实现完整的模型推理流程。
-```text
+  
+```cpp
 static napi_value RunDemo(napi_env env, napi_callback_info info)
 {
     // run demo
@@ -173,13 +239,57 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
     // 获取数组的长度
     napi_get_array_length(env, argv[0], &length);
     LOGI("MS_LITE_LOG: argv array length = %{public}d", length);
-    std::vector input_data;
+    std::vector<float> input_data;
     double param = 0;
-    for (int i = 0; i (param));
+    for (int i = 0; i < length; i++) {
+        napi_value value;
+        napi_get_element(env, argv[0], i, &value);
+        napi_get_value_double(env, value, &param);
+        input_data.push_back(static_cast<float>(param));
     }
     std::stringstream outstr;
-    for (int i = 0; i (OH_AI_TensorGetMutableData(output_0));
-    for (size_t i = 0; i (output0Data[i]), &element);
+    for (int i = 0; i < K_NUM_PRINT_OF_OUT_DATA; i++) {
+        outstr << input_data[i] << " ";
+    }
+    LOGI("MS_LITE_LOG: input_data = %{public}s", outstr.str().c_str());
+    // Read model file
+    const std::string modelName = "mobilenetv2.ms";
+    LOGI("MS_LITE_LOG: Run model: %{public}s", modelName.c_str());
+    size_t modelSize;
+    auto resourcesManager = OH_ResourceManager_InitNativeResourceManager(env, argv[1]);
+    auto modelBuffer = ReadModelFile(resourcesManager, modelName, &modelSize);
+    if (modelBuffer == nullptr) {
+        LOGE("MS_LITE_ERR: Read model failed");
+        return error_ret;
+    }
+    LOGI("MS_LITE_LOG: Read model file success");
+    
+    auto context = CreateMSLiteContext(modelBuffer);
+    if (context == nullptr) {
+        LOGE("MS_LITE_ERR: MSLiteFwk Build context failed.\n");
+        return error_ret;
+    }
+    auto model = CreateMSLiteModel(modelBuffer, modelSize, context);
+    if (model == nullptr) {
+        OH_AI_ContextDestroy(&context);
+        LOGE("MS_LITE_ERR: MSLiteFwk Build model failed.\n");
+        return error_ret;
+    }
+    int ret = RunMSLiteModel(model, input_data);
+    if (ret != OH_AI_STATUS_SUCCESS) {
+        OH_AI_ModelDestroy(&model);
+        OH_AI_ContextDestroy(&context);
+        LOGE("MS_LITE_ERR: RunMSLiteModel failed.\n");
+        return error_ret;
+    }
+    napi_value out_data;
+    napi_create_array(env, &out_data);
+    auto outputs = OH_AI_ModelGetOutputs(model);
+    OH_AI_TensorHandle output_0 = outputs.handle_list[0];
+    float *output0Data = reinterpret_cast<float *>(OH_AI_TensorGetMutableData(output_0));
+    for (size_t i = 0; i < OH_AI_TensorGetElementNum(output_0); i++) {
+        napi_value element;
+        napi_create_double(env, static_cast<double>(output0Data[i]), &element);
         napi_set_element(env, out_data, i, element);
     }
     OH_AI_ModelDestroy(&model);
@@ -189,8 +299,10 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
 }
 ```
 
-编写CMake脚本，链接MindSpore Lite动态库。
-```text
+6. 编写CMake脚本，链接MindSpore Lite动态库。
+
+  
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.4.1)
 project(MindSporeLiteCDemo)
@@ -212,15 +324,20 @@ target_link_libraries(entry PUBLIC ace_napi.z)
 ```
 
 
-## 使用N-API将C++动态库封装成ArkTS模块
 
-在 entry/src/main/cpp/types/libentry/Index.d.ts，定义ArkTS接口runDemo() 。内容如下：
-```text
-export const runDemo: (a: number[], b:Object) => Array;
+
+##### 使用N-API将C++动态库封装成ArkTS模块
+1. 在 entry/src/main/cpp/types/libentry/Index.d.ts，定义ArkTS接口runDemo() 。内容如下：
+
+  
+```ts
+export const runDemo: (a: number[], b:Object) => Array<number>;
 ```
 
-在 oh-package.json5 文件，将API与so相关联，成为一个完整的ArkTS模块：
-```text
+2. 在 oh-package.json5 文件，将API与so相关联，成为一个完整的ArkTS模块：
+
+  
+```ts
 {
   "name": "libentry.so",
   "types": "./Index.d.ts",
@@ -230,10 +347,14 @@ export const runDemo: (a: number[], b:Object) => Array;
 ```
 
 
-## 实现图像输入和预处理，并执行推理
 
-此处以获取相册图片为例，调用[@ohos.file.picker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker) 实现相册图片文件的选择。 根据模型的输入尺寸，调用[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image) （实现图片处理）、[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs) （实现基础文件操作） API对选择图片进行裁剪、获取图片buffer数据，并进行标准化处理。 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。
-```text
+
+##### 实现图像输入和预处理，并执行推理
+1. 此处以获取相册图片为例，调用[@ohos.file.picker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker) 实现相册图片文件的选择。
+2. 根据模型的输入尺寸，调用[@ohos.multimedia.image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image) （实现图片处理）、[@ohos.file.fs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs) （实现基础文件操作） API对选择图片进行裁剪、获取图片buffer数据，并进行标准化处理。
+3. 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。
+
+```ArkTS
 // Index.ets
 import msliteNapi from 'libentry.so';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
@@ -253,11 +374,11 @@ struct Index {
   @State modelName: string = 'mobilenetv2.ms';
   @State modelInputHeight: number = 224;
   @State modelInputWidth: number = 224;
-  @State uris: Array = [];
+  @State uris: Array<string> = [];
   @State max: number = 0;
   @State maxIndex: number = 0;
-  @State maxArray: Array = [];
-  @State maxIndexArray: Array = [];
+  @State maxArray: Array<number> = [];
+  @State maxIndexArray: Array<number> = [];
 
   build() {
     Row() {
@@ -349,7 +470,28 @@ struct Index {
                         let stds = [0.229, 0.224, 0.225];
                         let float32View = new Float32Array(this.modelInputHeight * this.modelInputWidth * 3);
                         let index = 0;
-                        for (let i = 0; i  = msliteNapi.runDemo(Array.from(float32View), resMgr);
+                        for (let i = 0; i < imageArr.length; i++) {
+                          if ((i + 1) % 4 === 0) {
+                            float32View[index] = (imageArr[i - 3] / 255.0 - means[0]) / stds[0]; // B
+                            float32View[index+1] = (imageArr[i - 2] / 255.0 - means[1]) / stds[1]; // G
+                            float32View[index+2] = (imageArr[i - 1] / 255.0 - means[2]) / stds[2]; // R
+                            index += 3;
+                          }
+                        }
+                        hilog.info(0xFF00, TAG, '%{public}s',
+                          `MS_LITE_LOG: float32View length: ${float32View.length}`);
+                        let printStr = 'float32View data:';
+                        for (let i = 0; i < 20; i++) {
+                          printStr += ' ' + float32View[i];
+                        }
+                        hilog.info(0xFF00, TAG, '%{public}s',
+                          `MS_LITE_LOG: float32View data: ${printStr}`);
+
+                        // 调用c++的runDemo
+                        hilog.info(0xFF00, TAG, '%{public}s',
+                          `MS_LITE_LOG: *** Start MSLite Demo ***`);
+
+                        let output: Array<number> = msliteNapi.runDemo(Array.from(float32View), resMgr);
                         hilog.info(0xFF00, TAG, '%{public}s',
                           `MS_LITE_WARN: output length = ${output.length}, value = ${output.slice(0, 20)}`);
 
@@ -359,7 +501,12 @@ struct Index {
                         this.maxArray = [];
                         this.maxIndexArray = [];
                         let newArray = output.filter(value => value !== this.max);
-                        for (let n = 0; n  this.max) {
+                        for (let n = 0; n < 5; n++) {
+                          this.max = output[0];
+                          this.maxIndex = 0;
+                          // 取最大值
+                          for (let m = 0; m < newArray.length; m++) {
+                            if (newArray[m] > this.max) {
                               this.max = newArray[m];
                               this.maxIndex = m;
                             }
@@ -399,10 +546,12 @@ struct Index {
 ```
 
 
-## 调测验证
 
-在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
-```text
+##### 调测验证
+1. 在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
+
+  
+```bash
 Launching com.samples.mindsporelitecdemo
 $ hdc shell aa force-stop com.samples.mindsporelitecdemo
 $ hdc shell mkdir data/local/tmp/xxx
@@ -412,7 +561,9 @@ $ hdc shell rm -rf data/local/tmp/xxx
 $ hdc shell aa start -a EntryAbility -b com.samples.mindsporelitecdemo
 ```
 
-在设备屏幕点击photo按钮，选择图片，点击确定。设备屏幕显示所选图片的分类结果，在日志打印结果中，过滤关键字”MS_LITE“，可得到如下结果：
+2. 在设备屏幕点击photo按钮，选择图片，点击确定。设备屏幕显示所选图片的分类结果，在日志打印结果中，过滤关键字”MS_LITE“，可得到如下结果：
+
+  
 ```text
 08-05 17:15:52.001   4684-4684    A03d00/JSAPP                   pid-4684              I     MS_LITE_LOG: PhotoViewPicker.select successfully, photoSelectResult uri: {"photoUris":["file://media/Photo/13/IMG_1501955351_012/plant.jpg"]}
 ...
@@ -434,14 +585,26 @@ $ hdc shell aa start -a EntryAbility -b com.samples.mindsporelitecdemo
 ```
 
 
-## 效果示意
+
+
+##### 效果示意
 
 在设备上，点击photo按钮，选择相册中的一张图片，点击确定。在图片下方显示此图片占比前4的分类信息。
+
+
 ![](assets/使用MindSpore%20Lite实现图像分类（C／C++）/file-20260514132650952-0.png)
+ 
 ![](assets/使用MindSpore%20Lite实现图像分类（C／C++）/file-20260514132650952-1.png)
+
+
+
 ![](assets/使用MindSpore%20Lite实现图像分类（C／C++）/file-20260514132650952-2.png)
+ 
 ![](assets/使用MindSpore%20Lite实现图像分类（C／C++）/file-20260514132650952-3.png)
 
-## 示例代码
 
-[基于MindSporeLite接口实现图像分类（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MindSporeLiteKit/MindSporeLiteCDemo)
+
+
+##### 示例代码
+
+ - [基于MindSporeLite接口实现图像分类（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MindSporeLiteKit/MindSporeLiteCDemo)

@@ -1,6 +1,6 @@
 # 查询密钥是否存在(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-check-key-ndk
 
@@ -9,22 +9,24 @@ HUKS提供了接口供应用查询指定密钥是否存在。
 从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。用于查询时指定密钥的属性，查询单个密钥或者非群组密钥，可传空。 调用接口[OH_Huks_IsKeyItemExist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_iskeyitemexist)，查询密钥是否存在。
-```text
+##### 开发步骤
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。用于查询时指定密钥的属性，查询单个密钥或者非群组密钥，可传空。
+3. 调用接口[OH_Huks_IsKeyItemExist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_iskeyitemexist)，查询密钥是否存在。
+
+```cpp
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 
 OH_Huks_Result InitParamSet(struct OH_Huks_ParamSet **paramSet, const struct OH_Huks_Param *params,
                             uint32_t paramCount)
@@ -57,7 +59,7 @@ static OH_Huks_Result GenerateKeyHelper(const char *alias)
     struct OH_Huks_Blob aliasBlob = {.size = (uint32_t)strlen(alias), .data = (uint8_t *)alias};
     struct OH_Huks_ParamSet *testGenerateKeyParamSet = nullptr;
     struct OH_Huks_Result ohResult;
-
+    
     do {
         ohResult = InitParamSet(&testGenerateKeyParamSet, g_testGenerateKeyParam,
                                 sizeof(g_testGenerateKeyParam) / sizeof(OH_Huks_Param));
@@ -67,7 +69,7 @@ static OH_Huks_Result GenerateKeyHelper(const char *alias)
 
         ohResult = OH_Huks_GenerateKeyItem(&aliasBlob, testGenerateKeyParamSet, nullptr);
     } while (0);
-
+    
     OH_Huks_FreeParamSet(&testGenerateKeyParamSet);
     return ohResult;
 }

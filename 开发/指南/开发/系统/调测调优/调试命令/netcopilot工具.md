@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/network-netcopilot
 
 netcopilot是一款帮助开发者进行网络模拟的工具，通过hdc命令行直接调用网络领航员接口，执行网络领航员请求，目前已支持预置场景场景调用和自定义场景调用。
-
-
+ 
 > [!NOTE]
-> netcopilot工具从API version 20开始支持。  在使用本工具前，开发者需要先获取hdc工具。
+> netcopilot工具从API version 20开始支持。 在使用本工具前，开发者需要先获取hdc工具。
 
+  
 
-## 使用方法
+##### 使用方法
 
+  
 
-## 命令行说明
+##### 命令行说明
 
-
-```text
-hdc shell netcopilot
+```bash
+hdc shell netcopilot <命令行参数> <子参数>
 ```
+ 
+命令行参数和子参数可参考下述参数列表，用户也可先输入hdc shell命令，再执行网络领航员请求。
+ 
+  
 
- 命令行参数和子参数可参考下述参数列表，用户也可先输入hdc shell命令，再执行网络领航员请求。
-
-## 参数列表
-
-
+##### 参数列表
+ 
 | 命令行参数 | 子参数 | 功能 | 说明 |
 | --- | --- | --- | --- |
 | -h | NA | 输出帮助信息 | NA |
@@ -36,47 +37,49 @@ hdc shell netcopilot
 | -P | 场景id | 打印自定义场景详情 | 仅支持自定义场景。 |
 | -a | 自定义场景详情 | 新增自定义场景 | 通过json字符串增加自定义场景，格式示例： { "scenarioName": "自定义场景", "uplinkBandwidth": 1000000, "downlinkBandwidth": 5000000, "uplinkLatency": 200, "downlinkLatency": 200, "uplinkDropRate": 0.05, "downlinkDropRate": 0.01 } |
 | -d | 自定义场景id | 删除自定义场景 | 自定义场景id由网络领航员后端生成，通过-p查询列表获取id后，可以通过-d删除。 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+  
 
+##### 使用帮助
 
-## 使用帮助
-
-
-```text
+```bash
 > hdc shell netcopilot -h
 netcopilot usage:
   -h : show help message
-  -e : 0 for disable, 1 for enable
+  -e <enable>: 0 for disable, 1 for enable
   -p : print all scenario info
-  -s : simulate specified network scenario
+  -s <scenario id>: simulate specified network scenario
   -c : cancel simulating scenario
-  -P : print specified scenario details
-  -a : add custom network scenario
-  -d : delete custom network scenario
+  -P <scenario id>: print specified scenario details
+  -a <custom scenario details>: add custom network scenario
+  -d <scenario id>: delete custom network scenario
 ```
+ 
+  
 
+##### 开启/关闭领航员
 
-## 开启/关闭领航员
-
-
-```text
+```bash
 > hdc shell netcopilot -e 0
 Disable netcopilot success
 
 > hdc shell netcopilot -e 1
 Enable netcopilot success
 ```
+ 
+  
 
+##### 查看网络场景列表
 
-## 查看网络场景列表
-
-
-```text
+```bash
 > hdc shell netcopilot -p
   +------------+------------------------------+
-  | ScenarioID | ScenarioName                 |
+| ScenarioID | ScenarioName                 |
   +------------+------------------------------+
   1            | 进出电梯
   2            | 离家断开WLAN
@@ -88,40 +91,46 @@ Enable netcopilot success
   8            | 高速公路自驾
   +------------+------------------------------+
 ```
+ 
+  
 
+##### 启动场景模拟
 
-## 启动场景模拟
-
-
-```text
+```bash
 > hdc shell netcopilot -s 4
 Success to simulate scenario 4
 ```
+ 
+  
 
+##### 停止场景模拟
 
-## 停止场景模拟
-
-
-```text
+```bash
 > hdc shell netcopilot -c 4
 Clear active net scenario success
 ```
+ 
+  
 
+##### 新增自定义场景
 
-## 新增自定义场景
-
-
-```text
+```bash
 > hdc shell netcopilot -a "{\"scenarioName\":\"自定义场景1\",\"uplinkBandwidth\":100000,\"downlinkBandwidth\":500000,\"uplinkLatency\":200,\"downlinkLatency\":200,\"uplinkDropRate\":0.05,\"downlinkDropRate\":0.01}"
 ```
+ 
 
-![](assets/netcopilot工具/file-20260514131434983-0.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/omvx_DoGSwGS8d5TQ1lVVQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014558Z&HW-CC-Expire=86400&HW-CC-Sign=1A63619530A47870F4E77D88A98DC3A90C03B41873E607126718A459E6FC3E97)
+ 
+ 
 自定义场景子参数需要转成json字符串。
+  
 
-## 查看自定义场景详情
+ 
+  
 
+##### 查看自定义场景详情
 
-```text
+```bash
 > hdc shell netcopilot -P 1000
 Scenario Name: 自定义场景1
 Uplink Bandwidth: 100000Kbps
@@ -131,12 +140,12 @@ Downlink Latency: 200ms
 Uplink Drop Rate: 0.05%
 Downlink Drop Rate: 0.01%
 ```
+ 
+  
 
+##### 删除自定义场景
 
-## 删除自定义场景
-
-
-```text
+```bash
 > hdc shell netcopilot -d 1000
 Delete custom scenario success
 ```

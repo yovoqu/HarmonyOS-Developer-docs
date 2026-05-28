@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：cert； API声明：function parsePkcs12(data: Uint8Array, password: string): Promise<Pkcs12Data>; 差异内容：function parsePkcs12(data: Uint8Array, password: string): Promise<Pkcs12Data>; | api/@ohos.security.cert.d.ts |
+| 新增API | NA | 类名：cert； API声明：function parsePkcs12(data: Uint8Array, password: string): Promise&lt;Pkcs12Data&gt;; 差异内容：function parsePkcs12(data: Uint8Array, password: string): Promise&lt;Pkcs12Data&gt;; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：cert； API声明：enum PbesEncryptionAlgorithm 差异内容：enum PbesEncryptionAlgorithm | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：PbesEncryptionAlgorithm； API声明：AES_128_CBC = 0 差异内容：AES_128_CBC = 0 | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：PbesEncryptionAlgorithm； API声明：AES_192_CBC = 1 差异内容：AES_192_CBC = 1 | api/@ohos.security.cert.d.ts |
@@ -28,4 +28,4 @@
 | 新增API | NA | 类名：Pkcs12CreationConfig； API声明：macIterations?: number; 差异内容：macIterations?: number; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：Pkcs12CreationConfig； API声明：macDigestAlgorithm?: Pkcs12MacDigestAlgorithm; 差异内容：macDigestAlgorithm?: Pkcs12MacDigestAlgorithm; | api/@ohos.security.cert.d.ts |
 | 新增API | NA | 类名：cert； API声明：function createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array; 差异内容：function createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array; | api/@ohos.security.cert.d.ts |
-| 新增API | NA | 类名：cert； API声明：function createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise<Uint8Array>; 差异内容：function createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise<Uint8Array>; | api/@ohos.security.cert.d.ts |
+| 新增API | NA | 类名：cert； API声明：function createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise&lt;Uint8Array&gt;; 差异内容：function createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise&lt;Uint8Array&gt;; | api/@ohos.security.cert.d.ts |

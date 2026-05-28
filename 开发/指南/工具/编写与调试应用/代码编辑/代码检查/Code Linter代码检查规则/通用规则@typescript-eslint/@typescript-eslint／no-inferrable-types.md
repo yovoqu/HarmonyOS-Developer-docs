@@ -5,31 +5,32 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-inferrable-types
 
 不允许对初始化为数字、字符串或布尔值的变量或参数进行显式类型声明。
+ 
+变量或者参数如果在初始化时定义为布尔、数字或者字符串类型，Typescript可以推断出其类型，不用显式声明其类型。
+ 
+该规则仅支持对.js/.ts文件进行检查。
+ 
 
- 变量或者参数如果在初始化时定义为布尔、数字或者字符串类型，Typescript可以推断出其类型，不用显式声明其类型。
+##### 规则配置
 
- 该规则仅支持对.js/.ts文件进行检查。
-
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-inferrable-types": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-inferrable-types选项](https://typescript-eslint.io/rules/no-inferrable-types/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 const num = 10;
@@ -48,10 +49,10 @@ export function fn(a = num, b = true): void {
   console.info(`${a}${b}`);
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 const num: number = 10;
@@ -70,13 +71,13 @@ export function fn(a: number = num, b: boolean = true): void {
   console.info(`${a}${b}`);
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

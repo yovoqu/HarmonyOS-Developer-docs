@@ -12,4 +12,4 @@
 | 新增API | NA | 类名：businessRiskIntelligentDetection； API声明： interface FraudDetectionRequest 差异内容： interface FraudDetectionRequest | api/@hms.security.businessRiskIntelligentDetection.d.ts |
 | 新增API | NA | 类名：FraudDetectionRequest； API声明：nonce: Uint8Array; 差异内容：nonce: Uint8Array; | api/@hms.security.businessRiskIntelligentDetection.d.ts |
 | 新增API | NA | 类名：FraudDetectionRequest； API声明：algorithm: SigningAlgorithm; 差异内容：algorithm: SigningAlgorithm; | api/@hms.security.businessRiskIntelligentDetection.d.ts |
-| 新增API | NA | 类名：businessRiskIntelligentDetection； API声明：function detectFraudRisk(params: FraudDetectionRequest): Promise<string>; 差异内容：function detectFraudRisk(params: FraudDetectionRequest): Promise<string>; | api/@hms.security.businessRiskIntelligentDetection.d.ts |
+| 新增API | NA | 类名：businessRiskIntelligentDetection； API声明：function detectFraudRisk(params: FraudDetectionRequest): Promise&lt;string&gt;; 差异内容：function detectFraudRisk(params: FraudDetectionRequest): Promise&lt;string&gt;; | api/@hms.security.businessRiskIntelligentDetection.d.ts |

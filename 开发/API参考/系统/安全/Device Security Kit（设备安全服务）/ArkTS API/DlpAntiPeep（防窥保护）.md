@@ -10,17 +10,15 @@
 **起始版本：** 6.0.0(20)
 
 
-## 导入模块
-**支持设备：** Phone
+##### 导入模块
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 ```
 
 
-## DlpAntiPeepStatus
-**支持设备：** Phone
+
+##### DlpAntiPeepStatus
 
 表示窥视状态的枚举。
 
@@ -28,17 +26,17 @@ import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 **起始版本：** 6.0.0(20)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | PASS | 0 | 表示当前设备屏幕无人在窥视。 |
 | HIDE | 1 | 表示有除机主以外的人在窥视设备屏幕。 |
 
 
-## isDlpAntiPeepSwitchOn
-**支持设备：** Phone
 
-isDlpAntiPeepSwitchOn(): Promise<boolean>
+
+##### isDlpAntiPeepSwitchOn
+
+isDlpAntiPeepSwitchOn(): Promise&lt;boolean&gt;
 
 检查当前应用是否开启防窥保护。使用Promise异步回调。
 
@@ -50,7 +48,6 @@ isDlpAntiPeepSwitchOn(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回当前应用是否开启了防窥保护，true代表开启，false代表未开启，默认值为false。 |
@@ -59,7 +56,6 @@ isDlpAntiPeepSwitchOn(): Promise<boolean>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -70,30 +66,32 @@ isDlpAntiPeepSwitchOn(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 try {
   let result = await dlpAntiPeep.isDlpAntiPeepSwitchOn();
   console.info('Succeeded in getting switch status.');
 } catch (error) {
-  console.error(
-    `Failed to get switch status. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get switch status. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## on("dlpAntiPeep")
-**支持设备：** Phone
 
-on(type: 'dlpAntiPeep', callback: Callback<DlpAntiPeepStatus>): void
+##### on("dlpAntiPeep")
+
+on(type: 'dlpAntiPeep', callback: Callback&lt;DlpAntiPeepStatus&gt;): void
 
 订阅防窥保护通知。使用callback方式异步返回结果。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/GJozf8RmSI-AaAM5Zax8sA/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084518Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=243F77AD80FA2D3AEB3DD692784D7F586ADED4B64883B78E52055A6872812BBA)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/vd8k3eG4QleK_K9Khd5lYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=F49E7E738350E7ED9C8937ACA27DFE658466228D328A99BC05CDF4E57427D1EC)
+
+
 请在满足[开发前置条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-dlpantipeep#开发前置条件)后再调用此接口，避免无法触发防窥回调。调用接口成功后，并且应用在前台可见时才会收到防窥回调。
+
+
 
 **需要权限：** ohos.permission.DLP_GET_HIDE_STATUS
 
@@ -103,17 +101,15 @@ on(type: 'dlpAntiPeep', callback: Callback<DlpAntiPeepStatus>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 表示需要订阅的事件'dlpAntiPeep'，取值为固定字符串'dlpAntiPeep'。 |
-| callback | Callback&lt;[DlpAntiPeepStatus](#dlpantipeepstatus)&gt; | 是 | 回调函数，返回调用结果。 |
+| callback | Callback&lt;DlpAntiPeepStatus&gt; | 是 | 回调函数，返回调用结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -124,29 +120,23 @@ on(type: 'dlpAntiPeep', callback: Callback<DlpAntiPeepStatus>): void
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 try {
-  dlpAntiPeep.on(
-    'dlpAntiPeep',
-    (dlpAntiPeepStatus: dlpAntiPeep.DlpAntiPeepStatus) => {
-      console.info('Succeeded in subscribing dlpAntiPeep.');
-    },
-  );
+  dlpAntiPeep.on('dlpAntiPeep', (dlpAntiPeepStatus: dlpAntiPeep.DlpAntiPeepStatus) => {
+    console.info('Succeeded in subscribing dlpAntiPeep.');
+  });
 } catch (error) {
-  console.error(
-    `Failed to subscribe dlpAntiPeep. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to subscribe dlpAntiPeep. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## off("dlpAntiPeep")
-**支持设备：** Phone
 
-off(type: 'dlpAntiPeep', callback?: Callback<DlpAntiPeepStatus>): void
+##### off("dlpAntiPeep")
+
+off(type: 'dlpAntiPeep', callback?: Callback&lt;DlpAntiPeepStatus&gt;): void
 
 解订阅防窥保护通知。使用callback方式异步返回结果。
 
@@ -158,17 +148,15 @@ off(type: 'dlpAntiPeep', callback?: Callback<DlpAntiPeepStatus>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 表示需要解订阅的事件'dlpAntiPeep'，取值为固定字符串'dlpAntiPeep'。 |
-| callback | Callback&lt;[DlpAntiPeepStatus](#dlpantipeepstatus)&gt; | 否 | 用于接收防窥保护通知的回调函数。如果传入了callback，则取消callback的订阅，否则取消所有callback的订阅。 |
+| callback | Callback&lt;DlpAntiPeepStatus&gt; | 否 | 用于接收防窥保护通知的回调函数。如果传入了callback，则取消callback的订阅，否则取消所有callback的订阅。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -179,27 +167,21 @@ off(type: 'dlpAntiPeep', callback?: Callback<DlpAntiPeepStatus>): void
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 try {
-  dlpAntiPeep.off(
-    'dlpAntiPeep',
-    (dlpAntiPeepStatus: dlpAntiPeep.DlpAntiPeepStatus) => {
-      console.info('Succeeded in unsubscribing dlpAntiPeep.');
-    },
-  );
+  dlpAntiPeep.off('dlpAntiPeep', (dlpAntiPeepStatus: dlpAntiPeep.DlpAntiPeepStatus) => {
+    console.info('Succeeded in unsubscribing dlpAntiPeep.');
+  });
 } catch (error) {
-  console.error(
-    `Failed to unsubscribe dlpAntiPeep. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to unsubscribe dlpAntiPeep. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## getDlpAntiPeepInfo
-**支持设备：** Phone
+
+##### getDlpAntiPeepInfo
 
 getDlpAntiPeepInfo(): DlpAntiPeepStatus
 
@@ -213,16 +195,14 @@ getDlpAntiPeepInfo(): DlpAntiPeepStatus
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DlpAntiPeepStatus](#dlpantipeepstatus) | 表示窥视状态。 |
+| DlpAntiPeepStatus | 表示窥视状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -233,23 +213,20 @@ getDlpAntiPeepInfo(): DlpAntiPeepStatus
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 try {
   let dlpAntiPeepStatus = dlpAntiPeep.getDlpAntiPeepInfo();
   console.info('Succeeded in getting DlpAntiPeepStatus.');
 } catch (error) {
-  console.error(
-    `Failed to get DlpAntiPeepStatus. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get DlpAntiPeepStatus. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## passDlpAntiPeepInfo
-**支持设备：** Phone
+
+##### passDlpAntiPeepInfo
 
 passDlpAntiPeepInfo(): void
 
@@ -257,8 +234,13 @@ passDlpAntiPeepInfo(): void
 
 若应用在生命周期内不再需要接受窥视状态，可直接调用[off("dlpAntiPeep")](#offdlpantipeep)接口解注册，若仍想接受放通后的非窥视状态，则可以调用该接口。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/2iOGZ4QdSHyHkXc1EaDxPA/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084518Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=37A4BE934487E0C3A5D5DE772EBBC6B50A9E9F8D1DE5176EA914EE0390BC67D4)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/HDS3P70rTvOhVgCyKmC0sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=8BD13E8B2AEF05AB2EDD242A47DF05B956E96FA86C0E99F6AEF907EAF33E3EA7)
+
+
 请在满足[开发前置条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-dlpantipeep#开发前置条件)并调用[on("dlpAntiPeep")](#ondlpantipeep)接口注册后再调用该接口，可用于在应用注册的生命周期内将回调状态变更为非防窥状态，直到应用退出或设备锁屏。
+
+
 
 **需要权限：** ohos.permission.DLP_GET_HIDE_STATUS
 
@@ -270,7 +252,6 @@ passDlpAntiPeepInfo(): void
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -280,30 +261,32 @@ passDlpAntiPeepInfo(): void
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 try {
   dlpAntiPeep.passDlpAntiPeepInfo();
   console.info('Succeeded in calling passDlpAntiPeepInfo.');
 } catch (error) {
-  console.error(
-    `Failed to call passDlpAntiPeepInfo. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to call passDlpAntiPeepInfo. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## setAntiPeepMaskLayer
-**支持设备：** Phone
 
-setAntiPeepMaskLayer(windowId: number): Promise<void>
+##### setAntiPeepMaskLayer
+
+setAntiPeepMaskLayer(windowId: number): Promise&lt;void&gt;
 
 对指定窗口设置系统级蒙层，使用Promise异步回调。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/9HDEWOogRRmT0NX1BJc2Vg/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084518Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=8761A393C64C0916F932F29DBC56E60A169E65B71DBDF2D499BA2FC941E02018)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/RY6K9Qg-RRS5zy72enXQwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=814E2EB5EEDF97B10E38E10ECCD88AC840A2C0CE5C533DF82ACDA4A4144D6BC2)
+
+
 该接口调用后会拉起蒙层，覆盖应用窗口，建议开发者在检测到窥视状态后调用一次即可，频繁调用可能对用户体验造成影响。
+
+
 
 **需要权限：** ohos.permission.DLP_GET_HIDE_STATUS
 
@@ -313,14 +296,12 @@ setAntiPeepMaskLayer(windowId: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | windowId | number | 是 | 应用需要覆盖保护的窗口ID，该参数取值范围为大于0的整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -330,7 +311,6 @@ setAntiPeepMaskLayer(windowId: number): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -343,31 +323,27 @@ setAntiPeepMaskLayer(windowId: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 import { common } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 
 try {
-  const context =
-    this.getUIContext().getHostContext() as common.UIAbilityContext;
+  const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
   const win: window.Window = await window.getLastWindow(context);
   const windowId: number = win.getWindowProperties().id;
   await dlpAntiPeep.setAntiPeepMaskLayer(windowId);
   console.info('Succeeded in setting AntiPeep MaskLayer.');
 } catch (error) {
-  console.error(
-    `Failed to set AntiPeep MaskLayer. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to set AntiPeep MaskLayer. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## requestAntiPeepOptions
-**支持设备：** Phone
 
-requestAntiPeepOptions(context: Context): Promise<AntiPeepOptionsResult>
+##### requestAntiPeepOptions
+
+requestAntiPeepOptions(context: Context): Promise&lt;AntiPeepOptionsResult&gt;
 
 用于UIAbility/UIExtensionAbility拉起设置弹框，请求用户打开防窥保护开关。使用Promise异步回调。
 
@@ -379,7 +355,6 @@ requestAntiPeepOptions(context: Context): Promise<AntiPeepOptionsResult>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | Context | 是 | 请求权限的UIAbility/UIExtensionAbility的Context。 |
@@ -387,16 +362,14 @@ requestAntiPeepOptions(context: Context): Promise<AntiPeepOptionsResult>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AntiPeepOptionsResult](#antipeepoptionsresult)&gt; | Promise对象，返回防窥保护开关设置的结果。 |
+| Promise&lt;AntiPeepOptionsResult&gt; | Promise对象，返回防窥保护开关设置的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -408,36 +381,27 @@ requestAntiPeepOptions(context: Context): Promise<AntiPeepOptionsResult>
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 import { common } from '@kit.AbilityKit';
 
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-dlpAntiPeep
-  .requestAntiPeepOptions(context)
-  .then((data: dlpAntiPeep.AntiPeepOptionsResult) => {
-    console.info(
-      `Succeeded in calling requestAntiPeepOptions, result: ${data}.`,
-    );
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to call requestAntiPeepOptions. Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+dlpAntiPeep.requestAntiPeepOptions(context).then((data: dlpAntiPeep.AntiPeepOptionsResult) => {
+  console.info(`Succeeded in calling requestAntiPeepOptions, result: ${data}.`);
+}).catch((error: BusinessError) => {
+  console.error(`Failed to call requestAntiPeepOptions. Code: ${error.code}, message: ${error.message}`);
+})
 ```
 
 
-## AntiPeepOptionsResult
-**支持设备：** Phone
+
+##### AntiPeepOptionsResult
 
 表示弹框设置结果的枚举。
 
 **系统能力：** SystemCapability.Security.DlpAntiPeep
 
 **起始版本：** 6.1.0(23)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -446,10 +410,11 @@ dlpAntiPeep
 | ALREADY_ON | 2 | 表示防窥保护开关已处于开启状态。 |
 
 
-## publishAntiPeepInformation
-**支持设备：** Phone
 
-publishAntiPeepInformation(): Promise<void>
+
+##### publishAntiPeepInformation
+
+publishAntiPeepInformation(): Promise&lt;void&gt;
 
 发布防窥保护提示信息。使用Promise异步回调。
 
@@ -463,7 +428,6 @@ publishAntiPeepInformation(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -472,7 +436,6 @@ publishAntiPeepInformation(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-dlpantipeep)**。**
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -487,18 +450,12 @@ publishAntiPeepInformation(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
-dlpAntiPeep
-  .publishAntiPeepInformation()
-  .then(() => {
-    console.info('Succeeded in calling publishAntiPeepInformation.');
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `Failed to call publishAntiPeepInformation. Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+dlpAntiPeep.publishAntiPeepInformation().then(() => {
+  console.info('Succeeded in calling publishAntiPeepInformation.');
+}).catch((error: BusinessError) => {
+  console.error(`Failed to call publishAntiPeepInformation. Code: ${error.code}, message: ${error.message}`);
+})
 ```

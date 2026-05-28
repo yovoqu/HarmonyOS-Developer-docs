@@ -6,50 +6,47 @@
 **支持设备：** PC/2in1
 
 本模块提供创建和关闭会话（[RagSession](#ragsession)）、流式请求大语言模型（[ChatLLM](#chatllm)）以及流式问答（[streamRun](#streamrun)）的能力。
-
+ 
 **起始版本：** 6.0.0(20)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** PC/2in1
-
-
-```ts
+```text
 import { rag } from '@kit.DataAugmentationKit';
 ```
+ 
+  
 
-
-## LLMStreamAnswer
-**支持设备：** PC/2in1
+##### LLMStreamAnswer
 
 大模型流式问答的单次结果。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isFinished | boolean | 否 | 否 | 表示LLM（Large Language Model，大语言模型）流式输出是否已经结束。true表示已结束，false表示后续还有答案输出。 |
 | chunk | string | 否 | 否 | 表示LLM流式输出过程中单轮返回的chunk（被拆分后的文本单元）内容。单轮流式返回结果无固定上限，单次问答所有流式返回结果长度上限为8192字节。 |
-| err | [BusinessError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)&lt;string&gt; | 否 | 是 | 表示LLM流式输出过程中出现的错误。[code](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror)取值范围为[1021011000, 1021012000)，超过范围则会报错[1021000000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000000-系统资源不足或内存访问异常)。基类必选参数name和message的长度上限为1000字符，超出部分将被截断。不带本参数则认为无错误发生。 |
+| err | BusinessError&lt;string&gt; | 否 | 是 | 表示LLM流式输出过程中出现的错误。code取值范围为[1021011000, 1021012000)，超过范围则会报错1021000000。基类必选参数name和message的长度上限为1000字符，超出部分将被截断。不带本参数则认为无错误发生。 |
+ 
+ 
+  
 
-
-## LLMRequestStatus
-**支持设备：** PC/2in1
+##### LLMRequestStatus
 
 流式请求大语言模型请求状态的枚举值。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | LLM_SUCCESS | 0 | 请求LLM成功。 |
@@ -57,72 +54,70 @@ import { rag } from '@kit.DataAugmentationKit';
 | LLM_LOAD_FAILED | 2 | LLM加载失败。 |
 | LLM_TIMEOUT | 3 | LLM请求超时。 |
 | LLM_BUSY | 4 | LLM繁忙。 |
+ 
+ 
+  
 
-
-## LLMRequestInfo
-**支持设备：** PC/2in1
+##### LLMRequestInfo
 
 流式请求大语言模型请求结果的信息。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | chatId | number | 否 | 否 | 表示大模型的请求ID。取值范围：[0, 2147483647]。 |
-| status | [LLMRequestStatus](#llmrequeststatus) | 否 | 否 | 表示[streamChat](#streamchat)请求的状态。 |
+| status | LLMRequestStatus | 否 | 否 | 表示streamChat请求的状态。 |
+ 
+ 
+  
 
-
-## ChatLLM
-**支持设备：** PC/2in1
+##### ChatLLM
 
 用于请求大模型的抽象类。开发者需继承此类并根据业务逻辑实现各接口逻辑。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
+ 
+  
 
+##### streamChat
 
-### streamChat
-**支持设备：** PC/2in1
-
-abstract streamChat(query: string, callback: Callback<LLMStreamAnswer>): Promise<LLMRequestInfo>
-
+abstract streamChat(query: string, callback: Callback&lt;LLMStreamAnswer&gt;): Promise&lt;LLMRequestInfo&gt;
+ 
 流式请求大语言模型，用于与大语言模型交互。使用Promise异步回调。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | query | string | 是 | 与大模型交互时的请求内容，根据输入问题、问题预处理、检索等结果动态拼接，最大长度为20000字节。 说明： 其中已带有需要带给大模型的提示prompt，无需额外附加内容，且提示prompt中的示例数据均只是提示大模型按照预期输出的模拟数据，无其他额外用途。 |
-| callback | Callback&lt;[LLMStreamAnswer](#llmstreamanswer)&gt; | 是 | 将与大语言模型交互后得到的结果返回给RAG基础框架的回调。 |
-
-
+| callback | Callback&lt;LLMStreamAnswer&gt; | 是 | 将与大语言模型交互后得到的结果返回给RAG基础框架的回调。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[LLMRequestInfo](#llmrequestinfo)&gt; | Promise对象，返回LLM请求信息对象。 |
-
-
+| Promise&lt;LLMRequestInfo&gt; | Promise对象，返回LLM请求信息对象。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { http } from '@kit.NetworkKit';
 import { rag } from '@kit.DataAugmentationKit';
@@ -133,27 +128,24 @@ class MyChatLLM extends rag.ChatLLM {
     // 请开发者按需实现chatId与请求之前的映射关系，取消时请取消chatId相应的请求
     this.httpRequest?.off('dataReceive');
   }
-  async streamChat(
-    query: string,
-    callback: Callback<rag.LLMStreamAnswer>,
-  ): Promise<rag.LLMRequestInfo> {
+  async streamChat(query: string, callback: Callback<rag.LLMStreamAnswer>): Promise<rag.LLMRequestInfo> {
     let info: rag.LLMRequestInfo = {
       chatId: 0,
       status: rag.LLMRequestStatus.LLM_SUCCESS,
     };
     try {
-      // 此处开发者可自行选择想要使用的大语言模型以���对应实现
+      // 此处开发者可自行选择想要使用的大语言模型以及对应实现
       // 假设通过httpRequest.on('dataReceive', callback)从大语言模型得到了答案：
       let err: BusinessError<string> = {
-        code: 1021011000, // 自定义错误码，取值范围[1021011000, 1021012000)
-        name: 'Fill custom error name here', // 超出1000字符部分将被截断
-        message: 'Fill custom error message here', // 超出1000字符部分将被截断
-      };
+        code: 1021011000,  // 自定义错误码，取值范围[1021011000, 1021012000)
+        name: 'Fill custom error name here',  // 超出1000字符部分将被截断
+        message: 'Fill custom error message here'  // 超出1000字符部分将被截断
+      }
       let answer: rag.LLMStreamAnswer = {
-        isFinished: true, // 可根据大语言模型回复进行判断，如果是最后一条回复则为true，反之则为false
+        isFinished: true,  // 可根据大语言模型回复进行判断，如果是最后一条回复则为true，反之则为false
         chunk: 'This is the last chunk',
-        err: err,
-      };
+        err: err
+      }
       callback(answer);
     } catch (err) {
       // 此处示例统一返回LLM_REQUEST_ERROR，开发者可根据需要判断err.code并返回相应LLMRequestStatus
@@ -163,33 +155,31 @@ class MyChatLLM extends rag.ChatLLM {
   }
 }
 ```
+ 
+  
 
-
-### cancel
-**支持设备：** PC/2in1
+##### cancel
 
 abstract cancel(chatId: number): void
-
+ 
 取消流式请求大语言模型，用于暂停与大语言模型交互。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| chatId | number | 是 | 需要被取消的请求LLM的ID。与[streamChat](#streamchat)返回值[LLMRequestInfo](#llmrequestinfo)中填入的chatId保持一致。取值范围：[0, 2147483647]。 |
-
-
+| chatId | number | 是 | 需要被取消的请求LLM的ID。与streamChat返回值LLMRequestInfo中填入的chatId保持一致。取值范围：[0, 2147483647]。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { http } from '@kit.NetworkKit';
 import { rag } from '@kit.DataAugmentationKit';
 
@@ -199,10 +189,7 @@ class MyChatLLM extends rag.ChatLLM {
     // 请开发者按需实现chatId与请求之前的映射关系，取消时请取消chatId相应的请求
     this.httpRequest?.off('dataReceive');
   }
-  async streamChat(
-    query: string,
-    callback: Callback<rag.LLMStreamAnswer>,
-  ): Promise<rag.LLMRequestInfo> {
+  async streamChat(query: string, callback: Callback<rag.LLMStreamAnswer>): Promise<rag.LLMRequestInfo> {
     // 省略streamChat实现，其具体使用见streamChat接口说明
     return {
       chatId: 0,
@@ -211,31 +198,29 @@ class MyChatLLM extends rag.ChatLLM {
   }
 }
 ```
+ 
+  
 
-
-## Config
-**支持设备：** PC/2in1
+##### Config
 
 RAG会话的配置项。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| llm | [ChatLLM](#chatllm) | 否 | 否 | 表示[ChatLLM](#chatllm)的提供者。 |
-| retrievalConfig | [retrieval.RetrievalConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#retrievalconfig) | 否 | 否 | 表示检索使用的配置。 |
-| retrievalCondition | [retrieval.RetrievalCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#retrievalcondition) | 否 | 否 | 表示检索的条件。 |
-
-
+| llm | ChatLLM | 否 | 否 | 表示ChatLLM的提供者。 |
+| retrievalConfig | retrieval.RetrievalConfig | 否 | 否 | 表示检索使用的配置。 |
+| retrievalCondition | retrieval.RetrievalCondition | 否 | 否 | 表示检索的条件。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { rag, retrieval } from '@kit.DataAugmentationKit';
 // MyChatLlm对应文件，是自定义实现的rag.ChatLLM类MyChatLLM所在的文件，具体实现见ChatLLM章节示例
 import MyChatLLM from './MyChatLlm';
@@ -243,288 +228,259 @@ import MyChatLLM from './MyChatLlm';
 let retrievalConfig: retrieval.RetrievalConfig = {
   channelConfigs: [
     // 假设已经按需配置
-  ],
+  ]
 };
 
 let retrievalCondition: retrieval.RetrievalCondition = {
   recallConditions: [
     // 假设已经按需配置
-  ],
+  ]
 };
 
 let config: rag.Config = {
   llm: new MyChatLLM(),
   retrievalConfig: retrievalConfig,
-  retrievalCondition: retrievalCondition,
+  retrievalCondition: retrievalCondition
 };
 ```
+ 
+  
 
-
-## Answer
-**支持设备：** PC/2in1
+##### Answer
 
 流式问答的数据。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | chunk | string | 否 | 否 | 表示问题摘要的答案。长度上限为8192字节。 |
-| data | Array&lt;[retrieval.ItemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api#iteminfo)&gt; | 否 | 是 | 表示检索的匹配结果。最多返回600个chunk。 |
+| data | Array<retrieval.ItemInfo> | 否 | 是 | 表示检索的匹配结果。最多返回600个chunk。 |
+ 
+ 
+  
 
-
-## StreamType
-**支持设备：** PC/2in1
+##### StreamType
 
 流式问答回答的类型。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | THOUGHT | 0 | 思考过程数据。 |
 | REFERENCE | 1 | 检索到的文档或知识的来源。 |
 | ANSWER | 2 | 生成的内容的最终结果。 |
+ 
+ 
+  
 
-
-## Stream
-**支持设备：** PC/2in1
+##### Stream
 
 流式问答中一次回答的结果信息。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [StreamType](#streamtype) | 否 | 否 | 表示答案的数据类型。 |
-| answer | [Answer](#answer) | 否 | 否 | 表示答案的数据。 |
+| type | StreamType | 否 | 否 | 表示答案的数据类型。 |
+| answer | Answer | 否 | 否 | 表示答案的数据。 |
 | isFinished | boolean | 否 | 否 | 表示流输出是否结束。true表示本轮问答已结束，false表示本轮本轮问答还有后续回答。 |
+ 
+ 
+  
 
-
-## RunConfig
-**支持设备：** PC/2in1
+##### RunConfig
 
 流式问答的配置项。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| answerTypes | Array&lt;[StreamType](#streamtype)&gt; | 否 | 否 | 用于指定流式输出的数据类型。 |
+| answerTypes | Array&lt;StreamType&gt; | 否 | 否 | 用于指定流式输出的数据类型。 |
+ 
+ 
+  
 
-
-## FeedbackInfo
-**支持设备：** PC/2in1
+##### FeedbackInfo
 
 用户反馈信息。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | runId | number | 否 | 否 | 会话内特定流式问答的唯一标识符。取值范围：[0, 2147483647]。 |
 | score | number | 否 | 否 | 用户对返回答案的评分。取值范围：[1, 5]。 |
-| source | Record&lt;[StreamType](#streamtype), [Answer](#answer)&gt; | 否 | 是 | 用户采用的答案信息。 |
+| source | Record<StreamType, Answer> | 否 | 是 | 用户采用的答案信息。 |
 | comment | string | 否 | 是 | 用户反馈的文本信息。长度上限为1000字节。 |
+ 
+ 
+  
 
-
-## RagSession
-**支持设备：** PC/2in1
+##### RagSession
 
 RAG会话，用以提供基于知识库的智能问答能力。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
+ 
+  
 
+##### streamRun
 
-### streamRun
-**支持设备：** PC/2in1
-
-streamRun(question: string, config: RunConfig, callback: AsyncCallback<Stream>): Promise<number>
-
+streamRun(question: string, config: RunConfig, callback: AsyncCallback&lt;Stream&gt;): Promise&lt;number&gt;
+ 
 流式问答，答案是流式传输的，使用Promise异步回调。不支持多线程调用。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | question | string | 是 | 表示本次提出的问题。长度上限为1000字节。 |
-| config | [RunConfig](#runconfig) | 是 | 表示本次提问的配置。 |
-| callback | AsyncCallback&lt;[Stream](#stream)&gt; | 是 | 回调函数。当流式问答成功，err取值为BusinessError，data为获取到的数据內容；否则为错误对象。 |
-
-
+| config | RunConfig | 是 | 表示本次提问的配置。 |
+| callback | AsyncCallback&lt;Stream&gt; | 是 | 回调函数。当流式问答成功，err取值为BusinessError，data为获取到的数据內容；否则为错误对象。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象，返回本次调用的ID。 |
-
-
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1021000000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000000-系统资源不足或内存访问异常) | Insufficient system resources or memory access exception. |
-| [1021000001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000001-调用llm超时) | A timeout occurred when calling the LLM. |
-| [1021000002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000002-调用llm加载失败) | A loading failure occurred when calling the LLM. |
-| [1021000003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000003-调用llm时发生请求失败) | A request failure occurred when calling the LLM. |
-| [1021000004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000004-llm繁忙) | The LLM chat is busy. |
-| [1021000005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000005-llm输出不符合约束) | The output of LLM chat does not comply with the constraints. |
-| [1021000007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000007-rag会话繁忙) | The RAG session is busy. |
-| [1021000008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000008-rag会话已关闭) | The RAG session is Already closed. |
-| [1021000009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000009-用户已取消streamrun) | User has canceled the stream run. |
-| [1021000010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000010-会话中发生超时) | A timeout occurred in the session. |
-| [1021000011](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000011-某些参数不满足约束条件) | Some parameter does not meet the constraints. Possible causes: 1. The length of the string parameter or the length of the numeric parameter does not comply with the constraints. 2. The string parameter contains invalid characters. |
-| [1021000012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000012-知识库不可用) | The knowledge base is not available. |
-| [1021000013](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000013-retrieval-检索过程中发生错误) | Retrieval: An error occurred during the Retrieval. |
-| [1021000014](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000014-retrieval-存在无效的主键) | Retrieval: There are invalid primary keys. |
-| [1021000015](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000015-retrieval-使用了不支持复合主键的重排序算法) | Retrieval: A re-ranking algorithm that does not support composite primary keys was used. |
-| [1021000016](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000016-retrieval-筛选器输入无效) | Retrieval: The filter input is invalid. |
-| [1021000017](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000017-retrieval-recallcondition中存在无效的召回名称) | Retrieval: There are invalid recall names in RecallCondition. |
-| [1021000018](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000018-retrieval-vectorquery中的向量相似度阈值高于vectorrerankparameter中的分层阈值) | Retrieval: The vector similarity threshold in VectorQuery is higher than the tiered threshold in VectorRerankParameter. |
-| [1021000019](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000019-retrieval-rerankmethod参数与通道类型不匹配) | Retrieval: RerankMethod parameters do not match the channel type. |
-
-
+| 1021000000 | Insufficient system resources or memory access exception. |
+| 1021000001 | A timeout occurred when calling the LLM. |
+| 1021000002 | A loading failure occurred when calling the LLM. |
+| 1021000003 | A request failure occurred when calling the LLM. |
+| 1021000004 | The LLM chat is busy. |
+| 1021000005 | The output of LLM chat does not comply with the constraints. |
+| 1021000007 | The RAG session is busy. |
+| 1021000008 | The RAG session is Already closed. |
+| 1021000009 | User has canceled the stream run. |
+| 1021000010 | A timeout occurred in the session. |
+| 1021000011 | Some parameter does not meet the constraints. Possible causes: 1. The length of the string parameter or the length of the numeric parameter does not comply with the constraints. 2. The string parameter contains invalid characters. |
+| 1021000012 | The knowledge base is not available. |
+| 1021000013 | Retrieval: An error occurred during the Retrieval. |
+| 1021000014 | Retrieval: There are invalid primary keys. |
+| 1021000015 | Retrieval: A re-ranking algorithm that does not support composite primary keys was used. |
+| 1021000016 | Retrieval: The filter input is invalid. |
+| 1021000017 | Retrieval: There are invalid recall names in RecallCondition. |
+| 1021000018 | Retrieval: The vector similarity threshold in VectorQuery is higher than the tiered threshold in VectorRerankParameter. |
+| 1021000019 | Retrieval: RerankMethod parameters do not match the channel type. |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { rag } from '@kit.DataAugmentationKit';
 import { common } from '@kit.AbilityKit';
 
-let context = AppStorage.get<common.UIAbilityContext>(
-  'Context',
-) as common.UIAbilityContext;
+let context = AppStorage.get<common.UIAbilityContext>("Context") as common.UIAbilityContext;
 let session: rag.RagSession | null; // 需要先使用createRagSession接口创建session
 let runConfig: rag.RunConfig = {
-  answerTypes: [
-    rag.StreamType.THOUGHT,
-    rag.StreamType.REFERENCE,
-    rag.StreamType.ANSWER,
-  ],
+  answerTypes: [ rag.StreamType.THOUGHT, rag.StreamType.REFERENCE, rag.StreamType.ANSWER ]
 };
-let output: string = '';
+let output: string = "";
 
 if (session != null) {
-  session
-    .streamRun(
-      '提出的问题',
-      runConfig,
-      (err: BusinessError, stream: rag.Stream) => {
-        if (err) {
-          hilog.error(
-            0,
-            'test',
-            `streamRun inner failed. code is ${err.code}, message is ${err.message}`,
-          );
-        } else {
-          hilog.info(0, 'Index', 'StreamType: %{public}d', stream.type);
-          output += stream.answer.chunk;
-          if (stream.isFinished) {
-            output += '回答结束。';
-          }
-        }
-      },
-    )
-    .then((data) => {
-      hilog.info(0, 'Index', 'runId: %{public}d', data);
-    })
-    .catch((e: BusinessError) => {
-      hilog.error(
-        0,
-        'test',
-        `streamRun failed. code is ${e.code}, message is ${e.message}`,
-      );
-    });
+  session.streamRun("提出的问题", runConfig, ((err: BusinessError, stream: rag.Stream) => {
+    if (err) {
+      hilog.error(0, 'test', `streamRun inner failed. code is ${err.code}, message is ${err.message}`);
+    } else {
+      hilog.info(0, 'Index', 'StreamType: %{public}d', stream.type);
+      output += stream.answer.chunk;
+      if (stream.isFinished) {
+        output += "回答结束。";
+      }
+    }
+  })).then((data) => {
+    hilog.info(0, 'Index', 'runId: %{public}d', data);
+  }).catch((e: BusinessError) => {
+    hilog.error(0, 'test', `streamRun failed. code is ${e.code}, message is ${e.message}`);
+  });
 }
 ```
+ 
+  
 
+##### cancel
 
-### cancel
-**支持设备：** PC/2in1
-
-cancel(runId: number): Promise<void>
-
+cancel(runId: number): Promise&lt;void&gt;
+ 
 取消本次问答，使用Promise异步回调。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| runId | number | 是 | 表示需要取消的问答ID。与[streamRun](#streamrun)返回值保持一致。 |
-
-
+| runId | number | 是 | 表示需要取消的问答ID。与streamRun返回值保持一致。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1021000000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000000-系统资源不足或内存访问异常) | Insufficient system resources or memory access exception. |
-| [1021000008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000008-rag会话已关闭) | The RAG session is Already closed. |
-
-
+| 1021000000 | Insufficient system resources or memory access exception. |
+| 1021000008 | The RAG session is Already closed. |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { rag } from '@kit.DataAugmentationKit';
@@ -532,58 +488,48 @@ import { rag } from '@kit.DataAugmentationKit';
 let session: rag.RagSession | null; // 需要先使用createRagSession接口创建session
 
 if (session != null) {
-  let runId: number = 0; // 请开发者填入streamRun实际返回值
-  session
-    .cancel(runId)
-    .then(() => {
-      hilog.info(0, 'test', 'cancel successfully');
-    })
-    .catch((e: BusinessError) => {
-      hilog.error(
-        0,
-        'test',
-        `cancel failed. code is ${e.code}, message is ${e.message}`,
-      );
-    });
+  let runId: number = 0;  // 请开发者填入streamRun实际返回值
+  session.cancel(runId).then(() => {
+    hilog.info(0, 'test', 'cancel successfully');
+  }).catch((e: BusinessError) => {
+    hilog.error(0, 'test', `cancel failed. code is ${e.code}, message is ${e.message}`);
+  });
 }
 ```
+ 
+  
 
+##### close
 
-### close
-**支持设备：** PC/2in1
-
-close(): Promise<void>
-
+close(): Promise&lt;void&gt;
+ 
 关闭会话，使用Promise异步回调。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1021000000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000000-系统资源不足或内存访问异常) | Insufficient system resources or memory access exception. |
-
-
+| 1021000000 | Insufficient system resources or memory access exception. |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { rag } from '@kit.DataAugmentationKit';
 
 let session: rag.RagSession | null; // 需要先使用createRagSession接口创建session
@@ -597,60 +543,50 @@ function WindowStageDestroy(): void {
   }
 }
 ```
+ 
+  
 
+##### createRagSession
 
-## createRagSession
-**支持设备：** PC/2in1
-
-createRagSession(context: common.Context, config: Config): Promise<RagSession>
-
+createRagSession(context: common.Context, config: Config): Promise&lt;RagSession&gt;
+ 
 获得一个会话，使用Promise异步回调。不支持多线程调用。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 表示当前应用上下文。 |
-| config | [Config](#config) | 是 | 表示与此[RagSession](#ragsession)相关的配置。 |
-
-
+| context | common.Context | 是 | 表示当前应用上下文。 |
+| config | Config | 是 | 表示与此RagSession相关的配置。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[RagSession](#ragsession)&gt; | Promise对象，返回[RagSession](#ragsession)对象。 |
-
-
+| Promise&lt;RagSession&gt; | Promise对象，返回RagSession对象。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1021000000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000000-系统资源不足或内存访问异常) | Insufficient system resources or memory access exception. |
-| [1021000006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000006-rag会话已存在) | The RAG session already exists. |
-
-
+| 1021000000 | Insufficient system resources or memory access exception. |
+| 1021000006 | The RAG session already exists. |
+ 
+ 
 **示例：**
-
-
-```ts
-import {
-  AbilityConstant,
-  ConfigurationConstant,
-  UIAbility,
-  Want,
-  common,
-} from '@kit.AbilityKit';
+ 
+```json
+import { AbilityConstant, ConfigurationConstant, UIAbility, Want, common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { rag, retrieval } from '@kit.DataAugmentationKit';
 import { window } from '@kit.ArkUI';
@@ -666,12 +602,7 @@ export default class EntryAbility extends UIAbility {
 
     windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          'Failed to load the content. Cause: %{public}s',
-          JSON.stringify(err),
-        );
+        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
         return;
       }
       hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
@@ -680,145 +611,129 @@ export default class EntryAbility extends UIAbility {
     let retrievalConfig: retrieval.RetrievalConfig = {
       channelConfigs: [
         // 假设已经按需配置
-      ],
+      ]
     };
 
     let retrievalCondition: retrieval.RetrievalCondition = {
       recallConditions: [
         // 假设已经按需配置
-      ],
+      ]
     };
 
     let config: rag.Config = {
       llm: new MyChatLLM(),
       retrievalConfig: retrievalConfig,
-      retrievalCondition: retrievalCondition,
+      retrievalCondition: retrievalCondition
     };
 
-    rag
-      .createRagSession(this.context, config)
-      .then((result) => {
-        session = result;
-      })
-      .catch((err: BusinessError) => {
-        hilog.error(
-          0x0000,
-          'testTag',
-          `createRagSession failed, code is ${err.code},message is ${err.message}.`,
-        );
-      });
+    rag.createRagSession(this.context, config).then((result) => {
+      session = result;
+    }).catch((err: BusinessError) => {
+      hilog.error(0x0000, 'testTag', `createRagSession failed, code is ${err.code},message is ${err.message}.`);
+    })
   }
 }
 ```
+ 
+  
 
+##### feedback
 
-## feedback
-**支持设备：** PC/2in1
-
-feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise<void>
-
+feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise&lt;void&gt;
+ 
 接受用户反馈的信息。用户使用问答结束之后，可以使用该接口对回答结果进行上报反馈。使用Promise异步回调。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.RAG
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 表示当前应用上下文。 |
-| feedbackInfo | [FeedbackInfo](#feedbackinfo) | 是 | 表示用户反馈的信息。 |
-
-
+| context | common.Context | 是 | 表示当前应用上下文。 |
+| feedbackInfo | FeedbackInfo | 是 | 表示用户反馈的信息。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1021000000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000000-系统资源不足或内存访问异常) | Insufficient system resources or memory access exception. |
-| [1021000011](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021000011-某些参数不满足约束条件) | Some parameter does not meet the constraints. Possible causes: 1. The length of the string parameter or the length of the numeric parameter does not comply with the constraints. 2. The string parameter contains invalid characters. |
-
-
+| 1021000000 | Insufficient system resources or memory access exception. |
+| 1021000011 | Some parameter does not meet the constraints. Possible causes: 1. The length of the string parameter or the length of the numeric parameter does not comply with the constraints. 2. The string parameter contains invalid characters. |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { rag, retrieval } from '@kit.DataAugmentationKit';
 import { relationalStore } from '@kit.ArkData';
 import { common } from '@kit.AbilityKit';
 
-let context = AppStorage.get<common.UIAbilityContext>(
-  'Context',
-) as common.UIAbilityContext;
+let context = AppStorage.get<common.UIAbilityContext>("Context") as common.UIAbilityContext;
 
 async function feedback() {
-  // 定义ValueType类型的变量
-  let valueTypeA: relationalStore.ValueType = 1;
+    // 定义ValueType类型的变量
+  let valueTypeA: relationalStore.ValueType = 1
   let valueTypeRecord: Record<string, relationalStore.ValueType> = {
-    a: valueTypeA,
-    b: valueTypeA,
-  };
-  // 定义召回分数
+    "a": valueTypeA,
+    "b": valueTypeA,
+  }
+    // 定义召回分数
   let recallScoreA: retrieval.RecallScore = {
     score: 0,
-    isReverseQuery: false,
-  };
+    isReverseQuery: false
+  }
   let recallScoreRecord: Record<string, retrieval.RecallScore> = {
-    a: recallScoreA,
-    b: recallScoreA,
-    c: recallScoreA,
-  };
+    "a": recallScoreA,
+    "b": recallScoreA,
+    "c": recallScoreA
+  }
 
-  let channelTypeRecord: Record<
-    number,
-    Record<string, retrieval.RecallScore>
-  > = {
+  let channelTypeRecord: Record<number, Record<string, retrieval.RecallScore>> = {
     0: recallScoreRecord,
-    1: recallScoreRecord,
-  };
-  // 定义检索项信息
+    1: recallScoreRecord
+  }
+    // 定义检索项信息
   let itemInfo: retrieval.ItemInfo = {
     primaryKey: '',
     columns: valueTypeRecord,
     score: 0,
     recallScores: channelTypeRecord,
     features: {
-      '111': 1,
-      '222': 2,
+      "111": 1,
+      "222": 2
     },
-    similarityLevel: retrieval.SimilarityLevel.LOW,
-  };
-  // 定义答案信息
+    similarityLevel: retrieval.SimilarityLevel.LOW
+  }
+    // 定义答案信息
   let answerB: rag.Answer = {
     chunk: '111',
-    data: [itemInfo],
+    data: [itemInfo]
   };
-  // 定义来源信息Record，key为StreamType枚举值
+    // 定义来源信息Record，key为StreamType枚举值
   let sources: Record<number, rag.Answer> = {
     0: answerB,
     1: answerB,
     2: answerB,
-  };
+  }
   let feedbackInfo: rag.FeedbackInfo = {
     runId: 444,
     score: 5,
-    comment: '111222333',
-    source: sources,
-  };
+    comment: "111222333",
+    source: sources
+  }
   rag.feedback(context, feedbackInfo);
 }
 ```

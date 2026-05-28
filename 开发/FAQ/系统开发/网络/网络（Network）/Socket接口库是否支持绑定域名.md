@@ -5,22 +5,19 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-23
 
 Socket不支持域名访问，只能使用IP地址。域名需要通过DNS解析为对应的IP地址。
-
+ 
 参考代码如下：
+ 
+```ArkTS
+import { connection } from '@kit.NetworkKit'
+import { BusinessError } from "@kit.BasicServicesKit"
 
-```ts
-import { connection } from '@kit.NetworkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-connection.getAddressesByName(
-  'xxxx',
-  (error: BusinessError, data: connection.NetAddress[]) => {
-    console.log(JSON.stringify(error));
-    console.log(JSON.stringify(data));
-  },
-);
+connection.getAddressesByName("xxxx", (error: BusinessError, data: connection.NetAddress[]) => {
+  console.log(JSON.stringify(error));
+  console.log(JSON.stringify(data));
+})
 ```
-
-参考链接
-
-connection.getAddressesByName
+ 
+**参考链接**
+ 
+[connection.getAddressesByName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#connectiongetaddressesbyname)

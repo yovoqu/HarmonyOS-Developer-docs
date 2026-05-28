@@ -14,19 +14,19 @@
 | API跨平台权限变更 | 类名：HttpResponse； API声明：readonly version: string; 差异内容：NA | 类名：HttpResponse； API声明：readonly version: string; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：HttpResponse； API声明：readonly statusCode: number; 差异内容：NA | 类名：HttpResponse； API声明：readonly statusCode: number; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：HttpResponse； API声明：readonly reason: string; 差异内容：NA | 类名：HttpResponse； API声明：readonly reason: string; 差异内容：crossplatform | api/@ohos.request.d.ts |
-| API跨平台权限变更 | 类名：HttpResponse； API声明：readonly headers: Map<string, Array<string>>; 差异内容：NA | 类名：HttpResponse； API声明：readonly headers: Map<string, Array<string>>; 差异内容：crossplatform | api/@ohos.request.d.ts |
+| API跨平台权限变更 | 类名：HttpResponse； API声明：readonly headers: Map<string, Array&lt;string&gt;>; 差异内容：NA | 类名：HttpResponse； API声明：readonly headers: Map<string, Array&lt;string&gt;>; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：Task； API声明：on(event: 'pause', callback: (progress: Progress) => void): void; 差异内容：NA | 类名：Task； API声明：on(event: 'pause', callback: (progress: Progress) => void): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：Task； API声明：off(event: 'pause', callback?: (progress: Progress) => void): void; 差异内容：NA | 类名：Task； API声明：off(event: 'pause', callback?: (progress: Progress) => void): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：Task； API声明：on(event: 'resume', callback: (progress: Progress) => void): void; 差异内容：NA | 类名：Task； API声明：on(event: 'resume', callback: (progress: Progress) => void): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：Task； API声明：off(event: 'resume', callback?: (progress: Progress) => void): void; 差异内容：NA | 类名：Task； API声明：off(event: 'resume', callback?: (progress: Progress) => void): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：Task； API声明：on(event: 'remove', callback: (progress: Progress) => void): void; 差异内容：NA | 类名：Task； API声明：on(event: 'remove', callback: (progress: Progress) => void): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | API跨平台权限变更 | 类名：Task； API声明：off(event: 'remove', callback?: (progress: Progress) => void): void; 差异内容：NA | 类名：Task； API声明：off(event: 'remove', callback?: (progress: Progress) => void): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
-| API跨平台权限变更 | 类名：Task； API声明：on(event: 'response', callback: Callback<HttpResponse>): void; 差异内容：NA | 类名：Task； API声明：on(event: 'response', callback: Callback<HttpResponse>): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
-| API跨平台权限变更 | 类名：Task； API声明：off(event: 'response', callback?: Callback<HttpResponse>): void; 差异内容：NA | 类名：Task； API声明：off(event: 'response', callback?: Callback<HttpResponse>): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
-| API跨平台权限变更 | 类名：Task； API声明：pause(callback: AsyncCallback<void>): void; 差异内容：NA | 类名：Task； API声明：pause(callback: AsyncCallback<void>): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
-| API跨平台权限变更 | 类名：Task； API声明：pause(): Promise<void>; 差异内容：NA | 类名：Task； API声明：pause(): Promise<void>; 差异内容：crossplatform | api/@ohos.request.d.ts |
-| API跨平台权限变更 | 类名：Task； API声明：resume(callback: AsyncCallback<void>): void; 差异内容：NA | 类名：Task； API声明：resume(callback: AsyncCallback<void>): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
-| API跨平台权限变更 | 类名：Task； API声明：resume(): Promise<void>; 差异内容：NA | 类名：Task； API声明：resume(): Promise<void>; 差异内容：crossplatform | api/@ohos.request.d.ts |
+| API跨平台权限变更 | 类名：Task； API声明：on(event: 'response', callback: Callback&lt;HttpResponse&gt;): void; 差异内容：NA | 类名：Task； API声明：on(event: 'response', callback: Callback&lt;HttpResponse&gt;): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
+| API跨平台权限变更 | 类名：Task； API声明：off(event: 'response', callback?: Callback&lt;HttpResponse&gt;): void; 差异内容：NA | 类名：Task； API声明：off(event: 'response', callback?: Callback&lt;HttpResponse&gt;): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
+| API跨平台权限变更 | 类名：Task； API声明：pause(callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：Task； API声明：pause(callback: AsyncCallback&lt;void&gt;): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
+| API跨平台权限变更 | 类名：Task； API声明：pause(): Promise&lt;void&gt;; 差异内容：NA | 类名：Task； API声明：pause(): Promise&lt;void&gt;; 差异内容：crossplatform | api/@ohos.request.d.ts |
+| API跨平台权限变更 | 类名：Task； API声明：resume(callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：Task； API声明：resume(callback: AsyncCallback&lt;void&gt;): void; 差异内容：crossplatform | api/@ohos.request.d.ts |
+| API跨平台权限变更 | 类名：Task； API声明：resume(): Promise&lt;void&gt;; 差异内容：NA | 类名：Task； API声明：resume(): Promise&lt;void&gt;; 差异内容：crossplatform | api/@ohos.request.d.ts |
 | 新增API | NA | 类名：global； API声明：declare namespace scan 差异内容：declare namespace scan | api/@ohos.scan.d.ets |
 | 新增API | NA | 类名：scan； API声明：enum ScanErrorCode 差异内容：enum ScanErrorCode | api/@ohos.scan.d.ets |
 | 新增API | NA | 类名：ScanErrorCode； API声明：SCAN_ERROR_NO_PERMISSION = 201 差异内容：SCAN_ERROR_NO_PERMISSION = 201 | api/@ohos.scan.d.ets |
@@ -105,33 +105,33 @@
 | 新增API | NA | 类名：ScannerSyncDevice； API声明：uniqueId: string; 差异内容：uniqueId: string; | api/@ohos.scan.d.ets |
 | 新增API | NA | 类名：ScannerSyncDevice； API声明：syncMode: ScannerSyncMode; 差异内容：syncMode: ScannerSyncMode; | api/@ohos.scan.d.ets |
 | 新增API | NA | 类名：ScannerSyncDevice； API声明：oldScannerId?: string; 差异内容：oldScannerId?: string; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function init(): Promise<void>; 差异内容：function init(): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function exit(): Promise<void>; 差异内容：function exit(): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function startScannerDiscovery(): Promise<void>; 差异内容：function startScannerDiscovery(): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function openScanner(scannerId: string): Promise<void>; 差异内容：function openScanner(scannerId: string): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function closeScanner(scannerId: string): Promise<void>; 差异内容：function closeScanner(scannerId: string): Promise<void>; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function init(): Promise&lt;void&gt;; 差异内容：function init(): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function exit(): Promise&lt;void&gt;; 差异内容：function exit(): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function startScannerDiscovery(): Promise&lt;void&gt;; 差异内容：function startScannerDiscovery(): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function openScanner(scannerId: string): Promise&lt;void&gt;; 差异内容：function openScanner(scannerId: string): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function closeScanner(scannerId: string): Promise&lt;void&gt;; 差异内容：function closeScanner(scannerId: string): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
 | 新增API | NA | 类名：scan； API声明：function getScannerParameter(scannerId: string): Promise<ScannerParameter[]>; 差异内容：function getScannerParameter(scannerId: string): Promise<ScannerParameter[]>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function setScannerParameter(scannerId: string, optionIndex: number, value: ScannerOptionValue): Promise<void>; 差异内容：function setScannerParameter(scannerId: string, optionIndex: number, value: ScannerOptionValue): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function setScanAutoOption(scannerId: string, optionIndex: number): Promise<void>; 差异内容：function setScanAutoOption(scannerId: string, optionIndex: number): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function getScannerCurrentSetting(scannerId: string, optionIndex: number): Promise<ScannerOptionValue>; 差异内容：function getScannerCurrentSetting(scannerId: string, optionIndex: number): Promise<ScannerOptionValue>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function startScan(scannerId: string, batchMode: boolean): Promise<void>; 差异内容：function startScan(scannerId: string, batchMode: boolean): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function cancelScan(scannerId: string): Promise<void>; 差异内容：function cancelScan(scannerId: string): Promise<void>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function getPictureScanProgress(scannerId: string): Promise<PictureScanProgress>; 差异内容：function getPictureScanProgress(scannerId: string): Promise<PictureScanProgress>; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function on(type: 'scanDeviceFound', callback: Callback<ScannerDevice>): void; 差异内容：function on(type: 'scanDeviceFound', callback: Callback<ScannerDevice>): void; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function off(type: 'scanDeviceFound', callback?: Callback<ScannerDevice>): void; 差异内容：function off(type: 'scanDeviceFound', callback?: Callback<ScannerDevice>): void; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function on(type: 'scanDeviceSync', callback: Callback<ScannerSyncDevice>): void; 差异内容：function on(type: 'scanDeviceSync', callback: Callback<ScannerSyncDevice>): void; | api/@ohos.scan.d.ets |
-| 新增API | NA | 类名：scan； API声明：function off(type: 'scanDeviceSync', callback?: Callback<ScannerSyncDevice>): void; 差异内容：function off(type: 'scanDeviceSync', callback?: Callback<ScannerSyncDevice>): void; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function setScannerParameter(scannerId: string, optionIndex: number, value: ScannerOptionValue): Promise&lt;void&gt;; 差异内容：function setScannerParameter(scannerId: string, optionIndex: number, value: ScannerOptionValue): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function setScanAutoOption(scannerId: string, optionIndex: number): Promise&lt;void&gt;; 差异内容：function setScanAutoOption(scannerId: string, optionIndex: number): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function getScannerCurrentSetting(scannerId: string, optionIndex: number): Promise&lt;ScannerOptionValue&gt;; 差异内容：function getScannerCurrentSetting(scannerId: string, optionIndex: number): Promise&lt;ScannerOptionValue&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function startScan(scannerId: string, batchMode: boolean): Promise&lt;void&gt;; 差异内容：function startScan(scannerId: string, batchMode: boolean): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function cancelScan(scannerId: string): Promise&lt;void&gt;; 差异内容：function cancelScan(scannerId: string): Promise&lt;void&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function getPictureScanProgress(scannerId: string): Promise&lt;PictureScanProgress&gt;; 差异内容：function getPictureScanProgress(scannerId: string): Promise&lt;PictureScanProgress&gt;; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function on(type: 'scanDeviceFound', callback: Callback&lt;ScannerDevice&gt;): void; 差异内容：function on(type: 'scanDeviceFound', callback: Callback&lt;ScannerDevice&gt;): void; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function off(type: 'scanDeviceFound', callback?: Callback&lt;ScannerDevice&gt;): void; 差异内容：function off(type: 'scanDeviceFound', callback?: Callback&lt;ScannerDevice&gt;): void; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function on(type: 'scanDeviceSync', callback: Callback&lt;ScannerSyncDevice&gt;): void; 差异内容：function on(type: 'scanDeviceSync', callback: Callback&lt;ScannerSyncDevice&gt;): void; | api/@ohos.scan.d.ets |
+| 新增API | NA | 类名：scan； API声明：function off(type: 'scanDeviceSync', callback?: Callback&lt;ScannerSyncDevice&gt;): void; 差异内容：function off(type: 'scanDeviceSync', callback?: Callback&lt;ScannerSyncDevice&gt;): void; | api/@ohos.scan.d.ets |
 | 新增API | NA | 类名：DevicePowerMode； API声明：MODE_CUSTOM_POWER_SAVE = 650 差异内容：MODE_CUSTOM_POWER_SAVE = 650 | api/@ohos.power.d.ts |
 | 新增API | NA | 类名：PrintJobSubState； API声明：PRINT_JOB_BLOCK_DRIVER_EXCEPTION = 17 差异内容：PRINT_JOB_BLOCK_DRIVER_EXCEPTION = 17 | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintJobSubState； API声明：PRINT_JOB_BLOCK_DRIVER_MISSING = 34 差异内容：PRINT_JOB_BLOCK_DRIVER_MISSING = 34 | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintJobSubState； API声明：PRINT_JOB_BLOCK_INTERRUPT = 35 差异内容：PRINT_JOB_BLOCK_INTERRUPT = 35 | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：PrintJobSubState； API声明：PRINT_JOB_BLOCK_PRINTER_UNAVAILABLE = 98 差异内容：PRINT_JOB_BLOCK_PRINTER_UNAVAILABLE = 98 | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void; 差异内容：function startDiscoverPrinter(extensionList: Array<string>, callback: AsyncCallback<void>): void; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function startDiscoverPrinter(extensionList: Array<string>): Promise<void>; 差异内容：function startDiscoverPrinter(extensionList: Array<string>): Promise<void>; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function stopDiscoverPrinter(callback: AsyncCallback<void>): void; 差异内容：function stopDiscoverPrinter(callback: AsyncCallback<void>): void; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function stopDiscoverPrinter(): Promise<void>; 差异内容：function stopDiscoverPrinter(): Promise<void>; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function connectPrinter(printerId: string, callback: AsyncCallback<void>): void; 差异内容：function connectPrinter(printerId: string, callback: AsyncCallback<void>): void; | api/@ohos.print.d.ts |
-| 新增API | NA | 类名：print； API声明：function connectPrinter(printerId: string): Promise<void>; 差异内容：function connectPrinter(printerId: string): Promise<void>; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function startDiscoverPrinter(extensionList: Array&lt;string&gt;, callback: AsyncCallback&lt;void&gt;): void; 差异内容：function startDiscoverPrinter(extensionList: Array&lt;string&gt;, callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function startDiscoverPrinter(extensionList: Array&lt;string&gt;): Promise&lt;void&gt;; 差异内容：function startDiscoverPrinter(extensionList: Array&lt;string&gt;): Promise&lt;void&gt;; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function stopDiscoverPrinter(callback: AsyncCallback&lt;void&gt;): void; 差异内容：function stopDiscoverPrinter(callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function stopDiscoverPrinter(): Promise&lt;void&gt;; 差异内容：function stopDiscoverPrinter(): Promise&lt;void&gt;; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function connectPrinter(printerId: string, callback: AsyncCallback&lt;void&gt;): void; 差异内容：function connectPrinter(printerId: string, callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.print.d.ts |
+| 新增API | NA | 类名：print； API声明：function connectPrinter(printerId: string): Promise&lt;void&gt;; 差异内容：function connectPrinter(printerId: string): Promise&lt;void&gt;; | api/@ohos.print.d.ts |
 | 新增API | NA | 类名：cacheDownload； API声明：interface ResourceInfo 差异内容：interface ResourceInfo | api/@ohos.request.cacheDownload.d.ts |
 | 新增API | NA | 类名：ResourceInfo； API声明：readonly size: number; 差异内容：readonly size: number; | api/@ohos.request.cacheDownload.d.ts |
 | 新增API | NA | 类名：cacheDownload； API声明：interface NetworkInfo 差异内容：interface NetworkInfo | api/@ohos.request.cacheDownload.d.ts |

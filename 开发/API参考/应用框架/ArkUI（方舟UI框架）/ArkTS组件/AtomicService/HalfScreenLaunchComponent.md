@@ -3,41 +3,38 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-halfscreenlaunchcomponent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 半屏嵌入式启动元服务组件，当被拉起方未授权嵌入式运行元服务时，宿主将使用跳出式拉起元服务。
 
-
 > [!NOTE]
-> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
-> 如果需要在该组件中实现一个可嵌入式运行的元服务时，元服务必须继承自[EmbeddableUIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddableuiability)。若不继承自EmbeddableUIAbility，系统无法确保元服务正常运行。
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 如果需要在该组件中实现一个可嵌入式运行的元服务时，元服务必须继承自 EmbeddableUIAbility 。若不继承自EmbeddableUIAbility，系统无法确保元服务正常运行。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { HalfScreenLaunchComponent } from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
 
-## HalfScreenLaunchComponent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-HalfScreenLaunchComponent({ content: Callback<void>, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback<TerminationInfo> })
+##### HalfScreenLaunchComponent
+
+HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt; })
 
 **装饰器类型：**@Component
 
@@ -45,24 +42,23 @@ HalfScreenLaunchComponent({ content: Callback<void>, appId: string, options?: At
 
 **参数：**
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| content | Callback&lt;void&gt; | 是 | @BuilderParam | 组件显示内容。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| appId | string | 是 | - | 元服务appId。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| options | [AtomicServiceOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-atomicserviceoptions) | 否 | - | 拉起元服务参数，默认为空。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onError | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | - | 被拉起的元服务扩展在运行过程中发生异常时触发本回调。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onTerminated | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;[TerminationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component#terminationinfo)&gt; | 否 | - | 回调函数，入参用于接收元服务的返回结果，类型为TerminationInfo。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| onReceive20+ | [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)&lt;Record&lt;string, Object&gt;&gt; | 否 | - | 被拉起的嵌入式运行元服务通过[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage)调用API时，触发本回调。          元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| content | Callback&lt;void&gt; | 是 | @BuilderParam | 组件显示内容。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| appId | string | 是 | - | 元服务appId。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| options | AtomicServiceOptions | 否 | - | 拉起元服务参数，默认为空。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onError | ErrorCallback | 否 | - | 被拉起的元服务扩展在运行过程中发生异常时触发本回调。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onTerminated | Callback&lt;TerminationInfo&gt; | 否 | - | 回调函数，入参用于接收元服务的返回结果，类型为TerminationInfo。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| onReceive20+ | Callback<Record<string, Object>> | 否 | - | 被拉起的嵌入式运行元服务通过Window调用API时，触发本回调。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 示例
 
 该示例展示如何嵌入式拉起手机充值服务。
 
-
-```ts
+```text
 import { HalfScreenLaunchComponent } from '@kit.ArkUI';
 
 @Entry
@@ -88,7 +84,7 @@ struct Index {
         Column() {
           Image($r('app.media.app_icon'))
           Text('拉起手机充值')
-      }.width("80vp").height("80vp").margin({bottom:30})
+        }.width("80vp").height("80vp").margin({bottom:30})
       } // 通过尾随闭包形式传入content。
     }
   }

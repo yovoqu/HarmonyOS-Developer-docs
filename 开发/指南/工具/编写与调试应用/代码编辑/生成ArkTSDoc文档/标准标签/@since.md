@@ -5,15 +5,18 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arktsdoc-since
 
 @since标签表示在特定版本中添加了类、方法或其他符号。
+ 
 
+##### 语法
 
-## 语法
+@since &lt;versionDescription&gt;
+ 
+ 
 
-@since
-
-## 示例
+##### 示例
 
 使用 @since：
+ 
 ```text
 /**
  * Provides access to user information.

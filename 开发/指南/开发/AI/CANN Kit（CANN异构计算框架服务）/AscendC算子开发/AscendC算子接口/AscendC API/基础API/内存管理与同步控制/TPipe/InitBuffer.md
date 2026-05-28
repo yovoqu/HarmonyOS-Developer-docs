@@ -4,51 +4,74 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tpipe-initbuffer
 
-## 功能说明
+##### 功能说明
 
 TPipe是用来管理全局内存的框架，开发者可以调用TPipe中的InitBuffer接口为TQue/TBuf进行内存分配。
+ 
+  
 
-## 函数原型
+##### 函数原型
 
-为TQue分配内存
+- 为TQue分配内存
+
+  
 ```text
-template
+template <class T>
 __aicore__ inline bool InitBuffer(T& que, uint8_t num, uint32_t len)
 ```
 
-为TBuf分配内存
+- 为TBuf分配内存
+
+  
 ```text
-template
-__aicore__ inline bool InitBuffer(TBuf& buf, uint32_t len)
+template <TPosition bufPos>
+__aicore__ inline bool InitBuffer(TBuf<bufPos>& buf, uint32_t len)
 ```
 
 
-## 参数说明
+ 
+  
+
+##### 参数说明
 
 **表1** bool InitBuffer(T& que, uint8_t num, uint32_t len) 原型定义参数说明
+  
 | 参数名称 | 输入/输出 | 含义 |
 | --- | --- | --- |
 | que | 输入 | 需要分配内存的TQue对象。 |
-| num | 输入 | 分配内存块的个数。[double buffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-double-buffer)功能通过该参数开启：num设置为1，表示不开启double buffer；num设置为2，表示开启double buffer。 |
+| num | 输入 | 分配内存块的个数。double buffer功能通过该参数开启：num设置为1，表示不开启double buffer；num设置为2，表示开启double buffer。 |
 | len | 输入 | 每个内存块的大小，单位为Bytes。当传入的len不满足32字节对齐时，API内部会自动向上补齐至32字节对齐。 |
-
-**表2** InitBuffer(TBuf& buf, uint32_t len)原型定义参数说明
+ 
+ 
+**表2** InitBuffer(TBuf&lt;bufPos&gt;& buf, uint32_t len)原型定义参数说明
+  
 | 参数名称 | 输入/输出 | 含义 |
 | --- | --- | --- |
 | buf | 输入 | 需要分配内存的TBuf对象。 |
 | len | 输入 | 为TBuf分配的内存大小，单位为Bytes。当传入的len不满足32字节对齐时，API内部会自动向上补齐至32字节对齐。 |
+ 
+ 
+  
 
+##### 支持的型号
 
-## 支持的型号
+Kirin9020系列处理器
+ 
+KirinX90系列处理器
+ 
+  
 
-Kirin9020系列处理器 KirinX90系列处理器
+##### 注意事项
 
-## 注意事项
-
-同一个TPosition上QUE Buffer的数量根据AI处理器型号的不同，有数量约束。申请Buffer时，需要满足该约束。 Kirin9020系列处理器不超过8块。 KirinX90系列处理器不超过8块。
+同一个TPosition上QUE Buffer的数量根据AI处理器型号的不同，有数量约束。申请Buffer时，需要满足该约束。
+ 
+Kirin9020系列处理器不超过8块。
+ 
+KirinX90系列处理器不超过8块。
+ 
 ```text
-AscendC::TQue que0;
-AscendC::TQue que1;
+AscendC::TQue<AscendC::TPosition::VECIN, 1> que0;
+AscendC::TQue<AscendC::TPosition::VECIN, 1> que1;
 // 不建议：
 // 比如，算子有6个输入，需要申请6块buffer
 // 通过2个队列为其申请内存，分别为que0、que1分配3块，申请VECIN position上的buffer总数为6
@@ -66,33 +89,34 @@ pipe.InitBuffer(que1, 1, len * 3);
  */
 int32_t offset1 = len;
 int32_t offset2 = len * 2;
-AscendC::LocalTensor local1 = que0.AllocTensor();
-AscendC::LocalTensor local2 = local1[offset1];
-AscendC::LocalTensor local3 = local1[offset2];
+AscendC::LocalTensor<T> local1 = que0.AllocTensor<T>();
+AscendC::LocalTensor<T> local2 = local1[offset1];
+AscendC::LocalTensor<T> local3 = local1[offset2];
 ```
+ 
+  
 
-
-## 返回值
+##### 返回值
 
 返回Buffer初始化的结果。
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 // 为TQue分配内存，分配内存块数为2，每块大小为128Bytes
 AscendC::TPipe pipe; // Pipe内存管理对象
-AscendC::TQue que; // 输出数据Queue队列管理对象，QuePosition为VECOUT
+AscendC::TQue<AscendC::TPosition::VECOUT, 2> que; // 输出数据Queue队列管理对象，QuePosition为VECOUT
 uint8_t num = 2;
 uint32_t len = 128;
 pipe.InitBuffer(que, num, len);
 ```
-
-
+ 
 ```text
 // 为TBuf分配内存，分配长度为128Bytes
 AscendC::TPipe pipe;
-AscendC::TBuf buf; // 输出数据管理对象，QuePosition为A1
+AscendC::TBuf<AscendC::TPosition::A1> buf; // 输出数据管理对象，QuePosition为A1
 uint32_t len = 128;
 pipe.InitBuffer(buf, len);
 ```

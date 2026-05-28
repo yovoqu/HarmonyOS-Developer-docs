@@ -23,7 +23,7 @@
 | 新增API | NA | 类名：PenType； API声明：RUBBER = 8 差异内容：RUBBER = 8 | api/@hms.stylus.HandwriteComponent.d.ets |
 | 新增API | NA | 类名：PenType； API声明：LASSO = 9 差异内容：LASSO = 9 | api/@hms.stylus.HandwriteComponent.d.ets |
 | 新增API | NA | 类名：PenType； API声明：LASER = 10 差异内容：LASER = 10 | api/@hms.stylus.HandwriteComponent.d.ets |
-| 新增API | NA | 类名：imageFeaturePicker； API声明：function pickForResult(x?: number, y?: number, showValue?: boolean): Promise<PickedColorInfo>; 差异内容：function pickForResult(x?: number, y?: number, showValue?: boolean): Promise<PickedColorInfo>; | api/@hms.officeservice.imageFeaturePicker.d.ts |
+| 新增API | NA | 类名：imageFeaturePicker； API声明：function pickForResult(x?: number, y?: number, showValue?: boolean): Promise&lt;PickedColorInfo&gt;; 差异内容：function pickForResult(x?: number, y?: number, showValue?: boolean): Promise&lt;PickedColorInfo&gt;; | api/@hms.officeservice.imageFeaturePicker.d.ts |
 | 函数变更 | 类名：HandwriteComponent； API声明：onInit?: () => void; 差异内容：() => void | 类名：HandwriteComponent； API声明：onInit?: InitCallback; 差异内容：InitCallback | api/@hms.stylus.HandwriteComponent.d.ets |
 | 函数变更 | 类名：HandwriteComponent； API声明：onScale?: (scale: number) => void; 差异内容：(scale: number) => void | 类名：HandwriteComponent； API声明：onScale?: ScaleCallback; 差异内容：ScaleCallback | api/@hms.stylus.HandwriteComponent.d.ets |
 | 新增导出符号 | 类名：global； API声明：export interface PenHspInfo 差异内容：NA | 类名：global； API声明： 差异内容：export interface PenHspInfo | api/@hms.stylus.HandwriteComponent.d.ets |

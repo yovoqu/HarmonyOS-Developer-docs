@@ -4,8 +4,8 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-86
 
-支持，可使用TextInput的passwordIcon设置输入框末尾的密码可见性切换图标。
-
-参考链接
-
-TextInput
+支持，可使用TextInput的[passwordIcon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput#passwordicon10)设置输入框末尾的密码可见性切换图标。
+ 
+**参考链接**
+ 
+[TextInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textinput)

@@ -10,8 +10,8 @@
 | 新增API | NA | 类名：AccessRule； API声明：certificateHashHexStr: string; 差异内容：certificateHashHexStr: string; | api/@ohos.telephony.esim.d.ts |
 | 新增API | NA | 类名：AccessRule； API声明：packageName: string; 差异内容：packageName: string; | api/@ohos.telephony.esim.d.ts |
 | 新增API | NA | 类名：AccessRule； API声明：accessType: number; 差异内容：accessType: number; | api/@ohos.telephony.esim.d.ts |
-| 新增API | NA | 类名：sim； API声明：function getSimLabel(slotId: number, callback: AsyncCallback<SimLabel>): void; 差异内容：function getSimLabel(slotId: number, callback: AsyncCallback<SimLabel>): void; | api/@ohos.telephony.sim.d.ts |
-| 新增API | NA | 类名：sim； API声明：function getSimLabel(slotId: number): Promise<SimLabel>; 差异内容：function getSimLabel(slotId: number): Promise<SimLabel>; | api/@ohos.telephony.sim.d.ts |
+| 新增API | NA | 类名：sim； API声明：function getSimLabel(slotId: number, callback: AsyncCallback&lt;SimLabel&gt;): void; 差异内容：function getSimLabel(slotId: number, callback: AsyncCallback&lt;SimLabel&gt;): void; | api/@ohos.telephony.sim.d.ts |
+| 新增API | NA | 类名：sim； API声明：function getSimLabel(slotId: number): Promise&lt;SimLabel&gt;; 差异内容：function getSimLabel(slotId: number): Promise&lt;SimLabel&gt;; | api/@ohos.telephony.sim.d.ts |
 | 新增API | NA | 类名：sim； API声明：function getSimLabelSync(slotId: number): SimLabel; 差异内容：function getSimLabelSync(slotId: number): SimLabel; | api/@ohos.telephony.sim.d.ts |
 | 新增API | NA | 类名：sim； API声明：export enum SimType 差异内容：export enum SimType | api/@ohos.telephony.sim.d.ts |
 | 新增API | NA | 类名：SimType； API声明：PSIM = 0 差异内容：PSIM = 0 | api/@ohos.telephony.sim.d.ts |

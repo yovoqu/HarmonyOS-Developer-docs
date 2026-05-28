@@ -25,4 +25,4 @@
 | 新增API | NA | 类名：hiAppEvent； API声明：interface EventPolicy 差异内容：interface EventPolicy | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：EventPolicy； API声明：mainThreadJankPolicy?: MainThreadJankPolicy; 差异内容：mainThreadJankPolicy?: MainThreadJankPolicy; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
 | 新增API | NA | 类名：EventPolicy； API声明：cpuUsageHighPolicy?: CpuUsageHighPolicy; 差异内容：cpuUsageHighPolicy?: CpuUsageHighPolicy; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
-| 新增API | NA | 类名：hiAppEvent； API声明：function configEventPolicy(policy: EventPolicy): Promise<void>; 差异内容：function configEventPolicy(policy: EventPolicy): Promise<void>; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |
+| 新增API | NA | 类名：hiAppEvent； API声明：function configEventPolicy(policy: EventPolicy): Promise&lt;void&gt;; 差异内容：function configEventPolicy(policy: EventPolicy): Promise&lt;void&gt;; | api/@ohos.hiviewdfx.hiAppEvent.d.ts |

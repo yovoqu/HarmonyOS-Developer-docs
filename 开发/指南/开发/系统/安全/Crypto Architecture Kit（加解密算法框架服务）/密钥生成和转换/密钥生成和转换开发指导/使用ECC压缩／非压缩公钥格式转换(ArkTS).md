@@ -1,6 +1,6 @@
 # 使用ECC压缩/非压缩公钥格式转换(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ypto-convert-compressed-or-uncompressed-ecc-pubkey
 
@@ -13,10 +13,15 @@ ECC的算法规格请查看[非对称密钥生成和转换规格：ECC](https://
 通过传入字符串参数format，可指定需要获取的ECC公钥数据格式。如果需要获取满足X509规范的压缩格式数据，则指定format为："X509|COMPRESSED"；需要获取非压缩格式，则指定format为："X509|UNCOMPRESSED"。
 
 
-## 指定非压缩公钥数据转换为压缩公钥数据
+##### 指定非压缩公钥数据转换为压缩公钥数据
+1. 将Uint8Array类型的ECC非压缩公钥数据封装成[DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#datablob)对象。
 
-将Uint8Array类型的ECC非压缩公钥数据封装成[DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#datablob)对象。 公钥和私钥可只传入其中一个。此处示例传入非压缩公钥。 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)，指定字符串参数'ECC_BrainPoolP256r1'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。 调用[AsyKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-3)，传入封装后的DataBlob对象，生成非对称密钥对象（KeyPair）。 调用[PubKey.getEncodedDer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedder12)，设置参数为'X509|COMPRESSED'，获取压缩公钥数据的字节流。
-```text
+  公钥和私钥可只传入其中一个。此处示例传入非压缩公钥。
+2. 调用[cryptoFramework.createAsyKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreateasykeygenerator)，指定字符串参数'ECC_BrainPoolP256r1'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（AsyKeyGenerator）。
+3. 调用[AsyKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-3)，传入封装后的DataBlob对象，生成非对称密钥对象（KeyPair）。
+4. 调用[PubKey.getEncodedDer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedder12)，设置参数为'X509|COMPRESSED'，获取压缩公钥数据的字节流。
+
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 async function eccPubUncompressedToCompressed() {

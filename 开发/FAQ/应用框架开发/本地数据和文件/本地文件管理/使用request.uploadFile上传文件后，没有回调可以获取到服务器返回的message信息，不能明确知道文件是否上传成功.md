@@ -5,9 +5,9 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-24
 
 使用request.uploadFile上传文件时，on('complete')回调在成功后触发。如果需要获取服务端的响应信息并处理判断逻辑，还可以使用on('headerReceive')回调。
-
-参考链接
-
-on('complete' | 'fail')
-
-on('headerReceive')
+ 
+**参考链接**
+ 
+[on('complete' | 'fail')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#oncomplete--fail9)
+ 
+[on('headerReceive')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request#onheaderreceive7)

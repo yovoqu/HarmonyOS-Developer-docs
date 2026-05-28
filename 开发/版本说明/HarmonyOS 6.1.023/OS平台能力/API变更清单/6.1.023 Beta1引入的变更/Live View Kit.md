@@ -6,9 +6,9 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：liveViewManager； API声明：function startLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise<LiveViewResult>; 差异内容：function startLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise<LiveViewResult>; | api/@hms.core.liveview.liveViewManager.d.ts |
-| 新增API | NA | 类名：liveViewManager； API声明：function stopLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise<LiveViewResult>; 差异内容：function stopLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise<LiveViewResult>; | api/@hms.core.liveview.liveViewManager.d.ts |
-| 新增API | NA | 类名：liveViewManager； API声明：function isGeofenceTriggerEnabled(): Promise<boolean>; 差异内容：function isGeofenceTriggerEnabled(): Promise<boolean>; | api/@hms.core.liveview.liveViewManager.d.ts |
+| 新增API | NA | 类名：liveViewManager； API声明：function startLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise&lt;LiveViewResult&gt;; 差异内容：function startLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise&lt;LiveViewResult&gt;; | api/@hms.core.liveview.liveViewManager.d.ts |
+| 新增API | NA | 类名：liveViewManager； API声明：function stopLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise&lt;LiveViewResult&gt;; 差异内容：function stopLiveViewByTrigger(liveView: LiveView, trigger: Trigger): Promise&lt;LiveViewResult&gt;; | api/@hms.core.liveview.liveViewManager.d.ts |
+| 新增API | NA | 类名：liveViewManager； API声明：function isGeofenceTriggerEnabled(): Promise&lt;boolean&gt;; 差异内容：function isGeofenceTriggerEnabled(): Promise&lt;boolean&gt;; | api/@hms.core.liveview.liveViewManager.d.ts |
 | 新增API | NA | 类名：liveViewManager； API声明：export interface Trigger 差异内容：export interface Trigger | api/@hms.core.liveview.liveViewManager.d.ts |
 | 新增API | NA | 类名：Trigger； API声明：type: TriggerType; 差异内容：type: TriggerType; | api/@hms.core.liveview.liveViewManager.d.ts |
 | 新增API | NA | 类名：Trigger； API声明：condition: Geofence; 差异内容：condition: Geofence; | api/@hms.core.liveview.liveViewManager.d.ts |

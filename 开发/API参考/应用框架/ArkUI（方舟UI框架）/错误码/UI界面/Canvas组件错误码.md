@@ -4,12 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-canvas
 
-
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。
 
 
-## 103701 参数错误
+
+##### 103701 参数错误
 
 **错误信息**
 
@@ -28,7 +28,8 @@ Parameter error.
 传入正确的参数。
 
 
-## 103702 绘制上下文未绑定Canvas组件
+
+##### 103702 绘制上下文未绑定Canvas组件
 
 **错误信息**
 
@@ -47,7 +48,8 @@ The drawingContext is not bound to a canvas component.
 将绘制上下文绑定至一个Canvas组件后再调用[getContext2DFromDrawingContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#getcontext2dfromdrawingcontext23)方法。
 
 
-## 103704 OffscreenCanvas已经下树
+
+##### 103704 OffscreenCanvas已经下树
 
 **错误信息**
 

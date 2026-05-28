@@ -5,14 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hp-arkui-use-taskpool-for-web-request
 
 建议网络资源的请求和返回使用taskpool线程池异步处理。
+ 
+应用内点击完成时延场景下，建议优先修改。
+ 
 
- 应用内点击完成时延场景下，建议优先修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -20,16 +19,18 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
+##### 正例
 
-
-```text
+```json
 import { http } from '@kit.NetworkKit';
 import { BusinessError } from '@ohos.base';
 import taskpool from '@ohos.taskpool';
@@ -53,12 +54,12 @@ httpRequest.request("EXAMPLE_URL", async (err: Error, data: http.HttpResponse) =
   await taskpool.execute(task);
 });
 ```
+ 
+ 
 
+##### 反例
 
-## 反例
-
-
-```text
+```json
 import { http } from '@kit.NetworkKit';
 
 let httpRequest = http.createHttp();
@@ -68,19 +69,19 @@ httpRequest.request("EXAMPLE_URL", (err: Error, data: http.HttpResponse) => {
     console.info('code:' + data.responseCode);
     console.info('type:' + JSON.stringify(data.resultType));
     console.info('header:' + JSON.stringify(data.header));
-    console.info('cookies:' + data.cookies);
+    console.info('cookies:' + data.cookies); 
   } else {
     console.info('error:' + JSON.stringify(err));
   }
 });
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
 plugin:@performance/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

@@ -3,7 +3,7 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-iap
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供应用内支付的能力。
 
@@ -12,17 +12,15 @@
 **起始版本：** 4.0.0(10)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 ```
 
 
-## ProductType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ProductType
 
 商品类型。
 
@@ -34,17 +32,17 @@ import { iap } from '@kit.IAPKit';
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CONSUMABLE | 0 | 消耗型商品。 |
 | NONCONSUMABLE | 1 | 非消耗型商品。 |
-| AUTORENEWABLE | 2 | 自动续期订阅商品。          该属性不支持Wearable设备。          起始版本： 4.1.0(11) |
-| NONRENEWABLE | 3 | 非续期订阅商品。          该属性不支持Wearable设备。          元服务API： 从版本5.0.2(14)开始，该接口支持在元服务中使用。          起始版本： 5.0.2(14) |
+| AUTORENEWABLE | 2 | 自动续期订阅商品。 该属性不支持Wearable设备。 起始版本： 4.1.0(11) |
+| NONRENEWABLE | 3 | 非续期订阅商品。 该属性不支持Wearable设备。 元服务API： 从版本5.0.2(14)开始，该接口支持在元服务中使用。 起始版本： 5.0.2(14) |
 
 
-## PurchaseQueryType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PurchaseQueryType
 
 查询购买信息的类型。
 
@@ -56,7 +54,6 @@ import { iap } from '@kit.IAPKit';
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ALL | 0 | 所有历史购买记录，包括消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。 |
@@ -64,8 +61,9 @@ import { iap } from '@kit.IAPKit';
 | CURRENT_ENTITLEMENT | 2 | 已购非消耗型商品和当前生效的自动续期订阅商品。 |
 
 
-## PeriodUnit
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PeriodUnit
 
 自动续期订阅商品的周期单位。
 
@@ -77,7 +75,6 @@ import { iap } from '@kit.IAPKit';
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DAY | 0 | 天。 |
@@ -87,8 +84,9 @@ import { iap } from '@kit.IAPKit';
 | MINUTE | 4 | 分（预留参数，暂未支持）。 |
 
 
-## OfferPaymentMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OfferPaymentMode
 
 促销的付费方式。
 
@@ -100,17 +98,17 @@ import { iap } from '@kit.IAPKit';
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | FREE_TRIAL | 1 | 免费试用。 |
 | PAY_AS_YOU_GO | 2 | 随用随付。 |
 | PAY_UP_FRONT | 3 | 提前支付。 |
-| SINGLE_PROMOTION | 5 | 单次优惠，仅适用于消耗型/非消耗型/非续期订阅商品。          元服务API： 从版本5.0.5(17)开始，该接口支持在元服务中使用。          起始版本： 5.0.5(17) |
+| SINGLE_PROMOTION | 5 | 单次优惠，仅适用于消耗型/非消耗型/非续期订阅商品。 元服务API： 从版本5.0.5(17)开始，该接口支持在元服务中使用。 起始版本： 5.0.5(17) |
 
 
-## OfferType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OfferType
 
 促销类型。
 
@@ -122,15 +120,15 @@ import { iap } from '@kit.IAPKit';
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | INTRODUCTORY | 0 | 推介促销。 |
 | PROMOTIONAL | 1 | 优惠促销。 |
 
 
-## IAPErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### IAPErrorCode
 
 错误码枚举。
 
@@ -141,7 +139,6 @@ import { iap } from '@kit.IAPKit';
 **系统能力：** SystemCapability.Payment.IAP
 
 **起始版本：** 4.1.0(11)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -158,18 +155,19 @@ import { iap } from '@kit.IAPKit';
 | PURCHASE_FINISHED | 1001860053 | 此次购买已经完成发货，无需重复发货。 |
 | ACCOUNT_TERRITORY_NOT_SUPPORTED | 1001860054 | 用户账号所在服务地暂不支持IAP。 |
 | USER_NOT_ALLOWED | 1001860056 | 用户交易被拒绝。 |
-| APP_NOT_DEBUG | 1001860057 | 当前应用不是debug签名的应用。          起始版本： 5.0.0(12) |
-| ACCOUNT_NOT_TEST | 1001860058 | 华为账号不是沙盒测试账号。          起始版本： 5.0.0(12) |
-| INVALID_PROMOTIONAL_OFFER | 1001860059 | 无效的优惠信息。          起始版本： 5.0.0(12) |
-| INVALID_PURCHASE_SIGNATURE | 1001860060 | 无效的签名信息。          起始版本： 5.0.0(12) |
-| PURCHASE_ALREADY_REFUNDED | 1001860061 | 商品已退款或退款中。          元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。          起始版本： 5.0.3(15) |
-| REFUND_NOT_ALLOWED | 1001860062 | 不允许退款。          元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。          起始版本： 5.0.3(15) |
-| PURCHASE_NOT_FOUND | 1001860064 | 在登录的华为账号上找不到该笔订单。          元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。          起始版本： 6.1.0(23) |
-| OPERATION_NOT_SUPPORTED | 1001860065 | 不支持开票操作。          元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。          起始版本： 6.1.0(23) |
+| APP_NOT_DEBUG | 1001860057 | 当前应用不是debug签名的应用。 起始版本： 5.0.0(12) |
+| ACCOUNT_NOT_TEST | 1001860058 | 华为账号不是沙盒测试账号。 起始版本： 5.0.0(12) |
+| INVALID_PROMOTIONAL_OFFER | 1001860059 | 无效的优惠信息。 起始版本： 5.0.0(12) |
+| INVALID_PURCHASE_SIGNATURE | 1001860060 | 无效的签名信息。 起始版本： 5.0.0(12) |
+| PURCHASE_ALREADY_REFUNDED | 1001860061 | 商品已退款或退款中。 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 起始版本： 5.0.3(15) |
+| REFUND_NOT_ALLOWED | 1001860062 | 不允许退款。 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 起始版本： 5.0.3(15) |
+| PURCHASE_NOT_FOUND | 1001860064 | 在登录的华为账号上找不到该笔订单。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) |
+| OPERATION_NOT_SUPPORTED | 1001860065 | 不支持开票操作。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) |
 
 
-## WindowScreenMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### WindowScreenMode
 
 界面窗口模式。
 
@@ -181,15 +179,15 @@ import { iap } from '@kit.IAPKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DIALOG_BOX | 1 | 界面窗口弹窗模式。 |
 | FULLSCREEN | 2 | 界面窗口全屏模式。 |
 
 
-## ProductStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ProductStatus
 
 商品状态枚举。
 
@@ -201,7 +199,6 @@ import { iap } from '@kit.IAPKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | VALID | 0 | 生效状态。 |
@@ -209,10 +206,11 @@ import { iap } from '@kit.IAPKit';
 | OFFLINE | 3 | 下线状态，不能订阅，但老用户仍可续订。 |
 
 
-## iap.queryEnvironmentStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryEnvironmentStatus(context: common.Context): Promise<void>
+
+##### iap.queryEnvironmentStatus
+
+queryEnvironmentStatus(context: common.Context): Promise&lt;void&gt;
 
 查询用户登录的账号服务地是否在IAP Kit支持结算的国家/地区中。当前只支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
 
@@ -228,14 +226,12 @@ queryEnvironmentStatus(context: common.Context): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。建议使用[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
+| context | common.Context | 是 | 上下文。建议使用UIAbilityContext。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -245,7 +241,6 @@ queryEnvironmentStatus(context: common.Context): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -262,8 +257,7 @@ queryEnvironmentStatus(context: common.Context): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -271,25 +265,25 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    iap.queryEnvironmentStatus(this.getUIContext().getHostContext() as common.UIAbilityContext).then(() => {
-      // 请求成功
-      console.info('Succeeded in querying environment status.');
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to query environment status. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
+    test() {
+        iap.queryEnvironmentStatus(this.getUIContext().getHostContext() as common.UIAbilityContext).then(() => {
+            // 请求成功
+            console.info('Succeeded in querying environment status.');
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to query environment status. Code is ${err.code}, message is ${err.message}`);
+        });
+    }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryEnvironmentStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryEnvironmentStatus(context: common.Context, callback: AsyncCallback<void>): void
+##### iap.queryEnvironmentStatus
+
+queryEnvironmentStatus(context: common.Context, callback: AsyncCallback&lt;void&gt;): void
 
 查询用户登录的账号服务地是否在IAP Kit支持结算的国家/地区中。当前只支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
 
@@ -303,17 +297,15 @@ queryEnvironmentStatus(context: common.Context, callback: AsyncCallback<void>): 
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。建议使用[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
+| context | common.Context | 是 | 上下文。建议使用UIAbilityContext。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当用户登录的账号服务地在IAP Kit支持结算的国家/地区中时，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -329,8 +321,7 @@ queryEnvironmentStatus(context: common.Context, callback: AsyncCallback<void>): 
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -338,27 +329,27 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    iap.queryEnvironmentStatus(this.getUIContext().getHostContext() as common.UIAbilityContext, (err: BusinessError) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to query environment status. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info('Succeeded in querying environment status.');
-    });
-  }
+    test() {
+        iap.queryEnvironmentStatus(this.getUIContext().getHostContext() as common.UIAbilityContext, (err: BusinessError) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to query environment status. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info('Succeeded in querying environment status.');
+        });
+    }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryProducts
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParameter): Promise<Array<Product>>
+##### iap.queryProducts
+
+queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParameter): Promise<Array&lt;Product&gt;>
 
 获取在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上配置的商品详情信息。使用Promise异步回调。
 
@@ -372,25 +363,22 @@ queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParamete
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryProductsParameter](#queryproductsparameter) | 是 | 包含请求信息的[QueryProductsParameter](#queryproductsparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryProductsParameter | 是 | 包含请求信息的QueryProductsParameter对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[Product](#product)&gt;&gt; | Promise对象，返回商品详情信息。 |
+| Promise<Array&lt;Product&gt;> | Promise对象，返回商品详情信息。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -408,8 +396,7 @@ queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParamete
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -417,34 +404,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryProductsParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
-      // iap.ProductType.NONRENEWABLE：非续期订阅商品
-      productType: iap.ProductType.CONSUMABLE,
-      // productIds中的商品需要替换成开发者在AppGallery Connect网站配置的商品
-      productIds: ['testConsumeProduct01', 'testConsumeProduct02']
+    test() {
+        const parameter: iap.QueryProductsParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
+            // iap.ProductType.NONRENEWABLE：非续期订阅商品
+            productType: iap.ProductType.CONSUMABLE,
+            // productIds中的商品需要替换成开发者在AppGallery Connect网站配置的商品
+            productIds: ['testConsumeProduct01', 'testConsumeProduct02']
+        }
+        iap.queryProducts(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: Array<iap.Product>) => {
+            // 请求成功
+            console.info(`Succeeded in querying products. data length: ${data?.length}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to query products. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    iap.queryProducts(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: Array<iap.Product>) => {
-      // 请求成功
-      console.info(`Succeeded in querying products. data length: ${data?.length}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to query products. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryProducts
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParameter, callback: AsyncCallback<Array<Product>>): void
+##### iap.queryProducts
+
+queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParameter, callback: AsyncCallback<Array&lt;Product&gt;>): void
 
 用于获取在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上配置的商品详情信息。使用callback异步回调。
 
@@ -456,18 +443,16 @@ queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParamete
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryProductsParameter](#queryproductsparameter) | 是 | 包含请求信息的[QueryProductsParameter](#queryproductsparameter)对象。 |
-| callback | AsyncCallback&lt;Array&lt;[Product](#product)&gt;&gt; | 是 | 回调函数。当查询成功时，err为undefined，data为获取到的Array&lt;[Product](#product)&gt;；否则为错误对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryProductsParameter | 是 | 包含请求信息的QueryProductsParameter对象。 |
+| callback | AsyncCallback<Array&lt;Product&gt;> | 是 | 回调函数。当查询成功时，err为undefined，data为获取到的Array&lt;Product&gt;；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -485,8 +470,7 @@ queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParamete
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -494,36 +478,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryProductsParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
-      // iap.ProductType.NONRENEWABLE：非续期订阅商品
-      productType: iap.ProductType.CONSUMABLE,
-      // productIds中的商品需要替换成开发者在AppGallery Connect网站配置的商品
-      productIds: ['testConsumeProduct01', 'testConsumeProduct02']
+    test() {
+        const parameter: iap.QueryProductsParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
+            // iap.ProductType.NONRENEWABLE：非续期订阅商品
+            productType: iap.ProductType.CONSUMABLE,
+            // productIds中的商品需要替换成开发者在AppGallery Connect网站配置的商品
+            productIds: ['testConsumeProduct01', 'testConsumeProduct02']
+        }
+        iap.queryProducts(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: Array<iap.Product>) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to query products. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info(`Succeeded in querying products. data length: ${data?.length}`);
+        });
     }
-    iap.queryProducts(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: Array<iap.Product>) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to query products. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info(`Succeeded in querying products. data length: ${data?.length}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryProducts
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<Array<Product>>
+##### iap.queryProducts
+
+queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<Array&lt;Product&gt;>
 
 查询在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上配置的商品详情信息。使用Promise异步回调。
 
@@ -537,25 +521,22 @@ queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<A
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| productIds | string[] | 是 | 待查询商品ID列表。商品ID必须已经在当前应���中创建且唯一。          商品ID来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置商品信息时设置的商品ID，请参见[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。          说明： 一次最多可查询200个商品，商品数量较多时建议分批查询。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| productIds | string[] | 是 | 待查询商品ID列表。商品ID必须已经在当前应用中创建且唯一。 商品ID来源于开发者在AppGallery Connect中配置商品信息时设置的商品ID，请参见配置商品信息。 说明： 一次最多可查询200个商品，商品数量较多时建议分批查询。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[Product](#product)&gt;&gt; | Promise对象，返回商品详情信息。 |
+| Promise<Array&lt;Product&gt;> | Promise对象，返回商品详情信息。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -572,8 +553,7 @@ queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<A
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -581,27 +561,27 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    // productIds中的商品需要替换成开发者在AppGallery Connect网站配置的商品
-    const productIds: string[] = ['testConsumeProduct01', 'testConsumeProduct02'];
-    iap.queryProducts(this.getUIContext().getHostContext() as common.UIAbilityContext, productIds).then((data: Array<iap.Product>) => {
-      // 请求成功
-      console.info(`Succeeded in querying products. data length: ${data?.length}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to query products. Code is ${err.code}, message is ${err.message}`);
-    })
-  }
+    test() {
+        // productIds中的商品需要替换成开发者在AppGallery Connect网站配置的商品
+        const productIds: string[] = ['testConsumeProduct01', 'testConsumeProduct02'];
+        iap.queryProducts(this.getUIContext().getHostContext() as common.UIAbilityContext, productIds).then((data: Array<iap.Product>) => {
+            // 请求成功
+            console.info(`Succeeded in querying products. data length: ${data?.length}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to query products. Code is ${err.code}, message is ${err.message}`);
+        })
+    }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.purchase(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-purchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promise<PurchaseResult>
+##### iap.purchase(deprecated)
+
+purchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promise&lt;PurchaseResult&gt;
 
 创建订单，支持消耗型商品和非消耗型商品。在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建商品后，应用使用此接口调用华为应用内支付收银台，显示商品、价格和支付方式。
 
@@ -619,25 +599,22 @@ purchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promis
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [PurchaseParameter](#purchaseparameter) | 是 | 包含请求信息的[PurchaseParameter](#purchaseparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | PurchaseParameter | 是 | 包含请求信息的PurchaseParameter对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PurchaseResult](#purchaseresultdeprecated)&gt; | Promise对象，返回购买结果。 |
+| Promise&lt;PurchaseResult&gt; | Promise对象，返回购买结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -656,8 +633,7 @@ purchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promis
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -665,33 +641,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.PurchaseParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      productType: iap.ProductType.CONSUMABLE,
-      // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
-      productId: 'testConsumeProduct01',
-      developerPayload: 'test developer payload string.'
+    test() {
+        const parameter: iap.PurchaseParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            productType: iap.ProductType.CONSUMABLE,
+            // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
+            productId: 'testConsumeProduct01',
+            developerPayload: 'test developer payload string.'
+        }
+        iap.purchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.PurchaseResult) => {
+            // 请求成功
+            console.info(`Succeeded in purchasing. data: ${data.inAppPurchaseData}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to purchase. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    iap.purchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.PurchaseResult) => {
-      // 请求成功
-      console.info(`Succeeded in purchasing. data: ${data.inAppPurchaseData}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to purchase. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.purchase(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-purchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callback: AsyncCallback<PurchaseResult>): void
+##### iap.purchase(deprecated)
+
+purchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callback: AsyncCallback&lt;PurchaseResult&gt;): void
 
 创建订单，支持消耗型商品和非消耗型商品。在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建商品后，使用此接口调用华为应用内支付收银台，显示商品、价格和支付方式。
 
@@ -709,18 +685,16 @@ purchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callbac
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [PurchaseParameter](#purchaseparameter) | 是 | 包含请求信息的[PurchaseParameter](#purchaseparameter)对象。 |
-| callback | AsyncCallback&lt;[PurchaseResult](#purchaseresultdeprecated)&gt; | 是 | 回调函数。当购买成功时，err为undefined，data为获取到的[PurchaseResult](#purchaseresultdeprecated)对象；否则为错误对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | PurchaseParameter | 是 | 包含请求信息的PurchaseParameter对象。 |
+| callback | AsyncCallback&lt;PurchaseResult&gt; | 是 | 回调函数。当购买成功时，err为undefined，data为获取到的PurchaseResult对象；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -739,8 +713,7 @@ purchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callbac
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -748,35 +721,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.PurchaseParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      productType: iap.ProductType.CONSUMABLE,
-      // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
-      productId: 'testConsumeProduct01',
-      developerPayload: 'test developer payload string.'
+    test() {
+        const parameter: iap.PurchaseParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            productType: iap.ProductType.CONSUMABLE,
+            // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
+            productId: 'testConsumeProduct01',
+            developerPayload: 'test developer payload string.'
+        }
+        iap.purchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.PurchaseResult) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to purchase. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info(`Succeeded in purchasing. data: ${data.inAppPurchaseData}`);
+        });
     }
-    iap.purchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.PurchaseResult) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to purchase. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info(`Succeeded in purchasing. data: ${data.inAppPurchaseData}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.createPurchase
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promise<CreatePurchaseResult>
+##### iap.createPurchase
+
+createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promise&lt;CreatePurchaseResult&gt;
 
 发起购买，支持消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建商品后，使用此接口拉起华为应用内支付收银台，显示商品名称、商品价格等信息。
 
@@ -792,25 +765,22 @@ createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter): 
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [PurchaseParameter](#purchaseparameter) | 是 | 包含请求信息的[PurchaseParameter](#purchaseparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | PurchaseParameter | 是 | 包含请求信息的PurchaseParameter对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[CreatePurchaseResult](#createpurchaseresult)&gt; | Promise对象，返回购买结果。 |
+| Promise&lt;CreatePurchaseResult&gt; | Promise对象，返回购买结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -832,8 +802,7 @@ createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter): 
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -841,35 +810,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.PurchaseParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
-      // iap.ProductType.NONRENEWABLE：非续期订阅商品
-      productType: iap.ProductType.AUTORENEWABLE,
-      // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
-      productId: 'testProduct01',
-      developerPayload: 'test developer payload string.'
+    test() {
+        const parameter: iap.PurchaseParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
+            // iap.ProductType.NONRENEWABLE：非续期订阅商品
+            productType: iap.ProductType.AUTORENEWABLE,
+            // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
+            productId: 'testProduct01',
+            developerPayload: 'test developer payload string.'
+        }
+        iap.createPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.CreatePurchaseResult) => {
+            // 请求成功
+            console.info(`Succeeded in creating purchase. data: ${data.purchaseData}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to create purchase. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    iap.createPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.CreatePurchaseResult) => {
-      // 请求成功
-      console.info(`Succeeded in creating purchase. data: ${data.purchaseData}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to create purchase. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.createPurchase
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callback: AsyncCallback<CreatePurchaseResult>): void
+##### iap.createPurchase
+
+createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callback: AsyncCallback&lt;CreatePurchaseResult&gt;): void
 
 发起购买，支持消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建商品后，使用此接口拉起华为应用内支付收银台，显示商品名称、价格等信息。
 
@@ -883,18 +852,16 @@ createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter, c
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [PurchaseParameter](#purchaseparameter) | 是 | 包含请求信息的[PurchaseParameter](#purchaseparameter)对象。 |
-| callback | AsyncCallback&lt;[CreatePurchaseResult](#createpurchaseresult)&gt; | 是 | 回调函数。当购买成功时，err为undefined，data为获取到的[CreatePurchaseResult](#createpurchaseresult)对象；否则为错误对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | PurchaseParameter | 是 | 包含请求信息的PurchaseParameter对象。 |
+| callback | AsyncCallback&lt;CreatePurchaseResult&gt; | 是 | 回调函数。当购买成功时，err为undefined，data为获取到的CreatePurchaseResult对象；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -916,8 +883,7 @@ createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter, c
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -925,37 +891,37 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.PurchaseParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
-      // iap.ProductType.NONRENEWABLE：非续期订阅商品
-      productType: iap.ProductType.AUTORENEWABLE,
-      // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
-      productId: 'testProduct01',
-      developerPayload: 'test developer payload string.'
+    test() {
+        const parameter: iap.PurchaseParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
+            // iap.ProductType.NONRENEWABLE：非续期订阅商品
+            productType: iap.ProductType.AUTORENEWABLE,
+            // productId需要替换成开发者在AppGallery Connect网站配置商品信息时设置的“商品ID”
+            productId: 'testProduct01',
+            developerPayload: 'test developer payload string.'
+        }
+        iap.createPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.CreatePurchaseResult) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to create purchase. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info(`Succeeded in creating purchase. data: ${data.purchaseData}`);
+        });
     }
-    iap.createPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.CreatePurchaseResult) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to create purchase. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info(`Succeeded in creating purchase. data: ${data.purchaseData}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.consumePurchase(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchaseParameter): Promise<ConsumeResult>
+##### iap.consumePurchase(deprecated)
+
+consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchaseParameter): Promise&lt;ConsumeResult&gt;
 
 在消耗型商品支付成功后，应用需要在发放商品成功之后调用此接口对消耗型商品执行消耗操作。使用Promise异步回调。
 
@@ -971,25 +937,22 @@ consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchasePara
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [ConsumePurchaseParameter](#consumepurchaseparameterdeprecated) | 是 | 包含请求信息的[ConsumePurchaseParameter](#consumepurchaseparameterdeprecated)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | ConsumePurchaseParameter | 是 | 包含请求信息的ConsumePurchaseParameter对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ConsumeResult](#consumeresultdeprecated)&gt; | Promise对象，返回消耗结果。 |
+| Promise&lt;ConsumeResult&gt; | Promise对象，返回消耗结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1007,8 +970,7 @@ consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchasePara
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1016,29 +978,29 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.ConsumePurchaseParameter = {
-      purchaseToken: '***',
-      developerChallenge: 'developerChallenge'
+    test() {
+        const parameter: iap.ConsumePurchaseParameter = {
+            purchaseToken: '***',
+            developerChallenge: 'developerChallenge'
+        }
+        iap.consumePurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.ConsumeResult) => {
+            // 请求成功
+            console.info(`Succeeded in consuming purchases. data: ${data.consumedPurchaseData}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to consume purchase. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    iap.consumePurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.ConsumeResult) => {
-      // 请求成功
-      console.info(`Succeeded in consuming purchases. data: ${data.consumedPurchaseData}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to consume purchase. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.consumePurchase(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchaseParameter, callback: AsyncCallback<ConsumeResult>): void
+##### iap.consumePurchase(deprecated)
+
+consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchaseParameter, callback: AsyncCallback&lt;ConsumeResult&gt;): void
 
 在消耗型商品支付成功后，应用需要在发放商品成功之后调用此接口对消耗型商品执行消耗操作。使用callback异步回调。
 
@@ -1054,18 +1016,16 @@ consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchasePara
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [ConsumePurchaseParameter](#consumepurchaseparameterdeprecated) | 是 | 包含请求信息的[ConsumePurchaseParameter](#consumepurchaseparameterdeprecated)对象。 |
-| callback | AsyncCallback&lt;[ConsumeResult](#consumeresultdeprecated)&gt; | 是 | 回调函数。当消耗成功时，err为undefined，data为获取到的[ConsumeResult](#consumeresultdeprecated)对象；否则为错误对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | ConsumePurchaseParameter | 是 | 包含请求信息的ConsumePurchaseParameter对象。 |
+| callback | AsyncCallback&lt;ConsumeResult&gt; | 是 | 回调函数。当消耗成功时，err为undefined，data为获取到的ConsumeResult对象；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1083,8 +1043,7 @@ consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchasePara
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1092,31 +1051,31 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.ConsumePurchaseParameter = {
-      purchaseToken: '***',
-      developerChallenge: 'developerChallenge'
+    test() {
+        const parameter: iap.ConsumePurchaseParameter = {
+            purchaseToken: '***',
+            developerChallenge: 'developerChallenge'
+        }
+        iap.consumePurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.ConsumeResult) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to consume purchase. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info(`Succeeded in consuming purchases. data: ${data.consumedPurchaseData}`);
+        });
     }
-    iap.consumePurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.ConsumeResult) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to consume purchase. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info(`Succeeded in consuming purchases. data: ${data.consumedPurchaseData}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.finishPurchase
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParameter): Promise<void>
+##### iap.finishPurchase
+
+finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParameter): Promise&lt;void&gt;
 
 应用完成已购商品的发货后，调用此接口确认发货，指明此次购买流程结束。使用Promise异步回调。
 
@@ -1130,15 +1089,13 @@ finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParame
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [FinishPurchaseParameter](#finishpurchaseparameter) | 是 | 包含请求信息的[FinishPurchaseParameter](#finishpurchaseparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | FinishPurchaseParameter | 是 | 包含请求信息的FinishPurchaseParameter对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1148,7 +1105,6 @@ finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParame
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1166,8 +1122,7 @@ finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParame
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1175,34 +1130,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const finishPurchaseParam: iap.FinishPurchaseParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
-      // iap.ProductType.NONRENEWABLE：非续期订阅商品
-      productType: iap.ProductType.CONSUMABLE,
-      purchaseToken: '***',
-      purchaseOrderId: '***'
-    };
-    iap.finishPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, finishPurchaseParam).then(() => {
-      // 请求成功
-      console.info('Succeeded in finishing purchase.');
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to finish purchase. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
+    test() {
+        const finishPurchaseParam: iap.FinishPurchaseParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
+            // iap.ProductType.NONRENEWABLE：非续期订阅商品
+            productType: iap.ProductType.CONSUMABLE,
+            purchaseToken: '***',
+            purchaseOrderId: '***'
+        };
+        iap.finishPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, finishPurchaseParam).then(() => {
+            // 请求成功
+            console.info('Succeeded in finishing purchase.');
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to finish purchase. Code is ${err.code}, message is ${err.message}`);
+        });
+    }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.finishPurchase
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParameter, callback: AsyncCallback<void>): void
+##### iap.finishPurchase
+
+finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParameter, callback: AsyncCallback&lt;void&gt;): void
 
 应用完成已购商品的发货后，调用此接口确认发货，指明此次购买流程结束。使用callback异步回调。
 
@@ -1214,18 +1169,16 @@ finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParame
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [FinishPurchaseParameter](#finishpurchaseparameter) | 是 | 包含请求信息的[FinishPurchaseParameter](#finishpurchaseparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | FinishPurchaseParameter | 是 | 包含请求信息的FinishPurchaseParameter对象。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当确认发货成功时，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1243,8 +1196,7 @@ finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParame
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1252,42 +1204,42 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const finishPurchaseParam: iap.FinishPurchaseParameter = {
-      // iap.ProductType.CONSUMABLE：消耗型商品
-      // iap.ProductType.NONCONSUMABLE：非消耗型商品
-      // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
-      // iap.ProductType.NONRENEWABLE：非续期订阅商品
-      productType: iap.ProductType.CONSUMABLE,
-      purchaseToken: '***',
-      purchaseOrderId: '***'
-    };
-    iap.finishPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, finishPurchaseParam, (err: BusinessError) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to finish purchase. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info('Succeeded in finishing purchase.');
-    });
-  }
+    test() {
+        const finishPurchaseParam: iap.FinishPurchaseParameter = {
+            // iap.ProductType.CONSUMABLE：消耗型商品
+            // iap.ProductType.NONCONSUMABLE：非消耗型商品
+            // iap.ProductType.AUTORENEWABLE：自动续期订阅商品
+            // iap.ProductType.NONRENEWABLE：非续期订阅商品
+            productType: iap.ProductType.CONSUMABLE,
+            purchaseToken: '***',
+            purchaseOrderId: '***'
+        };
+        iap.finishPurchase(this.getUIContext().getHostContext() as common.UIAbilityContext, finishPurchaseParam, (err: BusinessError) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to finish purchase. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info('Succeeded in finishing purchase.');
+        });
+    }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryOwnedPurchases(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise<QueryPurchasesResult>
+##### iap.queryOwnedPurchases(deprecated)
+
+queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise&lt;QueryPurchasesResult&gt;
 
 查询用户已订购商品的购买数据，包括消耗型商品和非消耗型商品，一次请求只能查询一种类型的商品。
 
+ - 若查询消耗型商品，IAP仅返回用户已购未消耗的购买数据。若有购买数据返回，说明可能存在因某些异常而导致未进行发货的情况，需要应用判断是否已发货，未发货则需要进行补发货处理。开发者应用发货成功后调用[consumePurchase](#iapconsumepurchasedeprecated)接口进行消耗。消耗成功的订单信息将不会在此接口返回，可通过[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated)接口获取。
+ - 若查询非消耗型商品，IAP返回用户所有已订购商品的购买数据。
 
-- 若查询消耗型商品，IAP仅返回用户已购未消耗的购买数据。若有购买数据返回，说明可能存在因某些异常而导致未进行发货的情况，需要应用判断是否已发货，未发货则需要进行补发货处理。开发者应用发货成功后调用[consumePurchase](#iapconsumepurchasedeprecated)接口进行消耗。消耗成功的订单信息将不会在此接口返回，可通过[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated)接口获取。
-- 若查询非消耗型商品，IAP返回用户所有已订购商品的购买数据。
 
 使用Promise异步回调。
 
@@ -1303,25 +1255,22 @@ queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesP
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryPurchasesParameter](#querypurchasesparameter) | 是 | 包含请求信息的[QueryPurchasesParameter](#querypurchasesparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryPurchasesParameter | 是 | 包含请求信息的QueryPurchasesParameter对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[QueryPurchasesResult](#querypurchasesresultdeprecated)&gt; | Promise对象，返回查询的购买数据信息。 |
+| Promise&lt;QueryPurchasesResult&gt; | Promise对象，返回查询的购买数据信息。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1339,8 +1288,7 @@ queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesP
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1348,34 +1296,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryPurchasesParameter = {
-      productType: iap.ProductType.CONSUMABLE
+    test() {
+        const parameter: iap.QueryPurchasesParameter = {
+            productType: iap.ProductType.CONSUMABLE
+        }
+        iap.queryOwnedPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.QueryPurchasesResult) => {
+            // 请求成功
+            console.info(`Succeeded in querying owned purchases. data len: ${data.productList?.length}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to query owned purchases. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    iap.queryOwnedPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.QueryPurchasesResult) => {
-      // 请求成功
-      console.info(`Succeeded in querying owned purchases. data len: ${data.productList?.length}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to query owned purchases. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryOwnedPurchases(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback<QueryPurchasesResult>): void
+##### iap.queryOwnedPurchases(deprecated)
+
+queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback&lt;QueryPurchasesResult&gt;): void
 
 查询用户已订购商品的购买数据，包括消耗型商品和非消耗型商品，一次请求只能查询一种类型的商品。
 
+ - 若查询消耗型商品，IAP仅返回用户已购未消耗的购买数据。若有购买数据返回，说明可能存在因某些异常而导致未进行发货的情况，需要应用判断是否已发货，未发货则需要进行补发货处理。开发者应用发货成功后调用[consumePurchase](#iapconsumepurchasedeprecated)接口进行消耗。消耗成功的订单信息将不会在此接口返回，可通过[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated-1)接口获取。
+ - 若查询非消耗型商品，IAP返回用户所有已订购商品的购买数据。
 
-- 若查询消耗型商品，IAP仅返回用户已购未消耗的购买数据。若有购买数据返回，说明可能存在因某些异常而导致未进行发货的情况，需要应用判断是否已发货，未发货则需要进行补发货处理。开发者应用发货成功后调用[consumePurchase](#iapconsumepurchasedeprecated)接口进行消耗。消耗成功的订单信息将不会在此接口返回，可通过[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated-1)接口获取。
-- 若查询非消耗型商品，IAP返回用户所有已订购商品的购买数据。
 
 使用callback异步回调。
 
@@ -1391,18 +1339,16 @@ queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesP
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryPurchasesParameter](#querypurchasesparameter) | 是 | 包含请求信息的[QueryPurchasesParameter](#querypurchasesparameter)对象。 |
-| callback | AsyncCallback&lt;[QueryPurchasesResult](#querypurchasesresultdeprecated)&gt; | 是 | 回调函数。当查询成功时，err为undefined，data为获取到[QueryPurchasesResult](#querypurchasesresultdeprecated)对象；否则为错误对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryPurchasesParameter | 是 | 包含请求信息的QueryPurchasesParameter对象。 |
+| callback | AsyncCallback&lt;QueryPurchasesResult&gt; | 是 | 回调函数。当查询成功时，err为undefined，data为获取到QueryPurchasesResult对象；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1420,8 +1366,7 @@ queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesP
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1429,30 +1374,30 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryPurchasesParameter = {
-      productType: iap.ProductType.CONSUMABLE
+    test() {
+        const parameter: iap.QueryPurchasesParameter = {
+            productType: iap.ProductType.CONSUMABLE
+        }
+        iap.queryOwnedPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.QueryPurchasesResult) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to query owned purchases. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info(`Succeeded in querying owned purchases. data len: ${data.productList?.length}`);
+        });
     }
-    iap.queryOwnedPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.QueryPurchasesResult) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to query owned purchases. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info(`Succeeded in querying owned purchases. data len: ${data.productList?.length}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryPurchaseRecords(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise<QueryPurchasesResult>
+##### iap.queryPurchaseRecords(deprecated)
+
+queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise&lt;QueryPurchasesResult&gt;
 
 获取已执行过消耗操作的消耗型商品的购买数据。使用Promise异步回调。
 
@@ -1468,25 +1413,22 @@ queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchases
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryPurchasesParameter](#querypurchasesparameter) | 是 | 包含请求信息的[QueryPurchasesParameter](#querypurchasesparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryPurchasesParameter | 是 | 包含请求信息的QueryPurchasesParameter对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[QueryPurchasesResult](#querypurchasesresultdeprecated)&gt; | Promise对象，返回已执行过消耗操作的消耗型商品的购买数据。 |
+| Promise&lt;QueryPurchasesResult&gt; | Promise对象，返回已执行过消耗操作的消耗型商品的购买数据。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1500,8 +1442,7 @@ queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchases
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1509,28 +1450,28 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryPurchasesParameter = {
-      productType: iap.ProductType.CONSUMABLE
+    test() {
+        const parameter: iap.QueryPurchasesParameter = {
+            productType: iap.ProductType.CONSUMABLE
+        }
+        iap.queryPurchaseRecords(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.QueryPurchasesResult) => {
+            // 请求成功
+            console.info(`Succeeded in querying purchase records. data len: ${data.productList?.length}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to query purchase records. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    iap.queryPurchaseRecords(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.QueryPurchasesResult) => {
-      // 请求成功
-      console.info(`Succeeded in querying purchase records. data len: ${data.productList?.length}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to query purchase records. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryPurchaseRecords(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback<QueryPurchasesResult>): void
+##### iap.queryPurchaseRecords(deprecated)
+
+queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback&lt;QueryPurchasesResult&gt;): void
 
 获取已执行过消耗操作的消耗型商品的购买数据。使用callback异步回调。
 
@@ -1546,18 +1487,16 @@ queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchases
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryPurchasesParameter](#querypurchasesparameter) | 是 | 包含请求信息的[QueryPurchasesParameter](#querypurchasesparameter)对象。 |
-| callback | AsyncCallback&lt;[QueryPurchasesResult](#querypurchasesresultdeprecated)&gt; | 是 | 回调函数。当查询成功时，err为undefined，data为获取到[QueryPurchasesResult](#querypurchasesresultdeprecated)对象；否则为错误对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryPurchasesParameter | 是 | 包含请求信息的QueryPurchasesParameter对象。 |
+| callback | AsyncCallback&lt;QueryPurchasesResult&gt; | 是 | 回调函数。当查询成功时，err为undefined，data为获取到QueryPurchasesResult对象；否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1571,8 +1510,7 @@ queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchases
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1580,36 +1518,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryPurchasesParameter = {
-      productType: iap.ProductType.CONSUMABLE
+    test() {
+        const parameter: iap.QueryPurchasesParameter = {
+            productType: iap.ProductType.CONSUMABLE
+        }
+        iap.queryPurchaseRecords(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.QueryPurchasesResult) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to query purchase records. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info(`Succeeded in querying purchase records. data len: ${data.productList?.length}`);
+        });
     }
-    iap.queryPurchaseRecords(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.QueryPurchasesResult) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to query purchase records. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info(`Succeeded in querying purchase records. data len: ${data.productList?.length}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryPurchases
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise<QueryPurchaseResult>
+##### iap.queryPurchases
+
+queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise&lt;QueryPurchaseResult&gt;
 
 查询已购商品的订单信息，包含 ：
 
+ - 已购买但是未确认发货的商品的订单信息。
+ - 当前生效的非消耗型商品、自动续期订阅商品和非续期订阅商品。
 
-- 已购买但是未确认发货的商品的订单信息。
-- 当前生效的非消耗型商品、自动续期订阅商品和非续期订阅商品。
 
 使用Promise异步回调。
 
@@ -1623,25 +1561,22 @@ queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParame
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryPurchasesParameter](#querypurchasesparameter) | 是 | 包含请求信息的[QueryPurchasesParameter](#querypurchasesparameter)对象。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryPurchasesParameter | 是 | 包含请求信息的QueryPurchasesParameter对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[QueryPurchaseResult](#querypurchaseresult)&gt; | Promise对象，返回已购商品的订单信息。在沙盒场景下，已发货状态的非消耗型商品订单信息将不返回。 |
+| Promise&lt;QueryPurchaseResult&gt; | Promise对象，返回已购商品的订单信息。在沙盒场景下，已发货状态的非消耗型商品订单信息将不返回。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1657,8 +1592,7 @@ queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParame
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1666,35 +1600,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryPurchasesParameter = {
-      productType: iap.ProductType.CONSUMABLE,
-      queryType: iap.PurchaseQueryType.UNFINISHED
+    test() {
+        const parameter: iap.QueryPurchasesParameter = {
+            productType: iap.ProductType.CONSUMABLE,
+            queryType: iap.PurchaseQueryType.UNFINISHED
+        }
+        iap.queryPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.QueryPurchaseResult) => {
+            // 请求成功
+            console.info(`Succeeded in querying purchases. data len: ${data.purchaseDataList?.length}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to query purchases. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    iap.queryPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter).then((data: iap.QueryPurchaseResult) => {
-      // 请求成功
-      console.info(`Succeeded in querying purchases. data len: ${data.purchaseDataList?.length}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to query purchases. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.queryPurchases
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback<QueryPurchaseResult>): void
+##### iap.queryPurchases
+
+queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback&lt;QueryPurchaseResult&gt;): void
 
 查询已购商品的订单信息，包含 ：
 
+ - 已购买但是未确认发货的商品的订单信息。
+ - 当前生效的非消耗型商品、自动续期订阅商品和非续期订阅商品。
 
-- 已购买但是未确认发货的商品的订单信息。
-- 当前生效的非消耗型商品、自动续期订阅商品和非续期订阅商品。
 
 使用callback异步回调。
 
@@ -1706,18 +1640,16 @@ queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParame
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)上下文。 |
-| parameter | [QueryPurchasesParameter](#querypurchasesparameter) | 是 | 包含请求信息的[QueryPurchasesParameter](#querypurchasesparameter)对象。 |
-| callback | AsyncCallback&lt;[QueryPurchaseResult](#querypurchaseresult)&gt; | 是 | 回调函数。当查询成功时，err为undefined，data为获取到[QueryPurchaseResult](#querypurchaseresult)对象，否则为错误对象。同时，在沙盒场景下，已发货状态的非消耗型商品订单信息将不返回。 |
+| context | common.UIAbilityContext | 是 | UIAbility上下文。 |
+| parameter | QueryPurchasesParameter | 是 | 包含请求信息的QueryPurchasesParameter对象。 |
+| callback | AsyncCallback&lt;QueryPurchaseResult&gt; | 是 | 回调函数。当查询成功时，err为undefined，data为获取到QueryPurchaseResult对象，否则为错误对象。同时，在沙盒场景下，已发货状态的非消耗型商品订单信息将不返回。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1733,8 +1665,7 @@ queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParame
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1742,31 +1673,31 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const parameter: iap.QueryPurchasesParameter = {
-      productType: iap.ProductType.CONSUMABLE,
-      queryType: iap.PurchaseQueryType.UNFINISHED
+    test() {
+        const parameter: iap.QueryPurchasesParameter = {
+            productType: iap.ProductType.CONSUMABLE,
+            queryType: iap.PurchaseQueryType.UNFINISHED
+        }
+        iap.queryPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.QueryPurchaseResult) => {
+            if (err) {
+                // 请求失败
+                console.error(`Failed to query purchases. Code is ${err.code}, message is ${err.message}`);
+                return;
+            }
+            // 请求成功
+            console.info(`Succeeded in querying purchases. data len: ${data.purchaseDataList?.length}`);
+        });
     }
-    iap.queryPurchases(this.getUIContext().getHostContext() as common.UIAbilityContext, parameter, (err: BusinessError, data: iap.QueryPurchaseResult) => {
-      if (err) {
-        // 请求失败
-        console.error(`Failed to query purchases. Code is ${err.code}, message is ${err.message}`);
-        return;
-      }
-      // 请求成功
-      console.info(`Succeeded in querying purchases. data len: ${data.purchaseDataList?.length}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.showManagedSubscriptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter, groupId?: string): Promise<void>
+##### iap.showManagedSubscriptions
+
+showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter, groupId?: string): Promise&lt;void&gt;
 
 跳转到订阅页或订阅详情页。使用Promise异步回调。
 
@@ -1782,16 +1713,14 @@ showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。建议使用[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
-| uiParameter | [UIWindowParameter](#uiwindowparameter) | 是 | 包含界面窗口模式的[UIWindowParameter](#uiwindowparameter)对象。 |
-| groupId | string | 否 | 订阅组ID，来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置管理的订阅组，请参见[新增订阅组](https://developer.huawei.com/consumer/cn/doc/app/non-subscription-0000001958955109#section37862471018)。          说明：          - 传递groupId，跳转到订阅详情页。          - 不传递groupId，跳转到订阅页。如果用户在应用只有一条订阅数据，此时会跳转到此条订阅的订阅详情页。 |
+| context | common.Context | 是 | 上下文。建议使用UIAbilityContext。 |
+| uiParameter | UIWindowParameter | 是 | 包含界面窗口模式的UIWindowParameter对象。 |
+| groupId | string | 否 | 订阅组ID，来源于开发者在AppGallery Connect中配置管理的订阅组，请参见新增订阅组。 说明： - 传递groupId，跳转到订阅详情页。 - 不传递groupId，跳转到订阅页。如果用户在应用只有一条订阅数据，此时会跳转到此条订阅的订阅详情页。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1801,7 +1730,6 @@ showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1817,8 +1745,7 @@ showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1826,29 +1753,29 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    const uiWindowParameter: iap.UIWindowParameter = {
-      windowScreenMode: iap.WindowScreenMode.DIALOG_BOX
+    test() {
+        const uiWindowParameter: iap.UIWindowParameter = {
+            windowScreenMode: iap.WindowScreenMode.DIALOG_BOX
+        }
+        const groupId = '***';
+        iap.showManagedSubscriptions(this.getUIContext().getHostContext() as common.UIAbilityContext, uiWindowParameter, groupId).then(() => {
+            // 请求成功
+            console.info('Succeeded in showing subscription page.');
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to show subscription page. Code is ${err.code}, message is ${err.message}`);
+        });
     }
-    const groupId = '***';
-    iap.showManagedSubscriptions(this.getUIContext().getHostContext() as common.UIAbilityContext, uiWindowParameter, groupId).then(() => {
-      // 请求成功
-      console.info('Succeeded in showing subscription page.');
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to show subscription page. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.isSandboxActivated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isSandboxActivated(context: common.Context): Promise<boolean>
+##### iap.isSandboxActivated
+
+isSandboxActivated(context: common.Context): Promise&lt;boolean&gt;
 
 检查沙盒测试能力是否生效。使用Promise异步回调。
 
@@ -1862,14 +1789,12 @@ isSandboxActivated(context: common.Context): Promise<boolean>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。建议使用[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
+| context | common.Context | 是 | 上下文。建议使用UIAbilityContext。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1879,7 +1804,6 @@ isSandboxActivated(context: common.Context): Promise<boolean>
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1897,8 +1821,7 @@ isSandboxActivated(context: common.Context): Promise<boolean>
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1906,25 +1829,25 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Index {
-  test() {
-    iap.isSandboxActivated(this.getUIContext().getHostContext() as common.UIAbilityContext).then((isActivated: boolean) => {
-      // 请求成功
-      console.info(`Succeeded in checking the sandbox status. is activate: ${isActivated}`);
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to check the sandbox status. Code is ${err.code}, message is ${err.message}`);
-    });
-  }
+    test() {
+        iap.isSandboxActivated(this.getUIContext().getHostContext() as common.UIAbilityContext).then((isActivated: boolean) => {
+            // 请求成功
+            console.info(`Succeeded in checking the sandbox status. is activate: ${isActivated}`);
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to check the sandbox status. Code is ${err.code}, message is ${err.message}`);
+        });
+    }
 
-  build() {}
+    build() {}
 }
 ```
 
 
-## iap.createRefundRequest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createRefundRequest(context: common.Context, purchaseOrderId: string): Promise<void>
+##### iap.createRefundRequest
+
+createRefundRequest(context: common.Context, purchaseOrderId: string): Promise&lt;void&gt;
 
 退款接口，调用此接口拉起退款流程，仅支持非游戏应用。使用Promise异步回调。
 
@@ -1940,15 +1863,13 @@ createRefundRequest(context: common.Context, purchaseOrderId: string): Promise<v
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。建议使用[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
+| context | common.Context | 是 | 上下文。建议使用UIAbilityContext。 |
 | purchaseOrderId | string | 是 | 具体一笔订单中对应的购买订单号ID。最大长度256。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1958,7 +1879,6 @@ createRefundRequest(context: common.Context, purchaseOrderId: string): Promise<v
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1976,8 +1896,7 @@ createRefundRequest(context: common.Context, purchaseOrderId: string): Promise<v
 
 **示例**：
 
-
-```ts
+```text
 import { iap } from '@kit.IAPKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
@@ -1986,8 +1905,8 @@ import { common } from '@kit.AbilityKit';
 @Component
 struct IapTest {
   /**
-  * 拉起退款界面
-  */
+   * 拉起退款界面
+   */
   createRefundRequest() {
     const context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
     // 调用iap.createRefundRequest拉起退款，传入context和purchaseOrderId
@@ -2008,10 +1927,10 @@ struct IapTest {
 ```
 
 
-## iap.showManagedInvoices
-**支持设备：** Phone / PC/2in1 / Tablet
 
-showManagedInvoices(context: common.Context, purchaseOrderId: string): Promise<void>
+##### iap.showManagedInvoices
+
+showManagedInvoices(context: common.Context, purchaseOrderId: string): Promise&lt;void&gt;
 
 跳转到发票页，使用Promise异步回调。
 
@@ -2027,15 +1946,13 @@ showManagedInvoices(context: common.Context, purchaseOrderId: string): Promise<v
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。建议使用[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
+| context | common.Context | 是 | 上下文。建议使用UIAbilityContext。 |
 | purchaseOrderId | string | 是 | 具体一笔订单中对应的购买订单号ID。最大长度256。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2045,7 +1962,6 @@ showManagedInvoices(context: common.Context, purchaseOrderId: string): Promise<v
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2060,8 +1976,7 @@ showManagedInvoices(context: common.Context, purchaseOrderId: string): Promise<v
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { iap } from '@kit.IAPKit';
@@ -2069,31 +1984,31 @@ import { iap } from '@kit.IAPKit';
 @Entry
 @Component
 struct IapTest {
-  /**
-  * 拉起开发票界面
-  */
-  showManagedInvoices() {
-    const context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
-    // 调用iap.showManagedInvoices拉起开发票页面，传入context和purchaseOrderId
-    let purchaseOrderId = '';
-    iap.showManagedInvoices(context, purchaseOrderId).then(() => {
-      // 请求成功
-      console.info('Succeeded in showing invoice page.');
-      // ...
-    }).catch((err: BusinessError) => {
-      // 请求失败
-      console.error(`Failed to show invoice page. Code is ${err.code}, message is ${err.message}`);
-      // ...
-    });
-  }
-  build() {
-  }
+    /**
+     * 拉起开发票界面
+     */
+    showManagedInvoices() {
+        const context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
+        // 调用iap.showManagedInvoices拉起开发票页面，传入context和purchaseOrderId
+        let purchaseOrderId = '';
+        iap.showManagedInvoices(context, purchaseOrderId).then(() => {
+            // 请求成功
+            console.info('Succeeded in showing invoice page.');
+            // ...
+        }).catch((err: BusinessError) => {
+            // 请求失败
+            console.error(`Failed to show invoice page. Code is ${err.code}, message is ${err.message}`);
+            // ...
+        });
+    }
+    build() {
+    }
 }
 ```
 
 
-## QueryProductsParameter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### QueryProductsParameter
 
 [queryProducts](#iapqueryproducts)接口的请求参数。
 
@@ -2105,15 +2020,15 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| productType | [ProductType](#producttype) | 否 | 否 | 需要查询的商品类型。          - CONSUMABLE：消耗型商品          - NONCONSUMABLE：非消耗型商品          - AUTORENEWABLE：自动续期订阅商品          - NONRENEWABLE：非续期订阅商品 |
-| productIds | string[] | 否 | 否 | 待查询商品ID列表。商品ID必须已经在当前应用中创建且唯一。          商品ID来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置商品信息时设置的商品ID，请参见[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。          说明： 一次查询最多支持200个商品，商品数量较多时建议分批查询。 |
+| productType | ProductType | 否 | 否 | 需要查询的商品类型。 - CONSUMABLE：消耗型商品 - NONCONSUMABLE：非消耗型商品 - AUTORENEWABLE：自动续期订阅商品 - NONRENEWABLE：非续期订阅商品 |
+| productIds | string[] | 否 | 否 | 待查询商品ID列表。商品ID必须已经在当前应用中创建且唯一。 商品ID来源于开发者在AppGallery Connect中配置商品信息时设置的商品ID，请参见配置商品信息。 说明： 一次查询最多支持200个商品，商品数量较多时建议分批查询。 |
 
 
-## Product
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Product
 
 包含单个商品详细信息。
 
@@ -2123,27 +2038,27 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| id | string | 否 | 否 | 商品ID。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| type | [ProductType](#producttype) | 否 | 否 | 商品类型。          - CONSUMABLE：消耗型商品          - NONCONSUMABLE：非消耗型商品          - AUTORENEWABLE：自动续期订阅商品          - NONRENEWABLE：非续期订阅商品          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| name | string | 否 | 否 | 商品名称，为配置商品信息时配置的名称。用于显示在应用内支付收银台。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| description | string | 否 | 否 | 商品描述，即配置商品信息时配置的描述信息。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| price(deprecated) | string | 否 | 否 | 商品的展示价格，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。此价格含税。          - 当商品为消耗型/非消耗型商品时，若[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段为商品的促销价格，未设置则为商品原价。          - 当商品为自动续期订阅商品时，该字段为商品的原价。          说明： 从4.1.0(11)开始废弃，建议使用localPrice替代。 |
-| localPrice | string | 否 | 是 | 商品的展示价格，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。此价格含税。          - 当商品为消耗型/非消耗型商品/非续期订阅商品，若设置促销价格，该字段为商品的促销价格，未设置则为商品原价。（促销价格能力已调整为[临时价格调整](https://developer.huawei.com/consumer/cn/doc/app/revise-non-subscription-0000001931836328#section1730052050)，临时价格调整场景下该字段为商品原价）          - 当商品为自动续期订阅商品时，该字段为商品的原价。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。          起始版本： 4.1.0(11) |
-| microPrice | number | 否 | 否 | 商品实际价格乘以1,000,000后的微单位价格。例如某个商品实际价格是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。          - 当商品为消耗型/非消耗型商品/非续期订阅商品，若设置促销价格，该字段为商品微单位促销价格，未设置则为商品微单位原价。（促销价格能力已调整为[临时价格调整](https://developer.huawei.com/consumer/cn/doc/app/revise-non-subscription-0000001931836328#section1730052050)，临时价格调整场景下该字段为商品原价）          - 当商品为自动续期订阅商品时，该字段为商品微单位原价。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| originalLocalPrice | string | 否 | 否 | 商品的原价，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。此价格含税。          - 当商品为消耗型/非消耗型商品或者非续期订阅商品，无论是否[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段均为商品原价。          - 当商品为自动续期订阅商品时，无此字段返回，开发者无需关注。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| originalMicroPrice | number | 否 | 否 | 商品原价的微单位价格。商品原价乘以1,000,000后的微单位价格。例如某个商品原价是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。          - 当商品为消耗型/非消耗型商品或者非续期订阅商品，无论是否[设置促销价格](https://developer.huawei.com/consumer/cn/doc/app/promotion-non-subscription-0000001931836332#section1429175616582)，该字段均为商品微单位原价。          - 当商品为自动续期订阅商品时，无此字段返回，开发者无需关注。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| currency | string | 否 | 否 | 用于支付该商品的币种，例如CNY。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| status | [ProductStatus](#productstatus) | 否 | 是 | 商品状态。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。          起始版本： 5.0.0(12) |
-| subscriptionInfo | [SubscriptionInfo](#subscriptioninfo) | 否 | 是 | 自动续期订阅商品相关的信息。可选。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。          起始版本： 4.1.0(11) |
-| promotionalOffers | [PromotionalOffer[]](#promotionaloffer) | 否 | 是 | 商品自定义人群优惠促销信息列表。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。          起始版本： 5.0.0(12) |
-| jsonRepresentation | string | 否 | 是 | 商品详细信息的原始JSON字符串。          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。          起始版本： 4.1.0(11) |
+| id | string | 否 | 否 | 商品ID。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| type | ProductType | 否 | 否 | 商品类型。 - CONSUMABLE：消耗型商品 - NONCONSUMABLE：非消耗型商品 - AUTORENEWABLE：自动续期订阅商品 - NONRENEWABLE：非续期订阅商品 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| name | string | 否 | 否 | 商品名称，为配置商品信息时配置的名称。用于显示在应用内支付收银台。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| description | string | 否 | 否 | 商品描述，即配置商品信息时配置的描述信息。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| price(deprecated) | string | 否 | 否 | 商品的展示价格，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。此价格含税。 - 当商品为消耗型/非消耗型商品时，若设置促销价格，该字段为商品的促销价格，未设置则为商品原价。 - 当商品为自动续期订阅商品时，该字段为商品的原价。 说明： 从4.1.0(11)开始废弃，建议使用localPrice替代。 |
+| localPrice | string | 否 | 是 | 商品的展示价格，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。此价格含税。 - 当商品为消耗型/非消耗型商品/非续期订阅商品，若设置促销价格，该字段为商品的促销价格，未设置则为商品原价。（促销价格能力已调整为临时价格调整，临时价格调整场景下该字段为商品原价） - 当商品为自动续期订阅商品时，该字段为商品的原价。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 4.1.0(11) |
+| microPrice | number | 否 | 否 | 商品实际价格乘以1,000,000后的微单位价格。例如某个商品实际价格是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。 - 当商品为消耗型/非消耗型商品/非续期订阅商品，若设置促销价格，该字段为商品微单位促销价格，未设置则为商品微单位原价。（促销价格能力已调整为临时价格调整，临时价格调整场景下该字段为商品原价） - 当商品为自动续期订阅商品时，该字段为商品微单位原价。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| originalLocalPrice | string | 否 | 否 | 商品的原价，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。此价格含税。 - 当商品为消耗型/非消耗型商品或者非续期订阅商品，无论是否设置促销价格，该字段均为商品原价。 - 当商品为自动续期订阅商品时，无此字段返回，开发者无需关注。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| originalMicroPrice | number | 否 | 否 | 商品原价的微单位价格。商品原价乘以1,000,000后的微单位价格。例如某个商品原价是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。 - 当商品为消耗型/非消耗型商品或者非续期订阅商品，无论是否设置促销价格，该字段均为商品微单位原价。 - 当商品为自动续期订阅商品时，无此字段返回，开发者无需关注。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| currency | string | 否 | 否 | 用于支付该商品的币种，例如CNY。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| status | ProductStatus | 否 | 是 | 商品状态。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 5.0.0(12) |
+| subscriptionInfo | SubscriptionInfo | 否 | 是 | 自动续期订阅商品相关的信息。可选。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 4.1.0(11) |
+| promotionalOffers | PromotionalOffer[] | 否 | 是 | 商品自定义人群优惠促销信息列表。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 5.0.0(12) |
+| jsonRepresentation | string | 否 | 是 | 商品详细信息的原始JSON字符串。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 4.1.0(11) |
 
 
-## PromotionalOffer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PromotionalOffer
 
 订阅商品支持的自定义优惠信息。
 
@@ -2155,19 +2070,19 @@ struct IapTest {
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | offerId | string | 否 | 否 | 优惠ID |
-| paymentMode | [OfferPaymentMode](#offerpaymentmode) | 否 | 否 | 促销的付费方式 |
-| periodUnit | [PeriodUnit](#periodunit) | 否 | 是 | 订阅周期单位。 |
+| paymentMode | OfferPaymentMode | 否 | 否 | 促销的付费方式 |
+| periodUnit | PeriodUnit | 否 | 是 | 订阅周期单位。 |
 | periodCount | number | 否 | 是 | 订阅周期数量。 |
 | localPrice | string | 否 | 否 | 显示的优惠商品价格，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。 |
 | microPrice | number | 否 | 否 | 显示的优惠商品实际价格乘以1,000,000后的微单位价格。例如某个商品实际价格是1.99美元，则该商品对应的微单位价格为：1.99*1000000=1990000。 |
 
 
-## SubscriptionInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubscriptionInfo
 
 订阅信息。
 
@@ -2179,19 +2094,19 @@ struct IapTest {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| periodUnit | [PeriodUnit](#periodunit) | 否 | 否 | 订阅周期单位。 |
+| periodUnit | PeriodUnit | 否 | 否 | 订阅周期单位。 |
 | periodCount | number | 否 | 否 | 订阅周期数量。 |
 | groupId | string | 否 | 否 | 订阅组ID。 |
 | groupLevel | number | 否 | 否 | 商品的订阅等级。 |
-| hasEligibilityForIntroOffer | boolean | 否 | 是 | 用户是否享受过推介促销。取值如下：          - true：已享受过          - false：未享受过          其他：未获取到状态 |
-| introductoryOffer | [SubscriptionOffer](#subscriptionoffer) | 否 | 是 | 促销信息。 |
+| hasEligibilityForIntroOffer | boolean | 否 | 是 | 用户是否享受过推介促销。取值如下： - true：已享受过 - false：未享受过 其他：未获取到状态 |
+| introductoryOffer | SubscriptionOffer | 否 | 是 | 促销信息。 |
 
 
-## SubscriptionOffer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubscriptionOffer
 
 促销信息。
 
@@ -2203,19 +2118,19 @@ struct IapTest {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| paymentMode | [OfferPaymentMode](#offerpaymentmode) | 否 | 否 | 促销的付费方式。 |
-| periodUnit | [PeriodUnit](#periodunit) | 否 | 否 | 订阅周期单位。 |
+| paymentMode | OfferPaymentMode | 否 | 否 | 促销的付费方式。 |
+| periodUnit | PeriodUnit | 否 | 否 | 订阅周期单位。 |
 | periodCount | number | 否 | 否 | 促销期数。 |
 | localPrice | string | 否 | 否 | 促销价格，包含商品币种和价格，格式为“币种+商品价格”，例如 EUR 0.15。部分国家/地区会返回“货币符号+商品价格”，例如中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）返回“￥0.15”。 |
 | microPrice | number | 否 | 否 | 促销价格的微单位价格。促销价格乘以1,000,000后的微单位价格。 |
-| offerType | [OfferType](#offertype) | 否 | 否 | 促销类型。 |
+| offerType | OfferType | 否 | 否 | 促销类型。 |
 
 
-## PurchaseParameter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PurchaseParameter
 
 [purchase](#iappurchasedeprecated)接口和[createPurchase](#iapcreatepurchase)接口的请求参数。
 
@@ -2227,21 +2142,21 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| productId | string | 否 | 否 | 待支付的商品ID。每个产品ID必须在当前应用中存在且唯一。商品ID来源于开发者在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)中配置商品信息时设置的“商品ID”，具体请参见[配置商品信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-config-product)。 |
-| productType | [ProductType](#producttype) | 否 | 否 | 需要查询的商品类型。          - CONSUMABLE：消耗型商品          - NONCONSUMABLE：非消耗型商品          - AUTORENEWABLE：自动续期订阅商品          - NONRENEWABLE：非续期订阅商品 |
-| developerPayload | string | 否 | 是 | 商户侧保留信息。          若该字段有值，在支付成功后的回调结果中会原样返回给应用。          说明： 该参数长度限制为[0, 256]。如超过长度限制，在支付成功后将返回被截断的数据。建议在发起请求前自行验证字段长度，避免非预期截断。 |
-| reservedInfo | string | 否 | 是 | 要求JSON String格式，商户可以将额外需要传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。          例如：let reservedInfo = "{\"key1\":\"value1\",\"key2\":\"value2\"}";          说明： 该字段为预留字段，可选传入，开发者暂时无需关注。 |
-| promotionalOfferId | string | 否 | 是 | 优惠ID。优惠ID来源于开发者为商品[提供优惠-配置优惠促销](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-subscription-functions#提供优惠)时设置的促销优惠标志符。在传递jwsRepresentation（[生成优惠签名购买参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-subscribe-offer-sign)）使用促销优惠时必须同时传递本字段，否则将报错。          起始版本： 5.0.0(12) |
-| applicationUserName | string | 否 | 是 | 用户账户相关联的混淆字符串，唯一标识用户。传递优惠ID场景，可以传递该字段。在传递jwsRepresentation（[生成优惠签名购买参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-subscribe-offer-sign)）使用促销优惠时，若jwsRepresentation中包含[applicationUserName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-data-model#offerinfo)则必须传递本字段，否则将报错。          起始版本： 5.0.0(12) |
-| jwsRepresentation | string | 否 | 是 | 包含购买参数信息的JWS格式签名数据。购买参数，如优惠促销等。详细说明见[生成优惠签名购买参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-server-subscribe-offer-sign)。          起始版本： 5.0.0(12) |
-| quantity | number | 否 | 是 | 购买参数。表示所购买消耗型/非续期订阅商品的数量，需满足以下限制。          - 一次仅针对单商品类型，不支持不同类型混合          - 一次请求数量不超过10个          说明： 如果开发者使用了quantity参数以支持商品的批量购买，则需要在发货时校验下单的商品数量和最终发货商品数量是否一致，避免造成漏发、多发的情况。          元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。          起始版本： 5.0.3(15) |
+| productId | string | 否 | 否 | 待支付的商品ID。每个产品ID必须在当前应用中存在且唯一。商品ID来源于开发者在AppGallery Connect中配置商品信息时设置的“商品ID”，具体请参见配置商品信息。 |
+| productType | ProductType | 否 | 否 | 需要查询的商品类型。 - CONSUMABLE：消耗型商品 - NONCONSUMABLE：非消耗型商品 - AUTORENEWABLE：自动续期订阅商品 - NONRENEWABLE：非续期订阅商品 |
+| developerPayload | string | 否 | 是 | 商户侧保留信息。 若该字段有值，在支付成功后的回调结果中会原样返回给应用。 说明： 该参数长度限制为[0, 256]。如超过长度限制，在支付成功后将返回被截断的数据。建议在发起请求前自行验证字段长度，避免非预期截断。 |
+| reservedInfo | string | 否 | 是 | 要求JSON String格式，商户可以将额外需要传入的字段以key-value的形式设置在JSON String中，并通过该参数传入。 例如：let reservedInfo = "{\"key1\":\"value1\",\"key2\":\"value2\"}"; 说明： 该字段为预留字段，可选传入，开发者暂时无需关注。 |
+| promotionalOfferId | string | 否 | 是 | 优惠ID。优惠ID来源于开发者为商品提供优惠-配置优惠促销时设置的促销优惠标志符。在传递jwsRepresentation（生成优惠签名购买参数）使用促销优惠时必须同时传递本字段，否则将报错。 起始版本： 5.0.0(12) |
+| applicationUserName | string | 否 | 是 | 用户账户相关联的混淆字符串，唯一标识用户。传递优惠ID场景，可以传递该字段。在传递jwsRepresentation（生成优惠签名购买参数）使用促销优惠时，若jwsRepresentation中包含applicationUserName则必须传递本字段，否则将报错。 起始版本： 5.0.0(12) |
+| jwsRepresentation | string | 否 | 是 | 包含购买参数信息的JWS格式签名数据。购买参数，如优惠促销等。详细说明见生成优惠签名购买参数。 起始版本： 5.0.0(12) |
+| quantity | number | 否 | 是 | 购买参数。表示所购买消耗型/非续期订阅商品的数量，需满足以下限制。 - 一次仅针对单商品类型，不支持不同类型混合 - 一次请求数量不超过10个 说明： 如果开发者使用了quantity参数以支持商品的批量购买，则需要在发货时校验下单的商品数量和最终发货商品数量是否一致，避免造成漏发、多发的情况。 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 起始版本： 5.0.3(15) |
 
 
-## PurchaseResult(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### PurchaseResult(deprecated)
 
 [purchase](#iappurchasedeprecated)接口的返回结果。
 
@@ -2253,16 +2168,16 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| inAppPurchaseData | string | 否 | 否 | 订单数据的JSON字符串，包含的参数请参见[InAppPurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#inapppurchasedata)。 |
+| inAppPurchaseData | string | 否 | 否 | 订单数据的JSON字符串，包含的参数请参见InAppPurchaseData。 |
 | signature | string | 否 | 否 | 返回使用IAP私钥签署paymentData字符串生成的签名字符串。 |
 | signatureAlgorithm | string | 否 | 否 | 签名算法，固定为SHA256WithRSA/PSS。 |
 
 
-## CreatePurchaseResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CreatePurchaseResult
 
 [createPurchase](#iapcreatepurchase)接口的返回结果。
 
@@ -2274,14 +2189,14 @@ struct IapTest {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| purchaseData | string | 否 | 否 | 包含支付结果的JSON字符串，包含的参数请参见[PurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#purchasedata)。 |
+| purchaseData | string | 否 | 否 | 包含支付结果的JSON字符串，包含的参数请参见PurchaseData。 |
 
 
-## ConsumePurchaseParameter(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConsumePurchaseParameter(deprecated)
 
 [consumePurchase](#iapconsumepurchasedeprecated)接口的请求参数。
 
@@ -2293,15 +2208,15 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| purchaseToken | string | 否 | 否 | 用户购买商品的标识，在支付完成时由IAP服务器生成。          说明： purchaseToken需从购买数据[InAppPurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#inapppurchasedata)中获取。支付成功或者请求[queryOwnedPurchases](#iapqueryownedpurchasesdeprecated)接口均会返回[InAppPurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#inapppurchasedata)的JSON字符串。 |
-| developerChallenge | string | 否 | 是 | 开发者自定义的挑战字，唯一标识此次消耗请求。消耗成功后此挑战字会记录在购买数据中并返回。          说明： 该参数长度限制为[0, 64]。 |
+| purchaseToken | string | 否 | 否 | 用户购买商品的标识，在支付完成时由IAP服务器生成。 说明： purchaseToken需从购买数据InAppPurchaseData中获取。支付成功或者请求queryOwnedPurchases接口均会返回InAppPurchaseData的JSON字符串。 |
+| developerChallenge | string | 否 | 是 | 开发者自定义的挑战字，唯一标识此次消耗请求。消耗成功后此挑战字会记录在购买数据中并返回。 说明： 该参数长度限制为[0, 64]。 |
 
 
-## ConsumeResult(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ConsumeResult(deprecated)
 
 [consumePurchase](#iapconsumepurchasedeprecated)接口的返回结果。
 
@@ -2313,16 +2228,16 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| consumedPurchaseData | string | 否 | 否 | 包含消耗结果数据的JSON字符串。字符串中包含参数请参见[InAppPurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#inapppurchasedata)。 |
-| signature | string | 否 | 否 | 使用IAP私钥签署消耗数据consumedPurchaseData生成的签名字符串。签名算法为参考signatureAlgorithm字段。          应用在收到此签名字符串后，请参见[对返回结果验签](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-verifying-signature)对consumedPurchaseData的JSON字符串进行验签。 |
+| consumedPurchaseData | string | 否 | 否 | 包含消耗结果数据的JSON字符串。字符串中包含参数请参见InAppPurchaseData。 |
+| signature | string | 否 | 否 | 使用IAP私钥签署消耗数据consumedPurchaseData生成的签名字符串。签名算法为参考signatureAlgorithm字段。 应用在收到此签名字符串后，请参见对返回结果验签对consumedPurchaseData的JSON字符串进行验签。 |
 | signatureAlgorithm | string | 否 | 否 | 签名算法，固定为SHA256WithRSA/PSS。 |
 
 
-## FinishPurchaseParameter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### FinishPurchaseParameter
 
 [finishPurchase](#iapfinishpurchase)接口请求参数。
 
@@ -2334,16 +2249,16 @@ struct IapTest {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| productType | [ProductType](#producttype) | 否 | 否 | 商品类型。          - CONSUMABLE：消耗型商品          - NONCONSUMABLE：非消耗型商品          - AUTORENEWABLE：自动续期订阅商品          - NONRENEWABLE：非续期订阅商品 |
-| purchaseToken | string | 否 | 否 | 购买订单中返回的购买token。          单次购买中与具体购买订单一一对应，订阅购买中与订阅Id一一对应。          说明： purchaseToken需从购买数据[PurchaseOrderPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#purchaseorderpayload)中获取。请求[createPurchase](#iapcreatepurchase)或[queryPurchases](#iapquerypurchases)接口均会返回[PurchaseOrderPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#purchaseorderpayload)。 |
-| purchaseOrderId | string | 否 | 否 | 购买订单中返回的购买订单ID。最大长度256。          说明： purchaseOrderId需从购买数据[PurchaseOrderPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#purchaseorderpayload)中获取。请求[createPurchase](#iapcreatepurchase)或[queryPurchases](#iapquerypurchases)接口均会返回[PurchaseOrderPayload](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#purchaseorderpayload)。 |
+| productType | ProductType | 否 | 否 | 商品类型。 - CONSUMABLE：消耗型商品 - NONCONSUMABLE：非消耗型商品 - AUTORENEWABLE：自动续期订阅商品 - NONRENEWABLE：非续期订阅商品 |
+| purchaseToken | string | 否 | 否 | 购买订单中返回的购买token。 单次购买中与具体购买订单一一对应，订阅购买中与订阅Id一一对应。 说明： purchaseToken需从购买数据PurchaseOrderPayload中获取。请求createPurchase或queryPurchases接口均会返回PurchaseOrderPayload。 |
+| purchaseOrderId | string | 否 | 否 | 购买订单中返回的购买订单ID。最大长度256。 说明： purchaseOrderId需从购买数据PurchaseOrderPayload中获取。请求createPurchase或queryPurchases接口均会返回PurchaseOrderPayload。 |
 
 
-## QueryPurchasesParameter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### QueryPurchasesParameter
 
 [queryOwnedPurchases](#iapqueryownedpurchasesdeprecated)、[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated)和[queryPurchases](#iapquerypurchases)接口的请求参数。
 
@@ -2355,16 +2270,16 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| productType | [ProductType](#producttype) | 否 | 否 | 需要查询的商品类型。          - CONSUMABLE：消耗型商品          - NONCONSUMABLE：非消耗型商品          - AUTORENEWABLE：自动续期订阅商品          - NONRENEWABLE：非续期订阅商品 |
-| continuationToken | string | 否 | 是 | 支持分页查询的数据定位标志。          第1次查询时可以不传该参数。如果用户拥有的商品数量非常大，当响应中存在continuationToken时，应用必须对当前方法发起另一个调用，并传入本次接收到的continuationToken。如果商品仍未查完，仍需要继续发起调用，直到不再返回continuationToken，表示已经返回全部商品。 |
-| queryType | [PurchaseQueryType](#purchasequerytype) | 否 | 是 | 查询类型。默认值为UNFINISHED。          - ALL：消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品的所有购买记录。          - UNFINISHED：已购买但未交付的消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。          - CURRENT_ENTITLEMENT：购买的非消耗型商品或当前有效的自动续期订阅商品。          说明： [queryOwnedPurchases](#iapqueryownedpurchasesdeprecated)、[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated)场景无需关注此字段。          起始版本： 4.1.0(11) |
+| productType | ProductType | 否 | 否 | 需要查询的商品类型。 - CONSUMABLE：消耗型商品 - NONCONSUMABLE：非消耗型商品 - AUTORENEWABLE：自动续期订阅商品 - NONRENEWABLE：非续期订阅商品 |
+| continuationToken | string | 否 | 是 | 支持分页查询的数据定位标志。 第1次查询时可以不传该参数。如果用户拥有的商品数量非常大，当响应中存在continuationToken时，应用必须对当前方法发起另一个调用，并传入本次接收到的continuationToken。如果商品仍未查完，仍需要继续发起调用，直到不再返回continuationToken，表示已经返回全部商品。 |
+| queryType | PurchaseQueryType | 否 | 是 | 查询类型。默认值为UNFINISHED。 - ALL：消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品的所有购买记录。 - UNFINISHED：已购买但未交付的消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。 - CURRENT_ENTITLEMENT：购买的非消耗型商品或当前有效的自动续期订阅商品。 说明： queryOwnedPurchases、queryPurchaseRecords场景无需关注此字段。 起始版本： 4.1.0(11) |
 
 
-## QueryPurchasesResult(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### QueryPurchasesResult(deprecated)
 
 [queryOwnedPurchases](#iapqueryownedpurchasesdeprecated)和[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated)接口的返回结果。
 
@@ -2376,18 +2291,18 @@ struct IapTest {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | productList | string[] | 否 | 否 | 商品ID的数组。 |
-| inAppPurchaseDataList | string[] | 否 | 否 | 该字段以JSON字符串的形式记录[InAppPurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#inapppurchasedata)的数据，用于配合inAppSignatureList验签。每个JSON字符串包含的参数请参见[InAppPurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#inapppurchasedata)。 |
-| inAppSignatureList | string[] | 否 | 否 | 对应inAppPurchaseDataList中每一个字符串的签名字符串。过程中使用IAP私钥签署，签名算法请参考signatureAlgorithm字段。          应用需要对inAppPurchaseDataList中的每个JSON字符串都进行验签，验签方法请参见[对返回结果验签](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-verifying-signature)。 |
-| continuationToken | string | 否 | 是 | 支持分页查询的数据定位标志。          如果用户拥有的商品数量非常大，当响应中存在continuationToken时，应用必须对当前方法发起另一个调用，并传入本次接收到的continuationToken。如果商品仍未查完，仍需要继续发起调用，直到不再返回continuationToken，表示已经返回全部商品。 |
+| inAppPurchaseDataList | string[] | 否 | 否 | 该字段以JSON字符串的形式记录InAppPurchaseData的数据，用于配合inAppSignatureList验签。每个JSON字符串包含的参数请参见InAppPurchaseData。 |
+| inAppSignatureList | string[] | 否 | 否 | 对应inAppPurchaseDataList中每一个字符串的签名字符串。过程中使用IAP私钥签署，签名算法请参考signatureAlgorithm字段。 应用需要对inAppPurchaseDataList中的每个JSON字符串都进行验签，验签方法请参见对返回结果验签。 |
+| continuationToken | string | 否 | 是 | 支持分页查询的数据定位标志。 如果用户拥有的商品数量非常大，当响应中存在continuationToken时，应用必须对当前方法发起另一个调用，并传入本次接收到的continuationToken。如果商品仍未查完，仍需要继续发起调用，直到不再返回continuationToken，表示已经返回全部商品。 |
 | signatureAlgorithm | string | 否 | 否 | 签名算法，固定为SHA256WithRSA/PSS。 |
 
 
-## QueryPurchaseResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### QueryPurchaseResult
 
 [queryPurchases](#iapquerypurchases)接口的返回结果。
 
@@ -2399,15 +2314,15 @@ struct IapTest {
 
 **起始版本：** 4.1.0(11)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| purchaseDataList | string[] | 否 | 否 | [PurchaseData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-data-model#purchasedata)字符串的数组。 |
-| continuationToken | string | 否 | 是 | 支持分页查询的数据定位标志。          如果用户拥有的商品数量非常大，当响应中存在continuationToken时，应用必须对当前方法发起另一个调用，并传入本次接收到的continuationToken。如果商品仍未查完，仍需要继续发起调用，直到不再返回continuationToken，表示已经返回全部商品。 |
+| purchaseDataList | string[] | 否 | 否 | PurchaseData字符串的数组。 |
+| continuationToken | string | 否 | 是 | 支持分页查询的数据定位标志。 如果用户拥有的商品数量非常大，当响应中存在continuationToken时，应用必须对当前方法发起另一个调用，并传入本次接收到的continuationToken。如果商品仍未查完，仍需要继续发起调用，直到不再返回continuationToken，表示已经返回全部商品。 |
 
 
-## UIWindowParameter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### UIWindowParameter
 
 [iap.showManagedSubscriptions](#iapshowmanagedsubscriptions)接口界面窗口参数。
 
@@ -2419,7 +2334,6 @@ struct IapTest {
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| windowScreenMode | [WindowScreenMode](#windowscreenmode) | 否 | 否 | 界面窗口模式。          - DIALOG_BOX：弹窗模式          - FULLSCREEN：全屏模式 |
+| windowScreenMode | WindowScreenMode | 否 | 否 | 界面窗口模式。 - DIALOG_BOX：弹窗模式 - FULLSCREEN：全屏模式 |

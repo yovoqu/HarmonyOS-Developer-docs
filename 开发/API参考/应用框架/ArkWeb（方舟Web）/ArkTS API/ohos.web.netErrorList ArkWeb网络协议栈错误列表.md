@@ -3,34 +3,31 @@
 更新时间：2026-03-09 07:25:19
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArkWeb的网络协议栈错误列表。
-
+ 
 ArkWeb网络协议栈错误码直接映射Chromium错误码[net_error_list.h](https://chromium.googlesource.com/chromium/src.git/+/refs/heads/main/net/base/net_error_list.h)。
-
-
+ 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 导入模块
 
 ```text
 import { WebNetErrorList } from '@kit.ArkWeb';
 ```
+ 
+  
 
-
-## WebNetErrorList
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### WebNetErrorList
 
 ArkWeb的网络协议栈错误列表
-
+ 
 **系统能力**：SystemCapability.Web.Webview.Core
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NET_OK | 0 | 访问正常。 |

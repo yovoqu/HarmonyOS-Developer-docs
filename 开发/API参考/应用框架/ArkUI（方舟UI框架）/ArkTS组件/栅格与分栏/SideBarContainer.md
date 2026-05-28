@@ -3,23 +3,26 @@
 更新时间：2026-05-08 09:27:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-sidebarcontainer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供侧边栏可以显示和隐藏的容器，通过子组件定义侧边栏和内容区，第一个子组件表示侧边栏，第二个子组件表示内容区。
-
 
 > [!NOTE]
 > 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 可以包含子组件。
 
+> [!NOTE]
+> 子组件类型：系统组件和自定义组件，不支持渲染控制类型（ if/else 、 ForEach 和 LazyForEach ）。 子组件个数：必须且仅包含2个子组件。 子组件个数异常时：3个或以上子组件，显示第一个和第二个。1个子组件，显示侧边栏，内容区为空白。 SideBarContainer走焦时，先在内容区走焦，再在侧边栏走焦。
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+
+##### 接口
 
 SideBarContainer( type?: SideBarContainerType )
 
@@ -31,14 +34,14 @@ SideBarContainer( type?: SideBarContainerType )
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [SideBarContainerType](#sidebarcontainertype枚举说明) | 否 | 设置侧边栏的显示类型。          默认值：SideBarContainerType.Embed |
+| type | SideBarContainerType | 否 | 设置侧边栏的显示类型。 默认值：SideBarContainerType.Embed |
 
 
-## SideBarContainerType枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SideBarContainerType枚举说明
 
 容器内侧边栏样式枚举。
 
@@ -46,28 +49,28 @@ SideBarContainer( type?: SideBarContainerType )
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| Embed | 0 | 侧边栏嵌入到组件内，和内容区并列显示。          整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。          组件尺寸小于[minContentWidth](#mincontentwidth10) + [minSideBarWidth](#minsidebarwidth)，并且未设置showSideBar时，侧边栏自动隐藏。          未设置minSideBarWidth或者minContentWidth采用未设置接口的默认值进行计算。          组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。 |
+| Embed | 0 | 侧边栏嵌入到组件内，和内容区并列显示。 整体容器大小不变时，显示侧边栏会导致内容区缩小，隐藏侧边栏会扩大内容区。 组件尺寸小于minContentWidth + minSideBarWidth，并且未设置showSideBar时，侧边栏自动隐藏。 未设置minSideBarWidth或者minContentWidth采用未设置接口的默认值进行计算。 组件在自动隐藏后，如果通过点击控制按钮唤出侧边栏，则侧边栏悬浮在内容区上显示。 |
 | Overlay | 1 | 侧边栏浮在内容区上面，不会影响内容区的大小。 |
-| AUTO10+ | 2 | 组件尺寸大于等于minSideBarWidth + minContentWidth时，采用Embed模式显示。          组件尺寸小于minSideBarWidth + minContentWidth时，采用Overlay模式显示。          未设置minSideBarWidth或minContentWidth时，会使用未设置接口的默认值进行计算，若计算的值小于600vp，则使用600vp做为模式切换的断点值。 |
+| AUTO10+ | 2 | 组件尺寸大于等于minSideBarWidth + minContentWidth时，采用Embed模式显示。 组件尺寸小于minSideBarWidth + minContentWidth时，采用Overlay模式显示。 未设置minSideBarWidth或minContentWidth时，会使用未设置接口的默认值进行计算，若计算的值小于600vp，则使用600vp做为模式切换的断点值。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### showSideBar
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### showSideBar
 
 showSideBar(value: boolean)
 
 设置是否显示侧边栏。
 
-从API version 10开始，该属性支持[\$\$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
+从API version 10开始，该属性支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -75,14 +78,14 @@ showSideBar(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 是否显示侧边栏。          true：显示侧边栏          false：不显示侧边栏          默认值：true |
+| value | boolean | 是 | 是否显示侧边栏。 true：显示侧边栏 false：不显示侧边栏 默认值：true |
 
 
-### controlButton
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### controlButton
 
 controlButton(value: ButtonStyle)
 
@@ -94,14 +97,14 @@ controlButton(value: ButtonStyle)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ButtonStyle](#buttonstyle对象说明) | 是 | 侧边栏控制按钮的属性。 |
+| value | ButtonStyle | 是 | 侧边栏控制按钮的属性。 |
 
 
-### showControlButton
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### showControlButton
 
 showControlButton(value: boolean)
 
@@ -113,18 +116,18 @@ showControlButton(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 是否显示控制按钮。          true：显示控制按钮          false：不显示控制按钮          默认值：true |
+| value | boolean | 是 | 是否显示控制按钮。 true：显示控制按钮 false：不显示控制按钮 默认值：true |
 
 
 > [!NOTE]
 > 通过控制按钮切换侧边栏的显隐会触发侧边栏的显示/隐藏动画。
 
 
-### sideBarWidth
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### sideBarWidth
 
 sideBarWidth(value: number)
 
@@ -138,14 +141,14 @@ sideBarWidth(value: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 侧边栏的宽度。          默认值：240vp          单位：vp          取值范围：[0, +∞)          说明：          API version 10以下版本的默认值为200vp，API version 10及以上版本的默认值为240vp。 |
+| value | number | 是 | 侧边栏的宽度。 默认值：240vp 单位：vp 取值范围：[0, +∞) 说明： API version 10以下版本的默认值为200vp，API version 10及以上版本的默认值为240vp。 |
 
 
-### sideBarWidth9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### sideBarWidth9+
 
 sideBarWidth(value: Length)
 
@@ -159,14 +162,14 @@ sideBarWidth(value: Length)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 侧边栏的宽度。          默认值：240vp          单位：vp          取值范围：[0, +∞)          说明：          API version 9的默认值为200vp，API version 10及以上版本的默认值为240vp。 |
+| value | Length | 是 | 侧边栏的宽度。 默认值：240vp 单位：vp 取值范围：[0, +∞) 说明： API version 9的默认值为200vp，API version 10及以上版本的默认值为240vp。 |
 
 
-### minSideBarWidth
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### minSideBarWidth
 
 minSideBarWidth(value: number)
 
@@ -180,14 +183,14 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 侧边栏最小宽度。          默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。          取值范围：[0, +∞) |
+| value | number | 是 | 侧边栏最小宽度。 默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。 取值范围：[0, +∞) |
 
 
-### minSideBarWidth9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### minSideBarWidth9+
 
 minSideBarWidth(value: Length)
 
@@ -201,14 +204,14 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 侧边栏最小宽度。          默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。          取值范围：[0, +∞) |
+| value | Length | 是 | 侧边栏最小宽度。 默认值：API version 9及以下版本默认值为200vp，API version 10的默认值为240vp。 取值范围：[0, +∞) |
 
 
-### maxSideBarWidth
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### maxSideBarWidth
 
 maxSideBarWidth(value: number)
 
@@ -222,14 +225,14 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 设置侧边栏最大宽度。          默认值：280vp          单位：vp          取值范围：[0, +∞) |
+| value | number | 是 | 设置侧边栏最大宽度。 默认值：280vp 单位：vp 取值范围：[0, +∞) |
 
 
-### maxSideBarWidth9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### maxSideBarWidth9+
 
 maxSideBarWidth(value: Length)
 
@@ -243,14 +246,14 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 设置侧边栏最大宽度。          默认值：280vp          单位：vp          取值范围：[0, +∞) |
+| value | Length | 是 | 设置侧边栏最大宽度。 默认值：280vp 单位：vp 取值范围：[0, +∞) |
 
 
-### autoHide9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### autoHide9+
 
 autoHide(value: boolean)
 
@@ -264,14 +267,14 @@ autoHide(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 侧边栏拖拽到小于最小宽度后，是否自动隐藏。          true：会自动隐藏          false：不会自动隐藏          默认值：true |
+| value | boolean | 是 | 侧边栏拖拽到小于最小宽度后，是否自动隐藏。 true：会自动隐藏 false：不会自动隐藏 默认值：true |
 
 
-### sideBarPosition9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### sideBarPosition9+
 
 sideBarPosition(value: SideBarPosition)
 
@@ -283,14 +286,14 @@ sideBarPosition(value: SideBarPosition)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [SideBarPosition](#sidebarposition9枚举说明) | 是 | 侧边栏显示位置。          默认值：SideBarPosition.Start |
+| value | SideBarPosition | 是 | 侧边栏显示位置。 默认值：SideBarPosition.Start |
 
 
-### divider10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### divider10+
 
 divider(value: DividerStyle | null)
 
@@ -302,14 +305,14 @@ divider(value: DividerStyle | null)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [DividerStyle](#dividerstyle10对象说明) \| null | 是 | 分割线的样式。          默认为DividerStyle：显示分割线。          - null或undefined：行为不做处理，分割线样式与默认值保持一致。          说明：          API version 11及以下版本，null效果为不显示分割线。 |
+| value | DividerStyle \| null | 是 | 分割线的样式。 默认为DividerStyle：显示分割线。 - null或undefined：行为不做处理，分割线样式与默认值保持一致。 说明： API version 11及以下版本，null效果为不显示分割线。 |
 
 
-### minContentWidth10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### minContentWidth10+
 
 minContentWidth(value: Dimension)
 
@@ -323,9 +326,9 @@ Embed场景下，增大组件尺寸时仅增大内容区的尺寸。
 
 当缩小侧边栏的尺寸至minSideBarWidth后，继续缩小组件尺寸时，
 
+ - 如果[autoHide](#autohide9)属性为false，则会保持侧边栏宽度[minSideBarWidth](#minsidebarwidth)和内容区宽度minContentWidth不变，但内容区会被截断显示；
+ - 如果autoHide属性为true，则会优先隐藏侧边栏，然后继续缩小至内容区宽度minContentWidth后，内容区宽度保持不变，但内容区会被截断显示。
 
-- 如果[autoHide](#autohide9)属性为false，则会保持侧边栏宽度[minSideBarWidth](#minsidebarwidth)和内容区宽度minContentWidth不变，但内容区会被截断显示；
-- 如果autoHide属性为true，则会优先隐藏侧边栏，然后继续缩小至内容区宽度minContentWidth后，内容区宽度保持不变，但内容区会被截断显示。
 
 minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBarWidth属性，minContentWidth未设置时默认值优先级低于设置的minSideBarWidth与maxSideBarWidth属性。
 
@@ -335,14 +338,14 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 是 | SideBarContainer组件内容区可显示的最小宽度。          默认值：360vp          单位：vp |
+| value | Dimension | 是 | SideBarContainer组件内容区可显示的最小宽度。 默认值：360vp 单位：vp |
 
 
-## ButtonStyle对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ButtonStyle对象说明
 
 设置侧边栏控制按钮的样式。
 
@@ -350,39 +353,39 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| left | number | 否 | 是 | 设置侧边栏控制按钮距离容器左界限的间距。          默认值：16vp          单位：vp          取值范围：[0, +∞)          异常值时取默认值。 |
-| top | number | 否 | 是 | 设置侧边栏控制按钮距离容器上界限的间距。          默认值：48vp          单位：vp          取值范围：[0, +∞)          异常值时取默认值。 |
-| width | number | 否 | 是 | 设置侧边栏控制按钮的宽度。          默认值：          API version 9及之前版本：32vp          从API version 10开始：24vp          单位：vp          取值范围：[0, +∞)          异常值时取默认值。 |
-| height | number | 否 | 是 | 设置侧边栏控制按钮的高度。          默认值：          API version 9及之前版本：32vp          从API version 10开始：24vp          单位：vp          取值范围：[0, +∞)          异常值时取默认值。 |
-| icons | [ButtonIconOptions18+](#buttoniconoptions18对象说明) | 否 | 是 | 设置侧边栏控制按钮的图标。          资源获取错误以及未设置该属性时，使用默认图标。 |
+| left | number | 否 | 是 | 设置侧边栏控制按钮距离容器左界限的间距。 默认值：16vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
+| top | number | 否 | 是 | 设置侧边栏控制按钮距离容器上界限的间距。 默认值：48vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
+| width | number | 否 | 是 | 设置侧边栏控制按钮的宽度。 默认值： API version 9及之前版本：32vp 从API version 10开始：24vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
+| height | number | 否 | 是 | 设置侧边栏控制按钮的高度。 默认值： API version 9及之前版本：32vp 从API version 10开始：24vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
+| icons | ButtonIconOptions18+ | 否 | 是 | 设置侧边栏控制按钮的图标。 资源获取错误以及未设置该属性时，使用默认图标。 |
 
 
-## ButtonIconOptions18+对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ButtonIconOptions18+对象说明
 
 设置侧边栏控制按钮的图标。
 
-
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| shown8+ | string \| [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 否 | 设置侧边栏显示时控制按钮的图标。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| hidden8+ | string \| [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 否 | 设置侧边栏隐藏时控制按钮的图标。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| switching8+ | string \| [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 否 | 是 | 设置侧边栏显示和隐藏状态切换时控制按钮的图标。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| shown8+ | string \| PixelMap \| Resource | 否 | 否 | 设置侧边栏显示时控制按钮的图标。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| hidden8+ | string \| PixelMap \| Resource | 否 | 否 | 设置侧边栏隐藏时控制按钮的图标。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| switching8+ | string \| PixelMap \| Resource | 否 | 是 | 设置侧边栏显示和隐藏状态切换时控制按钮的图标。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
-## SideBarPosition9+枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SideBarPosition9+枚举说明
 
 侧边栏显示位置。
 
@@ -390,53 +393,49 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | Start | 0 | 侧边栏位于容器左侧。 |
 | End | 1 | 侧边栏位于容器右侧。 |
 
 
-## DividerStyle10+对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DividerStyle10+对象说明
 
 设置分割线的样式。
 
-
 > [!NOTE]
-> 针对侧边栏子组件设置[通用属性宽高](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size)时，宽高都不生效。
-> 针对侧边栏内容区设置[通用属性宽高](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size)时，宽高都不生效，默认占满SideBarContainer的剩余空间。
-> 当[showSideBar](#showsidebar)属性未设置时，依据组件大小进行自动显示：
+> 针对侧边栏子组件设置 通用属性宽高 时，宽高都不生效。 针对侧边栏内容区设置 通用属性宽高 时，宽高都不生效，默认占满SideBarContainer的剩余空间。 当 showSideBar 属性未设置时，依据组件大小进行自动显示： 小于 minSideBarWidth + minContentWidth ：默认不显示侧边栏。 大于等于minSideBarWidth + minContentWidth：默认显示侧边栏。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| strokeWidth | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 否 | 分割线的线宽。          默认值：1vp          单位：vp          取值范围：[0, +∞)          异常值时取默认值。          说明：          分割线的宽度不支持百分比设置。优先级低于[通用属性height](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#height)，超过通用属性设置大小时，按照通用属性进行裁切。部分设备硬件中存在1像素取整后分割线不显示问题，建议使用2像素。 |
-| color | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 否 | 是 | 分割线的颜色。          默认值：#000000，3%，黑色。 |
-| startMargin | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 分割线与侧边栏顶端的距离。          默认值：0          单位：vp          取值范围：[0, +∞)          异常值时取默认值。 |
-| endMargin | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 否 | 是 | 分割线与侧边栏底端的距离。          默认值：0          单位：vp          取值范围：[0, +∞)          异常值时取默认值。 |
+| strokeWidth | Length | 否 | 否 | 分割线的线宽。 默认值：1vp 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 说明： 分割线的宽度不支持百分比设置。优先级低于通用属性height，超过通用属性设置大小时，按照通用属性进行裁切。部分设备硬件中存在1像素取整后分割线不显示问题，建议使用2像素。 |
+| color | ResourceColor | 否 | 是 | 分割线的颜色。 默认值：#000000，3%，黑色。 |
+| startMargin | Length | 否 | 是 | 分割线与侧边栏顶端的距离。 默认值：0 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
+| endMargin | Length | 否 | 是 | 分割线与侧边栏底端的距离。 默认值：0 单位：vp 取值范围：[0, +∞) 异常值时取默认值。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
-### onChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onChange
 
 onChange(callback: (value: boolean) => void)
 
 当侧边栏的状态在显示和隐藏之间切换时触发回调。
 
 触发该事件的条件：
-
-
 1. showSideBar属性值变换时。
 2. showSideBar属性自适应行为变化时。
 3. 分割线拖拽触发[autoHide](#autohide9)时。
@@ -447,19 +446,18 @@ onChange(callback: (value: boolean) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | boolean | 是 | true表示显示，false表示隐藏。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 示例
 
 该示例主要演示如何使用侧边栏组件及页面布局效果。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -477,9 +475,9 @@ struct SideBarContainerExample {
           Column({ space: 5 }) {
             Image(this.current === item ? this.selectedIcon : this.normalIcon).width(64).height(64)
             Text("Index0" + item)
-            .fontSize(25)
-            .fontColor(this.current === item ? '#0A59F7' : '#999')
-            .fontFamily('source-sans-pro,cursive,sans-serif')
+              .fontSize(25)
+              .fontColor(this.current === item ? '#0A59F7' : '#999')
+              .fontFamily('source-sans-pro,cursive,sans-serif')
           }
           .onClick(() => {
             this.current = item;
@@ -515,4 +513,5 @@ struct SideBarContainerExample {
 }
 ```
 
-![](assets/SideBarContainer/file-20260514163944195-0.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/qBMq2h1pRCu-GV0e852LUQ/zh-cn_image_0000002581435732.png?HW-CC-KV=V1&HW-CC-Date=20260528T013923Z&HW-CC-Expire=86400&HW-CC-Sign=D1BB63B87C8791DB775D8101C0A2ADD09EB678661A6C69E831472FFDD05BC9FB)

@@ -4,10 +4,14 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t
 
+> [!NOTE]
+> 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块仅适用于API version 23及以上版本的Car设备。
 
-## NoParamAsyncCallback
 
-type NoParamAsyncCallback = () => Promise<void>
+
+##### NoParamAsyncCallback
+
+type NoParamAsyncCallback = () => Promise&lt;void&gt;
 
 定义无参数的异步回调函数类型。使用Promise异步回调。
 
@@ -17,13 +21,14 @@ type NoParamAsyncCallback = () => Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
-## QueryMainTabsEvent
+
+
+##### QueryMainTabsEvent
 
 type QueryMainTabsEvent = () => Promise<MediaTab[]>
 
@@ -35,15 +40,16 @@ type QueryMainTabsEvent = () => Promise<MediaTab[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[MediaTab](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediatab)[]&gt; | Promise对象，返回媒体标签页的集合。 |
+| Promise<MediaTab[]> | Promise对象，返回媒体标签页的集合。 |
 
 
-## QueryMediaTabContentEvent
 
-type QueryMediaTabContentEvent = (tabId: string) => Promise<MediaTabContent>
+
+##### QueryMediaTabContentEvent
+
+type QueryMediaTabContentEvent = (tabId: string) => Promise&lt;MediaTabContent&gt;
 
 媒体标签页内容查询事件。使用Promise异步回调。
 
@@ -53,7 +59,6 @@ type QueryMediaTabContentEvent = (tabId: string) => Promise<MediaTabContent>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tabId | string | 是 | 标签页的ID。 |
@@ -61,15 +66,16 @@ type QueryMediaTabContentEvent = (tabId: string) => Promise<MediaTabContent>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[MediaTabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediatabcontent)&gt; | Promise对象，返回媒体标签页内容。 |
+| Promise&lt;MediaTabContent&gt; | Promise对象，返回媒体标签页内容。 |
 
 
-## QueryMediaEntityEvent
 
-type QueryMediaEntityEvent = (params: QueryMediaEntityParam) => Promise<PageMediaEntity>
+
+##### QueryMediaEntityEvent
+
+type QueryMediaEntityEvent = (params: QueryMediaEntityParam) => Promise&lt;PageMediaEntity&gt;
 
 媒体实体查询事件。使用Promise异步回调。
 
@@ -79,23 +85,23 @@ type QueryMediaEntityEvent = (params: QueryMediaEntityParam) => Promise<PageMedi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| params | [QueryMediaEntityParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#querymediaentityparam) | 是 | 查询媒体实例的参数。 |
+| params | QueryMediaEntityParam | 是 | 查询媒体实例的参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PageMediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#pagemediaentity)&gt; | Promise对象，返回查询的媒体实体分页对象。 |
+| Promise&lt;PageMediaEntity&gt; | Promise对象，返回查询的媒体实体分页对象。 |
 
 
-## QueryCompilationEvent
 
-type QueryCompilationEvent = (compilationId: string, pageIndex: number) => Promise<PageMediaEntity>
+
+##### QueryCompilationEvent
+
+type QueryCompilationEvent = (compilationId: string, pageIndex: number) => Promise&lt;PageMediaEntity&gt;
 
 合集查询事件。使用Promise异步回调。
 
@@ -105,7 +111,6 @@ type QueryCompilationEvent = (compilationId: string, pageIndex: number) => Promi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | compilationId | string | 是 | 合集的ID。 |
@@ -114,15 +119,16 @@ type QueryCompilationEvent = (compilationId: string, pageIndex: number) => Promi
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PageMediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#pagemediaentity)&gt; | Promise对象，返回查询的合集媒体实体对象。 |
+| Promise&lt;PageMediaEntity&gt; | Promise对象，返回查询的合集媒体实体对象。 |
 
 
-## QueryPlaylistEvent
 
-type QueryPlaylistEvent = (pageIndex: number, sort: Sort) => Promise<PageMediaEntity>
+
+##### QueryPlaylistEvent
+
+type QueryPlaylistEvent = (pageIndex: number, sort: Sort) => Promise&lt;PageMediaEntity&gt;
 
 播放列表查询事件。使用Promise异步回调。
 
@@ -132,24 +138,24 @@ type QueryPlaylistEvent = (pageIndex: number, sort: Sort) => Promise<PageMediaEn
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pageIndex | number | 是 | 页面的索引。 |
-| sort | [Sort](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-e#sort) | 是 | 排序的枚举值。 |
+| sort | Sort | 是 | 排序的枚举值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PageMediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#pagemediaentity)&gt; | Promise对象，返回查询的播放列表的分页对象。 |
+| Promise&lt;PageMediaEntity&gt; | Promise对象，返回查询的播放列表的分页对象。 |
 
 
-## QueryCurrentSingleEvent
 
-type QueryCurrentSingleEvent = () => Promise<Single>
+
+##### QueryCurrentSingleEvent
+
+type QueryCurrentSingleEvent = () => Promise&lt;Single&gt;
 
 当前单曲查询事件。使用Promise异步回调。
 
@@ -159,13 +165,14 @@ type QueryCurrentSingleEvent = () => Promise<Single>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Single](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#single)&gt; | Promise对象，返回Single对象。 |
+| Promise&lt;Single&gt; | Promise对象，返回Single对象。 |
 
 
-## QueryCompilationByKeywordEvent
+
+
+##### QueryCompilationByKeywordEvent
 
 type QueryCompilationByKeywordEvent = (keyword: string) => Promise<Compilation[]>
 
@@ -177,7 +184,6 @@ type QueryCompilationByKeywordEvent = (keyword: string) => Promise<Compilation[]
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | keyword | string | 是 | 用于查找合集的关键字。 |
@@ -185,15 +191,16 @@ type QueryCompilationByKeywordEvent = (keyword: string) => Promise<Compilation[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Compilation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#compilation)[]&gt; | Promise对象，返回与关键字相关的合集数组。 |
+| Promise<Compilation[]> | Promise对象，返回与关键字相关的合集数组。 |
 
 
-## QueryMediaEntityByKeywordEvent
 
-type QueryMediaEntityByKeywordEvent = (keyword: string, searchType: EntityType, pageIndex: number) => Promise<PageMediaEntity>
+
+##### QueryMediaEntityByKeywordEvent
+
+type QueryMediaEntityByKeywordEvent = (keyword: string, searchType: EntityType, pageIndex: number) => Promise&lt;PageMediaEntity&gt;
 
 按关键字查询媒体实体的事件。使用Promise异步回调。
 
@@ -203,23 +210,23 @@ type QueryMediaEntityByKeywordEvent = (keyword: string, searchType: EntityType, 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | keyword | string | 是 | 用于查找媒体的关键字。 |
-| searchType | [EntityType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-e#entitytype) | 是 | 要搜索的媒体资源类型。 |
+| searchType | EntityType | 是 | 要搜索的媒体资源类型。 |
 | pageIndex | number | 是 | 页面的索引。从0开始。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PageMediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#pagemediaentity)&gt; | Promise对象，返回关键字相关的媒体实体的分页对象。 |
+| Promise&lt;PageMediaEntity&gt; | Promise对象，返回关键字相关的媒体实体的分页对象。 |
 
 
-## QueryRecommendMediaEntityListEvent
+
+
+##### QueryRecommendMediaEntityListEvent
 
 type QueryRecommendMediaEntityListEvent = () => Promise<MediaEntity[]>
 
@@ -231,13 +238,14 @@ type QueryRecommendMediaEntityListEvent = () => Promise<MediaEntity[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[MediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediaentity)[]&gt; | Promise对象，返回推荐的媒体实例的数组。 |
+| Promise<MediaEntity[]> | Promise对象，返回推荐的媒体实例的数组。 |
 
 
-## QueryHotWordsEvent
+
+
+##### QueryHotWordsEvent
 
 type QueryHotWordsEvent = () => Promise<string[]>
 
@@ -249,13 +257,14 @@ type QueryHotWordsEvent = () => Promise<string[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string[]&gt; | Promise对象，返回热词的数组。 |
+| Promise<string[]> | Promise对象，返回热词的数组。 |
 
 
-## QuerySearchHistoryEvent
+
+
+##### QuerySearchHistoryEvent
 
 type QuerySearchHistoryEvent = () => Promise<string[]>
 
@@ -267,15 +276,16 @@ type QuerySearchHistoryEvent = () => Promise<string[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string[]&gt; | Promise对象，返回搜索历史的数组。 |
+| Promise<string[]> | Promise对象，返回搜索历史的数组。 |
 
 
-## ClearSearchHistoryEvent
 
-type ClearSearchHistoryEvent = () => Promise<OperResult>
+
+##### ClearSearchHistoryEvent
+
+type ClearSearchHistoryEvent = () => Promise&lt;OperResult&gt;
 
 清除搜索历史事件。使用Promise异步回调。
 
@@ -285,13 +295,14 @@ type ClearSearchHistoryEvent = () => Promise<OperResult>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[OperResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#operresult)&gt; | Promise对象，返回清除搜索历史的操作结果的对象。 |
+| Promise&lt;OperResult&gt; | Promise对象，返回清除搜索历史的操作结果的对象。 |
 
 
-## LoginEvent
+
+
+##### LoginEvent
 
 type LoginEvent = (controlType: LoginType, id?: string) => Promise<QrCodeInfo[]>
 
@@ -303,22 +314,22 @@ type LoginEvent = (controlType: LoginType, id?: string) => Promise<QrCodeInfo[]>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controlType | [LoginType](#logintype) | 是 | 登录类型。 |
+| controlType | LoginType | 是 | 登录类型。 |
 | id | string | 否 | 二维码ID。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[QrCodeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#qrcodeinfo)[]&gt; | Promise对象，返回二维码信息的数组。 |
+| Promise<QrCodeInfo[]> | Promise对象，返回二维码信息的数组。 |
 
 
-## LoginType
+
+
+##### LoginType
 
 type LoginType = 'queryLoginInfo' | 'refreshLoginInfo' | 'cancel' | 'logout'
 
@@ -328,7 +339,6 @@ type LoginType = 'queryLoginInfo' | 'refreshLoginInfo' | 'cancel' | 'logout'
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'queryLoginInfo' | 查询登录信息。 |
@@ -337,9 +347,11 @@ type LoginType = 'queryLoginInfo' | 'refreshLoginInfo' | 'cancel' | 'logout'
 | 'logout' | 退出登录。 |
 
 
-## RequestDialogInfoEvent
 
-type RequestDialogInfoEvent = (actionType: DialogActionType, actionInfo?: DialogActionInfo) => Promise<DialogInfo>
+
+##### RequestDialogInfoEvent
+
+type RequestDialogInfoEvent = (actionType: DialogActionType, actionInfo?: DialogActionInfo) => Promise&lt;DialogInfo&gt;
 
 对话框信息请求事件。使用Promise异步回调。
 
@@ -349,22 +361,22 @@ type RequestDialogInfoEvent = (actionType: DialogActionType, actionInfo?: Dialog
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| actionType | [DialogActionType](#dialogactiontype) | 是 | 对话框类型。 |
-| actionInfo | [DialogActionInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#dialogactioninfo) | 否 | 对话框动作结果的信息。 |
+| actionType | DialogActionType | 是 | 对话框类型。 |
+| actionInfo | DialogActionInfo | 否 | 对话框动作结果的信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DialogInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#dialoginfo)&gt; | Promise对象，返回对话框信息。 |
+| Promise&lt;DialogInfo&gt; | Promise对象，返回对话框信息。 |
 
 
-## DialogActionType
+
+
+##### DialogActionType
 
 type DialogActionType = 'open' | 'close' | 'refresh'
 
@@ -374,7 +386,6 @@ type DialogActionType = 'open' | 'close' | 'refresh'
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'open' | 打开。 |
@@ -382,9 +393,11 @@ type DialogActionType = 'open' | 'close' | 'refresh'
 | 'refresh' | 刷新。 |
 
 
-## HandleMemberPurchaseEvent
 
-type HandleMemberPurchaseEvent = (info: MemberPurchaseInfo) => Promise<DialogInfo>
+
+##### HandleMemberPurchaseEvent
+
+type HandleMemberPurchaseEvent = (info: MemberPurchaseInfo) => Promise&lt;DialogInfo&gt;
 
 处理购买会员事件。使用Promise异步回调。
 
@@ -394,21 +407,21 @@ type HandleMemberPurchaseEvent = (info: MemberPurchaseInfo) => Promise<DialogInf
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| info | [MemberPurchaseInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#memberpurchaseinfo) | 是 | 购买会员的信息。 |
+| info | MemberPurchaseInfo | 是 | 购买会员的信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DialogInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#dialoginfo)&gt; | Promise对象，返回对话框信息。 |
+| Promise&lt;DialogInfo&gt; | Promise对象，返回对话框信息。 |
 
 
-## QueryMemberPurchaseEvent
+
+
+##### QueryMemberPurchaseEvent
 
 type QueryMemberPurchaseEvent = (memberPurchaseType: MemberPurchaseType) => Promise<MemberPurchaseInfo[]>
 
@@ -420,23 +433,23 @@ type QueryMemberPurchaseEvent = (memberPurchaseType: MemberPurchaseType) => Prom
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| memberPurchaseType | [MemberPurchaseType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-e#memberpurchasetype) | 是 | 购买会员的类型。 |
+| memberPurchaseType | MemberPurchaseType | 是 | 购买会员的类型。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[MemberPurchaseInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#memberpurchaseinfo)[]&gt; | Promise对象，返回会员购买信息的数组。 |
+| Promise<MemberPurchaseInfo[]> | Promise对象，返回会员购买信息的数组。 |
 
 
-## QueryCustomContentEvent
 
-type QueryCustomContentEvent = (queryType: CustomType[]) => Promise<CustomElement>
+
+##### QueryCustomContentEvent
+
+type QueryCustomContentEvent = (queryType: CustomType[]) => Promise&lt;CustomElement&gt;
 
 自定义内容查询事件。使用Promise异步回调。
 
@@ -446,21 +459,21 @@ type QueryCustomContentEvent = (queryType: CustomType[]) => Promise<CustomElemen
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| queryType | [CustomType](#customtype)[] | 是 | 自定义类型：包含用户基本信息、界面选项卡配置、代码编译选项和系统设置项。 |
+| queryType | CustomType[] | 是 | 自定义类型：包含用户基本信息、界面选项卡配置、代码编译选项和系统设置项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[CustomElement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#customelement)&gt; | Promise对象，返回我的页面的自定义元素。 |
+| Promise&lt;CustomElement&gt; | Promise对象，返回我的页面的自定义元素。 |
 
 
-## CustomType
+
+
+##### CustomType
 
 type CustomType = 'USER_INFO' | 'TAB' | 'COMPILATION' | 'SETTINGS'
 
@@ -470,7 +483,6 @@ type CustomType = 'USER_INFO' | 'TAB' | 'COMPILATION' | 'SETTINGS'
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'USER_INFO' | 用户信息。 |
@@ -479,9 +491,11 @@ type CustomType = 'USER_INFO' | 'TAB' | 'COMPILATION' | 'SETTINGS'
 | 'SETTINGS' | 设置。 |
 
 
-## DownloadMediaEntityEvent
 
-type DownloadMediaEntityEvent = (controlType: DownloadControlType, mediaEntity: MediaEntity) => Promise<OperResult>
+
+##### DownloadMediaEntityEvent
+
+type DownloadMediaEntityEvent = (controlType: DownloadControlType, mediaEntity: MediaEntity) => Promise&lt;OperResult&gt;
 
 媒体实体下载事件。使用Promise异步回调。
 
@@ -491,22 +505,22 @@ type DownloadMediaEntityEvent = (controlType: DownloadControlType, mediaEntity: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| controlType | [DownloadControlType](#downloadcontroltype) | 是 | controlType的可选项包括：用户信息，选项卡，合集，设置。 |
-| mediaEntity | [MediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediaentity) | 是 | 媒体实例。 |
+| controlType | DownloadControlType | 是 | controlType的可选项包括：用户信息，选项卡，合集，设置。 |
+| mediaEntity | MediaEntity | 是 | 媒体实例。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[OperResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#operresult)&gt; | Promise对象，返回下载媒体实体的操作结果对象。 |
+| Promise&lt;OperResult&gt; | Promise对象，返回下载媒体实体的操作结果对象。 |
 
 
-## DownloadControlType
+
+
+##### DownloadControlType
 
 type DownloadControlType = 'startDownload' | 'deleteDownload' | 'resumeDownload' | 'pauseDownload'
 
@@ -516,7 +530,6 @@ type DownloadControlType = 'startDownload' | 'deleteDownload' | 'resumeDownload'
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'startDownload' | 开始下载。 |
@@ -525,9 +538,11 @@ type DownloadControlType = 'startDownload' | 'deleteDownload' | 'resumeDownload'
 | 'pauseDownload' | 暂停下载。 |
 
 
-## SettingsChangeEvent
 
-type SettingsChangeEvent = (settingItem: SettingItem) => Promise<SettingItem>
+
+##### SettingsChangeEvent
+
+type SettingsChangeEvent = (settingItem: SettingItem) => Promise&lt;SettingItem&gt;
 
 设置变更事件类型。使用Promise异步回调。
 
@@ -537,23 +552,23 @@ type SettingsChangeEvent = (settingItem: SettingItem) => Promise<SettingItem>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| settingItem | [SettingItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#settingitem) | 是 | 设置项。 |
+| settingItem | SettingItem | 是 | 设置项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SettingItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#settingitem)&gt; | Promise对象，返回变更过的设置项。 |
+| Promise&lt;SettingItem&gt; | Promise对象，返回变更过的设置项。 |
 
 
-## ProblemAndAdviceEvent
 
-type ProblemAndAdviceEvent = (advice: string) => Promise<OperResult>
+
+##### ProblemAndAdviceEvent
+
+type ProblemAndAdviceEvent = (advice: string) => Promise&lt;OperResult&gt;
 
 问题和建议事件。使用Promise异步回调。
 
@@ -563,7 +578,6 @@ type ProblemAndAdviceEvent = (advice: string) => Promise<OperResult>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | advice | string | 是 | 问题和建议的内容。 |
@@ -571,15 +585,16 @@ type ProblemAndAdviceEvent = (advice: string) => Promise<OperResult>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[OperResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#operresult)&gt; | Promise对象，返回问题和建议的操作结果对象。 |
+| Promise&lt;OperResult&gt; | Promise对象，返回问题和建议的操作结果对象。 |
 
 
-## PlayForSearchEvent
 
-type PlayForSearchEvent = (command: SearchPlayInfoType, args: SearchPlayInfo) => Promise<OperResult>
+
+##### PlayForSearchEvent
+
+type PlayForSearchEvent = (command: SearchPlayInfoType, args: SearchPlayInfo) => Promise&lt;OperResult&gt;
 
 搜播事件。使用Promise异步回调。
 
@@ -589,24 +604,24 @@ type PlayForSearchEvent = (command: SearchPlayInfoType, args: SearchPlayInfo) =>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| command | [SearchPlayInfoType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-e#searchplayinfotype) | 是 | 搜播信息的类型。 |
-| args | [SearchPlayInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#searchplayinfo) | 是 | 搜播信息。 |
+| command | SearchPlayInfoType | 是 | 搜播信息的类型。 |
+| args | SearchPlayInfo | 是 | 搜播信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[OperResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#operresult)&gt; | Promise对象，返回搜播的操作结果对象。 |
+| Promise&lt;OperResult&gt; | Promise对象，返回搜播的操作结果对象。 |
 
 
-## ExecuteActionEvent
 
-type ExecuteActionEvent = (actionType: string, params: string) => Promise<string>
+
+##### ExecuteActionEvent
+
+type ExecuteActionEvent = (actionType: string, params: string) => Promise&lt;string&gt;
 
 执行操作事件。使用Promise异步回调。
 
@@ -616,7 +631,6 @@ type ExecuteActionEvent = (actionType: string, params: string) => Promise<string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | actionType | string | 是 | 动作类型。 |
@@ -625,15 +639,16 @@ type ExecuteActionEvent = (actionType: string, params: string) => Promise<string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回执行操作的结果对象。 |
 
 
-## PlayMediaEntityEvent
 
-type PlayMediaEntityEvent = (mediaEntity: MediaEntity) => Promise<void>
+
+##### PlayMediaEntityEvent
+
+type PlayMediaEntityEvent = (mediaEntity: MediaEntity) => Promise&lt;void&gt;
 
 媒体实体播放事件。使用Promise异步回调。
 
@@ -643,23 +658,23 @@ type PlayMediaEntityEvent = (mediaEntity: MediaEntity) => Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mediaEntity | [MediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediaentity) | 是 | 需要播放的媒体实体。 |
+| mediaEntity | MediaEntity | 是 | 需要播放的媒体实体。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
-## FavoriteMediaEntityEvent
 
-type FavoriteMediaEntityEvent = (actionType: MediaFavoriteType, mediaEntity: MediaEntity) => Promise<OperResult>
+
+##### FavoriteMediaEntityEvent
+
+type FavoriteMediaEntityEvent = (actionType: MediaFavoriteType, mediaEntity: MediaEntity) => Promise&lt;OperResult&gt;
 
 媒体实体收藏事件。使用Promise异步回调。
 
@@ -669,22 +684,22 @@ type FavoriteMediaEntityEvent = (actionType: MediaFavoriteType, mediaEntity: Med
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| actionType | [MediaFavoriteType](#mediafavoritetype) | 是 | 操作类型。 |
-| mediaEntity | [MediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediaentity) | 是 | 媒体实体。 |
+| actionType | MediaFavoriteType | 是 | 操作类型。 |
+| mediaEntity | MediaEntity | 是 | 媒体实体。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;OperResult&gt; | Promise对象，返回收藏媒体实体的操作结果对象。 |
 
 
-## MediaFavoriteType
+
+
+##### MediaFavoriteType
 
 type MediaFavoriteType = 'addFavorite' | 'removeFavorite'
 
@@ -694,14 +709,15 @@ type MediaFavoriteType = 'addFavorite' | 'removeFavorite'
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'addFavorite' | 添加收藏。 |
 | 'removeFavorite' | 取消收藏。 |
 
 
-## DialogControlType
+
+
+##### DialogControlType
 
 type DialogControlType = 'open' | 'close' | 'refresh' | 'toast'
 
@@ -711,7 +727,6 @@ type DialogControlType = 'open' | 'close' | 'refresh' | 'toast'
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'open' | 打开。 |
@@ -720,7 +735,9 @@ type DialogControlType = 'open' | 'close' | 'refresh' | 'toast'
 | 'toast' | 提示。 |
 
 
-## ActionType
+
+
+##### ActionType
 
 type ActionType = 'add' | 'remove'
 
@@ -730,14 +747,15 @@ type ActionType = 'add' | 'remove'
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'add' | 添加。 |
 | 'remove' | 移除。 |
 
 
-## ReportDialogCommandEvent
+
+
+##### ReportDialogCommandEvent
 
 type ReportDialogCommandEvent = (type: DialogControlType, buttonInfo: DialogInfo) => void
 
@@ -749,14 +767,15 @@ type ReportDialogCommandEvent = (type: DialogControlType, buttonInfo: DialogInfo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [DialogControlType](#dialogcontroltype) | 是 | 对话框控制类型。 |
-| buttonInfo | [DialogInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#dialoginfo) | 是 | 对话框信息。 |
+| type | DialogControlType | 是 | 对话框控制类型。 |
+| buttonInfo | DialogInfo | 是 | 对话框信息。 |
 
 
-## ReportTabContentEvent
+
+
+##### ReportTabContentEvent
 
 type ReportTabContentEvent = (tabId: string, tabContent: MediaTabContent) => void
 
@@ -768,14 +787,15 @@ type ReportTabContentEvent = (tabId: string, tabContent: MediaTabContent) => voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tabId | string | 是 | 标签页的ID。 |
-| tabContent | [MediaTabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediatabcontent) | 是 | 标签页的内容。 |
+| tabContent | MediaTabContent | 是 | 标签页的内容。 |
 
 
-## ReportCustomElementsChangeEvent
+
+
+##### ReportCustomElementsChangeEvent
 
 type ReportCustomElementsChangeEvent = (actionType: ActionType, customType: CustomType, customElement: CustomElement) => void
 
@@ -787,15 +807,16 @@ type ReportCustomElementsChangeEvent = (actionType: ActionType, customType: Cust
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| actionType | [ActionType](#actiontype) | 是 | 操作类型。 |
-| customType | [CustomType](#customtype) | 是 | 自定义类型。 |
-| customElement | [CustomElement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#customelement) | 是 | 自定义元素。 |
+| actionType | ActionType | 是 | 操作类型。 |
+| customType | CustomType | 是 | 自定义类型。 |
+| customElement | CustomElement | 是 | 自定义元素。 |
 
 
-## ReportExecuteActionEvent
+
+
+##### ReportExecuteActionEvent
 
 type ReportExecuteActionEvent = (actionType: string, params: string) => void
 
@@ -807,14 +828,15 @@ type ReportExecuteActionEvent = (actionType: string, params: string) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | actionType | string | 是 | 操作类型。 |
 | params | string | 是 | 执行动作的信息。 |
 
 
-## ReportExecuteAbilityEvent
+
+
+##### ReportExecuteAbilityEvent
 
 type ReportExecuteAbilityEvent = (want: WantAgent) => void
 
@@ -826,7 +848,6 @@ type ReportExecuteAbilityEvent = (want: WantAgent) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [WantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantagent#wantagent) | 是 | 媒体应用页面启动信息。 |
+| want | WantAgent | 是 | 媒体应用页面启动信息。 |

@@ -7,21 +7,26 @@
 开发者可以调用DRM Kit和Media Kit的ArkTS接口实现AVPlayer播放器，完成DRM节目播放。
 
 
-## 开发步骤
+##### 开发步骤
+1. 导入DRM Kit和Media Kit接口。
 
-导入DRM Kit和Media Kit接口。
+  
 ```text
 import { drm } from '@kit.DrmKit'
 import { media } from '@kit.MediaKit'
 ```
 
-导入BusinessError模块抛出Drm Kit接口的错误码。
+2. 导入BusinessError模块抛出Drm Kit接口的错误码。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit'
 ```
 
-调用[createAVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavplayer9)，创建AVPlayer实例并设置DRM信息监听事件。
-```text
+3. 调用[createAVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavplayer9)，创建AVPlayer实例并设置DRM信息监听事件。
+
+  
+```json
 let playerHandle: media.AVPlayer;
 async function initPlayer() {
 playerHandle = await media.createAVPlayer();
@@ -33,46 +38,73 @@ console.info('player has received drmInfo signal: ' + JSON.stringify(mediaKeySys
 }
 ```
 
-调用[createMediaKeySystem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-f#drmcreatemediakeysystem)和[createMediaKeySession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysystem#createmediakeysession)根据DRM信息中的uuid创建MediaKeySystem和MediaKeySession实例。
+4. 调用[createMediaKeySystem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-f#drmcreatemediakeysystem)和[createMediaKeySession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysystem#createmediakeysession)根据DRM信息中的uuid创建MediaKeySystem和MediaKeySession实例。
+
+  
 ```text
 let mediaKeySystem: drm.MediaKeySystem
 let mediaKeySession: drm.MediaKeySession
 let drmInfoArr: drm.MediaKeySystemInfo[] = mediaKeySystemInfo
-for (let i = 0; i              调用[generateMediaKeyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession#generatemediakeyrequest)生成媒体密钥请求，并调用[processMediaKeyResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession#processmediakeyresponse)处理媒体密钥响应。
+for (let i = 0; i < drmInfoArr.length; i++) {
+  console.info('drmInfoArr - uuid: ' + drmInfoArr[i].uuid)
+  console.info('drmInfoArr - pssh: ' + drmInfoArr[i].pssh)
+  let description: drm.MediaKeySystemDescription[] = drm.getMediaKeySystems();
+  let solutionName: string = "com.wiseplay.drm"
+  for (let item of description) {
+    if (drmInfoArr[i].uuid == item.uuid) {
+      solutionName = item.name
+      }
+    }
+    let isSupported: boolean = drm.isMediaKeySystemSupported(solutionName, "video/mp4");
+    if (isSupported) {
+      mediaKeySystem = drm.createMediaKeySystem(solutionName);
+      mediaKeySession = mediaKeySystem.createMediaKeySession();
+  }
+  // 媒体密钥请求与处理。
+}
+```
+
+5. 调用[generateMediaKeyRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession#generatemediakeyrequest)生成媒体密钥请求，并调用[processMediaKeyResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession#processmediakeyresponse)处理媒体密钥响应。
+
+  
 ```text
 let initData: Uint8Array = new Uint8Array(drmInfoArr[i].pssh);
 const optionsData: drm.OptionsData[] = [{
-name: "optionalDataName",
-value: "optionalDataValue"
+  name: "optionalDataName",
+  value: "optionalDataValue"
 }]
 mediaKeySession.generateMediaKeyRequest("video/mp4", initData, drm.MediaKeyType.MEDIA_KEY_TYPE_ONLINE, optionsData).then(async (licenseRequest) => {
-console.info("generateMediaKeyRequest success", licenseRequest.mediaKeyRequestType, licenseRequest.data, licenseRequest.defaultURL);
-// 将媒体密钥请求返回的licenseRequest.data通过网络请求发送给DRM服务获取媒体密钥响应，并处理。
-let licenseResponse = new Uint8Array([0x00, 0x00, 0x00, 0x00]);
-mediaKeySession.processMediaKeyResponse(licenseResponse).then((mediaKeyId: Uint8Array) => {
-console.info("processMediaKeyResponse success");
+  console.info("generateMediaKeyRequest success", licenseRequest.mediaKeyRequestType, licenseRequest.data, licenseRequest.defaultURL);
+  // 将媒体密钥请求返回的licenseRequest.data通过网络请求发送给DRM服务获取媒体密钥响应，并处理。
+  let licenseResponse = new Uint8Array([0x00, 0x00, 0x00, 0x00]);
+  mediaKeySession.processMediaKeyResponse(licenseResponse).then((mediaKeyId: Uint8Array) => {
+    console.info("processMediaKeyResponse success");
+  }).catch((err:BusinessError) =>{
+    console.error("processMediaKeyResponse err end", err.code);
+  });
 }).catch((err:BusinessError) =>{
-console.error("processMediaKeyResponse err end", err.code);
-});
-}).catch((err:BusinessError) =>{
-console.error("generateMediaKeyRequest err end", err.code);
+  console.error("generateMediaKeyRequest err end", err.code);
 });
 ```
 
-             调用[requireSecureDecoderModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession#requiresecuredecodermodule)和[setDecryptionConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setdecryptionconfig11)，在处理媒体密钥响应成功后设置解密session。
+6. 调用[requireSecureDecoderModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-mediakeysession#requiresecuredecodermodule)和[setDecryptionConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#setdecryptionconfig11)，在处理媒体密钥响应成功后设置解密session。
+
+  
 ```text
 let svp: boolean = mediaKeySession.requireSecureDecoderModule('video/avc');
 playerHandle.setDecryptionConfig(mediaKeySession, svp)
 ```
 
-             销毁AVPlayer实例并根据released事件监听销毁MediaKeySession和MediaKeySystem实例。
+7. 销毁AVPlayer实例并根据released事件监听销毁MediaKeySession和MediaKeySystem实例。
+
+  
 ```text
 playerHandle.on('stateChange', async (state: string, reason: media.StateChangeReason) => {
-if (state == 'released') {
-mediaKeySession.destroy();
-mediaKeySystem.destroy();
-} else if (state == 'releasing') {
-await playerHandle.release();
-}
+   if (state == 'released') {
+      mediaKeySession.destroy();
+      mediaKeySystem.destroy();
+   } else if (state == 'releasing') {
+      await playerHandle.release();
+   }
 })
 ```

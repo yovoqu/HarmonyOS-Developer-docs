@@ -3,61 +3,63 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-accessibilityextensionability
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能业务的能力。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持，后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
 
-```ts
+##### 导入模块
+
+```text
 import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
 ```
 
 
-## AccessibilityExtensionAbility
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### AccessibilityExtensionAbility
 
 AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能业务的能力。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 属性
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | [AccessibilityExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext) | 否 | 否 | 表示辅助扩展能力上下文。 |
+| context | AccessibilityExtensionContext | 否 | 否 | 表示辅助扩展能力上下文。 |
 
 
-## AccessibilityEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### AccessibilityEvent
 
 辅助事件信息。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 属性
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| eventType | [accessibility.EventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-accessibility#eventtype) \| [accessibility.WindowUpdateType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-accessibility#windowupdatetype) \| [TouchGuideType](#touchguidetype) \| [GestureType](#gesturetype) \| [PageUpdateType](#pageupdatetype) | 否 | 否 | 具体事件类型。          EventType：无障碍事件类型；          WindowUpdateType：窗口变化类型；          TouchGuideType：触摸浏览事件类型；          GestureType：手势事件类型；          PageUpdateType：页面刷新类型。 |
-| target | [AccessibilityElement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#accessibilityelement) | 否 | 是 | 发生事件的目标组件。 |
+| eventType | accessibility.EventType \| accessibility.WindowUpdateType \| TouchGuideType \| GestureType \| PageUpdateType | 否 | 否 | 具体事件类型。 EventType：无障碍事件类型； WindowUpdateType：窗口变化类型； TouchGuideType：触摸浏览事件类型； GestureType：手势事件类型； PageUpdateType：页面刷新类型。 |
+| target | AccessibilityElement | 否 | 是 | 发生事件的目标组件。 |
 | timeStamp | number | 否 | 是 | 事件时间戳，单位是毫秒。默认值为0。 |
 | elementId12+ | number | 否 | 是 | 主动聚焦的组件ID。默认值为0。 |
 | textAnnouncedForAccessibility12+ | string | 否 | 是 | 主动播报的内容。当应用需要主动播报时根据实际场景设置播报内容，无特殊限制。 |
 | extraInfo20+ | string | 否 | 是 | 针对TextArea、TextInput、SearchField、RichEdit组件，当文本内容有新增或删除时，携带的文本内容。根据实际场景设置，无特殊限制。 |
 
 
-## AccessibilityElement10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### AccessibilityElement10+
 
 type AccessibilityElement = _AccessibilityElement
 
@@ -65,24 +67,22 @@ type AccessibilityElement = _AccessibilityElement
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| _AccessibilityElement | 表示无障碍节点元素，请参考[AccessibilityElement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#accessibilityelement)。 |
+| _AccessibilityElement | 表示无障碍节点元素，请参考AccessibilityElement。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { AccessibilityElement } from '@kit.AccessibilityKit';
 
 let accessibilityElement: AccessibilityElement;
 ```
 
 
-## ElementAttributeValues10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### ElementAttributeValues10+
 
 type ElementAttributeValues = _ElementAttributeValues
 
@@ -90,24 +90,22 @@ type ElementAttributeValues = _ElementAttributeValues
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| _ElementAttributeValues | 表示节点元素具备的属性名称及属性值类型��息，请参考[ElementAttributeValues](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#elementattributevalues)。 |
+| _ElementAttributeValues | 表示节点元素具备的属性名称及属性值类型信息，请参考ElementAttributeValues。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { ElementAttributeValues } from '@kit.AccessibilityKit';
 
 let elementAttributeValues: ElementAttributeValues;
 ```
 
 
-## FocusDirection10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### FocusDirection10+
 
 type FocusDirection = _FocusDirection
 
@@ -115,24 +113,22 @@ type FocusDirection = _FocusDirection
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| _FocusDirection | 表示查询下一焦点元素的方向，请参考[FocusDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#focusdirection)。 |
+| _FocusDirection | 表示查询下一焦点元素的方向，请参考FocusDirection。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { FocusDirection } from '@kit.AccessibilityKit';
 
 let focusDirection: FocusDirection;
 ```
 
 
-## ElementAttributeKeys10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### ElementAttributeKeys10+
 
 type ElementAttributeKeys = keyof ElementAttributeValues
 
@@ -140,24 +136,22 @@ type ElementAttributeKeys = keyof ElementAttributeValues
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| keyof [ElementAttributeValues](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#elementattributevalues) | 表示[ElementAttributeValues](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#elementattributevalues)中所有属性名组成的联合类型。 |
+| keyof ElementAttributeValues | 表示ElementAttributeValues中所有属性名组成的联合类型。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { ElementAttributeKeys } from '@kit.AccessibilityKit';
 
 let elementAttributeKeys: ElementAttributeKeys;
 ```
 
 
-## FocusType10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### FocusType10+
 
 type FocusType = _FocusType
 
@@ -165,24 +159,22 @@ type FocusType = _FocusType
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| _FocusType | 表示查询焦点元素的类型，请参考[FocusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#focustype)。 |
+| _FocusType | 表示查询焦点元素的类型，请参考FocusType。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { FocusType } from '@kit.AccessibilityKit';
 
 let focusType: FocusType;
 ```
 
 
-## WindowType 10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### WindowType 10+
 
 type WindowType = _WindowType
 
@@ -190,24 +182,22 @@ type WindowType = _WindowType
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| _WindowType | 表示窗口的类型，请参考[WindowType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#windowtype)。 |
+| _WindowType | 表示窗口的类型，请参考WindowType。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { WindowType } from '@kit.AccessibilityKit';
 
 let windowType: WindowType;
 ```
 
 
-## Rect10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### Rect10+
 
 type Rect = _Rect
 
@@ -215,24 +205,22 @@ type Rect = _Rect
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| _Rect | 表示矩形区域，请参考[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#rect)。 |
+| _Rect | 表示矩形区域，请参考Rect。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { Rect } from '@kit.AccessibilityKit';
 
 let rect: Rect;
 ```
 
 
-## AccessibilityExtensionContext10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### AccessibilityExtensionContext10+
 
 type AccessibilityExtensionContext = _AccessibilityExtensionContext.default
 
@@ -240,16 +228,14 @@ type AccessibilityExtensionContext = _AccessibilityExtensionContext.default
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| _AccessibilityExtensionContext.default | 表示辅助功能扩展的上下文环境，请参考[AccessibilityExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext)。 |
+| _AccessibilityExtensionContext.default | 表示辅助功能扩展的上下文环境，请参考AccessibilityExtensionContext。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
 
 class EntryAbility extends AccessibilityExtensionAbility {
@@ -260,15 +246,14 @@ class EntryAbility extends AccessibilityExtensionAbility {
 ```
 
 
-## GestureType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### GestureType
 
 type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' | 'right' | 'rightThenLeft' | 'rightThenUp' | 'rightThenDown' | 'up' | 'upThenLeft' | 'upThenRight' | 'upThenDown' | 'down' | 'downThenLeft' | 'downThenRight' | 'downThenUp' | 'twoFingerSingleTap' | 'twoFingerDoubleTap' | 'twoFingerDoubleTapAndHold' | 'twoFingerTripleTap' | 'twoFingerTripleTapAndHold' | 'threeFingerSingleTap' | 'threeFingerDoubleTap' | 'threeFingerDoubleTapAndHold' | 'threeFingerTripleTap' | 'threeFingerTripleTapAndHold' | 'fourFingerSingleTap' | 'fourFingerDoubleTap' | 'fourFingerDoubleTapAndHold' | 'fourFingerTripleTap' | 'fourFingerTripleTapAndHold' | 'threeFingerSwipeUp' | 'threeFingerSwipeDown' | 'threeFingerSwipeLeft' | 'threeFingerSwipeRight' | 'fourFingerSwipeUp' | 'fourFingerSwipeDown' | 'fourFingerSwipeLeft' | 'fourFingerSwipeRight'
 
 手势事件类型。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -313,8 +298,9 @@ type GestureType = 'left' | 'leftThenRight' | 'leftThenUp' | 'leftThenDown' | 'r
 | 'fourFingerSwipeRight'11+ | 表示四指向右滑动的手势。 |
 
 
-## PageUpdateType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### PageUpdateType
 
 type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate'
 
@@ -322,15 +308,15 @@ type PageUpdateType = 'pageContentUpdate' | 'pageStateUpdate'
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'pageContentUpdate' | 表示页面内容刷新。 |
 | 'pageStateUpdate' | 表示页面状态刷新。 |
 
 
-## TouchGuideType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### TouchGuideType
 
 type TouchGuideType = 'touchBegin' | 'touchEnd'
 
@@ -338,30 +324,29 @@ type TouchGuideType = 'touchBegin' | 'touchEnd'
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
 | 'touchBegin' | 表示触摸浏览时开始触摸。 |
 | 'touchEnd' | 表示触摸浏览时结束触摸。 |
 
 
-## AccessibilityExtensionAbility.onConnect(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+##### AccessibilityExtensionAbility.onConnect(deprecated)
 
 onConnect(): void;
 
 用户启用AccessibilityExtensionAbility时，系统服务完成连接后，回调此接口，可以该方法中执行初始化业务逻辑操作。该方法可以选择性重写。
 
-
 > [!NOTE]
 > 从API version 9开始支持，从API version 12开始废弃，系统不再开放相关能力。
+
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
 **示例：**
 
-
-```ts
+```text
 import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
 
 class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
@@ -372,23 +357,22 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 ```
 
 
-## AccessibilityExtensionAbility.onDisconnect(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### AccessibilityExtensionAbility.onDisconnect(deprecated)
 
 onDisconnect(): void;
 
 用户停用AccessibilityExtensionAbility时，系统服务完成断开连接后，回调此接口，可以该方法中执行资源回收退出业务逻辑操作。该方法可以选择性重写。
 
-
 > [!NOTE]
 > 从API version 9开始支持，从API version 12开始废弃，系统不再开放相关能力。
+
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
 **示例：**
 
-
-```ts
+```text
 import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
 
 class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
@@ -399,35 +383,30 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 ```
 
 
-## AccessibilityExtensionAbility.onAccessibilityEvent(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### AccessibilityExtensionAbility.onAccessibilityEvent(deprecated)
 
 onAccessibilityEvent(event: AccessibilityEvent): void;
 
 在关注的应用及事件类型对应的事件发生时回调此接口，可以在该方法中根据事件信息进行业务逻辑处理。一般情况下需要重写该方法完成业务。
 
-
 > [!NOTE]
 > 从API version 9开始支持，从API version 12开始废弃，系统不再开放相关能力。
+
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [AccessibilityEvent](#accessibilityevent) | 是 | 无障碍事件。无返回值。 |
+| event | AccessibilityEvent | 是 | 无障碍事件。无返回值。 |
 
 
 **示例：**
 
-
-```ts
-import {
-  AccessibilityExtensionAbility,
-  AccessibilityEvent,
-} from '@kit.AccessibilityKit';
+```text
+import { AccessibilityExtensionAbility, AccessibilityEvent } from '@kit.AccessibilityKit';
 
 class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
   onAccessibilityEvent(event: AccessibilityEvent): void {
@@ -440,39 +419,36 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 ```
 
 
-## AccessibilityExtensionAbility.onKeyEvent(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### AccessibilityExtensionAbility.onKeyEvent(deprecated)
 
 onKeyEvent(keyEvent: KeyEvent): boolean;
 
 在物理按键按下时回调此方法，可以在该方法中根据业务判断是否对事件进行拦截。
 
-
 > [!NOTE]
 > 从API version 9开始支持，从API version 12开始废弃，系统不再开放相关能力。
+
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyEvent | [KeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent#keyevent) | 是 | 按键事件回调函数。返回true表示拦截此按键。 |
+| keyEvent | KeyEvent | 是 | 按键事件回调函数。返回true表示拦截此按键。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 返回true表示此事件被消费，不会继续传递。          返回false表示此事件未被消费，会继续传递。 |
+| boolean | 返回true表示此事件被消费，不会继续传递。 返回false表示此事件未被消费，会继续传递。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
 import { KeyEvent } from '@kit.InputKit';
 

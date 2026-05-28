@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-corespeech
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 1002200001 创建引擎失败
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 1002200001 创建引擎失败
 
 **错误信息**
 
@@ -22,22 +21,18 @@ Create engine failed.
 创建引擎失败。
 
 **可能原因**
-
-
 1. 语种不支持。
 2. 模式不支持。
 3. 资源不存在或初始化超时。
 
 **处理步骤**
-
-
 1. 调用[listLanguages](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#listlanguages)方法查询支持的语种，确认语种后请重新尝试。
 2. 当前仅支持[CreateEngineParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#createengineparams)，确认模式后请重新尝试。
 3. 资源不存在及初始化超时时，建议稍后重新尝试。
 
 
-## 1002200002 开始识别失败
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200002 开始识别失败
 
 **错误信息**
 
@@ -56,8 +51,8 @@ Start listening failed.
 检测语音识别是否已经启动，不要重复启动。
 
 
-## 1002200003 超过最大音频
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200003 超过最大音频
 
 **错误信息**
 
@@ -76,8 +71,8 @@ Exceeded the maximum audio length supported.
 建议音频长度不要超过60000ms，重新尝试。
 
 
-## 1002200004 结束识别失败
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200004 结束识别失败
 
 **错误信息**
 
@@ -96,8 +91,8 @@ Finish recognition failed.
 调用[startListening](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#startlistening)方法先启动语音识别任务，重新尝试。
 
 
-## 1002200005 取消识别失败
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200005 取消识别失败
 
 **错误信息**
 
@@ -116,8 +111,8 @@ Cancel recognition failed.
 调用[startListening](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#startlistening)方法先启动语音识别任务，重新尝试。
 
 
-## 1002200006 服务忙碌
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200006 服务忙碌
 
 **错误信息**
 
@@ -136,8 +131,8 @@ The engine of SpeechRecognition is busy.
 调用[isBusy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#isbusy)方法查询服务状态，建议服务空闲时重新尝试。
 
 
-## 1002200007 引擎未初始化
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200007 引擎未初始化
 
 **错误信息**
 
@@ -156,8 +151,8 @@ The engine is not initialized.
 调用[speechRecognizer.createEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#speechrecognizercreateengine)方法先初始化引擎，重新尝试。
 
 
-## 1002200008 引擎已被销毁
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200008 引擎已被销毁
 
 **错误信息**
 
@@ -176,8 +171,8 @@ The engine of SpeechRecognition is being destroyed.
 调用[speechRecognizer.createEngine](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#speechrecognizercreateengine)方法先初始化引擎，重新尝试。
 
 
-## 1002200009 内部服务错误
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200009 内部服务错误
 
 **错误信息**
 
@@ -198,8 +193,8 @@ Internal Service Error.
 如果无法解决，建议在线提单，详细步骤请见[在线提单指导](https://developer.huawei.com/consumer/cn/support/feedback/#/)。
 
 
-## 1002200010 语音识别未启动
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002200010 语音识别未启动
 
 **错误信息**
 
@@ -218,7 +213,8 @@ Write audio failed because the start listening is failed.
 调用[startListening](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#startlistening)方法先启动语音识别任务，重新尝试。
 
 
-## 1002200011 语音识别异常
+
+##### 1002200011 语音识别异常
 
 **错误信息**
 
@@ -237,7 +233,8 @@ Error in recognition.
 调用[startListening](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer#startlistening)方法重试。
 
 
-## 1002200012 没有获取麦克风权限
+
+##### 1002200012 没有获取麦克风权限
 
 **错误信息**
 
@@ -256,8 +253,8 @@ AudioCapturer create failed, please check the permission of MICROPHONE.
 检查麦克风权限是否可以获取。参考[开发步骤](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speechrecognizer-guide#开发步骤)中步骤10。
 
 
-## 1002300001 文本长度非法
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002300001 文本长度非法
 
 **错误信息**
 
@@ -276,8 +273,8 @@ The length of text is out of range or empty.
 修改文本，重新尝试。
 
 
-## 1002300002 语言不支持
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002300002 语言不支持
 
 **错误信息**
 
@@ -296,8 +293,8 @@ The language is not supported.
 调用[listVoices](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech#listvoices-1)接口查询当前支持的语言信息，重新尝试。
 
 
-## 1002300003 音色不支持
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002300003 音色不支持
 
 **错误信息**
 
@@ -316,8 +313,8 @@ The person is not supported.
 调用[listVoices](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech#listvoices-1)接口查询当前支持的音色信息，重新尝试。
 
 
-## 1002300005 创建引擎失败
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002300005 创建引擎失败
 
 **错误信息**
 
@@ -338,8 +335,8 @@ Create engine failed.
 建议稍后尝试。
 
 
-## 1002300008 下载音色错误
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002300008 下载音色错误
 
 **错误信息**
 
@@ -358,14 +355,12 @@ Failed to download voice.
 运行失败，建议再次尝试。
 
 
-## 1002300009 下载参数错误
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002300009 下载参数错误
 
 **错误信息**
 
 Parameter error. Possible causes:
-
-
 1. Mandatory parameters are left unspecified.
 2. Incorrect parameter types.
 3. Parameter verification failed.
@@ -383,8 +378,8 @@ Parameter error. Possible causes:
 检查输入参数是否符合要求，确保无误后再次尝试。
 
 
-## 1002300010 音色已经下载过
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1002300010 音色已经下载过
 
 **错误信息**
 

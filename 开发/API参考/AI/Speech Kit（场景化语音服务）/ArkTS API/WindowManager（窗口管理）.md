@@ -3,49 +3,45 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-windowmanager
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 朗读控件的窗口管理类。
-
+ 
 **起始版本：** 5.0.0(12)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
-
-
-```ts
+```text
 import { WindowManager } from '@kit.SpeechKit';
 ```
+ 
+  
 
-
-## setWindowStage
-**支持设备：** Phone / PC/2in1 / Tablet
+##### setWindowStage
 
 static setWindowStage(windowStage: window.WindowStage): void
-
+ 
 设置窗口管理器，在EntryAbility的onWindowStageCreate方法中调用，否则调用[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api#init)初始化朗读控件将会失败。更多和设置EntryAbility相关的内容，请见[UIAbility组件生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-lifecycle)。
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AI.Component.TextReader
-
+ 
 **设备行为差异：** 该接口在PC/2in1中可正常调用，在其他设备类型中无效果。
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 窗口管理器。管理各个基本窗口单元，即[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)实例。 |
-
-
+| windowStage | window.WindowStage | 是 | 窗口管理器。管理各个基本窗口单元，即Window实例。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -66,18 +62,10 @@ export default class EntryAbility extends UIAbility {
 
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          `Failed to load the content. Code: ${err.code}, message: ${err.message}.`,
-        );
+        hilog.error(0x0000, 'testTag', `Failed to load the content. Code: ${err.code}, message: ${err.message}.`);
         return;
       }
-      hilog.info(
-        0x0000,
-        'testTag',
-        `Succeeded in loading the content. Data: ${JSON.stringify(data)}.`,
-      );
+      hilog.info(0x0000, 'testTag', `Succeeded in loading the content. Data: ${JSON.stringify(data)}.` );
     });
   }
 
@@ -94,41 +82,37 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
+ 
+  
 
-
-## getWindowStage
-**支持设备：** Phone / PC/2in1 / Tablet
+##### getWindowStage
 
 static getWindowStage(): window.WindowStage
-
+ 
 获取窗口管理器。
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AI.Component.TextReader
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 窗口管理器。管理各个基本窗口单元，即[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)实例。 |
-
-
+| window.WindowStage | 窗口管理器。管理各个基本窗口单元，即Window实例。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { WindowManager } from '@kit.SpeechKit';
 
 try {
   let windowManager = WindowManager.getWindowStage();
   console.info(`TextReader succeeded in getting windowStage.`);
 } catch (e) {
-  console.error(
-    `TextReader failed to get windowStage. Code: ${e.code}, message: ${e.message}.`,
-  );
+  console.error(`TextReader failed to get windowStage. Code: ${e.code}, message: ${e.message}.`);
 }
 ```

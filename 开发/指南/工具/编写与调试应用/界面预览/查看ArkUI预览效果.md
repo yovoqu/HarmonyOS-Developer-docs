@@ -9,13 +9,18 @@ ArkUI预览支持页面预览、组件预览和卡片预览，下图中左侧图
 为页面预览，右侧图标
 ![](assets/查看ArkUI预览效果/file-20260514132934419-1.png)
 为组件预览，卡片预览在创建卡片文件后可直接预览。
+ 
 
- ![](assets/查看ArkUI预览效果/file-20260514132934419-2.png)
+![](assets/查看ArkUI预览效果/file-20260514132934419-2.png)
 
+ 
 
-## 页面预览
+##### 页面预览
 
-ArkTS应用/元服务支持页面预览。页面预览通过在工程的ets文件头部添加@Entry实现。 @Entry的使用参考如下示例：
+ArkTS应用/元服务支持页面预览。页面预览通过在工程的ets文件头部添加@Entry实现。
+ 
+@Entry的使用参考如下示例：
+ 
 ```text
 @Entry
 @Component
@@ -35,11 +40,14 @@ struct Index {
   }
 }
 ```
+ 
+ 
 
+##### 组件预览
 
-## 组件预览
-
-ArkTS应用/元服务支持组件预览。组件预览支持实时预览，不支持动态图和动态预览。组件预览通过在组件前添加注解@Preview实现，在单个源文件中，最多可以使用10个@Preview装饰自定义组件。 @Preview的使用参考如下示例：
+ArkTS应用/元服务支持组件预览。组件预览支持实时预览，不支持动态图和动态预览。组件预览通过在组件前添加注解@Preview实现，在单个源文件中，最多可以使用10个@Preview装饰自定义组件。
+ 
+@Preview的使用参考如下示例：
 ```text
 @Preview({
   title: 'ContentTable'
@@ -53,9 +61,14 @@ struct ContentTablePreview {
   }
 }
 ```
-
+ 
+ 
 以上示例的组件预览效果如下图所示：
+ 
+
 ![](assets/查看ArkUI预览效果/file-20260514132934419-3.gif)
+
+ 
 组件预览默认的预览设备为Phone，若您想查看不同的设备，或者不同的屏幕形状，或者不同设备语言等情况下的组件预览效果，可以通过设置@Preview的参数，指定预览设备的相关属性。若不设置@Preview的参数，默认的设备属性如下所示：
 ```text
 @Preview({
@@ -70,19 +83,22 @@ struct ContentTablePreview {
   roundScreen: false  //设备的屏幕形状是否为圆形
 })
 ```
-
+ 
+ 
 请注意，如果被预览的组件是依赖参数注入的组件，建议的预览方式是：定义一个组件片段，在该片段中声明将要预览的组件，以及该组件依赖的入参，并在组件片段上标注@Preview注解，以表明将预览该片段中的内容。例如，要预览如下组件：
+ 
 ```text
 @Component
 struct Title {
-  @Prop context: string;
+  @Prop context: string; 
   build() {
     Text(this.context)
   }
 }
 ```
-
- 建议按如下方式预览：
+ 
+建议按如下方式预览：
+ 
 ```text
 @Preview
 @Component    //定义组件片段TitlePreview
@@ -92,9 +108,12 @@ struct TitlePreview {
   }
 }
 ```
+ 
+ 
 
-
-## 卡片预览
+##### 卡片预览
 
 创建卡片并选中卡片文件后，点击右侧边栏**Previewer**按钮即可预览卡片。
+ 
+
 ![](assets/查看ArkUI预览效果/file-20260514132934419-4.png)

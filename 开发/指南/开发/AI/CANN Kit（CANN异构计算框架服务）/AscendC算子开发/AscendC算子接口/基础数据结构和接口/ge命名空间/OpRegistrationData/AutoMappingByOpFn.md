@@ -4,31 +4,36 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingbyopfn
 
-## 函数功能
+##### 函数功能
 
 自动映射回调函数。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 Status AutoMappingByOpFn(const ge::Operator &op_src, ge::Operator &op);
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | op_src | 输入 | 转换前原始模型中的算子，包含原始模型中算子的属性。 |
 | op | 输入 | 适配AI处理器的算子。 |
-
+ 
+ 
 关于Operator类，请参见[Operator](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-construction-and-destructor)。
+ 
+  
 
-## 调用示例
+##### 调用示例
 
 原始TensorFlow算子与适配AI处理器的算子属性一一映射的场景：
+ 
 ```text
 REGISTER_CUSTOM_OP("SoftplusGrad")
 .FrameworkType(TENSORFLOW)
@@ -36,13 +41,14 @@ REGISTER_CUSTOM_OP("SoftplusGrad")
 .ParseParamsByOperatorFn(AutoMappingByOpFn)
 .ImplyType(ImplyType::TVM);
 ```
-
- 原始TensorFlow算子与适配AI处理器的算子属性无法一一映射的场景：
+ 
+原始TensorFlow算子与适配AI处理器的算子属性无法一一映射的场景：
+ 
 ```text
 Status ParseResizeArea(const ge::Operator &op_src, ge::Operator& op)
   {
     AutoMappingByOpFn(op_src, op);
-
+ 
     ge::TensorDesc input_tensor = op.GetInputDesc("images");
     input_tensor.SetOriginFormat(ge::FORMAT_NHWC);
     input_tensor.SetFormat(ge::FORMAT_NHWC);

@@ -1,30 +1,43 @@
 # stateStyles：多态样式
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-statestyles
 
 @Styles仅应用于静态页面的样式复用，stateStyles可以依据组件的内部状态的不同，快速设置不同样式。这就是我们本章要介绍的内容stateStyles（又称为：多态样式）。
 
-
 > [!NOTE]
-> 多态样式仅支持通用属性。如果多态样式不生效，则该属性可能为组件的私有属性，例如：fontColor、TextInput组件的backgroundColor等。此时，可以通过attributeModifier动态设置组件属性来解决此问题。
+> 多态样式仅支持通用属性。如果多态样式不生效，则该属性可能为组件的私有属性，例如： fontColor 、 TextInput 组件的 backgroundColor 等。此时，可以通过 attributeModifier 动态设置组件属性来解决此问题。
 
 
-## 概述
 
-stateStyles是属性方法，可以根据UI内部状态来设置样式，类似于css伪类，但语法不同。ArkUI提供以下六种状态： focused：获焦态。 normal：正常态。 pressed：按压态。 disabled：不可用态。 clicked：点击态。 selected10+：选中态。
+##### 概述
+
+stateStyles是属性方法，可以根据UI内部状态来设置样式，类似于css伪类，但语法不同。ArkUI提供以下六种状态：
+
+ - focused：获焦态。
+ - normal：正常态。
+ - pressed：按压态。
+ - disabled：不可用态。
+ - clicked：点击态。
+ - selected10+：选中态。
+
+
 > [!NOTE]
 > 获焦态目前仅支持通过外接键盘的Tab键或方向键触发，不支持在嵌套滚动组件场景下通过按键触发。
 
 
-## 使用场景
 
 
-## 基础场景
+##### 使用场景
+
+
+
+##### 基础场景
 
 下面的示例展示了stateStyles最基本的使用场景。Button1处于第一个组件，Button2处于第二个组件。按压时显示为pressed态指定的黑色。使用Tab键走焦，Button1获焦并显示为focused态指定的粉色。当Button2获焦的时候，Button2显示为focused态指定的粉色，Button1失焦显示normal态指定的蓝色。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct StateStylesSample {
@@ -61,12 +74,18 @@ struct StateStylesSample {
 ```
 
 **图1** 获焦态和按压态
-![](assets/stateStyles：多态样式/file-20260514130511777-0.gif)
 
-## @Styles和stateStyles联合使用
+
+![](assets/stateStyles：多态样式/file-20260514130511777-2.gif)
+
+
+
+
+##### @Styles和stateStyles联合使用
 
 以下示例通过@Styles指定stateStyles的不同状态。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct MyComponent {
@@ -92,12 +111,18 @@ struct MyComponent {
 ```
 
 **图2** 正常态和按压态
-![](assets/stateStyles：多态样式/file-20260514130511777-1.gif)
 
-## 在stateStyles里使用常规变量和状态变量
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/jAlxP03zRQSjmxFq4Gk3TQ/zh-cn_image_0000002611833471.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014804Z&HW-CC-Expire=86400&HW-CC-Sign=D906778837562860F29DCD237BA6F2A1A6E0402D0AEB3B7F26F5FEA15B4822DF)
+
+
+
+
+##### 在stateStyles里使用常规变量和状态变量
 
 stateStyles可以通过this绑定组件内的常规变量和状态变量。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct CompWithInlineStateStyles {
@@ -126,5 +151,9 @@ struct CompWithInlineStateStyles {
 }
 ```
 
-Button默认normal态显示蓝色，第一次按下Tab键让Button获焦显示为focus态的浅灰色，点击事件触发后，再次按下Tab键让Button获焦，focus态变为深灰色。 **图3** 点击改变获焦态样式
-![](assets/stateStyles：多态样式/file-20260514130511777-2.gif)
+Button默认normal态显示蓝色，第一次按下Tab键让Button获焦显示为focus态的浅灰色，点击事件触发后，再次按下Tab键让Button获焦，focus态变为深灰色。
+
+**图3** 点击改变获焦态样式
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/pHqnEf8ZQWirv2gXUc5kHg/zh-cn_image_0000002581273724.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014804Z&HW-CC-Expire=86400&HW-CC-Sign=2BC796B6B5C9BAFBF23BADB96F3A3D3E4633F253850115460BAD4A1CB9822B5F)

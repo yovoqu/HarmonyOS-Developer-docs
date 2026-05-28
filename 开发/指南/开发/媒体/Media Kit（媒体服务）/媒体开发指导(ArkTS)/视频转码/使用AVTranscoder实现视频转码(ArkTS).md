@@ -9,13 +9,16 @@
 本开发指导将以“开始转码-暂停转码-恢复转码-转码完成”的一次流程为示例，向开发者讲解AVTranscoder视频转码相关功能。
 
 
-## 开发步骤及注意事项
+##### 开发步骤及注意事项
 
 详细的API说明请参考[AVTranscoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avtranscoder)。
+
 > [!NOTE]
 > 如需对转码后的文件进行转发、上传、转存等处理，应用须收到complete事件后调用系统接口await avTranscoder.release()，以保证视频文件完整性。
 
-创建[AVTranscoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavtranscoder12)实例。
+1. 创建[AVTranscoder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavtranscoder12)实例。
+
+  
 ```text
 import { media } from '@kit.MediaKit';
 
@@ -24,14 +27,19 @@ private avTranscoder: media.AVTranscoder | undefined = undefined;
 this.avTranscoder = await media.createAVTranscoder();
 ```
 
-设置业务需要的监听事件，监听状态变化及错误上报。
+2. 设置业务需要的监听事件，监听状态变化及错误上报。
+
 | 事件类型 | 说明 |
+
 | --- | --- |
+
 | complete | 必要事件，监听AVTranscoder的转码完成。 |
+
 | error | 必要事件，监听AVTranscoder的错误信息。 |
+
 | progressUpdate | 监听AVTranscoder的进度。 |
 
-
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -79,12 +87,15 @@ async releaseTranscoderingProcess() {
 }
 ```
 
-设置源视频文件fd：设置属性fdSrc。
+3. 设置源视频文件fd：设置属性fdSrc。
+
+  
 > [!NOTE]
-> 下面代码示例中的fdSrc仅作示意使用，开发者需根据实际情况，确认资源有效性并设置： 如果使用本地资源转码，必须确认资源文件可用，并使用应用沙箱路径访问对应资源，参考获取应用文件路径。应用沙箱的介绍及如何向应用沙箱推送文件，请参考文件管理。 应通过Context属性获取应用文件路径，建议使用getUIContext获取UIContext实例，并使用getHostContext调用绑定实例的getContext，请参考getHostContext。 如果使用ResourceManager.getRawFd()打开HAP资源文件描述符，使用方法可参考ResourceManager API参考。
+> 下面代码示例中的fdSrc仅作示意使用，开发者需根据实际情况，确认资源有效性并设置： 如果使用本地资源转码，必须确认资源文件可用，并使用应用沙箱路径访问对应资源，参考 获取应用文件路径 。应用沙箱的介绍及如何向应用沙箱推送文件，请参考 文件管理 。 应通过Context属性获取应用文件路径，建议使用getUIContext获取UIContext实例，并使用getHostContext调用绑定实例的getContext，请参考 getHostContext 。 如果使用ResourceManager.getRawFd()打开HAP资源文件描述符，使用方法可参考 ResourceManager API参考 。
 
 
-```text
+  
+```ArkTS
 // 导入来自于ets/transcoder/AVTranscoderManager.ets文件。
 import {AVTranscoderDemo} from '../transcoder/AVTranscoderManager'
 
@@ -121,7 +132,6 @@ struct Index {
 }
 ```
 
-
 ```text
 import { media } from '@kit.MediaKit';
 private avTranscoder: media.AVTranscoder | undefined = undefined;
@@ -144,11 +154,14 @@ async test() {
 }
 ```
 
-设置目标视频文件fd：设置属性fdDst。
+4. 设置目标视频文件fd：设置属性fdDst。
+
+  
 > [!NOTE]
-> 转码输出文件fd（即示例里fdDst），形式为number。需要调用基础文件操作接口（Core File Kit的ohos.file.fs）实现应用文件访问能力，获取方式参考应用文件访问与管理。
+> 转码输出文件fd（即示例里fdDst），形式为number。需要调用基础文件操作接口（ Core File Kit的ohos.file.fs ）实现应用文件访问能力，获取方式参考 应用文件访问与管理 。
 
 
+  
 ```text
 import { fileIo } from '@kit.CoreFileKit';
 import { media } from '@kit.MediaKit';
@@ -174,11 +187,14 @@ async test() {
 }
 ```
 
-配置视频转码参数，调用prepare()接口。
-> [!NOTE]
-> 写入配置参数时需要注意，prepare()接口的入参avConfig中仅设置转码相关的配置参数。 受限于解析/封装/编解码能力，只能使用支持的转码格式。
+5. 配置视频转码参数，调用prepare()接口。
+
+  
+> [!WARNING]
+> 写入配置参数时需要注意，prepare()接口的入参avConfig中仅设置转码相关的配置参数。 受限于解析/封装/编解码能力，只能使用 支持的转码格式 。
 
 
+  
 ```text
 import { media } from '@kit.MediaKit';
 private avTranscoder: media.AVTranscoder | undefined = undefined;
@@ -197,8 +213,9 @@ async test() {
   await this.avTranscoder.prepare(this.avConfig);
 }
 ```
-
 可在avConfig中设置目标视频的分辨率。
+
+  
 ```text
 let avConfig: media.AVTranscoderConfig = {
   audioBitrate: 100000, // 音频比特率。
@@ -211,7 +228,9 @@ let avConfig: media.AVTranscoderConfig = {
 };
 ```
 
-开始转码，调用start()接口。
+6. 开始转码，调用start()接口。
+
+  
 ```text
 async startTranscoderingProcess() {
   if (canIUse('SystemCapability.Multimedia.Media.AVTranscoder')) {
@@ -228,7 +247,9 @@ async startTranscoderingProcess() {
 }
 ```
 
-暂停转码，调用pause()接口。
+7. 暂停转码，调用pause()接口。
+
+  
 ```text
 // 暂停转码对应的流程。
 async pauseTranscoderingProcess() {
@@ -240,7 +261,9 @@ async pauseTranscoderingProcess() {
 }
 ```
 
-恢复转码，调用resume()接口。
+8. 恢复转码，调用resume()接口。
+
+  
 ```text
 // 恢复转码。
 async resumeTranscoderingProcess() {
@@ -252,7 +275,9 @@ async resumeTranscoderingProcess() {
 }
 ```
 
-销毁实例，调用release()接口，退出转码。
+9. 销毁实例，调用release()接口，退出转码。
+
+  
 ```text
 // 销毁实例。
 async releaseTranscoderingProcess() {
@@ -268,7 +293,9 @@ async releaseTranscoderingProcess() {
 }
 ```
 
-完整的【开始转码-暂停转码-恢复转码-转码完成】流程
+10. 完整的【开始转码-暂停转码-恢复转码-转码完成】流程
+
+  
 ```text
 async avTranscoderDemo() {
   await this.startTranscoderingProcess(); // 开始转码。
@@ -278,10 +305,13 @@ async avTranscoderDemo() {
 ```
 
 
-## 运行示例工程
 
-参考以下示例，完成“开始转码-暂停转码-恢复转码-转码完成”的完整流程。 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVTranscoder/AVTranscoderArkTS)，并将示例工程的资源复制到对应目录。
-```text
+
+##### 运行示例工程
+
+参考以下示例，完成“开始转码-暂停转码-恢复转码-转码完成”的完整流程。
+1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVTranscoder/AVTranscoderArkTS)，并将示例工程的资源复制到对应目录。       
+```ArkTS
 AVTranscoderArkTS
 entry/src/main/ets/
 └── pages
@@ -302,4 +332,4 @@ entry/src/main/resources/
     └── H264_AAC.mp4 (视频资源)
 ```
 
-编译新建工程并运行。
+2. 编译新建工程并运行。

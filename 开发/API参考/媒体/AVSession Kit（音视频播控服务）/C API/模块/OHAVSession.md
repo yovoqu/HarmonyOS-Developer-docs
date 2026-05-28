@@ -3,11 +3,9 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohavsession
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供播控模块C接口定义。
 
@@ -18,12 +16,11 @@
 **起始版本：** 13
 
 
-## 文件汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 文件汇总
 
 | 名称 | 描述 |
 | --- | --- |
-| [native_avmetadata.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avmetadata-h) | 提供播控元数据的定义。 |
-| [native_avsession.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-h) | 媒体会话定义，可用于设置元数据、播放状态信息等操作。 |
-| [native_avsession_errors.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h) | 提供播控错误码的定义。 |
+| native_avmetadata.h | 提供播控元数据的定义。 |
+| native_avsession.h | 媒体会话定义，可用于设置元数据、播放状态信息等操作。 |
+| native_avsession_errors.h | 提供播控错误码的定义。 |

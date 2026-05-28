@@ -3,40 +3,38 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-list
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 4开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
+ 
 列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
+  
 
-
-## 权限列表
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 权限列表
 
 无
+ 
+  
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 仅支持<[list-item-group](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-list-item-group)>和<[list-item](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-list-item)>。
+ 
+  
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | scrollpage | boolean | false | 否 | 设置为true时，将 list 顶部页面中非 list 部分随 list 一起滑出可视区域，当list方向为row时，不支持此属性。 |
 | cachedcount | number | 0 | 否 | 长列表延迟加载时list-item最少缓存数量。 可视区域外缓存的list-item数量少于该值时，会触发requestitem事件。 |
 | scrollbar | string | off | 否 | 侧边滑动栏的显示模式（当前只支持纵向）： - off：不显示。 - auto：按需显示(触摸时显示，2s后消失)。 - on：常驻显示。 |
 | scrolleffect | string | spring | 否 | 滑动效果，目前支持如下滑动效果： - spring：弹性物理动效，滑动到边缘后可以根据初始速度或通过触摸事件继续滑动一段距离，松手后回弹。 - fade：渐隐物理动效，滑动到边缘后展示一个波浪形的渐隐，根据速度和滑动距离的变化渐隐也会发生一定的变化。 - no：滑动到边缘后无效果。 |
-| indexer | boolean \| Array&lt;string&gt; | false | 否 | 是否展示侧边栏快速字母索引栏。设置为true或者自定义索引时，索引栏会显示在列表右边界处。示例： "indexer" : "true"表示使用默认字母索引表。 "indexer" : "false"表示无索引。 "indexer" : ['#','1','2','3','4','5','6','7','8']表示自定义索引表。自定义时"#"必须要存在。 indexer属性生效需要flex-direction属性配合设置为column，且columns属性设置为1。 点击索引条进行列表项索引需要list-item子组件配合设置相应的[section属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-list-item#属性)。 |
+| indexer | boolean \| Array&lt;string&gt; | false | 否 | 是否展示侧边栏快速字母索引栏。设置为true或者自定义索引时，索引栏会显示在列表右边界处。示例： "indexer" : "true"表示使用默认字母索引表。 "indexer" : "false"表示无索引。 "indexer" : ['#','1','2','3','4','5','6','7','8']表示自定义索引表。自定义时"#"必须要存在。 indexer属性生效需要flex-direction属性配合设置为column，且columns属性设置为1。 点击索引条进行列表项索引需要list-item子组件配合设置相应的section属性。 |
 | indexercircle5+ | boolean | - | 否 | 是否为环形索引。 穿戴设备默认为true，其他为false。indexer为false时不生效。 |
 | indexermulti5+ | boolean | false | 否 | 是否开启索引条多语言功能。 indexer为false时不生效。 - false：不开启索引条多语言功能。 - true：开启索引条多语言功能。 |
 | indexerbubble5+ | boolean | true | 否 | 是否开启索引切换的气泡提示。 indexer为false时不生效。 - false：不开启索引切换的气泡提示。 - true：开启索引切换的气泡提示。 |
@@ -47,14 +45,14 @@
 | initialindex | number | 0 | 否 | 用于设置当前List初次加载时视口起始位置显示的item，默认为0，即显示第一个item，如设置的序号超过了最后一个item的序号，则设置不生效，当同时设置了initialoffset属性时，当前属性不生效。当indexer为true或者scrollpage为true时，不生效。 |
 | initialoffset | &lt;length&gt; | 0 | 否 | 用于设置当前List初次加载时视口的起始偏移量，偏移量无法超过当前List可滑动的范围，如果超过会被截断为可滑动范围的极限值。当indexer为true或者scrollpage为true时，不生效。 |
 | selected5+ | string | - | 否 | 指定当前列表中被选中激活的项，可选值为list-item的section属性值。 |
+ 
+ 
+  
 
-
-## 样式
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 样式
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
-
-
+  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | divider-color5+ | &lt;color&gt; | transparent | 否 | item分隔线颜色，仅当list的divider属性为true时生效。 |
@@ -69,14 +67,14 @@
 | scrollbar-color6+ | &lt;color&gt; | - | 否 | 设置滚动条的颜色。 |
 | scrollbar-width6+ | &lt;length&gt; | - | 否 | 设置滚动条的宽度。 |
 | scrollbar-offset6+ | &lt;length&gt; | 0 | 否 | 设置滚动条距离List默认位置的偏移量，只支持正数，默认位置在List右边缘，可以通过这个偏移量调整滚动条的水平位置，如果滚动条绘制在list外部，而list父组件有裁剪，会导致滚动条被裁剪。 |
+ 
+ 
+  
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
-
-
+  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
 | indexerchange5+ | { local: booleanValue } | 多语言索引条切换事件，仅当indexer属性为true，indexermulti为true时生效。booleanValue取值为true或false： - true: 当前展示本地索引。 - false: 当前展示字母索引。 |
@@ -87,14 +85,14 @@
 | scrolltouchup | - | 手指已经抬起且列表仍在惯性滑动。 |
 | requestitem | - | 请求创建新的list-item。 长列表延迟加载时，可视区域外缓存的list-item数量少于cachedcount时，会触发该事件。 |
 | rotation7+ | { rotateValue: number } | 返回表冠旋转角度增量值，仅智能穿戴支持。 |
+ 
+ 
+  
 
-
-## 方法
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 方法
 
 支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：
-
-
+  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
 | scrollTo | { index: number(指定位置) } | list滑动到指定index的item位置。 |
@@ -105,75 +103,73 @@
 | collapseGroup | { groupid: string } | 收起指定的group。 groupid：需要收拢的group的id。 当未指定groupid时收起所有group。 |
 | expandGroup | { groupid: string } | 展开指定的group。 groupid：需要展开的group的id。 当groupid未指定时展开所有的group。 |
 | currentOffset | - | 返回当前滑动的偏移量。返回值类型是Object，返回值说明请参见表1 currentOffset返回对象属性说明。 |
-
-
+ 
+ 
 **表1** currentOffset返回对象属性说明
-
-
+  
 | 名称 | 类型 | 备注 |
 | --- | --- | --- |
 | x | number | 当前x轴滑动偏移量，单位为px。 |
 | y | number | 当前y轴滑动偏移量，单位为px。 |
+ 
+ 
+  
 
-
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 示例
 
 ```text
 <!-- index.hml -->
 <div class="container">
-<list class="todo-wrapper">
-<list-item for="{{todolist}}" class="todo-item">
-<div style="flex-direction: column;align-items: center;justify-content: center;">
-<text class="todo-title">{{$item.title}}</text>
-<text class="todo-title">{{$item.date}}</text>
-</div>
-</list-item>
-</list>
+  <list class="todo-wrapper">
+    <list-item for="{{todolist}}" class="todo-item">
+      <div style="flex-direction: column;align-items: center;justify-content: center;">
+        <text class="todo-title">{{$item.title}}</text>
+        <text class="todo-title">{{$item.date}}</text>
+      </div>
+    </list-item>
+  </list>
 </div>
 ```
-
-
+ 
 ```text
 /* index.css */
 .container {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 .todo-wrapper {
-width: 100%;
-height: 300px;
+  width: 100%;
+  height: 300px;
 }
 .todo-item {
-width: 100%;
-height: 120px;
-justify-content:center;
+  width: 100%;
+  height: 120px;
+  justify-content:center;
 }
 .todo-title {
-width: 100%;
-height: 80px;
-text-align: center;
+  width: 100%;
+  height: 80px;
+  text-align: center;
 }
 ```
-
-
+ 
 ```text
 // index.js
 export default {
-data: {
-todolist: [{
-title: '刷题',
-date: '2021-12-31 10:00:00'
-}, {
-title: '看电影',
-date: '2021-12-31 20:00:00'
-}],
-},
+  data: {
+    todolist: [{
+      title: '刷题',
+      date: '2021-12-31 10:00:00'
+    }, {
+      title: '看电影',
+      date: '2021-12-31 20:00:00'
+    }],
+  },
 }
 ```
+ 
 
-![](assets/list/file-20260514164219161-0.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/r4R6FMjSSBK9iZnrfyxzvQ/zh-cn_image_0000002581436322.png?HW-CC-KV=V1&HW-CC-Date=20260528T013812Z&HW-CC-Expire=86400&HW-CC-Sign=069FC395ED862FFC2A80D90191F866749326907C4BA23CB024EE55C57E00655E)

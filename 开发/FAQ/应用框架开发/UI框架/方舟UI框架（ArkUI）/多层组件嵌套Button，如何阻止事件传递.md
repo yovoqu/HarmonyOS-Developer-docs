@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-170
 
 绑定Button组件的stopPropagation参数以控制事件冒泡。
-
-参考链接
-
-按键事件
+ 
+**参考链接**
+ 
+[按键事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-key)

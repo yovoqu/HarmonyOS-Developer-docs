@@ -3,28 +3,26 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-telephony-data
-**支持设备：** Phone / Tablet / Wearable
+**支持设备：** Phone | Tablet | Wearable
 
 蜂窝数据提供了移动数据管理能力，包括获取默认移动数据的SIM卡、获取蜂窝数据业务的上下行数据流状态、蜂窝数据业务链路连接状态，以及检查蜂窝数据业务和漫游是否启用等。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / Tablet / Wearable
 
+##### 导入模块
 
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 ```
 
 
-## data.getDefaultCellularDataSlotId
-**支持设备：** Phone / Tablet / Wearable
 
-getDefaultCellularDataSlotId(callback: AsyncCallback<number>): void
+##### data.getDefaultCellularDataSlotId
+
+getDefaultCellularDataSlotId(callback: AsyncCallback&lt;number&gt;): void
 
 获取默认移动数据的SIM卡，使用callback方式作为异步方法。
 
@@ -32,35 +30,31 @@ getDefaultCellularDataSlotId(callback: AsyncCallback<number>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 以callback形式异步返回结果。          - 0：卡槽1。          - 1：卡槽2。          - 2：esim和天际通场景下，默认移动数据的slotId为2。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 以callback形式异步返回结果。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 data.getDefaultCellularDataSlotId((err: BusinessError, contextData: number) => {
-  if (err) {
-    console.error(
-      `getDefaultCellularDataSlotId fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`,
-    );
-  } else {
-    console.info(`getDefaultCellularDataSlotId success`);
-  }
+    if(err) {
+        console.error(`getDefaultCellularDataSlotId fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`);
+    } else {
+        console.info(`getDefaultCellularDataSlotId success`);
+    }
 });
 ```
 
 
-## data.getDefaultCellularDataSlotId
-**支持设备：** Phone / Tablet / Wearable
 
-getDefaultCellularDataSlotId(): Promise<number>
+##### data.getDefaultCellularDataSlotId
+
+getDefaultCellularDataSlotId(): Promise&lt;number&gt;
 
 获取默认移动数据的SIM卡，使用Promise方式作为异步方法。
 
@@ -68,36 +62,27 @@ getDefaultCellularDataSlotId(): Promise<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以Promise形式返回获取默认移动数据的SIM卡。          - 0：卡槽1。          - 1：卡槽2。          - 2：esim和天际通场景下，默认移动数据的slotId为2。 |
+| Promise&lt;number&gt; | 以Promise形式返回获取默认移动数据的SIM卡。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data
-  .getDefaultCellularDataSlotId()
-  .then((contextData: number) => {
-    console.info(
-      `getDefaultCellularDataSlotId success, contextData: ${contextData}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getDefaultCellularDataSlotId fail. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+data.getDefaultCellularDataSlotId().then((contextData: number) => {
+    console.info(`getDefaultCellularDataSlotId success, contextData: ${contextData}`);
+}).catch((err: BusinessError) => {
+    console.error(`getDefaultCellularDataSlotId fail. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.getDefaultCellularDataSlotIdSync9+
-**支持设备：** Phone / Tablet / Wearable
+
+##### data.getDefaultCellularDataSlotIdSync9+
 
 getDefaultCellularDataSlotIdSync(): number
 
@@ -107,26 +92,24 @@ getDefaultCellularDataSlotIdSync(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 获取默认移动数据的SIM卡。          - 0：卡槽1。          - 1：卡槽2。          - 2：esim和天际通场景下，默认移动数据的slotId为2。 |
+| number | 获取默认移动数据的SIM卡。 - 0：卡槽1。 - 1：卡槽2。 - 2：esim和天际通场景下，默认移动数据的slotId为2。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 
-console.info('Result: ' + data.getDefaultCellularDataSlotIdSync());
+console.info("Result: "+ data.getDefaultCellularDataSlotIdSync())
 ```
 
 
-## data.getCellularDataFlowType
-**支持设备：** Phone / Tablet / Wearable
 
-getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void
+##### data.getCellularDataFlowType
+
+getCellularDataFlowType(callback: AsyncCallback&lt;DataFlowType&gt;): void
 
 获取蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头），使用callback方式作为异步方法。
 
@@ -136,16 +119,14 @@ getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[DataFlowType](#dataflowtype)&gt; | 是 | 以callback形式异步返回结果。 |
+| callback | AsyncCallback&lt;DataFlowType&gt; | 是 | 以callback形式异步返回结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -154,29 +135,24 @@ getCellularDataFlowType(callback: AsyncCallback<DataFlowType>): void
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data.getCellularDataFlowType(
-  (err: BusinessError, contextData: data.DataFlowType) => {
-    if (err) {
-      console.error(
-        `getCellularDataFlowType fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`,
-      );
+data.getCellularDataFlowType((err: BusinessError, contextData: data.DataFlowType) => {
+    if(err) {
+        console.error(`getCellularDataFlowType fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`);
     } else {
-      console.info(`getCellularDataFlowType success`);
+        console.info(`getCellularDataFlowType success`);
     }
-  },
-);
+});
 ```
 
 
-## data.getCellularDataFlowType
-**支持设备：** Phone / Tablet / Wearable
 
-getCellularDataFlowType(): Promise<DataFlowType>
+##### data.getCellularDataFlowType
+
+getCellularDataFlowType(): Promise&lt;DataFlowType&gt;
 
 获取蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头），使用Promise方式作为异步方法。
 
@@ -186,16 +162,14 @@ getCellularDataFlowType(): Promise<DataFlowType>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DataFlowType](#dataflowtype)&gt; | 以Promise形式返回蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头）。 |
+| Promise&lt;DataFlowType&gt; | 以Promise形式返回蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头）。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -204,30 +178,22 @@ getCellularDataFlowType(): Promise<DataFlowType>
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data
-  .getCellularDataFlowType()
-  .then((contextData: data.DataFlowType) => {
-    console.info(
-      `getCellularDataFlowType success, contextData: ${contextData}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getCellularDataFlowType fail. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+data.getCellularDataFlowType().then((contextData: data.DataFlowType) => {
+    console.info(`getCellularDataFlowType success, contextData: ${contextData}`);
+}).catch((err: BusinessError) => {
+    console.error(`getCellularDataFlowType fail. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.getCellularDataState
-**支持设备：** Phone / Tablet / Wearable
 
-getCellularDataState(callback: AsyncCallback<DataConnectState>): void
+##### data.getCellularDataState
+
+getCellularDataState(callback: AsyncCallback&lt;DataConnectState&gt;): void
 
 获取蜂窝数据业务的连接状态，使用callback方式作为异步方法。
 
@@ -237,16 +203,14 @@ getCellularDataState(callback: AsyncCallback<DataConnectState>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[DataConnectState](#dataconnectstate)&gt; | 是 | 以callback形式异步返回结果。 |
+| callback | AsyncCallback&lt;DataConnectState&gt; | 是 | 以callback形式异步返回结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -255,29 +219,24 @@ getCellularDataState(callback: AsyncCallback<DataConnectState>): void
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data.getCellularDataState(
-  (err: BusinessError, contextData: data.DataConnectState) => {
-    if (err) {
-      console.error(
-        `getCellularDataState fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`,
-      );
+data.getCellularDataState((err: BusinessError, contextData: data.DataConnectState) => {
+    if(err) {
+        console.error(`getCellularDataState fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`);
     } else {
-      console.info(`getCellularDataState success`);
+        console.info(`getCellularDataState success`);
     }
-  },
-);
+});
 ```
 
 
-## data.getCellularDataState
-**支持设备：** Phone / Tablet / Wearable
 
-getCellularDataState(): Promise<DataConnectState>
+##### data.getCellularDataState
+
+getCellularDataState(): Promise&lt;DataConnectState&gt;
 
 获取蜂窝数据业务的连接状态，使用Promise方式作为异步方法。
 
@@ -287,16 +246,14 @@ getCellularDataState(): Promise<DataConnectState>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[DataConnectState](#dataconnectstate)&gt; | 以Promise形式返回获取PS域的连接状态。 |
+| Promise&lt;DataConnectState&gt; | 以Promise形式返回获取PS域的连接状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -305,28 +262,22 @@ getCellularDataState(): Promise<DataConnectState>
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data
-  .getCellularDataState()
-  .then((contextData: data.DataConnectState) => {
+data.getCellularDataState().then((contextData: data.DataConnectState) => {
     console.info(`getCellularDataState success, contextData: ${contextData}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getCellularDataState fail. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+}).catch((err: BusinessError) => {
+    console.error(`getCellularDataState fail. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.isCellularDataEnabled
-**支持设备：** Phone / Tablet / Wearable
 
-isCellularDataEnabled(callback: AsyncCallback<boolean>): void
+##### data.isCellularDataEnabled
+
+isCellularDataEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
 检查蜂窝数据业务是否启用，使用callback方式作为异步方法。
 
@@ -336,16 +287,14 @@ isCellularDataEnabled(callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 以callback形式异步返回结果。          true：蜂窝数据业务已启用。          false：蜂窝数据业务已禁用。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 以callback形式异步返回结果。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -359,27 +308,24 @@ isCellularDataEnabled(callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 data.isCellularDataEnabled((err: BusinessError, contextData: boolean) => {
-  if (err) {
-    console.error(
-      `isCellularDataEnabled fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`,
-    );
-  } else {
-    console.info(`isCellularDataEnabled success`);
-  }
+    if(err) {
+        console.error(`isCellularDataEnabled fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`);
+    } else {
+        console.info(`isCellularDataEnabled success`);
+    }
 });
 ```
 
 
-## data.isCellularDataEnabled
-**支持设备：** Phone / Tablet / Wearable
 
-isCellularDataEnabled(): Promise<boolean>
+##### data.isCellularDataEnabled
+
+isCellularDataEnabled(): Promise&lt;boolean&gt;
 
 检查蜂窝数据业务是否启用，使用Promise方式作为异步方法。
 
@@ -389,16 +335,14 @@ isCellularDataEnabled(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | 以Promise形式返回检查蜂窝数据业务是否启用。          true：蜂窝数据业务已启用。          false：蜂窝数据业务已禁用。 |
+| Promise&lt;boolean&gt; | 以Promise形式返回检查蜂窝数据业务是否启用。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -410,26 +354,20 @@ isCellularDataEnabled(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data
-  .isCellularDataEnabled()
-  .then((contextData: boolean) => {
+data.isCellularDataEnabled().then((contextData: boolean) => {
     console.info(`isCellularDataEnabled success, contextData: ${contextData}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `isCellularDataEnabled fail. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+}).catch((err: BusinessError) => {
+    console.error(`isCellularDataEnabled fail. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.isCellularDataEnabledSync12+
-**支持设备：** Phone / Tablet / Wearable
+
+##### data.isCellularDataEnabledSync12+
 
 isCellularDataEnabledSync(): boolean
 
@@ -441,16 +379,14 @@ isCellularDataEnabledSync(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 用来返回检查蜂窝数据业务是否启用。          true：蜂窝数据业务已启用。          false：蜂窝数据业务已禁用。 |
+| boolean | 用来返回检查蜂窝数据业务是否启用。 true：蜂窝数据业务已启用。 false：蜂窝数据业务已禁用。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -462,25 +398,22 @@ isCellularDataEnabledSync(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 
 try {
-  let isEnabled: boolean = data.isCellularDataEnabledSync();
-  console.info(`isCellularDataEnabledSync success : ${isEnabled}`);
+    let isEnabled: boolean = data.isCellularDataEnabledSync();
+    console.info(`isCellularDataEnabledSync success : ${isEnabled}`);
 } catch (err) {
-  console.error(
-    `isCellularDataEnabledSync fail. code: ${err.code}, message: ${err.message}`,
-  );
+    console.error(`isCellularDataEnabledSync fail. code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## data.isCellularDataRoamingEnabled
-**支持设备：** Phone / Tablet / Wearable
 
-isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): void
+##### data.isCellularDataRoamingEnabled
+
+isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查蜂窝数据业务是否启用漫游，使用callback方式作为异步方法。
 
@@ -490,17 +423,15 @@ isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 以callback形式异步返回结果。          true：蜂窝数据业务已启用漫游。          false：蜂窝数据业务已禁用漫游。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 以callback形式异步返回结果。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -514,30 +445,24 @@ isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback<boolean>): 
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data.isCellularDataRoamingEnabled(
-  0,
-  (err: BusinessError, contextData: boolean) => {
-    if (err) {
-      console.error(
-        `isCellularDataRoamingEnabled fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`,
-      );
+data.isCellularDataRoamingEnabled(0, (err: BusinessError, contextData: boolean) => {
+    if(err) {
+        console.error(`isCellularDataRoamingEnabled fail. code: ${err.code}, message: ${err.message}, contextData: ${contextData}`);
     } else {
-      console.info(`isCellularDataRoamingEnabled success`);
+        console.info(`isCellularDataRoamingEnabled success`);
     }
-  },
-);
+});
 ```
 
 
-## data.isCellularDataRoamingEnabled
-**支持设备：** Phone / Tablet / Wearable
 
-isCellularDataRoamingEnabled(slotId: number): Promise<boolean>
+##### data.isCellularDataRoamingEnabled
+
+isCellularDataRoamingEnabled(slotId: number): Promise&lt;boolean&gt;
 
 检查蜂窝数据业务是否启用漫游，使用Promise方式作为异步方法。
 
@@ -547,24 +472,21 @@ isCellularDataRoamingEnabled(slotId: number): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | 以Promise形式返回检查蜂窝数据业务是否启用漫游。          true：蜂窝数据业务已启用漫游。          false：蜂窝数据业务已禁用漫游。 |
+| Promise&lt;boolean&gt; | 以Promise形式返回检查蜂窝数据业务是否启用漫游。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -578,28 +500,20 @@ isCellularDataRoamingEnabled(slotId: number): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data
-  .isCellularDataRoamingEnabled(0)
-  .then((contextData: boolean) => {
-    console.info(
-      `isCellularDataRoamingEnabled success, contextData: ${contextData}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `isCellularDataRoamingEnabled fail. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+data.isCellularDataRoamingEnabled(0).then((contextData: boolean) => {
+    console.info(`isCellularDataRoamingEnabled success, contextData: ${contextData}`);
+}).catch((err: BusinessError) => {
+    console.error(`isCellularDataRoamingEnabled fail. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.isCellularDataRoamingEnabledSync12+
-**支持设备：** Phone / Tablet / Wearable
+
+##### data.isCellularDataRoamingEnabledSync12+
 
 isCellularDataRoamingEnabledSync(slotId: number): boolean
 
@@ -611,24 +525,21 @@ isCellularDataRoamingEnabledSync(slotId: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 用来返回检查蜂窝数据业务是否启用漫游。          true：蜂窝数据业务已启用漫游。          false：蜂窝数据业务已禁用漫游。 |
+| boolean | 用来返回检查蜂窝数据业务是否启用漫游。 true：蜂窝数据业务已启用漫游。 false：蜂窝数据业务已禁用漫游。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -642,23 +553,20 @@ isCellularDataRoamingEnabledSync(slotId: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 
 try {
-  let isEnabled: boolean = data.isCellularDataRoamingEnabledSync(0);
-  console.info(`isCellularDataRoamingEnabledSync success : ${isEnabled}`);
+    let isEnabled: boolean = data.isCellularDataRoamingEnabledSync(0);
+    console.info(`isCellularDataRoamingEnabledSync success : ${isEnabled}`);
 } catch (err) {
-  console.error(
-    `isCellularDataRoamingEnabledSync fail. code: ${err.code}, message: ${err.message}`,
-  );
+    console.error(`isCellularDataRoamingEnabledSync fail. code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## data.getDefaultCellularDataSimId10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### data.getDefaultCellularDataSimId10+
 
 getDefaultCellularDataSimId(): number
 
@@ -668,26 +576,24 @@ getDefaultCellularDataSimId(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 获取默认移动数据的SIM卡ID。          与SIM卡绑定，从1开始递增。          - 0：无SIM卡。          - 9999：esim场景下，默认移动数据的SIM卡ID为9999。          - 99999：天际通场景下，默认移动数据的SIM卡ID为99999。 |
+| number | 获取默认移动数据的SIM卡ID。 与SIM卡绑定，从1开始递增。 - 0：无SIM卡。 - 9999：esim场景下，默认移动数据的SIM卡ID为9999。 - 99999：天际通场景下，默认移动数据的SIM卡ID为99999。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 
-console.info('Result: ' + data.getDefaultCellularDataSimId());
+console.info("Result: "+ data.getDefaultCellularDataSimId());
 ```
 
 
-## data.queryAllApns16+
-**支持设备：** Phone / Tablet / Wearable
 
-queryAllApns(): Promise<Array<ApnInfo>>
+##### data.queryAllApns16+
+
+queryAllApns(): Promise<Array&lt;ApnInfo&gt;>
 
 异步获取默认移动数据的SIM卡的APN（access point name，接入点名称）信息。
 
@@ -697,16 +603,14 @@ queryAllApns(): Promise<Array<ApnInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[ApnInfo](#apninfo16)&gt;&gt; | Promise对象，返回默认移动数据的SIM卡的APN信息列表。 |
+| Promise<Array&lt;ApnInfo&gt;> | Promise对象，返回默认移动数据的SIM卡的APN信息列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -715,30 +619,22 @@ queryAllApns(): Promise<Array<ApnInfo>>
 
 **示例：**
 
-
-```ts
+```json
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data
-  .queryAllApns()
-  .then((apnInfos: Array<data.ApnInfo>) => {
-    console.info(
-      `queryAllApns success, promise: apnInfos->${JSON.stringify(apnInfos)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `queryAllApns failed. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+data.queryAllApns().then((apnInfos: Array<data.ApnInfo>) => {
+    console.info(`queryAllApns success, promise: apnInfos->${JSON.stringify(apnInfos)}`);
+}).catch((err: BusinessError) => {
+    console.error(`queryAllApns failed. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.queryApnIds16+
-**支持设备：** Phone / Tablet / Wearable
 
-queryApnIds(apnInfo: ApnInfo): Promise<Array<number>>
+##### data.queryApnIds16+
+
+queryApnIds(apnInfo: ApnInfo): Promise<Array&lt;number&gt;>
 
 异步获取传入的ApnInfo对应的ApnId信息。
 
@@ -748,24 +644,21 @@ queryApnIds(apnInfo: ApnInfo): Promise<Array<number>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| apnInfo | [ApnInfo](#apninfo16) | 是 | 要查询的APN参数。 |
+| apnInfo | ApnInfo | 是 | 要查询的APN参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;number&gt;&gt; | Promise对象，返回传入的ApnInfo对应的ApnId信息列表。 |
+| Promise<Array&lt;number&gt;> | Promise对象，返回传入的ApnInfo对应的ApnId信息列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -774,36 +667,30 @@ queryApnIds(apnInfo: ApnInfo): Promise<Array<number>>
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let apnInfo: data.ApnInfo;
 apnInfo = {
-  apnName: 'CMNET',
-  apn: 'cmnet',
-  mcc: '460',
-  mnc: '07',
+  apnName: "CMNET",
+  apn: "cmnet",
+  mcc: "460",
+  mnc: "07",
 };
 
-data
-  .queryApnIds(apnInfo)
-  .then((apnIds: Array<number>) => {
+data.queryApnIds(apnInfo).then((apnIds: Array<number>) => {
     console.info(`queryApnIds success, apnIds: ${apnIds}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `queryApnIds failed. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+}).catch((err: BusinessError) => {
+    console.error(`queryApnIds failed. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.setPreferredApn16+
-**支持设备：** Phone / Tablet / Wearable
 
-setPreferredApn(apnId: number): Promise<boolean>
+##### data.setPreferredApn16+
+
+setPreferredApn(apnId: number): Promise&lt;boolean&gt;
 
 异步设置apnId对应的APN为首选APN。
 
@@ -817,14 +704,12 @@ setPreferredApn(apnId: number): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| apnId | number | 是 | 要设置的apnId，可以通过[queryApnIds](#dataqueryapnids16)查询。 |
+| apnId | number | 是 | 要设置的apnId，可以通过queryApnIds查询。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -835,7 +720,6 @@ setPreferredApn(apnId: number): Promise<boolean>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -843,29 +727,23 @@ setPreferredApn(apnId: number): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let apnId: number = 0; // apnId为通过queryApnIds返回的有效值，setPreferredApn传入无效的apnId会切回运营商默认配置的优选APN。
-data
-  .setPreferredApn(apnId)
-  .then((result: boolean) => {
+data.setPreferredApn(apnId).then((result: boolean) => {
     console.info(`setPreferredApn result: ${result}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `setPreferredApn failed. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+}).catch((err: BusinessError) => {
+    console.error(`setPreferredApn failed. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## data.getActiveApnName20+
-**支持设备：** Phone / Tablet / Wearable
 
-getActiveApnName(): Promise<string>
+##### data.getActiveApnName20+
+
+getActiveApnName(): Promise&lt;string&gt;
 
 异步获取默认移动数据SIM卡对应的处于激活状态的数据业务APN（access point name，接入点名称）name信息，若不处于激活状态，返回为空字符串。
 
@@ -874,7 +752,6 @@ getActiveApnName(): Promise<string>
 **系统能力**：SystemCapability.Telephony.CellularData
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -885,7 +762,6 @@ getActiveApnName(): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -893,31 +769,24 @@ getActiveApnName(): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { data } from '@kit.TelephonyKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-data
-  .getActiveApnName()
-  .then((apn: string) => {
+data.getActiveApnName().then((apn: string) => {
     console.info(`getActiveApnName success, apn: ${apn}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getActiveApnName failed. code: ${err.code}, message: ${err.message}`,
-    );
-  });
+}).catch((err: BusinessError) => {
+    console.error(`getActiveApnName failed. code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## DataFlowType
-**支持设备：** Phone / Tablet / Wearable
+
+##### DataFlowType
 
 描述蜂窝数据流类型。
 
 **系统能力**：SystemCapability.Telephony.CellularData
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -928,13 +797,13 @@ data
 | DATA_FLOW_TYPE_DORMANT | 4 | 表示没有上下行数据，底层链路处于休眠状态。 |
 
 
-## DataConnectState
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### DataConnectState
 
 描述蜂窝数据链路连接状态。
 
 **系统能力**：SystemCapability.Telephony.CellularData
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -945,13 +814,13 @@ data
 | DATA_STATE_SUSPENDED | 3 | 表示蜂窝数据链路被挂起。 |
 
 
-## ApnInfo16+
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### ApnInfo16+
 
 APN信息。
 
 **系统能力**：SystemCapability.Telephony.CellularData
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

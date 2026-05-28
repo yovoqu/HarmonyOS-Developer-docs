@@ -3,24 +3,22 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-subjectsegmentation-api
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 Core Vision Kit根据配置参数（如最多检测多少个物体、是否输出每个物体的详细信息等）可将一张普通的图片进行分割，分割后的信息包括图片整体的分割结果和每个显著物体的详细信息。
 
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { subjectSegmentation } from '@kit.CoreVisionKit';
 ```
 
 
-## VisionInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### VisionInfo
 
 待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的PixelMap类型的视觉信息。
 
@@ -28,21 +26,20 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| pixelMap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 否 | 否 | 待识别的图片。          具体规格请参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-introduction#约束与限制)。 |
+| pixelMap | image.PixelMap | 否 | 否 | 待识别的图片。 具体规格请参考约束与限制。 |
 
 
-## SegmentationConfig
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### SegmentationConfig
 
 显著性分割的可选配置项，包括最多输出的主体个数、是否输出每个主体的详细分割信息，以及是否输出前景图的配置项。
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
 
 **起始版本：** 5.0.0(12)
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -51,15 +48,15 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 | enableSubjectForegroundImage | boolean | 否 | 是 | 是否输出前景图，默认为false，true代表输出前景图。 |
 
 
-## Rectangle
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### Rectangle
 
 显著性主体分割后的边界框。
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
 
 **起始版本：** 5.0.0(12)
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -69,8 +66,9 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 | width | number | 否 | 否 | 边界框宽度，单位为像素。 |
 
 
-## SubjectResult
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### SubjectResult
 
 分割后的详细结果。
 
@@ -78,16 +76,16 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| foregroundImage | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 否 | 否 | 显著性主体前景图。 |
+| foregroundImage | image.PixelMap | 否 | 否 | 显著性主体前景图。 |
 | mattingList | Int32Array | 否 | 否 | 基于原图大小的一维数组，表示主体掩码。0-255取值范围。0代表背景，255代表主体，中间值代表是否是显著性主体的概率。 |
-| subjectRectangle | [Rectangle](#rectangle) | 否 | 否 | 主体的内切框。 |
+| subjectRectangle | Rectangle | 否 | 否 | 主体的内切框。 |
 
 
-## SegmentationResult
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### SegmentationResult
 
 分割后的总输出结果，包括主体个数、整张图中所有主体的分割信息和每个主体的详细信息。
 
@@ -95,18 +93,18 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| subjectCount | number | 否 | 否 | 表示返回的主体个数，实际返回数量为画面中检测到的主体数量和maxCount中的较小值，受[SegmentationConfig](#segmentationconfig)中maxCount参数的限制。 |
-| fullSubject | [SubjectResult](#subjectresult) | 否 | 否 | 默认输出的显著性主体合并信息。当画面主体数超过maxCount时，仅基于面积最大的maxCount个主体进行合并，与subjectDetails范围保持一致。 |
-| subjectDetails | Array&lt;[SubjectResult](#subjectresult)&gt; | 否 | 是 | 每个主体的详细信息列表，按主体面积降序排列，长度受maxCount限制。当enableSubjectDetails为true时返回，否则不返回，使用前需进行非空判断。 |
+| subjectCount | number | 否 | 否 | 表示返回的主体个数，实际返回数量为画面中检测到的主体数量和maxCount中的较小值，受SegmentationConfig中maxCount参数的限制。 |
+| fullSubject | SubjectResult | 否 | 否 | 默认输出的显著性主体合并信息。当画面主体数超过maxCount时，仅基于面积最大的maxCount个主体进行合并，与subjectDetails范围保持一致。 |
+| subjectDetails | Array&lt;SubjectResult&gt; | 否 | 是 | 每个主体的详细信息列表，按主体面积降序排列，长度受maxCount限制。当enableSubjectDetails为true时返回，否则不返回，使用前需进行非空判断。 |
 
 
-## subjectSegmentation.init
-**支持设备：** Phone / PC/2in1 / Tablet
 
-init(): Promise<boolean>
+
+##### subjectSegmentation.init
+
+init(): Promise&lt;boolean&gt;
 
 初始化主体分割服务。使用Promise异步回调。
 
@@ -116,16 +114,14 @@ init(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。          true：初始化成功；false：初始化失败。 |
+| Promise&lt;boolean&gt; | Promise对象，返回初始化是否成功。 true：初始化成功；false：初始化失败。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { subjectSegmentation } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -163,10 +159,10 @@ struct Page {
 ```
 
 
-## subjectSegmentation.release
-**支持设备：** Phone / PC/2in1 / Tablet
 
-release(): Promise<void>
+##### subjectSegmentation.release
+
+release(): Promise&lt;void&gt;
 
 释放主体分割服务。使用Promise异步回调。
 
@@ -176,7 +172,6 @@ release(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -184,8 +179,7 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { subjectSegmentation } from '@kit.CoreVisionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -223,10 +217,10 @@ struct Page {
 ```
 
 
-## subjectSegmentation.doSegmentation
-**支持设备：** Phone / PC/2in1 / Tablet
 
-doSegmentation(visionInfo: VisionInfo, config?: SegmentationConfig): Promise<SegmentationResult>
+##### subjectSegmentation.doSegmentation
+
+doSegmentation(visionInfo: VisionInfo, config?: SegmentationConfig): Promise&lt;SegmentationResult&gt;
 
 创建显著性分割实例，并初始化引擎。使用Promise异步回调。
 
@@ -236,25 +230,22 @@ doSegmentation(visionInfo: VisionInfo, config?: SegmentationConfig): Promise<Seg
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| visionInfo | [VisionInfo](#visioninfo) | 是 | 图片实例。 |
-| config | [SegmentationConfig](#segmentationconfig) | 否 | 显著性分割的可选配置项，包括最大主体个数和是否输出每个主体的详细信息。 |
+| visionInfo | VisionInfo | 是 | 图片实例。 |
+| config | SegmentationConfig | 否 | 显著性分割的可选配置项，包括最大主体个数和是否输出每个主体的详细信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SegmentationResult](#segmentationresult)&gt; | Promise对象，返回显著性主体的结果。 |
+| Promise&lt;SegmentationResult&gt; | Promise对象，返回显著性主体的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -266,8 +257,7 @@ doSegmentation(visionInfo: VisionInfo, config?: SegmentationConfig): Promise<Seg
 
 **示例：**
 
-
-```ts
+```text
 import { subjectSegmentation } from '@kit.CoreVisionKit';
 import { image } from '@kit.ImageKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

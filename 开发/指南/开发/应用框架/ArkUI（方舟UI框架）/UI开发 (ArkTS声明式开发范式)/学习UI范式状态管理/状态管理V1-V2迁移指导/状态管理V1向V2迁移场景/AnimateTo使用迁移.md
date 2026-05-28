@@ -1,16 +1,17 @@
 # AnimateTo使用迁移
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-migration-animateto
 
 在状态管理从V1迁移至V2的过程中，[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)执行动画前如需修改状态变量，可参考本文档的适配方案。
 
 
-## 执行动画前重新定义初始态场景
+##### 执行动画前重新定义初始态场景
 
 **V1实现代码如下：**
-```text
+
+```ArkTS
 @Entry
 @Component
 struct Index {
@@ -47,9 +48,14 @@ struct Index {
 ```
 
 预期动画效果：绿色矩形从长宽100变为200，字符串从Hello World变为Hello ArkUI。
+
+
 ![](assets/AnimateTo使用迁移/file-20260514130533786-0.gif)
+
+
 **V1迁移V2**
-```text
+
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -86,15 +92,24 @@ struct Index {
 ```
 
 由于当前animateTo与V2的刷新机制不兼容，执行动画前的额外修改未生效，实际显示的动画效果如下图所示：绿色矩形从长宽50变为200，字符串从Hello变为Hello ArkUI。
+
+
 ![](assets/AnimateTo使用迁移/file-20260514130533786-1.gif)
 
-## 迁移方案
 
 
-## API version 22之前的迁移方案
 
-从API version 22之前，可以使用一个duration为0的[animateToImmediately](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animatetoimmediately#animatetoimmediately)将额外的修改先刷新，再执行原来的动画达成预期的效果。 完整代码如下：
-```text
+##### 迁移方案
+
+
+
+##### API version 22之前的迁移方案
+
+从API version 22之前，可以使用一个duration为0的[animateToImmediately](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animatetoimmediately#animatetoimmediately)将额外的修改先刷新，再执行原来的动画达成预期的效果。
+
+完整代码如下：
+
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -135,10 +150,14 @@ struct Index {
 ```
 
 
-## API version 22及以后的迁移方案
 
-从API version 22开始，可以使用[applySync接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)实现预期的显示效果。 原理为使用applySync接口同步刷新闭包函数内的状态变量变化，再执行原来的动画达成预期的效果。
-```text
+##### API version 22及以后的迁移方案
+
+从API version 22开始，可以使用[applySync接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)实现预期的显示效果。
+
+原理为使用applySync接口同步刷新闭包函数内的状态变量变化，再执行原来的动画达成预期的效果。
+
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry

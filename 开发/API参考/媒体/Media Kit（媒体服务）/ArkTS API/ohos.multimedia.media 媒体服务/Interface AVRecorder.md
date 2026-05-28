@@ -3,37 +3,39 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音视频录制管理类，用于音视频媒体录制。在调用AVRecorder的方法前，需要先调用[createAVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavrecorder9)接口构建一个AVRecorder实例。
 
 音视频录制demo可参考：[音频录制开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecorder-for-recording)、[视频录制开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-recording)。
 
+> [!NOTE]
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。 相机视频录制功能需配合相机模块使用，相机模块接口的使用详情请参考 相机管理 。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { media } from '@kit.MediaKit';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| state9+ | [AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9) | 是 | 否 | 音视频录制的状态。          元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
+| state9+ | AVRecorderState | 是 | 否 | 音视频录制的状态。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
 
 
-## prepare9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-prepare(config: AVRecorderConfig, callback: AsyncCallback<void>): void
+
+##### prepare9+
+
+prepare(config: AVRecorderConfig, callback: AsyncCallback&lt;void&gt;): void
 
 音视频录制的参数设置。使用callback异步回调。
 
@@ -45,17 +47,15 @@ prepare(config: AVRecorderConfig, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [AVRecorderConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderconfig9) | 是 | 配置音视频录制的相关参数。 |
+| config | AVRecorderConfig | 是 | 配置音视频录制的相关参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当prepare接口成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -67,40 +67,37 @@ prepare(config: AVRecorderConfig, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 配置参数以实际硬件设备支持的范围为准。
 let avRecorderProfile: media.AVRecorderProfile = {
-  audioBitrate: 48000,
-  audioChannels: 2,
-  audioCodec: media.CodecMimeType.AUDIO_AAC,
-  audioSampleRate: 48000,
-  fileFormat: media.ContainerFormatType.CFT_MPEG_4,
-  videoBitrate: 2000000,
-  videoCodec: media.CodecMimeType.VIDEO_AVC,
-  videoFrameWidth: 640,
-  videoFrameHeight: 480,
-  videoFrameRate: 30,
+  audioBitrate : 48000,
+  audioChannels : 2,
+  audioCodec : media.CodecMimeType.AUDIO_AAC,
+  audioSampleRate : 48000,
+  fileFormat : media.ContainerFormatType.CFT_MPEG_4,
+  videoBitrate : 2000000,
+  videoCodec : media.CodecMimeType.VIDEO_AVC,
+  videoFrameWidth : 640,
+  videoFrameHeight : 480,
+  videoFrameRate : 30
 };
 let videoMetaData: media.AVMetadata = {
-  videoOrientation: '0', // 合理值0、90、180、270，非合理值prepare接口报错。
+  videoOrientation: '0' // 合理值0、90、180、270，非合理值prepare接口报错。
 };
 let avRecorderConfig: media.AVRecorderConfig = {
-  audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
-  videoSourceType: media.VideoSourceType.VIDEO_SOURCE_TYPE_SURFACE_YUV,
-  profile: avRecorderProfile,
-  url: 'fd://', // 文件需先由调用者创建，赋予读写权限，将文件fd传给此参数。
+  audioSourceType : media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
+  videoSourceType : media.VideoSourceType.VIDEO_SOURCE_TYPE_SURFACE_YUV,
+  profile : avRecorderProfile,
+  url : 'fd://', // 文件需先由调用者创建，赋予读写权限，将文件fd传给此参数。
   metadata: videoMetaData,
-  location: { latitude: 30, longitude: 130 },
+  location : { latitude : 30, longitude : 130 }
 };
 
 avRecorder.prepare(avRecorderConfig, (err: BusinessError) => {
   if (err) {
-    console.error(
-      `Failed to prepare and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to prepare and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in preparing');
   }
@@ -108,10 +105,10 @@ avRecorder.prepare(avRecorderConfig, (err: BusinessError) => {
 ```
 
 
-## prepare9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-prepare(config: AVRecorderConfig): Promise<void>
+##### prepare9+
+
+prepare(config: AVRecorderConfig): Promise&lt;void&gt;
 
 音视频录制的参数设置。使用Promise异步回调。
 
@@ -125,14 +122,12 @@ prepare(config: AVRecorderConfig): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [AVRecorderConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderconfig9) | 是 | 配置音视频录制的相关参数。 |
+| config | AVRecorderConfig | 是 | 配置音视频录制的相关参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -142,7 +137,6 @@ prepare(config: AVRecorderConfig): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -154,53 +148,47 @@ prepare(config: AVRecorderConfig): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 配置参数以实际硬件设备支持的范围为准。
 let avRecorderProfile: media.AVRecorderProfile = {
-  audioBitrate: 48000,
-  audioChannels: 2,
-  audioCodec: media.CodecMimeType.AUDIO_AAC,
-  audioSampleRate: 48000,
-  fileFormat: media.ContainerFormatType.CFT_MPEG_4,
-  videoBitrate: 2000000,
-  videoCodec: media.CodecMimeType.VIDEO_AVC,
-  videoFrameWidth: 640,
-  videoFrameHeight: 480,
-  videoFrameRate: 30,
+  audioBitrate : 48000,
+  audioChannels : 2,
+  audioCodec : media.CodecMimeType.AUDIO_AAC,
+  audioSampleRate : 48000,
+  fileFormat : media.ContainerFormatType.CFT_MPEG_4,
+  videoBitrate : 2000000,
+  videoCodec : media.CodecMimeType.VIDEO_AVC,
+  videoFrameWidth : 640,
+  videoFrameHeight : 480,
+  videoFrameRate : 30
 };
 let videoMetaData: media.AVMetadata = {
-  videoOrientation: '0', // 合理值0、90、180、270，非合理值prepare接口报错。
+  videoOrientation: '0' // 合理值0、90、180、270，非合理值prepare接口报错。
 };
 let avRecorderConfig: media.AVRecorderConfig = {
-  audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
-  videoSourceType: media.VideoSourceType.VIDEO_SOURCE_TYPE_SURFACE_YUV,
-  profile: avRecorderProfile,
-  url: 'fd://', // 文件需先由调用者创建，赋予读写权限，将文件fd传给此参数。
-  metadata: videoMetaData,
-  location: { latitude: 30, longitude: 130 },
+  audioSourceType : media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC,
+  videoSourceType : media.VideoSourceType.VIDEO_SOURCE_TYPE_SURFACE_YUV,
+  profile : avRecorderProfile,
+  url : 'fd://',  // 文件需先由调用者创建，赋予读写权限，将文件fd传给此参数。
+  metadata : videoMetaData,
+  location : { latitude : 30, longitude : 130 }
 };
 
-avRecorder
-  .prepare(avRecorderConfig)
-  .then(() => {
-    console.info('Succeeded in preparing');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to prepare and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.prepare(avRecorderConfig).then(() => {
+  console.info('Succeeded in preparing');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to prepare and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## getInputSurface9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getInputSurface(callback: AsyncCallback<string>): void
+##### getInputSurface9+
+
+getInputSurface(callback: AsyncCallback&lt;string&gt;): void
 
 获得录制需要的surface。使用callback异步回调。
 
@@ -214,7 +202,6 @@ getInputSurface(callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取surface成功，err为undefined，data为获取到的surfaceId，否则为错误对象。 |
@@ -223,7 +210,6 @@ getInputSurface(callback: AsyncCallback<string>): void
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -234,17 +220,14 @@ getInputSurface(callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let surfaceID: string; // 该surfaceID用于传递给相机接口创建videoOutput。
 
 avRecorder.getInputSurface((err: BusinessError, surfaceId: string) => {
   if (err) {
-    console.error(
-      `Failed to do getInputSurface and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to do getInputSurface and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in doing getInputSurface');
     surfaceID = surfaceId;
@@ -253,10 +236,10 @@ avRecorder.getInputSurface((err: BusinessError, surfaceId: string) => {
 ```
 
 
-## getInputSurface9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getInputSurface(): Promise<string>
+##### getInputSurface9+
+
+getInputSurface(): Promise&lt;string&gt;
 
 获得录制需要的surface。使用Promise异步回调。
 
@@ -270,7 +253,6 @@ getInputSurface(): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回surface中获取的surfaceBuffer。 |
@@ -279,7 +261,6 @@ getInputSurface(): Promise<string>
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -290,31 +271,25 @@ getInputSurface(): Promise<string>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let surfaceID: string; // 该surfaceID用于传递给相机接口创建videoOutput。
 
-avRecorder
-  .getInputSurface()
-  .then((surfaceId: string) => {
-    console.info('Succeeded in getting InputSurface');
-    surfaceID = surfaceId;
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to get InputSurface and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.getInputSurface().then((surfaceId: string) => {
+  console.info('Succeeded in getting InputSurface');
+  surfaceID = surfaceId;
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to get InputSurface and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## updateRotation12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-updateRotation(rotation: number): Promise<void>
+##### updateRotation12+
+
+updateRotation(rotation: number): Promise&lt;void&gt;
 
 更新视频旋转角度。使用Promise异步回调。
 
@@ -324,14 +299,12 @@ updateRotation(rotation: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | rotation | number | 是 | 旋转角度，取值仅支持0、90、180、270度。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -341,7 +314,6 @@ updateRotation(rotation: number): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -353,30 +325,24 @@ updateRotation(rotation: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let rotation = 90;
 
-avRecorder
-  .updateRotation(rotation)
-  .then(() => {
-    console.info('Succeeded in doing updateRotation');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to do updateRotation and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.updateRotation(rotation).then(() => {
+  console.info('Succeeded in doing updateRotation');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to do updateRotation and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## setWillMuteWhenInterrupted20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>
+##### setWillMuteWhenInterrupted20+
+
+setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise&lt;void&gt;
 
 设置当前录制音频流是否启用静音打断模式。使用Promise异步回调。
 
@@ -384,14 +350,12 @@ setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | muteWhenInterrupted | boolean | 是 | 设置当前录制音频流是否启用静音打断模式, true表示启用，false表示不启用，保持为默认打断模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -402,7 +366,6 @@ setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -411,28 +374,22 @@ setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-avRecorder
-  .setWillMuteWhenInterrupted(true)
-  .then(() => {
-    console.info('Succeeded in doing setWillMuteWhenInterrupted');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to do setWillMuteWhenInterrupted and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.setWillMuteWhenInterrupted(true).then(() => {
+  console.info('Succeeded in doing setWillMuteWhenInterrupted');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to do setWillMuteWhenInterrupted and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## start9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-start(callback: AsyncCallback<void>): void
+##### start9+
+
+start(callback: AsyncCallback&lt;void&gt;): void
 
 开始视频录制。使用callback异步回调。
 
@@ -441,7 +398,6 @@ start(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -452,7 +408,6 @@ start(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operate not permit. Return by callback. |
@@ -462,15 +417,12 @@ start(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avRecorder.start((err: BusinessError) => {
   if (err) {
-    console.error(
-      `Failed to start AVRecorder and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to start AVRecorder and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in starting AVRecorder');
   }
@@ -478,10 +430,10 @@ avRecorder.start((err: BusinessError) => {
 ```
 
 
-## start9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-start(): Promise<void>
+##### start9+
+
+start(): Promise&lt;void&gt;
 
 开始视频录制。使用Promise异步回调。
 
@@ -493,7 +445,6 @@ start(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -502,7 +453,6 @@ start(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -513,28 +463,22 @@ start(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-avRecorder
-  .start()
-  .then(() => {
-    console.info('Succeeded in starting AVRecorder');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to start AVRecorder and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.start().then(() => {
+  console.info('Succeeded in starting AVRecorder');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to start AVRecorder and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## pause9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pause(callback: AsyncCallback<void>): void
+##### pause9+
+
+pause(callback: AsyncCallback&lt;void&gt;): void
 
 暂停视频录制。使用callback异步回调。
 
@@ -543,7 +487,6 @@ pause(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -554,7 +497,6 @@ pause(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operate not permit. Return by callback. |
@@ -564,15 +506,12 @@ pause(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avRecorder.pause((err: BusinessError) => {
   if (err) {
-    console.error(
-      `Failed to pause AVRecorder and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to pause AVRecorder and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in pausing');
   }
@@ -580,10 +519,10 @@ avRecorder.pause((err: BusinessError) => {
 ```
 
 
-## pause9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-pause(): Promise<void>
+##### pause9+
+
+pause(): Promise&lt;void&gt;
 
 暂停视频录制。使用Promise异步回调。
 
@@ -595,7 +534,6 @@ pause(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -604,7 +542,6 @@ pause(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -615,28 +552,22 @@ pause(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-avRecorder
-  .pause()
-  .then(() => {
-    console.info('Succeeded in pausing');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to pause AVRecorder and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.pause().then(() => {
+  console.info('Succeeded in pausing');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to pause AVRecorder and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## resume9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-resume(callback: AsyncCallback<void>): void
+##### resume9+
+
+resume(callback: AsyncCallback&lt;void&gt;): void
 
 恢复视频录制。使用callback异步回调。
 
@@ -645,7 +576,6 @@ resume(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -656,7 +586,6 @@ resume(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operate not permit. Return by callback. |
@@ -666,15 +595,12 @@ resume(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avRecorder.resume((err: BusinessError) => {
   if (err) {
-    console.error(
-      `Failed to resume AVRecorder and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to resume AVRecorder and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in resuming AVRecorder');
   }
@@ -682,10 +608,10 @@ avRecorder.resume((err: BusinessError) => {
 ```
 
 
-## resume9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-resume(): Promise<void>
+##### resume9+
+
+resume(): Promise&lt;void&gt;
 
 恢复视频录制。使用Promise异步回调。
 
@@ -697,7 +623,6 @@ resume(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -706,7 +631,6 @@ resume(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -717,28 +641,22 @@ resume(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-avRecorder
-  .resume()
-  .then(() => {
-    console.info('Succeeded in resuming AVRecorder');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to resume AVRecorder and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.resume().then(() => {
+  console.info('Succeeded in resuming AVRecorder');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to resume AVRecorder and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## stop9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(callback: AsyncCallback<void>): void
+##### stop9+
+
+stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止视频录制。使用callback异步回调。
 
@@ -750,7 +668,6 @@ stop(callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当停止视频录制成功，err为undefined，否则为错误对象。 |
@@ -759,7 +676,6 @@ stop(callback: AsyncCallback<void>): void
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -770,15 +686,12 @@ stop(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avRecorder.stop((err: BusinessError) => {
   if (err) {
-    console.error(
-      `Failed to stop AVRecorder and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to stop AVRecorder and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in stopping AVRecorder');
   }
@@ -786,10 +699,10 @@ avRecorder.stop((err: BusinessError) => {
 ```
 
 
-## stop9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(): Promise<void>
+##### stop9+
+
+stop(): Promise&lt;void&gt;
 
 停止视频录制。使用Promise异步回调。
 
@@ -803,7 +716,6 @@ stop(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -812,7 +724,6 @@ stop(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -823,28 +734,22 @@ stop(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-avRecorder
-  .stop()
-  .then(() => {
-    console.info('Succeeded in stopping AVRecorder');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to stop AVRecorder and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.stop().then(() => {
+  console.info('Succeeded in stopping AVRecorder');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to stop AVRecorder and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## reset9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reset(callback: AsyncCallback<void>): void
+##### reset9+
+
+reset(callback: AsyncCallback&lt;void&gt;): void
 
 重置音视频录制。使用callback异步回调。
 
@@ -853,7 +758,6 @@ reset(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -864,7 +768,6 @@ reset(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400103 | IO error. Return by callback. |
@@ -873,15 +776,12 @@ reset(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avRecorder.reset((err: BusinessError) => {
   if (err) {
-    console.error(
-      `Failed to reset AVRecorder and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to reset AVRecorder and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in resetting AVRecorder');
   }
@@ -889,10 +789,10 @@ avRecorder.reset((err: BusinessError) => {
 ```
 
 
-## reset9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reset(): Promise<void>
+##### reset9+
+
+reset(): Promise&lt;void&gt;
 
 重置音视频录制。使用Promise异步回调。
 
@@ -901,7 +801,6 @@ reset(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -912,7 +811,6 @@ reset(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400103 | IO error. Return by promise. |
@@ -921,28 +819,22 @@ reset(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-avRecorder
-  .reset()
-  .then(() => {
-    console.info('Succeeded in resetting AVRecorder');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to reset AVRecorder and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.reset().then(() => {
+  console.info('Succeeded in resetting AVRecorder');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to reset AVRecorder and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## release9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(callback: AsyncCallback<void>): void
+##### release9+
+
+release(callback: AsyncCallback&lt;void&gt;): void
 
 释放音视频录制资源。使用callback异步回调。
 
@@ -951,7 +843,6 @@ release(callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -962,7 +853,6 @@ release(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400105 | Service died. Return by callback. |
@@ -970,15 +860,12 @@ release(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avRecorder.release((err: BusinessError) => {
   if (err) {
-    console.error(
-      `Failed to release AVRecorder and error is: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to release AVRecorder and error is: Code: ${err.code}, message: ${err.message}`);
   } else {
     console.info('Succeeded in releasing AVRecorder');
   }
@@ -986,10 +873,10 @@ avRecorder.release((err: BusinessError) => {
 ```
 
 
-## release9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(): Promise<void>
+##### release9+
+
+release(): Promise&lt;void&gt;
 
 释放音视频录制资源。使用Promise异步回调。
 
@@ -1001,7 +888,6 @@ release(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -1011,7 +897,6 @@ release(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400105 | Service died. Return by callback. |
@@ -1019,26 +904,20 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-avRecorder
-  .release()
-  .then(() => {
-    console.info('Succeeded in releasing AVRecorder');
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to release AVRecorder and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.release().then(() => {
+  console.info('Succeeded in releasing AVRecorder');
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to release AVRecorder and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## getCurrentAudioCapturerInfo11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCurrentAudioCapturerInfo11+
 
 getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void
 
@@ -1050,16 +929,14 @@ getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInf
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[audio.AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)&gt; | 是 | 回调函数。当获取音频采集参数成功时，err为undefined，data为获取到的audio.AudioCapturerChangeInfo，否则为错误对象。 |
+| callback | AsyncCallback<audio.AudioCapturerChangeInfo> | 是 | 回调函数。当获取音频采集参数成功时，err为undefined，data为获取到的audio.AudioCapturerChangeInfo，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1070,30 +947,25 @@ getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInf
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { audio } from '@kit.AudioKit';
 
 let currentCapturerInfo: audio.AudioCapturerChangeInfo;
 
-avRecorder.getCurrentAudioCapturerInfo(
-  (err: BusinessError, capturerInfo: audio.AudioCapturerChangeInfo) => {
-    if (err) {
-      console.error(
-        `Failed to get CurrentAudioCapturerInfo and error is: Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info('Succeeded in getting CurrentAudioCapturerInfo');
-      currentCapturerInfo = capturerInfo;
-    }
-  },
-);
+avRecorder.getCurrentAudioCapturerInfo((err: BusinessError, capturerInfo: audio.AudioCapturerChangeInfo) => {
+  if (err) {
+    console.error(`Failed to get CurrentAudioCapturerInfo and error is: Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info('Succeeded in getting CurrentAudioCapturerInfo');
+    currentCapturerInfo = capturerInfo;
+  }
+});
 ```
 
 
-## getCurrentAudioCapturerInfo11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCurrentAudioCapturerInfo11+
 
 getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>
 
@@ -1105,16 +977,14 @@ getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[audio.AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)&gt; | Promise对象，返回获取的当前音频采集参数。 |
+| Promise<audio.AudioCapturerChangeInfo> | Promise对象，返回获取的当前音频采集参数。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1125,32 +995,26 @@ getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { audio } from '@kit.AudioKit';
 
 let currentCapturerInfo: audio.AudioCapturerChangeInfo;
 
-avRecorder
-  .getCurrentAudioCapturerInfo()
-  .then((capturerInfo: audio.AudioCapturerChangeInfo) => {
-    console.info('Succeeded in getting CurrentAudioCapturerInfo');
-    currentCapturerInfo = capturerInfo;
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to get CurrentAudioCapturerInfo and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.getCurrentAudioCapturerInfo().then((capturerInfo: audio.AudioCapturerChangeInfo) => {
+  console.info('Succeeded in getting CurrentAudioCapturerInfo');
+  currentCapturerInfo = capturerInfo;
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to get CurrentAudioCapturerInfo and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## getAudioCapturerMaxAmplitude11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void
+##### getAudioCapturerMaxAmplitude11+
+
+getAudioCapturerMaxAmplitude(callback: AsyncCallback&lt;number&gt;): void
 
 获取当前音频最大振幅。使用callback异步回调。
 
@@ -1162,7 +1026,6 @@ getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。获取当前音频最大振幅成功时，err为undefined，data为获取到的最大振幅，否则为错误对象。 |
@@ -1172,7 +1035,6 @@ getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. |
@@ -1181,31 +1043,26 @@ getAudioCapturerMaxAmplitude(callback: AsyncCallback<number>): void
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let maxAmplitude: number;
 
-avRecorder.getAudioCapturerMaxAmplitude(
-  (err: BusinessError, amplitude: number) => {
-    if (err) {
-      console.error(
-        `Failed to get AudioCapturerMaxAmplitude and error is: Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info('Succeeded in getting AudioCapturerMaxAmplitude');
-      maxAmplitude = amplitude;
-    }
-  },
-);
+avRecorder.getAudioCapturerMaxAmplitude((err: BusinessError, amplitude: number) => {
+  if (err) {
+    console.error(`Failed to get AudioCapturerMaxAmplitude and error is: Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info('Succeeded in getting AudioCapturerMaxAmplitude');
+    maxAmplitude = amplitude;
+  }
+});
 ```
 
 
-## getAudioCapturerMaxAmplitude11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAudioCapturerMaxAmplitude(): Promise<number>
+##### getAudioCapturerMaxAmplitude11+
+
+getAudioCapturerMaxAmplitude(): Promise&lt;number&gt;
 
 获取当前音频最大振幅。使用Promise异步回调。
 
@@ -1217,7 +1074,6 @@ getAudioCapturerMaxAmplitude(): Promise<number>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象，返回获取的当前音频最大振幅。 |
@@ -1227,7 +1083,6 @@ getAudioCapturerMaxAmplitude(): Promise<number>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. |
@@ -1236,31 +1091,25 @@ getAudioCapturerMaxAmplitude(): Promise<number>
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let maxAmplitude: number;
 
-avRecorder
-  .getAudioCapturerMaxAmplitude()
-  .then((amplitude: number) => {
-    console.info('Succeeded in getting AudioCapturerMaxAmplitude');
-    maxAmplitude = amplitude;
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to get AudioCapturerMaxAmplitude and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.getAudioCapturerMaxAmplitude().then((amplitude: number) => {
+  console.info('Succeeded in getting AudioCapturerMaxAmplitude');
+  maxAmplitude = amplitude;
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to get AudioCapturerMaxAmplitude and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## getAvailableEncoder11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void
+##### getAvailableEncoder11+
+
+getAvailableEncoder(callback: AsyncCallback<Array&lt;EncoderInfo&gt;>): void
 
 获取可用的编码器参数。使用callback异步回调。
 
@@ -1268,16 +1117,14 @@ getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[EncoderInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#encoderinfo11)&gt;&gt; | 是 | 回调函数。获取可用的编码器参数成功时，err为undefined，data为获取到的编码器参数，否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;EncoderInfo&gt;> | 是 | 回调函数。获取可用的编码器参数成功时，err为undefined，data为获取到的编码器参数，否则为错误对象。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1287,35 +1134,30 @@ getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let encoderInfo: media.EncoderInfo;
 
-avRecorder.getAvailableEncoder(
-  (err: BusinessError, info: media.EncoderInfo[]) => {
-    if (err) {
-      console.error(
-        `Failed to get AvailableEncoder and error is: Code: ${err.code}, message: ${err.message}`,
-      );
+avRecorder.getAvailableEncoder((err: BusinessError, info: media.EncoderInfo[]) => {
+  if (err) {
+    console.error(`Failed to get AvailableEncoder and error is: Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info('Succeeded in getting AvailableEncoder');
+    if (info.length > 0) {
+      encoderInfo = info[0];
     } else {
-      console.info('Succeeded in getting AvailableEncoder');
-      if (info.length > 0) {
-        encoderInfo = info[0];
-      } else {
-        console.error('No available encoder');
-      }
+      console.error('No available encoder');
     }
-  },
-);
+  }
+});
 ```
 
 
-## getAvailableEncoder11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAvailableEncoder(): Promise<Array<EncoderInfo>>
+##### getAvailableEncoder11+
+
+getAvailableEncoder(): Promise<Array&lt;EncoderInfo&gt;>
 
 获取可用的编码器参数。使用Promise异步回调。
 
@@ -1323,16 +1165,14 @@ getAvailableEncoder(): Promise<Array<EncoderInfo>>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[EncoderInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#encoderinfo11)&gt;&gt; | Promise对象，返回获取的可用的编码器参数。 |
+| Promise<Array&lt;EncoderInfo&gt;> | Promise对象，返回获取的可用的编码器参数。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1342,35 +1182,29 @@ getAvailableEncoder(): Promise<Array<EncoderInfo>>
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let encoderInfo: media.EncoderInfo;
 
-avRecorder
-  .getAvailableEncoder()
-  .then((info: media.EncoderInfo[]) => {
-    console.info('Succeeded in getting AvailableEncoder');
+avRecorder.getAvailableEncoder().then((info: media.EncoderInfo[]) => {
+  console.info('Succeeded in getting AvailableEncoder');
     if (info.length > 0) {
       encoderInfo = info[0];
     } else {
       console.error('No available encoder');
     }
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to get AvailableEncoder and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to get AvailableEncoder and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## getAVRecorderConfig11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void
+##### getAVRecorderConfig11+
+
+getAVRecorderConfig(callback: AsyncCallback&lt;AVRecorderConfig&gt;): void
 
 获取实时的配置参数。使用callback异步回调。
 
@@ -1380,16 +1214,14 @@ getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AVRecorderConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderconfig9)&gt; | 是 | 回调函数。获取实时配置的参数成功时，err为undefined，data为获取到的配置参数，否则为错误对象。 |
+| callback | AsyncCallback&lt;AVRecorderConfig&gt; | 是 | 回调函数。获取实时配置的参数成功时，err为undefined，data为获取到的配置参数，否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1400,31 +1232,26 @@ getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let avConfig: media.AVRecorderConfig;
 
-avRecorder.getAVRecorderConfig(
-  (err: BusinessError, config: media.AVRecorderConfig) => {
-    if (err) {
-      console.error(
-        `Failed to get avConfig and error is: Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info('Succeeded in getting AVRecorderConfig');
-      avConfig = config;
-    }
-  },
-);
+avRecorder.getAVRecorderConfig((err: BusinessError, config: media.AVRecorderConfig) => {
+  if (err) {
+    console.error(`Failed to get avConfig and error is: Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info('Succeeded in getting AVRecorderConfig');
+    avConfig = config;
+  }
+});
 ```
 
 
-## getAVRecorderConfig11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAVRecorderConfig(): Promise<AVRecorderConfig>;
+##### getAVRecorderConfig11+
+
+getAVRecorderConfig(): Promise&lt;AVRecorderConfig&gt;;
 
 获取实时的配置参数。使用Promise异步回调。
 
@@ -1434,16 +1261,14 @@ getAVRecorderConfig(): Promise<AVRecorderConfig>;
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AVRecorderConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderconfig9)&gt; | Promise对象。返回实时配置参数。 |
+| Promise&lt;AVRecorderConfig&gt; | Promise对象。返回实时配置参数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1454,29 +1279,23 @@ getAVRecorderConfig(): Promise<AVRecorderConfig>;
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let avConfig: media.AVRecorderConfig;
 
-avRecorder
-  .getAVRecorderConfig()
-  .then((config: media.AVRecorderConfig) => {
-    console.info('Succeeded in getting AVRecorderConfig');
-    avConfig = config;
-  })
-  .catch((err: Error) => {
-    let error: BusinessError = err as BusinessError;
-    console.error(
-      `Failed to get AVRecorderConfig and error is: Code: ${error.code}, message: ${error.message}`,
-    );
-  });
+avRecorder.getAVRecorderConfig().then((config: media.AVRecorderConfig) => {
+  console.info('Succeeded in getting AVRecorderConfig');
+  avConfig = config;
+}).catch((err: Error) => {
+  let error: BusinessError = err as BusinessError;
+  console.error(`Failed to get AVRecorderConfig and error is: Code: ${error.code}, message: ${error.message}`);
+});
 ```
 
 
-## on('stateChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('stateChange')9+
 
 on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void
 
@@ -1488,17 +1307,15 @@ on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 录制状态机切换事件回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。 |
-| callback | [OnAVRecorderStateChangeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onavrecorderstatechangehandler12) | 是 | 回调函数，返回录制状态机切换事件。 |
+| callback | OnAVRecorderStateChangeHandler | 是 | 回调函数，返回录制状态机切换事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1508,24 +1325,15 @@ on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void
 
 **示例：**
 
-
-```ts
-avRecorder.on(
-  'stateChange',
-  async (state: media.AVRecorderState, reason: media.StateChangeReason) => {
-    console.info(
-      'case state has changed, new state is: ' +
-        state +
-        ', and reason is: ' +
-        reason,
-    );
-  },
-);
+```text
+avRecorder.on('stateChange', async (state: media.AVRecorderState, reason: media.StateChangeReason) => {
+  console.info('case state has changed, new state is: ' + state + ', and reason is: ' + reason);
+});
 ```
 
 
-## off('stateChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('stateChange')9+
 
 off(type: 'stateChange', callback?: OnAVRecorderStateChangeHandler): void
 
@@ -1537,23 +1345,21 @@ off(type: 'stateChange', callback?: OnAVRecorderStateChangeHandler): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 录制状态机切换事件回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。 |
-| callback12+ | [OnAVRecorderStateChangeHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onavrecorderstatechangehandler12) | 否 | 回调函数，返回录制状态机切换事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。          从API version 12开始支持此参数。 |
+| callback12+ | OnAVRecorderStateChangeHandler | 否 | 回调函数，返回录制状态机切换事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。 从API version 12开始支持此参数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 avRecorder.off('stateChange');
 ```
 
 
-## on('error')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('error')9+
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -1567,17 +1373,15 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 录制错误事件回调类型'error'。          - 'error'：录制过程中发生错误，触发该事件。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 回调函数，返回录制错误事件。 |
+| type | string | 是 | 录制错误事件回调类型'error'。 - 'error'：录制过程中发生错误，触发该事件。 |
+| callback | ErrorCallback | 是 | 回调函数，返回录制错误事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1595,20 +1399,17 @@ on(type: 'error', callback: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 avRecorder.on('error', (err: BusinessError) => {
-  console.error(
-    `case avRecorder.on(error) called. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`case avRecorder.on(error) called. Code: ${err.code}, message: ${err.message}`);
 });
 ```
 
 
-## off('error')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('error')9+
 
 off(type: 'error', callback?: ErrorCallback): void
 
@@ -1620,23 +1421,21 @@ off(type: 'error', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 录制错误事件回调类型'error'。          - 'error'：录制过程中发生错误，触发该事件。 |
-| callback12+ | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 回调函数，返回录制错误事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。          从API version 12开始支持此参数。 |
+| type | string | 是 | 录制错误事件回调类型'error'。 - 'error'：录制过程中发生错误，触发该事件。 |
+| callback12+ | ErrorCallback | 否 | 回调函数，返回录制错误事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。 从API version 12开始支持此参数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 avRecorder.off('error');
 ```
 
 
-## on('audioCapturerChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('audioCapturerChange')11+
 
 on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void
 
@@ -1648,17 +1447,15 @@ on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 录音配置变化的回调类型，支持的事件：'audioCapturerChange'。 |
-| callback | Callback&lt;[audio.AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)&gt; | 是 | 回调函数，返回变化后的录音配置全量信息。 |
+| callback | Callback<audio.AudioCapturerChangeInfo> | 是 | 回调函数，返回变化后的录音配置全量信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1667,24 +1464,20 @@ on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo
 
 **示例：**
 
-
-```ts
-import { audio } from '@kit.AudioKit';
+```text
+import { audio } from '@kit.AudioKit'
 
 let capturerChangeInfo: audio.AudioCapturerChangeInfo;
 
-avRecorder.on(
-  'audioCapturerChange',
-  (audioCapturerChangeInfo: audio.AudioCapturerChangeInfo) => {
-    console.info('audioCapturerChange called');
-    capturerChangeInfo = audioCapturerChangeInfo;
-  },
-);
+avRecorder.on('audioCapturerChange',  (audioCapturerChangeInfo: audio.AudioCapturerChangeInfo) => {
+  console.info('audioCapturerChange called');
+  capturerChangeInfo = audioCapturerChangeInfo;
+});
 ```
 
 
-## off('audioCapturerChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('audioCapturerChange')11+
 
 off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void
 
@@ -1694,23 +1487,21 @@ off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeIn
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 录音配置变化的回调类型，支持的事件：'audioCapturerChange'。 |
-| callback12+ | Callback&lt;[audio.AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)&gt; | 否 | 回调函数，返回变化后的录音配置全量信息。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。          从API version 12开始支持此参数。 |
+| callback12+ | Callback<audio.AudioCapturerChangeInfo> | 否 | 回调函数，返回变化后的录音配置全量信息。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。 从API version 12开始支持此参数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 avRecorder.off('audioCapturerChange');
 ```
 
 
-## on('photoAssetAvailable')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('photoAssetAvailable')12+
 
 on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>): void
 
@@ -1722,17 +1513,15 @@ on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 录像资源的回调类型，支持的事件：'photoAssetAvailable'。 |
-| callback | Callback&lt;[photoAccessHelper.PhotoAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset)&gt; | 是 | 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。 |
+| callback | Callback<photoAccessHelper.PhotoAsset> | 是 | 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1742,28 +1531,21 @@ on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>
 
 **示例：**
 
-
-```ts
+```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 let photoAsset: photoAccessHelper.PhotoAsset;
 
 // 例：处理photoAsset回调，保存video。
-async function saveVideo(
-  context: Context,
-  asset: photoAccessHelper.PhotoAsset,
-) {
-  console.info('saveVideo called');
+async function saveVideo(context: Context, asset: photoAccessHelper.PhotoAsset) {
+  console.info("saveVideo called");
   try {
     let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
-    let assetChangeRequest: photoAccessHelper.MediaAssetChangeRequest =
-      new photoAccessHelper.MediaAssetChangeRequest(asset);
+    let assetChangeRequest: photoAccessHelper.MediaAssetChangeRequest = new photoAccessHelper.MediaAssetChangeRequest(asset);
     assetChangeRequest.saveCameraPhoto();
     await phAccessHelper.applyChanges(assetChangeRequest);
     console.info('apply saveVideo successfully');
   } catch (err) {
-    console.error(
-      `apply saveVideo failed with error: ${err.code}, ${err.message}`,
-    );
+    console.error(`apply saveVideo failed with error: ${err.code}, ${err.message}`);
   }
 }
 // 注册photoAsset监听。
@@ -1780,8 +1562,8 @@ avRecorder.on('photoAssetAvailable', (asset: photoAccessHelper.PhotoAsset) => {
 ```
 
 
-## off('photoAssetAvailable')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('photoAssetAvailable')12+
 
 off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsset>): void
 
@@ -1791,16 +1573,14 @@ off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsse
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 录音配置变化的回调类型，支持的事件：'photoAssetAvailable'。 |
-| callback | Callback&lt;[photoAccessHelper.PhotoAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset)&gt; | 否 | 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。 |
+| callback | Callback<photoAccessHelper.PhotoAsset> | 否 | 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
+```text
 avRecorder.off('photoAssetAvailable');
 ```

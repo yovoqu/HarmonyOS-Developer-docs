@@ -17,6 +17,6 @@
 | 新增API | NA | 类名：global； API声明： declare interface PreviewConfiguration 差异内容： declare interface PreviewConfiguration | component/common.d.ts |
 | 新增API | NA | 类名：PreviewConfiguration； API声明：onlyForLifting?: boolean; 差异内容：onlyForLifting?: boolean; | component/common.d.ts |
 | 新增API | NA | 类名：PreviewConfiguration； API声明：delayCreating?: boolean; 差异内容：delayCreating?: boolean; | component/common.d.ts |
-| 新增API | NA | 类名：CommonMethod； API声明：onHoverMove(event: Callback<HoverEvent>): T; 差异内容：onHoverMove(event: Callback<HoverEvent>): T; | component/common.d.ts |
+| 新增API | NA | 类名：CommonMethod； API声明：onHoverMove(event: Callback&lt;HoverEvent&gt;): T; 差异内容：onHoverMove(event: Callback&lt;HoverEvent&gt;): T; | component/common.d.ts |
 | 新增API | NA | 类名：ScrollableCommonMethod； API声明：backToTop(backToTop: boolean): T; 差异内容：backToTop(backToTop: boolean): T; | component/common.d.ts |
 | 新增API | NA | 类名：TextMenuItemId； API声明：static readonly TRANSLATE: TextMenuItemId; 差异内容：static readonly TRANSLATE: TextMenuItemId; | component/text_common.d.ts |

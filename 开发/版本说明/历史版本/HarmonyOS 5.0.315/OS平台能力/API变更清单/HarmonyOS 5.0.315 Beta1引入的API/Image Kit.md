@@ -6,5 +6,5 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：image； API声明：function createPixelMapFromSurface(surfaceId: string): Promise<PixelMap>; 差异内容：function createPixelMapFromSurface(surfaceId: string): Promise<PixelMap>; | api/@ohos.multimedia.image.d.ts |
+| 新增API | NA | 类名：image； API声明：function createPixelMapFromSurface(surfaceId: string): Promise&lt;PixelMap&gt;; 差异内容：function createPixelMapFromSurface(surfaceId: string): Promise&lt;PixelMap&gt;; | api/@ohos.multimedia.image.d.ts |
 | 新增API | NA | 类名：image； API声明：function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap; 差异内容：function createPixelMapFromSurfaceSync(surfaceId: string): PixelMap; | api/@ohos.multimedia.image.d.ts |

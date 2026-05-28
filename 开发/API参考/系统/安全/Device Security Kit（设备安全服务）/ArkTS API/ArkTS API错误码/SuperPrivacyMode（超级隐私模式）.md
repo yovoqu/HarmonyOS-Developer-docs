@@ -4,12 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errcode-devicesecurity-superprivacy
 
-
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
 
-## 1006200001 通用错误
+
+##### 1006200001 通用错误
 
 **错误信息**
 
@@ -28,7 +28,8 @@ general error.
 请优先重试，若重试不成功，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)申请帮助。
 
 
-## 1006200002 内部错误
+
+##### 1006200002 内部错误
 
 **错误信息**
 
@@ -47,7 +48,8 @@ internal error.
 请优先重试，若重试不成功，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)申请帮助。
 
 
-## 1006200005 该设备不支持超级隐私模式
+
+##### 1006200005 该设备不支持超级隐私模式
 
 **错误信息**
 

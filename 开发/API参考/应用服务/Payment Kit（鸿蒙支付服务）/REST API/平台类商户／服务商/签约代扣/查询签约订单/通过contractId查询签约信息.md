@@ -1,43 +1,77 @@
 # 通过contractId查询签约信息
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-partner-withhold-query-contractid
 
-#### 功能介绍
+##### 功能介绍
+
 开发者可以调用此接口来查询所有通过华为支付签约成功的详细信息。
 
-#### 场景描述
+
+
+##### 场景描述
+
 存在签约关系前提下，开发者可以通过该接口查看某笔签约信息，也可以通过主动查询签约状态用以完成下一步的业务逻辑，常见的使用场景：
-- 支付时由于网络、服务器等异常未收到签约回调通知。
-- 调用签约接口返回未知签约状态时。
 
-#### 接口原型
-- 承载协议： HTTPS GET
-- 接口方向： 开发者服务器 -> 华为支付服务器
-- 接口URL： https://petalpay-developer.cloud.huawei.com.cn/api/v1/partner/contract/sign/contracts/{contractId}
-- 数据格式： 请求消息：Content-Type: application/json 响应消息：Content-Type: application/json
+ - 支付时由于网络、服务器等异常未收到签约回调通知。
+ - 调用签约接口返回未知签约状态时。
 
-#### 请求参数
-- Request Header
-- 参数 是否必选 参数类型 描述 Content-Type 是 String 取值为：application/json; charset=UTF-8   PayMercAuth 是 String 取值为：PayMercAuth的JSON字符串
-- Request path
-- 参数 是否必选 类型 说明 contractId 是 String 委托代扣协议ID，签约成功后回调接口中返回。
 
-#### 请求示例
 
-```ts
+
+##### 接口原型
+
+ - **承载协议：** HTTPS GET
+ - **接口方向：** 开发者服务器 -> 华为支付服务器
+ - **接口URL：** https://petalpay-developer.cloud.huawei.com.cn/api/v1/partner/contract/sign/contracts/{contractId}
+ - **数据格式：**
+
+  请求消息：Content-Type: application/json
+
+  响应消息：Content-Type: application/json
+
+
+
+
+##### 请求参数
+
+ - **Request Header**
+ - | 参数 | 是否必选 | 参数类型 | 描述 |
+
+| --- | --- | --- | --- |
+
+| Content-Type | 是 | String | 取值为：application/json; charset=UTF-8 |
+
+| PayMercAuth | 是 | String | 取值为：PayMercAuth的JSON字符串 |
+ - **Request path**
+ - | 参数 | 是否必选 | 类型 | 说明 |
+
+| --- | --- | --- | --- |
+
+| contractId | 是 | String | 委托代扣协议ID，签约成功后回调接口中返回。 |
+
+
+
+
+##### 请求示例
+
+```json
 GET /api/v1/partner/contract/sign/contracts/{contractId} HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 PayMercAuth: {"callerId":"10132120***","traceId":"202305151026422776499","time":1684117602555,"authId":"120291744647139***","headerSign":"u+H1Oe3fXV9mGCES89XA7tSjp8+TELYgG4bKyECwrVGwwExHtdWTnKc4WvEpfjLzpzKE2/+KYaq1jDH/+VmefC2********************g/lOG7eAFfwjEWJu5JyvY5KunSeE6DiKs=","bodySign":"yWDtXOBqDoItPgHmF57L6U5G7F/LhsILChu8YSpVV0HwRQCzdGAz53wDkCRLiAEVGDDu6E6KxPA********************0iUIFeaszpiRT2aQDaqLGaxvta6J5UxIUmAp+wGdV/juGEvQ="}
 ```
 
-#### 响应参数
+
+
+##### 响应参数
+
 **Response Header**
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | Content-Type | 是 | String | 取值为：application/json; charset=UTF-8 |
+
 
 **Response Body**
 
@@ -53,16 +87,19 @@ PayMercAuth: {"callerId":"10132120***","traceId":"202305151026422776499","time":
 | spAppId | 否 | String | 平台类商户/服务商关联的应用ID。 |
 | subAppId | 否 | String | 特约商户关联的应用ID。 说明： 平台子商户当前不支持绑定AppID，平台类商户请求传递该入参可能导致校验异常。 |
 | contractId | 否 | String | 委托代扣协议ID。 |
-| mercContractCode | 否 | String | 商户签约协议号。 |
-| planId | 否 | String | 协议模板ID。该模板ID是商户在向华为支付[提交代扣权限申请](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-password-free-pay-overview)时由华为支付生成。 |
+| mercContractCode | 否 | String | 商户签约协议号。开发者请求签约时传入的签约协议号，由商户生成，商户需保证字段唯一性。最大长度64。 |
+| planId | 否 | String | 协议模板ID。该模板ID是商户在向华为支付提交代扣权限申请时由华为支付生成。 |
 | signedTime | 否 | String | 签约时间，格式：yyyy-MM-dd hh:mm:ss。 |
 | expireDate | 否 | String | 签约过期时间，格式：yyyy-MM-dd。 |
 | signStatus | 否 | String | 签约状态。 1：已签约 9：已解约 |
-| payer | 否 | [PayerOut](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#payerout) | 用户支付时客户端信息。 |
+| payer | 否 | PayerOut | 用户支付时客户端信息。 |
 
-#### 响应示例
 
-```ts
+
+
+##### 响应示例
+
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
 {
@@ -77,10 +114,13 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-#### 错误码
+
+
+##### 错误码
+
 **resultCode**非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
 
-| **返回码** | **错误码** | **错误描述** | 解决方案 |
+| 返回码 | 错误码 | 错误描述 | 解决方案 |
 | --- | --- | --- | --- |
 | 400000 | UNKNOW_ERROR | 服务暂不可用，请稍后重试 | 稍后重试。 |
 | 400000 | CUST_NOT_EXIST | 用户不存在或已销户 | 请更换签约号重试。 |

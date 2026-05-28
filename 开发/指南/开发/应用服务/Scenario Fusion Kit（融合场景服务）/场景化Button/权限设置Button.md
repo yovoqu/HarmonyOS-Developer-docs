@@ -4,24 +4,36 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-permissiononsetting
 
-## 场景介绍
+##### 场景介绍
 
-权限设置Button可以帮助开发者调用对应Button组件，二次拉起权限设置弹框。 运行示例代码单击“请求用户授权”按钮触发首次权限设置弹框，选择“不允许”后，单击“权限设置”按钮拉起二次授权页面。
+权限设置Button可以帮助开发者调用对应Button组件，二次拉起权限设置弹框。
 
-## 约束与限制
+运行示例代码单击“请求用户授权”按钮触发首次权限设置弹框，选择“不允许”后，单击“权限设置”按钮拉起二次授权页面。
+
+
+
+##### 约束与限制
 
 权限设置Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
+
 > [!NOTE]
-> 仅支持UIAbility/UIExtensionAbility。 在调用此接口前，应用需要先调用requestPermissionsFromUser，如果用户在首次权限设置弹框时已授权，调用当前接口将无法拉起二次授权页面。
+> 仅支持UIAbility/UIExtensionAbility。 在调用此接口前，应用需要先调用 requestPermissionsFromUser ，如果用户在首次权限设置弹框时已授权，调用当前接口将无法拉起二次授权页面。
 
 
-## 前提条件
 
-调用[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9)接口，用户在首次权限设置弹框时拒绝授权。 参见[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-preparations)。
 
-## 开发步骤
+##### 前提条件
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+ - 调用[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9)接口，用户在首次权限设置弹框时拒绝授权。
+ - 参见[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-preparations)。
+
+
+
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { FunctionalButton, functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -29,8 +41,10 @@ import { abilityAccessCtrl, common, PermissionRequestResult } from '@kit.Ability
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
-```text
+2. 在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+
+  
+```json
 @Entry
 @Component
 struct Index {
@@ -99,6 +113,5 @@ struct Index {
 }
 ```
 
-
 > [!NOTE]
-> openType参数填写"functionalButtonComponentManager.OpenType.PERMISSION_SETTING"指定Button为权限设置类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onPermissionSetting"。 可使用自定义Modifier设置按钮样式，参考示例。 其他参数请参考：FunctionalButton（Button组件）。
+> openType参数填写"functionalButtonComponentManager.OpenType.PERMISSION_SETTING"指定Button为权限设置类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onPermissionSetting"。 可使用自定义Modifier设置按钮样式，参考 示例 。 其他参数请参考： FunctionalButton（Button组件） 。

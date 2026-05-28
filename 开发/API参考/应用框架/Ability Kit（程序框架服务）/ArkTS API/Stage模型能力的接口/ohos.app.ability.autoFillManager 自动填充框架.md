@@ -3,35 +3,32 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-autofillmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 autoFillManager模块为应用提供账号、密码、地址、电话号码等用户信息的自动填充能力。
 
 不同于页面切换时触发的系统自动保存功能，该功能需要由用户手动触发。例如用户在网站上输入了账号密码，并点击“保存”按钮，才能触发相应的自动保存操作。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 11 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 11 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { autoFillManager } from '@kit.AbilityKit';
 ```
 
 
-## AutoSaveCallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AutoSaveCallback
 
 当保存请求完成时所触发的回调接口。
 
 
-### onSuccess
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onSuccess
 
 onSuccess(): void
 
@@ -46,8 +43,8 @@ onSuccess(): void
 参见[AutoSaveCallback.onFailure](#onfailure)。
 
 
-### onFailure
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onFailure
 
 onFailure(): void
 
@@ -59,8 +56,7 @@ onFailure(): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // Index.ets, 含有账号、密码框等组件的页面
 import { autoFillManager } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
@@ -81,25 +77,25 @@ let callback: autoFillManager.AutoSaveCallback = {
 struct Index {
   build() {
     Button('requestAutoSave')
-    .onClick(() => {
-      try {
-        // 发起保存请求
-        autoFillManager.requestAutoSave(uiContext, callback);
-      } catch (error) {
-        console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
-      }
-    })
+      .onClick(() => {
+        try {
+          // 发起保存请求
+          autoFillManager.requestAutoSave(uiContext, callback);
+        } catch (error) {
+          console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
+        }
+      })
   }
 }
 ```
 
-
 > [!NOTE]
-> 示例中从AppStorage中取得的UiContext为预先在EntryAbility（拉起此页面的Ability）中OnWindowStageCreate生命周期获得，并存储到AppStorage中，具体可参考[requestAutoSave](#autofillmanagerrequestautosave)。
+> 示例中从AppStorage中取得的UiContext为预先在EntryAbility（拉起此页面的Ability）中OnWindowStageCreate生命周期获得，并存储到AppStorage中，具体可参考 requestAutoSave 。
 
 
-## autoFillManager.requestAutoSave
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### autoFillManager.requestAutoSave
 
 requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void
 
@@ -113,17 +109,15 @@ requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext) | 是 | 将在其中执行保存操作的UI上下文。 |
-| callback | [AutoSaveCallback](#autosavecallback) | 否 | 当保存请求完成时所触发的回调接口。 |
+| context | UIContext | 是 | 将在其中执行保存操作的UI上下文。 |
+| callback | AutoSaveCallback | 否 | 当保存请求完成时所触发的回调接口。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -133,8 +127,7 @@ requestAutoSave(context: UIContext, callback?: AutoSaveCallback): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility, common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -146,52 +139,34 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     let localStorageData: Record<string, string | common.UIAbilityContext> = {
-      message: 'AutoFill Page',
-      context: this.context,
+      'message': "AutoFill Page",
+      'context': this.context,
     };
     let storage = new LocalStorage(localStorageData);
     windowStage.loadContent('pages/Index', storage, (err, data) => {
       if (err && err.code) {
-        hilog.error(
-          0x0000,
-          'testTag',
-          'Failed to load the content. Cause: %{public}s',
-          JSON.stringify(err) ?? '',
-        );
+        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;
       }
       // Obtain the main window.
       windowStage.getMainWindow((err: BusinessError, data: window.Window) => {
         let errCode: number = err?.code;
         if (errCode) {
-          console.error(
-            'Failed to obtain the main window. Cause: ' + JSON.stringify(err),
-          );
+          console.error('Failed to obtain the main window. Cause: ' + JSON.stringify(err));
           return;
         }
-        console.info(
-          'Succeeded in obtaining the main window. Data: ' +
-            JSON.stringify(data),
-        );
+        console.info('Succeeded in obtaining the main window. Data: ' + JSON.stringify(data));
         // get UIContext instance.
-        let uiContext: UIContext = windowStage
-          .getMainWindowSync()
-          .getUIContext();
-        PersistentStorage.persistProp('uiContext', uiContext);
-      });
-      hilog.info(
-        0x0000,
-        'testTag',
-        'Succeeded in loading the content. Data: %{public}s',
-        JSON.stringify(data) ?? '',
-      );
+        let uiContext: UIContext = windowStage.getMainWindowSync().getUIContext();
+        PersistentStorage.persistProp("uiContext", uiContext);
+      })
+      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content. Data: %{public}s', JSON.stringify(data) ?? '');
     });
   }
 }
 ```
 
-
-```ts
+```ArkTS
 // Index.ets
 import { autoFillManager } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
@@ -204,29 +179,29 @@ struct Index {
     Row() {
       Column() {
         Text('Hello World')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
       }
 
       Button('requestAutoSave')
-      .onClick(() => {
-        let uiContext = AppStorage.get<UIContext>("uiContext");
-        console.info("uiContext: ", JSON.stringify(uiContext));
-        try {
-          // 发起保存请求
-          autoFillManager.requestAutoSave(uiContext, {
-            onSuccess: () => {
-              console.info(`save request on success.`);
-            },
-            onFailure: () => {
-              console.error(`save request on failure.`);
-            }
-          });
-        } catch (error) {
-          console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
-        }
-      })
-      .width('100%')
+        .onClick(() => {
+          let uiContext = AppStorage.get<UIContext>("uiContext");
+          console.info("uiContext: ", JSON.stringify(uiContext));
+          try {
+            // 发起保存请求
+            autoFillManager.requestAutoSave(uiContext, {
+              onSuccess: () => {
+                console.info(`save request on success.`);
+              },
+              onFailure: () => {
+                console.error(`save request on failure.`);
+              }
+            });
+          } catch (error) {
+            console.error(`catch error, code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}`);
+          }
+        })
+        .width('100%')
     }
     .height('100%')
   }

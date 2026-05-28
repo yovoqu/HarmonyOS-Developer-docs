@@ -3,38 +3,45 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaddelegate
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 下载任务的状态会通过该类的回调接口通知给用户。
-
-> [!NOTE] 说明
+ 
+> [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 11开始支持。 示例效果请以真机运行为准。
 
-#### 导入模块
+  
 
-```ts
+##### 导入模块
+
+```text
 import { webview } from '@kit.ArkWeb';
 ```
+ 
+  
 
-#### onBeforeDownload11+
+##### onBeforeDownload11+
+
 onBeforeDownload(callback: Callback&lt;WebDownloadItem&gt;): void
+ 
 下载开始前通知给用户，用户需要在此接口中调用WebDownloadItem.start("xxx")并提供下载路径，否则下载会一直处于PENDING状态。
+ 
+> [!NOTE]
+> 处于PENDING状态的下载任务会首先将文件保存至临时目录。在调用 WebDownloadItem.start 并指定目标路径后，临时文件将被重命名为目标文件名，未完成下载的部分会在调用WebDownloadItem.start并指定目标路径后直接下载到目标路径。若希望避免在调用WebDownloadItem.start前生成临时文件，可先通过 WebDownloadItem.cancel 来取消当前的下载任务，之后再使用 WebDownloadManager.resumeDownload 来恢复被取消的下载任务。
 
-> [!NOTE] 说明
-> 处于PENDING状态的下载任务会首先将文件保存至临时目录。在调用WebDownloadItem.start并指定目标路径后，临时文件将被重命名为目标文件名，未完成下载的部分会在调用WebDownloadItem.start并指定目标路径后直接下载到目标路径。若希望避免在调用WebDownloadItem.start前生成临时文件，可先通过WebDownloadItem.cancel来取消当前的下载任务，之后再使用WebDownloadManager.resumeDownload来恢复被取消的下载任务。
-
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<[WebDownloadItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem)> | 是 | 触发下载的回调。 |
-
+| callback | Callback&lt;WebDownloadItem&gt; | 是 | 触发下载的回调。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -119,21 +126,27 @@ struct WebComponent {
   }
 }
 ```
+ 
+  
 
-#### onDownloadUpdated11+
+##### onDownloadUpdated11+
+
 onDownloadUpdated(callback: Callback&lt;WebDownloadItem&gt;): void
+ 
 下载过程中的回调，通过该回调的参数可以了解下载进度等信息。
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<[WebDownloadItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem)> | 是 | 下载更新的回调。 |
-
+| callback | Callback&lt;WebDownloadItem&gt; | 是 | 下载更新的回调。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -218,21 +231,27 @@ struct WebComponent {
   }
 }
 ```
+ 
+  
 
-#### onDownloadFinish11+
+##### onDownloadFinish11+
+
 onDownloadFinish(callback: Callback&lt;WebDownloadItem&gt;): void
+ 
 下载完成的通知。
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<[WebDownloadItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem)> | 是 | 下载完成的回调。 |
-
+| callback | Callback&lt;WebDownloadItem&gt; | 是 | 下载完成的回调。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -317,21 +336,27 @@ struct WebComponent {
   }
 }
 ```
+ 
+  
 
-#### onDownloadFailed11+
+##### onDownloadFailed11+
+
 onDownloadFailed(callback: Callback&lt;WebDownloadItem&gt;): void
+ 
 下载失败的通知。
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback<[WebDownloadItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloaditem)> | 是 | 下载失败的回调。 |
-
+| callback | Callback&lt;WebDownloadItem&gt; | 是 | 下载失败的回调。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';

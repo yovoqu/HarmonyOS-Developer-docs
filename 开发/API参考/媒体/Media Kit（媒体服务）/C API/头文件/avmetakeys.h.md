@@ -3,33 +3,30 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetakeys-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义音视频元数据键。
-
+ 
 **引用文件：** <multimedia/player_framework/avmetakeys.h>
-
+ 
 **库：** libavmedia_base.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.Core
-
+ 
 **起始版本：** 23
-
+ 
 **相关模块：** [AVMediaBase](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmediabase)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 变量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | const char * OH_AVMETA_KEY_TRACK_INDEX | 轨道索引，值类型为int32_t。 起始版本： 23 |

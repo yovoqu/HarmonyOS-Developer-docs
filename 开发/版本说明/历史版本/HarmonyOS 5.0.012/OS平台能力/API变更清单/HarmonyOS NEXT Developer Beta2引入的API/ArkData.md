@@ -16,14 +16,14 @@
 | 自定义类型变更 | 类名：unifiedDataChannel； API声明：type ValueType = number \| string \| image.PixelMap \| Want \| ArrayBuffer; 差异内容：number \| string \| image.PixelMap \| Want \| ArrayBuffer | 类名：unifiedDataChannel； API声明：type ValueType = number \| string \| boolean \| image.PixelMap \| Want \| ArrayBuffer \| object \| null \| undefined; 差异内容：number \| string \| boolean \| image.PixelMap \| Want \| ArrayBuffer \| object \| null \| undefined | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：StoreConfig； API声明：isReadOnly?: boolean; 差异内容：isReadOnly?: boolean; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：relationalStore； API声明： interface SqlExecutionInfo 差异内容： interface SqlExecutionInfo | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：SqlExecutionInfo； API声明：sql: Array<string>; 差异内容：sql: Array<string>; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：SqlExecutionInfo； API声明：sql: Array&lt;string&gt;; 差异内容：sql: Array&lt;string&gt;; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：SqlExecutionInfo； API声明：totalTime: number; 差异内容：totalTime: number; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：SqlExecutionInfo； API声明：waitTime: number; 差异内容：waitTime: number; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：SqlExecutionInfo； API声明：prepareTime: number; 差异内容：prepareTime: number; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：SqlExecutionInfo； API声明：executeTime: number; 差异内容：executeTime: number; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：RebuildType； API声明：REPAIRED 差异内容：REPAIRED | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：on(event: 'statistics', observer: Callback<SqlExecutionInfo>): void; 差异内容：on(event: 'statistics', observer: Callback<SqlExecutionInfo>): void; | api/@ohos.data.relationalStore.d.ts |
-| 新增API | NA | 类名：RdbStore； API声明：off(event: 'statistics', observer?: Callback<SqlExecutionInfo>): void; 差异内容：off(event: 'statistics', observer?: Callback<SqlExecutionInfo>): void; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：on(event: 'statistics', observer: Callback&lt;SqlExecutionInfo&gt;): void; 差异内容：on(event: 'statistics', observer: Callback&lt;SqlExecutionInfo&gt;): void; | api/@ohos.data.relationalStore.d.ts |
+| 新增API | NA | 类名：RdbStore； API声明：off(event: 'statistics', observer?: Callback&lt;SqlExecutionInfo&gt;): void; 差异内容：off(event: 'statistics', observer?: Callback&lt;SqlExecutionInfo&gt;): void; | api/@ohos.data.relationalStore.d.ts |
 | 新增API | NA | 类名：UniformDataType； API声明：XHTML = 'general.xhtml' 差异内容：XHTML = 'general.xhtml' | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 新增API | NA | 类名：UniformDataType； API声明：RSS = 'general.rss' 差异内容：RSS = 'general.rss' | api/@ohos.data.uniformTypeDescriptor.d.ts |
 | 新增API | NA | 类名：UniformDataType； API声明：CSS = 'general.css' 差异内容：CSS = 'general.css' | api/@ohos.data.uniformTypeDescriptor.d.ts |

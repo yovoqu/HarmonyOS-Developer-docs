@@ -1,87 +1,152 @@
 # 查询需要用户认证的关键资产(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-query-auth
 
-## 接口介绍
+##### 接口介绍
 
 可通过API文档查看此功能的相关接口：
+
 | 异步接口 | 同步接口 | 说明 |
 | --- | --- | --- |
-| [preQuery(query: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetprequery) | [preQuerySync(query: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetprequerysync12) | 查询预处理。 |
-| [query(query: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetquery) | [querySync(query: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetquerysync12) | 查询关键资产。 |
-| [postQuery(handle: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetpostquery) | [postQuerySync(handle: AssetMap)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#assetpostquerysync12) | 查询后置处理。 |
+| preQuery(query: AssetMap) | preQuerySync(query: AssetMap) | 查询预处理。 |
+| query(query: AssetMap) | querySync(query: AssetMap) | 查询关键资产。 |
+| postQuery(handle: AssetMap) | postQuerySync(handle: AssetMap) | 查询后置处理。 |
+
 
 查询需要用户认证的关键资产时，关键资产属性的内容（AssetMap）参数如下表所示：
-![](assets/查询需要用户认证的关键资产(ArkTS)
-/file-20260514131037298-0.png) 下表中“ALIAS”和名称包含“DATA_LABEL”的关键资产属性，用于存储业务自定义信息，其内容不会被加密，请勿存放敏感个人数据。 **preQuery参数列表**
+
+
+![](assets/查询需要用户认证的关键资产(ArkTS)/file-20260514131037298-0.png)
+
+
+下表中“ALIAS”和名称包含“DATA_LABEL”的关键资产属性，用于存储业务自定义信息，其内容不会被加密，请勿存放敏感个人数据。
+
+
+
+ - **preQuery参数列表**
+
 | 属性名称（Tag） | 属性内容（Value） | 是否必选 | 说明 |
+
 | --- | --- | --- | --- |
+
 | ALIAS | 类型为Uint8Array，长度为1-256字节。 | 可选 | 关键资产别名，每条关键资产的唯一索引。 |
-| ACCESSIBILITY | 类型为number，取值范围详见[Accessibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#accessibility)。 | 可选 | 基于锁屏状态的访问控制。 |
+
+| ACCESSIBILITY | 类型为number，取值范围详见Accessibility。 | 可选 | 基于锁屏状态的访问控制。 |
+
 | REQUIRE_PASSWORD_SET | 类型为boolean。 | 可选 | 是否仅在设置了锁屏密码的情况下，可访问关键资产。为true时表示查询仅用户设置了锁屏密码才允许访问的关键资产；为false时表示查询无论用户是否设置锁屏密码，均可访问的关键资产。 |
-| AUTH_TYPE | 类型为number，取值范围详见[AuthType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#authtype)。 | 可选 | 访问关键资产所需的用户认证类型。 |
+
+| AUTH_TYPE | 类型为number，取值范围详见AuthType。 | 可选 | 访问关键资产所需的用户认证类型。 |
+
 | AUTH_VALIDITY_PERIOD | 类型为number，取值范围：1-600，单位为秒。 | 可选 | 用户认证的有效期，默认值为60。 |
-| SYNC_TYPE | 类型为number，取值范围详见[SyncType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#synctype)。 | 可选 | 关键资产支持的同步类型。 |
-| IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示查询应用卸载后会被保留的关键资产；为false时表示查询应用卸载后会被删除的关键资产。 |
-| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_LOCAL_112+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| DATA_LABEL_NORMAL_LOCAL_212+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| DATA_LABEL_NORMAL_LOCAL_312+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| DATA_LABEL_NORMAL_LOCAL_412+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| REQUIRE_ATTR_ENCRYPTED14+ | 类型为boolean。 | 可选 | 是否查询业务自定义附属信息被加密的数据。为true时表示查询业务自定义附属信息加密存储的数据，为false时表示查询业务自定义附属信息不加密存储的数据。默认值为false。 |
-| GROUP_ID18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待查询的关键资产所属群组，默认查询不属于任何群组的关键资产。 |
 
-**query参数列表**
+| SYNC_TYPE | 类型为number，取值范围详见SyncType。 | 可选 | 关键资产支持的同步类型。 |
+
+| IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示查询应用卸载后会被保留的关键资产；为false时表示查询应用卸载后会被删除的关键资产。 |
+
+| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_LOCAL_112+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| DATA_LABEL_NORMAL_LOCAL_212+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| DATA_LABEL_NORMAL_LOCAL_312+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| DATA_LABEL_NORMAL_LOCAL_412+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| REQUIRE_ATTR_ENCRYPTED14+ | 类型为boolean。 | 可选 | 是否查询业务自定义附属信息被加密的数据。为true时表示查询业务自定义附属信息加密存储的数据，为false时表示查询业务自定义附属信息不加密存储的数据。默认值为false。 |
+
+| GROUP_ID18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待查询的关键资产所属群组，默认查询不属于任何群组的关键资产。 |
+ - **query参数列表**
+
 | 属性名称（Tag） | 属性内容（Value） | 是否必选 | 说明 |
+
 | --- | --- | --- | --- |
+
 | ALIAS | 类型为Uint8Array，长度为1-256字节。 | 必选 | 关键资产别名，每条关键资产的唯一索引。 |
-| AUTH_CHALLENGE | 类型为Uint8Array，长度为32字节。 | 必选 | 用户认证的挑战值。 |
-| AUTH_TOKEN | 类型为Uint8Array。            API 20开始：长度为1-1024字节。            API 11-19：长度为148字节。 | 必选 | 用户认证通过的授权令牌。 |
-| RETURN_TYPE | 类型为number，asset.ReturnType.ALL。 | 必选 | 关键资产查询返回的结果类型。 |
-| ACCESSIBILITY | 类型为number，取值范围详见[Accessibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#accessibility)。 | 可选 | 基于锁屏状态的访问控制。 |
-| REQUIRE_PASSWORD_SET | 类型为boolean。 | 可选 | 是否仅在设置了锁屏密码的情况下，可访问关键资产。为true时表示查询仅用户设置了锁屏密码才允许访问的关键资产；为false时表示查询无论用户是否设置锁屏密码，均可访问的关键资产。 |
-| AUTH_TYPE | 类型为number，取值范围详见[AuthType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#authtype)。 | 可选 | 访问关键资产所需的用户认证类型。 |
-| SYNC_TYPE | 类型为number，取值范围详见[SyncType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#synctype)。 | 可选 | 关键资产支持的同步类型。 |
-| IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示查询应用卸载后会被保留的关键资产；为false时表示查询应用卸载后会被删除的关键资产。 |
-| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。            说明： API12前长度为1-512字节。 |
-| DATA_LABEL_NORMAL_LOCAL_112+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| DATA_LABEL_NORMAL_LOCAL_212+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| DATA_LABEL_NORMAL_LOCAL_312+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| DATA_LABEL_NORMAL_LOCAL_412+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
-| REQUIRE_ATTR_ENCRYPTED14+ | 类型为boolean。 | 可选 | 是否查询业务自定义附属信息被加密的数据。为true时表示查询业务自定义附属信息加密存储的数据，为false时表示查询业务自定义附属信息不加密存储的数据。默认值为false。 |
-| GROUP_ID18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待查询的关键资产所属群组，默认查询不属于任何群组的关键资产。 |
 
-**postQuery参数列表**
-| 属性名称（Tag） | 属性内容（Value） | 是否必选 | 说明 |
-| --- | --- | --- | --- |
 | AUTH_CHALLENGE | 类型为Uint8Array，长度为32字节。 | 必选 | 用户认证的挑战值。 |
+
+| AUTH_TOKEN | 类型为Uint8Array。 API 20开始：长度为1-1024字节。 API 11-19：长度为148字节。 | 必选 | 用户认证通过的授权令牌。 |
+
+| RETURN_TYPE | 类型为number，asset.ReturnType.ALL。 | 必选 | 关键资产查询返回的结果类型。 |
+
+| ACCESSIBILITY | 类型为number，取值范围详见Accessibility。 | 可选 | 基于锁屏状态的访问控制。 |
+
+| REQUIRE_PASSWORD_SET | 类型为boolean。 | 可选 | 是否仅在设置了锁屏密码的情况下，可访问关键资产。为true时表示查询仅用户设置了锁屏密码才允许访问的关键资产；为false时表示查询无论用户是否设置锁屏密码，均可访问的关键资产。 |
+
+| AUTH_TYPE | 类型为number，取值范围详见AuthType。 | 可选 | 访问关键资产所需的用户认证类型。 |
+
+| SYNC_TYPE | 类型为number，取值范围详见SyncType。 | 可选 | 关键资产支持的同步类型。 |
+
+| IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示查询应用卸载后会被保留的关键资产；为false时表示查询应用卸载后会被删除的关键资产。 |
+
+| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+
+| DATA_LABEL_NORMAL_LOCAL_112+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| DATA_LABEL_NORMAL_LOCAL_212+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| DATA_LABEL_NORMAL_LOCAL_312+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| DATA_LABEL_NORMAL_LOCAL_412+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
+
+| REQUIRE_ATTR_ENCRYPTED14+ | 类型为boolean。 | 可选 | 是否查询业务自定义附属信息被加密的数据。为true时表示查询业务自定义附属信息加密存储的数据，为false时表示查询业务自定义附属信息不加密存储的数据。默认值为false。 |
+
+| GROUP_ID18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待查询的关键资产所属群组，默认查询不属于任何群组的关键资产。 |
+ - **postQuery参数列表**
+
+| 属性名称（Tag） | 属性内容（Value） | 是否必选 | 说明 |
+
+| --- | --- | --- | --- |
+
+| AUTH_CHALLENGE | 类型为Uint8Array，长度为32字节。 | 必选 | 用户认证的挑战值。 |
+
 | GROUP_ID18+ | 类型为Uint8Array，长度为7-127字节。 | 可选 | 待清理关键资产所属群组，默认清理内存中不属于任何群组的关键资产。 |
 
 
-## 代码示例
 
+
+##### 代码示例
 
 > [!NOTE]
-> 本模块提供了异步和同步两套接口，以下为异步接口的使用示例，同步接口详见@ohos.security.asset (关键资产存储服务)。 在查询前，需确保已有需要用户认证的关键资产，可参考指南文档新增关键资产，否则将抛出NOT_FOUND错误（错误码24000002）。
+> 本模块提供了异步和同步两套接口，以下为异步接口的使用示例，同步接口详见 @ohos.security.asset (关键资产存储服务) 。 在查询前，需确保已有需要用户认证的关键资产，可参考 指南文档 新增关键资产，否则将抛出NOT_FOUND错误（错误码24000002）。
 
-查询别名是demo_alias且需要用户认证的关键资产。示例中引入的@ohos.userIAM.userAuth用法详见userAuth文档中的[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-useriam-userauth#start10)接口。 引用头文件，定义工具函数。
-```text
+
+查询别名是demo_alias且需要用户认证的关键资产。示例中引入的@ohos.userIAM.userAuth用法详见userAuth文档中的[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-useriam-userauth#start10)接口。
+1. 引用头文件，定义工具函数。
+
+  
+```ArkTS
 import { asset } from '@kit.AssetStoreKit';
 import { util } from '@kit.ArkTS';
 import { userAuth } from '@kit.UserAuthenticationKit';
@@ -99,9 +164,11 @@ function arrayToString(arr: Uint8Array): string {
 }
 ```
 
-参考如下示例代码，进行业务功能开发。
-```text
-async function userAuthenticate(challenge: Uint8Array): Promise {
+2. 参考如下示例代码，进行业务功能开发。
+
+  
+```ArkTS
+async function userAuthenticate(challenge: Uint8Array): Promise<Uint8Array> {
   return new Promise((resolve, reject) => {
     const authParam: userAuth.AuthParam = {
       challenge: challenge,
@@ -131,7 +198,7 @@ async function userAuthenticate(challenge: Uint8Array): Promise {
   })
 }
 
-function preQueryAsset(): Promise {
+function preQueryAsset(): Promise<Uint8Array> {
   return new Promise((resolve, reject) => {
     try {
       let query: asset.AssetMap = new Map();
@@ -161,7 +228,7 @@ async function postQueryAsset(challenge: Uint8Array) {
   }
 }
 
-export async function queryUserAuthAsset(): Promise {
+export async function queryUserAuthAsset(): Promise<string> {
   let result: string = '';
   // step1. 调用asset.preQuery获取挑战值。
   await preQueryAsset().then(async (challenge: Uint8Array) => {
@@ -175,7 +242,21 @@ export async function queryUserAuthAsset(): Promise {
       query.set(asset.Tag.AUTH_CHALLENGE, challenge);
       query.set(asset.Tag.AUTH_TOKEN, authToken);
       let res: asset.AssetMap[] = await asset.query(query);
-      for (let i = 0; i  {
+      for (let i = 0; i < res.length; i++) {
+        // 解析secret。
+        let secret: Uint8Array = res[i].get(asset.Tag.SECRET) as Uint8Array;
+        // 将Uint8Array转换为string类型。
+        let secretStr: string = arrayToString(secret);
+      }
+      // step4. 关键资产明文查询成功后，需要调用asset.postQuery进行查询的后置处理。
+      postQueryAsset(challenge);
+      result = 'Succeeded in querying user-auth Asset';
+    } catch (error) {
+      // step5. preQuery成功，后续操作失败，也需要调用asset.postQuery进行查询的后置处理。
+      postQueryAsset(challenge);
+      result = 'Failed to query user-auth Asset';
+    }
+  }).catch((err: BusinessError) => {
     console.error(`Failed to pre-query Asset. Code is ${err.code}, message is ${err.message}`);
     result = 'Failed to query user-auth Asset';
   })

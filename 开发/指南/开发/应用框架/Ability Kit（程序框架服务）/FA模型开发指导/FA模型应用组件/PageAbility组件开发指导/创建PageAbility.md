@@ -5,8 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-pageability
 
 通过DevEco Studio开发平台创建PageAbility时，DevEco Studio会在app.js/app.ets中默认生成onCreate()和onDestroy()方法，其他方法需要开发者自行实现。接口说明参见[PageAbility的生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pageability-lifecycle)，创建PageAbility示例如下：
-
-
+ 
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
 import hilog from '@ohos.hilog';
@@ -51,11 +50,10 @@ class MainAbility {
 
 export default new MainAbility();
 ```
-
- PageAbility创建成功后，其abilities相关的配置项在config.json中体现，一个名字为EntryAbility的config.json配置文件示例如下：
-
-
-```text
+ 
+PageAbility创建成功后，其abilities相关的配置项在config.json中体现，一个名字为EntryAbility的config.json配置文件示例如下：
+ 
+```json
 {
   "module": {
     "abilities": [
@@ -86,19 +84,18 @@ export default new MainAbility();
   }
 }
 ```
-
- [FA模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#fa模型)中，可以通过featureAbility的getContext接口获取应用上下文，进而使用上下文提供的能力。
-
-**表1** featureAbility接口说明
-
-
+ 
+[FA模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#fa模型)中，可以通过featureAbility的getContext接口获取应用上下文，进而使用上下文提供的能力。
+ 
+ **表1** featureAbility接口说明
+  
 | 接口名 | 接口描述 |
 | --- | --- |
 | getContext() | 获取应用上下文。 |
-
+ 
+ 
 通过getContext获取应用上下文并获取分布式目录的示例如下：
-
-
+ 
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
 import fileIo from '@ohos.file.fs';
@@ -108,10 +105,9 @@ import hilog from '@ohos.hilog';
 const TAG: string = 'PagePageAbilityFirst';
 const domain: number = 0xFF00;
 ```
-
-
+ 
 ```text
-(async (): Promise => {
+(async (): Promise<void> => {
   let dir: string;
   try {
     hilog.info(domain, TAG, 'Begin to getOrCreateDistributedDir');

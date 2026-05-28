@@ -5,27 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_default-param-last
 
 强制默认参数位于参数列表的最后一个。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/default-param-last": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 const defaultValue = 0;
@@ -45,10 +46,10 @@ export function f5(a: number, b = defaultValue, c?: number) {
   return c !== undefined ? a + c : a + b;
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 const defaultValue = 0;
@@ -62,13 +63,13 @@ export function f4(b?: number, a: number, c = defaultValue) {
   return b !== undefined ? a + b + c : a + c;
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

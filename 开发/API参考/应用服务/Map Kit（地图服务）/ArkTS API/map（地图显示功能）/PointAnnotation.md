@@ -3,28 +3,31 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable
+##### 导入模块
 
-#### 导入模块
-
-```ts
+```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
+ 
+  
 
-#### PointAnnotation
+##### PointAnnotation
+
 点注释，继承[BasePriorityOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-basepriorityoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addPointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addpointannotation)方法时会返回该类型的实例。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 let pointAnnotationOptions: mapCommon.PointAnnotationParams = {
   position: {
     latitude: 32.120750,
@@ -38,73 +41,91 @@ let pointAnnotationOptions: mapCommon.PointAnnotationParams = {
 };
 let pointAnnotation: map.PointAnnotation = await this.mapController.addPointAnnotation(pointAnnotationOptions);
 ```
+ 
+  
 
-#### getPosition
+##### getPosition
+
 getPosition(): mapCommon.LatLng
+ 
 获取点注释的锚点坐标。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 点注释的锚点坐标。 |
-
+| mapCommon.LatLng | 点注释的锚点坐标。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let position: mapCommon.LatLng = pointAnnotation.getPosition();
 ```
+ 
+  
 
-#### getTitleText
+##### getTitleText
+
 getTitleText(): mapCommon.Text
+ 
 获取点注释第一标题的属性。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [mapCommon.Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#text) | 获取点注释第一标题的属性。 |
-
+| mapCommon.Text | 获取点注释第一标题的属性。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let titleText: mapCommon.Text = pointAnnotation.getTitleText();
 ```
+ 
+  
 
-#### setTitleText
+##### setTitleText
+
 setTitleText(text: mapCommon.Text): void
+ 
 设置第一标题属性（除content）。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | [mapCommon.Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#text) | 是 | 第一标题属性（除content），异常值不处理。 说明： 约束条件：fontSize、strokeWidth大于等于0。 |
-
+| text | mapCommon.Text | 是 | 第一标题属性（除content），异常值不处理。 说明： 约束条件：fontSize、strokeWidth大于等于0。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 // 以pointAnnotation为例
 pointAnnotation.setTitleText({
   content: '',
@@ -115,27 +136,33 @@ pointAnnotation.setTitleText({
   fontStyle: mapCommon.FontStyle.BOLD_ITALIC
 });
 ```
+ 
+  
 
-#### setTitleAnimation
+##### setTitleAnimation
+
 setTitleAnimation(animation: FontSizeAnimation): void
+ 
 设置点注释的标题动画。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-| 参数名 | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| animation | [FontSizeAnimation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-fontsizeanimation) | 是 | 点注释的标题动画。 |
-
+| animation | FontSizeAnimation | 是 | 点注释的标题动画。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let animation: map.FontSizeAnimation = new map.FontSizeAnimation(5, 25);
 animation.setDuration(3000);
 animation.on("start",() => {
@@ -155,20 +182,25 @@ animation.setRepeatCount(100);
 pointAnnotation.setTitleAnimation(animation);
 pointAnnotation.startTitleAnimation();
 ```
+ 
+  
 
-#### startTitleAnimation
+##### startTitleAnimation
+
 startTitleAnimation(): void
+ 
 启动点注释的标题动画。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 pointAnnotation.startTitleAnimation();
 ```

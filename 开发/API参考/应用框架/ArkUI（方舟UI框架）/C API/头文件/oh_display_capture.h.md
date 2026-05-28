@@ -3,11 +3,9 @@
 更新时间：2026-04-29 07:35:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-capture-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供屏幕截屏的能力。
 
@@ -22,26 +20,25 @@
 **相关模块：** [OH_DisplayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-displaymanager)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CaptureScreenPixelmap(uint32_t displayId,OH_PixelmapNative **pixelMap)](#oh_nativedisplaymanager_capturescreenpixelmap) | 获取屏幕全屏截图，可以通过设置不同的屏幕id号截取不同屏幕的截图。 |
+| NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CaptureScreenPixelmap(uint32_t displayId,OH_PixelmapNative **pixelMap) | 获取屏幕全屏截图，可以通过设置不同的屏幕id号截取不同屏幕的截图。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### OH_NativeDisplayManager_CaptureScreenPixelmap()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### OH_NativeDisplayManager_CaptureScreenPixelmap()
 
 ```text
 NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CaptureScreenPixelmap(uint32_t displayId,OH_PixelmapNative **pixelMap)
@@ -53,9 +50,9 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CaptureScreenPixelmap(uin
 
 **需要权限：**
 
+ - API版本22+：ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING
+ - API版本14-21：ohos.permission.CUSTOM_SCREEN_CAPTURE
 
-- API版本22+：ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CUSTOM_SCREEN_RECORDING
-- API版本14-21：ohos.permission.CUSTOM_SCREEN_CAPTURE
 
 **起始版本：** 14
 
@@ -63,16 +60,14 @@ NativeDisplayManager_ErrorCode OH_NativeDisplayManager_CaptureScreenPixelmap(uin
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | uint32_t displayId | 需要截屏的屏幕id号，该值为非负整数。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelMap | 创建指定屏幕id的OH_PixelmapNative对象，此处作为出参返回。 |
+| OH_PixelmapNative **pixelMap | 创建指定屏幕id的OH_PixelmapNative对象，此处作为出参返回。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [NativeDisplayManager_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-info-h#nativedisplaymanager_errorcode) | 返回屏幕管理接口的通用状态码，具体可见[NativeDisplayManager_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-display-info-h#nativedisplaymanager_errorcode)。 |
+| NativeDisplayManager_ErrorCode | 返回屏幕管理接口的通用状态码，具体可见NativeDisplayManager_ErrorCode。 |

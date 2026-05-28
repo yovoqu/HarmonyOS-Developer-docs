@@ -8,4 +8,4 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace eSIM 差异内容： declare namespace eSIM | api/@ohos.telephony.esim.d.ts |
 | 新增API | NA | 类名：eSIM； API声明：function isSupported(slotId: number): boolean; 差异内容：function isSupported(slotId: number): boolean; | api/@ohos.telephony.esim.d.ts |
-| 新增API | NA | 类名：eSIM； API声明：function addProfile(profile: DownloadableProfile): Promise<boolean>; 差异内容：function addProfile(profile: DownloadableProfile): Promise<boolean>; | api/@ohos.telephony.esim.d.ts |
+| 新增API | NA | 类名：eSIM； API声明：function addProfile(profile: DownloadableProfile): Promise&lt;boolean&gt;; 差异内容：function addProfile(profile: DownloadableProfile): Promise&lt;boolean&gt;; | api/@ohos.telephony.esim.d.ts |

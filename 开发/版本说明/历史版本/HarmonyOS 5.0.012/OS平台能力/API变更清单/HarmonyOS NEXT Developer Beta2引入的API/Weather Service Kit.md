@@ -7,7 +7,7 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace weatherService 差异内容： declare namespace weatherService | api/@hms.core.weather.d.ts |
-| 新增API | NA | 类名：weatherService； API声明：function getWeather(request: WeatherRequest): Promise<Weather>; 差异内容：function getWeather(request: WeatherRequest): Promise<Weather>; | api/@hms.core.weather.d.ts |
+| 新增API | NA | 类名：weatherService； API声明：function getWeather(request: WeatherRequest): Promise&lt;Weather&gt;; 差异内容：function getWeather(request: WeatherRequest): Promise&lt;Weather&gt;; | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：weatherService； API声明： interface WeatherRequest 差异内容： interface WeatherRequest | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：WeatherRequest； API声明：location: Location; 差异内容：location: Location; | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：WeatherRequest； API声明：limitedDatasets?: Dataset[]; 差异内容：limitedDatasets?: Dataset[]; | api/@hms.core.weather.d.ts |
@@ -16,9 +16,9 @@
 | 新增API | NA | 类名：Location； API声明：longitude: number; 差异内容：longitude: number; | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：weatherService； API声明： interface Weather 差异内容： interface Weather | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：Weather； API声明：current?: CurrentWeather; 差异内容：current?: CurrentWeather; | api/@hms.core.weather.d.ts |
-| 新增API | NA | 类名：Weather； API声明：daily?: Forecast<DailyWeather>; 差异内容：daily?: Forecast<DailyWeather>; | api/@hms.core.weather.d.ts |
-| 新增API | NA | 类名：Weather； API声明：hourly?: Forecast<HourlyWeather>; 差异内容：hourly?: Forecast<HourlyWeather>; | api/@hms.core.weather.d.ts |
-| 新增API | NA | 类名：Weather； API声明：minute?: Forecast<MinuteWeather>; 差异内容：minute?: Forecast<MinuteWeather>; | api/@hms.core.weather.d.ts |
+| 新增API | NA | 类名：Weather； API声明：daily?: Forecast&lt;DailyWeather&gt;; 差异内容：daily?: Forecast&lt;DailyWeather&gt;; | api/@hms.core.weather.d.ts |
+| 新增API | NA | 类名：Weather； API声明：hourly?: Forecast&lt;HourlyWeather&gt;; 差异内容：hourly?: Forecast&lt;HourlyWeather&gt;; | api/@hms.core.weather.d.ts |
+| 新增API | NA | 类名：Weather； API声明：minute?: Forecast&lt;MinuteWeather&gt;; 差异内容：minute?: Forecast&lt;MinuteWeather&gt;; | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：Weather； API声明：alerts?: WeatherAlert[]; 差异内容：alerts?: WeatherAlert[]; | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：Weather； API声明：indices?: WeatherIndex[]; 差异内容：indices?: WeatherIndex[]; | api/@hms.core.weather.d.ts |
 | 新增API | NA | 类名：Weather； API声明：tides?: Tide[]; 差异内容：tides?: Tide[]; | api/@hms.core.weather.d.ts |

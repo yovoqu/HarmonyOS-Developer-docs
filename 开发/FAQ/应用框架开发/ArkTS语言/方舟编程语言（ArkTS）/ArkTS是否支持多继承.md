@@ -5,8 +5,8 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-95
 
 接口支持多继承，类仅支持单继承。示例如下：
-
-```ts
+ 
+```ArkTS
 class TestClassA {
   address: string = '';
 }

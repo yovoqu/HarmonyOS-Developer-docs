@@ -3,11 +3,9 @@
 更新时间：2026-03-27 08:08:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 提供标准化数据结构相关接口函数、结构体定义。当参数类型为char*时，字符串必须以空字符（'\0'）结尾。
 
@@ -22,129 +20,128 @@
 **相关模块：** [UDMF](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext) | OH_UdsPlainText | 描述纯文本类型数据的统一数据结构。 |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink) | OH_UdsHyperlink | 描述超链接类型的统一数据结构。 |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml) | OH_UdsHtml | 描述超文本标记语言类型的统一数据结构。 |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem) | OH_UdsAppItem | 描述桌面图标类型的统一数据结构。 |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri) | OH_UdsFileUri | 描述文件Uri类型的统一数据结构。 |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap) | OH_UdsPixelMap | 描述像素图片类型的统一数据结构。 |
-| [OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer) | OH_UdsArrayBuffer | 描述ArrayBuffer类型的统一数据结构。 |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform) | OH_UdsContentForm | 描述内容卡片类型的统一数据结构。 |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails) | OH_UdsDetails | 描述字典类型的统一数据结构。 |
+| OH_UdsPlainText | OH_UdsPlainText | 描述纯文本类型数据的统一数据结构。 |
+| OH_UdsHyperlink | OH_UdsHyperlink | 描述超链接类型的统一数据结构。 |
+| OH_UdsHtml | OH_UdsHtml | 描述超文本标记语言类型的统一数据结构。 |
+| OH_UdsAppItem | OH_UdsAppItem | 描述桌面图标类型的统一数据结构。 |
+| OH_UdsFileUri | OH_UdsFileUri | 描述文件Uri类型的统一数据结构。 |
+| OH_UdsPixelMap | OH_UdsPixelMap | 描述像素图片类型的统一数据结构。 |
+| OH_UdsArrayBuffer | OH_UdsArrayBuffer | 描述ArrayBuffer类型的统一数据结构。 |
+| OH_UdsContentForm | OH_UdsContentForm | 描述内容卡片类型的统一数据结构。 |
+| OH_UdsDetails | OH_UdsDetails | 描述字典类型的统一数据结构。 |
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### 函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText* OH_UdsPlainText_Create()](#oh_udsplaintext_create) | 创建纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)指针及实例对象。当不再需要使用指针时，请使用[OH_UdsPlainText_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udsplaintext_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [void OH_UdsPlainText_Destroy(OH_UdsPlainText* pThis)](#oh_udsplaintext_destroy) | 销毁纯文本类型数据[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)指针指向的实例对象。 |
-| [const char* OH_UdsPlainText_GetType(OH_UdsPlainText* pThis)](#oh_udsplaintext_gettype) | 从纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)中获取类型ID。 |
-| [const char* OH_UdsPlainText_GetContent(OH_UdsPlainText* pThis)](#oh_udsplaintext_getcontent) | 从纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)中获取纯文本内容信息。 |
-| [const char* OH_UdsPlainText_GetAbstract(OH_UdsPlainText* pThis)](#oh_udsplaintext_getabstract) | 从纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)中获取纯文本摘要信息。 |
-| [int OH_UdsPlainText_SetContent(OH_UdsPlainText* pThis, const char* content)](#oh_udsplaintext_setcontent) | 设置纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)中的纯文本内容参数。 |
-| [int OH_UdsPlainText_SetAbstract(OH_UdsPlainText* pThis, const char* abstract)](#oh_udsplaintext_setabstract) | 设置纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)中的纯文本摘要参数。 |
-| [OH_UdsHyperlink* OH_UdsHyperlink_Create()](#oh_udshyperlink_create) | 创建超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)指针及实例对象。当不再需要使用指针时，请使用[OH_UdsHyperlink_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udshyperlink_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [void OH_UdsHyperlink_Destroy(OH_UdsHyperlink* pThis)](#oh_udshyperlink_destroy) | 销毁超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)指针指向的实例对象。 |
-| [const char* OH_UdsHyperlink_GetType(OH_UdsHyperlink* pThis)](#oh_udshyperlink_gettype) | 从超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)中获取类型ID。 |
-| [const char* OH_UdsHyperlink_GetUrl(OH_UdsHyperlink* pThis)](#oh_udshyperlink_geturl) | 从超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)中获取URL参数。 |
-| [const char* OH_UdsHyperlink_GetDescription(OH_UdsHyperlink* pThis)](#oh_udshyperlink_getdescription) | 从超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)中获取描述参数。 |
-| [int OH_UdsHyperlink_SetUrl(OH_UdsHyperlink* pThis, const char* url)](#oh_udshyperlink_seturl) | 设置超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例中URL参数。 |
-| [int OH_UdsHyperlink_SetDescription(OH_UdsHyperlink* pThis, const char* description)](#oh_udshyperlink_setdescription) | 设置超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例中描述参数。 |
-| [OH_UdsHtml* OH_UdsHtml_Create()](#oh_udshtml_create) | 创建超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)指针及实例对象。当不再需要使用指针时，请使用[OH_UdsHtml_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udshtml_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [void OH_UdsHtml_Destroy(OH_UdsHtml* pThis)](#oh_udshtml_destroy) | 销毁超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)指针指向的实例对象。 |
-| [const char* OH_UdsHtml_GetType(OH_UdsHtml* pThis)](#oh_udshtml_gettype) | 获取超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)对象中类型ID。 |
-| [const char* OH_UdsHtml_GetContent(OH_UdsHtml* pThis)](#oh_udshtml_getcontent) | 获取超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)对象中HTML格式内容参数。 |
-| [const char* OH_UdsHtml_GetPlainContent(OH_UdsHtml* pThis)](#oh_udshtml_getplaincontent) | 获取超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)对象中的纯文本内容参数。 |
-| [int OH_UdsHtml_SetContent(OH_UdsHtml* pThis, const char* content)](#oh_udshtml_setcontent) | 设置超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)中的HTML格式内容参数。 |
-| [int OH_UdsHtml_SetPlainContent(OH_UdsHtml* pThis, const char* plainContent)](#oh_udshtml_setplaincontent) | 设置超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)中的纯文本内容参数。 |
-| [OH_UdsAppItem* OH_UdsAppItem_Create()](#oh_udsappitem_create) | 创建桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)指针及实例对象。当不再需要使用指针时，请使用[OH_UdsAppItem_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udsappitem_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [void OH_UdsAppItem_Destroy(OH_UdsAppItem* pThis)](#oh_udsappitem_destroy) | 销毁桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)指针指向的实例对象。 |
-| [const char* OH_UdsAppItem_GetType(OH_UdsAppItem* pThis)](#oh_udsappitem_gettype) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例获取类型ID。 |
-| [const char* OH_UdsAppItem_GetId(OH_UdsAppItem* pThis)](#oh_udsappitem_getid) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例中获取应用ID。 |
-| [const char* OH_UdsAppItem_GetName(OH_UdsAppItem* pThis)](#oh_udsappitem_getname) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例中获取应用名称。 |
-| [const char* OH_UdsAppItem_GetIconId(OH_UdsAppItem* pThis)](#oh_udsappitem_geticonid) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例中获取图片ID。 |
-| [const char* OH_UdsAppItem_GetLabelId(OH_UdsAppItem* pThis)](#oh_udsappitem_getlabelid) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例中获取标签ID。 |
-| [const char* OH_UdsAppItem_GetBundleName(OH_UdsAppItem* pThis)](#oh_udsappitem_getbundlename) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例中获取bundle名称。 |
-| [const char* OH_UdsAppItem_GetAbilityName(OH_UdsAppItem* pThis)](#oh_udsappitem_getabilityname) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例中ability名称。 |
-| [int OH_UdsAppItem_SetId(OH_UdsAppItem* pThis, const char* appId)](#oh_udsappitem_setid) | 设置桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的应用ID。 |
-| [int OH_UdsAppItem_SetName(OH_UdsAppItem* pThis, const char* appName)](#oh_udsappitem_setname) | 设置桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的应用名称。 |
-| [int OH_UdsAppItem_SetIconId(OH_UdsAppItem* pThis, const char* appIconId)](#oh_udsappitem_seticonid) | 设置桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的图片ID。 |
-| [int OH_UdsAppItem_SetLabelId(OH_UdsAppItem* pThis, const char* appLabelId)](#oh_udsappitem_setlabelid) | 设置桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的标签ID。 |
-| [int OH_UdsAppItem_SetBundleName(OH_UdsAppItem* pThis, const char* bundleName)](#oh_udsappitem_setbundlename) | 设置桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的bundle名称。 |
-| [int OH_UdsAppItem_SetAbilityName(OH_UdsAppItem* pThis, const char* abilityName)](#oh_udsappitem_setabilityname) | 设置桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的ability名称。 |
-| [OH_UdsFileUri* OH_UdsFileUri_Create()](#oh_udsfileuri_create) | 创建文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)的实例对象以及指向它的指针。当不再需要使用指针时，请使用[OH_UdsFileUri_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udsfileuri_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [void OH_UdsFileUri_Destroy(OH_UdsFileUri* pThis)](#oh_udsfileuri_destroy) | 销毁文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)的实例对象。 |
-| [const char* OH_UdsFileUri_GetType(OH_UdsFileUri* pThis)](#oh_udsfileuri_gettype) | 从文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例中获取类型ID。 |
-| [const char* OH_UdsFileUri_GetFileUri(OH_UdsFileUri* pThis)](#oh_udsfileuri_getfileuri) | 从文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例中获取文件Uri。 |
-| [const char* OH_UdsFileUri_GetFileType(OH_UdsFileUri* pThis)](#oh_udsfileuri_getfiletype) | 从文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例中获取文件类型。 |
-| [int OH_UdsFileUri_SetFileUri(OH_UdsFileUri* pThis, const char* fileUri)](#oh_udsfileuri_setfileuri) | 设置文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)对象的Uri信息。 |
-| [int OH_UdsFileUri_SetFileType(OH_UdsFileUri* pThis, const char* fileType)](#oh_udsfileuri_setfiletype) | 设置文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)对象的文件类型。 |
-| [OH_UdsPixelMap* OH_UdsPixelMap_Create()](#oh_udspixelmap_create) | 创建像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)的实例对象以及指向它的指针。当不再需要使用指针时，请使用[OH_UdsPixelMap_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udspixelmap_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [void OH_UdsPixelMap_Destroy(OH_UdsPixelMap* pThis)](#oh_udspixelmap_destroy) | 销毁像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)的实例对象。 |
-| [const char* OH_UdsPixelMap_GetType(OH_UdsPixelMap* pThis)](#oh_udspixelmap_gettype) | 从像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例中获取类型ID。 |
-| [void OH_UdsPixelMap_GetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelmapNative)](#oh_udspixelmap_getpixelmap) | 从像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例中获取像素图片[OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_antialiasinglevel)实例的指针。 |
-| [int OH_UdsPixelMap_SetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelmapNative)](#oh_udspixelmap_setpixelmap) | 设置像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)对象的像素图片内容。 |
-| [OH_UdsArrayBuffer* OH_UdsArrayBuffer_Create()](#oh_udsarraybuffer_create) | 创建ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)的实例对象以及指向它的指针。当不再需要使用指针时，请使用[OH_UdsArrayBuffer_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udsarraybuffer_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [int OH_UdsArrayBuffer_Destroy(OH_UdsArrayBuffer* buffer)](#oh_udsarraybuffer_destroy) | 销毁ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)的实例对象。 |
-| [int OH_UdsArrayBuffer_SetData(OH_UdsArrayBuffer* buffer, unsigned char* data, unsigned int len)](#oh_udsarraybuffer_setdata) | 设置ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)对象的数据内容。 |
-| [int OH_UdsArrayBuffer_GetData(OH_UdsArrayBuffer* buffer, unsigned char** data, unsigned int* len)](#oh_udsarraybuffer_getdata) | 从ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)实例中获取用户自定义的ArrayBuffer数据内容。 |
-| [OH_UdsContentForm* OH_UdsContentForm_Create()](#oh_udscontentform_create) | 创建内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)指针及实例对象。 |
-| [void OH_UdsContentForm_Destroy(OH_UdsContentForm* pThis)](#oh_udscontentform_destroy) | 销毁内容卡片类型数据[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)指针指向的实例对象。 |
-| [const char* OH_UdsContentForm_GetType(OH_UdsContentForm* pThis)](#oh_udscontentform_gettype) | 从内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中获取类型ID。 |
-| [int OH_UdsContentForm_GetThumbData(OH_UdsContentForm* pThis, unsigned char** thumbData, unsigned int* len)](#oh_udscontentform_getthumbdata) | 从内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中获取图片数据。 |
-| [const char* OH_UdsContentForm_GetDescription(OH_UdsContentForm* pThis)](#oh_udscontentform_getdescription) | 从内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中获取描述信息。 |
-| [const char* OH_UdsContentForm_GetTitle(OH_UdsContentForm* pThis)](#oh_udscontentform_gettitle) | 从内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中获取标题信息。 |
-| [int OH_UdsContentForm_GetAppIcon(OH_UdsContentForm* pThis, unsigned char** appIcon, unsigned int* len)](#oh_udscontentform_getappicon) | 从内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中获取应用图标数据。 |
-| [const char* OH_UdsContentForm_GetAppName(OH_UdsContentForm* pThis)](#oh_udscontentform_getappname) | 从内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中获取应用名称信息。 |
-| [const char* OH_UdsContentForm_GetLinkUri(OH_UdsContentForm* pThis)](#oh_udscontentform_getlinkuri) | 从内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中获取超链接信息。 |
-| [int OH_UdsContentForm_SetThumbData(OH_UdsContentForm* pThis, const unsigned char* thumbData, unsigned int len)](#oh_udscontentform_setthumbdata) | 设置内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中的图片数据。 |
-| [int OH_UdsContentForm_SetDescription(OH_UdsContentForm* pThis, const char* description)](#oh_udscontentform_setdescription) | 设置内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中的描述信息。 |
-| [int OH_UdsContentForm_SetTitle(OH_UdsContentForm* pThis, const char* title)](#oh_udscontentform_settitle) | 设置内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中的标题信息。 |
-| [int OH_UdsContentForm_SetAppIcon(OH_UdsContentForm* pThis, const unsigned char* appIcon, unsigned int len)](#oh_udscontentform_setappicon) | 设置内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中的应用图标数据。 |
-| [int OH_UdsContentForm_SetAppName(OH_UdsContentForm* pThis, const char* appName)](#oh_udscontentform_setappname) | 设置内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中的应用名称数据。 |
-| [int OH_UdsContentForm_SetLinkUri(OH_UdsContentForm* pThis, const char* linkUri)](#oh_udscontentform_setlinkuri) | 设置内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)中的超链接数据。 |
-| [int OH_UdsPlainText_GetDetails(OH_UdsPlainText* pThis, OH_UdsDetails* details)](#oh_udsplaintext_getdetails) | 从纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)中获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
-| [int OH_UdsPlainText_SetDetails(OH_UdsPlainText* pThis, const OH_UdsDetails* details)](#oh_udsplaintext_setdetails) | 设置纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)中的字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)参数。 |
-| [int OH_UdsHyperlink_GetDetails(OH_UdsHyperlink* pThis, OH_UdsDetails* details)](#oh_udshyperlink_getdetails) | 从超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)中获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
-| [int OH_UdsHyperlink_SetDetails(OH_UdsHyperlink* pThis, const OH_UdsDetails* details)](#oh_udshyperlink_setdetails) | 设置超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例中的字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)参数。 |
-| [int OH_UdsHtml_GetDetails(OH_UdsHtml* pThis, OH_UdsDetails* details)](#oh_udshtml_getdetails) | 从超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)对象中获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
-| [int OH_UdsHtml_SetDetails(OH_UdsHtml* pThis, const OH_UdsDetails* details)](#oh_udshtml_setdetails) | 设置超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)中的字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)参数。 |
-| [int OH_UdsAppItem_GetDetails(OH_UdsAppItem* pThis, OH_UdsDetails* details)](#oh_udsappitem_getdetails) | 从桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例中获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
-| [int OH_UdsAppItem_SetDetails(OH_UdsAppItem* pThis, const OH_UdsDetails* details)](#oh_udsappitem_setdetails) | 设置桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)参数。 |
-| [int OH_UdsFileUri_GetDetails(OH_UdsFileUri* pThis, OH_UdsDetails* details)](#oh_udsfileuri_getdetails) | 从文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例中获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
-| [int OH_UdsFileUri_SetDetails(OH_UdsFileUri* pThis, const OH_UdsDetails* details)](#oh_udsfileuri_setdetails) | 设置文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)对象的字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)参数。 |
-| [int OH_UdsPixelMap_GetDetails(OH_UdsPixelMap* pThis, OH_UdsDetails* details)](#oh_udspixelmap_getdetails) | 从像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例中获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
-| [int OH_UdsPixelMap_SetDetails(OH_UdsPixelMap* pThis, const OH_UdsDetails* details)](#oh_udspixelmap_setdetails) | 设置像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)对象的字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)参数。 |
-| [OH_UdsDetails* OH_UdsDetails_Create()](#oh_udsdetails_create) | 创建字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)指针及实例对象。          当不再需要使用指针时，请使用[OH_UdsDetails_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udsdetails_destroy)销毁实例对象，否则会导致内存泄漏。 |
-| [void OH_UdsDetails_Destroy(OH_UdsDetails* pThis)](#oh_udsdetails_destroy) | 销毁字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)指针指向的实例对象。 |
-| [bool OH_UdsDetails_HasKey(const OH_UdsDetails* pThis, const char* key)](#oh_udsdetails_haskey) | 检查字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)中是否存在指定键。 |
-| [int OH_UdsDetails_Remove(OH_UdsDetails* pThis, const char* key)](#oh_udsdetails_remove) | 删除字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)中指定键值对。 |
-| [int OH_UdsDetails_Clear(OH_UdsDetails* pThis)](#oh_udsdetails_clear) | 清除字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)中所有数据。 |
-| [int OH_UdsDetails_SetValue(OH_UdsDetails* pThis, const char* key, const char* value)](#oh_udsdetails_setvalue) | 向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)中添加键值对数据。 |
-| [const char* OH_UdsDetails_GetValue(const OH_UdsDetails* pThis, const char* key)](#oh_udsdetails_getvalue) | 获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)中指定的键对应的值。 |
-| [char** OH_UdsDetails_GetAllKeys(OH_UdsDetails* pThis, unsigned int* count)](#oh_udsdetails_getallkeys) | 获取字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)中所有键的结果集。 |
+| OH_UdsPlainText* OH_UdsPlainText_Create() | 创建纯文本类型OH_UdsPlainText指针及实例对象。当不再需要使用指针时，请使用OH_UdsPlainText_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| void OH_UdsPlainText_Destroy(OH_UdsPlainText* pThis) | 销毁纯文本类型数据OH_UdsPlainText指针指向的实例对象。 |
+| const char* OH_UdsPlainText_GetType(OH_UdsPlainText* pThis) | 从纯文本类型OH_UdsPlainText中获取类型ID。 |
+| const char* OH_UdsPlainText_GetContent(OH_UdsPlainText* pThis) | 从纯文本类型OH_UdsPlainText中获取纯文本内容信息。 |
+| const char* OH_UdsPlainText_GetAbstract(OH_UdsPlainText* pThis) | 从纯文本类型OH_UdsPlainText中获取纯文本摘要信息。 |
+| int OH_UdsPlainText_SetContent(OH_UdsPlainText* pThis, const char* content) | 设置纯文本类型OH_UdsPlainText中的纯文本内容参数。 |
+| int OH_UdsPlainText_SetAbstract(OH_UdsPlainText* pThis, const char* abstract) | 设置纯文本类型OH_UdsPlainText中的纯文本摘要参数。 |
+| OH_UdsHyperlink* OH_UdsHyperlink_Create() | 创建超链接类型OH_UdsHyperlink指针及实例对象。当不再需要使用指针时，请使用OH_UdsHyperlink_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| void OH_UdsHyperlink_Destroy(OH_UdsHyperlink* pThis) | 销毁超链接类型OH_UdsHyperlink指针指向的实例对象。 |
+| const char* OH_UdsHyperlink_GetType(OH_UdsHyperlink* pThis) | 从超链接类型OH_UdsHyperlink中获取类型ID。 |
+| const char* OH_UdsHyperlink_GetUrl(OH_UdsHyperlink* pThis) | 从超链接类型OH_UdsHyperlink中获取URL参数。 |
+| const char* OH_UdsHyperlink_GetDescription(OH_UdsHyperlink* pThis) | 从超链接类型OH_UdsHyperlink中获取描述参数。 |
+| int OH_UdsHyperlink_SetUrl(OH_UdsHyperlink* pThis, const char* url) | 设置超链接类型OH_UdsHyperlink实例中URL参数。 |
+| int OH_UdsHyperlink_SetDescription(OH_UdsHyperlink* pThis, const char* description) | 设置超链接类型OH_UdsHyperlink实例中描述参数。 |
+| OH_UdsHtml* OH_UdsHtml_Create() | 创建超文本标记语言类型OH_UdsHtml指针及实例对象。当不再需要使用指针时，请使用OH_UdsHtml_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| void OH_UdsHtml_Destroy(OH_UdsHtml* pThis) | 销毁超文本标记语言类型OH_UdsHtml指针指向的实例对象。 |
+| const char* OH_UdsHtml_GetType(OH_UdsHtml* pThis) | 获取超文本标记语言类型OH_UdsHtml对象中类型ID。 |
+| const char* OH_UdsHtml_GetContent(OH_UdsHtml* pThis) | 获取超文本标记语言类型OH_UdsHtml对象中HTML格式内容参数。 |
+| const char* OH_UdsHtml_GetPlainContent(OH_UdsHtml* pThis) | 获取超文本标记语言类型OH_UdsHtml对象中的纯文本内容参数。 |
+| int OH_UdsHtml_SetContent(OH_UdsHtml* pThis, const char* content) | 设置超文本标记语言类型OH_UdsHtml中的HTML格式内容参数。 |
+| int OH_UdsHtml_SetPlainContent(OH_UdsHtml* pThis, const char* plainContent) | 设置超文本标记语言类型OH_UdsHtml中的纯文本内容参数。 |
+| OH_UdsAppItem* OH_UdsAppItem_Create() | 创建桌面图标类型OH_UdsAppItem指针及实例对象。当不再需要使用指针时，请使用OH_UdsAppItem_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| void OH_UdsAppItem_Destroy(OH_UdsAppItem* pThis) | 销毁桌面图标类型OH_UdsAppItem指针指向的实例对象。 |
+| const char* OH_UdsAppItem_GetType(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例获取类型ID。 |
+| const char* OH_UdsAppItem_GetId(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取应用ID。 |
+| const char* OH_UdsAppItem_GetName(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取应用名称。 |
+| const char* OH_UdsAppItem_GetIconId(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取图片ID。 |
+| const char* OH_UdsAppItem_GetLabelId(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取标签ID。 |
+| const char* OH_UdsAppItem_GetBundleName(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中获取bundle名称。 |
+| const char* OH_UdsAppItem_GetAbilityName(OH_UdsAppItem* pThis) | 从桌面图标类型OH_UdsAppItem实例中ability名称。 |
+| int OH_UdsAppItem_SetId(OH_UdsAppItem* pThis, const char* appId) | 设置桌面图标类型OH_UdsAppItem对象的应用ID。 |
+| int OH_UdsAppItem_SetName(OH_UdsAppItem* pThis, const char* appName) | 设置桌面图标类型OH_UdsAppItem对象的应用名称。 |
+| int OH_UdsAppItem_SetIconId(OH_UdsAppItem* pThis, const char* appIconId) | 设置桌面图标类型OH_UdsAppItem对象的图片ID。 |
+| int OH_UdsAppItem_SetLabelId(OH_UdsAppItem* pThis, const char* appLabelId) | 设置桌面图标类型OH_UdsAppItem对象的标签ID。 |
+| int OH_UdsAppItem_SetBundleName(OH_UdsAppItem* pThis, const char* bundleName) | 设置桌面图标类型OH_UdsAppItem对象的bundle名称。 |
+| int OH_UdsAppItem_SetAbilityName(OH_UdsAppItem* pThis, const char* abilityName) | 设置桌面图标类型OH_UdsAppItem对象的ability名称。 |
+| OH_UdsFileUri* OH_UdsFileUri_Create() | 创建文件Uri类型OH_UdsFileUri的实例对象以及指向它的指针。当不再需要使用指针时，请使用OH_UdsFileUri_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| void OH_UdsFileUri_Destroy(OH_UdsFileUri* pThis) | 销毁文件Uri类型OH_UdsFileUri的实例对象。 |
+| const char* OH_UdsFileUri_GetType(OH_UdsFileUri* pThis) | 从文件Uri类型OH_UdsFileUri实例中获取类型ID。 |
+| const char* OH_UdsFileUri_GetFileUri(OH_UdsFileUri* pThis) | 从文件Uri类型OH_UdsFileUri实例中获取文件Uri。 |
+| const char* OH_UdsFileUri_GetFileType(OH_UdsFileUri* pThis) | 从文件Uri类型OH_UdsFileUri实例中获取文件类型。 |
+| int OH_UdsFileUri_SetFileUri(OH_UdsFileUri* pThis, const char* fileUri) | 设置文件Uri类型OH_UdsFileUri对象的Uri信息。 |
+| int OH_UdsFileUri_SetFileType(OH_UdsFileUri* pThis, const char* fileType) | 设置文件Uri类型OH_UdsFileUri对象的文件类型。 |
+| OH_UdsPixelMap* OH_UdsPixelMap_Create() | 创建像素图片类型OH_UdsPixelMap的实例对象以及指向它的指针。当不再需要使用指针时，请使用OH_UdsPixelMap_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| void OH_UdsPixelMap_Destroy(OH_UdsPixelMap* pThis) | 销毁像素图片类型OH_UdsPixelMap的实例对象。 |
+| const char* OH_UdsPixelMap_GetType(OH_UdsPixelMap* pThis) | 从像素图片类型OH_UdsPixelMap实例中获取类型ID。 |
+| void OH_UdsPixelMap_GetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelmapNative) | 从像素图片类型OH_UdsPixelMap实例中获取像素图片OH_PixelmapNative实例的指针。 |
+| int OH_UdsPixelMap_SetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelmapNative) | 设置像素图片类型OH_UdsPixelMap对象的像素图片内容。 |
+| OH_UdsArrayBuffer* OH_UdsArrayBuffer_Create() | 创建ArrayBuffer类型OH_UdsArrayBuffer的实例对象以及指向它的指针。当不再需要使用指针时，请使用OH_UdsArrayBuffer_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| int OH_UdsArrayBuffer_Destroy(OH_UdsArrayBuffer* buffer) | 销毁ArrayBuffer类型OH_UdsArrayBuffer的实例对象。 |
+| int OH_UdsArrayBuffer_SetData(OH_UdsArrayBuffer* buffer, unsigned char* data, unsigned int len) | 设置ArrayBuffer类型OH_UdsArrayBuffer对象的数据内容。 |
+| int OH_UdsArrayBuffer_GetData(OH_UdsArrayBuffer* buffer, unsigned char** data, unsigned int* len) | 从ArrayBuffer类型OH_UdsArrayBuffer实例中获取用户自定义的ArrayBuffer数据内容。 |
+| OH_UdsContentForm* OH_UdsContentForm_Create() | 创建内容卡片类型OH_UdsContentForm指针及实例对象。 |
+| void OH_UdsContentForm_Destroy(OH_UdsContentForm* pThis) | 销毁内容卡片类型数据OH_UdsContentForm指针指向的实例对象。 |
+| const char* OH_UdsContentForm_GetType(OH_UdsContentForm* pThis) | 从内容卡片类型OH_UdsContentForm中获取类型ID。 |
+| int OH_UdsContentForm_GetThumbData(OH_UdsContentForm* pThis, unsigned char** thumbData, unsigned int* len) | 从内容卡片类型OH_UdsContentForm中获取图片数据。 |
+| const char* OH_UdsContentForm_GetDescription(OH_UdsContentForm* pThis) | 从内容卡片类型OH_UdsContentForm中获取描述信息。 |
+| const char* OH_UdsContentForm_GetTitle(OH_UdsContentForm* pThis) | 从内容卡片类型OH_UdsContentForm中获取标题信息。 |
+| int OH_UdsContentForm_GetAppIcon(OH_UdsContentForm* pThis, unsigned char** appIcon, unsigned int* len) | 从内容卡片类型OH_UdsContentForm中获取应用图标数据。 |
+| const char* OH_UdsContentForm_GetAppName(OH_UdsContentForm* pThis) | 从内容卡片类型OH_UdsContentForm中获取应用名称信息。 |
+| const char* OH_UdsContentForm_GetLinkUri(OH_UdsContentForm* pThis) | 从内容卡片类型OH_UdsContentForm中获取超链接信息。 |
+| int OH_UdsContentForm_SetThumbData(OH_UdsContentForm* pThis, const unsigned char* thumbData, unsigned int len) | 设置内容卡片类型OH_UdsContentForm中的图片数据。 |
+| int OH_UdsContentForm_SetDescription(OH_UdsContentForm* pThis, const char* description) | 设置内容卡片类型OH_UdsContentForm中的描述信息。 |
+| int OH_UdsContentForm_SetTitle(OH_UdsContentForm* pThis, const char* title) | 设置内容卡片类型OH_UdsContentForm中的标题信息。 |
+| int OH_UdsContentForm_SetAppIcon(OH_UdsContentForm* pThis, const unsigned char* appIcon, unsigned int len) | 设置内容卡片类型OH_UdsContentForm中的应用图标数据。 |
+| int OH_UdsContentForm_SetAppName(OH_UdsContentForm* pThis, const char* appName) | 设置内容卡片类型OH_UdsContentForm中的应用名称数据。 |
+| int OH_UdsContentForm_SetLinkUri(OH_UdsContentForm* pThis, const char* linkUri) | 设置内容卡片类型OH_UdsContentForm中的超链接数据。 |
+| int OH_UdsPlainText_GetDetails(OH_UdsPlainText* pThis, OH_UdsDetails* details) | 从纯文本类型OH_UdsPlainText中获取字典类型OH_UdsDetails实例的指针。 |
+| int OH_UdsPlainText_SetDetails(OH_UdsPlainText* pThis, const OH_UdsDetails* details) | 设置纯文本类型OH_UdsPlainText中的字典类型OH_UdsDetails参数。 |
+| int OH_UdsHyperlink_GetDetails(OH_UdsHyperlink* pThis, OH_UdsDetails* details) | 从超链接类型OH_UdsHyperlink中获取字典类型OH_UdsDetails实例的指针。 |
+| int OH_UdsHyperlink_SetDetails(OH_UdsHyperlink* pThis, const OH_UdsDetails* details) | 设置超链接类型OH_UdsHyperlink实例中的字典类型OH_UdsDetails参数。 |
+| int OH_UdsHtml_GetDetails(OH_UdsHtml* pThis, OH_UdsDetails* details) | 从超文本标记语言类型OH_UdsHtml对象中获取字典类型OH_UdsDetails实例的指针。 |
+| int OH_UdsHtml_SetDetails(OH_UdsHtml* pThis, const OH_UdsDetails* details) | 设置超文本标记语言类型OH_UdsHtml中的字典类型OH_UdsDetails参数。 |
+| int OH_UdsAppItem_GetDetails(OH_UdsAppItem* pThis, OH_UdsDetails* details) | 从桌面图标类型OH_UdsAppItem实例中获取字典类型OH_UdsDetails实例的指针。 |
+| int OH_UdsAppItem_SetDetails(OH_UdsAppItem* pThis, const OH_UdsDetails* details) | 设置桌面图标类型OH_UdsAppItem对象的字典类型OH_UdsDetails参数。 |
+| int OH_UdsFileUri_GetDetails(OH_UdsFileUri* pThis, OH_UdsDetails* details) | 从文件Uri类型OH_UdsFileUri实例中获取字典类型OH_UdsDetails实例的指针。 |
+| int OH_UdsFileUri_SetDetails(OH_UdsFileUri* pThis, const OH_UdsDetails* details) | 设置文件Uri类型OH_UdsFileUri对象的字典类型OH_UdsDetails参数。 |
+| int OH_UdsPixelMap_GetDetails(OH_UdsPixelMap* pThis, OH_UdsDetails* details) | 从像素图片类型OH_UdsPixelMap实例中获取字典类型OH_UdsDetails实例的指针。 |
+| int OH_UdsPixelMap_SetDetails(OH_UdsPixelMap* pThis, const OH_UdsDetails* details) | 设置像素图片类型OH_UdsPixelMap对象的字典类型OH_UdsDetails参数。 |
+| OH_UdsDetails* OH_UdsDetails_Create() | 创建字典类型OH_UdsDetails指针及实例对象。 当不再需要使用指针时，请使用OH_UdsDetails_Destroy销毁实例对象，否则会导致内存泄漏。 |
+| void OH_UdsDetails_Destroy(OH_UdsDetails* pThis) | 销毁字典类型OH_UdsDetails指针指向的实例对象。 |
+| bool OH_UdsDetails_HasKey(const OH_UdsDetails* pThis, const char* key) | 检查字典类型OH_UdsDetails中是否存在指定键。 |
+| int OH_UdsDetails_Remove(OH_UdsDetails* pThis, const char* key) | 删除字典类型OH_UdsDetails中指定键值对。 |
+| int OH_UdsDetails_Clear(OH_UdsDetails* pThis) | 清除字典类型OH_UdsDetails中所有数据。 |
+| int OH_UdsDetails_SetValue(OH_UdsDetails* pThis, const char* key, const char* value) | 向字典类型OH_UdsDetails中添加键值对数据。 |
+| const char* OH_UdsDetails_GetValue(const OH_UdsDetails* pThis, const char* key) | 获取字典类型OH_UdsDetails中指定的键对应的值。 |
+| char** OH_UdsDetails_GetAllKeys(OH_UdsDetails* pThis, unsigned int* count) | 获取字典类型OH_UdsDetails中所有键的结果集。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-### OH_UdsPlainText_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 函数说明
 
+
+
+##### OH_UdsPlainText_Create()
 
 ```text
 OH_UdsPlainText* OH_UdsPlainText_Create()
@@ -158,15 +155,14 @@ OH_UdsPlainText* OH_UdsPlainText_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* | 执行成功则返回一个指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例对象的指针，否则返回nullptr。 |
+| OH_UdsPlainText* | 执行成功则返回一个指向纯文本类型OH_UdsPlainText实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsPlainText_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPlainText_Destroy()
 
 ```text
 void OH_UdsPlainText_Destroy(OH_UdsPlainText* pThis)
@@ -180,15 +176,14 @@ void OH_UdsPlainText_Destroy(OH_UdsPlainText* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
+| OH_UdsPlainText* pThis | 表示指向OH_UdsPlainText实例的指针。 |
 
 
-### OH_UdsPlainText_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPlainText_GetType()
 
 ```text
 const char* OH_UdsPlainText_GetType(OH_UdsPlainText* pThis)
@@ -202,23 +197,21 @@ const char* OH_UdsPlainText_GetType(OH_UdsPlainText* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
+| OH_UdsPlainText* pThis | 表示指向纯文本类型OH_UdsPlainText实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回类型ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsPlainText_GetContent()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPlainText_GetContent()
 
 ```text
 const char* OH_UdsPlainText_GetContent(OH_UdsPlainText* pThis)
@@ -232,23 +225,21 @@ const char* OH_UdsPlainText_GetContent(OH_UdsPlainText* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
+| OH_UdsPlainText* pThis | 表示指向纯文本类型OH_UdsPlainText实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回纯文本内容信息的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsPlainText_GetAbstract()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPlainText_GetAbstract()
 
 ```text
 const char* OH_UdsPlainText_GetAbstract(OH_UdsPlainText* pThis)
@@ -262,14 +253,12 @@ const char* OH_UdsPlainText_GetAbstract(OH_UdsPlainText* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
+| OH_UdsPlainText* pThis | 表示指向纯文本类型OH_UdsPlainText实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -279,9 +268,8 @@ const char* OH_UdsPlainText_GetAbstract(OH_UdsPlainText* pThis)
 OH_UdsPlainText
 
 
-### OH_UdsPlainText_SetContent()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### OH_UdsPlainText_SetContent()
 
 ```text
 int OH_UdsPlainText_SetContent(OH_UdsPlainText* pThis, const char* content)
@@ -295,24 +283,22 @@ int OH_UdsPlainText_SetContent(OH_UdsPlainText* pThis, const char* content)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
+| OH_UdsPlainText* pThis | 表示指向纯文本类型OH_UdsPlainText实例的指针。 |
 | const char* content | 表示纯文本内容参数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsPlainText_SetAbstract()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPlainText_SetAbstract()
 
 ```text
 int OH_UdsPlainText_SetAbstract(OH_UdsPlainText* pThis, const char* abstract)
@@ -326,24 +312,22 @@ int OH_UdsPlainText_SetAbstract(OH_UdsPlainText* pThis, const char* abstract)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
+| OH_UdsPlainText* pThis | 表示指向纯文本类型OH_UdsPlainText实例的指针。 |
 | const char* abstract | 表示纯文本摘要参数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHyperlink_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_Create()
 
 ```text
 OH_UdsHyperlink* OH_UdsHyperlink_Create()
@@ -357,15 +341,14 @@ OH_UdsHyperlink* OH_UdsHyperlink_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| OH_UdsHyperlink* | 执行成功则返回一个指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例对象的指针，否则返回nullptr。 |
+| OH_UdsHyperlink* | 执行成功则返回一个指向超链接类型OH_UdsHyperlink实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsHyperlink_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_Destroy()
 
 ```text
 void OH_UdsHyperlink_Destroy(OH_UdsHyperlink* pThis)
@@ -379,15 +362,14 @@ void OH_UdsHyperlink_Destroy(OH_UdsHyperlink* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
 
 
-### OH_UdsHyperlink_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_GetType()
 
 ```text
 const char* OH_UdsHyperlink_GetType(OH_UdsHyperlink* pThis)
@@ -401,23 +383,21 @@ const char* OH_UdsHyperlink_GetType(OH_UdsHyperlink* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回类型ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsHyperlink_GetUrl()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_GetUrl()
 
 ```text
 const char* OH_UdsHyperlink_GetUrl(OH_UdsHyperlink* pThis)
@@ -431,23 +411,21 @@ const char* OH_UdsHyperlink_GetUrl(OH_UdsHyperlink* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回URL参数的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsHyperlink_GetDescription()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_GetDescription()
 
 ```text
 const char* OH_UdsHyperlink_GetDescription(OH_UdsHyperlink* pThis)
@@ -461,23 +439,21 @@ const char* OH_UdsHyperlink_GetDescription(OH_UdsHyperlink* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回描述参数的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsHyperlink_SetUrl()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_SetUrl()
 
 ```text
 int OH_UdsHyperlink_SetUrl(OH_UdsHyperlink* pThis, const char* url)
@@ -491,24 +467,22 @@ int OH_UdsHyperlink_SetUrl(OH_UdsHyperlink* pThis, const char* url)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
 | const char* url | 表示URL参数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHyperlink_SetDescription()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_SetDescription()
 
 ```text
 int OH_UdsHyperlink_SetDescription(OH_UdsHyperlink* pThis, const char* description)
@@ -522,24 +496,22 @@ int OH_UdsHyperlink_SetDescription(OH_UdsHyperlink* pThis, const char* descripti
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
 | const char* description | 表示描述信息。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHtml_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_Create()
 
 ```text
 OH_UdsHtml* OH_UdsHtml_Create()
@@ -553,15 +525,14 @@ OH_UdsHtml* OH_UdsHtml_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* | 执行成功则返回一个指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例对象的指针，否则返回nullptr。 |
+| OH_UdsHtml* | 执行成功则返回一个指向超文本标记语言类型OH_UdsHtml实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsHtml_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_Destroy()
 
 ```text
 void OH_UdsHtml_Destroy(OH_UdsHtml* pThis)
@@ -575,15 +546,14 @@ void OH_UdsHtml_Destroy(OH_UdsHtml* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
 
 
-### OH_UdsHtml_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_GetType()
 
 ```text
 const char* OH_UdsHtml_GetType(OH_UdsHtml* pThis)
@@ -597,23 +567,21 @@ const char* OH_UdsHtml_GetType(OH_UdsHtml* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回类型ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsHtml_GetContent()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_GetContent()
 
 ```text
 const char* OH_UdsHtml_GetContent(OH_UdsHtml* pThis)
@@ -627,23 +595,21 @@ const char* OH_UdsHtml_GetContent(OH_UdsHtml* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回HTML格式内容的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsHtml_GetPlainContent()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_GetPlainContent()
 
 ```text
 const char* OH_UdsHtml_GetPlainContent(OH_UdsHtml* pThis)
@@ -657,23 +623,21 @@ const char* OH_UdsHtml_GetPlainContent(OH_UdsHtml* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回纯文本内容的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsHtml_SetContent()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_SetContent()
 
 ```text
 int OH_UdsHtml_SetContent(OH_UdsHtml* pThis, const char* content)
@@ -687,24 +651,22 @@ int OH_UdsHtml_SetContent(OH_UdsHtml* pThis, const char* content)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
 | const char* content | 表示HTML格式内容参数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHtml_SetPlainContent()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_SetPlainContent()
 
 ```text
 int OH_UdsHtml_SetPlainContent(OH_UdsHtml* pThis, const char* plainContent)
@@ -718,24 +680,22 @@ int OH_UdsHtml_SetPlainContent(OH_UdsHtml* pThis, const char* plainContent)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
 | const char* plainContent | 表示纯文本内容参数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_Create()
 
 ```text
 OH_UdsAppItem* OH_UdsAppItem_Create()
@@ -749,15 +709,14 @@ OH_UdsAppItem* OH_UdsAppItem_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* | 执行成功则返回一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)实例对象的指针，否则返回nullptr。 |
+| OH_UdsAppItem* | 执行成功则返回一个指向桌面图标类型OH_UdsAppItem实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_Destroy()
 
 ```text
 void OH_UdsAppItem_Destroy(OH_UdsAppItem* pThis)
@@ -771,15 +730,14 @@ void OH_UdsAppItem_Destroy(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
-### OH_UdsAppItem_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetType()
 
 ```text
 const char* OH_UdsAppItem_GetType(OH_UdsAppItem* pThis)
@@ -793,23 +751,21 @@ const char* OH_UdsAppItem_GetType(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回类型ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_GetId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetId()
 
 ```text
 const char* OH_UdsAppItem_GetId(OH_UdsAppItem* pThis)
@@ -823,23 +779,21 @@ const char* OH_UdsAppItem_GetId(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回应用ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_GetName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetName()
 
 ```text
 const char* OH_UdsAppItem_GetName(OH_UdsAppItem* pThis)
@@ -853,23 +807,21 @@ const char* OH_UdsAppItem_GetName(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回应用名称的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_GetIconId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetIconId()
 
 ```text
 const char* OH_UdsAppItem_GetIconId(OH_UdsAppItem* pThis)
@@ -883,23 +835,21 @@ const char* OH_UdsAppItem_GetIconId(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回图片ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_GetLabelId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetLabelId()
 
 ```text
 const char* OH_UdsAppItem_GetLabelId(OH_UdsAppItem* pThis)
@@ -913,23 +863,21 @@ const char* OH_UdsAppItem_GetLabelId(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回标签ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_GetBundleName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetBundleName()
 
 ```text
 const char* OH_UdsAppItem_GetBundleName(OH_UdsAppItem* pThis)
@@ -943,23 +891,21 @@ const char* OH_UdsAppItem_GetBundleName(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回bundle名称的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_GetAbilityName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetAbilityName()
 
 ```text
 const char* OH_UdsAppItem_GetAbilityName(OH_UdsAppItem* pThis)
@@ -973,23 +919,21 @@ const char* OH_UdsAppItem_GetAbilityName(OH_UdsAppItem* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回ability名称的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsAppItem_SetId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_SetId()
 
 ```text
 int OH_UdsAppItem_SetId(OH_UdsAppItem* pThis, const char* appId)
@@ -1003,24 +947,22 @@ int OH_UdsAppItem_SetId(OH_UdsAppItem* pThis, const char* appId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 | const char* appId | 表示应用ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_SetName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_SetName()
 
 ```text
 int OH_UdsAppItem_SetName(OH_UdsAppItem* pThis, const char* appName)
@@ -1034,24 +976,22 @@ int OH_UdsAppItem_SetName(OH_UdsAppItem* pThis, const char* appName)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 | const char* appName | 表示应用名称。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_SetIconId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_SetIconId()
 
 ```text
 int OH_UdsAppItem_SetIconId(OH_UdsAppItem* pThis, const char* appIconId)
@@ -1065,24 +1005,22 @@ int OH_UdsAppItem_SetIconId(OH_UdsAppItem* pThis, const char* appIconId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 | const char* appIconId | 表示图片ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_SetLabelId()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_SetLabelId()
 
 ```text
 int OH_UdsAppItem_SetLabelId(OH_UdsAppItem* pThis, const char* appLabelId)
@@ -1096,24 +1034,22 @@ int OH_UdsAppItem_SetLabelId(OH_UdsAppItem* pThis, const char* appLabelId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 | const char* appLabelId | 表示标签ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_SetBundleName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_SetBundleName()
 
 ```text
 int OH_UdsAppItem_SetBundleName(OH_UdsAppItem* pThis, const char* bundleName)
@@ -1127,24 +1063,22 @@ int OH_UdsAppItem_SetBundleName(OH_UdsAppItem* pThis, const char* bundleName)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 | const char* bundleName | 表示bundle名称。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_SetAbilityName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_SetAbilityName()
 
 ```text
 int OH_UdsAppItem_SetAbilityName(OH_UdsAppItem* pThis, const char* abilityName)
@@ -1158,24 +1092,22 @@ int OH_UdsAppItem_SetAbilityName(OH_UdsAppItem* pThis, const char* abilityName)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
 | const char* abilityName | 表示ability名称。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsFileUri_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_Create()
 
 ```text
 OH_UdsFileUri* OH_UdsFileUri_Create()
@@ -1189,15 +1121,14 @@ OH_UdsFileUri* OH_UdsFileUri_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* | 执行成功则返回一个指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例对象的指针，否则返回nullptr。 |
+| OH_UdsFileUri* | 执行成功则返回一个指向文件Uri类型OH_UdsFileUri实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsFileUri_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_Destroy()
 
 ```text
 void OH_UdsFileUri_Destroy(OH_UdsFileUri* pThis)
@@ -1211,15 +1142,14 @@ void OH_UdsFileUri_Destroy(OH_UdsFileUri* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
 
 
-### OH_UdsFileUri_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_GetType()
 
 ```text
 const char* OH_UdsFileUri_GetType(OH_UdsFileUri* pThis)
@@ -1233,23 +1163,21 @@ const char* OH_UdsFileUri_GetType(OH_UdsFileUri* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回类型ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsFileUri_GetFileUri()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_GetFileUri()
 
 ```text
 const char* OH_UdsFileUri_GetFileUri(OH_UdsFileUri* pThis)
@@ -1263,23 +1191,21 @@ const char* OH_UdsFileUri_GetFileUri(OH_UdsFileUri* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回文件Uri的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsFileUri_GetFileType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_GetFileType()
 
 ```text
 const char* OH_UdsFileUri_GetFileType(OH_UdsFileUri* pThis)
@@ -1293,23 +1219,21 @@ const char* OH_UdsFileUri_GetFileType(OH_UdsFileUri* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回文件类型的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsFileUri_SetFileUri()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_SetFileUri()
 
 ```text
 int OH_UdsFileUri_SetFileUri(OH_UdsFileUri* pThis, const char* fileUri)
@@ -1323,24 +1247,22 @@ int OH_UdsFileUri_SetFileUri(OH_UdsFileUri* pThis, const char* fileUri)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
 | const char* fileUri | 表示文件Uri。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsFileUri_SetFileType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_SetFileType()
 
 ```text
 int OH_UdsFileUri_SetFileType(OH_UdsFileUri* pThis, const char* fileType)
@@ -1354,24 +1276,22 @@ int OH_UdsFileUri_SetFileType(OH_UdsFileUri* pThis, const char* fileType)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
 | const char* fileType | 表示文件类型。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsPixelMap_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPixelMap_Create()
 
 ```text
 OH_UdsPixelMap* OH_UdsPixelMap_Create()
@@ -1385,15 +1305,14 @@ OH_UdsPixelMap* OH_UdsPixelMap_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)* | 执行成功则返回一个指向像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例对象的指针，否则返回nullptr。 |
+| OH_UdsPixelMap* | 执行成功则返回一个指向像素图片类型OH_UdsPixelMap实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsPixelMap_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPixelMap_Destroy()
 
 ```text
 void OH_UdsPixelMap_Destroy(OH_UdsPixelMap* pThis)
@@ -1407,15 +1326,14 @@ void OH_UdsPixelMap_Destroy(OH_UdsPixelMap* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)* pThis | 表示指向像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例的指针。 |
+| OH_UdsPixelMap* pThis | 表示指向像素图片类型OH_UdsPixelMap实例的指针。 |
 
 
-### OH_UdsPixelMap_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPixelMap_GetType()
 
 ```text
 const char* OH_UdsPixelMap_GetType(OH_UdsPixelMap* pThis)
@@ -1429,23 +1347,21 @@ const char* OH_UdsPixelMap_GetType(OH_UdsPixelMap* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)* pThis | 表示指向像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例的指针。 |
+| OH_UdsPixelMap* pThis | 表示指向像素图片类型OH_UdsPixelMap实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回类型ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsPixelMap_GetPixelMap()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPixelMap_GetPixelMap()
 
 ```text
 void OH_UdsPixelMap_GetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelmapNative)
@@ -1459,16 +1375,15 @@ void OH_UdsPixelMap_GetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelm
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)* pThis | 表示指向像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例的指针。 |
-| OH_PixelmapNative* pixelmapNative | 该参数是输出参数，表示指向像素图片[OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_antialiasinglevel)实例的指针。 |
+| OH_UdsPixelMap* pThis | 表示指向像素图片类型OH_UdsPixelMap实例的指针。 |
+| OH_PixelmapNative* pixelmapNative | 该参数是输出参数，表示指向像素图片OH_PixelmapNative实例的指针。 |
 
 
-### OH_UdsPixelMap_SetPixelMap()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPixelMap_SetPixelMap()
 
 ```text
 int OH_UdsPixelMap_SetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelmapNative)
@@ -1482,24 +1397,22 @@ int OH_UdsPixelMap_SetPixelMap(OH_UdsPixelMap* pThis, OH_PixelmapNative* pixelma
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)* pThis | 表示指向像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例的指针。 |
-| OH_PixelmapNative* pixelmapNative | 表示指向像素图片[OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_antialiasinglevel)实例的指针 |
+| OH_UdsPixelMap* pThis | 表示指向像素图片类型OH_UdsPixelMap实例的指针。 |
+| OH_PixelmapNative* pixelmapNative | 表示指向像素图片OH_PixelmapNative实例的指针 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsArrayBuffer_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsArrayBuffer_Create()
 
 ```text
 OH_UdsArrayBuffer* OH_UdsArrayBuffer_Create()
@@ -1513,15 +1426,14 @@ OH_UdsArrayBuffer* OH_UdsArrayBuffer_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)* | 执行成功则返回一个指向ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)实例对象的指针，否则返回nullptr。 |
+| OH_UdsArrayBuffer* | 执行成功则返回一个指向ArrayBuffer类型OH_UdsArrayBuffer实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsArrayBuffer_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsArrayBuffer_Destroy()
 
 ```text
 int OH_UdsArrayBuffer_Destroy(OH_UdsArrayBuffer* buffer)
@@ -1535,23 +1447,21 @@ int OH_UdsArrayBuffer_Destroy(OH_UdsArrayBuffer* buffer)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)* buffer | 表示指向ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)实例的指针。 |
+| OH_UdsArrayBuffer* buffer | 表示指向ArrayBuffer类型OH_UdsArrayBuffer实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsArrayBuffer。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsArrayBuffer_SetData()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsArrayBuffer_SetData()
 
 ```text
 int OH_UdsArrayBuffer_SetData(OH_UdsArrayBuffer* buffer, unsigned char* data, unsigned int len)
@@ -1565,25 +1475,23 @@ int OH_UdsArrayBuffer_SetData(OH_UdsArrayBuffer* buffer, unsigned char* data, un
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)* buffer | 表示指向ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)实例的指针。 |
+| OH_UdsArrayBuffer* buffer | 表示指向ArrayBuffer类型OH_UdsArrayBuffer实例的指针。 |
 | unsigned char* data | 表示用户自定义的ArrayBuffer数据。 |
 | unsigned int len | 表示用户自定义的ArrayBuffer数据的大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsArrayBuffer。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsArrayBuffer_GetData()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsArrayBuffer_GetData()
 
 ```text
 int OH_UdsArrayBuffer_GetData(OH_UdsArrayBuffer* buffer, unsigned char** data, unsigned int* len)
@@ -1597,25 +1505,23 @@ int OH_UdsArrayBuffer_GetData(OH_UdsArrayBuffer* buffer, unsigned char** data, u
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)* buffer | 表示指向ArrayBuffer类型[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)实例的指针。 |
+| OH_UdsArrayBuffer* buffer | 表示指向ArrayBuffer类型OH_UdsArrayBuffer实例的指针。 |
 | unsigned char** data | 该参数是输出参数，表示用户自定义的ArrayBuffer数据。 |
 | unsigned int* len | 该参数是输出参数，表示用户自定义的ArrayBuffer数据的大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsarraybuffer)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsArrayBuffer。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsContentForm_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_Create()
 
 ```text
 OH_UdsContentForm* OH_UdsContentForm_Create()
@@ -1629,15 +1535,14 @@ OH_UdsContentForm* OH_UdsContentForm_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* | 执行成功则返回一个指向内容卡片类型[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例对象的指针，否则返回nullptr。 |
+| OH_UdsContentForm* | 执行成功则返回一个指向内容卡片类型OH_UdsContentForm实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsContentForm_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_Destroy()
 
 ```text
 void OH_UdsContentForm_Destroy(OH_UdsContentForm* pThis)
@@ -1651,15 +1556,14 @@ void OH_UdsContentForm_Destroy(OH_UdsContentForm* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 
 
-### OH_UdsContentForm_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_GetType()
 
 ```text
 const char* OH_UdsContentForm_GetType(OH_UdsContentForm* pThis)
@@ -1673,23 +1577,21 @@ const char* OH_UdsContentForm_GetType(OH_UdsContentForm* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回类型ID的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsContentForm_GetThumbData()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_GetThumbData()
 
 ```text
 int OH_UdsContentForm_GetThumbData(OH_UdsContentForm* pThis, unsigned char** thumbData, unsigned int* len)
@@ -1703,25 +1605,23 @@ int OH_UdsContentForm_GetThumbData(OH_UdsContentForm* pThis, unsigned char** thu
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | unsigned char** thumbData | 该参数是输出参数，表示内容卡片中的图片二进制数据。 |
 | unsigned int* len | 该参数是输出参数，表示内容卡片中的图片二进制数据的大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。          若返回UDMF_ERR，表示出现了内部系统错误。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示出现了内部系统错误。 |
 
 
-### OH_UdsContentForm_GetDescription()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_GetDescription()
 
 ```text
 const char* OH_UdsContentForm_GetDescription(OH_UdsContentForm* pThis)
@@ -1735,23 +1635,21 @@ const char* OH_UdsContentForm_GetDescription(OH_UdsContentForm* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回描述信息的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsContentForm_GetTitle()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_GetTitle()
 
 ```text
 const char* OH_UdsContentForm_GetTitle(OH_UdsContentForm* pThis)
@@ -1765,23 +1663,21 @@ const char* OH_UdsContentForm_GetTitle(OH_UdsContentForm* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回标题信息的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsContentForm_GetAppIcon()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_GetAppIcon()
 
 ```text
 int OH_UdsContentForm_GetAppIcon(OH_UdsContentForm* pThis, unsigned char** appIcon, unsigned int* len)
@@ -1795,25 +1691,23 @@ int OH_UdsContentForm_GetAppIcon(OH_UdsContentForm* pThis, unsigned char** appIc
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | unsigned char** appIcon | 该参数是输出参数，表示内容卡片中的应用图标二进制数据。 |
 | unsigned int* len | 该参数是输出参数，表示内容卡片中的应用图标二进制数据的大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。          若返回UDMF_ERR，表示出现了内部系统错误。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 若返回UDMF_ERR，表示出现了内部系统错误。 |
 
 
-### OH_UdsContentForm_GetAppName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_GetAppName()
 
 ```text
 const char* OH_UdsContentForm_GetAppName(OH_UdsContentForm* pThis)
@@ -1827,23 +1721,21 @@ const char* OH_UdsContentForm_GetAppName(OH_UdsContentForm* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回应用名称信息的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsContentForm_GetLinkUri()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_GetLinkUri()
 
 ```text
 const char* OH_UdsContentForm_GetLinkUri(OH_UdsContentForm* pThis)
@@ -1857,23 +1749,21 @@ const char* OH_UdsContentForm_GetLinkUri(OH_UdsContentForm* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 输入有效入参时返回超链接的字符串指针，否则返回nullptr。 |
 
 
-### OH_UdsContentForm_SetThumbData()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_SetThumbData()
 
 ```text
 int OH_UdsContentForm_SetThumbData(OH_UdsContentForm* pThis, const unsigned char* thumbData, unsigned int len)
@@ -1887,25 +1777,23 @@ int OH_UdsContentForm_SetThumbData(OH_UdsContentForm* pThis, const unsigned char
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | const unsigned char* thumbData | 表示内容卡片中的图片二进制数据。 |
 | unsigned int len | 表示内容卡片中的图片二进制数据的大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsContentForm_SetDescription()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_SetDescription()
 
 ```text
 int OH_UdsContentForm_SetDescription(OH_UdsContentForm* pThis, const char* description)
@@ -1919,24 +1807,22 @@ int OH_UdsContentForm_SetDescription(OH_UdsContentForm* pThis, const char* descr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | const char* description | 表示描述信息。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsContentForm_SetTitle()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_SetTitle()
 
 ```text
 int OH_UdsContentForm_SetTitle(OH_UdsContentForm* pThis, const char* title)
@@ -1950,24 +1836,22 @@ int OH_UdsContentForm_SetTitle(OH_UdsContentForm* pThis, const char* title)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | const char* title | 表示标题信息。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义OH_UdsContentForm。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsContentForm_SetAppIcon()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_SetAppIcon()
 
 ```text
 int OH_UdsContentForm_SetAppIcon(OH_UdsContentForm* pThis, const unsigned char* appIcon, unsigned int len)
@@ -1981,25 +1865,23 @@ int OH_UdsContentForm_SetAppIcon(OH_UdsContentForm* pThis, const unsigned char* 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | const unsigned char* appIcon | 表示内容卡片中的应用图标二进制数据。 |
 | unsigned int len | 表示内容卡片中的应用图标二进制数据的大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsContentForm_SetAppName()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_SetAppName()
 
 ```text
 int OH_UdsContentForm_SetAppName(OH_UdsContentForm* pThis, const char* appName)
@@ -2013,24 +1895,22 @@ int OH_UdsContentForm_SetAppName(OH_UdsContentForm* pThis, const char* appName)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | const char* appName | 表示内容卡片中的应用名称。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsContentForm_SetLinkUri()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsContentForm_SetLinkUri()
 
 ```text
 int OH_UdsContentForm_SetLinkUri(OH_UdsContentForm* pThis, const char* linkUri)
@@ -2044,24 +1924,22 @@ int OH_UdsContentForm_SetLinkUri(OH_UdsContentForm* pThis, const char* linkUri)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)* pThis | 表示指向[OH_UdsContentForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udscontentform)实例的指针。 |
+| OH_UdsContentForm* pThis | 表示指向OH_UdsContentForm实例的指针。 |
 | const char* linkUri | 表示内容卡片中的超链接。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsPlainText_GetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPlainText_GetDetails()
 
 ```text
 int OH_UdsPlainText_GetDetails(OH_UdsPlainText* pThis, OH_UdsDetails* details)
@@ -2075,24 +1953,22 @@ int OH_UdsPlainText_GetDetails(OH_UdsPlainText* pThis, OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 该参数是输出参数，表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsPlainText* pThis | 表示指向纯文本类型OH_UdsPlainText实例的指针。 |
+| OH_UdsDetails* details | 该参数是输出参数，表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsPlainText_SetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPlainText_SetDetails()
 
 ```text
 int OH_UdsPlainText_SetDetails(OH_UdsPlainText* pThis, const OH_UdsDetails* details)
@@ -2106,24 +1982,22 @@ int OH_UdsPlainText_SetDetails(OH_UdsPlainText* pThis, const OH_UdsDetails* deta
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)* pThis | 表示指向纯文本类型[OH_UdsPlainText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsplaintext)实例的指针。 |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsPlainText* pThis | 表示指向纯文本类型OH_UdsPlainText实例的指针。 |
+| const OH_UdsDetails* details | 表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHyperlink_GetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_GetDetails()
 
 ```text
 int OH_UdsHyperlink_GetDetails(OH_UdsHyperlink* pThis, OH_UdsDetails* details)
@@ -2137,24 +2011,22 @@ int OH_UdsHyperlink_GetDetails(OH_UdsHyperlink* pThis, OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 该参数是输出参数，表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
+| OH_UdsDetails* details | 该参数是输出参数，表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHyperlink_SetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHyperlink_SetDetails()
 
 ```text
 int OH_UdsHyperlink_SetDetails(OH_UdsHyperlink* pThis, const OH_UdsDetails* details)
@@ -2168,24 +2040,22 @@ int OH_UdsHyperlink_SetDetails(OH_UdsHyperlink* pThis, const OH_UdsDetails* deta
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)* pThis | 表示指向超链接类型[OH_UdsHyperlink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshyperlink)实例的指针。 |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsHyperlink* pThis | 表示指向超链接类型OH_UdsHyperlink实例的指针。 |
+| const OH_UdsDetails* details | 表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHtml_GetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_GetDetails()
 
 ```text
 int OH_UdsHtml_GetDetails(OH_UdsHtml* pThis, OH_UdsDetails* details)
@@ -2199,24 +2069,22 @@ int OH_UdsHtml_GetDetails(OH_UdsHtml* pThis, OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 该参数是输出参数，表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
+| OH_UdsDetails* details | 该参数是输出参数，表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsHtml_SetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsHtml_SetDetails()
 
 ```text
 int OH_UdsHtml_SetDetails(OH_UdsHtml* pThis, const OH_UdsDetails* details)
@@ -2230,24 +2098,22 @@ int OH_UdsHtml_SetDetails(OH_UdsHtml* pThis, const OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)* pThis | 表示指向超文本标记语言类型[OH_UdsHtml](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udshtml)实例的指针。 |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsHtml* pThis | 表示指向超文本标记语言类型OH_UdsHtml实例的指针。 |
+| const OH_UdsDetails* details | 表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_GetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_GetDetails()
 
 ```text
 int OH_UdsAppItem_GetDetails(OH_UdsAppItem* pThis, OH_UdsDetails* details)
@@ -2261,24 +2127,22 @@ int OH_UdsAppItem_GetDetails(OH_UdsAppItem* pThis, OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 该参数是输出参数，表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
+| OH_UdsDetails* details | 该参数是输出参数，表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsAppItem_SetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsAppItem_SetDetails()
 
 ```text
 int OH_UdsAppItem_SetDetails(OH_UdsAppItem* pThis, const OH_UdsDetails* details)
@@ -2292,24 +2156,22 @@ int OH_UdsAppItem_SetDetails(OH_UdsAppItem* pThis, const OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)* pThis | 表示一个指向桌面图标类型[OH_UdsAppItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsappitem)对象的指针。 |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsAppItem* pThis | 表示一个指向桌面图标类型OH_UdsAppItem对象的指针。 |
+| const OH_UdsDetails* details | 表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsFileUri_GetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_GetDetails()
 
 ```text
 int OH_UdsFileUri_GetDetails(OH_UdsFileUri* pThis, OH_UdsDetails* details)
@@ -2323,24 +2185,22 @@ int OH_UdsFileUri_GetDetails(OH_UdsFileUri* pThis, OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 该参数是输出参数，表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
+| OH_UdsDetails* details | 该参数是输出参数，表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsFileUri_SetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsFileUri_SetDetails()
 
 ```text
 int OH_UdsFileUri_SetDetails(OH_UdsFileUri* pThis, const OH_UdsDetails* details)
@@ -2354,24 +2214,22 @@ int OH_UdsFileUri_SetDetails(OH_UdsFileUri* pThis, const OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)* pThis | 表示指向文件Uri类型[OH_UdsFileUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsfileuri)实例的指针。 |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsFileUri* pThis | 表示指向文件Uri类型OH_UdsFileUri实例的指针。 |
+| const OH_UdsDetails* details | 表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsPixelMap_GetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPixelMap_GetDetails()
 
 ```text
 int OH_UdsPixelMap_GetDetails(OH_UdsPixelMap* pThis, OH_UdsDetails* details)
@@ -2385,24 +2243,22 @@ int OH_UdsPixelMap_GetDetails(OH_UdsPixelMap* pThis, OH_UdsDetails* details)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)* pThis | 表示指向像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例的指针。 |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 该参数是输出参数，表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsPixelMap* pThis | 表示指向像素图片类型OH_UdsPixelMap实例的指针。 |
+| OH_UdsDetails* details | 该参数是输出参数，表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsPixelMap_SetDetails()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsPixelMap_SetDetails()
 
 ```text
 int OH_UdsPixelMap_SetDetails(OH_UdsPixelMap* pThis, const OH_UdsDetails* details)
@@ -2416,24 +2272,22 @@ int OH_UdsPixelMap_SetDetails(OH_UdsPixelMap* pThis, const OH_UdsDetails* detail
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)* pThis | 表示指向像素图片类型[OH_UdsPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udspixelmap)实例的指针。 |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* details | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针，该指针不能为空。 |
+| OH_UdsPixelMap* pThis | 表示指向像素图片类型OH_UdsPixelMap实例的指针。 |
+| const OH_UdsDetails* details | 表示指向字典类型OH_UdsDetails实例的指针，该指针不能为空。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效参数。 |
 
 
-### OH_UdsDetails_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_Create()
 
 ```text
 OH_UdsDetails* OH_UdsDetails_Create()
@@ -2449,15 +2303,14 @@ OH_UdsDetails* OH_UdsDetails_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdsDetails*](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails) | 执行成功则返回一个指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例对象的指针，否则返回nullptr。 |
+| OH_UdsDetails* | 执行成功则返回一个指向字典类型OH_UdsDetails实例对象的指针，否则返回nullptr。 |
 
 
-### OH_UdsDetails_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_Destroy()
 
 ```text
 void OH_UdsDetails_Destroy(OH_UdsDetails* pThis)
@@ -2471,15 +2324,14 @@ void OH_UdsDetails_Destroy(OH_UdsDetails* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* pThis | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
+| OH_UdsDetails* pThis | 表示指向字典类型OH_UdsDetails实例的指针。 |
 
 
-### OH_UdsDetails_HasKey()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_HasKey()
 
 ```text
 bool OH_UdsDetails_HasKey(const OH_UdsDetails* pThis, const char* key)
@@ -2493,24 +2345,22 @@ bool OH_UdsDetails_HasKey(const OH_UdsDetails* pThis, const char* key)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* pThis | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
+| const OH_UdsDetails* pThis | 表示指向字典类型OH_UdsDetails实例的指针。 |
 | const char* key | 表示字典类型中键值对的键。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | bool | 返回查找结果的状态。返回false表示不存在指定键，返回true表示存在指定键。 |
 
 
-### OH_UdsDetails_Remove()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_Remove()
 
 ```text
 int OH_UdsDetails_Remove(OH_UdsDetails* pThis, const char* key)
@@ -2524,24 +2374,22 @@ int OH_UdsDetails_Remove(OH_UdsDetails* pThis, const char* key)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* pThis | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
+| OH_UdsDetails* pThis | 表示指向字典类型OH_UdsDetails实例的指针。 |
 | const char* key | 表示字典类型中键值对的键。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsDetails_Clear()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_Clear()
 
 ```text
 int OH_UdsDetails_Clear(OH_UdsDetails* pThis)
@@ -2555,23 +2403,21 @@ int OH_UdsDetails_Clear(OH_UdsDetails* pThis)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* pThis | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
+| OH_UdsDetails* pThis | 表示指向字典类型OH_UdsDetails实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsDetails_SetValue()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_SetValue()
 
 ```text
 int OH_UdsDetails_SetValue(OH_UdsDetails* pThis, const char* key, const char* value)
@@ -2585,25 +2431,23 @@ int OH_UdsDetails_SetValue(OH_UdsDetails* pThis, const char* key, const char* va
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* pThis | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
+| OH_UdsDetails* pThis | 表示指向字典类型OH_UdsDetails实例的指针。 |
 | const char* key | 表示字典类型中键值对的键。 |
 | const char* value | 表示字典类型中键值对的值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。请参阅错误码定义[Udmf_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-err-code-h#udmf_errcode)。          若返回UDMF_E_OK，表示执行成功。          若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
+| int | 返回执行的错误码。请参阅错误码定义Udmf_ErrCode。 若返回UDMF_E_OK，表示执行成功。 若返回UDMF_E_INVALID_PARAM，表示传入了无效的参数。 |
 
 
-### OH_UdsDetails_GetValue()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_GetValue()
 
 ```text
 const char* OH_UdsDetails_GetValue(const OH_UdsDetails* pThis, const char* key)
@@ -2617,24 +2461,22 @@ const char* OH_UdsDetails_GetValue(const OH_UdsDetails* pThis, const char* key)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [const OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* pThis | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
+| const OH_UdsDetails* pThis | 表示指向字典类型OH_UdsDetails实例的指针。 |
 | const char* key | 表示字典类型中键值对的键。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | const char* | 当入参有效时返回指向字典类型中值的指针，否则返回nullptr。 |
 
 
-### OH_UdsDetails_GetAllKeys()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_UdsDetails_GetAllKeys()
 
 ```text
 char** OH_UdsDetails_GetAllKeys(OH_UdsDetails* pThis, unsigned int* count)
@@ -2648,16 +2490,14 @@ char** OH_UdsDetails_GetAllKeys(OH_UdsDetails* pThis, unsigned int* count)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)* pThis | 表示指向字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)实例的指针。 |
+| OH_UdsDetails* pThis | 表示指向字典类型OH_UdsDetails实例的指针。 |
 | unsigned int* count | 该参数是输出参数，表示结果集的长度。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| char** | 执行成功时返回字典类型中键的结果集，否则返回nullptr。          当使用[OH_UdsDetails_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-uds-h#oh_udsdetails_destroy)销毁字典类型[OH_UdsDetails](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udsdetails)指针指向的实例对象，该返回值也会被释放。 |
+| char** | 执行成功时返回字典类型中键的结果集，否则返回nullptr。 当使用OH_UdsDetails_Destroy销毁字典类型OH_UdsDetails指针指向的实例对象，该返回值也会被释放。 |

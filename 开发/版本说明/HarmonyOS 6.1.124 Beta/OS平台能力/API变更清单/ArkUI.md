@@ -1,6 +1,6 @@
 # ArkUI
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-6111
 
@@ -24,32 +24,32 @@
 | 新增API | NA | 类名：ColumnLayoutAlgorithmOptions； API声明：justifyContent?: FlexAlign; 差异内容：justifyContent?: FlexAlign; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：ColumnLayoutAlgorithmOptions； API声明：isReverse?: boolean; 差异内容：isReverse?: boolean; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：global； API声明：export class ColumnLayoutAlgorithm 差异内容：export class ColumnLayoutAlgorithm | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace  public space?: LengthMetrics; 差异内容：@Trace  public space?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace  public alignItems?: HorizontalAlign; 差异内容：@Trace  public alignItems?: HorizontalAlign; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace  public justifyContent?: FlexAlign; 差异内容：@Trace  public justifyContent?: FlexAlign; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace  public isReverse?: boolean; 差异内容：@Trace  public isReverse?: boolean; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace public space?: LengthMetrics; 差异内容：@Trace public space?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace public alignItems?: HorizontalAlign; 差异内容：@Trace public alignItems?: HorizontalAlign; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace public justifyContent?: FlexAlign; 差异内容：@Trace public justifyContent?: FlexAlign; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：ColumnLayoutAlgorithm； API声明：@Trace public isReverse?: boolean; 差异内容：@Trace public isReverse?: boolean; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：global； API声明：interface RowLayoutAlgorithmOptions 差异内容：interface RowLayoutAlgorithmOptions | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：RowLayoutAlgorithmOptions； API声明：space?: LengthMetrics; 差异内容：space?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：RowLayoutAlgorithmOptions； API声明：alignItems?: VerticalAlign; 差异内容：alignItems?: VerticalAlign; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：RowLayoutAlgorithmOptions； API声明：justifyContent?: FlexAlign; 差异内容：justifyContent?: FlexAlign; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：RowLayoutAlgorithmOptions； API声明：isReverse?: boolean; 差异内容：isReverse?: boolean; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：global； API声明：export class RowLayoutAlgorithm 差异内容：export class RowLayoutAlgorithm | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace  public space?: LengthMetrics; 差异内容：@Trace  public space?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace  public alignItems?: VerticalAlign; 差异内容：@Trace  public alignItems?: VerticalAlign; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace  public justifyContent?: FlexAlign; 差异内容：@Trace  public justifyContent?: FlexAlign; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace  public isReverse?: boolean; 差异内容：@Trace  public isReverse?: boolean; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace public space?: LengthMetrics; 差异内容：@Trace public space?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace public alignItems?: VerticalAlign; 差异内容：@Trace public alignItems?: VerticalAlign; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace public justifyContent?: FlexAlign; 差异内容：@Trace public justifyContent?: FlexAlign; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：RowLayoutAlgorithm； API声明：@Trace public isReverse?: boolean; 差异内容：@Trace public isReverse?: boolean; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：global； API声明：interface StackLayoutAlgorithmOptions 差异内容：interface StackLayoutAlgorithmOptions | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：StackLayoutAlgorithmOptions； API声明：alignContent?: LocalizedAlignment; 差异内容：alignContent?: LocalizedAlignment; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：global； API声明：export class StackLayoutAlgorithm 差异内容：export class StackLayoutAlgorithm | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：StackLayoutAlgorithm； API声明：@Trace  public alignContent?: LocalizedAlignment; 差异内容：@Trace  public alignContent?: LocalizedAlignment; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：StackLayoutAlgorithm； API声明：@Trace public alignContent?: LocalizedAlignment; 差异内容：@Trace public alignContent?: LocalizedAlignment; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：global； API声明：interface GridLayoutAlgorithmOptions 差异内容：interface GridLayoutAlgorithmOptions | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：GridLayoutAlgorithmOptions； API声明：columnsTemplate?: string \| ItemFillPolicy; 差异内容：columnsTemplate?: string \| ItemFillPolicy; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：GridLayoutAlgorithmOptions； API声明：columnsGap?: LengthMetrics; 差异内容：columnsGap?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：GridLayoutAlgorithmOptions； API声明：rowsGap?: LengthMetrics; 差异内容：rowsGap?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：global； API声明：export class GridLayoutAlgorithm 差异内容：export class GridLayoutAlgorithm | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：GridLayoutAlgorithm； API声明：@Trace  public columnsTemplate?: string \| ItemFillPolicy; 差异内容：@Trace  public columnsTemplate?: string \| ItemFillPolicy; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：GridLayoutAlgorithm； API声明：@Trace  public columnsGap?: LengthMetrics; 差异内容：@Trace  public columnsGap?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
-| 新增API | NA | 类名：GridLayoutAlgorithm； API声明：@Trace  public rowsGap?: LengthMetrics; 差异内容：@Trace  public rowsGap?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：GridLayoutAlgorithm； API声明：@Trace public columnsTemplate?: string \| ItemFillPolicy; 差异内容：@Trace public columnsTemplate?: string \| ItemFillPolicy; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：GridLayoutAlgorithm； API声明：@Trace public columnsGap?: LengthMetrics; 差异内容：@Trace public columnsGap?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
+| 新增API | NA | 类名：GridLayoutAlgorithm； API声明：@Trace public rowsGap?: LengthMetrics; 差异内容：@Trace public rowsGap?: LengthMetrics; | api/arkui/LayoutAlgorithm.d.ts |
 | 新增API | NA | 类名：EllipsisMode； API声明：MULTILINE_START = 3 差异内容：MULTILINE_START = 3 | component/enums.d.ts |
 | 新增API | NA | 类名：EllipsisMode； API声明：MULTILINE_CENTER = 4 差异内容：MULTILINE_CENTER = 4 | component/enums.d.ts |
 | 新增API | NA | 类名：global； API声明：declare enum CompetitionStrategy 差异内容：declare enum CompetitionStrategy | component/enums.d.ts |
@@ -59,20 +59,20 @@
 | 新增API | NA | 类名：HdrType； API声明：DEFAULT = 0 差异内容：DEFAULT = 0 | component/xcomponent.d.ts |
 | 新增API | NA | 类名：HdrType； API声明：AIHDR = 1 差异内容：AIHDR = 1 | component/xcomponent.d.ts |
 | 新增API | NA | 类名：ButtonOptions； API声明：textAlign?: TextAlign; 差异内容：textAlign?: TextAlign; | api/@ohos.arkui.advanced.Dialog.d.ets |
-| 新增API | NA | 类名：AdvancedDialogV2Button； API声明：@Trace  textAlign?: TextAlign; 差异内容：@Trace  textAlign?: TextAlign; | api/@ohos.arkui.advanced.DialogV2.d.ets |
+| 新增API | NA | 类名：AdvancedDialogV2Button； API声明：@Trace textAlign?: TextAlign; 差异内容：@Trace textAlign?: TextAlign; | api/@ohos.arkui.advanced.DialogV2.d.ets |
 | 新增API | NA | 类名：AdvancedDialogV2ButtonOptions； API声明：textAlign?: TextAlign; 差异内容：textAlign?: TextAlign; | api/@ohos.arkui.advanced.DialogV2.d.ets |
-| 新增API | NA | 类名：SegmentButton； API声明：@Prop  enableStateAnimation: boolean; 差异内容：@Prop  enableStateAnimation: boolean; | api/@ohos.arkui.advanced.SegmentButton.d.ets |
-| 新增API | NA | 类名：TabSegmentButtonV2； API声明：@Param  readonly enableStateAnimation?: boolean; 差异内容：@Param  readonly enableStateAnimation?: boolean; | api/@ohos.arkui.advanced.SegmentButtonV2.d.ets |
-| 新增API | NA | 类名：CapsuleSegmentButtonV2； API声明：@Param  readonly enableStateAnimation?: boolean; 差异内容：@Param  readonly enableStateAnimation?: boolean; | api/@ohos.arkui.advanced.SegmentButtonV2.d.ets |
+| 新增API | NA | 类名：SegmentButton； API声明：@Prop enableStateAnimation: boolean; 差异内容：@Prop enableStateAnimation: boolean; | api/@ohos.arkui.advanced.SegmentButton.d.ets |
+| 新增API | NA | 类名：TabSegmentButtonV2； API声明：@Param readonly enableStateAnimation?: boolean; 差异内容：@Param readonly enableStateAnimation?: boolean; | api/@ohos.arkui.advanced.SegmentButtonV2.d.ets |
+| 新增API | NA | 类名：CapsuleSegmentButtonV2； API声明：@Param readonly enableStateAnimation?: boolean; 差异内容：@Param readonly enableStateAnimation?: boolean; | api/@ohos.arkui.advanced.SegmentButtonV2.d.ets |
 | 新增API | NA | 类名：OperationOption； API声明：id?: string; 差异内容：id?: string; | api/@ohos.arkui.advanced.SubHeader.d.ets |
 | 新增API | NA | 类名：SelectOptions； API声明：id?: string; 差异内容：id?: string; | api/@ohos.arkui.advanced.SubHeader.d.ets |
-| 新增API | NA | 类名：SubHeader； API声明：@Prop  titleId?: string; 差异内容：@Prop  titleId?: string; | api/@ohos.arkui.advanced.SubHeader.d.ets |
+| 新增API | NA | 类名：SubHeader； API声明：@Prop titleId?: string; 差异内容：@Prop titleId?: string; | api/@ohos.arkui.advanced.SubHeader.d.ets |
 | 新增API | NA | 类名：SubHeaderV2TitleOptions； API声明：id?: string; 差异内容：id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
-| 新增API | NA | 类名：SubHeaderV2Title； API声明：@Trace  id?: string; 差异内容：@Trace  id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
+| 新增API | NA | 类名：SubHeaderV2Title； API声明：@Trace id?: string; 差异内容：@Trace id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
 | 新增API | NA | 类名：SubHeaderV2SelectOptions； API声明：id?: string; 差异内容：id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
-| 新增API | NA | 类名：SubHeaderV2Select； API声明：@Trace  id?: string; 差异内容：@Trace  id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
+| 新增API | NA | 类名：SubHeaderV2Select； API声明：@Trace id?: string; 差异内容：@Trace id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
 | 新增API | NA | 类名：SubHeaderV2OperationItemOptions； API声明：id?: string; 差异内容：id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
-| 新增API | NA | 类名：SubHeaderV2OperationItem； API声明：@Trace  id?: string; 差异内容：@Trace  id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
+| 新增API | NA | 类名：SubHeaderV2OperationItem； API声明：@Trace id?: string; 差异内容：@Trace id?: string; | api/@ohos.arkui.advanced.SubHeaderV2.d.ets |
 | 新增API | NA | 类名：global； API声明：export enum AnimationStopMode 差异内容：export enum AnimationStopMode | api/@ohos.arkui.drawableDescriptor.d.ts |
 | 新增API | NA | 类名：AnimationStopMode； API声明：FIRST_FRAME = 0 差异内容：FIRST_FRAME = 0 | api/@ohos.arkui.drawableDescriptor.d.ts |
 | 新增API | NA | 类名：AnimationStopMode； API声明：LAST_FRAME = 1 差异内容：LAST_FRAME = 1 | api/@ohos.arkui.drawableDescriptor.d.ts |
@@ -81,9 +81,9 @@
 | 新增API | NA | 类名：ComponentObserver； API声明：offDrawChildren(callback?: Callback<number[]>): void; 差异内容：offDrawChildren(callback?: Callback<number[]>): void; | api/@ohos.arkui.inspector.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：isEasySplit(): boolean; 差异内容：isEasySplit(): boolean; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：getPageRootNode(): FrameNode \| null; 差异内容：getPageRootNode(): FrameNode \| null; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：Window； API声明：clearWindowMask(): Promise<void>; 差异内容：clearWindowMask(): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：releaseUIContent(): Promise<void>; 差异内容：releaseUIContent(): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：FloatingBallController； API声明：setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>; 差异内容：setFloatingBallVisibilityInApp(isVisible: boolean): Promise<void>; | api/@ohos.window.floatingBall.d.ts |
+| 新增API | NA | 类名：Window； API声明：clearWindowMask(): Promise&lt;void&gt;; 差异内容：clearWindowMask(): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：releaseUIContent(): Promise&lt;void&gt;; 差异内容：releaseUIContent(): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：FloatingBallController； API声明：setFloatingBallVisibilityInApp(isVisible: boolean): Promise&lt;void&gt;; 差异内容：setFloatingBallVisibilityInApp(isVisible: boolean): Promise&lt;void&gt;; | api/@ohos.window.floatingBall.d.ts |
 | 新增API | NA | 类名：BuilderNode； API声明：postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean; 差异内容：postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean; | api/arkui/BuilderNode.d.ts |
 | 新增API | NA | 类名：ReactiveBuilderNode； API声明：postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean; 差异内容：postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean; | api/arkui/BuilderNode.d.ts |
 | 新增API | NA | 类名：CanvasRenderer； API声明：antialias: boolean \| undefined; 差异内容：antialias: boolean \| undefined; | component/canvas.d.ts |
@@ -102,10 +102,10 @@
 | 新增API | NA | 类名：TabsNestedScrollMode； API声明：SELF_ONLY = 0 差异内容：SELF_ONLY = 0 | component/tabs.d.ts |
 | 新增API | NA | 类名：TabsNestedScrollMode； API声明：SELF_FIRST = 1 差异内容：SELF_FIRST = 1 | component/tabs.d.ts |
 | 新增API | NA | 类名：TabsAttribute； API声明：nestedScroll(value: TabsNestedScrollMode \| undefined): TabsAttribute; 差异内容：nestedScroll(value: TabsNestedScrollMode \| undefined): TabsAttribute; | component/tabs.d.ts |
-| 新增API | NA | 类名：TextAreaAttribute； API声明：horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute; 差异内容：horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute; | component/text_area.d.ts |
+| 新增API | NA | 类名：TextAreaAttribute； API声明：horizontalScrolling(enabled: Optional&lt;boolean&gt;): TextAreaAttribute; 差异内容：horizontalScrolling(enabled: Optional&lt;boolean&gt;): TextAreaAttribute; | component/text_area.d.ts |
 | 新增API | NA | 类名：LayoutManager； API声明：getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity \| undefined; 差异内容：getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity \| undefined; | component/text_common.d.ts |
-| 新增API | NA | 类名：LayoutManager； API声明：getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> \| undefined; 差异内容：getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> \| undefined; | component/text_common.d.ts |
-| 新增API | NA | 类名：LayoutManager； API声明：getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> \| undefined; 差异内容：getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> \| undefined; | component/text_common.d.ts |
+| 新增API | NA | 类名：LayoutManager； API声明：getGlyphRangeForCharacterRange(charRange: TextRange): Array&lt;TextRange&gt; \| undefined; 差异内容：getGlyphRangeForCharacterRange(charRange: TextRange): Array&lt;TextRange&gt; \| undefined; | component/text_common.d.ts |
+| 新增API | NA | 类名：LayoutManager； API声明：getCharacterRangeForGlyphRange(glyphRange: TextRange): Array&lt;TextRange&gt; \| undefined; 差异内容：getCharacterRangeForGlyphRange(glyphRange: TextRange): Array&lt;TextRange&gt; \| undefined; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface FontConfigs 差异内容：declare interface FontConfigs | component/text_common.d.ts |
 | 新增API | NA | 类名：FontConfigs； API声明：fontWeightConfigs?: FontWeightConfigs; 差异内容：fontWeightConfigs?: FontWeightConfigs; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface FontWeightConfigs 差异内容：declare interface FontWeightConfigs | component/text_common.d.ts |

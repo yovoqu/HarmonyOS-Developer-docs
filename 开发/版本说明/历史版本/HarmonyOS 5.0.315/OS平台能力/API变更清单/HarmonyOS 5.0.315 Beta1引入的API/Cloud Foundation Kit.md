@@ -8,8 +8,8 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace cloudResPrefetch 差异内容： declare namespace cloudResPrefetch | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
 | 新增API | NA | 类名：cloudResPrefetch； API声明：function registerPrefetchTask(options: PrefetchOptions): void; 差异内容：function registerPrefetchTask(options: PrefetchOptions): void; | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
-| 新增API | NA | 类名：cloudResPrefetch； API声明：function getPrefetchResult(mode: PrefetchMode): Promise<PrefetchResult>; 差异内容：function getPrefetchResult(mode: PrefetchMode): Promise<PrefetchResult>; | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
-| 新增API | NA | 类名：cloudResPrefetch； API声明：function getPrefetchResult(mode: PrefetchMode, callback: AsyncCallback<PrefetchResult>): void; 差异内容：function getPrefetchResult(mode: PrefetchMode, callback: AsyncCallback<PrefetchResult>): void; | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
+| 新增API | NA | 类名：cloudResPrefetch； API声明：function getPrefetchResult(mode: PrefetchMode): Promise&lt;PrefetchResult&gt;; 差异内容：function getPrefetchResult(mode: PrefetchMode): Promise&lt;PrefetchResult&gt;; | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
+| 新增API | NA | 类名：cloudResPrefetch； API声明：function getPrefetchResult(mode: PrefetchMode, callback: AsyncCallback&lt;PrefetchResult&gt;): void; 差异内容：function getPrefetchResult(mode: PrefetchMode, callback: AsyncCallback&lt;PrefetchResult&gt;): void; | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
 | 新增API | NA | 类名：cloudResPrefetch； API声明： interface PrefetchOptions 差异内容： interface PrefetchOptions | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
 | 新增API | NA | 类名：PrefetchOptions； API声明：token?: string; 差异内容：token?: string; | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |
 | 新增API | NA | 类名：PrefetchOptions； API声明：params?: string \| Object; 差异内容：params?: string \| Object; | api/@hms.core.deviceCloudGateway.cloudResPrefetch.d.ts |

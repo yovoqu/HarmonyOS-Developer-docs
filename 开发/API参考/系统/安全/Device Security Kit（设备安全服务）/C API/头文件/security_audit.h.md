@@ -5,79 +5,76 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-security-audit-8h
 **支持设备：** PC/2in1
 
-
-## 概述
-**支持设备：** PC/2in1
+##### 概述
 
 文件中定义了与安全审计相关的函数。
-
+ 
 **引用文件：** <DeviceSecurityKit/security_audit.h>
-
+ 
 **库：** libsecurityaudit_ndk.z.so
-
+ 
 **系统能力：** SystemCapability.Security.SecurityAudit
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **相关模块：** [SecurityAudit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** PC/2in1
+  
 
-
-### 结构体
-**支持设备：** PC/2in1
-
-
+##### 结构体
+ 
 | 名称 | 描述 |
 | --- | --- |
-| struct  [SecurityAudit_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-event) | 定义审计事件信息。 |
-| struct  [SecurityAudit_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-filter) | 提供过滤条件。 |
+| struct SecurityAudit_Event | 定义审计事件信息。 |
+| struct SecurityAudit_Filter | 提供过滤条件。 |
+ 
+ 
+  
 
-
-### 类型定义
-**支持设备：** PC/2in1
-
-
+##### 类型定义
+ 
 | 名称 | 描述 |
 | --- | --- |
-| typedef void(* [SecurityAudit_Handler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_handler)) (const [SecurityAudit_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-event) *events, uint64_t count) | 定义事件处理函数。 |
-| typedef struct SecurityAudit_AuthClient_Impl [SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) | 定义阻断事件客户端。 |
-| typedef struct SecurityAudit_Client_Impl [SecurityAudit_Client](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_client) | 定义通知事件客户端。 |
+| typedef void(* SecurityAudit_Handler) (const SecurityAudit_Event *events, uint64_t count) | 定义事件处理函数。 |
+| typedef struct SecurityAudit_AuthClient_Impl SecurityAudit_AuthClient | 定义阻断事件客户端。 |
+| typedef struct SecurityAudit_Client_Impl SecurityAudit_Client | 定义通知事件客户端。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** PC/2in1
-
-
+##### 枚举
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [SecurityAudit_Notify_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_notify_event) { SECURITY_AUDIT_NOTIFY_EVENT_PASTEBOARD = 0x27000000, SECURITY_AUDIT_NOTIFY_EVENT_FILE = 0x1C000007, SECURITY_AUDIT_NOTIFY_EVENT_FILE_INTERCEPTED = 0x1C001100, SECURITY_AUDIT_NOTIFY_EVENT_ACCOUNT = 0x10000100, SECURITY_AUDIT_NOTIFY_EVENT_WINDOW = 0x07000000, SECURITY_AUDIT_NOTIFY_EVENT_VOLUME = 0x0F000000, SECURITY_AUDIT_NOTIFY_EVENT_PRINTER = 0x2E000000, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS = 0x1C000008, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_TRAFFIC = 0x1C00000E, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_CONN = 0x1C00000F, SECURITY_AUDIT_NOTIFY_EVENT_CAMERA = 0x2D000000, SECURITY_AUDIT_NOTIFY_EVENT_APP = 0x10000000, SECURITY_AUDIT_NOTIFY_EVENT_EDM = 0x11000000, SECURITY_AUDIT_NOTIFY_EVENT_CERT = 0x12003000, SECURITY_AUDIT_NOTIFY_EVENT_KIA_CREATE = 0x1C00000B, SECURITY_AUDIT_NOTIFY_EVENT_KIA_READ = 0x1C000012, SECURITY_AUDIT_NOTIFY_EVENT_KIA_VARIANT = 0x1C00000C, SECURITY_AUDIT_NOTIFY_EVENT_KIA_INTERCEPT = 0x1C00000A, SECURITY_AUDIT_NOTIFY_EVENT_PERMISSION = 0x0B000000, SECURITY_AUDIT_NOTIFY_EVENT_DNS = 0x03000001, SECURITY_AUDIT_NOTIFY_EVENT_APP_INSTALL_INTERCEPTED = 0x18000100, SECURITY_AUDIT_NOTIFY_EVENT_APP_UNINSTALL_INTERCEPTED = 0x18000101, SECURITY_AUDIT_NOTIFY_EVENT_APP_UPDATE_INTERCEPTED = 0x18000102, SECURITY_AUDIT_NOTIFY_EVENT_APP_RECOVER_INTERCEPTED = 0x18000103, SECURITY_AUDIT_NOTIFY_EVENT_APP_START_INTERCEPTED = 0x18000104, SECURITY_AUDIT_NOTIFY_EVENT_USB_ACCESS_INTERCEPTED = 0x30000000, SECURITY_AUDIT_NOTIFY_EVENT_SMB_FILE_SEND = 0x0F000001, SECURITY_AUDIT_NOTIFY_EVENT_KIA_PRE_OPEN = 0x1C000014, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG = 0x27000100, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG_INTERCEPTED = 0x27000101, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER = 0x2F000000, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER_POLICY = 0x2F000001, SECURITY_AUDIT_NOTIFY_EVENT_SERIAL_PORT_ACCESS = 0x30000100, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_INTERCEPTED = 0x03000002, SECURITY_AUDIT_NOTIFY_EVENT_WIFI_INTERCEPTED = 0x03000100, SECURITY_AUDIT_NOTIFY_EVENT_PRINT_INTERCEPTED = 0x2E000001, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_NULL = 0x12001081, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_ABNORMAL = 0x12001082, SECURITY_AUDIT_NOTIFY_EVENT_FS_MOUNT_ABNORMAL = 0x1C001102, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_CS_ABNORMAL = 0x1C001200, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_MMAP_ABNORMAL = 0x1C001201, SECURITY_AUDIT_NOTIFY_EVENT_KERNEL_MEMORY_ABNORMAL = 0x1C001300, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_DEBUG_ABNORMAL = 0x1C001401, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_CRASH_ABNORMAL = 0x1C001402, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_PRIVILEGE_ESCALATION = 0x1C001403, } | 定义通知事件的事件ID。 |
-| [SecurityAudit_Auth_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_auth_event) { SECURITY_AUDIT_AUTH_EVENT_FILE_CREATE = 0x1C801100, SECURITY_AUDIT_AUTH_EVENT_FILE_OPEN = 0x1C801101, SECURITY_AUDIT_AUTH_EVENT_FILE_RENAME = 0x1C801102, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETE = 0x1C801103, SECURITY_AUDIT_AUTH_EVENT_FILE_SETEXTATTR = 0x1C801104, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETEEXTATTR = 0x1C801105 } | 定义阻断事件的事件ID。 |
-| [SecurityAudit_FilterType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_filtertype) { EVENT_TYPE_EQUAL = 0x00000100, EVENT_SUBTYPE_EQUAL = 0x00000200, FILE_PATH_EQUAL = 0x00010000, FILE_PATH_PREFIX = 0x00010001, FILE_PATH_SUFFIX = 0x00010002, PROCESS_UID_EQUAL = 0x00020000, PROCESS_PID_EQUAL = 0x00020100, PROCESS_NAME_EQUAL = 0x00020200, PROCESS_NAME_PREFIX = 0x00020201, PROCESS_NAME_SUFFIX = 0x00020202 } | 定义过滤器类型。 |
-| [SecurityAudit_AuthResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authresult) { SECURITY_AUDIT_AUTH_RESULT_ALLOW = 0, SECURITY_AUDIT_AUTH_RESULT_DENY = 1 } | 定义阻断结果的类型。 |
+| SecurityAudit_Notify_Event { SECURITY_AUDIT_NOTIFY_EVENT_PASTEBOARD = 0x27000000, SECURITY_AUDIT_NOTIFY_EVENT_FILE = 0x1C000007, SECURITY_AUDIT_NOTIFY_EVENT_FILE_INTERCEPTED = 0x1C001100, SECURITY_AUDIT_NOTIFY_EVENT_ACCOUNT = 0x10000100, SECURITY_AUDIT_NOTIFY_EVENT_WINDOW = 0x07000000, SECURITY_AUDIT_NOTIFY_EVENT_VOLUME = 0x0F000000, SECURITY_AUDIT_NOTIFY_EVENT_PRINTER = 0x2E000000, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS = 0x1C000008, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_TRAFFIC = 0x1C00000E, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_CONN = 0x1C00000F, SECURITY_AUDIT_NOTIFY_EVENT_CAMERA = 0x2D000000, SECURITY_AUDIT_NOTIFY_EVENT_APP = 0x10000000, SECURITY_AUDIT_NOTIFY_EVENT_EDM = 0x11000000, SECURITY_AUDIT_NOTIFY_EVENT_CERT = 0x12003000, SECURITY_AUDIT_NOTIFY_EVENT_KIA_CREATE = 0x1C00000B, SECURITY_AUDIT_NOTIFY_EVENT_KIA_READ = 0x1C000012, SECURITY_AUDIT_NOTIFY_EVENT_KIA_VARIANT = 0x1C00000C, SECURITY_AUDIT_NOTIFY_EVENT_KIA_INTERCEPT = 0x1C00000A, SECURITY_AUDIT_NOTIFY_EVENT_PERMISSION = 0x0B000000, SECURITY_AUDIT_NOTIFY_EVENT_DNS = 0x03000001, SECURITY_AUDIT_NOTIFY_EVENT_APP_INSTALL_INTERCEPTED = 0x18000100, SECURITY_AUDIT_NOTIFY_EVENT_APP_UNINSTALL_INTERCEPTED = 0x18000101, SECURITY_AUDIT_NOTIFY_EVENT_APP_UPDATE_INTERCEPTED = 0x18000102, SECURITY_AUDIT_NOTIFY_EVENT_APP_RECOVER_INTERCEPTED = 0x18000103, SECURITY_AUDIT_NOTIFY_EVENT_APP_START_INTERCEPTED = 0x18000104, SECURITY_AUDIT_NOTIFY_EVENT_USB_ACCESS_INTERCEPTED = 0x30000000, SECURITY_AUDIT_NOTIFY_EVENT_SMB_FILE_SEND = 0x0F000001, SECURITY_AUDIT_NOTIFY_EVENT_KIA_PRE_OPEN = 0x1C000014, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG = 0x27000100, SECURITY_AUDIT_NOTIFY_EVENT_HDC_DEBUG_INTERCEPTED = 0x27000101, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER = 0x2F000000, SECURITY_AUDIT_NOTIFY_EVENT_USER_SPACE_DATA_TRANSFER_POLICY = 0x2F000001, SECURITY_AUDIT_NOTIFY_EVENT_SERIAL_PORT_ACCESS = 0x30000100, SECURITY_AUDIT_NOTIFY_EVENT_NETWORK_INTERCEPTED = 0x03000002, SECURITY_AUDIT_NOTIFY_EVENT_WIFI_INTERCEPTED = 0x03000100, SECURITY_AUDIT_NOTIFY_EVENT_PRINT_INTERCEPTED = 0x2E000001, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_NULL = 0x12001081, SECURITY_AUDIT_NOTIFY_EVENT_CS_VERIFY_ABNORMAL = 0x12001082, SECURITY_AUDIT_NOTIFY_EVENT_FS_MOUNT_ABNORMAL = 0x1C001102, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_CS_ABNORMAL = 0x1C001200, SECURITY_AUDIT_NOTIFY_EVENT_DRIVER_MMAP_ABNORMAL = 0x1C001201, SECURITY_AUDIT_NOTIFY_EVENT_KERNEL_MEMORY_ABNORMAL = 0x1C001300, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_DEBUG_ABNORMAL = 0x1C001401, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_CRASH_ABNORMAL = 0x1C001402, SECURITY_AUDIT_NOTIFY_EVENT_PROCESS_PRIVILEGE_ESCALATION = 0x1C001403, } | 定义通知事件的事件ID。 |
+| SecurityAudit_Auth_Event { SECURITY_AUDIT_AUTH_EVENT_FILE_CREATE = 0x1C801100, SECURITY_AUDIT_AUTH_EVENT_FILE_OPEN = 0x1C801101, SECURITY_AUDIT_AUTH_EVENT_FILE_RENAME = 0x1C801102, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETE = 0x1C801103, SECURITY_AUDIT_AUTH_EVENT_FILE_SETEXTATTR = 0x1C801104, SECURITY_AUDIT_AUTH_EVENT_FILE_DELETEEXTATTR = 0x1C801105 } | 定义阻断事件的事件ID。 |
+| SecurityAudit_FilterType { EVENT_TYPE_EQUAL = 0x00000100, EVENT_SUBTYPE_EQUAL = 0x00000200, FILE_PATH_EQUAL = 0x00010000, FILE_PATH_PREFIX = 0x00010001, FILE_PATH_SUFFIX = 0x00010002, PROCESS_UID_EQUAL = 0x00020000, PROCESS_PID_EQUAL = 0x00020100, PROCESS_NAME_EQUAL = 0x00020200, PROCESS_NAME_PREFIX = 0x00020201, PROCESS_NAME_SUFFIX = 0x00020202 } | 定义过滤器类型。 |
+| SecurityAudit_AuthResult { SECURITY_AUDIT_AUTH_RESULT_ALLOW = 0, SECURITY_AUDIT_AUTH_RESULT_DENY = 1 } | 定义阻断结果的类型。 |
+ 
+ 
+  
 
-
-### 函数
-**支持设备：** PC/2in1
-
-
+##### 函数
+ 
 | 名称 | 描述 |
 | --- | --- |
-| int32_t [HMS_SecurityAudit_NewClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_newclient) ([SecurityAudit_Client](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_client) **client, [SecurityAudit_Handler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_handler) handler) | 创建一个新的通知事件客户端。 |
-| int32_t [HMS_SecurityAudit_DeleteClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_deleteclient) ([SecurityAudit_Client](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_client) *client) | 删除通知客户端。 |
-| int32_t [HMS_SecurityAudit_Subscribe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_subscribe) (const [SecurityAudit_Client](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_client) *client, const [SecurityAudit_Notify_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_notify_event) *events, uint64_t count) | 订阅通知事件。 |
-| int32_t [HMS_SecurityAudit_Unsubscribe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_unsubscribe) (const [SecurityAudit_Client](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_client) *client, const [SecurityAudit_Notify_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_notify_event) *events, uint64_t count) | 取消订阅通知事件。 |
-| int32_t [HMS_SecurityAudit_AddFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_addfilter) (const [SecurityAudit_Client](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_client) *client, [SecurityAudit_Notify_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_notify_event) event, const [SecurityAudit_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-filter) *filter) | 为通知事件添加过滤条件。 |
-| int32_t [HMS_SecurityAudit_RemoveFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_removefilter) (const [SecurityAudit_Client](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_client) *client, [SecurityAudit_Notify_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_notify_event) event, const [SecurityAudit_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-filter) *filter) | 删除通知事件的过滤条件。 |
-| int32_t [HMS_SecurityAudit_NewAuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_newauthclient) ([SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) **client, [SecurityAudit_Handler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_handler) handler) | 创建一个新的阻断类事件客户端。 |
-| int32_t [HMS_SecurityAudit_DeleteAuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_deleteauthclient) ([SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) *client) | 删除阻断类事件客户端。 |
-| int32_t [HMS_SecurityAudit_SubscribeAuthEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_subscribeauthevent) (const [SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) *client, const [SecurityAudit_Auth_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_auth_event) *events, uint64_t count) | 订阅阻断类事件。 |
-| int32_t [HMS_SecurityAudit_UnsubscribeAuthEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_unsubscribeauthevent) (const [SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) *client, const [SecurityAudit_Auth_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_auth_event) *events, uint64_t count) | 取消订阅阻断类事件。 |
-| int32_t [HMS_SecurityAudit_AddAuthEventFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_addautheventfilter) (const [SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) *client, [SecurityAudit_Auth_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_auth_event) event, const [SecurityAudit_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-filter) *filter) | 为阻断类事件添加过滤条件。 |
-| int32_t [HMS_SecurityAudit_RemoveAuthEventFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_removeautheventfilter) (const [SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) *client, [SecurityAudit_Auth_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_auth_event) event, const [SecurityAudit_Filter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-filter) *filter) | 删除阻断类事件的过滤条件。 |
-| int32_t [HMS_SecurityAudit_Auth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_auth) (const [SecurityAudit_AuthClient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authclient) *client, const [SecurityAudit_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-structs-securityaudit-event) *event, [SecurityAudit_AuthResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#securityaudit_authresult) authResult) | 设置审计事件的阻断结果。 |
-| int32_t [HMS_SecurityAudit_QueryAllProcesses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_queryallprocesses) (char** result) | 获取所有的应用进程信息。 |
-| int32_t [HMS_SecurityAudit_QueryProcesses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_queryprocesses) (uint64_t* pids, uint64_t count, char** result) | 获取输入的pid的应用进程信息。 |
-| int32_t [HMS_SecurityAudit_AcquireCodeSign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-capi-securityaudit#hms_securityaudit_acquirecodesign) (char* path, char** outOwnedResult) | 获取输入的文件路径的代码签名信息。 |
+| int32_t HMS_SecurityAudit_NewClient (SecurityAudit_Client **client, SecurityAudit_Handler handler) | 创建一个新的通知事件客户端。 |
+| int32_t HMS_SecurityAudit_DeleteClient (SecurityAudit_Client *client) | 删除通知客户端。 |
+| int32_t HMS_SecurityAudit_Subscribe (const SecurityAudit_Client *client, const SecurityAudit_Notify_Event *events, uint64_t count) | 订阅通知事件。 |
+| int32_t HMS_SecurityAudit_Unsubscribe (const SecurityAudit_Client *client, const SecurityAudit_Notify_Event *events, uint64_t count) | 取消订阅通知事件。 |
+| int32_t HMS_SecurityAudit_AddFilter (const SecurityAudit_Client *client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter *filter) | 为通知事件添加过滤条件。 |
+| int32_t HMS_SecurityAudit_RemoveFilter (const SecurityAudit_Client *client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter *filter) | 删除通知事件的过滤条件。 |
+| int32_t HMS_SecurityAudit_NewAuthClient (SecurityAudit_AuthClient **client, SecurityAudit_Handler handler) | 创建一个新的阻断类事件客户端。 |
+| int32_t HMS_SecurityAudit_DeleteAuthClient (SecurityAudit_AuthClient *client) | 删除阻断类事件客户端。 |
+| int32_t HMS_SecurityAudit_SubscribeAuthEvent (const SecurityAudit_AuthClient *client, const SecurityAudit_Auth_Event *events, uint64_t count) | 订阅阻断类事件。 |
+| int32_t HMS_SecurityAudit_UnsubscribeAuthEvent (const SecurityAudit_AuthClient *client, const SecurityAudit_Auth_Event *events, uint64_t count) | 取消订阅阻断类事件。 |
+| int32_t HMS_SecurityAudit_AddAuthEventFilter (const SecurityAudit_AuthClient *client, SecurityAudit_Auth_Event event, const SecurityAudit_Filter *filter) | 为阻断类事件添加过滤条件。 |
+| int32_t HMS_SecurityAudit_RemoveAuthEventFilter (const SecurityAudit_AuthClient *client, SecurityAudit_Auth_Event event, const SecurityAudit_Filter *filter) | 删除阻断类事件的过滤条件。 |
+| int32_t HMS_SecurityAudit_Auth (const SecurityAudit_AuthClient *client, const SecurityAudit_Event *event, SecurityAudit_AuthResult authResult) | 设置审计事件的阻断结果。 |
+| int32_t HMS_SecurityAudit_QueryAllProcesses (char** result) | 获取所有的应用进程信息。 |
+| int32_t HMS_SecurityAudit_QueryProcesses (uint64_t* pids, uint64_t count, char** result) | 获取输入的pid的应用进程信息。 |
+| int32_t HMS_SecurityAudit_AcquireCodeSign (char* path, char** outOwnedResult) | 获取输入的文件路径的代码签名信息。 |

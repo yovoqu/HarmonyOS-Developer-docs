@@ -8,23 +8,35 @@
 
 在阅读本文档前，建议提前阅读：[@ObservedV2/@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)、[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)。
 
-
 > [!NOTE]
 > 从API version 20开始，开发者可以使用UIUtils中的addMonitor/clearMonitor接口动态给状态管理V2的状态变量添加或删除监听函数。
 
 
-## 概述
 
-装饰器[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)如果声明在[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)和[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)中，会使得开发者构造出的所有的@ObservedV2和@ComponentV2的实例，都默认有同样的@Monitor的监听回调，且无法取消或删除对应的监听回调。 如果开发者希望动态给@ObservedV2和@ComponentV2实例添加或者删除监听函数，则可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#addmonitor20)和[clearMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#clearmonitor20)接口。 使用addMonitor/clearMonitor接口需要导入UIUtils工具。
+##### 概述
+
+装饰器[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)如果声明在[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)和[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)中，会使得开发者构造出的所有的@ObservedV2和@ComponentV2的实例，都默认有同样的@Monitor的监听回调，且无法取消或删除对应的监听回调。
+
+如果开发者希望动态给@ObservedV2和@ComponentV2实例添加或者删除监听函数，则可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#addmonitor20)和[clearMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#clearmonitor20)接口。
+
+ - 使用addMonitor/clearMonitor接口需要导入UIUtils工具。
+
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 ```
 
-仅支持监听状态管理V2的状态变量的变化。 clearMonitor仅可以删除addMonitor添加的监听函数，无法删除@Monitor的监听函数。
+ - 仅支持监听状态管理V2的状态变量的变化。
+ - clearMonitor仅可以删除addMonitor添加的监听函数，无法删除@Monitor的监听函数。
 
-## 使用规则
 
-addMonitor/clearMonitor可以传入数组一次性给多个状态变量添加或删除回调函数。
+
+
+##### 使用规则
+
+ - addMonitor/clearMonitor可以传入数组一次性给多个状态变量添加或删除回调函数。
+
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -74,7 +86,9 @@ struct Page {
 }
 ```
 
-addMonitor可以给path对应的状态变量添加多个监听函数，但是需要注意，如果开发者添加同名的监听函数，则会添加失败，打印错误日志。
+ - addMonitor可以给path对应的状态变量添加多个监听函数，但是需要注意，如果开发者添加同名的监听函数，则会添加失败，打印错误日志。
+
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -132,7 +146,9 @@ struct Page {
 }
 ```
 
-addMonitor设置[isSynchronous](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#monitoroptions20)仅第一次有效，即其不能被更改，如果开发者更改isSynchronous，则会打印错误日志。
+ - addMonitor设置[isSynchronous](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#monitoroptions20)仅第一次有效，即其不能被更改，如果开发者更改isSynchronous，则会打印错误日志。
+
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -175,7 +191,13 @@ struct Page {
 }
 ```
 
-clearMonitor可以删除path对应的状态变量的监听函数，开发者可以通过传入监听回调函数来指定删除具体的监听函数，也可以不指定具体的监听函数，删除当前path对应状态变量的所有监听回调函数。 需要注意：当调用clearMonitor时，如果发现当前回调函数没有在path对应的状态变量上注册过，或者当前状态变量没有任何监听函数，都会打印告警日志提示开发者删除失败。 监听函数被删除后，状态变量的改变不会再回调对应的监听函数。
+ - clearMonitor可以删除path对应的状态变量的监听函数，开发者可以通过传入监听回调函数来指定删除具体的监听函数，也可以不指定具体的监听函数，删除当前path对应状态变量的所有监听回调函数。
+
+  需要注意：当调用clearMonitor时，如果发现当前回调函数没有在path对应的状态变量上注册过，或者当前状态变量没有任何监听函数，都会打印告警日志提示开发者删除失败。
+
+  监听函数被删除后，状态变量的改变不会再回调对应的监听函数。
+
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -243,9 +265,14 @@ struct Page {
 ```
 
 
-## 限制条件
 
-addMonitor/clearMonitor仅支持对@ComponentV2和@ObservedV2装饰（至少有一个@Trace装饰的变量）的实例添加/取消回调，否则会有运行时报错，错误码为130000。 下面为addMonitor的例子，clearMonitor同理。
+##### 限制条件
+
+ - addMonitor/clearMonitor仅支持对@ComponentV2和@ObservedV2装饰（至少有一个@Trace装饰的变量）的实例添加/取消回调，否则会有运行时报错，错误码为130000。
+
+  下面为addMonitor的例子，clearMonitor同理。
+
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -306,7 +333,11 @@ let b: B = new B();
 let c: C = new C();
 ```
 
-addMonitor/clearMonitor观察路径必须为string或者为数组，如果开发者传入不支持的类型，则会有运行时报错，错误码为130001。 下面为addMonitor的例子，clearMonitor同理。
+ - addMonitor/clearMonitor观察路径必须为string或者为数组，如果开发者传入不支持的类型，则会有运行时报错，错误码为130001。
+
+  下面为addMonitor的例子，clearMonitor同理。
+
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -337,7 +368,11 @@ class A {
 let a: A = new A();
 ```
 
-addMonitor的回调函数必须存在，类型必须为方法类型，且不能为匿名函数，如果开发者传入不支持的类型，则会有运行时报错，错误码为130002。 clearMonitor开发者可以不设置回调函数，如果设置了，其类型必须为function类型，且不能为匿名函数。
+ - addMonitor的回调函数必须存在，类型必须为方法类型，且不能为匿名函数，如果开发者传入不支持的类型，则会有运行时报错，错误码为130002。
+
+  clearMonitor开发者可以不设置回调函数，如果设置了，其类型必须为function类型，且不能为匿名函数。
+
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -387,29 +422,44 @@ UIUtils.clearMonitor(a, 'a', (mon: IMonitor) => {});
 ```
 
 
-## addMonitor监听变化的规则
+
+
+
+##### addMonitor监听变化的规则
 
 addMonitor和装饰器[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)监听变化的主要规则大体保持一致，对比如下表：
+
 | 场景 | addMonitor | @Monitor |
 | --- | --- | --- |
-| [监听@ObservedV2类中@Trace修饰属性的变化](#监听observedv2类中trace修饰属性和componentv2组件中状态变量的变化) | 支持 | 支持 |
-| [监听@ComponentV2组件中状态变量的变化](#监听observedv2类中trace修饰属性和componentv2组件中状态变量的变化) | 支持 | 支持 |
-| [监听数组类型状态变量的下标和length的变化](#监听数组类型状态变量的下标和length的变化) | 支持 | 支持 |
+| 监听@ObservedV2类中@Trace修饰属性的变化 | 支持 | 支持 |
+| 监听@ComponentV2组件中状态变量的变化 | 支持 | 支持 |
+| 监听数组类型状态变量的下标和length的变化 | 支持 | 支持 |
 | 监听Map、Set、Date类型状态变量变化 | 不支持 | 不支持 |
-| [独立监听path变化](#独立监听path) | 支持 | 不支持 |
-| [监听变量从可访问到不访问和从不可访问到可访问](#监听变量从可访问到不访问和从不可访问到可访问) | 支持 | 不支持 |
-| [配置同步监听函数](#配置同步监听函数) | 支持 | 不支持 |
-| [监听构造函数中同步修改的状态变量的变化](#监听构造函数中同步修改的状态变量的变化) | 支持 | 不支持 |
-| [动态取消@ObservedV2/@ComponentV2实例的监听](#动态取消observedv2componentv2实例的监听) | 支持 | 不支持 |
+| 独立监听path变化 | 支持 | 不支持 |
+| 监听变量从可访问到不访问和从不可访问到可访问 | 支持 | 不支持 |
+| 配置同步监听函数 | 支持 | 不支持 |
+| 监听构造函数中同步修改的状态变量的变化 | 支持 | 不支持 |
+| 动态取消@ObservedV2/@ComponentV2实例的监听 | 支持 | 不支持 |
 
 
-## 使用场景
 
 
-## 监听@ObservedV2类中@Trace修饰属性和@ComponentV2组件中状态变量的变化
+##### 使用场景
 
-在下面的例子中： 在User的构造函数中添加对age和name的监听函数onChange。 在自定义组件Page的aboutToAppear的生命周期中，添加对user的监听函数onChangeInView。 点击Text(`User name ${this.user.name}`)，改变name的值，触发onChange方法。 点击Text(`User age ${this.user.age}`)，改变age的值，触发onChange方法。 点击Text(`reset User`)，对user整体赋值，触发onChangeInView方法。
-```text
+
+
+##### 监听@ObservedV2类中@Trace修饰属性和@ComponentV2组件中状态变量的变化
+
+在下面的例子中：
+
+ - 在User的构造函数中添加对age和name的监听函数onChange。
+ - 在自定义组件Page的aboutToAppear的生命周期中，添加对user的监听函数onChangeInView。
+ - 点击Text(`User name ${this.user.name}`)，改变name的值，触发onChange方法。
+ - 点击Text(`User age ${this.user.age}`)，改变age的值，触发onChange方法。
+ - 点击Text(`reset User`)，对user整体赋值，触发onChangeInView方法。
+
+
+```json
 import { UIUtils } from '@kit.ArkUI';
 
 @ObservedV2
@@ -469,10 +519,12 @@ struct Page {
 ```
 
 
-## 监听数组类型状态变量的下标和length的变化
+
+##### 监听数组类型状态变量的下标和length的变化
 
 下面的例子展示了对Array数组下标和length的监听。
-```text
+
+```json
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry
@@ -534,13 +586,16 @@ struct Page {
 ```
 
 
-## 独立监听Path
 
-@Monitor没有对path独立监听，所以需要依赖开发者正确传入@Monitor入参，[传入非状态变量时会造成被连带监听的情况](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#正确设置monitor入参)。 对于addMonitor，对不同path采取了独立监听的机制，如下面的例子，点击Button('change age&name')，会输出以下日志：
+##### 独立监听Path
+
+@Monitor没有对path独立监听，所以需要依赖开发者正确传入@Monitor入参，[传入非状态变量时会造成被连带监听的情况](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#正确设置monitor入参)。
+
+对于addMonitor，对不同path采取了独立监听的机制，如下面的例子，点击Button('change age&name')，会输出以下日志：
+
 ```text
 property path:age change from 24 to 25
 ```
-
 
 ```text
 import { UIUtils } from '@kit.ArkUI';
@@ -578,9 +633,13 @@ struct Index {
 ```
 
 
-## 监听变量从可访问到不访问和从不可访问到可访问
 
-[@Monitor不会记录状态变量不可访问时的状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#无法监听变量从可访问变为不可访问和从不可访问变为可访问)，所以其无法监听变量从可访问到不访问和从不可访问到可访问。 addMonitor会记录变量不可访问的状态，所以可以监听变量从可访问到不访问和从不可访问到可访问。例子如下。
+##### 监听变量从可访问到不访问和从不可访问到可访问
+
+[@Monitor不会记录状态变量不可访问时的状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#无法监听变量从可访问变为不可访问和从不可访问变为可访问)，所以其无法监听变量从可访问到不访问和从不可访问到可访问。
+
+addMonitor会记录变量不可访问的状态，所以可以监听变量从可访问到不访问和从不可访问到可访问。例子如下。
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 
@@ -628,14 +687,15 @@ struct Page {
 ```
 
 
-## 配置同步监听函数
+
+##### 配置同步监听函数
 
 和@Monitor仅支持异步监听不同，addMonitor可支持配置成同步监听函数，在下面的例子中，点击Text(`User age ${this.user.age}`)，触发两次age的自增，回调两次onChange函数，日志打印如下：
+
 ```text
 onChange: User property user.age change from 10 to 11
 onChange: User property user.age change from 11 to 12
 ```
-
 
 ```text
 import { UIUtils } from '@kit.ArkUI';
@@ -673,10 +733,10 @@ struct Page {
 ```
 
 如果将上面的例子改成@Monitor，仅会打印一次回调，日志如下：
+
 ```text
 onChange: User property user.age change from 10 to 12
 ```
-
 
 ```text
 @ObservedV2
@@ -709,15 +769,22 @@ struct Page {
 ```
 
 
-## 监听构造函数中同步修改的状态变量的变化
 
-和[@Monitor异步构造](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#类中monitor对变量监听的生效及失效时间)不同，addMonitor是同步构造的，所以在开发者调用完UIUtils.addMonitor(this, 'message', this.onMessageChange);后就完成了对message添加监听函数this.onMessageChange。在下面的例子中： 拉起页面，构造Info的实例，回调onMessageChange监听函数。 点击Button('change message')，回调onMessageChange监听函数。 日志输出如下：
+##### 监听构造函数中同步修改的状态变量的变化
+
+和[@Monitor异步构造](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor#类中monitor对变量监听的生效及失效时间)不同，addMonitor是同步构造的，所以在开发者调用完UIUtils.addMonitor(this, 'message', this.onMessageChange);后就完成了对message添加监听函数this.onMessageChange。在下面的例子中：
+
+ - 拉起页面，构造Info的实例，回调onMessageChange监听函数。
+ - 点击Button('change message')，回调onMessageChange监听函数。
+
+
+日志输出如下：
+
 ```text
 message change from not initialized to initialized
 message change from initialized to Index aboutToAppear
 message change from Index aboutToAppear to Index click to change message
 ```
-
 
 ```text
 import { UIUtils } from '@kit.ArkUI';
@@ -757,9 +824,11 @@ struct Page {
 ```
 
 
-## 动态取消@ObservedV2/@ComponentV2实例的监听
+
+##### 动态取消@ObservedV2/@ComponentV2实例的监听
 
 和@Monitor不同，addMonitor/clearMonitor可以对不同的@ObservedV2/@ComponentV2实例动态添加监听函数。例子如下。
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 

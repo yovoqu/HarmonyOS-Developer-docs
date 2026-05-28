@@ -10,4 +10,4 @@
 | 新增API | NA | 类名：ServiceButton； API声明：name?: string; 差异内容：name?: string; | api/@hms.core.liveview.liveViewManager.d.ts |
 | 新增API | NA | 类名：ServiceButton； API声明：clickAction?: WantAgent; 差异内容：clickAction?: WantAgent; | api/@hms.core.liveview.liveViewManager.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：LayoutData； API声明：isServiceButtonsDisplayed?: boolean; 差异内容：isServiceButtonsDisplayed?: boolean; | api/@hms.core.liveview.liveViewManager.d.ts |
-| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：LayoutData； API声明：serviceButtons?: Array<ServiceButton>; 差异内容：serviceButtons?: Array<ServiceButton>; | api/@hms.core.liveview.liveViewManager.d.ts |
+| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：LayoutData； API声明：serviceButtons?: Array&lt;ServiceButton&gt;; 差异内容：serviceButtons?: Array&lt;ServiceButton&gt;; | api/@hms.core.liveview.liveViewManager.d.ts |

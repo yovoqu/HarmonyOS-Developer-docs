@@ -3,34 +3,48 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImagePacker类，用于图片压缩和编码。
-在调用ImagePacker的方法前，需要先通过[image.createImagePacker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagepacker)构建一个ImagePacker实例。
-编码期间，请避免修改或释放作为输入的ImageSource/PixelMap/Picture对象，以免出现crash或其他未定义行为。
-由于图片占用内存较大，所以当ImagePacker实例使用完成后，应主动调用[release](#release)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
-当前支持的格式有：jpeg、webp、png、heic^12+、gif^18+（不同硬件设备支持情况不同，可通过ImagePacker的supportedFormats属性查看）。
 
-> [!NOTE] 说明
+在调用ImagePacker的方法前，需要先通过[image.createImagePacker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagepacker)构建一个ImagePacker实例。
+
+编码期间，请避免修改或释放作为输入的ImageSource/PixelMap/Picture对象，以免出现crash或其他未定义行为。
+
+由于图片占用内存较大，所以当ImagePacker实例使用完成后，应主动调用[release](#release)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+
+当前支持的格式有：jpeg、webp、png、heic12+、gif18+（不同硬件设备支持情况不同，可通过ImagePacker的supportedFormats属性查看）。
+
+> [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
 
-```ts
+
+##### 导入模块
+
+```text
 import { image } from '@kit.ImageKit';
 ```
 
-#### 属性
+
+
+##### 属性
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportedFormats | Array&lt;string&gt; | 是 | 否 | 图片编码支持的格式，包括：jpeg、webp、png、heic^12+、gif^18+（不同硬件设备支持情况不同）。 |
+| supportedFormats | Array&lt;string&gt; | 是 | 否 | 图片编码支持的格式，包括：jpeg、webp、png、heic12+、gif18+（不同硬件设备支持情况不同）。 |
 
-#### packToData13+
+
+
+
+##### packToData13+
+
 packToData(source: ImageSource, options: PackingOption): Promise&lt;ArrayBuffer&gt;
+
 图片压缩或重新编码。使用Promise异步回调。
+
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
@@ -39,8 +53,9 @@ packToData(source: ImageSource, options: PackingOption): Promise&lt;ArrayBuffer&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource) | 是 | 编码的ImageSource。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| source | ImageSource | 是 | 编码的ImageSource。 |
+| options | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -48,7 +63,9 @@ packToData(source: ImageSource, options: PackingOption): Promise&lt;ArrayBuffer&
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回压缩或编码后的数据。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -63,9 +80,10 @@ packToData(source: ImageSource, options: PackingOption): Promise&lt;ArrayBuffer&
 | 62980172 | Failed to encode icc. |
 | 62980252 | Failed to create surface. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function PackToData(context : Context) {
@@ -83,15 +101,21 @@ async function PackToData(context : Context) {
 }
 ```
 
-#### packToData13+
+
+
+##### packToData13+
+
 packToData(source: PixelMap, options: PackingOption): Promise&lt;ArrayBuffer&gt;
+
 图片压缩或重新编码。使用Promise异步回调。
 
-> [!CAUTION] 说明
-> 
 
-![](assets/Interface%20ImagePacker/file-20260525092931769-001.png)
-> 接口如果返回401错误码，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+![](assets/Interface%20ImagePacker/file-20260525092931772-002.png)
+
+
+接口如果返回401错误码，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+
+
 
 **元服务API：** 从API version 13开始，该接口支持在元服务中使用。
 
@@ -101,8 +125,9 @@ packToData(source: PixelMap, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 编码的PixelMap源。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| source | PixelMap | 是 | 编码的PixelMap源。 |
+| options | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -110,7 +135,9 @@ packToData(source: PixelMap, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回压缩或编码后的数据。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -125,9 +152,10 @@ packToData(source: PixelMap, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 | 62980172 | Failed to encode icc. |
 | 62980252 | Failed to create surface. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function PackToData() {
@@ -148,17 +176,23 @@ async function PackToData() {
 }
 ```
 
-#### packing13+
+
+
+##### packing13+
+
 packing(picture: Picture, options: PackingOption): Promise&lt;ArrayBuffer&gt;
+
 将图像压缩或重新编码。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| picture | [Picture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture) | 是 | 编码的Picture对象。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| picture | Picture | 是 | 编码的Picture对象。 |
+| options | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -166,7 +200,9 @@ packing(picture: Picture, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回压缩或编码后的数据。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -174,9 +210,10 @@ packing(picture: Picture, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 7800301 | Encode failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Packing(context: Context) {
@@ -205,17 +242,23 @@ async function Packing(context: Context) {
 }
 ```
 
-#### packToDataFromPixelmapSequence18+
+
+
+##### packToDataFromPixelmapSequence18+
+
 packToDataFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, options: PackingOptionsForSequence): Promise&lt;ArrayBuffer&gt;
+
 将多个PixelMap编码成GIF数据。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmapSequence | Array<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)> | 是 | 待编码的PixelMap序列。 |
-| options | [PackingOptionsForSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoptionsforsequence18) | 是 | 动图编码参数。 |
+| pixelmapSequence | Array&lt;PixelMap&gt; | 是 | 待编码的PixelMap序列。 |
+| options | PackingOptionsForSequence | 是 | 动图编码参数。 |
+
 
 **返回值：**
 
@@ -223,7 +266,9 @@ packToDataFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, options:
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回编码后的数据。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -231,9 +276,10 @@ packToDataFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, options:
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 7800301 | Failed to encode image. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function PackToDataFromPixelmapSequence(context : Context) {
@@ -259,11 +305,18 @@ async function PackToDataFromPixelmapSequence(context : Context) {
 }
 ```
 
-#### release
+
+
+##### release
+
 release(callback: AsyncCallback&lt;void&gt;): void
+
 释放图片编码实例。使用callback异步回调。
+
 由于图片占用内存较大，所以当ImagePacker实例使用完成后，应主动调用该方法，及时释放内存。
+
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **参数：**
@@ -272,9 +325,10 @@ release(callback: AsyncCallback&lt;void&gt;): void
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当释放图片编码实例成功，err为undefined，否则为错误对象。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release() {
@@ -289,11 +343,18 @@ async function Release() {
 }
 ```
 
-#### release
+
+
+##### release
+
 release(): Promise&lt;void&gt;
+
 释放图片编码实例。使用Promise异步回调。
+
 由于图片占用内存较大，所以当ImagePacker实例使用完成后，应主动调用该方法，及时释放内存。
+
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **返回值：**
@@ -302,9 +363,10 @@ release(): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release() {
@@ -317,21 +379,28 @@ async function Release() {
 }
 ```
 
-#### packToFile11+
+
+
+##### packToFile11+
+
 packToFile(source: ImageSource, fd: number, options: PackingOption, callback: AsyncCallback&lt;void&gt;): void
+
 指定编码参数，将ImageSource直接编码进文件。使用callback异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource) | 是 | 编码的ImageSource。 |
+| source | ImageSource | 是 | 编码的ImageSource。 |
 | fd | number | 是 | 文件描述符。取值范围为[0，65535]。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| options | PackingOption | 是 | 设置编码参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当编码进文件成功，err为undefined，否则为错误对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -346,9 +415,10 @@ packToFile(source: ImageSource, fd: number, options: PackingOption, callback: As
 | 62980172 | Failed to encode icc. |
 | 62980252 | Failed to create surface. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -370,18 +440,24 @@ async function PackToFile(context : Context) {
 }
 ```
 
-#### packToFile11+
+
+
+##### packToFile11+
+
 packToFile (source: ImageSource, fd: number, options: PackingOption): Promise&lt;void&gt;
+
 指定编码参数，将ImageSource直接编码进文件。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource) | 是 | 编码的ImageSource。 |
+| source | ImageSource | 是 | 编码的ImageSource。 |
 | fd | number | 是 | 文件描述符。取值范围为[0，65535]。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| options | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -389,7 +465,9 @@ packToFile (source: ImageSource, fd: number, options: PackingOption): Promise&lt
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -404,9 +482,10 @@ packToFile (source: ImageSource, fd: number, options: PackingOption): Promise&lt
 | 62980172 | Failed to encode icc. |
 | 62980252 | Failed to create surface. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -426,15 +505,21 @@ async function PackToFile(context : Context) {
 }
 ```
 
-#### packToFile11+
+
+
+##### packToFile11+
+
 packToFile (source: PixelMap, fd: number, options: PackingOption, callback: AsyncCallback&lt;void&gt;): void
+
 指定编码参数，将PixelMap直接编码进文件。使用callback异步回调。
 
-> [!CAUTION] 说明
-> 
 
-![](assets/Interface%20ImagePacker/file-20260525092931772-002.png)
-> 接口如果返回62980115错误码，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+![](assets/Interface%20ImagePacker/file-20260525092931773-003.png)
+
+
+接口如果返回62980115错误码，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
@@ -442,12 +527,14 @@ packToFile (source: PixelMap, fd: number, options: PackingOption, callback: Asyn
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 编码的PixelMap资源。 |
+| source | PixelMap | 是 | 编码的PixelMap资源。 |
 | fd | number | 是 | 文件描述符。取值范围为[0，65535]。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| options | PackingOption | 是 | 设置编码参数。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当编码图片进文件成功，err为undefined，否则为错误对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -462,9 +549,10 @@ packToFile (source: PixelMap, fd: number, options: PackingOption, callback: Asyn
 | 62980172 | Failed to encode icc. |
 | 62980252 | Failed to create surface. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -487,15 +575,21 @@ async function PackToFile(context : Context) {
 }
 ```
 
-#### packToFile11+
+
+
+##### packToFile11+
+
 packToFile (source: PixelMap, fd: number, options: PackingOption): Promise&lt;void&gt;
+
 指定编码参数，将PixelMap直接编码进文件。使用Promise异步回调。
 
-> [!CAUTION] 说明
-> 
 
-![](assets/Interface%20ImagePacker/file-20260525092931773-003.png)
-> 接口如果返回62980115错误码，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+![](assets/Interface%20ImagePacker/file-20260525092931779-004.png)
+
+
+接口如果返回62980115错误码，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
@@ -503,9 +597,10 @@ packToFile (source: PixelMap, fd: number, options: PackingOption): Promise&lt;vo
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 编码的PixelMap资源。 |
+| source | PixelMap | 是 | 编码的PixelMap资源。 |
 | fd | number | 是 | 文件描述符。取值范围为[0，65535]。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| options | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -513,7 +608,9 @@ packToFile (source: PixelMap, fd: number, options: PackingOption): Promise&lt;vo
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -528,9 +625,10 @@ packToFile (source: PixelMap, fd: number, options: PackingOption): Promise&lt;vo
 | 62980172 | Failed to encode icc. |
 | 62980252 | Failed to create surface. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -552,18 +650,24 @@ async function PackToFile(context : Context) {
 }
 ```
 
-#### packToFile13+
+
+
+##### packToFile13+
+
 packToFile(picture: Picture, fd: number, options: PackingOption): Promise&lt;void&gt;
+
 指定编码参数，将Picture直接编码进文件。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| picture | [Picture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture) | 是 | 编码的Picture资源。 |
+| picture | Picture | 是 | 编码的Picture资源。 |
 | fd | number | 是 | 文件描述符。取值范围为[0，65535]。 |
-| options | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| options | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -571,7 +675,9 @@ packToFile(picture: Picture, fd: number, options: PackingOption): Promise&lt;voi
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -579,9 +685,10 @@ packToFile(picture: Picture, fd: number, options: PackingOption): Promise&lt;voi
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 7800301 | Encode failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -614,18 +721,24 @@ async function PackToFile(context: Context) {
 }
 ```
 
-#### packToFileFromPixelmapSequence18+
+
+
+##### packToFileFromPixelmapSequence18+
+
 packToFileFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, fd: number, options: PackingOptionsForSequence): Promise&lt;void&gt;
+
 指定编码参数，将多个PixelMap编码成GIF文件。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pixelmapSequence | Array<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)> | 是 | 待编码的PixelMap序列。 |
+| pixelmapSequence | Array&lt;PixelMap&gt; | 是 | 待编码的PixelMap序列。 |
 | fd | number | 是 | 文件描述符。取值范围为[0，65535]。 |
-| options | [PackingOptionsForSequence](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoptionsforsequence18) | 是 | 动图编码参数。 |
+| options | PackingOptionsForSequence | 是 | 动图编码参数。 |
+
 
 **返回值：**
 
@@ -633,7 +746,9 @@ packToFileFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, fd: numb
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -641,9 +756,10 @@ packToFileFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, fd: numb
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 7800301 | Failed to encode image. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -672,12 +788,17 @@ async function PackToFile(context : Context) {
 }
 ```
 
-#### packing(deprecated)
+
+
+##### packing(deprecated)
+
 packing(source: ImageSource, option: PackingOption, callback: AsyncCallback&lt;ArrayBuffer&gt;): void
+
 图片压缩或重新编码。使用callback异步回调。
 
-> [!NOTE] 说明
-> 从API version 6开始支持，从API version 13开始废弃，建议使用packToData代替。
+> [!NOTE]
+> 从API version 6开始支持，从API version 13开始废弃，建议使用 packToData 代替。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -687,13 +808,14 @@ packing(source: ImageSource, option: PackingOption, callback: AsyncCallback&lt;A
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource) | 是 | 编码的ImageSource。 |
-| option | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| source | ImageSource | 是 | 编码的ImageSource。 |
+| option | PackingOption | 是 | 设置编码参数。 |
 | callback | AsyncCallback&lt;ArrayBuffer&gt; | 是 | 回调函数，当图片编码成功，err为undefined，data为获取到的压缩或编码数据；否则为错误对象。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Packing(context : Context) {
@@ -712,12 +834,17 @@ async function Packing(context : Context) {
 }
 ```
 
-#### packing(deprecated)
+
+
+##### packing(deprecated)
+
 packing(source: ImageSource, option: PackingOption): Promise&lt;ArrayBuffer&gt;
+
 图片压缩或重新编码。使用Promise异步回调。
 
-> [!NOTE] 说明
-> 从API version 6开始支持，从API version 13开始废弃，建议使用packToData代替。
+> [!NOTE]
+> 从API version 6开始支持，从API version 13开始废弃，建议使用 packToData 代替。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -727,8 +854,9 @@ packing(source: ImageSource, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource) | 是 | 编码的ImageSource。 |
-| option | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| source | ImageSource | 是 | 编码的ImageSource。 |
+| option | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -736,9 +864,10 @@ packing(source: ImageSource, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回压缩或编码后的数据。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Packing(context : Context) {
@@ -756,19 +885,25 @@ async function Packing(context : Context) {
 }
 ```
 
-#### packing(deprecated)
+
+
+##### packing(deprecated)
+
 packing(source: PixelMap, option: PackingOption, callback: AsyncCallback&lt;ArrayBuffer&gt;): void
+
 图片压缩或重新编码。使用callback异步回调。
 
-> [!NOTE] 说明
-> 从API version 8开始支持，从API version 13开始废弃，建议使用packToData代替。
+> [!NOTE]
+> 从API version 8开始支持，从API version 13开始废弃，建议使用 packToData 代替。
 
 
-> [!CAUTION] 说明
-> 
 
-![](assets/Interface%20ImagePacker/file-20260525092931779-004.png)
-> 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uQnB4kYhT5ebqdC9hXaszg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013655Z&HW-CC-Expire=86400&HW-CC-Sign=8E79303E87072FC80BE3A83DFC3F6A6EC185B776F6E0D7AAF388E356B1DB582E)
+
+
+接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -778,13 +913,14 @@ packing(source: PixelMap, option: PackingOption, callback: AsyncCallback&lt;Arra
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 编码的PixelMap资源。 |
-| option | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| source | PixelMap | 是 | 编码的PixelMap资源。 |
+| option | PackingOption | 是 | 设置编码参数。 |
 | callback | AsyncCallback&lt;ArrayBuffer&gt; | 是 | 回调函数，当图片编码成功，err为undefined，data为获取到的压缩或编码数据；否则为错误对象。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Packing() {
@@ -806,19 +942,25 @@ async function Packing() {
 }
 ```
 
-#### packing(deprecated)
+
+
+##### packing(deprecated)
+
 packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
+
 图片压缩或重新编码。使用Promise异步回调。
 
-> [!NOTE] 说明
-> 从API version 8开始支持，从API version 13开始废弃，建议使用packToData代替。
+> [!NOTE]
+> 从API version 8开始支持，从API version 13开始废弃，建议使用 packToData 代替。
 
 
-> [!CAUTION] 说明
-> 
 
-![](assets/Interface%20ImagePacker/file-20260525092931779-005.png)
-> 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/zS5pVm0RQA655-8ER39DtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013655Z&HW-CC-Expire=86400&HW-CC-Sign=D79A43B5A1FA61DB7FB1DDF6BB62D18398F7A1AC37E07760A85EB994EBC92303)
+
+
+接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
+
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -828,8 +970,9 @@ packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| source | [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 是 | 编码的PixelMap源。 |
-| option | [PackingOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#packingoption) | 是 | 设置编码参数。 |
+| source | PixelMap | 是 | 编码的PixelMap源。 |
+| option | PackingOption | 是 | 设置编码参数。 |
+
 
 **返回值：**
 
@@ -837,9 +980,10 @@ packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回压缩或编码后的数据。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Packing() {

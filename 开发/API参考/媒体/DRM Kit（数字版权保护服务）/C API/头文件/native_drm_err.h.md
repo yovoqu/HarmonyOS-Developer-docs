@@ -3,59 +3,55 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-err-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义DRM错误码。
-
+ 
 **引用文件：** <multimedia/drm_framework/native_drm_err.h>
-
+ 
 **库：** libnative_drm.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
+ 
 **相关模块：** [Drm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Drm_ErrCode](#drm_errcode) | Drm_ErrCode | DRM错误码。 |
+| Drm_ErrCode | Drm_ErrCode | DRM错误码。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### Drm_ErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Drm_ErrCode
 
 ```text
 enum Drm_ErrCode
 ```
-
+ 
 **描述**
-
+ 
 DRM错误码。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
+ 
 **起始版本：** 11
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | DRM_ERR_OK = 0 | 操作成功完成。 |

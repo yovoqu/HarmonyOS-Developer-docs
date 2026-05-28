@@ -17,8 +17,8 @@
 | 新增API | NA | 类名：ProxyConfig； API声明：bypassHostnamesWithoutPeriod(): void; 差异内容：bypassHostnamesWithoutPeriod(): void; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：ProxyConfig； API声明：clearImplicitRules(): void; 差异内容：clearImplicitRules(): void; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：ProxyConfig； API声明：enableReverseBypass(reverse: boolean): void; 差异内容：enableReverseBypass(reverse: boolean): void; | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：ProxyConfig； API声明：getBypassRules(): Array<string>; 差异内容：getBypassRules(): Array<string>; | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：ProxyConfig； API声明：getProxyRules(): Array<ProxyRule>; 差异内容：getProxyRules(): Array<ProxyRule>; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：ProxyConfig； API声明：getBypassRules(): Array&lt;string&gt;; 差异内容：getBypassRules(): Array&lt;string&gt;; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：ProxyConfig； API声明：getProxyRules(): Array&lt;ProxyRule&gt;; 差异内容：getProxyRules(): Array&lt;ProxyRule&gt;; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：ProxyConfig； API声明：isReverseBypassEnabled(): boolean; 差异内容：isReverseBypassEnabled(): boolean; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：webview； API声明： class ProxyRule 差异内容： class ProxyRule | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：ProxyRule； API声明：getSchemeFilter(): ProxySchemeFilter; 差异内容：getSchemeFilter(): ProxySchemeFilter; | api/@ohos.web.webview.d.ts |
@@ -27,8 +27,8 @@
 | 新增API | NA | 类名：webview； API声明： class ProxyController 差异内容： class ProxyController | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：ProxyController； API声明：static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void; 差异内容：static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：ProxyController； API声明：static removeProxyOverride(callback: OnProxyConfigChangeCallback): void; 差异内容：static removeProxyOverride(callback: OnProxyConfigChangeCallback): void; | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：OnSslErrorEventReceiveEvent； API声明：certChainData?: Array<Uint8Array>; 差异内容：certChainData?: Array<Uint8Array>; | component/web.d.ts |
+| 新增API | NA | 类名：OnSslErrorEventReceiveEvent； API声明：certChainData?: Array&lt;Uint8Array&gt;; 差异内容：certChainData?: Array&lt;Uint8Array&gt;; | component/web.d.ts |
 | 新增API | NA | 类名：WebAttribute； API声明：optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute; 差异内容：optimizeParserBudget(optimizeParserBudget: boolean): WebAttribute; | component/web.d.ts |
-| 新增API | NA | 类名：WebAttribute； API声明：runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute; 差异内容：runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute; | component/web.d.ts |
-| 新增API | NA | 类名：WebAttribute； API声明：runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute; 差异内容：runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute; | component/web.d.ts |
-| 新增API | NA | 类名：WebAttribute； API声明：runJavaScriptOnHeadEnd(scripts: Array<ScriptItem>): WebAttribute; 差异内容：runJavaScriptOnHeadEnd(scripts: Array<ScriptItem>): WebAttribute; | component/web.d.ts |
+| 新增API | NA | 类名：WebAttribute； API声明：runJavaScriptOnDocumentStart(scripts: Array&lt;ScriptItem&gt;): WebAttribute; 差异内容：runJavaScriptOnDocumentStart(scripts: Array&lt;ScriptItem&gt;): WebAttribute; | component/web.d.ts |
+| 新增API | NA | 类名：WebAttribute； API声明：runJavaScriptOnDocumentEnd(scripts: Array&lt;ScriptItem&gt;): WebAttribute; 差异内容：runJavaScriptOnDocumentEnd(scripts: Array&lt;ScriptItem&gt;): WebAttribute; | component/web.d.ts |
+| 新增API | NA | 类名：WebAttribute； API声明：runJavaScriptOnHeadEnd(scripts: Array&lt;ScriptItem&gt;): WebAttribute; 差异内容：runJavaScriptOnHeadEnd(scripts: Array&lt;ScriptItem&gt;): WebAttribute; | component/web.d.ts |

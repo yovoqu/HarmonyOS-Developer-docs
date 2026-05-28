@@ -1,22 +1,32 @@
 # @State装饰器：组件内状态
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state
 
 被状态变量装饰器装饰的变量称为状态变量，使普通变量具备状态属性。当状态变量改变时，会触发其直接绑定的UI组件渲染更新。
+
 在状态变量相关装饰器中，@State是最基础的装饰器，也是大部分状态变量的数据源。
+
 在阅读@State文档前，建议开发者对状态管理框架有基本的了解。建议提前阅读：[状态管理概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
 
-#### 概述
-@State装饰的变量与声明式范式中的其他被装饰变量一样，是私有的，只能从组件内部访问，在声明时必须指定其类型并完成本地初始化；若需从父组件初始化，也可选择使用命名参数机制完成赋值。
-@State装饰的变量拥有以下特性：
-- @State装饰的变量生命周期与其所属自定义组件的生命周期相同。
 
-#### 装饰器使用规则说明
+
+##### 概述
+
+@State装饰的变量与声明式范式中的其他被装饰变量一样，是私有的，只能从组件内部访问，在声明时必须指定其类型并完成本地初始化；若需从父组件初始化，也可选择使用命名参数机制完成赋值。
+
+@State装饰的变量拥有以下特性：
+
+ - @State装饰的变量生命周期与其所属自定义组件的生命周期相同。
+
+
+
+
+##### 装饰器使用规则说明
 
 | @State变量装饰器 | 说明 |
 | --- | --- |
@@ -26,7 +36,10 @@
 | 不允许装饰的变量类型 | 不支持装饰Function类型。 |
 | 被装饰变量的初始值 | 必须本地初始化。 |
 
-#### 变量的传递/访问规则说明
+
+
+
+##### 变量的传递/访问规则说明
 
 | 传递/访问 | 说明 |
 | --- | --- |
@@ -34,24 +47,45 @@
 | 用于初始化子组件 | @State装饰的变量支持初始化子组件的常规变量、@State、@Link、@Prop、@Provide。 |
 | 是否支持组件外访问 | 不支持，只能在组件内访问。 |
 
+
 **图1** 初始化规则图示
 
-![](assets/@State装饰器：组件内状态/file-20260525091513514-001.png)
 
-#### 观察变化和行为表现
+![](assets/@State装饰器：组件内状态/file-20260514130516415-1.gif)
+
+
+
+
+##### 观察变化和行为表现
+
 并不是状态变量的所有更改都会引起UI的刷新，只有可以被框架观察到的修改才会引起UI刷新。本小节将介绍什么样的修改才能被观察到，以及观察到变化后，框架是怎么引起UI刷新的，即框架的行为表现是什么。
 
-#### 观察变化
-- 当装饰的数据类型为boolean、string、number类型时，可以观察到数值的变化。 // 简单类型
+
+
+##### 观察变化
+
+ - 当装饰的数据类型为boolean、string、number类型时，可以观察到数值的变化。
+
+  
+```text
+// 简单类型
 @State count: number = 0;
 // 可以观察到值的变化
 this.count = 1;
-- 当装饰的数据类型为class或Object时，可以观察到自身的赋值和属性赋值的变化，即Object.keys(observedObject)返回的所有属性。示例如下： 声明Person和Model类。 // 声明Person类
+```
+
+ - 当装饰的数据类型为class或Object时，可以观察到自身的赋值和属性赋值的变化，即Object.keys(observedObject)返回的所有属性。示例如下：
+
+  声明Person和Model类。
+
+  
+```ArkTS
+// 声明Person类
 class Person {
   public value: string;
 
   constructor(value: string) {
- this.value = value;
+    this.value = value;
   }
 }
 
@@ -61,42 +95,87 @@ class Model {
   public name: Person;
 
   constructor(value: string, person: Person) {
- this.value = value;
- this.name = person;
+    this.value = value;
+    this.name = person;
   }
-} @State装饰的类型是Model。 // class类型
-@State title: Model = new Model('Hello', new Person('World')); 对@State装饰变量的赋值。 // class类型赋值
-this.title = new Model('Hi', new Person('ArkUI')); 对@State装饰变量的属性赋值。 // class属性的赋值
-this.title.value = 'Hi'; 对嵌套对象的属性直接赋值无法被框架观察到，因此不会触发UI刷新。 // 嵌套的属性赋值观察不到
+}
+```
+@State装饰的类型是Model。
+
+  
+```ArkTS
+// class类型
+@State title: Model = new Model('Hello', new Person('World'));
+```
+对@State装饰变量的赋值。
+
+  
+```ArkTS
+// class类型赋值
+this.title = new Model('Hi', new Person('ArkUI'));
+```
+对@State装饰变量的属性赋值。
+
+  
+```ArkTS
+// class属性的赋值
+this.title.value = 'Hi';
+```
+对嵌套对象的属性直接赋值无法被框架观察到，因此不会触发UI刷新。
+
+  
+```ArkTS
+// 嵌套的属性赋值观察不到
 this.title.name.value = 'ArkUI';
-- 当装饰的对象是Array时，可以观察到Array整体的赋值及数组元素的赋值，同时可以通过调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort更新Array中的数据。数组项中嵌套的属性赋值无法观察。详见装饰Array类型变量。
-- 当装饰的对象是Date时，可以观察到Date的赋值，以及通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds更新Date的属性，详见装饰Date类型变量。
-- 当装饰的变量是Map时，可以观察到Map整体的赋值，以及通过调用Map的接口set, clear, delete更新Map的值。详见装饰Map类型变量。
-- 当装饰的变量是Set时，可以观察到Set整体的赋值，以及通过调用Set的接口add, clear, delete更新Set的值。详见装饰Set类型变量。
+```
 
-#### 框架行为
-- 当状态变量改变时，查询依赖该状态变量的组件。
-- 执行依赖该状态变量的组件更新方法，实现组件更新渲染。
+ - 当装饰的对象是Array时，可以观察到Array整体的赋值及数组元素的赋值，同时可以通过调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort更新Array中的数据。数组项中嵌套的属性赋值无法观察。详见[装饰Array类型变量](#装饰array类型变量)。
+ - 当装饰的对象是Date时，可以观察到Date的赋值，以及通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds更新Date的属性，详见[装饰Date类型变量](#装饰date类型变量)。
+ - 当装饰的变量是Map时，可以观察到Map整体的赋值，以及通过调用Map的接口set, clear, delete更新Map的值。详见[装饰Map类型变量](#装饰map类型变量)。
+ - 当装饰的变量是Set时，可以观察到Set整体的赋值，以及通过调用Set的接口add, clear, delete更新Set的值。详见[装饰Set类型变量](#装饰set类型变量)。
 
-#### 限制条件
-1. @State装饰的变量必须初始化，否则编译期会报错。 // 错误写法，编译报错
+
+
+
+##### 框架行为
+
+ - 当状态变量改变时，查询依赖该状态变量的组件。
+ - 执行依赖该状态变量的组件更新方法，实现组件更新渲染。
+
+
+
+
+##### 限制条件
+1. @State装饰的变量必须初始化，否则编译期会报错。
+
+  
+```text
+// 错误写法，编译报错
 @State count: number;
 
 // 正确写法
 @State count: number = 10;
-2. @State不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。 从API version 23开始，在应用编译时添加了相关校验，@State装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@State装饰器。
-3. 父组件传入undefined时，@State装饰的变量仍使用本地默认值进行初始化。 @Entry
+```
+
+2. @State不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
+
+  从API version 23开始，在应用编译时添加了相关校验，@State装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@State装饰器。
+3. 父组件传入undefined时，@State装饰的变量仍使用本地默认值进行初始化。
+
+  
+```ArkTS
+@Entry
 @Component
 struct Parent {
   @State count: number | undefined = undefined;
 
   build() {
- Column() {
- Text(`Parent count value: ${this.count}`)
- .fontSize(20)
- .margin(10)
- Child({ count: this.count })
- }
+    Column() {
+      Text(`Parent count value: ${this.count}`)
+        .fontSize(20)
+        .margin(10)
+      Child({ count: this.count })
+    }
   }
 }
 
@@ -106,47 +185,72 @@ struct Child {
   @State count: number | undefined = 0;
 
   build() {
- Column() {
- Text(`Child count value: ${this.count}`)
- .fontSize(20)
- .margin(10)
- }
+    Column() {
+      Text(`Child count value: ${this.count}`)
+        .fontSize(20)
+        .margin(10)
+    }
   }
 }
+```
 
-#### 使用场景
-#### 装饰简单类型的变量
+
+
+
+##### 使用场景
+
+
+
+##### 装饰简单类型的变量
+
 以下示例为@State装饰的简单类型，count被@State装饰成为状态变量，count的改变引起Button组件的刷新：
-- 当状态变量count改变时，只能查询到Button组件与之关联。
-- 执行Button组件的更新方法，实现按需刷新。 @Entry
+
+ - 当状态变量count改变时，只能查询到Button组件与之关联。
+ - 执行Button组件的更新方法，实现按需刷新。
+
+  
+```ArkTS
+@Entry
 @Component
 struct MyComponent {
   @State count: number = 0; // 使用@State装饰简单类型变量
 
   build() {
- Row() {
- Column() {
- Button(`click times: ${this.count}`)
- .onClick(() => {
- this.count += 1;
- })
- .width(300)
- }
- .width('100%')
- }
- .height('100%')
+    Row() {
+      Column() {
+        Button(`click times: ${this.count}`)
+          .onClick(() => {
+            this.count += 1;
+          })
+          .width(300)
+      }
+      .width('100%')
+    }
+    .height('100%')
   }
 }
+```
 
-![](assets/@State装饰器：组件内状态/file-20260525091513514-002.gif)
 
-#### 装饰class对象类型的变量
-- 自定义组件MyComponent定义了被@State装饰的状态变量count和title，其中title的类型为自定义类Model。如果count或title的值发生变化，则查询MyComponent中使用该状态变量的UI组件，并进行重新渲染。
-- EntryComponent中有多个MyComponent组件实例，第一个MyComponent内部状态的更改不会影响第二个MyComponent。 class Model {
+
+
+![](assets/@State装饰器：组件内状态/file-20260514130516415-2.gif)
+
+
+
+
+##### 装饰class对象类型的变量
+
+ - 自定义组件MyComponent定义了被@State装饰的状态变量count和title，其中title的类型为自定义类Model。如果count或title的值发生变化，则查询MyComponent中使用该状态变量的UI组件，并进行重新渲染。
+ - EntryComponent中有多个MyComponent组件实例，第一个MyComponent内部状态的更改不会影响第二个MyComponent。
+
+  
+```ArkTS
+class Model {
   public value: string;
 
   constructor(value: string) {
- this.value = value;
+    this.value = value;
   }
 }
 
@@ -154,12 +258,12 @@ struct MyComponent {
 @Component
 struct EntryComponent {
   build() {
- Column() {
- // 此处指定的参数都将在初始渲染时覆盖本地定义的默认值，并不是所有的参数都需要从父组件初始化
- MyComponent({ count: 1, increaseBy: 2 })
- .width(300)
- MyComponent({ title: new Model('Hello World 2'), count: 7 })
- }
+    Column() {
+      // 此处指定的参数都将在初始渲染时覆盖本地定义的默认值，并不是所有的参数都需要从父组件初始化
+      MyComponent({ count: 1, increaseBy: 2 })
+        .width(300)
+      MyComponent({ title: new Model('Hello World 2'), count: 7 })
+    }
   }
 }
 
@@ -170,40 +274,61 @@ struct MyComponent {
   increaseBy: number = 1;
 
   build() {
- Column() {
- Text(`${this.title.value}`)
- .margin(10)
- Button(`Click to change title`)
- .onClick(() => {
- // @State变量的更新将触发上面的Text组件内容更新
- this.title.value = this.title.value === 'Hello ArkUI' ? 'Hello World' : 'Hello ArkUI';
- })
- .width(300)
- .margin(10)
+    Column() {
+      Text(`${this.title.value}`)
+        .margin(10)
+      Button(`Click to change title`)
+        .onClick(() => {
+          // @State变量的更新将触发上面的Text组件内容更新
+          this.title.value = this.title.value === 'Hello ArkUI' ? 'Hello World' : 'Hello ArkUI';
+        })
+        .width(300)
+        .margin(10)
 
- Button(`Click to increase count = ${this.count}`)
- .onClick(() => {
- // @State变量的更新将触发该Button组件的内容更新
- this.count += this.increaseBy;
- })
- .width(300)
- .margin(10)
- }
+      Button(`Click to increase count = ${this.count}`)
+        .onClick(() => {
+          // @State变量的更新将触发该Button组件的内容更新
+          this.count += this.increaseBy;
+        })
+        .width(300)
+        .margin(10)
+    }
   }
 }
+```
 
-![](assets/@State装饰器：组件内状态/file-20260525091513514-003.gif)
+
+
+
+![](assets/@State装饰器：组件内状态/file-20260514130516415-3.gif)
+
+
 从上述示例中，我们可以了解到@State变量的初始化机制：
-1. 上述示例中，在没有外部传入的情况下，使用默认的值进行本地初始化： // title没有外部传入，使用本地的值new Model('Hello World')进行初始化
+1. 上述示例中，在没有外部传入的情况下，使用默认的值进行本地初始化：
+
+  
+```ArkTS
+// title没有外部传入，使用本地的值new Model('Hello World')进行初始化
 MyComponent({ count: 1, increaseBy: 2 })
 // increaseBy没有外部传入，使用本地的值1进行初始化
 MyComponent({ title: new Model('Hello World 2'), count: 7 })
-2. 上述示例中，在有外部传入的情况下，使用外部传入的值进行初始化： // count和increaseBy均有外部传入，分别使用传入的1和2进行初始化
+```
+
+2. 上述示例中，在有外部传入的情况下，使用外部传入的值进行初始化：
+
+  
+```ArkTS
+// count和increaseBy均有外部传入，分别使用传入的1和2进行初始化
 MyComponent({ count: 1, increaseBy: 2 })
 // title和count均有外部传入，分别使用传入的new Model('Hello World 2')和7进行初始化
 MyComponent({ title: new Model('Hello World 2'), count: 7 })
+```
 
-#### 装饰Array类型变量
+
+
+
+##### 装饰Array类型变量
+
 在下面的示例中，@State装饰的变量fruits的类型为Array&lt;Fruit&gt;，点击Button改变fruits的值，视图会随之刷新。
 
 ```ArkTS
@@ -271,12 +396,17 @@ struct ArraySample {
 }
 ```
 
-![](assets/@State装饰器：组件内状态/file-20260525091513514-004.gif)
 
-#### 装饰Map类型变量
+![](assets/@State装饰器：组件内状态/file-20260514130516415-4.gif)
 
-> [!NOTE] 说明
+
+
+
+##### 装饰Map类型变量
+
+> [!NOTE]
 > 从API version 11开始，@State支持Map类型。
+
 
 在下面的示例中，@State装饰的变量fruits的类型为Map<string, number>，点击Button改变fruits的值，视图会随之刷新。
 
@@ -337,12 +467,17 @@ struct MapSample {
 }
 ```
 
-![](assets/@State装饰器：组件内状态/file-20260525091513514-005.gif)
 
-#### 装饰Set类型变量
+![](assets/@State装饰器：组件内状态/file-20260514130516415-6.gif)
 
-> [!NOTE] 说明
+
+
+
+##### 装饰Set类型变量
+
+> [!NOTE]
 > 从API version 11开始，@State支持Set类型。
+
 
 在下面的示例中，@State装饰的变量fruits的类型为Set&lt;string&gt;，点击Button改变fruits的值，视图会随之刷新。
 
@@ -396,9 +531,14 @@ struct SetSample {
 }
 ```
 
-![](assets/@State装饰器：组件内状态/file-20260525091513515-006.gif)
 
-#### 装饰Date类型变量
+![](assets/@State装饰器：组件内状态/file-20260525091513514-001.png)
+
+
+
+
+##### 装饰Date类型变量
+
 在下面的示例中，@State装饰的变量selectedDate的类型为Date，点击Button改变selectedDate的值，视图会随之刷新。
 
 ```ArkTS
@@ -451,9 +591,14 @@ struct DatePickerExample {
 }
 ```
 
-![](assets/@State装饰器：组件内状态/file-20260525091513515-007.gif)
 
-#### State支持联合类型实例
+![](assets/@State装饰器：组件内状态/file-20260525091513514-002.gif)
+
+
+
+
+##### State支持联合类型实例
+
 @State支持联合类型和undefined和null，在下面的示例中，count类型为number | undefined，点击Button改变count的值，视图会随之刷新。
 
 ```ArkTS
@@ -488,4 +633,5 @@ struct UnionTypeSample {
 }
 ```
 
-![](assets/@State装饰器：组件内状态/file-20260525091513515-008.gif)
+
+![](assets/@State装饰器：组件内状态/file-20260525091513514-003.gif)

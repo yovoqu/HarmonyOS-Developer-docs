@@ -15,10 +15,10 @@
 | 新增API | NA | 类名：Server； API声明：start(): void; 差异内容：start(): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：Server； API声明：stop(): void; 差异内容：stop(): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：Server； API声明：close(): void; 差异内容：close(): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Server； API声明：on(type: 'connectionAccepted', callback: Callback<Connection>): void; 差异内容：on(type: 'connectionAccepted', callback: Callback<Connection>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Server； API声明：off(type: 'connectionAccepted', callback?: Callback<Connection>): void; 差异内容：off(type: 'connectionAccepted', callback?: Callback<Connection>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Server； API声明：on(type: 'serverStopped', callback: Callback<number>): void; 差异内容：on(type: 'serverStopped', callback: Callback<number>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Server； API声明：off(type: 'serverStopped', callback?: Callback<number>): void; 差异内容：off(type: 'serverStopped', callback?: Callback<number>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Server； API声明：on(type: 'connectionAccepted', callback: Callback&lt;Connection&gt;): void; 差异内容：on(type: 'connectionAccepted', callback: Callback&lt;Connection&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Server； API声明：off(type: 'connectionAccepted', callback?: Callback&lt;Connection&gt;): void; 差异内容：off(type: 'connectionAccepted', callback?: Callback&lt;Connection&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Server； API声明：on(type: 'serverStopped', callback: Callback&lt;number&gt;): void; 差异内容：on(type: 'serverStopped', callback: Callback&lt;number&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Server； API声明：off(type: 'serverStopped', callback?: Callback&lt;number&gt;): void; 差异内容：off(type: 'serverStopped', callback?: Callback&lt;number&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：linkEnhance； API声明：function createServer(name: string): Server; 差异内容：function createServer(name: string): Server; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：linkEnhance； API声明：interface Connection 差异内容：interface Connection | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：Connection； API声明：connect(): void; 差异内容：connect(): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
@@ -26,11 +26,11 @@
 | 新增API | NA | 类名：Connection； API声明：close(): void; 差异内容：close(): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：Connection； API声明：getPeerDeviceId(): string; 差异内容：getPeerDeviceId(): string; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：Connection； API声明：sendData(data: ArrayBuffer): void; 差异内容：sendData(data: ArrayBuffer): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Connection； API声明：on(type: 'connectResult', callback: Callback<ConnectResult>): void; 差异内容：on(type: 'connectResult', callback: Callback<ConnectResult>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Connection； API声明：off(type: 'connectResult', callback?: Callback<ConnectResult>): void; 差异内容：off(type: 'connectResult', callback?: Callback<ConnectResult>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Connection； API声明：on(type: 'disconnected', callback: Callback<number>): void; 差异内容：on(type: 'disconnected', callback: Callback<number>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Connection； API声明：off(type: 'disconnected', callback?: Callback<number>): void; 差异内容：off(type: 'disconnected', callback?: Callback<number>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Connection； API声明：on(type: 'dataReceived', callback: Callback<ArrayBuffer>): void; 差异内容：on(type: 'dataReceived', callback: Callback<ArrayBuffer>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
-| 新增API | NA | 类名：Connection； API声明：off(type: 'dataReceived', callback?: Callback<ArrayBuffer>): void; 差异内容：off(type: 'dataReceived', callback?: Callback<ArrayBuffer>): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Connection； API声明：on(type: 'connectResult', callback: Callback&lt;ConnectResult&gt;): void; 差异内容：on(type: 'connectResult', callback: Callback&lt;ConnectResult&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Connection； API声明：off(type: 'connectResult', callback?: Callback&lt;ConnectResult&gt;): void; 差异内容：off(type: 'connectResult', callback?: Callback&lt;ConnectResult&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Connection； API声明：on(type: 'disconnected', callback: Callback&lt;number&gt;): void; 差异内容：on(type: 'disconnected', callback: Callback&lt;number&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Connection； API声明：off(type: 'disconnected', callback?: Callback&lt;number&gt;): void; 差异内容：off(type: 'disconnected', callback?: Callback&lt;number&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Connection； API声明：on(type: 'dataReceived', callback: Callback&lt;ArrayBuffer&gt;): void; 差异内容：on(type: 'dataReceived', callback: Callback&lt;ArrayBuffer&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
+| 新增API | NA | 类名：Connection； API声明：off(type: 'dataReceived', callback?: Callback&lt;ArrayBuffer&gt;): void; 差异内容：off(type: 'dataReceived', callback?: Callback&lt;ArrayBuffer&gt;): void; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增API | NA | 类名：linkEnhance； API声明：function createConnection(deviceId: string, name: string): Connection; 差异内容：function createConnection(deviceId: string, name: string): Connection; | api/@ohos.distributedsched.linkEnhance.d.ts |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@ohos.distributedsched.linkEnhance.d.ts 差异内容：DistributedServiceKit | api/@ohos.distributedsched.linkEnhance.d.ts |

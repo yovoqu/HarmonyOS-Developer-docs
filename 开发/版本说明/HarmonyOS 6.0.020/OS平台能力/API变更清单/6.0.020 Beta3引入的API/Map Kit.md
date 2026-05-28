@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增错误码 | 类名：MapComponentController； API声明：addMarker(options: mapCommon.MarkerOptions): Promise<Marker>; 差异内容：NA | 类名：MapComponentController； API声明：addMarker(options: mapCommon.MarkerOptions): Promise<Marker>; 差异内容：1002601005 | api/@hms.core.map.map.d.ts |
+| 新增错误码 | 类名：MapComponentController； API声明：addMarker(options: mapCommon.MarkerOptions): Promise&lt;Marker&gt;; 差异内容：NA | 类名：MapComponentController； API声明：addMarker(options: mapCommon.MarkerOptions): Promise&lt;Marker&gt;; 差异内容：1002601005 | api/@hms.core.map.map.d.ts |
 | 删除错误码 | 类名：MapComponentController； API声明：addTileOverlay(params: mapCommon.TileOverlayParams): TileOverlay; 差异内容：401 | 类名：MapComponentController； API声明：addTileOverlay(params: mapCommon.TileOverlayParams \| mapCommon.TileOverlayOptions): TileOverlay; 差异内容：NA | api/@hms.core.map.map.d.ts |
 | 函数变更 | 类名：MapComponentController； API声明：addTileOverlay(params: mapCommon.TileOverlayParams): TileOverlay; 差异内容：params: mapCommon.TileOverlayParams | 类名：MapComponentController； API声明：addTileOverlay(params: mapCommon.TileOverlayParams \| mapCommon.TileOverlayOptions): TileOverlay; 差异内容：params: mapCommon.TileOverlayParams \| mapCommon.TileOverlayOptions | api/@hms.core.map.map.d.ts |
 | 新增API | NA | 类名：map； API声明：interface Heatmap 差异内容：interface Heatmap | api/@hms.core.map.map.d.ts |
@@ -68,7 +68,7 @@
 | 新增API | NA | 类名：mapCommon； API声明：interface WeightedLatLng 差异内容：interface WeightedLatLng | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：WeightedLatLng； API声明：point: LatLng; 差异内容：point: LatLng; | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：WeightedLatLng； API声明：intensity?: number; 差异内容：intensity?: number; | api/@hms.core.map.mapCommon.d.ts |
-| 新增API | NA | 类名：mapCommon； API声明：type TileProvider = (x: number, y: number, z: number) => Promise<ArrayBuffer>; 差异内容：type TileProvider = (x: number, y: number, z: number) => Promise<ArrayBuffer>; | api/@hms.core.map.mapCommon.d.ts |
+| 新增API | NA | 类名：mapCommon； API声明：type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&gt;; 差异内容：type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&gt;; | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：mapCommon； API声明：interface MvtOverlayParams 差异内容：interface MvtOverlayParams | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：MvtOverlayParams； API声明：source: MvtSource; 差异内容：source: MvtSource; | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：MvtOverlayParams； API声明：layers: MvtLayer[]; 差异内容：layers: MvtLayer[]; | api/@hms.core.map.mapCommon.d.ts |
@@ -111,17 +111,17 @@
 | 新增API | NA | 类名：MassPointOverlayParams； API声明：icon: ResourceStr \| image.PixelMap; 差异内容：icon: ResourceStr \| image.PixelMap; | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：MassPointOverlayParams； API声明：anchorU?: number; 差异内容：anchorU?: number; | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：MassPointOverlayParams； API声明：anchorV?: number; 差异内容：anchorV?: number; | api/@hms.core.map.mapCommon.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：addHeatmap(params: mapCommon.HeatmapParams): Promise<Heatmap>; 差异内容：addHeatmap(params: mapCommon.HeatmapParams): Promise<Heatmap>; | api/@hms.core.map.map.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：addHeatmap(params: mapCommon.HeatmapParams): Promise&lt;Heatmap&gt;; 差异内容：addHeatmap(params: mapCommon.HeatmapParams): Promise&lt;Heatmap&gt;; | api/@hms.core.map.map.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：addMvtOverlay(params: mapCommon.MvtOverlayParams): MvtOverlay; 差异内容：addMvtOverlay(params: mapCommon.MvtOverlayParams): MvtOverlay; | api/@hms.core.map.map.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：setFramePerSecond(fps: number): void; 差异内容：setFramePerSecond(fps: number): void; | api/@hms.core.map.map.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：addFlowFieldOverlay(params: mapCommon.FlowFieldOverlayParams): Promise<FlowFieldOverlay>; 差异内容：addFlowFieldOverlay(params: mapCommon.FlowFieldOverlayParams): Promise<FlowFieldOverlay>; | api/@hms.core.map.map.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：addMassPointOverlay(params: mapCommon.MassPointOverlayParams): Promise<MassPointOverlay>; 差异内容：addMassPointOverlay(params: mapCommon.MassPointOverlayParams): Promise<MassPointOverlay>; | api/@hms.core.map.map.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：addFlowFieldOverlay(params: mapCommon.FlowFieldOverlayParams): Promise&lt;FlowFieldOverlay&gt;; 差异内容：addFlowFieldOverlay(params: mapCommon.FlowFieldOverlayParams): Promise&lt;FlowFieldOverlay&gt;; | api/@hms.core.map.map.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：addMassPointOverlay(params: mapCommon.MassPointOverlayParams): Promise&lt;MassPointOverlay&gt;; 差异内容：addMassPointOverlay(params: mapCommon.MassPointOverlayParams): Promise&lt;MassPointOverlay&gt;; | api/@hms.core.map.map.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：setLanguage(language: string): void; 差异内容：setLanguage(language: string): void; | api/@hms.core.map.map.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：getLanguage(): string; 差异内容：getLanguage(): string; | api/@hms.core.map.map.d.ts |
 | 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：MapComponentController； API声明：setSphereEnabled(enabled: boolean): void; 差异内容：setSphereEnabled(enabled: boolean): void; | 类名：MapComponentController； API声明：setSphereEnabled(enabled: boolean, animateDuration: number): void; 差异内容：setSphereEnabled(enabled: boolean, animateDuration: number): void; | api/@hms.core.map.map.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Marker； API声明：setIconBuilder(iconBuilder: CustomBuilder): Promise<void>; 差异内容：setIconBuilder(iconBuilder: CustomBuilder): Promise<void>; | api/@hms.core.map.map.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Marker； API声明：setIconBuilder(iconBuilder: CustomBuilder): Promise&lt;void&gt;; 差异内容：setIconBuilder(iconBuilder: CustomBuilder): Promise&lt;void&gt;; | api/@hms.core.map.map.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：on(type: 'massPointOverlayClick', callback: MassPointOverlayCallback): void; 差异内容：on(type: 'massPointOverlayClick', callback: MassPointOverlayCallback): void; | api/@hms.core.map.map.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：off(type: 'massPointOverlayClick', callback?: MassPointOverlayCallback): void; 差异内容：off(type: 'massPointOverlayClick', callback?: MassPointOverlayCallback): void; | api/@hms.core.map.map.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：TileOverlay； API声明：clearDiskCache(): Promise<void>; 差异内容：clearDiskCache(): Promise<void>; | api/@hms.core.map.map.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：TileOverlay； API声明：clearDiskCache(): Promise&lt;void&gt;; 差异内容：clearDiskCache(): Promise&lt;void&gt;; | api/@hms.core.map.map.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：MapOptions； API声明：language?: string; 差异内容：language?: string; | api/@hms.core.map.mapCommon.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：MarkerOptions； API声明：iconBuilder?: CustomBuilder; 差异内容：iconBuilder?: CustomBuilder; | api/@hms.core.map.mapCommon.d.ts |

@@ -9,29 +9,32 @@
 通常开发者使用相机功能需要创建相机会话，并持续接收处理预览流、拍照流、录像流等从而实现相关相机功能，这些密集型操作如果都放在主线程即UI线程，可能会阻塞UI绘制，推荐开发者在worker线程中实现相机功能。
 
 
-## 开发步骤
+##### 开发步骤
+1. 导入依赖，本篇文档需要用到worker和相机框架等相关依赖包。
 
-导入依赖，本篇文档需要用到worker和相机框架等相关依赖包。
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { camera } from '@kit.CameraKit';
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 ```
 
-创建相机服务代理类，调用CameraKit方法都放在这个类里执行。
+2. 创建相机服务代理类，调用CameraKit方法都放在这个类里执行。
+
+  
 ```text
 class CameraService {
   private imageWidth: number = 1920;
   private imageHeight: number = 1080;
   private cameraManager: camera.CameraManager | undefined = undefined;
-  private cameras: Array = [];
+  private cameras: Array<camera.CameraDevice> = [];
   private cameraInput: camera.CameraInput | undefined = undefined;
   private previewOutput: camera.PreviewOutput | undefined = undefined;
   private photoOutput: camera.PhotoOutput | undefined = undefined;
   private session: camera.PhotoSession | camera.VideoSession | undefined = undefined;
 
   // 初始化相机。
-  async initCamera(context: Context, surfaceId: string): Promise {
+  async initCamera(context: Context, surfaceId: string): Promise<void> {
     console.info(`initCamera surfaceId: ${surfaceId}`);
     try {
       await this.releaseCamera();
@@ -42,7 +45,72 @@ class CameraService {
         return;
       }
       this.cameras = this.cameraManager.getSupportedCameras();
-      if (!this.cameras || this.cameras.length  {
+      if (!this.cameras || this.cameras.length <= 0) {
+        console.error("cameraManager.getSupportedCameras error");
+        return;
+      }
+      // 创建cameraInput输出对象。
+      this.cameraInput = this.cameraManager.createCameraInput(this.cameras[0]);
+      if (this.cameraInput === undefined) {
+        console.error('Failed to create the camera input.');
+        return;
+      }
+      // 打开相机。
+      await this.cameraInput.open();
+
+      let previewProfile: camera.Profile = {
+        format: camera.CameraFormat.CAMERA_FORMAT_YUV_420_SP,
+        size: {
+          width: this.imageWidth,
+          height: this.imageHeight
+        }
+      };
+      // 创建预览流输出。
+      this.previewOutput = this.cameraManager.createPreviewOutput(previewProfile, surfaceId);
+      if (this.previewOutput === undefined) {
+        console.error('Failed to create the preview stream.');
+        this.releaseCamera();
+        return;
+      }
+
+      let photoProfile: camera.Profile = {
+        format: camera.CameraFormat.CAMERA_FORMAT_JPEG,
+        size: {
+          width: this.imageWidth,
+          height: this.imageHeight
+        }
+      };
+      // 创建拍照流输出。
+      this.photoOutput = this.cameraManager.createPhotoOutput(photoProfile);
+      if (this.photoOutput === undefined) {
+        console.error('Failed to create the photoOutput.');
+        this.releaseCamera();
+        return;
+      }
+
+      // 创建相机会话，启动会话。
+      let session = this.cameraManager.createSession(camera.SceneMode.NORMAL_PHOTO);
+      if (!session) {
+        console.error('session is null');
+        this.releaseCamera();
+        return;
+      }
+      this.session = session as camera.PhotoSession;
+      this.session.beginConfig();
+      this.session.addInput(this.cameraInput);
+      this.session.addOutput(this.previewOutput);
+      this.session.addOutput(this.photoOutput);
+      await this.session.commitConfig();
+      await this.session.start();
+    } catch (error) {
+      let err = error as BusinessError;
+      console.error(`initCamera fail: ${err}`);
+      this.releaseCamera();
+    }
+  }
+
+  // 释放相机资源。
+  async releaseCamera(): Promise<void> {
     console.info('releaseCamera is called');
     // 停止当前会话。
     await this.session?.stop().catch((e: BusinessError) => {console.error('Failed to stop session: ', e)});
@@ -59,7 +127,13 @@ class CameraService {
 }
 ```
 
-创建worker线程文件，配置worker。 DevEco Studio支持一键生成Worker，在对应的{moduleName}目录下任意位置，点击鼠标右键 > New > Worker，即可自动生成Worker的模板文件及配置信息，无需再手动在build-profile.json5中进行相关配置。 CameraWorker.ets实现参考：
+3. 创建worker线程文件，配置worker。
+
+  DevEco Studio支持一键生成Worker，在对应的{moduleName}目录下任意位置，点击鼠标右键 > New > Worker，即可自动生成Worker的模板文件及配置信息，无需再手动在build-profile.json5中进行相关配置。
+
+  CameraWorker.ets实现参考：
+
+  
 ```text
 let cameraService = new CameraService();
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
@@ -95,8 +169,10 @@ workerPort.onerror = (e: ErrorEvent) => {
 }
 ```
 
-创建组件，用于显示预览流，在页面相关生命周期中构造ThreadWorker实例，在worker线程中完成相机初始化和释放。
-```text
+4. 创建组件，用于显示预览流，在页面相关生命周期中构造ThreadWorker实例，在worker线程中完成相机初始化和释放。
+
+  
+```ArkTS
 @Entry
 @Component
 struct Index {
@@ -173,10 +249,17 @@ struct Index {
 ```
 
 
-## trace对比
+
+
+##### trace对比
 
 不使用Worker：
-![](assets/在Worker线程中使用相机(ArkTS)
-/file-20260514131518572-0.png) 使用Worker：
-![](assets/在Worker线程中使用相机(ArkTS)
-/file-20260514131518572-1.png)
+
+
+![](assets/在Worker线程中使用相机(ArkTS)/file-20260514131518572-0.png)
+
+
+使用Worker：
+
+
+![](assets/在Worker线程中使用相机(ArkTS)/file-20260514131518572-1.png)

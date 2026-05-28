@@ -1,46 +1,56 @@
 # 物体摆放（ArkTS）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arworld
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/HarmonyOS_Samples/arengine_samplecode_clientdemo_arkts)。
 
 
-## 约束与限制
+##### 约束与限制
 
-物体摆放能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从5.1.0(18)开始，物体摆放能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 AR物体摆放主要依赖[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，以下接口为AR物体摆放相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [ARViewContext.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextinit) | 初始化[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，初始化AR会话和设置AR渲染场景等。 |
-| [ARViewContext.pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextpause) | 暂停相机跟踪与AR场景渲染。 |
-| [ARViewContext.destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextdestroy) | 销毁[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，释放ARView使用资源，包括AR会话与呈现场景销毁，在退出ARView场景时使用。 |
-| [ARViewContext.resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextresume) | 用于恢复暂停的相机跟踪与AR场景渲染。 |
-| [ARViewContext.scene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextscene) | 设置ARView的AR场景。 |
-| [ARViewContext.scene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextscene-1) | 获得的AR呈现场景，用于管理空间节点。 |
-| [ARViewContext.session](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextsession) | 获取AR会话，用于获取相关AR环境跟踪、相机跟踪、命中检测等能力，如相机位姿、平面信息、创建锚点等。 |
-| [ARViewContext.config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextconfig) | 设置AR会话的配置文件，如北向坐标、性能模式等。 |
-| [ARViewContext.callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontextcallback) | 设置回调函数，以根据回调功能实现对应业务逻辑。 |
-| [ARFrame.getCamera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframegetcamera) | 获取当前帧的摄像机参数对象。 |
-| [ARFrame.getUpdatedTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframegetupdatedtrackables) | 获取更新后的指定类型的可追踪对象。 |
-| [ARFrame.hitTest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframehittest) | 根据相机投射光线，获取预览区域中的像素坐标（pixelX和pixelY）来确定射线方向，然后检测这个射线在平面或点云中是否有交点。 |
-| [ARAnchor.getPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#aranchorgetpose) | 获取锚点在世界坐标系中的位姿信息。 |
-| [ARHitResult.getHitPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arhitresultgethitpose) | 获取交点位姿。 |
-| [ARHitResult.getTrackable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arhitresultgettrackable) | 获取被命中的可追踪对象。 |
-| [ARPose.getMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arposegetmatrix) | 将位姿数据转换为一个4x4的矩阵。 |
+| ARViewContext.init | 初始化ARViewContext，初始化AR会话和设置AR渲染场景等。 |
+| ARViewContext.pause | 暂停相机跟踪与AR场景渲染。 |
+| ARViewContext.destroy | 销毁ARViewContext，释放ARView使用资源，包括AR会话与呈现场景销毁，在退出ARView场景时使用。 |
+| ARViewContext.resume | 用于恢复暂停的相机跟踪与AR场景渲染。 |
+| ARViewContext.scene | 设置ARView的AR场景。 |
+| ARViewContext.scene | 获得的AR呈现场景，用于管理空间节点。 |
+| ARViewContext.session | 获取AR会话，用于获取相关AR环境跟踪、相机跟踪、命中检测等能力，如相机位姿、平面信息、创建锚点等。 |
+| ARViewContext.config | 设置AR会话的配置文件，如北向坐标、性能模式等。 |
+| ARViewContext.callback | 设置回调函数，以根据回调功能实现对应业务逻辑。 |
+| ARFrame.getCamera | 获取当前帧的摄像机参数对象。 |
+| ARFrame.getUpdatedTrackables | 获取更新后的指定类型的可追踪对象。 |
+| ARFrame.hitTest | 根据相机投射光线，获取预览区域中的像素坐标（pixelX和pixelY）来确定射线方向，然后检测这个射线在平面或点云中是否有交点。 |
+| ARAnchor.getPose | 获取锚点在世界坐标系中的位姿信息。 |
+| ARHitResult.getHitPose | 获取交点位姿。 |
+| ARHitResult.getTrackable | 获取被命中的可追踪对象。 |
+| ARPose.getMatrix | 将位姿数据转换为一个4x4的矩阵。 |
 
 
-## 开发步骤
 
-AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。 对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
 
-## 导入模块
+##### 开发步骤
+
+AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。
+
+对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
+
+
+
+##### 导入模块
 
 AR物体摆放所需要导入的模块如下。
+
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
 import { Node, Scene, Vec3 } from '@kit.ArkGraphics3D';
@@ -49,9 +59,13 @@ import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
 
-## 定义变量
 
-定义变量hitAnchorList存储放置物体处的锚点信息、hitPoseList存储放置物体处的位姿信息和statusBarHeight设备状态栏高度。 用户点击设备的坐标和显示预览流的坐标不一致，预览流的窗口略小于设备屏幕，因此需要减去设备状态栏高度以获取准确的点击坐标。
+##### 定义变量
+
+定义变量hitAnchorList存储放置物体处的锚点信息、hitPoseList存储放置物体处的位姿信息和statusBarHeight设备状态栏高度。
+
+用户点击设备的坐标和显示预览流的坐标不一致，预览流的窗口略小于设备屏幕，因此需要减去设备状态栏高度以获取准确的点击坐标。
+
 ```text
 let frame: arEngine.ARFrame;
 let hitAnchorList: arEngine.ARAnchor[] = [];
@@ -60,9 +74,11 @@ let statusBarHeight: number = 0;
 ```
 
 
-## 显示预览流
+
+##### 显示预览流
 
 在ARView中加入点击事件，进行碰撞检测，获取锚点位姿数据加入列表。
+
 ```text
 @Builder
 export function ARWorldBuilder(): void {
@@ -122,7 +138,40 @@ struct ARWorld {
         return;
       }
 
-      for (let i = 0; i  {
+      for (let i = 0; i < result.length; i++) {
+        let hitResult: arEngine.ARHitResult = result[i];
+        let trackable: arEngine.ARTrackable = hitResult.getTrackable();
+
+        if (trackable.type !== arEngine.ARTrackableType.PLANE) {
+          continue;
+        }
+
+        let hitPlane: arEngine.ARPlane = trackable as arEngine.ARPlane;
+        let hitPose: arEngine.ARPose = hitResult.getHitPose();
+        let inPolygon: boolean = hitPlane.isPoseInPolygon(hitPose);
+        let distance: number = hitResult.distance;
+        console.info(`The hitResult inPolygon is: ${inPolygon}, distance is: ${distance}.`);
+
+        if (!inPolygon || distance <= 0) {
+          continue;
+        }
+
+        let hitAnchor: arEngine.ARAnchor = hitResult.createAnchor();
+        let pos: Vec3 = hitAnchor.getPose().translation;
+
+        hitPoseList.push(pos);
+        hitAnchorList.push(hitAnchor);
+
+      }
+      console.info('Succeeded in getting hit result.');
+    } catch (error) {
+      const err: BusinessError = error as BusinessError;
+      console.error(`Failed to get hitResults. Code is ${err.code}, message is ${err.message}.`);
+    }
+  }
+
+  private initARView(): void {
+    Scene.load().then((scene: Scene) => {
       let viewContext: arViewController.ARViewContext = new arViewController.ARViewContext();
       viewContext.scene = scene;
       viewContext.callback = new ARViewCallbackImpl();
@@ -171,9 +220,11 @@ struct ARWorld {
 ```
 
 
-## 渲染识别的平面和放置的物体
+
+##### 渲染识别的平面和放置的物体
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，获取平面信息。
+
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {

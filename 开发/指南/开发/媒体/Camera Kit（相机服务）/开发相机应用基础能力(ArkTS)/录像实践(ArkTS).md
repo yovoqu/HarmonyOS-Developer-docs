@@ -13,16 +13,21 @@
 如需要将视频保存到媒体库中可参考[保存媒体库资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。
 
 
-## 开发流程
+##### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建录像流，开发流程如下。
-![](assets/录像实践(ArkTS)
-/file-20260514131515718-0.png)
 
-## 完整示例
+
+![](assets/录像实践(ArkTS)/file-20260514131515718-0.png)
+
+
+
+
+##### 完整示例
 
 Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
-```text
+
+```json
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
@@ -42,7 +47,7 @@ interface RecordingResources {
 // 全局资源跟踪。
 const resources: RecordingResources = {};
 
-async function releaseResources(): Promise {
+async function releaseResources(): Promise<void> {
   const releaseSteps = [
   // 停止录像。
     async () => await resources.avRecorder?.stop().catch((e: BusinessError) => console.error('停止录像失败:', e)),
@@ -85,7 +90,7 @@ async function releaseResources(): Promise {
   resources.file = undefined;
 }
 
-async function videoRecording(context: common.Context, surfaceId: string): Promise {
+async function videoRecording(context: common.Context, surfaceId: string): Promise<void> {
   // 创建CameraManager对象。
   let cameraManager: camera.CameraManager | undefined = undefined;
   try {
@@ -100,7 +105,7 @@ async function videoRecording(context: common.Context, surfaceId: string): Promi
   }
 
   // 获取相机列表。
-  let cameraArray: Array = [];
+  let cameraArray: Array<camera.CameraDevice> = [];
   try {
     cameraArray = cameraManager.getSupportedCameras();
   } catch (error) {
@@ -108,7 +113,13 @@ async function videoRecording(context: common.Context, surfaceId: string): Promi
     console.error(`getSupportedCameras call failed. error code: ${JSON.stringify(err)}`);
   }
 
-  if (!cameraArray || cameraArray.length  = cameraManager.getSupportedSceneModes(cameraArray[0]);
+  if (!cameraArray || cameraArray.length <= 0) {
+    console.error("cameraManager.getSupportedCameras error");
+    return;
+  }
+
+  // 获取支持的模式类型。
+  let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraArray[0]);
   let isSupportVideoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_VIDEO) >= 0;
   if (!isSupportVideoMode) {
     console.error('video mode not support');
@@ -127,7 +138,7 @@ async function videoRecording(context: common.Context, surfaceId: string): Promi
   }
   console.info("outputCapability: " + JSON.stringify(cameraOutputCap));
 
-  let videoProfilesArray: Array = cameraOutputCap.videoProfiles;
+  let videoProfilesArray: Array<camera.VideoProfile> = cameraOutputCap.videoProfiles;
   if (!videoProfilesArray || videoProfilesArray.length === 0) {
     console.error("videoProfilesArray is null or []");
     return;
@@ -230,7 +241,7 @@ async function videoRecording(context: common.Context, surfaceId: string): Promi
     return;
   }
 
-  let previewProfilesArray: Array = cameraOutputCap.previewProfiles;
+  let previewProfilesArray: Array<camera.Profile> = cameraOutputCap.previewProfiles;
   if (!previewProfilesArray || previewProfilesArray.length === 0) {
     console.error("previewProfilesArray is null or []");
     return;
@@ -238,7 +249,45 @@ async function videoRecording(context: common.Context, surfaceId: string): Promi
 
   // 创建预览输出流，其中参数surfaceId是由XComponent组件提供的。
   const previewProfile = previewProfilesArray.find((previewProfile: camera.Profile) => {
-    return Math.abs((previewProfile.size.width / previewProfile.size.height) - (videoProfile.size.width / videoProfile.size.height))  {
+    return Math.abs((previewProfile.size.width / previewProfile.size.height) - (videoProfile.size.width / videoProfile.size.height)) < Number.EPSILON;
+  }); // 筛选与录像分辨率宽高比一致的预览分辨率。
+  if (!previewProfile) {
+    console.error('No preview resolution found that matches the aspect ratio of the video resolution');
+    await releaseResources();
+    return;
+  }
+
+  try {
+    resources.previewOutput = cameraManager.createPreviewOutput(previewProfile, surfaceId);
+  } catch (error) {
+    let err = error as BusinessError;
+    console.error(`createPreviewOutput call failed. error: ${JSON.stringify(err)}`);
+    await releaseResources();
+    return;
+  }
+  if (!resources.previewOutput) {
+    console.error('previewOutput is null');
+    await releaseResources();
+    return;
+  }
+
+  // 创建相机输入流。
+  try {
+    resources.cameraInput = cameraManager.createCameraInput(cameraDevice);
+  } catch (error) {
+    let err = error as BusinessError;
+    console.error(`Failed to createCameraInput. error: ${JSON.stringify(err)}`);
+    await releaseResources();
+    return;
+  }
+  if (!resources.cameraInput) {
+    console.error('cameraInput is null');
+    await releaseResources();
+    return;
+  }
+
+  // 监听cameraInput错误信息。
+  resources.cameraInput!.on('error', cameraDevice, (error: BusinessError) => {
     console.error(`Camera input error code: ${error.code}`);
   });
 
@@ -301,7 +350,7 @@ async function videoRecording(context: common.Context, surfaceId: string): Promi
     let err = error as BusinessError;
     console.error(`avRecorder stop error: ${err}`);
   }
-
+  
   // 停止当前会话。
   await resources.videoSession.stop();
 

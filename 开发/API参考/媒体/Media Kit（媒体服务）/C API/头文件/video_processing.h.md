@@ -3,11 +3,9 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 声明视频处理函数。
 
@@ -24,44 +22,43 @@
 **相关模块：** [VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### 汇总
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void)](#oh_videoprocessing_initializeenvironment) | 初始化视频处理全局环境。          该函数是可选的。          该函数只在主进程启动时被调用一次，用于初始化视频处理全局环境，这样可以减少[OH_VideoProcessing_Create](#oh_videoprocessing_create)的时间。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void)](#oh_videoprocessing_deinitializeenvironment) | 释放视频处理全局环境。          调用前，必须调用[OH_VideoProcessing_InitializeEnvironment](#oh_videoprocessing_initializeenvironment)初始化。          通常在主进程即将退出时调用该函数来释放通过调用[OH_VideoProcessing_InitializeEnvironment](#oh_videoprocessing_initializeenvironment)函数初始化的全局环境。          如果仍有视频处理的实例运行中，就不能调用该函数。 |
-| [bool OH_VideoProcessing_IsColorSpaceConversionSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo, const VideoProcessing_ColorSpaceInfo* destinationVideoInfo)](#oh_videoprocessing_iscolorspaceconversionsupported) | 查询是否支持视频颜色空间转换。 |
-| [bool OH_VideoProcessing_IsMetadataGenerationSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo)](#oh_videoprocessing_ismetadatagenerationsupported) | 查询是否支持视频元数据生成。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoProcessor, int type)](#oh_videoprocessing_create) | 创建视频处理实例。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoProcessor)](#oh_videoprocessing_destroy) | 销毁视频处理实例。          销毁之前先停止实例，参阅[OH_VideoProcessing_Stop](#oh_videoprocessing_stop)。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing* videoProcessor,const VideoProcessing_Callback* callback, void* userData)](#oh_videoprocessing_registercallback) | 注册回调函数。          在开始视频处理之前注册回调函数，视频处理过程中无法注册回调函数。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* videoProcessor,const OHNativeWindow* window)](#oh_videoprocessing_setsurface) | 设置视频处理输出surface。          在视频处理启动之前设置输出surface。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* videoProcessor, OHNativeWindow** window)](#oh_videoprocessing_getsurface) | 创建surface。          在视频处理启动之前创建输入surface。调用[OH_NativeWindow_DestroyNativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-external-window-h#oh_nativewindow_destroynativewindow)销毁输入surface。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* videoProcessor, const OH_AVFormat* parameter)](#oh_videoprocessing_setparameter) | 设置视频处理输出参数。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* videoProcessor, OH_AVFormat* parameter)](#oh_videoprocessing_getparameter) | 获取视频处理参数。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProcessor)](#oh_videoprocessing_start) | 启动视频处理。          成功启动后，回调函数[OH_VideoProcessingCallback_OnState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onstate)会报告[VIDEO_PROCESSING_STATE_RUNNING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_state)状态。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProcessor)](#oh_videoprocessing_stop) | 停止视频处理。          成功停止后，回调函数[OH_VideoProcessingCallback_OnState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onstate)会报告[VIDEO_PROCESSING_STATE_STOPPED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_state)状态。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessing* videoProcessor, uint32_t index)](#oh_videoprocessing_renderoutputbuffer) | 渲染处理并输出buffer。          如果设置了回调函数[OH_VideoProcessingCallback_OnNewOutputBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onnewoutputbuffer)，当输出buffer准备好之后会通过回调函数把buffer的索引返回给用户。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Callback** callback)](#oh_videoprocessingcallback_create) | 创建视频处理回调函数对象。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessingCallback_Destroy(VideoProcessing_Callback* callback)](#oh_videoprocessingcallback_destroy) | 销毁回调对象。回调对象在注册之后就可以销毁。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnError(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnError onError)](#oh_videoprocessingcallback_bindonerror) | 绑定回调函数[OH_VideoProcessingCallback_OnError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onerror)到回调对象。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnState(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnState onState)](#oh_videoprocessingcallback_bindonstate) | 绑定回调函数[OH_VideoProcessingCallback_OnState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onstate)到回调对象。 |
-| [VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnNewOutputBuffer(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnNewOutputBuffer onNewOutputBuffer)](#oh_videoprocessingcallback_bindonnewoutputbuffer) | 绑定回调函数[OH_VideoProcessingCallback_OnNewOutputBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onnewoutputbuffer)到回调对象。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void) | 初始化视频处理全局环境。 该函数是可选的。 该函数只在主进程启动时被调用一次，用于初始化视频处理全局环境，这样可以减少OH_VideoProcessing_Create的时间。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void) | 释放视频处理全局环境。 调用前，必须调用OH_VideoProcessing_InitializeEnvironment初始化。 通常在主进程即将退出时调用该函数来释放通过调用OH_VideoProcessing_InitializeEnvironment函数初始化的全局环境。 如果仍有视频处理的实例运行中，就不能调用该函数。 |
+| bool OH_VideoProcessing_IsColorSpaceConversionSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo, const VideoProcessing_ColorSpaceInfo* destinationVideoInfo) | 查询是否支持视频颜色空间转换。 |
+| bool OH_VideoProcessing_IsMetadataGenerationSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo) | 查询是否支持视频元数据生成。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoProcessor, int type) | 创建视频处理实例。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoProcessor) | 销毁视频处理实例。 销毁之前先停止实例，参阅OH_VideoProcessing_Stop。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing* videoProcessor,const VideoProcessing_Callback* callback, void* userData) | 注册回调函数。 在开始视频处理之前注册回调函数，视频处理过程中无法注册回调函数。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* videoProcessor,const OHNativeWindow* window) | 设置视频处理输出surface。 在视频处理启动之前设置输出surface。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* videoProcessor, OHNativeWindow** window) | 创建surface。 在视频处理启动之前创建输入surface。调用OH_NativeWindow_DestroyNativeWindow销毁输入surface。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* videoProcessor, const OH_AVFormat* parameter) | 设置视频处理输出参数。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* videoProcessor, OH_AVFormat* parameter) | 获取视频处理参数。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProcessor) | 启动视频处理。 成功启动后，回调函数OH_VideoProcessingCallback_OnState会报告VIDEO_PROCESSING_STATE_RUNNING状态。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProcessor) | 停止视频处理。 成功停止后，回调函数OH_VideoProcessingCallback_OnState会报告VIDEO_PROCESSING_STATE_STOPPED状态。 |
+| VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessing* videoProcessor, uint32_t index) | 渲染处理并输出buffer。 如果设置了回调函数OH_VideoProcessingCallback_OnNewOutputBuffer，当输出buffer准备好之后会通过回调函数把buffer的索引返回给用户。 |
+| VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Callback** callback) | 创建视频处理回调函数对象。 |
+| VideoProcessing_ErrorCode OH_VideoProcessingCallback_Destroy(VideoProcessing_Callback* callback) | 销毁回调对象。回调对象在注册之后就可以销毁。 |
+| VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnError(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnError onError) | 绑定回调函数OH_VideoProcessingCallback_OnError到回调对象。 |
+| VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnState(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnState onState) | 绑定回调函数OH_VideoProcessingCallback_OnState到回调对象。 |
+| VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnNewOutputBuffer(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnNewOutputBuffer onNewOutputBuffer) | 绑定回调函数OH_VideoProcessingCallback_OnNewOutputBuffer到回调对象。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-### OH_VideoProcessing_InitializeEnvironment()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 函数说明
 
+
+
+##### OH_VideoProcessing_InitializeEnvironment()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void)
@@ -83,15 +80,14 @@ VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果初始化成功，返回VIDEO_PROCESSING_SUCCESS，否则返回VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED。          如果失败，应用需要检查GPU是否正常工作。 |
+| VideoProcessing_ErrorCode | 如果初始化成功，返回VIDEO_PROCESSING_SUCCESS，否则返回VIDEO_PROCESSING_ERROR_INITIALIZE_FAILED。 如果失败，应用需要检查GPU是否正常工作。 |
 
 
-### OH_VideoProcessing_DeinitializeEnvironment()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_DeinitializeEnvironment()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void)
@@ -111,15 +107,14 @@ VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。          如果还有视频处理的实例没有销毁或者没有调用[OH_VideoProcessing_InitializeEnvironment](#oh_videoprocessing_initializeenvironment)，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
+| VideoProcessing_ErrorCode | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。 如果还有视频处理的实例没有销毁或者没有调用OH_VideoProcessing_InitializeEnvironment，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
 
 
-### OH_VideoProcessing_IsColorSpaceConversionSupported()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_IsColorSpaceConversionSupported()
 
 ```text
 bool OH_VideoProcessing_IsColorSpaceConversionSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo,const VideoProcessing_ColorSpaceInfo* destinationVideoInfo)
@@ -133,24 +128,22 @@ bool OH_VideoProcessing_IsColorSpaceConversionSupported(const VideoProcessing_Co
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [VideoProcessing_ColorSpaceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-videoprocessing-videoprocessing-colorspaceinfo)* sourceVideoInfo | 输入视频颜色空间信息。 |
-| const [VideoProcessing_ColorSpaceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-videoprocessing-videoprocessing-colorspaceinfo)* destinationVideoInfo | 输出视频颜色空间信息。 |
+| const VideoProcessing_ColorSpaceInfo* sourceVideoInfo | 输入视频颜色空间信息。 |
+| const VideoProcessing_ColorSpaceInfo* destinationVideoInfo | 输出视频颜色空间信息。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | bool | 如果支持视频颜色空间转换返回true，否则返回false。 |
 
 
-### OH_VideoProcessing_IsMetadataGenerationSupported()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_IsMetadataGenerationSupported()
 
 ```text
 bool OH_VideoProcessing_IsMetadataGenerationSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo)
@@ -164,23 +157,21 @@ bool OH_VideoProcessing_IsMetadataGenerationSupported(const VideoProcessing_Colo
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [VideoProcessing_ColorSpaceInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-videoprocessing-videoprocessing-colorspaceinfo)* sourceVideoInfo | 输入视频颜色空间信息。 |
+| const VideoProcessing_ColorSpaceInfo* sourceVideoInfo | 输入视频颜色空间信息。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | bool | 如果支持视频元数据生成返回true，否则返回false。 |
 
 
-### OH_VideoProcessing_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_Create()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoProcessor, int type)
@@ -194,24 +185,22 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoPr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)** videoProcessor | 输出参数。指向视频处理对象的指针的指针。输入前*videoProcessor必须是空指针。 |
+| OH_VideoProcessing** videoProcessor | 输出参数。指向视频处理对象的指针的指针。输入前*videoProcessor必须是空指针。 |
 | int type | 使用VIDEO_PROCESSING_TYPE_XXX来指定处理类型。实例的处理类型不能改变。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果视频处理实例创建成功，返回VIDEO_PROCESSING_SUCCESS。          如果处理类型不支持，返回VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING，例如，不支持元数据生成。          如果创建视频处理实例失败，返回VIDEO_PROCESSING_ERROR_CREATE_FAILED。          如果实例为空或实例的指针非空，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果处理类型无效，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
+| VideoProcessing_ErrorCode | 如果视频处理实例创建成功，返回VIDEO_PROCESSING_SUCCESS。 如果处理类型不支持，返回VIDEO_PROCESSING_ERROR_UNSUPPORTED_PROCESSING，例如，不支持元数据生成。 如果创建视频处理实例失败，返回VIDEO_PROCESSING_ERROR_CREATE_FAILED。 如果实例为空或实例的指针非空，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果处理类型无效，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
 
 
-### OH_VideoProcessing_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_Destroy()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoProcessor)
@@ -227,23 +216,21 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoPr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针，建议在实例销毁之后将其设置为空指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针，建议在实例销毁之后将其设置为空指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果实例销毁成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果实例仍在运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
+| VideoProcessing_ErrorCode | 如果实例销毁成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果实例仍在运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
 
 
-### OH_VideoProcessing_RegisterCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_RegisterCallback()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing* videoProcessor,const VideoProcessing_Callback* callback, void* userData)
@@ -259,25 +246,23 @@ VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
-| const [VideoProcessing_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-videoprocessing-callback)* callback | 回调函数指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
+| const VideoProcessing_Callback* callback | 回调函数指针。 |
 | void* userData | 指向用户特定数据的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果回调函数注册成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果回调函数指针为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。          如果实例仍在运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
+| VideoProcessing_ErrorCode | 如果回调函数注册成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果回调函数指针为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 如果实例仍在运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
 
 
-### OH_VideoProcessing_SetSurface()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_SetSurface()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* videoProcessor,const OHNativeWindow* window)
@@ -293,24 +278,22 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* vide
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
-| const [OHNativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-nativewindow)* window | 指向输出surface的指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
+| const OHNativeWindow* window | 指向输出surface的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果输出surface设置成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果window为空指针，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
+| VideoProcessing_ErrorCode | 如果输出surface设置成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果window为空指针，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
 
 
-### OH_VideoProcessing_GetSurface()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_GetSurface()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* videoProcessor, OHNativeWindow** window)
@@ -326,24 +309,22 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* vide
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
-| [OHNativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-nativewindow)** window | 指向输入surface的指针。例如，此输入surface指针可以指向视频解码器输出surface。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
+| OHNativeWindow** window | 指向输入surface的指针。例如，此输入surface指针可以指向视频解码器输出surface。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果window为空指针或指向window的指针不为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。          如果创建surface失败，或者输入surface已经创建，或者视频处理实例还在运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
+| VideoProcessing_ErrorCode | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果window为空指针或指向window的指针不为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 如果创建surface失败，或者输入surface已经创建，或者视频处理实例还在运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
 
 
-### OH_VideoProcessing_SetParameter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_SetParameter()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* videoProcessor,const OH_AVFormat* parameter)
@@ -357,24 +338,22 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* vi
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
-| const [OH_AVFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-avformat)* parameter | 指向视频处理参数实例的指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
+| const OH_AVFormat* parameter | 指向视频处理参数实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果参数设置成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果参数为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。          如果参数的某些属性无效，返回VIDEO_PROCESSING_ERROR_INVALID_VALUE，例如，包含不支持的参数值。          如果内存分配失败，返回VIDEO_PROCESSING_ERROR_NO_MEMORY。 |
+| VideoProcessing_ErrorCode | 如果参数设置成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果参数为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 如果参数的某些属性无效，返回VIDEO_PROCESSING_ERROR_INVALID_VALUE，例如，包含不支持的参数值。 如果内存分配失败，返回VIDEO_PROCESSING_ERROR_NO_MEMORY。 |
 
 
-### OH_VideoProcessing_GetParameter()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_GetParameter()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* videoProcessor, OH_AVFormat* parameter)
@@ -388,24 +367,22 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* vi
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
-| [OH_AVFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-avformat)* parameter | 指向视频处理参数实例的指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
+| OH_AVFormat* parameter | 指向视频处理参数实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果参数获取成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果参数为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
+| VideoProcessing_ErrorCode | 如果参数获取成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果参数为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
 
 
-### OH_VideoProcessing_Start()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_Start()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProcessor)
@@ -421,23 +398,21 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProc
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果没有设置输出surface，或者没有创建输入surface，或者实例已经运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
+| VideoProcessing_ErrorCode | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果没有设置输出surface，或者没有创建输入surface，或者实例已经运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
 
 
-### OH_VideoProcessing_Stop()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_Stop()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProcessor)
@@ -453,23 +428,21 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProce
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果实例已经停止，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
+| VideoProcessing_ErrorCode | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果实例已经停止，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
 
 
-### OH_VideoProcessing_RenderOutputBuffer()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessing_RenderOutputBuffer()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessing* videoProcessor, uint32_t index)
@@ -485,24 +458,22 @@ VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessi
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_VideoProcessing](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-oh-videoprocessing)* videoProcessor | 指向视频处理实例的指针。 |
+| OH_VideoProcessing* videoProcessor | 指向视频处理实例的指针。 |
 | uint32_t index | 输出buffer的索引。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。          如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。          如果索引值无效，输出VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。          如果没有设置回调函数[OH_VideoProcessingCallback_OnNewOutputBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onnewoutputbuffer)或者实例已经停止运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
+| VideoProcessing_ErrorCode | 如果执行成功，返回VIDEO_PROCESSING_SUCCESS。 如果实例为空或者不是一个视频处理实例，返回VIDEO_PROCESSING_ERROR_INVALID_INSTANCE。 如果索引值无效，输出VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 如果没有设置回调函数OH_VideoProcessingCallback_OnNewOutputBuffer或者实例已经停止运行，返回VIDEO_PROCESSING_ERROR_OPERATION_NOT_PERMITTED。 |
 
 
-### OH_VideoProcessingCallback_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessingCallback_Create()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Callback** callback)
@@ -516,23 +487,21 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Call
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [VideoProcessing_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-videoprocessing-callback)** callback | 输出参数。*callback是指向回调函数对象的指针。在创建回调函数对象之前*callback必须为空指针。 |
+| VideoProcessing_Callback** callback | 输出参数。*callback是指向回调函数对象的指针。在创建回调函数对象之前*callback必须为空指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果回调函数对象创建成功，返回VIDEO_PROCESSING_SUCCESS。          如果callback为空或者callback不为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。          如果内存不足，返回VIDEO_PROCESSING_ERROR_NO_MEMORY。 |
+| VideoProcessing_ErrorCode | 如果回调函数对象创建成功，返回VIDEO_PROCESSING_SUCCESS。 如果callback为空或者callback不为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 如果内存不足，返回VIDEO_PROCESSING_ERROR_NO_MEMORY。 |
 
 
-### OH_VideoProcessingCallback_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessingCallback_Destroy()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_Destroy(VideoProcessing_Callback* callback)
@@ -546,23 +515,21 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_Destroy(VideoProcessing_Cal
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [VideoProcessing_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-videoprocessing-callback)* callback | 指向回调对象的指针，建议在回调对象销毁之后将其设置为空指针。 |
+| VideoProcessing_Callback* callback | 指向回调对象的指针，建议在回调对象销毁之后将其设置为空指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果回调对象销毁成功，返回VIDEO_PROCESSING_SUCCESS。          如果callback为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
+| VideoProcessing_ErrorCode | 如果回调对象销毁成功，返回VIDEO_PROCESSING_SUCCESS。 如果callback为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
 
 
-### OH_VideoProcessingCallback_BindOnError()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessingCallback_BindOnError()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnError(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnError onError)
@@ -576,24 +543,22 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnError(VideoProcessing
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [VideoProcessing_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-videoprocessing-callback)* callback | 指向回调对象的指针。 |
-| [OH_VideoProcessingCallback_OnError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onerror) onError | 回调函数。 |
+| VideoProcessing_Callback* callback | 指向回调对象的指针。 |
+| OH_VideoProcessingCallback_OnError onError | 回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果函数绑定成功，返回VIDEO_PROCESSING_SUCCESS。          如果callback为空或者onError为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
+| VideoProcessing_ErrorCode | 如果函数绑定成功，返回VIDEO_PROCESSING_SUCCESS。 如果callback为空或者onError为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
 
 
-### OH_VideoProcessingCallback_BindOnState()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessingCallback_BindOnState()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnState(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnState onState)
@@ -607,24 +572,22 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnState(VideoProcessing
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [VideoProcessing_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-videoprocessing-callback)* callback | 指向回调对象的指针。 |
-| [OH_VideoProcessingCallback_OnState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onstate) onState | 回调函数。 |
+| VideoProcessing_Callback* callback | 指向回调对象的指针。 |
+| OH_VideoProcessingCallback_OnState onState | 回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果函数绑定成功，返回VIDEO_PROCESSING_SUCCESS。          如果callback为空或者onState为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
+| VideoProcessing_ErrorCode | 如果函数绑定成功，返回VIDEO_PROCESSING_SUCCESS。 如果callback为空或者onState为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
 
 
-### OH_VideoProcessingCallback_BindOnNewOutputBuffer()
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### OH_VideoProcessingCallback_BindOnNewOutputBuffer()
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnNewOutputBuffer(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnNewOutputBuffer onNewOutputBuffer)
@@ -638,16 +601,14 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnNewOutputBuffer(Video
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [VideoProcessing_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-videoprocessing-callback)* callback | 指向回调对象的指针。 |
-| [OH_VideoProcessingCallback_OnNewOutputBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#oh_videoprocessingcallback_onnewoutputbuffer) onNewOutputBuffer | 回调函数。 |
+| VideoProcessing_Callback* callback | 指向回调对象的指针。 |
+| OH_VideoProcessingCallback_OnNewOutputBuffer onNewOutputBuffer | 回调函数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoProcessing_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-types-h#videoprocessing_errorcode) | 如果函数绑定成功，返回VIDEO_PROCESSING_SUCCESS。          如果callback为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |
+| VideoProcessing_ErrorCode | 如果函数绑定成功，返回VIDEO_PROCESSING_SUCCESS。 如果callback为空，返回VIDEO_PROCESSING_ERROR_INVALID_PARAMETER。 |

@@ -1,24 +1,35 @@
 # 设置浮层（OverlayManager）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-overlaymanager
 
 浮层（OverlayManager）用于在页面（Page）之上展示自定义的UI内容，位于Dialog、Popup、Menu、BindSheet、BindContentCover和Toast等组件之下，展示范围为当前窗口的安全区内，适用于常驻悬浮等场景。
 
+
 ![](assets/设置浮层（OverlayManager）/file-20260514130647869-0.png)
+
 
 可以通过使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getOverlayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getoverlaymanager12)方法获取当前UI上下文关联的[OverlayManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager)对象，再通过该对象调用对应方法。
 
 
-## 规格约束
+##### 规格约束
 
-OverlayManager上节点的层级在Page页面层级之上，在Dialog、Popup、Menu、BindSheet、BindContentCover和Toast等组件之下。 OverlayManager添加的节点显示和消失时没有默认动画。 OverlayManager上节点安全区域内外的绘制方式与Page一致，键盘避让方式与Page一致。 推荐使用AppStorage存储与OverlayManager相关的属性，以避免页面切换时属性值变化导致业务错误。 当使用API version 19以下版本时，OverlayManager不支持侧滑（左滑/右滑）关闭，需在[onBackPress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onbackpress)中添加OverlayManager关闭的逻辑。API 19及以上版本可通过配置[OverlayManagerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#overlaymanageroptions15)中的enableBackPressedEvent属性设置OverlayManager是否响应侧滑手势。 OverlayManager中的事件机制优先被[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder)装饰的组件接收。若需实现浮层底部接收事件，可通过设置[hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior#hittestbehavior)为HitTestMode.Transparent将事件传递至底层。
+ - OverlayManager上节点的层级在Page页面层级之上，在Dialog、Popup、Menu、BindSheet、BindContentCover和Toast等组件之下。
+ - OverlayManager添加的节点显示和消失时没有默认动画。
+ - OverlayManager上节点安全区域内外的绘制方式与Page一致，键盘避让方式与Page一致。
+ - 推荐使用AppStorage存储与OverlayManager相关的属性，以避免页面切换时属性值变化导致业务错误。
+ - 当使用API version 19以下版本时，OverlayManager不支持侧滑（左滑/右滑）关闭，需在[onBackPress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onbackpress)中添加OverlayManager关闭的逻辑。API 19及以上版本可通过配置[OverlayManagerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#overlaymanageroptions15)中的enableBackPressedEvent属性设置OverlayManager是否响应侧滑手势。
+ - OverlayManager中的事件机制优先被[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-wrapbuilder)装饰的组件接收。若需实现浮层底部接收事件，可通过设置[hitTestBehavior](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-hit-test-behavior#hittestbehavior)为HitTestMode.Transparent将事件传递至底层。
 
-## 设置浮层
+
+
+
+##### 设置浮层
 
 在OverlayManager上[新增指定节点（addComponentContent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#addcomponentcontent12)、[删除指定节点（removeComponentContent）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#removecomponentcontent12)、[显示所有节点（showAllComponentContents）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#showallcomponentcontents12)和[隐藏所有节点（hideAllComponentContents）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#hideallcomponentcontents12)。
-```text
+
+```ArkTS
 import { ComponentContent, OverlayManager } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -50,7 +61,7 @@ export struct OverlayManagerComponent {
   @State message: string = 'ComponentContent';
   private uiContext: UIContext = this.getUIContext();
   private overlayNode: OverlayManager = this.uiContext.getOverlayManager();
-  @StorageLink('contentArray') contentArray: ComponentContent[] = [];
+  @StorageLink('contentArray') contentArray: ComponentContent<Params>[] = [];
   @StorageLink('componentContentIndex') componentContentIndex: number = 0;
   @StorageLink('arrayIndex') arrayIndex: number = 0;
   @StorageLink('componentOffset') componentOffset: Position = { x: 0, y: 30 };
@@ -69,7 +80,7 @@ export struct OverlayManagerComponent {
         Button('Add ComponentContent:' + this.contentArray.length)
           .onClick(() => {
             let componentContent = new ComponentContent(
-              this.uiContext, wrapBuilder(builderText),
+              this.uiContext, wrapBuilder<[Params]>(builderText),
               new Params(this.message + (this.contentArray.length), this.componentOffset)
             )
             this.contentArray.push(componentContent);
@@ -85,9 +96,33 @@ export struct OverlayManagerComponent {
           })
         Button('Delete ComponentContent:' + this.arrayIndex)
           .onClick(() => {
-            if (this.arrayIndex >= 0 && this.arrayIndex  {
-            if (this.arrayIndex >= 0 && this.arrayIndex  {
-            if (this.arrayIndex >= 0 && this.arrayIndex  {
+            if (this.arrayIndex >= 0 && this.arrayIndex < this.contentArray.length) {
+              let componentContent = this.contentArray.splice(this.arrayIndex, 1);
+              this.overlayNode.removeComponentContent(componentContent.pop());
+            } else {
+              hilog.info(DOMAIN, TAG, '%{public}s', 'arrayIndex error');
+            }
+          })
+        Button('Show ComponentContent:' + this.arrayIndex)
+          .onClick(() => {
+            if (this.arrayIndex >= 0 && this.arrayIndex < this.contentArray.length) {
+              let componentContent = this.contentArray[this.arrayIndex];
+              this.overlayNode.showComponentContent(componentContent);
+            } else {
+              hilog.info(DOMAIN, TAG, '%{public}s', 'arrayIndex error');
+            }
+          })
+        Button('Hide ComponentContent:' + this.arrayIndex)
+          .onClick(() => {
+            if (this.arrayIndex >= 0 && this.arrayIndex < this.contentArray.length) {
+              let componentContent = this.contentArray[this.arrayIndex];
+              this.overlayNode.hideComponentContent(componentContent);
+            } else {
+              hilog.info(DOMAIN, TAG, '%{public}s', 'arrayIndex error');
+            }
+          })
+        Button('Show All ComponentContent')
+          .onClick(() => {
             this.overlayNode.showAllComponentContents();
           })
         Button('Hide All ComponentContent')
@@ -109,9 +144,13 @@ export struct OverlayManagerComponent {
 }
 ```
 
+
 ![](assets/设置浮层（OverlayManager）/file-20260514130647869-1.gif)
+
+
 显示一个始终在屏幕左侧的悬浮球，点击可以弹出alertDialog弹窗。
-```text
+
+```ArkTS
 import { ComponentContent, OverlayManager } from '@kit.ArkUI';
 
 class Params {
@@ -151,13 +190,13 @@ function builderOverlay(params: Params) {
 export struct OverlayManagerAlertDialog {
   private uiContext: UIContext = this.getUIContext();
   private overlayNode: OverlayManager = this.uiContext.getOverlayManager();
-  private overlayContent:ComponentContent[] = [];
+  private overlayContent:ComponentContent<Params>[] = [];
   controller: TextInputController = new TextInputController();
 
   aboutToAppear(): void {
     let uiContext = this.getUIContext();
     let componentContent = new ComponentContent(
-      this.uiContext, wrapBuilder(builderOverlay),
+      this.uiContext, wrapBuilder<[Params]>(builderOverlay),
       new Params(uiContext, {x:0, y: 100})
     );
     this.overlayNode.addComponentContent(componentContent, 0);
@@ -181,9 +220,13 @@ export struct OverlayManagerAlertDialog {
 }
 ```
 
+
 ![](assets/设置浮层（OverlayManager）/file-20260514130647869-2.gif)
+
+
 从API version 18开始，可以通过调用UIContext中getOverlayManager方法获取OverlayManager对象，并利用该对象在指定层级上新增指定节点（[addComponentContentWithOrder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-overlaymanager#addcomponentcontentwithorder18)），层次高的浮层会覆盖在层级低的浮层之上。
-```text
+
+```ArkTS
 import { ComponentContent, LevelOrder, OverlayManager } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -237,7 +280,7 @@ function builderNormalText(params: Params) {
 export struct OverlayManagerWithOrder {
   private ctx: UIContext = this.getUIContext();
   private overlayManager: OverlayManager = this.ctx.getOverlayManager();
-  @StorageLink('contentArray') contentArray: ComponentContent[] = [];
+  @StorageLink('contentArray') contentArray: ComponentContent<Params>[] = [];
   @StorageLink('componentContentIndex') componentContentIndex: number = 0;
   @StorageLink('arrayIndex') arrayIndex: number = 0;
   @StorageLink('componentOffset') componentOffset: Position = { x: 0, y: 80 };
@@ -249,7 +292,7 @@ export struct OverlayManagerWithOrder {
           Button('Open Top-Level Dialog Box')
             .onClick(() => {
               let componentContent = new ComponentContent(
-                this.ctx, wrapBuilder(builderTopText),
+                this.ctx, wrapBuilder<[Params]>(builderTopText),
                 new Params('I am a top-level dialog box', this.componentOffset)
               );
               this.contentArray.push(componentContent);
@@ -258,11 +301,26 @@ export struct OverlayManagerWithOrder {
           Button('Open Normal Dialog Box')
             .onClick(() => {
               let componentContent = new ComponentContent(
-                this.ctx, wrapBuilder(builderNormalText),
+                this.ctx, wrapBuilder<[Params]>(builderNormalText),
                 new Params('I am a normal dialog box', this.componentOffset)
               );
               this.contentArray.push(componentContent);
               this.overlayManager.addComponentContentWithOrder(componentContent, LevelOrder.clamp(0));
             })
           Button('Remove Dialog Box').onClick(() => {
-            if (this.arrayIndex >= 0 && this.arrayIndex ![](assets/设置浮层（OverlayManager）/file-20260514130647869-3.gif)
+            if (this.arrayIndex >= 0 && this.arrayIndex < this.contentArray.length) {
+              let componentContent = this.contentArray.splice(this.arrayIndex, 1);
+              this.overlayManager.removeComponentContent(componentContent.pop());
+            } else {
+              hilog.info(DOMAIN, TAG, '%{public}s', 'arrayIndex error');
+            }
+          })
+        }.width('100%')
+      }
+      // ...
+  }
+}
+```
+
+
+![](assets/设置浮层（OverlayManager）/file-20260514130647869-3.gif)

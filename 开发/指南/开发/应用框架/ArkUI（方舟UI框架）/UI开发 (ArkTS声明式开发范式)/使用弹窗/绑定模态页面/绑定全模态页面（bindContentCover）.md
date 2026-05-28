@@ -1,19 +1,24 @@
 # 绑定全模态页面（bindContentCover）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-contentcover-page
 
 [全模态页面（bindContentCover）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-modal-transition#bindcontentcover)是全屏模态形式的弹窗交互页面，完全覆盖底层父视图。适用于查看大图，全屏查看文稿等场景。
 
 
-## 使用约束
+##### 使用约束
 
-全模态页面本质上是弹窗类组件，其交互层级默认为应用内顶层。 [Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)导航转场时，新push的页面层级无法超出全模态，其效果仍然显示在模态页面之下。针对此类场景，建议将模态页面的内容迁移至转场页面中实现。例如，在上述情况下，可以使用NavDestination来替代拉起的模态页面，新push的页面层级低于全模态。
+全模态页面本质上是弹窗类组件，其交互层级默认为应用内顶层。
 
-## 生命周期
+[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)导航转场时，新push的页面层级无法超出全模态，其效果仍然显示在模态页面之下。针对此类场景，建议将模态页面的内容迁移至转场页面中实现。例如，在上述情况下，可以使用NavDestination来替代拉起的模态页面，新push的页面层级低于全模态。
+
+
+
+##### 生命周期
 
 全模态页面提供了生命周期函数，用于通知应用程序该弹窗的生命周期状态。生命周期的触发顺序依次为：onWillAppear -> onAppear -> onWillDisappear -> onDisappear。
+
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
 | onWillAppear | () => void | 全模态页面显示（动画开始前）回调函数。 |
@@ -22,10 +27,15 @@
 | onDisappear | () => void | 全模态页面回退（动画结束后）回调函数。 |
 
 
-## 使用bindContentCover构建全屏模态内容覆盖半模态
 
-全模态与半模态之间存在弹窗式的层级交互。后拉起的模态页面能够覆盖先前的模态页面。若开发者期望实现全屏转场，以覆盖半模态，并在全屏页面侧滑退出后，半模态页面仍保持显示，使用bindSheet结合bindContentCover将满足这一场景诉求。 详见[模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-modal-transition#使用bindcontentcover构建全屏模态转场效果)章节，了解使用bindContentCover构建全屏模态转场效果。
-```text
+
+##### 使用bindContentCover构建全屏模态内容覆盖半模态
+
+全模态与半模态之间存在弹窗式的层级交互。后拉起的模态页面能够覆盖先前的模态页面。若开发者期望实现全屏转场，以覆盖半模态，并在全屏页面侧滑退出后，半模态页面仍保持显示，使用bindSheet结合bindContentCover将满足这一场景诉求。
+
+详见[模态转场](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-modal-transition#使用bindcontentcover构建全屏模态转场效果)章节，了解使用bindContentCover构建全屏模态转场效果。
+
+```ArkTS
 import { curves } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
@@ -39,7 +49,7 @@ interface PersonList {
 struct BindContentCoverDemo {
   private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
   private manager = this.context.resourceManager;
-  private personList: Array = [
+  private personList: Array<PersonList> = [
     // 'Person_example1'资源文件中的value值为'王**'
     { name: this.manager.getStringByNameSync('Person_example1'), cardNum: '1234***********789' },
     // 'Person_example2'资源文件中的value值为'宋*'
@@ -235,5 +245,6 @@ struct BindContentCoverDemo {
   }
 }
 ```
+
 
 ![](assets/绑定全模态页面（bindContentCover）/file-20260514130646962-0.gif)

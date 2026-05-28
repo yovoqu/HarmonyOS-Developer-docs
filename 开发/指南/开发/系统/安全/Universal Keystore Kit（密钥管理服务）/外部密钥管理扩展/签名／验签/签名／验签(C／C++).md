@@ -6,35 +6,50 @@
 
 以密钥算法为RSA、摘要算法为SHA384、填充模式为PSS的密钥为例，完成签名、验签：
 
+ - [密钥算法为RSA、摘要算法为SHA384、填充模式为PSS](#rsasha384pss)
 
-- [密钥算法为RSA、摘要算法为SHA384、填充模式为PSS](#rsasha384pss)
 
 具体的场景介绍及支持的算法规格，请参考[签名/验签介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-signing-signature-verification-overview)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so libhuks_external_crypto.z.so)
 ```
 
 
-## 开发步骤
 
-**签名** 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)后完成PIN码认证。 指定待签名的明文数据。 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置，并指定KeyClass参数，tag为[OH_HUKS_TAG_KEY_CLASS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)，值为[OH_HUKS_KEY_CLASS_EXTENSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keyclasstype)。 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取签名signature。 **验签** 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，然后[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。 获取待验证的签名。 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置，并指定KeyClass参数，tag为[OH_HUKS_TAG_KEY_CLASS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)，值为[OH_HUKS_KEY_CLASS_EXTENSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keyclasstype)。 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。 调用[OH_Huks_UpdateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_updatesession)更新密钥会话。 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，验证签名。
+##### 开发步骤
 
-## 开发案例
+**签名**
+1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)后完成PIN码认证。
+2. 指定待签名的明文数据。
+3. 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置，并指定KeyClass参数，tag为[OH_HUKS_TAG_KEY_CLASS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)，值为[OH_HUKS_KEY_CLASS_EXTENSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keyclasstype)。
+4. 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，获取签名signature。
+
+**验签**
+1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，然后[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。
+2. 获取待验证的签名。
+3. 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)指定算法参数配置，并指定KeyClass参数，tag为[OH_HUKS_TAG_KEY_CLASS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)，值为[OH_HUKS_KEY_CLASS_EXTENSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keyclasstype)。
+4. 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[OH_Huks_UpdateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_updatesession)更新密钥会话。
+6. 调用[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)结束密钥会话，验证签名。
 
 
-## RSA/SHA384/PSS
 
+##### 开发案例
+
+
+
+##### RSA/SHA384/PSS
 
 ```text
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <string.h>
 
 OH_Huks_Result InitParamSet(
     struct OH_Huks_ParamSet **paramSet,
@@ -148,7 +163,7 @@ static napi_value SignVerifyKey(napi_env env, napi_callback_info info)
         if (ohResult.errorCode != OH_HUKS_SUCCESS) {
             break;
         }
-
+        
         /* 2. Verify */
         // Init
         uint8_t handleV[sizeof(uint64_t)] = {0};
@@ -172,7 +187,7 @@ static napi_value SignVerifyKey(napi_env env, napi_callback_info info)
     } while (0);
     OH_Huks_FreeParamSet(&signParamSet);
     OH_Huks_FreeParamSet(&verifyParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;

@@ -1,48 +1,76 @@
 # 管理应用窗口（Stage模型）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage
 
-## 基本概念
+##### 基本概念
 
-窗口沉浸式能力：指对状态栏、导航栏等系统窗口进行控制，减少状态栏导航栏等系统界面的突兀感，从而使用户获得最佳体验的能力。沉浸式能力只在应用主窗口作为全屏窗口时生效。通常情况下，应用的辅助窗口（子窗、全局悬浮窗等）和处于自由窗口下的应用主窗口无法使用沉浸式能力。 全局悬浮窗：全局悬浮窗是一种特殊的应用辅助窗口，具备在应用主窗口和对应Ability退至后台后仍然可以在前台显示的能力。全局悬浮窗可以用于应用退至后台后，使用小窗继续显示UI，例如音乐应用用于显示桌面歌词等。应用在创建全局悬浮窗前，需要申请对应的权限。
+ - 窗口沉浸式能力：指对状态栏、导航栏等系统窗口进行控制，减少状态栏导航栏等系统界面的突兀感，从而使用户获得最佳体验的能力。沉浸式能力只在应用主窗口作为全屏窗口时生效。通常情况下，应用的辅助窗口（子窗、全局悬浮窗等）和处于自由窗口下的应用主窗口无法使用沉浸式能力。
+ - 全局悬浮窗：全局悬浮窗是一种特殊的应用辅助窗口，具备在应用主窗口和对应Ability退至后台后仍然可以在前台显示的能力。全局悬浮窗可以用于应用退至后台后，使用小窗继续显示UI，例如音乐应用用于显示桌面歌词等。应用在创建全局悬浮窗前，需要申请对应的权限。
 
-## 场景介绍
 
-在Stage模型下，管理应用窗口的典型场景有： 设置应用主窗口属性及目标页面 设置应用子窗口属性及目标页面 体验窗口沉浸式能力 设置全局悬浮窗 监听窗口不可交互与可交互事件 以下分别介绍具体开发方式。
 
-## 接口说明
+
+##### 场景介绍
+
+在Stage模型下，管理应用窗口的典型场景有：
+
+ - 设置应用主窗口属性及目标页面
+ - 设置应用子窗口属性及目标页面
+ - 体验窗口沉浸式能力
+ - 设置全局悬浮窗
+ - 监听窗口不可交互与可交互事件
+
+
+以下分别介绍具体开发方式。
+
+
+
+##### 接口说明
 
 上述场景涉及的常用接口如下表所示。更多API说明请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)。
+
 | 实例名 | 接口名 | 描述 |
 | --- | --- | --- |
-| WindowStage | getMainWindow(callback: AsyncCallback): void | 获取WindowStage实例下的主窗口。          此接口仅可在Stage模型下使用。 |
-| WindowStage | loadContent(path: string, callback: AsyncCallback): void | 为当前WindowStage的主窗口加载具体页面。          其中path为要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。          此接口仅可在Stage模型下使用。 |
-| WindowStage | createSubWindow(name: string, callback: AsyncCallback): void | 创建子窗口。          此接口仅可在Stage模型下使用。 |
-| WindowStage | on(eventType: 'windowStageEvent', callback: Callback): void | 开启WindowStage生命周期变化的监听。          此接口仅可在Stage模型下使用。 |
-| window静态方法 | createWindow(config: Configuration, callback: AsyncCallback): void | 创建子窗口或者系统窗口。          -config：创建窗口时的参数。 |
-| Window | setUIContent(path: string, callback: AsyncCallback): void | 根据当前工程中某个页面的路径为窗口加载具体的页面内容。          其中path为要加载到窗口中的页面内容的路径，在Stage模型下该路径需添加到工程的main_pages.json文件中。 |
-| Window | setWindowBrightness(brightness: number, callback: AsyncCallback): void | 设置屏幕亮度值。 |
-| Window | setWindowTouchable(isTouchable: boolean, callback: AsyncCallback): void | 设置窗口是否为可触状态。true表示可触；false表示不可触。 |
-| Window | moveWindowTo(x: number, y: number, callback: AsyncCallback): void | 移动当前窗口位置。 |
-| Window | resize(width: number, height: number, callback: AsyncCallback): void | 改变当前窗口大小。 |
-| Window | setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise | 设置主窗口或子窗口的布局是否为沉浸式布局。true表示沉浸式布局；false表示非沉浸式布局。 |
-| Window | setWindowSystemBarEnable(names: Array): Promise | 设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果。          例如，该参数设置为['status', 'navigation']，则全部显示；设置为[]，则不显示。 |
-| Window | setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise | 设置窗口内导航栏、状态栏属性。          systemBarProperties：导航栏、状态栏的属性集合。 |
-| Window | showWindow(callback: AsyncCallback): void | 显示当前窗口。 |
-| Window | on(type: 'touchOutside', callback: Callback): void | 开启本窗口区域外的点击事件的监听。 |
-| Window | destroyWindow(callback: AsyncCallback): void | 销毁当前窗口。 |
+| WindowStage | getMainWindow(callback: AsyncCallback&lt;Window&gt;): void | 获取WindowStage实例下的主窗口。 此接口仅可在Stage模型下使用。 |
+| WindowStage | loadContent(path: string, callback: AsyncCallback&lt;void&gt;): void | 为当前WindowStage的主窗口加载具体页面。 其中path为要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。 此接口仅可在Stage模型下使用。 |
+| WindowStage | createSubWindow(name: string, callback: AsyncCallback&lt;Window&gt;): void | 创建子窗口。 此接口仅可在Stage模型下使用。 |
+| WindowStage | on(eventType: 'windowStageEvent', callback: Callback&lt;WindowStageEventType&gt;): void | 开启WindowStage生命周期变化的监听。 此接口仅可在Stage模型下使用。 |
+| window静态方法 | createWindow(config: Configuration, callback: AsyncCallback&lt;Window&gt;): void | 创建子窗口或者系统窗口。 -config：创建窗口时的参数。 |
+| Window | setUIContent(path: string, callback: AsyncCallback&lt;void&gt;): void | 根据当前工程中某个页面的路径为窗口加载具体的页面内容。 其中path为要加载到窗口中的页面内容的路径，在Stage模型下该路径需添加到工程的main_pages.json文件中。 |
+| Window | setWindowBrightness(brightness: number, callback: AsyncCallback&lt;void&gt;): void | 设置屏幕亮度值。 |
+| Window | setWindowTouchable(isTouchable: boolean, callback: AsyncCallback&lt;void&gt;): void | 设置窗口是否为可触状态。true表示可触；false表示不可触。 |
+| Window | moveWindowTo(x: number, y: number, callback: AsyncCallback&lt;void&gt;): void | 移动当前窗口位置。 |
+| Window | resize(width: number, height: number, callback: AsyncCallback&lt;void&gt;): void | 改变当前窗口大小。 |
+| Window | setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise&lt;void&gt; | 设置主窗口或子窗口的布局是否为沉浸式布局。true表示沉浸式布局；false表示非沉浸式布局。 |
+| Window | setWindowSystemBarEnable(names: Array<'status'\|'navigation'>): Promise&lt;void&gt; | 设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果。 例如，该参数设置为['status', 'navigation']，则全部显示；设置为[]，则不显示。 |
+| Window | setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise&lt;void&gt; | 设置窗口内导航栏、状态栏属性。 systemBarProperties：导航栏、状态栏的属性集合。 |
+| Window | showWindow(callback: AsyncCallback&lt;void&gt;): void | 显示当前窗口。 |
+| Window | on(type: 'touchOutside', callback: Callback&lt;void&gt;): void | 开启本窗口区域外的点击事件的监听。 |
+| Window | destroyWindow(callback: AsyncCallback&lt;void&gt;): void | 销毁当前窗口。 |
 
 
-## 设置应用主窗口
+
+
+##### 设置应用主窗口
 
 在Stage模型下，应用主窗口由UIAbility创建并维护生命周期。在UIAbility的onWindowStageCreate回调中，通过WindowStage获取应用主窗口，即可对其进行属性设置等操作。还可以在应用配置文件中设置应用主窗口的属性，如最大窗口宽度maxWindowWidth等，详见[module.json5配置文件中的abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)。
 
-## 开发步骤
 
-获取应用主窗口。 通过getMainWindow接口获取应用主窗口。 设置主窗口属性。 可设置主窗口的背景色、亮度值、是否可触等多个属性，开发者可根据需要选择对应的接口。本示例以设置“是否可触”属性为例。 为主窗口加载对应的目标页面。 通过loadContent接口加载主窗口的目标页面。
-```text
+
+##### 开发步骤
+1. 获取应用主窗口。
+
+  通过getMainWindow接口获取应用主窗口。
+2. 设置主窗口属性。
+
+  可设置主窗口的背景色、亮度值、是否可触等多个属性，开发者可根据需要选择对应的接口。本示例以设置“是否可触”属性为例。
+3. 为主窗口加载对应的目标页面。
+
+  通过loadContent接口加载主窗口的目标页面。
+
+```ArkTS
 import { UIAbility} from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -88,17 +116,44 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-## 设置应用子窗口
+
+##### 设置应用子窗口
 
 开发者可以按需创建应用子窗口，如弹窗等，并对其进行属性设置等操作。
+
 > [!NOTE]
-> 以下几种场景不建议使用子窗口，建议优先考虑使用控件overlay能力实现。 移动设备（手机、在非自由模式下的平板设备）场景下子窗不能超出处于悬浮窗模式、分屏模式的应用主窗口范围，与控件一致。 分屏窗口与自由窗口模式下，主窗口位置大小发生改变时控件实时跟随变化能力优于子窗。 部分设备平台下根据实际的系统配置限制，子窗只有系统默认的动效和圆角阴影，应用无法设置，自由度低。
+> 以下几种场景不建议使用子窗口，建议优先考虑使用控件 overlay 能力实现。 移动设备（手机、在非自由模式下的平板设备）场景下子窗不能超出处于智慧多窗悬浮窗模式、分屏模式的应用主窗口范围，与控件一致。 分屏窗口与自由窗口模式下，主窗口位置大小发生改变时控件实时跟随变化能力优于子窗。 部分设备平台下根据实际的系统配置限制，子窗只有系统默认的动效和圆角阴影，应用无法设置，自由度低。
 
 
-## 开发步骤
 
-创建应用子窗口。 通过createSubWindow接口创建应用子窗口。 子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。 设置子窗口属性。 子窗口创建成功后，可以改变其大小、位置等，还可以根据应用需要设置窗口背景色、亮度等属性。 在调用showWindow之前，建议设置子窗口的大小和位置。 如果没有设置子窗口的大小，调用showWindow后: [自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，默认子窗口大小为当前物理屏幕的大小。其中，[MateBook Fold折叠电脑](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-mate-book-fold)半折叠态下，默认子窗口大小为竖向展开态的物理屏幕大小。 非自由窗口状态下，默认子窗口大小为主窗口大小。 加载显示子窗口的具体内容。 通过setUIContent和showWindow接口加载显示子窗口的具体内容。 销毁子窗口。 当不再需要某些子窗口时，可根据具体实现逻辑，使用destroyWindow接口销毁子窗口。 直接在onWindowStageCreate里面创建子窗口的整体示例代码如下：
-```text
+
+##### 开发步骤
+1. 创建应用子窗口。
+
+  通过createSubWindow接口创建应用子窗口。
+
+  子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+2. 设置子窗口属性。
+
+  子窗口创建成功后，可以改变其大小、位置等，还可以根据应用需要设置窗口背景色、亮度等属性。
+
+  在调用showWindow之前，建议设置子窗口的大小和位置。
+
+  如果没有设置子窗口的大小，调用showWindow后:
+
+  
+[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，默认子窗口大小为当前物理屏幕的大小。其中，[MateBook Fold折叠电脑](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-mate-book-fold)半折叠态下，默认子窗口大小为竖向展开态的物理屏幕大小。
+3. 非自由窗口状态下，默认子窗口大小为主窗口大小。
+4. 加载显示子窗口的具体内容。
+
+  通过setUIContent和showWindow接口加载显示子窗口的具体内容。
+5. 销毁子窗口。
+
+  当不再需要某些子窗口时，可根据具体实现逻辑，使用destroyWindow接口销毁子窗口。
+
+直接在onWindowStageCreate里面创建子窗口的整体示例代码如下：
+
+```ArkTS
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -201,7 +256,8 @@ export default class EntryAbility extends UIAbility {
 ```
 
 另外，也可以在某个page页面通过点击按钮创建子窗口，整体示例代码如下：
-```text
+
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -226,8 +282,7 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-
-```text
+```ArkTS
 // Index.ets
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -350,8 +405,7 @@ struct Index {
 }
 ```
 
-
-```text
+```ArkTS
 // subWindow.ets
 @Entry
 @Component
@@ -373,17 +427,31 @@ struct SubWindow {
 ```
 
 
-## 体验窗口沉浸式能力
+
+##### 体验窗口沉浸式能力
 
 在看视频、玩游戏等场景下，用户往往希望隐藏状态栏、导航栏等不必要的系统窗口，从而获得更佳的沉浸式体验。此时可以借助窗口沉浸式能力（窗口沉浸式能力都是针对应用主窗口而言的），达到预期效果。从API version 10开始，沉浸式窗口默认配置为全屏大小并由组件模块控制布局，状态栏、导航栏背景颜色为透明，文字颜色为黑色；应用窗口调用setWindowLayoutFullScreen接口，设置为true表示由组件模块控制忽略状态栏、导航栏的沉浸式全屏布局，设置为false表示由组件模块控制避让状态栏、导航栏的非沉浸式全屏布局。
+
 > [!NOTE]
 > 当前沉浸式界面开发仅支持窗口级别的配置，暂不支持Page级别的配置。若有Page级别切换的需要，可以在页面生命周期开始，例如onPageShow中设置沉浸模式，然后在页面退出，例如onPageHide中恢复默认设置来实现。
 
 
-## 开发步骤
 
-获取应用主窗口。 通过getMainWindow接口获取应用主窗口。 实现沉浸式效果。有以下两种方式： 方式一：应用主窗口为全屏窗口时，调用setWindowSystemBarEnable接口，设置导航栏、状态栏不显示，从而达到沉浸式效果。 方式二：调用setWindowLayoutFullScreen接口，设置应用主窗口为全屏布局；然后调用setWindowSystemBarProperties接口，设置导航栏、状态栏的透明度、背景/文字颜色以及高亮图标等属性，使之保持与主窗口显示协调一致，从而达到沉浸式效果。 加载显示沉浸式窗口的具体内容。 通过loadContent接口加载沉浸式窗口的具体内容。
-```text
+
+##### 开发步骤
+1. 获取应用主窗口。
+
+  通过getMainWindow接口获取应用主窗口。
+2. 实现沉浸式效果。有以下两种方式：
+
+  
+方式一：应用主窗口为全屏窗口时，调用setWindowSystemBarEnable接口，设置导航栏、状态栏不显示，从而达到沉浸式效果。
+3. 方式二：调用setWindowLayoutFullScreen接口，设置应用主窗口为全屏布局；然后调用setWindowSystemBarProperties接口，设置导航栏、状态栏的透明度、背景/文字颜色以及高亮图标等属性，使之保持与主窗口显示协调一致，从而达到沉浸式效果。
+4. 加载显示沉浸式窗口的具体内容。
+
+  通过loadContent接口加载沉浸式窗口的具体内容。
+
+```ArkTS
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -452,16 +520,40 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-## 设置全局悬浮窗（受限开放）
+
+##### 设置全局悬浮窗（受限开放）
 
 全局悬浮窗可以在已有的任务基础上，创建一个始终在前台显示的窗口。即使创建全局悬浮窗的任务退至后台，全局悬浮窗仍然可以在前台显示。通常全局悬浮窗位于所有应用窗口之上，开发者可以创建全局悬浮窗，并对全局悬浮窗进行属性设置等操作。
 
-## 开发步骤
 
-**前提条件：** 创建WindowType.TYPE_FLOAT即全局悬浮窗类型的窗口，需要申请ohos.permission.SYSTEM_FLOAT_WINDOW权限，该权限为受控开放权限，仅符合[指定场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionsystem_float_window)的在2in1设备上的应用可申请该权限。申请方式请参考：[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)。 在其他设备或场景下，请使用画中画功能，使用方式参考：[画中画开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-pipwindow)。
-![](assets/管理应用窗口（Stage模型）/file-20260514130814772-0.png)
-如果应用未在AppGallery Connect申请相应的权限证书，却试图在配置文件中声明此类权限，将会导致应用安装失败。 创建全局悬浮窗。 通过window.createWindow接口创建全局悬浮窗类型的窗口。 对全局悬浮窗进行属性设置等操作。 全局悬浮窗窗口创建成功后，可以改变其大小、位置等，还可以根据应用需要设置全局悬浮窗背景色、亮度等属性。 加载显示全局悬浮窗的具体内容。 通过setUIContent和showWindow接口加载显示全局悬浮窗的具体内容。 销毁全局悬浮窗。 当不再需要全局悬浮窗时，可根据具体实现逻辑，使用destroyWindow接口销毁全局悬浮窗。
-```text
+
+##### 开发步骤
+
+**前提条件：** 创建WindowType.TYPE_FLOAT即全局悬浮窗类型的窗口，需要申请ohos.permission.SYSTEM_FLOAT_WINDOW权限，该权限为受控开放权限，仅符合[指定场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionsystem_float_window)的在2in1设备上的应用可申请该权限。申请方式请参考：[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl)。
+
+在其他设备或场景下，请使用画中画功能，使用方式参考：[画中画开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-pipwindow)。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/6DC7D9xLTyaYr-k4vXDmtg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014749Z&HW-CC-Expire=86400&HW-CC-Sign=49C66A3E8EAA511C9D41D9251DEA424F47565F185E83494A49BA23F7A0913321)
+
+
+如果应用未在AppGallery Connect申请相应的权限证书，却试图在配置文件中声明此类权限，将会导致应用安装失败。
+
+
+1. 创建全局悬浮窗。
+
+  通过window.createWindow接口创建全局悬浮窗类型的窗口。
+2. 对全局悬浮窗进行属性设置等操作。
+
+  全局悬浮窗窗口创建成功后，可以改变其大小、位置等，还可以根据应用需要设置全局悬浮窗背景色、亮度等属性。
+3. 加载显示全局悬浮窗的具体内容。
+
+  通过setUIContent和showWindow接口加载显示全局悬浮窗的具体内容。
+4. 销毁全局悬浮窗。
+
+  当不再需要全局悬浮窗时，可根据具体实现逻辑，使用destroyWindow接口销毁全局悬浮窗。
+
+```ArkTS
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -527,14 +619,18 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-## 监听窗口不可交互与可交互事件
+
+##### 监听窗口不可交互与可交互事件
 
 应用在前台显示过程中可能会进入某些不可交互的场景，比较典型的是进入多任务界面。此时，对于一些应用可能需要选择暂停某个与用户正在交互的业务，如视频类应用暂停正在播放的视频或者相机暂停预览流等。而当该应用从多任务又切回前台时，又变成了可交互的状态，此时需要恢复被暂停中断的业务，如恢复视频播放或相机预览流等。
 
-## 开发步骤
+
+
+##### 开发步骤
 
 在创建WindowStage对象后可通过监听'windowStageEvent'事件类型，监听到窗口进入前台、后台、前台可交互、前台不可交互等事件，应用可根据这些上报的事件状态进行相应的业务处理。
-```text
+
+```ArkTS
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';

@@ -3,41 +3,55 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-net-error-list-h
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+##### 概述
 
-#### 概述
 声明ArkWeb网络协议栈错误码。
+ 
 **引用文件：** <web/arkweb_net_error_list.h>
-
+ 
 **库：** libohweb.so
-
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web)
+ 
+  
 
-#### 汇总
-#### 枚举
+##### 汇总
 
+  
+
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ArkWeb_NetError](#arkweb_neterror) | ArkWeb_NetError | 定义ArkWeb网络协议栈错误码。 |
+| ArkWeb_NetError | ArkWeb_NetError | 定义ArkWeb网络协议栈错误码。 |
+ 
+ 
+  
 
-#### 枚举类型说明
-#### ArkWeb_NetError
+##### 枚举类型说明
 
-```ts
+  
+
+##### ArkWeb_NetError
+
+```text
 enum ArkWeb_NetError
 ```
-
+ 
 **描述：**
+ 
 定义ArkWeb网络协议栈错误码。
+ 
 **系统能力：** SystemCapability.Web.Webview.Core
-
+ 
 **起始版本：** 12
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ARKWEB_NET_OK = 0 | 正常。 |

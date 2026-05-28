@@ -4,35 +4,45 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-memory-management
 
-## 简介
+##### 简介
 
 JSVM-API提供了一组用于管理JavaScript虚拟机内存的API，可以更好地控制JavaScript代码使用的内存，并优化内存管理和垃圾回收机制。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
 在JavaScript中，内存管理和垃圾回收是自动进行的。JavaScript虚拟机负责跟踪对象的分配和释放，并在必要时回收不再使用的内存。但是，在某些情况下，JSVM可能会消耗大量的内存，这可能会导致内存不足的错误。为了避免这种情况，JSVM-API提供了一些接口，以便更好地控制内存管理和垃圾回收机制。
+ 
+  
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_AdjustExternalMemory | 用于管理由JavaScript对象持有的外部分配内存 |
 | OH_JSVM_MemoryPressureNotification | 通知虚拟机系统内存不足并有选择地触发垃圾回收 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程请参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)。本文仅展示接口对应C++及ArkTS相关代码。
+ 
+  
 
-## OH_JSVM_AdjustExternalMemory
+##### OH_JSVM_AdjustExternalMemory
 
-设置JavaScript对象保持活动状态的外部分配内存的数量 cpp部分代码：
-```text
+设置JavaScript对象保持活动状态的外部分配内存的数量
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_AdjustExternalMemory的样例方法
 static JSVM_Value AdjustExternalMemory(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -60,27 +70,35 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"adjustExternalMemory", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- 样例测试JS
+ 
+样例测试JS
+ 
 ```text
 const char *srcCallNative = R"JS(adjustExternalMemory())JS";
 ```
-
- 输出结果： 在LOG中输出以下信息：
+ 
+输出结果：
+ 
+在LOG中输出以下信息：
+ 
 ```text
 JSVM OH_JSVM_AdjustExternalMemory: success
 JSVM Allocate memory size: 1048576
 ```
+ 
+  
 
+##### OH_JSVM_MemoryPressureNotification
 
-## OH_JSVM_MemoryPressureNotification
-
-使用OH_JSVM_MemoryPressureNotification通知虚拟机系统内存不足并有选择地触发垃圾回收。 cpp部分代码：
-```text
+使用OH_JSVM_MemoryPressureNotification通知虚拟机系统内存不足并有选择地触发垃圾回收。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_MemoryPressureNotification的样例方法
 static JSVM_Value MemoryPressureNotification(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -104,13 +122,17 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"memoryPressureNotification", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- 样例测试JS
+ 
+样例测试JS
+ 
 ```text
 const char *srcCallNative = R"JS(memoryPressureNotification())JS";
 ```
-
- 输出结果： 在LOG中输出以下信息：
+ 
+输出结果：
+ 
+在LOG中输出以下信息：
+ 
 ```text
 JSVM OH_JSVM_MemoryPressureNotification: success
 JSVM Current JSVM memory pressure level: 2

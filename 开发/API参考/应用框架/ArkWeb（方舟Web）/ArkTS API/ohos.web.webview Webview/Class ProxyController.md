@@ -3,22 +3,24 @@
 更新时间：2026-04-17 08:12:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-proxycontroller
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 此类用于为应用程序设置代理。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 15开始支持。 示例效果请以真机运行为准。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { webview } from '@kit.ArkWeb';
 ```
 
 
-## applyProxyOverride15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### applyProxyOverride15+
 
 static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void
 
@@ -28,17 +30,15 @@ static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChang
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| proxyConfig | [ProxyConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-proxyconfig) | 是 | 对代理的配置。 |
-| callback | [OnProxyConfigChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#onproxyconfigchangecallback15) | 是 | 代理设置成功的回调。 |
+| proxyConfig | ProxyConfig | 是 | 对代理的配置。 |
+| callback | OnProxyConfigChangeCallback | 是 | 代理设置成功的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -50,8 +50,8 @@ static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChang
 完整示例代码参考[removeProxyOverride](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-proxycontroller#removeproxyoverride15)。
 
 
-## removeProxyOverride15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeProxyOverride15+
 
 static removeProxyOverride(callback: OnProxyConfigChangeCallback): void
 
@@ -61,16 +61,14 @@ static removeProxyOverride(callback: OnProxyConfigChangeCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [OnProxyConfigChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-t#onproxyconfigchangecallback15) | 是 | 代理配置变更的回调。 |
+| callback | OnProxyConfigChangeCallback | 是 | 代理配置变更的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)说明文档。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -79,8 +77,7 @@ static removeProxyOverride(callback: OnProxyConfigChangeCallback): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -147,9 +144,9 @@ struct WebComponent {
         })
         Button("removeProxyOverride").onClick(()=>{
           try {
-            webview.ProxyController.removeProxyOverride(() => {
-              console.info("PROXYCONTROLLER proxy changed");
-            });
+          webview.ProxyController.removeProxyOverride(() => {
+            console.info("PROXYCONTROLLER proxy changed");
+          });
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
           }

@@ -4,17 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-basic-data-types
 
-## 简介
+##### 简介
 
 在JavaScript中，整数类型是一种基本数据类型，用于表示没有小数部分的数值。Double类型用于表示有小数的数值。JavaScript的数值存储方式会导致在某些情况下无法准确表示非常大或非常小的数值，在这种情况下，需要使用BigInt对应的JSVM-API接口来处理更大范围的整数。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-当使用JSVM-API接口进行数值类型的创建和获取时，需要了解以下基本概念： **数值类型** 在使用JSVM-API接口时，可能需要从JSVM模块数值类型转换为JavaScript数值类型，或者从JavaScript数值类型转换为JSVM模块数值类型。在进行数据类型转换时，需要注意数据范围是否匹配，以及有无符号整数和双精度数值等区别。**错误处理** 在使用这些接口时，需要对可能发生的错误进行适当处理。例如，在创建整数值时可能发生内存分配错误或其他运行时错误，需要使用JSVM-API提供的错误处理机制来捕获并处理这些错误。**JavaScript交互** 在开发过程中，需要考虑如何将创建的数值类型值与JavaScript环境进行交互，包括传递参数、返回值等。
+当使用JSVM-API接口进行数值类型的创建和获取时，需要了解以下基本概念：
+ 
+- **数值类型** 在使用JSVM-API接口时，可能需要从JSVM模块数值类型转换为JavaScript数值类型，或者从JavaScript数值类型转换为JSVM模块数值类型。在进行数据类型转换时，需要注意数据范围是否匹配，以及有无符号整数和双精度数值等区别。
+- **错误处理** 在使用这些接口时，需要对可能发生的错误进行适当处理。例如，在创建整数值时可能发生内存分配错误或其他运行时错误，需要使用JSVM-API提供的错误处理机制来捕获并处理这些错误。
+- **JavaScript交互** 在开发过程中，需要考虑如何将创建的数值类型值与JavaScript环境进行交互，包括传递参数、返回值等。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_GetValueUint32 | 获取给定JavaScript number的Uint32基础类型值。 |
@@ -25,20 +33,27 @@
 | OH_JSVM_CreateUint32 | 根据Uint32_t类型对象创建JavaScript number对象。 |
 | OH_JSVM_CreateInt64 | 根据Int64_t类型对象创建JavaScript number对象。 |
 | OH_JSVM_CreateDouble | 根据Double类型对象创建JavaScript number对象。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应C++相关代码进行展示。
+ 
+  
 
-## OH_JSVM_GetValueUint32
+##### OH_JSVM_GetValueUint32
 
-将JavaScript value转为JSVM模块中的uint32类型数据。 cpp部分代码：
-```text
+将JavaScript value转为JSVM模块中的uint32类型数据。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_GetValueUint32的样例方法
 static JSVM_Value GetValueUint32(JSVM_Env env, JSVM_CallbackInfo info)
@@ -73,21 +88,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(getValueUint32(123))JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM GetValueUint32 success: 123
 ```
+ 
+  
 
+##### OH_JSVM_GetValueInt32
 
-## OH_JSVM_GetValueInt32
-
-将JavaScript value转为JSVM模块中的Int32类型数据。 cpp部分代码：
-```text
+将JavaScript value转为JSVM模块中的Int32类型数据。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_GetValueInt32的样例方法
 static JSVM_Value GetValueInt32(JSVM_Env env, JSVM_CallbackInfo info)
@@ -123,21 +143,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(getValueInt32(-123))JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM GetValueInt32 success: -123
 ```
+ 
+  
 
+##### OH_JSVM_GetValueInt64
 
-## OH_JSVM_GetValueInt64
-
-将JavaScript value转为JSVM模块中的Int64类型数据。 cpp部分代码：
-```text
+将JavaScript value转为JSVM模块中的Int64类型数据。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_GetValueInt64的样例方法
 static JSVM_Value GetValueInt64(JSVM_Env env, JSVM_CallbackInfo info)
@@ -170,21 +195,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(getValueInt64(-123))JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM GetValueInt64 success: -123
 ```
+ 
+  
 
+##### OH_JSVM_GetValueDouble
 
-## OH_JSVM_GetValueDouble
-
-将JavaScript value转为JSVM模块中的double类型数据。 cpp部分代码：
-```text
+将JavaScript value转为JSVM模块中的double类型数据。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_GetValueDouble的样例方法
 static JSVM_Value GetDouble(JSVM_Env env, JSVM_CallbackInfo info)
@@ -215,21 +245,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(getDouble(-110.0456))JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM GetDouble success: -110.045600
 ```
+ 
+  
 
+##### OH_JSVM_CreateInt32
 
-## OH_JSVM_CreateInt32
-
-根据int32_t数据创建JavaScript number对象。 cpp部分代码：
-```text
+根据int32_t数据创建JavaScript number对象。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_CreateInt32的样例方法
 static JSVM_Value CreateInt32(JSVM_Env env, JSVM_CallbackInfo info)
@@ -261,21 +296,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(createInt32())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM CreateInt32 success: -20
 ```
+ 
+  
 
+##### OH_JSVM_CreateUint32
 
-## OH_JSVM_CreateUint32
-
-根据uint32_t数据创建JavaScript number对象。 cpp部分代码：
-```text
+根据uint32_t数据创建JavaScript number对象。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_CreateUint32的样例方法
 static JSVM_Value CreateUInt32(JSVM_Env env, JSVM_CallbackInfo info)
@@ -311,21 +351,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(createUInt32())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM CreateUInt32 success: 26
 ```
+ 
+  
 
+##### OH_JSVM_CreateInt64
 
-## OH_JSVM_CreateInt64
-
-根据int64_t数据创建JavaScript number对象。如果需要表示JS超大数，建议使用BigInt接口。 cpp部分代码：
-```text
+根据int64_t数据创建JavaScript number对象。如果需要表示JS超大数，建议使用BigInt接口。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_CreateInt64的样例方法
 static JSVM_Value CreateInt64(JSVM_Env env, JSVM_CallbackInfo info)
@@ -357,21 +402,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(createInt64())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM CreateInt64 success: 2147483648
 ```
+ 
+  
 
+##### OH_JSVM_CreateDouble
 
-## OH_JSVM_CreateDouble
-
-根据double数据创建JavaScript number对象。 cpp部分代码：
-```text
+根据double数据创建JavaScript number对象。
+ 
+cpp部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // CreateDouble注册回调
 
 // OH_JSVM_CreateDouble的样例方法
@@ -403,8 +453,9 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char* srcCallNative = R"JS(createDouble())JS";
 ```
-
- 预期的输出结果：
+ 
+预期的输出结果：
+ 
 ```text
 JSVM CreateDouble success: 1.234000
 ```

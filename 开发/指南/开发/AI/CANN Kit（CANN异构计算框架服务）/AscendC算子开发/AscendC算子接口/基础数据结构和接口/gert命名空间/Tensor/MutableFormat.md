@@ -4,32 +4,41 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-mutableformat
 
-## 函数功能
+##### 函数功能
 
 获取Tensor的format，包含运行时format和原始format。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 StorageFormat &MutableFormat()
 ```
+ 
+  
 
-
-## 参数说明
-
-无
-
-## 返回值
-
-format引用。 关于StorageFormat类型的定义，请参见[StorageFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-storageformat-constructor)。
-
-## 约束说明
+##### 参数说明
 
 无
+ 
+  
 
-## 调用示例
+##### 返回值
 
+format引用。
+ 
+关于StorageFormat类型的定义，请参见[StorageFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-storageformat-constructor)。
+ 
+  
+
+##### 约束说明
+
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 Tensor tensor{{{8, 3, 224, 224}, {16, 3, 224, 224}}, // shape

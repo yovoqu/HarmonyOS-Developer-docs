@@ -1,17 +1,16 @@
 # reminderAgentManager错误码
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-reminderagentmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 1700001 通知使能未开启
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 1700001 通知使能未开启
 
 **错误信息**
 
@@ -22,20 +21,16 @@ Notification is not enabled.
 当调用发布提醒接口时，不允许应用发送通知。
 
 **可能原因**
-
-
 1. 未申请通知使能权限。
 2. 应用的通知开关为关闭状态。
 
 **处理步骤**
-
-
 1. 申请通知使能权限弹窗[notificationManager.requestEnableNotification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager#notificationmanagerrequestenablenotification10)。
 2. 通知设置里开启应用通知开关。
 
 
-## 1700002 提醒数量超出限制
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1700002 提醒数量超出限制
 
 **错误信息**
 
@@ -46,21 +41,17 @@ The number of reminders exceeds the limit.
 当调用发布提醒接口时，提醒数量超出最大限制。
 
 **可能原因**
-
-
-1. 因管控限制，普通应用如果没有代理提醒的使用权限，提醒数量为0。
+1. 因管控限制，普通应用如果没有代理提醒的使用权限，视为这个普通应用提醒数量上限为0。
 2. 单个普通应用提醒数量不超过30个。
 3. 从API version 10开始，所有应用提醒数量总和不超过12000个。API version 9及之前的版本，提醒数量总和不超过2000个。
 
 **处理步骤**
-
-
-1. 首先，确认是否[申请了代理提醒的使用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-powered-reminder#约束与限制)。
+1. 首先，确认是否[申请了代理提醒的使用权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-powered-reminder#约束与限制)。由于系统限制且HarmonyOS 5.1.1(19)及其之前版本存量设备较少，新申请的权限在HarmonyOS 5.1.1(19)及其之前版本不再生效，建议升级至HarmonyOS 6.0.0(20)及以上版本。
 2. 然后，在申请通过情况下，检查提醒数量是否超过规定数量，及时删除不必要的提醒。
 
 
-## 1700003 提醒不存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1700003 提醒不存在
 
 **错误信息**
 
@@ -71,20 +62,16 @@ The reminder does not exist.
 当调用取消提醒接口时，未找到对应的提醒。
 
 **可能原因**
-
-
 1. 提醒已过期。
 2. 提醒已被删除。
 
 **处理步骤**
-
-
 1. 检查提醒是否有效。
 2. 检查提醒是否已被删除。
 
 
-## 1700004 包名不存在
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1700004 包名不存在
 
 **错误信息**
 
@@ -95,8 +82,6 @@ The bundle name does not exist.
 未找到传入的包名信息。
 
 **可能原因**
-
-
 1. 包名不正确。
 2. 应用未安装。
 
@@ -105,8 +90,8 @@ The bundle name does not exist.
 检查应用包名是否存在。
 
 
-## 1700007 参数错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1700007 参数错误
 
 **错误信息**
 

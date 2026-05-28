@@ -3,64 +3,61 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-panel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供对输入法面板的属性管理。
-
-
+ 
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
 ```
+ 
+  
 
-
-## PanelInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### PanelInfo
 
 输入法面板属性信息。
-
+ 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [PanelType](#paneltype) | 否 | 否 | 输入法面板类型。 |
-| flag | [PanelFlag](#panelflag) | 否 | 是 | 输入法面板状态类型。 - 默认值为固定态。 - 当前仅用于描述软键盘类型的面板的状态。 |
+| type | PanelType | 否 | 否 | 输入法面板类型。 |
+| flag | PanelFlag | 否 | 是 | 输入法面板状态类型。 - 默认值为固定态。 - 当前仅用于描述软键盘类型的面板的状态。 |
+ 
+ 
+  
 
-
-## PanelType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### PanelType
 
 输入法面板类型枚举。
-
+ 
 **系统能力**：SystemCapability.MiscServices.InputMethodFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SOFT_KEYBOARD | 0 | 软键盘类型。 |
 | STATUS_BAR | 1 | 状态栏类型。 |
+ 
+ 
+  
 
-
-## PanelFlag
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### PanelFlag
 
 输入法面板状态类型枚举。
-
-
+ 
 > [!NOTE]
 > 目前仅用于SOFT_KEYBOARD类型的面板。
 
+ 
 **系统能力**：SystemCapability.MiscServices.InputMethodFramework
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | FLAG_FIXED | 0 | 固定态面板类型。 |

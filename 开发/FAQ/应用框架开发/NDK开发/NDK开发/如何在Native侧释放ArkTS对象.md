@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-82
 
 使用napi_wrap接口时，如果最后一个参数result不为nullptr，需在适当时机调用napi_remove_wrap函数删除创建的napi_ref对象。
-
+ 
 ```cpp
 // Usage 1: Napi_wrap does not need to receive the created napi_ref, and the last parameter is passed as nullptr. The created napi_ref is a weak reference, managed by the system, and does not require manual release by the user
 napi_wrap(env, jsobject, nativeObject, cb, nullptr, nullptr);

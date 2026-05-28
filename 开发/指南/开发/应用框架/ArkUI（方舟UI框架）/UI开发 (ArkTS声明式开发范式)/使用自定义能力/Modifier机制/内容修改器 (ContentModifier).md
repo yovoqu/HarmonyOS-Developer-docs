@@ -1,6 +1,6 @@
 # 内容修改器 (ContentModifier)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-attributes-content-modifier
 
@@ -10,21 +10,20 @@
 
 使用ContentModifier自定义Checkbox样式，用五边形Checkbox替换默认Checkbox。选中时，五边形内部显示红色三角图案，标题显示“选中”；取消选中时，红色三角图案消失，标题显示“非选中”。
 
-
-```text
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { resourceManager } from '@kit.LocalizationKit';
 
 const DOMAIN = 0x0000;
 // xxx.ets
-class MyCheckboxStyle implements ContentModifier {
+class MyCheckboxStyle implements ContentModifier<CheckBoxConfiguration> {
   public selectedColor: Color = Color.White;
 
   constructor(selectedColor: Color) {
     this.selectedColor = selectedColor;
   }
 
-  applyContent(): WrappedBuilder {
+  applyContent(): WrappedBuilder<[CheckBoxConfiguration]> {
     return wrapBuilder(buildCheckbox);
   }
 }
@@ -101,5 +100,5 @@ struct Index {
 }
 ```
 
-![](assets/内容修改器%20(ContentModifier)
-/file-20260514130720797-0.gif)
+
+![](assets/内容修改器%20(ContentModifier)/file-20260514130720797-0.gif)

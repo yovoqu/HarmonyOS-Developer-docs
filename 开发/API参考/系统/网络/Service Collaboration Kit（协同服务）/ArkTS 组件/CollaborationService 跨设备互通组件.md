@@ -1,9 +1,9 @@
 # CollaborationService (跨设备互通组件)
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该模块提供了组件[createCollaborationServiceMenuItems](#createcollaborationservicemenuitems)和[CollaborationServiceFilter](#collaborationservicefilter)，两者需要配合使用，完成分布式跨端能力，如在PC/2in1端跨端调用Phone端拍照。
 
@@ -12,23 +12,17 @@
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 导入模块
 
-
-```ts
-import {
-  CollaborationServiceStateDialog,
-  createCollaborationServiceMenuItems,
-  CollaborationServiceFilter,
-} from '@kit.ServiceCollaborationKit';
+```text
+import { CollaborationServiceStateDialog, createCollaborationServiceMenuItems, CollaborationServiceFilter} from '@kit.ServiceCollaborationKit';
 ```
 
 
-## createCollaborationServiceMenuItems
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-createCollaborationServiceMenuItems(businessFilter?: Array<CollaborationServiceFilter>): void
+##### createCollaborationServiceMenuItems
+
+createCollaborationServiceMenuItems(businessFilter?: Array&lt;CollaborationServiceFilter&gt;): void
 
 设备列表选择器，需要在[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件内调用。用于显示组网内具有对应能力的设备列表。
 
@@ -44,16 +38,14 @@ createCollaborationServiceMenuItems(businessFilter?: Array<CollaborationServiceF
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| businessFilter | Array&lt;[CollaborationServiceFilter](#collaborationservicefilter)&gt; | 否 | 传入能力类型。默认值为ALL，匹配跨端拍照、文档扫描和图库选择器。          对于API 6.0.0(20)及之后版本，支持匹配跨端拍照、文档扫描、图库选择器、视频选择器、图片和视频选择器；对于API 6.0.0(20)之前版本，仅支持匹配跨端拍照、文档扫描、图库选择器。 |
+| businessFilter | Array&lt;CollaborationServiceFilter&gt; | 否 | 传入能力类型。默认值为ALL，匹配跨端拍照、文档扫描和图库选择器。 对于API 6.0.0(20)及之后版本，支持匹配跨端拍照、文档扫描、图库选择器、视频选择器、图片和视频选择器；对于API 6.0.0(20)之前版本，仅支持匹配跨端拍照、文档扫描、图库选择器。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Builder
 myTestMenu() {
   Menu() {
@@ -63,10 +55,10 @@ myTestMenu() {
 ```
 
 
-## createCollaborationServiceMenuItems
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-createCollaborationServiceMenuItems(businessFilter: Array<CollaborationServiceFilter>, canReceiveNumber: number): void
+##### createCollaborationServiceMenuItems
+
+createCollaborationServiceMenuItems(businessFilter: Array&lt;CollaborationServiceFilter&gt;, canReceiveNumber: number): void
 
 设备列表选择器，需要在[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件内调用。用于显示组网内具有对应能力的设备列表，此接口支持自定义对端图库能力图片选择的数量。
 
@@ -82,17 +74,15 @@ createCollaborationServiceMenuItems(businessFilter: Array<CollaborationServiceFi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| businessFilter | Array&lt;[CollaborationServiceFilter](#collaborationservicefilter)&gt; | 是 | 传入能力类型。默认值为ALL，匹配跨端拍照、文档扫描和图库选择器。          对于API 6.0.0(20)及之后版本，支持匹配跨端拍照、文档扫描、图库选择器、视频选择器、图片和视频选择器；对于API 6.0.0(20)之前版本，仅支持匹配跨端拍照、文档扫描、图库选择器。 |
+| businessFilter | Array&lt;CollaborationServiceFilter&gt; | 是 | 传入能力类型。默认值为ALL，匹配跨端拍照、文档扫描和图库选择器。 对于API 6.0.0(20)及之后版本，支持匹配跨端拍照、文档扫描、图库选择器、视频选择器、图片和视频选择器；对于API 6.0.0(20)之前版本，仅支持匹配跨端拍照、文档扫描、图库选择器。 |
 | canReceiveNumber | number | 是 | 传入照片最大张数，数量1到50，小于等于0时不会拉起被调用设备的能力，大于50默认为50。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Builder
 myTestMenu() {
   Menu() {
@@ -102,10 +92,10 @@ myTestMenu() {
 ```
 
 
-## createCollaborationServiceMenuItems
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-createCollaborationServiceMenuItems(businessFilter: Array<CollaborationServiceFilter>, canReceiveMaxCount: number, deviceTypeFilter: Array<CollaborationDeviceFilterType> ): void
+##### createCollaborationServiceMenuItems
+
+createCollaborationServiceMenuItems(businessFilter: Array&lt;CollaborationServiceFilter&gt;, canReceiveMaxCount: number, deviceTypeFilter: Array&lt;CollaborationDeviceFilterType&gt; ): void
 
 设备列表选择器，需要在[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件内调用。用于显示组网内具有对应能力的设备列表，此接口支持自定义对端图库能力图片选择的数量和支持自定义选择对端的设备类型Phone、Tablet和PC/2in1设备。
 
@@ -123,18 +113,16 @@ createCollaborationServiceMenuItems(businessFilter: Array<CollaborationServiceFi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| businessFilter | Array&lt;[CollaborationServiceFilter](#collaborationservicefilter)&gt; | 是 | 传入能力类型。默认值为ALL，匹配跨端拍照、文档扫描和图库选择器。          对于API 6.0.0(20)及之后版本，支持匹配跨端拍照、文档扫描、图库选择器、视频选择器、图片和视频选择器；对于API 6.0.0(20)之前版本，仅支持匹配跨端拍照、文档扫描、图库选择器。 |
+| businessFilter | Array&lt;CollaborationServiceFilter&gt; | 是 | 传入能力类型。默认值为ALL，匹配跨端拍照、文档扫描和图库选择器。 对于API 6.0.0(20)及之后版本，支持匹配跨端拍照、文档扫描、图库选择器、视频选择器、图片和视频选择器；对于API 6.0.0(20)之前版本，仅支持匹配跨端拍照、文档扫描、图库选择器。 |
 | canReceiveMaxCount | number | 是 | 传入照片最大张数，数量1到50，小于等于0时不会拉起被调用设备的能力，大于50默认为50。 |
-| deviceTypeFilter | Array&lt;[CollaborationDeviceFilterType](#collaborationdevicefiltertype)&gt; | 是 | 传入调用的设备类型，传入为空或传入非法值时不会调用设备。 |
+| deviceTypeFilter | Array&lt;CollaborationDeviceFilterType&gt; | 是 | 传入调用的设备类型，传入为空或传入非法值时不会调用设备。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Builder
 myTestMenu() {
   Menu() {
@@ -144,8 +132,8 @@ myTestMenu() {
 ```
 
 
-## CollaborationServiceFilter
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### CollaborationServiceFilter
 
 能力类型枚举值。
 
@@ -153,21 +141,19 @@ myTestMenu() {
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ALL | 0 | 匹配跨端拍照、文档扫描和图库选择器。 |
 | TAKE_PHOTO | 1 | 匹配跨端拍照。 |
 | SCAN_DOCUMENT | 2 | 匹配文档扫描。 |
 | IMAGE_PICKER | 3 | 匹配图库选择器。 |
-| VIDEO_PICKER | 5 | 匹配视频选择器。          起始版本： 6.0.0(20) |
-| IMAGE_VIDEO_PICKER | 6 | 匹配图片和视频选择器。          起始版本： 6.0.0(20) |
+| VIDEO_PICKER | 5 | 匹配视频选择器。 起始版本： 6.0.0(20) |
+| IMAGE_VIDEO_PICKER | 6 | 匹配图片和视频选择器。 起始版本： 6.0.0(20) |
 
 
 **示例：**
 
-
-```ts
+```text
 @Builder
 myTestMenu() {
   Menu() {
@@ -177,8 +163,8 @@ myTestMenu() {
 ```
 
 
-## CollaborationDeviceFilterType
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### CollaborationDeviceFilterType
 
 设备类型枚举值。
 
@@ -187,7 +173,6 @@ myTestMenu() {
 **系统能力：** SystemCapability.Collaboration.Service
 
 **起始版本：** 6.1.0(23)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -198,8 +183,7 @@ myTestMenu() {
 
 **示例：**
 
-
-```ts
+```text
 @Builder
 myTestMenu() {
   Menu() {
@@ -209,8 +193,8 @@ myTestMenu() {
 ```
 
 
-## CollaborationServiceStateDialog
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### CollaborationServiceStateDialog
 
 弹窗组件，用于提示对端应用状态。
 
@@ -225,8 +209,8 @@ myTestMenu() {
 **起始版本：** 5.0.0(12)
 
 
-### onState
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### onState
 
 onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
@@ -238,18 +222,16 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | stateCode | number | 是 | 标识业务完成状态，含义详见下面状态码。 |
-| bufferType | string | 是 | 标识回传数据类型。          "general.image"：图片类型。          "general.fileName"：文件名称。          "general.video"：视频，从6.1.0(23)开始支持此类型。 |
-| buffer | ArrayBuffer | 是 | 当bufferType为"general.image"，成功则返回对应数据，失败则返回空。          当bufferType为"general.video"，成功则返回对应存在应用沙箱视频uri路径，失败则返回空。 |
+| bufferType | string | 是 | 标识回传数据类型。 "general.image"：图片类型。 "general.fileName"：文件名称。 "general.video"：视频，从6.1.0(23)开始支持此类型。 |
+| buffer | ArrayBuffer | 是 | 当bufferType为"general.image"，成功则返回对应数据，失败则返回空。 当bufferType为"general.video"，成功则返回对应存在应用沙箱视频uri路径，失败则返回空。 |
 
 
 **状态码：**
 
 以下部分错误状态的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-error-code)。
-
 
 | 状态码ID | 错误信息 |
 | --- | --- |
@@ -266,8 +248,9 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 | 1001202017 | Out of memory, video send back failed. |
 
 
-### build
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### build
 
 build(): void
 
@@ -279,12 +262,11 @@ struct的默认构造函数，开发者无法直接调用此方法。
 
 **示例1：**
 
-6.1.0(23)之前的版本，参考以下示例，可以完成一次调用对端应用的获取图片操作。
+6.0.0(20)之前的版本，参考以下示例，可以完成一次调用对端应用的获取图片操作。
 
 跨设备互通详细介绍可参考[跨设备互通特性简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/servicecollaboration-service-overview)。
 
-
-```ts
+```text
 import {
   createCollaborationServiceMenuItems,
   CollaborationServiceStateDialog,
@@ -309,24 +291,24 @@ struct Index {
     Column({ space: 20 }) {
       CollaborationServiceStateDialog({
         onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer): void => this.doInsertPicture(stateCode,
-        bufferType, buffer)
+          bufferType, buffer)
       })
       Button('使用远端设备进行拍照')
-      .type(ButtonType.Normal)
-      .borderRadius(10)
-      .bindMenu(this.myTestMenu)
+        .type(ButtonType.Normal)
+        .borderRadius(10)
+        .bindMenu(this.myTestMenu)
 
       if (this.picture) {
         Image(this.picture)
-        .borderStyle(BorderStyle.Dotted)
-        .borderWidth(1)
-        .objectFit(ImageFit.Contain)
-        .height('80%')
-        .onComplete((event) => {
-          if (event != undefined) {
-            hilog.info(0, 'MEMOMOCK', 'onComplete ' + event.loadingStatus);
-          }
-        })
+          .borderStyle(BorderStyle.Dotted)
+          .borderWidth(1)
+          .objectFit(ImageFit.Contain)
+          .height('80%')
+          .onComplete((event) => {
+            if (event != undefined) {
+              hilog.info(0, 'MEMOMOCK', 'onComplete ' + event.loadingStatus);
+            }
+          })
       }
     }
     .padding(20)
@@ -343,7 +325,7 @@ struct Index {
       imageSource.createPixelMap().then((pixelMap) => {
         this.picture = pixelMap;
       }).catch((error: Error) => {
-        hilog.info(0, 'MEMOMOCK', 'Create pixel map failed: ' + error);
+        hilog.error(0, 'MEMOMOCK', 'Create pixel map failed: ' + error);
       }).finally(() => {
         imageSource.release();
       });
@@ -354,12 +336,11 @@ struct Index {
 
 **示例2：**
 
-6.1.0(23)及之后的版本，参考以下示例，可以完成一次调用对端应用的获取图片和视频操作。
+6.0.0(20)及之后的版本，参考以下示例，可以完成一次调用对端应用的获取图片和视频操作。
 
 跨设备互通详细介绍可参考[跨设备互通特性简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/servicecollaboration-service-overview)。
 
-
-```ts
+```text
 import {
   createCollaborationServiceMenuItems, CollaborationServiceStateDialog
 } from '@kit.ServiceCollaborationKit';
@@ -411,14 +392,14 @@ struct Index {
         this.doInsertPicture(stateCode, dataType, buffer)
       })
       Button('使用远端设备进行拍照')
-      .type(ButtonType.Normal)
-      .borderRadius(10)
-      .bindMenu(this.myToolBarMenu)
+        .type(ButtonType.Normal)
+        .borderRadius(10)
+        .bindMenu(this.myToolBarMenu)
       RichEditor(this.options)
-      .onReady(() => {
-        hilog.info(0x0000, 'MEMOMOCK', 'RichEditor');
-      }
-      )
+        .onReady(() => {
+          hilog.info(0x0000, 'MEMOMOCK', 'RichEditor');
+        }
+        )
       Column() {
         List() {
           ForEach(this.videoItems, (item: VideoItem) => {
@@ -427,13 +408,13 @@ struct Index {
                 src: item.src,
                 controller: new VideoController()
               })
-              .objectFit(ImageFit.Auto)
-              .width('20%')
-              .height('20%')
-              .margin({ top: 10, right: 10 })
-              .onError((err) => {
-                hilog.error(0, 'MEMOMOCK', `code is ${err.code}, message is ${err.message}`);
-              })
+                .objectFit(ImageFit.Auto)
+                .width('20%')
+                .height('20%')
+                .margin({ top: 10, right: 10 })
+                .onError((err) => {
+                  hilog.error(0, 'MEMOMOCK', `code is ${err.code}, message is ${err.message}`);
+                })
             }
           }, (item: VideoItem) => {
             hilog.info(0, 'MEMOMOCK', 'item id ' + item.id);
@@ -441,7 +422,7 @@ struct Index {
             return item.id;
           });
         }
-    }.padding({ bottom: '120vp' })
+      }.padding({ bottom: '120vp' })
     }
     .width('100%')
     .alignItems(HorizontalAlign.Center);
@@ -461,15 +442,15 @@ struct Index {
         this.picture = pixelMap;
         if (this.controller) {
           this.controller.addImageSpan(pixelMap,
-          {
-            imageStyle:
             {
-              size: ['200px', '200px']
-            }
-          });
+              imageStyle:
+              {
+                size: ['200px', '200px']
+              }
+            });
         }
       }).catch((error: Error) => {
-        hilog.info(0, 'MEMOMOCK', 'Create pixel map failed: ' + error);
+        hilog.error(0, 'MEMOMOCK', 'Create pixel map failed: ' + error);
       }).finally(() => {
         imageSource.release();
       });

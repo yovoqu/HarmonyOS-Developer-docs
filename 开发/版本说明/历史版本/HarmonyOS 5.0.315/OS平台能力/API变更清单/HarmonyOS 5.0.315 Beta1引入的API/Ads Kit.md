@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：AdComponent； API声明：@Prop  rollPlayState?: number; 差异内容：@Prop  rollPlayState?: number; | api/@ohos.advertising.AdComponent.d.ets |
+| 新增API | NA | 类名：AdComponent； API声明：@Prop rollPlayState?: number; 差异内容：@Prop rollPlayState?: number; | api/@ohos.advertising.AdComponent.d.ets |

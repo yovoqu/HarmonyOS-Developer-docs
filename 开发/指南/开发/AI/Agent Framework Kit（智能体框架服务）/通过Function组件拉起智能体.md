@@ -4,22 +4,40 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hmaf-function
 
-## 场景介绍
+##### 场景介绍
 
-Function组件分为图标组件和按钮组件，无标题时默认显示图标组件，有标题时默认显示按钮组件。
+ - Function组件分为图标组件和按钮组件，无标题时默认显示图标组件，有标题时默认显示按钮组件。
+
+  
 ![](assets/通过Function组件拉起智能体/file-20260514132228402-0.png)
-Function图标组件效果：综合型入口。不带用户意图，可作为应用内智能体主入口。
+
+ - Function图标组件效果：综合型入口。不带用户意图，可作为应用内智能体主入口。
+
+  
 ![](assets/通过Function组件拉起智能体/file-20260514132228402-1.png)
-Function按钮组件：允许应用自定义功能描述的组件。
+
+ - Function按钮组件：允许应用自定义功能描述的组件。
+
+  
 ![](assets/通过Function组件拉起智能体/file-20260514132228402-2.png)
 
-## 开发前准备
 
-创建智能体，具体请参见[快速创建智能体](https://developer.huawei.com/consumer/cn/doc/service/quick-start-0000002469548009)。 关联应用，具体请参见[关联应用](https://developer.huawei.com/consumer/cn/doc/service/related-applications-0000002437785706)。 确保已在终端设备上登录华为账号，并且处于联网状态。
 
-## 开发步骤
 
-从项目根目录进入/src/main/ets/pages/Index.ets文件，将FunctionComponent及相关其它类引入到工程。
+
+##### 开发前准备
+
+ - 创建智能体，具体请参见[快速创建智能体](https://developer.huawei.com/consumer/cn/doc/service/quick-start-0000002469548009)。
+ - 关联应用，具体请参见[关联应用](https://developer.huawei.com/consumer/cn/doc/service/related-applications-0000002437785706)。
+ - 确保已在终端设备上登录华为账号，并且处于联网状态。
+
+
+
+
+##### 开发步骤
+1. 从项目根目录进入/src/main/ets/pages/Index.ets文件，将FunctionComponent及相关其它类引入到工程。
+
+  
 ```text
 import { FunctionComponent, FunctionController } from '@kit.AgentFrameworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -27,10 +45,12 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { common } from '@kit.AbilityKit';
 ```
 
-（可选）可以在组件加载前通过[isAgentSupport](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-function-component#isagentsupport)来判断当前的agentId是否可用，若agentId有效且Agent功能支持时再加载组件。
-```text
-@State isAgentSupport: boolean = false;
+2. （可选）可以在组件加载前通过[isAgentSupport](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-function-component#isagentsupport)来判断当前的agentId是否可用，若agentId有效且Agent功能支持时再加载组件。
 
+  
+```json
+@State isAgentSupport: boolean = false;
+  
   aboutToAppear() {
      this.checkAgentSupport()
   }
@@ -61,8 +81,10 @@ import { common } from '@kit.AbilityKit';
   }
 ```
 
-构建一个简单配置的页面，在页面中引入FunctionComponent组件，并传入对应的参数。其中agentId、onError是必填参数。其他可选参数可参见[FunctionComponent（功能组件）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-function-component)。Function组件布局可参考[组件布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development)。
-```text
+3. 构建一个简单配置的页面，在页面中引入FunctionComponent组件，并传入对应的参数。其中agentId、onError是必填参数。其他可选参数可参见[FunctionComponent（功能组件）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-function-component)。Function组件布局可参考[组件布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development)。
+
+  
+```json
 @Entry
 @Component
 export struct AgentExample {
@@ -86,8 +108,10 @@ export struct AgentExample {
 }
 ```
 
-添加订阅事件。
-```text
+4. 添加订阅事件。
+
+  
+```json
 aboutToAppear() {
      this.initListeners();
   }
@@ -105,7 +129,7 @@ aboutToAppear() {
     this.controller?.off('agentDialogOpened');
     this.controller?.off('agentDialogClosed');
   }
-
+  
   build() {
     Column() {
       FunctionComponent({
@@ -120,10 +144,13 @@ aboutToAppear() {
 ```
 
 
-## 开发实例
+
+
+##### 开发实例
 
 点击按钮，打开智能体对话框。
-```text
+
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -155,7 +182,7 @@ export struct AgentExample {
     this.controller?.off('agentDialogOpened');
     this.controller?.off('agentDialogClosed');
   }
-
+  
   build() {
     Column() {
       FunctionComponent({

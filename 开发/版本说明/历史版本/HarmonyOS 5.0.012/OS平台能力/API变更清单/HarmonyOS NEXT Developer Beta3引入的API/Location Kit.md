@@ -6,8 +6,8 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 属性变更 | 类名：SatelliteStatusInfo； API声明：satelliteConstellation: Array<SatelliteConstellationCategory>; 差异内容：satelliteConstellation: Array<SatelliteConstellationCategory>; | 类名：SatelliteStatusInfo； API声明：satelliteConstellation?: Array<SatelliteConstellationCategory>; 差异内容：satelliteConstellation?: Array<SatelliteConstellationCategory>; | api/@ohos.geoLocationManager.d.ts |
-| 属性变更 | 类名：SatelliteStatusInfo； API声明：satelliteAdditionalInfo: Array<number>; 差异内容：satelliteAdditionalInfo: Array<number>; | 类名：SatelliteStatusInfo； API声明：satelliteAdditionalInfo?: Array<number>; 差异内容：satelliteAdditionalInfo?: Array<number>; | api/@ohos.geoLocationManager.d.ts |
+| 属性变更 | 类名：SatelliteStatusInfo； API声明：satelliteConstellation: Array&lt;SatelliteConstellationCategory&gt;; 差异内容：satelliteConstellation: Array&lt;SatelliteConstellationCategory&gt;; | 类名：SatelliteStatusInfo； API声明：satelliteConstellation?: Array&lt;SatelliteConstellationCategory&gt;; 差异内容：satelliteConstellation?: Array&lt;SatelliteConstellationCategory&gt;; | api/@ohos.geoLocationManager.d.ts |
+| 属性变更 | 类名：SatelliteStatusInfo； API声明：satelliteAdditionalInfo: Array&lt;number&gt;; 差异内容：satelliteAdditionalInfo: Array&lt;number&gt;; | 类名：SatelliteStatusInfo； API声明：satelliteAdditionalInfo?: Array&lt;number&gt;; 差异内容：satelliteAdditionalInfo?: Array&lt;number&gt;; | api/@ohos.geoLocationManager.d.ts |
 | 属性变更 | 类名：Location； API声明：altitudeAccuracy: number; 差异内容：altitudeAccuracy: number; | 类名：Location； API声明：altitudeAccuracy?: number; 差异内容：altitudeAccuracy?: number; | api/@ohos.geoLocationManager.d.ts |
 | 属性变更 | 类名：Location； API声明：speedAccuracy: number; 差异内容：speedAccuracy: number; | 类名：Location； API声明：speedAccuracy?: number; 差异内容：speedAccuracy?: number; | api/@ohos.geoLocationManager.d.ts |
 | 属性变更 | 类名：Location； API声明：directionAccuracy: number; 差异内容：directionAccuracy: number; | 类名：Location； API声明：directionAccuracy?: number; 差异内容：directionAccuracy?: number; | api/@ohos.geoLocationManager.d.ts |

@@ -1,16 +1,20 @@
 # 使用Web组件上传文件
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-file-upload
 
 Web组件支持前端页面选择文件上传功能，应用开发者可以使用[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口来处理前端页面文件上传的请求，如果应用开发者不做任何处理，ArkWeb会提供默认行为来处理前端页面文件上传的请求。应用开发者也可以通过获取到的前端数据，自定义拉起Picker。
 
 
-## 使用onShowFileSelector拉起文件管理器
+##### 使用onShowFileSelector拉起文件管理器
 
-下面的示例中，当用户在前端页面点击文件上传按钮，应用侧在[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口中收到文件上传请求，在此接口中开发者将上传的本地文件路径设置给前端页面。 应用侧代码。
-```text
+下面的示例中，当用户在前端页面点击文件上传按钮，应用侧在[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口中收到文件上传请求，在此接口中开发者将上传的本地文件路径设置给前端页面。
+
+ - 应用侧代码。
+
+
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { picker } from '@kit.CoreFileKit';
@@ -44,21 +48,41 @@ struct WebComponent {
 }
 ```
 
-local.html页面代码。
+ - local.html页面代码。
+
+  
 ```text
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Document</title>
+</head>
 
-
-    Document
-
-
+<body>
+<!-- 点击上传文件按钮 -->
+<input type="file"><br>
+</body>
+</html>
 ```
+
+
+
 
 ![](assets/使用Web组件上传文件/file-20260514130847485-0.gif)
 
-## 使用onShowFileSelector拉起图库
 
-下面的示例中，当用户在前端页面点击文件上传按钮，应用侧在[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口中收到文件上传请求，在此接口中开发者将上传的本地图片路径设置给前端页面。 应用侧代码。
-```text
+
+
+##### 使用onShowFileSelector拉起图库
+
+下面的示例中，当用户在前端页面点击文件上传按钮，应用侧在[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口中收到文件上传请求，在此接口中开发者将上传的本地图片路径设置给前端页面。
+
+ - 应用侧代码。
+
+  
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
@@ -68,7 +92,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 struct WebComponent {
   controller: webview.WebviewController = new webview.WebviewController();
 
-  async selectFile(result: FileSelectorResult): Promise {
+  async selectFile(result: FileSelectorResult): Promise<void> {
     let photoSelectOptions = new photoAccessHelper.PhotoSelectOptions();
     let photoPicker = new photoAccessHelper.PhotoViewPicker();
     // 过滤选择媒体文件类型为IMAGE_VIDEO
@@ -94,28 +118,47 @@ struct WebComponent {
 }
 ```
 
-local.html页面代码。
+ - local.html页面代码。
+
+  
 ```text
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Document</title>
+</head>
 
-
-    Document
-
-
+<body>
+<!-- 点击上传文件按钮 -->
+<input type="file"><br>
+</body>
+</html>
 ```
+
+
+
 
 ![](assets/使用Web组件上传文件/file-20260514130847485-1.gif)
 
-## 使用onShowFileSelector拉起相机
 
-Web组件支持前端页面上传图片文件时调用相机即时拍照，应用开发者可以使用[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口来处理前端页面文件上传的请求并自行拉起相机，如果应用开发者不做任何处理，Web会提供默认行为来处理前端页面调用相机的请求。 此示例中，应用侧通过监听[onShowFileSelector](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)事件并返回true拦截ArkWeb默认弹窗,并调用系统CameraPicker拉起相机。应用可以通过获取AcceptType对不同类型的目标文件做更精细的筛选。
-```text
+
+
+##### 使用onShowFileSelector拉起相机
+
+Web组件支持前端页面上传图片文件时调用相机即时拍照，应用开发者可以使用[onShowFileSelector()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)接口来处理前端页面文件上传的请求并自行拉起相机，如果应用开发者不做任何处理，Web会提供默认行为来处理前端页面调用相机的请求。
+
+此示例中，应用侧通过监听[onShowFileSelector](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onshowfileselector9)事件并返回true拦截ArkWeb默认弹窗,并调用系统CameraPicker拉起相机。应用可以通过获取AcceptType对不同类型的目标文件做更精细的筛选。
+
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { camera, cameraPicker } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
-async function openCamera(callback: Callback, uiContext: UIContext) {
+async function openCamera(callback: Callback<string>, uiContext: UIContext) {
   let mContext = uiContext.getHostContext() as common.Context;
   try {
     let pickerProfile: cameraPicker.PickerProfile = {
@@ -159,12 +202,19 @@ struct Index {
 ```
 
 HTML页面代码
+
 ```text
-
-
-    WebCamera
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCamera</title>
+</head>
+<body>
+    <input type="file" name="photo" id="photo"><br>
+    
+    <script>
         let photo = document.getElementById("photo");
         photo.addEventListener("change", preViewImg)
 
@@ -186,15 +236,27 @@ HTML页面代码
               console.error("File not exist.");
             }
         }
-
-
+    </script>
+</body>
+</html>
 ```
+
 
 ![](assets/使用Web组件上传文件/file-20260514130847485-2.gif)
 
-## 使用ArkWeb默认的方式处理文件上传请求
 
-accept 属性是一个字符串，它定义了文件 input 应该接受的文件类型。这个字符串是一个以逗号为分隔的唯一文件类型说明符列表。由于给定的文件类型可以用多种方式指定，因此当你需要给定格式的文件时，提供一组完整的类型指定符是非常有用的。 capture 属性是一个字符串，如果 accept 属性指出了 input 是图片或者视频类型，则它指定了使用哪个摄像头去获取这些数据。值 user 表示应该使用前置摄像头和（或）麦克风。值 environment 表示应该使用后置摄像头和（或）麦克风。如果缺少此属性，则用户代理可以自由决定做什么。如果请求的前置模式不可用，则用户代理可能退回到其首选的默认模式。 当指定布尔类型属性 multiple 时，文件 input 允许用户选择多个文件。 示例页面内有数个文件选择器，分别设置了不同的accept及capture属性，这两个属性对相机的影响如下：
+
+
+##### 使用ArkWeb默认的方式处理文件上传请求
+
+accept 属性是一个字符串，它定义了文件 input 应该接受的文件类型。这个字符串是一个以逗号为分隔的唯一文件类型说明符列表。由于给定的文件类型可以用多种方式指定，因此当你需要给定格式的文件时，提供一组完整的类型指定符是非常有用的。
+
+capture 属性是一个字符串，如果 accept 属性指出了 input 是图片或者视频类型，则它指定了使用哪个摄像头去获取这些数据。值 user 表示应该使用前置摄像头和（或）麦克风。值 environment 表示应该使用后置摄像头和（或）麦克风。如果缺少此属性，则用户代理可以自由决定做什么。如果请求的前置模式不可用，则用户代理可能退回到其首选的默认模式。
+
+当指定布尔类型属性 multiple 时，文件 input 允许用户选择多个文件。
+
+示例页面内有数个文件选择器，分别设置了不同的accept及capture属性，这两个属性对相机的影响如下：
+
 | accept | capture | 文件选择器行为 |
 | --- | --- | --- |
 | 仅包含图片类型 | 设置为"environment"或"user" | 直接拉起相机拍照模式。 |
@@ -208,17 +270,31 @@ accept 属性是一个字符串，它定义了文件 input 应该接受的文件
 | 不包含图片或视频类型 | 设置为"environment"或"user" | 直接拉起文件选择，不可拉起相机。 |
 | 不包含图片或视频类型 | 不设置 | 直接拉起文件选择，不可拉起相机。 |
 
-当前ArkWeb识别的文件类型有 图片：tif, xbm, tiff, pjp, jfif, bmp, avif, apng, ico, webp, svg, gif, svgz, jpg, jpeg, png, pjpeg 视频：mp4, mpg, mpeg, m4v, ogm, ogv, webm
+
+当前ArkWeb识别的文件类型有
+
+ - 图片：tif, xbm, tiff, pjp, jfif, bmp, avif, apng, ico, webp, svg, gif, svgz, jpg, jpeg, png, pjpeg
+ - 视频：mp4, mpg, mpeg, m4v, ogm, ogv, webm
+
+
 > [!NOTE]
-> ArkWeb默认仅拉起相机后置摄像头，值'user'不会被处理成拉起前置摄像头。如有需要，请在应用侧通过onShowFileSelector()接口另行处理。
+> ArkWeb默认仅拉起相机后置摄像头，值'user'不会被处理成拉起前置摄像头。如有需要，请在应用侧通过 onShowFileSelector() 接口另行处理。
+
 
 HTML页面代码
+
 ```text
-
-
-    WebCamera
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCamera</title>
+</head>
+<body>
+    <input type="file" name="picture" id="picture" accept="image/*"><br>
+    
+    <script>
         let picture = document.getElementById("picture");
         picture.addEventListener("change", preViewImg)
 
@@ -240,12 +316,14 @@ HTML页面代码
               console.error("File not exist.");
             }
         }
-
-
+    </script>
+</body>
+</html>
 ```
 
 应用侧代码
-```text
+
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 
@@ -264,20 +342,43 @@ struct Index {
 }
 ```
 
-![](assets/使用Web组件上传文件/file-20260514130847485-3.gif)
 
-## 自定义处理JS接口拉起的文件请求
+![](assets/使用Web组件上传文件/file-20260514130847485-4.gif)
 
-从API version 23开始，在OnShowFileSelectorEvent的FileSelectorParam中新增接口getSuggestedName()、getDefaultPath()、getDescriptions()、isAcceptAllOptionExcluded()。 新增接口对上传保存文件能力进行了增强，以对标W3C能力，用于支持用户获取到HTML前端通过showSaveFilePicker、showOpenFilePicker、showDirectoryPicker等方法传递的option参数(参考下方加载的html文件)里的数据。 API version 23 新增支持如下option中的成员： suggestedName 对应接口[getSuggestedName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getsuggestedname23)。 description对应接口[getDescriptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getdescriptions23)。 excludeAcceptAllOption对应接口[isAcceptAllOptionExcluded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#isacceptalloptionexcluded23)。 startIn对应接口[getDefaultPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getdefaultpath23)。 types对应接口[getAcceptableFileTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getacceptablefiletypes23)。 index.html代码。
+
+
+
+##### 自定义处理JS接口拉起的文件请求
+
+从API version 23开始，在OnShowFileSelectorEvent的FileSelectorParam中新增接口getSuggestedName()、getDefaultPath()、getDescriptions()、isAcceptAllOptionExcluded()。
+
+新增接口对上传保存文件能力进行了增强，以对标W3C能力，用于支持用户获取到HTML前端通过showSaveFilePicker、showOpenFilePicker、showDirectoryPicker等方法传递的option参数(参考下方加载的html文件)里的数据。
+
+API version 23 新增支持如下option中的成员：
+
+suggestedName 对应接口[getSuggestedName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getsuggestedname23)。
+
+description对应接口[getDescriptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getdescriptions23)。
+
+excludeAcceptAllOption对应接口[isAcceptAllOptionExcluded](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#isacceptalloptionexcluded23)。
+
+startIn对应接口[getDefaultPath](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getdefaultpath23)。
+
+types对应接口[getAcceptableFileTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-fileselectorparam#getacceptablefiletypes23)。
+
+index.html代码。
+
 ```text
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件保存测试</title>
+</head>
+<body>
+<button onclick="saveFile()">保存文件</button>
+<div id="result"></div>
 
-
-    文件保存测试
-
-
-保存文件
-
-
+<script>
     async function saveFile() {
         const options = {
             startIn: 'documents',
@@ -305,19 +406,21 @@ struct Index {
             }
         }
     }
-
-
+</script>
+</body>
+</html>
 ```
 
 应用侧代码。
-```text
+
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { picker } from '@kit.CoreFileKit';
 let defaultPublicPath = 'storage/Users/currentUser/';
 let defaultBasePath = 'file://docs/';
-let wellKnownDirectoryMap = new Map([
+let wellKnownDirectoryMap = new Map<string, string>([
     ['desktop', defaultPublicPath + 'desktop'],
     ['documents', defaultPublicPath + 'documents'],
     ['downloads', defaultPublicPath + 'download'],
@@ -357,15 +460,29 @@ struct WebComponent {
           console.info('onShowFileSelector Descriptions are ' + event.fileSelector.getDescriptions());
           console.info('onShowFileSelector AcceptAllOptionExcluded is ' + event.fileSelector.isAcceptAllOptionExcluded());
           const documentSaveOptions = new picker.DocumentSaveOptions();
-          documentSaveOptions.newFileNames = new Array();
+          documentSaveOptions.newFileNames = new Array<string>();
           documentSaveOptions.newFileNames.push(getFileName(event.fileSelector.getSuggestedName()));
           documentSaveOptions.defaultFilePathUri = getUri(event.fileSelector.getDefaultPath());
-          let accepts : Array> = event.fileSelector.getAcceptableFileTypes();
-          let descriptions : Array = event.fileSelector.getDescriptions();
-          documentSaveOptions.fileSuffixChoices = new Array();
+          let accepts : Array<Array<AcceptableFileType>> = event.fileSelector.getAcceptableFileTypes();
+          let descriptions : Array<string> = event.fileSelector.getDescriptions();
+          documentSaveOptions.fileSuffixChoices = new Array<string>();
           let n = accepts.length;
-          for (let i = 0; i ();
-            for (let j = 0; j  {
+          for (let i = 0; i < n; i++) {
+            let m = accepts[i].length;
+            let extList = Array<string>();
+            for (let j = 0; j < m; j++) {
+              extList.push(accepts[i][j].acceptableType.join(','));
+            }
+            let ext = extList.join(',');
+            let desc = descriptions[i] + '(' + ext + ')' + '|';
+            documentSaveOptions.fileSuffixChoices.push(desc + ext);
+          }
+          if (!event.fileSelector.isAcceptAllOptionExcluded()) {
+            documentSaveOptions.fileSuffixChoices.push('所有文件(*.*)' + '|' + '*.*');
+          }
+          let uri: string | null = null;
+          const documentViewPicker = new picker.DocumentViewPicker();
+          documentViewPicker.save(documentSaveOptions).then((documentSelectResult) => {
             uri = documentSelectResult[0];
             console.info('documentViewPicker.save to file succeed and uri is:' + uri);
             if (event) {
@@ -381,24 +498,46 @@ struct WebComponent {
 }
 ```
 
-![](assets/使用Web组件上传文件/file-20260514130847485-4.gif)
-样例以HTML中的showSaveFilePicker()配合ArkTS中documentViewPicker.save()方法为例。 需注意： 1.HTML中的showOpenFilePicker、showDirectoryPicker方法的入参option与showSaveFilePicker的入参option的成员存在差异。 2.ETS中如调用documentViewPicker.select()方法需配合picker.DocumentSelectOptions对象为Picker传参，而非picker.DocumentSaveOptions对象。
 
-## 常见问题
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/3ctdj18ASTOxDsoU4sZA3A/zh-cn_image_0000002581434298.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014745Z&HW-CC-Expire=86400&HW-CC-Sign=B576142B2B73C5AFE671ED375162B1C3A7D328B091FCE70D98F86BFE1BC4A8B9)
 
 
-## onShowFileSelector配合ArkWeb默认弹窗使用
+样例以HTML中的showSaveFilePicker()配合ArkTS中documentViewPicker.save()方法为例。
+
+需注意：
+
+1.HTML中的showOpenFilePicker、showDirectoryPicker方法的入参option与showSaveFilePicker的入参option的成员存在差异。
+
+2.ETS中如调用documentViewPicker.select()方法需配合picker.DocumentSelectOptions对象为Picker传参，而非picker.DocumentSaveOptions对象。
+
+
+
+##### 常见问题
+
+
+
+##### onShowFileSelector配合ArkWeb默认弹窗使用
 
 用户点击文件上传按钮后，程序优先执行onShowFileSelector中的回调进行逻辑处理，应用开发者可根据处理结果选择返回false以触发ArkWeb默认弹窗，此时应避免同时触发应用侧的其他Picker。
 
-## 回调中getAcceptType和getMimeTypes的区别
 
-getAcceptType返回的是 accept 属性值全量转换为文件扩展名所组成的字符串数组，getMimeTypes返回的是 accept 属性值用逗号拆分后所组成的字符串数组。 如若 accept 属性值为 video/mp4, .png ，则getAcceptType返回 .mp4, .m4v; .png ，getMimeTypes返回 video/mp4; .png 。
 
-## ArkWeb默认弹窗的说明
+##### 回调中getAcceptType和getMimeTypes的区别
+
+getAcceptType返回的是 accept 属性值全量转换为文件扩展名所组成的字符串数组，getMimeTypes返回的是 accept 属性值用逗号拆分后所组成的字符串数组。
+
+如若 accept 属性值为 video/mp4, .png ，则getAcceptType返回 .mp4, .m4v; .png ，getMimeTypes返回 video/mp4; .png 。
+
+
+
+##### ArkWeb默认弹窗的说明
 
 选项“图片”会拉起图库，根据 accept 属性值不同，用户可以选择上传图片或视频；选项“拍照”会拉起相机，根据 accept 属性值不同，用户可以选择拍照或录像；选项“文件”会拉起文件管理器，用户可以上传任意内容。
 
-## handleFileList的使用说明
 
-该函数将选择的文件路径提交给ArkWeb，入参主要有两种类型： file协议路径，目前只支持前缀为 file://media/ 、file://docs/ 的公共路径和 file:/// 的应用包名路径，其他file协议路径无权限。 沙箱目录，具体参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。
+
+##### handleFileList的使用说明
+
+该函数将选择的文件路径提交给ArkWeb，入参主要有两种类型：
+1. file协议路径，目前只支持前缀为 file://media/ 、file://docs/ 的公共路径和 file://&lt;packageName&gt;/ 的应用包名路径，其他file协议路径无权限。
+2. 沙箱目录，具体参考[应用沙箱目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。

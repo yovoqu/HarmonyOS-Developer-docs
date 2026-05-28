@@ -4,33 +4,43 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-system-info
 
-## 场景介绍
+##### 场景介绍
 
 Scenario Fusion Kit提供获取系统信息属性API，调用该接口可以获取设备、网络状态、屏幕、语言、主题等系统信息属性。
 
-## 约束与限制
+
+
+##### 约束与限制
 
 场景化API支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持Wearable和TV设备。
 
-## 接口说明
+
+
+##### 接口说明
 
 以下是获取系统信息属性的接口说明，更多接口及使用方法请参见[atomicService（融合场景化API）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [getSystemInfoSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice#getsysteminfosync)(properties?: Array): [SystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice#systeminfo) | 获取系统信息属性的方法，支持获取设备、网络状态、屏幕、语言、主题等系统信息的请求对象，包含请求参数。          说明：          getSystemInfoSync接口不支持获取windowWidth、windowHeight、statusBarHeight和screenSafeArea属性，如需获取可使用[getSystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice#getsysteminfo)接口。 |
+| getSystemInfoSync(properties?: Array&lt;SystemInfoType&gt;): SystemInfo | 获取系统信息属性的方法，支持获取设备、网络状态、屏幕、语言、主题等系统信息的请求对象，包含请求参数。 说明： getSystemInfoSync接口不支持获取windowWidth、windowHeight、statusBarHeight和screenSafeArea属性，如需获取可使用getSystemInfo接口。 |
 
 
-## 开发步骤
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { atomicService } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-传入属性参数，调用接口获取对应属性值，代码如下：
+2. 传入属性参数，调用接口获取对应属性值，代码如下：
+
+  
 ```text
-let stateArray: Array =
+let stateArray: Array<atomicService.SystemInfoType> =
   ['brand', 'deviceModel', 'screenWidth', 'screenHeight', 'language', 'osFullName', 'fontSizeSetting',
     'sdkApiVersion', 'bluetoothEnabled', 'wifiEnabled', 'locationEnabled', 'deviceOrientation', 'theme'];
 try {

@@ -1,16 +1,17 @@
 # 不依赖UI组件的全局气泡提示 (openPopup)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup
 
 [气泡提示（Popup）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-popup)在使用时依赖绑定UI组件，否则无法使用。从API version 18开始，可以通过使用全局接口[openPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openpopup18)的方式，在无UI组件的场景下直接或封装使用，例如在事件回调中使用或封装后对外提供能力。
 
 
-## 弹出气泡
+##### 弹出气泡
 
 通过[openPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openpopup18)可以弹出气泡。
-```text
+
+```ArkTS
 this.promptAction.openPopup(this.contentNode, { id: targetId }, {
   enableArrow: true
 })
@@ -23,16 +24,19 @@ this.promptAction.openPopup(this.contentNode, { id: targetId }, {
 ```
 
 
-## 创建ComponentContent
+
+##### 创建ComponentContent
 
 通过调用openPopup接口弹出气泡，需要定义ComponentContent，以提供自定义弹出框的内容。详细规格可参考[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)说明。
-```text
-private contentNode: ComponentContent =
+
+```ArkTS
+private contentNode: ComponentContent<Object> =
   new ComponentContent(this.uiContext, wrapBuilder(buildText), this.message);
 ```
 
 如果在wrapBuilder中包含其他组件（例如：[Popup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-popup)、[Chip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chip)组件），则应在创建ComponentContent时设置[nestingBuilderSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#buildoptions12)属性为true。
-```text
+
+```ArkTS
 @Builder
 export function buildText(params: Params) {
   Popup({
@@ -78,21 +82,30 @@ export function buildText(params: Params) {
   });
 }
 
-let contentNode: ComponentContent =
+let contentNode: ComponentContent<Object> =
   new ComponentContent(uiContext, wrapBuilder(buildText), message, { nestingBuilderSupported: true });
 ```
 
 
-## 绑定组件信息
 
-通过调用openPopup接口弹出气泡，需要提供绑定组件的信息[TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18)。若未传入有效的target，气泡将无法弹出。 目前有两种设置target的方式。 target的id属性设置为number类型，此时需要将id设置为对应组件的UniqueID，组件的UniqueID由系统保证唯一性。
-```text
+##### 绑定组件信息
+
+通过调用openPopup接口弹出气泡，需要提供绑定组件的信息[TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18)。若未传入有效的target，气泡将无法弹出。
+
+目前有两种设置target的方式。
+
+ - target的id属性设置为number类型，此时需要将id设置为对应组件的UniqueID，组件的UniqueID由系统保证唯一性。
+
+  
+```ArkTS
 let frameNode: FrameNode | null = this.uiContext.getFrameNodeByUniqueId(this.getUniqueId());
 let targetId = frameNode?.getChild(0)?.getUniqueId();
 ```
 
-target的id属性设置为string类型，此时需要将id设置为对应组件的通用属性[id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)值。当无法保证id的唯一性时，如多团队开发或者复用自定义组件，可以通过设置componentId属性明确指定此id的范围来精确指定target，此时componentId属性可以设置为对应组件的父组件或者所在自定义组件的UniqueID。
-```text
+ - target的id属性设置为string类型，此时需要将id设置为对应组件的通用属性[id](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id#id)值。当无法保证id的唯一性时，如多团队开发或者复用自定义组件，可以通过设置componentId属性明确指定此id的范围来精确指定target，此时componentId属性可以设置为对应组件的父组件或者所在自定义组件的UniqueID。
+
+  
+```ArkTS
 build() {
   NavDestination() {
     Column() {
@@ -128,18 +141,24 @@ build() {
 ```
 
 
-## 设置弹出气泡样式
+
+
+
+##### 设置弹出气泡样式
 
 通过调用openPopup接口弹出气泡，可以设置[PopupCommonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupcommonoptions18类型说明)属性调整气泡样式。
-```text
+
+```ArkTS
 private options: PopupCommonOptions = { enableArrow: true };
 ```
 
 
-## 更新气泡样式
+
+##### 更新气泡样式
 
 从API version 18开始，通过[updatePopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatepopup18)可以更新气泡的样式。支持全量更新和增量更新其气泡样式，不支持更新[PopupCommonOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#popupcommonoptions18类型说明)中的showInSubWindow、focusable、onStateChange、onWillDismiss和transition属性。
-```text
+
+```ArkTS
 this.promptAction.updatePopup(this.contentNode, {
   enableArrow: false
 }, true)
@@ -152,10 +171,12 @@ this.promptAction.updatePopup(this.contentNode, {
 ```
 
 
-## 关闭气泡
+
+##### 关闭气泡
 
 从API version 18开始，通过调用[closePopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#closepopup18)可以关闭气泡。
-```text
+
+```ArkTS
 this.promptAction.closePopup(this.contentNode)
   .then(() => {
     hilog.info(0xFF00, 'popupBuildText', 'closePopup success');
@@ -165,22 +186,24 @@ this.promptAction.closePopup(this.contentNode)
   });
 ```
 
-
 > [!NOTE]
-> 由于updatePopup和closePopup依赖content来更新或者关闭指定的气泡，开发者需自行维护传入的content。
+> 由于 updatePopup 和 closePopup 依赖content来更新或者关闭指定的气泡，开发者需自行维护传入的content。
 
 
-## 在HAR包中使用全局气泡提示
+
+
+##### 在HAR包中使用全局气泡提示
 
 以下示例通过[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)包封装一个Popup，从而对外提供气泡的弹出、更新和关闭能力。
-```text
+
+```ArkTS
 import { BusinessError } from '@kit.BasicServicesKit';
 import { ComponentContent, TargetInfo, PromptAction } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 export class PromptActionClass {
   private promptAction: PromptAction | null = null;
-  private contentNode: ComponentContent | null = null;
+  private contentNode: ComponentContent<Object> | null = null;
   private options: PopupCommonOptions | null = null;
   private target: TargetInfo | null = null;
   private isPartialUpdate: boolean = false;
@@ -189,7 +212,7 @@ export class PromptActionClass {
     this.promptAction = promptAction;
   }
 
-  public setContentNode(node: ComponentContent) {
+  public setContentNode(node: ComponentContent<Object>) {
     this.contentNode = node;
   }
 
@@ -243,8 +266,7 @@ export class PromptActionClass {
 }
 ```
 
-
-```text
+```ArkTS
 import { PromptActionClass } from './PopupMainPage';
 import { ComponentContent, PromptAction } from '@kit.ArkUI';
 
@@ -291,7 +313,7 @@ export struct OpenPopup {
   private promptAction: PromptAction = this.uiContext.getPromptAction();
   private promptActionClass: PromptActionClass = new PromptActionClass();
   private targetId: number = ID;
-  private contentNode: ComponentContent =
+  private contentNode: ComponentContent<Object> =
     new ComponentContent(this.uiContext, wrapBuilder(buildText), this.message);
   private options: PopupCommonOptions = { enableArrow: true };
 
@@ -322,5 +344,5 @@ export struct OpenPopup {
 }
 ```
 
-![](assets/不依赖UI组件的全局气泡提示%20(openPopup)
-/file-20260514130645606-0.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Ce2WroPLQguhMeIoBpzGbg/zh-cn_image_0000002581433986.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014810Z&HW-CC-Expire=86400&HW-CC-Sign=3664DCA01A48E0B1446D95266647911EFBBAECAB7267D6B0DA62E15EBC0E5319)

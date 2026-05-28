@@ -3,53 +3,51 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-stream
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供基本流类型的处理能力，支持数据分块读取或写入，避免一次性加载整个数据到内存。
 
 包括可写流（[Writable](#writable)）、可读流（[Readable](#readable)）、双工流（[Duplex](#duplex)）和转换流（[Transform](#transform)）。
 
-
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
-import { stream } from '@kit.ArkTS';
+```text
+import { stream  } from '@kit.ArkTS';
 ```
 
 
-## Writable
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Writable
 
 可写入数据的流。可写流允许将数据写入到目标中，这个目标可以是文件、HTTP 响应、标准输出、另一个流等。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | writableObjectMode | boolean | 是 | 否 | 指定可写流是否以对象模式工作。true表示流被配置为对象模式，false表示流处于非对象模式。当前版本只支持原始数据（字符串和Uint8Array），返回值为false。 |
-| writableHighWatermark | number | 是 | 否 | 定义可写流缓冲区数据量的水位线大小。当前版本不支持开发者自定义修改水位线大小。调用[write()](#write)写入数据后，若缓冲区数据量达到该值，[write()](#write)会返回false。默认值为16 * 1024字节。 |
+| writableHighWatermark | number | 是 | 否 | 定义可写流缓冲区数据量的水位线大小。当前版本不支持开发者自定义修改水位线大小。调用write()写入数据后，若缓冲区数据量达到该值，write()会返回false。默认值为16 * 1024字节。 |
 | writable | boolean | 是 | 否 | 表示可写流是否处于可写状态。true表示流当前是可写的，false表示流当前不再接受写入操作。 |
 | writableLength | number | 是 | 否 | 表示可写流缓冲区中待写入的字节数。 |
-| writableCorked | number | 是 | 否 | 表示可写流cork状态计数。值大于0时，可写流处于强制写入缓冲区状态；值为0时，该状态解除。使用[cork()](#cork)方法时计数加一，使用[uncork()](#uncork)方法时计数减一，使用[end()](#end)方法时计数清零。 |
-| writableEnded | boolean | 是 | 否 | 表示当前可写流的[end()](#end)是否被调用，该状态不代表数据已经全部写入。true表示[end()](#end)已被调用，false表示[end()](#end)未被调用。 |
+| writableCorked | number | 是 | 否 | 表示可写流cork状态计数。值大于0时，可写流处于强制写入缓冲区状态；值为0时，该状态解除。使用cork()方法时计数加一，使用uncork()方法时计数减一，使用end()方法时计数清零。 |
+| writableEnded | boolean | 是 | 否 | 表示当前可写流的end()是否被调用，该状态不代表数据已经全部写入。true表示end()已被调用，false表示end()未被调用。 |
 | writableFinished | boolean | 是 | 否 | 表示当前可写流是否处于写入完成状态。true表示当前流已处于写入完成状态，false表示当前流的写入操作可能还在进行中。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -61,14 +59,13 @@ Writable的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let writableStream = new stream.Writable();
 ```
 
 
-### write
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### write
 
 write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean
 
@@ -80,7 +77,6 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | chunk | string \| Uint8Array | 否 | 需要写入的数据。默认值为undefined。当前版本不支持null、undefined和空字符串。 |
@@ -90,7 +86,6 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 可写流的缓冲区中是否还有空间。true表示缓冲区还有空间，false表示流的内部缓冲区数据量已达到设定水位线，不建议继续写入以避免内存溢出。 |
@@ -99,7 +94,6 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -111,15 +105,14 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
   }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
-    console.info('Writable chunk is', chunk); // Writable chunk is test
+    console.info("Writable chunk is", chunk); // Writable chunk is test
     callback();
   }
 }
@@ -129,8 +122,8 @@ writableStream.write('test', 'utf8');
 ```
 
 
-### end
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### end
 
 end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable
 
@@ -142,7 +135,6 @@ end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writab
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | chunk | string \| Uint8Array | 否 | 需要写入的数据。默认为undefined。 |
@@ -152,16 +144,14 @@ end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writab
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Writable](#writable) | 返回当前可写流对象。 |
+| Writable | 返回当前可写流对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -171,15 +161,14 @@ end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writab
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
   }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
-    console.info('Writable chunk is', chunk);
+    console.info("Writable chunk is", chunk);
     callback();
   }
   // Writable chunk is test
@@ -189,13 +178,13 @@ class TestWritable extends stream.Writable {
 let writableStream = new TestWritable();
 writableStream.write('test', 'utf8');
 writableStream.end('finish', 'utf8', () => {
-  console.info('Writable is end'); // Writable is end
+  console.info("Writable is end"); // Writable is end
 });
 ```
 
 
-### setDefaultEncoding
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setDefaultEncoding
 
 setDefaultEncoding(encoding?: string): boolean
 
@@ -207,14 +196,12 @@ setDefaultEncoding(encoding?: string): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 设置默认字符编码。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -225,7 +212,6 @@ setDefaultEncoding(encoding?: string): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -233,8 +219,7 @@ setDefaultEncoding(encoding?: string): boolean
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
@@ -247,12 +232,12 @@ class TestWritable extends stream.Writable {
 
 let writableStream = new TestWritable();
 let result = writableStream.setDefaultEncoding('utf8');
-console.info('Writable is result', result); // Writable is result true
+console.info("Writable is result", result); // Writable is result true
 ```
 
 
-### cork
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cork
 
 cork(): boolean
 
@@ -264,7 +249,6 @@ cork(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回设置cork状态是否成功。true表示成功，false表示失败。 |
@@ -272,8 +256,7 @@ cork(): boolean
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
@@ -286,12 +269,12 @@ class TestWritable extends stream.Writable {
 
 let writableStream = new TestWritable();
 let result = writableStream.cork();
-console.info('Writable cork result', result); // Writable cork result true
+console.info("Writable cork result", result); // Writable cork result true
 ```
 
 
-### uncork
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### uncork
 
 uncork(): boolean
 
@@ -303,7 +286,6 @@ uncork(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回解除cork状态是否成功。true表示成功，false表示失败。 |
@@ -311,8 +293,7 @@ uncork(): boolean
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
@@ -330,13 +311,13 @@ writableStream.write('data2', 'utf8');
 writableStream.uncork();
 writableStream.end();
 writableStream.on('finish', () => {
-  console.info('all Data is End'); // all Data is End
+  console.info("all Data is End"); // all Data is End
 });
 ```
 
 
-### on
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on
 
 on(event: string, callback: Callback<emitter.EventData>): void
 
@@ -348,17 +329,15 @@ on(event: string, callback: Callback<emitter.EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'drain' \|'error' \| 'finish' 。          - 'close'：完成[end()](#end)调用，结束写入操作，触发该事件。          - 'drain'：在可写流缓冲区中数据清空时触发该事件。          - 'error'：在可写流发生异常时触发该事件。          - 'finish'：在数据缓冲区全部写入到目标后触发该事件。 |
-| callback | Callback&lt;[emitter.EventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter#eventdata)&gt; | 是 | 回调函数，返回事件传输的数据。 |
+| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'drain' \|'error' \| 'finish' 。 - 'close'：完成end()调用，结束写入操作，触发该事件。 - 'drain'：在可写流缓冲区中数据清空时触发该事件。 - 'error'：在可写流发生异常时触发该事件。 - 'finish'：在数据缓冲区全部写入到目标后触发该事件。 |
+| callback | Callback<emitter.EventData> | 是 | 回调函数，返回事件传输的数据。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -367,8 +346,7 @@ on(event: string, callback: Callback<emitter.EventData>): void
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
@@ -382,14 +360,15 @@ class TestWritable extends stream.Writable {
 let callbackCalled = false;
 let writable = new TestWritable();
 writable.on('error', () => {
-  console.info('Writable event test', callbackCalled.toString()); // Writable event test false
+  console.info("Writable event test", callbackCalled.toString()); // Writable event test false
 });
-writable.write('hello', 'utf8', () => {});
+writable.write('hello', 'utf8', () => {
+});
 ```
 
 
-### off
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off
 
 off(event: string, callback?: Callback<emitter.EventData>): void
 
@@ -401,17 +380,15 @@ off(event: string, callback?: Callback<emitter.EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'drain' \|'error' \| 'finish' 。          - 'close'：完成[end()](#end)调用，结束写入操作，触发该事件。          - 'drain'：在可写流缓冲区中数据清空时触发该事件。          - 'error'：在可写流发生异常时触发该事件。          - 'finish'：在数据缓冲区全部写入到目标后触发该事件。 |
-| callback | Callback&lt;[emitter.EventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter#eventdata)&gt; | 否 | 回调函数。 |
+| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'drain' \|'error' \| 'finish' 。 - 'close'：完成end()调用，结束写入操作，触发该事件。 - 'drain'：在可写流缓冲区中数据清空时触发该事件。 - 'error'：在可写流发生异常时触发该事件。 - 'finish'：在数据缓冲区全部写入到目标后触发该事件。 |
+| callback | Callback<emitter.EventData> | 否 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -420,12 +397,11 @@ off(event: string, callback?: Callback<emitter.EventData>): void
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
-  }
+ }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
     callback();
@@ -442,13 +418,13 @@ writableStream.off('finish');
 writableStream.write('test');
 writableStream.end();
 setTimeout(() => {
-  console.info('Writable off test', testListenerCalled.toString()); // Writable off test false
+  console.info("Writable off test", testListenerCalled.toString()); // Writable off test false
 }, 0);
 ```
 
 
-### doInitialize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doInitialize
 
 doInitialize(callback: Function): void
 
@@ -460,7 +436,6 @@ doInitialize(callback: Function): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Function | 是 | 回调函数。 |
@@ -470,7 +445,6 @@ doInitialize(callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -478,12 +452,11 @@ doInitialize(callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class MyWritable extends stream.Writable {
   doInitialize(callback: Function) {
     super.doInitialize(callback);
-    console.info('Writable doInitialize'); // Writable doInitialize
+    console.info("Writable doInitialize"); // Writable doInitialize
   }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
@@ -495,8 +468,8 @@ new MyWritable();
 ```
 
 
-### doWrite
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doWrite
 
 doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 
@@ -507,7 +480,6 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -520,7 +492,6 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -528,15 +499,14 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
   }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
-    console.info('Writable chunk is', chunk); // Writable chunk is data
+    console.info("Writable chunk is", chunk); // Writable chunk is data
     callback();
   }
 }
@@ -546,8 +516,8 @@ writableStream.write('data', 'utf8');
 ```
 
 
-### doWritev
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doWritev
 
 doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
@@ -559,7 +529,6 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | chunks | string[] \| Uint8Array[] | 是 | 待批量写出的数据块数组。 |
@@ -570,7 +539,6 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -578,15 +546,14 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class TestWritable extends stream.Writable {
   constructor() {
     super();
   }
 
   doWritev(chunks: string[] | Uint8Array[], callback: Function) {
-    console.info('Writable chunk', chunks);
+    console.info("Writable chunk", chunks);
     callback();
   }
   // Writable chunk data1
@@ -601,8 +568,8 @@ writableStream.end();
 ```
 
 
-## ReadableOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ReadableOptions
 
 Readable构造函数的选项信息。
 
@@ -610,25 +577,24 @@ Readable构造函数的选项信息。
 
 **系统能力：** SystemCapability.Utils.Lang
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| encoding | string | 否 | 是 | 指定数据的编码格式，如果传入非法字符串，将会在Readable构造函数中抛出异常。          - 支持格式：utf-8、UTF-8、GBK、GB2312、gb2312、GB18030、gb18030、ibm866、iso-8859-2、iso-8859-3、iso-8859-4、iso-8859-5、iso-8859-6、iso-8859-7、iso-8859-8、iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、iso-8859-15、koi8-r、koi8-u、macintosh、windows-874、windows-1250、windows-1251、windows-1252、windows-1253、windows-1254、windows-1255、windows-1256、windows-1257、windows-1258、gbk、big5、euc-jp、iso-2022-jp、shift_jis、euc-kr、x-mac-cyrillic、utf-16be、utf-16le。          - 默认值是：'utf-8'。 |
+| encoding | string | 否 | 是 | 指定数据的编码格式，如果传入非法字符串，将会在Readable构造函数中抛出异常。 - 支持格式：utf-8、UTF-8、GBK、GB2312、gb2312、GB18030、gb18030、ibm866、iso-8859-2、iso-8859-3、iso-8859-4、iso-8859-5、iso-8859-6、iso-8859-7、iso-8859-8、iso-8859-8-i、iso-8859-10、iso-8859-13、iso-8859-14、iso-8859-15、koi8-r、koi8-u、macintosh、windows-874、windows-1250、windows-1251、windows-1252、windows-1253、windows-1254、windows-1255、windows-1256、windows-1257、windows-1258、gbk、big5、euc-jp、iso-2022-jp、shift_jis、euc-kr、x-mac-cyrillic、utf-16be、utf-16le。 - 默认值是：'utf-8'。 |
 
 
-## Readable
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Readable
 
 表示可读取数据的流。可读流用于从数据源（如文件、网络套接字等）读取数据。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -641,8 +607,9 @@ Readable构造函数的选项信息。
 | readableEnded | boolean | 是 | 否 | 表示当前可读流是否已经结束。true表示流已经没有更多数据可读且已结束，false表示流尚未结束，仍有数据可读或等待读取。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -654,14 +621,13 @@ Readable的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let readableStream = new stream.Readable();
 ```
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(options: ReadableOptions)
 
@@ -673,16 +639,14 @@ Readable的构造函数。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [ReadableOptions](#readableoptions) | 是 | Readable构造函数的选项信息。 |
+| options | ReadableOptions | 是 | Readable构造函数的选项信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -691,17 +655,16 @@ Readable的构造函数。
 
 **示例：**
 
-
-```ts
-let option: stream.ReadableOptions = {
-  encoding: 'utf-8',
+```text
+let option : stream.ReadableOptions = {
+  encoding : 'utf-8'
 };
 let readableStream = new stream.Readable(option);
 ```
 
 
-### read
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### read
 
 read(size?: number): string | null
 
@@ -713,14 +676,12 @@ read(size?: number): string | null
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | size | number | 否 | 读取数据的字节数。默认为undefined。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -731,7 +692,6 @@ read(size?: number): string | null
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -740,14 +700,14 @@ read(size?: number): string | null
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let readableStream = new TestReadable();
@@ -758,8 +718,8 @@ console.info('Readable data is', dataChunk); // Readable data is test
 ```
 
 
-### resume
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### resume
 
 resume(): Readable
 
@@ -771,32 +731,31 @@ resume(): Readable
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Readable](#readable) | 当前可读流本身。 |
+| Readable | 当前可读流本身。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let readableStream = new TestReadable();
 readableStream.resume();
-console.info('Readable test resume', !readableStream.isPaused()); // 切换流动模式成功时，此处日志将打印"Readable test resume true"
+console.info("Readable test resume", !readableStream.isPaused()); // 切换流动模式成功时，此处日志将打印"Readable test resume true"
 ```
 
 
-### pause
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pause
 
 pause(): Readable
 
@@ -808,32 +767,31 @@ pause(): Readable
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Readable](#readable) | 当前可读流本身。 |
+| Readable | 当前可读流本身。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let readableStream = new TestReadable();
 readableStream.pause();
-console.info('Readable test pause', readableStream.isPaused()); // Readable test pause true
+console.info("Readable test pause", readableStream.isPaused()); // Readable test pause true
 ```
 
 
-### setEncoding
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setEncoding
 
 setEncoding(encoding?: string): boolean
 
@@ -847,14 +805,12 @@ setEncoding(encoding?: string): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 需要设置的字符编码。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -865,7 +821,6 @@ setEncoding(encoding?: string): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -873,24 +828,24 @@ setEncoding(encoding?: string): boolean
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let readableStream = new TestReadable();
 let result = readableStream.setEncoding('utf8');
-console.info('Readable result', result); // Readable result true
+console.info("Readable result", result); // Readable result true
 ```
 
 
-### isPaused
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isPaused
 
 isPaused(): boolean
 
@@ -902,7 +857,6 @@ isPaused(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回流是否处于暂停模式。true表示流处于暂停模式，false表示流未处于暂停模式。 |
@@ -910,25 +864,25 @@ isPaused(): boolean
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let readableStream = new TestReadable();
-console.info('Readable isPaused', readableStream.isPaused()); // Readable isPaused false
+console.info("Readable isPaused", readableStream.isPaused()); // Readable isPaused false
 readableStream.pause();
-console.info('Readable isPaused', readableStream.isPaused()); // Readable isPaused true
+console.info("Readable isPaused", readableStream.isPaused()); // Readable isPaused true
 ```
 
 
-### pipe
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pipe
 
 pipe(destination: Writable, options?: Object): Writable
 
@@ -940,25 +894,22 @@ pipe(destination: Writable, options?: Object): Writable
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| destination | [Writable](#writable) | 是 | 接收数据的可写流。 |
+| destination | Writable | 是 | 接收数据的可写流。 |
 | options | Object | 否 | 预留字段，暂不支持使用。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Writable](#writable) | 返回当前可写流对象。 |
+| Writable | 返回当前可写流对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -967,8 +918,7 @@ pipe(destination: Writable, options?: Object): Writable
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
@@ -986,7 +936,7 @@ class TestWritable extends stream.Writable {
   }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
-    console.info('Readable test pipe', chunk); // Readable test pipe test
+    console.info("Readable test pipe", chunk); // Readable test pipe test
     callback();
   }
 }
@@ -997,8 +947,8 @@ readable.pipe(writable);
 ```
 
 
-### unpipe
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### unpipe
 
 unpipe(destination?: Writable): Readable
 
@@ -1010,24 +960,21 @@ unpipe(destination?: Writable): Readable
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| destination | [Writable](#writable) | 否 | 从当前可写流中移除指定的这个可读流。默认为undefined。 |
+| destination | Writable | 否 | 从当前可写流中移除指定的这个可读流。默认为undefined。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Readable](#readable) | 返回当前可读流对象。 |
+| Readable | 返回当前可读流对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1036,8 +983,7 @@ unpipe(destination?: Writable): Readable
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
@@ -1064,14 +1010,14 @@ let writable = new TestWritable();
 readable.pipe(writable);
 readable.unpipe(writable);
 readable.on('data', () => {
-  console.info('Readable test unpipe data event triggered');
+  console.info("Readable test unpipe data event triggered");
 });
 // unpipe成功断开连接之后，data事件将不会触发，不会打印"Readable test unpipe data event triggered"
 ```
 
 
-### on
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on
 
 on(event: string, callback: Callback<emitter.EventData>): void
 
@@ -1083,17 +1029,15 @@ on(event: string, callback: Callback<emitter.EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'data' \|'end' \| 'error'\|'readable'\|'pause'\|'resume' 。          - 'close'：完成[push()](#push)调用，传入null值，触发该事件。          - 'data'：当流传递给消费者一个数据块时触发该事件。          - 'end'：完成[push()](#push)调用，传入null值，触发该事件。          - 'error'：流发生异常时触发。          - 'readable'：当有可从流中读取的数据时触发该事件。          - 'pause'：完成[pause()](#pause)调用，触发该事件。          - 'resume'：完成[resume()](#resume)调用，触发该事件。 |
-| callback | Callback&lt;[emitter.EventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter#eventdata)&gt; | 是 | 回调函数，返回事件数据。 |
+| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'data' \|'end' \| 'error'\|'readable'\|'pause'\|'resume' 。 - 'close'：完成push()调用，传入null值，触发该事件。 - 'data'：当流传递给消费者一个数据块时触发该事件。 - 'end'：完成push()调用，传入null值，触发该事件。 - 'error'：流发生异常时触发。 - 'readable'：当有可从流中读取的数据时触发该事件。 - 'pause'：完成pause()调用，触发该事件。 - 'resume'：完成resume()调用，触发该事件。 |
+| callback | Callback<emitter.EventData> | 是 | 回调函数，返回事件数据。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1102,8 +1046,7 @@ on(event: string, callback: Callback<emitter.EventData>): void
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
@@ -1117,13 +1060,13 @@ class TestReadable extends stream.Readable {
 let readable = new TestReadable();
 readable.push('test');
 readable.on('error', () => {
-  console.info('error event called'); // error event called
+  console.info("error event called"); // error event called
 });
 ```
 
 
-### off
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off
 
 off(event: string, callback?: Callback<emitter.EventData>): void
 
@@ -1135,17 +1078,15 @@ off(event: string, callback?: Callback<emitter.EventData>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'data' \|'end' \| 'error'\|'readable'\|'pause'\|'resume' 。          - 'close'：完成[push()](#push)调用，传入null值，触发该事件。          - 'data'：当流传递给消费者一个数据块时触发该事件。          - 'end'：完成[push()](#push)调用，传入null值，触发该事件。          - 'error'：流发生异常时触发。          - 'readable'：当有可从流中读取的数据时触发该事件。          - 'pause'：完成[pause()](#pause)调用，触发该事件。          - 'resume'：完成[resume()](#resume)调用，触发该事件。 |
-| callback | Callback&lt;[emitter.EventData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-emitter#eventdata)&gt; | 否 | 回调函数。 |
+| event | string | 是 | 事件回调类型，支持的事件包括：'close' \| 'data' \|'end' \| 'error'\|'readable'\|'pause'\|'resume' 。 - 'close'：完成push()调用，传入null值，触发该事件。 - 'data'：当流传递给消费者一个数据块时触发该事件。 - 'end'：完成push()调用，传入null值，触发该事件。 - 'error'：流发生异常时触发。 - 'readable'：当有可从流中读取的数据时触发该事件。 - 'pause'：完成pause()调用，触发该事件。 - 'resume'：完成resume()调用，触发该事件。 |
+| callback | Callback<emitter.EventData> | 否 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1154,20 +1095,20 @@ off(event: string, callback?: Callback<emitter.EventData>): void
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let readable = new TestReadable();
 
 function read() {
-  console.info('read() called');
+  console.info("read() called");
 }
 
 readable.setEncoding('utf8');
@@ -1178,8 +1119,8 @@ readable.push('test');
 ```
 
 
-### doInitialize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doInitialize
 
 doInitialize(callback: Function): void
 
@@ -1191,7 +1132,6 @@ doInitialize(callback: Function): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Function | 是 | 回调函数。 |
@@ -1201,7 +1141,6 @@ doInitialize(callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1209,24 +1148,25 @@ doInitialize(callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class MyReadable extends stream.Readable {
   doInitialize(callback: Function) {
     super.doInitialize(callback);
-    console.info('Readable doInitialize'); // Readable doInitialize
-  }
+    console.info("Readable doInitialize"); // Readable doInitialize
+}
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let myReadable = new MyReadable();
-myReadable.on('data', () => {});
+myReadable.on('data', () => {
+});
 ```
 
 
-### doRead
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doRead
 
 doRead(size: number): void
 
@@ -1238,16 +1178,14 @@ doRead(size: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| size | number | 是 | 读取数据的字节数。 取值范围：0 &lt;= size &lt;= Number.MAX_VALUE。 |
+| size | number | 是 | 读取数据的字节数。 取值范围：0 <= size <= Number.MAX_VALUE。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1256,25 +1194,25 @@ doRead(size: number): void
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
   doRead(size: number) {
-    console.info('doRead called'); // doRead called
+    console.info("doRead called"); // doRead called
   }
 }
 
 let readable = new TestReadable();
-readable.on('data', () => {});
+readable.on('data', () => {
+});
 ```
 
 
-### push
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### push
 
 push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean
 
@@ -1286,15 +1224,13 @@ push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| chunk | Uint8Array \| string \| undefined \| null | 是 | 读取的数据。          API version22开始发生兼容性变更，在API version21及之前的版本其类型为：Uint8Array \| string \| null。 |
+| chunk | Uint8Array \| string \| undefined \| null | 是 | 读取的数据。 API version22开始发生兼容性变更，在API version21及之前的版本其类型为：Uint8Array \| string \| null。 |
 | encoding | string | 否 | 数据的编码格式。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1303,52 +1239,52 @@ push(chunk: Uint8Array | string | undefined | null, encoding?: string): boolean
 
 **示例：**
 
-
-```ts
+```text
 class TestReadable extends stream.Readable {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 }
 
 let readable = new TestReadable();
 let testData = 'Hello world';
 readable.push(testData);
-console.info('Readable push test', readable.readableLength); // Readable push test 11
+console.info("Readable push test", readable.readableLength); // Readable push test 11
 ```
 
 
-## Duplex
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Duplex
 
 双工流是一个同时支持可读和可写能力的流。双工流允许数据在两个方向上进行传输，既可以读取数据，又可以写入数据。
 
 Duplex类继承[Readable](#readable)，支持Readable中所有的方法。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | writableObjectMode | boolean | 是 | 否 | 用于指定双工流的写模式是否以对象模式工作。true表示流的写模式被配置为对象模式，false表示流的写模式处于非对象模式。当前版本只支持原始数据（字符串和Uint8Array），返回值为false。 |
-| writableHighWatermark | number | 是 | 否 | 定义双工流的写模式下缓冲区数据量的水位线大小。当前版本不支持开发者自定义修改设置水位线大小。调用[write()](#write-1)写入后，若缓冲区数据量达到该值，[write()](#write-1)会返回false。默认值为16 * 1024字节。 |
+| writableHighWatermark | number | 是 | 否 | 定义双工流的写模式下缓冲区数据量的水位线大小。当前版本不支持开发者自定义修改设置水位线大小。调用write()写入后，若缓冲区数据量达到该值，write()会返回false。默认值为16 * 1024字节。 |
 | writable | boolean | 是 | 否 | 表示双工流是否处于可写状态。true表示当前流是可写的，false表示流当前不再接受写入操作。 |
 | writableLength | number | 是 | 否 | 表示双工流缓冲区中待写入的字节数。 |
-| writableCorked | number | 是 | 否 | 表示双工流cork状态计数。值大于0时，双工流处于强制写入缓冲区状态，值为0时，该状态解除。使用[cork()](#cork-1)方法时计数加一，使用[uncork()](#uncork-1)方法时计数减一，使用[end()](#end-1)方法时计数清零。 |
-| writableEnded | boolean | 是 | 否 | 表示当前双工流的[end()](#end-1)是否被调用，该状态不代表数据已经全部写入。true表示[end()](#end-1)已被调用，false表示[end()](#end-1)未被调用。 |
+| writableCorked | number | 是 | 否 | 表示双工流cork状态计数。值大于0时，双工流处于强制写入缓冲区状态，值为0时，该状态解除。使用cork()方法时计数加一，使用uncork()方法时计数减一，使用end()方法时计数清零。 |
+| writableEnded | boolean | 是 | 否 | 表示当前双工流的end()是否被调用，该状态不代表数据已经全部写入。true表示end()已被调用，false表示end()未被调用。 |
 | writableFinished | boolean | 是 | 否 | 表示当前双工流是否处于写入完成状态。true表示当前流已处于写入完成状态，false表示当前流的写入操作可能还在进行中。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -1360,14 +1296,13 @@ Duplex的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let duplex = new stream.Duplex();
 ```
 
 
-### write
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### write
 
 write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): boolean
 
@@ -1379,7 +1314,6 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | chunk | string \| Uint8Array | 否 | 需要写入的数据。默认值为undefined。当前版本不支持null、undefined和空字符串。 |
@@ -1389,7 +1323,6 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 可写流的缓冲区中是否还有空间。true表示缓冲区还有空间，false表示流的内部缓冲区数据量已达到设定水位线，不建议继续写入，如果连续调用写入函数，数据仍会被添加到缓冲区中，直到内存溢出为止。 |
@@ -1398,7 +1331,6 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1410,40 +1342,39 @@ write(chunk?: string | Uint8Array, encoding?: string, callback?: Function): bool
 
 **示例：**
 
-
-```ts
+```text
 class TestDuplex extends stream.Duplex {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
-    console.info('duplexStream chunk is', chunk); // duplexStream chunk is test
+    console.info("duplexStream chunk is", chunk); // duplexStream chunk is test
     callback();
   }
 }
 
 let duplexStream = new TestDuplex();
 let result = duplexStream.write('test', 'utf8');
-console.info('duplexStream result', result); // duplexStream result true
+console.info("duplexStream result", result); // duplexStream result true
 ```
 
 
-### end
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### end
 
 end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writable
 
-结束双工流的写入操作。如果属性writableCorked的值大于0，会置零该值并输出缓冲区剩余数据。如果传入chunk参数，���根据实际运行情况，通过write或者doWrite将其作为最后一块数据写入。其中通过doWrite写入时，encoding参数的合法性检查依赖doWrite。end单独使用（不使用write）并传入chunk参数的情况下，必然通过doWrite写入。使用callback异步回调。
+结束双工流的写入操作。如果属性writableCorked的值大于0，会置零该值并输出缓冲区剩余数据。如果传入chunk参数，则根据实际运行情况，通过write或者doWrite将其作为最后一块数据写入。其中通过doWrite写入时，encoding参数的合法性检查依赖doWrite。end单独使用（不使用write）并传入chunk参数的情况下，必然通过doWrite写入。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1454,16 +1385,14 @@ end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writab
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Writable](#writable) | 返回可写流对象。 |
+| Writable | 返回可写流对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1473,30 +1402,30 @@ end(chunk?: string | Uint8Array, encoding?: string, callback?: Function): Writab
 
 **示例：**
 
-
-```ts
+```text
 class TestDuplex extends stream.Duplex {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
-    console.info('Duplex chunk is', chunk); // Duplex chunk is test
-    callback();
+  console.info("Duplex chunk is", chunk); // Duplex chunk is test
+  callback();
   }
 }
 
 let duplexStream = new TestDuplex();
 duplexStream.end('test', 'utf8', () => {
-  console.info('Duplex is end'); // Duplex is end
+  console.info("Duplex is end"); // Duplex is end
 });
 ```
 
 
-### setDefaultEncoding
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setDefaultEncoding
 
 setDefaultEncoding(encoding?: string): boolean
 
@@ -1508,14 +1437,12 @@ setDefaultEncoding(encoding?: string): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | encoding | string | 否 | 需要设置的默认字符编码。默认值是'utf8'，当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1526,7 +1453,6 @@ setDefaultEncoding(encoding?: string): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1534,14 +1460,14 @@ setDefaultEncoding(encoding?: string): boolean
 
 **示例：**
 
-
-```ts
+```text
 class TestDuplex extends stream.Duplex {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
     callback();
@@ -1550,12 +1476,12 @@ class TestDuplex extends stream.Duplex {
 
 let duplexStream = new TestDuplex();
 let result = duplexStream.setDefaultEncoding('utf8');
-console.info('duplexStream is result', result); // duplexStream is result true
+console.info("duplexStream is result", result); // duplexStream is result true
 ```
 
 
-### cork
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cork
 
 cork(): boolean
 
@@ -1567,7 +1493,6 @@ cork(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回设置cork状态是否成功。true表示设置成功，false表示设置失败。 |
@@ -1575,16 +1500,15 @@ cork(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let duplexStream = new stream.Duplex();
 let result = duplexStream.cork();
-console.info('duplexStream cork result', result); // duplexStream cork result true
+console.info("duplexStream cork result", result); // duplexStream cork result true
 ```
 
 
-### uncork
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### uncork
 
 uncork(): boolean
 
@@ -1596,7 +1520,6 @@ uncork(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回解除cork状态是否成功。true表示成功，false表示失败。 |
@@ -1604,15 +1527,15 @@ uncork(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let dataWritten = '';
 class TestDuplex extends stream.Duplex {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
     dataWritten += chunk;
@@ -1625,12 +1548,12 @@ duplexStream.cork();
 duplexStream.write('a');
 duplexStream.write('b');
 duplexStream.uncork();
-console.info('Duplex test uncork', dataWritten); // Duplex test uncork ab
+console.info("Duplex test uncork", dataWritten); // Duplex test uncork ab
 ```
 
 
-### doWrite
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doWrite
 
 doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 
@@ -1641,7 +1564,6 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1654,7 +1576,6 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1662,17 +1583,17 @@ doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class TestDuplex extends stream.Duplex {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
-    console.info('duplexStream chunk is', chunk); // duplexStream chunk is data
+    console.info("duplexStream chunk is", chunk); // duplexStream chunk is data
     callback();
   }
 }
@@ -1682,8 +1603,8 @@ duplexStream.write('data', 'utf8');
 ```
 
 
-### doWritev
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doWritev
 
 doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
@@ -1695,7 +1616,6 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | chunks | string[] \| Uint8Array[] | 是 | 待批量写出的数据块数组。 |
@@ -1706,7 +1626,6 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1714,21 +1633,21 @@ doWritev(chunks: string[] | Uint8Array[], callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class TestDuplex extends stream.Duplex {
   constructor() {
     super();
   }
 
-  doRead(size: number) {}
+  doRead(size: number) {
+  }
 
   doWrite(chunk: string | Uint8Array, encoding: string, callback: Function) {
     callback();
   }
 
   doWritev(chunks: string[] | Uint8Array[], callback: Function) {
-    console.info('duplexStream chunk', chunks[0]); // duplexStream chunk data1
+    console.info("duplexStream chunk", chunks[0]); // duplexStream chunk data1
     callback();
   }
 }
@@ -1742,14 +1661,14 @@ duplexStream.end();
 ```
 
 
-## Transform
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Transform
 
 转换流是一个特殊的双工流，支持可读和可写能力的流，可以对数据进行转换并输出结果。Transform类继承[Duplex](#duplex)，支持Duplex中所有的方法。
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor()
 
@@ -1761,14 +1680,13 @@ Transform的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let transform = new stream.Transform();
 ```
 
 
-### doTransform
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doTransform
 
 doTransform(chunk: string, encoding: string, callback: Function): void
 
@@ -1779,7 +1697,6 @@ doTransform(chunk: string, encoding: string, callback: Function): void
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1792,7 +1709,6 @@ doTransform(chunk: string, encoding: string, callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1800,8 +1716,7 @@ doTransform(chunk: string, encoding: string, callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class TestTransform extends stream.Transform {
   constructor() {
     super();
@@ -1809,19 +1724,19 @@ class TestTransform extends stream.Transform {
 
   doTransform(chunk: string, encoding: string, callback: Function) {
     let stringChunk = chunk.toString().toUpperCase();
-    console.info('Transform test doTransform', stringChunk); // Transform test doTransform HELLO
+    console.info("Transform test doTransform", stringChunk); // Transform test doTransform HELLO
     this.push(stringChunk);
     callback();
   }
 }
 
 let tr = new TestTransform();
-tr.write('hello');
+tr.write("hello");
 ```
 
 
-### doFlush
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### doFlush
 
 doFlush(callback: Function): void
 
@@ -1833,7 +1748,6 @@ doFlush(callback: Function): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Function | 是 | 回调函数。 |
@@ -1843,7 +1757,6 @@ doFlush(callback: Function): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1851,8 +1764,7 @@ doFlush(callback: Function): void
 
 **示例：**
 
-
-```ts
+```text
 class TestTransform extends stream.Transform {
   constructor() {
     super();
@@ -1870,6 +1782,6 @@ class TestTransform extends stream.Transform {
 let transform = new TestTransform();
 transform.end('my test');
 transform.on('data', (data) => {
-  console.info('data is', data.data); // data is test
+  console.info("data is", data.data); // data is test
 });
 ```

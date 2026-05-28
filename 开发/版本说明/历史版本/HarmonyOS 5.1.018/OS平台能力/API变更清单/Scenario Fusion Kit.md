@@ -7,7 +7,7 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：export declare struct FunctionalInput 差异内容：export declare struct FunctionalInput | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
-| 新增API | NA | 类名：FunctionalInput； API声明：@Prop  params: functionalInputComponentManager.FunctionalInputParams; 差异内容：@Prop  params: functionalInputComponentManager.FunctionalInputParams; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
+| 新增API | NA | 类名：FunctionalInput； API声明：@Prop params: functionalInputComponentManager.FunctionalInputParams; 差异内容：@Prop params: functionalInputComponentManager.FunctionalInputParams; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
 | 新增API | NA | 类名：FunctionalInput； API声明：controller: functionalInputComponentManager.FunctionalInputController; 差异内容：controller: functionalInputComponentManager.FunctionalInputController; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
 | 新增API | NA | 类名：FunctionalInput； API声明：build(): void; 差异内容：build(): void; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare namespace functionalInputComponentManager 差异内容：export declare namespace functionalInputComponentManager | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
@@ -24,7 +24,7 @@
 | 新增API | NA | 类名：DistrictSelectResult； API声明：inputContent: string; 差异内容：inputContent: string; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
 | 新增API | NA | 类名：DistrictSelectResult； API声明：districtSelectResult: sceneMap.DistrictSelectResult; 差异内容：districtSelectResult: sceneMap.DistrictSelectResult; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
 | 新增API | NA | 类名：functionalInputComponentManager； API声明：export class FunctionalInputController 差异内容：export class FunctionalInputController | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
-| 新增API | NA | 类名：FunctionalInputController； API声明：onSelectDistrict(callback: AsyncCallback<DistrictSelectResult>): FunctionalInputController; 差异内容：onSelectDistrict(callback: AsyncCallback<DistrictSelectResult>): FunctionalInputController; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
+| 新增API | NA | 类名：FunctionalInputController； API声明：onSelectDistrict(callback: AsyncCallback&lt;DistrictSelectResult&gt;): FunctionalInputController; 差异内容：onSelectDistrict(callback: AsyncCallback&lt;DistrictSelectResult&gt;): FunctionalInputController; | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
 | 新增kit | 类名：global； API声明： 差异内容：NA | 类名：global； API声明：api@hms.core.atomicserviceComponent.atomicserviceInput.d.ets 差异内容：ScenarioFusionKit | api/@hms.core.atomicserviceComponent.atomicserviceInput.d.ets |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：FunctionalButtonParams； API声明：buttonModifier?: ButtonModifier; 差异内容：buttonModifier?: ButtonModifier; | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：FunctionalButtonParams； API声明：textModifier?: TextModifier; 差异内容：textModifier?: TextModifier; | api/@hms.core.atomicserviceComponent.atomicserviceUi.d.ets |

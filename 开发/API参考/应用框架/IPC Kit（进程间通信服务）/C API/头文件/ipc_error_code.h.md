@@ -3,57 +3,53 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ipc-error-code-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供IPC错误码定义。
-
+ 
 **引用文件：** <IPCKit/ipc_error_code.h>
-
+ 
 **库：** libipc_capi.so
-
+ 
 **系统能力：** SystemCapability.Communication.IPC.Core
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [OHIPCErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohipcerrorcode)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_IPC_ErrorCode](#oh_ipc_errorcode) | OH_IPC_ErrorCode | IPC消息选项定义。 |
+| OH_IPC_ErrorCode | OH_IPC_ErrorCode | IPC消息选项定义。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_IPC_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_IPC_ErrorCode
 
 ```text
 enum OH_IPC_ErrorCode
 ```
-
+ 
 **描述：**
-
+ 
 IPC错误码定义。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举值 | 描述 |
 | --- | --- |
 | OH_IPC_SUCCESS = 0 | 执行成功。 |

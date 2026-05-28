@@ -4,36 +4,42 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiletimetensordesc-setdatatype
 
-## 函数功能
+##### 函数功能
 
 向CompileTimeTensorDesc中设置Tensor的数据类型。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void SetDataType(const ge::DataType data_type)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| data_type | 输入 | 需设置的CompileTimeTensorDesc所描述的Tensor的数据类型信息。 关于ge::DataType类型，请参见[DataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-datatype)。 |
+| data_type | 输入 | 需设置的CompileTimeTensorDesc所描述的Tensor的数据类型信息。 关于ge::DataType类型，请参见DataType。 |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 auto dtype_ = ge::DataType::DT_INT32;

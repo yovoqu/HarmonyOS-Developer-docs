@@ -4,12 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events-arkts
 
-## 简介
+##### 简介
 
 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅应用冻屏事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -17,21 +18,29 @@
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以移除对应用事件的订阅。 |
 
 
-## 开发步骤
 
 
-## 添加事件观察者
+##### 开发步骤
 
-以订阅应用冻屏事件为例，说明开发步骤。 新建一个ArkTS应用工程，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块，示例代码如下：
+
+
+##### 添加事件观察者
+
+以订阅应用冻屏事件为例，说明开发步骤。
+1. 新建一个ArkTS应用工程，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块，示例代码如下：
+
+  
 ```text
 import { BusinessError, deviceInfo } from '@kit.BasicServicesKit';
 import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中设置事件的自定义参数，示例代码如下：
+2. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中设置事件的自定义参数，示例代码如下：
+
+  
 ```text
 // 开发者完成参数键值对赋值
- let params: Record = {
+ let params: Record<string, hiAppEvent.ParamType> = {
    "test_data": 100,
  };
  // 开发者可以设置应用冻屏事件的自定义参数
@@ -57,8 +66,10 @@ import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
  }
 ```
 
-编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
-```text
+3. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
+
+  
+```json
 hiAppEvent.addWatcher({
    // 开发者可以自定义观察者名称，系统会使用名称来标识不同的观察者
    name: "watcher",
@@ -70,7 +81,7 @@ hiAppEvent.addWatcher({
      }
    ],
    // 开发者可以自行实现订阅实时回调函数，以便对订阅获取到的事件数据进行自定义处理
-   onReceive: (domain: string, appEventGroups: Array) => {
+   onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
      hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
      for (const eventGroup of appEventGroups) {
        // 开发者可以根据事件集合中的事件名称区分不同的系统事件
@@ -127,17 +138,27 @@ hiAppEvent.addWatcher({
  });
 ```
 
-编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数构造应用无响应场景，以触发应用冻屏事件，示例代码如下：
+4. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数构造应用无响应场景，以触发应用冻屏事件，示例代码如下：
+
+  
 ```text
 Button("appFreeze").onClick(()=>{
    // 在按钮点击函数中构造一个freeze场景，触发应用冻屏事件
    setTimeout(() => {
      let t = Date.now();
-     while (Date.now() - t              点击DevEco Studio界面中的运行按钮，运行应用工程，然后在应用界面中点击按钮“appFreeze”，触发一次应用冻屏事件。
+     while (Date.now() - t <= 15000) {}
+   }, 5000);
+ })
+```
 
-## 验证观察者是否订阅到应用冻屏事件
+5. 点击DevEco Studio界面中的运行按钮，运行应用工程，然后在应用界面中点击按钮“appFreeze”，触发一次应用冻屏事件。
 
-                  应用无响应退出后，重新进入应用可以在Log窗口看到对系统事件数据的处理日志：
+
+
+##### 验证观察者是否订阅到应用冻屏事件
+1. 应用无响应退出后，重新进入应用可以在Log窗口看到对系统事件数据的处理日志：
+
+  
 ```text
 HiAppEvent onReceive: domain=OS
 HiAppEvent eventName=APP_FREEZE
@@ -168,11 +189,22 @@ HiAppEvent eventInfo.params.process_life_time=18
 HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_BLOCK_6S:log6s
 ```
 
-             若应用无法启动或长时间未启动，开发者可以参考[使用FaultLogExtensionAbility订阅事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fault-log-extension-app-events-arkts)回调重写的函数，进行延迟上报。
+2. 若应用无法启动或长时间未启动，开发者可以参考[使用FaultLogExtensionAbility订阅事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fault-log-extension-app-events-arkts)回调重写的函数，进行延迟上报。
 
-## 从Faultlogger接口迁移应用冻屏事件
 
-     [@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅应用冻屏事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅应用冻屏事件。     在Faultlogger的[FaultType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faulttype)里定义的APP_FREEZE即为应用冻屏故障类型。     在hiAppEvent的hiAppEvent.addWatcher接口中设置事件名称为hiAppEvent.event.APP_FREEZE、事件领域为hiAppEvent.domain.OS，可以订阅应用冻屏事件。     通过[hiAppEvent.AppEventInfo.params](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events#params字段说明)中exception字段的name子字段可以区分具体是哪种应用冻屏事件。     [FaultLogInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloginfo)与[hiAppEvent.AppEventInfo.params](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events#params字段说明)的字段对应关系如下：
+
+##### 从Faultlogger接口迁移应用冻屏事件
+
+[@ohos.faultLogger (故障日志获取)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger)接口从API version 18开始废弃使用, 不再维护。后续版本推荐使用[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)订阅应用冻屏事件。该章节指导开发者从Faultlogger接口迁移至hiAppEvent接口，来订阅应用冻屏事件。
+
+在Faultlogger的[FaultType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faulttype)里定义的APP_FREEZE即为应用冻屏故障类型。
+
+在hiAppEvent的hiAppEvent.addWatcher接口中设置事件名称为hiAppEvent.event.APP_FREEZE、事件领域为hiAppEvent.domain.OS，可以订阅应用冻屏事件。
+
+通过[hiAppEvent.AppEventInfo.params](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events#params字段说明)中exception字段的name子字段可以区分具体是哪种应用冻屏事件。
+
+[FaultLogInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloginfo)与[hiAppEvent.AppEventInfo.params](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-freeze-events#params字段说明)的字段对应关系如下：
+
 | Faultlogger.FaultLogInfo | hiAppEvent.AppEventInfo.params | 说明 |
 | --- | --- | --- |
 | pid | pid | 无。 |
@@ -184,8 +216,13 @@ HiAppEvent eventInfo.params.external_callback_log=THREAD_BLOCK_3S:log3s THREAD_B
 | reason | external_log文件内容中的Reason字段 | 无。 |
 | summary | external_log文件内容中特定段落 | APP_FREEZE的summary对应external_log文件中从appfreeze:进程名所在行到DisplayPowerInfo:所在行的这一段内容。 |
 
-          [FaultLogger.query(使用callback回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9)和[FaultLogger.query(使用Promise回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9-1)都可以使用[hiAppEvent.addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)实现相同功能。     查阅[开发步骤](#开发步骤)和[验证观察者是否订阅到应用冻屏事件](#验证观察者是否订阅到应用冻屏事件)，了解使用hiAppEvent订阅应用冻屏事件（ArkTS）的具体步骤。
 
-## 示例代码
+[FaultLogger.query(使用callback回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9)和[FaultLogger.query(使用Promise回调)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-faultlogger#faultloggerquery9-1)都可以使用[hiAppEvent.addWatcher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent#hiappeventaddwatcher)实现相同功能。
 
-           [应用异常处理](https://gitcode.com/HarmonyOS_Samples/exception-handling)
+查阅[开发步骤](#开发步骤)和[验证观察者是否订阅到应用冻屏事件](#验证观察者是否订阅到应用冻屏事件)，了解使用hiAppEvent订阅应用冻屏事件（ArkTS）的具体步骤。
+
+
+
+##### 示例代码
+
+ - [应用异常处理](https://gitcode.com/HarmonyOS_Samples/exception-handling)

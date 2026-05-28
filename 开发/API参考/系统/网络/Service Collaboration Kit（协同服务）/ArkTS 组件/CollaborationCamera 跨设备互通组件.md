@@ -1,9 +1,9 @@
 # CollaborationCamera (跨设备互通组件)
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationcamera
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该模块提供了组件[createCollaborationCameraMenuItems](#createcollaborationcameramenuitemsdeprecated)和[CollaborationCameraStateDialog](#collaborationcamerastatedialogdeprecated)，两者需要配合使用，完成分布式跨端能力，如在PC/2in1端跨端调用Phone端拍照。
 
@@ -14,23 +14,17 @@
 **起始版本：** 4.0.0(10)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 导入模块
 
-
-```ts
-import {
-  CollaborationCameraStateDialog,
-  createCollaborationCameraMenuItems,
-  CollaborationCameraBusinessFilter,
-} from '@kit.ServiceCollaborationKit';
+```text
+import { CollaborationCameraStateDialog, createCollaborationCameraMenuItems, CollaborationCameraBusinessFilter} from '@kit.ServiceCollaborationKit';
 ```
 
 
-## createCollaborationCameraMenuItems(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-createCollaborationCameraMenuItems(businessFilter?: Array<CollaborationCameraBusinessFilter>): void
+##### createCollaborationCameraMenuItems(deprecated)
+
+createCollaborationCameraMenuItems(businessFilter?: Array&lt;CollaborationCameraBusinessFilter&gt;): void
 
 设备列表选择器，需要在[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件内调用。用于显示组网内具有对应能力的设备列表。
 
@@ -48,16 +42,14 @@ createCollaborationCameraMenuItems(businessFilter?: Array<CollaborationCameraBus
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| businessFilter | Array&lt;[CollaborationCameraBusinessFilter](#collaborationcamerabusinessfilterdeprecated)&gt; | 否 | 传入能力类型，支持匹配跨端拍照、扫描、图库。          默认值为ALL，匹配所有业务。 |
+| businessFilter | Array&lt;CollaborationCameraBusinessFilter&gt; | 否 | 传入能力类型，支持匹配跨端拍照、扫描、图库。 默认值为ALL，匹配所有业务。 |
 
 
 **示例：**
 
-
-```ts
+```text
 @Builder
 myTestMenu() {
   Menu() {
@@ -67,8 +59,8 @@ myTestMenu() {
 ```
 
 
-## CollaborationCameraBusinessFilter(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### CollaborationCameraBusinessFilter(deprecated)
 
 能力类型枚举值。
 
@@ -80,19 +72,17 @@ myTestMenu() {
 
 **起始版本：** 4.0.0(10)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ALL | 0 | 匹配所有业务。 |
 | TAKE_PHOTO | 1 | 匹配跨端拍照。 |
-| SCAN_DOCUMENT | 2 | 匹配文档扫描。          起始版本： 4.1.0(11) |
-| IMAGE_PICKER | 3 | 匹配图库选择器。          起始版本： 4.1.0(11) |
+| SCAN_DOCUMENT | 2 | 匹配文档扫描。 起始版本： 4.1.0(11) |
+| IMAGE_PICKER | 3 | 匹配图库选择器。 起始版本： 4.1.0(11) |
 
 
 **示例：**
 
-
-```ts
+```text
 @Builder
 myTestMenu() {
   Menu() {
@@ -102,8 +92,8 @@ myTestMenu() {
 ```
 
 
-## CollaborationCameraStateDialog(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### CollaborationCameraStateDialog(deprecated)
 
 弹窗组件，用于提示对端应用状态。
 
@@ -122,8 +112,8 @@ myTestMenu() {
 **起始版本：** 4.0.0(10)
 
 
-### onState(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### onState(deprecated)
 
 onState: (stateCode: number, buffer: ArrayBuffer) => void
 
@@ -139,7 +129,6 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | stateCode | number | 是 | 标识业务完成状态，含义详见下面错误码。 |
@@ -149,7 +138,6 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -162,8 +150,9 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 | 1001202006 | Multiple images are being sent back. |
 
 
-### build(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### build(deprecated)
 
 build(): void
 
@@ -183,8 +172,7 @@ struct的默认构造函数，开发者无法直接调用此方法。
 
 跨设备互通详细介绍可参考[跨设备互通特性简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/servicecollaboration-service-overview)。
 
-
-```ts
+```text
 import {
   createCollaborationCameraMenuItems,
   CollaborationCameraStateDialog,
@@ -211,21 +199,21 @@ struct Index {
         onState: (stateCode: number, buffer: ArrayBuffer): void => this.doInsertPicture(stateCode, buffer)
       })
       Button('使用远端设备插入图片')
-      .type(ButtonType.Normal)
-      .borderRadius(10)
-      .bindMenu(this.myTestMenu)
+        .type(ButtonType.Normal)
+        .borderRadius(10)
+        .bindMenu(this.myTestMenu)
 
       if (this.picture) {
         Image(this.picture)
-        .borderStyle(BorderStyle.Dotted)
-        .borderWidth(1)
-        .objectFit(ImageFit.Contain)
-        .height('80%')
-        .onComplete((event) => {
-          if (event != undefined) {
-            hilog.info(0, 'MEMOMOCK', 'onComplete ' + event.loadingStatus);
-          }
-        })
+          .borderStyle(BorderStyle.Dotted)
+          .borderWidth(1)
+          .objectFit(ImageFit.Contain)
+          .height('80%')
+          .onComplete((event) => {
+            if (event != undefined) {
+              hilog.info(0, 'MEMOMOCK', 'onComplete ' + event.loadingStatus);
+            }
+          })
       }
     }
     .padding(20)
@@ -241,7 +229,7 @@ struct Index {
     imageSource.createPixelMap().then((pixelMap) => {
       this.picture = pixelMap;
     }).catch((error: Error) => {
-      hilog.info(0, 'MEMOMOCK', 'Create pixel map failed: ' + error);
+      hilog.error(0, 'MEMOMOCK', 'Create pixel map failed: ' + error);
     }).finally(() => {
       imageSource.release();
     });

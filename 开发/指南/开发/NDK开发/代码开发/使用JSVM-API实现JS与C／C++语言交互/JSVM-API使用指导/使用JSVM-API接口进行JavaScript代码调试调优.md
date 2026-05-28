@@ -4,17 +4,22 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/m-heapstatistics-debugger-cpuprofiler-heapsnapshot
 
-## 简介
+##### 简介
 
 这些JSVM-API接口涵盖了虚拟机实例检索、内存分析、性能剖析和调试支持，为优化代码性能及提升开发效率提供了有力的支持。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-**JSVM**：JavaScript虚拟机是执行JavaScript代码的环境。它负责解析和执行JavaScript代码，管理内存，并提供与其他系统资源的交互。接口如OH_JSVM_GetVM用于检索特定环境的虚拟机实例，这是JSVM管理的基本操作之一。**调试（debug）**：调试是程序开发中的一项重要活动，它涉及到定位、分析和修复代码中的错误。OH_JSVM_OpenInspector和OH_JSVM_CloseInspector接口提供了在特定主机和端口上激活和关闭inspector的功能，inspector是一个用于调试JavaScript代码的工具，允许开发者实时查看和交互程序的运行状态。
+- **JSVM**：JavaScript虚拟机是执行JavaScript代码的环境。它负责解析和执行JavaScript代码，管理内存，并提供与其他系统资源的交互。接口如OH_JSVM_GetVM用于检索特定环境的虚拟机实例，这是JSVM管理的基本操作之一。
+- **调试（debug）**：调试是程序开发中的一项重要活动，它涉及到定位、分析和修复代码中的错误。OH_JSVM_OpenInspector和OH_JSVM_CloseInspector接口提供了在特定主机和端口上激活和关闭inspector的功能，inspector是一个用于调试JavaScript代码的工具，允许开发者实时查看和交互程序的运行状态。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_GetVM | 将检索给定环境的虚拟机实例。 |
@@ -26,20 +31,27 @@
 | OH_JSVM_OpenInspectorWithName | 基于传入的 pid 和 name 激活 inspector。 |
 | OH_JSVM_CloseInspector | 尝试关闭剩余的所有inspector连接。 |
 | OH_JSVM_WaitForDebugger | 等待主机与inspector建立socket连接，连接建立后程序将继续运行。发送Runtime.runIfWaitingForDebugger命令。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅展示接口对应的C++代码。
+ 
+  
 
-## OH_JSVM_GetVM
+##### OH_JSVM_GetVM
 
-检索给定环境中的虚拟机实例。 cpp部分代码
-```text
+检索给定环境中的虚拟机实例。
+ 
+cpp部分代码
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_GetVM的样例方法
 static JSVM_Value GetVM(JSVM_Env env, JSVM_CallbackInfo info)
@@ -67,26 +79,32 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"getVM", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- 样例测试JS
+ 
+样例测试JS
+ 
 ```text
 const char *srcCallNative = R"JS(getVM())JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM OH_JSVM_GetVM: success
 ```
+ 
+  
 
+##### OH_JSVM_GetHeapStatistics
 
-## OH_JSVM_GetHeapStatistics
-
-返回一组虚拟机堆的统计数据。 cpp部分代码
-```text
+返回一组虚拟机堆的统计数据。
+ 
+cpp部分代码
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 
 // OH_JSVM_GetHeapStatistics的样例方法
 void PrintHeapStatistics(JSVM_HeapStatistics result)
@@ -131,13 +149,15 @@ static JSVM_PropertyDescriptor descriptor[] = {
     {"getHeapStatistics", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
 };
 ```
-
- 样例测试JS
+ 
+样例测试JS
+ 
 ```text
 const char *srcCallNative = R"JS(getHeapStatistics())JS";
 ```
-
- 预计的输出结果（虚拟机堆的统计数据，会实时发生变化）：
+ 
+预计的输出结果（虚拟机堆的统计数据，会实时发生变化）：
+ 
 ```text
 JSVM API heap totalHeapSize: 1597440
 JSVM API heap totalHeapSizeExecutable: 0
@@ -153,29 +173,43 @@ JSVM API heap numberOfDetachedContexts: 0
 JSVM API heap totalGlobalHandlesSize: 8192
 JSVM API heap usedGlobalHandlesSize: 32
 ```
+ 
+以下接口的示例代码可以参考链接：
+ 
+[JSVM-API调试&定位](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-debugger-cpuprofiler-heapsnapshot)
+ 
+  
 
- 以下接口的示例代码可以参考链接： [JSVM-API调试&定位](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-debugger-cpuprofiler-heapsnapshot)
-
-## OH_JSVM_StartCpuProfiler
+##### OH_JSVM_StartCpuProfiler
 
 创建并启动一个CPU profiler。
+ 
+  
 
-## OH_JSVM_StopCpuProfiler
+##### OH_JSVM_StopCpuProfiler
 
 停止CPU profiler并将结果输出到流中。
+ 
+  
 
-## OH_JSVM_TakeHeapSnapshot
+##### OH_JSVM_TakeHeapSnapshot
 
 获取当前堆快照并输出到流中。
+ 
+  
 
-## OH_JSVM_OpenInspector
+##### OH_JSVM_OpenInspector
 
 在指定的主机和端口上激活inspector，用于调试JS码。
+ 
+  
 
-## OH_JSVM_CloseInspector
+##### OH_JSVM_CloseInspector
 
 尝试关闭剩余的所有inspector连接。
+ 
+  
 
-## OH_JSVM_WaitForDebugger
+##### OH_JSVM_WaitForDebugger
 
 等待主机与inspector建立socket连接。连接建立后，程序将继续运行并发送Runtime.runIfWaitingForDebugger命令。

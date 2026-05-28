@@ -4,23 +4,32 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-invoice-title
 
-## 场景介绍
+##### 场景介绍
 
-选择发票抬头Button功能可以帮助开发者调用对应Button组件跳转发票抬头选择页面，供用户完成已保存发票抬头的选择。 运行示例代码单击“选择发票抬头”按钮，拉起选择发票抬头页面可选择已保存发票，也可单击“管理发票抬头”进入新增企业/个人发票抬头页面（完整场景请参考[获取发票抬头](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-select-invoice-title)）。
+选择发票抬头Button功能可以帮助开发者调用对应Button组件跳转发票抬头选择页面，供用户完成已保存发票抬头的选择。
 
-## 前提条件
+运行示例代码单击“选择发票抬头”按钮，拉起选择发票抬头页面可选择已保存发票，也可单击“管理发票抬头”进入新增企业/个人发票抬头页面（完整场景请参考[获取发票抬头](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-select-invoice-title)）。
+
+
+
+##### 前提条件
 
 参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-select-invoice-title#开发前提)。
 
-## 开发步骤
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { FunctionalButton, functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+2. 在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -76,6 +85,5 @@ struct Index {
 }
 ```
 
-
 > [!NOTE]
-> openType参数填写"functionalButtonComponentManager.OpenType.CHOOSE_INVOICE_TITLE"指定Button为选择发票抬头类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onChooseInvoiceTitle"。 可使用自定义Modifier设置按钮样式，参考示例。 其他参数请参考：FunctionalButton（Button组件）。
+> openType参数填写"functionalButtonComponentManager.OpenType.CHOOSE_INVOICE_TITLE"指定Button为选择发票抬头类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onChooseInvoiceTitle"。 可使用自定义Modifier设置按钮样式，参考 示例 。 其他参数请参考： FunctionalButton（Button组件） 。

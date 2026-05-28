@@ -6,39 +6,71 @@
 
 游戏场景感知包括：
 
+ - Game Service Kit通过游戏提供的精细化场景信息、配置信息和网络信息等数据，以及当前负载情况使用不同策略优化系统资源调度。
+ - Game Service Kit通过感知游戏设备的系统状态信息（包括温度变化趋势数据、GPU性能信息和CPU性能信息等），并将其反馈给游戏应用，游戏应用可以基于当前设备状态自行调整游戏设置等内容，在系统资源有限的情况下优化玩家的游戏体验。
 
-## 业务流程
 
-![](assets/开发指导(C／C++)
-/file-20260514131909971-0.png) 游戏启动后调用[HMS_GamePerformance_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_init)接口对游戏场景感知进行初始化。 初始化成功后，游戏调用[HMS_GamePerformance_RegisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_registerthermallevelchangedcallback)接口注册设备状态变化事件监听，订阅设备状态变化通知。 游戏调用以下接口向游戏场景感知上报各种游戏信息。 包信息：[HMS_GamePerformance_UpdatePackageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatepackageinfo) 配置信息：[HMS_GamePerformance_UpdateConfigInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateconfiginfo) 场景信息：[HMS_GamePerformance_UpdateSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatesceneinfo) 网络信息：[HMS_GamePerformance_UpdateNetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatenetinfo) 玩家信息：[HMS_GamePerformance_UpdatePlayerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateplayerinfo) 游戏场景感知广播游戏信息给终端系统。 终端系统根据游戏信息进行系统资源调度。 终端系统会将设备状态变化通知游戏场景感知。 游戏场景感知向游戏客户端反馈设备状态变化。 如不再需要订阅，游戏可调用[HMS_GamePerformance_UnregisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterthermallevelchangedcallback)接口或[HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterallthermallevelchangedcallbacks)接口取消设备状态变化事件监听。 游戏调用以下接口向游戏场景感知主动查询设备状态信息。 设备GPU性能信息：[HMS_GamePerformance_QueryGpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querygpuinfo) 设备CPU性能信息：[HMS_GamePerformance_QueryCpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querycpuinfo) 设备温度相关信息：[HMS_GamePerformance_QueryThermalInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querythermalinfo)
+
+##### 业务流程
+
+
+![](assets/开发指导(C／C++)/file-20260514131909971-0.png)
+
+1. 游戏启动后调用[HMS_GamePerformance_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_init)接口对游戏场景感知进行初始化。
+2. 初始化成功后，游戏调用[HMS_GamePerformance_RegisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_registerthermallevelchangedcallback)接口注册设备状态变化事件监听，订阅设备状态变化通知。
+3. 游戏调用以下接口向游戏场景感知上报各种游戏信息。
+
+  
+包信息：[HMS_GamePerformance_UpdatePackageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatepackageinfo)
+4. 配置信息：[HMS_GamePerformance_UpdateConfigInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateconfiginfo)
+5. 场景信息：[HMS_GamePerformance_UpdateSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatesceneinfo)
+6. 网络信息：[HMS_GamePerformance_UpdateNetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatenetinfo)
+7. 玩家信息：[HMS_GamePerformance_UpdatePlayerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateplayerinfo)
+8. 游戏场景感知广播游戏信息给终端系统。
+9. 终端系统根据游戏信息进行系统资源调度。
+10. 终端系统会将设备状态变化通知游戏场景感知。
+11. 游戏场景感知向游戏客户端反馈设备状态变化。
+12. 如不再需要订阅，游戏可调用[HMS_GamePerformance_UnregisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterthermallevelchangedcallback)接口或[HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterallthermallevelchangedcallbacks)接口取消设备状态变化事件监听。
+13. 游戏调用以下接口向游戏场景感知主动查询设备状态信息。
+
+  
+设备GPU性能信息：[HMS_GamePerformance_QueryGpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querygpuinfo)
+14. 设备CPU性能信息：[HMS_GamePerformance_QueryCpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querycpuinfo)
+15. 设备温度相关信息：[HMS_GamePerformance_QueryThermalInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querythermalinfo)
+
 > [!NOTE]
 > Mali系列GPU不支持采集GPU性能信息，调用订阅和查询设备状态信息接口时无法获取设备GPU性能信息。
 
 
-## 接口说明
+
+
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_init) ([GamePerformance_InitParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_initparameters) *initParameters) | 游戏初始化接口，对游戏场景感知进行初始化。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_RegisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_registerthermallevelchangedcallback) ([GamePerformance_DeviceInfoType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_deviceinfotype-1) *types[], size_t size, [GamePerformance_ThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_thermallevelchangedcallback) callback, void *userData) | 注册温度变化回调接口，当达到触发点时，将调用回调函数。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_UpdatePackageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatepackageinfo) ([GamePerformance_PackageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_packageinfo) *packageInfo) | 更新游戏包信息接口，用于上报游戏包信息。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_UpdateConfigInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateconfiginfo) ([GamePerformance_ConfigInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_configinfo) *configInfo) | 更新游戏配置信息接口，用于上报游戏配置信息。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_UpdateSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatesceneinfo) ([GamePerformance_SceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_sceneinfo) *sceneInfo) | 更新游戏场景信息接口，用于上报游戏场景信息。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_UpdateNetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatenetinfo) ([GamePerformance_NetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_netinfo) *netInfo) | 更新游戏网络信息接口，用于上报游戏网络信息。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_UpdatePlayerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateplayerinfo) ([GamePerformance_PlayerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_playerinfo) *playerInfo) | 更新游戏玩家信息接口，用于上报游戏玩家信息。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_UnregisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterthermallevelchangedcallback) ([GamePerformance_ThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_thermallevelchangedcallback) callback) | 取消注册指定温度变化回调接口。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterallthermallevelchangedcallbacks) (void) | 取消注册所有温度变化回调接口。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_QueryThermalInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querythermalinfo) ([GamePerformance_ThermalInfoQueryParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_thermalinfoqueryparameters) *parameters, [GamePerformance_ThermalInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_thermalinfo) **thermalInfo) | 查询温度信息接口。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_QueryGpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querygpuinfo) ([GamePerformance_GpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_gpuinfo) **gpuInfo) | 查询GPU性能信息接口。 |
-| [GamePerformance_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_errorcode-1) [HMS_GamePerformance_QueryCpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querycpuinfo) ([GamePerformance_CpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#gameperformance_cpuinfo) **cpuInfo) | 查询CPU性能信息接口。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_Init (GamePerformance_InitParameters *initParameters) | 游戏初始化接口，对游戏场景感知进行初始化。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_RegisterThermalLevelChangedCallback (GamePerformance_DeviceInfoType *types[], size_t size, GamePerformance_ThermalLevelChangedCallback callback, void *userData) | 注册温度变化回调接口，当达到触发点时，将调用回调函数。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_UpdatePackageInfo (GamePerformance_PackageInfo *packageInfo) | 更新游戏包信息接口，用于上报游戏包信息。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_UpdateConfigInfo (GamePerformance_ConfigInfo *configInfo) | 更新游戏配置信息接口，用于上报游戏配置信息。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_UpdateSceneInfo (GamePerformance_SceneInfo *sceneInfo) | 更新游戏场景信息接口，用于上报游戏场景信息。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_UpdateNetInfo (GamePerformance_NetInfo *netInfo) | 更新游戏网络信息接口，用于上报游戏网络信息。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_UpdatePlayerInfo (GamePerformance_PlayerInfo *playerInfo) | 更新游戏玩家信息接口，用于上报游戏玩家信息。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_UnregisterThermalLevelChangedCallback (GamePerformance_ThermalLevelChangedCallback callback) | 取消注册指定温度变化回调接口。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks (void) | 取消注册所有温度变化回调接口。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_QueryThermalInfo (GamePerformance_ThermalInfoQueryParameters *parameters, GamePerformance_ThermalInfo **thermalInfo) | 查询温度信息接口。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_QueryGpuInfo (GamePerformance_GpuInfo **gpuInfo) | 查询GPU性能信息接口。 |
+| GamePerformance_ErrorCode HMS_GamePerformance_QueryCpuInfo (GamePerformance_CpuInfo **cpuInfo) | 查询CPU性能信息接口。 |
 
 
-## 接入步骤
 
 
-## 在 CMake 脚本中链接动态库
+##### 接入步骤
 
+
+
+##### 在 CMake 脚本中链接动态库
 
 ```text
 target_include_directories(entry PUBLIC ${HMOS_SDK_NATIVE}/sysroot/usr/include)
@@ -47,18 +79,22 @@ target_link_libraries(entry PUBLIC libgame_performance.z.so)
 ```
 
 
-## 导入模块
+
+##### 导入模块
 
 导入Game Service Kit。
+
 ```text
-#include
-#include
+#include <GameServiceKit/game_performance.h>
+#include <cstdlib>
 ```
 
 
-## 初始化
+
+##### 初始化
 
 导入相关模块后，需先调用[HMS_GamePerformance_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_init)接口对游戏场景感知进行初始化。
+
 > [!NOTE]
 > HMS_GamePerformance_Init接口是调用其他接口的前提，如果未初始化或初始化失败，将无法调用其他接口。
 
@@ -76,7 +112,7 @@ if (appVersionSetCode != GAME_PERFORMANCE_SUCCESS) {
     // 异常处理
 }
 HMS_GamePerformance_InitParameters_SetBundleName(initParameters, "com.example.demo");
-
+ 
 // 初始化
 GamePerformance_ErrorCode ret = HMS_GamePerformance_Init(initParameters);
 if (ret != GAME_PERFORMANCE_SUCCESS) {
@@ -88,9 +124,11 @@ HMS_GamePerformance_DestroyInitParameters(&initParameters);
 ```
 
 
-## 注册温度变化回调
+
+##### 注册温度变化回调
 
 调用[HMS_GamePerformance_RegisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_registerthermallevelchangedcallback)接口可以注册温度变化回调，获取设备状态信息的通知，包括温度相关信息、GPU负载和CPU负载信息。
+
 ```text
 // 定义回调函数
 static void onThermalLevelChanged(GamePerformance_DeviceInfo *deviceInfo, void *userData) {
@@ -167,9 +205,11 @@ void registerCallback() {
 ```
 
 
-## 取消注册指定温度变化回调
+
+##### 取消注册指定温度变化回调
 
 调用[HMS_GamePerformance_UnregisterThermalLevelChangedCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterthermallevelchangedcallback)接口可以取消注册指定温度变化回调。
+
 ```text
 // 取消注册
 GamePerformance_ErrorCode ret = HMS_GamePerformance_UnregisterThermalLevelChangedCallback(onThermalLevelChanged);
@@ -179,9 +219,11 @@ if (ret != GAME_PERFORMANCE_SUCCESS) {
 ```
 
 
-## 取消注册所有温度变化回调
+
+##### 取消注册所有温度变化回调
 
 可以通过调用[HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_unregisterallthermallevelchangedcallbacks)接口可以取消注册所有温度变化回调。
+
 ```text
 // 取消所有注册的函数
 GamePerformance_ErrorCode ret = HMS_GamePerformance_UnregisterAllThermalLevelChangedCallbacks();
@@ -191,9 +233,11 @@ if (ret != GAME_PERFORMANCE_SUCCESS) {
 ```
 
 
-## 上报游戏包信息
+
+##### 上报游戏包信息
 
 初始化成功后，可以通过调用[HMS_GamePerformance_UpdatePackageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatepackageinfo)接口上报游戏包信息。
+
 ```text
 GamePerformance_PackageInfo *packageInfo = NULL;
 HMS_GamePerformance_CreatePackageInfo(&packageInfo);
@@ -219,9 +263,11 @@ HMS_GamePerformance_DestroyPackageInfo(&packageInfo);
 ```
 
 
-## 上报游戏配置信息
+
+##### 上报游戏配置信息
 
 初始化成功后，可以通过调用[HMS_GamePerformance_UpdateConfigInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateconfiginfo)接口上报游戏配置信息。
+
 ```text
 GamePerformance_ConfigInfo *configInfo = NULL;
 HMS_GamePerformance_CreateConfigInfo(&configInfo);
@@ -252,9 +298,11 @@ HMS_GamePerformance_DestroyConfigInfo(&configInfo);
 ```
 
 
-## 上报游戏场景信息
+
+##### 上报游戏场景信息
 
 初始化成功后，可以通过调用[HMS_GamePerformance_UpdateSceneInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatesceneinfo)接口上报游戏场景信息。
+
 ```text
 // SetXXX接口的第二个参数均为示例，请替换成实际参数
 GamePerformance_SceneInfo *sceneInfo = NULL;
@@ -295,9 +343,11 @@ HMS_GamePerformance_DestroySceneInfo(&sceneInfo);
 ```
 
 
-## 上报游戏网络信息
+
+##### 上报游戏网络信息
 
 初始化成功后，可以通过调用[HMS_GamePerformance_UpdateNetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updatenetinfo)接口上报游戏网络信息。
+
 ```text
 // SetXXX接口的第二个参数均为示例，请替换成实际参数
 GamePerformance_NetInfo *netInfo = NULL;
@@ -324,9 +374,11 @@ HMS_GamePerformance_DestroyNetInfo(&netInfo);
 ```
 
 
-## 上报游戏玩家信息
+
+##### 上报游戏玩家信息
 
 初始化成功后，可以通过调用[HMS_GamePerformance_UpdatePlayerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_updateplayerinfo)接口上报游戏玩家信息。
+
 ```text
 // SetXXX接口的第二个参数均为示例，请替换成实际参数
 GamePerformance_PlayerInfo *playerInfo = NULL;
@@ -348,9 +400,11 @@ HMS_GamePerformance_DestroyPlayerInfo(&playerInfo);
 ```
 
 
-## 查询GPU性能信息
+
+##### 查询GPU性能信息
 
 除订阅设备状态变化的方式外，也可以通过调用[HMS_GamePerformance_QueryGpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querygpuinfo)接口主动查询设备GPU性能信息。
+
 ```text
 // 查询GPU性能信息
 GamePerformance_GpuInfo *gpuInfo = NULL;
@@ -378,9 +432,11 @@ HMS_GamePerformance_DestroyGpuInfo(&gpuInfo);
 ```
 
 
-## 查询CPU性能信息
+
+##### 查询CPU性能信息
 
 除订阅设备状态变化的方式外，也可以通过调用[HMS_GamePerformance_QueryCpuInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querycpuinfo)接口主动查询设备CPU性能信息。
+
 ```text
 // 查询CPU性能信息
 GamePerformance_CpuInfo *cpuInfo = NULL;
@@ -399,9 +455,11 @@ HMS_GamePerformance_DestroyCpuInfo(&cpuInfo);
 ```
 
 
-## 查询温度相关信息
+
+##### 查询温度相关信息
 
 除订阅设备状态变化的方式外，也可以通过调用[HMS_GamePerformance_QueryThermalInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance#hms_gameperformance_querythermalinfo)接口主动查询设备温控档位、温升趋势、当前的工作电流、系统建议的工作电流和系统建议的最大工作电流。
+
 ```text
 // 查询温度和温升趋势
 GamePerformance_ThermalInfo *thermalInfo = NULL;
@@ -439,6 +497,5 @@ HMS_GamePerformance_DestroyThermalInfo(&thermalInfo);
 HMS_GamePerformance_DestroyThermalInfoQueryParameters(&parameters);
 ```
 
-
 > [!NOTE]
-> 查询温度变化趋势需要历史数据作为计算依据，调用HMS_GamePerformance_QueryThermalInfo接口时请保证设备已启动至少一分钟，否则会返回1010300001错误。
+> 查询温度变化趋势需要历史数据作为计算依据，调用 HMS_GamePerformance_QueryThermalInfo 接口时请保证设备已启动至少一分钟，否则会返回1010300001错误。

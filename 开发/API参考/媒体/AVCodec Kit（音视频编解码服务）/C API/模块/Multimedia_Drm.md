@@ -3,11 +3,9 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-multimedia-drm
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 该功能使第三方应用程序可以自行实现媒体解封装和解复用功能，而不是使用系统提供的。
 
@@ -18,10 +16,9 @@
 **起始版本：** 12
 
 
-## 文件汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 文件汇总
 
 | 名称 | 描述 |
 | --- | --- |
-| [native_cencinfo.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-cencinfo-h) | 声明用于设置解密参数的Native API。 |
+| native_cencinfo.h | 声明用于设置解密参数的Native API。 |

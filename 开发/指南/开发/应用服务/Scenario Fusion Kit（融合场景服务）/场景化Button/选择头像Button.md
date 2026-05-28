@@ -4,23 +4,32 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-chooseavatar
 
-## 场景介绍
+##### 场景介绍
 
-选择头像Button功能可以帮助开发者调用对应Button组件快速拉起头像选择页面，供用户完成华为账号头像或其他头像的选择与展示。 运行示例代码单击头像按钮，拉起选择头像页面来设置头像（完整场景可参考[获取头像昵称](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname)）。
+选择头像Button功能可以帮助开发者调用对应Button组件快速拉起头像选择页面，供用户完成华为账号头像或其他头像的选择与展示。
 
-## 前提条件
+运行示例代码单击头像按钮，拉起选择头像页面来设置头像（完整场景可参考[获取头像昵称](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname)）。
+
+
+
+##### 前提条件
 
 参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-avatar-nickname#开发前提)。
 
-## 开发步骤
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { FunctionalButton, functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+2. 在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -67,6 +76,5 @@ struct Index {
 }
 ```
 
-
 > [!NOTE]
-> openType参数填写"functionalButtonComponentManager.OpenType.CHOOSE_AVATAR"指定Button为选择头像类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onChooseAvatar"。 若成功调用，可通过回调函数中的"avatarUri"获取头像图片的地址。 可使用自定义Modifier设置按钮样式，参考示例。 其他参数请参考：FunctionalButton（Button组件）。
+> openType参数填写"functionalButtonComponentManager.OpenType.CHOOSE_AVATAR"指定Button为选择头像类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onChooseAvatar"。 若成功调用，可通过回调函数中的"avatarUri"获取头像图片的地址。 可使用自定义Modifier设置按钮样式，参考 示例 。 其他参数请参考： FunctionalButton（Button组件） 。

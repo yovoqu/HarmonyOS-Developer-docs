@@ -1,16 +1,19 @@
 # 使用HTTP访问网络
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request
 
-## 场景介绍
+##### 场景介绍
 
 应用通过HTTP发起一个数据请求，支持常见的GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT方法。当前提供了2种HTTP请求方式，若请求发送或接收的数据量较少，可使用[HttpRequest.request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request)，若是大文件的上传或者下载，且关注数据发送和接收进度，可使用HTTP请求流式传输[HttpRequest.requestInstream](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#requestinstream10)。从API version 22开始，若是需要在"HTTP请求-响应"生命周期中的关键节点插入自定义逻辑，可以使用[HTTP拦截器](#http拦截器)。
+
 > [!NOTE]
-> HTTP模块提供了标准的HTTP网络服务能力，Remote Communication Kit（远场通信服务）提供了场景化的网络服务能力，详见Remote Communication Kit简介，应用可根据自己的需要选择使用。
+> HTTP模块提供了标准的HTTP网络服务能力，Remote Communication Kit（远场通信服务）提供了场景化的网络服务能力，详见 Remote Communication Kit简介 ，应用可根据自己的需要选择使用。
+
 
 当前HTTP请求支持的场景如下，以下功能对应的选项可以在HTTP请求的[HttpRequestOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httprequestoptions)中进行设置：
+
 | 功能分类 | 功能名称 | 功能描述 | 开始支持的版本 |
 | --- | --- | --- | --- |
 | 基础功能 | 设置请求方式 | 支持GET、POST、HEAD、PUT、DELETE、TRACE、CONNECT、OPTIONS方法，默认为GET。 | API version 6 |
@@ -37,29 +40,42 @@
 | 证书验证 | 设置安全连接期间的服务器身份验证配置信息 | 设置安全连接期间的服务器身份验证配置。 | API version 18 |
 
 
-## 发起HTTP数据请求
 
+
+##### 发起HTTP数据请求
 
 > [!NOTE]
-> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需在页面中使用UIAbilityContext提供的能力，请参见获取UIAbility的上下文信息。
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需在页面中使用UIAbilityContext提供的能力，请参见 获取UIAbility的上下文信息 。
 
-完整示例代码见：[Http_case](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_Datatransmission/HTTP_case) 导入HTTP一般数据请求所需模块
-```text
+
+完整示例代码见：[Http_case](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_Datatransmission/HTTP_case)
+1. 导入HTTP一般数据请求所需模块
+
+  
+```ArkTS
 import { http } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-创建HttpRequest对象 调用[createHttp()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpcreatehttp)方法，创建HttpRequest对象。
-```text
+2. 创建HttpRequest对象
+
+  调用[createHttp()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpcreatehttp)方法，创建HttpRequest对象。
+
+  
+```ArkTS
 let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
 // 每一个httpRequest对应一个HTTP请求任务，不可复用。
 let httpRequest = http.createHttp();
 ```
 
-订阅HTTP响应头事件 调用该对象的[on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#onheadersreceive8)方法，订阅HTTP响应头事件，此接口会比request请求先返回。可以根据业务需要订阅此消息。
-```text
+3. 订阅HTTP响应头事件
+
+  调用该对象的[on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#onheadersreceive8)方法，订阅HTTP响应头事件，此接口会比request请求先返回。可以根据业务需要订阅此消息。
+
+  
+```ArkTS
 // 用于订阅HTTP响应头，此接口会比request请求先返回。可以根据业务需要订阅此消息。
 // 从API 8开始，使用on('headersReceive', Callback)替代on('headerReceive', AsyncCallback)。
 httpRequest.on('headersReceive', (header) => {
@@ -67,8 +83,12 @@ httpRequest.on('headersReceive', (header) => {
 });
 ```
 
-发起HTTP请求，解析服务器响应事件 调用该对象的[request()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httprequest)方法，传入HTTP请求的url地址和可选参数，发起网络请求，按照实际业务需要，解析返回结果。
-```text
+4. 发起HTTP请求，解析服务器响应事件
+
+  调用该对象的[request()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httprequest)方法，传入HTTP请求的url地址和可选参数，发起网络请求，按照实际业务需要，解析返回结果。
+
+  
+```ArkTS
 httpRequest.request(
   // 填写HTTP请求的URL地址，可以带参数也可以不带参数。URL地址需要开发者自定义。请求的参数可以在extraData中指定
   'EXAMPLE_URL',
@@ -151,37 +171,60 @@ httpRequest.request(
 );
 ```
 
-取消订阅HTTP响应头事件 调用该对象的[off()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#offheadersreceive8)方法，取消订阅HTTP响应头事件。
+5. 取消订阅HTTP响应头事件
+
+  调用该对象的[off()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#offheadersreceive8)方法，取消订阅HTTP响应头事件。
+
+  
 ```text
 // 在不需要该回调信息时，需要取消订阅HTTP响应头事件，该方法调用的时机，可以参考步骤4中的示例代码。
 httpRequest.off('headersReceive');
 ```
 
-调用destroy()方法销毁 当该请求使用完毕时，调用[destroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#destroy)方法销毁。
+6. 调用destroy()方法销毁
+
+  当该请求使用完毕时，调用[destroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#destroy)方法销毁。
+
+  
 ```text
 // 当该请求使用完毕时，调用destroy方法主动销毁，该方法调用的时机，可以参考步骤4中的示例代码。
 httpRequest.destroy();
 ```
 
 
-## 发起HTTP流式传输请求
 
-HTTP流式传输是指在处理HTTP响应时，可以一次只处理响应内容的一小部分，而不是一次性将整个响应加载到内存，这对于处理大文件、实时数据流等场景非常有用。 完整示例代码见：[Http_case](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_Datatransmission/HTTP_case) 导入HTTP流式传输所需模块
-```text
+
+##### 发起HTTP流式传输请求
+
+HTTP流式传输是指在处理HTTP响应时，可以一次只处理响应内容的一小部分，而不是一次性将整个响应加载到内存，这对于处理大文件、实时数据流等场景非常有用。
+
+完整示例代码见：[Http_case](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_Datatransmission/HTTP_case)
+1. 导入HTTP流式传输所需模块
+
+  
+```ArkTS
 import { http } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-创建HTTP流式传输HttpRequest对象 调用[createHttp()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpcreatehttp)方法，创建HttpRequest对象。
-```text
+2. 创建HTTP流式传输HttpRequest对象
+
+  调用[createHttp()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpcreatehttp)方法，创建HttpRequest对象。
+
+  
+```ArkTS
 // 每一个httpRequest对应一个HTTP请求任务，不可复用。
 let httpRequest = http.createHttp();
 ```
 
-按需订阅HTTP流式响应事件 服务器响应的数据在dataReceive回调中返回，可通过订阅该信息获取服务器响应的数据，其他流式响应事件可按需进行订阅。
-```text
+3. 按需订阅HTTP流式响应事件
+
+  服务器响应的数据在dataReceive回调中返回，可通过订阅该信息获取服务器响应的数据，其他流式响应事件可按需进行订阅。
+
+  
+```ArkTS
 // 用于订阅HTTP流式响应数据接收事件。
 let res = new ArrayBuffer(0);
 // ...
@@ -211,8 +254,10 @@ httpRequest.on('dataSendProgress', (data: http.DataSendProgressInfo) => {
 });
 ```
 
-发起HTTP流式请求，获取服务端数据
-```text
+4. 发起HTTP流式请求，获取服务端数据
+
+  
+```ArkTS
 let streamInfo: http.HttpRequestOptions = {
   method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET，用于向服务器获取数据，而POST方法用于向服务器上传数据。
   // 开发者根据自身业务需要添加header字段。
@@ -246,8 +291,12 @@ httpRequest.requestInStream('EXAMPLE_URL', streamInfo)
   })
 ```
 
-取消步骤3中订阅HTTP流式响应事件，并调用destroy()方法销毁流式HTTP请求 调用该对象的[off()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#offdatareceive10)方法，取消订阅步骤3中的事件，并且当该请求使用完毕时，调用[destroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#destroy)方法销毁，该方法调用的时机，可以参考步骤4中的示例代码。
-```text
+5. 取消步骤3中订阅HTTP流式响应事件，并调用destroy()方法销毁流式HTTP请求
+
+  调用该对象的[off()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#offdatareceive10)方法，取消订阅步骤3中的事件，并且当该请求使用完毕时，调用[destroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#destroy)方法销毁，该方法调用的时机，可以参考步骤4中的示例代码。
+
+  
+```ArkTS
 public destroyRequest(httpRequest: http.HttpRequest) {
   // 取消订阅HTTP流式响应数据接收事件。
   httpRequest.off('dataReceive');
@@ -263,10 +312,15 @@ public destroyRequest(httpRequest: http.HttpRequest) {
 ```
 
 
-## 通过HTTP发起WebDAV请求
 
-从API version 23开始，HTTP请求支持WebDAV协议的文件访问，WebDAV是基于HTTP协议的扩展，支持对远程服务器上的文件进行创建、读取、更新、删除、移动、复制(MKCOL、GET、PUT、DELETE、MOVE、COPY)等操作。 完整示例代码见：[Http_case](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_Datatransmission/HTTP_case)
-```text
+
+##### 通过HTTP发起WebDAV请求
+
+从API version 23开始，HTTP请求支持WebDAV协议的文件访问，WebDAV是基于HTTP协议的扩展，支持对远程服务器上的文件进行创建、读取、更新、删除、移动、复制(MKCOL、GET、PUT、DELETE、MOVE、COPY)等操作。
+
+完整示例代码见：[Http_case](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/NetWork_Kit/NetWorkKit_Datatransmission/HTTP_case)
+
+```ArkTS
 import { http } from '@kit.NetworkKit';
 import { ComponentId } from '../common/CommonConstant';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -484,7 +538,7 @@ struct Index {
             },
             (err: Error, data: http.HttpResponse) => {
               if (!err) {
-                let lockTokenRegex = /(urn:uuid:[a-fA-F0-9\-]+)/;
+                let lockTokenRegex = /<D:href>(urn:uuid:[a-fA-F0-9\-]+)<\/D:href>/;
                 let statusMatch: RegExpMatchArray | null = (data.result as string).match(lockTokenRegex);
                 if (statusMatch) {
                   this.lockToken = statusMatch[1];
@@ -556,25 +610,124 @@ struct Index {
 ```
 
 
-## 配置证书校验
+
+##### 配置证书校验
 
 当应用使用HTTPS协议时，涉及证书相关配置。面向互联网用户提供服务的应用仅需信任系统预置的CA证书。当前HTTP模块已默认信任系统预置的CA证书，无需特别设置。如果应用需要锁定证书，只信任开发者特别指定的证书，或者需要跳过证书校验，可以参考以下说明进行配置。
 
-## TLS客户端证书验证流程
 
-在TLS握手过程中，客户端验证服务端证书以确保连接可信。服务端证书通常包括域名证书和中间CA证书。 **证书链组成** 证书链采用层级信任结构：服务端证书 ← 中间CA证书 ← 根CA证书。其中←表示签发与信任关系，证书链必须完整追溯到可信根证书。 **验证流程** 客户端接收证书链后执行三级验证： 证书链完整性验证 从服务端证书开始逐级验证数字签名，确保每一级证书均由上一级有效签发，以形成完整的信任链条。 根证书可信性验证 在证书存储库中查找根证书是否存在。 存储库来源包括： 系统预置证书。 应用信任证书。 本次请求指定的CA证书。 可通过相关API(请参考下方：**配置参考**)指定应用级和请求级信任证书。 证书内容有效性验证 证书有效期检查。 域名匹配验证：主题备用名称(Subject Alternative Name, SAN)、通用名称(Common Name, CN)与访问域名一致。 证书吊销状态检查：证书吊销列表(Certificate Revocation List, CRL)、在线证书状态协议(Online Certificate Status Protocol, OCSP)。 验证结果 验证成功：继续TLS握手建立安全连接。 验证失败：终止连接并提示错误信息。 此流程确保只有持有有效且可信证书的服务端才能建立安全连接。 **配置参考** 配置应用信任证书（具体配置方法可参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)）。 配置请求级CA证书： 通过[httprequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httprequestoptions)的caPath和caData字段配置HTTPS请求CA证书。 通过[websocketrequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的caPath字段配置WebSocket请求CA证书。 通过[tlssecureoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tlssecureoptions9)的ca字段指定TLS请求CA证书。 配置跳过证书校验： HTTPS：通过[remoteValidation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#remotevalidation18) = 'skip' 配置。 WebSocket：通过[websocketrequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的skipServerCertVerification = false 配置。 TLSSocket：通过[tlsconnectoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tlsconnectoptions9)的skipRemoteValidation = false 配置。 **调试参考** 通过API校验指定证书是否可信：可参考[networkSecurity.certVerification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-networksecurity#networksecuritycertverification)。 通过openssl命令校验域名服务器证书链是否被系统信任：hdc shell openssl s_client -connect 主机名:端口 -CApath /etc/security/certificates -brief。若出现Verification: OK说明证书链可信。将-trace -showcerts替换为-brief可以打印详细的TLS握手信息。
 
-## 证书锁定
+##### TLS客户端证书验证流程
 
-可以通过预置应用级证书，或者预置证书公钥哈希值的方式来进行证书锁定，即只有开发者特别指定的证书才能正常建立HTTPS连接。 两种方式都是在配置文件中配置的，配置文件在APP中的路径是：src/main/resources/base/profile/network_config.json。在该配置中，可以为预置的证书与网络服务器建立对应关系。 如果不知道服务器域名的证书，可以通过以下方式访问该域名获取证书，注意把www.example.com改成想要获取域名证书的域名，www.example.com.pem改成想保存的证书文件名：
+在TLS握手过程中，客户端验证服务端证书以确保连接可信。服务端证书通常包括域名证书和中间CA证书。
+
+**证书链组成**
+
+证书链采用层级信任结构：服务端证书 ← 中间CA证书 ← 根CA证书。其中←表示签发与信任关系，证书链必须完整追溯到可信根证书。
+
+**验证流程**
+
+客户端接收证书链后执行三级验证：
+1. 证书链完整性验证
+
+  
+ - 从服务端证书开始逐级验证数字签名，确保每一级证书均由上一级有效签发，以形成完整的信任链条。
+
+2. 根证书可信性验证
+
+  
+在证书存储库中查找根证书是否存在。
+
+3. 存储库来源包括：         
+系统预置证书。
+
+4. 应用信任证书。
+
+5. 本次请求指定的CA证书。
+
+6. 可通过相关API(请参考下方：**配置参考**)指定应用级和请求级信任证书。
+
+7. 证书内容有效性验证
+
+  
+证书有效期检查。
+
+8. 域名匹配验证：主题备用名称(Subject Alternative Name, SAN)、通用名称(Common Name, CN)与访问域名一致。
+
+9. 证书吊销状态检查：证书吊销列表(Certificate Revocation List, CRL)、在线证书状态协议(Online Certificate Status Protocol, OCSP)。
+
+  验证结果
+
+  
+验证成功：继续TLS握手建立安全连接。
+ - 验证失败：终止连接并提示错误信息。
+
+
+此流程确保只有持有有效且可信证书的服务端才能建立安全连接。
+
+**配置参考**
+1. 配置应用信任证书（具体配置方法可参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)）。
+2. 配置请求级CA证书：       
+ - 通过[httprequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httprequestoptions)的caPath和caData字段配置HTTPS请求CA证书。
+
+3. 通过[websocketrequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的caPath字段配置WebSocket请求CA证书。
+
+4. 通过[tlssecureoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tlssecureoptions9)的ca字段指定TLS请求CA证书。
+
+5. 配置跳过证书校验：       
+HTTPS：通过[remoteValidation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#remotevalidation18) = 'skip' 配置。
+
+6. WebSocket：通过[websocketrequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的skipServerCertVerification = false 配置。
+
+7. TLSSocket：通过[tlsconnectoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tlsconnectoptions9)的skipRemoteValidation = false 配置。
+
+  **调试参考**
+
+  
+通过API校验指定证书是否可信：可参考[networkSecurity.certVerification](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-networksecurity#networksecuritycertverification)。
+ - 通过openssl命令校验域名服务器证书链是否被系统信任：hdc shell openssl s_client -connect 主机名:端口 -CApath /etc/security/certificates -brief。若出现Verification: OK说明证书链可信。将-trace -showcerts替换为-brief可以打印详细的TLS握手信息。
+
+
+
+
+##### 证书锁定
+
+可以通过预置应用级证书，或者预置证书公钥哈希值的方式来进行证书锁定，即只有开发者特别指定的证书才能正常建立HTTPS连接。
+
+两种方式都是在配置文件中配置的，配置文件在APP中的路径是：src/main/resources/base/profile/network_config.json。在该配置中，可以为预置的证书与网络服务器建立对应关系。
+
+如果不知道服务器域名的证书，可以通过以下方式访问该域名获取证书，注意把www.example.com改成想要获取域名证书的域名，www.example.com.pem改成想保存的证书文件名：
+
 ```text
 openssl s_client -servername www.example.com -connect www.example.com:443 \
-     www.example.com.pem
+    < /dev/null | sed -n "/-----BEGIN/,/-----END/p" > www.example.com.pem
 ```
 
-如果你的环境是Windows系统，需要注意： 将/dev/null替换成NUL。 和Linux的OpenSSL表现可能不同，OpenSSL可能会等待用户输入才会退出，按Enter键即可。 如果没有sed命令，将输出中从-----BEGIN CERTIFICATE-----到-----END CERTIFICATE-----之间的部分复制下来保存即可（复制部分包括这两行）。 **预置应用级证书** 直接把证书原文件预置在APP中。目前支持crt和pem格式的证书文件。
-![](assets/使用HTTP访问网络/file-20260514131238563-0.png)
-当前ohos.net.http和Image组件的证书锁定，会匹配证书链上所有证书的哈希值，如果服务器更新了任意一本证书，都会导致校验失败。如果服务器出现了更新证书的情况，APP版本应当随之更新并推荐消费者尽快升级APP版本，否则可能导致联网失败。 **预置证书公钥哈希值** 通过在配置中指定域名证书公钥的哈希值，只允许使用公钥哈希值匹配的域名证书访问此域名。 域名证书的公钥哈希值可以用如下的命令计算。假设域名证书是通过上面的OpenSSL命令获得的，并保存在www.example.com.pem文件。#开头的行是注释，可以不用输入：
+如果你的环境是Windows系统，需要注意：
+
+ - 将/dev/null替换成NUL。
+ - 和Linux的OpenSSL表现可能不同，OpenSSL可能会等待用户输入才会退出，按Enter键即可。
+ - 如果没有sed命令，将输出中从-----BEGIN CERTIFICATE-----到-----END CERTIFICATE-----之间的部分复制下来保存即可（复制部分包括这两行）。
+
+
+**预置应用级证书**
+
+直接把证书原文件预置在APP中。目前支持crt和pem格式的证书文件。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/nRFahURRReWJM5OUjDZucw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014609Z&HW-CC-Expire=86400&HW-CC-Sign=2130100BFCDC556552BC7DC267FBEF8C6AAE6252B725944D446877F3F69A5E15)
+
+
+当前ohos.net.http和Image组件的证书锁定，会匹配证书链上所有证书的哈希值，如果服务器更新了任意一本证书，都会导致校验失败。如果服务器出现了更新证书的情况，APP版本应当随之更新并推荐消费者尽快升级APP版本，否则可能导致联网失败。
+
+
+
+**预置证书公钥哈希值**
+
+通过在配置中指定域名证书公钥的哈希值，只允许使用公钥哈希值匹配的域名证书访问此域名。
+
+域名证书的公钥哈希值可以用如下的命令计算。假设域名证书是通过上面的OpenSSL命令获得的，并保存在www.example.com.pem文件。#开头的行是注释，可以不用输入：
+
 ```text
 # 从证书中提取出公钥
 openssl x509 -in www.example.com.pem -pubkey -noout > www.example.com.pubkey.pem
@@ -584,8 +737,11 @@ openssl asn1parse -noout -inform pem -in www.example.com.pubkey.pem -out www.exa
 openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 ```
 
-**JSON配置文件示例** 预置应用级证书的配置例子如下（具体配置路径可参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)）：
-```text
+**JSON配置文件示例**
+
+预置应用级证书的配置例子如下（具体配置路径可参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)）：
+
+```json
 {
   "network-security-config": {
     "base-config": {
@@ -615,7 +771,8 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 ```
 
 预置证书公钥哈希值的配置例子如下：
-```text
+
+```json
 {
   "network-security-config": {
     "domain-config": [
@@ -642,7 +799,8 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 ```
 
 证书锁定的配置例子如下:
-```text
+
+```json
 {
   "network-security-config": {
     "domain-config": [
@@ -671,6 +829,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 ```
 
 **各个字段含义:**
+
 | 字段 | 类型 | 说明 |
 | --- | --- | --- |
 | network-security-config | object | 网络安全配置。可包含0或者1个base-config，必须包含1个domain-config。 |
@@ -687,10 +846,13 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 | digest | string | 指示公钥哈希。 |
 
 
-## 配置不信任用户安装的CA证书
+
+
+##### 配置不信任用户安装的CA证书
 
 系统默认信任系统预置的CA证书和用户安装的CA证书，可配置不信任用户安装的CA证书提升安全性。配置不信任用户安装的CA证书可以在src/main/resources/base/profile/network_config.json进行配置，更多网络连接安全相关的配置可以参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)。
-```text
+
+```json
 {
   "network-security-config": {
     ... ...
@@ -701,14 +863,16 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 ```
 
 
-## 明文HTTP访问权限配置说明
+
+##### 明文HTTP访问权限配置说明
 
 该配置用于控制HTTP请求是否允许以明文形式传输。以下为明文HTTP访问权限的配置示例（含应用、组件及域名级配置），以及各字段的详细含义说明。更多网络连接安全相关的配置可以参考[网络连接安全配置](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security#section5454123841911)。
+
 > [!NOTE]
 > 配置优先级规则：组件配置（component-config）> 域名配置（domain-config）> 基础配置（base-config），优先级高的配置会覆盖优先级低的规则。
 
 
-```text
+```json
 // src/main/resources/base/profile/network_config.json
 {
   "network-security-config": {
@@ -738,6 +902,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 ```
 
 **各个字段含义:**
+
 | 字段 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | base-config | array | 否 | 指示应用程序范围的明文配置。优先级最低。 |
@@ -746,53 +911,70 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 | include-subdomains | boolean | 否 | 配置为true时，name支持正则匹配。配置为false时，name不支持正则匹配。注意：每增加1000条域名配置，正则匹配的延迟将增加大约10至15毫秒。当域名配置数量超过10000条时，正则匹配会带来较高耗时。默认为true。 |
 | name | string | 否 | 配置主域名。 |
 | component-config20+ | array | 否 | 指示每个组件的明文配置。优先级最高。 |
-| Request | boolean | 否 | [Request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request)从API version 18开始默认支持明文HTTP功能，不可配置。从API version 20开始支持配置开启或关闭明文HTTP功能 。true表示支持，false表示不支持，默认为true。 |
+| Request | boolean | 否 | Request从API version 18开始默认支持明文HTTP功能，不可配置。从API version 20开始支持配置开启或关闭明文HTTP功能 。true表示支持，false表示不支持，默认为true。 |
 | Network Kit | boolean | 否 | Network Kit从API version 18开始默认支持明文HTTP功能，不可配置。从API version 20开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为true。 |
 | ArkWeb | boolean | 否 | ArkWeb从API version 20开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为false。 |
 | Media Kit | boolean | 否 | Media Kit从API version 23开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为false。 |
 | Remote Communication Kit | boolean | 否 | Remote Communication Kit从API version 23开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为false。 |
 
 
-## HTTP拦截器
+
+
+##### HTTP拦截器
 
 从API version 22开始，HTTP拦截器模块提供了一种强大且可定制的机制，允许开发者在"HTTP请求-响应"生命周期中的关键节点插入自定义逻辑。通过拦截器，开发者可以无需修改核心网络代码即可实现修改请求头/体、缓存策略、重定向处理、网络监控、响应预处理等全局功能。
 
-## 拦截点说明
 
+
+##### 拦截点说明
 
 | 拦截点名称 | 位置说明 | 拦截点interceptorHandle接口的出参和入参 |
 | --- | --- | --- |
-| 初始请求拦截点（INITIAL_REQUEST） | 初始请求组装完成后，这是第一个拦截点，适合用于添加全局参数、签名、加密请求体。 | 当出参为true时，此时入参中的request值为原始值，可以修改，response值为空值，修改无效。          当出参为false时，此时入参中的request值为原始值，修改无效，response值为空值，可以修改。 |
-| 网络连接拦截点（CONNECT_NETWORK） | 在网络连接建立之前，例如TCP/TLS连接。适合进行网络链路相关的操作，如记录网络连接开始时间。 | 当出参为true时，此时入参中的request值为原始值，可以修改，response值为空值，修改无效。          当出参为false时，此时入参中的request值为原始值，修改无效，response值为空值，可以修改。 |
-| 缓存拦截点（CACHE_CHECKED） | 缓存检查逻辑命中缓存之后，已确认存在可用缓存。适用于查看缓存值或者修改查询到的缓存结果。 | 当出参为true时，此时入参中的request值为原始值，修改无效，response值为原始值，修改无效。          当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
-| 重定向拦截点（REDIRECTION） | 收到重定向响应并准备发送新请求之前。允许修改重定向的目标URL或请求信息。 | 当出参为true时，此时入参中的request值为原始值，可以修改URL，response值为原始值，修改无效。          当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
-| 最终响应拦截点（FINAL_RESPONSE） | 获得最终响应之后。最后一个拦截点，适合对响应进行统一解密、解析、日志记录、错误处理。 | 当出参为true时，此时入参中的request值为原始值，修改无效，response值为原始值，修改无效。          当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
+| 初始请求拦截点（INITIAL_REQUEST） | 初始请求组装完成后，这是第一个拦截点，适合用于添加全局参数、签名、加密请求体。 | 当出参为true时，此时入参中的request值为原始值，可以修改，response值为空值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为空值，可以修改。 |
+| 网络连接拦截点（CONNECT_NETWORK） | 在网络连接建立之前，例如TCP/TLS连接。适合进行网络链路相关的操作，如记录网络连接开始时间。 | 当出参为true时，此时入参中的request值为原始值，可以修改，response值为空值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为空值，可以修改。 |
+| 缓存拦截点（CACHE_CHECKED） | 缓存检查逻辑命中缓存之后，已确认存在可用缓存。适用于查看缓存值或者修改查询到的缓存结果。 | 当出参为true时，此时入参中的request值为原始值，修改无效，response值为原始值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
+| 重定向拦截点（REDIRECTION） | 收到重定向响应并准备发送新请求之前。允许修改重定向的目标URL或请求信息。 | 当出参为true时，此时入参中的request值为原始值，可以修改URL，response值为原始值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
+| 最终响应拦截点（FINAL_RESPONSE） | 获得最终响应之后。最后一个拦截点，适合对响应进行统一解密、解析、日志记录、错误处理。 | 当出参为true时，此时入参中的request值为原始值，修改无效，response值为原始值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
 
-**顺序执行**：拦截器严格按照INITIAL_REQUEST->CACHE_CHECKED->NETWORK_CONNECT->(REDIRECTION)->FINAL_RESPONSE的顺序被触发调用。（括号中表示如果请求涉及重定向，则会走重定向拦截器） **重定向循环**：这是流程中最关键的一个循环。当REDIRECTION拦截器被触发后，流程会跳回到NETWORK_CONNECT阶段，重新开始一个新的“请求周期”，直到不再发生重定向为止。这确保了重定向后的新请求也能被所有必要的拦截器（如认证头添加、日志记录等）正确处理。 **缓存拦截**：CACHE_CHECKED是一个决策点。如果缓存存在且有效，请求会在此处经过CACHE_CHECKED处理后，直接跳转到FINAL_RESPONSE阶段返回缓存数据，从而避免不必要的网络操作。
 
-## HTTP拦截器开发步骤
+**顺序执行**：拦截器严格按照INITIAL_REQUEST->CACHE_CHECKED->NETWORK_CONNECT->(REDIRECTION)->FINAL_RESPONSE的顺序被触发调用。（括号中表示如果请求涉及重定向，则会走重定向拦截器）
 
-导入HTTP请求拦截器所需模块。
-```text
+**重定向循环**：这是流程中最关键的一个循环。当REDIRECTION拦截器被触发后，流程会跳回到NETWORK_CONNECT阶段，重新开始一个新的“请求周期”，直到不再发生重定向为止。这确保了重定向后的新请求也能被所有必要的拦截器（如认证头添加、日志记录等）正确处理。
+
+**缓存拦截**：CACHE_CHECKED是一个决策点。如果缓存存在且有效，请求会在此处经过CACHE_CHECKED处理后，直接跳转到FINAL_RESPONSE阶段返回缓存数据，从而避免不必要的网络操作。
+
+
+
+##### HTTP拦截器开发步骤
+1. 导入HTTP请求拦截器所需模块。
+
+  
+```ArkTS
 import { http } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-调用[createHttp()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpcreatehttp)方法，创建HttpRequest对象。
-```text
+2. 调用[createHttp()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpcreatehttp)方法，创建HttpRequest对象。
+
+  
+```ArkTS
 // 创建http请求
 let httpRequest: http.HttpRequest = http.createHttp();
 ```
 
-调用[HttpInterceptorChain()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpinterceptorchain22)方法，创建拦截器链对象。
-```text
+3. 调用[HttpInterceptorChain()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#httpinterceptorchain22)方法，创建拦截器链对象。
+
+  
+```ArkTS
 // 创建拦截器链
 let chain: http.HttpInterceptorChain = new http.HttpInterceptorChain();
 ```
 
-创建拦截器类实现http.HttpInterceptor接口。
-```text
+4. 创建拦截器类实现http.HttpInterceptor接口。
+
+  
+```ArkTS
 class InitialHttpInterceptor implements http.HttpInterceptor {
   interceptorType: http.InterceptorType = http.InterceptorType.INITIAL_REQUEST;
   result: boolean = false;
@@ -802,7 +984,7 @@ class InitialHttpInterceptor implements http.HttpInterceptor {
     this.result = result;
   }
 
-  interceptorHandle(reqContext: http.HttpRequestContext, rspContext: http.HttpResponse): Promise {
+  interceptorHandle(reqContext: http.HttpRequestContext, rspContext: http.HttpResponse): Promise<http.ChainContinue> {
     // 命中拦截器后对请求报文与请求响应操作
     hilog.info(0xFF00, 'httpNormalRequest', `INITIAL_REQUEST, Original req: ${JSON.stringify(reqContext)}`);
     hilog.info(0xFF00, 'httpNormalRequest', `INITIAL_REQUEST, Original rsp: ${JSON.stringify(rspContext)}`);
@@ -831,7 +1013,7 @@ class NetworkHttpInterceptor implements http.HttpInterceptor {
     this.result = result;
   }
 
-  interceptorHandle(reqContext: http.HttpRequestContext, rspContext: http.HttpResponse): Promise {
+  interceptorHandle(reqContext: http.HttpRequestContext, rspContext: http.HttpResponse): Promise<http.ChainContinue> {
     // 命中拦截器后对请求报文与请求响应操作
     hilog.info(0xFF00, 'httpNormalRequest', `NETWORK_CONNECT, Original req: ${JSON.stringify(reqContext)}`);
     hilog.info(0xFF00, 'httpNormalRequest', `NETWORK_CONNECT, Original rsp: ${JSON.stringify(rspContext)}`);
@@ -860,7 +1042,7 @@ class FinalHttpInterceptor implements http.HttpInterceptor {
     this.result = result;
   }
 
-  interceptorHandle(reqContext: http.HttpRequestContext, rspContext: http.HttpResponse): Promise {
+  interceptorHandle(reqContext: http.HttpRequestContext, rspContext: http.HttpResponse): Promise<http.ChainContinue> {
     // 命中拦截器后对请求报文与请求响应操作
     hilog.info(0xFF00, 'httpNormalRequest', `FINAL_RESPONSE, Original req: ${JSON.stringify(reqContext)}`);
     hilog.info(0xFF00, 'httpNormalRequest', `FINAL_RESPONSE, Original rsp: ${JSON.stringify(rspContext)}`);
@@ -881,8 +1063,10 @@ class FinalHttpInterceptor implements http.HttpInterceptor {
 }
 ```
 
-调用[addChain()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#addchain22)方法，将需要的拦截器实例加入到拦截器链中。
-```text
+5. 调用[addChain()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#addchain22)方法，将需要的拦截器实例加入到拦截器链中。
+
+  
+```ArkTS
 // 创建所需要的拦截器对象,将拦截器对象加入拦截器链中
 chain.addChain([
   new InitialHttpInterceptor(http.InterceptorType.INITIAL_REQUEST, true),
@@ -891,24 +1075,30 @@ chain.addChain([
 ]);
 ```
 
-调用[apply()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#apply22)方法，将当前配置好的拦截器链附加到httpRequest中。
-```text
+6. 调用[apply()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#apply22)方法，将当前配置好的拦截器链附加到httpRequest中。
+
+  
+```ArkTS
 // 将当前配置好的拦截器链附加到httpRequest中
 chain.apply(httpRequest);
 ```
 
-创建请求可选项。
-```text
+7. 创建请求可选项。
+
+  
+```ArkTS
 // 创建请求可选项
 let options: http.HttpRequestOptions = {
   method: http.RequestMethod.POST,
-  header: { 'content-type': 'text/html' } as Record,
-  extraData: { 'context': 'BODY' } as Record,
+  header: { 'content-type': 'text/html' } as Record<string, string>,
+  extraData: { 'context': 'BODY' } as Record<string, string>,
 };
 ```
 
-调用该对象的[request()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request-1)方法，传入HTTP请求的URL地址和可选参数，发起网络请求，按照实际业务需要，解析服务器响应事件。
-```text
+8. 调用该对象的[request()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#request-1)方法，传入HTTP请求的URL地址和可选参数，发起网络请求，按照实际业务需要，解析服务器响应事件。
+
+  
+```ArkTS
 // 发起请求
 httpRequest.request(EXAMPLE_URL, options, (err: BusinessError, res: http.HttpResponse) => {
   if (err) {
@@ -922,8 +1112,10 @@ httpRequest.request(EXAMPLE_URL, options, (err: BusinessError, res: http.HttpRes
 });
 ```
 
-调用[destroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#destroy)方法销毁http请求。
-```text
+9. 调用[destroy()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#destroy)方法销毁http请求。
+
+  
+```ArkTS
 // 销毁请求
 httpRequest.destroy();
 ```

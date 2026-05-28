@@ -1,13 +1,11 @@
 # oh_window.h
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义窗口管理的相关接口，主要用于设置和获取指定窗口的属性，以及设置指定窗口的状态栏样式、导航栏样式。
 
@@ -22,49 +20,55 @@
 **相关模块：** [WindowManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 函数
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [int32_t OH_WindowManager_SetWindowStatusBarEnabled(int32_t windowId, bool enabled, bool enableAnimation)](#oh_windowmanager_setwindowstatusbarenabled) | - | 设置主窗口是否显示状态栏。 |
-| [int32_t OH_WindowManager_SetWindowStatusBarColor(int32_t windowId, int32_t color)](#oh_windowmanager_setwindowstatusbarcolor) | - | 设置主窗口的状态栏内容颜色。 |
-| [int32_t OH_WindowManager_SetWindowNavigationBarEnabled(int32_t windowId, bool enabled, bool enableAnimation)](#oh_windowmanager_setwindownavigationbarenabled) | - | 设置主窗口是否显示导航栏。 |
-| [int32_t OH_WindowManager_GetWindowAvoidArea(int32_t windowId, WindowManager_AvoidAreaType type, WindowManager_AvoidArea* avoidArea)](#oh_windowmanager_getwindowavoidarea) | - | 获取指定窗口的避让区域。 |
-| [int32_t OH_WindowManager_IsWindowShown(int32_t windowId, bool* isShow)](#oh_windowmanager_iswindowshown) | - | 判断指定窗口是否显示。 |
-| [int32_t OH_WindowManager_ShowWindow(int32_t windowId)](#oh_windowmanager_showwindow) | - | 显示指定窗口。 |
-| [int32_t OH_WindowManager_SetWindowTouchable(int32_t windowId, bool isTouchable)](#oh_windowmanager_setwindowtouchable) | - | 设置指定窗口是否可触。 |
-| [int32_t OH_WindowManager_SetWindowFocusable(int32_t windowId, bool isFocusable)](#oh_windowmanager_setwindowfocusable) | - | 设置指定窗口是否可获焦。 |
-| [int32_t OH_WindowManager_SetWindowBackgroundColor(int32_t windowId, const char* color)](#oh_windowmanager_setwindowbackgroundcolor) | - | 设置指定窗口背景颜色。 |
-| [int32_t OH_WindowManager_SetWindowBrightness(int32_t windowId, float brightness)](#oh_windowmanager_setwindowbrightness) | - | 设置指定窗口的屏幕亮度。 |
-| [int32_t OH_WindowManager_SetWindowKeepScreenOn(int32_t windowId, bool isKeepScreenOn)](#oh_windowmanager_setwindowkeepscreenon) | - | 设置指定窗口是否开启屏幕常亮。 |
-| [int32_t OH_WindowManager_SetWindowPrivacyMode(int32_t windowId, bool isPrivacy)](#oh_windowmanager_setwindowprivacymode) | - | 设置指定窗口是否开启隐私模式。 |
-| [int32_t OH_WindowManager_GetWindowProperties(int32_t windowId, WindowManager_WindowProperties* windowProperties)](#oh_windowmanager_getwindowproperties) | - | 获取指定窗口属性。 |
-| [int32_t OH_WindowManager_Snapshot(int32_t windowId, OH_PixelmapNative* pixelMap)](#oh_windowmanager_snapshot) | - | 获取指定窗口截图。 |
-| [int32_t OH_WindowManager_GetAllWindowLayoutInfoList(int64_t displayId,WindowManager_Rect** windowLayoutInfoList, size_t* windowLayoutInfoSize)](#oh_windowmanager_getallwindowlayoutinfolist) | - | 获取指定屏幕上可见的窗口布局信息数组，按当前窗口层级排列，层级最高的对应数组下标为0。 |
-| [void OH_WindowManager_ReleaseAllWindowLayoutInfoList(WindowManager_Rect* windowLayoutInfoList)](#oh_windowmanager_releaseallwindowlayoutinfolist) | - | 释放窗口布局信息数组占用的内存。 |
-| [int32_t OH_WindowManager_InjectTouchEvent(int32_t windowId, Input_TouchEvent* touchEvent, int32_t windowX, int32_t windowY)](#oh_windowmanager_injecttouchevent) | - | 将多模触摸事件注入给目标窗口，仅支持注入同进程窗口，且该注入不会触发窗口焦点和层级变化，不会触发窗口拖拽，事件会直接发送给ArkUI。该接口需要在指定窗口加载UI之后调用。 |
-| [int32_t OH_WindowManager_GetAllMainWindowInfo(WindowManager_MainWindowInfo** infoList, size_t* mainWindowInfoSize)](#oh_windowmanager_getallmainwindowinfo) | - | 获取全部主窗信息。 |
-| [void OH_WindowManager_ReleaseAllMainWindowInfo(WindowManager_MainWindowInfo* infoList)](#oh_windowmanager_releaseallmainwindowinfo) | - | 释放主窗口信息列表的内存。 |
-| [typedef void (*OH_WindowManager_WindowSnapshotCallback)(const OH_PixelmapNative** snapshotPixelMapList, size_t snapshotListSize)](#oh_windowmanager_windowsnapshotcallback) | OH_WindowManager_WindowSnapshotCallback | 接收主窗口截图列表的回调接口。 |
-| [int32_t OH_WindowManager_GetMainWindowSnapshot(int32_t* windowIdList, size_t windowIdListSize, WindowManager_WindowSnapshotConfig config, OH_WindowManager_WindowSnapshotCallback callback)](#oh_windowmanager_getmainwindowsnapshot) | - | 获取一个或多个指定windowId的主窗口截图。 |
-| [void OH_WindowManager_ReleaseMainWindowSnapshot(const OH_PixelmapNative* snapshotPixelMapList)](#oh_windowmanager_releasemainwindowsnapshot) | - | 释放主窗口截图列表的内存。 |
-| [int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovement)](#oh_windowmanager_lockcursor) | - | 锁定鼠标光标，控制鼠标光标不超过指定窗口区域，同时可控制光标是否跟随鼠标移动。仅支持获焦窗口调用，失焦之后会自动取消锁定。 |
-| [int32_t OH_WindowManager_UnlockCursor(int32_t windowId)](#oh_windowmanager_unlockcursor) | - | 清除窗口设置的鼠标光标指定的模式。 |
+| int32_t OH_WindowManager_SetWindowStatusBarEnabled(int32_t windowId, bool enabled, bool enableAnimation) | - | 设置主窗口是否显示状态栏。 |
+| int32_t OH_WindowManager_SetWindowStatusBarColor(int32_t windowId, int32_t color) | - | 设置主窗口的状态栏内容颜色。 |
+| int32_t OH_WindowManager_SetWindowNavigationBarEnabled(int32_t windowId, bool enabled, bool enableAnimation) | - | 设置主窗口是否显示导航栏。 |
+| int32_t OH_WindowManager_GetWindowAvoidArea(int32_t windowId, WindowManager_AvoidAreaType type, WindowManager_AvoidArea* avoidArea) | - | 获取指定窗口的避让区域。 |
+| int32_t OH_WindowManager_IsWindowShown(int32_t windowId, bool* isShow) | - | 判断指定窗口是否显示。 |
+| int32_t OH_WindowManager_ShowWindow(int32_t windowId) | - | 显示指定窗口。 |
+| int32_t OH_WindowManager_SetWindowTouchable(int32_t windowId, bool isTouchable) | - | 设置指定窗口是否可触。 |
+| int32_t OH_WindowManager_SetWindowFocusable(int32_t windowId, bool isFocusable) | - | 设置指定窗口是否可获焦。 |
+| int32_t OH_WindowManager_SetWindowBackgroundColor(int32_t windowId, const char* color) | - | 设置指定窗口背景颜色。 |
+| int32_t OH_WindowManager_SetWindowBrightness(int32_t windowId, float brightness) | - | 设置指定窗口的屏幕亮度。 |
+| int32_t OH_WindowManager_SetWindowKeepScreenOn(int32_t windowId, bool isKeepScreenOn) | - | 设置指定窗口是否开启屏幕常亮。 |
+| int32_t OH_WindowManager_SetWindowPrivacyMode(int32_t windowId, bool isPrivacy) | - | 设置指定窗口是否开启隐私模式。 |
+| int32_t OH_WindowManager_GetWindowProperties(int32_t windowId, WindowManager_WindowProperties* windowProperties) | - | 获取指定窗口属性。 |
+| int32_t OH_WindowManager_Snapshot(int32_t windowId, OH_PixelmapNative* pixelMap) | - | 获取指定窗口截图。 |
+| int32_t OH_WindowManager_GetAllWindowLayoutInfoList(int64_t displayId,WindowManager_Rect** windowLayoutInfoList, size_t* windowLayoutInfoSize) | - | 获取指定屏幕上可见的窗口布局信息数组，按当前窗口层级排列，层级最高的对应数组下标为0。 |
+| void OH_WindowManager_ReleaseAllWindowLayoutInfoList(WindowManager_Rect* windowLayoutInfoList) | - | 释放窗口布局信息数组占用的内存。 |
+| int32_t OH_WindowManager_InjectTouchEvent(int32_t windowId, Input_TouchEvent* touchEvent, int32_t windowX, int32_t windowY) | - | 将多模触摸事件注入给目标窗口，仅支持注入同进程窗口，且该注入不会触发窗口焦点和层级变化，不会触发窗口拖拽，事件会直接发送给ArkUI。该接口需要在指定窗口加载UI之后调用。 |
+| int32_t OH_WindowManager_GetAllMainWindowInfo(WindowManager_MainWindowInfo** infoList, size_t* mainWindowInfoSize) | - | 获取全部主窗信息。 |
+| void OH_WindowManager_ReleaseAllMainWindowInfo(WindowManager_MainWindowInfo* infoList) | - | 释放主窗口信息列表的内存。 |
+| typedef void (*OH_WindowManager_WindowSnapshotCallback)(const OH_PixelmapNative** snapshotPixelMapList, size_t snapshotListSize) | OH_WindowManager_WindowSnapshotCallback | 接收主窗口截图列表的回调接口。 |
+| int32_t OH_WindowManager_GetMainWindowSnapshot(int32_t* windowIdList, size_t windowIdListSize, WindowManager_WindowSnapshotConfig config, OH_WindowManager_WindowSnapshotCallback callback) | - | 获取一个或多个指定windowId的主窗口截图。 |
+| void OH_WindowManager_ReleaseMainWindowSnapshot(const OH_PixelmapNative* snapshotPixelMapList) | - | 释放主窗口截图列表的内存。 |
+| int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovement) | - | 锁定鼠标光标，控制鼠标光标不超过指定窗口区域，同时可控制光标是否跟随鼠标移动。仅支持获焦窗口调用，失焦之后会自动取消锁定。 |
+| int32_t OH_WindowManager_UnlockCursor(int32_t windowId) | - | 清除窗口设置的鼠标光标指定的模式。 |
+| int32_t OH_WindowManager_DensityInfo_GetDefaultDensity(const OH_WindowManager_DensityInfo* info, float* density) | - | 获取窗口所在屏幕的系统默认显示大小缩放系数。 |
+| int32_t OH_WindowManager_DensityInfo_GetSystemDensity(const OH_WindowManager_DensityInfo* info, float* density) | - | 获取窗口所在屏幕的系统显示大小缩放系数。 |
+| int32_t OH_WindowManager_DensityInfo_GetCustomDensity(const OH_WindowManager_DensityInfo* info, float* density) | - | 获取窗口的自定义显示大小缩放系数。 |
+| int32_t OH_WindowManager_GetDensityInfoCopy(int32_t windowId, const OH_WindowManager_DensityInfo** info) | - | 获取窗口缩放系数相关信息，包括系统显示大小缩放系数、系统默认显示大小缩放系数、自定义显示大小缩放系数。优先级由高到低分别为： 自定义显示大小缩放系数： 窗口级显示缩放值，仅影响单个窗口。 系统显示大小缩放系数：当前系统配置的显示大小缩放系数。 系统默认显示大小缩放系数：系统默认的基准缩放值。 |
+| int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId, OH_WindowManager_DensityInfoCallback callback) | - | 监听窗口缩放系数相关信息的变化。 当窗口所在屏幕的系统显示大小缩放系数、系统默认显示大小的缩放系数或自定义显示大小的缩放系数任一项发生变化时，会触发该回调函数。 如需取消监听窗口缩放系数相关信息的变化，请调用OH_WindowManager_UnregisterDensityInfoChangeCallback。 |
+| int32_t OH_WindowManager_UnregisterDensityInfoChangeCallback(int32_t windowId, OH_WindowManager_DensityInfoCallback callback) | - | 取消监听窗口缩放系数相关信息的变化。 当窗口所在屏幕的系统显示大小缩放系数、系统默认显示大小缩放系数或自定义显示大小的缩放系数任一项发生变化时，不会触发已取消注册的回调函数。 |
+| int32_t OH_WindowManager_DensityInfo_Release(const OH_WindowManager_DensityInfo* info) | - | 释放窗口缩放系数相关信息对象占用的内存。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### OH_WindowManager_SetWindowStatusBarEnabled()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### OH_WindowManager_SetWindowStatusBarEnabled()
 
 ```text
 int32_t OH_WindowManager_SetWindowStatusBarEnabled(int32_t windowId, bool enabled, bool enableAnimation)
@@ -84,7 +88,6 @@ int32_t OH_WindowManager_SetWindowStatusBarEnabled(int32_t windowId, bool enable
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 主窗口id。传入非主窗口id时调用不生效也不报错。不存在对应窗口id时接口返回错误码WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL。 |
@@ -94,15 +97,14 @@ int32_t OH_WindowManager_SetWindowStatusBarEnabled(int32_t windowId, bool enable
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_SetWindowStatusBarColor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowStatusBarColor()
 
 ```text
 int32_t OH_WindowManager_SetWindowStatusBarColor(int32_t windowId, int32_t color)
@@ -122,7 +124,6 @@ int32_t OH_WindowManager_SetWindowStatusBarColor(int32_t windowId, int32_t color
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 主窗口id。传入非主窗口id时调用不生效也不报错。不存在对应窗口id时接口返回错误码WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL。 |
@@ -131,15 +132,14 @@ int32_t OH_WindowManager_SetWindowStatusBarColor(int32_t windowId, int32_t color
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_SetWindowNavigationBarEnabled()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowNavigationBarEnabled()
 
 ```text
 int32_t OH_WindowManager_SetWindowNavigationBarEnabled(int32_t windowId, bool enabled, bool enableAnimation)
@@ -153,7 +153,6 @@ int32_t OH_WindowManager_SetWindowNavigationBarEnabled(int32_t windowId, bool en
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 主窗口id。传入非主窗口id时调用不生效也不报错。不存在对应窗口id时接口返回错误码WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL。 |
@@ -163,15 +162,14 @@ int32_t OH_WindowManager_SetWindowNavigationBarEnabled(int32_t windowId, bool en
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_GetWindowAvoidArea()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_GetWindowAvoidArea()
 
 ```text
 int32_t OH_WindowManager_GetWindowAvoidArea(int32_t windowId, WindowManager_AvoidAreaType type, WindowManager_AvoidArea* avoidArea)
@@ -185,25 +183,23 @@ int32_t OH_WindowManager_GetWindowAvoidArea(int32_t windowId, WindowManager_Avoi
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
-| [WindowManager_AvoidAreaType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-comm-h#windowmanager_avoidareatype) type | 避让区域的类型。 |
-| [WindowManager_AvoidArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-avoidarea)* avoidArea | 返回指向指定窗口的避让区域的指针，作为出参使用。 |
+| WindowManager_AvoidAreaType type | 避让区域的类型。 |
+| WindowManager_AvoidArea* avoidArea | 返回指向指定窗口的避让区域的指针，作为出参使用。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功，返回指向对应窗口id的避让区域的指针。          返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功，返回指向对应窗口id的避让区域的指针。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_IsWindowShown()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_IsWindowShown()
 
 ```text
 int32_t OH_WindowManager_IsWindowShown(int32_t windowId, bool* isShow)
@@ -217,7 +213,6 @@ int32_t OH_WindowManager_IsWindowShown(int32_t windowId, bool* isShow)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
@@ -226,15 +221,14 @@ int32_t OH_WindowManager_IsWindowShown(int32_t windowId, bool* isShow)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 |
 
 
-### OH_WindowManager_ShowWindow()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_ShowWindow()
 
 ```text
 int32_t OH_WindowManager_ShowWindow(int32_t windowId)
@@ -248,7 +242,6 @@ int32_t OH_WindowManager_ShowWindow(int32_t windowId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
@@ -256,15 +249,14 @@ int32_t OH_WindowManager_ShowWindow(int32_t windowId)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_SetWindowTouchable()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowTouchable()
 
 ```text
 int32_t OH_WindowManager_SetWindowTouchable(int32_t windowId, bool isTouchable)
@@ -278,7 +270,6 @@ int32_t OH_WindowManager_SetWindowTouchable(int32_t windowId, bool isTouchable)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
@@ -287,15 +278,14 @@ int32_t OH_WindowManager_SetWindowTouchable(int32_t windowId, bool isTouchable)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_SetWindowFocusable()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowFocusable()
 
 ```text
 int32_t OH_WindowManager_SetWindowFocusable(int32_t windowId, bool isFocusable)
@@ -309,7 +299,6 @@ int32_t OH_WindowManager_SetWindowFocusable(int32_t windowId, bool isFocusable)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
@@ -318,15 +307,14 @@ int32_t OH_WindowManager_SetWindowFocusable(int32_t windowId, bool isFocusable)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_SetWindowBackgroundColor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowBackgroundColor()
 
 ```text
 int32_t OH_WindowManager_SetWindowBackgroundColor(int32_t windowId, const char* color)
@@ -340,7 +328,6 @@ int32_t OH_WindowManager_SetWindowBackgroundColor(int32_t windowId, const char* 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
@@ -349,15 +336,14 @@ int32_t OH_WindowManager_SetWindowBackgroundColor(int32_t windowId, const char* 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 |
 
 
-### OH_WindowManager_SetWindowBrightness()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowBrightness()
 
 ```text
 int32_t OH_WindowManager_SetWindowBrightness(int32_t windowId, float brightness)
@@ -375,21 +361,20 @@ int32_t OH_WindowManager_SetWindowBrightness(int32_t windowId, float brightness)
 
 **设备行为差异：**
 
+ - 针对TV设备：当前接口不生效也不报错。
+ - 针对非2in1设备（不包含TV设备）：       
+在HarmonyOS 6.1.0之前，当前窗口的窗口亮度生效时，控制中心调整系统屏幕亮度不生效。
+ - 从HarmonyOS 6.1.0开始，当前窗口的窗口亮度生效时，控制中心可以调整系统屏幕亮度，同时会将当前窗口恢复为系统屏幕亮度。
 
-- 针对TV设备：当前接口不生效也不报错。
-- 针对非2in1设备（不包含TV设备）：               在HarmonyOS 6.1.0之前，当前窗口的窗口亮度生效时，控制中心调整系统屏幕亮度不生效。
-- 从HarmonyOS 6.1.0开始，当前窗口的窗口亮度生效时，控制中心可以调整系统屏幕亮度，同时会将当前窗口恢复为系统屏幕亮度。
-
-针对2in1设备：
+      - 针对2in1设备：       
+在HarmonyOS 5.0.2之前，窗口设置屏幕亮度生效时，控制中心或快捷键调整系统屏幕亮度不生效。
+ - 从HarmonyOS 5.0.2开始，窗口亮度与系统屏幕亮度保持一致，可以通过本接口、控制中心或者快捷键设置系统屏幕亮度。
 
 
-- 在HarmonyOS 5.0.2之前，窗口设置屏幕亮度生效时，控制中心或快捷键调整系统屏幕亮度不生效。
-- 从HarmonyOS 5.0.2开始，窗口亮度与系统屏幕亮度保持一致，可以通过本接口、控制中心或者快捷键设置系统屏幕亮度。
 
 **起始版本：** 15
 
 **参数：**
-
 
 | 参数项 | 描述 |
 | --- | --- |
@@ -399,15 +384,14 @@ int32_t OH_WindowManager_SetWindowBrightness(int32_t windowId, float brightness)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_SetWindowKeepScreenOn()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowKeepScreenOn()
 
 ```text
 int32_t OH_WindowManager_SetWindowKeepScreenOn(int32_t windowId, bool isKeepScreenOn)
@@ -421,7 +405,6 @@ int32_t OH_WindowManager_SetWindowKeepScreenOn(int32_t windowId, bool isKeepScre
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
@@ -430,15 +413,14 @@ int32_t OH_WindowManager_SetWindowKeepScreenOn(int32_t windowId, bool isKeepScre
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_SetWindowPrivacyMode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_SetWindowPrivacyMode()
 
 ```text
 int32_t OH_WindowManager_SetWindowPrivacyMode(int32_t windowId, bool isPrivacy)
@@ -454,7 +436,6 @@ int32_t OH_WindowManager_SetWindowPrivacyMode(int32_t windowId, bool isPrivacy)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
@@ -463,15 +444,14 @@ int32_t OH_WindowManager_SetWindowPrivacyMode(int32_t windowId, bool isPrivacy)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。          返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，权限校验错误。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，权限校验错误。 |
 
 
-### OH_WindowManager_GetWindowProperties()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_GetWindowProperties()
 
 ```text
 int32_t OH_WindowManager_GetWindowProperties(int32_t windowId, WindowManager_WindowProperties* windowProperties)
@@ -485,24 +465,22 @@ int32_t OH_WindowManager_GetWindowProperties(int32_t windowId, WindowManager_Win
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
-| [WindowManager_WindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-windowproperties)* windowProperties | 返回指向指定窗口的属性的指针，作为出参使用。 |
+| WindowManager_WindowProperties* windowProperties | 返回指向指定窗口的属性的指针，作为出参使用。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功，在windowProperties中返回窗口属性的指针。          返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功，在windowProperties中返回窗口属性的指针。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 |
 
 
-### OH_WindowManager_Snapshot()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_Snapshot()
 
 ```text
 int32_t OH_WindowManager_Snapshot(int32_t windowId, OH_PixelmapNative* pixelMap)
@@ -516,24 +494,22 @@ int32_t OH_WindowManager_Snapshot(int32_t windowId, OH_PixelmapNative* pixelMap)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。          窗口id非法或者窗口已经销毁，不能获取指定窗口截图，需要传入有效的窗口id才能成功获取指定窗口截图。          请通过窗口对象调用[getWindowProperties()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)接口（ArkTS接口）获取有效的窗口id。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-struct)* pixelMap | 返回指向指定窗口的截图的指针，作为出参使用。 |
+| int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 窗口id非法或者窗口已经销毁，不能获取指定窗口截图，需要传入有效的窗口id才能成功获取指定窗口截图。 请通过窗口对象调用getWindowProperties()接口（ArkTS接口）获取有效的窗口id。 |
+| OH_PixelmapNative* pixelMap | 返回指向指定窗口的截图的指针，作为出参使用。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功，在返回pixelMap中的像素图的指针。          返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功，在返回pixelMap中的像素图的指针。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_GetAllWindowLayoutInfoList()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_GetAllWindowLayoutInfoList()
 
 ```text
 int32_t OH_WindowManager_GetAllWindowLayoutInfoList(int64_t displayId,WindowManager_Rect** windowLayoutInfoList, size_t* windowLayoutInfoSize)
@@ -547,25 +523,23 @@ int32_t OH_WindowManager_GetAllWindowLayoutInfoList(int64_t displayId,WindowMana
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| int64_t displayId | 指定屏幕的id。请通过窗口对象调用[getWindowProperties()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)接口（ArkTS接口）获取有效的屏幕id。 |
-| [WindowManager_Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-rect)** windowLayoutInfoList | 指定屏幕上可见的窗口布局信息数组的数组指针，作为出参使用。 |
+| int64_t displayId | 指定屏幕的id。请通过窗口对象调用getWindowProperties()接口（ArkTS接口）获取有效的屏幕id。 |
+| WindowManager_Rect** windowLayoutInfoList | 指定屏幕上可见的窗口布局信息数组的数组指针，作为出参使用。 |
 | size_t* windowLayoutInfoSize | 指定屏幕上可见的窗口布局信息数组长度的指针，作为出参使用。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功，返回指定屏幕上可见的窗口布局信息数组的数组指针和数组长度的指针。          返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功，返回指定屏幕上可见的窗口布局信息数组的数组指针和数组长度的指针。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数错误。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_ReleaseAllWindowLayoutInfoList()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_ReleaseAllWindowLayoutInfoList()
 
 ```text
 void OH_WindowManager_ReleaseAllWindowLayoutInfoList(WindowManager_Rect* windowLayoutInfoList)
@@ -579,15 +553,14 @@ void OH_WindowManager_ReleaseAllWindowLayoutInfoList(WindowManager_Rect* windowL
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [WindowManager_Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-rect)* windowLayoutInfoList | 指定屏幕上可见的窗口布局信息数组的数组指针，可通过[OH_WindowManager_GetAllWindowLayoutInfoList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_getallwindowlayoutinfolist)接口获取。 |
+| WindowManager_Rect* windowLayoutInfoList | 指定屏幕上可见的窗口布局信息数组的数组指针，可通过OH_WindowManager_GetAllWindowLayoutInfoList接口获取。 |
 
 
-### OH_WindowManager_InjectTouchEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_InjectTouchEvent()
 
 ```text
 int32_t OH_WindowManager_InjectTouchEvent(int32_t windowId, Input_TouchEvent* touchEvent, int32_t windowX, int32_t windowY)
@@ -601,26 +574,24 @@ int32_t OH_WindowManager_InjectTouchEvent(int32_t windowId, Input_TouchEvent* to
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口id。默认值为0。该参数为整数。 |
-| [Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)* touchEvent | 多模触摸事件，具体可见[Input_TouchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-touchevent)，事件定义在oh_input_manager.h中。该参数包含的部分字段有参数限制，其中，action应为大于等于0且小于等于3的整数；id、displayX、displayY和actionTime应为不小于0的整数。以上参数不符合限制条件会返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示：窗口管理器服务异常。 |
+| Input_TouchEvent* touchEvent | 多模触摸事件，具体可见Input_TouchEvent，事件定义在oh_input_manager.h中。该参数包含的部分字段有参数限制，其中，action应为大于等于0且小于等于3的整数；id、displayX、displayY和actionTime应为不小于0的整数。以上参数不符合限制条件会返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示：窗口管理器服务异常。 |
 | int32_t windowX | 注入事件相对于注入窗口的落点横坐标。该参数为整数。 |
 | int32_t windowY | 注入事件相对于注入窗口的落点纵坐标。该参数为整数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_GetAllMainWindowInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_GetAllMainWindowInfo()
 
 ```text
 int32_t OH_WindowManager_GetAllMainWindowInfo(WindowManager_MainWindowInfo** infoList, size_t* mainWindowInfoSize)
@@ -638,24 +609,22 @@ int32_t OH_WindowManager_GetAllMainWindowInfo(WindowManager_MainWindowInfo** inf
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [WindowManager_MainWindowInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-windowmanager-mainwindowinfo)** infoList | 指向主窗口信息列表的指针，作为出参使用。 |
+| WindowManager_MainWindowInfo** infoList | 指向主窗口信息列表的指针，作为出参使用。 |
 | size_t* mainWindowInfoSize | 指向主窗口信息数组长度的指针，作为出参使用。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，权限校验错误。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，权限校验错误。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_ReleaseAllMainWindowInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_ReleaseAllMainWindowInfo()
 
 ```text
 void OH_WindowManager_ReleaseAllMainWindowInfo(WindowManager_MainWindowInfo* infoList)
@@ -669,15 +638,14 @@ void OH_WindowManager_ReleaseAllMainWindowInfo(WindowManager_MainWindowInfo* inf
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [WindowManager_MainWindowInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-windowmanager-mainwindowinfo)* infoList | 主窗信息列表。 |
+| WindowManager_MainWindowInfo* infoList | 主窗信息列表。 |
 
 
-### OH_WindowManager_WindowSnapshotCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_WindowSnapshotCallback()
 
 ```text
 typedef void (*OH_WindowManager_WindowSnapshotCallback)(const OH_PixelmapNative** snapshotPixelMapList, size_t snapshotListSize)
@@ -691,16 +659,15 @@ typedef void (*OH_WindowManager_WindowSnapshotCallback)(const OH_PixelmapNative*
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [const OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-struct)** snapshotPixelMapList | 窗口截图列表。 |
+| const OH_PixelmapNative** snapshotPixelMapList | 窗口截图列表。 |
 | size_t snapshotListSize | 窗口截图列表的大小。 |
 
 
-### OH_WindowManager_GetMainWindowSnapshot()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_GetMainWindowSnapshot()
 
 ```text
 int32_t OH_WindowManager_GetMainWindowSnapshot(int32_t* windowIdList, size_t windowIdListSize, WindowManager_WindowSnapshotConfig config, OH_WindowManager_WindowSnapshotCallback callback)
@@ -718,26 +685,24 @@ int32_t OH_WindowManager_GetMainWindowSnapshot(int32_t* windowIdList, size_t win
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t* windowIdList | 需要获取截图的主窗口ID列表。 |
 | size_t windowIdListSize | 主窗口ID列表的长度。 |
-| [WindowManager_WindowSnapshotConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-windowmanager-windowmanager-windowsnapshotconfig) config | 获取窗口截图时的配置信息。 |
-| [OH_WindowManager_WindowSnapshotCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_windowsnapshotcallback) callback | 获取窗口截图的回调对象。用于返回窗口截图列表，并按照指定的窗口ID列表顺序排列。 |
+| WindowManager_WindowSnapshotConfig config | 获取窗口截图时的配置信息。 |
+| OH_WindowManager_WindowSnapshotCallback callback | 获取窗口截图的回调对象。用于返回窗口截图列表，并按照指定的窗口ID列表顺序排列。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，权限校验错误。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，权限校验错误。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持功能。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_ReleaseMainWindowSnapshot()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_ReleaseMainWindowSnapshot()
 
 ```text
 void OH_WindowManager_ReleaseMainWindowSnapshot(const OH_PixelmapNative* snapshotPixelMapList)
@@ -751,15 +716,14 @@ void OH_WindowManager_ReleaseMainWindowSnapshot(const OH_PixelmapNative* snapsho
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [const OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-struct)* snapshotPixelMapList | 窗口截图列表。 |
+| const OH_PixelmapNative* snapshotPixelMapList | 窗口截图列表。 |
 
 
-### OH_WindowManager_LockCursor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_LockCursor()
 
 ```text
 int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovement)
@@ -775,7 +739,6 @@ int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovemen
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口ID。该参数为整数。 |
@@ -784,15 +747,14 @@ int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovemen
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，表示没有权限调用该接口。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持该设备。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，表示没有权限调用该接口。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持该设备。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
 
 
-### OH_WindowManager_UnlockCursor()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_WindowManager_UnlockCursor()
 
 ```text
 int32_t OH_WindowManager_UnlockCursor(int32_t windowId)
@@ -808,7 +770,6 @@ int32_t OH_WindowManager_UnlockCursor(int32_t windowId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 创建窗口时的窗口ID。该参数为整数。 |
@@ -816,7 +777,219 @@ int32_t OH_WindowManager_UnlockCursor(int32_t windowId)
 
 **返回：**
 
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，表示没有权限调用该接口。 返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持该设备。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+
+
+
+
+##### OH_WindowManager_DensityInfo_GetDefaultDensity()
+
+```text
+int32_t OH_WindowManager_DensityInfo_GetDefaultDensity(const OH_WindowManager_DensityInfo* info, float* density)
+```
+
+**描述**
+
+获取窗口所在屏幕的系统默认显示大小缩放系数。
+
+**起始版本：** 24
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_DensityInfo* info | 窗口缩放系数相关信息，通过OH_WindowManager_GetDensityInfoCopy获取。 |
+| float* density | 用于返回系统默认显示大小的缩放系数，取值范围为0.5-4.0，作为出参使用。 |
+
+
+**返回：**
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。          返回OK，表示函数调用成功。          返回WINDOW_MANAGER_ERRORCODE_NO_PERMISSION，表示没有权限调用该接口。          返回WINDOW_MANAGER_ERRORCODE_DEVICE_NOT_SUPPORTED，表示不支持该设备。          返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。          返回WINDOW_MANAGER_ERRORCODE_SYSTEM_ABNORMAL，表示窗口管理器服务异常。 |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+##### OH_WindowManager_DensityInfo_GetSystemDensity()
+
+```text
+int32_t OH_WindowManager_DensityInfo_GetSystemDensity(const OH_WindowManager_DensityInfo* info, float* density)
+```
+
+**描述**
+
+获取窗口所在屏幕的系统显示大小缩放系数。
+
+**起始版本：** 24
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_DensityInfo* info | 窗口缩放系数相关信息，通过OH_WindowManager_GetDensityInfoCopy获取。 |
+| float* density | 用于返回系统显示大小的缩放系数，取值范围为0.5-4.0，作为出参使用。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+##### OH_WindowManager_DensityInfo_GetCustomDensity()
+
+```text
+int32_t OH_WindowManager_DensityInfo_GetCustomDensity(const OH_WindowManager_DensityInfo* info, float* density)
+```
+
+**描述**
+
+获取窗口的自定义显示大小缩放系数。
+
+**起始版本：** 24
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_DensityInfo* info | 窗口缩放系数相关信息，通过OH_WindowManager_GetDensityInfoCopy获取。 |
+| float* density | 窗口的自定义显示大小缩放系数。取值范围为0.5-4.0。作为出参使用。 该参数未被设置时，将跟随系统显示大小缩放系数变化。针对子窗、全局悬浮窗、模态窗或系统窗，其自定义显示大小缩放系数等于系统显示大小缩放系数systemDensity。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+##### OH_WindowManager_GetDensityInfoCopy()
+
+```text
+int32_t OH_WindowManager_GetDensityInfoCopy(int32_t windowId, const OH_WindowManager_DensityInfo** info)
+```
+
+**描述**
+
+获取窗口缩放系数相关信息，包括系统显示大小缩放系数、系统默认显示大小缩放系数、自定义显示大小缩放系数。优先级由高到低分别为：
+
+ - 自定义显示大小缩放系数： 窗口级显示缩放值，仅影响单个窗口。
+ - 系统显示大小缩放系数：当前系统配置的显示大小缩放系数。
+ - 系统默认显示大小缩放系数：系统默认的基准缩放值。
+
+
+**起始版本：** 24
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| int32_t windowId | 窗口创建时的窗口ID。 |
+| const OH_WindowManager_DensityInfo** info | 窗口缩放系数相关信息，作为出参使用。 返回值为NULL表示当前设备不支持该接口。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。可能原因：1. 窗口未创建或已销毁；2. 窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+##### OH_WindowManager_RegisterDensityInfoChangeCallback()
+
+```text
+int32_t OH_WindowManager_RegisterDensityInfoChangeCallback(int32_t windowId, OH_WindowManager_DensityInfoCallback callback)
+```
+
+**描述**
+
+监听窗口缩放系数相关信息的变化。
+
+当窗口所在屏幕的系统显示大小缩放系数、系统默认显示大小的缩放系数或自定义显示大小的缩放系数任一项发生变化时，会触发该回调函数。
+
+如需取消监听窗口缩放系数相关信息的变化，请调用[OH_WindowManager_UnregisterDensityInfoChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_unregisterdensityinfochangecallback)。
+
+**起始版本：** 24
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| int32_t windowId | 窗口创建时的窗口ID。 |
+| OH_WindowManager_DensityInfoCallback callback | 用于返回窗口缩放系数相关信息结果的回调。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。可能原因：1. 窗口未创建或已销毁；2. 窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+##### OH_WindowManager_UnregisterDensityInfoChangeCallback()
+
+```text
+int32_t OH_WindowManager_UnregisterDensityInfoChangeCallback(int32_t windowId, OH_WindowManager_DensityInfoCallback callback)
+```
+
+**描述**
+
+取消监听窗口缩放系数相关信息的变化。
+
+当窗口所在屏幕的系统显示大小缩放系数、系统默认显示大小缩放系数或自定义显示大小的缩放系数任一项发生变化时，不会触发已取消注册的回调函数。
+
+**起始版本：** 24
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| int32_t windowId | 窗口创建时的窗口ID。 |
+| OH_WindowManager_DensityInfoCallback callback | 用于返回窗口缩放系数相关信息结果的回调。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。可能原因：1. 窗口未创建或已销毁；2. 窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+##### OH_WindowManager_DensityInfo_Release()
+
+```text
+int32_t OH_WindowManager_DensityInfo_Release(const OH_WindowManager_DensityInfo* info)
+```
+
+**描述**
+
+释放窗口缩放系数相关信息对象占用的内存。
+
+**起始版本：** 24
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_DensityInfo* info | 窗口缩放系数相关信息。作为出参使用。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |

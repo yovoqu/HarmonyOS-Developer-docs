@@ -4,36 +4,42 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiletimetensordesc-setexpanddimstype
 
-## 函数功能
+##### 函数功能
 
 设置原始Format向运行时Format转换时的补维规则。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void SetExpandDimsType(const ExpandDimsType &expand_dims_type)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| expand_dims_type | 输入 | 需要设置的补维规则。 关于ExpandDimsType的说明，请参见[ExpandDimsType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-expanddimstype-introduction)。 |
+| expand_dims_type | 输入 | 需要设置的补维规则。 关于ExpandDimsType的说明，请参见ExpandDimsType。 |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 auto dtype_ = ge::DataType::DT_INT32;

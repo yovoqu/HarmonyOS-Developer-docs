@@ -3,67 +3,64 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-constant
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了共用的一些常量定义。
-
+ 
 **起始版本：** 5.0.1(13)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```ts
+```text
 import { constant } from '@kit.NearLinkKit';
 ```
+ 
+  
 
-
-## PairingState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### PairingState
 
 表示和远端设备的配对状态，为枚举值。
-
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
-
+ 
 **起始版本：** 5.0.1(13)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | PAIRING_STATE_NONE | 1 | 表示未配对。 |
 | PAIRING_STATE_PAIRING | 2 | 表示配对中。 |
 | PAIRING_STATE_PAIRED | 3 | 表示已配对。 |
+ 
+ 
+  
 
-
-## ConnectionState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### ConnectionState
 
 表示和远端设备的连接状态，为枚举值。
-
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
-
+ 
 **起始版本：** 5.0.1(13)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | STATE_CONNECTING | 0 | 表示正在连接。 |
 | STATE_CONNECTED | 1 | 表示已连接。 |
 | STATE_DISCONNECTING | 2 | 表示正在断连。 |
 | STATE_DISCONNECTED | 3 | 表示已断连。 |
+ 
+ 
+  
 
-
-## DeviceClass
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### DeviceClass
 
 表示设备类型，为枚举值。
-
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
-
+ 
 **起始版本：** 5.0.1(13)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEVICE_UNCATEGORIZED | 0x000100 | 未分类设备。 |
@@ -119,18 +116,18 @@ import { constant } from '@kit.NearLinkKit';
 | DEVICE_SMART_KEY | 0x001002 | 智能钥匙。 |
 | DEVICE_VEHICLE_KEY | 0x001003 | 车钥匙。 起始版本： 5.1.0(18) |
 | DEVICE_VEHICLE_LOCK | 0x001004 | 车锁。 起始版本： 5.1.0(18) |
+ 
+ 
+  
 
-
-## AcbState
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### AcbState
 
 表示和远端设备的逻辑链路连接状态，为枚举值。
-
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
-
+ 
 **起始版本：** 5.1.0(18)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DISCONNECTED | 0 | 表示已断连。 |

@@ -3,15 +3,14 @@
 更新时间：2026-04-29 07:35:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/intents-arkts-api-errorcodes-insightintent
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 1000101101 应用未订阅
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 1000101101 应用未订阅
 
 **错误信息**
 
@@ -30,8 +29,8 @@ The application has not been registered with the InsightIntent.
 参考[Intents Kit接入流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-access-flow)，进行InsightIntent订阅申请（白名单）。
 
 
-## 1000101102 小艺停止服务
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1000101102 小艺停止服务
 
 **错误信息**
 
@@ -50,8 +49,8 @@ HUAWEI Assistant has stopped providing services.
 打开设置-小艺开关。
 
 
-## 1000101104 超过应用共享次数
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1000101104 超过应用共享次数
 
 **错误信息**
 
@@ -70,8 +69,8 @@ The number of sharing times exceeds the limit.
 优化业务逻辑，减少共享次数。
 
 
-## 1000101105 超过单次共享数据大小限制
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1000101105 超过单次共享数据大小限制
 
 **错误信息**
 
@@ -90,8 +89,8 @@ The size of a single shared data exceeds the limit.
 减少单次共享的数据量。
 
 
-## 1000101106 超过所有应用共享总次数限制
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1000101106 超过所有应用共享总次数限制
 
 **错误信息**
 
@@ -110,8 +109,8 @@ Exceeded the maximum number of sharing times of all applications.
 延迟共享时间，第2天再进行共享。
 
 
-## 1000101107 过多SID刷新请求
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1000101107 过多SID刷新请求
 
 **错误信息**
 
@@ -130,8 +129,8 @@ SID刷新请求过于频繁。
 延迟请求时间，第2天再进行刷新请求。或将renew参数设为false获取缓存的SID。
 
 
-## 1000101201 服务异常
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 1000101201 服务异常
 
 **错误信息**
 

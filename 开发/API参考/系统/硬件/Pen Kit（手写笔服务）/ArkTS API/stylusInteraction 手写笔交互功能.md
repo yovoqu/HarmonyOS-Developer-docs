@@ -3,37 +3,44 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-stylusinteraction
-
-支持设备：Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 手写笔交互功能入口类，当前包含手写笔笔身轻捏事件和手写笔笔身双击事件。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
-
+ 
 **起始版本：** 5.1.1(19)
+  
 
-#### 导入模块
+##### 导入模块
 
-```ts
+```text
 import { stylusInteraction } from '@kit.Penkit';
 ```
+ 
+  
 
-#### stylusInteraction.on('squeeze')
+##### stylusInteraction.on('squeeze')
+
 on(type: 'squeeze', receiver: Callback&lt;SqueezeEvent&gt;): void
+ 
 监听手写笔笔身轻捏事件，使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
-
+ 
 **起始版本：** 5.1.1(19)
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填写"squeeze"字符串，表示手写笔笔身轻捏事件。 |
-| receiver | Callback<[SqueezeEvent](#squeezeevent)> | 是 | 回调函数，返回手写笔笔身轻捏事件的详细信息。 |
-
+| receiver | Callback&lt;SqueezeEvent&gt; | 是 | 回调函数，返回手写笔笔身轻捏事件的详细信息。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
@@ -44,24 +51,30 @@ try {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
 ```
+ 
+  
 
-#### stylusInteraction.off('squeeze')
+##### stylusInteraction.off('squeeze')
+
 off(type: 'squeeze', receiver?: Callback&lt;SqueezeEvent&gt;): void
+ 
 取消监听手写笔笔身轻捏事件，使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
-
+ 
 **起始版本：** 5.1.1(19)
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填写"squeeze"字符串，表示手写笔笔身轻捏事件。 |
-| receiver | Callback<[SqueezeEvent](#squeezeevent)> | 否 | 回调函数，需要取消注册的手写笔轻捏事件对象，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的轻捏事件。 |
-
+| receiver | Callback&lt;SqueezeEvent&gt; | 否 | 回调函数，需要取消注册的手写笔轻捏事件对象，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的轻捏事件。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 try {
   stylusInteraction.off('squeeze', (event: stylusInteraction.SqueezeEvent) => {
@@ -71,24 +84,30 @@ try {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
 ```
+ 
+  
 
-#### stylusInteraction.on('doubleTap')
+##### stylusInteraction.on('doubleTap')
+
 on(type: 'doubleTap', receiver: Callback&lt;DoubleTapEvent&gt;): void
+ 
 监听手写笔笔身双击事件，使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
-
+ 
 **起始版本：** 5.1.1(19)
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填写"doubleTap"字符串，表示手写笔笔身双击事件。 |
-| receiver | Callback<[DoubleTapEvent](#doubletapevent)> | 是 | 回调函数，返回手写笔笔身双击事件的详细信息。 |
-
+| receiver | Callback&lt;DoubleTapEvent&gt; | 是 | 回调函数，返回手写笔笔身双击事件的详细信息。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 try {
   stylusInteraction.on('doubleTap', (event: stylusInteraction.DoubleTapEvent) => {
@@ -98,24 +117,30 @@ try {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
 ```
+ 
+  
 
-#### stylusInteraction.off('doubleTap')
+##### stylusInteraction.off('doubleTap')
+
 off(type: 'doubleTap', receiver?: Callback&lt;DoubleTapEvent&gt;): void
+ 
 取消监听手写笔笔身双击事件，使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
-
+ 
 **起始版本：** 5.1.1(19)
-
+ 
 **参数：：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填写"doubleTap"字符串，表示手写笔笔身双击事件。 |
-| receiver | Callback<[DoubleTapEvent](#doubletapevent)> | 否 | 回调函数，需要取消注册的手写笔双击事件对象，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的双击事件。 |
-
+| receiver | Callback&lt;DoubleTapEvent&gt; | 否 | 回调函数，需要取消注册的手写笔双击事件对象，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的双击事件。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 try {
   stylusInteraction.off('doubleTap', (event: stylusInteraction.DoubleTapEvent) => {
@@ -125,27 +150,36 @@ try {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
 ```
+ 
+  
 
-#### SqueezeEvent
+##### SqueezeEvent
+
 手写笔笔身轻捏事件信息。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
-
+ 
 **起始版本：** 5.1.1(19)
-
+ 
 **参数：**
-
-| 名称 | **类型** | 只读 | 可选 | **说明** |
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | timestamp | number | 否 | 否 | 时间戳，自系统启动以来经过的时间，单位：ms。 |
+ 
+ 
+  
 
-#### DoubleTapEvent
+##### DoubleTapEvent
+
 手写笔笔身双击事件信息。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
-
+ 
 **起始版本：** 5.1.1(19)
-
+ 
 **参数：**
-
-| 名称 | **类型** | 只读 | 可选 | **说明** |
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | timestamp | number | 否 | 否 | 时间戳，自系统启动以来经过的时间，单位：ms。 |

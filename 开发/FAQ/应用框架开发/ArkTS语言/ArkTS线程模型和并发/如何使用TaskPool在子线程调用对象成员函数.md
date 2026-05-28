@@ -5,8 +5,8 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-120
 
 通过将对象Sendable化来使用对象中的方法。具体可参考如下示例代码：
-
-```ts
+ 
+```ArkTS
 // TestClass.ets
 @Sendable
 export class TestClass {
@@ -21,8 +21,8 @@ export class TestClass {
   }
 }
 ```
-
-```text
+ 
+```ArkTS
 // xxx.ets:
 import { taskpool } from '@kit.ArkTS';
 import { TestClass } from './TestClass';
@@ -30,41 +30,41 @@ import { TestClass } from './TestClass';
 // Step 1: Define concurrent functions and internally call synchronization methods
 @Concurrent
 function func(num: number): number {
-// Call synchronous wait call implemented in static class objects
-let testClass = new TestClass();
-let sum = testClass.GetValue() + num;
-return sum;
+  // Call synchronous wait call implemented in static class objects
+  let testClass = new TestClass();
+  let sum = testClass.GetValue() + num;
+  return sum;
 }
 
 // Step 2: Create a task and execute it
 function asyncGet(): void {
-// Create a task and pass it in the function func
-let task: taskpool.Task = new taskpool.Task(func, 1);
-// Execute task and operate on the synchronized logic results
-taskpool.execute(task).then((result: object) => {
-console.info('testTag result:' + result);
-});
+  // Create a task and pass it in the function func
+  let task: taskpool.Task = new taskpool.Task(func, 1);
+  // Execute task and operate on the synchronized logic results
+  taskpool.execute(task).then((result: object) => {
+    console.info('testTag result:' + result);
+  });
 }
 
 @Entry
 @Component
 struct Index {
-@State message: string = 'Hello World';
+  @State message: string = 'Hello World';
 
-build() {
-Row() {
-Column() {
-Text(this.message)
-.fontSize(50)
-.fontWeight(FontWeight.Bold)
-.onClick(() => {
-// Step 3: Perform concurrent operations
-asyncGet();
-})
-}
-.width('100%')
-}
-.height('100%')
-}
+  build() {
+    Row() {
+      Column() {
+        Text(this.message)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+          .onClick(() => {
+            // Step 3: Perform concurrent operations
+            asyncGet();
+          })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
 }
 ```

@@ -8,36 +8,43 @@
 
 相机应用在前后台切换过程中的状态变化说明：
 
+ - 当相机应用在退后台之后由于安全策略会被强制断流，并且此时相机状态回调会返回相机可用状态，表示当前相机设备已经被关闭，处于空闲状态。
+ - 当相机应用从后台切换至前台时，相机状态回调会返回相机不可用状态，表示当前相机设备被打开，处于忙碌状态。
+ - 相机应用从后台切换至前台时，需要重启相机设备的预览流、拍照流以及相机会话管理。
 
-- 当相机应用在退后台之后由于安全策略会被强制断流，并且此时相机状态回调会返回相机可用状态，表示当前相机设备已经被关闭，处于空闲状态。
-- 当相机应用从后台切换至前台时，相机状态回调会返回相机不可用状态，表示当前相机设备被打开，处于忙碌状态。
-- 相机应用从后台切换至前台时，需要重启相机设备的预览流、拍照流以及相机会话管理。
 
 在参考以下示例前，建议开发者查看[相机开发指导(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)的具体章节，了解[相机管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)、[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)等单个操作。
 
 
-## 开发流程
+##### 开发流程
 
 相机应用从后台切换至前台启动恢复的调用流程建议如下：
-![](assets/相机启动恢复实践(ArkTS)
-/file-20260514131519023-0.png)
 
-## 完整示例
 
-Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。 相机应用从后台切换至前台启动恢复需要在页面生命周期回调函数onPageShow中调用，重新初始化相机设备。
-```text
+![](assets/相机启动恢复实践(ArkTS)/file-20260514131519023-0.png)
+
+
+
+
+##### 完整示例
+
+Context获取方式请参考：[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+
+相机应用从后台切换至前台启动恢复需要在页面生命周期回调函数onPageShow中调用，重新初始化相机设备。
+
+```json
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
 let context: common.BaseContext;
 let surfaceId: string = '';
-async function onPageShow(): Promise {
+async function onPageShow(): Promise<void> {
    // 当应用从后台切换至前台页面显示时，重新初始化相机设备。
    await initCamera(context, surfaceId);
 }
 
-async function initCamera(baseContext: common.BaseContext, surfaceId: string): Promise {
+async function initCamera(baseContext: common.BaseContext, surfaceId: string): Promise<void> {
    console.info('onForeGround recovery begin.');
    let cameraManager: camera.CameraManager = camera.getCameraManager(baseContext);
    if (!cameraManager) {
@@ -55,8 +62,34 @@ async function initCamera(baseContext: common.BaseContext, surfaceId: string): P
      });
 
    // 获取相机列表。
-   let cameraArray: Array = cameraManager.getSupportedCameras();
-   if (cameraArray.length  {
+   let cameraArray: Array<camera.CameraDevice> = cameraManager.getSupportedCameras();
+   if (cameraArray.length <= 0) {
+     console.error("cameraManager.getSupportedCameras error");
+     return;
+   }
+
+   for (let index = 0; index < cameraArray.length; index++) {
+     console.info('cameraId : ' + cameraArray[index].cameraId);                       // 获取相机ID。
+     console.info('cameraPosition : ' + cameraArray[index].cameraPosition);           // 获取相机位置。
+     console.info('cameraType : ' + cameraArray[index].cameraType);                   // 获取相机类型。
+     console.info('connectionType : ' + cameraArray[index].connectionType);           // 获取相机连接类型。
+   }
+
+   // 创建相机输入流。
+   let cameraInput: camera.CameraInput | undefined = undefined;
+   try {
+     cameraInput = cameraManager.createCameraInput(cameraArray[0]);
+   } catch (error) {
+       let err = error as BusinessError;
+       console.error('Failed to createCameraInput errorCode = ' + err.code);
+   }
+   if (cameraInput === undefined) {
+     return;
+   }
+
+   // 监听cameraInput错误信息。
+   let cameraDevice: camera.CameraDevice = cameraArray[0];
+     cameraInput.on('error', cameraDevice, (error: BusinessError) => {
      console.error(`Camera input error code: ${error.code}`);
    });
 
@@ -64,7 +97,7 @@ async function initCamera(baseContext: common.BaseContext, surfaceId: string): P
    await cameraInput.open();
 
    // 获取支持的模式类型。
-   let sceneModes: Array = cameraManager.getSupportedSceneModes(cameraArray[0]);
+   let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraArray[0]);
    let isSupportPhotoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_PHOTO) >= 0;
    if (!isSupportPhotoMode) {
      console.error('photo mode not support');
@@ -78,13 +111,13 @@ async function initCamera(baseContext: common.BaseContext, surfaceId: string): P
    }
    console.info("outputCapability: " + JSON.stringify(cameraOutputCap));
 
-   let previewProfilesArray: Array = cameraOutputCap.previewProfiles;
+   let previewProfilesArray: Array<camera.Profile> = cameraOutputCap.previewProfiles;
    if (!previewProfilesArray) {
      console.error("createOutput previewProfilesArray is null!");
      return;
    }
 
-   let photoProfilesArray: Array = cameraOutputCap.photoProfiles;
+   let photoProfilesArray: Array<camera.Profile> = cameraOutputCap.photoProfiles;
    if (!photoProfilesArray) {
      console.error("createOutput photoProfilesArray is null!");
      return;
@@ -225,14 +258,29 @@ async function initCamera(baseContext: common.BaseContext, surfaceId: string): P
    }
 
    // 获取相机支持的可变焦距比范围。
-   let zoomRatioRange: Array = [];
+   let zoomRatioRange: Array<number> = [];
    try {
      zoomRatioRange = photoSession.getZoomRatioRange();
    } catch (error) {
        let err = error as BusinessError;
        console.error('Failed to get the zoom ratio range. errorCode = ' + err.code);
    }
-   if (zoomRatioRange.length  {
+   if (zoomRatioRange.length <= 0) {
+     return;
+   }
+   // 设置可变焦距比。
+   try {
+     photoSession.setZoomRatio(zoomRatioRange[0]);
+   } catch (error) {
+       let err = error as BusinessError;
+       console.error('Failed to set the zoom ratio value. errorCode = ' + err.code);
+   }
+   let photoCaptureSetting: camera.PhotoCaptureSetting = {
+     quality: camera.QualityLevel.QUALITY_LEVEL_HIGH, // 设置图片质量高。
+     rotation: camera.ImageRotation.ROTATION_0 // 设置图片旋转角度0。
+   }
+   // 使用当前拍照设置进行拍照。
+   photoOutput.capture(photoCaptureSetting, (err: BusinessError) => {
      if (err) {
        console.error(`Failed to capture the photo ${err.message}`);
        return;

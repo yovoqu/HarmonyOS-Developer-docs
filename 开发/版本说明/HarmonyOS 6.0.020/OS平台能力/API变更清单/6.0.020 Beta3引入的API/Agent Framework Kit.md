@@ -7,11 +7,11 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明：export declare class AgentController 差异内容：export declare class AgentController | api/@hms.ai.AgentFramework.d.ets |
-| 新增API | NA | 类名：AgentController； API声明：isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise<boolean>; 差异内容：isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise<boolean>; | api/@hms.ai.AgentFramework.d.ets |
-| 新增API | NA | 类名：AgentController； API声明：on(type: 'agentDialogOpened', callback: Callback<void>): void; 差异内容：on(type: 'agentDialogOpened', callback: Callback<void>): void; | api/@hms.ai.AgentFramework.d.ets |
-| 新增API | NA | 类名：AgentController； API声明：off(type: 'agentDialogOpened', callback?: Callback<void>): void; 差异内容：off(type: 'agentDialogOpened', callback?: Callback<void>): void; | api/@hms.ai.AgentFramework.d.ets |
-| 新增API | NA | 类名：AgentController； API声明：on(type: 'agentDialogClosed', callback: Callback<void>): void; 差异内容：on(type: 'agentDialogClosed', callback: Callback<void>): void; | api/@hms.ai.AgentFramework.d.ets |
-| 新增API | NA | 类名：AgentController； API声明：off(type: 'agentDialogClosed', callback?: Callback<void>): void; 差异内容：off(type: 'agentDialogClosed', callback?: Callback<void>): void; | api/@hms.ai.AgentFramework.d.ets |
+| 新增API | NA | 类名：AgentController； API声明：isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise&lt;boolean&gt;; 差异内容：isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise&lt;boolean&gt;; | api/@hms.ai.AgentFramework.d.ets |
+| 新增API | NA | 类名：AgentController； API声明：on(type: 'agentDialogOpened', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'agentDialogOpened', callback: Callback&lt;void&gt;): void; | api/@hms.ai.AgentFramework.d.ets |
+| 新增API | NA | 类名：AgentController； API声明：off(type: 'agentDialogOpened', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'agentDialogOpened', callback?: Callback&lt;void&gt;): void; | api/@hms.ai.AgentFramework.d.ets |
+| 新增API | NA | 类名：AgentController； API声明：on(type: 'agentDialogClosed', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'agentDialogClosed', callback: Callback&lt;void&gt;): void; | api/@hms.ai.AgentFramework.d.ets |
+| 新增API | NA | 类名：AgentController； API声明：off(type: 'agentDialogClosed', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'agentDialogClosed', callback?: Callback&lt;void&gt;): void; | api/@hms.ai.AgentFramework.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare class FunctionController 差异内容：export declare class FunctionController | api/@hms.ai.AgentFramework.d.ets |
 | 新增API | NA | 类名：global； API声明：export declare interface BaseOptions 差异内容：export declare interface BaseOptions | api/@hms.ai.AgentFramework.d.ets |
 | 新增API | NA | 类名：BaseOptions； API声明：title?: string; 差异内容：title?: string; | api/@hms.ai.AgentFramework.d.ets |

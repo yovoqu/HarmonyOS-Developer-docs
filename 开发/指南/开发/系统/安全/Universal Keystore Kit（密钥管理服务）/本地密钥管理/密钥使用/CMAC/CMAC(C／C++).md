@@ -6,20 +6,29 @@
 
 CMAC是基于对称密钥分组加密算法的消息认证码（Cipher-based Message Authentication Code），目前支持3DES加密算法的消息认证方法。
 
-
 > [!NOTE]
 > 仅支持在智能穿戴设备（Wearable）使用。
 
 
-## 开发步骤
 
-**生成密钥** 获取生成密钥算法参数配置。 调用[OH_Huks_GenerateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_generatekeyitem)生成密钥，支持的规格是128比特长度的密钥。 除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)的规格介绍，导入已有的密钥。 **执行CMAC** 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)获取算法参数配置。 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)和[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)计算MAC值。
+##### 开发步骤
+
+**生成密钥**
+1. 获取生成密钥算法参数配置。
+2. 调用[OH_Huks_GenerateKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_generatekeyitem)生成密钥，支持的规格是128比特长度的密钥。
+
+除此之外，开发者也可以参考[密钥导入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)的规格介绍，导入已有的密钥。
+
+**执行CMAC**
+1. 调用[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)获取算法参数配置。
+2. 调用[OH_Huks_InitSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_initsession)和[OH_Huks_FinishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_finishsession)计算MAC值。
+
 ```text
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "huks/native_huks_type.h"
 #include "napi/native_api.h"
-#include
+#include <string.h>
 
 static const uint32_t CMAC_COMMON_SIZE = 8;
 static const uint32_t IV_SIZE = 8;
@@ -130,7 +139,7 @@ static napi_value CmacKey(napi_env env, napi_callback_info info)
     } while (0);
     OH_Huks_FreeParamSet(&genParamSet);
     OH_Huks_FreeParamSet(&cmacParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;

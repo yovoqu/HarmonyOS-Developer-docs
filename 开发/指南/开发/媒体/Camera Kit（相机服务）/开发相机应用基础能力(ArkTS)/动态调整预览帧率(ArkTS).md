@@ -5,32 +5,61 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-framerate
 
 动态调整帧率是直播、视频等场景下控制预览效果的重要能力之一。应用可通过此能力，显式地控制流输出帧率，以适应不同帧率下的业务目标。
+ 
+某些场景下降低帧率可在相机设备启用时降低功耗。
+  
 
- 某些场景下降低帧率可在相机设备启用时降低功耗。
-
-
-## 约束与限制
+##### 约束与限制
 
 支持的帧率范围及帧率的设置依赖于硬件能力的实现，不同的硬件平台可能拥有不同的默认帧率。
+ 
+  
 
-## 开发流程
+##### 开发流程
 
-相机使用预览功能前，均需要创建相机会话。完成会话配置后，应用提交和开启会话，才可以开始调用相机相关功能。 流程图如下所示：
-![](assets/动态调整预览帧率(ArkTS)
-/file-20260514131523572-0.png) 与普通的[预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preview)流程相比，动态调整预览帧率的注意点如图上标识： 调用[createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createsession11)创建会话（Session）时，需要指定模式为NORMAL_PHOTO或NORMAL_VIDEO。  仅当Session处于NORMAL_PHOTO或NORMAL_VIDEO模式时，支持调整预览流帧率。调整帧率的创建会话方式见[创建Session会话并指定模式](#创建session会话并指定模式)。  [动态调整帧率](#调整帧率)的操作，可在启动预览前后任意时刻调用。  [动态调整帧率](#调整帧率)在预览里属于可选操作，可以完成：  查询当前支持调整的帧率范围设置当前帧率获取当前生效的帧率设置   如何配置会话（Session）、释放资源，请参考[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management) > [预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preview)，或是[完整流程](#完整流程)示例。
+相机使用预览功能前，均需要创建相机会话。完成会话配置后，应用提交和开启会话，才可以开始调用相机相关功能。
+ 
+流程图如下所示：
+ 
 
-## 导入依赖
+![](assets/动态调整预览帧率(ArkTS)/file-20260514131523572-0.png)
+
+ 
+与普通的[预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preview)流程相比，动态调整预览帧率的注意点如图上标识：
+ 1. 调用[createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createsession11)创建会话（Session）时，需要指定模式为NORMAL_PHOTO或NORMAL_VIDEO。
+
+  仅当Session处于NORMAL_PHOTO或NORMAL_VIDEO模式时，支持调整预览流帧率。调整帧率的创建会话方式见[创建Session会话并指定模式](#创建session会话并指定模式)。
+2. [动态调整帧率](#调整帧率)的操作，可在启动预览前后任意时刻调用。
+3. [动态调整帧率](#调整帧率)在预览里属于可选操作，可以完成：
+
+  
+查询当前支持调整的帧率范围
+4. 设置当前帧率
+5. 获取当前生效的帧率设置
+ 
+如何配置会话（Session）、释放资源，请参考[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management) > [预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preview)，或是[完整流程](#完整流程)示例。
+ 
+  
+
+##### 导入依赖
 
 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
+ 
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
+ 
+  
 
+##### 创建Session会话并指定模式
 
-## 创建Session会话并指定模式
-
-相机使用预览等功能前，均需完成[相机管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)和创建相机会话，调用[CameraManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager)的[createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createsession11)创建一个会话。 创建会话时需指定[SceneMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#scenemode11)为NORMAL_PHOTO或NORMAL_VIDEO，创建出的Session处于拍照或录像模式。 以创建Session会话并指定为NORMAL_PHOTO模式为例：
+相机使用预览等功能前，均需完成[相机管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)和创建相机会话，调用[CameraManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager)的[createSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createsession11)创建一个会话。
+ 
+创建会话时需指定[SceneMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#scenemode11)为NORMAL_PHOTO或NORMAL_VIDEO，创建出的Session处于拍照或录像模式。
+ 
+以创建Session会话并指定为NORMAL_PHOTO模式为例：
+ 
 ```text
 function createPhotoSession(cameraManager: camera.CameraManager): camera.Session | undefined {
   let session: camera.Session | undefined = undefined;
@@ -44,27 +73,33 @@ function createPhotoSession(cameraManager: camera.CameraManager): camera.Session
   return session;
 }
 ```
+ 
+  
 
+##### 调整帧率
+1. 调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)的[getSupportedFrameRates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getsupportedframerates12)，查询当前支持的帧率范围。
 
-## 调整帧率
-
-调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)的[getSupportedFrameRates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getsupportedframerates12)，查询当前支持的帧率范围。
+  
 > [!NOTE]
-> 需要在Session调用commitConfig完成配流之后调用。
+> 需要在Session调用 commitConfig 完成配流之后调用。
 
 
+  
 ```text
-function getSupportedFrameRange(previewOutput: camera.PreviewOutput): Array {
+function getSupportedFrameRange(previewOutput: camera.PreviewOutput): Array<camera.FrameRateRange> {
 // 获取支持的帧率范围，不同的硬件平台可能提供不同的帧率范围
   return previewOutput.getSupportedFrameRates();
 }
 ```
 
-根据实际开发需求，调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)类提供的[setFrameRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#setframerate12)接口对帧率进行动态调整。
+2. 根据实际开发需求，调用[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)类提供的[setFrameRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#setframerate12)接口对帧率进行动态调整。
+
+  
 > [!NOTE]
-> 调用时机：  需要在Session调用commitConfig完成配流之后调用。可在Session调用start启动预览前后任意时刻调用。  setFrameRate调用限制：  在调用setFrameRate接口设置非固定帧率后，不支持再次调用该接口重新设置动态帧率。在调用setFrameRate接口设置固定帧率后，支持重新设置固定帧率，但必须保证新设置的帧率可以整除之前设置的帧率或者被之前设置的帧率整除。
+> 调用时机： 需要在Session调用 commitConfig 完成配流之后调用。 可在Session调用 start 启动预览前后任意时刻调用。 setFrameRate调用限制： 在调用setFrameRate接口设置非固定帧率后，不支持再次调用该接口重新设置动态帧率。 在调用setFrameRate接口设置固定帧率后，支持重新设置固定帧率，但必须保证新设置的帧率可以整除之前设置的帧率或者被之前设置的帧率整除。
 
 
+  
 ```text
 function setFrameRate(previewOutput: camera.PreviewOutput, minFps: number, maxFps: number): void {
   try {
@@ -76,23 +111,30 @@ function setFrameRate(previewOutput: camera.PreviewOutput, minFps: number, maxFp
 }
 ```
 
-（可选）通过[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)提供的[getActiveFrameRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getactiveframerate12)接口查询已设置过并生效的帧率。  仅通过[setFrameRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#setframerate12)接口显式设置过帧率才可查询当前生效帧率信息。
+3. （可选）通过[PreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput)提供的[getActiveFrameRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#getactiveframerate12)接口查询已设置过并生效的帧率。
+
+  仅通过[setFrameRate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#setframerate12)接口显式设置过帧率才可查询当前生效帧率信息。
+
+  
 ```text
 function getActiveFrameRange(previewOutput: camera.PreviewOutput): camera.FrameRateRange {
   return previewOutput.getActiveFrameRate();
 }
 ```
 
+ 
+  
 
-## 完整流程
+##### 完整流程
 
 结合上述开发流程1~3，完整的session配流及previewOutput在session.start前后调整帧率示例代码如下。
-```text
+ 
+```json
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function sessionConfig(cameraManager: camera.CameraManager, cameraInput: camera.CameraInput,
-  previewOutput: camera.PreviewOutput): Promise {
+  previewOutput: camera.PreviewOutput): Promise<void> {
   try {
     let session: camera.Session | undefined = undefined;
     // 创建CaptureSession实例
@@ -109,7 +151,7 @@ async function sessionConfig(cameraManager: camera.CameraManager, cameraInput: c
     // 提交配置信息
     await session.commitConfig();
     // 获取当前支持的帧率范围
-    let supportFrameRateArray: Array = getSupportedFrameRange(previewOutput);
+    let supportFrameRateArray: Array<camera.FrameRateRange> = getSupportedFrameRange(previewOutput);
 
     console.info(`frame rate supported by previewOutput: ${JSON.stringify(supportFrameRateArray)}`);
     // 可在start前对帧率进行设置

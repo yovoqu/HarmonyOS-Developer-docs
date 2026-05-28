@@ -1,6 +1,6 @@
 # 使用ECC压缩/非压缩公钥格式转换(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/-convert-compressed-or-uncompressed-ecc-pubkey-ndk
 
@@ -13,10 +13,15 @@
 通过传入字符串参数，可指定需要获取的ECC公钥数据格式。如果需要获取满足X509规范的压缩格式数据，则指定参数为："X509|COMPRESSED"；需要获取非压缩格式，则指定参数为："X509|UNCOMPRESSED"。
 
 
-## 指定非压缩公钥数据转换为压缩公钥数据
+##### 指定非压缩公钥数据转换为压缩公钥数据
+1. 指定uint8_t类型的ECC非压缩公钥数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。
 
-指定uint8_t类型的ECC非压缩公钥数据，封装成[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)。 公钥和私钥可单独传入，此处示例传入非压缩公钥。 调用[OH_CryptoAsymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_generate)，指定字符串参数'ECC_BrainPoolP256r1'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（OH_CryptoAsymKeyGenerator）。 调用[OH_CryptoAsymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_convert)，传入封装后的[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)，生成非对称密钥对象（OH_CryptoKeyPair）。 调用[OH_CryptoPubKey_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptopubkey_encode)，设置参数为'X509|COMPRESSED'，获取压缩公钥数据的字节流。
-```text
+  公钥和私钥可单独传入，此处示例传入非压缩公钥。
+2. 调用[OH_CryptoAsymKeyGenerator_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_generate)，指定字符串参数'ECC_BrainPoolP256r1'，创建密钥算法为ECC、密钥长度为256位的非对称密钥生成器（OH_CryptoAsymKeyGenerator）。
+3. 调用[OH_CryptoAsymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_convert)，传入封装后的[Crypto_DataBlob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptocommonapi-crypto-datablob)，生成非对称密钥对象（OH_CryptoKeyPair）。
+4. 调用[OH_CryptoPubKey_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptopubkey_encode)，设置参数为'X509|COMPRESSED'，获取压缩公钥数据的字节流。
+
+```cpp
 #include "CryptoArchitectureKit/crypto_common.h"
 #include "CryptoArchitectureKit/crypto_asym_key.h"
 

@@ -3,7 +3,7 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-deque
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Deque（double ended queue）基于循环队列的数据结构实现，支持两端元素的插入和删除，同时具备先进先出以及先进后出的特点。Deque会根据实际需要动态调整容量，每次扩容两倍。
 
@@ -15,43 +15,40 @@ Deque和[Queue](https://developer.huawei.com/consumer/cn/doc/harmonyos-reference
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- T：Type，类
+ - T：Type，类
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { Deque } from '@kit.ArkTS';
 ```
 
 
-## Deque
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Deque
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | Deque的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -65,7 +62,6 @@ Deque的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The Deque's constructor cannot be directly invoked. |
@@ -73,14 +69,13 @@ Deque的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<string | number | boolean | Object>();
 ```
 
 
-### insertFront
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### insertFront
 
 insertFront(element: T): void
 
@@ -92,7 +87,6 @@ insertFront(element: T): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 插入的元素。 |
@@ -102,7 +96,6 @@ insertFront(element: T): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The insertFront method cannot be bound. |
@@ -110,27 +103,26 @@ insertFront(element: T): void
 
 **示例：**
 
-
-```ts
+```text
 class C1 {
-  name: string = '';
-  age: string = '';
+  name: string = ""
+  age: string = ""
 }
 
 let deque = new Deque<string | number | boolean | Array<number> | C1>();
-deque.insertFront('a');
+deque.insertFront("a");
 deque.insertFront(1);
 let b = [1, 2, 3];
 deque.insertFront(b);
-let c: C1 = { name: 'Dylan', age: '13' };
+let c: C1 = {name : "Dylan", age : "13"};
 deque.insertFront(c);
 deque.insertFront(false);
-console.info('result:', deque[0]); // result: false
+console.info("result:", deque[0]);  // result: false
 ```
 
 
-### insertEnd
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### insertEnd
 
 insertEnd(element: T): void
 
@@ -142,7 +134,6 @@ insertEnd(element: T): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 插入的元素。 |
@@ -152,7 +143,6 @@ insertEnd(element: T): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The insertEnd method cannot be bound. |
@@ -160,27 +150,26 @@ insertEnd(element: T): void
 
 **示例：**
 
-
-```ts
+```text
 class C1 {
-  name: string = '';
-  age: string = '';
+  name: string = ""
+  age: string = ""
 }
 
 let deque = new Deque<string | number | boolean | Array<number> | C1>();
-deque.insertEnd('a');
+deque.insertEnd("a");
 deque.insertEnd(1);
 let b = [1, 2, 3];
 deque.insertEnd(b);
-let c: C1 = { name: 'Dylan', age: '13' };
+let c: C1 = {name : "Dylan", age : "13"};
 deque.insertEnd(c);
 deque.insertEnd(false);
-console.info('result:', deque[0]); // result: a
+console.info("result:", deque[0]);  // result: a
 ```
 
 
-### has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(element: T): boolean
 
@@ -192,14 +181,12 @@ has(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -210,7 +197,6 @@ has(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The has method cannot be bound. |
@@ -218,17 +204,16 @@ has(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<string>();
-deque.insertFront('squirrel');
-let result = deque.has('squirrel');
-console.info('result:', result); // result: true
+deque.insertFront("squirrel");
+let result = deque.has("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### popFirst
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### popFirst
 
 popFirst(): T
 
@@ -240,7 +225,6 @@ popFirst(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回被删除的首元素。 |
@@ -250,7 +234,6 @@ popFirst(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The popFirst method cannot be bound. |
@@ -258,8 +241,7 @@ popFirst(): T
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<number>();
 deque.insertFront(2);
 deque.insertFront(4);
@@ -267,12 +249,12 @@ deque.insertEnd(5);
 deque.insertFront(2);
 deque.insertFront(4);
 let result = deque.popFirst();
-console.info('result:', result); // result: 4
+console.info("result:", result);  // result: 4
 ```
 
 
-### popLast
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### popLast
 
 popLast(): T
 
@@ -284,7 +266,6 @@ popLast(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回被删除的尾元素。 |
@@ -294,7 +275,6 @@ popLast(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The popLast method cannot be bound. |
@@ -302,8 +282,7 @@ popLast(): T
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<number>();
 deque.insertFront(2);
 deque.insertEnd(6);
@@ -311,14 +290,14 @@ deque.insertFront(5);
 deque.insertFront(2);
 deque.insertFront(4);
 let result = deque.popLast();
-console.info('result:', result); // result: 6
+console.info("result:", result);  // result: 6
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value: T, index?: number, deque?: Deque<T>) => void, thisArg?: Object): void
+##### forEach
+
+forEach(callbackFn: (value: T, index?: number, deque?: Deque&lt;T&gt;) => void, thisArg?: Object): void
 
 在遍历Deque实例对象中每一个元素的过程中，对每个元素执行回调函数。
 
@@ -328,7 +307,6 @@ forEach(callbackFn: (value: T, index?: number, deque?: Deque<T>) => void, thisAr
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -336,7 +314,6 @@ forEach(callbackFn: (value: T, index?: number, deque?: Deque<T>) => void, thisAr
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -349,7 +326,6 @@ callbackFn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -358,27 +334,26 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<number>();
 deque.insertFront(2);
 deque.insertEnd(3);
 deque.insertFront(1);
 deque.insertEnd(4);
 deque.forEach((value: number, index: number): void => {
-  console.info('value:' + value, 'index:' + index);
+  console.info("value:" + value, "index:" + index);
 });
 /*
 输出结果：value:1 index:0
-value:2 index:1
-value:3 index:2
-value:4 index:3
-*/
+         value:2 index:1
+         value:3 index:2
+         value:4 index:3
+ */
 ```
 
 
-### getFirst
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFirst
 
 getFirst(): T
 
@@ -390,7 +365,6 @@ getFirst(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回T类型的头元素。 |
@@ -400,7 +374,6 @@ getFirst(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getFirst method cannot be bound. |
@@ -408,20 +381,19 @@ getFirst(): T
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<number>();
 deque.insertEnd(2);
 deque.insertEnd(4);
 deque.insertFront(5);
 deque.insertFront(4);
 let result = deque.getFirst();
-console.info('result:', result); // result: 4
+console.info("result:", result);  // result: 4
 ```
 
 
-### getLast
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLast
 
 getLast(): T
 
@@ -433,7 +405,6 @@ getLast(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回T类型的尾元素。 |
@@ -443,7 +414,6 @@ getLast(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getLast method cannot be bound. |
@@ -451,22 +421,21 @@ getLast(): T
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<number>();
 deque.insertFront(2);
 deque.insertFront(4);
 deque.insertFront(5);
 deque.insertFront(4);
 let result = deque.getLast();
-console.info('result:', result); // result: 2
+console.info("result:", result);  // result: 2
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<T>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;T&gt;
 
 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
 
@@ -475,7 +444,6 @@ console.info('result:', result); // result: 2
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -486,7 +454,6 @@ console.info('result:', result); // result: 2
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -494,8 +461,7 @@ console.info('result:', result); // result: 2
 
 **示例：**
 
-
-```ts
+```text
 let deque = new Deque<number>();
 deque.insertFront(2);
 deque.insertFront(4);
@@ -504,7 +470,7 @@ deque.insertFront(4);
 
 // 使用方法一：
 for (let item of deque) {
-  console.info('value:' + item);
+  console.info("value:" + item);
 }
 /*
 输出结果：
@@ -512,13 +478,13 @@ value:4
 value:5
 value:4
 value:2
-*/
+ */
 
 // 使用方法二：
 let iter = deque[Symbol.iterator]();
-let temp: IteratorResult<number> = iter.next();
-while (!temp.done) {
-  console.info('value:' + temp.value);
+let temp:IteratorResult<number> = iter.next();
+while(!temp.done) {
+  console.info("value:" + temp.value);
   temp = iter.next();
 }
 /*
@@ -527,5 +493,5 @@ value:4
 value:5
 value:4
 value:2
-*/
+ */
 ```

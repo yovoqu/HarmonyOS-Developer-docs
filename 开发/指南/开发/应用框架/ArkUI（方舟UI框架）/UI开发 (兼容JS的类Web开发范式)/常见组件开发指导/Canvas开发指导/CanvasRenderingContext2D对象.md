@@ -7,21 +7,23 @@
 使用CanvasRenderingContext2D在Canvas画布组件上进行绘制，绘制对象可以是图形、文本、线段、图片等。具体请参考[CanvasRenderingContext2D对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvasrenderingcontext2d)。
 
 
-## 画线段
+##### 画线段
 
 使用moveTo和lineTo画出一条线段，当使用closePath方法时会结束当前路径形成一个封闭图形。设置quadraticCurveTo（二次贝塞尔曲线）或bezierCurveTo（三次贝塞尔曲线）的值组成图形。
+
 ```text
-
-
-     line
-     quadratic
-     bezier
-     arc/ellipse
-     lineJoin/miterLimit
-
-
+<!-- xxx.hml -->
+<div class="container">
+  <canvas ref="canvas1"></canvas>
+  <select @change="change">
+    <option value="value1"> line </option>
+    <option value="value2"> quadratic </option>
+    <option value="value3"> bezier </option>
+    <option value="value4"> arc/ellipse </option>
+    <option value="value5"> lineJoin/miterLimit </option>
+  </select>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -48,7 +50,6 @@ select {
     background-color: white;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -202,22 +203,28 @@ export default {
 }
 ```
 
+
 ![](assets/CanvasRenderingContext2D对象/file-20260514130758086-0.gif)
 
-## 画边框
+
+
+
+##### 画边框
 
 全局定义画布（el）及画笔（ctx），初始化创建一个边框宽度为5的长方形。对边框的宽度（lineWidth）、颜色（strokeStyle）、虚化程度（setLineDash）进行改变，选用select组件添加change事件，下拉选择时触发change事件后画出改变后的图形。
+
 ```text
-
-
-    strokeRect
-    arc
-    lineDashRect
-    fillRect
-
-
+<!-- xxx.hml -->
+<div class="container">
+  <canvas ref="canvas1"></canvas>
+  <select @change="change">
+    <option value="value1">strokeRect</option>
+    <option value="value2">arc</option>
+    <option value="value3">lineDashRect</option>
+    <option value="value4">fillRect</option>
+  </select>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -245,7 +252,6 @@ select {
     background-color: white;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -296,22 +302,28 @@ export default {
 }
 ```
 
+
 ![](assets/CanvasRenderingContext2D对象/file-20260514130758086-1.gif)
 
-## 填充渐变色
+
+
+
+##### 填充渐变色
 
 添加[createLinearGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createlineargradient)和[createRadialGradient](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#createradialgradient)属性创建渐变容器，接着用addColorStop方法添加多个色块组成渐变色，再设置fillStyle为gradient将渐变色填充到矩形中，最后设置阴影的模糊级别（shadowBlur）、阴影颜色（shadowColor）及阴影偏移量（shadowOffset）。
+
 ```text
-
-
-    LinearGradient
-    RadialGradient
-    shadowBlur
-    shadowOffset
-
-
+<!-- xxx.hml -->
+<div class="container">
+  <canvas ref="canvas1"></canvas>
+  <select @change="change">
+    <option value="value1">LinearGradient</option>
+    <option value="value2">RadialGradient</option>
+    <option value="value3">shadowBlur</option>
+    <option value="value4">shadowOffset</option>
+  </select>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -339,7 +351,6 @@ select {
     background-color: white;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -420,21 +431,27 @@ export default {
 }
 ```
 
+
 ![](assets/CanvasRenderingContext2D对象/file-20260514130758086-2.gif)
 
-## 填充文字
+
+
+
+##### 填充文字
 
 先创建文本，再用[fillText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#filltext)方法把文字写在画布上。通过[globalAlpha](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#globalalpha)属性改变基线透明度，使基线不会挡住文字，再设置[textAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#textalign)和[textBaseline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#textbaseline)属性确定文字基于基线的位置。
+
 ```text
-
-
-    text
-    textBaseline
-    textAlign
-
-
+<!-- xxx.hml -->
+<div class="container">
+  <canvas ref="canvas1"></canvas>
+  <select @change="change">
+    <option value="value1">text</option>
+    <option value="value2">textBaseline</option>
+    <option value="value3">textAlign</option>
+  </select>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -461,7 +478,6 @@ select {
     background-color: white;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -549,32 +565,40 @@ export default {
 }
 ```
 
+
 ![](assets/CanvasRenderingContext2D对象/file-20260514130758086-3.gif)
+
+
 > [!NOTE]
 > ltr布局模式下start和left一致，rtl布局模式下start和right一致。
 
 
-## 添加图片
+
+
+##### 添加图片
 
 创建图片对象后使用[drawImage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#drawimage)方法画出图片，给图片设置一些动画样式如scale（缩放）、translate（平移）或rotate（旋转）。
+
 ```text
-
-
-    change
-
-    rotate
-
-    scale
-
-    translate
-
-    transform
-
-    setTransform
-
-
+<!-- xxx.hml -->
+<div class="container">
+  <div class="content">
+    <canvas ref="canvas0"></canvas>
+    <text onclick="change">change</text>
+    <canvas ref="canvas1"></canvas>
+    <text onclick="rotate">rotate</text>
+    <canvas ref="canvas2"></canvas>
+    <text onclick="scale">scale</text>
+    <canvas ref="canvas3"></canvas>
+    <text onclick="translate" style="width: 300px;">translate</text>
+    <canvas ref="canvas4"></canvas>
+    <text onclick="transform" style="width: 300px;">transform</text>
+    <canvas ref="canvas5"></canvas>
+    <text onclick="setTransform" style="width: 300px;">setTransform</text>
+    <canvas ref="canvas6"></canvas>
+  </div>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -613,7 +637,6 @@ text {
     margin-bottom: 30px;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -722,24 +745,33 @@ export default {
 }
 ```
 
-![](assets/CanvasRenderingContext2D对象/file-20260514130758086-4.gif)
+
+![](assets/CanvasRenderingContext2D对象/file-20260514130758086-5.gif)
+
+
 > [!NOTE]
 > setTransform方法使用的参数和transform()方法相同，但setTransform()方法会重置现有的变换矩阵并创建新的变换矩阵。 变换后的坐标计算方式（x和y为变换前坐标，x'和y'为变换后坐标）： x' = scaleX * x + skewY * y + translateX y' = skewX * x + scaleY * y + translateY
 
 
-## 添加方法
+
+
+##### 添加方法
 
 save方法可对画笔样式进行存储，restore可对存储的画笔进行恢复。如下面的示例，先设置画笔为红色，在保存画笔后对画布进行清除并改变画笔为蓝色，当我们直接使用画笔时会画出一个蓝色矩形，对存储的画笔进行恢复后就可画出红色矩形。
+
 ```text
-
-
-    save
-    clear
-    restore
-
-
+<!-- xxx.hml -->
+<div class="container">
+  <div class="content">
+    <canvas ref="canvas"></canvas>
+  </div>
+  <div class="content">
+    <text onclick="save">save</text>
+    <text onclick="clear">clear</text>
+    <text onclick="restore">restore</text>
+  </div>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -779,7 +811,6 @@ text {
 }
 ```
 
-
 ```text
 // xxx.js
 import promptAction from '@ohos.promptAction';
@@ -812,4 +843,5 @@ export default {
 }
 ```
 
-![](assets/CanvasRenderingContext2D对象/file-20260514130758086-5.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/G3e4YcbAT5ux4fmo1PHFOw/zh-cn_image_0000002611834031.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014753Z&HW-CC-Expire=86400&HW-CC-Sign=AF4E607E1DE3DCAF71F92CDE98030EEBB8ABD8ADF20553CF66784699F237D224)

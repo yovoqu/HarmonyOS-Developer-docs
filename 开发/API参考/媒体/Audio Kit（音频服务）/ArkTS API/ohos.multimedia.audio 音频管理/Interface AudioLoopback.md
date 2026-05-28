@@ -3,7 +3,7 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audioloopback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供音频返听的相关接口。
 
@@ -13,20 +13,22 @@
 
 输入\输出设备由系统自动选择。如果当前输入\输出不支持低时延，则音频返听无法启用。在运行过程中，如果音频焦点被另一个音频流抢占，输入\输出设备切换到不支持低时延的设备，系统会自动禁用音频返听。
 
+> [!NOTE]
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 20开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { audio } from '@kit.AudioKit';
 ```
 
 
-## getStatus20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getStatus(): Promise<AudioLoopbackStatus>
+##### getStatus20+
+
+getStatus(): Promise&lt;AudioLoopbackStatus&gt;
 
 获取音频返听状态。使用Promise异步回调。
 
@@ -34,33 +36,28 @@ getStatus(): Promise<AudioLoopbackStatus>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioLoopbackStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackstatus20)&gt; | Promise对象，返回音频返听状态。 |
+| Promise&lt;AudioLoopbackStatus&gt; | Promise对象，返回音频返听状态。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioLoopback
-  .getStatus()
-  .then((status: audio.AudioLoopbackStatus) => {
-    console.info(`AudioLoopback: Status: ${status}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(`AudioLoopback: Status :ERROR: ${err}`);
-  });
+audioLoopback.getStatus().then((status: audio.AudioLoopbackStatus) => {
+  console.info(`AudioLoopback: Status: ${status}`);
+}).catch((err: BusinessError) => {
+  console.error(`AudioLoopback: Status :ERROR: ${err}`);
+})
 ```
 
 
-## setVolume20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setVolume(volume: number): Promise<void>
+##### setVolume20+
+
+setVolume(volume: number): Promise&lt;void&gt;
 
 设置音频返听的音量。使用Promise异步回调。
 
@@ -68,14 +65,12 @@ setVolume(volume: number): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | volume | number | 是 | 音量值范围为[0.0, 1.0]。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -86,7 +81,6 @@ setVolume(volume: number): Promise<void>
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed, from 0.0 to 1.0. |
@@ -94,25 +88,21 @@ setVolume(volume: number): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioLoopback
-  .setVolume(0.5)
-  .then(() => {
-    console.info('setVolume Success!');
-  })
-  .catch((err: BusinessError) => {
-    console.error(`setVolume Fail: ${err}`);
-  });
+audioLoopback.setVolume(0.5).then(() => {
+  console.info('setVolume Success!');
+}).catch((err: BusinessError) => {
+  console.error(`setVolume Fail: ${err}`);
+});
 ```
 
 
-## on('statusChange')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'statusChange', callback: Callback<AudioLoopbackStatus>): void
+##### on('statusChange')20+
+
+on(type: 'statusChange', callback: Callback&lt;AudioLoopbackStatus&gt;): void
 
 监听返听状态变化事件（当AudioLoopback的状态发生变化时触发）。使用callback异步回调。
 
@@ -120,17 +110,15 @@ on(type: 'statusChange', callback: Callback<AudioLoopbackStatus>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'statusChange'，当AudioLoopback的状态发生变化时，触发该事件。 |
-| callback | Callback&lt;[AudioLoopbackStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackstatus20)&gt; | 是 | 回调函数，返回当前音频返听的状态。 |
+| callback | Callback&lt;AudioLoopbackStatus&gt; | 是 | 回调函数，返回当前音频返听的状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -139,8 +127,7 @@ on(type: 'statusChange', callback: Callback<AudioLoopbackStatus>): void
 
 **示例：**
 
-
-```ts
+```text
 audioLoopback.on('statusChange', (status: audio.AudioLoopbackStatus) => {
   if (status == audio.AudioLoopbackStatus.UNAVAILABLE_DEVICE) {
     console.info('audio loopback status is: UNAVAILABLE_DEVICE');
@@ -155,10 +142,10 @@ audioLoopback.on('statusChange', (status: audio.AudioLoopbackStatus) => {
 ```
 
 
-## off('statusChange')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'statusChange', callback?: Callback<AudioLoopbackStatus>): void
+##### off('statusChange')20+
+
+off(type: 'statusChange', callback?: Callback&lt;AudioLoopbackStatus&gt;): void
 
 取消监听音频状态事件。使用callback异步回调。
 
@@ -166,17 +153,15 @@ off(type: 'statusChange', callback?: Callback<AudioLoopbackStatus>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'statusChange'，当取消监听音频状态事件时，触发该事件。 |
-| callback | Callback&lt;[AudioLoopbackStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackstatus20)&gt; | 否 | 回调函数，返回当前音频返听的状态。 |
+| callback | Callback&lt;AudioLoopbackStatus&gt; | 否 | 回调函数，返回当前音频返听的状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -185,8 +170,7 @@ off(type: 'statusChange', callback?: Callback<AudioLoopbackStatus>): void
 
 **示例：**
 
-
-```ts
+```text
 // 取消该事件的所有监听。
 audioLoopback.off('statusChange');
 
@@ -209,10 +193,10 @@ audioLoopback.off('statusChange', statusChangeCallback);
 ```
 
 
-## enable20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-enable(enable: boolean): Promise<boolean>
+##### enable20+
+
+enable(enable: boolean): Promise&lt;boolean&gt;
 
 启用或禁用音频返听器。使用Promise异步回调。
 
@@ -222,14 +206,12 @@ enable(enable: boolean): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enable | boolean | 是 | 表示是否启用音频返听器。true表示启用，false表示不启用。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -240,7 +222,6 @@ enable(enable: boolean): Promise<boolean>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -249,27 +230,23 @@ enable(enable: boolean): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioLoopback
-  .enable(true)
-  .then((isSuccess) => {
-    if (isSuccess) {
-      console.info('audio loopback enable success');
-    } else {
-      console.info('audio loopback enable fail');
-    }
-  })
-  .catch((err: BusinessError) => {
-    console.error(`ERROR: ${err}`);
-  });
+audioLoopback.enable(true).then((isSuccess) => {
+  if (isSuccess) {
+    console.info('audio loopback enable success');
+  } else {
+    console.info('audio loopback enable fail');
+  }
+}).catch((err: BusinessError) => {
+  console.error(`ERROR: ${err}`);
+});
 ```
 
 
-## setReverbPreset21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setReverbPreset21+
 
 setReverbPreset(preset: AudioLoopbackReverbPreset): boolean
 
@@ -279,14 +256,12 @@ setReverbPreset(preset: AudioLoopbackReverbPreset): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| preset | [AudioLoopbackReverbPreset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackreverbpreset21) | 是 | 混响模式。 |
+| preset | AudioLoopbackReverbPreset | 是 | 混响模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -297,7 +272,6 @@ setReverbPreset(preset: AudioLoopbackReverbPreset): boolean
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
@@ -305,8 +279,7 @@ setReverbPreset(preset: AudioLoopbackReverbPreset): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 try {
   audioLoopback.setReverbPreset(audio.AudioLoopbackReverbPreset.THEATER);
@@ -316,8 +289,8 @@ try {
 ```
 
 
-## getReverbPreset21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getReverbPreset21+
 
 getReverbPreset(): AudioLoopbackReverbPreset
 
@@ -327,16 +300,14 @@ getReverbPreset(): AudioLoopbackReverbPreset
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioLoopbackReverbPreset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackreverbpreset21) | 返回当前音频返听器的混响模式。          在没有被修改的情况下，默认的混响模式是THEATER。 |
+| AudioLoopbackReverbPreset | 返回当前音频返听器的混响模式。 在没有被修改的情况下，默认的混响模式是THEATER。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 try {
   let reverbPreset = audioLoopback.getReverbPreset();
@@ -346,8 +317,8 @@ try {
 ```
 
 
-## setEqualizerPreset21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setEqualizerPreset21+
 
 setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean
 
@@ -357,14 +328,12 @@ setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| preset | [AudioLoopbackEqualizerPreset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackequalizerpreset21) | 是 | 均衡器类型。 |
+| preset | AudioLoopbackEqualizerPreset | 是 | 均衡器类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -375,7 +344,6 @@ setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
@@ -383,8 +351,7 @@ setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 try {
   audioLoopback.setEqualizerPreset(audio.AudioLoopbackEqualizerPreset.FULL);
@@ -394,8 +361,8 @@ try {
 ```
 
 
-## getEqualizerPreset21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getEqualizerPreset21+
 
 getEqualizerPreset(): AudioLoopbackEqualizerPreset
 
@@ -405,16 +372,14 @@ getEqualizerPreset(): AudioLoopbackEqualizerPreset
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioLoopbackEqualizerPreset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackequalizerpreset21) | 返回当前音频返听器的均衡器类型。          在没有被修改的情况下，默认的均衡器类型是FULL。 |
+| AudioLoopbackEqualizerPreset | 返回当前音频返听器的均衡器类型。 在没有被修改的情况下，默认的均衡器类型是FULL。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 try {
   let reverbPreset = audioLoopback.getEqualizerPreset();

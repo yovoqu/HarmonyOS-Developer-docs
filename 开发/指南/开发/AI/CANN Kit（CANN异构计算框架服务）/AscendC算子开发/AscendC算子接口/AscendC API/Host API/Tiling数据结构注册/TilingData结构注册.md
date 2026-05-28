@@ -4,12 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tilingdata-structure-registration
 
-## 函数功能
+##### 函数功能
 
 注册定义的TilingData结构体并和自定义算子绑定。具体使用说明请参考[调用示例](#调用示例)。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 REGISTER_TILING_DATA_CLASS(op_type, class_name)
@@ -19,30 +20,42 @@ REGISTER_TILING_DATA_CLASS(op_type, class_name)
     op_type##class_name##Helper() {
       CTilingDataClassFactory::RegisterTilingData(#op_type, op_type##class_name##Helper::CreateTilingDataInstance);
     }
-    static std::shared_ptr CreateTilingDataInstance() {
-      return std::make_shared();
+    static std::shared_ptr<TilingDef> CreateTilingDataInstance() {
+      return std::make_shared<class_name>();
     }
   };
   op_type##class_name##Helper g_tilingdata_##op_type##class_name##helper;
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 **表1** 参数说明
+  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | op_type | 输入 | 注册的算子名。 |
 | class_name | 输入 | tiling结构体名，与c++变量命名要求一致。 |
+ 
+ 
+  
 
+##### 约束说明
 
-## 约束说明
+- 使用时需要包含头文件register/tilingdata_base.h。
+- 中间结构体和定制tilingkey结构体需注意op_type命名规则，具体见[调用示例](#调用示例)。
+- 算子定制tilingkey结构体需保证必须注册op_type默认结构体。
+- tiling结构体是全局属性，需注意应通过结构体名作为全局唯一标记，不同算子若注册同名不同结构tiling结构体则会发生未定义行为。
 
-使用时需要包含头文件register/tilingdata_base.h。  中间结构体和定制tilingkey结构体需注意op_type命名规则，具体见[调用示例](#调用示例)。  算子定制tilingkey结构体需保证必须注册op_type默认结构体。  tiling结构体是全局属性，需注意应通过结构体名作为全局唯一标记，不同算子若注册同名不同结构tiling结构体则会发生未定义行为。
+ 
+  
 
-## 调用示例
+##### 调用示例
 
-注册算子Tiling结构体
+- 注册算子Tiling结构体
+
+  
 ```text
 #include "register/tilingdata_base.h"
 
@@ -58,7 +71,9 @@ REGISTER_TILING_DATA_CLASS(AddCustom, AddCustomTilingData)
 }
 ```
 
-注册中间结构体。当开发者有结构体嵌套场景时，嵌套的结构体称为中间结构体。因为一个算子名只能注册一个Tiling结构体，为使得框架能够检测中间结构体信息，需要构造"虚拟算子名"（结构体名+Op）并通过REGISTER_TILING_DATA_CLASS接口注册中间结构体，注册方式如下。
+- 注册中间结构体。当开发者有结构体嵌套场景时，嵌套的结构体称为中间结构体。因为一个算子名只能注册一个Tiling结构体，为使得框架能够检测中间结构体信息，需要构造"虚拟算子名"（结构体名+Op）并通过REGISTER_TILING_DATA_CLASS接口注册中间结构体，注册方式如下。
+
+  
 ```text
 BEGIN_TILING_DATA_DEF(Matmul)
   TILING_DATA_FIELD_DEF(uint16_t, mmVar);
@@ -68,7 +83,9 @@ END_TILING_DATA_DEF;
 REGISTER_TILING_DATA_CLASS(MatmulOp, Matmul) // 注册中间结构体
 ```
 
-定制tiling_key注册不同Tiling结构体
+- 定制tiling_key注册不同Tiling结构体
+
+  
 ```text
 // REGISTER_TILING_DATA_CLASS中第一个参数为${op_type} + ‘_’ + tiling_key。若tiling_key未注册匹配的tiling结构体，则会使用默认的结构体。如下面两种方式，tiling_key不指定或者非1情况，tiling结构体为AddStruct；tiling_key等于1的时候，tiling结构体为AddStructSample1
 

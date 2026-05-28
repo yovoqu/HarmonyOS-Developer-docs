@@ -3,19 +3,18 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
 
 开发者指南见：[LazyForEach开发者指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)。
 
 在大量子组件的场景下，LazyForEach与缓存列表项、动态预加载、组件复用等方法配合使用，可以进一步提升滑动帧率并降低应用内存占用。最佳实践请参考[优化长列表加载慢丢帧问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list)。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 接口
 
 LazyForEach(dataSource: IDataSource, itemGenerator: (item: any, index: number) => void, keyGenerator?: (item: any, index: number) => string)
 
@@ -27,26 +26,26 @@ LazyForEach从提供的数据源中按需迭代数据，并在每次迭代过程
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dataSource | [IDataSource](#idatasource) | 是 | LazyForEach数据源，需要开发者实现相关接口。 |
-| itemGenerator | (item: any, index: number) =&gt; void | 是 | 子组件生成函数，为数组中的每一个数据项创建一个子组件。          说明：          - item是当前数据项（可选），index是数据项索引值（可选）。          - itemGenerator的函数体必须使用大括号{...}。          - itemGenerator每次迭代只能并且必须生成一个子组件。          - itemGenerator中可以使用if语句，但是必须保证if语句每个分支都会创建一个相同类型的子组件。 |
-| keyGenerator | (item: any, index: number) =&gt; string | 否 | 键值生成函数，用于给数据源中的每一个数据项生成唯一且固定的键值。修改数据源中的一个数据项若不影响其生成的键值，则对应组件不会被更新，否则此处组件就会被重建更新。keyGenerator参数是可选的，但是，为了使开发框架能够更好地识别数组更改并正确更新组件，建议提供。          默认值为空回调函数。          说明：          - item是当前数据项（可选），index是数据项索引值（可选）。          - keyGenerator缺省时，使用默认的键值生成函数，即(item: Object, index: number) =&gt; { return viewId + '-' + index.toString(); }，生成键值仅受索引值index影响（viewId在编译器转换过程中生成，同一个LazyForEach组件内的viewId一致）。          - 为保证LazyForEach正确、高效地更新子组件，避免渲染结果异常、渲染效率降低等问题，键值应满足以下条件。          1. 键值具有唯一性，每个数据项对应的键值互不相同。          2. 键值具有一致性，数据项不变时对应的键值也不变。 |
+| dataSource | IDataSource | 是 | LazyForEach数据源，需要开发者实现相关接口。 |
+| itemGenerator | (item: any, index: number) => void | 是 | 子组件生成函数，为数组中的每一个数据项创建一个子组件。 说明： - item是当前数据项（可选），index是数据项索引值（可选）。 - itemGenerator的函数体必须使用大括号{...}。 - itemGenerator每次迭代只能并且必须生成一个子组件。 - itemGenerator中可以使用if语句，但是必须保证if语句每个分支都会创建一个相同类型的子组件。 |
+| keyGenerator | (item: any, index: number) => string | 否 | 键值生成函数，用于给数据源中的每一个数据项生成唯一且固定的键值。修改数据源中的一个数据项若不影响其生成的键值，则对应组件不会被更新，否则此处组件就会被重建更新。keyGenerator参数是可选的，但是，为了使开发框架能够更好地识别数组更改并正确更新组件，建议提供。 默认值为空回调函数。 说明： - item是当前数据项（可选），index是数据项索引值（可选）。 - keyGenerator缺省时，使用默认的键值生成函数，即(item: Object, index: number) => { return viewId + '-' + index.toString(); }，生成键值仅受索引值index影响（viewId在编译器转换过程中生成，同一个LazyForEach组件内的viewId一致）。 - 为保证LazyForEach正确、高效地更新子组件，避免渲染结果异常、渲染效率降低等问题，键值应满足以下条件。 1. 键值具有唯一性，每个数据项对应的键值互不相同。 2. 键值具有一致性，数据项不变时对应的键值也不变。 |
 
 
 > [!NOTE]
-> 应避免在keyGenerator和itemGenerator函数中执行耗时操作，以此来减少应用滑动时卡顿丢帧问题，最佳实践请参考[主线程耗时操作优化-循环渲染](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section4551193714439)。例如，不推荐使用JSON.stringify函数。在复杂的业务场景中，使用JSON.stringify会对item对象进行序列化，该过程会消耗大量时间与计算资源，从而降低页面性能，最佳实践请参考[懒加载优化性能-键值生成规则](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lazyforeach-optimization#section68711519072)。
+> 应避免在keyGenerator和itemGenerator函数中执行耗时操作，以此来减少应用滑动时卡顿丢帧问题，最佳实践请参考 主线程耗时操作优化-循环渲染 。例如，不推荐使用JSON.stringify函数。在复杂的业务场景中，使用JSON.stringify会对item对象进行序列化，该过程会消耗大量时间与计算资源，从而降低页面性能，最佳实践请参考 懒加载优化性能-键值生成规则 。
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 支持[拖拽排序](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-sorting)属性。
 
 
-## IDataSource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### IDataSource
 
 LazyForEach的数据源。
 
@@ -55,8 +54,8 @@ LazyForEach的数据源。
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### totalCount
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### totalCount
 
 totalCount(): number
 
@@ -68,14 +67,14 @@ totalCount(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 获得数据总数，由数据源决定实际大小。 |
 
 
-### getData
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### getData
 
 getData(index: number): any
 
@@ -87,7 +86,6 @@ getData(index: number): any
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 获取数据对应的索引值。取值范围是[0, 数据源长度-1]。 |
@@ -95,18 +93,18 @@ getData(index: number): any
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | any | 获取索引值index对应的数据，由数据源决定具体类型。 |
 
 
 > [!NOTE]
-> 应避免在getData函数中执行耗时操作，以此来减少应用滑动时卡顿丢帧问题，最佳实践请参考[主线程耗时操作优化-循环渲染](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section4551193714439)。
+> 应避免在getData函数中执行耗时操作，以此来减少应用滑动时卡顿丢帧问题，最佳实践请参考 主线程耗时操作优化-循环渲染 。
 
 
-### registerDataChangeListener
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### registerDataChangeListener
 
 registerDataChangeListener(listener: DataChangeListener): void
 
@@ -118,14 +116,14 @@ registerDataChangeListener(listener: DataChangeListener): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| listener | [DataChangeListener](#datachangelistener) | 是 | 数据变化监听器。 |
+| listener | DataChangeListener | 是 | 数据变化监听器。 |
 
 
-### unregisterDataChangeListener
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### unregisterDataChangeListener
 
 unregisterDataChangeListener(listener: DataChangeListener): void
 
@@ -137,28 +135,28 @@ unregisterDataChangeListener(listener: DataChangeListener): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| listener | [DataChangeListener](#datachangelistener) | 是 | 数据变化监听器。 |
+| listener | DataChangeListener | 是 | 数据变化监听器。 |
 
 
-## DataChangeListener
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataChangeListener
 
 数据变化监听器。
 
-
 > [!NOTE]
 > DataChangeListener除onDatasetChange以外的方法中，当参数包含index且值为负数时，会默认用0来替换。onDatasetChange中，当单个DataOperation参数包含index且值在数据源索引范围之外（DataAddOperation中index可以等于数据源长度），则对应DataOperation不会生效。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### onDataReloaded
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onDataReloaded
 
 onDataReloaded(): void
 
@@ -169,90 +167,93 @@ onDataReloaded(): void
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### onDataAdded(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onDataAdded(deprecated)
 
 onDataAdded(index: number): void
 
 通知组件index的位置有数据添加。添加数据完成后调用。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 8开始废弃，建议使用[onDataAdd](#ondataadd8)替代。
+> 从API version 7开始支持，从API version 8开始废弃，建议使用 onDataAdd 替代。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 数据添加位置的索引值。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| index | number | 是 | 数据添加位置的索引值。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDataMoved(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDataMoved(deprecated)
 
 onDataMoved(from: number, to: number): void
 
 通知组件数据有移动。将from和to位置的数据进行交换。
 
+> [!NOTE]
+> 从API version 7开始支持，从API version 8开始废弃，建议使用 onDataMove 替代。 数据移动前后键值要保持不变，如果键值有变化，应使用删除数据和新增数据接口。数据移动起始位置与数据移动目标位置交换完成后调用。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| from | number | 是 | 数据移动起始位置。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
-| to | number | 是 | 数据移动目标位置。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| from | number | 是 | 数据移动起始位置。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| to | number | 是 | 数据移动目标位置。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDataDeleted(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDataDeleted(deprecated)
 
 onDataDeleted(index: number): void
 
 通知组件删除index位置的数据并刷新LazyForEach的展示内容。删除数据完成后调用。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 8开始废弃，建议使用[onDataDelete](#ondatadelete8)替代。
+> 从API version 7开始支持，从API version 8开始废弃，建议使用 onDataDelete 替代。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 数据删除位置的索引值。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| index | number | 是 | 数据删除位置的索引值。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDataChanged(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDataChanged(deprecated)
 
 onDataChanged(index: number): void
 
 通知组件index的位置有数据变化。改变数据完成后调用。
 
-
 > [!NOTE]
-> 从API version 7开始支持，从API version 8开始废弃，建议使用[onDataChange](#ondatachange8)替代。
+> 从API version 7开始支持，从API version 8开始废弃，建议使用 onDataChange 替代。
+
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 数据变化位置的索引值。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| index | number | 是 | 数据变化位置的索引值。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDataAdd8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDataAdd8+
 
 onDataAdd(index: number): void
 
@@ -264,22 +265,22 @@ onDataAdd(index: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 数据添加位置的索引值。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| index | number | 是 | 数据添加位置的索引值。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDataMove8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDataMove8+
 
 onDataMove(from: number, to: number): void
 
 通知组件数据有移动。将from和to位置的数据进行交换。数据移动起始位置与数据移动目标位置交换完成后调用。
 
-
 > [!NOTE]
 > 数据移动前后键值要保持不变，如果键值有变化，应使用删除数据和新增数据接口。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -287,23 +288,23 @@ onDataMove(from: number, to: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| from | number | 是 | 数据移动起始位置。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
-| to | number | 是 | 数据移动目标位置。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| from | number | 是 | 数据移动起始位置。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| to | number | 是 | 数据移动目标位置。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDataDelete8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDataDelete8+
 
 onDataDelete(index: number): void
 
 通知组件删除index位置的数据并刷新LazyForEach的展示内容。删除数据完成后调用。
 
-
 > [!NOTE]
 > 需要保证dataSource中的对应数据已经在调用onDataDelete前删除，否则页面渲染将出现未定义的行为。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -311,14 +312,14 @@ onDataDelete(index: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 数据删除位置的索引值。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| index | number | 是 | 数据删除位置的索引值。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDataChange8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDataChange8+
 
 onDataChange(index: number): void
 
@@ -330,22 +331,22 @@ onDataChange(index: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 数据变化位置的索引值。取值范围是[0, 数据源长度-1]。          小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
+| index | number | 是 | 数据变化位置的索引值。取值范围是[0, 数据源长度-1]。 小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。 |
 
 
-### onDatasetChange12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### onDatasetChange12+
 
 onDatasetChange(dataOperations: DataOperation[]): void
 
 进行批量的数据处理后，调用onDatasetChange接口通知组件按照dataOperations刷新组件。
 
-
 > [!NOTE]
 > onDatasetChange接口不能与其他DataChangeListener的更新接口混用。例如，在同一个LazyForEach中，调用过onDataAdd接口后，不能再调用onDatasetChange接口；反之，调用过onDatasetChange接口后，也不能调用onDataAdd等其他更新接口。页面中不同LazyForEach之间互不影响。在同一个onDatasetChange批量处理数据时，如果多个DataOperation操作同一个index，只有第一个DataOperation生效。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -353,26 +354,26 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dataOperations | [DataOperation](#dataoperation12)[] | 是 | 一次处理数据的操作。 |
+| dataOperations | DataOperation[] | 是 | 一次处理数据的操作。 |
 
 
-## DataOperation12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### DataOperation12+
 
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### DataAddOperation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### DataAddOperation
 
 添加数据操作。
 
@@ -380,17 +381,17 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [DataOperationType](#dataoperationtype枚举说明).ADD | 否 | 否 | 数据添加类型。 |
+| type | DataOperationType.ADD | 否 | 否 | 数据添加类型。 |
 | index | number | 否 | 否 | 插入数据索引值。取值范围是[0, 数据源长度]。 |
 | count | number | 否 | 是 | 插入数量，默认为1。 |
 | key | string \| Array&lt;string&gt; | 否 | 是 | 为插入的数据分配键值，默认使用原键值。 |
 
 
-### DataDeleteOperation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataDeleteOperation
 
 删除数据操作。
 
@@ -398,16 +399,16 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [DataOperationType](#dataoperationtype枚举说明).DELETE | 否 | 否 | 数据删除类型。 |
+| type | DataOperationType.DELETE | 否 | 否 | 数据删除类型。 |
 | index | number | 否 | 否 | 起始删除位置索引值。取值范围是[0, 数据源长度-1]。 |
 | count | number | 否 | 是 | 删除数据数量，默认为1。 |
 
 
-### DataChangeOperation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataChangeOperation
 
 改变数据操作。
 
@@ -415,16 +416,16 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [DataOperationType](#dataoperationtype枚举说明).CHANGE | 否 | 否 | 数据改变类型。 |
+| type | DataOperationType.CHANGE | 否 | 否 | 数据改变类型。 |
 | index | number | 否 | 否 | 改变的数据的索引值。取值范围是[0, 数据源长度-1]。 |
 | key | string | 否 | 是 | 为改变的数据分配新的键值，默认使用原键值。 |
 
 
-### DataMoveOperation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataMoveOperation
 
 移动数据操作。
 
@@ -432,16 +433,16 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [DataOperationType](#dataoperationtype枚举说明).MOVE | 否 | 否 | 数据移动类型。 |
-| index | [MoveIndex](#moveindex12) | 否 | 否 | 移动位置。取值范围是[0, 数据源长度-1]。 |
+| type | DataOperationType.MOVE | 否 | 否 | 数据移动类型。 |
+| index | MoveIndex | 否 | 否 | 移动位置。取值范围是[0, 数据源长度-1]。 |
 | key | string | 否 | 是 | 为被移动的数据分配新的键值，默认使用原键值。 |
 
 
-### DataExchangeOperation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataExchangeOperation
 
 交换数据操作。
 
@@ -449,16 +450,16 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [DataOperationType](#dataoperationtype枚举说明).EXCHANGE | 否 | 否 | 数据交换类型。 |
-| index | [ExchangeIndex](#exchangeindex12) | 否 | 否 | 交换位置。取值范围是[0, 数据源长度-1]。 |
-| key | [ExchangeKey](#exchangekey12) | 否 | 是 | 分配新的键值，默认使用原键值。 |
+| type | DataOperationType.EXCHANGE | 否 | 否 | 数据交换类型。 |
+| index | ExchangeIndex | 否 | 否 | 交换位置。取值范围是[0, 数据源长度-1]。 |
+| key | ExchangeKey | 否 | 是 | 分配新的键值，默认使用原键值。 |
 
 
-### DataReloadOperation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataReloadOperation
 
 重载所有数据操作。当onDatasetChange含有DataOperationType.RELOAD操作时，其余操作全部失效，框架会自己调用keyGenerator进行键值比对。
 
@@ -466,21 +467,20 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [DataOperationType](#dataoperationtype枚举说明).RELOAD | 否 | 否 | 数据全部重载类型。 |
+| type | DataOperationType.RELOAD | 否 | 否 | 数据全部重载类型。 |
 
 
-### DataOperationType枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataOperationType枚举说明
 
 枚举类型，数据操作说明。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -492,13 +492,13 @@ onDatasetChange(dataOperations: DataOperation[]): void
 | RELOAD | reload | 全部数据重载。 |
 
 
-## MoveIndex12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MoveIndex12+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -506,13 +506,13 @@ onDatasetChange(dataOperations: DataOperation[]): void
 | to | number | 否 | 否 | 目的移动位置。取值范围是[0, 数据源长度-1]。 |
 
 
-## ExchangeIndex12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ExchangeIndex12+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -520,13 +520,13 @@ onDatasetChange(dataOperations: DataOperation[]): void
 | end | number | 否 | 否 | 第二个交换位置。取值范围是[0, 数据源长度-1]。 |
 
 
-## ExchangeKey12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ExchangeKey12+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

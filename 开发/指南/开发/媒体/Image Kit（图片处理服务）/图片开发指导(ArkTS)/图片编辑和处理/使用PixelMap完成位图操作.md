@@ -10,12 +10,18 @@
 
 **图1** 位图操作示意图
 
+
 ![](assets/使用PixelMap完成位图操作/file-20260514131536886-0.png)
 
 
-## 开发步骤
 
-位图操作相关API的详细介绍请参见[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。 完成[图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)，获取PixelMap位图对象。 从PixelMap位图对象中获取信息。
+##### 开发步骤
+
+位图操作相关API的详细介绍请参见[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。
+1. 完成[图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)，获取PixelMap位图对象。
+2. 从PixelMap位图对象中获取信息。
+
+  
 ```text
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -27,11 +33,14 @@ let rowBytes: number = pixelMap.getBytesNumberPerRow();
 let density: number = pixelMap.getDensity();
 ```
 
-读取并修改目标区域像素数据，写回原图。
+3. 读取并修改目标区域像素数据，写回原图。
+
+  
 > [!NOTE]
 > 建议readPixelsToBuffer和writeBufferToPixels成对使用，readPixels和writePixels成对使用，避免因图像像素格式不一致，造成PixelMap图像出现异常。
 
 
+  
 ```text
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -72,16 +81,21 @@ pixelMap.writePixels(area).then(() => {
 ```
 
 
-## 开发示例
 
 
-## 复制（深拷贝）位图并改变像素格式
+##### 开发示例
 
+
+
+##### 复制（深拷贝）位图并改变像素格式
 
 > [!NOTE]
-> 该方法仅可实现PixelMap基本内容的复制，不支持复制色域和HDR元数据。如果不需要改变新PixelMap的像素格式，请使用clone或cloneSync。 该方法不支持将新PixelMap转换为下列像素格式：RGBA_1010102、YCBCR_P010、YCRCB_P010、ASTC_4x4。
+> 该方法仅可实现PixelMap基本内容的复制，不支持复制色域和HDR元数据。如果不需要改变新PixelMap的像素格式，请使用 clone 或 cloneSync 。 该方法不支持将新PixelMap转换为下列像素格式：RGBA_1010102、YCBCR_P010、YCRCB_P010、ASTC_4x4。
 
-完成[图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)，获取PixelMap位图对象。 参考以下代码对PixelMap进行深拷贝。
+1. 完成[图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)，获取PixelMap位图对象。
+2. 参考以下代码对PixelMap进行深拷贝。
+
+  
 ```text
 /**
  * 复制（深拷贝）PixelMap并改变像素格式。
@@ -90,7 +104,7 @@ pixelMap.writePixels(area).then(() => {
  * @param desiredPixelFormat - 新PixelMap的像素格式。如果不指定，则仍使用原PixelMap的像素格式。
  * @returns 新PixelMap的Promise。
  */
-async function clonePixelMap(pixelMap: PixelMap, desiredPixelFormat?: image.PixelMapFormat): Promise {
+async function clonePixelMap(pixelMap: PixelMap, desiredPixelFormat?: image.PixelMapFormat): Promise<PixelMap> {
   // 获取原PixelMap的图片信息。
   const imageInfo = pixelMap.getImageInfoSync();
   // 读取原PixelMap的像素数据，并按照原PixelMap的像素格式写入缓冲区。
@@ -115,15 +129,19 @@ async function clonePixelMap(pixelMap: PixelMap, desiredPixelFormat?: image.Pixe
 ```
 
 
-## 将两张宽度相同的位图纵向拼接成一张长图
 
+
+##### 将两张宽度相同的位图纵向拼接成一张长图
 
 > [!NOTE]
 > 该方法仅支持以下像素格式的PixelMap：RGBA_8888、BGRA_8888、RGBA_F16。
 
-完成[图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)，获取两张宽度相同且像素格式相同的PixelMap位图对象。 参考以下代码对两张PixelMap进行拼接。
+1. 完成[图片解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding)，获取两张宽度相同且像素格式相同的PixelMap位图对象。
+2. 参考以下代码对两张PixelMap进行拼接。
+
+  
 ```text
-async function concatPixelMap(pixelMap1: PixelMap, pixelMap2: PixelMap): Promise {
+async function concatPixelMap(pixelMap1: PixelMap, pixelMap2: PixelMap): Promise<PixelMap> {
   // 将pixelMap1的像素数据读取至area1.pixels中。
   const imageInfo1 = pixelMap1.getImageInfoSync();
   const area1: image.PositionArea = {
@@ -173,6 +191,8 @@ async function concatPixelMap(pixelMap1: PixelMap, pixelMap2: PixelMap): Promise
 ```
 
 
-## 示例代码
 
-[PixelMap深拷贝案例](https://gitcode.com/HarmonyOS_Samples/image-depth-copy)
+
+##### 示例代码
+
+ - [PixelMap深拷贝案例](https://gitcode.com/HarmonyOS_Samples/image-depth-copy)

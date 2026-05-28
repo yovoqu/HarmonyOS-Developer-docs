@@ -1,21 +1,24 @@
 # TimePicker
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-timepicker
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 滑动选择时间的组件。
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-无
+> [!NOTE]
+> 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件不建议开发者在动效过程中修改属性数据。 最大显示行数在横、竖屏模式下存在差异。竖屏时默认为5行，横屏时依赖系统配置，未配置时默认显示为3行。可通过如下参数查看具体配置值\$r('sys.float.ohos_id_picker_show_count_landscape')。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
+
+该组件为基础组件，不建议包含子组件。
+
+
+
+##### 接口
 
 TimePicker(options?: TimePickerOptions)
 
@@ -27,26 +30,25 @@ TimePicker(options?: TimePickerOptions)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [TimePickerOptions](#timepickeroptions对象说明) | 否 | 配置时间选择组件的参数。 |
+| options | TimePickerOptions | 否 | 配置时间选择组件的参数。 |
 
 
-## TimePickerOptions对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### TimePickerOptions对象说明
 
 时间选择器组件的参数说明。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| selected | Date | 否 | 是 | 设置选中项的时间。          默认值：当前系统时间          从API version 10开始，该参数支持[\$\$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。          元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| format11+ | [TimePickerFormat](#timepickerformat11枚举说明) | 否 | 是 | 指定需要显示的TimePicker的格式。          默认值：TimePickerFormat.HOUR_MINUTE          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| start18+ | Date | 否 | 是 | 指定时间选择组件的起始时间。          默认值：Date(0, 0, 0, 0, 0, 0)          说明：          1. 仅设置的小时和分钟生效。          2. 设置了start且为非默认值的场景下，loop不生效。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| end18+ | Date | 否 | 是 | 指定时间选择组件的结束时间。          默认值：Date(0, 0, 0, 23, 59, 59)          说明：          1. 仅设置的小时和分钟生效。          2. 设置了end且为非默认值的场景下，loop不生效。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| selected | Date | 否 | 是 | 设置选中项的时间。 默认值：当前系统时间 从API version 10开始，该参数支持$$双向绑定变量。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| format11+ | TimePickerFormat | 否 | 是 | 指定需要显示的TimePicker的格式。 默认值：TimePickerFormat.HOUR_MINUTE 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| start18+ | Date | 否 | 是 | 指定时间选择组件的起始时间。 默认值：Date(0, 0, 0, 0, 0, 0) 说明： 1. 仅设置的小时和分钟生效。 2. 设置了start且为非默认值的场景下，loop不生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| end18+ | Date | 否 | 是 | 指定时间选择组件的结束时间。 默认值：Date(0, 0, 0, 23, 59, 59) 说明： 1. 仅设置的小时和分钟生效。 2. 设置了end且为非默认值的场景下，loop不生效。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
 在TimePicker组件滑动过程中修改TimePickerOptions中的属性，会导致这些属性无法生效。
@@ -59,14 +61,12 @@ Date对象用于处理日期和时间，使用方式如下。
 
 **方式2：** new Date(value: number | string)
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| string | 是 | 设置日期格式。          number：毫秒，自1970年1月1日00:00:00开始的毫秒数。          string：时间格式的字符串，如‘2025-02-20 08:00:00’或‘2025-02-20T08:00:00’。 |
+| value | number \| string | 是 | 设置日期格式。 number：毫秒，自1970年1月1日00:00:00开始的毫秒数。 string：时间格式的字符串，如‘2025-02-20 08:00:00’或‘2025-02-20T08:00:00’。 |
 
 
 **方式3：** new Date(year: number, monthIndex: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number)
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -81,7 +81,6 @@ Date对象用于处理日期和时间，使用方式如下。
 
 **起始时间和结束时间的异常情形说明：**
 
-
 | 异常情形 | 对应结果 |
 | --- | --- |
 | 起始时间晚于结束时间。 | 起始时间、结束时间都为默认值。 |
@@ -92,8 +91,9 @@ Date对象用于处理日期和时间，使用方式如下。
 | 时间格式不符合规范，如'01:61:61'。 | 取默认值。 |
 
 
-## TimePickerFormat11+枚举说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### TimePickerFormat11+枚举说明
 
 时间选择器的数据格式。
 
@@ -101,21 +101,21 @@ Date对象用于处理日期和时间，使用方式如下。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | HOUR_MINUTE | 0 | 按照小时和分钟进行显示。 |
 | HOUR_MINUTE_SECOND | 1 | 按照小时、分钟和秒进行显示。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### useMilitaryTime
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### useMilitaryTime
 
 useMilitaryTime(value: boolean)
 
@@ -127,16 +127,16 @@ useMilitaryTime(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 时间是否以24小时制展示。          - true：时间以24小时制展示。          - false：时间以12小时制展示。 |
+| value | boolean | 是 | 时间是否以24小时制展示。 - true：时间以24小时制展示。 - false：时间以12小时制展示。 |
 
 
-### useMilitaryTime18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-useMilitaryTime(isMilitaryTime: Optional<boolean>)
+
+##### useMilitaryTime18+
+
+useMilitaryTime(isMilitaryTime: Optional&lt;boolean&gt;)
 
 设置展示时间是否为24小时制，未通过该接口设置时，默认跟随系统设置展示。与[useMilitaryTime](#usemilitarytime)相比，isMilitaryTime参数新增了对undefined类型的支持。
 
@@ -146,14 +146,14 @@ useMilitaryTime(isMilitaryTime: Optional<boolean>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isMilitaryTime | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;boolean&gt; | 是 | 展示时间是否为24小时制。          - true：展示时间为24小时制。          - false：展示时间为12小时制。          当isMilitaryTime的值为undefined时，跟随系统设置。 |
+| isMilitaryTime | Optional&lt;boolean&gt; | 是 | 展示时间是否为24小时制。 - true：展示时间为24小时制。 - false：展示时间为12小时制。 当isMilitaryTime的值为undefined时，跟随系统设置。 |
 
 
-### disappearTextStyle10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### disappearTextStyle10+
 
 disappearTextStyle(value: PickerTextStyle)
 
@@ -165,20 +165,20 @@ disappearTextStyle(value: PickerTextStyle)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [PickerTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common#pickertextstyle对象说明) | 是 | 边缘项的文本颜色、字号和字体粗细。          默认值：          {          color: '#ff182431',          font: {          size: '14fp',          weight: FontWeight.Regular          }          } |
+| value | PickerTextStyle | 是 | 边缘项的文本颜色、字号和字体粗细。 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } } |
 
 
 > [!NOTE]
 > 若选中项向上或向下的可视项数低于两项则无对应边缘项。
 
 
-### disappearTextStyle18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-disappearTextStyle(style: Optional<PickerTextStyle>)
+
+##### disappearTextStyle18+
+
+disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。与[disappearTextStyle10+](#disappeartextstyle10)相比，style参数新增了对undefined类型的支持。
 
@@ -188,18 +188,18 @@ disappearTextStyle(style: Optional<PickerTextStyle>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[PickerTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common#pickertextstyle对象说明)&gt; | 是 | 边缘项的文本颜色、字号、字体粗细。          默认值：          {          color: '#ff182431',          font: {          size: '14fp',          weight: FontWeight.Regular          }          }          当style的值为undefined时，使用默认值。 |
+| style | Optional&lt;PickerTextStyle&gt; | 是 | 边缘项的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '14fp', weight: FontWeight.Regular } } 当style的值为undefined时，使用默认值。 |
 
 
 > [!NOTE]
 > 若选中项向上或向下的可视项数低于两项则无对应边缘项。
 
 
-### textStyle10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### textStyle10+
 
 textStyle(value: PickerTextStyle)
 
@@ -211,20 +211,20 @@ textStyle(value: PickerTextStyle)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [PickerTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common#pickertextstyle对象说明) | 是 | 待选项的文本颜色、字号、字体粗细。          默认值：          {          color: '#ff182431',          font: {          size: '16fp',          weight: FontWeight.Regular          }          } |
+| value | PickerTextStyle | 是 | 待选项的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular } } |
 
 
 > [!NOTE]
 > 若选中项向上或向下可视项数低于一项则无对应待选项。
 
 
-### textStyle18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-textStyle(style: Optional<PickerTextStyle>)
+
+##### textStyle18+
+
+textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。与[textStyle10+](#textstyle10)相比，style参数新增了对undefined类型的支持。
 
@@ -234,18 +234,18 @@ textStyle(style: Optional<PickerTextStyle>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[PickerTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common#pickertextstyle对象说明)&gt; | 是 | 待选项的文本颜色、字号、字体粗细。          默认值：          {          color: '#ff182431',          font: {          size: '16fp',          weight: FontWeight.Regular          }          }          当style的值为undefined时，使用默认值。 |
+| style | Optional&lt;PickerTextStyle&gt; | 是 | 待选项的文本颜色、字号、字体粗细。 默认值： { color: '#ff182431', font: { size: '16fp', weight: FontWeight.Regular } } 当style的值为undefined时，使用默认值。 |
 
 
 > [!NOTE]
 > 若选中项向上或向下可视项数低于一项则无对应待选项。
 
 
-### selectedTextStyle10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### selectedTextStyle10+
 
 selectedTextStyle(value: PickerTextStyle)
 
@@ -259,16 +259,16 @@ selectedTextStyle(value: PickerTextStyle)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [PickerTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common#pickertextstyle对象说明) | 是 | 选中项的文本颜色、字号、字体粗细。          默认值：          {          color: '#ff007dff',          font: {          size: '20fp',          weight: FontWeight.Medium          }          } |
+| value | PickerTextStyle | 是 | 选中项的文本颜色、字号、字体粗细。 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } } |
 
 
-### selectedTextStyle18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-selectedTextStyle(style: Optional<PickerTextStyle>)
+
+##### selectedTextStyle18+
+
+selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置选中项的文本颜色、字号及字体粗细。与[selectedTextStyle10+](#selectedtextstyle10)相比，style参数新增了对undefined类型的支持
 
@@ -280,14 +280,14 @@ selectedTextStyle(style: Optional<PickerTextStyle>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| style | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[PickerTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common#pickertextstyle对象说明)&gt; | 是 | 选中项的文本颜色、字号、字体粗细。          默认值：          {          color: '#ff007dff',          font: {          size: '20fp',          weight: FontWeight.Medium          }          }          当style的值为undefined时，使用默认值。 |
+| style | Optional&lt;PickerTextStyle&gt; | 是 | 选中项的文本颜色、字号、字体粗细。 默认值： { color: '#ff007dff', font: { size: '20fp', weight: FontWeight.Medium } } 当style的值为undefined时，使用默认值。 |
 
 
-### loop11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### loop11+
 
 loop(value: boolean)
 
@@ -299,16 +299,16 @@ loop(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 是否启用循环模式。          - true：启用循环模式。          - false：不启用循环模式。          默认值：true |
+| value | boolean | 是 | 是否启用循环模式。 - true：启用循环模式。 - false：不启用循环模式。 默认值：true |
 
 
-### loop18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loop(isLoop: Optional<boolean>)
+
+##### loop18+
+
+loop(isLoop: Optional&lt;boolean&gt;)
 
 设置是否启用循环模式。与[loop11+](#loop11)相比，isLoop参数新增了对undefined类型的支持。
 
@@ -318,14 +318,14 @@ loop(isLoop: Optional<boolean>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isLoop | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;boolean&gt; | 是 | 是否启用循环模式。          - true：启用循环模式。          - false：不启用循环模式。          默认值：true          当isLoop的值为undefined时，使用默认值。 |
+| isLoop | Optional&lt;boolean&gt; | 是 | 是否启用循环模式。 - true：启用循环模式。 - false：不启用循环模式。 默认值：true 当isLoop的值为undefined时，使用默认值。 |
 
 
-### dateTimeOptions12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### dateTimeOptions12+
 
 dateTimeOptions(value: DateTimeOptions)
 
@@ -337,16 +337,16 @@ dateTimeOptions(value: DateTimeOptions)
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | ���明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [DateTimeOptions](#datetimeoptions12类型说明) | 是 | 设置时分秒是否显示前导0。          默认值：          hour: 24小时制默认为"2-digit"，设置hour是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"；12小时制默认为"numeric"，即没有前导0。          minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。          second: 默认为"2-digit"，设置second是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。          当hour、minute、second的值设置为undefined时，显示效果与其默认值规则一致。 |
+| value | DateTimeOptions | 是 | 设置时分秒是否显示前导0。 默认值： hour: 24小时制默认为"2-digit"，设置hour是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"；12小时制默认为"numeric"，即没有前导0。 minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。 second: 默认为"2-digit"，设置second是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。 当hour、minute、second的值设置为undefined时，显示效果与其默认值规则一致。 |
 
 
-### dateTimeOptions18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-dateTimeOptions(timeFormat: Optional<DateTimeOptions>)
+
+##### dateTimeOptions18+
+
+dateTimeOptions(timeFormat: Optional&lt;DateTimeOptions&gt;)
 
 设置时分秒是否显示前导0。与[dateTimeOptions12+](#datetimeoptions12)相比，timeFormat参数新增了对undefined类型的支持。
 
@@ -356,14 +356,14 @@ dateTimeOptions(timeFormat: Optional<DateTimeOptions>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| timeFormat | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[DateTimeOptions](#datetimeoptions12类型说明)&gt; | 是 | 设置时分秒是否显示前导0，目前只支持设置hour、minute和second参数。          默认值：          hour: 24小时制默认为"2-digit"，设置hour是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"；12小时制默认为"numeric"，即没有前导0。          minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。          second: 默认为"2-digit"，设置second是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。          当hour、minute、second的值设置为undefined时，显示效果与其默认值规则一致。 |
+| timeFormat | Optional&lt;DateTimeOptions&gt; | 是 | 设置时分秒是否显示前导0，目前只支持设置hour、minute和second参数。 默认值： hour: 24小时制默认为"2-digit"，设置hour是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"；12小时制默认为"numeric"，即没有前导0。 minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。 second: 默认为"2-digit"，设置second是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。 当hour、minute、second的值设置为undefined时，显示效果与其默认值规则一致。 |
 
 
-### enableHapticFeedback12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### enableHapticFeedback12+
 
 enableHapticFeedback(enable: boolean)
 
@@ -371,18 +371,17 @@ enableHapticFeedback(enable: boolean)
 
 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
 
-
 ```json
 "requestPermissions": [
-{
-  "name": "ohos.permission.VIBRATE",
-}
+   {
+      "name": "ohos.permission.VIBRATE",
+   }
 ]
 ```
 
-
 > [!NOTE]
-> 从API version 18开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+> 从API version 18开始，该接口支持在 attributeModifier 中调用。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -390,27 +389,26 @@ enableHapticFeedback(enable: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | boolean | 是 | 设置是否开启触控反馈。          - true：开启触控反馈。          - false：不开启触控反馈。          默认值：true          设置为true后，其生效情况取决于系统的硬件是否支持。 |
+| enable | boolean | 是 | 设置是否开启触控反馈。 - true：开启触控反馈。 - false：不开启触控反馈。 默认值：true 设置为true后，其生效情况取决于系统的硬件是否支持。 |
 
 
-### enableHapticFeedback18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-enableHapticFeedback(enable: Optional<boolean>)
+
+##### enableHapticFeedback18+
+
+enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 设置是否支持触控反馈。与[enableHapticFeedback12+](#enablehapticfeedback12)相比，enable参数新增了对undefined类型的支持。
 
 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
 
-
 ```json
 "requestPermissions": [
-{
-  "name": "ohos.permission.VIBRATE",
-}
+  {
+    "name": "ohos.permission.VIBRATE",
+  }
 ]
 ```
 
@@ -420,14 +418,14 @@ enableHapticFeedback(enable: Optional<boolean>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;boolean&gt; | 是 | 设置是否开启触控反馈。          - true：开启触控反馈。          - false：不开启触控反馈。          默认值：true          当enable的值为undefined时，使用默认值。          设置为true后，其生效情况取决于系统的硬件是否支持。 |
+| enable | Optional&lt;boolean&gt; | 是 | 设置是否开启触控反馈。 - true：开启触控反馈。 - false：不开启触控反馈。 默认值：true 当enable的值为undefined时，使用默认值。 设置为true后，其生效情况取决于系统的硬件是否支持。 |
 
 
-### enableCascade18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### enableCascade18+
 
 enableCascade(enabled: boolean)
 
@@ -439,16 +437,16 @@ enableCascade(enabled: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | boolean | 是 | 上午和下午的标识是否根据小时数自动切换，仅在useMilitaryTime设置为false时生效。          - true：自动切换。          - false：不自动切换。          默认值：false          当enabled设置为true时，仅在loop参数同时为true时生效。 |
+| enabled | boolean | 是 | 上午和下午的标识是否根据小时数自动切换，仅在useMilitaryTime设置为false时生效。 - true：自动切换。 - false：不自动切换。 默认值：false 当enabled设置为true时，仅在loop参数同时为true时生效。 |
 
 
-### digitalCrownSensitivity18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>)
+
+##### digitalCrownSensitivity18+
+
+digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 设置表冠灵敏度。
 
@@ -458,24 +456,24 @@ digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sensitivity | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[CrownSensitivity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#crownsensitivity18)&gt; | 是 | 表冠响应灵敏度。          默认值：CrownSensitivity.MEDIUM，表示响应速度适中。 |
+| sensitivity | Optional&lt;CrownSensitivity&gt; | 是 | 表冠响应灵敏度。 默认值：CrownSensitivity.MEDIUM，表示响应速度适中。 |
 
 
 > [!NOTE]
-> 用于圆形屏幕的穿戴设备。组件响应[表冠事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-crown)，需要先获取焦点。
+> 用于圆形屏幕的穿戴设备。组件响应 表冠事件 ，需要先获取焦点。
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
-### onChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onChange
 
 onChange(callback: (value: TimePickerResult ) => void)
 
@@ -489,16 +487,16 @@ onChange(callback: (value: TimePickerResult ) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [TimePickerResult](#timepickerresult对象说明) | 是 | 24小时制时间。 |
+| value | TimePickerResult | 是 | 24小时制时间。 |
 
 
-### onChange18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-onChange(callback: Optional<OnTimePickerChangeCallback>)
+
+##### onChange18+
+
+onChange(callback: Optional&lt;OnTimePickerChangeCallback&gt;)
 
 滑动TimePicker后，时间选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
 
@@ -510,24 +508,24 @@ onChange(callback: Optional<OnTimePickerChangeCallback>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[OnTimePickerChangeCallback](#ontimepickerchangecallback18)&gt; | 是 | 选择时间时触发该回调。          当callback的值为undefined时，不使用回调函数。 |
+| callback | Optional&lt;OnTimePickerChangeCallback&gt; | 是 | 选择时间时触发该回调。 当callback的值为undefined时，不使用回调函数。 |
 
 
-### onEnterSelectedArea18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-onEnterSelectedArea(callback: Callback<TimePickerResult>)
+
+##### onEnterSelectedArea18+
+
+onEnterSelectedArea(callback: Callback&lt;TimePickerResult&gt;)
 
 滑动TimePicker过程中，选项进入分割线区域内，触发该回调。
 
 与[onChange](#onchange)事件的差别在于，该事件的触发时机早于[onChange](#onchange)事件，当当前滑动列滑动距离超过选中项高度的一半时，选项此时已经进入分割线区域内，会触发该事件。当[enableCascade](#enablecascade18)设置为true时，由于上午/下午列与小时列存在联动关系，不建议使用该回调。该回调标识的是滑动过程中选项进入分割线区域内的节点，而联动变化的选项并不涉及滑动，因此，回调的返回值中，仅当前滑动列的值会正常变化，其余未滑动列的值保持不变。
 
-
 > [!NOTE]
-> 该接口不支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+> 该接口不支持在 attributeModifier 中调用。
+
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -535,14 +533,14 @@ onEnterSelectedArea(callback: Callback<TimePickerResult>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[TimePickerResult](#timepickerresult对象说明)&gt; | 是 | 滑动TimePicker过程中，选项进入分割线区域时触发的回调。 |
+| callback | Callback&lt;TimePickerResult&gt; | 是 | 滑动TimePicker过程中，选项进入分割线区域时触发的回调。 |
 
 
-## DateTimeOptions12+类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DateTimeOptions12+类型说明
 
 type DateTimeOptions = DateTimeOptions
 
@@ -552,14 +550,14 @@ type DateTimeOptions = DateTimeOptions
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DateTimeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-intl#datetimeoptionsdeprecated) | 创建时间、日期格式化对象时可设置的配置项。 |
+| DateTimeOptions | 创建时间、日期格式化对象时可设置的配置项。 |
 
 
-## OnTimePickerChangeCallback18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnTimePickerChangeCallback18+
 
 type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
@@ -571,14 +569,14 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| result | [TimePickerResult](#timepickerresult对象说明) | 是 | 24小时制时间。 |
+| result | TimePickerResult | 是 | 24小时制时间。 |
 
 
-## TimePickerResult对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### TimePickerResult对象说明
 
 返回24小时制时间。
 
@@ -586,24 +584,24 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| hour | number | 否 | 否 | 选中时间的时。          取值范围：[0-23] |
-| minute | number | 否 | 否 | 选中时间的分。          取值范围：[0-59] |
-| second11+ | number | 否 | 否 | 选中时间的秒。          取值范围：[0-59] |
+| hour | number | 否 | 否 | 选中时间的时。 取值范围：[0-23] |
+| minute | number | 否 | 否 | 选中时间的分。 取值范围：[0-59] |
+| second11+ | number | 否 | 否 | 选中时间的秒。 取值范围：[0-59] |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### 示例1（设置文本样式）
+##### 示例
+
+
+
+##### 示例1（设置文本样式）
 
 该示例通过配置[disappearTextStyle](#disappeartextstyle10)、[textStyle](#textstyle10)和[selectedTextStyle](#selectedtextstyle10)实现文本选择器中的文本样式。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -614,28 +612,30 @@ struct TimePickerExample {
     TimePicker({
       selected: this.selectedTime
     })
-    .disappearTextStyle({ color: '#004aaf', font: { size: 24, weight: FontWeight.Lighter } })
-    .textStyle({ color: Color.Black, font: { size: 26, weight: FontWeight.Normal } })
-    .selectedTextStyle({ color: Color.Blue, font: { size: 30, weight: FontWeight.Bolder } })
-    .onChange((value: TimePickerResult) => {
-      if (value.hour >= 0) {
-        this.selectedTime.setHours(value.hour, value.minute);
-        console.info('select current date is: ' + JSON.stringify(value));
-      }
-    })
+      .disappearTextStyle({ color: '#004aaf', font: { size: 24, weight: FontWeight.Lighter } })
+      .textStyle({ color: Color.Black, font: { size: 26, weight: FontWeight.Normal } })
+      .selectedTextStyle({ color: Color.Blue, font: { size: 30, weight: FontWeight.Bolder } })
+      .onChange((value: TimePickerResult) => {
+        if (value.hour >= 0) {
+          this.selectedTime.setHours(value.hour, value.minute);
+          console.info('select current date is: ' + JSON.stringify(value));
+        }
+      })
   }
 }
 ```
 
-![](assets/TimePicker/file-20260514164021231-0.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GRHw1iOJS-WWmR8za85bkQ/zh-cn_image_0000002581275928.png?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=FB382F268367842CB869218F09D2E6609797BAACD6EEA7E555279D36220FCA41)
 
 
-### 示例2（切换小时制）
+
+
+##### 示例2（切换小时制）
 
 该示例通过配置useMilitaryTime实现12小时制、24小时制的切换。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -646,38 +646,40 @@ struct TimePickerExample {
   build() {
     Column() {
       Button('切换12小时制/24小时制')
-      .margin(30)
-      .onClick(() => {
-        this.isMilitaryTime = !this.isMilitaryTime;
-      })
+        .margin(30)
+        .onClick(() => {
+          this.isMilitaryTime = !this.isMilitaryTime;
+        })
 
       TimePicker({
         selected: this.selectedTime
       })
-      .useMilitaryTime(this.isMilitaryTime)
-      .onChange((value: TimePickerResult) => {
-        if (value.hour >= 0) {
-          this.selectedTime.setHours(value.hour, value.minute);
-          console.info('select current time is: ' + JSON.stringify(value));
-        }
-      })
-      .onEnterSelectedArea((value: TimePickerResult) => {
-        console.info('item enter selected area, time is: ' + JSON.stringify(value));
-      })
+        .useMilitaryTime(this.isMilitaryTime)
+        .onChange((value: TimePickerResult) => {
+          if (value.hour >= 0) {
+            this.selectedTime.setHours(value.hour, value.minute);
+            console.info('select current time is: ' + JSON.stringify(value));
+          }
+        })
+        .onEnterSelectedArea((value: TimePickerResult) => {
+            console.info('item enter selected area, time is: ' + JSON.stringify(value));
+        })
     }.width('100%')
   }
 }
 ```
 
-![](assets/TimePicker/file-20260514164021231-1.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/eAvT6ZAkQTS855NGpj6Tvg/zh-cn_image_0000002611755785.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=300A9933CEAD7C8FFA423E09D112DBC1B33F06AE63B5287142B03F1B67A3F708)
 
 
-### 示例3（设置时间格式）
+
+
+##### 示例3（设置时间格式）
 
 该示例使用format和dateTimeOptions设置TimePicker时间格式。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -690,27 +692,29 @@ struct TimePickerExample {
         selected: this.selectedTime,
         format: TimePickerFormat.HOUR_MINUTE_SECOND
       })
-      .dateTimeOptions({ hour: "numeric", minute: "2-digit", second: "2-digit" })
-      .onChange((value: TimePickerResult) => {
-        if (value.hour >= 0) {
-          this.selectedTime.setHours(value.hour, value.minute);
-          console.info('select current date is: ' + JSON.stringify(value));
-        }
-      })
+        .dateTimeOptions({ hour: "numeric", minute: "2-digit", second: "2-digit" })
+        .onChange((value: TimePickerResult) => {
+          if (value.hour >= 0) {
+            this.selectedTime.setHours(value.hour, value.minute);
+            console.info('select current date is: ' + JSON.stringify(value));
+          }
+        })
     }.width('100%')
   }
 }
 ```
 
-![](assets/TimePicker/file-20260514164021231-2.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ey886HcWRimoFxWZ5rhDaA/zh-cn_image_0000002581435848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=110393288FA608A46969478CE962BA6AB6778A07B39F5BF96064AB0F8A436DCF)
 
 
-### 示例4（设置循环滚动）
+
+
+##### 示例4（设置循环滚动）
 
 该示例通过配置[loop](#loop11)设置TimePicker是否循环滚动。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -723,37 +727,39 @@ struct TimePickerExample {
       TimePicker({
         selected: this.selectedTime
       })
-      .loop(this.isLoop)
-      .onChange((value: TimePickerResult) => {
-        if (value.hour >= 0) {
-          this.selectedTime.setHours(value.hour, value.minute);
-          console.info('select current date is: ' + JSON.stringify(value));
-        }
-      })
+        .loop(this.isLoop)
+        .onChange((value: TimePickerResult) => {
+          if (value.hour >= 0) {
+            this.selectedTime.setHours(value.hour, value.minute);
+            console.info('select current date is: ' + JSON.stringify(value));
+          }
+        })
 
       Row() {
         Text('循环滚动').fontSize(20)
 
         Toggle({ type: ToggleType.Switch, isOn: true })
-        .onChange((isOn: boolean) => {
-          this.isLoop = isOn;
-        })
-    }.position({ x: '60%', y: '40%' })
+          .onChange((isOn: boolean) => {
+            this.isLoop = isOn;
+          })
+      }.position({ x: '60%', y: '40%' })
 
     }.width('100%')
   }
 }
 ```
 
-![](assets/TimePicker/file-20260514164021231-3.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dlhbPji9SvyJzixqVi34hA/zh-cn_image_0000002611835679.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=31620DC077111E51DFC2AB03430B4E1085258ECD3C85435A1FFA5ADE9886100E)
 
 
-### 示例5（设置时间选择组件的起始时间）
+
+
+##### 示例5（设置时间选择组件的起始时间）
 
 该示例设置TimePicker的起始时间。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -767,27 +773,29 @@ struct TimePickerExample {
         format: TimePickerFormat.HOUR_MINUTE_SECOND,
         start: new Date('2022-07-22T08:30:00')
       })
-      .dateTimeOptions({ hour: "numeric", minute: "2-digit", second: "2-digit" })
-      .onChange((value: TimePickerResult) => {
-        if (value.hour >= 0) {
-          this.selectedTime.setHours(value.hour, value.minute);
-          console.info('select current date is: ' + JSON.stringify(value));
-        }
-      })
+        .dateTimeOptions({ hour: "numeric", minute: "2-digit", second: "2-digit" })
+        .onChange((value: TimePickerResult) => {
+          if (value.hour >= 0) {
+            this.selectedTime.setHours(value.hour, value.minute);
+            console.info('select current date is: ' + JSON.stringify(value));
+          }
+        })
     }.width('100%')
   }
 }
 ```
 
-![](assets/TimePicker/file-20260514164021231-4.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/1z3nKicCR4KhaMgZnM997Q/zh-cn_image_0000002581275930.png?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=A3D02EFE7D9D06FE4726F680676871207ACEB7D37DBA84650A0CD13A82D4AFD2)
 
 
-### 示例6（设置时间选择组件的结束时间）
+
+
+##### 示例6（设置时间选择组件的结束时间）
 
 该示例设置TimePicker的结束时间。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -801,29 +809,31 @@ struct TimePickerExample {
         format: TimePickerFormat.HOUR_MINUTE_SECOND,
         end: new Date('2022-07-22T15:20:00'),
       })
-      .dateTimeOptions({ hour: "numeric", minute: "2-digit", second: "2-digit" })
-      .onChange((value: TimePickerResult) => {
-        if (value.hour >= 0) {
-          this.selectedTime.setHours(value.hour, value.minute);
-          console.info('select current date is: ' + JSON.stringify(value));
-        }
-      })
+        .dateTimeOptions({ hour: "numeric", minute: "2-digit", second: "2-digit" })
+        .onChange((value: TimePickerResult) => {
+          if (value.hour >= 0) {
+            this.selectedTime.setHours(value.hour, value.minute);
+            console.info('select current date is: ' + JSON.stringify(value));
+          }
+        })
     }.width('100%')
   }
 }
 ```
 
-![](assets/TimePicker/file-20260514164021231-5.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/5NCRrKg9SRuwUhENwKDP2g/zh-cn_image_0000002611755787.png?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=33EED1561F5653782BA3D8BC1260DD18DDD11A1DC18B1296C21D4060472CDCEA)
 
 
-### 示例7（设置上午下午跟随时间联动）
+
+
+##### 示例7（设置上午下午跟随时间联动）
 
 该示例通过配置[enableCascade](#enablecascade18)、[loop](#loop11)实现12小时制时上午下午跟随时间联动。
 
 从API version 18开始，新增enableCascade接口。
 
-
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -835,17 +845,18 @@ struct TimePickerExample {
       TimePicker({
         selected: this.selectedTime,
       })
-      .enableCascade(true)
-      .loop(true)
-      .onChange((value: TimePickerResult) => {
-        if (value.hour >= 0) {
-          this.selectedTime.setHours(value.hour, value.minute);
-          console.info('select current date is: ' + JSON.stringify(value));
-        }
-      })
+        .enableCascade(true)
+        .loop(true)
+        .onChange((value: TimePickerResult) => {
+          if (value.hour >= 0) {
+            this.selectedTime.setHours(value.hour, value.minute);
+            console.info('select current date is: ' + JSON.stringify(value));
+          }
+        })
     }.width('100%')
   }
 }
 ```
 
-![](assets/TimePicker/file-20260514164021231-6.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/cMVZCqGFTtaukVz1Fx1kBA/zh-cn_image_0000002581435850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=7B3D09536D3C42FE97CC5815AD64D0818995D88ED686971BAB454FA02EC824E9)

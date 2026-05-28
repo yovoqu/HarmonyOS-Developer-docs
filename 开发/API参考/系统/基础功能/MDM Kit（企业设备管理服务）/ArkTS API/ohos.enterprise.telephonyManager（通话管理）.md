@@ -1,31 +1,26 @@
 # @ohos.enterprise.telephonyManager（通话管理）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-telephonymanager
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供通话管理能力。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅适用于Stage模型。
-> 本模块接口仅对设备管理应用开放，调用接口前需激活该应用，详情请参考[MDM Kit开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide)。
-> 全局通用限制类策略由restrictions提供，若要全局禁用通话，请参考[@ohos.enterprise.restrictions（限制类策略）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions)。
+> 本模块首批接口从API version 20开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅适用于Stage模型。 本模块接口仅对设备管理应用开放，调用接口前需激活该应用，详情请参考 MDM Kit开发指南 。 全局通用限制类策略由restrictions提供，若要全局禁用通话，请参考 @ohos.enterprise.restrictions （限制类策略） 。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { telephonyManager } from '@kit.MDMKit';
 ```
 
 
-## telephonyManager.setSimDisabled
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### telephonyManager.setSimDisabled
 
 setSimDisabled(admin: Want, slotId: number): void
 
@@ -41,17 +36,15 @@ setSimDisabled(admin: Want, slotId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 | slotId | number | 是 | 卡槽ID，目前仅支持单卡槽设备和双卡槽设备，取值范围为0或1，其中0表示卡槽1，1表示卡槽2。 |
 
 
 **错误码**：
 
 请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -62,30 +55,27 @@ setSimDisabled(admin: Want, slotId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let slotId: number = 0;
   telephonyManager.setSimDisabled(wantTemp, slotId);
   console.info(`Succeeded in setting slotId: ${slotId} disabled.`);
 } catch (err) {
-  console.error(
-    `Failed to set slotId disabled. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set slotId disabled. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.setSimEnabled
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### telephonyManager.setSimEnabled
 
 setSimEnabled(admin: Want, slotId: number): void
 
@@ -101,17 +91,15 @@ setSimEnabled(admin: Want, slotId: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 | slotId | number | 是 | 卡槽ID，目前仅支持单卡槽设备和双卡槽设备，取值范围为0或1，其中0表示卡槽1，1表示卡槽2。 |
 
 
 **错误码**：
 
 请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -122,30 +110,27 @@ setSimEnabled(admin: Want, slotId: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let slotId: number = 0;
   telephonyManager.setSimEnabled(wantTemp, slotId);
   console.info(`Succeeded in setting slotId: ${slotId} enabled.`);
 } catch (err) {
-  console.error(
-    `Failed to set slotId enabled. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to set slotId enabled. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.isSimDisabled
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### telephonyManager.isSimDisabled
 
 isSimDisabled(admin: Want, slotId: number): boolean
 
@@ -159,15 +144,13 @@ isSimDisabled(admin: Want, slotId: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 | slotId | number | 是 | 卡槽ID，目前仅支持单卡槽设备和双卡槽设备，取值范围为0或1，其中0表示卡槽1，1表示卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -178,7 +161,6 @@ isSimDisabled(admin: Want, slotId: number): boolean
 
 请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 9200001 | The application is not an administrator application of the device. |
@@ -188,40 +170,33 @@ isSimDisabled(admin: Want, slotId: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let slotId: number = 0;
   let result: boolean = telephonyManager.isSimDisabled(wantTemp, slotId);
-  console.info(
-    `Succeeded in querying slotId: ${slotId} is disabled or not, result: ${result}`,
-  );
+  console.info(`Succeeded in querying slotId: ${slotId} is disabled or not, result: ${result}`);
 } catch (err) {
-  console.error(
-    `Failed to query sim is disabled or not. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to query sim is disabled or not. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.addOutgoingCallPolicyNumbers
-**支持设备：** Phone / PC/2in1 / Tablet
 
-addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
+##### telephonyManager.addOutgoingCallPolicyNumbers
+
+addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
 添加通话呼出的允许或禁用名单，如果不添加名单，任意号码都可以呼出，添加后只有名单内的号码允许或禁止呼出。
 
 以下情况下，通过本接口添加通话呼出的允许或禁用名单，会报策略冲突：
-
-
 1. 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口禁用了设备通话能力，再通过本接口添加通话呼出的禁用或允许名单，返回203错误码。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口解除禁用设备通话能力后，可解除冲突。
 2. 已经通过本接口设置了通话呼出的禁用名单，再通过本接口添加通话呼出允许名单，返回9200010错误码。通过[removeOutgoingCallPolicyNumbers](#telephonymanagerremoveoutgoingcallpolicynumbers)接口将之前设置的通话呼出禁用名单移除后，可解除冲突。
 3. 已经通过本接口设置了通话呼出的允许名单，再通过本接口添加通话呼出禁用名单，返回9200010错误码。通过[removeOutgoingCallPolicyNumbers](#telephonymanagerremoveoutgoingcallpolicynumbers)接口将之前设置的通话呼出允许名单移除后，可解除冲突。
@@ -238,18 +213,16 @@ addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| policy | [adminManager.Policy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#policy20) | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| policy | adminManager.Policy | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
 | numbers | Array&lt;string&gt; | 是 | 通话号码列表，当前仅支持全号码匹配。数组总长度不能超过1000。例如，若当前允许名单数组中已有100个号码，则最多支持通过该接口再添加900个。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -264,8 +237,7 @@ addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: 
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 import { adminManager } from '@kit.MDMKit';
@@ -273,28 +245,26 @@ import { adminManager } from '@kit.MDMKit';
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let policy: adminManager.Policy = adminManager.Policy.BLOCK_LIST;
   let numbers: Array<string> = [
     // 需根据实际情况进行替换
-    '13112345678',
+    "13112345678"
   ];
   telephonyManager.addOutgoingCallPolicyNumbers(wantTemp, policy, numbers);
   console.info('Succeeded in adding outgoing call policy.');
 } catch (err) {
-  console.error(
-    `Failed to add outgoing call policy. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to add outgoing call policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.removeOutgoingCallPolicyNumbers
-**支持设备：** Phone / PC/2in1 / Tablet
 
-removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
+##### telephonyManager.removeOutgoingCallPolicyNumbers
+
+removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
 移除通话呼出的允许或禁用名单，若在该名单尚未设置时进行移除，则会移除失败。
 
@@ -314,18 +284,16 @@ removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| policy | [adminManager.Policy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#policy20) | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| policy | adminManager.Policy | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
 | numbers | Array&lt;string&gt; | 是 | 待移除的通话号码数组。数组总长度不能超过1000。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -339,8 +307,7 @@ removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, number
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 import { adminManager } from '@kit.MDMKit';
@@ -348,28 +315,26 @@ import { adminManager } from '@kit.MDMKit';
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let policy: adminManager.Policy = adminManager.Policy.BLOCK_LIST;
   let numbers: Array<string> = [
     // 需根据实际情况进行替换
-    '13112345678',
+    "13112345678"
   ];
   telephonyManager.removeOutgoingCallPolicyNumbers(wantTemp, policy, numbers);
   console.info('Succeeded in removing outgoing call policy.');
 } catch (err) {
-  console.error(
-    `Failed to remove outgoing call policy. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to remove outgoing call policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.getOutgoingCallPolicyNumbers
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>
+##### telephonyManager.getOutgoingCallPolicyNumbers
+
+getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array&lt;string&gt;
 
 获取通话呼出的允许或禁用名单。
 
@@ -383,15 +348,13 @@ getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| policy | [adminManager.Policy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#policy20) | 是 | 允许或禁用名单策略。 BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| policy | adminManager.Policy | 是 | 允许或禁用名单策略。 BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -401,7 +364,6 @@ getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -413,8 +375,7 @@ getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 
 **示例：**
 
-
-```ts
+```json
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 import { adminManager } from '@kit.MDMKit';
@@ -422,35 +383,26 @@ import { adminManager } from '@kit.MDMKit';
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let policy: adminManager.Policy = adminManager.Policy.BLOCK_LIST;
-  let numbers: Array<string> = telephonyManager.getOutgoingCallPolicyNumbers(
-    wantTemp,
-    policy,
-  );
-  console.info(
-    `Succeeded in getting outgoing call policy. result: ${JSON.stringify(numbers)}`,
-  );
+  let numbers: Array<string> = telephonyManager.getOutgoingCallPolicyNumbers(wantTemp, policy);
+  console.info(`Succeeded in getting outgoing call policy. result: ${JSON.stringify(numbers)}`);
 } catch (err) {
-  console.error(
-    `Failed to get outgoing call policy. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to get outgoing call policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.addIncomingCallPolicyNumbers
-**支持设备：** Phone / PC/2in1 / Tablet
 
-addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
+##### telephonyManager.addIncomingCallPolicyNumbers
+
+addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
 添加通话呼入的允许或禁用名单，如果不添加名单，则任意号码都可以呼入，添加后仅名单内的号码允许或禁止呼入。
 
 以下情况下，通过本接口添加通话呼入的允许或禁用名单，会报策略冲突：
-
-
 1. 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口禁用了设备通话能力，再通过本接口添加通话呼入的禁用或允许名单，返回203错误码。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口解除禁用设备通话能力后，可解除冲突。
 2. 已经通过本接口设置了通话呼入的禁用名单，再通过本接口添加通话呼入允许名单，返回9200010错误码。通过[removeIncomingCallPolicyNumbers](#telephonymanagerremoveincomingcallpolicynumbers)接口将之前设置的通话呼入禁用名单移除后，可解除冲突。
 3. 已经通过本接口设置了通话呼入的允许名单，再通过本接口添加通话呼入禁用名单，返回9200010错误码。通过[removeIncomingCallPolicyNumbers](#telephonymanagerremoveincomingcallpolicynumbers)接口将之前设置的通话呼入允许名单移除后，可解除冲突。
@@ -467,18 +419,16 @@ addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| policy | [adminManager.Policy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#policy20) | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| policy | adminManager.Policy | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
 | numbers | Array&lt;string&gt; | 是 | 通话号码列表，当前仅支持全号码匹配。数组总长度不能超过1000。例如，若当前允许名单数组中已有100个号码，则最多支持通过该接口再添加900个。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -493,8 +443,7 @@ addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: 
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 import { adminManager } from '@kit.MDMKit';
@@ -502,34 +451,30 @@ import { adminManager } from '@kit.MDMKit';
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let policy: adminManager.Policy = adminManager.Policy.BLOCK_LIST;
   let numbers: Array<string> = [
     // 需根据实际情况进行替换
-    '13112345678',
+    "13112345678"
   ];
   telephonyManager.addIncomingCallPolicyNumbers(wantTemp, policy, numbers);
   console.info('Succeeded in adding incoming call policy.');
 } catch (err) {
-  console.error(
-    `Failed to add incoming call policy. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to add incoming call policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.removeIncomingCallPolicyNumbers
-**支持设备：** Phone / PC/2in1 / Tablet
 
-removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array<string>): void
+##### telephonyManager.removeIncomingCallPolicyNumbers
+
+removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
 移除通话呼入的允许或禁用名单，若在该名单尚未设置时进行移除，则会移除失败。
 
 以下情况下，通过本接口移除通话呼入的允许或禁用名单，会报策略冲突：
-
-
 1. 已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口禁用了设备通话能力，再通过本接口移除通话呼入的禁用或允许名单，返回203错误码。通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy)接口解除禁用设备通话能力后，可解除冲突。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_TELEPHONY
@@ -544,18 +489,16 @@ removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| policy | [adminManager.Policy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#policy20) | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| policy | adminManager.Policy | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
 | numbers | Array&lt;string&gt; | 是 | 待移除的通话号码数组。数组总长度不能超过1000。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -569,8 +512,7 @@ removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, number
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 import { adminManager } from '@kit.MDMKit';
@@ -578,28 +520,26 @@ import { adminManager } from '@kit.MDMKit';
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let policy: adminManager.Policy = adminManager.Policy.BLOCK_LIST;
   let numbers: Array<string> = [
     // 需根据实际情况进行替换
-    '13112345678',
+    "13112345678"
   ];
   telephonyManager.removeIncomingCallPolicyNumbers(wantTemp, policy, numbers);
   console.info('Succeeded in removing incoming call policy.');
 } catch (err) {
-  console.error(
-    `Failed to remove incoming call policy. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to remove incoming call policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.getIncomingCallPolicyNumbers
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<string>
+##### telephonyManager.getIncomingCallPolicyNumbers
+
+getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array&lt;string&gt;
 
 获取通话呼入的允许或禁用名单。
 
@@ -613,15 +553,13 @@ getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| policy | [adminManager.Policy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#policy20) | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| policy | adminManager.Policy | 是 | 允许或禁用名单策略。BLOCK_LIST为禁用名单，TRUST_LIST为允许名单。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -631,7 +569,6 @@ getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 **错误码**：
 
 以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -643,8 +580,7 @@ getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array<st
 
 **示例：**
 
-
-```ts
+```json
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 import { adminManager } from '@kit.MDMKit';
@@ -652,27 +588,20 @@ import { adminManager } from '@kit.MDMKit';
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   let policy: adminManager.Policy = adminManager.Policy.BLOCK_LIST;
-  let numbers: Array<string> = telephonyManager.getIncomingCallPolicyNumbers(
-    wantTemp,
-    policy,
-  );
-  console.info(
-    `Succeeded in getting incoming call policy. result: ${JSON.stringify(numbers)}`,
-  );
+  let numbers: Array<string> = telephonyManager.getIncomingCallPolicyNumbers(wantTemp, policy);
+  console.info(`Succeeded in getting incoming call policy. result: ${JSON.stringify(numbers)}`);
 } catch (err) {
-  console.error(
-    `Failed to get incoming call policy. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to get incoming call policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
 
-## telephonyManager.hangupCalling23+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### telephonyManager.hangupCalling23+
 
 hangupCalling(admin: Want): void
 
@@ -688,16 +617,14 @@ hangupCalling(admin: Want): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| admin | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 
 
 **错误码**：
 
 请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -709,21 +636,18 @@ hangupCalling(admin: Want): void
 
 **示例：**
 
-
-```ts
+```text
 import { Want } from '@kit.AbilityKit';
 import { telephonyManager } from '@kit.MDMKit';
 
 let wantTemp: Want = {
   // 需根据实际情况进行替换
   bundleName: 'com.example.myapplication',
-  abilityName: 'EnterpriseAdminAbility',
+  abilityName: 'EnterpriseAdminAbility'
 };
 try {
   telephonyManager.hangupCalling(wantTemp);
 } catch (err) {
-  console.error(
-    `Failed to hang up calling. Code: ${err.code}, message: ${err.message}`,
-  );
+  console.error(`Failed to hang up calling. Code: ${err.code}, message: ${err.message}`);
 }
 ```

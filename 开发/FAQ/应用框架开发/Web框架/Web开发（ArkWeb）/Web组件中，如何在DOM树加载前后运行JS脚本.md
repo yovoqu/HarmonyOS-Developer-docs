@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-59
 
-在文档加载之前注入JS脚本可以使用javaScriptOnDocumentStart，在文档加载之后注入JS脚本可以使用javaScriptOnDocumentEnd。
+在文档加载之前注入JS脚本可以使用[javaScriptOnDocumentStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptondocumentstart11)，在文档加载之后注入JS脚本可以使用[javaScriptOnDocumentEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptondocumentend11)。

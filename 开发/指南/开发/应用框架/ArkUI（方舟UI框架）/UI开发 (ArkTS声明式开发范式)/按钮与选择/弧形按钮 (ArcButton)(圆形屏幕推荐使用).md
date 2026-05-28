@@ -1,16 +1,17 @@
 # 弧形按钮 (ArcButton)(圆形屏幕推荐使用)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-advanced-components-arcbutton
 
 从API version 18开始支持ArcButton。ArcButton是弧形按钮组件，推荐用于圆形屏幕。为用户提供强调、普通、警告等样式按钮。具体用法请参考[ArcButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton)。
 
 
-## 创建按钮
+##### 创建按钮
 
 ArcButton通过调用以下接口来创建。
-```text
+
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -22,13 +23,23 @@ ArcButton({
 ```
 
 其中，[label](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮文字，[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型，[styleMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮样式。
-![](assets/弧形按钮%20(ArcButton)
-(圆形屏幕推荐使用)/file-20260514130632645-0.png)
 
-## 设置按钮类型
 
-ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型。 下弧形按钮（默认类型）。 通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.BOTTOM_EDGE，可以将按钮设置为下弧形按钮。
-```text
+![](assets/弧形按钮%20(ArcButton)(圆形屏幕推荐使用)/file-20260514130632645-0.png)
+
+
+
+
+##### 设置按钮类型
+
+ArcButton有上弧形按钮和下弧形按钮两种类型。使用[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)设置按钮类型。
+
+ - 下弧形按钮（默认类型）。
+
+  通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.BOTTOM_EDGE，可以将按钮设置为下弧形按钮。
+
+  
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -40,9 +51,14 @@ ArcButton({
 })
 ```
 
-![](assets/弧形按钮%20(ArcButton)
-(圆形屏幕推荐使用)/file-20260514130632645-1.png) 上弧形按钮。 通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.TOP_EDGE，可以将按钮设置为上弧形按钮。
-```text
+![](assets/弧形按钮%20(ArcButton)(圆形屏幕推荐使用)/file-20260514130632645-1.png)
+
+ - 上弧形按钮。
+
+  通过将[position](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置为ArcButtonPosition.TOP_EDGE，可以将按钮设置为上弧形按钮。
+
+  
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -53,13 +69,20 @@ ArcButton({
 })
 ```
 
-![](assets/弧形按钮%20(ArcButton)
-(圆形屏幕推荐使用)/file-20260514130632645-2.png)
+![](assets/弧形按钮%20(ArcButton)(圆形屏幕推荐使用)/file-20260514130632645-2.png)
 
-## 自定义样式
 
-设置背景色。 使用[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的背景色。
-```text
+
+
+
+##### 自定义样式
+
+ - 设置背景色。
+
+  使用[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的背景色。
+
+  
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -69,9 +92,14 @@ ArcButton({
 })
 ```
 
-![](assets/弧形按钮%20(ArcButton)
-(圆形屏幕推荐使用)/file-20260514130632645-3.png) 设置文本颜色。 使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的文本颜色。
-```text
+![](assets/弧形按钮%20(ArcButton)(圆形屏幕推荐使用)/file-20260514130632645-3.png)
+
+ - 设置文本颜色。
+
+  使用[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的文本颜色。
+
+  
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -82,9 +110,14 @@ ArcButton({
 })
 ```
 
-![](assets/弧形按钮%20(ArcButton)
-(圆形屏幕推荐使用)/file-20260514130632645-4.png) 设置阴影颜色。 使用[shadowEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性启用按钮阴影，并通过[shadowColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的阴影颜色。
-```text
+![](assets/弧形按钮%20(ArcButton)(圆形屏幕推荐使用)/file-20260514130632645-4.png)
+
+ - 设置阴影颜色。
+
+  使用[shadowEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性启用按钮阴影，并通过[shadowColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-arcbutton#arcbuttonoptions)属性设置按钮的阴影颜色。
+
+  
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -94,13 +127,16 @@ ArcButton({
 })
 ```
 
-![](assets/弧形按钮%20(ArcButton)
-(圆形屏幕推荐使用)/file-20260514130632645-5.png)
+![](assets/弧形按钮%20(ArcButton)(圆形屏幕推荐使用)/file-20260514130632645-5.png)
 
-## 添加事件
 
-绑定onClick事件来响应点击操作后的自定义行为。
-```text
+
+
+
+##### 添加事件
+
+ - 绑定onClick事件来响应点击操作后的自定义行为。        
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -112,8 +148,8 @@ ArcButton({
 })
 ```
 
-绑定onTouch事件来响应触摸操作后的自定义行为。
-```text
+ - 绑定onTouch事件来响应触摸操作后的自定义行为。        
+```ArkTS
 ArcButton({
   options: new ArcButtonOptions({
     label: 'OK',
@@ -127,10 +163,16 @@ ArcButton({
 ```
 
 
-## 场景示例
 
-在亮度设置界面，进度条显示当前亮度为30%。点击重置后，亮度值将被重置为默认的50%。 运行该示例推荐在Wearable设备上以获得最佳显示效果，同时支持在其他设备上运行。若要在Wearable设备上运行，在src/main目录下的工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[deviceTypes标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#devicetypes标签)内配置wearable。
-```text
+
+
+##### 场景示例
+
+在亮度设置界面，进度条显示当前亮度为30%。点击重置后，亮度值将被重置为默认的50%。
+
+运行该示例推荐在Wearable设备上以获得最佳显示效果，同时支持在其他设备上运行。若要在Wearable设备上运行，在src/main目录下的工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[deviceTypes标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#devicetypes标签)内配置wearable。
+
+```json
 "module": {
   // ···
   "deviceTypes": [
@@ -140,8 +182,7 @@ ArcButton({
 }
 ```
 
-
-```text
+```ArkTS
 import { LengthMetrics, LengthUnit, ArcButton, ArcButtonOptions, ArcButtonStyleMode } from '@kit.ArkUI';
 
 const BRIGHT_NESS_VALUE = 30;
@@ -217,5 +258,5 @@ struct BrightnessPage {
 }
 ```
 
-![](assets/弧形按钮%20(ArcButton)
-(圆形屏幕推荐使用)/file-20260514130632645-6.png)
+
+![](assets/弧形按钮%20(ArcButton)(圆形屏幕推荐使用)/file-20260514130632645-6.png)

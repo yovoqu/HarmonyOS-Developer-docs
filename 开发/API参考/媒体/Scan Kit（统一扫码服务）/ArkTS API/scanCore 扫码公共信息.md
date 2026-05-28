@@ -3,34 +3,31 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scancore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供扫码公共信息。
-
+ 
 **起始版本：** 4.0.0(10)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```ts
+```text
 import { scanCore } from '@kit.ScanKit';
 ```
+ 
+  
 
-
-## ScanType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### ScanType
 
 枚举，码类型。
-
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.Core
-
+ 
 **起始版本：** 4.0.0(10)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | FORMAT_UNKNOWN | 0 | 未知类型，用于事先不知道要扫哪种类型码的场景，此参数不可用作码图生成 |
@@ -51,38 +48,38 @@ import { scanCore } from '@kit.ScanKit';
 | ONE_D_CODE | 100 | 条形码，包含：CODABAR、CODE 39、CODE 93、CODE 128、EAN-8、EAN-13、ITF-14、UPC-A、UPC-E，此参数不可用作码图生成 |
 | TWO_D_CODE | 101 | 二维码，包含：AZTEC、DATA MATRIX、PDF417、QR CODE、MULTIFUNCTIONAL CODE，此参数不可用作码图生成 |
 | ALL | 1001 | 以上所有类型，此参数不可用作码图生成 |
+ 
+ 
+  
 
-
-## ScanErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### ScanErrorCode
 
 枚举，扫码错误码类型。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.Core
-
+ 
 **起始版本：** 4.1.0(11)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | INTERNAL_ERROR | 1000500001 | Internal error. 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
 | SCAN_SERVICE_CANCELED | 1000500002 | The user canceled the barcode scanning. 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 起始版本： 5.0.0(12) |
+ 
+ 
+  
 
-
-## ScanSource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### ScanSource
 
 枚举，扫码结果来源。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.0.2(22)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.Core
-
+ 
 **起始版本：** 6.0.2(22)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CAMERA | 0 | 表示相机流扫码。 |

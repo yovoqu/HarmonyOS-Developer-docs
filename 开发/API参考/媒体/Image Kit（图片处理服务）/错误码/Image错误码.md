@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 501 无法调用接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 501 无法调用接口
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Resource unavailable.
 请检查图片并按指示操作重新解码。
 
 
-## 62980096 操作失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980096 操作失败
 
 **错误信息**
 
@@ -42,8 +41,6 @@ The operation failed. Possible cause: 1.Image upload exception. 2. Decoding proc
 操作失败。
 
 **可能原因**
-
-
 1. 上传图片过程中出现异常。
 2. 解码过程中有其他操作。
 3. 没有按指示操作进行图片解码。
@@ -55,8 +52,8 @@ The operation failed. Possible cause: 1.Image upload exception. 2. Decoding proc
 请检查图片并按指示操作重新解码。
 
 
-## 62980097 pixelmap序列化传输失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980097 pixelmap序列化传输失败
 
 **错误信息**
 
@@ -67,8 +64,6 @@ IPC error. Possible cause: 1.IPC communication failed. 2. Image upload exception
 pixelmap序列化传输失败。
 
 **可能原因**
-
-
 1. 上传图片过程中出现异常。
 2. 解码过程中有其他操作。
 3. 没有按指示操作进行图片解码。
@@ -79,7 +74,8 @@ pixelmap序列化传输失败。
 请检查图片并按指示操作重新解码。
 
 
-## 62980098 共享内存空间错误
+
+##### 62980098 共享内存空间错误
 
 **错误信息**
 
@@ -90,8 +86,6 @@ Shared memory does not exist.
 共享内存空间错误。
 
 **可能原因**
-
-
 1. 内存大小不够。
 2. 越界访问共享内存。
 3. 使用了无效的指针。
@@ -101,8 +95,8 @@ Shared memory does not exist.
 请检查内存使用情况或重启。
 
 
-## 62980099 共享内存数据异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980099 共享内存数据异常
 
 **错误信息**
 
@@ -113,8 +107,6 @@ The shared memory data is abnormal.
 共享内存数据异常。
 
 **可能原因**
-
-
 1. 读写共享内存时没有正确地进行同步操作。
 2. 越界访问共享内存。
 3. 使用了无效的指针。
@@ -124,7 +116,8 @@ The shared memory data is abnormal.
 请重新启动。
 
 
-## 62980100 图片解码错误
+
+##### 62980100 图片解码错误
 
 **错误信息**
 
@@ -135,8 +128,6 @@ Image decoding abnormal.
 图片解码错误。
 
 **可能原因**
-
-
 1. 上传图片过程中出现异常。
 2. 解码过程中有其他操作。
 3. 没有按指示操作进行图片解码。
@@ -147,8 +138,8 @@ Image decoding abnormal.
 请检查图片并按指示操作重新解码。
 
 
-## 62980101 图片输入数据错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980101 图片输入数据错误
 
 **错误信息**
 
@@ -159,8 +150,6 @@ The image data is abnormal.
 图片输入数据错误。
 
 **可能原因**
-
-
 1. 输入图片数据不对。
 2. 输入的图片格式不对。
 3. 输入的图片大小不对。
@@ -170,7 +159,8 @@ The image data is abnormal.
 请重新输入正确的图片。
 
 
-## 62980102 图片分配内存错误
+
+##### 62980102 图片分配内存错误
 
 **错误信息**
 
@@ -189,8 +179,8 @@ Image malloc abnormal. This status code is thrown when an error occurs during th
 清理内存后重试。
 
 
-## 62980103 图片类型不支持
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980103 图片类型不支持
 
 **错误信息**
 
@@ -209,8 +199,8 @@ The image data is not supported.
 请更换图片类型重试。
 
 
-## 62980104 图片初始化错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980104 图片初始化错误
 
 **错误信息**
 
@@ -221,8 +211,6 @@ Image initialization abnormal. This status code is thrown when an error occurs d
 图片初始化错误。
 
 **可能原因**
-
-
 1. 图片类型不支持。
 2. 图片大小不支持。
 3. 初始化过程中出现错误。
@@ -232,8 +220,8 @@ Image initialization abnormal. This status code is thrown when an error occurs d
 请重新输入正确的参数或更换图片。
 
 
-## 62980105 图片获取数据错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980105 图片获取数据错误
 
 **错误信息**
 
@@ -244,8 +232,6 @@ Failed to get the data.
 图片获取数据错误。
 
 **可能原因**
-
-
 1. 设备不支持该图片类型。
 2. 图片数据丢失。
 
@@ -254,8 +240,8 @@ Failed to get the data.
 请输入新的图片或检查图片数据。
 
 
-## 62980106 图片数据太大
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980106 图片数据太大
 
 **错误信息**
 
@@ -274,7 +260,8 @@ The image data is too large. This status code is thrown when an error occurs dur
 更换较小的图片。
 
 
-## 62980107 图片转换错误
+
+##### 62980107 图片转换错误
 
 **错误信息**
 
@@ -285,8 +272,6 @@ Image conversion abnormal.
 图片转换错误。
 
 **可能原因**
-
-
 1. 图片转换过程中异常停止。
 2. 编码参数设置错误。
 
@@ -295,8 +280,8 @@ Image conversion abnormal.
 更换图片或者设置支持的编码参数。
 
 
-## 62980108 图片颜色转换错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980108 图片颜色转换错误
 
 **错误信息**
 
@@ -307,8 +292,6 @@ Failed to convert the color space.
 图片颜色转换错误。
 
 **可能原因**
-
-
 1. 不支持该图片类型的颜色转换。
 2. 设备出现问题。
 
@@ -317,8 +300,8 @@ Failed to convert the color space.
 重试或者更换图片类型。
 
 
-## 62980109 裁剪错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980109 裁剪错误
 
 **错误信息**
 
@@ -329,8 +312,6 @@ Failed to crop the image.
 裁剪错误。
 
 **可能原因**
-
-
 1. 裁剪参数设置错误。
 2. 图片数据错误。
 
@@ -339,8 +320,8 @@ Failed to crop the image.
 请检查图片数据或修改正确的裁剪参数。
 
 
-## 62980110 图片源数据错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980110 图片源数据错误
 
 **错误信息**
 
@@ -359,8 +340,8 @@ The image source data is incorrect.
 检查操作步骤或更换图片。
 
 
-## 62980111 图片源数据不完整
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980111 图片源数据不完整
 
 **错误信息**
 
@@ -379,8 +360,8 @@ The image source data is incomplete.
 检查操作步骤或更换图片。
 
 
-## 62980112 图片格式不匹配
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980112 图片格式不匹配
 
 **错误信息**
 
@@ -399,8 +380,8 @@ The image format does not match.
 更换匹配类型的图片。
 
 
-## 62980113 图片未知格式
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980113 图片未知格式
 
 **错误信息**
 
@@ -419,7 +400,8 @@ Unknown image format.The image data provided is not in a recognized or supported
 更换图片。
 
 
-## 62980114 图片源未解析
+
+##### 62980114 图片源未解析
 
 **错误信息**
 
@@ -438,8 +420,8 @@ Image source not parsed.
 检查图片源数据。
 
 
-## 62980115 图片无效参数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980115 图片无效参数
 
 **错误信息**
 
@@ -458,8 +440,8 @@ Invalid image parameter.
 重新输入正确的参数。
 
 
-## 62980116 解码失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980116 解码失败
 
 **错误信息**
 
@@ -470,10 +452,8 @@ Failed to decode the image.
 解码失败。
 
 **可能原因**
-
-
 1. 解码过程中异常退出。
-2. 图片格��不支持。
+2. 图片格式不支持。
 3. 未读取到图片。
 
 **处理步骤**
@@ -481,7 +461,8 @@ Failed to decode the image.
 检查是否读取到图片或更换图片。
 
 
-## 62980117 注册插件失败
+
+##### 62980117 注册插件失败
 
 **错误信息**
 
@@ -492,8 +473,6 @@ Failed to register the plugin.
 注册插件失败。
 
 **可能原因**
-
-
 1. 未匹配到对应格式的解码或编码插件。
 2. 传入数据不正确。
 
@@ -502,8 +481,8 @@ Failed to register the plugin.
 更换图片或检查传入数据。
 
 
-## 62980118 创建插件失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980118 创建插件失败
 
 **错误信息**
 
@@ -514,8 +493,6 @@ Failed to create the image plugin.
 创建插件失败。
 
 **可能原因**
-
-
 1. 未匹配到对应格式的解码或编码插件。
 2. 传入数据不正确。
 
@@ -524,8 +501,8 @@ Failed to create the image plugin.
 更换图片或检查传入数据。
 
 
-## 62980119 图片编码失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980119 图片编码失败
 
 **错误信息**
 
@@ -536,8 +513,6 @@ Failed to encode the image.
 图片编码失败。
 
 **可能原因**
-
-
 1. 设置的编码格式不支持。
 2. 传入数据不正确。
 
@@ -546,8 +521,8 @@ Failed to encode the image.
 更换图片或检查传入数据。
 
 
-## 62980120 图片添加像素映射失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980120 图片添加像素映射失败
 
 **错误信息**
 
@@ -558,8 +533,6 @@ Add pixelmap out of range.
 图片添加像素映射失败。
 
 **可能原因**
-
-
 1. 可能不支持添加像素映射。
 2. 添加像素映射过程中异常中断。
 
@@ -568,7 +541,8 @@ Add pixelmap out of range.
 请检查映射步骤或更换图片。
 
 
-## 62980121 不支持图片硬解码
+
+##### 62980121 不支持图片硬解码
 
 **错误信息**
 
@@ -587,8 +561,8 @@ Image hardware decoding is not supported.
 使用其他方式解码。
 
 
-## 62980122 解码图片头异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980122 解码图片头异常
 
 **错误信息**
 
@@ -599,8 +573,6 @@ Failed to decode the image header.
 解码图片头异常。
 
 **可能原因**
-
-
 1. 解码头过程中出现异常退出。
 2. 图片解码头不符合要求。
 
@@ -609,8 +581,8 @@ Failed to decode the image header.
 更换图片或检查图片数据。
 
 
-## 62980123 图片不支持exif解码
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980123 图片不支持exif解码
 
 **错误信息**
 
@@ -629,7 +601,8 @@ The image does not support EXIF decoding.
 更换图片。
 
 
-## 62980124 图片属性不存在
+
+##### 62980124 图片属性不存在
 
 **错误信息**
 
@@ -640,8 +613,6 @@ The image property does not exist.
 图片属性不存在。
 
 **可能原因**
-
-
 1. 图片属性缺失。
 2. 对图片进行了不合理的修改。
 
@@ -650,8 +621,8 @@ The image property does not exist.
 更换图片。
 
 
-## 62980133 图片属性赋值超出范围
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980133 图片属性赋值超出范围
 
 **错误信息**
 
@@ -670,8 +641,8 @@ The EXIF data is out of range.
 更换图片或检查所设置图片属性值的长度。
 
 
-## 62980135 图片属性值无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980135 图片属性值无效
 
 **错误信息**
 
@@ -690,8 +661,8 @@ The EXIF value is invalid.
 更换图片或检查图片数据。
 
 
-## 62980137 图片操作无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980137 图片操作无效
 
 **错误信息**
 
@@ -710,8 +681,8 @@ Invalid media operation.
 更换图片。
 
 
-## 62980146 图片属性值写入文件失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980146 图片属性值写入文件失败
 
 **错误信息**
 
@@ -730,8 +701,8 @@ The EXIF data failed to be written to the file.
 更换图片。
 
 
-## 62980149 图片参数无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980149 图片参数无效
 
 **错误信息**
 
@@ -750,8 +721,8 @@ Invalid MIME type for the image source.
 更换图片。
 
 
-## 62980172 编码ICC失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980172 编码ICC失败
 
 **错误信息**
 
@@ -770,8 +741,8 @@ Failed to encode icc.
 检查图片数据或更换图片。
 
 
-## 62980173 DMA内存空间错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980173 DMA内存空间错误
 
 **错误信息**
 
@@ -782,8 +753,6 @@ The DMA memory does not exist.
 DMA内存空间错误。
 
 **可能原因**
-
-
 1. 内存大小不够。
 2. 越界访问内存。
 3. 使用了无效的指针。
@@ -793,8 +762,8 @@ DMA内存空间错误。
 请检查内存使用情况或重启。
 
 
-## 62980174 DMA内存数据异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980174 DMA内存数据异常
 
 **错误信息**
 
@@ -805,8 +774,6 @@ The DMA memory data is abnormal.
 DMA内存数据异常。
 
 **可能原因**
-
-
 1. 读写共享内存时没有正确地进行同步操作。
 2. 越界访问内存。
 3. 使用了无效的指针。
@@ -816,8 +783,8 @@ DMA内存数据异常。
 重新启动。
 
 
-## 62980177 API环境异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980177 API环境异常
 
 **错误信息**
 
@@ -836,8 +803,8 @@ API使用环境存在问题。
 检查SDK版本。
 
 
-## 62980178 PixelMap创建失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980178 PixelMap创建失败
 
 **错误信息**
 
@@ -848,8 +815,6 @@ Failed to create the PixelMap.
 PixelMap创建失败。
 
 **可能原因**
-
-
 1. 参数错误（如区域大小超出、入参值非法等）导致的创建失败。
 2. 错误地提前释放，导致实例创建失败。
 
@@ -858,8 +823,8 @@ PixelMap创建失败。
 检查函数入参或检查是否提前释放实例。
 
 
-## 62980179 缓冲区大小异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980179 缓冲区大小异常
 
 **错误信息**
 
@@ -878,8 +843,8 @@ Abnormal buffer size.
 检查函数入参。
 
 
-## 62980180 文件描述符映射失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980180 文件描述符映射失败
 
 **错误信息**
 
@@ -898,8 +863,8 @@ FD mapping failed.
 检查是否传入了正确的文件描述符。
 
 
-## 62980246 读取PixelMap失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980246 读取PixelMap失败
 
 **错误信息**
 
@@ -910,8 +875,6 @@ Failed to read the pixel map.
 读取PixelMap失败。
 
 **可能原因**
-
-
 1. PixelMap数据错误。
 2. 没有读取PixelMap的权限。
 
@@ -920,7 +883,8 @@ Failed to read the pixel map.
 重新建立PixelMap或更改可读权限。
 
 
-## 62980247 写入像素映射失败
+
+##### 62980247 写入像素映射失败
 
 **错误信息**
 
@@ -931,8 +895,6 @@ Failed to write the pixel map.
 写入像素映射失败。
 
 **可能原因**
-
-
 1. PixelMap数据错误。
 2. 没有写入PixelMap的权限。
 
@@ -941,8 +903,8 @@ Failed to write the pixel map.
 重新建立PixelMap或更改可读权限。
 
 
-## 62980248 PixelMap不允许修改
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980248 PixelMap不允许修改
 
 **错误信息**
 
@@ -961,8 +923,8 @@ PixelMap不允许修改。
 停止对PixelMap的修改。
 
 
-## 62980252 创建surface失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980252 创建surface失败
 
 **错误信息**
 
@@ -981,7 +943,8 @@ Failed to create surface.
 重试或者更换图片。
 
 
-## 62980259 配置错误
+
+##### 62980259 配置错误
 
 **错误信息**
 
@@ -1000,8 +963,8 @@ Configuration error.
 重新进行正确配置。
 
 
-## 62980274 图片转换失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980274 图片转换失败
 
 **错误信息**
 
@@ -1012,8 +975,6 @@ The conversion failed.
 图片转换失败。
 
 **可能原因**
-
-
 1. 图片转换过程中异常停止。
 2. 编码参数设置错误。
 
@@ -1022,8 +983,8 @@ The conversion failed.
 更换图片或者设置支持的编码参数。
 
 
-## 62980276 不支持图片转换目标类型
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980276 不支持图片转换目标类型
 
 **错误信息**
 
@@ -1042,8 +1003,8 @@ The type to be converted is an unsupported target pixel format.
 更换图片或更换转换类型。
 
 
-## 62980286 PixelMap设置内存标识符失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980286 PixelMap设置内存标识符失败
 
 **错误信息**
 
@@ -1054,8 +1015,6 @@ Memory format not supported.
 PixelMap设置内存标识符失败。
 
 **可能原因**
-
-
 1. PixelMap内存类型不匹配。
 2. PixelMap的fd失效。
 3. 未知的内核错误。
@@ -1065,8 +1024,8 @@ PixelMap设置内存标识符失败。
 检查是否已释放pixelmap实例。检查内存类型是否匹配。
 
 
-## 62980302 内存拷贝失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 62980302 内存拷贝失败
 
 **错误信息**
 
@@ -1077,8 +1036,6 @@ Memory copy failed.
 内存拷贝失败。
 
 **可能原因**
-
-
 1. 内存类型不匹配。
 2. fd失效。
 3. 未知的内核错误。
@@ -1088,7 +1045,8 @@ Memory copy failed.
 检查是否已释放要拷贝的实例。检查内存类型是否匹配。
 
 
-## 7600101 不支持的MIME类型
+
+##### 7600101 不支持的MIME类型
 
 **错误信息**
 
@@ -1107,7 +1065,8 @@ Unsupported mime type.
 检查图片数据或更换图片，可使用相关接口查询编解码能力范围。
 
 
-## 7600102 未知MIME类型
+
+##### 7600102 未知MIME类型
 
 **错误信息**
 
@@ -1126,7 +1085,8 @@ Unknown mime type.
 检查图片数据或更换图片。
 
 
-## 7600103 数据或图片太大
+
+##### 7600103 数据或图片太大
 
 **错误信息**
 
@@ -1145,8 +1105,8 @@ Too large data or image.
 更换较小的图片。
 
 
-## 7600104 获取图像数据失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600104 获取图像数据失败
 
 **错误信息**
 
@@ -1157,8 +1117,6 @@ Failed to get the data from Surface.
 获取图像数据失败。
 
 **可能原因**
-
-
 1. 设备不支持该图像类型。
 2. 图像数据损坏或丢失。
 
@@ -1167,7 +1125,8 @@ Failed to get the data from Surface.
 检查图像数据来源或使用新的图像数据。
 
 
-## 7600173 DMA内存不存在
+
+##### 7600173 DMA内存不存在
 
 **错误信息**
 
@@ -1186,7 +1145,8 @@ DMA内存不存在。
 使用正确的内存分配类型。
 
 
-## 7600174 DMA操作失败
+
+##### 7600174 DMA操作失败
 
 **错误信息**
 
@@ -1205,8 +1165,8 @@ DMA内存操作失败。
 使用正确的方式读写DMA内存。
 
 
-## 7600201 不支持的操作
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600201 不支持的操作
 
 **错误信息**
 
@@ -1225,8 +1185,8 @@ Unsupported operation, e.g. on cross-platform.
 使用支持的操作。
 
 
-## 7600202 不支持的元数据读写
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600202 不支持的元数据读写
 
 **错误信息**
 
@@ -1245,7 +1205,8 @@ Unsupported metadata. Possible causes: Unsupported metadata type.
 重新确定辅助图类型和元数据类型是否对应，再进行读写操作。
 
 
-## 7600203 不支持的转换
+
+##### 7600203 不支持的转换
 
 **错误信息**
 
@@ -1264,8 +1225,8 @@ PixelMap的格式不支持转换。
 检查并更换格式匹配的PixelMap数据。
 
 
-## 7600204 无效的区域
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600204 无效的区域
 
 **错误信息**
 
@@ -1284,8 +1245,8 @@ Region中设置的顶点位置、宽度或高度超出图片尺寸范围。
 检查Region中设置的顶点位置、宽度或高度，确保在图片尺寸范围之内。
 
 
-## 7600205 不支持的内存格式或像素格式
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600205 不支持的内存格式或像素格式
 
 **错误信息**
 
@@ -1304,8 +1265,8 @@ Unsupported memory format or pixel format.
 查看接口的规格限制，并检查PixelMap的内存格式或像素格式，使用格式支持的PixelMap调用接口。
 
 
-## 7600206 无效参数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600206 无效参数
 
 **错误信息**
 
@@ -1324,8 +1285,8 @@ Invalid parameter.
 检查并重新输入正确的参数。
 
 
-## 7600301 申请内存失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600301 申请内存失败
 
 **错误信息**
 
@@ -1344,8 +1305,8 @@ Memory alloc failed.
 清理内存后重试。
 
 
-## 7600302 内存拷贝失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600302 内存拷贝失败
 
 **错误信息**
 
@@ -1364,7 +1325,8 @@ Memory copy failed.
 检查要拷贝的内存是否存在，清理内存后重试。
 
 
-## 7600303 内存锁定或解锁失败
+
+##### 7600303 内存锁定或解锁失败
 
 **错误信息**
 
@@ -1372,7 +1334,7 @@ Memory lock or unlock failed.
 
 **错误描述**
 
-内存锁定或解��失败。
+内存锁定或解锁失败。
 
 **可能原因**
 
@@ -1383,8 +1345,8 @@ PixelMap或内存地址无效。
 检查PixelMap或内存地址是否有效。
 
 
-## 7600305 创建PixelMap失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600305 创建PixelMap失败
 
 **错误信息**
 
@@ -1395,8 +1357,6 @@ Failed to create the PixelMap.
 创建PixelMap失败。
 
 **可能原因**
-
-
 1. 参数错误（如区域范围超出、入参值非法等）导致的创建失败。
 2. 错误地提前释放实例，导致实例创建失败。
 
@@ -1405,7 +1365,8 @@ Failed to create the PixelMap.
 检查函数入参或检查是否提前释放了实例。
 
 
-## 7600501 不支持的分配器模式
+
+##### 7600501 不支持的分配器模式
 
 **错误信息**
 
@@ -1424,8 +1385,8 @@ Unsupported allocator mode, e.g., use share memory to create a HDR image as only
 使用正确的内存分配类型。
 
 
-## 7600901 未知错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7600901 未知错误
 
 **错误信息**
 
@@ -1444,8 +1405,8 @@ Unknown error.
 通过日志查找原因。
 
 
-## 7700101 图片源存在问题
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700101 图片源存在问题
 
 **错误信息**
 
@@ -1456,8 +1417,6 @@ Bad source.
 图片源存在问题。
 
 **可能原因**
-
-
 1. 设备不支持该图片类型。
 2. 没有按指示操作进行图片解码。
 3. 图源数据不完整。从API version 17开始，系统底层经过优化，当遇到不完整数据时，系统将尝试部分解码，尽可能输出已解析的有效像素数据。但是如果图源数据文件头信息（如图像尺寸、颜色配置等）不完整，或图片像素数据块缺失严重，则仍会导致系统无法正常解码，最终返回解码失败。当前仅支持jpeg、png、bmp格式图片的不完整解码。
@@ -1467,8 +1426,8 @@ Bad source.
 检查图片数据或更换图片。
 
 
-## 7700102 不支持的MIME类型
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700102 不支持的MIME类型
 
 **错误信息**
 
@@ -1487,8 +1446,8 @@ Unsupported MIME type.
 检查图片数据或更换图片。
 
 
-## 7700103 图片太大
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700103 图片太大
 
 **错误信息**
 
@@ -1507,8 +1466,8 @@ Image too large.
 检查图片数据或更换图片。
 
 
-## 7700201 不支持的内存分配类型
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700201 不支持的内存分配类型
 
 **错误信息**
 
@@ -1527,8 +1486,8 @@ Unsupported allocator type, e.g., use share memory to decode a HDR image as only
 使用正确的内存分配类型。
 
 
-## 7700202 不支持的元数据
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700202 不支持的元数据
 
 **错误信息**
 
@@ -1539,8 +1498,6 @@ Unsupported metadata.
 不支持的元数据。
 
 **可能原因**
-
-
 1. 输入了不支持的元数据字段。
 2. 元数据字段对应的值非法。
 
@@ -1549,8 +1506,8 @@ Unsupported metadata.
 检查元数据字段是否支持或检查元数据值是否合法。
 
 
-## 7700203 不支持的选项
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700203 不支持的选项
 
 **错误信息**
 
@@ -1569,8 +1526,8 @@ Unsupported options, e.g, cannot convert image into desired pixel format.
 检查选项参数配置。
 
 
-## 7700204 无效参数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700204 无效参数
 
 **错误信息**
 
@@ -1589,8 +1546,8 @@ Invalid parameter.
 检查并重新输入正确的参数。
 
 
-## 7700301 解码失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700301 解码失败
 
 **错误信息**
 
@@ -1601,8 +1558,6 @@ Decode failed.
 解码失败。
 
 **可能原因**
-
-
 1. 设备的内存不足。
 2. 设备不支持该图片类型。
 3. 没有按指示操作进行图片解码。
@@ -1612,8 +1567,8 @@ Decode failed.
 检查图片数据或更换图片。
 
 
-## 7700302 内存分配失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700302 内存分配失败
 
 **错误信息**
 
@@ -1624,8 +1579,6 @@ Memory allocation failed.
 内存分配失败。
 
 **可能原因**
-
-
 1. 设备的内存不足。
 2. 没有按指示操作进行图片解码。
 
@@ -1634,8 +1587,8 @@ Memory allocation failed.
 检查设备内存或检查传入数据。
 
 
-## 7700304 图片信息写入文件失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7700304 图片信息写入文件失败
 
 **错误信息**
 
@@ -1646,8 +1599,6 @@ Failed to write image properties to the file.
 图片信息写入文件失败。
 
 **可能原因**
-
-
 1. 图片数据错误。
 2. 没有修改图片文件的权限。
 
@@ -1656,7 +1607,8 @@ Failed to write image properties to the file.
 检查图片数据或检查图片文件权限。
 
 
-## 7800201 不支持的选项
+
+##### 7800201 不支持的选项
 
 **错误信息**
 
@@ -1675,7 +1627,8 @@ Unsupported options.
 检查选项参数配置。
 
 
-## 7800202 ImagePacker无效参数
+
+##### 7800202 ImagePacker无效参数
 
 **错误信息**
 
@@ -1694,8 +1647,8 @@ Invalid parameter for ImagePacker.
 检查编码选项参数配置。
 
 
-## 7800301 编码失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7800301 编码失败
 
 **错误信息**
 
@@ -1706,8 +1659,6 @@ Encode failed.
 编码失败。
 
 **可能原因**
-
-
 1. 设置的编码格式不支持。
 2. 传入数据不正确。
 
@@ -1716,8 +1667,8 @@ Encode failed.
 更换图片或检查传入数据。
 
 
-## 7900201 无效参数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 7900201 无效参数
 
 **错误信息**
 
@@ -1728,8 +1679,6 @@ Invalid parameter.
 非法参数。
 
 **可能原因**
-
-
 1. 传入的参数数量、类型不正确。
 2. 设置的图像格式不支持。
 

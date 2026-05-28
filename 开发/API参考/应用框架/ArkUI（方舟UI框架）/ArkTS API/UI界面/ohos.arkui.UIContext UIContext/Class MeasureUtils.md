@@ -3,20 +3,24 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供文本宽度、高度等相关计算。
 
-> [!NOTE] 说明
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。  本Class首批接口从API version 12开始支持。  以下API需先使用UIContext中的getMeasureUtils()方法获取MeasureUtils实例，再通过此实例调用对应方法。  如需更多测算文本参数，建议使用图形对应测算接口Paragraph接口。  调用文本计算接口时，不推荐同时用ApplicationContext.setFontSizeScale设置应用字体大小缩放比例。为了确保时序正确性，建议开发者自行监听字体缩放变化，以保证测算结果的准确性。  在测算裁剪后的文本时，由于某些Unicode字符（如emoji）的码位长度大于1，直接按字符串长度裁剪会导致不准确的结果。建议基于Unicode码点进行迭代处理，避免错误截断字符，确保测算结果准确，请参考measureTextSize的示例2。
+> [!NOTE]
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getMeasureUtils() 方法获取MeasureUtils实例，再通过此实例调用对应方法。 如需更多测算文本参数，建议使用图形对应测算接口 Paragraph 接口。 调用文本计算接口时，不推荐同时用 ApplicationContext.setFontSizeScale 设置应用字体大小缩放比例。为了确保时序正确性，建议开发者自行监听字体缩放变化，以保证测算结果的准确性。 在测算裁剪后的文本时，由于某些Unicode字符（如emoji）的码位长度大于1，直接按字符串长度裁剪会导致不准确的结果。建议基于Unicode码点进行迭代处理，避免错误截断字符，确保测算结果准确，请参考 measureTextSize 的示例2。
 
-#### measureText12+
+
+
+##### measureText12+
+
 measureText(options: MeasureOptions): number
+
 计算指定文本作为单行文本显示时的宽度。如果文本包含多行（由换行符\n分隔），则返回其中最长的行的宽度。
 
-> [!NOTE] 说明
-> measureText接口的计算结果始终是单行文本的宽度，入参options中配置的布局约束（如constraintWidth、maxLines）对measureText的结果没有影响。如果需要计算布局约束下的宽度，请使用measureTextSize方法。
+> [!NOTE]
+> measureText接口的计算结果始终是单行文本的宽度，入参options中配置的布局约束（如constraintWidth、maxLines）对measureText的结果没有影响。如果需要计算布局约束下的宽度，请使用 measureTextSize 方法。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -26,7 +30,8 @@ measureText(options: MeasureOptions): number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [MeasureOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-measure#measureoptions) | 是 | 被计算文本描述信息。 |
+| options | MeasureOptions | 是 | 被计算文本描述信息。 |
+
 
 **返回值：**
 
@@ -34,10 +39,12 @@ measureText(options: MeasureOptions): number
 | --- | --- |
 | number | 文本宽度。 说明: 浮点数会向上取整。 单位：px |
 
+
 **示例：**
+
 通过MeasureUtils的measureText方法获取"Hello World"文字的宽度。
 
-```ts
+```text
 import { MeasureUtils } from '@kit.ArkUI';
 
 @Entry
@@ -62,9 +69,14 @@ struct Index {
 }
 ```
 
-#### measureTextSize12+
+
+
+##### measureTextSize12+
+
 measureTextSize(options: MeasureOptions): SizeOptions
+
 计算指定文本单行布局下的宽度和高度。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -73,18 +85,21 @@ measureTextSize(options: MeasureOptions): SizeOptions
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [MeasureOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-measure#measureoptions) | 是 | 被计算文本描述信息。 |
+| options | MeasureOptions | 是 | 被计算文本描述信息。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [SizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#sizeoptions) | 返回文本所占布局宽度和高度。 说明: 没有传参constraintWidth的情况下，文本宽度返回值浮点数会向上取整。 文本宽度以及高度返回值单位均为px。 |
+| SizeOptions | 返回文本所占布局宽度和高度。 说明: 没有传参constraintWidth的情况下，文本宽度返回值浮点数会向上取整。 文本宽度以及高度返回值单位均为px。 |
+
 
 **示例1：**
+
 通过MeasureUtils的measureTextSize方法获取"Hello World"文字的宽度和高度。
 
-```ts
+```text
 import { MeasureUtils } from '@kit.ArkUI';
 
 @Entry
@@ -110,9 +125,10 @@ struct Index {
 ```
 
 **示例2：**
+
 通过MeasureUtils的measureTextSize方法和unicode码点计算，手动实现文本截断。与设置[maxLines](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#maxlines)、[textOverflow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text#textoverflow)实现同样的效果。
 
-```ts
+```text
 @Entry
 @Component
 struct TextDemo {
@@ -219,30 +235,40 @@ struct TextDemo {
 }
 ```
 
+
 ![](assets/Class%20MeasureUtils/file-20260525092915887-001.png)
 
-#### getParagraphs20+
+
+
+
+##### getParagraphs20+
+
 getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array&lt;Paragraph&gt;
+
 将属性字符串根据文本布局选项转换成对应的[Paragraph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)数组。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| styledString | [StyledString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-styled-string#styledstring) | 是 | 待转换的属性字符串。 |
-| options | [TextLayoutOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-text-common#textlayoutoptions对象说明20) | 否 | 文本布局选项。 |
+| styledString | StyledString | 是 | 待转换的属性字符串。 |
+| options | TextLayoutOptions | 否 | 文本布局选项。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Array<[Paragraph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)> | [Paragraph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)的数组。 |
+| Array&lt;Paragraph&gt; | Paragraph的数组。 |
+
 
 **示例：**
+
 通过MeasureUtils的getParagraphs方法测算文本，当内容超出最大显示行数的时候，截断文本显示并展示“...全文”的效果。
 
-```ts
+```text
 import { LengthMetrics } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -442,5 +468,6 @@ struct Index {
   }
 }
 ```
+
 
 ![](assets/Class%20MeasureUtils/file-20260525092915888-002.png)

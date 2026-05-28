@@ -1,33 +1,39 @@
 # 明文导入密钥(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-import-key-in-plaintext-ndk
 
 以明文导入ECC密钥为例。具体的场景介绍及支持的算法规格，请参考[密钥导入支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 封装密钥属性集和密钥材料。通过[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)、[OH_Huks_AddParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_addparams)、[OH_Huks_BuildParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_buildparamset)构造密钥属性集paramSet。 密钥属性集中必须包含[OH_Huks_KeyAlg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keyalg)、[OH_Huks_KeySize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keysize)、[OH_Huks_KeyPurpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keypurpose)属性。 密钥材料须符合[HUKS密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#密钥材料格式)。 调用[OH_Huks_ImportKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_importkeyitem)，传入密钥别名和密钥属性集，导入密钥。
+##### 开发步骤
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 封装密钥属性集和密钥材料。通过[OH_Huks_InitParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_initparamset)、[OH_Huks_AddParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_addparams)、[OH_Huks_BuildParamSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-param-h#oh_huks_buildparamset)构造密钥属性集paramSet。
 
-## 导入AES256密钥
+  
+密钥属性集中必须包含[OH_Huks_KeyAlg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keyalg)、[OH_Huks_KeySize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keysize)、[OH_Huks_KeyPurpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_keypurpose)属性。
+3. 密钥材料须符合[HUKS密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#密钥材料格式)。
+4. 调用[OH_Huks_ImportKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_importkeyitem)，传入密钥别名和密钥属性集，导入密钥。
 
 
-```text
+
+##### 导入AES256密钥
+
+```cpp
 /* 以下以明文导入AES密钥为例 */
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "file.h"
 
 #define OH_HUKS_AES_KEY_SIZE_32 32
@@ -79,9 +85,9 @@ napi_value ImportAesKey(napi_env env, napi_callback_info info)
         struct OH_Huks_Blob newKeyAlias = {.size = (uint32_t)strlen(newKey), .data = (uint8_t *)newKey};
         ohResult = OH_Huks_ImportKeyItem(&newKeyAlias, testImportKeyParamSet, &publicKey);
     } while (0);
-
+    
     OH_Huks_FreeParamSet(&testImportKeyParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -89,15 +95,15 @@ napi_value ImportAesKey(napi_env env, napi_callback_info info)
 ```
 
 
-## 导入RSA2048密钥对
 
+##### 导入RSA2048密钥对
 
-```text
+```cpp
 /* 以下以明文导入RSA2048密钥为例 */
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "file.h"
 
 #define RSA_KEY_SIZE_1024 1024
@@ -174,9 +180,9 @@ napi_value ImportRsaKey(napi_env env, napi_callback_info info)
         struct OH_Huks_Blob newKeyAlias = {.size = (uint32_t)strlen(newKey), .data = (uint8_t *)newKey};
         ohResult = OH_Huks_ImportKeyItem(&newKeyAlias, testImportKeyParamSet, &publicKey);
     } while (0);
-
+    
     OH_Huks_FreeParamSet(&testImportKeyParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;
@@ -184,15 +190,15 @@ napi_value ImportRsaKey(napi_env env, napi_callback_info info)
 ```
 
 
-## 导入X25519密钥公钥
 
+##### 导入X25519密钥公钥
 
-```text
+```cpp
 /* 以下以明文导入X25519密钥为例 */
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
 #include "napi/native_api.h"
-#include
+#include <cstring>
 #include "file.h"
 
 #define X25519_KEY_SIZE_32 32
@@ -245,9 +251,9 @@ napi_value ImportX25519Key(napi_env env, napi_callback_info info)
         struct OH_Huks_Blob newKeyAlias = {.size = (uint32_t)strlen(newKey), .data = (uint8_t *)newKey};
         ohResult = OH_Huks_ImportKeyItem(&newKeyAlias, testImportKeyParamSet, &publicKey);
     } while (0);
-
+    
     OH_Huks_FreeParamSet(&testImportKeyParamSet);
-
+    
     napi_value ret;
     napi_create_int32(env, ohResult.errorCode, &ret);
     return ret;

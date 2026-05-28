@@ -5,24 +5,28 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf
 
 hiperf是一款集成多种性能分析功能的命令行工具，可用于分析系统性能瓶颈、定位软件热点及优化代码效率，支持采集和统计程序运行时的性能数据。
+ 
+开发者可以通过[Deveco Studio](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-software-install)或[SmartPerf](https://gitcode.com/openharmony/developtools_smartperf_host/releases)使用hiperf采集函数的调用栈，获取调用栈上各层函数的执行时间，通过泳道图等方式查看调用链信息进而进行性能分析，具体使用方式参考[通过Deveco Studio使用hiperf介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time)，[通过SmartPerf使用hiperf介绍](https://gitcode.com/openharmony/developtools_smartperf_host/blob/master/smartperf_host/ide/src/doc/md/quickstart_hiperf.md)。若需要指定采集的事件、采样周期、采集时长、CPU核数等选项，可以单独使用 hiperf 命令行工具。采样数据 perf.data 文件可以使用SmartPerf工具打开并以可视化的火焰图进行展示。
+ 
+本文档详细说明了hiperf命令行工具的使用方法，帮助开发者借助该工具进行详细的性能分析。
+  
 
- 开发者可以通过[Deveco Studio](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-software-install)或[SmartPerf](https://gitcode.com/openharmony/developtools_smartperf_host/releases)使用hiperf采集函数的调用栈，获取调用栈上各层函数的执行时间，通过泳道图等方式查看调用链信息进而进行性能分析，具体使用方式参考[通过Deveco Studio使用hiperf介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time)，[通过SmartPerf使用hiperf介绍](https://gitcode.com/openharmony/developtools_smartperf_host/blob/master/smartperf_host/ide/src/doc/md/quickstart_hiperf.md)。若需要指定采集的事件、采样周期、采集时长、CPU核数等选项，可以单独使用 hiperf 命令行工具。采样数据 perf.data 文件可以使用SmartPerf工具打开并以可视化的火焰图进行展示。
+##### 环境要求
 
- 本文档详细说明了hiperf命令行工具的使用方法，帮助开发者借助该工具进行详细的性能分析。
+- 根据hdc命令行工具指导，完成[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)。
+- 确保设备已连接，然后执行hdc shell。
 
+ 
+  
 
-## 环境要求
-
-根据hdc命令行工具指导，完成[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)。  确保设备已连接，然后执行hdc shell。
-
-## 命令行说明
+##### 命令行说明
 
 使用hiperf --help可以列出hiperf所有的命令，包括dump、list、record、report、stat等。
-```text
+ 
+```bash
 $ hiperf --help
 ```
-
-
+  
 | 命令 | 命令说明 |
 | --- | --- |
 | --hilog | 设置该选项后，程序运行过程中产生的日志会被记录到hilog中。 |
@@ -34,14 +38,16 @@ $ hiperf --help
 | --nodebug | 关闭所有日志的记录。 |
 | --mixlog | 日志输出到命令行界面。 |
 | -h/--help | 帮助命令。 |
-| [dump](#dump命令) | 将性能数据文件（如perf.data）转换为内容可读的格式。 |
-| [list](#list命令) | 展示当前系统支持的性能事件类型。 |
-| [record](#record命令) | 收集性能数据。 |
-| [report](#report命令) | 将性能数据进行可视化转换。 |
-| [stat](#stat命令) | 统计性能数据。 |
-
+| dump | 将性能数据文件（如perf.data）转换为内容可读的格式。 |
+| list | 展示当前系统支持的性能事件类型。 |
+| record | 收集性能数据。 |
+| report | 将性能数据进行可视化转换。 |
+| stat | 统计性能数据。 |
+ 
+ 
 **使用样例**：
-```text
+ 
+```bash
 $ hiperf --help
 Usage: hiperf [options] command [args for command]
 options:
@@ -49,7 +55,7 @@ options:
         --help                  show help
         --hilog                 use hilog not file to record log
         --logpath               log file name full path, usage format: --logpath [filepath] [command] [args]
-        --logtag                enable log level for HILOG_TAG, usage format: --logtag [:level][,[:level]] [command] [args]
+        --logtag                enable log level for HILOG_TAG, usage format: --logtag <tag>[:level][,<tag>[:level]] [command] [args]
                                 tag: Dump, Report, Record, Stat... level: D, V, M...
                                 example: hiperf --verbose --logtag Record:D [command] [args]
         --mixlog                mix the log in output, usage format: --mixlog [command] [args]
@@ -67,15 +73,18 @@ command:
 
 See 'hiperf help [command]' for more information on a specific command.
 ```
+ 
+  
 
+##### 常用命令
 
-## 常用命令
+  
 
+##### 性能数据采样记录
+1. 对进程ID为1234的进程采样10秒，设置回栈方式为fp（栈指针），采样频率1000次/秒，事件类型为hw-cpu-cycles和hw-instructions，采样文件保存至/data/local/tmp/perf.data。
 
-## 性能数据采样记录
-
-对进程ID为1234的进程采样10秒，设置回栈方式为fp（栈指针），采样频率1000次/秒，事件类型为hw-cpu-cycles和hw-instructions，采样文件保存至/data/local/tmp/perf.data。
-```text
+  
+```bash
 $ hiperf record -p 1234 -s fp -f 1000 -d 10 -e hw-cpu-cycles,hw-instructions -o /data/local/tmp/perf.data
 Profiling duration is 10.000 seconds.
 Start Profiling...
@@ -86,9 +95,11 @@ Hiperf is not running as root mode. Do not need load kernel syms
 [ Sample records: 1293, Non sample records: 855 ]
 [ Sample lost: 0, Non sample lost: 0 ]
 ```
+   采集的数据将保存为二进制格式的perf.data文件，包含性能分析所需的采样数据、进程信息、符号表及函数调用等内容。利用火焰图脚本可将采样数据转换为可视化火焰图，以此分析系统性能瓶颈、定位软件热点并优化代码效率。
+2. 对应用com.example.insight_test_stage进行采样，采样时长为10s，回栈方式设置为dwarf（调试信息表），采样周期为1000，事件类型为hw-cpu-cycles和hw-instructions，使用默认保存路径。
 
-采集的数据将保存为二进制格式的perf.data文件，包含性能分析所需的采样数据、进程信息、符号表及函数调用等内容。利用火焰图脚本可将采样数据转换为可视化火焰图，以此分析系统性能瓶颈、定位软件热点并优化代码效率。  对应用com.example.insight_test_stage进行采样，采样时长为10s，回栈方式设置为dwarf（调试信息表），采样周期为1000，事件类型为hw-cpu-cycles和hw-instructions，使用默认保存路径。
-```text
+  
+```bash
 $ hiperf record --app com.example.insight_test_stage -d 10 -s dwarf --period 1000 -e hw-cpu-cycles,hw-instructions
 Profiling duration is 10.000 seconds.
 Start Profiling...
@@ -99,13 +110,15 @@ Hiperf is not running as root mode. Do not need load kernel syms
 [ Sample records: 0, Non sample records: 2640 ]
 [ Sample lost: 0, Non sample lost: 0 ]
 ```
+   采集的数据会被保存至默认路径/data/local/tmp/perf.data中。
+ 
+  
 
-采集的数据会被保存至默认路径/data/local/tmp/perf.data中。
+##### 性能数据统计
+1. 对进程ID为1745，1910的进程进行计数，计数时长为10s。
 
-## 性能数据统计
-
-对进程ID为1745，1910的进程进行计数，计数时长为10s。
-```text
+  
+```bash
 $ hiperf stat -d 10 -p 1745,1910
 Profiling duration is 10.000 seconds.
 Start Profiling...
@@ -120,8 +133,10 @@ Timeout exit (total 10000 ms)
                 5,622,169  sw-task-clock                  | 0.000562 cpus used               | (100%)
 ```
 
-对进程ID为1745和1910的进程进行计数，计数时长为10秒，事件类型为hw-cpu-cycles、hw-instructions、sw-task-clock，指定打印信息的时间间隔为3000ms。
-```text
+2. 对进程ID为1745和1910的进程进行计数，计数时长为10秒，事件类型为hw-cpu-cycles、hw-instructions、sw-task-clock，指定打印信息的时间间隔为3000ms。
+
+  
+```bash
 $ hiperf stat -d 10 -p 1745,1910 -e hw-cpu-cycles,hw-instructions,sw-task-clock -i 3000
 Profiling duration is 10.000 seconds.
 Start Profiling...
@@ -143,8 +158,10 @@ Report at 9000 ms (999 ms left):
 Timeout exit (total 10000 ms)
 ```
 
-对进程ID为1910的进程进行计数，计数时长为3s，事件类型为hw-cpu-cycles，hw-instructions，并打印详细的信息。
-```text
+3. 对进程ID为1910的进程进行计数，计数时长为3s，事件类型为hw-cpu-cycles，hw-instructions，并打印详细的信息。
+
+  
+```bash
 $ hiperf stat -d 3 -p 1910 -e hw-cpu-cycles,hw-instructions --verbose
 Profiling duration is 3.000 seconds.
 Start Profiling...
@@ -164,10 +181,15 @@ hw-instructions id:1378(c-1:p1990) timeEnabled:187833 timeRunning:187833 value:4
                   94,903  hw-instructions                | 7.058259 cycles per instruction  | (100%)
 ```
 
+ 
+  
 
-## list命令
+##### list命令
 
-展示当前系统支持的性能事件类型，事件类型可用于record和stat命令-e选项的参数。 **参数**：
+展示当前系统支持的性能事件类型，事件类型可用于record和stat命令-e选项的参数。
+ 
+**参数**：
+  
 | 参数名 | 说明 |
 | --- | --- |
 | -h/--help | 帮助命令。 |
@@ -176,14 +198,17 @@ hw-instructions id:1378(c-1:p1990) timeEnabled:187833 timeRunning:187833 value:4
 | tp | tracepoint事件。 |
 | cache | 硬件缓存事件。 |
 | raw | 原始性能监测单元（PMU）事件。 |
-
+ 
+ 
 **命令行示例**：
-```text
+ 
+```bash
 Usage: hiperf list [event type name]
 ```
-
- 查询支持的硬件事件类型。
-```text
+ 
+查询支持的硬件事件类型。
+ 
+```bash
 $ hiperf list hw
 event not support hw-ref-cpu-cycles
 
@@ -198,13 +223,23 @@ Supported events for hardware:
         hw-stalled-cycles-frontend
         hw-stalled-cycles-backend
 ```
+ 
+  
 
-
-## record命令
+##### record命令
 
 采集指定进程或指定应用的性能数据，包括CPU周期、指令数、函数调用等信息，并且将采样数据保存到指定的文件中（默认路径以设备上运行 hiperf record -h/--help 时显示的 -o 参数说明为准）。
+ 
+
 ![](assets/hiperf/file-20260514131431556-0.png)
-命令采集的进程应为[使用debug证书签名的应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf#hiperf采集没有debug证书签名的应用失败)。   **record命令参数说明**
+ 
+ 
+命令采集的进程应为[使用debug证书签名的应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf#hiperf采集没有debug证书签名的应用失败)。
+  
+
+ 
+**record命令参数说明**
+  
 | 参数 | 参数说明 |
 | --- | --- |
 | -h/--help | 帮助命令。 |
@@ -216,8 +251,8 @@ Supported events for hardware:
 | -e | 采集事件，支持对多种事件进行采集，多个事件之间以逗号隔开。可通过list命令获取当前支持的事件类型。 |
 | -g | 采集事件群组，以逗号隔开。 |
 | --no-inherit | 不采集子进程数据。 |
-| -p | 采集进程ID，支持对多个进程进行采样，多个进程号之间以逗号隔开。采集的进程应为“[使用调试证书签名的应用](#hiperf采集没有debug证书签名的应用失败)”。 |
-| -t | 采集线程ID，支持对多个线程进行采样，多个线程号之间以逗号隔开。采集的线程应为“[使用调试证书签名的应用](#hiperf采集没有debug证书签名的应用失败)”。 |
+| -p | 采集进程ID，支持对多个进程进行采样，多个进程号之间以逗号隔开。采集的进程应为“使用调试证书签名的应用”。 |
+| -t | 采集线程ID，支持对多个线程进行采样，多个线程号之间以逗号隔开。采集的线程应为“使用调试证书签名的应用”。 |
 | --exclude-tid | 不采集线程ID，通过线程ID排除特定线程的采样。多个线程号之间以逗号隔开。 |
 | --exclude-thread | 不采集线程名，通过线程名排除特定线程的采样。多个线程名之间以逗号隔开。 |
 | --offcpu | 跟踪线程何时脱离CPU调度。 |
@@ -232,7 +267,7 @@ Supported events for hardware:
 | --clockid | 设置采集时钟类型，支持monotonic和monotonic_raw，部分事件支持boottime、realtime和clock_tai时钟类型。 |
 | --symbol-dir | 符号表文件路径，用于采集过程中进行符号化操作。 |
 | -m | mmap页数量，取值范围：2 - 1024，默认1024。 |
-| --app | 采集的应用程序名，以逗号隔开。应用程序必须是启动状态，应用程序未启动时会等待20s，20s内应用程序未启动，命令会自动结束。采集的应用应为“[使用调试证书签名的应用](#hiperf采集没有debug证书签名的应用失败)”。 |
+| --app | 采集的应用程序名，以逗号隔开。应用程序必须是启动状态，应用程序未启动时会等待20s，20s内应用程序未启动，命令会自动结束。采集的应用应为“使用调试证书签名的应用”。 |
 | --chkms | 设置查询的间隔时间，单位为ms。取值范围：1 - 200，默认10。 |
 | --data-limit | 输出数据达到指定大小停止采集，默认无限制。 |
 | -o | 设置输出文件路径，并允许用户自定义文件名称。 |
@@ -246,26 +281,39 @@ Supported events for hardware:
 | --backtrack | 采集之前一段时间的数据，该参数必须和--control prepare一起使用。 |
 | --backtrack-sec | 采集之前数据的时长，单位为秒。取值范围：5 - 30，默认10。该参数必须和--backtrack一起使用。 |
 | --dumpoptions | 展示采集参数的详细信息。 |
-| --pipe_input | 在设备开发中，该参数用于客户端进程调用hiperf时建立命令输入通道，开发者可参考[hiperf_client接口](https://gitcode.com/openharmony/docs/blob/master/zh-cn/device-dev/subsystems/subsys-toolchain-hiperf.md)使用该能力。在应用开发中，无需使用该参数。 |
-| --pipe_output | 在设备开发中，该参数用于客户端进程调用hiperf时建立响应输出通道，开发者可参考[hiperf_client接口](https://gitcode.com/openharmony/docs/blob/master/zh-cn/device-dev/subsystems/subsys-toolchain-hiperf.md)使用该能力。在应用开发中，无需使用该参数。 |
+| --pipe_input | 在设备开发中，该参数用于客户端进程调用hiperf时建立命令输入通道，开发者可参考hiperf_client接口使用该能力。在应用开发中，无需使用该参数。 |
+| --pipe_output | 在设备开发中，该参数用于客户端进程调用hiperf时建立响应输出通道，开发者可参考hiperf_client接口使用该能力。在应用开发中，无需使用该参数。 |
 | --append-smo-data | 开启此参数后增加打包的so中原始so的名称。 说明：从API version 23开始，支持该参数。 |
-
+ 
+ 
 **命令行示例**：
-```text
+ 
+```bash
 Usage: hiperf record [options] [command [command-args]]
 ```
-
- 对指定的pid为267的进程采样10秒，并使用dwarf回栈。
-```text
+ 
+对指定的pid为267的进程采样10秒，并使用dwarf回栈。
+ 
+```bash
 $ hiperf record -p 267 -d 10 -s dwarf
 ```
+ 
+  
 
-
-## stat命令
+##### stat命令
 
 监听用户指定的目标程序，周期性打印性能计数器的值。
+ 
+
 ![](assets/hiperf/file-20260514131431556-1.png)
-命令采集的进程应为[使用debug证书签名的应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf#hiperf采集没有debug证书签名的应用失败)。   **stat命令参数说明**
+ 
+ 
+命令采集的进程应为[使用debug证书签名的应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf#hiperf采集没有debug证书签名的应用失败)。
+  
+
+ 
+**stat命令参数说明**
+  
 | 参数 | 参数说明 |
 | --- | --- |
 | -h/--help | 帮助命令。 |
@@ -275,9 +323,9 @@ $ hiperf record -p 267 -d 10 -s dwarf
 | -e | 采集事件，支持采集多种事件，多个事件之间以逗号隔开。 |
 | -g | 采集事件群组，以逗号隔开。可通过list命令获取当前支持的事件类型。 |
 | --no-inherit | 不采集子进程数据。 |
-| -p | 采集进程ID，支持对多个进程进行采样，多个进程号之间以逗号隔开。采集的进程应为“[使用调试证书签名的应用](#hiperf采集没有debug证书签名的应用失败)”。 |
-| -t | 采集线程ID，支持对多个线程进行采样，多个线程号之间以逗号隔开。采集的线程应为“[使用调试证书签名的应用](#hiperf采集没有debug证书签名的应用失败)”。 |
-| --app | 采集的应用程序名，以逗号隔开。应用程序必须是启动状态，应用程序未启动时会等待20s，20s内应用程序未启动，命令会自动结束。采集的应用应为“[使用调试证书签名的应用](#hiperf采集没有debug证书签名的应用失败)”。 |
+| -p | 采集进程ID，支持对多个进程进行采样，多个进程号之间以逗号隔开。采集的进程应为“使用调试证书签名的应用”。 |
+| -t | 采集线程ID，支持对多个线程进行采样，多个线程号之间以逗号隔开。采集的线程应为“使用调试证书签名的应用”。 |
+| --app | 采集的应用程序名，以逗号隔开。应用程序必须是启动状态，应用程序未启动时会等待20s，20s内应用程序未启动，命令会自动结束。采集的应用应为“使用调试证书签名的应用”。 |
 | --chkms | 设置查询的间隔时间，单位为毫秒，取值范围：1 - 200，默认10。 |
 | --per-core | 每个CPU核的打印计数。 |
 | --per-thread | 每个线程的打印计数。 |
@@ -286,21 +334,28 @@ $ hiperf record -p 267 -d 10 -s dwarf
 | --dumpoptions | 展示当前列表里所有选项的详细信息。 |
 | --control [command] | 采集操作启停控制参数。命令包括prepare/start/stop。该参数不能和-d一起使用。 说明：从API version 20开始，支持该参数。 |
 | -o | 设置输出文件路径，并允许用户自定义文件名称。 默认路径以设备上运行 hiperf stat -h/--help 时显示的 -o 参数说明为准。 该参数必须和--control prepare一起使用，不能和--control一起使用。 说明：从API version 20开始，支持该参数。 |
-
+ 
+ 
 **命令行示例**：
-```text
+ 
+```bash
 hiperf stat [options] [command [command-args]]
 ```
-
- 使用stat命令监听进程号为2349的进程在CPU 0上运行3秒的性能数据。
-```text
+ 
+使用stat命令监听进程号为2349的进程在CPU 0上运行3秒的性能数据。
+ 
+```bash
 $ hiperf stat -p 1745 -d 3 -c 0
 ```
+ 
+  
 
+##### dump命令
 
-## dump命令
-
-此命令用于将不同格式的性能数据文件（如perf.data）转换为内容易读的明文，便于开发和测试人员核对其中原始采样数据的正确性。 **dump命令参数说明**
+此命令用于将不同格式的性能数据文件（如perf.data）转换为内容易读的明文，便于开发和测试人员核对其中原始采样数据的正确性。
+ 
+**dump命令参数说明**
+  
 | 参数 | 参数说明 |
 | --- | --- |
 | -h/--help | 帮助命令。 |
@@ -313,21 +368,28 @@ $ hiperf stat -p 1745 -d 3 -c 0
 | --elf | 将elf格式的文件转换成内容可读的明文。 |
 | --proto | 将proto格式的文件转换成内容可读的明文。 |
 | --export | 将用户栈数据分割成多个文件。 |
-
+ 
+ 
 **命令行示例**：
-```text
-Usage: hiperf dump [option] \
+ 
+```bash
+Usage: hiperf dump [option] \<filename\>
 ```
-
- 使用dump命令将/data/local/tmp/perf.data文件读取出来，并输出到/data/local/tmp/perf.dump文件中。
-```text
+ 
+使用dump命令将/data/local/tmp/perf.data文件读取出来，并输出到/data/local/tmp/perf.dump文件中。
+ 
+```bash
 $ hiperf dump -i /data/local/tmp/perf.data -o /data/local/tmp/perf.dump
 ```
+ 
+  
 
+##### report命令
 
-## report命令
-
-此命令主要用于将采样数据（perf.data）转换为用户指定的格式（例如Json或者ProtoBuf)，并可以将属于相同进程、线程、函数的样本分组到同一样本条目中，根据样本条目的事件计数对样本条目进行排序，并以报告的形式进行展示。 **report命令参数说明**
+此命令主要用于将采样数据（perf.data）转换为用户指定的格式（例如Json或者ProtoBuf)，并可以将属于相同进程、线程、函数的样本分组到同一样本条目中，根据样本条目的事件计数对样本条目进行排序，并以报告的形式进行展示。
+ 
+**report命令参数说明**
+  
 | 参数 | 参数说明 |
 | --- | --- |
 | -h/--help | 帮助命令。 |
@@ -341,35 +403,58 @@ $ hiperf dump -i /data/local/tmp/perf.data -o /data/local/tmp/perf.dump
 | --json | 输出json格式数据。 |
 | --diff | 显示源文件与转换后文件的差别。不能与--proto、--json、-s参数一起使用。 |
 | --branch | 根据函数地址显示分支。 |
-| -- [,keyname2][,...] | 可选关键字：comms、pids、tids、dsos、funcs、from_dsos、from_funcs，例如： --comms hiperf。 |
+| --&lt;keys&gt; &lt;keyname1&gt;[,keyname2][,...] | 可选关键字：comms、pids、tids、dsos、funcs、from_dsos、from_funcs，例如： --comms hiperf。 |
 | --sort [key1],[key2],[...] | 按关键字排序。 |
 | --hide_count | 报告中不显示数值。 |
 | --dumpoptions | 展示当前列表里所有选项的详细信息。 |
-
+ 
+ 
 **命令行示例**：
-```text
-Usage: hiperf report [option] \
+ 
+```bash
+Usage: hiperf report [option] \<filename\>
 ```
-
- 从采样文件（perf.data）中提取对性能影响较大（占比≥1%）的关键数据，并以报告的形式进行展示。
-```text
+ 
+从采样文件（perf.data）中提取对性能影响较大（占比≥1%）的关键数据，并以报告的形式进行展示。
+ 
+```bash
 $ hiperf report -i /data/local/tmp/perf.data --limit-percent 1
 ```
+ 
+  
 
+##### 常见问题
 
-## 常见问题
+  
 
+##### hiperf采集没有debug证书签名的应用失败
 
-## hiperf采集没有debug证书签名的应用失败
-
-**现象描述** 仅支持采集带有debug证书签名的应用，提示：only support debug application. **可能原因&解决方法** **造成原因**： 应用没有debug证书签名 **可采取的解决方法**： 使用hiperf record/stat -p [pid]命令时，被采集的进程必须是使用debug证书签名的应用。 确认命令指定的应用是否为可调试应用，可执行hdc shell "bm dump -n bundlename | grep appProvisionType"查询，预期返回信息为"appProvisionType": "debug"。 以包名com.example.myapplication为例，可执行如下命令查询：
-```text
+**现象描述**
+ 
+仅支持采集带有debug证书签名的应用，提示：only support debug application.
+ 
+**可能原因&解决方法**
+ 
+**造成原因**：
+ 
+应用没有debug证书签名
+ 
+**可采取的解决方法**：
+ 
+使用hiperf record/stat -p [pid]命令时，被采集的进程必须是使用debug证书签名的应用。
+ 
+确认命令指定的应用是否为可调试应用，可执行hdc shell "bm dump -n bundlename | grep appProvisionType"查询，预期返回信息为"appProvisionType": "debug"。
+ 
+以包名com.example.myapplication为例，可执行如下命令查询：
+ 
+```bash
 hdc shell "bm dump -n com.example.myapplication | grep appProvisionType"
 ```
-
- 如包名对应的应用是可调试应用，预期返回信息如下：
-```text
+ 
+如包名对应的应用是可调试应用，预期返回信息如下：
+ 
+```bash
 "appProvisionType": "debug",
 ```
-
- 构建可调试应用需要使用debug证书进行签名，申请调试证书及签名可参考：[申请调试证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-add-debugcert-0000001914263178)。
+ 
+构建可调试应用需要使用debug证书进行签名，申请调试证书及签名可参考：[申请调试证书](https://developer.huawei.com/consumer/cn/doc/app/agc-help-add-debugcert-0000001914263178)。

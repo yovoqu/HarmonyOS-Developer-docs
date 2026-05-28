@@ -3,70 +3,66 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-resmgr-common-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供接口所需要的枚举类型和结构体。
-
+ 
 **引用文件：** <resourcemanager/resmgr_common.h>
-
+ 
 **库：** libohresmgr.so
-
+ 
 **系统能力：** SystemCapability.Global.ResourceManager
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [resourcemanager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-resourcemanager)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ResourceManager_Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-resourcemanager-resourcemanager-configuration) | ResourceManager_Configuration | 设备状态的枚举。 |
+| ResourceManager_Configuration | ResourceManager_Configuration | 设备状态的枚举。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ResourceManager_ErrorCode](#resourcemanager_errorcode) | - | 资源管理错误码。 |
-| [ScreenDensity](#screendensity) | - | 屏幕密度类型的枚举。 |
-| [ResourceManager_Direction](#resourcemanager_direction) | ResourceManager_Direction | 屏幕方向的枚举。 |
-| [ResourceManager_ColorMode](#resourcemanager_colormode) | ResourceManager_ColorMode | 颜色模式的枚举。 |
-| [ResourceManager_DeviceType](#resourcemanager_devicetype) | ResourceManager_DeviceType | 设备类型的枚举。 |
+| ResourceManager_ErrorCode | - | 资源管理错误码。 |
+| ScreenDensity | - | 屏幕密度类型的枚举。 |
+| ResourceManager_Direction | ResourceManager_Direction | 屏幕方向的枚举。 |
+| ResourceManager_ColorMode | ResourceManager_ColorMode | 颜色模式的枚举。 |
+| ResourceManager_DeviceType | ResourceManager_DeviceType | 设备类型的枚举。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### ResourceManager_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ResourceManager_ErrorCode
 
 ```text
 enum ResourceManager_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 资源管理错误码。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | SUCCESS = 0 | 成功。 |
@@ -82,23 +78,22 @@ enum ResourceManager_ErrorCode
 | ERROR_CODE_SYSTEM_RES_MANAGER_GET_FAILED = 9001009 | 访问系统资源失败。 |
 | ERROR_CODE_OVERLAY_RES_PATH_INVALID = 9001010 | 无效的overlay路径。 |
 | ERROR_CODE_OUT_OF_MEMORY = 9001100 | 内存溢出。 |
+ 
+ 
+  
 
-
-### ScreenDensity
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ScreenDensity
 
 ```text
 enum ScreenDensity
 ```
-
+ 
 **描述**
-
+ 
 屏幕密度类型的枚举。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | SCREEN_SDPI = 120 | 表示小屏幕密度。 |
@@ -107,65 +102,62 @@ enum ScreenDensity
 | SCREEN_XLDPI = 320 | 表示特大屏幕密度。 |
 | SCREEN_XXLDPI = 480 | 表示超大屏幕密度。 |
 | SCREEN_XXXLDPI = 640 | 表示超特大屏幕密度。 |
+ 
+ 
+  
 
-
-### ResourceManager_Direction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ResourceManager_Direction
 
 ```text
 enum ResourceManager_Direction
 ```
-
+ 
 **描述**
-
+ 
 屏幕方向的枚举。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | DIRECTION_VERTICAL = 0 | 表示垂直方向。 |
 | DIRECTION_HORIZONTAL = 1 | 表示水平方向。 |
+ 
+ 
+  
 
-
-### ResourceManager_ColorMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ResourceManager_ColorMode
 
 ```text
 enum ResourceManager_ColorMode
 ```
-
+ 
 **描述**
-
+ 
 颜色模式的枚举。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | COLOR_MODE_DARK = 0 | 表示深色模式。 |
 | COLOR_MODE_LIGHT = 1 | 表示浅色模式。 |
+ 
+ 
+  
 
-
-### ResourceManager_DeviceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### ResourceManager_DeviceType
 
 ```text
 enum ResourceManager_DeviceType
 ```
-
+ 
 **描述**
-
+ 
 设备类型的枚举。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | DEVICE_TYPE_PHONE = 0X00 | 手机。 |

@@ -27,7 +27,7 @@
 | 新增API | NA | 类名：AudioSessionType； API声明：AMBIENT = 3 差异内容：AMBIENT = 3 | component/web.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：getBlanklessInfoWithKey(key: string): BlanklessInfo; 差异内容：getBlanklessInfoWithKey(key: string): BlanklessInfo; | api/@ohos.web.webview.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：setBlanklessLoadingWithKey(key: string, is_start: boolean): WebBlanklessErrorCode; 差异内容：setBlanklessLoadingWithKey(key: string, is_start: boolean): WebBlanklessErrorCode; | api/@ohos.web.webview.d.ts |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：static clearBlanklessLoadingCache(keys?: Array<string>): void; 差异内容：static clearBlanklessLoadingCache(keys?: Array<string>): void; | api/@ohos.web.webview.d.ts |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：static clearBlanklessLoadingCache(keys?: Array&lt;string&gt;): void; 差异内容：static clearBlanklessLoadingCache(keys?: Array&lt;string&gt;): void; | api/@ohos.web.webview.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：static setBlanklessLoadingCacheCapacity(capacity: number): number; 差异内容：static setBlanklessLoadingCacheCapacity(capacity: number): number; | api/@ohos.web.webview.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：WebviewController； API声明：getProgress(): number; 差异内容：getProgress(): number; | api/@ohos.web.webview.d.ts |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：EventResult； API声明：setMouseEventResult(result: boolean, stopPropagation?: boolean): void; 差异内容：setMouseEventResult(result: boolean, stopPropagation?: boolean): void; | component/web.d.ts |
@@ -35,4 +35,4 @@
 | 类新增同名方法且参数类型与已有的参数类型范围是包含关系 | 类名：SslErrorHandler； API声明：handleCancel(): void; 差异内容：handleCancel(): void; | 类名：SslErrorHandler； API声明：handleCancel(abortLoading: boolean): void; 差异内容：handleCancel(abortLoading: boolean): void; | component/web.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：WebMediaOptions； API声明：audioSessionType?: AudioSessionType; 差异内容：audioSessionType?: AudioSessionType; | component/web.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：OnTitleReceiveEvent； API声明：isRealTitle?: boolean; 差异内容：isRealTitle?: boolean; | component/web.d.ts |
-| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SslErrorEvent； API声明：certChainData?: Array<Uint8Array>; 差异内容：certChainData?: Array<Uint8Array>; | component/web.d.ts |
+| 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SslErrorEvent； API声明：certChainData?: Array&lt;Uint8Array&gt;; 差异内容：certChainData?: Array&lt;Uint8Array&gt;; | component/web.d.ts |

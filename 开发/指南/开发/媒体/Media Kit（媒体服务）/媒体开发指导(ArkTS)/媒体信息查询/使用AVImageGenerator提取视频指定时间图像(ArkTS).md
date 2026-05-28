@@ -1,6 +1,6 @@
 # 使用AVImageGenerator提取视频指定时间图像(ArkTS)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avimagegenerator
 
@@ -9,19 +9,25 @@
 获取视频资源的缩略图的全流程包含：创建AVImageGenerator对象，设置资源，获取缩略图，销毁资源。
 
 
-## 开发步骤及注意事项
+##### 开发步骤及注意事项
 
-详细的API说明请参考[AVImageGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avimagegenerator)。 使用[createAVImageGenerator()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavimagegenerator12-1)创建实例。
+详细的API说明请参考[AVImageGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avimagegenerator)。
+1. 使用[createAVImageGenerator()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavimagegenerator12-1)创建实例。
+
+  
 ```text
 import { media } from '@kit.MediaKit';
 let avImageGenerator: media.AVImageGenerator = await media.createAVImageGenerator();
 ```
 
-设置资源：需要设置属性fdSrc（表示文件描述符）。
+2. 设置资源：需要设置属性fdSrc（表示文件描述符）。
+
+  
 > [!NOTE]
-> 开发者需根据实际情况，确认资源有效性并设置fdSrc： 可以使用ResourceManager.getRawFd打开HAP资源文件描述符，使用方法可参考ResourceManager API参考。 也可以使用应用沙箱路径访问对应资源（必须确认资源文件可用），参考获取应用文件路径。应用沙箱的介绍及如何向应用沙箱推送文件，请参考文件管理。 不同AVImageGenerator或者AVMetadataExtractor，如果需要操作同一资源，需要多次打开文件描述符，不要共用同一文件描述符。
+> 开发者需根据实际情况，确认资源有效性并设置fdSrc： 可以使用ResourceManager.getRawFd打开HAP资源文件描述符，使用方法可参考ResourceManager API中的 getRawFd 。 也可以使用应用沙箱路径访问对应资源（必须确认资源文件可用），参考 获取应用文件路径 。应用沙箱的介绍及如何向应用沙箱推送文件，请参考 文件管理 。 不同AVImageGenerator或者 AVMetadataExtractor ，如果需要操作同一资源，需要多次打开文件描述符，不要共用同一文件描述符。
 
 
+  
 ```text
 import { common } from '@kit.AbilityKit';
 // 获取当前组件所在Ability的Context，并通过Context获取应用文件路径。
@@ -30,7 +36,9 @@ let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 avImageGenerator.fdSrc = await context.resourceManager.getRawFd('H264_AAC.mp4');
 ```
 
-获取指定时间图像：调用fetchFrameByTime()，可以获取到一个PixelMap对象，该对象可用于图片显示。
+3. 获取指定时间图像：调用fetchFrameByTime()，可以获取到一个PixelMap对象，该对象可用于图片显示。
+
+  
 ```text
 import { image } from '@kit.ImageKit';
 
@@ -50,17 +58,24 @@ let param: media.PixelMapParams = {
 this.pixelMap = await avImageGenerator.fetchFrameByTime(timeUs, queryOption, param);
 ```
 
-释放资源：调用release()销毁实例，释放资源。
+4. 释放资源：调用release()销毁实例，释放资源。
+
+  
 ```text
 // 释放资源（promise模式）。
-avImageGenerator.release();
+await avImageGenerator.release().catch((err: BusinessError) => {
+   console.error(`release failed, error code: ${err.code}, error message: ${err.message}`);
+});
 ```
 
 
-## 运行示例工程
 
-参考以下示例，获取一个视频指定时间的缩略图。 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVImageGenerator/AVImageGeneratorArkTS)，并将示例工程的资源复制到对应目录。
-```text
+
+##### 运行示例工程
+
+参考以下示例，获取一个视频指定时间的缩略图。
+1. 新建工程，下载[完整示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVImageGenerator/AVImageGeneratorArkTS)，并将示例工程的资源复制到对应目录。       
+```ArkTS
 AVImageGeneratorArkTS
 entry/src/main/ets/
 └── pages
@@ -77,4 +92,4 @@ entry/src/main/resources/
     └── H264_AAC.mp4 (视频资源)
 ```
 
-编译新建工程并运行。
+2. 编译新建工程并运行。

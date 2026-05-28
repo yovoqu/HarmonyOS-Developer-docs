@@ -17,4 +17,4 @@
 | 新增API | NA | 类名：PhotoCreationConfig； API声明：photoType: PhotoType; 差异内容：photoType: PhotoType; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：PhotoCreationConfig； API声明：subtype?: PhotoSubtype; 差异内容：subtype?: PhotoSubtype; | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：AlbumSubtype； API声明：IMAGE = 1031 差异内容：IMAGE = 1031 | api/@ohos.file.photoAccessHelper.d.ts |
-| 新增API | NA | 类名：PhotoAccessHelper； API声明：showAssetsCreationDialog(srcFileUris: Array<string>, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>; 差异内容：showAssetsCreationDialog(srcFileUris: Array<string>, photoCreationConfigs: Array<PhotoCreationConfig>): Promise<Array<string>>; | api/@ohos.file.photoAccessHelper.d.ts |
+| 新增API | NA | 类名：PhotoAccessHelper； API声明：showAssetsCreationDialog(srcFileUris: Array&lt;string&gt;, photoCreationConfigs: Array&lt;PhotoCreationConfig&gt;): Promise<Array&lt;string&gt;>; 差异内容：showAssetsCreationDialog(srcFileUris: Array&lt;string&gt;, photoCreationConfigs: Array&lt;PhotoCreationConfig&gt;): Promise<Array&lt;string&gt;>; | api/@ohos.file.photoAccessHelper.d.ts |

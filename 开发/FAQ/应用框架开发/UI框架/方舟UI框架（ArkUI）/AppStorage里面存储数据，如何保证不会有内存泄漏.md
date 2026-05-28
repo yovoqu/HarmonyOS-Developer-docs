@@ -4,10 +4,10 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-461
 
-问题描述
-
+**问题描述**
+ 
 在entryability里用AppStorage存储数据，'当需要访问数据时进行读取会存在内存泄漏吗？
-
-解决措施
-
-AppStorage是在应用启动时创建的单例，用于提供应用状态数据的中心存储，这些状态数据在应用级别可访问。AppStorage在应用运行过程中保留其属性，开发者自行管理AppStorage里面的变量生命周期，如不使用可以通过delete接口删掉。
+ 
+**解决措施**
+ 
+AppStorage是在应用启动时创建的单例，用于提供应用状态数据的中心存储，这些状态数据在应用级别可访问。AppStorage在应用运行过程中保留其属性，开发者自行管理AppStorage里面的变量生命周期，如不使用可以通过[delete接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#delete10)删掉。

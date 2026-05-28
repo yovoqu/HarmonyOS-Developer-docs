@@ -1,61 +1,65 @@
-# 预览告警“@Consume/@Link decorated property &lt;propertyName&gt; not initialized”
+# 预览告警“@Consume/@Link decorated property <propertyName> not initialized”
 
 更新时间：2026-03-17 00:56:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-3
 
-问题现象
+## 预览告警“@Consume/@Link decorated property &lt;propertyName&gt; not initialized”
+ 
 
+**问题现象**
+ 
 启动预览后，预览窗口显示白屏，上方出现错误信息：“Preview failed. View details in the PreviewerLog window.”
-
+ 
 
 ![](assets/预览告警“Consume／Link%20decorated%20property%20／propertyName／%20not%20initialized”/file-20260515130033153-0.png)
 
-
-此时，PreviewerLog 窗口显示如下告警信息：“@Consume/@Link 装饰的属性 _<propertyName>_未初始化。”
-
+ 
+此时，PreviewerLog 窗口显示如下告警信息：“@Consume/@Link 装饰的属性 _&lt;propertyName&gt;_未初始化。”
+ 
 
 ![](assets/预览告警“Consume／Link%20decorated%20property%20／propertyName／%20not%20initialized”/file-20260515130033153-1.png)
 
-
-解决措施
-
+ 
+**解决措施**
+ 
 由于@Consume/@Link装饰的成员需要与父组件建立绑定关系，单独预览时无法完成初始化，因此如果预览包含@Consume（或@Link）装饰的成员的页面或组件，就可能会出现空白屏幕。
-
+ 
 建议不要直接预览含有@Consume或@Link装饰的子组件，而应通过预览父组件来查看子组件的预览效果。
+ 
 
-
+ 
 示例代码：
-
-```ts
+ 
+```ArkTS
 // Suggest adding @ Preview on ParentComp to preview the preview effect of ChildComp
 @Preview
 @Component
 struct ParentComp {
-// @Provide decoration is provided by the entrance component ParentComp as its descendant component
-@Provide reviewVotes: number = 10;
+  // @Provide decoration is provided by the entrance component ParentComp as its descendant component
+  @Provide reviewVotes: number = 10;
 
-build() {
-Column() {
-Button(`reviewVotes(${this.reviewVotes}), give +1`)
-.onClick(() => this.reviewVotes += 1)
-ChildComp()
-}
-}
+  build() {
+    Column() {
+      Button(`reviewVotes(${this.reviewVotes}), give +1`)
+        .onClick(() => this.reviewVotes += 1)
+      ChildComp()
+    }
+  }
 }
 
 // @Preview is not recommended to directly preview ChildComp
 @Component
 struct ChildComp {
-// The variable decorated with '@Consume' is bound to the variable decorated with '@Provide' in its ancestor component ParentComp using the same attribute name
-@Consume reviewVotes: number;
-build() {
-Column() {
-Text(`reviewVotes(${this.reviewVotes})`)
-Button(`reviewVotes(${this.reviewVotes}), give +1`)
-.onClick(() => this.reviewVotes += 1)
-}
-.width('50%')
-}
+  // The variable decorated with '@Consume' is bound to the variable decorated with '@Provide' in its ancestor component ParentComp using the same attribute name
+  @Consume reviewVotes: number;
+  build() {
+    Column() {
+      Text(`reviewVotes(${this.reviewVotes})`)
+      Button(`reviewVotes(${this.reviewVotes}), give +1`)
+        .onClick(() => this.reviewVotes += 1)
+    }
+    .width('50%')
+  }
 }
 ```

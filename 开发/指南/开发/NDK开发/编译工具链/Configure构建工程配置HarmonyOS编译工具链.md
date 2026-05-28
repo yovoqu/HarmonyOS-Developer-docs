@@ -4,31 +4,52 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-configure-build-project
 
-## 概述
+##### 概述
 
-Configure是一个用于自动化软件编译和安装的工具，它可以帮助开发者编译和安装源代码，以便生成可执行文件和库文件。在编译和安装软件时，通常需要一系列步骤，例如设置编译选项、检查依赖库、生成配置文件等，Configure可以通过读取软件的源代码，自动化这些步骤，简化软件的编译和安装过程。其原理是根据系统环境和用户设置来生成Makefile文件，Makefile文件是一个包含编译选项和依赖关系的脚本，可以自动化编译和安装软件。 Configure工具的主要作用： 配置检查：Configure脚本会检查系统是否具有编译软件所需的所有依赖项，如编译器、库文件等。生成Makefile：根据系统的配置情况，Configure生成相应的Makefile，确保编译过程能够顺利进行。提供命令行选项：Configure脚本支持大量的命令行选项，这些选项允许用户自定义编译选项，如安装路径、优化级别等。通过执行./configure --help可以查看所有可用的选项。缓存机制：为提高后续配置的效率，Configure支持将测试结果缓存到一个文件中，避免重复进行相同的测试。
+Configure是一个用于自动化软件编译和安装的工具，它可以帮助开发者编译和安装源代码，以便生成可执行文件和库文件。在编译和安装软件时，通常需要一系列步骤，例如设置编译选项、检查依赖库、生成配置文件等，Configure可以通过读取软件的源代码，自动化这些步骤，简化软件的编译和安装过程。其原理是根据系统环境和用户设置来生成Makefile文件，Makefile文件是一个包含编译选项和依赖关系的脚本，可以自动化编译和安装软件。
+ 
+Configure工具的主要作用：
+ 
+- 配置检查：Configure脚本会检查系统是否具有编译软件所需的所有依赖项，如编译器、库文件等。
+- 生成Makefile：根据系统的配置情况，Configure生成相应的Makefile，确保编译过程能够顺利进行。
+- 提供命令行选项：Configure脚本支持大量的命令行选项，这些选项允许用户自定义编译选项，如安装路径、优化级别等。通过执行./configure --help可以查看所有可用的选项。
+- 缓存机制：为提高后续配置的效率，Configure支持将测试结果缓存到一个文件中，避免重复进行相同的测试。
 
-## Configure构建三方库适配流程
+ 
+  
+
+##### Configure构建三方库适配流程
 
 本小节介绍如何在Linux环境下，使用Configure构建工具通过ohos sdk编译jpeg三方库源码，生成ohos平台三方库的so及二进制文件。
+ 
+  
 
-## 环境准备
+##### 环境准备
+1. Linux编译环境及HarmonyOS SDK下载请参考：[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-cmake-build-project#环境准备)。
+2. 获取三方库源码（“/mnt/e/configure”中configure表示创建的文件夹名称，用于存放三方库源码文件，开发者可自行选择创建与否）。
 
-Linux编译环境及HarmonyOS SDK下载请参考：[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-cmake-build-project#环境准备)。  获取三方库源码（“/mnt/e/configure”中configure表示创建的文件夹名称，用于存放三方库源码文件，开发者可自行选择创建与否）。
-```text
+  
+```bash
 owner@ubuntu:/mnt/e/configure$ wget http://www.ijg.org/files/jpegsrc.v9e.tar.gz       # 下载三方库源码包
 ```
 
-解压源码包。
-```text
+3. 解压源码包。
+
+  
+```bash
 owner@ubuntu:/mnt/e/configure$ tar -zxvf jpegsrc.v9e.tar.gz                           # 解压源码包
 ```
 
+ 
+  
 
-## 编译三方库
+##### 编译三方库
+1. 查看Configure配置。
 
-查看Configure配置。  cd进入jpeg-9e目录，执行Configure配置，如若对Configure配置项不熟悉，可以通过运行./configure --help命令查看：
-```text
+  cd进入jpeg-9e目录，执行Configure配置，如若对Configure配置项不熟悉，可以通过运行./configure --help命令查看：
+
+  
+```json
 owner@ubuntu:/mnt/e/configure/$ cd jpeg-9e
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ ./configure --help                             # 查看configure配置项
 `configure` configures libjpeg 9.5.0 to adapt to many kinds of systems.
@@ -72,11 +93,11 @@ optimize for fast installation [default=yes]
 Some influential environment variables:
   CC          C compiler command
 CFLAGS      C compiler flags
-LDFLAGS     linker flags, e.g. -L if you have libraries in a
-nonstandard directory
-  LIBS        libraries to pass to the linker, e.g. -l
-CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I if
-you have headers in a nonstandard directory
+LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
+nonstandard directory <lib dir>
+  LIBS        libraries to pass to the linker, e.g. -l<library>
+CPPFLAGS    (Objective) C/C++ preprocessor flags, e.g. -I<include dir> if
+you have headers in a nonstandard directory <include dir>
   CPP         C preprocessor
 LT_SYS_LIBRARY_PATH
 User-defined run-time library search path.
@@ -85,9 +106,11 @@ Use these variables to override the choices made by `configure` or to help
 it to find libraries and programs with nonstandard names/locations.
 Report bugs to the package provider.
 ```
+  由Configure的帮助信息可以知道，jpeg交叉编译需要配置主机（编译完后需要运行的系统机器）、交叉编译命令以及配置安装路径等选项。
+2. 配置交叉编译命令。
 
-由Configure的帮助信息可以知道，jpeg交叉编译需要配置主机（编译完后需要运行的系统机器）、交叉编译命令以及配置安装路径等选项。  配置交叉编译命令。
-```text
+  
+```bash
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ export OHOS_SDK=/xxx/ohos-sdk/linux/                                          # 配置SDK路径，此处需配置成自己的sdk解压目录
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ export AS=${OHOS_SDK}/native/llvm/bin/llvm-as
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ export CC="${OHOS_SDK}/native/llvm/bin/clang --target=aarch64-linux-ohos"     # 32bit的target需要配置成 --target=arm-linux-ohos
@@ -103,8 +126,12 @@ owner@ubuntu:/mnt/e/configure/jpeg-9e$ export CFLAGS="-fPIC -D__MUSL__=1"       
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ export CXXFLAGS="-fPIC -D__MUSL__=1"                                           # 32bit需要增加配置 -march=armv7a
 ```
 
-执行Configure命令。  安装路径以及host配置可以在./configure时执行（xxx表示自定义安装路径），host此处以配置arm64位为例。
-```text
+3. 执行Configure命令。
+
+  安装路径以及host配置可以在./configure时执行（xxx表示自定义安装路径），host此处以配置arm64位为例。
+
+  
+```bash
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ ./configure --prefix=xxx/jpeg --host=aarch64-linux       # 执行configure命令配置交叉编译信息
 checking build system type... x86_64-pc-linux-gnu
 checking host system type... x86_64-pc-linux-gnu
@@ -119,9 +146,11 @@ config.status: creating jconfig.h
 config.status: executing depfiles commands
 config.status: executing libtool commands
 ```
+  执行完./configure未提示任何错误，即说明配置成功，在当前目录会生成Makefile文件。
+4. 执行make编译命令，进行交叉编译。
 
-执行完./configure未提示任何错误，即说明配置成功，在当前目录会生成Makefile文件。  执行make编译命令，进行交叉编译。
-```text
+  
+```bash
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ make                       # 执行make编译命令
 make  all-am
 make[1]: Entering directory '/home/owner/workspace/jpeg-9e'
@@ -142,8 +171,10 @@ CCLD     wrjpgcom
 make[1]: Leaving directory '/home/owner/workspace/jpeg-9e'
 ```
 
-执行安装命令。
-```text
+5. 执行安装命令。
+
+  
+```bash
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ make install
 make[1]: Entering directory '/mnt/e/configure/jpeg-9e'
   /usr/bin/mkdir -p '/mnt/e/configure/jpeg-9e/jpeg/lib'
@@ -163,8 +194,12 @@ libtool: install: /usr/bin/install -c wrjpgcom /mnt/e/configure/jpeg-9e/jpeg/bin
   /usr/bin/install -c -m 644 libjpeg.pc '/mnt/e/configure/jpeg-9e/jpeg/lib/pkgconfig'
 ```
 
-执行完后对应的文件安装到prefix配置的路径。  cd进入配置的路径，ls查看对应文件：
-```text
+6. 执行完后对应的文件安装到prefix配置的路径。
+
+  cd进入配置的路径，ls查看对应文件：
+
+  
+```bash
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ cd xxx/jpeg
 owner@ubuntu:/mnt/e/configure/jpeg-9e/jpeg$ ls
 bin  include  lib  share
@@ -176,13 +211,17 @@ owner@ubuntu:/mnt/e/configure/jpeg-9e/jpeg$ file lib/libjpeg.so.9.5.0
 lib/libjpeg.so.9.5.0: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, with debug_info, not stripped
 ```
 
-安装完成后，将jpeg中生成的bin目录下的文件移动至三方库jpeg-9e目录下。
-```text
+7. 安装完成后，将jpeg中生成的bin目录下的文件移动至三方库jpeg-9e目录下。
+
+  
+```bash
 owner@ubuntu:/mnt/e/configure$ mv jpeg-9e/jpeg/bin/* jpeg-9e/
 ```
 
-至此，使用Configure通过ohos sdk编译三方库jpeg源码完成。
+8. 至此，使用Configure通过ohos sdk编译三方库jpeg源码完成。
+ 
+  
 
-## 应用中集成使用三方库
+##### 应用中集成使用三方库
 
 请参考：[三方动态链接库（.so）集成开发实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library)。

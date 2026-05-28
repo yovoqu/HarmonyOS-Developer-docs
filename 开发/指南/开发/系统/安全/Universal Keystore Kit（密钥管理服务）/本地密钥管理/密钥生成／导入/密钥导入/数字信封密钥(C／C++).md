@@ -13,26 +13,32 @@
 数字信封导入密钥时，如果是导入非对称密钥的密钥对，需要添加[OH_HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)标签，并将公钥以X.509 DER格式封装填入该标签，且针对非对称密钥仅支持以密钥对形式导入。
 
 
-## 在CMake脚本中链接相关动态库
-
+##### 在CMake脚本中链接相关动态库
 
 ```text
 target_link_libraries(entry PUBLIC libhuks_ndk.z.so)
 ```
 
 
-## 开发步骤
 
-业务方设备（设备A）生成SM4密钥，cipherSm4。 设备A使用生成的SM4密钥，以ECB/NoPadding模式对导入的密钥importKey进行加密，得到加密后的密钥为enImportKey=Encrypt(cipherSm4, importKey)。 密钥导入方（设备B）导出SM2公钥，设备A接收该密钥。 设备A使用收到的SM2公钥加密生成的SM4密钥，enSm4=Encrypt(Sm2, cipherSm4)。 设备A将数字信封数据发送给设备B。 设备B使用[OH_Huks_ImportWrappedKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_importwrappedkeyitem)导入数字信封密钥。若导入密钥是对称密钥，此步骤只需对裸密钥进行加密。若导入非对称密钥的密钥对，则将公钥以DER格式封装，并放入[OH_HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)中。
+##### 开发步骤
+1. 业务方设备（设备A）生成SM4密钥，cipherSm4。
+2. 设备A使用生成的SM4密钥，以ECB/NoPadding模式对导入的密钥importKey进行加密，得到加密后的密钥为enImportKey=Encrypt(cipherSm4, importKey)。
+3. 密钥导入方（设备B）导出SM2公钥，设备A接收该密钥。
+4. 设备A使用收到的SM2公钥加密生成的SM4密钥，enSm4=Encrypt(Sm2, cipherSm4)。
+5. 设备A将数字信封数据发送给设备B。
+6. 设备B使用[OH_Huks_ImportWrappedKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-api-h#oh_huks_importwrappedkeyitem)导入数字信封密钥。若导入密钥是对称密钥，此步骤只需对裸密钥进行加密。若导入非对称密钥的密钥对，则将公钥以DER格式封装，并放入[OH_HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-type-h#oh_huks_tag)中。
+
 > [!NOTE]
 > 若对端设备非HarmonyOS设备且不支持密钥管理服务，则在构造数字信封数据时需遵循以下要求： SM2加密结果组合方式为C1C3C2，其中C1x和C1y各32字节； SM2加密结果采用ASN.1格式，其中bigint采用大端的方式存储；
 
 
-## RSA导入示例
 
+
+##### RSA导入示例
 
 ```text
-#include
+#include <string.h>
 #include "napi/native_api.h"
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"
@@ -195,7 +201,7 @@ static napi_value EnvelopImportKey(napi_env env, napi_callback_info info) {
         napi_create_int32(env, ohResult.errorCode, &ret);
         return ret;
     }
-
+    
     // 已使用sm4加密，密钥为sm4UintData
     uint8_t rsaPrivate[] = {
         0x4a, 0xce, 0x89, 0xa6, 0xda, 0x85, 0x6d, 0x56, 0xb3, 0xab, 0xc9, 0x70, 0x5e, 0x3f, 0xb6, 0x0e, 0x07, 0xdf,
@@ -234,11 +240,11 @@ static napi_value EnvelopImportKey(napi_env env, napi_callback_info info) {
 ```
 
 
-## AES导入示例
 
+##### AES导入示例
 
 ```text
-#include
+#include <string.h>
 #include "napi/native_api.h"
 #include "huks/native_huks_api.h"
 #include "huks/native_huks_param.h"

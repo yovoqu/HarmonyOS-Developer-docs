@@ -4,36 +4,42 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-ge-tensor-setplacement
 
-## 函数功能
+##### 函数功能
 
 设置tensor的placement。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 void SetPlacement(const TensorPlacement placement)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| placement | 输入 | 需要设置的tensor的placement。 关于TensorPlacement类型的定义，请参见[TensorPlacement](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensorplacement)。 |
+| placement | 输入 | 需要设置的tensor的placement。 关于TensorPlacement类型的定义，请参见TensorPlacement。 |
+ 
+ 
+  
 
-
-## 返回值
-
-无
-
-## 约束说明
+##### 返回值
 
 无
+ 
+  
 
-## 调用示例
+##### 约束说明
 
+无
+ 
+  
+
+##### 调用示例
 
 ```text
 Tensor tensor{{{8, 3, 224, 224}, {16, 3, 224, 224}}, // shape

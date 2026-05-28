@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-57
 
 使用getAddressByName接口解析主机名以获取IP地址。
-
-参考链接
-
-getAddressByName
+ 
+**参考链接**
+ 
+[getAddressByName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#getaddressbyname)

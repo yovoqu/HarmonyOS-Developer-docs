@@ -3,59 +3,55 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avscreen-capture-errors-h
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 声明用于运行屏幕录制过程中接口调用的错误码说明。
-
+ 
 **引用文件：** <multimedia/player_framework/native_avscreen_capture_errors.h>
-
+ 
 **库：** libnative_avscreen_capture.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.AVScreenCapture
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [AVScreenCapture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_AVSCREEN_CAPTURE_ErrCode](#oh_avscreen_capture_errcode) | OH_AVSCREEN_CAPTURE_ErrCode | 屏幕录制过程中产生的不同结果码。 |
+| OH_AVSCREEN_CAPTURE_ErrCode | OH_AVSCREEN_CAPTURE_ErrCode | 屏幕录制过程中产生的不同结果码。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+  
 
-
-### OH_AVSCREEN_CAPTURE_ErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
+##### OH_AVSCREEN_CAPTURE_ErrCode
 
 ```text
 enum OH_AVSCREEN_CAPTURE_ErrCode
 ```
-
+ 
 **描述**
-
+ 
 屏幕录制过程中产生的不同结果码。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Media.AVScreenCapture
-
+ 
 **起始版本：** 10
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | AV_SCREEN_CAPTURE_ERR_BASE = 0 | 接口调用错误返回的基础值。 |

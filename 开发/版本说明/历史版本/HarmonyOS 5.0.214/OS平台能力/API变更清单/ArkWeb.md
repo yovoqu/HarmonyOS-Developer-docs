@@ -9,9 +9,9 @@
 | 函数变更 | 类名：WebviewController； API声明：scrollTo(x: number, y: number): void; 差异内容：NA | 类名：WebviewController； API声明：scrollTo(x: number, y: number, duration?: number): void; 差异内容：duration?: number | api/@ohos.web.webview.d.ts |
 | 函数变更 | 类名：WebviewController； API声明：scrollBy(deltaX: number, deltaY: number): void; 差异内容：NA | 类名：WebviewController； API声明：scrollBy(deltaX: number, deltaY: number, duration?: number): void; 差异内容：duration?: number | api/@ohos.web.webview.d.ts |
 | 函数变更 | 类名：WebAttribute； API声明：nestedScroll(value: NestedScrollOptions): WebAttribute; 差异内容：value: NestedScrollOptions | 类名：WebAttribute； API声明：nestedScroll(value: NestedScrollOptions \| NestedScrollOptionsExt): WebAttribute; 差异内容：value: NestedScrollOptions \| NestedScrollOptionsExt | component/web.d.ts |
-| 新增API | NA | 类名：WebCookieManager； API声明：static fetchCookie(url: string, incognito: boolean): Promise<string>; 差异内容：static fetchCookie(url: string, incognito: boolean): Promise<string>; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：WebCookieManager； API声明：static fetchCookie(url: string, incognito: boolean): Promise&lt;string&gt;; 差异内容：static fetchCookie(url: string, incognito: boolean): Promise&lt;string&gt;; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebCookieManager； API声明：static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void; 差异内容：static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void; | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：WebCookieManager； API声明：static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>; 差异内容：static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise<void>; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：WebCookieManager； API声明：static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise&lt;void&gt;; 差异内容：static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise&lt;void&gt;; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：webview； API声明： enum PressureLevel 差异内容： enum PressureLevel | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：PressureLevel； API声明：MEMORY_PRESSURE_LEVEL_MODERATE = 1 差异内容：MEMORY_PRESSURE_LEVEL_MODERATE = 1 | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：PressureLevel； API声明：MEMORY_PRESSURE_LEVEL_CRITICAL = 2 差异内容：MEMORY_PRESSURE_LEVEL_CRITICAL = 2 | api/@ohos.web.webview.d.ts |
@@ -26,8 +26,8 @@
 | 新增API | NA | 类名：PdfConfiguration； API声明：marginLeft: number; 差异内容：marginLeft: number; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：PdfConfiguration； API声明：scale?: number; 差异内容：scale?: number; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：PdfConfiguration； API声明：shouldPrintBackground?: boolean; 差异内容：shouldPrintBackground?: boolean; | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：WebviewController； API声明：createPdf(configuration: PdfConfiguration, callback: AsyncCallback<PdfData>): void; 差异内容：createPdf(configuration: PdfConfiguration, callback: AsyncCallback<PdfData>): void; | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：WebviewController； API声明：createPdf(configuration: PdfConfiguration): Promise<PdfData>; 差异内容：createPdf(configuration: PdfConfiguration): Promise<PdfData>; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：WebviewController； API声明：createPdf(configuration: PdfConfiguration, callback: AsyncCallback&lt;PdfData&gt;): void; 差异内容：createPdf(configuration: PdfConfiguration, callback: AsyncCallback&lt;PdfData&gt;): void; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：WebviewController； API声明：createPdf(configuration: PdfConfiguration): Promise&lt;PdfData&gt;; 差异内容：createPdf(configuration: PdfConfiguration): Promise&lt;PdfData&gt;; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebviewController； API声明：static getDefaultUserAgent(): string; 差异内容：static getDefaultUserAgent(): string; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebviewController； API声明：static trimMemoryByPressureLevel(level: PressureLevel): void; 差异内容：static trimMemoryByPressureLevel(level: PressureLevel): void; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：EventResult； API声明：setGestureEventResult(result: boolean, stopPropagation: boolean): void; 差异内容：setGestureEventResult(result: boolean, stopPropagation: boolean): void; | component/web.d.ts |

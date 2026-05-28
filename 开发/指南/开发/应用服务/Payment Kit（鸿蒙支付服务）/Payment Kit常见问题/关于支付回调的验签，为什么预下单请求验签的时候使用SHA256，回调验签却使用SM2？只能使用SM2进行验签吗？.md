@@ -3,3 +3,6 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-9
+
+1. 商户预下单请求加签，华为支付提供了SHA256WithRSA/PSS和SM2两种签名方式，由商户自行选择使用哪一种签名方式进行签名。
+2. 对于支付业务，应监管要求，需要支持国密算法。回调通知华为支付统一使用SM2进行加签，所以目前只能使用SM2进行回调验签，无法由商户选择。

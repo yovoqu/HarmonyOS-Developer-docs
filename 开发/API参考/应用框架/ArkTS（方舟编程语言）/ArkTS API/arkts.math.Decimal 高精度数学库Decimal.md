@@ -3,27 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkts-decimal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Decimal用于提供高精度数学运算的能力，支持高精度浮点计算。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { Decimal } from '@kit.ArkTS';
 ```
 
 
-## Value
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Value
 
 type Value = string | number | Decimal
 
@@ -35,16 +32,16 @@ type Value = string | number | Decimal
 
 **系统能力**：SystemCapability.Utils.Lang
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 表示值类型为字符串，可取任意值。 |
 | number | 表示值类型为数字，可取任意值。 |
-| [Decimal](#decimal) | 表示值类型为Decimal类型。 |
+| Decimal | 表示值类型为Decimal类型。 |
 
 
-## Rounding
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Rounding
 
 type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
@@ -56,22 +53,22 @@ type Rounding = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
 **系统能力**：SystemCapability.Utils.Lang
 
-
 | 类型 | 说明 |
 | --- | --- |
-| 0 | 向远离零的方向舍入。与[Decimal.ROUND_UP](#常量)一致。 |
-| 1 | 向靠近零的方向舍入。与[Decimal.ROUND_DOWN](#常量)一致。 |
-| 2 | 向正无穷方向舍入。与[Decimal.ROUND_CEILING](#常量)一致。 |
-| 3 | 向负无穷方向舍入。与[Decimal.ROUND_FLOOR](#常量)一致。 |
-| 4 | 向最近的邻值舍入。如果距离相等，则远离零方向舍入。与[Decimal.ROUND_HALF_UP](#常量)一致。 |
-| 5 | 向最近的邻值舍入。如果距离相等，则靠近零方向舍入。与[Decimal.ROUND_HALF_DOWN](#常量)一致。 |
-| 6 | 向最近的邻值舍入。如果距离相等，则向偶数邻值舍入。与[Decimal.ROUND_HALF_EVEN](#常量)一致。 |
-| 7 | 向最近的邻值舍入。如果距离相等，则向正无穷方向舍入。与[Decimal.ROUND_HALF_CEILING](#常量)一致。 |
-| 8 | 向最近的邻值舍入。如果距离相等，则向负无穷方向舍入。与[Decimal.ROUND_HALF_FLOOR](#常量)一致。 |
+| 0 | 向远离零的方向舍入。与Decimal.ROUND_UP一致。 |
+| 1 | 向靠近零的方向舍入。与Decimal.ROUND_DOWN一致。 |
+| 2 | 向正无穷方向舍入。与Decimal.ROUND_CEILING一致。 |
+| 3 | 向负无穷方向舍入。与Decimal.ROUND_FLOOR一致。 |
+| 4 | 向最近的邻值舍入。如果距离相等，则远离零方向舍入。与Decimal.ROUND_HALF_UP一致。 |
+| 5 | 向最近的邻值舍入。如果距离相等，则靠近零方向舍入。与Decimal.ROUND_HALF_DOWN一致。 |
+| 6 | 向最近的邻值舍入。如果距离相等，则向偶数邻值舍入。与Decimal.ROUND_HALF_EVEN一致。 |
+| 7 | 向最近的邻值舍入。如果距离相等，则向正无穷方向舍入。与Decimal.ROUND_HALF_CEILING一致。 |
+| 8 | 向最近的邻值舍入。如果距离相等，则向负无穷方向舍入。与Decimal.ROUND_HALF_FLOOR一致。 |
 
 
-## Modulo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Modulo
 
 type Modulo = Rounding | 9
 
@@ -83,15 +80,15 @@ type Modulo = Rounding | 9
 
 **系统能力**：SystemCapability.Utils.Lang
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Rounding](#rounding) | 模运算下的舍入类型。与[Rounding](#常量)表示的舍入模式相同。 |
-| 9 | 余模运算下，余数始终为正。欧几里得除法，与[Decimal.EUCLIDEAN](#常量)一致。 |
+| Rounding | 模运算下的舍入类型。与Rounding表示的舍入模式相同。 |
+| 9 | 余模运算下，余数始终为正。欧几里得除法，与Decimal.EUCLIDEAN一致。 |
 
 
-## DecimalConfig
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DecimalConfig
 
 用于设置Decimal的配置属性，可使用[Decimal.set](#set)方法进行配置。
 
@@ -99,33 +96,32 @@ type Modulo = Rounding | 9
 
 **系统能力**：SystemCapability.Utils.Lang
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | precision | number | 否 | 是 | 运算结果的最大有效位数，取值范围为[1, 1e9]，默认值为20。 |
-| rounding | [Rounding](#rounding) | 否 | 是 | 舍入模式，取值范围为0到8的整数，默认值为4。 |
-| toExpNeg | number | 否 | 是 | 指数表示法的负指数值的极限值，若Decimal的负指数小于等于该值时，使用科学计数法表示，[toString](#tostring)方法中使用，取值范围为[-9e15, 0]，默认值为-7。 |
-| toExpPos | number | 否 | 是 | 指数表示法的正指数值的极限值，若Decimal的正指数大于等于该值时，使用科学计数法表示，[toString](#tostring)方法中使用，取值范围为[0, 9e15]，默认值为21。 |
+| rounding | Rounding | 否 | 是 | 舍入模式，取值范围为0到8的整数，默认值为4。 |
+| toExpNeg | number | 否 | 是 | 指数表示法的负指数值的极限值，若Decimal的负指数小于等于该值时，使用科学计数法表示，toString方法中使用，取值范围为[-9e15, 0]，默认值为-7。 |
+| toExpPos | number | 否 | 是 | 指数表示法的正指数值的极限值，若Decimal的正指数大于等于该值时，使用科学计数法表示，toString方法中使用，取值范围为[0, 9e15]，默认值为21。 |
 | minE | number | 否 | 是 | 负指数极限，若Decimal的指数值小于该值，会下溢到零，取值范围为[-9e15, 0]，默认值为-9e15。 |
 | maxE | number | 否 | 是 | 正指数极限，若Decimal的指数值大于该值，会溢出至无穷大，取值范围为[0, 9e15]，默认值为9e15。 |
 | crypto | boolean | 否 | 是 | 确定是否使用加密安全伪随机数生成的值，true表示使用加密安全伪随机数，false表示不使用，默认值为false。该能力不支持使用，报错的错误码为：10200061。 |
-| modulo | [Modulo](#modulo) | 否 | 是 | 模计算时使用的舍入模式，取值范围为0到9的整数，默认值为1。 |
+| modulo | Modulo | 否 | 是 | 模计算时使用的舍入模式，取值范围为0到9的整数，默认值为1。 |
 | defaults | boolean | 否 | 是 | 表示未指定的属性是否被设置为默认值，true表示使用默认值，false表示不使用默认值，默认值为false。 |
 
 
-## Decimal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Decimal
 
 任意精度的Decimal类型。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -134,13 +130,13 @@ type Modulo = Rounding | 9
 | s | number | 是 | 否 | sign：表示Decimal数的符号位，0表示正数，1表示负数。 |
 
 
-### 常量
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 常量
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 值 | 说明 |
 | --- | --- | --- | --- |
@@ -156,8 +152,9 @@ type Modulo = Rounding | 9
 | EUCLIDEAN | number | 9 | 模运算下，余数始终为正。使用欧几里得除法：q = sign(x) * floor(a / abs(x))。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor(n: Value)
 
@@ -169,16 +166,14 @@ Decimal的构造函数。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 构造Decimal时的初始值。 |
+| n | Value | 是 | 构造Decimal时的初始值。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -187,15 +182,14 @@ Decimal的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(5);
-console.info('test Decimal constructor:' + data.toString()); // 'test Decimal constructor:5'
+console.info("test Decimal constructor:" + data.toString()); // 'test Decimal constructor:5'
 ```
 
 
-### abs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### abs
 
 abs(): Decimal
 
@@ -207,23 +201,21 @@ abs(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回绝对值运算后的Decimal对象实例。 |
+| Decimal | 返回绝对值运算后的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(-0.5).abs();
-console.info('test Decimal abs:' + data.toString()); // 'test Decimal abs:0.5'
+console.info("test Decimal abs:" + data.toString()); // 'test Decimal abs:0.5'
 ```
 
 
-### floor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### floor
 
 floor(): Decimal
 
@@ -235,23 +227,21 @@ floor(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回舍入之后的Decimal对象实例。 |
+| Decimal | 返回舍入之后的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1.8).floor();
-console.info('test Decimal floor:' + data.toString()); // 'test Decimal floor:1'
+console.info("test Decimal floor:" + data.toString()); // 'test Decimal floor:1'
 ```
 
 
-### ceil
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ceil
 
 ceil(): Decimal
 
@@ -263,23 +253,21 @@ ceil(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回舍入之后的Decimal对象实例。 |
+| Decimal | 返回舍入之后的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1.8).ceil();
-console.info('test Decimal ceil:' + data.toString()); // 'test Decimal ceil:2'
+console.info("test Decimal ceil:" + data.toString()); // 'test Decimal ceil:2'
 ```
 
 
-### trunc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### trunc
 
 trunc(): Decimal
 
@@ -291,23 +279,21 @@ trunc(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回截断之后的Decimal对象实例。 |
+| Decimal | 返回截断之后的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(2.5).trunc();
-console.info('test Decimal trunc:' + data.toString()); // 'test Decimal trunc:2'
+console.info("test Decimal trunc:" + data.toString()); // 'test Decimal trunc:2'
 ```
 
 
-### clamp
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clamp
 
 clamp(min: Value, max: Value): Decimal
 
@@ -319,25 +305,22 @@ clamp(min: Value, max: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| min | [Value](#value) | 是 | 限制的最小值。包含该值。 |
-| max | [Value](#value) | 是 | 限制的最大值。包含该值。 |
+| min | Value | 是 | 限制的最小值。包含该值。 |
+| max | Value | 是 | 限制的最大值。包含该值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回符合范围内的Decimal对象实例。 |
+| Decimal | 返回符合范围内的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -347,21 +330,20 @@ clamp(min: Value, max: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data1: Decimal = new Decimal(10.1).clamp(0, 10);
-console.info('test Decimal clamp:' + data1.toString()); // 'test Decimal clamp:10'
+console.info("test Decimal clamp:" + data1.toString()); // 'test Decimal clamp:10'
 
 let data2: Decimal = new Decimal(-5).clamp(0, 10);
-console.info('test Decimal clamp:' + data2.toString()); // 'test Decimal clamp:0'
+console.info("test Decimal clamp:" + data2.toString()); // 'test Decimal clamp:0'
 
 let data3: Decimal = new Decimal(7.5).clamp(0, 10);
-console.info('test Decimal clamp:' + data3.toString()); // 'test Decimal clamp:7.5'
+console.info("test Decimal clamp:" + data3.toString()); // 'test Decimal clamp:7.5'
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 add(n: Value): Decimal
 
@@ -375,24 +357,21 @@ add(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 加法运算的加数。 |
+| n | Value | 是 | 加法运算的加数。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回加法运算后的Decimal对象实例。 |
+| Decimal | 返回加法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -401,15 +380,14 @@ add(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.5).add(0.5);
-console.info('test Decimal add:' + data.toString()); // 'test Decimal add:1'
+console.info("test Decimal add:" + data.toString()); // 'test Decimal add:1'
 ```
 
 
-### sub
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sub
 
 sub(n: Value): Decimal
 
@@ -423,24 +401,21 @@ sub(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 减法运算的减数。 |
+| n | Value | 是 | 减法运算的减数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回减法运算后的Decimal对象实例。 |
+| Decimal | 返回减法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -449,15 +424,14 @@ sub(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1).sub(0.5);
-console.info('test Decimal sub:' + data.toString()); // 'test Decimal sub:0.5'
+console.info("test Decimal sub:" + data.toString()); // 'test Decimal sub:0.5'
 ```
 
 
-### mul
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mul
 
 mul(n: Value): Decimal
 
@@ -471,24 +445,21 @@ mul(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 乘法运算的乘数。 |
+| n | Value | 是 | 乘法运算的乘数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回乘法运算后的Decimal对象实例。 |
+| Decimal | 返回乘法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -497,15 +468,14 @@ mul(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1).mul(0.5);
-console.info('test Decimal mul:' + data.toString()); // 'test Decimal mul:0.5'
+console.info("test Decimal mul:" + data.toString()); // 'test Decimal mul:0.5'
 ```
 
 
-### div
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### div
 
 div(n: Value): Decimal
 
@@ -519,24 +489,21 @@ div(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 除法运算的除数。 |
+| n | Value | 是 | 除法运算的除数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回除法运算后的Decimal对象实例。 |
+| Decimal | 返回除法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -545,15 +512,14 @@ div(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1).div(0.5);
-console.info('test Decimal div:' + data.toString()); // 'test Decimal div:2'
+console.info("test Decimal div:" + data.toString()); // 'test Decimal div:2'
 ```
 
 
-### mod
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mod
 
 mod(n: Value): Decimal
 
@@ -567,24 +533,21 @@ mod(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 取模运算的除数。 |
+| n | Value | 是 | 取模运算的除数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回取模运算后的Decimal对象实例。 |
+| Decimal | 返回取模运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -593,15 +556,14 @@ mod(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(2).mod(1);
-console.info('test Decimal mod:' + data.toString()); // 'test Decimal mod:0'
+console.info("test Decimal mod:" + data.toString()); // 'test Decimal mod:0'
 ```
 
 
-### sqrt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sqrt
 
 sqrt(): Decimal
 
@@ -615,23 +577,21 @@ sqrt(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回平方根运算后的Decimal对象实例。 |
+| Decimal | 返回平方根运算后的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(3).sqrt();
-console.info('test Decimal sqrt:' + data.toString()); // 'test Decimal sqrt:1.7320508075688772935'
+console.info("test Decimal sqrt:" + data.toString()); // 'test Decimal sqrt:1.7320508075688772935'
 ```
 
 
-### cbrt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cbrt
 
 cbrt(): Decimal
 
@@ -645,23 +605,21 @@ cbrt(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回立方根运算后的Decimal对象实例。 |
+| Decimal | 返回立方根运算后的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(3).cbrt();
-console.info('test Decimal cbrt:' + data.toString()); // 'test Decimal cbrt:1.4422495703074083823'
+console.info("test Decimal cbrt:" + data.toString()); // 'test Decimal cbrt:1.4422495703074083823'
 ```
 
 
-### pow
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pow
 
 pow(n: Value): Decimal
 
@@ -675,24 +633,21 @@ pow(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 幂运算的幂的值。 |
+| n | Value | 是 | 幂运算的幂的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回幂运算后的Decimal对象实例。 |
+| Decimal | 返回幂运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -702,15 +657,14 @@ pow(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(3).pow(-2);
-console.info('test Decimal pow:' + data.toString()); // 'test Decimal pow:0.11111111111111111111'
+console.info("test Decimal pow:" + data.toString()); // 'test Decimal pow:0.11111111111111111111'
 ```
 
 
-### exp
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### exp
 
 exp(): Decimal
 
@@ -724,16 +678,14 @@ exp(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回自然指数运算后的Decimal对象实例。 |
+| Decimal | 返回自然指数运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -742,15 +694,14 @@ exp(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(2).exp();
-console.info('test Decimal exp:' + data.toString()); // 'test Decimal exp:7.3890560989306502272'
+console.info("test Decimal exp:" + data.toString()); // 'test Decimal exp:7.3890560989306502272'
 ```
 
 
-### log
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### log
 
 log(n: Value): Decimal
 
@@ -764,24 +715,21 @@ log(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 对数计算的底数值。 |
+| n | Value | 是 | 对数计算的底数值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回对数运算后的Decimal对象实例。 |
+| Decimal | 返回对数运算后的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -791,15 +739,14 @@ log(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(2).log(256);
-console.info('test Decimal log:' + data.toString()); // 'test Decimal log:0.125'
+console.info("test Decimal log:" + data.toString()); // 'test Decimal log:0.125'
 ```
 
 
-### ln
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ln
 
 ln(): Decimal
 
@@ -813,16 +760,14 @@ ln(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回自然对数运算后的Decimal对象实例。 |
+| Decimal | 返回自然对数运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -831,15 +776,14 @@ ln(): Decimal
 
 **示例：**
 
-
-```ts
-let data: Decimal = new Decimal(1.23e30).ln();
-console.info('test Decimal ln:' + data.toString()); // 'test Decimal ln:69.284566959205696648'
+```text
+let data: Decimal = new Decimal(1.23e+30).ln();
+console.info("test Decimal ln:" + data.toString()); // 'test Decimal ln:69.284566959205696648'
 ```
 
 
-### cos
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cos
 
 cos(): Decimal
 
@@ -851,23 +795,21 @@ cos(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算余弦值的Decimal对象实例。 |
+| Decimal | 返回计算余弦值的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(-0.25).cos();
-console.info('test Decimal cos:' + data.toString()); // 'test Decimal cos:0.96891242171064478414'
+console.info("test Decimal cos:" + data.toString()); // 'test Decimal cos:0.96891242171064478414'
 ```
 
 
-### sin
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sin
 
 sin(): Decimal
 
@@ -879,23 +821,21 @@ sin(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算正弦值的Decimal对象实例。 |
+| Decimal | 返回计算正弦值的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.75).sin();
-console.info('test Decimal sin:' + data.toString()); // 'test Decimal sin:0.68163876002333416673'
+console.info("test Decimal sin:" + data.toString()); // 'test Decimal sin:0.68163876002333416673'
 ```
 
 
-### tan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### tan
 
 tan(): Decimal
 
@@ -907,23 +847,21 @@ tan(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算正切值的Decimal对象实例。 |
+| Decimal | 返回计算正切值的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.75).tan();
-console.info('test Decimal tan:' + data.toString()); // 'test Decimal tan:0.93159645994407246117'
+console.info("test Decimal tan:" + data.toString()); // 'test Decimal tan:0.93159645994407246117'
 ```
 
 
-### cosh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cosh
 
 cosh(): Decimal
 
@@ -935,23 +873,21 @@ cosh(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算双曲余弦值的Decimal对象实例。 |
+| Decimal | 返回计算双曲余弦值的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.5).cosh();
-console.info('test Decimal cosh:' + data.toString()); // 'test Decimal cosh:1.1276259652063807852'
+console.info("test Decimal cosh:" + data.toString()); // 'test Decimal cosh:1.1276259652063807852'
 ```
 
 
-### sinh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sinh
 
 sinh(): Decimal
 
@@ -963,23 +899,21 @@ sinh(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算双曲正弦值的Decimal对象实例。 |
+| Decimal | 返回计算双曲正弦值的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.5).sinh();
-console.info('test Decimal sinh:' + data.toString()); // 'test Decimal sinh:0.52109530549374736162'
+console.info("test Decimal sinh:" + data.toString()); // 'test Decimal sinh:0.52109530549374736162'
 ```
 
 
-### tanh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### tanh
 
 tanh(): Decimal
 
@@ -991,23 +925,21 @@ tanh(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算双曲正切值的Decimal对象实例。 |
+| Decimal | 返回计算双曲正切值的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.5).tanh();
-console.info('test Decimal tanh:' + data.toString()); // 'test Decimal tanh:0.4621171572600097585'
+console.info("test Decimal tanh:" + data.toString()); // 'test Decimal tanh:0.4621171572600097585'
 ```
 
 
-### acos
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### acos
 
 acos(): Decimal
 
@@ -1019,16 +951,14 @@ acos(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算反余弦值的Decimal对象实例。 |
+| Decimal | 返回计算反余弦值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1037,15 +967,14 @@ acos(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.5).acos();
-console.info('test Decimal acos:' + data.toString()); // 'test Decimal acos:1.0471975511965977462'
+console.info("test Decimal acos:" + data.toString()); // 'test Decimal acos:1.0471975511965977462'
 ```
 
 
-### asin
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### asin
 
 asin(): Decimal
 
@@ -1057,16 +986,14 @@ asin(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算反正弦值的Decimal对象实例。 |
+| Decimal | 返回计算反正弦值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1075,15 +1002,14 @@ asin(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.75).asin();
-console.info('test Decimal asin:' + data.toString()); // 'test Decimal asin:0.84806207898148100805'
+console.info("test Decimal asin:" + data.toString()); // 'test Decimal asin:0.84806207898148100805'
 ```
 
 
-### atan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### atan
 
 atan(): Decimal
 
@@ -1095,16 +1021,14 @@ atan(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算反正切值的Decimal对象实例。 |
+| Decimal | 返回计算反正切值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1113,15 +1037,14 @@ atan(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.75).atan();
-console.info('test Decimal atan:' + data.toString()); // 'test Decimal atan:0.6435011087932843868'
+console.info("test Decimal atan:" + data.toString()); // 'test Decimal atan:0.6435011087932843868'
 ```
 
 
-### acosh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### acosh
 
 acosh(): Decimal
 
@@ -1133,16 +1056,14 @@ acosh(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算双曲余弦的倒数值的Decimal对象实例。 |
+| Decimal | 返回计算双曲余弦的倒数值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1151,15 +1072,14 @@ acosh(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(50).acosh();
-console.info('test Decimal acosh:' + data.toString()); // 'test Decimal acosh:4.6050701709847571595'
+console.info("test Decimal acosh:" + data.toString()); // 'test Decimal acosh:4.6050701709847571595'
 ```
 
 
-### asinh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### asinh
 
 asinh(): Decimal
 
@@ -1171,16 +1091,14 @@ asinh(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算双曲正弦的倒数值的Decimal对象实例。 |
+| Decimal | 返回计算双曲正弦的倒数值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1189,15 +1107,14 @@ asinh(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(50).asinh();
-console.info('test Decimal asinh:' + data.toString()); // 'test Decimal asinh:4.6052701709914238266'
+console.info("test Decimal asinh:" + data.toString()); // 'test Decimal asinh:4.6052701709914238266'
 ```
 
 
-### atanh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### atanh
 
 atanh(): Decimal
 
@@ -1209,16 +1126,14 @@ atanh(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回计算双曲正切的倒数值的Decimal对象实例。 |
+| Decimal | 返回计算双曲正切的倒数值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1227,15 +1142,14 @@ atanh(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.75).atanh();
-console.info('test Decimal atanh:' + data.toString()); // 'test Decimal atanh:0.97295507452765665255'
+console.info("test Decimal atanh:" + data.toString()); // 'test Decimal atanh:0.97295507452765665255'
 ```
 
 
-### comparedTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### comparedTo
 
 comparedTo(n: Value): number
 
@@ -1247,24 +1161,21 @@ Decimal的比较方法。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 待比较的值。 |
+| n | Value | 是 | 待比较的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回该Decimal与n的比较结果：          1:该Decimal大于比较值。          -1:该Decimal小于比较值。          0:该Decimal等于比较值。          NaN:该Decimal与比较值有一个值为NaN。 |
+| number | 返回该Decimal与n的比较结果： 1:该Decimal大于比较值。 -1:该Decimal小于比较值。 0:该Decimal等于比较值。 NaN:该Decimal与比较值有一个值为NaN。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1273,20 +1184,19 @@ Decimal的比较方法。
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(Infinity);
 let data1: Decimal = new Decimal(5);
 let data2: number = data.comparedTo(data1);
-console.info('test Decimal comparedTo:' + data2); // 'test Decimal comparedTo:1'
+console.info("test Decimal comparedTo:" + data2); // 'test Decimal comparedTo:1'
 
 let data3: number = data1.comparedTo(10.5);
-console.info('test Decimal comparedTo:' + data3); // 'test Decimal comparedTo:-1'
+console.info("test Decimal comparedTo:" + data3); // 'test Decimal comparedTo:-1'
 ```
 
 
-### equals
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### equals
 
 equals(n: Value): boolean
 
@@ -1298,14 +1208,12 @@ equals(n: Value): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 待比较的值。 |
+| n | Value | 是 | 待比较的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1316,7 +1224,6 @@ equals(n: Value): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes:1. Incorrect parameter types;2. Parameter verification failed. |
@@ -1324,16 +1231,15 @@ equals(n: Value): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0);
 let data1: boolean = data.equals('1e-324');
-console.info('test Decimal equals:' + data1); // 'test Decimal equals:false'
+console.info("test Decimal equals:" + data1); // 'test Decimal equals:false'
 ```
 
 
-### greaterThan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### greaterThan
 
 greaterThan(n: Value): boolean
 
@@ -1345,14 +1251,12 @@ greaterThan(n: Value): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 待比较的值。 |
+| n | Value | 是 | 待比较的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1363,7 +1267,6 @@ greaterThan(n: Value): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes:1. Incorrect parameter types;2. Parameter verification failed. |
@@ -1371,16 +1274,15 @@ greaterThan(n: Value): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.1);
 let data1: boolean = data.greaterThan(new Decimal(0.3).sub(0.2));
-console.info('test Decimal greaterThan:' + data1); // 'test Decimal greaterThan:false'
+console.info("test Decimal greaterThan:" + data1); // 'test Decimal greaterThan:false'
 ```
 
 
-### greaterThanOrEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### greaterThanOrEqualTo
 
 greaterThanOrEqualTo(n: Value): boolean
 
@@ -1392,14 +1294,12 @@ greaterThanOrEqualTo(n: Value): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 待比较的值。 |
+| n | Value | 是 | 待比较的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1410,7 +1310,6 @@ greaterThanOrEqualTo(n: Value): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes:1. Incorrect parameter types;2. Parameter verification failed. |
@@ -1418,16 +1317,15 @@ greaterThanOrEqualTo(n: Value): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.3).sub(0.2);
 let data1: boolean = data.greaterThanOrEqualTo(0.1);
-console.info('test Decimal greaterThanOrEqualTo:' + data1); // 'test Decimal greaterThanOrEqualTo:true'
+console.info("test Decimal greaterThanOrEqualTo:" + data1); // 'test Decimal greaterThanOrEqualTo:true'
 ```
 
 
-### lessThan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lessThan
 
 lessThan(n: Value): boolean
 
@@ -1439,14 +1337,12 @@ lessThan(n: Value): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 待比较的值。 |
+| n | Value | 是 | 待比较的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1457,7 +1353,6 @@ lessThan(n: Value): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes:1. Incorrect parameter types;2. Parameter verification failed. |
@@ -1465,16 +1360,15 @@ lessThan(n: Value): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.3).sub(0.2);
-let data1: boolean = data.lessThan(0.1);
-console.info('test Decimal lessThan:' + data1); // 'test Decimal lessThan:false'
+let data1: boolean = data.lessThan(0.1)
+console.info("test Decimal lessThan:" + data1); // 'test Decimal lessThan:false'
 ```
 
 
-### lessThanOrEqualTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lessThanOrEqualTo
 
 lessThanOrEqualTo(n: Value): boolean
 
@@ -1486,14 +1380,12 @@ lessThanOrEqualTo(n: Value): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 待比较的值。 |
+| n | Value | 是 | 待比较的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1504,7 +1396,6 @@ lessThanOrEqualTo(n: Value): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes:1. Incorrect parameter types;2. Parameter verification failed. |
@@ -1512,16 +1403,15 @@ lessThanOrEqualTo(n: Value): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0.1);
-let data1: boolean = data.lessThanOrEqualTo(new Decimal(0.3).sub(0.2));
-console.info('test Decimal lessThanOrEqualTo:' + data1); // 'test Decimal lessThanOrEqualTo:true'
+let data1: boolean = data.lessThanOrEqualTo(new Decimal(0.3).sub(0.2))
+console.info("test Decimal lessThanOrEqualTo:" + data1); // 'test Decimal lessThanOrEqualTo:true'
 ```
 
 
-### isFinite
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isFinite
 
 isFinite(): boolean
 
@@ -1533,7 +1423,6 @@ isFinite(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | true表示该Decimal为有限值，其余情况为false。 |
@@ -1541,16 +1430,15 @@ isFinite(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1);
 let data1: boolean = data.isFinite();
-console.info('test Decimal isFinite:' + data1); // 'test Decimal isFinite:true'
+console.info("test Decimal isFinite:" + data1); // 'test Decimal isFinite:true'
 ```
 
 
-### isInteger
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isInteger
 
 isInteger(): boolean
 
@@ -1562,7 +1450,6 @@ isInteger(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | true表示该Decimal为整数，其余情况为false。 |
@@ -1570,16 +1457,15 @@ isInteger(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(123.456);
 let data1: boolean = data.isInteger();
-console.info('test Decimal isInteger:' + data1); // 'test Decimal isInteger:false'
+console.info("test Decimal isInteger:" + data1); // 'test Decimal isInteger:false'
 ```
 
 
-### isNaN
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isNaN
 
 isNaN(): boolean
 
@@ -1591,7 +1477,6 @@ isNaN(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | true表示该Decimal为NaN，其余情况为false。 |
@@ -1599,16 +1484,15 @@ isNaN(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(NaN);
 let data1: boolean = data.isNaN();
-console.info('test Decimal isNaN:' + data1); // 'test Decimal isNaN:true'
+console.info("test Decimal isNaN:" + data1); // 'test Decimal isNaN:true'
 ```
 
 
-### isNegative
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isNegative
 
 isNegative(): boolean
 
@@ -1620,7 +1504,6 @@ isNegative(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | true表示该Decimal为负数，其余情况为false。 |
@@ -1628,20 +1511,19 @@ isNegative(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(-5);
 let data1: boolean = data.isNegative();
-console.info('test Decimal isNegative:' + data1); // 'test Decimal isNegative:true'
+console.info("test Decimal isNegative:" + data1); // 'test Decimal isNegative:true'
 
 let data2: Decimal = new Decimal(-0);
 let data3: boolean = data2.isNegative();
-console.info('test Decimal isNegative:' + data3); // 'test Decimal isNegative:true'
+console.info("test Decimal isNegative:" + data3); // 'test Decimal isNegative:true'
 ```
 
 
-### isPositive
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isPositive
 
 isPositive(): boolean
 
@@ -1653,7 +1535,6 @@ isPositive(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | true表示该Decimal为正数，其余情况为false。 |
@@ -1661,20 +1542,19 @@ isPositive(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(5);
 let data1: boolean = data.isPositive();
-console.info('test Decimal isPositive:' + data1); // 'test Decimal isPositive:true'
+console.info("test Decimal isPositive:" + data1); // 'test Decimal isPositive:true'
 
 let data2: Decimal = new Decimal(0);
 let data3: boolean = data2.isPositive();
-console.info('test Decimal isPositive:' + data3); // 'test Decimal isPositive:true'
+console.info("test Decimal isPositive:" + data3); // 'test Decimal isPositive:true'
 ```
 
 
-### isZero
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isZero
 
 isZero(): boolean
 
@@ -1686,7 +1566,6 @@ isZero(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | true表示该Decimal为0或是-0，其余情况为false。 |
@@ -1694,16 +1573,15 @@ isZero(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(0);
 let data1: boolean = data.isZero();
-console.info('test Decimal isZero:' + data1.toString()); // 'test Decimal isZero:true'
+console.info("test Decimal isZero:" + data1.toString()); // 'test Decimal isZero:true'
 ```
 
 
-### dividedToIntegerBy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### dividedToIntegerBy
 
 dividedToIntegerBy(n: Value): Decimal
 
@@ -1717,24 +1595,21 @@ dividedToIntegerBy(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 除法的除数值。 |
+| n | Value | 是 | 除法的除数值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个Decimal对象，其值是将此Decimal的值除以n值的整数部分。 |
+| Decimal | 返回一个Decimal对象，其值是将此Decimal的值除以n值的整数部分。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1743,17 +1618,16 @@ dividedToIntegerBy(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(5);
 let data1: Decimal = new Decimal(3);
 let data2: Decimal = data.dividedToIntegerBy(data1);
-console.info('test Decimal dividedToIntegerBy:' + data2.toString()); // 'test Decimal dividedToIntegerBy:1'
+console.info("test Decimal dividedToIntegerBy:" + data2.toString()); // 'test Decimal dividedToIntegerBy:1'
 ```
 
 
-### negate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### negate
 
 negate(): Decimal
 
@@ -1765,24 +1639,22 @@ negate(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个Decimal对象，其值将此Decimal的值乘以-1。 |
+| Decimal | 返回一个Decimal对象，其值将此Decimal的值乘以-1。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1.8);
 let data1: Decimal = data.negate();
-console.info('test Decimal negate:' + data1.toString()); // 'test Decimal negate:-1.8'
+console.info("test Decimal negate:" + data1.toString()); // 'test Decimal negate:-1.8'
 ```
 
 
-### toBinary
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toBinary
 
 toBinary(): string
 
@@ -1796,7 +1668,6 @@ toBinary(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回二进制表示的字符串。 |
@@ -1804,16 +1675,15 @@ toBinary(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toBinary();
-console.info('test Decimal toBinary:' + data1); // 'test Decimal toBinary:0b100000000'
+console.info("test Decimal toBinary:" + data1); // 'test Decimal toBinary:0b100000000'
 ```
 
 
-### toBinary
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toBinary
 
 toBinary(significantDigits: number): string
 
@@ -1827,14 +1697,12 @@ toBinary(significantDigits: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1845,7 +1713,6 @@ toBinary(significantDigits: number): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits` is out of range. |
@@ -1853,16 +1720,15 @@ toBinary(significantDigits: number): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toBinary(1);
-console.info('test Decimal toBinary:' + data1); // 'test Decimal toBinary:0b1p+8'
+console.info("test Decimal toBinary:" + data1); // 'test Decimal toBinary:0b1p+8'
 ```
 
 
-### toBinary
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toBinary
 
 toBinary(significantDigits: number, rounding: Rounding): string
 
@@ -1874,15 +1740,13 @@ toBinary(significantDigits: number, rounding: Rounding): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1893,7 +1757,6 @@ toBinary(significantDigits: number, rounding: Rounding): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits \| rounding` is out of range. |
@@ -1901,16 +1764,15 @@ toBinary(significantDigits: number, rounding: Rounding): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toBinary(1, Decimal.ROUND_HALF_UP);
-console.info('test Decimal toBinary:' + data1); // 'test Decimal toBinary:0b1p+8'
+console.info("test Decimal toBinary:" + data1); // 'test Decimal toBinary:0b1p+8'
 ```
 
 
-### toOctal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toOctal
 
 toOctal(): string
 
@@ -1924,7 +1786,6 @@ toOctal(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回八进制表示的字符串。 |
@@ -1932,16 +1793,15 @@ toOctal(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toOctal();
-console.info('test Decimal toOctal:' + data1); // 'test Decimal toOctal:0o400'
+console.info("test Decimal toOctal:" + data1); // 'test Decimal toOctal:0o400'
 ```
 
 
-### toOctal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toOctal
 
 toOctal(significantDigits: number): string
 
@@ -1955,14 +1815,12 @@ toOctal(significantDigits: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1973,7 +1831,6 @@ toOctal(significantDigits: number): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits` is out of range. |
@@ -1981,16 +1838,15 @@ toOctal(significantDigits: number): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toOctal(1);
-console.info('test Decimal toOctal:' + data1); // 'test Decimal toOctal:0o1p+8'
+console.info("test Decimal toOctal:" + data1); // 'test Decimal toOctal:0o1p+8'
 ```
 
 
-### toOctal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toOctal
 
 toOctal(significantDigits: number, rounding: Rounding): string
 
@@ -2002,15 +1858,13 @@ toOctal(significantDigits: number, rounding: Rounding): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2021,7 +1875,6 @@ toOctal(significantDigits: number, rounding: Rounding): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits \| rounding` is out of range. |
@@ -2029,16 +1882,15 @@ toOctal(significantDigits: number, rounding: Rounding): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toOctal(1, Decimal.ROUND_HALF_UP);
-console.info('test Decimal toOctal:' + data1); // 'test Decimal toOctal:0o1p+8'
+console.info("test Decimal toOctal:" + data1); // 'test Decimal toOctal:0o1p+8'
 ```
 
 
-### toHexadecimal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toHexadecimal
 
 toHexadecimal(): string
 
@@ -2052,7 +1904,6 @@ toHexadecimal(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回十六进制表示的字符串。 |
@@ -2060,16 +1911,15 @@ toHexadecimal(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toHexadecimal();
-console.info('test Decimal toHexadecimal:' + data1); // 'test Decimal toHexadecimal:0x100'
+console.info("test Decimal toHexadecimal:" + data1); // 'test Decimal toHexadecimal:0x100'
 ```
 
 
-### toHexadecimal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toHexadecimal
 
 toHexadecimal(significantDigits: number): string
 
@@ -2083,14 +1933,12 @@ toHexadecimal(significantDigits: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2101,7 +1949,6 @@ toHexadecimal(significantDigits: number): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits` is out of range. |
@@ -2109,16 +1956,15 @@ toHexadecimal(significantDigits: number): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toHexadecimal(1);
-console.info('test Decimal toHexadecimal:' + data1); // 'test Decimal toHexadecimal:0x1p+8'
+console.info("test Decimal toHexadecimal:" + data1); // 'test Decimal toHexadecimal:0x1p+8'
 ```
 
 
-### toHexadecimal
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toHexadecimal
 
 toHexadecimal(significantDigits: number, rounding: Rounding): string
 
@@ -2130,15 +1976,13 @@ toHexadecimal(significantDigits: number, rounding: Rounding): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2149,7 +1993,6 @@ toHexadecimal(significantDigits: number, rounding: Rounding): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits \| rounding` is out of range. |
@@ -2157,16 +2000,15 @@ toHexadecimal(significantDigits: number, rounding: Rounding): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(256);
 let data1: string = data.toHexadecimal(1, Decimal.ROUND_HALF_UP);
-console.info('test Decimal toHexadecimal:' + data1); // 'test Decimal toHexadecimal:0x1p+8'
+console.info("test Decimal toHexadecimal:" + data1); // 'test Decimal toHexadecimal:0x1p+8'
 ```
 
 
-### toDecimalPlaces
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toDecimalPlaces
 
 toDecimalPlaces(): Decimal
 
@@ -2178,24 +2020,22 @@ toDecimalPlaces(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个Decimal对象保留小数点后指定位数。 |
+| Decimal | 返回一个Decimal对象保留小数点后指定位数。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(12.34567);
 let data1: Decimal = data.toDecimalPlaces();
-console.info('test Decimal toDecimalPlaces:' + data1.toString()); // 'test Decimal toDecimalPlaces:12.34567'
+console.info("test Decimal toDecimalPlaces:" + data1.toString()); // 'test Decimal toDecimalPlaces:12.34567'
 ```
 
 
-### toDecimalPlaces
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toDecimalPlaces
 
 toDecimalPlaces(decimalPlaces: number): Decimal
 
@@ -2209,7 +2049,6 @@ toDecimalPlaces(decimalPlaces: number): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | decimalPlaces | number | 是 | 转换时保留的小数点后有效位数，取值范围为[0, 1e9]的整数。 |
@@ -2217,16 +2056,14 @@ toDecimalPlaces(decimalPlaces: number): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个Decimal对象保留小数点后指定位数。 |
+| Decimal | 返回一个Decimal对象保留小数点后指定位数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2235,16 +2072,15 @@ toDecimalPlaces(decimalPlaces: number): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(9876.54321);
 let data1: Decimal = data.toDecimalPlaces(3);
-console.info('test Decimal toDecimalPlaces:' + data1.toString()); // 'test Decimal toDecimalPlaces:9876.543'
+console.info("test Decimal toDecimalPlaces:" + data1.toString()); // 'test Decimal toDecimalPlaces:9876.543'
 ```
 
 
-### toDecimalPlaces
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toDecimalPlaces
 
 toDecimalPlaces(decimalPlaces: number, rounding: Rounding): Decimal
 
@@ -2256,25 +2092,22 @@ toDecimalPlaces(decimalPlaces: number, rounding: Rounding): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | decimalPlaces | number | 是 | 转换时保留的小数点后有效位数，取值范围为[0, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式。取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式。取值范围参考Rounding。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个Decimal对象保留小数点后指定位数。 |
+| Decimal | 返回一个Decimal对象保留小数点后指定位数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2283,17 +2116,16 @@ toDecimalPlaces(decimalPlaces: number, rounding: Rounding): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(9876.54321);
 let data1: Decimal = data.toDecimalPlaces(1, 0);
-console.info('test Decimal toDecimalPlaces:' + data1.toString()); // 'test Decimal toDecimalPlaces:9876.6'
-data1 = data.toDecimalPlaces(1, Decimal.ROUND_DOWN); // data1：'9876.5'
+console.info("test Decimal toDecimalPlaces:" + data1.toString()); // 'test Decimal toDecimalPlaces:9876.6'
+data1 = data.toDecimalPlaces(1, Decimal.ROUND_DOWN) // data1：'9876.5'
 ```
 
 
-### toExponential
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toExponential
 
 toExponential(): string
 
@@ -2305,7 +2137,6 @@ toExponential(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回按照指数表示法显示的字符串。 |
@@ -2313,16 +2144,15 @@ toExponential(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(45.6);
 let data1: string = data.toExponential();
-console.info('test Decimal toExponential:' + data1); // 'test Decimal toExponential:4.56e+1'
+console.info("test Decimal toExponential:" + data1); // 'test Decimal toExponential:4.56e+1'
 ```
 
 
-### toExponential
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toExponential
 
 toExponential(decimalPlaces: number): string
 
@@ -2336,14 +2166,12 @@ toExponential(decimalPlaces: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | decimalPlaces | number | 是 | 转换时保留的小数点后有效位数，取值范围为[0, 1e9]的整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2354,7 +2182,6 @@ toExponential(decimalPlaces: number): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `decimalPlaces` is out of range. |
@@ -2362,18 +2189,17 @@ toExponential(decimalPlaces: number): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(45.6);
 let data1: string = data.toExponential(0);
-console.info('test Decimal toExponential:' + data1); // 'test Decimal toExponential:5e+1'
+console.info("test Decimal toExponential:" + data1); // 'test Decimal toExponential:5e+1'
 data1 = data.toExponential(1); // data1：'4.6e+1'
 data1 = data.toExponential(3); // data1：'4.560e+1'
 ```
 
 
-### toExponential
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toExponential
 
 toExponential(decimalPlaces: number, rounding: Rounding): string
 
@@ -2385,15 +2211,13 @@ toExponential(decimalPlaces: number, rounding: Rounding): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | decimalPlaces | number | 是 | 转换时保留的小数点后有效位数，取值范围为[0, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2404,7 +2228,6 @@ toExponential(decimalPlaces: number, rounding: Rounding): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `decimalPlaces \| rounding` is out of range. |
@@ -2412,16 +2235,15 @@ toExponential(decimalPlaces: number, rounding: Rounding): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(45.6);
 let data1 = data.toExponential(1, Decimal.ROUND_DOWN);
-console.info('test Decimal toExponential:' + data1); // 'test Decimal toExponential:4.5e+1'
+console.info("test Decimal toExponential:" + data1); // 'test Decimal toExponential:4.5e+1'
 ```
 
 
-### toFixed
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toFixed
 
 toFixed(): string
 
@@ -2433,7 +2255,6 @@ toFixed(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回按照正常模式（十进制定点模式）表示的字符串。 |
@@ -2441,16 +2262,15 @@ toFixed(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(3.456);
 let data1: string = data.toFixed();
-console.info('test Decimal toFixed:' + data1); // 'test Decimal toFixed:3.456'
+console.info("test Decimal toFixed:" + data1); // 'test Decimal toFixed:3.456'
 ```
 
 
-### toFixed
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toFixed
 
 toFixed(decimalPlaces: number): string
 
@@ -2464,14 +2284,12 @@ toFixed(decimalPlaces: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | decimalPlaces | number | 是 | 转换时保留的小数点后有效位数，取值范围为[0, 1e9]的整数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2482,7 +2300,6 @@ toFixed(decimalPlaces: number): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `decimalPlaces` is out of range. |
@@ -2490,18 +2307,17 @@ toFixed(decimalPlaces: number): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(3.456);
-let data1: string = data.toFixed(0);
-console.info('test Decimal toFixed:' + data1); // 'test Decimal toFixed:3'
-data1 = data.toFixed(2); // data1：'3.46'
-data1 = data.toFixed(5); // data1：'3.45600'
+let data1: string = data.toFixed(0)
+console.info("test Decimal toFixed:" + data1); // 'test Decimal toFixed:3'
+data1 = data.toFixed(2) // data1：'3.46'
+data1 = data.toFixed(5) // data1：'3.45600'
 ```
 
 
-### toFixed
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toFixed
 
 toFixed(decimalPlaces: number, rounding: Rounding): string
 
@@ -2513,15 +2329,13 @@ toFixed(decimalPlaces: number, rounding: Rounding): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | decimalPlaces | number | 是 | 转换时保留的小数点后有效位数，取值范围为[0, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2532,7 +2346,6 @@ toFixed(decimalPlaces: number, rounding: Rounding): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `decimalPlaces \| rounding` is out of range. |
@@ -2540,16 +2353,15 @@ toFixed(decimalPlaces: number, rounding: Rounding): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(3.456);
 let data1: string = data.toFixed(2, Decimal.ROUND_DOWN);
-console.info('test Decimal toFixed:' + data1); // b：'test Decimal toFixed:3.45'
+console.info("test Decimal toFixed:" + data1); // b：'test Decimal toFixed:3.45'
 ```
 
 
-### toFraction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toFraction
 
 toFraction(): Decimal[]
 
@@ -2561,24 +2373,22 @@ toFraction(): Decimal[]
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal)[] | 返回一个Decimal数组，该数组长度固定为2，其值表示为具有整数分子和整数分母的简单分数。且分子在前，分母在后。 |
+| Decimal[] | 返回一个Decimal数组，该数组长度固定为2，其值表示为具有整数分子和整数分母的简单分数。且分子在前，分母在后。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1.75);
 let data1: Decimal[] = data.toFraction();
-console.info('test Decimal toFraction:' + data1.toString()); // 'test Decimal toFraction:7,4'
+console.info("test Decimal toFraction:" + data1.toString()); // 'test Decimal toFraction:7,4'
 ```
 
 
-### toFraction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toFraction
 
 toFraction(maxDenominator: Value): Decimal[]
 
@@ -2590,24 +2400,21 @@ toFraction(maxDenominator: Value): Decimal[]
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| maxDenominator | [Value](#value) | 是 | 分母的最大值。包含该值。 |
+| maxDenominator | Value | 是 | 分母的最大值。包含该值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal)[] | 返回一个Decimal数组，该数组长度固定为2，其值表示为具有整数分子和整数分母的简单分数。且分子在前，分母在后。 |
+| Decimal[] | 返回一个Decimal数组，该数组长度固定为2，其值表示为具有整数分子和整数分母的简单分数。且分子在前，分母在后。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2616,8 +2423,7 @@ toFraction(maxDenominator: Value): Decimal[]
 
 **示例：**
 
-
-```ts
+```text
 let pi: Decimal = new Decimal('3.14159265358');
 let data1 = pi.toFraction(); // data1：'157079632679,50000000000'
 data1 = pi.toFraction(100000); // data1：'312689, 99532'
@@ -2628,8 +2434,8 @@ data1 = pi.toFraction(1); // data1：'3, 1'
 ```
 
 
-### toNearest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toNearest
 
 toNearest(n: Value): Decimal
 
@@ -2641,14 +2447,12 @@ toNearest(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 参考的指定值。 |
+| n | Value | 是 | 参考的指定值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2659,7 +2463,6 @@ toNearest(n: Value): Decimal
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes:1. Incorrect parameter types;2. Parameter verification failed. |
@@ -2667,16 +2470,15 @@ toNearest(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1.39);
 let data1: Decimal = data.toNearest(0.25);
-console.info('test Decimal toNearest:' + data1.toString()); // 'test Decimal toNearest:1.5'
+console.info("test Decimal toNearest:" + data1.toString()); // 'test Decimal toNearest:1.5'
 ```
 
 
-### toNearest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toNearest
 
 toNearest(n: Value, rounding: Rounding): Decimal
 
@@ -2688,25 +2490,22 @@ toNearest(n: Value, rounding: Rounding): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 参考的指定值。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| n | Value | 是 | 参考的指定值。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个Decimal对象，为最接近原值的指定值的倍数值。 |
+| Decimal | 返回一个Decimal对象，为最接近原值的指定值的倍数值。 |
 
 
-**错误��：**
+**错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2716,16 +2515,15 @@ toNearest(n: Value, rounding: Rounding): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(9.499);
 let data1 = data.toNearest(0.5, Decimal.ROUND_UP); // data1：'9.5'
 data1 = data.toNearest(0.5, Decimal.ROUND_DOWN); // data1：'9'
 ```
 
 
-### toPrecision
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toPrecision
 
 toPrecision(): string
 
@@ -2739,7 +2537,6 @@ toPrecision(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回一个表示Decimal对象的字符串。 |
@@ -2747,16 +2544,15 @@ toPrecision(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(45.6);
 let data1: string = data.toPrecision();
-console.info('test Decimal toPrecision:' + data1); // 'test Decimal toPrecision:45.6'
+console.info("test Decimal toPrecision:" + data1); // 'test Decimal toPrecision:45.6'
 ```
 
 
-### toPrecision
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toPrecision
 
 toPrecision(significantDigits: number): string
 
@@ -2770,14 +2566,12 @@ toPrecision(significantDigits: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2788,7 +2582,6 @@ toPrecision(significantDigits: number): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits` is out of range. |
@@ -2796,17 +2589,16 @@ toPrecision(significantDigits: number): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(45.6);
 let data1: string = data.toPrecision(1);
-console.info('test Decimal toPrecision:' + data1); // 'test Decimal toPrecision:5e+1'
+console.info("test Decimal toPrecision:" + data1); // 'test Decimal toPrecision:5e+1'
 data1 = data.toPrecision(5); // data1：'45.600'
 ```
 
 
-### toPrecision
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toPrecision
 
 toPrecision(significantDigits: number, rounding: Rounding): string
 
@@ -2818,15 +2610,13 @@ toPrecision(significantDigits: number, rounding: Rounding): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2837,7 +2627,6 @@ toPrecision(significantDigits: number, rounding: Rounding): string
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `significantDigits \| rounding` is out of range. |
@@ -2845,16 +2634,15 @@ toPrecision(significantDigits: number, rounding: Rounding): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(45.6);
 let data1: string = data.toPrecision(2, Decimal.ROUND_UP); // data1：'46'
 data1 = data.toPrecision(2, Decimal.ROUND_DOWN); // data1：'45'
 ```
 
 
-### toSignificantDigits
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toSignificantDigits
 
 toSignificantDigits(): Decimal
 
@@ -2868,24 +2656,22 @@ toSignificantDigits(): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个保留有效数字后的Decimal对象实例。 |
+| Decimal | 返回一个保留有效数字后的Decimal对象实例。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(987.654321);
 let data1: Decimal = data.toSignificantDigits();
-console.info('test Decimal toSignificantDigits:' + data1.toString()); // 'test Decimal toSignificantDigits:987.654321'
+console.info("test Decimal toSignificantDigits:" + data1.toString()); // 'test Decimal toSignificantDigits:987.654321'
 ```
 
 
-### toSignificantDigits
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toSignificantDigits
 
 toSignificantDigits(significantDigits: number): Decimal
 
@@ -2899,7 +2685,6 @@ toSignificantDigits(significantDigits: number): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字。 |
@@ -2907,16 +2692,14 @@ toSignificantDigits(significantDigits: number): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个保留有效数字后的Decimal对象实例。 |
+| Decimal | 返回一个保留有效数字后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2925,20 +2708,19 @@ toSignificantDigits(significantDigits: number): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(987.654321);
 let data1: Decimal = data.toSignificantDigits(6);
-console.info('test Decimal toSignificantDigits:' + data1.toString()); // 'test Decimal toSignificantDigits:987.654'
+console.info("test Decimal toSignificantDigits:" + data1.toString()); // 'test Decimal toSignificantDigits:987.654'
 ```
 
 
-### toSignificantDigits
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toSignificantDigits
 
 toSignificantDigits(significantDigits: number, rounding: Rounding): Decimal
 
-返回一个按照保留有效数字的转换的Decimal对象，可���照significantDigits设置有效数字，可按照rounding设置舍入模式。
+返回一个按照保留有效数字的转换的Decimal对象，可按照significantDigits设置有效数字，可按照rounding设置舍入模式。
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
@@ -2946,25 +2728,22 @@ toSignificantDigits(significantDigits: number, rounding: Rounding): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 转换时保留的有效数字，取值范围为[1, 1e9]的整数。 |
-| rounding | [Rounding](#rounding) | 是 | 转换时使用的舍入模式，取值范围参考[Rounding](#rounding)。 |
+| rounding | Rounding | 是 | 转换时使用的舍入模式，取值范围参考Rounding。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个保留有效数字后的Decimal对象实例。 |
+| Decimal | 返回一个保留有效数字后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2973,16 +2752,15 @@ toSignificantDigits(significantDigits: number, rounding: Rounding): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(987.654321);
 let data1: Decimal = data.toSignificantDigits(6, Decimal.ROUND_UP);
-console.info('test Decimal toSignificantDigits:' + data1.toString()); // 'test Decimal toSignificantDigits:987.655'
+console.info("test Decimal toSignificantDigits:" + data1.toString()); // 'test Decimal toSignificantDigits:987.655'
 ```
 
 
-### toNumber
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toNumber
 
 toNumber(): number
 
@@ -2994,7 +2772,6 @@ toNumber(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回一个表示Decimal的number值。 |
@@ -3002,16 +2779,15 @@ toNumber(): number
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(456.789);
 let data1: number = data.toNumber();
-console.info('test Decimal toNumber:' + data1.toString()); // 'test Decimal toNumber:456.789'
+console.info("test Decimal toNumber:" + data1.toString()); // 'test Decimal toNumber:456.789'
 ```
 
 
-### toString
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString
 
 toString(): string
 
@@ -3023,7 +2799,6 @@ toString(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回一个表示Decimal的字符串。 |
@@ -3031,25 +2806,24 @@ toString(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(750000);
 let data1: string = data.toString();
-console.info('test Decimal toString:' + data1); // 'test Decimal toString:750000'
+console.info("test Decimal toString:" + data1); // 'test Decimal toString:750000'
 
 Decimal.set({ toExpPos: 5 });
 data1 = data.toString(); // data1:'7.5e+5'
 
 let data2: Decimal = new Decimal(0.000000123);
-console.info('test Decimal toString:' + data2.toString()); // 'test Decimal toString:1.23e-7'
+console.info("test Decimal toString:" + data2.toString()); // 'test Decimal toString:1.23e-7'
 
 Decimal.set({ toExpNeg: -7 });
 data1 = data2.toString(); // data1:'1.23e-7'
 ```
 
 
-### valueOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### valueOf
 
 valueOf(): string
 
@@ -3061,7 +2835,6 @@ valueOf(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回一个表示Decimal的字符串。 |
@@ -3069,16 +2842,15 @@ valueOf(): string
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(-0);
 let data1: string = data.valueOf();
-console.info('test Decimal valueOf:' + data1); // 'test Decimal valueOf:-0'
+console.info("test Decimal valueOf:" + data1); // 'test Decimal valueOf:-0'
 ```
 
 
-### decimalPlaces
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### decimalPlaces
 
 decimalPlaces(): number
 
@@ -3090,7 +2862,6 @@ decimalPlaces(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回Decimal对象的小数位数。 |
@@ -3098,16 +2869,15 @@ decimalPlaces(): number
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1.234);
 let data1: number = data.decimalPlaces();
-console.info('test Decimal decimalPlaces:' + data1); // 'test Decimal decimalPlaces:3'
+console.info("test Decimal decimalPlaces:" + data1); // 'test Decimal decimalPlaces:3'
 ```
 
 
-### precision
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### precision
 
 precision(): number
 
@@ -3119,7 +2889,6 @@ precision(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回Decimal对象的有效位数。 |
@@ -3127,16 +2896,15 @@ precision(): number
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(1.234);
 let data1: number = data.precision();
-console.info('test Decimal precision:' + data1); // 'test Decimal precision:4'
+console.info("test Decimal precision:" + data1); // 'test Decimal precision:4'
 ```
 
 
-### precision
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### precision
 
 precision(includeZeros: boolean | number): number
 
@@ -3148,14 +2916,12 @@ precision(includeZeros: boolean | number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | includeZeros | boolean \| number | 是 | 是否计算整数部分尾随零。true或1表示计算整数部分尾随零，false或0表示不计算整数部分尾随零。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3166,7 +2932,6 @@ precision(includeZeros: boolean | number): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200001 | The value of `includeZeros` is out of range. |
@@ -3174,17 +2939,16 @@ precision(includeZeros: boolean | number): number
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = new Decimal(987000);
 let data1: number = data.precision();
-console.info('test Decimal precision:' + data1); // 'test Decimal precision:3'
+console.info("test Decimal precision:" + data1); // 'test Decimal precision:3'
 data1 = data.precision(true); // data1:'6'
 ```
 
 
-### abs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### abs
 
 static abs(n: Value): Decimal
 
@@ -3196,24 +2960,21 @@ static abs(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 取绝对值的参数。 |
+| n | Value | 是 | 取绝对值的参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回一个值为参数n的绝对值的Decimal。 |
+| Decimal | 返回一个值为参数n的绝对值的Decimal。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3222,15 +2983,14 @@ static abs(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.abs(-0.5);
-console.info('test Decimal abs:' + data.toString()); // 'test Decimal abs:0.5'
+console.info("test Decimal abs:" + data.toString()); // 'test Decimal abs:0.5'
 ```
 
 
-### floor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### floor
 
 static floor(n: Value): Decimal
 
@@ -3242,24 +3002,21 @@ static floor(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要舍入的值。 |
+| n | Value | 是 | 需要舍入的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回舍入之后的Decimal对象实例。 |
+| Decimal | 返回舍入之后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3268,15 +3025,14 @@ static floor(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.floor(1.8);
-console.info('test Decimal floor:' + data.toString()); // 'test Decimal floor:1'
+console.info("test Decimal floor:" + data.toString()); // 'test Decimal floor:1'
 ```
 
 
-### ceil
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ceil
 
 static ceil(n: Value): Decimal
 
@@ -3288,24 +3044,21 @@ static ceil(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要舍入的值。 |
+| n | Value | 是 | 需要舍入的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回舍入之后的Decimal对象实例。 |
+| Decimal | 返回舍入之后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3314,15 +3067,14 @@ static ceil(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.ceil(1.8);
-console.info('test Decimal ceil:' + data.toString()); // 'test Decimal ceil:2'
+console.info("test Decimal ceil:" + data.toString()); // 'test Decimal ceil:2'
 ```
 
 
-### trunc
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### trunc
 
 static trunc(n: Value): Decimal
 
@@ -3334,24 +3086,21 @@ static trunc(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要截断的值。 |
+| n | Value | 是 | 需要截断的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回截断之后的Decimal对象实例。 |
+| Decimal | 返回截断之后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3360,15 +3109,14 @@ static trunc(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.trunc(2.5);
-console.info('test Decimal trunc:' + data.toString()); // 'test Decimal trunc:2'
+console.info("test Decimal trunc:" + data.toString()); // 'test Decimal trunc:2'
 ```
 
 
-### clamp
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clamp
 
 static clamp(n: Value, min: Value, max: Value): Decimal
 
@@ -3380,26 +3128,23 @@ static clamp(n: Value, min: Value, max: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要被限制的值。 |
-| min | [Value](#value) | 是 | 限制的最小值。包含该值。 |
-| max | [Value](#value) | 是 | 限制的最大值。包含该值。 |
+| n | Value | 是 | 需要被限制的值。 |
+| min | Value | 是 | 限制的最小值。包含该值。 |
+| max | Value | 是 | 限制的最大值。包含该值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回符合范围的Decimal对象实例。 |
+| Decimal | 返回符合范围的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3409,15 +3154,14 @@ static clamp(n: Value, min: Value, max: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.clamp(10.1, 0, 10);
-console.info('test Decimal clamp:' + data.toString()); // 'test Decimal clamp:10'
+console.info("test Decimal clamp:" + data.toString()); // 'test Decimal clamp:10'
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 static add(x: Value, y: Value): Decimal
 
@@ -3431,25 +3175,22 @@ static add(x: Value, y: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | [Value](#value) | 是 | 加法的一个加数。 |
-| y | [Value](#value) | 是 | 加法的另一个加数。 |
+| x | Value | 是 | 加法的一个加数。 |
+| y | Value | 是 | 加法的另一个加数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回加法运算后的Decimal对象实例。 |
+| Decimal | 返回加法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3458,15 +3199,14 @@ static add(x: Value, y: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.add(0.5, 0.5);
-console.info('test Decimal add:' + data.toString()); // 'test Decimal add:1'
+console.info("test Decimal add:" + data.toString()); // 'test Decimal add:1'
 ```
 
 
-### sum
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sum
 
 static sum(...n: Value[]): Decimal
 
@@ -3480,24 +3220,21 @@ static sum(...n: Value[]): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value)[] | 否 | 加数的序列。 |
+| n | Value[] | 否 | 加数的序列。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回加法运算后的Decimal对象实例。 |
+| Decimal | 返回加法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3506,15 +3243,14 @@ static sum(...n: Value[]): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.sum(0.5, 0.5);
-console.info('test Decimal sum:' + data.toString()); // 'test Decimal sum:1'
+console.info("test Decimal sum:" + data.toString()); // 'test Decimal sum:1'
 ```
 
 
-### sub
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sub
 
 static sub(x: Value, y: Value): Decimal
 
@@ -3528,25 +3264,22 @@ static sub(x: Value, y: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | [Value](#value) | 是 | 减法的被减数。 |
-| y | [Value](#value) | 是 | 减法的减数。 |
+| x | Value | 是 | 减法的被减数。 |
+| y | Value | 是 | 减法的减数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回减法运算后的Decimal对象实例。 |
+| Decimal | 返回减法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3555,15 +3288,14 @@ static sub(x: Value, y: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.sub(1, 0.5);
-console.info('test Decimal sub:' + data.toString()); // 'test Decimal sub:0.5'
+console.info("test Decimal sub:" + data.toString()); // 'test Decimal sub:0.5'
 ```
 
 
-### mul
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mul
 
 static mul(x: Value, y: Value): Decimal
 
@@ -3577,25 +3309,22 @@ static mul(x: Value, y: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | [Value](#value) | 是 | 乘法的被乘数。 |
-| y | [Value](#value) | 是 | 乘法的乘数。 |
+| x | Value | 是 | 乘法的被乘数。 |
+| y | Value | 是 | 乘法的乘数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回乘法运算后的Decimal对象实例。 |
+| Decimal | 返回乘法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3604,15 +3333,14 @@ static mul(x: Value, y: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.mul(1, 0.5);
-console.info('test Decimal mul:' + data.toString()); // 'test Decimal mul:0.5'
+console.info("test Decimal mul:" + data.toString()); // 'test Decimal mul:0.5'
 ```
 
 
-### div
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### div
 
 static div(x: Value, y: Value): Decimal
 
@@ -3626,25 +3354,22 @@ static div(x: Value, y: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | [Value](#value) | 是 | 除法的被除数。 |
-| y | [Value](#value) | 是 | 除法的除数。 |
+| x | Value | 是 | 除法的被除数。 |
+| y | Value | 是 | 除法的除数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回除法运算后的Decimal对象实例。 |
+| Decimal | 返回除法运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3653,15 +3378,14 @@ static div(x: Value, y: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.div(1, 0.5);
-console.info('test Decimal div:' + data.toString()); // 'test Decimal div:2'
+console.info("test Decimal div:" + data.toString()); // 'test Decimal div:2'
 ```
 
 
-### mod
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### mod
 
 static mod(x: Value, y: Value): Decimal
 
@@ -3675,25 +3399,22 @@ static mod(x: Value, y: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| x | [Value](#value) | 是 | 模除运算的被除数。 |
-| y | [Value](#value) | 是 | 模除运算的除数。 |
+| x | Value | 是 | 模除运算的被除数。 |
+| y | Value | 是 | 模除运算的除数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回模除运算后的Decimal对象实例。 |
+| Decimal | 返回模除运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3702,15 +3423,14 @@ static mod(x: Value, y: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.mod(2, 1);
-console.info('test Decimal mod:' + data.toString()); // 'test Decimal mod:0'
+console.info("test Decimal mod:" + data.toString()); // 'test Decimal mod:0'
 ```
 
 
-### sqrt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sqrt
 
 static sqrt(n: Value): Decimal
 
@@ -3724,24 +3444,21 @@ static sqrt(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 取平方根的值。 |
+| n | Value | 是 | 取平方根的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回平方根运算后的Decimal对象实例。 |
+| Decimal | 返回平方根运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3750,15 +3467,14 @@ static sqrt(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.sqrt(3);
-console.info('test Decimal sqrt:' + data.toString()); // 'test Decimal sqrt:1.7320508075688772935'
+console.info("test Decimal sqrt:" + data.toString()); // 'test Decimal sqrt:1.7320508075688772935'
 ```
 
 
-### cbrt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cbrt
 
 static cbrt(n: Value): Decimal
 
@@ -3772,24 +3488,21 @@ static cbrt(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 取立方根的值。 |
+| n | Value | 是 | 取立方根的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回立方根运算后的Decimal对象实例。 |
+| Decimal | 返回立方根运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3798,15 +3511,14 @@ static cbrt(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.cbrt(3);
-console.info('test Decimal cbrt:' + data.toString()); // 'test Decimal cbrt:1.4422495703074083823'
+console.info("test Decimal cbrt:" + data.toString()); // 'test Decimal cbrt:1.4422495703074083823'
 ```
 
 
-### pow
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pow
 
 static pow(base: Value, exponent: Value): Decimal
 
@@ -3818,25 +3530,22 @@ static pow(base: Value, exponent: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| base | [Value](#value) | 是 | 幂运算的底数的值。 |
-| exponent | [Value](#value) | 是 | 幂运算的幂的值。 |
+| base | Value | 是 | 幂运算的底数的值。 |
+| exponent | Value | 是 | 幂运算的幂的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回幂运算后的Decimal对象实例。 |
+| Decimal | 返回幂运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3846,15 +3555,14 @@ static pow(base: Value, exponent: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.pow(3, -2);
-console.info('test Decimal pow:' + data.toString()); // 'test Decimal pow:0.11111111111111111111'
+console.info("test Decimal pow:" + data.toString()); // 'test Decimal pow:0.11111111111111111111'
 ```
 
 
-### exp
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### exp
 
 static exp(n: Value): Decimal
 
@@ -3868,24 +3576,21 @@ static exp(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求自然指数的值。 |
+| n | Value | 是 | 需要求自然指数的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回自然指数运算后的Decimal对象实例。 |
+| Decimal | 返回自然指数运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3895,15 +3600,14 @@ static exp(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.exp(2);
-console.info('test Decimal exp:' + data.toString()); // 'test Decimal exp:7.3890560989306502272'
+console.info("test Decimal exp:" + data.toString()); // 'test Decimal exp:7.3890560989306502272'
 ```
 
 
-### log
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### log
 
 static log(n: Value, base: Value): Decimal
 
@@ -3917,25 +3621,22 @@ static log(n: Value, base: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 对数运算的真数。 |
-| base | [Value](#value) | 是 | 对数运算的底数。 |
+| n | Value | 是 | 对数运算的真数。 |
+| base | Value | 是 | 对数运算的底数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回对数运算后的Decimal对象实例。 |
+| Decimal | 返回对数运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3945,15 +3646,14 @@ static log(n: Value, base: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.log(2, 256);
-console.info('test Decimal log:' + data.toString()); // 'test Decimal log:0.125'
+console.info("test Decimal log:" + data.toString()); // 'test Decimal log:0.125'
 ```
 
 
-### ln
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ln
 
 static ln(n: Value): Decimal
 
@@ -3967,24 +3667,21 @@ static ln(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 对数运算的真数。 |
+| n | Value | 是 | 对数运算的真数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回自然对数运算后的Decimal对象实例。 |
+| Decimal | 返回自然对数运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3994,15 +3691,14 @@ static ln(n: Value): Decimal
 
 **示例：**
 
-
-```ts
-let data: Decimal = Decimal.ln(1.23e30);
-console.info('test Decimal ln:' + data.toString()); // 'test Decimal ln:69.284566959205696648'
+```text
+let data: Decimal = Decimal.ln(1.23e+30);
+console.info("test Decimal ln:" + data.toString()); // 'test Decimal ln:69.284566959205696648'
 ```
 
 
-### log2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### log2
 
 static log2(n: Value): Decimal
 
@@ -4016,24 +3712,21 @@ static log2(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 对数运算的真数。 |
+| n | Value | 是 | 对数运算的真数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回以2为底的对数运算后的Decimal对象实例。 |
+| Decimal | 返回以2为底的对数运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4043,15 +3736,14 @@ static log2(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.log2(4);
-console.info('test Decimal log2:' + data.toString()); // 'test Decimal log2:2'
+console.info("test Decimal log2:" + data.toString()); // 'test Decimal log2:2'
 ```
 
 
-### log10
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### log10
 
 static log10(n: Value): Decimal
 
@@ -4065,24 +3757,21 @@ static log10(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 对数运算的真数。 |
+| n | Value | 是 | 对数运算的真数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回以10为底的对数运算后的Decimal对象实例。 |
+| Decimal | 返回以10为底的对数运算后的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4092,15 +3781,14 @@ static log10(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.log10(10000);
-console.info('test Decimal log10:' + data.toString()); // 'test Decimal log10:4'
+console.info("test Decimal log10:" + data.toString()); // 'test Decimal log10:4'
 ```
 
 
-### cos
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cos
 
 static cos(n: Value): Decimal
 
@@ -4114,24 +3802,21 @@ static cos(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 要求余弦值的值。 |
+| n | Value | 是 | 要求余弦值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的余弦值对应的Decimal对象实例。 |
+| Decimal | 返回n的余弦值对应的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4140,15 +3825,14 @@ static cos(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.cos(-0.25);
-console.info('test Decimal cos:' + data.toString()); // 'test Decimal cos:0.96891242171064478414'
+console.info("test Decimal cos:" + data.toString()); // 'test Decimal cos:0.96891242171064478414'
 ```
 
 
-### sin
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sin
 
 static sin(n: Value): Decimal
 
@@ -4162,24 +3846,21 @@ static sin(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 要求正弦值的值。 |
+| n | Value | 是 | 要求正弦值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的正弦值对应的Decimal对象实例。 |
+| Decimal | 返回n的正弦值对应的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4188,15 +3869,14 @@ static sin(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.sin(0.75);
-console.info('test Decimal sin:' + data.toString()); // 'test Decimal sin:0.68163876002333416673'
+console.info("test Decimal sin:" + data.toString()); // 'test Decimal sin:0.68163876002333416673'
 ```
 
 
-### tan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### tan
 
 static tan(n: Value): Decimal
 
@@ -4210,24 +3890,21 @@ static tan(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 要求的正切值的值。 |
+| n | Value | 是 | 要求的正切值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的正切值对应的Decimal对象实例。 |
+| Decimal | 返回n的正切值对应的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4236,15 +3913,14 @@ static tan(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.tan(0.75);
-console.info('test Decimal tan:' + data.toString()); // 'test Decimal tan:0.93159645994407246117'
+console.info("test Decimal tan:" + data.toString()); // 'test Decimal tan:0.93159645994407246117'
 ```
 
 
-### cosh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cosh
 
 static cosh(n: Value): Decimal
 
@@ -4258,24 +3934,21 @@ static cosh(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求的双曲余弦值的值。 |
+| n | Value | 是 | 需要求的双曲余弦值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的双曲余弦值对应的Decimal对象实例。 |
+| Decimal | 返回n的双曲余弦值对应的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4284,15 +3957,14 @@ static cosh(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.cosh(0.5);
-console.info('test Decimal cosh:' + data.toString()); // 'test Decimal cosh:1.1276259652063807852'
+console.info("test Decimal cosh:" + data.toString()); // 'test Decimal cosh:1.1276259652063807852'
 ```
 
 
-### sinh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sinh
 
 static sinh(n: Value): Decimal
 
@@ -4306,24 +3978,21 @@ static sinh(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求的双曲正弦值的值。 |
+| n | Value | 是 | 需要求的双曲正弦值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的双曲正弦值对应的Decimal对象实例。 |
+| Decimal | 返回n的双曲正弦值对应的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4332,15 +4001,14 @@ static sinh(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.sinh(0.5);
-console.info('test Decimal sinh:' + data.toString()); // 'test Decimal sinh:0.52109530549374736162'
+console.info("test Decimal sinh:" + data.toString()); // 'test Decimal sinh:0.52109530549374736162'
 ```
 
 
-### tanh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### tanh
 
 static tanh(n: Value): Decimal
 
@@ -4354,24 +4022,21 @@ static tanh(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求双曲正切值的值。 |
+| n | Value | 是 | 需要求双曲正切值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的双曲正切值对应的Decimal对象实例。 |
+| Decimal | 返回n的双曲正切值对应的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4380,15 +4045,14 @@ static tanh(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.tanh(0.5);
-console.info('test Decimal tanh:' + data.toString()); // 'test Decimal tanh:0.4621171572600097585'
+console.info("test Decimal tanh:" + data.toString()); // 'test Decimal tanh:0.4621171572600097585'
 ```
 
 
-### acos
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### acos
 
 static acos(n: Value): Decimal
 
@@ -4402,24 +4066,21 @@ static acos(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求反余弦值的值。 |
+| n | Value | 是 | 需要求反余弦值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的反余弦值对应的Decimal对象实例。 |
+| Decimal | 返回n的反余弦值对应的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4429,15 +4090,14 @@ static acos(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.acos(0.5);
-console.info('test Decimal acos:' + data.toString()); // 'test Decimal acos:1.0471975511965977462'
+console.info("test Decimal acos:" + data.toString()); // 'test Decimal acos:1.0471975511965977462'
 ```
 
 
-### asin
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### asin
 
 static asin(n: Value): Decimal
 
@@ -4451,24 +4111,21 @@ static asin(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求反正弦值的值。 |
+| n | Value | 是 | 需要求反正弦值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的反正弦值对应的Decimal对象实例。 |
+| Decimal | 返回n的反正弦值对应的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4478,15 +4135,14 @@ static asin(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.asin(0.75);
-console.info('test Decimal asin:' + data.toString()); // 'test Decimal asin:0.84806207898148100805'
+console.info("test Decimal asin:" + data.toString()); // 'test Decimal asin:0.84806207898148100805'
 ```
 
 
-### atan
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### atan
 
 static atan(n: Value): Decimal
 
@@ -4500,24 +4156,21 @@ static atan(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求反正切值的值。 |
+| n | Value | 是 | 需要求反正切值的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的反正切值对应的Decimal对象实例。 |
+| Decimal | 返回n的反正切值对应的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4527,15 +4180,14 @@ static atan(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.atan(0.75);
-console.info('test Decimal atan:' + data.toString()); // 'test Decimal atan:0.6435011087932843868'
+console.info("test Decimal atan:" + data.toString()); // 'test Decimal atan:0.6435011087932843868'
 ```
 
 
-### acosh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### acosh
 
 static acosh(n: Value): Decimal
 
@@ -4549,24 +4201,21 @@ static acosh(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求的双曲余弦的倒数的值。 |
+| n | Value | 是 | 需要求的双曲余弦的倒数的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的双曲余弦的倒数对应的Decimal对象实例。 |
+| Decimal | 返回n的双曲余弦的倒数对应的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4576,15 +4225,14 @@ static acosh(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.acosh(50);
-console.info('test Decimal acosh:' + data.toString()); // 'test Decimal acosh:4.6050701709847571595'
+console.info("test Decimal acosh:" + data.toString()); // 'test Decimal acosh:4.6050701709847571595'
 ```
 
 
-### asinh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### asinh
 
 static asinh(n: Value): Decimal
 
@@ -4598,24 +4246,21 @@ static asinh(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求双曲正弦的倒数的值。 |
+| n | Value | 是 | 需要求双曲正弦的倒数的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的双曲正弦的倒数对应的Decimal对象实例。 |
+| Decimal | 返回n的双曲正弦的倒数对应的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4625,15 +4270,14 @@ static asinh(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.asinh(50);
-console.info('test Decimal asinh:' + data.toString()); // 'test Decimal asinh:4.6052701709914238266'
+console.info("test Decimal asinh:" + data.toString()); // 'test Decimal asinh:4.6052701709914238266'
 ```
 
 
-### atanh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### atanh
 
 static atanh(n: Value): Decimal
 
@@ -4647,24 +4291,21 @@ static atanh(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要求双曲正切的倒数的值。 |
+| n | Value | 是 | 需要求双曲正切的倒数的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回n的双曲正切的倒数对应的Decimal对象实例。 |
+| Decimal | 返回n的双曲正切的倒数对应的Decimal对象实例。 |
 
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库��误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4674,15 +4315,14 @@ static atanh(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.atanh(0.75);
-console.info('test Decimal atanh:' + data.toString()); // 'test Decimal atanh:0.97295507452765665255'
+console.info("test Decimal atanh:" + data.toString()); // 'test Decimal atanh:0.97295507452765665255'
 ```
 
 
-### atan2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### atan2
 
 static atan2(y: Value, x: Value): Decimal
 
@@ -4696,25 +4336,22 @@ static atan2(y: Value, x: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| y | [Value](#value) | 是 | 除法的被除数。 |
-| x | [Value](#value) | 是 | 除法的除数。 |
+| y | Value | 是 | 除法的被除数。 |
+| x | Value | 是 | 除法的除数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回-pi 到 pi 范围内的"y/x"反正切值对应的Decimal对象实例。 |
+| Decimal | 返回-pi 到 pi 范围内的"y/x"反正切值对应的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4724,15 +4361,14 @@ static atan2(y: Value, x: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.atan2(2, 3);
-console.info('test Decimal atan2:' + data.toString()); // 'test Decimal atan2:0.58800260354756755125'
+console.info("test Decimal atan2:" + data.toString()); // 'test Decimal atan2:0.58800260354756755125'
 ```
 
 
-### hypot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hypot
 
 static hypot(...n: Value[]): Decimal
 
@@ -4746,24 +4382,21 @@ static hypot(...n: Value[]): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value)[] | 否 | 需要求平方和的序列。 |
+| n | Value[] | 否 | 需要求平方和的序列。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回值为所有参数平方和的平方根的Decimal对象实例。 |
+| Decimal | 返回值为所有参数平方和的平方根的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4772,15 +4405,14 @@ static hypot(...n: Value[]): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.hypot(2, 3, 4);
-console.info('test Decimal hypot:' + data.toString()); // 'test Decimal hypot:5.3851648071345040313'
+console.info("test Decimal hypot:" + data.toString()); // 'test Decimal hypot:5.3851648071345040313'
 ```
 
 
-### max
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### max
 
 static max(...n: Value[]): Decimal
 
@@ -4792,24 +4424,21 @@ static max(...n: Value[]): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value)[] | 否 | 需要求最大值的序列。 |
+| n | Value[] | 否 | 需要求最大值的序列。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回所有参数中的最大值的Decimal对象实例。 |
+| Decimal | 返回所有参数中的最大值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4818,15 +4447,14 @@ static max(...n: Value[]): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.max(2, 3, 4);
-console.info('test Decimal max:' + data.toString()); // 'test Decimal max:4'
+console.info("test Decimal max:" + data.toString()); // 'test Decimal max:4'
 ```
 
 
-### min
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### min
 
 static min(...n: Value[]): Decimal
 
@@ -4838,24 +4466,21 @@ static min(...n: Value[]): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value)[] | 否 | 需要求最小值的序列。 |
+| n | Value[] | 否 | 需要求最小值的序列。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回所有参数中的最小值的Decimal对象实例。 |
+| Decimal | 返回所有参数中的最小值的Decimal对象实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4864,36 +4489,33 @@ static min(...n: Value[]): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.min(2, 3, 4);
-console.info('test Decimal min:' + data.toString()); // 'test Decimal min:2'
+console.info("test Decimal min:" + data.toString()); // 'test Decimal min:2'
 ```
 
 
-### random
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### random
 
 static random(): Decimal
 
 返回一个值为大于等于0小于1的随机值的Decimal对象。
 
-**元服务API**：���API version 12 开始，该接口支持在元服务中使用。
+**元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Utils.Lang
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 大于等于0小于1的随机值的Decimal对象实例。 |
+| Decimal | 大于等于0小于1的随机值的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4902,14 +4524,13 @@ static random(): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.random();
 ```
 
 
-### random
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### random
 
 static random(significantDigits: number): Decimal
 
@@ -4921,7 +4542,6 @@ static random(significantDigits: number): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | significantDigits | number | 是 | 随机值保留的有效数字。 |
@@ -4929,16 +4549,14 @@ static random(significantDigits: number): Decimal
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 大于等于0小于1的随机值的Decimal对象实例。 |
+| Decimal | 大于等于0小于1的随机值的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4948,14 +4566,13 @@ static random(significantDigits: number): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let data: Decimal = Decimal.random(20);
 ```
 
 
-### sign
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sign
 
 static sign(n: Value): number
 
@@ -4967,14 +4584,12 @@ static sign(n: Value): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要判断的值。 |
+| n | Value | 是 | 需要判断的值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4985,7 +4600,6 @@ static sign(n: Value): number
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes:1. Incorrect parameter types;2. Parameter verification failed. |
@@ -4993,36 +4607,35 @@ static sign(n: Value): number
 
 **示例：**
 
-
-```ts
+```text
 let data1: number = Decimal.sign(2);
-console.info('test Decimal sign:' + data1); // 'test Decimal sign:1'
+console.info("test Decimal sign:" + data1); // 'test Decimal sign:1'
 
 let data2: number = Decimal.sign(-3);
-console.info('test Decimal sign:' + data2); // 'test Decimal sign:-1'
+console.info("test Decimal sign:" + data2); // 'test Decimal sign:-1'
 
 let data3: number = Decimal.sign(0);
-console.info('test Decimal sign:' + data3); // 'test Decimal sign:0'
+console.info("test Decimal sign:" + data3); // 'test Decimal sign:0'
 
 let data4: number = Decimal.sign(3.14);
-console.info('test Decimal sign:' + data4); // 'test Decimal sign:1'
+console.info("test Decimal sign:" + data4); // 'test Decimal sign:1'
 
 let data5: number = Decimal.sign(-1.618);
-console.info('test Decimal sign:' + data5); // 'test Decimal sign:-1'
+console.info("test Decimal sign:" + data5); // 'test Decimal sign:-1'
 
-let data6: number = Decimal.sign('100');
-console.info('test Decimal sign:' + data6); // 'test Decimal sign:1'
+let data6: number = Decimal.sign("100");
+console.info("test Decimal sign:" + data6); // 'test Decimal sign:1'
 
-let data7: number = Decimal.sign('-50');
-console.info('test Decimal sign:' + data7); // 'test Decimal sign:-1'
+let data7: number = Decimal.sign("-50");
+console.info("test Decimal sign:" + data7); // 'test Decimal sign:-1'
 
 let data8: number = Decimal.sign(NaN);
-console.info('test Decimal sign:' + data8); // 'test Decimal sign:NaN'
+console.info("test Decimal sign:" + data8); // 'test Decimal sign:NaN'
 ```
 
 
-### round
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### round
 
 static round(n: Value): Decimal
 
@@ -5034,24 +4647,21 @@ static round(n: Value): Decimal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| n | [Value](#value) | 是 | 需要舍入的值。 |
+| n | Value | 是 | 需要舍入的值。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Decimal](#decimal) | 返回舍入之后的整数对应的Decimal对象实例。 |
+| Decimal | 返回舍入之后的整数对应的Decimal对象实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5060,16 +4670,15 @@ static round(n: Value): Decimal
 
 **示例：**
 
-
-```ts
+```text
 let x = 3.3333333333333;
 let data = Decimal.round(x);
-console.info('test Decimal round:' + data.toString()); // 'test Decimal round:3'
+console.info("test Decimal round:" + data.toString()); // 'test Decimal round:3'
 ```
 
 
-### set
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### set
 
 static set(config: DecimalConfig):void
 
@@ -5081,16 +4690,14 @@ static set(config: DecimalConfig):void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [DecimalConfig](#decimalconfig) | 是 | 需要配置的属性集合。 |
+| config | DecimalConfig | 是 | 需要配置的属性集合。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5101,67 +4708,65 @@ static set(config: DecimalConfig):void
 
 **示例1：**
 
-
-```ts
-let data: Decimal = new Decimal(1.2345678901234567);
+```text
+let data : Decimal = new Decimal(1.2345678901234567);
 Decimal.set({
-  precision: 5,
-  rounding: 4,
-  toExpNeg: -7,
-  toExpPos: 7,
-  maxE: 9e15,
-  minE: -9e15,
-  modulo: 1,
-  crypto: false,
+    precision: 5,
+    rounding: 4,
+    toExpNeg: -7,
+    toExpPos: 7,
+    maxE: 9e15,
+    minE: -9e15,
+    modulo: 1,
+    crypto: false
 });
-let data1: Decimal = data.add(0.5);
-console.info('test Decimal set:' + data1.toString()); // "test Decimal set:1.7346"
+let data1 : Decimal = data.add(0.5);
+console.info("test Decimal set:" + data1.toString()); // "test Decimal set:1.7346"
 // 将配置属性全部设置为默认值
 Decimal.set({ defaults: true });
-let data2: Decimal = data.add(0.5);
-console.info('test Decimal set:' + data2.toString()); // "test Decimal set:1.7345678901234567"
+let data2 : Decimal = data.add(0.5);
+console.info("test Decimal set:" + data2.toString()); // "test Decimal set:1.7345678901234567"
 // 最大有效位数设置为10，其余配置属性设置为默认值
 Decimal.set({ precision: 10, defaults: true });
-let data3: Decimal = data.add(0.5);
-console.info('test Decimal set:' + data3.toString()); // "test Decimal set:1.73456789"
+let data3 : Decimal = data.add(0.5);
+console.info("test Decimal set:" + data3.toString()); // "test Decimal set:1.73456789"
 
 // toExpNeg和toExpPos的用法
 Decimal.set({ toExpNeg: -7 });
-let x0: Decimal = new Decimal(0.00000123); // x0:'0.00000123'
-let x1: Decimal = new Decimal(0.000000123); // x1:'1.23e-7'
+let x0 : Decimal = new Decimal(0.00000123); // x0:'0.00000123'
+let x1 : Decimal = new Decimal(0.000000123); // x1:'1.23e-7'
 
 Decimal.set({ toExpPos: 2 });
-let y0: Decimal = new Decimal(12.3); // y0:'12.3'
-let y1: Decimal = new Decimal(123); // y1:'1.23e+2'
+let y0 : Decimal = new Decimal(12.3); // y0:'12.3'
+let y1 : Decimal = new Decimal(123); // y1:'1.23e+2'
 
 // 所有数据均使用科学计数法表示
 Decimal.set({ toExpPos: 0 });
 
 // minE和maxE的用法
 Decimal.set({ minE: -500 });
-let a0: Decimal = new Decimal('1e-500'); // a0:'1e-500'
-let a1: Decimal = new Decimal('9.9e-501'); // a1:'0e0'
+let a0 : Decimal = new Decimal('1e-500'); // a0:'1e-500'
+let a1 : Decimal = new Decimal('9.9e-501'); // a1:'0e0'
 
 Decimal.set({ minE: -3 });
-let b0: Decimal = new Decimal(0.001); // b0:'0.001'
-let b1: Decimal = new Decimal(0.0001); // b1:'0e0'
+let b0 : Decimal = new Decimal(0.001); // b0:'0.001'
+let b1 : Decimal = new Decimal(0.0001); // b1:'0e0'
 
 Decimal.set({ maxE: 500 });
-let c0: Decimal = new Decimal('9.999e500'); // c0:'9.999e+500'
-let c1: Decimal = new Decimal('1e501'); // c1:'Infinity'
+let c0 : Decimal = new Decimal('9.999e500'); // c0:'9.999e+500'
+let c1 : Decimal = new Decimal('1e501'); // c1:'Infinity'
 
 Decimal.set({ maxE: 4 });
-let d0: Decimal = new Decimal(99999); // d0:'9.9999e+4'
-let d1: Decimal = new Decimal(100000); // d1:'Infinity'
+let d0 : Decimal = new Decimal(99999); // d0:'9.9999e+4'
+let d1 : Decimal = new Decimal(100000); // d1:'Infinity'
 ```
 
 **示例2：**
 
-
-```ts
+```ArkTS
 // /entry/src/main/ets/pages/test.ets
-export function test() {
-  let data: Decimal = new Decimal(1.2345678901234567);
+export function test(){
+  let data : Decimal = new Decimal(1.2345678901234567);
   Decimal.set({
     precision: 5,
     rounding: 0,
@@ -5170,19 +4775,18 @@ export function test() {
     maxE: 9e15,
     minE: -9e15,
     modulo: 1,
-    crypto: false,
+    crypto: false
   });
-  let data1: Decimal = data.add(0.5);
-  console.info('test Decimal set:' + data1.toString()); // 'test Decimal set:1.7346'
+  let data1 : Decimal = data.add(0.5);
+  console.info("test Decimal set:" + data1.toString()); // 'test Decimal set:1.7346'
 }
 ```
 
-
-```ts
+```ArkTS
 // /entry/src/main/ets/pages/Index.ets
-import { test } from './test';
+import {test} from './test';
 
-let data: Decimal = new Decimal(1.2345678901234567);
+let data : Decimal = new Decimal(1.2345678901234567);
 Decimal.set({
   precision: 6,
   rounding: 1,
@@ -5191,11 +4795,11 @@ Decimal.set({
   maxE: 9e15,
   minE: -9e15,
   modulo: 1,
-  crypto: false,
+  crypto: false
 });
-let data1: Decimal = data.add(0.5);
-console.info('test Decimal set:' + data1.toString()); // 'test Decimal set:1.73456'
+let data1 : Decimal = data.add(0.5);
+console.info("test Decimal set:" + data1.toString()); // 'test Decimal set:1.73456'
 test();
 data1 = data1.add(0); // data1:'1.7346'
-console.info('test Decimal set:' + data1.toString()); // 'test Decimal set:1.7346'
+console.info("test Decimal set:" + data1.toString()); // 'test Decimal set:1.7346'
 ```

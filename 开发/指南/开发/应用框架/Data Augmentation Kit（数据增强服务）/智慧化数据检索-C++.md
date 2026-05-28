@@ -4,61 +4,81 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataaugmentation-retrieval-c
 
-## 场景介绍
+##### 场景介绍
 
-智慧化数据检索可用于文件整理，文件搜索等场景，例如：关键词检索、语义检索（文搜文）和跨模态检索（文搜图）。智慧化数据检索通过召回和重排两个阶段实现： 召回是指通过不同的策略或算法从海量数据中快速筛选出候选结果集。这些策略可针对不同的特征、模型或者数据来源，旨在尽可能覆盖各种潜在场景。ArkData提供了向量召回的能力，并支持灵活的条件过滤。 重排是针对召回得到的候选结果集进行二次筛选，通过简单规则或者更复杂的模型（如机器学习或深度学习模型）计算各个结果的相关性分数，并重新排列顺序。
+智慧化数据检索可用于文件整理，文件搜索等场景，例如：关键词检索、语义检索（文搜文）和跨模态检索（文搜图）。智慧化数据检索通过召回和重排两个阶段实现：
 
-## 向量检索召回
+ - 召回是指通过不同的策略或算法从海量数据中快速筛选出候选结果集。这些策略可针对不同的特征、模型或者数据来源，旨在尽可能覆盖各种潜在场景。ArkData提供了向量召回的能力，并支持灵活的条件过滤。
+ - 重排是针对召回得到的候选结果集进行二次筛选，通过简单规则或者更复杂的模型（如机器学习或深度学习模型）计算各个结果的相关性分数，并重新排列顺序。
+
+
+
+
+##### 向量检索召回
 
 向量召回是通过将用户查询转化为向量（需使用嵌入模型进行向量化处理）来检索相似向量，从而实现语义相近内容的召回。向量近似的阈值在召回配置中设定。
 
-## 排序模块
+
+
+##### 排序模块
 
 排序模块包括对结果进行分档以及档内排序，使用的算法有RRF和分数融合排序。
 
-## 对结果进行分档
 
-以召回结果作为输入，基于召回的特征值或者召回分数，实现召回结果的相关性分档。档位共三个，分为高、中、低档位，供业务对最终检索结果相关性进行判断。 对于向量召回，基于配置的一个或多个向量分数阈值对档位进行划分，当文档的向量分数大于等于某档位的阈值时，则划分至该档位。向量分数阈值是由1个或2个范围在[0,1]的数字组成。向量分数阈值有两个值时，分别表示高档位和中档位的阈值，向量分数小于中档位阈值则均为低档位；阈值有一个值时，该值表示高档位阈值，向量分数小于该值则均为低档位，无中档位。
 
-## 约束限制
+##### 对结果进行分档
 
-当前只支持基于向量数据库的召回。 查询词长度不超过512字符。
+以召回结果作为输入，基于召回的特征值或者召回分数，实现召回结果的相关性分档。档位共三个，分为高、中、低档位，供业务对最终检索结果相关性进行判断。
 
-## 接口说明
+对于向量召回，基于配置的一个或多个向量分数阈值对档位进行划分，当文档的向量分数大于等于某档位的阈值时，则划分至该档位。向量分数阈值是由1个或2个范围在[0,1]的数字组成。向量分数阈值有两个值时，分别表示高档位和中档位的阈值，向量分数小于中档位阈值则均为低档位；阈值有一个值时，该值表示高档位阈值，向量分数小于该值则均为低档位，无中档位。
 
+
+
+##### 约束限制
+
+ - 当前只支持基于向量数据库的召回。
+ - 查询词长度不超过512字符。
+
+
+
+
+##### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
-| int [OH_Retrieval_CreateRetriever](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createretriever) (const [OH_Retrieval_Config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_config) *config, [OH_Retrieval_Retriever](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_retriever) **retriever) | 获取检索器。 |
-| int [OH_Retrieval_DestroyRetriever](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroyretriever) ([OH_Retrieval_Retriever](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_retriever) *retriever) | 销毁通过[OH_Retrieval_CreateRetriever](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createretriever)获得的检索器。 |
-| [OH_Retrieval_Config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_config) * [OH_Retrieval_CreateConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createconfig) () | 获取检索器配置。 |
-| int [OH_Retrieval_DestroyConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroyconfig) ([OH_Retrieval_Config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_config) *config) | 销毁通过[OH_Retrieval_CreateConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createconfig)获得的检索配置。 |
-| [OH_Retrieval_DbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_dbconfig) * [OH_Retrieval_CreateDbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createdbconfig) () | 创建一个配置项以打开数据库。 |
-| int [OH_Retrieval_DestroyDbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroydbconfig) ([OH_Retrieval_DbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_dbconfig) *dbConfig) | 销毁[OH_Retrieval_CreateDbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createdbconfig)创建的[OH_Retrieval_DbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_dbconfig)。 |
-| int [OH_Retrieval_SetDbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_setdbconfig) ([OH_Retrieval_DbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_dbconfig) *dbConfig, [OH_Rdb_ConfigV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-rdb-configv2)*rdbConfig) | 设置[OH_Retrieval_DbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_dbconfig)中的数据库配置。 |
-| int [OH_Retrieval_AddConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_addconfig) ([OH_Retrieval_Config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_config) *config, [Retrieval_Channel_Type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#retrieval_channel_type) channelType, [OH_Retrieval_DbConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_dbconfig) *dbConfig) | 设置[OH_Retrieval_Config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_config)中的数据库配置。 |
-| int [OH_Retrieval_Retrieve](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_retrieve) (const [OH_Retrieval_Retriever](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_retriever) *retriever, const [OH_Retrieval_Query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_query) *query, const [OH_Retrieval_Condition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_condition) *condition, void *context, const [OH_Retrieval_Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_callback) *callback) | 执行检索。获得检索器句柄后，输入检索查询词，根据检索条件执行检索，得到检索结果。 |
-| [OH_Retrieval_Condition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_condition) * [OH_Retrieval_CreateCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createcondition) () | 创建检索条件，作为检索接口的入参。 |
-| int [OH_Retrieval_DestroyCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroycondition) ([OH_Retrieval_Condition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_condition) *condition) | 销毁通过[OH_Retrieval_CreateCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createcondition)获得的检索条件。 |
-| int [OH_Retrieval_DestroySubCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroysubcondition) ([OH_Retrieval_SubCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_subcondition) *condition) | 销毁[OH_Retrieval_SubCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_subcondition)对象。 |
-| int [OH_Retrieval_AddSubCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_addsubcondition) ([OH_Retrieval_Condition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_condition) *condition, [OH_Retrieval_SubCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_subcondition) *subCondition) | 在检索条件中，增加子检索条件。 |
-| [OH_Retrieval_VectorCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_vectorcondition) * [OH_Retrieval_CreateVectorCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createvectorcondition) () | 创建向量检索条件。 |
-| int [OH_Retrieval_DestroyVectorCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroyvectorcondition) ([OH_Retrieval_VectorCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_vectorcondition) *condition) | 销毁通过[OH_Retrieval_CreateVectorCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createvectorcondition)获得的检索条件。 |
-| int [OH_Retrieval_SetVectorRecallLimit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_setvectorrecalllimit) ([OH_Retrieval_VectorCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_vectorcondition) *condition, uint32_t limit) | 在检索条件中，设置向量检索结果数量上限1000。 |
-| int [OH_Retrieval_SetSimilarityThreshold](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_setsimilaritythreshold) ([OH_Retrieval_VectorCondition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_vectorcondition) *condition, double threshold) | 在检索条件中，设置向量检索的相似度阈值。 |
-| [OH_Retrieval_Query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_query) * [OH_Retrieval_CreateQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createquery) () | 创建检索词，作为检索接口的入参。 |
-| int [OH_Retrieval_DestroyQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroyquery) ([OH_Retrieval_Query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_query) *query) | 销毁通过[OH_Retrieval_CreateQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_createquery)获得的检索词。 |
-| int [OH_Retrieval_SetOriginalQuestion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_setoriginalquestion) ([OH_Retrieval_Query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_query) *query, const char *question) | 设置[OH_Retrieval_Query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_query)中的检索词。 |
-| int [OH_Retrieval_DestroyRecord](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_destroyrecord) ([OH_Retrieval_Record](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_record) *record) | 销毁通过检索接口[OH_Retrieval_Retrieve](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_retrieve)获得的检索结果。 |
-| int [OH_Retrieval_GetRecordLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_getrecordlength) (const [OH_Retrieval_Record](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_record) *record, uint32_t *length) | 获取检索结果[OH_Retrieval_Record](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_record)中的数据库bucket数组长度。 |
-| int [OH_Retrieval_GetRecordItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_getrecorditem) (const [OH_Retrieval_Record](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_record) *record, uint32_t index, const [OH_Retrieval_RecordItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_recorditem) **item) | 获取检索结果[OH_Retrieval_Record](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_record)中的数据库bucket数组。 |
-| int [OH_Retrieval_GetItemSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_getitemsize) (const [OH_Retrieval_RecordItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_recorditem) *items, const char *fieldName, size_t *size) | 获取数据库bucket数组[OH_Retrieval_RecordItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_recorditem)中指定字段的值的size。size值包含结束符。 |
-| int [OH_Retrieval_GetItemText](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_getitemtext) (const [OH_Retrieval_RecordItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_recorditem) *items, const char *fieldName, char *value, size_t size) | 获取数据库bucket数组[OH_Retrieval_RecordItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval#oh_retrieval_recorditem)中指定字段的值。 |
+| int OH_Retrieval_CreateRetriever (const OH_Retrieval_Config *config, OH_Retrieval_Retriever **retriever) | 获取检索器。 |
+| int OH_Retrieval_DestroyRetriever (OH_Retrieval_Retriever *retriever) | 销毁通过OH_Retrieval_CreateRetriever获得的检索器。 |
+| OH_Retrieval_Config * OH_Retrieval_CreateConfig () | 获取检索器配置。 |
+| int OH_Retrieval_DestroyConfig (OH_Retrieval_Config *config) | 销毁通过OH_Retrieval_CreateConfig获得的检索配置。 |
+| OH_Retrieval_DbConfig * OH_Retrieval_CreateDbConfig () | 创建一个配置项以打开数据库。 |
+| int OH_Retrieval_DestroyDbConfig (OH_Retrieval_DbConfig *dbConfig) | 销毁OH_Retrieval_CreateDbConfig创建的OH_Retrieval_DbConfig。 |
+| int OH_Retrieval_SetDbConfig (OH_Retrieval_DbConfig *dbConfig, OH_Rdb_ConfigV2*rdbConfig) | 设置OH_Retrieval_DbConfig中的数据库配置。 |
+| int OH_Retrieval_AddConfig (OH_Retrieval_Config *config, Retrieval_Channel_Type channelType, OH_Retrieval_DbConfig *dbConfig) | 设置OH_Retrieval_Config中的数据库配置。 |
+| int OH_Retrieval_Retrieve (const OH_Retrieval_Retriever *retriever, const OH_Retrieval_Query *query, const OH_Retrieval_Condition *condition, void *context, const OH_Retrieval_Callback *callback) | 执行检索。获得检索器句柄后，输入检索查询词，根据检索条件执行检索，得到检索结果。 |
+| OH_Retrieval_Condition * OH_Retrieval_CreateCondition () | 创建检索条件，作为检索接口的入参。 |
+| int OH_Retrieval_DestroyCondition (OH_Retrieval_Condition *condition) | 销毁通过OH_Retrieval_CreateCondition获得的检索条件。 |
+| int OH_Retrieval_DestroySubCondition (OH_Retrieval_SubCondition *condition) | 销毁OH_Retrieval_SubCondition对象。 |
+| int OH_Retrieval_AddSubCondition (OH_Retrieval_Condition *condition, OH_Retrieval_SubCondition *subCondition) | 在检索条件中，增加子检索条件。 |
+| OH_Retrieval_VectorCondition * OH_Retrieval_CreateVectorCondition () | 创建向量检索条件。 |
+| int OH_Retrieval_DestroyVectorCondition (OH_Retrieval_VectorCondition *condition) | 销毁通过OH_Retrieval_CreateVectorCondition获得的检索条件。 |
+| int OH_Retrieval_SetVectorRecallLimit (OH_Retrieval_VectorCondition *condition, uint32_t limit) | 在检索条件中，设置向量检索结果数量上限1000。 |
+| int OH_Retrieval_SetSimilarityThreshold (OH_Retrieval_VectorCondition *condition, double threshold) | 在检索条件中，设置向量检索的相似度阈值。 |
+| OH_Retrieval_Query * OH_Retrieval_CreateQuery () | 创建检索词，作为检索接口的入参。 |
+| int OH_Retrieval_DestroyQuery (OH_Retrieval_Query *query) | 销毁通过OH_Retrieval_CreateQuery获得的检索词。 |
+| int OH_Retrieval_SetOriginalQuestion (OH_Retrieval_Query *query, const char *question) | 设置OH_Retrieval_Query中的检索词。 |
+| int OH_Retrieval_DestroyRecord (OH_Retrieval_Record *record) | 销毁通过检索接口OH_Retrieval_Retrieve获得的检索结果。 |
+| int OH_Retrieval_GetRecordLength (const OH_Retrieval_Record *record, uint32_t *length) | 获取检索结果OH_Retrieval_Record中的数据库bucket数组长度。 |
+| int OH_Retrieval_GetRecordItem (const OH_Retrieval_Record *record, uint32_t index, const OH_Retrieval_RecordItem **item) | 获取检索结果OH_Retrieval_Record中的数据库bucket数组。 |
+| int OH_Retrieval_GetItemSize (const OH_Retrieval_RecordItem *items, const char *fieldName, size_t *size) | 获取数据库bucket数组OH_Retrieval_RecordItem中指定字段的值的size。size值包含结束符。 |
+| int OH_Retrieval_GetItemText (const OH_Retrieval_RecordItem *items, const char *fieldName, char *value, size_t size) | 获取数据库bucket数组OH_Retrieval_RecordItem中指定字段的值。 |
 
 
-## 开发步骤
 
-在CMake脚本中链接动态库。
+
+##### 开发步骤
+1. 在CMake脚本中链接动态库。
+
+  
 ```text
 find_library(aip_retrieval_ndk libnative_aip_retrieval_ndk.z.so)
 target_link_libraries(
@@ -69,7 +89,9 @@ target_link_libraries(
     )
 ```
 
-导入头文件。
+2. 导入头文件。
+
+  
 ```text
 #include "dataaugmentation/retrieval/aip_retrieval.h"
 #include "dataaugmentation/retrieval/aip_retrieval_condition.h"
@@ -79,7 +101,9 @@ target_link_libraries(
 #include "dataaugmentation/aip_error_code.h"
 ```
 
-初始化数据。
+3. 初始化数据。
+
+  
 ```text
 RdbHelper::DeleteRdbStore("/data/test/rdb/vector_test.db");
 RdbStoreConfig vectorConfig("/data/test/rdb/vector_test.db");
@@ -87,7 +111,7 @@ vectorConfig.SetIsVector(true);
 TestOpenDbCallback helper;
 int errCode = OHOS::NativeRdb::E_OK;
 int version = 2;
-std::shared_ptr vectorStore = RdbHelper::GetRdbStore(vectorConfig, version, helper, errCode);
+std::shared_ptr<RdbStore> vectorStore = RdbHelper::GetRdbStore(vectorConfig, version, helper, errCode);
 std::string sqlCreateVectorTable = "CREATE TABLE IF NOT EXISTS vector ("
 "fileid TEXT PRIMARY KEY,"
 "filename_text TEXT,"
@@ -132,7 +156,9 @@ std::string sqlInsertVector9 =
 indexPair = vectorStore->Execute(sqlInsertVector9.c_str());
 ```
 
-配置数据库相关的信息和上下文对象，并且生成检索器对象，用于后面的检索。
+4. 配置数据库相关的信息和上下文对象，并且生成检索器对象，用于后面的检索。
+
+  
 ```text
 // 创建检索器
 // 创建检索器配置
@@ -159,7 +185,9 @@ ret = OH_Retrieval_SetDbConfig(dbConfig, rdbConfig);
 ret = OH_Retrieval_AddConfig(config, Retrieval_TYPE_VECTOR, dbConfig);
 ```
 
-执行检索：使用前一步获取到的检索器，配合检索条件进行检索。
+5. 执行检索：使用前一步获取到的检索器，配合检索条件进行检索。
+
+  
 ```text
 // 创建检索器
 OH_Retrieval_Retriever* retriever = nullptr;
@@ -208,7 +236,9 @@ static void Callback(void *context, OH_Retrieval_Record *record)
 int ret = OH_Retrieval_Retrieve(retriever, query, condition, &Callback);
 ```
 
-销毁相关资源。
+6. 销毁相关资源。
+
+  
 ```text
 // 销毁检索器配置
 int ret = OH_Retrieval_DestroyConfig(config);
@@ -227,8 +257,9 @@ ret = OH_Retrieval_DestroyCondition(condition);
 ```
 
 
-## C++完整示例
 
+
+##### C++完整示例
 
 ```text
 #include "dataaugmentation/retrieval/aip_retrieval.h"
@@ -237,7 +268,7 @@ ret = OH_Retrieval_DestroyCondition(condition);
 #include "dataaugmentation/retrieval/aip_retrieval_query.h"
 #include "dataaugmentation/retrieval/aip_retrieval_record.h"
 #include "dataaugmentation/aip_error_code.h"
-#include
+#include <string>
 
 size_t g_size = 0;
 char g_value[50];
@@ -275,7 +306,7 @@ void test() {
         const OH_Retrieval_RecordItem *item = nullptr;
 
         ret = OH_Retrieval_GetRecordItem(record, 0, &item);
-
+        
         std::string fieldName = "subject";
 
         ret = OH_Retrieval_GetItemSize(item, fieldName.c_str(), &g_size);
@@ -287,7 +318,7 @@ void test() {
     };
 
     ret = OH_Retrieval_Retrieve(retriever, query, condition, nullptr, &callback);
-
+   
     // destroy
     ret = OH_Retrieval_DestroyConfig(config);
 
@@ -296,11 +327,11 @@ void test() {
     ret = OH_Rdb_DestroyConfig(rdbConfig);
 
     ret = OH_Retrieval_DestroyRetriever(retriever);
-
+    
     ret = OH_Retrieval_DestroyQuery(query);
-
+    
     ret = OH_Retrieval_DestroyVectorCondition(subCondition);
-
+    
     ret = OH_Retrieval_DestroyCondition(condition);
 }
 ```

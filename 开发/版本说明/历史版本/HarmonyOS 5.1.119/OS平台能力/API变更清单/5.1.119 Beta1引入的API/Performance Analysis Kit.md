@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除错误码 | 类名：hidebug； API声明：function dumpJsRawHeapData(needGC?: boolean): Promise<string>; 差异内容：401 | 类名：hidebug； API声明：function dumpJsRawHeapData(needGC?: boolean): Promise<string>; 差异内容：NA | api/@ohos.hidebug.d.ts |
+| 删除错误码 | 类名：hidebug； API声明：function dumpJsRawHeapData(needGC?: boolean): Promise&lt;string&gt;; 差异内容：401 | 类名：hidebug； API声明：function dumpJsRawHeapData(needGC?: boolean): Promise&lt;string&gt;; 差异内容：NA | api/@ohos.hidebug.d.ts |
 | 新增API | NA | 类名：hiTraceMeter； API声明：function traceByValue(level: HiTraceOutputLevel, name: string, count: number): void; 差异内容：function traceByValue(level: HiTraceOutputLevel, name: string, count: number): void; | api/@ohos.hiTraceMeter.d.ts |
 | 新增API | NA | 类名：hiTraceMeter； API声明：enum HiTraceOutputLevel 差异内容：enum HiTraceOutputLevel | api/@ohos.hiTraceMeter.d.ts |
 | 新增API | NA | 类名：HiTraceOutputLevel； API声明：DEBUG = 0 差异内容：DEBUG = 0 | api/@ohos.hiTraceMeter.d.ts |

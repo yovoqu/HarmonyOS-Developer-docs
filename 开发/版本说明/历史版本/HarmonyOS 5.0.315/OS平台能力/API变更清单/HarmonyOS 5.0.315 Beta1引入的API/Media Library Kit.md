@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 错误码变更 | 类名：MediaAssetManager； API声明：static requestVideoFile(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, fileUri: string, dataHandler: MediaAssetDataHandler<boolean>): Promise<string>; 差异内容：14000011,201,401 | 类名：MediaAssetManager； API声明：static requestVideoFile(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, fileUri: string, dataHandler: MediaAssetDataHandler<boolean>): Promise<string>; 差异内容：14000011,201,401,801 | api/@ohos.file.photoAccessHelper.d.ts |
+| 错误码变更 | 类名：MediaAssetManager； API声明：static requestVideoFile(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, fileUri: string, dataHandler: MediaAssetDataHandler&lt;boolean&gt;): Promise&lt;string&gt;; 差异内容：14000011,201,401 | 类名：MediaAssetManager； API声明：static requestVideoFile(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, fileUri: string, dataHandler: MediaAssetDataHandler&lt;boolean&gt;): Promise&lt;string&gt;; 差异内容：14000011,201,401,801 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：photoAccessHelper； API声明： enum CompatibleMode 差异内容： enum CompatibleMode | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：CompatibleMode； API声明：ORIGINAL_FORMAT_MODE = 0 差异内容：ORIGINAL_FORMAT_MODE = 0 | api/@ohos.file.photoAccessHelper.d.ts |
 | 新增API | NA | 类名：CompatibleMode； API声明：COMPATIBLE_FORMAT_MODE = 1 差异内容：COMPATIBLE_FORMAT_MODE = 1 | api/@ohos.file.photoAccessHelper.d.ts |

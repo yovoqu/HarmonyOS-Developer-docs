@@ -1,32 +1,53 @@
 # toybox
 
-更新时间：2026-05-22 07:27:49
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toybox
 
 toybox 是一个轻量级的Linux命令行工具集合，它将常用的Linux命令行工具合并到一个单独的可执行文件中。
+  
 
-#### 前置条件
-#### 使用方法1
+##### 前置条件
+
+  
+
+##### 使用方法1
+
 - 正常连接设备
 - 使用hdc shell进入命令行执行模式
 
-#### 使用方法2
+ 
+  
+
+##### 使用方法2
+
 - 应用沙箱内运行
 
-#### 命令行说明
+ 
+  
+
+##### 命令行说明
+
 toybox的执行方式有两种：
+ 
 - toybox [COMMAND] [ARGUMENTS...]
 - 直接执行 [COMMAND] [ARGUMENTS...]
-其中 [COMMAND] 可被替换为toybox支持的任意命令（可通过输入不带参数的toybox命令查询）。
-[ARGUMENTS...] 为[COMMAND]所需要的参数。
 
-> [!NOTE] 说明
+ 
+其中 [COMMAND] 可被替换为toybox支持的任意命令（可通过输入不带参数的toybox命令查询）。
+ 
+[ARGUMENTS...] 为[COMMAND]所需要的参数。
+ 
+> [!NOTE]
 > 当前版本中，不同设备对toybox的支持情况存在差异。开发者可直接执行toybox获取设备支持的全量命令。
 
-#### 帮助命令
-格式：toybox [--long | --help | --version | [COMMAND] [ARGUMENTS...]]
+ 
+  
 
+##### 帮助命令
+
+格式：toybox [--long | --help | --version | [COMMAND] [ARGUMENTS...]]
+  
 | 选项 | 参数 | 说明 |
 | --- | --- | --- |
 | --help | NA | 显示命令帮助。 |
@@ -34,31 +55,38 @@ toybox的执行方式有两种：
 | --version | NA | 显示版本号。 |
 | NA | NA | 显示所有[COMMAND]支持的命令。 |
 | [COMMAND] | [ARGUMENTS] | 执行具体的命令。大部分命令也支持--help和--version参数。 |
-
+ 
+ 
 格式：help [-ahu] [COMMAND]
-
+  
 | 参数 | 说明 |
 | --- | --- |
 | COMMAND | 显示COMMAND的帮助。[COMMAND] 可被替换为toybox支持的任意命令。 |
-
-
+ 
+  
 | 选项 | 说明 |
 | --- | --- |
 | -a | 显示所有命令的帮助。 |
 | -h | 仅显示help命令的帮助。 |
 | -u | 以HTML方式显示help命令的帮助。 |
+ 
+ 
+  
 
-#### 数学与计算机基础函数
-
+##### 数学与计算机基础函数
+ 
 | 命令 | 说明 |
 | --- | --- |
 | factor | 分解质因数。 usage: factor [-hx] NUMBER... |
 | mcookie | 生成128位强随机数。 usage: mcookie [-vV] |
 | mkpasswd | 对密码进行加密。 usage: mkpasswd [-P FD] [-m TYPE] [-S SALT] [PASSWORD] [SALT] |
 | uuidgen | 创建并打印新的RFC4122随机UUID。 usage: uuidgen |
+ 
+ 
+  
 
-#### 终端操作
-
+##### 终端操作
+ 
 | 命令 | 说明 |
 | --- | --- |
 | chvt | 切换到虚拟终端N。 usage: chvt NUM |
@@ -67,18 +95,24 @@ toybox的执行方式有两种：
 | nohup | 运行一个独立于终端的命令。 usage: nohup COMMAND... |
 | tty | 显示连接到标准输入设备的终端的名称。 usage: tty [-s] |
 | reset | 复位终端。 usage: reset |
+ 
+ 
+  
 
-#### sh逻辑命令
-
+##### sh逻辑命令
+ 
 | 命令 | 说明 |
 | --- | --- |
 | false | 返回非零值。 usage: false |
 | test | 通过执行测试返回true或false。没有参数时返回false。 usage: test [-bcdefghkLprSsuwx PATH] [-nz STRING] [-t FD] [X ?? Y] |
 | true | 返回零。 usage: true |
 | yes | 反复输出行直到被杀死。如果没有参数，则输出“y”。 usage: yes [args...] |
+ 
+ 
+  
 
-#### 系统操作
-
+##### 系统操作
+ 
 | 命令 | 说明 |
 | --- | --- |
 | dmesg | 显示或控制内核环形缓冲区。 usage: dmesg [-Cc] [-r \| -t \| -T] [-n LEVEL] [-s SIZE] [-w \| -W] |
@@ -94,9 +128,12 @@ toybox的执行方式有两种：
 | swapon | 在指定的设备或文件上，使能内存交换。 usage: swapon [-d] [-p priority] filename |
 | uname | 打印系统信息。 usage: uname [-asnrvmo] |
 | vmstat | 打印虚拟内存信息。 usage: vmstat [-n] [DELAY [COUNT]] |
+ 
+ 
+  
 
-#### 时间日期
-
+##### 时间日期
+ 
 | 命令 | 说明 |
 | --- | --- |
 | cal | 打印日历。 usage: cal [-h] [[[DAY] MONTH] YEAR] |
@@ -105,9 +142,12 @@ toybox的执行方式有两种：
 | time | 运行命令行并报告真实时间、用户时间和系统时间（以秒为单位）。(真实时间=时钟时间，用户时间=命令代码使用cpu的时间，系统时间=操作系统使用cpu的时间。) usage: time [-pv] COMMAND... |
 | uptime | 显示当前时间，系统运行了多长时间，用户数量，以及过去1、5和15分钟的系统负载平均值。 usage: uptime [-ps] |
 | usleep | 等待设置的时间后再退出，单位微秒。 usage: usleep MICROSECONDS |
+ 
+ 
+  
 
-#### 登录用户操作
-
+##### 登录用户操作
+ 
 | 命令 | 说明 |
 | --- | --- |
 | groups | 打印用户所在的组。 usage: groups [user] |
@@ -115,9 +155,12 @@ toybox的执行方式有两种：
 | logname/whoami | 打印当前用户名。 usage: logname/whoami |
 | who | 打印有关已登录用户的信息。 usage: who |
 | w | 显示用户登录情况和登录时间。 usage: w |
+ 
+ 
+  
 
-#### 进程操作
-
+##### 进程操作
+ 
 | 命令 | 说明 |
 | --- | --- |
 | iotop | 根据I/O对进程排序。 usage: iotop [-AaKObq] [-n NUMBER] [-d SECONDS] [-p PID,] [-u USER,] |
@@ -137,9 +180,12 @@ toybox的执行方式有两种：
 | ulimit/prlimit | 显示或者设置进程的资源限制。 usage: ulimit/prlimit [-P PID] [-SHRacdefilmnpqrstuv] [LIMIT] |
 | watch | 每隔-n秒运行一次参数中的命令，显示执行结果。按q退出。 usage: watch [-tebx] [-n SEC] COMMAND... |
 | xargs | 运行命令行一次或多次，附加标准输入设备中的参数。 usage: xargs [-0Pprt] [-snE STR] COMMAND... |
+ 
+ 
+  
 
-#### 设备节点操作
-
+##### 设备节点操作
+ 
 | 命令 | 说明 |
 | --- | --- |
 | df | 显示命令行中列出的每个文件系统的总共、已使用和空闲的磁盘空间。无参数时显示已装载的所有文件系统。 usage: df [-aHhikP] [-t TYPE] [FILE...] |
@@ -155,9 +201,12 @@ toybox的执行方式有两种：
 | sync | 将缓存的数据写到磁盘。 usage: sync |
 | sysctl | 读写 /proc/sys 下的系统控制数据。 usage: sysctl [-aAeNnqw] [-p [FILE] \| KEY[=VALUE]...] |
 | umount | 取消挂载文件系统。 usage: umount [-a [-t TYPE[,TYPE...]]] [-vrfD] [DIR...] |
+ 
+ 
+  
 
-#### 网络操作
-
+##### 网络操作
+ 
 | 命令 | 说明 |
 | --- | --- |
 | ftpget/ftpput | 与FTP服务器沟通，支持读、写、列举文件等操作。ftpget自带-g选项。ftpput自带-s选项。 usage: ftpget/ftpput [-cvgslLmMdD] [-p PORT] [-P PASSWORD] [-u USER] HOST [LOCAL] REMOTE |
@@ -167,9 +216,12 @@ toybox的执行方式有两种：
 | telnet | 连接telnet服务器。 usage: telnet HOST [PORT] |
 | traceroute/traceroute6 | 跟踪报文到HOST的路径。traceroute6自带-6选项。 usage: traceroute [-46FUIldnvr] [-f 1ST_TTL] [-m MAXTTL] [-p PORT] [-q PROBES] [-s SRC_IP] [-t TOS] [-w WAIT_SEC] [-g GATEWAY] [-i IFACE] [-z PAUSE_MSEC] HOST [BYTES] usage: traceroute6 [-dnrv] [-m MAXTTL] [-p PORT] [-q PROBES][-s SRC_IP] [-t TOS] [-w WAIT_SEC] [-i IFACE] HOST [BYTES] |
 | wget | 从网络上下载资源。 usage: wget [OPTIONS]... [URL] [OPTIONS] = --max-redirect x -d -O filename -p data |
+ 
+ 
+  
 
-#### 文件操作
-
+##### 文件操作
+ 
 | 命令 | 说明 |
 | --- | --- |
 | awk | awk是一个处理文本的工具，可对文档内容进行筛选、分析。 usage: awk [-F sepstring] [-v assignment]... program [argument...] or: awk [-F sepstring] -f progfile [-f progfile]... [-v assignment]... [argument...] |
@@ -197,7 +249,7 @@ toybox的执行方式有两种：
 | expand | 根据输入参数将制表符展开为空格。 usage: expand [-t TABLIST] [FILE...] |
 | fallocate | 让文件系统给文件预留空间。 usage: fallocate [-o OFFSET] -l SIZE FILE |
 | file | 检查给定的文件并描述其内容类型。 usage: file [-bhLs] [FILE...] |
-| find | 在目录中搜索匹配的文件。 usage: find [-HL] [DIR...] [&lt;options&gt;] |
+| find | 在目录中搜索匹配的文件。 usage: find [-HL] [DIR...] [[/topic/body/section/table/tgroup/tbody/row/entry/p/options {""}) ] (options] |
 | flock | 管理文件锁（advisory lock）。 usage: flock [-sxun] fd |
 | fmt | 将输入重新格式化为给定行长的换行，保留现有的缩进级别，写入标准输出设备。 usage: fmt [-w WIDTH] [FILE...] |
 | gunzip | 解压文件。如果没有文件，则从标准输入设备解压到标准输出设备。成功后，输入文件将被删除并替换为新的没有.gz后缀的文件。 usage: gunzip [-cfkt] [FILE...] |
@@ -209,7 +261,7 @@ toybox的执行方式有两种：
 | link | 创建文件的硬链接。 usage: link FILE NEWLINK |
 | ln | 在 FROM 和 TO 之间创建软/硬链接。 usage: ln [-fnrsTv] [-t DIR] [FROM...] TO |
 | ls | 查看当前目录有哪些文件/文件夹。 usage: ls [-1ACFHLNRSUXZabcdfghilmnopqrstuwx] [--color[=auto]] [FILE...] |
-| lsattr | 列出Linux文件系统中的文件属性。usage: lsattr [-Radlv] [Files...] |
+| lsattr | 列出Linux文件系统中的文件属性。 usage: lsattr [-Radlv] [Files...] |
 | lsof | 列出属于所有活跃进程的所有打开的文件，或使用列出的FILE的进程。 usage: lsof [-lt] [-p PID1,PID2,...] [FILE...] |
 | md5sum | 计算每个输入文件的哈希，如果没有，则从标准输入设备读取。每个输入文件输出一行哈希后跟文件名。 usage: ???sum [-bcs] [FILE]... |
 | mkdir | 创建一个或多个目录。 usage: mkdir [-vp] [-m MODE] [DIR...] |
@@ -256,30 +308,62 @@ toybox的执行方式有两种：
 | which | 在$PATH中搜索与文件名匹配的可执行文件。 usage: which [-a] filename ... |
 | xxd | 以16进制的形式显示文件内容。若没有列出任何文件，从标准输入设备复制。 usage: xxd [-eipr] [-cglos N] [file] |
 | zcat | 将文件解压缩到标准输出设备。比如“gzip -dc”。 usage: zcat [-f] [FILE...] |
+ 
+ 
+  
 
-#### 常见问题
-#### 报错："Unknown COMMAND xxx"
+##### 常见问题
+
+  
+
+##### 报错："Unknown COMMAND xxx"
+
 在命令行中输入"xxx"或"toybox xxx"或"help xxx"时，如果遇到报错"Unknown COMMAND xxx"，表示toybox不支持xxx命令。
+ 
 如果该命令在本文的描述中，则证明产品未编译该命令。如需帮助请通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
+ 
+  
 
-#### 报错："Operation not permitted"/"Permission denied"
+##### 报错："Operation not permitted"/"Permission denied"
+
 toybox存在大量操作文件和进程的命令，如果调用者缺少对被操作对象的权限，就会报错。
-1. 权限缺失。请检查被操作的文件，以及所属文件夹的读、写、执行权限，确认自己是否有权限执行。
+ 1. 权限缺失。请检查被操作的文件，以及所属文件夹的读、写、执行权限，确认自己是否有权限执行。
 2. SELinux拦截。可以在内核日志中搜索"avc: denied"关键字。
+ 
 例子：
+ 
 如果出现类似avc: denied { xxx } for comm="ls" xxxxxx的日志，表示命令ls触发了SELinux拦截。
+ 
 如遇权限缺失问题，又需要执行该命令，可通过“华为开发者联盟官网”->“支持”，[在线提单](https://developer.huawei.com/consumer/cn/support/)方式获取支持。
+ 
+  
 
-#### 其他Linux标准报错
+##### 其他Linux标准报错
+
 toybox大部分命令为对内核的调用，出错时会通过perror打印Linux内核错误码对应的文本。
+ 
 常见的错误有："File exists"/"Not a directory"/"Read-only file system"等。
+ 
 这些为Linux标准错误，可以参考Linux相关资料查询报错原因。请根据具体报错，检查命令的参数或者命令的格式是否出现错误。
+ 
 例子：
+ 
 试图在只读文件系统中进行创建文件的操作，会有报错"Read-only file system"。
+ 
 cat可以打印文件内容，如果试图cat一个目录，会有报错 "Is a directory"。
+ 
 试图用ls命令查看一个不存在的文件或目录，会有报错"No such file or directory"。
+ 
+  
 
-#### 命令与toybox描述不符合
+##### 命令与toybox描述不符合
+
 如果发现在shell下输入"命令 参数"的表现与"toybox 命令 参数"不一致，可能有两种原因导致。
-1. 实际调用的是shell的实现而非toybox。 对于time/test/pwd/realpath/ulimit/kill等命令，shell会直接使用自己的实现。 此时如果想要调用toybox命令，请使用"toybox [COMMAND] [ARGUMENTS...]"的格式。
-2. 设备未将该命令配置给toybox，而是有另外的实现。 此时如果想要调用toybox命令，请使用"toybox [COMMAND] [ARGUMENTS...]"的格式。
+ 1. 实际调用的是shell的实现而非toybox。
+
+  对于time/test/pwd/realpath/ulimit/kill等命令，shell会直接使用自己的实现。
+
+  此时如果想要调用toybox命令，请使用"toybox [COMMAND] [ARGUMENTS...]"的格式。
+2. 设备未将该命令配置给toybox，而是有另外的实现。
+
+  此时如果想要调用toybox命令，请使用"toybox [COMMAND] [ARGUMENTS...]"的格式。

@@ -5,20 +5,19 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audiovivid-audiodecoder
 
 获取解封装后的数据，送入解码器中，使用解码器获取PCM和Metadata元数据。详细的API请参考[AudioCodec模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-audiocodec)。
-
- Audio Vivid解码当前支持的规格如下表所示。
-
-
+ 
+Audio Vivid解码当前支持的规格如下表所示。
+  
 | 规格项 | 支持范围 |
 | --- | --- |
 | 支持采样率 | 32000，44100，48000，96000，192000 |
 | 支持码率范围 | 16000~3075000 |
 | 支持声道数 | 1~16 |
 | 支持的位深 | S16，S24 |
+ 
+  
 
-
-## 在CMake脚本中链接到动态库
-
+##### 在CMake脚本中链接到动态库
 
 ```text
 target_link_libraries(sample PUBLIC
@@ -26,15 +25,15 @@ libnative_media_codecbase.so libnative_media_core.so
 libnative_media_acodec.so libnative_media_avdemuxer.so libnative_media_avsource.so
 )
 ```
+ 
+  
 
-
-## 添加头文件
-
+##### 添加头文件
 
 ```text
 //解封装头文件
 #include "multimedia/player_framework/native_avdemuxer.h"
-#include
+#include <string>
 
 // 解封装解码传递信息结构体
 struct AudioSampleInfo {
@@ -49,11 +48,15 @@ size_t audioCodecSize = 0;
 
 AudioSampleInfo  info;
 ```
+ 
+  
 
+##### 定义相关实例
 
-## 定义相关实例
-
-**定义CodecBufferInfo** 解码码流的属性定义，为后面传给播放的码流数据封装。
+**定义CodecBufferInfo**
+ 
+解码码流的属性定义，为后面传给播放的码流数据封装。
+ 
 ```text
 struct CodecBufferInfo {
     uint32_t bufferIndex = 0;
@@ -65,17 +68,18 @@ struct CodecBufferInfo {
     CodecBufferInfo(uint8_t *addr, int32_t bufferSize)
         : bufferAddr(addr), attr({0, bufferSize, 0, AVCODEC_BUFFER_FLAGS_NONE}){};
     CodecBufferInfo(uint32_t argBufferIndex, OH_AVMemory *argBuffer, OH_AVCodecBufferAttr argAttr)
-        : bufferIndex(argBufferIndex), buffer(reinterpret_cast(argBuffer)), attr(argAttr){};
+        : bufferIndex(argBufferIndex), buffer(reinterpret_cast<uintptr_t *>(argBuffer)), attr(argAttr){};
     CodecBufferInfo(uint32_t argBufferIndex, OH_AVMemory *argBuffer)
-        : bufferIndex(argBufferIndex), buffer(reinterpret_cast(argBuffer)){};
+        : bufferIndex(argBufferIndex), buffer(reinterpret_cast<uintptr_t *>(argBuffer)){};
     CodecBufferInfo(uint32_t argBufferIndex, OH_AVBuffer *argBuffer)
-        : bufferIndex(argBufferIndex), buffer(reinterpret_cast(argBuffer)) {
+        : bufferIndex(argBufferIndex), buffer(reinterpret_cast<uintptr_t *>(argBuffer)) {
         OH_AVBuffer_GetBufferAttr(argBuffer, &attr);
     };
 };
 ```
-
- **定义解码工作队列**
+ 
+**定义解码工作队列**
+ 
 ```text
 class CodecUserData {
 public:
@@ -88,7 +92,7 @@ public:
     // 输入线程的条件变量，当输入队列为空时用于阻塞输入线程
     std::condition_variable inputCond_;
     // 输入buffer队列，存放编解码器传给用户用来写入输入数据的buffer
-    std::queue inputBufferInfoQueue_;
+    std::queue<CodecBufferInfo> inputBufferInfoQueue_;
 
     // 输出帧数
     uint32_t outputFrameCount_ = 0;
@@ -99,27 +103,28 @@ public:
     std::mutex renderMutex_;
     std::condition_variable renderCond_;
     // 输出buffer队列，存放编解码器传给用户用来存放输出数据的buffer
-    std::queue outputBufferInfoQueue_;
+    std::queue<CodecBufferInfo> outputBufferInfoQueue_;
 
-    std::shared_ptr audioCodec_;
-    std::queue renderQueue_;
+    std::shared_ptr<AudioDecoder> audioCodec_;
+    std::queue<unsigned char> renderQueue_;
 
     void ClearQueue() {
         {
-            std::unique_lock lock(inputMutex_);
-            auto emptyQueue = std::queue();
+            std::unique_lock<std::mutex> lock(inputMutex_);
+            auto emptyQueue = std::queue<CodecBufferInfo>();
             inputBufferInfoQueue_.swap(emptyQueue);
         }
         {
-            std::unique_lock lock(outputMutex_);
-            auto emptyQueue = std::queue();
+            std::unique_lock<std::mutex> lock(outputMutex_);
+            auto emptyQueue = std::queue<CodecBufferInfo>();
             outputBufferInfoQueue_.swap(emptyQueue);
         }
     }
 };
 ```
-
- **定义回调函数**
+ 
+**定义回调函数**
+ 
 ```text
 class SampleCallback {
 public:
@@ -144,8 +149,8 @@ void SampleCallback::OnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVB
         return;
     }
     (void)codec;
-    CodecUserData *codecUserData = static_cast(userData);
-    std::unique_lock lock(codecUserData->inputMutex_);
+    CodecUserData *codecUserData = static_cast<CodecUserData *>(userData);
+    std::unique_lock<std::mutex> lock(codecUserData->inputMutex_);
     // 将输入buffer存放到输入队列中
     codecUserData->inputBufferInfoQueue_.emplace(index, buffer);
     // 通知输入线程开始运行
@@ -157,19 +162,21 @@ void SampleCallback::OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVB
         return;
     }
     (void)codec;
-    CodecUserData *codecUserData = static_cast(userData);
-    std::unique_lock lock(codecUserData->outputMutex_);
+    CodecUserData *codecUserData = static_cast<CodecUserData *>(userData);
+    std::unique_lock<std::mutex> lock(codecUserData->outputMutex_);
     // 将输出buffer存放到输出队列中
     codecUserData->outputBufferInfoQueue_.emplace(index, buffer);
     // 通知输出线程开始运行
     codecUserData->outputCond_.notify_all();
 }
 ```
+ 
+  
 
+##### 开发步骤
+1. 创建解码实例。
 
-## 开发步骤
-
-创建解码实例。
+  
 ```text
 // 创建解码器
 OH_AVCodec * decoder = OH_AudioCodec_CreateByMime(info.audioCodecMime,false);
@@ -195,17 +202,21 @@ int32_t ret = OH_AudioCodec_RegisterCallback(decoder,
 ret = OH_AudioCodec_Prepare(decoder)
 ```
 
-音频写入解码器。
+2. 音频写入解码器。
+
+  
 ```text
 int32_t PushInputData(CodecBufferInfo &info)
 {
-    int32_t  ret = OH_AVBuffer_SetBufferAttr(reinterpret_cast(info.buffer), &info.attr);
+    int32_t  ret = OH_AVBuffer_SetBufferAttr(reinterpret_cast<OH_AVBuffer *>(info.buffer), &info.attr);
     ret = OH_AudioCodec_PushInputBuffer(decoder, info.bufferIndex);
     return 0;
 }
 ```
 
-释放使用过的输出码流。
+3. 释放使用过的输出码流。
+
+  
 ```text
 int32_t AudioDecoder::FreeOutputData(uint32_t bufferIndex)
 {
@@ -215,7 +226,9 @@ int32_t AudioDecoder::FreeOutputData(uint32_t bufferIndex)
 }
 ```
 
-音频写入线程。
+4. 音频写入线程。
+
+  
 ```text
 CodecUserData*audioDecContext_ = new CodecUserData;
 void AudioDecInputThread()
@@ -224,7 +237,7 @@ void AudioDecInputThread()
         if(!isStarted_){
            return;
         }
-        std::unique_lock lock(audioDecContext_->inputMutex_);
+        std::unique_lock<std::mutex> lock(audioDecContext_->inputMutex_);
         // 阻塞输入线程，直到程序运行结束，或者输入队列不为空
         bool condRet = audioDecContext_->inputCond_.wait_for(
             lock, 5s, [this]() { return !isStarted_ || !audioDecContext_->inputBufferInfoQueue_.empty(); });
@@ -237,7 +250,7 @@ void AudioDecInputThread()
         audioDecContext_->inputFrameCount_++;
         lock.unlock();
         // 从解封装器中读取一帧数据写入输入buffer
-        demuxer_->ReadSample(demuxer_->GetAudioTrackId(), reinterpret_cast(bufferInfo.buffer), bufferInfo.attr);
+        demuxer_->ReadSample(demuxer_->GetAudioTrackId(), reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer), bufferInfo.attr);
         int32_t ret = audioDecoder_->PushInputData(bufferInfo);
         if(ret != 0){
             return;
@@ -250,7 +263,9 @@ void AudioDecInputThread()
 }
 ```
 
-音频解码输出线程。
+5. 音频解码输出线程。
+
+  
 ```text
 void AudioDecOutputThread()
 {
@@ -258,7 +273,7 @@ void AudioDecOutputThread()
         if(!isStarted_){
            return;
         }
-        std::unique_lock lock(audioDecContext_->outputMutex_);
+        std::unique_lock<std::mutex> lock(audioDecContext_->outputMutex_);
         // 阻塞输出线程，直到程序运行结束，或者输出队列不为空
         bool condRet = audioDecContext_->outputCond_.wait_for(
             lock, 5s, [this]() { return !isStarted_ || !audioDecContext_->outputBufferInfoQueue_.empty(); });
@@ -273,15 +288,15 @@ void AudioDecOutputThread()
         }
         audioDecContext_->outputFrameCount_++;
         // 获取解码后的pcm数据
-        uint8_t *source = OH_AVBuffer_GetAddr(reinterpret_cast(bufferInfo.buffer));
-        OH_AVFormat * format = OH_AVBuffer_GetParameter(reinterpret_cast(bufferInfo.buffer));
+        uint8_t *source = OH_AVBuffer_GetAddr(reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer));
+        OH_AVFormat * format = OH_AVBuffer_GetParameter(reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer));
         uint8_t * metadata;
         size_t size;
         // 获取元数据
         OH_AVFormat_GetBuffer(format, OH_MD_KEY_AUDIO_VIVID_METADATA, &metadata, &size);
 #ifdef DEBUG_DECODE
         if (audioOutputFile_.is_open()) {
-            audioOutputFile_.write((const char*)OH_AVBuffer_GetAddr(reinterpret_cast(bufferInfo.buffer)), bufferInfo.attr.size);
+            audioOutputFile_.write((const char*)OH_AVBuffer_GetAddr(reinterpret_cast<OH_AVBuffer *>(bufferInfo.buffer)), bufferInfo.attr.size);
         }
 #endif
         lock.unlock();
@@ -293,12 +308,16 @@ void AudioDecOutputThread()
 }
 ```
 
-启动解码。
+6. 启动解码。
+
+  
 ```text
 int ret = OH_AudioCodec_Start(decoder);
 ```
 
-停止和释放实例。
+7. 停止和释放实例。
+
+  
 ```text
 OH_AudioCodec_Stop(decoder);
 OH_AudioCodec_Destroy(decoder);

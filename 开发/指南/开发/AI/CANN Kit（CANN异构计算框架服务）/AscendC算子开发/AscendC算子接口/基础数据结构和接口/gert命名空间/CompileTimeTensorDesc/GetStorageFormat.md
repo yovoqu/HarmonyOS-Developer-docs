@@ -4,32 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiletimetensordesc-getstorageformat
 
-## 函数功能
+##### 函数功能
 
 获取运行时Tensor中存储数据的实际排布格式。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 ge::Format GetStorageFormat() const
 ```
+ 
+  
 
-
-## 参数说明
+##### 参数说明
 
 无
+ 
+  
 
-## 返回值
+##### 返回值
 
 运行时数据的实际排布格式。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 auto dtype_ = ge::DataType::DT_INT32;

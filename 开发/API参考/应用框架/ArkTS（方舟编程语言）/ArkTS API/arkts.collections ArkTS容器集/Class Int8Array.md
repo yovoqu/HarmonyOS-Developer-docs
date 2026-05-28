@@ -3,34 +3,30 @@
 更新时间：2026-04-10 09:55:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-int8array
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 一种线性数据结构，底层基于[ArkTS ArrayBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-arraybuffer)实现。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 此模块仅支持在ArkTS文件（文件后缀为.ets）中导入使用。
+
 
 **装饰器类型：**@Sendable
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { collections } from '@kit.ArkTS';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -41,8 +37,9 @@ import { collections } from '@kit.ArkTS';
 | BYTES_PER_ELEMENT | number | 是 | 否 | ArkTS Int8Array中每个元素所占用的字节数。 |
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -56,7 +53,6 @@ constructor()
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The Int8Array's constructor cannot be directly invoked. |
@@ -64,14 +60,13 @@ constructor()
 
 **示例：**
 
-
-```ts
+```text
 let int8Array: collections.Int8Array = new collections.Int8Array();
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(length: number)
 
@@ -83,7 +78,6 @@ constructor(length: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | length | number | 是 | 用于指定ArkTS Int8Array的长度。 |
@@ -93,7 +87,6 @@ constructor(length: number)
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -102,17 +95,16 @@ constructor(length: number)
 
 **示例：**
 
-
-```ts
+```text
 // 以长度参数构造对象
 let int8Array: collections.Int8Array = new collections.Int8Array(12);
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-constructor(array: ArrayLike<number> | ArrayBuffer)
+##### constructor
+
+constructor(array: ArrayLike&lt;number&gt; | ArrayBuffer)
 
 构造函数，以ArrayLike或ArkTS ArrayBuffer创建一个ArkTS Int8Array对象。
 
@@ -121,7 +113,6 @@ constructor(array: ArrayLike<number> | ArrayBuffer)
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -132,7 +123,6 @@ constructor(array: ArrayLike<number> | ArrayBuffer)
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -141,22 +131,19 @@ constructor(array: ArrayLike<number> | ArrayBuffer)
 
 **示例：**
 
-
-```ts
+```text
 // 例1 从一个ArrayLike构造对象
 let arrayLike = [1, 3, 5];
 let array: collections.Int8Array = new collections.Int8Array(arrayLike);
 ```
 
-
-```ts
+```text
 // 例2 从一个ArrayBuffer构造对象
 let arrayBuffer: collections.ArrayBuffer = new collections.ArrayBuffer(12);
 let array: collections.Int8Array = new collections.Int8Array(arrayBuffer);
 ```
 
-
-```ts
+```text
 // 例3 从另一ArkTS Int8Array构造对象
 let arrayLike = [1, 3, 5];
 // int8Array1 [1, 3, 5]
@@ -166,10 +153,10 @@ let int8Array2: collections.Int8Array = new collections.Int8Array(int8Array1);
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-constructor(elements: Iterable<number>)
+##### constructor
+
+constructor(elements: Iterable&lt;number&gt;)
 
 构造函数，以Iterable创建一个ArkTS Int8Array对象。
 
@@ -178,7 +165,6 @@ constructor(elements: Iterable<number>)
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -189,7 +175,6 @@ constructor(elements: Iterable<number>)
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -198,8 +183,7 @@ constructor(elements: Iterable<number>)
 
 **示例：**
 
-
-```ts
+```text
 // 从一个Iterable构造对象
 let set: Set<number> = new Set<number>([1, 2, 3]);
 // Int8Array [1, 2, 3]
@@ -207,8 +191,8 @@ let array: collections.Int8Array = new collections.Int8Array(set);
 ```
 
 
-## constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 
@@ -219,7 +203,6 @@ constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -232,7 +215,6 @@ constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -241,26 +223,19 @@ constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 
 **示例：**
 
-
-```ts
-let int8Array: collections.Int8Array = collections.Int8Array.from([
-  1, 2, 3, 4, 5, 6,
-]);
-console.info('byteLength: ' + int8Array.buffer.byteLength); // byteLength: 6
+```text
+let int8Array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5, 6]);
+console.info("byteLength: " + int8Array.buffer.byteLength); // byteLength: 6
 // 从int8Array对应buffer第1个字节开始，长度为5
-let int8Array1: collections.Int8Array = new collections.Int8Array(
-  int8Array.buffer,
-  1,
-  5,
-);
-console.info('[' + int8Array1 + ']'); // [2, 3, 4, 5, 6]
+let int8Array1: collections.Int8Array = new collections.Int8Array(int8Array.buffer, 1, 5);
+console.info("[" + int8Array1 + "]"); // [2, 3, 4, 5, 6]
 ```
 
 
-## from
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static from(arrayLike: ArrayLike<number>): Int8Array
+##### from
+
+static from(arrayLike: ArrayLike&lt;number&gt;): Int8Array
 
 从一个ArrayLike或者可迭代对象中创建一个ArkTS Int8Array对象。
 
@@ -270,14 +245,12 @@ static from(arrayLike: ArrayLike<number>): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arrayLike | ArrayLike&lt;number&gt; | 是 | 用于构造ArkTS Int8Array的ArrayLike对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -288,7 +261,6 @@ static from(arrayLike: ArrayLike<number>): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -296,17 +268,16 @@ static from(arrayLike: ArrayLike<number>): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let arrayLike = [1, 3, 5];
 let array: collections.Int8Array = collections.Int8Array.from(arrayLike); // array [1, 3, 5]
 ```
 
 
-## from
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): Int8Array
+##### from
+
+static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int8Array
 
 从一个ArrayLike中创建一个ArkTS Int8Array对象。
 
@@ -316,15 +287,13 @@ static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arrayLike | ArrayLike&lt;T&gt; | 是 | 用于构造ArrayLike对象。 |
-| mapFn | [TypedArrayFromMapFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayfrommapfn)&lt;T, number&gt; | 是 | 映射函数。 |
+| mapFn | TypedArrayFromMapFn<T, number> | 是 | 映射函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -335,7 +304,6 @@ static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): 
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -343,38 +311,29 @@ static from<T>(arrayLike: ArrayLike<T>, mapFn: TypedArrayFromMapFn<T, number>): 
 
 **示例：**
 
-
-```ts
+```text
 // 例1 从一个对象创建，Int8Array [0, 1, 2, 3, 4]
 let array: collections.Int8Array = collections.Int8Array.from<number>(
-  { length: 5 },
-  (v: Object, k: number) => k,
-);
+  { length: 5 }, (v: Object, k: number) => k);
 ```
 
-
-```ts
+```text
 // 例2 从一个字符数组创建，Int8Array [1, 3, 5]
 let array: collections.Int8Array = collections.Int8Array.from<string>(
-  ['1', '3', '5'],
-  (v: string, k: number) => parseInt(v),
-);
+  ["1", "3", "5"], (v: string, k: number) => parseInt(v));
 ```
 
-
-```ts
+```text
 // 例3 从一个字符串创建，Int8Array [1, 2, 3, 4, 5]
 let array: collections.Int8Array = collections.Int8Array.from<string>(
-  '12345',
-  (v: string, k: number) => parseInt(v),
-);
+  "12345", (v: string, k: number) => parseInt(v));
 ```
 
 
-## from
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array
+##### from
+
+static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int8Array
 
 从一个可迭代对象中创建一个ArkTS Int8Array对象。
 
@@ -384,15 +343,13 @@ static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, num
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arrayLike | Iterable&lt;number&gt; | 是 | 用于构造的可迭代对象。 |
-| mapFn | [TypedArrayFromMapFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayfrommapfn)&lt;number, number&gt; | 否 | 映射函数。如果省略，则不对元素进行加工处理。 |
+| mapFn | TypedArrayFromMapFn<number, number> | 否 | 映射函数。如果省略，则不对元素进行加工处理。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -403,7 +360,6 @@ static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, num
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -411,28 +367,24 @@ static from(arrayLike: Iterable<number>, mapFn?: TypedArrayFromMapFn<number, num
 
 **示例：**
 
-
-```ts
+```text
 // 例1 不指定映射函数
 let set: Set<number> = new Set<number>([1, 2, 3]);
 // Int8Array [1, 2, 3]
 let array: collections.Int8Array = collections.Int8Array.from(set);
 ```
 
-
-```ts
+```text
 // 例2 指定映射函数
 let set: Set<number> = new Set<number>([1, 2, 3]);
 // Int8Array [1, 3, 5]
 let array: collections.Int8Array = collections.Int8Array.from(
-  set,
-  (v: number, k: number) => v + k,
-);
+  set, (v: number, k: number) => v + k);
 ```
 
 
-## of18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### of18+
 
 static of(...items: number[]): Int8Array
 
@@ -444,14 +396,12 @@ static of(...items: number[]): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | items | number[] | 否 | 用于创建数组的元素，参数个数可以是0个、1个或者多个。默认值为空数组。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -462,7 +412,6 @@ static of(...items: number[]): Int8Array
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error: Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types;3. Parameter verification failed. |
@@ -470,15 +419,14 @@ static of(...items: number[]): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let arr: collections.Int8Array = collections.Int8Array.of(1, 2, 3, 4);
 console.info(arr.toString()); // 预期输出：1,2,3,4
 ```
 
 
-## toString18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString18+
 
 toString(): string
 
@@ -490,7 +438,6 @@ ArkTS Int8Array转换为字符串。
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 一个包含数组所有元素的字符串。 |
@@ -500,7 +447,6 @@ ArkTS Int8Array转换为字符串。
 
 以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The toString method cannot be bound. |
@@ -509,16 +455,15 @@ ArkTS Int8Array转换为字符串。
 
 **示例：**
 
-
-```ts
+```text
 let array = new collections.Int8Array([1, 2, 3, 4, 5]);
 let stringArray = array.toString();
 console.info(stringArray); // 预期输出：1,2,3,4,5
 ```
 
 
-## toLocaleString18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toLocaleString18+
 
 toLocaleString(): string
 
@@ -530,7 +475,6 @@ toLocaleString(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 一个包含数组所有元素的字符串。 |
@@ -540,7 +484,6 @@ toLocaleString(): string
 
 以下错误码详细介绍请参考[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The toLocaleString method cannot be bound. |
@@ -549,8 +492,7 @@ toLocaleString(): string
 
 **示例：**
 
-
-```ts
+```text
 // 当前应用所在系统为法国地区
 let array = new collections.Int8Array([100, 110, 120]);
 let stringArray = array.toLocaleString();
@@ -558,8 +500,8 @@ console.info(stringArray); // 预期输出：100,110,120
 ```
 
 
-## copyWithin
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### copyWithin
 
 copyWithin(target: number, start: number, end?: number): Int8Array
 
@@ -571,16 +513,14 @@ copyWithin(target: number, start: number, end?: number): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| target | number | 是 | 目标起始位置的下标，如果target &lt; 0，则会从target + array.length位置开始。 |
-| start | number | 是 | 源起始位置下标，如果start &lt; 0，则会从start + Int8Array.length位置开始。 |
-| end | number | 否 | 源终止位置下标（不包含end位置的元素），如果end &lt; 0，则会从end + Int8Array.length位置终止。默认为ArkTS Int8Array的长度。 |
+| target | number | 是 | 目标起始位置的下标，如果target < 0，则会从target + array.length位置开始。 |
+| start | number | 是 | 源起始位置下标，如果start < 0，则会从start + Int8Array.length位置开始。 |
+| end | number | 否 | 源终止位置下标（不包含end位置的元素），如果end < 0，则会从end + Int8Array.length位置终止。默认为ArkTS Int8Array的长度。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -591,7 +531,6 @@ copyWithin(target: number, start: number, end?: number): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -601,18 +540,15 @@ copyWithin(target: number, start: number, end?: number): Int8Array
 
 **示例：**
 
-
-```ts
-let array: collections.Int8Array = collections.Int8Array.from([
-  1, 2, 3, 4, 5, 6, 7, 8,
-]);
+```text
+let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5, 6, 7, 8]);
 // Int8Array [1, 2, 3, 2, 3, 6, 7, 8]
 let copied: collections.Int8Array = array.copyWithin(3, 1, 3);
 ```
 
 
-## some
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### some
 
 some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
@@ -624,14 +560,12 @@ some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicate | [TypedArrayPredicateFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarraypredicatefn)&lt;number, Int8Array&gt; | 是 | 用于测试的断言函数。 |
+| predicate | TypedArrayPredicateFn<number, Int8Array> | 是 | 用于测试的断言函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -642,7 +576,6 @@ some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -652,16 +585,15 @@ some(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
 **示例：**
 
-
-```ts
+```text
 let arrayLike = [-10, 20, -30, 40, -50];
 let int8Array: collections.Int8Array = new collections.Int8Array(arrayLike);
 int8Array.some((element: number) => element < 0); // true
 ```
 
 
-## every
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### every
 
 every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
@@ -673,14 +605,12 @@ every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicate | [TypedArrayPredicateFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarraypredicatefn)&lt;number, Int8Array&gt; | 是 | 用于测试的断言函数。 |
+| predicate | TypedArrayPredicateFn<number, Int8Array> | 是 | 用于测试的断言函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -691,7 +621,6 @@ every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -701,16 +630,15 @@ every(predicate: TypedArrayPredicateFn<number, Int8Array>): boolean
 
 **示例：**
 
-
-```ts
+```text
 let arrayLike = [-10, 20, -30, 40, -50];
 let int8Array: collections.Int8Array = new collections.Int8Array(arrayLike);
-int8Array.every((element: number) => element > 0); // false
+int8Array.every((element: number) => element > 0);  // false
 ```
 
 
-## fill
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fill
 
 fill(value: number, start?: number, end?: number): Int8Array
 
@@ -722,16 +650,14 @@ fill(value: number, start?: number, end?: number): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | number | 是 | 待填充的值。 |
-| start | number | 否 | 开始填充的索引，如果start &lt; 0，则会从start + Int8Array.length位置开始。默认值为0。 |
-| end | number | 否 | 结束填充的索引（不包括该元素），如果end &lt; 0，则会到end + Int8Array.length位置结束。默认为ArkTS Int8Array的长度。 |
+| start | number | 否 | 开始填充的索引，如果start < 0，则会从start + Int8Array.length位置开始。默认值为0。 |
+| end | number | 否 | 结束填充的索引（不包括该元素），如果end < 0，则会到end + Int8Array.length位置结束。默认为ArkTS Int8Array的长度。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -742,7 +668,6 @@ fill(value: number, start?: number, end?: number): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -752,8 +677,7 @@ fill(value: number, start?: number, end?: number): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let arrayLike = [1, 2, 3];
 new collections.Int8Array(arrayLike).fill(4); // Int8Array [4, 4, 4]
 new collections.Int8Array(arrayLike).fill(4, 1); // Int8Array [1, 4, 4]
@@ -761,8 +685,8 @@ new collections.Int8Array(arrayLike).fill(4, 1, 2); // Int8Array [1, 4, 3]
 ```
 
 
-## filter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### filter
 
 filter(predicate: TypedArrayPredicateFn<number, Int8Array>): Int8Array
 
@@ -774,14 +698,12 @@ filter(predicate: TypedArrayPredicateFn<number, Int8Array>): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicate | [TypedArrayPredicateFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarraypredicatefn)&lt;number, Int8Array&gt; | 是 | 用于元素过滤的断言函数。 |
+| predicate | TypedArrayPredicateFn<number, Int8Array> | 是 | 用于元素过滤的断言函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -792,7 +714,6 @@ filter(predicate: TypedArrayPredicateFn<number, Int8Array>): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -802,18 +723,15 @@ filter(predicate: TypedArrayPredicateFn<number, Int8Array>): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([0, 1, 2, 3, 4]);
 // Int8Array [0, 2, 4]
-let filtered: collections.Int8Array = array.filter(
-  (element: number) => element % 2 == 0,
-);
+let filtered: collections.Int8Array = array.filter((element: number) => element % 2 == 0);
 ```
 
 
-## find
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### find
 
 find(predicate: TypedArrayPredicateFn<number, Int8Array>): number | undefined
 
@@ -825,14 +743,12 @@ find(predicate: TypedArrayPredicateFn<number, Int8Array>): number | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicate | [TypedArrayPredicateFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarraypredicatefn)&lt;number, Int8Array&gt; | 是 | 用于元素查找的断言函数。 |
+| predicate | TypedArrayPredicateFn<number, Int8Array> | 是 | 用于元素查找的断言函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -843,7 +759,6 @@ find(predicate: TypedArrayPredicateFn<number, Int8Array>): number | undefined
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -853,16 +768,15 @@ find(predicate: TypedArrayPredicateFn<number, Int8Array>): number | undefined
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([0, 1, 2, 3, 4]);
 array.find((element: number) => element > 2); // 3
 array.find((element: number) => element > 4); // undefined
 ```
 
 
-## findIndex
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### findIndex
 
 findIndex(predicate: TypedArrayPredicateFn<number, Int8Array>): number
 
@@ -874,14 +788,12 @@ findIndex(predicate: TypedArrayPredicateFn<number, Int8Array>): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicate | [TypedArrayPredicateFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarraypredicatefn)&lt;number, Int8Array&gt; | 是 | 用于元素查找的断言函数。 |
+| predicate | TypedArrayPredicateFn<number, Int8Array> | 是 | 用于元素查找的断言函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -892,7 +804,6 @@ findIndex(predicate: TypedArrayPredicateFn<number, Int8Array>): number
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -902,19 +813,14 @@ findIndex(predicate: TypedArrayPredicateFn<number, Int8Array>): number
 
 **示例：**
 
-
-```ts
-const array: collections.Int8Array = collections.Int8Array.from([
-  1, 2, 3, 4, 5,
-]);
-let foundIndex: number = array.findIndex(
-  (element: number) => element % 2 === 0,
-); // 1
+```text
+const array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
+let foundIndex: number = array.findIndex((element: number) => element % 2 === 0); // 1
 ```
 
 
-## forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### forEach
 
 forEach(callbackFn: TypedArrayForEachCallback<number, Int8Array>): void
 
@@ -926,16 +832,14 @@ forEach(callbackFn: TypedArrayForEachCallback<number, Int8Array>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | [TypedArrayForEachCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayforeachcallback)&lt;number, Int8Array&gt; | 是 | 用于对每个元素执行的回调函数。 |
+| callbackFn | TypedArrayForEachCallback<number, Int8Array> | 是 | 用于对每个元素执行的回调函数。 |
 
 
 **错误码：**
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -946,19 +850,16 @@ forEach(callbackFn: TypedArrayForEachCallback<number, Int8Array>): void
 
 **示例：**
 
-
-```ts
+```text
 let int8Array: collections.Int8Array = collections.Int8Array.from([1, 2, 3]);
-int8Array.forEach(
-  (value: number, index: number, array: collections.Int8Array) => {
-    console.info(`Element ${value} at index ${index}`);
-  },
-);
+int8Array.forEach((value: number, index: number, array: collections.Int8Array) => {
+  console.info(`Element ${value} at index ${index}`);
+});
 ```
 
 
-## indexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### indexOf
 
 indexOf(searchElement: number, fromIndex?: number): number
 
@@ -970,7 +871,6 @@ indexOf(searchElement: number, fromIndex?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | searchElement | number | 是 | 待索引的值。 |
@@ -978,7 +878,6 @@ indexOf(searchElement: number, fromIndex?: number): number
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -989,7 +888,6 @@ indexOf(searchElement: number, fromIndex?: number): number
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -999,8 +897,7 @@ indexOf(searchElement: number, fromIndex?: number): number
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([3, 5, 9]);
 array.indexOf(3); // 0
 array.indexOf(7); // -1
@@ -1009,8 +906,8 @@ array.indexOf(9, -2); // 2
 ```
 
 
-## lastIndexOf18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### lastIndexOf18+
 
 lastIndexOf(searchElement: number, fromIndex?: number): number
 
@@ -1022,7 +919,6 @@ lastIndexOf(searchElement: number, fromIndex?: number): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | searchElement | number | 是 | 待索引的值。 |
@@ -1030,7 +926,6 @@ lastIndexOf(searchElement: number, fromIndex?: number): number
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1041,7 +936,6 @@ lastIndexOf(searchElement: number, fromIndex?: number): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The lastIndexOf method cannot be bound. |
@@ -1050,8 +944,7 @@ lastIndexOf(searchElement: number, fromIndex?: number): number
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([3, 5, 9]);
 console.info(array.lastIndexOf(3) + ''); // 预期输出：0
 console.info(array.lastIndexOf(7) + ''); // 预期输出：-1
@@ -1060,8 +953,8 @@ console.info(array.lastIndexOf(9, -2) + ''); // 预期输出：-1
 ```
 
 
-## join
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### join
 
 join(separator?: string): string
 
@@ -1073,14 +966,12 @@ join(separator?: string): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | separator | string | 否 | 分隔字符串。如果省略，则使用逗号分隔。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1091,7 +982,6 @@ join(separator?: string): string
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1101,15 +991,14 @@ join(separator?: string): string
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 let joined: string = array.join('-'); // "1-2-3-4-5"
 ```
 
 
-## map
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### map
 
 map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array
 
@@ -1121,14 +1010,12 @@ map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | [TypedArrayMapCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarraymapcallback)&lt;number, Int8Array&gt; | 是 | 回调函数。 |
+| callbackFn | TypedArrayMapCallback<number, Int8Array> | 是 | 回调函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1139,7 +1026,6 @@ map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1149,15 +1035,14 @@ map(callbackFn: TypedArrayMapCallback<number, Int8Array>): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([25, 36, 49]);
 const mapped: collections.Int8Array = array.map(Math.sqrt); // Int8Array [5, 6 ,7]
 ```
 
 
-## reduce
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### reduce
 
 reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number
 
@@ -1169,14 +1054,12 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | [TypedArrayReduceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayreducecallback)&lt;number, number, Int8Array&gt; | 是 | 归约函数。 |
+| callbackFn | TypedArrayReduceCallback<number, number, Int8Array> | 是 | 归约函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1187,7 +1070,6 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1197,18 +1079,15 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 // reducedValue == 15
-let reducedValue: number = array.reduce(
-  (accumulator: number, value: number) => accumulator + value,
-);
+let reducedValue: number = array.reduce((accumulator: number, value: number) => accumulator + value);
 ```
 
 
-## reduceRight18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### reduceRight18+
 
 reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): number
 
@@ -1220,14 +1099,12 @@ reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): nu
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | [TypedArrayReduceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayreducecallback)&lt;number, number, Int8Array&gt; | 是 | 归约函数。 |
+| callbackFn | TypedArrayReduceCallback<number, number, Int8Array> | 是 | 归约函数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1238,7 +1115,6 @@ reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): nu
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1248,18 +1124,15 @@ reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>): nu
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
-let reducedValue: number = array.reduceRight(
-  (accumulator: number, value: number) => accumulator + value,
-);
+let reducedValue: number = array.reduceRight((accumulator: number, value: number) => accumulator + value);
 console.info(reducedValue + ''); // 预期输出： 15
 ```
 
 
-## reduce
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### reduce
 
 reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialValue: number): number
 
@@ -1271,15 +1144,13 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialV
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | [TypedArrayReduceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayreducecallback)&lt;number, number, Int8Array&gt; | 是 | 归约函数。 |
+| callbackFn | TypedArrayReduceCallback<number, number, Int8Array> | 是 | 归约函数。 |
 | initialValue | number | 是 | 初始值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1290,7 +1161,6 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialV
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1300,19 +1170,15 @@ reduce(callbackFn: TypedArrayReduceCallback<number, number, Int8Array>, initialV
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 // reducedValue == 16
-let reducedValue: number = array.reduce(
-  (accumulator: number, value: number) => accumulator + value,
-  1,
-);
+let reducedValue: number = array.reduce((accumulator: number, value: number) => accumulator + value, 1);
 ```
 
 
-## reduceRight18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### reduceRight18+
 
 reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U
 
@@ -1324,15 +1190,13 @@ reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int8Arra
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | [TypedArrayReduceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayreducecallback)&lt;U, number, Int8Array&gt; | 是 | 归约函数。 |
+| callbackFn | TypedArrayReduceCallback<U, number, Int8Array> | 是 | 归约函数。 |
 | initialValue | U | 是 | 初始值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1343,7 +1207,6 @@ reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int8Arra
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. |
@@ -1353,21 +1216,17 @@ reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int8Arra
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
-let reducedValue: number = array.reduceRight(
-  (accumulator: number, value: number) => accumulator + value,
-  1,
-);
+let reducedValue: number = array.reduceRight((accumulator: number, value: number) => accumulator + value, 1);
 console.info(reducedValue + ''); // 预期输出： 16
 ```
 
 
-## reduce
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U
+##### reduce
+
+reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialValue: U): U
 
 对ArkTS Int8Array中的每个元素执行归约函数，且接收一个初始值作为归约函数首次调用的参数，并返回最终的归约结果。
 
@@ -1377,15 +1236,13 @@ reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialVal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callbackFn | [TypedArrayReduceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarrayreducecallback)&lt;U, number, Int8Array&gt; | 是 | 归约函数。 |
+| callbackFn | TypedArrayReduceCallback<U, number, Int8Array> | 是 | 归约函数。 |
 | initialValue | U | 是 | 初始值。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1396,7 +1253,6 @@ reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialVal
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1406,19 +1262,15 @@ reduce<U>(callbackFn: TypedArrayReduceCallback<U, number, Int8Array>, initialVal
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 // reducedValue == initialValue12345
-let reducedValue: string = array.reduce<string>(
-  (accumulator: string, value: number) => accumulator + value,
-  'initialValue',
-);
+let reducedValue: string = array.reduce<string>((accumulator: string, value: number) => accumulator + value, "initialValue");
 ```
 
 
-## reverse
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### reverse
 
 reverse(): Int8Array
 
@@ -1430,7 +1282,6 @@ reverse(): Int8Array
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Int8Array | 反转后的ArkTS Int8Array对象。 |
@@ -1440,7 +1291,6 @@ reverse(): Int8Array
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The reverse method cannot be bound. |
@@ -1449,17 +1299,16 @@ reverse(): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 let reversed: collections.Int8Array = array.reverse(); // Int8Array [5, 4, 3, 2, 1]
 ```
 
 
-## set
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-set(array: ArrayLike<number>, offset?: number): void
+##### set
+
+set(array: ArrayLike&lt;number&gt;, offset?: number): void
 
 将传入的ArrayLike元素依次写入到指定的起始位置。
 
@@ -1468,7 +1317,6 @@ set(array: ArrayLike<number>, offset?: number): void
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1480,7 +1328,6 @@ set(array: ArrayLike<number>, offset?: number): void
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1490,16 +1337,15 @@ set(array: ArrayLike<number>, offset?: number): void
 
 **示例：**
 
-
-```ts
+```text
 let buffer: collections.ArrayBuffer = new collections.ArrayBuffer(8);
 let array: collections.Int8Array = new collections.Int8Array(buffer);
 array.set([1, 2, 3], 3); // Int8Array [0, 0, 0, 1, 2, 3, 0, 0]
 ```
 
 
-## slice
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### slice
 
 slice(start?: number, end?: number): Int8Array
 
@@ -1511,15 +1357,13 @@ slice(start?: number, end?: number): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| start | number | 否 | 开始索引，如果start &lt; 0，则会从start + Int8Array.length位置开始。默认为0。 |
-| end | number | 否 | 结束索引（不包括该元素），如果end &lt; 0，则会到end + Int8Array.length位置结束。默认为ArkTS Int8Array的长度。 |
+| start | number | 否 | 开始索引，如果start < 0，则会从start + Int8Array.length位置开始。默认为0。 |
+| end | number | 否 | 结束索引（不包括该元素），如果end < 0，则会到end + Int8Array.length位置结束。默认为ArkTS Int8Array的长度。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1530,7 +1374,6 @@ slice(start?: number, end?: number): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1540,8 +1383,7 @@ slice(start?: number, end?: number): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 array.slice(); // Int8Array [1, 2, 3, 4, 5]
 array.slice(1, 3); // Int8Array [2, 3]
@@ -1549,10 +1391,10 @@ array.slice(-2); // Int8Array [4, 5]
 ```
 
 
-## sort
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-sort(compareFn?: TypedArrayCompareFn<number>): Int8Array
+##### sort
+
+sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int8Array
 
 对ArkTS Int8Array进行排序，并返回排序后的ArkTS Int8Array对象。
 
@@ -1562,14 +1404,12 @@ sort(compareFn?: TypedArrayCompareFn<number>): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| compareFn | [TypedArrayCompareFn](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-types#typedarraycomparefn)&lt;number&gt; | 否 | 用于确定元素顺序的函数。默认使用升序排序。 |
+| compareFn | TypedArrayCompareFn&lt;number&gt; | 否 | 用于确定元素顺序的函数。默认使用升序排序。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1580,7 +1420,6 @@ sort(compareFn?: TypedArrayCompareFn<number>): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1590,8 +1429,7 @@ sort(compareFn?: TypedArrayCompareFn<number>): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 3, 5, 4, 2]);
 array.sort(); // Int8Array [1, 2, 3, 4, 5]
 array.sort((a: number, b: number) => a - b); // Int8Array [1, 2, 3, 4, 5]
@@ -1599,8 +1437,8 @@ array.sort((a: number, b: number) => b - a); // Int8Array [5, 4, 3, 2, 1]
 ```
 
 
-## subarray
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### subarray
 
 subarray(begin?: number, end?: number): Int8Array
 
@@ -1612,15 +1450,13 @@ subarray(begin?: number, end?: number): Int8Array
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| begin | number | 否 | 开始索引，如果begin &lt; 0，则会从begin + Int8Array.length位置开始。默认值为0。 |
-| end | number | 否 | 结束索引（不包括该元素），如果end &lt; 0，则会到end + Int8Array.length位置结束。默认为ArkTS Int8Array的长度。 |
+| begin | number | 否 | 开始索引，如果begin < 0，则会从begin + Int8Array.length位置开始。默认值为0。 |
+| end | number | 否 | 结束索引（不包括该元素），如果end < 0，则会到end + Int8Array.length位置结束。默认为ArkTS Int8Array的长度。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1631,7 +1467,6 @@ subarray(begin?: number, end?: number): Int8Array
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1641,16 +1476,15 @@ subarray(begin?: number, end?: number): Int8Array
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 let subArray: collections.Int8Array = array.subarray(); // Int8Array [1, 2, 3, 4, 5]
 subArray.set([10, 20, 30]); // Int8Array [10, 20, 30, 4, 5]
 ```
 
 
-## at
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### at
 
 at(index: number): number | undefined
 
@@ -1662,14 +1496,12 @@ at(index: number): number | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 要返回的Array元素的索引（从零开始），取值为整数。如果index &lt; 0，则会访问index + Int8Array.length位置的元素。 |
+| index | number | 是 | 要返回的Array元素的索引（从零开始），取值为整数。如果index < 0，则会访问index + Int8Array.length位置的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1680,7 +1512,6 @@ at(index: number): number | undefined
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1690,17 +1521,16 @@ at(index: number): number | undefined
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
-console.info('element: ' + array.at(2)); // element: 3
-console.info('element: ' + array.at(-1)); // element: 5
-console.info('element: ' + array.at(6)); // element: undefined
+console.info("element: " + array.at(2));  // element: 3
+console.info("element: " + array.at(-1)); // element: 5
+console.info("element: " + array.at(6));  // element: undefined
 ```
 
 
-## includes
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### includes
 
 includes(searchElement: number, fromIndex?: number): boolean
 
@@ -1712,15 +1542,13 @@ includes(searchElement: number, fromIndex?: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | searchElement | number | 是 | 待搜索的元素。 |
-| fromIndex | number | 否 | 开始搜索的索引，如果fromIndex &lt; 0，则会从fromIndex + Int8Array.length位置开始。默认值为0。 |
+| fromIndex | number | 否 | 开始搜索的索引，如果fromIndex < 0，则会从fromIndex + Int8Array.length位置开始。默认值为0。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1731,7 +1559,6 @@ includes(searchElement: number, fromIndex?: number): boolean
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1741,17 +1568,16 @@ includes(searchElement: number, fromIndex?: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3]);
-console.info('includes: ' + array.includes(2)); // includes: true
-console.info('includes: ' + array.includes(4)); // includes: false
-console.info('includes: ' + array.includes(3, 3)); // includes: false
+console.info("includes: " + array.includes(2));    // includes: true
+console.info("includes: " + array.includes(4));    // includes: false
+console.info("includes: " + array.includes(3, 3)); // includes: false
 ```
 
 
-## entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[number, number]>
 
@@ -1763,16 +1589,14 @@ entries(): IterableIterator<[number, number]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[number, number]&gt; | 新的迭代器对象。 |
+| IterableIterator<[number, number]> | 新的迭代器对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1782,20 +1606,19 @@ entries(): IterableIterator<[number, number]>
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([11, 22, 33]);
 let iterator: IterableIterator<[number, number]> = array.entries();
-console.info('value: ' + iterator.next().value); // value: 0,11
-console.info('value: ' + iterator.next().value); // value: 1,22
-console.info('value: ' + iterator.next().value); // value: 2,33
+console.info("value: " + iterator.next().value); // value: 0,11
+console.info("value: " + iterator.next().value); // value: 1,22
+console.info("value: " + iterator.next().value); // value: 2,33
 ```
 
 
-## keys
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-keys(): IterableIterator<number>
+##### keys
+
+keys(): IterableIterator&lt;number&gt;
 
 返回一个新的迭代器对象，该对象包含ArkTS Int8Array中每个元素的键（下标）。
 
@@ -1805,7 +1628,6 @@ keys(): IterableIterator<number>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | IterableIterator&lt;number&gt; | 新的迭代器对象。 |
@@ -1814,7 +1636,6 @@ keys(): IterableIterator<number>
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1824,20 +1645,19 @@ keys(): IterableIterator<number>
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 let iterator: IterableIterator<number> = array.keys();
 for (const key of iterator) {
-  console.info('' + key); // 依次输出 0,1,2,3,4
+  console.info("" + key); // 依次输出 0,1,2,3,4
 }
 ```
 
 
-## values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<number>
+##### values
+
+values(): IterableIterator&lt;number&gt;
 
 返回一个新的迭代器对象，该对象包含ArkTS Int8Array中每个元素的值。
 
@@ -1846,7 +1666,6 @@ values(): IterableIterator<number>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1857,7 +1676,6 @@ values(): IterableIterator<number>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The values method cannot be bound. |
@@ -1866,33 +1684,31 @@ values(): IterableIterator<number>
 
 **示例：**
 
-
-```ts
+```text
 let array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5]);
 let iterator: IterableIterator<number> = array.values();
 for (const value of iterator) {
-  console.info('' + value); // 依次输出 1,2,3,4,5
+  console.info("" + value); // 依次输出 1,2,3,4,5
 }
 ```
 
 
-## [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<number>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;number&gt;
 
 返回一个迭代器，迭代器的每一项都是一个 JavaScript 对象，并返回该对象。
 
-
 > [!NOTE]
 > 本接口不支持在.ets文件中使用。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1903,7 +1719,6 @@ for (const value of iterator) {
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -1911,11 +1726,8 @@ for (const value of iterator) {
 
 **示例：**
 
-
-```ts
-let int8Array: collections.Int8Array = collections.Int8Array.from([
-  1, 2, 3, 4, 5, 6,
-]);
+```text
+let int8Array: collections.Int8Array = collections.Int8Array.from([1, 2, 3, 4, 5, 6]);
 
 for (let item of int8Array) {
   console.info(`value : ${item}`);
@@ -1923,8 +1735,8 @@ for (let item of int8Array) {
 ```
 
 
-## [index: number]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### [index: number]
 
 [index: number]: number
 
@@ -1936,14 +1748,12 @@ for (let item of int8Array) {
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 所需代码单元的从零开始的索引。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1952,8 +1762,7 @@ for (let item of int8Array) {
 
 **示例：**
 
-
-```ts
+```text
 let int8Array = collections.Int8Array.from([1, 2, 4]);
-console.info('Element at index 1: ', int8Array[1]);
+console.info("Element at index 1: ", int8Array[1]);
 ```

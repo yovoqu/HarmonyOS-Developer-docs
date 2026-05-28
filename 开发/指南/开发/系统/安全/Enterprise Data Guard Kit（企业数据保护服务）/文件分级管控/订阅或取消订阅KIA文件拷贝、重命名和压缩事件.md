@@ -4,31 +4,39 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-kia-event
 
-## 场景介绍
+##### 场景介绍
 
 为应用提供监听或取消监听KIA文件拷贝、重命名和压缩事件的能力，当KIA文件发生变种时，通过回调函数，返回KIA变种信息。
 
-## 接口说明
+
+
+##### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#onkiacopy)(type: 'kiaCopy', callback: Callback): void | 订阅KIA拷贝事件，需在业务初始化时注册。当用户拷贝KIA文件时会触发回调。 |
-| [off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#offkiacopy)(type: 'kiaCopy', callback?: Callback): void | 取消订阅KIA拷贝事件。 |
-| [on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#onkiarename)(type: 'kiaRename', callback: Callback): void | 订阅KIA重命名事件，需在业务初始化时注册。当用户重命名KIA文件时会触发回调。 |
-| [off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#offkiarename)(type: 'kiaRename', callback?: Callback): void | 取消订阅KIA重命名事件。 |
-| [on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#onkiacompress)(type: 'kiaCompress', callback: Callback): void | 订阅KIA压缩事件，需在业务初始化时注册。当用户压缩KIA文件时会触发回调。 |
-| [off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#offkiacompress)(type: 'kiaCompress', callback?: Callback): void | 取消订阅KIA压缩事件。 |
+| on(type: 'kiaCopy', callback: Callback&lt;string&gt;): void | 订阅KIA拷贝事件，需在业务初始化时注册。当用户拷贝KIA文件时会触发回调。 |
+| off(type: 'kiaCopy', callback?: Callback&lt;string&gt;): void | 取消订阅KIA拷贝事件。 |
+| on(type: 'kiaRename', callback: Callback&lt;string&gt;): void | 订阅KIA重命名事件，需在业务初始化时注册。当用户重命名KIA文件时会触发回调。 |
+| off(type: 'kiaRename', callback?: Callback&lt;string&gt;): void | 取消订阅KIA重命名事件。 |
+| on(type: 'kiaCompress', callback: Callback&lt;string&gt;): void | 订阅KIA压缩事件，需在业务初始化时注册。当用户压缩KIA文件时会触发回调。 |
+| off(type: 'kiaCompress', callback?: Callback&lt;string&gt;): void | 取消订阅KIA压缩事件。 |
 
 
-## 开发步骤
 
-导入模块。
+
+##### 开发步骤
+1. 导入模块。
+
+  
 ```text
 import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 ```
 
-初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口on或off，订阅或取消订阅KIA文件拷贝、重命名和压缩事件。
+2. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口on或off，订阅或取消订阅KIA文件拷贝、重命名和压缩事件。
+
+  
 ```text
 function onKiaCopyCallback(eventData: string) {
   console.info(`Succeeded in receiving kia copy eventData: ${eventData}.`);

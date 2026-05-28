@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增装饰器 | 类名：PhotoPickerComponent； API声明：build(): void; 差异内容：NA | 类名：PhotoPickerComponent； API声明：@Builder  build(): void; 差异内容：Builder | api/@ohos.file.PhotoPickerComponent.d.ets |
+| 新增装饰器 | 类名：PhotoPickerComponent； API声明：build(): void; 差异内容：NA | 类名：PhotoPickerComponent； API声明：@Builder build(): void; 差异内容：Builder | api/@ohos.file.PhotoPickerComponent.d.ets |

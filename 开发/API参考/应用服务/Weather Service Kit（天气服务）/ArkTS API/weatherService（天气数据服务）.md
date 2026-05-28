@@ -1,46 +1,55 @@
 # weatherService（天气数据服务）
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/weather-service-weatherservice
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供天气数据服务。
+ 
 **起始版本：** 5.0.0(12)
+  
 
-#### 导入模块
+##### 导入模块
 
-```ts
+```text
 import { weatherService } from '@kit.WeatherServiceKit';
 ```
+ 
+  
 
-#### weatherService.getWeather
+##### weatherService.getWeather
+
 getWeather(request: WeatherRequest): Promise&lt;Weather&gt;
+ 
 天气数据获取接口，使用Promise异步回调。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [WeatherRequest](#weatherrequest) | 是 | 天气数据请求体。 |
-
+| request | WeatherRequest | 是 | 天气数据请求体。 |
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Weather](#weather)> | Promise对象，返回天气数据对象。 |
-
+| Promise&lt;Weather&gt; | Promise对象，返回天气数据对象。 |
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见天气服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/weather-service-error-code)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -48,10 +57,11 @@ getWeather(request: WeatherRequest): Promise&lt;Weather&gt;
 | 1011900002 | The requested longitude and latitude grid point lacks data. |
 | 1011900003 | Network error. |
 | 1011900004 | System error. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 // 引入
 import { weatherService } from '@kit.WeatherServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -82,34 +92,42 @@ async function getWeatherData() {
   }
 }
 ```
+ 
+  
 
-#### weatherService.getWeatherWithContext
+##### weatherService.getWeatherWithContext
+
 getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise&lt;Weather&gt;
+ 
 根据调用方提供的上下文信息获取天气数据，使用Promise异步回调。
+ 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.2(14)
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common#context) | 是 | 上下文，目前只支持[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)或[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)的上下文环境。 |
-| request | [WeatherRequest](#weatherrequest) | 是 | 天气数据请求体。 |
-
+| context | common.Context | 是 | 上下文，目前只支持UIAbility或UIExtensionAbility的上下文环境。 |
+| request | WeatherRequest | 是 | 天气数据请求体。 |
+ 
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Weather](#weather)> | Promise对象，返回天气数据对象。 |
-
+| Promise&lt;Weather&gt; | Promise对象，返回天气数据对象。 |
+ 
+ 
 **错误码：**
+ 
 以下错误码的详细介绍请参见天气服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/weather-service-error-code)。
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -117,14 +135,14 @@ getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise
 | 1011900002 | The requested longitude and latitude grid point lacks data. |
 | 1011900003 | Network error. |
 | 1011900004 | System error. |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 // 引入
-import { UIAbility } from '@kit.AbilityKit';
+import { UIAbility, common } from '@kit.AbilityKit';
 import { weatherService } from '@kit.WeatherServiceKit';
-import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { taskpool } from '@kit.ArkTS';
 
@@ -154,8 +172,14 @@ async function getWeatherData(context: common.Context) {
   }
 }
 
-function executeGetWeather(context: common.Context) {
-  taskpool.execute(getWeatherData, context);
+async function executeGetWeather(context: common.Context): Promise<void> {
+  try {
+    const task: taskpool.Task = new taskpool.Task(getWeatherData, context);
+    await taskpool.execute(task)
+  } catch (err) {
+    err = err as BusinessError;
+    console.error(`executeGetWeather failed. Code: ${err.code}, message: ${err.message}`);
+  }
 }
 
 export default class EntryAbility extends UIAbility {
@@ -164,115 +188,144 @@ export default class EntryAbility extends UIAbility {
   }
 }
 ```
+ 
+  
 
-#### WeatherRequest
+##### WeatherRequest
+
 天气数据请求类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| location | [Location](#location) | 否 | 否 | 位置信息。 |
-| limitedDatasets | [Dataset](#dataset)[] | 否 | 是 | 接口只返回列表中指定的数据类型，若未设置或数组为空，默认返回全量数据。 |
+| location | Location | 否 | 否 | 位置信息。 |
+| limitedDatasets | Dataset[] | 否 | 是 | 接口只返回列表中指定的数据类型，若未设置或数组为空，默认返回全量数据。 |
+ 
+ 
+  
 
-#### Location
+##### Location
+
 位置信息。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | latitude | number | 否 | 否 | 纬度。 取值范围：[-90, 90]。 在6.1.0(23)之前，精度支持小数点后两位，从6.1.0(23)开始，中国境内(香港特别行政区、澳门特别行政区、中国台湾除外)精度支持小数点后五位，其他地区仍为两位。 |
 | longitude | number | 否 | 否 | 经度。 取值范围：[-180, 180]。 在6.1.0(23)之前，精度支持小数点后两位，从6.1.0(23)开始，中国境内(香港特别行政区、澳门特别行政区、中国台湾除外)精度支持小数点后五位，其他地区仍为两位。 |
+ 
+ 
+  
 
-#### Weather
+##### Weather
+
 天气数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| current | [CurrentWeather](#currentweather) | 否 | 是 | 实况天气，若设置了limitedDatasets且数组中不包含[Dataset](#dataset).CURRENT，该字段不返回。 |
-| daily | [Forecast](#forecastt)<[DailyWeather](#dailyweather)> | 否 | 是 | 多日预报，若设置了limitedDatasets且数组中不包含[Dataset](#dataset).DAILY，该字段不返回。 |
-| hourly | [Forecast](#forecastt)<[HourlyWeather](#hourlyweather)> | 否 | 是 | 逐小时预报，若设置了limitedDatasets且数组中不包含[Dataset](#dataset).HOURLY，该字段不返回。 |
-| minute | [Forecast](#forecastt)<[MinuteWeather](#minuteweather)> | 否 | 是 | 分钟级降水预报，若设置了limitedDatasets且数组中不包含[Dataset](#dataset).MINUTE，或者该区域短期无降水，该字段不返回。 |
-| alerts | [WeatherAlert](#weatheralert)[] | 否 | 是 | 天气预警，若设置了limitedDatasets且数组中不包含[Dataset](#dataset).ALERTS，或者该区域当前无预警，该字段不返回。 |
-| indices | [WeatherIndex](#weatherindex)[] | 否 | 是 | 天气指数，若设置了limitedDatasets且数组中不包含[Dataset](#dataset).INDICES，该字段不返回。 |
-| tides | [Tide](#tide)[] | 否 | 是 | 潮汐，若设置了limitedDatasets且数组中不包含[Dataset](#dataset).TIDES，或者该区域无潮汐站点，该字段不返回。 |
-| city | [City](#city) | 否 | 是 | 请求经纬度对应的城市信息，若设置了limitedDatasets且数组中不包含Dataset.CITY，该字段不返回。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。  起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
-| metadata | [WeatherMetadata](#weathermetadata) | 否 | 否 | 天气数据元数据。 |
-| attributions | [WeatherAttribution](#weatherattribution)[] | 否 | 否 | 天气数据的归因。 |
+| current | CurrentWeather | 否 | 是 | 实况天气，若设置了limitedDatasets且数组中不包含Dataset.CURRENT，该字段不返回。 |
+| daily | Forecast&lt;DailyWeather&gt; | 否 | 是 | 多日预报，若设置了limitedDatasets且数组中不包含Dataset.DAILY，该字段不返回。 |
+| hourly | Forecast&lt;HourlyWeather&gt; | 否 | 是 | 逐小时预报，若设置了limitedDatasets且数组中不包含Dataset.HOURLY，该字段不返回。 |
+| minute | Forecast&lt;MinuteWeather&gt; | 否 | 是 | 分钟级降水预报，若设置了limitedDatasets且数组中不包含Dataset.MINUTE，或者该区域短期无降水，该字段不返回。 |
+| alerts | WeatherAlert[] | 否 | 是 | 天气预警，若设置了limitedDatasets且数组中不包含Dataset.ALERTS，或者该区域当前无预警，该字段不返回。 |
+| indices | WeatherIndex[] | 否 | 是 | 天气指数，若设置了limitedDatasets且数组中不包含Dataset.INDICES，该字段不返回。 |
+| tides | Tide[] | 否 | 是 | 潮汐，若设置了limitedDatasets且数组中不包含Dataset.TIDES，或者该区域无潮汐站点，该字段不返回。 |
+| city | City | 否 | 是 | 请求经纬度对应的城市信息，若设置了limitedDatasets且数组中不包含Dataset.CITY，该字段不返回。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+| metadata | WeatherMetadata | 否 | 否 | 天气数据元数据。 |
+| attributions | WeatherAttribution[] | 否 | 否 | 天气数据的归因。 |
+ 
+ 
+  
 
-#### CurrentWeather
+##### CurrentWeather
+
 实况天气数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | temperature | number | 否 | 否 | 温度。 单位：℃。 |
 | apparentTemperature | number | 否 | 否 | 体感温度。 单位：℃。 |
 | humidity | number | 否 | 否 | 相对湿度。 例如湿度为30%，本字段返回30。 |
 | pressure | number | 否 | 否 | 地面气压。 单位：hPa。 |
-| pressureTrend | [PressureTrend](#pressuretrend) | 否 | 否 | 气压趋势。 |
-| wind | [Wind](#wind) | 否 | 否 | 风力风向。 |
+| pressureTrend | PressureTrend | 否 | 否 | 气压趋势。 |
+| wind | Wind | 否 | 否 | 风力风向。 |
 | cloudCover | number | 否 | 否 | 云量。 例如云量为30%，本字段返回30。 |
-| condition | [WeatherCondition](#weathercondition) | 否 | 否 | 天气现象。 |
-| uvIndex | [UVIndex](#uvindex) | 否 | 否 | 紫外线指数。 |
-| aqi | [WeatherAqi](#weatheraqi) | 否 | 是 | 空气质量。 |
+| condition | WeatherCondition | 否 | 否 | 天气现象。 |
+| uvIndex | UVIndex | 否 | 否 | 紫外线指数。 |
+| aqi | WeatherAqi | 否 | 是 | 空气质量。 |
 | visibility | number | 否 | 否 | 能见度。 单位：km。 |
 | updateTime | Date | 否 | 否 | 数据更新时间，UTC时间格式。 |
 | expirationTime | Date | 否 | 否 | 数据失效时间，UTC时间格式。 |
 | summary | string | 否 | 是 | 实况天气一句话描述。 |
-| alertTitle | string | 否 | 是 | 预警标题。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。  起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+| alertTitle | string | 否 | 是 | 预警标题。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+ 
+ 
+  
 
-#### Forecast&lt;T&gt;
+##### Forecast&lt;T&gt;
+
 预报类天气集合。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | forecast | T[] | 否 | 否 | 预报数据集合。 |
 | updateTime | Date | 否 | 否 | 数据更新时间，UTC时间格式。 |
 | expirationTime | Date | 否 | 否 | 数据失效时间，UTC时间格式。 |
 | summary | string | 否 | 是 | 预报数据一句话描述，只有分钟级降水预报会返回该字段。 |
+ 
+ 
+  
 
-#### DailyWeather
+##### DailyWeather
+
 多日天气数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | date | Date | 否 | 否 | 日期，精确到天，UTC时间格式。 |
@@ -280,66 +333,81 @@ export default class EntryAbility extends UIAbility {
 | lowTemperature | number | 否 | 否 | 低温。 单位：℃。 |
 | highApparentTemperature | number | 否 | 否 | 体感温度高温。 单位：℃。 |
 | lowApparentTemperature | number | 否 | 否 | 体感温度低温。 单位：℃。 |
-| uvIndex | [UVIndex](#uvindex) | 否 | 否 | 紫外线指数。 |
-| aqi | [WeatherAqi](#weatheraqi) | 否 | 是 | 空气质量。 |
+| uvIndex | UVIndex | 否 | 否 | 紫外线指数。 |
+| aqi | WeatherAqi | 否 | 是 | 空气质量。 |
 | visibility | number | 否 | 否 | 能见度。 单位：km。 |
-| moon | [MoonEvents](#moonevents) | 否 | 否 | 月出/月落时间，月相等信息。 |
-| sun | [SunEvents](#sunevents) | 否 | 否 | 日出/日落时间。 |
-| daytimeForecast | [DayPartForecast](#daypartforecast) | 否 | 否 | 白天天气数据。 |
-| overnightForecast | [DayPartForecast](#daypartforecast) | 否 | 否 | 夜晚天气数据。 |
+| moon | MoonEvents | 否 | 否 | 月出/月落时间，月相等信息。 |
+| sun | SunEvents | 否 | 否 | 日出/日落时间。 |
+| daytimeForecast | DayPartForecast | 否 | 否 | 白天天气数据。 |
+| overnightForecast | DayPartForecast | 否 | 否 | 夜晚天气数据。 |
 | pressure | number | 否 | 否 | 地面气压。 单位：hPa。 |
+ 
+ 
+  
 
-#### HourlyWeather
+##### HourlyWeather
+
 小时天气数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | date | Date | 否 | 否 | 日期， 精确到小时，UTC时间格式。 |
 | temperature | number | 否 | 否 | 温度。 单位：℃。 |
 | apparentTemperature | number | 否 | 否 | 体感温度。 单位：℃。 |
 | humidity | number | 否 | 否 | 相对湿度。 例如湿度为30%，本字段返回30。 |
-| wind | [Wind](#wind) | 否 | 否 | 风力风向。 |
+| wind | Wind | 否 | 否 | 风力风向。 |
 | cloudCover | number | 否 | 否 | 云量。 例如云量为30%，本字段返回30。 |
-| condition | [WeatherCondition](#weathercondition) | 否 | 否 | 天气现象。 |
-| uvIndex | [UVIndex](#uvindex) | 否 | 否 | 紫外线等级。 |
-| aqi | [WeatherAqi](#weatheraqi) | 否 | 是 | 空气质量。 |
+| condition | WeatherCondition | 否 | 否 | 天气现象。 |
+| uvIndex | UVIndex | 否 | 否 | 紫外线等级。 |
+| aqi | WeatherAqi | 否 | 是 | 空气质量。 |
 | visibility | number | 否 | 否 | 能见度。 单位：km。 |
 | precipitationProbability | number | 否 | 否 | 降水概率。 |
 | precipitationAmount | number | 否 | 否 | 降水量。 单位：mm。 |
+ 
+ 
+  
 
-#### MinuteWeather
+##### MinuteWeather
+
 分钟级降水数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | date | Date | 否 | 否 | 日期， 精确到分钟，UTC时间格式。 |
-| precipitation | [Precipitation](#precipitation) | 否 | 否 | 降水类型。 |
+| precipitation | Precipitation | 否 | 否 | 降水类型。 |
 | precipitationIntensity | number | 否 | 否 | 降水密度。 取值范围：[0, 1]。 |
+ 
+ 
+  
 
-#### WeatherAlert
+##### WeatherAlert
+
 天气预警信息类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | updateTime | Date | 否 | 否 | 数据更新时间，UTC时间格式。 |
@@ -347,62 +415,77 @@ export default class EntryAbility extends UIAbility {
 | id | string | 否 | 否 | 预警id。 |
 | title | string | 否 | 否 | 预警标题。 |
 | region | string | 否 | 是 | 预警区域。 |
-| level | [AlertLevel](#alertlevel) | 否 | 否 | 预警等级。 |
+| level | AlertLevel | 否 | 否 | 预警等级。 |
 | levelDescription | string | 否 | 否 | 预警等级描述。 |
-| type | [AlertType](#alerttype) | 否 | 否 | 预警类型。 |
+| type | AlertType | 否 | 否 | 预警类型。 |
 | typeDescription | string | 否 | 否 | 预警类型描述。 |
 | content | string | 否 | 否 | 预警正文。 |
 | guide | string | 否 | 是 | 预警防御指南。 |
 | detailsUrl | string | 否 | 是 | 预警详情链接。 |
 | source | string | 否 | 否 | 预警来源。 |
 | icon | resourceManager.Resource | 否 | 是 | 预警图标。 |
+ 
+ 
+  
 
-#### WeatherIndex
+##### WeatherIndex
+
 天气指数数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | updateTime | Date | 否 | 否 | 数据更新时间，UTC时间格式。 |
 | expirationTime | Date | 否 | 否 | 数据失效时间，UTC时间格式。 |
-| type | [WeatherIndexType](#weatherindextype) | 否 | 否 | 指数类型。 |
+| type | WeatherIndexType | 否 | 否 | 指数类型。 |
 | name | string | 否 | 否 | 指数名称。 |
-| dailyItems | [DailyIndex](#dailyindex)[] | 否 | 否 | 每天的指数详情。 |
+| dailyItems | DailyIndex[] | 否 | 否 | 每天的指数详情。 |
+ 
+ 
+  
 
-#### Tide
+##### Tide
+
 潮汐数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | updateTime | Date | 否 | 否 | 数据更新时间，UTC时间格式。 |
 | expirationTime | Date | 否 | 否 | 数据失效时间，UTC时间格式。 |
 | stationId | string | 否 | 否 | 潮汐站点id。 |
 | stationName | string | 否 | 否 | 潮汐站点名称。 |
-| hourlyTides | [HourlyTide](#hourlytide)[] | 否 | 否 | 小时潮汐数据。 |
+| hourlyTides | HourlyTide[] | 否 | 否 | 小时潮汐数据。 |
+ 
+ 
+  
 
-#### City
+##### City
+
 城市信息类。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **起始版本：** 6.1.0(23)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | countryCode | string | 否 | 否 | 国家编码，ISO 3166-1 标准中的两位国家编码。 |
@@ -411,100 +494,130 @@ export default class EntryAbility extends UIAbility {
 | chineseName | string | 否 | 是 | 中文城市名称。 |
 | englishName | string | 否 | 是 | 英文城市名称。 |
 | timezone | string | 否 | 是 | 时区。 |
-| administrativeAreas | [AdministrativeArea](#administrativearea)[] | 否 | 是 | 行政区域列表。 |
+| administrativeAreas | AdministrativeArea[] | 否 | 是 | 行政区域列表。 |
+ 
+ 
+  
 
-#### WeatherMetadata
+##### WeatherMetadata
+
 天气元数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | requestTime | Date | 否 | 否 | 接口请求时间，UTC时间格式。 |
 | version | string | 否 | 否 | 天气服务版本。 |
 | timeZone | string | 否 | 是 | 接口请求目的地的时区。 |
+ 
+ 
+  
 
-#### WeatherAttribution
+##### WeatherAttribution
+
 天气数据归因类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | serviceName | string | 否 | 否 | 数据供应商名称。 |
 | legalPageUrl | string | 否 | 否 | 归因页面链接。 |
+ 
+ 
+  
 
-#### Wind
+##### Wind
+
 风力风向数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| direction | [CompassDirection](#compassdirection) | 否 | 否 | 风向。 |
+| direction | CompassDirection | 否 | 否 | 风向。 |
 | speed | number | 否 | 否 | 风速。 单位：km/h。 |
 | level | number | 否 | 否 | 风力级别。 |
-| gustDirection | [CompassDirection](#compassdirection) | 否 | 是 | 阵风风向。 |
+| gustDirection | CompassDirection | 否 | 是 | 阵风风向。 |
 | gustSpeed | number | 否 | 是 | 阵风风速。 单位：km/h。 |
 | gustLevel | number | 否 | 是 | 阵风风力级别。 |
+ 
+ 
+  
 
-#### WeatherCondition
+##### WeatherCondition
+
 天气现象数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [ConditionType](#conditiontype) | 否 | 否 | 天气现象类型。 |
+| type | ConditionType | 否 | 否 | 天气现象类型。 |
 | icon | resourceManager.Resource | 否 | 否 | 天气现象图标。 |
 | description | string | 否 | 否 | 天气现象描述。 |
+ 
+ 
+  
 
-#### UVIndex
+##### UVIndex
+
 紫外线指数数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| category | [ExposureCategory](#exposurecategory) | 否 | 否 | 紫外线暴露类别。 |
+| category | ExposureCategory | 否 | 否 | 紫外线暴露类别。 |
 | value | number | 否 | 否 | 紫外线等级。 |
 | description | string | 否 | 否 | 紫外线等级描述。 |
+ 
+ 
+  
 
-#### WeatherAqi
+##### WeatherAqi
+
 空气质量数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | no2 | number | 否 | 是 | 二氧化氮浓度。 单位：μg/m3。 |
@@ -514,141 +627,181 @@ export default class EntryAbility extends UIAbility {
 | so2 | number | 否 | 是 | 二氧化硫浓度。 单位：μg/m3。 |
 | co | number | 否 | 是 | 一氧化碳浓度。 单位：μg/m3。 |
 | aqiValue | number | 否 | 否 | 空气质量数值。 |
-| aqiCategory | [AqiCategory](#aqicategory) | 否 | 否 | 空气质量类别。 |
+| aqiCategory | AqiCategory | 否 | 否 | 空气质量类别。 |
 | aqiDescription | string | 否 | 否 | 空气质量类别描述。 |
+ 
+ 
+  
 
-#### MoonEvents
+##### MoonEvents
+
 月出/月落时间，月相等信息类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | moonrise | Date | 否 | 否 | 月出时间，UTC时间格式。 |
 | moonset | Date | 否 | 否 | 月落时间，UTC时间格式。 |
-| phase | [MoonPhase](#moonphase) | 否 | 否 | 月相。 |
+| phase | MoonPhase | 否 | 否 | 月相。 |
 | illuminatedFraction | number | 否 | 是 | 月面照亮比例。 例如比例为30%，本字段返回30。 |
 | age | number | 否 | 是 | 月龄。 |
+ 
+ 
+  
 
-#### MoonPhase
+##### MoonPhase
+
 月相信息类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [MoonPhaseType](#moonphasetype) | 否 | 否 | 月相类型。 |
+| type | MoonPhaseType | 否 | 否 | 月相类型。 |
 | description | string | 否 | 否 | 月相描述。 |
 | icon | resourceManager.Resource | 否 | 否 | 月相图标。 |
+ 
+ 
+  
 
-#### SunEvents
+##### SunEvents
+
 日出/日落信息类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | sunrise | Date | 否 | 否 | 日出时间，UTC时间格式。 |
 | sunset | Date | 否 | 否 | 日落时间，UTC时间格式。 |
+ 
+ 
+  
 
-#### DayPartForecast
+##### DayPartForecast
+
 全天部分时段天气信息类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| wind | [Wind](#wind) | 否 | 否 | 风力风向。 |
+| wind | Wind | 否 | 否 | 风力风向。 |
 | humidity | number | 否 | 否 | 相对湿度。 例如湿度为30%，本字段返回30。 |
 | cloudCover | number | 否 | 否 | 云量。 例如云量为30%，本字段返回30。 |
-| condition | [WeatherCondition](#weathercondition) | 否 | 否 | 天气现象。 |
+| condition | WeatherCondition | 否 | 否 | 天气现象。 |
 | precipitationProbability | number | 否 | 否 | 降水概率。 |
 | precipitationAmount | number | 否 | 否 | 降水量。 单位：mm。 |
 | rainfallProbability | number | 否 | 是 | 降雨概率。 |
 | rainfallAmount | number | 否 | 是 | 降雨量。 单位：mm。 |
 | snowfallProbability | number | 否 | 是 | 降雪概率。 |
 | snowfallAmount | number | 否 | 是 | 降雪量。 单位：mm。 |
+ 
+ 
+  
 
-#### DailyIndex
+##### DailyIndex
+
 每天天气指数数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | date | Date | 否 | 否 | 日期，精确到天，UTC时间格式。 |
 | level | number | 否 | 否 | 指数级别。 |
 | levelDescription | string | 否 | 否 | 指数级别描述。 |
 | content | string | 否 | 否 | 指数内容。 |
+ 
+ 
+  
 
-#### HourlyTide
+##### HourlyTide
+
 小时潮汐数据类。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | date | Date | 否 | 否 | 日期，精确到小时，UTC时间格式。 |
-| category | [TideCategory](#tidecategory) | 否 | 是 | 潮汐类型。 |
+| category | TideCategory | 否 | 是 | 潮汐类型。 |
 | height | number | 否 | 否 | 潮汐高度。 单位：cm。 |
+ 
+ 
+  
 
-#### AdministrativeArea
+##### AdministrativeArea
+
 行政区域信息类。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **起始版本：** 6.1.0(23)
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | level | number | 否 | 否 | 行政区划等级。 0：国家 1：省份 2：地级市 3：县区 |
 | localizedName | string | 否 | 否 | 本地化语言名称。 |
 | chineseName | string | 否 | 是 | 中文名称。 |
 | englishName | string | 否 | 是 | 英文名称。 |
+ 
+ 
+  
 
-#### Dataset
+##### Dataset
+
 数据集枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | CURRENT | 0 | 实况天气。 |
@@ -658,35 +811,45 @@ export default class EntryAbility extends UIAbility {
 | ALERTS | 4 | 天气预警。 |
 | INDICES | 5 | 天气指数。 |
 | TIDES | 6 | 潮汐。 |
-| CITY | 7 | 城市信息。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。  起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+| CITY | 7 | 城市信息。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+ 
+ 
+  
 
-#### PressureTrend
+##### PressureTrend
+
 气压趋势枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义。 |
 | FALLING | 1 | 下降。 |
 | RISING | 2 | 上升。 |
 | STEADY | 3 | 稳定。 |
+ 
+ 
+  
 
-#### ConditionType
+##### ConditionType
+
 天气现象类型枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义 |
@@ -762,17 +925,22 @@ export default class EntryAbility extends UIAbility {
 | SEVERE_FOGGY | 74 | 雾 |
 | OVERCAST_NIGHT | 75 | 阴 |
 | BLOWING_SNOW | 76 | 阵雪 |
+ 
+ 
+  
 
-#### CompassDirection
+##### CompassDirection
+
 指针方向枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义。 |
@@ -784,17 +952,22 @@ export default class EntryAbility extends UIAbility {
 | SOUTH_WEST | 6 | 西南。 |
 | WEST | 7 | 西。 |
 | NORTH_WEST | 8 | 西北。 |
+ 
+ 
+  
 
-#### ExposureCategory
+##### ExposureCategory
+
 紫外线暴露程度枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义。 |
@@ -803,17 +976,22 @@ export default class EntryAbility extends UIAbility {
 | MODERATE | 3 | 中等。 |
 | HIGH | 4 | 强。 |
 | VERY_HIGH | 5 | 很强。 |
+ 
+ 
+  
 
-#### MoonPhaseType
+##### MoonPhaseType
+
 月相类别枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义。 |
@@ -825,17 +1003,22 @@ export default class EntryAbility extends UIAbility {
 | WANING_GIBBOUS | 6 | 亏凸月。 |
 | LAST_QUARTER | 7 | 下弦月。 |
 | WANING_CRESCENT | 8 | 残月。 |
+ 
+ 
+  
 
-#### Precipitation
+##### Precipitation
+
 降水类型枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NONE | 0 | 无降水。 |
@@ -843,17 +1026,22 @@ export default class EntryAbility extends UIAbility {
 | RAIN | 2 | 雨。 |
 | SLEET | 3 | 雨夹雪。 |
 | SNOW | 4 | 雪。 |
+ 
+ 
+  
 
-#### AlertLevel
+##### AlertLevel
+
 预警级别枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | BLUE | 1 | 蓝色预警。 |
@@ -863,17 +1051,22 @@ export default class EntryAbility extends UIAbility {
 | OTHER | 5 | 其他。 |
 | WHITE | 6 | 白色预警。 |
 | BLACK | 7 | 黑色预警。 |
+ 
+ 
+  
 
-#### AlertType
+##### AlertType
+
 预警类型枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | TYPHOON | 1 | 台风。 |
@@ -927,17 +1120,22 @@ export default class EntryAbility extends UIAbility {
 | FLUSH_FLOOD | 50 | 山洪。 |
 | GRASSLAND_FIRE_RISK | 51 | 草原火险。 |
 | THUNDER_RAIN_AND_GALE | 52 | 雷雨大风。 |
+ 
+ 
+  
 
-#### AqiCategory
+##### AqiCategory
+
 空气质量类别枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义。 |
@@ -947,17 +1145,22 @@ export default class EntryAbility extends UIAbility {
 | MODERATE | 4 | 中度污染。 |
 | HEAVY | 5 | 重度污染。 |
 | SEVERE | 6 | 严重污染。 |
+ 
+ 
+  
 
-#### WeatherIndexType
+##### WeatherIndexType
+
 天气指数类型枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义。 |
@@ -972,17 +1175,22 @@ export default class EntryAbility extends UIAbility {
 | ALLERGY | 24 | 过敏指数。 |
 | SKIING | 31 | 滑雪指数。 |
 | STARGAZING | 34 | 观星指数。 |
+ 
+ 
+  
 
-#### TideCategory
+##### TideCategory
+
 潮汐类别枚举。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Weather.Core
-
+ 
 **设备行为差异：** 对于5.0.5(17)及之前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无法使用。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中可正常使用。
-
+ 
 **起始版本：** 5.0.0(12)
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNDEFINED | 0 | 未定义。 |

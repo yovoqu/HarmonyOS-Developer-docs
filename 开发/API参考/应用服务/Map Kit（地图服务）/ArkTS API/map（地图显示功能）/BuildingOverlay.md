@@ -3,28 +3,31 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-buildingoverlay
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-支持设备：Phone | PC/2in1 | Tablet | Wearable
+##### 导入模块
 
-#### 导入模块
-
-```ts
+```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
+ 
+  
 
-#### BuildingOverlay
+##### BuildingOverlay
+
 3D建筑。缩放层级达到16级或以上，才可正常显示3D建筑效果。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 let points: Array<mapCommon.LatLng> = [
   {
     latitude: 31.984794,
@@ -187,109 +190,141 @@ let buildingOverlayOptions: mapCommon.BuildingOverlayParams =
   }
 let buildingOverlay: map.BuildingOverlay= await this.mapController.addBuildingOverlay(buildingOverlayOptions);
 ```
+ 
+  
 
-#### getId
+##### getId
+
 getId(): string
+ 
 返回3D建筑的ID。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回3D建筑的ID。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 let id: String = buildingOverlay.getId();
 ```
+ 
+  
 
-#### remove
+##### remove
+
 remove(): void
+ 
 移除3D建筑。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **示例：**
-
-```ts
+ 
+```text
 buildingOverlay.remove();
 ```
+ 
+  
 
-#### setSideVisible
+##### setSideVisible
+
 setSideVisible(visible: boolean): void
+ 
 设置是否显示3D建筑的侧面和顶部。如果不需要显示3D建筑请同时将[setSideVisible](#setsidevisible)和[setFloorVisible](#setfloorvisible)设置为false。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
+ 
 **参数**：
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | visible | boolean | 是 | 是否显示3D建筑的侧面和顶部。 - true：显示 - false：不显示 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 buildingOverlay.setSideVisible(true);
 ```
+ 
+  
 
-#### setFloorVisible
+##### setFloorVisible
+
 setFloorVisible(visible: boolean): void
+ 
 设置是否显示选中的楼层。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
+ 
 **参数**：
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | visible | boolean | 是 | 是否显示建筑的所选楼层。 - true：显示 - false：不显示 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 buildingOverlay.setFloorVisible(true);
 ```
+ 
+  
 
-#### setFloorBottomHeight
+##### setFloorBottomHeight
+
 setFloorBottomHeight(height: number): void
+ 
 设置所选楼层底部到地面的高度。
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.Map.Core
-
+ 
 **起始版本：** 5.0.0(12)
+ 
 **参数**：
-
-| **参数名** | **类型** | 必填 | **说明** |
+  
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | height | number | 是 | 所选楼层底部到地面的高度，单位：m，取值范围：大于等于0，异常值不处理。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 buildingOverlay.setFloorBottomHeight(80);
 ```

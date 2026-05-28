@@ -12,19 +12,32 @@
 
 **图1** 播放状态变化示意图
 
-![](assets/使用AVPlayer播放音频(ArkTS)
-/file-20260514131546361-0.png)
+
+![](assets/使用AVPlayer播放音频(ArkTS)/file-20260514131546361-0.png)
+
 
 状态的详细说明请参考[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avplayerstate9)。当播放处于prepared / playing / paused / completed状态时，播放引擎处于工作状态，这需要占用系统大量的运行内存。当客户端暂时不使用播放器时，调用reset()或release()回收内存资源，做好资源利用。
 
 
-## 开发建议
+##### 开发建议
 
-当前指导仅介绍如何实现媒体资源播放，在应用开发过程中，涉及后台播放、播放冲突等情况时，请根据实际需要参考以下说明。 若要实现后台播放或熄屏播放，需要接入[AVSession（媒体会话）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene)和[申请长时任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)，避免播放被系统强制中断。 应用在播放过程中，若播放的媒体数据涉及音频，根据系统音频管理策略（参考[处理音频焦点事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency)），可能会被其他应用打断，建议应用主动监听音频打断事件，根据内容提示做出相应处理，避免出现应用状态与预期效果不一致的问题。 面对设备同时连接多个音频输出设备的情况，应用可以通过[on('audioOutputDeviceChangeWithInfo')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onaudiooutputdevicechangewithinfo11)监听音频输出设备的变化，做出相应处理。 若要访问在线媒体资源，需要申请 ohos.permission.INTERNET 权限。 若要切换听筒/扬声器，应用可以参考[音频输出设备路由切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-output-device-switcher)。
+当前指导仅介绍如何实现媒体资源播放，在应用开发过程中，涉及后台播放、播放冲突等情况时，请根据实际需要参考以下说明。
 
-## 开发步骤及注意事项
+ - 若要实现后台播放或熄屏播放，需要接入[AVSession（媒体会话）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene)和[申请长时任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)，避免播放被系统强制中断。
+ - 应用在播放过程中，若播放的媒体数据涉及音频，根据系统音频管理策略（参考[处理音频焦点事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency)），可能会被其他应用打断，建议应用主动监听音频打断事件，根据内容提示做出相应处理，避免出现应用状态与预期效果不一致的问题。
+ - 面对设备同时连接多个音频输出设备的情况，应用可以通过[on('audioOutputDeviceChangeWithInfo')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer#onaudiooutputdevicechangewithinfo11)监听音频输出设备的变化，做出相应处理。
+ - 若要访问在线媒体资源，需要申请 ohos.permission.INTERNET 权限。
+ - 若要切换听筒/扬声器，应用可以参考[音频输出设备路由切换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-output-device-switcher)。
 
-详细的API说明请参考[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)。 创建实例createAVPlayer()，AVPlayer初始化idle状态。
+
+
+
+##### 开发步骤及注意事项
+
+详细的API说明请参考[AVPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer)。
+1. 创建实例createAVPlayer()，AVPlayer初始化idle状态。
+
+  
 ```text
 import { media } from '@kit.MediaKit';
 
@@ -32,20 +45,31 @@ import { media } from '@kit.MediaKit';
 let avPlayer = await media.createAVPlayer();
 ```
 
-设置业务需要的监听事件，搭配全流程场景使用。支持的监听事件包括：
+2. 设置业务需要的监听事件，搭配全流程场景使用。支持的监听事件包括：
+
 | 事件类型 | 说明 |
+
 | --- | --- |
-| stateChange | 必要事件，监听播放器的state属性改变。            需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的stateChange事件。 |
-| error | 必要事件，监听播放器的错误信息。            需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的error事件。 |
+
+| stateChange | 必要事件，监听播放器的state属性改变。 需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的stateChange事件。 |
+
+| error | 必要事件，监听播放器的错误信息。 需要播放器在idle状态下、未调用设置资源接口前完成设置监听，若在调用设置资源接口后再设置监听，可能导致无法收到资源设置过程中上报的error事件。 |
+
 | durationUpdate | 用于进度条，监听进度条长度，刷新资源时长。 |
+
 | timeUpdate | 用于进度条，监听进度条当前位置，刷新当前时间。 |
-| seekDone | 响应API调用，监听seek()请求完成情况。            当使用seek()跳转到指定播放位置后，如果seek操作成功，将上报该事件。 |
-| speedDone | 响应API调用，监听setSpeed()请求完成情况。            当使用setSpeed()设置播放倍速后，如果setSpeed操作成功，将上报该事件。 |
-| volumeChange | 响应API调用，监听setVolume()请求完成情况。            当使用setVolume()调节播放音量后，如果setVolume操作成功，将上报该事件。 |
+
+| seekDone | 响应API调用，监听seek()请求完成情况。 当使用seek()跳转到指定播放位置后，如果seek操作成功，将上报该事件。 |
+
+| speedDone | 响应API调用，监听setSpeed()请求完成情况。 当使用setSpeed()设置播放倍速后，如果setSpeed操作成功，将上报该事件。 |
+
+| volumeChange | 响应API调用，监听setVolume()请求完成情况。 当使用setVolume()调节播放音量后，如果setVolume操作成功，将上报该事件。 |
+
 | bufferingUpdate | 用于网络播放，监听网络播放缓冲信息，用于上报缓冲百分比以及缓存播放进度。 |
-| audioInterrupt | 监听音频焦点切换信息，搭配属性audioInterruptMode使用。            如果当前设备存在多个音频正在播放，音频焦点被切换（即播放其他媒体如通话等）时将上报该事件，应用可以及时处理。 |
 
+| audioInterrupt | 监听音频焦点切换信息，搭配属性audioInterruptMode使用。 如果当前设备存在多个音频正在播放，音频焦点被切换（即播放其他媒体如通话等）时将上报该事件，应用可以及时处理。 |
 
+  
 ```text
 // 此处仅为示例，开发者根据需要设置合适的监听事件。
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -80,11 +104,16 @@ avPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
 });
 ```
 
-设置资源：设置属性url，AVPlayer进入initialized状态。
-> [!NOTE]
-> 下面代码示例中的url仅作示意使用，开发者需根据实际情况，确认资源有效性并设置： 如果使用本地资源播放，必须确认资源文件可用，并使用应用沙箱路径访问对应资源，参考获取应用文件路径。应用沙箱的介绍及如何向应用沙箱推送文件，请参考文件管理。 如果使用网络播放路径，需声明权限：ohos.permission.INTERNET。 可以使用ResourceManager.getRawFd打开HAP资源文件描述符。 需要使用支持的播放格式与协议。
+3. 设置资源：设置属性url，AVPlayer进入initialized状态。
 
-**示例一：播放网络媒体资源**
+  
+> [!NOTE]
+> 下面代码示例中的url仅作示意使用，开发者需根据实际情况，确认资源有效性并设置： 如果使用本地资源播放，必须确认资源文件可用，并使用应用沙箱路径访问对应资源，参考 获取应用文件路径 。应用沙箱的介绍及如何向应用沙箱推送文件，请参考 文件管理 。 如果使用网络播放路径，需 声明权限 ：ohos.permission.INTERNET。 可以使用ResourceManager. getRawFd 打开HAP资源文件描述符。 需要使用 支持的播放格式与协议 。
+
+
+  **示例一：播放网络媒体资源**
+
+  
 ```text
 let url = 'https://abc.bcd.example.mp3'; // 此处仅为示意，请替换为真实资源文件URL。
 if (avPlayer == null) {
@@ -92,8 +121,9 @@ if (avPlayer == null) {
 }
 avPlayer.url = url;
 ```
-
 **示例二：应用沙箱文件播放**
+
+  
 ```text
 let fdPath = 'fd://'; // 此处仅为示意，请替换为真实资源文件URL。
 let path : string = `${this.context.filesDir}/${this.fileName}`; // 此处仅为示意，请替换为真实资源文件URL。
@@ -103,7 +133,11 @@ this.avPlayer = await media.createAVPlayer();
 this.avPlayer.url = url;
 ```
 
-（可选）设置音频渲染：只允许在initialized状态下，第一次调用prepare()之前设置，以便音频渲染器信息在之后生效。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。 为了确保音频行为符合使用预期，建议根据具体业务场景和实际需求，主动配置[audio.AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8)，为音频选择恰当的流类型[usage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-right-streamusage-and-sourcetype)。
+4. （可选）设置音频渲染：只允许在initialized状态下，第一次调用prepare()之前设置，以便音频渲染器信息在之后生效。若媒体源包含视频，则usage默认值为STREAM_USAGE_MOVIE，否则usage默认值为STREAM_USAGE_MUSIC。rendererFlags默认值为0。
+
+  为了确保音频行为符合使用预期，建议根据具体业务场景和实际需求，主动配置[audio.AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8)，为音频选择恰当的流类型[usage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-right-streamusage-and-sourcetype)。
+
+  
 ```text
 import { audio } from '@kit.AudioKit';
 
@@ -113,7 +147,9 @@ avPlayer.audioRendererInfo = {
 }
 ```
 
-准备播放：调用 prepare()方法进入准备播放阶段，AVPlayer 将切换至 prepared 状态，此时可获取视频时长（duration）并调整音量参数。
+5. 准备播放：调用 prepare()方法进入准备播放阶段，AVPlayer 将切换至 prepared 状态，此时可获取视频时长（duration）并调整音量参数。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -126,11 +162,14 @@ avPlayer.prepare((err: BusinessError) => {
 });
 ```
 
-音频播控：播放play()、暂停pause()、跳转seek()、停止stop() 等操作。
+6. 音频播控：播放play()、暂停pause()、跳转seek()、停止stop() 等操作。
+
+  
 > [!NOTE]
 > 在API version 23及之后版本中，播放音频时会跳过静音帧。
 
 
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -161,7 +200,9 @@ avPlayer.stop((err: BusinessError) => {
 });
 ```
 
-（可选）更换资源：调用reset()方法重置播放资源，AVPlayer重新进入idle状态，此时可重新设置资源url。
+7. （可选）更换资源：调用reset()方法重置播放资源，AVPlayer重新进入idle状态，此时可重新设置资源url。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -181,7 +222,9 @@ if (avPlayer == null) {
 avPlayer.url = url;
 ```
 
-退出播放：调用release()销毁实例，AVPlayer进入released状态，退出播放。
+8. 退出播放：调用release()销毁实例，AVPlayer进入released状态，退出播放。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -195,10 +238,13 @@ avPlayer.release((err: BusinessError) => {
 ```
 
 
-## 运行完整示例
 
-参考以下示例，完整地播放一首音乐，实现起播后3s暂停，暂停3s重新播放的效果。 新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSAudio)，并将示例工程的以下资源复制到对应目录。
-```text
+
+##### 运行完整示例
+
+参考以下示例，完整地播放一首音乐，实现起播后3s暂停，暂停3s重新播放的效果。
+1. 新建工程，下载[示例工程](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/AVPlayer/AVPlayerArkTSAudio)，并将示例工程的以下资源复制到对应目录。       
+```ArkTS
 AVPlayerArkTSAudio
 entry/src/main/ets/
 └── pages
@@ -216,4 +262,4 @@ entry/src/main/resources/
     └── test_01.mp3 （音频资源）
 ```
 
-编译新建工程并运行。
+2. 编译新建工程并运行。

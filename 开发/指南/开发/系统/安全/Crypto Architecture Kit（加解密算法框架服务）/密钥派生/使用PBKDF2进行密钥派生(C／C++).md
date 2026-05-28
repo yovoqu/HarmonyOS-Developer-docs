@@ -1,19 +1,27 @@
 # 使用PBKDF2进行密钥派生(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-using-pbkdf2-ndk
 
 对应的算法规格请查看[密钥派生算法规格：PBKDF2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-overview#pbkdf2算法)。
 
 
-## 开发步骤
+##### 开发步骤
+1. 调用[OH_CryptoKdfParams_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_create)，指定字符串参数'PBKDF2'，创建密钥派生参数对象。
+2. 调用[OH_CryptoKdfParams_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_setparam)，设置PBKDF2所需的参数。示例如下：
 
-调用[OH_CryptoKdfParams_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_create)，指定字符串参数'PBKDF2'，创建密钥派生参数对象。 调用[OH_CryptoKdfParams_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdfparams_setparam)，设置PBKDF2所需的参数。示例如下： CRYPTO_KDF_KEY_DATABLOB：用于生成派生密钥的原始密码。 CRYPTO_KDF_SALT_DATABLOB：盐值。 CRYPTO_KDF_ITER_COUNT_INT：重复运算的次数，需要为正整数。 调用[OH_CryptoKdf_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_create)，指定字符串参数'PBKDF2|SHA256'，创建密钥派生函数对象。 调用[OH_CryptoKdf_Derive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_derive)，指定目标密钥的字节长度，进行密钥派生。
-```text
+  
+CRYPTO_KDF_KEY_DATABLOB：用于生成派生密钥的原始密码。
+3. CRYPTO_KDF_SALT_DATABLOB：盐值。
+4. CRYPTO_KDF_ITER_COUNT_INT：重复运算的次数，需要为正整数。
+5. 调用[OH_CryptoKdf_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_create)，指定字符串参数'PBKDF2|SHA256'，创建密钥派生函数对象。
+6. 调用[OH_CryptoKdf_Derive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-kdf-h#oh_cryptokdf_derive)，指定目标密钥的字节长度，进行密钥派生。
+
+```cpp
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
-#include
-#include
+#include <cstdio>
+#include <cstring>
 #include "file.h"
 
 static OH_Crypto_ErrCode setParams(OH_CryptoKdfParams **params)
@@ -21,7 +29,7 @@ static OH_Crypto_ErrCode setParams(OH_CryptoKdfParams **params)
     // 设置密码。
     const char *password = "123456";
     Crypto_DataBlob passwordBlob = {
-        .data = reinterpret_cast(const_cast(password)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(password)),
         .len = strlen(password)
     };
     OH_Crypto_ErrCode ret = OH_CryptoKdfParams_SetParam(*params, CRYPTO_KDF_KEY_DATABLOB, &passwordBlob);
@@ -32,7 +40,7 @@ static OH_Crypto_ErrCode setParams(OH_CryptoKdfParams **params)
     // 设置盐值。
     const char *salt = "saltstring";
     Crypto_DataBlob saltBlob = {
-        .data = reinterpret_cast(const_cast(salt)),
+        .data = reinterpret_cast<uint8_t *>(const_cast<char *>(salt)),
         .len = strlen(salt)
     };
     ret = OH_CryptoKdfParams_SetParam(*params, CRYPTO_KDF_SALT_DATABLOB, &saltBlob);
@@ -43,7 +51,7 @@ static OH_Crypto_ErrCode setParams(OH_CryptoKdfParams **params)
     // 设置迭代次数。
     int iterations = 10000;
     Crypto_DataBlob iterationsBlob = {
-        .data = reinterpret_cast(&iterations),
+        .data = reinterpret_cast<uint8_t *>(&iterations),
         .len = sizeof(int)
     };
     ret = OH_CryptoKdfParams_SetParam(*params, CRYPTO_KDF_ITER_COUNT_INT, &iterationsBlob);

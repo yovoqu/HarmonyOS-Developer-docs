@@ -5,21 +5,24 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-compiling-the-napi
 
 编译HAP时，NAPI层的so需要编译依赖NDK中的libneural_network_core.so和libhiai_foundation.so。
+  
 
-
-## 头文件引用
+##### 头文件引用
 
 按需引用[NNCore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-neuralnetworkruntime)和[CANN Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit-hiai-aipp-param-8h)的头文件。
+ 
 ```text
 #include "neural_network_runtime/neural_network_core.h"
 #include "CANNKit/hiai_options.h"
 ```
+ 
+  
 
-
-## 编写CMakeLists.txt
+##### 编写CMakeLists.txt
 
 CMakeLists.txt示例代码如下。
-```text
+ 
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.4.1)
 project(CANNDemo)

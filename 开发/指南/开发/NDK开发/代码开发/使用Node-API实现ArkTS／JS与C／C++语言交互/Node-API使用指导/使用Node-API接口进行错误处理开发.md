@@ -1,20 +1,33 @@
 # 使用Node-API接口进行错误处理开发
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-error
 
-## 简介
+##### 简介
 
 使用Node-API接口进行错误处理，使得在Node-API模块中能够更好地管理和响应错误情况。通过合理使用这些函数，可以提高模块的稳定性和可靠性。
 
-## 基本概念
 
-在ArkTS编程中，异常和错误是常见的概念。异常表示发生了某种意外情况，而错误则指示程序无法正确执行某些操作。Node-API提供了一系列方法来帮助开发者在Node-API模块中处理ArkTS中的异常和错误。下面是一些基本概念： **异常（Exception）**：在程序执行过程中可能会出现的意外情况，可以是语法错误、运行时错误或逻辑错误，例如除以零或对未定义变量的操作。 **错误（Error）**：表示程序无法顺利执行某些操作，可以是由底层系统、API函数或开发者自定义的。 **类型错误（Type Error）**：表示操作或值的类型不符合预期，通常是由错误的数据类型导致的。 **范围错误（Range Error）**：表示一个值不在预期的范围内，例如对数组长度之外的索引进行访问。 这些基本概念在异常和错误处理中非常重要，开发者需要通过适当的方法来捕获、处理或向用户报告这些异常和错误，以确保程序的稳定性和正确性。Node-API提供的方法可以帮助开发者在Node-API模块中处理ArkTS中的异常和错误。
 
-## 场景和功能介绍
+##### 基本概念
+
+在ArkTS编程中，异常和错误是常见的概念。异常表示发生了某种意外情况，而错误则指示程序无法正确执行某些操作。Node-API提供了一系列方法来帮助开发者在Node-API模块中处理ArkTS中的异常和错误。下面是一些基本概念：
+
+ - **异常（Exception）**：在程序执行过程中可能会出现的意外情况，可以是语法错误、运行时错误或逻辑错误，例如除以零或对未定义变量的操作。
+ - **错误（Error）**：表示程序无法顺利执行某些操作，可以是由底层系统、API函数或开发者自定义的。
+ - **类型错误（Type Error）**：表示操作或值的类型不符合预期，通常是由错误的数据类型导致的。
+ - **范围错误（Range Error）**：表示一个值不在预期的范围内，例如对数组长度之外的索引进行访问。
+
+
+这些基本概念在异常和错误处理中非常重要，开发者需要通过适当的方法来捕获、处理或向用户报告这些异常和错误，以确保程序的稳定性和正确性。Node-API提供的方法可以帮助开发者在Node-API模块中处理ArkTS中的异常和错误。
+
+
+
+##### 场景和功能介绍
 
 以下[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#已从node-api组件标准库中导出的符号列表)接口主要用于与ArkTS交互时处理错误和异常情况。其使用场景如下：
+
 | 接口 | 描述 |
 | --- | --- |
 | napi_create_error、napi_create_type_error、napi_create_range_error | 在C/C++中需要创建一个错误对象时，可以使用这些函数。创建的错误对象可以使用napi_throw抛出到ArkTS。 |
@@ -27,14 +40,21 @@
 | napi_fatal_exception | 抛出一个致命异常并终止进程, 同时产生相应的crash日志。 |
 
 
-## 使用示例
+
+
+##### 使用示例
 
 Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文仅对接口对应C++及ArkTS相关代码进行展示。
 
-## napi_get_last_error_info
 
-用于获取最后一次发生的错误信息，包括错误码、错误消息以及错误进栈信息，即使存在挂起的ArkTS异常，也可以调用此API。 cpp部分代码
-```text
+
+##### napi_get_last_error_info
+
+用于获取最后一次发生的错误信息，包括错误码、错误消息以及错误进栈信息，即使存在挂起的ArkTS异常，也可以调用此API。
+
+cpp部分代码
+
+```cpp
 // napi_get_last_error_info
 static napi_value GetLastErrorInfo(napi_env env, napi_callback_info info)
 {
@@ -64,12 +84,14 @@ static napi_value GetLastErrorInfo(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const getLastErrorInfo: (str: string) => string; // napi_get_last_error_info
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_get_last_error_info
 try {
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_last_error_info: %{public}s',
@@ -82,10 +104,14 @@ try {
 ```
 
 
-## napi_create_type_error
 
-创建并获取一个带文本信息的ArkTS TypeError。 cpp部分代码
-```text
+##### napi_create_type_error
+
+创建并获取一个带文本信息的ArkTS TypeError。
+
+cpp部分代码
+
+```cpp
 // napi_create_type_error
 static napi_value CreateTypeError(napi_env env, napi_callback_info info)
 {
@@ -102,12 +128,14 @@ static napi_value CreateTypeError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const createTypeError: () => Error; // napi_create_type_error
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 try {
   // ...
   throw testNapi.createTypeError();
@@ -120,10 +148,14 @@ try {
 ```
 
 
-## napi_create_range_error
 
-创建并获取一个带文本信息的ArkTS RangeError。 cpp部分代码
-```text
+##### napi_create_range_error
+
+创建并获取一个带文本信息的ArkTS RangeError。
+
+cpp部分代码
+
+```cpp
 // napi_create_range_error
 static napi_value CreateRangeError(napi_env env, napi_callback_info info)
 {
@@ -140,12 +172,14 @@ static napi_value CreateRangeError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const createRangeError: () => Error; // napi_create_range_error
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_create_range_error
 try {
   // ...
@@ -160,14 +194,20 @@ try {
 ```
 
 
-## napi_create_error
+
+##### napi_create_error
 
 创建并获取一个带文本信息的ArkTS Error。
 
-## napi_throw
 
-用于在Node-API模块中抛出ArkTS异常的函数。当在本地代码中发生错误或检测到不符合预期的情况时，可以使用此接口来抛出一个ArkTS异常，使其能够被捕获并处理。 cpp部分代码
-```text
+
+##### napi_throw
+
+用于在Node-API模块中抛出ArkTS异常的函数。当在本地代码中发生错误或检测到不符合预期的情况时，可以使用此接口来抛出一个ArkTS异常，使其能够被捕获并处理。
+
+cpp部分代码
+
+```cpp
 // napi_create_error and napi_throw
 static napi_value NapiThrow(napi_env env, napi_callback_info info)
 {
@@ -188,12 +228,14 @@ static napi_value NapiThrow(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const napiThrow: () => void; // napi_create_error and napi_throw
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_create_error and napi_throw
 try {
   testNapi.napiThrow();
@@ -207,10 +249,14 @@ try {
 ```
 
 
-## napi_throw_error
 
-用于抛出一个带文本信息的ArkTS Error。 cpp部分代码
-```text
+##### napi_throw_error
+
+用于抛出一个带文本信息的ArkTS Error。
+
+cpp部分代码
+
+```cpp
 // napi_throw_error
 // 这里直接抛出一个带有errorMessage的错误
 static napi_value NapiThrowErrorMessage(napi_env env, napi_callback_info info)
@@ -240,14 +286,16 @@ static napi_value NapiThrowError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const napiThrowErrorMessage: () => void; // napi_throw_error
 
 export const napiThrowError: (dividend: number, divisor: number) => void; // napi_throw_error
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_throw_error
 try {
   testNapi.napiThrowErrorMessage();
@@ -270,9 +318,13 @@ try {
 ```
 
 
-## napi_throw_business_error
 
-用于抛出一个带文本信息的ArkTS Error，其错误对象的code属性类型为number。[该接口抛出的是一个原生的Error对象，并不是ArkTS的SDK中声明的BusinessError对象。](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#node-api组件扩展的符号列表) cpp部分代码
+##### napi_throw_business_error
+
+用于抛出一个带文本信息的ArkTS Error，其错误对象的code属性类型为number。[该接口抛出的是一个原生的Error对象，并不是ArkTS的SDK中声明的BusinessError对象。](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#node-api组件扩展的符号列表)
+
+cpp部分代码
+
 ```text
 #include "napi/native_api.h"
 #include "hilog/log.h"
@@ -291,12 +343,14 @@ static napi_value NapiThrowBusinessError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 // index.d.ts
 export const napiThrowBusinessError: () => void;
 ```
 
 ArkTS侧示例代码
+
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -310,10 +364,14 @@ try {
 ```
 
 
-## napi_throw_type_error
 
-抛出一个带文本信息的ArkTS TypeError。 cpp部分代码
-```text
+##### napi_throw_type_error
+
+抛出一个带文本信息的ArkTS TypeError。
+
+cpp部分代码
+
+```cpp
 // napi_throw_type_error
 // 这里直接抛出一个带有errorMessage的TypeError
 static napi_value ThrowTypeErrorMessage(napi_env env, napi_callback_info info)
@@ -342,14 +400,16 @@ static napi_value ThrowTypeError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const throwTypeErrorMessage: () => void; // napi_throw_type_error
 
 export const throwTypeError: (message: string) => void; // napi_throw_type_error
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_throw_type_error
 try {
   testNapi.throwTypeErrorMessage();
@@ -374,10 +434,14 @@ try {
 ```
 
 
-## napi_throw_range_error
 
-抛出一个带文本信息的ArkTS RangeError。 cpp部分代码
-```text
+##### napi_throw_range_error
+
+抛出一个带文本信息的ArkTS RangeError。
+
+cpp部分代码
+
+```cpp
 // napi_throw_range_error
 // 这里直接抛出一个带有errorMessage的RangeError
 static napi_value ThrowRangeErrorMessage(napi_env env, napi_callback_info info)
@@ -412,14 +476,16 @@ static napi_value ThrowRangeError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const throwRangeErrorMessage: () => void; // napi_throw_range_error
 
 export const throwRangeError: (num: number) => number | undefined; // napi_throw_range_error
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_throw_range_error
 try {
   testNapi.throwRangeErrorMessage();
@@ -445,10 +511,14 @@ try {
 ```
 
 
-## napi_is_error
 
-用于判断给定的napi_value是否表示一个error对象。 cpp部分代码
-```text
+##### napi_is_error
+
+用于判断给定的napi_value是否表示一个error对象。
+
+cpp部分代码
+
+```cpp
 // napi_is_error
 static napi_value NapiIsError(napi_env env, napi_callback_info info)
 {
@@ -468,12 +538,14 @@ static napi_value NapiIsError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
-export const napiIsError: (obj: T) => boolean; // napi_is_error
+
+```ts
+export const napiIsError: <T>(obj: T) => boolean; // napi_is_error
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_is_error
 try {
   // ...
@@ -490,10 +562,14 @@ try {
 ```
 
 
-## napi_get_and_clear_last_exception
 
-用于获取并清除最近一次出现的异常。 cpp部分代码
-```text
+##### napi_get_and_clear_last_exception
+
+用于获取并清除最近一次出现的异常。
+
+cpp部分代码
+
+```cpp
 // napi_get_and_clear_last_exception
 static napi_value GetAndClearLastException(napi_env env, napi_callback_info info)
 {
@@ -510,12 +586,14 @@ static napi_value GetAndClearLastException(napi_env env, napi_callback_info info
 ```
 
 接口声明
-```text
+
+```ts
 export const getAndClearLastException: () => Error | undefined; // napi_get_and_clear_last_exception
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_get_and_clear_last_exception
 // 这里获取到最后一个未处理的异常
 hilog.info(0x0000, 'testTag',
@@ -524,10 +602,14 @@ hilog.info(0x0000, 'testTag',
 ```
 
 
-## napi_is_exception_pending
 
-用于判断是否出现了异常。 cpp部分代码
-```text
+##### napi_is_exception_pending
+
+用于判断是否出现了异常。
+
+cpp部分代码
+
+```cpp
 // napi_is_exception_pending
 static napi_value IsExceptionPending(napi_env env, napi_callback_info info)
 {
@@ -555,12 +637,14 @@ static napi_value IsExceptionPending(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const isExceptionPending: () => Object | undefined; // napi_is_exception_pending
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_is_exception_pending
 interface MyObject {
   code: string;
@@ -580,10 +664,14 @@ try {
 ```
 
 
-## napi_fatal_error
 
-用于引发致命错误以立即终止进程。在调用napi_fatal_error函数后，导致应用程序终止，因此应该慎重使用，避免在正常操作中频繁调用该函数。 cpp部分代码
-```text
+##### napi_fatal_error
+
+用于引发致命错误以立即终止进程。在调用napi_fatal_error函数后，导致应用程序终止，因此应该慎重使用，避免在正常操作中频繁调用该函数。
+
+cpp部分代码
+
+```cpp
 // napi_fatal_error
 static napi_value FatalError(napi_env env, napi_callback_info info)
 {
@@ -599,12 +687,14 @@ static napi_value FatalError(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const fatalError: () => void; // napi_fatal_error
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 // napi_fatal_error 请注意，使用napi_fatal_error函数会导致应用进程直接终止，因此应该谨慎使用，仅在遇到无法恢复的严重错误时才应该调用该函数
 // 模拟一个致命错误条件
 try {
@@ -617,10 +707,14 @@ try {
 ```
 
 
-## napi_fatal_exception
 
-在主线程的上下文环境中调用napi_fatal_exception函数后，抛出一个致命异常，导致应用程序终止，同时会生成相应的crash日志。因此应该慎重使用，避免在正常操作中频繁调用该函数。 cpp部分代码
-```text
+##### napi_fatal_exception
+
+在主线程的上下文环境中调用napi_fatal_exception函数后，抛出一个致命异常，导致应用程序终止，同时会生成相应的crash日志。因此应该慎重使用，避免在正常操作中频繁调用该函数。
+
+cpp部分代码
+
+```cpp
 // napi_fatal_exception
 static napi_value FatalException(napi_env env, napi_callback_info info)
 {
@@ -642,17 +736,20 @@ static napi_value FatalException(napi_env env, napi_callback_info info)
 ```
 
 接口声明
-```text
+
+```ts
 export const fatalException: (err: Error) => void; // napi_fatal_exception
 ```
 
 ArkTS侧示例代码
-```text
+
+```ArkTS
 const err = new Error("a fatal exception occurred");
 testNapi.fatalException(err);
 ```
 
 以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+
 ```text
 // CMakeLists.txt
 add_definitions( "-DLOG_DOMAIN=0xd0d0" )

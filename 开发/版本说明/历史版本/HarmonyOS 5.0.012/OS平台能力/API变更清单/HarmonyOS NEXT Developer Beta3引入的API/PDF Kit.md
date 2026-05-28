@@ -48,7 +48,7 @@
 | 新增API | NA | 类名：ScrollParam； API声明：viewHeight: number; 差异内容：viewHeight: number; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：pdfViewManager； API声明： export class TextSelectedParam 差异内容： export class TextSelectedParam | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：TextSelectedParam； API声明：text: string; 差异内容：text: string; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：TextSelectedParam； API声明：pdfRect: Array<SelectedRects>; 差异内容：pdfRect: Array<SelectedRects>; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：TextSelectedParam； API声明：pdfRect: Array&lt;SelectedRects&gt;; 差异内容：pdfRect: Array&lt;SelectedRects&gt;; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：pdfViewManager； API声明： export class ImageSelectedParam 差异内容： export class ImageSelectedParam | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：ImageSelectedParam； API声明：imageType: pdfService.ImageFormat; 差异内容：imageType: pdfService.ImageFormat; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：ImageSelectedParam； API声明：buffer?: ArrayBuffer; 差异内容：buffer?: ArrayBuffer; | api/@hms.officeservice.PdfView.d.ets |
@@ -57,16 +57,16 @@
 | 新增API | NA | 类名：pdfViewManager； API声明： export class AnnotationChangedParam 差异内容： export class AnnotationChangedParam | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：AnnotationChangedParam； API声明：color: number; 差异内容：color: number; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：AnnotationChangedParam； API声明：annotationType: SupportedAnnotationType; 差异内容：annotationType: SupportedAnnotationType; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：AnnotationChangedParam； API声明：pageIndexArray: Array<number>; 差异内容：pageIndexArray: Array<number>; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：AnnotationChangedParam； API声明：pageIndexArray: Array&lt;number&gt;; 差异内容：pageIndexArray: Array&lt;number&gt;; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：AnnotationChangedParam； API声明：controlType: AnnotationEditType; 差异内容：controlType: AnnotationEditType; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：pdfViewManager； API声明： export class PdfController 差异内容： export class PdfController | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：setViewOffset(offsetX: number, offsetY: number, refreshView: boolean): void; 差异内容：setViewOffset(offsetX: number, offsetY: number, refreshView: boolean): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：getPagePixelMap(pageIndex: number, isSync?: boolean): Promise<image.PixelMap>; 差异内容：getPagePixelMap(pageIndex: number, isSync?: boolean): Promise<image.PixelMap>; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerScrollListener(listener: Callback<ScrollParam>): void; 差异内容：registerScrollListener(listener: Callback<ScrollParam>): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerScrollListener(listener: Callback&lt;ScrollParam&gt;): void; 差异内容：registerScrollListener(listener: Callback&lt;ScrollParam&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：enablePageDrag(verticalEnabled: boolean, horizontalEnabled: boolean): void; 差异内容：enablePageDrag(verticalEnabled: boolean, horizontalEnabled: boolean): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：loadDocument(path: string, password?: string, initPageIndex?: number, onProgress?: Callback<number>): Promise<pdfService.ParseResult>; 差异内容：loadDocument(path: string, password?: string, initPageIndex?: number, onProgress?: Callback<number>): Promise<pdfService.ParseResult>; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：loadDocument(path: string, password?: string, initPageIndex?: number, onProgress?: Callback&lt;number&gt;): Promise<pdfService.ParseResult>; 差异内容：loadDocument(path: string, password?: string, initPageIndex?: number, onProgress?: Callback&lt;number&gt;): Promise<pdfService.ParseResult>; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：releaseDocument(): void; 差异内容：releaseDocument(): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：setHighlightRects(rectArray: Array<PageRects>, color?: number): void; 差异内容：setHighlightRects(rectArray: Array<PageRects>, color?: number): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：setHighlightRects(rectArray: Array&lt;PageRects&gt;, color?: number): void; 差异内容：setHighlightRects(rectArray: Array&lt;PageRects&gt;, color?: number): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：setHighlightText(pageIndex: number, textArray: string[], color: number): void; 差异内容：setHighlightText(pageIndex: number, textArray: string[], color: number): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：setPageZoom(zoom: number): void; 差异内容：setPageZoom(zoom: number): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：getPageZoom(): number; 差异内容：getPageZoom(): number; | api/@hms.officeservice.PdfView.d.ets |
@@ -85,22 +85,22 @@
 | 新增API | NA | 类名：PdfController； API声明：setPageRotation(pageIndex: number, angle: pdfService.RotationAngle): void; 差异内容：setPageRotation(pageIndex: number, angle: pdfService.RotationAngle): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：getPageRotation(pageIndex: number): pdfService.RotationAngle; 差异内容：getPageRotation(pageIndex: number): pdfService.RotationAngle; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：enableAnnotation(annotationType: SupportedAnnotationType, color?: number): void; 差异内容：enableAnnotation(annotationType: SupportedAnnotationType, color?: number): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：addMarkupAnnotation(annotationType: SupportedAnnotationType, selectedRects: Array<SelectedRects>, color: number): void; 差异内容：addMarkupAnnotation(annotationType: SupportedAnnotationType, selectedRects: Array<SelectedRects>, color: number): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：addMarkupAnnotation(annotationType: SupportedAnnotationType, selectedRects: Array&lt;SelectedRects&gt;, color: number): void; 差异内容：addMarkupAnnotation(annotationType: SupportedAnnotationType, selectedRects: Array&lt;SelectedRects&gt;, color: number): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：disableAnnotation(): void; 差异内容：disableAnnotation(): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：deleteSelectedAnnotation(annotationIndex: number, pageIndex: number): void; 差异内容：deleteSelectedAnnotation(annotationIndex: number, pageIndex: number): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：updateMarkupAnnotation(annotationIndex: number, pageIndex: number, color: number): void; 差异内容：updateMarkupAnnotation(annotationIndex: number, pageIndex: number, color: number): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：saveDocument(path: string, onProgress?: Callback<number>): Promise<number>; 差异内容：saveDocument(path: string, onProgress?: Callback<number>): Promise<number>; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerSelectedRectsChangedListener(listener: Callback<Array<SelectedRects>>): void; 差异内容：registerSelectedRectsChangedListener(listener: Callback<Array<SelectedRects>>): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：saveDocument(path: string, onProgress?: Callback&lt;number&gt;): Promise&lt;number&gt;; 差异内容：saveDocument(path: string, onProgress?: Callback&lt;number&gt;): Promise&lt;number&gt;; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerSelectedRectsChangedListener(listener: Callback<Array&lt;SelectedRects&gt;>): void; 差异内容：registerSelectedRectsChangedListener(listener: Callback<Array&lt;SelectedRects&gt;>): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：registerPageFitChangedListener(listener: Callback<pdfService.PageFit>): void; 差异内容：registerPageFitChangedListener(listener: Callback<pdfService.PageFit>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerPageChangedListener(listener: Callback<number>): void; 差异内容：registerPageChangedListener(listener: Callback<number>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerScaleChangedListener(listener: Callback<number>): void; 差异内容：registerScaleChangedListener(listener: Callback<number>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerTextSelectedListener(listener: Callback<TextSelectedParam>): void; 差异内容：registerTextSelectedListener(listener: Callback<TextSelectedParam>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerAnnotationSelectedListener(listener: Callback<SelectedAnnotation>): void; 差异内容：registerAnnotationSelectedListener(listener: Callback<SelectedAnnotation>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerImageSelectedListener(listener: Callback<ImageSelectedParam>): void; 差异内容：registerImageSelectedListener(listener: Callback<ImageSelectedParam>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerActionClickListener(listener: Callback<RedirectInfo>): void; 差异内容：registerActionClickListener(listener: Callback<RedirectInfo>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerAnnotationChangedListener(listener: Callback<AnnotationChangedParam>): void; 差异内容：registerAnnotationChangedListener(listener: Callback<AnnotationChangedParam>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：registerPageCountChangedListener(listener: Callback<number>): void; 差异内容：registerPageCountChangedListener(listener: Callback<number>): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfController； API声明：searchKey(text: string, listener: Callback<number>): void; 差异内容：searchKey(text: string, listener: Callback<number>): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerPageChangedListener(listener: Callback&lt;number&gt;): void; 差异内容：registerPageChangedListener(listener: Callback&lt;number&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerScaleChangedListener(listener: Callback&lt;number&gt;): void; 差异内容：registerScaleChangedListener(listener: Callback&lt;number&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerTextSelectedListener(listener: Callback&lt;TextSelectedParam&gt;): void; 差异内容：registerTextSelectedListener(listener: Callback&lt;TextSelectedParam&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerAnnotationSelectedListener(listener: Callback&lt;SelectedAnnotation&gt;): void; 差异内容：registerAnnotationSelectedListener(listener: Callback&lt;SelectedAnnotation&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerImageSelectedListener(listener: Callback&lt;ImageSelectedParam&gt;): void; 差异内容：registerImageSelectedListener(listener: Callback&lt;ImageSelectedParam&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerActionClickListener(listener: Callback&lt;RedirectInfo&gt;): void; 差异内容：registerActionClickListener(listener: Callback&lt;RedirectInfo&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerAnnotationChangedListener(listener: Callback&lt;AnnotationChangedParam&gt;): void; 差异内容：registerAnnotationChangedListener(listener: Callback&lt;AnnotationChangedParam&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：registerPageCountChangedListener(listener: Callback&lt;number&gt;): void; 差异内容：registerPageCountChangedListener(listener: Callback&lt;number&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
+| 新增API | NA | 类名：PdfController； API声明：searchKey(text: string, listener: Callback&lt;number&gt;): void; 差异内容：searchKey(text: string, listener: Callback&lt;number&gt;): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：clearSearch(): void; 差异内容：clearSearch(): void; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：getSearchIndex(): number; 差异内容：getSearchIndex(): number; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfController； API声明：setSearchIndex(pageIndex: number): void; 差异内容：setSearchIndex(pageIndex: number): void; | api/@hms.officeservice.PdfView.d.ets |
@@ -111,6 +111,6 @@
 | 新增API | NA | 类名：PdfView； API声明：showScroll: boolean; 差异内容：showScroll: boolean; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfView； API声明：pageFit: pdfService.PageFit; 差异内容：pageFit: pdfService.PageFit; | api/@hms.officeservice.PdfView.d.ets |
 | 新增API | NA | 类名：PdfView； API声明：build(): void; 差异内容：build(): void; | api/@hms.officeservice.PdfView.d.ets |
-| 新增API | NA | 类名：PdfDocument； API声明：getRootBookmarks(): Array<Bookmark>; 差异内容：getRootBookmarks(): Array<Bookmark>; | api/@hms.officeservice.pdfservice.d.ts |
+| 新增API | NA | 类名：PdfDocument； API声明：getRootBookmarks(): Array&lt;Bookmark&gt;; 差异内容：getRootBookmarks(): Array&lt;Bookmark&gt;; | api/@hms.officeservice.pdfservice.d.ts |
 | 新增API | NA | 类名：PdfPage； API声明：getAreaPixelMap(matrix: PdfMatrix, bitmapwidth: number, bitmapHeight: number, isGray: boolean, drawAnnotations: boolean): image.PixelMap; 差异内容：getAreaPixelMap(matrix: PdfMatrix, bitmapwidth: number, bitmapHeight: number, isGray: boolean, drawAnnotations: boolean): image.PixelMap; | api/@hms.officeservice.pdfservice.d.ts |
 | 新增API | NA | 类名：PdfPage； API声明：release(): void; 差异内容：release(): void; | api/@hms.officeservice.pdfservice.d.ts |

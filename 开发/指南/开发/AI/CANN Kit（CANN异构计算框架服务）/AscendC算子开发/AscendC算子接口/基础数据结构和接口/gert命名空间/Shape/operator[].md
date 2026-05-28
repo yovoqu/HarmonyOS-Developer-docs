@@ -4,37 +4,45 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operatorc
 
-## 函数功能
+##### 函数功能
 
 获取指定index轴的dim值。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 const int64_t &operator[](size_t idx) const
 int64_t &operator[](size_t idx)
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | idx | 输入 | dim的index，调用者需要保证index合法。 |
+ 
+ 
+  
 
+##### 返回值
 
-## 返回值
+- const int64_t &operator[](size_t idx) const：dim值，在idx>=kMaxDimNum时，行为未定义。
+- int64_t &operator[](size_t idx)：dim值，在idx>=kMaxDimNum时，行为未定义。
 
-const int64_t &operator[](size_t idx) const：dim值，在idx>=kMaxDimNum时，行为未定义。  int64_t &operator[](size_t idx)：dim值，在idx>=kMaxDimNum时，行为未定义。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 调用者需要保证index合法，即idx<kMaxDimNum。
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
 Shape shape0({3, 256, 256});

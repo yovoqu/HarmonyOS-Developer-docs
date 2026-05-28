@@ -5,28 +5,69 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-development-overview
 
 NDK（Native Development Kit）是HarmonyOS SDK提供的Native API、相应编译脚本和编译工具链的集合，方便开发者使用C或C++语言实现应用的关键功能。NDK只覆盖了HarmonyOS一些基础的底层能力，如C运行时基础库libc、图形库、窗口系统、多媒体、压缩库、面向ArkTS/JS与C跨语言的Node-API等，没有提供ArkTS/JS API的完整能力。
+ 
+运行状态，开发者可以使用NDK中的Node-API接口，访问、创建、操作JS对象；也允许JS对象使用Native动态库。
+  
 
- 运行状态，开发者可以使用NDK中的Node-API接口，访问、创建、操作JS对象；也允许JS对象使用Native动态库。
+##### NDK适用场景
 
+**适合使用NDK的场景：应用涉及如下场景时，适合采用NDK开发**
+ 
+- 性能敏感的场景，如游戏、物理模拟等计算密集型场景。
+- 需要复用已有C或C++库的场景。
+- 需要针对CPU特性进行专项定制库的场景，如Neon加速。
 
-## NDK适用场景
+ 
+**不建议使用NDK的场景：应用涉及如下场景时，不建议采用NDK开发**
+ 
+- 纯C或C++的应用。
+- 希望在尽可能多的HarmonyOS设备上保持兼容的应用。
 
-**适合使用NDK的场景：应用涉及如下场景时，适合采用NDK开发** 性能敏感的场景，如游戏、物理模拟等计算密集型场景。  需要复用已有C或C++库的场景。  需要针对CPU特性进行专项定制库的场景，如Neon加速。   **不建议使用NDK的场景：应用涉及如下场景时，不建议采用NDK开发** 纯C或C++的应用。  希望在尽可能多的HarmonyOS设备上保持兼容的应用。
+ 
+  
 
-## NDK必备基础知识
+##### NDK必备基础知识
 
 为顺利进行NDK开发，开发者需要先掌握必要的基本概念及基础知识。
+ 
+  
 
-## 前置知识
+##### 前置知识
 
-**Linux C语言编程知识**  内核、libc基础库基于POSIX等标准扩展而来，掌握基本的Linux C编程知识能够更好的帮助理解HarmonyOS NDK开发。  **CMake使用知识**  CMake是HarmonyOS默认支持的构建系统。请先通过[CMake官方文档](https://cmake.org/cmake/help/v3.16/guide/tutorial/)了解基础用法。  **Node Addons开发知识**  ArkTS采用Node-API作为跨语言调用接口，熟悉基本的[Node Addons开发模式](https://nodejs.org/api/addons.html)，可以更好理解NDK中Node-API的使用。  **Clang/LLVM编译器使用知识**  具备一定的Clang/LLVM编译器基础知识，能够帮助开发者编译出更优的Native动态库。  **[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-introduction)**  曾用名NAPI，是HarmonyOS中提供ArkTS/JS与C/C++跨语言调用的接口，该接口基于Node.js的Node-API扩展而来，但不完全兼容。
+- **Linux C语言编程知识**
 
-## NDK目录简介
+  内核、libc基础库基于POSIX等标准扩展而来，掌握基本的Linux C编程知识能够更好的帮助理解HarmonyOS NDK开发。
+- **CMake使用知识**
 
-获取NDK开发包，请参考[NDK开发工具目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake#获取ndk开发包)。 build目录：放置预定义的toolchain脚本文件[hmos.toolchain.cmake](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-overview#hmostoolchaincmake简介)
+  CMake是HarmonyOS默认支持的构建系统。请先通过[CMake官方文档](https://cmake.org/cmake/help/v3.16/guide/tutorial/)了解基础用法。
+- **Node Addons开发知识**
+
+  ArkTS采用Node-API作为跨语言调用接口，熟悉基本的[Node Addons开发模式](https://nodejs.org/api/addons.html)，可以更好理解NDK中Node-API的使用。
+- **Clang/LLVM编译器使用知识**
+
+  具备一定的Clang/LLVM编译器基础知识，能够帮助开发者编译出更优的Native动态库。
+- **[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-introduction)**
+
+  曾用名NAPI，是HarmonyOS中提供ArkTS/JS与C/C++跨语言调用的接口，该接口基于Node.js的Node-API扩展而来，但不完全兼容。
+
+ 
+  
+
+##### NDK目录简介
+
+获取NDK开发包，请参考[NDK开发工具目录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake#获取ndk开发包)。
+ 
+- build目录：放置预定义的toolchain脚本文件[hmos.toolchain.cmake](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-overview#hmostoolchaincmake简介)
+
+  
 ![](assets/NDK开发导读/file-20260514132657850-0.png)
-CMake编译时需要读取该文件中的默认值，比如编译器架构、C++库链接方式等，因此在编译时会通过CMAKE_TOOLCHAIN_FILE指出该文件的路径，便于CMake在编译时定位到该文件。  build-tools文件夹：放置NDK提供的编译工具
-```text
+
+
+  CMake编译时需要读取该文件中的默认值，比如编译器架构、C++库链接方式等，因此在编译时会通过CMAKE_TOOLCHAIN_FILE指出该文件的路径，便于CMake在编译时定位到该文件。
+- build-tools文件夹：放置NDK提供的编译工具
+
+  
+```bash
 # 键入下一行命令查看CMake的版本
 cmake -version
 # 结果
@@ -34,12 +75,19 @@ cmake version 3.16.5
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
 
-llvm文件夹：放置NDK提供的编译器
+- llvm文件夹：放置NDK提供的编译器
+
+  
 ![](assets/NDK开发导读/file-20260514132657850-1.png)
 
-## NDK常用模块
+
+ 
+  
+
+##### NDK常用模块
 
 下表介绍了NDK的常用模块及其功能简介。
+  
 | 模块 | 模块简介 |
 | --- | --- |
 | 标准C库 | 基于musl提供的标准C库接口。 |

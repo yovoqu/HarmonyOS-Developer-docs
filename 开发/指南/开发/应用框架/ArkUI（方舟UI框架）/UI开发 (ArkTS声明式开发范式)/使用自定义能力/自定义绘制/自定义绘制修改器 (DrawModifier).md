@@ -1,15 +1,16 @@
 # 自定义绘制修改器 (DrawModifier)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-extension-drawmodifier
 
-## 概述
+##### 概述
 
 当某些组件本身的绘制内容不满足需求时，可使用组件自定义绘制功能，在原有组件基础上部分绘制、或者全部自行绘制，以达到预期效果。例如：独特的按钮形状、文字和图像混合的图标等。组件自定义绘制提供了自定义绘制修改器DrawModifier，来实现更自由的组件绘制。
 
-## 使用DrawModifier接口
 
+
+##### 使用DrawModifier接口
 
 ```text
 declare class DrawModifier {
@@ -28,17 +29,25 @@ declare class DrawModifier {
 }
 ```
 
-DrawModifier可设置遮罩层前景（drawOverlay）、前景（drawForeground）、内容前景（drawFront）、内容（drawContent）和内容背景（drawBehind）的绘制方法，开发者需要重载这些方法，并通过[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)的接口进行自定义绘制。自定义绘制层级图如下所示。
-![](assets/自定义绘制修改器%20(DrawModifier)
-/file-20260514130719968-0.png) DrawModifier还提供主动触发重绘的方法invalidate，该接口开发者无需也无法重载，调用会触发所绑定组件的重绘。
+DrawModifier可设置遮罩层前景（[drawOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawoverlay23)）、前景（[drawForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawforeground20)）、内容前景（[drawFront](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawfront)）、内容（[drawContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawcontent)）和内容背景（[drawBehind](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawbehind)）的绘制方法，开发者需要重载这些方法，并通过[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas)的接口进行自定义绘制。自定义绘制层级图如下所示。
+
+
+![](assets/自定义绘制修改器%20(DrawModifier)/file-20260514130719968-0.png)
+
+
+DrawModifier还提供主动触发重绘的方法[invalidate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#invalidate)，该接口开发者无需也无法重载，调用会触发所绑定组件的重绘。
+
 > [!NOTE]
-> 每个DrawModifier实例只能设置到一个组件上，禁止进行重复设置。 drawContent方法会替换组件原本的内容绘制函数。 drawForeground方法从API version 20开始支持。 drawOverlay方法从API version 23开始支持。 NDK的自定义绘制能力和示例请参考自定义绘制。
+> 每个DrawModifier实例只能设置到一个组件上，禁止进行重复设置。 drawContent方法会替换组件原本的内容绘制函数。 drawForeground方法从API version 20开始支持。 drawOverlay方法从API version 23开始支持。 NDK的自定义绘制能力和示例请参考 自定义绘制 。
 
 
-## 通过drawFront、drawContent、drawBehind进行自定义绘制
+
+
+##### 通过drawFront、drawContent、drawBehind进行自定义绘制
 
 通过drawFront、drawContent、drawBehind接口，在内容前景、内容和内容背景三个层级上对Text组件进行了自定义绘制，从而按需改变组件的绘制效果。
-```text
+
+```ArkTS
 import { drawing } from '@kit.ArkGraphics2D';
 import { AnimatorResult } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -239,13 +248,17 @@ struct DrawModifierExample {
 }
 ```
 
-![](assets/自定义绘制修改器%20(DrawModifier)
-/file-20260514130719968-1.gif)
 
-## 通过drawForeground进行自定义绘制
+![](assets/自定义绘制修改器%20(DrawModifier)/file-20260514130719968-2.png)
+
+
+
+
+##### 通过drawForeground进行自定义绘制
 
 通过drawForeground接口，在组件前景层级上对Column组件进行了自定义绘制，从而改变组件前景的绘制效果。
-```text
+
+```ArkTS
 import { drawing } from '@kit.ArkGraphics2D';
 
 class MyForegroundDrawModifier extends DrawModifier {
@@ -304,17 +317,25 @@ struct DrawModifierExample {
 }
 ```
 
-![](assets/自定义绘制修改器%20(DrawModifier)
-/file-20260514130719968-2.png)
 
-## 调整自定义绘制Canvas的变换矩阵
+![](assets/自定义绘制修改器%20(DrawModifier)/file-20260514130719968-3.png)
 
-从API version 12开始，通过重写DrawModifier中的[drawContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawcontent)方法，可以替换组件原本的内容绘制函数。 通过[concatMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#concatmatrix12)可以调整自定义绘制画布的变换矩阵。
+
+
+
+##### 调整自定义绘制Canvas的变换矩阵
+
+从API version 12开始，通过重写DrawModifier中的[drawContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-draw-modifier#drawcontent)方法，可以替换组件原本的内容绘制函数。
+
+通过[concatMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas#concatmatrix12)可以调整自定义绘制画布的变换矩阵。
+
 > [!NOTE]
-> getTotalMatrix获取的是用来记录绘制指令的临时canvas的变换矩阵。 如果开发者希望这个画布进行一个预期的变换，应该使用concatMatrix而不是setMatrix，因为setMatrix会覆盖原本真实canvas上存在的变换矩阵。
+> getTotalMatrix 获取的是用来记录绘制指令的临时canvas的变换矩阵。 如果开发者希望这个画布进行一个预期的变换，应该使用 concatMatrix 而不是 setMatrix ，因为setMatrix会覆盖原本真实canvas上存在的变换矩阵。
+
 
 **ArkTS接口调用示例：**
-```text
+
+```ArkTS
 import { DrawContext } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
@@ -422,5 +443,5 @@ struct Index {
 }
 ```
 
-![](assets/自定义绘制修改器%20(DrawModifier)
-/file-20260514130719968-3.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/u9XJfUuZRc6ztCaadAnAuQ/zh-cn_image_0000002581434094.png?HW-CC-KV=V1&HW-CC-Date=20260528T014812Z&HW-CC-Expire=86400&HW-CC-Sign=A7542C715C91372192C585482C9891DFB65626298FD16AE65CB7F3649A45B315)

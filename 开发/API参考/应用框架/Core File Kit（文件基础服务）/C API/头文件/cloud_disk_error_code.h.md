@@ -3,57 +3,53 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cloud-disk-error-code-h
-**支持设备：** PC/2in1 / Tablet
+**支持设备：** PC/2in1 | Tablet
 
-
-## 概述
-**支持设备：** PC/2in1 / Tablet
+##### 概述
 
 提供云盘管理模块的错误码定义。
-
+ 
 **引用文件：** <filemanagement/clouddiskmanager/cloud_disk_error_code.h>
-
+ 
 **库：** libohclouddiskmanager.so
-
+ 
 **系统能力：** SystemCapability.FileManagement.CloudDiskManager
-
+ 
 **起始版本：** 21
-
+ 
 **相关模块：** [CloudDisk](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-clouddisk)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** PC/2in1 / Tablet
+  
 
-
-### 枚举
-**支持设备：** PC/2in1 / Tablet
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [CloudDisk_ErrorCode](#clouddisk_errorcode) | CloudDisk_ErrorCode | 定义云盘管理模块的错误码。 |
+| CloudDisk_ErrorCode | CloudDisk_ErrorCode | 定义云盘管理模块的错误码。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** PC/2in1 / Tablet
+  
 
-
-### CloudDisk_ErrorCode
-**支持设备：** PC/2in1 / Tablet
-
+##### CloudDisk_ErrorCode
 
 ```text
 enum CloudDisk_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 定义云盘管理模块的错误码。
-
+ 
 **起始版本：** 21
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | CLOUD_DISK_OK = 0 | 接口调用成功。 |

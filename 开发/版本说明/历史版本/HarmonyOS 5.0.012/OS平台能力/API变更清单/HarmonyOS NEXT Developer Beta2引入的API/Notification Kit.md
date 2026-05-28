@@ -6,6 +6,6 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| API废弃版本变更 | 类名：notificationManager； API声明：function requestEnableNotification(callback: AsyncCallback<void>): void; 差异内容：NA | 类名：notificationManager； API声明：function requestEnableNotification(callback: AsyncCallback<void>): void; 差异内容：12 | api/@ohos.notificationManager.d.ts |
-| API废弃版本变更 | 类名：notificationManager； API声明：function requestEnableNotification(): Promise<void>; 差异内容：NA | 类名：notificationManager； API声明：function requestEnableNotification(): Promise<void>; 差异内容：12 | api/@ohos.notificationManager.d.ts |
+| API废弃版本变更 | 类名：notificationManager； API声明：function requestEnableNotification(callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：notificationManager； API声明：function requestEnableNotification(callback: AsyncCallback&lt;void&gt;): void; 差异内容：12 | api/@ohos.notificationManager.d.ts |
+| API废弃版本变更 | 类名：notificationManager； API声明：function requestEnableNotification(): Promise&lt;void&gt;; 差异内容：NA | 类名：notificationManager； API声明：function requestEnableNotification(): Promise&lt;void&gt;; 差异内容：12 | api/@ohos.notificationManager.d.ts |
 | 新增API | NA | 类名：notificationManager； API声明：function isNotificationEnabledSync(): boolean; 差异内容：function isNotificationEnabledSync(): boolean; | api/@ohos.notificationManager.d.ts |

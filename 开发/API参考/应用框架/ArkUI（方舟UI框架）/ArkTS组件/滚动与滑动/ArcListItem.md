@@ -3,38 +3,42 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用来展示列表具体子组件，必须配合[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)来使用。
 
+> [!NOTE]
+> 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件的父组件只能是 ArcList 。 当ArcListItem配合 LazyForEach 使用时，ArcListItem子组件在ArcListItem创建时创建。配合 if/else 、 ForEach 使用时，或父组件为 ArcList 时，ArcListItem子组件在ArcListItem布局时创建。 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 导入模块
+
+> [!NOTE]
+> ArcListItemAttribute是用于配置ArcListItem组件属性的关键接口。API version 21及之前版本，导入ArcListItem组件后需要开发者手动导入ArcListItemAttribute，否则会编译报错。从API version 22开始，编译工具链识别到导入ArcListItem组件后，会自动导入ArcListItemAttribute，无需开发者手动导入ArcListItemAttribute。 如果开发者手动导入ArcListItemAttribute，DevEco Studio会显示置灰，API version 21及之前版本删除会编译报错，从API version 22开始，删除对功能无影响。
 
 
 API version 21及之前版本：
 
-
-```ts
+```text
 import { ArcListItem, ArcListItemAttribute } from '@kit.ArkUI';
 ```
 
 API version 22及之后版本：
 
-
-```ts
+```text
 import { ArcListItem } from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 可以包含单个子组件。
 
 
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 接口
 
 ArcListItem()
 
@@ -45,16 +49,16 @@ ArcListItem()
 **系统能力：** SystemCapability.ArkUI.ArkUI.Circle
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### autoScale
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-autoScale(enable: Optional<boolean>)
+##### autoScale
+
+autoScale(enable: Optional&lt;boolean&gt;)
 
 用于设置ArcListItem是否支持自动缩放显示。
 
@@ -64,16 +68,16 @@ autoScale(enable: Optional<boolean>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enable | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;boolean&gt; | 是 | ArcListItem是否支持自动缩放显示，true表示支持自动缩放显示，false表示不支持自动缩放显示。          默认值：true，支持自动缩放显示。 |
+| enable | Optional&lt;boolean&gt; | 是 | ArcListItem是否支持自动缩放显示，true表示支持自动缩放显示，false表示不支持自动缩放显示。 默认值：true，支持自动缩放显示。 |
 
 
-### swipeAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-swipeAction(options: Optional<SwipeActionOptions>)
+
+##### swipeAction
+
+swipeAction(options: Optional&lt;SwipeActionOptions&gt;)
 
 用于设置ArcListItem的划出组件。
 
@@ -83,19 +87,18 @@ swipeAction(options: Optional<SwipeActionOptions>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;[SwipeActionOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem#swipeactionoptions9对象说明)&gt; | 是 | ArcListItem的划出组件。 |
+| options | Optional&lt;SwipeActionOptions&gt; | 是 | ArcListItem的划出组件。 |
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 示例
 
 该示例展示了子项关闭自动缩放和开启自动缩放后的对比效果。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { LengthMetrics, CircleShape } from '@kit.ArkUI';
 // 从API version 22开始，无需手动导入ArcListAttribute和ArcListItemAttribute。具体请参考ArcList、ArcListItem的导入模块说明。
@@ -122,10 +125,10 @@ struct ArcListItemExample {
         ForEach(this.arr, (item: number) => {
           ArcListItem() {
             Button('' + item, { type: ButtonType.Capsule })
-            .width(this.itemSize)
-            .height('70px')
-            .fontSize('40px')
-            .backgroundColor(0x17A98D)
+              .width(this.itemSize)
+              .height('70px')
+              .fontSize('40px')
+              .backgroundColor(0x17A98D)
           }
           .autoScale(item % 3 == 0 || item % 5 == 0)
         }, (item: number) => item.toString())
@@ -149,4 +152,5 @@ struct ArcListItemExample {
 }
 ```
 
-![](assets/ArcListItem/file-20260514163950757-0.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/AaWW0X8eR-eW8qRwmlkHwA/zh-cn_image_0000002611835579.png?HW-CC-KV=V1&HW-CC-Date=20260528T013920Z&HW-CC-Expire=86400&HW-CC-Sign=49BD630E236FB8BC28E4818325B624872D85188C6F4FEB402B46782F68C35100)

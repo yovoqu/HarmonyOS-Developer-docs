@@ -6,24 +6,24 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 错误码变更 | 类名：SystemPasteboard； API声明：clear(callback: AsyncCallback<void>): void; 差异内容：NA | 类名：SystemPasteboard； API声明：clear(callback: AsyncCallback<void>): void; 差异内容：401 | api/@ohos.pasteboard.d.ts |
-| 错误码变更 | 类名：SystemPasteboard； API声明：getPasteData(callback: AsyncCallback<PasteData>): void; 差异内容：NA | 类名：SystemPasteboard； API声明：getPasteData(callback: AsyncCallback<PasteData>): void; 差异内容：401 | api/@ohos.pasteboard.d.ts |
-| 错误码变更 | 类名：request； API声明：function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void; 差异内容：NA | 类名：request； API声明：function download(config: DownloadConfig, callback: AsyncCallback<DownloadTask>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：request； API声明：function download(config: DownloadConfig): Promise<DownloadTask>; 差异内容：NA | 类名：request； API声明：function download(config: DownloadConfig): Promise<DownloadTask>; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：request； API声明：function upload(config: UploadConfig, callback: AsyncCallback<UploadTask>): void; 差异内容：NA | 类名：request； API声明：function upload(config: UploadConfig, callback: AsyncCallback<UploadTask>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：request； API声明：function upload(config: UploadConfig): Promise<UploadTask>; 差异内容：NA | 类名：request； API声明：function upload(config: UploadConfig): Promise<UploadTask>; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：remove(callback: AsyncCallback<boolean>): void; 差异内容：NA | 类名：DownloadTask； API声明：remove(callback: AsyncCallback<boolean>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：remove(): Promise<boolean>; 差异内容：NA | 类名：DownloadTask； API声明：remove(): Promise<boolean>; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：pause(callback: AsyncCallback<void>): void; 差异内容：NA | 类名：DownloadTask； API声明：pause(callback: AsyncCallback<void>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：pause(): Promise<void>; 差异内容：NA | 类名：DownloadTask； API声明：pause(): Promise<void>; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：resume(callback: AsyncCallback<void>): void; 差异内容：NA | 类名：DownloadTask； API声明：resume(callback: AsyncCallback<void>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：resume(): Promise<void>; 差异内容：NA | 类名：DownloadTask； API声明：resume(): Promise<void>; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：query(callback: AsyncCallback<DownloadInfo>): void; 差异内容：NA | 类名：DownloadTask； API声明：query(callback: AsyncCallback<DownloadInfo>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：query(): Promise<DownloadInfo>; 差异内容：NA | 类名：DownloadTask； API声明：query(): Promise<DownloadInfo>; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：queryMimeType(callback: AsyncCallback<string>): void; 差异内容：NA | 类名：DownloadTask； API声明：queryMimeType(callback: AsyncCallback<string>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：DownloadTask； API声明：queryMimeType(): Promise<string>; 差异内容：NA | 类名：DownloadTask； API声明：queryMimeType(): Promise<string>; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：UploadTask； API声明：remove(callback: AsyncCallback<boolean>): void; 差异内容：NA | 类名：UploadTask； API声明：remove(callback: AsyncCallback<boolean>): void; 差异内容：201 | api/@ohos.request.d.ts |
-| 错误码变更 | 类名：UploadTask； API声明：remove(): Promise<boolean>; 差异内容：NA | 类名：UploadTask； API声明：remove(): Promise<boolean>; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：SystemPasteboard； API声明：clear(callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：SystemPasteboard； API声明：clear(callback: AsyncCallback&lt;void&gt;): void; 差异内容：401 | api/@ohos.pasteboard.d.ts |
+| 错误码变更 | 类名：SystemPasteboard； API声明：getPasteData(callback: AsyncCallback&lt;PasteData&gt;): void; 差异内容：NA | 类名：SystemPasteboard； API声明：getPasteData(callback: AsyncCallback&lt;PasteData&gt;): void; 差异内容：401 | api/@ohos.pasteboard.d.ts |
+| 错误码变更 | 类名：request； API声明：function download(config: DownloadConfig, callback: AsyncCallback&lt;DownloadTask&gt;): void; 差异内容：NA | 类名：request； API声明：function download(config: DownloadConfig, callback: AsyncCallback&lt;DownloadTask&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：request； API声明：function download(config: DownloadConfig): Promise&lt;DownloadTask&gt;; 差异内容：NA | 类名：request； API声明：function download(config: DownloadConfig): Promise&lt;DownloadTask&gt;; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：request； API声明：function upload(config: UploadConfig, callback: AsyncCallback&lt;UploadTask&gt;): void; 差异内容：NA | 类名：request； API声明：function upload(config: UploadConfig, callback: AsyncCallback&lt;UploadTask&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：request； API声明：function upload(config: UploadConfig): Promise&lt;UploadTask&gt;; 差异内容：NA | 类名：request； API声明：function upload(config: UploadConfig): Promise&lt;UploadTask&gt;; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：remove(callback: AsyncCallback&lt;boolean&gt;): void; 差异内容：NA | 类名：DownloadTask； API声明：remove(callback: AsyncCallback&lt;boolean&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：remove(): Promise&lt;boolean&gt;; 差异内容：NA | 类名：DownloadTask； API声明：remove(): Promise&lt;boolean&gt;; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：pause(callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：DownloadTask； API声明：pause(callback: AsyncCallback&lt;void&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：pause(): Promise&lt;void&gt;; 差异内容：NA | 类名：DownloadTask； API声明：pause(): Promise&lt;void&gt;; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：resume(callback: AsyncCallback&lt;void&gt;): void; 差异内容：NA | 类名：DownloadTask； API声明：resume(callback: AsyncCallback&lt;void&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：resume(): Promise&lt;void&gt;; 差异内容：NA | 类名：DownloadTask； API声明：resume(): Promise&lt;void&gt;; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：query(callback: AsyncCallback&lt;DownloadInfo&gt;): void; 差异内容：NA | 类名：DownloadTask； API声明：query(callback: AsyncCallback&lt;DownloadInfo&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：query(): Promise&lt;DownloadInfo&gt;; 差异内容：NA | 类名：DownloadTask； API声明：query(): Promise&lt;DownloadInfo&gt;; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：queryMimeType(callback: AsyncCallback&lt;string&gt;): void; 差异内容：NA | 类名：DownloadTask； API声明：queryMimeType(callback: AsyncCallback&lt;string&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：DownloadTask； API声明：queryMimeType(): Promise&lt;string&gt;; 差异内容：NA | 类名：DownloadTask； API声明：queryMimeType(): Promise&lt;string&gt;; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：UploadTask； API声明：remove(callback: AsyncCallback&lt;boolean&gt;): void; 差异内容：NA | 类名：UploadTask； API声明：remove(callback: AsyncCallback&lt;boolean&gt;): void; 差异内容：201 | api/@ohos.request.d.ts |
+| 错误码变更 | 类名：UploadTask； API声明：remove(): Promise&lt;boolean&gt;; 差异内容：NA | 类名：UploadTask； API声明：remove(): Promise&lt;boolean&gt;; 差异内容：201 | api/@ohos.request.d.ts |
 | 权限变更 | 类名：request； API声明：const EXCEPTION_PERMISSION: number; 差异内容：ohos.permission.INTERNET | 类名：request； API声明：const EXCEPTION_PERMISSION: number; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：request； API声明：const EXCEPTION_PARAMCHECK: number; 差异内容：ohos.permission.INTERNET | 类名：request； API声明：const EXCEPTION_PARAMCHECK: number; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：request； API声明：const EXCEPTION_UNSUPPORTED: number; 差异内容：ohos.permission.INTERNET | 类名：request； API声明：const EXCEPTION_UNSUPPORTED: number; 差异内容：NA | api/@ohos.request.d.ts |
@@ -93,8 +93,8 @@
 | 权限变更 | 类名：UploadConfig； API声明：url: string; 差异内容：ohos.permission.INTERNET | 类名：UploadConfig； API声明：url: string; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：UploadConfig； API声明：header: Object; 差异内容：ohos.permission.INTERNET | 类名：UploadConfig； API声明：header: Object; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：UploadConfig； API声明：method: string; 差异内容：ohos.permission.INTERNET | 类名：UploadConfig； API声明：method: string; 差异内容：NA | api/@ohos.request.d.ts |
-| 权限变更 | 类名：UploadConfig； API声明：files: Array<File>; 差异内容：ohos.permission.INTERNET | 类名：UploadConfig； API声明：files: Array<File>; 差异内容：NA | api/@ohos.request.d.ts |
-| 权限变更 | 类名：UploadConfig； API声明：data: Array<RequestData>; 差异内容：ohos.permission.INTERNET | 类名：UploadConfig； API声明：data: Array<RequestData>; 差异内容：NA | api/@ohos.request.d.ts |
+| 权限变更 | 类名：UploadConfig； API声明：files: Array&lt;File&gt;; 差异内容：ohos.permission.INTERNET | 类名：UploadConfig； API声明：files: Array&lt;File&gt;; 差异内容：NA | api/@ohos.request.d.ts |
+| 权限变更 | 类名：UploadConfig； API声明：data: Array&lt;RequestData&gt;; 差异内容：ohos.permission.INTERNET | 类名：UploadConfig； API声明：data: Array&lt;RequestData&gt;; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：TaskState； API声明：path: string; 差异内容：ohos.permission.INTERNET | 类名：TaskState； API声明：path: string; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：TaskState； API声明：responseCode: number; 差异内容：ohos.permission.INTERNET | 类名：TaskState； API声明：responseCode: number; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：TaskState； API声明：message: string; 差异内容：ohos.permission.INTERNET | 类名：TaskState； API声明：message: string; 差异内容：NA | api/@ohos.request.d.ts |
@@ -102,10 +102,10 @@
 | 权限变更 | 类名：UploadTask； API声明：off(type: 'progress', callback?: (uploadedSize: number, totalSize: number) => void): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：off(type: 'progress', callback?: (uploadedSize: number, totalSize: number) => void): void; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：UploadTask； API声明：on(type: 'headerReceive', callback: (header: object) => void): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：on(type: 'headerReceive', callback: (header: object) => void): void; 差异内容：NA | api/@ohos.request.d.ts |
 | 权限变更 | 类名：UploadTask； API声明：off(type: 'headerReceive', callback?: (header: object) => void): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：off(type: 'headerReceive', callback?: (header: object) => void): void; 差异内容：NA | api/@ohos.request.d.ts |
-| 权限变更 | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array<TaskState>>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array<TaskState>>): void; 差异内容：NA | api/@ohos.request.d.ts |
-| 权限变更 | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array<TaskState>>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array<TaskState>>): void; 差异内容：NA | api/@ohos.request.d.ts |
-| 权限变更 | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array<TaskState>>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array<TaskState>>): void; 差异内容：NA | api/@ohos.request.d.ts |
-| 权限变更 | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array<TaskState>>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array<TaskState>>): void; 差异内容：NA | api/@ohos.request.d.ts |
+| 权限变更 | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array&lt;TaskState&gt;>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array&lt;TaskState&gt;>): void; 差异内容：NA | api/@ohos.request.d.ts |
+| 权限变更 | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array&lt;TaskState&gt;>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：on(type: 'complete' \| 'fail', callback: Callback<Array&lt;TaskState&gt;>): void; 差异内容：NA | api/@ohos.request.d.ts |
+| 权限变更 | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array&lt;TaskState&gt;>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array&lt;TaskState&gt;>): void; 差异内容：NA | api/@ohos.request.d.ts |
+| 权限变更 | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array&lt;TaskState&gt;>): void; 差异内容：ohos.permission.INTERNET | 类名：UploadTask； API声明：off(type: 'complete' \| 'fail', callback?: Callback<Array&lt;TaskState&gt;>): void; 差异内容：NA | api/@ohos.request.d.ts |
 | 新增API | NA | 类名：Faults； API声明：PARAM = 0x30 差异内容：PARAM = 0x30 | api/@ohos.request.d.ts |
 | 新增API | NA | 类名：Faults； API声明：DNS = 0x50 差异内容：DNS = 0x50 | api/@ohos.request.d.ts |
 | 新增API | NA | 类名：Faults； API声明：TCP = 0x60 差异内容：TCP = 0x60 | api/@ohos.request.d.ts |

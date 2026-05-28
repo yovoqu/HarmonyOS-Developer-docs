@@ -3,7 +3,7 @@
 更新时间：2026-04-17 08:12:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hashset
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 HashSet基于[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hashmap)实现。在HashSet中，仅处理value对象。
 
@@ -13,35 +13,31 @@ HashSet和[TreeSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- T：Type，类
+ - T：Type，类
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { HashSet } from '@kit.ArkTS';
 ```
 
 
-## HashSet
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### HashSet
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -50,8 +46,7 @@ import { HashSet } from '@kit.ArkTS';
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<number>();
 hashSet.add(1);
 hashSet.add(2);
@@ -59,12 +54,12 @@ hashSet.add(3);
 hashSet.add(4);
 hashSet.add(5);
 let res = hashSet.length;
-console.info('length:', res); // length: 5
+console.info("length:", res);  // length: 5
 ```
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor
 
 constructor()
 
@@ -78,7 +73,6 @@ HashSet的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The HashSet's constructor cannot be directly invoked. |
@@ -86,14 +80,13 @@ HashSet的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<number>();
 ```
 
 
-### isEmpty
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty
 
 isEmpty(): boolean
 
@@ -105,7 +98,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 为空返回true，不为空返回false。 |
@@ -115,7 +107,6 @@ isEmpty(): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The isEmpty method cannot be bound. |
@@ -123,16 +114,15 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 const hashSet = new HashSet<number>();
 let result = hashSet.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(value: T): boolean
 
@@ -144,14 +134,12 @@ has(value: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -162,7 +150,6 @@ has(value: T): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -171,17 +158,16 @@ has(value: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-hashSet.add('squirrel');
-let result = hashSet.has('squirrel');
-console.info('result:', result); // result: true
+hashSet.add("squirrel");
+let result = hashSet.has("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 add(value: T): boolean
 
@@ -193,14 +179,12 @@ add(value: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | T | 是 | 添加成员数据。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -211,7 +195,6 @@ add(value: T): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -220,16 +203,15 @@ add(value: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-let result = hashSet.add('squirrel');
-console.info('result:', result); // result: true
+let result = hashSet.add("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove
 
 remove(value: T): boolean
 
@@ -241,14 +223,12 @@ remove(value: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | T | 是 | 指定删除的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -259,7 +239,6 @@ remove(value: T): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -268,18 +247,17 @@ remove(value: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-hashSet.add('squirrel');
-hashSet.add('sparrow');
-let result = hashSet.remove('sparrow');
-console.info('result:', result); // result: true
+hashSet.add("squirrel");
+hashSet.add("sparrow");
+let result = hashSet.remove("sparrow");
+console.info("result:", result);  // result: true
 ```
 
 
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -293,7 +271,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound. |
@@ -301,21 +278,20 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-hashSet.add('squirrel');
-hashSet.add('sparrow');
+hashSet.add("squirrel");
+hashSet.add("sparrow");
 hashSet.clear();
 let result = hashSet.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<T>
+##### values
+
+values(): IterableIterator&lt;T&gt;
 
 返回包含此映射中所有键值的新迭代器对象。
 
@@ -324,7 +300,6 @@ values(): IterableIterator<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -335,7 +310,6 @@ values(): IterableIterator<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The values method cannot be bound. |
@@ -343,24 +317,23 @@ values(): IterableIterator<T>
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-hashSet.add('squirrel');
-hashSet.add('sparrow');
+hashSet.add("squirrel");
+hashSet.add("sparrow");
 let values = hashSet.values();
 for (let value of values) {
-  console.info('value:', value);
+  console.info("value:", value);
 }
 // value: squirrel
 // value: sparrow
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void, thisArg?: Object): void
+##### forEach
+
+forEach(callbackFn: (value?: T, key?: T, set?: HashSet&lt;T&gt;) => void, thisArg?: Object): void
 
 在遍历过程中对每个元素调用一次回调函数。
 
@@ -370,7 +343,6 @@ forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void, thisArg?: Ob
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -378,7 +350,6 @@ forEach(callbackFn: (value?: T, key?: T, set?: HashSet<T>) => void, thisArg?: Ob
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -391,7 +362,6 @@ callbackFn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -400,33 +370,31 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-hashSet.add('sparrow');
-hashSet.add('squirrel');
+hashSet.add("sparrow");
+hashSet.add("squirrel");
 hashSet.forEach((value: string, key: string): void => {
-  console.info('value:' + value, 'key:' + key);
+  console.info("value:" + value, "key:" + key);
 });
 // value:squirrel key:squirrel
 // value:sparrow key:sparrow
 ```
 
-
-```ts
+```text
 // 不建议在forEach中使用add、remove方法，因其可能导致迭代过程中的状态异常，建议使用for循环来进行安全的插入与删除操作。
 let hashSet = new HashSet<string>();
-for (let i = 0; i < 10; i++) {
-  hashSet.add('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  hashSet.add("sparrow" + i);
 }
-for (let i = 0; i < 10; i++) {
-  hashSet.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  hashSet.remove("sparrow" + i);
 }
 ```
 
 
-### entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[T, T]>
 
@@ -438,16 +406,14 @@ entries(): IterableIterator<[T, T]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[T, T]&gt; | 返回一个迭代器。 |
+| IterableIterator<[T, T]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -456,16 +422,15 @@ entries(): IterableIterator<[T, T]>
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-hashSet.add('squirrel');
-hashSet.add('sparrow');
+hashSet.add("squirrel");
+hashSet.add("sparrow");
 let iter = hashSet.entries();
 let temp: IteratorResult<[string, string]> = iter.next();
-while (!temp.done) {
-  console.info('key:' + temp.value[0]);
-  console.info('value:' + temp.value[1]);
+while(!temp.done) {
+  console.info("key:" + temp.value[0]);
+  console.info("value:" + temp.value[1]);
   temp = iter.next();
 }
 // key:squirrel
@@ -474,23 +439,22 @@ while (!temp.done) {
 // value:sparrow
 ```
 
-
-```ts
+```text
 // 不建议在entries中使用set、remove方法，因其可能导致迭代过程中的状态异常，建议使用for循环来进行安全的插入与删除操作。
 let hashSet = new HashSet<string>();
-for (let i = 0; i < 10; i++) {
-  hashSet.add('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  hashSet.add("sparrow" + i);
 }
-for (let i = 0; i < 10; i++) {
-  hashSet.remove('sparrow' + i);
+for(let i = 0; i < 10; i++) {
+  hashSet.remove("sparrow" + i);
 }
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<T>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;T&gt;
 
 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
 
@@ -499,7 +463,6 @@ for (let i = 0; i < 10; i++) {
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -510,7 +473,6 @@ for (let i = 0; i < 10; i++) {
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -518,15 +480,14 @@ for (let i = 0; i < 10; i++) {
 
 **示例：**
 
-
-```ts
+```text
 let hashSet = new HashSet<string>();
-hashSet.add('squirrel');
-hashSet.add('sparrow');
+hashSet.add("squirrel");
+hashSet.add("sparrow");
 
 // 使用方法一：
 for (let item of hashSet) {
-  console.info('value: ' + item);
+  console.info("value: " + item);
 }
 // value: squirrel
 // value: sparrow
@@ -534,22 +495,21 @@ for (let item of hashSet) {
 // 使用方法二：
 let iter = hashSet[Symbol.iterator]();
 let temp: IteratorResult<string> = iter.next();
-while (!temp.done) {
-  console.info('value: ' + temp.value);
+while(!temp.done) {
+  console.info("value: " + temp.value);
   temp = iter.next();
 }
 // value: squirrel
 // value: sparrow
 ```
 
-
-```ts
+```text
 // 不建议在Symbol.iterator中使用set、remove方法，因其可能导致迭代过程中的状态异常，建议使用for循环来进行安全的插入与删除操作。
 let hashSet = new HashSet<string>();
-for (let i = 0; i < 10; i++) {
-  hashSet.add('sparrow' + i);
+for(let i = 0;i < 10;i++) {
+  hashSet.add("sparrow" + i);
 }
-for (let i = 0; i < 10; i++) {
-  hashSet.remove('sparrow' + i);
+for(let i = 0;i < 10;i++) {
+  hashSet.remove("sparrow" + i);
 }
 ```

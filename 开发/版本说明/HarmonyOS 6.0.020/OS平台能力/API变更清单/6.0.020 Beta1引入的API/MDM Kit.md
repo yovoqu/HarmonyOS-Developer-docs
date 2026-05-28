@@ -8,9 +8,9 @@
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：bluetoothManager； API声明：function turnOnBluetooth(admin: Want): void; 差异内容：function turnOnBluetooth(admin: Want): void; | api/@ohos.enterprise.bluetoothManager.d.ts |
 | 新增API | NA | 类名：bluetoothManager； API声明：function turnOffBluetooth(admin: Want): void; 差异内容：function turnOffBluetooth(admin: Want): void; | api/@ohos.enterprise.bluetoothManager.d.ts |
-| 新增API | NA | 类名：bluetoothManager； API声明：function addDisallowedBluetoothDevices(admin: Want, deviceIds: Array<string>): void; 差异内容：function addDisallowedBluetoothDevices(admin: Want, deviceIds: Array<string>): void; | api/@ohos.enterprise.bluetoothManager.d.ts |
-| 新增API | NA | 类名：bluetoothManager； API声明：function removeDisallowedBluetoothDevices(admin: Want, deviceIds: Array<string>): void; 差异内容：function removeDisallowedBluetoothDevices(admin: Want, deviceIds: Array<string>): void; | api/@ohos.enterprise.bluetoothManager.d.ts |
-| 新增API | NA | 类名：bluetoothManager； API声明：function getDisallowedBluetoothDevices(admin: Want): Array<string>; 差异内容：function getDisallowedBluetoothDevices(admin: Want): Array<string>; | api/@ohos.enterprise.bluetoothManager.d.ts |
+| 新增API | NA | 类名：bluetoothManager； API声明：function addDisallowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void; 差异内容：function addDisallowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void; | api/@ohos.enterprise.bluetoothManager.d.ts |
+| 新增API | NA | 类名：bluetoothManager； API声明：function removeDisallowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void; 差异内容：function removeDisallowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void; | api/@ohos.enterprise.bluetoothManager.d.ts |
+| 新增API | NA | 类名：bluetoothManager； API声明：function getDisallowedBluetoothDevices(admin: Want): Array&lt;string&gt;; 差异内容：function getDisallowedBluetoothDevices(admin: Want): Array&lt;string&gt;; | api/@ohos.enterprise.bluetoothManager.d.ts |
 | 新增API | NA | 类名：bundleManager； API声明：interface Resource 差异内容：interface Resource | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：Resource； API声明：bundleName: string; 差异内容：bundleName: string; | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：Resource； API声明：moduleName: string; 差异内容：moduleName: string; | api/@ohos.enterprise.bundleManager.d.ts |
@@ -59,7 +59,7 @@
 | 新增API | NA | 类名：ApplicationInfo； API声明：readonly appIndex: number; 差异内容：readonly appIndex: number; | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：ApplicationInfo； API声明：readonly installSource: string; 差异内容：readonly installSource: string; | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：ApplicationInfo； API声明：readonly releaseType: string; 差异内容：readonly releaseType: string; | api/@ohos.enterprise.bundleManager.d.ts |
-| 新增API | NA | 类名：bundleManager； API声明：function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>; 差异内容：function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>; | api/@ohos.enterprise.bundleManager.d.ts |
+| 新增API | NA | 类名：bundleManager； API声明：function getInstalledBundleList(admin: Want, accountId: number): Promise<Array&lt;BundleInfo&gt;>; 差异内容：function getInstalledBundleList(admin: Want, accountId: number): Promise<Array&lt;BundleInfo&gt;>; | api/@ohos.enterprise.bundleManager.d.ts |
 | 新增API | NA | 类名：wifiManager； API声明：function turnOnWifi(admin: Want, isForce: boolean): void; 差异内容：function turnOnWifi(admin: Want, isForce: boolean): void; | api/@ohos.enterprise.wifiManager.d.ts |
 | 新增API | NA | 类名：wifiManager； API声明：function turnOffWifi(admin: Want): void; 差异内容：function turnOffWifi(admin: Want): void; | api/@ohos.enterprise.wifiManager.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：OtaUpdatePolicy； API声明：disableSystemOtaUpdate?: boolean; 差异内容：disableSystemOtaUpdate?: boolean; | api/@ohos.enterprise.systemManager.d.ts |

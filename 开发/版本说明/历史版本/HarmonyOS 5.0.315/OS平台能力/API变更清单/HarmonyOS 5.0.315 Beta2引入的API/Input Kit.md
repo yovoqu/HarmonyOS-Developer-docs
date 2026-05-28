@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：pointer； API声明：function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise<void>; 差异内容：function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise<void>; | api/@ohos.multimodalInput.pointer.d.ts |
+| 新增API | NA | 类名：pointer； API声明：function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise&lt;void&gt;; 差异内容：function setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise&lt;void&gt;; | api/@ohos.multimodalInput.pointer.d.ts |
 | 新增API | NA | 类名：pointer； API声明： interface CustomCursor 差异内容： interface CustomCursor | api/@ohos.multimodalInput.pointer.d.ts |
 | 新增API | NA | 类名：CustomCursor； API声明：pixelMap: image.PixelMap; 差异内容：pixelMap: image.PixelMap; | api/@ohos.multimodalInput.pointer.d.ts |
 | 新增API | NA | 类名：CustomCursor； API声明：focusX?: number; 差异内容：focusX?: number; | api/@ohos.multimodalInput.pointer.d.ts |
@@ -16,12 +16,12 @@
 | 新增API | NA | 类名：infraredEmitter； API声明： interface InfraredFrequency 差异内容： interface InfraredFrequency | api/@ohos.multimodalInput.infraredEmitter.d.ts |
 | 新增API | NA | 类名：InfraredFrequency； API声明：max: number; 差异内容：max: number; | api/@ohos.multimodalInput.infraredEmitter.d.ts |
 | 新增API | NA | 类名：InfraredFrequency； API声明：min: number; 差异内容：min: number; | api/@ohos.multimodalInput.infraredEmitter.d.ts |
-| 新增API | NA | 类名：infraredEmitter； API声明：function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void; 差异内容：function transmitInfrared(infraredFrequency: number, pattern: Array<number>): void; | api/@ohos.multimodalInput.infraredEmitter.d.ts |
-| 新增API | NA | 类名：infraredEmitter； API声明：function getInfraredFrequencies(): Array<InfraredFrequency>; 差异内容：function getInfraredFrequencies(): Array<InfraredFrequency>; | api/@ohos.multimodalInput.infraredEmitter.d.ts |
+| 新增API | NA | 类名：infraredEmitter； API声明：function transmitInfrared(infraredFrequency: number, pattern: Array&lt;number&gt;): void; 差异内容：function transmitInfrared(infraredFrequency: number, pattern: Array&lt;number&gt;): void; | api/@ohos.multimodalInput.infraredEmitter.d.ts |
+| 新增API | NA | 类名：infraredEmitter； API声明：function getInfraredFrequencies(): Array&lt;InfraredFrequency&gt;; 差异内容：function getInfraredFrequencies(): Array&lt;InfraredFrequency&gt;; | api/@ohos.multimodalInput.infraredEmitter.d.ts |
 | 新增API | NA | 类名：inputDevice； API声明： enum FunctionKey 差异内容： enum FunctionKey | api/@ohos.multimodalInput.inputDevice.d.ts |
 | 新增API | NA | 类名：FunctionKey； API声明：CAPS_LOCK = 1 差异内容：CAPS_LOCK = 1 | api/@ohos.multimodalInput.inputDevice.d.ts |
-| 新增API | NA | 类名：inputDevice； API声明：function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>; 差异内容：function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>; | api/@ohos.multimodalInput.inputDevice.d.ts |
-| 新增API | NA | 类名：inputDevice； API声明：function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>; 差异内容：function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>; | api/@ohos.multimodalInput.inputDevice.d.ts |
+| 新增API | NA | 类名：inputDevice； API声明：function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise&lt;void&gt;; 差异内容：function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise&lt;void&gt;; | api/@ohos.multimodalInput.inputDevice.d.ts |
+| 新增API | NA | 类名：inputDevice； API声明：function isFunctionKeyEnabled(functionKey: FunctionKey): Promise&lt;boolean&gt;; 差异内容：function isFunctionKeyEnabled(functionKey: FunctionKey): Promise&lt;boolean&gt;; | api/@ohos.multimodalInput.inputDevice.d.ts |
 | 新增API | NA | 类名：KeyCode； API声明：KEYCODE_BUTTON_A = 2301 差异内容：KEYCODE_BUTTON_A = 2301 | api/@ohos.multimodalInput.keyCode.d.ts |
 | 新增API | NA | 类名：KeyCode； API声明：KEYCODE_BUTTON_B = 2302 差异内容：KEYCODE_BUTTON_B = 2302 | api/@ohos.multimodalInput.keyCode.d.ts |
 | 新增API | NA | 类名：KeyCode； API声明：KEYCODE_BUTTON_X = 2304 差异内容：KEYCODE_BUTTON_X = 2304 | api/@ohos.multimodalInput.keyCode.d.ts |

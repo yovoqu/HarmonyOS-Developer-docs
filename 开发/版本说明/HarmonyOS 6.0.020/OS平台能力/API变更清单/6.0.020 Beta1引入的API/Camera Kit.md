@@ -16,7 +16,7 @@
 | 新增API | NA | 类名：WhiteBalanceMode； API声明：LOCKED = 6 差异内容：LOCKED = 6 | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明：interface WhiteBalanceQuery 差异内容：interface WhiteBalanceQuery | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：WhiteBalanceQuery； API声明：isWhiteBalanceModeSupported(mode: WhiteBalanceMode): boolean; 差异内容：isWhiteBalanceModeSupported(mode: WhiteBalanceMode): boolean; | api/@ohos.multimedia.camera.d.ts |
-| 新增API | NA | 类名：WhiteBalanceQuery； API声明：getWhiteBalanceRange(): Array<number>; 差异内容：getWhiteBalanceRange(): Array<number>; | api/@ohos.multimedia.camera.d.ts |
+| 新增API | NA | 类名：WhiteBalanceQuery； API声明：getWhiteBalanceRange(): Array&lt;number&gt;; 差异内容：getWhiteBalanceRange(): Array&lt;number&gt;; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：camera； API声明：interface WhiteBalance 差异内容：interface WhiteBalance | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：WhiteBalance； API声明：getWhiteBalanceMode(): WhiteBalanceMode; 差异内容：getWhiteBalanceMode(): WhiteBalanceMode; | api/@ohos.multimedia.camera.d.ts |
 | 新增API | NA | 类名：WhiteBalance； API声明：setWhiteBalanceMode(mode: WhiteBalanceMode): void; 差异内容：setWhiteBalanceMode(mode: WhiteBalanceMode): void; | api/@ohos.multimedia.camera.d.ts |

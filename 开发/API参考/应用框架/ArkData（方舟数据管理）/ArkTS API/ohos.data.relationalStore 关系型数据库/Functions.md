@@ -3,26 +3,24 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-f
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { relationalStore } from '@kit.ArkData';
 ```
 
 
-## relationalStore.getRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbStore>): void
+##### relationalStore.getRdbStore
+
+getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback&lt;RdbStore&gt;): void
 
 创建或打开已有的关系型数据库，开发者可以根据自己的需求配置config参数，然后通过RdbStore调用相关接口执行数据操作。使用callback异步回调。
 
@@ -30,7 +28,6 @@ getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<RdbSt
 
 开发者在创建数据库时，应谨慎配置是否进行数据库加密的参数[encrypt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)，数据库创建后，禁止对该参数进行修改。
 
-
 | 当前开库的加密类型 | 本设备上创建该数据库时的加密类型 | 结果 |
 | --- | --- | --- |
 | 非加密 | 加密 | 将数据库以加密方式打开。 |
@@ -43,18 +40,16 @@ getRdbStore支持多线程并发操作。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
-| config | [StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
-| callback | AsyncCallback&lt;[RdbStore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore)&gt; | 是 | 指定callback回调函数，返回RdbStore对象。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
+| callback | AsyncCallback&lt;RdbStore&gt; | 是 | 指定callback回调函数，返回RdbStore对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。其中，14800011错误码处理可参考[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -79,7 +74,6 @@ getRdbStore支持多线程并发操作。
 
 FA模型示例：
 
-
 ```text
 import { featureAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -88,25 +82,24 @@ let store: relationalStore.RdbStore | undefined = undefined;
 let context = featureAbility.getContext();
 
 const STORE_CONFIG: relationalStore.StoreConfig = {
-name: "RdbTest.db",
-securityLevel: relationalStore.SecurityLevel.S3
+  name: "RdbTest.db",
+  securityLevel: relationalStore.SecurityLevel.S3
 };
 
 relationalStore.getRdbStore(context, STORE_CONFIG, async (err: BusinessError, rdbStore: relationalStore.RdbStore) => {
-if (err) {
-console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
-return;
-}
-console.info('Get RdbStore successfully.');
-store = rdbStore;
-// 成功获取到 rdbStore 后执行后续操作
+  if (err) {
+    console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+    return;
+  }
+  console.info('Get RdbStore successfully.');
+  store = rdbStore;
+  // 成功获取到 rdbStore 后执行后续操作
 });
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -116,34 +109,28 @@ let store: relationalStore.RdbStore | undefined = undefined;
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     const STORE_CONFIG: relationalStore.StoreConfig = {
-      name: 'RdbTest.db',
-      securityLevel: relationalStore.SecurityLevel.S3,
+      name: "RdbTest.db",
+      securityLevel: relationalStore.SecurityLevel.S3
     };
 
-    relationalStore.getRdbStore(
-      this.context,
-      STORE_CONFIG,
-      async (err: BusinessError, rdbStore: relationalStore.RdbStore) => {
-        if (err) {
-          console.error(
-            `Get RdbStore failed, code is ${err.code},message is ${err.message}`,
-          );
-          return;
-        }
-        console.info('Get RdbStore successfully.');
-        store = rdbStore;
-        // 成功获取到 rdbStore 后执行后续操作
-      },
-    );
+    relationalStore.getRdbStore(this.context, STORE_CONFIG, async (err: BusinessError, rdbStore: relationalStore.RdbStore) => {
+      if (err) {
+        console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+        return;
+      }
+      console.info('Get RdbStore successfully.');
+      store = rdbStore;
+      // 成功获取到 rdbStore 后执行后续操作
+    });
   }
 }
 ```
 
 
-## relationalStore.getRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>
+##### relationalStore.getRdbStore
+
+getRdbStore(context: Context, config: StoreConfig): Promise&lt;RdbStore&gt;
 
 创建或打开已有的关系型数据库，开发者可以根据自己的需求配置config参数，然后通过RdbStore调用相关接口执行数据操作。使用Promise异步回调。
 
@@ -151,7 +138,6 @@ getRdbStore(context: Context, config: StoreConfig): Promise<RdbStore>
 
 开发者在创建数据库时，应谨慎配置是否进行数据库加密的参数[encrypt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)，数据库创建后，禁止对该参数进行修改。
 
-
 | 当前开库的加密类型 | 本设备上创建该数据库时的加密类型 | 结果 |
 | --- | --- | --- |
 | 非加密 | 加密 | 将数据库以加密方式打开。 |
@@ -164,25 +150,22 @@ getRdbStore支持多线程并发操作。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
-| config | [StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[RdbStore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore)&gt; | Promise对象。返回RdbStore对象。 |
+| Promise&lt;RdbStore&gt; | Promise对象。返回RdbStore对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。其中，14800011错误码处理可参考[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -207,7 +190,6 @@ getRdbStore支持多线程并发操作。
 
 FA模型示例：
 
-
 ```text
 import { featureAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -216,22 +198,21 @@ let store: relationalStore.RdbStore | undefined = undefined;
 let context = featureAbility.getContext();
 
 const STORE_CONFIG: relationalStore.StoreConfig = {
-name: "RdbTest.db",
-securityLevel: relationalStore.SecurityLevel.S3
+  name: "RdbTest.db",
+  securityLevel: relationalStore.SecurityLevel.S3
 };
 
 relationalStore.getRdbStore(context, STORE_CONFIG).then(async (rdbStore: relationalStore.RdbStore) => {
-store = rdbStore;
-console.info('Get RdbStore successfully.');
+  store = rdbStore;
+  console.info('Get RdbStore successfully.');
 }).catch((err: BusinessError) => {
-console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+  console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
 });
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -241,28 +222,23 @@ let store: relationalStore.RdbStore | undefined = undefined;
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     const STORE_CONFIG: relationalStore.StoreConfig = {
-      name: 'RdbTest.db',
-      securityLevel: relationalStore.SecurityLevel.S3,
+      name: "RdbTest.db",
+      securityLevel: relationalStore.SecurityLevel.S3
     };
 
-    relationalStore
-      .getRdbStore(this.context, STORE_CONFIG)
-      .then(async (rdbStore: relationalStore.RdbStore) => {
-        store = rdbStore;
-        console.info('Get RdbStore successfully.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Get RdbStore failed, code is ${err.code},message is ${err.message}`,
-        );
-      });
+    relationalStore.getRdbStore(this.context, STORE_CONFIG).then(async (rdbStore: relationalStore.RdbStore) => {
+      store = rdbStore;
+      console.info('Get RdbStore successfully.');
+    }).catch((err: BusinessError) => {
+      console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+    });
   }
 }
 ```
 
 
-## relationalStore.getRdbStoreSync24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### relationalStore.getRdbStoreSync24+
 
 getRdbStoreSync(context: Context, config: StoreConfig): RdbStore
 
@@ -271,7 +247,6 @@ getRdbStoreSync(context: Context, config: StoreConfig): RdbStore
 对应沙箱路径下无数据库文件时，将创建数据库文件，文件创建位置详见[StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)。对应路径下已有数据库文件时，将打开已有数据库文件。
 
 开发者在创建数据库时，应谨慎配置是否进行数据库加密的参数[encrypt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)，数据库创建后，禁止对该参数进行修改。如果有修改参数，则会报错误码。
-
 
 | 当前开库的加密类型 | 本设备上创建该数据库时的加密类型 | 结果 |
 | --- | --- | --- |
@@ -287,25 +262,22 @@ getRdbStoreSync支持多线程并发操作。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
-| config | [StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbStore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore) | 返回RdbStore对象。 |
+| RdbStore | 返回RdbStore对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。其中，14800011错误码处理可参考[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -325,8 +297,7 @@ getRdbStoreSync支持多线程并发操作。
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -336,27 +307,25 @@ let store: relationalStore.RdbStore | undefined = undefined;
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     const STORE_CONFIG: relationalStore.StoreConfig = {
-      name: 'RdbTest.db',
-      securityLevel: relationalStore.SecurityLevel.S1,
+      name: "RdbTest.db",
+      securityLevel: relationalStore.SecurityLevel.S1
     };
 
     try {
       store = relationalStore.getRdbStoreSync(this.context, STORE_CONFIG);
       console.info('Get RdbStore successfully.');
     } catch (err) {
-      console.error(
-        `Get RdbStore failed, code is ${err.code},message is ${err.message}`,
-      );
-    }
+      console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+    };
   }
 }
 ```
 
 
-## relationalStore.deleteRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): void
+##### relationalStore.deleteRdbStore
+
+deleteRdbStore(context: Context, name: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除数据库文件，使用callback异步回调。
 
@@ -368,10 +337,9 @@ deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
 | name | string | 是 | 数据库名称。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
 
@@ -379,7 +347,6 @@ deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): v
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -392,7 +359,6 @@ deleteRdbStore(context: Context, name: string, callback: AsyncCallback<void>): v
 
 FA模型示例：
 
-
 ```text
 import { featureAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -400,48 +366,41 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let context = featureAbility.getContext();
 
 relationalStore.deleteRdbStore(context, "RdbTest.db", (err: BusinessError) => {
-if (err) {
-console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
-return;
-}
-// 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-// 及时将相关变量置空以释放资源。
-console.info('Delete RdbStore successfully.');
+  if (err) {
+    console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+    return;
+  }
+  // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+  // 及时将相关变量置空以释放资源。
+  console.info('Delete RdbStore successfully.');
 });
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
-    relationalStore.deleteRdbStore(
-      this.context,
-      'RdbTest.db',
-      (err: BusinessError) => {
-        if (err) {
-          console.error(
-            `Delete RdbStore failed, code is ${err.code},message is ${err.message}`,
-          );
-          return;
-        }
-        // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-        // 及时将相关变量置空以释放资源。
-        console.info('Delete RdbStore successfully.');
-      },
-    );
+    relationalStore.deleteRdbStore(this.context, "RdbTest.db", (err: BusinessError) => {
+      if (err) {
+        console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+        return;
+      }
+      // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+      // 及时将相关变量置空以释放资源。
+      console.info('Delete RdbStore successfully.');
+    });
   }
 }
 ```
 
 
-## relationalStore.getRdbStoreSync24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### relationalStore.getRdbStoreSync24+
 
 getRdbStoreSync(context: Context, config: StoreConfig): RdbStore
 
@@ -450,7 +409,6 @@ getRdbStoreSync(context: Context, config: StoreConfig): RdbStore
 对应沙箱路径下无数据库文件时，将创建数据库文件，文件创建位置详见[StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)。对应路径下已有数据库文件时，将打开已有数据库文件。
 
 开发者在创建数据库时，应谨慎配置是否进行数据库加密的参数[encrypt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig)，数据库创建后，禁止对该参数进行修改。如果有修改参数，则会报错误码。
-
 
 | 当前开库的加密类型 | 本设备上创建该数据库时的加密类型 | 结果 |
 | --- | --- | --- |
@@ -470,25 +428,22 @@ getRdbStoreSync支持多线程并发操作。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
-| config | [StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [RdbStore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore) | 返回RdbStore对象。 |
+| RdbStore | 返回RdbStore对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。其中，14800011错误码处理可参考[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -508,8 +463,7 @@ getRdbStoreSync支持多线程并发操作。
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -519,27 +473,25 @@ let store: relationalStore.RdbStore | undefined = undefined;
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     const STORE_CONFIG: relationalStore.StoreConfig = {
-      name: 'RdbTest.db',
-      securityLevel: relationalStore.SecurityLevel.S1,
+      name: "RdbTest.db",
+      securityLevel: relationalStore.SecurityLevel.S1
     };
 
     try {
       store = relationalStore.getRdbStoreSync(this.context, STORE_CONFIG);
       console.info('Get RdbStore successfully.');
     } catch (err) {
-      console.error(
-        `Get RdbStore failed, code is ${err.code},message is ${err.message}`,
-      );
-    }
+      console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
+    };
   }
 }
 ```
 
 
-## relationalStore.deleteRdbStore
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteRdbStore(context: Context, name: string): Promise<void>
+##### relationalStore.deleteRdbStore
+
+deleteRdbStore(context: Context, name: string): Promise&lt;void&gt;
 
 使用指定的数据库文件配置删除数据库，使用Promise异步回调。
 
@@ -551,15 +503,13 @@ deleteRdbStore(context: Context, name: string): Promise<void>
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
 | name | string | 是 | 数据库名称。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -569,7 +519,6 @@ deleteRdbStore(context: Context, name: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -582,7 +531,6 @@ deleteRdbStore(context: Context, name: string): Promise<void>
 
 FA模型示例：
 
-
 ```text
 import { featureAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -590,45 +538,39 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let context = featureAbility.getContext();
 
 relationalStore.deleteRdbStore(context, "RdbTest.db").then(() => {
-// 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-// 及时将相关变量置空以释放资源。
-console.info('Delete RdbStore successfully.');
+  // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+  // 及时将相关变量置空以释放资源。
+  console.info('Delete RdbStore successfully.');
 }).catch((err: BusinessError) => {
-console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+  console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
 });
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
-    relationalStore
-      .deleteRdbStore(this.context, 'RdbTest.db')
-      .then(() => {
-        // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-        // 及时将相关变量置空以释放资源。
-        console.info('Delete RdbStore successfully.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Delete RdbStore failed, code is ${err.code},message is ${err.message}`,
-        );
-      });
+    relationalStore.deleteRdbStore(this.context, "RdbTest.db").then(() => {
+      // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+      // 及时将相关变量置空以释放资源。
+      console.info('Delete RdbStore successfully.');
+    }).catch((err: BusinessError) => {
+      console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+    });
   }
 }
 ```
 
 
-## relationalStore.deleteRdbStore10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<void>): void
+##### relationalStore.deleteRdbStore10+
+
+deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback&lt;void&gt;): void
 
 使用指定的数据库文件配置删除数据库，使用callback异步回调。
 
@@ -640,18 +582,16 @@ deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
-| config | [StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 指定callback回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -666,7 +606,6 @@ deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback<vo
 
 FA模型示例：
 
-
 ```text
 import { featureAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -674,25 +613,24 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let context = featureAbility.getContext();
 
 const STORE_CONFIG: relationalStore.StoreConfig = {
-name: "RdbTest.db",
-securityLevel: relationalStore.SecurityLevel.S3
+  name: "RdbTest.db",
+  securityLevel: relationalStore.SecurityLevel.S3
 };
 
 relationalStore.deleteRdbStore(context, STORE_CONFIG, (err: BusinessError) => {
-if (err) {
-console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
-return;
-}
-// 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-// 及时将相关变量置空以释放资源。
-console.info('Delete RdbStore successfully.');
+  if (err) {
+    console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+    return;
+  }
+  // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+  // 及时将相关变量置空以释放资源。
+  console.info('Delete RdbStore successfully.');
 });
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -700,33 +638,27 @@ import { BusinessError } from '@kit.BasicServicesKit';
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     const STORE_CONFIG: relationalStore.StoreConfig = {
-      name: 'RdbTest.db',
-      securityLevel: relationalStore.SecurityLevel.S3,
+      name: "RdbTest.db",
+      securityLevel: relationalStore.SecurityLevel.S3
     };
-    relationalStore.deleteRdbStore(
-      this.context,
-      STORE_CONFIG,
-      (err: BusinessError) => {
-        if (err) {
-          console.error(
-            `Delete RdbStore failed, code is ${err.code},message is ${err.message}`,
-          );
-          return;
-        }
-        // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-        // 及时将相关变量置空以释放资源。
-        console.info('Delete RdbStore successfully.');
-      },
-    );
+    relationalStore.deleteRdbStore(this.context, STORE_CONFIG, (err: BusinessError) => {
+      if (err) {
+        console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+        return;
+      }
+      // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+      // 及时将相关变量置空以释放资源。
+      console.info('Delete RdbStore successfully.');
+    });
   }
 }
 ```
 
 
-## relationalStore.deleteRdbStore10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-deleteRdbStore(context: Context, config: StoreConfig): Promise<void>
+##### relationalStore.deleteRdbStore10+
+
+deleteRdbStore(context: Context, config: StoreConfig): Promise&lt;void&gt;
 
 使用指定的数据库文件配置删除数据库，使用Promise异步回调。
 
@@ -738,15 +670,13 @@ deleteRdbStore(context: Context, config: StoreConfig): Promise<void>
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。 |
-| config | [StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig) | 是 | 与此RDB存储相关的数据库配置。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
+| config | StoreConfig | 是 | 与此RDB存储相关的数据库配置。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -756,7 +686,6 @@ deleteRdbStore(context: Context, config: StoreConfig): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -772,7 +701,6 @@ deleteRdbStore(context: Context, config: StoreConfig): Promise<void>
 
 FA模型示例：
 
-
 ```text
 import { featureAbility } from "@kit.AbilityKit";
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -780,23 +708,22 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let context = featureAbility.getContext();
 
 const STORE_CONFIG: relationalStore.StoreConfig = {
-name: "RdbTest.db",
-securityLevel: relationalStore.SecurityLevel.S3
+  name: "RdbTest.db",
+  securityLevel: relationalStore.SecurityLevel.S3
 };
 
 relationalStore.deleteRdbStore(context, STORE_CONFIG).then(() => {
-// 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-// 及时将相关变量置空以释放资源。
-console.info('Delete RdbStore successfully.');
+  // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+  // 及时将相关变量置空以释放资源。
+  console.info('Delete RdbStore successfully.');
 }).catch((err: BusinessError) => {
-console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+  console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
 });
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -804,28 +731,23 @@ import { BusinessError } from '@kit.BasicServicesKit';
 class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     const STORE_CONFIG: relationalStore.StoreConfig = {
-      name: 'RdbTest.db',
-      securityLevel: relationalStore.SecurityLevel.S3,
+      name: "RdbTest.db",
+      securityLevel: relationalStore.SecurityLevel.S3
     };
-    relationalStore
-      .deleteRdbStore(this.context, STORE_CONFIG)
-      .then(() => {
-        // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
-        // 及时将相关变量置空以释放资源。
-        console.info('Delete RdbStore successfully.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Delete RdbStore failed, code is ${err.code},message is ${err.message}`,
-        );
-      });
+    relationalStore.deleteRdbStore(this.context, STORE_CONFIG).then(() => {
+      // 数据库删除成功后，已初始化的RdbStore实例将无法继续使用。
+      // 及时将相关变量置空以释放资源。
+      console.info('Delete RdbStore successfully.');
+    }).catch((err: BusinessError) => {
+      console.error(`Delete RdbStore failed, code is ${err.code},message is ${err.message}`);
+    });
   }
 }
 ```
 
 
-## relationalStore.isVectorSupported18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### relationalStore.isVectorSupported18+
 
 isVectorSupported(): boolean
 
@@ -835,7 +757,6 @@ isVectorSupported(): boolean
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 系统具备向量数据库能力时返回true，否则返回false。 |
@@ -843,8 +764,7 @@ isVectorSupported(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { contextConstant, UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -856,39 +776,32 @@ export default class EntryAbility extends UIAbility {
     let supported = relationalStore.isVectorSupported();
     if (supported) {
       // 支持向量数据库
-      console.info('Vector database supported on current platform.');
+      console.info("Vector database supported on current platform.");
       const STORE_CONFIG: relationalStore.StoreConfig = {
-        name: 'VectorTest.db',
+        name: "VectorTest.db",
         securityLevel: relationalStore.SecurityLevel.S3,
-        vector: true,
+        vector: true
       };
       try {
-        const context = this.context
-          .getApplicationContext()
-          .createAreaModeContext(contextConstant.AreaMode.EL3);
-        const rdbStore = await relationalStore.getRdbStore(
-          context,
-          STORE_CONFIG,
-        );
+        const context = this.context.getApplicationContext().createAreaModeContext(contextConstant.AreaMode.EL3);
+        const rdbStore = await relationalStore.getRdbStore(context, STORE_CONFIG);
         console.info('Get RdbStore successfully.');
         store = rdbStore;
         // 成功获取到 rdbStore 后执行后续操作
       } catch (error) {
         const err = error as BusinessError;
-        console.error(
-          `Get RdbStore failed, code is ${err.code},message is ${err.message}`,
-        );
+        console.error(`Get RdbStore failed, code is ${err.code},message is ${err.message}`);
       }
     } else {
-      console.info('Vector database not supported on current platform.');
+      console.info("Vector database not supported on current platform.");
     }
   }
 }
 ```
 
 
-## relationalStore.isTokenizerSupported18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### relationalStore.isTokenizerSupported18+
 
 isTokenizerSupported(tokenizer: Tokenizer): boolean
 
@@ -900,14 +813,12 @@ isTokenizerSupported(tokenizer: Tokenizer): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| tokenizer | [Tokenizer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#tokenizer17) | 是 | 需要被判断是否支持的分词器。 |
+| tokenizer | Tokenizer | 是 | 需要被判断是否支持的分词器。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -918,7 +829,6 @@ isTokenizerSupported(tokenizer: Tokenizer): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -926,47 +836,41 @@ isTokenizerSupported(tokenizer: Tokenizer): boolean
 
 **示例：**
 
-
-```ts
+```text
 let customType = relationalStore.Tokenizer.CUSTOM_TOKENIZER;
 let customTypeSupported = relationalStore.isTokenizerSupported(customType);
-console.info(
-  'custom tokenizer supported on current platform: ' + customTypeSupported,
-);
+console.info("custom tokenizer supported on current platform: " + customTypeSupported);
 ```
 
 
-## relationalStore.getInsertSqlInfo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### relationalStore.getInsertSqlInfo20+
 
 getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution): SqlInfo
 
 获取用于插入数据的SQL语句，此为同步接口。
 
-**系统能力���** SystemCapability.DistributedDataManager.RelationalStore.Core
+**系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | table | string | 是 | 要写入数据的数据库表名。 |
-| values | [ValuesBucket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuesbucket) | 是 | 要写入数据库中数据的字段信息以及对应的值信息。 |
-| conflict | [ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10) | 否 | 指定冲突解决模式。默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
+| values | ValuesBucket | 是 | 要写入数据库中数据的字段信息以及对应的值信息。 |
+| conflict | ConflictResolution | 否 | 指定冲突解决模式。默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SqlInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#sqlinfo20) | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
+| SqlInfo | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -975,24 +879,23 @@ getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolut
 
 **示例：**
 
-
-```ts
+```text
 const bucket: relationalStore.ValuesBucket = {
-  name: 'Logitech',
+  name: "Logitech",
   age: 18,
-  sex: 'man',
-  desc: 'asserter',
+  sex: "man",
+  desc: "asserter"
 };
 const sqlInfo: relationalStore.SqlInfo = relationalStore.getInsertSqlInfo(
-  'USER',
+  "USER",
   bucket,
-  relationalStore.ConflictResolution.ON_CONFLICT_NONE,
+  relationalStore.ConflictResolution.ON_CONFLICT_NONE
 );
 ```
 
 
-## relationalStore.getUpdateSqlInfo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### relationalStore.getUpdateSqlInfo20+
 
 getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution): SqlInfo
 
@@ -1002,26 +905,23 @@ getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: Con
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicates | [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 是 | 与指定字段匹配的谓词。 |
-| values | [ValuesBucket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuesbucket) | 是 | 要写入数据库中数据的字段信息以及对应的值信息。 |
-| conflict | [ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10) | 否 | 指定冲突解决模式。 默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
+| predicates | RdbPredicates | 是 | 与指定字段匹配的谓词。 |
+| values | ValuesBucket | 是 | 要写入数据库中数据的字段信息以及对应的值信息。 |
+| conflict | ConflictResolution | 否 | 指定冲突解决模式。 默认值是relationalStore.ConflictResolution.ON_CONFLICT_NONE。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SqlInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#sqlinfo20) | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
+| SqlInfo | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1030,25 +930,24 @@ getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: Con
 
 **示例：**
 
-
-```ts
+```text
 const bucket: relationalStore.ValuesBucket = {
-  name: 'Logitech',
+  name: "Logitech",
   age: 18,
-  sex: 'man',
-  desc: 'asserter',
+  sex: "man",
+  desc: "asserter"
 };
-const predicates = new relationalStore.RdbPredicates('users');
+const predicates = new relationalStore.RdbPredicates("users");
 const sqlInfo: relationalStore.SqlInfo = relationalStore.getUpdateSqlInfo(
   predicates,
   bucket,
-  relationalStore.ConflictResolution.ON_CONFLICT_NONE,
+  relationalStore.ConflictResolution.ON_CONFLICT_NONE
 );
 ```
 
 
-## relationalStore.getDeleteSqlInfo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### relationalStore.getDeleteSqlInfo20+
 
 getDeleteSqlInfo(predicates: RdbPredicates): SqlInfo
 
@@ -1058,24 +957,21 @@ getDeleteSqlInfo(predicates: RdbPredicates): SqlInfo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicates | [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 是 | 与指定字段匹配的谓词。 |
+| predicates | RdbPredicates | 是 | 与指定字段匹配的谓词。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SqlInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#sqlinfo20) | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
+| SqlInfo | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1084,20 +980,18 @@ getDeleteSqlInfo(predicates: RdbPredicates): SqlInfo
 
 **示例：**
 
-
-```ts
-const predicates = new relationalStore.RdbPredicates('users');
-predicates.equalTo('tableName', 'a');
-predicates.notEqualTo('age', 18);
-const sqlInfo: relationalStore.SqlInfo =
-  relationalStore.getDeleteSqlInfo(predicates);
+```text
+const predicates = new relationalStore.RdbPredicates("users");
+predicates.equalTo("tableName", "a");
+predicates.notEqualTo("age", 18);
+const sqlInfo: relationalStore.SqlInfo = relationalStore.getDeleteSqlInfo(predicates);
 ```
 
 
-## relationalStore.getQuerySqlInfo20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getQuerySqlInfo(predicates: RdbPredicates, columns?: Array<string>): SqlInfo
+##### relationalStore.getQuerySqlInfo20+
+
+getQuerySqlInfo(predicates: RdbPredicates, columns?: Array&lt;string&gt;): SqlInfo
 
 获取用于查询数据的SQL语句，此为同步接口。
 
@@ -1105,25 +999,22 @@ getQuerySqlInfo(predicates: RdbPredicates, columns?: Array<string>): SqlInfo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| predicates | [RdbPredicates](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbpredicates) | 是 | 与指定字段匹配的谓词。 |
+| predicates | RdbPredicates | 是 | 与指定字段匹配的谓词。 |
 | columns | Array&lt;string&gt; | 否 | 要查询的列；如果不指定此参数，则查询所有列。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [SqlInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#sqlinfo20) | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
+| SqlInfo | SqlInfo对象，其中sql为返回的sql语句，args为执行SQL中的参数信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[关系型数据库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-data-rdb)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1132,11 +1023,9 @@ getQuerySqlInfo(predicates: RdbPredicates, columns?: Array<string>): SqlInfo
 
 **示例：**
 
-
-```ts
-const predicates = new relationalStore.RdbPredicates('users');
-predicates.notEqualTo('age', 18);
-predicates.equalTo('name', 'zhangsan');
-const sqlInfo: relationalStore.SqlInfo =
-  relationalStore.getQuerySqlInfo(predicates);
+```text
+const predicates = new relationalStore.RdbPredicates("users");
+predicates.notEqualTo("age", 18);
+predicates.equalTo("name", "zhangsan");
+const sqlInfo: relationalStore.SqlInfo = relationalStore.getQuerySqlInfo(predicates);
 ```

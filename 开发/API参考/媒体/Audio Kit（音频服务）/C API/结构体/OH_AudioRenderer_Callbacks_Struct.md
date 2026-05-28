@@ -3,16 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct OH_AudioRenderer_Callbacks_Struct {...} OH_AudioRenderer_Callbacks
 ```
 
 
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明输出音频流的回调函数指针。
 
@@ -35,33 +33,32 @@ typedef struct OH_AudioRenderer_Callbacks_Struct {...} OH_AudioRenderer_Callback
 **所在头文件：** [native_audiostream_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 成员函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 成员函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [int32_t (*OH_AudioRenderer_OnWriteData)(OH_AudioRenderer* renderer, void* userData, void* buffer, int32_t length)](#oh_audiorenderer_onwritedata) | 该函数指针将指向用于写入音频数据的回调函数。 |
-| [int32_t (*OH_AudioRenderer_OnStreamEvent)(OH_AudioRenderer* renderer, void* userData, OH_AudioStream_Event event)](#oh_audiorenderer_onstreamevent) | 该函数指针将指向用于处理音频播放流事件的回调函数。 |
-| [int32_t (*OH_AudioRenderer_OnInterruptEvent)(OH_AudioRenderer* renderer, void* userData, OH_AudioInterrupt_ForceType type, OH_AudioInterrupt_Hint hint)](#oh_audiorenderer_oninterruptevent) | 该函数指针将指向用于处理音频播放中断事件的回调函数。 |
-| [int32_t (*OH_AudioRenderer_OnError)(OH_AudioRenderer* renderer, void* userData, OH_AudioStream_Result error)](#oh_audiorenderer_onerror) | 该函数指针将指向用于处理音频播放错误结果的回调函数。 |
+| int32_t (*OH_AudioRenderer_OnWriteData)(OH_AudioRenderer* renderer, void* userData, void* buffer, int32_t length) | 该函数指针将指向用于写入音频数据的回调函数。 |
+| int32_t (*OH_AudioRenderer_OnStreamEvent)(OH_AudioRenderer* renderer, void* userData, OH_AudioStream_Event event) | 该函数指针将指向用于处理音频播放流事件的回调函数。 |
+| int32_t (*OH_AudioRenderer_OnInterruptEvent)(OH_AudioRenderer* renderer, void* userData, OH_AudioInterrupt_ForceType type, OH_AudioInterrupt_Hint hint) | 该函数指针将指向用于处理音频播放中断事件的回调函数。 |
+| int32_t (*OH_AudioRenderer_OnError)(OH_AudioRenderer* renderer, void* userData, OH_AudioStream_Result error) | 该函数指针将指向用于处理音频播放错误结果的回调函数。 |
 
 
-## 成员函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 成员函数说明
 
 > [!NOTE]
 > 以下回调接口的返回值没有枚举定义，当前版本实现并不按返回值区分处理，但为保证后续版本可扩展，默认使用0。
 
 
-### OH_AudioRenderer_OnWriteData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_AudioRenderer_OnWriteData()
 
 ```text
 int32_t (*OH_AudioRenderer_OnWriteData)(OH_AudioRenderer* renderer, void* userData, void* buffer, int32_t length)
@@ -83,18 +80,17 @@ int32_t (*OH_AudioRenderer_OnWriteData)(OH_AudioRenderer* renderer, void* userDa
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)* renderer | 指向[OH_AudioStreamBuilder_GenerateRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_generaterenderer)创建的音频流实例。 |
+| OH_AudioRenderer* renderer | 指向OH_AudioStreamBuilder_GenerateRenderer创建的音频流实例。 |
 | void* userData | 指向应用自定义的数据存储区域。 |
 | void* buffer | 指向播放数据存储区域，用于应用填充播放数据。 |
 | int32_t length | buffer的长度。 |
 
 
-### OH_AudioRenderer_OnStreamEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_AudioRenderer_OnStreamEvent()
 
 ```text
 int32_t (*OH_AudioRenderer_OnStreamEvent)(OH_AudioRenderer* renderer, void* userData, OH_AudioStream_Event event)
@@ -114,17 +110,16 @@ OH_AudioRenderer_OnStreamEvent无触发回调场景，为预留接口。从API v
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)* renderer | 指向[OH_AudioStreamBuilder_GenerateRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_generaterenderer)创建的音频流实例。 |
+| OH_AudioRenderer* renderer | 指向OH_AudioStreamBuilder_GenerateRenderer创建的音频流实例。 |
 | void* userData | 指向应用自定义的数据存储区域。 |
-| [OH_AudioStream_Event](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_event) event | 音频事件。 |
+| OH_AudioStream_Event event | 音频事件。 |
 
 
-### OH_AudioRenderer_OnInterruptEvent()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_AudioRenderer_OnInterruptEvent()
 
 ```text
 int32_t (*OH_AudioRenderer_OnInterruptEvent)(OH_AudioRenderer* renderer, void* userData, OH_AudioInterrupt_ForceType type, OH_AudioInterrupt_Hint hint)
@@ -142,18 +137,17 @@ int32_t (*OH_AudioRenderer_OnInterruptEvent)(OH_AudioRenderer* renderer, void* u
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)* renderer | 指向[OH_AudioStreamBuilder_GenerateRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_generaterenderer)创建的音频流实例。 |
+| OH_AudioRenderer* renderer | 指向OH_AudioStreamBuilder_GenerateRenderer创建的音频流实例。 |
 | void* userData | 指向应用自定义的数据存储区域。 |
-| [OH_AudioInterrupt_ForceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiointerrupt_forcetype) type | 音频中断类型。 |
-| [OH_AudioInterrupt_Hint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiointerrupt_hint) hint | 音频中断提示类型。 |
+| OH_AudioInterrupt_ForceType type | 音频中断类型。 |
+| OH_AudioInterrupt_Hint hint | 音频中断提示类型。 |
 
 
-### OH_AudioRenderer_OnError()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_AudioRenderer_OnError()
 
 ```text
 int32_t (*OH_AudioRenderer_OnError)(OH_AudioRenderer* renderer, void* userData, OH_AudioStream_Result error)
@@ -171,9 +165,8 @@ int32_t (*OH_AudioRenderer_OnError)(OH_AudioRenderer* renderer, void* userData, 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorendererstruct)* renderer | 指向[OH_AudioStreamBuilder_GenerateRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h#oh_audiostreambuilder_generaterenderer)创建的音频流实例。 |
+| OH_AudioRenderer* renderer | 指向OH_AudioStreamBuilder_GenerateRenderer创建的音频流实例。 |
 | void* userData | 指向应用自定义的数据存储区域。 |
-| [OH_AudioStream_Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostream-base-h#oh_audiostream_result) error | 音频播放错误结果，可能为AUDIOSTREAM_ERROR_INVALID_PARAM、AUDIOSTREAM_ERROR_ILLEGAL_STATE或者AUDIOSTREAM_ERROR_SYSTEM。 |
+| OH_AudioStream_Result error | 音频播放错误结果，可能为AUDIOSTREAM_ERROR_INVALID_PARAM、AUDIOSTREAM_ERROR_ILLEGAL_STATE或者AUDIOSTREAM_ERROR_SYSTEM。 |

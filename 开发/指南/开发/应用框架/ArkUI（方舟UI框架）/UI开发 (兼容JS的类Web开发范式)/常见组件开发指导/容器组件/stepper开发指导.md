@@ -7,20 +7,23 @@
 当一个任务需要多个步骤时，可以使用stepper组件展示当前进展。具体用法请参考[stepper API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-stepper)。
 
 
-## 创建stepper组件
+##### 创建stepper组件
 
 在pages/index目录下的hml文件中创建一个stepper组件。
+
 ```text
-
-
-     Step 1
-
-
-     Step 2
-
-
+<!-- xxx.hml -->
+<div class="container"> 
+ <stepper>    
+   <stepper-item>     
+     <text>Step 1</text>
+   </stepper-item> 
+   <stepper-item>     
+     <text>Step 2</text>
+   </stepper-item> 
+ </stepper> 
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -39,25 +42,32 @@ text{
 }
 ```
 
+
 ![](assets/stepper开发指导/file-20260514130745307-0.gif)
 
-## 设置index属性
+
+
+
+##### 设置index属性
 
 页面默认显示索引值为index的步骤。
+
 ```text
-
-
-     stepper-item1
-
-
-     stepper-item2
-
-
-     stepper-item3
-
-
+<!-- xxx.hml -->
+<div class="container"> 
+ <stepper index="2">    
+   <stepper-item>     
+     <text>stepper-item1</text>
+   </stepper-item> 
+   <stepper-item>     
+     <text>stepper-item2</text>
+   </stepper-item> 
+   <stepper-item>     
+     <text>stepper-item3</text>
+   </stepper-item> 
+  </stepper> 
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -73,26 +83,32 @@ text{
   text-align: center;
 }
 ```
+
 
 ![](assets/stepper开发指导/file-20260514130745307-1.gif)
+
+
 通过设置label属性，自定义stepper-item的提示按钮。
+
 ```text
-
-
-     stepper-item1
-
-
-     stepper-item2
-
-
-     stepper-item3
-
-
-     stepper-item4
-
-
+<!-- xxx.hml -->
+<div class="container"> 
+ <stepper index="1">    
+   <stepper-item label="{{label_1}}">     
+     <text>stepper-item1</text>
+   </stepper-item> 
+   <stepper-item label="{{label_2}}">     
+     <text>stepper-item2</text>
+   </stepper-item> 
+   <stepper-item label="{{label_3}}">     
+     <text>stepper-item3</text>
+   </stepper-item>
+   <stepper-item>     
+     <text>stepper-item4</text>
+   </stepper-item> 
+ </stepper> 
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -108,7 +124,6 @@ text{
   text-align: center;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -132,19 +147,28 @@ export default {
 }
 ```
 
+
 ![](assets/stepper开发指导/file-20260514130745307-2.gif)
 
-## 设置样式
+
+
+
+##### 设置样式
 
 stepper组件默认填充父容器，通过border和background-color设置边框、背景色。
+
 ```text
-
-
-        stepper-item1
-
-
+<!-- xxx.hml -->
+<div class="container" > 
+  <div class="stepperContent">
+    <stepper class="stepperClass">    
+      <stepper-item>     
+        <text>stepper-item1</text>
+      </stepper-item> 
+    </stepper> 
+  </div>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -171,25 +195,40 @@ text{
 }
 ```
 
+
 ![](assets/stepper开发指导/file-20260514130745307-3.png)
 
-## 添加事件
 
-stepper分别添加finish，change，next，back，skip事件。 当change与next或back同时存在时，会先执行next或back事件再去执行change事件。 重新设置index属性值时要先清除index的值再重新设置，否则检测不到值的改变。
+
+
+##### 添加事件
+
+stepper分别添加finish，change，next，back，skip事件。
+
+ - 当change与next或back同时存在时，会先执行next或back事件再去执行change事件。
+ - 重新设置index属性值时要先清除index的值再重新设置，否则检测不到值的改变。
+
+
 ```text
-
-
-        stepper-item1
-
-
-         stepper-item2
-
-
-        stepper-item3
-
-
+<!-- xxx.hml -->
+<div class="container"  style="background-color:#F1F3F5;">
+  <div >
+    <stepper onfinish="stepperFinish" onchange="stepperChange" onnext="stepperNext" onback="stepperBack" onskip="stepperSkip" id="stepperId" index="{{index}}">
+      <stepper-item>
+        <text>stepper-item1</text>
+        <button value="skip" onclick="skipClick"></button>
+      </stepper-item>
+      <stepper-item>
+         <text>stepper-item2</text>
+         <button value="skip" onclick="skipClick"></button>
+      </stepper-item>
+      <stepper-item>
+        <text>stepper-item3</text>
+      </stepper-item>
+    </stepper>
+  </div>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -218,7 +257,6 @@ button{
   margin-top: 20px;
 }
 ```
-
 
 ```text
 // xxx.js
@@ -261,5 +299,6 @@ export default {
   }
 }
 ```
+
 
 ![](assets/stepper开发指导/file-20260514130745307-4.gif)

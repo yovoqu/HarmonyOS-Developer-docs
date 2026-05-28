@@ -1,20 +1,28 @@
 # 明文导入密钥(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-import-key-in-plaintext-arkts
 
 分别以导入AES256、RSA2048和X25519密钥为例。具体的场景介绍及支持的算法规格，请参考[密钥导入支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-import-overview#支持的算法)。
 
 
-## 开发步骤
+##### 开发步骤
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 封装密钥属性集和密钥材料。
 
-指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 封装密钥属性集和密钥材料。 密钥属性集同样与密钥生成中指定的密钥属性一致，须包含[HuksKeyAlg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeyalg)、[HuksKeySize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeysize)、[HuksKeyPurpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeypurpose)属性。 密钥材料须符合[HUKS密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#密钥材料格式)，并以Uint8Array形式赋值给[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)的inData字段。 调用[huks.importKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksimportkeyitem9)，传入密钥别名和密钥属性集，即可导入密钥。 HuksParam和HuksOptions的含义参考：[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam) 和 [HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)
+  
+密钥属性集同样与密钥生成中指定的密钥属性一致，须包含[HuksKeyAlg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeyalg)、[HuksKeySize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeysize)、[HuksKeyPurpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukskeypurpose)属性。
+3. 密钥材料须符合[HUKS密钥材料格式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-concepts#密钥材料格式)，并以Uint8Array形式赋值给[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)的inData字段。
+4. 调用[huks.importKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksimportkeyitem9)，传入密钥别名和密钥属性集，即可导入密钥。
 
-## 导入AES256密钥
+  HuksParam和HuksOptions的含义参考：[HuksParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksparam) 和 [HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)
 
 
-```text
+
+##### 导入AES256密钥
+
+```ArkTS
 /* 以下以导入AES256密钥的Callback操作使用为例。 */
 import { huks } from '@kit.UniversalKeystoreKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -45,7 +53,7 @@ let options: huks.HuksOptions = {
 };
 
 /* 3.明文导入密钥。 */
-async function importKeyItem(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function importKeyItem(keyAlias: string, huksOptions: huks.HuksOptions): Promise<boolean> {
   console.info('promise: enter importKeyItem');
   let ret: boolean = false;
   try {
@@ -73,10 +81,10 @@ async function testImport() {
 ```
 
 
-## 导入RSA2048密钥对
 
+##### 导入RSA2048密钥对
 
-```text
+```ArkTS
 /* 以下以导入RSA2048密钥的Callback操作使用为例。 */
 import { huks } from '@kit.UniversalKeystoreKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -151,7 +159,7 @@ let options: huks.HuksOptions = {
 };
 
 /* 3.明文导入密钥。 */
-async function importKeyItem(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function importKeyItem(keyAlias: string, huksOptions: huks.HuksOptions): Promise<boolean> {
   console.info('promise: enter importKeyItem');
   let ret: boolean = false;
   try {
@@ -179,10 +187,10 @@ async function testImport() {
 ```
 
 
-## 导入X25519密钥公钥
 
+##### 导入X25519密钥公钥
 
-```text
+```ArkTS
 /* 以下以导入X25519密钥的Callback操作使用为例。 */
 import { huks } from '@kit.UniversalKeystoreKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -219,7 +227,7 @@ let options: huks.HuksOptions = {
 };
 
 /* 3.明文导入密钥。 */
-async function importKeyItem(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function importKeyItem(keyAlias: string, huksOptions: huks.HuksOptions): Promise<boolean> {
   console.info('promise: enter importKeyItem');
   let ret: boolean = false;
   try {
@@ -247,15 +255,17 @@ async function testImport() {
 ```
 
 
-## 调测验证
+
+##### 调测验证
 
 调用[huks.isKeyItemExist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksiskeyitemexist9)验证密钥是否存在，如密钥存在即表示密钥导入成功。
+
 ```text
 import { huks } from '@kit.UniversalKeystoreKit';
 import { BusinessError } from "@kit.BasicServicesKit";
 
 let keyAlias = 'AES256Alias_sample';
-let keyProperties: Array = [{
+let keyProperties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_AES
   }
@@ -265,7 +275,7 @@ let huksOptions: huks.HuksOptions = {
   inData: new Uint8Array(new Array()) // 非空填充。
 }
 
-async function isKeyItemExist(keyAlias: string, options: huks.HuksOptions): Promise {
+async function isKeyItemExist(keyAlias: string, options: huks.HuksOptions): Promise<boolean> {
   console.info(`promise: enter isKeyItemExist success`);
   let ret: boolean = false;
   try {

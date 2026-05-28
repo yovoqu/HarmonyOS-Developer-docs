@@ -3,15 +3,14 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode
-**支持设备：** Phone / Tablet
-
+**支持设备：** Phone | Tablet
 
 > [!NOTE]
-> 以下仅介绍Graphics Accelerate Kit特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍Graphics Accelerate Kit特有错误码，通用错误码请参考 通用错误码 。
 
 
-## 1016600000 当前API不允许在资源加速ExtensionAbility中调用
-**支持设备：** Phone / Tablet
+
+##### 1016600000 当前API不允许在资源加速ExtensionAbility中调用
 
 **错误信息**
 
@@ -29,19 +28,19 @@ The API call from an ExtensionAbility is not allowed.
 
 请确保当前API在资源加速ExtensionAbility的允许调用范围内。assetDownloadManager提供的接口仅支持调用如下方法：
 
+ - [assetDownloadManager.fetchManifestUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerfetchmanifesturl)
+ - [assetDownloadManager.removeAssetDownloadTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerremoveassetdownloadtask)
+ - [assetDownloadManager.fetchAllAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerfetchallassetdownloadtasks)
+ - [assetDownloadManager.removeAllAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerremoveallassetdownloadtasks)
+ - [assetDownloadManager.fetchGroupAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerfetchgroupassetdownloadtasks)
+ - [assetDownloadManager.removeGroupAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerremovegroupassetdownloadtasks)
+ - [assetDownloadManager.limitDownloadTaskSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerlimitdownloadtaskspeed)
+ - [assetDownloadManager.reportDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerreportdownloadprogress)
 
-- [assetDownloadManager.fetchManifestUrl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerfetchmanifesturl)
-- [assetDownloadManager.removeAssetDownloadTask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerremoveassetdownloadtask)
-- [assetDownloadManager.fetchAllAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerfetchallassetdownloadtasks)
-- [assetDownloadManager.removeAllAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerremoveallassetdownloadtasks)
-- [assetDownloadManager.fetchGroupAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerfetchgroupassetdownloadtasks)
-- [assetDownloadManager.removeGroupAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerremovegroupassetdownloadtasks)
-- [assetDownloadManager.limitDownloadTaskSpeed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerlimitdownloadtaskspeed)
-- [assetDownloadManager.reportDownloadProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerreportdownloadprogress)
 
 
-## 1016600001 下载任务的域名不在域名白名单中
-**支持设备：** Phone / Tablet
+
+##### 1016600001 下载任务的域名不在域名白名单中
 
 **错误信息**
 
@@ -57,13 +56,13 @@ The domain name of the download task is not in the domain name trustlist.
 
 **处理步骤**
 
+ - 三方CDN前往AGC控制台查看已配置的域名白名单，具体操作步骤请参见[创建下载任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-release#创建下载任务)。
+ - 华为CDN的域名白名单是基于资源包下载任务自动配置。
 
-- 三方CDN前往AGC控制台查看已配置的域名白名单，具体操作步骤请参见[创建下载任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-release#创建下载任务)。
-- 华为CDN的域名白名单是基于资源包下载任务自动配置。
 
 
-## 1016600002 暂停/恢复/获取下载任务时任务ID或组ID不存在
-**支持设备：** Phone / Tablet
+
+##### 1016600002 暂停/恢复/获取下载任务时任务ID或组ID不存在
 
 **错误信息**
 
@@ -82,8 +81,8 @@ The task ID or group ID entered during operations such as pause, resume, and fet
 任务ID/组ID不存在，请确保任务ID/组ID的正确性。
 
 
-## 1016600003 当前任务状态不支持当前操作
-**支持设备：** Phone / Tablet
+
+##### 1016600003 当前任务状态不支持当前操作
 
 **错误信息**
 
@@ -102,8 +101,8 @@ The current task status does not support the current operator.
 对任务调用操作前，判断当前任务的状态，确保任务操作和任务状态匹配，例如调用[fetchAllAssetDownloadTasks](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager#assetdownloadmanagerfetchallassetdownloadtasks)方法查看任务状态信息。
 
 
-## 1016600004 任务队列已满
-**支持设备：** Phone / Tablet
+
+##### 1016600004 任务队列已满
 
 **错误信息**
 
@@ -122,7 +121,8 @@ The application task queue is full.
 请在任务队列有空间后再提交任务，等待当前下载任务执行完成。
 
 
-## 1016600005 资源加速ExtensionAbility方法执行超时
+
+##### 1016600005 资源加速ExtensionAbility方法执行超时
 
 **错误信息**
 
@@ -141,7 +141,8 @@ Extension life cycle callback execution timed out.
 通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=201704444384569052&level3=601723606112598571)提交问题，华为工程师会及时处理。
 
 
-## 1016600006 资源加速ExtensionAbility生命周期方法出现异常
+
+##### 1016600006 资源加速ExtensionAbility生命周期方法出现异常
 
 **错误信息**
 
@@ -160,8 +161,8 @@ An exception occurs in the callback extension js.
 排查资源加速ExtensionAbility生命周期方法是否存在未捕获异常。
 
 
-## 1016600094 服务异常
-**支持设备：** Phone / Tablet
+
+##### 1016600094 服务异常
 
 **错误信息**
 
@@ -180,8 +181,8 @@ Task service ability error.
 通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/add/101704353566310877?level2=201704444384569052&level3=601723606112598571)提交问题，华为工程师会及时处理。
 
 
-## 1016600401 参数错误
-**支持设备：** Phone / Tablet
+
+##### 1016600401 参数错误
 
 **错误信息**
 

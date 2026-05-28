@@ -3,28 +3,24 @@
 更新时间：2026-03-12 02:57:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供应用信息查询能力，支持[包信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)、[应用信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)、[Ability组件信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)等信息的查询，以及应用禁用状态的查询、设置等。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 从API version 9开始，该模块不再维护，建议使用[@ohos.bundle.bundleManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager)替代。
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API version 9开始，该模块不再维护，建议使用 @ohos.bundle.bundleManager 替代。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import bundle from '@ohos.bundle';
 ```
 
 
-## 权限列表
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 权限列表
 
 | 权限 | 权限等级 | 描述 |
 | --- | --- | --- |
@@ -35,14 +31,14 @@ import bundle from '@ohos.bundle';
 权限等级参考[权限APL等级说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-permission-mgmt-overview#权限机制中的基本概念)。
 
 
-## bundle.getApplicationInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getApplicationInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number): Promise<ApplicationInfo>
+
+getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number): Promise&lt;ApplicationInfo&gt;
 
 根据给定的Bundle名称获取ApplicationInfo。使用Promise异步回调。
 
@@ -58,52 +54,47 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围请参考[BundleFlag说明](#bundleflagdeprecated)中应用信息相关flag。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围请参考BundleFlag说明中应用信息相关flag。 |
 | userId | number | 否 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)&gt; | Promise形式返回应用程序信息。 |
+| Promise&lt;ApplicationInfo&gt; | Promise形式返回应用程序信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 let bundleFlags: number = 0;
 let userId: number = 100;
 
-bundle
-  .getApplicationInfo(bundleName, bundleFlags, userId)
+bundle.getApplicationInfo(bundleName, bundleFlags, userId)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getApplicationInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getApplicationInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback<ApplicationInfo>): void
+
+getApplicationInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback&lt;ApplicationInfo&gt;): void
 
 根据给定的Bundle名称获取指定用户下的ApplicationInfo，使用callback异步回调。
 
@@ -119,22 +110,20 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中应用信息相关flag。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中应用信息相关flag。 |
 | userId | number | 是 | 用户ID。取值范围：大于等于0。 |
-| callback | AsyncCallback&lt;[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)&gt; | 是 | 程序启动作为入参的回调函数，返回应用程序信息。 |
+| callback | AsyncCallback&lt;ApplicationInfo&gt; | 是 | 程序启动作为入参的回调函数，返回应用程序信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 let bundleFlags: number = 0;
 let userId: number = 100;
 
@@ -144,18 +133,18 @@ bundle.getApplicationInfo(bundleName, bundleFlags, userId, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getApplicationInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getApplicationInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<ApplicationInfo>): void
+
+getApplicationInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback&lt;ApplicationInfo&gt;): void
 
 根据给定的Bundle名称获取ApplicationInfo，使用callback异步回调。
 
@@ -171,21 +160,19 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中应用信息相关flag。 |
-| callback | AsyncCallback&lt;[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)&gt; | 是 | 程序启动作为入参的回调函数，返回应用程序信息。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中应用信息相关flag。 |
+| callback | AsyncCallback&lt;ApplicationInfo&gt; | 是 | 程序启动作为入参的回调函数，返回应用程序信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 let bundleFlags: number = 0;
 
 bundle.getApplicationInfo(bundleName, bundleFlags, (err, data) => {
@@ -194,18 +181,18 @@ bundle.getApplicationInfo(bundleName, bundleFlags, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getAllBundleInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAllBundleInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>
+
+getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array&lt;BundleInfo&gt;>
 
 获取指定用户所有的BundleInfo，使用Promise形式异步回调。
 
@@ -219,50 +206,45 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bundleFlag | BundleFlag | 是 | 用于指定返回的包信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
+| bundleFlag | BundleFlag | 是 | 用于指定返回的包信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
 | userId | number | 否 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt;&gt; | Promise形式返回所有可用的BundleInfo |
+| Promise<Array&lt;BundleInfo&gt;> | Promise形式返回所有可用的BundleInfo |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
 let bundleFlag: number = 0;
 let userId: number = 100;
 
-bundle
-  .getAllBundleInfo(bundleFlag, userId)
+bundle.getAllBundleInfo(bundleFlag, userId)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getAllBundleInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAllBundleInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void
+
+getAllBundleInfo(bundleFlag: BundleFlag, callback: AsyncCallback<Array&lt;BundleInfo&gt;>): void
 
 获取当前用户所有的BundleInfo，使用callback异步回调。
 
@@ -276,17 +258,15 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bundleFlag | BundleFlag | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
-| callback | AsyncCallback&lt;Array&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt;&gt; | 是 | 程序启动作为入参的回调函数，返回所有可用的BundleInfo。 |
+| bundleFlag | BundleFlag | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
+| callback | AsyncCallback<Array&lt;BundleInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回所有可用的BundleInfo。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
 let bundleFlag: number = 0;
@@ -297,18 +277,18 @@ bundle.getAllBundleInfo(bundleFlag, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getAllBundleInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAllBundleInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void
+
+getAllBundleInfo(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array&lt;BundleInfo&gt;>): void
 
 获取系统中指定用户下所有的BundleInfo，使用callback异步回调。
 
@@ -322,18 +302,16 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bundleFlag | BundleFlag | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
+| bundleFlag | BundleFlag | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
 | userId | number | 是 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
-| callback | AsyncCallback&lt;Array&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt;&gt; | 是 | 程序启动作为入参的回调函数，返回指定用户下所有包的BundleInfo。 |
+| callback | AsyncCallback<Array&lt;BundleInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回指定用户下所有包的BundleInfo。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
 let bundleFlag: number = 0;
@@ -345,18 +323,18 @@ bundle.getAllBundleInfo(bundleFlag, userId, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getBundleInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getBundleInfodeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[getBundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfo14-2)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
 
-getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise<BundleInfo>
+
+getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions): Promise&lt;BundleInfo&gt;
 
 根据给定的Bundle名称获取BundleInfo，使用Promise异步回调。
 
@@ -372,54 +350,49 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
-| options | [BundleOptions](#bundleoptionsdeprecated) | 否 | 包含userid的查询选项。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
+| options | BundleOptions | 否 | 包含userid的查询选项。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt; | Promise对象，获取成功时返回包信息。 |
+| Promise&lt;BundleInfo&gt; | Promise对象，获取成功时返回包信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 let bundleFlags: number = 1;
 let options: bundle.BundleOptions = {
-  userId: 100,
+  "userId": 100
 };
 
-bundle
-  .getBundleInfo(bundleName, bundleFlags, options)
+bundle.getBundleInfo(bundleName, bundleFlags, options)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getBundleInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getBundleInfodeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[getBundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfo14-1)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
 
-getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>): void
+
+getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback&lt;BundleInfo&gt;): void
 
 根据给定的Bundle名称获取BundleInfo，使用callback异步回调。
 
@@ -435,21 +408,19 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 需要查询的应用Bundle名称。 |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
-| callback | AsyncCallback&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt; | 是 | 程序启动作为入参的回调函数，返回包信息。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
+| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | 程序启动作为入参的回调函数，返回包信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 let bundleFlags: number = 1;
 
 bundle.getBundleInfo(bundleName, bundleFlags, (err, data) => {
@@ -458,18 +429,18 @@ bundle.getBundleInfo(bundleName, bundleFlags, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getBundleInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getBundleInfodeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[getBundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfo14)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
 
-getBundleInfo(bundleName: string, bundleFlags: number, options: BundleOptions, callback: AsyncCallback<BundleInfo>): void
+
+getBundleInfo(bundleName: string, bundleFlags: number, options: BundleOptions, callback: AsyncCallback&lt;BundleInfo&gt;): void
 
 根据给定的Bundle名称获取BundleInfo，使用callback异步回调。
 
@@ -485,25 +456,23 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
-| options | [BundleOptions](#bundleoptionsdeprecated) | 是 | 包含userid。 |
-| callback | AsyncCallback&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt; | 是 | 程序启动作为入参的回调函数，返回包信息。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
+| options | BundleOptions | 是 | 包含userid。 |
+| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | 程序启动作为入参的回调函数，返回包信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 let bundleFlags: number = 1;
 let options: bundle.BundleOptions = {
-  userId: 100,
+  "userId": 100
 };
 
 bundle.getBundleInfo(bundleName, bundleFlags, options, (err, data) => {
@@ -512,18 +481,18 @@ bundle.getBundleInfo(bundleName, bundleFlags, options, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getAllApplicationInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAllApplicationInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>
+
+getAllApplicationInfo(bundleFlags: number, userId?: number): Promise<Array&lt;ApplicationInfo&gt;>
 
 获取指定用户下所有已安装的应用信息，使用promise异步回调。
 
@@ -537,50 +506,45 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中应用信息相关flag。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中应用信息相关flag。 |
 | userId | number | 否 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)&gt;&gt; | Promise对象，获取成功时返回应用信息列表。 |
+| Promise<Array&lt;ApplicationInfo&gt;> | Promise对象，获取成功时返回应用信息列表。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
 let bundleFlags: number = 8;
 let userId: number = 100;
 
-bundle
-  .getAllApplicationInfo(bundleFlags, userId)
+bundle.getAllApplicationInfo(bundleFlags, userId)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getAllApplicationInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAllApplicationInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void
+
+getAllApplicationInfo(bundleFlags: number, userId: number, callback: AsyncCallback<Array&lt;ApplicationInfo&gt;>): void
 
 获取指定用户下所有已安装的应用信息，使用callback异步回调。
 
@@ -594,22 +558,19 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中应用信息相关flag。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中应用信息相关flag。 |
 | userId | number | 是 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
-| callback | AsyncCallback&lt;Array&lt;[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)&gt;&gt; | 是 | 程序启动作为入参的回调函数，返回应用信息列表。 |
+| callback | AsyncCallback<Array&lt;ApplicationInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回应用信息列表。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleFlags: number =
-  bundle.BundleFlag.GET_APPLICATION_INFO_WITH_PERMISSION;
+let bundleFlags: number = bundle.BundleFlag.GET_APPLICATION_INFO_WITH_PERMISSION;
 let userId: number = 100;
 
 bundle.getAllApplicationInfo(bundleFlags, userId, (err, data) => {
@@ -618,18 +579,18 @@ bundle.getAllApplicationInfo(bundleFlags, userId, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getAllApplicationInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAllApplicationInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void
+
+getAllApplicationInfo(bundleFlags: number, callback: AsyncCallback<Array&lt;ApplicationInfo&gt;>): void
 
 获取调用方所在用户下已安装的应用信息，使用callback异步回调。
 
@@ -643,21 +604,18 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中应用信息相关flag。 |
-| callback | AsyncCallback&lt;Array&lt;[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-applicationinfo)&gt;&gt; | 是 | 程序启动作为入参的回调函数，返回应用信息列表。 |
+| bundleFlags | number | 是 | 用于指定返回的应用信息对象中包含信息的标记。取值范围：参考BundleFlag说明中应用信息相关flag。 |
+| callback | AsyncCallback<Array&lt;ApplicationInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回应用信息列表。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleFlags: number =
-  bundle.BundleFlag.GET_APPLICATION_INFO_WITH_PERMISSION;
+let bundleFlags: number = bundle.BundleFlag.GET_APPLICATION_INFO_WITH_PERMISSION;
 
 bundle.getAllApplicationInfo(bundleFlags, (err, data) => {
   if (err) {
@@ -665,18 +623,18 @@ bundle.getAllApplicationInfo(bundleFlags, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getBundleArchiveInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getBundleArchiveInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise<BundleInfo>
+
+getBundleArchiveInfo(hapFilePath: string, bundleFlags: number) : Promise&lt;BundleInfo&gt;
 
 获取有关HAP中包含的应用程序包的信息，使用Promise异步回调。
 
@@ -686,50 +644,45 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| hapFilePath | string | 是 | HAP存放路径。支持当前应��程序的绝对路径和数据目录沙箱路径。 |
-| bundleFlags | number | 是 | 用于指定要返回的BundleInfo对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
+| hapFilePath | string | 是 | HAP存放路径。支持当前应用程序的绝对路径和数据目录沙箱路径。 |
+| bundleFlags | number | 是 | 用于指定要返回的BundleInfo对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt; | 返回值为Promise对象，Promise中包含有关HAP中包含的应用程序的信息。 |
+| Promise&lt;BundleInfo&gt; | 返回值为Promise对象，Promise中包含有关HAP中包含的应用程序的信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let hapFilePath: string = '/data/storage/el2/base/test.hap';
+let hapFilePath: string = "/data/storage/el2/base/test.hap";
 let bundleFlags: number = 0;
 
-bundle
-  .getBundleArchiveInfo(hapFilePath, bundleFlags)
+bundle.getBundleArchiveInfo(hapFilePath, bundleFlags)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getBundleArchiveInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getBundleArchiveInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback<BundleInfo>) : void
+
+getBundleArchiveInfo(hapFilePath: string, bundleFlags: number, callback: AsyncCallback&lt;BundleInfo&gt;) : void
 
 获取有关HAP中包含的应用程序包的信息，使用callback异步回调。
 
@@ -739,21 +692,19 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | hapFilePath | string | 是 | HAP存放路径，支持当前应用程序的绝对路径和数据目录沙箱路径。 |
-| bundleFlags | number | 是 | 用于指定要返回的BundleInfo对象中包含信息的标记。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中包信息相关flag。 |
-| callback | AsyncCallback&lt;[BundleInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-bundleinfo)&gt; | 是 | 程序启动作为入参的回调函数，返回HAP中包含的应用程序包的信息。 |
+| bundleFlags | number | 是 | 用于指定要返回的BundleInfo对象中包含信息的标记。取值范围：参考BundleFlag说明中包信息相关flag。 |
+| callback | AsyncCallback&lt;BundleInfo&gt; | 是 | 程序启动作为入参的回调函数，返回HAP中包含的应用程序包的信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let hapFilePath: string = '/data/storage/el2/base/test.hap';
+let hapFilePath: string = "/data/storage/el2/base/test.hap";
 let bundleFlags: number = 0;
 
 bundle.getBundleArchiveInfo(hapFilePath, bundleFlags, (err, data) => {
@@ -762,18 +713,18 @@ bundle.getBundleArchiveInfo(hapFilePath, bundleFlags, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getAbilityInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAbilityInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAbilityInfo(bundleName: string, abilityName: string): Promise<AbilityInfo>
+
+getAbilityInfo(bundleName: string, abilityName: string): Promise&lt;AbilityInfo&gt;
 
 通过Bundle名称和组件名获取Ability组件信息，使用Promise形式异步回调。
 
@@ -789,7 +740,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 应用Bundle名称。 |
@@ -798,41 +748,37 @@ SystemCapability.BundleManager.BundleFramework
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)&gt; | Promise形式返回Ability信息。 |
+| Promise&lt;AbilityInfo&gt; | Promise形式返回Ability信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
-bundle
-  .getAbilityInfo(bundleName, abilityName)
+bundle.getAbilityInfo(bundleName, abilityName)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getAbilityInfodeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAbilityInfodeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback<AbilityInfo>): void
+
+getAbilityInfo(bundleName: string, abilityName: string, callback: AsyncCallback&lt;AbilityInfo&gt;): void
 
 通过Bundle名称和组件名获取Ability组件信息，使用callback异步回调。
 
@@ -848,22 +794,20 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 应用Bundle名称。 |
 | abilityName | string | 是 | Ability名称。 |
-| callback | AsyncCallback&lt;[AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)&gt; | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
+| callback | AsyncCallback&lt;AbilityInfo&gt; | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
 bundle.getAbilityInfo(bundleName, abilityName, (err, data) => {
   if (err) {
@@ -871,18 +815,18 @@ bundle.getAbilityInfo(bundleName, abilityName, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getAbilityLabel8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAbilityLabel8+ deprecated
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAbilityLabel(bundleName: string, abilityName: string): Promise<string>
+
+getAbilityLabel(bundleName: string, abilityName: string): Promise&lt;string&gt;
 
 通过Bundle名称和ability名称获取应用名称，使用Promise异步回调。
 
@@ -898,7 +842,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 应用Bundle名称。 |
@@ -907,7 +850,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise形式返回应用名称信息。 |
@@ -915,33 +857,30 @@ SystemCapability.BundleManager.BundleFramework
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
-bundle
-  .getAbilityLabel(bundleName, abilityName)
+bundle.getAbilityLabel(bundleName, abilityName)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getAbilityLabel8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAbilityLabel8+ deprecated
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getAbilityLabel(bundleName: string, abilityName: string, callback : AsyncCallback<string>): void
+
+getAbilityLabel(bundleName: string, abilityName: string, callback : AsyncCallback&lt;string&gt;): void
 
 通过Bundle名称和Ability组件名获取应用名称，使用callback异步回调。
 
@@ -957,7 +896,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 应用Bundle名称。 |
@@ -967,12 +905,11 @@ SystemCapability.BundleManager.BundleFramework
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
 bundle.getAbilityLabel(bundleName, abilityName, (err, data) => {
   if (err) {
@@ -980,18 +917,18 @@ bundle.getAbilityLabel(bundleName, abilityName, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.isAbilityEnabled8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.isAbilityEnabled8+ deprecated
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-isAbilityEnabled(info: AbilityInfo): Promise<boolean>
+
+isAbilityEnabled(info: AbilityInfo): Promise&lt;boolean&gt;
 
 根据给定的AbilityInfo查询ability是否已经启用，使用Promise异步回调。
 
@@ -1001,14 +938,12 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| info | [AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo) | 是 | Ability的配置信息。 |
+| info | AbilityInfo | 是 | Ability的配置信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1017,35 +952,31 @@ SystemCapability.BundleManager.BundleFramework
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
 bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
-  bundle
-    .isAbilityEnabled(abilityInfo)
-    .then((data) => {
-      console.info('Operation successful. Data: ' + JSON.stringify(data));
-    })
-    .catch((error: BusinessError) => {
-      console.error('Operation failed. Cause: ' + JSON.stringify(error));
-    });
-});
+  bundle.isAbilityEnabled(abilityInfo).then((data) => {
+    console.info('Operation successful. Data: ' + JSON.stringify(data));
+  }).catch((error: BusinessError) => {
+    console.error('Operation failed. Cause: ' + JSON.stringify(error));
+  })
+})
 ```
 
 
-## bundle.isAbilityEnabled8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.isAbilityEnabled8+ deprecated
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-isAbilityEnabled(info : AbilityInfo, callback : AsyncCallback<boolean>): void
+
+isAbilityEnabled(info : AbilityInfo, callback : AsyncCallback&lt;boolean&gt;): void
 
 根据给定的AbilityInfo查询ability是否已经启用，使用callback异步回调。
 
@@ -1055,21 +986,19 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| info | [AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo) | 是 | Ability的配置信息。 |
+| info | AbilityInfo | 是 | Ability的配置信息。 |
 | callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数，返回boolean代表是否启用。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
 bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
   bundle.isAbilityEnabled(abilityInfo, (err, data) => {
@@ -1078,19 +1007,19 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
       return;
     }
     console.info('Operation successful. Data:' + JSON.stringify(data));
-  });
-});
+  })
+})
 ```
 
 
-## bundle.isApplicationEnabled8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.isApplicationEnabled8+ deprecated
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-isApplicationEnabled(bundleName: string): Promise<boolean>
+
+isApplicationEnabled(bundleName: string): Promise&lt;boolean&gt;
 
 根据给定的bundleName查询指定应用程序是否已经启用，使用Promise异步回调。
 
@@ -1100,14 +1029,12 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1116,32 +1043,29 @@ SystemCapability.BundleManager.BundleFramework
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 
-bundle
-  .isApplicationEnabled(bundleName)
+bundle.isApplicationEnabled(bundleName)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.isApplicationEnabled8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.isApplicationEnabled8+ deprecated
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-isApplicationEnabled(bundleName: string, callback : AsyncCallback<boolean>): void
+
+isApplicationEnabled(bundleName: string, callback : AsyncCallback&lt;boolean&gt;): void
 
 根据给定的bundleName查询指定应用程序是否已经启用，使用callback异步回调。
 
@@ -1151,7 +1075,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
@@ -1160,11 +1083,10 @@ SystemCapability.BundleManager.BundleFramework
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 
 bundle.isApplicationEnabled(bundleName, (err, data) => {
   if (err) {
@@ -1172,18 +1094,18 @@ bundle.isApplicationEnabled(bundleName, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.queryAbilityByWantdeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.queryAbilityByWantdeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array<AbilityInfo>>
+
+queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array&lt;AbilityInfo&gt;>
 
 根据给定的意图获取Ability组件信息，使用Promise异步回调。
 
@@ -1199,26 +1121,23 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want) | 是 | 包含要查询的应用Bundle名称的意图。 |
-| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中Ability信息相关flag。 |
+| want | Want | 是 | 包含要查询的应用Bundle名称的意图。 |
+| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
 | userId | number | 否 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)&gt;&gt; | Promise形式返回Ability信息。 |
+| Promise<Array&lt;AbilityInfo&gt;> | Promise形式返回Ability信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 import Want from '@ohos.app.ability.Want';
@@ -1226,29 +1145,27 @@ import Want from '@ohos.app.ability.Want';
 let bundleFlags: number = 0;
 let userId: number = 100;
 let want: Want = {
-  bundleName: 'com.example.myapplication',
-  abilityName: 'EntryAbility',
+  bundleName: "com.example.myapplication",
+  abilityName: "EntryAbility"
 };
 
-bundle
-  .queryAbilityByWant(want, bundleFlags, userId)
+bundle.queryAbilityByWant(want, bundleFlags, userId)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.queryAbilityByWantdeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.queryAbilityByWantdeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-queryAbilityByWant(want: Want, bundleFlags: number, userId: number, callback: AsyncCallback<Array<AbilityInfo>>): void
+
+queryAbilityByWant(want: Want, bundleFlags: number, userId: number, callback: AsyncCallback<Array&lt;AbilityInfo&gt;>): void
 
 根据给定的意图获取指定用户下Ability信息，使用callback异步回调。
 
@@ -1264,27 +1181,25 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want) | 是 | 指示包含要查询的应用Bundle名称的意图。 |
-| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中Ability信息相关flag。 |
+| want | Want | 是 | 指示包含要查询的应用Bundle名称的意图。 |
+| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
 | userId | number | 是 | 用户ID。取值范围：大于等于0。 |
-| callback | AsyncCallback&lt;Array&lt;[AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)&gt;&gt; | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
+| callback | AsyncCallback<Array&lt;AbilityInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import Want from '@ohos.app.ability.Want';
 
 let bundleFlags: number = 0;
 let userId: number = 100;
 let want: Want = {
-  bundleName: 'com.example.myapplication',
-  abilityName: 'EntryAbility',
+  bundleName: "com.example.myapplication",
+  abilityName: "EntryAbility"
 };
 
 bundle.queryAbilityByWant(want, bundleFlags, userId, (err, data) => {
@@ -1293,18 +1208,18 @@ bundle.queryAbilityByWant(want, bundleFlags, userId, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.queryAbilityByWantdeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.queryAbilityByWantdeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array<AbilityInfo>>): void
+
+queryAbilityByWant(want: Want, bundleFlags: number, callback: AsyncCallback<Array&lt;AbilityInfo&gt;>): void
 
 根据给定的意图获取Ability信息，使用callback异步回调。
 
@@ -1320,25 +1235,23 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want) | 是 | 指示包含要查询的应用Bundle名称的意图。 |
-| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考[BundleFlag说明](#bundleflagdeprecated)中Ability信息相关flag。 |
-| callback | AsyncCallback&lt;Array&lt;[AbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundle-abilityinfo)&gt;&gt; | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
+| want | Want | 是 | 指示包含要查询的应用Bundle名称的意图。 |
+| bundleFlags | number | 是 | 用于指定返回abilityInfo信息。取值范围：参考BundleFlag说明中Ability信息相关flag。 |
+| callback | AsyncCallback<Array&lt;AbilityInfo&gt;> | 是 | 程序启动作为入参的回调函数，返回Ability信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import Want from '@ohos.app.ability.Want';
 
 let bundleFlags: number = 0;
 let want: Want = {
-  bundleName: 'com.example.myapplication',
-  abilityName: 'EntryAbility',
+  bundleName: "com.example.myapplication",
+  abilityName: "EntryAbility"
 };
 
 bundle.queryAbilityByWant(want, bundleFlags, (err, data) => {
@@ -1347,18 +1260,18 @@ bundle.queryAbilityByWant(want, bundleFlags, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getLaunchWantForBundledeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getLaunchWantForBundledeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getLaunchWantForBundle(bundleName: string): Promise<Want>
+
+getLaunchWantForBundle(bundleName: string): Promise&lt;Want&gt;
 
 查询拉起指定应用的want对象，使用Promise异步回调。
 
@@ -1372,7 +1285,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
@@ -1380,40 +1292,36 @@ SystemCapability.BundleManager.BundleFramework
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want)&gt; | 返回值为Promise对象，Promise中包含拉起指定应用的Want对象。 |
+| Promise&lt;Want&gt; | 返回值为Promise对象，Promise中包含拉起指定应用的Want对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 
-bundle
-  .getLaunchWantForBundle(bundleName)
+bundle.getLaunchWantForBundle(bundleName)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getLaunchWantForBundledeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getLaunchWantForBundledeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
-getLaunchWantForBundle(bundleName: string, callback: AsyncCallback<Want>): void
+
+getLaunchWantForBundle(bundleName: string, callback: AsyncCallback&lt;Want&gt;): void
 
 查询拉起指定应用的want对象，使用callback异步回调。
 
@@ -1427,20 +1335,18 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
-| callback | AsyncCallback&lt;[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-want)&gt; | 是 | 程序启动作为入参的回调函数，返回拉起指定应用的want对象。 |
+| callback | AsyncCallback&lt;Want&gt; | 是 | 程序启动作为入参的回调函数，返回拉起指定应用的want对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
+let bundleName: string = "com.example.myapplication";
 
 bundle.getLaunchWantForBundle(bundleName, (err, data) => {
   if (err) {
@@ -1448,18 +1354,18 @@ bundle.getLaunchWantForBundle(bundleName, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getNameForUid8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getNameForUid8+ deprecated
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[getBundleNameByUid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundlenamebyuid14-1)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
 
-getNameForUid(uid: number): Promise<string>
+
+getNameForUid(uid: number): Promise&lt;string&gt;
 
 通过uid获取对应的Bundle名称，使用Promise异步回调。
 
@@ -1469,14 +1375,12 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uid | number | 是 | 要查询的uid。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1485,32 +1389,29 @@ SystemCapability.BundleManager.BundleFramework
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
 let uid: number = 20010005;
 
-bundle
-  .getNameForUid(uid)
+bundle.getNameForUid(uid)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.8+ deprecated
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[getBundleNameByUid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundlenamebyuid14)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
 
-getNameForUid(uid: number, callback: AsyncCallback<string>) : void
+
+getNameForUid(uid: number, callback: AsyncCallback&lt;string&gt;) : void
 
 通过uid获取对应的Bundle名称，使用callback异步回调。
 
@@ -1520,7 +1421,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uid | number | 是 | 要查询的uid。 |
@@ -1529,8 +1429,7 @@ SystemCapability.BundleManager.BundleFramework
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
 let uid: number = 20010005;
@@ -1541,16 +1440,16 @@ bundle.getNameForUid(uid, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## bundle.getAbilityIcon8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAbilityIcon8+ deprecated
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[resourceManager.getMediaContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getmediacontent9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
+
 
 getAbilityIcon(bundleName: string, abilityName: string): Promise<image.PixelMap>
 
@@ -1568,7 +1467,6 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
@@ -1577,39 +1475,35 @@ SystemCapability.BundleManager.BundleFramework
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;image.PixelMap&gt; | 返回值为[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。 |
+| Promise<image.PixelMap> | 返回值为PixelMap。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 import { BusinessError } from '@ohos.base';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
-bundle
-  .getAbilityIcon(bundleName, abilityName)
+bundle.getAbilityIcon(bundleName, abilityName)
   .then((data) => {
     console.info('Operation successful. Data: ' + JSON.stringify(data));
-  })
-  .catch((error: BusinessError) => {
+  }).catch((error: BusinessError) => {
     console.error('Operation failed. Cause: ' + JSON.stringify(error));
-  });
+  })
 ```
 
 
-## bundle.getAbilityIcon8+ deprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### bundle.getAbilityIcon8+ deprecated
 
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[resourceManager.getMediaContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getmediacontent9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
+
 
 getAbilityIcon(bundleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void
 
@@ -1627,22 +1521,20 @@ SystemCapability.BundleManager.BundleFramework
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 要查询的应用Bundle名称。 |
 | abilityName | string | 是 | 要查询的Ability组件名。 |
-| callback | AsyncCallback&lt;image.PixelMap&gt; | 是 | 程序启动作为入参的回调函数，返回指定[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。 |
+| callback | AsyncCallback<image.PixelMap> | 是 | 程序启动作为入参的回调函数，返回指定PixelMap。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import bundle from '@ohos.bundle';
 
-let bundleName: string = 'com.example.myapplication';
-let abilityName: string = 'EntryAbility';
+let bundleName: string = "com.example.myapplication";
+let abilityName: string = "EntryAbility";
 
 bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
   if (err) {
@@ -1650,19 +1542,18 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
     return;
   }
   console.info('Operation successful. Data:' + JSON.stringify(data));
-});
+})
 ```
 
 
-## InstallErrorCodedeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### InstallErrorCodedeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[包管理子系统通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bundle)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 包管理子系统通用错误码 替代。
+
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1688,12 +1579,13 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 | STATUS_UNINSTALL_PERMISSION_DENIED8+ | 0x45 | 缺少卸载权限。 |
 
 
-## BundleFlagdeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### BundleFlagdeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager.BundleFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundleflag)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.BundleFlag 替代。
+
 
 包信息标志，指示需要获取的包信息的内容。
 
@@ -1702,7 +1594,6 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 标志可以叠加使用，例如使用GET_APPLICATION_INFO_WITH_PERMISSION + GET_APPLICATION_INFO_WITH_DISABLE可以使结果同时包含应用权限信息和被禁用的应用信息。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1720,34 +1611,34 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 | GET_ALL_APPLICATION_INFO | 0xFFFF0000 | 获取应用所有的信息。 |
 
 
-## BundleOptionsdeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### BundleOptionsdeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，暂无替代接口。
 
+
 查询选项，包含userId。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | userId | number | 否 | 是 | 用户ID。默认值：调用方所在用户，取值范围：大于等于0。 |
 
 
-## AbilityTypedeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### AbilityTypedeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager.AbilityType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#abilitytype)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.AbilityType 替代。
+
 
 Ability组件类型。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1757,17 +1648,17 @@ Ability组件类型。
 | DATA | 无 | 表示基于Data模板开发的PA，用于对外部提供统一的数据访问对象。 |
 
 
-## DisplayOrientationdeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### DisplayOrientationdeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager.DisplayOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#displayorientation)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.DisplayOrientation 替代。
+
 
 屏幕显示方向。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1777,17 +1668,17 @@ Ability组件类型。
 | FOLLOW_RECENT | 无 | 屏幕方向--紧跟上一个组件。 |
 
 
-## LaunchModedeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### LaunchModedeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager.LaunchType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#launchtype)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.LaunchType 替代。
+
 
 Ability组件的启动模式。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1795,17 +1686,17 @@ Ability组件的启动模式。
 | STANDARD | 1 | Ability有多个实例。 |
 
 
-## AbilitySubTypedeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### AbilitySubTypedeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，暂无替代接口。
 
+
 Ability组件的子类型。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1813,17 +1704,17 @@ Ability组件的子类型。
 | CA | 1 | Ability子类型是带有 UI 的服务。 |
 
 
-## ColorModedeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### ColorModedeprecated
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，暂无替代接口。
 
+
 应用、卡片等的颜色模式。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1832,17 +1723,17 @@ Ability组件的子类型。
 | LIGHT_MODE | 1 | 亮度模式。 |
 
 
-## GrantStatusdeprecated
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### GrantStatusdeprecated
 
 > [!NOTE]
-> 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager.PermissionGrantState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#permissiongrantstate)替代。
+> 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.PermissionGrantState 替代。
+
 
 权限授予状态。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

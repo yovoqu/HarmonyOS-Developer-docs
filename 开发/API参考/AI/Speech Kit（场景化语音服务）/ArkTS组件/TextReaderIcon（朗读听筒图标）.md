@@ -3,60 +3,57 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreadericon
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 朗读听筒图标，可以作为动态组件加载，并配置成为播放面板的主入口。
-
+ 
 **起始版本：** 5.0.0(12)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
-
-
-```ts
+```text
 import { TextReaderIcon } from '@kit.SpeechKit';
 ```
+ 
+  
 
-
-## TextReaderIcon
-**支持设备：** Phone / PC/2in1 / Tablet
+##### TextReaderIcon
 
 朗读听筒图标，可以作为动态组件加载。设置onClick回调，在用户点击听筒图标时启动朗读控件。
-
+ 
 **装饰器类型：** @Component
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AI.Component.TextReader
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **参数：**
-
-
+  
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| readState | [ReadStateCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-readstatecode) | 是 | @Link | 播报状态。 说明： ReadState使用[@Link装饰器：父子双向同步](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)。 |
+| readState | ReadStateCode | 是 | @Link | 播报状态。 说明： ReadState使用@Link装饰器：父子双向同步。 |
+ 
+ 
+  
 
-
-### build
-**支持设备：** Phone / PC/2in1 / Tablet
+##### build
 
 build(): void
-
+ 
 用于创建[TextReaderIcon](#textreadericon)对象的构造函数。
-
+ 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AI.Component.TextReader
-
+ 
 **起始版本：** 5.0.0(12)
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { TextReader, TextReaderIcon, ReadStateCode } from '@kit.SpeechKit';
 
 @Entry
@@ -64,25 +61,25 @@ import { TextReader, TextReaderIcon, ReadStateCode } from '@kit.SpeechKit';
 struct Index {
 
   /**
-  * 待加载的文章
-  */
+   * 待加载的文章
+   */
   @State readInfoList: TextReader.ReadInfo[] = [];
   @State selectedReadInfo: TextReader.ReadInfo = this.readInfoList[0];
 
   /**
-  * 播放状态
-  */
+   * 播放状态
+   */
   @State readState: ReadStateCode = ReadStateCode.WAITING;
 
   /**
-  * 用于显示当前页的按钮状态
-  */
+   * 用于显示当前页的按钮状态
+   */
   @State isInit: boolean = false;
 
   async aboutToAppear(){
     /**
-    * 加载数据
-    */
+     * 加载数据
+     */
     let readInfoList: TextReader.ReadInfo[] = [{
       id: '001',
       title: {
@@ -105,8 +102,8 @@ struct Index {
   }
 
   /**
-  * 初始化
-  */
+   * 初始化
+   */
   async init() {
     const readerParam: TextReader.ReaderParam = {
       isVoiceBrandVisible: true,
@@ -145,17 +142,17 @@ struct Index {
   build() {
     Column() {
       TextReaderIcon({ readState: this.readState })
-      .margin({ right: 20 })
-      .width(32)
-      .height(32)
-      .onClick(async () => {
-        try {
-          this.setActionListener();
-          await TextReader.start(this.readInfoList, this.selectedReadInfo?.id);
-        } catch (err) {
-          console.error(`TextReader failed to start. Code: ${err.code}, message: ${err.message}`);
-        }
-      })
+        .margin({ right: 20 })
+        .width(32)
+        .height(32)
+        .onClick(async () => {
+          try {
+            this.setActionListener();
+            await TextReader.start(this.readInfoList, this.selectedReadInfo?.id);
+          } catch (err) {
+            console.error(`TextReader failed to start. Code: ${err.code}, message: ${err.message}`);
+          }
+        })
     }
     .height('100%')
   }

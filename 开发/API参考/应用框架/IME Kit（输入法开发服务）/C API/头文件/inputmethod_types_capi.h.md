@@ -3,86 +3,81 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-types-capi-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供了输入法相关的类型定义。
-
+ 
 **引用文件：** <inputmethod/inputmethod_types_capi.h>
-
+ 
 **库：** libohinputmethod.so
-
+ 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [InputMethod](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [InputMethod_KeyboardStatus](#inputmethod_keyboardstatus) | InputMethod_KeyboardStatus | 键盘状态。 |
-| [InputMethod_EnterKeyType](#inputmethod_enterkeytype) | InputMethod_EnterKeyType | 回车键功能类型。 |
-| [InputMethod_Direction](#inputmethod_direction) | InputMethod_Direction | 移动方向。 |
-| [InputMethod_ExtendAction](#inputmethod_extendaction) | InputMethod_ExtendAction | 编辑框中文本的扩展编辑操作类型。 |
-| [InputMethod_TextInputType](#inputmethod_textinputtype) | InputMethod_TextInputType | 文本输入类型。 |
-| [InputMethod_CommandValueType](#inputmethod_commandvaluetype) | InputMethod_CommandValueType | 私有数据类型。 |
-| [InputMethod_ErrorCode](#inputmethod_errorcode) | InputMethod_ErrorCode | 输入法错误码。 |
-| [InputMethod_RequestKeyboardReason](#inputmethod_requestkeyboardreason) | InputMethod_RequestKeyboardReason | 表示请求键盘输入的原因。 |
+| InputMethod_KeyboardStatus | InputMethod_KeyboardStatus | 键盘状态。 |
+| InputMethod_EnterKeyType | InputMethod_EnterKeyType | 回车键功能类型。 |
+| InputMethod_Direction | InputMethod_Direction | 移动方向。 |
+| InputMethod_ExtendAction | InputMethod_ExtendAction | 编辑框中文本的扩展编辑操作类型。 |
+| InputMethod_TextInputType | InputMethod_TextInputType | 文本输入类型。 |
+| InputMethod_CommandValueType | InputMethod_CommandValueType | 私有数据类型。 |
+| InputMethod_ErrorCode | InputMethod_ErrorCode | 输入法错误码。 |
+| InputMethod_RequestKeyboardReason | InputMethod_RequestKeyboardReason | 表示请求键盘输入的原因。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### InputMethod_KeyboardStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_KeyboardStatus
 
 ```text
 enum InputMethod_KeyboardStatus
 ```
-
+ 
 **描述**
-
+ 
 键盘状态。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_KEYBOARD_STATUS_NONE = 0 | 键盘状态为NONE。 |
 | IME_KEYBOARD_STATUS_HIDE = 1 | 键盘状态为隐藏。 |
 | IME_KEYBOARD_STATUS_SHOW = 2 | 键盘状态为显示。 |
+ 
+ 
+  
 
-
-### InputMethod_EnterKeyType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_EnterKeyType
 
 ```text
 enum InputMethod_EnterKeyType
 ```
-
+ 
 **描述**
-
+ 
 回车键功能类型。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_ENTER_KEY_UNSPECIFIED = 0 | 未指定。 |
@@ -94,23 +89,22 @@ enum InputMethod_EnterKeyType
 | IME_ENTER_KEY_DONE = 6 | 完成。 |
 | IME_ENTER_KEY_PREVIOUS = 7 | 上一步。 |
 | IME_ENTER_KEY_NEWLINE = 8 | 换行。 |
+ 
+ 
+  
 
-
-### InputMethod_Direction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_Direction
 
 ```text
 enum InputMethod_Direction
 ```
-
+ 
 **描述**
-
+ 
 移动方向。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_DIRECTION_NONE = 0 | 移动方向为NONE。 |
@@ -118,46 +112,44 @@ enum InputMethod_Direction
 | IME_DIRECTION_DOWN = 2 | 向下。 |
 | IME_DIRECTION_LEFT = 3 | 向左。 |
 | IME_DIRECTION_RIGHT = 4 | 向右。 |
+ 
+ 
+  
 
-
-### InputMethod_ExtendAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_ExtendAction
 
 ```text
 enum InputMethod_ExtendAction
 ```
-
+ 
 **描述**
-
+ 
 编辑框中文本的扩展编辑操作类型。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_EXTEND_ACTION_SELECT_ALL = 0 | 全选。 |
 | IME_EXTEND_ACTION_CUT = 3 | 剪切。 |
 | IME_EXTEND_ACTION_COPY = 4 | 复制。 |
 | IME_EXTEND_ACTION_PASTE = 5 | 粘贴。 |
+ 
+ 
+  
 
-
-### InputMethod_TextInputType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_TextInputType
 
 ```text
 enum InputMethod_TextInputType
 ```
-
+ 
 **描述**
-
+ 
 文本输入类型。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_TEXT_INPUT_TYPE_NONE = -1 | 文本输入类型为NONE。 |
@@ -175,46 +167,44 @@ enum InputMethod_TextInputType
 | IME_TEXT_INPUT_TYPE_NEW_PASSWORD = 11 | 新密码类型。 |
 | IME_TEXT_INPUT_TYPE_NUMBER_DECIMAL = 12 | 数字小数类型。 |
 | IME_TEXT_INPUT_TYPE_ONE_TIME_CODE = 13 | 验证码类型。起始版本： 20 |
+ 
+ 
+  
 
-
-### InputMethod_CommandValueType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_CommandValueType
 
 ```text
 enum InputMethod_CommandValueType
 ```
-
+ 
 **描述**
-
+ 
 私有数据类型。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_COMMAND_VALUE_TYPE_NONE = 0 | 私有数据类型为NONE。 |
 | IME_COMMAND_VALUE_TYPE_STRING = 1 | 字符串类型。 |
 | IME_COMMAND_VALUE_TYPE_BOOL = 2 | 布尔类型。 |
 | IME_COMMAND_VALUE_TYPE_INT32 = 3 | 32位带符号整数类型。 |
+ 
+ 
+  
 
-
-### InputMethod_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_ErrorCode
 
 ```text
 enum InputMethod_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 输入法错误码。
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_ERR_OK = 0 | 成功。 |
@@ -230,23 +220,22 @@ enum InputMethod_ErrorCode
 | IME_ERR_DETACHED = 12800009 | 输入框未绑定。 |
 | IME_ERR_NULL_POINTER = 12802000 | 空指针异常。 |
 | IME_ERR_QUERY_FAILED = 12802001 | 查询失败。 |
+ 
+ 
+  
 
-
-### InputMethod_RequestKeyboardReason
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### InputMethod_RequestKeyboardReason
 
 ```text
 enum InputMethod_RequestKeyboardReason
 ```
-
+ 
 **描述**
-
+ 
 表示请求键盘输入的原因。
-
+ 
 **起始版本：** 15
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | IME_REQUEST_REASON_NONE = 0 | 表示没有特定的原因触发键盘请求。 |

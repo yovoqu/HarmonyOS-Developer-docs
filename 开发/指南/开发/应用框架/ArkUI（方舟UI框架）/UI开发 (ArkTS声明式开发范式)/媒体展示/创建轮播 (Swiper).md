@@ -1,6 +1,6 @@
 # 创建轮播 (Swiper)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-looping
 
@@ -9,14 +9,22 @@
 针对复杂页面场景，可以使用Swiper组件的预加载机制，利用主线程的空闲时间来提前构建和布局绘制组件，优化滑动体验。
 
 
-## 布局与约束
+##### 布局与约束
 
 Swiper作为一个容器组件，如果设置了自身尺寸属性，则在轮播显示过程中均以该尺寸生效。如果自身尺寸属性未被设置，则分两种情况：如果设置了[prevMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#prevmargin10)或者[nextMargin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#nextmargin10)属性，则Swiper自身尺寸会跟随其父组件；如果未设置prevMargin或者nextMargin属性，则会自动根据子组件的大小设置自身的尺寸。
 
-## 循环播放
 
-通过[loop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#loop)属性控制是否循环播放，该属性默认值为true。 当loop为true时，在显示第一页或最后一页时，可以继续往前切换到前一页或者往后切换到后一页。如果loop为false，则在第一页或最后一页时，无法继续向前或者向后切换页面。 loop为true
-```text
+
+##### 循环播放
+
+通过[loop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#loop)属性控制是否循环播放，该属性默认值为true。
+
+当loop为true时，在显示第一页或最后一页时，可以继续往前切换到前一页或者往后切换到后一页。如果loop为false，则在第一页或最后一页时，无法继续向前或者向后切换页面。
+
+ - loop为true
+
+
+```ArkTS
 Swiper() {
     Text('0')
       .width('90%')
@@ -43,9 +51,14 @@ Swiper() {
   .loop(true)
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-0.gif) loop为false
-```text
+
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-0.gif)
+
+
+ - loop为false
+
+
+```ArkTS
 Swiper() {
     // ···
   }
@@ -53,13 +66,19 @@ Swiper() {
   .loop(false)
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-1.gif)
 
-## 自动轮播
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-1.gif)
 
-Swiper通过设置[autoPlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#autoplay)属性，控制是否自动轮播子组件。该属性默认值为false。 autoPlay为true时，会自动切换播放子组件，子组件与子组件之间的播放间隔通过interval属性设置。interval属性默认值为3000，单位毫秒。
-```text
+
+
+
+##### 自动轮播
+
+Swiper通过设置[autoPlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#autoplay)属性，控制是否自动轮播子组件。该属性默认值为false。
+
+autoPlay为true时，会自动切换播放子组件，子组件与子组件之间的播放间隔通过interval属性设置。interval属性默认值为3000，单位毫秒。
+
+```ArkTS
 Swiper() {
     // ···
   }
@@ -69,13 +88,22 @@ Swiper() {
   .interval(1000)
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-2.gif)
 
-## 导航点样式
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-10.png)
 
-Swiper提供了默认的导航点样式和导航点箭头样式，导航点默认显示在Swiper下方居中位置，开发者也可以通过[indicator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#indicator)属性自定义导航点的位置和样式，导航点箭头默认不显示。 通过indicator属性，开发者可以设置导航点相对于Swiper组件上下左右四个方位的位置，同时也可以设置每个导航点的尺寸、颜色、蒙层和被选中导航点的颜色。 导航点使用默认样式
-```text
+
+
+
+##### 导航点样式
+
+Swiper提供了默认的导航点样式和导航点箭头样式，导航点默认显示在Swiper下方居中位置，开发者也可以通过[indicator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#indicator)属性自定义导航点的位置和样式，导航点箭头默认不显示。
+
+通过indicator属性，开发者可以设置导航点相对于Swiper组件上下左右四个方位的位置，同时也可以设置每个导航点的尺寸、颜色、蒙层和被选中导航点的颜色。
+
+ - 导航点使用默认样式
+
+
+```ArkTS
 Swiper() {
   Text('0')
     .width('90%')
@@ -100,9 +128,16 @@ Swiper() {
 }
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-3.png) 自定义导航点样式 选中的导航点，直径设为30vp，且颜色为蓝色；未选中的导航点，直径设为15vp，颜色设为红色。
-```text
+
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-11.gif)
+
+
+ - 自定义导航点样式
+
+
+选中的导航点，直径设为30vp，且颜色为蓝色；未选中的导航点，直径设为15vp，颜色设为红色。
+
+```ArkTS
 Swiper() {
     // ···
   }
@@ -119,9 +154,16 @@ Swiper() {
   )
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-4.png) Swiper通过设置[displayArrow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#displayarrow10)属性，可以控制导航点箭头的大小、位置、颜色，底板的大小及颜色，以及鼠标悬停时是否显示箭头。 箭头使用默认样式
-```text
+
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-12.gif)
+
+
+Swiper通过设置[displayArrow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#displayarrow10)属性，可以控制导航点箭头的大小、位置、颜色，底板的大小及颜色，以及鼠标悬停时是否显示箭头。
+
+ - 箭头使用默认样式
+
+
+```ArkTS
 Swiper() {
     // ···
   }
@@ -129,9 +171,16 @@ Swiper() {
   .displayArrow(true, false)
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-5.gif) 自定义箭头样式 箭头显示在组件两侧，大小为18vp，导航点箭头颜色设为蓝色。
-```text
+
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-13.gif)
+
+
+ - 自定义箭头样式
+
+
+箭头显示在组件两侧，大小为18vp，导航点箭头颜色设为蓝色。
+
+```ArkTS
 Swiper() {
     // ···
   }
@@ -146,13 +195,17 @@ Swiper() {
   }, false)
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-6.gif)
 
-## 页面切换方式
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-14.gif)
+
+
+
+
+##### 页面切换方式
 
 Swiper支持手指滑动、点击导航点和通过控制器三种方式切换页面，以下示例展示通过控制器切换页面的方法。
-```text
+
+```ArkTS
 // 如需作为页面入口，请取消@Entry的注释并删除export关键字
 // @Entry
 @Component
@@ -239,13 +292,22 @@ export struct SwiperPageSwitchMethod {
 }
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-7.gif)
 
-## 轮播方向
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-2.gif)
 
-Swiper支持水平和垂直方向上进行轮播，主要通过[vertical](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#vertical)属性控制。 当vertical为true时，表示在垂直方向上进行轮播；为false时，表示在水平方向上进行轮播。vertical默认值为false。 设置水平方向上轮播。
-```text
+
+
+
+##### 轮播方向
+
+Swiper支持水平和垂直方向上进行轮播，主要通过[vertical](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#vertical)属性控制。
+
+当vertical为true时，表示在垂直方向上进行轮播；为false时，表示在水平方向上进行轮播。vertical默认值为false。
+
+ - 设置水平方向上轮播。
+
+
+```ArkTS
 Swiper(
 // ···
 ) {
@@ -256,9 +318,14 @@ Swiper(
 .vertical(false)
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-8.png) 设置垂直方向轮播。
-```text
+
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-3.png)
+
+
+ - 设置垂直方向轮播。
+
+
+```ArkTS
 Swiper(
 // ···
 ) {
@@ -269,13 +336,17 @@ Swiper(
 .vertical(true)
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-9.png)
 
-## 每页显示多个子页面
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-4.png)
+
+
+
+
+##### 每页显示多个子页面
 
 Swiper支持在一个页面内同时显示多个子组件，通过[displayCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#displaycount8)属性设置。
-```text
+
+```ArkTS
 Swiper() {
     Text('0')
       .width(250)
@@ -308,13 +379,17 @@ Swiper() {
 }
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-10.png)
 
-## 自定义切换动画
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-5.gif)
+
+
+
+
+##### 自定义切换动画
 
 Swiper支持通过[customContentTransition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#customcontenttransition12)设置自定义切换动画，可以在回调中对视窗内所有页面逐帧设置透明度、缩放比例、位移、渲染层级等属性实现自定义切换动画。
-```text
+
+```ArkTS
 // 如需作为页面入口，请取消@Entry的注释并删除export关键字
 // @Entry
 @Component
@@ -328,7 +403,20 @@ export struct SwiperCustomAnimation {
   @State zIndexList: number[] = [];
 
   aboutToAppear(): void {
-    for (let i = 0; i  {
+    for (let i = 0; i < this.backgroundColors.length; i++) {
+      this.opacityList.push(1.0);
+      this.scaleList.push(1.0);
+      this.translateList.push(0.0);
+      this.zIndexList.push(0);
+    }
+  }
+
+  build() {
+    // ...
+      Column({ space: 12 }) {
+        // ...
+          Swiper() {
+            ForEach(this.backgroundColors, (backgroundColor: Color, index: number) => {
               Text(index.toString())
                 .width('100%')
                 .height('100%')
@@ -347,7 +435,8 @@ export struct SwiperCustomAnimation {
           .customContentTransition({
             timeout: 1000,
             transition: (proxy: SwiperContentTransitionProxy) => {
-              if (proxy.position = this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
+              if (proxy.position <= proxy.index % this.DISPLAY_COUNT ||
+                proxy.position >= this.DISPLAY_COUNT + proxy.index % this.DISPLAY_COUNT) {
                 // 同组页面完全滑出视窗外时，重置属性值
                 this.opacityList[proxy.index] = 1.0;
                 this.scaleList[proxy.index] = 1.0;
@@ -380,13 +469,17 @@ export struct SwiperCustomAnimation {
 }
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-11.gif)
 
-## Swiper与Tabs联动
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-6.gif)
+
+
+
+
+##### Swiper与Tabs联动
 
 从API version 18开始，Swiper选中的元素改变时，会通过[onSelected](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#onselected18)回调事件，将元素的索引值index返回。通过调用[tabsController.changeIndex(index)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs#changeindex)方法来实现Tabs页签的切换。
-```text
+
+```ArkTS
 // xxx.ets
 class MyDataSource implements IDataSource {
   private list: number[] = [];
@@ -424,7 +517,32 @@ export struct SwiperAndTabsLinkage {
   private context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 
   aboutToAppear(): void {
-    for (let i = 0; i {
+    for (let i = 0; i <= 9; i++) {
+      this.list.push(i);
+    }
+    this.swiperData = new MyDataSource(this.list);
+  }
+
+  @Builder tabBuilder(index: number, name: string) {
+    Column() {
+      Text(name)
+        .fontColor(this.currentIndex === index ? this.selectedFontColor : this.fontColor)
+        .fontSize(16)
+        .fontWeight(this.currentIndex === index ? 500 : 400)
+        .lineHeight(22)
+        .margin({ top: 17, bottom: 7 })
+      Divider()
+        .strokeWidth(2)
+        .color('#007DFF')
+        .opacity(this.currentIndex === index ? 1 : 0)
+    }.width('20%')
+  }
+
+  build() {
+    // ...
+          Column() {
+            Tabs({ barPosition: BarPosition.Start, controller: this.tabsController }) {
+              ForEach(this.list, (index: number) =>{
                 // 请在resources\base\element\string.json文件中配置name为'swiper_text1' ，value为非空字符串的资源
                 TabContent().tabBar(this.tabBuilder(index,
                   this.context.resourceManager.getStringByNameSync('swiper_text1') + this.list[index]))
@@ -467,13 +585,17 @@ export struct SwiperAndTabsLinkage {
 }
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-12.gif)
 
-## 设置圆点导航点间距
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-7.gif)
+
+
+
+
+##### 设置圆点导航点间距
 
 从API version 19开始，针对圆点导航点，可以通过DotIndicator的[space](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#space19)属性来设置圆点导航点的间距。
-```text
+
+```ArkTS
 Swiper(
   // ···
 ) {
@@ -486,10 +608,15 @@ Swiper(
 ```
 
 
-## 导航点忽略组件大小
 
-当导航点的[bottom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#bottom)设为0之后，导航点的底部与Swiper的底部还会有一定间距。如果希望消除该间距，从API version 19开始，可通过调用[bottom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#bottom19)(bottom, ignoreSize)属性来进行设置。将ignoreSize设置为true，即可忽略导航点组件大小，达到消除该间距的目的。 圆点导航点忽略组件大小。
-```text
+##### 导航点忽略组件大小
+
+当导航点的[bottom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#bottom)设为0之后，导航点的底部与Swiper的底部还会有一定间距。如果希望消除该间距，从API version 19开始，可通过调用[bottom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#bottom19)(bottom, ignoreSize)属性来进行设置。将ignoreSize设置为true，即可忽略导航点组件大小，达到消除该间距的目的。
+
+ - 圆点导航点忽略组件大小。
+
+
+```ArkTS
 Swiper(
   // ···
 ) {
@@ -502,8 +629,10 @@ Swiper(
 )
 ```
 
-数字导航点忽略组件大小。
-```text
+ - 数字导航点忽略组件大小。
+
+
+```ArkTS
 Swiper(
   // ···
 ) {
@@ -515,7 +644,8 @@ Swiper(
 ```
 
 圆点导航点设置间距及忽略组件大小完整示例代码如下：
-```text
+
+```ArkTS
 import { LengthMetrics } from '@kit.ArkUI';
 // ...
 
@@ -560,7 +690,20 @@ export struct SwiperIgnoreComponentSize {
 
   aboutToAppear(): void {
     let list1: number[] = [];
-    for (let i = 1; i  {
+    for (let i = 1; i <= 10; i++) {
+      list1.push(i);
+    }
+    this.data1 = new MyDataSource(list1);
+  }
+
+  build() {
+    // ...
+          Scroll() {
+            Column({ space: 20 }) {
+              Swiper(
+                this.swiperController1
+              ) {
+                LazyForEach(this.data1, (item: string) => {
                   Text(item.toString())
                     .width('90%')
                     .height(120)
@@ -606,13 +749,21 @@ export struct SwiperIgnoreComponentSize {
 }
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-13.gif)
 
-## 保持可见内容位置不变
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-8.png)
 
-从API version 20开始，Swiper通过设置[maintainVisibleContentPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#maintainvisiblecontentposition20)属性，可在使用LazyForEach懒加载数据时（如通过onDataAdd新增数据），保持当前可见内容位置不变，避免因数据增删导致的视图跳动。该属性默认值为false。 maintainVisibleContentPosition为true时，显示区域上方或前方插入或删除数据时可见内容位置不变。 关于数据[LazyForEach：数据懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)的具体使用，可参考数据懒加载章节中的示例。
-```text
+
+
+
+##### 保持可见内容位置不变
+
+从API version 20开始，Swiper通过设置[maintainVisibleContentPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#maintainvisiblecontentposition20)属性，可在使用LazyForEach懒加载数据时（如通过onDataAdd新增数据），保持当前可见内容位置不变，避免因数据增删导致的视图跳动。该属性默认值为false。
+
+maintainVisibleContentPosition为true时，显示区域上方或前方插入或删除数据时可见内容位置不变。
+
+关于数据[LazyForEach：数据懒加载](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)的具体使用，可参考数据懒加载章节中的示例。
+
+```ArkTS
 // xxx.ets
 class MyDataSource implements IDataSource {
   private listeners: DataChangeListener[] = [];
@@ -641,7 +792,15 @@ class MyDataSource implements IDataSource {
   }
 
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) = 0) {
+    if (this.listeners.indexOf(listener) < 0) {
+      hilog.info(DOMAIN, 'testTag', 'add listener');
+      this.listeners.push(listener);
+    }
+  }
+
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener);
+    if (pos >= 0) {
       hilog.info(DOMAIN, 'testTag', 'remove listener');
       this.listeners.splice(pos, 1);
     }
@@ -697,9 +856,12 @@ export struct SwiperVisibleContentPosition {
 }
 ```
 
-![](assets/创建轮播%20(Swiper)
-/file-20260514130628416-14.gif)
 
-## 示例代码
+![](assets/创建轮播%20(Swiper)/file-20260514130628416-9.png)
 
-[短视频切换](https://gitcode.com/HarmonyOS_Samples/short-video)
+
+
+
+##### 示例代码
+
+ - [短视频切换](https://gitcode.com/HarmonyOS_Samples/short-video)

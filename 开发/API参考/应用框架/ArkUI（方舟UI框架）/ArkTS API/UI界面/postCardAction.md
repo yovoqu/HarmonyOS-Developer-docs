@@ -3,17 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-postcardaction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于卡片内部和提供方应用间的交互，当前支持router、message和call三种类型的事件，仅在卡片中可以调用。
-
 
 > [!NOTE]
 > 本接口从API version 9开始支持。
 
 
-## postCardAction
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### postCardAction
 
 postCardAction(component: Object, action: Object): void
 
@@ -29,7 +28,6 @@ postCardAction(component: Object, action: Object): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | component | Object | 是 | 当前自定义组件的实例，通常传入this。 |
@@ -38,10 +36,9 @@ postCardAction(component: Object, action: Object): void
 
 action参数说明：
 
-
 | 参数名 | 类型 | 必填 | 取值说明 |
 | --- | --- | --- | --- |
-| action | string | 是 | action的类型，支持三种预定义的类型：          - router：跳转到提供方应用的指定UIAbility，只允许在点击事件中触发。          - message：自定义消息，触发后会调用提供方FormExtensionAbility的[onFormEvent()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonformevent)生命周期回调。          - call：后台启动提供方应用。触发后会拉起提供方应用的指定UIAbility（仅支持launchType为singleton的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-launch-type)，即启动模式为单实例的UIAbility），但不会调度到前台。提供方应用需要具备后台运行权限([ohos.permission.KEEP_BACKGROUND_RUNNING](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionkeep_background_running))。 |
+| action | string | 是 | action的类型，支持三种预定义的类型： - router：跳转到提供方应用的指定UIAbility，只允许在点击事件中触发。 - message：自定义消息，触发后会调用提供方FormExtensionAbility的onFormEvent()生命周期回调。 - call：后台启动提供方应用。触发后会拉起提供方应用的指定UIAbility（仅支持launchType为singleton的UIAbility，即启动模式为单实例的UIAbility），但不会调度到前台。提供方应用需要具备后台运行权限(ohos.permission.KEEP_BACKGROUND_RUNNING)。 |
 | bundleName | string | 否 | action为router / call 类型时跳转的包名。 |
 | moduleName | string | 否 | action为router / call 类型时跳转的模块名。 |
 | abilityName | string | 否 | action为router / call 类型时跳转的UIAbility名。 |
@@ -52,10 +49,10 @@ action参数说明：
 > [!NOTE]
 > "action"为"call" 类型时，"params"需填入参数'method'，且类型需为string类型，用于触发UIAbility中对应的方法。
 
+
 **示例：**
 
-
-```ts
+```text
 Button('跳转')
   .width('40%')
   .height('20%')
@@ -65,10 +62,10 @@ Button('跳转')
       bundleName: 'com.example.myapplication',
       abilityName: 'EntryAbility',
       params: {
-        message: 'testForRouter', // 自定义要发送的message
-      },
+        message: 'testForRouter' // 自定义要发送的message
+      }
     });
-  });
+  })
 
 Button('拉至后台')
   .width('40%')
@@ -80,10 +77,10 @@ Button('拉至后台')
       abilityName: 'EntryAbility',
       params: {
         method: 'fun', // 自定义调用的方法名，必填
-        message: 'testForCall', // 自定义要发送的message
-      },
+        message: 'testForCall' // 自定义要发送的message
+      }
     });
-  });
+  })
 
 Button('URI跳转')
   .width('40%')
@@ -93,29 +90,28 @@ Button('URI跳转')
       action: 'router',
       uri: 'example://uri.ohos.com/link_page',
       params: {
-        message: 'router msg for dynamic uri deeplink', // 自定义要发送的message
-      },
+        message: 'router msg for dynamic uri deeplink' // 自定义要发送的message
+      }
     });
-  });
+  })
 ```
 
 **待跳转应用 [module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签) uris 配置示例：**
 
-
 ```json
 "abilities": [
-{
-  "skills": [
   {
-    "uris": [
-    {
-      "scheme": "example",
-      "host": "uri.ohos.com",
-      "path": "link_page"
-    }
+    "skills": [
+      {
+        "uris": [
+          {
+            "scheme": "example",
+            "host": "uri.ohos.com",
+            "path": "link_page"
+          }
+        ]
+      }
     ]
   }
-  ]
-}
 ]
 ```

@@ -10,4 +10,4 @@
 | 新增API | NA | 类名：jsLeakWatcher； API声明：function enable(isEnable: boolean): void; 差异内容：function enable(isEnable: boolean): void; | api/@ohos.hiviewdfx.jsLeakWatcher.d.ts |
 | 新增API | NA | 类名：jsLeakWatcher； API声明：function watch(obj: object, msg: string): void; 差异内容：function watch(obj: object, msg: string): void; | api/@ohos.hiviewdfx.jsLeakWatcher.d.ts |
 | 新增API | NA | 类名：jsLeakWatcher； API声明：function check(): string; 差异内容：function check(): string; | api/@ohos.hiviewdfx.jsLeakWatcher.d.ts |
-| 新增API | NA | 类名：jsLeakWatcher； API声明：function dump(filePath: string): Array<string>; 差异内容：function dump(filePath: string): Array<string>; | api/@ohos.hiviewdfx.jsLeakWatcher.d.ts |
+| 新增API | NA | 类名：jsLeakWatcher； API声明：function dump(filePath: string): Array&lt;string&gt;; 差异内容：function dump(filePath: string): Array&lt;string&gt;; | api/@ohos.hiviewdfx.jsLeakWatcher.d.ts |

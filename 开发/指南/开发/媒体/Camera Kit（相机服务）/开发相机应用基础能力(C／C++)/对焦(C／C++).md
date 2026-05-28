@@ -5,11 +5,14 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-focus-native
 
 相机框架提供对设备对焦的能力，业务应用可以根据使用场景进行对焦模式和对焦点的设置。
+  
 
+##### 开发步骤
 
-## 开发步骤
+详细的API说明请参考[Camera API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h)。
+ 1. 导入NDK接口，导入方法如下。
 
-详细的API说明请参考[Camera API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h)。 导入NDK接口，导入方法如下。
+  
 ```text
 // 导入NDK接口头文件
 #include "hilog/log.h"
@@ -22,21 +25,26 @@
 #include "ohcamera/camera_manager.h"
 ```
 
-在CMake脚本中链接相关动态库。
+2. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libohcamera.so libhilog_ndk.z.so)
 ```
 
-调用[OH_CaptureSession_SetFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_setfocusmode)设置对焦模式。
+3. 调用[OH_CaptureSession_SetFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_setfocusmode)设置对焦模式。
+
+  
 > [!NOTE]
-> 需要先调用OH_CaptureSession_IsFocusModeSupported检查设备是否支持指定的焦距模式。  需要在Session调用OH_CaptureSession_CommitConfig完成配流之后调用。
+> 需要先调用 OH_CaptureSession_IsFocusModeSupported 检查设备是否支持指定的焦距模式。 需要在Session调用 OH_CaptureSession_CommitConfig 完成配流之后调用。
 
 
+  
 ```text
 Camera_ErrorCode SetFocusMode(Camera_CaptureSession *captureSession, uint32_t mode)
 {
     bool isFocusModeSupported = false;
-    Camera_FocusMode focusMode = static_cast(mode);
+    Camera_FocusMode focusMode = static_cast<Camera_FocusMode>(mode);
     Camera_ErrorCode ret = OH_CaptureSession_IsFocusModeSupported(captureSession, focusMode, &isFocusModeSupported);
     if (&isFocusModeSupported == nullptr || ret != CAMERA_OK) {
         OH_LOG_ERROR(LOG_APP, "IsFocusModeSupported failed.");
@@ -58,11 +66,14 @@ Camera_ErrorCode SetFocusMode(Camera_CaptureSession *captureSession, uint32_t mo
 }
 ```
 
-如果通过[OH_CaptureSession_SetFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_setfocusmode)设置对焦模式为自动对焦模式，支持调用[OH_CaptureSession_SetFocusPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_setfocuspoint)设置对焦点，根据对焦点执行一次自动对焦。
+4. 如果通过[OH_CaptureSession_SetFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_setfocusmode)设置对焦模式为自动对焦模式，支持调用[OH_CaptureSession_SetFocusPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_setfocuspoint)设置对焦点，根据对焦点执行一次自动对焦。
+
+  
 > [!NOTE]
-> 需要在Session调用OH_CaptureSession_CommitConfig完成配流之后调用。
+> 需要在Session调用 OH_CaptureSession_CommitConfig 完成配流之后调用。
 
 
+  
 ```text
 Camera_ErrorCode SetFocusPoint(Camera_CaptureSession *captureSession, float x, float y)
 {
@@ -78,10 +89,15 @@ Camera_ErrorCode SetFocusPoint(Camera_CaptureSession *captureSession, float x, f
 }
 ```
 
+ 
+  
 
-## 状态监听
+##### 状态监听
 
-在相机应用开发过程中，可以随时监听相机聚焦的状态变化。 通过注册[OnFocusStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_onfocusstatechange)的回调函数获取监听结果，仅当自动对焦模式时，且相机对焦状态发生改变时触发该事件。
+在相机应用开发过程中，可以随时监听相机聚焦的状态变化。
+ 
+通过注册[OnFocusStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_onfocusstatechange)的回调函数获取监听结果，仅当自动对焦模式时，且相机对焦状态发生改变时触发该事件。
+ 
 ```text
 void CaptureSessionOnFocusStateChange(Camera_CaptureSession* captureSession, Camera_FocusState focusState)
     {
@@ -108,8 +124,7 @@ void CaptureSessionOnFocusStateChange(Camera_CaptureSession* captureSession, Cam
         return &captureSessionCallbacks;
     }
 ```
-
-
+ 
 ```text
 Camera_ErrorCode RegisterCallback(Camera_CaptureSession* captureSession)
 {

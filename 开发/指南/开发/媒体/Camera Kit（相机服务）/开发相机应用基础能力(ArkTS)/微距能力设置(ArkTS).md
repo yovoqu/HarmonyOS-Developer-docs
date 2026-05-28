@@ -7,20 +7,27 @@
 从API version 19开始，支持设置微距能力。微距能力是指通过光学设计与算法优化，实现近距离对焦并清晰捕捉微小物体细节的相机功能。
 
 
-## 开发步骤
+##### 开发步骤
 
-详细的API说明请参考[Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
+详细的API说明请参考[Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
+1. 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
+
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-通过[isMacroSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-macroquery#ismacrosupported19)接口，查询当前设备是否支持微距能力。
+2. 通过[isMacroSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-macroquery#ismacrosupported19)接口，查询当前设备是否支持微距能力。
+
+  
 ```text
 let isSupported: boolean = photoSession.isMacroSupported();
 ```
 
-通过[enableMacro](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-macro#enablemacro19)接口，开启或关闭微距能力。
+3. 通过[enableMacro](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-macro#enablemacro19)接口，开启或关闭微距能力。
+
+  
 ```text
 function EnableMacro(photoSession: camera.PhotoSession): void {
    let isSupported: boolean = photoSession.isMacroSupported();
@@ -31,9 +38,14 @@ function EnableMacro(photoSession: camera.PhotoSession): void {
 ```
 
 
-## 状态监听
 
-从API version 20开始，支持监听微距能力是否发生改变。 注册macroStatusChanged事件监听微距能力变化，事件监听可参考[on('macroStatusChanged')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#onmacrostatuschanged20)。
+
+##### 状态监听
+
+从API version 20开始，支持监听微距能力是否发生改变。
+
+注册macroStatusChanged事件监听微距能力变化，事件监听可参考[on('macroStatusChanged')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#onmacrostatuschanged20)。
+
 ```text
 function callback(err: BusinessError, macroStatus: boolean): void {
    if (err !== undefined && err.code !== 0) {

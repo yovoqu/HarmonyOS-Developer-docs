@@ -1,37 +1,53 @@
 # 使用MindSpore Lite实现语音识别（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-asr-based-native
 
-## 场景说明
+##### 场景说明
 
-开发者可以使用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，在UI代码中集成MindSpore Lite能力，快速部署AI算法，进行AI模型推理，实现语音识别的应用。 语音识别可以将一段音频信息转换为文本，在智能语音助手、语音输入、语音搜索等领域有广泛的应用。
+开发者可以使用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，在UI代码中集成MindSpore Lite能力，快速部署AI算法，进行AI模型推理，实现语音识别的应用。
 
-## 环境配置
+语音识别可以将一段音频信息转换为文本，在智能语音助手、语音输入、语音搜索等领域有广泛的应用。
+
+
+
+##### 环境配置
 
 若需要使用模拟器运行该示例，请参考：[使用模拟器运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-emulator)
 
-## 基本概念
 
-N-API：用于构建ArkTS本地化组件的一套接口。可利用N-API，将C/C++开发的库封装成ArkTS模块。
 
-## 开发流程
+##### 基本概念
 
-选择语音识别模型。 在端侧使用MindSpore Lite推理模型，实现对语音文件的语音识别。
+ - N-API：用于构建ArkTS本地化组件的一套接口。可利用N-API，将C/C++开发的库封装成ArkTS模块。
 
-## 开发步骤
+
+
+
+##### 开发流程
+1. 选择语音识别模型。
+2. 在端侧使用MindSpore Lite推理模型，实现对语音文件的语音识别。
+
+
+
+##### 开发步骤
 
 本文以对语音识别模型进行推理为例，提供使用MindSpore Lite实现语音识别应用的开发指导。
 
-## 选择模型
+
+
+##### 选择模型
 
 本示例程序中使用的语音识别模型文件为tiny-encoder.ms、tiny-decoder-main.ms、tiny-decoder-loop.ms，放置在entry/src/main/resources/rawfile工程目录下。
 
-## 编写播放音频代码
+
+
+##### 编写播放音频代码
 
 调用[@ohos.multimedia.media](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)、[@ohos.multimedia.audio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio)，实现播放音频的功能。
-```text
+
+```ArkTS
 // player.ets
 import { media } from '@kit.MediaKit';
 import { common } from '@kit.AbilityKit';
@@ -130,46 +146,50 @@ export default class AVPlayerDemo {
 ```
 
 
-## 编写识别音频代码
 
-在 entry/src/main/cpp/mslite_napi.cpp，调用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，依次对3个模型进行推理，推理代码流程如下。 引用对应的头文件。说明：需要用户下载三方库，其中librosa来源是[LibrosaCpp](https://github.com/ewan-xu/LibrosaCpp)，libsamplerate来源是[libsamplerate](https://github.com/libsndfile/libsamplerate)，下载后置于entry/src/main/cpp/third_party目录下。AudioFile.h的来源是[AudioFile](https://github.com/adamstark/AudioFile/blob/1.1.2/AudioFile.h)，base64.h、base64.cpp的来源是[whisper.axera](https://github.com/ml-inory/whisper.axera/tree/main/cpp/src)下载后置于entry/src/main/cpp/src目录下。
-```text
+##### 编写识别音频代码
+
+在 entry/src/main/cpp/mslite_napi.cpp，调用[MindSpore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-mindspore)，依次对3个模型进行推理，推理代码流程如下。
+1. 引用对应的头文件。说明：需要用户下载三方库，其中librosa来源是[LibrosaCpp](https://github.com/ewan-xu/LibrosaCpp)，libsamplerate来源是[libsamplerate](https://github.com/libsndfile/libsamplerate)，下载后置于entry/src/main/cpp/third_party目录下。AudioFile.h的来源是[AudioFile](https://github.com/adamstark/AudioFile/blob/1.1.2/AudioFile.h)，base64.h、base64.cpp的来源是[whisper.axera](https://github.com/ml-inory/whisper.axera/tree/main/cpp/src)下载后置于entry/src/main/cpp/src目录下。
+
+  
+```cpp
 #include "AudioFile.h"
 #include "base64.h"
 #include "napi/native_api.h"
 #include "utils.h"
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
-#include
+#include <algorithm>
+#include <cstdlib>
+#include <fstream>
+#include <hilog/log.h>
+#include <iostream>
+#include <librosa/librosa.h>
+#include <mindspore/context.h>
+#include <mindspore/model.h>
+#include <mindspore/status.h>
+#include <mindspore/tensor.h>
+#include <mindspore/types.h>
+#include <numeric> 
+#include <rawfile/raw_file_manager.h>
+#include <sstream>
+#include <vector>
 ```
 
-读取音频文件、模型文件等，转换为buffer数据。
-```text
+2. 读取音频文件、模型文件等，转换为buffer数据。
+
+  
+```cpp
 #define LOGI(...) ((void)OH_LOG_Print(LOG_APP, LOG_INFO, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 #define LOGD(...) ((void)OH_LOG_Print(LOG_APP, LOG_DEBUG, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 #define LOGW(...) ((void)OH_LOG_Print(LOG_APP, LOG_WARN, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 #define LOGE(...) ((void)OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_DOMAIN, "[MSLiteNapi]", __VA_ARGS__))
 ```
 
-
-```text
-using BinBuffer = std::pair;
+```cpp
+using BinBuffer = std::pair<void *, size_t>;
 ```
 
-
-```text
+```cpp
 BinBuffer ReadBinFile(NativeResourceManager *nativeResourceManager, const std::string &modelName)
 {
     auto rawFile = OH_ResourceManager_OpenRawFile(nativeResourceManager, modelName.c_str());
@@ -178,86 +198,172 @@ BinBuffer ReadBinFile(NativeResourceManager *nativeResourceManager, const std::s
         return BinBuffer(nullptr, 0);
     }
     long fileSize = OH_ResourceManager_GetRawFileSize(rawFile);
-    if (fileSize              创建上下文，设置设备类型，并加载模型。
-```text
+    if (fileSize <= 0) {
+        LOGE("MS_LITE_ERR: FileSize not correct");
+        return BinBuffer(nullptr, 0);
+    }
+    void *buffer = malloc(fileSize);
+    if (buffer == nullptr) {
+        LOGE("MS_LITE_ERR: OH_ResourceManager_ReadRawFile failed");
+        return BinBuffer(nullptr, 0);
+    }
+    int ret = OH_ResourceManager_ReadRawFile(rawFile, buffer, fileSize);
+    if (ret == 0) {
+        LOGE("MS_LITE_ERR: OH_ResourceManager_ReadRawFile failed");
+        OH_ResourceManager_CloseRawFile(rawFile);
+        return BinBuffer(nullptr, 0);
+    }
+    OH_ResourceManager_CloseRawFile(rawFile);
+    return BinBuffer(buffer, fileSize);
+}
+
+BinBuffer ReadTokens(NativeResourceManager *nativeResourceManager, const std::string &modelName)
+{
+    auto rawFile = OH_ResourceManager_OpenRawFile(nativeResourceManager, modelName.c_str());
+    if (rawFile == nullptr) {
+        LOGE("MS_LITE_ERR: Open model file failed");
+        return BinBuffer(nullptr, 0);
+    }
+    long fileSize = OH_ResourceManager_GetRawFileSize(rawFile);
+    if (fileSize <= 0) {
+        LOGE("MS_LITE_ERR: FileSize not correct");
+        return BinBuffer(nullptr, 0);
+    }
+    void *buffer = malloc(fileSize);
+    if (buffer == nullptr) {
+        LOGE("MS_LITE_ERR: OH_ResourceManager_ReadRawFile failed");
+        return BinBuffer(nullptr, 0);
+    }
+    int ret = OH_ResourceManager_ReadRawFile(rawFile, buffer, fileSize);
+    if (ret == 0) {
+        LOGE("MS_LITE_ERR: OH_ResourceManager_ReadRawFile failed");
+        OH_ResourceManager_CloseRawFile(rawFile);
+        return BinBuffer(nullptr, 0);
+    }
+    OH_ResourceManager_CloseRawFile(rawFile);
+    BinBuffer res(buffer, fileSize);
+    return res;
+}
+```
+
+3. 创建上下文，设置设备类型，并加载模型。
+
+  
+```cpp
 void DestroyModelBuffer(void **buffer)
 {
-if (buffer == nullptr) {
-return;
-}
-free(*buffer);
-*buffer = nullptr;
+    if (buffer == nullptr) {
+        return;
+    }
+    free(*buffer);
+    *buffer = nullptr;
 }
 
 OH_AI_ModelHandle CreateMSLiteModel(BinBuffer &bin)
 {
-// 创建并配置上下文
-auto context = OH_AI_ContextCreate();
-if (context == nullptr) {
-DestroyModelBuffer(&bin.first);
-LOGE("MS_LITE_ERR: Create MSLite context failed.\n");
-return nullptr;
-}
-auto cpu_device_info = OH_AI_DeviceInfoCreate(OH_AI_DEVICETYPE_CPU);
-OH_AI_DeviceInfoSetEnableFP16(cpu_device_info, false);
-OH_AI_ContextAddDeviceInfo(context, cpu_device_info);
+    // 创建并配置上下文
+    auto context = OH_AI_ContextCreate();
+    if (context == nullptr) {
+        DestroyModelBuffer(&bin.first);
+        LOGE("MS_LITE_ERR: Create MSLite context failed.\n");
+        return nullptr;
+    }
+    auto cpu_device_info = OH_AI_DeviceInfoCreate(OH_AI_DEVICETYPE_CPU);
+    OH_AI_DeviceInfoSetEnableFP16(cpu_device_info, false);
+    OH_AI_ContextAddDeviceInfo(context, cpu_device_info);
 
-// 创建模型
-auto model = OH_AI_ModelCreate();
-if (model == nullptr) {
-DestroyModelBuffer(&bin.first);
-LOGE("MS_LITE_ERR: Allocate MSLite Model failed.\n");
-return nullptr;
-}
+    // 创建模型
+    auto model = OH_AI_ModelCreate();
+    if (model == nullptr) {
+        DestroyModelBuffer(&bin.first);
+        LOGE("MS_LITE_ERR: Allocate MSLite Model failed.\n");
+        return nullptr;
+    }
 
-// 加载与编译模型，模型的类型为OH_AI_MODELTYPE_MINDIR
-auto build_ret = OH_AI_ModelBuild(model, bin.first, bin.second, OH_AI_MODELTYPE_MINDIR, context);
-DestroyModelBuffer(&bin.first);
-if (build_ret != OH_AI_STATUS_SUCCESS) {
-OH_AI_ModelDestroy(&model);
-LOGE("MS_LITE_ERR: Build MSLite model failed.\n");
-return nullptr;
-}
-LOGI("MS_LITE_LOG: Build MSLite model success.\n");
-return model;
+    // 加载与编译模型，模型的类型为OH_AI_MODELTYPE_MINDIR
+    auto build_ret = OH_AI_ModelBuild(model, bin.first, bin.second, OH_AI_MODELTYPE_MINDIR, context);
+    DestroyModelBuffer(&bin.first);
+    if (build_ret != OH_AI_STATUS_SUCCESS) {
+        OH_AI_ModelDestroy(&model);
+        LOGE("MS_LITE_ERR: Build MSLite model failed.\n");
+        return nullptr;
+    }
+    LOGI("MS_LITE_LOG: Build MSLite model success.\n");
+    return model;
 }
 ```
 
-             设置模型输入数据，执行模型推理。
-```text
+4. 设置模型输入数据，执行模型推理。
+
+  
+```cpp
 constexpr int K_NUM_PRINT_OF_OUT_DATA = 20;
 ```
 
-
-```text
+```cpp
 int FillInputTensor(OH_AI_TensorHandle input, const BinBuffer &bin)
 {
-if (OH_AI_TensorGetDataSize(input) != bin.second) {
-return OH_AI_STATUS_LITE_INPUT_PARAM_INVALID;
-}
-char *data = (char *)OH_AI_TensorGetMutableData(input);
-memcpy(data, (const char *)bin.first, OH_AI_TensorGetDataSize(input));
-return OH_AI_STATUS_SUCCESS;
+    if (OH_AI_TensorGetDataSize(input) != bin.second) {
+        return OH_AI_STATUS_LITE_INPUT_PARAM_INVALID;
+    }
+    char *data = (char *)OH_AI_TensorGetMutableData(input);
+    memcpy(data, (const char *)bin.first, OH_AI_TensorGetDataSize(input));
+    return OH_AI_STATUS_SUCCESS;
 }
 ```
 
-
-```text
+```cpp
 // 执行模型推理
-int RunMSLiteModel(OH_AI_ModelHandle model, std::vector inputBins)
+int RunMSLiteModel(OH_AI_ModelHandle model, std::vector<BinBuffer> inputBins)
 {
-// 设置模型的输入数据
-auto inputs = OH_AI_ModelGetInputs(model);
-for(int i = 0; i (i),
-OH_AI_TensorGetName(tensor));
-LOGD("MS_LITE_LOG: - Tensor %{public}d size is: %{public}d.\n", static_cast(i),
-(int)OH_AI_TensorGetDataSize(tensor));
-LOGD("MS_LITE_LOG: - Tensor data is:\n");
-auto out_data = reinterpret_cast(OH_AI_TensorGetData(tensor));
-std::stringstream outStr;
-for (int i = 0; (i 调用以上方法，实现3个模型的推理流程。
-```text
-const float NEG_INF = -std::numeric_limits::infinity();
+    // 设置模型的输入数据
+    auto inputs = OH_AI_ModelGetInputs(model);
+    for(int i = 0; i < inputBins.size(); i++)
+    {
+        auto ret = FillInputTensor(inputs.handle_list[i], inputBins[i]);
+        if (ret != OH_AI_STATUS_SUCCESS) {
+            LOGE("MS_LITE_ERR: set input %{public}d error.\n", i);
+            return OH_AI_STATUS_LITE_ERROR;
+        }
+    }
+
+    // 获取模型的输出张量
+    auto outputs = OH_AI_ModelGetOutputs(model);
+
+    // 模型推理
+    auto predict_ret = OH_AI_ModelPredict(model, inputs, &outputs, nullptr, nullptr);
+    if (predict_ret != OH_AI_STATUS_SUCCESS) {
+        OH_AI_ModelDestroy(&model);
+        LOGE("MS_LITE_ERR: MSLite Predict error.\n");
+        return OH_AI_STATUS_LITE_ERROR;
+    }
+    LOGD("MS_LITE_LOG: Run MSLite model Predict success.\n");
+
+    // 打印输出数据
+    LOGD("MS_LITE_LOG: Get model outputs:\n");
+    for (size_t i = 0; i < outputs.handle_num; i++) {
+        auto tensor = outputs.handle_list[i];
+        LOGD("MS_LITE_LOG: - Tensor %{public}d name is: %{public}s.\n", static_cast<int>(i),
+             OH_AI_TensorGetName(tensor));
+        LOGD("MS_LITE_LOG: - Tensor %{public}d size is: %{public}d.\n", static_cast<int>(i),
+             (int)OH_AI_TensorGetDataSize(tensor));
+        LOGD("MS_LITE_LOG: - Tensor data is:\n");
+        auto out_data = reinterpret_cast<const float *>(OH_AI_TensorGetData(tensor));
+        std::stringstream outStr;
+        for (int i = 0; (i < OH_AI_TensorGetElementNum(tensor)) && (i <= K_NUM_PRINT_OF_OUT_DATA); i++) {
+            outStr << out_data[i] << " ";
+        }
+        LOGD("MS_LITE_LOG: %{public}s", outStr.str().c_str());
+    }
+    return OH_AI_STATUS_SUCCESS;
+}
+```
+
+5. 调用以上方法，实现3个模型的推理流程。
+
+  
+```cpp
+const float NEG_INF = -std::numeric_limits<float>::infinity();
 const int WHISPER_SOT = 50258;
 const int WHISPER_TRANSCRIBE = 50359;
 const int WHISPER_TRANSLATE = 50358;
@@ -270,21 +376,19 @@ const int WHISPER_N_TEXT_STATE = 384;
 constexpr int WHISPER_SAMPLE_RATE = 16000;
 ```
 
-
-```text
+```cpp
 BinBuffer GetMSOutput(OH_AI_TensorHandle output)
 {
-    float *outputData = reinterpret_cast(OH_AI_TensorGetMutableData(output));
+    float *outputData = reinterpret_cast<float *>(OH_AI_TensorGetMutableData(output));
     size_t size = OH_AI_TensorGetDataSize(output);
     return {outputData, size};
 }
 ```
 
-
-```text
+```cpp
 void SuppressTokens(BinBuffer &logits, bool isInitial)
 {
-    auto logits_data = static_cast(logits.first);
+    auto logits_data = static_cast<float *>(logits.first);
     if (isInitial) {
         logits_data[WHISPER_EOT] = NEG_INF;
         logits_data[WHISPER_BLANK] = NEG_INF;
@@ -298,9 +402,8 @@ void SuppressTokens(BinBuffer &logits, bool isInitial)
 }
 ```
 
-
-```text
-std::vector LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_layer_cross_k,
+```cpp
+std::vector<int> LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_layer_cross_k,
                              const BinBuffer &n_layer_cross_v, const BinBuffer &logits_init,
                              BinBuffer &out_n_layer_self_k_cache, BinBuffer &out_n_layer_self_v_cache,
                              const BinBuffer &data_embedding, const int loop, const int offset_init)
@@ -311,15 +414,16 @@ std::vector LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_layer_
         LOGE("MS_LITE_ERR: Fail to malloc!\n");
         return {};
     }
-    void *logits_init_src = static_cast(logits_init.first) + 51865 * 3 * sizeof(float);
+    void *logits_init_src = static_cast<char *>(logits_init.first) + 51865 * 3 * sizeof(float);
     memcpy(logits.first, logits_init_src, logits.second);
     SuppressTokens(logits, true);
 
-    std::vector output_token;
-    float *logits_data = static_cast(logits.first);
+    std::vector<int> output_token;
+    float *logits_data = static_cast<float *>(logits.first);
     int max_token_id = 0;
     float max_token = logits_data[0];
-    for (int i = 0; i  max_token) {
+    for (int i = 0; i < logits.second / sizeof(float); i++) {
+        if (logits_data[i] > max_token) {
             max_token_id = i;
             max_token = logits_data[i];
         }
@@ -337,8 +441,19 @@ std::vector LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_layer_
     auto out_n_layer_self_k_cache_new = out_n_layer_self_k_cache;
     auto out_n_layer_self_v_cache_new = out_n_layer_self_v_cache;
 
-    for (size_t i = 0; i  mask(WHISPER_N_TEXT_CTX, 0.0f);
-        for (size_t i = 0; i (data_embedding.first) + offset * WHISPER_N_TEXT_STATE * sizeof(float);
+    for (size_t i = 0; i < loop; i++) {
+        if (max_token_id == WHISPER_EOT) {
+            break;
+        }
+        output_token.push_back(max_token_id);
+        std::vector<float> mask(WHISPER_N_TEXT_CTX, 0.0f);
+        for (size_t i = 0; i < WHISPER_N_TEXT_CTX - offset - 1; ++i) {
+            mask[i] = NEG_INF;
+        }
+        BinBuffer tokens{&max_token_id, sizeof(int)};
+
+        void *data_embedding_src =
+            static_cast<char *>(data_embedding.first) + offset * WHISPER_N_TEXT_STATE * sizeof(float);
         memcpy(slice.first, data_embedding_src, slice.second);
         BinBuffer mask_bin(mask.data(), mask.size() * sizeof(float));
         int ret = RunMSLiteModel(model, {tokens, out_n_layer_self_k_cache_new, out_n_layer_self_v_cache_new,
@@ -350,10 +465,11 @@ std::vector LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_layer_
         out_n_layer_self_v_cache_new = GetMSOutput(outputs.handle_list[2]);
         offset++;
         SuppressTokens(logits, false);
-        logits_data = static_cast(logits.first);
+        logits_data = static_cast<float *>(logits.first);
         max_token = logits_data[0];
 
-        for (int j = 0; j  max_token) {
+        for (int j = 0; j < logits.second / sizeof(float); j++) {
+            if (logits_data[j] > max_token) {
                 max_token_id = j;
                 max_token = logits_data[j];
             }
@@ -363,13 +479,13 @@ std::vector LoopPredict(const OH_AI_ModelHandle model, const BinBuffer &n_layer_
     return output_token;
 }
 
-std::vector ProcessDataLines(const BinBuffer token_txt)
+std::vector<std::string> ProcessDataLines(const BinBuffer token_txt)
 {
     void *data_ptr = token_txt.first;
     size_t data_size = token_txt.second;
-    std::vector tokens;
+    std::vector<std::string> tokens;
 
-    const char *char_data = static_cast(data_ptr);
+    const char *char_data = static_cast<const char *>(data_ptr);
     std::stringstream ss(std::string(char_data, char_data + data_size));
     std::string line;
     while (std::getline(ss, line)) {
@@ -390,7 +506,7 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
     auto resourcesManager = OH_ResourceManager_InitNativeResourceManager(env, argv[0]);
 
     // 数据预处理
-    AudioFile audioFile;
+    AudioFile<float> audioFile;
     std::string filePath = "zh.wav";
     auto audioBin = ReadBinFile(resourcesManager, filePath);
     if (audioBin.first == nullptr) {
@@ -399,14 +515,14 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
     }
     size_t dataSize = audioBin.second;
     uint8_t *dataBuffer = (uint8_t *)audioBin.first;
-    bool ok = audioFile.loadFromMemory(std::vector(dataBuffer, dataBuffer + dataSize));
+    bool ok = audioFile.loadFromMemory(std::vector<uint8_t>(dataBuffer, dataBuffer + dataSize));
     if (!ok) {
         LOGE("MS_LITE_ERR: Fail to read  %{public}s!", filePath.c_str());
         return error_ret;
     }
-    std::vector data(audioFile.samples[0]);
+    std::vector<float> data(audioFile.samples[0]);
     ResampleAudio(data, audioFile.getSampleRate(), WHISPER_SAMPLE_RATE, 1, SRC_SINC_BEST_QUALITY);
-    std::vector audio(data);
+    std::vector<float> audio(data);
 
     int padding = 480000;
     int sr = 16000;
@@ -418,13 +534,43 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
         sr /
         2.0; // 最大频率，默认值为采样率（sr/2.0）的一半
     audio.insert(audio.end(), padding, 0.0f);
-    std::vector> mels_T =
+    std::vector<std::vector<float>> mels_T =
         librosa::Feature::melspectrogram(audio, sr, n_fft, n_hop, "hann", true, "reflect", 2.f, n_mel, fmin, fmax);
-    std::cout > mels = TransposeMel(mels_T);
+    std::cout << "mels: " << std::endl;
+
+    std::vector<std::vector<float>> mels = TransposeMel(mels_T);
     ProcessMelSpectrogram(mels);
 
-    std::vector inputMels(mels.size() * mels[0].size(), 0);
-    for (int i = 0; i  SOT_SEQUENCE = {WHISPER_SOT,
+    std::vector<float> inputMels(mels.size() * mels[0].size(), 0);
+    for (int i = 0; i < mels.size(); i++) {
+        std::copy(mels[i].begin(), mels[i].end(), inputMels.begin() + i * mels[0].size());
+    }
+
+    BinBuffer inputMelsBin(inputMels.data(), inputMels.size() * sizeof(float));
+
+    // tiny-encoder.ms模型推理
+    auto encoderBin = ReadBinFile(resourcesManager, "tiny-encoder.ms");
+    if (encoderBin.first == nullptr) {
+        free(dataBuffer);
+        dataBuffer = nullptr;
+        return error_ret;
+    }
+
+    auto encoder = CreateMSLiteModel(encoderBin);
+
+    int ret = RunMSLiteModel(encoder, {inputMelsBin});
+    if (ret != OH_AI_STATUS_SUCCESS) {
+        OH_AI_ModelDestroy(&encoder);
+        return error_ret;
+    }
+    LOGI("MS_LITE_LOG: run encoder ok!\n");
+
+    auto outputs = OH_AI_ModelGetOutputs(encoder);
+    auto n_layer_cross_k = GetMSOutput(outputs.handle_list[0]);
+    auto n_layer_cross_v = GetMSOutput(outputs.handle_list[1]);
+
+    // tiny-decoder-main.ms模型推理
+    std::vector<int> SOT_SEQUENCE = {WHISPER_SOT,
                                      WHISPER_SOT + 1 + 1,
                                      WHISPER_TRANSCRIBE, WHISPER_NO_TIMESTAMPS};
     BinBuffer sotSequence(SOT_SEQUENCE.data(), SOT_SEQUENCE.size() * sizeof(int));
@@ -469,7 +615,7 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
         LoopPredict(decoder_loop, n_layer_cross_k, n_layer_cross_v, logitsBin, out_n_layer_self_k_cache_Bin,
                     out_n_layer_self_v_cache_Bin, data_embedding, loop_times, offset_init);
 
-    std::vector token_tables = ProcessDataLines(ReadTokens(resourcesManager, "tiny-tokens.txt"));
+    std::vector<std::string> token_tables = ProcessDataLines(ReadTokens(resourcesManager, "tiny-tokens.txt"));
     std::string result;
     for (const auto i : output_tokens) {
         char str[1024];
@@ -488,8 +634,10 @@ static napi_value RunDemo(napi_env env, napi_callback_info info)
 }
 ```
 
-编写CMake脚本，链接MindSpore Lite动态库。
-```text
+6. 编写CMake脚本，链接MindSpore Lite动态库。
+
+  
+```cpp
 # the minimum version of CMake.
 cmake_minimum_required(VERSION 3.5.0)
 project(test)
@@ -528,15 +676,20 @@ target_link_libraries(entry PUBLIC ace_napi.z)
 ```
 
 
-## 使用N-API将C++动态库封装成ArkTS模块
 
-在 entry/src/main/cpp/types/libentry/Index.d.ts，定义ArkTS接口runDemo() 。内容如下：
-```text
+
+##### 使用N-API将C++动态库封装成ArkTS模块
+1. 在 entry/src/main/cpp/types/libentry/Index.d.ts，定义ArkTS接口runDemo() 。内容如下：
+
+  
+```ts
 export const runDemo: (a: Object) => string;
 ```
 
-在 oh-package.json5 文件，将API与so相关联，成为一个完整的ArkTS模块：
-```text
+2. 在 oh-package.json5 文件，将API与so相关联，成为一个完整的ArkTS模块：
+
+  
+```ts
 {
   "name": "libentry.so",
   "types": "./Index.d.ts",
@@ -546,10 +699,13 @@ export const runDemo: (a: Object) => string;
 ```
 
 
-## 调用封装的ArkTS模块进行推理并输出结果
+
+
+##### 调用封装的ArkTS模块进行推理并输出结果
 
 在 entry/src/main/ets/pages/Index.ets 中，调用封装的ArkTS模块，最后对推理结果进行处理。若提示@nutpi/chinese_transverter不存在，请参考[中文简繁体转换器三方库](https://developer.huawei.com/consumer/cn/forum/topic/0202169478029484501?fid=0109140870620153026)安装@nutpi/chinese_transverter组件。
-```text
+
+```ArkTS
 // Index.ets
 import msliteNapi from 'libentry.so'
 import AVPlayerDemo from './player';
@@ -636,10 +792,12 @@ struct Index {
 ```
 
 
-## 调测验证
 
-在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
-```text
+##### 调测验证
+1. 在DevEco Studio中连接设备，点击Run entry，编译Hap，有如下显示：
+
+  
+```bash
 Launching com.samples.mindsporelitecdemoasr
 $ hdc shell aa force-stop com.samples.mindsporelitecdemoasr
 $ hdc shell mkdir data/local/tmp/xxx
@@ -650,7 +808,9 @@ $ hdc shell aa start -a EntryAbility -b com.samples.mindsporelitecdemoasr
 com.samples.mindsporelitecdemoasr successfully launched...
 ```
 
-在设备屏幕点击播放示例音频按钮，会播放本示例音频文件。点击识别示例音频按钮，设备屏幕显示本示例音频文件的中文内容。在日志打印结果中，过滤关键字”MS_LITE_LOG“，可得到如下结果：
+2. 在设备屏幕点击播放示例音频按钮，会播放本示例音频文件。点击识别示例音频按钮，设备屏幕显示本示例音频文件的中文内容。在日志打印结果中，过滤关键字”MS_LITE_LOG“，可得到如下结果：
+
+  
 ```text
 05-16 14:53:44.200   1679-1679     A03d00/JSAPP                    com.sampl...cdemoasr  I     MS_LITE_LOG: begin to play wav.
 05-16 14:53:44.210   1679-1679     A03d00/JSAPP                    com.sampl...cdemoasr  I     [a92ab1e0f831191, 0, 0] MS_LITE_LOG: AVPlayer state initialized called.
@@ -683,14 +843,19 @@ com.samples.mindsporelitecdemoasr successfully launched...
 ```
 
 
-## 效果示意
+
+
+##### 效果示意
 
 在设备上，点击**播放示例音频**按钮，会播放本示例音频文件。点击**识别示例音频**按钮，设备屏幕显示本示例音频文件的中文内容。
+
 | 初始页面 | 点击识别示例音频按钮后 |
 | --- | --- |
 |  |  |
 
 
-## 示例代码
 
-[基于MindSporeLite接口实现语音识别（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MindSporeLiteKit/MindSporeLiteCDemoASR)
+
+##### 示例代码
+
+ - [基于MindSporeLite接口实现语音识别（C/C++）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/MindSporeLiteKit/MindSporeLiteCDemoASR)

@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除API | 类名：TaskSignal； API声明：onCancel(callback: Callback<string>): void; 差异内容：onCancel(callback: Callback<string>): void; | NA | api/@ohos.file.fs.d.ts |
+| 删除API | 类名：TaskSignal； API声明：onCancel(callback: Callback&lt;string&gt;): void; 差异内容：onCancel(callback: Callback&lt;string&gt;): void; | NA | api/@ohos.file.fs.d.ts |

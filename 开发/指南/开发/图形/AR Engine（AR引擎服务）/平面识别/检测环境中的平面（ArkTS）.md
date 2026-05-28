@@ -1,37 +1,47 @@
 # 检测环境中的平面（ArkTS）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane
 
 本章节给出了关键开发步骤，完整代码可以参考[示例代码](https://gitcode.com/HarmonyOS_Samples/arengine_samplecode_clientdemo_arkts)。
 
 
-## 约束与限制
+##### 约束与限制
 
-检测环境平面能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从5.1.0(18)开始，检测环境平面能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SLAM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 检测平面通过[ARPlane](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplane)平面对象进行，以下接口为平面相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [ARTrackable.getPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artrackablegetpose) | 获取追踪目标的位姿信息。 |
-| [ARTrackable.getAnchors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artrackablegetanchors) | 获取绑定到输入可跟踪对象的锚点对象。 |
-| [ARPose.getMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arposegetmatrix) | 将位姿数据转换为一个4x4的矩阵。 |
-| [ARPlane.getPolygonXZ](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplanegetpolygonxz) | 获取检测到的平面2D顶点数组。 |
-| [ARPlane.getSubsumedBy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplanegetsubsumedby) | 获取平面的父平面（当平面与另一个平面合并时会生成父平面）。 |
-| [ARPlane.isPoseInExtents](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplaneisposeinextents) | 检查给定位姿是否在平面的边界矩形内。 |
-| [ARPlane.isPoseInPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplaneisposeinpolygon) | 检查给定位姿是否在平面的边界多边形内。 |
+| ARTrackable.getPose | 获取追踪目标的位姿信息。 |
+| ARTrackable.getAnchors | 获取绑定到输入可跟踪对象的锚点对象。 |
+| ARPose.getMatrix | 将位姿数据转换为一个4x4的矩阵。 |
+| ARPlane.getPolygonXZ | 获取检测到的平面2D顶点数组。 |
+| ARPlane.getSubsumedBy | 获取平面的父平面（当平面与另一个平面合并时会生成父平面）。 |
+| ARPlane.isPoseInExtents | 检查给定位姿是否在平面的边界矩形内。 |
+| ARPlane.isPoseInPolygon | 检查给定位姿是否在平面的边界多边形内。 |
 
 
-## 开发步骤
 
-AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。 对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
 
-## 导入模块
+##### 开发步骤
+
+AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。
+
+对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
+
+
+
+##### 导入模块
 
 平面检测能力所需的模块导入如下：
+
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
 import { Node, Scene, Vec3 } from '@kit.ArkGraphics3D';
@@ -40,9 +50,11 @@ import { Matrix4 } from '@kit.ArkUI';
 ```
 
 
-## 显示预览流
+
+##### 显示预览流
 
 首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
+
 ```text
 @Builder
 export function ARPlaneBuilder(): void {
@@ -73,9 +85,11 @@ struct ARPlane {
 ```
 
 
-## 检测环境平面
+
+##### 检测环境平面
 
 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，通过[ARSession.getAllTrackables](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsessiongetalltrackables)方法获取所有识别到的平面。
+
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
@@ -112,11 +126,54 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 ```
 
 
-## 检测平面的自定义方法
+
+##### 检测平面的自定义方法
 
 自定义方法获取顶点数据getVertices、创建索引generateMeshIndex、创建mesh数据generateMeshInput。
+
 ```text
 // 获取三维空间顶点坐标，第一个入参的位姿矩阵按垂直列排列，第二个坐标点为(x, 0, z, 1)，对应x-z平面。
 export function getVertices(mat: Matrix4, point: number[]): Vec3[] {
   let result: Vec3[] = [];
-  for (let i = 0; i
+  for (let i = 0; i < point.length; i += 2) {
+    let single: Vec3 = {
+      x: (mat[2] * point[i] + mat[6] * 0
+        + mat[10] * point[i + 1] + mat[14] * 1.0),
+      y: mat[1] * point[i] + mat[5] * 0
+        + mat[9] * point[i + 1] + mat[13] * 1.0,
+      z: -(mat[0] * point[i] + mat[4] * 0
+        + mat[8] * point[i + 1] + mat[12] * 1.0),
+    }
+    result.push(single);
+  }
+  return result;
+}
+// 创建 ARWorld 的 mesh索引。由于平面是由三角形拼接而成的，因此每个平面上的每个三角形的首个顶点索引都是相同的。
+export function generateMeshIndex(input: Vec3[][]): number[] {
+  let result: number[] = [];
+  let start: number = 0;
+
+  for (let i = 0; i < input.length; i++) {
+    let length: number = input[i].length;
+
+    for (let j = start + 1; j < start + length - 1; j++) {
+      result.push(start);
+      result.push(j);
+      result.push(j + 1);
+    }
+    start += length;
+  }
+  return result;
+}
+
+export function generateMeshInput(vex: Vec3[][]): Vec3[] {
+  let result: Vec3[] = [];
+  for (let i = 0; i < vex.length; i++) {
+    let tmp: Vec3[] = vex[i];
+    for (let j = 0; j < tmp.length; j++) {
+      result.push(tmp[j]);
+    }
+  }
+  return result;
+}
+```

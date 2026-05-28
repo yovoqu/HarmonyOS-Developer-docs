@@ -1,25 +1,30 @@
 # @BuilderParam装饰器：引用@Builder函数
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam
 
-当开发者创建[自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)并需要为其添加特定功能（例如[页面跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)功能）时，如果直接在组件内嵌入事件方法，会导致所有该自定义组件的实例都增加此功能。为了解决此问题，ArkUI引入了@BuilderParam装饰器。@BuilderParam用于装饰指向@Builder方法的变量，开发者可以在初始化自定义组件时，使用不同的方式（如参数修改、尾随闭包、借用箭头函数等）对@BuilderParam装饰的自定义构建函数进行传参赋值。在自定义组件内部，通过调用@BuilderParam为组件增加特定功能。
+当开发者创建[自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)并需要为其添加特定功能（例如[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)功能）时，如果直接在组件内嵌入事件方法，会导致所有该自定义组件的实例都增加此功能。为了解决此问题，ArkUI引入了@BuilderParam装饰器。@BuilderParam用于装饰指向@Builder方法的变量，开发者可以在初始化自定义组件时，使用不同的方式（如参数修改、尾随闭包、借用箭头函数等）对@BuilderParam装饰的自定义构建函数进行传参赋值。在自定义组件内部，通过调用@BuilderParam为组件增加特定功能。
 
 在阅读本文档前，建议提前阅读：[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)。
-
 
 > [!NOTE]
 > 从API version 7开始支持。 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
 
 
-## 装饰器使用说明
+
+##### 装饰器使用说明
 
 
-## 初始化@BuilderParam装饰的方法
 
-@BuilderParam装饰的方法只能被自定义构建函数（@Builder装饰的方法）初始化。 使用所属自定义组件的自定义构建函数或者全局的自定义构建函数，在本地初始化@BuilderParam装饰的方法。
-```text
+##### 初始化@BuilderParam装饰的方法
+
+@BuilderParam装饰的方法只能被自定义构建函数（@Builder装饰的方法）初始化。
+
+ - 使用所属自定义组件的自定义构建函数或者全局的自定义构建函数，在本地初始化@BuilderParam装饰的方法。
+
+  
+```ArkTS
 @Builder
 function overBuilder() {
 }
@@ -40,8 +45,10 @@ struct Child {
 }
 ```
 
-使用父组件自定义构建函数初始化子组件@BuilderParam装饰的方法。
-```text
+ - 使用父组件自定义构建函数初始化子组件@BuilderParam装饰的方法。
+
+  
+```ArkTS
 @Component
 struct Child {
   @Builder
@@ -74,10 +81,20 @@ struct Parent {
 }
 ```
 
-**图1** 示例效果图
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-0.png)
-需要注意this的指向。 示例如下：
-```text
+
+
+示例效果图
+
+
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-1.png)
+
+
+ - 需要注意this的指向。
+
+  示例如下：
+
+  
+```ArkTS
 @Component
 struct Child {
   label: string = 'Child';
@@ -129,20 +146,34 @@ struct Parent {
 }
 ```
 
-**图2** 示例效果图
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-1.png)
-
-## 限制条件
-
-使用@BuilderParam装饰的变量只能通过@Builder函数进行初始化。具体参考[@BuilderParam装饰器初始化的值必须为@Builder](#builderparam装饰器初始化的值必须为builder)。 当[@Require装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-require)和@BuilderParam装饰器一起使用时，必须初始化@BuilderParam装饰器。具体参考[@Require装饰器和@BuilderParam装饰器联合使用](#require装饰器和builderparam装饰器联合使用)。 在自定义组件尾随闭包的场景下，子组件有且仅有一个@BuilderParam用来接收此尾随闭包，且此@BuilderParam装饰的方法不能有参数。具体参考[尾随闭包初始化组件](#尾随闭包初始化组件)。
-
-## 使用场景
 
 
-## 参数初始化组件
+示例效果图
+
+
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-2.png)
+
+
+
+
+##### 限制条件
+
+ - 使用@BuilderParam装饰的变量只能通过@Builder函数进行初始化。具体参考[@BuilderParam装饰器初始化的值必须为@Builder](#builderparam装饰器初始化的值必须为builder)。
+ - 当[@Require装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-require)和@BuilderParam装饰器一起使用时，必须初始化@BuilderParam装饰器。具体参考[@Require装饰器和@BuilderParam装饰器联合使用](#require装饰器和builderparam装饰器联合使用)。
+ - 在自定义组件尾随闭包的场景下，子组件有且仅有一个@BuilderParam用来接收此尾随闭包，且此@BuilderParam装饰的方法不能有参数。具体参考[尾随闭包初始化组件](#尾随闭包初始化组件)。
+
+
+
+
+##### 使用场景
+
+
+
+##### 参数初始化组件
 
 @BuilderParam装饰的方法为有参数或无参数的形式，必须与指向的@Builder方法类型匹配。
-```text
+
+```ArkTS
 class Tmp {
   public label: string = '';
 }
@@ -195,17 +226,27 @@ struct Parent {
 }
 ```
 
-**图3** 示例效果图
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-2.png)
+示例效果图
 
-## 尾随闭包初始化组件
+
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-3.gif)
+
+
+
+
+##### 尾随闭包初始化组件
 
 在自定义组件中，使用@BuilderParam装饰的属性可通过尾随闭包进行初始化。初始化时，组件后需紧跟一个大括号“{}”形成尾随闭包场景。
+
 > [!NOTE]
 > 此场景下自定义组件内仅有一个使用@BuilderParam装饰的属性。 此场景下自定义组件不支持通用属性。
 
-开发者可将尾随闭包内的内容看作@Builder装饰的函数传给@BuilderParam。 示例1：
-```text
+
+开发者可将尾随闭包内的内容看作@Builder装饰的函数传给@BuilderParam。
+
+示例1：
+
+```ArkTS
 @Component
 struct CustomContainer {
   @Prop header: string = '';
@@ -258,10 +299,17 @@ struct CustomContainerUser {
 }
 ```
 
-**图4** 示例效果图
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-3.gif)
-可以使用全局或局部@Builder通过尾随闭包的形式对[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中的@BuilderParam装饰的方法进行初始化。 示例2：
-```text
+示例效果图
+
+
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-5.png)
+
+
+可以使用全局或局部@Builder通过尾随闭包的形式对[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中的@BuilderParam装饰的方法进行初始化。
+
+示例2：
+
+```ArkTS
 @ComponentV2
 struct ChildPage {
   @Require @Param message: string = '';
@@ -329,15 +377,23 @@ struct ParentPage {
 }
 ```
 
+示例效果图
 
-## 使用@BuilderParam隔离多组件对@Builder跳转逻辑的调用
+
+![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-6.png)
+
+
+
+
+##### 使用@BuilderParam隔离多组件对@Builder跳转逻辑的调用
 
 当@Builder封装的系统组件包含跳转逻辑时，所有调用该@Builder的自定义组件将具备该跳转功能。如果需要禁用特定组件的跳转功能，可使用@BuilderParam来隔离跳转逻辑。
+
 > [!NOTE]
-> 当前示例代码中使用了Navigation组件导航，具体实现逻辑可以查询Navigation指南。
+> 当前示例代码中使用了Navigation组件导航，具体实现逻辑可以查询 Navigation 指南。
 
 
-```text
+```ArkTS
 import { HelloWorldPageBuilder } from './helloworld';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -418,8 +474,7 @@ struct ChildPage_BuilderParam {
 }
 ```
 
-
-```text
+```ArkTS
 @Builder
 export function HelloWorldPageBuilder() {
   HelloWorldPage()
@@ -445,8 +500,11 @@ struct HelloWorldPage {
 }
 ```
 
-**router_map.json** 这个文件位于项目的resources/base/profile目录下。
-```text
+**router_map.json**
+
+这个文件位于项目的resources/base/profile目录下。
+
+```ArkTS
 {
   "routerMap": [
     {
@@ -458,7 +516,10 @@ struct HelloWorldPage {
 }
 ```
 
-**module.json5** 这个文件位于应用模块的根目录下，例如entry/src/main/module.json5。
+**module.json5**
+
+这个文件位于应用模块的根目录下，例如entry/src/main/module.json5。
+
 ```text
 {
   "module": {
@@ -468,13 +529,19 @@ struct HelloWorldPage {
 }
 ```
 
-**图5** 示例效果图
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-4.gif)
+示例效果图
 
-## 使用全局和局部@Builder初始化@BuilderParam
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/GwS_WFRbSMeFKgnrug5Dzg/zh-cn_image_0000002611753573.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=65D449468CAFF27588EF8AB9D33D7264CE59EFEE9A742EE26AAD0C4F67D55ABC)
+
+
+
+
+##### 使用全局和局部@Builder初始化@BuilderParam
 
 在自定义组件中，使用@BuilderParam装饰的变量接收父组件通过@Builder传递的内容进行初始化，由于父组件的@Builder可以使用箭头函数改变当前的this指向，因此使用@BuilderParam装饰的变量会展示不同的内容。
-```text
+
+```ArkTS
 @Component
 struct ChildPage {
   label: string = 'Child Page';
@@ -552,13 +619,19 @@ struct ParentPage {
 }
 ```
 
-**图6** 示例效果图
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-5.png)
+示例效果图
 
-## 在@ComponentV2装饰的自定义组件中使用@BuilderParam
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/2zGWGOJKTDmQf3HqhnolUg/zh-cn_image_0000002581433638.png?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=E50ADB5BE31C619753266B9ED0B6FBBBC4998EDDB2AE11052601F926CD7B0E8B)
+
+
+
+
+##### 在@ComponentV2装饰的自定义组件中使用@BuilderParam
 
 使用全局或局部@Builder初始化@ComponentV2装饰的自定义组件中的@BuilderParam属性。
-```text
+
+```ArkTS
 @ComponentV2
 struct ChildPage {
   @Param label: string = 'Child Page';
@@ -636,16 +709,25 @@ struct ParentPage {
 }
 ```
 
-**图7** 示例效果图
-![](assets/@BuilderParam装饰器：引用@Builder函数/file-20260514130509611-6.png)
-
-## 常见问题
+示例效果图
 
 
-## 改变内容UI不刷新
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/2k6mgo8HTNOhJcdqiK1Yeg/zh-cn_image_0000002611833467.png?HW-CC-KV=V1&HW-CC-Date=20260528T014803Z&HW-CC-Expire=86400&HW-CC-Sign=07D71992C0C31689FDD09B9C18A0F134BEF51652BCADFAFBCFE1361620B5D1EE)
 
-调用自定义组件ChildPage时，通过this.componentBuilder传递@Builder参数。this指向自定义组件内部，因此父组件中改变label的值时，ChildPage无法感知这一变化。 【反例】
-```text
+
+
+
+##### 常见问题
+
+
+
+##### 改变内容UI不刷新
+
+调用自定义组件ChildPage时，通过this.componentBuilder传递@Builder参数。this指向自定义组件内部，因此父组件中改变label的值时，ChildPage无法感知这一变化。
+
+【反例】
+
+```ArkTS
 @Component
 struct ChildPage {
   @State label: string = 'Child Page';
@@ -693,8 +775,11 @@ struct ParentPage {
 }
 ```
 
-使用箭头函数将@Builder传递到自定义组件ChildPage中，this指向会停留在父组件ParentPage里。在父组件中改变label的值时，ChildPage会感知到并重新渲染UI。 【正例】
-```text
+使用箭头函数将@Builder传递到自定义组件ChildPage中，this指向会停留在父组件ParentPage里。在父组件中改变label的值时，ChildPage会感知到并重新渲染UI。
+
+【正例】
+
+```ArkTS
 @Component
 struct ChildPage {
   @State label: string = 'Child Page';
@@ -744,9 +829,13 @@ struct ParentPage {
 ```
 
 
-## @Require装饰器和@BuilderParam装饰器联合使用
 
-由于@Require装饰器所装饰的变量需进行初始化，未初始化会导致编译报错。 【反例】
+##### @Require装饰器和@BuilderParam装饰器联合使用
+
+由于@Require装饰器所装饰的变量需进行初始化，未初始化会导致编译报错。
+
+【反例】
+
 ```text
 @Builder
 function globalBuilder() {
@@ -776,8 +865,11 @@ struct ChildPage {
 }
 ```
 
-@Require装饰的变量必须从外部初始化。 【正例】
-```text
+@Require装饰的变量必须从外部初始化。
+
+【正例】
+
+```ArkTS
 @Builder
 function globalBuilder() {
   Text('Hello World')
@@ -807,9 +899,13 @@ struct ChildPage {
 ```
 
 
-## @BuilderParam装饰器初始化的值必须为@Builder
 
-使用@State装饰器装饰的变量，在初始化子组件的@BuilderParam和ChildBuilder变量时，编译时会输出报错信息。 【反例】
+##### @BuilderParam装饰器初始化的值必须为@Builder
+
+使用@State装饰器装饰的变量，在初始化子组件的@BuilderParam和ChildBuilder变量时，编译时会输出报错信息。
+
+【反例】
+
 ```text
 @Builder
 function globalBuilder() {
@@ -841,8 +937,11 @@ struct ChildPage {
 }
 ```
 
-使用全局@Builder装饰的globalBuilder()方法为子组件@BuilderParam装饰的ChildBuilder变量初始化，编译无报错，功能正常。 【正例】
-```text
+使用全局@Builder装饰的globalBuilder()方法为子组件@BuilderParam装饰的ChildBuilder变量初始化，编译无报错，功能正常。
+
+【正例】
+
+```ArkTS
 @Builder
 function globalBuilder() {
   Text('Hello World')

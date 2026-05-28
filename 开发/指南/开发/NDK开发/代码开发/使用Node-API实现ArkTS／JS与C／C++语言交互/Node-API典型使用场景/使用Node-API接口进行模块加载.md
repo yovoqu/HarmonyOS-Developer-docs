@@ -5,29 +5,34 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-load-module-with-info
 
 Node-API中的napi_load_module_with_info接口的功能是进行模块的加载，当模块加载出来之后，可以使用函数napi_get_property获取模块导出的变量，也可以使用napi_get_named_property获取模块导出的函数，该函数可以在[新创建的ArkTS基础运行时环境](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-ark-runtime)中使用，即napi_create_ark_runtime接口创建的运行时环境。
+  
 
-
-## 函数说明
-
+##### 函数说明
 
 ```text
 napi_status napi_load_module_with_info(napi_env env, const char* path, const char* module_info, napi_value* result);
 ```
-
-
+  
 | 参数 | 说明 |
 | --- | --- |
 | env | 当前的虚拟机环境 |
 | path | 加载的文件路径或者模块名 |
 | module_info | bundleName/moduleName的路径拼接 |
 | result | 加载的模块 |
+ 
+ 
 
 ![](assets/使用Node-API接口进行模块加载/file-20260514132713597-0.png)
-bundleName表示AppScope/app.json5中配置的工程名。moduleName指的是待加载模块所在的HAP下module.json5中配置的名字。
+ 
+1. bundleName表示AppScope/app.json5中配置的工程名。
+2. moduleName指的是待加载模块所在的HAP下module.json5中配置的名字。
+  
 
-## napi_load_module_with_info支持的场景
+ 
+  
 
-
+##### napi_load_module_with_info支持的场景
+ 
 | 场景 | 详细分类 | 说明 |
 | --- | --- | --- |
 | 本地工程模块 | 加载模块内文件路径 | 要求路径以moduleName开头 |
@@ -36,20 +41,38 @@ bundleName表示AppScope/app.json5中配置的工程名。moduleName指的是待
 | 远程包 | 加载ohpm包名 | - |
 | API | 加载@ohos.或 @system. | - |
 | 模块Native库 | 加载libNativeLibrary.so | - |
+ 
+ 
 
 ![](assets/使用Node-API接口进行模块加载/file-20260514132713597-1.png)
-加载一个模块名，实际的行为是加载该模块的入口文件，一般为index.ets/ts。如果在HAR中加载另外一个HAR，需要确保module_info的配置正确，尤其注意moduleName应为HAP的moduleName或者HSP的moduleName。如果在HAP/HSP中直接或间接使用了三方包，该三方包中使用napi_load_module_with_info接口加载其他模块A，则需要在HAP/HSP中也添加A的依赖。在信号函数中调用不安全，直接调用可能导致栈溢出。
+ 
+1. 加载一个模块名，实际的行为是加载该模块的入口文件，一般为index.ets/ts。
+2. 如果在HAR中加载另外一个HAR，需要确保module_info的配置正确，尤其注意moduleName应为HAP的moduleName或者HSP的moduleName。
+3. 如果在HAP/HSP中直接或间接使用了三方包，该三方包中使用napi_load_module_with_info接口加载其他模块A，则需要在HAP/HSP中也添加A的依赖。
+4. 在信号函数中调用不安全，直接调用可能导致栈溢出。
+  
 
-## 异常场景
+ 
+  
 
-在模块加载过程中，若出现包内未找到对应文件或build-profile.json5配置错误等问题，返回错误码napi_generic_failure，并打印报错日志。
+##### 异常场景
+1. 在模块加载过程中，若出现包内未找到对应文件或build-profile.json5配置错误等问题，返回错误码napi_generic_failure，并打印报错日志。
+
+  
 ![](assets/使用Node-API接口进行模块加载/file-20260514132713597-2.png)
-系统侧发生非预期行为导致加载模块无法正常执行，将抛出cppcrash。
 
-## 使用示例
+2. 系统侧发生非预期行为导致加载模块无法正常执行，将抛出cppcrash。
+ 
+  
 
-**加载模块内文件路径** 当加载文件中的模块时，如以下ArkTS代码：
-```text
+##### 使用示例
+
+- **加载模块内文件路径**
+
+ 
+当加载文件中的模块时，如以下ArkTS代码：
+ 
+```ArkTS
 //./src/main/ets/Test.ets
 let value = 123;
 function test() {
@@ -57,9 +80,10 @@ function test() {
 }
 export {value, test};
 ```
+ 1. 当前模块的build-profile.json5文件中需进行以下配置：
 
- 当前模块的build-profile.json5文件中需进行以下配置：
-```text
+  
+```ArkTS
 {
     "buildOption" : {
         "arkOptions" : {
@@ -73,9 +97,20 @@ export {value, test};
 }
 ```
 
-使用napi_load_module_with_info加载Test文件，调用函数test以及获取变量value。
+2. 使用napi_load_module_with_info加载Test文件，调用函数test以及获取变量value。
+
+  
 ![](assets/使用Node-API接口进行模块加载/file-20260514132713597-3.png)
-开启useNormalizedOHMUrl后（即将工程目录中与entry同级别的应用级build-profile.json5文件中strictMode属性的useNormalizedOHMUrl字段配置为true），加载模块内文件路径时：  bundleName不会影响最终加载逻辑，会智能通过module名索引进程内对应的hap，例如：工程的bundleName为com.example.application，实际入参时填写为 com.example.application1，模块也能正常加载。路径需要以packageName开头，packageName指的是模块的oh-package.json5中配置的name字段。
+ 
+
+  开启useNormalizedOHMUrl后（即将工程目录中与entry同级别的应用级build-profile.json5文件中strictMode属性的useNormalizedOHMUrl字段配置为true），加载模块内文件路径时：
+
+  
+- bundleName不会影响最终加载逻辑，会智能通过module名索引进程内对应的hap，例如：工程的bundleName为com.example.application，实际入参时填写为 com.example.application1，模块也能正常加载。
+
+3. 路径需要以packageName开头，packageName指的是模块的oh-package.json5中配置的name字段。
+
+  
 ```text
 static napi_value loadModule(napi_env env, napi_callback_info info) {
      napi_value result;
@@ -101,8 +136,14 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
  }
 ```
 
-**加载源码HAR模块** HAR包Index.ets文件如下：
-```text
+
+ 
+- **加载源码HAR模块**
+
+ 
+HAR包Index.ets文件如下：
+ 
+```ArkTS
 //library Index.ets
 let value = 123;
 function test() {
@@ -110,9 +151,10 @@ function test() {
 }
 export {value, test};
 ```
+ 1. 在oh-package.json5文件中配置dependencies项：
 
- 在oh-package.json5文件中配置dependencies项：
-```text
+  
+```json
 {
     "dependencies": {
         "library": "file:../library"
@@ -120,8 +162,10 @@ export {value, test};
 }
 ```
 
-在使用library的模块中，对build-profile.json5进行配置：
-```text
+2. 在使用library的模块中，对build-profile.json5进行配置：
+
+  
+```json
 {
     "buildOption" : {
         "arkOptions" : {
@@ -135,7 +179,9 @@ export {value, test};
 }
 ```
 
-使用napi_load_module_with_info加载library，调用函数test以及获取变量value：
+3. 使用napi_load_module_with_info加载library，调用函数test以及获取变量value：
+
+  
 ```text
 static napi_value loadModule(napi_env env, napi_callback_info info) {
     napi_value result;
@@ -167,8 +213,13 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-**加载源码HSP模块** HSP包Index.ets文件如下：
-```text
+ 
+- **加载源码HSP模块**
+
+ 
+HSP包Index.ets文件如下：
+ 
+```ArkTS
 //hsp Index.ets
 let value = 123;
 function test() {
@@ -176,9 +227,10 @@ function test() {
 }
 export {value, test};
 ```
+ 1. 在oh-package.json5文件中配置dependencies项：
 
- 在oh-package.json5文件中配置dependencies项：
-```text
+  
+```json
 {
     "dependencies": {
         "hsp": "file:../hsp"
@@ -186,8 +238,10 @@ export {value, test};
 }
 ```
 
-在使用hsp的模块中，对build-profile.json5进行配置：
-```text
+2. 在使用hsp的模块中，对build-profile.json5进行配置：
+
+  
+```json
 {
     "buildOption" : {
         "arkOptions" : {
@@ -201,7 +255,9 @@ export {value, test};
 }
 ```
 
-使用napi_load_module_with_info加载hsp，调用函数test以及获取变量value：
+3. 使用napi_load_module_with_info加载hsp，调用函数test以及获取变量value：
+
+  
 ```text
 static napi_value loadModule(napi_env env, napi_callback_info info) {
     napi_value result;
@@ -236,8 +292,13 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-**加载远程HAR模块名** 在oh-package.json5文件中配置dependencies项：
-```text
+ 
+- **加载远程HAR模块名**
+
+1. 在oh-package.json5文件中配置dependencies项：
+
+  
+```json
 {
     "dependencies": {
         "@ohos/hypium": "1.0.16"
@@ -245,8 +306,10 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-在使用@ohos/hypium的模块中，对build-profile.json5进行配置：
-```text
+2. 在使用@ohos/hypium的模块中，对build-profile.json5进行配置：
+
+  
+```json
 {
     "buildOption" : {
         "arkOptions" : {
@@ -260,7 +323,9 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-使用napi_load_module_with_info加载@ohos/hypium，获取DEFAULT变量：
+3. 使用napi_load_module_with_info加载@ohos/hypium，获取DEFAULT变量：
+
+  
 ```text
 static napi_value loadModule(napi_env env, napi_callback_info info) {
     napi_value result;
@@ -280,8 +345,13 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-**加载ohpm包名** 在oh-package.json5文件中配置dependencies项：
-```text
+ 
+- **加载ohpm包名**
+
+1. 在oh-package.json5文件中配置dependencies项：
+
+  
+```json
 {
     "dependencies": {
         "json5": "^2.2.3"
@@ -289,8 +359,10 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-在使用json5的模块中，对build-profile.json5进行配置：
-```text
+2. 在使用json5的模块中，对build-profile.json5进行配置：
+
+  
+```json
 {
     "buildOption" : {
         "arkOptions" : {
@@ -304,8 +376,10 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-用napi_load_module_with_info加载json5，调用函数stringify：
-```text
+3. 用napi_load_module_with_info加载json5，调用函数stringify：
+
+  
+```json
 static napi_value loadModule(napi_env env, napi_callback_info info) {
     napi_value result;
     // 1. 使用napi_load_module_with_info加载json5
@@ -336,7 +410,10 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-**加载API模块**
+ 
+- **加载API模块**
+
+ 
 ```text
 static napi_value loadModule(napi_env env, napi_callback_info info) {
     // 1. 使用napi_load_module_with_info加载模块@ohos.hilog
@@ -373,15 +450,20 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
     return result;
 }
 ```
+ 
+- **加载Native库**
 
- **加载Native库** libentry.so的index.d.ts文件如下：
-```text
+ 
+libentry.so的index.d.ts文件如下：
+ 
+```ts
 //index.d.ts
 export const add: (a: number, b: number) => number;
 ```
+ 1. 在oh-package.json5文件中配置dependencies项：
 
- 在oh-package.json5文件中配置dependencies项：
-```text
+  
+```json
 {
     "dependencies": {
         "libentry.so": "file:../src/main/cpp/types/libentry"
@@ -389,8 +471,10 @@ export const add: (a: number, b: number) => number;
 }
 ```
 
-在使用libentry.so的模块中，对build-profile.json5进行配置：
-```text
+2. 在使用libentry.so的模块中，对build-profile.json5进行配置：
+
+  
+```json
 {
     "buildOption" : {
         "arkOptions" : {
@@ -404,7 +488,9 @@ export const add: (a: number, b: number) => number;
 }
 ```
 
-用napi_load_module_with_info加载libentry.so，调用函数add：
+3. 用napi_load_module_with_info加载libentry.so，调用函数add：
+
+  
 ```text
 static constexpr int INT_NUM_2 = 2; // int类型数值2
 static constexpr int INT_NUM_3 = 3; // int类型数值3
@@ -433,8 +519,13 @@ static napi_value loadModule(napi_env env, napi_callback_info info) {
 }
 ```
 
-**HAR加载HAR模块名** 场景为har1加载har2，har2中的Index.ets文件如下：
-```text
+ 
+- **HAR加载HAR模块名**
+
+ 
+场景为har1加载har2，har2中的Index.ets文件如下：
+ 
+```ArkTS
 //har2 Index.ets
 let value = 123;
 function test() {
@@ -442,9 +533,10 @@ function test() {
 }
 export {value, test};
 ```
+ 1. 在har1中的oh-package.json5文件中配置dependencies项：
 
- 在har1中的oh-package.json5文件中配置dependencies项：
-```text
+  
+```json
 {
     "dependencies": {
         "har2": "file:../har2"
@@ -452,8 +544,10 @@ export {value, test};
 }
 ```
 
-在har1的build-profile.json5文件中进行配置：
-```text
+2. 在har1的build-profile.json5文件中进行配置：
+
+  
+```json
 {
     "buildOption" : {
         "arkOptions" : {
@@ -467,7 +561,9 @@ export {value, test};
 }
 ```
 
-在har1中使用napi_load_module_with_info加载har2，调用test函数并获取value变量：
+3. 在har1中使用napi_load_module_with_info加载har2，调用test函数并获取value变量：
+
+  
 ```text
 static napi_value loadModule(napi_env env, napi_callback_info info) {
     napi_value result;

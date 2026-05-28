@@ -4,17 +4,24 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-urpccall
 
-## 场景介绍
+##### 场景介绍
 
 发送一个URPC请求，可以设置优先级等参数，返回来自远程服务器的URPC响应。当发起请求后，可以选择取消指定或正在进行的URPC请求。当完成请求后，需要关闭请求来释放与此URPC关联的资源。
 
-## 约束与限制
 
-使用URPC进行远程程序调用能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。 此功能需要配合部署远程服务器。如有需要，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)的方式与我们联系。
 
-## 接口说明
+##### 约束与限制
+
+ - 使用URPC进行远程程序调用能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
+ - 此功能需要配合部署远程服务器。如有需要，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)的方式与我们联系。
+
+
+
+
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-urpcapi)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | UrpcCall = (funcName: string, request: object, returnValue: object, config?: CallingOption) => UrpcPromise | 发送一个URPC请求，并返回来自服务器的URPC响应。使用Promise异步回调。 |
@@ -22,23 +29,29 @@
 | UrpcDestroy = () => void | 销毁UrpcStub实例 |
 
 
-## 使用示例
 
 
-## 创建urpcStub
+##### 使用示例
 
-导入模块
+
+
+##### 创建urpcStub
+1. 导入模块
+
+  
 ```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { urpc } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-定义远程调用的类，作为调用方法的入参和返回值，示例如下：
+2. 定义远程调用的类，作为调用方法的入参和返回值，示例如下：
+
+  
 ```text
 // 定义调用方法的入参类示例
 export class MediaTaskRequestMessage {
-  RequestMessage: urpc.FlowbufElement;
+  RequestMessage: urpc.FlowbufElement<string>;
 
   constructor() {
     this.RequestMessage = {type: 'STRING', value: '', name: ''};
@@ -56,7 +69,7 @@ export class MediaTaskRequestMessage {
 
 // 定义用于接收调用方法返回值的类示例
 export class MediaTaskResponseMessage {
-  ResponseMessage: urpc.FlowbufElement;
+  ResponseMessage: urpc.FlowbufElement<string>;
 
   constructor() {
     this.ResponseMessage = {type: 'STRING', value: '', name: ''};
@@ -73,13 +86,17 @@ export class MediaTaskResponseMessage {
 }
 ```
 
-创建Request对象和Response接收对象。
+3. 创建Request对象和Response接收对象。
+
+  
 ```text
 let request = new MediaTaskRequestMessage();
 let response = new MediaTaskResponseMessage();
 ```
 
-配置连接信息，创建发起URPC调用的UrpcStub。
+4. 配置连接信息，创建发起URPC调用的UrpcStub。
+
+  
 ```text
 // 提前部署好的远程服务器的ip地址和端口号
 let node: urpc.IpAndPort = {
@@ -100,8 +117,9 @@ let urpcStub = urpc.urpcStubCreate(config, funcList);
 ```
 
 
-## 使用call收发网络请求
 
+
+##### 使用call收发网络请求
 
 ```text
 urpcStub.then(async (stub: urpc.UrpcStub) =>{
@@ -120,9 +138,11 @@ urpcStub.then(async (stub: urpc.UrpcStub) =>{
 ```
 
 
-## （可选）使用cancel取消网络请求
+
+##### （可选）使用cancel取消网络请求
 
 当调用call发起一次urpc收发请求后，根据业务需要，不用接收响应时，可调用cancel取消指定callingId的请求；若不指定callingId，则取消UrpcStub发起的全部请求。
+
 ```text
 urpcStub.then(async (stub: urpc.UrpcStub) =>{
   let upload_config: urpc.CallingOption = {
@@ -136,9 +156,11 @@ urpcStub.then(async (stub: urpc.UrpcStub) =>{
 ```
 
 
-## 使用destroy关闭URPC
+
+##### 使用destroy关闭URPC
 
 当完成所有urpc收发网络请求后，需调用destroy释放并销毁UrpcStub相关的资源。
+
 ```text
 urpcStub.then(async (stub: urpc.UrpcStub) =>{
   stub.destroy();

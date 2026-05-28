@@ -1,24 +1,36 @@
 # 层叠布局 (Stack)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout
 
-## 概述
+##### 概述
 
-层叠布局（StackLayout）用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。 层叠布局具有较强的页面层叠、位置定位能力，其使用场景有广告、卡片层叠效果等。 如图1，Stack作为容器，容器内的子元素的顺序为Item1->Item2->Item3。 **图1** 层叠布局
-![](assets/层叠布局%20(Stack)
-/file-20260514130555777-0.png)
+层叠布局（StackLayout）用于在屏幕上预留一块区域来显示组件中的元素，提供元素可以重叠的布局。层叠布局通过[Stack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack)容器组件实现位置的固定定位与层叠，容器中的子元素依次入栈，后一个子元素覆盖前一个子元素，子元素可以叠加，也可以设置位置。
+
+层叠布局具有较强的页面层叠、位置定位能力，其使用场景有广告、卡片层叠效果等。
+
+如图1，Stack作为容器，容器内的子元素的顺序为Item1->Item2->Item3。
+
+**图1** 层叠布局
+
+
+![](assets/层叠布局%20(Stack)/file-20260514130555777-0.png)
+
+
 > [!NOTE]
-> 过多的嵌套组件数会导致性能劣化。在部分场景中，直接使用组件属性或借助系统API的能力可以替代层叠布局的效果，减少了嵌套组件数进而优化性能。最佳实践请参考组件嵌套优化-优先使用组件属性代替嵌套组件。
+> 过多的嵌套组件数会导致性能劣化。在部分场景中，直接使用组件属性或借助系统API的能力可以替代层叠布局的效果，减少了嵌套组件数进而优化性能。最佳实践请参考 组件嵌套优化-优先使用组件属性代替嵌套组件 。
 
 
-## 开发布局
+
+
+##### 开发布局
 
 Stack组件为容器组件，容器内可包含各种子元素。其中子元素默认进行居中堆叠。子元素被约束在Stack下，进行自己的样式定义以及排列。
-```text
+
+```ArkTS
 // xxx.ets
-let mTop:Record = { 'top': 50 }
+let mTop:Record<string,number> = { 'top': 50 }
 
 @Entry
 @Component
@@ -35,15 +47,23 @@ struct StackLayoutExample {
 }
 ```
 
-![](assets/层叠布局%20(Stack)
-/file-20260514130555777-1.png)
 
-## 对齐方式
+![](assets/层叠布局%20(Stack)/file-20260514130555777-2.png)
 
-Stack组件通过[alignContent参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack#aligncontent)实现位置的相对移动。如图2所示，支持九种对齐方式。 **图2** Stack容器内元素的对齐方式
-![](assets/层叠布局%20(Stack)
-/file-20260514130555777-2.png)
-```text
+
+
+
+##### 对齐方式
+
+Stack组件通过[alignContent参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-stack#aligncontent)实现位置的相对移动。如图2所示，支持九种对齐方式。
+
+**图2** Stack容器内元素的对齐方式
+
+
+![](assets/层叠布局%20(Stack)/file-20260514130555777-3.png)
+
+
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -59,10 +79,14 @@ struct StackAlignContentExample {
 ```
 
 
-## Z序控制
 
-Stack容器中兄弟组件显示层级关系可以通过[Z序控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order)的zIndex属性改变。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。 在层叠布局中，如果后面子元素尺寸大于前面子元素尺寸，则前面子元素完全隐藏。
-```text
+##### Z序控制
+
+Stack容器中兄弟组件显示层级关系可以通过[Z序控制](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-z-order)的zIndex属性改变。zIndex值越大，显示层级越高，即zIndex值大的组件会覆盖在zIndex值小的组件上方。
+
+在层叠布局中，如果后面子元素尺寸大于前面子元素尺寸，则前面子元素完全隐藏。
+
+```ArkTS
 Stack({ alignContent: Alignment.BottomStart }) {
   Column() {
     // 请将$r('app.string.stack_num1')替换为实际资源文件，在本示例中该资源文件的value值为"Stack子元素1"
@@ -81,9 +105,13 @@ Stack({ alignContent: Alignment.BottomStart }) {
 }.width(350).height(350).backgroundColor(0xe0e0e0)
 ```
 
-![](assets/层叠布局%20(Stack)
-/file-20260514130555777-3.png) 上图中，最后的子元素3的尺寸大于前面的所有子元素，所以，前面两个元素完全隐藏。改变子元素1、子元素2的zIndex属性后，可以将元素展示出来。
-```text
+
+![](assets/层叠布局%20(Stack)/file-20260514130555777-4.png)
+
+
+上图中，最后的子元素3的尺寸大于前面的所有子元素，所以，前面两个元素完全隐藏。改变子元素1、子元素2的zIndex属性后，可以将元素展示出来。
+
+```ArkTS
 Stack({ alignContent: Alignment.BottomStart }) {
   Column() {
     // 请将$r('app.string.stack_num1')替换为实际资源文件，在本示例中该资源文件的value值为"Stack子元素1"
@@ -102,13 +130,17 @@ Stack({ alignContent: Alignment.BottomStart }) {
 }.width(350).height(350).backgroundColor(0xe0e0e0)
 ```
 
-![](assets/层叠布局%20(Stack)
-/file-20260514130555777-4.png)
 
-## 场景示例
+![](assets/层叠布局%20(Stack)/file-20260514130555777-5.png)
+
+
+
+
+##### 场景示例
 
 使用层叠布局快速搭建页面。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct StackSample {
@@ -147,9 +179,12 @@ struct StackSample {
 }
 ```
 
-![](assets/层叠布局%20(Stack)
-/file-20260514130555777-5.png)
 
-## 示例代码
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/b6pteeP8ToeX4fI1KphZ6w/zh-cn_image_0000002611833601.png?HW-CC-KV=V1&HW-CC-Date=20260528T014825Z&HW-CC-Expire=86400&HW-CC-Sign=519AF0B9D46D362B25760DE776E9ACC0EA65C4B443832FD4CFBB2979F70E0D63)
 
-[组件堆叠](https://gitcode.com/HarmonyOS_Samples/component-stack)
+
+
+
+##### 示例代码
+
+ - [组件堆叠](https://gitcode.com/HarmonyOS_Samples/component-stack)

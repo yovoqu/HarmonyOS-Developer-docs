@@ -5,7 +5,7 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-4
 
 删除ohpm-repo私仓根目录下的.deploy_root文件，重新指定加密组件，执行start操作。
-
-参考链接
-
-ohpm-repo start
+ 
+**参考链接**
+ 
+[ohpm-repo start](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-start)

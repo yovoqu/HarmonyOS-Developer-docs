@@ -1,13 +1,11 @@
 # ohprint.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 概述
 
 声明用于发现和连接打印机、通过打印机打印文件、查询已添加打印机列表及其内部打印机信息等功能的 API。
 
@@ -22,90 +20,89 @@
 **相关模块：** [OH_Print](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet
 
-
-| 名称 | typedef关键字 | 描述 |
-| --- | --- | --- |
-| [Print_StringList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-stringlist) | Print_StringList | 表示字符串列表。 |
-| [Print_Property](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-property) | Print_Property | 表示打印机属性。 |
-| [Print_PropertyList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-propertylist) | Print_PropertyList | 打印机属性列表。 |
-| [Print_Resolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-resolution) | Print_Resolution | 表示以 dpi 为单位的打印分辨率。 |
-| [Print_Margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-margin) | Print_Margin | 表示打印边距。 |
-| [Print_PageSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-pagesize) | Print_PageSize | 表示纸张尺寸信息。 |
-| [Print_PrinterCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printercapability) | Print_PrinterCapability | 表示打印机能力。 |
-| [Print_DefaultValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-defaultvalue) | Print_DefaultValue | 表示当前属性。 |
-| [Print_PrinterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printerinfo) | Print_PrinterInfo | 表示打印机信息。 |
-| [Print_PrintJob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printjob) | Print_PrintJob | 表示打印任务结构体。 |
-| [Print_Range](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-range) | Print_Range | 表示打印范围结构体。 |
-| [Print_PrintAttributes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printattributes) | Print_PrintAttributes | 表示打印属性结构体。 |
-| [Print_PrintDocCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printdoccallback) | Print_PrintDocCallback | 表示打印文档状态回调结构体。 |
-
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet
-
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Print_ErrorCode](#print_errorcode) | Print_ErrorCode | 定义错误码。 |
-| [Print_PrinterState](#print_printerstate) | Print_PrinterState | 表示打印机状态。 |
-| [Print_DiscoveryEvent](#print_discoveryevent) | Print_DiscoveryEvent | 表示打印机发现事件。 |
-| [Print_PrinterEvent](#print_printerevent) | Print_PrinterEvent | 表示打印机变更事件。 |
-| [Print_DuplexMode](#print_duplexmode) | Print_DuplexMode | 表示双面打印模式。 |
-| [Print_ColorMode](#print_colormode) | Print_ColorMode | 表示色彩模式。 |
-| [Print_OrientationMode](#print_orientationmode) | Print_OrientationMode | 表示方向模式。 |
-| [Print_Quality](#print_quality) | Print_Quality | 表示打印质量。 |
-| [Print_DocumentFormat](#print_documentformat) | Print_DocumentFormat | 表示文档的 MIME 媒体类型。 |
-| [Print_JobDocAdapterState](#print_jobdocadapterstate) | Print_JobDocAdapterState | 表示打印任务文档适配器状态。 |
-| [OH_Print_JobState](#oh_print_jobstate) | OH_Print_JobState | 表示打印任务状态。 |
+| Print_StringList | Print_StringList | 表示字符串列表。 |
+| Print_Property | Print_Property | 表示打印机属性。 |
+| Print_PropertyList | Print_PropertyList | 打印机属性列表。 |
+| Print_Resolution | Print_Resolution | 表示以 dpi 为单位的打印分辨率。 |
+| Print_Margin | Print_Margin | 表示打印边距。 |
+| Print_PageSize | Print_PageSize | 表示纸张尺寸信息。 |
+| Print_PrinterCapability | Print_PrinterCapability | 表示打印机能力。 |
+| Print_DefaultValue | Print_DefaultValue | 表示当前属性。 |
+| Print_PrinterInfo | Print_PrinterInfo | 表示打印机信息。 |
+| Print_PrintJob | Print_PrintJob | 表示打印任务结构体。 |
+| Print_Range | Print_Range | 表示打印范围结构体。 |
+| Print_PrintAttributes | Print_PrintAttributes | 表示打印属性结构体。 |
+| Print_PrintDocCallback | Print_PrintDocCallback | 表示打印文档状态回调结构体。 |
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### 枚举
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [typedef void(*Print_WriteResultCallback)(const char *jobId, uint32_t code)](#print_writeresultcallback) | Print_WriteResultCallback | 写文件结果回调。 |
-| [typedef void(*Print_OnStartLayoutWrite)(const char *jobId, uint32_t fd, const Print_PrintAttributes *oldAttrs, const Print_PrintAttributes *newAttrs, Print_WriteResultCallback writeCallback)](#print_onstartlayoutwrite) | Print_OnStartLayoutWrite | 打印开始布局回调。 |
-| [typedef void(*Print_OnJobStateChanged)(const char *jobId, uint32_t state)](#print_onjobstatechanged) | Print_OnJobStateChanged | 打印任务状态回调。 |
-| [typedef void (*Print_PrinterDiscoveryCallback)(Print_DiscoveryEvent event, const Print_PrinterInfo *printerInfo)](#print_printerdiscoverycallback) | Print_PrinterDiscoveryCallback | 打印机发现回调。 |
-| [typedef void (*Print_PrinterChangeCallback)(Print_PrinterEvent event, const Print_PrinterInfo *printerInfo)](#print_printerchangecallback) | Print_PrinterChangeCallback | 打印机变更回调。 |
-| [Print_ErrorCode OH_Print_Init()](#oh_print_init) | - | 此 API 检查并拉起打印服务，初始化打印客户端，并建立与打印服务的连接。 |
-| [Print_ErrorCode OH_Print_Release()](#oh_print_release) | - | 此 API 关闭与打印服务的连接，解散先前的回调，并释放打印客户端资源。 |
-| [Print_ErrorCode OH_Print_StartPrinterDiscovery(Print_PrinterDiscoveryCallback callback)](#oh_print_startprinterdiscovery) | - | 此 API 开始发现打印机。 |
-| [Print_ErrorCode OH_Print_StopPrinterDiscovery()](#oh_print_stopprinterdiscovery) | - | 此 API 停止发现打印机。 |
-| [Print_ErrorCode OH_Print_ConnectPrinter(const char *printerId)](#oh_print_connectprinter) | - | 此 API 使用打印机 ID 连接打印机。 |
-| [Print_ErrorCode OH_Print_StartPrintJob(const Print_PrintJob *printJob)](#oh_print_startprintjob) | - | 此 API 开始发起打印任务。 |
-| [Print_ErrorCode OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallback callback)](#oh_print_registerprinterchangelistener) | - | 此 API 注册打印机变更回调。 |
-| [void OH_Print_UnregisterPrinterChangeListener()](#oh_print_unregisterprinterchangelistener) | - | 此 API 注销打印机变更回调。 |
-| [Print_ErrorCode OH_Print_QueryPrinterList(Print_StringList *printerIdList)](#oh_print_queryprinterlist) | - | 此 API 查询已添加的打印机列表。 |
-| [void OH_Print_ReleasePrinterList(Print_StringList *printerIdList)](#oh_print_releaseprinterlist) | - | 此 API 释放用于查询的打印机列表内存。 |
-| [Print_ErrorCode OH_Print_QueryPrinterInfo(const char *printerId, Print_PrinterInfo **printerInfo)](#oh_print_queryprinterinfo) | - | 此 API 根据打印机 ID 查询打印机信息。 |
-| [void OH_Print_ReleasePrinterInfo(Print_PrinterInfo *printerInfo)](#oh_print_releaseprinterinfo) | - | 此 API 释放用于查询的打印机信息内存。 |
-| [Print_ErrorCode OH_Print_LaunchPrinterManager()](#oh_print_launchprintermanager) | - | 此 API 启动系统的打印机管理窗口。 |
-| [Print_ErrorCode OH_Print_QueryPrinterProperties(const char *printerId, const Print_StringList *propertyKeyList, Print_PropertyList *propertyList)](#oh_print_queryprinterproperties) | - | 此 API 根据属性关键字列表查询对应的打印机属性值。 |
-| [void OH_Print_ReleasePrinterProperties(Print_PropertyList *propertyList)](#oh_print_releaseprinterproperties) | - | 此 API 释放用于查询的属性列表内存。 |
-| [Print_ErrorCode OH_Print_UpdatePrinterProperties(const char *printerId, const Print_PropertyList *propertyList)](#oh_print_updateprinterproperties) | - | 此 API 根据属性键值对列表设置打印机属性。 |
-| [Print_ErrorCode OH_Print_RestorePrinterProperties(const char *printerId, const Print_StringList *propertyKeyList)](#oh_print_restoreprinterproperties) | - | 此 API 根据属性关键字列表将打印机属性恢复为默认设置。 |
-| [Print_ErrorCode OH_Print_StartPrintByNative(const char *printJobName, Print_PrintDocCallback printDocCallback, void *context)](#oh_print_startprintbynative) | - | 此 API 提供启动打印对话框的能力。 |
-| [typedef void(*OH_Print_OnJobStateChanged)(const char *jobId, OH_Print_JobState state)](#oh_print_onjobstatechanged) | - | 打印任务状态回调。 |
-| [Print_ErrorCode OH_Print_StartPrintWithJobStateCallback(const Print_PrintJob *printJob, OH_Print_OnJobStateChanged jobStateChangedCb)](#oh_print_startprintwithjobstatecallback) | - | 此API下发打印任务，并附带任务状态变更回调功能。 |
+| Print_ErrorCode | Print_ErrorCode | 定义错误码。 |
+| Print_PrinterState | Print_PrinterState | 表示打印机状态。 |
+| Print_DiscoveryEvent | Print_DiscoveryEvent | 表示打印机发现事件。 |
+| Print_PrinterEvent | Print_PrinterEvent | 表示打印机变更事件。 |
+| Print_DuplexMode | Print_DuplexMode | 表示双面打印模式。 |
+| Print_ColorMode | Print_ColorMode | 表示色彩模式。 |
+| Print_OrientationMode | Print_OrientationMode | 表示方向模式。 |
+| Print_Quality | Print_Quality | 表示打印质量。 |
+| Print_DocumentFormat | Print_DocumentFormat | 表示文档的 MIME 媒体类型。 |
+| Print_JobDocAdapterState | Print_JobDocAdapterState | 表示打印任务文档适配器状态。 |
+| OH_Print_JobState | OH_Print_JobState | 表示打印任务状态。 |
 
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet
 
 
-### Print_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 函数
 
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| typedef void(*Print_WriteResultCallback)(const char *jobId, uint32_t code) | Print_WriteResultCallback | 写文件结果回调。 |
+| typedef void(*Print_OnStartLayoutWrite)(const char *jobId, uint32_t fd, const Print_PrintAttributes *oldAttrs, const Print_PrintAttributes *newAttrs, Print_WriteResultCallback writeCallback) | Print_OnStartLayoutWrite | 打印开始布局回调。 |
+| typedef void(*Print_OnJobStateChanged)(const char *jobId, uint32_t state) | Print_OnJobStateChanged | 打印任务状态回调。 |
+| typedef void (*Print_PrinterDiscoveryCallback)(Print_DiscoveryEvent event, const Print_PrinterInfo *printerInfo) | Print_PrinterDiscoveryCallback | 打印机发现回调。 |
+| typedef void (*Print_PrinterChangeCallback)(Print_PrinterEvent event, const Print_PrinterInfo *printerInfo) | Print_PrinterChangeCallback | 打印机变更回调。 |
+| Print_ErrorCode OH_Print_Init() | - | 此 API 检查并拉起打印服务，初始化打印客户端，并建立与打印服务的连接。 |
+| Print_ErrorCode OH_Print_Release() | - | 此 API 关闭与打印服务的连接，解散先前的回调，并释放打印客户端资源。 |
+| Print_ErrorCode OH_Print_StartPrinterDiscovery(Print_PrinterDiscoveryCallback callback) | - | 此 API 开始发现打印机。 |
+| Print_ErrorCode OH_Print_StopPrinterDiscovery() | - | 此 API 停止发现打印机。 |
+| Print_ErrorCode OH_Print_ConnectPrinter(const char *printerId) | - | 此 API 使用打印机 ID 连接打印机。 |
+| Print_ErrorCode OH_Print_StartPrintJob(const Print_PrintJob *printJob) | - | 此 API 开始发起打印任务。 |
+| Print_ErrorCode OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallback callback) | - | 此 API 注册打印机变更回调。 |
+| void OH_Print_UnregisterPrinterChangeListener() | - | 此 API 注销打印机变更回调。 |
+| Print_ErrorCode OH_Print_QueryPrinterList(Print_StringList *printerIdList) | - | 此 API 查询已添加的打印机列表。 |
+| void OH_Print_ReleasePrinterList(Print_StringList *printerIdList) | - | 此 API 释放用于查询的打印机列表内存。 |
+| Print_ErrorCode OH_Print_QueryPrinterInfo(const char *printerId, Print_PrinterInfo **printerInfo) | - | 此 API 根据打印机 ID 查询打印机信息。 |
+| void OH_Print_ReleasePrinterInfo(Print_PrinterInfo *printerInfo) | - | 此 API 释放用于查询的打印机信息内存。 |
+| Print_ErrorCode OH_Print_LaunchPrinterManager() | - | 此 API 启动系统的打印机管理窗口。 |
+| Print_ErrorCode OH_Print_QueryPrinterProperties(const char *printerId, const Print_StringList *propertyKeyList, Print_PropertyList *propertyList) | - | 此 API 根据属性关键字列表查询对应的打印机属性值。 |
+| void OH_Print_ReleasePrinterProperties(Print_PropertyList *propertyList) | - | 此 API 释放用于查询的属性列表内存。 |
+| Print_ErrorCode OH_Print_UpdatePrinterProperties(const char *printerId, const Print_PropertyList *propertyList) | - | 此 API 根据属性键值对列表设置打印机属性。 |
+| Print_ErrorCode OH_Print_RestorePrinterProperties(const char *printerId, const Print_StringList *propertyKeyList) | - | 此 API 根据属性关键字列表将打印机属性恢复为默认设置。 |
+| Print_ErrorCode OH_Print_StartPrintByNative(const char *printJobName, Print_PrintDocCallback printDocCallback, void *context) | - | 此 API 提供启动打印对话框的能力。 |
+| typedef void(*OH_Print_OnJobStateChanged)(const char *jobId, OH_Print_JobState state) | - | 打印任务状态回调。 |
+| Print_ErrorCode OH_Print_StartPrintWithJobStateCallback(const Print_PrintJob *printJob, OH_Print_OnJobStateChanged jobStateChangedCb) | - | 此API下发打印任务，并附带任务状态变更回调功能。 |
+
+
+
+
+##### 枚举类型说明
+
+
+
+##### Print_ErrorCode
 
 ```text
 enum Print_ErrorCode
@@ -116,7 +113,6 @@ enum Print_ErrorCode
 定义错误码。
 
 **起始版本：** 12
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -133,9 +129,9 @@ enum Print_ErrorCode
 | PRINT_ERROR_UNKNOWN = 24300255 | 未知错误。 |
 
 
-### Print_PrinterState
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_PrinterState
 
 ```text
 enum Print_PrinterState
@@ -147,7 +143,6 @@ enum Print_PrinterState
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PRINTER_IDLE | 打印机空闲。 |
@@ -155,9 +150,9 @@ enum Print_PrinterState
 | PRINTER_UNAVAILABLE | 打印机不可用。 |
 
 
-### Print_DiscoveryEvent
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_DiscoveryEvent
 
 ```text
 enum Print_DiscoveryEvent
@@ -169,7 +164,6 @@ enum Print_DiscoveryEvent
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PRINTER_DISCOVERED = 0 | 发现打印机。 |
@@ -178,9 +172,9 @@ enum Print_DiscoveryEvent
 | PRINTER_CONNECTED = 3 | 打印机已连接。 |
 
 
-### Print_PrinterEvent
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_PrinterEvent
 
 ```text
 enum Print_PrinterEvent
@@ -192,7 +186,6 @@ enum Print_PrinterEvent
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PRINTER_ADDED = 0 | 打印机已添加。 |
@@ -201,9 +194,9 @@ enum Print_PrinterEvent
 | PRINTER_INFO_CHANGED = 3 | 打印机信息已变更。 |
 
 
-### Print_DuplexMode
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_DuplexMode
 
 ```text
 enum Print_DuplexMode
@@ -215,7 +208,6 @@ enum Print_DuplexMode
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | DUPLEX_MODE_ONE_SIDED = 0 | 单面模式。 |
@@ -223,9 +215,9 @@ enum Print_DuplexMode
 | DUPLEX_MODE_TWO_SIDED_SHORT_EDGE = 2 | 短边翻转双面模式。 |
 
 
-### Print_ColorMode
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_ColorMode
 
 ```text
 enum Print_ColorMode
@@ -237,7 +229,6 @@ enum Print_ColorMode
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | COLOR_MODE_MONOCHROME = 0 | 黑白模式。 |
@@ -245,9 +236,9 @@ enum Print_ColorMode
 | COLOR_MODE_AUTO = 2 | 自动模式。 |
 
 
-### Print_OrientationMode
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_OrientationMode
 
 ```text
 enum Print_OrientationMode
@@ -259,7 +250,6 @@ enum Print_OrientationMode
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | ORIENTATION_MODE_PORTRAIT = 0 | 纵向模式。 |
@@ -269,9 +259,9 @@ enum Print_OrientationMode
 | ORIENTATION_MODE_NONE = 4 | 未指定。 |
 
 
-### Print_Quality
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_Quality
 
 ```text
 enum Print_Quality
@@ -283,7 +273,6 @@ enum Print_Quality
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PRINT_QUALITY_DRAFT = 3 | 草稿质量模式 |
@@ -291,9 +280,9 @@ enum Print_Quality
 | PRINT_QUALITY_HIGH = 5 | 高质量模式 |
 
 
-### Print_DocumentFormat
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_DocumentFormat
 
 ```text
 enum Print_DocumentFormat
@@ -305,7 +294,6 @@ enum Print_DocumentFormat
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | DOCUMENT_FORMAT_AUTO | MIME 类型：application/octet-stream。 |
@@ -315,9 +303,9 @@ enum Print_DocumentFormat
 | DOCUMENT_FORMAT_TEXT | MIME 类型：text/plain。 |
 
 
-### Print_JobDocAdapterState
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_JobDocAdapterState
 
 ```text
 enum Print_JobDocAdapterState
@@ -328,7 +316,6 @@ enum Print_JobDocAdapterState
 表示打印任务文档适配器状态。
 
 **起始版本：** 13
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -341,9 +328,9 @@ enum Print_JobDocAdapterState
 | PRINT_DOC_ADAPTER_PREVIEW_ABILITY_DESTROY_FOR_STARTED = 6 | 因启动导致的打印任务预览能力销毁。 |
 
 
-## OH_Print_JobState
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_JobState
 
 ```text
 enum OH_Print_JobState
@@ -355,22 +342,21 @@ enum OH_Print_JobState
 
 **起始版本：** 24
 
-
-| 名称 | 值 | 说明 |
-| --- | --- | --- |
-| OH_PRINT_JOB_SUCCEED | 0 | 打印任务成功。 |
-| OH_PRINT_JOB_FAIL | 1 | 打印任务失败。 |
-| OH_PRINT_JOB_CANCEL | 2 | 打印任务取消。 |
-| OH_PRINT_JOB_BLOCK | 3 | 打印任务阻塞。 |
-
-
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet
+| 名称 | 说明 |
+| --- | --- |
+| OH_PRINT_JOB_SUCCEED = 0 | 打印任务成功。 |
+| OH_PRINT_JOB_FAIL = 1 | 打印任务失败。 |
+| OH_PRINT_JOB_CANCEL = 2 | 打印任务取消。 |
+| OH_PRINT_JOB_BLOCK = 3 | 打印任务阻塞。 |
 
 
-### Print_WriteResultCallback()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### 函数说明
+
+
+
+##### Print_WriteResultCallback()
 
 ```text
 typedef void(*Print_WriteResultCallback)(const char *jobId, uint32_t code)
@@ -384,16 +370,15 @@ typedef void(*Print_WriteResultCallback)(const char *jobId, uint32_t code)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *jobId | 打印任务的 ID。 |
 | uint32_t code | 写文件的结果。 |
 
 
-### Print_OnStartLayoutWrite()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_OnStartLayoutWrite()
 
 ```text
 typedef void(*Print_OnStartLayoutWrite)(const char *jobId, uint32_t fd, const Print_PrintAttributes *oldAttrs, const Print_PrintAttributes *newAttrs, Print_WriteResultCallback writeCallback)
@@ -407,19 +392,18 @@ typedef void(*Print_OnStartLayoutWrite)(const char *jobId, uint32_t fd, const Pr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *jobId | 打印任务的 ID。 |
 | uint32_t fd | 待写入的文件描述符。 |
-| [const Print_PrintAttributes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printattributes) *oldAttrs | 上一次的属性。 |
-| [const Print_PrintAttributes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printattributes) *newAttrs | 当前的属性。 |
-| [Print_WriteResultCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_writeresultcallback) writeCallback | 写文件结果回调。 |
+| const Print_PrintAttributes *oldAttrs | 上一次的属性。 |
+| const Print_PrintAttributes *newAttrs | 当前的属性。 |
+| Print_WriteResultCallback writeCallback | 写文件结果回调。 |
 
 
-### Print_OnJobStateChanged()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_OnJobStateChanged()
 
 ```text
 typedef void(*Print_OnJobStateChanged)(const char *jobId, uint32_t state)
@@ -433,16 +417,15 @@ typedef void(*Print_OnJobStateChanged)(const char *jobId, uint32_t state)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *jobId | 打印任务的 ID。 |
 | uint32_t state | 当前打印任务的状态。 |
 
 
-### Print_PrinterDiscoveryCallback()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_PrinterDiscoveryCallback()
 
 ```text
 typedef void (*Print_PrinterDiscoveryCallback)(Print_DiscoveryEvent event, const Print_PrinterInfo *printerInfo)
@@ -456,16 +439,15 @@ typedef void (*Print_PrinterDiscoveryCallback)(Print_DiscoveryEvent event, const
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | Print_DiscoveryEvent event | 打印机发现过程中的发现事件。 |
-| [const Print_PrinterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printerinfo) *printerInfo | 发现事件发生时的打印机信息。 |
+| const Print_PrinterInfo *printerInfo | 发现事件发生时的打印机信息。 |
 
 
-### Print_PrinterChangeCallback()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### Print_PrinterChangeCallback()
 
 ```text
 typedef void (*Print_PrinterChangeCallback)(Print_PrinterEvent event, const Print_PrinterInfo *printerInfo)
@@ -479,16 +461,15 @@ typedef void (*Print_PrinterChangeCallback)(Print_PrinterEvent event, const Prin
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | Print_PrinterEvent event | 打印服务运行期间的打印机变更事件。 |
-| [const Print_PrinterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printerinfo) *printerInfo | 变更事件发生时的打印机信息。 |
+| const Print_PrinterInfo *printerInfo | 变更事件发生时的打印机信息。 |
 
 
-### OH_Print_Init()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_Init()
 
 ```text
 Print_ErrorCode OH_Print_Init()
@@ -506,15 +487,14 @@ Print_ErrorCode OH_Print_Init()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。          [PRINT_ERROR_SERVER_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) cups 服务无法启动。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 PRINT_ERROR_SERVER_FAILURE cups 服务无法启动。 |
 
 
-### OH_Print_Release()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_Release()
 
 ```text
 Print_ErrorCode OH_Print_Release()
@@ -530,15 +510,14 @@ Print_ErrorCode OH_Print_Release()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          当前不会返回其他错误码。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 当前不会返回其他错误码。 |
 
 
-### OH_Print_StartPrinterDiscovery()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_StartPrinterDiscovery()
 
 ```text
 Print_ErrorCode OH_Print_StartPrinterDiscovery(Print_PrinterDiscoveryCallback callback)
@@ -556,23 +535,21 @@ Print_ErrorCode OH_Print_StartPrinterDiscovery(Print_PrinterDiscoveryCallback ca
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Print_PrinterDiscoveryCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_printerdiscoverycallback) callback | 打印机发现事件的 [Print_PrinterDiscoveryCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_printerdiscoverycallback)。 |
+| Print_PrinterDiscoveryCallback callback | 打印机发现事件的 Print_PrinterDiscoveryCallback。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。          [PRINT_ERROR_SERVER_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 从 BMS 查询打印扩展列表失败。          [PRINT_ERROR_INVALID_EXTENSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 未找到可用的打印扩展。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 PRINT_ERROR_SERVER_FAILURE 从 BMS 查询打印扩展列表失败。 PRINT_ERROR_INVALID_EXTENSION 未找到可用的打印扩展。 |
 
 
-### OH_Print_StopPrinterDiscovery()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_StopPrinterDiscovery()
 
 ```text
 Print_ErrorCode OH_Print_StopPrinterDiscovery()
@@ -590,15 +567,14 @@ Print_ErrorCode OH_Print_StopPrinterDiscovery()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 |
 
 
-### OH_Print_ConnectPrinter()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_ConnectPrinter()
 
 ```text
 Print_ErrorCode OH_Print_ConnectPrinter(const char *printerId)
@@ -616,7 +592,6 @@ Print_ErrorCode OH_Print_ConnectPrinter(const char *printerId)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *printerId | 待连接的打印机 ID。 |
@@ -624,15 +599,14 @@ Print_ErrorCode OH_Print_ConnectPrinter(const char *printerId)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。          [PRINT_ERROR_INVALID_PRINTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 打印机应在已发现的打印机列表中。          [PRINT_ERROR_SERVER_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法找到负责该打印机的扩展。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 PRINT_ERROR_INVALID_PRINTER 打印机应在已发现的打印机列表中。 PRINT_ERROR_SERVER_FAILURE 无法找到负责该打印机的扩展。 |
 
 
-### OH_Print_StartPrintJob()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_StartPrintJob()
 
 ```text
 Print_ErrorCode OH_Print_StartPrintJob(const Print_PrintJob *printJob)
@@ -650,23 +624,21 @@ Print_ErrorCode OH_Print_StartPrintJob(const Print_PrintJob *printJob)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [const Print_PrintJob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printjob) *printJob | 指向指定打印任务信息的 [Print_PrintJob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printjob) 实例的指针。 |
+| const Print_PrintJob *printJob | 指向指定打印任务信息的 Print_PrintJob 实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。          [PRINT_ERROR_INVALID_PRINTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 打印机应在已连接的打印机列表中。          [PRINT_ERROR_SERVER_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法在打印服务中创建打印任务。          [PRINT_ERROR_INVALID_PRINT_JOB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法在任务队列中找到该任务。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 PRINT_ERROR_INVALID_PRINTER 打印机应在已连接的打印机列表中。 PRINT_ERROR_SERVER_FAILURE 无法在打印服务中创建打印任务。 PRINT_ERROR_INVALID_PRINT_JOB 无法在任务队列中找到该任务。 |
 
 
-### OH_Print_RegisterPrinterChangeListener()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_RegisterPrinterChangeListener()
 
 ```text
 Print_ErrorCode OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallback callback)
@@ -684,23 +656,21 @@ Print_ErrorCode OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallba
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Print_PrinterChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_printerchangecallback) callback | 待注册的 [Print_PrinterChangeCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_printerchangecallback)。 |
+| Print_PrinterChangeCallback callback | 待注册的 Print_PrinterChangeCallback。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务能力。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务能力。 |
 
 
-### OH_Print_UnregisterPrinterChangeListener()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_UnregisterPrinterChangeListener()
 
 ```text
 void OH_Print_UnregisterPrinterChangeListener()
@@ -717,9 +687,8 @@ void OH_Print_UnregisterPrinterChangeListener()
 **起始版本：** 12
 
 
-### OH_Print_QueryPrinterList()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### OH_Print_QueryPrinterList()
 
 ```text
 Print_ErrorCode OH_Print_QueryPrinterList(Print_StringList *printerIdList)
@@ -737,23 +706,21 @@ Print_ErrorCode OH_Print_QueryPrinterList(Print_StringList *printerIdList)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Print_StringList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-stringlist) *printerIdList | 用于存储查询到的打印机 ID 列表的 [Print_StringList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-stringlist) 实例指针。 |
+| Print_StringList *printerIdList | 用于存储查询到的打印机 ID 列表的 Print_StringList 实例指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_INVALID_PARAMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) printerIdList 为 NULL。          [PRINT_ERROR_INVALID_PRINTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法查询任何已连接的打印机。          [PRINT_ERROR_GENERIC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法复制打印机 ID 列表。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_INVALID_PARAMETER printerIdList 为 NULL。 PRINT_ERROR_INVALID_PRINTER 无法查询任何已连接的打印机。 PRINT_ERROR_GENERIC_FAILURE 无法复制打印机 ID 列表。 |
 
 
-### OH_Print_ReleasePrinterList()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_ReleasePrinterList()
 
 ```text
 void OH_Print_ReleasePrinterList(Print_StringList *printerIdList)
@@ -769,15 +736,14 @@ void OH_Print_ReleasePrinterList(Print_StringList *printerIdList)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Print_StringList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-stringlist) *printerIdList | 待释放的已查询打印机 ID 列表。 |
+| Print_StringList *printerIdList | 待释放的已查询打印机 ID 列表。 |
 
 
-### OH_Print_QueryPrinterInfo()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_QueryPrinterInfo()
 
 ```text
 Print_ErrorCode OH_Print_QueryPrinterInfo(const char *printerId, Print_PrinterInfo **printerInfo)
@@ -795,24 +761,22 @@ Print_ErrorCode OH_Print_QueryPrinterInfo(const char *printerId, Print_PrinterIn
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *printerId | 待查询的打印机 ID。 |
-| [Print_PrinterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printerinfo) **printerInfo | 用于存储打印机信息的 [Print_PrinterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printerinfo) 指针的指针。 |
+| Print_PrinterInfo **printerInfo | 用于存储打印机信息的 Print_PrinterInfo 指针的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。          [PRINT_ERROR_INVALID_PARAMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) printerId 为 NULL 或 printerInfo 为 NULL。          [PRINT_ERROR_INVALID_PRINTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法在已连接的打印机列表中找到该打印机。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 PRINT_ERROR_INVALID_PARAMETER printerId 为 NULL 或 printerInfo 为 NULL。 PRINT_ERROR_INVALID_PRINTER 无法在已连接的打印机列表中找到该打印机。 |
 
 
-### OH_Print_ReleasePrinterInfo()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_ReleasePrinterInfo()
 
 ```text
 void OH_Print_ReleasePrinterInfo(Print_PrinterInfo *printerInfo)
@@ -828,15 +792,14 @@ void OH_Print_ReleasePrinterInfo(Print_PrinterInfo *printerInfo)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Print_PrinterInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printerinfo) *printerInfo | 待释放的已查询打印机信息指针。 |
+| Print_PrinterInfo *printerInfo | 待释放的已查询打印机信息指针。 |
 
 
-### OH_Print_LaunchPrinterManager()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_LaunchPrinterManager()
 
 ```text
 Print_ErrorCode OH_Print_LaunchPrinterManager()
@@ -852,15 +815,14 @@ Print_ErrorCode OH_Print_LaunchPrinterManager()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_GENERIC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法启动打印机管理窗口。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_GENERIC_FAILURE 无法启动打印机管理窗口。 |
 
 
-### OH_Print_QueryPrinterProperties()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_QueryPrinterProperties()
 
 ```text
 Print_ErrorCode OH_Print_QueryPrinterProperties(const char *printerId, const Print_StringList *propertyKeyList, Print_PropertyList *propertyList)
@@ -878,25 +840,23 @@ Print_ErrorCode OH_Print_QueryPrinterProperties(const char *printerId, const Pri
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *printerId | 待查询的打印机 ID。 |
-| [const Print_StringList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-stringlist) *propertyKeyList | 待查询的属性关键字列表。 |
-| [Print_PropertyList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-propertylist) *propertyList | 查询到的打印机属性值列表。 |
+| const Print_StringList *propertyKeyList | 待查询的属性关键字列表。 |
+| Print_PropertyList *propertyList | 查询到的打印机属性值列表。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_INVALID_PARAMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 参数之一为 NULL 或关键字列表为空。          [PRINT_ERROR_INVALID_PRINTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法找到指定打印机的属性。          [PRINT_ERROR_GENERIC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法复制打印机属性。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_INVALID_PARAMETER 参数之一为 NULL 或关键字列表为空。 PRINT_ERROR_INVALID_PRINTER 无法找到指定打印机的属性。 PRINT_ERROR_GENERIC_FAILURE 无法复制打印机属性。 |
 
 
-### OH_Print_ReleasePrinterProperties()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_ReleasePrinterProperties()
 
 ```text
 void OH_Print_ReleasePrinterProperties(Print_PropertyList *propertyList)
@@ -912,15 +872,14 @@ void OH_Print_ReleasePrinterProperties(Print_PropertyList *propertyList)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Print_PropertyList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-propertylist) *propertyList | 待释放的已查询打印机属性值指针。 |
+| Print_PropertyList *propertyList | 待释放的已查询打印机属性值指针。 |
 
 
-### OH_Print_UpdatePrinterProperties()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_UpdatePrinterProperties()
 
 ```text
 Print_ErrorCode OH_Print_UpdatePrinterProperties(const char *printerId, const Print_PropertyList *propertyList)
@@ -938,24 +897,22 @@ Print_ErrorCode OH_Print_UpdatePrinterProperties(const char *printerId, const Pr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *printerId | 待设置的打印机 ID。 |
-| [const Print_PropertyList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-propertylist) *propertyList | 待设置的打印机属性值列表。 |
+| const Print_PropertyList *propertyList | 待设置的打印机属性值列表。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 |
 
 
-### OH_Print_RestorePrinterProperties()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_RestorePrinterProperties()
 
 ```text
 Print_ErrorCode OH_Print_RestorePrinterProperties(const char *printerId, const Print_StringList *propertyKeyList)
@@ -973,24 +930,22 @@ Print_ErrorCode OH_Print_RestorePrinterProperties(const char *printerId, const P
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *printerId | 待恢复的打印机 ID。 |
-| [const Print_StringList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-stringlist) *propertyKeyList | 待恢复的属性关键字列表。 |
+| const Print_StringList *propertyKeyList | 待恢复的属性关键字列表。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 |
 
 
-### OH_Print_StartPrintByNative()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_StartPrintByNative()
 
 ```text
 Print_ErrorCode OH_Print_StartPrintByNative(const char *printJobName, Print_PrintDocCallback printDocCallback, void *context)
@@ -1008,25 +963,23 @@ Print_ErrorCode OH_Print_StartPrintByNative(const char *printJobName, Print_Prin
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *printJobName | 此打印任务的名称。 |
-| [Print_PrintDocCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printdoccallback) printDocCallback | 打印文档状态回调。 |
+| Print_PrintDocCallback printDocCallback | 打印文档状态回调。 |
 | void *context | 调用方应用的上下文。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Print_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 返回 [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 表示执行成功。          [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 需要 ohos.permission.PRINT 权限。          [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) 无法连接到打印服务。 |
+| Print_ErrorCode | 返回 PRINT_ERROR_NONE 表示执行成功。 PRINT_ERROR_NO_PERMISSION 需要 ohos.permission.PRINT 权限。 PRINT_ERROR_RPC_FAILURE 无法连接到打印服务。 |
 
 
-### OH_Print_OnJobStateChanged()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_OnJobStateChanged()
 
 ```text
 typedef void(*OH_Print_OnJobStateChanged)(const char *jobId, OH_Print_JobState state)
@@ -1040,16 +993,15 @@ typedef void(*OH_Print_OnJobStateChanged)(const char *jobId, OH_Print_JobState s
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *jobId | 打印任务的ID。 |
-| [OH_Print_JobState](#oh_print_jobstate) state | 当前打印任务的状态。 |
+| OH_Print_JobState state | 当前打印任务的状态。 |
 
 
-### OH_Print_StartPrintWithJobStateCallback()
-**支持设备：** Phone / PC/2in1 / Tablet
 
+
+##### OH_Print_StartPrintWithJobStateCallback()
 
 ```text
 Print_ErrorCode OH_Print_StartPrintWithJobStateCallback(const Print_PrintJob *printJob, OH_Print_OnJobStateChanged jobStateChangedCb)
@@ -1067,23 +1019,21 @@ Print_ErrorCode OH_Print_StartPrintWithJobStateCallback(const Print_PrintJob *pr
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| const [Print_PrintJob](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printjob) *printJob | 打印任务结构体。 |
-| [OH_Print_OnJobStateChanged](#oh_print_onjobstatechanged) jobStateChangedCb | 打印任务状态回调。 |
+| const Print_PrintJob *printJob | 打印任务结构体。 |
+| OH_Print_OnJobStateChanged jobStateChangedCb | 打印任务状态回调。 |
 
 
 **返回：**
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| [PRINT_ERROR_NONE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 0 | 执行成功。 |
-| [PRINT_ERROR_NO_PERMISSION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 201 | 需要 [ohos.permission.PRINT](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionprint) 权限。 |
-| [PRINT_ERROR_INVALID_PARAMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 401 | 参数之一为NULL或关键字列表为空。 |
-| [PRINT_ERROR_GENERIC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 24300001 | 无法复制回调函数。 |
-| [PRINT_ERROR_RPC_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 24300002 | 无法连接到打印服务。 |
-| [PRINT_ERROR_SERVER_FAILURE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 24300003 | 打印服务中无法创建打印任务结构体。 |
-| [PRINT_ERROR_INVALID_PRINTER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 24300005 | 无法找到指定打印机的属性。 |
-| [PRINT_ERROR_INVALID_PRINT_JOB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohprint-h#print_errorcode) | 24300006 | 无法在任务队列中找到该任务。 |
+| PRINT_ERROR_NONE | 0 | 执行成功。 |
+| PRINT_ERROR_NO_PERMISSION | 201 | 需要 ohos.permission.PRINT 权限。 |
+| PRINT_ERROR_INVALID_PARAMETER | 401 | 参数之一为NULL或关键字列表为空。 |
+| PRINT_ERROR_GENERIC_FAILURE | 24300001 | 无法复制回调函数。 |
+| PRINT_ERROR_RPC_FAILURE | 24300002 | 无法连接到打印服务。 |
+| PRINT_ERROR_SERVER_FAILURE | 24300003 | 打印服务中无法创建打印任务结构体。 |
+| PRINT_ERROR_INVALID_PRINTER | 24300005 | 无法找到指定打印机的属性。 |
+| PRINT_ERROR_INVALID_PRINT_JOB | 24300006 | 无法在任务队列中找到该任务。 |

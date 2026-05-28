@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-web-on-active-check
 
 使用了Web预渲染技术的应用，建议在预渲染完成后（onFirstMeaningfulPaint），调用停止渲染接口（onInactive）。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -18,14 +17,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -41,7 +42,7 @@ interface Config {
 struct WebComponent {
   controller: webview.WebviewController = new webview.WebviewController();
   @State mode: CacheMode = CacheMode.None;
-  configs: Array = [
+  configs: Array<Config> = [
     {
       url: 'https://www.example.com/example.js',
       localPath: 'example.js',
@@ -86,10 +87,10 @@ struct WebComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 import { webview } from '@kit.ArkWeb';
@@ -105,7 +106,7 @@ interface Config {
 struct WebComponent {
   controller: webview.WebviewController = new webview.WebviewController();
   @State mode: CacheMode = CacheMode.Default;
-  configs: Array = [
+  configs: Array<Config> = [
     {
       url: 'https://www.example.com/example.js',
       localPath: 'example.js',
@@ -146,14 +147,14 @@ struct WebComponent {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/recommended
-plugin:@performance/all
+<span style="color: rgb(106,135,89);">plugin:@performance/</span><span style="color: rgb(4,81,165);">recommended</span>
+<span style="color: rgb(80,160,79);">plugin:@performance/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

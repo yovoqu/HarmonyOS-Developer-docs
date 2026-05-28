@@ -3,151 +3,145 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-network
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+> [!NOTE]
+> 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 从API Version 8 开始，该接口不再维护，推荐使用新接口 '@ohos.net.connection' 。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
+##### 导入模块
 
 ```text
 import network from '@system.network';
 ```
+ 
+  
 
-
-## 权限列表
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 权限列表
 
 ohos.permission.GET_WIFI_INFO
-
+ 
 ohos.permission.GET_NETWORK_INFO
+ 
+  
 
-
-## network.getType3+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### network.getType3+
 
 getType(options?: {
-
-success?: (data: NetworkResponse) => void;
-
-fail?: (data: any, code: number) => void;
-
-complete?: () => void;
-
+ 
+  success?: (data: NetworkResponse) => void;
+ 
+  fail?: (data: any, code: number) => void;
+ 
+  complete?: () => void;
+ 
 }): void
-
+ 
 获取当前设备的网络类型。
-
+ 
 **系统能力：** SystemCapability.Communication.NetManager.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | Function | 否 | 接口调用成功的回调函数，返回值为[NetworkResponse](#networkresponse3)。 |
+| success | Function | 否 | 接口调用成功的回调函数，返回值为NetworkResponse。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
 | complete | Function | 否 | 接口调用结束的回调函数。 |
-
-
+ 
+ 
 fail返回值：
-
-
+  
 | 错误码 | 说明 |
 | --- | --- |
 | 602 | 当前权限未声明。 |
-
-
+ 
+ 
 **示例：**
-
-
+ 
 ```text
 export default class Network {
-getType() {
-network.getType({
-success: (data) => {
-console.info('success get network type:' + data.type);
-}
-});
-}
+  getType() {
+    network.getType({
+      success: (data) => {
+        console.info('success get network type:' + data.type);
+      }
+    });
+  }
 }
 ```
+ 
+  
 
-
-## network.subscribe3+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### network.subscribe3+
 
 subscribe(options?:{
-
-success?: (data: NetworkResponse) => void;
-
-fail?: (data: any, code: number) => void;
-
-}): void
-
+ 
+  success?: (data: NetworkResponse) => void;
+ 
+  fail?: (data: any, code: number) => void;
+ 
+ }): void
+ 
 订阅当前设备的网络连接状态。如果多次调用，会覆盖前一次调用。
-
+ 
 **系统能力：** SystemCapability.Communication.NetManager.Core
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | Function | 否 | 网络发生变化的回调函数。返回值为[NetworkResponse](#networkresponse3)。 |
+| success | Function | 否 | 网络发生变化的回调函数。返回值为NetworkResponse。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
-
-
+ 
+ 
 fail返回值：
-
-
+  
 | 错误码 | 说明 |
 | --- | --- |
 | 602 | 当前权限未声明。 |
 | 200 | 订阅失败。 |
-
-
+ 
+ 
 **示例：**
-
-
+ 
 ```text
 export default class Network {
-subscribe() {
-network.subscribe({
-success: (data) => {
-console.info('success get network type:' + data.type);
-}
-});
-}
+  subscribe() {
+    network.subscribe({
+      success: (data) => {
+        console.info('success get network type:' + data.type);
+      }
+    });
+  }
 }
 ```
+ 
+  
 
-
-## network.unsubscribe3+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### network.unsubscribe3+
 
 unsubscribe(): void
-
+ 
 取消订阅设备的网络连接状态。
-
+ 
 **系统能力：** SystemCapability.Communication.NetManager.Core
-
+ 
 **示例：**
-
-
+ 
 ```text
 import network from '@system.network';
 
 network.unsubscribe();
 ```
+ 
+  
 
-
-## NetworkResponse3+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### NetworkResponse3+
 
 **系统能力：** SystemCapability.Communication.NetManager.Core
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | metered | boolean | 否 | 是 | 是否按照流量计费。true：按照流量计费；false：不按照流量计费。 |

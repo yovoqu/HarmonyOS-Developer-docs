@@ -3,24 +3,26 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-systemload
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 系统根据当前温度、负载以及是否处于高负载场景等信息决策出系统负载融合档位，并在档位变化时通知已注册的应用。
 
+> [!NOTE]
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 导入模块
 
 ```text
 import { systemLoad } from '@kit.BasicServicesKit';
 ```
 
 
-## systemLoad.on('systemLoadChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'systemLoadChange', callback: Callback<SystemLoadLevel>): void
+##### systemLoad.on('systemLoadChange')
+
+on(type: 'systemLoadChange', callback: Callback&lt;SystemLoadLevel&gt;): void
 
 注册系统负载回调，感知系统负载融合档位变化，使用callback异步回调。
 
@@ -28,17 +30,15 @@ on(type: 'systemLoadChange', callback: Callback<SystemLoadLevel>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定取值'systemLoadChange'，系统负载变化类型。 |
-| callback | Callback&lt;[SystemLoadLevel](#systemloadlevel)&gt; | 是 | 回调函数，返回本次注册系统负载时的系统负载融合档位。 |
+| callback | Callback&lt;SystemLoadLevel&gt; | 是 | 回调函数，返回本次注册系统负载时的系统负载融合档位。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -47,27 +47,26 @@ on(type: 'systemLoadChange', callback: Callback<SystemLoadLevel>): void
 
 **示例**：
 
-
-```ts
+```json
 import { systemLoad } from '@kit.BasicServicesKit';
 
 function onSystemLoadChange(res: systemLoad.SystemLoadLevel) {
-  console.info(`system load changed, current level ` + res);
+    console.info(`system load changed, current level ` + res);
 }
 
 try {
-  systemLoad.on('systemLoadChange', onSystemLoadChange);
-  console.info(`register systemload callback succeeded. `);
+    systemLoad.on('systemLoadChange', onSystemLoadChange);
+    console.info(`register systemload callback succeeded. `);
 } catch (err) {
-  console.error(`register systemload callback failed: ` + JSON.stringify(err));
+    console.error(`register systemload callback failed: ` + JSON.stringify(err));
 }
 ```
 
 
-## systemLoad.off('systemLoadChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'systemLoadChange', callback?: Callback<SystemLoadLevel>): void
+##### systemLoad.off('systemLoadChange')
+
+off(type: 'systemLoadChange', callback?: Callback&lt;SystemLoadLevel&gt;): void
 
 取消注册系统负载回调，使用callback异步回调。
 
@@ -75,17 +74,15 @@ off(type: 'systemLoadChange', callback?: Callback<SystemLoadLevel>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定取值'systemLoadChange'，系统负载变化类型。 |
-| callback | Callback&lt;[SystemLoadLevel](#systemloadlevel)&gt; | 否 | 回调函数，返回本次取消注册系统负载时的系统负载融合档位。 |
+| callback | Callback&lt;SystemLoadLevel&gt; | 否 | 回调函数，返回本次取消注册系统负载时的系统负载融合档位。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -94,27 +91,24 @@ off(type: 'systemLoadChange', callback?: Callback<SystemLoadLevel>): void
 
 **示例**：
 
-
-```ts
+```json
 import { systemLoad } from '@kit.BasicServicesKit';
 
 function onSystemLoadChange(res: systemLoad.SystemLoadLevel) {
-  console.info(`system load changed, current level ` + res);
+    console.info(`system load changed, current level ` + res);
 }
 
 try {
-  systemLoad.off('systemLoadChange', onSystemLoadChange);
-  console.info(`unregister systemload callback succeeded:. `);
+    systemLoad.off('systemLoadChange', onSystemLoadChange);
+    console.info(`unregister systemload callback succeeded:. `);
 } catch (err) {
-  console.error(
-    `unregister systemload callback failed: ` + JSON.stringify(err),
-  );
+    console.error(`unregister systemload callback failed: ` + JSON.stringify(err));
 }
 ```
 
 
-## systemLoad.getLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### systemLoad.getLevel
 
 getLevel(): Promise<[SystemLoadLevel](#systemloadlevel)>
 
@@ -124,39 +118,31 @@ getLevel(): Promise<[SystemLoadLevel](#systemloadlevel)>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SystemLoadLevel](#systemloadlevel)&gt; | Promise对象，返回系统负载融合档位。 |
+| Promise&lt;SystemLoadLevel&gt; | Promise对象，返回系统负载融合档位。 |
 
 
 **示例**：
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { systemLoad } from '@kit.BasicServicesKit';
 
-systemLoad
-  .getLevel()
-  .then((res: systemLoad.SystemLoadLevel) => {
+systemLoad.getLevel().then((res: systemLoad.SystemLoadLevel) => {
     console.info(`getLevel promise succeeded. result: ` + JSON.stringify(res));
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getLevel promise failed. code is ${err.code} message is ${err.message}`,
-    );
-  });
+}).catch((err: BusinessError) => {
+    console.error(`getLevel promise failed. code is ${err.code} message is ${err.message}`);
+})
 ```
 
 
-## SystemLoadLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### SystemLoadLevel
 
 系统负载融合档位。
 
 **系统能力:** SystemCapability.ResourceSchedule.SystemLoad
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

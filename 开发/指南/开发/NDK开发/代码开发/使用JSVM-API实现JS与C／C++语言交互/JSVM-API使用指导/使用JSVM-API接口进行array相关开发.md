@@ -4,17 +4,27 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-array
 
-## 简介
+##### 简介
 
 使用JSVM-API接口进行数组（array）相关开发时，在JSVM模块中可以调用相关接口直接操作和处理JavaScript中的数组。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-使用 JSVM-API 接口进行数组（array）相关开发时，涉及的基本概念主要包括数组的创建、访问、修改、遍历以及与数组相关的操作。这些概念对于理解在 JSVM 模块中与 JavaScript 数组交互非常重要。以下是一些关键概念： **数组的创建**：若在 JSVM 模块中需要创建新的 JavaScript 数组时，可以使用提供的 OH_JSVM_CreateArray 接口创建数组，将传递给 JavaScript 层。**数组相关操作**：在 JSVM 模块中通过对应的接口获取 JavaScript 数组的长度、检索指定索引处的元素、设置指定索引的元素值，从而实现 JSVM 模块与 JavaScript 数组的交互。**TypedArray**：JavaScript 中的 TypedArray 是一种类数组数据视图，用于描述二进制数据。它可以视为指定元素类型的类数组数据视图，TypedArray 没有直接构造器，但是可以通过其子类构造器构造创建。子类包括：Int8Array、Uint8Array、Uint8ClampedArray、Int16Array、Int32Array等。**ArrayBuffer**：ArrayBuffer 是固定长度的二进制数据缓冲区。**DataView**：DataView 是 JavaScript 中的一种视图，是可以从 ArrayBuffer 对象中读写多种数值类型的底层接口。
+使用 JSVM-API 接口进行数组（array）相关开发时，涉及的基本概念主要包括数组的创建、访问、修改、遍历以及与数组相关的操作。这些概念对于理解在 JSVM 模块中与 JavaScript 数组交互非常重要。以下是一些关键概念：
+ 
+- **数组的创建**：若在 JSVM 模块中需要创建新的 JavaScript 数组时，可以使用提供的 OH_JSVM_CreateArray 接口创建数组，将传递给 JavaScript 层。
+- **数组相关操作**：在 JSVM 模块中通过对应的接口获取 JavaScript 数组的长度、检索指定索引处的元素、设置指定索引的元素值，从而实现 JSVM 模块与 JavaScript 数组的交互。
+- **TypedArray**：JavaScript 中的 TypedArray 是一种类数组数据视图，用于描述二进制数据。它可以视为指定元素类型的类数组数据视图，TypedArray 没有直接构造器，但是可以通过其子类构造器构造创建。子类包括：Int8Array、Uint8Array、Uint8ClampedArray、Int16Array、Int32Array等。
+- **ArrayBuffer**：ArrayBuffer 是固定长度的二进制数据缓冲区。
+- **DataView**：DataView 是 JavaScript 中的一种视图，是可以从 ArrayBuffer 对象中读写多种数值类型的底层接口。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_CreateArray | 创建一个新的 JavaScript 数组对象 |
@@ -31,20 +41,27 @@
 | OH_JSVM_DeleteElement | 尝试删除给定对象的指定索引处的元素 |
 | OH_JSVM_IsDataview | 判断一个 JavaScript 对象是否为 DataView 类型对象 |
 | OH_JSVM_IsTypedarray | 判断一个 JavaScript 对象是否为 TypedArray 类型对象 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API 接口开发流程参考[使用 JSVM-API 实现 JS 与 C/C++ 语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)，本文仅对接口对应 C++ 相关代码进行展示。
+ 
+  
 
-## OH_JSVM_CreateArray
+##### OH_JSVM_CreateArray
 
-创建一个新的 JavaScript 数组对象。 cpp 部分代码：
-```text
+创建一个新的 JavaScript 数组对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // CreateArray注册回调
 static int DIFF_VALUE_FIVE = 5;
 // OH_JSVM_CreateArray的样例方法
@@ -60,49 +77,113 @@ static JSVM_Value CreateArray(JSVM_Env env, JSVM_CallbackInfo info)
         OH_LOG_INFO(LOG_APP, "JSVM CreateArray success");
     }
     // 对创建的数组进行赋值
-    for (int i = 0; i 预计的输出结果：
+    for (int i = 0; i < DIFF_VALUE_FIVE; i++) {
+        JSVM_Value element;
+        JSVM_CALL(OH_JSVM_CreateInt32(env, i, &element));
+        JSVM_CALL(OH_JSVM_SetElement(env, array, i, element));
+    }
+    return array;
+}
+static JSVM_CallbackStruct param[] = {
+    {.data = nullptr, .callback = CreateArray},
+};
+static JSVM_CallbackStruct *method = param;
+// CreateArray方法别名，供JS调用
+static JSVM_PropertyDescriptor descriptor[] = {
+    {"createArray", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
+};
+// 样例测试js
+const char *srcCallNative = R"JS(
+  function testCreateArray() {
+    return createArray();
+  }
+  testCreateArray();
+)JS";
+```
+ 
+预计的输出结果：
+ 
 ```text
 JSVM CreateArray success
 ```
+ 
+  
 
+##### OH_JSVM_CreateArrayWithLength
 
-## OH_JSVM_CreateArrayWithLength
-
-创建一个指定长度的 JavaScript 数组对象。 cpp 部分代码：
-```text
+创建一个指定长度的 JavaScript 数组对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_CreateArrayWithLength的样例方法
 static JSVM_Value CreateArrayWithLength(JSVM_Env env, JSVM_CallbackInfo info)
 {
-size_t argc = 1;
-JSVM_Value argv[1] = {nullptr};
-JSVM_Value result = nullptr;
-// 解析传递的参数OH_JSVM_GetCbInfo
-OH_JSVM_GetCbInfo(env, info, &argc, argv, nullptr, nullptr);
-// 获取传递的数组长度
-int32_t length = 0;
-OH_JSVM_GetValueInt32(env, argv[0], &length);
-// 使用OH_JSVM_CreateArrayWithLength创建传递固定长度的数组
-JSVM_Status status = OH_JSVM_CreateArrayWithLength(env, length, &result);
-if (status == JSVM_OK) {
-// 给创建的数组设置值
-for (int32_t i = 0; i 预计的输出结果：
+    size_t argc = 1;
+    JSVM_Value argv[1] = {nullptr};
+    JSVM_Value result = nullptr;
+    // 解析传递的参数OH_JSVM_GetCbInfo
+    OH_JSVM_GetCbInfo(env, info, &argc, argv, nullptr, nullptr);
+    // 获取传递的数组长度
+    int32_t length = 0;
+    OH_JSVM_GetValueInt32(env, argv[0], &length);
+    // 使用OH_JSVM_CreateArrayWithLength创建传递固定长度的数组
+    JSVM_Status status = OH_JSVM_CreateArrayWithLength(env, length, &result);
+    if (status == JSVM_OK) {
+        // 给创建的数组设置值
+        for (int32_t i = 0; i < length; i++) {
+            JSVM_Value value;
+            JSVM_CALL(OH_JSVM_CreateInt32(env, i, &value));
+            JSVM_CALL(OH_JSVM_SetElement(env, result, i, value));
+        }
+        OH_LOG_INFO(LOG_APP, "JSVM CreateArrayWithLength success");
+    } else {
+        OH_LOG_ERROR(LOG_APP, "JSVM CreateArrayWithLength fail");
+    }
+    return result;
+}
+// CreateArrayWithLength注册回调
+static JSVM_CallbackStruct param[] = {
+    {.data = nullptr, .callback = CreateArrayWithLength},
+};
+static JSVM_CallbackStruct *method = param;
+// CreateArrayWithLength方法别名，供JS调用
+static JSVM_PropertyDescriptor descriptor[] = {
+    {"createArrayWithLength", nullptr, method++, nullptr, nullptr, nullptr, JSVM_DEFAULT},
+};
+// 样例测试js
+const char *srcCallNative = R"JS(
+let num = 7;
+function testCreateArrayWithLength(num){
+    return createArrayWithLength(num);
+}
+testCreateArrayWithLength(num);
+)JS";
+```
+ 
+预计的输出结果：
+ 
 ```text
 JSVM CreateArrayWithLength success
 ```
+ 
+  
 
+##### OH_JSVM_CreateTypedarray
 
-## OH_JSVM_CreateTypedarray
-
-在现有的 ArrayBuffer上 创建一个 JavaScript TypedArray 对象,TypedArray 对象在底层数据缓冲区上提供类似数组的视图，其中每个元素都具有相同的底层二进制标量数据类型。 cpp 部分代码：
-```text
+在现有的 ArrayBuffer上 创建一个 JavaScript TypedArray 对象,TypedArray 对象在底层数据缓冲区上提供类似数组的视图，其中每个元素都具有相同的底层二进制标量数据类型。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_CreateTypedarray的样例方法
 static int DIFF_VALUE_THREE = 3;
 static JSVM_Value CreateTypedArray(JSVM_Env env, JSVM_CallbackInfo info)
@@ -116,7 +197,7 @@ static JSVM_Value CreateTypedArray(JSVM_Env env, JSVM_CallbackInfo info)
     // 用于存储每个元素的大小
     size_t elementSize = 0;
     // 转换为JSVM_TypedarrayType类型
-    arrayType = static_cast(typeNum);
+    arrayType = static_cast<JSVM_TypedarrayType>(typeNum);
     switch (typeNum) {
         case JSVM_INT8_ARRAY:
         case JSVM_UINT8_ARRAY:
@@ -190,17 +271,22 @@ createTypedArray(type.INT8_ARRAY);
 createTypedArray(type.INT32_ARRAY);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM CreateTypedArray success
 JSVM CreateTypedArray success
 ```
+ 
+  
 
+##### OH_JSVM_CreateDataview
 
-## OH_JSVM_CreateDataview
-
-在现有的 ArrayBuffer 上创建一个 JavaScript DataView 对象，DataView 对象在底层数据缓冲区上提供类似数组的视图。 cpp 部分代码：
+在现有的 ArrayBuffer 上创建一个 JavaScript DataView 对象，DataView 对象在底层数据缓冲区上提供类似数组的视图。
+ 
+cpp 部分代码：
+ 
 ```text
 static int DIFF_VALUE_FOUR = 4;
 static int DIFF_VALUE_TWELVE = 12;
@@ -293,23 +379,28 @@ const char *srcCallNative = R"JS(
  createDataView(new ArrayBuffer(16), BYTE_OFFSET);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 CreateDataView success, returnLength: 12
 JSVM CreateDataView success, isArraybuffer: 1
 JSVM CreateDataView success, returnOffset: 4
 ```
+ 
+  
 
+##### OH_JSVM_GetArrayLength
 
-## OH_JSVM_GetArrayLength
-
-返回 Array 对象的长度。 cpp 部分代码：
-```text
+返回 Array 对象的长度。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetArrayLength的样例方法
 static JSVM_Value GetArrayLength(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -354,21 +445,26 @@ let data = [0, 1, 2, 3, 4, 5];
 getArrayLength(data);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM length: 6
 ```
+ 
+  
 
+##### OH_JSVM_GetTypedarrayInfo
 
-## OH_JSVM_GetTypedarrayInfo
-
-获取 TypedArray（类型化数组）对象的信息。 cpp 部分代码：
-```text
+获取 TypedArray（类型化数组）对象的信息。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetTypedarrayInfo的样例方法
 static JSVM_Value GetTypedArrayInfo(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -467,24 +563,29 @@ getTypedArrayInfo(new Int8Array(5), 2);
 getTypedArrayInfo(new Int8Array(1), 3);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM GetTypedArrayInfo success, JSVM_INT8_ARRAY: 1
 JSVM GetTypedArrayInfo success, length: 5
 JSVM GetTypedArrayInfo success, isArrayBuffer: 1
 JSVM GetTypedArrayInfo success, byteOffset: 0
 ```
+ 
+  
 
+##### OH_JSVM_GetDataviewInfo
 
-## OH_JSVM_GetDataviewInfo
-
-获取 Dataview 对象的信息。 cpp 部分代码：
-```text
+获取 Dataview 对象的信息。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetDataviewInfo的样例方法
 static JSVM_Value GetDataViewInfo(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -574,24 +675,29 @@ isarraybuffer = 2;
 getDataViewInfo(data, isarraybuffer);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM GetDataViewInfo success, byteLength: 2
 JSVM GetDataViewInfo fail
 JSVM GetDataViewInfo success, isArrayBuffer: 1
 JSVM GetDataViewInfo success, byteOffset: 0
 ```
+ 
+  
 
+##### OH_JSVM_IsArray
 
-## OH_JSVM_IsArray
-
-判断一个 JavaScript 对象是否为 Array 类型对象。 cpp 部分代码：
-```text
+判断一个 JavaScript 对象是否为 Array 类型对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_IsArray的样例方法
 static JSVM_Value IsArray(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -624,21 +730,26 @@ let data = [1, 2, 3, 4, 5];
 isArray(data);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM IsArray success, IsArray: 1
 ```
+ 
+  
 
+##### OH_JSVM_SetElement
 
-## OH_JSVM_SetElement
-
-在给定对象的指定索引处设置元素。 cpp 部分代码：
-```text
+在给定对象的指定索引处设置元素。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_SetElement的样例方法
 static int DIFF_VALUE_THREE = 3;
 static JSVM_Value SetElement(JSVM_Env env, JSVM_CallbackInfo info)
@@ -671,21 +782,26 @@ let data = [1, 2, 3, 4, 5];
 setElement(data, 3, undefined);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM SetElement success
 ```
+ 
+  
 
+##### OH_JSVM_GetElement
 
-## OH_JSVM_GetElement
-
-获取给定对象指定索引处的元素。 cpp 部分代码：
-```text
+获取给定对象指定索引处的元素。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetElement的样例方法
 static JSVM_Value GetElement(JSVM_Env env, JSVM_CallbackInfo info) {
     // 获取js侧传入的两个参数
@@ -720,21 +836,26 @@ let arr = [10, 'hello', null, true];
 getElement(arr, 3);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM GetElement success
 ```
+ 
+  
 
+##### OH_JSVM_HasElement
 
-## OH_JSVM_HasElement
-
-若给定对象的指定索引处拥有属性，获取元素。 cpp 部分代码：
-```text
+若给定对象的指定索引处拥有属性，获取元素。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_HasElement的样例方法
 static JSVM_Value HasElement(JSVM_Env env, JSVM_CallbackInfo info) {
     // 获取js侧传入的两个参数
@@ -773,22 +894,27 @@ hasElement(arr, 0);
 hasElement(arr, 4);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM hasElement: 1
 JSVM hasElement: 0
 ```
+ 
+  
 
+##### OH_JSVM_DeleteElement
 
-## OH_JSVM_DeleteElement
-
-尝试删除给定对象的指定索引处的元素。 cpp 部分代码：
-```text
+尝试删除给定对象的指定索引处的元素。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_DeleteElement的样例方法
 static JSVM_Value DeleteElement(JSVM_Env env, JSVM_CallbackInfo info) {
     // 获取js侧传入的两个参数
@@ -826,21 +952,26 @@ let arr = [10, 'hello', null, true];
 deleteElement(arr, 0);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM DeleteElement: 1
 ```
+ 
+  
 
+##### OH_JSVM_IsDataview
 
-## OH_JSVM_IsDataview
-
-判断一个 JavaScript 对象是否为 Dataview 类型对象。 cpp 部分代码：
-```text
+判断一个 JavaScript 对象是否为 Dataview 类型对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_IsDataview的样例方法
 static JSVM_Value IsDataView(JSVM_Env env, JSVM_CallbackInfo info) {
     size_t argc = 1;
@@ -874,21 +1005,26 @@ let dataView = new DataView(buffer);
 isDataView(dataView);
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM IsDataView: 1
 ```
+ 
+  
 
+##### OH_JSVM_IsTypedarray
 
-## OH_JSVM_IsTypedarray
-
-判断一个 JavaScript 对象是否为 TypedArray 类型对象。 cpp 部分代码：
-```text
+判断一个 JavaScript 对象是否为 TypedArray 类型对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_IsTypedarray的样例方法
 static JSVM_Value IsTypedarray(JSVM_Env env, JSVM_CallbackInfo info) {
     size_t argc = 1;
@@ -919,8 +1055,9 @@ const char *srcCallNative = R"JS(
 isTypedarray(new Uint16Array([1, 2, 3, 4]));
 )JS";
 ```
-
- 预计的输出结果：
+ 
+预计的输出结果：
+ 
 ```text
 JSVM IsTypedarray: 1
 ```

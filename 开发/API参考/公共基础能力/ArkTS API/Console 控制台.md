@@ -3,17 +3,16 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-logs
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了一个简单的调试控制台，类似于浏览器提供的JavaScript控制台机制。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## console.debug
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.debug
 
 static debug(message: string, ...arguments: any[]): void
 
@@ -27,7 +26,6 @@ static debug(message: string, ...arguments: any[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | message | string | 是 | 表示要打印的文本信息。 |
@@ -35,7 +33,6 @@ static debug(message: string, ...arguments: any[]): void
 
 
 **示例：**
-
 
 ```text
 const number = 5;
@@ -48,8 +45,8 @@ console.debug('count:'); // 仅打印message
 ```
 
 
-## console.log
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.log
 
 static log(message: string, ...arguments: any[]): void
 
@@ -63,7 +60,6 @@ static log(message: string, ...arguments: any[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | message | string | 是 | 表示要打印的文本信息。 |
@@ -71,7 +67,6 @@ static log(message: string, ...arguments: any[]): void
 
 
 **示例：**
-
 
 ```text
 const number = 5;
@@ -84,8 +79,8 @@ console.log('count:'); // 仅打印message
 ```
 
 
-## console.info
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.info
 
 static info(message: string, ...arguments: any[]): void
 
@@ -99,7 +94,6 @@ static info(message: string, ...arguments: any[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | message | string | 是 | 表示要打印的文本信息。 |
@@ -107,7 +101,6 @@ static info(message: string, ...arguments: any[]): void
 
 
 **示例：**
-
 
 ```text
 const number = 5;
@@ -120,8 +113,8 @@ console.info('count:'); // 仅打印message
 ```
 
 
-## console.warn
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.warn
 
 static warn(message: string, ...arguments: any[]): void
 
@@ -135,7 +128,6 @@ static warn(message: string, ...arguments: any[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | message | string | 是 | 表示要打印的警告信息。 |
@@ -143,7 +135,6 @@ static warn(message: string, ...arguments: any[]): void
 
 
 **示例：**
-
 
 ```text
 const str = "name should be string";
@@ -156,8 +147,8 @@ console.warn('warn:'); // 仅打印message
 ```
 
 
-## console.error
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.error
 
 static error(message: string, ...arguments: any[]): void
 
@@ -171,7 +162,6 @@ static error(message: string, ...arguments: any[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | message | string | 是 | 表示要打印的错误信息。 |
@@ -179,7 +169,6 @@ static error(message: string, ...arguments: any[]): void
 
 
 **示例：**
-
 
 ```text
 const str = "value is not defined";
@@ -192,8 +181,8 @@ console.error('error:'); // 仅打印message
 ```
 
 
-## console.assert10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.assert10+
 
 static assert(value?: Object, ...arguments: Object[]): void
 
@@ -205,7 +194,6 @@ static assert(value?: Object, ...arguments: Object[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Object | 否 | 语句结果值。若value为假（false）或者省略，则输出以"Assertion failed"开头。如果value为真值（true），则无打印。 |
@@ -216,14 +204,12 @@ static assert(value?: Object, ...arguments: Object[]): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 console.assert(true, 'does nothing');  // 表达式结果值为true, 无打印。
@@ -237,8 +223,8 @@ console.assert();
 ```
 
 
-## console.count10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.count10+
 
 static count(label?: string): void
 
@@ -250,7 +236,6 @@ static count(label?: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | label | string | 否 | 计数器标签名。默认值为'default'。 |
@@ -260,14 +245,12 @@ static count(label?: string): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 console.count()
@@ -285,8 +268,8 @@ console.count()
 ```
 
 
-## console.countReset10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.countReset10+
 
 static countReset(label?: string): void
 
@@ -298,7 +281,6 @@ static countReset(label?: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | label | string | 否 | 计数器标签名。默认值为'default'。 |
@@ -308,14 +290,12 @@ static countReset(label?: string): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 console.count('abc');
@@ -326,8 +306,8 @@ console.count('abc');
 ```
 
 
-## console.dir10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.dir10+
 
 static dir(dir?: Object): void
 
@@ -339,7 +319,6 @@ static dir(dir?: Object): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dir | Object | 否 | 需要打印内容的对象。省略则无任何打印。 |
@@ -347,18 +326,17 @@ static dir(dir?: Object): void
 
 **示例：**
 
-
 ```text
 class bar {
-baz: boolean = true;
+  baz: boolean = true;
 }
 let b: bar = {baz: true}
 class foo{
-bar: bar = b;
+  bar: bar = b;
 }
 let c: foo = {bar: b}
 class  c1{
-foo: foo = c;
+  foo: foo = c;
 }
 let a: c1 = {foo: c}
 console.dir(a);
@@ -368,8 +346,8 @@ console.dir(); // 无打印
 ```
 
 
-## console.dirxml10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.dirxml10+
 
 static dirxml(...arguments: Object[]): void
 
@@ -381,7 +359,6 @@ static dirxml(...arguments: Object[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arguments | Object | 否 | 要打印的信息。省略则无任何打印。 |
@@ -389,8 +366,7 @@ static dirxml(...arguments: Object[]): void
 
 **示例：**
 
-
-```text
+```xml
 const number = 5;
 console.dirxml('count: %d', number);
 // count: 5
@@ -401,8 +377,8 @@ console.dirxml('count:');
 ```
 
 
-## console.group10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.group10+
 
 static group(...arguments: Object[]): void
 
@@ -416,14 +392,12 @@ static group(...arguments: Object[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arguments | Object | 否 | 要打印的信息。省略则仅打印两个空格。 |
 
 
 **示例：**
-
 
 ```text
 console.info("outer");
@@ -438,8 +412,8 @@ console.info("level 2");
 ```
 
 
-## console.groupCollapsed10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.groupCollapsed10+
 
 static groupCollapsed(...arguments: Object[]): void
 
@@ -451,14 +425,12 @@ static groupCollapsed(...arguments: Object[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arguments | Object | 否 | 要打印的信息。省略则仅打印两个空格。 |
 
 
 **示例：**
-
 
 ```text
 console.groupCollapsed("outer");
@@ -473,8 +445,8 @@ console.info("level 2");
 ```
 
 
-## console.groupEnd10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.groupEnd10+
 
 static groupEnd(): void
 
@@ -485,7 +457,6 @@ static groupEnd(): void
 **系统能力：** SystemCapability.Utils.Lang
 
 **示例：**
-
 
 ```text
 console.info("outer");
@@ -499,8 +470,8 @@ console.info("outer");
 ```
 
 
-## console.table10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.table10+
 
 static table(tableData?: Object): void
 
@@ -512,14 +483,12 @@ static table(tableData?: Object): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tableData | Object | 否 | 要打印为表格形式的对象。省略则无任何打印。 |
 
 
 **示例：**
-
 
 ```text
 console.table([1, 2, 3]);
@@ -543,8 +512,8 @@ console.table({ a: [1, 2, 3, 4, 5], b: 5, c: { e: 5 } });
 ```
 
 
-## console.time10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.time10+
 
 static time(label?: string): void
 
@@ -556,7 +525,6 @@ static time(label?: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | label | string | 否 | 计时器标识。默认值为'default'。 |
@@ -566,7 +534,6 @@ static time(label?: string): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -574,14 +541,13 @@ static time(label?: string): void
 
 **示例：**
 
-
 ```text
 console.time('abc');
 ```
 
 
-## console.timeEnd10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.timeEnd10+
 
 static timeEnd(label?: string): void
 
@@ -593,7 +559,6 @@ static timeEnd(label?: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | label | string | 否 | 计时器标识。默认值为'default'。 |
@@ -603,14 +568,12 @@ static timeEnd(label?: string): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 console.time('abc');
@@ -619,8 +582,8 @@ console.timeEnd('abc');
 ```
 
 
-## console.timeLog10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.timeLog10+
 
 static timeLog(label?: string, ...arguments: Object[]): void
 
@@ -632,7 +595,6 @@ static timeLog(label?: string, ...arguments: Object[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | label | string | 否 | 计时器标识。默认值为'default'。 |
@@ -643,14 +605,12 @@ static timeLog(label?: string, ...arguments: Object[]): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
-
 
 ```text
 console.time('timer1');
@@ -661,8 +621,8 @@ console.timeEnd('timer1');
 ```
 
 
-## console.trace10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.trace10+
 
 static trace(...arguments: Object[]): void
 
@@ -674,14 +634,12 @@ static trace(...arguments: Object[]): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | arguments | Object | 否 | 需要打印的其他日志。省略则仅打印堆栈信息。 |
 
 
 **示例：**
-
 
 ```text
 console.trace();
@@ -693,8 +651,8 @@ console.trace("Show the trace");
 ```
 
 
-## console.traceHybridStack12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### console.traceHybridStack12+
 
 static traceHybridStack(): void
 
@@ -706,8 +664,7 @@ static traceHybridStack(): void
 
 **示例：**
 
-
-```ts
+```text
 console.traceHybridStack();
 // TraceHybridStack:
 //     xxxxxxxxxx(当前线程混合堆栈信息)

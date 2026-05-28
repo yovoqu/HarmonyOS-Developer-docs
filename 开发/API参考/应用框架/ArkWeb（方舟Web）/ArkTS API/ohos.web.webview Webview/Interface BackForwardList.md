@@ -3,25 +3,26 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-backforwardlist
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当前Webview的历史信息列表。
 
+> [!NOTE]
+> 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Interface首批接口从API version 9开始支持。 示例效果请以真机运行为准。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { webview } from '@kit.ArkWeb';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Web.Webview.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -29,8 +30,9 @@ import { webview } from '@kit.ArkWeb';
 | size | number | 否 | 否 | 历史列表中索引的数量，最多保存50条，超过时起始记录会被覆盖。 |
 
 
-## getItemAtIndex
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### getItemAtIndex
 
 getItemAtIndex(index: number): HistoryItem
 
@@ -40,7 +42,6 @@ getItemAtIndex(index: number): HistoryItem
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定历史列表中的索引。 |
@@ -48,16 +49,14 @@ getItemAtIndex(index: number): HistoryItem
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [HistoryItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-i#historyitem) | 历史记录项。 |
+| HistoryItem | 历史记录项。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -66,8 +65,7 @@ getItemAtIndex(index: number): HistoryItem
 
 **示例：**
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -82,16 +80,16 @@ struct WebComponent {
   build() {
     Column() {
       Button('getBackForwardEntries')
-      .onClick(() => {
-        try {
-          let list = this.controller.getBackForwardEntries();
-          let historyItem = list.getItemAtIndex(list.currentIndex);
-          console.info("HistoryItem: " + JSON.stringify(historyItem));
-          this.icon = historyItem.icon;
-        } catch (error) {
-          console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
-        }
-      })
+        .onClick(() => {
+          try {
+            let list = this.controller.getBackForwardEntries();
+            let historyItem = list.getItemAtIndex(list.currentIndex);
+            console.info("HistoryItem: " + JSON.stringify(historyItem));
+            this.icon = historyItem.icon;
+          } catch (error) {
+            console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
+          }
+        })
       Web({ src: 'www.example.com', controller: this.controller })
     }
   }

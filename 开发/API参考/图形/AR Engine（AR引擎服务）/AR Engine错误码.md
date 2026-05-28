@@ -3,16 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code
-**支持设备：** Phone / Tablet / TV
-
+**支持设备：** Phone | Tablet | TV
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-> 若您的问题仍无法解决，请选择[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)提交问题，华为支持人员会及时处理。
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。 若您的问题仍无法解决，请选择 在线提单 提交问题，华为支持人员会及时处理。
 
 
-## 1009200001 接口调用失败状态
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200001 接口调用失败状态
 
 **错误信息**
 
@@ -31,7 +29,8 @@ API接口调用失败。
 请重启应用，如不能解决可[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)，华为支持人员会及时处理。
 
 
-## 1009200002 会话已暂停状态
+
+##### 1009200002 会话已暂停状态
 
 **错误信息**
 
@@ -50,7 +49,8 @@ Session paused.
 可调用[HMS_AREngine_ARSession_Resume](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_resume)重新开始会话。
 
 
-## 1009200003 会话未暂停状态
+
+##### 1009200003 会话未暂停状态
 
 **错误信息**
 
@@ -69,7 +69,8 @@ Session not paused.
 可调用[HMS_AREngine_ARSession_Pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_pause)暂停当前会话。
 
 
-## 1009200004 未跟踪状态
+
+##### 1009200004 未跟踪状态
 
 **错误信息**
 
@@ -88,7 +89,8 @@ Not tracking.
 查询当前会话对象（[AREngine_ARSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_arsession)类型对象）是否为空。
 
 
-## 1009200005 未设置纹理状态
+
+##### 1009200005 未设置纹理状态
 
 **错误信息**
 
@@ -107,7 +109,8 @@ Texture not set.
 查看是否使用[HMS_AREngine_ARSession_SetCameraGLTexture()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_setcameragltexture)接口设置正确的GL纹理。
 
 
-## 1009200006 缺少GL上下文状态
+
+##### 1009200006 缺少GL上下文状态
 
 **错误信息**
 
@@ -126,8 +129,8 @@ GL context missing.
 检查[HMS_AREngine_ARSession_Update()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsession_update)接口是否在OpenGL渲染线程下调用。
 
 
-## 1009200007 不支持的配置状态
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200007 不支持的配置状态
 
 **错误信息**
 
@@ -146,8 +149,8 @@ AR Engine不支持当前配置。
 查看预览尺寸是否支持，可调用[OH_CameraManager_GetSupportedCameraOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_getsupportedcameraoutputcapability)查看。
 
 
-## 1009200008 资源耗尽状态
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200008 资源耗尽状态
 
 **错误信息**
 
@@ -166,8 +169,8 @@ Resource exhausted.
 检查内存是否充足，如内存不足，可提示用户清理内存；如内存充足场景，可[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)，华为支持人员会及时处理。
 
 
-## 1009200009 服务不可用状态
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200009 服务不可用状态
 
 **错误信息**
 
@@ -186,8 +189,8 @@ Service unavailable.
 查看当前设备是否在[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)中，如设备满足要求，可[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)，华为支持人员会及时处理。
 
 
-## 1009200010 相机不可用
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200010 相机不可用
 
 **错误信息**
 
@@ -206,8 +209,8 @@ Camera unavailable.
 排查应用在使用AR Engine时，是否存在其他打开相机场景，如不存在，可[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)，华为支持人员会及时处理。
 
 
-## 1009200011 添加的图片数量超过最大数量
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200011 添加的图片数量超过最大数量
 
 **错误信息**
 
@@ -224,16 +227,14 @@ The number of images added exceeds the maximum.
 **处理步骤**
 
 排查应用在添加图像到跟踪图像数据库是否超过最大数量限制。
-
-
 1. 如果使用ArkTS开发，最大数量限制可以通过[ARAugmentedImageDatabase.getCapacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#araugmentedimagedatabasegetcapacity)获取，数据库中已经存储的图像数量可通过[ARAugmentedImageDatabase.getImageCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#araugmentedimagedatabasegetimagecount)获取。
 2. 如果使用C/C++开发，最大数量限制可以通过[HMS_AREngine_ARAugmentedImageDatabase_GetCapacity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_getcapacity)获取，数据库中已经存储的图像数量可通过[HMS_AREngine_ARAugmentedImageDatabase_GetImageCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_araugmentedimagedatabase_getimagecount)获取。
 
 如符合要求，可[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)，华为支持人员会及时处理。
 
 
-## 1009200012 将质量不足的图像添加到图像数据库中
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200012 将质量不足的图像添加到图像数据库中
 
 **错误信息**
 
@@ -252,7 +253,8 @@ Attempted to add an image with insufficient quality to the image database.
 排查应用是否将质量不足的图像添加到图像数据库中，可以参考[ARAddAugmentedImageReason](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#araddaugmentedimagereason)，如符合要求，可[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)，华为支持人员会及时处理。
 
 
-## 1009200013 没有有效的图像数据库
+
+##### 1009200013 没有有效的图像数据库
 
 **错误信息**
 
@@ -273,7 +275,8 @@ No valid image database.
 如符合要求，可[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/)，华为支持人员会及时处理。
 
 
-## 1009200014 跟踪状态正在运行时无法添加图片
+
+##### 1009200014 跟踪状态正在运行时无法添加图片
 
 **错误信息**
 
@@ -292,7 +295,8 @@ The pictures cannot be added when the tracking state is running.
 检查[AREngine_ARTrackingState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#arengine_artrackingstate)状态，置为ARENGINE_TRACKING_STATE_PAUSED或者ARENGINE_TRACKING_STATE_STOPPED。
 
 
-## 1009200015 创建nativeBuffer失败
+
+##### 1009200015 创建nativeBuffer失败
 
 **错误信息**
 
@@ -311,7 +315,8 @@ Failed to create nativeBuffer.
 检查设备内存状态，确保有可用堆内存，如有空闲内存仍然报错，可重启设备。
 
 
-## 1009200016 无法写入nativeBuffer
+
+##### 1009200016 无法写入nativeBuffer
 
 **错误信息**
 
@@ -330,7 +335,8 @@ Failed to write nativeBuffer.
 检查设备内存状态，确保有可用堆内存，如有空闲内存仍然报错，可重启设备。
 
 
-## 1009200017 相机服务异常
+
+##### 1009200017 相机服务异常
 
 **错误信息**
 
@@ -349,8 +355,8 @@ The camera service is abnormal.
 相机内部错误，出现的情况不明确，建议尝试重新创建业务。
 
 
-## 1009200201 非法操作状态
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200201 非法操作状态
 
 **错误信息**
 
@@ -369,8 +375,8 @@ ARViewContext已初始化后重复进行config/callBack等相关设置。
 请参考[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)示例代码，是否按照示例代码使用。
 
 
-## 1009200202 缺少AR呈现场景
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200202 缺少AR呈现场景
 
 **错误信息**
 
@@ -389,8 +395,8 @@ ARViewContext初始化时未提前设置AR呈现场景 - [ARViewContext.scene](h
 在[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)初始化之前先进行AR呈现场景设置，可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)。
 
 
-## 1009200203 ARViewContext.config未配置
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200203 ARViewContext.config未配置
 
 **错误信息**
 
@@ -409,8 +415,8 @@ ARViewContext初始化时未提前设置config - ARViewContext.config。
 在[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)初始化之前先进行config配置，可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)。
 
 
-## 1009200204 AR会话初始化失败
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200204 AR会话初始化失败
 
 **错误信息**
 
@@ -429,8 +435,8 @@ AR会话初始化失败。
 排查相关接口调用返回错误码信息，根据提示进行重新设置。
 
 
-## 1009200205 AR场景相机节点创建失败
-**支持设备：** Phone / Tablet / TV
+
+##### 1009200205 AR场景相机节点创建失败
 
 **错误信息**
 

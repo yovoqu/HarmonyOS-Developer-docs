@@ -4,21 +4,42 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-fido
 
-## 场景介绍
+##### 场景介绍
 
-开通FIDO免密身份认证功能，使用用户已有的生物特征开通FIDO免密身份认证能力。 使用FIDO免密身份认证功能，使用用户已开通的生物特征进行FIDO免密身份认证。 关闭FIDO免密身份认证功能，使用用户已开通的生物特征注销FIDO免密身份认证能力。
+ - 开通FIDO免密身份认证功能，使用用户已有的生物特征开通FIDO免密身份认证能力。
+ - 使用FIDO免密身份认证功能，使用用户已开通的生物特征进行FIDO免密身份认证。
+ - 关闭FIDO免密身份认证功能，使用用户已开通的生物特征注销FIDO免密身份认证能力。
 
-## 基本概念
 
-在开发FIDO免密身份认证功能前，开发者应了解以下基本概念： FIDO协议 FIDO（Fast Identity Online）是一套身份认证框架协议，它由FIDO联盟推出并持续维护。FIDO规范定义了一套在线身份认证的技术架构。 UAF身份认证框架 UAF（Universal Authentication Framework）意为通用身份认证框架，目的是通过生物识别（如指纹识别）和加密技术方式，为用户提供无密码的身份认证体验。
 
-## 相关权限
+
+##### 基本概念
+
+在开发FIDO免密身份认证功能前，开发者应了解以下基本概念：
+
+ - FIDO协议
+
+  FIDO（Fast Identity Online）是一套身份认证框架协议，它由FIDO联盟推出并持续维护。FIDO规范定义了一套在线身份认证的技术架构。
+ - UAF身份认证框架
+
+  UAF（Universal Authentication Framework）意为通用身份认证框架，目的是通过生物识别（如指纹识别）和加密技术方式，为用户提供无密码的身份认证体验。
+
+
+
+
+##### 相关权限
 
 获取生物识别权限：ohos.permission.ACCESS_BIOMETRIC。
 
-## 约束与限制
 
-需满足以下条件，才能使用该功能。 移动端设备需要支持生物特征（指纹/3D人脸），查询当前移动端设备是否支持ATL4级别的认证可信等级。
+
+##### 约束与限制
+
+需满足以下条件，才能使用该功能。
+
+ - 移动端设备需要支持生物特征（指纹/3D人脸），查询当前移动端设备是否支持ATL4级别的认证可信等级。
+
+  
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { userAuth } from '@kit.UserAuthenticationKit';
@@ -33,32 +54,49 @@ try {
 }
 ```
 
-FIDO服务需要联网，以便提供完整的在线身份校验服务。应用在调用本服务API前，需将FIDO服务联网行为向用户明示，并且取得用户同意。
+ - FIDO服务需要联网，以便提供完整的在线身份校验服务。应用在调用本服务API前，需将FIDO服务联网行为向用户明示，并且取得用户同意。
 
-## 业务流程
+
+
+
+##### 业务流程
+
 
 ![](assets/FIDO免密身份认证/file-20260514131154602-0.png)
 
-## 接口说明
 
-业务进行FIDO免密身份认证功能的开通、使用和关闭。 **表1** FIDO免密身份认证接口功能介绍
+
+
+##### 接口说明
+
+业务进行FIDO免密身份认证功能的开通、使用和关闭。
+
+**表1** FIDO免密身份认证接口功能介绍
+
 | 接口名 | 描述 |
 | --- | --- |
-| [discover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#discover)(context: common.Context): Promise | 发现设备的认证能力，返回当前设备软件支持的认证器数据。 |
-| [checkPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#checkpolicy)(context: common.Context, uafRequest: [UAFMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#uafmessage)): Promise | 检测用户策略的开启状态。 |
-| [processUAFOperation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#processuafoperation)(context: common.Context, uafRequest: [UAFMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#uafmessage), channelBindings?: [ChannelBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#channelbinding)): Promise | 用户UAF操作接口，处理UAF协议消息。 |
-| [notifyUAFResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#notifyuafresult)(context: common.Context, uafResponse: [UAFMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api#uafmessage)): Promise | 开通结果通知接口。 |
+| discover(context: common.Context): Promise&lt;DiscoveryData&gt; | 发现设备的认证能力，返回当前设备软件支持的认证器数据。 |
+| checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void&gt; | 检测用户策略的开启状态。 |
+| processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBindings?: ChannelBinding): Promise&lt;UAFMessage&gt; | 用户UAF操作接口，处理UAF协议消息。 |
+| notifyUAFResult(context: common.Context, uafResponse: UAFMessage): Promise&lt;void&gt; | 开通结果通知接口。 |
 
 
-## 开发步骤
 
-需要业务方自行根据FIDO标准协议部署FIDO服务器。 导入相关模块。
+
+##### 开发步骤
+1. 需要业务方自行根据FIDO标准协议部署FIDO服务器。
+2. 导入相关模块。
+
+  
 ```text
 import { fido } from '@kit.OnlineAuthenticationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-开通FIDO免密身份认证。 初始化认证器信息。
+3. 开通FIDO免密身份认证。
+
+  
+ - 初始化认证器信息。         
 ```text
 @Entry
 @Component
@@ -83,7 +121,8 @@ struct FidoInvokePage {
 }
 ```
 
-访问FIDO服务端，获取策略检查报文，检查用户开通状态。
+
+4. 访问FIDO服务端，获取策略检查报文，检查用户开通状态。         
 ```text
 // uafMessage为FIDO服务端获取的策略检查报文
 let uafAuthMessage: fido.UAFMessage = {
@@ -109,7 +148,8 @@ if (isRegistered) {
 }
 ```
 
-访问FIDO服务端，获取注册报文，调用processUAFOperation接口进行FIDO注册。
+
+5. 访问FIDO服务端，获取注册报文，调用processUAFOperation接口进行FIDO注册。         
 ```text
 // regMessage为从FIDO服务端获取的注册报文
 let uafRegMessage: fido.UAFMessage = {
@@ -131,7 +171,8 @@ try {
 }
 ```
 
-发送注册响应报文至FIDO服务端进行验证并获取注册结果报文。
+
+6. 发送注册响应报文至FIDO服务端进行验证并获取注册结果报文。         
 ```text
 // notifyMessage为从FIDO服务端获取的注册结果报文
 let notifyMessage: string = '';
@@ -144,7 +185,8 @@ let notifyUafMessage: fido.UAFMessage = {
 };
 ```
 
-调用notifyUAFResult进行注册结果通知。
+
+7. 调用notifyUAFResult进行注册结果通知。         
 ```text
 try {
   // 调用notifyUAFResult进行注册结果通知
@@ -158,7 +200,9 @@ try {
 }
 ```
 
-使用FIDO免密身份认证。 初始化认证器信息（如果已执行过初始化操作，则无需重复执行）。
+ - 使用FIDO免密身份认证。
+
+1. 初始化认证器信息（如果已执行过初始化操作，则无需重复执行）。         
 ```text
 // 获取当前界面的context
 try {
@@ -171,7 +215,8 @@ try {
 }
 ```
 
-访问FIDO服务端，获取策略检查报文，检查用户开启状态。
+
+2. 访问FIDO服务端，获取策略检查报文，检查用户开启状态。         
 ```text
 // uafMessage为从FIDO服务器获取的策略检查报文
 let uafAuthMessage: fido.UAFMessage = {
@@ -197,7 +242,8 @@ if (isRegistered) {
 }
 ```
 
-访问FIDO服务端，获取认证报文，调用processUAFOperation接口进行FIDO认证。
+
+3. 访问FIDO服务端，获取认证报文，调用processUAFOperation接口进行FIDO认证。         
 ```text
 // regMessage为从FIDO服务器获取的认证报文
 let uafRegMessage: fido.UAFMessage = {
@@ -220,7 +266,9 @@ try {
  // 发送认证响应报文至FIDO服务端进行验证并返回认证结果
 ```
 
-关闭FIDO免密身份认证。 初始化认证器信息（如果已执行过初始化操作，则无需重复执行）。
+ - 关闭FIDO免密身份认证。
+
+1. 初始化认证器信息（如果已执行过初始化操作，则无需重复执行）。         
 ```text
 try {
   // 调用discover方法初始化认证器信息
@@ -232,7 +280,8 @@ try {
 }
 ```
 
-访问FIDO服务端，获取注销报文，调用processUAFOperation接口进行FIDO注销。
+
+2. 访问FIDO服务端，获取注销报文，调用processUAFOperation接口进行FIDO注销。         
 ```text
 // deregMessage为从FIDO服务器获取的注销报文
 let uafRegMessage: fido.UAFMessage = {

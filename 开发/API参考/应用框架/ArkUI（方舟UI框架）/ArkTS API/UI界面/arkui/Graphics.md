@@ -3,38 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-graphics
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 自定义节点相关属性定义的详细信息。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
-import {
-  DrawContext,
-  Size,
-  Offset,
-  Position,
-  Pivot,
-  Scale,
-  Translation,
-  Matrix4,
-  Rotation,
-  Frame,
-  LengthMetricsUnit,
-} from '@kit.ArkUI';
+```text
+import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, LengthMetricsUnit } from "@kit.ArkUI";
 ```
 
 
-## Size
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Size
 
 用于返回组件布局大小的宽和高。默认单位为vp，不同的接口使用Size类型时会再定义单位，以接口定义的单位为准。
 
@@ -42,15 +28,15 @@ import {
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| width | number | 否 | 否 | 组件大小的宽度。          单位：vp          取值范围：[0, +∞) |
-| height | number | 否 | 否 | 组件大小的高度。          单位：vp          取值范围：[0, +∞) |
+| width | number | 否 | 否 | 组件大小的宽度。 单位：vp 取值范围：[0, +∞) |
+| height | number | 否 | 否 | 组件大小的高度。 单位：vp 取值范围：[0, +∞) |
 
 
-## Position
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Position
 
 type Position = Vector2
 
@@ -60,16 +46,16 @@ type Position = Vector2
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Vector2](#vector2) | 包含x和y两个值的向量。          单位：vp |
+| Vector2 | 包含x和y两个值的向量。 单位：vp |
 
 
-## PositionT12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type PositionT<T> = Vector2T<T>
+
+##### PositionT12+
+
+type PositionT&lt;T&gt; = Vector2T&lt;T&gt;
 
 用于设置或返回组件的位置。
 
@@ -77,14 +63,14 @@ type PositionT<T> = Vector2T<T>
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Vector2T&lt;T&gt;](#vector2tt12) | 包含x和y两个值的向量。          单位：vp |
+| Vector2T&lt;T&gt; | 包含x和y两个值的向量。 单位：vp |
 
 
-## Frame
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Frame
 
 用于设置或返回组件的布局大小和位置。
 
@@ -92,17 +78,17 @@ type PositionT<T> = Vector2T<T>
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| x | number | 否 | 否 | 水平方向位置。          单位：vp          取值范围：(-∞, +∞) |
-| y | number | 否 | 否 | 垂直方向位置。          单位：vp          取值范围：(-∞, +∞) |
-| width | number | 否 | 否 | 组件的宽度。          单位：vp          取值范围：[0, +∞) |
-| height | number | 否 | 否 | 组件的高度。          单位：vp          取值范围：[0, +∞) |
+| x | number | 否 | 否 | 水平方向位置。 单位：vp 取值范围：(-∞, +∞) |
+| y | number | 否 | 否 | 垂直方向位置。 单位：vp 取值范围：(-∞, +∞) |
+| width | number | 否 | 否 | 组件的宽度。 单位：vp 取值范围：[0, +∞) |
+| height | number | 否 | 否 | 组件的高度。 单位：vp 取值范围：[0, +∞) |
 
 
-## Pivot
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Pivot
 
 type Pivot = Vector2
 
@@ -112,14 +98,14 @@ type Pivot = Vector2
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Vector2](#vector2) | 轴心的x和y轴坐标。该参数为浮点数，默认值为0.5， 取值范围为[0.0, 1.0]。 |
+| Vector2 | 轴心的x和y轴坐标。该参数为浮点数，默认值为0.5， 取值范围为[0.0, 1.0]。 |
 
 
-## Scale
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Scale
 
 type Scale = Vector2
 
@@ -129,14 +115,14 @@ type Scale = Vector2
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Vector2](#vector2) | x和y轴的缩放参数。该参数为浮点数，默认值为1.0。 |
+| Vector2 | x和y轴的缩放参数。该参数为浮点数，默认值为1.0。 |
 
 
-## Translation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Translation
 
 type Translation = Vector2
 
@@ -146,14 +132,14 @@ type Translation = Vector2
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Vector2](#vector2) | x和y轴的平移量。          单位：px |
+| Vector2 | x和y轴的平移量。 单位：px |
 
 
-## Rotation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Rotation
 
 type Rotation = Vector3
 
@@ -163,14 +149,14 @@ type Rotation = Vector3
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Vector3](#vector3) | x、y、z轴方向的旋转角度。          单位：度 |
+| Vector3 | x、y、z轴方向的旋转角度。 单位：度 |
 
 
-## Offset
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Offset
 
 type Offset = Vector2
 
@@ -180,14 +166,14 @@ type Offset = Vector2
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Vector2](#vector2) | x和y轴方向的偏移量。          单位：vp |
+| Vector2 | x和y轴方向的偏移量。 单位：vp |
 
 
-## Matrix4
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Matrix4
 
 type Matrix4 = [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number]
 
@@ -197,22 +183,25 @@ type Matrix4 = [number,number,number,number,number,number,number,number,number,n
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [number,number,number,number,          number,number,number,number,          number,number,number,number,          number,number,number,number] | 参数为长度为16（4*4）的number数组。          各number取值范围：(-∞, +∞) |
+| [number,number,number,number, number,number,number,number, number,number,number,number, number,number,number,number] | 参数为长度为16（4*4）的number数组。 各number取值范围：(-∞, +∞) |
 
 
 用于设置组件的变换信息，该类型为一个 4x4 矩阵，使用一个长度为16的number[]进行表示，例如：
 
-
-```ts
-const transform: Matrix4 = [1, 0, 45, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+```text
+const transform: Matrix4 = [
+  1, 0, 45, 0,
+  0, 1,  0, 0,
+  0, 0,  1, 0,
+  0, 0,  0, 1
+]
 ```
 
 
-## Vector2
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Vector2
 
 用于表示包含x和y两个值的向量。
 
@@ -220,15 +209,15 @@ const transform: Matrix4 = [1, 0, 45, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| x | number | 否 | 否 | 向量x轴方向的值。          取值范围：(-∞, +∞) |
-| y | number | 否 | 否 | 向量y轴方向的值。          取值范围：(-∞, +∞) |
+| x | number | 否 | 否 | 向量x轴方向的值。 取值范围：(-∞, +∞) |
+| y | number | 否 | 否 | 向量y轴方向的值。 取值范围：(-∞, +∞) |
 
 
-## Vector3
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Vector3
 
 用于表示包含x、y、z三个值的向量。
 
@@ -236,16 +225,16 @@ const transform: Matrix4 = [1, 0, 45, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| x | number | 否 | 否 | x轴方向的旋转角度。          取值范围：(-∞, +∞) |
-| y | number | 否 | 否 | y轴方向的旋转角度。          取值范围：(-∞, +∞) |
-| z | number | 否 | 否 | z轴方向的旋转角度。          取值范围：(-∞, +∞) |
+| x | number | 否 | 否 | x轴方向的旋转角度。 取值范围：(-∞, +∞) |
+| y | number | 否 | 否 | y轴方向的旋转角度。 取值范围：(-∞, +∞) |
+| z | number | 否 | 否 | z轴方向的旋转角度。 取值范围：(-∞, +∞) |
 
 
-## Vector2T&lt;T&gt;12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Vector2T&lt;T&gt;12+
 
 用于表示T类型的包含x和y两个值的向量。
 
@@ -253,21 +242,21 @@ const transform: Matrix4 = [1, 0, 45, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | x | T | 否 | 否 | 向量x轴方向的值。 |
 | y | T | 否 | 否 | 向量y轴方向的值。 |
 
 
-## DrawContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DrawContext
 
 图形绘制上下文，提供绘制所需的画布宽度和高度。
 
 
-### size
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### size
 
 get size(): Size
 
@@ -279,14 +268,14 @@ get size(): Size
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Size](#size) | 画布的宽度和高度。 |
+| Size | 画布的宽度和高度。 |
 
 
-### sizeInPixel12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### sizeInPixel12+
 
 get sizeInPixel(): Size
 
@@ -298,14 +287,14 @@ get sizeInPixel(): Size
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Size](#size) | 画布的宽度和高度，以px为单位。 |
+| Size | 画布的宽度和高度，以px为单位。 |
 
 
-### canvas
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### canvas
 
 get canvas(): drawing.Canvas
 
@@ -317,16 +306,14 @@ get canvas(): drawing.Canvas
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [drawing.Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas) | 用于绘制的画布。 |
+| drawing.Canvas | 用于绘制的画布。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, DrawContext } from "@kit.ArkUI";
 
 class MyRenderNode extends RenderNode {
@@ -371,18 +358,19 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-0.png)
+
+![](assets/Graphics/file-20260514163848928-1.png)
 
 
-## Edges&lt;T&gt;12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Edges&lt;T&gt;12+
 
 用于设置边框的属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -392,15 +380,15 @@ struct Index {
 | bottom | T | 否 | 否 | 底部边框的属性。 |
 
 
-## LengthUnit12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### LengthUnit12+
 
 长度属性单位枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -411,8 +399,9 @@ struct Index {
 | LPX | 4 | 长度类型，用于描述以lpx像素单位为单位的长度。 |
 
 
-## SizeT&lt;T&gt;12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SizeT&lt;T&gt;12+
 
 用于设置宽高的属性。
 
@@ -420,15 +409,15 @@ struct Index {
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | width | T | 否 | 否 | 宽度的属性。 |
 | height | T | 否 | 否 | 高度的属性。 |
 
 
-## LengthMetricsUnit12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### LengthMetricsUnit12+
 
 长度属性单位枚举。
 
@@ -436,35 +425,35 @@ struct Index {
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEFAULT | 0 | 长度类型，用于描述以默认的vp像素单位为单位的长度。 |
 | PX | 1 | 长度类型，用于描述以px像素单位为单位的长度。 |
 
 
-## LengthMetrics12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### LengthMetrics12+
 
 用于设置长度属性，当长度单位为PERCENT时，值为1表示100%。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | number | 否 | 否 | 长度属性的值。 |
-| unit | [LengthUnit](#lengthunit12) | 否 | 否 | 长度属性的单位，默认为VP。 |
+| unit | LengthUnit | 否 | 否 | 长度属性的单位，默认为VP。 |
 
 
-### constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor12+
 
 constructor(value: number, unit?: LengthUnit)
 
@@ -476,15 +465,15 @@ LengthMetrics的构造函数。若参数unit不传入值或传入undefined，返
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 长度属性的值。          取值范围：[0, +∞) |
-| unit | [LengthUnit](#lengthunit12) | 否 | 长度属性的单位。 |
+| value | number | 是 | 长度属性的值。 取值范围：[0, +∞) |
+| unit | LengthUnit | 否 | 长度属性的单位。 |
 
 
-### px12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### px12+
 
 static px(value: number): LengthMetrics
 
@@ -496,22 +485,21 @@ static px(value: number): LengthMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 长度属性的值。          取值范围：(-∞, +∞) |
+| value | number | 是 | 长度属性的值。 取值范围：(-∞, +∞) |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LengthMetrics](#lengthmetrics12) | LengthMetrics 类的实例。 |
+| LengthMetrics | LengthMetrics 类的实例。 |
 
 
-### vp12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### vp12+
 
 static vp(value: number): LengthMetrics
 
@@ -523,22 +511,21 @@ static vp(value: number): LengthMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 长度属性的值。          取值范围：(-∞, +∞) |
+| value | number | 是 | 长度属性的值。 取值范围：(-∞, +∞) |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LengthMetrics](#lengthmetrics12) | LengthMetrics 类的实例。 |
+| LengthMetrics | LengthMetrics 类的实例。 |
 
 
-### fp12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### fp12+
 
 static fp(value: number): LengthMetrics
 
@@ -550,22 +537,21 @@ static fp(value: number): LengthMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 长度属性的值。          取值范围：(-∞, +∞) |
+| value | number | 是 | 长度属性的值。 取值范围：(-∞, +∞) |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LengthMetrics](#lengthmetrics12) | LengthMetrics 类的实例。 |
+| LengthMetrics | LengthMetrics 类的实例。 |
 
 
-### percent12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### percent12+
 
 static percent(value: number): LengthMetrics
 
@@ -577,22 +563,21 @@ static percent(value: number): LengthMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 长度属性的值。          取值范围：[0, 1] |
+| value | number | 是 | 长度属性的值。 取值范围：[0, 1] |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LengthMetrics](#lengthmetrics12) | LengthMetrics 类的实例。 |
+| LengthMetrics | LengthMetrics 类的实例。 |
 
 
-### lpx12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### lpx12+
 
 static lpx(value: number): LengthMetrics
 
@@ -604,22 +589,21 @@ static lpx(value: number): LengthMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 长度属性的值。          取值范围：(-∞, +∞) |
+| value | number | 是 | 长度属性的值。 取值范围：(-∞, +∞) |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LengthMetrics](#lengthmetrics12) | LengthMetrics 类的实例。 |
+| LengthMetrics | LengthMetrics 类的实例。 |
 
 
-### resource12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### resource12+
 
 static resource(value: Resource): LengthMetrics
 
@@ -631,7 +615,6 @@ static resource(value: Resource): LengthMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | Resource | 是 | 长度属性的值。 |
@@ -639,18 +622,16 @@ static resource(value: Resource): LengthMetrics
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [LengthMetrics](#lengthmetrics12) | LengthMetrics 类的实例。 |
+| LengthMetrics | LengthMetrics 类的实例。 |
 
 
 **示例：**
 
 使用LengthMetrics设置Row的padding和margin属性。
 
-
-```ts
+```text
 import { LengthMetrics, LengthUnit } from '@kit.ArkUI';
 
 @Entry
@@ -659,14 +640,14 @@ struct SizeExample {
   build() {
     Column({ space: 10 }) {
       Text('margin and padding:')
-      .fontSize(12)
-      .fontColor(0xCCCCCC)
-      .width('90%')
+        .fontSize(12)
+        .fontColor(0xCCCCCC)
+        .width('90%')
       Row() {
         Row() {
           Row()
-          .size({ width: '100%', height: '100%' })
-          .backgroundColor('#ffd5d5d5')
+            .size({ width: '100%', height: '100%' })
+            .backgroundColor('#ffd5d5d5')
         }
         .width(80)
         .height(80)
@@ -692,19 +673,21 @@ struct SizeExample {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-1.png)
+
+![](assets/Graphics/file-20260514163848928-10.png)
 
 
-## ColorMetrics12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ColorMetrics12+
 
 用于混合颜色。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### numeric12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### numeric12+
 
 static numeric(value: number): ColorMetrics
 
@@ -716,22 +699,21 @@ static numeric(value: number): ColorMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | HEX格式颜色。          取值范围：支持rgb或者argb |
+| value | number | 是 | HEX格式颜色。 取值范围：支持rgb或者argb |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorMetrics](#colormetrics12) | ColorMetrics 类的实例。 |
+| ColorMetrics | ColorMetrics 类的实例。 |
 
 
-### rgba12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### rgba12+
 
 static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics
 
@@ -743,25 +725,24 @@ static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetr
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | red | number | 是 | 颜色的R分量（红色），值是0~255的整数。 |
 | green | number | 是 | 颜色的G分量（绿色），值是0~255的整数。 |
 | blue | number | 是 | 颜色的B分量（蓝色），值是0~255的整数。 |
-| alpha | number | 否 | 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。          说明： alpha小于0为全透明，大于1为不透明。 |
+| alpha | number | 否 | 颜色的A分量（透明度），值是0.0~1.0的浮点数，默认值为1.0，不透明。 说明： alpha小于0为全透明，大于1为不透明。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorMetrics](#colormetrics12) | ColorMetrics 类的实例。 |
+| ColorMetrics | ColorMetrics 类的实例。 |
 
 
-### colorWithSpace20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### colorWithSpace20+
 
 static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: number, alpha?: number): ColorMetrics
 
@@ -773,10 +754,9 @@ static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| colorSpace | [ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#colorspace20) | 是 | 颜色空间，用于指定颜色的色彩空间。使用ColorSpace.DISPLAY_P3，需要对应窗口调用[setWindowColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowcolorspace9-1)接口，将当前窗口设置为广色域模式。 |
+| colorSpace | ColorSpace | 是 | 颜色空间，用于指定颜色的色彩空间。使用ColorSpace.DISPLAY_P3，需要对应窗口调用setWindowColorSpace接口，将当前窗口设置为广色域模式。 |
 | red | number | 是 | 颜色的R分量（红色），值是0~1的浮动数值。 |
 | green | number | 是 | 颜色的G分量（绿色），值是0~1的浮动数值。 |
 | blue | number | 是 | 颜色的B分量（蓝色），值是0~1的浮动数值。 |
@@ -785,14 +765,14 @@ static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorMetrics](#colormetrics12) | ColorMetrics类的实例。 |
+| ColorMetrics | ColorMetrics类的实例。 |
 
 
-### resourceColor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### resourceColor12+
 
 static resourceColor(color: ResourceColor): ColorMetrics
 
@@ -804,24 +784,21 @@ static resourceColor(color: ResourceColor): ColorMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| color | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 是 | 资源格式颜色。 |
+| color | ResourceColor | 是 | 资源格式颜色。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorMetrics](#colormetrics12) | ColorMetrics 类的实例。 |
+| ColorMetrics | ColorMetrics 类的实例。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[系统资源错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-system-resource)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -829,8 +806,9 @@ static resourceColor(color: ResourceColor): ColorMetrics
 | 180003 | Failed to obtain the color resource. |
 
 
-### blendColor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### blendColor12+
 
 blendColor(overlayColor: ColorMetrics): ColorMetrics
 
@@ -842,18 +820,16 @@ blendColor(overlayColor: ColorMetrics): ColorMetrics
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| overlayColor | [ColorMetrics](#colormetrics12) | 是 | 要叠加在上方的颜色对象。alpha属性决定叠加强度。1.0表示完全覆盖，0.0表示完全透明，混合结果为原色。 |
+| overlayColor | ColorMetrics | 是 | 要叠加在上方的颜色对象。alpha属性决定叠加强度。1.0表示完全覆盖，0.0表示完全透明，混合结果为原色。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ColorMetrics](#colormetrics12) | 新的颜色对象，其red、green、blue和alpha通道均为当前颜色与叠加颜色混合后的结果值。 |
+| ColorMetrics | 新的颜色对象，其red、green、blue和alpha通道均为当前颜色与叠加颜色混合后的结果值。 |
 
 
 **混合公式：**
@@ -866,14 +842,14 @@ result_rgb = overlay_rgb*(overlay_alpha) + (1 - overlay_alpha) * base_rgb
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. The type of the input parameter is not ColorMetrics. |
 
 
-### color12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### color12+
 
 get color(): string
 
@@ -885,14 +861,14 @@ get color(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | rgba字符串格式的颜色。 示例：'rgba(255, 100, 255, 0.5)' |
 
 
-### red12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### red12+
 
 get red(): number
 
@@ -904,14 +880,14 @@ get red(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 颜色的R分量（红色），值是0~255的整数。 |
 
 
-### green12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### green12+
 
 get green(): number
 
@@ -923,14 +899,14 @@ get green(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 颜色的G分量（绿色），值是0~255的整数。 |
 
 
-### blue12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### blue12+
 
 get blue(): number
 
@@ -942,14 +918,14 @@ get blue(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 颜色的B分量（蓝色），值是0~255的整数。 |
 
 
-### alpha12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### alpha12+
 
 get alpha(): number
 
@@ -961,7 +937,6 @@ get alpha(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 颜色的A分量（透明度），值是0~255的整数。 |
@@ -969,8 +944,7 @@ get alpha(): number
 
 **示例：**
 
-
-```ts
+```text
 import { ColorMetrics } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -996,29 +970,29 @@ struct ColorMetricsSample {
   build() {
     Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {
       Button("ColorMetrics blendColor")
-      .width('80%')
-      .align(Alignment.Center)
-      .height(50)
-      .backgroundColor(getBlendColor("#ff3d9db4").color)
-      .margin(10)
+        .width('80%')
+        .align(Alignment.Center)
+        .height(50)
+        .backgroundColor(getBlendColor("#ff3d9db4").color)
+        .margin(10)
       Button("ColorMetrics numeric")
-      .width('80%')
-      .align(Alignment.Center)
-      .height(50)
-      .backgroundColor(ColorMetrics.numeric(0xff707070).color)
-      .margin(10)
+        .width('80%')
+        .align(Alignment.Center)
+        .height(50)
+        .backgroundColor(ColorMetrics.numeric(0xff707070).color)
+        .margin(10)
       Button("ColorMetrics rgba")
-      .width('80%')
-      .align(Alignment.Center)
-      .height(50)
-      .backgroundColor(ColorMetrics.rgba(0, 74, 175, 255).color)
-      .margin(10)
+        .width('80%')
+        .align(Alignment.Center)
+        .height(50)
+        .backgroundColor(ColorMetrics.rgba(0, 74, 175, 255).color)
+        .margin(10)
       Button("ColorMetrics colorWithSpace")
-      .width('80%')
-      .align(Alignment.Center)
-      .height(50)
-      .backgroundColor(ColorMetrics.colorWithSpace(ColorSpace.SRGB, 0.4392, 0.4392, 0.4392).color)
-      .margin(10)
+        .width('80%')
+        .align(Alignment.Center)
+        .height(50)
+        .backgroundColor(ColorMetrics.colorWithSpace(ColorSpace.SRGB, 0.4392, 0.4392, 0.4392).color)
+        .margin(10)
     }
     .width('100%')
     .height('100%')
@@ -1026,18 +1000,19 @@ struct ColorMetricsSample {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-2.png)
+
+![](assets/Graphics/file-20260514163848928-11.png)
 
 
-## Corners&lt;T&gt;12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Corners&lt;T&gt;12+
 
 用于设置四个角的圆角属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1047,10 +1022,11 @@ struct ColorMetricsSample {
 | bottomRight | T | 否 | 否 | 右下边框的圆角属性。 |
 
 
-## CornerRadius12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type CornerRadius = Corners<Vector2>
+
+##### CornerRadius12+
+
+type CornerRadius = Corners&lt;Vector2&gt;
 
 设置四个角的圆角x轴与y轴的半轴长。
 
@@ -1058,16 +1034,16 @@ type CornerRadius = Corners<Vector2>
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Corners](#cornerst12)&lt;[Vector2](#vector2)&gt; | 四个角的圆角x轴与y轴的半轴长。 |
+| Corners&lt;Vector2&gt; | 四个角的圆角x轴与y轴的半轴长。 |
 
 
-## BorderRadiuses12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type BorderRadiuses = Corners<number>
+
+##### BorderRadiuses12+
+
+type BorderRadiuses = Corners&lt;number&gt;
 
 设置四个角的圆角半径。
 
@@ -1075,14 +1051,14 @@ type BorderRadiuses = Corners<number>
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Corners](#cornerst12)&lt;number&gt; | 四个角的圆角半径。 |
+| Corners&lt;number&gt; | 四个角的圆角半径。 |
 
 
-## Rect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Rect12+
 
 type Rect = common2D.Rect
 
@@ -1092,14 +1068,14 @@ type Rect = common2D.Rect
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [common2D.Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-common2d#rect) | 矩形区域。 |
+| common2D.Rect | 矩形区域。 |
 
 
-## RoundRect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### RoundRect12+
 
 用于设置带有圆角的矩形。
 
@@ -1107,15 +1083,15 @@ type Rect = common2D.Rect
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| rect | [Rect](#rect12) | 否 | 否 | 设置矩形的属性。 |
-| corners | [CornerRadius](#cornerradius12) | 否 | 否 | 设置圆角的属性。 |
+| rect | Rect | 否 | 否 | 设置矩形的属性。 |
+| corners | CornerRadius | 否 | 否 | 设置圆角的属性。 |
 
 
-## Circle12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Circle12+
 
 用于设置圆形的属性。
 
@@ -1123,16 +1099,16 @@ type Rect = common2D.Rect
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | centerX | number | 否 | 否 | 圆心x轴的位置，单位为px。 |
 | centerY | number | 否 | 否 | 圆心y轴的位置，单位为px。 |
-| radius | number | 否 | 否 | 圆形的半径，单位为px。          取值范围：[0, +∞) |
+| radius | number | 否 | 否 | 圆形的半径，单位为px。 取值范围：[0, +∞) |
 
 
-## CommandPath12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CommandPath12+
 
 用于设置路径绘制的指令。
 
@@ -1140,35 +1116,35 @@ type Rect = common2D.Rect
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| [commands](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path#commands) | string | 否 | 否 | 路径绘制的指令字符串。像素单位的转换方法请参考[像素单位](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-pixel-units)。          单位：px |
+| commands | string | 否 | 否 | 路径绘制的指令字符串。像素单位的转换方法请参考像素单位。 单位：px |
 
 
-## ShapeMask12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ShapeMask12+
 
 用于设置图形遮罩。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fillColor | number | 否 | 否 | 遮罩的填充颜色，使用ARGB格式。默认值为0XFF000000。          通过fillColor的透明度和亮度生成一个仅含透明度的颜色。亮度越高，颜色越透明。然后，使用[BlendMode.SRC_IN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode)方式与RenderNode本身的颜色混合，生成最终颜色。 |
-| strokeColor | number | 否 | 否 | 遮罩的边框颜色，使用ARGB格式。默认值为0XFF000000。          通过strokeColor的透明度和亮度生成一个仅含透明度的颜色。亮度越高，颜色越透明。然后，使用[BlendMode.SRC_IN](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode)方式与RenderNode本身的颜色混合，生成最终颜色。 |
+| fillColor | number | 否 | 否 | 遮罩的填充颜色，使用ARGB格式。默认值为0XFF000000。 通过fillColor的透明度和亮度生成一个仅含透明度的颜色。亮度越高，颜色越透明。然后，使用BlendMode.SRC_IN方式与RenderNode本身的颜色混合，生成最终颜色。 |
+| strokeColor | number | 否 | 否 | 遮罩的边框颜色，使用ARGB格式。默认值为0XFF000000。 通过strokeColor的透明度和亮度生成一个仅含透明度的颜色。亮度越高，颜色越透明。然后，使用BlendMode.SRC_IN方式与RenderNode本身的颜色混合，生成最终颜色。 |
 | strokeWidth | number | 否 | 否 | 遮罩的边框宽度，单位为px。默认值为0。 |
 
 
-### constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor12+
 
 constructor()
 
@@ -1179,8 +1155,8 @@ ShapeMask的构造函数。
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### setRectShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setRectShape12+
 
 setRectShape(rect: Rect): void
 
@@ -1192,16 +1168,14 @@ setRectShape(rect: Rect): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [Rect](#rect12) | 是 | 矩形的形状。 |
+| rect | Rect | 是 | 矩形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeMask } from '@kit.ArkUI';
 
 class MyNodeController extends NodeController {
@@ -1251,11 +1225,13 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-3.png)
+
+![](assets/Graphics/file-20260514163848928-12.png)
 
 
-### setRoundRectShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setRoundRectShape12+
 
 setRoundRectShape(roundRect: RoundRect): void
 
@@ -1267,16 +1243,14 @@ setRoundRectShape(roundRect: RoundRect): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| roundRect | [RoundRect](#roundrect12) | 是 | 圆角矩形的形状。 |
+| roundRect | RoundRect | 是 | 圆角矩形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeMask,RoundRect} from '@kit.ArkUI';
 
 class MyNodeController extends NodeController {
@@ -1325,11 +1299,13 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-4.png)
+
+![](assets/Graphics/file-20260514163848928-2.png)
 
 
-### setCircleShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setCircleShape12+
 
 setCircleShape(circle: Circle): void
 
@@ -1341,16 +1317,14 @@ setCircleShape(circle: Circle): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| circle | [Circle](#circle12) | 是 | 圆形的形状。 |
+| circle | Circle | 是 | 圆形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeMask } from '@kit.ArkUI';
 
 class MyNodeController extends NodeController {
@@ -1395,11 +1369,13 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-5.png)
+
+![](assets/Graphics/file-20260514163848928-3.png)
 
 
-### setOvalShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setOvalShape12+
 
 setOvalShape(oval: Rect): void
 
@@ -1411,16 +1387,14 @@ setOvalShape(oval: Rect): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| oval | [Rect](#rect12) | 是 | 椭圆形的形状。 |
+| oval | Rect | 是 | 椭圆形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeMask } from '@kit.ArkUI';
 
 class MyNodeController extends NodeController {
@@ -1460,11 +1434,13 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-6.png)
+
+![](assets/Graphics/file-20260514163848928-4.png)
 
 
-### setCommandPath12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setCommandPath12+
 
 setCommandPath(path: CommandPath): void
 
@@ -1476,16 +1452,14 @@ setCommandPath(path: CommandPath): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [CommandPath](#commandpath12) | 是 | 路径绘制指令。 |
+| path | CommandPath | 是 | 路径绘制指令。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeMask } from '@kit.ArkUI';
 
 const mask = new ShapeMask();
@@ -1531,17 +1505,19 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-7.png)
+
+![](assets/Graphics/file-20260514163848928-5.png)
 
 
-## ShapeClip12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ShapeClip12+
 
 用于设置图形裁剪。
 
 
-### constructor12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### constructor12+
 
 constructor()
 
@@ -1552,8 +1528,8 @@ ShapeClip的构造函数。
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 
-### setRectShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setRectShape12+
 
 setRectShape(rect: Rect): void
 
@@ -1565,16 +1541,14 @@ setRectShape(rect: Rect): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [Rect](#rect12) | 是 | 矩形的形状。 |
+| rect | Rect | 是 | 矩形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeClip } from '@kit.ArkUI';
 
 const clip = new ShapeClip();
@@ -1614,28 +1588,30 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
-      .margin({ bottom: 20 })
+        .borderWidth(1)
+        .margin({ bottom: 20 })
       Button("setRectShape")
-      .onClick(() => {
-        shapeClip.setRectShape({
-          left: 0,
-          right: 150,
-          top: 0,
-          bottom: 150
-        });
-        renderNode.shapeClip = shapeClip;
-      })
+        .onClick(() => {
+          shapeClip.setRectShape({
+            left: 0,
+            right: 150,
+            top: 0,
+            bottom: 150
+          });
+          renderNode.shapeClip = shapeClip;
+        })
     }.margin(20)
   }
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-8.gif)
+
+![](assets/Graphics/file-20260514163848928-6.png)
 
 
-### setRoundRectShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setRoundRectShape12+
 
 setRoundRectShape(roundRect: RoundRect): void
 
@@ -1647,16 +1623,14 @@ setRoundRectShape(roundRect: RoundRect): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| roundRect | [RoundRect](#roundrect12) | 是 | 圆角矩形的形状。 |
+| roundRect | RoundRect | 是 | 圆角矩形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeClip } from '@kit.ArkUI';
 
 const clip = new ShapeClip();
@@ -1695,32 +1669,32 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
+        .borderWidth(1)
       Button("setRoundRectShape")
-      .onClick(() => {
-        renderNode.shapeClip.setRoundRectShape({
-          rect: {
-            left: 0,
-            top: 0,
-            right: this.getUIContext().vp2px(150),
-            bottom: this.getUIContext().vp2px(150)
-          },
-          corners: {
-            topLeft: { x: 32, y: 32 },
-            topRight: { x: 32, y: 32 },
-            bottomLeft: { x: 32, y: 32 },
-            bottomRight: { x: 32, y: 32 }
-          }
-        });
-      })
+        .onClick(() => {
+          renderNode.shapeClip.setRoundRectShape({
+            rect: {
+              left: 0,
+              top: 0,
+              right: this.getUIContext().vp2px(150),
+              bottom: this.getUIContext().vp2px(150)
+            },
+            corners: {
+              topLeft: { x: 32, y: 32 },
+              topRight: { x: 32, y: 32 },
+              bottomLeft: { x: 32, y: 32 },
+              bottomRight: { x: 32, y: 32 }
+            }
+          });
+        })
     }
   }
 }
 ```
 
 
-### setCircleShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setCircleShape12+
 
 setCircleShape(circle: Circle): void
 
@@ -1732,16 +1706,14 @@ setCircleShape(circle: Circle): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| circle | [Circle](#circle12) | 是 | 圆形的形状。 |
+| circle | Circle | 是 | 圆形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeClip } from '@kit.ArkUI';
 
 const clip = new ShapeClip();
@@ -1780,20 +1752,20 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
+        .borderWidth(1)
       Button("setCircleShape")
-      .onClick(() => {
-        renderNode.shapeClip.setCircleShape({ centerY: 75, centerX: 75, radius: 75 });
+        .onClick(() => {
+          renderNode.shapeClip.setCircleShape({ centerY: 75, centerX: 75, radius: 75 });
 
-      })
+        })
     }
   }
 }
 ```
 
 
-### setOvalShape12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setOvalShape12+
 
 setOvalShape(oval: Rect): void
 
@@ -1805,16 +1777,14 @@ setOvalShape(oval: Rect): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| oval | [Rect](#rect12) | 是 | 椭圆形的形状。 |
+| oval | Rect | 是 | 椭圆形的形状。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeClip } from '@kit.ArkUI';
 
 const clip = new ShapeClip();
@@ -1853,24 +1823,24 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
+        .borderWidth(1)
       Button("setOvalShape")
-      .onClick(() => {
-        renderNode.shapeClip.setOvalShape({
-          left: 0,
-          right: this.getUIContext().vp2px(150),
-          top: 0,
-          bottom: this.getUIContext().vp2px(100)
-        });
-      })
+        .onClick(() => {
+          renderNode.shapeClip.setOvalShape({
+            left: 0,
+            right: this.getUIContext().vp2px(150),
+            top: 0,
+            bottom: this.getUIContext().vp2px(100)
+          });
+        })
     }
   }
 }
 ```
 
 
-### setCommandPath12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setCommandPath12+
 
 setCommandPath(path: CommandPath): void
 
@@ -1882,16 +1852,14 @@ setCommandPath(path: CommandPath): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [CommandPath](#commandpath12) | 是 | 路径绘制指令。 |
+| path | CommandPath | 是 | 路径绘制指令。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, ShapeClip } from '@kit.ArkUI';
 
 const clip = new ShapeClip();
@@ -1930,21 +1898,21 @@ struct Index {
   build() {
     Column() {
       NodeContainer(this.myNodeController)
-      .borderWidth(1)
+        .borderWidth(1)
       Button("setCommandPath")
-      .onClick(() => {
-        renderNode.shapeClip.setCommandPath({ commands: "M100 0 L0 100 L50 200 L150 200 L200 100 Z" });
-      })
+        .onClick(() => {
+          renderNode.shapeClip.setCommandPath({ commands: "M100 0 L0 100 L50 200 L150 200 L200 100 Z" });
+        })
     }
   }
 }
 ```
 
 
-## edgeColors12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-edgeColors(all: number): Edges<number>
+##### edgeColors12+
+
+edgeColors(all: number): Edges&lt;number&gt;
 
 用于生成边框颜色均设置为传入值的边框颜色对象。
 
@@ -1954,24 +1922,21 @@ edgeColors(all: number): Edges<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| all | number | 是 | 边框颜色，ARGB格式，示例：0xffff00ff。          取值范围：[0, 0xffffffff] |
+| all | number | 是 | 边框颜色，ARGB格式，示例：0xffff00ff。 取值范围：[0, 0xffffffff] |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Edges](#edgest12)&lt;number&gt; | 边框颜色均设置为传入值的边框颜色对象。 |
+| Edges&lt;number&gt; | 边框颜色均设置为传入值的边框颜色对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, edgeColors } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2009,13 +1974,15 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-9.png)
+
+![](assets/Graphics/file-20260514163848928-7.png)
 
 
-## edgeWidths12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-edgeWidths(all: number): Edges<number>
+
+##### edgeWidths12+
+
+edgeWidths(all: number): Edges&lt;number&gt;
 
 用于生成边框宽度均设置为传入值的边框宽度对象。
 
@@ -2025,24 +1992,21 @@ edgeWidths(all: number): Edges<number>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| all | number | 是 | 边框宽度，单位为vp。          取值范围：[0, +∞) |
+| all | number | 是 | 边框宽度，单位为vp。 取值范围：[0, +∞) |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Edges](#edgest12)&lt;number&gt; | 边框宽度均设置为传入值的边框宽度对象。 |
+| Edges&lt;number&gt; | 边框宽度均设置为传入值的边框宽度对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, edgeWidths } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2090,13 +2054,15 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-10.png)
+
+![](assets/Graphics/file-20260514163848928-8.gif)
 
 
-## borderStyles12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-borderStyles(all: BorderStyle): Edges<BorderStyle>
+
+##### borderStyles12+
+
+borderStyles(all: BorderStyle): Edges&lt;BorderStyle&gt;
 
 用于生成边框样式均设置为传入值的边框样式对象。
 
@@ -2106,24 +2072,21 @@ borderStyles(all: BorderStyle): Edges<BorderStyle>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| all | [BorderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#borderstyle) | 是 | 边框样式。 |
+| all | BorderStyle | 是 | 边框样式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Edges](#edgest12)&lt;[BorderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#borderstyle)&gt; | 边框样式均设置为传入值的边框样式对象。 |
+| Edges&lt;BorderStyle&gt; | 边框样式均设置为传入值的边框样式对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, borderStyles } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2177,11 +2140,13 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-11.png)
+
+![](assets/Graphics/file-20260514163848928-9.png)
 
 
-## borderRadiuses12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### borderRadiuses12+
 
 borderRadiuses(all: number): BorderRadiuses
 
@@ -2193,24 +2158,21 @@ borderRadiuses(all: number): BorderRadiuses
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| all | number | 是 | 边框圆角。          单位：vp          取值范围：[0, +∞) |
+| all | number | 是 | 边框圆角。 单位：vp 取值范围：[0, +∞) |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [BorderRadiuses](#borderradiuses12) | 边框圆角均设置为传入值的边框圆角对象。 |
+| BorderRadiuses | 边框圆角均设置为传入值的边框圆角对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode, FrameNode, NodeController, borderRadiuses } from '@kit.ArkUI';
 
 const renderNode = new RenderNode();
@@ -2252,4 +2214,5 @@ struct Index {
 }
 ```
 
-![](assets/Graphics/file-20260514163848928-12.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DXfHNJf9R1aLhOhjEZfvYQ/zh-cn_image_0000002581435582.png?HW-CC-KV=V1&HW-CC-Date=20260528T013820Z&HW-CC-Expire=86400&HW-CC-Sign=3636D02112968BFD822440EE4BE1DE697EEC20453686850CAAD113D78521C60E)

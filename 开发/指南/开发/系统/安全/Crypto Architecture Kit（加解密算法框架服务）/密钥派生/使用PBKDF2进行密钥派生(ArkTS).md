@@ -1,23 +1,51 @@
 # 使用PBKDF2进行密钥派生(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-using-pbkdf2
 
 对应的算法规格请查看[密钥派生算法规格：PBKDF2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-overview#pbkdf2算法)。
 
 
-## 开发步骤
+##### 开发步骤
+1. 构造[PBKDF2Spec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#pbkdf2spec11)对象，作为密钥派生参数进行密钥派生。
 
-构造[PBKDF2Spec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#pbkdf2spec11)对象，作为密钥派生参数进行密钥派生。 PBKDF2Spec是[KdfSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#kdfspec11)的子类，需要指定： algName：指定算法'PBKDF2'。 password：用于生成派生密钥的原始密码。 如果使用string类型，需要直接传入用于密钥派生的数据，而不是HexString、base64等字符串类型。同时需要确保该字符串为utf-8编码，否则派生结果会有差异。 salt：盐值。 iterations：重复运算的次数，需要为正整数。 keySize：目标密钥的字节长度，需要为正整数。 调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)，指定字符串参数'PBKDF2|SHA256'，创建密钥派生算法为PBKDF2、HMAC函数摘要算法为SHA256的密钥派生函数对象（Kdf）。 输入PBKDF2Spec对象，调用[Kdf.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)进行密钥派生。 Kdf.generateSecret的多种调用形式如表所示。
+  PBKDF2Spec是[KdfSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#kdfspec11)的子类，需要指定：
+
+  
+ - algName：指定算法'PBKDF2'。
+
+2. password：用于生成派生密钥的原始密码。
+
+  如果使用string类型，需要直接传入用于密钥派生的数据，而不是HexString、base64等字符串类型。同时需要确保该字符串为utf-8编码，否则派生结果会有差异。
+
+3. salt：盐值。
+
+4. iterations：重复运算的次数，需要为正整数。
+
+5. keySize：目标密钥的字节长度，需要为正整数。
+
+6. 调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)，指定字符串参数'PBKDF2|SHA256'，创建密钥派生算法为PBKDF2、HMAC函数摘要算法为SHA256的密钥派生函数对象（Kdf）。
+
+7. 输入PBKDF2Spec对象，调用[Kdf.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)进行密钥派生。
+
+  Kdf.generateSecret的多种调用形式如表所示。
+
 | 接口名 | 返回方式 |
+
 | --- | --- |
-| generateSecret(params: KdfSpec, callback: AsyncCallback): void | callback异步生成。 |
-| generateSecret(params: KdfSpec): Promise | Promise异步生成。 |
+
+| generateSecret(params: KdfSpec, callback: AsyncCallback&lt;DataBlob&gt;): void | callback异步生成。 |
+
+| generateSecret(params: KdfSpec): Promise&lt;DataBlob&gt; | Promise异步生成。 |
+
 | generateSecretSync(params: KdfSpec): DataBlob | 同步生成。 |
 
+  
 通过await返回结果：
-```text
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 async function kdfAwait() {
@@ -34,8 +62,10 @@ async function kdfAwait() {
 }
 ```
 
-通过Promise返回结果：
-```text
+ - 通过Promise返回结果：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -57,8 +87,10 @@ function kdfPromise() {
 }
 ```
 
-通过同步方式返回结果：
-```text
+ - 通过同步方式返回结果：
+
+  
+```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
 function kdfSync() {

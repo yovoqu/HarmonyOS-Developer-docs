@@ -7,8 +7,8 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace netHandover 差异内容： declare namespace netHandover | api/@hms.networkboost.handover.d.ts |
-| 新增API | NA | 类名：netHandover； API声明：function on(type: 'handoverChange', callback: Callback<HandoverInfo>): void; 差异内容：function on(type: 'handoverChange', callback: Callback<HandoverInfo>): void; | api/@hms.networkboost.handover.d.ts |
-| 新增API | NA | 类名：netHandover； API声明：function off(type: 'handoverChange', callback?: Callback<HandoverInfo>): void; 差异内容：function off(type: 'handoverChange', callback?: Callback<HandoverInfo>): void; | api/@hms.networkboost.handover.d.ts |
+| 新增API | NA | 类名：netHandover； API声明：function on(type: 'handoverChange', callback: Callback&lt;HandoverInfo&gt;): void; 差异内容：function on(type: 'handoverChange', callback: Callback&lt;HandoverInfo&gt;): void; | api/@hms.networkboost.handover.d.ts |
+| 新增API | NA | 类名：netHandover； API声明：function off(type: 'handoverChange', callback?: Callback&lt;HandoverInfo&gt;): void; 差异内容：function off(type: 'handoverChange', callback?: Callback&lt;HandoverInfo&gt;): void; | api/@hms.networkboost.handover.d.ts |
 | 新增API | NA | 类名：netHandover； API声明：function setHandoverMode(mode: HandoverMode): void; 差异内容：function setHandoverMode(mode: HandoverMode): void; | api/@hms.networkboost.handover.d.ts |
 | 新增API | NA | 类名：netHandover； API声明： interface HandoverInfo 差异内容： interface HandoverInfo | api/@hms.networkboost.handover.d.ts |
 | 新增API | NA | 类名：HandoverInfo； API声明：readonly handoverStart?: HandoverStart; 差异内容：readonly handoverStart?: HandoverStart; | api/@hms.networkboost.handover.d.ts |

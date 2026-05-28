@@ -19,23 +19,37 @@
 如果配置了采集麦克风音频数据，需对应配置麦克风权限ohos.permission.MICROPHONE和申请长时任务，配置方式请参见[向用户申请权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)、[申请长时任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/continuous-task)。
 
 
-## 申请权限
+##### 申请权限
 
-在开发此功能前，开发者应根据实际需求申请相关权限： 当需要使用麦克风时，需要申请**ohos.permission.MICROPHONE**麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。 当需要读取图片或视频文件时，请优先使用媒体库[Picker选择媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)。 当需要保存图片或视频文件时，请优先使用[安全控件保存媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。 从API version 22开始，在PC/2in1设备上对应用进行录屏时，可通过申请权限**ohos.permission.TIMEOUT_SCREENOFF_DISABLE_LOCK**，实现在屏幕熄灭但不锁屏的场景下，继续保持录制的效果，配置方式请参见[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。 从API version 22开始，在PC/2in1设备上对应用进行录屏时，可通过申请权限**ohos.permission.CUSTOM_SCREEN_RECORDING**，实现在录制屏幕时不再弹出隐私告警弹窗。配置方式请参见[受限开放权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions)。
+在开发此功能前，开发者应根据实际需求申请相关权限：
+
+ - 当需要使用麦克风时，需要申请**ohos.permission.MICROPHONE**麦克风权限。申请方式请参考：[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
+ - 当需要读取图片或视频文件时，请优先使用媒体库[Picker选择媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker)。
+ - 当需要保存图片或视频文件时，请优先使用[安全控件保存媒体资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-savebutton)。
+ - 从API version 22开始，在PC/2in1设备上对应用进行录屏时，可通过申请权限**ohos.permission.TIMEOUT_SCREENOFF_DISABLE_LOCK**，实现在屏幕熄灭但不锁屏的场景下，继续保持录制的效果，配置方式请参见[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+ - 从API version 22开始，在PC/2in1设备上对应用进行录屏时，可通过申请权限**ohos.permission.CUSTOM_SCREEN_RECORDING**，实现在录制屏幕时不再弹出隐私告警弹窗。配置方式请参见[受限开放权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions)。       
 > [!NOTE]
-> 仅应用需要克隆、备份或同步用户公共目录的图片、视频类文件时，可申请ohos.permission.READ_IMAGEVIDEO、ohos.permission.WRITE_IMAGEVIDEO权限来读写音频文件，申请方式请参考申请受控权限，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合特殊场景的应用被允许申请受限权限。
+> 仅应用需要克隆、备份或同步用户公共目录的图片、视频类文件时，可申请ohos.permission.READ_IMAGEVIDEO、ohos.permission.WRITE_IMAGEVIDEO权限来读写音频文件，申请方式请参考 申请受控权限 ，通过AGC审核后才能使用。为避免应用的上架申请被驳回，开发者应优先使用Picker/控件等替代方案，仅少量符合 特殊场景 的应用被允许申请受限权限。
 
 
-## 开发步骤及注意事项
 
-使用AVScreenCaptureRecorder时要明确其状态的变化，在创建实例后，调用对应的方法可以进入指定的状态实现对应的行为。在确定的状态下执行不合适的方法会导致AVScreenCaptureRecorder发生错误，开发者需要在调用状态转换的方法前进行状态检查，避免程序运行异常。 添加头文件。
+
+
+##### 开发步骤及注意事项
+
+使用AVScreenCaptureRecorder时要明确其状态的变化，在创建实例后，调用对应的方法可以进入指定的状态实现对应的行为。在确定的状态下执行不合适的方法会导致AVScreenCaptureRecorder发生错误，开发者需要在调用状态转换的方法前进行状态检查，避免程序运行异常。
+1. 添加头文件。
+
+  
 ```text
 import { common } from '@kit.AbilityKit';
 import { media } from '@kit.MediaKit';
 import { fileIo } from '@kit.CoreFileKit';
 ```
 
-创建AVScreenCaptureRecorder类型的成员变量screenCapture。
+2. 创建AVScreenCaptureRecorder类型的成员变量screenCapture。
+
+  
 ```text
 // 声明一个AVScreenCaptureRecorder类型的变量。
 private screenCapture?: media.AVScreenCaptureRecorder;
@@ -43,7 +57,9 @@ private screenCapture?: media.AVScreenCaptureRecorder;
 this.screenCapture = await media.createAVScreenCaptureRecorder();
 ```
 
-对成员变量screenCapture设置监听函数，分别监听不同状态和异常情况。
+3. 对成员变量screenCapture设置监听函数，分别监听不同状态和异常情况。
+
+  
 ```text
 this.screenCapture.on('stateChange', async (infoType: media.AVScreenCaptureStateCode) => {
   switch (infoType) {
@@ -94,7 +110,17 @@ this.screenCapture.on('error', (err) => {
 })
 ```
 
-配置屏幕录制参数。 ​创建AVScreenCaptureRecorder实例screenCapture后，可以设置屏幕录制所需要的参数。 ​参数videoBitrate、audioSampleRate、audioChannelCount、audioBitrate、preset、displayId为可选参数，若不设置则可按默认值进行设置，如下示例中提供了可选参数的默认值。麦克风和系统音的音频流共用一套音频参数，分别是音频采样率、音频通道数和音频比特率，对应audioSampleRate、audioChannelCount和audioBitrate参数。 参数fd可以参考应用文件访问与管理的开发实例[新建并读写一个文件fd](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-access)。本示例中提供的getFileFd()仅作为参考。 2in1设备配置displayId为扩展屏Id，可拉起录屏窗口选择界面，用户在界面上选择录屏内容，最终录屏内容以用户在弹窗界面上的选择为准。
+4. 配置屏幕录制参数。
+
+  ​创建AVScreenCaptureRecorder实例screenCapture后，可以设置屏幕录制所需要的参数。
+
+  ​参数videoBitrate、audioSampleRate、audioChannelCount、audioBitrate、preset、displayId为可选参数，若不设置则可按默认值进行设置，如下示例中提供了可选参数的默认值。麦克风和系统音的音频流共用一套音频参数，分别是音频采样率、音频通道数和音频比特率，对应audioSampleRate、audioChannelCount和audioBitrate参数。
+
+  参数fd可以参考应用文件访问与管理的开发实例[新建并读写一个文件fd](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-file-access)。本示例中提供的getFileFd()仅作为参考。
+
+  2in1设备配置displayId为扩展屏Id，可拉起录屏窗口选择界面，用户在界面上选择录屏内容，最终录屏内容以用户在弹窗界面上的选择为准。
+
+  
 ```text
 const context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let filePath: string = context.filesDir + '/screenCapture.mp4';
@@ -120,36 +146,53 @@ captureConfig: media.AVScreenCaptureRecordConfig = {
 };
 ```
 
-基于预先配置的屏幕录制参数，调用[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#init12)方法初始化screenCapture。
+5. 基于预先配置的屏幕录制参数，调用[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#init12)方法初始化screenCapture。
+
+  
 ```text
 await this.screenCapture.init(this.captureConfig);
 ```
 
-创建豁免隐私窗口，这里填写的是子窗口id和主窗口id，具体开发步骤可参见窗口API[WindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#windowproperties)。
+6. 创建豁免隐私窗口，这里填写的是子窗口id和主窗口id，具体开发步骤可参见窗口API[WindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#windowproperties)。
+
+  
 ```text
 let windowIDs = [57, 86];
 await this.screenCapture.skipPrivacyMode(windowIDs);
 ```
 
-调用[startRecording](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#startrecording12)方法开始进行屏幕录制，并通过监听函数监听状态。
+7. 调用[startRecording](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#startrecording12)方法开始进行屏幕录制，并通过监听函数监听状态。
+
+  
 ```text
 await this.screenCapture.startRecording();
 ```
 
-停止录屏。 点击录屏胶囊中的结束按钮停止录制：基于回调函数实现，录屏对象实例screenCapture会触发SCREENCAPTURE_STATE_STOPPED_BY_USER的回调，通知应用此次录屏已停止，不需要开发者主动调用[stopRecording](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#stoprecording12)方法。 应用主动调用[stopRecording](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#stoprecording12)方法，停止录屏。
+8. 停止录屏。
+
+  
+点击录屏胶囊中的结束按钮停止录制：基于回调函数实现，录屏对象实例screenCapture会触发SCREENCAPTURE_STATE_STOPPED_BY_USER的回调，通知应用此次录屏已停止，不需要开发者主动调用[stopRecording](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#stoprecording12)方法。
+9. 应用主动调用[stopRecording](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#stoprecording12)方法，停止录屏。
+
+  
 ```text
 await this.screenCapture.stopRecording();
 ```
 
-调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#release12)方法销毁实例，释放资源。
+10. 调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#release12)方法销毁实例，释放资源。
+
+  
 ```text
 await this.screenCapture.release();
 ```
 
 
-## 完整示例
+
+
+##### 完整示例
 
 以下是通过AVScreenCaptureRecorder实现录屏存文件的完整代码示例。
+
 ```text
 import { media } from '@kit.MediaKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -249,7 +292,7 @@ export class AVScreenCaptureDemo {
   }
 
   // 调用startRecording方法可以开始一次录屏存文件的流程，结束录屏可以通过点击录屏胶囊停止按钮进行操作。
-  async startRecording(context: Context): Promise {
+  async startRecording(context: Context): Promise<void> {
     this.screenCapture = await media.createAVScreenCaptureRecorder();
     if (!this.screenCapture) {
       // failed.
@@ -272,7 +315,7 @@ export class AVScreenCaptureDemo {
   }
 
   // 可以主动调用stopRecording方法来停止录屏。
-  async stopRecording(): Promise {
+  async stopRecording(): Promise<void> {
     if (!this.screenCapture) {
       // Error.
       this.closeFile();

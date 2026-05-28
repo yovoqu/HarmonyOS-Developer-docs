@@ -7,14 +7,16 @@
 提供搜索框组件，用于提供用户搜索内容的输入区域，具体用法请参考[search](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-search)。
 
 
-## 创建search组件
+##### 创建search组件
 
 在pages/index目录下的hml文件中创建一个search组件。
+
 ```text
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <search></search>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -27,17 +29,23 @@
   background-color: #F1F3F5;
 }
 ```
+
 
 ![](assets/search开发指导/file-20260514130756321-0.png)
 
-## 设置属性
+
+
+
+##### 设置属性
 
 通过设置hint、icon和searchbutton属性设置搜索框的提示文字、图标和末尾搜索按钮的内容。
+
 ```text
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <search hint="Please enter the search content"  searchbutton="search" icon="/common/search1.png"></search>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -51,16 +59,22 @@
 }
 ```
 
+
 ![](assets/search开发指导/file-20260514130756321-1.png)
 
-## 添加样式
+
+
+
+##### 添加样式
 
 通过color、placeholder-color和caret-color样式来设置搜索框的文本颜色、提示文本颜色和光标颜色。
+
 ```text
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <search hint="Please enter the search content"  searchbutton="search" ></search>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -79,19 +93,27 @@ search{
 }
 ```
 
+
 ![](assets/search开发指导/file-20260514130756321-2.gif)
 
-## 绑定事件
+
+
+
+##### 绑定事件
 
 向search组件添加change、search、submit、share和translate事件，对输入信息进行操作。
+
 ```text
-
-
-    Enter text and then touch and hold what you've entered
-
-
+<!-- xxx.hml-->
+<div class="container">
+  <text style="margin-left: -7px;">
+    <span>Enter text and then touch and hold what you've entered</span>
+  </text>
+  <search hint="Please enter the search content"  searchbutton="search" onsearch="search" onchange="change" ontranslate="translate" onshare="share"
+  onsubmit="submit">
+  </search>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -110,7 +132,6 @@ text{
   margin-bottom: 100px;
 }
 ```
-
 
 ```text
 // index.js
@@ -149,21 +170,38 @@ export default {
 }
 ```
 
+
 ![](assets/search开发指导/file-20260514130756321-3.gif)
 
-## 场景示例
+
+
+
+##### 场景示例
 
 在本场景中通过下拉菜单选择search、Textarea和Input组件来实现搜索和输入效果。
+
 ```text
-
-
-    search
-    Textarea
-    Input
-
-
+<!-- xxx.hml-->
+<div style="flex-direction: column;align-items: center;justify-content: center; width: 100%;">
+  <select class="slt1" id="slt1" onchange="setfield">
+    <option value="search">search</option>
+    <option value="textarea">Textarea</option>
+    <option value="input">Input</option>
+  </select>
+  <div if="{{showsearch}}" style="flex-direction: column;align-items: center;margin-top: 50px;height: 400px;justify-content: space-around;">
+    <search class="field" id="search1" hint="search1" onsubmit="submit" onchange="change" ></search>
+    <search class="field" id="search2" icon="common/search1.png" hint="search2" show="{{showsec}}" onsubmit="submit" onchange="change" ></search>
+  </div>
+  <div if="{{showtextarea}}" style="flex-direction: column;align-items: center;margin-top: 50px;height: 400px;justify-content: space-around;">
+    <textarea class="field" id="textarea1" extend="true" placeholder="textarea1" onchange="change" ></textarea>
+    <textarea class="field" id="textarea2" extend="true" placeholder="textarea2" onchange="change" show="{{showsec}}"></textarea>
+  </div>
+  <div if="{{showinput}}" style="flex-direction: column;align-items: center;margin-top: 50px;height: 400px;justify-content: space-around;">
+    <input type="text" class="field" id="input1" placeholder="input1" onchange="change" ></input>
+    <input type="text" class="field" id="input2" placeholder="input2" onchange="change" show="{{showsec}}"></input>
+  </div>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -180,7 +218,6 @@ export default {
   top: 50px;
 }
 ```
-
 
 ```text
 // index.js
@@ -222,5 +259,6 @@ export default {
   }
 }
 ```
+
 
 ![](assets/search开发指导/file-20260514130756321-4.gif)

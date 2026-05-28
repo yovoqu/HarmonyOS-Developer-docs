@@ -4,12 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-xcomponent
 
-
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码 。
 
 
-## 103501 XComponent状态异常
+
+##### 103501 XComponent状态异常
 
 **错误信息**
 

@@ -5,29 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_hp-arkui-no-stringify-lazyforeach-key
 
 在使用LazyForEach进行组件复用的key生成器函数里，不要使用stringify。
+ 
+滑动丢帧场景下，建议优先修改。
+ 
 
- 滑动丢帧场景下，建议优先修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
-    "@performance/hp-arkui-no-stringify-in-lazyforeach-key-generator": "warn",
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
+    <span style="color: rgb(135,16,148);">"@performance/hp-arkui-no-stringify-in-lazyforeach-key-generator"</span>: <span style="color: rgb(6,125,23);">"warn"</span>,
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 //源码文件，请以工程实际为准
@@ -39,7 +40,7 @@ struct ChildComponent {
   @State desc: string = '';
   @State sum: number = 0;
   @State avg: number = 0;
-  aboutToReuse(params: Record): void {
+  aboutToReuse(params: Record<string, Object>): void {
     this.desc = params.desc as string;
     this.sum = params.sum as number;
     this.avg = params.avg as number;
@@ -98,7 +99,28 @@ class PriceInfo {
 struct MyComponent {
   private data: MyDataSource = new MyDataSource();
   aboutToAppear(): void {
-    for (let index = 0; index  {
+    for (let index = 0; index < 20; index++) {
+      let item = new Item()
+      for (let i = 0; i < 1000; i++) {
+        item.advertInfos.push(new Model("Product A", "Product A", "Product A", "Product A", "Product A", "Product A", "Product A", "Product A"));
+        item.productPrice.push(new PriceInfo(1.99, 123456));
+        item.addresses.push("Beijing")
+      }
+      item.id = index.toString();
+      this.data.pushData(item)
+    }
+  }
+  build() {
+    Column() {
+      Text('Use the unique ID of an item as the key')
+        .fontSize(12)
+        .height('16')
+        .margin({
+          top: 5,
+          bottom: 10
+        })
+      List() {
+        LazyForEach(this.data, (item: Item) => {
           ListItem() {
             ChildComponent({ desc: item.id, sum: 0, avg: 0 })
           }
@@ -114,12 +136,12 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
+##### 反例
 
-## 反例
-
-
-```text
+```json
 //源码文件，请以工程实际为准
 import { MyDataSource } from './MyDataSource';
 // 此处为复用的自定义组件
@@ -130,7 +152,7 @@ struct ChildComponent {
   @State sum: number = 0;
   @State avg: number = 0;
 
-  aboutToReuse(params: Record): void {
+  aboutToReuse(params: Record<string, Object>): void {
     this.desc = params.desc as string;
     this.sum = params.sum as number;
     this.avg = params.avg as number;
@@ -197,7 +219,29 @@ struct MyComponent {
   private data: MyDataSource = new MyDataSource();
 
   aboutToAppear(): void {
-    for (let index = 0; index  {
+    for (let index = 0; index < 20; index++) {
+      let item = new Item()
+      for (let i = 0; i < 1000; i++) {
+        item.advertInfos.push(new Model("Product A", "Product A", "Product A", "Product A", "Product A", "Product A", "Product A", "Product A"));
+        item.productPrice.push(new PriceInfo(1.99, 123456));
+        item.addresses.push("Beijing")
+      }
+      item.id = index.toString();
+      this.data.pushData(item)
+    }
+  }
+
+  build() {
+    Column() {
+      Text('Use the time-consuming function `JSON.stringify (item)` to generate a key')
+        .fontSize(12)
+        .height('16')
+        .margin({
+          top: 5,
+          bottom: 10
+        })
+      List() {
+        LazyForEach(this.data, (item: Item) => {
           ListItem() {
             ChildComponent({ desc: item.id, sum: 0, avg: 0 })
           }
@@ -213,14 +257,16 @@ struct MyComponent {
   }
 }
 ```
+ 
+ 
 
+ 
 
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/recommended
+<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
 plugin:@performance/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

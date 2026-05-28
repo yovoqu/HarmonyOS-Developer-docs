@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 函数变更 | 类名：WebviewController； API声明：registerJavaScriptProxy(object: object, name: string, methodList: Array<string>, asyncMethodList?: Array<string>): void; 差异内容：NA | 类名：WebviewController； API声明：registerJavaScriptProxy(object: object, name: string, methodList: Array<string>, asyncMethodList?: Array<string>, permission?: string): void; 差异内容：permission?: string | api/@ohos.web.webview.d.ts |
+| 函数变更 | 类名：WebviewController； API声明：registerJavaScriptProxy(object: object, name: string, methodList: Array&lt;string&gt;, asyncMethodList?: Array&lt;string&gt;): void; 差异内容：NA | 类名：WebviewController； API声明：registerJavaScriptProxy(object: object, name: string, methodList: Array&lt;string&gt;, asyncMethodList?: Array&lt;string&gt;, permission?: string): void; 差异内容：permission?: string | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebviewController； API声明：static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void; 差异内容：static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebviewController； API声明：setBackForwardCacheOptions(options: BackForwardCacheOptions): void; 差异内容：setBackForwardCacheOptions(options: BackForwardCacheOptions): void; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：webview； API声明： class BackForwardCacheSupportedFeatures 差异内容： class BackForwardCacheSupportedFeatures | api/@ohos.web.webview.d.ts |

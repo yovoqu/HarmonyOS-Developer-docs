@@ -4,17 +4,23 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-about-primitive
 
-## 简介
+##### 简介
 
 在使用JSVM-API接口时，开发人员可以实现在JSVM模块中与JavaScript对象的交互，并进行数据转换和获取特定对象的操作，它们在不同的场景中发挥着重要的作用，使开发人员能够更灵活地处理JavaScript值和对象。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-在使用JSVM操作JavaScript对象时，需要了解一些基本概念： **JavaScript值到C/C++类型的转换：** 在JSVM模块中，可以使用JSVM函数将JavaScript值转换为C/C++的数据类型，如将JavaScript数值转换为C/C++的整数、将JavaScript字符串转换为C/C++的字符数组等。同样，也可以将C/C++的数据类型转换为JavaScript值，以便将结果返回给JavaScript代码。
+在使用JSVM操作JavaScript对象时，需要了解一些基本概念：
+ 
+- **JavaScript值到C/C++类型的转换：** 在JSVM模块中，可以使用JSVM函数将JavaScript值转换为C/C++的数据类型，如将JavaScript数值转换为C/C++的整数、将JavaScript字符串转换为C/C++的字符数组等。同样，也可以将C/C++的数据类型转换为JavaScript值，以便将结果返回给JavaScript代码。
 
-## 接口说明
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_CoerceToBool | 将目标值转换为Boolean类型对象。 |
@@ -26,20 +32,27 @@
 | OH_JSVM_GetGlobal | 获取当前环境中的全局global对象。 |
 | OH_JSVM_GetNull | 获取JavaScript null。 |
 | OH_JSVM_GetUndefined | 获取JavaScript undefined。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 JSVM-API接口开发流程参考[使用JSVM-API实现JS与C/C++语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process)。本文仅展示接口对应的C++相关代码。
+ 
+  
 
-## OH_JSVM_CoerceToBool
+##### OH_JSVM_CoerceToBool
 
-用于将一个给定的JavaScript值强制转为JavaScript boolean值。 cpp 部分代码：
-```text
+用于将一个给定的JavaScript值强制转为JavaScript boolean值。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_CoerceToBool的样例方法
 static JSVM_Value CoerceToBool(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -69,21 +82,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char *srcCallNative = R"JS(coerceToBool("123"))JS";
 ```
-
- 预期结果：
+ 
+预期结果：
+ 
 ```text
 JSVM OH_JSVM_CoerceToBool success:1
 ```
+ 
+  
 
+##### OH_JSVM_CoerceToNumber
 
-## OH_JSVM_CoerceToNumber
-
-用于将给定的JavaScript value强转为JavaScript number。 cpp 部分代码：
-```text
+用于将给定的JavaScript value强转为JavaScript number。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_CoerceToNumber的样例方法
 static JSVM_Value CoerceToNumber(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -113,21 +131,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char *srcCallNative = R"JS(coerceToNumber(true))JS";
 ```
-
- 预期结果：
+ 
+预期结果：
+ 
 ```text
 JSVM OH_JSVM_CoerceToNumber success:1
 ```
+ 
+  
 
+##### OH_JSVM_CoerceToObject
 
-## OH_JSVM_CoerceToObject
-
-用于将给定的JavaScript value强转为JavaScript Object类型。 cpp 部分代码：
-```text
+用于将给定的JavaScript value强转为JavaScript Object类型。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_CoerceToObject的样例方法
 static JSVM_Value CoerceToObject(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -156,21 +179,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char *srcCallNative = R"JS(coerceToObject(123))JS";
 ```
-
- 预期结果：
+ 
+预期结果：
+ 
 ```text
 JSVM OH_JSVM_CoerceToObject success
 ```
+ 
+  
 
+##### OH_JSVM_CoerceToString
 
-## OH_JSVM_CoerceToString
-
-用于将给定的JavaScript value强转为JavaScript string类型。 cpp 部分代码：
-```text
+用于将给定的JavaScript value强转为JavaScript string类型。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_CoerceToString的样例方法
 static JSVM_Value CoerceToString(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -199,21 +227,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char *srcCallNative = R"JS(coerceToString(22222))JS";
 ```
-
- 预期结果：
+ 
+预期结果：
+ 
 ```text
 JSVM OH_JSVM_CoerceToString success
 ```
+ 
+  
 
+##### OH_JSVM_GetBoolean
 
-## OH_JSVM_GetBoolean
-
-获取给定布尔值的JavaScript单例对象。 cpp 部分代码：
-```text
+获取给定布尔值的JavaScript单例对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetBoolean的样例方法
 static JSVM_Value GetBoolean(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -255,23 +288,28 @@ static JSVM_PropertyDescriptor descriptor[] = {
 const char *srcCallNative = R"JS(getBoolean(1, 2);
                                  getBoolean(1, 1))JS";
 ```
-
- 预期结果：
+ 
+预期结果：
+ 
 ```text
 JSVM OH_JSVM_GetBoolean success:0
 JSVM resultType equal
 JSVM OH_JSVM_GetBoolean success:1
 ```
+ 
+  
 
+##### OH_JSVM_GetValueBool
 
-## OH_JSVM_GetValueBool
-
-使用这个函数将JavaScript中的布尔值转为等价的C布尔值。 cpp 部分代码：
-```text
+使用这个函数将JavaScript中的布尔值转为等价的C布尔值。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetValueBool的样例方法
 static JSVM_Value GetValueBool(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -305,23 +343,28 @@ const char *srcCallNative = R"JS(getValueBool("abc");
                                 getValueBool(true);
                                 getValueBool(false);)JS";
 ```
-
- 预期结果：
+ 
+预期结果：
+ 
 ```text
 JSVM OH_JSVM_GetValueBool fail:7
 JSVM OH_JSVM_GetValueBool success:1
 JSVM OH_JSVM_GetValueBool success:0
 ```
+ 
+  
 
+##### OH_JSVM_GetGlobal
 
-## OH_JSVM_GetGlobal
-
-用于获取全局JavaScript对象。该函数的主要作用是获取表示JavaScript全局对象的JSVM_Value，使JSVM模块能够与JavaScript运行时的全局对象进行交互。 cpp 部分代码：
-```text
+用于获取全局JavaScript对象。该函数的主要作用是获取表示JavaScript全局对象的JSVM_Value，使JSVM模块能够与JavaScript运行时的全局对象进行交互。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetGlobal的样例方法
 static JSVM_Value GetGlobal(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -350,21 +393,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char *srcCallNative = R"JS(getGlobal())JS";
 ```
-
- 预期结果：
+ 
+预期结果：
+ 
 ```text
 JSVM OH_JSVM_GetGlobal success
 ```
+ 
+  
 
+##### OH_JSVM_GetNull
 
-## OH_JSVM_GetNull
-
-用于获取 JavaScript null 对象。 cpp 部分代码：
-```text
+用于获取 JavaScript null 对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetNull的样例方法
 static JSVM_Value GetNull(JSVM_Env env, JSVM_CallbackInfo info) {
     JSVM_Value nullValue = nullptr;
@@ -388,21 +436,26 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char *srcCallNative = R"JS(getNull())JS";
 ```
-
- 预期结果:
+ 
+预期结果:
+ 
 ```text
 JSVM OH_JSVM_GetNull success
 ```
+ 
+  
 
+##### OH_JSVM_GetUndefined
 
-## OH_JSVM_GetUndefined
-
-用于获取 JavaScript undefined 对象。 cpp 部分代码：
-```text
+用于获取 JavaScript undefined 对象。
+ 
+cpp 部分代码：
+ 
+```cpp
 // hello.cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
+#include <hilog/log.h>
 // OH_JSVM_GetUndefined的样例方法
 static JSVM_Value GetUndefined(JSVM_Env env, JSVM_CallbackInfo info)
 {
@@ -432,8 +485,9 @@ static JSVM_PropertyDescriptor descriptor[] = {
 // 样例测试js
 const char *srcCallNative = R"JS(getUndefined())JS";
 ```
-
- 预期结果:
+ 
+预期结果:
+ 
 ```text
 JSVM OH_JSVM_GetUndefined success
 ```

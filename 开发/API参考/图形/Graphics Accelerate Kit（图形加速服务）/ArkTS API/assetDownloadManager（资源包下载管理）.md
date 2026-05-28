@@ -3,24 +3,22 @@
 更新时间：2026-05-08 09:27:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager
-**支持设备：** Phone / Tablet
+**支持设备：** Phone | Tablet
 
 本模块提供资源包下载管理能力。
 
 **起始版本：** 5.1.0(18)
 
 
-## 导入模块
-**支持设备：** Phone / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 ```
 
 
-## DownloadFault
-**支持设备：** Phone / Tablet
+
+##### DownloadFault
 
 资源包下载失败原因的枚举。
 
@@ -29,7 +27,6 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 **模型约束：** 本模块接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -45,8 +42,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 | FAULT_UNKNOWN | 9 | 未知错误。 |
 
 
-## State
-**支持设备：** Phone / Tablet
+
+
+##### State
 
 资源包下载任务状态的枚举。
 
@@ -55,7 +53,6 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 **模型约束：** 本模块接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -67,8 +64,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 | FAILED | 5 | 任务下载失败。 |
 
 
-## AssetDownloadConfig
-**支持设备：** Phone / Tablet
+
+
+##### AssetDownloadConfig
 
 资源包下载任务的配置信息。
 
@@ -76,23 +74,23 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 **模型约束：** 本模块接口仅可在Stage模型下使用。
 
-**起始��本：** 5.1.0(18)
-
+**起始版本：** 5.1.0(18)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| identifier | string | 否 | 否 | 任务ID。下载任务的唯一标识。          最大长度64个字节。 |
-| url | string | 否 | 否 | 当前下载任务URL，要求以http或者https开头，最大长度512个字节。          URL的域名需要符合域名白名单要求：          - 三方CDN：请前往AppGallery Connect查看已配置的CDN域名白名单。具体操作步骤请参见[创建下载任务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-release#创建下载任务)。          - 华为CDN：域名白名单将基于资源包下载任务自动配置。 |
-| isEssential | boolean | 否 | 否 | 是否为必需资源：          - false：非必需资源。默认值。          - true：必需资源。          下载必需资源的优先级高于非必需资源。 |
-| groupId | string | 否 | 是 | 组ID，用于标识资源的版本信息。          最大长度32个字节。          默认值：空字符串。 |
-| fileName | string | 否 | 是 | 下载资源的文件名。若输入文件名，系统下载的临时文件将以该文件名命名，否则，文件名将以任务ID命名。          最大长度128个字节。          默认值：空字符串。 |
-| begins | number | 否 | 是 | HTTP范围请求的起始字节位置。          默认值：0。 |
-| ends | number | 否 | 是 | HTTP范围请求的结束字节位置。          默认值：0。          最小值需要大于等于begins。 |
-| userData | string | 否 | 是 | 允许用户自定义的扩展字段。          最大长度1024个字节。          默认值：空字符串。 |
+| identifier | string | 否 | 否 | 任务ID。下载任务的唯一标识。 最大长度64个字节。 |
+| url | string | 否 | 否 | 当前下载任务URL，要求以http或者https开头，最大长度512个字节。 URL的域名需要符合域名白名单要求： - 三方CDN：请前往AppGallery Connect查看已配置的CDN域名白名单。具体操作步骤请参见创建下载任务。 - 华为CDN：域名白名单将基于资源包下载任务自动配置。 |
+| isEssential | boolean | 否 | 否 | 是否为必需资源： - false：非必需资源。默认值。 - true：必需资源。 下载必需资源的优先级高于非必需资源。 |
+| groupId | string | 否 | 是 | 组ID，用于标识资源的版本信息。 最大长度32个字节。 默认值：空字符串。 |
+| fileName | string | 否 | 是 | 下载资源的文件名。若输入文件名，系统下载的临时文件将以该文件名命名，否则，文件名将以任务ID命名。 最大长度128个字节。 默认值：空字符串。 |
+| begins | number | 否 | 是 | HTTP范围请求的起始字节位置。 默认值：0。 |
+| ends | number | 否 | 是 | HTTP范围请求的结束字节位置。 默认值：0。 最小值需要大于等于begins。 |
+| userData | string | 否 | 是 | 允许用户自定义的扩展字段。 最大长度1024个字节。 默认值：空字符串。 |
 
 
-## AssetDownloadTask
-**支持设备：** Phone / Tablet
+
+
+##### AssetDownloadTask
 
 资源包下载任务的信息。
 
@@ -102,16 +100,16 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 **起始版本：** 5.1.0(18)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| config | [AssetDownloadConfig](#assetdownloadconfig) | 是 | 否 | 资源包下载任务的配置信息，包含任务ID、URL、下载优先级等信息。 |
-| taskId | string | 是 | 否 | 系统自动生成的任务ID，用于唯一标识下载任务。          最大长度36个字节。 |
-| state | [State](#state) | 是 | 否 | 资源包下载任务的状态。 |
+| config | AssetDownloadConfig | 是 | 否 | 资源包下载任务的配置信息，包含任务ID、URL、下载优先级等信息。 |
+| taskId | string | 是 | 否 | 系统自动生成的任务ID，用于唯一标识下载任务。 最大长度36个字节。 |
+| state | State | 是 | 否 | 资源包下载任务的状态。 |
 
 
-## DownloadProgressInfo
-**支持设备：** Phone / Tablet
+
+
+##### DownloadProgressInfo
 
 资源包下载任务的进度信息。
 
@@ -121,16 +119,16 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 **起始版本：** 5.1.0(18)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| downloadTask | [AssetDownloadTask](#assetdownloadtask) | 是 | 否 | 资源包下载任务的信息。 |
-| totalBytesWritten | number | 是 | 否 | 待下载的资源总大小，单位：Byte。          默认值：0。 |
-| totalExpectedBytes | number | 是 | 否 | 已下载的资源总大小，单位：Byte。          默认值：0。 |
+| downloadTask | AssetDownloadTask | 是 | 否 | 资源包下载任务的信息。 |
+| totalBytesWritten | number | 是 | 否 | 待下载的资源总大小，单位：Byte。 默认值：0。 |
+| totalExpectedBytes | number | 是 | 否 | 已下载的资源总大小，单位：Byte。 默认值：0。 |
 
 
-## DownloadCompletedInfo
-**支持设备：** Phone / Tablet
+
+
+##### DownloadCompletedInfo
 
 资源包下载任务的完成信息。
 
@@ -140,15 +138,15 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 **起始版本：** 5.1.0(18)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| downloadTask | [AssetDownloadTask](#assetdownloadtask) | 是 | 否 | 资源包下载任务的信息。 |
-| filePath | string | 是 | 否 | 下载文件的本地沙箱地址。          最大长度512个字节。 |
+| downloadTask | AssetDownloadTask | 是 | 否 | 资源包下载任务的信息。 |
+| filePath | string | 是 | 否 | 下载文件的本地沙箱地址。 最大长度512个字节。 |
 
 
-## DownloadFailedInfo
-**支持设备：** Phone / Tablet
+
+
+##### DownloadFailedInfo
 
 资源包下载任务的失败信息。
 
@@ -158,15 +156,15 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 **起始版本：** 5.1.0(18)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| downloadTask | [AssetDownloadTask](#assetdownloadtask) | 是 | 否 | 资源包下载任务的信息。 |
-| fault | [DownloadFault](#downloadfault) | 是 | 否 | 资源包下载失败的原因。 |
+| downloadTask | AssetDownloadTask | 是 | 否 | 资源包下载任务的信息。 |
+| fault | DownloadFault | 是 | 否 | 资源包下载失败的原因。 |
 
 
-## assetDownloadManager.on('progress')
-**支持设备：** Phone / Tablet
+
+
+##### assetDownloadManager.on('progress')
 
 on(type: 'progress', callback: Callback<DownloadProgressInfo[]>): void
 
@@ -180,17 +178,15 @@ on(type: 'progress', callback: Callback<DownloadProgressInfo[]>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，固定为'progress'，表示资源包下载进度。 |
-| callback | Callback&lt;[DownloadProgressInfo[]](#downloadprogressinfo)&gt; | 是 | 回调函数。返回任务进度信息。 |
+| callback | Callback<DownloadProgressInfo[]> | 是 | 回调函数。返回任务进度信息。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -201,17 +197,11 @@ on(type: 'progress', callback: Callback<DownloadProgressInfo[]>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onProgressCallback = (
-  progressArray: assetDownloadManager.DownloadProgressInfo[],
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `onProgressCallback progressArray length: ${progressArray.length}`,
-  );
+let onProgressCallback = (progressArray: assetDownloadManager.DownloadProgressInfo[]) => {
+  console.info('AssetAccelDemo', `onProgressCallback progressArray length: ${progressArray.length}`);
   // 添加资源包下载进度处理逻辑。
 };
 // 订阅资源包下载进度事件。
@@ -219,8 +209,8 @@ assetDownloadManager.on('progress', onProgressCallback);
 ```
 
 
-## assetDownloadManager.off('progress')
-**支持设备：** Phone / Tablet
+
+##### assetDownloadManager.off('progress')
 
 off(type: 'progress', callback?: Callback<DownloadProgressInfo[]>): void
 
@@ -234,17 +224,15 @@ off(type: 'progress', callback?: Callback<DownloadProgressInfo[]>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消事件回调类型，固定为'progress'，表示资源包下载进度。 |
-| callback | Callback&lt;[DownloadProgressInfo[]](#downloadprogressinfo)&gt; | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
+| callback | Callback<DownloadProgressInfo[]> | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -255,17 +243,11 @@ off(type: 'progress', callback?: Callback<DownloadProgressInfo[]>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onProgressCallback = (
-  progressArray: assetDownloadManager.DownloadProgressInfo[],
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `onProgressCallback progressArray length: ${progressArray.length}`,
-  );
+let onProgressCallback = (progressArray: assetDownloadManager.DownloadProgressInfo[]) => {
+  console.info('AssetAccelDemo', `onProgressCallback progressArray length: ${progressArray.length}`);
   // 添加资源包下载进度处理逻辑。
 };
 // 取消订阅资源包下载进度事件。
@@ -273,10 +255,10 @@ assetDownloadManager.off('progress', onProgressCallback);
 ```
 
 
-## assetDownloadManager.on('pause')
-**支持设备：** Phone / Tablet
 
-on(type: 'pause', callback: Callback<AssetDownloadTask>): void
+##### assetDownloadManager.on('pause')
+
+on(type: 'pause', callback: Callback&lt;AssetDownloadTask&gt;): void
 
 订阅资源包下载暂停事件。使用callback异步回调。
 
@@ -288,17 +270,15 @@ on(type: 'pause', callback: Callback<AssetDownloadTask>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，固定为'pause'，表示资源暂停事件。 |
-| callback | Callback&lt;[AssetDownloadTask](#assetdownloadtask)&gt; | 是 | 回调函数。返回任务信息。 |
+| callback | Callback&lt;AssetDownloadTask&gt; | 是 | 回调函数。返回任务信息。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -309,17 +289,11 @@ on(type: 'pause', callback: Callback<AssetDownloadTask>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onPauseCallback = (
-  downloadTaskInfo: assetDownloadManager.AssetDownloadTask,
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `task identifier = ${downloadTaskInfo.config.identifier} has paused.`,
-  );
+let onPauseCallback = (downloadTaskInfo: assetDownloadManager.AssetDownloadTask) => {
+  console.info('AssetAccelDemo', `task identifier = ${downloadTaskInfo.config.identifier} has paused.`);
   // 添加资源包下载暂停处理逻辑。
 };
 // 订阅资源包下载暂停事件。
@@ -327,10 +301,10 @@ assetDownloadManager.on('pause', onPauseCallback);
 ```
 
 
-## assetDownloadManager.off('pause')
-**支持设备：** Phone / Tablet
 
-off(type: 'pause', callback?: Callback<AssetDownloadTask>): void
+##### assetDownloadManager.off('pause')
+
+off(type: 'pause', callback?: Callback&lt;AssetDownloadTask&gt;): void
 
 取消订阅资源包下载暂停事件。使用callback异步回调。
 
@@ -342,17 +316,15 @@ off(type: 'pause', callback?: Callback<AssetDownloadTask>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消事件回调类型，固定为'pause'，表示资源暂停事件。 |
-| callback | Callback&lt;[AssetDownloadTask](#assetdownloadtask)&gt; | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
+| callback | Callback&lt;AssetDownloadTask&gt; | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -363,17 +335,11 @@ off(type: 'pause', callback?: Callback<AssetDownloadTask>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onPauseCallback = (
-  downloadTaskInfo: assetDownloadManager.AssetDownloadTask,
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `task identifier = ${downloadTaskInfo.config.identifier} has paused.`,
-  );
+let onPauseCallback = (downloadTaskInfo: assetDownloadManager.AssetDownloadTask) => {
+  console.info('AssetAccelDemo', `task identifier = ${downloadTaskInfo.config.identifier} has paused.`);
   // 添加资源包下载暂停处理逻辑。
 };
 // 取消订阅资源包下载暂停事件。
@@ -381,10 +347,10 @@ assetDownloadManager.off('pause', onPauseCallback);
 ```
 
 
-## assetDownloadManager.on('complete')
-**支持设备：** Phone / Tablet
 
-on(type: 'complete', callback: Callback<DownloadCompletedInfo>): void
+##### assetDownloadManager.on('complete')
+
+on(type: 'complete', callback: Callback&lt;DownloadCompletedInfo&gt;): void
 
 订阅资源包下载成功事件。使用callback异步回调。
 
@@ -396,17 +362,15 @@ on(type: 'complete', callback: Callback<DownloadCompletedInfo>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，固定为'complete'，表示资源包下载成功事件。 |
-| callback | Callback&lt;[DownloadCompletedInfo](#downloadcompletedinfo)&gt; | 是 | 回调函数。返回任务完成信息。 |
+| callback | Callback&lt;DownloadCompletedInfo&gt; | 是 | 回调函数。返回任务完成信息。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -417,17 +381,11 @@ on(type: 'complete', callback: Callback<DownloadCompletedInfo>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onCompleteCallback = (
-  completeInfo: assetDownloadManager.DownloadCompletedInfo,
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `task identifier = ${completeInfo.downloadTask.config.identifier} has completed.`,
-  );
+let onCompleteCallback = (completeInfo: assetDownloadManager.DownloadCompletedInfo) => {
+  console.info('AssetAccelDemo', `task identifier = ${completeInfo.downloadTask.config.identifier} has completed.`);
   // 添加资源包下载成功处理逻辑。
 };
 // 订阅资源包下载成功事件。
@@ -435,10 +393,10 @@ assetDownloadManager.on('complete', onCompleteCallback);
 ```
 
 
-## assetDownloadManager.off('complete')
-**支持设备：** Phone / Tablet
 
-off(type: 'complete', callback?: Callback<DownloadCompletedInfo>): void
+##### assetDownloadManager.off('complete')
+
+off(type: 'complete', callback?: Callback&lt;DownloadCompletedInfo&gt;): void
 
 取消订阅资源包下载成功事件。使用callback异步回调。
 
@@ -450,17 +408,15 @@ off(type: 'complete', callback?: Callback<DownloadCompletedInfo>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消事件回调类型，固定为'complete'，表示资源包下载成功事件。 |
-| callback | Callback&lt;[DownloadCompletedInfo](#downloadcompletedinfo)&gt; | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
+| callback | Callback&lt;DownloadCompletedInfo&gt; | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -471,17 +427,11 @@ off(type: 'complete', callback?: Callback<DownloadCompletedInfo>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onCompleteCallback = (
-  completeInfo: assetDownloadManager.DownloadCompletedInfo,
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `task identifier = ${completeInfo.downloadTask.config.identifier} has completed.`,
-  );
+let onCompleteCallback = (completeInfo: assetDownloadManager.DownloadCompletedInfo) => {
+  console.info('AssetAccelDemo', `task identifier = ${completeInfo.downloadTask.config.identifier} has completed.`);
   // 添加资源包下载成功处理逻辑。
 };
 // 取消订阅资源包下载成功事件。
@@ -489,10 +439,10 @@ assetDownloadManager.off('complete', onCompleteCallback);
 ```
 
 
-## assetDownloadManager.on('fail')
-**支持设备：** Phone / Tablet
 
-on(type: 'fail', callback: Callback<DownloadFailedInfo>): void
+##### assetDownloadManager.on('fail')
+
+on(type: 'fail', callback: Callback&lt;DownloadFailedInfo&gt;): void
 
 订阅资源包下载失败事件。使用callback异步回调。
 
@@ -504,17 +454,15 @@ on(type: 'fail', callback: Callback<DownloadFailedInfo>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，固定为'fail'，表示资源包下载失败事件。 |
-| callback | Callback&lt;[DownloadFailedInfo](#downloadfailedinfo)&gt; | 是 | 回调函数。返回任务失败信息。 |
+| callback | Callback&lt;DownloadFailedInfo&gt; | 是 | 回调函数。返回任务失败信息。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -525,17 +473,11 @@ on(type: 'fail', callback: Callback<DownloadFailedInfo>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onFailedCallback = (
-  failedInfo: assetDownloadManager.DownloadFailedInfo,
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `task identifier = ${failedInfo.downloadTask.config.identifier} has failed.`,
-  );
+let onFailedCallback = (failedInfo: assetDownloadManager.DownloadFailedInfo) => {
+  console.info('AssetAccelDemo', `task identifier = ${failedInfo.downloadTask.config.identifier} has failed.`);
   // 添加资源包下载失败处理逻辑。
 };
 // 订阅资源包下载失败事件。
@@ -543,10 +485,10 @@ assetDownloadManager.on('fail', onFailedCallback);
 ```
 
 
-## assetDownloadManager.off('fail')
-**支持设备：** Phone / Tablet
 
-off(type: 'fail', callback?: Callback<DownloadFailedInfo>): void
+##### assetDownloadManager.off('fail')
+
+off(type: 'fail', callback?: Callback&lt;DownloadFailedInfo&gt;): void
 
 取消订阅资源包下载失败事件。使用callback异步回调。
 
@@ -558,17 +500,15 @@ off(type: 'fail', callback?: Callback<DownloadFailedInfo>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消事件回调类型，固定为'fail'，表示资源包下载失败事件。 |
-| callback | Callback&lt;[DownloadFailedInfo](#downloadfailedinfo)&gt; | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
+| callback | Callback&lt;DownloadFailedInfo&gt; | 否 | 回调函数。返回任务进度信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -579,17 +519,11 @@ off(type: 'fail', callback?: Callback<DownloadFailedInfo>): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
-let onFailedCallback = (
-  failedInfo: assetDownloadManager.DownloadFailedInfo,
-) => {
-  console.info(
-    'AssetAccelDemo',
-    `task identifier = ${failedInfo.downloadTask.config.identifier} has failed.`,
-  );
+let onFailedCallback = (failedInfo: assetDownloadManager.DownloadFailedInfo) => {
+  console.info('AssetAccelDemo', `task identifier = ${failedInfo.downloadTask.config.identifier} has failed.`);
   // 添加资源包下载失败处理逻辑。
 };
 // 取消订阅资源包下载失败事件。
@@ -597,10 +531,10 @@ assetDownloadManager.off('fail', onFailedCallback);
 ```
 
 
-## assetDownloadManager.fetchManifestUrl
-**支持设备：** Phone / Tablet
 
-fetchManifestUrl(): Promise<string>
+##### assetDownloadManager.fetchManifestUrl
+
+fetchManifestUrl(): Promise&lt;string&gt;
 
 获取资源包下载列表。使用Promise异步回调。
 
@@ -614,16 +548,14 @@ fetchManifestUrl(): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象。          - 若资源托管至华为CDN，返回资源包下载清单manifestUrl。          - 若资源托管至三方CDN，则返回空字符串。 |
+| Promise&lt;string&gt; | Promise对象。 - 若资源托管至华为CDN，返回资源包下载清单manifestUrl。 - 若资源托管至三方CDN，则返回空字符串。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -633,8 +565,7 @@ fetchManifestUrl(): Promise<string>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 async fetchManifestUrl() {
@@ -650,10 +581,10 @@ async fetchManifestUrl() {
 ```
 
 
-## assetDownloadManager.addAssetDownloadTask
-**支持设备：** Phone / Tablet
 
-addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadConfig): Promise<string>
+##### assetDownloadManager.addAssetDownloadTask
+
+addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadConfig): Promise&lt;string&gt;
 
 新增资源包下载任务。使用Promise异步回调。
 
@@ -667,25 +598,22 @@ addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadC
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.BaseContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-basecontext) | 是 | 应用程序上下文。 |
-| downloadConfig | [AssetDownloadConfig](#assetdownloadconfig) | 是 | 资源包下载任务的配置信息。 |
+| context | common.BaseContext | 是 | 应用程序上下文。 |
+| downloadConfig | AssetDownloadConfig | 是 | 资源包下载任务的配置信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象。返回下载任务taskID。          最大长度36个字节。 |
+| Promise&lt;string&gt; | Promise对象。返回下载任务taskID。 最大长度36个字节。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -699,8 +627,7 @@ addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadC
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -725,10 +652,10 @@ async addAssetDownloadTask() {
 ```
 
 
-## assetDownloadManager.pauseAssetDownloadTask
-**支持设备：** Phone / Tablet
 
-pauseAssetDownloadTask(taskId: string): Promise<void>
+##### assetDownloadManager.pauseAssetDownloadTask
+
+pauseAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 暂停资源包下载任务。使用Promise异步回调。
 
@@ -742,14 +669,12 @@ pauseAssetDownloadTask(taskId: string): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| taskId | string | 是 | 任务ID。          最大长度36个字节。 |
+| taskId | string | 是 | 任务ID。 最大长度36个字节。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -759,7 +684,6 @@ pauseAssetDownloadTask(taskId: string): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -773,8 +697,7 @@ pauseAssetDownloadTask(taskId: string): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -809,10 +732,10 @@ async pauseAssetDownloadTask() {
 ```
 
 
-## assetDownloadManager.resumeAssetDownloadTask
-**支持设备：** Phone / Tablet
 
-resumeAssetDownloadTask(taskId: string): Promise<void>
+##### assetDownloadManager.resumeAssetDownloadTask
+
+resumeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 恢复资源包下载任务。使用Promise异步回调。
 
@@ -826,14 +749,12 @@ resumeAssetDownloadTask(taskId: string): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| taskId | string | 是 | 任务ID。          最大长度36个字节。 |
+| taskId | string | 是 | 任务ID。 最大长度36个字节。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -843,7 +764,6 @@ resumeAssetDownloadTask(taskId: string): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -857,8 +777,7 @@ resumeAssetDownloadTask(taskId: string): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -901,10 +820,10 @@ async resumeAssetDownloadTask() {
 ```
 
 
-## assetDownloadManager.removeAssetDownloadTask
-**支持设备：** Phone / Tablet
 
-removeAssetDownloadTask(taskId: string): Promise<void>
+##### assetDownloadManager.removeAssetDownloadTask
+
+removeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 移除资源包下载任务。使用Promise异步回调。
 
@@ -916,14 +835,12 @@ removeAssetDownloadTask(taskId: string): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| taskId | string | 是 | 任务ID。          最大长度36个字节。 |
+| taskId | string | 是 | 任务ID。 最大长度36个字节。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -934,7 +851,6 @@ removeAssetDownloadTask(taskId: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -944,8 +860,7 @@ removeAssetDownloadTask(taskId: string): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -980,8 +895,8 @@ async removeAssetDownloadTask() {
 ```
 
 
-## assetDownloadManager.fetchAllAssetDownloadTasks
-**支持设备：** Phone / Tablet
+
+##### assetDownloadManager.fetchAllAssetDownloadTasks
 
 fetchAllAssetDownloadTasks(): Promise<AssetDownloadTask[]>
 
@@ -995,16 +910,14 @@ fetchAllAssetDownloadTasks(): Promise<AssetDownloadTask[]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AssetDownloadTask[]](#assetdownloadtask)&gt; | Promise对象。返回资源包下载任务列表。 |
+| Promise<AssetDownloadTask[]> | Promise对象。返回资源包下载任务列表。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1013,8 +926,7 @@ fetchAllAssetDownloadTasks(): Promise<AssetDownloadTask[]>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1050,10 +962,10 @@ async fetchAllAssetDownloadTasks() {
 ```
 
 
-## assetDownloadManager.pauseAllAssetDownloadTasks
-**支持设备：** Phone / Tablet
 
-pauseAllAssetDownloadTasks(): Promise<void>
+##### assetDownloadManager.pauseAllAssetDownloadTasks
+
+pauseAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 暂停所有资源包下载任务。使用Promise异步回调。
 
@@ -1067,7 +979,6 @@ pauseAllAssetDownloadTasks(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -1076,7 +987,6 @@ pauseAllAssetDownloadTasks(): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1087,8 +997,7 @@ pauseAllAssetDownloadTasks(): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1123,10 +1032,10 @@ async pauseAllAssetDownloadTasks() {
 ```
 
 
-## assetDownloadManager.resumeAllAssetDownloadTasks
-**支持设备：** Phone / Tablet
 
-resumeAllAssetDownloadTasks(): Promise<void>
+##### assetDownloadManager.resumeAllAssetDownloadTasks
+
+resumeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 恢复所有资源包下载任务。使用Promise异步回调。
 
@@ -1140,7 +1049,6 @@ resumeAllAssetDownloadTasks(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -1149,7 +1057,6 @@ resumeAllAssetDownloadTasks(): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1160,8 +1067,7 @@ resumeAllAssetDownloadTasks(): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1204,10 +1110,10 @@ async resumeAllAssetDownloadTasks() {
 ```
 
 
-## assetDownloadManager.removeAllAssetDownloadTasks
-**支持设备：** Phone / Tablet
 
-removeAllAssetDownloadTasks(): Promise<void>
+##### assetDownloadManager.removeAllAssetDownloadTasks
+
+removeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 移除所有资源包下载任务。使用Promise异步回调。
 
@@ -1219,7 +1125,6 @@ removeAllAssetDownloadTasks(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
@@ -1229,7 +1134,6 @@ removeAllAssetDownloadTasks(): Promise<void>
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1016600094 | Task service ability error. |
@@ -1237,8 +1141,7 @@ removeAllAssetDownloadTasks(): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1273,8 +1176,8 @@ async removeAllAssetDownloadTasks() {
 ```
 
 
-## assetDownloadManager.fetchGroupAssetDownloadTasks
-**支持设备：** Phone / Tablet
+
+##### assetDownloadManager.fetchGroupAssetDownloadTasks
 
 fetchGroupAssetDownloadTasks(groupId: string): Promise<AssetDownloadTask[]>
 
@@ -1288,24 +1191,21 @@ fetchGroupAssetDownloadTasks(groupId: string): Promise<AssetDownloadTask[]>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| groupId | string | 是 | 组ID，用于标识资源的版本信息。          最大长度32个字节。 |
+| groupId | string | 是 | 组ID，用于标识资源的版本信息。 最大长度32个字节。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AssetDownloadTask[]](#assetdownloadtask)&gt; | Promise对象。返回资源包下载任务列表。 |
+| Promise<AssetDownloadTask[]> | Promise对象。返回资源包下载任务列表。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1316,8 +1216,7 @@ fetchGroupAssetDownloadTasks(groupId: string): Promise<AssetDownloadTask[]>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1354,10 +1253,10 @@ async fetchGroupAssetDownloadTasks() {
 ```
 
 
-## assetDownloadManager.pauseGroupAssetDownloadTasks
-**支持设备：** Phone / Tablet
 
-pauseGroupAssetDownloadTasks(groupId: string): Promise<void>
+##### assetDownloadManager.pauseGroupAssetDownloadTasks
+
+pauseGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 暂停同一组的资源包下载任务。使用Promise异步回调。
 
@@ -1371,14 +1270,12 @@ pauseGroupAssetDownloadTasks(groupId: string): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| groupId | string | 是 | 组ID，用于标识资源的版本信息。          最大长度32个字节。 |
+| groupId | string | 是 | 组ID，用于标识资源的版本信息。 最大长度32个字节。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1388,7 +1285,6 @@ pauseGroupAssetDownloadTasks(groupId: string): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1401,8 +1297,7 @@ pauseGroupAssetDownloadTasks(groupId: string): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1438,10 +1333,10 @@ async pauseGroupAssetDownloadTasks() {
 ```
 
 
-## assetDownloadManager.resumeGroupAssetDownloadTasks
-**支持设备：** Phone / Tablet
 
-resumeGroupAssetDownloadTasks(groupId: string): Promise<void>
+##### assetDownloadManager.resumeGroupAssetDownloadTasks
+
+resumeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 恢复同一组的资源包下载任务。使用Promise异步回调。
 
@@ -1455,14 +1350,12 @@ resumeGroupAssetDownloadTasks(groupId: string): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| groupId | string | 是 | 组ID，用于标识资源的版本信息。          最大长度32个字节。 |
+| groupId | string | 是 | 组ID，用于标识资源的版本信息。 最大长度32个字节。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1472,7 +1365,6 @@ resumeGroupAssetDownloadTasks(groupId: string): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1485,8 +1377,7 @@ resumeGroupAssetDownloadTasks(groupId: string): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1530,10 +1421,10 @@ async resumeGroupAssetDownloadTasks() {
 ```
 
 
-## assetDownloadManager.removeGroupAssetDownloadTasks
-**支持设备：** Phone / Tablet
 
-removeGroupAssetDownloadTasks(groupId: string): Promise<void>
+##### assetDownloadManager.removeGroupAssetDownloadTasks
+
+removeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 移除同一组的资源包下载任务。使用Promise异步回调。
 
@@ -1545,14 +1436,12 @@ removeGroupAssetDownloadTasks(groupId: string): Promise<void>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| groupId | string | 是 | 组ID，用于标识资源的版本信息。          最大长度32个字节。 |
+| groupId | string | 是 | 组ID，用于标识资源的版本信息。 最大长度32个字节。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1563,7 +1452,6 @@ removeGroupAssetDownloadTasks(groupId: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -1573,8 +1461,7 @@ removeGroupAssetDownloadTasks(groupId: string): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1610,8 +1497,8 @@ async removeGroupAssetDownloadTasks() {
 ```
 
 
-## NetSpeedLevel
-**支持设备：** Phone / Tablet
+
+##### NetSpeedLevel
 
 网络限速等级的枚举。
 
@@ -1621,7 +1508,6 @@ async removeGroupAssetDownloadTasks() {
 
 **起始版本：** 5.1.0(18)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NO_LIMIT | 0 | 无速度限制。 |
@@ -1629,10 +1515,11 @@ async removeGroupAssetDownloadTasks() {
 | LIMIT_LOW | 2 | 低等速度限制。 |
 
 
-## assetDownloadManager.limitDownloadTaskSpeed
-**支持设备：** Phone / Tablet
 
-limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise<void>
+
+##### assetDownloadManager.limitDownloadTaskSpeed
+
+limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise&lt;void&gt;
 
 限制资源包下载的速度。使用Promise异步回调。
 
@@ -1646,15 +1533,13 @@ limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise<vo
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | taskIds | string[] | 是 | 任务ID列表。 |
-| speedLimit | [NetSpeedLevel](#netspeedlevel) | 是 | 网络限速等级。 |
+| speedLimit | NetSpeedLevel | 是 | 网络限速等级。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1665,7 +1550,6 @@ limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise<vo
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | No Internet permission. |
@@ -1675,8 +1559,7 @@ limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise<vo
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { common } from '@kit.AbilityKit';
 
@@ -1712,8 +1595,8 @@ async limitDownloadTaskSpeed() {
 ```
 
 
-## AppDownloadStatus
-**支持设备：** Phone / Tablet
+
+##### AppDownloadStatus
 
 应用自身下载器中资源包下载状态的枚举。
 
@@ -1723,15 +1606,15 @@ async limitDownloadTaskSpeed() {
 
 **起始版本：** 5.1.1(19)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | IN_PROGRESS | 0 | 下载中。 |
 | FINISH | 1 | 已完成下载。 |
 
 
-## ResourceType
-**支持设备：** Phone / Tablet
+
+
+##### ResourceType
 
 资源类型，影响下载完成通知的内容样式。
 
@@ -1741,15 +1624,15 @@ async limitDownloadTaskSpeed() {
 
 **起始版本：** 6.1.0(23)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| RELEASED | 0 | 已发布的资源，即已公开发布过的资源。          完成下载后，通知栏展示“xxx 游戏资源包已更新”。 |
-| PRE_RELEASE | 1 | 预发布的资源，即未公开发布过的资源。          完成下载后，通知栏展示“xxx 游戏资源包预下载已完成” |
+| RELEASED | 0 | 已发布的资源，即已公开发布过的资源。 完成下载后，通知栏展示“xxx 游戏资源包已更新”。 |
+| PRE_RELEASE | 1 | 预发布的资源，即未公开发布过的资源。 完成下载后，通知栏展示“xxx 游戏资源包预下载已完成” |
 
 
-## AppDownloadProgress
-**支持设备：** Phone / Tablet
+
+
+##### AppDownloadProgress
 
 应用自身下载器中资源包的下载进度信息。
 
@@ -1759,20 +1642,20 @@ async limitDownloadTaskSpeed() {
 
 **起始版本：** 5.1.1(19)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| totalBytesWritten | number | 否 | 否 | 已下载的资源总大小，单位：Byte。取值范围：大于等于0。          默认值：0。 |
-| totalExpectedBytes | number | 否 | 否 | 待下载的资源总大小，单位：Byte。取值大于等于0，异常值按0处理。          默认值：0。 |
-| totalFiles | number | 否 | 否 | 资源文件总数。取值大于等于0，异常值按0处理。          默认值：0。 |
-| successCount | number | 否 | 否 | 已成功下载的文件数。取值大于等于0，异常值按0处理。          默认值：0。 |
-| failureCount | number | 否 | 否 | 下载失败的文件数。取值大于等于0，异常值按0处理。          默认值：0。 |
-| status | [AppDownloadStatus](#appdownloadstatus) | 否 | 否 | 当前应用自身下载器中的下载状态。 |
-| resourceType | [ResourceType](#resourcetype) | 否 | 是 | 后台正在下载的资源类型，不同的资源类型决定了后台下载通知的内容样式。          默认值为RELEASED。          起始版本： 6.1.0(23) |
+| totalBytesWritten | number | 否 | 否 | 已下载的资源总大小，单位：Byte。取值范围：大于等于0。 默认值：0。 |
+| totalExpectedBytes | number | 否 | 否 | 待下载的资源总大小，单位：Byte。取值大于等于0，异常值按0处理。 默认值：0。 |
+| totalFiles | number | 否 | 否 | 资源文件总数。取值大于等于0，异常值按0处理。 默认值：0。 |
+| successCount | number | 否 | 否 | 已成功下载的文件数。取值大于等于0，异常值按0处理。 默认值：0。 |
+| failureCount | number | 否 | 否 | 下载失败的文件数。取值大于等于0，异常值按0处理。 默认值：0。 |
+| status | AppDownloadStatus | 否 | 否 | 当前应用自身下载器中的下载状态。 |
+| resourceType | ResourceType | 否 | 是 | 后台正在下载的资源类型，不同的资源类型决定了后台下载通知的内容样式。 默认值为RELEASED。 起始版本： 6.1.0(23) |
 
 
-## assetDownloadManager.reportDownloadProgress
-**支持设备：** Phone / Tablet
+
+
+##### assetDownloadManager.reportDownloadProgress
 
 reportDownloadProgress(progressInfo: AppDownloadProgress): void
 
@@ -1786,16 +1669,14 @@ reportDownloadProgress(progressInfo: AppDownloadProgress): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| progressInfo | [AppDownloadProgress](#appdownloadprogress) | 是 | 应用自身下载器中的下载进度信息。 |
+| progressInfo | AppDownloadProgress | 是 | 应用自身下载器中的下载进度信息。 |
 
 
 **错误码**：
 
 错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1805,8 +1686,7 @@ reportDownloadProgress(progressInfo: AppDownloadProgress): void
 
 **示例**：
 
-
-```ts
+```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 import { deviceInfo } from '@kit.BasicServicesKit';
 
@@ -1817,18 +1697,15 @@ try {
     totalFiles: 0,
     successCount: 0,
     failureCount: 0,
-    status: assetDownloadManager.AppDownloadStatus.IN_PROGRESS,
-  };
+    status:assetDownloadManager.AppDownloadStatus.IN_PROGRESS
+  }
   // 判断当前HarmonyOS SDK版本是否为6.1.0(23)及以上版本
   if (deviceInfo.sdkApiVersion >= 23) {
-    progressInfo.resourceType = assetDownloadManager.ResourceType.RELEASED;
+    progressInfo.resourceType = assetDownloadManager.ResourceType.RELEASED
   }
   assetDownloadManager.reportDownloadProgress(progressInfo);
   console.info('AssetAccelDemo', `Succeeded in reporting downloadProgress`);
 } catch (error) {
-  console.error(
-    'AssetAccelDemo',
-    `Failed to report downloadProgress, errCode:${error.code}, errMessage:${error.message}`,
-  );
+  console.error('AssetAccelDemo', `Failed to report downloadProgress, errCode:${error.code}, errMessage:${error.message}`);
 }
 ```

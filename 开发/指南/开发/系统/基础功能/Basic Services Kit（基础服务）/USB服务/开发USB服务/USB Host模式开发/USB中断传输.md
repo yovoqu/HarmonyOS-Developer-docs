@@ -1,53 +1,81 @@
 # USB中断传输
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/interrupttransfer
 
-## 场景介绍
+##### 场景介绍
 
 中断传输主要用于主机（Host）接收设备（Device）发送的数据包。设备的端点模式决定了接口支持中断读或中断写，这种传输方式适用于少量的、分散的、不可预测的数据类型的传输，鼠标、键盘和操纵杆等设备均属于这种类型，且此类设备的端点一般只支持中断读操作。
 
-## 环境准备
 
 
-## 环境要求
-
-开发工具及配置： DevEco Studio作为驱动开发工具，是进行驱动开发必备条件之一，开发者可以使用该工具进行开发、调试、打包等操作。请[下载安装](https://developer.huawei.com/consumer/cn/download/)该工具，并参考[DevEco Studio使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)中的[创建工程及运行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)进行基本的操作验证，保证DevEco Studio可正常运行。 SDK版本配置： 扩展外设管理提供的ArkTs接口，所需SDK版本为API16及以上才可使用。 HDC配置： HDC（HarmonyOS Device Connector）是为开发人员提供的用于调试的命令行工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互，详细参考[HDC配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)。
-
-## 搭建环境
-
-在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。 将public-SDK更新到API 16或以上。 PC安装HDC工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互。 用USB线缆将搭载HarmonyOS的设备连接到PC。
-
-## 开发指导
+##### 环境准备
 
 
-## 接口说明
 
+##### 环境要求
+
+ - 开发工具及配置：
+
+  DevEco Studio作为驱动开发工具，是进行驱动开发必备条件之一，开发者可以使用该工具进行开发、调试、打包等操作。请[下载安装](https://developer.huawei.com/consumer/cn/download/)该工具，并参考[DevEco Studio使用指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tools-overview)中的[创建工程及运行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-create-new-project)进行基本的操作验证，保证DevEco Studio可正常运行。
+ - SDK版本配置：
+
+  扩展外设管理提供的ArkTs接口，所需SDK版本为API16及以上才可使用。
+ - HDC配置：
+
+  HDC（HarmonyOS Device Connector）是为开发人员提供的用于调试的命令行工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互，详细参考[HDC配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)。
+
+
+
+
+##### 搭建环境
+
+ - 在PC上安装[DevEco Studio](https://developer.huawei.com/consumer/cn/download/deveco-studio)，要求版本在4.1及以上。
+ - 将public-SDK更新到API 16或以上。
+ - PC安装HDC工具，通过该工具可以在Windows/Linux/Mac系统上与真实设备或者模拟器进行交互。
+ - 用USB线缆将搭载HarmonyOS的设备连接到PC。
+
+
+
+
+##### 开发指导
+
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
 | usbSubmitTransfer(transfer: UsbDataTransferParams): void | 异步传输接口（支持实时、批量、中断传输）。 |
 | usbCancelTransfer(transfer: UsbDataTransferParams): void | 取消已提交的异步传输。 |
 
+
 更多关于设备管理和传输模式的详细接口介绍，请查阅[@ohos.usbManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-usbmanager)。
 
-## 开发步骤
+
+
+##### 开发步骤
 
 主机（Host）连接设备（Device），通过usbSubmitTransfer接口进行数据传输。以下步骤描述了如何使用中断传输方式来传输数据：
+
 > [!NOTE]
 > 以下示例代码只是使用中断传输方式来传输数据的必要流程，需要放入具体的方法中执行。在实际调用时，设备开发者需要遵循设备相关协议进行调用，确保数据的正确传输和设备的兼容性。
 
-导入模块。
-```text
+1. 导入模块。
+
+  
+```ArkTS
 // 导入usbManager模块
 import { usbManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
 ```
 
-获取设备列表。
-```text
+2. 获取设备列表。
+
+  
+```ArkTS
 // 获取设备列表。
 let deviceList: usbManager.USBDevice[] = usbManager.getDevices();
 console.info(`deviceList: ${deviceList}`);
@@ -111,8 +139,10 @@ deviceList结构示例
 this.deviceList_ = deviceList;
 ```
 
-获取设备操作权限。
-```text
+3. 获取设备操作权限。
+
+  
+```ArkTS
 if (this.deviceList_ === undefined || this.deviceList_.length === 0) {
   console.error('deviceList is empty');
   this.logInfo_ += '\n[ERROR] deviceList is empty';
@@ -130,8 +160,10 @@ usbManager.requestRight(deviceName).then((hasRight: boolean) => {
 });
 ```
 
-获取通过中断传输读取数据的端点。
-```text
+4. 获取通过中断传输读取数据的端点。
+
+  
+```ArkTS
 if (this.deviceList_ === undefined || this.deviceList_.length === 0) {
   console.error('deviceList_ is empty');
   this.logInfo_ += '\n[ERROR] deviceList_ is empty';
@@ -149,7 +181,11 @@ let usbInterfaces: usbManager.USBInterface[] = [];
 let usbInterface: usbManager.USBInterface | undefined = undefined;
 let usbEndpoints: usbManager.USBEndpoint[] = [];
 let usbEndpoint: usbManager.USBEndpoint | undefined = undefined;
-for (let i = 0; i  {
+for (let i = 0; i < usbConfigs?.length; i++) {
+  usbInterfaces = usbConfigs[i]?.interfaces;
+  for (let j = 0; j < usbInterfaces?.length; j++) {
+    usbEndpoints = usbInterfaces[j]?.endpoints;
+    usbEndpoint = usbEndpoints?.find((value) => {
       return value.direction === 128 && value.type === usbManager.UsbEndpointTransferType.TRANSFER_TYPE_INTERRUPT;
     })
     if (usbEndpoint !== undefined) {
@@ -165,8 +201,10 @@ if (usbEndpoint === undefined) {
 }
 ```
 
-连接设备，注册通信接口。
-```text
+5. 连接设备，注册通信接口。
+
+  
+```ArkTS
 // 注册通信接口，注册成功返回0，注册失败返回其他错误码。
 let claimInterfaceResult: number = usbManager.claimInterface(devicePipe, usbInterface, true);
 if (claimInterfaceResult !== 0) {
@@ -176,8 +214,10 @@ if (claimInterfaceResult !== 0) {
 }
 ```
 
-传输数据。
-```text
+6. 传输数据。
+
+  
+```ArkTS
 let transferParams: usbManager.UsbDataTransferParams | undefined = undefined;
 try {
   // 通信接口注册成功，传输数据
@@ -210,8 +250,10 @@ try {
 }
 ```
 
-取消传输，释放接口，关闭设备消息控制通道。
-```text
+7. 取消传输，释放接口，关闭设备消息控制通道。
+
+  
+```ArkTS
 try {
   usbManager.usbCancelTransfer(transferParams);
   usbManager.releaseInterface(devicePipe, usbInterface);
@@ -223,6 +265,9 @@ try {
 ```
 
 
-## 调测验证
 
-主机端通过USB接口连接支持中断传输的终端设备（鼠标、键盘等）。 执行上述代码。 log中搜索关键字transfer success，表示中断传输接口调用成功。
+
+##### 调测验证
+1. 主机端通过USB接口连接支持中断传输的终端设备（鼠标、键盘等）。
+2. 执行上述代码。
+3. log中搜索关键字transfer success，表示中断传输接口调用成功。

@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Panel； API声明：setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>; 差异内容：setKeepScreenOn(isKeepScreenOn: boolean): Promise<void>; | api/@ohos.inputMethodEngine.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Panel； API声明：setKeepScreenOn(isKeepScreenOn: boolean): Promise&lt;void&gt;; 差异内容：setKeepScreenOn(isKeepScreenOn: boolean): Promise&lt;void&gt;; | api/@ohos.inputMethodEngine.d.ts |

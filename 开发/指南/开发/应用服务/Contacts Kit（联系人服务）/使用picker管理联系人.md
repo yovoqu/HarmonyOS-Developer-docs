@@ -4,19 +4,21 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/contacts-addcontactviaui
 
-## 接口说明
-
-
+##### 接口说明
+ 
 | 接口名 | 描述 |
 | --- | --- |
-| addContactViaUI(context: Context, contact: Contact): Promise | 调用新建联系人接口，打开新建联系人UI界面，新建完成。使用Promise异步回调。 |
-| saveToExistingContactViaUI(context: Context, contact: Contact): Promise | 调用保存至已有联系人接口，选择联系人UI界面并完成编辑。使用Promise异步回调。 |
+| addContactViaUI(context: Context, contact: Contact): Promise&lt;number&gt; | 调用新建联系人接口，打开新建联系人UI界面，新建完成。使用Promise异步回调。 |
+| saveToExistingContactViaUI(context: Context, contact: Contact): Promise&lt;number&gt; | 调用保存至已有联系人接口，选择联系人UI界面并完成编辑。使用Promise异步回调。 |
+ 
+ 
+  
 
-
-## 使用picker新建联系人
+##### 使用picker新建联系人
 
 调用新建联系人接口，打开新建联系人UI界面，用户可在UI界面中填写并新建联系人。
-```text
+ 
+```json
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -26,7 +28,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct Index {
   @State message: string = 'Hello World';
-
+    
   build() {
     Column() {
       Text(this.message)
@@ -53,12 +55,14 @@ struct Index {
   }
 }
 ```
+ 
+  
 
-
-## 使用picker更新联系人信息
+##### 使用picker更新联系人信息
 
 可以通过拉起picker，将选中的联系人信息更新到现有联系人中。
-```text
+ 
+```json
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -68,7 +72,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Component
 struct Index {
   @State message: string = 'Hello World';
-
+    
   build() {
     Column() {
       Text(this.message)

@@ -3,30 +3,28 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-attributiontestmanager
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 提供验证归因来源、设置归因结果回传、触发归因结果回传调试功能。
-
 
 > [!NOTE]
 > 调用接口需捕获异常。
 
+
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 导入模块
 
-
-```ts
+```text
 import { attributionTestManager } from '@kit.AppGalleryKit';
 ```
 
 
-## attributionTestManager.validateSource
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-validateSource(adSourceInfo: AdSourceInfo, publicKey: string): Promise<void>
+##### attributionTestManager.validateSource
+
+validateSource(adSourceInfo: AdSourceInfo, publicKey: string): Promise&lt;void&gt;
 
 验证媒体App/分发平台登记的归因来源信息。使用Promise异步回调。
 
@@ -38,15 +36,13 @@ validateSource(adSourceInfo: AdSourceInfo, publicKey: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| adSourceInfo | [AdSourceInfo](#adsourceinfo) | 是 | 媒体app/分发平台登记的归因来源信息。 |
-| publicKey | string | 是 | 已[生成密钥对](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-attribution-register#生成密钥对)中的公钥。注册归因角色时提供给应用归因服务云侧的公钥。 |
+| adSourceInfo | AdSourceInfo | 是 | 媒体app/分发平台登记的归因来源信息。 |
+| publicKey | string | 是 | 已生成密钥对中的公钥。注册归因角色时提供给应用归因服务云侧的公钥。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -56,7 +52,6 @@ validateSource(adSourceInfo: AdSourceInfo, publicKey: string): Promise<void>
 **错误码**：
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -77,8 +72,7 @@ validateSource(adSourceInfo: AdSourceInfo, publicKey: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { attributionTestManager } from '@kit.AppGalleryKit';
 // 参考指南附录生成签名方法部分代码
@@ -88,7 +82,8 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 const TAG: string = 'AttributionTest';
 
-class AttributionTest {
+class  AttributionTest {
+
   async validateSource(): Promise<void> {
     try {
       // 使用在应用归因服务云侧注册角色时，提供的公钥和对应的私钥, 验证接口， 用户可自己生成
@@ -113,7 +108,7 @@ class AttributionTest {
       // 用于计算签名的随机数，不带'-'
       let nonce: string = util.generateRandomUUID().replace(/-/g, '');
       // 时间戳
-      let timestamp: number = Date.now();
+      let timestamp: number = Date.now()
       let adSourceInfo: attributionTestManager.AdSourceInfo = {
         adTechId: adTechId,
         campaignId: campaignId,
@@ -125,45 +120,29 @@ class AttributionTest {
         nonce: nonce,
         timestamp: timestamp,
         // 签名值
-        signature: await SignUtil.getSign(
-          SignUtil.genSignContent(
-            adTechId,
-            campaignId,
-            destinationId,
-            mmpIds,
-            serviceTag,
-            nonce,
-            timestamp,
-          ),
-          privateKey,
-        ),
+        signature: await SignUtil.getSign(SignUtil.genSignContent(adTechId, campaignId, destinationId, mmpIds, serviceTag, nonce, timestamp), privateKey)
       };
 
       await attributionTestManager.validateSource(adSourceInfo, publicKey);
       hilog.info(0, TAG, 'Succeeded in validating source.');
     } catch (error) {
-      hilog.error(
-        0,
-        TAG,
-        `validateSource error.code is ${error.code}, message is ${error.message}`,
-      );
+      hilog.error(0, TAG, `validateSource error.code is ${error.code}, message is ${error.message}`);
     }
   }
 }
 ```
 
 
-## attributionTestManager.setPostback
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-setPostback(postbackInfo: PostbackInfo): Promise<void>
+##### attributionTestManager.setPostback
+
+setPostback(postbackInfo: PostbackInfo): Promise&lt;void&gt;
 
 设置归因结果回传信息。用于验证triggerData的合法性，设置调试使用的归因结果回传信息。使用Promise异步回调。
 
-
 > [!NOTE]
-> 单个adTechId下，待回传的调试postbackInfo数据量<=5。
-> 单个设备下，待回传的调试postbackInfo数据量<=100。
+> 单个adTechId下，待回传的调试postbackInfo数据量<=5。 单个设备下，待回传的调试postbackInfo数据量<=100。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -173,14 +152,12 @@ setPostback(postbackInfo: PostbackInfo): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| postbackInfo | [PostbackInfo](#postbackinfo) | 是 | 归因结果回传信息。 |
+| postbackInfo | PostbackInfo | 是 | 归因结果回传信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -190,7 +167,6 @@ setPostback(postbackInfo: PostbackInfo): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -209,8 +185,7 @@ setPostback(postbackInfo: PostbackInfo): Promise<void>
 
 **示例**：
 
-
-```ts
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { attributionTestManager } from '@kit.AppGalleryKit';
 import { deviceInfo } from '@kit.BasicServicesKit';
@@ -223,10 +198,10 @@ struct Attribution {
   build() {
     Column({ space: 20 }) {
       Button("set_postback")
-      .onClick(() => {
-        this.setPostback();
-      })
-      .width('100%')
+        .onClick(() => {
+          this.setPostback();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -273,16 +248,16 @@ struct Attribution {
 ```
 
 
-## attributionTestManager.flushPostbacks
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-flushPostbacks(adTechId: string): Promise<void>
+##### attributionTestManager.flushPostbacks
+
+flushPostbacks(adTechId: string): Promise&lt;void&gt;
 
 触发归因结果回传。验证开发者服务器接收及处理归因回传结果的逻辑是否正确。使用Promise异步回调。
 
-
 > [!NOTE]
 > 单个设备上，每5秒调用次数<=1。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -292,14 +267,12 @@ flushPostbacks(adTechId: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| adTechId | string | 是 | 分发平台对应的归因角色ID，本次登记归因来源对应营销任务所归属的分发平台的标识符，长度固定为8个字符。          使用setPostback()接口中成功设置的adTechId值。          说明： 调试过程不依赖云侧注册，开发者可以使用虚拟的adTechId。 |
+| adTechId | string | 是 | 分发平台对应的归因角色ID，本次登记归因来源对应营销任务所归属的分发平台的标识符，长度固定为8个字符。 使用setPostback()接口中成功设置的adTechId值。 说明： 调试过程不依赖云侧注册，开发者可以使用虚拟的adTechId。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -309,7 +282,6 @@ flushPostbacks(adTechId: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -325,8 +297,7 @@ flushPostbacks(adTechId: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import {attributionTestManager } from '@kit.AppGalleryKit';
 
@@ -338,11 +309,11 @@ struct Attribution {
   build() {
     Column({ space: 20 }) {
       Button("flush_postbacks")
-      .id('flush_postbacks')
-      .onClick(() => {
-        this.flushPostbacks();
-      })
-      .width('100%')
+        .id('flush_postbacks')
+        .onClick(() => {
+          this.flushPostbacks();
+        })
+        .width('100%')
     }
     .margin(16)
     .height('100%')
@@ -364,8 +335,8 @@ struct Attribution {
 ```
 
 
-## AdSourceInfo
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### AdSourceInfo
 
 媒体app/分发平台登记的归因来源信息。
 
@@ -375,22 +346,22 @@ struct Attribution {
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| adTechId | string | 否 | 否 | 分发平台对应的归因角色ID，本次登记归因来源对应营销任务所归属的分发平台的标识符。          分发平台向应用归因云侧[注册归因角色](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-attribution-register#注册归因角色)时，由应用归因服务分配，长度固定为8个字符。          说明： 调试过程不依赖云侧注册，开发者可以使用虚拟的adTechId。 |
-| campaignId | string | 否 | 否 | 营销任务ID，登记归因来源对应的营销任务的ID，长度不超过6个字符。          说明： 从6.0.2(22)开始，该接口支持长度由不超过6个字符变为不超过9个字符。 |
-| destinationId | string | 否 | 否 | 开发者应用上架华为应用市场的AppId，长度不超过64个字符。          说明： 您的应用ID参考[查看应用基本信息](https://developer.huawei.com/consumer/cn/doc/app/agc-help-appinfo-0000001100014694)获取。 |
-| sourceType | [SourceType](#sourcetype) | 否 | 否 | 归因来源类型：          0：曝光。          1：点击。 |
-| mmpIds | string[] | 否 | 是 | 本次广告投放，使用的归因监测平台对应的归因角色ID。最大数量2个，每个ID字符串长度固定为8个字符。          如果调用方传递了归因监测平台ID，应用归因服务会向归因监测平台回传归因结果；如果调用方没有传递归因监测平台ID，则归因监测平台收不到回传的归因结果。 |
-| serviceTag | string | 否 | 是 | 分发平台关注的业务信息，如创意、素材等，长度不超过32个字符。          如果调用方传递了serviceTag，在[申请开通权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-attribution-register#开通权限)后应用归因服务会将serviceTag回传分发平台。 |
+| adTechId | string | 否 | 否 | 分发平台对应的归因角色ID，本次登记归因来源对应营销任务所归属的分发平台的标识符。 分发平台向应用归因云侧注册归因角色时，由应用归因服务分配，长度固定为8个字符。 说明： 调试过程不依赖云侧注册，开发者可以使用虚拟的adTechId。 |
+| campaignId | string | 否 | 否 | 营销任务ID，登记归因来源对应的营销任务的ID，长度不超过6个字符。 说明： 从6.0.2(22)开始，该接口支持长度由不超过6个字符变为不超过9个字符。 |
+| destinationId | string | 否 | 否 | 开发者应用上架华为应用市场的AppId，长度不超过64个字符。 说明： 您的应用ID参考查看应用基本信息获取。 |
+| sourceType | SourceType | 否 | 否 | 归因来源类型： 0：曝光。 1：点击。 |
+| mmpIds | string[] | 否 | 是 | 本次广告投放，使用的归因监测平台对应的归因角色ID。最大数量2个，每个ID字符串长度固定为8个字符。 如果调用方传递了归因监测平台ID，应用归因服务会向归因监测平台回传归因结果；如果调用方没有传递归因监测平台ID，则归因监测平台收不到回传的归因结果。 |
+| serviceTag | string | 否 | 是 | 分发平台关注的业务信息，如创意、素材等，长度不超过32个字符。 如果调用方传递了serviceTag，在申请开通权限后应用归因服务会将serviceTag回传分发平台。 |
 | nonce | string | 否 | 否 | 用于计算签名的随机数，每次广告请求，nonce唯一。长度固定为32个字符。 |
 | timestamp | number | 否 | 否 | 请求广告的时间戳。（即广告投放时间，与当前时间偏差不超过10分钟）。unix时间戳，单位：毫秒。 |
-| signature | string | 否 | 否 | 签名值，分发平台/媒体根据广告相应信息按照[归因来源签名计算规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appgallery-attribution-appendix-triger#归因来源签名计算规则)计算并提供，长度不超过800个字符。 |
+| signature | string | 否 | 否 | 签名值，分发平台/媒体根据广告相应信息按照归因来源签名计算规则计算并提供，长度不超过800个字符。 |
 
 
-## PostbackInfo
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### PostbackInfo
 
 待回传数据信息。
 
@@ -400,21 +371,21 @@ struct Attribution {
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| adTechId | string | 否 | 否 | 分发平台对应的归因角色ID，本次登记归因来源对应营销任务所归属的分发平台的标识符。          使用setPostback()接口中成功设置的adTechId值。          说明： 调试过程不依赖云侧注册，开发者可以使用虚拟的adTechId。 |
-| campaignId | string | 否 | 否 | 营销任务ID，登记归因来源对应的营销任务的ID，长度不超过6个字符。          说明： 从6.0.2(22)开始，该接口支持长度由不超过6字符变为不超过9字符。 |
+| adTechId | string | 否 | 否 | 分发平台对应的归因角色ID，本次登记归因来源对应营销任务所归属的分发平台的标识符。 使用setPostback()接口中成功设置的adTechId值。 说明： 调试过程不依赖云侧注册，开发者可以使用虚拟的adTechId。 |
+| campaignId | string | 否 | 否 | 营销任务ID，登记归因来源对应的营销任务的ID，长度不超过6个字符。 说明： 从6.0.2(22)开始，该接口支持长度由不超过6字符变为不超过9字符。 |
 | sourceId | string | 否 | 否 | 媒体应用id，长度不超过64个字符。 |
 | destinationId | string | 否 | 否 | 开发者应用上架华为应用市场的AppId，长度不超过64个字符。 |
-| serviceTag | string | 否 | 是 | 分发平台关注的业务信息，如创意、素材等，长度不超过32个字符。          如果调用方传递了serviceTag，在[申请开通权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/store-attribution-register#开通权限)后应用归因服务会将serviceTag回传分发平台。 |
-| businessScene | number | 否 | 是 | 业务场景值，在开发者登记转化时，用于标识开发者的业务场景。          取值范围：[0,99]。 |
-| triggerData | number | 否 | 否 | 转化事件编码。          取值范围：[0,999]。 |
+| serviceTag | string | 否 | 是 | 分发平台关注的业务信息，如创意、素材等，长度不超过32个字符。 如果调用方传递了serviceTag，在申请开通权限后应用归因服务会将serviceTag回传分发平台。 |
+| businessScene | number | 否 | 是 | 业务场景值，在开发者登记转化时，用于标识开发者的业务场景。 取值范围：[0,99]。 |
+| triggerData | number | 否 | 否 | 转化事件编码。 取值范围：[0,999]。 |
 | postbackUrl | string | 否 | 否 | 用于接收归因回传归因结果的URL地址，推荐使用HTTPS协议。 |
 
 
-## SourceType
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### SourceType
 
 归因来源类型的枚举。
 
@@ -423,7 +394,6 @@ struct Attribution {
 **系统能力：** SystemCapability.AppGalleryService.AttributionManager
 
 **起始版本：** 5.0.0(12)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

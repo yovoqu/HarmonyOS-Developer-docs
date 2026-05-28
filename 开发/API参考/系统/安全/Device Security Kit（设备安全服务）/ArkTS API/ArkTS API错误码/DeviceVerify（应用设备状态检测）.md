@@ -3,15 +3,14 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-deviceverify
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
 
-## 201 权限校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 201 权限校验失败
 
 **错误信息**
 
@@ -26,14 +25,12 @@ has no permission.
 应用hap未开通Device Security服务。
 
 **处理步骤**
-
-
 1. 请参见[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)在AppGallery Connect开启“应用设备状态检测”开关。
 2. 重新[申请调试Profile](https://developer.huawei.com/consumer/cn/doc/app/agc-help-add-debugprofile-0000001914423102)，将新申请到的Profile作为工程的签名文件后重试。
 
 
-## 1003300005 内部异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1003300005 内部异常
 
 **错误信息**
 
@@ -52,8 +49,8 @@ internal error.
 请优先重试，若重试不成功，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)申请帮助。
 
 
-## 1003300006 访问云端服务器异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 1003300006 访问云端服务器异常
 
 **错误信息**
 

@@ -1,16 +1,21 @@
 # 使用Web组件的下载能力
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-download
 
 当需要通过Web页面进行文件下载时，可以通过此方式调用Web接口。
 
 
-## 监听页面触发的下载
+##### 监听页面触发的下载
 
-通过[setDownloadDelegate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setdownloaddelegate11)向Web组件注册一个DownloadDelegate来监听页面触发的下载任务。资源由Web组件来下载，Web组件会通过DownloadDelegate将下载的进度通知给应用。 下面的示例中，在应用的rawfile中创建index.html。应用启动后会创建一个Web组件并加载index.html，点击setDownloadDelegate按钮向Web组件注册一个DownloadDelegate，点击页面里的下载按钮的时候会触发一个下载任务，在DownloadDelegate中可以监听到下载的进度。 默认路径在应用沙箱的web目录内，用户无法查看。如果希望用户能够查看，需要将下载路径修改到有访问权限的目录，比如Download目录，请参考[使用Web组件发起一个下载任务](#使用web组件发起一个下载任务)。
-```text
+通过[setDownloadDelegate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setdownloaddelegate11)向Web组件注册一个DownloadDelegate来监听页面触发的下载任务。资源由Web组件来下载，Web组件会通过DownloadDelegate将下载的进度通知给应用。
+
+下面的示例中，在应用的rawfile中创建index.html。应用启动后会创建一个Web组件并加载index.html，点击setDownloadDelegate按钮向Web组件注册一个DownloadDelegate，点击页面里的下载按钮的时候会触发一个下载任务，在DownloadDelegate中可以监听到下载的进度。
+
+默认路径在应用沙箱的web目录内，用户无法查看。如果希望用户能够查看，需要将下载路径修改到有访问权限的目录，比如Download目录，请参考[使用Web组件发起一个下载任务](#使用web组件发起一个下载任务)。
+
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -63,19 +68,33 @@ struct WebComponent {
 ```
 
 加载的html文件。
+
 ```text
-
-
-下载download.html
-
-
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<body>
+<!-- 点击视频右下方菜单的下载按钮会触发下载任务。-->
+<video controls="controls" width="800px" height="580px"
+       src="http://vjs.zencdn.net/v/oceans.mp4"
+       type="video/mp4">
+</video>
+<a href='data:text/html,%3Ch1%3EHello%2C%20World%21%3C%2Fh1%3E' download='download.html'>下载download.html</a>
+</body>
+</html>
 ```
 
 
-## 使用Web组件发起一个下载任务
 
-使用[startDownload()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#startdownload11)接口发起一个下载。 Web组件发起的下载会根据当前显示的url以及Web组件默认的Referrer Policy来计算referrer。 在下面的示例中，先点击setDownloadDelegate按钮向Web注册一个监听类，然后点击startDownload主动发起了一个下载，该下载任务也会通过设置的DownloadDelegate来通知app下载的进度。
-```text
+##### 使用Web组件发起一个下载任务
+
+使用[startDownload()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#startdownload11)接口发起一个下载。
+
+Web组件发起的下载会根据当前显示的url以及Web组件默认的Referrer Policy来计算referrer。
+
+在下面的示例中，先点击setDownloadDelegate按钮向Web注册一个监听类，然后点击startDownload主动发起了一个下载，该下载任务也会通过设置的DownloadDelegate来通知app下载的进度。
+
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -132,7 +151,8 @@ struct WebComponent {
 ```
 
 使用[DocumentViewPicker()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#documentviewpicker)获取当前示例的默认下载目录，将该目录设置为下载目录。
-```text
+
+```ArkTS
 // xxx.ets
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -182,14 +202,25 @@ struct WebComponent {
   }
 
 }
-function getDownloadPathFromPicker(): Promise {
-  return new Promise(resolve => {
+function getDownloadPathFromPicker(): Promise<string> {
+  return new Promise<string>(resolve => {
     try {
       const documentSaveOptions = new picker.DocumentSaveOptions();
       documentSaveOptions.pickerMode = picker.DocumentPickerMode.DOWNLOAD
       const documentPicker = new picker.DocumentViewPicker();
-      documentPicker.save(documentSaveOptions).then(async (documentSaveResult: Array) => {
-        if (documentSaveResult.length  {
+      documentPicker.save(documentSaveOptions).then(async (documentSaveResult: Array<string>) => {
+        if (documentSaveResult.length <= 0) {
+          resolve('');
+          return;
+        }
+        const uriString = documentSaveResult[0];
+        if (!uriString) {
+          resolve('');
+          return;
+        }
+        const uri = new fileUri.FileUri(uriString);
+        resolve(uri.path);
+      }).catch((err: BusinessError) => {
         console.error(`ErrorCode: ${err.code},  Message: ${err.message}`);
         resolve('');
       });
@@ -200,15 +231,19 @@ function getDownloadPathFromPicker(): Promise {
 }
 ```
 
+> [!WARNING]
+> Web组件的下载功能要求应用通过调用 WebDownloadItem.start 来指定下载文件的保存路径。 值得注意的是，WebDownloadItem.start并非启动下载，下载过程实际上在用户点击页面链接时即已开始。WebDownloadItem.start的作用是将已经下载到临时文件的部分移动到指定目标路径，后续未完成的下载的内容将直接保存到指定目标路径，临时目录位于/data/storage/el2/base/cache/web/Temp/。如果决定取消当前下载，应调用 WebDownloadItem.cancel ，此时临时文件将被删除。 如果不希望在WebDownloadItem.start之前将文件下载到临时目录，可以通过WebDownloadItem.cancel中断下载，后续可通过 WebDownloadManager.resumeDownload 恢复中断的下载。
 
-> [!NOTE]
-> Web组件的下载功能要求应用通过调用WebDownloadItem.start来指定下载文件的保存路径。 值得注意的是，WebDownloadItem.start并非启动下载，下载过程实际上在用户点击页面链接时即已开始。WebDownloadItem.start的作用是将已经下载到临时文件的部分移动到指定目标路径，后续未完成的下载的内容将直接保存到指定目标路径，临时目录位于/data/storage/el2/base/cache/web/Temp/。如果决定取消当前下载，应调用WebDownloadItem.cancel，此时临时文件将被删除。 如果不希望在WebDownloadItem.start之前将文件下载到临时目录，可以通过WebDownloadItem.cancel中断下载，后续可通过WebDownloadManager.resumeDownload恢复中断的下载。
 
 
-## 使用Web组件恢复进程退出时未下载完成的任务
 
-在Web组件启动时，可通过[resumeDownload()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloadmanager#resumedownload11)接口恢复未完成的下载任务。 在以下示例中，通过“record”按钮将当前下载任务保存至持久化文件中，应用重启后，可借助“recovery”按钮恢复持久化的下载任务。示例代码实现了将当前下载任务持久化保存至文件的功能，若需保存多个下载任务，应用可根据需求调整持久化的时机与方式。
-```text
+##### 使用Web组件恢复进程退出时未下载完成的任务
+
+在Web组件启动时，可通过[resumeDownload()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webdownloadmanager#resumedownload11)接口恢复未完成的下载任务。
+
+在以下示例中，通过“record”按钮将当前下载任务保存至持久化文件中，应用重启后，可借助“recovery”按钮恢复持久化的下载任务。示例代码实现了将当前下载任务持久化保存至文件的功能，若需保存多个下载任务，应用可根据需求调整持久化的时机与方式。
+
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { DownloadUtil, fileName, filePath } from './downloadUtil'; // downloadUtil.ets 见下文
@@ -302,7 +337,8 @@ struct WebComponent {
 ```
 
 下载任务信息持久化工具类文件。
-```text
+
+```ArkTS
 import { util } from '@kit.ArkTS';
 import { fileIo } from '@kit.CoreFileKit';
 
@@ -311,7 +347,7 @@ const helper = new util.Base64Helper();
 export let filePath : string;
 export const fileName = 'demoFile.txt';
 export namespace  DownloadUtil {
-
+  
   export function init(context: UIContext): void {
     filePath = context.getHostContext()!.filesDir;
   }

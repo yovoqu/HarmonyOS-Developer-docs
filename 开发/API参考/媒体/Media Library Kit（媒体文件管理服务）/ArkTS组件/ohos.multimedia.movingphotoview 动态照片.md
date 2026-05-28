@@ -1,77 +1,72 @@
 # @ohos.multimedia.movingphotoview (动态照片)
 
-更新时间：2026-03-20 09:49:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-movingphotoview
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于播放动态照片文件并控制其播放状态的组件。
 
+> [!NOTE]
+> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 当前不支持在预览器中使用MovingPhotoView组件。
+
+
+
+##### 导入模块
 
 > [!NOTE]
-> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
-> 当前不支持在预览器中使用MovingPhotoView组件。
-
-
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+> MovingPhotoViewAttribute是用于配置MovingPhotoView组件属性的关键接口。API version 21及之前版本，导入MovingPhotoView组件后需要开发者手动导入MovingPhotoViewAttribute，否则会编译报错。从API version 22开始，编译工具链识别到导入MovingPhotoView组件后，会自动导入MovingPhotoViewAttribute，无需开发者手动导入。 如果开发者手动导入MovingPhotoViewAttribute，DevEco Studio会将其显示置灰，API version 21及之前版本删除会编译报错，从API version 22开始，删除对功能无影响。
 
 
 API version 21及之前版本：
 
-
-```ts
-import {
-  MovingPhotoView,
-  MovingPhotoViewController,
-  MovingPhotoViewAttribute,
-} from '@kit.MediaLibraryKit';
+```text
+import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@kit.MediaLibraryKit';
 ```
 
 API version 22及之后版本：
 
-
-```ts
-import {
-  MovingPhotoView,
-  MovingPhotoViewController,
-} from '@kit.MediaLibraryKit';
+```text
+import { MovingPhotoView, MovingPhotoViewController } from '@kit.MediaLibraryKit';
 ```
 
 
-## MovingPhotoView
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### MovingPhotoView
+
+> [!NOTE]
+> 当前不支持动态属性设置。 当前不支持ArkUI通用属性ComponentOptions中expandSafeArea属性设置。 该组件长按触发播放时组件区域放大为1.1倍。 该组件使用 AVPlayer 进行播放，同时开启的AVPlayer个数不建议超过3个，超过3个可能会出现视频播放卡顿现象。
 
 
 MovingPhotoView(options: MovingPhotoViewOptions)
 
 **参数：**
 
-
 | 参数名 | 参数类型 | 必填 | 参数描述 |
 | --- | --- | --- | --- |
-| options | [MovingPhotoViewOptions](#movingphotoviewoptions) | 是 | 动态照片信息。 |
+| options | MovingPhotoViewOptions | 是 | 动态照片信息。 |
 
 
-## MovingPhotoViewOptions
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+
+##### MovingPhotoViewOptions
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| movingPhoto | [photoAccessHelper.MovingPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-movingphoto) | 否 | 否 | 支持媒体库MovingPhoto数据源，具体信息详见[MovingPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-movingphoto)说明。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| controller | [MovingPhotoViewController](#movingphotoviewcontroller) | 否 | 是 | 设置动态照片控制器，可以控制动态照片的播放状态。          元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| imageAIOptions18+ | [ImageAIOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#imageaioptions12) | 否 | 是 | 设置动态照片AI分析选项，可配置分析类型或绑定一个分析控制器。          元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| movingPhoto | photoAccessHelper.MovingPhoto | 否 | 否 | 支持媒体库MovingPhoto数据源，具体信息详见MovingPhoto说明。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| controller | MovingPhotoViewController | 否 | 是 | 设置动态照片控制器，可以控制动态照片的播放状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| imageAIOptions18+ | ImageAIOptions | 否 | 是 | 设置动态照片AI分析选项，可配置分析类型或绑定一个分析控制器。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### 属性
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
-### muted
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### muted
 
 muted(isMuted: boolean)
 
@@ -83,14 +78,14 @@ muted(isMuted: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isMuted | boolean | 是 | 是否静音。          默认值：false。          false：非静音。          true：静音。 |
+| isMuted | boolean | 是 | 是否静音。 默认值：false。 false：非静音。 true：静音。 |
 
 
-### objectFit
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### objectFit
 
 objectFit(value: ImageFit)
 
@@ -102,14 +97,14 @@ objectFit(value: ImageFit)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ImageFit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#imagefit) | 是 | 视频显示模式。          默认值：Cover。 |
+| value | ImageFit | 是 | 视频显示模式。 默认值：Cover。 |
 
 
-### autoPlayPeriod13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### autoPlayPeriod13+
 
 autoPlayPeriod(startTime: number, endTime: number)
 
@@ -123,15 +118,15 @@ autoPlayPeriod(startTime: number, endTime: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| startTime | number | 是 | 区间播放开始时间，单位：ms。          取值范围：大于等于0。 |
-| endTime | number | 是 | 区间播放结束时间，单位：ms。          取值范围：大于startTime。 |
+| startTime | number | 是 | 区间播放开始时间，单位：ms。 取值范围：大于等于0。 |
+| endTime | number | 是 | 区间播放结束时间，单位：ms。 取值范围：大于startTime。 |
 
 
-### autoPlay13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### autoPlay13+
 
 autoPlay(isAutoPlay: boolean)
 
@@ -145,14 +140,14 @@ autoPlay(isAutoPlay: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isAutoPlay | boolean | 是 | 是否自动播放。          false：不自动播放。          true：自动播放。          默认值：false。 |
+| isAutoPlay | boolean | 是 | 是否自动播放。 false：不自动播放。 true：自动播放。 默认值：false。 |
 
 
-### repeatPlay13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### repeatPlay13+
 
 repeatPlay(isRepeatPlay: boolean)
 
@@ -164,14 +159,14 @@ repeatPlay(isRepeatPlay: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isRepeatPlay | boolean | 是 | 是否循环播放。          false：不循环播放。          true：循环播放。          默认值：false。 |
+| isRepeatPlay | boolean | 是 | 是否循环播放。 false：不循环播放。 true：循环播放。 默认值：false。 |
 
 
-### enableAnalyzer18+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### enableAnalyzer18+
 
 enableAnalyzer(enabled: boolean)
 
@@ -183,20 +178,20 @@ enableAnalyzer(enabled: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | boolean | 是 | 是否开启AI分析。          false：不开启AI分析。          true：开启AI分析。          默认值：true。 |
+| enabled | boolean | 是 | 是否开启AI分析。 false：不开启AI分析。 true：开启AI分析。 默认值：true。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### 事件
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
-### onComplete13+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### onComplete13+
 
 onComplete(callback: MovingPhotoViewEventCallback)
 
@@ -208,14 +203,14 @@ onComplete(callback: MovingPhotoViewEventCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [MovingPhotoViewEventCallback](#movingphotovieweventcallback) | 是 | 动态照片加载完成图片的回调。 |
+| callback | MovingPhotoViewEventCallback | 是 | 动态照片加载完成图片的回调。 |
 
 
-### onStart
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### onStart
 
 onStart(callback: MovingPhotoViewEventCallback)
 
@@ -227,14 +222,14 @@ onStart(callback: MovingPhotoViewEventCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [MovingPhotoViewEventCallback](#movingphotovieweventcallback) | 是 | 动态照片开始播放时触发的回调。 |
+| callback | MovingPhotoViewEventCallback | 是 | 动态照片开始播放时触发的回调。 |
 
 
-### onPause
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### onPause
 
 onPause(callback: MovingPhotoViewEventCallback)
 
@@ -246,14 +241,14 @@ onPause(callback: MovingPhotoViewEventCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [MovingPhotoViewEventCallback](#movingphotovieweventcallback) | 是 | 动态照片播放暂停时触发的回调。 |
+| callback | MovingPhotoViewEventCallback | 是 | 动态照片播放暂停时触发的回调。 |
 
 
-### onFinish
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### onFinish
 
 onFinish(callback: MovingPhotoViewEventCallback)
 
@@ -265,14 +260,14 @@ onFinish(callback: MovingPhotoViewEventCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [MovingPhotoViewEventCallback](#movingphotovieweventcallback) | 是 | 动态照片播放结束时触发的回调。 |
+| callback | MovingPhotoViewEventCallback | 是 | 动态照片播放结束时触发的回调。 |
 
 
-### onError
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### onError
 
 onError(callback: MovingPhotoViewEventCallback)
 
@@ -284,14 +279,14 @@ onError(callback: MovingPhotoViewEventCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [MovingPhotoViewEventCallback](#movingphotovieweventcallback) | 是 | 动态照片播放失败时触发的回调。 |
+| callback | MovingPhotoViewEventCallback | 是 | 动态照片播放失败时触发的回调。 |
 
 
-### onStop
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### onStop
 
 onStop(callback: MovingPhotoViewEventCallback)
 
@@ -303,14 +298,14 @@ onStop(callback: MovingPhotoViewEventCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [MovingPhotoViewEventCallback](#movingphotovieweventcallback) | 是 | 动态照片停止播放时触发的回调。 |
+| callback | MovingPhotoViewEventCallback | 是 | 动态照片停止播放时触发的回调。 |
 
 
-### onPrepared20+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### onPrepared20+
 
 onPrepared(callback: MovingPhotoViewEventCallback)
 
@@ -322,14 +317,14 @@ onPrepared(callback: MovingPhotoViewEventCallback)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [MovingPhotoViewEventCallback](#movingphotovieweventcallback) | 是 | 动态照片准备播放时的回调。 |
+| callback | MovingPhotoViewEventCallback | 是 | 动态照片准备播放时的回调。 |
 
 
-## MovingPhotoViewEventCallback
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+##### MovingPhotoViewEventCallback
 
 declare type MovingPhotoViewEventCallback = () => void
 
@@ -340,14 +335,14 @@ declare type MovingPhotoViewEventCallback = () => void
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 
-## MovingPhotoViewController
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### MovingPhotoViewController
 
 一个MovingPhotoViewController对象可以控制一个MovingPhotoView，可用视频播放实例请参考[@ohos.multimedia.media](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)。
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### constructor
 
 constructor()
 
@@ -358,8 +353,8 @@ MovingPhotoViewController的构造函数。
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 
-### startPlayback
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### startPlayback
 
 startPlayback()
 
@@ -370,8 +365,8 @@ startPlayback()
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 
-### stopPlayback
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### stopPlayback
 
 stopPlayback()
 
@@ -382,8 +377,8 @@ stopPlayback()
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 
-### refreshMovingPhoto18+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### refreshMovingPhoto18+
 
 refreshMovingPhoto()
 
@@ -394,11 +389,10 @@ refreshMovingPhoto()
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 
-## 示例1：多种形式播放动态照片
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
+##### 示例1：多种形式播放动态照片
 
-```ts
+```ArkTS
 // xxx.ets
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { emitter } from '@kit.BasicServicesKit';
@@ -434,23 +428,23 @@ struct MovingPhotoViewDemo {
     Column() {
       Row() {
         Button('PICK')
-        .margin(5)
-        .onClick(async () => {
-          try {
-            let uris: Array<string> = []
-            const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions()
-            photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
-            photoSelectOptions.maxSelectNumber = 2
-            const photoViewPicker = new photoAccessHelper.PhotoViewPicker()
-            let photoSelectResult: photoAccessHelper.PhotoSelectResult = await photoViewPicker.select(photoSelectOptions)
-            uris = photoSelectResult.photoUris
-            if (uris[0]) {
-              this.handlePickerResult(this.uiContext.getHostContext()!, uris[0], new MediaDataHandlerMovingPhoto())
+          .margin(5)
+          .onClick(async () => {
+            try {
+              let uris: Array<string> = []
+              const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions()
+              photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
+              photoSelectOptions.maxSelectNumber = 2
+              const photoViewPicker = new photoAccessHelper.PhotoViewPicker()
+              let photoSelectResult: photoAccessHelper.PhotoSelectResult = await photoViewPicker.select(photoSelectOptions)
+              uris = photoSelectResult.photoUris
+              if (uris[0]) {
+                this.handlePickerResult(this.uiContext.getHostContext()!, uris[0], new MediaDataHandlerMovingPhoto())
+              }
+            } catch (e) {
+              console.error(`pick file failed`)
             }
-          } catch (e) {
-            console.error(`pick file failed`)
-          }
-        })
+          })
       }
       .alignItems(VerticalAlign.Center)
       .justifyContent(FlexAlign.Center)
@@ -462,48 +456,48 @@ struct MovingPhotoViewDemo {
             movingPhoto: this.src,
             controller: this.controller
           })
-          .width('100%')
-          .height('100%')
-          .muted(this.isMuted)
-          .autoPlay(true)
-          .repeatPlay(false)
-          .autoPlayPeriod(0, 600)
-          .objectFit(ImageFit.Cover)
-          .onComplete(() => {
-            console.info('Completed');
-          })
-          .onStart(() => {
-            console.info('onStart')
-          })
-          .onFinish(() => {
-            console.info('onFinish')
-          })
-          .onStop(() => {
-            console.info('onStop')
-          })
-          .onError(() => {
-            console.error('onError')
-          })
+            .width('100%')
+            .height('100%')
+            .muted(this.isMuted)
+            .autoPlay(true)
+            .repeatPlay(false)
+            .autoPlayPeriod(0, 600)
+            .objectFit(ImageFit.Cover)
+            .onComplete(() => {
+              console.info('Completed');
+            })
+            .onStart(() => {
+              console.info('onStart')
+            })
+            .onFinish(() => {
+              console.info('onFinish')
+            })
+            .onStop(() => {
+              console.info('onStop')
+            })
+            .onError(() => {
+              console.error('onError')
+            })
         }
       }
       .height('70%')
 
       Row() {
         Button('start')
-        .onClick(() => {
-          this.controller.startPlayback()
-        })
-        .margin(5)
+          .onClick(() => {
+            this.controller.startPlayback()
+          })
+          .margin(5)
         Button('stop')
-        .onClick(() => {
-          this.controller.stopPlayback()
-        })
-        .margin(5)
+          .onClick(() => {
+            this.controller.stopPlayback()
+          })
+          .margin(5)
         Button('mute')
-        .onClick(() => {
-          this.isMuted = !this.isMuted
-        })
-        .margin(5)
+          .onClick(() => {
+            this.isMuted = !this.isMuted
+          })
+          .margin(5)
       }
       .alignItems(VerticalAlign.Center)
       .justifyContent(FlexAlign.Center)
@@ -544,14 +538,15 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 }
 ```
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/magGEaK9RzWg_T_hKzCKQA/zh-cn_image_0000002601828677.gif?HW-CC-KV=V1&HW-CC-Date=20260514T084951Z&HW-CC-Expire=86400&HW-CC-Sign=2CC57BDD1A53C38BB3AFE28BA68900C8F714AA3796E8D17614632837E9A6C126)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/KvJjjyM6SYWauqyhlAyD8Q/zh-cn_image_0000002611756937.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=1B8E7583167AD8290C40FF6BD2711DA8BBBD20D2F2D3575633FC94D4B4C460BC)
 
 
-## 示例2：在元服务中使用动态照片
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-```ts
+##### 示例2：在元服务中使用动态照片
+
+```ArkTS
 // xxx.ets
 // API version 21及之前版本导入方式：import { photoAccessHelper, MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } from '@kit.MediaLibraryKit';
 // API version 22及之后版本导入方式如下：
@@ -592,50 +587,50 @@ struct Index {
             movingPhoto: data,
             controller: this.controller
           })
-          .width(300)
-          .height(400)
-          .muted(this.flag)
-          .objectFit(this.ImageFit)
-          .autoPlay(this.autoPlayFlag)
-          .autoPlayPeriod(this.autoPlayPeriodStart, this.autoPlayPeriodEnd)
-          .repeatPlay(this.repeatPlayFlag)
-          .onComplete(() => {
-            console.info('onComplete')
-          })
-          .onStart(() => {
-            console.info('onStart')
-          })
-          .onStop(() => {
-            console.info('onStop')
-          })
-          .onPause(() => {
-            console.info('onPause')
-          })
-          .onFinish(() => {
-            console.info('onFinish')
-          })
-          .onError(() => {
-            console.info('onError')
-          })
+            .width(300)
+            .height(400)
+            .muted(this.flag)
+            .objectFit(this.ImageFit)
+            .autoPlay(this.autoPlayFlag)
+            .autoPlayPeriod(this.autoPlayPeriodStart, this.autoPlayPeriodEnd)
+            .repeatPlay(this.repeatPlayFlag)
+            .onComplete(() => {
+              console.info('onComplete')
+            })
+            .onStart(() => {
+              console.info('onStart')
+            })
+            .onStop(() => {
+              console.info('onStop')
+            })
+            .onPause(() => {
+              console.info('onPause')
+            })
+            .onFinish(() => {
+              console.info('onFinish')
+            })
+            .onError(() => {
+              console.info('onError')
+            })
         }
 
         Row() {
           Button('Play')
-          .onClick(() => {
-            this.controller.startPlayback()
-          })
+            .onClick(() => {
+              this.controller.startPlayback()
+            })
           Button('StopPlay')
-          .onClick(() => {
-            this.controller.stopPlayback()
-          })
+            .onClick(() => {
+              this.controller.stopPlayback()
+            })
           Button('refreshMovingPhoto')
-          .onClick(() => {
-            this.controller.refreshMovingPhoto()
-          })
+            .onClick(() => {
+              this.controller.refreshMovingPhoto()
+            })
           Button('mute').id('MovingPhotoView_true')
-          .onClick(() => {
-            this.flag = false
-          })
+            .onClick(() => {
+              this.flag = false
+            })
         }
       }
     }
@@ -643,14 +638,15 @@ struct Index {
 }
 ```
 
-![](assets/ohos.multimedia.movingphotoview%20动态照片/file-20260514164951521-1.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/YLM6sSIGQtGm5yuCZfXGww/zh-cn_image_0000002581436996.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=76304CE317E026FFA5791B1A3A3659F4232F525DEC4204C9536668A0EA20D170)
 
 
-## 示例3：图像分析功能使用
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-```ts
+##### 示例3：图像分析功能使用
+
+```ArkTS
 // xxx.ets
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { emitter } from '@kit.BasicServicesKit';
@@ -666,7 +662,7 @@ struct MovingPhotoViewDemo {
   @State isMuted: boolean = false
   controller: MovingPhotoViewController = new MovingPhotoViewController()
   private aiController: visionImageAnalyzer.VisionImageAnalyzerController =
-  new visionImageAnalyzer.VisionImageAnalyzerController()
+    new visionImageAnalyzer.VisionImageAnalyzerController()
   private options: ImageAIOptions = {
     types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT, ImageAnalyzerType.OBJECT_LOOKUP],
     aiController: this.aiController
@@ -690,23 +686,23 @@ struct MovingPhotoViewDemo {
     Column() {
       Row() {
         Button('PICK')
-        .margin(5)
-        .onClick(async () => {
-          try {
-            let uris: Array<string> = []
-            const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions()
-            photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
-            photoSelectOptions.maxSelectNumber = 2
-            const photoViewPicker = new photoAccessHelper.PhotoViewPicker()
-            let photoSelectResult: photoAccessHelper.PhotoSelectResult = await photoViewPicker.select(photoSelectOptions)
-            uris = photoSelectResult.photoUris
-            if (uris[0]) {
-              this.handlePickerResult(this.uiContext.getHostContext()!, uris[0], new MediaDataHandlerMovingPhoto())
+          .margin(5)
+          .onClick(async () => {
+            try {
+              let uris: Array<string> = []
+              const photoSelectOptions = new photoAccessHelper.PhotoSelectOptions()
+              photoSelectOptions.MIMEType = photoAccessHelper.PhotoViewMIMETypes.IMAGE_VIDEO_TYPE
+              photoSelectOptions.maxSelectNumber = 2
+              const photoViewPicker = new photoAccessHelper.PhotoViewPicker()
+              let photoSelectResult: photoAccessHelper.PhotoSelectResult = await photoViewPicker.select(photoSelectOptions)
+              uris = photoSelectResult.photoUris
+              if (uris[0]) {
+                this.handlePickerResult(this.uiContext.getHostContext()!, uris[0], new MediaDataHandlerMovingPhoto())
+              }
+            } catch (e) {
+              console.error(`pick file failed`)
             }
-          } catch (e) {
-            console.error(`pick file failed`)
-          }
-        })
+          })
       }
       .alignItems(VerticalAlign.Center)
       .justifyContent(FlexAlign.Center)
@@ -719,49 +715,49 @@ struct MovingPhotoViewDemo {
             controller: this.controller,
             imageAIOptions: this.options
           })
-          .width('100%')
-          .height('100%')
-          .muted(this.isMuted)
-          .autoPlay(true)
-          .repeatPlay(false)
-          .autoPlayPeriod(0, 600)
-          .objectFit(ImageFit.Cover)
-          .enableAnalyzer(true)
-          .onComplete(() => {
-            console.log('Completed');
-          })
-          .onStart(() => {
-            console.log('onStart')
-          })
-          .onFinish(() => {
-            console.log('onFinish')
-          })
-          .onStop(() => {
-            console.log('onStop')
-          })
-          .onError(() => {
-            console.log('onError')
-          })
+            .width('100%')
+            .height('100%')
+            .muted(this.isMuted)
+            .autoPlay(true)
+            .repeatPlay(false)
+            .autoPlayPeriod(0, 600)
+            .objectFit(ImageFit.Cover)
+            .enableAnalyzer(true)
+            .onComplete(() => {
+              console.log('Completed');
+            })
+            .onStart(() => {
+              console.log('onStart')
+            })
+            .onFinish(() => {
+              console.log('onFinish')
+            })
+            .onStop(() => {
+              console.log('onStop')
+            })
+            .onError(() => {
+              console.log('onError')
+            })
         }
       }
       .height('70%')
 
       Row() {
         Button('start')
-        .onClick(() => {
-          this.controller.startPlayback()
-        })
-        .margin(5)
+          .onClick(() => {
+            this.controller.startPlayback()
+          })
+          .margin(5)
         Button('stop')
-        .onClick(() => {
-          this.controller.stopPlayback()
-        })
-        .margin(5)
+          .onClick(() => {
+            this.controller.stopPlayback()
+          })
+          .margin(5)
         Button('mute')
-        .onClick(() => {
-          this.isMuted = !this.isMuted
-        })
-        .margin(5)
+          .onClick(() => {
+            this.isMuted = !this.isMuted
+          })
+          .margin(5)
       }
       .alignItems(VerticalAlign.Center)
       .justifyContent(FlexAlign.Center)
@@ -802,4 +798,5 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 }
 ```
 
-![](assets/ohos.multimedia.movingphotoview%20动态照片/file-20260514164951521-2.gif)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Xvr8l_t6R7aYRU1fTsxqoQ/zh-cn_image_0000002611836829.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=F8F3084F927B147CA6F4081CEBD873C4D880786A032A94B17810CAC95F260C6C)

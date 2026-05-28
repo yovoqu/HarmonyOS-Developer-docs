@@ -3,311 +3,311 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-treeview
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 树视图作为一种分层显示的列表，适合显示嵌套结构。拥有父列表项和子列表项，可展开或折叠。
-
+ 
 用于效率型应用，如备忘录、电子邮件、图库中的侧边导航栏中。
+ 
+> [!NOTE]
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果TreeView设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到TreeView本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议TreeView设置通用属性和通用事件。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
-import { TreeView } from '@kit.ArkUI';
+```text
+import { TreeView } from "@kit.ArkUI";
 ```
+ 
+  
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 无
+ 
+  
 
-
-## TreeView
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### TreeView
 
 TreeView({ treeController: TreeController })
-
+ 
 **装饰器类型：**@Component
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| treeController | [TreeController](#treecontroller) | 是 | 树视图节点信息。 |
+| treeController | TreeController | 是 | 树视图节点信息。 |
+ 
+ 
+  
 
-
-## TreeController
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### TreeController
 
 树视图组件的控制器，可以将此对象绑定至树视图组件，然后通过它控制树的节点信息，同一个控制器不可以控制多个树视图组件。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+ 
+  
 
-
-### addNode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### addNode
 
 addNode(nodeParam?: NodeParam): TreeController
-
+ 
 点击某个节点后，调用该方法可以触发新增孩子节点。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| nodeParam | [NodeParam](#nodeparam) | 否 | 节点信息，用于指定新增节点的属性。如果不传该参数，在当前选中的节点下添加一个标题为“新建文件夹”节点。 |
-
-
+| nodeParam | NodeParam | 否 | 节点信息，用于指定新增节点的属性。如果不传该参数，在当前选中的节点下添加一个标题为“新建文件夹”节点。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [TreeController](#treecontroller) | 树视图组件的控制器。 |
+| TreeController | 树视图组件的控制器。 |
+ 
+ 
+  
 
-
-### removeNode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### removeNode
 
 removeNode(): void
-
+ 
 点击某个节点后，调用该方法可以触发删除该节点。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+ 
+  
 
-
-### modifyNode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### modifyNode
 
 modifyNode(): void
-
+ 
 点击某个节点后，调用该方法可以触发修改该节点。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+ 
+  
 
-
-### buildDone
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### buildDone
 
 buildDone(): void
-
+ 
 建立树视图。节点增加完毕后，必须调用该方法，触发树信息的保存。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+ 
+  
 
-
-### refreshNode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### refreshNode
 
 refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void
-
+ 
 更新树视图。调用该方法，更新当前节点的信息。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | parentId | number | 是 | 父节点Id。 取值范围：大于等于-1。 |
-| parentSubTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 父节点副文本。 |
-| currentSubtitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 当前节点副文本。 |
+| parentSubTitle | ResourceStr | 是 | 父节点副文本。 |
+| currentSubtitle | ResourceStr | 是 | 当前节点副文本。 |
+ 
+ 
+  
 
-
-## NodeParam
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### NodeParam
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | parentNodeId | number | 否 | 是 | 父节点Id。 取值范围：大于等于-1。 默认值：-1，根节点id值为-1。若设置数值小于-1，做不生效处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| currentNodeId | number | 否 | 是 | 当前子节点Id。 取值范围：大于等于-1。 不能为根节点id，不能为null，否则会抛出异常。且不能设置两个相同的currentNodeId。 默认值：-1  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| currentNodeId | number | 否 | 是 | 当前子节点Id。 取值范围：大于等于-1。 不能为根节点id，不能为null，否则会抛出异常。且不能设置两个相同的currentNodeId。 默认值：-1 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | isFolder | boolean | 否 | 是 | 是否是目录。 默认值：false true：是目录，false：不是目录。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| icon | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 图标。 默认值：空字符串  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| symbolIconStyle18+ | [SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/universal-attributes-attribute-symbolglyphmodifier#symbolglyphmodifier) | 否 | 是 | Symbol图标，优先级大于icon。 默认值：undefined  元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| selectedIcon | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 选中图标。 默认值：空字符串  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| symbolSelectedIconStyle18+ | [SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/universal-attributes-attribute-symbolglyphmodifier#symbolglyphmodifier) | 否 | 是 | Symbol选中图标，优先级大于selectedIcon。 默认值：undefined  元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| editIcon | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 编辑图标。 默认值：空字符串  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| symbolEditIconStyle18+ | [SymbolGlyphModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/universal-attributes-attribute-symbolglyphmodifier#symbolglyphmodifier) | 否 | 是 | Symbol编辑图标，优先级大于editIcon。 默认值：undefined  元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| primaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 主标题。 默认值：空字符串  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| secondaryTitle | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 是 | 副标题。 默认值：空字符串  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| container | () =&gt; void | 否 | 是 | 绑定在节点上的右键子组件，子组件由@Builder修饰。 默认值：() =&gt; void  元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon | ResourceStr | 否 | 是 | 图标。 默认值：空字符串 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| symbolIconStyle18+ | SymbolGlyphModifier | 否 | 是 | Symbol图标，优先级大于icon。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| selectedIcon | ResourceStr | 否 | 是 | 选中图标。 默认值：空字符串 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| symbolSelectedIconStyle18+ | SymbolGlyphModifier | 否 | 是 | Symbol选中图标，优先级大于selectedIcon。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| editIcon | ResourceStr | 否 | 是 | 编辑图标。 默认值：空字符串 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| symbolEditIconStyle18+ | SymbolGlyphModifier | 否 | 是 | Symbol编辑图标，优先级大于editIcon。 默认值：undefined 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| primaryTitle | ResourceStr | 否 | 是 | 主标题。 默认值：空字符串 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| secondaryTitle | ResourceStr | 否 | 是 | 副标题。 默认值：空字符串 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| container | () => void | 否 | 是 | 绑定在节点上的右键子组件，子组件由@Builder修饰。 默认值：() => void 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+ 
+ 
+  
 
-
-## TreeListenerManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### TreeListenerManager
 
 树视图组件的监听器，可以将此对象绑定至树视图组件，然后通过它监听树的节点的变化，同一个监听器不可以控制多个树视图组件。
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
+ 
+  
 
-
-### getInstance
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### getInstance
 
 static getInstance(): TreeListenerManager
-
+ 
 获取监听管理器单例对象。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **返回值**:
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [TreeListenerManager](#treelistenermanager) | 返回获取到的监听管理器单例对象。 |
+| TreeListenerManager | 返回获取到的监听管理器单例对象。 |
+ 
+ 
+  
 
-
-### getTreeListener
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### getTreeListener
 
 getTreeListener(): TreeListener
-
+ 
 获取监听器。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **返回值**:
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [TreeListener](#treelistener) | 返回获取到的监听器。 |
+| TreeListener | 返回获取到的监听器。 |
+ 
+ 
+  
 
-
-## TreeListener
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### TreeListener
 
 树视图组件的监听器，可以将此对象绑定至树视图组件，然后通过它监听树的节点的变化，同一个监听器不可以控制多个树视图组件。
+ 
+  
 
-
-### on
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### on
 
 on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
-
+ 
 注册监听。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [TreeListenType](#treelistentype) | 是 | 监听类型。 |
-| callback | (callbackParam: [CallbackParam](#callbackparam)) =&gt; void | 是 | 节点信息。 |
+| type | TreeListenType | 是 | 监听类型。 |
+| callback | (callbackParam: CallbackParam) => void | 是 | 节点信息。 |
+ 
+ 
+  
 
-
-### once
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### once
 
 once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
-
+ 
 注册一次监听。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [TreeListenType](#treelistentype) | 是 | 监听类型。 |
-| callback | (callbackParam: [CallbackParam](#callbackparam)) =&gt; void | 是 | 节点信息。 |
+| type | TreeListenType | 是 | 监听类型。 |
+| callback | (callbackParam: CallbackParam) => void | 是 | 节点信息。 |
+ 
+ 
+  
 
-
-### off
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### off
 
 off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): void;
-
+ 
 取消监听。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [TreeListenType](#treelistentype) | 是 | 监听类型。 |
-| callback | (callbackParam: [CallbackParam](#callbackparam)) =&gt; void | 否 | 节点信息。传入时取消对应的节点信息的监听，否则取消该类型的所有节点信息的监听。 |
+| type | TreeListenType | 是 | 监听类型。 |
+| callback | (callbackParam: CallbackParam) => void | 否 | 节点信息。传入时取消对应的节点信息的监听，否则取消该类型的所有节点信息的监听。 |
+ 
+ 
+  
 
-
-## TreeListenType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### TreeListenType
 
 定义树视图节点的监听事件类型。
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NODE_CLICK | "NodeClick" | 监听节点点击事件。 |
@@ -315,41 +315,42 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
 | NODE_DELETE | "NodeDelete" | 监听节点删除事件。 |
 | NODE_MODIFY | "NodeModify" | 监听节点修改事件。 |
 | NODE_MOVE | "NodeMove" | 监听节点移动事件。 |
+ 
+ 
+  
 
-
-## CallbackParam
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### CallbackParam
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | currentNodeId | number | 否 | 否 | 返回当前子节点id。 取值范围：大于等于0。 |
 | parentNodeId | number | 否 | 是 | 返回当前父节点id。 取值范围：大于等于-1。 默认值：-1 |
 | childIndex | number | 否 | 是 | 返回子索引。 取值范围：大于等于-1。 默认值：-1 |
+ 
+ 
+  
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ 
+  
 
+##### 示例
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 示例1（设置简单树视图）
+##### 示例1（设置简单树视图）
 
 通过树视图组件的控制器对树的节点进行新增、删除、重命名，展示新增不同参数节点的实现效果。
-
-
-```ts
+ 
+```text
 import { TreeController, TreeListener, TreeListenerManager, TreeListenType, NodeParam, TreeView, CallbackParam } from '@kit.ArkUI';
 
 @Entry
@@ -369,20 +370,20 @@ struct TreeViewDemo {
   @Builder menuBuilder1() {
     Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
       Text('新增').fontSize(16).width(100).height(30).textAlign(TextAlign.Center)
-      .onClick((event: ClickEvent) => {
-        this.treeController.addNode();
-      })
+        .onClick((event: ClickEvent) => {
+          this.treeController.addNode();
+        })
       Divider()
       Text('删除').fontSize(16).width(100).height(30).textAlign(TextAlign.Center)
-      .onClick((event: ClickEvent) => {
-        this.treeController.removeNode();
-      })
+        .onClick((event: ClickEvent) => {
+          this.treeController.removeNode();
+        })
       Divider()
       Text('重命名').fontSize(16).width(100).height(30).textAlign(TextAlign.Center)
-      .onClick((event: ClickEvent) => {
-        this.treeController.modifyNode();
-      })
-  }.width(100).border({width: 1, color: 0x80808a, radius: '16dp'})
+        .onClick((event: ClickEvent) => {
+          this.treeController.modifyNode();
+        })
+    }.width(100).border({width: 1, color: 0x80808a, radius: '16dp'})
   }
 
   aboutToAppear(): void {
@@ -406,23 +407,23 @@ struct TreeViewDemo {
       editIcon: editResource, primaryTitle: "目录1验证悬浮框自适应效果是否OK",
       secondaryTitle: "6" };
     this.treeController
-    .addNode(nodeParam)
-    .addNode({parentNodeId:1, currentNodeId: 2, isFolder: false, primaryTitle: "项目1_1" })
-    .addNode({ parentNodeId:-1, currentNodeId: 7, isFolder: true, primaryTitle: "目录2" })
-    .addNode({ parentNodeId:-1, currentNodeId: 23, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
-      editIcon: editResource, primaryTitle: "目录3" })
-    .addNode({ parentNodeId:-1, currentNodeId: 24, isFolder: false, primaryTitle: "项目4" })
-    .addNode({ parentNodeId:-1, currentNodeId: 31, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
-      editIcon: editResource, primaryTitle: "目录5", secondaryTitle: "0" })
-    .addNode({ parentNodeId:-1, currentNodeId: 32, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
-      editIcon: editResource, primaryTitle: "目录6", secondaryTitle: "0" })
-    .addNode({ parentNodeId:32, currentNodeId: 35, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
-      editIcon: editResource, primaryTitle: "目录6-1", secondaryTitle: "0" })
-    .addNode({ parentNodeId:-1, currentNodeId: 33, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
-      editIcon: editResource, primaryTitle: "目录7", secondaryTitle: "0" })
-    .addNode({ parentNodeId:33, currentNodeId: 34, isFolder: false, primaryTitle: "项目8" })
-    .addNode({ parentNodeId:-1, currentNodeId: 36, isFolder: false, primaryTitle: "项目9" })
-    .buildDone();
+      .addNode(nodeParam)
+      .addNode({parentNodeId:1, currentNodeId: 2, isFolder: false, primaryTitle: "项目1_1" })
+      .addNode({ parentNodeId:-1, currentNodeId: 7, isFolder: true, primaryTitle: "目录2" })
+      .addNode({ parentNodeId:-1, currentNodeId: 23, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
+        editIcon: editResource, primaryTitle: "目录3" })
+      .addNode({ parentNodeId:-1, currentNodeId: 24, isFolder: false, primaryTitle: "项目4" })
+      .addNode({ parentNodeId:-1, currentNodeId: 31, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
+        editIcon: editResource, primaryTitle: "目录5", secondaryTitle: "0" })
+      .addNode({ parentNodeId:-1, currentNodeId: 32, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
+        editIcon: editResource, primaryTitle: "目录6", secondaryTitle: "0" })
+      .addNode({ parentNodeId:32, currentNodeId: 35, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
+        editIcon: editResource, primaryTitle: "目录6-1", secondaryTitle: "0" })
+      .addNode({ parentNodeId:-1, currentNodeId: 33, isFolder: true, icon: normalResource, selectedIcon: selectedResource,
+        editIcon: editResource, primaryTitle: "目录7", secondaryTitle: "0" })
+      .addNode({ parentNodeId:33, currentNodeId: 34, isFolder: false, primaryTitle: "项目8" })
+      .addNode({ parentNodeId:-1, currentNodeId: 36, isFolder: false, primaryTitle: "项目9" })
+      .buildDone();
     this.treeController.refreshNode(-1, "父节点", "子节点");
   }
 
@@ -436,20 +437,20 @@ struct TreeViewDemo {
           Column({ space: 30 }) {
             Text('ClickId=' + this.clickId).fontSize('16fp')
             Button('Add', { type: ButtonType.Normal, stateEffect: true })
-            .borderRadius(8).backgroundColor(0x317aff).width(90)
-            .onClick((event: ClickEvent) => {
-              this.treeController.addNode();
-            })
+              .borderRadius(8).backgroundColor(0x317aff).width(90)
+              .onClick((event: ClickEvent) => {
+                this.treeController.addNode();
+              })
             Button('Modify', { type: ButtonType.Normal, stateEffect: true })
-            .borderRadius(8).backgroundColor(0x317aff).width(90)
-            .onClick((event: ClickEvent) => {
-              this.treeController.modifyNode();
-            })
+              .borderRadius(8).backgroundColor(0x317aff).width(90)
+              .onClick((event: ClickEvent) => {
+                this.treeController.modifyNode();
+              })
             Button('Remove', { type: ButtonType.Normal, stateEffect: true })
-            .borderRadius(8).backgroundColor(0x317aff).width(120)
-            .onClick((event: ClickEvent) => {
-              this.treeController.removeNode();
-            })
+              .borderRadius(8).backgroundColor(0x317aff).width(120)
+              .onClick((event: ClickEvent) => {
+                this.treeController.removeNode();
+              })
           }.height('100%').width('70%').alignItems(HorizontalAlign.Start).margin(10)
         }
       }
@@ -457,18 +458,20 @@ struct TreeViewDemo {
       .showControlButton(false)
       .showSideBar(true)
     }
-}}
+  }}
 ```
+ 
 
-![](assets/TreeView/file-20260514164207912-0.png)
+![](assets/TreeView/file-20260514164207912-1.png)
 
+ 
+  
 
-### 示例2（设置Symbol类型图标）
+##### 示例2（设置Symbol类型图标）
 
 从API version 18开始，该示例通过设置NodeParam的属性symbolIconStyle、symbolEditIconStyle、symbolSelectedIconStyle，展示了自定义Symbol类型图标。
-
-
-```ts
+ 
+```text
 import { TreeController, TreeListener, TreeListenerManager, TreeListenType, NodeParam, TreeView, CallbackParam,
   SymbolGlyphModifier } from '@kit.ArkUI';
 
@@ -489,20 +492,20 @@ struct TreeViewDemo {
   @Builder menuBuilder1() {
     Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
       Text('新增').fontSize(16).width(100).height(30).textAlign(TextAlign.Center)
-      .onClick((event: ClickEvent) => {
-        this.treeController.addNode();
-      })
+        .onClick((event: ClickEvent) => {
+          this.treeController.addNode();
+        })
       Divider()
       Text('删除').fontSize(16).width(100).height(30).textAlign(TextAlign.Center)
-      .onClick((event: ClickEvent) => {
-        this.treeController.removeNode();
-      })
+        .onClick((event: ClickEvent) => {
+          this.treeController.removeNode();
+        })
       Divider()
       Text('重命名').fontSize(16).width(100).height(30).textAlign(TextAlign.Center)
-      .onClick((event: ClickEvent) => {
-        this.treeController.modifyNode();
-      })
-  }.width(100).border({width: 1, color: 0x80808a, radius: '16dp'})
+        .onClick((event: ClickEvent) => {
+          this.treeController.modifyNode();
+        })
+    }.width(100).border({width: 1, color: 0x80808a, radius: '16dp'})
   }
 
   aboutToAppear(): void {
@@ -529,28 +532,28 @@ struct TreeViewDemo {
       editIcon: editResource, primaryTitle: "目录1",
       secondaryTitle: "6" };
     this.treeController
-    .addNode(nodeParam)
-    .addNode({parentNodeId:1, currentNodeId: 2, isFolder: false, primaryTitle: "项目1_1" })
-    .addNode({ parentNodeId:-1, currentNodeId: 7, isFolder: true, primaryTitle: "目录2" })
-    .addNode({ parentNodeId:-1, currentNodeId: 23, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
-      selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
-      symbolEditIconStyle: editSymbolResource, primaryTitle: "目录3" })
-    .addNode({ parentNodeId:-1, currentNodeId: 24, isFolder: false, primaryTitle: "项目4" })
-    .addNode({ parentNodeId:-1, currentNodeId: 31, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
-      selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
-      symbolEditIconStyle: editSymbolResource, primaryTitle: "目录5", secondaryTitle: "0" })
-    .addNode({ parentNodeId:-1, currentNodeId: 32, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
-      selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
-      symbolEditIconStyle: editSymbolResource, primaryTitle: "目录6", secondaryTitle: "0" })
-    .addNode({ parentNodeId:32, currentNodeId: 35, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
-      selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
-      symbolEditIconStyle: editSymbolResource, primaryTitle: "目录6-1", secondaryTitle: "0" })
-    .addNode({ parentNodeId:-1, currentNodeId: 33, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
-      selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
-      symbolEditIconStyle: editSymbolResource, primaryTitle: "目录7", secondaryTitle: "0" })
-    .addNode({ parentNodeId:33, currentNodeId: 34, isFolder: false, primaryTitle: "项目8" })
-    .addNode({ parentNodeId:-1, currentNodeId: 36, isFolder: false, primaryTitle: "项目9" })
-    .buildDone();
+      .addNode(nodeParam)
+      .addNode({parentNodeId:1, currentNodeId: 2, isFolder: false, primaryTitle: "项目1_1" })
+      .addNode({ parentNodeId:-1, currentNodeId: 7, isFolder: true, primaryTitle: "目录2" })
+      .addNode({ parentNodeId:-1, currentNodeId: 23, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
+        selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
+        symbolEditIconStyle: editSymbolResource, primaryTitle: "目录3" })
+      .addNode({ parentNodeId:-1, currentNodeId: 24, isFolder: false, primaryTitle: "项目4" })
+      .addNode({ parentNodeId:-1, currentNodeId: 31, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
+        selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
+        symbolEditIconStyle: editSymbolResource, primaryTitle: "目录5", secondaryTitle: "0" })
+      .addNode({ parentNodeId:-1, currentNodeId: 32, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
+        selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
+        symbolEditIconStyle: editSymbolResource, primaryTitle: "目录6", secondaryTitle: "0" })
+      .addNode({ parentNodeId:32, currentNodeId: 35, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
+        selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
+        symbolEditIconStyle: editSymbolResource, primaryTitle: "目录6-1", secondaryTitle: "0" })
+      .addNode({ parentNodeId:-1, currentNodeId: 33, isFolder: true, icon: normalResource, symbolIconStyle: normalSymbolResource,
+        selectedIcon: selectedResource, symbolSelectedIconStyle: selectedSymbolResource, editIcon: editResource,
+        symbolEditIconStyle: editSymbolResource, primaryTitle: "目录7", secondaryTitle: "0" })
+      .addNode({ parentNodeId:33, currentNodeId: 34, isFolder: false, primaryTitle: "项目8" })
+      .addNode({ parentNodeId:-1, currentNodeId: 36, isFolder: false, primaryTitle: "项目9" })
+      .buildDone();
     this.treeController.refreshNode(-1, "父节点", "子节点");
   }
 
@@ -564,20 +567,20 @@ struct TreeViewDemo {
           Column({ space: 30 }) {
             Text('ClickNodeId=' + this.clickNodeId).fontSize('16fp')
             Button('Add', { type: ButtonType.Normal, stateEffect: true })
-            .borderRadius(8).backgroundColor(0x317aff).width(90)
-            .onClick((event: ClickEvent) => {
-              this.treeController.addNode();
-            })
+              .borderRadius(8).backgroundColor(0x317aff).width(90)
+              .onClick((event: ClickEvent) => {
+                this.treeController.addNode();
+              })
             Button('Modify', { type: ButtonType.Normal, stateEffect: true })
-            .borderRadius(8).backgroundColor(0x317aff).width(90)
-            .onClick((event: ClickEvent) => {
-              this.treeController.modifyNode();
-            })
+              .borderRadius(8).backgroundColor(0x317aff).width(90)
+              .onClick((event: ClickEvent) => {
+                this.treeController.modifyNode();
+              })
             Button('Remove', { type: ButtonType.Normal, stateEffect: true })
-            .borderRadius(8).backgroundColor(0x317aff).width(120)
-            .onClick((event: ClickEvent) => {
-              this.treeController.removeNode();
-            })
+              .borderRadius(8).backgroundColor(0x317aff).width(120)
+              .onClick((event: ClickEvent) => {
+                this.treeController.removeNode();
+              })
           }.height('100%').width('80%').alignItems(HorizontalAlign.Start).margin(10)
         }
       }
@@ -585,7 +588,8 @@ struct TreeViewDemo {
       .showControlButton(false)
       .showSideBar(true)
     }
-}}
+  }}
 ```
+ 
 
-![](assets/TreeView/file-20260514164207912-1.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/jYbMeeYCS96lnCkvPXliJA/zh-cn_image_0000002581276362.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=361B5459E400A3AD5BE60B4A876C896D33003A1A7D7D6710BD787F68763C177F)

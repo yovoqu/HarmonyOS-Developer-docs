@@ -5,29 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_listen-default-network-change
 
 建议应用监听默认网络的变化，关闭原有网络的数据传输，并使用新网络建立数据传输。
+ 
+该规则仅在联网类应用检查整个工程时才生效。
+ 
 
- 该规则仅在联网类应用检查整个工程时才生效。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@correctness/listen-default-network-change": "suggestion"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // With the ohos.permission.GET_NETWORK_INFO permission configured
@@ -45,23 +46,23 @@ export function test() {
   });
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // With the ohos.permission.GET_NETWORK_INFO permission configured
 // import connection from '@ohos.net.connection';
-// The `on(type: 'netCapabilitiesChange', callback: Callback)`, `getDefaultNet`/`getDefaultNetSync` and `getNetCapabilities`/`getNetCapabilitiesSync` functions are not called.
+// The `on(type: 'netCapabilitiesChange', callback: Callback<connection.NetCapabilityInfo>)`, `getDefaultNet`/`getDefaultNetSync` and `getNetCapabilities`/`getNetCapabilitiesSync` functions are not called.
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@correctness/all
+<span style="color: rgb(6,125,23);">plugin:@correctness/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

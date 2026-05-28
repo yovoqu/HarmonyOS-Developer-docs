@@ -3,78 +3,72 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalinput
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供FunctionalInput组件，开发者可调用对应FunctionalInput组件快速拉起选择地区页面，供用户选择地区信息。
-
+ 
 FunctionalInput需要配合[functionalInputComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalinputcomponentmanager)一起使用，完成相应功能。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.1.0(18)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
-
+ 
 **起始版本：** 5.1.0(18)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
-```ts
-import {
-  FunctionalInput,
-  functionalInputComponentManager,
-} from '@kit.ScenarioFusionKit';
+```text
+import { FunctionalInput, functionalInputComponentManager } from '@kit.ScenarioFusionKit';
 ```
+ 
+  
 
-
-## FunctionalInput
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### FunctionalInput
 
 场景化Input组件。
-
+ 
 本模块提供FunctionalInput组件，HarmonyOS应用和元服务通过集成FunctionalInput组件完成省市区选择，输入框显示文本修改，样式修改等功能。
-
+ 
 FunctionalInput组件需要配合[functionalInputComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalinputcomponentmanager)一起使用，完成相应功能。
-
+ 
 **装饰器类型：** @Component
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.1.0(18)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
-
+ 
 **起始版本：** 5.1.0(18)
-
-
+  
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| params | functionalInputComponentManager.[FunctionalInputParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalinputcomponentmanager#functionalinputparams) | 是 | @Prop | FunctionalInput组件参数。 |
-| controller | functionalInputComponentManager.[FunctionalInputController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalinputcomponentmanager#functionalinputcontroller) | 是 | - | FunctionalInput组件控制器，用来接收组件的点击事件。 |
+| params | functionalInputComponentManager.FunctionalInputParams | 是 | @Prop | FunctionalInput组件参数。 |
+| controller | functionalInputComponentManager.FunctionalInputController | 是 | - | FunctionalInput组件控制器，用来接收组件的点击事件。 |
+ 
+ 
+  
 
-
-### build
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### build
 
 build(): void
-
+ 
 用于创建FunctionalInput对象的构造函数。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从版本5.1.0(18)开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
-
+ 
 **起始版本：** 5.1.0(18)
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { FunctionalInput, functionalInputComponentManager } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { SymbolGlyphModifier, TextInputModifier } from '@kit.ArkUI';
@@ -99,24 +93,24 @@ struct Index {
             },
             // 调整TextInput样式。
             inputAttributeModifier: new TextInputModifier()
-            .fontColor($r('sys.color.ohos_id_color_badge_red'))
-            .onChange((value) => {
-              if (value !== this.inputContent) {
-                this.inputContent = value;
-              }
-            }),
+              .fontColor($r('sys.color.ohos_id_color_badge_red'))
+              .onChange((value) => {
+                if (value !== this.inputContent) {
+                  this.inputContent = value;
+                }
+              }),
             // 将图标设置在末尾。
             icon: $r('sys.symbol.xmark'),
             // 设置符号图标的事件和样式。
             iconSymbolModifier: new SymbolGlyphModifier()
-            .onClick(() => {
-              this.inputContent = '';
-            })
-            .fontSize(32),
+              .onClick(() => {
+                this.inputContent = '';
+              })
+              .fontSize(32),
           },
           // 当InputType为SELECT_DISTRICT时，回调必须为onSelectDistrict。
           controller: new functionalInputComponentManager.FunctionalInputController().onSelectDistrict((err,
-          data: functionalInputComponentManager.DistrictSelectResult) => {
+            data: functionalInputComponentManager.DistrictSelectResult) => {
             if (err) {
               // 错误日志处理。
               hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
@@ -128,7 +122,7 @@ struct Index {
             this.inputContent = data.inputContent;
           })
         })
-        .layoutWeight(1)
+          .layoutWeight(1)
       }.height('100%')
     }.width('100%')
   }

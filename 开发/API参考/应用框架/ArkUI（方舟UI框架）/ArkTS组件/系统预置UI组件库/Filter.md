@@ -3,113 +3,114 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-filter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 多条件筛选，帮助用户在大量信息中找到所需内容，应结合具体场景选择合适筛选方式。多条件筛选控件由筛选器与悬浮条构成，悬浮条可下拉展示悬浮筛选器。筛选器样式可分为多行可折叠类型与多行列表类型，并可以在筛选器最后一行附加快捷筛选器。
+ 
+> [!NOTE]
+> 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 该组件仅可在Stage模型下使用。 如果Filter设置 通用属性 和 通用事件 ，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到Filter本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议Filter设置通用属性和通用事件。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { Filter } from '@kit.ArkUI';
 ```
+ 
+  
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 子组件
 
 无
+ 
+  
 
+##### Filter
 
-## Filter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-Filter({ multiFilters: Array<FilterParams>, additionFilters?: FilterParams, filterType?: FilterType, onFilterChanged: (filterResults: Array<FilterResult>) => void, container: ()=> void })
-
+Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams, filterType?: FilterType, onFilterChanged: (filterResults: Array&lt;FilterResult&gt;) => void, container: ()=> void })
+ 
 **装饰器类型：**@Component
-
+ 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
+ 
 **参数：**
-
-
+  
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| multiFilters | Array&lt;[FilterParams](#filterparams)&gt; | 是 | @Prop | 多条件筛选列表。 |
-| additionFilters | [FilterParams](#filterparams) | 否 | @Prop | 附加快捷筛选项。如果不设置，则不显示附加快捷筛选项。 |
-| filterType | [FilterType](#filtertype) | 否 | @Prop | 筛选器的样式类型。 默认值：FilterType.LIST_FILTER |
-| onFilterChanged | (filterResults: Array&lt;[FilterResult](#filterresult)&gt;) =&gt; void | 是 | - | 用户点击后的回调事件。回调函数的参数为选中的筛选项结果列表。 |
-| container | ()=&gt;void | 是 | @BuilderParam | 筛选结果展示区域自定义内容，通过尾随闭包形式传入。 |
+| multiFilters | Array&lt;FilterParams&gt; | 是 | @Prop | 多条件筛选列表。 |
+| additionFilters | FilterParams | 否 | @Prop | 附加快捷筛选项。如果不设置，则不显示附加快捷筛选项。 |
+| filterType | FilterType | 否 | @Prop | 筛选器的样式类型。 默认值：FilterType.LIST_FILTER |
+| onFilterChanged | (filterResults: Array&lt;FilterResult&gt;) => void | 是 | - | 用户点击后的回调事件。回调函数的参数为选中的筛选项结果列表。 |
+| container | ()=>void | 是 | @BuilderParam | 筛选结果展示区域自定义内容，通过尾随闭包形式传入。 |
+ 
+ 
+  
 
-
-## FilterParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### FilterParams
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 筛选项维度名称。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。 |
-| options | Array&lt;[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)&gt; | 否 | 否 | 筛选项维度可选项列表。 默认值：空数组。 说明：文本超长显示省略号。 |
+| name | ResourceStr | 否 | 否 | 筛选项维度名称。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。 |
+| options | Array&lt;ResourceStr&gt; | 否 | 否 | 筛选项维度可选项列表。 默认值：空数组。 说明：文本超长显示省略号。 |
+ 
+ 
+  
 
-
-## FilterType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### FilterType
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | MULTI_LINE_FILTER | 0 | 多行可折叠类型筛选器。 |
 | LIST_FILTER | 1 | 多行列表类型筛选器。 |
+ 
+ 
+  
 
-
-## FilterResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### FilterResult
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
+ 
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 筛选项维度名称。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。 |
+| name | ResourceStr | 否 | 否 | 筛选项维度名称。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。 |
 | index | number | 否 | 否 | 该维度筛选项选中项目的索引值。 取值范围：大于等于-1的整数。 默认值：-1，没有选中项。若设置数值小于-1，按没有选中项处理。 |
-| value | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 否 | 否 | 该维度筛选项选中项目的值。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。 |
+| value | ResourceStr | 否 | 否 | 该维度筛选项选中项目的值。 默认值：空字符串。 说明：如果文本大于列宽时，文本被截断。 |
+ 
+ 
+  
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ 
+  
 
-
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 示例
 
 该示例设置FilterType属性为MULTI_LINE_FILTER，实现多行可折叠类型筛选器。
-
-
-```ts
+ 
+```text
 import { Filter, FilterParams, FilterResult, FilterType } from '@kit.ArkUI';
 
 @Entry
@@ -119,19 +120,19 @@ struct Index {
     name: '月份',
     options: ['全部', '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
   },
-  {
-    name: '年份',
-    options: ['全部', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012',
-    '2011', '2010', '2009', '2008'],
-  },
-  {
-    name: '节气',
-    options: ['全部', '立春', '雨水', '惊蛰', '春分', '清明', '谷雨', '立夏', '小满', '芒种', '夏至', '小暑', '大暑',
-    '立秋', '处暑', '白露', '秋分', '寒露', '霜降', '立冬', '小雪', '大雪', '冬至', '小寒', '大寒'],
-  }];
+    {
+      name: '年份',
+      options: ['全部', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013', '2012',
+        '2011', '2010', '2009', '2008'],
+    },
+    {
+      name: '节气',
+      options: ['全部', '立春', '雨水', '惊蛰', '春分', '清明', '谷雨', '立夏', '小满', '芒种', '夏至', '小暑', '大暑',
+        '立秋', '处暑', '白露', '秋分', '寒露', '霜降', '立冬', '小雪', '大雪', '冬至', '小寒', '大寒'],
+    }];
   // additionFilters筛选行name必传，不可为空，否则整行不显示
   private additionParam: FilterParams =
-  { name: '您还可以搜', options: ['运营栏目1', '运营栏目2', '运营栏目3', '运营栏目4', '运营栏目5', '运营栏目6'] };
+    { name: '您还可以搜', options: ['运营栏目1', '运营栏目2', '运营栏目3', '运营栏目4', '运营栏目5', '运营栏目6'] };
   private arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   build() {
@@ -151,13 +152,13 @@ struct Index {
           ForEach(this.arr, (item: string, index: number) => {
             ListItem() {
               Text(item.toString())
-              .width('100%')
-              .height(100)
-              .fontSize(16)
-              .textAlign(TextAlign.Center)
-              .borderRadius(10)
-              .backgroundColor(Color.White)
-              .margin({ top: 10, bottom: 10 })
+                .width('100%')
+                .height(100)
+                .fontSize(16)
+                .textAlign(TextAlign.Center)
+                .borderRadius(10)
+                .backgroundColor(Color.White)
+                .margin({ top: 10, bottom: 10 })
             }
           })
         }.backgroundColor(Color.Gray)
@@ -169,5 +170,6 @@ struct Index {
   }
 }
 ```
+ 
 
-![](assets/Filter/file-20260514164158231-0.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Cb0QWvSMQ6CkA7nqSPDvbQ/zh-cn_image_0000002581276330.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=A358872C679D3EDA09B090CC9EE1F07FFFA803C1BDD1B940F4503ADFD7675DB4)

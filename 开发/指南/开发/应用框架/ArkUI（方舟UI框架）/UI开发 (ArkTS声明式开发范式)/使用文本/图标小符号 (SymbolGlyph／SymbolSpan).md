@@ -1,29 +1,41 @@
 # 图标小符号 (SymbolGlyph/SymbolSpan)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-symbol
 
 SymbolGlyph是图标小符号组件，便于使用精美的图标，如渲染多色图标和使用动效图标。SymbolSpan作为Text组件的子组件，可在文本中穿插显示图标小符号。具体用法请参考[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)和[SymbolSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan)组件的API文档。
 
 
-## 创建图标
+##### 创建图标
 
-SymbolGlyph通过\$r引用Resource资源来创建，目前仅支持系统预置的Symbol资源名。 相关资源可参考[系统图标](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962)。
-```text
+SymbolGlyph通过$r引用Resource资源来创建，目前仅支持系统预置的Symbol资源名。
+
+相关资源可参考[系统图标](https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962)。
+
+```ArkTS
 SymbolGlyph($r('sys.symbol.ohos_folder_badge_plus'))
   .fontSize(96)
   .renderingStrategy(SymbolRenderingStrategy.SINGLE)
   .fontColor([Color.Black, Color.Green, Color.White])
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-0.png)
 
-## 添加到文本中
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-0.png)
 
-[SymbolSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan)可作为[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)的子组件用于显示图标小符号。可以在一个Text组件内添加多个SymbolSpan，从而展示一串连续的图标。 创建SymbolSpan。 SymbolSpan组件需嵌入在Text组件中才能显示，单独使用不会呈现任何内容。
-```text
+
+
+
+##### 添加到文本中
+
+[SymbolSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan)可作为[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)的子组件用于显示图标小符号。可以在一个Text组件内添加多个SymbolSpan，从而展示一串连续的图标。
+
+ - 创建SymbolSpan。
+
+  SymbolSpan组件需嵌入在Text组件中才能显示，单独使用不会呈现任何内容。
+
+  
+```ArkTS
 Text() {
   SymbolSpan($r('sys.symbol.ohos_trash'))
     .fontWeight(FontWeight.Normal)
@@ -31,9 +43,12 @@ Text() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-1.png) 通过[fontSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontsize)属性设置SymbolSpan的大小。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-1.png)
+
+ - 通过[fontSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontsize)属性设置SymbolSpan的大小。
+
+  
+```ArkTS
 Row() {
   Column() {
     Text('48')
@@ -67,9 +82,12 @@ Row() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-2.png) 通过[fontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontweight)属性设置SymbolSpan组件的粗细。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-10.gif)
+
+ - 通过[fontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontweight)属性设置SymbolSpan组件的粗细。
+
+  
+```ArkTS
 Row() {
   Column() {
     Text('Light')
@@ -100,9 +118,12 @@ Row() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-3.png) 通过[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)属性设置SymbolSpan的颜色。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-11.gif)
+
+ - 通过[fontColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#fontcolor)属性设置SymbolSpan的颜色。
+
+  
+```ArkTS
 Row() {
   Column() {
     Text('Black')
@@ -133,9 +154,12 @@ Row() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-4.png) 通过[renderingStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#renderingstrategy)属性设置SymbolSpan的渲染策略。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-12.jpg)
+
+ - 通过[renderingStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#renderingstrategy)属性设置SymbolSpan的渲染策略。
+
+  
+```ArkTS
 Row() {
   Column() {
     // 请将$r('app.string.single_color')替换为实际资源文件，在本示例中该资源文件的value值为"单色"
@@ -172,9 +196,12 @@ Row() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-5.png) 通过[effectStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#effectstrategy)属性设置SymbolSpan的动效策略。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-13.gif)
+
+ - 通过[effectStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolspan#effectstrategy)属性设置SymbolSpan的动效策略。
+
+  
+```ArkTS
 Row() {
   Column() {
     // 请将$r('app.string.no_action')替换为实际资源文件，在本示例中该资源文件的value值为"无动效"
@@ -208,18 +235,27 @@ Row() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-6.gif) SymbolSpan不支持通用事件。
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-14.gif)
 
-## 自定义图标动效
+ - SymbolSpan不支持通用事件。
 
-相较于effectStrategy属性在启动时即触发动效，可以通过以下两种方式来控制动效的播放状态，以及选择更多样化的动效策略。 关于effectStrategy属性与symbolEffect属性的多种动态属性使用及生效原则，详情请参阅[SymbolGlyph.symbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symboleffect12-1)属性的说明。 通过设置SymbolEffect属性，可以同时配置SymbolGlyph的动效策略和播放状态。
-```text
+
+
+
+##### 自定义图标动效
+
+相较于effectStrategy属性在启动时即触发动效，可以通过以下两种方式来控制动效的播放状态，以及选择更多样化的动效策略。
+
+关于effectStrategy属性与symbolEffect属性的多种动态属性使用及生效原则，详情请参阅[SymbolGlyph.symbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symboleffect12-1)属性的说明。
+
+ - 通过设置SymbolEffect属性，可以同时配置SymbolGlyph的动效策略和播放状态。
+
+  
+```ArkTS
 @State isActive: boolean = true;
 ```
 
-
-```text
+```ArkTS
 Column() {
   // 请将$r('app.string.variable_color_animation')替换为实际资源文件，在本示例中该资源文件的value值为"可变颜色动效"
   Text($r('app.string.variable_color_animation'));
@@ -234,14 +270,16 @@ Column() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-7.gif) 通过设置SymbolEffect属性，可以同时指定SymbolGlyph的动画效果策略及其播放触发条件。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-2.png)
+
+ - 通过设置SymbolEffect属性，可以同时指定SymbolGlyph的动画效果策略及其播放触发条件。
+
+  
+```ArkTS
 @State triggerValueReplace: number = 0;
 ```
 
-
-```text
+```ArkTS
 Column() {
   // 请将$r('app.string.bounce_animation')替换为实际资源文件，在本示例中该资源文件的value值为"弹跳动效"
   Text($r('app.string.bounce_animation'));
@@ -256,16 +294,18 @@ Column() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-8.gif) 从API version 20开始，支持通过设置SymbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.SLASH_OVERLAY，可以指定SymbolGlyph的禁用动画效果及其播放触发条件。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-3.png)
+
+ - 从API version 20开始，支持通过设置SymbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.SLASH_OVERLAY，可以指定SymbolGlyph的禁用动画效果及其播放触发条件。
+
+  
+```ArkTS
 @State triggerValueReplace: number = 0;
 replaceFlag: boolean = true;
 @State renderMode: number = 1;
 ```
 
-
-```text
+```ArkTS
 Column() {
   // 请将$r('app.string.disable_animation')替换为实际资源文件，在本示例中该资源文件的value值为"禁用动效"
   Text($r('app.string.disable_animation'));
@@ -281,15 +321,17 @@ Column() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-9.gif) 从API version 20开始，支持通过设置SymbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.CROSS_FADE，可以指定SymbolGlyph的快速替换动画效果及其播放触发条件。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-4.png)
+
+ - 从API version 20开始，支持通过设置SymbolEffect属性为[ReplaceSymbolEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replacesymboleffect12)，设置[ReplaceEffectType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#replaceeffecttype20枚举说明)为ReplaceEffectType.CROSS_FADE，可以指定SymbolGlyph的快速替换动画效果及其播放触发条件。
+
+  
+```ArkTS
 @State triggerValueReplace: number = 0;
 replaceFlag: boolean = true;
 ```
 
-
-```text
+```ArkTS
 Column() {
   // 请将$r('app.string.quick_replacement_animation')替换为实际资源文件，在本示例中该资源文件的value值为"快速替换动效"
   Text($r('app.string.quick_replacement_animation'));
@@ -304,13 +346,18 @@ Column() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-10.gif)
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-5.png)
 
-## 设置阴影和渐变色
 
-从API version 20开始，支持通过[symbolShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symbolshadow20)接口实现了symbolGlyph组件显示阴影效果。
-```text
+
+
+
+##### 设置阴影和渐变色
+
+ - 从API version 20开始，支持通过[symbolShadow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#symbolshadow20)接口实现了symbolGlyph组件显示阴影效果。
+
+  
+```ArkTS
 @State isActive: boolean = true;
 
 options: ShadowOptions = {
@@ -321,8 +368,7 @@ options: ShadowOptions = {
 };
 ```
 
-
-```text
+```ArkTS
 Column() {
   // 请将$r('app.string.shadow_ability')替换为实际资源文件，在本示例中该资源文件的value值为"阴影能力"
   Text($r('app.string.shadow_ability'));
@@ -338,9 +384,12 @@ Column() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-11.gif) 从API version 20开始，支持通过[shaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#shaderstyle20)接口实现了symbolGlyph组件显示渐变色效果。
-```text
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-6.gif)
+
+ - 从API version 20开始，支持通过[shaderStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph#shaderstyle20)接口实现了symbolGlyph组件显示渐变色效果。
+
+  
+```ArkTS
 radialGradientOptions: RadialGradientOptions = {
   center: ['50%', '50%'],
   radius: '20%',
@@ -349,8 +398,7 @@ radialGradientOptions: RadialGradientOptions = {
 };
 ```
 
-
-```text
+```ArkTS
 Column() {
   // 请将$r('app.string.radial_gradient')替换为实际资源文件，在本示例中该资源文件的value值为"径向渐变"
   Text($r('app.string.radial_gradient'))
@@ -363,18 +411,21 @@ Column() {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-12.jpg)
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-7.gif)
 
-## 添加事件
+
+
+
+
+##### 添加事件
 
 SymbolGlyph组件可以添加通用事件，例如绑定[onClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#onclick)、[onTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch#ontouch)等事件来响应操作。
-```text
+
+```ArkTS
 @State wifiColor: ResourceColor = Color.Black;
 ```
 
-
-```text
+```ArkTS
 SymbolGlyph($r('sys.symbol.ohos_wifi'))
   .fontSize(96)
   .fontColor([this.wifiColor])
@@ -383,13 +434,17 @@ SymbolGlyph($r('sys.symbol.ohos_wifi'))
   })
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-13.gif)
 
-## 场景示例
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-8.gif)
+
+
+
+
+##### 场景示例
 
 该示例通过symbolEffect、fontSize、fontColor属性展示了播放列表的效果。
-```text
+
+```ArkTS
 // resourceGetString封装工具，从资源中获取字符串
 import resourceGetString from '../../common/resource';
 
@@ -611,5 +666,5 @@ struct SymbolMusicDemo {
 }
 ```
 
-![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)
-/file-20260514130623220-14.gif)
+
+![](assets/图标小符号%20(SymbolGlyph／SymbolSpan)/file-20260514130623220-9.gif)

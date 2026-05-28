@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：dlpAntiPeep； API声明：function setAntiPeepMaskLayer(windowId: number): Promise<void>; 差异内容：function setAntiPeepMaskLayer(windowId: number): Promise<void>; | api/@hms.security.dlpAntiPeep.d.ts |
+| 新增API | NA | 类名：dlpAntiPeep； API声明：function setAntiPeepMaskLayer(windowId: number): Promise&lt;void&gt;; 差异内容：function setAntiPeepMaskLayer(windowId: number): Promise&lt;void&gt;; | api/@hms.security.dlpAntiPeep.d.ts |

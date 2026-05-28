@@ -3,36 +3,38 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avmetadataextractor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 元数据获取类，用于从媒体资源中获取元数据、缩略图。在调用AVMetadataExtractor的方法前，需要先通过[media.createAVMetadataExtractor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavmetadataextractor11)构建一个AVMetadataExtractor实例。
 
 获取音频或视频元数据、视频缩略图的demo可参考：[使用AVMetadataExtractor提取音视频元数据信息(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avmetadataextractor)。
 
+> [!NOTE]
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 11开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { media } from '@kit.MediaKit';
 ```
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.Multimedia.Media.AVMetadataExtractor
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fdSrc11+ | [AVFileDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avfiledescriptor9) | 否 | 是 | 媒体文件描述，通过该属性设置数据源。在获取元数据之前，必须设置数据源属性，只能设置fdSrc和dataSrc的其中一个。          使用示例：          假设一个连续存储的媒体文件，地址偏移：0，字节长度：100。其文件描述为AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; }。          说明：          将资源句柄（fd）传递给AVMetadataExtractor实例之后，不允许通过该资源句柄做其他读写操作，包括但不限于将同一个资源句柄传递给多个AVPlayer/AVMetadataExtractor/AVImageGenerator/AVTranscoder。同一时间通过同一个资源句柄读写文件时存在竞争关系，将导致音视频元数据获取异常。 |
-| dataSrc11+ | [AVDataSrcDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avdatasrcdescriptor10) | 否 | 是 | 流式媒体资源描述，通过该属性设置数据源。在获取元数据之前，必须设置数据源属性，只能设置fdSrc和dataSrc的其中一个。          当应用从远端获取音视频媒体文件，在应用未下载完整音视频资源时，可以设置dataSrc提前获取该资源的元数据。 |
+| fdSrc11+ | AVFileDescriptor | 否 | 是 | 媒体文件描述，通过该属性设置数据源。在获取元数据之前，必须设置数据源属性，只能设置fdSrc和dataSrc的其中一个。 使用示例： 假设一个连续存储的媒体文件，地址偏移：0，字节长度：100。其文件描述为AVFileDescriptor { fd = 资源句柄; offset = 0; length = 100; }。 说明： 将资源句柄（fd）传递给AVMetadataExtractor实例之后，不允许通过该资源句柄做其他读写操作，包括但不限于将同一个资源句柄传递给多个AVPlayer/AVMetadataExtractor/AVImageGenerator/AVTranscoder。同一时间通过同一个资源句柄读写文件时存在竞争关系，将导致音视频元数据获取异常。 |
+| dataSrc11+ | AVDataSrcDescriptor | 否 | 是 | 流式媒体资源描述，通过该属性设置数据源。在获取元数据之前，必须设置数据源属性，只能设置fdSrc和dataSrc的其中一个。 当应用从远端获取音视频媒体文件，在应用未下载完整音视频资源时，可以设置dataSrc提前获取该资源的元数据。 |
 
 
-## setUrlSource20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setUrlSource20+
 
 setUrlSource(url: string, headers?: Record<string, string>): void
 
@@ -42,44 +44,38 @@ setUrlSource(url: string, headers?: Record<string, string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| url | string | 是 | 媒体资源URL。          1. 支持的视频格式包括：mp4、mpeg-ts、mkv。          2. 支持的音频格式包括：m4a、aac、mp3、ogg、wav、flac、amr。          支持路径示例：          1. http网络播放：http://xx。          2. https网络播放：https://xx。          说明： 不支持设置HLS/Dash、直播资源。 |
-| headers | Record&lt;string, string&gt; | 否 | 支持访问网络资源HttpHeader自定义。默认为空。 |
+| url | string | 是 | 媒体资源URL。 1. 支持的视频格式包括：mp4、mpeg-ts、mkv。 2. 支持的音频格式包括：m4a、aac、mp3、ogg、wav、flac、amr。 支持路径示例： 1. http网络播放：http://xx。 2. https网络播放：https://xx。 说明： 不支持设置HLS/Dash、直播资源。 |
+| headers | Record<string, string> | 否 | 支持访问网络资源HttpHeader自定义。默认为空。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 let avMetadataExtractor: media.AVMetadataExtractor | undefined = undefined;
 
-media.createAVMetadataExtractor(
-  async (error: BusinessError, extractor: media.AVMetadataExtractor) => {
-    if (extractor) {
-      avMetadataExtractor = extractor;
-      console.info('Succeeded in creating AVMetadataExtractor');
-      let url = 'http://xx';
-      let headers: Record<string, string> = {
-        'User-Agent': 'User-Agent-Value',
-      };
-      avMetadataExtractor.setUrlSource(url, headers);
-    } else {
-      console.error(
-        `Failed to create AVMetadataExtractor, error message:${error.message}`,
-      );
-    }
-  },
-);
+media.createAVMetadataExtractor(async (error: BusinessError, extractor: media.AVMetadataExtractor) => {
+  if (extractor) {
+    avMetadataExtractor = extractor;
+    console.info('Succeeded in creating AVMetadataExtractor');
+    let url = "http://xx";
+    let headers: Record<string, string> = {
+      "User-Agent": "User-Agent-Value"
+    };
+    avMetadataExtractor.setUrlSource(url, headers);
+  } else {
+    console.error(`Failed to create AVMetadataExtractor, error message:${error.message}`);
+  }
+});
 ```
 
 
-## fetchFrameByTime20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fetchFrameByTime20+
 
 fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>
 
@@ -89,26 +85,23 @@ fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapPa
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | timeUs | number | 是 | 需要获取的缩略图在视频中的时间点，单位为微秒（us）。 |
-| options | [AVImageQueryOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#avimagequeryoptions12) | 是 | 需要获取的缩略图时间点与视频帧的对应关系。 |
-| param | [PixelMapParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#pixelmapparams12) | 是 | 需要获取的缩略图的格式参数。 |
+| options | AVImageQueryOptions | 是 | 需要获取的缩略图时间点与视频帧的对应关系。 |
+| param | PixelMapParams | 是 | 需要获取的缩略图的格式参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)&gt; | Promise对象，返回视频缩略图对象。 |
+| Promise<image.PixelMap> | Promise对象，返回视频缩略图对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -120,8 +113,7 @@ fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapPa
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 import { media } from '@kit.MediaKit';
@@ -131,44 +123,37 @@ let pixelMap: image.PixelMap | undefined = undefined;
 
 // 初始化入参。
 let timeUs: number = 0;
-let queryOption: media.AVImageQueryOptions =
-  media.AVImageQueryOptions.AV_IMAGE_QUERY_PREVIOUS_SYNC;
+let queryOption: media.AVImageQueryOptions = media.AVImageQueryOptions.AV_IMAGE_QUERY_PREVIOUS_SYNC;
 let param: media.PixelMapParams = {
   width: 300,
-  height: 300,
+  height: 300
 };
 // 获取缩略图。
-media.createAVMetadataExtractor(
-  (error: BusinessError, extractor: media.AVMetadataExtractor) => {
-    if (extractor) {
-      avMetadataExtractor = extractor;
-      console.info('Succeeded in creating AVMetadataExtractor');
-      avMetadataExtractor
-        .fetchFrameByTime(timeUs, queryOption, param)
-        .then((pixelMap: image.PixelMap) => {
-          pixelMap = pixelMap;
-        })
-        .catch((error: BusinessError) => {
-          console.error(
-            `Failed to fetch FrameByTime, error message:${error.message}`,
-          );
-        });
-    } else {
-      console.error(
-        `Failed to create AVMetadataExtractor, error message:${error.message}`,
-      );
-    }
-  },
-);
+media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetadataExtractor) => {
+  if (extractor) {
+    avMetadataExtractor = extractor;
+    console.info('Succeeded in creating AVMetadataExtractor');
+    avMetadataExtractor.fetchFrameByTime(timeUs, queryOption, param).then((pixelMap: image.PixelMap) => {
+      pixelMap = pixelMap;
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to fetch FrameByTime, error message:${error.message}`);
+    });
+  } else {
+    console.error(`Failed to create AVMetadataExtractor, error message:${error.message}`);
+  }
+});
 ```
 
 
-## fetchFramesByTimes23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fetchFramesByTimes23+
 
 fetchFramesByTimes(timesUs: number[], queryOption: AVImageQueryOptions, param: PixelMapParams, callback: OnFrameFetched): void
 
 批量获取视频缩略图。使用Callback异步回调。
+
+> [!WARNING]
+> 先对给定的视频资源进行解码，随后依据提供的参数options和param，从timesUs数组中的每个时间点提取图像帧。 当每一次图像提取完成时，系统将调用回调函数并传递提取结果。请注意，回调函数的执行顺序会与timesUs数组中时间点的先后顺序不一致。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -177,19 +162,17 @@ fetchFramesByTimes(timesUs: number[], queryOption: AVImageQueryOptions, param: P
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| timesUs | number[] | 是 | 需要获取的所有缩略图在视频中的时间点集合。          时间单位为微秒（μs），数组长度取值范围为(0, 4096]。 |
-| queryOption | [AVImageQueryOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#avimagequeryoptions12) | 是 | 需要获取的缩略图时间点与视频帧的对应关系。 |
-| param | [PixelMapParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#pixelmapparams12) | 是 | 需要获取的缩略图的格式参数。 |
-| callback | [OnFrameFetched](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#onframefetched23) | 是 | 需要返回的缩略图信息及可能的异常类型。          异常类型请参考具体返回的错误码信息。 |
+| timesUs | number[] | 是 | 需要获取的所有缩略图在视频中的时间点集合。 时间单位为微秒（μs），数组长度取值范围为(0, 4096]。 |
+| queryOption | AVImageQueryOptions | 是 | 需要获取的缩略图时间点与视频帧的对应关系。 |
+| param | PixelMapParams | 是 | 需要获取的缩略图的格式参数。 |
+| callback | OnFrameFetched | 是 | 需要返回的缩略图信息及可能的异常类型。 异常类型请参考具体返回的错误码信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -203,8 +186,7 @@ fetchFramesByTimes(timesUs: number[], queryOption: AVImageQueryOptions, param: P
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 import { media } from '@kit.MediaKit';
@@ -212,39 +194,30 @@ import { media } from '@kit.MediaKit';
 async function fetchFramesByTimesDemo() {
   // 初始化入参。
   let timesUs: number[] = [0];
-  let queryOption: media.AVImageQueryOptions =
-    media.AVImageQueryOptions.AV_IMAGE_QUERY_PREVIOUS_SYNC;
+  let queryOption: media.AVImageQueryOptions = media.AVImageQueryOptions.AV_IMAGE_QUERY_PREVIOUS_SYNC;
   let param: media.PixelMapParams = {
     width: 300,
-    height: 300,
+    height: 300
   };
   // 获取缩略图。
   let avMetadataExtractor = await media.createAVMetadataExtractor();
   if (avMetadataExtractor !== null) {
     console.info('Succeeded in creating AVMetadataExtractor');
-    avMetadataExtractor.fetchFramesByTimes(
-      timesUs,
-      queryOption,
-      param,
-      async (frameInfo: media.FrameInfo, err: BusinessError) => {
-        if (err) {
-          console.info(
-            `fetchFramesByTimes callback failed, error = ${JSON.stringify(err)}`,
-          );
-          return;
-        }
-        if (frameInfo != undefined && frameInfo.image != undefined) {
-          let pixelMap = frameInfo.image;
-        }
-      },
-    );
+    avMetadataExtractor.fetchFramesByTimes(timesUs, queryOption, param, async (frameInfo: media.FrameInfo, err: BusinessError) => {
+      if (err) {
+        console.info(`fetchFramesByTimes callback failed, error = ${JSON.stringify(err)}`);
+        return;
+      }
+      if (frameInfo != undefined && frameInfo.image != undefined) {
+        let pixelMap = frameInfo.image;
+      }});
   }
 }
 ```
 
 
-## cancelAllFetchFrames23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### cancelAllFetchFrames23+
 
 cancelAllFetchFrames(): void
 
@@ -256,32 +229,27 @@ cancelAllFetchFrames(): void
 
 **示例：**
 
-
-```ts
+```text
 import { media } from '@kit.MediaKit';
 
 let avMetadataExtractor: media.AVMetadataExtractor | undefined = undefined;
 
-media.createAVMetadataExtractor(
-  (error: BusinessError, extractor: media.AVMetadataExtractor) => {
-    if (extractor) {
-      avMetadataExtractor = extractor;
-      console.info('Succeeded in creating AVMetadataExtractor');
-      avMetadataExtractor.cancelAllFetchFrames();
-    } else {
-      console.error(
-        `Failed to create AVMetadataExtractor, error message:${error.message}`,
-      );
-    }
-  },
-);
+media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetadataExtractor) => {
+  if (extractor) {
+    avMetadataExtractor = extractor;
+    console.info('Succeeded in creating AVMetadataExtractor');
+    avMetadataExtractor.cancelAllFetchFrames();
+  } else {
+    console.error(`Failed to create AVMetadataExtractor, error message:${error.message}`);
+  }
+});
 ```
 
 
-## fetchMetadata11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-fetchMetadata(callback: AsyncCallback<AVMetadata>): void
+##### fetchMetadata11+
+
+fetchMetadata(callback: AsyncCallback&lt;AVMetadata&gt;): void
 
 获取媒体元数据。使用callback异步回调。
 
@@ -289,16 +257,14 @@ fetchMetadata(callback: AsyncCallback<AVMetadata>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AVMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avmetadata11)&gt; | 是 | 回调函数。异步返回音视频元数据对象（AVMetadata）。 |
+| callback | AsyncCallback&lt;AVMetadata&gt; | 是 | 回调函数。异步返回音视频元数据对象（AVMetadata）。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -309,34 +275,28 @@ fetchMetadata(callback: AsyncCallback<AVMetadata>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 async function test() {
   // 创建AVMetadataExtractor对象。
-  let avMetadataExtractor: media.AVMetadataExtractor =
-    await media.createAVMetadataExtractor();
-  avMetadataExtractor.fetchMetadata(
-    (error: BusinessError, metadata: media.AVMetadata) => {
-      if (error) {
-        console.error(
-          `Failed to fetch Metadata, err = ${JSON.stringify(error)}`,
-        );
-        return;
-      }
-      console.info(`Succeeded in fetching Metadata, genre: ${metadata.genre}`);
-    },
-  );
+  let avMetadataExtractor: media.AVMetadataExtractor = await media.createAVMetadataExtractor();
+  avMetadataExtractor.fetchMetadata((error: BusinessError, metadata: media.AVMetadata) => {
+    if (error) {
+      console.error(`Failed to fetch Metadata, err = ${JSON.stringify(error)}`);
+      return;
+    }
+    console.info(`Succeeded in fetching Metadata, genre: ${metadata.genre}`);
+  });
 }
 ```
 
 
-## fetchMetadata11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-fetchMetadata(): Promise<AVMetadata>
+##### fetchMetadata11+
+
+fetchMetadata(): Promise&lt;AVMetadata&gt;
 
 获取媒体元数据。使用Promise异步回调。
 
@@ -344,16 +304,14 @@ fetchMetadata(): Promise<AVMetadata>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AVMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avmetadata11)&gt; | Promise对象。异步返回音视频元数据对象（AVMetadata）。 |
+| Promise&lt;AVMetadata&gt; | Promise对象。异步返回音视频元数据对象（AVMetadata）。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -364,29 +322,24 @@ fetchMetadata(): Promise<AVMetadata>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 async function test() {
   // 创建AVMetadataExtractor对象。
-  let avMetadataExtractor: media.AVMetadataExtractor =
-    await media.createAVMetadataExtractor();
-  avMetadataExtractor
-    .fetchMetadata()
-    .then((metadata: media.AVMetadata) => {
-      console.info(`Succeeded in fetching Metadata, genre: ${metadata.genre}`);
-    })
-    .catch((error: BusinessError) => {
-      console.error(`Failed to fetch Metadata, error message:${error.message}`);
-    });
+  let avMetadataExtractor: media.AVMetadataExtractor = await media.createAVMetadataExtractor();
+  avMetadataExtractor.fetchMetadata().then((metadata: media.AVMetadata) => {
+    console.info(`Succeeded in fetching Metadata, genre: ${metadata.genre}`);
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to fetch Metadata, error message:${error.message}`);
+  });
 }
 ```
 
 
-## fetchAlbumCover11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fetchAlbumCover11+
 
 fetchAlbumCover(callback: AsyncCallback<image.PixelMap>): void
 
@@ -396,16 +349,14 @@ fetchAlbumCover(callback: AsyncCallback<image.PixelMap>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)&gt; | 是 | 回调函数。异步返回专辑封面。 |
+| callback | AsyncCallback<image.PixelMap> | 是 | 回调函数。异步返回专辑封面。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -415,35 +366,29 @@ fetchAlbumCover(callback: AsyncCallback<image.PixelMap>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 import { media } from '@kit.MediaKit';
 
 async function test() {
   // 创建AVMetadataExtractor对象。
-  let avMetadataExtractor: media.AVMetadataExtractor =
-    await media.createAVMetadataExtractor();
+  let avMetadataExtractor: media.AVMetadataExtractor = await media.createAVMetadataExtractor();
   let pixel_map: image.PixelMap | undefined = undefined;
 
-  avMetadataExtractor.fetchAlbumCover(
-    (error: BusinessError, pixelMap: image.PixelMap) => {
-      if (error) {
-        console.error(
-          `Failed to fetch AlbumCover, error = ${JSON.stringify(error)}`,
-        );
-        return;
-      }
-      pixel_map = pixelMap;
-    },
-  );
+  avMetadataExtractor.fetchAlbumCover((error: BusinessError, pixelMap: image.PixelMap) => {
+    if (error) {
+      console.error(`Failed to fetch AlbumCover, error = ${JSON.stringify(error)}`);
+      return;
+    }
+    pixel_map = pixelMap;
+  });
 }
 ```
 
 
-## fetchAlbumCover11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### fetchAlbumCover11+
 
 fetchAlbumCover(): Promise<image.PixelMap>
 
@@ -453,16 +398,14 @@ fetchAlbumCover(): Promise<image.PixelMap>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)&gt; | Promise对象。异步返回专辑封面。 |
+| Promise<image.PixelMap> | Promise对象。异步返回专辑封面。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -472,43 +415,35 @@ fetchAlbumCover(): Promise<image.PixelMap>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 import { media } from '@kit.MediaKit';
 
 async function test() {
   // 创建AVMetadataExtractor对象。
-  let avMetadataExtractor: media.AVMetadataExtractor =
-    await media.createAVMetadataExtractor();
+  let avMetadataExtractor: media.AVMetadataExtractor = await media.createAVMetadataExtractor();
   let pixel_map: image.PixelMap | undefined = undefined;
 
-  avMetadataExtractor
-    .fetchAlbumCover()
-    .then((pixelMap: image.PixelMap) => {
-      pixel_map = pixelMap;
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to fetch AlbumCover, error message:${error.message}`,
-      );
-    });
+  avMetadataExtractor.fetchAlbumCover().then((pixelMap: image.PixelMap) => {
+    pixel_map = pixelMap;
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to fetch AlbumCover, error message:${error.message}`);
+  });
 }
 ```
 
 
-## release11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(callback: AsyncCallback<void>): void
+##### release11+
+
+release(callback: AsyncCallback&lt;void&gt;): void
 
 释放资源。使用callback异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVMetadataExtractor
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -519,7 +454,6 @@ release(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Returned by callback. |
@@ -527,15 +461,13 @@ release(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 async function test() {
   // 创建AVMetadataExtractor对象。
-  let avMetadataExtractor: media.AVMetadataExtractor =
-    await media.createAVMetadataExtractor();
+  let avMetadataExtractor: media.AVMetadataExtractor = await media.createAVMetadataExtractor();
   avMetadataExtractor.release((error: BusinessError) => {
     if (error) {
       console.error(`Failed to release, err = ${JSON.stringify(error)}`);
@@ -547,17 +479,16 @@ async function test() {
 ```
 
 
-## release11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(): Promise<void>
+##### release11+
+
+release(): Promise&lt;void&gt;
 
 释放资源。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVMetadataExtractor
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -568,7 +499,6 @@ release(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Returned by promise. |
@@ -576,22 +506,17 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { media } from '@kit.MediaKit';
 
 async function test() {
   // 创建AVMetadataExtractor对象。
-  let avMetadataExtractor: media.AVMetadataExtractor =
-    await media.createAVMetadataExtractor();
-  avMetadataExtractor
-    .release()
-    .then(() => {
-      console.info(`Succeeded in releasing.`);
-    })
-    .catch((error: BusinessError) => {
-      console.error(`Failed to release, error message:${error.message}`);
-    });
+  let avMetadataExtractor: media.AVMetadataExtractor = await media.createAVMetadataExtractor();
+  avMetadataExtractor.release().then(() => {
+    console.info(`Succeeded in releasing.`);
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to release, error message:${error.message}`);
+  });
 }
 ```

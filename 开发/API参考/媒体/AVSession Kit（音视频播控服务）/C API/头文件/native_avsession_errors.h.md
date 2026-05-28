@@ -3,60 +3,56 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avsession-errors-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供播控错误码的定义。
-
+ 
 **引用文件：** <multimedia/av_session/native_avsession_errors.h>
-
+ 
 **库：** libohavsession.so
-
+ 
 **系统能力：** SystemCapability.Multimedia.AVSession.Core
-
+ 
 **起始版本：** 13
-
+ 
 **相关模块：** [OHAVSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohavsession)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [AVSession_ErrCode](#avsession_errcode) | AVSession_ErrCode | 播控错误码。 |
-| [AVSessionCallback_Result](#avsessioncallback_result) | AVSessionCallback_Result | 定义音视频会话回调结果枚举。 |
-| [AVMetadata_Result](#avmetadata_result) | AVMetadata_Result | 播控元数据错误码。 |
-| [AVQueueItem_Result](#avqueueitem_result) | AVQueueItem_Result | 播放列表中单项的错误码。 |
+| AVSession_ErrCode | AVSession_ErrCode | 播控错误码。 |
+| AVSessionCallback_Result | AVSessionCallback_Result | 定义音视频会话回调结果枚举。 |
+| AVMetadata_Result | AVMetadata_Result | 播控元数据错误码。 |
+| AVQueueItem_Result | AVQueueItem_Result | 播放列表中单项的错误码。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### AVSession_ErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### AVSession_ErrCode
 
 ```text
 enum AVSession_ErrCode
 ```
-
+ 
 **描述**
-
+ 
 播控错误码。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | AV_SESSION_ERR_SUCCESS = 0 | 操作成功。 |
@@ -65,7 +61,7 @@ enum AVSession_ErrCode
 | AV_SESSION_ERR_CODE_SESSION_NOT_EXIST = 6600102 | 会话不存在。 |
 | AV_SESSION_ERR_CODE_COMMAND_INVALID = 6600105 | 无效会话命令。 |
 | AV_SESSION_ERR_CODE_SESSION_INACTIVE = 6600106 | 会话未激活。 |
-| AV_SESSION_ERR_CODE_MESSAGE_OVERLOAD = 6600107 | 命令&amp;消息过载。 |
+| AV_SESSION_ERR_CODE_MESSAGE_OVERLOAD = 6600107 | 命令&消息过载。 |
 | AV_SESSION_ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109 | 远端会话不存在。 起始版本： 23 |
 | AV_SESSION_ERR_CODE_CAST_CONTROL_UNSPECIFIED = 6611000 | 投播控制器出现未知错误。 起始版本： 23 |
 | AV_SESSION_ERR_CODE_CAST_CONTROL_REMOTE_ERROR = 6611001 | 远端设备出现未知错误。 起始版本： 23 |
@@ -112,66 +108,63 @@ enum AVSession_ErrCode
 | AV_SESSION_ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_UNSPECIFIED = 6615000 | 音频渲染器出现未明确具体类型的异常错误。 起始版本： 23 |
 | AV_SESSION_ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_INIT_FAILED = 6615001 | 音频渲染器初始化异常。 起始版本： 23 |
 | AV_SESSION_ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_WRITE_FAILED = 6615002 | 音频渲染器写数据异常。 起始版本： 23 |
+ 
+ 
+  
 
-
-### AVSessionCallback_Result
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### AVSessionCallback_Result
 
 ```text
 enum AVSessionCallback_Result
 ```
-
+ 
 **描述**
-
+ 
 定义音视频会话回调结果枚举。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | AVSESSION_CALLBACK_RESULT_SUCCESS = 0 | 会话的回调结果为执行成功。 |
 | AVSESSION_CALLBACK_RESULT_FAILURE = -1 | 会话的回调结果为执行失败。 |
+ 
+ 
+  
 
-
-### AVMetadata_Result
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### AVMetadata_Result
 
 ```text
 enum AVMetadata_Result
 ```
-
+ 
 **描述**
-
+ 
 播控元数据错误码。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | AVMETADATA_SUCCESS = 0 | 接口执行成功。 |
 | AVMETADATA_ERROR_INVALID_PARAM = 1 | 该函数是使用无效的输入参数执行的。 |
 | AVMETADATA_ERROR_NO_MEMORY = 2 | 内存分配失败。 |
+ 
+ 
+  
 
-
-### AVQueueItem_Result
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### AVQueueItem_Result
 
 ```text
 enum AVQueueItem_Result
 ```
-
+ 
 **描述**
-
+ 
 播放列表中单项的错误码。
-
+ 
 **起始版本：** 23
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | AVQUEUEITEM_SUCCESS = 0 | 接口执行成功。 |

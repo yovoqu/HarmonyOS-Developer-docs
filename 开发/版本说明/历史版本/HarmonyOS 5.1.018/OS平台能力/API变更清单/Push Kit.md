@@ -6,5 +6,5 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：pushService； API声明：function on(type: 'tokenUpdate', ability: Ability, callback: Callback<string>): void; 差异内容：function on(type: 'tokenUpdate', ability: Ability, callback: Callback<string>): void; | api/@hms.core.push.pushService.d.ts |
-| 新增API | NA | 类名：pushService； API声明：function off(type: 'tokenUpdate', callback?: Callback<string>): void; 差异内容：function off(type: 'tokenUpdate', callback?: Callback<string>): void; | api/@hms.core.push.pushService.d.ts |
+| 新增API | NA | 类名：pushService； API声明：function on(type: 'tokenUpdate', ability: Ability, callback: Callback&lt;string&gt;): void; 差异内容：function on(type: 'tokenUpdate', ability: Ability, callback: Callback&lt;string&gt;): void; | api/@hms.core.push.pushService.d.ts |
+| 新增API | NA | 类名：pushService； API声明：function off(type: 'tokenUpdate', callback?: Callback&lt;string&gt;): void; 差异内容：function off(type: 'tokenUpdate', callback?: Callback&lt;string&gt;): void; | api/@hms.core.push.pushService.d.ts |

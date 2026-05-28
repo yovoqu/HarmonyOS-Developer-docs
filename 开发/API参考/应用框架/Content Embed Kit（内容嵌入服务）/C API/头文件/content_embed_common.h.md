@@ -1,62 +1,65 @@
 # content_embed_common.h
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-content-embed-common-h
+**支持设备：** Phone | PC/2in1 | Tablet
 
-
-## 概述
+##### 概述
 
 提供内容嵌入模块的错误码定义和嵌入文档支持能力的类型枚举描述。
-
+ 
 **引用文件：** <ContentEmbedKit/content_embed/content_embed_common.h>
-
+ 
 **库：** libcontent_embed_ndk.so
-
+ 
 **系统能力：** SystemCapability.ContentEmbed.ObjectEditor
-
+ 
 **起始版本：** 24
-
+ 
 **相关模块：** [ContentEmbed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-contentembed)
+ 
+  
 
+##### 汇总
 
-## 汇总
+  
 
-
-### 枚举
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ContentEmbed_ErrorCode](#contentembed_errorcode) | ContentEmbed_ErrorCode | 提供内容嵌入模块的错误码定义。 |
-| [ContentEmbed_CapabilityCode](#contentembed_capabilitycode) | ContentEmbed_CapabilityCode | 嵌入文档对象支持的功能枚举，并支持通过位掩码组合多个能力值。 |
+| ContentEmbed_ErrorCode | ContentEmbed_ErrorCode | 提供内容嵌入模块的错误码定义。 |
+| ContentEmbed_CapabilityCode | ContentEmbed_CapabilityCode | 嵌入文档对象支持的功能枚举，并支持通过位掩码组合多个能力值。 |
+ 
+ 
+  
 
-
-### 宏定义
-
-
+##### 宏定义
+ 
 | 名称 | 描述 |
 | --- | --- |
 | MAX_OEID_LENGTH (1 * 40) | 表示被嵌入文档的标识符OEID的最大字符串长度。 起始版本： 24 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
+  
 
-
-### ContentEmbed_ErrorCode
-
+##### ContentEmbed_ErrorCode
 
 ```text
 enum ContentEmbed_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 提供内容嵌入模块的错误码定义。
-
+ 
 **起始版本：** 24
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | CE_ERR_OK = 0 | 操作成功。 起始版本： 24 |
@@ -79,23 +82,23 @@ enum ContentEmbed_ErrorCode
 | CE_ERR_FILE_NOT_GRANT = 35300014 | 当前文件未授权。 起始版本： 24 |
 | CE_ERR_DISK_FULL = 35300015 | 当前磁盘空间不足。 起始版本： 24 |
 | CE_ERR_EXTENSION_NOT_SUPPORT = 35300016 | 当前OE Extension不支持该能力。 起始版本： 24 |
+ 
+ 
+  
 
-
-### ContentEmbed_CapabilityCode
-
+##### ContentEmbed_CapabilityCode
 
 ```text
 enum ContentEmbed_CapabilityCode
 ```
-
+ 
 **描述**
-
+ 
 嵌入文档对象支持的功能枚举，并支持通过位掩码组合多个能力值。
-
+ 
 **起始版本：** 24
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
-| CE_CAPABILITY_SUPPORT_SNAPSHOT = 1 &lt;&lt; 0 | 表示支持获取OE文档的快照图像。 起始版本： 24 |
-| CE_CAPABILITY_SUPPORT_DO_EDIT = 1 &lt;&lt; 1 | 表示支持对OE文档进行编辑操作。 起始版本： 24 |
+| CE_CAPABILITY_SUPPORT_SNAPSHOT = 1 << 0 | 表示支持获取OE文档的快照图像。 起始版本： 24 |
+| CE_CAPABILITY_SUPPORT_DO_EDIT = 1 << 1 | 表示支持对OE文档进行编辑操作。 起始版本： 24 |

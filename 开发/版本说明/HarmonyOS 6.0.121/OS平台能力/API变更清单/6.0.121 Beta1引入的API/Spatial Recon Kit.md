@@ -17,7 +17,7 @@
 | 新增API | NA | 类名：GSPlugin； API声明：static readonly COMIC_EFFECT_ID: string; 差异内容：static readonly COMIC_EFFECT_ID: string; | api/@hms.graphics.spatialRender.d.ts |
 | 新增API | NA | 类名：GSPlugin； API声明：static readonly OBRA_DINN_EFFECT_ID: string; 差异内容：static readonly OBRA_DINN_EFFECT_ID: string; | api/@hms.graphics.spatialRender.d.ts |
 | 新增API | NA | 类名：GSPlugin； API声明：static readonly COLOR_EDITING_EFFECT_ID: string; 差异内容：static readonly COLOR_EDITING_EFFECT_ID: string; | api/@hms.graphics.spatialRender.d.ts |
-| 新增API | NA | 类名：GSPlugin； API声明：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise<GSNode>; 差异内容：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise<GSNode>; | api/@hms.graphics.spatialRender.d.ts |
+| 新增API | NA | 类名：GSPlugin； API声明：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise&lt;GSNode&gt;; 差异内容：static loadGSNode(scene: Scene, params: GSImportSettings, parent?: Node): Promise&lt;GSNode&gt;; | api/@hms.graphics.spatialRender.d.ts |
 | 新增API | NA | 类名：spatialRender； API声明：export interface RetroEffect 差异内容：export interface RetroEffect | api/@hms.graphics.spatialRender.d.ts |
 | 新增API | NA | 类名：RetroEffect； API声明：colorNum: number; 差异内容：colorNum: number; | api/@hms.graphics.spatialRender.d.ts |
 | 新增API | NA | 类名：RetroEffect； API声明：pixelSize: number; 差异内容：pixelSize: number; | api/@hms.graphics.spatialRender.d.ts |

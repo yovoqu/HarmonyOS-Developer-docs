@@ -1,63 +1,61 @@
 # Types
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-t
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
+  
 
-## MemberType
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### MemberType
 
 type MemberType = number | string | boolean
-
+ 
 PhotoAsset的成员类型。
-
+ 
 成员类型为下表类型的并集。
-
+ 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number | 表示值类型为数字，可取任意值。 |
 | string | 表示值类型为字符，可取任意值。 |
 | boolean | 表示值类型为布尔类型。 |
+ 
+ 
+  
 
-
-## PhotoAssetParams21+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### PhotoAssetParams21+
 
 type PhotoAssetParams = Record<string, MemberType>[]
-
+ 
 文件属性名称及其值的Record类型数组。
-
+ 
 **系统能力**: SystemCapability.FileManagement.PhotoAccessHelper.Core
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Record&lt;string, [MemberType](#membertype)&gt;[] | 文件属性名称及其值的Record类型数组。 |
+| Record<string, MemberType>[] | 文件属性名称及其值的Record类型数组。 |
+ 
+ 
+  
 
-
-## OperationValueType22+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### OperationValueType22+
 
 type OperationValueType = number | string | boolean
-
+ 
 表示不同谓词所需要匹配的值。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
-
+ 
 **系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number | 表示字段类型为数字，可取任意值。 |

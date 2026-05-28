@@ -5,17 +5,20 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-albumpicker
 
 开发者可以在布局中嵌入AlbumPickerComponent组件，通过此组件，应用无需申请权限，即可访问公共目录中的相册列表。
+ 
+需配合[使用PhotoPicker组件访问图片/视频](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)一起使用，用户通过AlbumPickerComponent组件选择对应相册并通知PhotoPickerComponent组件刷新成对应相册的图片和视频。
+ 
+界面效果如图所示。
+ 
 
- 需配合[使用PhotoPicker组件访问图片/视频](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-guidelines-photoviewpicker)一起使用，用户通过AlbumPickerComponent组件选择对应相册并通知PhotoPickerComponent组件刷新成对应相册的图片和视频。
+![](assets/使用AlbumPicker组件访问相册列表/file-20260514131558571-0.png)
 
- 界面效果如图所示。
+  
 
- ![](assets/使用AlbumPicker组件访问相册列表/file-20260514131558571-0.png)
+##### 开发步骤
+1. 导入相册组件模块文件。
 
-
-## 开发步骤
-
-导入相册组件模块文件。
+  
 ```text
 import {
   AlbumPickerComponent,
@@ -27,14 +30,20 @@ import {
 } from '@kit.MediaLibraryKit';
 ```
 
-创建相册组件配置选项实例（AlbumPickerOptions）。  通过AlbumPickerOptions，开发者可配置相册页主题颜色，详见[AlbumPickerOptions API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-albumpickercomponent#albumpickeroptions)。
+2. 创建相册组件配置选项实例（AlbumPickerOptions）。
+
+  通过AlbumPickerOptions，开发者可配置相册页主题颜色，详见[AlbumPickerOptions API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-albumpickercomponent#albumpickeroptions)。
+
+  
 ```text
 // 用于相册组件初始化时设置参数信息。
 albumOptions: AlbumPickerOptions = new AlbumPickerOptions();
 pickerController: PickerController = new PickerController();
 ```
 
-初始化组件配置选项实例（AlbumPickerOptions）。
+3. 初始化组件配置选项实例（AlbumPickerOptions）。
+
+  
 ```text
 /**
  * 设置相册页颜色模式， 默认AUTO。
@@ -43,7 +52,9 @@ pickerController: PickerController = new PickerController();
 this.albumOptions.themeColorMode = PickerColorMode.AUTO;
 ```
 
-创建[AlbumPickerComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-albumpickercomponent#albumpickercomponent)组件。
+4. 创建[AlbumPickerComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-albumpickercomponent#albumpickercomponent)组件。
+
+  
 ```text
 AlbumPickerComponent({
   // 设置组件选择选项实例。
@@ -57,7 +68,9 @@ AlbumPickerComponent({
 })
 ```
 
-与PhotoPicker组件联动，将相册URI给到应用，根据相册URI更新PhotoPicker组件宫格页内容。
+5. 与PhotoPicker组件联动，将相册URI给到应用，根据相册URI更新PhotoPicker组件宫格页内容。
+
+  
 ```text
 private onAlbumClick(albumInfo: AlbumInfo): boolean {
     if (albumInfo?.uri) {
@@ -68,9 +81,10 @@ private onAlbumClick(albumInfo: AlbumInfo): boolean {
 }
 ```
 
+ 
+  
 
-## 完整示例
-
+##### 完整示例
 
 ```text
 import {

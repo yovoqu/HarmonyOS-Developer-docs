@@ -5,33 +5,34 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-floating-promises
 
 要求正确处理Promise表达式。
+ 
+floating-promise是指在创建Promise时，没有使用任何代码来处理它可能引发的错误，这是一种不正确的使用方式。
+ 
 
- floating-promise是指在创建Promise时，没有使用任何代码来处理它可能引发的错误，这是一种不正确的使用方式。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/no-floating-promises": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/no-floating-promises选项](https://typescript-eslint.nodejs.cn/rules/no-floating-promises/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 export async function bar() {
-  const promise = new Promise(resolve => {
+  const promise = new Promise<string>(resolve => {
     resolve('value');
     return 'finish';
   });
@@ -48,14 +49,14 @@ export async function bar() {
   await Promise.all(['1', '2', '3'].map(x => x + '1'));
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 export async function bar() {
-  const promise = new Promise(resolve => {
+  const promise = new Promise<string>(resolve => {
     resolve('value');
     return 'finish';
   });
@@ -68,13 +69,13 @@ export async function bar() {
   ['1', '2', '3'].map(async x => x + '1');
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

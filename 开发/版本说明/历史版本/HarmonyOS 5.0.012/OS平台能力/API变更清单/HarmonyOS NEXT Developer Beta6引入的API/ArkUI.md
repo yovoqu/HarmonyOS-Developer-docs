@@ -16,17 +16,17 @@
 | 新增API | NA | 类名：TabContentInfo； API声明：index: number; 差异内容：index: number; | api/@ohos.arkui.observer.d.ts |
 | 新增API | NA | 类名：TabContentInfo； API声明：id: string; 差异内容：id: string; | api/@ohos.arkui.observer.d.ts |
 | 新增API | NA | 类名：TabContentInfo； API声明：uniqueId: number; 差异内容：uniqueId: number; | api/@ohos.arkui.observer.d.ts |
-| 新增API | NA | 类名：uiObserver； API声明：export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void; 差异内容：export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback<TabContentInfo>): void; | api/@ohos.arkui.observer.d.ts |
-| 新增API | NA | 类名：uiObserver； API声明：export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void; 差异内容：export function on(type: 'tabContentUpdate', callback: Callback<TabContentInfo>): void; | api/@ohos.arkui.observer.d.ts |
-| 新增API | NA | 类名：uiObserver； API声明：export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void; 差异内容：export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void; | api/@ohos.arkui.observer.d.ts |
-| 新增API | NA | 类名：uiObserver； API声明：export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void; 差异内容：export function off(type: 'tabContentUpdate', callback?: Callback<TabContentInfo>): void; | api/@ohos.arkui.observer.d.ts |
+| 新增API | NA | 类名：uiObserver； API声明：export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback&lt;TabContentInfo&gt;): void; 差异内容：export function on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback&lt;TabContentInfo&gt;): void; | api/@ohos.arkui.observer.d.ts |
+| 新增API | NA | 类名：uiObserver； API声明：export function on(type: 'tabContentUpdate', callback: Callback&lt;TabContentInfo&gt;): void; 差异内容：export function on(type: 'tabContentUpdate', callback: Callback&lt;TabContentInfo&gt;): void; | api/@ohos.arkui.observer.d.ts |
+| 新增API | NA | 类名：uiObserver； API声明：export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback&lt;TabContentInfo&gt;): void; 差异内容：export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback&lt;TabContentInfo&gt;): void; | api/@ohos.arkui.observer.d.ts |
+| 新增API | NA | 类名：uiObserver； API声明：export function off(type: 'tabContentUpdate', callback?: Callback&lt;TabContentInfo&gt;): void; 差异内容：export function off(type: 'tabContentUpdate', callback?: Callback&lt;TabContentInfo&gt;): void; | api/@ohos.arkui.observer.d.ts |
 | 新增API | NA | 类名：global； API声明： export declare class UIUtils 差异内容： export declare class UIUtils | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：UIUtils； API声明：static getTarget<T extends object>(source: T): T; 差异内容：static getTarget<T extends object>(source: T): T; | api/@ohos.arkui.StateManagement.d.ts |
 | 新增API | NA | 类名：UIObserver； API声明：on(type: 'tabContentUpdate', options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void; 差异内容：on(type: 'tabContentUpdate', options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIObserver； API声明：on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void; 差异内容：on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIObserver； API声明：off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void; 差异内容：off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIObserver； API声明：off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void; 差异内容：off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：BaseEvent； API声明：getModifierKeyState?(keys: Array<string>): boolean; 差异内容：getModifierKeyState?(keys: Array<string>): boolean; | component/common.d.ts |
+| 新增API | NA | 类名：BaseEvent； API声明：getModifierKeyState?(keys: Array&lt;string&gt;): boolean; 差异内容：getModifierKeyState?(keys: Array&lt;string&gt;): boolean; | component/common.d.ts |
 | 新增API | NA | 类名：BaseEvent； API声明：deviceId?: number; 差异内容：deviceId?: number; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare interface AccessibilityHoverEvent 差异内容： declare interface AccessibilityHoverEvent | component/common.d.ts |
 | 新增API | NA | 类名：AccessibilityHoverEvent； API声明：type: AccessibilityHoverType; 差异内容：type: AccessibilityHoverType; | component/common.d.ts |
@@ -36,8 +36,8 @@
 | 新增API | NA | 类名：AccessibilityHoverEvent； API声明：displayY: number; 差异内容：displayY: number; | component/common.d.ts |
 | 新增API | NA | 类名：AccessibilityHoverEvent； API声明：windowX: number; 差异内容：windowX: number; | component/common.d.ts |
 | 新增API | NA | 类名：AccessibilityHoverEvent； API声明：windowY: number; 差异内容：windowY: number; | component/common.d.ts |
-| 新增API | NA | 类名：DragEvent； API声明：getModifierKeyState?(keys: Array<string>): boolean; 差异内容：getModifierKeyState?(keys: Array<string>): boolean; | component/common.d.ts |
-| 新增API | NA | 类名：KeyEvent； API声明：getModifierKeyState?(keys: Array<string>): boolean; 差异内容：getModifierKeyState?(keys: Array<string>): boolean; | component/common.d.ts |
+| 新增API | NA | 类名：DragEvent； API声明：getModifierKeyState?(keys: Array&lt;string&gt;): boolean; 差异内容：getModifierKeyState?(keys: Array&lt;string&gt;): boolean; | component/common.d.ts |
+| 新增API | NA | 类名：KeyEvent； API声明：getModifierKeyState?(keys: Array&lt;string&gt;): boolean; 差异内容：getModifierKeyState?(keys: Array&lt;string&gt;): boolean; | component/common.d.ts |
 | 新增API | NA | 类名：CommonMethod； API声明：onAccessibilityHover(callback: AccessibilityCallback): T; 差异内容：onAccessibilityHover(callback: AccessibilityCallback): T; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void; 差异内容：declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum AccessibilityHoverType 差异内容： declare enum AccessibilityHoverType | component/enums.d.ts |
@@ -48,7 +48,7 @@
 | 新增API | NA | 类名：global； API声明： declare enum GridItemAlignment 差异内容： declare enum GridItemAlignment | component/grid.d.ts |
 | 新增API | NA | 类名：GridItemAlignment； API声明：DEFAULT = 0 差异内容：DEFAULT = 0 | component/grid.d.ts |
 | 新增API | NA | 类名：GridItemAlignment； API声明：STRETCH = 1 差异内容：STRETCH = 1 | component/grid.d.ts |
-| 新增API | NA | 类名：GridAttribute； API声明：alignItems(alignment: Optional<GridItemAlignment>): GridAttribute; 差异内容：alignItems(alignment: Optional<GridItemAlignment>): GridAttribute; | component/grid.d.ts |
+| 新增API | NA | 类名：GridAttribute； API声明：alignItems(alignment: Optional&lt;GridItemAlignment&gt;): GridAttribute; 差异内容：alignItems(alignment: Optional&lt;GridItemAlignment&gt;): GridAttribute; | component/grid.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice; 差异内容：declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice; | component/image.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum ImageContent 差异内容： declare enum ImageContent | component/image.d.ts |
 | 新增API | NA | 类名：ImageContent； API声明：EMPTY = 0 差异内容：EMPTY = 0 | component/image.d.ts |

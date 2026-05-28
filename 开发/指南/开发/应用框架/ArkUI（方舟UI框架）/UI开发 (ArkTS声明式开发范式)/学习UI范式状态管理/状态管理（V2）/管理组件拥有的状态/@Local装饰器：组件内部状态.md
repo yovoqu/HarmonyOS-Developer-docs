@@ -1,6 +1,6 @@
 # @Local装饰器：组件内部状态
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local
 
@@ -8,19 +8,29 @@
 
 在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)。常见问题请参考[组件内状态变量常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component)。
 
-
 > [!NOTE]
 > 从API version 12开始，在@ComponentV2装饰的自定义组件中支持使用@Local装饰器。 从API version 12开始，该装饰器支持在元服务中使用。 从API version 23开始，该装饰器支持在ArkTS卡片中使用。
 
 
-## 概述
 
-@Local表示组件内部的状态，使得自定义组件内部的变量具有观察变化的能力： 被@Local装饰的变量无法从外部初始化，因此必须在组件内部进行初始化。 当被@Local装饰的变量变化时，会刷新使用该变量的组件。 @Local支持观测number、boolean、string、Object、class等基本类型以及[Array](#装饰array类型变量)、[Set](#装饰set类型变量)、[Map](#装饰map类型变量)、[Date](#装饰date类型变量)等内置类型。 @Local的观测能力仅限于被装饰的变量本身。当装饰简单类型时，能够观测到对变量的赋值；当装饰对象类型时，仅能观测到对对象整体的赋值；当装饰数组类型时，能观测到数组整体以及数组元素项的变化；当装饰Array、Set、Map、Date等内置类型时，可以观测到通过API调用带来的变化。详见[观察变化](#观察变化)。 @Local支持null、undefined以及[联合类型](#联合类型)。
+##### 概述
 
-## 状态管理V1版本@State装饰器的局限性
+@Local表示组件内部的状态，使得自定义组件内部的变量具有观察变化的能力：
+
+ - 被@Local装饰的变量无法从外部初始化，因此必须在组件内部进行初始化。
+ - 当被@Local装饰的变量变化时，会刷新使用该变量的组件。
+ - @Local支持观测number、boolean、string、Object、class等基本类型以及[Array](#装饰array类型变量)、[Set](#装饰set类型变量)、[Map](#装饰map类型变量)、[Date](#装饰date类型变量)等内置类型。
+ - @Local的观测能力仅限于被装饰的变量本身。当装饰简单类型时，能够观测到对变量的赋值；当装饰对象类型时，仅能观测到对对象整体的赋值；当装饰数组类型时，能观测到数组整体以及数组元素项的变化；当装饰Array、Set、Map、Date等内置类型时，可以观测到通过API调用带来的变化。详见[观察变化](#观察变化)。
+ - @Local支持null、undefined以及[联合类型](#联合类型)。
+
+
+
+
+##### 状态管理V1版本@State装饰器的局限性
 
 状态管理V1使用[@State装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)定义组件中的基础状态变量，该状态变量常用来作为组件内部状态，在组件内使用。但由于@State装饰器又能够从外部初始化，因此无法确保@State装饰变量的初始值一定为组件内部定义的值。
-```text
+
+```ArkTS
 class ComponentInfo {
   public name: string;
   public count: number;
@@ -57,8 +67,9 @@ struct Index {
 
 上述代码中，可以通过在初始化Child自定义组件时传入新的值来覆盖作为内部状态变量使用的componentInfo。但Child自定义组件并不能感知到componentInfo从外部进行了初始化，这不利于自定义组件内部状态的管理。因此推出@Local装饰器表示组件的内部状态。
 
-## 装饰器说明
 
+
+##### 装饰器说明
 
 | @Local变量装饰器 | 说明 |
 | --- | --- |
@@ -67,19 +78,26 @@ struct Index {
 | 装饰变量的初始值 | 必须本地初始化，不允许外部传入初始化。 |
 
 
-## 变量传递
 
+
+##### 变量传递
 
 | 传递规则 | 说明 |
 | --- | --- |
 | 从父组件初始化 | @Local装饰的变量仅允许本地初始化，无法从外部传入初始化。 |
-| 初始化子组件 | @Local装饰的变量可以初始化子组件中[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)装饰的变量。 |
+| 初始化子组件 | @Local装饰的变量可以初始化子组件中@Param装饰的变量。 |
 
 
-## 观察变化
 
-使用@Local装饰的变量具有观察变化的能力。当装饰的变量发生变化时，会触发该变量绑定的UI组件刷新。 当装饰的变量类型为boolean、string、number时，可以观察到对变量赋值的变化。
-```text
+
+##### 观察变化
+
+使用@Local装饰的变量具有观察变化的能力。当装饰的变量发生变化时，会触发该变量绑定的UI组件刷新。
+
+ - 当装饰的变量类型为boolean、string、number时，可以观察到对变量赋值的变化。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -105,8 +123,10 @@ struct Index {
 }
 ```
 
-当装饰的变量类型为类对象时，仅可以观察到对类对象整体赋值的变化，无法直接观察到对类成员属性赋值的变化，对类成员属性的观察依赖[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)和[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器，也可以使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)将该对象变为可观察对象。注意，API version 19之前，@Local无法和[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰的类实例对象混用。API version 19及以后，支持部分状态管理V1V2混用能力，允许@Local和@Observed同时使用，详情见[状态管理V1和V2混用指导（API version 19及之后）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage)。
-```text
+ - 当装饰的变量类型为类对象时，仅可以观察到对类对象整体赋值的变化，无法直接观察到对类成员属性赋值的变化，对类成员属性的观察依赖[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)和[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器，也可以使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)将该对象变为可观察对象。注意，API version 19之前，@Local无法和[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰的类实例对象混用。API version 19及以后，支持部分状态管理V1V2混用能力，允许@Local和@Observed同时使用，详情见[状态管理V1和V2混用指导（API version 19及之后）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage)。
+
+  
+```ArkTS
 class RawObject {
   public name: string;
 
@@ -152,8 +172,10 @@ struct Index {
 }
 ```
 
-当装饰简单类型数组时，可以观察到数组整体或数组项的变化。
-```text
+ - 当装饰简单类型数组时，可以观察到数组整体或数组项的变化。
+
+  
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -184,8 +206,10 @@ struct Index {
 }
 ```
 
-当装饰的变量是嵌套类或对象数组时，@Local无法观察深层对象属性的变化。对深层对象属性的观测依赖@ObservedV2与@Trace装饰器。
-```text
+ - 当装饰的变量是嵌套类或对象数组时，@Local无法观察深层对象属性的变化。对深层对象属性的观测依赖@ObservedV2与@Trace装饰器。
+
+  
+```ArkTS
 @ObservedV2
 class Region {
   @Trace public x: number;
@@ -248,18 +272,30 @@ struct Index {
 }
 ```
 
-当装饰内置类型时，可以观察到变量整体赋值及API调用带来的变化。
+ - 当装饰内置类型时，可以观察到变量整体赋值及API调用带来的变化。
+
 | 类型 | 可观察变化的API |
+
 | --- | --- |
+
 | Array | push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort |
+
 | Date | setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds |
+
 | Map | set, clear, delete |
+
 | Set | add, clear, delete |
 
 
-## 限制条件
 
-@Local装饰器存在以下使用限制： @Local装饰器只能在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中使用。
+
+##### 限制条件
+
+@Local装饰器存在以下使用限制：
+
+ - @Local装饰器只能在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中使用。
+
+  
 ```text
 @ComponentV2
 struct MyComponent {
@@ -275,7 +311,9 @@ struct TestComponent {
 }
 ```
 
-@Local装饰的变量表示组件内部状态，不允许从外部传入初始化。
+ - @Local装饰的变量表示组件内部状态，不允许从外部传入初始化。
+
+  
 ```text
 @ComponentV2
 struct ChildComponent {
@@ -292,9 +330,13 @@ struct MyComponent {
 ```
 
 
-## @Local与@State对比
+
+
+
+##### @Local与@State对比
 
 @Local与@State的用法、功能对比如下：
+
 | 用法 | @State | @Local |
 | --- | --- | --- |
 | 参数 | 无。 | 无。 |
@@ -303,13 +345,17 @@ struct MyComponent {
 | 数据传递 | 可以作为数据源和子组件中状态变量同步。 | 可以作为数据源和子组件中状态变量同步。 |
 
 
-## 使用场景
 
 
-## 观测对象整体变化
+##### 使用场景
+
+
+
+##### 观测对象整体变化
 
 被@ObservedV2与@Trace装饰的类对象实例，具有深度观测对象属性的能力。但当对对象整体赋值时，UI却无法刷新。使用@Local装饰对象，可以达到观测对象本身变化的效果。
-```text
+
+```ArkTS
 @ObservedV2
 class Info {
   @Trace public name: string;
@@ -348,12 +394,17 @@ struct Index {
 }
 ```
 
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-0.gif)
 
-## 装饰Array类型变量
+![](assets/@Local装饰器：组件内部状态/file-20260514130522652-1.gif)
+
+
+
+
+##### 装饰Array类型变量
 
 当装饰的对象是Array时，可以观察到Array整体的赋值，同时可以通过调用Array的接口push, pop, shift, unshift, splice, copyWithin, fill, reverse, sort更新Array中的数据。
-```text
+
+```ArkTS
 class Fruit {
   public name: string;
 
@@ -411,12 +462,17 @@ struct Index {
 }
 ```
 
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-1.gif)
 
-## 装饰Date类型变量
+![](assets/@Local装饰器：组件内部状态/file-20260514130522652-2.gif)
+
+
+
+
+##### 装饰Date类型变量
 
 当装饰的对象是Date时，可以观察到Date整体的赋值，同时可通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds更新Date的属性。
-```text
+
+```ArkTS
 @Entry
 @ComponentV2
 struct DatePickerExample {
@@ -466,16 +522,21 @@ struct DatePickerExample {
 }
 ```
 
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-2.gif)
 
-## 装饰Map类型变量
+![](assets/@Local装饰器：组件内部状态/file-20260514130522652-3.gif)
+
+
+
+
+##### 装饰Map类型变量
 
 当装饰的对象是Map时，可以观察到对Map整体的赋值，同时可以通过调用Map的接口set, clear, delete更新Map中的数据。
-```text
+
+```ArkTS
 @Entry
 @ComponentV2
 struct MapSample {
-  @Local fruits: Map = new Map([['apple', 1], ['banana', 2]]); // 使用@Local装饰Map类型变量
+  @Local fruits: Map<string, number> = new Map([['apple', 1], ['banana', 2]]); // 使用@Local装饰Map类型变量
 
   build() {
     Row() {
@@ -528,16 +589,21 @@ struct MapSample {
 }
 ```
 
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-3.gif)
 
-## 装饰Set类型变量
+![](assets/@Local装饰器：组件内部状态/file-20260514130522652-4.gif)
+
+
+
+
+##### 装饰Set类型变量
 
 当装饰的对象是Set时，可以观察到对Set整体的赋值，同时可以通过调用Set的接口add, clear, delete更新Set中的数据。
-```text
+
+```ArkTS
 @Entry
 @ComponentV2
 struct SetSample {
-  @Local fruits: Set = new Set(['apple', 'banana']); // 使用@Local装饰Set类型变量
+  @Local fruits: Set<string> = new Set(['apple', 'banana']); // 使用@Local装饰Set类型变量
 
   build() {
     Row() {
@@ -583,12 +649,17 @@ struct SetSample {
 }
 ```
 
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-4.gif)
 
-## 联合类型
+![](assets/@Local装饰器：组件内部状态/file-20260514130522652-5.gif)
+
+
+
+
+##### 联合类型
 
 @Local支持null、undefined以及联合类型。在下面的示例中，count类型为number | undefined，点击改变count的类型，UI会随之刷新。
-```text
+
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -620,15 +691,21 @@ struct Index {
 }
 ```
 
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-5.gif)
 
-## 常见问题
+![](assets/@Local装饰器：组件内部状态/file-20260514130522652-6.gif)
 
 
-## 在状态管理V2中使用animateTo动画效果异常
+
+
+##### 常见问题
+
+
+
+##### 在状态管理V2中使用animateTo动画效果异常
 
 在下面的场景中，[animateTo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#animateto)暂不支持直接在状态管理V2中使用。
-```text
+
+```ArkTS
 @Entry
 @ComponentV2
 struct Index {
@@ -665,9 +742,14 @@ struct Index {
 ```
 
 上述代码中，开发者预期的动画效果是：绿色矩形从长宽100变为200，字符串从Hello World变为Hello ArkUI。但由于当前animateTo与V2的刷新机制不兼容，执行动画前的额外修改未生效，实际显示的动画效果是：绿色矩形从长宽50变为200，字符串从Hello变为Hello ArkUI。
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-6.gif)
+
+
+![](assets/@Local装饰器：组件内部状态/file-20260514130522652-7.gif)
+
+
 从API version 22开始，可以使用[applySync接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)实现预期的显示效果。
-```text
+
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 
 @Entry
@@ -708,4 +790,6 @@ struct Index {
 ```
 
 原理为使用applySync接口同步刷新闭包函数内的状态变量变化，再执行原来的动画达成预期的效果。
-![](assets/@Local装饰器：组件内部状态/file-20260514130522652-7.gif)
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/9YtAKp7ESXaQLPygErEyRQ/zh-cn_image_0000002581433674.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014816Z&HW-CC-Expire=86400&HW-CC-Sign=71DB7ADF5F8BD155F622C88FF1CDA034F6B9D2C2CAB8271B966E77B2C51113D6)

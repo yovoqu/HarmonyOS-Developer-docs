@@ -8,7 +8,7 @@
 | --- | --- | --- | --- |
 | API废弃版本变更 | 类名：global； API声明：declare class WebCookie 差异内容：NA | 类名：global； API声明：declare class WebCookie 差异内容：23 | component/web.d.ts |
 | 函数变更 | 类名：WebAttribute； API声明：enableNativeEmbedMode(mode: boolean): WebAttribute; 差异内容：mode: boolean | 类名：WebAttribute； API声明：enableNativeEmbedMode(enabled: boolean): WebAttribute; 差异内容：enabled: boolean | component/web.d.ts |
-| 函数变更 | 类名：WebviewController； API声明：registerJavaScriptProxy(object: object, name: string, methodList: Array<string>, asyncMethodList?: Array<string>, permission?: string): void; 差异内容：object: object, name: string, methodList: Array<string>, asyncMethodList?: Array<string>, permission?: string | 类名：WebviewController； API声明：registerJavaScriptProxy(jsObject: object, name: string, methodList: Array<string>, asyncMethodList?: Array<string>, permission?: string): void; 差异内容：jsObject: object, name: string, methodList: Array<string>, asyncMethodList?: Array<string>, permission?: string | api/@ohos.web.webview.d.ts |
+| 函数变更 | 类名：WebviewController； API声明：registerJavaScriptProxy(object: object, name: string, methodList: Array&lt;string&gt;, asyncMethodList?: Array&lt;string&gt;, permission?: string): void; 差异内容：object: object, name: string, methodList: Array&lt;string&gt;, asyncMethodList?: Array&lt;string&gt;, permission?: string | 类名：WebviewController； API声明：registerJavaScriptProxy(jsObject: object, name: string, methodList: Array&lt;string&gt;, asyncMethodList?: Array&lt;string&gt;, permission?: string): void; 差异内容：jsObject: object, name: string, methodList: Array&lt;string&gt;, asyncMethodList?: Array&lt;string&gt;, permission?: string | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：global； API声明：type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void; 差异内容：type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void; | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void; 差异内容：type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChangeInfo) => void; | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：declare enum ConsoleMessageSource 差异内容：declare enum ConsoleMessageSource | component/web.d.ts |
@@ -27,15 +27,15 @@
 | 新增API | NA | 类名：ConsoleMessageSource； API声明：RECOMMENDATION = 12 差异内容：RECOMMENDATION = 12 | component/web.d.ts |
 | 新增API | NA | 类名：FileSelectorParam； API声明：getSuggestedName(): string; 差异内容：getSuggestedName(): string; | component/web.d.ts |
 | 新增API | NA | 类名：FileSelectorParam； API声明：getDefaultPath(): string; 差异内容：getDefaultPath(): string; | component/web.d.ts |
-| 新增API | NA | 类名：FileSelectorParam； API声明：getDescriptions(): Array<string>; 差异内容：getDescriptions(): Array<string>; | component/web.d.ts |
+| 新增API | NA | 类名：FileSelectorParam； API声明：getDescriptions(): Array&lt;string&gt;; 差异内容：getDescriptions(): Array&lt;string&gt;; | component/web.d.ts |
 | 新增API | NA | 类名：FileSelectorParam； API声明：isAcceptAllOptionExcluded(): boolean; 差异内容：isAcceptAllOptionExcluded(): boolean; | component/web.d.ts |
-| 新增API | NA | 类名：FileSelectorParam； API声明：getAcceptableFileTypes(): Array<Array<AcceptableFileType>>; 差异内容：getAcceptableFileTypes(): Array<Array<AcceptableFileType>>; | component/web.d.ts |
+| 新增API | NA | 类名：FileSelectorParam； API声明：getAcceptableFileTypes(): Array<Array&lt;AcceptableFileType&gt;>; 差异内容：getAcceptableFileTypes(): Array<Array&lt;AcceptableFileType&gt;>; | component/web.d.ts |
 | 新增API | NA | 类名：WebContextMenuResult； API声明：requestPasswordAutoFill(): void; 差异内容：requestPasswordAutoFill(): void; | component/web.d.ts |
 | 新增API | NA | 类名：ConsoleMessage； API声明：getSource(): ConsoleMessageSource; 差异内容：getSource(): ConsoleMessageSource; | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface UrlRegexRule 差异内容：declare interface UrlRegexRule | component/web.d.ts |
 | 新增API | NA | 类名：UrlRegexRule； API声明：secondLevelDomain: string; 差异内容：secondLevelDomain: string; | component/web.d.ts |
 | 新增API | NA | 类名：UrlRegexRule； API声明：rule: string; 差异内容：rule: string; | component/web.d.ts |
-| 新增API | NA | 类名：ScriptItem； API声明：urlRegexRules?: Array<UrlRegexRule>; 差异内容：urlRegexRules?: Array<UrlRegexRule>; | component/web.d.ts |
+| 新增API | NA | 类名：ScriptItem； API声明：urlRegexRules?: Array&lt;UrlRegexRule&gt;; 差异内容：urlRegexRules?: Array&lt;UrlRegexRule&gt;; | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：declare enum NavigationPolicy 差异内容：declare enum NavigationPolicy | component/web.d.ts |
 | 新增API | NA | 类名：NavigationPolicy； API声明：NEW_POPUP = 0 差异内容：NEW_POPUP = 0 | component/web.d.ts |
 | 新增API | NA | 类名：NavigationPolicy； API声明：NEW_WINDOW = 1 差异内容：NEW_WINDOW = 1 | component/web.d.ts |
@@ -59,7 +59,7 @@
 | 新增API | NA | 类名：FirstScreenPaint； API声明：navigationStartTime: number; 差异内容：navigationStartTime: number; | component/web.d.ts |
 | 新增API | NA | 类名：FirstScreenPaint； API声明：firstScreenPaintTime: number; 差异内容：firstScreenPaintTime: number; | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void; 差异内容：type OnFirstScreenPaintCallback = (firstScreenPaint: FirstScreenPaint) => void; | component/web.d.ts |
-| 新增API | NA | 类名：WebAttribute； API声明：onWindowNewExt(callback: Callback<OnWindowNewExtEvent>): WebAttribute; 差异内容：onWindowNewExt(callback: Callback<OnWindowNewExtEvent>): WebAttribute; | component/web.d.ts |
+| 新增API | NA | 类名：WebAttribute； API声明：onWindowNewExt(callback: Callback&lt;OnWindowNewExtEvent&gt;): WebAttribute; 差异内容：onWindowNewExt(callback: Callback&lt;OnWindowNewExtEvent&gt;): WebAttribute; | component/web.d.ts |
 | 新增API | NA | 类名：WebAttribute； API声明：onFirstScreenPaint(callback: OnFirstScreenPaintCallback): WebAttribute; 差异内容：onFirstScreenPaint(callback: OnFirstScreenPaintCallback): WebAttribute; | component/web.d.ts |
 | 新增API | NA | 类名：WebAttribute； API声明：enableAutoFill(value: boolean): WebAttribute; 差异内容：enableAutoFill(value: boolean): WebAttribute; | component/web.d.ts |
 | 新增API | NA | 类名：WebAttribute； API声明：onTextSelectionChange(callback: TextSelectionChangeCallback): WebAttribute; 差异内容：onTextSelectionChange(callback: TextSelectionChangeCallback): WebAttribute; | component/web.d.ts |
@@ -68,7 +68,7 @@
 | 新增API | NA | 类名：WebAttribute； API声明：onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback): WebAttribute; 差异内容：onMicrophoneCaptureStateChange(callback: OnMicrophoneCaptureStateChangeCallback): WebAttribute; | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface AcceptableFileType 差异内容：declare interface AcceptableFileType | component/web.d.ts |
 | 新增API | NA | 类名：AcceptableFileType； API声明：mimeType: string; 差异内容：mimeType: string; | component/web.d.ts |
-| 新增API | NA | 类名：AcceptableFileType； API声明：acceptableType: Array<string>; 差异内容：acceptableType: Array<string>; | component/web.d.ts |
+| 新增API | NA | 类名：AcceptableFileType； API声明：acceptableType: Array&lt;string&gt;; 差异内容：acceptableType: Array&lt;string&gt;; | component/web.d.ts |
 | 新增API | NA | 类名：global； API声明：declare interface CameraCaptureStateChangeInfo 差异内容：declare interface CameraCaptureStateChangeInfo | component/web.d.ts |
 | 新增API | NA | 类名：CameraCaptureStateChangeInfo； API声明：originalState: CameraCaptureState; 差异内容：originalState: CameraCaptureState; | component/web.d.ts |
 | 新增API | NA | 类名：CameraCaptureStateChangeInfo； API声明：newState: CameraCaptureState; 差异内容：newState: CameraCaptureState; | component/web.d.ts |
@@ -84,7 +84,7 @@
 | 新增API | NA | 类名：MicrophoneCaptureState； API声明：PAUSED = 1 差异内容：PAUSED = 1 | component/web.d.ts |
 | 新增API | NA | 类名：MicrophoneCaptureState； API声明：ACTIVE = 2 差异内容：ACTIVE = 2 | component/web.d.ts |
 | 新增API | NA | 类名：ArkWebEngineVersion； API声明：ARKWEB_EVERGREEN = 99999 差异内容：ARKWEB_EVERGREEN = 99999 | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：WebCookieManager； API声明：static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>; 差异内容：static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：WebCookieManager； API声明：static fetchAllCookies(incognito: boolean): Promise<Array&lt;WebHttpCookie&gt;>; 差异内容：static fetchAllCookies(incognito: boolean): Promise<Array&lt;WebHttpCookie&gt;>; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebBlanklessErrorCode； API声明：ERR_DURATION_OUT_OF_RANGE = -6 差异内容：ERR_DURATION_OUT_OF_RANGE = -6 | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebBlanklessErrorCode； API声明：ERR_EXPIRATION_TIME_OUT_OF_RANGE = -7 差异内容：ERR_EXPIRATION_TIME_OUT_OF_RANGE = -7 | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：webview； API声明：enum BlanklessFrameInterpolationState 差异内容：enum BlanklessFrameInterpolationState | api/@ohos.web.webview.d.ts |
@@ -100,7 +100,7 @@
 | 新增API | NA | 类名：BlanklessLoadingParam； API声明：enable: boolean; 差异内容：enable: boolean; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：BlanklessLoadingParam； API声明：duration?: number; 差异内容：duration?: number; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：BlanklessLoadingParam； API声明：expirationTime?: number; 差异内容：expirationTime?: number; | api/@ohos.web.webview.d.ts |
-| 新增API | NA | 类名：BlanklessLoadingParam； API声明：callback?: Callback<BlanklessFrameInterpolationInfo>; 差异内容：callback?: Callback<BlanklessFrameInterpolationInfo>; | api/@ohos.web.webview.d.ts |
+| 新增API | NA | 类名：BlanklessLoadingParam； API声明：callback?: Callback&lt;BlanklessFrameInterpolationInfo&gt;; 差异内容：callback?: Callback&lt;BlanklessFrameInterpolationInfo&gt;; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebviewController； API声明：static isActiveWebEngineEvergreen(): boolean; 差异内容：static isActiveWebEngineEvergreen(): boolean; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebviewController； API声明：setBlanklessLoadingWithParams(key: string, param: BlanklessLoadingParam): WebBlanklessErrorCode; 差异内容：setBlanklessLoadingWithParams(key: string, param: BlanklessLoadingParam): WebBlanklessErrorCode; | api/@ohos.web.webview.d.ts |
 | 新增API | NA | 类名：WebviewController； API声明：static setScrollbarMode(scrollbarMode: ScrollbarMode): void; 差异内容：static setScrollbarMode(scrollbarMode: ScrollbarMode): void; | api/@ohos.web.webview.d.ts |

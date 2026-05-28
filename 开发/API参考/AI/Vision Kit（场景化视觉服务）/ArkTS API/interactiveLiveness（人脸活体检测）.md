@@ -3,7 +3,7 @@
 更新时间：2026-04-29 07:35:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness
-**支持设备：** Phone / Tablet
+**支持设备：** Phone | Tablet
 
 人脸活体检测是指在一些身份验证场景中，确定对象真实生理特征的方法。
 
@@ -12,17 +12,15 @@
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { interactiveLiveness } from '@kit.VisionKit';
 ```
 
 
-## DetectionMode
-**支持设备：** Phone / Tablet
+
+##### DetectionMode
 
 检测模式的枚举值。
 
@@ -32,15 +30,15 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SILENT_MODE | SILENT_MODE | 表示静默活体检测模式，暂未支持。 |
 | INTERACTIVE_MODE | INTERACTIVE_MODE | 表示动作活体检测模式。 |
 
 
-## ActionsNumber
-**支持设备：** Phone / Tablet
+
+
+##### ActionsNumber
 
 人脸活体检测的动作检测个数的枚举值。
 
@@ -50,7 +48,6 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ONE_ACTION | 1 | 随机选择一个动作，暂未支持。 |
@@ -59,8 +56,9 @@ import { interactiveLiveness } from '@kit.VisionKit';
 | FOUR_ACTION | 4 | 随机选择四个动作。 |
 
 
-## RouteRedirectionMode
-**支持设备：** Phone / Tablet
+
+
+##### RouteRedirectionMode
 
 人脸活体检测完成的路由跳转模式的枚举值。
 
@@ -70,15 +68,15 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | BACK_MODE | back | 表示人脸活体检测完成后返回到上一页。 |
 | REPLACE_MODE | replace | 表示人脸活体检测完跳转到成功或失败页面。 |
 
 
-## InteractiveLivenessConfig
-**支持设备：** Phone / Tablet
+
+
+##### InteractiveLivenessConfig
 
 人脸活体检测的配置项。
 
@@ -88,42 +86,40 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isSilentMode | [DetectionMode](#detectionmode) | 否 | 否 | 表示的是人脸活体检测模式，默认动作活体检测模式。          INTERACTIVE_MODE表示动作活体检测模式。 |
-| actionsNum | [ActionsNumber](#actionsnumber) | 否 | 是 | 表示动作活体检测的动作数量，数量范围3或4个，默认3个动作。随机生成，规则如下：          当actionsNum=3时，[眨眼，注视]组合中的动作元素不会同时存在并且相邻的动作元素不会相同。          当actionsNum=4时，眨眼动作元素有且仅有1次，注视动作元素最多出现1次，[眨眼，注视]组合中的动作元素不会相邻，相邻的动作元素不会相同。          该参数只有当isSilentMode是INTERACTIVE_MODE的时候有效。 |
-| successfulRouteUrl | string | 否 | 是 | 表示人脸活体检测成功后跳转的页面路径。如果自定义界面，routeMode值为replace时生效。          如果不填，系统有默认的检测成功页面。 |
-| failedRouteUrl | string | 否 | 是 | 表示人脸活体检测失败后跳转的页面路径。如果自定义界面，routeMode值为replace时生效。          如果不填，系统有默认的检测失败页面。 |
-| routeMode | [RouteRedirectionMode](#routeredirectionmode) | 否 | 是 | 人脸活体检测完成后跳转模式，默认REPLACE_MODE模式。 |
-| challenge | string | 否 | 是 | 挑战值。仅用于安全摄像头场景（对应[initializeAttestContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-taas-api#initializeattestcontext)方法中的“userData”字段）的活体检测。          使用安全摄像头场景的前提需要[开通Device Security服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-deviceverify-activateservice)。          长度范围是[16,128]之间（challenge传空或者undefined表示不使用安全摄像头）。          安全摄像头目前支持的设备详情请查看[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-taas-securecamera#约束与限制)。 |
-| speechSwitch | boolean | 否 | 是 | 语音播报的开关。          - true表示开启语音播报。          - false表示关闭语音播报。          默认开启语音播报。 |
-| isPrivacyMode | boolean | 否 | 是 | 是否设置隐私模式。          - true：设置隐私模式。          - false：不设置隐私模式。          默认值为false。          说明：          当设置隐私模式时，需要申请ohos.permission.PRIVACY_WINDOW权限。 |
+| isSilentMode | DetectionMode | 否 | 否 | 表示的是人脸活体检测模式，默认动作活体检测模式。 INTERACTIVE_MODE表示动作活体检测模式。 |
+| actionsNum | ActionsNumber | 否 | 是 | 表示动作活体检测的动作数量，数量范围3或4个，默认3个动作。随机生成，规则如下： 当actionsNum=3时，[眨眼，注视]组合中的动作元素不会同时存在并且相邻的动作元素不会相同。 当actionsNum=4时，眨眼动作元素有且仅有1次，注视动作元素最多出现1次，[眨眼，注视]组合中的动作元素不会相邻，相邻的动作元素不会相同。 该参数只有当isSilentMode是INTERACTIVE_MODE的时候有效。 |
+| successfulRouteUrl | string | 否 | 是 | 表示人脸活体检测成功后跳转的页面路径。如果自定义界面，routeMode值为replace时生效。 如果不填，系统有默认的检测成功页面。 |
+| failedRouteUrl | string | 否 | 是 | 表示人脸活体检测失败后跳转的页面路径。如果自定义界面，routeMode值为replace时生效。 如果不填，系统有默认的检测失败页面。 |
+| routeMode | RouteRedirectionMode | 否 | 是 | 人脸活体检测完成后跳转模式，默认REPLACE_MODE模式。 |
+| challenge | string | 否 | 是 | 挑战值。仅用于安全摄像头场景（对应initializeAttestContext方法中的“userData”字段）的活体检测。 使用安全摄像头场景的前提需要开通Device Security服务。 长度范围是[16,128]之间（challenge传空或者undefined表示不使用安全摄像头）。 安全摄像头目前支持的设备详情请查看约束与限制。 |
+| speechSwitch | boolean | 否 | 是 | 语音播报的开关。 - true表示开启语音播报。 - false表示关闭语音播报。 默认开启语音播报。 |
+| isPrivacyMode | boolean | 否 | 是 | 是否设置隐私模式。 - true：设置隐私模式。 - false：不设置隐私模式。 默认值为false。 说明： 当设置隐私模式时，需要申请ohos.permission.PRIVACY_WINDOW权限。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { interactiveLiveness } from '@kit.VisionKit';
 
-let isSilentMode = 'INTERACTIVE_MODE' as interactiveLiveness.DetectionMode;
-let routeMode = 'replace' as interactiveLiveness.RouteRedirectionMode;
+let isSilentMode = "INTERACTIVE_MODE" as interactiveLiveness.DetectionMode;
+let routeMode = "replace" as interactiveLiveness.RouteRedirectionMode;
 let actionsNum = 3 as interactiveLiveness.ActionsNumber;
 let routerOptions: interactiveLiveness.InteractiveLivenessConfig = {
   isSilentMode: isSilentMode,
   routeMode: routeMode,
   actionsNum: actionsNum,
-  failedRouteUrl: 'pages/FailPage',
-  successfulRouteUrl: 'pages/SuccessPage',
+  failedRouteUrl: "pages/FailPage",
+  successfulRouteUrl: "pages/SuccessPage"
 };
 ```
 
 
-## startLivenessDetection
-**支持设备：** Phone / Tablet
 
-startLivenessDetection(config: InteractiveLivenessConfig): Promise<boolean>
+##### startLivenessDetection
+
+startLivenessDetection(config: InteractiveLivenessConfig): Promise&lt;boolean&gt;
 
 跳转到人脸活体检测页面的入口。使用Promise异步回调。
 
@@ -137,14 +133,12 @@ startLivenessDetection(config: InteractiveLivenessConfig): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [InteractiveLivenessConfig](#interactivelivenessconfig) | 是 | 跳转到人脸活体检测页面的配置项 |
+| config | InteractiveLivenessConfig | 是 | 跳转到人脸活体检测页面的配置项 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -155,7 +149,6 @@ startLivenessDetection(config: InteractiveLivenessConfig): Promise<boolean>
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -164,17 +157,16 @@ startLivenessDetection(config: InteractiveLivenessConfig): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { interactiveLiveness } from '@kit.VisionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-let isSilentMode = 'INTERACTIVE_MODE' as interactiveLiveness.DetectionMode;
+let isSilentMode = "INTERACTIVE_MODE" as interactiveLiveness.DetectionMode;
 let actionsNum = 3 as interactiveLiveness.ActionsNumber;
 let routerOptions: interactiveLiveness.InteractiveLivenessConfig = {
   actionsNum: actionsNum,
-  isSilentMode: isSilentMode,
+  isSilentMode: isSilentMode
 };
 
 interactiveLiveness.startLivenessDetection(routerOptions).then((isSuccess) => {
@@ -187,10 +179,10 @@ interactiveLiveness.startLivenessDetection(routerOptions).then((isSuccess) => {
 ```
 
 
-## startLivenessDetection
-**支持设备：** Phone / Tablet
 
-startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallback<InteractiveLivenessResult | undefined>): Promise<boolean>
+##### startLivenessDetection
+
+startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallback<InteractiveLivenessResult | undefined>): Promise&lt;boolean&gt;
 
 跳转到人脸活体检测页面的入口。使用Promise异步回调获取跳转结果，使用callback回调获取检测结果。
 
@@ -204,15 +196,13 @@ startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallbac
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [InteractiveLivenessConfig](#interactivelivenessconfig) | 是 | 跳转到人脸活体检测页面的配置项。 |
-| callback | [AsyncCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#asynccallback)&lt;[InteractiveLivenessResult](#interactivelivenessresult) \| undefined&gt; | 是 | 回调函数。当人脸活体检测成功，err为undefined，data为获取到的InteractiveLivenessResult；否则为错误对象。当前只适用于RouteRedirectionMode.BACK_MODE跳转模式。 |
+| config | InteractiveLivenessConfig | 是 | 跳转到人脸活体检测页面的配置项。 |
+| callback | AsyncCallback<InteractiveLivenessResult \| undefined> | 是 | 回调函数。当人脸活体检测成功，err为undefined，data为获取到的InteractiveLivenessResult；否则为错误对象。当前只适用于RouteRedirectionMode.BACK_MODE跳转模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -222,7 +212,6 @@ startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallbac
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -238,48 +227,32 @@ startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallbac
 
 **示例：**
 
-
-```ts
+```text
 import { interactiveLiveness } from '@kit.VisionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-let isSilentMode = 'INTERACTIVE_MODE' as interactiveLiveness.DetectionMode;
+let isSilentMode = "INTERACTIVE_MODE" as interactiveLiveness.DetectionMode;
 let actionsNum = 3 as interactiveLiveness.ActionsNumber;
 let routerOptions: interactiveLiveness.InteractiveLivenessConfig = {
   actionsNum: actionsNum,
   isSilentMode: isSilentMode,
-  routeMode: 'back' as interactiveLiveness.RouteRedirectionMode,
+  routeMode: "back" as interactiveLiveness.RouteRedirectionMode
 };
 
-void interactiveLiveness.startLivenessDetection(
-  routerOptions,
-  (
-    err: BusinessError,
-    result: interactiveLiveness.InteractiveLivenessResult | undefined,
-  ) => {
-    // 当路由跳转错误时，获取结果失败，result返回undefined
-    if (err.code !== 0 && !result) {
-      // 在发生错误如路由跳转失败/参数错误/权限被拒绝时，会抛出错误码，详见ArkTS API错误码
-      hilog.error(
-        0x0001,
-        `LivenessCollectionIndex`,
-        `Failed to detect. Code: ${err.code}, message: ${err.message}`,
-      );
-      return;
-    }
-    hilog.info(
-      0x0001,
-      'LivenessCollectionIndex',
-      `Succeeded in detecting result: ${result}`,
-    );
-  },
-);
+void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessError,
+  result: interactiveLiveness.InteractiveLivenessResult | undefined) => { // 当路由跳转错误时，获取结果失败，result返回undefined
+  if (err.code !== 0 && !result) { // 在发生错误如路由跳转失败/参数错误/权限被拒绝时，会抛出错误码，详见ArkTS API错误码
+    hilog.error(0x0001, `LivenessCollectionIndex`, `Failed to detect. Code: ${err.code}, message: ${err.message}`);
+    return;
+  }
+  hilog.info(0x0001, 'LivenessCollectionIndex', `Succeeded in detecting result: ${result}`);
+});
 ```
 
 
-## LivenessType
-**支持设备：** Phone / Tablet
+
+##### LivenessType
 
 活体检测模式的枚举值。
 
@@ -289,7 +262,6 @@ void interactiveLiveness.startLivenessDetection(
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | INTERACTIVE_LIVENESS | 0 | 表示当前检测的结果是动作活体检测。 |
@@ -297,8 +269,9 @@ void interactiveLiveness.startLivenessDetection(
 | NOT_LIVENESS | 2 | 表示当前检测的结果是非活体，跳转的是失败页面，不会返回错误信息。如果配置了失败页面或者back路由跳转，不建议有重新检测的场景。 |
 
 
-## InteractiveLivenessResult
-**支持设备：** Phone / Tablet
+
+
+##### InteractiveLivenessResult
 
 返回人脸活体检测结果的相关参数。
 
@@ -308,19 +281,19 @@ void interactiveLiveness.startLivenessDetection(
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| livenessType | [LivenessType](#livenesstype) | 否 | 否 | 活体检测模式。 |
-| mPixelMap | [image.PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 否 | 是 | 检测成功后返回最具有活体特征的图片。 |
+| livenessType | LivenessType | 否 | 否 | 活体检测模式。 |
+| mPixelMap | image.PixelMap | 否 | 是 | 检测成功后返回最具有活体特征的图片。 |
 | securedImageBuffer | ArrayBuffer | 否 | 是 | 安全摄像头场景返回的安全流。 |
 | certificate | Array&lt;string&gt; | 否 | 是 | 安全摄像头场景返回的证书链。 |
 
 
-## getInteractiveLivenessResult
-**支持设备：** Phone / Tablet
 
-getInteractiveLivenessResult(): Promise<InteractiveLivenessResult>
+
+##### getInteractiveLivenessResult
+
+getInteractiveLivenessResult(): Promise&lt;InteractiveLivenessResult&gt;
 
 获取人脸活体检测的结果。使用Promise异步回调。
 
@@ -332,16 +305,14 @@ getInteractiveLivenessResult(): Promise<InteractiveLivenessResult>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[InteractiveLivenessResult](#interactivelivenessresult)&gt; | Promise对象，返回人脸活体检测的结果。 |
+| Promise&lt;InteractiveLivenessResult&gt; | Promise对象，返回人脸活体检测的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -354,21 +325,19 @@ getInteractiveLivenessResult(): Promise<InteractiveLivenessResult>
 
 **示例：**
 
-
-```ts
+```text
 import { interactiveLiveness } from '@kit.VisionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-interactiveLiveness.getInteractiveLivenessResult().then((data) => {
+interactiveLiveness.getInteractiveLivenessResult().then(data => {
   hilog.info(0x0001, `LivenessCollectionIndex`, `Succeeded in detecting.`);
 });
 ```
 
 
-## 动作说明
-**支持设备：** Phone / Tablet
 
+##### 动作说明
 
 | 动作 | 描述 |
 | --- | --- |

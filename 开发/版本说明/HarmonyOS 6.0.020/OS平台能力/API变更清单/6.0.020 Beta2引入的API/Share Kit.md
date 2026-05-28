@@ -9,6 +9,6 @@
 | 新增API | NA | 类名：harmonyShare； API声明：interface RecvCapability 差异内容：interface RecvCapability | api/@hms.collaboration.harmonyShare.d.ts |
 | 新增API | NA | 类名：RecvCapability； API声明：utd: string; 差异内容：utd: string; | api/@hms.collaboration.harmonyShare.d.ts |
 | 新增API | NA | 类名：RecvCapability； API声明：maxSupportedCount: number; 差异内容：maxSupportedCount: number; | api/@hms.collaboration.harmonyShare.d.ts |
-| 新增API | NA | 类名：harmonyShare； API声明：function on(event: 'gesturesShare', callback: Callback<SharableTarget>): void; 差异内容：function on(event: 'gesturesShare', callback: Callback<SharableTarget>): void; | api/@hms.collaboration.harmonyShare.d.ts |
-| 新增API | NA | 类名：harmonyShare； API声明：function off(event: 'gesturesShare', callback?: Callback<SharableTarget>): void; 差异内容：function off(event: 'gesturesShare', callback?: Callback<SharableTarget>): void; | api/@hms.collaboration.harmonyShare.d.ts |
+| 新增API | NA | 类名：harmonyShare； API声明：function on(event: 'gesturesShare', callback: Callback&lt;SharableTarget&gt;): void; 差异内容：function on(event: 'gesturesShare', callback: Callback&lt;SharableTarget&gt;): void; | api/@hms.collaboration.harmonyShare.d.ts |
+| 新增API | NA | 类名：harmonyShare； API声明：function off(event: 'gesturesShare', callback?: Callback&lt;SharableTarget&gt;): void; 差异内容：function off(event: 'gesturesShare', callback?: Callback&lt;SharableTarget&gt;): void; | api/@hms.collaboration.harmonyShare.d.ts |
 | 接口新增必选属性 | 类名：global； API声明： 差异内容：NA | 类名：RecvCapabilityRegistry； API声明：capabilities: RecvCapability[]; 差异内容：capabilities: RecvCapability[]; | api/@hms.collaboration.harmonyShare.d.ts |

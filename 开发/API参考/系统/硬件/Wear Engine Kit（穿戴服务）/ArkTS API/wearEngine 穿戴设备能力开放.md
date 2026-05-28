@@ -1,29 +1,37 @@
 # wearEngine (穿戴设备能力开放)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
-
-支持设备：Phone | Tablet | Wearable
+**支持设备：** Phone | Tablet | Wearable
 
 本模块提供手机与穿戴设备侧的交互能力。应用可调用模块内接口实现如下功能：
-- 获取与当前设备已连接配对的设备列表、与对端设备互通消息互送文件等。
-- 查询穿戴设备状态、向穿戴设备发送模板化通知、接收穿戴设备传感器的相关数据等。
 
-> [!NOTE] 说明
-> 针对系统能力SystemCapability.Health.WearEngine，请先使用canIUse()接口判断当前设备是否支持此syscap及对应接口。
+ - 获取与当前设备已连接配对的设备列表、与对端设备互通消息互送文件等。
+ - 查询穿戴设备状态、向穿戴设备发送模板化通知、接收穿戴设备传感器的相关数据等。
+
+
+> [!NOTE]
+> 针对系统能力SystemCapability.Health.WearEngine，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。
+
 
 **起始版本**：5.0.0(12)
 
-#### 导入模块
 
-```ts
+##### 导入模块
+
+```text
 import { wearEngine } from '@kit.WearEngine';
 ```
 
-#### wearEngine.getAuthClient
+
+
+##### wearEngine.getAuthClient
+
 getAuthClient(context: common.Context): AuthClient
+
 用于获取权限管理的客户端。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -36,43 +44,56 @@ getAuthClient(context: common.Context): AuthClient
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#context) | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#uiabilitycontext-1)）。 |
+| context | common.Context | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：UIAbilityContext）。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [AuthClient](#authclient) | 权限管理客户端，存储了权限模块的相关方法。 |
+| AuthClient | 权限管理客户端，存储了权限模块的相关方法。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 
 let authClient: wearEngine.AuthClient = wearEngine.getAuthClient(this.getUIContext().getHostContext());
 console.info(`Succeeded in getting auth client`);
 ```
 
-#### AuthClient
+
+
+##### AuthClient
+
 权限管理客户端类，由[wearEngine.getAuthClient](#wearenginegetauthclient)返回得到。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### requestAuthorization
+
+
+##### requestAuthorization
+
 requestAuthorization(request: AuthorizationRequest): Promise&lt;AuthorizationResponse&gt;
+
 向手机用户申请需要授权的权限，返回申请的权限中用户已授权的权限，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中无法使用该能力。
@@ -85,31 +106,35 @@ requestAuthorization(request: AuthorizationRequest): Promise&lt;AuthorizationRes
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| request | [AuthorizationRequest](#authorizationrequest) | 是 | 权限请求类。 |
+| request | AuthorizationRequest | 是 | 权限请求类。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[AuthorizationResponse](#authorizationresponse)> | Promise对象，返回权限响应类。 |
+| Promise&lt;AuthorizationResponse&gt; | Promise对象，返回权限响应类。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -126,9 +151,14 @@ authClient.requestAuthorization(request).then(result => {
 })
 ```
 
-#### getAuthorization
+
+
+##### getAuthorization
+
 getAuthorization(): Promise&lt;AuthorizationResponse&gt;
+
 获取用户已授权的权限，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中无法使用该能力。
@@ -141,24 +171,27 @@ getAuthorization(): Promise&lt;AuthorizationResponse&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[AuthorizationResponse](#authorizationresponse)> | Promise对象，返回权限响应类。 |
+| Promise&lt;AuthorizationResponse&gt; | Promise对象，返回权限响应类。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -171,8 +204,12 @@ authClient.getAuthorization().then(result => {
 })
 ```
 
-#### AuthorizationBase
+
+
+##### AuthorizationBase
+
 权限控制模块输入输出的基类。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -181,10 +218,15 @@ authClient.getAuthorization().then(result => {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| permissions | [Permission](#permission)[] | 否 | 否 | 权限枚举类型的数组。 |
+| permissions | Permission[] | 否 | 否 | 权限枚举类型的数组。 |
 
-#### Permission
+
+
+
+##### Permission
+
 权限枚举类型。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -198,25 +240,39 @@ authClient.getAuthorization().then(result => {
 | HEALTH_SENSOR | 4 | 获取对端设备人体传感器数据权限。如：心率传感器数据。 |
 | DEVICE_IDENTIFIER | 6 | 获取已连接穿戴设备的序列号。 |
 
-#### AuthorizationRequest
+
+
+
+##### AuthorizationRequest
+
 权限请求类，继承自[AuthorizationBase](#authorizationbase)。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### AuthorizationResponse
+
+
+##### AuthorizationResponse
+
 权限响应类，继承自[AuthorizationBase](#authorizationbase)。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### wearEngine.getDeviceClient
+
+
+##### wearEngine.getDeviceClient
+
 getDeviceClient(context: common.Context): DeviceClient
+
 用于获取Device模块的客户端。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -227,42 +283,55 @@ getDeviceClient(context: common.Context): DeviceClient
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#context) | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#uiabilitycontext-1)）。 |
+| context | common.Context | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：UIAbilityContext）。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [DeviceClient](#deviceclient) | Device客户端，存储了Device模块的相关方法。 |
+| DeviceClient | Device客户端，存储了Device模块的相关方法。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 console.info(`Succeeded in getting device client.`);
 ```
 
-#### DeviceClient
+
+
+##### DeviceClient
+
 Device客户端类。由接口[wearEngine.getDeviceClient](#wearenginegetdeviceclient)返回得到。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### getConnectedDevices
+
+
+##### getConnectedDevices
+
 getConnectedDevices(): Promise<Device[]>
+
 获取当前已连接且支持wearEngine能力集的设备，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -273,23 +342,26 @@ getConnectedDevices(): Promise<Device[]>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Device](#device)[]> | Promise对象，返回设备列表。 |
+| Promise<Device[]> | Promise对象，返回设备列表。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -301,29 +373,41 @@ deviceClient.getConnectedDevices().then((devices) => {
 })
 ```
 
-#### Device
+
+
+##### Device
+
 穿戴设备信息类。由接口[getConnectedDevices](#getconnecteddevices)返回。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### 属性
+
+
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | randomId | string | 否 | 否 | 设备随机唯一标识符，每次绑定自动生成。 |
-| category | [DeviceCategory](#devicecategory) | 否 | 是 | 设备类型。 |
+| category | DeviceCategory | 否 | 是 | 设备类型。 |
 | name | string | 否 | 是 | 设备名称。 |
 | softwareVersion | string | 否 | 是 | 设备软件版本号。 |
 | model | string | 否 | 是 | 设备型号。 |
 | isSmartWatch | boolean | 否 | 是 | 设备是否为智能表。true：是，false：不是。 |
-| osCategory | [OsCategory](#oscategory) | 否 | 是 | 设备的操作系统类别。 起始版本： 5.1.0(18) |
+| osCategory | OsCategory | 否 | 是 | 设备的操作系统类别。 起始版本： 5.1.0(18) |
 
-#### isWearEngineCapabilitySupported
+
+
+
+##### isWearEngineCapabilitySupported
+
 isWearEngineCapabilitySupported(capability: WearEngineCapability): Promise&lt;boolean&gt;
+
 通过[getConnectedDevices](#getconnecteddevices)接口获取到已连接的穿戴设备后，查询设备是否支持指定的[WearEngineCapability](#wearenginecapability)，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。
@@ -336,7 +420,8 @@ isWearEngineCapabilitySupported(capability: WearEngineCapability): Promise&lt;bo
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| capability | [WearEngineCapability](#wearenginecapability) | 是 | 指定的WearEngine能力。 |
+| capability | WearEngineCapability | 是 | 指定的WearEngine能力。 |
+
 
 **返回值：**
 
@@ -344,25 +429,28 @@ isWearEngineCapabilitySupported(capability: WearEngineCapability): Promise&lt;bo
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回是否支持指定能力的查询结果。 true：支持，false：不支持。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -381,9 +469,14 @@ if (devices.length > 0) {
 }
 ```
 
-#### isDeviceCapabilitySupported
+
+
+##### isDeviceCapabilitySupported
+
 isDeviceCapabilitySupported(capability: DeviceCapability): Promise&lt;boolean&gt;
+
 通过[getConnectedDevices](#getconnecteddevices)接口获取到已连接的穿戴设备后，查询设备是否支持指定的[DeviceCapability](#devicecapability)，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。
@@ -396,7 +489,8 @@ isDeviceCapabilitySupported(capability: DeviceCapability): Promise&lt;boolean&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| capability | [DeviceCapability](#devicecapability) | 是 | 指定的Device能力。 |
+| capability | DeviceCapability | 是 | 指定的Device能力。 |
+
 
 **返回值：**
 
@@ -404,25 +498,28 @@ isDeviceCapabilitySupported(capability: DeviceCapability): Promise&lt;boolean&gt
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，返回是否支持指定能力的查询结果。 true：支持，false：不支持。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -441,9 +538,14 @@ if (devices.length > 0) {
 }
 ```
 
-#### getSerialNumber
+
+
+##### getSerialNumber
+
 getSerialNumber(): Promise&lt;string&gt;
+
 通过[getConnectedDevices](#getconnecteddevices)接口获取到已连接的穿戴设备后，查询设备的SN，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。
@@ -458,25 +560,28 @@ getSerialNumber(): Promise&lt;string&gt;
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回设备SN。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -495,8 +600,12 @@ if (devices.length > 0) {
 }
 ```
 
-#### WearEngineCapability
+
+
+##### WearEngineCapability
+
 WearEngine能力集枚举类型。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -510,8 +619,13 @@ WearEngine能力集枚举类型。
 | NOTIFICATION | 3 | Notify能力。 |
 | SENSOR | 4 | Sensor能力。 |
 
-#### DeviceCapability
+
+
+
+##### DeviceCapability
+
 Device能力集枚举类型。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -523,8 +637,13 @@ Device能力集枚举类型。
 | APP_INSTALLATION | 14 | 支持应用安装能力。 |
 | CBT_I | 128 | CBTI数字疗法能力。 |
 
-#### DeviceCategory
+
+
+
+##### DeviceCategory
+
 设备类型枚举类。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -538,8 +657,13 @@ Device能力集枚举类型。
 | BAND | 3 | 手环类型。 |
 | OTHER_DEVICES | 255 | 其它设备类型。 |
 
-#### OsCategory
+
+
+
+##### OsCategory
+
 设备的操作系统类型枚举类。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -552,9 +676,15 @@ Device能力集枚举类型。
 | IOS | 2 | IOS |
 | OTHER_OS | 255 | 其他类型 |
 
-#### wearEngine.getMonitorClient
+
+
+
+##### wearEngine.getMonitorClient
+
 getMonitorClient(context: common.Context): MonitorClient
+
 用于获取Monitor模块的客户端。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -567,43 +697,56 @@ getMonitorClient(context: common.Context): MonitorClient
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#context) | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#uiabilitycontext-1)）。 |
+| context | common.Context | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：UIAbilityContext）。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [MonitorClient](#monitorclient) | Monitor客户端，存储了Monitor模块的相关方法。 |
+| MonitorClient | Monitor客户端，存储了Monitor模块的相关方法。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 
 let monitorClient: wearEngine.MonitorClient = wearEngine.getMonitorClient(this.getUIContext().getHostContext());
 console.info(`Succeeded in getting monitor client.`);
 ```
 
-#### MonitorClient
+
+
+##### MonitorClient
+
 Monitor客户端类。由接口[wearEngine.getMonitorClient](#wearenginegetmonitorclient)返回得到。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### queryStatus
+
+
+##### queryStatus
+
 queryStatus(deviceRandomId: string, item: MonitorItem): Promise&lt;MonitorData&gt;
+
 查询指定设备的指定状态，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无法使用该能力。对于6.1.0(23)及之后版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。
@@ -616,37 +759,41 @@ queryStatus(deviceRandomId: string, item: MonitorItem): Promise&lt;MonitorData&g
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次查询的设备。 |
-| item | [MonitorItem](#monitoritem) | 是 | 可查询的设备状态枚举，用于指定本次查询的状态。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次查询的设备。 |
+| item | MonitorItem | 是 | 可查询的设备状态枚举，用于指定本次查询的状态。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[MonitorData](#monitordata)> | Promise对象，返回查询的结果。不同状态返回值的含义请参考[MonitorItem](#monitoritem)。 |
+| Promise&lt;MonitorData&gt; | Promise对象，返回查询的结果。不同状态返回值的含义请参考MonitorItem。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -666,9 +813,14 @@ if (devices.length > 0) {
 }
 ```
 
-#### subscribeEvent
+
+
+##### subscribeEvent
+
 subscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt;MonitorEventData&gt;): Promise&lt;void&gt;
+
 监听指定设备的指定状态变化事件，当状态发生变化时，使用callback异步回调，订阅成功与否，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -681,9 +833,10 @@ subscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| type | [MonitorEvent](#monitorevent) | 是 | 可订阅的设备状态枚举，用于指定本次订阅监听的设备状态。 |
-| callback | Callback<[MonitorEventData](#monitoreventdata)> | 是 | 回调函数，返回设备对应状态变化后的信息。 状态发生变化后执行，建议保证回调函数的生命周期延长至取消监听时。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| type | MonitorEvent | 是 | 可订阅的设备状态枚举，用于指定本次订阅监听的设备状态。 |
+| callback | Callback&lt;MonitorEventData&gt; | 是 | 回调函数，返回设备对应状态变化后的信息。 状态发生变化后执行，建议保证回调函数的生命周期延长至取消监听时。 |
+
 
 **返回值：**
 
@@ -691,29 +844,32 @@ subscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008500012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500012-回调函数过多) | Too many callbacks of the same type. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008500012 | Too many callbacks of the same type. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -736,9 +892,14 @@ if (devices.length > 0) {
 }
 ```
 
-#### unsubscribeEvent
+
+
+##### unsubscribeEvent
+
 unsubscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt;MonitorEventData&gt;): Promise&lt;void&gt;
+
 取消订阅监听指定设备的指定状态变化事件，取消订阅成功与否使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -751,9 +912,10 @@ unsubscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次取消订阅的设备。 |
-| type | [MonitorEvent](#monitorevent) | 是 | 可订阅的设备状态枚举，用于指定本次取消订阅监听的设备状态。 |
-| callback | Callback<[MonitorEventData](#monitoreventdata)> | 是 | 回调函数，返回设备对应状态变化后的信息。 此处需保证传入的对象与调用subscribeEvent接口时传入的回调函数为同一个对象。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次取消订阅的设备。 |
+| type | MonitorEvent | 是 | 可订阅的设备状态枚举，用于指定本次取消订阅监听的设备状态。 |
+| callback | Callback&lt;MonitorEventData&gt; | 是 | 回调函数，返回设备对应状态变化后的信息。 此处需保证传入的对象与调用subscribeEvent接口时传入的回调函数为同一个对象。 |
+
 
 **返回值：**
 
@@ -761,28 +923,31 @@ unsubscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -809,8 +974,12 @@ if (devices.length > 0) {
 }
 ```
 
-#### MonitorItem
+
+
+##### MonitorItem
+
 设备状态的枚举类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -826,8 +995,13 @@ if (devices.length > 0) {
 | POWER_MODE | powerMode | 电源模式。返回值含义： -1：设备不区分电源模式 0：智能模式 1：超长续航模式 |
 | SPORT_STATUS | sportStatus | 运动状态。返回值含义： 3：运动开始 4：运动暂停 5：运动中 6：运动结束 起始版本： 6.1.1(24) |
 
-#### MonitorEvent
+
+
+
+##### MonitorEvent
+
 设备状态变化事件的枚举类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -843,8 +1017,13 @@ if (devices.length > 0) {
 | EVENT_CHARGE_STATUS_CHANGED | chargeStatus | 充电状态变化。 返回值含义：1：充电开始，2：充电结束，3：充电完成。 |
 | EVENT_POWER_MODE_CHANGED | powerMode | 电源模式切换。 返回值含义：0：切换至智能模式，1：切换至超长续航模式。 |
 
-#### MonitorData
+
+
+
+##### MonitorData
+
 作为[queryStatus](#querystatus)接口的返回值与[subscribeEvent](#subscribeevent)接口回调函数的入参，返回设备的状态信息。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -856,8 +1035,13 @@ if (devices.length > 0) {
 | code | number | 否 | 否 | 当使用queryStatus接口查询设备状态时，返回值含义请见MonitorItem。 当使用subscribeEvent接口订阅监听时，返回值含义请见MonitorEvent。 |
 | data | string | 否 | 是 | 扩展字段。 |
 
-#### MonitorEventData
+
+
+
+##### MonitorEventData
+
 作为[subscribeEvent](#subscribeevent)接口的返回值，当订阅监听的事件触发时，作为入参将设备对应状态变化后的信息传递给回调函数。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -866,12 +1050,18 @@ if (devices.length > 0) {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| event | [MonitorEvent](#monitorevent) | 否 | 否 | 回调函数注册的订阅监听事件枚举值。 |
-| data | [MonitorData](#monitordata) | 否 | 否 | 设备状态发生变化后的状态信息。 |
+| event | MonitorEvent | 否 | 否 | 回调函数注册的订阅监听事件枚举值。 |
+| data | MonitorData | 否 | 否 | 设备状态发生变化后的状态信息。 |
 
-#### wearEngine.getP2pClient
+
+
+
+##### wearEngine.getP2pClient
+
 getP2pClient(context: common.Context): P2pClient
+
 用于获取P2p模块的客户端。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -882,42 +1072,55 @@ getP2pClient(context: common.Context): P2pClient
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#context) | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#uiabilitycontext-1)）。 |
+| context | common.Context | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：UIAbilityContext）。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [P2pClient](#p2pclient) | P2p客户端，存储了P2p模块的相关方法。 |
+| P2pClient | P2p客户端，存储了P2p模块的相关方法。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 console.info(`Succeeded in getting p2p client.`);
 ```
 
-#### P2pClient
+
+
+##### P2pClient
+
 P2p客户端类。由接口[wearEngine.getP2pClient](#wearenginegetp2pclient)返回得到。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### isRemoteAppInstalled
+
+
+##### isRemoteAppInstalled
+
 isRemoteAppInstalled(deviceRandomId: string, remoteBundleName: string): Promise&lt;boolean&gt;
+
 判断穿戴设备是否已安装指定的应用，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -928,8 +1131,9 @@ isRemoteAppInstalled(deviceRandomId: string, remoteBundleName: string): Promise&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
 | remoteBundleName | string | 是 | 待查询的设备侧指定应用名称。 |
+
 
 **返回值：**
 
@@ -937,27 +1141,30 @@ isRemoteAppInstalled(deviceRandomId: string, remoteBundleName: string): Promise&
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。表示设备侧应用是否安装。true：已安装，false：未安装。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -984,9 +1191,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### getRemoteAppVersion
+
+
+##### getRemoteAppVersion
+
 getRemoteAppVersion(deviceRandomId: string, remoteBundleName: string): Promise&lt;number&gt;
+
 获取穿戴设备指定应用的版本号，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -999,8 +1211,9 @@ getRemoteAppVersion(deviceRandomId: string, remoteBundleName: string): Promise&l
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
 | remoteBundleName | string | 是 | 待查询版本号的设备侧应用名称。 |
+
 
 **返回值：**
 
@@ -1008,28 +1221,31 @@ getRemoteAppVersion(deviceRandomId: string, remoteBundleName: string): Promise&l
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象，返回设备侧应用的版本号。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1056,9 +1272,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### startRemoteApp
+
+
+##### startRemoteApp
+
 startRemoteApp(deviceRandomId: string, remoteBundleName: string, transformLocalBundleName?: boolean): Promise&lt;P2pResult&gt;
+
 拉起穿戴设备的指定应用，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1071,38 +1292,42 @@ startRemoteApp(deviceRandomId: string, remoteBundleName: string, transformLocalB
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
 | remoteBundleName | string | 是 | 待拉起的设备侧应用名称。 |
 | transformLocalBundleName | boolean | 否 | 是否需要将本地包名和指纹转换为兼容应用在云端存储的包名和指纹。默认值：false。 true：转换，false：不转换。 待兼容应用设置请参考申请接入Wear Engine服务。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[P2pResult](#p2presult)> | Promise对象，返回P2p通信的结果。 属性中的code字段表示本次拉起应用的结果。 |
+| Promise&lt;P2pResult&gt; | Promise对象，返回P2p通信的结果。 属性中的code字段表示本次拉起应用的结果。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1130,9 +1355,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### startRemoteApp
+
+
+##### startRemoteApp
+
 startRemoteApp(deviceRandomId: string, remoteApp: AppInfo, startConfig: StartConfig): Promise&lt;P2pResult&gt;
+
 拉起对端设备的指定应用，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1145,37 +1375,41 @@ startRemoteApp(deviceRandomId: string, remoteApp: AppInfo, startConfig: StartCon
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| remoteApp | [AppInfo](#appinfo) | 是 | 待拉起的对端设备的应用信息。 |
-| startConfig | [StartConfig](#startconfig) | 是 | 待拉起的对端设备应用的配置参数。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| remoteApp | AppInfo | 是 | 待拉起的对端设备的应用信息。 |
+| startConfig | StartConfig | 是 | 待拉起的对端设备应用的配置参数。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[P2pResult](#p2presult)> | Promise对象，返回P2pResult对象。 其属性中的code字段表示本次消息发送的结果。 |
+| Promise&lt;P2pResult&gt; | Promise对象，返回P2pResult对象。 其属性中的code字段表示本次消息发送的结果。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1191,13 +1425,13 @@ if (devices.length > 0) {
       bundleName: 'example_bundleName',
       fingerprint: 'example_fingerprint'
     }
-
+    
     // 设置拉起对端设备侧应用的组件类型
     let startConfig: wearEngine.StartConfig = {
       entryType: wearEngine.EntryType.DISTRIBUTED_SERVICE,
       entryName: 'example_entryName'
     };
-
+    
     p2pClient.startRemoteApp(device.randomId, remoteApp, startConfig).then((p2pResult) => {
       console.info(`Succeeded in starting remote app, result is ${p2pResult.code}.`);
     }).catch((error: BusinessError) => {
@@ -1206,9 +1440,14 @@ if (devices.length > 0) {
 }
 ```
 
-#### sendMessage
+
+
+##### sendMessage
+
 sendMessage(deviceRandomId: string, appParam: P2pAppParam, message: P2pMessage): Promise&lt;P2pResult&gt;
+
 向对端设备的指定应用发送消息，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1219,37 +1458,41 @@ sendMessage(deviceRandomId: string, appParam: P2pAppParam, message: P2pMessage):
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 指定的设备侧应用参数。 |
-| message | [P2pMessage](#p2pmessage) | 是 | 需要传输的消息内容，取值范围：[1，4096)，单位字节。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 指定的设备侧应用参数。 |
+| message | P2pMessage | 是 | 需要传输的消息内容，取值范围：[1，4096)，单位字节。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[P2pResult](#p2presult)> | Promise对象，返回P2pResult对象。 其属性中的code字段表示本次消息发送的结果。 |
+| Promise&lt;P2pResult&gt; | Promise对象，返回P2pResult对象。 其属性中的code字段表示本次消息发送的结果。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { util } from '@kit.ArkTS';
@@ -1292,9 +1535,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### transferFile
+
+
+##### transferFile
+
 transferFile(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile, callback: AsyncCallback&lt;P2pResult&gt;): void
+
 向对端设备的指定应用发送文件，使用callback异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1305,33 +1553,36 @@ transferFile(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile, callb
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 指定的设备侧应用参数。 |
-| file | [P2pFile](#p2pfile) | 是 | 需要传输的文件。 |
-| callback | AsyncCallback<[P2pResult](#p2presult)> | 是 | 回调函数，返回P2p通信的结果。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 指定的设备侧应用参数。 |
+| file | P2pFile | 是 | 需要传输的文件。 |
+| callback | AsyncCallback&lt;P2pResult&gt; | 是 | 回调函数，返回P2p通信的结果。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008500011](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500011-无效文件) | File is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008500011 | File is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -1384,9 +1635,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### cancelFileTransfer
+
+
+##### cancelFileTransfer
+
 cancelFileTransfer(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile): Promise&lt;P2pResult&gt;
+
 取消向对端设备的指定应用发送文件，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1399,39 +1655,43 @@ cancelFileTransfer(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 指定设备侧应用参数。 |
-| file | [P2pFile](#p2pfile) | 是 | 需要传输的文件。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 指定设备侧应用参数。 |
+| file | P2pFile | 是 | 需要传输的文件。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[P2pResult](#p2presult)> | Promise对象，返回P2p通信的结果。 属性中的code字段表示本次取消文件发送的结果。 |
+| Promise&lt;P2pResult&gt; | Promise对象，返回P2p通信的结果。 属性中的code字段表示本次取消文件发送的结果。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | Capability not supported. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008500011](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500011-无效文件) | File is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008500011 | File is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -1478,9 +1738,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### registerMessageReceiver
+
+
+##### registerMessageReceiver
+
 registerMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pMessage&gt;): Promise&lt;void&gt;
+
 订阅对端设备应用向本端设备发送消息的事件，接收到对端应用发送的消息时使用callback异步回调，订阅成功与否使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1491,9 +1756,10 @@ registerMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callback:
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 设备侧应用参数。 |
-| callback | Callback<[P2pMessage](#p2pmessage)> | 是 | 回调函数，返回对端设备应用发送的消息。 接收到设备侧应用发送的消息后执行的回调函数。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 设备侧应用参数。 |
+| callback | Callback&lt;P2pMessage&gt; | 是 | 回调函数，返回对端设备应用发送的消息。 接收到设备侧应用发送的消息后执行的回调函数。 |
+
 
 **返回值：**
 
@@ -1501,28 +1767,31 @@ registerMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callback:
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008500012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500012-回调函数过多) | Too many callbacks of the same type. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008500012 | Too many callbacks of the same type. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1561,9 +1830,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### registerFileReceiver
+
+
+##### registerFileReceiver
+
 registerFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pFile&gt;): Promise&lt;void&gt;
+
 订阅对端设备向本端设备发送文件的事件，接收到对端设备发送的文件时使用callback异步回调，订阅成功与否使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1574,9 +1848,10 @@ registerFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Ca
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 设备侧应用参数。 |
-| callback | Callback<[P2pFile](#p2pfile)> | 是 | 回调函数，返回对端设备应用发送的文件。 接收到设备侧应用发送的文件后执行的回调函数。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 设备侧应用参数。 |
+| callback | Callback&lt;P2pFile&gt; | 是 | 回调函数，返回对端设备应用发送的文件。 接收到设备侧应用发送的文件后执行的回调函数。 |
+
 
 **返回值：**
 
@@ -1584,28 +1859,31 @@ registerFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Ca
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008500012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500012-回调函数过多) | Too many callbacks of the same type. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008500012 | Too many callbacks of the same type. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1644,9 +1922,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### registerFileReceiverWithProgress
+
+
+##### registerFileReceiverWithProgress
+
 registerFileReceiverWithProgress(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pFile&gt;): Promise&lt;void&gt;
+
 订阅对端设备向本端设备发送文件和文件传输进度的事件，接收到对端设备发送的文件和文件传输进度时使用callback异步回调，订阅成功与否使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1657,9 +1940,10 @@ registerFileReceiverWithProgress(deviceRandomId: string, appParam: P2pAppParam, 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 设备侧应用参数。 |
-| callback | Callback<[P2pFile](#p2pfile)> | 是 | 回调函数，返回对端设备应用发送的文件类。 接收到设备侧应用发送的文件或者传输进度后执行的回调函数。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 设备侧应用参数。 |
+| callback | Callback&lt;P2pFile&gt; | 是 | 回调函数，返回对端设备应用发送的文件类。 接收到设备侧应用发送的文件或者传输进度后执行的回调函数。 |
+
 
 **返回值：**
 
@@ -1667,27 +1951,30 @@ registerFileReceiverWithProgress(deviceRandomId: string, appParam: P2pAppParam, 
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008500012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500012-回调函数过多) | Too many callbacks of the same type. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008500012 | Too many callbacks of the same type. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1730,9 +2017,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### unregisterMessageReceiver
+
+
+##### unregisterMessageReceiver
+
 unregisterMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pMessage&gt;): Promise&lt;void&gt;
+
 取消订阅对端应用向本端应用发送消息的事件，取消订阅成功与否使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1743,9 +2035,10 @@ unregisterMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callbac
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 设备侧应用参数。 |
-| callback | Callback<[P2pMessage](#p2pmessage)> | 是 | 回调函数，返回对端设备应用发送的消息。 需要同订阅监听时的回调函数为同一个对象。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 设备侧应用参数。 |
+| callback | Callback&lt;P2pMessage&gt; | 是 | 回调函数，返回对端设备应用发送的消息。 需要同订阅监听时的回调函数为同一个对象。 |
+
 
 **返回值：**
 
@@ -1753,27 +2046,30 @@ unregisterMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callbac
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1818,9 +2114,14 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### unregisterFileReceiver
+
+
+##### unregisterFileReceiver
+
 unregisterFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pFile&gt;): Promise&lt;void&gt;
+
 取消订阅对端应用向本端应用发送文件的事件，取消订阅成功与否使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1831,9 +2132,10 @@ unregisterFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| appParam | [P2pAppParam](#p2pappparam) | 是 | 设备侧应用参数。 |
-| callback | Callback<[P2pFile](#p2pfile)> | 是 | 回调函数，返回对端设备应用发送的文件。 需要同订阅监听时的回调函数为同一个对象。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| appParam | P2pAppParam | 是 | 设备侧应用参数。 |
+| callback | Callback&lt;P2pFile&gt; | 是 | 回调函数，返回对端设备应用发送的文件。 需要同订阅监听时的回调函数为同一个对象。 |
+
 
 **返回值：**
 
@@ -1841,27 +2143,30 @@ unregisterFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: 
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1906,8 +2211,12 @@ deviceList.forEach(async (device, idx, arr) => {
 })
 ```
 
-#### AppInfo
+
+
+##### AppInfo
+
 设备侧应用信息类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1917,10 +2226,15 @@ deviceList.forEach(async (device, idx, arr) => {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bundleName | string | 否 | 否 | 应用名称。 |
-| fingerprint | string | 否 | 否 | [应用指纹，用于标识应用的唯一身份。](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wearengine_faq-9) |
+| fingerprint | string | 否 | 否 | 应用指纹，用于标识应用的唯一身份。 |
 
-#### P2pResultCode
+
+
+
+##### P2pResultCode
+
 存储P2p通信的返回值枚举类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1936,8 +2250,13 @@ deviceList.forEach(async (device, idx, arr) => {
 | COMMUNICATION_FAILURE | 206 | 与设备侧应用通信失败。 |
 | COMMUNICATION_SUCCESS | 207 | 与设备侧应用通信成功。 |
 
-#### P2pResult
+
+
+
+##### P2pResult
+
 存储P2p通信的结果。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1946,11 +2265,16 @@ deviceList.forEach(async (device, idx, arr) => {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| code | number | 否 | 是 | 用于返回除文件传输外的P2p通信结果，返回值含义见[P2pResultCode](#p2presultcode)。 |
+| code | number | 否 | 是 | 用于返回除文件传输外的P2p通信结果，返回值含义见P2pResultCode。 |
 | progress | number | 否 | 是 | 仅用于上报文件传输进度，返回值范围：0-100。 |
 
-#### P2pMessage
+
+
+
+##### P2pMessage
+
 本端设备应用向对端设备应用发送的消息类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1961,8 +2285,13 @@ deviceList.forEach(async (device, idx, arr) => {
 | --- | --- | --- | --- | --- |
 | content | Uint8Array | 否 | 否 | 传输消息的内容，格式为Uint8Array（二进制字节数组）类型数据。 |
 
-#### P2pFile
+
+
+
+##### P2pFile
+
 本端设备应用向对端设备应用发送的文件类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1971,11 +2300,16 @@ deviceList.forEach(async (device, idx, arr) => {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| file | [fs.File](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#file) | 否 | 否 | 文件对象。 |
+| file | fs.File | 否 | 否 | 文件对象。 |
 | progress | number | 否 | 是 | 文件传输进度。 起始版本： 6.1.1(24) |
 
-#### P2pAppParam
+
+
+
+##### P2pAppParam
+
 P2p通信过程中可用的设备侧应用参数类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1984,11 +2318,16 @@ P2p通信过程中可用的设备侧应用参数类。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| remoteApp | [AppInfo](#appinfo) | 否 | 否 | 设备侧应用信息类。 |
+| remoteApp | AppInfo | 否 | 否 | 设备侧应用信息类。 |
 | transformLocalAppInfo | boolean | 否 | 是 | 是否需要将本地包名和指纹转换为兼容应用在云端存储的包名和指纹。默认值：false。 true：转换；false：不转换。 待兼容应用设置请参考申请接入Wear Engine服务。 |
 
-#### StartConfig
+
+
+
+##### StartConfig
+
 待拉起的对端设备应用的配置参数。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -1997,11 +2336,16 @@ P2p通信过程中可用的设备侧应用参数类。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| entryType | [EntryType](#entrytype) | 否 | 否 | 需要拉起的对端设备应用的组件类型。 |
+| entryType | EntryType | 否 | 否 | 需要拉起的对端设备应用的组件类型。 |
 | entryName | string | 否 | 是 | 需要拉起的对端设备应用的组件名称。 |
 
-#### EntryType
+
+
+
+##### EntryType
+
 待拉起的对端设备应用的组件类型。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2010,13 +2354,19 @@ P2p通信过程中可用的设备侧应用参数类。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| DISTRIBUTED_SERVICE | 'DistributedService' | 分布式服务组件，当要启动分布式服务组件时需设置此值。 |
-| SERVICE | 'Service' | 服务组件，当要拉起服务时需设置此值。 |
-| UI | 'UI' | UI组件，当要启动UI组件时需要设置此值。 |
+| DISTRIBUTED_SERVICE | DistributedService | 分布式服务组件，当要启动分布式服务组件时需设置此值。 |
+| SERVICE | Service | 服务组件，当要拉起服务时需设置此值。 |
+| UI | UI | UI组件，当要启动UI组件时需要设置此值。 |
 
-#### wearEngine.getNotifyClient
+
+
+
+##### wearEngine.getNotifyClient
+
 getNotifyClient(context: common.Context): NotifyClient
+
 用于获取Notify模块的客户端。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2029,43 +2379,56 @@ getNotifyClient(context: common.Context): NotifyClient
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#context) | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#uiabilitycontext-1)）。 |
+| context | common.Context | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：UIAbilityContext）。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [NotifyClient](#notifyclient) | 模板化通知客户端，存储了发送模板化通知的相关方法。 |
+| NotifyClient | 模板化通知客户端，存储了发送模板化通知的相关方法。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 
 let notifyClient: wearEngine.NotifyClient = wearEngine.getNotifyClient(this.getUIContext().getHostContext());
 console.info(`Succeeded in getting notify client`);
 ```
 
-#### NotifyClient
+
+
+##### NotifyClient
+
 Notify客户端类，由[wearEngine.getNotifyClient](#wearenginegetnotifyclient)返回得到。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### notify
+
+
+##### notify
+
 notify(deviceRandomId: string, options: NotificationOptions): Promise&lt;void&gt;
+
 向穿戴设备发送模板化通知，返回是否发送成功，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中无法使用该能力。
@@ -2078,8 +2441,9 @@ notify(deviceRandomId: string, options: NotificationOptions): Promise&lt;void&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次查询的设备。 |
-| options | [NotificationOptions](#notificationoptions) | 是 | 模板化通知配置参数类。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次查询的设备。 |
+| options | NotificationOptions | 是 | 模板化通知配置参数类。 |
+
 
 **返回值：**
 
@@ -2087,27 +2451,30 @@ notify(deviceRandomId: string, options: NotificationOptions): Promise&lt;void&gt
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2145,23 +2512,35 @@ if (devices.length > 0) {
 }
 ```
 
-#### NotificationOptions
+
+
+##### NotificationOptions
+
 模板化通知的配置参数类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### 属性
+
+
+##### 属性
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| notification | [Notification](#notification) | 否 | 否 | 模板化通知的通知体参数类。 |
+| notification | Notification | 否 | 否 | 模板化通知的通知体参数类。 |
 
-#### onAction
+
+
+
+##### onAction
+
 onAction(feedback: NotificationFeedback): void
+
 设备侧对应用发出的通知做相关操作后执行的回调函数。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2174,10 +2553,15 @@ onAction(feedback: NotificationFeedback): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| feedback | [NotificationFeedback](#notificationfeedback) | 是 | 设备侧操作通知的反馈类。 |
+| feedback | NotificationFeedback | 是 | 设备侧操作通知的反馈类。 |
 
-#### Notification
+
+
+
+##### Notification
+
 模板化通知的通知体参数类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2186,14 +2570,19 @@ onAction(feedback: NotificationFeedback): void
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | [NotificationType](#notificationtype) | 否 | 否 | 通知的模板类型。 |
+| type | NotificationType | 否 | 否 | 通知的模板类型。 |
 | bundleName | string | 否 | 否 | 发送通知应用的包名。 |
 | title | string | 否 | 否 | 通知的标题，取值范围：[1，28)，单位字节。 |
 | text | string | 否 | 否 | 通知的内容，取值范围：[1，400)，单位字节。 |
-| buttons | [NotificationButton](#notificationbutton)[] | 否 | 是 | 通知按钮信息类，若未填写，默认为空。 |
+| buttons | NotificationButton[] | 否 | 是 | 通知按钮信息类，若未填写，默认为空。 |
 
-#### NotificationType
+
+
+
+##### NotificationType
+
 模板化通知的模板类型枚举类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2207,8 +2596,13 @@ onAction(feedback: NotificationFeedback): void
 | NOTIFICATION_WITH_TWO_BUTTONS | 52 | 拥有两个按钮的通知类型。 |
 | NOTIFICATION_WITH_THREE_BUTTONS | 53 | 拥有三个按钮的通知类型。 |
 
-#### NotificationButton
+
+
+
+##### NotificationButton
+
 通知按钮信息类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2217,11 +2611,16 @@ onAction(feedback: NotificationFeedback): void
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| buttonId | [ButtonId](#buttonid) | 否 | 否 | 按钮Id枚举类。 |
+| buttonId | ButtonId | 否 | 否 | 按钮Id枚举类。 |
 | content | string | 否 | 否 | 按钮上的文字内容，取值范围：[1，12)，单位字节。 |
 
-#### ButtonId
+
+
+
+##### ButtonId
+
 模板化通知的按钮Id枚举类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2234,8 +2633,13 @@ onAction(feedback: NotificationFeedback): void
 | SECOND_BUTTON | secondButton | 第二个按钮的Id。 |
 | THIRD_BUTTON | thirdButton | 第三个按钮的Id。 |
 
-#### NotificationFeedback
+
+
+
+##### NotificationFeedback
+
 设备侧操作通知的反馈类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2244,11 +2648,16 @@ onAction(feedback: NotificationFeedback): void
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| action | [NotificationAction](#notificationaction) | 否 | 是 | 设备侧对通知的操作反馈枚举类。 |
-| errorCode | number | 否 | 是 | 错误码，含义请见[NotificationErrorCode](#notificationerrorcode)。 |
+| action | NotificationAction | 否 | 是 | 设备侧对通知的操作反馈枚举类。 |
+| errorCode | number | 否 | 是 | 错误码，含义请见NotificationErrorCode。 |
 
-#### NotificationAction
+
+
+
+##### NotificationAction
+
 设备侧对通知的操作反馈枚举类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2263,8 +2672,13 @@ onAction(feedback: NotificationFeedback): void
 | SECOND_BUTTON_CLICKED | 3 | 用户点击通知的第二个按钮。 |
 | THIRD_BUTTON_CLICKED | 4 | 用户点击通知的第三个按钮。 |
 
-#### NotificationErrorCode
+
+
+
+##### NotificationErrorCode
+
 通知在设备侧发生错误的反馈枚举类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2273,11 +2687,17 @@ onAction(feedback: NotificationFeedback): void
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| INTERNAL_ERROR | 255 | Wear Engine内部错误。通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。 |
+| INTERNAL_ERROR | 255 | Wear Engine内部错误。通过在线提单提交问题，华为支持人员会及时处理。 |
 
-#### wearEngine.getSensorClient
+
+
+
+##### wearEngine.getSensorClient
+
 getSensorClient(context: common.Context): SensorClient
+
 用于获取Sensor模块的客户端。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2290,43 +2710,56 @@ getSensorClient(context: common.Context): SensorClient
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context#context) | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#uiabilitycontext-1)）。 |
+| context | common.Context | 是 | Context上下文，仅支持包含connectServiceExtensionAbility方法的Context（例：UIAbilityContext）。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [SensorClient](#sensorclient) | Sensor客户端，存储了Sensor模块的相关方法。 |
+| SensorClient | Sensor客户端，存储了Sensor模块的相关方法。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
 | 801 | Capability not supported. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 
 let sensorClient: wearEngine.SensorClient = wearEngine.getSensorClient(this.getUIContext().getHostContext());
 console.info(`Succeeded in getting sensor client`);
 ```
 
-#### SensorClient
+
+
+##### SensorClient
+
 Sensor客户端类。由接口[wearEngine.getSensorClient](#wearenginegetsensorclient)返回得到。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
 
 **起始版本：** 5.0.0(12)
 
-#### getSensorList
+
+
+##### getSensorList
+
 getSensorList(deviceRandomId: string): Promise<Sensor[]>
+
 获取设备侧可用的传感器列表，返回对应的传感器列表，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中无法使用该能力。
@@ -2339,35 +2772,39 @@ getSensorList(deviceRandomId: string): Promise<Sensor[]>
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定设备。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定设备。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Sensor](#sensor)[]> | Promise对象，返回设备侧可用的传感器列表。 |
+| Promise<Sensor[]> | Promise对象，返回设备侧可用的传感器列表。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2387,9 +2824,14 @@ if (devices.length > 0) {
 }
 ```
 
-#### subscribeSensor
+
+
+##### subscribeSensor
+
 subscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&lt;SensorResult&gt;): Promise&lt;void&gt;
+
 订阅指定的传感器数据上报，返回是否订阅成功，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中无法使用该能力。
@@ -2402,9 +2844,10 @@ subscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&lt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次订阅的设备。 |
-| type | [SensorType](#sensortype) | 是 | 传感器类别，用于指定本次订阅的传感器。 |
-| callback | Callback<[SensorResult](#sensorresult)> | 是 | 回调函数，返回传感器上报结果。 用于处理传感器上报的数据。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
+| type | SensorType | 是 | 传感器类别，用于指定本次订阅的传感器。 |
+| callback | Callback&lt;SensorResult&gt; | 是 | 回调函数，返回传感器上报结果。 用于处理传感器上报的数据。 |
+
 
 **返回值：**
 
@@ -2412,28 +2855,31 @@ subscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&lt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008500012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500012-回调函数过多) | Too many callbacks of the same type. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008500012 | Too many callbacks of the same type. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2461,9 +2907,14 @@ if (devices.length > 0) {
 }
 ```
 
-#### unsubscribeSensor
+
+
+##### unsubscribeSensor
+
 unsubscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&lt;SensorResult&gt;): Promise&lt;void&gt;
+
 取消订阅指定的传感器数据上报，返回是否取消成功，使用Promise异步回调。
+
 **系统能力：** SystemCapability.Health.WearEngine
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中无法使用该能力。
@@ -2476,9 +2927,10 @@ unsubscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&l
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceRandomId | string | 是 | [Device](#device)的随机标识符，用于指定本次取消订阅的设备。 |
-| type | [SensorType](#sensortype) | 是 | 传感器类别，用于指定本次取消订阅的传感器。 |
-| callback | Callback<[SensorResult](#sensorresult)> | 是 | 回调函数，返回传感器上报结果。 需要同订阅监听时的回调函数为同一个对象。 |
+| deviceRandomId | string | 是 | Device的随机标识符，用于指定本次取消订阅的设备。 |
+| type | SensorType | 是 | 传感器类别，用于指定本次取消订阅的传感器。 |
+| callback | Callback&lt;SensorResult&gt; | 是 | 回调函数，返回传感器上报结果。 需要同订阅监听时的回调函数为同一个对象。 |
+
 
 **返回值：**
 
@@ -2486,27 +2938,30 @@ unsubscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&l
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| [1008500001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500001-网络错误) | Network error. The network is unavailable. |
-| [1008500002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500002-无绑定设备) | No device is bound. |
-| [1008500003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500003-设备未连接) | Device disconnected. |
-| [1008500004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500004-应用未申请wear-engine服务) | App has not applied for the Wear Engine service. |
-| [1008500005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500005-用户未授权) | The HUAWEI ID is not authorized. |
-| [1008500006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500006-用户未同意隐私授权) | User privacy is not agreed. |
-| [1008500007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500007-穿戴设备侧能力不支持) | The device capability is not supported. |
-| [1008500008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500008-账号未登录) | Account error. The user has not logged in with HUAWEI ID. |
-| [1008500009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500009-账号异常) | Account error. Failed to obtain account information with HUAWEI ID. |
-| [1008500010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500010-无效设备id) | Device ID is invalid. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500001 | Network error. The network is unavailable. |
+| 1008500002 | No device is bound. |
+| 1008500003 | Device disconnected. |
+| 1008500004 | App has not applied for the Wear Engine service. |
+| 1008500005 | The HUAWEI ID is not authorized. |
+| 1008500006 | User privacy is not agreed. |
+| 1008500007 | The device capability is not supported. |
+| 1008500008 | Account error. The user has not logged in with HUAWEI ID. |
+| 1008500009 | Account error. Failed to obtain account information with HUAWEI ID. |
+| 1008500010 | Device ID is invalid. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2540,8 +2995,12 @@ if (devices.length > 0) {
 }
 ```
 
-#### SensorType
+
+
+##### SensorType
+
 传感器类型。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2557,8 +3016,13 @@ if (devices.length > 0) {
 | MAGNETIC_FIELD | 4 | 磁力传感器。 |
 | HEART_RATE | 6 | 心率传感器。 |
 
-#### Sensor
+
+
+
+##### Sensor
+
 传感器信息类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2569,13 +3033,18 @@ if (devices.length > 0) {
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 传感器名称。 |
 | id | number | 否 | 否 | 传感器ID。 |
-| type | [SensorType](#sensortype) | 否 | 否 | 传感器类型。 |
+| type | SensorType | 否 | 否 | 传感器类型。 |
 | accuracy | number | 否 | 是 | 传感器采样周期，单位毫秒。 |
 | resolution | number | 否 | 是 | 传感器分辨率，当前仅作为Sensor对象的返回值信息。 |
 | isUtcTimestampSupported | boolean | 否 | 否 | 传感器是否支持UTC（ Coordinated Universal Time）时间戳。true：支持，false：不支持。 |
 
-#### SensorData
+
+
+
+##### SensorData
+
 传感器上报数据类。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2584,14 +3053,19 @@ if (devices.length > 0) {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| sensorType | [SensorType](#sensortype) | 否 | 否 | 传感器类型。 |
-| data | number[] | 否 | 否 | 数据内容，格式及含义请参考[穿戴设备传感器数据格式及样例](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/device_sensor#穿戴设备传感器数据格式及样例)。 |
+| sensorType | SensorType | 否 | 否 | 传感器类型。 |
+| data | number[] | 否 | 否 | 数据内容，格式及含义请参考穿戴设备传感器数据格式及样例。 |
 | channel | number | 否 | 是 | 传感器通道ID，为大于0的整数。 |
 | timestamp | number | 否 | 是 | 计时时间戳。 |
 | utcTimestamp | number | 否 | 是 | UTC时间戳。 |
 
-#### SensorErrorCode
+
+
+
+##### SensorErrorCode
+
 传感器类型。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2606,8 +3080,13 @@ if (devices.length > 0) {
 | SENSOR_OCCUPIED | 303 | 传感器被占用。 |
 | SENSOR_NOT_SUPPORTED | 304 | 传感器不支持。 |
 
-#### SensorResult
+
+
+
+##### SensorResult
+
 传感器上报结果。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2616,13 +3095,22 @@ if (devices.length > 0) {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| data | [SensorData](#sensordata)[] | 否 | 是 | 传感器正常上报的数据内容。 |
-| errorCode | number | 否 | 是 | 错误码，含义请见[SensorErrorCode](#sensorerrorcode)。 |
+| data | SensorData[] | 否 | 是 | 传感器正常上报的数据内容。 |
+| errorCode | number | 否 | 是 | 错误码，含义请见SensorErrorCode。 |
 
-#### on/off订阅事件
-#### wearEngine.on
+
+
+
+##### on/off订阅事件
+
+
+
+##### wearEngine.on
+
 on(type: 'serviceDie', callback: Callback&lt;void&gt;): void
+
 订阅服务端消亡事件。使用callback异步回调。调用[wearEngine.destroy](#wearenginedestroy)接口主动发起的消亡事件不会触发执行回调函数。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2636,18 +3124,21 @@ on(type: 'serviceDie', callback: Callback&lt;void&gt;): void
 | type | string | 是 | 监听的事件类型，仅支持serviceDie(服务端消亡事件)。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| [1008500012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008500012-回调函数过多) | Too many callbacks of the same type. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008500012 | Too many callbacks of the same type. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2663,9 +3154,14 @@ try {
 }
 ```
 
-#### wearEngine.off
+
+
+##### wearEngine.off
+
 off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void
+
 取消订阅服务端消亡事件。使用callback异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2679,17 +3175,20 @@ off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void
 | type | string | 是 | 监听的事件类型，仅支持serviceDie(服务端消亡事件)。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果。 需要同订阅监听时的回调函数为同一个对象。 当该参数为空时，会取消掉之前所有的订阅。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -2707,9 +3206,14 @@ try {
 }
 ```
 
-#### wearEngine.destroy
+
+
+##### wearEngine.destroy
+
 destroy(): Promise&lt;void&gt;
+
 主动销毁服务端，使用Promise异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -2722,16 +3226,19 @@ destroy(): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1008509999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code#section1008509999-内部错误) | Internal error. |
+| 1008509999 | Internal error. |
+
 
 **示例：**
 
-```ts
+```text
 import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 

@@ -3,67 +3,64 @@
 更新时间：2026-03-12 09:39:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-type-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 定义HTTP请求模块的C接口需要的数据结构。
-
+ 
 **引用文件：** <network/netstack/net_http_type.h>
-
+ 
 **库：** libnet_http.so
-
+ 
 **系统能力：** SystemCapability.Communication.NetStack
-
+ 
 **起始版本：** 20
-
+ 
 **相关模块：** [netstack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Http_Buffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-buffer) | Http_Buffer | HTTP缓存结构体。 |
-| [Http_HeaderValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-headervalue) | Http_HeaderValue | 请求或者响应的标头映射的值类型。 |
-| [Http_HeaderEntry](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-headerentry) | Http_HeaderEntry | 请求或者响应的标头的所有键值对。 |
-| [Http_ClientCert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-clientcert) | Http_ClientCert | 发送到服务端的客户端证书配置，服务端将通过客户端证书校验客户端身份。 |
-| [Http_CustomProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-customproxy) | Http_CustomProxy | 用户自定义代理配置。 |
-| [Http_Proxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-proxy) | Http_Proxy | 代理配置结构体。 |
-| [Http_PerformanceTiming](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-performancetiming) | Http_PerformanceTiming | HTTP响应时间信息，会在[Http_Response.performanceTiming](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-response#成员变量)中收集。 |
-| [Http_RequestOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-requestoptions) | Http_RequestOptions | 定义HTTP请求配置的结构体。 |
-| [Http_Response](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-response) | Http_Response | 定义HTTP响应的结构体。 |
-| [Http_Request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-request) | Http_Request | HTTP请求结构体。 |
-| [Http_EventsHandler](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-eventshandler) | Http_EventsHandler | 监听不同HTTP事件的回调函数。 |
-| [Http_Headers](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-headers) | Http_Headers | HTTP请求或者是响应中的标头。 |
+| Http_Buffer | Http_Buffer | HTTP缓存结构体。 |
+| Http_HeaderValue | Http_HeaderValue | 请求或者响应的标头映射的值类型。 |
+| Http_HeaderEntry | Http_HeaderEntry | 请求或者响应的标头的所有键值对。 |
+| Http_ClientCert | Http_ClientCert | 发送到服务端的客户端证书配置，服务端将通过客户端证书校验客户端身份。 |
+| Http_CustomProxy | Http_CustomProxy | 用户自定义代理配置。 |
+| Http_Proxy | Http_Proxy | 代理配置结构体。 |
+| Http_PerformanceTiming | Http_PerformanceTiming | HTTP响应时间信息，会在Http_Response.performanceTiming中收集。 |
+| Http_RequestOptions | Http_RequestOptions | 定义HTTP请求配置的结构体。 |
+| Http_Response | Http_Response | 定义HTTP响应的结构体。 |
+| Http_Request | Http_Request | HTTP请求结构体。 |
+| Http_EventsHandler | Http_EventsHandler | 监听不同HTTP事件的回调函数。 |
+| Http_Headers | Http_Headers | HTTP请求或者是响应中的标头。 |
+ 
+ 
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Http_ErrCode](#http_errcode) | Http_ErrCode | 定义HTTP请求的错误码。 |
-| [Http_ResponseCode](#http_responsecode) | Http_ResponseCode | 定义HTTP响应码。 |
-| [Http_AddressFamilyType](#http_addressfamilytype) | Http_AddressFamilyType | 定义解析目标域名时限定的地址类型。 |
-| [Http_HttpProtocol](#http_httpprotocol) | Http_HttpProtocol | HTTP协议版本号枚举定义。 |
-| [Http_CertType](#http_certtype) | Http_CertType | 证书类型枚举。 |
-| [Http_ProxyType](#http_proxytype) | Http_ProxyType | 代理配置类型枚举定义。 |
+| Http_ErrCode | Http_ErrCode | 定义HTTP请求的错误码。 |
+| Http_ResponseCode | Http_ResponseCode | 定义HTTP响应码。 |
+| Http_AddressFamilyType | Http_AddressFamilyType | 定义解析目标域名时限定的地址类型。 |
+| Http_HttpProtocol | Http_HttpProtocol | HTTP协议版本号枚举定义。 |
+| Http_CertType | Http_CertType | 证书类型枚举。 |
+| Http_ProxyType | Http_ProxyType | 代理配置类型枚举定义。 |
+ 
+ 
+  
 
-
-### 宏定义
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 宏定义
+ 
 | 名称 | 描述 |
 | --- | --- |
 | OHOS_HTTP_MAX_PATH_LEN 128 | HTTP请求最长目录路径长度。 起始版本： 20 |
@@ -77,40 +74,39 @@
 | NET_HTTP_METHOD_POST "POST" | HTTP请求POST方法。 起始版本： 20 |
 | NET_HTTP_METHOD_PUT "PUT" | HTTP请求PUT方法。 起始版本： 20 |
 | NET_HTTP_METHOD_PATCH "CONNECT" | HTTP请求CONNECT方法。 起始版本： 20 |
+ 
+ 
+  
 
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 函数
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [typedef void (*Http_ResponseCallback)(struct Http_Response *response, uint32_t errCode)](#http_responsecallback) | Http_ResponseCallback | 接收到HTTP响应的回调函数。 |
-| [typedef void (*Http_OnDataReceiveCallback)(const char *data, size_t length)](#http_ondatareceivecallback) | Http_OnDataReceiveCallback | 接收到数据的回调。 |
-| [typedef void (*Http_OnProgressCallback)(uint64_t totalSize, uint64_t transferredSize)](#http_onprogresscallback) | Http_OnProgressCallback | 请求/响应数据传输过程中调用的回调函数。 |
-| [typedef void (*Http_OnHeaderReceiveCallback)(Http_Headers *headers)](#http_onheaderreceivecallback) | Http_OnHeaderReceiveCallback | 收到HTTP响应头的回调函数。 |
-| [typedef void (*Http_OnVoidCallback)(void)](#http_onvoidcallback) | Http_OnVoidCallback | 请求的DataEnd或Cancel事件回调的回调函数。 |
+| typedef void (*Http_ResponseCallback)(struct Http_Response *response, uint32_t errCode) | Http_ResponseCallback | 接收到HTTP响应的回调函数。 |
+| typedef void (*Http_OnDataReceiveCallback)(const char *data, size_t length) | Http_OnDataReceiveCallback | 接收到数据的回调。 |
+| typedef void (*Http_OnProgressCallback)(uint64_t totalSize, uint64_t transferredSize) | Http_OnProgressCallback | 请求/响应数据传输过程中调用的回调函数。 |
+| typedef void (*Http_OnHeaderReceiveCallback)(Http_Headers *headers) | Http_OnHeaderReceiveCallback | 收到HTTP响应头的回调函数。 |
+| typedef void (*Http_OnVoidCallback)(void) | Http_OnVoidCallback | 请求的DataEnd或Cancel事件回调的回调函数。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### Http_ErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_ErrCode
 
 ```text
 enum Http_ErrCode
 ```
-
+ 
 **描述**
-
+ 
 定义HTTP请求的错误码。
-
+ 
 **起始版本：** 20
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_HTTP_RESULT_OK = 0 | 请求成功。 |
@@ -147,23 +143,22 @@ enum Http_ErrCode
 | OH_HTTP_AUTHENTICATION_ERROR = (OH_HTTP_NETSTACK_E_BASE + 94) | 身份验证错误。 |
 | OH_HTTP_ACCESS_DOMAIN_NOT_ALLOWED = (OH_HTTP_NETSTACK_E_BASE + 998) | 不允许访问该域。 |
 | OH_HTTP_UNKNOWN_ERROR = (OH_HTTP_NETSTACK_E_BASE + 999) | 未知错误。 |
+ 
+ 
+  
 
-
-### Http_ResponseCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_ResponseCode
 
 ```text
 enum Http_ResponseCode
 ```
-
+ 
 **描述**
-
+ 
 定义HTTP响应码。
-
+ 
 **起始版本：** 20
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_HTTP_OK = 200 | 请求成功。 |
@@ -202,202 +197,194 @@ enum Http_ResponseCode
 | OH_HTTP_UNAVAILABLE = 503 | 由于超载或系统维护，服务器暂时无法处理客户端请求。 |
 | OH_HTTP_GATEWAY_TIMEOUT = 504 | 作为网关的服务器没有及时从远程服务器获取请求。 |
 | OH_HTTP_VERSION = 505 | 服务器请求的HTTP协议版本。 |
+ 
+ 
+  
 
-
-### Http_AddressFamilyType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_AddressFamilyType
 
 ```text
 enum Http_AddressFamilyType
 ```
-
+ 
 **描述**
-
+ 
 定义解析目标域名时限定的地址类型。
-
+ 
 **起始版本：** 20
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | HTTP_ADDRESS_FAMILY_DEFAULT = 0 | 默认值，系统将自行选择目标域名的IPv4地址或IPv6地址。 |
 | HTTP_ADDRESS_FAMILY_ONLY_V4 = 1 | 系统仅解析目标域名的IPv4地址，忽略IPv6地址。 |
 | HTTP_ADDRESS_FAMILY_ONLY_V6 = 2 | 系统仅解析目标域名的IPv6地址，忽略IPv4地址。 |
+ 
+ 
+  
 
-
-### Http_HttpProtocol
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_HttpProtocol
 
 ```text
 enum Http_HttpProtocol
 ```
-
+ 
 **描述**
-
+ 
 HTTP协议版本号枚举定义。
-
+ 
 **起始版本：** 20
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_HTTP_NONE = 0 | 遵循curl的协议版本选择。 |
 | OH_HTTP1_1 | HTTP1.1版本。 |
 | OH_HTTP2 | HTTP2版本。 |
 | OH_HTTP3 | HTTP3版本。 |
+ 
+ 
+  
 
-
-### Http_CertType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_CertType
 
 ```text
 enum Http_CertType
 ```
-
+ 
 **描述**
-
+ 
 证书类型枚举。
-
+ 
 **起始版本：** 20
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_HTTP_PEM = 0 | PEM证书类型。 |
 | OH_HTTP_DER = 1 | DER证书类型。 |
 | OH_HTTP_P12 = 2 | P12证书类型。 |
+ 
+ 
+  
 
-
-### Http_ProxyType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_ProxyType
 
 ```text
 enum Http_ProxyType
 ```
-
+ 
 **描述**
-
+ 
 代理配置类型枚举定义。
-
+ 
 **起始版本：** 20
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | HTTP_PROXY_NOT_USE | 不使用代理。 |
 | HTTP_PROXY_SYSTEM | 使用系统代理。 |
 | HTTP_PROXY_CUSTOM | 使用用户自定义代理。 |
+ 
+ 
+  
 
+##### 函数说明
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### Http_ResponseCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_ResponseCallback()
 
 ```text
 typedef void (*Http_ResponseCallback)(struct Http_Response *response, uint32_t errCode)
 ```
-
+ 
 **描述**
-
+ 
 接收到HTTP响应的回调函数。
-
+ 
 **起始版本：** 20
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [struct Http_Response](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-response) *response | HTTP响应结构体，指向Http_Response的指针，参考[Http_Response](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-response)。 |
+| struct Http_Response *response | HTTP响应结构体，指向Http_Response的指针，参考Http_Response。 |
 | uint32_t errCode | 响应码。 |
+ 
+ 
+  
 
-
-### Http_OnDataReceiveCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_OnDataReceiveCallback()
 
 ```text
 typedef void (*Http_OnDataReceiveCallback)(const char *data, size_t length)
 ```
-
+ 
 **描述**
-
+ 
 接收到数据的回调。
-
+ 
 **起始版本：** 20
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
 | const char *data | 响应体。 |
 | size_t length | 响应体的长度。 |
+ 
+ 
+  
 
-
-### Http_OnProgressCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_OnProgressCallback()
 
 ```text
 typedef void (*Http_OnProgressCallback)(uint64_t totalSize, uint64_t transferredSize)
 ```
-
+ 
 **描述**
-
+ 
 请求/响应数据传输过程中调用的回调函数。
-
+ 
 **起始版本：** 20
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
 | uint64_t totalSize | 数据总大小。 |
 | uint64_t transferredSize | 已传输的数据大小。 |
+ 
+ 
+  
 
-
-### Http_OnHeaderReceiveCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_OnHeaderReceiveCallback()
 
 ```text
 typedef void (*Http_OnHeaderReceiveCallback)(Http_Headers *headers)
 ```
-
+ 
 **描述**
-
+ 
 收到HTTP响应头的回调函数。
-
+ 
 **起始版本：** 20
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [Http_Headers](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-headers) *headers | 接收到的请求头，指向Http_Headers的指针，参考[Http_Headers](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-netstack-http-headers)。 |
+| Http_Headers *headers | 接收到的请求头，指向Http_Headers的指针，参考Http_Headers。 |
+ 
+ 
+  
 
-
-### Http_OnVoidCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### Http_OnVoidCallback()
 
 ```text
 typedef void (*Http_OnVoidCallback)(void)
 ```
-
+ 
 **描述**
-
+ 
 请求的DataEnd或Cancel事件回调的回调函数。
-
+ 
 **起始版本：** 20

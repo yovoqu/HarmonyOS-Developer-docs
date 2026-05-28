@@ -3,15 +3,14 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-backgroundprocessmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 31800002 参数错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 31800002 参数错误
 
 **错误信息**
 
@@ -22,8 +21,6 @@ Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
 参数错误。
 
 **可能原因**
-
-
 1. 参数数量不正确。
 2. 参数类型不正确。
 3. 参数取值超出范围。
@@ -33,8 +30,8 @@ Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
 请检查必选参数是否传入，或者传入的参数类型是否错误。对于参数校验失败，阅读参数规格约束，按照可能原因进行排查。
 
 
-## 31800003 已经被任务管理器设置
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 31800003 已经被任务管理器设置
 
 **错误信息**
 
@@ -53,8 +50,8 @@ Setup error, This setting is overridden by setting in Task Manager.
 尝试使用任务管理器应用进行设置。
 
 
-## 31800004 系统调度原因导致设置失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 31800004 系统调度原因导致设置失败
 
 **错误信息**
 

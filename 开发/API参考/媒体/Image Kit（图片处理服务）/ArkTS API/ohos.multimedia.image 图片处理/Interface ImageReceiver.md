@@ -3,46 +3,60 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImageReceiver类，用于获取组件surface id、接收最新的图片和读取下一张图片以及释放ImageReceiver实例。ImageReceiver作为图片的接收方和消费者，其参数属性实际上不会对接收到的图片产生影响。图片属性的配置应在发送方和生产者上进行，如相机预览流[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)。
+ 
 在调用以下方法前需要先通过[image.createImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagereceiver11)创建ImageReceiver实例。
+ 
 从API version 23开始，更推荐使用[image.createImageReceiver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagereceiver23)，通过传入[ImageReceiverOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imagereceiveroptions23)创建ImageReceiver实例。
+ 
 由于图片占用内存较大，所以当ImageReceiver实例使用完成后，应主动调用[release](#release9)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+ 
+> [!NOTE]
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。
 
-> [!NOTE] 说明
-> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。本Interface首批接口从API version 9开始支持。
+  
 
-#### 导入模块
+##### 导入模块
 
-```ts
+```text
 import { image } from '@kit.ImageKit';
 ```
+ 
+  
 
-#### 属性
+##### 属性
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| size^9+ | [Size](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#size) | 是 | 否 | 图片大小。该参数不会影响接收到的图片大小，实际返回大小由生产者决定，如相机。 |
-| capacity^9+ | number | 是 | 否 | 同时访问的图像数。该参数仅作为期望值，实际capacity由设备硬件决定。 |
-| format^9+ | [ImageFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#imageformat9) | 是 | 否 | 图像格式，取值为[ImageFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#imageformat9)常量（目前仅支持 ImageFormat:JPEG，实际返回格式由生产者决定，如相机）。 |
+| size9+ | Size | 是 | 否 | 图片大小。该参数不会影响接收到的图片大小，实际返回大小由生产者决定，如相机。 |
+| capacity9+ | number | 是 | 否 | 同时访问的图像数。该参数仅作为期望值，实际capacity由设备硬件决定。 |
+| format9+ | ImageFormat | 是 | 否 | 图像格式，取值为ImageFormat常量（目前仅支持 ImageFormat:JPEG，实际返回格式由生产者决定，如相机）。 |
+ 
+ 
+  
 
-#### getReceivingSurfaceId9+
+##### getReceivingSurfaceId9+
+
 getReceivingSurfaceId(callback: AsyncCallback&lt;string&gt;): void
+ 
 用于获取一个surface id供Camera或其他组件使用。使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，当获取surface id成功，err为undefined，data为获取到的surface id；否则为错误对象。 |
-
+ 
+ 
 **示例:**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
@@ -55,21 +69,27 @@ async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
   });
 }
 ```
+ 
+  
 
-#### getReceivingSurfaceId9+
+##### getReceivingSurfaceId9+
+
 getReceivingSurfaceId(): Promise&lt;string&gt;
+ 
 用于获取一个surface id供Camera或其他组件使用。使用Promise异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回surface id。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
@@ -80,28 +100,35 @@ async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
   })
 }
 ```
+ 
+  
 
-#### readLatestImage9+
+##### readLatestImage9+
+
 readLatestImage(callback: AsyncCallback&lt;Image&gt;): void
+ 
 从ImageReceiver读取最新的图片。使用callback异步回调。
+ 
 
-> [!CAUTION] 说明
-> 
+![](assets/Interface%20ImageReceiver/file-20260525092932510-002.png)
+ 
+ 
+此接口需要在[on](#on9)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)对象使用完毕后需要调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image#release9)方法释放，释放后才可以继续接收新的数据。
+  
 
-![](assets/Interface%20ImageReceiver/file-20260525092932510-001.png)
-> 此接口需要在on回调触发后调用，才能正常的接收到数据。且此接口返回的Image对象使用完毕后需要调用release方法释放，释放后才可以继续接收新的数据。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)> | 是 | 回调函数，当读取最新图片成功，err为undefined，data为获取到的最新图片；否则为错误对象。 |
-
+| callback | AsyncCallback&lt;Image&gt; | 是 | 回调函数，当读取最新图片成功，err为undefined，data为获取到的最新图片；否则为错误对象。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ReadLatestImage(receiver : image.ImageReceiver) {
@@ -126,28 +153,35 @@ async function ReadLatestImage(receiver : image.ImageReceiver) {
   });
 }
 ```
+ 
+  
 
-#### readLatestImage9+
+##### readLatestImage9+
+
 readLatestImage(): Promise&lt;Image&gt;
+ 
 从ImageReceiver读取最新的图片。使用Promise异步回调。
+ 
 
-> [!CAUTION] 说明
-> 
+![](assets/Interface%20ImageReceiver/file-20260525092932510-003.png)
+ 
+ 
+此接口需要在[on](#on9)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)对象使用完毕后需要调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image#release9)方法释放，释放后才可以继续接收新的数据。
+  
 
-![](assets/Interface%20ImageReceiver/file-20260525092932510-002.png)
-> 此接口需要在on回调触发后调用，才能正常的接收到数据。且此接口返回的Image对象使用完毕后需要调用release方法释放，释放后才可以继续接收新的数据。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)> | Promise对象，返回最新图片。 |
-
+| Promise&lt;Image&gt; | Promise对象，返回最新图片。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ReadLatestImage(receiver : image.ImageReceiver) {
@@ -170,28 +204,35 @@ async function ReadLatestImage(receiver : image.ImageReceiver) {
   });
 }
 ```
+ 
+  
 
-#### readNextImage9+
+##### readNextImage9+
+
 readNextImage(callback: AsyncCallback&lt;Image&gt;): void
+ 
 从ImageReceiver读取下一张图片。使用callback异步回调。
+ 
 
-> [!CAUTION] 说明
-> 
+![](assets/Interface%20ImageReceiver/file-20260525092932511-004.png)
+ 
+ 
+此接口需要在[on](#on9)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)对象使用完毕后需要调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image#release9)方法释放，释放后才可以继续接收新的数据。
+  
 
-![](assets/Interface%20ImageReceiver/file-20260525092932510-003.png)
-> 此接口需要在on回调触发后调用，才能正常的接收到数据。且此接口返回的Image对象使用完毕后需要调用release方法释放，释放后才可以继续接收新的数据。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)> | 是 | 回调函数，当获取下一张图片成功，err为undefined，data为获取到的下一张图片；否则为错误对象。 |
-
+| callback | AsyncCallback&lt;Image&gt; | 是 | 回调函数，当获取下一张图片成功，err为undefined，data为获取到的下一张图片；否则为错误对象。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ReadNextImage(receiver : image.ImageReceiver) {
@@ -216,28 +257,35 @@ async function ReadNextImage(receiver : image.ImageReceiver) {
   });
 }
 ```
+ 
+  
 
-#### readNextImage9+
+##### readNextImage9+
+
 readNextImage(): Promise&lt;Image&gt;
+ 
 从ImageReceiver读取下一张图片。使用Promise异步回调。
+ 
 
-> [!CAUTION] 说明
-> 
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/TBxNuVHJRviF1YTKz1kQIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013654Z&HW-CC-Expire=86400&HW-CC-Sign=3E335444466C695AB96DAF81A1EAF4A66B3F6ABA143A228AF21FFFD5C777BF50)
+ 
+ 
+此接口需要在[on](#on9)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)对象使用完毕后需要调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image#release9)方法释放，释放后才可以继续接收新的数据。
+  
 
-![](assets/Interface%20ImageReceiver/file-20260525092932511-004.png)
-> 此接口需要在on回调触发后调用，才能正常的接收到数据。且此接口返回的Image对象使用完毕后需要调用release方法释放，释放后才可以继续接收新的数据。
-
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)> | Promise对象，返回下一张图片。 |
-
+| Promise&lt;Image&gt; | Promise对象，返回下一张图片。 |
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ReadNextImage(receiver : image.ImageReceiver) {
@@ -260,22 +308,28 @@ async function ReadNextImage(receiver : image.ImageReceiver) {
   });
 }
 ```
+ 
+  
 
-#### on9+
+##### on9+
+
 on(type: 'imageArrival', callback: AsyncCallback&lt;void&gt;): void
+ 
 接收图片时注册回调。使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注册事件的类型，固定为'imageArrival'，接收图片到达时触发。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当注册事件触发成功，err为undefined，否则为错误对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 async function On(receiver : image.ImageReceiver) {
   receiver.on('imageArrival', () => {
     // 图片到达回调触发后，读取最新或下一张图片进行处理。
@@ -288,22 +342,28 @@ async function On(receiver : image.ImageReceiver) {
   });
 }
 ```
+ 
+  
 
-#### off13+
+##### off13+
+
 off(type: 'imageArrival', callback?: AsyncCallback&lt;void&gt;): void
+ 
 释放buffer时移除注册回调。使用callback异步回调。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注册事件的类型，固定为'imageArrival'，释放buffer时触发。 |
 | callback | AsyncCallback&lt;void&gt; | 否 | 移除的回调函数。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 async function Off(receiver : image.ImageReceiver) {
   let callbackFunc = ()=>{
       // 实现回调函数逻辑。
@@ -312,23 +372,31 @@ async function Off(receiver : image.ImageReceiver) {
   receiver.off('imageArrival', callbackFunc);
 }
 ```
+ 
+  
 
-#### release9+
+##### release9+
+
 release(callback: AsyncCallback&lt;void&gt;): void
+ 
 释放ImageReceiver实例。使用callback异步回调。
+ 
 由于图片占用内存较大，所以当ImageReceiver实例使用完成后，应主动调用该方法，及时释放内存。
+ 
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **参数：**
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当释放ImageReceiver实例成功，err为undefined，否则为错误对象。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release(receiver : image.ImageReceiver) {
@@ -341,23 +409,31 @@ async function Release(receiver : image.ImageReceiver) {
   })
 }
 ```
+ 
+  
 
-#### release9+
+##### release9+
+
 release(): Promise&lt;void&gt;
+ 
 释放ImageReceiver实例。使用Promise异步回调。
+ 
 由于图片占用内存较大，所以当ImageReceiver实例使用完成后，应主动调用该方法，及时释放内存。
+ 
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+ 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
-
+ 
 **返回值：**
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
+ 
+ 
 **示例：**
-
-```ts
+ 
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release(receiver : image.ImageReceiver) {

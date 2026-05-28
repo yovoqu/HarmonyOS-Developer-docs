@@ -7,28 +7,33 @@
 HarmonyOS的API提供进程内跨ArkTS线程共享的强引用能力。相较于napi_ref，napi_sendable_ref支持跨ArkTS线程操作，但同时也存在一些限制。
 
 
-## 场景介绍
+##### 场景介绍
 
 开发者可使用[napi_create_strong_sendable_reference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_create_strong_sendable_reference)接口创建指向Sendable ArkTS对象的Sendable强引用，使用[napi_get_strong_sendable_reference_value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_get_strong_sendable_reference_value)获取被引用的ArkTS对象，使用[napi_delete_strong_sendable_reference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_delete_strong_sendable_reference)删除Sendable强引用。这些操作既可以在同一ArkTS线程进行，也可在不同ArkTS线程进行。
 
-## Sendable强引用对象关联接口
 
+
+##### Sendable强引用对象关联接口
 
 | 接口 | 描述 |
 | --- | --- |
-| [napi_create_strong_sendable_reference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_create_strong_sendable_reference) | 创建指向Sendable ArkTS对象的Sendable强引用。 |
-| [napi_delete_strong_sendable_reference](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_delete_strong_sendable_reference) | 删除Sendable强引用。 |
-| [napi_get_strong_sendable_reference_value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#napi_get_strong_sendable_reference_value) | 根据Sendable强引用获取其关联的ArkTS对象值。 |
+| napi_create_strong_sendable_reference | 创建指向Sendable ArkTS对象的Sendable强引用。 |
+| napi_delete_strong_sendable_reference | 删除Sendable强引用。 |
+| napi_get_strong_sendable_reference_value | 根据Sendable强引用获取其关联的ArkTS对象值。 |
 
 
-## 示例代码
 
-模块注册
-```text
+
+##### 示例代码
+
+ - 模块注册
+
+  
+```cpp
 // napi_init.cpp
 #include "napi/native_api.h"
-#include
-#include
+#include <cstdlib>
+#include <thread>
 
 #define ASSERT_EQ(a, b) \
 do {                    \
@@ -47,7 +52,7 @@ static napi_value CreateSendableRef(napi_env env, napi_callback_info info)
 
    ASSERT_CHECK_CALL(napi_get_cb_info(env, info, &argc, args, nullptr, nullptr));
    ASSERT_CHECK_CALL(napi_create_strong_sendable_reference(env, args[0], &sRef));
-
+   
    napi_value str = nullptr;
    ASSERT_CHECK_CALL(napi_create_string_utf8(env, "success", NAPI_AUTO_LENGTH, &str));
    return str;
@@ -57,7 +62,7 @@ static napi_value GetAndModifySendableRefValueInArkRuntime(napi_env env, napi_ca
 {
    // 此处省略调用者在主线程的业务逻辑
    // ...
-
+   
    // 此处模拟调用者在其他ArkTS线程上获取napi_sendable_ref内的共享对象操作
    std::thread t1([]() {
       napi_env newEnv = nullptr;
@@ -69,14 +74,14 @@ static napi_value GetAndModifySendableRefValueInArkRuntime(napi_env env, napi_ca
       }
       napi_value sObj = nullptr;
       ASSERT_CHECK_CALL(napi_get_strong_sendable_reference_value(newEnv, sRef, &sObj));
-
+      
       // 校验sObj内容
       napi_value numValue = nullptr;
       ASSERT_CHECK_CALL(napi_get_named_property(newEnv, sObj, "num", &numValue));
       int32_t num = 0;
       ASSERT_CHECK_CALL(napi_get_value_int32(newEnv, numValue, &num));
       ASSERT_EQ(num, 1111);
-
+      
       // 修改sObj内容
       napi_value newNum = nullptr;
       ASSERT_CHECK_CALL(napi_create_int32(newEnv, num * 2, &newNum));
@@ -175,8 +180,10 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void)
 }
 ```
 
-接口声明
-```text
+ - 接口声明
+
+  
+```ts
 // index.d.ts
 export const createSendableRef: (a: object) => string;
 export const getAndModifySendableRefValueInArkRuntime: () => string;
@@ -184,8 +191,10 @@ export const getSendableRefValueInWorkerOrTaskpool: () => object;
 export const checkAndDeleteSendableRef: () => string;
 ```
 
-ArkTS代码示例
-```text
+ - ArkTS代码示例
+
+  
+```ArkTS
 // index.ets
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
@@ -268,8 +277,7 @@ struct Index {
 }
 ```
 
-
-```text
+```ArkTS
 // Worker.ets
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import testNapi from 'libentry.so';
@@ -317,6 +325,12 @@ workerPort.onerror = (event: ErrorEvent) => {
 ```
 
 
-## 注意事项
 
-只能为[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable支持的数据类型)创建napi_sendable_ref。 napi_sendable_ref可跨ArkTS线程使用，在多线程操作时，调用者需自己保证释放时机，防止出现释放后使用的问题。 同一进程内，同时存活的napi_sendable_ref最大数量为51200个。 napi_sendable_ref与其他引用的类型不同，因此不可将napi_ref、napi_strong_ref等其他引用强转成napi_sendable_ref。napi_delete_strong_sendable_reference和napi_get_strong_sendable_reference_value接口仅允许接收由napi_create_strong_sendable_reference创建的napi_sendable_ref。 在使用napi_create_strong_sendable_reference、napi_get_strong_sendable_reference_value和napi_delete_strong_sendable_reference接口时，调用者需要保证传入的env参数是当前调用接口的ArkTS线程环境对象，避免将其他ArkTS线程的env作为参数传入导致出现[多线程安全问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ark-runtime-detection#section19357830121120)。
+
+
+##### 注意事项
+1. 只能为[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable支持的数据类型)创建napi_sendable_ref。
+2. napi_sendable_ref可跨ArkTS线程使用，在多线程操作时，调用者需自己保证释放时机，防止出现释放后使用的问题。
+3. 同一进程内，同时存活的napi_sendable_ref最大数量为51200个。
+4. napi_sendable_ref与其他引用的类型不同，因此不可将napi_ref、napi_strong_ref等其他引用强转成napi_sendable_ref。napi_delete_strong_sendable_reference和napi_get_strong_sendable_reference_value接口仅允许接收由napi_create_strong_sendable_reference创建的napi_sendable_ref。
+5. 在使用napi_create_strong_sendable_reference、napi_get_strong_sendable_reference_value和napi_delete_strong_sendable_reference接口时，调用者需要保证传入的env参数是当前调用接口的ArkTS线程环境对象，避免将其他ArkTS线程的env作为参数传入导致出现[多线程安全问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ark-runtime-detection#section19357830121120)。

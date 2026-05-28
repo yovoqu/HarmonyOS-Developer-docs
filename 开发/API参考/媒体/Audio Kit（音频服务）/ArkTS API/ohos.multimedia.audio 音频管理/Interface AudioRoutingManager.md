@@ -3,26 +3,28 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audioroutingmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音频路由管理。
 
 在使用AudioRoutingManager的接口之前，需先通过[getRoutingManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager#getroutingmanager9)获取AudioRoutingManager实例。
 
+> [!NOTE]
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { audio } from '@kit.AudioKit';
 ```
 
 
-## getDevices9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>): void
+##### getDevices9+
+
+getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
 
 获取音频设备列表。使用callback异步回调。
 
@@ -30,43 +32,31 @@ getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptor
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceFlag | [DeviceFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#deviceflag) | 是 | 音频设备类型。 |
-| callback | AsyncCallback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | 是 | 回调函数。当获取音频设备列表成功，err为undefined，data为获取到的音频设备列表；否则为错误对象。 |
+| deviceFlag | DeviceFlag | 是 | 音频设备类型。 |
+| callback | AsyncCallback&lt;AudioDeviceDescriptors&gt; | 是 | 回调函数。当获取音频设备列表成功，err为undefined，data为获取到的音频设备列表；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioRoutingManager.getDevices(
-  audio.DeviceFlag.OUTPUT_DEVICES_FLAG,
-  (
-    err: BusinessError,
-    audioDeviceDescriptors: audio.AudioDeviceDescriptors,
-  ) => {
-    if (err) {
-      console.error(
-        `Failed to get devices. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting devices, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-      );
-    }
-  },
-);
+audioRoutingManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (err: BusinessError, audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  if (err) {
+    console.error(`Failed to get devices. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting devices, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+  }
+});
 ```
 
 
-## getDevices9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>
+##### getDevices9+
+
+getDevices(deviceFlag: DeviceFlag): Promise&lt;AudioDeviceDescriptors&gt;
 
 获取音频设备列表。使用Promise异步回调。
 
@@ -74,43 +64,33 @@ getDevices(deviceFlag: DeviceFlag): Promise<AudioDeviceDescriptors>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceFlag | [DeviceFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#deviceflag) | 是 | 音频设备类型。 |
+| deviceFlag | DeviceFlag | 是 | 音频设备类型。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | Promise对象，返回设备列表。 |
+| Promise&lt;AudioDeviceDescriptors&gt; | Promise对象，返回设备列表。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioRoutingManager
-  .getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG)
-  .then((audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
-    console.info(
-      `Succeeded in getting devices, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get devices. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioRoutingManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG).then((audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  console.info(`Succeeded in getting devices, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get devices. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## getDevicesSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getDevicesSync10+
 
 getDevicesSync(deviceFlag: DeviceFlag): AudioDeviceDescriptors
 
@@ -120,24 +100,21 @@ getDevicesSync(deviceFlag: DeviceFlag): AudioDeviceDescriptors
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceFlag | [DeviceFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#deviceflag) | 是 | 音频设备类型。 |
+| deviceFlag | DeviceFlag | 是 | 音频设备类型。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) | 返回设备列表。 |
+| AudioDeviceDescriptors | 返回设备列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -147,37 +124,29 @@ getDevicesSync(deviceFlag: DeviceFlag): AudioDeviceDescriptors
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let audioDeviceDescriptors = audioRoutingManager.getDevicesSync(
-    audio.DeviceFlag.OUTPUT_DEVICES_FLAG,
-  );
-  console.info(
-    `Succeeded in getting devices, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-  );
+  let audioDeviceDescriptors = audioRoutingManager.getDevicesSync(audio.DeviceFlag.OUTPUT_DEVICES_FLAG);
+  console.info(`Succeeded in getting devices, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get devices. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get devices. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## isMicBlockDetectionSupported13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isMicBlockDetectionSupported(): Promise<boolean>
+##### isMicBlockDetectionSupported13+
+
+isMicBlockDetectionSupported(): Promise&lt;boolean&gt;
 
 获取当前设备是否支持麦克风状态检测。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -186,20 +155,17 @@ isMicBlockDetectionSupported(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 audioRoutingManager.isMicBlockDetectionSupported().then((value: boolean) => {
-  console.info(
-    `Query whether microphone block detection is supported on current device result is ${value}.`,
-  );
+  console.info(`Query whether microphone block detection is supported on current device result is ${value}.`);
 });
 ```
 
 
-## on('micBlockStatusChanged')13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'micBlockStatusChanged', callback: Callback<DeviceBlockStatusInfo>): void
+##### on('micBlockStatusChanged')13+
+
+on(type: 'micBlockStatusChanged', callback: Callback&lt;DeviceBlockStatusInfo&gt;): void
 
 监听麦克风堵塞状态变化事件。使用callback异步回调。
 
@@ -209,17 +175,15 @@ on(type: 'micBlockStatusChanged', callback: Callback<DeviceBlockStatusInfo>): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'micBlockStatusChanged'，当麦克风堵塞状态发生变化时，触发该事件。 |
-| callback | Callback&lt;[DeviceBlockStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#deviceblockstatusinfo13)&gt; | 是 | 回调函数，返回麦克风被堵塞状态和设备信息。 |
+| callback | Callback&lt;DeviceBlockStatusInfo&gt; | 是 | 回调函数，返回麦克风被堵塞状态和设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -229,29 +193,23 @@ on(type: 'micBlockStatusChanged', callback: Callback<DeviceBlockStatusInfo>): vo
 
 **示例：**
 
-
-```ts
+```text
 // 在使用此功能之前，应先查询当前设备是否支持检测。
 audioRoutingManager.isMicBlockDetectionSupported().then((value: boolean) => {
-  console.info(
-    `Query whether microphone block detection is supported on current device result is ${value}.`,
-  );
+  console.info(`Query whether microphone block detection is supported on current device result is ${value}.`);
   if (value) {
-    audioRoutingManager.on(
-      'micBlockStatusChanged',
-      (micBlockStatusChanged: audio.DeviceBlockStatusInfo) => {
-        console.info(`block status : ${micBlockStatusChanged.blockStatus} `);
-      },
-    );
+    audioRoutingManager.on('micBlockStatusChanged', (micBlockStatusChanged: audio.DeviceBlockStatusInfo) => {
+      console.info(`block status : ${micBlockStatusChanged.blockStatus} `);
+    });
   }
 });
 ```
 
 
-## off('micBlockStatusChanged')13+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void
+##### off('micBlockStatusChanged')13+
+
+off(type: 'micBlockStatusChanged', callback?: Callback&lt;DeviceBlockStatusInfo&gt;): void
 
 取消监听麦克风堵塞状态变化事件。使用callback异步回调。
 
@@ -259,17 +217,15 @@ off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'micBlockStatusChanged'，当取消监听音频麦克风是否被堵塞变化事件时，触发该事件。 |
-| callback | Callback&lt;[DeviceBlockStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#deviceblockstatusinfo13)&gt; | 否 | 回调函数，返回麦克风被堵塞状态和设备信息。 |
+| callback | Callback&lt;DeviceBlockStatusInfo&gt; | 否 | 回调函数，返回麦克风被堵塞状态和设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -279,15 +235,12 @@ off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): 
 
 **示例：**
 
-
-```ts
+```text
 // 取消该事件的所有监听。
 audioRoutingManager.off('micBlockStatusChanged');
 
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
-let micBlockStatusCallback = (
-  micBlockStatusChanged: audio.DeviceBlockStatusInfo,
-) => {
+let micBlockStatusCallback = (micBlockStatusChanged: audio.DeviceBlockStatusInfo) => {
   console.info(`block status : ${micBlockStatusChanged.blockStatus} `);
 };
 
@@ -297,10 +250,10 @@ audioRoutingManager.off('micBlockStatusChanged', micBlockStatusCallback);
 ```
 
 
-## on('deviceChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void
+##### on('deviceChange')9+
+
+on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback&lt;DeviceChangeAction&gt;): void
 
 监听音频设备连接状态变化事件（当音频设备连接状态发生变化时触发）。使用callback异步回调。
 
@@ -308,18 +261,16 @@ on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChange
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'deviceChange'，当音频设备连接状态发生变化时，触发该事件。 |
-| deviceFlag | [DeviceFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#deviceflag) | 是 | 音频设备类型。 |
-| callback | Callback&lt;[DeviceChangeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#devicechangeaction)&gt; | 是 | 回调函数，返回设备更新详情。 |
+| deviceFlag | DeviceFlag | 是 | 音频设备类型。 |
+| callback | Callback&lt;DeviceChangeAction&gt; | 是 | 回调函数，返回设备更新详情。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -329,33 +280,20 @@ on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback<DeviceChange
 
 **示例：**
 
-
-```ts
-audioRoutingManager.on(
-  'deviceChange',
-  audio.DeviceFlag.OUTPUT_DEVICES_FLAG,
-  (deviceChanged: audio.DeviceChangeAction) => {
-    console.info('device change type : ' + deviceChanged.type);
-    console.info(
-      'device descriptor size : ' + deviceChanged.deviceDescriptors.length,
-    );
-    console.info(
-      'device change descriptor : ' +
-        deviceChanged.deviceDescriptors[0].deviceRole,
-    );
-    console.info(
-      'device change descriptor : ' +
-        deviceChanged.deviceDescriptors[0].deviceType,
-    );
-  },
-);
+```text
+audioRoutingManager.on('deviceChange', audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (deviceChanged: audio.DeviceChangeAction) => {
+  console.info('device change type : ' + deviceChanged.type);
+  console.info('device descriptor size : ' + deviceChanged.deviceDescriptors.length);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceRole);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceType);
+});
 ```
 
 
-## off('deviceChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void
+##### off('deviceChange')9+
+
+off(type: 'deviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void
 
 取消监听音频设备连接状态变化事件。使用callback异步回调。
 
@@ -363,17 +301,15 @@ off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'deviceChange'，当取消监听音频设备连接变化事件时，触发该事件。 |
-| callback | Callback&lt;[DeviceChangeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#devicechangeaction)&gt; | 否 | 回调函数，返回设备更新详情。 |
+| callback | Callback&lt;DeviceChangeAction&gt; | 否 | 回调函数，返回设备更新详情。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -383,41 +319,28 @@ off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void
 
 **示例：**
 
-
-```ts
+```text
 // 取消该事件的所有监听。
 audioRoutingManager.off('deviceChange');
 
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
 let deviceChangeCallback = (deviceChanged: audio.DeviceChangeAction) => {
   console.info('device change type : ' + deviceChanged.type);
-  console.info(
-    'device descriptor size : ' + deviceChanged.deviceDescriptors.length,
-  );
-  console.info(
-    'device change descriptor : ' +
-      deviceChanged.deviceDescriptors[0].deviceRole,
-  );
-  console.info(
-    'device change descriptor : ' +
-      deviceChanged.deviceDescriptors[0].deviceType,
-  );
+  console.info('device descriptor size : ' + deviceChanged.deviceDescriptors.length);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceRole);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceType);
 };
 
-audioRoutingManager.on(
-  'deviceChange',
-  audio.DeviceFlag.OUTPUT_DEVICES_FLAG,
-  deviceChangeCallback,
-);
+audioRoutingManager.on('deviceChange', audio.DeviceFlag.OUTPUT_DEVICES_FLAG, deviceChangeCallback);
 
 audioRoutingManager.off('deviceChange', deviceChangeCallback);
 ```
 
 
-## setCommunicationDevice9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, callback: AsyncCallback<void>): void
+##### setCommunicationDevice9+
+
+setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置通信设备激活状态。使用callback异步回调。
 
@@ -429,38 +352,30 @@ setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, cal
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceType | [CommunicationDeviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#communicationdevicetype9) | 是 | 音频设备类型。 |
+| deviceType | CommunicationDeviceType | 是 | 音频设备类型。 |
 | active | boolean | 是 | 是否设置设备为激活状态。true表示激活，false表示未激活。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置通信设备激活状态成功，err为undefined，否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioRoutingManager.setCommunicationDevice(
-  audio.CommunicationDeviceType.SPEAKER,
-  true,
-  (err: BusinessError) => {
-    if (err) {
-      console.error(`Failed to set the active status of the device. ${err}`);
-      return;
-    }
-    console.info(
-      'Callback invoked to indicate that the device is set to the active status.',
-    );
-  },
-);
+audioRoutingManager.setCommunicationDevice(audio.CommunicationDeviceType.SPEAKER, true, (err: BusinessError) => {
+  if (err) {
+    console.error(`Failed to set the active status of the device. ${err}`);
+    return;
+  }
+  console.info('Callback invoked to indicate that the device is set to the active status.');
+});
 ```
 
 
-## getAvailableDevices12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAvailableDevices12+
 
 getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors
 
@@ -470,24 +385,21 @@ getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceUsage | [DeviceUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#deviceusage12) | 是 | 音频设备类型（根据用途分类）。 |
+| deviceUsage | DeviceUsage | 是 | 音频设备类型（根据用途分类）。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) | 返回设备列表。 |
+| AudioDeviceDescriptors | 返回设备列表。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -497,29 +409,23 @@ getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let data: audio.AudioDeviceDescriptors =
-    audioRoutingManager.getAvailableDevices(
-      audio.DeviceUsage.MEDIA_OUTPUT_DEVICES,
-    );
+  let data: audio.AudioDeviceDescriptors = audioRoutingManager.getAvailableDevices(audio.DeviceUsage.MEDIA_OUTPUT_DEVICES);
   console.info('Succeeded in doing getAvailableDevices.');
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to getAvailableDevices. Code: ${error.code}, message: ${error.message}`,
-  );
+   console.error(`Failed to getAvailableDevices. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## on('availableDeviceChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void
+##### on('availableDeviceChange')12+
+
+on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback&lt;DeviceChangeAction&gt;): void
 
 监听音频可选设备连接状态变化事件（当音频可选设备连接状态发生变化时触发）。使用callback异步回调。
 
@@ -527,18 +433,16 @@ on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<D
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'availableDeviceChange'，当音频可选设备连接状态发生变化时，触发该事件。 |
-| deviceUsage | [DeviceUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#deviceusage12) | 是 | 音频设备类型（根据用途分类）。 |
-| callback | Callback&lt;[DeviceChangeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#devicechangeaction)&gt; | 是 | 回调函数，返回设备更新详情。 |
+| deviceUsage | DeviceUsage | 是 | 音频设备类型（根据用途分类）。 |
+| callback | Callback&lt;DeviceChangeAction&gt; | 是 | 回调函数，返回设备更新详情。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -548,33 +452,20 @@ on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<D
 
 **示例：**
 
-
-```ts
-audioRoutingManager.on(
-  'availableDeviceChange',
-  audio.DeviceUsage.MEDIA_OUTPUT_DEVICES,
-  (deviceChanged: audio.DeviceChangeAction) => {
-    console.info('device change type : ' + deviceChanged.type);
-    console.info(
-      'device descriptor size : ' + deviceChanged.deviceDescriptors.length,
-    );
-    console.info(
-      'device change descriptor : ' +
-        deviceChanged.deviceDescriptors[0].deviceRole,
-    );
-    console.info(
-      'device change descriptor : ' +
-        deviceChanged.deviceDescriptors[0].deviceType,
-    );
-  },
-);
+```text
+audioRoutingManager.on('availableDeviceChange', audio.DeviceUsage.MEDIA_OUTPUT_DEVICES, (deviceChanged: audio.DeviceChangeAction) => {
+  console.info('device change type : ' + deviceChanged.type);
+  console.info('device descriptor size : ' + deviceChanged.deviceDescriptors.length);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceRole);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceType);
+});
 ```
 
 
-## off('availableDeviceChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void
+##### off('availableDeviceChange')12+
+
+off(type: 'availableDeviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void
 
 取消监听音频可选设备连接状态变化事件。使用callback异步回调。
 
@@ -582,17 +473,15 @@ off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'availableDeviceChange'，当取消监听音频可选设备连接变化事件时，触发该事件。 |
-| callback | Callback&lt;[DeviceChangeAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#devicechangeaction)&gt; | 否 | 回调函数，返回可选设备更新详情。 |
+| callback | Callback&lt;DeviceChangeAction&gt; | 否 | 回调函数，返回可选设备更新详情。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -602,43 +491,28 @@ off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): voi
 
 **示例：**
 
-
-```ts
+```text
 // 取消该事件的所有监听。
 audioRoutingManager.off('availableDeviceChange');
 
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
-let availableDeviceChangeCallback = (
-  deviceChanged: audio.DeviceChangeAction,
-) => {
+let availableDeviceChangeCallback = (deviceChanged: audio.DeviceChangeAction) => {
   console.info('device change type : ' + deviceChanged.type);
-  console.info(
-    'device descriptor size : ' + deviceChanged.deviceDescriptors.length,
-  );
-  console.info(
-    'device change descriptor : ' +
-      deviceChanged.deviceDescriptors[0].deviceRole,
-  );
-  console.info(
-    'device change descriptor : ' +
-      deviceChanged.deviceDescriptors[0].deviceType,
-  );
+  console.info('device descriptor size : ' + deviceChanged.deviceDescriptors.length);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceRole);
+  console.info('device change descriptor : ' + deviceChanged.deviceDescriptors[0].deviceType);
 };
 
-audioRoutingManager.on(
-  'availableDeviceChange',
-  audio.DeviceUsage.MEDIA_OUTPUT_DEVICES,
-  availableDeviceChangeCallback,
-);
+audioRoutingManager.on('availableDeviceChange', audio.DeviceUsage.MEDIA_OUTPUT_DEVICES, availableDeviceChangeCallback);
 
 audioRoutingManager.off('availableDeviceChange', availableDeviceChangeCallback);
 ```
 
 
-## setCommunicationDevice9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Promise<void>
+##### setCommunicationDevice9+
+
+setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Promise&lt;void&gt;
 
 设置通信设备激活状态。使用Promise异步回调。
 
@@ -650,15 +524,13 @@ setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Pr
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceType | [CommunicationDeviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#communicationdevicetype9) | 是 | 活跃音频设备类型。 |
+| deviceType | CommunicationDeviceType | 是 | 活跃音频设备类型。 |
 | active | boolean | 是 | 是否设置设备为激活状态。true表示激活，false表示未激活。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -667,22 +539,17 @@ setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Pr
 
 **示例：**
 
-
-```ts
-audioRoutingManager
-  .setCommunicationDevice(audio.CommunicationDeviceType.SPEAKER, true)
-  .then(() => {
-    console.info(
-      'Promise returned to indicate that the device is set to the active status.',
-    );
-  });
+```text
+audioRoutingManager.setCommunicationDevice(audio.CommunicationDeviceType.SPEAKER, true).then(() => {
+  console.info('Promise returned to indicate that the device is set to the active status.');
+});
 ```
 
 
-## isCommunicationDeviceActive9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback<boolean>): void
+##### isCommunicationDeviceActive9+
+
+isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback&lt;boolean&gt;): void
 
 获取指定通信设备的激活状态。使用callback异步回调。
 
@@ -690,38 +557,31 @@ isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: Async
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceType | [CommunicationDeviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#communicationdevicetype9) | 是 | 活跃音频设备类型。 |
+| deviceType | CommunicationDeviceType | 是 | 活跃音频设备类型。 |
 | callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。当获取指定通信设备的激活状态成功，err为undefined，data为true表示激活，false表示未激活；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioRoutingManager.isCommunicationDeviceActive(
-  audio.CommunicationDeviceType.SPEAKER,
-  (err: BusinessError, value: boolean) => {
-    if (err) {
-      console.error(`Failed to obtain the active status of the device. ${err}`);
-      return;
-    }
-    console.info(
-      'Callback invoked to indicate that the active status of the device is obtained.',
-    );
-  },
-);
+audioRoutingManager.isCommunicationDeviceActive(audio.CommunicationDeviceType.SPEAKER, (err: BusinessError, value: boolean) => {
+  if (err) {
+    console.error(`Failed to obtain the active status of the device. ${err}`);
+    return;
+  }
+  console.info('Callback invoked to indicate that the active status of the device is obtained.');
+});
 ```
 
 
-## isCommunicationDeviceActive9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolean>
+##### isCommunicationDeviceActive9+
+
+isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise&lt;boolean&gt;
 
 获取指定通信设备的激活状态。使用Promise异步回调。
 
@@ -729,14 +589,12 @@ isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolea
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceType | [CommunicationDeviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#communicationdevicetype9) | 是 | 活跃音频设备类型。 |
+| deviceType | CommunicationDeviceType | 是 | 活跃音频设备类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -745,20 +603,15 @@ isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise<boolea
 
 **示例：**
 
-
-```ts
-audioRoutingManager
-  .isCommunicationDeviceActive(audio.CommunicationDeviceType.SPEAKER)
-  .then((value: boolean) => {
-    console.info(
-      `Promise returned to indicate that the active status of the device is obtained ${value}.`,
-    );
-  });
+```text
+audioRoutingManager.isCommunicationDeviceActive(audio.CommunicationDeviceType.SPEAKER).then((value: boolean) => {
+  console.info(`Promise returned to indicate that the active status of the device is obtained ${value}.`);
+});
 ```
 
 
-## isCommunicationDeviceActiveSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isCommunicationDeviceActiveSync10+
 
 isCommunicationDeviceActiveSync(deviceType: CommunicationDeviceType): boolean
 
@@ -768,14 +621,12 @@ isCommunicationDeviceActiveSync(deviceType: CommunicationDeviceType): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceType | [CommunicationDeviceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#communicationdevicetype9) | 是 | 活跃音频设备类型。 |
+| deviceType | CommunicationDeviceType | 是 | 活跃音频设备类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -786,7 +637,6 @@ isCommunicationDeviceActiveSync(deviceType: CommunicationDeviceType): boolean
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
@@ -795,17 +645,12 @@ isCommunicationDeviceActiveSync(deviceType: CommunicationDeviceType): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let value: boolean = audioRoutingManager.isCommunicationDeviceActiveSync(
-    audio.CommunicationDeviceType.SPEAKER,
-  );
-  console.info(
-    `Indicate that the active status of the device is obtained ${value}.`,
-  );
+  let value: boolean = audioRoutingManager.isCommunicationDeviceActiveSync(audio.CommunicationDeviceType.SPEAKER);
+  console.info(`Indicate that the active status of the device is obtained ${value}.`);
 } catch (err) {
   let error = err as BusinessError;
   console.error(`Failed to obtain the active status of the device ${error}.`);
@@ -813,10 +658,10 @@ try {
 ```
 
 
-## getPreferOutputDeviceForRendererInfo10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void
+##### getPreferOutputDeviceForRendererInfo10+
+
+getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
 
 根据音频信息，返回优先级最高的输出设备。使用callback异步回调。
 
@@ -824,17 +669,15 @@ getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rendererInfo | [AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8) | 是 | 音频渲染器信息。 |
-| callback | AsyncCallback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | 是 | 回调函数。当获取优先级最高的输出设备成功，err为undefined，data为获取到的优先级最高的输出设备信息；否则为错误对象。 |
+| rendererInfo | AudioRendererInfo | 是 | 音频渲染器信息。 |
+| callback | AsyncCallback&lt;AudioDeviceDescriptors&gt; | 是 | 回调函数。当获取优先级最高的输出设备成功，err为undefined，data为获取到的优先级最高的输出设备信息；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -845,39 +688,28 @@ getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let rendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
-  rendererFlags: 0, // 音频渲染器标志。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 
-audioRoutingManager.getPreferOutputDeviceForRendererInfo(
-  rendererInfo,
-  (
-    err: BusinessError,
-    audioDeviceDescriptors: audio.AudioDeviceDescriptors,
-  ) => {
-    if (err) {
-      console.error(
-        `Failed to get prefer output device for renderer info. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting prefer output device for renderer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-      );
-    }
-  },
-);
+audioRoutingManager.getPreferOutputDeviceForRendererInfo(rendererInfo, (err: BusinessError, audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  if (err) {
+    console.error(`Failed to get prefer output device for renderer info. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting prefer output device for renderer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+  }
+});
 ```
 
 
-## getPreferOutputDeviceForRendererInfo10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<AudioDeviceDescriptors>
+##### getPreferOutputDeviceForRendererInfo10+
+
+getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise&lt;AudioDeviceDescriptors&gt;
 
 根据音频信息，返回优先级最高的输出设备。使用Promise异步回调。
 
@@ -885,24 +717,21 @@ getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<A
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rendererInfo | [AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8) | 是 | 音频渲染器信息。 |
+| rendererInfo | AudioRendererInfo | 是 | 音频渲染器信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | Promise对象，返回优先级最高的输出设备信息。 |
+| Promise&lt;AudioDeviceDescriptors&gt; | Promise对象，返回优先级最高的输出设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -913,32 +742,24 @@ getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise<A
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let rendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
-  rendererFlags: 0, // 音频渲染器标志。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 
-audioRoutingManager
-  .getPreferOutputDeviceForRendererInfo(rendererInfo)
-  .then((audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
-    console.info(
-      `Succeeded in getting prefer output device for renderer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get prefer output device for renderer info. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioRoutingManager.getPreferOutputDeviceForRendererInfo(rendererInfo).then((audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  console.info(`Succeeded in getting prefer output device for renderer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get prefer output device for renderer info. Code: ${err.code}, message: ${err.message}`);
+})
 ```
 
 
-## getPreferredOutputDeviceForRendererInfoSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getPreferredOutputDeviceForRendererInfoSync10+
 
 getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors
 
@@ -948,24 +769,21 @@ getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): Au
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rendererInfo | [AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8) | 是 | 音频渲染器信息。 |
+| rendererInfo | AudioRendererInfo | 是 | 音频渲染器信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) | 返回优先级最高的输出设备信息。 |
+| AudioDeviceDescriptors | 返回优先级最高的输出设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -975,36 +793,28 @@ getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): Au
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let rendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
-  rendererFlags: 0, // 音频渲染器标志。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 
 try {
-  let audioDeviceDescriptors =
-    audioRoutingManager.getPreferredOutputDeviceForRendererInfoSync(
-      rendererInfo,
-    );
-  console.info(
-    `Succeeded in getting prefer output device for renderer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-  );
+  let audioDeviceDescriptors = audioRoutingManager.getPreferredOutputDeviceForRendererInfoSync(rendererInfo);
+  console.info(`Succeeded in getting prefer output device for renderer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get prefer output device for renderer info. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get prefer output device for renderer info. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## on('preferOutputDeviceChangeForRendererInfo')10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void
+##### on('preferOutputDeviceChangeForRendererInfo')10+
+
+on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback&lt;AudioDeviceDescriptors&gt;): void
 
 监听最高优先级输出设备变化事件（当最高优先级输出设备发生变化时触发）。使用callback异步回调。
 
@@ -1012,18 +822,16 @@ on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'preferOutputDeviceChangeForRendererInfo'，当最高优先级输出设备发生变化时，触发该事件。 |
-| rendererInfo | [AudioRendererInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendererinfo8) | 是 | 音频渲染器信息。 |
-| callback | Callback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | 是 | 回调函数，返回优先级最高的输出设备信息。 |
+| rendererInfo | AudioRendererInfo | 是 | 音频渲染器信息。 |
+| callback | Callback&lt;AudioDeviceDescriptors&gt; | 是 | 回调函数，返回优先级最高的输出设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1033,29 +841,22 @@ on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererI
 
 **示例：**
 
-
-```ts
+```json
 let rendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
-  rendererFlags: 0, // 音频渲染器标志。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 
-audioRoutingManager.on(
-  'preferOutputDeviceChangeForRendererInfo',
-  rendererInfo,
-  (audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
-    console.info(
-      `Succeeded in using on function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-    );
-  },
-);
+audioRoutingManager.on('preferOutputDeviceChangeForRendererInfo', rendererInfo, (audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  console.info(`Succeeded in using on function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+});
 ```
 
 
-## off('preferOutputDeviceChangeForRendererInfo')10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void
+##### off('preferOutputDeviceChangeForRendererInfo')10+
+
+off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback&lt;AudioDeviceDescriptors&gt;): void
 
 取消监听最高优先级输出音频设备变化事件。使用callback异步回调。
 
@@ -1063,17 +864,15 @@ off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDe
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'preferOutputDeviceChangeForRendererInfo'，当取消监听最高优先级输出音频设备变化事件时，触发该事件。 |
-| callback | Callback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | 否 | 回调函数，返回优先级最高的输出设备信息。 |
+| callback | Callback&lt;AudioDeviceDescriptors&gt; | 否 | 回调函数，返回优先级最高的输出设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1083,39 +882,27 @@ off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDe
 
 **示例：**
 
-
-```ts
+```json
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
 // 当订阅了多个该事件的监听时，可通过 audioRoutingManager.off('preferOutputDeviceChangeForRendererInfo'); 取消该事件的所有监听。
-let preferOutputDeviceChangeForRendererInfoCallback = (
-  audioDeviceDescriptors: audio.AudioDeviceDescriptors,
-) => {
-  console.info(
-    `Succeeded in using on or off function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-  );
+let preferOutputDeviceChangeForRendererInfoCallback = (audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  console.info(`Succeeded in using on or off function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
 };
 let rendererInfo: audio.AudioRendererInfo = {
   usage: audio.StreamUsage.STREAM_USAGE_MUSIC, // 音频流使用类型：音乐。根据业务场景配置，参考StreamUsage。
-  rendererFlags: 0, // 音频渲染器标志。
+  rendererFlags: 0 // 音频渲染器标志。
 };
 
-audioRoutingManager.on(
-  'preferOutputDeviceChangeForRendererInfo',
-  rendererInfo,
-  preferOutputDeviceChangeForRendererInfoCallback,
-);
+audioRoutingManager.on('preferOutputDeviceChangeForRendererInfo', rendererInfo, preferOutputDeviceChangeForRendererInfoCallback);
 
-audioRoutingManager.off(
-  'preferOutputDeviceChangeForRendererInfo',
-  preferOutputDeviceChangeForRendererInfoCallback,
-);
+audioRoutingManager.off('preferOutputDeviceChangeForRendererInfo', preferOutputDeviceChangeForRendererInfoCallback);
 ```
 
 
-## getPreferredInputDeviceForCapturerInfo10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: AsyncCallback<AudioDeviceDescriptors>): void
+##### getPreferredInputDeviceForCapturerInfo10+
+
+getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
 
 根据音频信息，返回优先级最高的输入设备。使用callback异步回调。
 
@@ -1123,17 +910,15 @@ getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| capturerInfo | [AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8) | 是 | 音频采集器信息。 |
-| callback | AsyncCallback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | 是 | 回调函数。当获取优先级最高的输入设备成功，err为undefined，data为获取到的优先级最高的输入设备信息；否则为错误对象。 |
+| capturerInfo | AudioCapturerInfo | 是 | 音频采集器信息。 |
+| callback | AsyncCallback&lt;AudioDeviceDescriptors&gt; | 是 | 回调函数。当获取优先级最高的输入设备成功，err为undefined，data为获取到的优先级最高的输入设备信息；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1144,39 +929,28 @@ getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let capturerInfo: audio.AudioCapturerInfo = {
   source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
-  capturerFlags: 0, // 音频采集器标志。
+  capturerFlags: 0 // 音频采集器标志。
 };
 
-audioRoutingManager.getPreferredInputDeviceForCapturerInfo(
-  capturerInfo,
-  (
-    err: BusinessError,
-    audioDeviceDescriptors: audio.AudioDeviceDescriptors,
-  ) => {
-    if (err) {
-      console.error(
-        `Failed to get preferred input device for capturer info. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting preferred input device for capturer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-      );
-    }
-  },
-);
+audioRoutingManager.getPreferredInputDeviceForCapturerInfo(capturerInfo, (err: BusinessError, audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  if (err) {
+    console.error(`Failed to get preferred input device for capturer info. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting preferred input device for capturer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+  }
+});
 ```
 
 
-## getPreferredInputDeviceForCapturerInfo10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise<AudioDeviceDescriptors>
+##### getPreferredInputDeviceForCapturerInfo10+
+
+getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise&lt;AudioDeviceDescriptors&gt;
 
 根据音频信息，返回优先级最高的输入设备。使用Promise异步回调。
 
@@ -1184,24 +958,21 @@ getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| capturerInfo | [AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8) | 是 | 音频采集器信息。 |
+| capturerInfo | AudioCapturerInfo | 是 | 音频采集器信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | Promise对象，返回优先级最高的输入设备信息。 |
+| Promise&lt;AudioDeviceDescriptors&gt; | Promise对象，返回优先级最高的输入设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1212,32 +983,24 @@ getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let capturerInfo: audio.AudioCapturerInfo = {
   source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
-  capturerFlags: 0, // 音频采集器标志。
+  capturerFlags: 0 // 音频采集器标志。
 };
 
-audioRoutingManager
-  .getPreferredInputDeviceForCapturerInfo(capturerInfo)
-  .then((audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
-    console.info(
-      `Succeeded in getting preferred input device for capturer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get preferred input device for capturer info. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioRoutingManager.getPreferredInputDeviceForCapturerInfo(capturerInfo).then((audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  console.info(`Succeeded in getting preferred input device for capturer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get preferred input device for capturer info. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## getPreferredInputDeviceForCapturerInfoSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getPreferredInputDeviceForCapturerInfoSync10+
 
 getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors
 
@@ -1247,24 +1010,21 @@ getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): Aud
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| capturerInfo | [AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8) | 是 | 音频采集器信息。 |
+| capturerInfo | AudioCapturerInfo | 是 | 音频采集器信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) | 返回优先级最高的输入设备信息。 |
+| AudioDeviceDescriptors | 返回优先级最高的输入设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1274,36 +1034,28 @@ getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): Aud
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let capturerInfo: audio.AudioCapturerInfo = {
   source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
-  capturerFlags: 0, // 音频采集器标志。
+  capturerFlags: 0 // 音频采集器标志。
 };
 
 try {
-  let audioDeviceDescriptors =
-    audioRoutingManager.getPreferredInputDeviceForCapturerInfoSync(
-      capturerInfo,
-    );
-  console.info(
-    `Succeeded in getting preferred input device for capturer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-  );
+  let audioDeviceDescriptors = audioRoutingManager.getPreferredInputDeviceForCapturerInfoSync(capturerInfo);
+  console.info(`Succeeded in getting preferred input device for capturer info, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get preferred input device for capturer info. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get preferred input device for capturer info. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## on('preferredInputDeviceChangeForCapturerInfo')10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void
+##### on('preferredInputDeviceChangeForCapturerInfo')10+
+
+on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback&lt;AudioDeviceDescriptors&gt;): void
 
 监听最高优先级输入设备变化事件（当最高优先级输入设备发生变化时触发）。使用callback异步回调。
 
@@ -1311,18 +1063,16 @@ on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapture
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'preferredInputDeviceChangeForCapturerInfo'，当最高优先级输入设备发生变化时，触发该事件。 |
-| capturerInfo | [AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8) | 是 | 音频采集器信息。 |
-| callback | Callback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | 是 | 回调函数，返回优先级最高的输入设备信息。 |
+| capturerInfo | AudioCapturerInfo | 是 | 音频采集器信息。 |
+| callback | Callback&lt;AudioDeviceDescriptors&gt; | 是 | 回调函数，返回优先级最高的输入设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1332,29 +1082,22 @@ on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapture
 
 **示例：**
 
-
-```ts
+```json
 let capturerInfo: audio.AudioCapturerInfo = {
   source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
-  capturerFlags: 0, // 音频采集器标志。
+  capturerFlags: 0 // 音频采集器标志。
 };
 
-audioRoutingManager.on(
-  'preferredInputDeviceChangeForCapturerInfo',
-  capturerInfo,
-  (audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
-    console.info(
-      `Succeeded in using on function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-    );
-  },
-);
+audioRoutingManager.on('preferredInputDeviceChangeForCapturerInfo', capturerInfo, (audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  console.info(`Succeeded in using on function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
+});
 ```
 
 
-## off('preferredInputDeviceChangeForCapturerInfo')10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<AudioDeviceDescriptors>): void
+##### off('preferredInputDeviceChangeForCapturerInfo')10+
+
+off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback&lt;AudioDeviceDescriptors&gt;): void
 
 取消监听最高优先级输入音频设备变化事件。使用callback异步回调。
 
@@ -1362,17 +1105,15 @@ off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<Audio
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'preferredInputDeviceChangeForCapturerInfo'，当取消监听最高优先级输入音频设备变化事件时，触发该事件。 |
-| callback | Callback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors)&gt; | 否 | 回调函数，返回优先级最高的输入设备信息。 |
+| callback | Callback&lt;AudioDeviceDescriptors&gt; | 否 | 回调函数，返回优先级最高的输入设备信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1382,30 +1123,18 @@ off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<Audio
 
 **示例：**
 
-
-```ts
+```json
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
 // 当订阅了多个该事件的监听时，可通过 audioRoutingManager.off('preferredInputDeviceChangeForCapturerInfo'); 取消该事件的所有监听。
-let preferredInputDeviceChangeForCapturerInfoCallback = (
-  audioDeviceDescriptors: audio.AudioDeviceDescriptors,
-) => {
-  console.info(
-    `Succeeded in using on or off function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`,
-  );
+let preferredInputDeviceChangeForCapturerInfoCallback = (audioDeviceDescriptors: audio.AudioDeviceDescriptors) => {
+  console.info(`Succeeded in using on or off function, AudioDeviceDescriptors: ${JSON.stringify(audioDeviceDescriptors)}.`);
 };
 let capturerInfo: audio.AudioCapturerInfo = {
   source: audio.SourceType.SOURCE_TYPE_MIC, // 音源类型：Mic音频源。根据业务场景配置，参考SourceType。
-  capturerFlags: 0, // 音频采集器标志。
+  capturerFlags: 0 // 音频采集器标志。
 };
 
-audioRoutingManager.on(
-  'preferredInputDeviceChangeForCapturerInfo',
-  capturerInfo,
-  preferredInputDeviceChangeForCapturerInfoCallback,
-);
+audioRoutingManager.on('preferredInputDeviceChangeForCapturerInfo', capturerInfo, preferredInputDeviceChangeForCapturerInfoCallback);
 
-audioRoutingManager.off(
-  'preferredInputDeviceChangeForCapturerInfo',
-  preferredInputDeviceChangeForCapturerInfoCallback,
-);
+audioRoutingManager.off('preferredInputDeviceChangeForCapturerInfo', preferredInputDeviceChangeForCapturerInfoCallback);
 ```

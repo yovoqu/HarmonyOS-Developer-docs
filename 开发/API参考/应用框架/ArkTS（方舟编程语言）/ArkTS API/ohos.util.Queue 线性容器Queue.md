@@ -3,7 +3,7 @@
 更新时间：2026-04-02 08:41:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-queue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Queue的特点是先进先出，在尾部增加元素，在头部删除元素。根据循环队列的数据结构实现。
 
@@ -13,43 +13,40 @@ Queue和[Deque](https://developer.huawei.com/consumer/cn/doc/harmonyos-reference
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- T：Type，类
+ - T：Type，类
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { Queue } from '@kit.ArkTS';
 ```
 
 
-## Queue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Queue
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | Queue的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -63,7 +60,6 @@ Queue的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The Queue's constructor cannot be directly invoked. |
@@ -71,14 +67,13 @@ Queue的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let queue = new Queue<number | string | Object>();
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 add(element: T): boolean
 
@@ -90,14 +85,12 @@ add(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 要插入的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -108,7 +101,6 @@ add(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The add method cannot be bound. |
@@ -116,25 +108,24 @@ add(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 class C1 {
-  name: string = '';
-  age: string = '';
+  name: string = ""
+  age: string = ""
 }
 let queue = new Queue<number | string | C1 | number[]>();
-let result = queue.add('a');
+let result = queue.add("a");
 let result1 = queue.add(1);
 let b = [1, 2, 3];
 let result2 = queue.add(b);
-let c: C1 = { name: 'Dylan', age: '13' };
+let c : C1 = {name : "Dylan", age : "13"};
 let result3 = queue.add(c);
-console.info('result:', queue.length); // result: 4
+console.info("result:", queue.length);  // result: 4
 ```
 
 
-### pop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pop
 
 pop(): T
 
@@ -146,7 +137,6 @@ pop(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回删除的元素。 |
@@ -156,7 +146,6 @@ pop(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The pop method cannot be bound. |
@@ -164,8 +153,7 @@ pop(): T
 
 **示例：**
 
-
-```ts
+```text
 let queue = new Queue<number>();
 queue.add(2);
 queue.add(4);
@@ -173,12 +161,12 @@ queue.add(5);
 queue.add(2);
 queue.add(4);
 let result = queue.pop();
-console.info('result:', result); // result: 2
+console.info("result:", result);  // result: 2
 ```
 
 
-### getFirst
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFirst
 
 getFirst(): T
 
@@ -190,7 +178,6 @@ getFirst(): T
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | T | 返回获取的元素。 |
@@ -200,7 +187,6 @@ getFirst(): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getFirst method cannot be bound. |
@@ -208,22 +194,21 @@ getFirst(): T
 
 **示例：**
 
-
-```ts
+```text
 let queue = new Queue<number>();
 queue.add(2);
 queue.add(4);
 queue.add(5);
 queue.add(2);
 let result = queue.getFirst();
-console.info('result:', result); // result: 2
+console.info("result:", result);  // result: 2
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void, thisArg?: Object): void
+##### forEach
+
+forEach(callbackFn: (value: T, index?: number, Queue?: Queue&lt;T&gt;) => void, thisArg?: Object): void
 
 在遍历Queue实例对象中每一个元素的过程中，对每个元素执行回调函数。
 
@@ -233,7 +218,6 @@ forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void, thisAr
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -241,7 +225,6 @@ forEach(callbackFn: (value: T, index?: number, Queue?: Queue<T>) => void, thisAr
 
 
 callbackfn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -254,7 +237,6 @@ callbackfn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -263,15 +245,14 @@ callbackfn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let queue = new Queue<number>();
 queue.add(2);
 queue.add(4);
 queue.add(5);
 queue.add(4);
 queue.forEach((value: number, index: number): void => {
-  console.info('value:' + value, 'index:' + index);
+  console.info("value:" + value, "index:" + index);
 });
 // value:2 index:0
 // value:4 index:1
@@ -280,10 +261,10 @@ queue.forEach((value: number, index: number): void => {
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<T>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;T&gt;
 
 返回一个迭代器，每一项都是一个JavaScript对象。
 
@@ -292,7 +273,6 @@ queue.forEach((value: number, index: number): void => {
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -303,7 +283,6 @@ queue.forEach((value: number, index: number): void => {
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -311,8 +290,7 @@ queue.forEach((value: number, index: number): void => {
 
 **示例：**
 
-
-```ts
+```text
 let queue = new Queue<number>();
 queue.add(2);
 queue.add(4);
@@ -321,7 +299,7 @@ queue.add(4);
 
 // 使用方法一：
 for (let value of queue) {
-  console.info('value:', value);
+  console.info("value:", value);
 }
 // value: 2
 // value: 4
@@ -331,8 +309,8 @@ for (let value of queue) {
 // 使用方法二：
 let iter = queue[Symbol.iterator]();
 let temp: IteratorResult<number> = iter.next().value;
-while (temp != undefined) {
-  console.info('value: ' + temp);
+while(temp != undefined) {
+  console.info("value: " + temp);
   temp = iter.next().value;
 }
 // value: 2

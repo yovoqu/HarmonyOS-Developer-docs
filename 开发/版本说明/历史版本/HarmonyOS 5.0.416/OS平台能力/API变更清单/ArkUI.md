@@ -9,10 +9,10 @@
 | 新增API | NA | 类名：UIContext； API声明：getTextMenuController(): TextMenuController; 差异内容：getTextMenuController(): TextMenuController; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：global； API声明： export class TextMenuController 差异内容： export class TextMenuController | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：TextMenuController； API声明：setMenuOptions(options: TextMenuOptions): void; 差异内容：setMenuOptions(options: TextMenuOptions): void; | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：display； API声明：function createVirtualScreen(config: VirtualScreenConfig): Promise<number>; 差异内容：function createVirtualScreen(config: VirtualScreenConfig): Promise<number>; | api/@ohos.display.d.ts |
-| 新增API | NA | 类名：display； API声明：function destroyVirtualScreen(screenId: number): Promise<void>; 差异内容：function destroyVirtualScreen(screenId: number): Promise<void>; | api/@ohos.display.d.ts |
-| 新增API | NA | 类名：display； API声明：function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>; 差异内容：function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise<void>; | api/@ohos.display.d.ts |
-| 新增API | NA | 类名：display； API声明：function makeUnique(screenId: number): Promise<void>; 差异内容：function makeUnique(screenId: number): Promise<void>; | api/@ohos.display.d.ts |
+| 新增API | NA | 类名：display； API声明：function createVirtualScreen(config: VirtualScreenConfig): Promise&lt;number&gt;; 差异内容：function createVirtualScreen(config: VirtualScreenConfig): Promise&lt;number&gt;; | api/@ohos.display.d.ts |
+| 新增API | NA | 类名：display； API声明：function destroyVirtualScreen(screenId: number): Promise&lt;void&gt;; 差异内容：function destroyVirtualScreen(screenId: number): Promise&lt;void&gt;; | api/@ohos.display.d.ts |
+| 新增API | NA | 类名：display； API声明：function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise&lt;void&gt;; 差异内容：function setVirtualScreenSurface(screenId: number, surfaceId: string): Promise&lt;void&gt;; | api/@ohos.display.d.ts |
+| 新增API | NA | 类名：display； API声明：function makeUnique(screenId: number): Promise&lt;void&gt;; 差异内容：function makeUnique(screenId: number): Promise&lt;void&gt;; | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：display； API声明： interface VirtualScreenConfig 差异内容： interface VirtualScreenConfig | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：VirtualScreenConfig； API声明：name: string; 差异内容：name: string; | api/@ohos.display.d.ts |
 | 新增API | NA | 类名：VirtualScreenConfig； API声明：width: number; 差异内容：width: number; | api/@ohos.display.d.ts |

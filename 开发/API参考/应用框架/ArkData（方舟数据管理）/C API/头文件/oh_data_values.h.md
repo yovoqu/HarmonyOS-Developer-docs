@@ -3,925 +3,869 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-values-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供与多条数据值相关的函数和枚举。
-
+ 
 **引用文件：** <database/data/oh_data_values.h>
-
+ 
 **库：** libnative_rdb_ndk.z.so
-
+ 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
-
+ 
 **起始版本：** 18
-
+ 
 **相关模块：** [RDB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 结构体
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) | OH_Data_Values | 定义OH_Data_Values结构类型。 |
+| OH_Data_Values | OH_Data_Values | 定义OH_Data_Values结构类型。 |
+ 
+ 
+  
 
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 函数
+ 
 | 名称 | 描述 |
 | --- | --- |
-| [OH_Data_Values *OH_Values_Create(void)](#oh_values_create) | 创建[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例，用于储存多条键值对数据。 |
-| [int OH_Values_Destroy(OH_Data_Values *values)](#oh_values_destroy) | 销毁[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)对象。 |
-| [int OH_Values_Put(OH_Data_Values *values, const OH_Data_Value *val)](#oh_values_put) | 添加OH_Data_Value类型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutNull(OH_Data_Values *values)](#oh_values_putnull) | 添加空数据给OH_Data_Values对象。 |
-| [int OH_Values_PutInt(OH_Data_Values *values, int64_t val)](#oh_values_putint) | 添加整型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutReal(OH_Data_Values *values, double val)](#oh_values_putreal) | 添加REAL类型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutText(OH_Data_Values *values, const char *val)](#oh_values_puttext) | 添加字符串类型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutBlob(OH_Data_Values *values, const unsigned char *val, size_t length)](#oh_values_putblob) | 添加BLOB类型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutAsset(OH_Data_Values *values, const Data_Asset *val)](#oh_values_putasset) | 添加ASSET类型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutAssets(OH_Data_Values *values, const Data_Asset * const * val, size_t length)](#oh_values_putassets) | 添加ASSETS类型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutFloatVector(OH_Data_Values *values, const float *val, size_t length)](#oh_values_putfloatvector) | 添加float数组类型数据给OH_Data_Values对象。 |
-| [int OH_Values_PutUnlimitedInt(OH_Data_Values *values, int sign, const uint64_t *trueForm, size_t length)](#oh_values_putunlimitedint) | 添加任意长度的整型数组数据给OH_Data_Values对象。 |
-| [int OH_Values_Count(OH_Data_Values *values, size_t *count)](#oh_values_count) | 获取数据个数。 |
-| [int OH_Values_GetType(OH_Data_Values *values, int index, OH_ColumnType *type)](#oh_values_gettype) | 获取数据类型。 |
-| [int OH_Values_Get(OH_Data_Values *values, int index, OH_Data_Value **val)](#oh_values_get) | 获取OH_Data_Value类型数据。 |
-| [int OH_Values_IsNull(OH_Data_Values *values, int index, bool *val)](#oh_values_isnull) | 检查数据是否为空。 |
-| [int OH_Values_GetInt(OH_Data_Values *values, int index, int64_t *val)](#oh_values_getint) | 获取整型数据。 |
-| [int OH_Values_GetReal(OH_Data_Values *values, int index, double *val)](#oh_values_getreal) | 获取REAL类型数据。 |
-| [int OH_Values_GetText(OH_Data_Values *values, int index, const char **val)](#oh_values_gettext) | 获取字符串类型数据。 |
-| [int OH_Values_GetBlob(OH_Data_Values *values, int index, const uint8_t **val, size_t *length)](#oh_values_getblob) | 获取BLOB类型数据。 |
-| [int OH_Values_GetAsset(OH_Data_Values *values, int index, Data_Asset *val)](#oh_values_getasset) | 获取ASSET类型数据。 |
-| [int OH_Values_GetAssetsCount(OH_Data_Values *values, int index, size_t *length)](#oh_values_getassetscount) | 获取ASSETS类型数据的大小。 |
-| [int OH_Values_GetAssets(OH_Data_Values *values, int index, Data_Asset **val, size_t inLen, size_t *outLen)](#oh_values_getassets) | 获取ASSETS类型数据。 |
-| [int OH_Values_GetFloatVectorCount(OH_Data_Values *values, int index, size_t *length)](#oh_values_getfloatvectorcount) | 获取float数组类型数据的大小。 |
-| [int OH_Values_GetFloatVector(OH_Data_Values *values, int index, float *val, size_t inLen, size_t *outLen)](#oh_values_getfloatvector) | 获取float数组类型数据。 |
-| [int OH_Values_GetUnlimitedIntBand(OH_Data_Values *values, int index, size_t *length)](#oh_values_getunlimitedintband) | 获取任意长度的整型数据的大小。 |
-| [int OH_Values_GetUnlimitedInt(OH_Data_Values *values, int index, int *sign, uint64_t *trueForm, size_t inLen,size_t *outLen)](#oh_values_getunlimitedint) | 获取任意长度的整型数据。 |
+| OH_Data_Values *OH_Values_Create(void) | 创建OH_Data_Values实例，用于储存多条键值对数据。 |
+| int OH_Values_Destroy(OH_Data_Values *values) | 销毁OH_Data_Values对象。 |
+| int OH_Values_Put(OH_Data_Values *values, const OH_Data_Value *val) | 添加OH_Data_Value类型数据给OH_Data_Values对象。 |
+| int OH_Values_PutNull(OH_Data_Values *values) | 添加空数据给OH_Data_Values对象。 |
+| int OH_Values_PutInt(OH_Data_Values *values, int64_t val) | 添加整型数据给OH_Data_Values对象。 |
+| int OH_Values_PutReal(OH_Data_Values *values, double val) | 添加REAL类型数据给OH_Data_Values对象。 |
+| int OH_Values_PutText(OH_Data_Values *values, const char *val) | 添加字符串类型数据给OH_Data_Values对象。 |
+| int OH_Values_PutBlob(OH_Data_Values *values, const unsigned char *val, size_t length) | 添加BLOB类型数据给OH_Data_Values对象。 |
+| int OH_Values_PutAsset(OH_Data_Values *values, const Data_Asset *val) | 添加ASSET类型数据给OH_Data_Values对象。 |
+| int OH_Values_PutAssets(OH_Data_Values *values, const Data_Asset * const * val, size_t length) | 添加ASSETS类型数据给OH_Data_Values对象。 |
+| int OH_Values_PutFloatVector(OH_Data_Values *values, const float *val, size_t length) | 添加float数组类型数据给OH_Data_Values对象。 |
+| int OH_Values_PutUnlimitedInt(OH_Data_Values *values, int sign, const uint64_t *trueForm, size_t length) | 添加任意长度的整型数组数据给OH_Data_Values对象。 |
+| int OH_Values_Count(OH_Data_Values *values, size_t *count) | 获取数据个数。 |
+| int OH_Values_GetType(OH_Data_Values *values, int index, OH_ColumnType *type) | 获取数据类型。 |
+| int OH_Values_Get(OH_Data_Values *values, int index, OH_Data_Value **val) | 获取OH_Data_Value类型数据。 |
+| int OH_Values_IsNull(OH_Data_Values *values, int index, bool *val) | 检查数据是否为空。 |
+| int OH_Values_GetInt(OH_Data_Values *values, int index, int64_t *val) | 获取整型数据。 |
+| int OH_Values_GetReal(OH_Data_Values *values, int index, double *val) | 获取REAL类型数据。 |
+| int OH_Values_GetText(OH_Data_Values *values, int index, const char **val) | 获取字符串类型数据。 |
+| int OH_Values_GetBlob(OH_Data_Values *values, int index, const uint8_t **val, size_t *length) | 获取BLOB类型数据。 |
+| int OH_Values_GetAsset(OH_Data_Values *values, int index, Data_Asset *val) | 获取ASSET类型数据。 |
+| int OH_Values_GetAssetsCount(OH_Data_Values *values, int index, size_t *length) | 获取ASSETS类型数据的大小。 |
+| int OH_Values_GetAssets(OH_Data_Values *values, int index, Data_Asset **val, size_t inLen, size_t *outLen) | 获取ASSETS类型数据。 |
+| int OH_Values_GetFloatVectorCount(OH_Data_Values *values, int index, size_t *length) | 获取float数组类型数据的大小。 |
+| int OH_Values_GetFloatVector(OH_Data_Values *values, int index, float *val, size_t inLen, size_t *outLen) | 获取float数组类型数据。 |
+| int OH_Values_GetUnlimitedIntBand(OH_Data_Values *values, int index, size_t *length) | 获取任意长度的整型数据的大小。 |
+| int OH_Values_GetUnlimitedInt(OH_Data_Values *values, int index, int *sign, uint64_t *trueForm, size_t inLen,size_t *outLen) | 获取任意长度的整型数据。 |
+ 
+ 
+  
 
+##### 函数说明
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_Values_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_Create()
 
 ```text
 OH_Data_Values *OH_Values_Create(void)
 ```
-
+ 
 **描述**
-
+ 
 创建[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例，用于储存多条键值对数据。
-
+ 
 **起始版本：** 18
-
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) | 执行成功时返回指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针，否则返回nullptr。 使用完成后，必须通过[OH_Values_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-values-h#oh_values_destroy)接口释放内存。 |
+| OH_Data_Values | 执行成功时返回指向OH_Data_Values实例的指针，否则返回nullptr。 使用完成后，必须通过OH_Values_Destroy接口释放内存。 |
+ 
+ 
+  
 
-
-### OH_Values_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_Destroy()
 
 ```text
 int OH_Values_Destroy(OH_Data_Values *values)
 ```
-
+ 
 **描述**
-
+ 
 销毁[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
-
-
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_Put()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_Put()
 
 ```text
 int OH_Values_Put(OH_Data_Values *values, const OH_Data_Value *val)
 ```
-
+ 
 **描述**
-
+ 
 添加OH_Data_Value类型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
-| const [OH_Data_Value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-value) *val | 表示指向[OH_Data_Value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-value)对象的指针。 |
-
-
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
+| const OH_Data_Value *val | 表示指向OH_Data_Value对象的指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutNull()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutNull()
 
 ```text
 int OH_Values_PutNull(OH_Data_Values *values)
 ```
-
+ 
 **描述**
-
+ 
 添加空数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
-
-
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutInt()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutInt()
 
 ```text
 int OH_Values_PutInt(OH_Data_Values *values, int64_t val)
 ```
-
+ 
 **描述**
-
+ 
 添加整型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int64_t val | 表示整型数据。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutReal()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutReal()
 
 ```text
 int OH_Values_PutReal(OH_Data_Values *values, double val)
 ```
-
+ 
 **描述**
-
+ 
 添加REAL类型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | double val | 表示REAL类型数据。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutText()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutText()
 
 ```text
 int OH_Values_PutText(OH_Data_Values *values, const char *val)
 ```
-
+ 
 **描述**
-
+ 
 添加字符串类型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | const char *val | 表示字符串类型数据。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutBlob()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutBlob()
 
 ```text
 int OH_Values_PutBlob(OH_Data_Values *values, const unsigned char *val, size_t length)
 ```
-
+ 
 **描述**
-
+ 
 添加BLOB类型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | const unsigned char *val | 表示BLOB类型数据。 |
 | size_t length | 该参数为输入参数，表示开发者传入的BLOB类型数据的大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutAsset()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutAsset()
 
 ```text
 int OH_Values_PutAsset(OH_Data_Values *values, const Data_Asset *val)
 ```
-
+ 
 **描述**
-
+ 
 添加ASSET类型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
-| const [Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset) *val | 表示指向[Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset)对象的指针。 |
-
-
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
+| const Data_Asset *val | 表示指向Data_Asset对象的指针。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutAssets()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutAssets()
 
 ```text
 int OH_Values_PutAssets(OH_Data_Values *values, const Data_Asset * const * val, size_t length)
 ```
-
+ 
 **描述**
-
+ 
 添加ASSETS类型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
-| const [Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset) * const * val | 表示指向[Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset)对象的指针。 |
-| size_t length | 该参数为输入参数，表示开发者传入的[Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset)对象数组元素的个数。 |
-
-
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
+| const Data_Asset * const * val | 表示指向Data_Asset对象的指针。 |
+| size_t length | 该参数为输入参数，表示开发者传入的Data_Asset对象数组元素的个数。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutFloatVector()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutFloatVector()
 
 ```text
 int OH_Values_PutFloatVector(OH_Data_Values *values, const float *val, size_t length)
 ```
-
+ 
 **描述**
-
+ 
 添加float数组类型数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | const float *val | 表示指向float数组对象的指针。 |
 | size_t length | 该参数为输入参数，表示开发者传入的float数组的长度。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_PutUnlimitedInt()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_PutUnlimitedInt()
 
 ```text
 int OH_Values_PutUnlimitedInt(OH_Data_Values *values, int sign, const uint64_t *trueForm, size_t length)
 ```
-
+ 
 **描述**
-
+ 
 添加任意长度的整型数组数据给OH_Data_Values对象。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int sign | 表示正负数，0表示正整数，1表示负整数。 |
 | const uint64_t *trueForm | 表示指向整型数组的指针。 |
 | size_t length | 该参数为输入参数，表示开发者传入的整型数组的大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_Count()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_Count()
 
 ```text
 int OH_Values_Count(OH_Data_Values *values, size_t *count)
 ```
-
+ 
 **描述**
-
+ 
 获取数据个数。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | size_t *count | 一个输出参数，表示values中数据的个数。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_GetType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetType()
 
 ```text
 int OH_Values_GetType(OH_Data_Values *values, int index, OH_ColumnType *type)
 ```
-
+ 
 **描述**
-
+ 
 获取数据类型。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
-| [OH_ColumnType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-value-h#oh_columntype) *type | 一个输出参数，表示数据类型。 |
-
-
+| OH_ColumnType *type | 一个输出参数，表示数据类型。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_Get()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_Get()
 
 ```text
 int OH_Values_Get(OH_Data_Values *values, int index, OH_Data_Value **val)
 ```
-
+ 
 **描述**
-
+ 
 获取OH_Data_Value类型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
-| [OH_Data_Value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-value) **val | 一个输出参数，表示指向[OH_Data_Value](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-value)实例的指针。 无需申请内存和释放内存。 |
-
-
+| OH_Data_Value **val | 一个输出参数，表示指向OH_Data_Value实例的指针。 无需申请内存和释放内存。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_IsNull()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_IsNull()
 
 ```text
 int OH_Values_IsNull(OH_Data_Values *values, int index, bool *val)
 ```
-
+ 
 **描述**
-
+ 
 检查数据是否为空。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | bool *val | 一个输出参数，true表示空，false表示不为空。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 |
+ 
+ 
+  
 
-
-### OH_Values_GetInt()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetInt()
 
 ```text
 int OH_Values_GetInt(OH_Data_Values *values, int index, int64_t *val)
 ```
-
+ 
 **描述**
-
+ 
 获取整型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | int64_t *val | 一个输出参数，表示指向整型数据的指针。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetReal()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetReal()
 
 ```text
 int OH_Values_GetReal(OH_Data_Values *values, int index, double *val)
 ```
-
+ 
 **描述**
-
+ 
 获取REAL类型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | double *val | 一个输出参数，表示指向REAL类型数据的指针。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetText()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetText()
 
 ```text
 int OH_Values_GetText(OH_Data_Values *values, int index, const char **val)
 ```
-
+ 
 **描述**
-
+ 
 获取字符串类型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | const char **val | 一个输出参数，表示指向字符串类型数据的指针。 无需申请内存和释放内存。 val的生命周期遵循values中index的值。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetBlob()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetBlob()
 
 ```text
 int OH_Values_GetBlob(OH_Data_Values *values, int index, const uint8_t **val, size_t *length)
 ```
-
+ 
 **描述**
-
+ 
 获取BLOB类型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | const uint8_t **val | 一个输出参数，表示指向BLOB类型数据的指针。 无需申请内存和释放内存。 val的生命周期遵循values中index的值。 |
 | size_t *length | 该参数为输出参数，表示BLOB类型数组的大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetAsset()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetAsset()
 
 ```text
 int OH_Values_GetAsset(OH_Data_Values *values, int index, Data_Asset *val)
 ```
-
+ 
 **描述**
-
+ 
 获取ASSET类型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
-| [Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset) *val | 表示指向[Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset)对象的指针。 需要申请数据内存。 此函数仅填充数据，否则执行失败。 |
-
-
+| Data_Asset *val | 表示指向Data_Asset对象的指针。 需要申请数据内存。 此函数仅填充数据，否则执行失败。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetAssetsCount()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetAssetsCount()
 
 ```text
 int OH_Values_GetAssetsCount(OH_Data_Values *values, int index, size_t *length)
 ```
-
+ 
 **描述**
-
+ 
 获取ASSETS类型数据的大小。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | size_t *length | 该参数为输出参数，表示ASSETS类型数据的大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetAssets()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetAssets()
 
 ```text
 int OH_Values_GetAssets(OH_Data_Values *values, int index, Data_Asset **val, size_t inLen, size_t *outLen)
 ```
-
+ 
 **描述**
-
+ 
 获取ASSETS类型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
-| [Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset) **val | 表示指向[Data_Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-data-asset)对象的指针。 使用时需要申请数据内存。 此函数仅填充数据，否则执行失败。 |
-| size_t inLen | 表示val的大小。可以通过[OH_Values_GetAssetsCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-values-h#oh_values_getassetscount)获取。 |
+| Data_Asset **val | 表示指向Data_Asset对象的指针。 使用时需要申请数据内存。 此函数仅填充数据，否则执行失败。 |
+| size_t inLen | 表示val的大小。可以通过OH_Values_GetAssetsCount获取。 |
 | size_t *outLen | 一个输出参数，表示实际获取的数据大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetFloatVectorCount()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetFloatVectorCount()
 
 ```text
 int OH_Values_GetFloatVectorCount(OH_Data_Values *values, int index, size_t *length)
 ```
-
+ 
 **描述**
-
+ 
 获取float数组类型数据的大小。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | size_t *length | 该参数为输出参数，表示float数组类型数据的大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetFloatVector()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetFloatVector()
 
 ```text
 int OH_Values_GetFloatVector(OH_Data_Values *values, int index, float *val, size_t inLen, size_t *outLen)
 ```
-
+ 
 **描述**
-
+ 
 获取float数组类型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | float *val | 表示指向float数组的指针。 需要申请数据内存。 此函数仅填充数据，否则执行失败。 |
-| size_t inLen | 表示val的大小。可以通过[OH_Values_GetFloatVectorCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-values-h#oh_values_getfloatvectorcount)获取。 |
+| size_t inLen | 表示val的大小。可以通过OH_Values_GetFloatVectorCount获取。 |
 | size_t *outLen | 一个输出参数，表示实际获取的数据大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetUnlimitedIntBand()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetUnlimitedIntBand()
 
 ```text
 int OH_Values_GetUnlimitedIntBand(OH_Data_Values *values, int index, size_t *length)
 ```
-
+ 
 **描述**
-
+ 
 获取任意长度的整型数据的大小。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | size_t *length | 该参数为输出参数，表示整型数组的大小。 |
-
-
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |
+ 
+ 
+  
 
-
-### OH_Values_GetUnlimitedInt()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Values_GetUnlimitedInt()
 
 ```text
 int OH_Values_GetUnlimitedInt(OH_Data_Values *values, int index, int *sign, uint64_t *trueForm, size_t inLen, size_t *outLen)
 ```
-
+ 
 **描述**
-
+ 
 获取任意长度的整型数据。
-
+ 
 **起始版本：** 18
-
+ 
 **参数：**
-
-
+  
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values) *values | 表示指向[OH_Data_Values](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-data-values)实例的指针。 |
+| OH_Data_Values *values | 表示指向OH_Data_Values实例的指针。 |
 | int index | 表示values中目标数据的从零开始的索引。 |
 | int *sign | 一个输出参数，表示正负数，0表示正整数，1表示负整数。 |
 | uint64_t *trueForm | 表示指向整型数组的指针。 需要申请数据内存。 此函数仅填充数据，否则执行失败。 |
-| size_t inLen | 表示trueForm的大小。可以通过[OH_Values_GetUnlimitedIntBand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-data-values-h#oh_values_getunlimitedintband)获取。 |
-| size_t *outLen | 一个��出参数，表示实际获取的数据大小。 |
-
-
+| size_t inLen | 表示trueForm的大小。可以通过OH_Values_GetUnlimitedIntBand获取。 |
+| size_t *outLen | 一个输出参数，表示实际获取的数据大小。 |
+ 
+ 
 **返回：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回错误码。 返回RDB_OK表示成功。 返回RDB_E_INVALID_ARGS表示无效参数。 返回RDB_E_DATA_TYPE_NULL表示存储数据为空。 返回RDB_E_TYPE_MISMATCH表示数据类型不匹配。 |

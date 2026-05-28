@@ -18,8 +18,8 @@
 | 新增API | NA | 类名：AudioScene； API声明：AUDIO_SCENE_PHONE_CALL = 2 差异内容：AUDIO_SCENE_PHONE_CALL = 2 | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：AudioManager； API声明：getSessionManager(): AudioSessionManager; 差异内容：getSessionManager(): AudioSessionManager; | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：AudioRoutingManager； API声明：getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors; 差异内容：getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors; | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioRoutingManager； API声明：on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void; 差异内容：on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void; | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioRoutingManager； API声明：off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void; 差异内容：off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioRoutingManager； API声明：on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback&lt;DeviceChangeAction&gt;): void; 差异内容：on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback&lt;DeviceChangeAction&gt;): void; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioRoutingManager； API声明：off(type: 'availableDeviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void; 差异内容：off(type: 'availableDeviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void; | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：audio； API声明： enum AudioConcurrencyMode 差异内容： enum AudioConcurrencyMode | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：AudioConcurrencyMode； API声明：CONCURRENCY_DEFAULT = 0 差异内容：CONCURRENCY_DEFAULT = 0 | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：AudioConcurrencyMode； API声明：CONCURRENCY_MIX_WITH_OTHERS = 1 差异内容：CONCURRENCY_MIX_WITH_OTHERS = 1 | api/@ohos.multimedia.audio.d.ts |
@@ -33,9 +33,9 @@
 | 新增API | NA | 类名：audio； API声明： interface AudioSessionDeactivatedEvent 差异内容： interface AudioSessionDeactivatedEvent | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：AudioSessionDeactivatedEvent； API声明：reason: AudioSessionDeactivatedReason; 差异内容：reason: AudioSessionDeactivatedReason; | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：audio； API声明： interface AudioSessionManager 差异内容： interface AudioSessionManager | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioSessionManager； API声明：activateAudioSession(strategy: AudioSessionStrategy): Promise<void>; 差异内容：activateAudioSession(strategy: AudioSessionStrategy): Promise<void>; | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioSessionManager； API声明：deactivateAudioSession(): Promise<void>; 差异内容：deactivateAudioSession(): Promise<void>; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioSessionManager； API声明：activateAudioSession(strategy: AudioSessionStrategy): Promise&lt;void&gt;; 差异内容：activateAudioSession(strategy: AudioSessionStrategy): Promise&lt;void&gt;; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioSessionManager； API声明：deactivateAudioSession(): Promise&lt;void&gt;; 差异内容：deactivateAudioSession(): Promise&lt;void&gt;; | api/@ohos.multimedia.audio.d.ts |
 | 新增API | NA | 类名：AudioSessionManager； API声明：isAudioSessionActivated(): boolean; 差异内容：isAudioSessionActivated(): boolean; | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioSessionManager； API声明：on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void; 差异内容：on(type: 'audioSessionDeactivated', callback: Callback<AudioSessionDeactivatedEvent>): void; | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioSessionManager； API声明：off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void; 差异内容：off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void; | api/@ohos.multimedia.audio.d.ts |
-| 新增API | NA | 类名：AudioRenderer； API声明：setDefaultOutputDevice(deviceType: DeviceType): Promise<void>; 差异内容：setDefaultOutputDevice(deviceType: DeviceType): Promise<void>; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioSessionManager； API声明：on(type: 'audioSessionDeactivated', callback: Callback&lt;AudioSessionDeactivatedEvent&gt;): void; 差异内容：on(type: 'audioSessionDeactivated', callback: Callback&lt;AudioSessionDeactivatedEvent&gt;): void; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioSessionManager； API声明：off(type: 'audioSessionDeactivated', callback?: Callback&lt;AudioSessionDeactivatedEvent&gt;): void; 差异内容：off(type: 'audioSessionDeactivated', callback?: Callback&lt;AudioSessionDeactivatedEvent&gt;): void; | api/@ohos.multimedia.audio.d.ts |
+| 新增API | NA | 类名：AudioRenderer； API声明：setDefaultOutputDevice(deviceType: DeviceType): Promise&lt;void&gt;; 差异内容：setDefaultOutputDevice(deviceType: DeviceType): Promise&lt;void&gt;; | api/@ohos.multimedia.audio.d.ts |

@@ -5,11 +5,9 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-1
 
 创建双路预览。
-
-1. 使用Xcomponent创建预览流。
+ 1. 使用Xcomponent创建预览流。
 2. 使用imageReceiver监听图像信息。
-
-
-参考链接
-
-双路预览
+ 
+**参考链接**
+ 
+[双路预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview)

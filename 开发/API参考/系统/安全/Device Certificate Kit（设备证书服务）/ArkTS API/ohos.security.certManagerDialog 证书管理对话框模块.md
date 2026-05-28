@@ -3,33 +3,30 @@
 更新时间：2026-05-07 09:37:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 证书管理对话框主要提供拉起证书管理界面的能力，用户在拉起的证书管理对话框可对证书进行管理（安装，存储，使用，销毁）。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 13开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
 
+##### 导入模块
 
-```ts
+```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 ```
 
 
-## CertificateDialogPageType
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### CertificateDialogPageType
 
 表示证书管理对话框的页面类型。
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -39,15 +36,15 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 | PAGE_INSTALL_CERTIFICATE | 4 | 安装证书页面。 |
 
 
-## CertificateType14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CertificateType14+
 
 表示安装证书的类型。
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -58,15 +55,15 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 | CREDENTIAL_SYSTEM23+ | 5 | 系统凭据。 |
 
 
-## CertificateScope14+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CertificateScope14+
 
 表示安装证书的使用范围。
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -75,15 +72,15 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 | GLOBAL_USER18+ | 2 | 公共目录。 |
 
 
-## CertificateDialogErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CertificateDialogErrorCode
 
 表示调用证书管理对话框相关API的错误码。
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -92,12 +89,13 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 | ERROR_OPERATION_FAILED14+ | 29700003 | 表示调用接口时安装证书失败。 |
 | ERROR_DEVICE_NOT_SUPPORTED14+ | 29700004 | 表示调用接口时设备类型不支持。 |
 | ERROR_NOT_COMPLY_SECURITY_POLICY18+ | 29700005 | 表示调用接口时不符合设备安全策略。 |
-| ERROR_PARAMETER_VALIDATION_FAILED22+ | 29700006 | 表示调用接口时参数校验失败。          例如：参数格式不正确、参数范围无效 |
+| ERROR_PARAMETER_VALIDATION_FAILED22+ | 29700006 | 表示调用接口时参数校验失败。 例如：参数格式不正确、参数范围无效 |
 | ERROR_NO_AVAILABLE_CERTIFICATE22+ | 29700007 | 表示没有可用证书。 |
 
 
-## CertificateDialogProperty18+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CertificateDialogProperty18+
 
 表示证书管理对话框的属性。
 
@@ -105,14 +103,14 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | showInstallButton | boolean | 否 | 否 | 表示是否显示安装证书的按钮，true为显示，false为不显示。 |
 
 
-## CertReference22+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### CertReference22+
 
 表示证书凭据的引用信息。
 
@@ -120,15 +118,15 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| certType | [CertificateType](#certificatetype14) | 否 | 否 | 表示证书类型。 |
+| certType | CertificateType | 否 | 否 | 表示证书类型。 |
 | keyUri | string | 否 | 否 | 表示证书凭据的唯一标识符，长度限制256字节以内。 |
 
 
-## UkeyAuthRequest22+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### UkeyAuthRequest22+
 
 USB证书凭据授权请求信息。
 
@@ -136,14 +134,14 @@ USB证书凭据授权请求信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | keyUri | string | 否 | 否 | 表示USB证书凭据的唯一标识符，长度限制256字节以内。 |
 
 
-## AuthorizeRequest22+
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### AuthorizeRequest22+
 
 证书授权请求信息。
 
@@ -151,17 +149,17 @@ USB证书凭据授权请求信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| certTypes | Array&lt;[CertificateType](#certificatetype14)&gt; | 否 | 否 | 表示证书类型的列表。 |
-| certPurpose | [certificateManager.CertificatePurpose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanager#certificatepurpose22) | 否 | 是 | 表示证书用途。          若certTypes参数中存在CertificateType.CREDENTIAL_UKEY类型，则certPurpose参数生效。 |
+| certTypes | Array&lt;CertificateType&gt; | 否 | 否 | 表示证书类型的列表。 |
+| certPurpose | certificateManager.CertificatePurpose | 否 | 是 | 表示证书用途。 若certTypes参数中存在CertificateType.CREDENTIAL_UKEY类型，则certPurpose参数生效。 |
 
 
-## certificateManagerDialog.openCertificateManagerDialog
-**支持设备：** Phone / PC/2in1 / Tablet
 
-openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise<void>
+
+##### certificateManagerDialog.openCertificateManagerDialog
+
+openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise&lt;void&gt;
 
 表示拉起证书管理对话框，显示相应的页面。使用Promise异步回调。
 
@@ -173,15 +171,13 @@ openCertificateManagerDialog(context: common.Context, pageType: CertificateDialo
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common) | 是 | 表示应用的上下文信息。 |
-| pageType | [CertificateDialogPageType](#certificatedialogpagetype) | 是 | 表示页面类型。 |
+| context | common.Context | 是 | 表示应用的上下文信息。 |
+| pageType | CertificateDialogPageType | 是 | 表示页面类型。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -192,7 +188,6 @@ openCertificateManagerDialog(context: common.Context, pageType: CertificateDialo
 
 以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
@@ -202,42 +197,32 @@ openCertificateManagerDialog(context: common.Context, pageType: CertificateDialo
 
 **示例**：
 
-
-```ts
+```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
-let context: common.Context =
-  new UIContext().getHostContext() as common.Context;
+let context: common.Context = new UIContext().getHostContext() as common.Context;
 /* pageType为页面类型，此处赋值PAGE_MAIN，即拉起证书管理主界面 */
-let pageType: certificateManagerDialog.CertificateDialogPageType =
-  certificateManagerDialog.CertificateDialogPageType.PAGE_MAIN;
+let pageType: certificateManagerDialog.CertificateDialogPageType = certificateManagerDialog.CertificateDialogPageType.PAGE_MAIN;
 try {
-  certificateManagerDialog
-    .openCertificateManagerDialog(context, pageType)
-    .then(() => {
-      console.info('Succeeded in opening certificate manager dialog.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to open certificate manager dialog. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  certificateManagerDialog.openCertificateManagerDialog(context, pageType).then(() => {
+    console.info('Succeeded in opening certificate manager dialog.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to open certificate manager dialog. Code: ${err.code}, message: ${err.message}`);
+  })
 } catch (error) {
-  console.error(
-    `Failed to open certificate manager dialog. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to open certificate manager dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## certificateManagerDialog.openInstallCertificateDialog14+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>
+##### certificateManagerDialog.openInstallCertificateDialog14+
+
+openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise&lt;string&gt;
 
 表示拉起证书管理安装证书向导，显示相应的页面。使用Promise异步回调。
 
@@ -251,17 +236,15 @@ openInstallCertificateDialog(context: common.Context, certType: CertificateType,
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common) | 是 | 表示应用的上下文信息。 |
-| certType | [CertificateType](#certificatetype14) | 是 | 表示安装证书类型，目前支持CA_CERT、CREDENTIAL_USER、CREDENTIAL_SYSTEM。 |
-| certScope | [CertificateScope](#certificatescope14) | 是 | 表示安装证书的使用范围，目前支持CURRENT_USER、NOT_SPECIFIED。 |
+| context | common.Context | 是 | 表示应用的上下文信息。 |
+| certType | CertificateType | 是 | 表示安装证书类型，目前支持CA_CERT、CREDENTIAL_USER、CREDENTIAL_SYSTEM。 |
+| certScope | CertificateScope | 是 | 表示安装证书的使用范围，目前支持CURRENT_USER、NOT_SPECIFIED。 |
 | cert | Uint8Array | 是 | 表示安装证书数据。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -271,7 +254,6 @@ openInstallCertificateDialog(context: common.Context, certType: CertificateType,
 **错误码：**
 
 以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -286,52 +268,38 @@ openInstallCertificateDialog(context: common.Context, certType: CertificateType,
 
 **示例**：
 
-
-```ts
+```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
-let context: common.Context =
-  new UIContext().getHostContext() as common.Context;
+let context: common.Context = new UIContext().getHostContext() as common.Context;
 /* certificateType为证书类型，此处赋值CA_CERT，即安装CA证书 */
-let certificateType: certificateManagerDialog.CertificateType =
-  certificateManagerDialog.CertificateType.CA_CERT;
+let certificateType: certificateManagerDialog.CertificateType = certificateManagerDialog.CertificateType.CA_CERT;
 /* certificateScope为证书使用范围，此处赋值CURRENT_USER，即当前用户下可用 */
-let certificateScope: certificateManagerDialog.CertificateScope =
-  certificateManagerDialog.CertificateScope.CURRENT_USER;
+let certificateScope: certificateManagerDialog.CertificateScope = certificateManagerDialog.CertificateScope.CURRENT_USER;
 /* 安装的CA证书数据需要业务赋值，本例数据非CA证书数据 */
-let caCert: Uint8Array = new Uint8Array([0x30, 0x82, 0x0b, 0xc1, 0x02, 0x01]);
+let caCert: Uint8Array = new Uint8Array([
+  0x30, 0x82, 0x0b, 0xc1, 0x02, 0x01,
+]);
 try {
-  certificateManagerDialog
-    .openInstallCertificateDialog(
-      context,
-      certificateType,
-      certificateScope,
-      caCert,
-    )
-    .then((uri: string) => {
-      console.info('Succeeded in opening install certificate');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to open install certificate dialog. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  certificateManagerDialog.openInstallCertificateDialog(context, certificateType, certificateScope, caCert).then((uri: string) => {
+    console.info('Succeeded in opening install certificate');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to open install certificate dialog. Code: ${err.code}, message: ${err.message}`);
+  })
 } catch (error) {
-  console.error(
-    `Failed to open install certificate dialog. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to open install certificate dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## certificateManagerDialog.openUninstallCertificateDialog18+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise<void>
+##### certificateManagerDialog.openUninstallCertificateDialog18+
+
+openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise&lt;void&gt;
 
 表示拉起证书管理删除证书向导，显示相应的页面。使用Promise异步回调。
 
@@ -345,16 +313,14 @@ openUninstallCertificateDialog(context: common.Context, certType: CertificateTyp
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common) | 是 | 表示应用的上下文信息。 |
-| certType | [CertificateType](#certificatetype14) | 是 | 表示删除证书类型。 |
+| context | common.Context | 是 | 表示应用的上下文信息。 |
+| certType | CertificateType | 是 | 表示删除证书类型。 |
 | certUri | string | 是 | 表示待删除证书的唯一标识符，最大长度为256字节。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -364,7 +330,6 @@ openUninstallCertificateDialog(context: common.Context, certType: CertificateTyp
 **错误码：**
 
 以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -379,44 +344,34 @@ openUninstallCertificateDialog(context: common.Context, certType: CertificateTyp
 
 **示例**：
 
-
-```ts
+```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
-let context: common.Context =
-  new UIContext().getHostContext() as common.Context;
+let context: common.Context = new UIContext().getHostContext() as common.Context;
 /* certificateType为证书类型，此处赋值CA_CERT，即删除CA证书 */
-let certificateType: certificateManagerDialog.CertificateType =
-  certificateManagerDialog.CertificateType.CA_CERT;
+let certificateType: certificateManagerDialog.CertificateType = certificateManagerDialog.CertificateType.CA_CERT;
 /* certUri为业务安装证书返回的唯一标识符，此处仅为示例 */
-let certUri: string = 'test';
+let certUri: string = "test";
 try {
-  certificateManagerDialog
-    .openUninstallCertificateDialog(context, certificateType, certUri)
-    .then(() => {
-      console.info('Succeeded in opening uninstall certificate');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to open uninstall certificate dialog. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  certificateManagerDialog.openUninstallCertificateDialog(context, certificateType, certUri).then(() => {
+    console.info('Succeeded in opening uninstall certificate');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to open uninstall certificate dialog. Code: ${err.code}, message: ${err.message}`);
+  })
 } catch (error) {
-  console.error(
-    `Failed to open uninstall certificate dialog. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to open uninstall certificate dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## certificateManagerDialog.openCertificateDetailDialog18+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise<void>
+##### certificateManagerDialog.openCertificateDetailDialog18+
+
+openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise&lt;void&gt;
 
 表示拉起证书管理对话框显示证书的详情。使用Promise异步回调。
 
@@ -430,16 +385,14 @@ openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property:
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common) | 是 | 表示应用的上下文信息。 |
+| context | common.Context | 是 | 表示应用的上下文信息。 |
 | cert | Uint8Array | 是 | 表示安装证书数据。 |
-| property | [CertificateDialogProperty](#certificatedialogproperty18) | 是 | 表示拉起证书管理对话框的属性。 |
+| property | CertificateDialogProperty | 是 | 表示拉起证书管理对话框的属性。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -449,7 +402,6 @@ openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property:
 **错误码：**
 
 以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -462,44 +414,37 @@ openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property:
 
 **示例**：
 
-
-```ts
+```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
-let context: common.Context =
-  new UIContext().getHostContext() as common.Context;
+let context: common.Context = new UIContext().getHostContext() as common.Context;
 /* 安装的CA证书数据需要业务赋值，本例数据非CA证书数据 */
-let caCert: Uint8Array = new Uint8Array([0x30, 0x82, 0x0b, 0xc1, 0x02, 0x01]);
+let caCert: Uint8Array = new Uint8Array([
+  0x30, 0x82, 0x0b, 0xc1, 0x02, 0x01,
+]);
 let property: certificateManagerDialog.CertificateDialogProperty = {
-  showInstallButton: false /* 不显示安装按钮 */,
+  showInstallButton: false /* 不显示安装按钮 */
 };
 try {
-  certificateManagerDialog
-    .openCertificateDetailDialog(context, caCert, property)
-    .then(() => {
-      console.info('Succeeded in opening certificate detail dialog.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to open certificate detail dialog. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  certificateManagerDialog.openCertificateDetailDialog(context, caCert, property).then(() => {
+    console.info('Succeeded in opening certificate detail dialog.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to open certificate detail dialog. Code: ${err.code}, message: ${err.message}`);
+  })
 } catch (error) {
-  console.error(
-    `Failed to open certificate detail dialog. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to open certificate detail dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## certificateManagerDialog.openAuthorizeDialog20+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-openAuthorizeDialog(context: common.Context): Promise<string>
+##### certificateManagerDialog.openAuthorizeDialog20+
+
+openAuthorizeDialog(context: common.Context): Promise&lt;string&gt;
 
 打开证书管理对话框的授权页面。在弹出的页面中，用户可以为应用授权证书。使用Promise异步回调。
 
@@ -511,14 +456,12 @@ openAuthorizeDialog(context: common.Context): Promise<string>
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common) | 是 | 表示应用的上下文信息。 |
+| context | common.Context | 是 | 表示应用的上下文信息。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -528,7 +471,6 @@ openAuthorizeDialog(context: common.Context): Promise<string>
 **错误码：**
 
 以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -540,40 +482,31 @@ openAuthorizeDialog(context: common.Context): Promise<string>
 
 **示例**：
 
-
-```ts
+```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
-let context: common.Context =
-  new UIContext().getHostContext() as common.Context;
+let context: common.Context = new UIContext().getHostContext() as common.Context;
 try {
-  certificateManagerDialog
-    .openAuthorizeDialog(context)
-    .then((uri: string) => {
-      console.info(`Succeeded in authorizing certificate, uri: ${uri}`);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to authorize certificate. Code: ${err.code}, message: ${err.message}`,
-      );
+    certificateManagerDialog.openAuthorizeDialog(context).then((uri: string) => {
+        console.info(`Succeeded in authorizing certificate, uri: ${uri}`)
+    }).catch((err: BusinessError) => {
+        console.error(`Failed to authorize certificate. Code: ${err.code}, message: ${err.message}`);
     });
 } catch (err) {
-  let error = err as BusinessError;
-  console.error(
-    `Failed to authorize certificate. Code: ${error.code}, message: ${error.message}`,
-  );
+    let error = err as BusinessError;
+    console.error(`Failed to authorize certificate. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## certificateManagerDialog.openAuthorizeDialog22+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertReference>
+##### certificateManagerDialog.openAuthorizeDialog22+
+
+openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise&lt;CertReference&gt;
 
 打开USB凭据PIN码认证对话框的授权页面。在弹出的页面中，用户为应用程序授权证书，可授权的证书类型包括应用私有凭据、用户公共凭据和USB凭据。使用Promise异步回调。
 
@@ -587,25 +520,22 @@ openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest)
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common) | 是 | 表示应用的上下文信息。 |
-| authorizeRequest | [AuthorizeRequest](#authorizerequest22) | 是 | 表示授权请求信息。 |
+| context | common.Context | 是 | 表示应用的上下文信息。 |
+| authorizeRequest | AuthorizeRequest | 是 | 表示授权请求信息。 |
 
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[CertReference](#certreference22)&gt; | Promise对象，返回授权证书引用的结果。 |
+| Promise&lt;CertReference&gt; | Promise对象，返回授权证书引用的结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -619,55 +549,39 @@ openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest)
 
 **示例**：
 
-
-```ts
-import {
-  certificateManagerDialog,
-  certificateManager,
-} from '@kit.DeviceCertificateKit';
+```text
+import { certificateManagerDialog, certificateManager } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
-let context: common.Context =
-  new UIContext().getHostContext() as common.Context;
+let context: common.Context = new UIContext().getHostContext() as common.Context;
 let certTypes: Array<certificateManagerDialog.CertificateType> = [
   certificateManagerDialog.CertificateType.CREDENTIAL_USER,
   certificateManagerDialog.CertificateType.CREDENTIAL_APP,
-  certificateManagerDialog.CertificateType.CREDENTIAL_UKEY,
+  certificateManagerDialog.CertificateType.CREDENTIAL_UKEY
 ];
-let certPurpose: certificateManager.CertificatePurpose =
-  certificateManager.CertificatePurpose.PURPOSE_DEFAULT;
-let authorizeRequest: certificateManagerDialog.AuthorizeRequest = {
-  certTypes: certTypes,
-  certPurpose: certPurpose,
-};
+let certPurpose: certificateManager.CertificatePurpose = certificateManager.CertificatePurpose.PURPOSE_DEFAULT;
+let authorizeRequest: certificateManagerDialog.AuthorizeRequest = { certTypes: certTypes, certPurpose: certPurpose };
 try {
-  certificateManagerDialog
-    .openAuthorizeDialog(context, authorizeRequest)
-    .then((certReference: certificateManagerDialog.CertReference) => {
+    certificateManagerDialog.openAuthorizeDialog(context, authorizeRequest).then((certReference: certificateManagerDialog.CertReference) => {
       let reference = certReference;
-      console.info(`Succeeded in opening authorize dialog.`);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to open authorize dialog. Code: ${err.code}, message: ${err.message}`,
-      );
+      console.info(`Succeeded in opening authorize dialog.`)
+    }).catch((err: BusinessError) => {
+        console.error(`Failed to open authorize dialog. Code: ${err.code}, message: ${err.message}`);
     });
 } catch (err) {
-  let error = err as BusinessError;
-  console.error(
-    `Failed to open authorize dialog. Code: ${error.code}, message: ${error.message}`,
-  );
+    let error = err as BusinessError;
+    console.error(`Failed to open authorize dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## certificateManagerDialog.openUkeyAuthDialog22+
-**支持设备：** Phone / PC/2in1 / Tablet
 
-openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): Promise<void>
+##### certificateManagerDialog.openUkeyAuthDialog22+
+
+openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): Promise&lt;void&gt;
 
 打开USB凭据PIN码认证对话框的授权页面。在弹出的页面中，用户可以输入PIN码授权USB证书凭据。使用Promise异步回调。
 
@@ -681,15 +595,13 @@ openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): P
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common) | 是 | 表示应用的上下文信息。 |
-| ukeyAuthRequest | [UkeyAuthRequest](#ukeyauthrequest22) | 是 | 表示USB凭据授权请求信息。 |
+| context | common.Context | 是 | 表示应用的上下文信息。 |
+| ukeyAuthRequest | UkeyAuthRequest | 是 | 表示USB凭据授权请求信息。 |
 
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -699,7 +611,6 @@ openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): P
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -713,36 +624,25 @@ openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): P
 
 **示例**：
 
-
-```ts
+```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
 
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
-let context: common.Context =
-  new UIContext().getHostContext() as common.Context;
+let context: common.Context = new UIContext().getHostContext() as common.Context;
 /* keyUri为证书凭据的唯一标识符，调用方自行获取，此处仅为示例 */
-let keyUri: string = 'test';
-let ukeyAuthRequest: certificateManagerDialog.UkeyAuthRequest = {
-  keyUri: keyUri,
-};
+let keyUri: string = "test"
+let ukeyAuthRequest: certificateManagerDialog.UkeyAuthRequest = { keyUri: keyUri }
 try {
-  certificateManagerDialog
-    .openUkeyAuthDialog(context, ukeyAuthRequest)
-    .then(() => {
-      console.info(`Succeeded in opening ukey authorization dialog`);
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to open ukey authorization dialog. Code: ${err.code}, message: ${err.message}`,
-      );
+    certificateManagerDialog.openUkeyAuthDialog(context, ukeyAuthRequest).then(() => {
+        console.info(`Succeeded in opening ukey authorization dialog`)
+    }).catch((err: BusinessError) => {
+        console.error(`Failed to open ukey authorization dialog. Code: ${err.code}, message: ${err.message}`);
     });
 } catch (err) {
-  let error = err as BusinessError;
-  console.error(
-    `Failed to open ukey authorization dialog. Code: ${error.code}, message: ${error.message}`,
-  );
+    let error = err as BusinessError;
+    console.error(`Failed to open ukey authorization dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```

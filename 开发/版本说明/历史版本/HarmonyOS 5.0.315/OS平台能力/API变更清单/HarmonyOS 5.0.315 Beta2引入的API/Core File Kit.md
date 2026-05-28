@@ -13,7 +13,7 @@
 | 新增API | NA | 类名：MergeTypeMode； API声明：DOCUMENT = 3 差异内容：DOCUMENT = 3 | api/@ohos.file.picker.d.ts |
 | 新增API | NA | 类名：MergeTypeMode； API声明：PICTURE = 4 差异内容：PICTURE = 4 | api/@ohos.file.picker.d.ts |
 | 新增API | NA | 类名：DocumentSelectOptions； API声明：multiAuthMode?: boolean; 差异内容：multiAuthMode?: boolean; | api/@ohos.file.picker.d.ts |
-| 新增API | NA | 类名：DocumentSelectOptions； API声明：multiUriArray?: Array<string>; 差异内容：multiUriArray?: Array<string>; | api/@ohos.file.picker.d.ts |
+| 新增API | NA | 类名：DocumentSelectOptions； API声明：multiUriArray?: Array&lt;string&gt;; 差异内容：multiUriArray?: Array&lt;string&gt;; | api/@ohos.file.picker.d.ts |
 | 新增API | NA | 类名：DocumentSelectOptions； API声明：mergeMode?: MergeTypeMode; 差异内容：mergeMode?: MergeTypeMode; | api/@ohos.file.picker.d.ts |
 | 新增API | NA | 类名：fileShare； API声明： export interface PathPolicyInfo 差异内容： export interface PathPolicyInfo | api/@ohos.fileshare.d.ts |
 | 新增API | NA | 类名：PathPolicyInfo； API声明：path: string; 差异内容：path: string; | api/@ohos.fileshare.d.ts |

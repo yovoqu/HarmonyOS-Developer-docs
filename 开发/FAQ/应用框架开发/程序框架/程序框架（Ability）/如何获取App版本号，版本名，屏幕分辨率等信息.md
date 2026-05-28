@@ -5,20 +5,21 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-71
 
 1. 通过@kit.AbilityKit中的bundleManager模块查询bundleInfo，其中包含App版本号和版本名。
-```text
+```ArkTS
 import { BusinessError } from '@kit.BasicServicesKit';
 import { bundleManager } from '@kit.AbilityKit';
 
 // ...
 bundleManager.getBundleInfoForSelf(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION).then((bundleInfo) => {
-let versionName = bundleInfo.versionName; //App version name
-let versionNo = bundleInfo.versionCode; //App version code
+  let versionName = bundleInfo.versionName; //App version name
+  let versionNo = bundleInfo.versionCode; //App version code
 }).catch((error: BusinessError) => {
-console.error('get bundleInfo failed, error is ' + error);
+  console.error('get bundleInfo failed, error is ' + error);
 })
 ```
+
 2. 在context.config中获取screenDensity，其中包含屏幕分辨率信息。
-```text
+```ArkTS
 import { common } from '@kit.AbilityKit';
 
 // ...

@@ -5,19 +5,24 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-shooting-case
 
 在开发相机应用时，需要先[申请相关权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-preparation)。
+ 
+当前示例提供完整的拍照流程及其接口调用顺序的介绍。对于单个流程（如设备输入、会话管理、拍照）的介绍请参考[相机开发指导(Native)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-device-management)的具体章节。
+  
 
- 当前示例提供完整的拍照流程及其接口调用顺序的介绍。对于单个流程（如设备输入、会话管理、拍照）的介绍请参考[相机开发指导(Native)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-device-management)的具体章节。
-
-
-## 开发流程
+##### 开发流程
 
 在获取到相机支持的输出流能力后，开始创建拍照流，开发流程如下。
-![](assets/拍照实践(C／C++)
-/file-20260514131526960-0.png)
+ 
 
-## 完整示例
+![](assets/拍照实践(C／C++)/file-20260514131526960-0.png)
 
-在CMake脚本中链接相关动态库。
+ 
+  
+
+##### 完整示例
+1. 在CMake脚本中链接相关动态库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC
     libace_napi.z.so
@@ -29,7 +34,9 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
-创建头文件ndk_camera.h。
+2. 创建头文件ndk_camera.h。
+
+  
 ```text
 #include "ohcamera/camera.h"
 #include "ohcamera/camera_input.h"
@@ -47,7 +54,9 @@ public:
 };
 ```
 
-cpp侧导入NDK接口，并根据传入的SurfaceId进行拍照。
+3. cpp侧导入NDK接口，并根据传入的SurfaceId进行拍照。
+
+  
 ```text
 #include "hilog/log.h"
 
@@ -214,7 +223,46 @@ NDKCamera::NDKCamera(char* previewId)
 
     // 获取相机列表。
     ret = OH_CameraManager_GetSupportedCameras(cameraManager, &cameras, &size);
-    if (cameras == nullptr || size previewProfiles == nullptr) {
+    if (cameras == nullptr || size <= 0 || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_GetSupportedCameras failed.");
+        return;
+    }
+
+    if (size < cameraDeviceIndex + 1) {
+        OH_LOG_ERROR(LOG_APP, "cameraDeviceIndex is invalid.");
+        return;
+    }
+
+    // 创建相机输入流。
+    ret = OH_CameraManager_CreateCameraInput(cameraManager, &cameras[cameraDeviceIndex], &cameraInput);
+    if (cameraInput == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_CreateCameraInput failed.");
+        return;
+    }
+
+    // 监听cameraInput错误信息。
+    ret = OH_CameraInput_RegisterCallback(cameraInput, GetCameraInputListener());
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraInput_RegisterCallback failed.");
+        return;
+    }
+
+    // 打开相机。
+    ret = OH_CameraInput_Open(cameraInput);
+    if (ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraInput_Open failed.");
+        return;
+    }
+
+    // 获取相机设备支持的输出流能力。
+    ret = OH_CameraManager_GetSupportedCameraOutputCapability(cameraManager, &cameras[cameraDeviceIndex],
+                                                              &cameraOutputCapability);
+    if (cameraOutputCapability == nullptr || ret != CAMERA_OK) {
+        OH_LOG_ERROR(LOG_APP, "OH_CameraManager_GetSupportedCameraOutputCapability failed.");
+        return;
+    }
+
+    if (cameraOutputCapability->previewProfiles == nullptr) {
         OH_LOG_ERROR(LOG_APP, "previewProfiles == null");
         return;
     }
@@ -314,7 +362,7 @@ NDKCamera::NDKCamera(char* previewId)
     } else {
         OH_LOG_ERROR(LOG_APP, "hasFlash fail");
     }
-
+    
     // 检测闪光灯模式是否支持。
     bool isSupported = false;
     ret = OH_CaptureSession_IsFlashModeSupported(captureSession, flashMode, &isSupported);

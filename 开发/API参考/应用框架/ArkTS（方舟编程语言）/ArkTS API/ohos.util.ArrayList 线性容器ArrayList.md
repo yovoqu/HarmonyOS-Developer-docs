@@ -3,7 +3,7 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArrayList是一种线性数据结构，底层基于数组实现。ArrayList会根据实际需要动态调整容量，每次扩容增加50%。
 
@@ -13,43 +13,40 @@ ArrayList和[LinkedList](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- T：Type，类
+ - T：Type，类
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { ArrayList } from '@kit.ArkTS';
 ```
 
 
-## ArrayList
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### ArrayList
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | ArrayList的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -63,7 +60,6 @@ ArrayList的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The ArrayList's constructor cannot be directly invoked. |
@@ -71,14 +67,13 @@ ArrayList的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<string | number>();
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 add(element: T): boolean
 
@@ -90,14 +85,12 @@ add(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 待插入的元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -108,7 +101,6 @@ add(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The add method cannot be bound. |
@@ -116,28 +108,27 @@ add(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 class C1 {
-  name: string = '';
-  age: string = '';
+  name: string = ""
+  age: string = ""
 }
 let arrayList = new ArrayList<string | number | boolean | Array<number> | C1>();
-arrayList.add('a');
+arrayList.add("a");
 arrayList.add(1);
 let b = [1, 2, 3];
 arrayList.add(b);
-let c: C1 = { name: 'Dylan', age: '13' };
+let c : C1 = {name: "Dylan", age: "13"}
 let result1 = arrayList.add(c);
 let result2 = arrayList.add(false);
-console.info('result1:', result1); // result1: true
-console.info('result2:', result2); // result2: true
-console.info('length:', arrayList.length); // length: 5
+console.info("result1:", result1);  // result1: true
+console.info("result2:", result2);  // result2: true
+console.info("length:", arrayList.length);  // length: 5
 ```
 
 
-### insert
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### insert
 
 insert(element: T, index: number): void
 
@@ -149,7 +140,6 @@ insert(element: T, index: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 被插入的元素。 |
@@ -160,7 +150,6 @@ insert(element: T, index: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -170,18 +159,17 @@ insert(element: T, index: number): void
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number | string | boolean>();
-arrayList.insert('A', 0);
+arrayList.insert("A", 0);
 arrayList.insert(0, 1);
 arrayList.insert(true, 2);
-console.info('length:', arrayList.length); // length: 3
+console.info("length:", arrayList.length);  // length: 3
 ```
 
 
-### has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(element: T): boolean
 
@@ -193,14 +181,12 @@ has(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -211,7 +197,6 @@ has(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The has method cannot be bound. |
@@ -219,17 +204,16 @@ has(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<string>();
-arrayList.add('squirrel');
-let result: boolean = arrayList.has('squirrel');
-console.info('result:', result); // result: true
+arrayList.add("squirrel");
+let result: boolean = arrayList.has("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### getIndexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getIndexOf
 
 getIndexOf(element: T): number
 
@@ -241,14 +225,12 @@ getIndexOf(element: T): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -259,7 +241,6 @@ getIndexOf(element: T): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getIndexOf method cannot be bound. |
@@ -267,8 +248,7 @@ getIndexOf(element: T): number
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -278,12 +258,12 @@ arrayList.add(1);
 arrayList.add(2);
 arrayList.add(4);
 let result: number = arrayList.getIndexOf(2);
-console.info('result = ', result); // result = 0
+console.info("result = ", result); // result = 0
 ```
 
 
-### getLastIndexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLastIndexOf
 
 getLastIndexOf(element: T): number
 
@@ -295,14 +275,12 @@ getLastIndexOf(element: T): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -313,7 +291,6 @@ getLastIndexOf(element: T): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getLastIndexOf method cannot be bound. |
@@ -321,8 +298,7 @@ getLastIndexOf(element: T): number
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -332,12 +308,12 @@ arrayList.add(1);
 arrayList.add(2);
 arrayList.add(4);
 let result: number = arrayList.getLastIndexOf(2);
-console.info('result = ', result); // result = 5
+console.info("result = ", result); // result = 5
 ```
 
 
-### removeByIndex
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeByIndex
 
 removeByIndex(index: number): T
 
@@ -349,14 +325,12 @@ removeByIndex(index: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定元素的下标值。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -367,7 +341,6 @@ removeByIndex(index: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -377,8 +350,7 @@ removeByIndex(index: number): T
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -386,12 +358,12 @@ arrayList.add(5);
 arrayList.add(2);
 arrayList.add(4);
 let result: number = arrayList.removeByIndex(2);
-console.info('result = ', result); // result = 5
+console.info("result = ", result); // result = 5
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove
 
 remove(element: T): boolean
 
@@ -403,14 +375,12 @@ remove(element: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | element | T | 是 | 指定元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -421,7 +391,6 @@ remove(element: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The remove method cannot be bound. |
@@ -429,20 +398,19 @@ remove(element: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 let result: boolean = arrayList.remove(2);
-console.info('result = ', result); // result =  true
+console.info("result = ", result); // result =  true
 ```
 
 
-### removeByRange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeByRange
 
 removeByRange(fromIndex: number, toIndex: number): void
 
@@ -454,7 +422,6 @@ removeByRange(fromIndex: number, toIndex: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fromIndex | number | 是 | 起始下标。 |
@@ -465,7 +432,6 @@ removeByRange(fromIndex: number, toIndex: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -475,8 +441,7 @@ removeByRange(fromIndex: number, toIndex: number): void
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -486,10 +451,10 @@ arrayList.removeByRange(2, 4);
 ```
 
 
-### replaceAllElements
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => T, thisArg?: Object): void
+##### replaceAllElements
+
+replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList&lt;T&gt;) => T, thisArg?: Object): void
 
 用户操作ArrayList中的元素，用操作后的元素替换原元素并返回操作后的元素。
 
@@ -499,7 +464,6 @@ replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -507,7 +471,6 @@ replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -520,7 +483,6 @@ callbackFn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -529,8 +491,7 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -543,10 +504,10 @@ arrayList.replaceAllElements((value: number): number => {
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void, thisArg?: Object): void
+##### forEach
+
+forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList&lt;T&gt;) => void, thisArg?: Object): void
 
 在遍历ArrayList实例对象的过程中，对每个元素执行回调函数。
 
@@ -556,7 +517,6 @@ forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void, 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -564,7 +524,6 @@ forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList<T>) => void, 
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -577,8 +536,7 @@ callbackFn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
-| 错误码ID | 错误信�� |
+| 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
 | 10200011 | The forEach method cannot be bound. |
@@ -586,15 +544,14 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 arrayList.forEach((value: number, index?: number) => {
-  console.info('value:' + value, 'index:' + index);
+  console.info("value:" + value, "index:" + index);
 });
 // value:2 index:0
 // value:4 index:1
@@ -603,10 +560,10 @@ arrayList.forEach((value: number, index?: number) => {
 ```
 
 
-### sort
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-sort(comparator?: ArrayListComparatorFn<T>): void
+##### sort
+
+sort(comparator?: ArrayListComparatorFn&lt;T&gt;): void
 
 根据指定比较器所定义的顺序，对ArrayList中的元素进行排序。
 
@@ -616,16 +573,14 @@ sort(comparator?: ArrayListComparatorFn<T>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| comparator | [ArrayListComparatorFn&lt;T&gt;](#arraylistcomparatorfnt23) | 否 | 回调函数，默认为升序排序的回调函数。          API version23开始发生兼容性变更，在API version22及之前的版本其类型为：(firstValue: T, secondValue: T) =&gt; number。 |
+| comparator | ArrayListComparatorFn&lt;T&gt; | 否 | 回调函数，默认为升序排序的回调函数。 API version23开始发生兼容性变更，在API version22及之前的版本其类型为：(firstValue: T, secondValue: T) => number。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -635,8 +590,7 @@ sort(comparator?: ArrayListComparatorFn<T>): void
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -648,10 +602,10 @@ arrayList.sort();
 ```
 
 
-### subArrayList
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-subArrayList(fromIndex: number, toIndex: number): ArrayList<T>
+##### subArrayList
+
+subArrayList(fromIndex: number, toIndex: number): ArrayList&lt;T&gt;
 
 根据下标截取ArrayList中的一段元素，并返回这一段ArrayList实例，区间包含fromIndex，但不包含toIndex，即左闭右开区间[fromIndex, toIndex)。
 
@@ -661,7 +615,6 @@ subArrayList(fromIndex: number, toIndex: number): ArrayList<T>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | fromIndex | number | 是 | 起始下标。 |
@@ -669,7 +622,6 @@ subArrayList(fromIndex: number, toIndex: number): ArrayList<T>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -680,7 +632,6 @@ subArrayList(fromIndex: number, toIndex: number): ArrayList<T>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -690,20 +641,19 @@ subArrayList(fromIndex: number, toIndex: number): ArrayList<T>
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 let result: ArrayList<number> = arrayList.subArrayList(2, 4);
-console.info('result = ', result.length); // result = 2
+console.info("result = ", result.length); // result = 2
 ```
 
 
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -717,7 +667,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound. |
@@ -725,8 +674,7 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -736,10 +684,10 @@ arrayList.clear();
 ```
 
 
-### clone
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-clone(): ArrayList<T>
+##### clone
+
+clone(): ArrayList&lt;T&gt;
 
 克隆一个与ArrayList相同的实例，并返回克隆后的实例。修改克隆后的实例并不会影响原实例。
 
@@ -748,7 +696,6 @@ clone(): ArrayList<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -759,7 +706,6 @@ clone(): ArrayList<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clone method cannot be bound. |
@@ -767,20 +713,19 @@ clone(): ArrayList<T>
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
-let result: ArrayList<number> = arrayList.clone();
-console.info('result = ', result.length); // result = 4
+let result:  ArrayList<number> = arrayList.clone();
+console.info("result = ", result.length); // result = 4
 ```
 
 
-### getCapacity
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCapacity
 
 getCapacity(): number
 
@@ -792,7 +737,6 @@ getCapacity(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 获取当前实例的容量大小。 |
@@ -802,7 +746,6 @@ getCapacity(): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getCapacity method cannot be bound. |
@@ -810,22 +753,21 @@ getCapacity(): number
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 let result: number = arrayList.getCapacity();
-console.info('result = ', result); // result = 10
+console.info("result = ", result); // result = 10
 ```
 
 
-### convertToArray
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-convertToArray(): Array<T>
+##### convertToArray
+
+convertToArray(): Array&lt;T&gt;
 
 把当前ArrayList实例转换成数组，并返回转换后的数组。
 
@@ -835,16 +777,14 @@ convertToArray(): Array<T>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Array&lt;T&gt; | 返回数组类型。 |
 
 
-**��误码：**
+**错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -853,20 +793,19 @@ convertToArray(): Array<T>
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 let result: Array<number> = arrayList.convertToArray();
-console.info('result = ', result); // result =  2,4,5,4
+console.info("result = ", result); // result =  2,4,5,4
 ```
 
 
-### isEmpty
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty
 
 isEmpty(): boolean
 
@@ -878,7 +817,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 为空返回true，不为空返回false。 |
@@ -888,7 +826,6 @@ isEmpty(): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The isEmpty method cannot be bound. |
@@ -896,20 +833,19 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 let result: boolean = arrayList.isEmpty();
-console.info('result = ', result); // result =  false
+console.info("result = ", result); // result =  false
 ```
 
 
-### [index: number]12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### [index: number]12+
 
 [index: number]: T
 
@@ -921,14 +857,12 @@ console.info('result = ', result); // result =  false
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 元素的位置索引。需要小于等于int32_max即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -939,7 +873,6 @@ console.info('result = ', result); // result =  false
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. |
@@ -948,20 +881,19 @@ console.info('result = ', result); // result =  false
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 let result: number = arrayList[2];
-console.info('result = ', result); // result =  5
+console.info("result = ", result); // result =  5
 ```
 
 
-### increaseCapacityTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### increaseCapacityTo
 
 increaseCapacityTo(newCapacity: number): void
 
@@ -973,7 +905,6 @@ increaseCapacityTo(newCapacity: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | newCapacity | number | 是 | 新容量。 |
@@ -983,7 +914,6 @@ increaseCapacityTo(newCapacity: number): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -992,8 +922,7 @@ increaseCapacityTo(newCapacity: number): void
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -1001,12 +930,12 @@ arrayList.add(5);
 arrayList.add(4);
 arrayList.increaseCapacityTo(2);
 arrayList.increaseCapacityTo(8);
-console.info('result = ', arrayList.length); // result = 4
+console.info("result = ", arrayList.length); // result = 4
 ```
 
 
-### trimToCurrentLength
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### trimToCurrentLength
 
 trimToCurrentLength(): void
 
@@ -1020,7 +949,6 @@ trimToCurrentLength(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The trimToCurrentLength method cannot be bound. |
@@ -1028,22 +956,21 @@ trimToCurrentLength(): void
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
 arrayList.add(5);
 arrayList.add(4);
 arrayList.trimToCurrentLength();
-console.info('result = ', arrayList.length); // result = 4
+console.info("result = ", arrayList.length); // result = 4
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<T>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;T&gt;
 
 返回一个迭代器，每一项都是一个JavaScript对象。
 
@@ -1052,7 +979,6 @@ console.info('result = ', arrayList.length); // result = 4
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1063,7 +989,6 @@ console.info('result = ', arrayList.length); // result = 4
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -1071,8 +996,7 @@ console.info('result = ', arrayList.length); // result = 4
 
 **示例：**
 
-
-```ts
+```text
 let arrayList = new ArrayList<number>();
 arrayList.add(2);
 arrayList.add(4);
@@ -1081,7 +1005,7 @@ arrayList.add(4);
 
 // 使用方法一：
 for (let value of arrayList) {
-  console.info('value:', value);
+  console.info("value:", value);
 }
 // value: 2
 // value: 4
@@ -1091,8 +1015,8 @@ for (let value of arrayList) {
 // 使用方法二：
 let iter = arrayList[Symbol.iterator]();
 let temp: IteratorResult<number> = iter.next();
-while (!temp.done) {
-  console.info('value:', temp.value);
+while(!temp.done) {
+  console.info("value:", temp.value);
   temp = iter.next();
 }
 // value: 2
@@ -1102,10 +1026,10 @@ while (!temp.done) {
 ```
 
 
-### ArrayListComparatorFn&lt;T&gt;23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type ArrayListComparatorFn<T> = (firstValue: T, secondValue: T) => number
+##### ArrayListComparatorFn&lt;T&gt;23+
+
+type ArrayListComparatorFn&lt;T&gt; = (firstValue: T, secondValue: T) => number
 
 ArrayList中sort方法的回调函数。
 
@@ -1115,15 +1039,13 @@ ArrayList中sort方法的回调函数。
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| firstValue | T | 是 | 需要排序��前一项元素。 |
+| firstValue | T | 是 | 需要排序的前一项元素。 |
 | secondValue | T | 是 | 需要排序的后一项元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |

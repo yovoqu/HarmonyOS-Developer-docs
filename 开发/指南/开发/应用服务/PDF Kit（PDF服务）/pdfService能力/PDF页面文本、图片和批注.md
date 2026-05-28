@@ -6,24 +6,36 @@
 
 支持编辑PDF页面内容，包括：
 
+ - 添加、删除文本。
+ - 添加、删除图片。
+ - 添加、修改、删除批注。
+
+  通过索引指定PDF页面添加批注，并对批注在页面中的位置，字体、批注边框等设置，批注提供了多种风格样式，包括：文本批注[TextAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#textannotationinfo)、下划线批注[LineAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#lineannotationinfo)、高亮批注[HighlightAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#highlightannotationinfo)、删除线批注[StrikethroughAnnotationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#strikethroughannotationinfo)等共13种。
+
+
 
 ![](assets/PDF页面文本、图片和批注/file-20260514132107764-0.png)
 
 
-## 接口说明
 
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [addTextObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#addtextobject)(text: string, x: number, y: number, style: TextStyle): void | 添加文本内容，只可按行添加。 |
-| [addImageObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#addimageobject)(path: string, x: number, y: number, width: number, height: number): void | 在PDF文档的页面中添加图片。 |
-| [deleteGraphicsObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#deletegraphicsobject)(object: GraphicsObject): void | 删除指定的GraphicsObject。 |
-| [addAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#addannotation)(annotationInfo: PdfAnnotationInfo): PdfAnnotation | 在当前页添加批注。 |
+| addTextObject(text: string, x: number, y: number, style: TextStyle): void | 添加文本内容，只可按行添加。 |
+| addImageObject(path: string, x: number, y: number, width: number, height: number): void | 在PDF文档的页面中添加图片。 |
+| deleteGraphicsObject(object: GraphicsObject): void | 删除指定的GraphicsObject。 |
+| addAnnotation(annotationInfo: PdfAnnotationInfo): PdfAnnotation | 在当前页添加批注。 |
 
 
-## 添加文本和图片
 
-调用loadDocument方法，加载PDF文档。 在【addText】按钮中调用addTextObject的方法插入文本。 在【delText】按钮中调用deleteGraphicsObject方法来删除相应的页面文本。 在【addImage】按钮中调用addImageObject的方法插入图片。
+
+##### 添加文本和图片
+1. 调用loadDocument方法，加载PDF文档。
+2. 在【addText】按钮中调用addTextObject的方法插入文本。
+3. 在【delText】按钮中调用deleteGraphicsObject方法来删除相应的页面文本。
+4. 在【addImage】按钮中调用addImageObject的方法插入图片。
+
 ```text
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -88,9 +100,14 @@ struct PdfPage {
 ```
 
 
-## 添加文本批注
 
-调用loadDocument方法，加载PDF文档。 调用getPage方法获取指定页。 实例化TextAnnotationInfo文本批注，并设置相关属性。 调用addAnnotation或setAnnotation方法添加或修改批注。 调用removeAnnotation方法删除批注。
+##### 添加文本批注
+1. 调用loadDocument方法，加载PDF文档。
+2. 调用getPage方法获取指定页。
+3. 实例化TextAnnotationInfo文本批注，并设置相关属性。
+4. 调用addAnnotation或setAnnotation方法添加或修改批注。
+5. 调用removeAnnotation方法删除批注。
+
 ```text
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

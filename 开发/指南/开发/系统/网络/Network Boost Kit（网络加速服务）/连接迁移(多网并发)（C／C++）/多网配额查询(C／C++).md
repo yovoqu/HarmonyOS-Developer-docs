@@ -7,32 +7,42 @@
 从6.0.2(22)开始，支持多网配额查询。
 
 
-## 场景介绍
+##### 场景介绍
 
 由于多网络加速受到配额的管控，应用可以获取当前剩余的多网并发配额信息，合理分配使用多网络加速的次数和时长。应用配额以24小时的周期进行刷新。配额（次数或时长）耗尽会限制使用，此时请求多网会抛出错误码，24小时后会重新分配。
 
-## 接口说明
+
+
+##### 接口说明
 
 具体API说明详见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/network-boost-c-overview)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | int32_t HMS_NetworkBoost_GetMultiPathQuotaStats(NetworkBoost_MultiPathQuota *quota) | 获取当前应用多网使用的配额，包括已使用的配额信息和剩余配额信息。 |
 
 
-## 开发步骤
 
-导入Network Boost Kit模块。
+
+##### 开发步骤
+1. 导入Network Boost Kit模块。
+
+  
 ```text
 #include "NetworkBoostKit/network_boost_handover.h"
-#include
+#include <cstdio>
 ```
 
-CMakeLists.txt中添加以下lib，具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-preparations#c-api开发准备)。
+2. CMakeLists.txt中添加以下lib，具体请见[C API开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-preparations#c-api开发准备)。
+
+  
 ```text
 libnetwork_boost.so
 ```
 
-调用GetMultiPathQuotaStats接口，获取多网配额信息。
+3. 调用GetMultiPathQuotaStats接口，获取多网配额信息。
+
+  
 ```text
 int32_t GetMultiPathQuotaStats()
 {

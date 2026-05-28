@@ -4,14 +4,13 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-example-of-the-operator-json
 
-## 样例1：NPU/CPU调测算子json配置文件样例
-
+##### 样例1：NPU/CPU调测算子json配置文件样例
 
 > [!NOTE]
-> 在"param_type"："optional"时， "ignore" : true，表示不需要该输入。  在"param_type"："required"时，"ignore"不能配置为true。
+> 在"param_type"："optional"时， "ignore" : true，表示不需要该输入。 在"param_type"："required"时，"ignore"不能配置为true。
 
-
-```text
+ 
+```json
 {
   "op_type": "FlashAttentionScore",
   "data_script": "./flash_attention_score_golden.py",
@@ -122,12 +121,12 @@
   ]
 }
 ```
+ 
+  
 
+##### 样例2：tensor list json配置文件样例
 
-## 样例2：tensor list json配置文件样例
-
-
-```text
+```json
 {
   "op_type": "IncreFlashAttention",
   "data_script": "",
@@ -315,12 +314,12 @@
       }
   ]}
 ```
+ 
+  
 
+##### 样例3：tiling调测json配置文件样例
 
-## 样例3：tiling调测json配置文件样例
-
-
-```text
+```json
 {
   "op_type": "FlashAttentionScore",
   "data_script": "./flash_attention_score_golden.py",
@@ -476,12 +475,12 @@
   ]
 }
 ```
+ 
+  
 
+##### 样例4：kernel直调json配置样例
 
-## 样例4：kernel直调json配置样例
-
-
-```text
+```cpp
 {
     "op_type": "add_custom",
     "data_script": "",
@@ -527,6 +526,6 @@
         "kernel_name": "add_custom",
         "kernel_includes": []
     }
-
+ 
 }
 ```

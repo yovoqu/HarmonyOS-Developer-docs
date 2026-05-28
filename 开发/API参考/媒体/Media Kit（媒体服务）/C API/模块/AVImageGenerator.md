@@ -3,11 +3,9 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimagegenerator
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供用于从视频资源中获取指定时间点视频帧的API。
 
@@ -18,11 +16,10 @@
 **起始版本：** 18
 
 
-## 文件汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 文件汇总
 
 | 名称 | 描述 |
 | --- | --- |
-| [avimage_generator.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-h) | 定义AVImageGenerator接口。使用其C API从视频资源中获取指定时间点视频帧。 |
-| [avimage_generator_base.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avimage-generator-base-h) | 定义AVImageGenerator的枚举。 |
+| avimage_generator.h | 定义AVImageGenerator接口。使用其C API从视频资源中获取指定时间点视频帧。 |
+| avimage_generator_base.h | 定义AVImageGenerator的枚举。 |

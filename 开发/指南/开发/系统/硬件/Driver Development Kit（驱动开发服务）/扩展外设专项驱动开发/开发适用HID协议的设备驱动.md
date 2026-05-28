@@ -1,28 +1,53 @@
 # 开发适用HID协议的设备驱动
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hid-ddk-guidelines
 
-## 简介
+##### 简介
 
-HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程序开发套件，支持开发者基于用户态，在应用层开发HID设备驱动。提供了一系列主机侧访问设备的接口，包括创建设备、向设备发送事件、销毁设备、打开关闭设备、读取写入报告、获取设备信息等。 凡是采用USB总线，通过HID协议传输数据的设备，或者通过扩展外设驱动创建虚拟设备，来实现与非标设备的信息交互都可以使用HidDdk开发设备驱动。
+HidDdk（HID Driver Development Kit）是为开发者提供的HID设备驱动程序开发套件，支持开发者基于用户态，在应用层开发HID设备驱动。提供了一系列主机侧访问设备的接口，包括创建设备、向设备发送事件、销毁设备、打开关闭设备、读取写入报告、获取设备信息等。
 
-## 基本概念
+凡是采用USB总线，通过HID协议传输数据的设备，或者通过扩展外设驱动创建虚拟设备，来实现与非标设备的信息交互都可以使用HidDdk开发设备驱动。
 
-在进行HidDdk开发前，开发者应了解以下基本概念： **HID** HID（Human Interface Device），中文意思是“人机接口设备”。它是一类用于实现人与计算机或其他电子设备交互的硬件设备。HID 设备的主要功能是将用户的输入（如按键、点击、移动等）转换为数据信号，并将这些信号发送给主机设备（如计算机、平板、游戏机等），从而实现用户对设备的控制和操作。 **DDK** DDK（Driver Development Kit）是HarmonyOS基于扩展外设框架，为开发者提供的驱动应用开发的工具包，可针对非标USB串口设备，开发对应的驱动。
 
-## 实现原理
 
-非标外设应用通过扩展外设管理服务获取HID设备的ID，通过RPC将ID和要操作的动作下发给HID设备驱动应用，驱动应用通过调用HidDdk接口可创建、销毁HID设备，以及对HID设备发送事件，获取HID报文，解析报文等，DDK接口使用HDI服务将指令下发至内核驱动，内核驱动使用指令与设备通信。 **图1** HidDdk调用原理
+##### 基本概念
+
+在进行HidDdk开发前，开发者应了解以下基本概念：
+
+ - **HID**
+
+  HID（Human Interface Device），中文意思是“人机接口设备”。它是一类用于实现人与计算机或其他电子设备交互的硬件设备。HID 设备的主要功能是将用户的输入（如按键、点击、移动等）转换为数据信号，并将这些信号发送给主机设备（如计算机、平板、游戏机等），从而实现用户对设备的控制和操作。
+ - **DDK**
+
+  DDK（Driver Development Kit）是HarmonyOS基于扩展外设框架，为开发者提供的驱动应用开发的工具包，可针对非标USB串口设备，开发对应的驱动。
+
+
+
+
+##### 实现原理
+
+非标外设应用通过扩展外设管理服务获取HID设备的ID，通过RPC将ID和要操作的动作下发给HID设备驱动应用，驱动应用通过调用HidDdk接口可创建、销毁HID设备，以及对HID设备发送事件，获取HID报文，解析报文等，DDK接口使用HDI服务将指令下发至内核驱动，内核驱动使用指令与设备通信。
+
+**图1** HidDdk调用原理
+
+
 ![](assets/开发适用HID协议的设备驱动/file-20260514131334987-0.png)
 
-## 约束与限制
 
-HidDdk开放API支持非标HID类外设扩展驱动开发场景。 HidDdk开放API仅允许DriverExtensionAbility生命周期内使用。 使用HidDdk开放API需要在module.json5中声明匹配的ACL权限，例如ohos.permission.ACCESS_DDK_HID。
 
-## 接口说明
 
+##### 约束与限制
+
+ - HidDdk开放API支持非标HID类外设扩展驱动开发场景。
+ - HidDdk开放API仅允许DriverExtensionAbility生命周期内使用。
+ - 使用HidDdk开放API需要在module.json5中声明匹配的ACL权限，例如ohos.permission.ACCESS_DDK_HID。
+
+
+
+
+##### 接口说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -45,26 +70,39 @@ HidDdk开放API支持非标HID类外设扩展驱动开发场景。 HidDdk开放A
 | int32_t OH_Hid_GetReport(Hid_DeviceHandle *dev, Hid_ReportType reportType, uint8_t *data, uint32_t buffSize) | 获取设备报告。 |
 | int32_t OH_Hid_GetReportDescriptor(Hid_DeviceHandle *dev, uint8_t *buf, uint32_t buffSize, uint32_t *bytesRead) | 获取设备报告描述符。 |
 
+
 详细的接口说明请参考[HidDdk](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidddk)。
 
-## 开发步骤
 
 
-## HID基础驱动能力开发
+##### 开发步骤
 
-以下步骤描述了如何使用 **HidDdk**开发HID设备驱动： **添加动态链接库** CMakeLists.txt中添加以下lib。
+
+
+##### HID基础驱动能力开发
+
+以下步骤描述了如何使用 **HidDdk**开发HID设备驱动：
+
+**添加动态链接库**
+
+CMakeLists.txt中添加以下lib。
+
 ```text
 libhid.z.so
 ```
 
 **头文件**
-```text
-#include
-#include
-```
 
-创建设备。 使用 **hid_ddk_api.h** 的 **OH_Hid_CreateDevice** 接口创建HID设备，成功返回设备deviceId，失败返回[Hid_DdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hid-ddk-types-h#hid_ddkerrcode)。
 ```text
+#include <hid/hid_ddk_api.h>
+#include <hid/hid_ddk_types.h>
+```
+1. 创建设备。
+
+  使用 **hid_ddk_api.h** 的 **OH_Hid_CreateDevice** 接口创建HID设备，成功返回设备deviceId，失败返回[Hid_DdkErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hid-ddk-types-h#hid_ddkerrcode)。
+
+  
+```cpp
 Hid_Device hidDevice = {
     .deviceName = deviceName.c_str(),
     .vendorId = 0x6006,
@@ -72,9 +110,9 @@ Hid_Device hidDevice = {
     .version = 1,
     .bustype = BUS_USB
 };
-std::vector eventType = {HID_EV_KEY};
+std::vector<Hid_EventType> eventType = {HID_EV_KEY};
 Hid_EventTypeArray eventTypeArray = {.hidEventType = eventType.data(), .length = (uint16_t)eventType.size()};
-std::vector keyCode = {
+std::vector<Hid_KeyCode> keyCode = {
     HID_KEY_1,          HID_KEY_SPACE,       HID_KEY_BACKSPACE,   HID_KEY_ENTER,     HID_KEY_ESC, HID_KEY_SYSRQ,
     HID_KEY_LEFT_SHIFT, HID_KEY_RIGHT_SHIFT, HID_KEY_VOLUME_DOWN, HID_KEY_VOLUME_UP, HID_KEY_0,   HID_KEY_2,
     HID_KEY_3,          HID_KEY_4,           HID_KEY_5,           HID_KEY_6,         HID_KEY_7,   HID_KEY_8,
@@ -88,8 +126,12 @@ Hid_EventProperties hidEventProp = {.hidEventTypes = eventTypeArray, .hidKeys = 
 int deviceId = OH_Hid_CreateDevice(&hidDevice, &hidEventProp);
 ```
 
-向指定deviceId的HID设备发送事件。 使用 **hid_ddk_api.h** 的 **OH_Hid_EmitEvent** 向指定的deviceId的设备发送事件。
-```text
+2. 向指定deviceId的HID设备发送事件。
+
+  使用 **hid_ddk_api.h** 的 **OH_Hid_EmitEvent** 向指定的deviceId的设备发送事件。
+
+  
+```cpp
 // 向指定deviceId的设备发送事件，事件来源于物理外设，通过InjectEvent方法注入
 int32_t ret = OH_Hid_EmitEvent(item.first, item.second.data(), (uint16_t)item.second.size());
 if (ret != HID_DDK_SUCCESS) {
@@ -97,28 +139,43 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-释放资源。 在所有请求处理完毕，程序退出前，使用 **hid_ddk_api.h** 的 **OH_Hid_DestroyDevice** 接口销毁HID设备。
-```text
+3. 释放资源。
+
+  在所有请求处理完毕，程序退出前，使用 **hid_ddk_api.h** 的 **OH_Hid_DestroyDevice** 接口销毁HID设备。
+
+  
+```cpp
 // 销毁HID设备
 int32_t res = OH_Hid_DestroyDevice(deviceId);
 ```
 
 
-## HID报文通信驱动能力开发
 
-以下步骤描述了如何使用 **HidDdk** 开发HID报文通信驱动： **添加动态链接库** CMakeLists.txt中添加以下lib。
+
+##### HID报文通信驱动能力开发
+
+以下步骤描述了如何使用 **HidDdk** 开发HID报文通信驱动：
+
+**添加动态链接库**
+
+CMakeLists.txt中添加以下lib。
+
 ```text
 libhid.z.so
 ```
 
 **头文件**
-```text
-#include
-#include
-```
 
-初始化DDK。 使用 **hid_ddk_api.h** 的 **OH_Hid_Init** 初始化HidDdk。
 ```text
+#include <hid/hid_ddk_api.h>
+#include <hid/hid_ddk_types.h>
+```
+1. 初始化DDK。
+
+  使用 **hid_ddk_api.h** 的 **OH_Hid_Init** 初始化HidDdk。
+
+  
+```cpp
 // 初始化HID DDK
 int32_t ret = OH_Hid_Init();
 if (ret != HID_DDK_SUCCESS) {
@@ -127,8 +184,12 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-打开设备。 初始化HidDdk后，使用 **hid_ddk_api.h** 的 **OH_Hid_Open** 打开HID设备。
-```text
+2. 打开设备。
+
+  初始化HidDdk后，使用 **hid_ddk_api.h** 的 **OH_Hid_Open** 打开HID设备。
+
+  
+```cpp
 uint32_t bInterfaceNum1 = 0x00;
 // 打开deviceId和interfaceIndex1指定的HID设备（一般为/dev/hidraw0设备文件）
 ret = OH_Hid_Open(deviceID_, bInterfaceNum1, &hid_);
@@ -147,8 +208,14 @@ if (ret != 0) {
 }
 ```
 
-向HID设备写入/发送报告（HID设备与主机之间交换的数据包）（可选）。 当报告类型为HID_OUTPUT_REPORT（输出报告）时，支持如下两种写入/发送方式。 使用 **hid_ddk_api.h** 的 **OH_Hid_Write** 向HID设备写入一个输出报告。
-```text
+3. 向HID设备写入/发送报告（HID设备与主机之间交换的数据包）（可选）。
+
+  
+当报告类型为HID_OUTPUT_REPORT（输出报告）时，支持如下两种写入/发送方式。         
+使用 **hid_ddk_api.h** 的 **OH_Hid_Write** 向HID设备写入一个输出报告。
+
+  
+```cpp
 uint32_t bytesWritten;
 // 写入报告
 int32_t ret = OH_Hid_Write(DataParser::GetInstance().getHidObject(), dataBuff, sizeof(dataBuff), &bytesWritten);
@@ -157,8 +224,10 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-使用 **hid_ddk_api.h** 的 **OH_Hid_SendReport** 向HID设备发送一个输出报告。
-```text
+4. 使用 **hid_ddk_api.h** 的 **OH_Hid_SendReport** 向HID设备发送一个输出报告。
+
+  
+```cpp
 // 发送输出报告
 int32_t ret = OH_Hid_SendReport(DataParser::GetInstance().getHidObject(), HID_OUTPUT_REPORT, dataBuff,
                                 sizeof(dataBuff));
@@ -167,8 +236,10 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-当报告类型为HID_FEATURE_REPORT（特性报告）时，使用 **hid_ddk_api.h** 的 **OH_Hid_SendReport** 向HID设备发送一个特性报告。
-```text
+5. 当报告类型为HID_FEATURE_REPORT（特性报告）时，使用 **hid_ddk_api.h** 的 **OH_Hid_SendReport** 向HID设备发送一个特性报告。
+
+  
+```cpp
 uint8_t dataBuff[NUM_EIGHT] = { 0x00 };
 string str(hexFormat);
 HexStringToUint8Array(str, dataBuff, sizeof(dataBuff));
@@ -180,8 +251,14 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-从HID设备读取报告（可选）。 当报告类型为HID_INPUT_REPORT（输入报告）时，支持如下三种读取方式。 使用 **hid_ddk_api.h** 的 **OH_Hid_SetNonBlocking** 设置读取模式。
-```text
+6. 从HID设备读取报告（可选）。
+
+  
+当报告类型为HID_INPUT_REPORT（输入报告）时，支持如下三种读取方式。         
+使用 **hid_ddk_api.h** 的 **OH_Hid_SetNonBlocking** 设置读取模式。
+
+  
+```cpp
 // nonblock取值：1启用非阻塞，0禁用非阻塞
 ret = OH_Hid_SetNonBlocking(DataParser::GetInstance().getHidObject(), nonblockTag);
 if (ret != HID_DDK_SUCCESS) {
@@ -190,8 +267,10 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-使用 **hid_ddk_api.h** 的 **OH_Hid_Read** 或者 **OH_Hid_ReadTimeout** 以非阻塞模式或者阻塞模式从HID设备读取一个输入报告。
-```text
+7. 使用 **hid_ddk_api.h** 的 **OH_Hid_Read** 或者 **OH_Hid_ReadTimeout** 以非阻塞模式或者阻塞模式从HID设备读取一个输入报告。
+
+  
+```cpp
 if (nonblock) {
     ret = OH_Hid_Read(DataParser::GetInstance().getHidObject(), dataBuff, sizeof(dataBuff), &bytesRead);
 } else {
@@ -200,8 +279,10 @@ if (nonblock) {
 }
 ```
 
-使用 **hid_ddk_api.h** 的 **OH_Hid_GetReport** 从HID设备读取一个输入报告。
-```text
+8. 使用 **hid_ddk_api.h** 的 **OH_Hid_GetReport** 从HID设备读取一个输入报告。
+
+  
+```cpp
 uint8_t dataBuff[NUM_NINE] = { 0x00 };
 // 读取输入报告
 int32_t ret = OH_Hid_GetReport(DataParser::GetInstance().getHidObject(), HID_INPUT_REPORT, dataBuff,
@@ -212,8 +293,10 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-当报告类型为HID_FEATURE_REPORT（特性报告）时，使用 **hid_ddk_api.h** 的 **OH_Hid_GetReport** 从HID设备读取一个特性报告。
-```text
+9. 当报告类型为HID_FEATURE_REPORT（特性报告）时，使用 **hid_ddk_api.h** 的 **OH_Hid_GetReport** 从HID设备读取一个特性报告。
+
+  
+```cpp
 uint8_t dataBuff[NUM_EIGHT] = { 0x00 };
 // 指定报告编号
 dataBuff[0] = 0x07;
@@ -226,8 +309,12 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-获取设备原始信息、原始名称、物理地址、原始唯一标识符（可选）。 使用 **hid_ddk_api.h** 的 **OH_Hid_GetRawInfo** 获取HID设备原始信息，使用 **OH_Hid_GetRawName** 获取HID设备原始名称，使用 **OH_Hid_GetPhysicalAddress** 获取HID设备物理地址，使用 **OH_Hid_GetRawUniqueId** 获取HID设备原始唯一标识符。这些信息可被上层应用引用，例如在界面中展示设备信息等。
-```text
+10. 获取设备原始信息、原始名称、物理地址、原始唯一标识符（可选）。
+
+  使用 **hid_ddk_api.h** 的 **OH_Hid_GetRawInfo** 获取HID设备原始信息，使用 **OH_Hid_GetRawName** 获取HID设备原始名称，使用 **OH_Hid_GetPhysicalAddress** 获取HID设备物理地址，使用 **OH_Hid_GetRawUniqueId** 获取HID设备原始唯一标识符。这些信息可被上层应用引用，例如在界面中展示设备信息等。
+
+  
+```cpp
 Hid_RawDevInfo rawDevInfo;
 int32_t ret = OH_Hid_GetRawInfo(DataParser::GetInstance().getHidObject(), &rawDevInfo);
 if (ret != HID_DDK_SUCCESS) {
@@ -236,8 +323,7 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-
-```text
+```cpp
 char dataBuff[DATA_BUFF_SIZE];
 int32_t ret = OH_Hid_GetRawName(DataParser::GetInstance().getHidObject(), dataBuff, sizeof(dataBuff));
 if (ret != HID_DDK_SUCCESS) {
@@ -246,8 +332,7 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-
-```text
+```cpp
 char dataBuff[DATA_BUFF_SIZE];
 int32_t ret = OH_Hid_GetPhysicalAddress(DataParser::GetInstance().getHidObject(), dataBuff, sizeof(dataBuff));
 if (ret != HID_DDK_SUCCESS) {
@@ -256,8 +341,7 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-
-```text
+```cpp
 uint8_t dataBuff[NUM_SIXTY_FOUR];
 int32_t ret = OH_Hid_GetRawUniqueId(DataParser::GetInstance().getHidObject(), dataBuff, sizeof(dataBuff));
 if (ret != HID_DDK_SUCCESS) {
@@ -266,8 +350,12 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-获取报告描述符（可选）。 使用 **hid_ddk_api.h** 的 **OH_Hid_GetReportDescriptor** 获取HID设备报告描述符。
-```text
+11. 获取报告描述符（可选）。
+
+  使用 **hid_ddk_api.h** 的 **OH_Hid_GetReportDescriptor** 获取HID设备报告描述符。
+
+  
+```cpp
 uint8_t dataBuff[DATA_BUFF_SIZE1];
 uint32_t bytesRead;
 int32_t ret = OH_Hid_GetReportDescriptor(DataParser::GetInstance().getHidObject(), dataBuff, sizeof(dataBuff),
@@ -278,15 +366,23 @@ if (ret != HID_DDK_SUCCESS) {
 }
 ```
 
-关闭设备。 在所有请求处理完毕后，使用 **hid_ddk_api.h** 的 **OH_Hid_Close** 关闭设备。
-```text
+12. 关闭设备。
+
+  在所有请求处理完毕后，使用 **hid_ddk_api.h** 的 **OH_Hid_Close** 关闭设备。
+
+  
+```cpp
 Hid_DeviceHandle *hid = DataParser::GetInstance().getHidObject();
 int32_t ret1 = OH_Hid_Close(&hid);
 DataParser::GetInstance().UpdateHid(hid);
 ```
 
-释放DDK。 在关闭HID设备后，使用 **hid_ddk_api.h** 的 **OH_Hid_Release** 释放HidDdk。
-```text
+13. 释放DDK。
+
+  在关闭HID设备后，使用 **hid_ddk_api.h** 的 **OH_Hid_Release** 释放HidDdk。
+
+  
+```cpp
 ret1 = OH_Hid_Release();
 if (ret1 != HID_DDK_SUCCESS) {
     OH_LOG_ERROR(LOG_APP, "OH_Hid_Init() return failed: %{public}d", ret1);

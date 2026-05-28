@@ -3,57 +3,54 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 智慧数据平台（ArkData Intelligence Platform，AIP）提供端侧的数据智慧化能力，实现数据和AI智能在端侧闭环。作为端侧智慧化能力底座，将支持以下能力：
-
-
+ 
 - 多模态嵌入模型：使用嵌入模型（Embedding Model）对多模态数据生成向量表征，将文本、图片等数据映射到同一向量空间，支撑基于语义的多模态知识检索。
 - 多模态数据存储：支持端侧向量、倒排索引等多模态数据存储，避免将原始数据发送到服务器进行处理，减少了数据泄露的风险。
 - 知识检索：逐步构建语义索引、知识图谱、召回、重排等功能，支持用户知识的语义化检索。
-- 知识生成与整理：基于用户文档、消息、电子邮件、照片、视频、日历事件、屏幕上下文等数据，支持高效数据整理与知识生成，实现数据到知识的转换。 **起始版本：** 6.0.0(20)
+- 知识生成与整理：基于用户文档、消息、电子邮件、照片、视频、日历事件、屏幕上下文等数据，支持高效数据整理与知识生成，实现数据到知识的转换。
 
+  **起始版本：** 6.0.0(20)
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+  
 
+##### 导入模块
 
-```ts
+```text
 import { retrieval } from '@kit.DataAugmentationKit';
 ```
+ 
+  
 
+##### getRetriever
 
-## getRetriever
-**支持设备：** Phone / PC/2in1 / Tablet
-
-getRetriever(config: RetrievalConfig): Promise<Retriever>
-
+getRetriever(config: RetrievalConfig): Promise&lt;Retriever&gt;
+ 
 获取检索器，进行多路检索召回。使用promise异步回调。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [RetrievalConfig](#retrievalconfig) | 是 | 检索器的配置信息。 |
-
-
+| config | RetrievalConfig | 是 | 检索器的配置信息。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Retriever](#retriever)&gt; | Promise对象，返回检索器对象。 |
-
-
+| Promise&lt;Retriever&gt; | Promise对象，返回检索器对象。 |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { retrieval } from '@kit.DataAugmentationKit';
 import { relationalStore } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -95,14 +92,14 @@ struct Page {
     let globalRetriever:retrieval.Retriever | undefined;
     // 获取检索器
     await retrieval.getRetriever(retrievalConfig)
-    .then((retriever:retrieval.Retriever) => {
-      globalRetriever = retriever;
-      console.info("globalRetriever is success");
-    })
-    .catch((err:BusinessError) => {
-      globalRetriever = undefined;
-      console.error("Failed to get Retriever and code is " + err.code);
-    })
+      .then((retriever:retrieval.Retriever) => {
+        globalRetriever = retriever;
+        console.info("globalRetriever is success");
+      })
+      .catch((err:BusinessError) => {
+        globalRetriever = undefined;
+        console.error("Failed to get Retriever and code is " + err.code);
+      })
   }
 
   build() {
@@ -112,148 +109,144 @@ struct Page {
   }
 }
 ```
+ 
+  
 
-
-## RetrievalConfig
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RetrievalConfig
 
 管理召回的配置
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| channelConfigs | Array&lt;[ChannelConfig](#channelconfig)&gt; | 是 | 不同检索回路的配置信息数组。 |
+| channelConfigs | Array&lt;ChannelConfig&gt; | 是 | 不同检索回路的配置信息数组。 |
+ 
+ 
+  
 
-
-## ChannelConfig
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ChannelConfig
 
 管理每个检索回路的配置信息。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| channelType | [ChannelType](#channeltype) | 否 | 否 | 当前检索回路的数据库类型。 |
-| context | [common.BaseContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-basecontext) | 否 | 否 | 应用的上下文。 FA模型的应用Context定义。 Stage模型的应用Context定义。 |
-| dbConfig | [DbConfig](#dbconfig) | 否 | 否 | 当前检索回路的数据库配置。 |
+| channelType | ChannelType | 否 | 否 | 当前检索回路的数据库类型。 |
+| context | common.BaseContext | 否 | 否 | 应用的上下文。 FA模型的应用Context定义。 Stage模型的应用Context定义。 |
+| dbConfig | DbConfig | 否 | 否 | 当前检索回路的数据库配置。 |
+ 
+ 
+  
 
-
-## ChannelType
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ChannelType
 
 数据库类型枚举。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | VECTOR_DATABASE | 0 | 向量数据库。 |
 | INVERTED_INDEX_DATABASE | 1 | 倒排数据库。 |
+ 
+ 
+  
 
-
-## DbConfig
-**支持设备：** Phone / PC/2in1 / Tablet
+##### DbConfig
 
 type DbConfig = relationalStore.StoreConfig
-
+ 
 数据库配置。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [relationalStore.StoreConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#storeconfig) | 数据库配置。 |
+| relationalStore.StoreConfig | 数据库配置。 |
+ 
+ 
+  
 
-
-## Retriever
-**支持设备：** Phone / PC/2in1 / Tablet
+##### Retriever
 
 检索器，用于多路检索召回。
-
+ 
 下列接口都需先使用[retrieval.getRetriever](#getretriever)获取到检索器实例，再通过此实例调用对应接口。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
+ 
+  
 
+##### retrieveRdb
 
-### retrieveRdb
-**支持设备：** Phone / PC/2in1 / Tablet
-
-retrieveRdb(query: string, condition: RetrievalCondition): Promise<RdbRecords>
-
+retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords&gt;
+ 
 给定检索条件（包含查询词分词、召回条件），从一个关系型数据库检索召回满足条件的数据，使用Promise异步回调。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | query | string | 是 | 当前检索的查询词,长度上限为1000字节。 |
-| condition | [RetrievalCondition](#retrievalcondition) | 是 | 检索条件。 |
-
-
+| condition | RetrievalCondition | 是 | 检索条件。 |
+ 
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[RdbRecords](#rdbrecords)&gt; | Promise对象，返回检索召回数据。 |
-
-
+| Promise&lt;RdbRecords&gt; | Promise对象，返回检索召回数据。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [1021200001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200001-数据库文件损坏) | The database is corrupted. |
-| [1021200002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200002-数据库或事务关闭) | The database is closed. |
-| [1021200003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200003-数据库busy) | The database is busy. |
-| [1021200004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200004-数据库内存不足) | The database is out of memory. |
-| [1021200100](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200100-sqlite-通用错误) | SQLite: Generic error. |
-| [1021200101](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200101-sqlite访问权限被拒绝) | SQLite: Access permission denied. |
-| [1021200102](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200102-sqlite数据库文件已锁定) | SQLite: The database file is locked. |
-| [1021200103](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200103-sqlite发生了某种磁盘io错误) | SQLite: Some kind of disk I/O error occurred. |
-| [1021200104](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200104-wal文件大小超过默认上限) | SQLite: The WAL file size exceeds the default limit. |
-| [1021200105](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200105-无法打开数据库文件) | SQLite: Unable to open the database file. |
-| [1021201000](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201000-retrieval-recall-error) | Retrieval: An error occurred during the reacall phase. |
-| [1021201001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201001-retrieval-re-ranking-error) | Retrieval: An error occurred during the re-ranking phase. |
-| [1021201002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201002-retrieval-numerical-parameter-out-of-range) | Retrieval: The value of the numerical parameter is outside the constrained range. |
-| [1021201003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201003-retrieval-invalid-primary-keys) | Retrieval: There are invalid primary keys. |
-| [1021201004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201004-retrieval-unsupport-composite-primary-key-in-re-ranking) | Retrieval: A re-ranking algorithm that does not support composite primary keys was used. |
-| [1021201005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201005-retrieval-empty-string-field) | Retrieval: There are fields with empty strings. |
-| [1021201006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201006-retrieval-illegal-filter-input) | Retrieval: The filter input is invalid. |
-| [1021201007](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201007-retrieval-invalid-recall-field-name) | Retrieval: There are invalid recall names in RecallCondition. |
-| [1021201008](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201008-retrieval-vector-similarity-threshold-too-high) | Retrieval: The vector similarity threshold in VectorQuery is higher than the tiered threshold in VectorRerankParameter. |
-| [1021201009](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201009-retrieval-rerankmethod-parameters-do-not-match-the-channel-type) | Retrieval: RerankMethod parameters do not match the channel type. |
-| [1021201010](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021201010-retrieval-empty-parameter-value) | Retrieval: There exists a parameter value that should not be empty but is actually empty |
-| [1021200012](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code#section1021200012-unable-to-generate-embeddings) | Unable to generate embeddings. |
-
-
+| 1021200001 | The database is corrupted. |
+| 1021200002 | The database is closed. |
+| 1021200003 | The database is busy. |
+| 1021200004 | The database is out of memory. |
+| 1021200100 | SQLite: Generic error. |
+| 1021200101 | SQLite: Access permission denied. |
+| 1021200102 | SQLite: The database file is locked. |
+| 1021200103 | SQLite: Some kind of disk I/O error occurred. |
+| 1021200104 | SQLite: The WAL file size exceeds the default limit. |
+| 1021200105 | SQLite: Unable to open the database file. |
+| 1021201000 | Retrieval: An error occurred during the reacall phase. |
+| 1021201001 | Retrieval: An error occurred during the re-ranking phase. |
+| 1021201002 | Retrieval: The value of the numerical parameter is outside the constrained range. |
+| 1021201003 | Retrieval: There are invalid primary keys. |
+| 1021201004 | Retrieval: A re-ranking algorithm that does not support composite primary keys was used. |
+| 1021201005 | Retrieval: There are fields with empty strings. |
+| 1021201006 | Retrieval: The filter input is invalid. |
+| 1021201007 | Retrieval: There are invalid recall names in RecallCondition. |
+| 1021201008 | Retrieval: The vector similarity threshold in VectorQuery is higher than the tiered threshold in VectorRerankParameter. |
+| 1021201009 | Retrieval: RerankMethod parameters do not match the channel type. |
+| 1021201010 | Retrieval: There exists a parameter value that should not be empty but is actually empty |
+| 1021200012 | Unable to generate embeddings. |
+ 
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { retrieval } from '@kit.DataAugmentationKit';
 import { relationalStore } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -261,8 +254,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct Page {
-
-  async retrieve() {
+ 
+async retrieve() {
     let vectorDBConfig:retrieval.DbConfig = {
       name:"vector_test.db",
       securityLevel:relationalStore.SecurityLevel.S3
@@ -295,14 +288,14 @@ struct Page {
 
     let globalRetriever:retrieval.Retriever | undefined;
     await retrieval.getRetriever(retrievalConfig)
-    .then((retriever:retrieval.Retriever) => {
-      globalRetriever = retriever;
-      console.info("globalRetriever is success");
-    })
-    .catch((err:BusinessError) => {
-      globalRetriever = undefined;
-      console.error("Failed to get Retriever and code is " + err.code);
-    })
+      .then((retriever:retrieval.Retriever) => {
+        globalRetriever = retriever;
+        console.info("globalRetriever is success");
+      })
+      .catch((err:BusinessError) => {
+        globalRetriever = undefined;
+        console.error("Failed to get Retriever and code is " + err.code);
+      })
 
     let fieldWeight:Record<string, number> = {
       "filename":4.0
@@ -403,75 +396,75 @@ struct Page {
       let query:string = "运动直播场景";
       // 执行检索
       globalRetriever.retrieveRdb(query, retrievalCondition)
-      .then((rdbdata:retrieval.RdbRecords) => {
+        .then((rdbdata:retrieval.RdbRecords) => {
 
-        console.info(`#########  retrieval result ############`);
-        for (let i = 0; i < rdbdata.records.length; i++) {
-          console.info(` primaryKey is ${rdbdata.records[i].primaryKey}`);
-          Object.keys(rdbdata.records[i].columns).forEach((key) => {
-            if (rdbdata.records && rdbdata.records[i]) {
-              let value = rdbdata.records[i].columns[key];
-              console.info(`recall Scores Key: ${key}, Value: ${value}`);
-            }
-          });
-          console.info(`score is ${rdbdata.records[i].score}`);
-
-          Object.keys(rdbdata.records[i].recallScores).forEach((channelType) => {
-            if (rdbdata.records) {
-              let scores:Record<string, retrieval.RecallScore>  = rdbdata.records[i].recallScores[channelType];
-              Object.keys(scores).forEach((key)=>{
-                let value = scores[key];
-                console.info(`recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);
-              });
-            }
-          });
-          console.info("recall Scores", rdbdata.records[i].recallScores.toString());
-          Object.keys(rdbdata.records[i].features).forEach((key) => {
-            if (rdbdata.records && rdbdata.records[i]) {
-              let value = rdbdata.records[i].features[key];
-              console.info(`features Key: ${key}, Value: ${value}`);
-            }
-          });
-          console.info(`similarityLevel is ${rdbdata.records[i].similarityLevel}`);
-
-        }
-
-        console.info(`#########  missdGroundTruthsPrimaryKey ############`);
-        if(rdbdata.missedGroundTruths != undefined && rdbdata.missedGroundTruths.length != 0){
-          for (let i = 0; i < rdbdata.missedGroundTruths.length; i++) {
-            console.info(`missdGroundTruthsPrimaryKey is ${rdbdata.missedGroundTruths[i].primaryKey}`);
-            Object.keys(rdbdata.missedGroundTruths[i].columns).forEach((key) => {
-              if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {
-                let value = rdbdata.missedGroundTruths[i].columns[key];
-                console.info(`missdGroundTruths recall Scores Key: ${key}, Value: ${value}`);
+          console.info(`#########  retrieval result ############`);
+          for (let i = 0; i < rdbdata.records.length; i++) {
+            console.info(` primaryKey is ${rdbdata.records[i].primaryKey}`);
+            Object.keys(rdbdata.records[i].columns).forEach((key) => {
+              if (rdbdata.records && rdbdata.records[i]) {
+                let value = rdbdata.records[i].columns[key];
+                console.info(`recall Scores Key: ${key}, Value: ${value}`);
               }
             });
-            console.info(` missdGroundTruths score is ${rdbdata.missedGroundTruths[i].score}`);
+            console.info(`score is ${rdbdata.records[i].score}`);
 
-            Object.keys(rdbdata.missedGroundTruths[i].recallScores).forEach((channelType) => {
-              if (rdbdata.missedGroundTruths) {
-                let scores:Record<string, retrieval.RecallScore>  = rdbdata.missedGroundTruths[i].recallScores[channelType];
+            Object.keys(rdbdata.records[i].recallScores).forEach((channelType) => {
+              if (rdbdata.records) {
+                let scores:Record<string, retrieval.RecallScore>  = rdbdata.records[i].recallScores[channelType];
                 Object.keys(scores).forEach((key)=>{
                   let value = scores[key];
-                  console.info(`missdGroundTruths recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);
+                  console.info(`recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);
                 });
               }
             });
-            console.info("missdGroundTruths recall Scores", rdbdata.missedGroundTruths[i].recallScores.toString());
-            Object.keys(rdbdata.missedGroundTruths[i].features).forEach((key) => {
-              if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {
-                let value = rdbdata.missedGroundTruths[i].features[key];
-                console.info(`missdGroundTruths features Key: ${key}, Value: ${value}`);
+            console.info("recall Scores", rdbdata.records[i].recallScores.toString());
+            Object.keys(rdbdata.records[i].features).forEach((key) => {
+              if (rdbdata.records && rdbdata.records[i]) {
+                let value = rdbdata.records[i].features[key];
+                console.info(`features Key: ${key}, Value: ${value}`);
               }
             });
-            console.info(`missdGroundTruths similarityLevel is ${rdbdata.missedGroundTruths[i].similarityLevel}`);
+            console.info(`similarityLevel is ${rdbdata.records[i].similarityLevel}`);
+
           }
-        }
-        console.info("retrieval success.");
-      })
-      .catch((err:BusinessError) => {
-        console.error("Failure in retrieveRdb and code is " + err.code);
-      })
+
+          console.info(`#########  missdGroundTruthsPrimaryKey ############`);
+          if(rdbdata.missedGroundTruths != undefined && rdbdata.missedGroundTruths.length != 0){
+            for (let i = 0; i < rdbdata.missedGroundTruths.length; i++) {
+              console.info(`missdGroundTruthsPrimaryKey is ${rdbdata.missedGroundTruths[i].primaryKey}`);
+              Object.keys(rdbdata.missedGroundTruths[i].columns).forEach((key) => {
+                if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {
+                  let value = rdbdata.missedGroundTruths[i].columns[key];
+                  console.info(`missdGroundTruths recall Scores Key: ${key}, Value: ${value}`);
+                }
+              });
+              console.info(` missdGroundTruths score is ${rdbdata.missedGroundTruths[i].score}`);
+
+              Object.keys(rdbdata.missedGroundTruths[i].recallScores).forEach((channelType) => {
+                if (rdbdata.missedGroundTruths) {
+                  let scores:Record<string, retrieval.RecallScore>  = rdbdata.missedGroundTruths[i].recallScores[channelType];
+                  Object.keys(scores).forEach((key)=>{
+                    let value = scores[key];
+                    console.info(`missdGroundTruths recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);
+                  });
+                }
+              });
+              console.info("missdGroundTruths recall Scores", rdbdata.missedGroundTruths[i].recallScores.toString());
+              Object.keys(rdbdata.missedGroundTruths[i].features).forEach((key) => {
+                if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {
+                  let value = rdbdata.missedGroundTruths[i].features[key];
+                  console.info(`missdGroundTruths features Key: ${key}, Value: ${value}`);
+                }
+              });
+              console.info(`missdGroundTruths similarityLevel is ${rdbdata.missedGroundTruths[i].similarityLevel}`);
+            }
+          }
+          console.info("retrieval success.");
+        })
+        .catch((err:BusinessError) => {
+          console.error("Failure in retrieveRdb and code is " + err.code);
+        })
     }
   }
 
@@ -482,444 +475,443 @@ struct Page {
   }
 }
 ```
+ 
+  
 
-
-## RetrievalCondition
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RetrievalCondition
 
 检索条件。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| recallConditions | Array&lt;[RecallCondition](#recallcondition)&gt; | 否 | 否 | 召回的条件，数组中的每个元素对应一个召回操作。 |
-| rerankMethod | [RerankMethod](#rerankmethod) | 否 | 是 | 重排方法。其参数rerankType默认值为RRF算法，参数parameters默认值遵循[RecallCondition](#recallcondition)中相应检索回路的参数。 |
+| recallConditions | Array&lt;RecallCondition&gt; | 否 | 否 | 召回的条件，数组中的每个元素对应一个召回操作。 |
+| rerankMethod | RerankMethod | 否 | 是 | 重排方法。其参数rerankType默认值为RRF算法，参数parameters默认值遵循RecallCondition中相应检索回路的参数。 |
 | resultCount | number | 否 | 是 | 重排后允许返回结果的最大数量。默认值为500。必须为正整数。 |
-| explanation | [ExplanationConfig](#explanationconfig) | 否 | 是 | 检索解释 |
+| explanation | ExplanationConfig | 否 | 是 | 检索解释 |
+ 
+ 
+  
 
-
-## ExplanationConfig
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ExplanationConfig
 
 检索解释配置
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | groundTruths | Array&lt;string&gt; | 否 | 否 | 待解释的文档id，为字符串类型可取任意值。 |
+ 
+ 
+  
 
-
-## Recallcondition
-**支持设备：** Phone / PC/2in1 / Tablet
+##### Recallcondition
 
 type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
-
+ 
 召回操作的条件。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [InvertedIndexRecallCondition](#invertedindexrecallcondition) | 倒排召回条件。 |
-| [VectorRecallCondition](#vectorrecallcondition) | 向量召回条件。 |
+| InvertedIndexRecallCondition | 倒排召回条件。 |
+| VectorRecallCondition | 向量召回条件。 |
+ 
+ 
+  
 
-
-## InvertedIndexRecallCondition
-**支持设备：** Phone / PC/2in1 / Tablet
+##### InvertedIndexRecallCondition
 
 倒排检索的召回条件。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | ftsTableName | string | 否 | 否 | 倒排检索所用的fts（Full-Text Search）数据表的名称，用于执行bm25函数输入。必须为存在的表名且不能为空字符串。 |
 | fromClause | string | 否 | 否 | 查询目标索引名。不能为空字符串。 fromClause指定的表中包含filters中涉及的所有字段，允许两种输入： 1. 和ftsTableName填一样的值，则倒排检索将仅局限在倒排表内进行检索。 2. 提供完整select...join语句的方式，来连接fts表之外的元素表，作为检索表（注意，使用此模式时，该select语句中必须有rowid字段且必须是fts表的rowid。例如当ftsTableName为“files”时，存在一个元素表metadata需要参与filters过滤，则应如下定义fromClause："SELECT files.rowid as rowid, * FROM metadata JOIN files ON metadata.fileid = files.fileid"。） |
-| primaryKey | Array&lt;[ColumnName](#columnname)&gt; | 否 | 否 | 召回结果主键字段，会作为召回字段之一，作为多路召回文档聚合依据。一次查询中所有召回操作的主键字段数量之和必须和相等且不能为空。 |
-| responseColumns | Array&lt;[ColumnName](#columnname)&gt; | 否 | 否 | 需要额外召回的字段集合。Array&lt;[ColumnName](#columnname)&gt;中[ColumnName](#columnname)不得为空。 |
-| invertedIndexStrategies | Array&lt;[InvertedIndexStrategy](#invertedindexstrategy)&gt; | 否 | 是 | 召回策略列表，决定了倒排表应当如何打分。如果为空，则默认执行全表匹配。 |
-| recallName | [RecallName](#recallname) | 否 | 是 | 当前检索回路的名称，作为重排阶段识别依据。默认值为随机字符串。构造方法中可以不构建该参数，如果有这个参数则值不能为空字符串。 |
-| filters | Array&lt;[FilterInfo](#filterinfo)&gt; | 否 | 是 | 附加的过滤条件。 |
+| primaryKey | Array&lt;ColumnName&gt; | 否 | 否 | 召回结果主键字段，会作为召回字段之一，作为多路召回文档聚合依据。一次查询中所有召回操作的主键字段数量之和必须和相等且不能为空。 |
+| responseColumns | Array&lt;ColumnName&gt; | 否 | 否 | 需要额外召回的字段集合。Array&lt;ColumnName&gt;中ColumnName不得为空。 |
+| invertedIndexStrategies | Array&lt;InvertedIndexStrategy&gt; | 否 | 是 | 召回策略列表，决定了倒排表应当如何打分。如果为空，则默认执行全表匹配。 |
+| recallName | RecallName | 否 | 是 | 当前检索回路的名称，作为重排阶段识别依据。默认值为随机字符串。构造方法中可以不构建该参数，如果有这个参数则值不能为空字符串。 |
+| filters | Array&lt;FilterInfo&gt; | 否 | 是 | 附加的过滤条件。 |
 | deepSize | number | 否 | 是 | 重排阶段包含当前召回过程的最大结果数。默认值500，必须为正整数。 |
+ 
+ 
+  
 
-
-## ColumnName
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ColumnName
 
 type ColumnName = string
-
+ 
 数据表的列名，类型为字符串。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | string | 数据表列名对应的类型，为字符串类型可取任意值。 |
+ 
+ 
+  
 
-
-## RecallName
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RecallName
 
 type RecallName = string
-
+ 
 召回回路名称，类型为字符串，用于给倒排和向量两路召回取名。例如出现两路向量召回时，给两路向量取名做区分。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | string | 召回路径名称对应的类型，类型为字符串，可取任意值。 |
+ 
+ 
+  
 
-
-## FilterInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+##### FilterInfo
 
 过滤器信息。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| columns | Array&lt;[ColumnName](#columnname)&gt; | 否 | 否 | 被过滤的列名称。 |
-| operator | [Operator](#operator) | 否 | 是 | 过滤条件中的操作算子。operator和filterValue、operator和filterRange至少有一组同时设置，过滤功能才能生效。 |
-| filterValue | [FilterValue](#filtervalue) | 否 | 是 | 过滤条件中的过滤值。 |
-| filterRange | [FilterRange](#filterrange) | 否 | 是 | 过滤条件中的过滤范围。 |
+| columns | Array&lt;ColumnName&gt; | 否 | 否 | 被过滤的列名称。 |
+| operator | Operator | 否 | 是 | 过滤条件中的操作算子。operator和filterValue、operator和filterRange至少有一组同时设置，过滤功能才能生效。 |
+| filterValue | FilterValue | 否 | 是 | 过滤条件中的过滤值。 |
+| filterRange | FilterRange | 否 | 是 | 过滤条件中的过滤范围。 |
+ 
+ 
+  
 
-
-## FilterValue
-**支持设备：** Phone / PC/2in1 / Tablet
+##### FilterValue
 
 type FilterValue = number | string | bigint
-
+ 
 过滤条件中的过滤值。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number | FilterValue 收到的类型为number则过滤条件为数字类型 |
 | string | FilterValue 收到的类型为string则过滤条件为字符串类型 |
 | bigint | FilterValue 收到的类型为bigint则过滤条件为int64类型 |
+ 
+ 
+  
 
-
-## FilterRange
-**支持设备：** Phone / PC/2in1 / Tablet
+##### FilterRange
 
 过滤条件中的过滤值范围。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | max | number | 是 | 最大过滤值。 |
 | min | number | 是 | 最小过滤值，取值需小于最大过滤值。 |
+ 
+ 
+  
 
-
-## Operator
-**支持设备：** Phone / PC/2in1 / Tablet
+##### Operator
 
 过滤条件中的操作算子。column为数据库表中的字段名，filterValue为该字段的取值。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 操作 | 说明 |
 | --- | --- |
 | OP_EQ = '=' | &lt;column&gt;等于&lt;filterValue&gt;。 |
 | OP_NE = '!=' | &lt;column&gt;不等于&lt;filterValue&gt;。 |
-| OP_LT = '&lt;' | &lt;column&gt;小于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
-| OP_LE = '&lt;=' | &lt;column&gt;小于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
-| OP_GT = '&gt;' | &lt;column&gt;大于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
-| OP_GE = '&gt;=' | &lt;column&gt;大于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_LT = '<' | &lt;column&gt;小于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_LE = '<=' | &lt;column&gt;小于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_GT = '>' | &lt;column&gt;大于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_GE = '>=' | &lt;column&gt;大于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
 | OP_IN = 'IN' | &lt;column&gt; IN &lt;filterValue&gt;，其中&lt;filterValue&gt;为string且通过','组合。 |
 | OP_NOT_IN = 'NOT_IN' | &lt;column&gt; NOT IN &lt;filterValue&gt;，其中&lt;filterValue&gt;为string且通过','拼接。 |
-| OP_BETWEEN = 'BETWEEN' | &lt;column&gt;的值在 &lt;filterRange.min&gt; 和 &lt;filterRange.max&gt;之间。 |
+| OP_BETWEEN = 'BETWEEN' | &lt;column&gt;的值在 <filterRange.min> 和 <filterRange.max>之间。 |
 | OP_LIKE = 'LIKE' | 通过LIKE匹配含有&lt;filterValue&gt;的&lt;column&gt; ,其中&lt;filterValue&gt;为string。 |
 | OP_NOT_LIKE = 'NOT_LIKE' | &lt;column&gt; NOT LIKE &lt;filterValue&gt;，其中&lt;filterValue&gt;为string。 |
+ 
+ 
+  
 
-
-## InvertedIndexStrategy
-**支持设备：** Phone / PC/2in1 / Tablet
+##### InvertedIndexStrategy
 
 type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStrategy
-
+ 
 倒排召回策略。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [Bm25Strategy](#bm25strategy) | 部分命中策略，检索目标只要命中查询词中的80%核心词就可以被召回，召回结果基于bm25算法进行评分，适用于对检索目标匹配要求较宽松的场景。 |
-| [ExactMatchingStrategy](#exactmatchingstrategy) | 精确命中策略，要求检索目标和查询词完全匹配才能被召回，适用于对检索目标匹配要求较严格的场景。 |
-| [ProximityStrategy](#proximitystrategy) | 乱序命中策略，查询词的分词结果在检索目标中不必严格按照原本顺序出现，各个分词结果在指定间隔内都出现即可召回，适用于对检索目标匹配要求中等的场景。 |
+| Bm25Strategy | 部分命中策略，检索目标只要命中查询词中的80%核心词就可以被召回，召回结果基于bm25算法进行评分，适用于对检索目标匹配要求较宽松的场景。 |
+| ExactMatchingStrategy | 精确命中策略，要求检索目标和查询词完全匹配才能被召回，适用于对检索目标匹配要求较严格的场景。 |
+| ProximityStrategy | 乱序命中策略，查询词的分词结果在检索目标中不必严格按照原本顺序出现，各个分词结果在指定间隔内都出现即可召回，适用于对检索目标匹配要求中等的场景。 |
+ 
+ 
+  
 
-
-## Bm25Strategy
-**支持设备：** Phone / PC/2in1 / Tablet
+##### Bm25Strategy
 
 倒排检索所用的bm25策略。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | bm25Weight | number | 否 | 否 | bm25策略的打分权重，在多种倒排策略并存的情况下，控制该策略对最终召回结果的评分影响程度。 |
-| columnWeight | Record&lt;[ColumnName](#columnname), number&gt; | 否 | 是 | 指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度） 如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。 如果不为空，则字段名不为空字符串，权重值为非负数。 |
+| columnWeight | Record<ColumnName, number> | 否 | 是 | 指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度） 如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。 如果不为空，则字段名不为空字符串，权重值为非负数。 |
+ 
+ 
+  
 
-
-## ExactMatchingStrategy
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ExactMatchingStrategy
 
 倒排检索所用的精确场景匹配策略。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | exactMatchingWeight | number | 否 | 否 | 精确场景匹配策略的打分权重，在多种倒排策略并存的情况下，控制该策略对最终召回结果的评分影响程度。 |
-| columnWeight | Record&lt;[ColumnName](#columnname), number&gt; | 否 | 是 | 指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度） 如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。 如果不为空，则字段名不为空字符串，权重值为非负数。 |
+| columnWeight | Record<ColumnName, number> | 否 | 是 | 指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度） 如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。 如果不为空，则字段名不为空字符串，权重值为非负数。 |
+ 
+ 
+  
 
-
-## ProximityStrategy
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ProximityStrategy
 
 倒排检索所用的近似与乱序匹配策略。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | proximityWeight | number | 否 | 否 | 近似与乱序匹配策略的打分权重，在多种倒排策略并存的情况下，控制该策略对最终召回结果的评分影响程度。 |
-| columnWeight | Record&lt;[ColumnName](#columnname), number&gt; | 否 | 是 | 指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度） 如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。 如果不为空，则字段名不为空字符串，权重值为非负数。 |
-| columnSlops | Record&lt;[ColumnName](#columnname), number&gt; | 否 | 是 | 每个字段使用的偏移量配置。默认值和columnWeight相同的字段，值为10。字段不能为空，对应值必须为非负数。 |
+| columnWeight | Record<ColumnName, number> | 否 | 是 | 指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度） 如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。 如果不为空，则字段名不为空字符串，权重值为非负数。 |
+| columnSlops | Record<ColumnName, number> | 否 | 是 | 每个字段使用的偏移量配置。默认值和columnWeight相同的字段，值为10。字段不能为空，对应值必须为非负数。 |
+ 
+ 
+  
 
-
-## VectorRecallCondition
-**支持设备：** Phone / PC/2in1 / Tablet
+##### VectorRecallCondition
 
 向量检索的召回条件。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| vectorQuery | [VectorQuery](#vectorquery) | 否 | 否 | 用于向量检索的查询词向量。 |
+| vectorQuery | VectorQuery | 否 | 否 | 用于向量检索的查询词向量。 |
 | fromClause | string | 否 | 否 | 查询目标索引名。不能为空字符串。 fromClause指定的表中包含filters中涉及的所有字段，接受两种输入： 1. 和ftsTableName填一样的值，则倒排检索将仅局限在倒排表内进行检索； 2. 提供完整select...join语句的方式，来连接fts表之外的元素表，作为倒排这一路的被检索表。（使用此模式时，该select语句中必须有rowid字段且必须定义为fts表的rowid。例如：当ftsTableName为“files”时，存在一个元素表metadata需要参与filters过滤，则应如下定义fromClause："SELECT files.rowid as rowid, * FROM metadata JOIN files ON metadata.fileid = files.fileid"。）。 |
-| primaryKey | Array&lt;[ColumnName](#columnname)&gt; | 否 | 否 | 召回结果主键字段，会作为召回字段之一，作为多路召回文档聚合依据。一次查询中所有RecallCondition的主键字段数量必须相等且不能为空。 |
-| responseColumns | Array&lt;[ColumnName](#columnname)&gt; | 否 | 否 | 需要额外召回的字段集合。ColumnName不得为空。 |
-| recallName | [RecallName](#recallname) | 否 | 是 | 当前检索回路的名称，作为重排阶段识别依据。默认值为随机字符串，不能为空字符串 |
-| filters | Array&lt;[FilterInfo](#filterinfo)&gt; | 否 | 是 | 额外的过滤条件。 |
+| primaryKey | Array&lt;ColumnName&gt; | 否 | 否 | 召回结果主键字段，会作为召回字段之一，作为多路召回文档聚合依据。一次查询中所有RecallCondition的主键字段数量必须相等且不能为空。 |
+| responseColumns | Array&lt;ColumnName&gt; | 否 | 否 | 需要额外召回的字段集合。ColumnName不得为空。 |
+| recallName | RecallName | 否 | 是 | 当前检索回路的名称，作为重排阶段识别依据。默认值为随机字符串，不能为空字符串 |
+| filters | Array&lt;FilterInfo&gt; | 否 | 是 | 额外的过滤条件。 |
 | deepSize | number | 否 | 是 | 当前召回过程给重排阶段返回的最大结果数。默认值500，必须为正整数。 |
+ 
+ 
+  
 
-
-## VectorQuery
-**支持设备：** Phone / PC/2in1 / Tablet
+##### VectorQuery
 
 根据查询词生成的向量。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| column | [ColumnName](#columnname) | 否 | 否 | 待匹配向量字段名。必须为指定的向量数据库中存在的向量类型字段。 |
+| column | ColumnName | 否 | 否 | 待匹配向量字段名。必须为指定的向量数据库中存在的向量类型字段。 |
 | value | Float32Array | 否 | 是 | 向量列的向量值。 如果未定义value字段，系统将尝试将原始query生成向量。目前在PC上支持自动生成。 从HarmonyOS 6.0.0 Beta2版本开始，此参数由“必填”变更为“可选”。 |
-| similarityThreshold | number | 否 | 是 | 向量阈值，用于过滤不相似向量的阈值。默认值为1，取值范围最小值为0，最大值为[VectorRerankParameter](#vectorrerankparameter)中有效thresholds的最小值。 |
+| similarityThreshold | number | 否 | 是 | 向量阈值，用于过滤不相似向量的阈值。默认值为1，取值范围最小值为0，最大值为VectorRerankParameter中有效thresholds的最小值。 |
+ 
+ 
+  
 
-
-## RerankMethod
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RerankMethod
 
 重排策略的参数。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| rerankType | [RerankType](#reranktype) | 否 | 否 | 重排算法，取值类型为枚举类[RerankType](#reranktype)，可选项为RRF、FUSED_SCORE，分别指向rrf排序算法以及分数融合排序算法。默认值为RRF。 |
-| parameters | Record&lt;[ChannelType](#channeltype), [RerankParameter](#rerankparameter)&gt; | 否 | 是 | 每个召回回路对应的重排参数。如果上述检索参数RetrievalCondition中的存在的channelType未在parameters中配置重排参数，则会自动填充该channelType对应的重排参数默认值。倒排的重排参数默认值参考[InvertedIndexRerankParameter](#invertedindexrerankparameter)，向量的重排参数默认值参考[VectorRerankParameter](#vectorrerankparameter)。 |
+| rerankType | RerankType | 否 | 否 | 重排算法，取值类型为枚举类RerankType，可选项为RRF、FUSED_SCORE，分别指向rrf排序算法以及分数融合排序算法。默认值为RRF。 |
+| parameters | Record<ChannelType, RerankParameter> | 否 | 是 | 每个召回回路对应的重排参数。如果上述检索参数RetrievalCondition中的存在的channelType未在parameters中配置重排参数，则会自动填充该channelType对应的重排参数默认值。倒排的重排参数默认值参考InvertedIndexRerankParameter，向量的重排参数默认值参考VectorRerankParameter。 |
 | isSoftmaxNormalized | boolean | 否 | 是 | FUSED_SCORE模式下，是否使用softmax函数归一化计算重排最终得分。默认为false。true表示使用softmax函数归一化计算重排最终得分，false表示不使用。 |
+ 
+ 
+  
 
-
-## RerankType
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RerankType
 
 重排算法的类型。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 值 | 说明 |
 | --- | --- | --- |
 | RRF | 0 | Reciprocal Rank Fusion(RRF)方法。根据各路召回位置信息进行分档排序。 适用场景：对结果多样性要求较高的场景，希望每路结果平等输出。 |
 | FUSION_SCORE | 1 | 基于得分的召回融合方法。根据各路相关性分数进行分档排序。适用场景：对相关性准确性要求高、召回分数可靠且注重结果的排序稳定性的场景。 |
+ 
+ 
+  
 
-
-## RerankParameter
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RerankParameter
 
 type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
-
+ 
 重排算法的参数配置。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [InvertedIndexRerankParameter](#invertedindexrerankparameter) | 重排参数为InvertedIndexRerankParameter。 |
-| [VectorRerankParameter](#vectorrerankparameter) | 重排参数为VectorRerankParameter。 |
+| InvertedIndexRerankParameter | 重排参数为InvertedIndexRerankParameter。 |
+| VectorRerankParameter | 重排参数为VectorRerankParameter。 |
+ 
+ 
+  
 
-
-## InvertedIndexRerankParameter
-**支持设备：** Phone / PC/2in1 / Tablet
+##### InvertedIndexRerankParameter
 
 用于倒排索引的重排算法的参数。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| invertedIndexWeights | Record&lt;[RecallName](#recallname), number&gt; | 否 | 否 | 每路召回的重排权重，体现各路召回在重排过程中的重要性。key为各路召回RecallCondition的[RecallName](#recallname)，value为对应那一路召回的权重。 权重值必须为非负数。如果未定义某一路召回的权重，则默认值为1。 |
+| invertedIndexWeights | Record<RecallName, number> | 否 | 否 | 每路召回的重排权重，体现各路召回在重排过程中的重要性。key为各路召回RecallCondition的RecallName，value为对应那一路召回的权重。 权重值必须为非负数。如果未定义某一路召回的权重，则默认值为1。 |
+ 
+ 
+  
 
-
-## VectorRerankParameter
-**支持设备：** Phone / PC/2in1 / Tablet
+##### VectorRerankParameter
 
 用于向量数据的重排算法的参数。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| vectorWeights | Record&lt;[RecallName](#recallname), number&gt; | 否 | 否 | 每路召回的重排权重，体现各路召回在重排过程中的重要性。key为各路召回RecallCondition的[RecallName](#recallname)，value为对应那一路召回的权重。权重值必须为非负数。如果未定义某一路召回的权重，则默认值为1。 |
+| vectorWeights | Record<RecallName, number> | 否 | 否 | 每路召回的重排权重，体现各路召回在重排过程中的重要性。key为各路召回RecallCondition的RecallName，value为对应那一路召回的权重。权重值必须为非负数。如果未定义某一路召回的权重，则默认值为1。 |
 | thresholds | Array&lt;number&gt; | 否 | 是 | 向量召回的分档阈值，用户应当从[0, 1]范围内给3个值，高、中、低档最低分，赋值对应cosine()相似度得分，越高越相关； 如果是2个值，则分出高、中两档，剩下结果都是低档； 如果是1个值，则除了高档剩下结果都是低档。 当给出多于3个值，则使用从大到小排序后前3个数值，后面忽略。如果未定义，默认值为[0.6, 0.45, 0.4]。 |
-| numberInspector | Record&lt;[RecallName](#recallname), [ColumnName](#columnname)&gt; | 否 | 是 | 向量召回数字匹配降档策略配置，如果查询中存在数字，但是对应目标字段中的数字和查询数字不匹配，则将该检索结果的相关性降低。key为对应向量召回条件中的[RecallName](#recallname)，value为对应模式匹配字段名。默认值为空。 |
+| numberInspector | Record<RecallName, ColumnName> | 否 | 是 | 向量召回数字匹配降档策略配置，如果查询中存在数字，但是对应目标字段中的数字和查询数字不匹配，则将该检索结果的相关性降低。key为对应向量召回条件中的RecallName，value为对应模式匹配字段名。默认值为空。 |
+ 
+ 
+  
 
-
-## RdbRecords
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RdbRecords
 
 检索结果。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| records | Array&lt;[ItemInfo](#iteminfo)&gt; | 否 | 否 | 检索结果 |
-| missedGroundTruths | Array&lt;[ItemInfo](#iteminfo)&gt; | 否 | 是 | 未检索到指定文档的信息 |
+| records | Array&lt;ItemInfo&gt; | 否 | 否 | 检索结果 |
+| missedGroundTruths | Array&lt;ItemInfo&gt; | 否 | 是 | 未检索到指定文档的信息 |
+ 
+ 
+  
 
-
-## ItemInfo
-**支持设备：** Phone / PC/2in1 / Tablet
+##### ItemInfo
 
 检索结果中每条数据的特定内容。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | primaryKey | string | 否 | 否 | 检索结果的主键。 |
-| columns | Record&lt;string, [relationalStore.ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype)&gt; | 否 | 否 | 召回列及其内容。 |
+| columns | Record<string, relationalStore.ValueType> | 否 | 否 | 召回列及其内容。 |
 | score | number | 否 | 否 | 检索重排后的最终得分，其反映了重排记录与查询词之间的相似度。score取值大于等于0。 |
-| recallScores | Record&lt;[ChannelType](#channeltype), Record&lt;string, [RecallScore](#recallscore)&gt;&gt; | 否 | 否 | 每路召回的得分，其反映了每路召回对该结果的相关性评估。key为该路RecallCondition的scoreKey； - 如果这里没有体现RetrievalCondition中的某一路RecallCondition的scoreKey，则代表该路召回认为该结果相关性过低不予召回。 |
-| features | Record&lt;string, number&gt; | 否 | 否 | 不同倒排策略的得分。目前支持的倒排策略及得分为： - "exact_phase"：文档字段精确命中查询语句的得分。 - "out_of_order_phase"：文档字段命中近似乱序匹配策略的得分。 - "token_bm25"：文档字段bm25策略得分。 - "core_count"：文档单个匹配字段内核心词总数。 |
-| similarityLevel | [SimilarityLevel](#similaritylevel) | 否 | 否 | 根据语义向量距离以及文本匹配程度，对检索结果按照相关性分档，方便对结果进行进一步筛选并且过滤。 |
+| recallScores | Record<ChannelType, Record<string, RecallScore>> | 否 | 否 | 每路召回的得分，其反映了每路召回对该结果的相关性评估。key为该路RecallCondition的scoreKey； - 如果这里没有体现RetrievalCondition中的某一路RecallCondition的scoreKey，则代表该路召回认为该结果相关性过低不予召回。 |
+| features | Record<string, number> | 否 | 否 | 不同倒排策略的得分。目前支持的倒排策略及得分为： - "exact_phase"：文档字段精确命中查询语句的得分。 - "out_of_order_phase"：文档字段命中近似乱序匹配策略的得分。 - "token_bm25"：文档字段bm25策略得分。 - "core_count"：文档单个匹配字段内核心词总数。 |
+| similarityLevel | SimilarityLevel | 否 | 否 | 根据语义向量距离以及文本匹配程度，对检索结果按照相关性分档，方便对结果进行进一步筛选并且过滤。 |
+ 
+ 
+  
 
-
-## RecallScore
-**支持设备：** Phone / PC/2in1 / Tablet
+##### RecallScore
 
 召回过程的得分。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | score | number | 否 | 否 | 召回得分。 |
 | isReverseQuery | boolean | 否 | 否 | 表示得分是否来自反查过程。true表示来自反查过程，flase表示来自原始召回过程。 |
+ 
+ 
+  
 
-
-## SimilarityLevel
-**支持设备：** Phone / PC/2in1 / Tablet
+##### SimilarityLevel
 
 根据语义向量距离以及文本匹配程度，对检索结果按照相关性的高中低分档，方便对结果进行进一步筛选并且过滤。
-
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
-
+ 
 **起始版本：** 6.0.0(20)
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NONE | 0 | 保留值，暂无特定含义。 |

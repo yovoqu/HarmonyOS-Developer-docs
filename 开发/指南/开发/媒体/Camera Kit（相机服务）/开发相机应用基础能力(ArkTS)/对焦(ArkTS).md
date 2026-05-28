@@ -5,21 +5,27 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-focus
 
 相机框架提供对设备对焦的能力，业务应用可以根据使用场景进行对焦模式和对焦点的设置。
+  
 
+##### 开发步骤
 
-## 开发步骤
+详细的API说明请参考[Camera API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
+ 1. 导入相关接口，导入方法如下。
 
-详细的API说明请参考[Camera API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。 导入相关接口，导入方法如下。
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-在设置对焦模式前，需要先调用[isFocusModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focusquery#isfocusmodesupported11)检查设备是否支持指定的焦距模式。
+2. 在设置对焦模式前，需要先调用[isFocusModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focusquery#isfocusmodesupported11)检查设备是否支持指定的焦距模式。
+
+  
 > [!NOTE]
-> 需要在Session调用commitConfig完成配流之后调用。
+> 需要在Session调用 commitConfig 完成配流之后调用。
 
 
+  
 ```text
 function isFocusModeSupported(photoSession: camera.PhotoSession): boolean {
   let status: boolean = false;
@@ -35,11 +41,16 @@ function isFocusModeSupported(photoSession: camera.PhotoSession): boolean {
 }
 ```
 
-调用[setFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#setfocusmode11)设置对焦模式。  若设置为自动对焦模式，支持调用[setFocusPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#setfocuspoint11)设置对焦点，根据对焦点执行一次自动对焦。
+3. 调用[setFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#setfocusmode11)设置对焦模式。
+
+  若设置为自动对焦模式，支持调用[setFocusPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#setfocuspoint11)设置对焦点，根据对焦点执行一次自动对焦。
+
+  
 > [!NOTE]
-> 需要在Session调用commitConfig完成配流之后调用。
+> 需要在Session调用 commitConfig 完成配流之后调用。
 
 
+  
 ```text
 function setFocusMode(photoSession: camera.PhotoSession): void {
   const focusPoint: camera.Point = {x: 1, y: 1};
@@ -56,10 +67,15 @@ function setFocusMode(photoSession: camera.PhotoSession): void {
 }
 ```
 
+ 
+  
 
-## 状态监听
+##### 状态监听
 
-在相机应用开发过程中，可以随时监听相机聚焦的状态变化。 通过注册[focusStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#onfocusstatechange11)的回调函数获取监听结果，仅当自动对焦模式时，且相机对焦状态发生改变时触发该事件。
+在相机应用开发过程中，可以随时监听相机聚焦的状态变化。
+ 
+通过注册[focusStateChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#onfocusstatechange11)的回调函数获取监听结果，仅当自动对焦模式时，且相机对焦状态发生改变时触发该事件。
+ 
 ```text
 function onFocusStateChange(photoSession: camera.PhotoSession): void {
   photoSession.on('focusStateChange', (err: BusinessError, focusState: camera.FocusState) => {

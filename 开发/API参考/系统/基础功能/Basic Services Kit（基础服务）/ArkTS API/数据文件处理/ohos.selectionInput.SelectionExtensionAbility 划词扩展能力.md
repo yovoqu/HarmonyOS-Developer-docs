@@ -7,31 +7,33 @@
 
 本模块提供划词扩展功能，用于用户通过鼠标、触控板等方式选择文本后的搜索、翻译等场景。
 
+> [!NOTE]
+> 本模块首批接口从API version 24开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块仅支持PC/2in1设备。
 
-## 导入模块
-**支持设备：** PC/2in1
 
 
-```ts
+##### 导入模块
+
+```text
 import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 ```
 
 
-## SelectionExtensionAbility
-**支持设备：** PC/2in1
+
+##### SelectionExtensionAbility
 
 **系统能力：** SystemCapability.SelectionInput.Selection
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | [SelectionExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionextensioncontext) | 否 | 否 | SelectionExtensionAbility的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。 |
+| context | SelectionExtensionContext | 否 | 否 | SelectionExtensionAbility的上下文环境，继承自ExtensionContext。 |
 
 
-### onConnect
-**支持设备：** PC/2in1
+
+
+##### onConnect
 
 onConnect(want: Want): rpc.RemoteObject
 
@@ -43,24 +45,21 @@ onConnect(want: Want): rpc.RemoteObject
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want#want) | 是 | 当前SelectionExtensionAbility的Want类型信息，包括Ability名称、Bundle名称等。 |
+| want | Want | 是 | 当前SelectionExtensionAbility的Want类型信息，包括Ability名称、Bundle名称等。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [rpc.RemoteObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc#iremoteobject) | RemoteObject对象，用于客户端和服务端通信。 |
+| rpc.RemoteObject | RemoteObject对象，用于客户端和服务端通信。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 import { rpc } from '@kit.IPCKit';
 import { Want } from '@kit.AbilityKit';
@@ -72,12 +71,8 @@ class StubTest extends rpc.RemoteObject {
   constructor(des: string) {
     super(des);
   }
-  onConnect(
-    code: number,
-    data: rpc.MessageSequence,
-    reply: rpc.MessageSequence,
-    option: rpc.MessageOption,
-  ) {}
+  onConnect(code: number, data: rpc.MessageSequence, reply: rpc.MessageSequence, option: rpc.MessageOption) {
+  }
 }
 
 class ServiceExtAbility extends SelectionExtensionAbility {
@@ -89,8 +84,8 @@ class ServiceExtAbility extends SelectionExtensionAbility {
 ```
 
 
-### onDisconnect
-**支持设备：** PC/2in1
+
+##### onDisconnect
 
 onDisconnect(): void
 
@@ -106,8 +101,7 @@ onDisconnect(): void
 
 **示例：**
 
-
-```ts
+```text
 import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

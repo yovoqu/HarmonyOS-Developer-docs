@@ -4,70 +4,77 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl
 
-
-## 简介
+##### 简介
 
 C标准函数库在C语言程序设计中，提供符合标准的头文件，以及常用的库函数实现（如I/O输入输出和字符串控制）。
-
+ 
 HarmonyOS采用musl作为C标准库，musl库是一个轻量，快速，简单，免费的开源libc库，详细介绍参考[musl官方参考手册](http://musl.libc.org/manual.html)。
-
+ 
 musl与glibc的差异点请参考[musl与glibc功能对比](https://wiki.musl-libc.org/functional-differences-from-glibc.html)。
+ 
+  
 
-
-## 标准C库组件介绍
+##### 标准C库组件介绍
 
 [libc、libm、libdl](https://zh.cppreference.com/w/c/header)组合实现C11标准C库。
-
+ 
 libc：包含线程相关接口，以及大部分标准接口。
-
+ 
 libm：数学库函数接口，当前在HarmonyOS中是一个链接，实际都在libc中定义。
-
+ 
 libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，实际都在libc中定义。
+ 
+  
 
-
-## musl版本号
+##### musl版本号
 
 1.2.0
-
+ 
 从HarmonyOS4.0开始，版本升级到1.2.3
-
+ 
 从HarmonyOS5.0开始，版本升级到1.2.5
+ 
+  
 
-
-## 支持的能力
+##### 支持的能力
 
 提供兼容C99、C11、POSIX标准的头文件，以及库函数接口，但不是完全兼容；支持armv7a、arm64、x86_64三种架构的支持；
-
+ 
 为了更好的适配HarmonyOS设备的高性能、低内存、高安全、轻量化、支持多种形态设备的基本特征；在musl开源库的基础上进行了优化，增强，对不适用嵌入式设备的接口进行了裁剪。
+ 
+  
 
-
-### 新增能力
-
-
+##### 新增能力
 1. 动态加载器支持命名空间隔离能力，应用可以dlopen加载的动态库受系统命名空间限制（比如，无法打开系统侧动态库）。
 2. 支持dlclose真实卸载动态库能力，musl的开源版本不支持。
 3. 支持symbol-versioning功能。
 4. dlopen支持直接加载zip包中未压缩的文件。
+ 
+  
 
-
-## musl 差异规格接口说明
-
-
+##### musl 差异规格接口说明
+ 
 | 接口名称 | 说明 |
 | --- | --- |
 | epoll_create | 在HarmonyOS5.0 上 该接口逻辑与1.2.3版本保持一致，不会对入参进行判断，不区分入参小于等于0的情况，预计下版本更新此接口逻辑与社区1.2.5保持一致，增加入参逻辑判断，入参小于等于0时创建失败，并返回错误码EINVAL。 |
+ 
+ 
+  
 
-
-## ICONV支持的字符集编码格式
+##### ICONV支持的字符集编码格式
 
 musl支持的字符集编码格式，以及受支持的别名。
+ 
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/AVBP4dCQQWWpF8GMXcg4OQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T085302Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=D9F3C3EBD6D6921F28C5FCE229C5874221C5CF27053B2C178329F573B8A5867A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/RBOV5PMcTc667zoz7g0g9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013349Z&HW-CC-Expire=86400&HW-CC-Sign=C1DB4EA6575AB232D6EB7D4BE195364D4C3F753D52659FDE92C83EBF321A9EC7)
+ 
+ 
 在进行字符集编码格式转换时，请使用正确的源字符集编码格式，且目标字符集编码格式必须支持这些受转换的字符，否则转换失败。
-
+ 
 在musl里不支持将源字符集编码格式转换成这五种目标字符集编码格式：gb18030，gbk，gb2312，big5和euckr。
+  
 
-
+  
 | 编码格式 | 别名 | musl支持情况 |
 | --- | --- | --- |
 | utf8 |  | 支持 |
@@ -120,12 +127,14 @@ musl支持的字符集编码格式，以及受支持的别名。
 | cp850 |  | 支持 |
 | cp866 |  | 支持 |
 | cp1047 | ibm1047 | 支持 |
+ 
+ 
+  
 
-
-## musl不支持接口列表。
+##### musl不支持接口列表。
 
 [native api中没有导出的符号列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl-peculiar-symbol)
-
+ 
 [NDK musl-libc接口受权限影响的说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nce-on-ndk-libc-interfaces-affected-by-permissions)
-
+ 
 [NDK musl-libc补充api文档](https://gitcode.com/openharmony/third_party_musl/tree/master/docs)

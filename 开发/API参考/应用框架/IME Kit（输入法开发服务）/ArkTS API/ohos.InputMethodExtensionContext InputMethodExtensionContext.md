@@ -3,36 +3,29 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-context
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 InputMethodExtensionContext模块是InputMethodExtensionAbility的上下文环境，继承于ExtensionContext，提供InputMethodExtensionAbility具有的能力和接口，包括启动、停止、绑定、解绑Ability。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
+> 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { InputMethodExtensionContext } from '@kit.IMEKit';
 ```
 
 
-## 使用说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 使用说明
 
 在使用InputMethodExtensionContext的功能前，需要通过InputMethodExtensionAbility子类实例获取。
 
-
-```ts
-import {
-  InputMethodExtensionAbility,
-  InputMethodExtensionContext,
-} from '@kit.IMEKit';
+```text
+import { InputMethodExtensionAbility, InputMethodExtensionContext } from '@kit.IMEKit';
 import { Want } from '@kit.AbilityKit';
 
 class InputMethodExtAbility extends InputMethodExtensionAbility {
@@ -43,17 +36,16 @@ class InputMethodExtAbility extends InputMethodExtensionAbility {
 ```
 
 
-## InputMethodExtensionContext.destroy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-destroy(callback: AsyncCallback<void>): void;
+##### InputMethodExtensionContext.destroy
+
+destroy(callback: AsyncCallback&lt;void&gt;): void;
 
 销毁输入法应用。使用callback异步回调。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -62,12 +54,8 @@ destroy(callback: AsyncCallback<void>): void;
 
 **示例：**
 
-
-```ts
-import {
-  InputMethodExtensionAbility,
-  InputMethodExtensionContext,
-} from '@kit.IMEKit';
+```text
+import { InputMethodExtensionAbility, InputMethodExtensionContext } from '@kit.IMEKit';
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -89,17 +77,16 @@ class InputMethodExtAbility extends InputMethodExtensionAbility {
 ```
 
 
-## InputMethodExtensionContext.destroy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-destroy(): Promise<void>;
+##### InputMethodExtensionContext.destroy
+
+destroy(): Promise&lt;void&gt;;
 
 销毁输入法应用。使用Promise异步回调。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -108,12 +95,8 @@ destroy(): Promise<void>;
 
 **示例：**
 
-
-```ts
-import {
-  InputMethodExtensionAbility,
-  InputMethodExtensionContext,
-} from '@kit.IMEKit';
+```text
+import { InputMethodExtensionAbility, InputMethodExtensionContext } from '@kit.IMEKit';
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -123,23 +106,20 @@ class InputMethodExtAbility extends InputMethodExtensionAbility {
   }
 
   onDestroy() {
-    this.context
-      .destroy()
-      .then(() => {
-        console.info('Succeed in destroying context.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(`Failed to destroy context, err code = ${err.code}`);
-      });
+    this.context.destroy().then(() => {
+      console.info('Succeed in destroying context.');
+    }).catch((err: BusinessError)=>{
+      console.error(`Failed to destroy context, err code = ${err.code}`);
+    });
   }
 }
 ```
 
 
-## InputMethodExtensionContext.startAbility12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-startAbility(want: Want): Promise<void>;
+##### InputMethodExtensionContext.startAbility12+
+
+startAbility(want: Want): Promise&lt;void&gt;;
 
 拉起目标应用。使用Promise异步回调。
 
@@ -147,14 +127,12 @@ startAbility(want: Want): Promise<void>;
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want) | 是 | 用于指定目标应用的Want类型信息，包括ability名称、bundle名称等。 |
+| want | Want | 是 | 用于指定目标应用的Want类型信息，包括ability名称、bundle名称等。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -164,7 +142,6 @@ startAbility(want: Want): Promise<void>;
 **错误码：**
 
 以下错误码的详细介绍请参见[输入法框架错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputmethod-framework)，[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)，[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -192,12 +169,8 @@ startAbility(want: Want): Promise<void>;
 
 **示例：**
 
-
-```ts
-import {
-  InputMethodExtensionAbility,
-  InputMethodExtensionContext,
-} from '@kit.IMEKit';
+```text
+import { InputMethodExtensionAbility, InputMethodExtensionContext } from '@kit.IMEKit';
 import { Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -205,29 +178,23 @@ class InputMethodExtAbility extends InputMethodExtensionAbility {
   onCreate(want: Want): void {
     const context: InputMethodExtensionContext = this.context;
     const targetWant: Want = {
-      bundleName: 'com.example.aafwk.test',
-      abilityName: 'com.example.aafwk.test.TwoAbility',
+      bundleName: "com.example.aafwk.test",
+      abilityName: "com.example.aafwk.test.TwoAbility"
     };
 
-    context
-      .startAbility(targetWant)
+    context.startAbility(targetWant)
       .then(() => console.info('startAbility success'))
       .catch((err: BusinessError) => {
-        console.error(
-          `StartAbility failed. Code: ${err.code}, Message: ${err.message}`,
-        );
+        console.error(`StartAbility failed. Code: ${err.code}, Message: ${err.message}`);
       });
   }
 
   onDestroy() {
-    this.context
-      .destroy()
-      .then(() => {
-        console.info('Succeed in destroying context.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(`Failed to destroy context, err code = ${err.code}`);
-      });
+    this.context.destroy().then(() => {
+      console.info('Succeed in destroying context.');
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to destroy context, err code = ${err.code}`);
+    });
   }
 }
 ```

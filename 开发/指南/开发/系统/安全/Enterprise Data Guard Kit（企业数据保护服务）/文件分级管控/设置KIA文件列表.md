@@ -4,29 +4,40 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-kia-file-list
 
-## 场景介绍
+##### 场景介绍
 
 Enterprise Data Guard Kit为应用提供设置KIA文件列表的能力，HarmonyOS系统根据管控策略对KIA文件列表中的文件实行管控。
 
-## 接口说明
+
+
+##### 接口说明
 
 详细接口说明可参考[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [setKiaFilelist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#setkiafilelist)(filelist: string, callback: AsyncCallback): void | 使用Callback方式设置KIA文件列表。 |
-| [setKiaFilelist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#setkiafilelist-1)(filelist: string): Promise | 使用Promise方式设置KIA文件列表。 |
+| setKiaFilelist(filelist: string, callback: AsyncCallback&lt;void&gt;): void | 使用Callback方式设置KIA文件列表。 |
+| setKiaFilelist(filelist: string): Promise&lt;void&gt; | 使用Promise方式设置KIA文件列表。 |
 
 
-## 开发步骤
 
-导入模块。
+
+##### 开发步骤
+1. 导入模块。
+
+  
 ```text
 import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 import { osAccount, BusinessError } from '@kit.BasicServicesKit';
 ```
 
-初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，将KIA文件列表对象转为字符串，调用接口setKiaFilelist，设置KIA文件列表。 通过回调函数方式，设置KIA文件列表。
-```text
+2. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，将KIA文件列表对象转为字符串，调用接口setKiaFilelist，设置KIA文件列表。
+
+  
+通过回调函数方式，设置KIA文件列表。
+
+  
+```cpp
 async function setKiaFilelistCallback() {
   let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
   let userId: number = await accountManager.getOsAccountLocalId();
@@ -50,8 +61,10 @@ async function setKiaFilelistCallback() {
 }
 ```
 
-通过Promise方式，设置KIA文件列表。
-```text
+3. 通过Promise方式，设置KIA文件列表。
+
+  
+```cpp
 async function setKiaFilelistPromise() {
   let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
   let userId: number = await accountManager.getOsAccountLocalId();

@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-44
 
-支持AsyncLock形式的同步机制，将需要同步的代码块放到异步代码块中。
+支持[AsyncLock](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-locks#asynclock)形式的同步机制，将需要同步的代码块放到异步代码块中。

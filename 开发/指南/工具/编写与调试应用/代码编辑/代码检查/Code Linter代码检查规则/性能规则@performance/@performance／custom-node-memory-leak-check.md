@@ -5,12 +5,11 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-custom-node-memory-leak-check
 
 建议在Component中新建自定义节点时主动释放节点，避免因未释放节点导致的内存泄露。
+ 
 
+##### 规则配置
 
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -18,14 +17,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 import { BuilderNode } from '@kit.ArkUI';
@@ -33,7 +34,7 @@ import { BuilderNode } from '@kit.ArkUI';
 @Entry
 @Component
 struct BuilderNodeDisposeExample {
-  private builder: BuilderNode | null = null
+  private builder: BuilderNode<[]> | null = null
   build() {
     Column({ space: 20 }) {
       Button('open dialog')
@@ -57,10 +58,10 @@ struct BuilderNodeDisposeExample {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 import { BuilderNode } from '@kit.ArkUI';
@@ -68,7 +69,7 @@ import { BuilderNode } from '@kit.ArkUI';
 @Entry
 @Component
 struct LeakyBuilderExample {
-  private builder: BuilderNode | null = null
+  private builder: BuilderNode<[]> | null = null
   build() {
     Column({ space: 20 }) {
       Button('create dialog')
@@ -87,13 +88,13 @@ struct LeakyBuilderExample {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
 plugin:@performance/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

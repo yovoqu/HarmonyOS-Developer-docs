@@ -4,13 +4,20 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/drm-c-dev-guide
 
-## 功能介绍
+##### 功能介绍
 
-开发者可以调用DRM Kit的C/C++接口实现DRM证书管理、DRM许可证管理、DRM节目授权、DRM节目解密等数字版权保护功能。 DRM Kit提供MediaKeySystem实现DRM证书管理、DRM许可证管理功能，并管理MediaKeySession实例；MediaKeySession实现DRM节目授权，并可支持Media Kit或AVCodec Kit实现DRM节目解密以实现DRM节目播放。
+开发者可以调用DRM Kit的C/C++接口实现DRM证书管理、DRM许可证管理、DRM节目授权、DRM节目解密等数字版权保护功能。
 
-## 开发步骤
+DRM Kit提供MediaKeySystem实现DRM证书管理、DRM许可证管理功能，并管理MediaKeySession实例；MediaKeySession实现DRM节目授权，并可支持Media Kit或AVCodec Kit实现DRM节目解密以实现DRM节目播放。
 
-详细的API说明请参考[Drm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm)。 导入DRM Kit接口。
+
+
+##### 开发步骤
+
+详细的API说明请参考[Drm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm)。
+1. 导入DRM Kit接口。
+
+  
 ```text
 #include "multimedia/drm_framework/native_drm_common.h"
 #include "multimedia/drm_framework/native_drm_err.h"
@@ -18,12 +25,16 @@
 #include "multimedia/drm_framework/native_mediakeysystem.h"
 ```
 
-在CMake脚本中链接动态库。
+2. 在CMake脚本中链接动态库。
+
+  
 ```text
 target_link_libraries(PUBLIC libnative_drm.so)
 ```
 
-获取设备支持的DRM解决方案名称和唯一标识的列表。
+3. 获取设备支持的DRM解决方案名称和唯一标识的列表。
+
+  
 ```text
 uint32_t count = 3; // count是当前设备实际支持的DRM插件的个数，用户根据实际情况设置。
 DRM_MediaKeySystemDescription descriptions[3];
@@ -34,7 +45,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-（可选）查询设备是否支持对应DRM解决方案名称、媒体类型、安全保护级别的DRM解决方案。
+4. （可选）查询设备是否支持对应DRM解决方案名称、媒体类型、安全保护级别的DRM解决方案。
+
+  
 ```text
 bool isSupported = OH_MediaKeySystem_IsSupported3("com.wiseplay.drm", "video/mp4", CONTENT_PROTECTION_LEVEL_SW_CRYPTO);
 if (isSupported != true) {
@@ -42,7 +55,9 @@ if (isSupported != true) {
 }
 ```
 
-创建MediaKeySystem实例。
+5. 创建MediaKeySystem实例。
+
+  
 ```text
 MediaKeySystem *mediaKeySystem = nullptr;
 ret = OH_MediaKeySystem_Create("com.wiseplay.drm", &mediaKeySystem);
@@ -51,7 +66,9 @@ if (ret != DRM_ERR_OK || mediaKeySystem == nullptr) {
 }
 ```
 
-（可选）设置MediaKeySystem事件监听回调。
+6. （可选）设置MediaKeySystem事件监听回调。
+
+  
 ```text
 static Drm_ErrCode SystemCallBackWithObj(MediaKeySystem *mediaKeySystem, DRM_EventType eventType,
     uint8_t *info, int32_t infoLen, char *extra)
@@ -69,7 +86,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-（可选）获取设备DRM证书状态。
+7. （可选）获取设备DRM证书状态。
+
+  
 ```text
 DRM_CertificateStatus certStatus = CERT_STATUS_INVALID;
 // 检查设备DRM证书状态。
@@ -79,7 +98,9 @@ if (ret == DRM_ERR_OK && certStatus != CERT_STATUS_PROVISIONED) {
 }
 ```
 
-（可选）生成设备DRM证书请求与处理设备DRM证书响应。
+8. （可选）生成设备DRM证书请求与处理设备DRM证书响应。
+
+  
 ```text
 #define MAX_DRM_PROVISION_BUF_SIZE 24576 // 24576: (2 * 12 * 1024)
 unsigned char request[MAX_DRM_PROVISION_BUF_SIZE] = { 0x00 };  // 设备DRM证书request最大长度为MAX_DRM_PROVISION_BUF_SIZE，按实际大小申请。
@@ -103,7 +124,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-（可选）获取设备支持的最大内容保护级别。
+9. （可选）获取设备支持的最大内容保护级别。
+
+  
 ```text
 DRM_ContentProtectionLevel maxContentProtectionLevel = CONTENT_PROTECTION_LEVEL_UNKNOWN;
 ret = OH_MediaKeySystem_GetMaxContentProtectionLevel(mediaKeySystem, &maxContentProtectionLevel);
@@ -112,7 +135,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-创建MediaKeySession实例。
+10. 创建MediaKeySession实例。
+
+  
 ```text
 MediaKeySession *mediaKeySession = nullptr;
 DRM_ContentProtectionLevel contentProtectionLevel = CONTENT_PROTECTION_LEVEL_SW_CRYPTO; // 依据设备支持的内容保护级别设置。
@@ -122,7 +147,9 @@ if (ret != DRM_ERR_OK || mediaKeySession == nullptr) {
 }
 ```
 
-（可选）设置MediaKeySession事件监听回调。
+11. （可选）设置MediaKeySession事件监听回调。
+
+  
 ```text
 static Drm_ErrCode SessionEventCallBackWithObj(MediaKeySession *mediaKeySession, DRM_EventType eventType, uint8_t *info, int32_t infoLen, char *extra)
 {
@@ -144,7 +171,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-（可选）查询是否需要安全解码。
+12. （可选）查询是否需要安全解码。
+
+  
 ```text
 bool requireSecureDecoder;
 ret = OH_MediaKeySession_RequireSecureDecoderModule(mediaKeySession, "video/avc", &requireSecureDecoder);
@@ -153,7 +182,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-生成媒体密钥请求与处理媒体密钥响应，以请求许可证完成DRM节目授权。
+13. 生成媒体密钥请求与处理媒体密钥响应，以请求许可证完成DRM节目授权。
+
+  
 ```text
 #define MAX_DRM_MEDIA_KEY_RESPONSE_BUF_SIZE 24576 // 24576: (2 * 12 * 1024)
 DRM_MediaKeyRequest mediaKeyRequest;
@@ -188,7 +219,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-（可选）恢复离线媒体密钥。
+14. （可选）恢复离线媒体密钥。
+
+  
 ```text
 // 将指定媒体密钥标识的媒体密钥加载到当前会话。
 ret = OH_MediaKeySession_RestoreOfflineMediaKeys(mediaKeySession, mediaKeyId, mediaKeyIdLen);
@@ -197,7 +230,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-（可选）检查媒体密钥状态。
+15. （可选）检查媒体密钥状态。
+
+  
 ```text
 DRM_MediaKeyStatus mediaKeyStatus;
 ret = OH_MediaKeySession_CheckMediaKeyStatus(mediaKeySession, &mediaKeyStatus);
@@ -206,7 +241,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-（可选）获取离线媒体密钥标识列表、获取离线媒体密钥状态与清除离线媒体密钥。
+16. （可选）获取离线媒体密钥标识列表、获取离线媒体密钥状态与清除离线媒体密钥。
+
+  
 ```text
 DRM_OfflineMediakeyIdArray offlineMediaKeyIds;
 ret = OH_MediaKeySystem_GetOfflineMediaKeyIds(mediaKeySystem, &offlineMediaKeyIds);
@@ -224,7 +261,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-销毁MediaKeySession实例。
+17. 销毁MediaKeySession实例。
+
+  
 ```text
 ret = OH_MediaKeySession_Destroy(mediaKeySession);
 if (ret != DRM_ERR_OK) {
@@ -232,7 +271,9 @@ if (ret != DRM_ERR_OK) {
 }
 ```
 
-销毁MediaKeySystem实例。
+18. 销毁MediaKeySystem实例。
+
+  
 ```text
 ret = OH_MediaKeySystem_Destroy(mediaKeySystem);
 if (ret != DRM_ERR_OK) {

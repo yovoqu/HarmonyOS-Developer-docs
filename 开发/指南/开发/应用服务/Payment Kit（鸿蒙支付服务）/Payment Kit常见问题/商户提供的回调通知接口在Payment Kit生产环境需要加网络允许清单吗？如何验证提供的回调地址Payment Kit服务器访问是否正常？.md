@@ -3,3 +3,6 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-16
+
+1. 回调通知当前未做网络允许清单限制，不需要在华为支付添加网络允许清单。
+2. 商户提供的回调地址，保证在公网环境下可正常访问即可。

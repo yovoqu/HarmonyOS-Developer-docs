@@ -1,27 +1,37 @@
 # 画布的获取与绘制结果的显示（ArkTS）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-arkts
 
-## 场景介绍
+##### 场景介绍
 
-Canvas即画布，提供绘制基本图形的能力，用于在屏幕上绘制图形和处理图形。开发者可以通过Canvas实现自定义的绘图效果，增强应用的用户体验。 Canvas是图形绘制的核心，本章中提到的所有绘制操作（包括基本图形的绘制、文字的绘制、图片的绘制、图形变换等）都是基于Canvas的。 目前ArkTS有两种获取Canvas的方式：[获取可直接显示的Canvas画布](#获取可直接显示的canvas画布)、[获取离屏的Canvas](#离屏canvas画布的获取与显示)，前者在调用绘制接口之后无需进行额外的操作即可完成绘制结果的上屏显示，而后者需要依靠已有的显示手段来显示绘制结果。
+Canvas即画布，提供绘制基本图形的能力，用于在屏幕上绘制图形和处理图形。开发者可以通过Canvas实现自定义的绘图效果，增强应用的用户体验。
 
-## 获取可直接显示的Canvas画布
+Canvas是图形绘制的核心，本章中提到的所有绘制操作（包括基本图形的绘制、文字的绘制、图片的绘制、图形变换等）都是基于Canvas的。
 
-通过[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)获取可直接上屏显示的Canvas画布。 导入依赖的相关文件。
-```text
+目前ArkTS有两种获取Canvas的方式：[获取可直接显示的Canvas画布](#获取可直接显示的canvas画布)、[获取离屏的Canvas](#离屏canvas画布的获取与显示)，前者在调用绘制接口之后无需进行额外的操作即可完成绘制结果的上屏显示，而后者需要依靠已有的显示手段来显示绘制结果。
+
+
+
+##### 获取可直接显示的Canvas画布
+
+通过[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)获取可直接上屏显示的Canvas画布。
+1. 导入依赖的相关文件。
+
+  
+```ArkTS
 import { UIContext, NodeController, FrameNode, RenderNode, DrawContext} from '@kit.ArkUI';
 ```
 
-
-```text
+```ArkTS
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
-添加自定义RenderNode。
-```text
+2. 添加自定义RenderNode。
+
+  
+```ArkTS
 // 2. 自定义 RenderNode
 class MyRenderNodeDirectDisplay extends RenderNode {
   async draw(context: DrawContext) {
@@ -44,8 +54,10 @@ class MyRenderNodeDirectDisplay extends RenderNode {
 }
 ```
 
-添加自定义[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)。
-```text
+3. 添加自定义[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)。
+
+  
+```ArkTS
 // 3. 自定义 NodeController
 class MyNodeControllerDirectDisplay extends NodeController {
   private rootNode: FrameNode | null = null;
@@ -70,8 +82,10 @@ class MyNodeControllerDirectDisplay extends NodeController {
 }
 ```
 
-重写自定义RenderNode的[draw()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode#draw)函数，获取Canvas进行自定义的绘制操作，即本章下文中的内容。
-```text
+4. 重写自定义RenderNode的[draw()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode#draw)函数，获取Canvas进行自定义的绘制操作，即本章下文中的内容。
+
+  
+```ArkTS
 async draw(context: DrawContext) {
   const canvas = context.canvas;
   if (canvas === null) {
@@ -91,8 +105,10 @@ async draw(context: DrawContext) {
 }
 ```
 
-将自定义NodeController进行显示。
-```text
+5. 将自定义NodeController进行显示。
+
+  
+```ArkTS
 @Entry
 @Component
 struct RenderTest {
@@ -125,18 +141,33 @@ struct RenderTest {
 ```
 
 
-## 离屏Canvas画布的获取与显示
 
-导入依赖的相关文件。
-```text
+
+##### 离屏Canvas画布的获取与显示
+1. 导入依赖的相关文件。
+
+  
+```ArkTS
 import { UIContext, NodeController, FrameNode, RenderNode, DrawContext} from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { taskpool } from '@kit.ArkTS';
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
-添加自定义RenderNode。 添加自定义[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)。 在MyNodeController的aboutToAppear()函数中创建PixelMap。 重写自定义RenderNode的[draw()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode#draw)函数，在其中获取离屏Canvas进行绘制： 利用4中创建的PixelMap构造离屏Canvas。 对离屏Canvas进行自定义的绘制操作。 将离屏Canvas的绘制结果交给RenderNode。
-```text
+2. 添加自定义RenderNode。
+3. 添加自定义[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)。
+4. 在MyNodeController的aboutToAppear()函数中创建PixelMap。
+5. 重写自定义RenderNode的[draw()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode#draw)函数，在其中获取离屏Canvas进行绘制：
+
+  
+ - 利用4中创建的PixelMap构造离屏Canvas。
+
+6. 对离屏Canvas进行自定义的绘制操作。
+
+7. 将离屏Canvas的绘制结果交给RenderNode。
+
+  
+```ArkTS
 // 2. 自定义RenderNode
 export class MyRenderNodeIndirectDisplay extends RenderNode {
   private pixelMap: image.PixelMap | null = null;
@@ -205,8 +236,10 @@ export class MyNodeControllerIndirectDisplay extends NodeController {
 }
 ```
 
-将自定义NodeController进行显示。
-```text
+ - 将自定义NodeController进行显示。
+
+  
+```ArkTS
 @Entry
 @Component
 struct RenderTest {
@@ -239,6 +272,9 @@ struct RenderTest {
 ```
 
 
-## 示例代码
 
-[图形绘制（ArkTS）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/ArkTSGraphicsDraw)
+
+
+##### 示例代码
+
+ - [图形绘制（ArkTS）](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/ArkTSGraphicsDraw)

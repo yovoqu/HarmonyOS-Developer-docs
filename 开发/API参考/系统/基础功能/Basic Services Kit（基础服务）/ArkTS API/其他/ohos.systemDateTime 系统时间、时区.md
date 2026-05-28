@@ -3,31 +3,28 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-date-time
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块主要由系统时间和系统时区功能组成。开发者可以获取系统时间及系统时区。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { systemDateTime } from '@kit.BasicServicesKit';
 ```
 
 
-## TimeType10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### TimeType10+
 
 定义获取时间的枚举类型。
 
 **系统能力**: SystemCapability.MiscServices.Time
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -35,32 +32,31 @@ import { systemDateTime } from '@kit.BasicServicesKit';
 | ACTIVE | 1 | 自系统启动以来经过的毫秒数，不包括深度睡眠时间。 |
 
 
-## systemDateTime.getCurrentTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void
+
+##### systemDateTime.getCurrentTime(deprecated)
+
+getCurrentTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
 
 获取自Unix纪元以来经过的时间，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getTime10+](#systemdatetimegettime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getTime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNano | boolean | 是 | 返回结果是否为纳秒数。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。 |
+| isNano | boolean | 是 | 返回结果是否为纳秒数。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，返回自Unix纪元以来经过的时间戳。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -69,44 +65,38 @@ getCurrentTime(isNano: boolean, callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   systemDateTime.getCurrentTime(true, (error: BusinessError, time: number) => {
     if (error) {
-      console.error(
-        `Failed to get currentTime. message: ${error.message}, code: ${error.code}`,
-      );
+      console.error(`Failed to get currentTime. message: ${error.message}, code: ${error.code}`);
       return;
     }
     console.info(`Succeeded in getting currentTime : ${time}`);
   });
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get currentTime. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get currentTime. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getCurrentTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentTime(callback: AsyncCallback<number>): void
+##### systemDateTime.getCurrentTime(deprecated)
+
+getCurrentTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取自Unix纪元以来经过的时间，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getTime10+](#systemdatetimegettime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getTime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -117,7 +107,6 @@ getCurrentTime(callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -125,52 +114,45 @@ getCurrentTime(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   systemDateTime.getCurrentTime((error: BusinessError, time: number) => {
     if (error) {
-      console.error(
-        `Failed to get currentTime. message: ${error.message}, code: ${error.code}`,
-      );
+      console.error(`Failed to get currentTime. message: ${error.message}, code: ${error.code}`);
       return;
     }
     console.info(`Succeeded in getting currentTime : ${time}`);
   });
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get currentTime. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get currentTime. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getCurrentTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentTime(isNano?: boolean): Promise<number>
+##### systemDateTime.getCurrentTime(deprecated)
+
+getCurrentTime(isNano?: boolean): Promise&lt;number&gt;
 
 获取自Unix纪元以来经过的时间，使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getTime10+](#systemdatetimegettime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getTime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNano | boolean | 否 | 返回结果是否为纳秒数,默认值为false。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。 |
+| isNano | boolean | 否 | 返回结果是否为纳秒数,默认值为false。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -181,7 +163,6 @@ getCurrentTime(isNano?: boolean): Promise<number>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -189,49 +170,40 @@ getCurrentTime(isNano?: boolean): Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  systemDateTime
-    .getCurrentTime()
-    .then((time: number) => {
-      console.info(`Succeeded in getting currentTime : ${time}`);
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to get currentTime. message: ${error.message}, code: ${error.code}`,
-      );
-    });
-} catch (e) {
+  systemDateTime.getCurrentTime().then((time: number) => {
+    console.info(`Succeeded in getting currentTime : ${time}`);
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get currentTime. message: ${error.message}, code: ${error.code}`);
+  });
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get currentTime. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get currentTime. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getRealActiveTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void
+##### systemDateTime.getRealActiveTime(deprecated)
+
+getRealActiveTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getUptime10+](#systemdatetimegetuptime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getUptime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNano | boolean | 是 | 返回结果是否为纳秒数。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。 |
+| isNano | boolean | 是 | 返回结果是否为纳秒数。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，返回自系统启动以来经过的时间，但不包括深度睡眠时间。 |
 
 
@@ -239,7 +211,6 @@ getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -247,47 +218,38 @@ getRealActiveTime(isNano: boolean, callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  systemDateTime.getRealActiveTime(
-    true,
-    (error: BusinessError, time: number) => {
-      if (error) {
-        console.error(
-          `Failed to get real active time. message: ${error.message}, code: ${error.code}`,
-        );
-        return;
-      }
-      console.info(`Succeeded in getting real active time : ${time}`);
-    },
-  );
-} catch (e) {
+  systemDateTime.getRealActiveTime(true, (error: BusinessError, time: number) => {
+    if (error) {
+      console.error(`Failed to get real active time. message: ${error.message}, code: ${error.code}`);
+      return;
+    }
+    console.info(`Succeeded in getting real active time : ${time}`);
+  });
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get real active time. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get real active time. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getRealActiveTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRealActiveTime(callback: AsyncCallback<number>): void
+##### systemDateTime.getRealActiveTime(deprecated)
+
+getRealActiveTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getUptime10+](#systemdatetimegetuptime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getUptime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -298,7 +260,6 @@ getRealActiveTime(callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -306,52 +267,45 @@ getRealActiveTime(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   systemDateTime.getRealActiveTime((error: BusinessError, time: number) => {
     if (error) {
-      console.error(
-        `Failed to get real active time. message: ${error.message}, code: ${error.code}`,
-      );
+      console.error(`Failed to get real active time. message: ${error.message}, code: ${error.code}`);
       return;
     }
     console.info(`Succeeded in getting real active time : ${time}`);
   });
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get real active time. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get real active time. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getRealActiveTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRealActiveTime(isNano?: boolean): Promise<number>
+##### systemDateTime.getRealActiveTime(deprecated)
+
+getRealActiveTime(isNano?: boolean): Promise&lt;number&gt;
 
 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getUptime10+](#systemdatetimegetuptime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getUptime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNano | boolean | 否 | 返回结果是否为纳秒数,默认值为false。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。 |
+| isNano | boolean | 否 | 返回结果是否为纳秒数,默认值为false。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -362,7 +316,6 @@ getRealActiveTime(isNano?: boolean): Promise<number>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -370,49 +323,40 @@ getRealActiveTime(isNano?: boolean): Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  systemDateTime
-    .getRealActiveTime()
-    .then((time: number) => {
-      console.info(`Succeeded in getting real active time : ${time}`);
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to get real active time. message: ${error.message}, code: ${error.code}`,
-      );
-    });
-} catch (e) {
+  systemDateTime.getRealActiveTime().then((time: number) => {
+    console.info(`Succeeded in getting real active time : ${time}`);
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get real active time. message: ${error.message}, code: ${error.code}`);
+  });
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get real active time. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get real active time. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getRealTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRealTime(isNano: boolean, callback: AsyncCallback<number>): void
+##### systemDateTime.getRealTime(deprecated)
+
+getRealTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getUptime10+](#systemdatetimegetuptime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getUptime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNano | boolean | 是 | 返回结果是否为纳秒数。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。 |
+| isNano | boolean | 是 | 返回结果是否为纳秒数。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，返回自系统启动以来经过的时间，包括深度睡眠时间。 |
 
 
@@ -420,7 +364,6 @@ getRealTime(isNano: boolean, callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -428,44 +371,38 @@ getRealTime(isNano: boolean, callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   systemDateTime.getRealTime(true, (error: BusinessError, time: number) => {
     if (error) {
-      console.error(
-        `Failed to get real time. message: ${error.message}, code: ${error.code}`,
-      );
+      console.error(`Failed to get real time. message: ${error.message}, code: ${error.code}`);
       return;
     }
     console.info(`Succeeded in getting real time : ${time}`);
   });
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get real time. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get real time. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getRealTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRealTime(callback: AsyncCallback<number>): void
+##### systemDateTime.getRealTime(deprecated)
+
+getRealTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getUptime10+](#systemdatetimegetuptime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getUptime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -476,7 +413,6 @@ getRealTime(callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -484,52 +420,45 @@ getRealTime(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   systemDateTime.getRealTime((error: BusinessError, time: number) => {
     if (error) {
-      console.error(
-        `Failed to get real time. message: ${error.message}, code: ${error.code}`,
-      );
+      console.error(`Failed to get real time. message: ${error.message}, code: ${error.code}`);
       return;
     }
     console.info(`Succeeded in getting real time : ${time}`);
   });
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get real time. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get real time. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getRealTime(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getRealTime(isNano?: boolean): Promise<number>
+##### systemDateTime.getRealTime(deprecated)
+
+getRealTime(isNano?: boolean): Promise&lt;number&gt;
 
 获取自系统启动以来经过的时间，包括深度睡眠时间，使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 12开始废弃，建议使用[systemDateTime.getUptime10+](#systemdatetimegetuptime10)替代。
+> 从API version 9开始支持，从API version 12开始废弃，建议使用 systemDateTime.getUptime 10+ 替代。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNano | boolean | 否 | 返回结果是否为纳秒数,默认值为false。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。 |
+| isNano | boolean | 否 | 返回结果是否为纳秒数,默认值为false。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -540,7 +469,6 @@ getRealTime(isNano?: boolean): Promise<number>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Incorrect parameter types. |
@@ -548,32 +476,24 @@ getRealTime(isNano?: boolean): Promise<number>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  systemDateTime
-    .getRealTime()
-    .then((time: number) => {
-      console.info(`Succeeded in getting real time : ${time}`);
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to get real time. message: ${error.message}, code: ${error.code}`,
-      );
-    });
-} catch (e) {
+  systemDateTime.getRealTime().then((time: number) => {
+    console.info(`Succeeded in getting real time : ${time}`);
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get real time. message: ${error.message}, code: ${error.code}`);
+  });
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get real time. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get real time. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getTime10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### systemDateTime.getTime10+
 
 getTime(isNanoseconds?: boolean): number
 
@@ -583,14 +503,12 @@ getTime(isNanoseconds?: boolean): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| isNanoseconds | boolean | 否 | 返回结果是否为纳秒数。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。          默认值为false。 |
+| isNanoseconds | boolean | 否 | 返回结果是否为纳秒数。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 默认值为false。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -599,23 +517,20 @@ getTime(isNanoseconds?: boolean): number
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let time: number = systemDateTime.getTime(true);
-} catch (e) {
+  let time: number = systemDateTime.getTime(true)
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get time. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get time. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getUptime10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### systemDateTime.getUptime10+
 
 getUptime(timeType: TimeType, isNanoseconds?: boolean): number
 
@@ -625,15 +540,13 @@ getUptime(timeType: TimeType, isNanoseconds?: boolean): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| timeType | [TimeType](#timetype10) | 是 | 获取时间的类型，仅能为STARTUP或者ACTIVE。 |
-| isNanoseconds | boolean | 否 | 返回结果是否为纳秒数。          - true：表示返回结果为纳秒数（ns）。          - false：表示返回结果为毫秒数（ms）。          默认值为false。 |
+| timeType | TimeType | 是 | 获取时间的类型，仅能为STARTUP或者ACTIVE。 |
+| isNanoseconds | boolean | 否 | 返回结果是否为纳秒数。 - true：表示返回结果为纳秒数（ns）。 - false：表示返回结果为毫秒数（ms）。 默认值为false。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -644,47 +557,39 @@ getUptime(timeType: TimeType, isNanoseconds?: boolean): number
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification          failed.This error code was added due to missing issues. |
+| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.This error code was added due to missing issues. |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let time: number = systemDateTime.getUptime(
-    systemDateTime.TimeType.ACTIVE,
-    false,
-  );
-} catch (e) {
+  let time: number = systemDateTime.getUptime(systemDateTime.TimeType.ACTIVE, false);
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get uptime. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get uptime. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getDate(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDate(callback: AsyncCallback<Date>): void
+##### systemDateTime.getDate(deprecated)
+
+getDate(callback: AsyncCallback&lt;Date&gt;): void
 
 获取当前系统日期，使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 10开始废弃，建议使用[如何将时间格式的字符串string转换为Date对象](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/faqs/faqs-arkui-arkts.md#如何将时间格式的字符串string转换为date对象api-9)中的new Date()方法替代，new Date()返回Date实例对象。
+> 从API version 9开始支持，从API version 10开始废弃，建议使用 如何将时间格式的字符串string转换为Date对象 中的new Date()方法替代，new Date()返回Date实例对象。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -695,7 +600,6 @@ getDate(callback: AsyncCallback<Date>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.System error. |
@@ -703,44 +607,38 @@ getDate(callback: AsyncCallback<Date>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   systemDateTime.getDate((error: BusinessError, date: Date) => {
     if (error) {
-      console.error(
-        `Failed to get date. message: ${error.message}, code: ${error.code}`,
-      );
+      console.error(`Failed to get date. message: ${error.message}, code: ${error.code}`);
       return;
     }
     console.info(`Succeeded in getting date : ${date}`);
   });
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get date. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get date. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getDate(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getDate(): Promise<Date>
+##### systemDateTime.getDate(deprecated)
+
+getDate(): Promise&lt;Date&gt;
 
 获取当前系统日期，使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 10开始废弃，建议使用[如何将时间格式的字符串string转换为Date对象](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/faqs/faqs-arkui-arkts.md#如何将时间格式的字符串string转换为date对象api-9)中的new Date()方法替代，new Date()返回Date实例对象。
+> 从API version 9开始支持，从API version 10开始废弃，建议使用 如何将时间格式的字符串string转换为Date对象 中的new Date()方法替代，new Date()返回Date实例对象。
+
 
 **系统能力：** SystemCapability.MiscServices.Time
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -751,7 +649,6 @@ getDate(): Promise<Date>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.System error. |
@@ -759,34 +656,26 @@ getDate(): Promise<Date>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  systemDateTime
-    .getDate()
-    .then((date: Date) => {
-      console.info(`Succeeded in getting date : ${date}`);
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to get date. message: ${error.message}, code: ${error.code}`,
-      );
-    });
-} catch (e) {
+  systemDateTime.getDate().then((date: Date) => {
+    console.info(`Succeeded in getting date : ${date}`);
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get date. message: ${error.message}, code: ${error.code}`);
+  });
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get date. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get date. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getTimezone
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getTimezone(callback: AsyncCallback<string>): void
+##### systemDateTime.getTimezone
+
+getTimezone(callback: AsyncCallback&lt;string&gt;): void
 
 获取系统时区，使用callback异步回调。
 
@@ -794,41 +683,35 @@ getTimezone(callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，返回系统时区。具体可见[支持的系统时区](#支持的系统时区)。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，返回系统时区。具体可见支持的系统时区。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   systemDateTime.getTimezone((error: BusinessError, data: string) => {
     if (error) {
-      console.error(
-        `Failed to get timezone. message: ${error.message}, code: ${error.code}`,
-      );
+      console.error(`Failed to get timezone. message: ${error.message}, code: ${error.code}`);
       return;
     }
     console.info(`Succeeded in get timezone : ${data}`);
   });
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get timezone. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get timezone. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getTimezone
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getTimezone(): Promise<string>
+##### systemDateTime.getTimezone
+
+getTimezone(): Promise&lt;string&gt;
 
 获取系统时区，使用Promise异步回调。
 
@@ -836,40 +719,31 @@ getTimezone(): Promise<string>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，返回系统时区。具体可见[支持的系统时区](#支持的系统时区)。 |
+| Promise&lt;string&gt; | Promise对象，返回系统时区。具体可见支持的系统时区。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  systemDateTime
-    .getTimezone()
-    .then((data: string) => {
-      console.info(`Succeeded in getting timezone: ${data}`);
-    })
-    .catch((error: BusinessError) => {
-      console.error(
-        `Failed to get timezone. message: ${error.message}, code: ${error.code}`,
-      );
-    });
-} catch (e) {
+  systemDateTime.getTimezone().then((data: string) => {
+    console.info(`Succeeded in getting timezone: ${data}`);
+  }).catch((error: BusinessError) => {
+    console.error(`Failed to get timezone. message: ${error.message}, code: ${error.code}`);
+  });
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get timezone. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get timezone. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## systemDateTime.getTimezoneSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### systemDateTime.getTimezoneSync10+
 
 getTimezoneSync(): string
 
@@ -879,34 +753,29 @@ getTimezoneSync(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| string | 返回系统时区。具体可见[支持的系统时区](#支持的系统时区)。 |
+| string | 返回系统时区。具体可见支持的系统时区。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   let timezone: string = systemDateTime.getTimezoneSync();
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get timezone. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get timezone. message: ${error.message}, code: ${error.code}`);
 }
 ```
 
 
-## 支持的系统时区
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 支持的系统时区
 
 支持的系统时区及各时区与0时区相比的偏移量(单位：h)可见下表。
-
 
 | 时区 | 偏移量 |
 | --- | --- |
@@ -943,8 +812,9 @@ try {
 | Asia/Tashkent | 5 |
 
 
-## systemDateTime.getAutoTimeStatus21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### systemDateTime.getAutoTimeStatus21+
 
 getAutoTimeStatus(): boolean
 
@@ -954,16 +824,14 @@ getAutoTimeStatus(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 返回自动设置时间开关状态。          - true：表示自动设置时间开关状态为打开。          - false：表示自动设置时间开关状态为关闭。 |
+| boolean | 返回自动设置时间开关状态。 - true：表示自动设置时间开关状态为打开。 - false：表示自动设置时间开关状态为关闭。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[时间时区服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-time)和[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -972,16 +840,13 @@ getAutoTimeStatus(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   let status: boolean = systemDateTime.getAutoTimeStatus();
-} catch (e) {
+} catch(e) {
   let error = e as BusinessError;
-  console.error(
-    `Failed to get autotime status. message: ${error.message}, code: ${error.code}`,
-  );
+  console.error(`Failed to get autotime status. message: ${error.message}, code: ${error.code}`);
 }
 ```

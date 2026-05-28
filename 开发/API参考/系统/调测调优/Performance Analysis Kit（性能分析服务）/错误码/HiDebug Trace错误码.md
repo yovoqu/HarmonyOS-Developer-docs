@@ -3,15 +3,14 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hidebug-trace
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
-## 11400102 重复采集
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 11400102 重复采集
 
 **错误信息**
 
@@ -30,8 +29,8 @@ Capture trace already enabled.
 等待trace采集结束或调用hidebug.stopAppTraceCapture关闭正在运行的trace采集。
 
 
-## 11400103 权限校验失败
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400103 权限校验失败
 
 **错误信息**
 
@@ -50,16 +49,16 @@ No write permission on the file.
 重新运行采集接口，再次生成正确的目录文件。
 
 
-## 11400104 内部异常
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400104 内部异常
 
 **错误信息**
 
 Abnormal trace status.
 
-
 > [!NOTE]
 > 错误信息请以接口实际返回内容为准。
+
 
 **错误描述**
 
@@ -74,8 +73,8 @@ Abnormal trace status.
 建议重启应用或设备。
 
 
-## 11400105 未开启trace采集
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400105 未开启trace采集
 
 **错误信息**
 
@@ -94,8 +93,8 @@ No capture trace running.
 开启trace采集，然后停止。
 
 
-## 11400106 接口调用配额已超出
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400106 接口调用配额已超出
 
 **错误信息**
 
@@ -116,8 +115,8 @@ Quota exceeded.
 等待进程或整机的调用配额刷新。
 
 
-## 11400120 trace文件存储达到限制
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400120 trace文件存储达到限制
 
 **错误信息**
 
@@ -136,8 +135,8 @@ Trace storage limit reached.
 清理trace目录下的文件。
 
 
-## 11400302 trace采集超出资源配额
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 11400302 trace采集超出资源配额
 
 **错误信息**
 
@@ -147,9 +146,9 @@ Resource unavailable.
 
 应用调用trace采集超出系统资源配额。
 
-
 > [!NOTE]
-> 开发者模式下[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)不被管控。
+> 开发者模式下 debug版本应用 不被管控。
+
 
 **可能原因**
 

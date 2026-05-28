@@ -9,14 +9,14 @@
 | API卡片权限变更 | 类名：global； API声明：declare namespace text 差异内容：NA | 类名：global； API声明：declare namespace text 差异内容：form | api/@ohos.graphics.text.d.ts |
 | API卡片权限变更 | 类名：text； API声明：class FontCollection 差异内容：NA | 类名：text； API声明：class FontCollection 差异内容：form | api/@ohos.graphics.text.d.ts |
 | API卡片权限变更 | 类名：FontCollection； API声明：loadFontSync(name: string, path: string \| Resource): void; 差异内容：NA | 类名：FontCollection； API声明：loadFontSync(name: string, path: string \| Resource): void; 差异内容：form | api/@ohos.graphics.text.d.ts |
-| API卡片权限变更 | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise<void>; 差异内容：NA | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise<void>; 差异内容：form | api/@ohos.graphics.text.d.ts |
+| API卡片权限变更 | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise&lt;void&gt;; 差异内容：NA | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise&lt;void&gt;; 差异内容：form | api/@ohos.graphics.text.d.ts |
 | API卡片权限变更 | 类名：FontCollection； API声明：unloadFontSync(name: string): void; 差异内容：NA | 类名：FontCollection； API声明：unloadFontSync(name: string): void; 差异内容：form | api/@ohos.graphics.text.d.ts |
-| API卡片权限变更 | 类名：FontCollection； API声明：unloadFont(name: string): Promise<void>; 差异内容：NA | 类名：FontCollection； API声明：unloadFont(name: string): Promise<void>; 差异内容：form | api/@ohos.graphics.text.d.ts |
+| API卡片权限变更 | 类名：FontCollection； API声明：unloadFont(name: string): Promise&lt;void&gt;; 差异内容：NA | 类名：FontCollection； API声明：unloadFont(name: string): Promise&lt;void&gt;; 差异内容：form | api/@ohos.graphics.text.d.ts |
 | API卡片权限变更 | 类名：FontCollection； API声明：clearCaches(): void; 差异内容：NA | 类名：FontCollection； API声明：clearCaches(): void; 差异内容：form | api/@ohos.graphics.text.d.ts |
 | API卡片权限变更 | 类名：global； API声明：declare namespace uiEffect 差异内容：NA | 类名：global； API声明：declare namespace uiEffect 差异内容：form | api/@ohos.graphics.uiEffect.d.ts |
 | API卡片权限变更 | 类名：uiEffect； API声明：interface VisualEffect 差异内容：NA | 类名：uiEffect； API声明：interface VisualEffect 差异内容：form | api/@ohos.graphics.uiEffect.d.ts |
 | 新增API | NA | 类名：FontCollection； API声明：static getLocalInstance(): FontCollection; 差异内容：static getLocalInstance(): FontCollection; | api/@ohos.graphics.text.d.ts |
-| 新增API | NA | 类名：text； API声明：function getFontDescriptorsFromPath(path: string \| Resource): Promise<Array<FontDescriptor>>; 差异内容：function getFontDescriptorsFromPath(path: string \| Resource): Promise<Array<FontDescriptor>>; | api/@ohos.graphics.text.d.ts |
+| 新增API | NA | 类名：text； API声明：function getFontDescriptorsFromPath(path: string \| Resource): Promise<Array&lt;FontDescriptor&gt;>; 差异内容：function getFontDescriptorsFromPath(path: string \| Resource): Promise<Array&lt;FontDescriptor&gt;>; | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：global； API声明：declare namespace common2D 差异内容：NA | 类名：global； API声明：declare namespace common2D 差异内容：atomicservice | api/@ohos.graphics.common2D.d.ts |
 | API从不支持元服务到支持元服务 | 类名：common2D； API声明：interface Color 差异内容：NA | 类名：common2D； API声明：interface Color 差异内容：atomicservice | api/@ohos.graphics.common2D.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Color； API声明：alpha: number; 差异内容：NA | 类名：Color； API声明：alpha: number; 差异内容：atomicservice | api/@ohos.graphics.common2D.d.ts |
@@ -80,7 +80,7 @@
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：getTypeface(): Typeface; 差异内容：NA | 类名：Font； API声明：getTypeface(): Typeface; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：getMetrics(): FontMetrics; 差异内容：NA | 类名：Font； API声明：getMetrics(): FontMetrics; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：measureSingleCharacter(text: string): number; 差异内容：NA | 类名：Font； API声明：measureSingleCharacter(text: string): number; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Font； API声明：measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): number; 差异内容：NA | 类名：Font； API声明：measureSingleCharacterWithFeatures(text: string, features: Array<FontFeature>): number; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Font； API声明：measureSingleCharacterWithFeatures(text: string, features: Array&lt;FontFeature&gt;): number; 差异内容：NA | 类名：Font； API声明：measureSingleCharacterWithFeatures(text: string, features: Array&lt;FontFeature&gt;): number; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：measureText(text: string, encoding: TextEncoding): number; 差异内容：NA | 类名：Font； API声明：measureText(text: string, encoding: TextEncoding): number; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：setScaleX(scaleX: number): void; 差异内容：NA | 类名：Font； API声明：setScaleX(scaleX: number): void; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：setSkewX(skewX: number): void; 差异内容：NA | 类名：Font； API声明：setSkewX(skewX: number): void; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
@@ -93,8 +93,8 @@
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：isEmbeddedBitmaps(): boolean; 差异内容：NA | 类名：Font； API声明：isEmbeddedBitmaps(): boolean; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：setForceAutoHinting(isForceAutoHinting: boolean): void; 差异内容：NA | 类名：Font； API声明：setForceAutoHinting(isForceAutoHinting: boolean): void; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：isForceAutoHinting(): boolean; 差异内容：NA | 类名：Font； API声明：isForceAutoHinting(): boolean; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Font； API声明：getWidths(glyphs: Array<number>): Array<number>; 差异内容：NA | 类名：Font； API声明：getWidths(glyphs: Array<number>): Array<number>; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Font； API声明：textToGlyphs(text: string, glyphCount?: number): Array<number>; 差异内容：NA | 类名：Font； API声明：textToGlyphs(text: string, glyphCount?: number): Array<number>; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Font； API声明：getWidths(glyphs: Array&lt;number&gt;): Array&lt;number&gt;; 差异内容：NA | 类名：Font； API声明：getWidths(glyphs: Array&lt;number&gt;): Array&lt;number&gt;; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Font； API声明：textToGlyphs(text: string, glyphCount?: number): Array&lt;number&gt;; 差异内容：NA | 类名：Font； API声明：textToGlyphs(text: string, glyphCount?: number): Array&lt;number&gt;; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：isSubpixel(): boolean; 差异内容：NA | 类名：Font； API声明：isSubpixel(): boolean; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：isLinearMetrics(): boolean; 差异内容：NA | 类名：Font； API声明：isLinearMetrics(): boolean; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：getSkewX(): number; 差异内容：NA | 类名：Font； API声明：getSkewX(): number; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
@@ -103,7 +103,7 @@
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：getHinting(): FontHinting; 差异内容：NA | 类名：Font； API声明：getHinting(): FontHinting; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：getEdging(): FontEdging; 差异内容：NA | 类名：Font； API声明：getEdging(): FontEdging; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：createPathForGlyph(index: number): Path; 差异内容：NA | 类名：Font； API声明：createPathForGlyph(index: number): Path; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Font； API声明：getBounds(glyphs: Array<number>): Array<common2D.Rect>; 差异内容：NA | 类名：Font； API声明：getBounds(glyphs: Array<number>): Array<common2D.Rect>; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Font； API声明：getBounds(glyphs: Array&lt;number&gt;): Array<common2D.Rect>; 差异内容：NA | 类名：Font； API声明：getBounds(glyphs: Array&lt;number&gt;): Array<common2D.Rect>; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：getTextPath(text: string, byteLength: number, x: number, y: number): Path; 差异内容：NA | 类名：Font； API声明：getTextPath(text: string, byteLength: number, x: number, y: number): Path; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：setThemeFontFollowed(followed: boolean): void; 差异内容：NA | 类名：Font； API声明：setThemeFontFollowed(followed: boolean): void; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Font； API声明：isThemeFontFollowed(): boolean; 差异内容：NA | 类名：Font； API声明：isThemeFontFollowed(): boolean; 差异内容：atomicservice | api/@ohos.graphics.drawing.d.ts |
@@ -236,7 +236,7 @@
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontWeight?: FontWeight; 差异内容：NA | 类名：TextStyle； API声明：fontWeight?: FontWeight; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontStyle?: FontStyle; 差异内容：NA | 类名：TextStyle； API声明：fontStyle?: FontStyle; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：baseline?: TextBaseline; 差异内容：NA | 类名：TextStyle； API声明：baseline?: TextBaseline; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontFamilies?: Array<string>; 差异内容：NA | 类名：TextStyle； API声明：fontFamilies?: Array<string>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontFamilies?: Array&lt;string&gt;; 差异内容：NA | 类名：TextStyle； API声明：fontFamilies?: Array&lt;string&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontSize?: number; 差异内容：NA | 类名：TextStyle； API声明：fontSize?: number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：letterSpacing?: number; 差异内容：NA | 类名：TextStyle； API声明：letterSpacing?: number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：wordSpacing?: number; 差异内容：NA | 类名：TextStyle； API声明：wordSpacing?: number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
@@ -250,21 +250,21 @@
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：ellipsisMode?: EllipsisMode; 差异内容：NA | 类名：TextStyle； API声明：ellipsisMode?: EllipsisMode; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：locale?: string; 差异内容：NA | 类名：TextStyle； API声明：locale?: string; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：baselineShift?: number; 差异内容：NA | 类名：TextStyle； API声明：baselineShift?: number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontFeatures?: Array<FontFeature>; 差异内容：NA | 类名：TextStyle； API声明：fontFeatures?: Array<FontFeature>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：textShadows?: Array<TextShadow>; 差异内容：NA | 类名：TextStyle； API声明：textShadows?: Array<TextShadow>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontFeatures?: Array&lt;FontFeature&gt;; 差异内容：NA | 类名：TextStyle； API声明：fontFeatures?: Array&lt;FontFeature&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：textShadows?: Array&lt;TextShadow&gt;; 差异内容：NA | 类名：TextStyle； API声明：textShadows?: Array&lt;TextShadow&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：backgroundRect?: RectStyle; 差异内容：NA | 类名：TextStyle； API声明：backgroundRect?: RectStyle; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontVariations?: Array<FontVariation>; 差异内容：NA | 类名：TextStyle； API声明：fontVariations?: Array<FontVariation>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontVariations?: Array&lt;FontVariation&gt;; 差异内容：NA | 类名：TextStyle； API声明：fontVariations?: Array&lt;FontVariation&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：badgeType?: TextBadgeType; 差异内容：NA | 类名：TextStyle； API声明：badgeType?: TextBadgeType; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextStyle； API声明：fontWidth?: FontWidth; 差异内容：NA | 类名：TextStyle； API声明：fontWidth?: FontWidth; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：text； API声明：class FontCollection 差异内容：NA | 类名：text； API声明：class FontCollection 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：static getGlobalInstance(): FontCollection; 差异内容：NA | 类名：FontCollection； API声明：static getGlobalInstance(): FontCollection; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：loadFontSync(name: string, path: string \| Resource): void; 差异内容：NA | 类名：FontCollection； API声明：loadFontSync(name: string, path: string \| Resource): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise<void>; 差异内容：NA | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise<void>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise&lt;void&gt;; 差异内容：NA | 类名：FontCollection； API声明：loadFont(name: string, path: string \| Resource): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：unloadFontSync(name: string): void; 差异内容：NA | 类名：FontCollection； API声明：unloadFontSync(name: string): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：unloadFont(name: string): Promise<void>; 差异内容：NA | 类名：FontCollection； API声明：unloadFont(name: string): Promise<void>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：unloadFont(name: string): Promise&lt;void&gt;; 差异内容：NA | 类名：FontCollection； API声明：unloadFont(name: string): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：FontCollection； API声明：clearCaches(): void; 差异内容：NA | 类名：FontCollection； API声明：clearCaches(): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：text； API声明：interface StrutStyle 差异内容：NA | 类名：text； API声明：interface StrutStyle 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：StrutStyle； API声明：fontFamilies?: Array<string>; 差异内容：NA | 类名：StrutStyle； API声明：fontFamilies?: Array<string>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：StrutStyle； API声明：fontFamilies?: Array&lt;string&gt;; 差异内容：NA | 类名：StrutStyle； API声明：fontFamilies?: Array&lt;string&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：StrutStyle； API声明：fontStyle?: FontStyle; 差异内容：NA | 类名：StrutStyle； API声明：fontStyle?: FontStyle; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：StrutStyle； API声明：fontWidth?: FontWidth; 差异内容：NA | 类名：StrutStyle； API声明：fontWidth?: FontWidth; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：StrutStyle； API声明：fontWeight?: FontWeight; 差异内容：NA | 类名：StrutStyle； API声明：fontWeight?: FontWeight; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
@@ -325,7 +325,7 @@
 | API从不支持元服务到支持元服务 | 类名：FontDescriptor； API声明：symbolic?: boolean; 差异内容：NA | 类名：FontDescriptor； API声明：symbolic?: boolean; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：text； API声明：class Paragraph 差异内容：NA | 类名：text； API声明：class Paragraph 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：layoutSync(width: number): void; 差异内容：NA | 类名：Paragraph； API声明：layoutSync(width: number): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：layout(width: number): Promise<void>; 差异内容：NA | 类名：Paragraph； API声明：layout(width: number): Promise<void>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：layout(width: number): Promise&lt;void&gt;; 差异内容：NA | 类名：Paragraph； API声明：layout(width: number): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：paint(canvas: drawing.Canvas, x: number, y: number): void; 差异内容：NA | 类名：Paragraph； API声明：paint(canvas: drawing.Canvas, x: number, y: number): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void; 差异内容：NA | 类名：Paragraph； API声明：paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getMaxWidth(): number; 差异内容：NA | 类名：Paragraph； API声明：getMaxWidth(): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
@@ -336,17 +336,17 @@
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getMaxIntrinsicWidth(): number; 差异内容：NA | 类名：Paragraph； API声明：getMaxIntrinsicWidth(): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getAlphabeticBaseline(): number; 差异内容：NA | 类名：Paragraph； API声明：getAlphabeticBaseline(): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getIdeographicBaseline(): number; 差异内容：NA | 类名：Paragraph； API声明：getIdeographicBaseline(): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>; 差异内容：NA | 类名：Paragraph； API声明：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getRectsForPlaceholders(): Array<TextBox>; 差异内容：NA | 类名：Paragraph； API声明：getRectsForPlaceholders(): Array<TextBox>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array&lt;TextBox&gt;; 差异内容：NA | 类名：Paragraph； API声明：getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array&lt;TextBox&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getRectsForPlaceholders(): Array&lt;TextBox&gt;; 差异内容：NA | 类名：Paragraph； API声明：getRectsForPlaceholders(): Array&lt;TextBox&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity; 差异内容：NA | 类名：Paragraph； API声明：getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getWordBoundary(offset: number): Range; 差异内容：NA | 类名：Paragraph； API声明：getWordBoundary(offset: number): Range; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getLineCount(): number; 差异内容：NA | 类名：Paragraph； API声明：getLineCount(): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getLineHeight(line: number): number; 差异内容：NA | 类名：Paragraph； API声明：getLineHeight(line: number): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getLineWidth(line: number): number; 差异内容：NA | 类名：Paragraph； API声明：getLineWidth(line: number): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：didExceedMaxLines(): boolean; 差异内容：NA | 类名：Paragraph； API声明：didExceedMaxLines(): boolean; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getTextLines(): Array<TextLine>; 差异内容：NA | 类名：Paragraph； API声明：getTextLines(): Array<TextLine>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getTextLines(): Array&lt;TextLine&gt;; 差异内容：NA | 类名：Paragraph； API声明：getTextLines(): Array&lt;TextLine&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getActualTextRange(lineNumber: number, includeSpaces: boolean): Range; 差异内容：NA | 类名：Paragraph； API声明：getActualTextRange(lineNumber: number, includeSpaces: boolean): Range; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getLineMetrics(): Array<LineMetrics>; 差异内容：NA | 类名：Paragraph； API声明：getLineMetrics(): Array<LineMetrics>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getLineMetrics(): Array&lt;LineMetrics&gt;; 差异内容：NA | 类名：Paragraph； API声明：getLineMetrics(): Array&lt;LineMetrics&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：getLineMetrics(lineNumber: number): LineMetrics \| undefined; 差异内容：NA | 类名：Paragraph； API声明：getLineMetrics(lineNumber: number): LineMetrics \| undefined; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：updateColor(color: common2D.Color): void; 差异内容：NA | 类名：Paragraph； API声明：updateColor(color: common2D.Color): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Paragraph； API声明：updateDecoration(decoration: Decoration): void; 差异内容：NA | 类名：Paragraph； API声明：updateDecoration(decoration: Decoration): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
@@ -389,7 +389,7 @@
 | API从不支持元服务到支持元服务 | 类名：text； API声明：class TextLine 差异内容：NA | 类名：text； API声明：class TextLine 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextLine； API声明：getGlyphCount(): number; 差异内容：NA | 类名：TextLine； API声明：getGlyphCount(): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextLine； API声明：getTextRange(): Range; 差异内容：NA | 类名：TextLine； API声明：getTextRange(): Range; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：TextLine； API声明：getGlyphRuns(): Array<Run>; 差异内容：NA | 类名：TextLine； API声明：getGlyphRuns(): Array<Run>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：TextLine； API声明：getGlyphRuns(): Array&lt;Run&gt;; 差异内容：NA | 类名：TextLine； API声明：getGlyphRuns(): Array&lt;Run&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextLine； API声明：paint(canvas: drawing.Canvas, x: number, y: number): void; 差异内容：NA | 类名：TextLine； API声明：paint(canvas: drawing.Canvas, x: number, y: number): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextLine； API声明：createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine; 差异内容：NA | 类名：TextLine； API声明：createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextLine； API声明：getTypographicBounds(): TypographicBounds; 差异内容：NA | 类名：TextLine； API声明：getTypographicBounds(): TypographicBounds; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
@@ -401,14 +401,14 @@
 | API从不支持元服务到支持元服务 | 类名：TextLine； API声明：getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number; 差异内容：NA | 类名：TextLine； API声明：getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：text； API声明：class Run 差异内容：NA | 类名：text； API声明：class Run 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getGlyphCount(): number; 差异内容：NA | 类名：Run； API声明：getGlyphCount(): number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Run； API声明：getGlyphs(): Array<number>; 差异内容：NA | 类名：Run； API声明：getGlyphs(): Array<number>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Run； API声明：getGlyphs(range: Range): Array<number>; 差异内容：NA | 类名：Run； API声明：getGlyphs(range: Range): Array<number>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Run； API声明：getGlyphs(): Array&lt;number&gt;; 差异内容：NA | 类名：Run； API声明：getGlyphs(): Array&lt;number&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Run； API声明：getGlyphs(range: Range): Array&lt;number&gt;; 差异内容：NA | 类名：Run； API声明：getGlyphs(range: Range): Array&lt;number&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getPositions(): Array<common2D.Point>; 差异内容：NA | 类名：Run； API声明：getPositions(): Array<common2D.Point>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getPositions(range: Range): Array<common2D.Point>; 差异内容：NA | 类名：Run； API声明：getPositions(range: Range): Array<common2D.Point>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getOffsets(): Array<common2D.Point>; 差异内容：NA | 类名：Run； API声明：getOffsets(): Array<common2D.Point>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getFont(): drawing.Font; 差异内容：NA | 类名：Run； API声明：getFont(): drawing.Font; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：paint(canvas: drawing.Canvas, x: number, y: number): void; 差异内容：NA | 类名：Run； API声明：paint(canvas: drawing.Canvas, x: number, y: number): void; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：Run； API声明：getStringIndices(range?: Range): Array<number>; 差异内容：NA | 类名：Run； API声明：getStringIndices(range?: Range): Array<number>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：Run； API声明：getStringIndices(range?: Range): Array&lt;number&gt;; 差异内容：NA | 类名：Run； API声明：getStringIndices(range?: Range): Array&lt;number&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getStringRange(): Range; 差异内容：NA | 类名：Run； API声明：getStringRange(): Range; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getTypographicBounds(): TypographicBounds; 差异内容：NA | 类名：Run； API声明：getTypographicBounds(): TypographicBounds; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：Run； API声明：getImageBounds(): common2D.Rect; 差异内容：NA | 类名：Run； API声明：getImageBounds(): common2D.Rect; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
@@ -429,9 +429,9 @@
 | API从不支持元服务到支持元服务 | 类名：LineMetrics； API声明：lineNumber: number; 差异内容：NA | 类名：LineMetrics； API声明：lineNumber: number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：LineMetrics； API声明：topHeight: number; 差异内容：NA | 类名：LineMetrics； API声明：topHeight: number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：LineMetrics； API声明：runMetrics: Map<number, RunMetrics>; 差异内容：NA | 类名：LineMetrics； API声明：runMetrics: Map<number, RunMetrics>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：text； API声明：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>; 差异内容：NA | 类名：text； API声明：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array<string>>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：text； API声明：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>; 差异内容：NA | 类名：text； API声明：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise<FontDescriptor>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
-| API从不支持元服务到支持元服务 | 类名：text； API声明：function matchFontDescriptors(desc: FontDescriptor): Promise<Array<FontDescriptor>>; 差异内容：NA | 类名：text； API声明：function matchFontDescriptors(desc: FontDescriptor): Promise<Array<FontDescriptor>>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：text； API声明：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array&lt;string&gt;>; 差异内容：NA | 类名：text； API声明：function getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array&lt;string&gt;>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：text； API声明：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise&lt;FontDescriptor&gt;; 差异内容：NA | 类名：text； API声明：function getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise&lt;FontDescriptor&gt;; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
+| API从不支持元服务到支持元服务 | 类名：text； API声明：function matchFontDescriptors(desc: FontDescriptor): Promise<Array&lt;FontDescriptor&gt;>; 差异内容：NA | 类名：text； API声明：function matchFontDescriptors(desc: FontDescriptor): Promise<Array&lt;FontDescriptor&gt;>; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：text； API声明：interface TextTab 差异内容：NA | 类名：text； API声明：interface TextTab 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextTab； API声明：alignment: TextAlign; 差异内容：NA | 类名：TextTab； API声明：alignment: TextAlign; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |
 | API从不支持元服务到支持元服务 | 类名：TextTab； API声明：location: number; 差异内容：NA | 类名：TextTab； API声明：location: number; 差异内容：atomicservice | api/@ohos.graphics.text.d.ts |

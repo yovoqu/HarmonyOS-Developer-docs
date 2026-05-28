@@ -4,17 +4,31 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-effect-guidelines
 
-## 场景介绍
+##### 场景介绍
 
-ImageEffect提供了一系列接口用于图像的编辑。开发者可以通过ImageEffect接口处理不同图像输入类型Pixelmap、NativeWindow、NativeBuffer或Uri，获得滤镜处理效果。 针对ImageEffect，常见的开发场景如下： 通过ImageEffect提供的Native API接口添加滤镜或滤镜链，设置输入图像，最终生效滤镜效果。 通过注册自定义滤镜，实现开发者的定制化滤镜效果。 通过EffectFilter提供的Native API接口快速实现单个滤镜的处理效果。
+ImageEffect提供了一系列接口用于图像的编辑。开发者可以通过ImageEffect接口处理不同图像输入类型Pixelmap、NativeWindow、NativeBuffer或Uri，获得滤镜处理效果。
 
-## 接口说明
+针对ImageEffect，常见的开发场景如下：
+
+ - 通过ImageEffect提供的Native API接口添加滤镜或滤镜链，设置输入图像，最终生效滤镜效果。
+ - 通过注册自定义滤镜，实现开发者的定制化滤镜效果。
+ - 通过EffectFilter提供的Native API接口快速实现单个滤镜的处理效果。
+
+
+
+
+##### 接口说明
 
 详细的接口说明请参考[ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect)。
 
-## 开发步骤
 
-**添加动态链接库** CMakeLists.txt中添加以下lib。
+
+##### 开发步骤
+
+**添加动态链接库**
+
+CMakeLists.txt中添加以下lib。
+
 ```text
 target_link_libraries(entry PUBLIC
     libace_ndk.z.so
@@ -25,24 +39,31 @@ target_link_libraries(entry PUBLIC
 )
 ```
 
-根据处理的图像类型添加对应动态链接库：Pixelmap(libpixelmap.so)、NativeWindow(libnative_window.so)、NativeBuffer(libnative_buffer.so) **添加头文件**
+根据处理的图像类型添加对应动态链接库：Pixelmap(libpixelmap.so)、NativeWindow(libnative_window.so)、NativeBuffer(libnative_buffer.so)
+
+**添加头文件**
+
 ```text
-#include
-#include
-#include
-#include
+#include <hilog/log.h>
+#include <multimedia/image_effect/image_effect.h>
+#include <multimedia/image_effect/image_effect_filter.h>
+#include <multimedia/image_effect/image_effect_errors.h>
 ```
 
 
-## 通过ImageEffect提供的接口生效图像效果
 
-创建ImageEffect实例。
+##### 通过ImageEffect提供的接口生效图像效果
+1. 创建ImageEffect实例。
+
+  
 ```text
 // 创建imageEffect实例，“ImageEdit”是imageEffect实例别名。
 OH_ImageEffect *imageEffect = OH_ImageEffect_Create("ImageEdit");
 ```
 
-添加EffectFilter滤镜。
+2. 添加EffectFilter滤镜。
+
+  
 ```text
 // 添加滤镜，获取OH_EffectFilter实例。多次调用该接口可以添加多个滤镜，组成滤镜链。
 OH_EffectFilter *filter = OH_ImageEffect_AddFilter(imageEffect, OH_EFFECT_BRIGHTNESS_FILTER);
@@ -55,7 +76,13 @@ ImageEffect_Any value = { .dataType = ImageEffect_DataType::EFFECT_DATA_TYPE_FLO
 ImageEffect_ErrorCode errorCode = OH_EffectFilter_SetValue(filter, OH_EFFECT_FILTER_INTENSITY_KEY, &value);
 ```
 
-设置处理数据。 **场景一：设置OH_PixelmapNative输入类型。** OH_PixelmapNative的具体使用方法请参考[Pixelmap开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-pixelmap-operation-native)。
+3. 设置处理数据。
+
+  **场景一：设置OH_PixelmapNative输入类型。**
+
+  OH_PixelmapNative的具体使用方法请参考[Pixelmap开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-pixelmap-operation-native)。
+
+  
 ```text
 // 设置输入的Pixelmap。
 errorCode = OH_ImageEffect_SetInputPixelmap(imageEffect, inputPixelmap);
@@ -71,8 +98,11 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
     return;
 }
 ```
+**场景二：设置OH_NativeBuffer输入类型。**
 
-**场景二：设置OH_NativeBuffer输入类型。** OH_NativeBuffer的具体使用方法请参考[NativeBuffer开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-buffer-guidelines)。
+  OH_NativeBuffer的具体使用方法请参考[NativeBuffer开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-buffer-guidelines)。
+
+  
 ```text
 // 设置输入的NativeBuffer。
 errorCode = OH_ImageEffect_SetInputNativeBuffer(imageEffect, inputNativeBuffer);
@@ -88,8 +118,9 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
     return;
 }
 ```
-
 **场景三：设置URI输入类型。**
+
+  
 ```text
 // 设置输入的URI。
 errorCode = OH_ImageEffect_SetInputUri(imageEffect, inputUri);
@@ -104,8 +135,11 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
     return;
 }
 ```
+**场景四：设置纹理输入类型。**
 
-**场景四：设置纹理输入类型。** 纹理输入场景是使用硬件GPU渲染的高性能场景，此场景下，应用需要提供合法的OpenGL上下文环境，并在正确的环境下，设置参数以及进行渲染操作。
+  纹理输入场景是使用硬件GPU渲染的高性能场景，此场景下，应用需要提供合法的OpenGL上下文环境，并在正确的环境下，设置参数以及进行渲染操作。
+
+  
 ```text
 // 设置输入的纹理ID。
 errorCode = OH_ImageEffect_SetInputTextureId(imageEffect, inputTex, ColorSpaceName::SRGB);
@@ -121,8 +155,19 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
     return;
 }
 ```
+**场景五：设置OHNativeWindow输入类型。**
 
-**场景五：设置OHNativeWindow输入类型。** 以相机预览场景为例来说明OHNativeWindow输入场景。XComponent组件为相机预览流提供的SurfaceId，可在native c++层将SurfaceId转换成OHNativeWindow，下面提供一份代码示例。 XComponent模块的具体使用方法请参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。 NativeWindow模块的具体使用方法请参考[OHNativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativewindow)。 Camera的具体使用方法请参考[Camera预览参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview)。 (1) 在xxx.ets中添加一个XComponent组件。
+  以相机预览场景为例来说明OHNativeWindow输入场景。XComponent组件为相机预览流提供的SurfaceId，可在native c++层将SurfaceId转换成OHNativeWindow，下面提供一份代码示例。
+
+  XComponent模块的具体使用方法请参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。
+
+  NativeWindow模块的具体使用方法请参考[OHNativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativewindow)。
+
+  Camera的具体使用方法请参考[Camera预览参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-camera-preview)。
+
+  (1) 在xxx.ets中添加一个XComponent组件。
+
+  
 ```text
 XComponent({
    id: 'xcomponentId',
@@ -143,8 +188,9 @@ XComponent({
 .width('100%')
 .height('100%')
 ```
-
 (2) imageEffect.getSurfaceId的native c++层具体实现。
+
+  
 ```text
 // 根据SurfaceId创建NativeWindow，注意创建出来的NativeWindow在使用结束后需要主动调用OH_NativeWindow_DestroyNativeWindow进行释放。
 uint64_t outputSurfaceId;
@@ -183,7 +229,9 @@ if (res != 0) {
 std::string inputSurfaceIdStr = std::to_string(inputSurfaceId);
 ```
 
-启动效果器。
+4. 启动效果器。
+
+  
 ```text
 // 执行生效滤镜效果。
 errorCode = OH_ImageEffect_Start(imageEffect);
@@ -193,7 +241,9 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 }
 ```
 
-停止生效效果（可选，仅在输入Surface场景下才有效）。
+5. 停止生效效果（可选，仅在输入Surface场景下才有效）。
+
+  
 ```text
 // 停止生效滤镜效果。
 errorCode = OH_ImageEffect_Stop(imageEffect);
@@ -203,7 +253,9 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 }
 ```
 
-序列化效果器（可选）。
+6. 序列化效果器（可选）。
+
+  
 ```text
 char *info = nullptr;
 errorCode = OH_ImageEffect_Save(imageEffect, &info);
@@ -213,7 +265,9 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 }
 ```
 
-销毁效果器实例。
+7. 销毁效果器实例。
+
+  
 ```text
 // 释放imageEffect实例资源。
 errorCode = OH_ImageEffect_Release(imageEffect);
@@ -224,10 +278,15 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 ```
 
 
-## 自定义滤镜
 
-以下步骤描述了如何实现并注册自定义滤镜接口： 定义 ImageEffect_FilterDelegate。
-```text
+
+##### 自定义滤镜
+
+以下步骤描述了如何实现并注册自定义滤镜接口：
+1. 定义 ImageEffect_FilterDelegate。
+
+  
+```json
 // 图像信息结构体。
 struct EffectBufferInfo {
     void *addr = nullptr;
@@ -255,7 +314,7 @@ ImageEffect_FilterDelegate filterDelegate = {
         OH_LOG_ERROR(LOG_APP, "OH_EffectFilter_GetValue fail!");
         return false;
         }
-
+         
         // 生成键值对信息。
         json values;
         values["Brightness"] = value.dataValue.floatValue;
@@ -284,8 +343,11 @@ ImageEffect_FilterDelegate filterDelegate = {
     }
 };
 ```
+其中Render接口的实现分两种场景。
 
-其中Render接口的实现分两种场景。 **场景一：自定义算法可以直接修改info中的像素数据（比如：亮度调节滤镜）。**
+  **场景一：自定义算法可以直接修改info中的像素数据（比如：亮度调节滤镜）。**
+
+  
 ```text
 bool Render(OH_EffectFilter *filter, OH_EffectBufferInfo *info, OH_EffectFilterDelegate_PushData pushData)
 {
@@ -305,8 +367,9 @@ bool Render(OH_EffectFilter *filter, OH_EffectBufferInfo *info, OH_EffectFilterD
     return true;
 }
 ```
-
 **场景二：自定义算法不能直接修改info中的像素数据（比如：裁剪滤镜）。**
+
+  
 ```text
 bool Render(OH_EffectFilter *filter, OH_EffectBufferInfo *info, OH_EffectFilterDelegate_PushData pushData)
 {
@@ -343,7 +406,9 @@ bool Render(OH_EffectFilter *filter, OH_EffectBufferInfo *info, OH_EffectFilterD
 }
 ```
 
-生成自定义滤镜信息。
+2. 生成自定义滤镜信息。
+
+  
 ```text
 // 创建OH_EffectFilterInfo实例。
 OH_EffectFilterInfo *customFilterInfo = OH_EffectFilterInfo_Create();
@@ -364,7 +429,9 @@ ImageEffect_Format formatArray[] = { ImageEffect_Format::EFFECT_PIXEL_FORMAT_RGB
 OH_EffectFilterInfo_SetSupportedFormats(customFilterInfo, sizeof(formatArray) / sizeof(ImageEffect_Format), formatArray);
 ```
 
-将 ImageEffect_FilterDelegate 注册到效果器。
+3. 将 ImageEffect_FilterDelegate 注册到效果器。
+
+  
 ```text
 // 注册自定义滤镜。
 ImageEffect_ErrorCode errorCode = OH_EffectFilter_Register(customFilterInfo, &filterDelegate);
@@ -375,15 +442,20 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 ```
 
 
-## EffectFilter快速实现单个滤镜的处理效果
 
-创建滤镜。
+
+##### EffectFilter快速实现单个滤镜的处理效果
+1. 创建滤镜。
+
+  
 ```text
 // 创建滤镜。比如：创建对比度效果器。
 OH_EffectFilter *filter = OH_EffectFilter_Create(OH_EFFECT_CONTRAST_FILTER);
 ```
 
-设置滤镜参数。
+2. 设置滤镜参数。
+
+  
 ```text
 // 设置滤镜参数, 滤镜强度设置为50。
 ImageEffect_Any value = {.dataType = ImageEffect_DataType::EFFECT_DATA_TYPE_FLOAT, .dataValue.floatValue = 50.f};
@@ -394,22 +466,30 @@ if (errorCode != ImageEffect_ErrorCode::EFFECT_SUCCESS) {
 }
 ```
 
-生效滤镜。
+3. 生效滤镜。
+
+  
 ```text
 // 生效滤镜效果。
 errorCode = OH_EffectFilter_Render(filter, inputPixelmap, outputPixelmap);
 ```
 
-销毁滤镜实例。
+4. 销毁滤镜实例。
+
+  
 ```text
 // 销毁滤镜实例。
 errorCode = OH_EffectFilter_Release(filter);
 ```
 
 
-## 查询能力
 
-根据滤镜名查询滤镜信息。
+
+##### 查询能力
+
+ - 根据滤镜名查询滤镜信息。
+
+  
 ```text
 // 创建OH_EffectFilterInfo实例。
 OH_EffectFilterInfo *filterInfo = OH_EffectFilterInfo_Create();
@@ -443,7 +523,9 @@ OH_EffectFilterInfo_GetSupportedFormats(filterInfo, supportedFormatsCnt, &format
 OH_EffectFilterInfo_Release(filterInfo);
 ```
 
-根据条件查询满足条件的滤镜。
+ - 根据条件查询满足条件的滤镜。
+
+  
 ```text
 // 查询所有的Filter，需要主动进行资源释放。
 ImageEffect_FilterNames *filterNames = OH_EffectFilter_LookupFilters("Default");

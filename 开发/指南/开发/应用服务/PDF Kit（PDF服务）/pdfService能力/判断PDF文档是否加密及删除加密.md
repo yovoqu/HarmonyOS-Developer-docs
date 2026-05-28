@@ -7,18 +7,20 @@
 PDF Kit支持判断PDF文档是否加密及删除PDF加密锁。
 
 
-## 接口说明
-
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [isEncrypted](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#isencrypted)(path: string): boolean | 判断当前文档是否已加密。 |
-| [removeSecurity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice#removesecurity)(): boolean | 删除文档加密锁。 |
+| isEncrypted(path: string): boolean | 判断当前文档是否已加密。 |
+| removeSecurity(): boolean | 删除文档加密锁。 |
 
 
-## 示例代码
 
-调用isEncrypted方法，判断PDF文档是否加密。 如果是加密PDF文档，调用removeSecurity方法移除PDF文档的加密锁。
+
+##### 示例代码
+1. 调用isEncrypted方法，判断PDF文档是否加密。
+2. 如果是加密PDF文档，调用removeSecurity方法移除PDF文档的加密锁。
+
 ```text
 import { pdfService } from '@kit.PDFKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';

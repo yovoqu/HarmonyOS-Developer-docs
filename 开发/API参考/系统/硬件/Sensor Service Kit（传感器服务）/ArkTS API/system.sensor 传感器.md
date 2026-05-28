@@ -3,56 +3,48 @@
 更新时间：2026-04-24 08:10:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-sensor
-**支持设备：** Wearable / lite_wearable
+**支持设备：** Wearable | lite_wearable
 
 sensor模块提供订阅传感器数据基本能力，主要包含查询传感器的列表、订阅/取消传感器的数据、执行控制命令等。
-
+ 
 根据传感器的用途，可以将传感器分为六大类：运动类传感器、环境类传感器、方向类传感器、光线类传感器、健康类传感器、其他类传感器（如霍尔传感器），每一大类传感器包含不同类型的传感器，某种类型的传感器可能是单一的物理传感器，也可能是由多个物理传感器复合而成。
-
-
+ 
 > [!NOTE]
-> 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。该功能使用需要对应硬件支持，仅支持真机调试。
+> 模块维护策略： 对于Lite Wearable设备类型，该模块长期维护，正常使用。 对于支持该模块的其他设备类型，该模块从API version 8开始不再维护，推荐使用新接口 @ohos.sensor 。 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 该功能使用需要对应硬件支持，仅支持真机调试。
 
+  
 
-## 导入模块
-**支持设备：** Wearable / lite_wearable
+##### 导入模块
 
-
-```ts
+```text
 import { Sensor } from '@kit.SensorServiceKit';
 ```
+ 
+  
 
+##### Sensor.subscribeAccelerometer
 
-## Sensor.subscribeAccelerometer
-**支持设备：** Wearable / lite_wearable
-
-subscribeAccelerometer(options: subscribeAccelerometerOptions): void
-
+ subscribeAccelerometer(options: subscribeAccelerometerOptions): void
+ 
 观察加速度数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[ACCELEROMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#accelerometer9)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.ACCELEROMETER，该权限为系统权限
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [subscribeAccelerometerOptions](#subscribeaccelerometeroptions) | 是 | 监听加速度传感器数据的回调函数的执行频率。 |
-
-
+| options | subscribeAccelerometerOptions | 是 | 监听加速度传感器数据的回调函数的执行频率。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  AccelerometerResponse,
-  subscribeAccelerometerOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, AccelerometerResponse, subscribeAccelerometerOptions } from '@kit.SensorServiceKit';
 
 let accelerometerOptions: subscribeAccelerometerOptions = {
   interval: 'normal',
@@ -67,67 +59,58 @@ let accelerometerOptions: subscribeAccelerometerOptions = {
 };
 Sensor.subscribeAccelerometer(accelerometerOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeAccelerometer
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeAccelerometer
 
 unsubscribeAccelerometer(): void
-
+ 
 取消订阅加速度数据。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[ACCELEROMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#accelerometerdeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.ACCELEROMETER，该权限为系统权限
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeAccelerometer();
 ```
+ 
+  
 
+##### Sensor.subscribeCompass
 
-## Sensor.subscribeCompass
-**支持设备：** Wearable / lite_wearable
-
-subscribeCompass(options: SubscribeCompassOptions): void
-
+ subscribeCompass(options: SubscribeCompassOptions): void
+ 
 订阅罗盘数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[ORIENTATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#orientationdeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeCompassOptions](#subscribecompassoptions) | 是 | 当罗盘传感器数据发生变化时调用。 |
-
-
+| options | SubscribeCompassOptions | 是 | 当罗盘传感器数据发生变化时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  CompassResponse,
-  SubscribeCompassOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, CompassResponse, SubscribeCompassOptions } from '@kit.SensorServiceKit';
 
 let subscribeCompassOptions: SubscribeCompassOptions = {
   success: (ret: CompassResponse) => {
-    console.info(
-      'Succeeded in subscribing. Get data direction:' + ret.direction,
-    );
+    console.info('Succeeded in subscribing. Get data direction:' + ret.direction);
   },
   fail: (data: string, code: number) => {
     console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);
@@ -135,61 +118,54 @@ let subscribeCompassOptions: SubscribeCompassOptions = {
 };
 Sensor.subscribeCompass(subscribeCompassOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeCompass
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeCompass
 
 unsubscribeCompass(): void
-
+ 
 取消订阅罗盘。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[ORIENTATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#orientationdeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeCompass();
 ```
+ 
+  
 
+##### Sensor.subscribeProximity
 
-## Sensor.subscribeProximity
-**支持设备：** Wearable / lite_wearable
-
-subscribeProximity(options: SubscribeProximityOptions): void
-
+ subscribeProximity(options: SubscribeProximityOptions): void
+ 
 订阅距离感应数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[PROXIMITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#proximitydeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeProximityOptions](#subscribeproximityoptions) | 是 | 当距离传感器数据发生变化时调用。 |
-
-
+| options | SubscribeProximityOptions | 是 | 当距离传感器数据发生变化时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  ProximityResponse,
-  SubscribeProximityOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, ProximityResponse, SubscribeProximityOptions } from '@kit.SensorServiceKit';
 
 let subscribeProximityOptions: SubscribeProximityOptions = {
   success: (ret: ProximityResponse) => {
@@ -201,69 +177,60 @@ let subscribeProximityOptions: SubscribeProximityOptions = {
 };
 Sensor.subscribeProximity(subscribeProximityOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeProximity
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeProximity
 
 unsubscribeProximity(): void
-
+ 
 取消订阅距离感应。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[PROXIMITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#proximitydeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeProximity();
 ```
+ 
+  
 
+##### Sensor.subscribeLight
 
-## Sensor.subscribeLight
-**支持设备：** Wearable / lite_wearable
-
-subscribeLight(options: SubscribeLightOptions): void
-
+ subscribeLight(options: SubscribeLightOptions): void
+ 
 订阅环境光线感应数据变化。再次调用时，会覆盖前一次调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[AMBIENT_LIGHT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#ambient_lightdeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeLightOptions](#subscribelightoptions) | 是 | 当环境光传感器数据发生变化时调用。 |
-
-
+| options | SubscribeLightOptions | 是 | 当环境光传感器数据发生变化时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  LightResponse,
-  SubscribeLightOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, LightResponse, SubscribeLightOptions } from '@kit.SensorServiceKit';
 
 let subscribeLightOptions: SubscribeLightOptions = {
   success: (ret: LightResponse) => {
-    console.info(
-      'Succeeded in subscribing. Get data intensity:' + ret.intensity,
-    );
+    console.info('Succeeded in subscribing. Get data intensity:' + ret.intensity);
   },
   fail: (data: string, code: number) => {
     console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);
@@ -271,63 +238,56 @@ let subscribeLightOptions: SubscribeLightOptions = {
 };
 Sensor.subscribeLight(subscribeLightOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeLight
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeLight
 
 unsubscribeLight(): void
-
+ 
 取消订阅环境光线感应。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[AMBIENT_LIGHT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#ambient_lightdeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeLight();
 ```
+ 
+  
 
+##### Sensor.subscribeStepCounter
 
-## Sensor.subscribeStepCounter
-**支持设备：** Wearable / lite_wearable
-
-subscribeStepCounter(options: SubscribeStepCounterOptions): void
-
+ subscribeStepCounter(options: SubscribeStepCounterOptions): void
+ 
 订阅计步传感器数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[PEDOMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#pedometerdeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeStepCounterOptions](#subscribestepcounteroptions) | 是 | 当步进计数器传感器数据发生变化时调用。 |
-
-
+| options | SubscribeStepCounterOptions | 是 | 当步进计数器传感器数据发生变化时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  StepCounterResponse,
-  SubscribeStepCounterOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, StepCounterResponse, SubscribeStepCounterOptions } from '@kit.SensorServiceKit';
 
 let subscribeStepCounterOptions: SubscribeStepCounterOptions = {
   success: (ret: StepCounterResponse) => {
@@ -339,61 +299,54 @@ let subscribeStepCounterOptions: SubscribeStepCounterOptions = {
 };
 Sensor.subscribeStepCounter(subscribeStepCounterOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeStepCounter
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeStepCounter
 
 unsubscribeStepCounter(): void
-
+ 
 取消订阅计步传感器。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[PEDOMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#pedometerdeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeStepCounter();
 ```
+ 
+  
 
-
-## Sensor.subscribeBarometer
-**支持设备：** Wearable / lite_wearable
+##### Sensor.subscribeBarometer
 
 subscribeBarometer(options: SubscribeBarometerOptions): void
-
+ 
 订阅气压计传感器数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[BAROMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#barometerdeprecated-1)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeBarometerOptions](#subscribebarometeroptions) | 是 | 当气压计传感器数据发生变化时调用。 |
-
-
+| options | SubscribeBarometerOptions | 是 | 当气压计传感器数据发生变化时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  BarometerResponse,
-  SubscribeBarometerOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, BarometerResponse, SubscribeBarometerOptions } from '@kit.SensorServiceKit';
 
 let subscribeBarometerOptions: SubscribeBarometerOptions = {
   success: (ret: BarometerResponse) => {
@@ -405,67 +358,58 @@ let subscribeBarometerOptions: SubscribeBarometerOptions = {
 };
 Sensor.subscribeBarometer(subscribeBarometerOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeBarometer
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeBarometer
 
 unsubscribeBarometer(): void
-
+ 
 取消订阅气压计传感器。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[BAROMETER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#barometerdeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeBarometer();
 ```
+ 
+  
 
+##### Sensor.subscribeHeartRate
 
-## Sensor.subscribeHeartRate
-**支持设备：** Wearable / lite_wearable
-
-subscribeHeartRate(options: SubscribeHeartRateOptions): void
-
+ subscribeHeartRate(options: SubscribeHeartRateOptions): void
+ 
 订阅心率传感器数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[HEART_RATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#heart_ratedeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.READ_HEALTH_DATA
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeHeartRateOptions](#subscribeheartrateoptions) | 是 | 当心率传感器数据发生变化时调用。 |
-
-
+| options | SubscribeHeartRateOptions | 是 | 当心率传感器数据发生变化时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  HeartRateResponse,
-  SubscribeHeartRateOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, HeartRateResponse, SubscribeHeartRateOptions } from '@kit.SensorServiceKit';
 
 let subscribeHeartRateOptions: SubscribeHeartRateOptions = {
   success: (ret: HeartRateResponse) => {
-    console.info(
-      'Succeeded in subscribing. Get heartRate value:' + ret.heartRate,
-    );
+    console.info('Succeeded in subscribing. Get heartRate value:' + ret.heartRate);
   },
   fail: (data: string, code: number) => {
     console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);
@@ -473,67 +417,58 @@ let subscribeHeartRateOptions: SubscribeHeartRateOptions = {
 };
 Sensor.subscribeHeartRate(subscribeHeartRateOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeHeartRate
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeHeartRate
 
 unsubscribeHeartRate(): void
-
+ 
 取消订阅心率传感器。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[HEART_RATE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#heart_ratedeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.READ_HEALTH_DATA
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeHeartRate();
 ```
+ 
+  
 
+##### Sensor.subscribeOnBodyState
 
-## Sensor.subscribeOnBodyState
-**支持设备：** Wearable / lite_wearable
-
-subscribeOnBodyState(options: SubscribeOnBodyStateOptions): void
-
+ subscribeOnBodyState(options: SubscribeOnBodyStateOptions): void
+ 
 订阅设备佩戴状态。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[WEAR_DETECTION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#wear_detectiondeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeOnBodyStateOptions](#subscribeonbodystateoptions) | 是 | 当穿着状态改变时调用。 |
-
-
+| options | SubscribeOnBodyStateOptions | 是 | 当穿着状态改变时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  OnBodyStateResponse,
-  SubscribeOnBodyStateOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, OnBodyStateResponse, SubscribeOnBodyStateOptions } from '@kit.SensorServiceKit';
 
 let subscribeOnBodyStateOptions: SubscribeOnBodyStateOptions = {
   success: (ret: OnBodyStateResponse) => {
-    console.info(
-      'Succeeded in subscribing. Get on-body state value:' + ret.value,
-    );
+    console.info('Succeeded in subscribing. Get on-body state value:' + ret.value);
   },
   fail: (data: string, code: number) => {
     console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);
@@ -541,57 +476,50 @@ let subscribeOnBodyStateOptions: SubscribeOnBodyStateOptions = {
 };
 Sensor.subscribeOnBodyState(subscribeOnBodyStateOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeOnBodyState
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeOnBodyState
 
 unsubscribeOnBodyState(): void
-
+ 
 取消订阅设备佩戴状态。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[WEAR_DETECTION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#wear_detectiondeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeOnBodyState();
 ```
+ 
+  
 
+##### Sensor.getOnBodyState
 
-## Sensor.getOnBodyState
-**支持设备：** Wearable / lite_wearable
-
-getOnBodyState(options: GetOnBodyStateOptions): void
-
+ getOnBodyState(options: GetOnBodyStateOptions): void
+ 
 获取设备佩戴状态。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [GetOnBodyStateOptions](#getonbodystateoptions) | 是 | 获取传感器所在设备穿戴状态时调用。 |
-
-
+| options | GetOnBodyStateOptions | 是 | 获取传感器所在设备穿戴状态时调用。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  OnBodyStateResponse,
-  GetOnBodyStateOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, OnBodyStateResponse, GetOnBodyStateOptions } from '@kit.SensorServiceKit';
 
 let getOnBodyStateOptions: GetOnBodyStateOptions = {
   success: (ret: OnBodyStateResponse) => {
@@ -603,40 +531,34 @@ let getOnBodyStateOptions: GetOnBodyStateOptions = {
 };
 Sensor.getOnBodyState(getOnBodyStateOptions);
 ```
+ 
+  
 
+##### Sensor.subscribeDeviceOrientation6+
 
-## Sensor.subscribeDeviceOrientation6+
-**支持设备：** Wearable / lite_wearable
-
-subscribeDeviceOrientation(options: SubscribeDeviceOrientationOptions): void
-
+ subscribeDeviceOrientation(options: SubscribeDeviceOrientationOptions): void
+ 
 观察设备方向传感器数据变化。
-
+ 
 针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效；针对同一个方法内，不支持多次调用。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[ORIENTATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#orientationdeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeDeviceOrientationOptions](#subscribedeviceorientationoptions6) | 是 | 用于监听设备方向传感器数据的回调函数的执行频率。 |
-
-
+| options | SubscribeDeviceOrientationOptions | 是 | 用于监听设备方向传感器数据的回调函数的执行频率。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  DeviceOrientationResponse,
-  SubscribeDeviceOrientationOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, DeviceOrientationResponse, SubscribeDeviceOrientationOptions } from '@kit.SensorServiceKit';
 
 let subscribeDeviceOrientationOptions: SubscribeDeviceOrientationOptions = {
   interval: 'normal',
@@ -647,69 +569,62 @@ let subscribeDeviceOrientationOptions: SubscribeDeviceOrientationOptions = {
   },
   fail: (data: string, code: number) => {
     console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);
-  },
+  }
 };
 Sensor.subscribeDeviceOrientation(subscribeDeviceOrientationOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeDeviceOrientation6+
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeDeviceOrientation6+
 
 unsubscribeDeviceOrientation(): void
-
+ 
 取消订阅设备方向传感器数据。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[ORIENTATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#orientationdeprecated-2)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeDeviceOrientation();
 ```
+ 
+  
 
+##### Sensor.subscribeGyroscope6+
 
-## Sensor.subscribeGyroscope6+
-**支持设备：** Wearable / lite_wearable
-
-subscribeGyroscope(options: SubscribeGyroscopeOptions): void
-
+ subscribeGyroscope(options: SubscribeGyroscopeOptions): void
+ 
 观察陀螺仪传感器数据变化。
-
+ 
 针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效；针对同一个方法内，不支持多次调用。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[GYROSCOPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#gyroscopedeprecated)。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.GYROSCOPE，该权限为系统权限
-
+ 
 **参数**：
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SubscribeGyroscopeOptions](#subscribegyroscopeoptions6) | 是 | 用于侦听陀螺仪传感器数据的回调函数的执行频率。 |
-
-
+| options | SubscribeGyroscopeOptions | 是 | 用于侦听陀螺仪传感器数据的回调函数的执行频率。 |
+ 
+ 
 **示例**：
-
-
-```ts
-import {
-  Sensor,
-  GyroscopeResponse,
-  SubscribeGyroscopeOptions,
-} from '@kit.SensorServiceKit';
+ 
+```text
+import { Sensor, GyroscopeResponse, SubscribeGyroscopeOptions } from '@kit.SensorServiceKit';
 
 let subscribeGyroscopeOptions: SubscribeGyroscopeOptions = {
   interval: 'normal',
@@ -720,352 +635,350 @@ let subscribeGyroscopeOptions: SubscribeGyroscopeOptions = {
   },
   fail: (data: string, code: number) => {
     console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);
-  },
+  }
 };
 Sensor.subscribeGyroscope(subscribeGyroscopeOptions);
 ```
-
-
+ 
 > [!NOTE]
 > 建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。
 
+ 
+  
 
-## Sensor.unsubscribeGyroscope6+
-**支持设备：** Wearable / lite_wearable
+##### Sensor.unsubscribeGyroscope6+
 
 unsubscribeGyroscope(): void
-
+ 
 取消订阅陀螺仪传感器数据。
-
+ 
 除Lite Wearable外，从API Version8开始，推荐使用[GYROSCOPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#gyroscopedeprecated-2)。
-
-**系统能力**���SystemCapability.Sensors.Sensor.Lite
-
+ 
+**系统能力**：SystemCapability.Sensors.Sensor.Lite
+ 
 **需要权限**：ohos.permission.GYROSCOPE，该权限为系统权限
-
+ 
 **示例**：
-
-
-```ts
+ 
+```text
 Sensor.unsubscribeGyroscope();
 ```
+ 
+  
 
-
-## subscribeAccelerometerOptions
-**支持设备：** Wearable / lite_wearable
+##### subscribeAccelerometerOptions
 
 用于监听加速度传感器数据的回调函数的执行频率。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.ACCELEROMETER
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | interval | string | 是 | 频率参数，加速度的回调函数执行频率。 默认为normal，可选值有： game：极高的回调频率，20ms/次，适用于游戏。 ui：较高的回调频率，60ms/次，适用于UI更新。 normal：普通的回调频率，200ms/次，低功耗。 |
-| success | [AccelerometerResponse](#accelerometerresponse) | 是 | 感应到加速度数据变化后的回调函数。 |
+| success | AccelerometerResponse | 是 | 感应到加速度数据变化后的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## AccelerometerResponse
-**支持设备：** Wearable / lite_wearable
+##### AccelerometerResponse
 
 感应到加速度数据变化后的回调函数。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **需要权限**：ohos.permission.ACCELEROMETER
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | x | number | 是 | x轴的加速度。 |
 | y | number | 是 | y轴的加速度。 |
 | z | number | 是 | z轴的加速度。 |
+ 
+ 
+  
 
-
-## SubscribeCompassOptions
-**支持设备：** Wearable / lite_wearable
+##### SubscribeCompassOptions
 
 当罗盘传感器数据发生变化时调用。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [CompassResponse](#compassresponse) | 是 | 罗盘数据改变后触发的回调函数。 |
+| success | CompassResponse | 是 | 罗盘数据改变后触发的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## CompassResponse
-**支持设备：** Wearable / lite_wearable
+##### CompassResponse
 
 罗盘数据改变后触发的回调函数。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | direction | number | 是 | 设备面对的方向度数。 |
+ 
+ 
+  
 
-
-## SubscribeProximityOptions
-**支持设备：** Wearable / lite_wearable
+##### SubscribeProximityOptions
 
 当距离传感器数据发生变化时调用。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [ProximityResponse](#proximityresponse) | 是 | 距离感应数据改变后调用的回调函数。 |
+| success | ProximityResponse | 是 | 距离感应数据改变后调用的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## ProximityResponse
-**支持设备：** Wearable / lite_wearable
+##### ProximityResponse
 
 距离感应数据改变后调用的回调函数。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | distance | number | 是 | 可见物体相对于设备显示屏的接近或远离状态。 |
+ 
+ 
+  
 
-
-## SubscribeLightOptions
-**支持设备：** Wearable / lite_wearable
+##### SubscribeLightOptions
 
 当环境光传感器数据发生变化时调用。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [LightResponse](#lightresponse) | 是 | 光线感应数据改变后的回调函数。 |
+| success | LightResponse | 是 | 光线感应数据改变后的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## LightResponse
-**支持设备：** Wearable / lite_wearable
+##### LightResponse
 
 光线感应数据改变后的回调函数。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | intensity | number | 是 | 光线强度，单位为lux。 |
+ 
+ 
+  
 
-
-## SubscribeStepCounterOptions
-**支持设备：** Wearable / lite_wearable
+##### SubscribeStepCounterOptions
 
 当步进计数器传感器数据发生变化时调用。
-
+ 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [StepCounterResponse](#stepcounterresponse) | 是 | 计步传感器数据改变后的回调函数。 |
+| success | StepCounterResponse | 是 | 计步传感器数据改变后的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## StepCounterResponse
-**支持设备：** Wearable / lite_wearable
+##### StepCounterResponse
 
 计步传感器数据改变后的回调函数。
-
+ 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | steps | number | 是 | 计步传感器重启后累计记录的步数。 |
+ 
+ 
+  
 
-
-## SubscribeBarometerOptions
-**支持设备：** Wearable / lite_wearable
+##### SubscribeBarometerOptions
 
 当气压计传感器数据发生变化时调用。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [BarometerResponse](#barometerresponse) | 是 | 气压计传感器数据改变后的回调函数。 |
+| success | BarometerResponse | 是 | 气压计传感器数据改变后的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## BarometerResponse
-**支持设备：** Wearable / lite_wearable
+##### BarometerResponse
 
 气压计传感器数据改变后的回调函数。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | pressure | number | 是 | 气压值，单位：帕斯卡。 |
+ 
+ 
+  
 
-
-## SubscribeHeartRateOptions
-**支持设备：** Wearable / lite_wearable
+##### SubscribeHeartRateOptions
 
 当心率传感器数据发生变化时调用。
-
+ 
 **需要权限**：ohos.permission.READ_HEALTH_DATA
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [HeartRateResponse](#heartrateresponse) | 是 | 心率传感器数据改变后的回调函数，默认频率5s/次。 |
+| success | HeartRateResponse | 是 | 心率传感器数据改变后的回调函数，默认频率5s/次。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## HeartRateResponse
-**支持设备：** Wearable / lite_wearable
+##### HeartRateResponse
 
 心率传感器数据改变后的回调函数，默认频率5s/次。
-
+ 
 **需要权限**：ohos.permission.READ_HEALTH_DATA
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | heartRate | number | 是 | 心率值。 |
+ 
+ 
+  
 
-
-## SubscribeOnBodyStateOptions
-**支持设备：** Wearable / lite_wearable
+##### SubscribeOnBodyStateOptions
 
 当传感器所在设备穿戴状态改变时调用，分为已穿戴和未穿戴。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [OnBodyStateResponse](#onbodystateresponse) | 是 | 传感器所在设备穿戴状态改变后的回调函数。 |
+| success | OnBodyStateResponse | 是 | 传感器所在设备穿戴状态改变后的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## OnBodyStateResponse
-**支持设备：** Wearable / lite_wearable
+##### OnBodyStateResponse
 
 传感器所在设备是否穿戴。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | boolean | 是 | 是否已佩戴设备，当返回true表示已佩戴，否则未佩戴。 |
+ 
+ 
+  
 
+##### GetOnBodyStateOptions
 
-## GetOnBodyStateOptions
-**支持设备：** Wearable / lite_wearable
-
-获取传感器所在设备穿戴状态时调用。
-
+ 获取传感器所在设备穿戴状态时调用。
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| success | [OnBodyStateResponse](#onbodystateresponse) | 是 | 接口调用成功的回调函数。 |
+| success | OnBodyStateResponse | 是 | 接口调用成功的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
 | complete | Function | 否 | 接口调用结束的回调函数。 |
+ 
+ 
+  
 
-
-## SubscribeDeviceOrientationOptions6+
-**支持设备：** Wearable / lite_wearable
+##### SubscribeDeviceOrientationOptions6+
 
 用于监听设备方向传感器数据的回调函数的执行频率。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | interval | string | 是 | 频率参数，设备方向传感器的回调函数执行频率。 默认为normal，可选值有： - game：极高的回调频率，20ms/次，适用于游戏。 - ui：较高的回调频率，60ms/次，适用于UI更新。 - normal：普通的回调频率，200ms/次，低功耗。 |
-| success | [DeviceOrientationResponse](#deviceorientationresponse6) | 是 | 感应到设备方向传感器数据变化后的回调函数。 |
+| success | DeviceOrientationResponse | 是 | 感应到设备方向传感器数据变化后的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## DeviceOrientationResponse6+
-**支持设备：** Wearable / lite_wearable
+##### DeviceOrientationResponse6+
 
 感应到设备方向传感器数据变化后的回调函数。
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
+ 
 **设备行为差异**：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | alpha | number | 是 | 当设备坐标 X/Y 和地球 X/Y 重合时，绕着 Z 轴转动的夹角为 alpha。 |
 | beta | number | 是 | 当设备坐标 Y/Z 和地球 Y/Z 重合时，绕着 X 轴转动的夹角为 beta。 |
 | gamma | number | 是 | 当设备 X/Z 和地球 X/Z 重合时，绕着 Y 轴转动的夹角为 gamma。 |
+ 
+ 
+  
 
-
-## SubscribeGyroscopeOptions6+
-**支持设备：** Wearable / lite_wearable
+##### SubscribeGyroscopeOptions6+
 
 用于侦听陀螺仪传感器数据的回调函数的执行频率。
-
+ 
 **需要权限**：ohos.permission.GYROSCOPE
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | interval | string | 是 | 频率参数，陀螺仪的回调函数执行频率。 默认为normal，可选值有： game：极高的回调频率，20ms/次，适用于游戏。 ui：较高的回调频率，60ms/次，适用于UI更新。 normal：普通的回调频率，200ms/次，低功耗。 |
-| success | [GyroscopeResponse](#gyroscoperesponse6) | 是 | 感应到陀螺仪数据变化后的回调函数。 |
+| success | GyroscopeResponse | 是 | 感应到陀螺仪数据变化后的回调函数。 |
 | fail | Function | 否 | 接口调用失败的回调函数。 |
+ 
+ 
+  
 
-
-## GyroscopeResponse6+
-**支持设备：** Wearable / lite_wearable
+##### GyroscopeResponse6+
 
 感应到陀螺仪传感器数据变化后的回调函数。
-
+ 
 **需要权限**：ohos.permission.GYROSCOPE
-
+ 
 **系统能力**：SystemCapability.Sensors.Sensor.Lite
-
-
+  
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | x | number | 是 | x轴的旋转角速度。 |

@@ -6,21 +6,24 @@
 
 调用[avMusicTemplate.createAVMusicTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-f#avmusictemplatecreateavmusictemplate)获取实例后，可获取其ID，启动音频模板界面，并配置数据获取方法。随后，同步数据给模板控制方，以完成后续操作。
 
+> [!NOTE]
+> 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块仅适用于API version 23及以上版本的Car设备。
 
-## 导入模块
 
 
-```ts
+##### 导入模块
+
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 ```
 
 
-## 属性
+
+##### 属性
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -30,15 +33,15 @@ import { avMusicTemplate } from '@kit.AVSessionKit';
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private static sInstance: TemplateManager;
 
-  private constructor() {}
+  private constructor() {
+  }
 
   /**
    * 获取模板控制器实例。
@@ -50,7 +53,7 @@ export class TemplateManager {
       TemplateManager.sInstance = new TemplateManager();
     }
     return TemplateManager.sInstance;
-  }
+  };
 
   /**
    * 创建音频模板。
@@ -58,20 +61,19 @@ export class TemplateManager {
   public createTemplate() {
     if (this.template) {
       console.warn('createTemplate: template not undefined');
-      return;
+      return
     }
-    this.template = avMusicTemplate.createAVMusicTemplate(
-      avMusicTemplate.AVMusicTemplateType.DEFAULT,
-    );
+    this.template = avMusicTemplate.createAVMusicTemplate(avMusicTemplate.AVMusicTemplateType.DEFAULT);
     console.info('Succeeded in creating template.');
   }
 }
 ```
 
 
-## startTemplate
 
-startTemplate(): Promise<OperResult>
+##### startTemplate
+
+startTemplate(): Promise&lt;OperResult&gt;
 
 启动音频模板界面。使用Promise异步回调。
 
@@ -81,16 +83,14 @@ startTemplate(): Promise<OperResult>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[OperResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#operresult)&gt; | Promise对象，返回启动音频模板界面的操作结果。 |
+| Promise&lt;OperResult&gt; | Promise对象，返回启动音频模板界面的操作结果。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -99,8 +99,7 @@ startTemplate(): Promise<OperResult>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -116,7 +115,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryMainTabs
+
+##### onQueryMainTabs
 
 onQueryMainTabs(callback: QueryMainTabsEvent): void
 
@@ -128,16 +128,14 @@ onQueryMainTabs(callback: QueryMainTabsEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMainTabsEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymaintabsevent) | 是 | 回调函数，返回查询主标签事件。 |
+| callback | QueryMainTabsEvent | 是 | 回调函数，返回查询主标签事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -148,8 +146,7 @@ onQueryMainTabs(callback: QueryMainTabsEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -176,20 +173,21 @@ export class TemplateManager {
   private async getMainTabs(): Promise<avMusicTemplate.MediaTab[]> {
     let homeTab: avMusicTemplate.MediaTab = {
       tabId: 'home',
-      tabName: '首页',
+      tabName: '首页'
     };
     let mineTab: avMusicTemplate.MediaTab = {
       tabId: 'mine',
-      tabName: '我的',
+      tabName: '我的'
     };
     let mainTabs: avMusicTemplate.MediaTab[] = [homeTab, mineTab];
     return mainTabs;
-  }
+  };
 }
 ```
 
 
-## offQueryMainTabs
+
+##### offQueryMainTabs
 
 offQueryMainTabs(callback?: QueryMainTabsEvent): void
 
@@ -201,16 +199,14 @@ offQueryMainTabs(callback?: QueryMainTabsEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMainTabsEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymaintabsevent) | 否 | 查询主标签事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryMainTabsEvent | 否 | 查询主标签事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -221,8 +217,7 @@ offQueryMainTabs(callback?: QueryMainTabsEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -238,7 +233,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryMediaTabContent
+
+##### onQueryMediaTabContent
 
 onQueryMediaTabContent(callback: QueryMediaTabContentEvent): void
 
@@ -250,16 +246,14 @@ onQueryMediaTabContent(callback: QueryMediaTabContentEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMediaTabContentEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymediatabcontentevent) | 是 | 回调函数，返回查询媒体标签页内容的事件。 |
+| callback | QueryMediaTabContentEvent | 是 | 回调函数，返回查询媒体标签页内容的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -270,22 +264,17 @@ onQueryMediaTabContent(callback: QueryMediaTabContentEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private queryMediaTabContentEvent: avMusicTemplate.QueryMediaTabContentEvent =
-    async (tabId: string) => {
-      return new Promise<avMusicTemplate.MediaTabContent>(
-        async (resolve, reject) => {
-          let tabContent: avMusicTemplate.MediaTabContent =
-            await this.createMediaTabContent();
-          resolve(tabContent);
-        },
-      );
-    };
+  private queryMediaTabContentEvent: avMusicTemplate.QueryMediaTabContentEvent = async (tabId: string) => {
+    return new Promise<avMusicTemplate.MediaTabContent>(async (resolve, reject) => {
+      let tabContent: avMusicTemplate.MediaTabContent = await this.createMediaTabContent();
+      resolve(tabContent);
+    });
+  };
 
   /**
    * 注册监听。
@@ -300,15 +289,14 @@ export class TemplateManager {
    * @returns 标签页内容。
    */
   private async createMediaTabContent(): Promise<avMusicTemplate.MediaTabContent> {
-    let compilation: avMusicTemplate.Compilation =
-      await this.createCompilation();
+    let compilation: avMusicTemplate.Compilation = await this.createCompilation();
     let mediaTabContent: avMusicTemplate.MediaTabContent = {
       errorCode: 0,
       tabId: 'tabId',
-      compilations: [compilation],
-    };
+      compilations: [compilation]
+    }
     return mediaTabContent;
-  }
+  };
 
   /**
    * 模拟获取合集数据。
@@ -316,8 +304,7 @@ export class TemplateManager {
    * @returns 合集。
    */
   private async createCompilation(): Promise<avMusicTemplate.Compilation> {
-    let mediaEntity: avMusicTemplate.MediaEntity =
-      await this.createMediaEntity();
+    let mediaEntity: avMusicTemplate.MediaEntity = await this.createMediaEntity();
     let compilation: avMusicTemplate.Compilation = {
       errorCode: 0,
       id: '',
@@ -326,9 +313,9 @@ export class TemplateManager {
       totalSize: 1,
       memberMediaType: avMusicTemplate.EntityType.SINGLE,
       topElements: [mediaEntity],
-    };
+    }
     return compilation;
-  }
+  };
 
   /**
    * 模拟获取媒体数据。
@@ -343,15 +330,16 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
     };
     return mediaEntity;
-  }
+  };
 }
 ```
 
 
-## offQueryMediaTabContent
+
+##### offQueryMediaTabContent
 
 offQueryMediaTabContent(callback?: QueryMediaTabContentEvent): void
 
@@ -363,16 +351,14 @@ offQueryMediaTabContent(callback?: QueryMediaTabContentEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMediaTabContentEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymediatabcontentevent) | 否 | 查询媒体标签页内容的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryMediaTabContentEvent | 否 | 查询媒体标签页内容的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -383,8 +369,7 @@ offQueryMediaTabContent(callback?: QueryMediaTabContentEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -400,7 +385,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryMediaEntity
+
+##### onQueryMediaEntity
 
 onQueryMediaEntity(callback: QueryMediaEntityEvent): void
 
@@ -412,16 +398,14 @@ onQueryMediaEntity(callback: QueryMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymediaentityevent) | 是 | 回调函数，返回查询媒体实体的事件。 |
+| callback | QueryMediaEntityEvent | 是 | 回调函数，返回查询媒体实体的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -432,23 +416,18 @@ onQueryMediaEntity(callback: QueryMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private queryMediaEntityEvent: avMusicTemplate.QueryMediaEntityEvent = async (
-    params: avMusicTemplate.QueryMediaEntityParam,
-  ) => {
-    return new Promise<avMusicTemplate.PageMediaEntity>(
-      async (resolve, reject) => {
-        let pageMediaEntity: avMusicTemplate.PageMediaEntity =
-          await this.createPageMediaEntity();
+  private queryMediaEntityEvent: avMusicTemplate.QueryMediaEntityEvent =
+    async (params: avMusicTemplate.QueryMediaEntityParam) => {
+      return new Promise<avMusicTemplate.PageMediaEntity>(async (resolve, reject) => {
+        let pageMediaEntity: avMusicTemplate.PageMediaEntity = await this.createPageMediaEntity();
         resolve(pageMediaEntity);
-      },
-    );
-  };
+      });
+    };
 
   /**
    * 注册监听。
@@ -463,8 +442,7 @@ export class TemplateManager {
    * @returns PageMediaEntity实例。
    */
   private async createPageMediaEntity(): Promise<avMusicTemplate.PageMediaEntity> {
-    let mediaEntity: avMusicTemplate.MediaEntity =
-      await this.createMediaEntity();
+    let mediaEntity: avMusicTemplate.MediaEntity = await this.createMediaEntity();
     let pageMediaEntity: avMusicTemplate.PageMediaEntity = {
       errorCode: 0,
       pageIndex: 0,
@@ -472,10 +450,10 @@ export class TemplateManager {
       hasMoreData: false,
       totalSize: 1,
       memberMediaType: avMusicTemplate.EntityType.SINGLE,
-      elements: [mediaEntity],
-    };
+      elements: [mediaEntity]
+    }
     return pageMediaEntity;
-  }
+  };
 
   /**
    * 模拟获取媒体数据。
@@ -490,15 +468,16 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
     };
     return mediaEntity;
-  }
+  };
 }
 ```
 
 
-## offQueryMediaEntity
+
+##### offQueryMediaEntity
 
 offQueryMediaEntity(callback?: QueryMediaEntityEvent): void
 
@@ -510,16 +489,14 @@ offQueryMediaEntity(callback?: QueryMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymediaentityevent) | 否 | 查询媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryMediaEntityEvent | 否 | 查询媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -530,8 +507,7 @@ offQueryMediaEntity(callback?: QueryMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -547,7 +523,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryCompilation
+
+##### onQueryCompilation
 
 onQueryCompilation(callback: QueryCompilationEvent): void
 
@@ -559,16 +536,14 @@ onQueryCompilation(callback: QueryCompilationEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCompilationEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycompilationevent) | 是 | 回调函数，返回查询合集的事件。 |
+| callback | QueryCompilationEvent | 是 | 回调函数，返回查询合集的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -579,24 +554,18 @@ onQueryCompilation(callback: QueryCompilationEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private queryCompilationEvent: avMusicTemplate.QueryCompilationEvent = async (
-    compilationId: string,
-    pageIndex: number,
-  ) => {
-    return new Promise<avMusicTemplate.PageMediaEntity>(
-      async (resolve, reject) => {
-        let pageMediaEntity: avMusicTemplate.PageMediaEntity =
-          await this.createPageMediaEntity();
+  private queryCompilationEvent: avMusicTemplate.QueryCompilationEvent =
+    async (compilationId: string, pageIndex: number) => {
+      return new Promise<avMusicTemplate.PageMediaEntity>(async (resolve, reject) => {
+        let pageMediaEntity: avMusicTemplate.PageMediaEntity = await this.createPageMediaEntity();
         resolve(pageMediaEntity);
-      },
-    );
-  };
+      });
+    };
 
   /**
    * 注册监听。
@@ -611,8 +580,7 @@ export class TemplateManager {
    * @returns PageMediaEntity实例。
    */
   private async createPageMediaEntity(): Promise<avMusicTemplate.PageMediaEntity> {
-    let mediaEntity: avMusicTemplate.MediaEntity =
-      await this.createMediaEntity();
+    let mediaEntity: avMusicTemplate.MediaEntity = await this.createMediaEntity();
     let pageMediaEntity: avMusicTemplate.PageMediaEntity = {
       errorCode: 0,
       pageIndex: 0,
@@ -620,10 +588,10 @@ export class TemplateManager {
       hasMoreData: false,
       totalSize: 1,
       memberMediaType: avMusicTemplate.EntityType.SINGLE,
-      elements: [mediaEntity],
-    };
+      elements: [mediaEntity]
+    }
     return pageMediaEntity;
-  }
+  };
 
   /**
    * 模拟获取媒体数据。
@@ -638,15 +606,16 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
     };
     return mediaEntity;
-  }
+  };
 }
 ```
 
 
-## offQueryCompilation
+
+##### offQueryCompilation
 
 offQueryCompilation(callback?: QueryCompilationEvent): void
 
@@ -658,16 +627,14 @@ offQueryCompilation(callback?: QueryCompilationEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCompilationEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycompilationevent) | 否 | 查询合集的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryCompilationEvent | 否 | 查询合集的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -678,8 +645,7 @@ offQueryCompilation(callback?: QueryCompilationEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -695,7 +661,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryPlaylist
+
+##### onQueryPlaylist
 
 onQueryPlaylist(callback: QueryPlaylistEvent): void
 
@@ -707,16 +674,14 @@ onQueryPlaylist(callback: QueryPlaylistEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryPlaylistEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#queryplaylistevent) | 是 | 回调函数，返回查询播放列表的事件。 |
+| callback | QueryPlaylistEvent | 是 | 回调函数，返回查询播放列表的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -727,24 +692,18 @@ onQueryPlaylist(callback: QueryPlaylistEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private queryPlaylistEvent: avMusicTemplate.QueryPlaylistEvent = async (
-    pageIndex: number,
-    sort: avMusicTemplate.Sort,
-  ) => {
-    return new Promise<avMusicTemplate.PageMediaEntity>(
-      async (resolve, reject) => {
-        let pageMediaEntity: avMusicTemplate.PageMediaEntity =
-          await this.createPageMediaEntity();
+  private queryPlaylistEvent: avMusicTemplate.QueryPlaylistEvent =
+    async (pageIndex: number, sort: avMusicTemplate.Sort) => {
+      return new Promise<avMusicTemplate.PageMediaEntity>(async (resolve, reject) => {
+        let pageMediaEntity: avMusicTemplate.PageMediaEntity = await this.createPageMediaEntity();
         resolve(pageMediaEntity);
-      },
-    );
-  };
+      });
+    };
 
   /**
    * 注册监听。
@@ -759,8 +718,7 @@ export class TemplateManager {
    * @returns PageMediaEntity实例。
    */
   private async createPageMediaEntity(): Promise<avMusicTemplate.PageMediaEntity> {
-    let mediaEntity: avMusicTemplate.MediaEntity =
-      await this.createMediaEntity();
+    let mediaEntity: avMusicTemplate.MediaEntity = await this.createMediaEntity();
     let pageMediaEntity: avMusicTemplate.PageMediaEntity = {
       errorCode: 0,
       pageIndex: 0,
@@ -768,10 +726,10 @@ export class TemplateManager {
       hasMoreData: false,
       totalSize: 1,
       memberMediaType: avMusicTemplate.EntityType.SINGLE,
-      elements: [mediaEntity],
-    };
+      elements: [mediaEntity]
+    }
     return pageMediaEntity;
-  }
+  };
 
   /**
    * 模拟获取媒体数据。
@@ -786,15 +744,16 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
     };
     return mediaEntity;
-  }
+  };
 }
 ```
 
 
-## offQueryPlaylist
+
+##### offQueryPlaylist
 
 offQueryPlaylist(callback?: QueryPlaylistEvent): void
 
@@ -806,16 +765,14 @@ offQueryPlaylist(callback?: QueryPlaylistEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryPlaylistEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#queryplaylistevent) | 否 | 查询播放列表的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryPlaylistEvent | 否 | 查询播放列表的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -826,8 +783,7 @@ offQueryPlaylist(callback?: QueryPlaylistEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -843,7 +799,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryCurrentSingle
+
+##### onQueryCurrentSingle
 
 onQueryCurrentSingle(callback: QueryCurrentSingleEvent): void
 
@@ -855,16 +812,14 @@ onQueryCurrentSingle(callback: QueryCurrentSingleEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCurrentSingleEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycurrentsingleevent) | 是 | 回调函数，返回查询当前单曲的事件。 |
+| callback | QueryCurrentSingleEvent | 是 | 回调函数，返回查询当前单曲的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -875,19 +830,17 @@ onQueryCurrentSingle(callback: QueryCurrentSingleEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private queryCurrentSingleEvent: avMusicTemplate.QueryCurrentSingleEvent =
-    async () => {
-      return new Promise<avMusicTemplate.Single>(async (resolve, reject) => {
-        let single: avMusicTemplate.Single = await this.createCurrentSingle();
-        resolve(single);
-      });
-    };
+  private queryCurrentSingleEvent: avMusicTemplate.QueryCurrentSingleEvent = async () => {
+    return new Promise<avMusicTemplate.Single>(async (resolve, reject) => {
+      let single: avMusicTemplate.Single = await this.createCurrentSingle();
+      resolve(single);
+    });
+  };
 
   /**
    * 注册监听。
@@ -921,12 +874,12 @@ export class TemplateManager {
       totalDuration: 60,
       currentPlayDuration: 10,
       isSupportProgress: false,
-    };
+    }
     let favoriteData: avMusicTemplate.FavoriteData = {
       isSupportFav: true,
       isFavorite: false,
-      favCounts: '1000+',
-    };
+      favCounts: '1000+'
+    }
     let single: avMusicTemplate.Single = {
       mediaId: 'mediaId',
       mediaType: avMusicTemplate.EntityType.SINGLE,
@@ -940,19 +893,20 @@ export class TemplateManager {
       singer: '',
       tags: [],
       playInfo: playInfo,
-      favSubscribeData: favoriteData,
-    };
+      favSubscribeData: favoriteData
+    }
     return single;
-  }
+  };
 }
 ```
 
 
-## offQueryCurrentSingle
+
+##### offQueryCurrentSingle
 
 offQueryCurrentSingle(callback?: QueryCurrentSingleEvent): void
 
-注销查询��前单曲的监听。
+注销查询当前单曲的监听。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -960,16 +914,14 @@ offQueryCurrentSingle(callback?: QueryCurrentSingleEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCurrentSingleEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycurrentsingleevent) | 否 | 查询当前单曲的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryCurrentSingleEvent | 否 | 查询当前单曲的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -980,8 +932,7 @@ offQueryCurrentSingle(callback?: QueryCurrentSingleEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -997,7 +948,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryCompilationByKeyword
+
+##### onQueryCompilationByKeyword
 
 onQueryCompilationByKeyword(callback: QueryCompilationByKeywordEvent): void
 
@@ -1009,16 +961,14 @@ onQueryCompilationByKeyword(callback: QueryCompilationByKeywordEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCompilationByKeywordEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycompilationbykeywordevent) | 是 | 回调函数，返回按关键字查询合集的事件。 |
+| callback | QueryCompilationByKeywordEvent | 是 | 回调函数，返回按关键字查询合集的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1029,31 +979,24 @@ onQueryCompilationByKeyword(callback: QueryCompilationByKeywordEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private queryCompilationByKeywordEvent: avMusicTemplate.QueryCompilationByKeywordEvent =
-    async (keyword: string) => {
-      return new Promise<avMusicTemplate.Compilation[]>(
-        async (resolve, reject) => {
-          let compilation: avMusicTemplate.Compilation =
-            await this.createCompilation();
-          let compilations: avMusicTemplate.Compilation[] = [compilation];
-          resolve(compilations);
-        },
-      );
-    };
+  private queryCompilationByKeywordEvent: avMusicTemplate.QueryCompilationByKeywordEvent = async (keyword: string) => {
+    return new Promise<avMusicTemplate.Compilation[]>(async (resolve, reject) => {
+      let compilation: avMusicTemplate.Compilation = await this.createCompilation();
+      let compilations: avMusicTemplate.Compilation[] = [compilation];
+      resolve(compilations);
+    });
+  };
 
   /**
    * 注册监听。
    */
   private registerListener() {
-    this.template?.onQueryCompilationByKeyword(
-      this.queryCompilationByKeywordEvent,
-    );
+    this.template?.onQueryCompilationByKeyword(this.queryCompilationByKeywordEvent);
   }
 
   /**
@@ -1062,8 +1005,7 @@ export class TemplateManager {
    * @returns 合集。
    */
   private async createCompilation(): Promise<avMusicTemplate.Compilation> {
-    let mediaEntity: avMusicTemplate.MediaEntity =
-      await this.createMediaEntity();
+    let mediaEntity: avMusicTemplate.MediaEntity = await this.createMediaEntity();
     let compilation: avMusicTemplate.Compilation = {
       errorCode: 0,
       id: '',
@@ -1072,9 +1014,9 @@ export class TemplateManager {
       totalSize: 1,
       memberMediaType: avMusicTemplate.EntityType.SINGLE,
       topElements: [mediaEntity],
-    };
+    }
     return compilation;
-  }
+  };
 
   /**
    * 模拟获取媒体数据。
@@ -1089,15 +1031,16 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
     };
     return mediaEntity;
-  }
+  };
 }
 ```
 
 
-## offQueryCompilationByKeyword
+
+##### offQueryCompilationByKeyword
 
 offQueryCompilationByKeyword(callback?: QueryCompilationByKeywordEvent): void
 
@@ -1109,16 +1052,14 @@ offQueryCompilationByKeyword(callback?: QueryCompilationByKeywordEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCompilationByKeywordEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycompilationbykeywordevent) | 否 | 按关键字查询合集的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryCompilationByKeywordEvent | 否 | 按关键字查询合集的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1129,8 +1070,7 @@ offQueryCompilationByKeyword(callback?: QueryCompilationByKeywordEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1146,7 +1086,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryMediaEntityByKeyword
+
+##### onQueryMediaEntityByKeyword
 
 onQueryMediaEntityByKeyword(callback: QueryMediaEntityByKeywordEvent): void
 
@@ -1158,16 +1099,14 @@ onQueryMediaEntityByKeyword(callback: QueryMediaEntityByKeywordEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMediaEntityByKeywordEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymediaentitybykeywordevent) | 是 | 回调函数，返回按关键字查询媒体实体的事件。 |
+| callback | QueryMediaEntityByKeywordEvent | 是 | 回调函数，返回按关键字查询媒体实体的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1178,34 +1117,24 @@ onQueryMediaEntityByKeyword(callback: QueryMediaEntityByKeywordEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private queryMediaEntityByKeywordEvent: avMusicTemplate.QueryMediaEntityByKeywordEvent =
-    async (
-      keyword: string,
-      searchType: avMusicTemplate.EntityType,
-      pageIndex: number,
-    ) => {
-      return new Promise<avMusicTemplate.PageMediaEntity>(
-        async (resolve, reject) => {
-          let pageMediaEntity: avMusicTemplate.PageMediaEntity =
-            await this.createPageMediaEntity();
-          resolve(pageMediaEntity);
-        },
-      );
+    async (keyword: string, searchType: avMusicTemplate.EntityType, pageIndex: number) => {
+      return new Promise<avMusicTemplate.PageMediaEntity>(async (resolve, reject) => {
+        let pageMediaEntity: avMusicTemplate.PageMediaEntity = await this.createPageMediaEntity();
+        resolve(pageMediaEntity);
+      });
     };
 
   /**
    * 注册监听。
    */
   private registerListener() {
-    this.template?.onQueryMediaEntityByKeyword(
-      this.queryMediaEntityByKeywordEvent,
-    );
+    this.template?.onQueryMediaEntityByKeyword(this.queryMediaEntityByKeywordEvent);
   }
 
   /**
@@ -1214,8 +1143,7 @@ export class TemplateManager {
    * @returns PageMediaEntity实例。
    */
   private async createPageMediaEntity(): Promise<avMusicTemplate.PageMediaEntity> {
-    let mediaEntity: avMusicTemplate.MediaEntity =
-      await this.createMediaEntity();
+    let mediaEntity: avMusicTemplate.MediaEntity = await this.createMediaEntity();
     let pageMediaEntity: avMusicTemplate.PageMediaEntity = {
       errorCode: 0,
       pageIndex: 0,
@@ -1223,10 +1151,10 @@ export class TemplateManager {
       hasMoreData: false,
       totalSize: 1,
       memberMediaType: avMusicTemplate.EntityType.SINGLE,
-      elements: [mediaEntity],
-    };
+      elements: [mediaEntity]
+    }
     return pageMediaEntity;
-  }
+  };
 
   /**
    * 模拟获取媒体数据。
@@ -1241,15 +1169,16 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
     };
     return mediaEntity;
-  }
+  };
 }
 ```
 
 
-## offQueryMediaEntityByKeyword
+
+##### offQueryMediaEntityByKeyword
 
 offQueryMediaEntityByKeyword(callback?: QueryMediaEntityByKeywordEvent): void
 
@@ -1261,16 +1190,14 @@ offQueryMediaEntityByKeyword(callback?: QueryMediaEntityByKeywordEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMediaEntityByKeywordEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymediaentitybykeywordevent) | 否 | 按关键字查询媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryMediaEntityByKeywordEvent | 否 | 按关键字查询媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1281,8 +1208,7 @@ offQueryMediaEntityByKeyword(callback?: QueryMediaEntityByKeywordEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1298,7 +1224,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryRecommendMediaEntityList
+
+##### onQueryRecommendMediaEntityList
 
 onQueryRecommendMediaEntityList(callback: QueryRecommendMediaEntityListEvent): void
 
@@ -1310,16 +1237,14 @@ onQueryRecommendMediaEntityList(callback: QueryRecommendMediaEntityListEvent): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryRecommendMediaEntityListEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#queryrecommendmediaentitylistevent) | 是 | 回调函数，返回查询推荐媒体列表的事件。 |
+| callback | QueryRecommendMediaEntityListEvent | 是 | 回调函数，返回查询推荐媒体列表的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1330,31 +1255,24 @@ onQueryRecommendMediaEntityList(callback: QueryRecommendMediaEntityListEvent): v
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private queryRecommendMediaEntityListEvent: avMusicTemplate.QueryRecommendMediaEntityListEvent =
-    async () => {
-      return new Promise<avMusicTemplate.MediaEntity[]>(
-        async (resolve, reject) => {
-          let mediaEntity: avMusicTemplate.MediaEntity =
-            await this.createMediaEntity();
-          let mediaEntities: avMusicTemplate.MediaEntity[] = [mediaEntity];
-          resolve(mediaEntities);
-        },
-      );
-    };
+  private queryRecommendMediaEntityListEvent: avMusicTemplate.QueryRecommendMediaEntityListEvent = async () => {
+    return new Promise<avMusicTemplate.MediaEntity[]>(async (resolve, reject) => {
+      let mediaEntity: avMusicTemplate.MediaEntity = await this.createMediaEntity();
+      let mediaEntities: avMusicTemplate.MediaEntity[] = [mediaEntity];
+      resolve(mediaEntities);
+    });
+  };
 
   /**
    * 注册监听。
    */
   private registerListener() {
-    this.template?.onQueryRecommendMediaEntityList(
-      this.queryRecommendMediaEntityListEvent,
-    );
+    this.template?.onQueryRecommendMediaEntityList(this.queryRecommendMediaEntityListEvent);
   }
 
   /**
@@ -1370,15 +1288,16 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
     };
     return mediaEntity;
-  }
+  };
 }
 ```
 
 
-## offQueryRecommendMediaEntityList
+
+##### offQueryRecommendMediaEntityList
 
 offQueryRecommendMediaEntityList(callback?: QueryRecommendMediaEntityListEvent): void
 
@@ -1390,16 +1309,14 @@ offQueryRecommendMediaEntityList(callback?: QueryRecommendMediaEntityListEvent):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryRecommendMediaEntityListEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#queryrecommendmediaentitylistevent) | 否 | 查询推荐媒体列表的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryRecommendMediaEntityListEvent | 否 | 查询推荐媒体列表的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1410,8 +1327,7 @@ offQueryRecommendMediaEntityList(callback?: QueryRecommendMediaEntityListEvent):
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1427,7 +1343,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryHotWords
+
+##### onQueryHotWords
 
 onQueryHotWords(callback: QueryHotWordsEvent): void
 
@@ -1439,16 +1356,14 @@ onQueryHotWords(callback: QueryHotWordsEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryHotWordsEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#queryhotwordsevent) | 是 | 回调函数，返回查询热词的事件。 |
+| callback | QueryHotWordsEvent | 是 | 回调函数，返回查询热词的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1459,8 +1374,7 @@ onQueryHotWords(callback: QueryHotWordsEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1482,7 +1396,8 @@ export class TemplateManager {
 ```
 
 
-## offQueryHotWords
+
+##### offQueryHotWords
 
 offQueryHotWords(callback?: QueryHotWordsEvent): void
 
@@ -1494,16 +1409,14 @@ offQueryHotWords(callback?: QueryHotWordsEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryHotWordsEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#queryhotwordsevent) | 否 | 查询热词的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryHotWordsEvent | 否 | 查询热词的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1514,8 +1427,7 @@ offQueryHotWords(callback?: QueryHotWordsEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1531,7 +1443,8 @@ export class TemplateManager {
 ```
 
 
-## onQuerySearchHistory
+
+##### onQuerySearchHistory
 
 onQuerySearchHistory(callback: QuerySearchHistoryEvent): void
 
@@ -1543,16 +1456,14 @@ onQuerySearchHistory(callback: QuerySearchHistoryEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QuerySearchHistoryEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querysearchhistoryevent) | 是 | 回调函数，返回查询搜索历史的事件。 |
+| callback | QuerySearchHistoryEvent | 是 | 回调函数，返回查询搜索历史的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1563,25 +1474,17 @@ onQuerySearchHistory(callback: QuerySearchHistoryEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private querySearchHistoryEvent: avMusicTemplate.QuerySearchHistoryEvent =
-    async () => {
-      return new Promise<string[]>(async (resolve, reject) => {
-        let searchHistory: string[] = [
-          '搜索历史1',
-          '搜索历史2',
-          '搜索历史3',
-          '搜索历史4',
-          '搜索历史5',
-        ];
-        resolve(searchHistory);
-      });
-    };
+  private querySearchHistoryEvent: avMusicTemplate.QuerySearchHistoryEvent = async () => {
+    return new Promise<string[]>(async (resolve, reject) => {
+      let searchHistory: string[] = ['搜索历史1', '搜索历史2', '搜索历史3', '搜索历史4', '搜索历史5'];
+      resolve(searchHistory);
+    });
+  };
 
   /**
    * 注册监听。
@@ -1593,7 +1496,8 @@ export class TemplateManager {
 ```
 
 
-## offQuerySearchHistory
+
+##### offQuerySearchHistory
 
 offQuerySearchHistory(callback?: QuerySearchHistoryEvent): void
 
@@ -1605,16 +1509,14 @@ offQuerySearchHistory(callback?: QuerySearchHistoryEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QuerySearchHistoryEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querysearchhistoryevent) | 否 | 查询搜索历史的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QuerySearchHistoryEvent | 否 | 查询搜索历史的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1625,8 +1527,7 @@ offQuerySearchHistory(callback?: QuerySearchHistoryEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1642,7 +1543,8 @@ export class TemplateManager {
 ```
 
 
-## onClearSearchHistory
+
+##### onClearSearchHistory
 
 onClearSearchHistory(callback: ClearSearchHistoryEvent): void
 
@@ -1654,16 +1556,14 @@ onClearSearchHistory(callback: ClearSearchHistoryEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [ClearSearchHistoryEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#clearsearchhistoryevent) | 是 | 回调函数，返回清除搜索历史的事件。 |
+| callback | ClearSearchHistoryEvent | 是 | 回调函数，返回清除搜索历史的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1674,22 +1574,17 @@ onClearSearchHistory(callback: ClearSearchHistoryEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private clearSearchHistoryEvent: avMusicTemplate.ClearSearchHistoryEvent =
-    async () => {
-      return new Promise<avMusicTemplate.OperResult>(
-        async (resolve, reject) => {
-          let operResult: avMusicTemplate.OperResult =
-            await this.createOperResult();
-          resolve(operResult);
-        },
-      );
-    };
+  private clearSearchHistoryEvent: avMusicTemplate.ClearSearchHistoryEvent = async () => {
+    return new Promise<avMusicTemplate.OperResult>(async (resolve, reject) => {
+      let operResult: avMusicTemplate.OperResult = await this.createOperResult();
+      resolve(operResult);
+    });
+  };
 
   /**
    * 注册监听。
@@ -1706,14 +1601,15 @@ export class TemplateManager {
   private async createOperResult(): Promise<avMusicTemplate.OperResult> {
     let operResult: avMusicTemplate.OperResult = {
       errorCode: 0,
-    };
+    }
     return operResult;
-  }
+  };
 }
 ```
 
 
-## offClearSearchHistory
+
+##### offClearSearchHistory
 
 offClearSearchHistory(callback?: ClearSearchHistoryEvent): void
 
@@ -1725,16 +1621,14 @@ offClearSearchHistory(callback?: ClearSearchHistoryEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [ClearSearchHistoryEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#clearsearchhistoryevent) | 否 | 清除搜索历史的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | ClearSearchHistoryEvent | 否 | 清除搜索历史的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1745,8 +1639,7 @@ offClearSearchHistory(callback?: ClearSearchHistoryEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1762,7 +1655,8 @@ export class TemplateManager {
 ```
 
 
-## onLogin
+
+##### onLogin
 
 onLogin(callback: LoginEvent): void
 
@@ -1774,16 +1668,14 @@ onLogin(callback: LoginEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [LoginEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#loginevent) | 是 | 回调函数，返回登录事件。 |
+| callback | LoginEvent | 是 | 回调函数，返回登录事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1794,24 +1686,17 @@ onLogin(callback: LoginEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private loginEvent: avMusicTemplate.LoginEvent = async (
-    controlType: avMusicTemplate.LoginType,
-    id?: string,
-  ) => {
-    return new Promise<avMusicTemplate.QrCodeInfo[]>(
-      async (resolve, reject) => {
-        let qrCodeInfo: avMusicTemplate.QrCodeInfo =
-          await this.createQrCodeInfo();
-        let qrCodeInfos: avMusicTemplate.QrCodeInfo[] = [qrCodeInfo];
-        resolve(qrCodeInfos);
-      },
-    );
+  private loginEvent: avMusicTemplate.LoginEvent = async (controlType: avMusicTemplate.LoginType, id?: string) => {
+    return new Promise<avMusicTemplate.QrCodeInfo[]>(async (resolve, reject) => {
+      let qrCodeInfo: avMusicTemplate.QrCodeInfo = await this.createQrCodeInfo();
+      let qrCodeInfos: avMusicTemplate.QrCodeInfo[] = [qrCodeInfo];
+      resolve(qrCodeInfos);
+    });
   };
 
   /**
@@ -1834,15 +1719,16 @@ export class TemplateManager {
       detailName: 'detail',
       tips: 'tip',
       content: 'content',
-      validPeriod: 1,
+      validPeriod: 1
     };
     return qrCodeInfo;
-  }
+  };
 }
 ```
 
 
-## offLogin
+
+##### offLogin
 
 offLogin(callback?: LoginEvent): void
 
@@ -1854,16 +1740,14 @@ offLogin(callback?: LoginEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [LoginEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#loginevent) | 否 | 登录事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | LoginEvent | 否 | 登录事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1874,8 +1758,7 @@ offLogin(callback?: LoginEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -1891,7 +1774,8 @@ export class TemplateManager {
 ```
 
 
-## onRequestDialogInfo
+
+##### onRequestDialogInfo
 
 onRequestDialogInfo(callback: RequestDialogInfoEvent): void
 
@@ -1903,16 +1787,14 @@ onRequestDialogInfo(callback: RequestDialogInfoEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [RequestDialogInfoEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#requestdialoginfoevent) | 是 | 回调函数，返回请求对话框信息的事件。 |
+| callback | RequestDialogInfoEvent | 是 | 回调函数，返回请求对话框信息的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1923,24 +1805,17 @@ onRequestDialogInfo(callback: RequestDialogInfoEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private requestDialogInfoEvent: avMusicTemplate.RequestDialogInfoEvent =
-    async (
-      actionType: avMusicTemplate.DialogActionType,
-      actionInfo?: avMusicTemplate.DialogActionInfo,
-    ) => {
-      return new Promise<avMusicTemplate.DialogInfo>(
-        async (resolve, reject) => {
-          let dialogInfo: avMusicTemplate.DialogInfo =
-            await this.createDialogInfo();
-          resolve(dialogInfo);
-        },
-      );
+    async (actionType: avMusicTemplate.DialogActionType, actionInfo?: avMusicTemplate.DialogActionInfo) => {
+      return new Promise<avMusicTemplate.DialogInfo>(async (resolve, reject) => {
+        let dialogInfo: avMusicTemplate.DialogInfo = await this.createDialogInfo();
+        resolve(dialogInfo);
+      });
     };
 
   /**
@@ -1956,29 +1831,29 @@ export class TemplateManager {
    * @returns 对话框信息。
    */
   private async createDialogInfo(): Promise<avMusicTemplate.DialogInfo> {
-    let qrCodeInfo: avMusicTemplate.QrCodeInfo[] = [
-      {
-        id: 'id',
-        price: '10',
-        titleName: 'title',
-        detailName: 'detail',
-        tips: 'tip',
-        content: 'content',
-        validPeriod: 1,
-      },
+    let qrCodeInfo: avMusicTemplate.QrCodeInfo[] = [{
+      id: 'id',
+      price: '10',
+      titleName: 'title',
+      detailName: 'detail',
+      tips: 'tip',
+      content: 'content',
+      validPeriod: 1
+    }
     ];
     let dialogInfo: avMusicTemplate.DialogInfo = {
       dialogId: 'dialogId',
       dialogType: avMusicTemplate.DialogType.LOGIN,
-      qrCodes: qrCodeInfo,
+      qrCodes: qrCodeInfo
     };
     return dialogInfo;
-  }
+  };
 }
 ```
 
 
-## offRequestDialogInfo
+
+##### offRequestDialogInfo
 
 offRequestDialogInfo(callback?: RequestDialogInfoEvent): void
 
@@ -1990,16 +1865,14 @@ offRequestDialogInfo(callback?: RequestDialogInfoEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [RequestDialogInfoEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#requestdialoginfoevent) | 否 | 请求对话框信息的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | RequestDialogInfoEvent | 否 | 请求对话框信息的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2010,8 +1883,7 @@ offRequestDialogInfo(callback?: RequestDialogInfoEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2027,7 +1899,8 @@ export class TemplateManager {
 ```
 
 
-## onHandleMemberPurchase
+
+##### onHandleMemberPurchase
 
 onHandleMemberPurchase(callback: HandleMemberPurchaseEvent): void
 
@@ -2039,16 +1912,14 @@ onHandleMemberPurchase(callback: HandleMemberPurchaseEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [HandleMemberPurchaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#handlememberpurchaseevent) | 是 | 回调函数，返回处理购买会员的事件。 |
+| callback | HandleMemberPurchaseEvent | 是 | 回调函数，返回处理购买会员的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2059,21 +1930,17 @@ onHandleMemberPurchase(callback: HandleMemberPurchaseEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private handleMemberPurchaseEvent: avMusicTemplate.HandleMemberPurchaseEvent =
     async (info: avMusicTemplate.MemberPurchaseInfo) => {
-      return new Promise<avMusicTemplate.DialogInfo>(
-        async (resolve, reject) => {
-          let dialogInfo: avMusicTemplate.DialogInfo =
-            await this.createDialogInfo();
-          resolve(dialogInfo);
-        },
-      );
+      return new Promise<avMusicTemplate.DialogInfo>(async (resolve, reject) => {
+        let dialogInfo: avMusicTemplate.DialogInfo = await this.createDialogInfo();
+        resolve(dialogInfo);
+      });
     };
 
   /**
@@ -2089,29 +1956,29 @@ export class TemplateManager {
    * @returns 对话框信息。
    */
   private async createDialogInfo(): Promise<avMusicTemplate.DialogInfo> {
-    let qrCodeInfo: avMusicTemplate.QrCodeInfo[] = [
-      {
-        id: 'id',
-        price: '10',
-        titleName: 'title',
-        detailName: 'detail',
-        tips: 'tip',
-        content: 'content',
-        validPeriod: 1,
-      },
+    let qrCodeInfo: avMusicTemplate.QrCodeInfo[] = [{
+      id: 'id',
+      price: '10',
+      titleName: 'title',
+      detailName: 'detail',
+      tips: 'tip',
+      content: 'content',
+      validPeriod: 1
+    }
     ];
     let dialogInfo: avMusicTemplate.DialogInfo = {
       dialogId: 'dialogId',
       dialogType: avMusicTemplate.DialogType.LOGIN,
-      qrCodes: qrCodeInfo,
+      qrCodes: qrCodeInfo
     };
     return dialogInfo;
-  }
+  };
 }
 ```
 
 
-## offHandleMemberPurchase
+
+##### offHandleMemberPurchase
 
 offHandleMemberPurchase(callback?: HandleMemberPurchaseEvent): void
 
@@ -2123,16 +1990,14 @@ offHandleMemberPurchase(callback?: HandleMemberPurchaseEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [HandleMemberPurchaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#handlememberpurchaseevent) | 否 | 处理购买会员的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | HandleMemberPurchaseEvent | 否 | 处理购买会员的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2143,8 +2008,7 @@ offHandleMemberPurchase(callback?: HandleMemberPurchaseEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2160,7 +2024,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryMemberPurchase
+
+##### onQueryMemberPurchase
 
 onQueryMemberPurchase(callback: QueryMemberPurchaseEvent): void
 
@@ -2172,16 +2037,14 @@ onQueryMemberPurchase(callback: QueryMemberPurchaseEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMemberPurchaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymemberpurchaseevent) | 是 | 回调函数，返回查询购买会员的事件。 |
+| callback | QueryMemberPurchaseEvent | 是 | 回调函数，返回查询购买会员的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2192,24 +2055,18 @@ onQueryMemberPurchase(callback: QueryMemberPurchaseEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private queryMemberPurchaseEvent: avMusicTemplate.QueryMemberPurchaseEvent =
     async (memberPurchaseType: avMusicTemplate.MemberPurchaseType) => {
-      return new Promise<avMusicTemplate.MemberPurchaseInfo[]>(
-        async (resolve, reject) => {
-          let memberPurchaseInfo: avMusicTemplate.MemberPurchaseInfo =
-            await this.createQueryMemberPurchase();
-          let memberPurchaseInfos: avMusicTemplate.MemberPurchaseInfo[] = [
-            memberPurchaseInfo,
-          ];
-          resolve(memberPurchaseInfos);
-        },
-      );
+      return new Promise<avMusicTemplate.MemberPurchaseInfo[]>(async (resolve, reject) => {
+        let memberPurchaseInfo: avMusicTemplate.MemberPurchaseInfo = await this.createQueryMemberPurchase();
+        let memberPurchaseInfos: avMusicTemplate.MemberPurchaseInfo[] = [memberPurchaseInfo];
+        resolve(memberPurchaseInfos);
+      });
     };
 
   /**
@@ -2229,15 +2086,16 @@ export class TemplateManager {
       id: 'id',
       diagramUrl: 'diagramUrl',
       diagramContent: 'diagramContent',
-      memberPurchaseType: avMusicTemplate.MemberPurchaseType.NORMAL,
+      memberPurchaseType: avMusicTemplate.MemberPurchaseType.NORMAL
     };
     return memberPurchaseInfo;
-  }
+  };
 }
 ```
 
 
-## offQueryMemberPurchase
+
+##### offQueryMemberPurchase
 
 offQueryMemberPurchase(callback?: QueryMemberPurchaseEvent): void
 
@@ -2249,16 +2107,14 @@ offQueryMemberPurchase(callback?: QueryMemberPurchaseEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryMemberPurchaseEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querymemberpurchaseevent) | 否 | 查询购买会员的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryMemberPurchaseEvent | 否 | 查询购买会员的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2269,8 +2125,7 @@ offQueryMemberPurchase(callback?: QueryMemberPurchaseEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2286,7 +2141,8 @@ export class TemplateManager {
 ```
 
 
-## onQueryCustomContent
+
+##### onQueryCustomContent
 
 onQueryCustomContent(callback: QueryCustomContentEvent): void
 
@@ -2298,16 +2154,14 @@ onQueryCustomContent(callback: QueryCustomContentEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCustomContentEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycustomcontentevent) | 是 | 回调函数，返回查询自定义内容的事件。 |
+| callback | QueryCustomContentEvent | 是 | 回调函数，返回查询自定义内容的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2318,21 +2172,17 @@ onQueryCustomContent(callback: QueryCustomContentEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private queryCustomContentEvent: avMusicTemplate.QueryCustomContentEvent =
     async (queryTypes: avMusicTemplate.CustomType[]) => {
-      return new Promise<avMusicTemplate.CustomElement>(
-        async (resolve, reject) => {
-          let customElement: avMusicTemplate.CustomElement =
-            await this.createCustomContent();
-          resolve(customElement);
-        },
-      );
+      return new Promise<avMusicTemplate.CustomElement>(async (resolve, reject) => {
+        let customElement: avMusicTemplate.CustomElement = await this.createCustomContent();
+        resolve(customElement);
+      });
     };
 
   /**
@@ -2355,8 +2205,8 @@ export class TemplateManager {
       parentMediaType: avMusicTemplate.EntityType.SINGLE,
       title: 'title',
       imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
-    };
+      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
+    }
     let compilation: avMusicTemplate.Compilation = {
       errorCode: 0,
       errorMsg: 'success',
@@ -2365,19 +2215,20 @@ export class TemplateManager {
       hasMoreData: false,
       totalSize: 1,
       memberMediaType: avMusicTemplate.EntityType.SINGLE,
-      topElements: [mediaEntity],
+      topElements: [mediaEntity]
     };
     let customElement: avMusicTemplate.CustomElement = {
       errorCode: 0,
       customCompilations: [compilation],
     };
     return customElement;
-  }
+  };
 }
 ```
 
 
-## offQueryCustomContent
+
+##### offQueryCustomContent
 
 offQueryCustomContent(callback?: QueryCustomContentEvent): void
 
@@ -2389,16 +2240,14 @@ offQueryCustomContent(callback?: QueryCustomContentEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [QueryCustomContentEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#querycustomcontentevent) | 否 | 查询自定义内容的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | QueryCustomContentEvent | 否 | 查询自定义内容的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2409,8 +2258,7 @@ offQueryCustomContent(callback?: QueryCustomContentEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2426,7 +2274,8 @@ export class TemplateManager {
 ```
 
 
-## onDownloadMediaEntity
+
+##### onDownloadMediaEntity
 
 onDownloadMediaEntity(callback: DownloadMediaEntityEvent): void
 
@@ -2438,16 +2287,14 @@ onDownloadMediaEntity(callback: DownloadMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [DownloadMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#downloadmediaentityevent) | 是 | 回调函数，返回下载媒体实体的事件。 |
+| callback | DownloadMediaEntityEvent | 是 | 回调函数，返回下载媒体实体的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2458,25 +2305,18 @@ onDownloadMediaEntity(callback: DownloadMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
   private downloadMediaEntityEvent: avMusicTemplate.DownloadMediaEntityEvent =
-    async (
-      controlType: avMusicTemplate.DownloadControlType,
-      mediaEntity: avMusicTemplate.MediaEntity,
-    ) => {
-      return new Promise<avMusicTemplate.OperResult>(
-        async (resolve, reject) => {
-          let operResult: avMusicTemplate.OperResult =
-            await this.createOperResult();
-          this.downloadMediaEntity(mediaEntity);
-          resolve(operResult);
-        },
-      );
+    async (controlType: avMusicTemplate.DownloadControlType, mediaEntity: avMusicTemplate.MediaEntity) => {
+      return new Promise<avMusicTemplate.OperResult>(async (resolve, reject) => {
+        let operResult: avMusicTemplate.OperResult = await this.createOperResult();
+        this.downloadMediaEntity(mediaEntity);
+        resolve(operResult);
+      });
     };
 
   /**
@@ -2489,11 +2329,9 @@ export class TemplateManager {
   /**
    * 下载状态，进度刷新。
    */
-  public setDownloadMediaEntityStatus(
-    mediaEntity: avMusicTemplate.MediaEntity,
-  ) {
+  public setDownloadMediaEntityStatus(mediaEntity: avMusicTemplate.MediaEntity) {
     this.template?.setDownloadMediaEntityStatus(mediaEntity);
-  }
+  };
 
   /**
    * 模拟设置改变。
@@ -2508,9 +2346,9 @@ export class TemplateManager {
   private async createOperResult(): Promise<avMusicTemplate.OperResult> {
     let operResult: avMusicTemplate.OperResult = {
       errorCode: 0,
-    };
+    }
     return operResult;
-  }
+  };
 
   /**
    * 模拟下载过程。
@@ -2520,12 +2358,13 @@ export class TemplateManager {
   private async downloadMediaEntity(mediaEntity: avMusicTemplate.MediaEntity) {
     // 下载完成之后。
     this.setDownloadMediaEntityStatus(mediaEntity);
-  }
+  };
 }
 ```
 
 
-## offDownloadMediaEntity
+
+##### offDownloadMediaEntity
 
 offDownloadMediaEntity(callback?: DownloadMediaEntityEvent): void
 
@@ -2537,16 +2376,14 @@ offDownloadMediaEntity(callback?: DownloadMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [DownloadMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#downloadmediaentityevent) | 否 | 下载媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | DownloadMediaEntityEvent | 否 | 下载媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2557,8 +2394,7 @@ offDownloadMediaEntity(callback?: DownloadMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2574,7 +2410,8 @@ export class TemplateManager {
 ```
 
 
-## onSettingsChange
+
+##### onSettingsChange
 
 onSettingsChange(callback: SettingsChangeEvent): void
 
@@ -2586,16 +2423,14 @@ onSettingsChange(callback: SettingsChangeEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [SettingsChangeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#settingschangeevent) | 是 | 回调函数，返回设置改变的事件。 |
+| callback | SettingsChangeEvent | 是 | 回调函数，返回设置改变的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2606,21 +2441,18 @@ onSettingsChange(callback: SettingsChangeEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private settingsChangeEvent: avMusicTemplate.SettingsChangeEvent = async (
-    settingItem: avMusicTemplate.SettingItem,
-  ) => {
-    return new Promise<avMusicTemplate.SettingItem>(async (resolve, reject) => {
-      let settingItem: avMusicTemplate.SettingItem =
-        await this.settingsChange();
-      resolve(settingItem);
-    });
-  };
+  private settingsChangeEvent: avMusicTemplate.SettingsChangeEvent =
+    async (settingItem: avMusicTemplate.SettingItem) => {
+      return new Promise<avMusicTemplate.SettingItem>(async (resolve, reject) => {
+        let settingItem: avMusicTemplate.SettingItem = await this.settingsChange();
+        resolve(settingItem);
+      });
+    };
 
   /**
    * 注册监听。
@@ -2641,15 +2473,16 @@ export class TemplateManager {
       desc: 'desc',
       mediaId: 'mediaId',
       settingType: avMusicTemplate.SettingType.SWITCH,
-      settingValue: false,
-    };
+      settingValue: false
+    }
     return setting;
-  }
+  };
 }
 ```
 
 
-## offSettingsChange
+
+##### offSettingsChange
 
 offSettingsChange(callback?: SettingsChangeEvent): void
 
@@ -2661,16 +2494,14 @@ offSettingsChange(callback?: SettingsChangeEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [SettingsChangeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#settingschangeevent) | 否 | 设置改变的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | SettingsChangeEvent | 否 | 设置改变的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2681,8 +2512,7 @@ offSettingsChange(callback?: SettingsChangeEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2698,7 +2528,8 @@ export class TemplateManager {
 ```
 
 
-## onProblemAndAdvice
+
+##### onProblemAndAdvice
 
 onProblemAndAdvice(callback: ProblemAndAdviceEvent): void
 
@@ -2710,16 +2541,14 @@ onProblemAndAdvice(callback: ProblemAndAdviceEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [ProblemAndAdviceEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#problemandadviceevent) | 是 | 回调函数，返回问题与建议的事件。 |
+| callback | ProblemAndAdviceEvent | 是 | 回调函数，返回问题与建议的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2730,18 +2559,14 @@ onProblemAndAdvice(callback: ProblemAndAdviceEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private problemAndAdviceEvent: avMusicTemplate.ProblemAndAdviceEvent = async (
-    advice: string,
-  ) => {
+  private problemAndAdviceEvent: avMusicTemplate.ProblemAndAdviceEvent = async (advice: string) => {
     return new Promise<avMusicTemplate.OperResult>(async (resolve, reject) => {
-      let operResult: avMusicTemplate.OperResult =
-        await this.createOperResult();
+      let operResult: avMusicTemplate.OperResult = await this.createOperResult();
       resolve(operResult);
     });
   };
@@ -2761,14 +2586,15 @@ export class TemplateManager {
   private async createOperResult(): Promise<avMusicTemplate.OperResult> {
     let operResult: avMusicTemplate.OperResult = {
       errorCode: 0,
-    };
+    }
     return operResult;
-  }
+  };
 }
 ```
 
 
-## offProblemAndAdvice
+
+##### offProblemAndAdvice
 
 offProblemAndAdvice(callback?: ProblemAndAdviceEvent): void
 
@@ -2780,16 +2606,14 @@ offProblemAndAdvice(callback?: ProblemAndAdviceEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [ProblemAndAdviceEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#problemandadviceevent) | 否 | 处理问题与建议的回调。不填该参数则注销该类型对应的所有回调。 |
+| callback | ProblemAndAdviceEvent | 否 | 处理问题与建议的回调。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2800,8 +2624,7 @@ offProblemAndAdvice(callback?: ProblemAndAdviceEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2817,7 +2640,8 @@ export class TemplateManager {
 ```
 
 
-## onPlayForSearch
+
+##### onPlayForSearch
 
 onPlayForSearch(callback: PlayForSearchEvent): void
 
@@ -2829,16 +2653,14 @@ onPlayForSearch(callback: PlayForSearchEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [PlayForSearchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#playforsearchevent) | 是 | 回调函数，返回搜播的事件。 |
+| callback | PlayForSearchEvent | 是 | 回调函数，返回搜播的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2849,19 +2671,15 @@ onPlayForSearch(callback: PlayForSearchEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private playForSearchEvent: avMusicTemplate.PlayForSearchEvent = async (
-    command: avMusicTemplate.SearchPlayInfoType,
-    args: avMusicTemplate.SearchPlayInfo,
-  ) => {
+  private playForSearchEvent: avMusicTemplate.PlayForSearchEvent = async (command: avMusicTemplate.SearchPlayInfoType,
+    args: avMusicTemplate.SearchPlayInfo) => {
     return new Promise<avMusicTemplate.OperResult>(async (resolve, reject) => {
-      let operResult: avMusicTemplate.OperResult =
-        await this.createOperResult();
+      let operResult: avMusicTemplate.OperResult = await this.createOperResult();
       resolve(operResult);
     });
   };
@@ -2881,14 +2699,15 @@ export class TemplateManager {
   private async createOperResult(): Promise<avMusicTemplate.OperResult> {
     let operResult: avMusicTemplate.OperResult = {
       errorCode: 0,
-    };
+    }
     return operResult;
-  }
+  };
 }
 ```
 
 
-## offPlayForSearch
+
+##### offPlayForSearch
 
 offPlayForSearch(callback?: PlayForSearchEvent): void
 
@@ -2900,16 +2719,14 @@ offPlayForSearch(callback?: PlayForSearchEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [PlayForSearchEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#playforsearchevent) | 否 | 搜播的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | PlayForSearchEvent | 否 | 搜播的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2920,8 +2737,7 @@ offPlayForSearch(callback?: PlayForSearchEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -2937,7 +2753,8 @@ export class TemplateManager {
 ```
 
 
-## onExecuteAction
+
+##### onExecuteAction
 
 onExecuteAction(callback: ExecuteActionEvent): void
 
@@ -2949,16 +2766,14 @@ onExecuteAction(callback: ExecuteActionEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [ExecuteActionEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#executeactionevent) | 是 | 回调函数，返回执行操作的事件。 |
+| callback | ExecuteActionEvent | 是 | 回调函数，返回执行操作的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2969,16 +2784,12 @@ onExecuteAction(callback: ExecuteActionEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
   private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private executeActionEvent: avMusicTemplate.ExecuteActionEvent = async (
-    actionType: string,
-    params: string,
-  ) => {
+  private executeActionEvent: avMusicTemplate.ExecuteActionEvent = async (actionType: string, params: string) => {
     return new Promise<string>(async (resolve, reject) => {
       let result: string = 'success';
       resolve(result);
@@ -2995,7 +2806,8 @@ export class TemplateManager {
 ```
 
 
-## offExecuteAction
+
+##### offExecuteAction
 
 offExecuteAction(callback?: ExecuteActionEvent): void
 
@@ -3007,16 +2819,14 @@ offExecuteAction(callback?: ExecuteActionEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [ExecuteActionEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#executeactionevent) | 否 | 执行操作的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | ExecuteActionEvent | 否 | 执行操作的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3027,8 +2837,7 @@ offExecuteAction(callback?: ExecuteActionEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -3044,7 +2853,8 @@ export class TemplateManager {
 ```
 
 
-## onPlayMediaEntity
+
+##### onPlayMediaEntity
 
 onPlayMediaEntity(callback: PlayMediaEntityEvent): void
 
@@ -3056,16 +2866,14 @@ onPlayMediaEntity(callback: PlayMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [PlayMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#playmediaentityevent) | 是 | 回调函数，返回播放媒体实体的事件。 |
+| callback | PlayMediaEntityEvent | 是 | 回调函数，返回播放媒体实体的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3076,29 +2884,28 @@ onPlayMediaEntity(callback: PlayMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private playMediaEntityEvent: avMusicTemplate.PlayMediaEntityEvent = async (
-    mediaEntity: avMusicTemplate.MediaEntity,
-  ) => {
-    console.info('playMediaEntity');
-  };
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private playMediaEntityEvent: avMusicTemplate.PlayMediaEntityEvent =
+        async (mediaEntity: avMusicTemplate.MediaEntity) => {
+            console.info('playMediaEntity');
+        };
 
-  /**
-   * 注册监听。
-   */
-  private registerListener() {
-    this.template?.onPlayMediaEntity(this.playMediaEntityEvent);
-  }
+    /**
+     * 注册监听。
+     */
+    private registerListener() {
+        this.template?.onPlayMediaEntity(this.playMediaEntityEvent);
+    }
 }
 ```
 
 
-## offPlayMediaEntity
+
+##### offPlayMediaEntity
 
 offPlayMediaEntity(callback?: PlayMediaEntityEvent): void
 
@@ -3110,16 +2917,14 @@ offPlayMediaEntity(callback?: PlayMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [PlayMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#playmediaentityevent) | 否 | 播放媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | PlayMediaEntityEvent | 否 | 播放媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3130,8 +2935,7 @@ offPlayMediaEntity(callback?: PlayMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -3147,7 +2951,8 @@ export class TemplateManager {
 ```
 
 
-## onFavoriteMediaEntity
+
+##### onFavoriteMediaEntity
 
 onFavoriteMediaEntity(callback: FavoriteMediaEntityEvent): void
 
@@ -3159,16 +2964,14 @@ onFavoriteMediaEntity(callback: FavoriteMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [FavoriteMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#favoritemediaentityevent) | 是 | 回调函数，返回收藏媒体实体的事件。 |
+| callback | FavoriteMediaEntityEvent | 是 | 回调函数，返回收藏媒体实体的事件。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3179,49 +2982,43 @@ onFavoriteMediaEntity(callback: FavoriteMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private favoriteMediaEntityEvent: avMusicTemplate.FavoriteMediaEntityEvent =
-    async (
-      actionType: avMusicTemplate.MediaFavoriteType,
-      mediaEntity: avMusicTemplate.MediaEntity,
-    ) => {
-      return new Promise<avMusicTemplate.OperResult>(
-        async (resolve, reject) => {
-          let operResult: avMusicTemplate.OperResult =
-            await this.createOperResult();
-          resolve(operResult);
-        },
-      );
-    };
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private favoriteMediaEntityEvent: avMusicTemplate.FavoriteMediaEntityEvent =
+        async (actionType: avMusicTemplate.MediaFavoriteType, mediaEntity: avMusicTemplate.MediaEntity) => {
+            return new Promise<avMusicTemplate.OperResult>(async (resolve, reject) => {
+                let operResult: avMusicTemplate.OperResult = await this.createOperResult();
+                resolve(operResult);
+            });
+        };
 
-  /**
-   * 注册监听。
-   */
-  private registerListener() {
-    this.template?.onFavoriteMediaEntity(this.favoriteMediaEntityEvent);
-  }
+    /**
+     * 注册监听。
+     */
+    private registerListener() {
+        this.template?.onFavoriteMediaEntity(this.favoriteMediaEntityEvent);
+    }
 
-  /**
-   * 模拟操作结果。
-   *
-   * @returns 操作结果。
-   */
-  private async createOperResult(): Promise<avMusicTemplate.OperResult> {
-    let operResult: avMusicTemplate.OperResult = {
-      errorCode: 0,
+    /**
+     * 模拟操作结果。
+     *
+     * @returns 操作结果。
+     */
+    private async createOperResult(): Promise<avMusicTemplate.OperResult> {
+        let operResult: avMusicTemplate.OperResult = {
+            errorCode: 0,
+        }
+        return operResult;
     };
-    return operResult;
-  }
 }
 ```
 
 
-## offFavoriteMediaEntity
+
+##### offFavoriteMediaEntity
 
 offFavoriteMediaEntity(callback?: FavoriteMediaEntityEvent): void
 
@@ -3233,16 +3030,14 @@ offFavoriteMediaEntity(callback?: FavoriteMediaEntityEvent): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [FavoriteMediaEntityEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#favoritemediaentityevent) | 否 | 收藏媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
+| callback | FavoriteMediaEntityEvent | 否 | 收藏媒体实体的事件。不填该参数则注销该类型对应的所有回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3253,8 +3048,7 @@ offFavoriteMediaEntity(callback?: FavoriteMediaEntityEvent): void
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -3270,9 +3064,10 @@ export class TemplateManager {
 ```
 
 
-## setUserInfo
 
-setUserInfo(userInfo: UserInfo): Promise<void>
+##### setUserInfo
+
+setUserInfo(userInfo: UserInfo): Promise&lt;void&gt;
 
 向音频模板控制方同步用户信息。使用Promise异步回调。
 
@@ -3282,14 +3077,12 @@ setUserInfo(userInfo: UserInfo): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| userInfo | [UserInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#userinfo) | 是 | 用户信息。 |
+| userInfo | UserInfo | 是 | 用户信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3299,7 +3092,6 @@ setUserInfo(userInfo: UserInfo): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3310,45 +3102,45 @@ setUserInfo(userInfo: UserInfo): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  private isLogin: boolean = false;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private isLogin: boolean = false;
 
-  /**
-   * 模拟登录状态改变。
-   *
-   * @param isLogin 是否登录。
-   */
-  public setLoginState(isLogin: boolean) {
-    this.isLogin = isLogin;
-    this.setUserInfo();
-  }
+    /**
+     * 模拟登录状态改变。
+     *
+     * @param isLogin 是否登录。
+     */
+    public setLoginState(isLogin: boolean) {
+        this.isLogin = isLogin;
+        this.setUserInfo();
+    }
 
-  /**
-   * 用户信息发生变化后通知界面刷新用户信息，如登陆账号后。
-   */
-  public setUserInfo() {
-    let userInfo: avMusicTemplate.UserInfo = {
-      userInfoId: this.isLogin ? 'userInfoId' : '',
-      nickName: this.isLogin ? '昵称' : '',
-      profilePicUrl: this.isLogin ? 'profilePicUrl' : '',
-      tips: this.isLogin ? 'tips' : '',
-      isLogin: this.isLogin,
-      isVip: false,
+    /**
+     * 用户信息发生变化后通知界面刷新用户信息，如登陆账号后。
+     */
+    public setUserInfo() {
+        let userInfo: avMusicTemplate.UserInfo = {
+            userInfoId: this.isLogin ? 'userInfoId' : '',
+            nickName: this.isLogin ? '昵称' : '',
+            profilePicUrl: this.isLogin ? 'profilePicUrl' : '',
+            tips: this.isLogin ? 'tips' : '',
+            isLogin: this.isLogin,
+            isVip: false
+        };
+        this.template?.setUserInfo(userInfo);
     };
-    this.template?.setUserInfo(userInfo);
-  }
 }
 ```
 
 
-## setDialogCommand
 
-setDialogCommand(type: DialogControlType, dialogInfo: DialogInfo): Promise<void>
+##### setDialogCommand
+
+setDialogCommand(type: DialogControlType, dialogInfo: DialogInfo): Promise&lt;void&gt;
 
 向音频模板控制方同步对话框命令。使用Promise异步回调。
 
@@ -3358,15 +3150,13 @@ setDialogCommand(type: DialogControlType, dialogInfo: DialogInfo): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | [DialogControlType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#dialogcontroltype) | 是 | 对话框控制类型。 |
-| dialogInfo | [DialogInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#dialoginfo) | 是 | 对话框信息。 |
+| type | DialogControlType | 是 | 对话框控制类型。 |
+| dialogInfo | DialogInfo | 是 | 对话框信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3376,7 +3166,6 @@ setDialogCommand(type: DialogControlType, dialogInfo: DialogInfo): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3387,43 +3176,41 @@ setDialogCommand(type: DialogControlType, dialogInfo: DialogInfo): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  /**
-   * 对话框相关的操作，如：打开，关闭。
-   */
-  public setDialogCommand() {
-    let type: avMusicTemplate.DialogControlType = 'open';
-    let qrCodeInfo: avMusicTemplate.QrCodeInfo[] = [
-      {
-        id: 'id',
-        price: '10',
-        titleName: 'title',
-        detailName: 'detail',
-        tips: 'tip',
-        content: 'content',
-        validPeriod: 1,
-      },
-    ];
-    let dialogInfo: avMusicTemplate.DialogInfo = {
-      dialogId: 'dialogId',
-      dialogType: avMusicTemplate.DialogType.LOGIN,
-      qrCodes: qrCodeInfo,
+    /**
+     * 对话框相关的操作，如：打开，关闭。
+     */
+    public setDialogCommand() {
+        let type: avMusicTemplate.DialogControlType = 'open';
+        let qrCodeInfo: avMusicTemplate.QrCodeInfo[] = [{
+            id: 'id',
+            price: '10',
+            titleName: 'title',
+            detailName: 'detail',
+            tips: 'tip',
+            content: 'content',
+            validPeriod: 1
+        }];
+        let dialogInfo: avMusicTemplate.DialogInfo = {
+            dialogId: 'dialogId',
+            dialogType: avMusicTemplate.DialogType.LOGIN,
+            qrCodes: qrCodeInfo
+        };
+        this.template?.setDialogCommand(type, dialogInfo);
     };
-    this.template?.setDialogCommand(type, dialogInfo);
-  }
 }
 ```
 
 
-## setCurrentSingle
 
-setCurrentSingle(single: Single): Promise<void>
+##### setCurrentSingle
+
+setCurrentSingle(single: Single): Promise&lt;void&gt;
 
 向音频模板控制方同步当前单曲。使用Promise异步回调。
 
@@ -3433,14 +3220,12 @@ setCurrentSingle(single: Single): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| single | [Single](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#single) | 是 | 当前单曲。 |
+| single | Single | 是 | 当前单曲。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3450,7 +3235,6 @@ setCurrentSingle(single: Single): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3461,73 +3245,73 @@ setCurrentSingle(single: Single): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  public async setCurrentSingle() {
-    let single: avMusicTemplate.Single = await this.createCurrentSingle();
-    this.template?.setCurrentSingle(single);
-  }
+    public async setCurrentSingle() {
+        let single: avMusicTemplate.Single = await this.createCurrentSingle()
+        this.template?.setCurrentSingle(single);
+    };
 
-  /**
-   * 模拟获取当前单曲。
-   *
-   * @returns 当前单曲。
-   */
-  private async createCurrentSingle(): Promise<avMusicTemplate.Single> {
-    let playInfo: avMusicTemplate.PlayInfo = {
-      playCounts: '100w',
-      isSupportNext: true,
-      isSupportPrev: false,
-      isSupportQuickForward: true,
-      isSupportQuickBackward: true,
-      quickForwardStep: 10,
-      quickBackwardStep: 10,
-      isSupportSkipHead: false,
-      isSupportSkipTail: true,
-      isSupportPlayMode: true,
-      isSupportPlayRate: true,
-      supportedPlayRate: ['1', '2', '3'],
-      currentPlayRate: 'string;',
-      isSupportSoundQuality: false,
-      isSupportSoundEffect: true,
-      totalDuration: 60,
-      currentPlayDuration: 10,
-      isSupportProgress: false,
+    /**
+     * 模拟获取当前单曲。
+     *
+     * @returns 当前单曲。
+     */
+    private async createCurrentSingle(): Promise<avMusicTemplate.Single> {
+        let playInfo: avMusicTemplate.PlayInfo = {
+            playCounts: '100w',
+            isSupportNext: true,
+            isSupportPrev: false,
+            isSupportQuickForward: true,
+            isSupportQuickBackward: true,
+            quickForwardStep: 10,
+            quickBackwardStep: 10,
+            isSupportSkipHead: false,
+            isSupportSkipTail: true,
+            isSupportPlayMode: true,
+            isSupportPlayRate: true,
+            supportedPlayRate: ['1', '2', '3'],
+            currentPlayRate: 'string;',
+            isSupportSoundQuality: false,
+            isSupportSoundEffect: true,
+            totalDuration: 60,
+            currentPlayDuration: 10,
+            isSupportProgress: false,
+        }
+        let favoriteData: avMusicTemplate.FavoriteData = {
+            isSupportFav: true,
+            isFavorite: false,
+            favCounts: '1000+'
+        }
+        let single: avMusicTemplate.Single = {
+            mediaId: 'mediaId',
+            mediaType: avMusicTemplate.EntityType.SINGLE,
+            parentId: 'parentId',
+            parentMediaType: avMusicTemplate.EntityType.SINGLE,
+            title: '歌曲标题',
+            desc: '歌曲描述',
+            imageUrl: '',
+            playState: 0,
+            isVip: false,
+            singer: '',
+            tags: [],
+            playInfo: playInfo,
+            favSubscribeData: favoriteData
+        }
+        return single;
     };
-    let favoriteData: avMusicTemplate.FavoriteData = {
-      isSupportFav: true,
-      isFavorite: false,
-      favCounts: '1000+',
-    };
-    let single: avMusicTemplate.Single = {
-      mediaId: 'mediaId',
-      mediaType: avMusicTemplate.EntityType.SINGLE,
-      parentId: 'parentId',
-      parentMediaType: avMusicTemplate.EntityType.SINGLE,
-      title: '歌曲标题',
-      desc: '歌曲描述',
-      imageUrl: '',
-      playState: 0,
-      isVip: false,
-      singer: '',
-      tags: [],
-      playInfo: playInfo,
-      favSubscribeData: favoriteData,
-    };
-    return single;
-  }
 }
 ```
 
 
-## setMediaEntities
 
-setMediaEntities(entities: MediaEntity[]): Promise<void>
+##### setMediaEntities
+
+setMediaEntities(entities: MediaEntity[]): Promise&lt;void&gt;
 
 向音频模板控制方同步媒体资源变更信息。使用Promise异步回调。
 
@@ -3537,14 +3321,12 @@ setMediaEntities(entities: MediaEntity[]): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| entities | [MediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediaentity)[] | 是 | 媒体实体的数组。 |
+| entities | MediaEntity[] | 是 | 媒体实体的数组。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3554,7 +3336,6 @@ setMediaEntities(entities: MediaEntity[]): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3565,37 +3346,35 @@ setMediaEntities(entities: MediaEntity[]): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  /**
-   * 媒体播放后信息后，如：歌单的播放状态。
-   */
-  public setMediaEntities() {
-    let mediaEntities: avMusicTemplate.MediaEntity[] = [
-      {
-        mediaId: 'mediaId',
-        mediaType: avMusicTemplate.EntityType.SINGLE,
-        parentId: 'parentId',
-        parentMediaType: avMusicTemplate.EntityType.SINGLE,
-        title: 'title',
-        imageUrl: 'imageUrl',
-        playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
-      },
-    ];
-    this.template?.setMediaEntities(mediaEntities);
-  }
+    /**
+     * 媒体播放后信息后，如：歌单的播放状态。
+     */
+    public setMediaEntities() {
+        let mediaEntities: avMusicTemplate.MediaEntity[] = [{
+            mediaId: 'mediaId',
+            mediaType: avMusicTemplate.EntityType.SINGLE,
+            parentId: 'parentId',
+            parentMediaType: avMusicTemplate.EntityType.SINGLE,
+            title: 'title',
+            imageUrl: 'imageUrl',
+            playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
+        }];
+        this.template?.setMediaEntities(mediaEntities);
+    };
 }
 ```
 
 
-## setTabContent
 
-setTabContent(tabId: string, tabContent: MediaTabContent): Promise<void>
+##### setTabContent
+
+setTabContent(tabId: string, tabContent: MediaTabContent): Promise&lt;void&gt;
 
 向音频模板控制方同步标签页内容信息。使用Promise异步回调。
 
@@ -3605,15 +3384,13 @@ setTabContent(tabId: string, tabContent: MediaTabContent): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | tabId | string | 是 | 标签的ID。 |
-| tabContent | [MediaTabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediatabcontent) | 是 | 媒体标签页内容。 |
+| tabContent | MediaTabContent | 是 | 媒体标签页内容。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3623,7 +3400,6 @@ setTabContent(tabId: string, tabContent: MediaTabContent): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3634,54 +3410,50 @@ setTabContent(tabId: string, tabContent: MediaTabContent): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
-  /**
-   * 某个tab页签下的内容发生变化后通知界面刷新。
-   */
-  public setTabContent() {
-    let mediaEntity: avMusicTemplate.MediaEntity[] = [
-      {
-        mediaId: 'mediaId',
-        mediaType: avMusicTemplate.EntityType.SINGLE,
-        parentId: 'parentId',
-        parentMediaType: avMusicTemplate.EntityType.SINGLE,
-        title: 'title',
-        imageUrl: 'imageUrl',
-        playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
-      },
-    ];
-    let compilation: avMusicTemplate.Compilation[] = [
-      {
-        errorCode: 0,
-        errorMsg: 'success',
-        id: 'id',
-        title: 'title',
-        hasMoreData: true,
-        totalSize: 2,
-        memberMediaType: avMusicTemplate.EntityType.SINGLE,
-        topElements: mediaEntity,
-      },
-    ];
-    let mediaTabContent: avMusicTemplate.MediaTabContent = {
-      errorCode: 0,
-      errorMsg: 'success',
-      tabId: 'tabId',
-      compilations: compilation,
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    /**
+     * 某个tab页签下的内容发生变化后通知界面刷新。
+     */
+    public setTabContent() {
+        let mediaEntity: avMusicTemplate.MediaEntity[] = [{
+            mediaId: 'mediaId',
+            mediaType: avMusicTemplate.EntityType.SINGLE,
+            parentId: 'parentId',
+            parentMediaType: avMusicTemplate.EntityType.SINGLE,
+            title: 'title',
+            imageUrl: 'imageUrl',
+            playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
+        }]
+        let compilation: avMusicTemplate.Compilation[] = [{
+            errorCode: 0,
+            errorMsg: 'success',
+            id: 'id',
+            title: 'title',
+            hasMoreData: true,
+            totalSize: 2,
+            memberMediaType: avMusicTemplate.EntityType.SINGLE,
+            topElements: mediaEntity
+        }]
+        let mediaTabContent: avMusicTemplate.MediaTabContent = {
+            errorCode: 0,
+            errorMsg: 'success',
+            tabId: 'tabId',
+            compilations: compilation
+        }
+        this.template?.setTabContent('tabId', mediaTabContent);
     };
-    this.template?.setTabContent('tabId', mediaTabContent);
-  }
 }
 ```
 
 
-## setPlaylist
 
-setPlaylist(playlist: PageMediaEntity): Promise<void>
+##### setPlaylist
+
+setPlaylist(playlist: PageMediaEntity): Promise&lt;void&gt;
 
 向音频模板控制方同步播放列表。使用Promise异步回调。
 
@@ -3691,14 +3463,12 @@ setPlaylist(playlist: PageMediaEntity): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| playlist | [PageMediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#pagemediaentity) | 是 | 分页媒体实体。 |
+| playlist | PageMediaEntity | 是 | 分页媒体实体。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3708,7 +3478,6 @@ setPlaylist(playlist: PageMediaEntity): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3719,45 +3488,45 @@ setPlaylist(playlist: PageMediaEntity): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  /**
-   * 播放列表发送变化后通知界面刷新。
-   */
-  public setPlaylist() {
-    let mediaEntity: avMusicTemplate.MediaEntity = {
-      mediaId: 'mediaId',
-      mediaType: avMusicTemplate.EntityType.SINGLE,
-      parentId: 'parentId',
-      parentMediaType: avMusicTemplate.EntityType.SINGLE,
-      title: 'title',
-      imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+    /**
+     * 播放列表发送变化后通知界面刷新。
+     */
+    public setPlaylist() {
+        let mediaEntity: avMusicTemplate.MediaEntity = {
+            mediaId: 'mediaId',
+            mediaType: avMusicTemplate.EntityType.SINGLE,
+            parentId: 'parentId',
+            parentMediaType: avMusicTemplate.EntityType.SINGLE,
+            title: 'title',
+            imageUrl: 'imageUrl',
+            playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
+        }
+        let pageMediaEntity: avMusicTemplate.PageMediaEntity = {
+            errorCode: 0,
+            errorMsg: 'success',
+            pageIndex: 0,
+            pageSize: 1,
+            hasMoreData: true,
+            totalSize: 2,
+            memberMediaType: avMusicTemplate.EntityType.SINGLE,
+            elements: [mediaEntity]
+        }
+        this.template?.setPlaylist(pageMediaEntity);
     };
-    let pageMediaEntity: avMusicTemplate.PageMediaEntity = {
-      errorCode: 0,
-      errorMsg: 'success',
-      pageIndex: 0,
-      pageSize: 1,
-      hasMoreData: true,
-      totalSize: 2,
-      memberMediaType: avMusicTemplate.EntityType.SINGLE,
-      elements: [mediaEntity],
-    };
-    this.template?.setPlaylist(pageMediaEntity);
-  }
 }
 ```
 
 
-## setDownloadMediaEntityStatus
 
-setDownloadMediaEntityStatus(single: MediaEntity): Promise<void>
+##### setDownloadMediaEntityStatus
+
+setDownloadMediaEntityStatus(single: MediaEntity): Promise&lt;void&gt;
 
 向音频模板控制方同步单曲下载状态信息。使用Promise异步回调。
 
@@ -3767,14 +3536,12 @@ setDownloadMediaEntityStatus(single: MediaEntity): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| single | [MediaEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#mediaentity) | 是 | 媒体实体。 |
+| single | MediaEntity | 是 | 媒体实体。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3784,7 +3551,6 @@ setDownloadMediaEntityStatus(single: MediaEntity): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3795,8 +3561,7 @@ setDownloadMediaEntityStatus(single: MediaEntity): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
@@ -3805,11 +3570,9 @@ export class TemplateManager {
   /**
    * 下载状态，进度刷新。
    */
-  public setDownloadMediaEntityStatus(
-    mediaEntity: avMusicTemplate.MediaEntity,
-  ) {
+  public setDownloadMediaEntityStatus(mediaEntity: avMusicTemplate.MediaEntity) {
     this.template?.setDownloadMediaEntityStatus(mediaEntity);
-  }
+  };
 
   /**
    * 模拟下载过程。
@@ -3819,14 +3582,15 @@ export class TemplateManager {
   private async downloadMediaEntity(mediaEntity: avMusicTemplate.MediaEntity) {
     // 下载完成之后。
     this.setDownloadMediaEntityStatus(mediaEntity);
-  }
+  };
 }
 ```
 
 
-## setCustomElements
 
-setCustomElements(actionType: ActionType, customType: CustomType, customElement: CustomElement): Promise<void>
+##### setCustomElements
+
+setCustomElements(actionType: ActionType, customType: CustomType, customElement: CustomElement): Promise&lt;void&gt;
 
 向音频模板控制方同步自定义元素变更信息。使用Promise异步回调。
 
@@ -3836,16 +3600,14 @@ setCustomElements(actionType: ActionType, customType: CustomType, customElement:
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| actionType | [ActionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#actiontype) | 是 | 操作类型。 |
-| customType | [CustomType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-t#customtype) | 是 | 自定义类型。 |
-| customElement | [CustomElement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#customelement) | 是 | 自定义元素。 |
+| actionType | ActionType | 是 | 操作类型。 |
+| customType | CustomType | 是 | 自定义类型。 |
+| customElement | CustomElement | 是 | 自定义元素。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3855,7 +3617,6 @@ setCustomElements(actionType: ActionType, customType: CustomType, customElement:
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3866,50 +3627,50 @@ setCustomElements(actionType: ActionType, customType: CustomType, customElement:
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  /**
-   * 自定义数据发生变化后通知。
-   */
-  public setCustomElements() {
-    let mediaEntity: avMusicTemplate.MediaEntity = {
-      mediaId: 'mediaId',
-      mediaType: avMusicTemplate.EntityType.SINGLE,
-      parentId: 'parentId',
-      parentMediaType: avMusicTemplate.EntityType.SINGLE,
-      title: 'title',
-      imageUrl: 'imageUrl',
-      playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE,
+    /**
+     * 自定义数据发生变化后通知。
+     */
+    public setCustomElements() {
+        let mediaEntity: avMusicTemplate.MediaEntity = {
+            mediaId: 'mediaId',
+            mediaType: avMusicTemplate.EntityType.SINGLE,
+            parentId: 'parentId',
+            parentMediaType: avMusicTemplate.EntityType.SINGLE,
+            title: 'title',
+            imageUrl: 'imageUrl',
+            playState: avMusicTemplate.PlaybackState.PLAYBACK_STATE_PREPARE
+        }
+        let compilation: avMusicTemplate.Compilation = {
+            errorCode: 0,
+            errorMsg: 'success',
+            id: 'id',
+            title: 'title',
+            hasMoreData: true,
+            totalSize: 2,
+            memberMediaType: avMusicTemplate.EntityType.SINGLE,
+            topElements: [mediaEntity]
+        }
+        let customElement: avMusicTemplate.CustomElement = {
+            errorCode: 0,
+            errorMsg: 'success',
+            customCompilations: [compilation]
+        }
+        this.template?.setCustomElements('add', 'COMPILATION', customElement);
     };
-    let compilation: avMusicTemplate.Compilation = {
-      errorCode: 0,
-      errorMsg: 'success',
-      id: 'id',
-      title: 'title',
-      hasMoreData: true,
-      totalSize: 2,
-      memberMediaType: avMusicTemplate.EntityType.SINGLE,
-      topElements: [mediaEntity],
-    };
-    let customElement: avMusicTemplate.CustomElement = {
-      errorCode: 0,
-      errorMsg: 'success',
-      customCompilations: [compilation],
-    };
-    this.template?.setCustomElements('add', 'COMPILATION', customElement);
-  }
 }
 ```
 
 
-## setSettings
 
-setSettings(settingItems: SettingItem[]): Promise<void>
+##### setSettings
+
+setSettings(settingItems: SettingItem[]): Promise&lt;void&gt;
 
 向音频模板控制方同步设置信息。使用Promise异步回调。
 
@@ -3919,14 +3680,12 @@ setSettings(settingItems: SettingItem[]): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| settingItems | [SettingItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-i#settingitem)[] | 是 | 设置项数组。 |
+| settingItems | SettingItem[] | 是 | 设置项数组。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -3936,7 +3695,6 @@ setSettings(settingItems: SettingItem[]): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3947,36 +3705,34 @@ setSettings(settingItems: SettingItem[]): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  /**
-   * 设置项变化后通知。
-   */
-  public setSettings() {
-    let settingItems: avMusicTemplate.SettingItem[] = [
-      {
-        id: 'id',
-        title: 'title',
-        desc: 'desc',
-        mediaId: 'mediaId',
-        settingType: avMusicTemplate.SettingType.SWITCH,
-        settingValue: false,
-      },
-    ];
-    this.template?.setSettings(settingItems);
-  }
+    /**
+     * 设置项变化后通知。
+     */
+    public setSettings() {
+        let settingItems: avMusicTemplate.SettingItem[] = [{
+            id: 'id',
+            title: 'title',
+            desc: 'desc',
+            mediaId: 'mediaId',
+            settingType: avMusicTemplate.SettingType.SWITCH,
+            settingValue: false
+        }];
+        this.template?.setSettings(settingItems);
+    };
 }
 ```
 
 
-## reportExecuteAction
 
-reportExecuteAction(actionType: string, params: string): Promise<void>
+##### reportExecuteAction
+
+reportExecuteAction(actionType: string, params: string): Promise&lt;void&gt;
 
 向音频模板控制方同步执行操作信息。使用Promise异步回调。
 
@@ -3986,7 +3742,6 @@ reportExecuteAction(actionType: string, params: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | actionType | string | 是 | 行为类型。 |
@@ -3994,7 +3749,6 @@ reportExecuteAction(actionType: string, params: string): Promise<void>
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4004,7 +3758,6 @@ reportExecuteAction(actionType: string, params: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4015,28 +3768,28 @@ reportExecuteAction(actionType: string, params: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  /**
-   * 模拟向媒体中心同步执行操作信息。
-   */
-  public reportExecuteAction() {
-    let actionType: string = 'actionType';
-    let params: string = 'params';
-    this.template?.reportExecuteAction(actionType, params);
-  }
+    /**
+     * 模拟向媒体中心同步执行操作信息。
+     */
+    public reportExecuteAction() {
+        let actionType: string = 'actionType';
+        let params: string = 'params';
+        this.template?.reportExecuteAction(actionType, params);
+    };
 }
 ```
 
 
-## setExtensionAbility
 
-setExtensionAbility(want: WantAgent): Promise<void>
+##### setExtensionAbility
+
+setExtensionAbility(want: WantAgent): Promise&lt;void&gt;
 
 向音频模板控制方同步用于被拉起的Ability。使用Promise异步回调。
 
@@ -4046,14 +3799,12 @@ setExtensionAbility(want: WantAgent): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| want | [WantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantagent#wantagent) | 是 | 能力信息。 |
+| want | WantAgent | 是 | 能力信息。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4064,7 +3815,6 @@ setExtensionAbility(want: WantAgent): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[音频模板错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-avmusictemplate)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | capability not supported. |
@@ -4074,44 +3824,44 @@ setExtensionAbility(want: WantAgent): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 import { wantAgent } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export class TemplateManager {
-  private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
+    private template: avMusicTemplate.AVMusicTemplate | undefined = undefined;
 
-  /**
-   * 媒体应用需要拉起应用的自定义界面时调用。
-   */
-  public setExtensionAbility() {
-    let wantAgentInfo: wantAgent.WantAgentInfo = {
-      wants: [
-        {
-          bundleName: 'com.example.templateprovider',
-          abilityName: 'EntryAbility',
-          type: 'action',
-          parameters: {
-            'ability.want.params.uiExtensionType': 'action',
-          },
-        },
-      ],
-      actionType: wantAgent.OperationType.START_ABILITIES,
-      requestCode: 0,
+    /**
+     * 媒体应用需要拉起应用的自定义界面时调用。
+     */
+    public setExtensionAbility() {
+        let wantAgentInfo: wantAgent.WantAgentInfo = {
+            wants: [
+                {
+                    bundleName: "com.example.templateprovider",
+                    abilityName: 'EntryAbility',
+                    type: 'action',
+                    parameters: {
+                        'ability.want.params.uiExtensionType': 'action'
+                    }
+                }
+            ],
+            actionType: wantAgent.OperationType.START_ABILITIES,
+            requestCode: 0
+        }
+        wantAgent.getWantAgent(wantAgentInfo).then((agent) => {
+            this.template?.setExtensionAbility(agent);
+        })
     };
-    wantAgent.getWantAgent(wantAgentInfo).then((agent) => {
-      this.template?.setExtensionAbility(agent);
-    });
-  }
 }
 ```
 
 
-## destroy
 
-destroy(): Promise<void>
+##### destroy
+
+destroy(): Promise&lt;void&gt;
 
 销毁音频模板实例。使用Promise异步回调。
 
@@ -4120,7 +3870,6 @@ destroy(): Promise<void>
 **系统能力：** SystemCapability.Multimedia.AVSession.AVMusicTemplate
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -4131,7 +3880,6 @@ destroy(): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported.function destroy can not work correctly due to limited device capabilities. |
@@ -4139,8 +3887,7 @@ destroy(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { avMusicTemplate } from '@kit.AVSessionKit';
 
 export class TemplateManager {

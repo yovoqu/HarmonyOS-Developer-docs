@@ -4,13 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-common
 
-
 ```text
 enum ArkUI_NodeAttributeType
 ```
 
 
-## 概述
+##### 概述
 
 定义ArkUI在Native侧可以设置的通用属性样式集合。
 
@@ -21,8 +20,8 @@ enum ArkUI_NodeAttributeType
 **所在头文件：** [native_node.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h)
 
 
-## NODE_WIDTH
 
+##### NODE_WIDTH
 
 ```text
 NODE_WIDTH = 0
@@ -36,7 +35,6 @@ NODE_WIDTH = 0
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 | 宽度数值，单位为vp。 |
@@ -44,14 +42,14 @@ NODE_WIDTH = 0
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].f32 | 宽度数值，单位为vp。 |
 
 
-## NODE_HEIGHT
 
+
+##### NODE_HEIGHT
 
 ```text
 NODE_HEIGHT = 1
@@ -65,7 +63,6 @@ NODE_HEIGHT = 1
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 | 高度数值，单位为vp。 |
@@ -73,14 +70,14 @@ NODE_HEIGHT = 1
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].f32 | 高度数值，单位为vp。 |
 
 
-## NODE_BACKGROUND_COLOR
 
+
+##### NODE_BACKGROUND_COLOR
 
 ```text
 NODE_BACKGROUND_COLOR = 2
@@ -94,7 +91,6 @@ NODE_BACKGROUND_COLOR = 2
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].u32 | 背景色数值，0xargb格式，形如 0xFFFF0000 表示红色。 |
@@ -102,14 +98,14 @@ NODE_BACKGROUND_COLOR = 2
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].u32 | 背景色数值，0xargb格式，形如 0xFFFF0000 表示红色。 |
 
 
-## NODE_BACKGROUND_IMAGE
 
+
+##### NODE_BACKGROUND_IMAGE
 
 ```text
 NODE_BACKGROUND_IMAGE = 3
@@ -123,19 +119,17 @@ NODE_BACKGROUND_IMAGE = 3
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| .string | 图片地址。API version 22及之前版本，支持网络图片资源地址、本地图片资源地址、Base64和[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)资源，不支持[svg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg)图片、gif和webp等类型的动图。 从API version 23开始，新增支持webp和gif类型的动图，显示动图第一帧，不支持其他类型的动图。 |
-| .value[0]?.i32 | 可选值，repeat参数，参数类型[ArkUI_ImageRepeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerepeat)，默认值为ARKUI_IMAGE_REPEAT_NONE。 |
-| .object | PixelMap 图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)。          .object参数和.string参数二选一，不可同时设置。 |
+| .string | 图片地址。API version 22及之前版本，支持网络图片资源地址、本地图片资源地址、Base64和PixelMap资源，不支持svg图片、gif和webp等类型的动图。 从API version 23开始，新增支持webp和gif类型的动图，显示动图第一帧，不支持其他类型的动图。 |
+| .value[0]?.i32 | 可选值，repeat参数，参数类型ArkUI_ImageRepeat，默认值为ARKUI_IMAGE_REPEAT_NONE。 |
+| .object | PixelMap 图片数据，参数类型为ArkUI_DrawableDescriptor。 .object参数和.string参数二选一，不可同时设置。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | .string | 图片地址。API version 22及之前版本，支持网络图片资源地址、本地图片资源地址、Base64和PixelMap资源，不支持svg图片、gif和webp等类型的动图。 从API version 23开始，新增支持webp和gif类型的动图，显示动图第一帧，不支持其他类型的动图。 |
-| .value[0].i32 | repeat参数，参数类型[ArkUI_ImageRepeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_imagerepeat)。 |
-| .object | PixelMap 图片数据，参数类型为[ArkUI_DrawableDescriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptor)。 |
+| .value[0].i32 | repeat参数，参数类型ArkUI_ImageRepeat。 |
+| .object | PixelMap 图片数据，参数类型为ArkUI_DrawableDescriptor。 |

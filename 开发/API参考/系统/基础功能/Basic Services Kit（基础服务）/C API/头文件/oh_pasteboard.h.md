@@ -3,11 +3,9 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 提供访问系统剪贴板的接口、数据结构、枚举类型。
 
@@ -22,91 +20,90 @@
 **相关模块：** [Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [Pasteboard_ProgressInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-progressinfo) | Pasteboard_ProgressInfo | 定义进度上报的数据结构。 |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams) | Pasteboard_GetDataParams | 表示从剪贴板获取粘贴数据和进度时需要写入的参数。 |
-| [OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver) | OH_PasteboardObserver | 定义剪贴板数据变更观察者。 |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard) | OH_Pasteboard | 定义剪贴板对象，用以操作系统剪贴板。 |
+| Pasteboard_ProgressInfo | Pasteboard_ProgressInfo | 定义进度上报的数据结构。 |
+| Pasteboard_GetDataParams | Pasteboard_GetDataParams | 表示从剪贴板获取粘贴数据和进度时需要写入的参数。 |
+| OH_PasteboardObserver | OH_PasteboardObserver | 定义剪贴板数据变更观察者。 |
+| OH_Pasteboard | OH_Pasteboard | 定义剪贴板对象，用以操作系统剪贴板。 |
 
 
-### 宏定义
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 宏定义
 
 | 名称 | 描述 |
 | --- | --- |
-| [PASTEBOARD_MIMETYPE_TEXT_PLAIN](#pasteboard_mimetype_text_plain) "text/plain" | 纯文本类型。 |
-| [PASTEBOARD_MIMETYPE_TEXT_URI](#pasteboard_mimetype_text_uri) "text/uri" | URI类型。 |
-| [PASTEBOARD_MIMETYPE_TEXT_HTML](#pasteboard_mimetype_text_html) "text/html" | HTML类型。 |
-| [PASTEBOARD_MIMETYPE_PIXELMAP](#pasteboard_mimetype_pixelmap) "pixelMap" | pixelMap类型。 |
-| [PASTEBOARD_MIMETYPE_TEXT_WANT](#pasteboard_mimetype_text_want) "text/want" | want类型。 |
+| PASTEBOARD_MIMETYPE_TEXT_PLAIN "text/plain" | 纯文本类型。 |
+| PASTEBOARD_MIMETYPE_TEXT_URI "text/uri" | URI类型。 |
+| PASTEBOARD_MIMETYPE_TEXT_HTML "text/html" | HTML类型。 |
+| PASTEBOARD_MIMETYPE_PIXELMAP "pixelMap" | pixelMap类型。 |
+| PASTEBOARD_MIMETYPE_TEXT_WANT "text/want" | want类型。 |
 
 
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-| 名称 | typedef关键字 | 描述 |
-| --- | --- | --- |
-| [Pasteboard_NotifyType](#pasteboard_notifytype) | Pasteboard_NotifyType | 剪贴板的数据变更类型。 |
-| [Pasteboard_FileConflictOptions](#pasteboard_fileconflictoptions) | Pasteboard_FileConflictOptions | 定义文件拷贝冲突时的选项。 |
-| [Pasteboard_ProgressIndicator](#pasteboard_progressindicator) | Pasteboard_ProgressIndicator | 定义进度条指示选项，可选择是否采用系统默认进度显示。 |
-
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 枚举
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [typedef void (*OH_Pasteboard_ProgressListener)(Pasteboard_ProgressInfo* progressInfo)](#oh_pasteboard_progresslistener) | OH_Pasteboard_ProgressListener | 用于在不使用系统默认进度显示时，通知应用拷贝粘贴任务进度。 |
-| [typedef void (*Pasteboard_Notify)(void* context, Pasteboard_NotifyType type)](#pasteboard_notify) | Pasteboard_Notify | 定义剪贴板内容变更时触发的回调函数。 |
-| [typedef void (*Pasteboard_Finalize)(void* context)](#pasteboard_finalize) | Pasteboard_Finalize | 定义用于释放上下文的回调函数，剪贴板数据变更观察者对象销毁时触发。 |
-| [OH_PasteboardObserver* OH_PasteboardObserver_Create()](#oh_pasteboardobserver_create) | - | 创建一个剪贴板数据变更观察者[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)指针及实例对象。 |
-| [int OH_PasteboardObserver_Destroy(OH_PasteboardObserver* observer)](#oh_pasteboardobserver_destroy) | - | 销毁剪贴板数据变更观察者[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)指针指向的实例对象。 |
-| [int OH_PasteboardObserver_SetData(OH_PasteboardObserver* observer, void* context,const Pasteboard_Notify callback, const Pasteboard_Finalize finalize)](#oh_pasteboardobserver_setdata) | - | 向剪贴板数据变更观察者设置回调函数。 |
-| [OH_Pasteboard* OH_Pasteboard_Create()](#oh_pasteboard_create) | - | 创建剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)指针及实例对象。 |
-| [void OH_Pasteboard_Destroy(OH_Pasteboard* pasteboard)](#oh_pasteboard_destroy) | - | 销毁剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例对象。 |
-| [int OH_Pasteboard_Subscribe(OH_Pasteboard* pasteboard, int type, const OH_PasteboardObserver* observer)](#oh_pasteboard_subscribe) | - | 订阅剪贴板的数据变更事件。 |
-| [int OH_Pasteboard_Unsubscribe(OH_Pasteboard* pasteboard, int type, const OH_PasteboardObserver* observer)](#oh_pasteboard_unsubscribe) | - | 取消对剪贴板数据变更事件的订阅。 |
-| [bool OH_Pasteboard_IsRemoteData(OH_Pasteboard* pasteboard)](#oh_pasteboard_isremotedata) | - | 判断剪贴板中的数据是否来自远端设备。 |
-| [int OH_Pasteboard_GetDataSource(OH_Pasteboard* pasteboard, char* source, unsigned int len)](#oh_pasteboard_getdatasource) | - | 获取剪贴板中数据的数据源。 |
-| [bool OH_Pasteboard_HasType(OH_Pasteboard* pasteboard, const char* type)](#oh_pasteboard_hastype) | - | 判断剪贴板中是否有指定类型的数据。 |
-| [bool OH_Pasteboard_HasData(OH_Pasteboard* pasteboard)](#oh_pasteboard_hasdata) | - | 判断剪贴板中是否有数据。 |
-| [OH_UdmfData* OH_Pasteboard_GetData(OH_Pasteboard* pasteboard, int* status)](#oh_pasteboard_getdata) | - | 获取剪贴板中的数据。 |
-| [int OH_Pasteboard_SetData(OH_Pasteboard* pasteboard, OH_UdmfData* data)](#oh_pasteboard_setdata) | - | 将统一数据对象数据写入剪贴板。 |
-| [int OH_Pasteboard_ClearData(OH_Pasteboard* pasteboard)](#oh_pasteboard_cleardata) | - | 清空剪贴板中的数据。 |
-| [char **OH_Pasteboard_GetMimeTypes(OH_Pasteboard *pasteboard, unsigned int *count)](#oh_pasteboard_getmimetypes) | - | 获取剪贴板中的MIME类型。 |
-| [Pasteboard_GetDataParams *OH_Pasteboard_GetDataParams_Create(void)](#oh_pasteboard_getdataparams_create) | - | 创建剪贴板[Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)指针及实例对象。 |
-| [void OH_Pasteboard_GetDataParams_Destroy(Pasteboard_GetDataParams* params)](#oh_pasteboard_getdataparams_destroy) | - | 销毁剪贴板[Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)指针指向的实例对象。 |
-| [void OH_Pasteboard_GetDataParams_SetProgressIndicator(Pasteboard_GetDataParams* params,Pasteboard_ProgressIndicator progressIndicator)](#oh_pasteboard_getdataparams_setprogressindicator) | - | 向剪贴板[Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)设置进度条指示选项，可选择是否采用系统默认进度显示。 |
-| [void OH_Pasteboard_GetDataParams_SetDestUri(Pasteboard_GetDataParams* params, const char* destUri, uint32_t destUriLen)](#oh_pasteboard_getdataparams_setdesturi) | - | 向剪贴板[Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)设置拷贝文件时目标路径。若不支持文件处理，则不需要设置此参数；若应用涉及复杂文件处理策略或需要区分文件多路径存储，建议不设置此参数，由应用自行完成文件copy处理。 |
-| [void OH_Pasteboard_GetDataParams_SetFileConflictOptions(Pasteboard_GetDataParams* params,Pasteboard_FileConflictOptions option)](#oh_pasteboard_getdataparams_setfileconflictoptions) | - | 向剪贴板[Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)设置文件冲突选项。 |
-| [void OH_Pasteboard_GetDataParams_SetProgressListener(Pasteboard_GetDataParams* params,const OH_Pasteboard_ProgressListener listener)](#oh_pasteboard_getdataparams_setprogresslistener) | - | 向剪贴板[Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)设置进度上报回调函数。 |
-| [int OH_Pasteboard_ProgressInfo_GetProgress(Pasteboard_ProgressInfo* progressInfo)](#oh_pasteboard_progressinfo_getprogress) | - | 从[Pasteboard_ProgressInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-progressinfo)获取粘贴进度。 |
-| [void OH_Pasteboard_ProgressCancel(Pasteboard_GetDataParams* params)](#oh_pasteboard_progresscancel) | - | 定义取消函数，用于在获取粘贴数据时取消正在进行的粘贴动作。 |
-| [OH_UdmfData* OH_Pasteboard_GetDataWithProgress(OH_Pasteboard* pasteboard, Pasteboard_GetDataParams* params,int* status)](#oh_pasteboard_getdatawithprogress) | - | 获取剪贴板的数据以及粘贴进度，不支持对文件夹的拷贝。 |
-| [uint32_t OH_Pasteboard_GetChangeCount(OH_Pasteboard *pasteboard)](#oh_pasteboard_getchangecount) | - | 获取剪贴板内容的变化次数。 |
-| [void OH_Pasteboard_SyncDelayedDataAsync(OH_Pasteboard* pasteboard, void (*callback)(int errorCode))](#oh_pasteboard_syncdelayeddataasync) | - | 通知剪贴板从应用同步所有延迟数据，与延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)搭配使用。当应用使用延迟复制功能复制时，仅将应用支持的数据类型写入剪贴板。应用应在退出时，重新调用[OH_Pasteboard_SetData](#oh_pasteboard_setdata)接口主动提交所有复制数据或调用此接口通知剪贴板获取全量数据，等待数据同步完成再继续退出，否则可能导致其他应用粘贴获取不到数据。 |
-| [bool OH_Pasteboard_HasRemoteData(OH_Pasteboard* pasteboard)](#oh_pasteboard_hasremotedata) | - | 判断当前待粘贴的剪贴板数据是否在远端设备上。 |
+| Pasteboard_NotifyType | Pasteboard_NotifyType | 剪贴板的数据变更类型。 |
+| Pasteboard_FileConflictOptions | Pasteboard_FileConflictOptions | 定义文件拷贝冲突时的选项。 |
+| Pasteboard_ProgressIndicator | Pasteboard_ProgressIndicator | 定义进度条指示选项，可选择是否采用系统默认进度显示。 |
 
 
-## 宏定义说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### PASTEBOARD_MIMETYPE_TEXT_PLAIN
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数
 
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| typedef void (*OH_Pasteboard_ProgressListener)(Pasteboard_ProgressInfo* progressInfo) | OH_Pasteboard_ProgressListener | 用于在不使用系统默认进度显示时，通知应用拷贝粘贴任务进度。 |
+| typedef void (*Pasteboard_Notify)(void* context, Pasteboard_NotifyType type) | Pasteboard_Notify | 定义剪贴板内容变更时触发的回调函数。 |
+| typedef void (*Pasteboard_Finalize)(void* context) | Pasteboard_Finalize | 定义用于释放上下文的回调函数，剪贴板数据变更观察者对象销毁时触发。 |
+| OH_PasteboardObserver* OH_PasteboardObserver_Create() | - | 创建一个剪贴板数据变更观察者OH_PasteboardObserver指针及实例对象。 |
+| int OH_PasteboardObserver_Destroy(OH_PasteboardObserver* observer) | - | 销毁剪贴板数据变更观察者OH_PasteboardObserver指针指向的实例对象。 |
+| int OH_PasteboardObserver_SetData(OH_PasteboardObserver* observer, void* context,const Pasteboard_Notify callback, const Pasteboard_Finalize finalize) | - | 向剪贴板数据变更观察者设置回调函数。 |
+| OH_Pasteboard* OH_Pasteboard_Create() | - | 创建剪贴板OH_Pasteboard指针及实例对象。 |
+| void OH_Pasteboard_Destroy(OH_Pasteboard* pasteboard) | - | 销毁剪贴板OH_Pasteboard实例对象。 |
+| int OH_Pasteboard_Subscribe(OH_Pasteboard* pasteboard, int type, const OH_PasteboardObserver* observer) | - | 订阅剪贴板的数据变更事件。 |
+| int OH_Pasteboard_Unsubscribe(OH_Pasteboard* pasteboard, int type, const OH_PasteboardObserver* observer) | - | 取消对剪贴板数据变更事件的订阅。 |
+| bool OH_Pasteboard_IsRemoteData(OH_Pasteboard* pasteboard) | - | 判断剪贴板中的数据是否来自远端设备。 |
+| int OH_Pasteboard_GetDataSource(OH_Pasteboard* pasteboard, char* source, unsigned int len) | - | 获取剪贴板中数据的数据源。 |
+| bool OH_Pasteboard_HasType(OH_Pasteboard* pasteboard, const char* type) | - | 判断剪贴板中是否有指定类型的数据。 |
+| bool OH_Pasteboard_HasData(OH_Pasteboard* pasteboard) | - | 判断剪贴板中是否有数据。 |
+| OH_UdmfData* OH_Pasteboard_GetData(OH_Pasteboard* pasteboard, int* status) | - | 获取剪贴板中的数据。 |
+| int OH_Pasteboard_SetData(OH_Pasteboard* pasteboard, OH_UdmfData* data) | - | 将统一数据对象数据写入剪贴板。 |
+| int OH_Pasteboard_ClearData(OH_Pasteboard* pasteboard) | - | 清空剪贴板中的数据。 |
+| char **OH_Pasteboard_GetMimeTypes(OH_Pasteboard *pasteboard, unsigned int *count) | - | 获取剪贴板中的MIME类型。 |
+| Pasteboard_GetDataParams *OH_Pasteboard_GetDataParams_Create(void) | - | 创建剪贴板Pasteboard_GetDataParams指针及实例对象。 |
+| void OH_Pasteboard_GetDataParams_Destroy(Pasteboard_GetDataParams* params) | - | 销毁剪贴板Pasteboard_GetDataParams指针指向的实例对象。 |
+| void OH_Pasteboard_GetDataParams_SetProgressIndicator(Pasteboard_GetDataParams* params,Pasteboard_ProgressIndicator progressIndicator) | - | 向剪贴板Pasteboard_GetDataParams设置进度条指示选项，可选择是否采用系统默认进度显示。 |
+| void OH_Pasteboard_GetDataParams_SetDestUri(Pasteboard_GetDataParams* params, const char* destUri, uint32_t destUriLen) | - | 向剪贴板Pasteboard_GetDataParams设置拷贝文件时目标路径。若不支持文件处理，则不需要设置此参数；若应用涉及复杂文件处理策略或需要区分文件多路径存储，建议不设置此参数，由应用自行完成文件copy处理。 |
+| void OH_Pasteboard_GetDataParams_SetFileConflictOptions(Pasteboard_GetDataParams* params,Pasteboard_FileConflictOptions option) | - | 向剪贴板Pasteboard_GetDataParams设置文件冲突选项。 |
+| void OH_Pasteboard_GetDataParams_SetProgressListener(Pasteboard_GetDataParams* params,const OH_Pasteboard_ProgressListener listener) | - | 向剪贴板Pasteboard_GetDataParams设置进度上报回调函数。 |
+| int OH_Pasteboard_ProgressInfo_GetProgress(Pasteboard_ProgressInfo* progressInfo) | - | 从Pasteboard_ProgressInfo获取粘贴进度。 |
+| void OH_Pasteboard_ProgressCancel(Pasteboard_GetDataParams* params) | - | 定义取消函数，用于在获取粘贴数据时取消正在进行的粘贴动作。 |
+| OH_UdmfData* OH_Pasteboard_GetDataWithProgress(OH_Pasteboard* pasteboard, Pasteboard_GetDataParams* params,int* status) | - | 获取剪贴板的数据以及粘贴进度，不支持对文件夹的拷贝。 |
+| uint32_t OH_Pasteboard_GetChangeCount(OH_Pasteboard *pasteboard) | - | 获取剪贴板内容的变化次数。 |
+| void OH_Pasteboard_SyncDelayedDataAsync(OH_Pasteboard* pasteboard, void (*callback)(int errorCode)) | - | 通知剪贴板从应用同步所有延迟数据，与延迟复制接口OH_UdmfRecordProvider_SetData搭配使用。当应用使用延迟复制功能复制时，仅将应用支持的数据类型写入剪贴板。应用应在退出时，重新调用OH_Pasteboard_SetData接口主动提交所有复制数据或调用此接口通知剪贴板获取全量数据，等待数据同步完成再继续退出，否则可能导致其他应用粘贴获取不到数据。 |
+| bool OH_Pasteboard_HasRemoteData(OH_Pasteboard* pasteboard) | - | 判断当前待粘贴的剪贴板数据是否在远端设备上。 |
+
+
+
+
+##### 宏定义说明
+
+
+
+##### PASTEBOARD_MIMETYPE_TEXT_PLAIN
 
 ```text
 #define PASTEBOARD_MIMETYPE_TEXT_PLAIN "text/plain"
@@ -119,9 +116,8 @@
 **起始版本：** 22
 
 
-### PASTEBOARD_MIMETYPE_TEXT_URI
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### PASTEBOARD_MIMETYPE_TEXT_URI
 
 ```text
 #define PASTEBOARD_MIMETYPE_TEXT_URI "text/uri"
@@ -134,9 +130,8 @@ URI类型。
 **起始版本：** 22
 
 
-### PASTEBOARD_MIMETYPE_TEXT_HTML
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### PASTEBOARD_MIMETYPE_TEXT_HTML
 
 ```text
 #define PASTEBOARD_MIMETYPE_TEXT_HTML "text/html"
@@ -149,9 +144,8 @@ HTML类型。
 **起始版本：** 22
 
 
-### PASTEBOARD_MIMETYPE_PIXELMAP
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### PASTEBOARD_MIMETYPE_PIXELMAP
 
 ```text
 #define PASTEBOARD_MIMETYPE_PIXELMAP "pixelMap"
@@ -164,9 +158,8 @@ pixelMap类型。
 **起始版本：** 22
 
 
-### PASTEBOARD_MIMETYPE_TEXT_WANT
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### PASTEBOARD_MIMETYPE_TEXT_WANT
 
 ```text
 #define PASTEBOARD_MIMETYPE_TEXT_WANT "text/want"
@@ -179,13 +172,12 @@ want类型。
 **起始版本：** 22
 
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 枚举类型说明
 
 
-### Pasteboard_NotifyType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### Pasteboard_NotifyType
 
 ```text
 enum Pasteboard_NotifyType
@@ -197,16 +189,15 @@ enum Pasteboard_NotifyType
 
 **起始版本：** 13
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | NOTIFY_LOCAL_DATA_CHANGE = 1 | 本地设备剪贴板数据变更。 |
 | NOTIFY_REMOTE_DATA_CHANGE = 2 | 组网内的非本地设备剪贴板数据变更。 |
 
 
-### Pasteboard_FileConflictOptions
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Pasteboard_FileConflictOptions
 
 ```text
 enum Pasteboard_FileConflictOptions
@@ -218,16 +209,15 @@ enum Pasteboard_FileConflictOptions
 
 **起始版本：** 15
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PASTEBOARD_OVERWRITE = 0 | 目标路径存在同文件名时覆盖。 |
 | PASTEBOARD_SKIP = 1 | 目标路径存在同文件名时跳过。 |
 
 
-### Pasteboard_ProgressIndicator
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Pasteboard_ProgressIndicator
 
 ```text
 enum Pasteboard_ProgressIndicator
@@ -239,20 +229,19 @@ enum Pasteboard_ProgressIndicator
 
 **起始版本：** 15
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PASTEBOARD_NONE = 0 | 不采用系统默认进度显示。 |
 | PASTEBOARD_DEFAULT = 1 | 采用系统默认进度显示。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### OH_Pasteboard_ProgressListener()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### OH_Pasteboard_ProgressListener()
 
 ```text
 typedef void (*OH_Pasteboard_ProgressListener)(Pasteboard_ProgressInfo* progressInfo)
@@ -266,15 +255,14 @@ typedef void (*OH_Pasteboard_ProgressListener)(Pasteboard_ProgressInfo* progress
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_ProgressInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-progressinfo)* progressInfo | 定义进度上报的数据结构，且仅当进度指示选项[Pasteboard_ProgressIndicator](#pasteboard_progressindicator)设置为PASTEBOARD_NONE时才会上报此信息。 |
+| Pasteboard_ProgressInfo* progressInfo | 定义进度上报的数据结构，且仅当进度指示选项Pasteboard_ProgressIndicator设置为PASTEBOARD_NONE时才会上报此信息。 |
 
 
-### Pasteboard_Notify()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Pasteboard_Notify()
 
 ```text
 typedef void (*Pasteboard_Notify)(void* context, Pasteboard_NotifyType type)
@@ -288,16 +276,15 @@ typedef void (*Pasteboard_Notify)(void* context, Pasteboard_NotifyType type)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| void* context | 上下文信息，由函数[OH_PasteboardObserver_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#oh_pasteboardobserver_setdata)传入。 |
-| [Pasteboard_NotifyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_notifytype) type | 数据变更的类型。详见：[Pasteboard_NotifyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_notifytype)。 |
+| void* context | 上下文信息，由函数OH_PasteboardObserver_SetData传入。 |
+| Pasteboard_NotifyType type | 数据变更的类型。详见：Pasteboard_NotifyType。 |
 
 
-### Pasteboard_Finalize()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### Pasteboard_Finalize()
 
 ```text
 typedef void (*Pasteboard_Finalize)(void* context)
@@ -311,15 +298,14 @@ typedef void (*Pasteboard_Finalize)(void* context)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | void* context | 要释放的上下文指针。 |
 
 
-### OH_PasteboardObserver_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PasteboardObserver_Create()
 
 ```text
 OH_PasteboardObserver* OH_PasteboardObserver_Create()
@@ -333,15 +319,14 @@ OH_PasteboardObserver* OH_PasteboardObserver_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)* | 执行成功时返回一个指向剪贴板数据变更观察��[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)实例对象的指针，否则返回空指针。          当不再需要使用指针时，请使用[OH_PasteboardObserver_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#oh_pasteboardobserver_destroy)销毁实例对象，否则会导致内存泄漏。 |
+| OH_PasteboardObserver* | 执行成功时返回一个指向剪贴板数据变更观察者OH_PasteboardObserver实例对象的指针，否则返回空指针。 当不再需要使用指针时，请使用OH_PasteboardObserver_Destroy销毁实例对象，否则会导致内存泄漏。 |
 
 
-### OH_PasteboardObserver_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PasteboardObserver_Destroy()
 
 ```text
 int OH_PasteboardObserver_Destroy(OH_PasteboardObserver* observer)
@@ -355,23 +340,21 @@ int OH_PasteboardObserver_Destroy(OH_PasteboardObserver* observer)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)* observer | 表示指向剪贴板数据变更观察者[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)实例的指针。 |
+| OH_PasteboardObserver* observer | 表示指向剪贴板数据变更观察者OH_PasteboardObserver实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。          若返回ERR_OK，表示执行成功。          若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
+| int | 返回执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 若返回ERR_OK，表示执行成功。 若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
 
 
-### OH_PasteboardObserver_SetData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PasteboardObserver_SetData()
 
 ```text
 int OH_PasteboardObserver_SetData(OH_PasteboardObserver* observer, void* context,const Pasteboard_Notify callback, const Pasteboard_Finalize finalize)
@@ -385,26 +368,24 @@ int OH_PasteboardObserver_SetData(OH_PasteboardObserver* observer, void* context
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)* observer | 表示指向剪贴板数据变更观察者[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)实例的指针。 |
-| void* context | 表示指向上下文数据的指针，将作为第一个参数传入[Pasteboard_Notify](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_notify)。 |
-| const [Pasteboard_Notify](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_notify) callback | 表示数据变更回调函数。详见：[Pasteboard_Notify](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_notify)。 |
-| const [Pasteboard_Finalize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_finalize) finalize | 表示可选的回调函数，可以用于剪贴板数据变更观察者销毁时释放上下文数据。详见：[Pasteboard_Finalize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_finalize)。 |
+| OH_PasteboardObserver* observer | 表示指向剪贴板数据变更观察者OH_PasteboardObserver实例的指针。 |
+| void* context | 表示指向上下文数据的指针，将作为第一个参数传入Pasteboard_Notify。 |
+| const Pasteboard_Notify callback | 表示数据变更回调函数。详见：Pasteboard_Notify。 |
+| const Pasteboard_Finalize finalize | 表示可选的回调函数，可以用于剪贴板数据变更观察者销毁时释放上下文数据。详见：Pasteboard_Finalize。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。          若返回ERR_OK，表示执行成功。          若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
+| int | 返回执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 若返回ERR_OK，表示执行成功。 若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
 
 
-### OH_Pasteboard_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_Create()
 
 ```text
 OH_Pasteboard* OH_Pasteboard_Create()
@@ -418,15 +399,14 @@ OH_Pasteboard* OH_Pasteboard_Create()
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* | 执行成功则返回一个指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例对象的指针，否则返回nullptr。          当不再需要使用指针时，请使用[OH_Pasteboard_Destroy](#oh_pasteboard_destroy)销毁实例对象，否则会导致内存泄漏。 |
+| OH_Pasteboard* | 执行成功则返回一个指向剪贴板OH_Pasteboard实例对象的指针，否则返回nullptr。 当不再需要使用指针时，请使用OH_Pasteboard_Destroy销毁实例对象，否则会导致内存泄漏。 |
 
 
-### OH_Pasteboard_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_Destroy()
 
 ```text
 void OH_Pasteboard_Destroy(OH_Pasteboard* pasteboard)
@@ -440,15 +420,14 @@ void OH_Pasteboard_Destroy(OH_Pasteboard* pasteboard)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 
 
-### OH_Pasteboard_Subscribe()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_Subscribe()
 
 ```text
 int OH_Pasteboard_Subscribe(OH_Pasteboard* pasteboard, int type, const OH_PasteboardObserver* observer)
@@ -462,25 +441,23 @@ int OH_Pasteboard_Subscribe(OH_Pasteboard* pasteboard, int type, const OH_Pasteb
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
-| int type | 表示订阅的剪贴板数据变更类型，详见：[Pasteboard_NotifyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_notifytype)。 |
-| const [OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)* observer | 表示指向剪贴板数据变更观察者[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)实例的指针。它指定了剪贴板数据变更时触发的回调函数，详见：[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
+| int type | 表示订阅的剪贴板数据变更类型，详见：Pasteboard_NotifyType。 |
+| const OH_PasteboardObserver* observer | 表示指向剪贴板数据变更观察者OH_PasteboardObserver实例的指针。它指定了剪贴板数据变更时触发的回调函数，详见：OH_PasteboardObserver。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。          若返回ERR_OK，表示执行成功。          若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
+| int | 返回执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 若返回ERR_OK，表示执行成功。 若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
 
 
-### OH_Pasteboard_Unsubscribe()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_Unsubscribe()
 
 ```text
 int OH_Pasteboard_Unsubscribe(OH_Pasteboard* pasteboard, int type, const OH_PasteboardObserver* observer)
@@ -494,25 +471,23 @@ int OH_Pasteboard_Unsubscribe(OH_Pasteboard* pasteboard, int type, const OH_Past
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
-| int type | 表示订阅的剪贴板数据变更类型，详见：[Pasteboard_NotifyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#pasteboard_notifytype)。 |
-| const [OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)* observer | 表示指向剪贴板数据变更观察者[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)实例的指针。它指定了剪贴板数据���更时触发的回调函数，详见：[OH_PasteboardObserver](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboardobserver)。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
+| int type | 表示订阅的剪贴板数据变更类型，详见：Pasteboard_NotifyType。 |
+| const OH_PasteboardObserver* observer | 表示指向剪贴板数据变更观察者OH_PasteboardObserver实例的指针。它指定了剪贴板数据变更时触发的回调函数，详见：OH_PasteboardObserver。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。          若返回ERR_OK，表示执行成功。          若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
+| int | 返回执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 若返回ERR_OK，表示执行成功。 若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
 
 
-### OH_Pasteboard_IsRemoteData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_IsRemoteData()
 
 ```text
 bool OH_Pasteboard_IsRemoteData(OH_Pasteboard* pasteboard)
@@ -526,23 +501,21 @@ bool OH_Pasteboard_IsRemoteData(OH_Pasteboard* pasteboard)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | bool | 返回剪贴板中的数据是否来自远端设备。返回true表示剪贴板中的数据来自远端设备，返回false表示剪贴板中数据来自本端设备。 |
 
 
-### OH_Pasteboard_GetDataSource()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataSource()
 
 ```text
 int OH_Pasteboard_GetDataSource(OH_Pasteboard* pasteboard, char* source, unsigned int len)
@@ -556,25 +529,23 @@ int OH_Pasteboard_GetDataSource(OH_Pasteboard* pasteboard, char* source, unsigne
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 | char* source | 表示用于存放剪贴板数据源实例的指针，开发者需在调用接口前申请指针指向的内存。 |
 | unsigned int len | 表示source指针对应的内存长度，当内存长度不足时调用接口会失败，建议长度：128字节。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。          若返回ERR_OK，表示执行成功。          若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
+| int | 返回执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 若返回ERR_OK，表示执行成功。 若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
 
 
-### OH_Pasteboard_HasType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_HasType()
 
 ```text
 bool OH_Pasteboard_HasType(OH_Pasteboard* pasteboard, const char* type)
@@ -588,24 +559,22 @@ bool OH_Pasteboard_HasType(OH_Pasteboard* pasteboard, const char* type)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
-| const char* type | 表示要检查的数据类型。包含剪贴板基础数据类型与自定义数据类型，其中剪贴板基础数据类型有："text/plain"、"text/html"、"text/uri"、"text/want"和"pixelMap"，详见[宏定义](#宏定义)。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
+| const char* type | 表示要检查的数据类型。包含剪贴板基础数据类型与自定义数据类型，其中剪贴板基础数据类型有："text/plain"、"text/html"、"text/uri"、"text/want"和"pixelMap"，详见宏定义。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | bool | 返回剪贴板中是否有指定类型的数据。返回true表示剪贴板中包含指定类型的数据，返回false表示剪贴板中没有指定类型的数据。 |
 
 
-### OH_Pasteboard_HasData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_HasData()
 
 ```text
 bool OH_Pasteboard_HasData(OH_Pasteboard* pasteboard)
@@ -619,23 +588,21 @@ bool OH_Pasteboard_HasData(OH_Pasteboard* pasteboard)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | bool | 返回剪贴板中是否有数据。返回true表示剪贴板中有数据，返回false表示剪贴板中没有数据。 |
 
 
-### OH_Pasteboard_HasRemoteData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_HasRemoteData()
 
 ```text
 bool OH_Pasteboard_HasRemoteData(OH_Pasteboard* pasteboard)
@@ -649,23 +616,21 @@ bool OH_Pasteboard_HasRemoteData(OH_Pasteboard* pasteboard)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | bool | 返回指示剪贴板数据是否在远端设备上的结果。true表示剪贴板数据在远端设备上；false表示剪贴板数据不在远端设备上。默认为false。 |
 
 
-### OH_Pasteboard_GetData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetData()
 
 ```text
 OH_UdmfData* OH_Pasteboard_GetData(OH_Pasteboard* pasteboard, int* status)
@@ -681,24 +646,22 @@ OH_UdmfData* OH_Pasteboard_GetData(OH_Pasteboard* pasteboard, int* status)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
-| int* status | 该参数是输出参数，表示执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
+| int* status | 该参数是输出参数，表示执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)* | 执行成功时返回统一数据对象[OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)实例的指针。否则返回空指针。 |
+| OH_UdmfData* | 执行成功时返回统一数据对象OH_UdmfData实例的指针。否则返回空指针。 |
 
 
-### OH_Pasteboard_SetData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_SetData()
 
 ```text
 int OH_Pasteboard_SetData(OH_Pasteboard* pasteboard, OH_UdmfData* data)
@@ -712,24 +675,22 @@ int OH_Pasteboard_SetData(OH_Pasteboard* pasteboard, OH_UdmfData* data)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
-| [OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)* data | 表示指向统一数据对象[OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)实例的指针。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
+| OH_UdmfData* data | 表示指向统一数据对象OH_UdmfData实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。          若返回ERR_OK，表示执行成功。          若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
+| int | 返回执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 若返回ERR_OK，表示执行成功。 若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
 
 
-### OH_Pasteboard_ClearData()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_ClearData()
 
 ```text
 int OH_Pasteboard_ClearData(OH_Pasteboard* pasteboard)
@@ -743,23 +704,21 @@ int OH_Pasteboard_ClearData(OH_Pasteboard* pasteboard)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| int | 返回执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。          若返回ERR_OK，表示执行成功。          若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
+| int | 返回执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 若返回ERR_OK，表示执行成功。 若返回ERR_INVALID_PARAMETER，表示传入了无效参数。 |
 
 
-### OH_Pasteboard_GetMimeTypes()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetMimeTypes()
 
 ```text
 char **OH_Pasteboard_GetMimeTypes(OH_Pasteboard *pasteboard, unsigned int *count)
@@ -773,24 +732,22 @@ char **OH_Pasteboard_GetMimeTypes(OH_Pasteboard *pasteboard, unsigned int *count
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard) *pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard *pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 | unsigned int *count | 该参数是输出参数，结果集中的类型数量会写入该变量。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | char ** | 执行成功时返回剪贴板所有内容的MIME类型，否则返回nullptr。 |
 
 
-### OH_Pasteboard_GetDataParams_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataParams_Create()
 
 ```text
 Pasteboard_GetDataParams *OH_Pasteboard_GetDataParams_Create(void)
@@ -804,15 +761,14 @@ Pasteboard_GetDataParams *OH_Pasteboard_GetDataParams_Create(void)
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams) * | 执行成功时返回一个指向剪贴板[Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)实例对象的指针，否则返回空指针。          当不再需要使用指针时，请使用[OH_Pasteboard_GetDataParams_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h#oh_pasteboard_getdataparams_destroy)销毁实例对象，否则会导致内存泄漏。 |
+| Pasteboard_GetDataParams * | 执行成功时返回一个指向剪贴板Pasteboard_GetDataParams实例对象的指针，否则返回空指针。 当不再需要使用指针时，请使用OH_Pasteboard_GetDataParams_Destroy销毁实例对象，否则会导致内存泄漏。 |
 
 
-### OH_Pasteboard_GetDataParams_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataParams_Destroy()
 
 ```text
 void OH_Pasteboard_GetDataParams_Destroy(Pasteboard_GetDataParams* params)
@@ -826,15 +782,14 @@ void OH_Pasteboard_GetDataParams_Destroy(Pasteboard_GetDataParams* params)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
+| Pasteboard_GetDataParams* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
 
 
-### OH_Pasteboard_GetDataParams_SetProgressIndicator()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataParams_SetProgressIndicator()
 
 ```text
 void OH_Pasteboard_GetDataParams_SetProgressIndicator(Pasteboard_GetDataParams* params,Pasteboard_ProgressIndicator progressIndicator)
@@ -848,16 +803,15 @@ void OH_Pasteboard_GetDataParams_SetProgressIndicator(Pasteboard_GetDataParams* 
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
-| [Pasteboard_ProgressIndicator](#pasteboard_progressindicator) progressIndicator | 定义进度条指示选项。 |
+| Pasteboard_GetDataParams* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
+| Pasteboard_ProgressIndicator progressIndicator | 定义进度条指示选项。 |
 
 
-### OH_Pasteboard_GetDataParams_SetDestUri()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataParams_SetDestUri()
 
 ```text
 void OH_Pasteboard_GetDataParams_SetDestUri(Pasteboard_GetDataParams* params, const char* destUri, uint32_t destUriLen)
@@ -871,17 +825,16 @@ void OH_Pasteboard_GetDataParams_SetDestUri(Pasteboard_GetDataParams* params, co
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
+| Pasteboard_GetDataParams* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
 | const char* destUri | 定义拷贝文件目标路径。 |
 | uint32_t destUriLen | 定义拷贝文件目标路径长度。 |
 
 
-### OH_Pasteboard_GetDataParams_SetFileConflictOptions()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataParams_SetFileConflictOptions()
 
 ```text
 void OH_Pasteboard_GetDataParams_SetFileConflictOptions(Pasteboard_GetDataParams* params,Pasteboard_FileConflictOptions option)
@@ -895,16 +848,15 @@ void OH_Pasteboard_GetDataParams_SetFileConflictOptions(Pasteboard_GetDataParams
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
-| [Pasteboard_FileConflictOptions](#pasteboard_fileconflictoptions) option | 定义文件拷贝冲突时的选项，默认为PASTEBOARD_OVERWRITE。 |
+| Pasteboard_GetDataParams* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
+| Pasteboard_FileConflictOptions option | 定义文件拷贝冲突时的选项，默认为PASTEBOARD_OVERWRITE。 |
 
 
-### OH_Pasteboard_GetDataParams_SetProgressListener()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataParams_SetProgressListener()
 
 ```text
 void OH_Pasteboard_GetDataParams_SetProgressListener(Pasteboard_GetDataParams* params,const OH_Pasteboard_ProgressListener listener)
@@ -918,16 +870,15 @@ void OH_Pasteboard_GetDataParams_SetProgressListener(Pasteboard_GetDataParams* p
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
-| const [OH_Pasteboard_ProgressListener](#oh_pasteboard_progresslistener) listener | 表示进度上报回调函数。 |
+| Pasteboard_GetDataParams* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
+| const OH_Pasteboard_ProgressListener listener | 表示进度上报回调函数。 |
 
 
-### OH_Pasteboard_ProgressInfo_GetProgress()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_ProgressInfo_GetProgress()
 
 ```text
 int OH_Pasteboard_ProgressInfo_GetProgress(Pasteboard_ProgressInfo* progressInfo)
@@ -941,23 +892,21 @@ int OH_Pasteboard_ProgressInfo_GetProgress(Pasteboard_ProgressInfo* progressInfo
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_ProgressInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-progressinfo)* progressInfo | 表示指向剪贴板[Pasteboard_ProgressInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-progressinfo)的指针。 |
+| Pasteboard_ProgressInfo* progressInfo | 表示指向剪贴板Pasteboard_ProgressInfo的指针。 |
 
 
 **返回：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | int | 返回粘贴进度百分比。 |
 
 
-### OH_Pasteboard_ProgressCancel()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_ProgressCancel()
 
 ```text
 void OH_Pasteboard_ProgressCancel(Pasteboard_GetDataParams* params)
@@ -971,15 +920,14 @@ void OH_Pasteboard_ProgressCancel(Pasteboard_GetDataParams* params)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
+| Pasteboard_GetDataParams* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
 
 
-### OH_Pasteboard_GetDataWithProgress()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetDataWithProgress()
 
 ```text
 OH_UdmfData* OH_Pasteboard_GetDataWithProgress(OH_Pasteboard* pasteboard, Pasteboard_GetDataParams* params,int* status)
@@ -995,25 +943,23 @@ OH_UdmfData* OH_Pasteboard_GetDataWithProgress(OH_Pasteboard* pasteboard, Pasteb
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)* pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
-| [Pasteboard_GetDataParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-getdataparams)* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
-| int* status | 该参数是输出参数，表示执行的错误码。错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。 |
+| OH_Pasteboard* pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
+| Pasteboard_GetDataParams* params | 表示指向剪贴板Pasteboard_GetDataParams的指针。 |
+| int* status | 该参数是输出参数，表示执行的错误码。错误码定义详见PASTEBOARD_ErrCode。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OH_UdmfData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-oh-udmfdata)* | 执行成功时返回统一数据对象OH_UdmfData实例的指针。否则返回空指针。 |
+| OH_UdmfData* | 执行成功时返回统一数据对象OH_UdmfData实例的指针。否则返回空指针。 |
 
 
-### OH_Pasteboard_GetChangeCount()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_GetChangeCount()
 
 ```text
 uint32_t OH_Pasteboard_GetChangeCount(OH_Pasteboard *pasteboard)
@@ -1027,23 +973,21 @@ uint32_t OH_Pasteboard_GetChangeCount(OH_Pasteboard *pasteboard)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard) *pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
+| OH_Pasteboard *pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| uint32_t | 执行成功时返回剪贴板内容的变化次数，否则返回0。          当剪贴板内容过期或调用OH_Pasteboard_ClearData等接口导致剪贴板内容为空时，内容变化次数不会因此改变。          系统重启或剪贴板服务异常重启时，剪贴板内容变化次数重新从0开始计数。对同一内容连续多次复制会被视作多次更改，每次复制均会导致内容变化次数增加。 |
+| uint32_t | 执行成功时返回剪贴板内容的变化次数，否则返回0。 当剪贴板内容过期或调用OH_Pasteboard_ClearData等接口导致剪贴板内容为空时，内容变化次数不会因此改变。 系统重启或剪贴板服务异常重启时，剪贴板内容变化次数重新从0开始计数。对同一内容连续多次复制会被视作多次更改，每次复制均会导致内容变化次数增加。 |
 
 
-### OH_Pasteboard_SyncDelayedDataAsync()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pasteboard_SyncDelayedDataAsync()
 
 ```text
 void OH_Pasteboard_SyncDelayedDataAsync(OH_Pasteboard* pasteboard, void (*callback)(int errorCode))
@@ -1053,16 +997,20 @@ void OH_Pasteboard_SyncDelayedDataAsync(OH_Pasteboard* pasteboard, void (*callba
 
 通知剪贴板从应用同步所有延迟数据，与延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)搭配使用。当应用使用延迟复制功能复制时，仅将应用支持的数据类型写入剪贴板。应用应在退出时，重新调用[OH_Pasteboard_SetData](#oh_pasteboard_setdata)接口主动提交所有复制数据或调用此接口通知剪贴板获取全量数据，等待数据同步完成再继续退出，否则可能导致其他应用粘贴获取不到数据。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/T4Qr2GyMQy62HwdJzaUnRw/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T084648Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=BF063EB61633B77163F8EDA7817B0E47B5CFFBD8ADAB823992571342CAD09BD5)
 
-- 调用此接口会延长退出过程，建议应用直接设置数据到剪贴板，而不是调用延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)和此接口。
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/2_SGZWGpRnSnhYuN_B55_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013521Z&HW-CC-Expire=86400&HW-CC-Sign=9242890C51A60AFB50BB4581AF79FD9CCAFD2902249B01F8EF0FB6A12E494E66)
+
+
+ - 调用此接口会延长退出过程，建议应用直接设置数据到剪贴板，而不是调用延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)和此接口。
+
+
+
 
 **起始版本：** 21
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard) *pasteboard | 表示指向剪贴板[OH_Pasteboard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pasteboard-oh-pasteboard)实例的指针。 |
-| void (*callback)(int errorCode) | 数据同步完成后调用的回调函数指针，errorCode表示同步任务的结果，错误码定义详见[PASTEBOARD_ErrCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-err-code-h#pasteboard_errcode)。 |
+| OH_Pasteboard *pasteboard | 表示指向剪贴板OH_Pasteboard实例的指针。 |
+| void (*callback)(int errorCode) | 数据同步完成后调用的回调函数指针，errorCode表示同步任务的结果，错误码定义详见PASTEBOARD_ErrCode。 |

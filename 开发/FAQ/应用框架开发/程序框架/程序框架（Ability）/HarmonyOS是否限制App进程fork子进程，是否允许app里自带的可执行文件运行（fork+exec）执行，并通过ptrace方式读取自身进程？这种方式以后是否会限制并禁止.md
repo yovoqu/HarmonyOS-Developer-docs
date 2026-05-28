@@ -4,6 +4,6 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-112
 
-解决方案
-
+**解决方案**
+ 
 系统限制普通应用直接进行Fork进程操作；手机产品不允许普通应用直接创建进程。

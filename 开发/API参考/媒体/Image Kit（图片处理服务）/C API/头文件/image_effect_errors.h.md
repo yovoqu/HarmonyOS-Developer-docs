@@ -3,59 +3,55 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-effect-errors-h
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### 概述
 
 声明图片效果器错误码。
-
+ 
 **库：** libimage_effect.so
-
+ 
 **引用文件：** <multimedia/image_effect/image_effect_errors.h>
-
+ 
 **系统能力：** SystemCapability.Multimedia.ImageEffect.Core
-
+ 
 **起始版本：** 12
-
+ 
 **相关模块：** [ImageEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageeffect)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [ImageEffect_ErrorCode](#imageeffect_errorcode) | ImageEffect_ErrorCode | 效果器错误码。 |
+| ImageEffect_ErrorCode | ImageEffect_ErrorCode | 效果器错误码。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+  
 
-
-### ImageEffect_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
+##### ImageEffect_ErrorCode
 
 ```text
 enum ImageEffect_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 效果器错误码。
-
+ 
 **系统能力：** SystemCapability.Multimedia.ImageEffect.Core
-
+ 
 **起始版本：** 12
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | EFFECT_SUCCESS = 0 | 操作成功。 |

@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 删除错误码 | 类名：deviceManager； API声明：function queryDevices(busType?: number): Array<Readonly<Device>>; 差异内容：401 | 类名：deviceManager； API声明：function queryDevices(busType?: number): Array<Readonly<Device>>; 差异内容：NA | api/@ohos.driver.deviceManager.d.ts |
+| 删除错误码 | 类名：deviceManager； API声明：function queryDevices(busType?: number): Array<Readonly&lt;Device&gt;>; 差异内容：401 | 类名：deviceManager； API声明：function queryDevices(busType?: number): Array<Readonly&lt;Device&gt;>; 差异内容：NA | api/@ohos.driver.deviceManager.d.ts |

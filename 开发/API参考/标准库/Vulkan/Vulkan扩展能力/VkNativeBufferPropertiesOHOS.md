@@ -4,29 +4,29 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-vknativebufferpropertiesohos
 
-
 ```text
 typedef struct VkNativeBufferPropertiesOHOS {...} VkNativeBufferPropertiesOHOS
 ```
+  
 
-
-## 概述
+##### 概述
 
 包含了NativeBuffer的属性。
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [Vulkan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan)
-
+ 
 **所在头文件：** [vulkan_ohos.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-ohos-h)
+ 
+  
 
+##### 汇总
 
-## 汇总
+  
 
-
-### 成员变量
-
-
+##### 成员变量
+ 
 | 名称 | 描述 |
 | --- | --- |
 | VkStructureType sType | 结构体类型。 |

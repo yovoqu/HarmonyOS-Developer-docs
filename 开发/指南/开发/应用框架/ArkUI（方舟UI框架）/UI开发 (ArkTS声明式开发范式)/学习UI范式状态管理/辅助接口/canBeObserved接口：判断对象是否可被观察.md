@@ -1,27 +1,35 @@
 # canBeObserved接口：判断对象是否可被观察
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-canbeobserved
 
 为了判断对象是否为可被观察对象和获取对象关联的组件信息，开发者可以使用[canBeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#canbeobserved23)。
+
 在使用该接口前，建议开发者对状态管理框架有基本的了解。提前阅读：[状态管理概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-overview)。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 从API version 23开始，开发者可以使用UIUtils中的canBeObserved接口判断数据对象是否为可观察对象。
 
-#### 概述
+
+
+##### 概述
+
 在开发和调试过程中，开发者会遇到修改对象的值后UI页面不刷新的问题（详见[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)），在复杂业务中排查此类问题尤为不便。为此，提供了canBeObserved接口帮助开发者定位和分析问题。开发者使用该接口不仅可以判断对象是否为可被观察的对象，还能获取对象关联的组件信息。
+
 使用canBeObserved接口需要导入UIUtils工具。
 
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 ```
 
-#### 限制条件
+
+
+##### 限制条件
+
 canBeObserved仅支持非空的对象类型传参。如果传入undefined或null，isObserved返回false。如果传入非Object类型，则会编译报错。
 
-```ts
+```text
 import { UIUtils } from '@kit.ArkUI';
 
 let res1 = UIUtils.canBeObserved(2); // 非法类型入参，错误用法，编译报错
@@ -35,28 +43,39 @@ class User {
 let result: ObservedResult = UIUtils.canBeObserved(new User()); // 正确用法
 ```
 
-#### 对象可被观察场景
+
+
+##### 对象可被观察场景
+
 可被观察对象调用canBeObserved接口，返回的[ObservedResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#observedresult23)结果对象中reason的值包含以下情况：
 
 | reason值 | 说明 |
 | --- | --- |
-| The object data is decorated with @Observed or wrapped by makeV1Observed | 对象被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器装饰或对象是使用[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)方法包装得到的，详见[V1组件对象可被观察场景](#v1组件对象可被观察场景) 。 |
-| The object data is decorated with V2 @ObservedV2 and @Trace | 对象和对象属性被[@ObservedV2和@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器装饰，详见[V2组件对象可被观察场景](#v2组件对象可被观察场景) 。 |
-| The object data is wrapped by V2's makeObserved | 对象是使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)方法包装得到的，详见[V2组件对象可被观察场景](#v2组件对象可被观察场景) 。 |
-| The object data is built-in type proxy data (Array/Map/Set/Date) decorated with @Trace | Array、Set、Map、Date类型数据对象被状态管理V2装饰器装饰或作为对象属性被[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器装饰，详见[V2组件对象可被观察场景](#v2组件对象可被观察场景) 。 |
-| The V1 Observed object data is wrapped by enableV2Compatibility and used in @ComponentV2 | V1组件和V2组件混用时，对象是使用[enableV2Compatibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage#enablev2compatibility)方法包装得到的，详见[V1组件和V2组件混用对象可被观察场景](#v1组件和v2组件混用对象可被观察场景) 。 |
+| The object data is decorated with @Observed or wrapped by makeV1Observed | 对象被@Observed装饰器装饰或对象是使用makeV1Observed方法包装得到的，详见V1组件对象可被观察场景 。 |
+| The object data is decorated with V2 @ObservedV2 and @Trace | 对象和对象属性被@ObservedV2和@Trace装饰器装饰，详见V2组件对象可被观察场景 。 |
+| The object data is wrapped by V2's makeObserved | 对象是使用makeObserved方法包装得到的，详见V2组件对象可被观察场景 。 |
+| The object data is built-in type proxy data (Array/Map/Set/Date) decorated with @Trace | Array、Set、Map、Date类型数据对象被状态管理V2装饰器装饰或作为对象属性被@Trace装饰器装饰，详见V2组件对象可被观察场景 。 |
+| The V1 Observed object data is wrapped by enableV2Compatibility and used in @ComponentV2 | V1组件和V2组件混用时，对象是使用enableV2Compatibility方法包装得到的，详见V1组件和V2组件混用对象可被观察场景 。 |
+
 
 需要注意，上述情况reason的值结尾如果有but not used in UI或but not used in @ComponentV2则表示：对象虽然是可被观察的，但是没有被UI组件所使用，因此改变对象值的时候也无法刷新UI。
 
-#### V1组件对象可被观察场景
+
+
+##### V1组件对象可被观察场景
+
 在V1组件中，可被观察对象场景如下：
-- 组件内被状态管理V1装饰器装饰的对象（包括Array、Set、Map、Date类型数据对象）。
-- 被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器装饰的对象。
-- 使用[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)方法包装的对象。
+
+ - 组件内被状态管理V1装饰器装饰的对象（包括Array、Set、Map、Date类型数据对象）。
+ - 被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器装饰的对象。
+ - 使用[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)方法包装的对象。
+
+
 其中状态管理V1装饰器指的是：[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)、[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)、[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)、[@StorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storagelink)、[@StorageProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage#storageprop)、[@LocalStorageLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#localstoragelink)、[@LocalStorageProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage#localstorageprop)、[@Provide](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)、[@Consume](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume)。
+
 被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰的对象和使用[makeV1Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makev1observed19)包装的对象，如果在组件内没有状态管理V1装饰器装饰，调用canBeObserved接口返回结果如下：
 
-```ts
+```json
 {
     // 被@Observed装饰的对象和使用makeV1Observed方法包装的对象，是可被观察的对象
     "isObserved": true,
@@ -69,10 +88,12 @@ let result: ObservedResult = UIUtils.canBeObserved(new User()); // 正确用法
 ```
 
 **组件内被状态管理V1装饰器装饰的对象**
+
 以下介绍组件中使用[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)装饰器装饰对象，使其变成可被观察对象的使用场景。
+
 示例代码：
 
-```ts
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -122,7 +143,7 @@ struct V1State {
 
 返回结果：
 
-```ts
+```json
 {
     // 对象是可被观察的
     "isObserved": true,
@@ -153,10 +174,12 @@ struct V1State {
 ```
 
 **被@Observed装饰器装饰的对象**
+
 以下介绍对象使用[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器装饰，且对象属性使用[@Track](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track)装饰器装饰的使用场景。
+
 示例代码：
 
-```ts
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -217,9 +240,10 @@ struct TrackChild {
 ```
 
 对象属性使用[@Track](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-track)装饰器时，其装饰器信息的收集规格与V2组件装饰器收集规格一致，可参考[V2组件对象可被观察场景](#v2组件对象可被观察场景)。
+
 返回结果：
 
-```ts
+```json
 {
     // 对象可被观察
     "isObserved": true,
@@ -254,15 +278,22 @@ struct TrackChild {
 }
 ```
 
-#### V2组件对象可被观察场景
+
+
+##### V2组件对象可被观察场景
+
 V2组件中，对象可被观察场景如下：
-- 被[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器装饰的对象。
-- 被状态管理V2装饰器装饰的Array、Set、Map、Date类型数据对象。
-- 使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)方法包装的对象。
+
+ - 被[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器装饰的对象。
+ - 被状态管理V2装饰器装饰的Array、Set、Map、Date类型数据对象。
+ - 使用[makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makeobserved)方法包装的对象。
+
+
 其中状态管理V2装饰器指的是：[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)、[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)、[@Provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)、[@Consumer](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer)。
+
 V2组件收集装饰器的规格与V1组件不同，V2组件收集装饰器信息时，是按照对象的@Trace装饰的属性进行分类收集的。以下面的TestClass为例，@Trace将以属性为单位展示关联组件的信息：
 
-```ts
+```text
 // 定义Class
 @ObservedV2
 class TestClass {
@@ -272,8 +303,7 @@ class TestClass {
 }
 ```
 
-
-```ts
+```json
 // 返回结果分析
 {
     // 对象是可被观察的
@@ -318,10 +348,12 @@ class TestClass {
 ```
 
 **被@ObservedV2装饰器装饰的对象**
+
 以下介绍V2组件中使用[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰器装饰对象的使用场景。
+
 示例代码：
 
-```ts
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -370,7 +402,7 @@ struct V2Local {
 
 返回结果：
 
-```ts
+```json
 {
     // 对象是可被观察的
     "isObserved": true,
@@ -405,11 +437,15 @@ struct V2Local {
 }
 ```
 
-#### V1组件和V2组件混用对象可被观察场景
+
+
+##### V1组件和V2组件混用对象可被观察场景
+
 V1组件和V2组件混用的场景中，要使对象能在V1组件和V2组件保持同步刷新，则需要在V1组件中使用[enableV2Compatibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage#enablev2compatibility)方法将V1组件的可被观察对象包装后传入V2组件。
+
 代码示例：
 
-```ts
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -472,7 +508,7 @@ export struct V2Child {
 
 返回结果：
 
-```ts
+```json
 {
     // 对象是可被观察的
     "isObserved": true,
@@ -526,14 +562,21 @@ export struct V2Child {
 }
 ```
 
-#### 状态管理常见不刷新问题分析
+
+
+##### 状态管理常见不刷新问题分析
+
 在[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)的案例中介绍了常见的状态管理对象不刷新UI或者页面性能不达标的问题，以下介绍如何使用canBeObserved接口来帮助开发者分析和定位问题原因。
 
-#### a.b(this.object)案例分析
+
+
+##### a.b(this.object)案例分析
+
 在[a.b(this.object)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component#使用abthisobject形式调用不会触发ui刷新)案例的反例中，由于b的入参传入的是this.object的原始对象，原始对象是不可被观察的，所以导致UI无法刷新。开发者可以在修改属性前调用canBeObserved接口判断入参对象是否可被观察。
+
 在反例中提供了两个修改对象属性的方法，在修改属性前先使用canBeObserved接口判断对象是否可被观察，代码如下：
 
-```ts
+```ArkTS
 static increaseVolume(balloon: Balloon) {
   // 修改属性前，通过canBeObserved来判断入参balloon对象是否可被观察
   hilog.info(0x00, 'test_log', `res: ${JSON.stringify(UIUtils.canBeObserved(balloon))}`);
@@ -541,8 +584,7 @@ static increaseVolume(balloon: Balloon) {
 }
 ```
 
-
-```ts
+```ArkTS
 reduceVolume(balloon: Balloon) {
   // 修改属性前，通过canBeObserved来判断入参balloon对象是否可被观察
   hilog.info(0x00, 'test_log', `res: ${JSON.stringify(UIUtils.canBeObserved(balloon))}`);
@@ -552,7 +594,7 @@ reduceVolume(balloon: Balloon) {
 
 两个方法调用canBeObserved接口返回结果一样（如下所示），表示两个方法接收的入参都是不可被观察对象，所以UI无法刷新。
 
-```ts
+```json
 {
     // 不可被观察
     "isObserved": false,
@@ -565,7 +607,7 @@ reduceVolume(balloon: Balloon) {
 
 在正例中修改属性方法前判断对象是否可被观察，代码如下：
 
-```ts
+```ArkTS
 static increaseVolume(balloon: Balloon) {
   // 修改属性前，通过canBeObserved来判断入参balloon对象是否可被观察
   hilog.info(0x00, 'test_log', `res: ${JSON.stringify(UIUtils.canBeObserved(balloon))}`);
@@ -573,8 +615,7 @@ static increaseVolume(balloon: Balloon) {
 }
 ```
 
-
-```ts
+```ArkTS
 reduceVolume(balloon: Balloon) {
   // 修改属性前，通过canBeObserved来判断入参balloon对象是否可被观察
   hilog.info(0x00, 'test_log', `res: ${JSON.stringify(UIUtils.canBeObserved(balloon))}`);
@@ -584,7 +625,7 @@ reduceVolume(balloon: Balloon) {
 
 两个方法调用canBeObserved接口返回结果一样（如下所示），表示两个方法接收的入参都是都是可被观察对象，且被UI组件所使用，UI可以正常刷新。
 
-```ts
+```json
 {
     "isObserved": true,
     "reason": "The object data is decorated with @Observed or wrapped by makeV1Observed",
@@ -601,11 +642,15 @@ reduceVolume(balloon: Balloon) {
 }
 ```
 
-#### 状态变量关联的组件数过多导致性能下降案例分析
+
+
+##### 状态变量关联的组件数过多导致性能下降案例分析
+
 在[状态变量关联的组件数过多导致性能下降](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component#状态变量关联的组件数过多导致性能下降)案例中提供了HiDumper工具来查看状态变量关联的组件，若组件关联过多，则页面性能下降。开发者也可以使用canBeObserved接口在业务代码中获取状态管理对象关联的组件，根据接口返回结果优化业务代码。
+
 在反例中通过move按钮修改this.translateObj对象的属性，可以在修改属性前先调用canBeObserved接口来获取对象关联的组件信息，代码如下：
 
-```ts
+```ArkTS
 Button('move')
   .translate({
     x: this.translateObj.translateX
@@ -623,7 +668,7 @@ Button('move')
 
 返回结果：
 
-```ts
+```json
 // 反例的获取结果，对象关联5个组件
 {
     "isObserved": true,
@@ -661,7 +706,7 @@ Button('move')
 
 在正例中修改对象的属性前也调用canBeObserved接口获取状态变量关联的组件，代码如下：
 
-```ts
+```ArkTS
 Button('move')
   .onClick(() => {
     this.getUIContext().animateTo({
@@ -676,7 +721,7 @@ Button('move')
 
 返回结果：
 
-```ts
+```json
 // 正例的获取结果，对象关联1个组件
 {
     "isObserved": true,
@@ -696,11 +741,15 @@ Button('move')
 
 对比可知：正例中对象关联的组件数量少于反例中对象关联的组件数量，从而实现性能提升。
 
-#### ForEach和对象数组结合使用导致UI不刷新案例分析
+
+
+##### ForEach和对象数组结合使用导致UI不刷新案例分析
+
 在[ForEach和对象数组结合使用导致UI不刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component#foreach和对象数组结合使用导致ui不刷新)案例中，使用canBeObserved接口获取判断对象是否是可被观察的。
+
 在反例的onClick方法中，修改对象属性前先调用canBeObserved接口判断this.styleList[i]对象是否可被观察，代码如下：
 
-```ts
+```ArkTS
 Text('Font Size List')
   .fontSize(50)
   .onClick(() => {
@@ -716,7 +765,7 @@ Text('Font Size List')
 
 返回结果如下，虽然this.styleList[i]（也就是TextStyles对象）被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰器装饰，是可被观察的，但没有被UI组件所使用，所以UI组件不刷新。
 
-```ts
+```json
 {
     // 对象是可被观察的
     "isObserved": true,
@@ -729,7 +778,7 @@ Text('Font Size List')
 
 在正例中同样先判断对象是否可被观察，代码如下：
 
-```ts
+```ArkTS
 Text('Font Size List')
   .fontSize(50)
   .onClick(() => {
@@ -745,7 +794,7 @@ Text('Font Size List')
 
 返回结果如下，可知this.styleList[i]是可被观察对象，且有关联的UI组件，能正常刷新UI组件。
 
-```ts
+```json
 {
     "isObserved": true,
     "reason": "The object data is decorated with @Observed or wrapped by makeV1Observed",
@@ -762,11 +811,15 @@ Text('Font Size List')
 }
 ```
 
-#### 数据重置导致UI不刷新使用场景
+
+
+##### 数据重置导致UI不刷新使用场景
+
 在[数据重置导致UI不刷新使用场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-class#数据重置导致ui不刷新)案例中，使用canBeObserved接口定位UI不刷新原因。
+
 在反例的X按钮修改对象属性前先调用canBeObserved接口判断对象是否可被观察，代码如下：
 
-```ts
+```ArkTS
 Button('X')
   .backgroundColor(Color.Red)
   .onClick(() => {
@@ -787,7 +840,7 @@ Button('X')
 
 在点击Recover按钮后，再次点击X按钮，数组元素不会删除，调用canBeObserved接口返回的结果发现，Recover之后的this.childList数组已经不是可被观察的了。
 
-```ts
+```json
 {
     "isObserved": false,
     "reason": "The object data is not an observable object",
@@ -797,7 +850,7 @@ Button('X')
 
 在正例中修改元素属性前判断对象是否可被观察，代码如下：
 
-```ts
+```ArkTS
 Button('X')
   .backgroundColor(Color.Red)
   .onClick(() => {
@@ -818,7 +871,7 @@ Button('X')
 
 返回结果中关键信息如下，可知this.childList数组是可被观察的，且有关联的UI组件，能正常刷新UI组件。
 
-```ts
+```json
 {
     "isObserved": true,
     "reason": "The object data is decorated with @Observed or wrapped by makeV1Observed",

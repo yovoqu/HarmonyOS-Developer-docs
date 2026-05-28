@@ -3,41 +3,35 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitylifecyclecallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)从创建到销毁过程其生命周期是动态变化的。AbilityLifecycleCallback模块提供监听[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)生命周期变化的能力，可用于统计每个UIAbility的运行时长、执行与UIAbility业务逻辑解耦的数据加载等场景。
 
-
 > [!NOTE]
-> 本模块首批接口从API version 9 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在Stage模型下使用。
-> 本模块接口只能监听进程内UIAbility生命周期变化。
+> 本模块首批接口从API version 9 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口只能监听进程内UIAbility生命周期变化。
 
 
-## 使用说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-
+##### 使用说明
 1. 应用创建AbilityLifecycleCallback对象，并调用[ApplicationContext.on('abilityLifecycle')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonabilitylifecycle)接口注册UIAbility生命周期变化监听。
 2. 当UIAbility生命周期变化时，应用可以通过已注册的AbilityLifecycleCallback对象接收到UIAbility生命周期的变化通知。
 3. 当应用不需要监听UIAbility生命周期变化时，需要通过[ApplicationContext.off('abilityLifecycle')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextoffabilitylifecycle)接口取消监听。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { AbilityLifecycleCallback } from '@kit.AbilityKit';
 ```
 
 
-## AbilityLifecycleCallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### AbilityLifecycleCallback
 
 
-### onAbilityCreate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityCreate
 
 onAbilityCreate(ability: UIAbility): void
 
@@ -49,10 +43,9 @@ onAbilityCreate(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -60,8 +53,8 @@ onAbilityCreate(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageCreate
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageCreate
 
 onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -73,11 +66,10 @@ onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -85,8 +77,8 @@ onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageActive
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageActive
 
 onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -98,11 +90,10 @@ onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -110,8 +101,8 @@ onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageInactive
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageInactive
 
 onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -123,11 +114,10 @@ onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -135,8 +125,8 @@ onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageDestroy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageDestroy
 
 onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -148,11 +138,10 @@ onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -160,8 +149,8 @@ onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityDestroy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityDestroy
 
 onAbilityDestroy(ability: UIAbility): void
 
@@ -173,10 +162,9 @@ onAbilityDestroy(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -184,8 +172,8 @@ onAbilityDestroy(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityForeground
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityForeground
 
 onAbilityForeground(ability: UIAbility): void
 
@@ -197,10 +185,9 @@ onAbilityForeground(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -208,8 +195,8 @@ onAbilityForeground(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityBackground
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityBackground
 
 onAbilityBackground(ability: UIAbility): void
 
@@ -221,10 +208,9 @@ onAbilityBackground(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -232,8 +218,8 @@ onAbilityBackground(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityContinue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityContinue
 
 onAbilityContinue(ability: UIAbility): void
 
@@ -245,10 +231,9 @@ onAbilityContinue(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -256,8 +241,8 @@ onAbilityContinue(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityWillCreate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityWillCreate12+
 
 onAbilityWillCreate?(ability: UIAbility): void
 
@@ -269,10 +254,9 @@ onAbilityWillCreate?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -280,8 +264,8 @@ onAbilityWillCreate?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageWillCreate12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageWillCreate12+
 
 onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -293,11 +277,10 @@ onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -305,8 +288,8 @@ onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): v
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageWillDestroy12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageWillDestroy12+
 
 onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -318,11 +301,10 @@ onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -330,8 +312,8 @@ onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): 
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityWillForeground12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityWillForeground12+
 
 onAbilityWillForeground?(ability: UIAbility): void
 
@@ -343,10 +325,9 @@ onAbilityWillForeground?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -354,8 +335,8 @@ onAbilityWillForeground?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityWillDestroy12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityWillDestroy12+
 
 onAbilityWillDestroy?(ability: UIAbility): void
 
@@ -367,10 +348,9 @@ onAbilityWillDestroy?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -378,8 +358,8 @@ onAbilityWillDestroy?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityWillBackground12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityWillBackground12+
 
 onAbilityWillBackground?(ability: UIAbility): void
 
@@ -391,10 +371,9 @@ onAbilityWillBackground?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -402,8 +381,8 @@ onAbilityWillBackground?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWillNewWant12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWillNewWant12+
 
 onWillNewWant?(ability: UIAbility): void
 
@@ -415,10 +394,9 @@ onWillNewWant?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -426,8 +404,8 @@ onWillNewWant?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onNewWant12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onNewWant12+
 
 onNewWant?(ability: UIAbility): void
 
@@ -439,10 +417,9 @@ onNewWant?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -450,8 +427,8 @@ onNewWant?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityWillContinue12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityWillContinue12+
 
 onAbilityWillContinue?(ability: UIAbility): void
 
@@ -463,10 +440,9 @@ onAbilityWillContinue?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应��UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -474,8 +450,8 @@ onAbilityWillContinue?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageWillRestore12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageWillRestore12+
 
 onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -487,11 +463,10 @@ onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -499,8 +474,8 @@ onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): 
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onWindowStageRestore12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onWindowStageRestore12+
 
 onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -512,11 +487,10 @@ onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
-| windowStage | [window.WindowStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage) | 是 | 回调事件对应的UIAbility主窗管理器。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
+| windowStage | window.WindowStage | 是 | 回调事件对应的UIAbility主窗管理器。 |
 
 
 **示例：**
@@ -524,8 +498,8 @@ onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilityWillSaveState12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilityWillSaveState12+
 
 onAbilityWillSaveState?(ability: UIAbility): void
 
@@ -537,10 +511,9 @@ onAbilityWillSaveState?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -548,8 +521,8 @@ onAbilityWillSaveState?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### onAbilitySaveState12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### onAbilitySaveState12+
 
 onAbilitySaveState?(ability: UIAbility): void
 
@@ -561,10 +534,9 @@ onAbilitySaveState?(ability: UIAbility): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ability | [UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability) | 是 | 回调事件对应的UIAbility对象。 |
+| ability | UIAbility | 是 | 回调事件对应的UIAbility对象。 |
 
 
 **示例：**
@@ -572,29 +544,22 @@ onAbilitySaveState?(ability: UIAbility): void
 参见[AbilityLifecycleCallback使用示例](#abilitylifecyclecallback使用示例)。
 
 
-### AbilityLifecycleCallback使用示例
+
+##### AbilityLifecycleCallback使用示例
 
 本示例展示了生命周期监听机制的部分使用场景：
-
-
 1. 在[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitystage)创建时注册监听。
 2. 在[AbilityStage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitystage)销毁时注销监听。
 3. 监听到对应UIAbility创建时加载资源，监听到对应UIAbility销毁时释放资源。
 4. 在UIAbility创建、销毁及前后台状态切换时，记录事件并向外发送通知。
 
-
-```ts
+```ArkTS
 // 以MyStage.ets文件为例，使用AbilityLifecycleCallback监听UIAbility生命周期
-import {
-  AbilityLifecycleCallback,
-  AbilityStage,
-  application,
-  UIAbility,
-} from '@kit.AbilityKit';
+import { AbilityLifecycleCallback, AbilityStage, application, UIAbility } from "@kit.AbilityKit";
 import { hilog } from '@kit.PerformanceAnalysisKit';
-import { JSON } from '@kit.ArkTS';
-import { window } from '@kit.ArkUI';
-import { BusinessError } from '@kit.BasicServicesKit';
+import { JSON } from "@kit.ArkTS";
+import { window } from "@kit.ArkUI";
+import { BusinessError } from "@kit.BasicServicesKit";
 
 const DOMAIN = 0x0000;
 const TAG = 'testTag';
@@ -617,11 +582,7 @@ function publishEvent() {
 
 let abilityLifecycleCallback: AbilityLifecycleCallback = {
   onAbilityCreate(ability: UIAbility) {
-    hilog.info(
-      DOMAIN,
-      TAG,
-      'onAbilityCreate: ' + ability.context.abilityInfo.name,
-    );
+    hilog.info(DOMAIN, TAG, 'onAbilityCreate: ' + ability.context.abilityInfo.name);
     // UIAbility事件打点记录
     recordAbilityEvent(ability.context.abilityInfo.name);
     // 模拟入口UIAbility创建时，加载资源对外发布通知
@@ -643,11 +604,7 @@ let abilityLifecycleCallback: AbilityLifecycleCallback = {
     hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onWindowStageDestroy.');
   },
   onAbilityDestroy(ability: UIAbility) {
-    hilog.info(
-      DOMAIN,
-      TAG,
-      'onAbilityDestroy: ' + ability.context.abilityInfo.name,
-    );
+    hilog.info(DOMAIN, TAG, 'onAbilityDestroy: ' + ability.context.abilityInfo.name);
     recordAbilityEvent(ability.context.abilityInfo.name);
     // 模拟入口UIAbility销毁时，释放资源
     if (ability.context.abilityInfo.name === 'EntryAbility') {
@@ -684,15 +641,8 @@ let abilityLifecycleCallback: AbilityLifecycleCallback = {
   onWindowStageWillCreate(ability: UIAbility, windowStage: window.WindowStage) {
     hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onWindowStageWillCreate');
   },
-  onWindowStageWillDestroy(
-    ability: UIAbility,
-    windowStage: window.WindowStage,
-  ) {
-    hilog.info(
-      DOMAIN,
-      TAG,
-      'AbilityLifecycleCallback onWindowStageWillDestroy',
-    );
+  onWindowStageWillDestroy(ability: UIAbility, windowStage: window.WindowStage) {
+    hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onWindowStageWillDestroy');
   },
   onAbilityWillDestroy(ability: UIAbility) {
     hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onAbilityWillDestroy');
@@ -706,15 +656,8 @@ let abilityLifecycleCallback: AbilityLifecycleCallback = {
   onAbilityWillContinue(ability: UIAbility) {
     hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onAbilityWillContinue.');
   },
-  onWindowStageWillRestore(
-    ability: UIAbility,
-    windowStage: window.WindowStage,
-  ) {
-    hilog.info(
-      DOMAIN,
-      TAG,
-      'AbilityLifecycleCallback onWindowStageWillRestore.',
-    );
+  onWindowStageWillRestore(ability: UIAbility, windowStage: window.WindowStage) {
+    hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onWindowStageWillRestore.');
   },
   onWindowStageRestore(ability: UIAbility, windowStage: window.WindowStage) {
     hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onWindowStageRestore.');
@@ -724,56 +667,37 @@ let abilityLifecycleCallback: AbilityLifecycleCallback = {
   },
   onAbilitySaveState(ability: UIAbility) {
     hilog.info(DOMAIN, TAG, 'AbilityLifecycleCallback onAbilitySaveState.');
-  },
+  }
 };
 
 let lifecycleId = -1; // 保存监听id
 
 export default class MyStage extends AbilityStage {
   onCreate(): void {
-    hilog.info(DOMAIN, TAG, 'AbilityStage onCreate');
+    hilog.info(DOMAIN, TAG, 'AbilityStage onCreate')
 
     // AbilityStage创建时注册UIAbility生命周期监听，并把监听id保存起来
     try {
       let applicationContext = application.getApplicationContext();
-      lifecycleId = applicationContext.on(
-        'abilityLifecycle',
-        abilityLifecycleCallback,
-      );
+      lifecycleId = applicationContext.on('abilityLifecycle', abilityLifecycleCallback);
     } catch (e) {
-      hilog.error(
-        DOMAIN,
-        TAG,
-        `register abilityLifecycle failed: ${JSON.stringify(e)}`,
-      );
+      hilog.error(DOMAIN, TAG, `register abilityLifecycle failed: ${JSON.stringify(e)}`);
     }
   }
 
   onDestroy(): void {
     // AbilityStage销毁时取消UIAbility生命周期监听注册
     let applicationContext = application.getApplicationContext();
-    applicationContext
-      .off('abilityLifecycle', lifecycleId)
-      .catch((e: BusinessError) => {
-        hilog.error(
-          DOMAIN,
-          TAG,
-          `unregister abilityLifecycle failed: ${JSON.stringify(e)}`,
-        );
-      });
+    applicationContext.off('abilityLifecycle', lifecycleId).catch((e: BusinessError) => {
+      hilog.error(DOMAIN, TAG, `unregister abilityLifecycle failed: ${JSON.stringify(e)}`);
+    });
   }
 }
 ```
 
-
-```ts
+```ArkTS
 // 以EntryAbility.ets为例，展示应用入口UIAbility
-import {
-  AbilityConstant,
-  ConfigurationConstant,
-  UIAbility,
-  Want,
-} from '@kit.AbilityKit';
+import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 
@@ -782,9 +706,7 @@ const TAG = 'testTag';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    this.context
-      .getApplicationContext()
-      .setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
+    this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     hilog.info(DOMAIN, TAG, 'EntryAbility onCreate');
   }
 
@@ -798,12 +720,7 @@ export default class EntryAbility extends UIAbility {
 
     windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        hilog.error(
-          DOMAIN,
-          TAG,
-          'Failed to load the content. Cause: %{public}s',
-          JSON.stringify(err),
-        );
+        hilog.error(DOMAIN, TAG, 'Failed to load the content. Cause: %{public}s', JSON.stringify(err));
         return;
       }
       hilog.info(DOMAIN, TAG, 'Succeeded in loading the content.');

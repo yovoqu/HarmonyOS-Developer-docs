@@ -4,34 +4,50 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-customproxyconfig
 
-## 场景介绍
+##### 场景介绍
 
-在远场通信框架中，ProxyConfiguration配置会话代理设置，提供system、no-proxy和WebProxy三种选项。 system使用系统代理，适合快速部署；  no-proxy不使用代理，适用于需直接访问特定资源或有代理限制的环境；  WebProxy允许开发者自定义代理设置，解决特定网络问题，优化代理路径，提升性能和用户体验。
+在远场通信框架中，ProxyConfiguration配置会话代理设置，提供system、no-proxy和WebProxy三种选项。
+ 
+- system使用系统代理，适合快速部署；
+- no-proxy不使用代理，适用于需直接访问特定资源或有代理限制的环境；
+- WebProxy允许开发者自定义代理设置，解决特定网络问题，优化代理路径，提升性能和用户体验。
 
-## 约束与限制
+ 
+  
+
+##### 约束与限制
 
 定制代理能力支持Phone、2in1、Tablet、Wearable设备。并且从5.1.1(19)开始，新增支持TV设备。
+ 
+  
 
-## 使用示例
+##### 使用示例
 
 下面将对框架提供的三种选项（'system'，'no-proxy'，'WebProxy'）以示例代码的方式进行说明。
+ 
+  
 
-## 'no-proxy'
+##### 'no-proxy'
+1. 导入需要的模块。
 
-导入需要的模块。
+  
 ```text
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-创建一个新的会话对象和请求，会话用于管理后续的网络请求。
+2. 创建一个新的会话对象和请求，会话用于管理后续的网络请求。
+
+  
 ```text
 const session = rcp.createSession();
 // 定义请求的URL（请根据实际需求调整）
 const requestURL = 'https://example.com';
 ```
 
-定义发起请求时需要的代理配置，在定义proxyConfiguration时选择'no-proxy'即可将代理方式选择为不使用代理方式。
+3. 定义发起请求时需要的代理配置，在定义proxyConfiguration时选择'no-proxy'即可将代理方式选择为不使用代理方式。
+
+  
 ```text
 // 配置请求的proxy方式为'no-proxy'
 const configuration: rcp.Configuration = {
@@ -42,7 +58,9 @@ const request = new rcp.Request(requestURL, 'GET');
 request.configuration = configuration;
 ```
 
-利用fetch发起网络请求并在成功或失败时进行响应的处理，此处只给出示例，对成功或失败的处理请根据实际业务来实现。
+4. 利用fetch发起网络请求并在成功或失败时进行响应的处理，此处只给出示例，对成功或失败的处理请根据实际业务来实现。
+
+  
 ```text
 session.fetch(request).then((response: rcp.Response) => {
   // 处理请求成功响应
@@ -57,23 +75,30 @@ session.fetch(request).then((response: rcp.Response) => {
 })
 ```
 
+ 
+  
 
-## 'system'
+##### 'system'
+1. 导入需要的模块。
 
-导入需要的模块。
+  
 ```text
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-创建一个新的会话对象和请求，会话用于管理后续的网络请求。
+2. 创建一个新的会话对象和请求，会话用于管理后续的网络请求。
+
+  
 ```text
 const session = rcp.createSession();
 // 定义请求的URL（请根据实际需求调整）
 const requestURL = 'https://example.com';
 ```
 
-定义发起请求时需要的代理配置，在定义proxyConfiguration时选择'system'即可将代理方式选择为使用系统代理方式。
+3. 定义发起请求时需要的代理配置，在定义proxyConfiguration时选择'system'即可将代理方式选择为使用系统代理方式。
+
+  
 ```text
 // 配置请求的proxy方式为'system'
 const configuration: rcp.Configuration = {
@@ -84,7 +109,9 @@ const request = new rcp.Request(requestURL, 'GET');
 request.configuration = configuration;
 ```
 
-利用fetch发起网络请求并在成功或失败时进行响应的处理，此处只给出示例，对成功或失败的处理请根据实际业务来实现。
+4. 利用fetch发起网络请求并在成功或失败时进行响应的处理，此处只给出示例，对成功或失败的处理请根据实际业务来实现。
+
+  
 ```text
 session.fetch(request).then((response: rcp.Response) => {
   // 处理请求成功响应
@@ -99,23 +126,30 @@ session.fetch(request).then((response: rcp.Response) => {
 })
 ```
 
+ 
+  
 
-## WebProxy（自定义代理设置）
+##### WebProxy（自定义代理设置）
+1. 导入需要的模块。
 
-导入需要的模块。
+  
 ```text
 import { rcp } from '@kit.RemoteCommunicationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-创建一个新的会话对象和请求，会话用于管理后续的网络请求。
+2. 创建一个新的会话对象和请求，会话用于管理后续的网络请求。
+
+  
 ```text
 const session = rcp.createSession();
 // 定义请求的URL（请根据实际需求调整）
 const requestURL = 'https://example.com';
 ```
 
-通过WebProxy自定义代理配置，通过声明式方式。
+3. 通过WebProxy自定义代理配置，通过声明式方式。
+
+  
 ```text
 // 自定义proxy
 const configuration: rcp.Configuration = {
@@ -133,7 +167,9 @@ const request = new rcp.Request(requestURL, 'GET');
 request.configuration = configuration;
 ```
 
-利用fetch发起网络请求并在成功或失败时进行响应的处理，此处只给出示例，对成功或失败的处理请根据实际业务来实现。
+4. 利用fetch发起网络请求并在成功或失败时进行响应的处理，此处只给出示例，对成功或失败的处理请根据实际业务来实现。
+
+  
 ```text
 session.fetch(request).then((response: rcp.Response) => {
   // 处理请求成功响应

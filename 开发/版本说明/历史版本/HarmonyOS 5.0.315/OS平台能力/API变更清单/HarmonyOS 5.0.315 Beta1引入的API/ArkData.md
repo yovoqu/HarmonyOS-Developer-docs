@@ -6,7 +6,7 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：UnifiedRecord； API声明：getTypes(): Array<string>; 差异内容：getTypes(): Array<string>; | api/@ohos.data.unifiedDataChannel.d.ts |
+| 新增API | NA | 类名：UnifiedRecord； API声明：getTypes(): Array&lt;string&gt;; 差异内容：getTypes(): Array&lt;string&gt;; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：UnifiedRecord； API声明：addEntry(type: string, value: ValueType): void; 差异内容：addEntry(type: string, value: ValueType): void; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：UnifiedRecord； API声明：getEntry(type: string): ValueType; 差异内容：getEntry(type: string): ValueType; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：UnifiedRecord； API声明：getEntries(): Record<string, ValueType>; 差异内容：getEntries(): Record<string, ValueType>; | api/@ohos.data.unifiedDataChannel.d.ts |

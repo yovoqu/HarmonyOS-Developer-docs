@@ -1,17 +1,16 @@
 # ArkTS API错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/call-error-code
-**支持设备：** Phone / Tablet / Wearable / PC/2in1
-
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 > [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+> 以下仅介绍本模块特有错误码，通用错误码请参见 通用错误码 。
 
 
-## 1007200001 参数无效
-**支持设备：** Phone / Tablet / Wearable
+
+##### 1007200001 参数无效
 
 **错误信息**
 
@@ -19,7 +18,7 @@ Invalid parameter value.
 
 **错误描述**
 
-参数异常。
+参数无效。
 
 **可能原因**
 
@@ -40,8 +39,8 @@ Invalid parameter value.
 2、也可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 1007200002 服务未启动
-**支持设备：** Phone / Tablet / Wearable
+
+##### 1007200002 服务未启动
 
 **错误信息**
 
@@ -60,8 +59,8 @@ Call Service Kit未启动。
 通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 1007200003 内部错误
-**支持设备：** Phone / Tablet / Wearable
+
+##### 1007200003 内部错误
 
 **错误信息**
 
@@ -82,8 +81,8 @@ Call Service Kit内部错误。
 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 1007200999 未知错误
-**支持设备：** Phone / Tablet / Wearable
+
+##### 1007200999 未知错误
 
 **错误信息**
 
@@ -102,8 +101,8 @@ Call Service Kit未知错误。
 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 8300001 参数无效
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 8300001 参数无效
 
 **错误信息**
 
@@ -126,8 +125,8 @@ Invalid parameter value.
 2、也可以通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 8300002 无企业来电权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 8300002 无企业来电权限
 
 **错误信息**
 
@@ -146,8 +145,8 @@ The enterprise permission is not verified.
 通过[申请接入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/callservice-enterprise-contact-display#申请接入)申请企业来电权限，或通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 8300003 内部错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 8300003 内部错误
 
 **错误信息**
 
@@ -166,8 +165,8 @@ Call Service Kit内部错误。
 请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 8300999 未知错误
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+##### 8300999 未知错误
 
 **错误信息**
 

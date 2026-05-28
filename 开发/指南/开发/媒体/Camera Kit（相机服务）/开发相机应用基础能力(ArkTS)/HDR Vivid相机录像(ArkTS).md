@@ -5,15 +5,16 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-hdr-recording
 
 HarmonyOS支持调用接口，录制HDR Vivid视频，可以拍出层次表现更细腻、光影细节更丰富的画面，提升画面质感，呈现更卓越的视觉效果。
+ 
+当前示例提供完整的HDR Vivid录像开发步骤，方便开发者实现录制HDR Vivid视频的功能。更多HDR Vivid的开发指导，请参考[使用HDR Vivid特性开发媒体应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multimedia-hdr-vivid)。
+ 
+在参考以下示例前，建议开发者查看[相机开发指导(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)的具体章节，了解[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)、[录像](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording)等单个流程。
+  
 
- 当前示例提供完整的HDR Vivid录像开发步骤，方便开发者实现录制HDR Vivid视频的功能。更多HDR Vivid的开发指导，请参考[使用HDR Vivid特性开发媒体应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multimedia-hdr-vivid)。
+##### 开发步骤
+1. 导入接口。
 
- 在参考以下示例前，建议开发者查看[相机开发指导(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-management)的具体章节，了解[设备输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-device-input)、[会话管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-session-management)、[录像](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording)等单个流程。
-
-
-## 开发步骤
-
-导入接口。
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { colorSpaceManager } from '@kit.ArkGraphics2D';
@@ -24,13 +25,18 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { fileIo } from '@kit.CoreFileKit';
 ```
 
-获取预览、录像的配置项。  HDR录像的输出格式需要设置成10bit的CAMERA_FORMAT_YCRCB_P010。具体参考[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。
+2. 获取预览、录像的配置项。
+
+  HDR录像的输出格式需要设置成10bit的CAMERA_FORMAT_YCRCB_P010。具体参考[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。
+
+  
 > [!NOTE]
 > 预览流与录像输出流的分辨率的宽高比要保持一致，如果设置XComponent组件中的Surface显示区域宽高比为1920:1080 = 16:9，则需要预览流中的分辨率的宽高比也为16:9，如分辨率选择640:360，或960:540，或1920:1080，以此类推。
 
 
+  
 ```text
-function getPreviewProfile(previewProfiles: Array, size: camera.Size): undefined | camera.Profile {
+function getPreviewProfile(previewProfiles: Array<camera.Profile>, size: camera.Size): undefined | camera.Profile {
   let previewProfile: undefined | camera.Profile = previewProfiles.find((profile: camera.Profile) => {
     return profile.format === camera.CameraFormat.CAMERA_FORMAT_YCRCB_P010 &&
       profile.size.width === size.width && profile.size.height == size.height
@@ -38,7 +44,7 @@ function getPreviewProfile(previewProfiles: Array, size: camera.Size): undefined
   return previewProfile;
 }
 
-function getVideoProfile(videoProfiles: Array, size: camera.Size): undefined | camera.VideoProfile {
+function getVideoProfile(videoProfiles: Array<camera.VideoProfile>, size: camera.Size): undefined | camera.VideoProfile {
   let videoProfile: undefined | camera.VideoProfile = videoProfiles.find((profile: camera.VideoProfile) => {
     return profile.format === camera.CameraFormat.CAMERA_FORMAT_YCRCB_P010 &&
       profile.size.width === size.width && profile.size.height == size.height
@@ -47,7 +53,11 @@ function getVideoProfile(videoProfiles: Array, size: camera.Size): undefined | c
 }
 ```
 
-查询是否支持视频防抖。  HDR录像需要支持视频防抖。
+3. 查询是否支持视频防抖。
+
+  HDR录像需要支持视频防抖。
+
+  
 ```text
 function isVideoStabilizationModeSupported(session: camera.VideoSession, mode: camera.VideoStabilizationMode): boolean {
   let isSupported: boolean = false;
@@ -62,7 +72,9 @@ function isVideoStabilizationModeSupported(session: camera.VideoSession, mode: c
 }
 ```
 
-设置视频防抖。
+4. 设置视频防抖。
+
+  
 ```text
 function setVideoStabilizationMode(session: camera.VideoSession): void {
   let mode: camera.VideoStabilizationMode = camera.VideoStabilizationMode.AUTO;
@@ -86,10 +98,12 @@ function setVideoStabilizationMode(session: camera.VideoSession): void {
 }
 ```
 
-查询支持的色彩空间。
+5. 查询支持的色彩空间。
+
+  
 ```text
-function getSupportedColorSpaces(session: camera.VideoSession): Array {
-  let colorSpaces: Array = [];
+function getSupportedColorSpaces(session: camera.VideoSession): Array<colorSpaceManager.ColorSpace> {
+  let colorSpaces: Array<colorSpaceManager.ColorSpace> = [];
   try {
     colorSpaces = session.getSupportedColorSpaces();
   } catch (error) {
@@ -100,11 +114,15 @@ function getSupportedColorSpaces(session: camera.VideoSession): Array {
 }
 ```
 
-设置色彩空间。  如果是SDR录像色彩空间需要设置为BT709_LIMIT，如果是HDR录像色彩空间需要设置为BT2020_HLG_LIMIT。具体参考[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。建议在提交会话配置之前调用[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。
+6. 设置色彩空间。
+
+  如果是SDR录像色彩空间需要设置为BT709_LIMIT，如果是HDR录像色彩空间需要设置为BT2020_HLG_LIMIT。具体参考[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。建议在提交会话配置之前调用[setColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement#setcolorspace12)。
+
+  
 ```text
 function setColorSpaceBeforeCommitConfig(session: camera.VideoSession, isHdr: boolean): void {
   let colorSpace: colorSpaceManager.ColorSpace = isHdr? colorSpaceManager.ColorSpace.BT2020_HLG_LIMIT : colorSpaceManager.ColorSpace.BT709_LIMIT;
-  let colorSpaces: Array = session.getSupportedColorSpaces();
+  let colorSpaces: Array<colorSpaceManager.ColorSpace> = session.getSupportedColorSpaces();
   let isSupportedColorSpaces = colorSpaces.indexOf(colorSpace) >= 0;
   if (isSupportedColorSpaces) {
     console.info(`setColorSpace: ${colorSpace}`);
@@ -123,13 +141,18 @@ function setColorSpaceBeforeCommitConfig(session: camera.VideoSession, isHdr: bo
 }
 ```
 
-实现HDR录像。  在创建预览输出、录像输出前执行步骤2获取配置项，提交会话配置前执行步骤6设置色彩空间，提交会话配置后执行步骤4设置视频防抖，其余流程按照正常录像流程开发。
+7. 实现HDR录像。
+
+  在创建预览输出、录像输出前执行步骤2获取配置项，提交会话配置前执行步骤6设置色彩空间，提交会话配置后执行步骤4设置视频防抖，其余流程按照正常录像流程开发。
+
+  
 > [!NOTE]
-> 如需在提交会话配置后，设置视频防抖模式和色彩空间，为避免相机输出流配置异常，请先通过setVideoStabilizationMode方法4. 设置视频防抖后，再通过setColorSpace方法完成6.设置色彩空间。
+> 如需在提交会话配置后，设置视频防抖模式和色彩空间，为避免相机输出流配置异常，请先通过 setVideoStabilizationMode 方法4. 设置视频防抖后，再通过 setColorSpace 方法完成6.设置色彩空间。
 
 
-```text
-async function cameraHdrRecordingCase(context: common.Context, surfaceId: string): Promise {
+  
+```json
+async function cameraHdrRecordingCase(context: common.Context, surfaceId: string): Promise<void> {
   // 创建CameraManager对象
   let cameraManager: camera.CameraManager = camera.getCameraManager(context);
   if (!cameraManager) {
@@ -148,7 +171,7 @@ async function cameraHdrRecordingCase(context: common.Context, surfaceId: string
   });
 
   // 获取相机列表
-  let cameraArray: Array = [];
+  let cameraArray: Array<camera.CameraDevice> = [];
   try {
     cameraArray = cameraManager.getSupportedCameras();
   } catch (error) {
@@ -156,7 +179,13 @@ async function cameraHdrRecordingCase(context: common.Context, surfaceId: string
     console.error(`getSupportedCameras call failed. error code: ${err.code}`);
   }
 
-  if (cameraArray.length  = cameraManager.getSupportedSceneModes(cameraArray[0]);
+  if (cameraArray.length <= 0) {
+    console.error("cameraManager.getSupportedCameras error");
+    return;
+  }
+
+  // 获取支持的模式类型
+  let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraArray[0]);
   let isSupportVideoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_VIDEO) >= 0;
   if (!isSupportVideoMode) {
     console.error('video mode not support');
@@ -171,13 +200,13 @@ async function cameraHdrRecordingCase(context: common.Context, surfaceId: string
   }
   console.info("outputCapability: " + JSON.stringify(cameraOutputCap));
 
-  let previewProfilesArray: Array = cameraOutputCap.previewProfiles;
+  let previewProfilesArray: Array<camera.Profile> = cameraOutputCap.previewProfiles;
   if (!previewProfilesArray) {
     console.error("createOutput previewProfilesArray == null || undefined");
     return;
   }
 
-  let videoProfilesArray: Array = cameraOutputCap.videoProfiles;
+  let videoProfilesArray: Array<camera.VideoProfile> = cameraOutputCap.videoProfiles;
   if (!videoProfilesArray) {
     console.error("createOutput videoProfilesArray == null || undefined");
     return;

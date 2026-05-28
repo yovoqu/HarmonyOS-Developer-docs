@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：fileManagerService； API声明：function parseShortcut(linkUri: string): Promise<string>; 差异内容：function parseShortcut(linkUri: string): Promise<string>; | api/@hms.filemanagement.fileManagerService.d.ts |
+| 新增API | NA | 类名：fileManagerService； API声明：function parseShortcut(linkUri: string): Promise&lt;string&gt;; 差异内容：function parseShortcut(linkUri: string): Promise&lt;string&gt;; | api/@hms.filemanagement.fileManagerService.d.ts |

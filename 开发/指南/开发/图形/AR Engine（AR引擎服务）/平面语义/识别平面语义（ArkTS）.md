@@ -1,34 +1,46 @@
 # 识别平面语义（ArkTS）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-semantics
 
-## 约束与限制
+##### 约束与限制
 
-识别平面语义能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_SEMANTIC](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从5.1.0(18)开始，识别平面语义能力支持部分Phone、部分Tablet设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持平面及物体语义特性（[ARENGINE_FEATURE_TYPE_SEMANTIC](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 获取平面语义信息可以通过[ARPlane](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplane)平面对象获取，以下接口为平面相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [ARTrackable.getPose](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artrackablegetpose) | 获取追踪目标的位姿信息。 |
-| [ARTrackable.getAnchors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artrackablegetanchors) | 获取绑定到输入可跟踪对象的锚点对象。 |
-| [ARPose.getMatrix](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arposegetmatrix) | 将位姿数据转换为一个4x4的矩阵。 |
-| [ARPlane.getPolygonXZ](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplanegetpolygonxz) | 获取检测到的平面2D顶点数组。 |
-| [ARPlane.getSubsumedBy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplanegetsubsumedby) | 获取平面的父平面（当平面与另一个平面合并时会生成父平面）。 |
-| [ARPlane.isPoseInExtents](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplaneisposeinextents) | 检查给定位姿是否在平面的边界矩形内。 |
-| [ARPlane.isPoseInPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arplaneisposeinpolygon) | 检查给定位姿是否在平面的边界多边形内。 |
+| ARTrackable.getPose | 获取追踪目标的位姿信息。 |
+| ARTrackable.getAnchors | 获取绑定到输入可跟踪对象的锚点对象。 |
+| ARPose.getMatrix | 将位姿数据转换为一个4x4的矩阵。 |
+| ARPlane.getPolygonXZ | 获取检测到的平面2D顶点数组。 |
+| ARPlane.getSubsumedBy | 获取平面的父平面（当平面与另一个平面合并时会生成父平面）。 |
+| ARPlane.isPoseInExtents | 检查给定位姿是否在平面的边界矩形内。 |
+| ARPlane.isPoseInPolygon | 检查给定位姿是否在平面的边界多边形内。 |
 
 
-## 开发步骤
 
-AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。 对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。 识别平面语义之前需要先检测识别环境中的平面，如何检测识别环境中的平面请参考[检测环境中的平面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane)。
 
-## 导入模块
+##### 开发步骤
+
+AR Engine仅输出识别到的平面数据。为便于用户观察，可使用AGP（Ark Graphics Platform）渲染引擎或者[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)绘制识别的平面。关于AGP的介绍可以查看[ArkGraphics 3D简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics3d-overview)和[AGP引擎](https://gitcode.com/openharmony/graphic_graphic_3d)。
+
+对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
+
+识别平面语义之前需要先检测识别环境中的平面，如何检测识别环境中的平面请参考[检测环境中的平面](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane)。
+
+
+
+##### 导入模块
 
 识别平面语义能力所需要导入的模块如下：
+
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
 import { Node, Scene } from '@kit.ArkGraphics3D';
@@ -36,17 +48,25 @@ import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
 
-## 定义变量
+
+##### 定义变量
 
 定义变量planeLabel接收平面类型标签信息。
+
 ```text
 let planeLabel: arEngine.ARSemanticPlaneLabel;
 ```
 
 
-## 显示平面语义信息
 
-首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。 更改semanticMode为[ARSemanticMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsemanticmode).PLANE，启用平面语义识别能力。 在设备界面上显示识别到平面的信息，使用重复调用函数方法在设备界面上实时更新识别到的平面语义信息。
+##### 显示平面语义信息
+
+首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
+
+更改semanticMode为[ARSemanticMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsemanticmode).PLANE，启用平面语义识别能力。
+
+在设备界面上显示识别到平面的信息，使用重复调用函数方法在设备界面上实时更新识别到的平面语义信息。
+
 ```text
 @Builder
 export function ARTargetBuilder(): void {
@@ -162,9 +182,13 @@ function infoStyles() {
 ```
 
 
-## 获取语义信息
 
-调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，在设备界面上显示识别到的平面类型。 增加获取语义信息的方法plane.label，获取每一帧识别到的平面语义信息。
+##### 获取语义信息
+
+调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新，在设备界面上显示识别到的平面类型。
+
+增加获取语义信息的方法plane.label，获取每一帧识别到的平面语义信息。
+
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {
@@ -192,39 +216,60 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
         console.info(`Succeeded in getting tracking plane, length is: ${trackable.length}`);
       }
 
-      for (let i = 0; i
+      for (let i = 0; i < trackable.length; ++i) {
+        let plane: arEngine.ARPlane = trackable[i] as arEngine.ARPlane;
 
-## 识别平面语义的自定义方法
+        // 更新识别的平面语义信息
+        planeLabel = plane.label;
+        console.info(`Succeeded in updating frame data for loop: ${plane.label}`);
+      }
 
-     自定义方法获取顶点数据getVertices、创建索引generateMeshIndex、创建mesh数据generateMeshInput，可参考[检测平面的自定义方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane#检测平面的自定义方法)。     arrayBufferFloat32ToNumber可以参考[数据类型转换说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arraybuffer-info)。     平面语义标签转换convertSemanticLabel可参考如下。
+    } catch (error) {
+      const err: BusinessError = error as BusinessError;
+      console.error(`Failed to update data. Code is ${err.code}, message is ${err.message}.`);
+    }
+  }
+}
+```
+
+
+
+##### 识别平面语义的自定义方法
+
+自定义方法获取顶点数据getVertices、创建索引generateMeshIndex、创建mesh数据generateMeshInput，可参考[检测平面的自定义方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-get-plane#检测平面的自定义方法)。
+
+arrayBufferFloat32ToNumber可以参考[数据类型转换说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arraybuffer-info)。
+
+平面语义标签转换convertSemanticLabel可参考如下。
+
 ```text
 function convertSemanticLabel(obj: number): string {
-let res: string = '';
-if (obj === 0) {
-res = 'UNKNOWN';
-} else if (obj === 1) {
-res = 'WALL';
-} else if (obj === 2) {
-res = 'FLOOR';
-} else if (obj === 3) {
-res = 'SEAT';
-} else if (obj === 4) {
-res = 'TABLE';
-} else if (obj === 5) {
-res = 'CEILING';
-} else if (obj === 6) {
-res = 'DOOR';
-} else if (obj === 7) {
-res = 'WINDOW';
-} else if (obj === 8) {
-res = 'BED';
-} else if (obj === 9) {
-res = 'PLANE SPACE';
-} else if (obj === 10) {
-res = 'CUBE VOLUME';
-} else if (obj === 11) {
-res = 'CUBE SPACE';
-}
-return res;
+  let res: string = '';
+  if (obj === 0) {
+    res = 'UNKNOWN';
+  } else if (obj === 1) {
+    res = 'WALL';
+  } else if (obj === 2) {
+    res = 'FLOOR';
+  } else if (obj === 3) {
+    res = 'SEAT';
+  } else if (obj === 4) {
+    res = 'TABLE';
+  } else if (obj === 5) {
+    res = 'CEILING';
+  } else if (obj === 6) {
+    res = 'DOOR';
+  } else if (obj === 7) {
+    res = 'WINDOW';
+  } else if (obj === 8) {
+    res = 'BED';
+  } else if (obj === 9) {
+    res = 'PLANE SPACE';
+  } else if (obj === 10) {
+    res = 'CUBE VOLUME';
+  } else if (obj === 11) {
+    res = 'CUBE SPACE';
+  }
+  return res;
 }
 ```

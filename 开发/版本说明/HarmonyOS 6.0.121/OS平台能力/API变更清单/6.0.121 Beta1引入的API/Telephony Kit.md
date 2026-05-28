@@ -14,5 +14,5 @@
 | 新增API | NA | 类名：TelCallState； API声明：TEL_CALL_STATE_ANSWERED = 3 差异内容：TEL_CALL_STATE_ANSWERED = 3 | api/@ohos.telephony.call.d.ts |
 | 新增API | NA | 类名：TelCallState； API声明：TEL_CALL_STATE_CONNECTED = 4 差异内容：TEL_CALL_STATE_CONNECTED = 4 | api/@ohos.telephony.call.d.ts |
 | 新增API | NA | 类名：observer； API声明：type TelCallState = call.TelCallState; 差异内容：type TelCallState = call.TelCallState; | api/@ohos.telephony.observer.d.ts |
-| 新增API | NA | 类名：observer； API声明：function on(type: 'callStateChangeEx', callback: Callback<TelCallState>, options?: ObserverOptions): void; 差异内容：function on(type: 'callStateChangeEx', callback: Callback<TelCallState>, options?: ObserverOptions): void; | api/@ohos.telephony.observer.d.ts |
-| 新增API | NA | 类名：observer； API声明：function off(type: 'callStateChangeEx', callback?: Callback<TelCallState>): void; 差异内容：function off(type: 'callStateChangeEx', callback?: Callback<TelCallState>): void; | api/@ohos.telephony.observer.d.ts |
+| 新增API | NA | 类名：observer； API声明：function on(type: 'callStateChangeEx', callback: Callback&lt;TelCallState&gt;, options?: ObserverOptions): void; 差异内容：function on(type: 'callStateChangeEx', callback: Callback&lt;TelCallState&gt;, options?: ObserverOptions): void; | api/@ohos.telephony.observer.d.ts |
+| 新增API | NA | 类名：observer； API声明：function off(type: 'callStateChangeEx', callback?: Callback&lt;TelCallState&gt;): void; 差异内容：function off(type: 'callStateChangeEx', callback?: Callback&lt;TelCallState&gt;): void; | api/@ohos.telephony.observer.d.ts |

@@ -3,50 +3,30 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供3D图形中常用的基本资源类型。
 
+> [!NOTE]
+> 本模块首批接口从API version 12开始支持，后续版本的新增接口，采用上角标标记接口的起始版本。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
-import {
-  SceneResourceType,
-  SceneResource,
-  Shader,
-  MaterialType,
-  CullMode,
-  Blend,
-  RenderSort,
-  Material,
-  MaterialProperty,
-  MetallicRoughnessMaterial,
-  ShaderMaterial,
-  SamplerFilter,
-  SamplerAddressMode,
-  Sampler,
-  SubMesh,
-  Morpher,
-  Mesh,
-  MeshResource,
-  Animation,
-  EnvironmentBackgroundType,
-  Environment,
-  Image,
-} from '@kit.ArkGraphics3D';
+##### 导入模块
+
+```text
+import { SceneResourceType, SceneResource, Shader, MaterialType, CullMode, Blend, RenderSort, Material,
+  MaterialProperty, MetallicRoughnessMaterial, ShaderMaterial, SamplerFilter, SamplerAddressMode, Sampler,
+  SubMesh, Morpher, Mesh, MeshResource, Animation, EnvironmentBackgroundType, Environment, Image } from '@kit.ArkGraphics3D';
 ```
 
 
-## SceneResourceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### SceneResourceType
 
 场景资源类型枚举，对场景中的资源进行分类。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -62,27 +42,28 @@ import {
 | EFFECT21+ | 9 | 后处理特效类型。 |
 
 
-## SceneResource
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SceneResource
 
 用于表示场景中的资源。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 名称，没有特殊格式要求。 |
-| resourceType | [SceneResourceType](#sceneresourcetype) | 是 | 否 | 场景资源类型，默认���为undefined。 |
-| uri | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 是 | 需要加载的资源，默认值为undefined。 |
+| resourceType | SceneResourceType | 是 | 否 | 场景资源类型，默认值为undefined。 |
+| uri | ResourceStr | 是 | 是 | 需要加载的资源，默认值为undefined。 |
 
 
-### destroy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### destroy
 
 destroy(): void
 
@@ -92,34 +73,22 @@ destroy(): void
 
 **示例：**
 
-
-```ts
-import {
-  Shader,
-  SceneResourceParameters,
-  SceneResourceFactory,
-  Scene,
-} from '@kit.ArkGraphics3D';
+```text
+import { Shader, SceneResourceParameters, SceneResourceFactory, Scene } from '@kit.ArkGraphics3D';
 
 function destroy(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result) {
       let sceneFactory: SceneResourceFactory = result.getResourceFactory();
       // 创建shader资源，路径和文件名可根据项目实际资源自定义
-      let sceneResourceParameter: SceneResourceParameters = {
-        name: 'shaderResource',
-        uri: $rawfile('shaders/custom_shader/custom_material_sample.shader'),
-      };
-      let shader: Promise<Shader> = sceneFactory.createShader(
-        sceneResourceParameter,
-      );
-      shader.then(async (shaderResult: Shader) => {
-        // 释放资源
-        shaderResult.destroy();
+      let sceneResourceParameter: SceneResourceParameters = { name: "shaderResource",
+        uri: $rawfile("shaders/custom_shader/custom_material_sample.shader") };
+      let shader: Promise<Shader> = sceneFactory.createShader(sceneResourceParameter);
+      shader.then(async (shaderResult:Shader) => {
+         // 释放资源
+         shaderResult.destroy();
       });
     }
   });
@@ -127,25 +96,25 @@ function destroy(): void {
 ```
 
 
-## Shader
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Shader
 
 着色器，继承自[SceneResource](#sceneresource-1)。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| inputs | Record&lt;string, number \| [Vec2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec2) \| [Vec3](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec3) \| [Vec4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec4) \| Image&gt; | 是 | 否 | 着色器输入。 |
+| inputs | Record<string, number \| Vec2 \| Vec3 \| Vec4 \| Image> | 是 | 否 | 着色器输入。 |
 
 
-### setShaderInputs23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setShaderInputs23+
 
 setShaderInputs(inputs: Record<string, number | Vec2 | Vec3 | Vec4 | Image>): void
 
@@ -157,53 +126,34 @@ setShaderInputs(inputs: Record<string, number | Vec2 | Vec3 | Vec4 | Image>): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| inputs | Record&lt;string, number \| [Vec2](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec2) \| [Vec3](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec3) \| [Vec4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec4) \| Image&gt; | 是 | 一个字符串到值的映射，用于设置shader输入。 |
+| inputs | Record<string, number \| Vec2 \| Vec3 \| Vec4 \| Image> | 是 | 一个字符串到值的映射，用于设置shader输入。 |
 
 
 **示例：**
 
-
-```ts
-import {
-  Image,
-  MaterialType,
-  Scene,
-  SceneResourceFactory,
-  Shader,
-  ShaderMaterial,
-} from '@kit.ArkGraphics3D';
+```text
+import { Image, MaterialType, Scene, SceneResourceFactory, Shader, ShaderMaterial } from '@kit.ArkGraphics3D';
 
 function setinputs(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result) {
-      let rf: SceneResourceFactory | null = await result.getResourceFactory();
+      let rf : SceneResourceFactory | null = await result.getResourceFactory();
       if (!rf) {
         return;
       }
       // 创建材质和shader
-      let material: ShaderMaterial | null = await rf.createMaterial(
-        { name: 'CustomMaterial' },
-        MaterialType.SHADER,
-      );
-      let shader: Shader | null = await rf.createShader({
-        name: 'CustomShader',
-        uri: $rawfile('shaders/custom_shader/custom_material_sample.shader'),
-      });
+      let material: ShaderMaterial | null = await rf.createMaterial({name: "CustomMaterial"}, MaterialType.SHADER);
+      let shader : Shader | null = await rf.createShader(
+        {name: "CustomShader", uri: $rawfile("shaders/custom_shader/custom_material_sample.shader")});
       if (!material || !shader) {
         return;
       }
       // 加载纹理资源
-      let image: Image | null = await rf.createImage({
-        name: 'envImg',
-        uri: $rawfile('custom_image.jpg'),
-      });
+      let image : Image | null = await rf.createImage({name: "envImg", uri: $rawfile("custom_image.jpg")});
       if (!image) {
         return;
       }
@@ -211,23 +161,22 @@ function setinputs(): void {
       material.colorShader = shader;
       // 设置shader输入
       material.colorShader.setShaderInputs({
-        uTime: 1.0,
-        uVelocity: { x: 1.0, y: 1.0, z: -1.0, w: -1.0 },
-        uTexture: image,
-      });
+        "uTime": 1.0,
+        "uVelocity": {x: 1.0, y: 1.0, z:-1.0, w:-1.0},
+        "uTexture": image
+      })
     }
   });
 }
 ```
 
 
-## MaterialType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### MaterialType
 
 场景中物体材质类型枚举，定义材质的渲染方式。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -237,13 +186,13 @@ function setinputs(): void {
 | OCCLUSION23+ | 4 | 遮挡材质，能够遮挡场景中的其他物体但不会遮挡环境。 |
 
 
-## CullMode20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### CullMode20+
 
 用于设置基于物理渲染（PBR）材质的剔除模式枚举。通过控制剔除物体的正面或背面几何面片，提升渲染性能和视觉效果。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -252,26 +201,26 @@ function setinputs(): void {
 | BACK | 2 | 剔除背面几何面片。 |
 
 
-## Blend20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Blend20+
 
 用于控制材质的透明效果。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | enabled | boolean | 否 | 否 | 是否启用材质的透明效果模式。true表示开启透明，false表示关闭透明。 |
 
 
-## RenderSort20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### RenderSort20+
 
 定义材质物体的渲染顺序，控制不同物体在渲染管线中的绘制先后。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -279,13 +228,13 @@ function setinputs(): void {
 | renderSortLayerOrder | number | 否 | 是 | 同一渲染图层内，不同物体的渲染顺序，数值越小，越先渲染。取值范围[0, 255]，默认值为0。 |
 
 
-## PolygonMode23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-控制多边形绘制模��的枚举。
+
+##### PolygonMode23+
+
+控制多边形绘制模式的枚举。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -294,103 +243,103 @@ function setinputs(): void {
 | POINT | 2 | 仅绘制多边形顶点。 |
 
 
-## Material
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Material
 
 材质类型，继承自[SceneResource](#sceneresource-1)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| materialType | [MaterialType](#materialtype) | 是 | 否 | 材质类型。 |
+| materialType | MaterialType | 是 | 否 | 材质类型。 |
 | shadowReceiver20+ | boolean | 否 | 是 | 材质是否接收阴影。true表示该材质接收阴影，false表示不接收，默认值为false。 |
-| cullMode20+ | [CullMode](#cullmode20) | 否 | 是 | 当前材质的剔除模式设置，用于控制是否剔除背面几何面片，默认值为BACK。 |
-| blend20+ | [Blend](#blend20) | 否 | 是 | 材质是否透明，默认值为false。 |
+| cullMode20+ | CullMode | 否 | 是 | 当前材质的剔除模式设置，用于控制是否剔除背面几何面片，默认值为BACK。 |
+| blend20+ | Blend | 否 | 是 | 材质是否透明，默认值为false。 |
 | alphaCutoff20+ | number | 否 | 是 | 透明通道阈值，如果像素的alpha值等于或高于此阈值，则渲染该像素；如果低于此阈值，则不会渲染该像素。设置值小于1时，则开启该模式，取值范围为[0, 1]，默认值为1。 |
-| renderSort20+ | [RenderSort](#rendersort20) | 否 | 是 | 渲染排序设置，用于控制材质在渲染管线中的渲染顺序，渲染图层id默认值为32，同一图层内的渲染顺序默认值为0。 |
-| polygonMode23+ | [PolygonMode](#polygonmode23) | 否 | 是 | 模型的多边形绘制模式，默认值为FILL。 |
+| renderSort20+ | RenderSort | 否 | 是 | 渲染排序设置，用于控制材质在渲染管线中的渲染顺序，渲染图层id默认值为32，同一图层内的渲染顺序默认值为0。 |
+| polygonMode23+ | PolygonMode | 否 | 是 | 模型的多边形绘制模式，默认值为FILL。 |
 
 
-## MaterialProperty20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MaterialProperty20+
 
 材质属性接口，用于定义材质所使用的纹理、属性因子及纹理采样器信息。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| image | [Image](#image) \| null | 否 | 否 | 基于物理渲染（PBR）属性纹理贴图，用于表达材质的纹理信息。 |
-| factor | [Vec4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec4) | 否 | 否 | 基于物理渲染（PBR）属性因子，不同属性不同含义。 |
-| sampler | [Sampler](#sampler20) | 否 | 是 | 纹理贴图采样器，默认使用放大、缩小和mipmap过滤模式为线性过滤（LINEAR），纹理贴图U、V、W方向的寻址模式为重复（REPEAT）。 |
+| image | Image \| null | 否 | 否 | 基于物理渲染（PBR）属性纹理贴图，用于表达材质的纹理信息。 |
+| factor | Vec4 | 否 | 否 | 基于物理渲染（PBR）属性因子，不同属性不同含义。 |
+| sampler | Sampler | 否 | 是 | 纹理贴图采样器，默认使用放大、缩小和mipmap过滤模式为线性过滤（LINEAR），纹理贴图U、V、W方向的寻址模式为重复（REPEAT）。 |
 
 
-## MetallicRoughnessMaterial20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MetallicRoughnessMaterial20+
 
 用于实现真实感外观的材质资源。采用基于物理渲染（PBR）的金属-粗糙度模型，通过调节金属度和粗糙度参数，可模拟金属、塑料等不同材质的表面光照与反射效果，继承自[Material](#material)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| baseColor | [MaterialProperty](#materialproperty20) | 否 | 否 | 基础颜色贴图，用于表达材质在没有光照情况下所表达的颜色信息。 |
-| normal | [MaterialProperty](#materialproperty20) | 否 | 否 | 法线贴图，表达物体表面结构细节，使光照效果更真实，不改变几何结构。 |
-| material | [MaterialProperty](#materialproperty20) | 否 | 否 | 金属材质参数。          粗糙度（Roughness）：表达材质因其表面细微的结构细节所导致的反光强弱程度。          金属度（Metallic）：表达材质的金属属性。          反射度（Reflectance）：材质的光反射率。 |
-| ambientOcclusion | [MaterialProperty](#materialproperty20) | 否 | 否 | 环境光遮蔽贴图，用于模拟环境光在物体凹陷或细节部分的遮挡效果，增强局部阴影表现，提高细节真实感。 |
-| emissive | [MaterialProperty](#materialproperty20) | 否 | 否 | 自发光颜色，表达材质自身作为光源向外发光的颜色信息。 |
-| clearCoat | [MaterialProperty](#materialproperty20) | 否 | 否 | 透明图层，类似于车漆、碳纤、被水打湿的表面的材质需要在面上再增加一个透明的、具有一定反光特性的面。 |
-| clearCoatRoughness | [MaterialProperty](#materialproperty20) | 否 | 否 | 透明图层粗糙度。 |
-| clearCoatNormal | [MaterialProperty](#materialproperty20) | 否 | 否 | 透明图层法线贴图。 |
-| sheen | [MaterialProperty](#materialproperty20) | 否 | 否 | 微纤维漫反射材质光泽，可用于表示布料和织物材料。 |
-| specular | [MaterialProperty](#materialproperty20) | 否 | 否 | 非金属材质的高光反射，表示传统镜面反射强度。 |
+| baseColor | MaterialProperty | 否 | 否 | 基础颜色贴图，用于表达材质在没有光照情况下所表达的颜色信息。 |
+| normal | MaterialProperty | 否 | 否 | 法线贴图，表达物体表面结构细节，使光照效果更真实，不改变几何结构。 |
+| material | MaterialProperty | 否 | 否 | 金属材质参数。 粗糙度（Roughness）：表达材质因其表面细微的结构细节所导致的反光强弱程度。 金属度（Metallic）：表达材质的金属属性。 反射度（Reflectance）：材质的光反射率。 |
+| ambientOcclusion | MaterialProperty | 否 | 否 | 环境光遮蔽贴图，用于模拟环境光在物体凹陷或细节部分的遮挡效果，增强局部阴影表现，提高细节真实感。 |
+| emissive | MaterialProperty | 否 | 否 | 自发光颜色，表达材质自身作为光源向外发光的颜色信息。 |
+| clearCoat | MaterialProperty | 否 | 否 | 透明图层，类似于车漆、碳纤、被水打湿的表面的材质需要在面上再增加一个透明的、具有一定反光特性的面。 |
+| clearCoatRoughness | MaterialProperty | 否 | 否 | 透明图层粗糙度。 |
+| clearCoatNormal | MaterialProperty | 否 | 否 | 透明图层法线贴图。 |
+| sheen | MaterialProperty | 否 | 否 | 微纤维漫反射材质光泽，可用于表示布料和织物材料。 |
+| specular | MaterialProperty | 否 | 否 | 非金属材质的高光反射，表示传统镜面反射强度。 |
 
 
-## ShaderMaterial
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ShaderMaterial
 
 着色器材质，继承自[Material](#material)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| colorShader | [Shader](#shader) | 否 | 是 | 着色器，默认值为undefined。 |
+| colorShader | Shader | 否 | 是 | 着色器，默认值为undefined。 |
 
 
-## UnlitMaterial23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### UnlitMaterial23+
 
 不受光照影响的材质，其着色值只与设置的基础颜色有关，与光照条件无关，继承自[Material](#material)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| baseColor | [MaterialProperty](#materialproperty20) | 否 | 否 | 基础颜色属性，用于表达材质的基础颜色信息。 |
+| baseColor | MaterialProperty | 否 | 否 | 基础颜色属性，用于表达材质的基础颜色信息。 |
 
 
-## OcclusionMaterial23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OcclusionMaterial23+
 
 遮挡材质，能够遮挡场景中的其他物体但不会遮挡环境，继承自[Material](#material)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
 
-## SamplerFilter20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### SamplerFilter20+
 
 采样器过滤模式枚举，定义纹理采样时的插值方法，用于控制纹理在缩放或变形时如何计算最终像素的颜色值。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -398,13 +347,13 @@ function setinputs(): void {
 | LINEAR | 1 | 使用线性插值进行采样，效果更平滑但性能略低。 |
 
 
-## SamplerAddressMode20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SamplerAddressMode20+
 
 采样器寻址模式枚举，用于控制纹理坐标超出[0, 1]范围时的处理方式。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -413,85 +362,85 @@ function setinputs(): void {
 | CLAMP_TO_EDGE | 2 | 纹理坐标超出范围时，贴图边缘像素会被拉伸延伸。 |
 
 
-## Sampler20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Sampler20+
 
 采样器接口，用于定义纹理贴图采样时的过滤方式。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| magFilter | [SamplerFilter](#samplerfilter20) | 否 | 是 | 放大过滤模式，控制纹理贴图被放大时的采样方式，默认值为LINEAR。 |
-| minFilter | [SamplerFilter](#samplerfilter20) | 否 | 是 | 缩小过滤模式，控制纹理贴图被缩小时的采样方式，默认值为LINEAR。 |
-| mipMapMode | [SamplerFilter](#samplerfilter20) | 否 | 是 | mipmap过滤模式，控制纹理贴图在多层不同分辨率之间的采样方式，默认值为LINEAR。 |
-| addressModeU | [SamplerAddressMode](#sampleraddressmode20) | 否 | 是 | 纹理贴图U方向（水平）的采样方式，默认值为REPEAT。 |
-| addressModeV | [SamplerAddressMode](#sampleraddressmode20) | 否 | 是 | 纹理贴图V方向（垂直）的采样方式，默认值为REPEAT。 |
+| magFilter | SamplerFilter | 否 | 是 | 放大过滤模式，控制纹理贴图被放大时的采样方式，默认值为LINEAR。 |
+| minFilter | SamplerFilter | 否 | 是 | 缩小过滤模式，控制纹理贴图被缩小时的采样方式，默认值为LINEAR。 |
+| mipMapMode | SamplerFilter | 否 | 是 | mipmap过滤模式，控制纹理贴图在多层不同分辨率之间的采样方式，默认值为LINEAR。 |
+| addressModeU | SamplerAddressMode | 否 | 是 | 纹理贴图U方向（水平）的采样方式，默认值为REPEAT。 |
+| addressModeV | SamplerAddressMode | 否 | 是 | 纹理贴图V方向（垂直）的采样方式，默认值为REPEAT。 |
 
 
-## SubMesh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### SubMesh
 
 子网格类型。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 名称，没有特殊格式要求。 |
-| material | [Material](#material) | 否 | 否 | 材质。 |
-| aabb | [Aabb](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#aabb) | 是 | 否 | 轴对齐边界盒。 |
+| material | Material | 否 | 否 | 材质。 |
+| aabb | Aabb | 是 | 否 | 轴对齐边界盒。 |
 
 
-## Morpher20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Morpher20+
 
 用于控制3D模型的形变，通过调整不同形变目标的权重，实现模型的动态变形效果。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| targets | Record&lt;string, number&gt; | 是 | 否 | 用于存储所有形变目标的名称和对应的权重。权重值通常在[0.0, 1.0]范围内。 |
+| targets | Record<string, number> | 是 | 否 | 用于存储所有形变目标的名称和对应的权重。权重值通常在[0.0, 1.0]范围内。 |
 
 
-## Mesh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Mesh
 
 网格类型，继承自[SceneResource](#sceneresource-1)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| subMeshes | [SubMesh](#submesh)[] | 是 | 否 | 子网格数组。 |
-| aabb | [Aabb](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#aabb) | 是 | 否 | 轴对齐包围盒。 |
-| materialOverride | [Material](#material) | 否 | 是 | 材质，默认为空。 |
+| subMeshes | SubMesh[] | 是 | 否 | 子网格数组。 |
+| aabb | Aabb | 是 | 否 | 轴对齐包围盒。 |
+| materialOverride | Material | 否 | 是 | 材质，默认为空。 |
 
 
-## MeshResource18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### MeshResource18+
 
 网格资源，继承自[SceneResource](#sceneresource-1)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
 
-## Animation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### Animation
 
 动画类型，继承自[SceneResource](#sceneresource-1)。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -502,10 +451,11 @@ function setinputs(): void {
 | progress | number | 是 | 否 | 动画进度状态，取值区间为[0, 1]。 |
 
 
-### onFinished
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-onFinished(callback: Callback<void>): void
+
+##### onFinished
+
+onFinished(callback: Callback&lt;void&gt;): void
 
 动画播放结束时执行的回调函数，动画播放完成或者finish操作会触发这个回调。
 
@@ -513,7 +463,6 @@ onFinished(callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，返回值为空。 |
@@ -521,21 +470,18 @@ onFinished(callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function onFinished(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
       // 注册回调函数
-      anim.onFinished(() => {
-        console.info('onFinished');
+      anim.onFinished(()=>{
+        console.info("onFinished");
       });
     }
   });
@@ -543,15 +489,14 @@ function onFinished(): void {
 ```
 
 
-### onStarted
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-onStarted(callback: Callback<void>): void
+##### onStarted
+
+onStarted(callback: Callback&lt;void&gt;): void
 
 当动画开始播放时执行的回调函数，start操作以及restart操作也会触发这个回调。
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -562,21 +507,18 @@ onStarted(callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function onStarted(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
       // 注册回调函数
-      anim.onStarted(() => {
-        console.info('onStarted');
+      anim.onStarted(()=>{
+        console.info("onStarted");
       });
     }
   });
@@ -584,8 +526,8 @@ function onStarted(): void {
 ```
 
 
-### pause
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### pause
 
 pause(): void
 
@@ -595,15 +537,12 @@ pause(): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function pause(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
@@ -615,8 +554,8 @@ function pause(): void {
 ```
 
 
-### restart
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### restart
 
 restart(): void
 
@@ -626,15 +565,12 @@ restart(): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function restart(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
@@ -646,8 +582,8 @@ function restart(): void {
 ```
 
 
-### seek
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### seek
 
 seek(position: number): void
 
@@ -657,7 +593,6 @@ seek(position: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | position | number | 是 | 要重新播放动画的起始位置，取值区间为[0, 1]。 |
@@ -665,15 +600,12 @@ seek(position: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function seek(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
@@ -685,8 +617,8 @@ function seek(): void {
 ```
 
 
-### start
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### start
 
 start(): void
 
@@ -696,15 +628,12 @@ start(): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function start(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
@@ -716,8 +645,8 @@ function start(): void {
 ```
 
 
-### stop
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### stop
 
 stop(): void
 
@@ -727,15 +656,12 @@ stop(): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function stop(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
@@ -747,8 +673,8 @@ function stop(): void {
 ```
 
 
-### finish
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### finish
 
 finish(): void
 
@@ -758,15 +684,12 @@ finish(): void
 
 **示例：**
 
-
-```ts
+```text
 import { Animation, Scene } from '@kit.ArkGraphics3D';
 
 function finish(): void {
   // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义
-  let scene: Promise<Scene> = Scene.load(
-    $rawfile('gltf/CubeWithFloor/glTF/AnimatedCube.glb'),
-  );
+  let scene: Promise<Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));
   scene.then(async (result: Scene) => {
     if (result && result.animations && result.animations[0]) {
       let anim: Animation = result.animations[0];
@@ -778,13 +701,12 @@ function finish(): void {
 ```
 
 
-## EnvironmentBackgroundType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### EnvironmentBackgroundType
 
 环境背景类型枚举，用于定义场景的背景呈现方式。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -794,33 +716,33 @@ function finish(): void {
 | BACKGROUND_EQUIRECTANGULAR | 3 | 等距柱状投影背景。 |
 
 
-## Environment
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Environment
 
 环境类型，继承自[SceneResource](#sceneresource-1)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| backgroundType | [EnvironmentBackgroundType](#environmentbackgroundtype) | 否 | 否 | 环境背景类型。 |
-| indirectDiffuseFactor | [Vec4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec4) | 否 | 否 | 间接散射系数。 |
-| indirectSpecularFactor | [Vec4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec4) | 否 | 否 | 间接反射系数。 |
-| environmentMapFactor | [Vec4](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec4) | 否 | 否 | 环境地图系数。 |
-| environmentImage | [Image](#image) \| null | 否 | 是 | 环境图片，默认为undefined。 |
-| radianceImage | [Image](#image) \| null | 否 | 是 | 辐射图片，默认为undefined。 |
-| irradianceCoefficients | [Vec3](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#vec3)[] | 否 | 是 | 辐射系数，默认为undefined。 |
-| environmentRotation23+ | [Quaternion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#quaternion) | 否 | 是 | 环境光的旋转，默认为undefined，接收参数需为归一化后的四元数。 |
+| backgroundType | EnvironmentBackgroundType | 否 | 否 | 环境背景类型。 |
+| indirectDiffuseFactor | Vec4 | 否 | 否 | 间接散射系数。 |
+| indirectSpecularFactor | Vec4 | 否 | 否 | 间接反射系数。 |
+| environmentMapFactor | Vec4 | 否 | 否 | 环境地图系数。 |
+| environmentImage | Image \| null | 否 | 是 | 环境图片，默认为undefined。 |
+| radianceImage | Image \| null | 否 | 是 | 辐射图片，默认为undefined。 |
+| irradianceCoefficients | Vec3[] | 否 | 是 | 辐射系数，默认为undefined。 |
+| environmentRotation23+ | Quaternion | 否 | 是 | 环境光的旋转，默认为undefined，接收参数需为归一化后的四元数。 |
 
 
-## Image
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Image
 
 图片类型，继承自[SceneResource](#sceneresource-1)。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -828,17 +750,17 @@ function finish(): void {
 | height | number | 是 | 否 | 图片高度，单位为像素（px），取值范围大于0。 |
 
 
-## Effect21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### Effect21+
 
 特效类型，继承自[SceneResource](#sceneresource-1)。由[createEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene#createeffect21)接口获得。
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -846,8 +768,9 @@ function finish(): void {
 | effectId | string | 是 | 否 | 特效ID，固定格式为'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'，用于特效的创建，比如'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'。 |
 
 
-### getPropertyValue23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### getPropertyValue23+
 
 getPropertyValue(propertyName: string): Object | null | undefined
 
@@ -859,14 +782,12 @@ getPropertyValue(propertyName: string): Object | null | undefined
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| propertyName | string | 是 | 特定特效属性的名称。目前支持的字符串为：          -'exposure':该属性表示图像的曝光度。          -'vibrance': 该属性表示图像的自然饱和度。 |
+| propertyName | string | 是 | 特定特效属性的名称。目前支持的字符串为： -'exposure':该属性表示图像的曝光度。 -'vibrance': 该属性表示图像的自然饱和度。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -875,14 +796,8 @@ getPropertyValue(propertyName: string): Object | null | undefined
 
 **示例：**
 
-
-```ts
-import {
-  SceneResourceFactory,
-  Scene,
-  Effect,
-  EffectParameters,
-} from '@kit.ArkGraphics3D';
+```text
+import { SceneResourceFactory, Scene, Effect, EffectParameters } from '@kit.ArkGraphics3D';
 
 function getEffectProperty() {
   let scene: Promise<Scene> = Scene.load();
@@ -892,9 +807,7 @@ function getEffectProperty() {
     }
     let sceneFactory: SceneResourceFactory = result.getResourceFactory();
     // 特效ID，固定格式为'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'，比如'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'
-    let params: EffectParameters = {
-      effectId: 'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12',
-    };
+    let params: EffectParameters = {effectId: "e68a7f45-2d21-4a0d-9aef-7d9c825d3f12"};
     let effect: Effect = await sceneFactory.createEffect(params);
     effect.getPropertyValue('exposure');
   });
@@ -902,8 +815,8 @@ function getEffectProperty() {
 ```
 
 
-### setPropertyValue23+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setPropertyValue23+
 
 setPropertyValue(propertyName: string, value: Object | undefined): boolean
 
@@ -915,15 +828,13 @@ setPropertyValue(propertyName: string, value: Object | undefined): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| propertyName | string | 是 | 特定特效属性的名称。目前支持的字符串为：          -'exposure':该属性表示图像的曝光度。          -'vibrance': 该属性表示图像的自然饱和度。 |
-| value | Object \| undefined | 是 | 要设置的特效属性值。          -'exposure'：value实际类型为number，推荐取值范围[-5, 5]。取值越大，图像越亮。          -'vibrance'：value实际类型为number，推荐取值范围 [-1, 1]。取值越大，图像颜色越鲜艳。 |
+| propertyName | string | 是 | 特定特效属性的名称。目前支持的字符串为： -'exposure':该属性表示图像的曝光度。 -'vibrance': 该属性表示图像的自然饱和度。 |
+| value | Object \| undefined | 是 | 要设置的特效属性值。 -'exposure'：value实际类型为number，推荐取值范围[-5, 5]。取值越大，图像越亮。 -'vibrance'：value实际类型为number，推荐取值范围 [-1, 1]。取值越大，图像颜色越鲜艳。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -932,14 +843,8 @@ setPropertyValue(propertyName: string, value: Object | undefined): boolean
 
 **示例：**
 
-
-```ts
-import {
-  SceneResourceFactory,
-  Scene,
-  Effect,
-  EffectParameters,
-} from '@kit.ArkGraphics3D';
+```text
+import { SceneResourceFactory, Scene, Effect, EffectParameters } from '@kit.ArkGraphics3D';
 
 function setEffectProperty() {
   let scene: Promise<Scene> = Scene.load();
@@ -949,9 +854,7 @@ function setEffectProperty() {
     }
     let sceneFactory: SceneResourceFactory = result.getResourceFactory();
     // 特效ID，固定格式为'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'，比如'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'
-    let params: EffectParameters = {
-      effectId: 'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12',
-    };
+    let params: EffectParameters = {effectId: "e68a7f45-2d21-4a0d-9aef-7d9c825d3f12"};
     let effect: Effect = await sceneFactory.createEffect(params);
     effect.setPropertyValue('exposure', 1);
   });

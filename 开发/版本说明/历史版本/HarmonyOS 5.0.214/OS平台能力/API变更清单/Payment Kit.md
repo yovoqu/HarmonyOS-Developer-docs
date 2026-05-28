@@ -6,8 +6,8 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 新增API | NA | 类名：paymentService； API声明：function requestPayment(context: common.UIAbilityContext, orderStr: string, payload: string): Promise<PayResult>; 差异内容：function requestPayment(context: common.UIAbilityContext, orderStr: string, payload: string): Promise<PayResult>; | api/@hms.core.payment.paymentService.d.ts |
-| 新增API | NA | 类名：paymentService； API声明：function cashierPicker(context: common.UIAbilityContext, paymentInfo: PaymentInfo): Promise<PickerResult>; 差异内容：function cashierPicker(context: common.UIAbilityContext, paymentInfo: PaymentInfo): Promise<PickerResult>; | api/@hms.core.payment.paymentService.d.ts |
+| 新增API | NA | 类名：paymentService； API声明：function requestPayment(context: common.UIAbilityContext, orderStr: string, payload: string): Promise&lt;PayResult&gt;; 差异内容：function requestPayment(context: common.UIAbilityContext, orderStr: string, payload: string): Promise&lt;PayResult&gt;; | api/@hms.core.payment.paymentService.d.ts |
+| 新增API | NA | 类名：paymentService； API声明：function cashierPicker(context: common.UIAbilityContext, paymentInfo: PaymentInfo): Promise&lt;PickerResult&gt;; 差异内容：function cashierPicker(context: common.UIAbilityContext, paymentInfo: PaymentInfo): Promise&lt;PickerResult&gt;; | api/@hms.core.payment.paymentService.d.ts |
 | 新增API | NA | 类名：paymentService； API声明： interface PaymentInfo 差异内容： interface PaymentInfo | api/@hms.core.payment.paymentService.d.ts |
 | 新增API | NA | 类名：PaymentInfo； API声明：tradeSummary?: string; 差异内容：tradeSummary?: string; | api/@hms.core.payment.paymentService.d.ts |
 | 新增API | NA | 类名：PaymentInfo； API声明：amount?: number; 差异内容：amount?: number; | api/@hms.core.payment.paymentService.d.ts |

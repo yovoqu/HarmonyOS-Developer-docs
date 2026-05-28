@@ -3,24 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 屏幕录制管理类，用于进行屏幕录制。在调用AVScreenCaptureRecorder的方法前，需要先通过[createAVScreenCaptureRecorder()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreateavscreencapturerecorder12)创建一个AVScreenCaptureRecorder实例。
 
+> [!NOTE]
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 12开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { media } from '@kit.MediaKit';
 ```
 
 
-## init12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-init(config: AVScreenCaptureRecordConfig): Promise<void>
+##### init12+
+
+init(config: AVScreenCaptureRecordConfig): Promise&lt;void&gt;
 
 进行录屏初始化，设置录屏参数。使用Promise异步回调。
 
@@ -28,14 +30,12 @@ init(config: AVScreenCaptureRecordConfig): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| config | [AVScreenCaptureRecordConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avscreencapturerecordconfig12) | 是 | 配置屏幕录制的相关参数。 |
+| config | AVScreenCaptureRecordConfig | 是 | 配置屏幕录制的相关参数。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -45,7 +45,6 @@ init(config: AVScreenCaptureRecordConfig): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -56,63 +55,49 @@ init(config: AVScreenCaptureRecordConfig): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import fileIo from '@ohos.file.fs';
 import { media } from '@kit.MediaKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 创建文件。
 let filesDir = '/data/storage/el2/base/haps';
-let file = fileIo.openSync(
-  filesDir + '/screenCapture.mp4',
-  fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE,
-);
+let file = fileIo.openSync(filesDir + '/screenCapture.mp4', fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
 
 let avCaptureConfig: media.AVScreenCaptureRecordConfig = {
-  fd: file.fd, // 文件需要先由调用者创建，通常是MP4文件，赋予写权限，将文件fd传给此参数。
-  frameWidth: 640,
-  frameHeight: 480,
-  // 补充其他参数。
+    fd: file.fd, // 文件需要先由调用者创建，通常是MP4文件，赋予写权限，将文件fd传给此参数。
+    frameWidth: 640,
+    frameHeight: 480
+    // 补充其他参数。
 };
 
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .init(avCaptureConfig)
-    .then(() => {
-      console.info('Succeeded in initializing avScreenCaptureRecorder');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to init avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.init(avCaptureConfig).then(() => {
+    console.info('Succeeded in initializing avScreenCaptureRecorder');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to init avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## startRecording12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-startRecording(): Promise<void>
+##### startRecording12+
+
+startRecording(): Promise&lt;void&gt;
 
 开始录屏，在使用前需要先调用[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#init12)接口。使用Promise异步回调。
 
@@ -120,7 +105,6 @@ startRecording(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -130,7 +114,6 @@ startRecording(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400103 | IO error. Return by promise. |
@@ -139,50 +122,39 @@ startRecording(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用startRecording方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .startRecording()
-    .then(() => {
-      console.info('Succeeded in starting avScreenCaptureRecorder');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to start avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.startRecording().then(() => {
+    console.info('Succeeded in starting avScreenCaptureRecorder');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to start avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## stopRecording12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-stopRecording(): Promise<void>
+##### stopRecording12+
+
+stopRecording(): Promise&lt;void&gt;
 
 结束录屏。使用Promise异步回调。
 
@@ -190,7 +162,6 @@ stopRecording(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -200,7 +171,6 @@ stopRecording(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400103 | IO error. Return by promise. |
@@ -209,50 +179,39 @@ stopRecording(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用stopRecording方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .stopRecording()
-    .then(() => {
-      console.info('Succeeded in stopping avScreenCaptureRecorder');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to stop avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.stopRecording().then(() => {
+    console.info('Succeeded in stopping avScreenCaptureRecorder');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to stop avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## skipPrivacyMode12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-skipPrivacyMode(windowIDs: Array<number>): Promise<void>
+##### skipPrivacyMode12+
+
+skipPrivacyMode(windowIDs: Array&lt;number&gt;): Promise&lt;void&gt;
 
 录屏时，应用可对本应用的隐私窗口做安全豁免。使用Promise异步回调。
 
@@ -262,14 +221,12 @@ skipPrivacyMode(windowIDs: Array<number>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| windowIDs | Array&lt;number&gt; | 是 | 需要豁免隐私的窗口列表，包括主窗口id和子窗口id，窗口属性获取方法可以参考[getWindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)。 |
+| windowIDs | Array&lt;number&gt; | 是 | 需要豁免隐私的窗口列表，包括主窗口id和子窗口id，窗口属性获取方法可以参考getWindowProperties。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -280,7 +237,6 @@ skipPrivacyMode(windowIDs: Array<number>): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400103 | IO error. Return by promise. |
@@ -289,58 +245,46 @@ skipPrivacyMode(windowIDs: Array<number>): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用skipPrivacyMode方法。
 if (avScreenCaptureRecorder != undefined) {
   let windowIDs = [];
-  avScreenCaptureRecorder
-    .skipPrivacyMode(windowIDs)
-    .then(() => {
-      console.info('Succeeded in skipping privacy mode');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to skip privacy mode. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.skipPrivacyMode(windowIDs).then(() => {
+    console.info('Succeeded in skipping privacy mode');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to skip privacy mode. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## setMicEnabled12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-setMicEnabled(enable: boolean): Promise<void>
+##### setMicEnabled12+
+
+setMicEnabled(enable: boolean): Promise&lt;void&gt;
 
 设置麦克风开关。使用Promise异步回调。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVScreenCapture
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -349,7 +293,6 @@ setMicEnabled(enable: boolean): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -359,7 +302,6 @@ setMicEnabled(enable: boolean): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400103 | IO error. Return by promise. |
@@ -368,50 +310,39 @@ setMicEnabled(enable: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用setMicEnabled方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .setMicEnabled(true)
-    .then(() => {
-      console.info('Succeeded in setting microphone enabled.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to set microphone enabled. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.setMicEnabled(true).then(() => {
+    console.info('Succeeded in setting microphone enabled.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to set microphone enabled. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## setPickerMode22+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-setPickerMode(pickerMode: PickerMode): Promise<void>
+##### setPickerMode22+
+
+setPickerMode(pickerMode: PickerMode): Promise&lt;void&gt;
 
 设置Picker显示模式，在下一次显示Picker时生效。使用Promise异步回调。
 
@@ -419,14 +350,12 @@ setPickerMode(pickerMode: PickerMode): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pickerMode | [PickerMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#pickermode22) | 是 | 选择Picker模式。          定义了在Picker中显示的内容类型：          - SCREEN_ONLY：仅显示屏幕列表。          - WINDOW_ONLY：仅显示窗口列表。          - SCREEN_AND_WINDOW：同时显示屏幕列表和窗口列表（默认值）。 |
+| pickerMode | PickerMode | 是 | 选择Picker模式。 定义了在Picker中显示的内容类型： - SCREEN_ONLY：仅显示屏幕列表。 - WINDOW_ONLY：仅显示窗口列表。 - SCREEN_AND_WINDOW：同时显示屏幕列表和窗口列表（默认值）。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -437,7 +366,6 @@ setPickerMode(pickerMode: PickerMode): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -447,50 +375,39 @@ setPickerMode(pickerMode: PickerMode): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用setPickerMode方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .setPickerMode(media.PickerMode.WINDOW_ONLY)
-    .then(() => {
-      console.info('Succeeded in setting picker mode.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to set picker mode. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.setPickerMode(media.PickerMode.WINDOW_ONLY).then(() => {
+    console.info('Succeeded in setting picker mode.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to set picker mode. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## excludePickerWindows22+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-excludePickerWindows(excludedWindows: Array<number>): Promise<void>
+##### excludePickerWindows22+
+
+excludePickerWindows(excludedWindows: Array&lt;number&gt;): Promise&lt;void&gt;
 
 设置在Picker中隐藏的窗口列表，在下一次显示Picker时生效。使用Promise异步回调。
 
@@ -498,14 +415,12 @@ excludePickerWindows(excludedWindows: Array<number>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| excludedWindows | Array&lt;number&gt; | 是 | 需要在Picker中隐藏的窗口列表，窗口属性获取方法可以参考[getWindowProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowproperties9)。 |
+| excludedWindows | Array&lt;number&gt; | 是 | 需要在Picker中隐藏的窗口列表，窗口属性获取方法可以参考getWindowProperties。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -516,7 +431,6 @@ excludePickerWindows(excludedWindows: Array<number>): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -526,60 +440,51 @@ excludePickerWindows(excludedWindows: Array<number>): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let excludedWindows: Array<number> = [101, 102, 103];
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用excludePickerWindows方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .excludePickerWindows(excludedWindows)
-    .then(() => {
-      console.info('Succeeded in excluding picker windows.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to exclude picker windows. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.excludePickerWindows(excludedWindows).then(() => {
+    console.info('Succeeded in excluding picker windows.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to exclude picker windows. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## presentPicker22+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-presentPicker(): Promise<void>
+##### presentPicker22+
+
+presentPicker(): Promise&lt;void&gt;
 
 录屏开始后，调用该接口再次弹出Picker，可动态更新录制源（窗口、屏幕）。使用Promise异步回调。
+
+> [!NOTE]
+> 更新录制源过程中，原录制流程不中断。 通过picker动态更新录制源后，按照新的录制源进行录制。
 
 
 **系统能力：** SystemCapability.Multimedia.Media.AVScreenCapture
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -590,7 +495,6 @@ presentPicker(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400102 | Operation not allowed. Return by promise. |
@@ -600,50 +504,39 @@ presentPicker(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用presentPicker方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .presentPicker()
-    .then(() => {
-      console.info('Succeeded in presenting picker avScreenCaptureRecorder.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to present picker avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.presentPicker().then(() => {
+    console.info('Succeeded in presenting picker avScreenCaptureRecorder.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to present picker avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## release12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-release(): Promise<void>
+##### release12+
+
+release(): Promise&lt;void&gt;
 
 释放录屏。使用Promise异步回调。
 
@@ -651,7 +544,6 @@ release(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -661,7 +553,6 @@ release(): Promise<void>
 
 以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 5400103 | IO error. Return by promise. |
@@ -670,50 +561,39 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用release方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder
-    .release()
-    .then(() => {
-      console.info('Succeeded in releasing avScreenCaptureRecorder');
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to release avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`,
-      );
-    });
+  avScreenCaptureRecorder.release().then(() => {
+    console.info('Succeeded in releasing avScreenCaptureRecorder');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to release avScreenCaptureRecorder. Code: ${err.code}, message: ${err.message}`);
+  });
 }
 ```
 
 
-## on('stateChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void
+##### on('stateChange')12+
+
+on(type: 'stateChange', callback: Callback&lt;AVScreenCaptureStateCode&gt;): void
 
 订阅录屏状态切换的事件，当状态发生的时候，会通过订阅的回调通知用户。用户只能订阅一个状态切换的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
 
@@ -721,53 +601,43 @@ on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 状态切换事件回调类型，支持的事件：'stateChange'。 |
-| callback | Callback&lt;[AVScreenCaptureStateCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#avscreencapturestatecode12)&gt; | 是 | 状态切换事件回调方法，[AVScreenCaptureStateCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#avscreencapturestatecode12)表示切换到的状态。 |
+| callback | Callback&lt;AVScreenCaptureStateCode&gt; | 是 | 状态切换事件回调方法，AVScreenCaptureStateCode表示切换到的状态。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用on方法。
 if (avScreenCaptureRecorder != undefined) {
-  avScreenCaptureRecorder.on(
-    'stateChange',
-    (state: media.AVScreenCaptureStateCode) => {
+  avScreenCaptureRecorder.on('stateChange', (state: media.AVScreenCaptureStateCode) => {
       console.info('avScreenCaptureRecorder stateChange to ' + state);
-    },
-  );
+  });
 }
 ```
 
 
-## on('error')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### on('error')12+
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -777,17 +647,15 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 错误事件回调类型，支持的事件：'error'。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 录屏错误事件回调方法。 |
+| callback | ErrorCallback | 是 | 录屏错误事件回调方法。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -798,45 +666,37 @@ on(type: 'error', callback: ErrorCallback): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
 // 调用on方法。
 if (avScreenCaptureRecorder != undefined) {
   avScreenCaptureRecorder.on('error', (err: BusinessError) => {
-    console.error(
-      `avScreenCaptureRecorder error: Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`avScreenCaptureRecorder error: Code: ${err.code}, message: ${err.message}`);
   });
 }
 ```
 
 
-## off('stateChange')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
 
-off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void
+##### off('stateChange')12+
+
+off(type: 'stateChange', callback?: Callback&lt;AVScreenCaptureStateCode&gt;): void
 
 取消订阅状态切换回调事件。用户可以指定填入状态切换的回调方法来取消订阅。
 
@@ -844,36 +704,29 @@ off(type: 'stateChange', callback?: Callback<AVScreenCaptureStateCode>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 状态切换事件回调类型，支持的事件：'stateChange'。 |
-| callback | Callback&lt;[AVScreenCaptureStateCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#avscreencapturestatecode12)&gt; | 否 | 状态切换事件回调方法，[AVScreenCaptureStateCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#avscreencapturestatecode12)表示切换到的状态，不填此参数则会取消最后一次订阅事件。 |
+| callback | Callback&lt;AVScreenCaptureStateCode&gt; | 否 | 状态切换事件回调方法，AVScreenCaptureStateCode表示切换到的状态，不填此参数则会取消最后一次订阅事件。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 
@@ -884,8 +737,8 @@ if (avScreenCaptureRecorder != undefined) {
 ```
 
 
-## off('error')12+
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+##### off('error')12+
 
 off(type: 'error', callback?: ErrorCallback): void
 
@@ -895,36 +748,29 @@ off(type: 'error', callback?: ErrorCallback): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 状态切换事件回调类型，支持的事件：'error'。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 录屏错误事件回调方法，不填此参数则会取消最后一次订阅事件。 |
+| callback | ErrorCallback | 否 | 录屏错误事件回调方法，不填此参数则会取消最后一次订阅事件。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // 初始化avScreenCaptureRecorder。
 let avScreenCaptureRecorder: media.AVScreenCaptureRecorder | undefined;
-media
-  .createAVScreenCaptureRecorder()
-  .then((captureRecorder: media.AVScreenCaptureRecorder) => {
-    if (captureRecorder != null) {
-      avScreenCaptureRecorder = captureRecorder;
-      console.info('Succeeded in creating avScreenCaptureRecorder');
-    } else {
-      console.error('Failed to create avScreenCaptureRecorder');
-    }
-  })
-  .catch((error: BusinessError) => {
-    console.error(
-      `createAVScreenCaptureRecorder catchCallback, error message:${error.message}`,
-    );
-  });
+media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptureRecorder) => {
+  if (captureRecorder != null) {
+    avScreenCaptureRecorder = captureRecorder;
+    console.info('Succeeded in creating avScreenCaptureRecorder');
+  } else {
+    console.error('Failed to create avScreenCaptureRecorder');
+  }
+}).catch((error: BusinessError) => {
+  console.error(`createAVScreenCaptureRecorder catchCallback, error message:${error.message}`);
+});
 
 // 其余流程。
 

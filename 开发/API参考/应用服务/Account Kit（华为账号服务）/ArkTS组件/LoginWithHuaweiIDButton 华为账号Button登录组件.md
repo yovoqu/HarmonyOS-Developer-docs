@@ -3,66 +3,60 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供LoginWithHuaweiIDButton组件，应用通过集成该组件完成华为账号登录功能。
-
+ 
 LoginWithHuaweiIDButton需要配合[loginComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager)一起使用，用于实现华为账号登录功能。LoginWithHuaweiIDButton组件文本内容默认支持多语言。
-
+ 
 **起始版本：** 4.1.0(11)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / TV
-
-
-```ts
-import {
-  LoginWithHuaweiIDButton,
-  loginComponentManager,
-} from '@kit.AccountKit';
+```text
+import { LoginWithHuaweiIDButton, loginComponentManager } from '@kit.AccountKit';
 ```
+ 
+  
 
-
-## LoginWithHuaweiIDButton
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### LoginWithHuaweiIDButton
 
 该类为用来展示登录华为账号按钮的UI组件。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **装饰器类型：** @Component
-
+ 
 **系统能力：** SystemCapability.AuthenticationServices.HuaweiID.UIComponent
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **参数：**
-
-
+  
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| params | [LoginWithHuaweiIDButtonParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginwithhuaweiidbuttonparams) | 是 | - | LoginWithHuaweiIDButton组件参数。 |
-| controller | [LoginWithHuaweiIDButtonController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginwithhuaweiidbuttoncontroller) | 是 | - | LoginWithHuaweiIDButton组件控制器用来接收组件的点击事件。 |
+| params | LoginWithHuaweiIDButtonParams | 是 | - | LoginWithHuaweiIDButton组件参数。 |
+| controller | LoginWithHuaweiIDButtonController | 是 | - | LoginWithHuaweiIDButton组件控制器用来接收组件的点击事件。 |
+ 
+ 
+  
 
-
-### build
-**支持设备：** Phone / PC/2in1 / Tablet / TV
+##### build
 
 build(): void
-
+ 
 用于创建[LoginWithHuaweiIDButton](#loginwithhuaweiidbutton)对象的构造函数。
-
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
-
+ 
 **系统能力：** SystemCapability.AuthenticationServices.HuaweiID.UIComponent
-
+ 
 **起始版本：** 4.1.0(11)
-
+ 
 **示例：**
-
-
-```ts
+ 
+```text
 import { loginComponentManager, LoginWithHuaweiIDButton } from '@kit.AccountKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -96,31 +90,31 @@ struct QuickLoginButtonComponent {
   }];
   // 构造LoginWithHuaweiIDButton组件的控制器
   controller: loginComponentManager.LoginWithHuaweiIDButtonController =
-  new loginComponentManager.LoginWithHuaweiIDButtonController()
-  /**
-  * 当应用使用自定义的登录页时，如果用户未同意协议，需要设置协议状态为NOT_ACCEPTED，当用户同意协议后再设置
-  * 协议状态为ACCEPTED，才可以使用华为账号一键登录功能
-  */
-  .setAgreementStatus(loginComponentManager.AgreementStatus.NOT_ACCEPTED)
-  .onClickLoginWithHuaweiIDButton((error: BusinessError, response: loginComponentManager.HuaweiIDCredential) => {
-    if (error) {
-      this.dealAllError(error);
-      return;
-    }
-    if (response) {
-      // 获取到Authorization Code
-      const authorizationCode = response.authorizationCode;
-      hilog.info(0x0000, 'testTag', 'Succeeded in getting response.');
-      return;
-    }
-  })
-  .onClickEvent((error: BusinessError, clickEvent: loginComponentManager.ClickEvent) => {
-    if (error) {
-      this.dealAllError(error);
-      return;
-    }
-    hilog.info(0x0000, 'testTag', `onClickEvent clickEvent: ${clickEvent}`);
-  });
+    new loginComponentManager.LoginWithHuaweiIDButtonController()
+      /**
+       * 当应用使用自定义的登录页时，如果用户未同意协议，需要设置协议状态为NOT_ACCEPTED，当用户同意协议后再设置
+       * 协议状态为ACCEPTED，才可以使用华为账号一键登录功能
+       */
+      .setAgreementStatus(loginComponentManager.AgreementStatus.NOT_ACCEPTED)
+      .onClickLoginWithHuaweiIDButton((error: BusinessError, response: loginComponentManager.HuaweiIDCredential) => {
+        if (error) {
+          this.dealAllError(error);
+          return;
+        }
+        if (response) {
+          // 获取到Authorization Code
+          const authorizationCode = response.authorizationCode;
+          hilog.info(0x0000, 'testTag', 'Succeeded in getting response.');
+          return;
+        }
+      })
+      .onClickEvent((error: BusinessError, clickEvent: loginComponentManager.ClickEvent) => {
+        if (error) {
+          this.dealAllError(error);
+          return;
+        }
+        hilog.info(0x0000, 'testTag', `onClickEvent clickEvent: ${clickEvent}`);
+      });
 
   // 错误处理
   dealAllError(error: BusinessError): void {
@@ -152,66 +146,66 @@ struct QuickLoginButtonComponent {
           Column() {
             // 此处为示例资源，开发者可使用应用图标进行替换，以保证正常编译运行
             Image($r('app.media.app_icon'))
-            .width(48)
-            .height(48)
-            .draggable(false)
-            .copyOption(CopyOptions.None)
-            .onComplete(() => {
-              hilog.info(0x0000, 'testTag', 'appIcon loading success');
-            })
-            .onError(() => {
-              hilog.error(0x0000, 'testTag', 'appIcon loading fail');
-            })
+              .width(48)
+              .height(48)
+              .draggable(false)
+              .copyOption(CopyOptions.None)
+              .onComplete(() => {
+                hilog.info(0x0000, 'testTag', 'appIcon loading success');
+              })
+              .onError(() => {
+                hilog.error(0x0000, 'testTag', 'appIcon loading fail');
+              })
 
             Text($r('app.string.app_name'))
-            .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
-            .fontWeight(FontWeight.Medium)
-            .fontWeight(FontWeight.Bold)
-            .maxFontSize($r('sys.float.ohos_id_text_size_headline8'))
-            .minFontSize($r('sys.float.ohos_id_text_size_body1'))
-            .maxLines(1)
-            .fontColor($r('sys.color.ohos_id_color_text_primary'))
-            .constraintSize({ maxWidth: '100%' })
-            .margin({
-              top: 12
-            })
+              .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
+              .fontWeight(FontWeight.Medium)
+              .fontWeight(FontWeight.Bold)
+              .maxFontSize($r('sys.float.ohos_id_text_size_headline8'))
+              .minFontSize($r('sys.float.ohos_id_text_size_body1'))
+              .maxLines(1)
+              .fontColor($r('sys.color.ohos_id_color_text_primary'))
+              .constraintSize({ maxWidth: '100%' })
+              .margin({
+                top: 12
+              })
 
             Text('应用描述')
-            .fontSize($r('sys.float.ohos_id_text_size_body2'))
-            .fontColor($r('sys.color.ohos_id_color_text_secondary'))
-            .fontFamily($r('sys.string.ohos_id_text_font_family_regular'))
-            .fontWeight(FontWeight.Regular)
-            .constraintSize({ maxWidth: '100%' })
-            .margin({
-              top: 8
-            })
+              .fontSize($r('sys.float.ohos_id_text_size_body2'))
+              .fontColor($r('sys.color.ohos_id_color_text_secondary'))
+              .fontFamily($r('sys.string.ohos_id_text_font_family_regular'))
+              .fontWeight(FontWeight.Regular)
+              .constraintSize({ maxWidth: '100%' })
+              .margin({
+                top: 8
+              })
           }.margin({
             top: 100
           })
 
           Column() {
             Text(this.quickLoginAnonymousPhone)
-            .fontSize(36)
-            .fontColor($r('sys.color.ohos_id_color_text_primary'))
-            .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
-            .fontWeight(FontWeight.Bold)
-            .lineHeight(48)
-            .textAlign(TextAlign.Center)
-            .maxLines(1)
-            .constraintSize({ maxWidth: '100%', minHeight: 48 })
+              .fontSize(36)
+              .fontColor($r('sys.color.ohos_id_color_text_primary'))
+              .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
+              .fontWeight(FontWeight.Bold)
+              .lineHeight(48)
+              .textAlign(TextAlign.Center)
+              .maxLines(1)
+              .constraintSize({ maxWidth: '100%', minHeight: 48 })
 
             Text('华为账号绑定号码')
-            .fontSize($r('sys.float.ohos_id_text_size_body2'))
-            .fontColor($r('sys.color.ohos_id_color_text_secondary'))
-            .fontFamily($r('sys.string.ohos_id_text_font_family_regular'))
-            .fontWeight(FontWeight.Regular)
-            .lineHeight(19)
-            .textAlign(TextAlign.Center)
-            .maxLines(1)
-            .constraintSize({ maxWidth: '100%' })
-            .margin({
-              top: 8
-            })
+              .fontSize($r('sys.float.ohos_id_text_size_body2'))
+              .fontColor($r('sys.color.ohos_id_color_text_secondary'))
+              .fontFamily($r('sys.string.ohos_id_text_font_family_regular'))
+              .fontWeight(FontWeight.Regular)
+              .lineHeight(19)
+              .textAlign(TextAlign.Center)
+              .maxLines(1)
+              .constraintSize({ maxWidth: '100%' })
+              .margin({
+                top: 8
+              })
           }.margin({
             top: 64
           })
@@ -249,15 +243,15 @@ struct QuickLoginButtonComponent {
               stateEffect: true
             }) {
               Text('其他方式登录')
-              .fontColor($r('sys.color.ohos_id_color_text_primary_activated'))
-              .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
-              .fontWeight(FontWeight.Medium)
-              .fontSize($r('sys.float.ohos_id_text_size_button1'))
-              .focusable(true)
-              .focusOnTouch(true)
-              .textOverflow({ overflow: TextOverflow.Ellipsis })
-              .maxLines(1)
-              .padding({ left: 8, right: 8 })
+                .fontColor($r('sys.color.ohos_id_color_text_primary_activated'))
+                .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
+                .fontWeight(FontWeight.Medium)
+                .fontSize($r('sys.float.ohos_id_text_size_button1'))
+                .focusable(true)
+                .focusOnTouch(true)
+                .textOverflow({ overflow: TextOverflow.Ellipsis })
+                .maxLines(1)
+                .padding({ left: 8, right: 8 })
             }
             .fontColor($r('sys.color.ohos_id_color_text_primary_activated'))
             .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
@@ -270,25 +264,25 @@ struct QuickLoginButtonComponent {
             .onClick(() => {
               hilog.info(this.domainId, this.logTag, 'click optionalLoginButton.');
             })
-        }.margin({ top: 16 })
+          }.margin({ top: 16 })
         }.width('100%')
 
         Row() {
           Row() {
             Checkbox({ name: 'privacyCheckbox', group: 'privacyCheckboxGroup' })
-            .width(24)
-            .height(24)
-            .focusable(true)
-            .focusOnTouch(true)
-            .margin({ top: 0 })
-            .onChange((value: boolean) => {
-              if (value) {
-                this.controller.setAgreementStatus(loginComponentManager.AgreementStatus.ACCEPTED);
-              } else {
-                this.controller.setAgreementStatus(loginComponentManager.AgreementStatus.NOT_ACCEPTED);
-              }
-              hilog.info(0x0000, 'testTag', `agreementChecked: ${value}`);
-            })
+              .width(24)
+              .height(24)
+              .focusable(true)
+              .focusOnTouch(true)
+              .margin({ top: 0 })
+              .onChange((value: boolean) => {
+                if (value) {
+                  this.controller.setAgreementStatus(loginComponentManager.AgreementStatus.ACCEPTED);
+                } else {
+                  this.controller.setAgreementStatus(loginComponentManager.AgreementStatus.NOT_ACCEPTED);
+                }
+                hilog.info(0x0000, 'testTag', `agreementChecked: ${value}`);
+              })
           }
 
           Row() {
@@ -296,20 +290,20 @@ struct QuickLoginButtonComponent {
               ForEach(this.privacyText, (item: loginComponentManager.PrivacyText) => {
                 if (item?.type === loginComponentManager.TextType.PLAIN_TEXT && item?.text) {
                   Span(item?.text)
-                  .fontColor($r('sys.color.ohos_id_color_text_secondary'))
-                  .fontFamily($r('sys.string.ohos_id_text_font_family_regular'))
-                  .fontWeight(FontWeight.Regular)
-                  .fontSize($r('sys.float.ohos_id_text_size_body3'))
+                    .fontColor($r('sys.color.ohos_id_color_text_secondary'))
+                    .fontFamily($r('sys.string.ohos_id_text_font_family_regular'))
+                    .fontWeight(FontWeight.Regular)
+                    .fontSize($r('sys.float.ohos_id_text_size_body3'))
                 } else if (item?.type === loginComponentManager.TextType.RICH_TEXT && item?.text) {
                   Span(item?.text)
-                  .fontColor($r('sys.color.ohos_id_color_text_primary_activated'))
-                  .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
-                  .fontWeight(FontWeight.Medium)
-                  .fontSize($r('sys.float.ohos_id_text_size_body3'))
-                  .onClick(() => {
-                    // 应用需要根据item.tag实现协议页面的跳转逻辑
-                    hilog.info(0x0000, 'testTag', `click privacy text tag: ${item.tag}`);
-                  })
+                    .fontColor($r('sys.color.ohos_id_color_text_primary_activated'))
+                    .fontFamily($r('sys.string.ohos_id_text_font_family_medium'))
+                    .fontWeight(FontWeight.Medium)
+                    .fontSize($r('sys.float.ohos_id_text_size_body3'))
+                    .onClick(() => {
+                      // 应用需要根据item.tag实现协议页面的跳转逻辑
+                      hilog.info(0x0000, 'testTag', `click privacy text tag: ${item.tag}`);
+                    })
                 }
               }, (item: loginComponentManager.PrivacyText) => item.text.toString())
             }

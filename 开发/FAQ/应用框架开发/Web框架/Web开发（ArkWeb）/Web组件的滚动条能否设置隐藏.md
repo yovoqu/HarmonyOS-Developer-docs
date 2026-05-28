@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-77
 
-Web组件可以设置horizontalScrollBarAccess(false)属性和verticalScrollBarAccess(false)属性分别设置横向和纵向滚动条的可见性。
+Web组件可以设置[horizontalScrollBarAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#horizontalscrollbaraccess9)(false)属性和[verticalScrollBarAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#verticalscrollbaraccess9)(false)属性分别设置横向和纵向滚动条的可见性。

@@ -7,27 +7,35 @@
 从5.0.3(15)版本开始，新增文件打开加速功能。提供注册和取消注册接口，应用可以注册一系列回调，文件打开加速服务通过调用回调接口向应用推荐文件进行预加载动作。
 
 
-## 接口说明
+##### 接口说明
 
-具体API说明详见[文件打开加速接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/openfileboost_preview)。 **表1** 文件预加载接口介绍（C API）
+具体API说明详见[文件打开加速接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/openfileboost_preview)。
+
+**表1** 文件预加载接口介绍（C API）
+
 | 接口名 | 描述 |
 | --- | --- |
-| OpenFileBoost_ErrCode HMS_OpenFileBoost_RegisterFilePreload(          HMS_OpenFileBoost_QueryAppState queryAppState,          HMS_OpenFileBoost_OnFilePreload filePreload,          HMS_OpenFileBoost_OnFilePreload cancelFilePreload); | 向系统注册文件预加载回调。 |
+| OpenFileBoost_ErrCode HMS_OpenFileBoost_RegisterFilePreload( HMS_OpenFileBoost_QueryAppState queryAppState, HMS_OpenFileBoost_OnFilePreload filePreload, HMS_OpenFileBoost_OnFilePreload cancelFilePreload); | 向系统注册文件预加载回调。 |
 | typedef OpenFileBoost_AppState (*HMS_OpenFileBoost_QueryAppState)(void); | 系统查询APP状态的回调函数定义。 |
 | typedef OpenFileBoost_CbErrCode (*HMS_OpenFileBoost_OnFilePreload)(void* fileInfo); | 系统向应用推荐或取消推荐预加载文件的回调函数定义。 |
-| OpenFileBoost_ErrCode HMS_OpenFileBoost_GetFdFromPreloadFileInfo(          void* fileInfo, int32_t* fd); | 在向应用推荐文件进行预加载或取消预加载的回调上下文中，应用通过调用该接口获取文件描述符信息。 |
-| OpenFileBoost_ErrCode HMS_OpenFileBoost_GetSandboxPathFromPreloadFileInfo(          void* fileInfo, char* sandboxPath, int32_t pathLen); | 在向应用推荐文件进行预加载或取消预加载的回调上下文中，应用通过调用该接口获取文件沙箱路径信息。 |
+| OpenFileBoost_ErrCode HMS_OpenFileBoost_GetFdFromPreloadFileInfo( void* fileInfo, int32_t* fd); | 在向应用推荐文件进行预加载或取消预加载的回调上下文中，应用通过调用该接口获取文件描述符信息。 |
+| OpenFileBoost_ErrCode HMS_OpenFileBoost_GetSandboxPathFromPreloadFileInfo( void* fileInfo, char* sandboxPath, int32_t pathLen); | 在向应用推荐文件进行预加载或取消预加载的回调上下文中，应用通过调用该接口获取文件沙箱路径信息。 |
 | OpenFileBoost_ErrCode HMS_OpenFileBoost_UnregisterFilePreload(void); | 取消注册预加载回调。 |
-| OpenFileBoost_ErrCode HMS_OpenFileBoost_NotifyPreloadHit(          int32_t fd, char* sandboxPath, int32_t pathLen); | 当用户打开预加载文件时，应用调用该接口通知系统预加载命中，这将有助于提高预加载文件预测的准确性。 |
+| OpenFileBoost_ErrCode HMS_OpenFileBoost_NotifyPreloadHit( int32_t fd, char* sandboxPath, int32_t pathLen); | 当用户打开预加载文件时，应用调用该接口通知系统预加载命中，这将有助于提高预加载文件预测的准确性。 |
 
 
-## 开发准备
+
+
+##### 开发准备
 
 需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用caniuse判断syscap是否可调用)查询您的目标设备是否支持SystemCapability.PCService.OpenFileBoost系统能力，当前仅在2in1设备上支持该能力。
 
-## 开发步骤
 
-申请文件打开加速服务的对应权限，在module.json5文件中添加文件预加载权限。注意ohos.permission.PRELOAD_FILE为受限权限，具体可参考[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl) 。
+
+##### 开发步骤
+1. 申请文件打开加速服务的对应权限，在module.json5文件中添加文件预加载权限。注意ohos.permission.PRELOAD_FILE为受限权限，具体可参考[申请使用受限权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions-in-acl) 。
+
+  
 ```text
 "requestPermissions":[
   {
@@ -36,19 +44,25 @@
 ]
 ```
 
-添加对应的头文件。
+2. 添加对应的头文件。
+
+  
 ```text
 #include "PreviewKit/open_file_boost.h"
 ```
 
-编写CMakeLists.txt，新增对文件打开加速功能的依赖。
+3. 编写CMakeLists.txt，新增对文件打开加速功能的依赖。
+
+  
 ```text
 target_link_libraries(entry PUBLIC
     libopen_file_boost.so
 )
 ```
 
-注册文件预加载回调，注册后系统在条件符合时调用回调向应用推荐文件。
+4. 注册文件预加载回调，注册后系统在条件符合时调用回调向应用推荐文件。
+
+  
 ```text
 OpenFileBoost_ErrCode ret = HMS_OpenFileBoost_RegisterFilePreload(AppQueryAppStateCb,
     AppOnFilePreload, AppCancelFilePreload);
@@ -57,7 +71,9 @@ if (ret != OPEN_FILE_BOOST_SUCCESS){
 }
 ```
 
-应用在当前回调上下文中同步解析预加载文件，或同步阻塞等待解析完毕后再返回，以便系统可以评估本次预加载文件的资源消耗。
+5. 应用在当前回调上下文中同步解析预加载文件，或同步阻塞等待解析完毕后再返回，以便系统可以评估本次预加载文件的资源消耗。
+
+  
 ```text
 // 查询应用当前状态的回调函数，系统在向应用推荐文件前会先调用状态查询回调函数向应用查询当前是否适合推荐
 OpenFileBoost_AppState AppQueryAppStateCb(void)
@@ -109,7 +125,9 @@ OpenFileBoost_CbErrCode AppCancelFilePreload(void* fileInfo)
 }
 ```
 
-如果用户打开了已经预加载的文件，应用需要调用HMS_OpenFileBoost_NotifyPreloadHit通知系统，系统会更改文件的预加载状态。
+6. 如果用户打开了已经预加载的文件，应用需要调用HMS_OpenFileBoost_NotifyPreloadHit通知系统，系统会更改文件的预加载状态。
+
+  
 ```text
 // 传入用户打开的已经预加载的文件描述符、文件路径和长度
 OpenFileBoost_ErrCode ret = HMS_OpenFileBoost_NotifyPreloadHit(fileDescriptor, sandboxPath, pathLen);
@@ -118,7 +136,9 @@ if (ret != OPEN_FILE_BOOST_SUCCESS){
 }
 ```
 
-应用不想再收到回调，或者在退出流程中时，调用取消预加载接口。
+7. 应用不想再收到回调，或者在退出流程中时，调用取消预加载接口。
+
+  
 ```text
 OpenFileBoost_ErrCode ret = HMS_OpenFileBoost_UnregisterFilePreload();
 if (ret != OPEN_FILE_BOOST_SUCCESS){

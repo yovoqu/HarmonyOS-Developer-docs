@@ -10,7 +10,7 @@
 | 新增API | NA | 类名：Visibility； API声明：ALL 差异内容：ALL | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：Visibility； API声明：OWN_PROCESS 差异内容：OWN_PROCESS | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：unifiedDataChannel； API声明：interface DataLoadInfo 差异内容：interface DataLoadInfo | api/@ohos.data.unifiedDataChannel.d.ts |
-| 新增API | NA | 类名：DataLoadInfo； API声明：types?: Set<string>; 差异内容：types?: Set<string>; | api/@ohos.data.unifiedDataChannel.d.ts |
+| 新增API | NA | 类名：DataLoadInfo； API声明：types?: Set&lt;string&gt;; 差异内容：types?: Set&lt;string&gt;; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：DataLoadInfo； API声明：recordCount?: number; 差异内容：recordCount?: number; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：unifiedDataChannel； API声明：type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData \| null; 差异内容：type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData \| null; | api/@ohos.data.unifiedDataChannel.d.ts |
 | 新增API | NA | 类名：unifiedDataChannel； API声明：interface DataLoadParams 差异内容：interface DataLoadParams | api/@ohos.data.unifiedDataChannel.d.ts |

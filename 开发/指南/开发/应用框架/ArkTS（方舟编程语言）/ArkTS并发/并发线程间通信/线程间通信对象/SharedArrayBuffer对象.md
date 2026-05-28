@@ -1,18 +1,21 @@
 # SharedArrayBuffer对象
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/shared-arraybuffer-object
 
 SharedArrayBuffer内部包含一块Native内存，其JS对象壳被分配在虚拟机本地堆（LocalHeap）。支持跨并发实例间共享Native内存，但是对共享Native内存的访问及修改需要采用Atomics类，防止数据竞争。SharedArrayBuffer可用于多个并发实例间的状态或数据共享。通信过程如下图所示：
+ 
 
- ![](assets/SharedArrayBuffer对象/file-20260514130433847-0.png)
+![](assets/SharedArrayBuffer对象/file-20260514130433847-0.png)
 
+  
 
-## 使用示例
+##### 使用示例
 
 使用TaskPool传递Int32Array对象，实现如下：
-```text
+ 
+```ArkTS
 import { taskpool } from '@kit.ArkTS';
 
 @Concurrent

@@ -1,50 +1,52 @@
 # @ohos.app.ability.sendableContextManager (sendable上下文管理)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-sendablecontextmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendableContextManager模块提供Context与[SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext)相互转换的能力。
 
+> [!NOTE]
+> 本模块首批接口从API version 12 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。
 
-## 使用场景
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 使用场景
 
 本模块主要用于ArkTS并发实例间（包括主线程、TaskPool&Worker工作线程）的数据传递。
 
 例如，从主线程向子线程（如TaskPool或Worker工作线程）传递Sendable数据（符合[Sendable协议](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable协议)的数据）时，需要通过Context与SendableContext之间的相互转换来实现。过程如下：
 
+ - 主线程向子线程传递Sendable数据时，需要将Context转换为SendableContext。
+ - 子线程使用Sendable数据时，需要将SendableContext转换为Context。
 
-- 主线程向子线程传递Sendable数据时，需要将Context转换为SendableContext。
-- 子线程使用Sendable数据时，需要将SendableContext转换为Context。
 
 这里的Context与[createModuleContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application#applicationcreatemodulecontext)方法创建的Context不同，具体差异如下：
 
+ - 与SendableContext相互转换的Context：ArkTS并发实例持有的应用侧Context是不同的实例，底层对应同一个Context对象。当一个实例中Context属性和方法被修改时，相关实例中的Context属性和方法将会同步修改。其中，Context实例中的eventHub属性比较特殊，不同实例中的eventHub是独立的对象，不支持跨ArkTS实例使用。如果需要使用[EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)跨实例传递数据，可以通过[setEventHubMultithreadingEnabled](#sendablecontextmanagerseteventhubmultithreadingenabled20)启用跨线程数据传递功能。
+ - 通过[createModuleContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application#applicationcreatemodulecontext)创建的Context：ArkTS并发实例持有的应用侧Context是不同的实例，底层对应不同的Context对象。
 
-- 与SendableContext相互转换的Context：ArkTS并发实例持有的应用侧Context是不同的实例，底层对应同一个Context对象。当一个实例中Context属性和方法被修改时，相关实例中的Context属性和方法将会同步修改。其中，Context实例中的eventHub属性比较特殊，不同实例中的eventHub是独立的对象，不支持跨ArkTS实例使用。如果需要使用[EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)跨实例传递数据，可以通过[setEventHubMultithreadingEnabled](#sendablecontextmanagerseteventhubmultithreadingenabled20)启用跨线程数据传递功能。
-- 通过[createModuleContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-application#applicationcreatemodulecontext)创建的Context：ArkTS并发实例持有的应用侧Context是不同的实例，底层对应不同的Context对象。
 
 
-## 约束限制
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 约束限制
 
 “Context转换为SendableContext”和“SendableContext转换为Context”两个环节中的Context类型必须保持一致。例如，主线程使用[convertFromContext](#sendablecontextmanagerconvertfromcontext)将[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)转换为SendableContext，子线程收到该SendableContext之后，需要通过[convertToUIAbilityContext](#sendablecontextmanagerconverttouiabilitycontext)将SendableContext转换为[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。
 
 目前支持转换的Context包括[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)、[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { sendableContextManager } from '@kit.AbilityKit';
 ```
 
 
-## SendableContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### SendableContext
 
 type SendableContext = _SendableContext
 
@@ -54,14 +56,14 @@ Sendable上下文，符合[Sendable协议](https://developer.huawei.com/consumer
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [_SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext) | 表示Sendable上下文，可以与Context对象相互转换，用于ArkTS并发实例间（包括主线程、TaskPool&amp;Worker工作线程）的数据传递。 |
+| _SendableContext | 表示Sendable上下文，可以与Context对象相互转换，用于ArkTS并发实例间（包括主线程、TaskPool&Worker工作线程）的数据传递。 |
 
 
-## sendableContextManager.convertFromContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### sendableContextManager.convertFromContext
 
 convertFromContext(context: common.Context): SendableContext
 
@@ -73,24 +75,21 @@ convertFromContext(context: common.Context): SendableContext
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context对象。支持Context基类，[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)和[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)子类。 |
+| context | common.Context | 是 | Context对象。支持Context基类，ApplicationContext、AbilityStageContext和UIAbilityContext子类。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| SendableContext | [SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext)对象。 |
+| SendableContext | SendableContext对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -99,14 +98,8 @@ convertFromContext(context: common.Context): SendableContext
 
 **示例：**
 
-
-```ts
-import {
-  AbilityConstant,
-  UIAbility,
-  Want,
-  sendableContextManager,
-} from '@kit.AbilityKit';
+```ArkTS
+import { AbilityConstant, UIAbility, Want, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { worker } from '@kit.ArkTS';
 
@@ -121,9 +114,7 @@ export class SendableObject {
 }
 
 export default class EntryAbility extends UIAbility {
-  worker: worker.ThreadWorker = new worker.ThreadWorker(
-    'entry/ets/workers/Worker.ets',
-  );
+  worker: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/Worker.ets');
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
@@ -136,19 +127,15 @@ export default class EntryAbility extends UIAbility {
       hilog.info(0x0000, 'testTag', '%{public}s', 'Ability post message');
       this.worker.postMessageWithSharedSendable(object);
     } catch (error) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+      hilog.error(0x0000, 'testTag', `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
 }
 ```
 
 
-## sendableContextManager.convertToContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendableContextManager.convertToContext
 
 convertToContext(sendableContext: SendableContext): common.Context
 
@@ -160,24 +147,21 @@ convertToContext(sendableContext: SendableContext): common.Context
 
 **参数：**
 
-
-| 参��名 | 类型 | 必填 | 说明 |
+| 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sendableContext | [SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext) | 是 | SendableContext对象。 |
+| sendableContext | SendableContext | 是 | SendableContext对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| common.Context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)对象。 |
+| common.Context | Context对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -188,24 +172,14 @@ convertToContext(sendableContext: SendableContext): common.Context
 
 主线程传递Context：
 
-
-```ts
-import {
-  AbilityConstant,
-  UIAbility,
-  Want,
-  common,
-  sendableContextManager,
-} from '@kit.AbilityKit';
+```ArkTS
+import { AbilityConstant, UIAbility, Want, common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { worker } from '@kit.ArkTS';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -215,9 +189,7 @@ export class SendableObject {
 }
 
 export default class EntryAbility extends UIAbility {
-  worker: worker.ThreadWorker = new worker.ThreadWorker(
-    'entry/ets/workers/Worker.ets',
-  );
+  worker: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/Worker.ets');
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
@@ -225,20 +197,13 @@ export default class EntryAbility extends UIAbility {
     // convert and post
     try {
       let context: common.Context = this.context as common.Context;
-      let sendableContext: sendableContextManager.SendableContext =
-        sendableContextManager.convertFromContext(context);
-      let object: SendableObject = new SendableObject(
-        sendableContext,
-        'BaseContext',
-      );
+      let sendableContext: sendableContextManager.SendableContext = sendableContextManager.convertFromContext(context);
+      let object: SendableObject = new SendableObject(sendableContext, 'BaseContext');
       hilog.info(0x0000, 'testTag', '%{public}s', 'Ability post message');
       this.worker.postMessageWithSharedSendable(object);
     } catch (error) {
       hilog.error(
-        0x0000,
-        'testTag',
-        `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+        0x0000, 'testTag', `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
 }
@@ -246,23 +211,14 @@ export default class EntryAbility extends UIAbility {
 
 Worker线程接收Context：
 
-
-```ts
-import {
-  ErrorEvent,
-  MessageEvents,
-  ThreadWorkerGlobalScope,
-  worker,
-} from '@kit.ArkTS';
+```text
+import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -275,42 +231,32 @@ const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
 workerPort.onmessage = (e: MessageEvents) => {
   let object: SendableObject = e.data;
-  let sendableContext: sendableContextManager.SendableContext =
-    object.sendableContext;
+  let sendableContext: sendableContextManager.SendableContext = object.sendableContext;
   if (object.contextName == 'BaseContext') {
     hilog.info(0x0000, 'testTag', '%{public}s', 'convert to context.');
     try {
-      let context: common.Context =
-        sendableContextManager.convertToContext(sendableContext);
+      let context: common.Context = sendableContextManager.convertToContext(sendableContext);
       // 获取context后获取沙箱路径
-      hilog.info(
-        0x0000,
-        'testTag',
-        'worker context.databaseDir: %{public}s',
-        context.databaseDir,
-      );
+      hilog.info(0x0000, 'testTag', 'worker context.databaseDir: %{public}s', context.databaseDir);
     } catch (error) {
       hilog.error(
-        0x0000,
-        'testTag',
-        `convertToContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+        0x0000, 'testTag', `convertToContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
-};
+}
 
 workerPort.onmessageerror = (e: MessageEvents) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onmessageerror');
-};
+}
 
 workerPort.onerror = (e: ErrorEvent) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onerror');
-};
+}
 ```
 
 
-## sendableContextManager.convertToApplicationContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendableContextManager.convertToApplicationContext
 
 convertToApplicationContext(sendableContext: SendableContext): common.ApplicationContext
 
@@ -322,24 +268,21 @@ convertToApplicationContext(sendableContext: SendableContext): common.Applicatio
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sendableContext | [SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext) | 是 | SendableContext对象。 |
+| sendableContext | SendableContext | 是 | SendableContext对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| common.ApplicationContext | [ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)对象。 |
+| common.ApplicationContext | ApplicationContext对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -350,24 +293,14 @@ convertToApplicationContext(sendableContext: SendableContext): common.Applicatio
 
 主线程传递Context：
 
-
-```ts
-import {
-  AbilityConstant,
-  UIAbility,
-  Want,
-  common,
-  sendableContextManager,
-} from '@kit.AbilityKit';
+```ArkTS
+import { AbilityConstant, UIAbility, Want, common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { worker } from '@kit.ArkTS';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -377,9 +310,7 @@ export class SendableObject {
 }
 
 export default class EntryAbility extends UIAbility {
-  worker: worker.ThreadWorker = new worker.ThreadWorker(
-    'entry/ets/workers/Worker.ets',
-  );
+  worker: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/Worker.ets');
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
@@ -390,18 +321,12 @@ export default class EntryAbility extends UIAbility {
       let applicationContext = context.getApplicationContext();
       let sendableContext: sendableContextManager.SendableContext =
         sendableContextManager.convertFromContext(applicationContext);
-      let object: SendableObject = new SendableObject(
-        sendableContext,
-        'ApplicationContext',
-      );
+      let object: SendableObject = new SendableObject(sendableContext, 'ApplicationContext');
       hilog.info(0x0000, 'testTag', '%{public}s', 'Ability post message');
       this.worker.postMessageWithSharedSendable(object);
     } catch (error) {
       hilog.error(
-        0x0000,
-        'testTag',
-        `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+        0x0000, 'testTag', `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
 }
@@ -409,23 +334,14 @@ export default class EntryAbility extends UIAbility {
 
 Worker线程接收Context：
 
-
-```ts
-import {
-  ErrorEvent,
-  MessageEvents,
-  ThreadWorkerGlobalScope,
-  worker,
-} from '@kit.ArkTS';
+```text
+import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -438,47 +354,32 @@ const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
 workerPort.onmessage = (e: MessageEvents) => {
   let object: SendableObject = e.data;
-  let sendableContext: sendableContextManager.SendableContext =
-    object.sendableContext;
+  let sendableContext: sendableContextManager.SendableContext = object.sendableContext;
   if (object.contextName == 'ApplicationContext') {
-    hilog.info(
-      0x0000,
-      'testTag',
-      '%{public}s',
-      'convert to application context.',
-    );
+    hilog.info(0x0000, 'testTag', '%{public}s', 'convert to application context.');
     try {
-      let context: common.ApplicationContext =
-        sendableContextManager.convertToApplicationContext(sendableContext);
+      let context: common.ApplicationContext = sendableContextManager.convertToApplicationContext(sendableContext);
       // 获取context后获取沙箱路径
-      hilog.info(
-        0x0000,
-        'testTag',
-        'worker context.databaseDir: %{public}s',
-        context.databaseDir,
-      );
+      hilog.info(0x0000, 'testTag', 'worker context.databaseDir: %{public}s', context.databaseDir);
     } catch (error) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        `convertToApplicationContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+      hilog.error(0x0000,
+        'testTag', `convertToApplicationContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
-};
+}
 
 workerPort.onmessageerror = (e: MessageEvents) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onmessageerror');
-};
+}
 
 workerPort.onerror = (e: ErrorEvent) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onerror');
-};
+}
 ```
 
 
-## sendableContextManager.convertToAbilityStageContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendableContextManager.convertToAbilityStageContext
 
 convertToAbilityStageContext(sendableContext: SendableContext): common.AbilityStageContext
 
@@ -490,24 +391,21 @@ convertToAbilityStageContext(sendableContext: SendableContext): common.AbilitySt
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sendableContext | [SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext) | 是 | SendableContext对象。 |
+| sendableContext | SendableContext | 是 | SendableContext对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| common.AbilityStageContext | [AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)对象。 |
+| common.AbilityStageContext | AbilityStageContext对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -516,20 +414,16 @@ convertToAbilityStageContext(sendableContext: SendableContext): common.AbilitySt
 
 **示例：**
 
-主线���传递Context：
+主线程传递Context：
 
-
-```ts
-import { UIAbility, sendableContextManager } from '@kit.AbilityKit';
+```ArkTS
+import { AbilityStage, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { worker } from '@kit.ArkTS';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -538,10 +432,8 @@ export class SendableObject {
   contextName: string;
 }
 
-export default class EntryAbility extends UIAbility {
-  worker: worker.ThreadWorker = new worker.ThreadWorker(
-    'entry/ets/workers/Worker.ets',
-  );
+export default class MyAbilityStage extends AbilityStage {
+  worker: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/Worker.ets');
 
   onCreate(): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'AbilityStage onCreate');
@@ -550,18 +442,12 @@ export default class EntryAbility extends UIAbility {
     try {
       let sendableContext: sendableContextManager.SendableContext =
         sendableContextManager.convertFromContext(this.context);
-      let object: SendableObject = new SendableObject(
-        sendableContext,
-        'AbilityStageContext',
-      );
+      let object: SendableObject = new SendableObject(sendableContext, 'AbilityStageContext');
       hilog.info(0x0000, 'testTag', '%{public}s', 'AbilityStage post message');
       this.worker.postMessageWithSharedSendable(object);
     } catch (error) {
       hilog.error(
-        0x0000,
-        'testTag',
-        `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+        0x0000, 'testTag', `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
 }
@@ -569,23 +455,14 @@ export default class EntryAbility extends UIAbility {
 
 Worker线程接收Context：
 
-
-```ts
-import {
-  ErrorEvent,
-  MessageEvents,
-  ThreadWorkerGlobalScope,
-  worker,
-} from '@kit.ArkTS';
+```text
+import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -598,47 +475,32 @@ const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
 workerPort.onmessage = (e: MessageEvents) => {
   let object: SendableObject = e.data;
-  let sendableContext: sendableContextManager.SendableContext =
-    object.sendableContext;
+  let sendableContext: sendableContextManager.SendableContext = object.sendableContext;
   if (object.contextName == 'AbilityStageContext') {
-    hilog.info(
-      0x0000,
-      'testTag',
-      '%{public}s',
-      'convert to abilitystage context.',
-    );
+    hilog.info(0x0000, 'testTag', '%{public}s', 'convert to abilitystage context.');
     try {
-      let context: common.AbilityStageContext =
-        sendableContextManager.convertToAbilityStageContext(sendableContext);
+      let context: common.AbilityStageContext = sendableContextManager.convertToAbilityStageContext(sendableContext);
       // 获取context后获取沙箱路径
-      hilog.info(
-        0x0000,
-        'testTag',
-        'worker context.databaseDir: %{public}s',
-        context.databaseDir,
-      );
+      hilog.info(0x0000, 'testTag', 'worker context.databaseDir: %{public}s', context.databaseDir);
     } catch (error) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        `convertToAbilityStageContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+      hilog.error(0x0000,
+        'testTag', `convertToAbilityStageContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
-};
+}
 
 workerPort.onmessageerror = (e: MessageEvents) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onmessageerror');
-};
+}
 
 workerPort.onerror = (e: ErrorEvent) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onerror');
-};
+}
 ```
 
 
-## sendableContextManager.convertToUIAbilityContext
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendableContextManager.convertToUIAbilityContext
 
 convertToUIAbilityContext(sendableContext: SendableContext): common.UIAbilityContext
 
@@ -650,24 +512,21 @@ convertToUIAbilityContext(sendableContext: SendableContext): common.UIAbilityCon
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sendableContext | [SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext) | 是 | SendableContext对象。 |
+| sendableContext | SendableContext | 是 | SendableContext对象。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| common.UIAbilityContext | [UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)对象。 |
+| common.UIAbilityContext | UIAbilityContext对象。 |
 
 
 **错误码**：
 
 以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -678,24 +537,14 @@ convertToUIAbilityContext(sendableContext: SendableContext): common.UIAbilityCon
 
 主线程传递Context：
 
-
-```ts
-import {
-  AbilityConstant,
-  UIAbility,
-  Want,
-  common,
-  sendableContextManager,
-} from '@kit.AbilityKit';
+```ArkTS
+import { AbilityConstant, UIAbility, Want, common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { worker } from '@kit.ArkTS';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -705,9 +554,7 @@ export class SendableObject {
 }
 
 export default class EntryAbility extends UIAbility {
-  worker: worker.ThreadWorker = new worker.ThreadWorker(
-    'entry/ets/workers/Worker.ets',
-  );
+  worker: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/Worker.ets');
 
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
@@ -716,18 +563,12 @@ export default class EntryAbility extends UIAbility {
     try {
       let sendableContext: sendableContextManager.SendableContext =
         sendableContextManager.convertFromContext(this.context);
-      let object: SendableObject = new SendableObject(
-        sendableContext,
-        'EntryAbilityContext',
-      );
+      let object: SendableObject = new SendableObject(sendableContext, 'EntryAbilityContext');
       hilog.info(0x0000, 'testTag', '%{public}s', 'Ability post message');
       this.worker.postMessageWithSharedSendable(object);
     } catch (error) {
       hilog.error(
-        0x0000,
-        'testTag',
-        `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+        0x0000, 'testTag', `convertFromContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
 }
@@ -735,23 +576,14 @@ export default class EntryAbility extends UIAbility {
 
 Worker线程接收Context：
 
-
-```ts
-import {
-  ErrorEvent,
-  MessageEvents,
-  ThreadWorkerGlobalScope,
-  worker,
-} from '@kit.ArkTS';
+```text
+import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -764,51 +596,39 @@ const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
 workerPort.onmessage = (e: MessageEvents) => {
   let object: SendableObject = e.data;
-  let sendableContext: sendableContextManager.SendableContext =
-    object.sendableContext;
+  let sendableContext: sendableContextManager.SendableContext = object.sendableContext;
   if (object.contextName == 'EntryAbilityContext') {
-    hilog.info(
-      0x0000,
-      'testTag',
-      '%{public}s',
-      'convert to UIAbility context.',
-    );
+    hilog.info(0x0000, 'testTag', '%{public}s', 'convert to UIAbility context.');
     try {
-      let context: common.UIAbilityContext =
-        sendableContextManager.convertToUIAbilityContext(sendableContext);
+      let context: common.UIAbilityContext = sendableContextManager.convertToUIAbilityContext(sendableContext);
       // 获取context后获取沙箱路径
-      hilog.info(
-        0x0000,
-        'testTag',
-        'worker context.databaseDir: %{public}s',
-        context.databaseDir,
-      );
+      hilog.info(0x0000, 'testTag', 'worker context.databaseDir: %{public}s', context.databaseDir);
     } catch (error) {
-      hilog.error(
-        0x0000,
-        'testTag',
-        `convertToUIAbilityContext failed, error code: ${error.code}, error msg: ${error.message}`,
-      );
+      hilog.error(0x0000,
+        'testTag', `convertToUIAbilityContext failed, error code: ${error.code}, error msg: ${error.message}`);
     }
   }
-};
+}
 
 workerPort.onmessageerror = (e: MessageEvents) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onmessageerror');
-};
+}
 
 workerPort.onerror = (e: ErrorEvent) => {
   hilog.info(0x0000, 'testTag', '%{public}s', 'onerror');
-};
+}
 ```
 
 
-## sendableContextManager.setEventHubMultithreadingEnabled20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### sendableContextManager.setEventHubMultithreadingEnabled20+
 
 setEventHubMultithreadingEnabled(context: common.Context, enabled: boolean): void
 
 设置[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)中的[EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)是否启用跨线程通信能力。
+
+> [!NOTE]
+> 当多个Context进行通信时，需要调用该接口设置每个Context都支持EventHub跨线程数据传递功能。
 
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -817,19 +637,17 @@ setEventHubMultithreadingEnabled(context: common.Context, enabled: boolean): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context对象。其中，Eventhub支持传递的序列化数据类型参见[序列化支持的类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool#序列化支持类型)，数据大小不超过16MB。 |
-| enabled | boolean | 是 | 表示是否启用Context的EventHub跨线程通信能力。          - true：表示启用跨线程通信能力，数据将通过引用的方式传递。          - false：表示禁用跨线程通信能力，数据将通过序列化的方式传递，即发送端线程与接收端线程的数据相互独立。 |
+| context | common.Context | 是 | Context对象。其中，EventHub支持传递的序列化数据类型参见序列化支持类型，数据大小不超过16MB。 |
+| enabled | boolean | 是 | 表示是否启用Context的EventHub跨线程通信能力。 - true：表示启用跨线程通信能力，数据将通过引用的方式传递。 - false：表示禁用跨线程通信能力，数据将通过序列化的方式传递，即发送端线程与接收端线程的数据相互独立。 |
 
 
 **示例：**
 
 主线程启用[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)中[EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)的跨线程通信能力，并将Context转换为[SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext)后发送到[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)线程。
 
-
-```ts
+```ArkTS
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { worker } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -867,17 +685,17 @@ struct Index {
     Column() {
       Row() {
         Button('thread 1')
-        .size({ width: 100, height: 100 })
-        .onClick(() => {
-          if (this.context == undefined) {
-            return;
-          }
-          sendableContextManager.setEventHubMultithreadingEnabled(this.context, true);
-          let sendableContext: sendableContextManager.SendableContext =
-          sendableContextManager.convertFromContext(this.context);
-          let object: SendableObject = new SendableObject(sendableContext, 'BaseContext');
-          this.worker1.postMessageWithSharedSendable(object);
-        })
+          .size({ width: 100, height: 100 })
+          .onClick(() => {
+            if (this.context == undefined) {
+              return;
+            }
+            sendableContextManager.setEventHubMultithreadingEnabled(this.context, true);
+            let sendableContext: sendableContextManager.SendableContext =
+              sendableContextManager.convertFromContext(this.context);
+            let object: SendableObject = new SendableObject(sendableContext, 'BaseContext');
+            this.worker1.postMessageWithSharedSendable(object);
+          })
       }
     }
   }
@@ -886,14 +704,8 @@ struct Index {
 
 [Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)线程接收到[SendableContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-sendablecontext)后，将其转换为[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)。然后，在Worker线程内，启用Context中[EventHub](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-eventhub)的跨线程通信能力，并通过该功能向主线程发送消息。
 
-
-```ts
-import {
-  ErrorEvent,
-  MessageEvents,
-  ThreadWorkerGlobalScope,
-  worker,
-} from '@kit.ArkTS';
+```text
+import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
 import { common, sendableContextManager } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -901,10 +713,7 @@ const DOMAIN = 0x0000;
 
 @Sendable
 export class SendableObject {
-  constructor(
-    sendableContext: sendableContextManager.SendableContext,
-    contextName: string,
-  ) {
+  constructor(sendableContext: sendableContextManager.SendableContext, contextName: string) {
     this.sendableContext = sendableContext;
     this.contextName = contextName;
   }
@@ -917,11 +726,9 @@ const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 
 workerPort.onmessage = (e: MessageEvents) => {
   let object: SendableObject = e.data;
-  let sendableContext: sendableContextManager.SendableContext =
-    object.sendableContext;
+  let sendableContext: sendableContextManager.SendableContext = object.sendableContext;
   if (object.contextName == 'BaseContext') {
-    let context: common.Context =
-      sendableContextManager.convertToContext(sendableContext);
+    let context: common.Context = sendableContextManager.convertToContext(sendableContext);
     sendableContextManager.setEventHubMultithreadingEnabled(context, true);
     context.eventHub.emit('event1', 'xingming', 40);
   }

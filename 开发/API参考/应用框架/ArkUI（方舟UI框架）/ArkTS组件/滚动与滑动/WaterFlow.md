@@ -3,24 +3,33 @@
 更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 瀑布流容器，由“行”和“列”分割的单元格所组成，通过容器自身的排列规则，将不同大小的“项目”自上而下，如瀑布般紧密布局。
 
-> [!NOTE] 说明
-> 该组件从API version 9 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 WaterFlow组件支持展示瀑布流布局，不支持编辑模式和子元素拖动功能。 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考手势拦截增强进行处理。
+> [!NOTE]
+> 该组件从API version 9 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 WaterFlow组件支持展示瀑布流布局，不支持编辑模式和子元素拖动功能。 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考 手势拦截增强 进行处理。
 
-#### 子组件
+
+
+##### 子组件
+
 仅支持[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)子组件和自定义组件。自定义组件在WaterFlow下使用时，建议使用FlowItem作为自定义组件的顶层组件，不建议给自定义组件设置属性和事件方法。
+
 支持通过渲染控制类型（[if/else](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-ifelse)、[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)和[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)）动态生成子组件，更推荐使用LazyForEach或Repeat以优化性能。
 
-> [!NOTE] 说明
-> WaterFlow子组件的visibility属性设置为None时不显示，但该子组件周围的columnsGap、rowsGap、margin仍会生效。 在涉及大量子组件的情况下，建议采用懒加载、缓存数据、组件复用、固定宽高以及布局优化等方法，以提升性能和减少内存占用。最佳实践请参考优化瀑布流加载慢丢帧问题。 纵向布局时，WaterFlow会计算每一列中已放置子组件的累计高度，并将新子组件放入累计高度最小的那一列，以保持整体布局紧凑。 若多个列的高度相同，优先放入最左边的列。在RTL模式下，优先放入最右边的列。 从API version 21开始，WaterFlow单个子组件的宽高最大为16777216px；API version 20及之前，WaterFlow单个子组件的宽高最大为1000000px。子组件超出该大小可能导致滚动或显示异常。
+> [!NOTE]
+> WaterFlow子组件的visibility属性设置为None时不显示，但该子组件周围的columnsGap、rowsGap、margin仍会生效。 在涉及大量子组件的情况下，建议采用懒加载、缓存数据、组件复用、固定宽高以及布局优化等方法，以提升性能和减少内存占用。最佳实践请参考 优化瀑布流加载慢丢帧问题 。 纵向布局时，WaterFlow会计算每一列中已放置子组件的累计高度，并将新子组件放入累计高度最小的那一列，以保持整体布局紧凑。 若多个列的高度相同，优先放入最左边的列。在RTL模式下，优先放入最右边的列。 从API version 21开始，WaterFlow单个子组件的宽高最大为16777216px；API version 20及之前，WaterFlow单个子组件的宽高最大为1000000px。子组件超出该大小可能导致滚动或显示异常。
 
-#### 接口
+
+
+
+##### 接口
+
 WaterFlow(options?: WaterFlowOptions)
+
 创建瀑布流容器。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -29,36 +38,56 @@ WaterFlow(options?: WaterFlowOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [WaterFlowOptions](#waterflowoptions对象说明) | 否 | 瀑布流组件参数。 |
+| options | WaterFlowOptions | 否 | 瀑布流组件参数。 |
 
-#### WaterFlowOptions对象说明
+
+
+
+##### WaterFlowOptions对象说明
+
 瀑布流组件参数对象。
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| footer | [CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8) | 否 | 是 | 设置WaterFlow尾部组件，用于在瀑布流末尾显示自定义内容（如加载提示、底部标识等）。不设置时不显示尾部组件。 说明： 使用方法参见示例1。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| footerContent^18+ | [ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent) | 否 | 是 | 设置WaterFlow尾部组件。 该参数的优先级高于参数footer，即同时设置footer和footerContent时，以footerContent设置的组件为准。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
-| scroller | [Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller) | 否 | 是 | 可滚动组件的控制器，与可滚动组件绑定。 说明： 不允许和其他滚动类组件，如：ArcList、List、Grid、Scroll和WaterFlow绑定同一个滚动控制对象。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| sections^12+ | [WaterFlowSections](#waterflowsections12) | 否 | 是 | 设置FlowItem分组，实现同一个瀑布流组件内部各分组使用不同列数混合布局。适用于需要在不同区域使用不同列数布局的场景。不设置时使用统一列数布局。 说明： 1. 使用分组混合布局时会忽略columnsTemplate和rowsTemplate属性。 2. 使用分组混合布局时不支持单独设置footer，可以使用最后一个分组作为尾部组件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| layoutMode^12+ | [WaterFlowLayoutMode](#waterflowlayoutmode12枚举说明) | 否 | 是 | 设置WaterFlow的布局模式，根据使用场景选择更切合的模式。 说明： 默认值：ALWAYS_TOP_DOWN。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| footer | CustomBuilder | 否 | 是 | 设置WaterFlow尾部组件，用于在瀑布流末尾显示自定义内容（如加载提示、底部标识等）。不设置时不显示尾部组件。 说明： 使用方法参见示例1。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| footerContent18+ | ComponentContent | 否 | 是 | 设置WaterFlow尾部组件。 该参数的优先级高于参数footer，即同时设置footer和footerContent时，以footerContent设置的组件为准。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| scroller | Scroller | 否 | 是 | 可滚动组件的控制器，与可滚动组件绑定。 说明： 不允许和其他滚动类组件，如：ArcList、List、Grid、Scroll和WaterFlow绑定同一个滚动控制对象。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| sections12+ | WaterFlowSections | 否 | 是 | 设置FlowItem分组，实现同一个瀑布流组件内部各分组使用不同列数混合布局。适用于需要在不同区域使用不同列数布局的场景。不设置时使用统一列数布局。 说明： 1. 使用分组混合布局时会忽略columnsTemplate和rowsTemplate属性。 2. 使用分组混合布局时不支持单独设置footer，可以使用最后一个分组作为尾部组件。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| layoutMode12+ | WaterFlowLayoutMode | 否 | 是 | 设置WaterFlow的布局模式，根据使用场景选择更切合的模式。 说明： 默认值：ALWAYS_TOP_DOWN。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
-#### WaterFlowSections12+
+
+
+
+##### WaterFlowSections12+
+
 瀑布流分组信息。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 使用splice、push、update修改分组信息后需要保证所有分组子节点总数与瀑布流实际子节点总数一致，否则会出现瀑布流因为不能正常布局而无法滑动的问题。
 
-#### constructor
+
+
+
+##### constructor
+
 constructor()
+
 创建一个瀑布流分组。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-#### splice12+
+
+
+##### splice12+
+
 splice(start: number, deleteCount?: number, sections?: Array&lt;SectionOptions&gt;): boolean
+
 移除或者替换已存在的分组和/或添加新分组。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -69,7 +98,8 @@ splice(start: number, deleteCount?: number, sections?: Array&lt;SectionOptions&g
 | --- | --- | --- | --- |
 | start | number | 是 | 从0开始计算的索引，会转换为整数，表示要开始改变分组的位置。 说明： 1. 如果索引是负数，则从末尾开始计算，使用start + WaterFlowSections.length()。 2. 如果 start < -WaterFlowSections.length()，则使用0。 3. 如果 start >= WaterFlowSections.length()，则在最后添加新分组。 |
 | deleteCount | number | 否 | 表示要从start开始删除的分组数量。 说明： 1. 如果省略了deleteCount，或者其值大于或等于由start指定的位置到WaterFlowSections末尾的分组数量，那么从start到WaterFlowSections末尾的所有分组将被删除。 2. 如果deleteCount是0或者负数，则不会删除任何分组。 |
-| sections | Array<[SectionOptions](#sectionoptions12对象说明)> | 否 | 表示要从start开始加入的分组。如果不指定，splice()将只从瀑布流中删除分组。 |
+| sections | Array&lt;SectionOptions&gt; | 否 | 表示要从start开始加入的分组。如果不指定，splice()将只从瀑布流中删除分组。 |
+
 
 **返回值：**
 
@@ -77,9 +107,15 @@ splice(start: number, deleteCount?: number, sections?: Array&lt;SectionOptions&g
 | --- | --- |
 | boolean | 分组修改成功返回true；修改失败（要加入的分组中有任意分组的itemsCount不是非负数）返回false。 |
 
-#### push12+
+
+
+
+##### push12+
+
 push(section: SectionOptions): boolean
+
 将指定分组添加到瀑布流末尾。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -88,7 +124,8 @@ push(section: SectionOptions): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| section | [SectionOptions](#sectionoptions12对象说明) | 是 | 添加到瀑布流末尾的分组。 |
+| section | SectionOptions | 是 | 添加到瀑布流末尾的分组。 |
+
 
 **返回值：**
 
@@ -96,9 +133,15 @@ push(section: SectionOptions): boolean
 | --- | --- |
 | boolean | 分组添加成功返回true，添加失败（新分组的itemsCount不是非负数）返回false。 |
 
-#### update12+
+
+
+
+##### update12+
+
 update(sectionIndex: number, section: SectionOptions): boolean
+
 修改指定索引分组的配置信息。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -108,7 +151,8 @@ update(sectionIndex: number, section: SectionOptions): boolean
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sectionIndex | number | 是 | 从0开始计算的索引，会转换为整数，表示要修改的分组的位置。 说明： 1. 如果索引是负数，则从末尾开始计算，使用sectionIndex + WaterFlowSections.length()。 2. 如果sectionIndex < -WaterFlowSections.length()，则使用0。 3. 如果sectionIndex >= WaterFlowSections.length()，则在最后添加新分组。 |
-| section | [SectionOptions](#sectionoptions12对象说明) | 是 | 新的分组信息。 |
+| section | SectionOptions | 是 | 新的分组信息。 |
+
 
 **返回值：**
 
@@ -116,9 +160,15 @@ update(sectionIndex: number, section: SectionOptions): boolean
 | --- | --- |
 | boolean | 分组是否更新成功，新分组的itemsCount不是非负数时返回false。 |
 
-#### values12+
+
+
+
+##### values12+
+
 values(): Array&lt;SectionOptions&gt;
+
 获取瀑布流中所有分组配置信息。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -127,11 +177,17 @@ values(): Array&lt;SectionOptions&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array<[SectionOptions](#sectionoptions12对象说明)> | 瀑布流中所有分组配置信息。 |
+| Array&lt;SectionOptions&gt; | 瀑布流中所有分组配置信息。 |
 
-#### length12+
+
+
+
+##### length12+
+
 length(): number
+
 获取瀑布流中分组数量。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -142,8 +198,13 @@ length(): number
 | --- | --- |
 | number | 瀑布流中分组数量。 |
 
-#### SectionOptions12+对象说明
+
+
+
+##### SectionOptions12+对象说明
+
 FlowItem分组配置信息。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -152,14 +213,20 @@ FlowItem分组配置信息。
 | --- | --- | --- | --- | --- |
 | itemsCount | number | 否 | 否 | 分组中FlowItem数量，必须是非负数。若splice、push、update方法收到的分组中有分组的itemsCount小于0，则不会执行该方法。 避免使用itemsCount为0的分组，这可能导致布局计算异常。 |
 | crossCount | number | 否 | 是 | 纵向布局时为列数，横向布局时为行数，默认值：1。小于1的按默认值处理。 |
-| columnsGap | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 否 | 是 | 该分组的列间距，不设置该参数时默认使用瀑布流的[columnsGap](#columnsgap)，设置非法值时使用0vp。 |
-| rowsGap | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 否 | 是 | 该分组的行间距，不设置该参数时默认使用瀑布流的[rowsGap](#rowsgap)，设置非法值时使用0vp。 |
-| margin | [Margin](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#margin) \| [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) | 否 | 是 | 该分组的外边距参数为Length类型时，四个方向外边距同时生效。 默认值：0 单位：vp margin设置百分比时，上下左右外边距均以瀑布流的width作为基础值。 |
-| onGetItemMainSizeByIndex | [GetItemMainSizeByIndex](#getitemmainsizebyindex12) | 否 | 是 | 瀑布流组件布局过程中获取指定index的FlowItem的主轴大小，纵向瀑布流时为高度，横向瀑布流时为宽度，单位vp。 说明： 1. 同时使用onGetItemMainSizeByIndex和FlowItem的宽高属性时，主轴大小以onGetItemMainSizeByIndex返回结果为准，onGetItemMainSizeByIndex会覆盖FlowItem的主轴长度。 2. 使用onGetItemMainSizeByIndex可以提高瀑布流跳转到指定位置或index时的效率，避免混用设置onGetItemMainSizeByIndex和未设置的分组，会导致布局异常。 3. onGetItemMainSizeByIndex返回负数时FlowItem高度为0。 |
+| columnsGap | Dimension | 否 | 是 | 该分组的列间距，不设置该参数时默认使用瀑布流的columnsGap，设置非法值时使用0vp。 |
+| rowsGap | Dimension | 否 | 是 | 该分组的行间距，不设置该参数时默认使用瀑布流的rowsGap，设置非法值时使用0vp。 |
+| margin | Margin \| Dimension | 否 | 是 | 该分组的外边距参数为Length类型时，四个方向外边距同时生效。 默认值：0 单位：vp margin设置百分比时，上下左右外边距均以瀑布流的width作为基础值。 |
+| onGetItemMainSizeByIndex | GetItemMainSizeByIndex | 否 | 是 | 瀑布流组件布局过程中获取指定index的FlowItem的主轴大小，纵向瀑布流时为高度，横向瀑布流时为宽度，单位vp。 说明： 1. 同时使用onGetItemMainSizeByIndex和FlowItem的宽高属性时，主轴大小以onGetItemMainSizeByIndex返回结果为准，onGetItemMainSizeByIndex会覆盖FlowItem的主轴长度。 2. 使用onGetItemMainSizeByIndex可以提高瀑布流跳转到指定位置或index时的效率，避免混用设置onGetItemMainSizeByIndex和未设置的分组，会导致布局异常。 3. onGetItemMainSizeByIndex返回负数时FlowItem高度为0。 |
 
-#### GetItemMainSizeByIndex12+
+
+
+
+##### GetItemMainSizeByIndex12+
+
 type GetItemMainSizeByIndex = (index: number) => number
+
 根据index获取指定Item的主轴大小。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -170,14 +237,20 @@ type GetItemMainSizeByIndex = (index: number) => number
 | --- | --- | --- | --- |
 | index | number | 是 | FlowItem在WaterFlow中的索引。 取值范围：[0, 子节点总数-1] |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | number | 指定index的FlowItem的主轴大小，纵向瀑布流时为高度，横向瀑布流时为宽度，单位vp。 |
 
-#### WaterFlowLayoutMode12+枚举说明
+
+
+
+##### WaterFlowLayoutMode12+枚举说明
+
 瀑布流组件布局模式枚举。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -199,17 +272,29 @@ type GetItemMainSizeByIndex = (index: number) => number
 | 滚动条显示 | 始终支持 | API 18+ 支持 |
 | 布局一致性 | 始终保持一致 | 跳转后可能不一致 |
 
-#### 属性
+
+
+
+##### 属性
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和[滚动组件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#属性)外，还支持以下属性：
 
-> [!NOTE] 说明
-> WaterFlow组件使用通用属性clip12+和通用属性clip18+时默认值都为true。 WaterFlow组件内容裁剪模式ContentClipMode14+枚举说明为ContentClipMode.CONTENT_ONLY，padding区域会被裁剪不显示。
+> [!TIP]
+> WaterFlow组件使用通用属性 clip 12+ 和通用属性 clip 18+ 时默认值都为true。 WaterFlow组件内容裁剪模式 ContentClipMode 14+ 枚举说明 为ContentClipMode.CONTENT_ONLY，padding区域会被裁剪不显示。
 
-#### columnsTemplate
+
+
+
+##### columnsTemplate
+
 columnsTemplate(value: string)
+
 设置当前瀑布流组件布局列的数量，不设置时默认1列。
+
 例如，'1fr 1fr 2fr' 是将父组件分3列，将父组件允许的宽分为4等份，第1列占1份，第2列占1份，第3列占2份。
+
 可使用columnsTemplate('repeat(auto-fill,track-size)')根据给定的列宽track-size自动计算列数，其中repeat、auto-fill为关键字，track-size为可设置的宽度，支持的单位包括px、vp、%或有效数字，默认单位为vp，使用方法参见[示例2](#示例2自动计算列数)。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -220,12 +305,21 @@ columnsTemplate(value: string)
 | --- | --- | --- | --- |
 | value | string | 是 | 当前瀑布流组件布局列的数量。 默认值：'1fr' |
 
-#### columnsTemplate22+
+
+
+
+##### columnsTemplate22+
+
 columnsTemplate(value: string | ItemFillPolicy)
+
 设置当前瀑布流组件布局列的数量，不设置时默认1列。
+
 当value设置为string类型时，使用方法参考[columnsTemplate(value: string)](#columnstemplate)。
+
 当value设置为ItemFillPolicy类型时，将根据WaterFlow组件宽度对应[断点类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)确定列数。
+
 例如，ItemFillPolicy.BREAKPOINT_DEFAULT在组件宽度属于sm及更小的断点区间时显示2列，属于md断点区间时显示3列，属于lg及更大的断点区间时显示5列，且每列均为1fr。
+
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -234,13 +328,21 @@ columnsTemplate(value: string | ItemFillPolicy)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | string \| [ItemFillPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#itemfillpolicy22) | 是 | 当前瀑布流组件布局列的数量。 |
+| value | string \| ItemFillPolicy | 是 | 当前瀑布流组件布局列的数量。 |
 
-#### rowsTemplate
+
+
+
+##### rowsTemplate
+
 rowsTemplate(value: string)
+
 设置当前瀑布流组件布局行的数量，不设置时默认1行。
+
 例如，'1fr 1fr 2fr'是将父组件分3行，将父组件允许的高分为4等份，第1行占1份，第2行占1份，第3行占2份。
+
 可使用rowsTemplate('repeat(auto-fill,track-size)')根据给定的行高track-size自动计算行数，其中repeat、auto-fill为关键字，track-size为可设置的高度，支持的单位包括px、vp、%或有效数字，默认单位为vp。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -251,9 +353,15 @@ rowsTemplate(value: string)
 | --- | --- | --- | --- |
 | value | string | 是 | 当前瀑布流组件布局行的数量。 默认值：'1fr' |
 
-#### itemConstraintSize
+
+
+
+##### itemConstraintSize
+
 itemConstraintSize(value: ConstraintSizeOptions)
+
 设置约束尺寸，子组件布局时，进行尺寸范围限制。使用方法参考[示例1](#示例1使用基本瀑布流)。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -262,11 +370,17 @@ itemConstraintSize(value: ConstraintSizeOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ConstraintSizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#constraintsizeoptions) | 是 | 约束尺寸。设置小于0的值，参数不生效。 说明： 1.同时设置itemConstraintSize和FlowItem的constraintSize属性时，minWidth/minHeight会取其中的最大值，maxWidth/maxHeight会取其中的最小值，调整后的值作为FlowItem的constraintSize处理。 2.只设置itemConstraintSize时，相当于对WaterFlow所有子组件设置了相同的constraintSize。 3.itemConstraintSize通过以上两种方式转换成FlowItem的constraintSize后的生效规则与通用属性constraintSize相同。 |
+| value | ConstraintSizeOptions | 是 | 约束尺寸。设置小于0的值，参数不生效。 说明： 1.同时设置itemConstraintSize和FlowItem的constraintSize属性时，minWidth/minHeight会取其中的最大值，maxWidth/maxHeight会取其中的最小值，调整后的值作为FlowItem的constraintSize处理。 2.只设置itemConstraintSize时，相当于对WaterFlow所有子组件设置了相同的constraintSize。 3.itemConstraintSize通过以上两种方式转换成FlowItem的constraintSize后的生效规则与通用属性constraintSize相同。 |
 
-#### columnsGap
+
+
+
+##### columnsGap
+
 columnsGap(value: Length)
+
 设置列与列的间距。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -275,11 +389,17 @@ columnsGap(value: Length)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 列与列的间距。 默认值：0 取值范围：[0, +∞)，小于0时按0处理。 |
+| value | Length | 是 | 列与列的间距。 默认值：0 取值范围：[0, +∞)，小于0时按0处理。 |
 
-#### rowsGap
+
+
+
+##### rowsGap
+
 rowsGap(value: Length)
+
 设置行与行的间距。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -288,11 +408,17 @@ rowsGap(value: Length)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 行与行的间距。 默认值：0 取值范围：[0, +∞)，小于0时按0处理。 |
+| value | Length | 是 | 行与行的间距。 默认值：0 取值范围：[0, +∞)，小于0时按0处理。 |
 
-#### layoutDirection
+
+
+
+##### layoutDirection
+
 layoutDirection(value: FlexDirection)
+
 设置布局的主轴方向。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -301,16 +427,30 @@ layoutDirection(value: FlexDirection)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [FlexDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexdirection) | 是 | 布局的主轴方向。 默认值：FlexDirection.Column |
+| value | FlexDirection | 是 | 布局的主轴方向。 默认值：FlexDirection.Column |
+
 
 layoutDirection优先级高于rowsTemplate和columnsTemplate。根据layoutDirection设置情况，分为以下三种设置模式：
-- layoutDirection设置纵向布局（FlexDirection.Column 或 FlexDirection.ColumnReverse） 此时columnsTemplate有效（如果未设置，取默认值）。例如columnsTemplate设置为'1fr 1fr'、rowsTemplate设置为'1fr 1fr 1fr'时，瀑布流组件纵向布局，辅轴均分成横向2列。
-- layoutDirection设置横向布局（FlexDirection.Row 或 FlexDirection.RowReverse） 此时rowsTemplate有效（如果未设置，取默认值）。例如columnsTemplate设置为'1fr 1fr'、rowsTemplate设置为'1fr 1fr 1fr'时，瀑布流组件横向布局，辅轴均分成纵向3列。
-- layoutDirection未设置布局方向 布局方向为layoutDirection的默认值：FlexDirection.Column，此时columnsTemplate有效。例如columnsTemplate设置为'1fr 1fr'、rowsTemplate设置为'1fr 1fr 1fr'时，瀑布流组件纵向布局，辅轴均分成横向2列。
 
-#### enableScrollInteraction10+
+ - layoutDirection设置纵向布局（FlexDirection.Column 或 FlexDirection.ColumnReverse）
+
+  此时columnsTemplate有效（如果未设置，取默认值）。例如columnsTemplate设置为'1fr 1fr'、rowsTemplate设置为'1fr 1fr 1fr'时，瀑布流组件纵向布局，辅轴均分成横向2列。
+ - layoutDirection设置横向布局（FlexDirection.Row 或 FlexDirection.RowReverse）
+
+  此时rowsTemplate有效（如果未设置，取默认值）。例如columnsTemplate设置为'1fr 1fr'、rowsTemplate设置为'1fr 1fr 1fr'时，瀑布流组件横向布局，辅轴均分成纵向3列。
+ - layoutDirection未设置布局方向
+
+  布局方向为layoutDirection的默认值：FlexDirection.Column，此时columnsTemplate有效。例如columnsTemplate设置为'1fr 1fr'、rowsTemplate设置为'1fr 1fr 1fr'时，瀑布流组件纵向布局，辅轴均分成横向2列。
+
+
+
+
+##### enableScrollInteraction10+
+
 enableScrollInteraction(value: boolean)
+
 设置是否支持滚动手势。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -322,12 +462,18 @@ enableScrollInteraction(value: boolean)
 | value | boolean | 是 | 是否支持滚动手势。设置为true时可以通过手指或者鼠标滚动，设置为false时无法通过手指或者鼠标滚动，但不影响控制器Scroller的滚动接口。 默认值：true |
 
 
-> [!NOTE] 说明
+> [!NOTE]
 > 组件无法通过鼠标按下拖动操作进行滚动。
 
-#### nestedScroll10+
+
+
+
+##### nestedScroll10+
+
 nestedScroll(value: NestedScrollOptions)
+
 设置前后两个方向的嵌套滚动模式，实现与父组件的滚动联动。使用方法参考[嵌套滚动实现方式二](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#示例3嵌套滚动实现方式二)。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -336,11 +482,17 @@ nestedScroll(value: NestedScrollOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [NestedScrollOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#nestedscrolloptions10对象说明) | 是 | 嵌套滚动选项。 |
+| value | NestedScrollOptions | 是 | 嵌套滚动选项。 |
 
-#### friction10+
+
+
+
+##### friction10+
+
 friction(value: number | Resource)
+
 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -349,12 +501,19 @@ friction(value: number | Resource)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 是 | 摩擦系数。 默认值：非可穿戴设备为0.6，可穿戴设备为0.9。 从API version 11开始，非可穿戴设备默认值为0.7。 从API version 12开始，非可穿戴设备默认值为0.75。 取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。 |
+| value | number \| Resource | 是 | 摩擦系数。 默认值：非可穿戴设备为0.6，可穿戴设备为0.9。 从API version 11开始，非可穿戴设备默认值为0.7。 从API version 12开始，非可穿戴设备默认值为0.75。 取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。 |
 
-#### cachedCount11+
+
+
+
+##### cachedCount11+
+
 cachedCount(value: number)
+
 设置预加载的FlowItem数量。
+
 只在[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)和开启了[virtualScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscroll)开关的[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)中生效，超出显示及缓存范围的FlowItem会被释放。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -365,11 +524,19 @@ cachedCount(value: number)
 | --- | --- | --- | --- |
 | value | number | 是 | 预加载的FlowItem的数量。 默认值：根据屏幕内显示的节点个数设置，最大值为16。 取值范围：[0, +∞)，设置为小于0的值时，按1处理。 |
 
-#### cachedCount14+
+
+
+
+##### cachedCount14+
+
 cachedCount(count: number, show: boolean)
+
 设置预加载的FlowItem数量，并配置是否显示预加载节点。
+
 配合[clip](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clip12)或[clipContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#clipcontent14)属性可以显示出预加载节点。
+
 只在[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)和开启了virtualScroll开关的[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)中生效，超出显示及缓存范围的FlowItem会被释放。
+
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -381,9 +548,15 @@ cachedCount(count: number, show: boolean)
 | count | number | 是 | 预加载的FlowItem的数量。 默认值：根据屏幕内显示的节点个数设置，最大值为16。 取值范围：[0, +∞)，设置为小于0的值时，按1处理。 |
 | show | boolean | 是 | 被预加载的FlowItem是否需要显示。设置为true时显示预加载的FlowItem，设置为false时不显示预加载的FlowItem。 默认值：false |
 
-#### syncLoad20+
+
+
+
+##### syncLoad20+
+
 syncLoad(enable: boolean)
+
 设置是否同步加载WaterFlow区域内所有子组件。
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -394,12 +567,21 @@ syncLoad(enable: boolean)
 | --- | --- | --- | --- |
 | enable | boolean | 是 | 是否同步加载WaterFlow区域内所有子组件。 true表示同步加载，false表示异步加载。 默认值：true。 说明： 设置为false时，在首次显示、不带动画scrollToIndex跳转场景，若当帧布局耗时超过50ms，会将WaterFlow区域内尚未布局的子组件延后到下一帧进行布局。 |
 
-#### 事件
+
+
+
+##### 事件
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)和[滚动组件通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#事件)外，还支持以下事件：
 
-#### onReachStart
+
+
+##### onReachStart
+
 onReachStart(event: () => void)
+
 瀑布流内容到达起始位置时触发。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -410,9 +592,15 @@ onReachStart(event: () => void)
 | --- | --- | --- | --- |
 | event | () => void | 是 | 瀑布流内容到达起始位置时触发的回调。 |
 
-#### onReachEnd
+
+
+
+##### onReachEnd
+
 onReachEnd(event: () => void)
+
 瀑布流内容到达末尾位置时触发。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -423,17 +611,25 @@ onReachEnd(event: () => void)
 | --- | --- | --- | --- |
 | event | () => void | 是 | 瀑布流内容到达末尾位置时触发的回调。 |
 
-#### onScrollFrameBegin10+
+
+
+
+##### onScrollFrameBegin10+
+
 onScrollFrameBegin(event: OnScrollFrameBeginCallback)
+
 该接口回调时，事件参数传入即将发生的滑动量，事件处理函数中可根据应用场景计算实际需要的滑动量并作为事件处理函数的返回值返回，瀑布流将按照返回值的实际滑动量进行滑动。
+
 满足以下任一条件时触发该事件：
 1. 用户交互（如手指滑动、键鼠操作等）触发滚动。
 2. WaterFlow惯性滚动。
 3. 调用[fling](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#fling12)接口触发滚动。
+
 不触发该事件的条件：
 1. 调用除[fling](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#fling12)接口外的其他滚动控制接口。
 2. 越界回弹。
 3. 拖动滚动条。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -442,15 +638,22 @@ onScrollFrameBegin(event: OnScrollFrameBeginCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [OnScrollFrameBeginCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#onscrollframebegincallback18) | 是 | 每帧滚动开始回调函数。 |
+| event | OnScrollFrameBeginCallback | 是 | 每帧滚动开始回调函数。 |
 
-#### onScrollIndex11+
+
+
+
+##### onScrollIndex11+
+
 onScrollIndex(event: (first: number, last: number) => void)
+
 当前瀑布流显示的起始位置/终止位置的子组件发生变化时触发。瀑布流初始化时会触发一次。
+
 瀑布流显示区域上第一个子组件/最后一个组件的索引值有变化就会触发。
 
-> [!NOTE] 说明
-> 从API version 20开始，该接口支持在attributeModifier中调用。
+> [!NOTE]
+> 从API version 20开始，该接口支持在 attributeModifier 中调用。
+
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -463,7 +666,9 @@ onScrollIndex(event: (first: number, last: number) => void)
 | first | number | 是 | 当前显示的瀑布流起始位置的索引值。 取值范围：[0, 子节点总数-1] |
 | last | number | 是 | 当前显示的瀑布流终止位置的索引值。 取值范围：[0, 子节点总数-1] |
 
+
 通过last参数可以判断是否“继续加载数据”，参考[示例3（使用分组）](#示例3使用分组)中“即将触底时提前增加数据”的处理逻辑。
+
 当WaterFlow列表为空时，使用不同的WaterFlowOptions参数会导致onScrollIndex事件的返回值有所不同。具体差异请参见下表：
 
 | layoutMode | sections | first | last |
@@ -472,14 +677,25 @@ onScrollIndex(event: (first: number, last: number) => void)
 | ALWAYS_TOP_DOWN | 有 | 0 | -1 |
 | SLIDING_WINDOW | 可选 | 1000000 | -1 |
 
-#### UIWaterFlowEvent19+
+
+
+
+##### UIWaterFlowEvent19+
+
 frameNode中[getEvent('WaterFlow')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#geteventwaterflow19)方法的返回值，可用于给WaterFlow节点设置滚动事件。
+
 UIWaterFlowEvent继承于[UIScrollableCommonEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#uiscrollablecommonevent19)。
 
-#### setOnWillScroll19+
+
+
+##### setOnWillScroll19+
+
 setOnWillScroll(callback: OnWillScrollCallback | undefined): void
+
 设置[onWillScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onwillscroll12)事件的回调。
+
 方法入参为undefined时，会重置事件回调。
+
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -488,12 +704,19 @@ setOnWillScroll(callback: OnWillScrollCallback | undefined): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [OnWillScrollCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onwillscrollcallback12) \| undefined | 是 | onWillScroll事件的回调函数。 |
+| callback | OnWillScrollCallback \| undefined | 是 | onWillScroll事件的回调函数。 |
 
-#### setOnDidScroll19+
+
+
+
+##### setOnDidScroll19+
+
 setOnDidScroll(callback: OnScrollCallback | undefined): void
+
 设置[onDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#ondidscroll12)事件的回调。
+
 方法入参为undefined时，会重置事件回调。
+
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -502,12 +725,19 @@ setOnDidScroll(callback: OnScrollCallback | undefined): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [OnScrollCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#onscrollcallback12) \| undefined | 是 | onDidScroll事件的回调函数。 |
+| callback | OnScrollCallback \| undefined | 是 | onDidScroll事件的回调函数。 |
 
-#### setOnScrollIndex19+
+
+
+
+##### setOnScrollIndex19+
+
 setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void
+
 设置[onScrollIndex](#onscrollindex11)事件的回调。
+
 方法入参为undefined时，会重置事件回调。
+
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -516,11 +746,17 @@ setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | [OnWaterFlowScrollIndexCallback](#onwaterflowscrollindexcallback19) \| undefined | 是 | onScrollIndex事件的回调函数。 |
+| callback | OnWaterFlowScrollIndexCallback \| undefined | 是 | onScrollIndex事件的回调函数。 |
 
-#### OnWaterFlowScrollIndexCallback19+
+
+
+
+##### OnWaterFlowScrollIndexCallback19+
+
 type OnWaterFlowScrollIndexCallback = (first: number, last: number) => void
+
 WaterFlow组件可见区域item变化事件的回调类型。
+
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -532,12 +768,20 @@ WaterFlow组件可见区域item变化事件的回调类型。
 | first | number | 是 | 当前显示的瀑布流起始位置的索引值。 |
 | last | number | 是 | 当前显示的瀑布流终止位置的索引值。 |
 
-#### 示例
-#### 示例1（使用基本瀑布流）
+
+
+
+##### 示例
+
+
+
+##### 示例1（使用基本瀑布流）
+
 该示例展示了WaterFlow组件数据加载处理、属性设置和事件回调等基本使用场景。
+
 WaterFlowDataSource实现了LazyForEach数据源接口[IDataSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#idatasource)，用于通过LazyForEach给WaterFlow提供子组件。
 
-```ts
+```ArkTS
 // WaterFlowDataSource.ets
 
 // 实现IDataSource接口的对象，用于瀑布流组件加载数据
@@ -688,8 +932,7 @@ export class WaterFlowDataSource implements IDataSource {
 }
 ```
 
-
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 
@@ -826,13 +1069,19 @@ struct WaterFlowDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201313-001.gif)
 
-#### 示例2（自动计算列数）
+![](assets/WaterFlow/file-20260514163958676-4.gif)
+
+
+
+
+##### 示例2（自动计算列数）
+
 该示例通过auto-fill实现了自动计算列数的效果。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 
@@ -896,14 +1145,21 @@ struct WaterFlowDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201313-002.png)
 
-#### 示例3（使用分组）
+![](assets/WaterFlow/file-20260514163958676-5.gif)
+
+
+
+
+##### 示例3（使用分组）
+
 该示例展示了分组的初始化以及splice、push、update、values、length等接口的不同效果。
+
 如果配合状态管理V2使用，详情见：[WaterFlow与makeObserved](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-migration-inner-object#滚动组件)。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 
@@ -1150,13 +1406,19 @@ struct WaterFlowDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201314-003.png)
 
-#### 示例4（双指缩放改变列数）
+![](assets/WaterFlow/file-20260514163958676-6.gif)
+
+
+
+
+##### 示例4（双指缩放改变列数）
+
 该示例通过[priorityGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-settings#prioritygesture)和[PinchGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pinchgesture)实现了双指缩放改变列数效果。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 import { image } from '@kit.ImageKit';
@@ -1256,7 +1518,7 @@ struct WaterFlowDemo {
             centerX: 0,
             centerY: 0
           })
-
+        
         WaterFlow() {
           LazyForEach(this.dataSource, (item: number) => {
             FlowItem() {
@@ -1348,13 +1610,19 @@ struct WaterFlowDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201315-004.gif)
 
-#### 示例5（设置边缘渐隐效果）
+![](assets/WaterFlow/file-20260514163958676-7.gif)
+
+
+
+
+##### 示例5（设置边缘渐隐效果）
+
 该示例通过[fadingEdge](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#fadingedge14)实现了WaterFlow组件开启边缘渐隐效果，并通过fadingEdgeLength参数设置边缘渐隐长度。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { LengthMetrics } from '@kit.ArkUI';
 import { WaterFlowDataSource } from './WaterFlowDataSource';
@@ -1419,13 +1687,19 @@ struct WaterFlowDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201315-005.gif)
 
-#### 示例6（单边边缘效果）
+![](assets/WaterFlow/file-20260514163958676-8.png)
+
+
+
+
+##### 示例6（单边边缘效果）
+
 该示例通过[edgeEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#edgeeffect11)接口，实现了WaterFlow组件设置单边边缘效果。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 
@@ -1490,13 +1764,19 @@ struct WaterFlowDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201315-006.gif)
 
-#### 示例7（WaterFlow组件设置和改变尾部组件）
+![](assets/WaterFlow/file-20260514163958676-9.png)
+
+
+
+
+##### 示例7（WaterFlow组件设置和改变尾部组件）
+
 从API version 18开始，该示例通过[WaterFlowOptions对象说明](#waterflowoptions对象说明)的footerContent接口，实现了WaterFlow组件设置尾部组件。通过[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)的update函数更新尾部组件。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { ComponentContent, UIContext } from '@kit.ArkUI';
 import { WaterFlowDataSource } from './WaterFlowDataSource';
@@ -1599,13 +1879,19 @@ struct Index {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201316-007.gif)
 
-#### 示例8（WaterFlow组件实现下拉刷新）
+![](assets/WaterFlow/file-20260525091201313-001.gif)
+
+
+
+
+##### 示例8（WaterFlow组件实现下拉刷新）
+
 该示例通过[Refresh](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-refresh)组件和WaterFlow组件，实现了下拉刷新瀑布流组件数据源。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 
@@ -1688,12 +1974,17 @@ struct WaterFlowDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201316-008.gif)
 
-#### 示例9（WaterFlow组件基于断点配置列数）
+![](assets/WaterFlow/file-20260525091201313-002.png)
+
+
+
+
+##### 示例9（WaterFlow组件基于断点配置列数）
+
 从API version 22开始，该示例展示了WaterFlow组件支持基于断点配置列数效果。
 
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 
@@ -1759,19 +2050,31 @@ struct WaterFlowDemo {
 
 WaterFlow宽度属于sm及更小的断点区间时显示2列。
 
-![](assets/WaterFlow/file-20260525091201316-009.png)
+
+![](assets/WaterFlow/file-20260525091201314-003.png)
+
+
 WaterFlow宽度属于md断点区间时显示3列。
 
-![](assets/WaterFlow/file-20260525091201316-010.png)
+
+![](assets/WaterFlow/file-20260525091201315-004.gif)
+
+
 WaterFlow宽度属于lg及更大的断点区间时显示5列。
 
-![](assets/WaterFlow/file-20260525091201316-011.png)
 
-#### 示例10（WaterFlow组件实现获取内容高度）
+![](assets/WaterFlow/file-20260525091201315-005.gif)
+
+
+
+
+##### 示例10（WaterFlow组件实现获取内容高度）
+
 从API version 22 开始，该示例通过WaterFlow组件，实现了获取内容高度。
+
 WaterFlowDataSource说明及完整代码参考[示例1（使用基本瀑布流）](#示例1使用基本瀑布流)。
 
-```ts
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1868,13 +2171,19 @@ struct WaterFlowContentSizeDemo {
 }
 ```
 
-![](assets/WaterFlow/file-20260525091201316-012.gif)
 
-#### 示例11（设置滚动事件）
+![](assets/WaterFlow/file-20260525091201315-006.gif)
+
+
+
+
+##### 示例11（设置滚动事件）
+
 该示例通过FrameNode中的[getEvent('WaterFlow')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#geteventwaterflow19)获取[UIWaterFlowEvent](#uiwaterflowevent19)，并为WaterFlow设置滚动事件回调，用于事件监听方因无法直接修改页面代码而无法使用声明式接口设置回调的场景。
+
 从API version 19开始，新增UIWaterFlowEvent接口。
 
-```ts
+```text
 import { NodeController, FrameNode, typeNode } from '@kit.ArkUI';
 
 class MyNodeController extends NodeController {

@@ -7,18 +7,18 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 自定义类型变更 | 类名：avSession； API声明：type AVSessionType = 'audio' \| 'video' \| 'voice_call' \| 'video_call'; 差异内容：'audio' \| 'video' \| 'voice_call' \| 'video_call' | 类名：avSession； API声明：type AVSessionType = 'audio' \| 'video' \| 'voice_call' \| 'video_call' \| 'photo'; 差异内容：'audio' \| 'video' \| 'voice_call' \| 'video_call' \| 'photo' | api/@ohos.multimedia.avsession.d.ts |
-| 新增API | NA | 类名：avSession； API声明：function getAVSession(context: Context): Promise<AVSession>; 差异内容：function getAVSession(context: Context): Promise<AVSession>; | api/@ohos.multimedia.avsession.d.ts |
+| 新增API | NA | 类名：avSession； API声明：function getAVSession(context: Context): Promise&lt;AVSession&gt;; 差异内容：function getAVSession(context: Context): Promise&lt;AVSession&gt;; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：avSession； API声明：type NoParamCallback = () => void; 差异内容：type NoParamCallback = () => void; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：avSession； API声明：type TwoParamCallback<T, G> = (data1: T, data2: G) => void; 差异内容：type TwoParamCallback<T, G> = (data1: T, data2: G) => void; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：AVSession； API声明：readonly sessionTag: string; 差异内容：readonly sessionTag: string; | api/@ohos.multimedia.avsession.d.ts |
-| 新增API | NA | 类名：AVSession； API声明：onPlay(callback: Callback<CommandInfo>): void; 差异内容：onPlay(callback: Callback<CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
-| 新增API | NA | 类名：AVSession； API声明：onPlayNext(callback: Callback<CommandInfo>): void; 差异内容：onPlayNext(callback: Callback<CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
-| 新增API | NA | 类名：AVSession； API声明：onPlayPrevious(callback: Callback<CommandInfo>): void; 差异内容：onPlayPrevious(callback: Callback<CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
+| 新增API | NA | 类名：AVSession； API声明：onPlay(callback: Callback&lt;CommandInfo&gt;): void; 差异内容：onPlay(callback: Callback&lt;CommandInfo&gt;): void; | api/@ohos.multimedia.avsession.d.ts |
+| 新增API | NA | 类名：AVSession； API声明：onPlayNext(callback: Callback&lt;CommandInfo&gt;): void; 差异内容：onPlayNext(callback: Callback&lt;CommandInfo&gt;): void; | api/@ohos.multimedia.avsession.d.ts |
+| 新增API | NA | 类名：AVSession； API声明：onPlayPrevious(callback: Callback&lt;CommandInfo&gt;): void; 差异内容：onPlayPrevious(callback: Callback&lt;CommandInfo&gt;): void; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：AVSession； API声明：onFastForward(callback: TwoParamCallback<number, CommandInfo>): void; 差异内容：onFastForward(callback: TwoParamCallback<number, CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：AVSession； API声明：onRewind(callback: TwoParamCallback<number, CommandInfo>): void; 差异内容：onRewind(callback: TwoParamCallback<number, CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
-| 新增API | NA | 类名：AVSession； API声明：offPlay(callback?: Callback<CommandInfo>): void; 差异内容：offPlay(callback?: Callback<CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
-| 新增API | NA | 类名：AVSession； API声明：offPlayNext(callback?: Callback<CommandInfo>): void; 差异内容：offPlayNext(callback?: Callback<CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
-| 新增API | NA | 类名：AVSession； API声明：offPlayPrevious(callback?: Callback<CommandInfo>): void; 差异内容：offPlayPrevious(callback?: Callback<CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
+| 新增API | NA | 类名：AVSession； API声明：offPlay(callback?: Callback&lt;CommandInfo&gt;): void; 差异内容：offPlay(callback?: Callback&lt;CommandInfo&gt;): void; | api/@ohos.multimedia.avsession.d.ts |
+| 新增API | NA | 类名：AVSession； API声明：offPlayNext(callback?: Callback&lt;CommandInfo&gt;): void; 差异内容：offPlayNext(callback?: Callback&lt;CommandInfo&gt;): void; | api/@ohos.multimedia.avsession.d.ts |
+| 新增API | NA | 类名：AVSession； API声明：offPlayPrevious(callback?: Callback&lt;CommandInfo&gt;): void; 差异内容：offPlayPrevious(callback?: Callback&lt;CommandInfo&gt;): void; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：AVSession； API声明：offFastForward(callback?: TwoParamCallback<number, CommandInfo>): void; 差异内容：offFastForward(callback?: TwoParamCallback<number, CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：AVSession； API声明：offRewind(callback?: TwoParamCallback<number, CommandInfo>): void; 差异内容：offRewind(callback?: TwoParamCallback<number, CommandInfo>): void; | api/@ohos.multimedia.avsession.d.ts |
 | 新增API | NA | 类名：avSession； API声明：interface MenuPosition 差异内容：interface MenuPosition | api/@ohos.multimedia.avsession.d.ts |

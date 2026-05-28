@@ -1,35 +1,48 @@
 # PasteButton
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-pastebutton
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 安全控件的粘贴控件。用户点击粘贴控件，应用可以临时获取读取剪贴板权限。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 子组件
+
+
+##### 子组件
+
 不支持。
 
-#### 接口
-#### PasteButton
+
+
+##### 接口
+
+
+
+##### PasteButton
+
 PasteButton()
+
 默认创建带有图标、文本、背景的粘贴控件。
+
 为避免因控件样式不合法而导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-#### PasteButton
+
+
+##### PasteButton
+
 PasteButton(options: PasteButtonOptions)
+
 创建包含指定元素的粘贴控件。
+
 为避免因控件样式不合法而导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -39,15 +52,18 @@ PasteButton(options: PasteButtonOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [PasteButtonOptions](#pastebuttonoptions) | 是 | 创建包含指定元素的粘贴控件。 默认值： { icon: PasteIconStyle.LINES, text: PasteDescription.PASTE, buttonType: ButtonType.Capsule } |
+| options | PasteButtonOptions | 是 | 创建包含指定元素的粘贴控件。 默认值： { icon: PasteIconStyle.LINES, text: PasteDescription.PASTE, buttonType: ButtonType.Capsule } |
 
-#### PasteButtonOptions
+
+
+
+##### PasteButtonOptions
+
 用于指定粘贴控件的图标、文本等指定元素。
 
-> [!NOTE] 说明
-> icon或text需至少传入一个。  如果icon、text都不传入，PasteButton中的options参数不生效，创建的PasteButton为默认样式。   PasteIconStyle默认样式为LINES。  PasteDescription默认样式为PASTE。  ButtonType默认样式为Capsule。   icon、text和buttonType不支持动态修改。
+> [!NOTE]
+> icon或text需至少传入一个。 如果icon、text都不传入，PasteButton中的options参数不生效，创建的PasteButton为默认样式。 PasteIconStyle默认样式为LINES。 PasteDescription默认样式为PASTE。 ButtonType默认样式为Capsule。 icon、text和buttonType不支持动态修改。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -55,16 +71,22 @@ PasteButton(options: PasteButtonOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | [PasteIconStyle](#pasteiconstyle枚举说明) | 否 | 是 | 设置粘贴控件的图标风格。 不传入该参数表示没有图标。 |
-| text | [PasteDescription](#pastedescription枚举说明) | 否 | 是 | 设置粘贴控件的文本描述。 不传入该参数表示没有文字描述。 |
-| buttonType | [ButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes#buttontype枚举说明) | 否 | 是 | 设置粘贴控件的背景样式。 不传入该参数，系统默认提供Capsule类型按钮。 |
+| icon | PasteIconStyle | 否 | 是 | 设置粘贴控件的图标风格。 不传入该参数表示没有图标。 |
+| text | PasteDescription | 否 | 是 | 设置粘贴控件的文本描述。 不传入该参数表示没有文字描述。 |
+| buttonType | ButtonType | 否 | 是 | 设置粘贴控件的背景样式。 不传入该参数，系统默认提供Capsule类型按钮。 |
 
-#### 属性
+
+
+
+##### 属性
+
 不支持通用属性，仅继承[安全控件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes)。
 
-#### PasteIconStyle枚举说明
+
+
+##### PasteIconStyle枚举说明
+
 粘贴控件的图标风格。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -74,9 +96,12 @@ PasteButton(options: PasteButtonOptions)
 | --- | --- | --- |
 | LINES | 0 | 粘贴控件展示线条样式图标。 |
 
-#### PasteDescription枚举说明
+
+
+
+##### PasteDescription枚举说明
+
 粘贴控件的文本描述。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -86,9 +111,12 @@ PasteButton(options: PasteButtonOptions)
 | --- | --- | --- |
 | PASTE | 0 | 粘贴控件的文字描述为“粘贴”。 |
 
-#### PasteButtonOnClickResult枚举说明
+
+
+
+##### PasteButtonOnClickResult枚举说明
+
 粘贴控件点击后的授权结果。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -99,10 +127,14 @@ PasteButton(options: PasteButtonOptions)
 | SUCCESS | 0 | 粘贴控件点击后权限授权成功。 |
 | TEMPORARY_AUTHORIZATION_FAILED | 1 | 粘贴控件点击后权限授权失败。 |
 
-#### PasteButtonCallback18+
+
+
+
+##### PasteButtonCallback18+
+
 type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult, error?: BusinessError&lt;void&gt;) => void
+
 点击粘贴控件触发该回调。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -112,17 +144,24 @@ type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult,
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [ClickEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#clickevent) | 是 | 见ClickEvent对象说明。 |
-| result | [PasteButtonOnClickResult](#pastebuttononclickresult枚举说明) | 是 | 剪贴板权限的授权结果，授权后可以读取当前剪贴板内容。 |
-| error | [BusinessError&lt;void&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror) | 否 | 点击按钮时的错误码和错误信息。 错误码0表示点击粘贴控件授权成功。 错误码1表示系统内部错误。 错误码2表示属性设置错误，包括但不限于： 1. 字体或图标设置过小。 2. 字体或图标与背托颜色相近。 3. 字体或图标颜色过于透明。 4. padding为负值。 5. 按钮被其他组件或窗口遮挡。 6. 文本超出背托范围。 7. 按钮超出窗口或屏幕。 8. 按钮整体尺寸过大。 9. 按钮文本被截断，显示不全。 10. 相关属性设置影响安全控件显示。 |
+| event | ClickEvent | 是 | 见ClickEvent对象说明。 |
+| result | PasteButtonOnClickResult | 是 | 剪贴板权限的授权结果，授权后可以读取当前剪贴板内容。 |
+| error | BusinessError&lt;void&gt; | 否 | 点击按钮时的错误码和错误信息。 错误码0表示点击粘贴控件授权成功。 错误码1表示系统内部错误。 错误码2表示属性设置错误，包括但不限于： 1. 字体或图标设置过小。 2. 字体或图标与背托颜色相近。 3. 字体或图标颜色过于透明。 4. padding为负值。 5. 按钮被其他组件或窗口遮挡。 6. 文本超出背托范围。 7. 按钮超出窗口或屏幕。 8. 按钮整体尺寸过大。 9. 按钮文本被截断，显示不全。 10. 相关属性设置影响安全控件显示。 |
 
-#### 事件
+
+
+
+##### 事件
+
 不支持通用事件，仅支持以下事件：
 
-#### onClick
+
+
+##### onClick
+
 onClick(event: PasteButtonCallback)
+
 点击动作触发该回调。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -132,11 +171,14 @@ onClick(event: PasteButtonCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [PasteButtonCallback](#pastebuttoncallback18) | 是 | 见PasteButtonCallback。 在API10-17时，参数类型为：(event: ClickEvent, result: PasteButtonOnClickResult) => void。 从API18开始，变更为PasteButtonCallback。 |
+| event | PasteButtonCallback | 是 | 见PasteButtonCallback。 在API10-17时，参数类型为：(event: ClickEvent, result: PasteButtonOnClickResult) => void。 从API18开始，变更为PasteButtonCallback。 |
 
-#### 示例
 
-```ts
+
+
+##### 示例
+
+```ArkTS
 // xxx.ets
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -188,4 +230,5 @@ struct Index {
 }
 ```
 
-![](assets/PasteButton/file-20260525091331213-001.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/EHNvT6O5SbmGT0cKO1cskQ/zh-cn_image_0000002581436212.png?HW-CC-KV=V1&HW-CC-Date=20260528T013930Z&HW-CC-Expire=86400&HW-CC-Sign=346921C53F8398855F44E20F97133A9DE84FE9C307C0027DAC61C6725D11F64B)

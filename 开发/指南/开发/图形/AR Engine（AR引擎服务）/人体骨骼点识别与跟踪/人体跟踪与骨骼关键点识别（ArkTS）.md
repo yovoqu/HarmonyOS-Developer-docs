@@ -1,30 +1,38 @@
 # 人体跟踪与骨骼关键点识别（ArkTS）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-body
 
-## 约束与限制
+##### 约束与限制
 
-管理AR会话能力支持部分Phone、部分Tablet、TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持运动跟踪及平面识别特性（[ARENGINE_FEATURE_TYPE_BODY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
+从6.1.0(23)开始，管理AR会话能力支持部分Phone、部分Tablet、TV设备。请参考[硬件要求](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-preparations#硬件要求)判断设备是否支持人体骨骼点识别与跟踪特性（[ARENGINE_FEATURE_TYPE_BODY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arfeaturetype)）。
 
-## 接口说明
+
+
+##### 接口说明
 
 人体跟踪与骨骼关键点识别主要依赖ARBody，以下接口为人体跟踪与骨骼关键点识别的相关接口。详细接口和说明，请参考[AR Engine API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
-| [ARSession.getFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsessiongetframe) | 获取AR Engine处理后的一帧数据。 |
-| [ARFrame.acquireBodySkeleton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframeacquirebodyskeleton) | 返回人体跟踪的人体对象数组。 |
-| [ARBody.getLandmarks2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arbodygetlandmarks2d) | 返回一个人体对象的骨骼关键点数组。 |
+| ARSession.getFrame | 获取AR Engine处理后的一帧数据。 |
+| ARFrame.acquireBodySkeleton | 返回人体跟踪的人体对象数组。 |
+| ARBody.getLandmarks2D | 返回一个人体对象的骨骼关键点数组。 |
 
 
-## 开发步骤
+
+
+##### 开发步骤
 
 对于使用ArkTS的任何AR应用，首先需要创建一个AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)，用于管理AR Engine的系统状态。AR会话[ARViewContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontext)的创建可以参考[管理AR会话](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession)章节。
 
-## 导入模块
+
+
+##### 导入模块
 
 人体跟踪与骨骼关键点识别能力需要导入的模块如下：
+
 ```text
 import { arEngine, ARView, arViewController } from '@kit.AREngine';
 import { Node, Scene } from '@kit.ArkGraphics3D';
@@ -33,8 +41,8 @@ import { display } from '@kit.ArkUI';
 ```
 
 
-## 结构定义
 
+##### 结构定义
 
 ```text
 interface BodyInfo {
@@ -42,8 +50,8 @@ interface BodyInfo {
   landmarks: arEngine.ARBodyLandmark2D[]
 }
 
-function arLandmarksToMap(arLandmarks: arEngine.ARBodyLandmark2D[]): Map {
-  let typeToLandmarks: Map = new Map();
+function arLandmarksToMap(arLandmarks: arEngine.ARBodyLandmark2D[]): Map<arEngine.ARBodyLandmarkType, arEngine.ARBodyLandmark2D> {
+  let typeToLandmarks: Map<arEngine.ARBodyLandmarkType, arEngine.ARBodyLandmark2D> = new Map();
   for (let arLandmark of arLandmarks) {
     typeToLandmarks.set(arLandmark.type, arLandmark);
   }
@@ -57,9 +65,13 @@ const FULL_SCREEN_SIZE: string = '100%';
 ```
 
 
-## 显示预览流
 
-首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。 更改type为[ARType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artype).BODY。
+##### 显示预览流
+
+首先初始化AR会话和AR场景，可以参考[初始化AR会话和AR场景](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-arsession#初始化ar会话和ar场景)章节。
+
+更改type为[ARType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#artype).BODY。
+
 ```text
 @Builder
 export function ARBodyBuilder() {
@@ -75,7 +87,15 @@ struct ARBody {
   private params: arEngine.ARConfig = { type: arEngine.ARType.BODY };
   private uiContext: UIContext = this.getUIContext();
   private onBodyInfoCb: OnBodyInfoCallback = (bodyInfos: arEngine.ARBody[]) => {
-    if (display.getDefaultDisplaySync().width * 3  {
+    if (display.getDefaultDisplaySync().width * 3 < display.getDefaultDisplaySync().height * 4) {
+      this.displayWidth = display.getDefaultDisplaySync().width;
+      this.displayHeight = this.displayWidth * DEFAULT_CONVERT_FACTOR;
+    } else {
+      this.displayHeight = display.getDefaultDisplaySync().height;
+      this.displayWidth = this.displayHeight * DEFAULT_CONVERT_FACTOR;
+    }
+
+    this.bodyInfos = bodyInfos.map((value: arEngine.ARBody) => {
       let landmarks: arEngine.ARBodyLandmark2D[] = value.getLandmarks2D();
       landmarks.forEach((value: arEngine.ARBodyLandmark2D) => {
         value.x = value.x * this.displayWidth;
@@ -89,7 +109,7 @@ struct ARBody {
     })
   }
 
-  private async initARView(): Promise {
+  private async initARView(): Promise<void> {
     await Scene.load().then(async (scene: Scene) => {
       let viewContext: arViewController.ARViewContext = new arViewController.ARViewContext();
       viewContext.scene = scene;
@@ -226,7 +246,7 @@ struct ARBody {
   }
 
   @Builder
-  drawBodyBones(bodyLandmarks: Map) {
+  drawBodyBones(bodyLandmarks: Map<arEngine.ARBodyLandmarkType, arEngine.ARBodyLandmark2D>) {
     this.drawBodyBoneLine(bodyLandmarks, arEngine.ARBodyLandmarkType.NOSE, arEngine.ARBodyLandmarkType.LEFT_SHOULDER,
       Color.Orange);
     this.drawBodyBoneLine(bodyLandmarks, arEngine.ARBodyLandmarkType.NOSE, arEngine.ARBodyLandmarkType.RIGHT_SHOULDER,
@@ -261,7 +281,7 @@ struct ARBody {
   }
 
   @Builder
-  drawBodyBoneLine(bodyLandmarks: Map,
+  drawBodyBoneLine(bodyLandmarks: Map<arEngine.ARBodyLandmarkType, arEngine.ARBodyLandmark2D>,
     start: arEngine.ARBodyLandmarkType, end: arEngine.ARBodyLandmarkType, color: Color) {
     if (bodyLandmarks.has(start) && bodyLandmarks.has(end)) {
       Line()
@@ -276,9 +296,13 @@ struct ARBody {
 ```
 
 
-## 获取人体跟踪对象数组和人体骨骼关键点数据
 
-调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新。 通过[ARSession.getFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsessiongetframe)方法获取当前帧。 通过[ARFrame.acquireBodySkeleton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframeacquirebodyskeleton)获得当前会话包含的人体对象数组。 通过[ARBody.getLandmarks2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arbodygetlandmarks2d)获取人体对象骨骼关键点数组。
+##### 获取人体跟踪对象数组和人体骨骼关键点数据
+1. 调用[ARViewCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallback)，使用其中的[onFrameUpdate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcallbackonframeupdate)方法进行帧数据更新。
+2. 通过[ARSession.getFrame](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arsessiongetframe)方法获取当前帧。
+3. 通过[ARFrame.acquireBodySkeleton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arframeacquirebodyskeleton)获得当前会话包含的人体对象数组。
+4. 通过[ARBody.getLandmarks2D](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine#arbodygetlandmarks2d)获取人体对象骨骼关键点数组。
+
 ```text
 class ARViewCallbackImpl extends arViewController.ARViewCallback {
   private callback?: OnBodyInfoCallback;
@@ -295,7 +319,7 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
     // ...
   }
 
-  async onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): Promise {
+  async onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): Promise<void> {
     if (!ctx.session) {
       return;
     }

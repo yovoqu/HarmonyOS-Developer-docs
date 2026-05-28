@@ -7,27 +7,45 @@
 JS文件用来定义HML页面的业务逻辑，支持ECMA规范的JavaScript语言。基于JavaScript语言的动态化能力，可以使应用更加富有表现力，具备更加灵活的设计能力。下面讲述JS文件的编译和运行的支持情况。
 
 
-## 语法
+##### 语法
 
-支持ES6语法。 模块声明 使用import方法引入功能模块：
+支持ES6语法。
+
+ - 模块声明
+
+  使用import方法引入功能模块：
+
+  
 ```text
 import router from '@ohos.router';
 ```
 
-代码引用 使用import方法导入js代码：
+ - 代码引用
+
+  使用import方法导入js代码：
+
+  
 ```text
 import utils from '../../common/utils.js';
 ```
 
 
-## 对象
 
-应用对象
+
+
+##### 对象
+
+ - 应用对象
+
 | 属性 | 类型 | 描述 |
-| --- | --- | --- |
-| \$def | Object | 使用this.\$app.\$def获取在app.js中暴露的对象。            说明：            应用对象不支持数据绑定，需主动触发UI更新。 |
 
-示例代码
+| --- | --- | --- |
+
+| $def | Object | 使用this.$app.$def获取在app.js中暴露的对象。 说明： 应用对象不支持数据绑定，需主动触发UI更新。 |
+
+  示例代码
+
+  
 ```text
 // app.js
 export default {
@@ -47,7 +65,6 @@ export default {
   }
 };
 ```
-
 
 ```text
 // index.js页面逻辑代码
@@ -69,26 +86,42 @@ export default {
 }
 ```
 
-页面对象
+ - 页面对象
+
 | 属性 | 类型 | 描述 |
+
 | --- | --- | --- |
-| data | Object/Function | 页面的数据模型，类型是对象或者函数，如果类型是函数，返回值必须是对象。属性名不能以\$或_开头，不要使用保留字for, if, show, tid。            data字段不可与private/public字段同时使用。 |
-| \$refs | Object | 持有注册过ref 属性的DOM元素或子组件实例的对象。示例见[获取DOM元素](#获取dom元素)。 |
+
+| data | Object/Function | 页面的数据模型，类型是对象或者函数，如果类型是函数，返回值必须是对象。属性名不能以$或_开头，不要使用保留字for, if, show, tid。 data字段不可与private/public字段同时使用。 |
+
+| $refs | Object | 持有注册过ref 属性的DOM元素或子组件实例的对象。示例见获取DOM元素。 |
+
 | private | Object | 页面的数据模型，private下的数据属性只能由当前页面修改。 |
+
 | public | Object | 页面的数据模型，public下的数据属性的行为与data保持一致。 |
-| props | Array/Object | props用于组件之间的通信，可以通过方式传递给组件；props名称必须用小写，不能以\$或_开头，不要使用保留字for, if, show, tid。目前props的数据类型不支持Function。示例见[Props](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-custom-props#props)。 |
-| computed | Object | 用于在读取或设置进行预先处理，计算属性的结果会被缓存。计算属性名不能以\$或_开头，不要使用保留字。示例见[computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-custom-props#computed)。 |
+
+| props | Array/Object | props用于组件之间的通信，可以通过<tag xxxx='value'>方式传递给组件；props名称必须用小写，不能以$或_开头，不要使用保留字for, if, show, tid。目前props的数据类型不支持Function。示例见Props。 |
+
+| computed | Object | 用于在读取或设置进行预先处理，计算属性的结果会被缓存。计算属性名不能以$或_开头，不要使用保留字。示例见computed。 |
 
 
-## 方法
 
-数据方法
+
+##### 方法
+
+ - 数据方法
+
 | 方法 | 参数 | 描述 |
-| --- | --- | --- |
-| \$set | key: string, value: any | 添加新的数据属性或者修改已有数据属性。            用法：            this.\$set('key',value)：添加数据属性。 |
-| \$delete | key: string | 删除数据属性。            用法：            this.\$delete('key')：删除数据属性。 |
 
-示例代码
+| --- | --- | --- |
+
+| $set | key: string, value: any | 添加新的数据属性或者修改已有数据属性。 用法： this.$set('key',value)：添加数据属性。 |
+
+| $delete | key: string | 删除数据属性。 用法： this.$delete('key')：删除数据属性。 |
+
+  示例代码
+
+  
 ```text
 // index.js
 export default {
@@ -108,35 +141,55 @@ export default {
 }
 ```
 
-公共方法
-| 方法 | 参数 | 描述 |
-| --- | --- | --- |
-| \$element | id: string | 获得指定id的组件对象，如果无指定id，则返回根组件对象。示例见[获取DOM元素](#获取dom元素)。            用法：                        - this.\$element('xxx')：获得id为xxx的组件对象。            - this.\$element()：获得根组件对象。 |
-| \$rootElement | 无 | 获取根组件对象。            用法：            this.\$rootElement().scrollTo({ duration: 500, position: 300 }), 页面在500ms内滚动300px。 |
-| \$root | 无 | 获得顶级ViewModel实例。[获取ViewModel](#获取viewmodel)示例。 |
-| \$parent | 无 | 获得父级ViewModel实例。[获取ViewModel](#获取viewmodel)示例。 |
-| \$child | id: string | 获得指定id的子级自定义组件的ViewModel实例。[获取ViewModel](#获取viewmodel)示例。            用法：            this.\$child('xxx') ：获取id为xxx的子级自定义组件的ViewModel实例。 |
+ - 公共方法
 
-事件方法
 | 方法 | 参数 | 描述 |
-| --- | --- | --- |
-| \$watch | data: string, callback: string \| Function | 观察data中的属性变化，如果属性值改变，触发绑定的事件。示例见[\$watch感知数据改变](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-custom-props#watch感知数据改变)。            用法：            this.\$watch('key', callback)：通过监听key属性值的变化，触发callback事件。 |
 
-页面方法
-| 方法 | 参数 | 描述 |
 | --- | --- | --- |
+
+| $element | id: string | 获得指定id的组件对象，如果无指定id，则返回根组件对象。示例见获取DOM元素。 用法： <div id='xxx'></div> - this.$element('xxx')：获得id为xxx的组件对象。 - this.$element()：获得根组件对象。 |
+
+| $rootElement | 无 | 获取根组件对象。 用法： this.$rootElement().scrollTo({ duration: 500, position: 300 }), 页面在500ms内滚动300px。 |
+
+| $root | 无 | 获得顶级ViewModel实例。获取ViewModel示例。 |
+
+| $parent | 无 | 获得父级ViewModel实例。获取ViewModel示例。 |
+
+| $child | id: string | 获得指定id的子级自定义组件的ViewModel实例。获取ViewModel示例。 用法： this.$child('xxx') ：获取id为xxx的子级自定义组件的ViewModel实例。 |
+ - 事件方法
+
+| 方法 | 参数 | 描述 |
+
+| --- | --- | --- |
+
+| $watch | data: string, callback: string \| Function | 观察data中的属性变化，如果属性值改变，触发绑定的事件。示例见$watch感知数据改变。 用法： this.$watch('key', callback)：通过监听key属性值的变化，触发callback事件。 |
+ - 页面方法
+
+| 方法 | 参数 | 描述 |
+
+| --- | --- | --- |
+
 | scrollTo6+ | scrollPageParam: ScrollPageParam | 将页面滚动到目标位置，可以通过ID选择器指定或者滚动距离指定。 |
 
-**表1** ScrollPageParam6+
+  **表1** ScrollPageParam6+
+
 | 名称 | 类型 | 默认值 | 描述 |
+
 | --- | --- | --- | --- |
+
 | position | number | - | 指定滚动位置。 |
+
 | id | string | - | 指定需要滚动到的元素id。 |
+
 | duration | number | 300 | 指定滚动时长，单位为毫秒。 |
-| timingFunction | string | ease | 指定滚动动画曲线，可选值参考            [动画样式animation-timing-function](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-animation)。 |
+
+| timingFunction | string | ease | 指定滚动动画曲线，可选值参考 动画样式animation-timing-function。 |
+
 | complete | () => void | - | 指定滚动完成后需要执行的回调函数。 |
 
-示例：
+  示例：
+
+  
 ```text
 this.$rootElement().scrollTo({ position: 0 });
 this.$rootElement().scrollTo({ id: 'id', duration: 200, timingFunction: 'ease-in', complete: () => {
@@ -145,14 +198,19 @@ this.$rootElement().scrollTo({ id: 'id', duration: 200, timingFunction: 'ease-in
 ```
 
 
-## 获取DOM元素
 
-通过\$refs获取DOM元素
+
+
+##### 获取DOM元素
+1. 通过$refs获取DOM元素
+
+  
 ```text
-
-
+<!-- index.hml -->
+<div class="container">
+  <image-animator class="image-player" ref="animator" images="{{images}}" duration="1s" onclick="handleClick"></image-animator>
+</div>
 ```
-
 
 ```text
 // index.js
@@ -178,12 +236,15 @@ export default {
 };
 ```
 
-通过\$element获取DOM元素
+2. 通过$element获取DOM元素
+
+  
 ```text
-
-
+<!-- index.hml -->
+<div class="container" style="width:500px;height: 700px; margin: 100px;">
+  <image-animator class="image-player" id="animator" images="{{images}}" duration="1s" onclick="handleClick"></image-animator>
+</div>
 ```
-
 
 ```text
 // index.js
@@ -209,19 +270,27 @@ export default {
 };
 ```
 
+
+
 ![](assets/JS语法参考/file-20260514130738182-0.gif)
 
-## 获取ViewModel
+
+
+
+##### 获取ViewModel
 
 根节点所在页面：
+
 ```text
-
-
-    {{text}}
-
-
+<!-- root.hml -->
+<element name='parentComp' src='../../common/component/parent/parent.hml'></element>
+<div class="container">
+  <div class="container">
+    <text>{{text}}</text>
+    <parentComp></parentComp>
+  </div>
+</div>
 ```
-
 
 ```text
 // root.js
@@ -232,17 +301,21 @@ export default {
 }
 ```
 
+
 ![](assets/JS语法参考/file-20260514130738182-1.png)
+
+
 自定义parent组件：
+
 ```text
-
-
-  parent component click
-  hello parent component!
-
-
+<!-- parent.hml -->
+<element name='childComp' src='../child/child.hml'></element>
+<div class="item" onclick="textClicked">
+  <text class="text-style" onclick="parentClicked">parent component click</text>
+  <text class="text-style" if="{{showValue}}">hello parent component!</text>
+  <childComp id = "selfDefineChild"></childComp>
+</div>
 ```
-
 
 ```text
 // parent.js
@@ -262,14 +335,14 @@ export default {
 ```
 
 自定义child组件：
+
 ```text
-
-
-  child component clicked
-  hello child component
-
+<!-- child.hml -->
+<div class="item" onclick="textClicked">
+  <text class="text-style" onclick="childClicked">child component clicked</text>
+  <text class="text-style" if="{{isShow}}">hello child component</text>
+</div>
 ```
-
 
 ```text
 // child.js
@@ -287,5 +360,6 @@ export default {
   },
 }
 ```
+
 
 ![](assets/JS语法参考/file-20260514130738182-2.gif)

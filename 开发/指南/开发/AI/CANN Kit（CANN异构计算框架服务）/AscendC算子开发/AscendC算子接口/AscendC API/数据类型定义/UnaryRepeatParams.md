@@ -5,15 +5,14 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-unaryrepeatparams
 
 UnaryRepeatParams为用于控制操作数地址步长的数据结构。结构体内包含操作数相邻迭代间相同datablock的地址步长，操作数同一迭代内不同datablock的地址步长等参数。
-
- 结构体具体定义为：
-
-
+ 
+结构体具体定义为：
+ 
 ```text
 const int32_t DEFAULT_BLK_NUM = 8;
 const int32_t DEFAULT_BLK_STRIDE = 1;
 const uint8_t DEFAULT_REPEAT_STRIDE = 8;
-
+ 
 struct UnaryRepeatParams {
     __aicore__ UnaryRepeatParams()
     {
@@ -51,5 +50,5 @@ struct UnaryRepeatParams {
     bool halfBlock = false;
 };
 ```
-
- 其中，blockNumber，repeatStrideMode，strideSizeMode为保留参数，开发者无需关心，使用默认值即可。halfBlock表示CastDeq指令的结果写入对应UB的上半（halfBlock = true）还是下半（halfBlock = false）部分。开发者需要自行定义dataBlockStride参数，包含dstBlkStride，srcBlkStride，以及repeatStride参数，包含dstRepStride，srcRepStride。
+ 
+其中，blockNumber，repeatStrideMode，strideSizeMode为保留参数，开发者无需关心，使用默认值即可。halfBlock表示CastDeq指令的结果写入对应UB的上半（halfBlock = true）还是下半（halfBlock = false）部分。开发者需要自行定义dataBlockStride参数，包含dstBlkStride，srcBlkStride，以及repeatStride参数，包含dstRepStride，srcRepStride。

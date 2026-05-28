@@ -15,10 +15,10 @@
 | 新增API | NA | 类名：AacProfile； API声明：AAC_HE = 1 差异内容：AAC_HE = 1 | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AacProfile； API声明：AAC_HE_V2 = 2 差异内容：AAC_HE_V2 = 2 | api/@ohos.multimedia.media.d.ts |
 | 新增API | NA | 类名：AVRecorderProfile； API声明：aacProfile?: AacProfile; 差异内容：aacProfile?: AacProfile; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：setPickerMode(pickerMode: PickerMode): Promise<void>; 差异内容：setPickerMode(pickerMode: PickerMode): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：excludePickerWindows(excludedWindows: Array<number>): Promise<void>; 差异内容：excludePickerWindows(excludedWindows: Array<number>): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：presentPicker(): Promise<void>; 差异内容：presentPicker(): Promise<void>; | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：media； API声明：function createAVTranscoder(): Promise<AVTranscoder>; 差异内容：NA | 类名：media； API声明：function createAVTranscoder(): Promise<AVTranscoder>; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：setPickerMode(pickerMode: PickerMode): Promise&lt;void&gt;; 差异内容：setPickerMode(pickerMode: PickerMode): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：excludePickerWindows(excludedWindows: Array&lt;number&gt;): Promise&lt;void&gt;; 差异内容：excludePickerWindows(excludedWindows: Array&lt;number&gt;): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| 新增API | NA | 类名：AVScreenCaptureRecorder； API声明：presentPicker(): Promise&lt;void&gt;; 差异内容：presentPicker(): Promise&lt;void&gt;; | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：media； API声明：function createAVTranscoder(): Promise&lt;AVTranscoder&gt;; 差异内容：NA | 类名：media； API声明：function createAVTranscoder(): Promise&lt;AVTranscoder&gt;; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
 | API从不支持元服务到支持元服务 | 类名：ContainerFormatType； API声明：CFT_MPEG_4 = 'mp4' 差异内容：NA | 类名：ContainerFormatType； API声明：CFT_MPEG_4 = 'mp4' 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
 | API从不支持元服务到支持元服务 | 类名：CodecMimeType； API声明：VIDEO_AVC = 'video/avc' 差异内容：NA | 类名：CodecMimeType； API声明：VIDEO_AVC = 'video/avc' 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
 | API从不支持元服务到支持元服务 | 类名：CodecMimeType； API声明：VIDEO_HEVC = 'video/hevc' 差异内容：NA | 类名：CodecMimeType； API声明：VIDEO_HEVC = 'video/hevc' 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
@@ -34,15 +34,15 @@
 | API从不支持元服务到支持元服务 | 类名：media； API声明：interface AVTranscoder 差异内容：NA | 类名：media； API声明：interface AVTranscoder 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
 | API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：fdSrc: AVFileDescriptor; 差异内容：NA | 类名：AVTranscoder； API声明：fdSrc: AVFileDescriptor; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
 | API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：fdDst: number; 差异内容：NA | 类名：AVTranscoder； API声明：fdDst: number; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：prepare(config: AVTranscoderConfig): Promise<void>; 差异内容：NA | 类名：AVTranscoder； API声明：prepare(config: AVTranscoderConfig): Promise<void>; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：start(): Promise<void>; 差异内容：NA | 类名：AVTranscoder； API声明：start(): Promise<void>; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：pause(): Promise<void>; 差异内容：NA | 类名：AVTranscoder； API声明：pause(): Promise<void>; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：resume(): Promise<void>; 差异内容：NA | 类名：AVTranscoder； API声明：resume(): Promise<void>; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：cancel(): Promise<void>; 差异内容：NA | 类名：AVTranscoder； API声明：cancel(): Promise<void>; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：release(): Promise<void>; 差异内容：NA | 类名：AVTranscoder； API声明：release(): Promise<void>; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：on(type: 'complete', callback: Callback<void>): void; 差异内容：NA | 类名：AVTranscoder； API声明：on(type: 'complete', callback: Callback<void>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：prepare(config: AVTranscoderConfig): Promise&lt;void&gt;; 差异内容：NA | 类名：AVTranscoder； API声明：prepare(config: AVTranscoderConfig): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：start(): Promise&lt;void&gt;; 差异内容：NA | 类名：AVTranscoder； API声明：start(): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：pause(): Promise&lt;void&gt;; 差异内容：NA | 类名：AVTranscoder； API声明：pause(): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：resume(): Promise&lt;void&gt;; 差异内容：NA | 类名：AVTranscoder； API声明：resume(): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：cancel(): Promise&lt;void&gt;; 差异内容：NA | 类名：AVTranscoder； API声明：cancel(): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：release(): Promise&lt;void&gt;; 差异内容：NA | 类名：AVTranscoder； API声明：release(): Promise&lt;void&gt;; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：on(type: 'complete', callback: Callback&lt;void&gt;): void; 差异内容：NA | 类名：AVTranscoder； API声明：on(type: 'complete', callback: Callback&lt;void&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
 | API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：NA | 类名：AVTranscoder； API声明：on(type: 'error', callback: ErrorCallback): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：on(type: 'progressUpdate', callback: Callback<number>): void; 差异内容：NA | 类名：AVTranscoder； API声明：on(type: 'progressUpdate', callback: Callback<number>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：off(type: 'complete', callback?: Callback<void>): void; 差异内容：NA | 类名：AVTranscoder； API声明：off(type: 'complete', callback?: Callback<void>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：on(type: 'progressUpdate', callback: Callback&lt;number&gt;): void; 差异内容：NA | 类名：AVTranscoder； API声明：on(type: 'progressUpdate', callback: Callback&lt;number&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：off(type: 'complete', callback?: Callback&lt;void&gt;): void; 差异内容：NA | 类名：AVTranscoder； API声明：off(type: 'complete', callback?: Callback&lt;void&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
 | API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：NA | 类名：AVTranscoder； API声明：off(type: 'error', callback?: ErrorCallback): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
-| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：off(type: 'progressUpdate', callback?: Callback<number>): void; 差异内容：NA | 类名：AVTranscoder； API声明：off(type: 'progressUpdate', callback?: Callback<number>): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |
+| API从不支持元服务到支持元服务 | 类名：AVTranscoder； API声明：off(type: 'progressUpdate', callback?: Callback&lt;number&gt;): void; 差异内容：NA | 类名：AVTranscoder； API声明：off(type: 'progressUpdate', callback?: Callback&lt;number&gt;): void; 差异内容：atomicservice | api/@ohos.multimedia.media.d.ts |

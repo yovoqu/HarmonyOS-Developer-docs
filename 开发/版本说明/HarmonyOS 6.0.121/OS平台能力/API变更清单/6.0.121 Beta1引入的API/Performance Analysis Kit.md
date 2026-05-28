@@ -16,7 +16,7 @@
 | 新增API | NA | 类名：hidebug； API声明：interface GraphicsMemorySummary 差异内容：interface GraphicsMemorySummary | api/@ohos.hidebug.d.ts |
 | 新增API | NA | 类名：GraphicsMemorySummary； API声明：gl: number; 差异内容：gl: number; | api/@ohos.hidebug.d.ts |
 | 新增API | NA | 类名：GraphicsMemorySummary； API声明：graph: number; 差异内容：graph: number; | api/@ohos.hidebug.d.ts |
-| 新增API | NA | 类名：hidebug； API声明：function getGraphicsMemorySummary(interval?: number): Promise<GraphicsMemorySummary>; 差异内容：function getGraphicsMemorySummary(interval?: number): Promise<GraphicsMemorySummary>; | api/@ohos.hidebug.d.ts |
+| 新增API | NA | 类名：hidebug； API声明：function getGraphicsMemorySummary(interval?: number): Promise&lt;GraphicsMemorySummary&gt;; 差异内容：function getGraphicsMemorySummary(interval?: number): Promise&lt;GraphicsMemorySummary&gt;; | api/@ohos.hidebug.d.ts |
 | 新增API | NA | 类名：hilog； API声明：function setLogLevel(level: LogLevel, prefer: PreferStrategy): void; 差异内容：function setLogLevel(level: LogLevel, prefer: PreferStrategy): void; | api/@ohos.hilog.d.ts |
 | 新增API | NA | 类名：hilog； API声明：enum PreferStrategy 差异内容：enum PreferStrategy | api/@ohos.hilog.d.ts |
 | 新增API | NA | 类名：PreferStrategy； API声明：UNSET_LOGLEVEL = 0 差异内容：UNSET_LOGLEVEL = 0 | api/@ohos.hilog.d.ts |

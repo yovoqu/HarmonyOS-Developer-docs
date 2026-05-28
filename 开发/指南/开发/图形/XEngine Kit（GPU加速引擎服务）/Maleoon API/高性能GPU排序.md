@@ -1,21 +1,26 @@
 # 高性能GPU排序
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-high-performance-gpu-sorting
 
 从6.0.0(20) 版本开始，新增高性能GPU排序特性。
 
- XEngine Kit HPS特性提供高性能GPU排序能力。相比于其它排序能力，该能力依托于华为Maleoon GPU的软硬结合优化，效率更高。
+XEngine Kit HPS(High Performance Sorting)特性提供高性能GPU排序能力。相比于其它排序能力，该能力依托于华为Maleoon GPU的软硬结合优化，效率更高。
 
 
-## 约束与限制
+##### 约束与限制
 
-可通过以下方式查询相关扩展特性是否支持： 对于Vulkan，使用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)扩展特性查询接口进行查询，如查询结果包含XEG_HPS_RADIX_SORT_EXTENSION_NAME，则表示支持该特性，若查询结果未包含，则表示不支持该特性。
+可通过以下方式查询相关扩展特性是否支持：
 
-## 接口说明
+对于Vulkan，使用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)扩展特性查询接口进行查询，如查询结果包含XEG_HPS_RADIX_SORT_EXTENSION_NAME，则表示支持该特性，若查询结果未包含，则表示不支持该特性。
+
+
+
+##### 接口说明
 
 以下接口为使用高性能GPU排序所需要使用的接口，关于这些接口的详细说明见[接口文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine)。
+
 | 接口名 | 描述 |
 | --- | --- |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateHPS (VkDevice device, const XEG_HPSCreateInfo *pCreateInfo, XEG_HPS *pHps) | 创建XEG_HPS对象。 |
@@ -23,23 +28,35 @@
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRadixSortHPS (VkCommandBuffer commandBuffer, XEG_HPS hps, const XEG_HPSRadixSortDescription *pDescription) | 录制HPS排序命令，使用此接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询是否支持XEG_HPS_RADIX_SORT_EXTENSION_NAME扩展。 |
 
 
-## 开发步骤
+
+
+##### 开发步骤
 
 本章以在Vulkan应用程序渲染为例，说明使用高性能GPU排序的开发步骤。
 
-## 配置项目
 
-编译HAP时，Native层so需要依赖NDK中的XEngine相关库和头文件。 头文件引用
+
+##### 配置项目
+
+编译HAP时，Native层so需要依赖NDK中的XEngine相关库和头文件。
+
+ - 头文件引用
+
+  
 ```text
-#include
-#include
-#include
-#include
-#include
-#include
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <xengine/xeg_vulkan_hps.h>
+#include <xengine/xeg_vulkan_extension.h>
+#include <xengine/xeg_extension_defs.h>
 ```
 
-CMakeLists.txt添加库依赖  CMakeLists.txt中添加对XEngine动态链接库依赖的代码如下。
+ - CMakeLists.txt添加库依赖
+
+  CMakeLists.txt中添加对XEngine动态链接库依赖的代码如下。
+
+  
 ```text
 find_library(
     # 设置路径变量的名称。
@@ -48,21 +65,30 @@ find_library(
     xengine
 )
 target_link_libraries(nativerender PUBLIC
-    ...... // 其他库文件
+    // 其他库文件
+    // ...
     ${xengine-lib})
 ```
 
 
-## 集成高性能GPU排序（Vulkan）
 
-XEngine 高性能GPU排序可以独立使用。相关代码在Native层实现。 在调用XEngine Kit特性接口前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询确认您的目标设备支持SystemCapability.Graphic.XEngine系统能力。 调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口，获取XEngine支持的扩展信息，只有在支持XEG_HPS_RADIX_SORT_EXTENSION_NAME扩展时才可以使用高性能GPU排序接口。
+
+
+##### 集成高性能GPU排序（Vulkan）
+
+XEngine 高性能GPU排序可以独立使用。相关代码在Native层实现。
+
+在调用XEngine Kit特性接口前，需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#什么是systemcapabilitysyscap)查询确认您的目标设备支持SystemCapability.Graphic.XEngine系统能力。
+1. 调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口，获取XEngine支持的扩展信息，只有在支持XEG_HPS_RADIX_SORT_EXTENSION_NAME扩展时才可以使用高性能GPU排序接口。
+
+  
 ```text
 VkPhysicalDevice physicalDevice;
-std::vector supportedExtensions;
+std::vector<std::string> supportedExtensions;
 uint32_t propertyCount;
 HMS_XEG_EnumerateDeviceExtensionProperties(physicalDevice, &propertyCount, nullptr);
 if (propertyCount > 0) {
-    std::vector properties(propertyCount);
+    std::vector<XEG_ExtensionProperties> properties(propertyCount);
     if (HMS_XEG_EnumerateDeviceExtensionProperties(physicalDevice, &propertyCount, &properties.front()) ==
         VK_SUCCESS) {
         for (auto ext : properties) {
@@ -76,7 +102,9 @@ if (std::find(supportedExtensions.begin(), supportedExtensions.end(), XEG_HPS_RA
 }
 ```
 
-准备HPS相关资源。
+2. 准备HPS相关资源。
+
+  
 ```text
 VkDevice device;
 VkCommandBuffer cmdBuffer;
@@ -89,12 +117,16 @@ VkBuffer indexBuffer;
 VkBuffer sortCount;
 ```
 
-声明实例句柄。
+3. 声明实例句柄。
+
+  
 ```text
 XEG_HPS xegHPS { VK_NULL_HANDLE };
 ```
 
-调用[HMS_XEG_CreateHPS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_createhps)接口，实例化句柄。
+4. 调用[HMS_XEG_CreateHPS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_createhps)接口，实例化句柄。
+
+  
 ```text
 // 构造输入描述符
 XEG_HPSRadixSort sorInfo{
@@ -110,7 +142,9 @@ XEG_HPSCreateInfo info {
 HMS_XEG_CreateHPS(device, &info, &xegHPS);
 ```
 
-构造排序描述符，调用[HMS_XEG_CmdRadixSortHPS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdradixsorthps)接口录制排序命令。
+5. 构造排序描述符，调用[HMS_XEG_CmdRadixSortHPS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdradixsorthps)接口录制排序命令。
+
+  
 ```text
 VkCommandBufferBeginInfo cmdBufferBeginInfo {};
 cmdBufferBeginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
@@ -128,7 +162,9 @@ HMS_XEG_CmdRadixSortHPS(cmdBuffer, xegHPS, &sortDescription);
 vkEndCommandBuffer(cmdBuffer);
 ```
 
-提交排序命令。
+6. 提交排序命令。
+
+  
 ```text
 // 提交command buffer
 VkResult res;
@@ -147,7 +183,9 @@ VkResult res;
 vkDeviceWaitIdle(device);
 ```
 
-销毁HPS对象。
+7. 销毁HPS对象。
+
+  
 ```text
 if(xegHPS){
     HMS_XEG_DestroyHPS(xegHPS);

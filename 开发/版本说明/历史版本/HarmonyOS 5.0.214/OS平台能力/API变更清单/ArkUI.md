@@ -10,9 +10,9 @@
 | API废弃版本变更 | 类名：ChipGroupItemOptions； API声明：suffixIcon?: IconOptions; 差异内容：NA | 类名：ChipGroupItemOptions； API声明：suffixIcon?: IconOptions; 差异内容：14 | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | API废弃版本变更 | 类名：CommonMethod； API声明：gridSpan(value: number): T; 差异内容：NA | 类名：CommonMethod； API声明：gridSpan(value: number): T; 差异内容：14 | component/common.d.ts |
 | API废弃版本变更 | 类名：CommonMethod； API声明：gridOffset(value: number): T; 差异内容：NA | 类名：CommonMethod； API声明：gridOffset(value: number): T; 差异内容：14 | component/common.d.ts |
-| 函数变更 | 类名：Scroller； API声明：scrollPage(value: {  next: boolean;  }); 差异内容：value: {  next: boolean;  } | 类名：Scroller； API声明：scrollPage(value: ScrollPageOptions); 差异内容：value: ScrollPageOptions | component/scroll.d.ts |
+| 函数变更 | 类名：Scroller； API声明：scrollPage(value: { next: boolean; }); 差异内容：value: { next: boolean; } | 类名：Scroller； API声明：scrollPage(value: ScrollPageOptions); 差异内容：value: ScrollPageOptions | component/scroll.d.ts |
 | 函数变更 | 类名：NavDestinationAttribute； API声明：title(value: string \| CustomBuilder \| NavDestinationCommonTitle \| NavDestinationCustomTitle, options?: NavigationTitleOptions): NavDestinationAttribute; 差异内容：value: string \| CustomBuilder \| NavDestinationCommonTitle \| NavDestinationCustomTitle | 类名：NavDestinationAttribute； API声明：title(value: string \| CustomBuilder \| NavDestinationCommonTitle \| NavDestinationCustomTitle \| Resource, options?: NavigationTitleOptions): NavDestinationAttribute; 差异内容：value: string \| CustomBuilder \| NavDestinationCommonTitle \| NavDestinationCustomTitle \| Resource | component/nav_destination.d.ts |
-| 属性变更 | 类名：IconGroupSuffix； API声明：@Require  @Prop  items: Array<IconItemOptions \| SymbolGlyphModifier>; 差异内容：Array<IconItemOptions \| SymbolGlyphModifier> | 类名：IconGroupSuffix； API声明：@Require  @Prop  items: Array<IconItemOptions \| SymbolGlyphModifier \| SymbolItemOptions>; 差异内容：Array<IconItemOptions \| SymbolGlyphModifier \| SymbolItemOptions> | api/@ohos.arkui.advanced.ChipGroup.d.ets |
+| 属性变更 | 类名：IconGroupSuffix； API声明：@Require @Prop items: Array<IconItemOptions \| SymbolGlyphModifier>; 差异内容：Array<IconItemOptions \| SymbolGlyphModifier> | 类名：IconGroupSuffix； API声明：@Require @Prop items: Array<IconItemOptions \| SymbolGlyphModifier \| SymbolItemOptions>; 差异内容：Array<IconItemOptions \| SymbolGlyphModifier \| SymbolItemOptions> | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | 属性变更 | 类名：NavigationCommonTitle； API声明：main: string; 差异内容：string | 类名：NavigationCommonTitle； API声明：main: string \| Resource; 差异内容：string,Resource | component/navigation.d.ts |
 | 属性变更 | 类名：NavigationCommonTitle； API声明：sub: string; 差异内容：string | 类名：NavigationCommonTitle； API声明：sub: string \| Resource; 差异内容：string,Resource | component/navigation.d.ts |
 | 属性变更 | 类名：NavigationMenuItem； API声明：value: string; 差异内容：string | 类名：NavigationMenuItem； API声明：value: string \| Resource; 差异内容：string,Resource | component/navigation.d.ts |
@@ -25,19 +25,19 @@
 | 新增API | NA | 类名：SplitPolicy； API声明：DETAIL_PAGE = 1 差异内容：DETAIL_PAGE = 1 | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：SplitPolicy； API声明：FULL_PAGE = 2 差异内容：FULL_PAGE = 2 | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：global； API声明： export declare struct MultiNavigation 差异内容： export declare struct MultiNavigation | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
-| 新增API | NA | 类名：MultiNavigation； API声明：@State  multiStack: MultiNavPathStack; 差异内容：@State  multiStack: MultiNavPathStack; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
-| 新增API | NA | 类名：MultiNavigation； API声明：@BuilderParam  navDestination: NavDestinationBuildFunction; 差异内容：@BuilderParam  navDestination: NavDestinationBuildFunction; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
+| 新增API | NA | 类名：MultiNavigation； API声明：@State multiStack: MultiNavPathStack; 差异内容：@State multiStack: MultiNavPathStack; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
+| 新增API | NA | 类名：MultiNavigation； API声明：@BuilderParam navDestination: NavDestinationBuildFunction; 差异内容：@BuilderParam navDestination: NavDestinationBuildFunction; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavigation； API声明：onNavigationModeChange?: OnNavigationModeChangeCallback; 差异内容：onNavigationModeChange?: OnNavigationModeChangeCallback; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavigation； API声明：onHomeShowOnTop?: OnHomeShowOnTopCallback; 差异内容：onHomeShowOnTop?: OnHomeShowOnTopCallback; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：global； API声明： export declare class MultiNavPathStack 差异内容： export declare class MultiNavPathStack | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：pushPath(info: NavPathInfo, animated?: boolean, policy?: SplitPolicy): void; 差异内容：pushPath(info: NavPathInfo, animated?: boolean, policy?: SplitPolicy): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：pushPath(info: NavPathInfo, options?: NavigationOptions, policy?: SplitPolicy): void; 差异内容：pushPath(info: NavPathInfo, options?: NavigationOptions, policy?: SplitPolicy): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：pushPathByName(name: string, param: Object, animated?: boolean, policy?: SplitPolicy): void; 差异内容：pushPathByName(name: string, param: Object, animated?: boolean, policy?: SplitPolicy): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
-| 新增API | NA | 类名：MultiNavPathStack； API声明：pushPathByName(name: string, param: Object, onPop?: base.Callback<PopInfo>, animated?: boolean, policy?: SplitPolicy): void; 差异内容：pushPathByName(name: string, param: Object, onPop?: base.Callback<PopInfo>, animated?: boolean, policy?: SplitPolicy): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
+| 新增API | NA | 类名：MultiNavPathStack； API声明：pushPathByName(name: string, param: Object, onPop?: base.Callback&lt;PopInfo&gt;, animated?: boolean, policy?: SplitPolicy): void; 差异内容：pushPathByName(name: string, param: Object, onPop?: base.Callback&lt;PopInfo&gt;, animated?: boolean, policy?: SplitPolicy): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：replacePath(info: NavPathInfo, animated?: boolean): void; 差异内容：replacePath(info: NavPathInfo, animated?: boolean): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：replacePath(info: NavPathInfo, options?: NavigationOptions): void; 差异内容：replacePath(info: NavPathInfo, options?: NavigationOptions): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：replacePathByName(name: string, param: Object, animated?: boolean): void; 差异内容：replacePathByName(name: string, param: Object, animated?: boolean): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
-| 新增API | NA | 类名：MultiNavPathStack； API声明：removeByIndexes(indexes: Array<number>): number; 差异内容：removeByIndexes(indexes: Array<number>): number; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
+| 新增API | NA | 类名：MultiNavPathStack； API声明：removeByIndexes(indexes: Array&lt;number&gt;): number; 差异内容：removeByIndexes(indexes: Array&lt;number&gt;): number; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：removeByName(name: string): number; 差异内容：removeByName(name: string): number; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：pop(animated?: boolean): NavPathInfo \| undefined; 差异内容：pop(animated?: boolean): NavPathInfo \| undefined; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：pop(result?: Object, animated?: boolean): NavPathInfo \| undefined; 差异内容：pop(result?: Object, animated?: boolean): NavPathInfo \| undefined; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
@@ -48,10 +48,10 @@
 | 新增API | NA | 类名：MultiNavPathStack； API声明：moveToTop(name: string, animated?: boolean): number; 差异内容：moveToTop(name: string, animated?: boolean): number; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：moveIndexToTop(index: number, animated?: boolean): void; 差异内容：moveIndexToTop(index: number, animated?: boolean): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：clear(animated?: boolean): void; 差异内容：clear(animated?: boolean): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
-| 新增API | NA | 类名：MultiNavPathStack； API声明：getAllPathName(): Array<string>; 差异内容：getAllPathName(): Array<string>; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
+| 新增API | NA | 类名：MultiNavPathStack； API声明：getAllPathName(): Array&lt;string&gt;; 差异内容：getAllPathName(): Array&lt;string&gt;; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：getParamByIndex(index: number): Object \| undefined; 差异内容：getParamByIndex(index: number): Object \| undefined; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
-| 新增API | NA | 类名：MultiNavPathStack； API声明：getParamByName(name: string): Array<Object>; 差异内容：getParamByName(name: string): Array<Object>; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
-| 新增API | NA | 类名：MultiNavPathStack； API声明：getIndexByName(name: string): Array<number>; 差异内容：getIndexByName(name: string): Array<number>; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
+| 新增API | NA | 类名：MultiNavPathStack； API声明：getParamByName(name: string): Array&lt;Object&gt;; 差异内容：getParamByName(name: string): Array&lt;Object&gt;; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
+| 新增API | NA | 类名：MultiNavPathStack； API声明：getIndexByName(name: string): Array&lt;number&gt;; 差异内容：getIndexByName(name: string): Array&lt;number&gt;; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：size(): number; 差异内容：size(): number; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：disableAnimation(disable: boolean): void; 差异内容：disableAnimation(disable: boolean): void; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
 | 新增API | NA | 类名：MultiNavPathStack； API声明：switchFullScreenState(isFullScreen?: boolean): boolean; 差异内容：switchFullScreenState(isFullScreen?: boolean): boolean; | api/@ohos.arkui.advanced.MultiNavigation.d.ets |
@@ -80,38 +80,38 @@
 | 新增API | NA | 类名：SymbolItemOptions； API声明：accessibilityText?: ResourceStr; 差异内容：accessibilityText?: ResourceStr; | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | 新增API | NA | 类名：SymbolItemOptions； API声明：accessibilityDescription?: ResourceStr; 差异内容：accessibilityDescription?: ResourceStr; | api/@ohos.arkui.advanced.ChipGroup.d.ets |
 | 新增API | NA | 类名：SymbolItemOptions； API声明：accessibilityLevel?: string; 差异内容：accessibilityLevel?: string; | api/@ohos.arkui.advanced.ChipGroup.d.ets |
-| 新增API | NA | 类名：Window； API声明：setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise<void>; 差异内容：setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise<void>; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise&lt;void&gt;; 差异内容：setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：window； API声明： interface DecorButtonStyle 差异内容： interface DecorButtonStyle | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：DecorButtonStyle； API声明：colorMode?: ConfigurationConstant.ColorMode; 差异内容：colorMode?: ConfigurationConstant.ColorMode; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：DecorButtonStyle； API声明：buttonBackgroundSize?: number; 差异内容：buttonBackgroundSize?: number; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：DecorButtonStyle； API声明：spacingBetweenButtons?: number; 差异内容：spacingBetweenButtons?: number; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：DecorButtonStyle； API声明：closeButtonRightMargin?: number; 差异内容：closeButtonRightMargin?: number; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：window； API声明：function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>; 差异内容：function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array<Window>>; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：window； API声明：function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array&lt;Window&gt;>; 差异内容：function getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array&lt;Window&gt;>; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：MaximizePresentation； API声明：ENTER_IMMERSIVE_DISABLE_TITLE_AND_DOCK_HOVER = 3 差异内容：ENTER_IMMERSIVE_DISABLE_TITLE_AND_DOCK_HOVER = 3 | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：on(type: 'displayIdChange', callback: Callback<number>): void; 差异内容：on(type: 'displayIdChange', callback: Callback<number>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：off(type: 'displayIdChange', callback?: Callback<number>): void; 差异内容：off(type: 'displayIdChange', callback?: Callback<number>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：setWindowTopmost(isWindowTopmost: boolean): Promise<void>; 差异内容：setWindowTopmost(isWindowTopmost: boolean): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：raiseToAppTop(): Promise<void>; 差异内容：raiseToAppTop(): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：setRaiseByClickEnabled(enable: boolean): Promise<void>; 差异内容：setRaiseByClickEnabled(enable: boolean): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：setResizeByDragEnabled(enable: boolean, callback: AsyncCallback<void>): void; 差异内容：setResizeByDragEnabled(enable: boolean, callback: AsyncCallback<void>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：setResizeByDragEnabled(enable: boolean): Promise<void>; 差异内容：setResizeByDragEnabled(enable: boolean): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：restore(): Promise<void>; 差异内容：restore(): Promise<void>; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：on(type: 'displayIdChange', callback: Callback&lt;number&gt;): void; 差异内容：on(type: 'displayIdChange', callback: Callback&lt;number&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：off(type: 'displayIdChange', callback?: Callback&lt;number&gt;): void; 差异内容：off(type: 'displayIdChange', callback?: Callback&lt;number&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setWindowTopmost(isWindowTopmost: boolean): Promise&lt;void&gt;; 差异内容：setWindowTopmost(isWindowTopmost: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：raiseToAppTop(): Promise&lt;void&gt;; 差异内容：raiseToAppTop(): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setRaiseByClickEnabled(enable: boolean): Promise&lt;void&gt;; 差异内容：setRaiseByClickEnabled(enable: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setResizeByDragEnabled(enable: boolean, callback: AsyncCallback&lt;void&gt;): void; 差异内容：setResizeByDragEnabled(enable: boolean, callback: AsyncCallback&lt;void&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setResizeByDragEnabled(enable: boolean): Promise&lt;void&gt;; 差异内容：setResizeByDragEnabled(enable: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：restore(): Promise&lt;void&gt;; 差异内容：restore(): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：Window； API声明：setWindowTitleMoveEnabled(enabled: boolean): void; 差异内容：setWindowTitleMoveEnabled(enabled: boolean): void; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：Window； API声明：setDecorButtonStyle(dectorStyle: DecorButtonStyle): void; 差异内容：setDecorButtonStyle(dectorStyle: DecorButtonStyle): void; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：Window； API声明：getDecorButtonStyle(): DecorButtonStyle; 差异内容：getDecorButtonStyle(): DecorButtonStyle; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：Window； API声明：setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void; 差异内容：setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：startMoving(): Promise<void>; 差异内容：startMoving(): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：Window； API声明：setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>; 差异内容：setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise<void>; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：startMoving(): Promise&lt;void&gt;; 差异内容：startMoving(): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：Window； API声明：setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise&lt;void&gt;; 差异内容：setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：window； API声明： enum ModalityType 差异内容： enum ModalityType | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：ModalityType； API声明：WINDOW_MODALITY = 0 差异内容：WINDOW_MODALITY = 0 | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：ModalityType； API声明：APPLICATION_MODALITY = 1 差异内容：APPLICATION_MODALITY = 1 | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：SubWindowOptions； API声明：modalityType?: ModalityType; 差异内容：modalityType?: ModalityType; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：on(eventType: 'windowStageClose', callback: Callback<void>): void; 差异内容：on(eventType: 'windowStageClose', callback: Callback<void>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：off(eventType: 'windowStageClose', callback?: Callback<void>): void; 差异内容：off(eventType: 'windowStageClose', callback?: Callback<void>): void; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：removeStartingWindow(): Promise<void>; 差异内容：removeStartingWindow(): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：setWindowModal(isModal: boolean): Promise<void>; 差异内容：setWindowModal(isModal: boolean): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：setWindowRectAutoSave(enabled: boolean): Promise<void>; 差异内容：setWindowRectAutoSave(enabled: boolean): Promise<void>; | api/@ohos.window.d.ts |
-| 新增API | NA | 类名：WindowStage； API声明：isWindowRectAutoSave(): Promise<boolean>; 差异内容：isWindowRectAutoSave(): Promise<boolean>; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：on(eventType: 'windowStageClose', callback: Callback&lt;void&gt;): void; 差异内容：on(eventType: 'windowStageClose', callback: Callback&lt;void&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：off(eventType: 'windowStageClose', callback?: Callback&lt;void&gt;): void; 差异内容：off(eventType: 'windowStageClose', callback?: Callback&lt;void&gt;): void; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：removeStartingWindow(): Promise&lt;void&gt;; 差异内容：removeStartingWindow(): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：setWindowModal(isModal: boolean): Promise&lt;void&gt;; 差异内容：setWindowModal(isModal: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;; 差异内容：setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;; | api/@ohos.window.d.ts |
+| 新增API | NA | 类名：WindowStage； API声明：isWindowRectAutoSave(): Promise&lt;boolean&gt;; 差异内容：isWindowRectAutoSave(): Promise&lt;boolean&gt;; | api/@ohos.window.d.ts |
 | 新增API | NA | 类名：typeNode； API声明：function createNode(context: UIContext, nodeType: 'Marquee'): Marquee; 差异内容：function createNode(context: UIContext, nodeType: 'Marquee'): Marquee; | api/arkui/FrameNode.d.ts |
 | 新增API | NA | 类名：typeNode； API声明：function createNode(context: UIContext, nodeType: 'TextArea'): TextArea; 差异内容：function createNode(context: UIContext, nodeType: 'TextArea'): TextArea; | api/arkui/FrameNode.d.ts |
 | 新增API | NA | 类名：typeNode； API声明：function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph; 差异内容：function createNode(context: UIContext, nodeType: 'SymbolGlyph'): SymbolGlyph; | api/arkui/FrameNode.d.ts |
@@ -156,7 +156,7 @@
 | 新增API | NA | 类名：ContentClipMode； API声明：CONTENT_ONLY = 0 差异内容：CONTENT_ONLY = 0 | component/common.d.ts |
 | 新增API | NA | 类名：ContentClipMode； API声明：BOUNDARY = 1 差异内容：BOUNDARY = 1 | component/common.d.ts |
 | 新增API | NA | 类名：ContentClipMode； API声明：SAFE_AREA = 2 差异内容：SAFE_AREA = 2 | component/common.d.ts |
-| 新增API | NA | 类名：ScrollableCommonMethod； API声明：fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T; 差异内容：fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T; | component/common.d.ts |
+| 新增API | NA | 类名：ScrollableCommonMethod； API声明：fadingEdge(enabled: Optional&lt;boolean&gt;, options?: FadingEdgeOptions): T; 差异内容：fadingEdge(enabled: Optional&lt;boolean&gt;, options?: FadingEdgeOptions): T; | component/common.d.ts |
 | 新增API | NA | 类名：ScrollableCommonMethod； API声明：clipContent(clip: ContentClipMode \| RectShape): T; 差异内容：clipContent(clip: ContentClipMode \| RectShape): T; | component/common.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum HoverModeAreaType 差异内容： declare enum HoverModeAreaType | component/common.d.ts |
 | 新增API | NA | 类名：HoverModeAreaType； API声明：TOP_SCREEN = 0 差异内容：TOP_SCREEN = 0 | component/common.d.ts |
@@ -166,8 +166,8 @@
 | 新增API | NA | 类名：ListScroller； API声明：getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo; 差异内容：getVisibleListContentInfo(x: number, y: number): VisibleListContentInfo; | component/list.d.ts |
 | 新增API | NA | 类名：BarStyle； API声明：SAFE_AREA_PADDING = 2 差异内容：SAFE_AREA_PADDING = 2 | component/navigation.d.ts |
 | 新增API | NA | 类名：NavigationToolbarOptions； API声明：barStyle?: BarStyle; 差异内容：barStyle?: BarStyle; | component/navigation.d.ts |
-| 新增API | NA | 类名：NavigationAttribute； API声明：recoverable(recoverable: Optional<boolean>): NavigationAttribute; 差异内容：recoverable(recoverable: Optional<boolean>): NavigationAttribute; | component/navigation.d.ts |
-| 新增API | NA | 类名：NavigationAttribute； API声明：enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute; 差异内容：enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute; | component/navigation.d.ts |
+| 新增API | NA | 类名：NavigationAttribute； API声明：recoverable(recoverable: Optional&lt;boolean&gt;): NavigationAttribute; 差异内容：recoverable(recoverable: Optional&lt;boolean&gt;): NavigationAttribute; | component/navigation.d.ts |
+| 新增API | NA | 类名：NavigationAttribute； API声明：enableDragBar(isEnabled: Optional&lt;boolean&gt;): NavigationAttribute; 差异内容：enableDragBar(isEnabled: Optional&lt;boolean&gt;): NavigationAttribute; | component/navigation.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum NavigationSystemTransitionType 差异内容： declare enum NavigationSystemTransitionType | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavigationSystemTransitionType； API声明：DEFAULT = 0 差异内容：DEFAULT = 0 | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavigationSystemTransitionType； API声明：NONE = 1 差异内容：NONE = 1 | component/nav_destination.d.ts |
@@ -177,9 +177,9 @@
 | 新增API | NA | 类名：NestedScrollInfo； API声明：parent: Scroller; 差异内容：parent: Scroller; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NestedScrollInfo； API声明：child: Scroller; 差异内容：child: Scroller; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：NavDestinationAttribute； API声明：systemTransition(type: NavigationSystemTransitionType): NavDestinationAttribute; 差异内容：systemTransition(type: NavigationSystemTransitionType): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationAttribute； API声明：recoverable(recoverable: Optional<boolean>): NavDestinationAttribute; 差异内容：recoverable(recoverable: Optional<boolean>): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationAttribute； API声明：bindToScrollable(scrollers: Array<Scroller>): NavDestinationAttribute; 差异内容：bindToScrollable(scrollers: Array<Scroller>): NavDestinationAttribute; | component/nav_destination.d.ts |
-| 新增API | NA | 类名：NavDestinationAttribute； API声明：bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo>): NavDestinationAttribute; 差异内容：bindToNestedScrollable(scrollInfos: Array<NestedScrollInfo>): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationAttribute； API声明：recoverable(recoverable: Optional&lt;boolean&gt;): NavDestinationAttribute; 差异内容：recoverable(recoverable: Optional&lt;boolean&gt;): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationAttribute； API声明：bindToScrollable(scrollers: Array&lt;Scroller&gt;): NavDestinationAttribute; 差异内容：bindToScrollable(scrollers: Array&lt;Scroller&gt;): NavDestinationAttribute; | component/nav_destination.d.ts |
+| 新增API | NA | 类名：NavDestinationAttribute； API声明：bindToNestedScrollable(scrollInfos: Array&lt;NestedScrollInfo&gt;): NavDestinationAttribute; 差异内容：bindToNestedScrollable(scrollInfos: Array&lt;NestedScrollInfo&gt;): NavDestinationAttribute; | component/nav_destination.d.ts |
 | 新增API | NA | 类名：RichEditorImageSpanOptions； API声明：onHover?: OnHoverCallback; 差异内容：onHover?: OnHoverCallback; | component/rich_editor.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void; 差异内容：declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void; | component/rich_editor.d.ts |
 | 新增API | NA | 类名：Scroller； API声明：getItemIndex(x: number, y: number): number; 差异内容：getItemIndex(x: number, y: number): number; | component/scroll.d.ts |
@@ -220,11 +220,11 @@
 | 新增API | NA | 类名：ChipOptions； API声明：accessibilityLevel?: string; 差异内容：accessibilityLevel?: string; | api/@ohos.arkui.advanced.Chip.d.ets |
 | 新增API | NA | 类名：ChipOptions； API声明：accessibilitySelectedType?: AccessibilitySelectedType; 差异内容：accessibilitySelectedType?: AccessibilitySelectedType; | api/@ohos.arkui.advanced.Chip.d.ets |
 | 新增API | NA | 类名：global； API声明： export declare struct PopoverDialog 差异内容： export declare struct PopoverDialog | api/@ohos.arkui.advanced.Dialog.d.ets |
-| 新增API | NA | 类名：PopoverDialog； API声明：@Link  visible: boolean; 差异内容：@Link  visible: boolean; | api/@ohos.arkui.advanced.Dialog.d.ets |
-| 新增API | NA | 类名：PopoverDialog； API声明：@Require  @Prop  popover: PopoverOptions; 差异内容：@Require  @Prop  popover: PopoverOptions; | api/@ohos.arkui.advanced.Dialog.d.ets |
-| 新增API | NA | 类名：PopoverDialog； API声明：@Require  @BuilderParam  targetBuilder: Callback<void>; 差异内容：@Require  @BuilderParam  targetBuilder: Callback<void>; | api/@ohos.arkui.advanced.Dialog.d.ets |
+| 新增API | NA | 类名：PopoverDialog； API声明：@Link visible: boolean; 差异内容：@Link visible: boolean; | api/@ohos.arkui.advanced.Dialog.d.ets |
+| 新增API | NA | 类名：PopoverDialog； API声明：@Require @Prop popover: PopoverOptions; 差异内容：@Require @Prop popover: PopoverOptions; | api/@ohos.arkui.advanced.Dialog.d.ets |
+| 新增API | NA | 类名：PopoverDialog； API声明：@Require @BuilderParam targetBuilder: Callback&lt;void&gt;; 差异内容：@Require @BuilderParam targetBuilder: Callback&lt;void&gt;; | api/@ohos.arkui.advanced.Dialog.d.ets |
 | 新增API | NA | 类名：global； API声明： export declare interface PopoverOptions 差异内容： export declare interface PopoverOptions | api/@ohos.arkui.advanced.Dialog.d.ets |
-| 新增API | NA | 类名：SegmentButton； API声明：@Prop  maxFontScale: number \| Resource; 差异内容：@Prop  maxFontScale: number \| Resource; | api/@ohos.arkui.advanced.SegmentButton.d.ets |
+| 新增API | NA | 类名：SegmentButton； API声明：@Prop maxFontScale: number \| Resource; 差异内容：@Prop maxFontScale: number \| Resource; | api/@ohos.arkui.advanced.SegmentButton.d.ets |
 | 新增API | NA | 类名：global； API声明： export class MarqueeDynamicSyncScene 差异内容： export class MarqueeDynamicSyncScene | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：MarqueeDynamicSyncScene； API声明：readonly type: MarqueeDynamicSyncSceneType; 差异内容：readonly type: MarqueeDynamicSyncSceneType; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：FocusController； API声明：setAutoFocusTransfer(isAutoFocusTransfer: boolean): void; 差异内容：setAutoFocusTransfer(isAutoFocusTransfer: boolean): void; | api/@ohos.arkui.UIContext.d.ts |
@@ -234,8 +234,8 @@
 | 新增API | NA | 类名：KeyboardAvoidMode； API声明：NONE = 4 差异内容：NONE = 4 | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：global； API声明： export const enum MarqueeDynamicSyncSceneType 差异内容： export const enum MarqueeDynamicSyncSceneType | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：MarqueeDynamicSyncSceneType； API声明：ANIMATION = 1 差异内容：ANIMATION = 1 | api/@ohos.arkui.UIContext.d.ts |
-| 新增API | NA | 类名：WindowProxy； API声明：on(type: 'rectChange', reasons: number, callback: Callback<RectChangeOptions>): void; 差异内容：on(type: 'rectChange', reasons: number, callback: Callback<RectChangeOptions>): void; | api/@ohos.arkui.uiExtension.d.ts |
-| 新增API | NA | 类名：WindowProxy； API声明：off(type: 'rectChange', callback?: Callback<RectChangeOptions>): void; 差异内容：off(type: 'rectChange', callback?: Callback<RectChangeOptions>): void; | api/@ohos.arkui.uiExtension.d.ts |
+| 新增API | NA | 类名：WindowProxy； API声明：on(type: 'rectChange', reasons: number, callback: Callback&lt;RectChangeOptions&gt;): void; 差异内容：on(type: 'rectChange', reasons: number, callback: Callback&lt;RectChangeOptions&gt;): void; | api/@ohos.arkui.uiExtension.d.ts |
+| 新增API | NA | 类名：WindowProxy； API声明：off(type: 'rectChange', callback?: Callback&lt;RectChangeOptions&gt;): void; 差异内容：off(type: 'rectChange', callback?: Callback&lt;RectChangeOptions&gt;): void; | api/@ohos.arkui.uiExtension.d.ts |
 | 新增API | NA | 类名：WindowProxy； API声明：properties: WindowProxyProperties; 差异内容：properties: WindowProxyProperties; | api/@ohos.arkui.uiExtension.d.ts |
 | 新增API | NA | 类名：uiExtension； API声明： interface WindowProxyProperties 差异内容： interface WindowProxyProperties | api/@ohos.arkui.uiExtension.d.ts |
 | 新增API | NA | 类名：WindowProxyProperties； API声明：uiExtensionHostWindowProxyRect: window.Rect; 差异内容：uiExtensionHostWindowProxyRect: window.Rect; | api/@ohos.arkui.uiExtension.d.ts |
@@ -271,8 +271,8 @@
 | 新增API | NA | 类名：DatePickerDialogOptions； API声明：lunarSwitchStyle?: LunarSwitchStyle; 差异内容：lunarSwitchStyle?: LunarSwitchStyle; | component/date_picker.d.ts |
 | 新增API | NA | 类名：DatePickerDialogOptions； API声明：enableHoverMode?: boolean; 差异内容：enableHoverMode?: boolean; | component/date_picker.d.ts |
 | 新增API | NA | 类名：DatePickerDialogOptions； API声明：hoverModeArea?: HoverModeAreaType; 差异内容：hoverModeArea?: HoverModeAreaType; | component/date_picker.d.ts |
-| 新增API | NA | 类名：GestureInterface； API声明：allowedTypes(types: Array<SourceTool>): T; 差异内容：allowedTypes(types: Array<SourceTool>): T; | component/gesture.d.ts |
-| 新增API | NA | 类名：GestureHandler； API声明：allowedTypes(types: Array<SourceTool>): T; 差异内容：allowedTypes(types: Array<SourceTool>): T; | component/gesture.d.ts |
+| 新增API | NA | 类名：GestureInterface； API声明：allowedTypes(types: Array&lt;SourceTool&gt;): T; 差异内容：allowedTypes(types: Array&lt;SourceTool&gt;): T; | component/gesture.d.ts |
+| 新增API | NA | 类名：GestureHandler； API声明：allowedTypes(types: Array&lt;SourceTool&gt;): T; 差异内容：allowedTypes(types: Array&lt;SourceTool&gt;): T; | component/gesture.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum ImageRotateOrientation 差异内容： declare enum ImageRotateOrientation | component/image.d.ts |
 | 新增API | NA | 类名：ImageRotateOrientation； API声明：AUTO = 0 差异内容：AUTO = 0 | component/image.d.ts |
 | 新增API | NA | 类名：ImageRotateOrientation； API声明：UP = 1 差异内容：UP = 1 | component/image.d.ts |
@@ -281,16 +281,16 @@
 | 新增API | NA | 类名：ImageRotateOrientation； API声明：LEFT = 4 差异内容：LEFT = 4 | component/image.d.ts |
 | 新增API | NA | 类名：ImageAttribute； API声明：orientation(orientation: ImageRotateOrientation): ImageAttribute; 差异内容：orientation(orientation: ImageRotateOrientation): ImageAttribute; | component/image.d.ts |
 | 新增API | NA | 类名：ImageSpanAttribute； API声明：colorFilter(filter: ColorFilter \| DrawingColorFilter): ImageSpanAttribute; 差异内容：colorFilter(filter: ColorFilter \| DrawingColorFilter): ImageSpanAttribute; | component/image_span.d.ts |
-| 新增API | NA | 类名：ScrollBarAttribute； API声明：enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute; 差异内容：enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute; | component/scroll_bar.d.ts |
+| 新增API | NA | 类名：ScrollBarAttribute； API声明：enableNestedScroll(enabled: Optional&lt;boolean&gt;): ScrollBarAttribute; 差异内容：enableNestedScroll(enabled: Optional&lt;boolean&gt;): ScrollBarAttribute; | component/scroll_bar.d.ts |
 | 新增API | NA | 类名：TextAttribute； API声明：caretColor(color: ResourceColor): TextAttribute; 差异内容：caretColor(color: ResourceColor): TextAttribute; | component/text.d.ts |
 | 新增API | NA | 类名：TextAttribute； API声明：selectedBackgroundColor(color: ResourceColor): TextAttribute; 差异内容：selectedBackgroundColor(color: ResourceColor): TextAttribute; | component/text.d.ts |
-| 新增API | NA | 类名：LayoutManager； API声明：getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>; 差异内容：getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>; | component/text_common.d.ts |
+| 新增API | NA | 类名：LayoutManager； API声明：getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array&lt;TextBox&gt;; 差异内容：getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array&lt;TextBox&gt;; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle; 差异内容：declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle; 差异内容：declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox; 差异内容：declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox; | component/text_common.d.ts |
 | 新增API | NA | 类名：global； API声明：declare type TextPickerScrollStopCallback = (value: string \| string[], index: number \| number[]) => void; 差异内容：declare type TextPickerScrollStopCallback = (value: string \| string[], index: number \| number[]) => void; | component/text_picker.d.ts |
 | 新增API | NA | 类名：TextPickerAttribute； API声明：onScrollStop(callback: TextPickerScrollStopCallback): TextPickerAttribute; 差异内容：onScrollStop(callback: TextPickerScrollStopCallback): TextPickerAttribute; | component/text_picker.d.ts |
-| 新增API | NA | 类名：TextPickerDialogOptions； API声明：onScrollStop?: Callback<TextPickerResult>; 差异内容：onScrollStop?: Callback<TextPickerResult>; | component/text_picker.d.ts |
+| 新增API | NA | 类名：TextPickerDialogOptions； API声明：onScrollStop?: Callback&lt;TextPickerResult&gt;; 差异内容：onScrollStop?: Callback&lt;TextPickerResult&gt;; | component/text_picker.d.ts |
 | 新增API | NA | 类名：TextPickerDialogOptions； API声明：enableHoverMode?: boolean; 差异内容：enableHoverMode?: boolean; | component/text_picker.d.ts |
 | 新增API | NA | 类名：TextPickerDialogOptions； API声明：hoverModeArea?: HoverModeAreaType; 差异内容：hoverModeArea?: HoverModeAreaType; | component/text_picker.d.ts |
 | 新增API | NA | 类名：TimePickerDialogOptions； API声明：enableHoverMode?: boolean; 差异内容：enableHoverMode?: boolean; | component/time_picker.d.ts |

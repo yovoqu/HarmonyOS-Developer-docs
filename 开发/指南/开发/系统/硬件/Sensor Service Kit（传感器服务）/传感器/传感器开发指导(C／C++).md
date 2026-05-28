@@ -1,23 +1,26 @@
 # 传感器开发指导(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines-capi
 
-## 场景介绍
+##### 场景介绍
 
-当设备需要获取传感器数据时，可以使用sensor模块，例如：通过订阅方向传感器数据感知用户设备当前的朝向，通过订阅计步传感器数据统计用户的步数等。 详细的接口介绍请参考[Sensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sensor)。
+当设备需要获取传感器数据时，可以使用sensor模块，例如：通过订阅方向传感器数据感知用户设备当前的朝向，通过订阅计步传感器数据统计用户的步数等。
 
-## 函数说明
+详细的接口介绍请参考[Sensor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sensor)。
 
+
+
+##### 函数说明
 
 | 名称 | 描述 |
 | --- | --- |
 | OH_Sensor_GetInfos(Sensor_Info **infos, uint32_t *count) | 获取设备上所有传感器的信息。 |
-| OH_Sensor_Subscribe(const Sensor_SubscriptionId *id, const Sensor_SubscriptionAttribute *attribute, const Sensor_Subscriber *subscriber) | 订阅传感器数据。系统将以指定的频率向用户上报传感器数据。          订阅加速度传感器，需要申请ohos.permission.ACCELEROMETER权限；          订阅陀螺仪传感器，需要申请ohos.permission.GYROSCOPE权限；          订阅计步器相关传感器时，需要申请ohos.permission.ACTIVITY_MOTION权限；          订阅与健康相关的传感器时，比如心率传感器需要申请ohos.permission.READ_HEALTH_DATA权限，否则订阅失败;          订阅其余传感器不需要申请权限。 |
-| OH_Sensor_Unsubscribe(const Sensor_SubscriptionId *id, const Sensor_Subscriber *subscriber) | 取消订阅传感器数据。          取消订阅加速度传感器，需要申请ohos.permission.ACCELEROMETER权限；          取消订阅陀螺仪传感器，需要申请ohos.permission.GYROSCOPE权限；          取消订阅计步器相关传感器时，需要申请ohos.permission.ACTIVITY_MOTION权限；          取消订阅与健康相关的传感器时，需要申请ohos.permission.READ_HEALTH_DATA权限，否则取消订阅失败。          取消订阅其余传感器不需要申请权限。 |
-| OH_Sensor_CreateInfos(uint32_t count) | 用给定的数字创建一个实例数组，请参考[Sensor_Info](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sensor-sensor-info)。 |
-| OH_Sensor_DestroyInfos(Sensor_Info **sensors, uint32_t count) | 销毁实例数组并回收内存，请参考[Sensor_Info](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-sensor-sensor-info)。 |
+| OH_Sensor_Subscribe(const Sensor_SubscriptionId *id, const Sensor_SubscriptionAttribute *attribute, const Sensor_Subscriber *subscriber) | 订阅传感器数据。系统将以指定的频率向用户上报传感器数据。 订阅加速度传感器，需要申请ohos.permission.ACCELEROMETER权限； 订阅陀螺仪传感器，需要申请ohos.permission.GYROSCOPE权限； 订阅计步器相关传感器时，需要申请ohos.permission.ACTIVITY_MOTION权限； 订阅与健康相关的传感器时，比如心率传感器需要申请ohos.permission.READ_HEALTH_DATA权限，否则订阅失败; 订阅其余传感器不需要申请权限。 |
+| OH_Sensor_Unsubscribe(const Sensor_SubscriptionId *id, const Sensor_Subscriber *subscriber) | 取消订阅传感器数据。 取消订阅加速度传感器，需要申请ohos.permission.ACCELEROMETER权限； 取消订阅陀螺仪传感器，需要申请ohos.permission.GYROSCOPE权限； 取消订阅计步器相关传感器时，需要申请ohos.permission.ACTIVITY_MOTION权限； 取消订阅与健康相关的传感器时，需要申请ohos.permission.READ_HEALTH_DATA权限，否则取消订阅失败。 取消订阅其余传感器不需要申请权限。 |
+| OH_Sensor_CreateInfos(uint32_t count) | 用给定的数字创建一个实例数组，请参考Sensor_Info。 |
+| OH_Sensor_DestroyInfos(Sensor_Info **sensors, uint32_t count) | 销毁实例数组并回收内存，请参考Sensor_Info。 |
 | OH_SensorInfo_GetName(Sensor_Info *sensor, char *sensorName, uint32_t *length) | 获取传感器名称。 |
 | OH_SensorInfo_GetVendorName(Sensor_Info* sensor, char *vendorName, uint32_t *length) | 获取传感器的厂商名称。 |
 | OH_SensorInfo_GetType(Sensor_Info* sensor, Sensor_Type *sensorType) | 获取传感器类型。 |
@@ -27,7 +30,7 @@
 | OH_SensorEvent_GetType(Sensor_Event* sensorEvent, Sensor_Type *sensorType) | 获取传感器类型。 |
 | OH_SensorEvent_GetTimestamp(Sensor_Event* sensorEvent, int64_t *timestamp) | 获取传感器数据的时间戳。 |
 | OH_SensorEvent_GetAccuracy(Sensor_Event* sensorEvent, Sensor_Accuracy *accuracy) | 获取传感器数据的精度。 |
-| OH_SensorEvent_GetData(Sensor_Event* sensorEvent, float **data, uint32_t *length) | 获取传感器数据。          数据的长度和内容依赖于监听的传感器类型，传感器上报的数据格式如下：          1.SENSOR_TYPE_ACCELEROMETER:data[0]、data[1]、data[2]分别表示设备x、y、z轴的加速度分量，单位m/s²；          2.SENSOR_TYPE_GYROSCOPE:data[0]、data[1]、data[2]分别表示设备x、y、z轴的旋转角速度，单位弧度/s；          3.SENSOR_TYPE_AMBIENT_LIGHT:data[0]表示环境光强度，单位lux；从API Version 12开始，将返回两个额外的数据，其中data[1]表示色温，单位kelvin；data[2]表示红外亮度，单位cd/m²；          4.SENSOR_TYPE_MAGNETIC_FIELD:data[0]、data[1]、data[2]分别表示设备x、y、z轴的地磁分量，单位微特斯拉；          5.SENSOR_TYPE_BAROMETER:data[0]表示气压值，单位hPa；          6.SENSOR_TYPE_HALL:data[0]表示皮套吸合状态，0表示打开，大于0表示吸附；          7.SENSOR_TYPE_PROXIMITY:data[0]表示接近状态，0表示接近，大于0表示远离；          8.SENSOR_TYPE_ORIENTATION:data[0]、data[1]、data[2]分别表示设备绕z、x、y轴的角度，单位度；          9.SENSOR_TYPE_GRAVITY:data[0]、data[1]、data[2]分别表示设备x、y、z轴的重力加速度分量，单位m/s²；          10.SENSOR_TYPE_ROTATION_VECTOR:data[0]、data[1]、data[2]分别表示设备x、y、z轴的旋转角度，单位度，data[3]表示旋转向量元素；          11.SENSOR_TYPE_PEDOMETER_DETECTION:data[0]表示计步检测状态，1表示检测到了步数变化；          12.SENSOR_TYPE_PEDOMETER:data[0]表示步数；          13.SENSOR_TYPE_HEART_RATE:data[0]表示心率数值。 |
+| OH_SensorEvent_GetData(Sensor_Event* sensorEvent, float **data, uint32_t *length) | 获取传感器数据。 数据的长度和内容依赖于监听的传感器类型，传感器上报的数据格式如下： 1.SENSOR_TYPE_ACCELEROMETER:data[0]、data[1]、data[2]分别表示设备x、y、z轴的加速度分量，单位m/s²； 2.SENSOR_TYPE_GYROSCOPE:data[0]、data[1]、data[2]分别表示设备x、y、z轴的旋转角速度，单位弧度/s； 3.SENSOR_TYPE_AMBIENT_LIGHT:data[0]表示环境光强度，单位lux；从API Version 12开始，将返回两个额外的数据，其中data[1]表示色温，单位kelvin；data[2]表示红外亮度，单位cd/m²； 4.SENSOR_TYPE_MAGNETIC_FIELD:data[0]、data[1]、data[2]分别表示设备x、y、z轴的地磁分量，单位微特斯拉； 5.SENSOR_TYPE_BAROMETER:data[0]表示气压值，单位hPa； 6.SENSOR_TYPE_HALL:data[0]表示皮套吸合状态，0表示打开，大于0表示吸附； 7.SENSOR_TYPE_PROXIMITY:data[0]表示接近状态，0表示接近，大于0表示远离； 8.SENSOR_TYPE_ORIENTATION:data[0]、data[1]、data[2]分别表示设备绕z、x、y轴的角度，单位度； 9.SENSOR_TYPE_GRAVITY:data[0]、data[1]、data[2]分别表示设备x、y、z轴的重力加速度分量，单位m/s²； 10.SENSOR_TYPE_ROTATION_VECTOR:data[0]、data[1]、data[2]分别表示设备x、y、z轴的旋转角度，单位度，data[3]表示旋转向量元素； 11.SENSOR_TYPE_PEDOMETER_DETECTION:data[0]表示计步检测状态，1表示检测到了步数变化； 12.SENSOR_TYPE_PEDOMETER:data[0]表示步数； 13.SENSOR_TYPE_HEART_RATE:data[0]表示心率数值。 |
 | OH_Sensor_CreateSubscriptionId(void) | 创建一个Sensor_SubscriptionId 实例。 |
 | OH_Sensor_DestroySubscriptionId(Sensor_SubscriptionId *id) | 销毁Sensor_SubscriptionId 实例并回收内存。 |
 | OH_SensorSubscriptionId_SetType(Sensor_SubscriptionId* id, const Sensor_Type sensorType) | 设置传感器类型。 |
@@ -39,12 +42,20 @@
 | OH_SensorSubscriber_SetCallback(Sensor_Subscriber* subscriber, const Sensor_EventCallback callback) | 设置一个回调函数来上报传感器数据。 |
 
 
-## 开发步骤
 
-开发步骤以加速度传感器为例。 新建一个Native C++工程。
-![](assets/传感器开发指导(C／C++)
-/file-20260514131345925-0.png) 配置加速度传感器权限，具体配置方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
-```text
+
+##### 开发步骤
+
+开发步骤以加速度传感器为例。
+1. 新建一个Native C++工程。
+
+  
+![](assets/传感器开发指导(C／C++)/file-20260514131345925-0.png)
+
+2. 配置加速度传感器权限，具体配置方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+
+  
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.ACCELEROMETER"
@@ -52,23 +63,29 @@
 ]
 ```
 
-CMakeLists.txt文件中引入动态依赖库。
+3. CMakeLists.txt文件中引入动态依赖库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libace_napi.z.so)
 target_link_libraries(entry PUBLIC libhilog_ndk.z.so)
 target_link_libraries(entry PUBLIC libohsensor.so)
 ```
 
-在oh_sensor_capi.cpp文件中编码，首先导入模块。
-```text
+4. 在oh_sensor_capi.cpp文件中编码，首先导入模块。
+
+  
+```cpp
 #include "sensors/oh_sensor.h"
 #include "napi/native_api.h"
 #include "hilog/log.h"
-#include
+#include <thread>
 ```
 
-定义常量。
-```text
+5. 定义常量。
+
+  
+```cpp
 const int SENSOR_LOG_DOMAIN = 0xD002700;
 const char *TAG = "[Sensor]";
 constexpr Sensor_Type SENSOR_ID { SENSOR_TYPE_ACCELEROMETER };
@@ -80,8 +97,10 @@ constexpr float INVALID_RESOLUTION = -1.0F;
 Sensor_Subscriber *g_user = nullptr;
 ```
 
-定义一个回调函数用来接收传感器数据。
-```text
+6. 定义一个回调函数用来接收传感器数据。
+
+  
+```cpp
 // 定义回调函数
 void SensorDataCallbackImpl(Sensor_Event *event)
 {
@@ -124,79 +143,108 @@ void SensorDataCallbackImpl(Sensor_Event *event)
     }
     OH_LOG_Print(LOG_APP, LOG_INFO, SENSOR_LOG_DOMAIN, TAG,
         "sensorType:%{public}d, dataLen:%{public}d, accuracy:%{public}d", sensorType, length, accuracy);
-    for (uint32_t i = 0; i              获取设备上所有传感器的信息。
-```text
+    for (uint32_t i = 0; i < length; ++i) {
+        OH_LOG_Print(LOG_APP, LOG_INFO, SENSOR_LOG_DOMAIN, TAG, "data[%{public}d]:%{public}f", i, data[i]);
+    }
+}
+```
+
+7. 获取设备上所有传感器的信息。
+
+  
+```cpp
 static int32_t GetSensorInfo(Sensor_Info *sensorInfoTemp)
 {
-char sensorName[SENSOR_NAME_LENGTH_MAX] = {};
-uint32_t length = SENSOR_NAME_LENGTH_MAX;
-// 获取传感器名称。
-int32_t ret = OH_SensorInfo_GetName(sensorInfoTemp, sensorName, &length);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor name failed");
-return ret;
-}
-char vendorName[SENSOR_NAME_LENGTH_MAX] = {};
-length = SENSOR_NAME_LENGTH_MAX;
-// 获取传感器的厂商名称。
-ret = OH_SensorInfo_GetVendorName(sensorInfoTemp, vendorName, &length);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor vendor name failed");
-return ret;
-}
-Sensor_Type sensorType;
-// 获取传感器类型。
-ret = OH_SensorInfo_GetType(sensorInfoTemp, &sensorType);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor type failed");
-return ret;
-}
-float resolution = INVALID_RESOLUTION;
-// 获取传感器分辨率。
-ret = OH_SensorInfo_GetResolution(sensorInfoTemp, &resolution);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor resolution failed");
-return ret;
-}
-int64_t minSamplePeriod = INVALID_VALUE;
-// 获取传感器的最小数据上报间隔。
-ret = OH_SensorInfo_GetMinSamplingInterval(sensorInfoTemp, &minSamplePeriod);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor min sampling interval failed");
-return ret;
-}
-int64_t maxSamplePeriod = INVALID_VALUE;
-// 获取传感器的最大数据上报间隔时间。
-ret = OH_SensorInfo_GetMaxSamplingInterval(sensorInfoTemp, &maxSamplePeriod);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor max sampling interval failed");
-}
-return ret;
+    char sensorName[SENSOR_NAME_LENGTH_MAX] = {};
+    uint32_t length = SENSOR_NAME_LENGTH_MAX;
+    // 获取传感器名称。
+    int32_t ret = OH_SensorInfo_GetName(sensorInfoTemp, sensorName, &length);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor name failed");
+        return ret;
+    }
+    char vendorName[SENSOR_NAME_LENGTH_MAX] = {};
+    length = SENSOR_NAME_LENGTH_MAX;
+    // 获取传感器的厂商名称。
+    ret = OH_SensorInfo_GetVendorName(sensorInfoTemp, vendorName, &length);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor vendor name failed");
+        return ret;
+    }
+    Sensor_Type sensorType;
+    // 获取传感器类型。
+    ret = OH_SensorInfo_GetType(sensorInfoTemp, &sensorType);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor type failed");
+        return ret;
+    }
+    float resolution = INVALID_RESOLUTION;
+    // 获取传感器分辨率。
+    ret = OH_SensorInfo_GetResolution(sensorInfoTemp, &resolution);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor resolution failed");
+        return ret;
+    }
+    int64_t minSamplePeriod = INVALID_VALUE;
+    // 获取传感器的最小数据上报间隔。
+    ret = OH_SensorInfo_GetMinSamplingInterval(sensorInfoTemp, &minSamplePeriod);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor min sampling interval failed");
+        return ret;
+    }
+    int64_t maxSamplePeriod = INVALID_VALUE;
+    // 获取传感器的最大数据上报间隔时间。
+    ret = OH_SensorInfo_GetMaxSamplingInterval(sensorInfoTemp, &maxSamplePeriod);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor max sampling interval failed");
+    }
+    return ret;
 }
 
 static napi_value GetSensorInfos(napi_env env, napi_callback_info info)
 {
-uint32_t count = 0;
-// 获取设备上所有传感器的个数。
-int32_t ret = OH_Sensor_GetInfos(nullptr, &count);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor count failed");
-return nullptr;
+    uint32_t count = 0;
+    // 获取设备上所有传感器的个数。
+    int32_t ret = OH_Sensor_GetInfos(nullptr, &count);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor count failed");
+        return nullptr;
+    }
+    // 用给定的数字创建一个实例数组。
+    Sensor_Info **sensors = OH_Sensor_CreateInfos(count);
+    if (sensors == nullptr) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "create sensorInfo array failed");
+        return nullptr;
+    }
+    // 获取设备上所有传感器的信息。
+    ret = OH_Sensor_GetInfos(sensors, &count);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get all sensor info failed");
+        return nullptr;
+    }
+    for (uint32_t i = 0; i < count; ++i) {
+        Sensor_Info *sensorInfoTemp = sensors[i];
+        ret = GetSensorInfo(sensorInfoTemp);
+        if (ret != SENSOR_SUCCESS) {
+            OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get sensor info failed");
+            return nullptr;
+        }
+    }
+    OH_LOG_Print(LOG_APP, LOG_INFO, SENSOR_LOG_DOMAIN, TAG, "GetSensorInfos successful");
+    // 销毁实例数组并回收内存。
+    ret = OH_Sensor_DestroyInfos(sensors, count);
+    if (ret != SENSOR_SUCCESS) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "destroy sensor info failed");
+        return nullptr;
+    }
+    return nullptr;
 }
-// 用给定的数字创建一个实例数组。
-Sensor_Info **sensors = OH_Sensor_CreateInfos(count);
-if (sensors == nullptr) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "create sensorInfo array failed");
-return nullptr;
-}
-// 获取设备上所有传感器的信息。
-ret = OH_Sensor_GetInfos(sensors, &count);
-if (ret != SENSOR_SUCCESS) {
-OH_LOG_Print(LOG_APP, LOG_ERROR, SENSOR_LOG_DOMAIN, TAG, "get all sensor info failed");
-return nullptr;
-}
-for (uint32_t i = 0; i 订阅和取消订阅传感器数据。
-```text
+```
+
+8. 订阅和取消订阅传感器数据。
+
+  
+```cpp
 static napi_value Subscriber(napi_env env, napi_callback_info info)
 {
     // 创建Sensor_Subscriber实例。
@@ -257,8 +305,10 @@ static napi_value Subscriber(napi_env env, napi_callback_info info)
 }
 ```
 
-在Init函数中补充接口。
-```text
+9. 在Init函数中补充接口。
+
+  
+```cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
@@ -272,14 +322,18 @@ static napi_value Init(napi_env env, napi_value exports)
 EXTERN_C_END
 ```
 
-在types/libentry路径下index.d.ts文件中引入Napi接口。
-```text
+10. 在types/libentry路径下index.d.ts文件中引入Napi接口。
+
+  
+```ts
 export const getSensorInfos: () => object;
 export const subscriber: () => object;
 ```
 
-编写程序入口调用代码。
-```text
+11. 编写程序入口调用代码。
+
+  
+```ArkTS
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import sensorCapi from 'libentry.so';

@@ -3,11 +3,9 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 访问Pixelmap的API。
 
@@ -22,123 +20,122 @@
 **相关模块：** [Image_NativeModule](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-
-| 名称 | typedef关键字 | 描述 |
-| --- | --- | --- |
-| [OH_Pixelmap_HdrStaticMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-image-nativemodule-oh-pixelmap-hdrstaticmetadata) | OH_Pixelmap_HdrStaticMetadata | HDR_STATIC_METADATA关键字对应的静态元数据值。 |
-| [OH_Pixelmap_HdrDynamicMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-image-nativemodule-oh-pixelmap-hdrdynamicmetadata) | OH_Pixelmap_HdrDynamicMetadata | HDR_DYNAMIC_METADATA关键字对应的动态元数据值。 |
-| [OH_Pixelmap_HdrGainmapMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-image-nativemodule-oh-pixelmap-hdrgainmapmetadata) | OH_Pixelmap_HdrGainmapMetadata | HDR_GAINMAP_METADATA关键字对应的gainmap相关元数据值，参考ISO 21496-1。 |
-| [OH_Pixelmap_HdrMetadataValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-image-nativemodule-oh-pixelmap-hdrmetadatavalue) | OH_Pixelmap_HdrMetadataValue | Pixelmap使用的HDR元数据值，和OH_Pixelmap_HdrMetadataKey关键字相对应。用于[OH_PixelmapNative_SetMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_setmetadata)及[OH_PixelmapNative_GetMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_getmetadata)，有相应[OH_Pixelmap_HdrMetadataKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmap_hdrmetadatakey)关键字作为入参时，设置或获取到本结构体中相对应的元数据类型的值。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) | - | OH_PixelmapNative结构体是native层封装的图像解码后无压缩的位图格式结构体。          函数创建OH_PixelmapNative使用[OH_PixelmapNative_CreatePixelmap](#oh_pixelmapnative_createpixelmap)函数，默认采用BGRA_8888格式处理数据。          释放OH_PixelmapNative对象使用[OH_PixelmapNative_Release](#oh_pixelmapnative_release)函数。 |
-| [OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ge-nativemodule-image-nativemodule-oh-nativebuffer) | - | NativeBuffer结构体类型，用于执行NativeBuffer相关操作。 |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-nativecolorspacemanager) | OH_NativeColorSpaceManager | NativeColorSpaceManager结构体类型，用于执行NativeColorSpaceManager相关操作。 |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) | - | OH_Pixelmap_InitializationOptions是native层封装的初始化参数结构体，用于设置Pixelmap的初始化参数。          创建OH_Pixelmap_InitializationOptions对象使用[OH_PixelmapInitializationOptions_Create](#oh_pixelmapinitializationoptions_create)函数。          释放OH_Pixelmap_InitializationOptions对象使用[OH_PixelmapInitializationOptions_Release](#oh_pixelmapinitializationoptions_release)函数。 |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) | - | 图像像素信息结构体。 |
-
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [PIXELMAP_ALPHA_TYPE](#pixelmap_alpha_type) | PIXELMAP_ALPHA_TYPE | Pixelmap透明度类型。 |
-| [PIXEL_FORMAT](#pixel_format) | PIXEL_FORMAT | 图片像素格式。 |
-| [OH_PixelmapNative_AntiAliasingLevel](#oh_pixelmapnative_antialiasinglevel) | OH_PixelmapNative_AntiAliasingLevel | Pixelmap缩放时采用的缩放算法。 |
-| [OH_Pixelmap_HdrMetadataKey](#oh_pixelmap_hdrmetadatakey) | OH_Pixelmap_HdrMetadataKey | Pixelmap使用的HDR相关元数据信息的关键字，用于[OH_PixelmapNative_SetMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_setmetadata)及[OH_PixelmapNative_GetMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_getmetadata)。 |
-| [OH_Pixelmap_HdrMetadataType](#oh_pixelmap_hdrmetadatatype) | OH_Pixelmap_HdrMetadataType | HDR_METADATA_TYPE关键字对应的值。 |
+| OH_Pixelmap_HdrStaticMetadata | OH_Pixelmap_HdrStaticMetadata | HDR_STATIC_METADATA关键字对应的静态元数据值。 |
+| OH_Pixelmap_HdrDynamicMetadata | OH_Pixelmap_HdrDynamicMetadata | HDR_DYNAMIC_METADATA关键字对应的动态元数据值。 |
+| OH_Pixelmap_HdrGainmapMetadata | OH_Pixelmap_HdrGainmapMetadata | HDR_GAINMAP_METADATA关键字对应的gainmap相关元数据值，参考ISO 21496-1。 |
+| OH_Pixelmap_HdrMetadataValue | OH_Pixelmap_HdrMetadataValue | Pixelmap使用的HDR元数据值，和OH_Pixelmap_HdrMetadataKey关键字相对应。用于OH_PixelmapNative_SetMetadata及OH_PixelmapNative_GetMetadata，有相应OH_Pixelmap_HdrMetadataKey关键字作为入参时，设置或获取到本结构体中相对应的元数据类型的值。 |
+| OH_PixelmapNative | - | OH_PixelmapNative结构体是native层封装的图像解码后无压缩的位图格式结构体。 函数创建OH_PixelmapNative使用OH_PixelmapNative_CreatePixelmap函数，默认采用BGRA_8888格式处理数据。 释放OH_PixelmapNative对象使用OH_PixelmapNative_Release函数。 |
+| OH_NativeBuffer | - | NativeBuffer结构体类型，用于执行NativeBuffer相关操作。 |
+| OH_NativeColorSpaceManager | OH_NativeColorSpaceManager | NativeColorSpaceManager结构体类型，用于执行NativeColorSpaceManager相关操作。 |
+| OH_Pixelmap_InitializationOptions | - | OH_Pixelmap_InitializationOptions是native层封装的初始化参数结构体，用于设置Pixelmap的初始化参数。 创建OH_Pixelmap_InitializationOptions对象使用OH_PixelmapInitializationOptions_Create函数。 释放OH_Pixelmap_InitializationOptions对象使用OH_PixelmapInitializationOptions_Release函数。 |
+| OH_Pixelmap_ImageInfo | - | 图像像素信息结构体。 |
 
 
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### 枚举
+
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| PIXELMAP_ALPHA_TYPE | PIXELMAP_ALPHA_TYPE | Pixelmap透明度类型。 |
+| PIXEL_FORMAT | PIXEL_FORMAT | 图片像素格式。 |
+| OH_PixelmapNative_AntiAliasingLevel | OH_PixelmapNative_AntiAliasingLevel | Pixelmap缩放时采用的缩放算法。 |
+| OH_Pixelmap_HdrMetadataKey | OH_Pixelmap_HdrMetadataKey | Pixelmap使用的HDR相关元数据信息的关键字，用于OH_PixelmapNative_SetMetadata及OH_PixelmapNative_GetMetadata。 |
+| OH_Pixelmap_HdrMetadataType | OH_Pixelmap_HdrMetadataType | HDR_METADATA_TYPE关键字对应的值。 |
+
+
+
+
+##### 函数
 
 | 名称 | 描述 |
 | --- | --- |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_InitializationOptions **options)](#oh_pixelmapinitializationoptions_create) | 创建OH_Pixelmap_InitializationOptions指针。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_InitializationOptions *options, uint32_t *width)](#oh_pixelmapinitializationoptions_getwidth) | 获取图片宽。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_InitializationOptions *options, uint32_t width)](#oh_pixelmapinitializationoptions_setwidth) | 设置图片宽。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_InitializationOptions *options, uint32_t *height)](#oh_pixelmapinitializationoptions_getheight) | 获取图片高。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_InitializationOptions *options, uint32_t height)](#oh_pixelmapinitializationoptions_setheight) | 设置图片高。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t *pixelFormat)](#oh_pixelmapinitializationoptions_getpixelformat) | 获取像素格式。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t pixelFormat)](#oh_pixelmapinitializationoptions_setpixelformat) | 设置像素格式。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_GetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t *srcpixelFormat)](#oh_pixelmapinitializationoptions_getsrcpixelformat) | 获取源像素格式。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_SetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t srcpixelFormat)](#oh_pixelmapinitializationoptions_setsrcpixelformat) | 设置源像素格式。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_GetRowStride(OH_Pixelmap_InitializationOptions *options, int32_t *rowStride)](#oh_pixelmapinitializationoptions_getrowstride) | 获取行跨距。          跨距，图像每行占用的真实内存大小，单位为字节。跨距 = width * 单位像素字节数 + padding，padding为每行为内存对齐做的填充区域。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_SetRowStride(OH_Pixelmap_InitializationOptions *options, int32_t rowStride)](#oh_pixelmapinitializationoptions_setrowstride) | 设置图像跨距。          跨距，图像每行占用的真实内存大小，单位为字节。跨距 = width * 单位像素字节数 + padding，padding为每行为内存对齐做的填充区域。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_InitializationOptions *options, int32_t *alphaType)](#oh_pixelmapinitializationoptions_getalphatype) | 获取透明度类型。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_InitializationOptions *options, int32_t alphaType)](#oh_pixelmapinitializationoptions_setalphatype) | 设置透明度类型。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_GetEditable(OH_Pixelmap_InitializationOptions *options, bool *editable)](#oh_pixelmapinitializationoptions_geteditable) | 获取可编辑标志。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_SetEditable(OH_Pixelmap_InitializationOptions *options, bool editable)](#oh_pixelmapinitializationoptions_seteditable) | 设置可编辑标志。 |
-| [Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_InitializationOptions *options)](#oh_pixelmapinitializationoptions_release) | 释放OH_Pixelmap_InitializationOptions指针。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info)](#oh_pixelmapimageinfo_create) | 创建OH_Pixelmap_ImageInfo指针。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint32_t *width)](#oh_pixelmapimageinfo_getwidth) | 获取图片宽。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint32_t *height)](#oh_pixelmapimageinfo_getheight) | 获取图片高。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_GetAlphaMode(OH_Pixelmap_ImageInfo *info, int32_t *alphaMode)](#oh_pixelmapimageinfo_getalphamode) | 获取图片透明通道类型。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, uint32_t *rowStride)](#oh_pixelmapimageinfo_getrowstride) | 获取行跨距。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info, int32_t *pixelFormat)](#oh_pixelmapimageinfo_getpixelformat) | 获取像素格式。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, int32_t *alphaType)](#oh_pixelmapimageinfo_getalphatype) | 获取OH_PixelmapImageInfo默认的透明通道类型。若要获取图片当前透明通道类型，请使用[OH_PixelmapImageInfo_GetAlphaMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapimageinfo_getalphamode)。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_GetDynamicRange(OH_Pixelmap_ImageInfo *info, bool *isHdr)](#oh_pixelmapimageinfo_getdynamicrange) | 获取Pixelmap是否为高动态范围的信息。 |
-| [Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info)](#oh_pixelmapimageinfo_release) | 释放OH_Pixelmap_ImageInfo指针。 |
-| [Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLength, OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_createpixelmap) | 通过像素数据和图像属性创建PixelMap。传入的像素数据默认按BGRA_8888格式解析，如果需要设置为其他格式，请参考[OH_PixelmapInitializationOptions_SetSrcPixelFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapinitializationoptions_setsrcpixelformat)。 |
-| [Image_ErrorCode OH_PixelmapNative_CreatePixelmapUsingAllocator(uint8_t *data, size_t dataLength, OH_Pixelmap_InitializationOptions *options, IMAGE_ALLOCATOR_MODE allocator, OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_createpixelmapusingallocator) | 通过像素数据和图像属性创建PixelMap，可以通过allocator指定内存类型。传入的像素数据默认按BGRA_8888格式解析，如果需要设置为其他格式，请参考[OH_PixelmapInitializationOptions_SetSrcPixelFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapinitializationoptions_setsrcpixelformat)。默认情况下，系统会根据图像类型、图像大小、平台能力等选择内存类型。在处理此接口返回的像素图时，需要考虑步长影响。 |
-| [Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeToNapi(napi_env env, OH_PixelmapNative *pixelmapNative, napi_value *pixelmapNapi)](#oh_pixelmapnative_convertpixelmapnativetonapi) | 将nativePixelMap对象转换为PixelMapnapi对象。 |
-| [Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeFromNapi(napi_env env, napi_value pixelmapNapi, OH_PixelmapNative **pixelmapNative)](#oh_pixelmapnative_convertpixelmapnativefromnapi) | 将PixelMapnapi对象转换为nativePixelMap对象。 |
-| [Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize)](#oh_pixelmapnative_readpixels) | 读取图像像素数据，并按照PixelMap的像素格式写入缓冲区中。 |
-| [Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8_t *source, size_t bufferSize)](#oh_pixelmapnative_writepixels) | 读取缓冲区中的图像像素数据，并按照PixelMap的像素格式将结果写入PixelMap。 |
-| [Image_ErrorCode OH_PixelmapNative_ReadPixelsFromArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area)](#oh_pixelmapnative_readpixelsfromarea) | 从PixelMap的指定区域中读取像素数据并存入缓冲区。读取出来的数据为BGRA_8888格式。 |
-| [Image_ErrorCode OH_PixelmapNative_WritePixelsToArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area)](#oh_pixelmapnative_writepixelstoarea) | 将缓冲区中的像素数据写入PixelMap的指定区域。数据源应为BGRA_8888格式。 |
-| [Image_ErrorCode OH_PixelmapNative_GetArgbPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize)](#oh_pixelmapnative_getargbpixels) | 从PixelMap中读取ARGB格式的数据。 |
-| [Image_ErrorCode OH_PixelmapNative_ToSdr(OH_PixelmapNative *pixelmap)](#oh_pixelmapnative_tosdr) | 将HDR的图像内容转换为SDR的图像内容。 |
-| [Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_Pixelmap_ImageInfo *imageInfo)](#oh_pixelmapnative_getimageinfo) | 获取图像像素信息。 |
-| [Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rate)](#oh_pixelmapnative_opacity) | 通过设置透明比率来让PixelMap达到对应的透明效果。 |
-| [Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scaleX, float scaleY)](#oh_pixelmapnative_scale) | 根据输入的宽高对图片进行缩放。 |
-| [Image_ErrorCode OH_PixelmapNative_ScaleWithAntiAliasing(OH_PixelmapNative *pixelmap, float scaleX, float scaleY, OH_PixelmapNative_AntiAliasingLevel level)](#oh_pixelmapnative_scalewithantialiasing) | 根据指定的缩放算法和输入的宽高对图片进行缩放。 |
-| [Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMap(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap, float scaleX, float scaleY)](#oh_pixelmapnative_createscaledpixelmap) | 根据输入的宽高的缩放比例，创建一个新的缩放后的图片，生成的新PixelMap不可编辑。 |
-| [Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap, float scaleX, float scaleY, OH_PixelmapNative_AntiAliasingLevel level)](#oh_pixelmapnative_createscaledpixelmapwithantialiasing) | 根据指定的缩放算法和输入的宽高的缩放比例，创建一个新的缩放后的图片，生成的新PixelMap不可编辑。 |
-| [Image_ErrorCode OH_PixelmapNative_CreateAlphaPixelmap(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap)](#oh_pixelmapnative_createalphapixelmap) | 从源PixelMap创建一个仅含有Alpha通道的PixelMap，生成的新PixelMap不可编辑。 |
-| [Image_ErrorCode OH_PixelmapNative_Clone(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap)](#oh_pixelmapnative_clone) | 从源PixelMap复制出一个新的PixelMap。 |
-| [Image_ErrorCode OH_PixelmapNative_CreateCroppedAndScaledPixelMap(OH_PixelmapNative *srcPixelmap, Image_Region *region, Image_Scale *scale, OH_PixelmapNative_AntiAliasingLevel level, OH_PixelmapNative **dstPixelmap)](#oh_pixelmapnative_createcroppedandscaledpixelmap) | 基于源PixelMap创建一个裁剪并缩放的新PixelMap。 |
-| [Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x, float y)](#oh_pixelmapnative_translate) | 根据输入的坐标对图片进行位置变换。 |
-| [Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angle)](#oh_pixelmapnative_rotate) | 根据输入的角度对图片进行旋转。 |
-| [Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldFlipHorizontally, bool shouldFlipVertically)](#oh_pixelmapnative_flip) | 根据输入的条件对图片进行翻转。 |
-| [Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region *region)](#oh_pixelmapnative_crop) | 根据输入的尺寸对图片进行裁剪。 |
-| [Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap)](#oh_pixelmapnative_release) | 释放OH_PixelmapNative指针，推荐使用[OH_PixelmapNative_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_destroy)。 |
-| [Image_ErrorCode OH_PixelmapNative_Destroy(OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_destroy) | 释放OH_PixelmapNative指针。 |
-| [Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixelmap, OH_PixelmapNative* dstpixelmap, const bool isPremul)](#oh_pixelmapnative_convertalphaformat) | 将pixelmap的像素数据做预乘和非预乘之间的转换。 |
-| [Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_createemptypixelmap) | 利用OH_Pixelmap_InitializationOptions创建空的pixelmap对象，内存数据为0。 |
-| [Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(OH_Pixelmap_InitializationOptions *options, IMAGE_ALLOCATOR_MODE allocator, OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_createemptypixelmapusingallocator) | 根据入参options创建空的pixelmap，pixelmap使用的内存类型可以通过allocator指定。默认情况下，系统会根据图像类型、图像大小、平台能力等选择内存类型。在处理此接口返回的像素图时，需要考虑步长影响。 |
-| [Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurface(const char *surfaceId, size_t length, OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_createpixelmapfromsurface) | 通过Surface的Surface ID创建一个PixelMap。 |
-| [Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(const char *surfaceId, size_t length, bool transformEnabled, OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_createpixelmapfromsurfacewithtransformation) | 通过Surface的ID创建一个预览流画面的PixelMap对象。该Surface可能携带旋转或翻转的变换信息。 |
-| [Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromNativeBuffer(OH_NativeBuffer *nativeBuffer, OH_PixelmapNative **pixelmap)](#oh_pixelmapnative_createpixelmapfromnativebuffer) | 通过NativeBuffer创建一个PixelMap。如果NativeBuffer的用途未配置[CPU访问权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-buffer-h#oh_nativebuffer_usage)，则不支持创建。          支持创建的像素格式为RGBA_8888、NV21、NV12、YCBCR_P010、YCRCB_P010。 |
-| [Image_ErrorCode OH_PixelmapNative_GetNativeBuffer(OH_PixelmapNative *pixelmap, OH_NativeBuffer **nativeBuffer)](#oh_pixelmapnative_getnativebuffer) | 从DMA内存的PixelMap中，获取NativeBuffer对象。 |
-| [Image_ErrorCode OH_PixelmapNative_GetMetadata(OH_PixelmapNative *pixelmap, OH_Pixelmap_HdrMetadataKey key, OH_Pixelmap_HdrMetadataValue **value)](#oh_pixelmapnative_getmetadata) | 获取元数据。 |
-| [Image_ErrorCode OH_PixelmapNative_SetMetadata(OH_PixelmapNative *pixelmap, OH_Pixelmap_HdrMetadataKey key, OH_Pixelmap_HdrMetadataValue *value)](#oh_pixelmapnative_setmetadata) | 设置元数据。 |
-| [Image_ErrorCode OH_PixelmapNative_SetColorSpaceNative(OH_PixelmapNative *pixelmap, OH_NativeColorSpaceManager *colorSpaceNative)](#oh_pixelmapnative_setcolorspacenative) | 设置NativeColorSpaceManager对象。 |
-| [Image_ErrorCode OH_PixelmapNative_GetColorSpaceNative(OH_PixelmapNative *pixelmap, OH_NativeColorSpaceManager **colorSpaceNative)](#oh_pixelmapnative_getcolorspacenative) | 获取NativeColorSpaceManager对象。 |
-| [Image_ErrorCode OH_PixelmapNative_SetMemoryName(OH_PixelmapNative *pixelmap, char *name, size_t *size)](#oh_pixelmapnative_setmemoryname) | 设置pixelMap内存名字。 |
-| [Image_ErrorCode OH_PixelmapNative_GetByteCount(OH_PixelmapNative *pixelmap, uint32_t *byteCount)](#oh_pixelmapnative_getbytecount) | 获取Pixelmap中所有像素所占用的总字节数，不包含内存填充。 |
-| [Image_ErrorCode OH_PixelmapNative_GetAllocationByteCount(OH_PixelmapNative *pixelmap, uint32_t *allocationByteCount)](#oh_pixelmapnative_getallocationbytecount) | 获取Pixelmap用于储存像素数据的内存字节数。 |
-| [Image_ErrorCode OH_PixelmapNative_AccessPixels(OH_PixelmapNative *pixelmap, void **addr)](#oh_pixelmapnative_accesspixels) | 获取Pixelmap像素数据的内存地址，并锁定这块内存。          当该内存被锁定时，任何修改或释放该Pixelmap的像素数据的操作均会失败或无效。 |
-| [Image_ErrorCode OH_PixelmapNative_UnaccessPixels(OH_PixelmapNative *pixelmap)](#oh_pixelmapnative_unaccesspixels) | 释放Pixelmap像素数据的内存锁。          该函数需要与[OH_PixelmapNative_AccessPixels](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_accesspixels)匹配使用。 |
-| [Image_ErrorCode OH_PixelmapNative_GetUniqueId(OH_PixelmapNative *pixelmap, uint32_t *uniqueId)](#oh_pixelmapnative_getuniqueid) | 获取PixelMap的唯一ID。 |
-| [Image_ErrorCode OH_PixelmapNative_IsReleased(OH_PixelmapNative *pixelmap, bool *released)](#oh_pixelmapnative_isreleased) | 检测PixelMap是否已被释放。如果已被释放，则任何访问该对象内部数据的方法调用将会失效。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_InitializationOptions **options) | 创建OH_Pixelmap_InitializationOptions指针。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_InitializationOptions *options, uint32_t *width) | 获取图片宽。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_InitializationOptions *options, uint32_t width) | 设置图片宽。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_InitializationOptions *options, uint32_t *height) | 获取图片高。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_InitializationOptions *options, uint32_t height) | 设置图片高。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t *pixelFormat) | 获取像素格式。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t pixelFormat) | 设置像素格式。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_GetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t *srcpixelFormat) | 获取源像素格式。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_SetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t srcpixelFormat) | 设置源像素格式。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_GetRowStride(OH_Pixelmap_InitializationOptions *options, int32_t *rowStride) | 获取行跨距。 跨距，图像每行占用的真实内存大小，单位为字节。跨距 = width * 单位像素字节数 + padding，padding为每行为内存对齐做的填充区域。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_SetRowStride(OH_Pixelmap_InitializationOptions *options, int32_t rowStride) | 设置图像跨距。 跨距，图像每行占用的真实内存大小，单位为字节。跨距 = width * 单位像素字节数 + padding，padding为每行为内存对齐做的填充区域。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_InitializationOptions *options, int32_t *alphaType) | 获取透明度类型。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_InitializationOptions *options, int32_t alphaType) | 设置透明度类型。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_GetEditable(OH_Pixelmap_InitializationOptions *options, bool *editable) | 获取可编辑标志。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_SetEditable(OH_Pixelmap_InitializationOptions *options, bool editable) | 设置可编辑标志。 |
+| Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_InitializationOptions *options) | 释放OH_Pixelmap_InitializationOptions指针。 |
+| Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info) | 创建OH_Pixelmap_ImageInfo指针。 |
+| Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint32_t *width) | 获取图片宽。 |
+| Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint32_t *height) | 获取图片高。 |
+| Image_ErrorCode OH_PixelmapImageInfo_GetAlphaMode(OH_Pixelmap_ImageInfo *info, int32_t *alphaMode) | 获取图片透明通道类型。 |
+| Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, uint32_t *rowStride) | 获取行跨距。 |
+| Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info, int32_t *pixelFormat) | 获取像素格式。 |
+| Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, int32_t *alphaType) | 获取OH_PixelmapImageInfo默认的透明通道类型。若要获取图片当前透明通道类型，请使用OH_PixelmapImageInfo_GetAlphaMode。 |
+| Image_ErrorCode OH_PixelmapImageInfo_GetDynamicRange(OH_Pixelmap_ImageInfo *info, bool *isHdr) | 获取Pixelmap是否为高动态范围的信息。 |
+| Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info) | 释放OH_Pixelmap_ImageInfo指针。 |
+| Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLength, OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap) | 通过像素数据和图像属性创建PixelMap。传入的像素数据默认按BGRA_8888格式解析，如果需要设置为其他格式，请参考OH_PixelmapInitializationOptions_SetSrcPixelFormat。 |
+| Image_ErrorCode OH_PixelmapNative_CreatePixelmapUsingAllocator(uint8_t *data, size_t dataLength, OH_Pixelmap_InitializationOptions *options, IMAGE_ALLOCATOR_MODE allocator, OH_PixelmapNative **pixelmap) | 通过像素数据和图像属性创建PixelMap，可以通过allocator指定内存类型。传入的像素数据默认按BGRA_8888格式解析，如果需要设置为其他格式，请参考OH_PixelmapInitializationOptions_SetSrcPixelFormat。默认情况下，系统会根据图像类型、图像大小、平台能力等选择内存类型。在处理此接口返回的像素图时，需要考虑步长影响。 |
+| Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeToNapi(napi_env env, OH_PixelmapNative *pixelmapNative, napi_value *pixelmapNapi) | 将nativePixelMap对象转换为PixelMapnapi对象。 |
+| Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeFromNapi(napi_env env, napi_value pixelmapNapi, OH_PixelmapNative **pixelmapNative) | 将PixelMapnapi对象转换为nativePixelMap对象。 |
+| Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize) | 读取图像像素数据，并按照PixelMap的像素格式写入缓冲区中。 |
+| Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8_t *source, size_t bufferSize) | 读取缓冲区中的图像像素数据，并按照PixelMap的像素格式将结果写入PixelMap。 |
+| Image_ErrorCode OH_PixelmapNative_ReadPixelsFromArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area) | 从PixelMap的指定区域中读取像素数据并存入缓冲区。读取出来的数据为BGRA_8888格式。 |
+| Image_ErrorCode OH_PixelmapNative_WritePixelsToArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area) | 将缓冲区中的像素数据写入PixelMap的指定区域。数据源应为BGRA_8888格式。 |
+| Image_ErrorCode OH_PixelmapNative_GetArgbPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize) | 从PixelMap中读取ARGB格式的数据。 |
+| Image_ErrorCode OH_PixelmapNative_ToSdr(OH_PixelmapNative *pixelmap) | 将HDR的图像内容转换为SDR的图像内容。 |
+| Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_Pixelmap_ImageInfo *imageInfo) | 获取图像像素信息。 |
+| Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rate) | 通过设置透明比率来让PixelMap达到对应的透明效果。 |
+| Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scaleX, float scaleY) | 根据输入的宽高对图片进行缩放。 |
+| Image_ErrorCode OH_PixelmapNative_ScaleWithAntiAliasing(OH_PixelmapNative *pixelmap, float scaleX, float scaleY, OH_PixelmapNative_AntiAliasingLevel level) | 根据指定的缩放算法和输入的宽高对图片进行缩放。 |
+| Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMap(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap, float scaleX, float scaleY) | 根据输入的宽高的缩放比例，创建一个新的缩放后的图片，生成的新PixelMap不可编辑。 |
+| Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap, float scaleX, float scaleY, OH_PixelmapNative_AntiAliasingLevel level) | 根据指定的缩放算法和输入的宽高的缩放比例，创建一个新的缩放后的图片，生成的新PixelMap不可编辑。 |
+| Image_ErrorCode OH_PixelmapNative_CreateAlphaPixelmap(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap) | 从源PixelMap创建一个仅含有Alpha通道的PixelMap，生成的新PixelMap不可编辑。 |
+| Image_ErrorCode OH_PixelmapNative_Clone(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap) | 从源PixelMap复制出一个新的PixelMap。 |
+| Image_ErrorCode OH_PixelmapNative_CreateCroppedAndScaledPixelMap(OH_PixelmapNative *srcPixelmap, Image_Region *region, Image_Scale *scale, OH_PixelmapNative_AntiAliasingLevel level, OH_PixelmapNative **dstPixelmap) | 基于源PixelMap创建一个裁剪并缩放的新PixelMap。 |
+| Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x, float y) | 根据输入的坐标对图片进行位置变换。 |
+| Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angle) | 根据输入的角度对图片进行旋转。 |
+| Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldFlipHorizontally, bool shouldFlipVertically) | 根据输入的条件对图片进行翻转。 |
+| Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region *region) | 根据输入的尺寸对图片进行裁剪。 |
+| Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap) | 释放OH_PixelmapNative指针，推荐使用OH_PixelmapNative_Destroy。 |
+| Image_ErrorCode OH_PixelmapNative_Destroy(OH_PixelmapNative **pixelmap) | 释放OH_PixelmapNative指针。 |
+| Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixelmap, OH_PixelmapNative* dstpixelmap, const bool isPremul) | 将pixelmap的像素数据做预乘和非预乘之间的转换。 |
+| Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap) | 利用OH_Pixelmap_InitializationOptions创建空的pixelmap对象，内存数据为0。 |
+| Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(OH_Pixelmap_InitializationOptions *options, IMAGE_ALLOCATOR_MODE allocator, OH_PixelmapNative **pixelmap) | 根据入参options创建空的pixelmap，pixelmap使用的内存类型可以通过allocator指定。默认情况下，系统会根据图像类型、图像大小、平台能力等选择内存类型。在处理此接口返回的像素图时，需要考虑步长影响。 |
+| Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurface(const char *surfaceId, size_t length, OH_PixelmapNative **pixelmap) | 通过Surface的Surface ID创建一个PixelMap。 |
+| Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(const char *surfaceId, size_t length, bool transformEnabled, OH_PixelmapNative **pixelmap) | 通过Surface的ID创建一个预览流画面的PixelMap对象。该Surface可能携带旋转或翻转的变换信息。 |
+| Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromNativeBuffer(OH_NativeBuffer *nativeBuffer, OH_PixelmapNative **pixelmap) | 通过NativeBuffer创建一个PixelMap。如果NativeBuffer的用途未配置CPU访问权限，则不支持创建。 支持创建的像素格式为RGBA_8888、NV21、NV12、YCBCR_P010、YCRCB_P010。 |
+| Image_ErrorCode OH_PixelmapNative_GetNativeBuffer(OH_PixelmapNative *pixelmap, OH_NativeBuffer **nativeBuffer) | 从DMA内存的PixelMap中，获取NativeBuffer对象。 |
+| Image_ErrorCode OH_PixelmapNative_GetMetadata(OH_PixelmapNative *pixelmap, OH_Pixelmap_HdrMetadataKey key, OH_Pixelmap_HdrMetadataValue **value) | 获取元数据。 |
+| Image_ErrorCode OH_PixelmapNative_SetMetadata(OH_PixelmapNative *pixelmap, OH_Pixelmap_HdrMetadataKey key, OH_Pixelmap_HdrMetadataValue *value) | 设置元数据。 |
+| Image_ErrorCode OH_PixelmapNative_SetColorSpaceNative(OH_PixelmapNative *pixelmap, OH_NativeColorSpaceManager *colorSpaceNative) | 设置NativeColorSpaceManager对象。 |
+| Image_ErrorCode OH_PixelmapNative_GetColorSpaceNative(OH_PixelmapNative *pixelmap, OH_NativeColorSpaceManager **colorSpaceNative) | 获取NativeColorSpaceManager对象。 |
+| Image_ErrorCode OH_PixelmapNative_SetMemoryName(OH_PixelmapNative *pixelmap, char *name, size_t *size) | 设置pixelMap内存名字。 |
+| Image_ErrorCode OH_PixelmapNative_GetByteCount(OH_PixelmapNative *pixelmap, uint32_t *byteCount) | 获取Pixelmap中所有像素所占用的总字节数，不包含内存填充。 |
+| Image_ErrorCode OH_PixelmapNative_GetAllocationByteCount(OH_PixelmapNative *pixelmap, uint32_t *allocationByteCount) | 获取Pixelmap用于储存像素数据的内存字节数。 |
+| Image_ErrorCode OH_PixelmapNative_AccessPixels(OH_PixelmapNative *pixelmap, void **addr) | 获取Pixelmap像素数据的内存地址，并锁定这块内存。 当该内存被锁定时，任何修改或释放该Pixelmap的像素数据的操作均会失败或无效。 |
+| Image_ErrorCode OH_PixelmapNative_UnaccessPixels(OH_PixelmapNative *pixelmap) | 释放Pixelmap像素数据的内存锁。 该函数需要与OH_PixelmapNative_AccessPixels匹配使用。 |
+| Image_ErrorCode OH_PixelmapNative_GetUniqueId(OH_PixelmapNative *pixelmap, uint32_t *uniqueId) | 获取PixelMap的唯一ID。 |
+| Image_ErrorCode OH_PixelmapNative_IsReleased(OH_PixelmapNative *pixelmap, bool *released) | 检测PixelMap是否已被释放。如果已被释放，则任何访问该对象内部数据的方法调用将会失效。 |
 
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### PIXELMAP_ALPHA_TYPE
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 枚举类型说明
 
+
+
+##### PIXELMAP_ALPHA_TYPE
 
 ```text
 enum PIXELMAP_ALPHA_TYPE
@@ -150,7 +147,6 @@ Pixelmap透明度类型。
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | PIXELMAP_ALPHA_TYPE_UNKNOWN = 0 | 未知格式。 |
@@ -159,9 +155,9 @@ Pixelmap透明度类型。
 | PIXELMAP_ALPHA_TYPE_UNPREMULTIPLIED = 3 | 非预乘透明度格式。 |
 
 
-### PIXEL_FORMAT
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### PIXEL_FORMAT
 
 ```text
 enum PIXEL_FORMAT
@@ -172,7 +168,6 @@ enum PIXEL_FORMAT
 图片像素格式。
 
 **起始版本：** 12
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -190,9 +185,9 @@ enum PIXEL_FORMAT
 | PIXEL_FORMAT_YCRCB_P010 = 12 | YCRCB_P010格式。 |
 
 
-### OH_PixelmapNative_AntiAliasingLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_AntiAliasingLevel
 
 ```text
 enum OH_PixelmapNative_AntiAliasingLevel
@@ -204,7 +199,6 @@ Pixelmap缩放时采用的缩放算法。
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | OH_PixelmapNative_AntiAliasing_NONE = 0 | 最近邻插值算法。 |
@@ -213,9 +207,9 @@ Pixelmap缩放时采用的缩放算法。
 | OH_PixelmapNative_AntiAliasing_HIGH = 3 | 三次插值算法。 |
 
 
-### OH_Pixelmap_HdrMetadataKey
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pixelmap_HdrMetadataKey
 
 ```text
 enum OH_Pixelmap_HdrMetadataKey
@@ -227,7 +221,6 @@ Pixelmap使用的HDR相关元数据信息的关键字，用于[OH_PixelmapNative
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | HDR_METADATA_TYPE = 0 | Pixelmap使用的元数据类型。 |
@@ -236,9 +229,9 @@ Pixelmap使用的HDR相关元数据信息的关键字，用于[OH_PixelmapNative
 | HDR_GAINMAP_METADATA = 3 | Gainmap使用的元数据。 |
 
 
-### OH_Pixelmap_HdrMetadataType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_Pixelmap_HdrMetadataType
 
 ```text
 enum OH_Pixelmap_HdrMetadataType
@@ -250,7 +243,6 @@ HDR_METADATA_TYPE关键字对应的值。
 
 **起始版本：** 12
 
-
 | 枚举项 | 描述 |
 | --- | --- |
 | HDR_METADATA_TYPE_NONE = 0 | 无元数据内容。 |
@@ -259,13 +251,13 @@ HDR_METADATA_TYPE关键字对应的值。
 | HDR_METADATA_TYPE_ALTERNATE = 3 | 表示用于合成后HDR图的元数据。 |
 
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### OH_PixelmapInitializationOptions_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 函数说明
 
+
+
+##### OH_PixelmapInitializationOptions_Create()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_InitializationOptions **options)
@@ -279,23 +271,21 @@ Image_ErrorCode OH_PixelmapInitializationOptions_Create(OH_Pixelmap_Initializati
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) **options | 被创建的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions **options | 被创建的OH_Pixelmap_InitializationOptions指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_GetWidth()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_GetWidth()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_InitializationOptions *options, uint32_t *width)
@@ -309,24 +299,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetWidth(OH_Pixelmap_Initializa
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | uint32_t *width | 图片的宽，单位：像素。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_SetWidth()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_SetWidth()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_InitializationOptions *options, uint32_t width)
@@ -340,24 +328,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetWidth(OH_Pixelmap_Initializa
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | uint32_t width | 图片的宽，单位：像素。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_GetHeight()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_GetHeight()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_InitializationOptions *options, uint32_t *height)
@@ -371,24 +357,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetHeight(OH_Pixelmap_Initializ
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | uint32_t *height | 图片的高，单位：像素。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_SetHeight()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_SetHeight()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_InitializationOptions *options, uint32_t height)
@@ -402,24 +386,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetHeight(OH_Pixelmap_Initializ
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | uint32_t height | 图片的高，单位：像素。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_GetPixelFormat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_GetPixelFormat()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t *pixelFormat)
@@ -433,24 +415,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetPixelFormat(OH_Pixelmap_Init
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
-| int32_t *pixelFormat | 像素格式[PIXEL_FORMAT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixel_format)。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| int32_t *pixelFormat | 像素格式PIXEL_FORMAT。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_SetPixelFormat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_SetPixelFormat()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t pixelFormat)
@@ -464,24 +444,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetPixelFormat(OH_Pixelmap_Init
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
-| int32_t pixelFormat | 像素格式[PIXEL_FORMAT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixel_format)。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| int32_t pixelFormat | 像素格式PIXEL_FORMAT。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_GetSrcPixelFormat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_GetSrcPixelFormat()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_GetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t *srcpixelFormat)
@@ -495,24 +473,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetSrcPixelFormat(OH_Pixelmap_I
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
-| int32_t *srcpixelFormat | 像素格式[PIXEL_FORMAT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixel_format)。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| int32_t *srcpixelFormat | 像素格式PIXEL_FORMAT。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_SetSrcPixelFormat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_SetSrcPixelFormat()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_SetSrcPixelFormat(OH_Pixelmap_InitializationOptions *options, int32_t srcpixelFormat)
@@ -526,24 +502,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetSrcPixelFormat(OH_Pixelmap_I
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
-| int32_t srcpixelFormat | 源像素格式[PIXEL_FORMAT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixel_format)。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| int32_t srcpixelFormat | 源像素格式PIXEL_FORMAT。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_GetRowStride()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_GetRowStride()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_GetRowStride(OH_Pixelmap_InitializationOptions *options, int32_t *rowStride)
@@ -559,24 +533,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetRowStride(OH_Pixelmap_Initia
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | int32_t *rowStride | 跨距，单位：字节。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNKNOWN_ERROR：options被释放。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNKNOWN_ERROR：options被释放。 |
 
 
-### OH_PixelmapInitializationOptions_SetRowStride()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_SetRowStride()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_SetRowStride(OH_Pixelmap_InitializationOptions *options, int32_t rowStride)
@@ -592,24 +564,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetRowStride(OH_Pixelmap_Initia
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | int32_t rowStride | 跨距，单位：字节。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNKNOWN_ERROR：options被释放。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNKNOWN_ERROR：options被释放。 |
 
 
-### OH_PixelmapInitializationOptions_GetAlphaType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_GetAlphaType()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_InitializationOptions *options, int32_t *alphaType)
@@ -623,24 +593,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetAlphaType(OH_Pixelmap_Initia
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
-| int32_t *alphaType | 透明度类型[PIXELMAP_ALPHA_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixelmap_alpha_type)。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| int32_t *alphaType | 透明度类型PIXELMAP_ALPHA_TYPE。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_SetAlphaType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_SetAlphaType()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_InitializationOptions *options, int32_t alphaType)
@@ -654,24 +622,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetAlphaType(OH_Pixelmap_Initia
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
-| int32_t alphaType | 透明度类型[PIXELMAP_ALPHA_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixelmap_alpha_type)。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| int32_t alphaType | 透明度类型PIXELMAP_ALPHA_TYPE。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_GetEditable()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_GetEditable()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_GetEditable(OH_Pixelmap_InitializationOptions *options, bool *editable)
@@ -685,24 +651,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_GetEditable(OH_Pixelmap_Initial
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | bool *editable | 可编辑标志。true表示可编辑，false表示不可编辑。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_SetEditable()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_SetEditable()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_SetEditable(OH_Pixelmap_InitializationOptions *options, bool editable)
@@ -716,24 +680,22 @@ Image_ErrorCode OH_PixelmapInitializationOptions_SetEditable(OH_Pixelmap_Initial
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被操作的OH_Pixelmap_InitializationOptions指针。 |
 | bool editable | 可编辑标志。true表示可编辑，false表示不可编辑。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapInitializationOptions_Release()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapInitializationOptions_Release()
 
 ```text
 Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_InitializationOptions *options)
@@ -747,23 +709,21 @@ Image_ErrorCode OH_PixelmapInitializationOptions_Release(OH_Pixelmap_Initializat
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 被释放的OH_Pixelmap_InitializationOptions指针。 |
+| OH_Pixelmap_InitializationOptions *options | 被释放的OH_Pixelmap_InitializationOptions指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_Create()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_Create()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info)
@@ -777,23 +737,21 @@ Image_ErrorCode OH_PixelmapImageInfo_Create(OH_Pixelmap_ImageInfo **info)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) **info | 被创建的OH_Pixelmap_ImageInfo指针。 |
+| OH_Pixelmap_ImageInfo **info | 被创建的OH_Pixelmap_ImageInfo指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错��。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_GetWidth()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_GetWidth()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint32_t *width)
@@ -807,24 +765,22 @@ Image_ErrorCode OH_PixelmapImageInfo_GetWidth(OH_Pixelmap_ImageInfo *info, uint3
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
+| OH_Pixelmap_ImageInfo *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
 | uint32_t *width | 图片宽，单位：像素。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_GetHeight()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_GetHeight()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint32_t *height)
@@ -838,24 +794,22 @@ Image_ErrorCode OH_PixelmapImageInfo_GetHeight(OH_Pixelmap_ImageInfo *info, uint
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
+| OH_Pixelmap_ImageInfo *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
 | uint32_t *height | 图片高，单位：像素。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_GetAlphaMode()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_GetAlphaMode()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_GetAlphaMode(OH_Pixelmap_ImageInfo *info, int32_t *alphaMode)
@@ -869,24 +823,22 @@ Image_ErrorCode OH_PixelmapImageInfo_GetAlphaMode(OH_Pixelmap_ImageInfo *info, i
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
+| OH_Pixelmap_ImageInfo *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
 | int32_t *AlphaMode | 被操作的alpha格式的指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_GetRowStride()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_GetRowStride()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, uint32_t *rowStride)
@@ -900,24 +852,22 @@ Image_ErrorCode OH_PixelmapImageInfo_GetRowStride(OH_Pixelmap_ImageInfo *info, u
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
+| OH_Pixelmap_ImageInfo *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
 | uint32_t *rowStride | 跨距，内存中每行像素所占的空间。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_GetPixelFormat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_GetPixelFormat()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info, int32_t *pixelFormat)
@@ -931,24 +881,22 @@ Image_ErrorCode OH_PixelmapImageInfo_GetPixelFormat(OH_Pixelmap_ImageInfo *info,
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
-| int32_t *pixelFormat | 像素格式[PIXEL_FORMAT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixel_format)。 |
+| OH_Pixelmap_ImageInfo *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
+| int32_t *pixelFormat | 像素格式PIXEL_FORMAT。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_GetAlphaType()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_GetAlphaType()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, int32_t *alphaType)
@@ -962,24 +910,22 @@ Image_ErrorCode OH_PixelmapImageInfo_GetAlphaType(OH_Pixelmap_ImageInfo *info, i
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
-| int32_t *alphaType | 透明度类型[PIXELMAP_ALPHA_TYPE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#pixelmap_alpha_type)。 |
+| OH_Pixelmap_ImageInfo *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
+| int32_t *alphaType | 透明度类型PIXELMAP_ALPHA_TYPE。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapImageInfo_GetDynamicRange()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_GetDynamicRange()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_GetDynamicRange(OH_Pixelmap_ImageInfo *info, bool *isHdr)
@@ -993,24 +939,22 @@ Image_ErrorCode OH_PixelmapImageInfo_GetDynamicRange(OH_Pixelmap_ImageInfo *info
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
+| OH_Pixelmap_ImageInfo *info | 被操作的OH_Pixelmap_ImageInfo指针。 |
 | bool *isHdr | 表示是否为高动态范围（HDR）的信息。true表示是高动态范围的信息，false表示不是高动态范围的信息。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数校验错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数校验错误。 |
 
 
-### OH_PixelmapImageInfo_Release()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapImageInfo_Release()
 
 ```text
 Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info)
@@ -1024,23 +968,21 @@ Image_ErrorCode OH_PixelmapImageInfo_Release(OH_Pixelmap_ImageInfo *info)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *info | 被释放的OH_Pixelmap_ImageInfo指针。 |
+| OH_Pixelmap_ImageInfo *info | 被释放的OH_Pixelmap_ImageInfo指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_CreatePixelmap()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreatePixelmap()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLength, OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap)
@@ -1054,26 +996,24 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmap(uint8_t *data, size_t dataLengt
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | uint8_t *data | BGRA_8888格式的颜色数组。 |
 | size_t dataLength | 数组长度。 |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 创建像素的属性。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
+| OH_Pixelmap_InitializationOptions *options | 创建像素的属性。 |
+| OH_PixelmapNative **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNSUPPORTED_OPERATION：操作不支持。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_OPERATION：操作不支持。 |
 
 
-### OH_PixelmapNative_CreatePixelmapUsingAllocator()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreatePixelmapUsingAllocator()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreatePixelmapUsingAllocator(uint8_t *data, size_t dataLength, OH_Pixelmap_InitializationOptions *options, IMAGE_ALLOCATOR_MODE allocator, OH_PixelmapNative **pixelmap)
@@ -1087,27 +1027,25 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapUsingAllocator(uint8_t *data, si
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | uint8_t *data | BGRA_8888格式的数据。 |
 | size_t dataLength | 数组长度。 |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 创建pixelmap的选项。 |
-| [IMAGE_ALLOCATOR_MODE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_allocator_mode) allocator | 决定pixelmap内存分配的类型。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
+| OH_Pixelmap_InitializationOptions *options | 创建pixelmap的选项。 |
+| IMAGE_ALLOCATOR_MODE allocator | 决定pixelmap内存分配的类型。 |
+| OH_PixelmapNative **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNSUPPORTED_OPERATION：操作不支持。          IMAGE_TOO_LARGE：图像过大，无法分配内存。          IMAGE_DMA_OPERATION_FAILED：DMA内存操作失败。          IMAGE_ALLOCATOR_MODE_UNSUPPORTED：不支持分配当前内存类型。例如，使用共享内存创建HDR图。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_OPERATION：操作不支持。 IMAGE_TOO_LARGE：图像过大，无法分配内存。 IMAGE_DMA_OPERATION_FAILED：DMA内存操作失败。 IMAGE_ALLOCATOR_MODE_UNSUPPORTED：不支持分配当前内存类型。例如，使用共享内存创建HDR图。 |
 
 
-### OH_PixelmapNative_ConvertPixelmapNativeToNapi()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_ConvertPixelmapNativeToNapi()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeToNapi(napi_env env, OH_PixelmapNative *pixelmapNative, napi_value *pixelmapNapi)
@@ -1121,25 +1059,23 @@ Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeToNapi(napi_env env, OH_P
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | napi_env env | napi的环境指针。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmapNative | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmapNative | 被操作的OH_PixelmapNative指针。 |
 | napi_value *pixelmapNapi | 转换出来的PixelMapnapi对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：pixelmapNative为空。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：pixelmapNative为空。 |
 
 
-### OH_PixelmapNative_ConvertPixelmapNativeFromNapi()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_ConvertPixelmapNativeFromNapi()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeFromNapi(napi_env env, napi_value pixelmapNapi, OH_PixelmapNative **pixelmapNative)
@@ -1153,25 +1089,23 @@ Image_ErrorCode OH_PixelmapNative_ConvertPixelmapNativeFromNapi(napi_env env, na
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | napi_env env | napi的环境指针。 |
 | napi_value pixelmapNapi | 需要转换的PixelMapnapi对象。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmapNative | 转换出的OH_PixelmapNative对象指针。 |
+| OH_PixelmapNative **pixelmapNative | 转换出的OH_PixelmapNative对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：pixelmapNative是nullptr，或者pixelmapNapi不是PixelMapNapi对象。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：pixelmapNative是nullptr，或者pixelmapNapi不是PixelMapNapi对象。 |
 
 
-### OH_PixelmapNative_ReadPixels()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_ReadPixels()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize)
@@ -1185,25 +1119,23 @@ Image_ErrorCode OH_PixelmapNative_ReadPixels(OH_PixelmapNative *pixelmap, uint8_
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | uint8_t *destination | 缓冲区，获取的图像像素数据写入到该内存区域内。 |
 | size_t *bufferSize | 缓冲区大小。RGBA格式的缓冲区大小等于width * height * 4，NV21与NV12格式的缓冲区大小等于width * height+((width+1)/2) * ((height+1)/2) * 2。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNKNOWN_ERROR：未知错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNKNOWN_ERROR：未知错误。 |
 
 
-### OH_PixelmapNative_WritePixels()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_WritePixels()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8_t *source, size_t bufferSize)
@@ -1217,25 +1149,23 @@ Image_ErrorCode OH_PixelmapNative_WritePixels(OH_PixelmapNative *pixelmap, uint8
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | uint8_t *source | 图像像素数据。 |
 | size_t bufferSize | 图像像素数据长度。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNSUPPORTED_OPERATION：操作不支持。          IMAGE_UNKNOWN_ERROR：未知错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_OPERATION：操作不支持。 IMAGE_UNKNOWN_ERROR：未知错误。 |
 
 
-### OH_PixelmapNative_ReadPixelsFromArea()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_ReadPixelsFromArea()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_ReadPixelsFromArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area)
@@ -1249,24 +1179,22 @@ Image_ErrorCode OH_PixelmapNative_ReadPixelsFromArea(OH_PixelmapNative *pixelmap
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被读取的PixelMap。 |
-| [Image_PositionArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-image-positionarea) *area | 读取数据的PixelMap指定区域。数据会被读取并拷贝至area-&gt;pixels。 |
+| OH_PixelmapNative *pixelmap | 被读取的PixelMap。 |
+| Image_PositionArea *area | 读取数据的PixelMap指定区域。数据会被读取并拷贝至area->pixels。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或area有误。          IMAGE_UNKNOWN_ERROR：未知的内部错误，例如：不支持的像素格式。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或area有误。 IMAGE_UNKNOWN_ERROR：未知的内部错误，例如：不支持的像素格式。 |
 
 
-### OH_PixelmapNative_WritePixelsToArea()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_WritePixelsToArea()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_WritePixelsToArea(OH_PixelmapNative *pixelmap, Image_PositionArea *area)
@@ -1280,24 +1208,22 @@ Image_ErrorCode OH_PixelmapNative_WritePixelsToArea(OH_PixelmapNative *pixelmap,
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被写入的PixelMap。 |
-| [Image_PositionArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-image-positionarea) *area | 写入数据的PixelMap指定区域。 |
+| OH_PixelmapNative *pixelmap | 被写入的PixelMap。 |
+| Image_PositionArea *area | 写入数据的PixelMap指定区域。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或area有误。          IMAGE_UNSUPPORTED_OPERATION：PixelMap不可编辑。          IMAGE_UNKNOWN_ERROR：未知的内部错误，例如：不支持的像素格式。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或area有误。 IMAGE_UNSUPPORTED_OPERATION：PixelMap不可编辑。 IMAGE_UNKNOWN_ERROR：未知的内部错误，例如：不支持的像素格式。 |
 
 
-### OH_PixelmapNative_GetArgbPixels()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetArgbPixels()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetArgbPixels(OH_PixelmapNative *pixelmap, uint8_t *destination, size_t *bufferSize)
@@ -1311,25 +1237,23 @@ Image_ErrorCode OH_PixelmapNative_GetArgbPixels(OH_PixelmapNative *pixelmap, uin
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | uint8_t *destination | 缓冲区，获取的图像像素数据写入到该内存区域内。 |
 | size_t *bufferSize | 缓冲区大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNSUPPORTED_CONVERSION：PixelMap格式不支持读取ARGB数据。          IMAGE_ALLOC_FAILED：内存申请失败。          IMAGE_COPY_FAILED：内存数据拷贝、读取、操作失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_CONVERSION：PixelMap格式不支持读取ARGB数据。 IMAGE_ALLOC_FAILED：内存申请失败。 IMAGE_COPY_FAILED：内存数据拷贝、读取、操作失败。 |
 
 
-### OH_PixelmapNative_ToSdr()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_ToSdr()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_ToSdr(OH_PixelmapNative *pixelmap)
@@ -1343,23 +1267,21 @@ Image_ErrorCode OH_PixelmapNative_ToSdr(OH_PixelmapNative *pixelmap)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作��OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNSUPPORTED_OPERATION：操作不支持。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_OPERATION：操作不支持。 |
 
 
-### OH_PixelmapNative_GetImageInfo()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetImageInfo()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_Pixelmap_ImageInfo *imageInfo)
@@ -1373,24 +1295,22 @@ Image_ErrorCode OH_PixelmapNative_GetImageInfo(OH_PixelmapNative *pixelmap, OH_P
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
-| [OH_Pixelmap_ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-imageinfo) *imageInfo | 图像像素信息。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_Pixelmap_ImageInfo *imageInfo | 图像像素信息。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_Opacity()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Opacity()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rate)
@@ -1404,24 +1324,22 @@ Image_ErrorCode OH_PixelmapNative_Opacity(OH_PixelmapNative *pixelmap, float rat
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | float rate | 透明比率的值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_Scale()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Scale()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scaleX, float scaleY)
@@ -1435,25 +1353,23 @@ Image_ErrorCode OH_PixelmapNative_Scale(OH_PixelmapNative *pixelmap, float scale
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | float scaleX | 宽度的缩放比例。 |
 | float scaleY | 高度的缩放比例。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_ScaleWithAntiAliasing()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_ScaleWithAntiAliasing()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_ScaleWithAntiAliasing(OH_PixelmapNative *pixelmap, float scaleX, float scaleY, OH_PixelmapNative_AntiAliasingLevel level)
@@ -1467,26 +1383,24 @@ Image_ErrorCode OH_PixelmapNative_ScaleWithAntiAliasing(OH_PixelmapNative *pixel
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | float scaleX | 宽度的缩放比例。 |
 | float scaleY | 高度的缩放比例。 |
-| [OH_PixelmapNative_AntiAliasingLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_antialiasinglevel) level | 缩放算法。 |
+| OH_PixelmapNative_AntiAliasingLevel level | 缩放算法。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_TOO_LARGE：图片过大。          IMAGE_ALLOC_FAILED：内存申请失败。          IMAGE_UNKNOWN_ERROR：pixelmap已经被释放。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_TOO_LARGE：图片过大。 IMAGE_ALLOC_FAILED：内存申请失败。 IMAGE_UNKNOWN_ERROR：pixelmap已经被释放。 |
 
 
-### OH_PixelmapNative_CreateScaledPixelMap()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreateScaledPixelMap()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMap(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap, float scaleX, float scaleY)
@@ -1500,26 +1414,24 @@ Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMap(OH_PixelmapNative *srcPix
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *srcPixelmap | 被操作的OH_PixelmapNative指针，源pixelmap对象指针。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **dstPixelmap | 被操作的OH_PixelmapNative指针，目标pixelmap对象指针。 |
+| OH_PixelmapNative *srcPixelmap | 被操作的OH_PixelmapNative指针，源pixelmap对象指针。 |
+| OH_PixelmapNative **dstPixelmap | 被操作的OH_PixelmapNative指针，目标pixelmap对象指针。 |
 | float scaleX | 宽度的缩放比例。 |
 | float scaleY | 高度的缩放比例。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap, float scaleX, float scaleY, OH_PixelmapNative_AntiAliasingLevel level)
@@ -1533,27 +1445,25 @@ Image_ErrorCode OH_PixelmapNative_CreateScaledPixelMapWithAntiAliasing(OH_Pixelm
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *srcPixelmap | 被操作的OH_PixelmapNative指针，源pixelmap对象指针。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **dstPixelmap | 被操作的OH_PixelmapNative指针，目标pixelmap对象指针。 |
+| OH_PixelmapNative *srcPixelmap | 被操作的OH_PixelmapNative指针，源pixelmap对象指针。 |
+| OH_PixelmapNative **dstPixelmap | 被操作的OH_PixelmapNative指针，目标pixelmap对象指针。 |
 | float scaleX | 宽度的缩放比例。 |
 | float scaleY | 高度的缩放比例。 |
-| [OH_PixelmapNative_AntiAliasingLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_antialiasinglevel) level | 缩放算法。 |
+| OH_PixelmapNative_AntiAliasingLevel level | 缩放算法。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_TOO_LARGE：图片过大。          IMAGE_ALLOC_FAILED：内存申请失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_TOO_LARGE：图片过大。 IMAGE_ALLOC_FAILED：内存申请失败。 |
 
 
-### OH_PixelmapNative_CreateAlphaPixelmap()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreateAlphaPixelmap()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreateAlphaPixelmap(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap)
@@ -1567,24 +1477,22 @@ Image_ErrorCode OH_PixelmapNative_CreateAlphaPixelmap(OH_PixelmapNative *srcPixe
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *srcPixelmap | 提供Alpha通道数据的源PixelMap。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **dstPixelmap | 被创建的目标PixelMap。 |
+| OH_PixelmapNative *srcPixelmap | 提供Alpha通道数据的源PixelMap。 |
+| OH_PixelmapNative **dstPixelmap | 被创建的目标PixelMap。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：srcPixelmap或dstPixelmap有误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：srcPixelmap或dstPixelmap有误。 |
 
 
-### OH_PixelmapNative_Clone()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Clone()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Clone(OH_PixelmapNative *srcPixelmap, OH_PixelmapNative **dstPixelmap)
@@ -1598,24 +1506,22 @@ Image_ErrorCode OH_PixelmapNative_Clone(OH_PixelmapNative *srcPixelmap, OH_Pixel
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *srcPixelmap | 被复制的源PixelMap。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **dstPixelmap | 被创建的目标PixelMap。 |
+| OH_PixelmapNative *srcPixelmap | 被复制的源PixelMap。 |
+| OH_PixelmapNative **dstPixelmap | 被创建的目标PixelMap。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：srcPixelmap或dstPixelmap有误。          IMAGE_UNSUPPORTED_DATA_FORMAT：像素格式不支持。          IMAGE_TOO_LARGE：源PixelMap的尺寸过大。          IMAGE_INIT_FAILED：目标PixelMap初始化失败。          IMAGE_ALLOC_FAILED：内存申请或数据复制失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：srcPixelmap或dstPixelmap有误。 IMAGE_UNSUPPORTED_DATA_FORMAT：像素格式不支持。 IMAGE_TOO_LARGE：源PixelMap的尺寸过大。 IMAGE_INIT_FAILED：目标PixelMap初始化失败。 IMAGE_ALLOC_FAILED：内存申请或数据复制失败。 |
 
 
-### OH_PixelmapNative_CreateCroppedAndScaledPixelMap()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreateCroppedAndScaledPixelMap()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreateCroppedAndScaledPixelMap(OH_PixelmapNative *srcPixelmap, Image_Region *region, Image_Scale *scale, OH_PixelmapNative_AntiAliasingLevel level, OH_PixelmapNative **dstPixelmap)
@@ -1629,27 +1535,25 @@ Image_ErrorCode OH_PixelmapNative_CreateCroppedAndScaledPixelMap(OH_PixelmapNati
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *srcPixelmap | 源PixelMap。 |
-| [Image_Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-image-region) *region | 裁剪区域。 |
-| [Image_Scale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-image-scale) *scale | 宽和高的缩放倍数。不能为0。 |
-| [OH_PixelmapNative_AntiAliasingLevel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_antialiasinglevel) level | 要使用的缩放插值算法。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **dstPixelmap | 被创建的目标PixelMap。 |
+| OH_PixelmapNative *srcPixelmap | 源PixelMap。 |
+| Image_Region *region | 裁剪区域。 |
+| Image_Scale *scale | 宽和高的缩放倍数。不能为0。 |
+| OH_PixelmapNative_AntiAliasingLevel level | 要使用的缩放插值算法。 |
+| OH_PixelmapNative **dstPixelmap | 被创建的目标PixelMap。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：srcPixelmap、region、scale或dstPixelmap有误。          IMAGE_UNSUPPORTED_DATA_FORMAT：像素格式不支持。          IMAGE_TOO_LARGE：源PixelMap的尺寸过大。          IMAGE_INIT_FAILED：目标PixelMap初始化失败。          IMAGE_ALLOC_FAILED：内存申请或数据复制失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：srcPixelmap、region、scale或dstPixelmap有误。 IMAGE_UNSUPPORTED_DATA_FORMAT：像素格式不支持。 IMAGE_TOO_LARGE：源PixelMap的尺寸过大。 IMAGE_INIT_FAILED：目标PixelMap初始化失败。 IMAGE_ALLOC_FAILED：内存申请或数据复制失败。 |
 
 
-### OH_PixelmapNative_Translate()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Translate()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x, float y)
@@ -1663,25 +1567,23 @@ Image_ErrorCode OH_PixelmapNative_Translate(OH_PixelmapNative *pixelmap, float x
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | float x | 区域横坐标。 |
 | float y | 区域纵坐标。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_Rotate()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Rotate()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angle)
@@ -1695,24 +1597,22 @@ Image_ErrorCode OH_PixelmapNative_Rotate(OH_PixelmapNative *pixelmap, float angl
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
-| float angle | 图片旋转的角度，��位为deg。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| float angle | 图片旋转的角度，单位为deg。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_Flip()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Flip()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldFlipHorizontally, bool shouldFlipVertically)
@@ -1726,25 +1626,23 @@ Image_ErrorCode OH_PixelmapNative_Flip(OH_PixelmapNative *pixelmap, bool shouldF
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | bool shouldFlipHorizontally | 是否水平翻转图像。true表示进行水平翻转，false表示不进行水平翻转。 |
 | bool shouldFlipVertically | 是否垂直翻转图像。true表示进行垂直翻转，false表示不进行垂直翻转。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_Crop()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Crop()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region *region)
@@ -1758,24 +1656,22 @@ Image_ErrorCode OH_PixelmapNative_Crop(OH_PixelmapNative *pixelmap, Image_Region
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
-| [Image_Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-image-region) *region | 裁剪的尺寸。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| Image_Region *region | 裁剪的尺寸。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_Release()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Release()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap)
@@ -1789,23 +1685,21 @@ Image_ErrorCode OH_PixelmapNative_Release(OH_PixelmapNative *pixelmap)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被释放的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被释放的OH_PixelmapNative指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_Destroy()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_Destroy()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_Destroy(OH_PixelmapNative **pixelmap)
@@ -1819,23 +1713,21 @@ Image_ErrorCode OH_PixelmapNative_Destroy(OH_PixelmapNative **pixelmap)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被释放的OH_PixelmapNative指针。 |
+| OH_PixelmapNative **pixelmap | 被释放的OH_PixelmapNative指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_ConvertAlphaFormat()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_ConvertAlphaFormat()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixelmap, OH_PixelmapNative* dstpixelmap, const bool isPremul)
@@ -1849,25 +1741,23 @@ Image_ErrorCode OH_PixelmapNative_ConvertAlphaFormat(OH_PixelmapNative* srcpixel
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative)* srcpixelmap | 被操作的OH_PixelmapNative指针，源pixelmap对象指针。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative)* dstpixelmap | 被操作的OH_PixelmapNative指针，目标pixelmap对象指针。 |
+| OH_PixelmapNative* srcpixelmap | 被操作的OH_PixelmapNative指针，源pixelmap对象指针。 |
+| OH_PixelmapNative* dstpixelmap | 被操作的OH_PixelmapNative指针，目标pixelmap对象指针。 |
 | const bool isPremul | 转换方式，true为非预乘转预乘，false为预乘转非预乘。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_CreateEmptyPixelmap()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreateEmptyPixelmap()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(OH_Pixelmap_InitializationOptions *options, OH_PixelmapNative **pixelmap)
@@ -1881,24 +1771,22 @@ Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmap(OH_Pixelmap_Initialization
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 创建像素的属性。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
+| OH_Pixelmap_InitializationOptions *options | 创建像素的属性。 |
+| OH_PixelmapNative **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误�� |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(OH_Pixelmap_InitializationOptions *options, IMAGE_ALLOCATOR_MODE allocator, OH_PixelmapNative **pixelmap)
@@ -1912,25 +1800,23 @@ Image_ErrorCode OH_PixelmapNative_CreateEmptyPixelmapUsingAllocator(OH_Pixelmap_
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_Pixelmap_InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/age-nativemodule-oh-pixelmap-initializationoptions) *options | 创建pixelmap的选项。 |
-| [IMAGE_ALLOCATOR_MODE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_allocator_mode) allocator | 决定pixelmap内存分配的类型。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
+| OH_Pixelmap_InitializationOptions *options | 创建pixelmap的选项。 |
+| IMAGE_ALLOCATOR_MODE allocator | 决定pixelmap内存分配的类型。 |
+| OH_PixelmapNative **pixelmap | 被创建的OH_PixelmapNative对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_UNSUPPORTED_OPERATION：操作不支持。          IMAGE_TOO_LARGE：图像过大，无法分配内存。          IMAGE_DMA_OPERATION_FAILED：DMA内存操作失败。          IMAGE_ALLOCATOR_MODE_UNSUPPORTED：不支持分配当前内存类型。例如，使用共享内存创建HDR图。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_UNSUPPORTED_OPERATION：操作不支持。 IMAGE_TOO_LARGE：图像过大，无法分配内存。 IMAGE_DMA_OPERATION_FAILED：DMA内存操作失败。 IMAGE_ALLOCATOR_MODE_UNSUPPORTED：不支持分配当前内存类型。例如，使用共享内存创建HDR图。 |
 
 
-### OH_PixelmapNative_CreatePixelmapFromSurface()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreatePixelmapFromSurface()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurface(const char *surfaceId, size_t length, OH_PixelmapNative **pixelmap)
@@ -1944,25 +1830,23 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurface(const char *surfaceI
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *surfaceId | Surface ID字符串。 |
 | size_t length | Surface ID字符串的长度。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被创建的PixelMap。 |
+| OH_PixelmapNative **pixelmap | 被创建的PixelMap。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：surfaceId或pixelmap有误。          IMAGE_CREATE_PIXELMAP_FAILED：PixelMap创建失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：surfaceId或pixelmap有误。 IMAGE_CREATE_PIXELMAP_FAILED：PixelMap创建失败。 |
 
 
-### OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(const char *surfaceId, size_t length, bool transformEnabled, OH_PixelmapNative **pixelmap)
@@ -1976,21 +1860,19 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(co
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
 | const char *surfaceId | 对应Surface的ID字符串。 |
 | size_t length | 对应Surface的ID字符串长度。 |
-| bool transformEnabled | 是否对携带变换信息的Surface预先进行逆变换来消除PixelMap的旋转或翻转效果。若Surface未携带变换信息，本参数不生效。          如果是true，则进行逆变换，变换的角度与Surface携带的角度一致且方向相反，输出的PixelMap无旋转或翻转效果；          如果是false，则不进行逆变换，输出的PixelMap会根据Surface中的变换信息而带有旋转或翻转效果。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被创建的PixelMap。 |
+| bool transformEnabled | 是否对携带变换信息的Surface预先进行逆变换来消除PixelMap的旋转或翻转效果。若Surface未携带变换信息，本参数不生效。 如果是true，则进行逆变换，变换的角度与Surface携带的角度一致且方向相反，输出的PixelMap无旋转或翻转效果； 如果是false，则不进行逆变换，输出的PixelMap会根据Surface中的变换信息而带有旋转或翻转效果。 |
+| OH_PixelmapNative **pixelmap | 被创建的PixelMap。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_INVALID_PARAMETER：参数无效，例如：surfaceId或pixelmap有误。          IMAGE_UNSUPPORTED_OPERATION：不支持的操作，例如：跨平台时调用。          IMAGE_GET_IMAGE_DATA_FAILED：获取Surface的数据失败。          IMAGE_CREATE_PIXELMAP_FAILED：PixelMap创建失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_INVALID_PARAMETER：参数无效，例如：surfaceId或pixelmap有误。 IMAGE_UNSUPPORTED_OPERATION：不支持的操作，例如：跨平台时调用。 IMAGE_GET_IMAGE_DATA_FAILED：获取Surface的数据失败。 IMAGE_CREATE_PIXELMAP_FAILED：PixelMap创建失败。 |
 
 
 **参考：**
@@ -1998,9 +1880,8 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromSurfaceWithTransformation(co
 [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative)
 
 
-### OH_PixelmapNative_CreatePixelmapFromNativeBuffer()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### OH_PixelmapNative_CreatePixelmapFromNativeBuffer()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromNativeBuffer(OH_NativeBuffer *nativeBuffer, OH_PixelmapNative **pixelmap)
@@ -2016,24 +1897,22 @@ Image_ErrorCode OH_PixelmapNative_CreatePixelmapFromNativeBuffer(OH_NativeBuffer
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ge-nativemodule-image-nativemodule-oh-nativebuffer) *nativeBuffer | 含有PixelMap数据的NativeBuffer对象。 |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) **pixelmap | 被创建的PixelMap。 |
+| OH_NativeBuffer *nativeBuffer | 含有PixelMap数据的NativeBuffer对象。 |
+| OH_PixelmapNative **pixelmap | 被创建的PixelMap。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：nativeBuffer或pixelmap有误，像素格式不支持，或未配置[CPU访问权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-buffer-h#oh_nativebuffer_usage)。          IMAGE_CREATE_PIXELMAP_FAILED：PixelMap创建失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：nativeBuffer或pixelmap有误，像素格式不支持，或未配置CPU访问权限。 IMAGE_CREATE_PIXELMAP_FAILED：PixelMap创建失败。 |
 
 
-### OH_PixelmapNative_GetNativeBuffer()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetNativeBuffer()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetNativeBuffer(OH_PixelmapNative *pixelmap, OH_NativeBuffer **nativeBuffer)
@@ -2047,24 +1926,22 @@ Image_ErrorCode OH_PixelmapNative_GetNativeBuffer(OH_PixelmapNative *pixelmap, O
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 要获取NativeBuffer的源PixelMap。 |
-| [OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ge-nativemodule-image-nativemodule-oh-nativebuffer) **nativeBuffer | 被创建的NativeBuffer对象指针。 |
+| OH_PixelmapNative *pixelmap | 要获取NativeBuffer的源PixelMap。 |
+| OH_NativeBuffer **nativeBuffer | 被创建的NativeBuffer对象指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_DMA_NOT_EXIST：不是DMA内存。          IMAGE_DMA_OPERATION_FAILED：DMA内存操作失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_DMA_NOT_EXIST：不是DMA内存。 IMAGE_DMA_OPERATION_FAILED：DMA内存操作失败。 |
 
 
-### OH_PixelmapNative_GetMetadata()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetMetadata()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetMetadata(OH_PixelmapNative *pixelmap, OH_Pixelmap_HdrMetadataKey key, OH_Pixelmap_HdrMetadataValue **value)
@@ -2078,25 +1955,23 @@ Image_ErrorCode OH_PixelmapNative_GetMetadata(OH_PixelmapNative *pixelmap, OH_Pi
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
-| [OH_Pixelmap_HdrMetadataKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmap_hdrmetadatakey) key | 元数据的关键字。 |
-| [OH_Pixelmap_HdrMetadataValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-image-nativemodule-oh-pixelmap-hdrmetadatavalue) **value | 元数据的值。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_Pixelmap_HdrMetadataKey key | 元数据的关键字。 |
+| OH_Pixelmap_HdrMetadataValue **value | 元数据的值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_DMA_NOT_EXIST：不存在DMA内存。          IMAGE_COPY_FAILED：如果内存拷贝失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_DMA_NOT_EXIST：不存在DMA内存。 IMAGE_COPY_FAILED：如果内存拷贝失败。 |
 
 
-### OH_PixelmapNative_SetMetadata()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_SetMetadata()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_SetMetadata(OH_PixelmapNative *pixelmap, OH_Pixelmap_HdrMetadataKey key, OH_Pixelmap_HdrMetadataValue *value)
@@ -2110,25 +1985,23 @@ Image_ErrorCode OH_PixelmapNative_SetMetadata(OH_PixelmapNative *pixelmap, OH_Pi
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
-| [OH_Pixelmap_HdrMetadataKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmap_hdrmetadatakey) key | 元数据的关键字。 |
-| [OH_Pixelmap_HdrMetadataValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-image-nativemodule-oh-pixelmap-hdrmetadatavalue) *value | 元数据的值。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_Pixelmap_HdrMetadataKey key | 元数据的关键字。 |
+| OH_Pixelmap_HdrMetadataValue *value | 元数据的值。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。          IMAGE_DMA_NOT_EXIST：不存在DMA内存。          IMAGE_COPY_FAILED：如果内存拷贝失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 IMAGE_DMA_NOT_EXIST：不存在DMA内存。 IMAGE_COPY_FAILED：如果内存拷贝失败。 |
 
 
-### OH_PixelmapNative_SetColorSpaceNative()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_SetColorSpaceNative()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_SetColorSpaceNative(OH_PixelmapNative *pixelmap, OH_NativeColorSpaceManager *colorSpaceNative)
@@ -2142,24 +2015,22 @@ Image_ErrorCode OH_PixelmapNative_SetColorSpaceNative(OH_PixelmapNative *pixelma
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 要设置NativeColorSpaceManager的目标PixelMap。 |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-nativecolorspacemanager) *colorSpaceNative | 要设置的NativeColorSpaceManager对象。 |
+| OH_PixelmapNative *pixelmap | 要设置NativeColorSpaceManager的目标PixelMap。 |
+| OH_NativeColorSpaceManager *colorSpaceNative | 要设置的NativeColorSpaceManager对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_GetColorSpaceNative()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetColorSpaceNative()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetColorSpaceNative(OH_PixelmapNative *pixelmap, OH_NativeColorSpaceManager **colorSpaceNative)
@@ -2173,24 +2044,22 @@ Image_ErrorCode OH_PixelmapNative_GetColorSpaceNative(OH_PixelmapNative *pixelma
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 获取到NativeColorSpaceManager的源PixelMap。 |
-| [OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-nativecolorspacemanager) **colorSpaceNative | 获取到的NativeColorSpaceManager对象。 |
+| OH_PixelmapNative *pixelmap | 获取到NativeColorSpaceManager的源PixelMap。 |
+| OH_NativeColorSpaceManager **colorSpaceNative | 获取到的NativeColorSpaceManager对象。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：参数错误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：参数错误。 |
 
 
-### OH_PixelmapNative_SetMemoryName()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_SetMemoryName()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_SetMemoryName(OH_PixelmapNative *pixelmap, char *name, size_t *size)
@@ -2204,25 +2073,23 @@ Image_ErrorCode OH_PixelmapNative_SetMemoryName(OH_PixelmapNative *pixelmap, cha
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的OH_PixelmapNative指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的OH_PixelmapNative指针。 |
 | char *name | 需要被设置的PixelMap内存名称。 |
 | size_t *size | 需要被设置的PixelMap内存名称的字节大小。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：名字长度超过取值范围。DMA内存名字取值范围为[1, 255]，ASHMEM内存名字取值范围为[1, 244]，单位字节。          IMAGE_UNSUPPORTED_MEMORY_FORMAT：既不是DMA内存也不是ASHMEM内存。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：名字长度超过取值范围。DMA内存名字取值范围为[1, 255]，ASHMEM内存名字取值范围为[1, 244]，单位字节。 IMAGE_UNSUPPORTED_MEMORY_FORMAT：既不是DMA内存也不是ASHMEM内存。 |
 
 
-### OH_PixelmapNative_GetByteCount()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetByteCount()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetByteCount(OH_PixelmapNative *pixelmap, uint32_t *byteCount)
@@ -2236,24 +2103,22 @@ Image_ErrorCode OH_PixelmapNative_GetByteCount(OH_PixelmapNative *pixelmap, uint
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的Pixelmap指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的Pixelmap指针。 |
 | uint32_t *byteCount | 获取的总字节数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：pixelmap或byteCount参数无效。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：pixelmap或byteCount参数无效。 |
 
 
-### OH_PixelmapNative_GetAllocationByteCount()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetAllocationByteCount()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetAllocationByteCount(OH_PixelmapNative *pixelmap, uint32_t *allocationByteCount)
@@ -2267,24 +2132,22 @@ Image_ErrorCode OH_PixelmapNative_GetAllocationByteCount(OH_PixelmapNative *pixe
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的Pixelmap指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的Pixelmap指针。 |
 | uint32_t *allocationByteCount | 获取的内存字节数。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：pixelmap或allocationByteCount参数无效。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：pixelmap或allocationByteCount参数无效。 |
 
 
-### OH_PixelmapNative_AccessPixels()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_AccessPixels()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_AccessPixels(OH_PixelmapNative *pixelmap, void **addr)
@@ -2300,24 +2163,22 @@ Image_ErrorCode OH_PixelmapNative_AccessPixels(OH_PixelmapNative *pixelmap, void
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的Pixelmap指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的Pixelmap指针。 |
 | void **addr | Pixelmap内存地址的双指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：pixelmap或addr参数无效。          IMAGE_LOCK_UNLOCK_FAILED：内存锁定失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：pixelmap或addr参数无效。 IMAGE_LOCK_UNLOCK_FAILED：内存锁定失败。 |
 
 
-### OH_PixelmapNative_UnaccessPixels()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_UnaccessPixels()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_UnaccessPixels(OH_PixelmapNative *pixelmap)
@@ -2333,23 +2194,21 @@ Image_ErrorCode OH_PixelmapNative_UnaccessPixels(OH_PixelmapNative *pixelmap)
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被操作的Pixelmap指针。 |
+| OH_PixelmapNative *pixelmap | 被操作的Pixelmap指针。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：执行成功。          IMAGE_BAD_PARAMETER：pixelmap参数无效。          IMAGE_LOCK_UNLOCK_FAILED：内存解锁失败。 |
+| Image_ErrorCode | IMAGE_SUCCESS：执行成功。 IMAGE_BAD_PARAMETER：pixelmap参数无效。 IMAGE_LOCK_UNLOCK_FAILED：内存解锁失败。 |
 
 
-### OH_PixelmapNative_GetUniqueId()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_GetUniqueId()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_GetUniqueId(OH_PixelmapNative *pixelmap, uint32_t *uniqueId)
@@ -2363,24 +2222,22 @@ Image_ErrorCode OH_PixelmapNative_GetUniqueId(OH_PixelmapNative *pixelmap, uint3
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 获取唯一ID的PixelMap。 |
+| OH_PixelmapNative *pixelmap | 获取唯一ID的PixelMap。 |
 | uint32_t *uniqueId | 获取的唯一ID。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或uniqueId有误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或uniqueId有误。 |
 
 
-### OH_PixelmapNative_IsReleased()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+
+##### OH_PixelmapNative_IsReleased()
 
 ```text
 Image_ErrorCode OH_PixelmapNative_IsReleased(OH_PixelmapNative *pixelmap, bool *released)
@@ -2394,16 +2251,14 @@ Image_ErrorCode OH_PixelmapNative_IsReleased(OH_PixelmapNative *pixelmap, bool *
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [OH_PixelmapNative](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmapnative) *pixelmap | 被检测的PixelMap。 |
+| OH_PixelmapNative *pixelmap | 被检测的PixelMap。 |
 | bool *released | 获取的PixelMap的释放状态。true表示已被释放，false表示未被释放。 |
 
 
 **返回：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Image_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h#image_errorcode) | IMAGE_SUCCESS：操作成功。          IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或released有误。 |
+| Image_ErrorCode | IMAGE_SUCCESS：操作成功。 IMAGE_BAD_PARAMETER：参数无效，例如：pixelmap或released有误。 |

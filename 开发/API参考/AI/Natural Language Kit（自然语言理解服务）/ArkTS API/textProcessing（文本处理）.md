@@ -3,7 +3,7 @@
 更新时间：2026-05-12 09:31:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-text-processing-api
-**支持设备：** Phone / PC/2in1 / Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 自然语言理解服务提供将输入的普通文本都标注为带词性的文本，标注每个词是名词、动词、形容词或其他词性。
 
@@ -12,17 +12,15 @@
 **起始版本：** 5.0.0(12)
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
+##### 导入模块
 
-
-```ts
+```text
 import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 ```
 
 
-## WordSegment
-**支持设备：** Phone / PC/2in1 / Tablet
+
+##### WordSegment
 
 分词的输出结果，包含词语和词性。
 
@@ -30,15 +28,15 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | word | string | 否 | 否 | 词语。 |
-| wordTag | string | 否 | 否 | 词性。词性分类参考[wordTag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-word-tag-api)。 |
+| wordTag | string | 否 | 否 | 词性。词性分类参考wordTag。 |
 
 
-## EntityConfig
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### EntityConfig
 
 可选配置项，实体的类别。
 
@@ -46,21 +44,20 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| entityTypes | [EntityType](#entitytype)[] | 否 | 是 | 实体的类别。          默认全选。 |
+| entityTypes | EntityType[] | 否 | 是 | 实体的类别。 默认全选。 |
 
 
-## EntityType
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### EntityType
 
 实体类别的枚举类。
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
 **起始版本：** 5.0.0(12)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -76,8 +73,9 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 | ID_NO | idNo | 身份证号实体 |
 
 
-## Entity
-**支持设备：** Phone / PC/2in1 / Tablet
+
+
+##### Entity
 
 实体抽取的结果。
 
@@ -85,19 +83,19 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 **起始版本：** 5.0.0(12)
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | text | string | 否 | 否 | 实体原文本。 |
 | charOffset | number | 否 | 否 | 实体在原文本中的位置。所在位置以字符计算。 |
-| type | [EntityType](#entitytype) | 否 | 否 | 实体类别。 |
-| jsonObject | string | 否 | 否 | 实体的其他字段。详情参考[jsonObject](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-json-object-api)。 |
+| type | EntityType | 否 | 否 | 实体类别。 |
+| jsonObject | string | 否 | 否 | 实体的其他字段。详情参考jsonObject。 |
 
 
-## textProcessing.getWordSegment
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getWordSegment(text: string): Promise<Array<WordSegment>>
+
+##### textProcessing.getWordSegment
+
+getWordSegment(text: string): Promise<Array&lt;WordSegment&gt;>
 
 创建分词实例，并初始化引擎。使用Promise异步回调。
 
@@ -107,24 +105,21 @@ getWordSegment(text: string): Promise<Array<WordSegment>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | 输入待分析的文本内容。相关规格参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/natural-language-introduction#约束与限制)。 |
+| text | string | 是 | 输入待分析的文本内容。相关规格参考约束与限制。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[WordSegment](#wordsegment)&gt;&gt; | Promise对象，返回分词结果的集合。 |
+| Promise<Array&lt;WordSegment&gt;> | Promise对象，返回分词结果的集合。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -136,20 +131,19 @@ getWordSegment(text: string): Promise<Array<WordSegment>>
 
 **示例：**
 
-
-```ts
+```text
 import { textProcessing } from '@kit.NaturalLanguageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function testWordSegment(inputText: string) {
   textProcessing.getWordSegment(inputText)
-  .then(result => {
-    let outputText = formatWordSegmentResult(result);
-    console.info('NLUDemo', `getWordSegment result:${outputText}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error('NLUDemo', `getWordSegment errorCode: ${err.code} errorMessage: ${err.message}`);
-  });
+    .then(result => {
+      let outputText = formatWordSegmentResult(result);
+      console.info('NLUDemo', `getWordSegment result:${outputText}`);
+    })
+    .catch((err: BusinessError) => {
+      console.error('NLUDemo', `getWordSegment errorCode: ${err.code} errorMessage: ${err.message}`);
+    });
 }
 
 function formatWordSegmentResult(segments: textProcessing.WordSegment[]): string {
@@ -177,10 +171,10 @@ struct Page {
 ```
 
 
-## textProcessing.getEntity
-**支持设备：** Phone / PC/2in1 / Tablet
 
-getEntity(text: string, entityConfig?: EntityConfig): Promise<Array<Entity>>
+##### textProcessing.getEntity
+
+getEntity(text: string, entityConfig?: EntityConfig): Promise<Array&lt;Entity&gt;>
 
 创建实体抽取实例，并初始化引擎。使用Promise异步回调。
 
@@ -190,25 +184,22 @@ getEntity(text: string, entityConfig?: EntityConfig): Promise<Array<Entity>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | 输入的字符串。相关规格参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/natural-language-introduction#约束与限制)。 |
-| entityConfig | [EntityConfig](#entityconfig) | 否 | 实体配置项：实体类别。          默认全选。推荐按需加载实体类别，以提高应用性能。 |
+| text | string | 是 | 输入的字符串。相关规格参考约束与限制。 |
+| entityConfig | EntityConfig | 否 | 实体配置项：实体类别。 默认全选。推荐按需加载实体类别，以提高应用性能。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[Entity](#entity)&gt;&gt; | Promise对象，返回实体的结果集合。 |
+| Promise<Array&lt;Entity&gt;> | Promise对象，返回实体的结果集合。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -220,8 +211,7 @@ getEntity(text: string, entityConfig?: EntityConfig): Promise<Array<Entity>>
 
 **示例：**
 
-
-```ts
+```json
 import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -270,10 +260,10 @@ struct Page {
 ```
 
 
-## textProcessing.init
-**支持设备：** Phone / PC/2in1 / Tablet
 
-init(): Promise<boolean>
+##### textProcessing.init
+
+init(): Promise&lt;boolean&gt;
 
 初始化自然语言处理的引擎。使用Promise异步回调。
 
@@ -283,7 +273,6 @@ init(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象，true表示初始化成功，false表示初始化失败。 |
@@ -292,10 +281,10 @@ init(): Promise<boolean>
 > [!NOTE]
 > 此初始化接口非必须调用。在主动使用时，可以提前初始化该功能，减少首次调用文本处理能力的时延。
 
+
 **错误码：**
 
 以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -306,8 +295,7 @@ init(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { textProcessing } from '@kit.NaturalLanguageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -330,10 +318,10 @@ struct Page {
 ```
 
 
-## textProcessing.release
-**支持设备：** Phone / PC/2in1 / Tablet
 
-release(): Promise<boolean>
+##### textProcessing.release
+
+release(): Promise&lt;boolean&gt;
 
 释放引擎。使用Promise异步回调。
 
@@ -342,7 +330,6 @@ release(): Promise<boolean>
 **起始版本：** 5.0.0(12)
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -353,7 +340,6 @@ release(): Promise<boolean>
 
 以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 200 | Run timed out, please try again later. |
@@ -363,8 +349,7 @@ release(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```text
 import { textProcessing } from '@kit.NaturalLanguageKit';
 
 async function runTextProcessing() {

@@ -1,6 +1,6 @@
 # ContentSlot：混合开发
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-contentslot
 
@@ -8,16 +8,16 @@
 
 支持[混合模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-c#混合模式)开发。当容器为ArkTS组件，且子组件在Native侧创建时，推荐使用ContentSlot占位组件。
 
-
-> [!NOTE]
-> ContentSlot从API version 12开始支持。 本文档仅为开发指南。组件接口规范见ContentSlot API参数说明。
-
-
-## 接口
+> [!TIP]
+> ContentSlot从API version 12开始支持。 本文档仅为开发指南。组件接口规范见 ContentSlot API参数说明 。
 
 
-## ArkTS侧接口
 
+##### 接口
+
+
+
+##### ArkTS侧接口
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -30,30 +30,32 @@ abstract class Content {
 ```
 
 
-## Native侧接口
 
+##### Native侧接口
 
 | 接口名 | 描述 |
 | --- | --- |
-| [OH_ArkUI_NodeContent_RegisterCallback(ArkUI_NodeContentHandle content, ArkUI_NodeContentCallback callback)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontent_registercallback) | 向管理器Content上注册事件。 |
-| [OH_ArkUI_NodeContentEvent_GetEventType(ArkUI_NodeContentEvent* event)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontentevent_geteventtype) | 获取Content上触发的事件类型。 |
-| [OH_ArkUI_NodeContent_AddNode(ArkUI_NodeContentHandle content, ArkUI_NodeHandle node)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontent_addnode) | 在Content上添加子组件。 |
-| [OH_ArkUI_NodeContent_InsertNode(ArkUI_NodeContentHandle content, ArkUI_NodeHandle node, int32_t position)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontent_insertnode) | 在Content上插入子组件。 |
-| [OH_ArkUI_NodeContent_RemoveNode(ArkUI_NodeContentHandle content, ArkUI_NodeHandle node)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontent_removenode) | 在Content上移除子组件。 |
-| [OH_ArkUI_GetNodeContentFromNapiValue(napi_env env, napi_value value, ArkUI_NodeContentHandle* content)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-napi-h#oh_arkui_getnodecontentfromnapivalue) | 获取ArkTS侧创建的NodeContent对象，映射到Native侧的ArkUI_NodeContentHandle。 |
-| [OH_ArkUI_NodeContentEvent_GetNodeContentHandle(ArkUI_NodeContentEvent* event)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontentevent_getnodecontenthandle) | 获取触发上下树事件的Content对象。 |
-| [OH_ArkUI_NodeContent_SetUserData(ArkUI_NodeContentHandle content, void* userData)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontent_setuserdata) | 在Content上设置用户自定义属性。 |
-| [OH_ArkUI_NodeContent_GetUserData(ArkUI_NodeContentHandle content)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#oh_arkui_nodecontent_getuserdata) | 在Content上获取用户自定义属性。 |
-| typedef enum {          NODE_CONTENT_EVENT_ON_ATTACH_TO_WINDOW = 0,          NODE_CONTENT_EVENT_ON_DETACH_FROM_WINDOW = 1,          } [ArkUI_NodeContentEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodecontenteventtype) | Content上会触发的上树和下树事件类型。 |
+| OH_ArkUI_NodeContent_RegisterCallback(ArkUI_NodeContentHandle content, ArkUI_NodeContentCallback callback) | 向管理器Content上注册事件。 |
+| OH_ArkUI_NodeContentEvent_GetEventType(ArkUI_NodeContentEvent* event) | 获取Content上触发的事件类型。 |
+| OH_ArkUI_NodeContent_AddNode(ArkUI_NodeContentHandle content, ArkUI_NodeHandle node) | 在Content上添加子组件。 |
+| OH_ArkUI_NodeContent_InsertNode(ArkUI_NodeContentHandle content, ArkUI_NodeHandle node, int32_t position) | 在Content上插入子组件。 |
+| OH_ArkUI_NodeContent_RemoveNode(ArkUI_NodeContentHandle content, ArkUI_NodeHandle node) | 在Content上移除子组件。 |
+| OH_ArkUI_GetNodeContentFromNapiValue(napi_env env, napi_value value, ArkUI_NodeContentHandle* content) | 获取ArkTS侧创建的NodeContent对象，映射到Native侧的ArkUI_NodeContentHandle。 |
+| OH_ArkUI_NodeContentEvent_GetNodeContentHandle(ArkUI_NodeContentEvent* event) | 获取触发上下树事件的Content对象。 |
+| OH_ArkUI_NodeContent_SetUserData(ArkUI_NodeContentHandle content, void* userData) | 在Content上设置用户自定义属性。 |
+| OH_ArkUI_NodeContent_GetUserData(ArkUI_NodeContentHandle content) | 在Content上获取用户自定义属性。 |
+| typedef enum { NODE_CONTENT_EVENT_ON_ATTACH_TO_WINDOW = 0, NODE_CONTENT_EVENT_ON_DETACH_FROM_WINDOW = 1, } ArkUI_NodeContentEventType | Content上会触发的上树和下树事件类型。 |
 
 
-## 开发实现
 
 
-## ArkTS侧代码实现
+##### 开发实现
 
 
-```text
+
+##### ArkTS侧代码实现
+
+```ArkTS
 import nativeNode from 'libentry.so'; // 开发者自己实现的so
 import { NodeContent } from '@kit.ArkUI';
 
@@ -80,10 +82,14 @@ struct Parent {
 ```
 
 
-## Native侧代码实现
 
-Napi的基础开发知识请查看以下文档：[开发导读](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-development-overview)。 本章节描述实现ContentSlot相关逻辑代码。创建C侧组件的具体步骤，请参阅[使用NDK接口构建UI](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-ui-overview)。
-```text
+##### Native侧代码实现
+
+Napi的基础开发知识请查看以下文档：[开发导读](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-development-overview)。
+
+本章节描述实现ContentSlot相关逻辑代码。创建C侧组件的具体步骤，请参阅[使用NDK接口构建UI](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-ui-overview)。
+
+```cpp
 #include "napi/native_api.h"
 #include "arkui/native_type.h"
 #include "arkui/native_node.h"
@@ -107,7 +113,7 @@ ArkUI_NodeHandle NodeManager::CreateNodeHandle()
     nodeAPI->setAttribute(column, NODE_BACKGROUND_COLOR, &item);
     return column;
 }
-
+    
 // ArkTS侧createNativeNode方法在Native侧的具体实现
 napi_value NodeManager::CreateNativeNode(napi_env env, napi_callback_info info)
 {
@@ -126,7 +132,7 @@ napi_value NodeManager::CreateNativeNode(napi_env env, napi_callback_info info)
         return nullptr;
     }
 
-    nodeAPI = reinterpret_cast(
+    nodeAPI = reinterpret_cast<ArkUI_NativeNodeAPI_1 *>(
         OH_ArkUI_QueryModuleInterfaceByName(ARKUI_NATIVE_NODE, "ArkUI_NativeNodeAPI_1"));
 
     // 将nodeContentHandle_指向ArkTS侧传入的nodeContent
@@ -147,10 +153,13 @@ napi_value NodeManager::CreateNativeNode(napi_env env, napi_callback_info info)
 ```
 
 
-## Native侧主要接口使用说明
 
-注册上下树事件，并通过事件获取对应的Content对象。
-```text
+##### Native侧主要接口使用说明
+
+ - 注册上下树事件，并通过事件获取对应的Content对象。
+
+  
+```cpp
 auto nodeContentEvent = [](ArkUI_NodeContentEvent *event) {
     ArkUI_NodeContentHandle content = OH_ArkUI_NodeContentEvent_GetNodeContentHandle(event);
     // 针对不同content需要额外做的逻辑
@@ -166,8 +175,10 @@ auto nodeContentEvent = [](ArkUI_NodeContentEvent *event) {
 OH_ArkUI_NodeContent_RegisterCallback(nodeContentHandle_, nodeContentEvent);
 ```
 
-添加子组件。
-```text
+ - 添加子组件。
+
+  
+```cpp
 ArkUI_NodeHandle component;
 // 创建C侧组件
 component = CreateNodeHandle();
@@ -175,37 +186,55 @@ component = CreateNodeHandle();
 OH_ArkUI_NodeContent_AddNode(nodeContentHandle_, component);
 ```
 
-插入子组件。
-```text
+ - 插入子组件。
+
+  
+```cpp
 size_t position = 0;
 ArkUI_NodeHandle component1 = CreateNodeHandle();
 // 将组件插入nodeContent管理器对应位置
 OH_ArkUI_NodeContent_InsertNode(nodeContentHandle_, component1, position);
 ```
 
-删除子组件。
-```text
+ - 删除子组件。
+
+  
+```cpp
 // 在nodeContent中移除对应组件
 OH_ArkUI_NodeContent_RemoveNode(nodeContentHandle_, component1);
 ```
 
-设置自定义属性。
-```text
+ - 设置自定义属性。
+
+  
+```cpp
 // 创建需要定义的自定义数据
 void *userData = CreateUserData();
 OH_ArkUI_NodeContent_SetUserData(nodeContentHandle_, userData);
 ```
 
-获取自定义属性。
-```text
+ - 获取自定义属性。
+
+  
+```cpp
 void *userData = OH_ArkUI_NodeContent_GetUserData(nodeContentHandle_);
 ```
 
 
-## 绑定规则说明
 
-如果将同一个Content对象绑定到多个ContentSlot组件，最终该Content的内容仅在最后一个绑定的ContentSlot中显示，其他ContentSlot将不显示任何内容。 **原因说明：** Content与ContentSlot节点具有一对一的绑定关系。同一Content不能同时关联多个ContentSlot节点。如果尝试将同一Content挂载到多个ContentSlot节点，仅最后一次挂载生效，之前的ContentSlot节点将失去Content的关联，导致组件内容无法显示。 若需在多个ContentSlot节点下显示相同内容，每个节点需创建单独的Content。示例如下：
-```text
+
+
+##### 绑定规则说明
+
+如果将同一个Content对象绑定到多个ContentSlot组件，最终该Content的内容仅在最后一个绑定的ContentSlot中显示，其他ContentSlot将不显示任何内容。
+
+**原因说明：**
+
+Content与ContentSlot节点具有一对一的绑定关系。同一Content不能同时关联多个ContentSlot节点。如果尝试将同一Content挂载到多个ContentSlot节点，仅最后一次挂载生效，之前的ContentSlot节点将失去Content的关联，导致组件内容无法显示。
+
+若需在多个ContentSlot节点下显示相同内容，每个节点需创建单独的Content。示例如下：
+
+```ArkTS
 import nativeNode from 'libentry.so'; // 开发者自己实现的so
 import { NodeContent } from '@kit.ArkUI';
 

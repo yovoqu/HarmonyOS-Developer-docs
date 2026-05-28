@@ -1,35 +1,48 @@
 # SaveButton
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-security-components-savebutton
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 安全控件的保存控件。应用集成保存控件后，用户首次使用保存控件展示弹窗，在点击允许后自动授权，应用会在短时间内获取访问媒体库特权接口的授权。后续使用无需弹窗授权。在API version 19及之前的版本中，授权持续时间为10秒；在API version 20及之后的版本中，授权持续时间为1分钟。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 该组件从API version 10开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-#### 子组件
+
+
+##### 子组件
+
 不支持。
 
-#### 接口
-#### SaveButton
+
+
+##### 接口
+
+
+
+##### SaveButton
+
 SaveButton()
+
 默认创建带有图标、文本、背景的保存控件。
+
 为避免控件样式不合法导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-#### SaveButton
+
+
+##### SaveButton
+
 SaveButton(options: SaveButtonOptions)
+
 创建包含指定元素的保存控件。
+
 为避免控件样式不合法导致授权失败，请开发者先了解安全控件样式的[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/security-component-overview#约束与限制)。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -39,15 +52,18 @@ SaveButton(options: SaveButtonOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [SaveButtonOptions](#savebuttonoptions) | 是 | 创建包含指定元素的保存控件。 |
+| options | SaveButtonOptions | 是 | 创建包含指定元素的保存控件。 |
 
-#### SaveButtonOptions
+
+
+
+##### SaveButtonOptions
+
 用于指定保存控件的图标、文本等指定元素。
 
-> [!NOTE] 说明
-> icon或text需至少传入一个。  如果icon、text都不传入，SaveButton中的options参数不生效，创建的SaveButton为默认样式，默认样式： SaveIconStyle默认样式为FULL_FILLED； SaveDescription默认样式为DOWNLOAD； ButtonType默认样式为Capsule。  icon、text、buttonType不支持动态修改。
+> [!NOTE]
+> icon或text需至少传入一个。 如果icon、text都不传入，SaveButton中的options参数不生效，创建的SaveButton为默认样式，默认样式： SaveIconStyle默认样式为FULL_FILLED； SaveDescription默认样式为DOWNLOAD； ButtonType默认样式为Capsule。 icon、text、buttonType不支持动态修改。
 
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -55,13 +71,16 @@ SaveButton(options: SaveButtonOptions)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| icon | [SaveIconStyle](#saveiconstyle枚举说明) | 否 | 是 | 设置保存控件的图标风格。 不传入该参数表示没有图标。 |
-| text | [SaveDescription](#savedescription枚举说明) | 否 | 是 | 设置保存控件的文本描述。 不传入该参数表示没有文字描述。 |
-| buttonType | [ButtonType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes#buttontype枚举说明) | 否 | 是 | 设置保存控件的背景样式。 不传入该参数，系统默认提供Capsule类型按钮。 |
+| icon | SaveIconStyle | 否 | 是 | 设置保存控件的图标风格。 不传入该参数表示没有图标。 |
+| text | SaveDescription | 否 | 是 | 设置保存控件的文本描述。 不传入该参数表示没有文字描述。 |
+| buttonType | ButtonType | 否 | 是 | 设置保存控件的背景样式。 不传入该参数，系统默认提供Capsule类型按钮。 |
 
-#### SaveIconStyle枚举说明
+
+
+
+##### SaveIconStyle枚举说明
+
 保存控件的图标风格。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -72,9 +91,12 @@ SaveButton(options: SaveButtonOptions)
 | FULL_FILLED | 0 | 保存控件展示填充样式图标。 |
 | LINES | 1 | 保存控件展示线条样式图标。 |
 
-#### SaveDescription枚举说明
+
+
+
+##### SaveDescription枚举说明
+
 保存控件的文本描述。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -88,15 +110,18 @@ SaveButton(options: SaveButtonOptions)
 | DOWNLOAD_AND_SHARE | 5 | 保存控件的文字描述为“下载分享”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | RECEIVE | 6 | 保存控件的文字描述为“接收”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | CONTINUE_TO_RECEIVE | 7 | 保存控件的文字描述为“继续接收”。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| SAVE_TO_GALLERY^12+ | 8 | 保存控件的文字描述为“保存至图库”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| EXPORT_TO_GALLERY^12+ | 9 | 保存控件的文字描述为“导出”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| QUICK_SAVE_TO_GALLERY^12+ | 10 | 保存控件的文字描述为“快速保存图片”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| RESAVE_TO_GALLERY^12+ | 11 | 保存控件的文字描述为“重新保存”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| SAVE_ALL^18+ | 12 | 保存控件的文字描述为“全部保存”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| SAVE_TO_GALLERY12+ | 8 | 保存控件的文字描述为“保存至图库”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| EXPORT_TO_GALLERY12+ | 9 | 保存控件的文字描述为“导出”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| QUICK_SAVE_TO_GALLERY12+ | 10 | 保存控件的文字描述为“快速保存图片”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| RESAVE_TO_GALLERY12+ | 11 | 保存控件的文字描述为“重新保存”。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| SAVE_ALL18+ | 12 | 保存控件的文字描述为“全部保存”。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
-#### SaveButtonOnClickResult枚举说明
+
+
+
+##### SaveButtonOnClickResult枚举说明
+
 保存控件点击后的授权结果。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -104,12 +129,16 @@ SaveButton(options: SaveButtonOptions)
 | --- | --- | --- |
 | SUCCESS | 0 | 保存控件点击后权限授权成功。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | TEMPORARY_AUTHORIZATION_FAILED | 1 | 保存控件点击后权限授权失败。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| CANCELED_BY_USER^21+ | 2 | 保存控件点击后弹窗用户取消授权。 元服务API： 从API version 21开始，该接口支持在元服务中使用。 |
+| CANCELED_BY_USER21+ | 2 | 保存控件点击后弹窗用户取消授权。 元服务API： 从API version 21开始，该接口支持在元服务中使用。 |
 
-#### SaveButtonCallback18+
+
+
+
+##### SaveButtonCallback18+
+
 type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, error?: BusinessError&lt;void&gt;) => void
+
 点击保存控件触发该回调。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -119,19 +148,29 @@ type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, e
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [ClickEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#clickevent) | 是 | 见ClickEvent对象说明。 |
-| result | [SaveButtonOnClickResult](#savebuttononclickresult枚举说明) | 是 | 授权的结果。 |
-| error | [BusinessError&lt;void&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#businesserror) | 否 | 点击按钮时的错误码和错误信息。 错误码0表示点击保存控件授权成功或用户取消授权。 错误码1表示系统内部错误，包括但不限于： 1. ipc通信失败。 2. 安全控件弹窗失败。 错误码2表示属性设置错误，包括但不限于： 1. 字体或图标设置过小。 2. 字体或图标与背托颜色相近。 3. 字体或图标颜色过于透明。 4. padding为负值。 5. 按钮被其他组件或窗口遮挡。 6. 文本超出背托范围。 7. 按钮超出窗口或屏幕。 8. 按钮整体尺寸过大。 9. 按钮文本被截断，显示不全。 10. 相关属性设置影响安全控件显示。 |
+| event | ClickEvent | 是 | 见ClickEvent对象说明。 |
+| result | SaveButtonOnClickResult | 是 | 授权的结果。 |
+| error | BusinessError&lt;void&gt; | 否 | 点击按钮时的错误码和错误信息。 错误码0表示点击保存控件授权成功或用户取消授权。 错误码1表示系统内部错误，包括但不限于： 1. ipc通信失败。 2. 安全控件弹窗失败。 错误码2表示属性设置错误，包括但不限于： 1. 字体或图标设置过小。 2. 字体或图标与背托颜色相近。 3. 字体或图标颜色过于透明。 4. padding为负值。 5. 按钮被其他组件或窗口遮挡。 6. 文本超出背托范围。 7. 按钮超出窗口或屏幕。 8. 按钮整体尺寸过大。 9. 按钮文本被截断，显示不全。 10. 相关属性设置影响安全控件显示。 |
 
-#### SaveButtonAttribute
+
+
+
+##### SaveButtonAttribute
+
 SaveButtonAttribute提供自定义图标（setIcon）、自定义文本（setText）、图标尺寸（iconSize）、图标圆角（iconBorderRadius），以及按压态效果（stateEffect）等属性设置的方法。
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-#### setIcon20+
+
+
+##### setIcon20+
+
 setIcon(icon: Resource)
+
 设置保存控件的图标。
-**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -140,13 +179,19 @@ setIcon(icon: Resource)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| icon | [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 是 | 自定义图标资源信息，仅支持Resource类型的数据源。 可支持的图片格式：png、jpg、jpeg、bmp、svg、webp、gif和heif等，支持的图片格式范围见Image。当资源为非图片资源或不支持的格式时，图标显示为空白。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则自定义图标设置不生效，保存控件保持默认样式。详见SaveButtonOptions说明。 |
+| icon | Resource | 是 | 自定义图标资源信息，仅支持Resource类型的数据源。 可支持的图片格式：png、jpg、jpeg、bmp、svg、webp、gif和heif等，支持的图片格式范围见Image。当资源为非图片资源或不支持的格式时，图标显示为空白。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则自定义图标设置不生效，保存控件保持默认样式。详见SaveButtonOptions说明。 |
 
-#### setText20+
+
+
+
+##### setText20+
+
 setText(text: string | Resource)
+
 设置保存控件的文本。
-**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -155,12 +200,16 @@ setText(text: string | Resource)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 是 | 自定义文本信息。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则自定义文本设置不生效，保存控件保持默认样式。详见SaveButtonOptions说明。 |
+| text | string \| Resource | 是 | 自定义文本信息。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则自定义文本设置不生效，保存控件保持默认样式。详见SaveButtonOptions说明。 |
 
-#### iconSize20+
+
+
+
+##### iconSize20+
+
 iconSize(size: Dimension | SizeOptions)
+
 设置保存控件的图标尺寸。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -170,13 +219,19 @@ iconSize(size: Dimension | SizeOptions)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| size | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) \| [SizeOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#sizeoptions) | 是 | 图标尺寸。宽高默认值均为16vp。 不支持设置百分比字符串。若设置Dimension类型入参的百分比字符串，则图标尺寸显示为默认值；若设置SizeOptions类型入参的width或height属性为百分比字符串，则图标尺寸显示为0。 对于保存控件提供的系统图标： - 使用Dimension类型入参时，宽、高相等，均为设定值。 - 使用SizeOptions类型入参时，若宽、高设定值不一致，则宽、高相等取两者较小值；若仅设定其中一个值，则取该值作为宽、高值。 对于自定义图标： - 使用Dimension类型入参时，宽、高相等，均为设定值。 - 使用SizeOptions类型入参时，建议同时设定宽和高，此时按照指定宽、高生效；若仅设定其中一个值，则宽高均显示为该设定值。 - 当设定的宽高与自定义图标的宽高比例不一致时，图片按ImageFit.Cover的方式填充显示区域。 |
+| size | Dimension \| SizeOptions | 是 | 图标尺寸。宽高默认值均为16vp。 不支持设置百分比字符串。若设置Dimension类型入参的百分比字符串，则图标尺寸显示为默认值；若设置SizeOptions类型入参的width或height属性为百分比字符串，则图标尺寸显示为0。 对于保存控件提供的系统图标： - 使用Dimension类型入参时，宽、高相等，均为设定值。 - 使用SizeOptions类型入参时，若宽、高设定值不一致，则宽、高相等取两者较小值；若仅设定其中一个值，则取该值作为宽、高值。 对于自定义图标： - 使用Dimension类型入参时，宽、高相等，均为设定值。 - 使用SizeOptions类型入参时，建议同时设定宽和高，此时按照指定宽、高生效；若仅设定其中一个值，则宽高均显示为该设定值。 - 当设定的宽高与自定义图标的宽高比例不一致时，图片按ImageFit.Cover的方式填充显示区域。 |
 
-#### iconBorderRadius20+
+
+
+
+##### iconBorderRadius20+
+
 iconBorderRadius(radius: Dimension | BorderRadiuses)
+
 设置保存控件图标的边框圆角半径。
-**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -185,13 +240,19 @@ iconBorderRadius(radius: Dimension | BorderRadiuses)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radius | [Dimension](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#dimension10) \| [BorderRadiuses](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#borderradiuses9) | 是 | 保存控件图标的圆角半径，支持设置四个圆角。四个圆角默认值均为0vp。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则图标的圆角半径设置不生效。 |
+| radius | Dimension \| BorderRadiuses | 是 | 保存控件图标的圆角半径，支持设置四个圆角。四个圆角默认值均为0vp。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则图标的圆角半径设置不生效。 |
 
-#### stateEffect20+
+
+
+
+##### stateEffect20+
+
 stateEffect(enabled: boolean)
+
 设置保存控件的按压效果。
-**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.CUSTOMIZE_SAVE_BUTTON
+
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -202,10 +263,14 @@ stateEffect(enabled: boolean)
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 表示是否开启按压效果，true表示保存控件按压时显示按压效果，false表示保存控件按压时不显示按压效果。 默认值：true。 如果应用无ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，按压效果设置不生效。 |
 
-#### userCancelEvent21+
+
+
+
+##### userCancelEvent21+
+
 userCancelEvent(enabled: boolean)
+
 设置接收保存控件的用户取消授权事件。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
@@ -217,16 +282,26 @@ userCancelEvent(enabled: boolean)
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 表示是否接收保存控件的用户取消授权事件，true表示接收保存控件的用户取消授权事件，false表示不接收保存控件的用户取消授权事件。 默认值：false。 |
 
-#### 属性
+
+
+
+##### 属性
+
 不支持通用属性，仅继承[安全控件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes)。
 
-#### 事件
+
+
+##### 事件
+
 不支持通用事件，仅支持以下事件：
 
-#### onClick
+
+
+##### onClick
+
 onClick(event: SaveButtonCallback)
+
 点击动作触发该回调。
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -236,11 +311,14 @@ onClick(event: SaveButtonCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | [SaveButtonCallback](#savebuttoncallback18) | 是 | 见SaveButtonCallback。 在API10-17时，参数类型为：(event: ClickEvent, result: SaveButtonOnClickResult) => void。 从API18开始，变更为SaveButtonCallback。 |
+| event | SaveButtonCallback | 是 | 见SaveButtonCallback。 在API10-17时，参数类型为：(event: ClickEvent, result: SaveButtonOnClickResult) => void。 从API18开始，变更为SaveButtonCallback。 |
 
-#### 示例1
 
-```ts
+
+
+##### 示例1
+
+```ArkTS
 // xxx.ets
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { fileIo } from '@kit.CoreFileKit';
@@ -313,12 +391,17 @@ struct Index {
 }
 ```
 
+
 ![](assets/SaveButton/file-20260525091331287-001.png)
 
-#### 示例2
+
+
+
+##### 示例2
+
 应用需要申请权限：ohos.permission.CUSTOMIZE_SAVE_BUTTON
 
-```ts
+```ArkTS
 // xxx.ets
 @Entry
 @Component
@@ -386,5 +469,6 @@ struct SetIcon {
   }
 }
 ```
+
 
 ![](assets/SaveButton/file-20260525091331287-002.png)

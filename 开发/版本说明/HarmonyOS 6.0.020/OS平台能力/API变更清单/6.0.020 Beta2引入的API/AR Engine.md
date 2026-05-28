@@ -6,4 +6,4 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| 权限变更 | 类名：ARViewContext； API声明：init(): Promise<void>; 差异内容：ohos.permission.CAMERA | 类名：ARViewContext； API声明：init(): Promise<void>; 差异内容：ohos.permission.CAMERA and ohos.permission.GYROSCOPE and ohos.permission.ACCELEROMETER | api/@hms.core.ar.arview.d.ets |
+| 权限变更 | 类名：ARViewContext； API声明：init(): Promise&lt;void&gt;; 差异内容：ohos.permission.CAMERA | 类名：ARViewContext； API声明：init(): Promise&lt;void&gt;; 差异内容：ohos.permission.CAMERA and ohos.permission.GYROSCOPE and ohos.permission.ACCELEROMETER | api/@hms.core.ar.arview.d.ets |

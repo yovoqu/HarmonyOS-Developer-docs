@@ -3,43 +3,44 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicserviceweb
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 为开发者提供满足定制化诉求的Web高阶组件，屏蔽原生Web组件中无需关注的接口，并提供JS扩展能力。
 
+> [!NOTE]
+> 该组件从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
 
-## 需要权限
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 需要权限
 
 访问在线网页时需添加网络权限：ohos.permission.INTERNET，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { AtomicServiceWeb } from '@kit.ArkUI';
 ```
 
 
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 子组件
 
 无
 
 
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
 
-## AtomicServiceWeb
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### AtomicServiceWeb
 
-```ts
+```text
 AtomicServiceWeb({
   src: ResourceStr,
   controller: AtomicServiceWebController,
@@ -67,28 +68,28 @@ AtomicServiceWeb({
 
 **参数**：
 
-
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| src | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | - | 网页资源地址，访问网络资源需要在AGC配置业务域名，访问本地资源仅支持包内文件（\$rawfile）。不支持通过状态变量（例如@State）动态更新地址。加载的网页中支持通过JS SDK提供的接口调用系统能力，具体以JS SDK为准。 |
-| controller | [AtomicServiceWebController](#atomicservicewebcontroller) | 是 | @ObjectLink | 通过AtomicServiceWebController可以控制AtomicServiceWeb组件各种行为。 |
-| navPathStack | [NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10) | 否 | - | 路由栈信息。当使用NavDestination作为页面的根容器时，需传入NavDestination容器对应的NavPathStack处理页面路由。 |
-| mixedMode | [MixedMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#mixedmode) | 否 | @Prop | 设置是否允许加载超文本传输协议（HTTP）和超文本传输安全协议（HTTPS）混合内容，默认不允许加载HTTP和HTTPS混合内容。 |
-| darkMode | [WebDarkMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#webdarkmode9) | 否 | @Prop | 设置Web深色模式，默认关闭。 |
+| src | ResourceStr | 是 | - | 网页资源地址，访问网络资源需要在AGC配置业务域名，访问本地资源仅支持包内文件（\$rawfile）。不支持通过状态变量（例如@State）动态更新地址。加载的网页中支持通过JS SDK提供的接口调用系统能力，具体以JS SDK为准。 |
+| controller | AtomicServiceWebController | 是 | @ObjectLink | 通过AtomicServiceWebController可以控制AtomicServiceWeb组件各种行为。 |
+| navPathStack | NavPathStack | 否 | - | 路由栈信息。当使用NavDestination作为页面的根容器时，需传入NavDestination容器对应的NavPathStack处理页面路由。 |
+| mixedMode | MixedMode | 否 | @Prop | 设置是否允许加载超文本传输协议（HTTP）和超文本传输安全协议（HTTPS）混合内容，默认不允许加载HTTP和HTTPS混合内容。 |
+| darkMode | WebDarkMode | 否 | @Prop | 设置Web深色模式，默认关闭。 |
 | forceDarkAccess | boolean | 否 | @Prop | 设置网页是否开启强制深色模式。true表示设置网页开启强制深色模式，false表示设置网页不开启强制深色模式。默认值：false。该属性仅在darkMode开启深色模式时生效。 |
-| nestedScroll15+ | [NestedScrollOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#nestedscrolloptions10对象说明) \| [NestedScrollOptionsExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#nestedscrolloptionsext14) | 否 | @Prop | 设置嵌套滚动选项。          元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
-| onMessage | Callback&lt;[OnMessageEvent](#onmessageevent)&gt; | 否 | - | H5页面通���JS SDK的postMessage()发送消息后，Web组件对应的页面返回或销毁时，触发该回调。 |
-| onErrorReceive | Callback&lt;[OnErrorReceiveEvent](#onerrorreceiveevent)&gt; | 否 | - | 网页加载遇到错误时触发该回调。出于性能考虑，建议此回调中尽量执行简单逻辑。在无网络的情况下，触发此回调。 |
-| onHttpErrorReceive | Callback&lt;[OnHttpErrorReceiveEvent](#onhttperrorreceiveevent)&gt; | 否 | - | 网页加载资源遇到的HTTP错误（响应码&gt;=400)时触发该回调。 |
-| onPageBegin | Callback&lt;[OnPageBeginEvent](#onpagebeginevent)&gt; | 否 | - | 网页开始加载时触发该回调，且只在主frame触发，iframe或者frameset的内容加载时不会触发此回调。 |
-| onPageEnd | Callback&lt;[OnPageEndEvent](#onpageendevent)&gt; | 否 | - | 网页加载完成时触发该回调，且只在主frame触发。 |
+| nestedScroll15+ | NestedScrollOptions \| NestedScrollOptionsExt | 否 | @Prop | 设置嵌套滚动选项。 元服务API： 从API version 15开始，该接口支持在元服务中使用。 |
+| onMessage | Callback&lt;OnMessageEvent&gt; | 否 | - | H5页面通过JS SDK的postMessage()发送消息后，Web组件对应的页面返回或销毁时，触发该回调。 |
+| onErrorReceive | Callback&lt;OnErrorReceiveEvent&gt; | 否 | - | 网页加载遇到错误时触发该回调。出于性能考虑，建议此回调中尽量执行简单逻辑。在无网络的情况下，触发此回调。 |
+| onHttpErrorReceive | Callback&lt;OnHttpErrorReceiveEvent&gt; | 否 | - | 网页加载资源遇到的HTTP错误（响应码>=400)时触发该回调。 |
+| onPageBegin | Callback&lt;OnPageBeginEvent&gt; | 否 | - | 网页开始加载时触发该回调，且只在主frame触发，iframe或者frameset的内容加载时不会触发此回调。 |
+| onPageEnd | Callback&lt;OnPageEndEvent&gt; | 否 | - | 网页加载完成时触发该回调，且只在主frame触发。 |
 | onControllerAttached | Callback&lt;void&gt; | 否 | - | 当Controller成功绑定到Web组件时触发该回调。 |
-| onLoadIntercept | [OnLoadInterceptCallback](#onloadinterceptcallback) | 否 | - | 当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。默认允许加载。 |
-| onProgressChange | Callback&lt;[OnProgressChangeEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#onprogresschangeevent12)&gt; | 否 | - | 网页加载进度变化时触发该回调。 |
+| onLoadIntercept | OnLoadInterceptCallback | 否 | - | 当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。默认允许加载。 |
+| onProgressChange | Callback&lt;OnProgressChangeEvent&gt; | 否 | - | 网页加载进度变化时触发该回调。 |
 
 
-## AtomicServiceWebController
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### AtomicServiceWebController
 
 通过AtomicServiceWebController可以控制AtomicServiceWeb组件各种行为。一个AtomicServiceWebController对象只能控制一个AtomicServiceWeb组件，且必须在AtomicServiceWeb组件和AtomicServiceWebController绑定后，才能调用AtomicServiceWebController上的方法。
 
@@ -99,8 +100,8 @@ AtomicServiceWeb({
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 
-### getUserAgent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getUserAgent
 
 getUserAgent(): string
 
@@ -112,24 +113,23 @@ getUserAgent(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| string | 默认用户代理。默认User-Agent定义与使用场景请参考[User-Agent开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent)。 |
+| string | 默认用户代理。默认User-Agent定义与使用场景请参考User-Agent开发指导。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### getCustomUserAgent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### getCustomUserAgent
 
 getCustomUserAgent(): string
 
@@ -141,24 +141,23 @@ getCustomUserAgent(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| string | 用户自定义代理信息。默认User-Agent定义与使用场景请参考[User-Agent开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-default-useragent)。 |
+| string | 用户自定义代理信息。默认User-Agent定义与使用场景请参考User-Agent开发指导。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### setCustomUserAgent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### setCustomUserAgent
 
 setCustomUserAgent(userAgent: string): void
 
@@ -166,9 +165,9 @@ setCustomUserAgent(userAgent: string): void
 
 建议在onControllerAttached回调事件中设置User-Agent，设置方式请参考示例。不建议将User-Agent设置在onLoadIntercept回调事件中，会概率性出现设置失败。
 
-
 > [!NOTE]
 > 当Web组件src设置了url，且未在onControllerAttached回调事件中设置User-Agent。再调用setCustomUserAgent方法时，可能会出现加载的页面与实际设置User-Agent不符的异常现象。
+
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -176,16 +175,14 @@ setCustomUserAgent(userAgent: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| userAgent | string | 是 | 用户自定义代理信息。建议先使用[getUserAgent](#getuseragent)获取当前默认用户代理，在此基础上追加自定义用户代理信息。 |
+| userAgent | string | 是 | 用户自定义代理信息。建议先使用getUserAgent获取当前默认用户代理，在此基础上追加自定义用户代理信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -193,8 +190,9 @@ setCustomUserAgent(userAgent: string): void
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### refresh
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### refresh
 
 refresh(): void
 
@@ -208,14 +206,14 @@ refresh(): void
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### forward
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### forward
 
 forward(): void
 
@@ -229,14 +227,14 @@ forward(): void
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### backward
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### backward
 
 backward(): void
 
@@ -250,14 +248,14 @@ backward(): void
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### accessForward
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### accessForward
 
 accessForward(): boolean
 
@@ -269,7 +267,6 @@ accessForward(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 可以前进返回true，否则返回false。 |
@@ -279,14 +276,14 @@ accessForward(): boolean
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### accessBackward
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### accessBackward
 
 accessBackward(): boolean
 
@@ -298,7 +295,6 @@ accessBackward(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 可以后退返回true，否则返回false。 |
@@ -308,14 +304,14 @@ accessBackward(): boolean
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### accessStep
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### accessStep
 
 accessStep(step: number): boolean
 
@@ -327,14 +323,12 @@ accessStep(step: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | step | number | 是 | 要跳转的步数，正数代表前进，负数代表后退。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -345,17 +339,17 @@ accessStep(step: number): boolean
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
 | 17100001 | Init error. The AtomicServiceWebController must be associated with a AtomicServiceWeb component. |
 
 
-### loadUrl
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loadUrl(url: string | Resource, headers?: Array<WebHeader>): void
+
+##### loadUrl
+
+loadUrl(url: string | Resource, headers?: Array&lt;WebHeader&gt;): void
 
 加载指定的URL。
 
@@ -365,17 +359,15 @@ loadUrl(url: string | Resource, headers?: Array<WebHeader>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| url | string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) | 是 | 需要加载的 URL。 |
-| headers | Array&lt;[WebHeader](#webheader)&gt; | 否 | URL的附加HTTP请求头。 |
+| url | string \| Resource | 是 | 需要加载的 URL。 |
+| headers | Array&lt;WebHeader&gt; | 否 | URL的附加HTTP请求头。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-webview).
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -385,8 +377,9 @@ loadUrl(url: string | Resource, headers?: Array<WebHeader>): void
 | 17100003 | Invalid resource path or file type. |
 
 
-## WebHeader
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### WebHeader
 
 Web组件返回的请求/响应头对象。
 
@@ -394,15 +387,15 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | headerKey | string | 否 | 否 | 请求/响应头的key。 |
 | headerValue | string | 否 | 否 | 请求/响应头的value。 |
 
 
-## OnMessageEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnMessageEvent
 
 定义页面回退或销毁时触发该回调。
 
@@ -410,14 +403,14 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | data | object[] | 否 | 否 | 消息列表。 |
 
 
-## OnErrorReceiveEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnErrorReceiveEvent
 
 定义网页加载遇到错误时触发该回调。
 
@@ -425,15 +418,15 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| request | [WebResourceRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webresourcerequest) | 否 | 否 | 网页请求的封装信息。 |
-| error | [WebResourceError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webresourceerror) | 否 | 否 | 网页加载资源错误的封装信息 。 |
+| request | WebResourceRequest | 否 | 否 | 网页请求的封装信息。 |
+| error | WebResourceError | 否 | 否 | 网页加载资源错误的封装信息 。 |
 
 
-## OnHttpErrorReceiveEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnHttpErrorReceiveEvent
 
 定义网页收到加载资源加载HTTP错误时触发。
 
@@ -441,15 +434,15 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| request | [WebResourceRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webresourcerequest) | 否 | 否 | 网页请求的封装信息。 |
-| response | [WebResourceResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webresourceresponse) | 否 | 否 | 资源响应的封装信息。 |
+| request | WebResourceRequest | 否 | 否 | 网页请求的封装信息。 |
+| response | WebResourceResponse | 否 | 否 | 资源响应的封装信息。 |
 
 
-## OnPageBeginEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnPageBeginEvent
 
 定义网页加载开始时触发的函数。
 
@@ -457,14 +450,14 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | url | string | 否 | 否 | 页面的URL地址。 |
 
 
-## OnPageEndEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnPageEndEvent
 
 定义网页加载结束时触发的函数。
 
@@ -472,14 +465,14 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | url | string | 否 | 否 | 页面的URL地址。 |
 
 
-## OnLoadInterceptEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnLoadInterceptEvent
 
 当资源加载被拦截时，加载拦截事件。
 
@@ -487,14 +480,14 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| data | [WebResourceRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webresourcerequest) | 否 | 否 | 网页请求的封装信息。 |
+| data | WebResourceRequest | 否 | 否 | 网页请求的封装信息。 |
 
 
-## OnProgressChangeEvent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnProgressChangeEvent
 
 定义网页加载进度变化时触发该回调。
 
@@ -502,14 +495,14 @@ Web组件返回的请求/响应头对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | newProgress | number | 否 | 否 | 新的加载进度，取值范围为0到100的整数。 |
 
 
-## OnLoadInterceptCallback
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### OnLoadInterceptCallback
 
 type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 
@@ -521,7 +514,6 @@ type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | OnLoadInterceptEvent | 是 | 当资源加载被拦截时，加载拦截事件。 |
@@ -529,28 +521,28 @@ type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 返回资源是否被拦截，true表示被拦截。 |
 
 
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### 事件
 
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 示例
 
 
-### 示例1
+
+##### 示例1
 
 加载本地网页。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { AtomicServiceWeb, AtomicServiceWebController } from '@kit.ArkUI';
 
@@ -558,7 +550,7 @@ import { AtomicServiceWeb, AtomicServiceWebController } from '@kit.ArkUI';
 @Component
 struct WebComponent {
   @State controller: AtomicServiceWebController = new AtomicServiceWebController();
-
+  
   build() {
     Column() {
       AtomicServiceWeb({ src: $rawfile("index.html"), controller: this.controller })
@@ -568,35 +560,35 @@ struct WebComponent {
 ```
 
 
-### 示例2
+
+##### 示例2
 
 加载在线网页。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { AtomicServiceWeb, AtomicServiceWebController } from '@kit.ArkUI';
 
 @Entry
 @Component
 struct WebComponent {
-  @State controller: AtomicServiceWebController = new AtomicServiceWebController();
+    @State controller: AtomicServiceWebController = new AtomicServiceWebController();
 
-  build() {
-    Column() {
-      AtomicServiceWeb({ src: 'https://www.example.com', controller: this.controller })
+    build() {
+        Column() {
+            AtomicServiceWeb({ src: 'https://www.example.com', controller: this.controller })
+        }
     }
-  }
 }
 ```
 
 
-### 示例3
+
+##### 示例3
 
 NavDestination容器中加载网页。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { AtomicServiceWeb, AtomicServiceWebController } from '@kit.ArkUI';
 
@@ -622,12 +614,12 @@ struct WebComponent {
 ```
 
 
-### 示例4
+
+##### 示例4
 
 设置onMessage()事件回调。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import { AtomicServiceWeb, AtomicServiceWebController, OnMessageEvent } from '@kit.ArkUI';
 
@@ -651,8 +643,7 @@ struct WebComponent {
 }
 ```
 
-
-```text
+```json
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
@@ -666,37 +657,37 @@ struct WebComponent {
 <button type="button" onclick="back();">返回上一页</button>
 </body>
 <script type="text/javascript">
-function postMessage(data) {
-// JS SDK提供的发送消息接口
-has.asWeb.postMessage({
-data: data,
-callback: (err, res) => {
-if (err) {
-console.error(`[AtomicServiceWebLog H5] postMessage error err. Code: ${err.code}, message: ${err.message}`);
-} else {
-console.info(`[AtomicServiceWebLog H5] postMessage success res = ${JSON.stringify(res)}`);
-}
-}
-});
-}
+    function postMessage(data) {
+        // JS SDK提供的发送消息接口
+        has.asWeb.postMessage({
+            data: data,
+            callback: (err, res) => {
+                if (err) {
+                    console.error(`[AtomicServiceWebLog H5] postMessage error err. Code: ${err.code}, message: ${err.message}`);
+                } else {
+                    console.info(`[AtomicServiceWebLog H5] postMessage success res = ${JSON.stringify(res)}`);
+                }
+            }
+        });
+    }
 
-function back() {
-// JS SDK提供的Router路由回退接口
-has.router.back({
-delta: 1
-});
-}
+    function back() {
+        // JS SDK提供的Router路由回退接口
+        has.router.back({
+            delta: 1
+        });
+    }
 </script>
 </html>
 ```
 
 
-### 示例5
+
+##### 示例5
 
 设置网页加载事件回调。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import {
   AtomicServiceWeb,
@@ -720,31 +711,31 @@ struct WebComponent {
         // 网页加载遇到错误时触发该回调
         onErrorReceive: (event: OnErrorReceiveEvent) => {
           console.info(`AtomicServiceWebLog onErrorReceive event = ${JSON.stringify({
-              requestUrl: event.request?.getRequestUrl(),
-              requestMethod: event.request?.getRequestMethod(),
-              errorCode: event.error?.getErrorCode(),
-              errorInfo: event.error?.getErrorInfo()
+            requestUrl: event.request?.getRequestUrl(),
+            requestMethod: event.request?.getRequestMethod(),
+            errorCode: event.error?.getErrorCode(),
+            errorInfo: event.error?.getErrorInfo()
           })}`);
         },
         // 网页加载遇到HTTP资源加载错误时触发该回调
         onHttpErrorReceive: (event: OnHttpErrorReceiveEvent) => {
           console.info(`AtomicServiceWebLog onHttpErrorReceive event = ${JSON.stringify({
-              requestUrl: event.request?.getRequestUrl(),
-              requestMethod: event.request?.getRequestMethod(),
-              responseCode: event.response?.getResponseCode(),
-              responseData: event.response?.getResponseData(),
+            requestUrl: event.request?.getRequestUrl(),
+            requestMethod: event.request?.getRequestMethod(),
+            responseCode: event.response?.getResponseCode(),
+            responseData: event.response?.getResponseData(),
           })}`);
         },
         // 页面开始加载，触发该回调
         onPageBegin: (event: OnPageBeginEvent) => {
           console.info(`AtomicServiceWebLog onPageBegin event = ${JSON.stringify({
-              url: event.url
+            url: event.url
           })}`);
         },
         // 页面加载完成，触发该回调
         onPageEnd: (event: OnPageEndEvent) => {
           console.info(`AtomicServiceWebLog onPageEnd event = ${JSON.stringify({
-              url: event.url
+            url: event.url
           })}`);
         }
       })
@@ -754,12 +745,12 @@ struct WebComponent {
 ```
 
 
-### 示例6
+
+##### 示例6
 
 AtomicServiceWeb跟AtomicServiceWebController的使用示例。
 
-
-```ts
+```ArkTS
 // xxx.ets
 import {
   AtomicServiceWeb,
@@ -864,12 +855,12 @@ struct WebComponent {
 ```
 
 
-### 示例7
+
+##### 示例7
 
 设置嵌套滚动。
 
-
-```ts
+```text
 import { AtomicServiceWeb, AtomicServiceWebController } from '@kit.ArkUI';
 
 @Entry
@@ -886,37 +877,37 @@ struct AtomicServiceNestedScroll {
     Scroll() {
       Column() {
         Text("嵌套AsWeb-头部")
-        .height("15%")
-        .width("100%")
-        .fontSize(30)
-        .backgroundColor(Color.Yellow)
+          .height("15%")
+          .width("100%")
+          .fontSize(30)
+          .backgroundColor(Color.Yellow)
         Button(this.mode)
-        .margin({ top: 10, bottom: 10 })
-        .onClick(() => {
-          if (!(this.nestedScroll as NestedScrollOptions).scrollForward) {
-            this.mode = 'SELF_FIRST模式（点击切换）';
-            this.nestedScroll = {
-              scrollForward: NestedScrollMode.SELF_FIRST,
-              scrollBackward: NestedScrollMode.SELF_FIRST
+          .margin({ top: 10, bottom: 10 })
+          .onClick(() => {
+            if (!(this.nestedScroll as NestedScrollOptions).scrollForward) {
+              this.mode = 'SELF_FIRST模式（点击切换）';
+              this.nestedScroll = {
+                scrollForward: NestedScrollMode.SELF_FIRST,
+                scrollBackward: NestedScrollMode.SELF_FIRST
+              }
+            } else {
+              this.mode = 'PARENT_FIRST模式（点击切换）';
+              this.nestedScroll = {
+                scrollUp: NestedScrollMode.PARENT_FIRST,
+                scrollDown: NestedScrollMode.PARENT_FIRST
+              }
             }
-          } else {
-            this.mode = 'PARENT_FIRST模式（点击切换）';
-            this.nestedScroll = {
-              scrollUp: NestedScrollMode.PARENT_FIRST,
-              scrollDown: NestedScrollMode.PARENT_FIRST
-            }
-          }
-        })
+          })
         AtomicServiceWeb({
           src: 'https://www.example.com',
           controller: this.controller,
           nestedScroll: this.nestedScroll
         })
         Text("嵌套AsWeb-尾部")
-        .height("15%")
-        .width("100%")
-        .fontSize(30)
-        .backgroundColor(Color.Yellow)
+          .height("15%")
+          .width("100%")
+          .fontSize(30)
+          .backgroundColor(Color.Yellow)
       }
     }
   }

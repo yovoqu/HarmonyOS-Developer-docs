@@ -13,15 +13,21 @@
 数字信封导入密钥时，如果是导入非对称密钥的密钥对，需要添加[HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)标签，并将公钥以X.509 DER格式封装填入该标签，且针对非对称密钥仅支持以密钥对形式导入。
 
 
-## 开发步骤
+##### 开发步骤
+1. 业务方设备（设备A）生成SM4密钥，cipherSm4。
+2. 设备A使用生成的SM4密钥，以ECB/NoPadding模式对导入的密钥importKey进行加密，得到加密后的密钥为enImportKey=Encrypt(cipherSm4, importKey)。
+3. 密钥导入方（设备B）导出SM2公钥，设备A接收该密钥。
+4. 设备A使用收到的SM2公钥加密生成的SM4密钥，enSm4=Encrypt(Sm2, cipherSm4)。
+5. 设备A将数字信封数据发送给设备B。
+6. 设备B使用[importWrappedKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksimportwrappedkeyitem9)导入数字信封密钥。若导入密钥是对称密钥，此步骤只需对裸密钥进行加密。若导入非对称密钥的密钥对，则将公钥以DER格式封装，并放入[HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)中。
 
-业务方设备（设备A）生成SM4密钥，cipherSm4。 设备A使用生成的SM4密钥，以ECB/NoPadding模式对导入的密钥importKey进行加密，得到加密后的密钥为enImportKey=Encrypt(cipherSm4, importKey)。 密钥导入方（设备B）导出SM2公钥，设备A接收该密钥。 设备A使用收到的SM2公钥加密生成的SM4密钥，enSm4=Encrypt(Sm2, cipherSm4)。 设备A将数字信封数据发送给设备B。 设备B使用[importWrappedKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksimportwrappedkeyitem9)导入数字信封密钥。若导入密钥是对称密钥，此步骤只需对裸密钥进行加密。若导入非对称密钥的密钥对，则将公钥以DER格式封装，并放入[HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukstag)中。
 > [!NOTE]
 > 若对端设备非HarmonyOS设备且不支持密钥管理服务，则在构造数字信封数据时需遵循以下要求： SM2加密结果组合方式为C1C3C2，其中C1x和C1y各32字节； SM2加密结果采用ASN.1格式，其中bigint采用大端的方式存储；
 
 
-## RSA
 
+
+##### RSA
 
 ```text
 import { BusinessError } from "@kit.BasicServicesKit";
@@ -47,7 +53,7 @@ function concatUint8Arrays(arrays: Uint8Array[]): Uint8Array
   return result;
 }
 
-let wrappingParamSetSm2: Array = [
+let wrappingParamSetSm2: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_PURPOSE,
     value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_ENCRYPT | huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_DECRYPT
@@ -75,7 +81,7 @@ let sm4PlainData = new Uint8Array([
   0xb9, 0xef, 0x35, 0x49, 0xb7, 0x00, 0x91, 0x58, 0x0c, 0x6f, 0x43, 0x28, 0xf8, 0x95, 0x1c, 0x02,
 ]);
 
-let enParamSm2: Array = [
+let enParamSm2: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_PURPOSE,
     value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_ENCRYPT
@@ -167,7 +173,7 @@ async function EnvelopRsaTest()
     0x7b, 0x02, 0x03, 0x01, 0x00, 0x01,
   ]);
 
-  let paramRsa: Array = [
+  let paramRsa: Array<huks.HuksParam> = [
     {
       tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
       value: huks.HuksKeyAlg.HUKS_ALG_RSA
@@ -218,8 +224,8 @@ async function EnvelopRsaTest()
 ```
 
 
-## AES
 
+##### AES
 
 ```text
 import { BusinessError } from "@kit.BasicServicesKit";
@@ -245,7 +251,7 @@ function concatUint8Arrays(arrays: Uint8Array[]): Uint8Array
   return result;
 }
 
-let wrappingParamSetSm2: Array = [
+let wrappingParamSetSm2: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_PURPOSE,
     value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_ENCRYPT | huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_DECRYPT
@@ -273,7 +279,7 @@ let sm4PlainData = new Uint8Array([
   0xb9, 0xef, 0x35, 0x49, 0xb7, 0x00, 0x91, 0x58, 0x0c, 0x6f, 0x43, 0x28, 0xf8, 0x95, 0x1c, 0x02,
 ]);
 
-let enParamSm2: Array = [
+let enParamSm2: Array<huks.HuksParam> = [
   {
     tag: huks.HuksTag.HUKS_TAG_PURPOSE,
     value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_ENCRYPT
@@ -323,7 +329,7 @@ async function EnvelopAesTest()
       console.error(`encrypt finish fail,errorCode: ${error.code}`)
     });
 
-  let paramSetAes: Array = [
+  let paramSetAes: Array<huks.HuksParam> = [
     {
       tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
       value: huks.HuksKeyAlg.HUKS_ALG_AES

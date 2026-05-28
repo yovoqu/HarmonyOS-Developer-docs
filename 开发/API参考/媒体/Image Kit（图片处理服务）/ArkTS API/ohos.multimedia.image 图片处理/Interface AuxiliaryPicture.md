@@ -3,25 +3,33 @@
 更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-auxiliarypicture
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AuxiliaryPicture类，用于读取或写入图像的辅助图数据以及获取图像的辅助图信息。目前支持的辅助图类型可参考[AuxiliaryPictureType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#auxiliarypicturetype13)。
+
 在调用AuxiliaryPicture的方法前，需要通过[image.createAuxiliaryPicture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateauxiliarypicture13)或Picture的[getAuxiliaryPicture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture#getauxiliarypicture13)创建一个AuxiliaryPicture实例。
+
 由于图片占用内存较大，所以当AuxiliaryPicture对象使用完成后，应主动调用[release](#release13)方法及时释放对象。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该对象。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 13开始支持。
 
-#### 导入模块
 
-```ts
+
+##### 导入模块
+
+```text
 import { image } from '@kit.ImageKit';
 ```
 
-#### writePixelsFromBuffer13+
+
+
+##### writePixelsFromBuffer13+
+
 writePixelsFromBuffer(data: ArrayBuffer): Promise&lt;void&gt;
+
 读取ArrayBuffer中的辅助图片数据，并将数据写入AuxiliaryPicture对象。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
@@ -30,22 +38,26 @@ writePixelsFromBuffer(data: ArrayBuffer): Promise&lt;void&gt;
 | --- | --- | --- | --- |
 | data | ArrayBuffer | 是 | 辅助图像素数据。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 
+
 **示例:**
 
-```ts
+```text
 async function WritePixelsFromBuffer(context: Context) {
   const resourceMgr = context.resourceManager;
   const rawFile = await resourceMgr.getRawFileContent("hdr.jpg"); // 需要支持hdr的图片。
@@ -66,9 +78,14 @@ async function WritePixelsFromBuffer(context: Context) {
 }
 ```
 
-#### readPixelsToBuffer13+
+
+
+##### readPixelsToBuffer13+
+
 readPixelsToBuffer(): Promise&lt;ArrayBuffer&gt;
+
 读取图像像素映射数据并将数据写入ArrayBuffer。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
@@ -77,9 +94,10 @@ readPixelsToBuffer(): Promise&lt;ArrayBuffer&gt;
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象。返回辅助图像素数据。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ReadPixelsToBuffer(context: Context) {
@@ -104,20 +122,26 @@ async function ReadPixelsToBuffer(context: Context) {
 }
 ```
 
-#### getType13+
+
+
+##### getType13+
+
 getType(): AuxiliaryPictureType
+
 获取辅助图的类型。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [AuxiliaryPictureType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#auxiliarypicturetype13) | 操作成功，返回辅助图的类型。 |
+| AuxiliaryPictureType | 操作成功，返回辅助图的类型。 |
+
 
 **示例：**
 
-```ts
+```json
 async function GetAuxiliaryPictureType(auxPictureObj : image.AuxiliaryPicture) {
   if (auxPictureObj != null) {
     let type: image.AuxiliaryPictureType = auxPictureObj.getType();
@@ -128,17 +152,23 @@ async function GetAuxiliaryPictureType(auxPictureObj : image.AuxiliaryPicture) {
 }
 ```
 
-#### setMetadata13+
+
+
+##### setMetadata13+
+
 setMetadata(metadataType: MetadataType, metadata: Metadata): Promise&lt;void&gt;
+
 设置辅助图元数据。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| metadataType | [MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#metadatatype13) | 是 | 元数据的类型，用于设置对应的元数据。 |
-| metadata | [Metadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-metadata) | 是 | 元数据对象。 |
+| metadataType | MetadataType | 是 | 元数据的类型，用于设置对应的元数据。 |
+| metadata | Metadata | 是 | 元数据对象。 |
+
 
 **返回值：**
 
@@ -146,7 +176,9 @@ setMetadata(metadataType: MetadataType, metadata: Metadata): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -154,9 +186,10 @@ setMetadata(metadataType: MetadataType, metadata: Metadata): Promise&lt;void&gt;
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 7600202 | Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The metadata type does not match the auxiliary picture type. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function SetAuxPictureObjMetadata(exifContext: Context, auxPictureObj: image.AuxiliaryPicture) {
@@ -188,24 +221,32 @@ async function SetAuxPictureObjMetadata(exifContext: Context, auxPictureObj: ima
 }
 ```
 
-#### getMetadata13+
+
+
+##### getMetadata13+
+
 getMetadata(metadataType: MetadataType): Promise&lt;Metadata&gt;
+
 从辅助图中获取元数据。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| metadataType | [MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#metadatatype13) | 是 | 元数据类型，用于获取对应类型的元数据。 |
+| metadataType | MetadataType | 是 | 元数据类型，用于获取对应类型的元数据。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Metadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-metadata)> | Promise对象，返回元数据的Promise对象。 |
+| Promise&lt;Metadata&gt; | Promise对象，返回元数据的Promise对象。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -213,9 +254,10 @@ getMetadata(metadataType: MetadataType): Promise&lt;Metadata&gt;
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 | 7600202 | Unsupported metadata. Possible causes: 1. Unsupported metadata type. 2. The metadata type does not match the auxiliary picture type. |
 
+
 **示例：**
 
-```ts
+```text
 async function GetAuxPictureObjMetadata(auxPictureObj: image.AuxiliaryPicture) {
   if (auxPictureObj != null) {
     let metadataType: image.MetadataType = image.MetadataType.EXIF_METADATA;
@@ -231,20 +273,26 @@ async function GetAuxPictureObjMetadata(auxPictureObj: image.AuxiliaryPicture) {
 }
 ```
 
-#### getAuxiliaryPictureInfo13+
+
+
+##### getAuxiliaryPictureInfo13+
+
 getAuxiliaryPictureInfo(): AuxiliaryPictureInfo
+
 获取有关此辅助图的图像信息。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [AuxiliaryPictureInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#auxiliarypictureinfo13) | 返回辅助图图像信息。 |
+| AuxiliaryPictureInfo | 返回辅助图图像信息。 |
+
 
 **示例：**
 
-```ts
+```text
 async function GetAuxiliaryPictureInfo(auxPictureObj: image.AuxiliaryPicture) {
   if(auxPictureObj != null) {
     let auxinfo: image.AuxiliaryPictureInfo = auxPictureObj.getAuxiliaryPictureInfo();
@@ -258,27 +306,35 @@ async function GetAuxiliaryPictureInfo(auxPictureObj: image.AuxiliaryPicture) {
 }
 ```
 
-#### setAuxiliaryPictureInfo13+
+
+
+##### setAuxiliaryPictureInfo13+
+
 setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void
+
 设置辅助图的图像信息。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| info | [AuxiliaryPictureInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#auxiliarypictureinfo13) | 是 | 辅助图的图像信息。 |
+| info | AuxiliaryPictureInfo | 是 | 辅助图的图像信息。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed. |
 
+
 **示例：**
 
-```ts
+```text
 import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
 async function SetAuxiliaryPictureInfo(auxPictureObj: image.AuxiliaryPicture) {
@@ -296,16 +352,23 @@ async function SetAuxiliaryPictureInfo(auxPictureObj: image.AuxiliaryPicture) {
 }
 ```
 
-#### release13+
+
+
+##### release13+
+
 release():void
+
 释放辅助图对象，无返回值。
+
 由于图片占用内存较大，所以当AuxiliaryPicture对象使用完成后，应主动调用该方法，及时释放内存。
+
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **示例：**
 
-```ts
+```text
 async function Release(auxPictureObj: image.AuxiliaryPicture) {
   let funcName = "Release";
   if (auxPictureObj != null) {

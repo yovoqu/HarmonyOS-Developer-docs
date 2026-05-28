@@ -5,10 +5,9 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-dataability
 
 实现DataAbility中Insert、Query、Update、Delete接口的业务内容。保证能够满足数据库存储业务的基本需求。BatchInsert与ExecuteBatch接口已经在系统中实现遍历逻辑，依赖Insert、Query、Update、Delete接口逻辑，来实现数据的批量处理。
-
- 创建DataAbility的代码示例如下：
-
-
+ 
+创建DataAbility的代码示例如下：
+ 
 ```text
 import featureAbility from '@ohos.ability.featureAbility';
 import type common from '@ohos.app.ability.common';
@@ -36,17 +35,20 @@ class DataAbility {
     });
   }
 
-  insert(uri: string, valueBucket: rdb.ValuesBucket, callback: AsyncCallback): void {
+  insert(uri: string, valueBucket: rdb.ValuesBucket, callback: AsyncCallback<number>): void {
     hilog.info(domain, TAG, 'DataAbility insert start');
     if (rdbStore) {
       rdbStore.insert(TABLE_NAME, valueBucket, callback);
     }
   }
 
-  batchInsert(uri: string, valueBuckets: Array, callback: AsyncCallback): void {
+  batchInsert(uri: string, valueBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback<number>): void {
     hilog.info(domain, TAG, 'DataAbility batch insert start');
     if (rdbStore) {
-      for (let i = 0; i  {
+      for (let i = 0; i < valueBuckets.length; i++) {
+        hilog.info(domain, TAG, 'DataAbility batch insert i=' + i);
+        if (i < valueBuckets.length - 1) {
+          rdbStore.insert(TABLE_NAME, valueBuckets[i], (err: BusinessError, num: number) => {
             hilog.info(domain, TAG, 'DataAbility batch insert ret=' + num);
           });
         } else {
@@ -56,7 +58,7 @@ class DataAbility {
     }
   }
 
-  query(uri: string, columns: Array, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback): void {
+  query(uri: string, columns: Array<string>, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<rdb.ResultSet>): void {
     hilog.info(domain, TAG, 'DataAbility query start');
     let rdbPredicates = dataAbility.createRdbPredicates(TABLE_NAME, predicates);
     if (rdbStore) {
@@ -64,7 +66,7 @@ class DataAbility {
     }
   }
 
-  update(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback): void {
+  update(uri: string, valueBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void {
     hilog.info(domain, TAG, 'DataAbility update start');
     let rdbPredicates = dataAbility.createRdbPredicates(TABLE_NAME, predicates);
     if (rdbStore) {
@@ -72,7 +74,7 @@ class DataAbility {
     }
   }
 
-  delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback): void {
+  delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback<number>): void {
     hilog.info(domain, TAG, 'DataAbility delete start');
     let rdbPredicates = dataAbility.createRdbPredicates(TABLE_NAME, predicates);
     if (rdbStore) {

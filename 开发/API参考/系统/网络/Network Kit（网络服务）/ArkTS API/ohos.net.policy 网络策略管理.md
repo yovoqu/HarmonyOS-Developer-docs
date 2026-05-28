@@ -3,26 +3,24 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-policy
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供网络策略管理能力，采用防火墙技术对用户使用数据流量进行控制管理。
-
 
 > [!NOTE]
 > 本模块首批接口从 API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { policy } from '@kit.NetworkKit';
 ```
 
 
-## NetBearType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### NetBearType
 
 type NetBearType = connection.NetBearType
 
@@ -30,16 +28,16 @@ type NetBearType = connection.NetBearType
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [connection.NetBearType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection#netbeartype) | 网络类型。 |
+| connection.NetBearType | 网络类型。 |
 
 
-## policy.showAppNetPolicySettings22+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-showAppNetPolicySettings(context: Context): Promise<void>
+
+##### policy.showAppNetPolicySettings22+
+
+showAppNetPolicySettings(context: Context): Promise&lt;void&gt;
 
 当需要设置当前应用能否使用Wi-Fi/蜂窝联网时，调用该接口可以打开当前应用的联网设置界面，以设置应用的联网权限。使用Promise异步回调。
 
@@ -51,14 +49,12 @@ showAppNetPolicySettings(context: Context): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | [Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Stage模型的应用上下文（仅支持UIAbilityContext和ExtensionContext）。 |
+| context | Context | 是 | Stage模型的应用上下文（仅支持UIAbilityContext和ExtensionContext）。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -67,23 +63,19 @@ showAppNetPolicySettings(context: Context): Promise<void>
 
 **示例：**
 
-
 > [!NOTE]
-> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需在页面中使用UIAbilityContext提供的能力，请参见[获取UIAbility的上下文信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-usage#获取uiability的上下文信息)。
+> 在本文档的示例中，通过this.context来获取UIAbilityContext，其中this代表继承自UIAbility的UIAbility实例。如需在页面中使用UIAbilityContext提供的能力，请参见 获取UIAbility的上下文信息 。
 
 
-```ts
+```text
 import { policy } from '@kit.NetworkKit';
 import { common } from '@kit.AbilityKit';
 
-let context: common.UIAbilityContext =
-  this.getUIContext().getHostContext() as common.UIAbilityContext;
-policy
-  .showAppNetPolicySettings(context)
-  .then(() => {
-    console.info('showAppNetPolicySettings success');
-  })
-  .catch(() => {
-    console.error('showAppNetPolicySettings failed');
-  });
+let context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
+policy.showAppNetPolicySettings(context).then(() => {
+    console.info("showAppNetPolicySettings success");
+}).catch(() => {
+    console.error("showAppNetPolicySettings failed");
+    }
+)
 ```

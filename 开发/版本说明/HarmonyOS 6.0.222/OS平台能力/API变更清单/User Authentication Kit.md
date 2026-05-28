@@ -11,4 +11,4 @@
 | 新增API | NA | 类名：AuthLockState； API声明：isLocked: boolean; 差异内容：isLocked: boolean; | api/@ohos.userIAM.userAuth.d.ts |
 | 新增API | NA | 类名：AuthLockState； API声明：remainingAuthAttempts: number; 差异内容：remainingAuthAttempts: number; | api/@ohos.userIAM.userAuth.d.ts |
 | 新增API | NA | 类名：AuthLockState； API声明：lockoutDuration: number; 差异内容：lockoutDuration: number; | api/@ohos.userIAM.userAuth.d.ts |
-| 新增API | NA | 类名：userAuth； API声明：function getAuthLockState(authType: UserAuthType): Promise<AuthLockState>; 差异内容：function getAuthLockState(authType: UserAuthType): Promise<AuthLockState>; | api/@ohos.userIAM.userAuth.d.ts |
+| 新增API | NA | 类名：userAuth； API声明：function getAuthLockState(authType: UserAuthType): Promise&lt;AuthLockState&gt;; 差异内容：function getAuthLockState(authType: UserAuthType): Promise&lt;AuthLockState&gt;; | api/@ohos.userIAM.userAuth.d.ts |

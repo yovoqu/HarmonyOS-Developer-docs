@@ -1,21 +1,22 @@
 # HandwriteController (手写套件功能)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecontroller
-
-支持设备：Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 手写套件的主要功能入口类，用于管理手写内容的加载、保存等核心功能。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 5.0.0(12)
 
-#### 导入模块
 
-```ts
+##### 导入模块
+
+```text
 import { HandwriteController } from '@kit.Penkit';
 ```
 
@@ -23,17 +24,23 @@ import { HandwriteController } from '@kit.Penkit';
 
 | 方法名称 | 说明 |
 | --- | --- |
-| [load](#load) | 从指定路径加载笔记文件。 |
-| [save](#save) | 保存手写内容。 |
-| [onLoad](#onload) | 加载完成时的回调接口。 |
-| [getContentRange](#getcontentrange) | 获取笔迹范围。 |
-| [getThumbnail](#getthumbnail) | 获取缩略图数据。 |
-| [Rect](#rect) | Rect信息参数，表示矩形区域。 |
-| [scrollTo](#scrollto) | 设置长画布的滚动位置。 |
+| load | 从指定路径加载笔记文件。 |
+| save | 保存手写内容。 |
+| onLoad | 加载完成时的回调接口。 |
+| getContentRange | 获取笔迹范围。 |
+| getThumbnail | 获取缩略图数据。 |
+| Rect | Rect信息参数，表示矩形区域。 |
+| scrollTo | 设置长画布的滚动位置。 |
 
-#### load
+
+
+
+##### load
+
 load(path: string): void
+
 从指定路径加载笔记文件，调用时机：手写套件初始化之后。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -46,19 +53,28 @@ load(path: string): void
 | --- | --- | --- | --- |
 | path | string | 是 | 加载文件的路径。 path应为实际存在的文件路径，若路径不存在，则会创建一份新的笔记文件。 |
 
+
 **错误码**：
+
 以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1010400001 | load failed. |
 
+
 **示例**：
+
 具体代码示例见[示例](#示例)。
 
-#### save
+
+
+##### save
+
 save(path: string): Promise&lt;void&gt;
+
 保存笔记到指定路径，使用Promise异步回调。调用时机：手写套件加载完之后。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -71,25 +87,35 @@ save(path: string): Promise&lt;void&gt;
 | --- | --- | --- | --- |
 | path | string | 是 | 保存文件的路径。 |
 
+
 **返回值**:
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码**：
+
 以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1010400002 | save failed. |
 
+
 **示例**：
+
 具体代码示例见[示例](#示例)。
 
-#### onLoad
+
+
+##### onLoad
+
 onLoad(callback: AsyncCallback&lt;string&gt;): void
+
 注册回调，加载完成后将会触发此回调，使用callback异步回调。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -102,30 +128,45 @@ onLoad(callback: AsyncCallback&lt;string&gt;): void
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当加载成功时，err的message为load success；加载失败时，err的message为load failed；string为加载的路径。 |
 
+
 **错误码**：
+
 以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1010400001 | load failed. |
 
-#### getContentRange
+
+
+
+##### getContentRange
+
 getContentRange(): Rect
+
 获取笔迹范围。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
 
 **起始版本：** 6.0.0(20)
+
 **返回值**:
 
 | 类型 | 说明 |
 | --- | --- |
-| [Rect](#rect) | Rect信息参数，表示内容涵盖的矩形区域。 |
+| Rect | Rect信息参数，表示内容涵盖的矩形区域。 |
 
-#### getThumbnail
+
+
+
+##### getThumbnail
+
 getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;
+
 获取缩略图数据。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -136,16 +177,22 @@ getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rect | [Rect](#rect) | 是 | Rect信息参数，表示缩略图包含的矩形区域。 |
+| rect | Rect | 是 | Rect信息参数，表示缩略图包含的矩形区域。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)> | Promise对象，返回缩略图的数据。 |
+| Promise&lt;PixelMap&gt; | Promise对象，返回缩略图的数据。 |
 
-#### Rect
+
+
+
+##### Rect
+
 Rect信息参数，表示矩形区域。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -154,14 +201,20 @@ Rect信息参数，表示矩形区域。
 
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
-| left | number | 矩形左侧的位置。单位：手写套件组件[HandwriteComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecomponent)宽度的1/1000。 |
-| top | number | 矩形顶部的位置。单位：手写套件组件[HandwriteComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecomponent)宽度的1/1000。 |
-| right | number | 矩形右侧的位置。单位：手写套件组件[HandwriteComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecomponent)宽度的1/1000。 |
-| bottom | number | 矩形底部的位置。单位：手写套件组件[HandwriteComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecomponent)宽度的1/1000。 |
+| left | number | 矩形左侧的位置。单位：手写套件组件HandwriteComponent宽度的1/1000。 |
+| top | number | 矩形顶部的位置。单位：手写套件组件HandwriteComponent宽度的1/1000。 |
+| right | number | 矩形右侧的位置。单位：手写套件组件HandwriteComponent宽度的1/1000。 |
+| bottom | number | 矩形底部的位置。单位：手写套件组件HandwriteComponent宽度的1/1000。 |
 
-#### scrollTo
+
+
+
+##### scrollTo
+
 scrollTo(yOffset: number): void
+
 设置长画布的滚动位置。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -172,14 +225,18 @@ scrollTo(yOffset: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| yOffset | number | 是 | 滚动位置的纵坐标绝对值。单位vp。当前可滚动最大距离为[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)(1000000)减去list组件高度。超出范围取边界值。 |
+| yOffset | number | 是 | 滚动位置的纵坐标绝对值。单位vp。当前可滚动最大距离为px2vp(1000000)减去list组件高度。超出范围取边界值。 |
+
 
 **示例**：
+
 具体代码示例见[示例](#示例)。
 
-#### 示例
 
-```ts
+
+##### **示例**
+
+```text
 import { HandwriteController, HandwriteComponent, PenType, PenHspInfo } from '@kit.Penkit';
 
 @Entry
@@ -227,12 +284,12 @@ struct HandWriteDemoComp {
           }
         })
         // 保存及获取缩略图。非必要组件，用户可自行调整或删除。
-        Button("save")
+        Button('save')
           .onClick(async () => {
             // 需根据应用存储规则，获取到手写文件保存的路径，此处仅为实例参考。
             const path = this.getUIContext().getHostContext()?.filesDir + '/aa';
             await this.controller?.save(path).then().catch((error: Error) => {
-              console.error("err：" + error);
+              console.error('err：' + error);
             })
             // 获取缩略图。
             this.controller.getThumbnail(this.controller?.getContentRange())?.then((pixelMap: PixelMap) => {
@@ -260,6 +317,5 @@ struct HandWriteDemoComp {
 }
 ```
 
-
-> [!NOTE] 说明
-> HandwriteController中的方法需要放在上述示例的画布控件初始化的回调中运行或自定义的方法中运行。 使用前需要先设置context信息。 完整示例代码可参考手写笔服务（ArkTS）。
+> [!NOTE]
+> HandwriteController中的方法需要放在上述示例的画布控件初始化的回调中运行或自定义的方法中运行。 使用前需要先 设置context信息 。 完整示例代码可参考 手写笔服务（ArkTS） 。

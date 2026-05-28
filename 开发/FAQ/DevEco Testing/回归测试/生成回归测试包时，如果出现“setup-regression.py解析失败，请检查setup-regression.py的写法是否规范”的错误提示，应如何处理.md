@@ -5,16 +5,16 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-3
 
 若setup-regression.py编写不规范，会出现提示。编写setup-regression.py文件时，需去除注释，参数以“参数名=参数值”的形式设置。
-
+ 
 ```text
 # setup-regression.py example of file writing
 from setuptools import setup
 setup(
-name='hypiumTest',
-version='1.0.0.0',
-author='xxx',
- # py_modules Specify the hypium use case py file that needs to be packaged
-py_modules=['testcases.Example'],
-include_package_data=True
-)
+      name='hypiumTest',
+      version='1.0.0.0',
+      author='xxx',
+      # py_modules Specify the hypium use case py file that needs to be packaged
+      py_modules=['testcases.Example'],
+      include_package_data=True
+      )
 ```

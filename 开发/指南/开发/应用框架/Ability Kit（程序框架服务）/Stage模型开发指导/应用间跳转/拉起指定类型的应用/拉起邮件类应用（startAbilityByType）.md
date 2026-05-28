@@ -6,14 +6,15 @@
 
 本章节介绍如何拉起邮件类应用扩展面板。
 
-
 > [!NOTE]
-> 如果拉起方的参数为mailto协议字符串，可以使用mailto方式拉起邮件应用。邮件应用会解析收到的mailto协议字符串，并填充发件人、收件人、邮件内容等信息。
+> 如果拉起方的参数为mailto协议字符串，可以 使用mailto方式拉起邮件应用 。邮件应用会解析收到的mailto协议字符串，并填充发件人、收件人、邮件内容等信息。
 
 
-## 邮件类应用扩展面板参数说明
+
+##### 邮件类应用扩展面板参数说明
 
 startAbilityByType接口中type字段为mail，对应的wantParam参数：
+
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | email | string[ ] | 否 | 收件人邮箱地址（支持多个且以逗号分隔）。 |
@@ -22,7 +23,7 @@ startAbilityByType接口中type字段为mail，对应的wantParam参数：
 | subject | string | 否 | 邮件主题。 |
 | body | string | 否 | 邮件内容。 |
 | ability.params.stream | string[ ] | 否 | 邮件附件（附件的uri地址列表）。 |
-| ability.want.params.uriPermissionFlag | [wantConstant.Flags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantconstant#flags) | 否 | 给邮件附件赋予至少读权限。邮件附件参数存在时，该参数也必须要传。 |
+| ability.want.params.uriPermissionFlag | wantConstant.Flags | 否 | 给邮件附件赋予至少读权限。邮件附件参数存在时，该参数也必须要传。 |
 | sceneType | number | 否 | 意图场景，表明本次请求对应的操作意图。1：发邮件。默认为1。 |
 
 
@@ -30,15 +31,20 @@ startAbilityByType接口中type字段为mail，对应的wantParam参数：
 > 邮件类应用扩展面板中的类型为string的参数，都要经过encodeURI编码。 邮件类应用扩展面板中的类型为string[]的参数，数组中的元素都要经过encodeURI编码。
 
 
-## 拉起方开发步骤
 
-导入相关模块。
+
+##### 拉起方开发步骤
+1. 导入相关模块。
+
+  
 ```text
 import { common, wantConstant } from '@kit.AbilityKit';
 ```
 
-构造接口参数并调用startAbilityByType接口。
-```text
+2. 构造接口参数并调用startAbilityByType接口。
+
+  
+```json
 @Entry
 @Component
 struct Index {
@@ -52,7 +58,7 @@ struct Index {
                     .fontWeight(FontWeight.Bold)
                     .onClick(() => {
                         let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-                        let wantParam: Record = {
+                        let wantParam: Record<string, Object> = {
                             'sceneType': 1,
                             'email': [encodeURI('xxx@example.com'), encodeURI('xxx@example.com')], // 收件人邮箱地址，多值以逗号分隔，对数组内容使用encodeURI()方法进行url编码
                             'cc': [encodeURI('xxx@example.com'), encodeURI('xxx@example.com')], // 抄送人邮箱地址，多值以逗号分隔，对数组内容使用encodeURI()方法进行url编码
@@ -87,19 +93,25 @@ struct Index {
     }
 }
 ```
-
 效果示例图：
-![](assets/拉起邮件类应用（startAbilityByType）/file-20260514130346983-0.png)
 
-## 目标方开发步骤
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/jrhEeB62SduT8tY_l80VRA/zh-cn_image_0000002611833379.png?HW-CC-KV=V1&HW-CC-Date=20260528T014844Z&HW-CC-Expire=86400&HW-CC-Sign=2C9C1340A9440BBBBFB93798FE51D4A98822FD41329EECAAA28E53BD06AA6AAE)
 
-在module.json5中新增[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)属性并设置声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
+
+
+
+##### 目标方开发步骤
+1. 在module.json5中新增[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)属性并设置声明当前应用支持的特性功能，从而系统可以从设备已安装应用中找到当前支持该特性的应用，取值范围如下：
+
 | 取值 | 含义 |
+
 | --- | --- |
+
 | ComposeMail | 声明应用支持撰写邮件功能 |
 
-
-```text
+  
+```json
 {
   "abilities": [
       {
@@ -120,27 +132,38 @@ struct Index {
 }
 ```
 
-解析面板传过来的参数并做对应处理。
+2. 解析面板传过来的参数并做对应处理。
+
+  
 ```text
 UIAbility.onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
 ```
-
 在参数**want.parameters**中会携带Caller方传入的参数（与调用方传入的有些差异），如下表所示：
+
 | 参数名 | 类型 | 必填 | 说明 |
+
 | --- | --- | --- | --- |
+
 | email | string[ ] | 否 | 收件人邮箱地址（支持多个且以逗号分隔）。 |
+
 | cc | string[ ] | 否 | 抄送人邮箱地址（支持多个且以逗号分隔）。 |
+
 | bcc | string[ ] | 否 | 密送人邮箱地址（支持多个且以逗号分隔）。 |
+
 | subject | string | 否 | 邮件主题。 |
+
 | body | string | 否 | 邮件内容。 |
+
 | stream | string[ ] | 否 | 邮件附件列表（附件的uri地址列表）。 |
 
-
+  
 > [!NOTE]
 > 目标方接收的类型为string的参数，都要经过decodeURI解码。 目标方接收的类型为string[]的参数，数组中的元素都要经过decodeURI解码。
 
+
 **完整示例：**
-```text
+
+```json
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -156,7 +179,7 @@ export default class EntryAbility extends UIAbility {
     subject: string | undefined;
     body: string | undefined;
     stream: string[] | undefined;
-
+    
     onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
         hilog.info(0x0000, TAG, `onCreate, want=${JSON.stringify(want)}`);
         super.onCreate(want, launchParam);
@@ -201,7 +224,7 @@ export default class EntryAbility extends UIAbility {
             "subject": this.subject,
             "body": this.body,
             "stream": this.stream
-        } as Record);
+        } as Record<string, Object>);
 
         windowStage.loadContent('pages/ComposeMailPage', storage);
 

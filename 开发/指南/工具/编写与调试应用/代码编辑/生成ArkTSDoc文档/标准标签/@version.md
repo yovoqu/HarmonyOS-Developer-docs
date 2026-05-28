@@ -5,15 +5,18 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arktsdoc-version
 
 @version标签用于记录项目的版本。
+ 
 
+##### 语法
 
-## 语法
+@version &lt;version&gt;
+ 
+ 
 
-@version
-
-## 示例
+##### 示例
 
 使用 @version 标签：
+ 
 ```text
 /**
  * Calculates the square root of a number.

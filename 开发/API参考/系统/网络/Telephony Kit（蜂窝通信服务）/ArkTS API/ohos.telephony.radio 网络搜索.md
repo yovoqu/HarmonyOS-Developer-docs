@@ -1,32 +1,30 @@
 # @ohos.telephony.radio (网络搜索)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-radio
-**支持设备：** Phone / Tablet / Wearable
+**支持设备：** Phone | Tablet | Wearable
 
-网络搜索模块提供管理网络搜索的一些基础功能，包括获取当前接入的CS域和PS域无线接入技术、获取网络状态、获取当前选网模式、获取注册网络所在国家的ISO国家码、获取主卡所在卡槽的索引号、获取指定SIM卡槽对应的注册网络信号强度信息列表、获取运营商名称，判断当前设备是否支持NR(New Radio)、判断主卡的Radio是否打开等。
-
+网络搜索模块提供管理网络搜索的一些基础功能，包括获取当前接入的CS域和PS域无线接入技术、获取网络状态、获取当前选网模式、获取注册网络所在国家的ISO国家码、获取主卡所在卡槽的索引号、获取指定SIM卡槽对应的注册网络信号强度信息列表、获取运营商名称，判断当前设备是否支持NR(New Radio)、判断主卡的Radio是否打开等。其中，CS域为电路交换域，PS为分组交换域。
 
 > [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / Tablet / Wearable
 
+##### 导入模块
 
-```ts
+```text
 import { radio } from '@kit.TelephonyKit';
 ```
 
 
-## radio.getRadioTech
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.getRadioTech
 
 getRadioTech(slotId: number, callback: AsyncCallback<[NetworkRadioTech](#networkradiotech11)>): void
 
-获取当前接入的CS域和PS域无线接入技术。使用callback异步回调。
+获取当前接入的CS域和PS域无线接入技术。使用callback异步回调。其中，CS域为电路交换域，PS为分组交换域。
 
 **需要权限**：ohos.permission.GET_NETWORK_INFO
 
@@ -34,17 +32,15 @@ getRadioTech(slotId: number, callback: AsyncCallback<[NetworkRadioTech](#network
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;[NetworkRadioTech](#networkradiotech11)&gt; | 是 | 回调函数。返回当前接入的CS域和PS域无线接入技术。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;NetworkRadioTech&gt; | 是 | 回调函数。返回当前接入的CS域和PS域无线接入技术。其中，CS域为电路交换域，PS为分组交换域。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -58,34 +54,26 @@ getRadioTech(slotId: number, callback: AsyncCallback<[NetworkRadioTech](#network
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio.getRadioTech(
-  slotId,
-  (err: BusinessError, data: radio.NetworkRadioTech) => {
+radio.getRadioTech(slotId, (err: BusinessError, data: radio.NetworkRadioTech) => {
     if (err) {
-      console.error(
-        `getRadioTech failed, callback: err->${JSON.stringify(err)}`,
-      );
-      return;
+        console.error(`getRadioTech failed, callback: err->${JSON.stringify(err)}`);
+        return;
     }
-    console.info(
-      `getRadioTech success, callback: data->${JSON.stringify(data)}`,
-    );
-  },
-);
+    console.info(`getRadioTech success, callback: data->${JSON.stringify(data)}`);
+});
 ```
 
 
-## radio.getRadioTech
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.getRadioTech
 
 getRadioTech(slotId: number): Promise<[NetworkRadioTech](#networkradiotech11)>
 
-获取当前接入的CS域和PS域无线接入技术。使用Promise异步回调。
+获取当前接入的CS域和PS域无线接入技术。使用Promise异步回调。其中，CS域为电路交换域，PS为分组交换域。
 
 **需要权限**：ohos.permission.GET_NETWORK_INFO
 
@@ -93,24 +81,21 @@ getRadioTech(slotId: number): Promise<[NetworkRadioTech](#networkradiotech11)>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NetworkRadioTech](#networkradiotech11)&gt; | 以Promise形式返回当前接入的CS域和PS域技术。 |
+| Promise&lt;NetworkRadioTech&gt; | 以Promise形式返回当前接入的CS域和PS域技术。CS域为电路交换域，PS为分组交换域。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -124,30 +109,24 @@ getRadioTech(slotId: number): Promise<[NetworkRadioTech](#networkradiotech11)>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio
-  .getRadioTech(slotId)
-  .then((data: radio.NetworkRadioTech) => {
-    console.info(
-      `getRadioTech success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
+radio.getRadioTech(slotId).then((data: radio.NetworkRadioTech) => {
+    console.info(`getRadioTech success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
     console.error(`getRadioTech failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## radio.getRadioTechSync18+
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.getRadioTechSync18+
 
 getRadioTechSync(slotId: number): [NetworkRadioTech](#networkradiotech11)
 
-获取当前接入的CS域和PS域无线接入技术。
+获取当前接入的CS域和PS域无线接入技术。CS域为电路交换域，PS为分组交换域。
 
 **需要权限**：ohos.permission.GET_NETWORK_INFO
 
@@ -155,24 +134,21 @@ getRadioTechSync(slotId: number): [NetworkRadioTech](#networkradiotech11)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [NetworkRadioTech](#networkradiotech11) | 返回当前接入的CS域和PS域技术。 |
+| NetworkRadioTech | 返回当前接入的CS域和PS域技术。CS域为电路交换域，PS为分组交换域。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -186,20 +162,17 @@ getRadioTechSync(slotId: number): [NetworkRadioTech](#networkradiotech11)
 
 **示例：**
 
-
-```ts
+```json
 let slotId: number = 0;
 let networkRadioTech: radio.NetworkRadioTech = radio.getRadioTechSync(slotId);
-console.info(
-  `getRadioTechSync success, NetworkRadioTech->${JSON.stringify(networkRadioTech)}`,
-);
+console.info(`getRadioTechSync success, NetworkRadioTech->${JSON.stringify(networkRadioTech)}`);
 ```
 
 
-## radio.getNetworkState
-**支持设备：** Phone / Tablet / Wearable
 
-getNetworkState(callback: AsyncCallback<NetworkState>): void
+##### radio.getNetworkState
+
+getNetworkState(callback: AsyncCallback&lt;NetworkState&gt;): void
 
 获取网络状态。使用callback异步回调。
 
@@ -209,16 +182,14 @@ getNetworkState(callback: AsyncCallback<NetworkState>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[NetworkState](#networkstate)&gt; | 是 | 回调函数。返回当前网络状态。 |
+| callback | AsyncCallback&lt;NetworkState&gt; | 是 | 回调函数。返回当前网络状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -232,28 +203,23 @@ getNetworkState(callback: AsyncCallback<NetworkState>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 radio.getNetworkState((err: BusinessError, data: radio.NetworkState) => {
-  if (err) {
-    console.error(
-      `getNetworkState failed, callback: err->${JSON.stringify(err)}`,
-    );
-    return;
-  }
-  console.info(
-    `getNetworkState success, callback: data->${JSON.stringify(data)}`,
-  );
+    if (err) {
+        console.error(`getNetworkState failed, callback: err->${JSON.stringify(err)}`);
+        return;
+    }
+    console.info(`getNetworkState success, callback: data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## radio.getNetworkState
-**支持设备：** Phone / Tablet / Wearable
 
-getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void
+##### radio.getNetworkState
+
+getNetworkState(slotId: number, callback: AsyncCallback&lt;NetworkState&gt;): void
 
 获取网络状态。使用callback异步回调。
 
@@ -263,17 +229,15 @@ getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;[NetworkState](#networkstate)&gt; | 是 | 回调函数。返回当前网络状态。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;NetworkState&gt; | 是 | 回调函数。返回当前网络状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -287,32 +251,24 @@ getNetworkState(slotId: number, callback: AsyncCallback<NetworkState>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio.getNetworkState(
-  slotId,
-  (err: BusinessError, data: radio.NetworkState) => {
+radio.getNetworkState(slotId, (err: BusinessError, data: radio.NetworkState) => {
     if (err) {
-      console.error(
-        `getNetworkState failed, callback: err->${JSON.stringify(err)}`,
-      );
-      return;
+        console.error(`getNetworkState failed, callback: err->${JSON.stringify(err)}`);
+        return;
     }
-    console.info(
-      `getNetworkState success, callback: data->${JSON.stringify(data)}`,
-    );
-  },
-);
+    console.info(`getNetworkState success, callback: data->${JSON.stringify(data)}`);
+});
 ```
 
 
-## radio.getNetworkState
-**支持设备：** Phone / Tablet / Wearable
 
-getNetworkState(slotId?: number): Promise<NetworkState>
+##### radio.getNetworkState
+
+getNetworkState(slotId?: number): Promise&lt;NetworkState&gt;
 
 获取网络状态。使用Promise异步回调。
 
@@ -322,24 +278,21 @@ getNetworkState(slotId?: number): Promise<NetworkState>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 否 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。          未指定卡槽时，默认为卡槽1。 |
+| slotId | number | 否 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 未指定卡槽时，默认为卡槽1。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NetworkState](#networkstate)&gt; | 以Promise形式返回网络状态。 |
+| Promise&lt;NetworkState&gt; | Promise对象，返回网络状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -353,30 +306,22 @@ getNetworkState(slotId?: number): Promise<NetworkState>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio
-  .getNetworkState(slotId)
-  .then((data: radio.NetworkState) => {
-    console.info(
-      `getNetworkState success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getNetworkState failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+radio.getNetworkState(slotId).then((data: radio.NetworkState) => {
+    console.info(`getNetworkState success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getNetworkState failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## radio.getNetworkSelectionMode
-**支持设备：** Phone / Tablet / Wearable
 
-getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelectionMode>): void
+##### radio.getNetworkSelectionMode
+
+getNetworkSelectionMode(slotId: number, callback: AsyncCallback&lt;NetworkSelectionMode&gt;): void
 
 获取当前选网模式。使用callback异步回调。
 
@@ -384,17 +329,15 @@ getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelection
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;[NetworkSelectionMode](#networkselectionmode)&gt; | 是 | 回调函数。返回当前选网模式。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;NetworkSelectionMode&gt; | 是 | 回调函数。返回当前选网模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -407,32 +350,24 @@ getNetworkSelectionMode(slotId: number, callback: AsyncCallback<NetworkSelection
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio.getNetworkSelectionMode(
-  slotId,
-  (err: BusinessError, data: radio.NetworkSelectionMode) => {
+radio.getNetworkSelectionMode(slotId, (err: BusinessError, data: radio.NetworkSelectionMode) => {
     if (err) {
-      console.error(
-        `getNetworkSelectionMode failed, callback: err->${JSON.stringify(err)}`,
-      );
-      return;
+        console.error(`getNetworkSelectionMode failed, callback: err->${JSON.stringify(err)}`);
+        return;
     }
-    console.info(
-      `getNetworkSelectionMode success, callback: data->${JSON.stringify(data)}`,
-    );
-  },
-);
+    console.info(`getNetworkSelectionMode success, callback: data->${JSON.stringify(data)}`);
+});
 ```
 
 
-## radio.getNetworkSelectionMode
-**支持设备：** Phone / Tablet / Wearable
 
-getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>
+##### radio.getNetworkSelectionMode
+
+getNetworkSelectionMode(slotId: number): Promise&lt;NetworkSelectionMode&gt;
 
 获取当前选网模式。使用Promise异步回调。
 
@@ -440,24 +375,21 @@ getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NetworkSelectionMode](#networkselectionmode)&gt; | 以Promise形式返回当前选网模式。 |
+| Promise&lt;NetworkSelectionMode&gt; | 以Promise形式返回当前选网模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -470,30 +402,22 @@ getNetworkSelectionMode(slotId: number): Promise<NetworkSelectionMode>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio
-  .getNetworkSelectionMode(slotId)
-  .then((data: radio.NetworkSelectionMode) => {
-    console.info(
-      `getNetworkSelectionMode success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getNetworkSelectionMode failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+radio.getNetworkSelectionMode(slotId).then((data: radio.NetworkSelectionMode) => {
+    console.info(`getNetworkSelectionMode success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getNetworkSelectionMode failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## radio.getISOCountryCodeForNetwork7+
-**支持设备：** Phone / Tablet / Wearable
 
-getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): void
+##### radio.getISOCountryCodeForNetwork7+
+
+getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取注册网络所在国家的ISO国家码。使用callback异步回调。
 
@@ -501,17 +425,15 @@ getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): vo
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。返回国家码，例如：CN(中国)。如果设备没有注册任何网络，接口返回空字符串。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -524,32 +446,24 @@ getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback<string>): vo
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio.getISOCountryCodeForNetwork(
-  slotId,
-  (err: BusinessError, data: string) => {
+radio.getISOCountryCodeForNetwork(slotId, (err: BusinessError, data: string) => {
     if (err) {
-      console.error(
-        `getISOCountryCodeForNetwork failed, callback: err->${JSON.stringify(err)}`,
-      );
-      return;
+        console.error(`getISOCountryCodeForNetwork failed, callback: err->${JSON.stringify(err)}`);
+        return;
     }
-    console.info(
-      `getISOCountryCodeForNetwork success, callback: data->${JSON.stringify(data)}`,
-    );
-  },
-);
+    console.info(`getISOCountryCodeForNetwork success, callback: data->${JSON.stringify(data)}`);
+});
 ```
 
 
-## radio.getISOCountryCodeForNetwork7+
-**支持设备：** Phone / Tablet / Wearable
 
-getISOCountryCodeForNetwork(slotId: number): Promise<string>
+##### radio.getISOCountryCodeForNetwork7+
+
+getISOCountryCodeForNetwork(slotId: number): Promise&lt;string&gt;
 
 获取注册网络所在国家的ISO国家码。使用Promise异步回调。
 
@@ -557,14 +471,12 @@ getISOCountryCodeForNetwork(slotId: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -575,7 +487,6 @@ getISOCountryCodeForNetwork(slotId: number): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -587,28 +498,20 @@ getISOCountryCodeForNetwork(slotId: number): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio
-  .getISOCountryCodeForNetwork(slotId)
-  .then((data: string) => {
-    console.info(
-      `getISOCountryCodeForNetwork success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getISOCountryCodeForNetwork failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+radio.getISOCountryCodeForNetwork(slotId).then((data: string) => {
+    console.info(`getISOCountryCodeForNetwork success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getISOCountryCodeForNetwork failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## radio.getISOCountryCodeForNetworkSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.getISOCountryCodeForNetworkSync10+
 
 getISOCountryCodeForNetworkSync(slotId: number): string
 
@@ -618,14 +521,12 @@ getISOCountryCodeForNetworkSync(slotId: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -634,25 +535,23 @@ getISOCountryCodeForNetworkSync(slotId: number): string
 
 **示例：**
 
-
-```ts
+```text
 let slotId: number = 0;
 let countryISO: string = radio.getISOCountryCodeForNetworkSync(slotId);
 console.info(`the country ISO is:` + countryISO);
 ```
 
 
-## radio.getPrimarySlotId7+
-**支持设备：** Phone / Tablet / Wearable
 
-getPrimarySlotId(callback: AsyncCallback<number>): void
+##### radio.getPrimarySlotId7+
+
+getPrimarySlotId(callback: AsyncCallback&lt;number&gt;): void
 
 获取主卡所在卡槽的索引号。使用callback异步回调。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -663,7 +562,6 @@ getPrimarySlotId(callback: AsyncCallback<number>): void
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -675,35 +573,29 @@ getPrimarySlotId(callback: AsyncCallback<number>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 radio.getPrimarySlotId((err: BusinessError, data: number) => {
-  if (err) {
-    console.error(
-      `getPrimarySlotId failed, callback: err->${JSON.stringify(err)}`,
-    );
-    return;
-  }
-  console.info(
-    `getPrimarySlotId success, callback: data->${JSON.stringify(data)}`,
-  );
+    if (err) {
+        console.error(`getPrimarySlotId failed, callback: err->${JSON.stringify(err)}`);
+        return;
+    }
+    console.info(`getPrimarySlotId success, callback: data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## radio.getPrimarySlotId7+
-**支持设备：** Phone / Tablet / Wearable
 
-getPrimarySlotId(): Promise<number>
+##### radio.getPrimarySlotId7+
+
+getPrimarySlotId(): Promise&lt;number&gt;
 
 获取主卡所在卡槽的索引号。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -714,7 +606,6 @@ getPrimarySlotId(): Promise<number>
 
 以下错误码的详细介绍请参见[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 8300002 | Service connection failed. |
@@ -724,29 +615,21 @@ getPrimarySlotId(): Promise<number>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-radio
-  .getPrimarySlotId()
-  .then((data: number) => {
-    console.info(
-      `getPrimarySlotId success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getPrimarySlotId failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+radio.getPrimarySlotId().then((data: number) => {
+    console.info(`getPrimarySlotId success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getPrimarySlotId failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## radio.getSignalInformation7+
-**支持设备：** Phone / Tablet / Wearable
 
-getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInformation>>): void
+##### radio.getSignalInformation7+
+
+getSignalInformation(slotId: number, callback: AsyncCallback<Array&lt;SignalInformation&gt;>): void
 
 获取指定SIM卡槽对应的注册网络信号强度信息列表。使用callback异步回调。
 
@@ -754,17 +637,15 @@ getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInforma
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;Array&lt;[SignalInformation](#signalinformation)&gt;&gt; | 是 | 回调函数，返回从[SignalInformation](#signalinformation)中派生出的子类对象的数组。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback<Array&lt;SignalInformation&gt;> | 是 | 回调函数，返回从SignalInformation中派生出的子类对象的数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -777,32 +658,24 @@ getSignalInformation(slotId: number, callback: AsyncCallback<Array<SignalInforma
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio.getSignalInformation(
-  slotId,
-  (err: BusinessError, data: Array<radio.SignalInformation>) => {
+radio.getSignalInformation(slotId, (err: BusinessError, data: Array<radio.SignalInformation>) => {
     if (err) {
-      console.error(
-        `getSignalInformation failed, callback: err->${JSON.stringify(err)}`,
-      );
-      return;
+        console.error(`getSignalInformation failed, callback: err->${JSON.stringify(err)}`);
+        return;
     }
-    console.info(
-      `getSignalInformation success, callback: data->${JSON.stringify(data)}`,
-    );
-  },
-);
+    console.info(`getSignalInformation success, callback: data->${JSON.stringify(data)}`);
+});
 ```
 
 
-## radio.getSignalInformation7+
-**支持设备：** Phone / Tablet / Wearable
 
-getSignalInformation(slotId: number): Promise<Array<SignalInformation>>
+##### radio.getSignalInformation7+
+
+getSignalInformation(slotId: number): Promise<Array&lt;SignalInformation&gt;>
 
 获取指定SIM卡槽对应的注册网络信号强度信息列表。使用Promise异步回调。
 
@@ -810,24 +683,21 @@ getSignalInformation(slotId: number): Promise<Array<SignalInformation>>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[SignalInformation](#signalinformation)&gt;&gt; | 以Promise形式返回网络信号强度[SignalInformation](#signalinformation)子类对象的数组。 |
+| Promise<Array&lt;SignalInformation&gt;> | 以Promise形式返回网络信号强度SignalInformation子类对象的数组。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -840,30 +710,22 @@ getSignalInformation(slotId: number): Promise<Array<SignalInformation>>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio
-  .getSignalInformation(slotId)
-  .then((data: Array<radio.SignalInformation>) => {
-    console.info(
-      `getSignalInformation success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getSignalInformation failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+radio.getSignalInformation(slotId).then((data: Array<radio.SignalInformation>) => {
+    console.info(`getSignalInformation success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getSignalInformation failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## radio.getSignalInformationSync10+
-**支持设备：** Phone / Tablet / Wearable
 
-getSignalInformationSync(slotId: number): Array<SignalInformation>
+##### radio.getSignalInformationSync10+
+
+getSignalInformationSync(slotId: number): Array&lt;SignalInformation&gt;
 
 获取指定SIM卡槽对应的注册网络信号强度信息列表。
 
@@ -871,102 +733,93 @@ getSignalInformationSync(slotId: number): Array<SignalInformation>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[SignalInformation](#signalinformation)&gt; | 返回网络信号强度[SignalInformation](#signalinformation)子类对象的数组。 |
+| Array&lt;SignalInformation&gt; | 返回网络信号强度SignalInformation子类对象的数组。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let slotId: number = 0;
-let signalInfo: Array<radio.SignalInformation> =
-  radio.getSignalInformationSync(slotId);
+let signalInfo: Array<radio.SignalInformation> = radio.getSignalInformationSync(slotId);
 console.info(`signal information size is:` + signalInfo.length);
 ```
 
 
-## radio.isNrSupported8+(deprecated)
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.isNrSupported(deprecated)
 
 isNrSupported(): boolean
 
 判断当前设备是否支持NR(New Radio)。
 
-
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃。建议使用[isNRSupported](#radioisnrsupported9)替代。
+> 从 API version 7开始支持，从API version 9开始废弃。建议使用 isNRSupported 替代。
+
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | - true：支持。          - false：不支持。 |
+| boolean | - true：支持。 - false：不支持。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let result: boolean = radio.isNrSupported();
-console.info('Result: ' + result);
+console.info("Result: "+ result);
 ```
 
 
-## radio.isNrSupported(deprecated)
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.isNrSupported(deprecated)
 
 isNrSupported(slotId: number): boolean
 
 判断当前设备是否支持NR(New Radio)。
 
-
 > [!NOTE]
-> 从 API version 8开始支持，从API version 9开始废弃。建议使用[isNRSupported](#radioisnrsupported9-1)替代。
+> 从 API version 8开始支持，从API version 9开始废弃。建议使用 isNRSupported 替代。
+
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | - true：支持。          - false：不支持。 |
+| boolean | - true：支持。 - false：不支持。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let slotId: number = 0;
 let result: boolean = radio.isNrSupported(slotId);
-console.info('Result: ' + result);
+console.info("Result: "+ result);
 ```
 
 
-## radio.isNRSupported9+
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.isNRSupported9+
 
 isNRSupported(): boolean
 
@@ -976,23 +829,21 @@ isNRSupported(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | - true：支持。          - false：不支持。 |
+| boolean | - true：支持。 - false：不支持。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let result: boolean = radio.isNRSupported();
-console.info('Result: ' + result);
+console.info("Result: "+ result);
 ```
 
 
-## radio.isNRSupported9+
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.isNRSupported9+
 
 isNRSupported(slotId: number): boolean
 
@@ -1002,34 +853,31 @@ isNRSupported(slotId: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | - true：支持。          - false：不支持。 |
+| boolean | - true：支持。 - false：不支持。 |
 
 
 **示例：**
 
-
-```ts
+```text
 let slotId: number = 0;
 let result: boolean = radio.isNRSupported(slotId);
-console.info('Result: ' + result);
+console.info("Result: "+ result);
 ```
 
 
-## radio.isRadioOn7+
-**支持设备：** Phone / Tablet / Wearable
 
-isRadioOn(callback: AsyncCallback<boolean>): void
+##### radio.isRadioOn7+
+
+isRadioOn(callback: AsyncCallback&lt;boolean&gt;): void
 
 判断主卡的Radio是否打开。使用callback异步回调。
 
@@ -1039,16 +887,14 @@ isRadioOn(callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回主卡的Radio状态。          - true：Radio打开。          - false：Radio关闭。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回主卡的Radio状态。 - true：Radio打开。 - false：Radio关闭。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1062,24 +908,23 @@ isRadioOn(callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 radio.isRadioOn((err: BusinessError, data: boolean) => {
-  if (err) {
-    console.error(`isRadioOn failed, callback: err->${JSON.stringify(err)}`);
-    return;
-  }
-  console.info(`isRadioOn success, callback: data->${JSON.stringify(data)}`);
+    if (err) {
+        console.error(`isRadioOn failed, callback: err->${JSON.stringify(err)}`);
+        return;
+    }
+    console.info(`isRadioOn success, callback: data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## radio.isRadioOn7+
-**支持设备：** Phone / Tablet / Wearable
 
-isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void
+##### radio.isRadioOn7+
+
+isRadioOn(slotId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 判断指定卡槽位的Radio是否打开。使用callback异步回调。
 
@@ -1089,17 +934,15 @@ isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回指定卡槽的Radio状态。          - true：Radio打开。          - false：Radio关闭。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。返回指定卡槽的Radio状态。 - true：Radio打开。 - false：Radio关闭。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1113,25 +956,24 @@ isRadioOn(slotId: number, callback: AsyncCallback<boolean>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
 radio.isRadioOn(slotId, (err: BusinessError, data: boolean) => {
-  if (err) {
-    console.error(`isRadioOn failed, callback: err->${JSON.stringify(err)}`);
-    return;
-  }
-  console.info(`isRadioOn success, callback: data->${JSON.stringify(data)}`);
+    if (err) {
+        console.error(`isRadioOn failed, callback: err->${JSON.stringify(err)}`);
+        return;
+    }
+    console.info(`isRadioOn success, callback: data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## radio.isRadioOn7+
-**支持设备：** Phone / Tablet / Wearable
 
-isRadioOn(slotId?: number): Promise<boolean>
+##### radio.isRadioOn7+
+
+isRadioOn(slotId?: number): Promise&lt;boolean&gt;
 
 判断Radio是否打开。使用Promise异步回调。
 
@@ -1141,24 +983,21 @@ isRadioOn(slotId?: number): Promise<boolean>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 否 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。          如果不指定slotId，默认判断主卡Radio是否打开 |
+| slotId | number | 否 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 如果不指定slotId，默认判断主卡Radio是否打开 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | 以Promise形式返回判断Radio是否打开的结果。          - true：Radio打开。          - false：Radio关闭。 |
+| Promise&lt;boolean&gt; | 以Promise形式返回判断Radio是否打开的结果。 - true：Radio打开。 - false：Radio关闭。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1172,26 +1011,22 @@ isRadioOn(slotId?: number): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio
-  .isRadioOn(slotId)
-  .then((data: boolean) => {
+radio.isRadioOn(slotId).then((data: boolean) => {
     console.info(`isRadioOn success, promise: data->${JSON.stringify(data)}`);
-  })
-  .catch((err: BusinessError) => {
+}).catch((err: BusinessError) => {
     console.error(`isRadioOn failed, promise: err->${JSON.stringify(err)}`);
-  });
+});
 ```
 
 
-## radio.getOperatorName7+
-**支持设备：** Phone / Tablet / Wearable
 
-getOperatorName(slotId: number, callback: AsyncCallback<string>): void
+##### radio.getOperatorName7+
+
+getOperatorName(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取运营商名称。使用callback异步回调。
 
@@ -1199,17 +1034,15 @@ getOperatorName(slotId: number, callback: AsyncCallback<string>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，返回运营商名称。例如：中国移动。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1222,29 +1055,24 @@ getOperatorName(slotId: number, callback: AsyncCallback<string>): void
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
 radio.getOperatorName(slotId, (err: BusinessError, data: string) => {
-  if (err) {
-    console.error(
-      `getOperatorName failed, callback: err->${JSON.stringify(err)}`,
-    );
-    return;
-  }
-  console.info(
-    `getOperatorName success, callback: data->${JSON.stringify(data)}`,
-  );
+    if (err) {
+        console.error(`getOperatorName failed, callback: err->${JSON.stringify(err)}`);
+        return;
+    }
+    console.info(`getOperatorName success, callback: data->${JSON.stringify(data)}`);
 });
 ```
 
 
-## radio.getOperatorName7+
-**支持设备：** Phone / Tablet / Wearable
 
-getOperatorName(slotId: number): Promise<string>
+##### radio.getOperatorName7+
+
+getOperatorName(slotId: number): Promise&lt;string&gt;
 
 获取运营商名称。使用Promise异步回调。
 
@@ -1252,14 +1080,12 @@ getOperatorName(slotId: number): Promise<string>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1270,7 +1096,6 @@ getOperatorName(slotId: number): Promise<string>
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[电话子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-telephony)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. |
@@ -1282,28 +1107,20 @@ getOperatorName(slotId: number): Promise<string>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let slotId: number = 0;
-radio
-  .getOperatorName(slotId)
-  .then((data: string) => {
-    console.info(
-      `getOperatorName success, promise: data->${JSON.stringify(data)}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `getOperatorName failed, promise: err->${JSON.stringify(err)}`,
-    );
-  });
+radio.getOperatorName(slotId).then((data: string) => {
+    console.info(`getOperatorName success, promise: data->${JSON.stringify(data)}`);
+}).catch((err: BusinessError) => {
+    console.error(`getOperatorName failed, promise: err->${JSON.stringify(err)}`);
+});
 ```
 
 
-## radio.getOperatorNameSync10+
-**支持设备：** Phone / Tablet / Wearable
+
+##### radio.getOperatorNameSync10+
 
 getOperatorNameSync(slotId: number): string
 
@@ -1313,14 +1130,12 @@ getOperatorNameSync(slotId: number): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| slotId | number | 是 | 卡槽ID。          - 0：卡槽1。          - 1：卡槽2。 |
+| slotId | number | 是 | 卡槽ID。 - 0：卡槽1。 - 1：卡槽2。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1329,35 +1144,33 @@ getOperatorNameSync(slotId: number): string
 
 **示例：**
 
-
-```ts
+```text
 let slotId: number = 0;
 let operatorName: string = radio.getOperatorNameSync(slotId);
 console.info(`operator name is:` + operatorName);
 ```
 
 
-## NetworkRadioTech11+
-**支持设备：** Phone / Tablet / Wearable
+
+##### NetworkRadioTech11+
 
 网络中packet service (PS) 和 circuit service (CS) 无线接入技术。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| psRadioTech | [RadioTechnology](#radiotechnology) | 否 | 否 | PS无线接入技术。 |
-| csRadioTech | [RadioTechnology](#radiotechnology) | 否 | 否 | CS无线接入技术。 |
+| psRadioTech | RadioTechnology | 否 | 否 | PS无线接入技术。 |
+| csRadioTech | RadioTechnology | 否 | 否 | CS无线接入技术。 |
 
 
-## RadioTechnology
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### RadioTechnology
 
 无线接入技术。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1376,28 +1189,28 @@ console.info(`operator name is:` + operatorName);
 | RADIO_TECHNOLOGY_NR | 12 | 无线接入技术NR(New Radio)。 |
 
 
-## SignalInformation
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### SignalInformation
 
 网络信号强度信息对象。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| signalType | [NetworkType](#networktype) | 否 | 否 | 网络信号强度类型。 |
-| signalLevel | number | 否 | 否 | 网络信号强度等级。 |
-| dBm9+ | number | 否 | 否 | 网络信号强度。 |
+| signalType | NetworkType | 否 | 否 | 网络信号强度类型。 |
+| signalLevel | number | 否 | 否 | 网络信号强度等级，范围为[0, 5]，超出范围返回错误。 |
+| dBm9+ | number | 否 | 否 | 网络信号强度，范围为[-140, 140]，超出范围返回错误。 |
 
 
-## NetworkType
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### NetworkType
 
 网络类型。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1410,13 +1223,13 @@ console.info(`operator name is:` + operatorName);
 | NETWORK_TYPE_NR | 6 | 网络类型为NR(New Radio)。 |
 
 
-## NetworkState
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### NetworkState
 
 网络注册状态。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1424,20 +1237,20 @@ console.info(`operator name is:` + operatorName);
 | shortOperatorName | string | 否 | 否 | 注册网络的短运营商名称。 |
 | plmnNumeric | string | 否 | 否 | 注册网络的PLMN码。 |
 | isRoaming | boolean | 否 | 否 | 是否处于漫游状态。 |
-| regState | [RegState](#regstate) | 否 | 否 | 设备的网络注册状态。 |
-| cfgTech8+ | [RadioTechnology](#radiotechnology) | 否 | 否 | 设备的无线接入技术。 |
-| nsaState | [NsaState](#nsastate) | 否 | 否 | 设备的NSA网络注册状态。 |
+| regState | RegState | 否 | 否 | 设备的网络注册状态。 |
+| cfgTech8+ | RadioTechnology | 否 | 否 | 设备的无线接入技术。 |
+| nsaState | NsaState | 否 | 否 | 设备的NSA网络注册状态。 |
 | isCaActive | boolean | 否 | 否 | CA的状态。 |
 | isEmergency | boolean | 否 | 否 | 此设备是否只允许拨打紧急呼叫。 |
 
 
-## RegState
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### RegState
 
 网络注册状态。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1447,13 +1260,13 @@ console.info(`operator name is:` + operatorName);
 | REG_STATE_POWER_OFF | 3 | 蜂窝无线电已关闭，modem下电，无法和网侧进行通信。 |
 
 
-## NsaState
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### NsaState
 
 非独立组网状态。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1465,13 +1278,13 @@ console.info(`operator name is:` + operatorName);
 | NSA_STATE_SA_ATTACHED | 6 | 设备在5GC附着时在NG-RAN小区下空闲或连接到NG-RAN小区。 |
 
 
-## NetworkSelectionMode
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### NetworkSelectionMode
 
 选网模式。
 
 **系统能力**：SystemCapability.Telephony.CoreService
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -1480,15 +1293,15 @@ console.info(`operator name is:` + operatorName);
 | NETWORK_SELECTION_MANUAL | 2 | 手动选网模式。 |
 
 
-## CellInformation8+
-**支持设备：** Phone / Tablet / Wearable
+
+
+##### CellInformation8+
 
 小区信息。
 
 **系统能力**：SystemCapability.Telephony.CoreService
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| networkType | [NetworkType](#networktype) | 否 | 否 | 获取服务单元的网络类型。 |
-| signalInformation | [SignalInformation](#signalinformation) | 否 | 否 | 信号信息。 |
+| networkType | NetworkType | 否 | 否 | 获取服务单元的网络类型。 |
+| signalInformation | SignalInformation | 否 | 否 | 信号信息。 |

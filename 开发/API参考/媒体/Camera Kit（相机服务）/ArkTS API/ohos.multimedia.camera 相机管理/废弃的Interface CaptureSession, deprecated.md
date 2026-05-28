@@ -3,41 +3,38 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-capturesession
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拍照会话类，保存一次相机运行所需要的所有资源[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)、[CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput)，并向相机设备申请完成相机功能(录像，拍照)。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[PhotoSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession)、[VideoSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 PhotoSession 、 VideoSession 替代。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { camera } from '@kit.CameraKit';
 ```
 
 
-## beginConfig(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### beginConfig(deprecated)
 
 beginConfig(): void
 
 开始配置会话。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.beginConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#beginconfig11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.beginConfig 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -46,8 +43,7 @@ beginConfig(): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function beginConfig(captureSession: camera.CaptureSession): void {
@@ -62,31 +58,29 @@ function beginConfig(captureSession: camera.CaptureSession): void {
 ```
 
 
-## commitConfig(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-commitConfig(callback: AsyncCallback<void>): void
+##### commitConfig(deprecated)
+
+commitConfig(callback: AsyncCallback&lt;void&gt;): void
 
 提交配置信息，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.commitConfig 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当提交配置信息成功，err为undefined，否则为错误对象。错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode) |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当提交配置信息成功，err为undefined，否则为错误对象。错误码类型CameraErrorCode |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -96,8 +90,7 @@ commitConfig(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function commitConfig(captureSession: camera.CaptureSession): void {
@@ -112,21 +105,20 @@ function commitConfig(captureSession: camera.CaptureSession): void {
 ```
 
 
-## commitConfig(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-commitConfig(): Promise<void>
+##### commitConfig(deprecated)
+
+commitConfig(): Promise&lt;void&gt;
 
 提交配置信息。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.commitConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#commitconfig11-1)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.commitConfig 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -137,7 +129,6 @@ commitConfig(): Promise<void>
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400102 | Operation not allowed. |
@@ -146,49 +137,43 @@ commitConfig(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function commitConfig(captureSession: camera.CaptureSession): void {
-  captureSession
-    .commitConfig()
-    .then(() => {
-      console.info('Promise returned to indicate the commit config success.');
-    })
-    .catch((error: BusinessError) => {
-      // 失败返回错误码error.code并处理。
-      console.error(`The commitConfig call failed. error code: ${error.code}`);
-    });
+  captureSession.commitConfig().then(() => {
+    console.info('Promise returned to indicate the commit config success.');
+  }).catch((error: BusinessError) => {
+    // 失败返回错误码error.code并处理。
+    console.error(`The commitConfig call failed. error code: ${error.code}`);
+  });
 }
 ```
 
 
-## addInput(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addInput(deprecated)
 
 addInput(cameraInput: CameraInput): void
 
 把[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)加入到会话。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.addInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#addinput11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.addInput 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cameraInput | [CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput) | 是 | 需要添加的CameraInput实例。 |
+| cameraInput | CameraInput | 是 | 需要添加的CameraInput实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -198,14 +183,10 @@ addInput(cameraInput: CameraInput): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function addInput(
-  captureSession: camera.CaptureSession,
-  cameraInput: camera.CameraInput,
-): void {
+function addInput(captureSession: camera.CaptureSession, cameraInput: camera.CameraInput): void {
   try {
     captureSession.addInput(cameraInput);
   } catch (error) {
@@ -217,31 +198,29 @@ function addInput(
 ```
 
 
-## removeInput(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeInput(deprecated)
 
 removeInput(cameraInput: CameraInput): void
 
 移除[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.removeInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#removeinput11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.removeInput 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cameraInput | [CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput) | 是 | 需要移除的CameraInput实例。 |
+| cameraInput | CameraInput | 是 | 需要移除的CameraInput实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -251,14 +230,10 @@ removeInput(cameraInput: CameraInput): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function removeInput(
-  captureSession: camera.CaptureSession,
-  cameraInput: camera.CameraInput,
-): void {
+function removeInput(captureSession: camera.CaptureSession, cameraInput: camera.CameraInput): void {
   try {
     captureSession.removeInput(cameraInput);
   } catch (error) {
@@ -270,31 +245,29 @@ function removeInput(
 ```
 
 
-## addOutput(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### addOutput(deprecated)
 
 addOutput(cameraOutput: CameraOutput): void
 
 把[CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput)加入到会话。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.addOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#addoutput11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.addOutput 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cameraOutput | [CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput) | 是 | 需要添加的CameraOutput实例。 |
+| cameraOutput | CameraOutput | 是 | 需要添加的CameraOutput实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -304,14 +277,10 @@ addOutput(cameraOutput: CameraOutput): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function addOutput(
-  captureSession: camera.CaptureSession,
-  cameraOutput: camera.CameraOutput,
-): void {
+function addOutput(captureSession: camera.CaptureSession, cameraOutput: camera.CameraOutput): void {
   try {
     captureSession.addOutput(cameraOutput);
   } catch (error) {
@@ -323,31 +292,29 @@ function addOutput(
 ```
 
 
-## removeOutput(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeOutput(deprecated)
 
 removeOutput(cameraOutput: CameraOutput): void
 
 从会话中移除[CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput)。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.removeOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#removeoutput11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.removeOutput 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cameraOutput | [CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput) | 是 | 需要移除的CameraOutput实例。 |
+| cameraOutput | CameraOutput | 是 | 需要移除的CameraOutput实例。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -357,14 +324,10 @@ removeOutput(cameraOutput: CameraOutput): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function removeOutput(
-  captureSession: camera.CaptureSession,
-  previewOutput: camera.PreviewOutput,
-): void {
+function removeOutput(captureSession: camera.CaptureSession, previewOutput: camera.PreviewOutput): void {
   try {
     captureSession.removeOutput(previewOutput);
   } catch (error) {
@@ -376,31 +339,29 @@ function removeOutput(
 ```
 
 
-## start(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-start(callback: AsyncCallback<void>): void
+##### start(deprecated)
+
+start(callback: AsyncCallback&lt;void&gt;): void
 
 开始会话工作，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.start 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当开始会话工作成功，err为undefined，否则为错误对象。错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当开始会话工作成功，err为undefined，否则为错误对象。错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -410,8 +371,7 @@ start(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function startCaptureSession(captureSession: camera.CaptureSession): void {
@@ -426,21 +386,20 @@ function startCaptureSession(captureSession: camera.CaptureSession): void {
 ```
 
 
-## start(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-start(): Promise<void>
+##### start(deprecated)
+
+start(): Promise&lt;void&gt;
 
 开始会话工作。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11-1)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.start 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -451,7 +410,6 @@ start(): Promise<void>
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400103 | Session not config. |
@@ -460,48 +418,42 @@ start(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function startCaptureSession(captureSession: camera.CaptureSession): void {
-  captureSession
-    .start()
-    .then(() => {
-      console.info('Promise returned to indicate the session start success.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(`Failed to start the session, error code: ${err.code}.`);
-    });
+  captureSession.start().then(() => {
+    console.info('Promise returned to indicate the session start success.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to start the session, error code: ${err.code}.`);
+  });
 }
 ```
 
 
-## stop(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(callback: AsyncCallback<void>): void
+##### stop(deprecated)
+
+stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止会话工作，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#stop11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.stop 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当停止会话工作成功，err为undefined，否则为错误对象。错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当停止会话工作成功，err为undefined，否则为错误对象。错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -510,8 +462,7 @@ stop(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function stopCaptureSession(captureSession: camera.CaptureSession): void {
@@ -526,21 +477,20 @@ function stopCaptureSession(captureSession: camera.CaptureSession): void {
 ```
 
 
-## stop(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-stop(): Promise<void>
+##### stop(deprecated)
+
+stop(): Promise&lt;void&gt;
 
 停止会话工作。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#stop11-1)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.stop 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -551,7 +501,6 @@ stop(): Promise<void>
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400201 | Camera service fatal error. |
@@ -559,91 +508,79 @@ stop(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function stopCaptureSession(captureSession: camera.CaptureSession): void {
-  captureSession
-    .stop()
-    .then(() => {
-      console.info('Promise returned to indicate the session stop success.');
-    })
-    .catch((err: BusinessError) => {
-      console.error(`Failed to stop the session, error code: ${err.code}.`);
-    });
-}
-```
-
-
-## release(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-release(callback: AsyncCallback<void>): void
-
-释放会话资源，通过注册回调函数获取结果。使用callback异步回调。
-
-
-> [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#release11)替代。
-
-**系统能力：** SystemCapability.Multimedia.Camera.Core
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当释放会话资源成功，err为undefined，否则为错误对象。错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 7400201 | Camera service fatal error. |
-
-
-**示例：**
-
-
-```ts
-import { BusinessError } from '@kit.BasicServicesKit';
-
-function releaseCaptureSession(captureSession: camera.CaptureSession): void {
-  captureSession.release((err: BusinessError) => {
-    if (err) {
-      console.error(
-        `Failed to release the CaptureSession instance, error code: ${err.code}.`,
-      );
-      return;
-    }
-    console.info(
-      'Callback invoked to indicate that the CaptureSession instance is released successfully.',
-    );
+  captureSession.stop().then(() => {
+    console.info('Promise returned to indicate the session stop success.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to stop the session, error code: ${err.code}.`);
   });
 }
 ```
 
 
-## release(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-release(): Promise<void>
+##### release(deprecated)
+
+release(callback: AsyncCallback&lt;void&gt;): void
+
+释放会话资源，通过注册回调函数获取结果。使用callback异步回调。
+
+> [!NOTE]
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.release 替代。
+
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当释放会话资源成功，err为undefined，否则为错误对象。错误码类型CameraErrorCode。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400201 | Camera service fatal error. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function releaseCaptureSession(captureSession: camera.CaptureSession): void {
+  captureSession.release((err: BusinessError) => {
+    if (err) {
+      console.error(`Failed to release the CaptureSession instance, error code: ${err.code}.`);
+      return;
+    }
+    console.info('Callback invoked to indicate that the CaptureSession instance is released successfully.');
+  });
+}
+```
+
+
+
+##### release(deprecated)
+
+release(): Promise&lt;void&gt;
 
 释放会话资源。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Session.release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#release11-1)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Session.release 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -654,7 +591,6 @@ release(): Promise<void>
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400201 | Camera service fatal error. |
@@ -662,52 +598,42 @@ release(): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function releaseCaptureSession(captureSession: camera.CaptureSession): void {
-  captureSession
-    .release()
-    .then(() => {
-      console.info(
-        'Promise returned to indicate that the CaptureSession instance is released successfully.',
-      );
-    })
-    .catch((err: BusinessError) => {
-      console.error(
-        `Failed to release the CaptureSession instance, error code: ${err.code}.`,
-      );
-    });
+  captureSession.release().then(() => {
+    console.info('Promise returned to indicate that the CaptureSession instance is released successfully.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to release the CaptureSession instance, error code: ${err.code}.`);
+  });
 }
 ```
 
 
-## hasFlash(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### hasFlash(deprecated)
 
 hasFlash(): boolean
 
 检测是否有闪光灯。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Flash.hasFlash](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flashquery#hasflash11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Flash.hasFlash 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 设备支持闪光灯。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| boolean | 设备支持闪光灯。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -716,8 +642,7 @@ hasFlash(): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function hasFlash(captureSession: camera.CaptureSession): boolean {
@@ -734,39 +659,36 @@ function hasFlash(captureSession: camera.CaptureSession): boolean {
 ```
 
 
-## isFlashModeSupported(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isFlashModeSupported(deprecated)
 
 isFlashModeSupported(flashMode: FlashMode): boolean
 
 检测闪光灯模式是否支持。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Flash.isFlashModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flashquery#isflashmodesupported11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Flash.isFlashModeSupported 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| flashMode | [FlashMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#flashmode) | 是 | 指定闪光灯模式。 |
+| flashMode | FlashMode | 是 | 指定闪光灯模式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 检测闪光灯模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| boolean | 检测闪光灯模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -775,59 +697,50 @@ isFlashModeSupported(flashMode: FlashMode): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function isFlashModeSupported(captureSession: camera.CaptureSession): boolean {
   let status: boolean = false;
   try {
-    status = captureSession.isFlashModeSupported(
-      camera.FlashMode.FLASH_MODE_AUTO,
-    );
+    status = captureSession.isFlashModeSupported(camera.FlashMode.FLASH_MODE_AUTO);
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The isFlashModeSupported call failed. error code: ${err.code}`,
-    );
+    console.error(`The isFlashModeSupported call failed. error code: ${err.code}`);
   }
   return status;
 }
 ```
 
 
-## setFlashMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setFlashMode(deprecated)
 
 setFlashMode(flashMode: FlashMode): void
 
 设置闪光灯模式。
 
 进行设置之前，需要先检查：
-
-
 1. 设备是否支持闪光灯，可使用方法[hasFlash](#hasflashdeprecated)。
 2. 设备是否支持指定的闪光灯模式，可使用方法[isFlashModeSupported](#isflashmodesupporteddeprecated)。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Flash.setFlashMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flash#setflashmode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Flash.setFlashMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| flashMode | [FlashMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#flashmode) | 是 | 指定闪光灯模式。 |
+| flashMode | FlashMode | 是 | 指定闪光灯模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -836,8 +749,7 @@ setFlashMode(flashMode: FlashMode): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function setFlashMode(captureSession: camera.CaptureSession): void {
@@ -852,31 +764,29 @@ function setFlashMode(captureSession: camera.CaptureSession): void {
 ```
 
 
-## getFlashMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFlashMode(deprecated)
 
 getFlashMode(): FlashMode
 
 获取当前设备的闪光灯模式。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Flash.getFlashMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flash#getflashmode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Flash.getFlashMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FlashMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#flashmode) | 获取当前设备的闪光灯模式。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| FlashMode | 获取当前设备的闪光灯模式。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -885,13 +795,10 @@ getFlashMode(): FlashMode
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getFlashMode(
-  captureSession: camera.CaptureSession,
-): camera.FlashMode | undefined {
+function getFlashMode(captureSession: camera.CaptureSession): camera.FlashMode | undefined {
   let flashMode: camera.FlashMode | undefined = undefined;
   try {
     flashMode = captureSession.getFlashMode();
@@ -905,39 +812,36 @@ function getFlashMode(
 ```
 
 
-## isExposureModeSupported(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isExposureModeSupported(deprecated)
 
 isExposureModeSupported(aeMode: ExposureMode): boolean
 
 查询曝光模式是否支持。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.isExposureModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposurequery#isexposuremodesupported11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.isExposureModeSupported 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| aeMode | [ExposureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#exposuremode) | 是 | 曝光模式。 |
+| aeMode | ExposureMode | 是 | 曝光模式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 获取是否支持曝光模式。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| boolean | 获取是否支持曝光模式。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -946,55 +850,46 @@ isExposureModeSupported(aeMode: ExposureMode): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function isExposureModeSupported(
-  captureSession: camera.CaptureSession,
-): boolean {
+function isExposureModeSupported(captureSession: camera.CaptureSession): boolean {
   let isSupported: boolean = false;
   try {
-    isSupported = captureSession.isExposureModeSupported(
-      camera.ExposureMode.EXPOSURE_MODE_LOCKED,
-    );
+    isSupported = captureSession.isExposureModeSupported(camera.ExposureMode.EXPOSURE_MODE_LOCKED);
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The isExposureModeSupported call failed. error code: ${err.code}`,
-    );
+    console.error(`The isExposureModeSupported call failed. error code: ${err.code}`);
   }
   return isSupported;
 }
 ```
 
 
-## getExposureMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getExposureMode(deprecated)
 
 getExposureMode(): ExposureMode
 
 获取当前曝光模式。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.getExposureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure#getexposuremode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.getExposureMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [ExposureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#exposuremode) | 获取当前曝光模式。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| ExposureMode | 获取当前曝光模式。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1003,13 +898,10 @@ getExposureMode(): ExposureMode
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getExposureMode(
-  captureSession: camera.CaptureSession,
-): camera.ExposureMode | undefined {
+function getExposureMode(captureSession: camera.CaptureSession): camera.ExposureMode | undefined {
   let exposureMode: camera.ExposureMode | undefined = undefined;
   try {
     exposureMode = captureSession.getExposureMode();
@@ -1023,31 +915,29 @@ function getExposureMode(
 ```
 
 
-## setExposureMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setExposureMode(deprecated)
 
 setExposureMode(aeMode: ExposureMode): void
 
-设���曝光模式。进行设置之前，需要先检查设备是否支持指定的曝光模式，可使用方法[isExposureModeSupported](#isexposuremodesupporteddeprecated)。
-
+设置曝光模式。进行设置之前，需要先检查设备是否支持指定的曝光模式，可使用方法[isExposureModeSupported](#isexposuremodesupporteddeprecated)。
 
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.setExposureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure#setexposuremode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.setExposureMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| aeMode | [ExposureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#exposuremode) | 是 | 曝光模式。 |
+| aeMode | ExposureMode | 是 | 曝光模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1056,8 +946,7 @@ setExposureMode(aeMode: ExposureMode): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function setExposureMode(captureSession: camera.CaptureSession): void {
@@ -1072,31 +961,29 @@ function setExposureMode(captureSession: camera.CaptureSession): void {
 ```
 
 
-## getMeteringPoint(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getMeteringPoint(deprecated)
 
 getMeteringPoint(): Point
 
 查询曝光区域中心点。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.getMeteringPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure#getmeteringpoint11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.getMeteringPoint 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#point) | 获取当前曝光点。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| Point | 获取当前曝光点。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1105,13 +992,10 @@ getMeteringPoint(): Point
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getMeteringPoint(
-  captureSession: camera.CaptureSession,
-): camera.Point | undefined {
+function getMeteringPoint(captureSession: camera.CaptureSession): camera.Point | undefined {
   let exposurePoint: camera.Point | undefined = undefined;
   try {
     exposurePoint = captureSession.getMeteringPoint();
@@ -1125,8 +1009,8 @@ function getMeteringPoint(
 ```
 
 
-## setMeteringPoint(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setMeteringPoint(deprecated)
 
 setMeteringPoint(point: Point): void
 
@@ -1134,24 +1018,22 @@ setMeteringPoint(point: Point): void
 
 此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w，h}，且触碰点为{x，y}，则转换后的坐标点为{y/h，1-x/w}。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.setMeteringPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure#setmeteringpoint11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.setMeteringPoint 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| point | [Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#point) | 是 | 曝光点，x,y设置范围应在[0,1]之内，超过范围，如果小于0设置0，大于1设置1。 |
+| point | Point | 是 | 曝光点，x,y设置范围应在[0,1]之内，超过范围，如果小于0设置0，大于1设置1。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1160,12 +1042,11 @@ setMeteringPoint(point: Point): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function setMeteringPoint(captureSession: camera.CaptureSession): void {
-  const point: camera.Point = { x: 1, y: 1 };
+  const point: camera.Point = {x: 1, y: 1};
   try {
     captureSession.setMeteringPoint(point);
   } catch (error) {
@@ -1177,31 +1058,29 @@ function setMeteringPoint(captureSession: camera.CaptureSession): void {
 ```
 
 
-## getExposureBiasRange(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getExposureBiasRange(): Array<number>
+##### getExposureBiasRange(deprecated)
+
+getExposureBiasRange(): Array&lt;number&gt;
 
 查询曝光补偿范围。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.getExposureBiasRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposurequery#getexposurebiasrange11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.getExposureBiasRange 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;number&gt; | 获取补偿范围的数组。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| Array&lt;number&gt; | 获取补偿范围的数组。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1210,30 +1089,25 @@ getExposureBiasRange(): Array<number>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getExposureBiasRange(
-  captureSession: camera.CaptureSession,
-): Array<number> {
+function getExposureBiasRange(captureSession: camera.CaptureSession): Array<number> {
   let biasRangeArray: Array<number> = [];
   try {
     biasRangeArray = captureSession.getExposureBiasRange();
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The getExposureBiasRange call failed. error code: ${err.code}`,
-    );
+    console.error(`The getExposureBiasRange call failed. error code: ${err.code}`);
   }
   return biasRangeArray;
 }
 ```
 
 
-## setExposureBias(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setExposureBias(deprecated)
 
 setExposureBias(exposureBias: number): void
 
@@ -1241,24 +1115,22 @@ setExposureBias(exposureBias: number): void
 
 进行设置之前，建议先通过方法[getExposureBiasRange](#getexposurebiasrangedeprecated)查询支持的范围。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.setExposureBias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure#setexposurebias11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.setExposureBias 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| exposureBias | number | 是 | 曝光补偿，[getExposureBiasRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposurequery#getexposurebiasrange11)查询支持的范围，如果设置超过支持范围的值，自动匹配到就近临界点。曝光补偿存在步长，如步长为0.5。则设置1.2时，获取到实际生效曝光补偿为1.0。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。传参为null或者undefined，作为0处理，曝光补偿设置0。 |
+| exposureBias | number | 是 | 曝光补偿，getExposureBiasRange查询支持的范围，如果设置超过支持范围的值，自动匹配到就近临界点。曝光补偿存在步长，如步长为0.5。则设置1.2时，获取到实际生效曝光补偿为1.0。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。传参为null或者undefined，作为0处理，曝光补偿设置0。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1267,14 +1139,10 @@ setExposureBias(exposureBias: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function setExposureBias(
-  captureSession: camera.CaptureSession,
-  biasRangeArray: Array<number>,
-): void {
+function setExposureBias(captureSession: camera.CaptureSession, biasRangeArray: Array<number>): void {
   if (biasRangeArray && biasRangeArray.length > 0) {
     let exposureBias = biasRangeArray[0];
     try {
@@ -1289,31 +1157,29 @@ function setExposureBias(
 ```
 
 
-## getExposureValue(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getExposureValue(deprecated)
 
 getExposureValue(): number
 
 查询当前的曝光值。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[AutoExposure.getExposureValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure#getexposurevalue11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 AutoExposure.getExposureValue 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 获取曝光值。曝光补偿存在步长，如步长为0.5。则设置1.2时，获取到实际生效曝光补偿为1.0。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| number | 获取曝光值。曝光补偿存在步长，如步长为0.5。则设置1.2时，获取到实际生效曝光补偿为1.0。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1322,8 +1188,7 @@ getExposureValue(): number
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function getExposureValue(captureSession: camera.CaptureSession): number {
@@ -1341,39 +1206,36 @@ function getExposureValue(captureSession: camera.CaptureSession): number {
 ```
 
 
-## isFocusModeSupported(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isFocusModeSupported(deprecated)
 
 isFocusModeSupported(afMode: FocusMode): boolean
 
 查询对焦模式是否支持。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Focus.isFocusModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focusquery#isfocusmodesupported11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Focus.isFocusModeSupported 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| afMode | [FocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#focusmode) | 是 | 指定的焦距模式。 |
+| afMode | FocusMode | 是 | 指定的焦距模式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 检测对焦模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| boolean | 检测对焦模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1382,30 +1244,25 @@ isFocusModeSupported(afMode: FocusMode): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function isFocusModeSupported(captureSession: camera.CaptureSession): boolean {
   let status: boolean = false;
   try {
-    status = captureSession.isFocusModeSupported(
-      camera.FocusMode.FOCUS_MODE_AUTO,
-    );
+    status = captureSession.isFocusModeSupported(camera.FocusMode.FOCUS_MODE_AUTO);
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The isFocusModeSupported call failed. error code: ${err.code}`,
-    );
+    console.error(`The isFocusModeSupported call failed. error code: ${err.code}`);
   }
   return status;
 }
 ```
 
 
-## setFocusMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setFocusMode(deprecated)
 
 setFocusMode(afMode: FocusMode): void
 
@@ -1413,24 +1270,22 @@ setFocusMode(afMode: FocusMode): void
 
 进行设置之前，需要先检查设备是否支持指定的焦距模式，可使用方法[isFocusModeSupported](#isfocusmodesupporteddeprecated)。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Focus.setFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#setfocusmode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Focus.setFocusMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| afMode | [FocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#focusmode) | 是 | 指定的焦距模式。 |
+| afMode | FocusMode | 是 | 指定的焦距模式。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1439,8 +1294,7 @@ setFocusMode(afMode: FocusMode): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function setFocusMode(captureSession: camera.CaptureSession): void {
@@ -1455,31 +1309,29 @@ function setFocusMode(captureSession: camera.CaptureSession): void {
 ```
 
 
-## getFocusMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFocusMode(deprecated)
 
 getFocusMode(): FocusMode
 
 获取当前的对焦模式。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Focus.getFocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#getfocusmode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Focus.getFocusMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [FocusMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#focusmode) | 获取当前设备的焦距模式。接口调用失败会返回��应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| FocusMode | 获取当前设备的焦距模式。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1488,13 +1340,10 @@ getFocusMode(): FocusMode
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getFocusMode(
-  captureSession: camera.CaptureSession,
-): camera.FocusMode | undefined {
+function getFocusMode(captureSession: camera.CaptureSession): camera.FocusMode | undefined {
   let afMode: camera.FocusMode | undefined = undefined;
   try {
     afMode = captureSession.getFocusMode();
@@ -1508,8 +1357,8 @@ function getFocusMode(
 ```
 
 
-## setFocusPoint(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setFocusPoint(deprecated)
 
 setFocusPoint(point: Point): void
 
@@ -1517,24 +1366,22 @@ setFocusPoint(point: Point): void
 
 此坐标系是以设备充电口在右侧时的横向设备方向为基准的，例如应用的预览界面布局以设备充电口在下侧时的竖向方向为基准，布局宽高为{w，h}，且触碰点为{x，y}，则转换后的坐标点为{y/h，1-x/w}。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Focus.setFocusPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#setfocuspoint11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Focus.setFocusPoint 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| point | [Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#point) | 是 | 焦点。x,y设置范围应在[0,1]之内，超过范围，如果小于0设置0，大于1设置1。 |
+| point | Point | 是 | 焦点。x,y设置范围应在[0,1]之内，超过范围，如果小于0设置0，大于1设置1。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1543,12 +1390,11 @@ setFocusPoint(point: Point): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function setFocusPoint(captureSession: camera.CaptureSession): void {
-  const focusPoint: camera.Point = { x: 1, y: 1 };
+  const focusPoint: camera.Point = {x: 1, y: 1};
   try {
     captureSession.setFocusPoint(focusPoint);
   } catch (error) {
@@ -1560,31 +1406,29 @@ function setFocusPoint(captureSession: camera.CaptureSession): void {
 ```
 
 
-## getFocusPoint(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFocusPoint(deprecated)
 
 getFocusPoint(): Point
 
 查询焦点。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Focus.getFocusPoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#getfocuspoint11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Focus.getFocusPoint 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Point](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#point) | 用于获取当前焦点。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| Point | 用于获取当前焦点。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1593,13 +1437,10 @@ getFocusPoint(): Point
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getFocusPoint(
-  captureSession: camera.CaptureSession,
-): camera.Point | undefined {
+function getFocusPoint(captureSession: camera.CaptureSession): camera.Point | undefined {
   let point: camera.Point | undefined = undefined;
   try {
     point = captureSession.getFocusPoint();
@@ -1613,31 +1454,29 @@ function getFocusPoint(
 ```
 
 
-## getFocalLength(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getFocalLength(deprecated)
 
 getFocalLength(): number
 
 查询焦距值。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Focus.getFocalLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus#getfocallength11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Focus.getFocalLength 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 用于获取当前焦距。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| number | 用于获取当前焦距。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1646,8 +1485,7 @@ getFocalLength(): number
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function getFocalLength(captureSession: camera.CaptureSession): number {
@@ -1665,31 +1503,29 @@ function getFocalLength(captureSession: camera.CaptureSession): number {
 ```
 
 
-## getZoomRatioRange(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getZoomRatioRange(): Array<number>
+##### getZoomRatioRange(deprecated)
+
+getZoomRatioRange(): Array&lt;number&gt;
 
 获取支持的变焦范围。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Zoom.getZoomRatioRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoomquery#getzoomratiorange11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Zoom.getZoomRatioRange 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;number&gt; | 用于获取可变焦距比范围，返回的数组包括其最小值和最大值。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| Array&lt;number&gt; | 用于获取可变焦距比范围，返回的数组包括其最小值和最大值。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1698,13 +1534,10 @@ getZoomRatioRange(): Array<number>
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getZoomRatioRange(
-  captureSession: camera.CaptureSession,
-): Array<number> {
+function getZoomRatioRange(captureSession: camera.CaptureSession): Array<number> {
   let zoomRatioRange: Array<number> = [];
   try {
     zoomRatioRange = captureSession.getZoomRatioRange();
@@ -1718,31 +1551,29 @@ function getZoomRatioRange(
 ```
 
 
-## setZoomRatio(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setZoomRatio(deprecated)
 
 setZoomRatio(zoomRatio: number): void
 
 设置变焦比，变焦精度最高为小数点后两位，如果设置超过支持的精度范围，则只保留精度范围内数值。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Zoom.setZoomRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoom#setzoomratio11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Zoom.setZoomRatio 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| zoomRatio | number | 是 | 可变焦距比，通过[getZoomRatioRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoomquery#getzoomratiorange11)获取支持的变焦范围，如果设置超过支持范围的值，则只保留精度范围内数值。传参为null或者undefined，作为0处理，变焦设置最小值。 |
+| zoomRatio | number | 是 | 可变焦距比，通过getZoomRatioRange获取支持的变焦范围，如果设置超过支持范围的值，则只保留精度范围内数值。传参为null或者undefined，作为0处理，变焦设置最小值。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1751,14 +1582,10 @@ setZoomRatio(zoomRatio: number): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function setZoomRatio(
-  captureSession: camera.CaptureSession,
-  zoomRatioRange: Array<number>,
-): void {
+function setZoomRatio(captureSession: camera.CaptureSession, zoomRatioRange: Array<number>): void {
   if (zoomRatioRange === undefined || zoomRatioRange.length <= 0) {
     return;
   }
@@ -1774,31 +1601,29 @@ function setZoomRatio(
 ```
 
 
-## getZoomRatio(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getZoomRatio(deprecated)
 
 getZoomRatio(): number
 
 获取当前的变焦比。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Zoom.getZoomRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoom#getzoomratio11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Zoom.getZoomRatio 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 获取当前的变焦比结果。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| number | 获取当前的变焦比结果。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1807,8 +1632,7 @@ getZoomRatio(): number
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function getZoomRatio(captureSession: camera.CaptureSession): number {
@@ -1826,39 +1650,36 @@ function getZoomRatio(captureSession: camera.CaptureSession): number {
 ```
 
 
-## isVideoStabilizationModeSupported(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isVideoStabilizationModeSupported(deprecated)
 
 isVideoStabilizationModeSupported(vsMode: VideoStabilizationMode): boolean
 
 查询是否支持指定的视频防抖模式。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Stabilization.isVideoStabilizationModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-stabilizationquery#isvideostabilizationmodesupported11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Stabilization.isVideoStabilizationModeSupported 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| vsMode | [VideoStabilizationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#videostabilizationmode) | 是 | 视频防抖模式。传参为null或者undefined，作为0处理，超级防抖模式关闭。 |
+| vsMode | VideoStabilizationMode | 是 | 视频防抖模式。传参为null或者undefined，作为0处理，超级防抖模式关闭。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 返回视频防抖模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| boolean | 返回视频防抖模式是否支持。true表示支持，false表示不支持。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1867,55 +1688,46 @@ isVideoStabilizationModeSupported(vsMode: VideoStabilizationMode): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function isVideoStabilizationModeSupported(
-  captureSession: camera.CaptureSession,
-): boolean {
+function isVideoStabilizationModeSupported(captureSession: camera.CaptureSession): boolean {
   let isSupported: boolean = false;
   try {
-    isSupported = captureSession.isVideoStabilizationModeSupported(
-      camera.VideoStabilizationMode.OFF,
-    );
+    isSupported = captureSession.isVideoStabilizationModeSupported(camera.VideoStabilizationMode.OFF);
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The isVideoStabilizationModeSupported call failed. error code: ${err.code}`,
-    );
+    console.error(`The isVideoStabilizationModeSupported call failed. error code: ${err.code}`);
   }
   return isSupported;
 }
 ```
 
 
-## getActiveVideoStabilizationMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getActiveVideoStabilizationMode(deprecated)
 
 getActiveVideoStabilizationMode(): VideoStabilizationMode
 
 查询当前正在使用的视频防抖模式。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Stabilization.getActiveVideoStabilizationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-stabilization#getactivevideostabilizationmode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Stabilization.getActiveVideoStabilizationMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [VideoStabilizationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#videostabilizationmode) | 视频防抖是否正在使用。接口调用失败会返回相应错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| VideoStabilizationMode | 视频防抖是否正在使用。接口调用失败会返回相应错误码，错误码类型CameraErrorCode。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1924,53 +1736,46 @@ getActiveVideoStabilizationMode(): VideoStabilizationMode
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function getActiveVideoStabilizationMode(
-  captureSession: camera.CaptureSession,
-): camera.VideoStabilizationMode | undefined {
+function getActiveVideoStabilizationMode(captureSession: camera.CaptureSession): camera.VideoStabilizationMode | undefined {
   let vsMode: camera.VideoStabilizationMode | undefined = undefined;
   try {
     vsMode = captureSession.getActiveVideoStabilizationMode();
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The getActiveVideoStabilizationMode call failed. error code: ${err.code}`,
-    );
+    console.error(`The getActiveVideoStabilizationMode call failed. error code: ${err.code}`);
   }
   return vsMode;
 }
 ```
 
 
-## setVideoStabilizationMode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setVideoStabilizationMode(deprecated)
 
 setVideoStabilizationMode(mode: VideoStabilizationMode): void
 
 设置视频防抖模式。需要先检查设备是否支持对应的防抖模式，可以通过[isVideoStabilizationModeSupported](#isvideostabilizationmodesupporteddeprecated)方法判断所设置的模式是否支持。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[Stabilization.setVideoStabilizationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-stabilization#setvideostabilizationmode11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 Stabilization.setVideoStabilizationMode 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | [VideoStabilizationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#videostabilizationmode) | 是 | 需要设置的视频防抖模式。传参为null或者undefined，作为0处理，超级防抖模式关闭。 |
+| mode | VideoStabilizationMode | 是 | 需要设置的视频防抖模式。传参为null或者undefined，作为0处理，超级防抖模式关闭。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1979,136 +1784,116 @@ setVideoStabilizationMode(mode: VideoStabilizationMode): void
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function setVideoStabilizationMode(
-  captureSession: camera.CaptureSession,
-): void {
+function setVideoStabilizationMode(captureSession: camera.CaptureSession): void {
   try {
     captureSession.setVideoStabilizationMode(camera.VideoStabilizationMode.OFF);
   } catch (error) {
     // 失败返回错误码error.code并处理。
     let err = error as BusinessError;
-    console.error(
-      `The setVideoStabilizationMode call failed. error code: ${err.code}`,
-    );
+    console.error(`The setVideoStabilizationMode call failed. error code: ${err.code}`);
   }
 }
 ```
 
 
-## on('focusStateChange')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'focusStateChange', callback: AsyncCallback<FocusState>): void
+##### on('focusStateChange')(deprecated)
+
+on(type: 'focusStateChange', callback: AsyncCallback&lt;FocusState&gt;): void
 
 监听相机聚焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[VideoSession.on('focusStateChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession#onfocusstatechange11)替代。
-> 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 VideoSession.on('focusStateChange') 替代。 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'focusStateChange'，session 创建成功可监听。仅当自动对焦模式时,且相机对焦状态发生改变时可触发该事件。 |
-| callback | AsyncCallback&lt;[FocusState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#focusstate)&gt; | 是 | 回调函数，用于获取当前对焦状态。 |
+| callback | AsyncCallback&lt;FocusState&gt; | 是 | 回调函数，用于获取当前对焦状态。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 function registerFocusStateChange(captureSession: camera.CaptureSession): void {
-  captureSession.on(
-    'focusStateChange',
-    (err: BusinessError, focusState: camera.FocusState) => {
-      if (err !== undefined && err.code !== 0) {
-        console.error(`Callback Error, errorCode: ${err.code}`);
-        return;
-      }
-      console.info(`Focus state: ${focusState}`);
-    },
-  );
+  captureSession.on('focusStateChange', (err: BusinessError, focusState: camera.FocusState) => {
+    if (err !== undefined && err.code !== 0) {
+      console.error(`Callback Error, errorCode: ${err.code}`);
+      return;
+    }
+    console.info(`Focus state: ${focusState}`);
+  });
 }
 ```
 
 
-## off('focusStateChange')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'focusStateChange', callback?: AsyncCallback<FocusState>): void
+##### off('focusStateChange')(deprecated)
+
+off(type: 'focusStateChange', callback?: AsyncCallback&lt;FocusState&gt;): void
 
 注销监听相机聚焦的状态变化。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[VideoSession.off('focusStateChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession#offfocusstatechange11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 VideoSession.off('focusStateChange') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'focusStateChange'，session 创建成功可监听。 |
-| callback | AsyncCallback&lt;[FocusState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#focusstate)&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | AsyncCallback&lt;FocusState&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
-function unregisterFocusStateChange(
-  captureSession: camera.CaptureSession,
-): void {
+```text
+function unregisterFocusStateChange(captureSession: camera.CaptureSession): void {
   captureSession.off('focusStateChange');
 }
 ```
 
 
-## on('error')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('error')(deprecated)
 
 on(type: 'error', callback: ErrorCallback): void
 
 监听拍照会话的错误事件，通过注册回调函数获取结果。使用callback异步回调。
 
-
 > [!NOTE]
-> 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[VideoSession.on('error')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession#onerror11)替代。
+> 当前注册监听接口，不支持在on监听的回调方法里，调用off注销回调。 从 API version 10开始支持，从API version 11开始废弃。建议使用 VideoSession.on('error') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听事件，固定为'error'，session创建成功之后可监听该接口。session调用相关接口出现错误时会触发该事件，比如调用[beginConfig](#beginconfigdeprecated)，[commitConfig](#commitconfigdeprecated-1)，[addInput](#addinputdeprecated)等接口发生错误时返回错误信息。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 回调函数，用于获取错误信息。返回错误码，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+| type | string | 是 | 监听事件，固定为'error'，session创建成功之后可监听该接口。session调用相关接口出现错误时会触发该事件，比如调用beginConfig，commitConfig，addInput等接口发生错误时返回错误信息。 |
+| callback | ErrorCallback | 是 | 回调函数，用于获取错误信息。返回错误码，错误码类型CameraErrorCode。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-function registerCaptureSessionError(
-  captureSession: camera.CaptureSession,
-): void {
+function registerCaptureSessionError(captureSession: camera.CaptureSession): void {
   captureSession.on('error', (error: BusinessError) => {
     console.error(`Capture session error code: ${error.code}`);
   });
@@ -2116,35 +1901,31 @@ function registerCaptureSessionError(
 ```
 
 
-## off('error')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('error')(deprecated)
 
 off(type: 'error', callback?: ErrorCallback): void
 
 注销监听拍照会话的错误事件，通过注册回调函数获取结果。
 
-
 > [!NOTE]
-> 从 API version 10开始支持，从API version 11开始废弃。建议使用[VideoSession.off('error')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession#offerror11)替代。
+> 从 API version 10开始支持，从API version 11开始废弃。建议使用 VideoSession.off('error') 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 监听事件，固定为'error'，session创建成功之后可监听该接口。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+| callback | ErrorCallback | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
 
 
 **示例：**
 
-
-```ts
-function unregisterCaptureSessionError(
-  captureSession: camera.CaptureSession,
-): void {
+```text
+function unregisterCaptureSessionError(captureSession: camera.CaptureSession): void {
   captureSession.off('error');
 }
 ```

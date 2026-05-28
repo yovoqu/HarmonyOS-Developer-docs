@@ -4,40 +4,48 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator
 
-## 函数功能
+##### 函数功能
 
-禁用拷贝赋值函数。 使用移动赋值函数。
+禁用拷贝赋值函数。
+ 
+使用移动赋值函数。
+ 
+  
 
-## 函数原型
-
+##### 函数原型
 
 ```text
 TensorData& operator= (const TensorData &other)=delete
 TensorData& operator= (TensorData &&other) noexcept
 ```
+ 
+  
 
-
-## 参数说明
-
-
+##### 参数说明
+ 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | other | 输入 | 另一个TensorData对象。 |
+ 
+ 
+  
 
-
-## 返回值
+##### 返回值
 
 返回一个持有other对象资源的新TensorData对象。
+ 
+  
 
-## 约束说明
+##### 约束说明
 
 无
+ 
+  
 
-## 调用示例
-
+##### 调用示例
 
 ```text
-auto addr = reinterpret_cast(0x10);
+auto addr = reinterpret_cast<void *>(0x10);
 TensorData td(addr, HostAddrManager, 100U, kOnHost);
 TensorData new_td = std::move(td);
 ```

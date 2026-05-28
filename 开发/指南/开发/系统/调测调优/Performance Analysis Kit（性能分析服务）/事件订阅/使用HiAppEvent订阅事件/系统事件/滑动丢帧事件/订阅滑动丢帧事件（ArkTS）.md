@@ -4,19 +4,25 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-scroll-jank-arkts
 
-## 接口说明
+##### 接口说明
 
 API接口的具体使用说明（参数使用限制、具体取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent (应用事件打点)ArkTS API文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
+  
 | 接口名 | 描述 |
 | --- | --- |
 | addWatcher(watcher: Watcher): AppEventPackageHolder | 添加应用事件观察者，以添加对应用事件的订阅。 |
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以移除对应用事件的订阅。 |
+ 
+ 
+  
 
+##### 开发步骤
 
-## 开发步骤
+以实现对用户滑动列表触发丢帧生成的滑动丢帧事件订阅为例，说明开发步骤。
+ 1. 编辑工程中的“entry > src > main > ets  > entryability > EntryAbility.ets”文件，添加系统事件的订阅，示例代码如下：
 
-以实现对用户滑动列表触发丢帧生成的滑动丢帧事件订阅为例，说明开发步骤。 编辑工程中的“entry > src > main > ets  > entryability > EntryAbility.ets”文件，添加系统事件的订阅，示例代码如下：
-```text
+  
+```json
 import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
 
 hiAppEvent.addWatcher({
@@ -30,7 +36,7 @@ hiAppEvent.addWatcher({
     }
   ],
   // 开发者可以自行实现订阅回调函数，以便对订阅获取到的事件数据进行自定义处理
-  onReceive: (domain: string, appEventGroups: Array) => {
+  onReceive: (domain: string, appEventGroups: Array<hiAppEvent.AppEventGroup>) => {
     hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
     for (const eventGroup of appEventGroups) {
       // 开发者可以根据事件集合中的事件名称区分不同的系统事件
@@ -44,7 +50,9 @@ hiAppEvent.addWatcher({
 });
 ```
 
-编辑工程中的“entry > src > main > ets  > pages > Index.ets”文件，添加一个List组件，在列表的滑动事件中添加耗时操作，示例代码如下：
+2. 编辑工程中的“entry > src > main > ets  > pages > Index.ets”文件，添加一个List组件，在列表的滑动事件中添加耗时操作，示例代码如下：
+
+  
 ```text
 struct Index {
   private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
@@ -65,7 +73,19 @@ struct Index {
     }
     .onScrollIndex((firstIndex: number) => {
       let i = 1;
-      while (i点击DevEco Studio界面中的运行按钮，运行应用工程，在页面中滑动列表，当系统检测到故障时触发滑动丢帧事件。  每次滑动操作发生超过50ms卡顿场景，间隔5~35秒，可以在Log窗口看到对系统事件数据的处理日志：
+      while (i<20000) { // 在列表滑动事件中做一些耗时操作
+        console.log("do something");
+        i++;
+      }
+    })
+  }
+}
+```
+
+3. 点击DevEco Studio界面中的运行按钮，运行应用工程，在页面中滑动列表，当系统检测到故障时触发滑动丢帧事件。
+4. 每次滑动操作发生超过50ms卡顿场景，间隔5~35秒，可以在Log窗口看到对系统事件数据的处理日志：
+
+  
 ```text
 HiAppEvent onReceive: domain=OS
 HiAppEvent eventName=SCROLL_JANK

@@ -1,20 +1,22 @@
 # 通过router或call事件刷新卡片内容
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-uiability
 
 使用router事件，点击卡片可拉起对应应用的UIAbility至前台，并刷新卡片。使用call事件，点击卡片可拉起对应应用的UIAbility至后台，并刷新卡片。在卡片页面中可以通过[postCardAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-postcardaction#postcardaction-1)接口触发router事件或者call事件拉起UIAbility，然后由UIAbility刷新卡片内容，下面是这种刷新方式的简单示例。
 
-
 > [!NOTE]
-> 本文主要介绍动态卡片的事件开发。对于静态卡片，请参见FormLink。
+> 本文主要介绍动态卡片的事件开发。对于静态卡片，请参见 FormLink 。
 
 
-## 通过router事件刷新卡片内容
 
-在卡片页面代码文件中，通过注册Button的onClick点击事件回调并在回调中调用postCardAction接口，触发router事件拉起UIAbility至前台。
-```text
+##### 通过router事件刷新卡片内容
+
+ - 在卡片页面代码文件中，通过注册Button的onClick点击事件回调并在回调中调用postCardAction接口，触发router事件拉起UIAbility至前台。
+
+  
+```ArkTS
 // entry/src/main/ets/widgetupdaterouter/pages/WidgetUpdateRouterCard.ets
 let storageUpdateRouter = new LocalStorage();
 
@@ -71,8 +73,10 @@ struct WidgetUpdateRouterCard {
 }
 ```
 
-在UIAbility的onCreate或者onNewWant生命周期中可以通过入参want获取卡片的formID和传递过来的参数信息，然后调用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口刷新卡片。
-```text
+ - 在UIAbility的onCreate或者onNewWant生命周期中可以通过入参want获取卡片的formID和传递过来的参数信息，然后调用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口刷新卡片。
+
+  
+```ts
 // entry/src/main/ets/widgetevententryability/WidgetEventRouterEntryAbility.ts
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -95,7 +99,7 @@ export default class WidgetEventRouterEntryAbility extends UIAbility {
       // want.parameters.params 对应 postCardAction() 中 params 内容
       let message: string = (JSON.parse(want.parameters?.params as string))?.routerDetail;
       hilog.info(DOMAIN_NUMBER, TAG, `UpdateForm formId: ${curFormId}, message: ${message}`);
-      let formData: Record = {
+      let formData: Record<string, string> = {
         'routerDetail': message + ' ' + source + ' UIAbility', // 和卡片布局中对应
       };
       let formMsg = formBindingData.createFormBindingData(formData);
@@ -129,10 +133,15 @@ export default class WidgetEventRouterEntryAbility extends UIAbility {
 ```
 
 
-## 通过call事件刷新卡片内容
 
-在卡片页面代码文件中，通过注册Button的onClick点击事件回调并在回调中调用postCardAction接口，触发call事件拉起UIAbility至后台。
-```text
+
+
+##### 通过call事件刷新卡片内容
+
+ - 在卡片页面代码文件中，通过注册Button的onClick点击事件回调并在回调中调用postCardAction接口，触发call事件拉起UIAbility至后台。
+
+  
+```ArkTS
 // entry/src/main/ets/widgetupdatecall/pages/WidgetUpdateCallCard.ets
 let storageUpdateCall = new LocalStorage();
 
@@ -190,8 +199,10 @@ struct WidgetUpdateCallCard {
 }
 ```
 
-在UIAbility的onCreate生命周期中监听call事件所需的方法，然后在对应方法中调用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口刷新卡片。
-```text
+ - 在UIAbility的onCreate生命周期中监听call事件所需的方法，然后在对应方法中调用[updateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formproviderupdateform)接口刷新卡片。
+
+  
+```ts
 // entry/src/main/ets/widgetcalleeentryability/WidgetCalleeEntryAbility.ts
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -230,12 +241,12 @@ class MyParcelable implements rpc.Parcelable {
 // 在收到call事件后会触发callee监听的方法
 let funACall = (data: rpc.MessageSequence): MyParcelable => {
   // 获取call事件中传递的所有参数
-  let params: Record = JSON.parse(data.readString());
+  let params: Record<string, string> = JSON.parse(data.readString());
   if (params.formId !== undefined) {
     let curFormId: string = params.formId;
     let message: string = params.calleeDetail;
     hilog.info(DOMAIN_NUMBER, TAG, `UpdateForm formId: ${curFormId}, message: ${message}`);
-    let formData: Record = {
+    let formData: Record<string, string> = {
       'calleeDetail': message
     };
     let formMsg: formBindingData.FormBindingData = formBindingData.createFormBindingData(formData);
@@ -272,9 +283,10 @@ export default class WidgetCalleeEntryAbility extends UIAbility {
   }
 }
 ```
-
 要拉起UIAbility至后台，需要在module.json5配置文件中，配置ohos.permission.KEEP_BACKGROUND_RUNNING权限。
-```text
+
+  
+```json
 //src/main/module.json5
 "requestPermissions": [
   {

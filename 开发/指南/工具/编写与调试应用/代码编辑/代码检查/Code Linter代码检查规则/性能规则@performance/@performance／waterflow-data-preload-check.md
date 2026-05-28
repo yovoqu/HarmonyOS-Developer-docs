@@ -5,31 +5,34 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-waterflow-data-preload-check
 
 建议对waterflow子组件进行数据预加载。
+ 
+滑动丢帧场景下，建议优先修改。
+ 
 
- 滑动丢帧场景下，建议优先修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
-    "@performance/waterflow-data-preload-check": "suggestion",
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
+    <span style="color: rgb(135,16,148);">"@performance/waterflow-data-preload-check"</span>: <span style="color: rgb(6,125,23);">"suggestion"</span>,
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
+##### 正例
 
 下文中WaterFlowDataSource.ets为依赖代码：
-```text
+ 
+```ArkTS
 // WaterFlowDataSource.ets
 
 // 实现IDataSource接口的对象，用于瀑布流组件加载数据
@@ -38,7 +41,19 @@ export class WaterFlowDataSource implements IDataSource {
   private listeners: DataChangeListener[] = []
 
   constructor() {
-    for (let i = 0; i  {
+    for (let i = 0; i < 100; i++) {
+      this.dataArray.push(i)
+    }
+  }
+
+  // 获取索引对应的数据
+  public getData(index: number): number {
+    return this.dataArray[index]
+  }
+
+  // 通知控制器数据重新加载
+  notifyDataReload(): void {
+    this.listeners.forEach(listener => {
       listener.onDataReloaded()
     })
   }
@@ -78,7 +93,15 @@ export class WaterFlowDataSource implements IDataSource {
 
   // 注册改变数据的控制器
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) = 0) {
+    if (this.listeners.indexOf(listener) < 0) {
+      this.listeners.push(listener)
+    }
+  }
+
+  // 注销改变数据的控制器
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener)
+    if (pos >= 0) {
       this.listeners.splice(pos, 1)
     }
   }
@@ -127,9 +150,10 @@ export class WaterFlowDataSource implements IDataSource {
   }
 }
 ```
-
- 下文中Index.ets为正例测试代码，依赖上文中WaterFlowDataSource.ets：
-```text
+ 
+下文中Index.ets为正例测试代码，依赖上文中WaterFlowDataSource.ets：
+ 
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource'
 
@@ -153,14 +177,46 @@ struct WaterFlowDemo {
 
   // 设置FlowItem的宽/高数组
   setItemSizeArray() {
-    for (let i = 0; i  {
+    for (let i = 0; i < 100; i++) {
+      this.itemWidthArray.push(this.getSize())
+      this.itemHeightArray.push(this.getSize())
+    }
+  }
+
+  aboutToAppear() {
+    this.setItemSizeArray()
+  }
+
+  @Builder
+  itemFoot() {
+    Text(`Footer`)
+      .fontSize(10)
+    
+      .width(50)
+      .height(50)
+      .align(Alignment.Center)
+      .margin({ top: 2 })
+  }
+
+  build() {
+    Column({ space: 2 }) {
+      WaterFlow() {
+        LazyForEach(this.dataSource, (item: number) => {
           FlowItem() {
             ReusableFlowItem({ item: item })
           }
           .onAppear(() => {
             // 即将触底时提前增加数据，即执行数据预加载
             if (item + 20 == this.dataSource.totalCount()) {
-              for (let i = 0; i  item)
+              for (let i = 0; i < 100; i++) {
+                this.dataSource.addLastItem()
+              }
+            }
+          })
+          .width('100%')
+          .height(this.itemHeightArray[item % 100])
+          .backgroundColor(this.colors[item % 5])
+        }, (item: string) => item)
       }
       .columnsTemplate('1fr 1fr')
       .columnsGap(10)
@@ -177,7 +233,7 @@ struct ReusableFlowItem {
   @State item: number = 0
 
   // 从复用缓存中加入到组件树之前调用，可在此处更新组件的状态变量以展示正确的内容
-  aboutToReuse(params: Record) {
+  aboutToReuse(params: Record<string, ESObject>) {
     this.item = params.item;
   }
 
@@ -192,12 +248,14 @@ struct ReusableFlowItem {
   }
 }
 ```
+ 
+ 
 
-
-## 反例
+##### 反例
 
 下文中WaterFlowDataSource.ets为依赖代码：
-```text
+ 
+```ArkTS
 // WaterFlowDataSource.ets
 
 // 实现IDataSource接口的对象，用于瀑布流组件加载数据
@@ -206,7 +264,19 @@ export class WaterFlowDataSource implements IDataSource {
   private listeners: DataChangeListener[] = []
 
   constructor() {
-    for (let i = 0; i  {
+    for (let i = 0; i < 100; i++) {
+      this.dataArray.push(i)
+    }
+  }
+
+  // 获取索引对应的数据
+  public getData(index: number): number {
+    return this.dataArray[index]
+  }
+
+  // 通知控制器数据重新加载
+  notifyDataReload(): void {
+    this.listeners.forEach(listener => {
       listener.onDataReloaded()
     })
   }
@@ -246,7 +316,15 @@ export class WaterFlowDataSource implements IDataSource {
 
   // 注册改变数据的控制器
   registerDataChangeListener(listener: DataChangeListener): void {
-    if (this.listeners.indexOf(listener) = 0) {
+    if (this.listeners.indexOf(listener) < 0) {
+      this.listeners.push(listener)
+    }
+  }
+
+  // 注销改变数据的控制器
+  unregisterDataChangeListener(listener: DataChangeListener): void {
+    const pos = this.listeners.indexOf(listener)
+    if (pos >= 0) {
       this.listeners.splice(pos, 1)
     }
   }
@@ -295,9 +373,10 @@ export class WaterFlowDataSource implements IDataSource {
   }
 }
 ```
-
- 下文中Index.ets为反例测试代码，依赖上文中WaterFlowDataSource.ets：
-```text
+ 
+下文中Index.ets为反例测试代码，依赖上文中WaterFlowDataSource.ets：
+ 
+```ArkTS
 // Index.ets
 import { WaterFlowDataSource } from './WaterFlowDataSource'
 
@@ -321,7 +400,31 @@ struct WaterFlowDemo {
 
   // 设置FlowItem的宽/高数组
   setItemSizeArray() {
-    for (let i = 0; i  {
+    for (let i = 0; i < 100; i++) {
+      this.itemWidthArray.push(this.getSize())
+      this.itemHeightArray.push(this.getSize())
+    }
+  }
+
+  aboutToAppear() {
+    this.setItemSizeArray()
+  }
+
+  @Builder
+  itemFoot() {
+    Text(`Footer`)
+      .fontSize(10)
+      .backgroundColor(Color.Red)
+      .width(50)
+      .height(50)
+      .align(Alignment.Center)
+      .margin({ top: 2 })
+  }
+
+  build() {
+    Column({ space: 2 }) {
+      WaterFlow() {
+        LazyForEach(this.dataSource, (item: number) => {
           FlowItem() {
             ReusableFlowItem({ item: item })
           }
@@ -333,7 +436,28 @@ struct WaterFlowDemo {
       .onReachEnd(() => {
         console.info("onReachEnd")
         setTimeout(() => {
-          for (let i = 0; i ) {
+          for (let i = 0; i < 100; i++) {
+            this.dataSource.addLastItem()
+          }
+        }, 1000)
+      })
+      .columnsTemplate("1fr 1fr")
+      .columnsGap(10)
+      .rowsGap(5)
+      .backgroundColor(0xFAEEE0)
+      .width('100%')
+      .height('100%')
+    }
+  }
+}
+
+@Reusable
+@Component
+struct ReusableFlowItem {
+  @State item: number = 0
+
+  // 从复用缓存中加入到组件树之前调用，可在此处更新组件的状态变量以展示正确的内容
+  aboutToReuse(params: Record<string, ESObject>) {
     this.item = params.item;
   }
 
@@ -348,14 +472,14 @@ struct WaterFlowDemo {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@performance/recommended
-plugin:@performance/all
+<span style="color: rgb(106,135,89);">plugin:@performance/recommended</span>
+<span style="color: rgb(106,135,89);">plugin:@performance/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

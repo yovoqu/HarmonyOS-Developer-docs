@@ -1,37 +1,51 @@
 # 使用JSVM-API接口进行虚拟机快照相关开发
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-create-snapshot
 
-## 简介
+##### 简介
 
 JavaScript虚拟机（JSVM）的快照创建功能，将当前运行时的JavaScript程序状态保存为一个快照文件，这个快照文件包含了当前的堆内存、执行上下文、函数闭包等信息。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-**虚拟机启动快照**：虚拟机在某个特定时间点的状态快照，包含了当前虚拟机的所有内部状态和数据。通过创建一个启动快照，可以在之后的时间点恢复虚拟机到相同的状态。 创建和使用虚拟机启动快照可以简化一些复杂的编程任务，提高JSVM中虚拟机的管理和维护效率，增强程序的灵活性和稳定性。
+- **虚拟机启动快照**：虚拟机在某个特定时间点的状态快照，包含了当前虚拟机的所有内部状态和数据。通过创建一个启动快照，可以在之后的时间点恢复虚拟机到相同的状态。
 
-## 接口说明
+ 
+创建和使用虚拟机启动快照可以简化一些复杂的编程任务，提高JSVM中虚拟机的管理和维护效率，增强程序的灵活性和稳定性。
+ 
+  
 
-
+##### 接口说明
+ 
 | 接口 | 功能说明 |
 | --- | --- |
 | OH_JSVM_CreateSnapshot | 用于创建虚拟机的启动快照 |
 | OH_JSVM_CreateEnvFromSnapshot | 基于虚拟机的起始快照，创建一个新的环境 |
+ 
+ 
+  
 
+##### 使用示例
 
-## 使用示例
+  
 
+##### OH_JSVM_CreateSnapshot & OH_JSVM_CreateEnvFromSnapshot
 
-## OH_JSVM_CreateSnapshot & OH_JSVM_CreateEnvFromSnapshot
-
-用于创建和使用虚拟机的启动快照。 cpp部分代码： **注意事项**: 需要在OH_JSVM_Init的时候，将JSVM对外部的依赖注册到initOptions.externalReferences中。
-```text
+用于创建和使用虚拟机的启动快照。
+ 
+cpp部分代码：
+ 
+**注意事项**: 需要在OH_JSVM_Init的时候，将JSVM对外部的依赖注册到initOptions.externalReferences中。
+ 
+```cpp
 #include "napi/native_api.h"
 #include "ark_runtime/jsvm.h"
-#include
-#include
+#include <hilog/log.h>
+#include <fstream>
 
 #define LOG_DOMAIN 0x0202
 #define LOG_TAG "TEST_TAG"
@@ -162,7 +176,7 @@ static void RunVMSnapshot()
 {
     // blobData的生命周期不能短于vm的生命周期
     // 从文件中读取snapshot
-    std::vector blobData;
+    std::vector<char> blobData;
     std::ifstream file("/data/storage/el2/base/files/test_blob.bin", std::ios::in | std::ios::binary | std::ios::ate);
     size_t blobSize = file.tellg();
     blobData.resize(blobSize);
@@ -298,8 +312,9 @@ static napi_module demoModule = {
 
 extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_module_register(&demoModule); }
 ```
-
- ArkTS侧示例代码：
+ 
+ArkTS侧示例代码：
+ 
 ```text
 import napitest from 'libentry.so';
 
@@ -325,13 +340,17 @@ struct Index {
   }
 }
 ```
-
- 执行结果 在LOG中输出：
+ 
+执行结果
+ 
+在LOG中输出：
+ 
 ```text
 Test JSVM RunVMSnapshot read file blobSize = : 300064
 ```
-
- 多次点击屏幕,LOG中输出:
+ 
+多次点击屏幕,LOG中输出:
+ 
 ```text
 Test JSVM RunVMSnapshot read file blobSize = : 300176
 Test JSVM RunVMSnapshot read file blobSize = : 300064
@@ -340,5 +359,5 @@ Test JSVM RunVMSnapshot read file blobSize = : 300032
 Test JSVM RunVMSnapshot read file blobSize = : 300176
 Test JSVM RunVMSnapshot read file blobSize = : 300048
 ```
-
- 上述执行结果是因为在读取快照文件时，blobSize 的值来源于快照文件的大小（通过 file.tellg() 获取）。快照文件的大小直接决定了 blobSize 的值，所以会输出不同的值。
+ 
+上述执行结果是因为在读取快照文件时，blobSize 的值来源于快照文件的大小（通过 file.tellg() 获取）。快照文件的大小直接决定了 blobSize 的值，所以会输出不同的值。

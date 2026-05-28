@@ -3,57 +3,53 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-relational-store-error-code-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明关系型数据库（RDB）的错误码信息。
-
+ 
 **引用文件：** <database/rdb/relational_store_error_code.h>
-
+ 
 **库：** libnative_rdb_ndk.z.so
-
+ 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [RDB](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [OH_Rdb_ErrCode](#oh_rdb_errcode) | OH_Rdb_ErrCode | 表示错误码信息。 |
+| OH_Rdb_ErrCode | OH_Rdb_ErrCode | 表示错误码信息。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### OH_Rdb_ErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### OH_Rdb_ErrCode
 
 ```text
 enum OH_Rdb_ErrCode
 ```
-
+ 
 **描述**
-
+ 
 表示错误码信息。
-
+ 
 **起始版本：** 10
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | RDB_ERR = -1 | 执行出错。 |

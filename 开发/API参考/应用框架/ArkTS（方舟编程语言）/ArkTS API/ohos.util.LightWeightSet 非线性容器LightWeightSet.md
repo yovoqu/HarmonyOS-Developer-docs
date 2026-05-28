@@ -3,7 +3,7 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-lightweightset
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LightWeightSet可用于存储一系列值的集合，存储元素中value值唯一。
 
@@ -17,17 +17,15 @@ LightWeightSet和[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 文档中使用了泛型，涉及以下泛型标记符：
 
-
-- T：Type，类
+ - T：Type，类
 
 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 容器类使用静态语言实现，限制了存储位置和属性，不支持自定义属性和方法。
 
 
-## 规格限制
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 规格限制
 
 当LightWeightSet存入的value为number类型且值大于INT32_MAX或小于INT32_MIN时，针对LightWeightSet的操作，其结果可能与预期不一致。
 
@@ -35,44 +33,42 @@ LightWeightSet和[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 例如在以下示例针对value的计算中，1758783600000大于INT32_MAX，此时会通过TaggedDouble存储；1758783600小于INT32_MIN，此时会通过TaggedInt存储。由于以上存储方式的差异，当对其进行hash算法即会计算出不同的hash值，从而导致映射结果不同，产生与预期不一致的现象。
 
-
-```ts
+```text
 let st = new LightWeightSet<number>();
-let value = 1758783600000 / 1000; // 1758783600000 > INT32_MAX
+let value = 1758783600000 / 1000;  // 1758783600000 > INT32_MAX
 st.add(value);
-console.info('result:', st.has(1758783600)); // result: false
-console.info('result:', st.has(value)); // result: true
+console.info("result:", st.has(1758783600));  // result: false
+console.info("result:", st.has(value));  // result: true
 ```
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { LightWeightSet } from '@kit.ArkTS';
 ```
 
 
-## LightWeightSet
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### LightWeightSet
 
 
-### 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 属性
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Utils.Lang
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | length | number | 是 | 否 | LightWeightSet的元素个数。 |
 
 
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### constructor
 
 constructor()
 
@@ -86,7 +82,6 @@ LightWeightSet的构造函数。
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200012 | The LightWeightSet's constructor cannot be directly invoked. |
@@ -94,14 +89,13 @@ LightWeightSet的构造函数。
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<number | string>();
 ```
 
 
-### isEmpty
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isEmpty
 
 isEmpty(): boolean
 
@@ -113,7 +107,6 @@ isEmpty(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 为空返回true，不为空返回false。 |
@@ -123,7 +116,6 @@ isEmpty(): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The isEmpty method cannot be bound. |
@@ -131,16 +123,15 @@ isEmpty(): boolean
 
 **示例：**
 
-
-```ts
+```text
 const lightWeightSet = new LightWeightSet<number>();
 let result = lightWeightSet.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### add
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### add
 
 add(obj: T): boolean
 
@@ -152,14 +143,12 @@ add(obj: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | obj | T | 是 | 添加的成员数据。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -170,7 +159,6 @@ add(obj: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The add method cannot be bound. |
@@ -178,18 +166,17 @@ add(obj: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-let result = lightWeightSet.add('squirrel');
-console.info('result:', result); // result: true
+let result = lightWeightSet.add("squirrel");
+console.info("result:", result);  // result: true
 ```
 
 
-### addAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-addAll(set: LightWeightSet<T>): boolean
+##### addAll
+
+addAll(set: LightWeightSet&lt;T&gt;): boolean
 
 将另一个容器的所有元素组添加到当前容器。
 
@@ -199,14 +186,12 @@ addAll(set: LightWeightSet<T>): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | set | LightWeightSet&lt;T&gt; | 是 | 提供添加元素的LightWeightSet。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -217,7 +202,6 @@ addAll(set: LightWeightSet<T>): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -226,23 +210,22 @@ addAll(set: LightWeightSet<T>): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let set = new LightWeightSet<string>();
-set.add('gull');
+set.add("gull");
 lightWeightSet.addAll(set);
-let result = lightWeightSet.has('gull');
-console.info('result:', result); // result: true
+let result = lightWeightSet.has("gull");
+console.info("result:", result);  // result: true
 ```
 
 
-### hasAll
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-hasAll(set: LightWeightSet<T>): boolean
+##### hasAll
+
+hasAll(set: LightWeightSet&lt;T&gt;): boolean
 
 判断容器中是否包含指定set中的所有元素。
 
@@ -252,14 +235,12 @@ hasAll(set: LightWeightSet<T>): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | set | LightWeightSet&lt;T&gt; | 是 | 比较对象。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -270,7 +251,6 @@ hasAll(set: LightWeightSet<T>): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -279,20 +259,19 @@ hasAll(set: LightWeightSet<T>): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let set = new LightWeightSet<string>();
-set.add('sparrow');
+set.add("sparrow");
 let result = lightWeightSet.hasAll(set);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### has
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### has
 
 has(key: T): boolean
 
@@ -304,14 +283,12 @@ has(key: T): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | T | 是 | 指定key |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -322,7 +299,6 @@ has(key: T): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The has method cannot be bound. |
@@ -330,17 +306,16 @@ has(key: T): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<number>();
 lightWeightSet.add(123);
 let result = lightWeightSet.has(123);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### increaseCapacityTo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### increaseCapacityTo
 
 increaseCapacityTo(minimumCapacity: number): void
 
@@ -352,7 +327,6 @@ increaseCapacityTo(minimumCapacity: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | minimumCapacity | number | 是 | 需要容纳的元素数量。 |
@@ -361,7 +335,6 @@ increaseCapacityTo(minimumCapacity: number): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -372,15 +345,14 @@ increaseCapacityTo(minimumCapacity: number): void
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
 lightWeightSet.increaseCapacityTo(10);
 ```
 
 
-### getIndexOf
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getIndexOf
 
 getIndexOf(key: T): number
 
@@ -392,14 +364,12 @@ getIndexOf(key: T): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | T | 是 | 查找的指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -410,7 +380,6 @@ getIndexOf(key: T): number
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The getIndexOf method cannot be bound. |
@@ -418,18 +387,17 @@ getIndexOf(key: T): number
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
-let result = lightWeightSet.getIndexOf('sparrow');
-console.info('result:', result); // result: 0
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
+let result = lightWeightSet.getIndexOf("sparrow");
+console.info("result:", result);  // result: 0
 ```
 
 
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### remove
 
 remove(key: T): T
 
@@ -441,14 +409,12 @@ remove(key: T): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | T | 是 | 指定key。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -459,7 +425,6 @@ remove(key: T): T
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The remove method cannot be bound. |
@@ -467,18 +432,17 @@ remove(key: T): T
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
-let result = lightWeightSet.remove('sparrow');
-console.info('result:', result); // result: sparrow
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
+let result = lightWeightSet.remove("sparrow");
+console.info("result:", result);  // result: sparrow
 ```
 
 
-### removeAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### removeAt
 
 removeAt(index: number): boolean
 
@@ -490,14 +454,12 @@ removeAt(index: number): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定下标。需要小于等于INT32_MAX即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -508,7 +470,6 @@ removeAt(index: number): boolean
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -517,18 +478,17 @@ removeAt(index: number): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let result = lightWeightSet.removeAt(1);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### getValueAt
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getValueAt
 
 getValueAt(index: number): T
 
@@ -540,14 +500,12 @@ getValueAt(index: number): T
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 指定下标。需要小于等于INT32_MAX即2147483647。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -558,7 +516,6 @@ getValueAt(index: number): T
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -567,18 +524,17 @@ getValueAt(index: number): T
 
 **参数：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let result = lightWeightSet.getValueAt(1);
-console.info('result:', result); // result: squirrel
+console.info("result:", result);  // result: squirrel
 ```
 
 
-### clear
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### clear
 
 clear(): void
 
@@ -592,7 +548,6 @@ clear(): void
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The clear method cannot be bound. |
@@ -600,19 +555,18 @@ clear(): void
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 lightWeightSet.clear();
 let result = lightWeightSet.isEmpty();
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```
 
 
-### toString
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### toString
 
 toString(): String
 
@@ -624,7 +578,6 @@ toString(): String
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | String | 返回对应字符串。 |
@@ -632,20 +585,19 @@ toString(): String
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let result = lightWeightSet.toString();
-console.info('result:', result); // result: sparrow,squirrel
+console.info("result:", result);  // result: sparrow,squirrel
 ```
 
 
-### toArray
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-toArray(): Array<T>
+##### toArray
+
+toArray(): Array&lt;T&gt;
 
 获取包含此容器中所有对象的数组。
 
@@ -654,7 +606,6 @@ toArray(): Array<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -665,7 +616,6 @@ toArray(): Array<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The toArray method cannot be bound. |
@@ -673,21 +623,20 @@ toArray(): Array<T>
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let result = lightWeightSet.toArray();
 console.info(result.toString());
 // sparrow,squirrel
 ```
 
 
-### values
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-values(): IterableIterator<T>
+##### values
+
+values(): IterableIterator&lt;T&gt;
 
 返回包含此映射中所有键值的新迭代器对象。
 
@@ -696,7 +645,6 @@ values(): IterableIterator<T>
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -707,7 +655,6 @@ values(): IterableIterator<T>
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The values method cannot be bound. |
@@ -715,24 +662,23 @@ values(): IterableIterator<T>
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let values = lightWeightSet.values();
 for (let value of values) {
-  console.info('value:', value);
+  console.info("value:", value);
 }
 // value: sparrow
 // value: squirrel
 ```
 
 
-### forEach
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void, thisArg?: Object): void
+##### forEach
+
+forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet&lt;T&gt;) => void, thisArg?: Object): void
 
 通过回调函数来遍历LightWeightSet实例对象上的元素以及元素对应的下标。
 
@@ -742,7 +688,6 @@ forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void, thisA
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callbackFn | function | 是 | 回调函数。 |
@@ -750,7 +695,6 @@ forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet<T>) => void, thisA
 
 
 callbackFn的参数说明：
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -763,7 +707,6 @@ callbackFn的参数说明：
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -772,33 +715,31 @@ callbackFn的参数说明：
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('sparrow');
-lightWeightSet.add('gull');
+lightWeightSet.add("sparrow");
+lightWeightSet.add("gull");
 lightWeightSet.forEach((value: string, key: string) => {
-  console.info('value:' + value, 'key:' + key);
+  console.info("value:" + value, "key:" + key);
 });
 // value:gull key:gull
 // value:sparrow key:sparrow
 ```
 
-
-```ts
+```text
 // 不建议在forEach函数中使用add、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
 let lightWeightSet = new LightWeightSet<string>();
-for (let i = 0; i < 10; i++) {
-  lightWeightSet.add(i + '123');
+for(let i = 0; i < 10; i++) {
+  lightWeightSet.add(i + "123");
 }
-for (let i = 0; i < 10; i++) {
-  lightWeightSet.remove(i + '123');
+for(let i = 0; i < 10; i++) {
+  lightWeightSet.remove(i + "123");
 }
 ```
 
 
-### entries
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### entries
 
 entries(): IterableIterator<[T, T]>
 
@@ -810,16 +751,14 @@ entries(): IterableIterator<[T, T]>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| IterableIterator&lt;[T, T]&gt; | 返回一个迭代器。 |
+| IterableIterator<[T, T]> | 返回一个迭代器。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -828,36 +767,34 @@ entries(): IterableIterator<[T, T]>
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 let iter = lightWeightSet.entries();
 for (let item of iter) {
-  console.info('value:', item[1]);
+  console.info("value:", item[1])
 }
 // value: sparrow
 // value: squirrel
 ```
 
-
-```ts
+```text
 // 不建议在entries中使用add、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
 let lightWeightSet = new LightWeightSet<string>();
-for (let i = 0; i < 10; i++) {
-  lightWeightSet.add(i + '123');
+for(let i = 0; i < 10; i++) {
+  lightWeightSet.add(i + "123");
 }
-for (let i = 0; i < 10; i++) {
-  lightWeightSet.remove(i + '123');
+for(let i = 0; i < 10; i++) {
+  lightWeightSet.remove(i + "123");
 }
 ```
 
 
-### [Symbol.iterator]
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-[Symbol.iterator](): IterableIterator<T>
+##### [Symbol.iterator]
+
+[Symbol.iterator](): IterableIterator&lt;T&gt;
 
 返回一个迭代器，迭代器的每一项都是一个JavaScript对象。
 
@@ -866,7 +803,6 @@ for (let i = 0; i < 10; i++) {
 **系统能力：** SystemCapability.Utils.Lang
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -877,7 +813,6 @@ for (let i = 0; i < 10; i++) {
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The Symbol.iterator method cannot be bound. |
@@ -885,15 +820,14 @@ for (let i = 0; i < 10; i++) {
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
 
 // 使用方法一：
 for (let value of lightWeightSet) {
-  console.info('value:', value);
+  console.info("value:", value);
 }
 // value: sparrow
 // value: squirrel
@@ -901,42 +835,40 @@ for (let value of lightWeightSet) {
 // 使用方法二：
 let iter = lightWeightSet[Symbol.iterator]();
 let temp: IteratorResult<string> = iter.next();
-while (!temp.done) {
-  console.info('value:', temp.value);
+while(!temp.done) {
+  console.info("value:", temp.value);
   temp = iter.next();
 }
 // value: sparrow
 // value: squirrel
 ```
 
-
-```ts
+```text
 // 不建议在Symbol.iterator中使用add、remove、removeAt方法，会导致死循环等不可预知的风险，可使用for循环来进行插入和删除。
 let lightWeightSet = new LightWeightSet<string>();
-for (let i = 0; i < 10; i++) {
-  lightWeightSet.add(i + '123');
+for(let i = 0; i < 10; i++) {
+  lightWeightSet.add(i + "123");
 }
-for (let i = 0; i < 10; i++) {
-  lightWeightSet.remove(i + '123');
+for(let i = 0; i < 10; i++) {
+  lightWeightSet.remove(i + "123");
 }
 ```
 
 
-### equal(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### equal(deprecated)
 
 equal(obj: Object): boolean
 
 判断此容器与obj的构成元素是否相同。
 
-
 > [!NOTE]
 > 此接口从API version 8开始支持，从API version 12开始废弃。无替代接口。
+
 
 **系统能力：** SystemCapability.Utils.Lang
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -944,7 +876,6 @@ equal(obj: Object): boolean
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -955,7 +886,6 @@ equal(obj: Object): boolean
 
 以下错误码的详细介绍请参见[语言基础类库错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-utils)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 10200011 | The equal method cannot be bound. |
@@ -963,12 +893,11 @@ equal(obj: Object): boolean
 
 **示例：**
 
-
-```ts
+```text
 let lightWeightSet = new LightWeightSet<string>();
-lightWeightSet.add('squirrel');
-lightWeightSet.add('sparrow');
-let obj = ['sparrow', 'squirrel'];
+lightWeightSet.add("squirrel");
+lightWeightSet.add("sparrow");
+let obj = ["sparrow", "squirrel"];
 let result = lightWeightSet.equal(obj);
-console.info('result:', result); // result: true
+console.info("result:", result);  // result: true
 ```

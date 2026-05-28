@@ -3,22 +3,24 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-maskfilter
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 蒙版滤镜对象。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## createBlurMaskFilter12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createBlurMaskFilter12+
 
 static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter
 
@@ -28,25 +30,22 @@ static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| blurType | [BlurType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blurtype12) | 是 | 模糊类型。 |
+| blurType | BlurType | 是 | 模糊类型。 |
 | sigma | number | 是 | 高斯模糊的标准偏差，必须为大于0的浮点数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [MaskFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-maskfilter) | 返回创建的蒙版滤镜对象。 |
+| MaskFilter | 返回创建的蒙版滤镜对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -55,18 +54,14 @@ static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
-    let maskFilter = drawing.MaskFilter.createBlurMaskFilter(
-      drawing.BlurType.OUTER,
-      10,
-    );
+    let maskFilter = drawing.MaskFilter.createBlurMaskFilter(drawing.BlurType.OUTER, 10);
   }
 }
 ```

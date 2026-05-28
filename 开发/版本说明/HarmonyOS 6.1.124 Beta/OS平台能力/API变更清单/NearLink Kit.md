@@ -1,6 +1,6 @@
 # NearLink Kit
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-05-26 06:42:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-nearlinkkit-6111
 
@@ -10,10 +10,10 @@
 | 新增API | NA | 类名：cdsm； API声明：function createCdsmClient(address: string): CdsmClient; 差异内容：function createCdsmClient(address: string): CdsmClient; | api/@hms.nearlink.cdsm.d.ts |
 | 新增API | NA | 类名：cdsm； API声明：interface CdsmClient 差异内容：interface CdsmClient | api/@hms.nearlink.cdsm.d.ts |
 | 新增API | NA | 类名：CdsmClient； API声明：getCdsmInfo(): CdsmInfo; 差异内容：getCdsmInfo(): CdsmInfo; | api/@hms.nearlink.cdsm.d.ts |
-| 新增API | NA | 类名：CdsmClient； API声明：onCdsmInfoChange(callback: Callback<CdsmInfo>): void; 差异内容：onCdsmInfoChange(callback: Callback<CdsmInfo>): void; | api/@hms.nearlink.cdsm.d.ts |
-| 新增API | NA | 类名：CdsmClient； API声明：offCdsmInfoChange(callback?: Callback<CdsmInfo>): void; 差异内容：offCdsmInfoChange(callback?: Callback<CdsmInfo>): void; | api/@hms.nearlink.cdsm.d.ts |
+| 新增API | NA | 类名：CdsmClient； API声明：onCdsmInfoChange(callback: Callback&lt;CdsmInfo&gt;): void; 差异内容：onCdsmInfoChange(callback: Callback&lt;CdsmInfo&gt;): void; | api/@hms.nearlink.cdsm.d.ts |
+| 新增API | NA | 类名：CdsmClient； API声明：offCdsmInfoChange(callback?: Callback&lt;CdsmInfo&gt;): void; 差异内容：offCdsmInfoChange(callback?: Callback&lt;CdsmInfo&gt;): void; | api/@hms.nearlink.cdsm.d.ts |
 | 新增API | NA | 类名：cdsm； API声明：interface CdsmInfo 差异内容：interface CdsmInfo | api/@hms.nearlink.cdsm.d.ts |
-| 新增API | NA | 类名：CdsmInfo； API声明：members: Array<CdsmMemberInfo>; 差异内容：members: Array<CdsmMemberInfo>; | api/@hms.nearlink.cdsm.d.ts |
+| 新增API | NA | 类名：CdsmInfo； API声明：members: Array&lt;CdsmMemberInfo&gt;; 差异内容：members: Array&lt;CdsmMemberInfo&gt;; | api/@hms.nearlink.cdsm.d.ts |
 | 新增API | NA | 类名：cdsm； API声明：interface CdsmMemberInfo 差异内容：interface CdsmMemberInfo | api/@hms.nearlink.cdsm.d.ts |
 | 新增API | NA | 类名：CdsmMemberInfo； API声明：address: string; 差异内容：address: string; | api/@hms.nearlink.cdsm.d.ts |
 | 新增API | NA | 类名：CdsmMemberInfo； API声明：state: CdsmConnectionState; 差异内容：state: CdsmConnectionState; | api/@hms.nearlink.cdsm.d.ts |

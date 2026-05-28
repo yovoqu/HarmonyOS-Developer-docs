@@ -1,28 +1,39 @@
 # 使用JSVM-API实现JS与C/C++语言交互开发流程
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-process
 
 使用JSVM-API实现跨语言交互，首先需按其机制注册和加载模块。
+ 
+- ArkTS/JS侧：实现C++方法的调用。代码比较简单，import一个对应的so库后，即可调用C++方法。
+- Native侧：.cpp文件，实现模块的注册。需要提供注册lib库的名称，并在注册回调方法中定义接口的映射关系，即Native方法及对应的JS/ArkTS接口名称等。
 
+ 
+此处以在ArkTS/JS侧和Native侧实现RunTest()接口实现跨语言交互为例，展示使用JSVM-API进行跨语言交互的流程。
+  
 
- 此处以在ArkTS/JS侧和Native侧实现RunTest()接口实现跨语言交互为例，展示使用JSVM-API进行跨语言交互的流程。
-
-
-## 创建Native C++工程
+##### 创建Native C++工程
 
 具体见[创建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-with-ndk)
+ 
+  
 
-## Native侧方法的实现
+##### Native侧方法的实现
 
-参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process#native侧方法的实现)，以下代码提供了“使用JSVM-API实现JS与C/C++语言交互开发流程”Native侧方法实现的一个demo。 在index.d.ts文件中，提供JS侧的接口方法。
-```text
+参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process#native侧方法的实现)，以下代码提供了“使用JSVM-API实现JS与C/C++语言交互开发流程”Native侧方法实现的一个demo。
+ 
+- 在index.d.ts文件中，提供JS侧的接口方法。
+
+  
+```ts
 export const runTest: () => void;
 ```
 
-在oh-package.json5文件中将index.d.ts与cpp文件关联起来。
-```text
+- 在oh-package.json5文件中将index.d.ts与cpp文件关联起来。
+
+  
+```ts
 {
   "name": "libentry.so",
   "types": "./index.d.ts",
@@ -31,8 +42,10 @@ export const runTest: () => void;
 }
 ```
 
-在CMakeLists.txt文件中配置CMake打包参数。
-```text
+- 在CMakeLists.txt文件中配置CMake打包参数。
+
+  
+```cpp
 # entry/src/main/cpp/CMakeLists.txt
 cmake_minimum_required(VERSION 3.4.1)
 project(JSVMDemo)
@@ -50,8 +63,10 @@ add_library(entry SHARED hello.cpp)
 target_link_libraries(entry PUBLIC libace_napi.z.so libjsvm.so libhilog_ndk.z.so)
 ```
 
-新建entry/src/main/cpp/hello.cpp，实现Native侧的runTest接口。具体代码如下：
-```text
+- 新建entry/src/main/cpp/hello.cpp，实现Native侧的runTest接口。具体代码如下：
+
+  
+```cpp
 #include "napi/native_api.h"
 #include "hilog/log.h"
 #include "ark_runtime/jsvm.h"
@@ -200,10 +215,12 @@ extern "C" __attribute__((constructor)) void RegisterEntryModule(void) { napi_mo
 ```
 
 
-## ArkTS侧调用C/C++方法实现
+ 
+  
 
+##### ArkTS侧调用C/C++方法实现
 
-```text
+```ArkTS
 import napitest from 'libentry.so';
 
 @Entry
@@ -233,8 +250,9 @@ struct Index {
   }
 }
 ```
-
- 预期输出结果
+ 
+预期输出结果
+ 
 ```text
 JSVM OH_JSVM_StrictEquals: success: 0
 ```

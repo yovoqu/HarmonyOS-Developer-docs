@@ -1,35 +1,48 @@
 # Interface (ImageSource)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource
-
-支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImageSource类，用于获取图片相关信息。
+
 在调用ImageSource的方法前，需要先通过[image.createImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreateimagesource)构建一个ImageSource实例。
+
 ImageSource的所有方法均不支持并发调用。
+
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用[release](#release)方法及时释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
 
-> [!NOTE] 说明
+> [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-#### 导入模块
 
-```ts
+
+##### 导入模块
+
+```text
 import { image } from '@kit.ImageKit';
 ```
 
-#### 属性
+
+
+##### 属性
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportedFormats | Array&lt;string&gt; | 是 | 否 | 支持的图片格式，包括：png、jpeg、bmp、gif、webp、dng、heic^12+、wbmp^23+、heifs^23+、tiff^23+。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用[image.getImageSourceSupportedFormats20+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagegetimagesourcesupportedformats20)接口，动态查询当前设备上的解码能力。 |
+| supportedFormats | Array&lt;string&gt; | 是 | 否 | 支持的图片格式，包括：png、jpeg、bmp、gif、webp、dng、heic12+、wbmp23+、heifs23+、tiff23+。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats20+接口，动态查询当前设备上的解码能力。 |
 
-#### getImageInfo
+
+
+
+##### getImageInfo
+
 getImageInfo(index: number, callback: AsyncCallback&lt;ImageInfo&gt;): void
+
 获取指定序号的图片信息。使用callback异步回调。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -41,11 +54,12 @@ getImageInfo(index: number, callback: AsyncCallback&lt;ImageInfo&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | index | number | 是 | 创建ImageSource时的序号。默认值为0，表示第一张图片。当取值为N时，表示第N+1张图片。单帧图片场景中index取值只能为0，动图等多帧图片场景中index的取值范围为：[0, (帧数-1)]。 |
-| callback | AsyncCallback<[ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imageinfo)> | 是 | 回调函数。当获取图片信息成功，err为undefined，data为获取到的图片信息；否则为错误对象。 |
+| callback | AsyncCallback&lt;ImageInfo&gt; | 是 | 回调函数。当获取图片信息成功，err为undefined，data为获取到的图片信息；否则为错误对象。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageInfo(imageSourceObj : image.ImageSource) {
@@ -59,9 +73,14 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getImageInfo
+
+
+##### getImageInfo
+
 getImageInfo(callback: AsyncCallback&lt;ImageInfo&gt;): void
+
 获取图片信息。使用callback异步回调。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -72,11 +91,12 @@ getImageInfo(callback: AsyncCallback&lt;ImageInfo&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<[ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imageinfo)> | 是 | 回调函数。当获取图片信息成功，err为undefined，data为获取到的图片信息；否则为错误对象。 |
+| callback | AsyncCallback&lt;ImageInfo&gt; | 是 | 回调函数。当获取图片信息成功，err为undefined，data为获取到的图片信息；否则为错误对象。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageInfo(imageSourceObj : image.ImageSource) {
@@ -90,9 +110,14 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getImageInfo
+
+
+##### getImageInfo
+
 getImageInfo(index?: number): Promise&lt;ImageInfo&gt;
+
 获取图片信息。使用Promise异步回调。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -105,15 +130,17 @@ getImageInfo(index?: number): Promise&lt;ImageInfo&gt;
 | --- | --- | --- | --- |
 | index | number | 否 | 创建ImageSource时的序号。默认值为0，表示第一张图片。当取值为N时，表示第N+1张图片。单帧图片场景中index取值只能为0，动图等多帧图片场景中index的取值范围为：[0, (帧数-1)]。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imageinfo)> | Promise对象，返回获取到的图片信息。 |
+| Promise&lt;ImageInfo&gt; | Promise对象，返回获取到的图片信息。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageInfo(imageSourceObj : image.ImageSource) {
@@ -126,12 +153,17 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getImageInfoSync12+
+
+
+##### getImageInfoSync12+
+
 getImageInfoSync(index?: number): ImageInfo
+
 获取指定序号的图片信息，使用同步形式返回图片信息。
 
-> [!NOTE] 说明
-> 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考耗时任务并发场景简介。
+> [!NOTE]
+> 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考 耗时任务并发场景简介 。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -141,15 +173,17 @@ getImageInfoSync(index?: number): ImageInfo
 | --- | --- | --- | --- |
 | index | number | 否 | 创建ImageSource时的序号。默认值为0，表示第一张图片。当取值为N时，表示第N+1张图片。单帧图片场景中index取值只能为0，动图等多帧图片场景中index的取值范围为：[0, (帧数-1)]。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [ImageInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imageinfo) | 同步返回获取到的图片信息。 |
+| ImageInfo | 同步返回获取到的图片信息。 |
+
 
 **示例：**
 
-```ts
+```text
 function GetImageInfoSync(context : Context) {
   // 此处'test.jpg'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
   let filePath: string = context.filesDir + "/test.jpg";
@@ -165,18 +199,25 @@ function GetImageInfoSync(context : Context) {
 }
 ```
 
-#### getImageProperty11+
+
+
+##### getImageProperty11+
+
 getImageProperty(key:PropertyKey, options?: ImagePropertyOptions): Promise&lt;string&gt;
+
 获取图片中给定索引处图像的指定属性键的值。用Promise异步回调。
-该接口仅支持JPEG、PNG、HEIF^12+、WEBP^23+和DNG^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+该接口仅支持JPEG、PNG、HEIF12+、WEBP23+和DNG23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | [PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7) | 是 | 图片属性名。 |
-| options | [ImagePropertyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imagepropertyoptions11) | 否 | 图片属性，包括图片序号与默认属性值。 |
+| key | PropertyKey | 是 | 图片属性名。 |
+| options | ImagePropertyOptions | 否 | 图片属性，包括图片序号与默认属性值。 |
+
 
 **返回值：**
 
@@ -184,7 +225,9 @@ getImageProperty(key:PropertyKey, options?: ImagePropertyOptions): Promise&lt;st
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回图片属性值，如获取失败则返回属性默认值。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -202,9 +245,10 @@ getImageProperty(key:PropertyKey, options?: ImagePropertyOptions): Promise&lt;st
 | 62980123 | The image does not support EXIF decoding. |
 | 62980135 | The EXIF value is invalid. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageProperty(imageSourceObj : image.ImageSource) {
@@ -218,25 +262,34 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getImageProperties12+
+
+
+##### getImageProperties12+
+
 getImageProperties(key: Array&lt;PropertyKey&gt;): Promise<Record<PropertyKey, string|null>>
+
 批量获取图片中的指定属性键的值。使用Promise异步回调。
-该接口仅支持JPEG、PNG、HEIF、WEBP^23+和DNG^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+该接口仅支持JPEG、PNG、HEIF、WEBP23+和DNG23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | Array<[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)> | 是 | 图片属性名的数组。 |
+| key | Array&lt;PropertyKey&gt; | 是 | 图片属性名的数组。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Record<[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7), string \| null>> | Promise对象，返回图片属性值，如获取失败则返回null。 |
+| Promise<Record<PropertyKey, string \| null>> | Promise对象，返回图片属性值，如获取失败则返回null。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -247,9 +300,10 @@ getImageProperties(key: Array&lt;PropertyKey&gt;): Promise<Record<PropertyKey, s
 | 62980113 | Unknown image format.The image data provided is not in a recognized or supported format, or it may be corrupted. |
 | 62980116 | Failed to decode the image. |
 
+
 **示例：**
 
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageProperties(imageSourceObj : image.ImageSource) {
@@ -257,17 +311,22 @@ async function GetImageProperties(imageSourceObj : image.ImageSource) {
   imageSourceObj.getImageProperties(key).then((data) => {
     console.info(JSON.stringify(data));
   }).catch((err: BusinessError) => {
-    console.error(`Failed to get the properties, error.code ${error.code}, error.message ${error.message}`);
+    console.error(`Failed to get the properties, error.code ${err.code}, error.message ${err.message}`);
   });
 }
 ```
 
-#### getImagePropertySync20+
+
+
+##### getImagePropertySync20+
+
 getImagePropertySync(key:PropertyKey): string
+
 获取图片Exif指定属性键的值，使用同步形式返回结果。
 
-> [!NOTE] 说明
-> 该方法仅支持JPEG、PNG、HEIF、WEBP23+和DNG23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。  Exif信息是图片的元数据，包含拍摄时间、相机型号、光圈、焦距、ISO等。  该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考耗时任务并发场景简介。
+> [!NOTE]
+> 该方法仅支持JPEG、PNG、HEIF、WEBP 23+ 和DNG 23+ （不同硬件设备支持情况不同）文件，且需要包含Exif信息。 Exif信息是图片的元数据，包含拍摄时间、相机型号、光圈、焦距、ISO等。 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考 耗时任务并发场景简介 。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -275,15 +334,18 @@ getImagePropertySync(key:PropertyKey): string
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | [PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7) | 是 | 图片属性名。 |
+| key | PropertyKey | 是 | 图片属性名。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 返回图片Exif中指定属性键的值（如获取失败则返回属性默认值），各个数据值作用请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。 |
+| string | 返回图片Exif中指定属性键的值（如获取失败则返回属性默认值），各个数据值作用请参考PropertyKey。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -292,9 +354,10 @@ getImagePropertySync(key:PropertyKey): string
 | 7700102 | Unsupported MIME type. |
 | 7700202 | Unsupported metadata. For example, key is not supported. |
 
+
 **示例：**
 
-```ts
+```text
 function GetImagePropertySync(context : Context) {
   let resourceMgr = context.resourceManager;
   if (resourceMgr == null) {
@@ -309,13 +372,19 @@ function GetImagePropertySync(context : Context) {
 }
 ```
 
-#### modifyImageProperty11+
-modifyImageProperty(key: PropertyKey, value: string): Promise&lt;void&gt;
-通过指定的键修改图片属性的值。使用Promise异步回调。
-该接口仅支持JPEG、PNG、HEIF^12+和WEBP^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
-> 调用modifyImageProperty修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperty会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。  调用modifyImageProperty接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
+##### modifyImageProperty11+
+
+modifyImageProperty(key: PropertyKey, value: string): Promise&lt;void&gt;
+
+通过指定的键修改图片属性的值。使用Promise异步回调。
+
+该接口仅支持JPEG、PNG、HEIF12+和WEBP23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+> [!NOTE]
+> 调用modifyImageProperty修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperty会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。 调用modifyImageProperty接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -323,8 +392,9 @@ modifyImageProperty(key: PropertyKey, value: string): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key | [PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7) | 是 | 图片属性名。 |
+| key | PropertyKey | 是 | 图片属性名。 |
 | value | string | 是 | 属性值。 |
+
 
 **返回值：**
 
@@ -332,7 +402,9 @@ modifyImageProperty(key: PropertyKey, value: string): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -343,9 +415,10 @@ modifyImageProperty(key: PropertyKey, value: string): Promise&lt;void&gt;
 | 62980135 | The EXIF value is invalid. |
 | 62980146 | The EXIF data failed to be written to the file. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
@@ -361,13 +434,19 @@ async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### modifyImageProperties12+
-modifyImageProperties(records: Record<PropertyKey, string|null>): Promise&lt;void&gt;
-批量通过指定的键修改图片属性的值。使用Promise异步回调。
-该接口仅支持JPEG、PNG、HEIF和WEBP^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
+
+##### modifyImageProperties12+
+
+modifyImageProperties(records: Record<PropertyKey, string|null>): Promise&lt;void&gt;
+
+批量通过指定的键修改图片属性的值。使用Promise异步回调。
+
+该接口仅支持JPEG、PNG、HEIF和WEBP23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+> [!NOTE]
 > 调用modifyImageProperties修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperties会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。 调用modifyImageProperties接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -375,7 +454,8 @@ modifyImageProperties(records: Record<PropertyKey, string|null>): Promise&lt;voi
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| records | Record<[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7), string \| null> | 是 | 包含图片属性名和属性值的数组。 |
+| records | Record<PropertyKey, string \| null> | 是 | 包含图片属性名和属性值的数组。 |
+
 
 **返回值：**
 
@@ -383,7 +463,9 @@ modifyImageProperties(records: Record<PropertyKey, string|null>): Promise&lt;voi
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -393,9 +475,10 @@ modifyImageProperties(records: Record<PropertyKey, string|null>): Promise&lt;voi
 | 62980135 | The EXIF value is invalid. |
 | 62980146 | The EXIF data failed to be written to the file. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ModifyImageProperties(imageSourceObj : image.ImageSource) {
@@ -416,12 +499,17 @@ async function ModifyImageProperties(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### modifyImagePropertiesEnhanced22+
+
+
+##### modifyImagePropertiesEnhanced22+
+
 modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise&lt;void&gt;
+
 批量修改图片属性。使用Promise异步回调。
 
-> [!NOTE] 说明
-> 调用该接口修改属性会改变属性字节长度，建议通过传入文件描述符来创建image.createImageSource实例或通过传入的uri创建image.createImageSource实例。 该方法在内存中完成批量数据修改后会一次性写入文件，相比modifyImageProperties更高效。 支持修改JPEG、PNG、HEIF和WEBP文件类型的图片属性，图片需要包含Exif信息。 调用modifyImagePropertiesEnhanced接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+> [!NOTE]
+> 调用该接口修改属性会改变属性字节长度，建议通过传入文件描述符来创建 image.createImageSource 实例或通过传入的uri创建 image.createImageSource 实例。 该方法在内存中完成批量数据修改后会一次性写入文件，相比 modifyImageProperties 更高效。 支持修改JPEG、PNG、HEIF和WEBP文件类型的图片属性，图片需要包含Exif信息。 调用modifyImagePropertiesEnhanced接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -431,13 +519,16 @@ modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise&l
 | --- | --- | --- | --- |
 | records | Record<string, string \| null> | 是 | 包含图片属性名和属性值的键值对集合。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -446,9 +537,10 @@ modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise&l
 | 7700202 | Unsupported metadata. For example, the property key is not supported, or the property value is invalid. |
 | 7700304 | Failed to write image properties to the file. |
 
+
 **示例：**
 
-```ts
+```text
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -470,13 +562,19 @@ async function ModifyImagePropertiesEnhanced(imageSourceObj : image.ImageSource)
 }
 ```
 
-#### readImageMetadata23+
+
+
+##### readImageMetadata23+
+
 readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMetadata&gt;
+
 读取图像源的元数据，使用propertyKeys指定元数据字段。使用Promise异步回调。
+
 该接口仅支持JPEG、PNG、HEIF、WEBP和DNG（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
-> 读取DNG格式图片时，该接口对部分propertyKeys有特殊处理。以下字段的字符串取值请参考PropertyKey中的值：  NewSubfileType、ImageWidth、ImageLength、DefaultCropSize、Orientation、Compression、PhotometricInterpretation、PlanarConfiguration、RowsPerStrip、StripOffsets、StripByteCounts、SamplesPerPixel、BitsPerSample、YCbCrCoefficients、YCbCrSubSampling、YCbCrPositioning、ReferenceBlackWhite、XResolution、YResolution、ResolutionUnit字段：返回主图相关的字段值。 ImageUniqueID字段：根据规范进行校验，不符合规范时会返回空字符串。 ExifVersion、FlashpixVersion、ColorSpace字段：当图片中不存在该标签时，返回错误码。 DNGVersion字段：当版本号小于1.0.0.0时，统一返回1.0.0.0。 GPSVersionID字段：当没有有效的GPS数据时，会清除GPS版本号并返回0。 GPSAltitudeRef字段：当未设置GPSAltitude时，会设置为0xFFFFFFFF。 ISOSpeedRatings字段：当该标签值为0或65535时，会优先使用推荐曝光指数，若不存在则依次使用标准输出灵敏度、ISO速度、曝光指数。 从API版本24开始，支持读取DNG元数据。要查询的属性的具体信息请参考DngPropertyKey。
+> [!NOTE]
+> 读取DNG格式图片时，该接口对部分propertyKeys有特殊处理。以下字段的字符串取值请参考 PropertyKey 中的值： NewSubfileType、ImageWidth、ImageLength、DefaultCropSize、Orientation、Compression、PhotometricInterpretation、PlanarConfiguration、RowsPerStrip、StripOffsets、StripByteCounts、SamplesPerPixel、BitsPerSample、YCbCrCoefficients、YCbCrSubSampling、YCbCrPositioning、ReferenceBlackWhite、XResolution、YResolution、ResolutionUnit字段：返回主图相关的字段值。 ImageUniqueID字段：根据规范进行校验，不符合规范时会返回空字符串。 ExifVersion、FlashpixVersion、ColorSpace字段：当图片中不存在该标签时，返回错误码。 DNGVersion字段：当版本号小于1.0.0.0时，统一返回1.0.0.0。 GPSVersionID字段：当没有有效的GPS数据时，会清除GPS版本号并返回0。 GPSAltitudeRef字段：当未设置GPSAltitude时，会设置为0xFFFFFFFF。 ISOSpeedRatings字段：当该标签值为0或65535时，会优先使用推荐曝光指数，若不存在则依次使用标准输出灵敏度、ISO速度、曝光指数。 从API版本24开始，支持读取DNG元数据。要查询的属性的具体信息请参考 DngPropertyKey 。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -489,13 +587,16 @@ readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMeta
 | propertyKeys | string[] | 否 | 图片属性名的数组。若未指定propertyKeys，则返回所有支持的元数据。 |
 | index | number | 否 | 感兴趣的索引，默认值为0。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[ImageMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imagemetadata23)> | Promise对象，返回ImageMetadata对象，其中含有图片属性名对应的metadata对象，通过ImageMetadata中的metadata对象可以获取图片属性值。 |
+| Promise&lt;ImageMetadata&gt; | Promise对象，返回ImageMetadata对象，其中含有图片属性名对应的metadata对象，通过ImageMetadata中的metadata对象可以获取图片属性值。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -504,9 +605,10 @@ readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMeta
 | 7700202 | Unsupported metadata. |
 | 7700204 | Invalid parameter. Possible causes: 1. The index is negative. 2. The index is greater than or equal to the number of frames in the image. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ReadImageMetadata(imageSourceObj : image.ImageSource) {
@@ -523,12 +625,17 @@ async function ReadImageMetadata(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### writeImageMetadata23+
+
+
+##### writeImageMetadata23+
+
 writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;
+
 批量修改图片属性。使用Promise异步回调。
 
-> [!NOTE] 说明
-> 调用该接口修改属性会改变属性字节长度，建议通过传入文件描述符来创建image.createImageSource实例或通过传入的uri创建image.createImageSource实例。 该方法在内存中完成批量数据修改后会一次性写入文件，相比modifyImageProperties更高效。 支持修改JPEG、PNG和HEIF文件类型的图片属性，图片需要包含Exif信息。修改属性前，先通过supportedFormats属性查询设备是否支持HEIF格式的Exif读写。 调用writeImageMetadata接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+> [!NOTE]
+> 调用该接口修改属性会改变属性字节长度，建议通过传入文件描述符来创建 image.createImageSource 实例或通过传入的uri创建 image.createImageSource 实例。 该方法在内存中完成批量数据修改后会一次性写入文件，相比 modifyImageProperties 更高效。 支持修改JPEG、PNG和HEIF文件类型的图片属性，图片需要包含Exif信息。修改属性前，先通过supportedFormats属性查询设备是否支持HEIF格式的Exif读写。 调用writeImageMetadata接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -538,7 +645,8 @@ writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| imageMetadata | [ImageMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imagemetadata23) | 是 | 图像的元数据集。若imageMetadata中的属性值都为空，则清空所有Exif元数据。 |
+| imageMetadata | ImageMetadata | 是 | 图像的元数据集。若imageMetadata中的属性值都为空，则清空所有Exif元数据。 |
+
 
 **返回值：**
 
@@ -546,7 +654,9 @@ writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -555,9 +665,10 @@ writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;
 | 7700202 | Unsupported metadata. |
 | 7700204 | Invalid parameter. Possible causes: The imageSource object is released. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function WriteImageMetadata(imageSourceObj : image.ImageSource) {
@@ -574,13 +685,19 @@ async function WriteImageMetadata(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### readImageMetadataByType24+
+
+
+##### readImageMetadataByType24+
+
 readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise&lt;ImageMetadata&gt;
+
 读取图像源的元数据，使用metadataTypes指定元数据类型。若未指定metadataTypes，则返回所有支持的元数据。使用Promise异步回调。
+
 该接口仅支持JPEG、PNG、HEIF、WEBP、DNG和HEIFS（不同硬件设备支持情况不同）文件。
 
-> [!NOTE] 说明
+> [!NOTE]
 > EXIF_METADATA元数据类型适用于JPEG、PNG、HEIF、WEBP和DNG格式图片。 HEIFS_METADATA元数据类型适用于HEIFS格式图片。 当传入的MetadataType与图片格式无法匹配时，返回错误码7700102。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -590,16 +707,19 @@ readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| metadataTypes | [MetadataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#metadatatype13)[] | 否 | 元数据类型的数组。当该参数缺省时，获取全部支持的元数据。 |
+| metadataTypes | MetadataType[] | 否 | 元数据类型的数组。当该参数缺省时，获取全部支持的元数据。 |
 | index | number | 否 | 图片帧序号，表示获取指定帧的元数据。默认值为0。 - 单帧图片场景中index取值只能为0。 - 动图等多帧图片场景中index的取值范围为[0, 帧数-1]。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[ImageMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imagemetadata23)> | Promise对象。返回的ImageMetadata对象中含有对应的metadata对象，通过ImageMetadata中的metadata对象可以获取图片属性值。 |
+| Promise&lt;ImageMetadata&gt; | Promise对象。返回的ImageMetadata对象中含有对应的metadata对象，通过ImageMetadata中的metadata对象可以获取图片属性值。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -608,9 +728,10 @@ readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise
 | 7700202 | Unsupported metadata. |
 | 7700204 | Invalid parameter. Possible causes: 1.The index is negative.2. The index is greater than or equal to the number of frames in the image. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { image } from '@kit.ImageKit';
 
@@ -626,9 +747,14 @@ async function ReadImageMetadataByType(imageSource : image.ImageSource, type: im
 }
 ```
 
-#### createImageRawData24+
+
+
+##### createImageRawData24+
+
 createImageRawData(): Promise&lt;ImageRawData&gt;
+
 获取图片原始数据。使用Promise异步回调。目前仅支持获取DNG图片类型的原始数据。
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
@@ -637,9 +763,11 @@ createImageRawData(): Promise&lt;ImageRawData&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[ImageRawData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#imagerawdata24)> | Promise对象，返回ImageRawData对象，其中含有数据缓冲区和像素位数。 |
+| Promise&lt;ImageRawData&gt; | Promise对象，返回ImageRawData对象，其中含有数据缓冲区和像素位数。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -647,9 +775,10 @@ createImageRawData(): Promise&lt;ImageRawData&gt;
 | 7700101 | Bad source. |
 | 7700102 | Unsupported MIME type. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function createImageRawData(imageSourceObj: image.ImageSource) {
@@ -670,9 +799,14 @@ async function createImageRawData(imageSourceObj: image.ImageSource) {
 }
 ```
 
-#### updateData9+
+
+
+##### updateData9+
+
 updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number): Promise&lt;void&gt;
+
 更新增量数据。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -684,15 +818,17 @@ updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number
 | offset | number | 是 | 即当前buffer中的数据首地址，相对于整个图片文件首地址的偏移量。单位：字节。 |
 | length | number | 是 | 当前buffer的长度。单位： 字节（byte）。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function UpdateDatay(imageSourceObj : image.ImageSource) {
@@ -705,9 +841,14 @@ async function UpdateDatay(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### updateData9+
+
+
+##### updateData9+
+
 updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number, callback: AsyncCallback&lt;void&gt;): void
+
 更新增量数据。使用callback异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -720,9 +861,10 @@ updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number
 | length | number | 是 | 当前buffer的长度。单位：字节（byte）。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当更新增量数据成功，err为undefined，否则为错误对象。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function UpdateDatay(imageSourceObj : image.ImageSource) {
@@ -737,26 +879,36 @@ async function UpdateDatay(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPicture13+
+
+
+##### createPicture13+
+
 createPicture(options?: DecodingOptionsForPicture): Promise&lt;Picture&gt;
+
 通过图片解码参数创建Picture对象。使用Promise异步回调。
+
 由于图片占用内存较大，所以当Picture对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture#release13)方法，及时释放内存。
+
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptionsForPicture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptionsforpicture13) | 否 | 解码参数。 |
+| options | DecodingOptionsForPicture | 否 | 解码参数。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Picture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture)> | Promise对象，返回Picture。 |
+| Promise&lt;Picture&gt; | Promise对象，返回Picture。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -765,9 +917,10 @@ createPicture(options?: DecodingOptionsForPicture): Promise&lt;Picture&gt;
 | 7700203 | Unsupported options. For example, unsupported desiredPixelFormat causes a failure in converting an image into the desired pixel format. |
 | 7700301 | Decode failed. |
 
+
 **示例：**
 
-```ts
+```text
 async function CreatePicture(imageSourceObj : image.ImageSource) {
   let options: image.DecodingOptionsForPicture = {
     desiredAuxiliaryPictures: [image.AuxiliaryPictureType.GAINMAP] // GAINMAP为需要解码的辅助图类型。
@@ -781,11 +934,18 @@ async function CreatePicture(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPictureAtIndex20+
+
+
+##### createPictureAtIndex20+
+
 createPictureAtIndex(index: number): Promise&lt;Picture&gt;
-通过指定序号的图片（目前仅支持GIF和HEIF^23+图像序列格式）创建Picture对象。使用Promise异步回调。
+
+通过指定序号的图片（目前仅支持GIF和HEIF23+图像序列格式）创建Picture对象。使用Promise异步回调。
+
 由于图片占用内存较大，所以当Picture对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture#release13)方法，及时释放内存。
+
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -794,13 +954,16 @@ createPictureAtIndex(index: number): Promise&lt;Picture&gt;
 | --- | --- | --- | --- |
 | index | number | 是 | 解码图片序号。图片序号有效的取值范围为：[0, (帧数-1)]。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[Picture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture)> | Promise对象，返回Picture。 |
+| Promise&lt;Picture&gt; | Promise对象，返回Picture。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -811,9 +974,10 @@ createPictureAtIndex(index: number): Promise&lt;Picture&gt;
 | 7700203 | Unsupported options. For example, index is invalid. |
 | 7700301 | Decoding failed. |
 
+
 **示例：**
 
-```ts
+```text
 async function CreatePictures(imageSourceObj : image.ImageSource) {
   let frameCount: number = await imageSourceObj.getFrameCount();
   for (let index = 0; index < frameCount; index++) {
@@ -827,13 +991,19 @@ async function CreatePictures(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPixelMap7+
+
+
+##### createPixelMap7+
+
 createPixelMap(options?: DecodingOptions): Promise&lt;PixelMap&gt;
+
 通过图片解码参数创建PixelMap对象。使用Promise异步回调。
+
 从API version 15开始，推荐使用[createPixelMapUsingAllocator](#createpixelmapusingallocator15)，该接口可以指定输出pixelMap的内存类型[AllocatorType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#allocatortype15)，详情请参考[图片解码内存优化(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type)。
 
-> [!NOTE] 说明
-> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> [!NOTE]
+> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -845,17 +1015,19 @@ createPixelMap(options?: DecodingOptions): Promise&lt;PixelMap&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7) | 否 | 解码参数。 |
+| options | DecodingOptions | 否 | 解码参数。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)> | Promise对象，返回PixelMap。 |
+| Promise&lt;PixelMap&gt; | Promise对象，返回PixelMap。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function CreatePixelMap(imageSourceObj : image.ImageSource) {
@@ -867,13 +1039,19 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPixelMap7+
+
+
+##### createPixelMap7+
+
 createPixelMap(callback: AsyncCallback&lt;PixelMap&gt;): void
+
 通过默认参数创建PixelMap对象。使用callback异步回调。
+
 从API version 15开始，推荐使用[createPixelMapUsingAllocator](#createpixelmapusingallocator15)，该接口可以指定输出pixelMap的内存类型[AllocatorType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#allocatortype15)，详情请参考[图片解码内存优化(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type)。
 
-> [!NOTE] 说明
-> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> [!NOTE]
+> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -885,11 +1063,12 @@ createPixelMap(callback: AsyncCallback&lt;PixelMap&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)> | 是 | 回调函数，当创建PixelMap对象成功，err为undefined，data为获取到的PixelMap对象；否则为错误对象。 |
+| callback | AsyncCallback&lt;PixelMap&gt; | 是 | 回调函数，当创建PixelMap对象成功，err为undefined，data为获取到的PixelMap对象；否则为错误对象。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function CreatePixelMap(imageSourceObj : image.ImageSource) {
@@ -903,13 +1082,19 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPixelMap7+
+
+
+##### createPixelMap7+
+
 createPixelMap(options: DecodingOptions, callback: AsyncCallback&lt;PixelMap&gt;): void
+
 通过图片解码参数创建PixelMap对象。使用callback异步回调。
+
 从API version 15开始，推荐使用[createPixelMapUsingAllocator](#createpixelmapusingallocator15)，该接口可以指定输出pixelMap的内存类型[AllocatorType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#allocatortype15)，详情请参考[图片解码内存优化(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type)。
 
-> [!NOTE] 说明
-> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> [!NOTE]
+> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -921,12 +1106,13 @@ createPixelMap(options: DecodingOptions, callback: AsyncCallback&lt;PixelMap&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7) | 是 | 解码参数。 |
-| callback | AsyncCallback<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)> | 是 | 回调函数，当创建PixelMap对象成功，err为undefined，data为获取到的PixelMap对象；否则为错误对象。 |
+| options | DecodingOptions | 是 | 解码参数。 |
+| callback | AsyncCallback&lt;PixelMap&gt; | 是 | 回调函数，当创建PixelMap对象成功，err为undefined，data为获取到的PixelMap对象；否则为错误对象。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function CreatePixelMap(imageSourceObj : image.ImageSource) {
@@ -951,15 +1137,23 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPixelMapSync12+
+
+
+##### createPixelMapSync12+
+
 createPixelMapSync(options?: DecodingOptions): PixelMap
+
 通过图片解码参数同步创建PixelMap对象。
+
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#release7)方法，及时释放内存。
+
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 从API version 15开始，推荐使用[createPixelMapUsingAllocatorSync](#createpixelmapusingallocatorsync15)，该接口可以指定输出pixelMap的内存类型[AllocatorType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#allocatortype15)，详情请参考[图片解码内存优化(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type)。
 
-> [!NOTE] 说明
-> 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考耗时任务并发场景简介。
+> [!NOTE]
+> 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考 耗时任务并发场景简介 。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -967,17 +1161,19 @@ createPixelMapSync(options?: DecodingOptions): PixelMap
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7) | 否 | 解码参数。 |
+| options | DecodingOptions | 否 | 解码参数。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 用于同步返回创建结果。 |
+| PixelMap | 用于同步返回创建结果。 |
+
 
 **示例：**
 
-```ts
+```text
 function CreatePixelMapSync(context : Context) {
   // 此处'test.jpg'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
   let filePath: string = context.filesDir + "/test.jpg";
@@ -1002,13 +1198,19 @@ function CreatePixelMapSync(context : Context) {
 }
 ```
 
-#### createPixelMapList10+
+
+
+##### createPixelMapList10+
+
 createPixelMapList(options?: DecodingOptions): Promise<Array&lt;PixelMap&gt;>
+
 通过图片解码参数创建PixelMap数组。使用Promise异步回调。
+
 针对动态图（如Gif、Webp），该接口会返回每帧图片数据；针对静态图，该接口会返回唯一的一帧图片数据。
 
-> [!NOTE] 说明
-> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。 此接口会一次性解码全部帧，当帧数过多或单帧图像过大时（如2000×3000像素的100帧GIF动图），会占用较大内存，造成系统内存紧张，此种情况推荐使用Image组件显示动图，Image组件采用逐帧解码，占用内存比此接口少。
+> [!NOTE]
+> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。 此接口会一次性解码全部帧，当帧数过多或单帧图像过大时（如2000×3000像素的100帧GIF动图），会占用较大内存，造成系统内存紧张，此种情况推荐使用Image组件显示动图，Image组件采用逐帧解码，占用内存比此接口少。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1016,15 +1218,18 @@ createPixelMapList(options?: DecodingOptions): Promise<Array&lt;PixelMap&gt;>
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7) | 否 | 解码参数。 |
+| options | DecodingOptions | 否 | 解码参数。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)>> | 异步返回PixelMap数组。 |
+| Promise<Array&lt;PixelMap&gt;> | 异步返回PixelMap数组。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1043,9 +1248,10 @@ createPixelMapList(options?: DecodingOptions): Promise<Array&lt;PixelMap&gt;>
 | 62980173 | The DMA memory does not exist. |
 | 62980174 | The DMA memory data is abnormal. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
@@ -1065,13 +1271,19 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPixelMapList10+
+
+
+##### createPixelMapList10+
+
 createPixelMapList(callback: AsyncCallback<Array&lt;PixelMap&gt;>): void
+
 通过默认参数创建PixelMap数组。使用callback异步回调。
+
 针对动态图（如Gif、Webp），该接口会返回每帧图片数据；针对静态图，该接口会返回唯一的一帧图片数据。
 
-> [!NOTE] 说明
-> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。 此接口会一次性解码全部帧，当帧数过多或单帧图像过大时，会占用较大内存，造成系统内存紧张，此种情况推荐使用Image组件显示动图，Image组件采用逐帧解码，占用内存比此接口少。
+> [!NOTE]
+> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。 此接口会一次性解码全部帧，当帧数过多或单帧图像过大时，会占用较大内存，造成系统内存紧张，此种情况推荐使用Image组件显示动图，Image组件采用逐帧解码，占用内存比此接口少。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1079,9 +1291,11 @@ createPixelMapList(callback: AsyncCallback<Array&lt;PixelMap&gt;>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<Array<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)>> | 是 | 回调函数，当创建PixelMap对象数组成功，err为undefined，data为获取到的PixelMap对象数组；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;PixelMap&gt;> | 是 | 回调函数，当创建PixelMap对象数组成功，err为undefined，data为获取到的PixelMap对象数组；否则为错误对象。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1100,9 +1314,10 @@ createPixelMapList(callback: AsyncCallback<Array&lt;PixelMap&gt;>): void
 | 62980173 | The DMA memory does not exist. |
 | 62980174 | The DMA memory data is abnormal. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
@@ -1116,13 +1331,19 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPixelMapList10+
+
+
+##### createPixelMapList10+
+
 createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array&lt;PixelMap&gt;>): void
+
 通过图片解码参数创建PixelMap数组。使用callback异步回调。
+
 针对动态图（如Gif、Webp），该接口会返回每帧图片数据；针对静态图，该接口会返回唯一的一帧图片数据。
 
-> [!NOTE] 说明
-> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。 此接口会一次性解码全部帧，当帧数过多或单帧图像过大时，会占用较大内存，造成系统内存紧张，此种情况推荐使用Image组件显示动图，Image组件采用逐帧解码，占用内存比此接口少。
+> [!NOTE]
+> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。 此接口会一次性解码全部帧，当帧数过多或单帧图像过大时，会占用较大内存，造成系统内存紧张，此种情况推荐使用Image组件显示动图，Image组件采用逐帧解码，占用内存比此接口少。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1130,10 +1351,12 @@ createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array&lt;Pi
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7) | 是 | 解码参数。 |
-| callback | AsyncCallback<Array<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)>> | 是 | 回调函数，当创建PixelMap对象数组成功，err为undefined，data为获取到的PixelMap对象数组；否则为错误对象。 |
+| options | DecodingOptions | 是 | 解码参数。 |
+| callback | AsyncCallback<Array&lt;PixelMap&gt;> | 是 | 回调函数，当创建PixelMap对象数组成功，err为undefined，data为获取到的PixelMap对象数组；否则为错误对象。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1152,9 +1375,10 @@ createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array&lt;Pi
 | 62980173 | The DMA memory does not exist. |
 | 62980174 | The DMA memory data is abnormal. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
@@ -1176,12 +1400,17 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### createPixelMapUsingAllocator15+
+
+
+##### createPixelMapUsingAllocator15+
+
 createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType): Promise&lt;PixelMap&gt;
+
 使用指定的分配器根据图像解码参数异步创建PixelMap对象。使用Promise异步回调。接口使用详情请参考[图片解码内存优化(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type)。
 
-> [!NOTE] 说明
-> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用release方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+> [!NOTE]
+> 该方法为非线程安全的方法，不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1189,16 +1418,19 @@ createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: Allocato
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7) | 否 | 解码参数。 |
-| allocatorType | [AllocatorType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#allocatortype15) | 否 | 用于图像解码的内存类型。默认值为AllocatorType.AUTO。 |
+| options | DecodingOptions | 否 | 解码参数。 |
+| allocatorType | AllocatorType | 否 | 用于图像解码的内存类型。默认值为AllocatorType.AUTO。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)> | Promise对象，返回PixelMap。 |
+| Promise&lt;PixelMap&gt; | Promise对象，返回PixelMap。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1212,9 +1444,10 @@ createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: Allocato
 | 7700301 | Failed to decode image. |
 | 7700302 | Failed to allocate memory. |
 
+
 **示例：**
 
-```ts
+```text
 async function CreatePixelMapUsingAllocator(context : Context) {
   // 此处'test.jpg'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
   let filePath: string = context.filesDir + "/test.jpg";
@@ -1238,14 +1471,21 @@ async function CreatePixelMapUsingAllocator(context : Context) {
 }
 ```
 
-#### createPixelMapUsingAllocatorSync15+
+
+
+##### createPixelMapUsingAllocatorSync15+
+
 createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap
+
 根据指定的分配器同步创建一个基于图像解码参数的PixelMap对象。接口使用详情请参考[图片解码内存优化(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type)。
+
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#release7)方法，及时释放内存。
+
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
-> [!NOTE] 说明
-> 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考耗时任务并发场景简介。
+> [!NOTE]
+> 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考 耗时任务并发场景简介 。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1253,16 +1493,19 @@ createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: Allo
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| options | [DecodingOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#decodingoptions7) | 否 | 解码参数。 |
-| allocatorType | [AllocatorType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#allocatortype15) | 否 | 用于图像解码的内存类型。默认值为AllocatorType.AUTO。 |
+| options | DecodingOptions | 否 | 解码参数。 |
+| allocatorType | AllocatorType | 否 | 用于图像解码的内存类型。默认值为AllocatorType.AUTO。 |
+
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap) | 用于同步返回创建结果。 |
+| PixelMap | 用于同步返回创建结果。 |
+
 
 **错误码：**
+
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1276,9 +1519,10 @@ createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: Allo
 | 7700301 | Failed to decode image. |
 | 7700302 | Failed to allocate memory. |
 
+
 **示例：**
 
-```ts
+```text
 async function CreatePixelMapUsingAllocator(context : Context) {
   // 此处'test.jpg'仅作示例，请开发者自行替换，否则imageSource创建失败会导致后续无法正常执行。
   let filePath: string = context.filesDir + "/test.jpg";
@@ -1302,9 +1546,14 @@ async function CreatePixelMapUsingAllocator(context : Context) {
 }
 ```
 
-#### getDelayTimeList10+
+
+
+##### getDelayTimeList10+
+
 getDelayTimeList(callback: AsyncCallback<Array&lt;number&gt;>): void
+
 获取图像延迟时间数组。使用callback异步回调。此接口仅用于gif图片和webp图片。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -1313,7 +1562,9 @@ getDelayTimeList(callback: AsyncCallback<Array&lt;number&gt;>): void
 | --- | --- | --- | --- |
 | callback | AsyncCallback<Array&lt;number&gt;> | 是 | 回调函数，当获取图像延迟时间数组成功，err为undefined，data为获取到的图像延时时间数组；否则为错误对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1327,9 +1578,10 @@ getDelayTimeList(callback: AsyncCallback<Array&lt;number&gt;>): void
 | 62980122 | Failed to decode the image header. |
 | 62980149 | Invalid MIME type for the image source. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
@@ -1343,9 +1595,14 @@ async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getDelayTimeList10+
+
+
+##### getDelayTimeList10+
+
 getDelayTimeList(): Promise<Array&lt;number&gt;>
+
 获取图像延迟时间数组。使用Promise异步回调。此接口仅用于gif图片和webp图片。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **返回值：**
@@ -1354,7 +1611,9 @@ getDelayTimeList(): Promise<Array&lt;number&gt;>
 | --- | --- |
 | Promise<Array&lt;number&gt;> | Promise对象，返回延迟时间数组。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1368,9 +1627,10 @@ getDelayTimeList(): Promise<Array&lt;number&gt;>
 | 62980122 | Failed to decode the image header. |
 | 62980149 | Invalid MIME type for the image source. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
@@ -1382,9 +1642,14 @@ async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getFrameCount10+
+
+
+##### getFrameCount10+
+
 getFrameCount(callback: AsyncCallback&lt;number&gt;): void
+
 获取图像帧数。使用callback异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -1393,7 +1658,9 @@ getFrameCount(callback: AsyncCallback&lt;number&gt;): void
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数，当获取图像帧数成功，err为undefined，data为获取到的图像帧数；否则为错误对象。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1408,9 +1675,10 @@ getFrameCount(callback: AsyncCallback&lt;number&gt;): void
 | 62980122 | Failed to decode the image header. |
 | 62980137 | Invalid media operation. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetFrameCount(imageSourceObj : image.ImageSource) {
@@ -1424,9 +1692,14 @@ async function GetFrameCount(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getFrameCount10+
+
+
+##### getFrameCount10+
+
 getFrameCount(): Promise&lt;number&gt;
+
 获取图像帧数。使用Promise异步回调。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **返回值：**
@@ -1435,7 +1708,9 @@ getFrameCount(): Promise&lt;number&gt;
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象，返回图像帧数。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1450,9 +1725,10 @@ getFrameCount(): Promise&lt;number&gt;
 | 62980122 | Failed to decode the image header. |
 | 62980137 | Invalid media operation. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetFrameCount(imageSourceObj : image.ImageSource) {
@@ -1464,9 +1740,14 @@ async function GetFrameCount(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getDisposalTypeList12+
+
+
+##### getDisposalTypeList12+
+
 getDisposalTypeList(): Promise<Array&lt;number&gt;>
+
 获取图像帧过渡模式数组。使用Promise异步回调。此接口仅用于gif图片。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **返回值：**
@@ -1475,7 +1756,9 @@ getDisposalTypeList(): Promise<Array&lt;number&gt;>
 | --- | --- |
 | Promise<Array&lt;number&gt;> | Promise对象，返回帧过渡模式数组。 |
 
+
 **错误码：**
+
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
 
 | 错误码ID | 错误信息 |
@@ -1485,9 +1768,10 @@ getDisposalTypeList(): Promise<Array&lt;number&gt;>
 | 62980137 | Invalid media operation. |
 | 62980149 | Invalid MIME type for the image source. |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetDisposalTypeList(imageSourceObj : image.ImageSource) {
@@ -1499,11 +1783,18 @@ async function GetDisposalTypeList(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### release
+
+
+##### release
+
 release(callback: AsyncCallback&lt;void&gt;): void
+
 释放ImageSource实例。使用callback异步回调。
+
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用该方法，及时释放内存。
+
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **参数：**
@@ -1512,9 +1803,10 @@ release(callback: AsyncCallback&lt;void&gt;): void
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当资源释放成功，err为undefined，否则为错误对象。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release(imageSourceObj : image.ImageSource) {
@@ -1528,11 +1820,18 @@ async function Release(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### release
+
+
+##### release
+
 release(): Promise&lt;void&gt;
+
 释放ImageSource实例。使用Promise异步回调。
+
 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用该方法，及时释放内存。
+
 释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
 **返回值：**
@@ -1541,9 +1840,10 @@ release(): Promise&lt;void&gt;
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function Release(imageSourceObj : image.ImageSource) {
@@ -1555,13 +1855,19 @@ async function Release(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getImageProperty(deprecated)
-getImageProperty(key:string, options?: GetImagePropertyOptions): Promise&lt;string&gt;
-获取图片中给定索引处图像的指定属性键的值。使用Promise异步回调。
-该接口仅支持JPEG、PNG、HEIF^12+和WEBP^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
-> 从API version 7开始支持，从API version 11废弃，建议使用getImageProperty代替。
+
+##### getImageProperty(deprecated)
+
+getImageProperty(key:string, options?: GetImagePropertyOptions): Promise&lt;string&gt;
+
+获取图片中给定索引处图像的指定属性键的值。使用Promise异步回调。
+
+该接口仅支持JPEG、PNG、HEIF12+和WEBP23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 11废弃，建议使用 getImageProperty 代替。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1570,7 +1876,8 @@ getImageProperty(key:string, options?: GetImagePropertyOptions): Promise&lt;stri
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 图片属性名。 |
-| options | [GetImagePropertyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#getimagepropertyoptionsdeprecated) | 否 | 图片属性，包括图片序号与默认属性值。 |
+| options | GetImagePropertyOptions | 否 | 图片属性，包括图片序号与默认属性值。 |
+
 
 **返回值：**
 
@@ -1578,9 +1885,10 @@ getImageProperty(key:string, options?: GetImagePropertyOptions): Promise&lt;stri
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回图片属性值，如获取失败则返回属性默认值。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageProperty(imageSourceObj : image.ImageSource) {
@@ -1593,13 +1901,19 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getImageProperty(deprecated)
-getImageProperty(key:string, callback: AsyncCallback&lt;string&gt;): void
-获取图片中给定索引处图像的指定属性键的值。使用callback异步回调。
-该接口仅支持JPEG、PNG、HEIF^12+和WEBP^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
-> 从API version 7开始支持，从API version 11废弃，建议使用getImageProperty代替。
+
+##### getImageProperty(deprecated)
+
+getImageProperty(key:string, callback: AsyncCallback&lt;string&gt;): void
+
+获取图片中给定索引处图像的指定属性键的值。使用callback异步回调。
+
+该接口仅支持JPEG、PNG、HEIF12+和WEBP23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 11废弃，建议使用 getImageProperty 代替。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1610,9 +1924,10 @@ getImageProperty(key:string, callback: AsyncCallback&lt;string&gt;): void
 | key | string | 是 | 图片属性名。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，当获取图片属性值成功，err为undefined，data为获取到的图片属性值；否则为错误对象。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageProperty(imageSourceObj : image.ImageSource) {
@@ -1626,13 +1941,19 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### getImageProperty(deprecated)
-getImageProperty(key:string, options: GetImagePropertyOptions, callback: AsyncCallback&lt;string&gt;): void
-获取图片指定属性键的值。使用callback异步回调。
-该接口仅支持JPEG、PNG、HEIF^12+和WEBP^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
-> 从API version 7开始支持，从API version 11废弃，建议使用getImageProperty代替。
+
+##### getImageProperty(deprecated)
+
+getImageProperty(key:string, options: GetImagePropertyOptions, callback: AsyncCallback&lt;string&gt;): void
+
+获取图片指定属性键的值。使用callback异步回调。
+
+该接口仅支持JPEG、PNG、HEIF12+和WEBP23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 11废弃，建议使用 getImageProperty 代替。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1641,12 +1962,13 @@ getImageProperty(key:string, options: GetImagePropertyOptions, callback: AsyncCa
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 图片属性名。 |
-| options | [GetImagePropertyOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#getimagepropertyoptionsdeprecated) | 是 | 图片属性，包括图片序号与默认属性值。 |
+| options | GetImagePropertyOptions | 是 | 图片属性，包括图片序号与默认属性值。 |
 | callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，当获取图片属性值成功，err为undefined，data为获取到的图片属性值；否则为错误对象。 |
+
 
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function GetImageProperty(imageSourceObj : image.ImageSource) {
@@ -1661,13 +1983,19 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### modifyImageProperty(deprecated)
-modifyImageProperty(key: string, value: string): Promise&lt;void&gt;
-通过指定的键修改图片属性的值。使用Promise异步回调。
-该接口仅支持JPEG、PNG、HEIF^12+和WEBP^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
-> 调用modifyImageProperty修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperty会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。  从API version 9开始支持，从API version 11废弃，建议使用modifyImageProperty代替。  调用modifyImageProperty接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
+##### modifyImageProperty(deprecated)
+
+modifyImageProperty(key: string, value: string): Promise&lt;void&gt;
+
+通过指定的键修改图片属性的值。使用Promise异步回调。
+
+该接口仅支持JPEG、PNG、HEIF12+和WEBP23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+> [!NOTE]
+> 调用modifyImageProperty修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperty会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。 从API version 9开始支持，从API version 11废弃，建议使用 modifyImageProperty 代替。 调用modifyImageProperty接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1678,15 +2006,17 @@ modifyImageProperty(key: string, value: string): Promise&lt;void&gt;
 | key | string | 是 | 图片属性名。 |
 | value | string | 是 | 属性值。 |
 
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
@@ -1702,13 +2032,19 @@ async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
 }
 ```
 
-#### modifyImageProperty(deprecated)
-modifyImageProperty(key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
-通过指定的键修改图片属性的值。使用callback异步回调。
-仅支持JPEG、PNG、HEIF^12+和WEBP^23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
-> [!NOTE] 说明
-> 调用modifyImageProperty修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperty会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。  从API version 9开始支持，从API version 11废弃，建议使用modifyImageProperty代替。  调用modifyImageProperty接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
+##### modifyImageProperty(deprecated)
+
+modifyImageProperty(key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
+
+通过指定的键修改图片属性的值。使用callback异步回调。
+
+仅支持JPEG、PNG、HEIF12+和WEBP23+（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+
+> [!NOTE]
+> 调用modifyImageProperty修改属性会改变属性字节长度，使用buffer创建的ImageSource调用modifyImageProperty会导致buffer内容覆盖，目前buffer创建的ImageSource不支持调用此接口，请改用fd或path创建的ImageSource。 从API version 9开始支持，从API version 11废弃，建议使用 modifyImageProperty 代替。 调用modifyImageProperty接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1720,9 +2056,10 @@ modifyImageProperty(key: string, value: string, callback: AsyncCallback&lt;void&
 | value | string | 是 | 属性值。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，当修改图片属性值成功，err为undefined，否则为错误对象。 |
 
+
 **示例：**
 
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 async function ModifyImageProperty(imageSourceObj : image.ImageSource) {

@@ -1,6 +1,6 @@
 # makeObserved接口：将非观察数据变为可观察数据
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved
 
@@ -8,22 +8,40 @@
 
 makeObserved可以在@Trace无法标记的情况下使用。在阅读本文档前，建议提前阅读：[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)。
 
-
 > [!NOTE]
 > 从API version 12开始，开发者可以使用UIUtils中的makeObserved接口将普通不可观察数据变为可观察数据。
 
 
-## 概述
 
-状态管理框架已提供[@ObservedV2/@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)用于观察类属性变化，makeObserved接口提供主要应用于@ObservedV2/@Trace无法涵盖的场景： class的定义在三方包中：开发者无法手动对class中需要观察的属性加上@Trace标签，可以使用makeObserved使得当前对象可以被观察。 当前类的成员属性不能被修改：因为@Trace观察类属性会动态修改类的属性，这个行为在[@Sendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable装饰器)装饰的class中是不被允许的，此时可以使用makeObserved。 interface或者JSON.parse返回的匿名对象：这类场景往往没有明确的class声明，开发者无法使用@Trace标记当前属性可以被观察，此时可以使用makeObserved。 使用makeObserved接口需要导入UIUtils。
+##### 概述
+
+ - 状态管理框架已提供[@ObservedV2/@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)用于观察类属性变化，makeObserved接口提供主要应用于@ObservedV2/@Trace无法涵盖的场景：
+
+  
+class的定义在三方包中：开发者无法手动对class中需要观察的属性加上@Trace标签，可以使用makeObserved使得当前对象可以被观察。
+ - 当前类的成员属性不能被修改：因为@Trace观察类属性会动态修改类的属性，这个行为在[@Sendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable装饰器)装饰的class中是不被允许的，此时可以使用makeObserved。
+ - interface或者JSON.parse返回的匿名对象：这类场景往往没有明确的class声明，开发者无法使用@Trace标记当前属性可以被观察，此时可以使用makeObserved。
+
+      - 使用makeObserved接口需要导入UIUtils。
+
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 ```
 
 
-## 限制条件
 
-makeObserved仅支持非空的对象类型传参。 不支持undefined和null：返回自身，不做任何处理。 非Object类型：编译拦截报错。
+
+
+##### 限制条件
+
+ - makeObserved仅支持非空的对象类型传参。
+
+  
+不支持undefined和null：返回自身，不做任何处理。
+ - 非Object类型：编译拦截报错。
+
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 let res1 = UIUtils.makeObserved(2); // 非法类型入参，错误用法，编译报错
@@ -35,8 +53,9 @@ class Info {
 }
 let rawInfo: Info = UIUtils.makeObserved(new Info()); // 正确用法
 ```
+      - makeObserved不支持传入被[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)、[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰的类的实例和被makeObserved封装过的代理数据。为了防止数据被双重代理，makeObserved发现入参为上述情况时则直接返回，不做处理。
 
-makeObserved不支持传入被[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)、[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)装饰的类的实例和被makeObserved封装过的代理数据。为了防止数据被双重代理，makeObserved发现入参为上述情况时则直接返回，不做处理。
+  
 ```text
 import { UIUtils } from '@kit.ArkUI';
 @ObservedV2
@@ -56,14 +75,23 @@ let observedInfo1: Info2 = UIUtils.makeObserved(new Info2());
 let observedInfo2: Info2 = UIUtils.makeObserved(observedInfo1);
 ```
 
-makeObserved可以用在[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)装饰的自定义组件中，但不能和状态管理V1的状态变量装饰器配合使用，如果一起使用，则会抛出运行时异常。
+ - makeObserved可以用在[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)装饰的自定义组件中，但不能和状态管理V1的状态变量装饰器配合使用，如果一起使用，则会抛出运行时异常。
+
+  
 ```text
 // 错误写法，运行时异常
 @State message: Info = UIUtils.makeObserved(new Info(20));
 ```
+注意：下面message2的写法不会抛异常。原因是：
 
-注意：下面message2的写法不会抛异常。原因是： this.message是[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)装饰的，其实现等同于@Observed。 UIUtils.makeObserved的入参如果是@Observed装饰的class的实例，会直接返回自身。 因此message2的初始值不是makeObserved返回的代理对象，而是@State装饰的this.message。
-```text
+  
+this.message是[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)装饰的，其实现等同于@Observed。
+ - UIUtils.makeObserved的入参如果是@Observed装饰的class的实例，会直接返回自身。
+
+
+因此message2的初始值不是makeObserved返回的代理对象，而是@State装饰的this.message。
+
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 class Person {
   public age: number = 10;
@@ -90,9 +118,16 @@ struct Page1 {
 ```
 
 
-## makeObserved仅对入参对象进行深度观察
 
-message被[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰，本身具有观察自身赋值的能力。其初始值为makeObserved的返回值，具有深度观察能力。需要注意，makeObserved仅对message进行深度观察，而message自身赋值的变化，则是由@Local观察的。 点击change id可以触发UI刷新。 点击change Info，将this.message重新赋值为不可观察数据后，再次点击change id，无法触发UI刷新。 再次点击change Info1，将this.message重新赋值为可观察数据，再次点击change id，可以触发UI刷新。
+
+##### makeObserved仅对入参对象进行深度观察
+
+ - message被[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰，本身具有观察自身赋值的能力。其初始值为makeObserved的返回值，具有深度观察能力。需要注意，makeObserved仅对message进行深度观察，而message自身赋值的变化，则是由@Local观察的。
+ - 点击change id可以触发UI刷新。
+ - 点击change Info，将this.message重新赋值为不可观察数据后，再次点击change id，无法触发UI刷新。
+ - 再次点击change Info1，将this.message重新赋值为可观察数据，再次点击change id，可以触发UI刷新。
+
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 class Info {
@@ -123,32 +158,62 @@ struct Page2 {
 ```
 
 
-## 支持类型和观察变化
+
+##### 支持类型和观察变化
 
 
-## 支持类型
 
-支持未被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)或[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的类。 支持Array、Map、Set和Date。 支持[collections.Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array), [collections.Set](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-set)和[collections.Map](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-map)。 JSON.parse返回的Object。 @Sendable装饰的类。
+##### 支持类型
 
-## 观察变化
+ - 支持未被[@Observed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)或[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的类。
+ - 支持Array、Map、Set和Date。
+ - 支持[collections.Array](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-array), [collections.Set](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-set)和[collections.Map](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-map)。
+ - JSON.parse返回的Object。
+ - @Sendable装饰的类。
 
-makeObserved传入内置类型或collections类型的实例时，可以观测其API带来的变化：
+
+
+
+##### 观察变化
+
+ - makeObserved传入内置类型或collections类型的实例时，可以观测其API带来的变化：
+
 | 类型 | 可观测变化的API |
+
 | --- | --- |
+
 | Array | push、pop、shift、unshift、splice、copyWithin、fill、reverse、sort |
+
 | collections.Array | push、pop、shift、unshift、splice、fill、reverse、sort、shrinkTo、extendTo |
+
 | Map/collections.Map | set、clear、delete |
+
 | Set/collections.Set | add、clear、delete |
+
 | Date | setFullYear、setMonth、setDate、setHours、setMinutes、setSeconds、setMilliseconds、setTime、setUTCFullYear、setUTCMonth、setUTCDate、setUTCHours、setUTCMinutes、setUTCSeconds、setUTCMilliseconds |
 
 
-## 使用场景
 
 
-## makeObserved和@Sendable装饰的class配合使用
+##### 使用场景
 
-[@Sendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)主要是为了处理应用场景中的并发任务。将makeObserved和@Sendable配合使用，可以满足一般应用开发中，在子线程做大数据处理，在UI线程做ViewModel的显示和观察数据的需求。@Sendable具体内容可参考[并发任务文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview)。 本章节将说明下面的场景： makeObserved在传入@Sendable类型的数据后有观察能力，且其变化可以触发UI刷新。 从子线程中获取一个整体数据，然后对UI线程的可观察数据做整体替换。 从子线程获取的数据重新执行makeObserved，将数据变为可观察数据。 将数据从主线程传递回子线程时，仅传递不可观察的数据。makeObserved的返回值不可直接传给子线程。 例子如下：
-```text
+
+
+##### makeObserved和@Sendable装饰的class配合使用
+
+[@Sendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)主要是为了处理应用场景中的并发任务。将makeObserved和@Sendable配合使用，可以满足一般应用开发中，在子线程做大数据处理，在UI线程做ViewModel的显示和观察数据的需求。@Sendable具体内容可参考[并发任务文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview)。
+
+本章节将说明下面的场景：
+
+ - makeObserved在传入@Sendable类型的数据后有观察能力，且其变化可以触发UI刷新。
+ - 从子线程中获取一个整体数据，然后对UI线程的可观察数据做整体替换。
+ - 从子线程获取的数据重新执行makeObserved，将数据变为可观察数据。
+ - 将数据从主线程传递回子线程时，仅传递不可观察的数据。makeObserved的返回值不可直接传给子线程。
+
+
+例子如下：
+
+```ArkTS
 @Sendable
 export class SendableData  {
   public name: string = 'Tom';
@@ -160,8 +225,7 @@ export class SendableData  {
 }
 ```
 
-
-```text
+```ArkTS
 import { taskpool } from '@kit.ArkTS';
 import { SendableData } from '../Model/modelView';
 import { UIUtils } from '@kit.ArkUI';
@@ -208,10 +272,25 @@ struct Page3 {
 
 需要注意：数据的构建和处理可以在子线程中完成，但有观察能力的数据不能传给子线程，只有在主线程里才可以操作可观察的数据。所以上述例子中只是将this.send的属性name传给子线程操作。
 
-## makeObserved和collections.Array/Set/Map配合使用
 
-collections提供ArkTS容器集，可用于并发场景下的高性能数据传递。详情见[@arkts.collections (ArkTS容器集)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections)相关文档。 makeObserved可以在ArkUI中导入可观察的collections容器，但makeObserved不能和状态管理V1的状态变量装饰器如@State和[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)等配合使用，否则会抛出运行时异常。 **collections.Array** collections.Array可以触发UI刷新的API有： 改变数组长度：push、pop、shift、unshift、splice、shrinkTo、extendTo 改变数组项本身：sort、fill 其他API不会改变原始数组，所以不会触发UI刷新。
-```text
+
+##### makeObserved和collections.Array/Set/Map配合使用
+
+collections提供ArkTS容器集，可用于并发场景下的高性能数据传递。详情见[@arkts.collections (ArkTS容器集)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections)相关文档。
+
+makeObserved可以在ArkUI中导入可观察的collections容器，但makeObserved不能和状态管理V1的状态变量装饰器如@State和[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)等配合使用，否则会抛出运行时异常。
+
+**collections.Array**
+
+collections.Array可以触发UI刷新的API有：
+
+ - 改变数组长度：push、pop、shift、unshift、splice、shrinkTo、extendTo
+ - 改变数组项本身：sort、fill
+
+
+其他API不会改变原始数组，所以不会触发UI刷新。
+
+```ArkTS
 import { collections } from '@kit.ArkTS';
 import { UIUtils } from '@kit.ArkUI';
 
@@ -230,15 +309,15 @@ class Info {
 @ComponentV2
 struct Page4 {
   scroller: Scroller = new Scroller();
-  @Local arrCollect: collections.Array =
-    UIUtils.makeObserved(new collections.Array(new Info(1), new Info(2)));
+  @Local arrCollect: collections.Array<Info> =
+    UIUtils.makeObserved(new collections.Array<Info>(new Info(1), new Info(2)));
 
   build() {
     Column() {
-      // ForEach接口仅支持Array，不支持collections.Array。
+      // ForEach接口仅支持Array<any>，不支持collections.Array<any>。
       // 但ForEach的实现用到的Array的API，collections.Array都有提供。所以可以使用as类型断言Array。
       // 需要注意断言并不会改变原本的数据类型。
-      ForEach(this.arrCollect as object as Array, (item: Info) => {
+      ForEach(this.arrCollect as object as Array<Info>, (item: Info) => {
         Text(`${item.id}`)
           .margin(5)
           .onClick(() => {
@@ -363,9 +442,15 @@ struct Page4 {
 }
 ```
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-0.gif)
-**collections.Map** collections.Map可以触发UI刷新的API有：set、clear、delete。
-```text
+
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-1.gif)
+
+
+**collections.Map**
+
+collections.Map可以触发UI刷新的API有：set、clear、delete。
+
+```ArkTS
 import { collections } from '@kit.ArkTS';
 import { UIUtils } from '@kit.ArkUI';
 
@@ -382,8 +467,8 @@ class Info {
 @Entry
 @ComponentV2
 struct Page5 {
-  mapCollect: collections.Map =
-    UIUtils.makeObserved(new collections.Map([['a', new Info(10)], ['b', new Info(20)]]));
+  mapCollect: collections.Map<string, Info> =
+    UIUtils.makeObserved(new collections.Map<string, Info>([['a', new Info(10)], ['b', new Info(20)]]));
 
   build() {
     Column() {
@@ -429,9 +514,15 @@ struct Page5 {
 }
 ```
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-1.gif)
-**collections.Set** collections.Set可以触发UI刷新的API有：add、clear、delete。
-```text
+
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-2.gif)
+
+
+**collections.Set**
+
+collections.Set可以触发UI刷新的API有：add、clear、delete。
+
+```ArkTS
 import { collections } from '@kit.ArkTS';
 import { UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -452,7 +543,7 @@ class Info {
 @Entry
 @ComponentV2
 struct Page6 {
-  set: collections.Set = UIUtils.makeObserved(new collections.Set([new Info(10), new Info(20)]));
+  set: collections.Set<Info> = UIUtils.makeObserved(new collections.Set<Info>([new Info(10), new Info(20)]));
 
   build() {
     Column() {
@@ -493,12 +584,17 @@ struct Page6 {
 }
 ```
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-2.gif)
 
-## makeObserved的入参为JSON.parse的返回值
+![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-3.gif)
+
+
+
+
+##### makeObserved的入参为JSON.parse的返回值
 
 JSON.parse返回Object，无法使用@Trace装饰其属性，可以使用makeObserved使其变为可观察数据。
-```text
+
+```ArkTS
 import { JSON } from '@kit.ArkTS';
 import { UIUtils } from '@kit.ArkUI';
 
@@ -510,19 +606,19 @@ class Info {
   }
 }
 
-let test: Record = { 'a': 123 };
+let test: Record<string, number> = { 'a': 123 };
 let testJsonStr: string = JSON.stringify(test);
-let test2: Record = { 'a': new Info(20) };
+let test2: Record<string, Info> = { 'a': new Info(20) };
 let test2JsonStr: string = JSON.stringify(test2);
 
 @Entry
 @ComponentV2
 struct Page7 {
   // JSON.parse返回的Object用makeObserved转为可观察数据
-  message: Record =
-        UIUtils.makeObserved>(JSON.parse(testJsonStr) as Record);
-  message2: Record =
-        UIUtils.makeObserved>(JSON.parse(test2JsonStr) as Record);
+  message: Record<string, number> =
+        UIUtils.makeObserved<Record<string, number>>(JSON.parse(testJsonStr) as Record<string, number>);
+  message2: Record<string, Info> =
+        UIUtils.makeObserved<Record<string, Info>>(JSON.parse(test2JsonStr) as Record<string, Info>);
 
   build() {
     Column() {
@@ -546,10 +642,14 @@ struct Page7 {
 ```
 
 
-## makeObserved和V2装饰器配合使用
 
-makeObserved可以和V2的装饰器一起使用。对于[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)和[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)，因为makeObserved传入@Observed或ObservedV2装饰的类实例会返回其自身，所以@Monitor或者@Computed不能定义在class中，只能定义在自定义组件里。 例子如下：
-```text
+##### makeObserved和V2装饰器配合使用
+
+makeObserved可以和V2的装饰器一起使用。对于[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)和[@Computed](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)，因为makeObserved传入@Observed或ObservedV2装饰的类实例会返回其自身，所以@Monitor或者@Computed不能定义在class中，只能定义在自定义组件里。
+
+例子如下：
+
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -629,12 +729,17 @@ struct Child {
 }
 ```
 
-![](assets/makeObserved接口：将非观察数据变为可观察数据/file-20260514130527377-3.gif)
 
-## makeObserved在@Component内使用
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/1LKAicmARBafKWdbwjzCQQ/zh-cn_image_0000002611753613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014817Z&HW-CC-Expire=86400&HW-CC-Sign=3BB4AD73F1D197F119172CD3FE7A2DFDB77587F503BC79B389F7543A796842B0)
+
+
+
+
+##### makeObserved在@Component内使用
 
 makeObserved不能和V1的状态变量装饰器一起使用，但可以在@Component装饰的自定义组件里使用。
-```text
+
+```ArkTS
 import { UIUtils } from '@kit.ArkUI';
 class Info {
   public id: number = 0;
@@ -666,12 +771,21 @@ struct Page9 {
 ```
 
 
-## 常见问题
+
+##### 常见问题
 
 
-## getTarget后的数据可以正常赋值，但是无法触发UI刷新
 
-[getTarget](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-gettarget)可以获取状态管理框架代理前的原始对象。 makeObserved封装的观察对象，可以通过getTarget获取到其原始对象，对原始对象的赋值不会触发UI刷新。 如下面例子： 先点击第一个Text组件，通过getTarget获取其原始对象，此时修改原始对象的属性不会触发UI刷新，但数据会正常赋值。 再点击第二个Text组件，此时修改this.observedObj的属性会触发UI刷新，Text显示21。
+##### getTarget后的数据可以正常赋值，但是无法触发UI刷新
+
+[getTarget](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-gettarget)可以获取状态管理框架代理前的原始对象。
+
+makeObserved封装的观察对象，可以通过getTarget获取到其原始对象，对原始对象的赋值不会触发UI刷新。
+
+如下面例子：
+1. 先点击第一个Text组件，通过getTarget获取其原始对象，此时修改原始对象的属性不会触发UI刷新，但数据会正常赋值。
+2. 再点击第二个Text组件，此时修改this.observedObj的属性会触发UI刷新，Text显示21。
+
 ```text
 import { UIUtils } from '@kit.ArkUI';
 class Info {

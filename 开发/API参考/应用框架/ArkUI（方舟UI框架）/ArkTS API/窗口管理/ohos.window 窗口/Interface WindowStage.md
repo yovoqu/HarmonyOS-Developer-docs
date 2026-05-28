@@ -3,7 +3,10 @@
 更新时间：2026-04-30 02:41:24
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-windowstage
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+> [!NOTE]
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。 针对系统能力SystemCapability.Window.SessionManager，请先使用 canIUse() 接口判断当前设备是否支持此syscap及对应接口。 本模块接口被调用时，若出现参数校验失败、权限校验失败、系统状态异常等情况，会抛出错误。建议调用本模块接口时在最外层通过try-catch捕获错误，避免调用失败导致应用崩溃。
 
 
 窗口管理器。管理各个基本窗口单元，即[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)实例。
@@ -11,19 +14,17 @@
 下列API示例中都需在[onWindowStageCreate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagecreate)函数中使用WindowStage的实例调用对应方法。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { window } from '@kit.ArkUI';
 ```
 
 
-## getMainWindow9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getMainWindow(callback: AsyncCallback<Window>): void
+##### getMainWindow9+
+
+getMainWindow(callback: AsyncCallback&lt;Window&gt;): void
 
 获取该WindowStage实例下的主窗口，使用callback异步回调。
 
@@ -37,16 +38,14 @@ getMainWindow(callback: AsyncCallback<Window>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt; | 是 | 回调函数。返回当前WindowStage下的主窗口对象。 |
+| callback | AsyncCallback&lt;Window&gt; | 是 | 回调函数。返回当前WindowStage下的主窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -56,8 +55,7 @@ getMainWindow(callback: AsyncCallback<Window>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -70,9 +68,7 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        console.error(
-          'Failed to load the content. Cause:' + JSON.stringify(err),
-        );
+        console.error('Failed to load the content. Cause:' + JSON.stringify(err));
         return;
       }
       console.info('Succeeded in loading the content.');
@@ -80,26 +76,22 @@ export default class EntryAbility extends UIAbility {
       windowStage.getMainWindow((err: BusinessError, data) => {
         const errCode: number = err.code;
         if (errCode) {
-          console.error(
-            `Failed to obtain the main window. Cause code: ${errCode}, message: ${err.message}`,
-          );
+          console.error(`Failed to obtain the main window. Cause code: ${errCode}, message: ${err.message}`);
           return;
         }
         windowClass = data;
-        console.info(
-          `Succeeded in obtaining the main window. Data: ${JSON.stringify(data)}`,
-        );
+        console.info(`Succeeded in obtaining the main window. Data: ${JSON.stringify(data)}`);
       });
     });
   }
-}
+};
 ```
 
 
-## getMainWindow9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getMainWindow(): Promise<Window>
+##### getMainWindow9+
+
+getMainWindow(): Promise&lt;Window&gt;
 
 获取该WindowStage实例下的主窗口，使用Promise异步回调。
 
@@ -113,16 +105,14 @@ getMainWindow(): Promise<Window>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt; | Promise对象。返回当前WindowStage下的主窗口对象。 |
+| Promise&lt;Window&gt; | Promise对象。返回当前WindowStage下的主窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -132,8 +122,7 @@ getMainWindow(): Promise<Window>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -146,32 +135,26 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        console.error(
-          'Failed to load the content. Cause:' + JSON.stringify(err),
-        );
+        console.error('Failed to load the content. Cause:' + JSON.stringify(err));
         return;
       }
       console.info('Succeeded in loading the content.');
       let windowClass: window.Window | undefined = undefined;
       let promise = windowStage.getMainWindow();
-      promise
-        .then((data) => {
-          windowClass = data;
-          console.info('Succeeded in obtaining the main window.');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to obtain the main window. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then((data) => {
+        windowClass = data;
+        console.info('Succeeded in obtaining the main window.');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to obtain the main window. Cause code: ${err.code}, message: ${err.message}`);
+      });
     });
   }
-}
+};
 ```
 
 
-## getMainWindowSync9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getMainWindowSync9+
 
 getMainWindowSync(): Window
 
@@ -187,16 +170,14 @@ getMainWindowSync(): Window
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window) | 返回当前WindowStage下的主窗口对象。 |
+| Window | 返回当前WindowStage下的主窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -206,8 +187,7 @@ getMainWindowSync(): Window
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -219,29 +199,25 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     windowStage.loadContent('pages/Index', (err) => {
       if (err.code) {
-        console.error(
-          'Failed to load the content. Cause:' + JSON.stringify(err),
-        );
+        console.error('Failed to load the content. Cause:' + JSON.stringify(err));
         return;
       }
       console.info('Succeeded in loading the content.');
       try {
         let windowClass = windowStage.getMainWindowSync();
       } catch (exception) {
-        console.error(
-          `Failed to obtain the main window. Cause code: ${exception.code}, message: ${exception.message}`,
-        );
+        console.error(`Failed to obtain the main window. Cause code: ${exception.code}, message: ${exception.message}`);
       }
     });
   }
-}
+};
 ```
 
 
-## createSubWindow9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createSubWindow(name: string, callback: AsyncCallback<Window>): void
+##### createSubWindow9+
+
+createSubWindow(name: string, callback: AsyncCallback&lt;Window&gt;): void
 
 创建该WindowStage实例下的子窗口，使用callback异步回调。
 
@@ -255,17 +231,15 @@ createSubWindow(name: string, callback: AsyncCallback<Window>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 子窗口的名字。 |
-| callback | AsyncCallback&lt;[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt; | 是 | 回调函数。返回当前WindowStage下的子窗口对象。 |
+| callback | AsyncCallback&lt;Window&gt; | 是 | 回调函数。返回当前WindowStage下的子窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -275,8 +249,7 @@ createSubWindow(name: string, callback: AsyncCallback<Window>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -292,37 +265,30 @@ export default class EntryAbility extends UIAbility {
       windowStage.createSubWindow('mySubWindow', (err: BusinessError, data) => {
         const errCode: number = err.code;
         if (errCode) {
-          console.error(
-            `Failed to create the subwindow. Cause code: ${err.code}, message: ${err.message}`,
-          );
+          console.error(`Failed to create the subwindow. Cause code: ${err.code}, message: ${err.message}`);
           return;
         }
         windowClass = data;
-        console.info(
-          `Succeeded in creating the subwindow. Data: ${JSON.stringify(data)}`,
-        );
+        console.info(`Succeeded in creating the subwindow. Data: ${JSON.stringify(data)}`);
         if (!windowClass) {
-          console.info(
-            'Failed to load the content. Cause: windowClass is null',
-          );
-        } else {
+          console.info('Failed to load the content. Cause: windowClass is null');
+        }
+        else {
           windowClass.resize(500, 1000);
         }
       });
     } catch (exception) {
-      console.error(
-        `Failed to create the subwindow. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to create the subwindow. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## createSubWindow9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createSubWindow(name: string): Promise<Window>
+##### createSubWindow9+
+
+createSubWindow(name: string): Promise&lt;Window&gt;
 
 创建该WindowStage实例下的子窗口，使用Promise异步回调。
 
@@ -336,7 +302,6 @@ createSubWindow(name: string): Promise<Window>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 子窗口的名字。 |
@@ -344,16 +309,14 @@ createSubWindow(name: string): Promise<Window>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt; | Promise对象。返回当前WindowStage下的子窗口对象。 |
+| Promise&lt;Window&gt; | Promise对象。返回当前WindowStage下的子窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -363,8 +326,7 @@ createSubWindow(name: string): Promise<Window>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -378,36 +340,28 @@ export default class EntryAbility extends UIAbility {
     let windowClass: window.Window | undefined = undefined;
     try {
       let promise = windowStage.createSubWindow('mySubWindow');
-      promise
-        .then((data) => {
-          windowClass = data;
-          console.info(
-            `Succeeded in creating the subwindow. Data: ${JSON.stringify(data)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to create the subwindow. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then((data) => {
+        windowClass = data;
+        console.info(`Succeeded in creating the subwindow. Data: ${JSON.stringify(data)}`);
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to create the subwindow. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to create the subwindow. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to create the subwindow. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## createSubWindowWithOptions11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Window>
+##### createSubWindowWithOptions11+
+
+createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise&lt;Window&gt;
 
 创建该WindowStage实例下的子窗口，使用Promise异步回调。
 
-非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，子窗口创建后默认是[沉浸��布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
+非[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态下，子窗口创建后默认是[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)。
 
 自由窗口状态下，子窗口参数[decorEnabled](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11)为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口创建后为非沉浸式布局。
 
@@ -419,25 +373,22 @@ createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Win
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 子窗口的名字。 |
-| options | [SubWindowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#subwindowoptions11) | 是 | 子窗口参数。 |
+| options | SubWindowOptions | 是 | 子窗口参数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt; | Promise对象。返回当前WindowStage下创建的子窗口对象。 |
+| Promise&lt;Window&gt; | Promise对象。返回当前WindowStage下创建的子窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -449,8 +400,7 @@ createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise<Win
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -463,40 +413,29 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     let windowClass: window.Window | undefined = undefined;
     try {
-      let options: window.SubWindowOptions = {
+      let options : window.SubWindowOptions = {
         title: 'title',
-        decorEnabled: true,
+        decorEnabled: true
       };
-      let promise = windowStage.createSubWindowWithOptions(
-        'mySubWindow',
-        options,
-      );
-      promise
-        .then((data) => {
-          windowClass = data;
-          console.info(
-            `Succeeded in creating the subwindow. Data: ${JSON.stringify(data)}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to create the subwindow. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      let promise = windowStage.createSubWindowWithOptions('mySubWindow', options);
+      promise.then((data) => {
+        windowClass = data;
+        console.info(`Succeeded in creating the subwindow. Data: ${JSON.stringify(data)}`);
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to create the subwindow. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to create the subwindow. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to create the subwindow. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## getSubWindow9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSubWindow(callback: AsyncCallback<Array<Window>>): void
+##### getSubWindow9+
+
+getSubWindow(callback: AsyncCallback<Array&lt;Window&gt;>): void
 
 获取该WindowStage实例下的所有子窗口，使用callback异步回调。
 
@@ -508,16 +447,14 @@ getSubWindow(callback: AsyncCallback<Array<Window>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt;&gt; | 是 | 回调函数。返回当前WindowStage下的所有子窗口对象。 |
+| callback | AsyncCallback<Array&lt;Window&gt;> | 是 | 回调函数。返回当前WindowStage下的所有子窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -526,8 +463,7 @@ getSubWindow(callback: AsyncCallback<Array<Window>>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -542,25 +478,21 @@ export default class EntryAbility extends UIAbility {
     windowStage.getSubWindow((err: BusinessError, data) => {
       const errCode: number = err.code;
       if (errCode) {
-        console.error(
-          `Failed to obtain the subwindow. Cause code: ${err.code}, message: ${err.message}`,
-        );
+        console.error(`Failed to obtain the subwindow. Cause code: ${err.code}, message: ${err.message}`);
         return;
       }
       windowClass = data;
-      console.info(
-        `Succeeded in obtaining the subwindow. Data: ${JSON.stringify(data)}`,
-      );
+      console.info(`Succeeded in obtaining the subwindow. Data: ${JSON.stringify(data)}`);
     });
   }
-}
+};
 ```
 
 
-## getSubWindow9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getSubWindow(): Promise<Array<Window>>
+##### getSubWindow9+
+
+getSubWindow(): Promise<Array&lt;Window&gt;>
 
 获取该WindowStage实例下的所有子窗口，使用Promise异步回调。
 
@@ -572,16 +504,14 @@ getSubWindow(): Promise<Array<Window>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)&gt;&gt; | Promise对象。返回当前WindowStage下的所有子窗口对象。 |
+| Promise<Array&lt;Window&gt;> | Promise对象。返回当前WindowStage下的所有子窗口对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -590,8 +520,7 @@ getSubWindow(): Promise<Array<Window>>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -604,27 +533,21 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     let windowClass: window.Window[] = [];
     let promise = windowStage.getSubWindow();
-    promise
-      .then((data) => {
-        windowClass = data;
-        console.info(
-          `Succeeded in obtaining the subwindow. Data: ${JSON.stringify(data)}`,
-        );
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Failed to obtain the subwindow. Cause code: ${err.code}, message: ${err.message}`,
-        );
-      });
+    promise.then((data) => {
+      windowClass = data;
+      console.info(`Succeeded in obtaining the subwindow. Data: ${JSON.stringify(data)}`);
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to obtain the subwindow. Cause code: ${err.code}, message: ${err.message}`);
+    });
   }
-}
+};
 ```
 
 
-## loadContent9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>): void
+##### loadContent9+
+
+loadContent(path: string, storage: LocalStorage, callback: AsyncCallback&lt;void&gt;): void
 
 根据当前工程中指定的页面路径为WindowStage的主窗口加载具体页面内容，通过LocalStorage传递状态属性给加载的页面，使用callback异步回调。
 
@@ -638,18 +561,16 @@ loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。不支持相对路径写法，需与main_pages.json中的src取值保持一致。 |
-| storage | [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) | 是 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性。 |
+| storage | LocalStorage | 是 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -659,8 +580,7 @@ loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>):
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -675,34 +595,26 @@ export default class EntryAbility extends UIAbility {
     this.storage.setOrCreate('storageSimpleProp', 121);
     console.info('onWindowStageCreate');
     try {
-      windowStage.loadContent(
-        'pages/page2',
-        this.storage,
-        (err: BusinessError) => {
-          const errCode: number = err.code;
-          if (errCode) {
-            console.error(
-              `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-            );
-            return;
-          }
-          console.info('Succeeded in loading the content.');
-        },
-      );
+      windowStage.loadContent('pages/page2', this.storage, (err: BusinessError) => {
+        const errCode: number = err.code;
+        if (errCode) {
+          console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
+          return;
+        }
+        console.info('Succeeded in loading the content.');
+      });
     } catch (exception) {
-      console.error(
-        `Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## loadContent9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loadContent(path: string, storage?: LocalStorage): Promise<void>
+##### loadContent9+
+
+loadContent(path: string, storage?: LocalStorage): Promise&lt;void&gt;
 
 根据当前工程中指定的页面路径为WindowStage的主窗口加载具体页面内容，通过LocalStorage传递状态属性给加载的页面，使用Promise异步回调。
 
@@ -716,15 +628,13 @@ loadContent(path: string, storage?: LocalStorage): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。不支持相对路径写法，需与main_pages.json中的src取值保持一致。 |
-| storage | [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) | 否 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性，默认值为空。 |
+| storage | LocalStorage | 否 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性，默认值为空。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -735,7 +645,6 @@ loadContent(path: string, storage?: LocalStorage): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Invalid path parameter. |
@@ -744,8 +653,7 @@ loadContent(path: string, storage?: LocalStorage): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -761,29 +669,24 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     try {
       let promise = windowStage.loadContent('pages/page2', this.storage);
-      promise
-        .then(() => {
-          console.info('Succeeded in loading the content.');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then(() => {
+        console.info('Succeeded in loading the content.');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
+    ;
   }
-}
+};
 ```
 
 
-## loadContent9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loadContent(path: string, callback: AsyncCallback<void>): void
+##### loadContent9+
+
+loadContent(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据当前工程中指定的页面路径为WindowStage的主窗口加载具体页面内容，使用callback异步回调。
 
@@ -797,7 +700,6 @@ loadContent(path: string, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。不支持相对路径写法，需与main_pages.json中的src取值保持一致。 |
@@ -808,7 +710,6 @@ loadContent(path: string, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Invalid path parameter. |
@@ -817,8 +718,7 @@ loadContent(path: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -833,27 +733,23 @@ export default class EntryAbility extends UIAbility {
       windowStage.loadContent('pages/page2', (err: BusinessError) => {
         const errCode: number = err.code;
         if (errCode) {
-          console.error(
-            `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-          );
+          console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
           return;
         }
         console.info('Succeeded in loading the content.');
       });
     } catch (exception) {
-      console.error(
-        `Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## loadContentByName11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<void>): void
+##### loadContentByName11+
+
+loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback&lt;void&gt;): void
 
 根据指定路由页面名称为当前WindowStage加载[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)页面，通过LocalStorage传递状态属性至加载页面，使用callback异步回调。
 
@@ -867,18 +763,16 @@ loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 命名路由页面的名称。 |
-| storage | [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) | 是 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性。 |
+| storage | LocalStorage | 是 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -888,8 +782,7 @@ loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback<v
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -905,31 +798,22 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     this.storage.setOrCreate('storageSimpleProp', 121);
     try {
-      windowStage.loadContentByName(
-        Index.entryName,
-        this.storage,
-        (err: BusinessError) => {
-          const errCode: number = err.code;
-          if (errCode) {
-            console.error(
-              `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-            );
-            return;
-          }
-          console.info('Succeeded in loading the content.');
-        },
-      );
+      windowStage.loadContentByName(Index.entryName, this.storage, (err: BusinessError) => {
+        const errCode: number = err.code;
+        if (errCode) {
+          console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
+          return;
+        }
+        console.info('Succeeded in loading the content.');
+      });
     } catch (exception) {
-      console.error(
-        `Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
-
-```ts
+```ArkTS
 // ets/pages/Index.ets
 export const entryName : string = 'Index';
 @Entry({routeName: entryName, useSharedStorage: true})
@@ -941,8 +825,8 @@ export struct Index {
     Row() {
       Column() {
         Text(this.message)
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
       }
       .width('100%')
     }
@@ -952,10 +836,10 @@ export struct Index {
 ```
 
 
-## loadContentByName11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loadContentByName(name: string, callback: AsyncCallback<void>): void
+##### loadContentByName11+
+
+loadContentByName(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据指定路由页面名称为当前WindowStage加载[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)页面，使用callback异步回调。
 
@@ -969,7 +853,6 @@ loadContentByName(name: string, callback: AsyncCallback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 命名路由页面的名称。 |
@@ -980,7 +863,6 @@ loadContentByName(name: string, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -989,8 +871,7 @@ loadContentByName(name: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1006,24 +887,19 @@ export default class EntryAbility extends UIAbility {
       windowStage.loadContentByName(Index.entryName, (err: BusinessError) => {
         const errCode: number = err.code;
         if (errCode) {
-          console.error(
-            `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-          );
+          console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
           return;
         }
         console.info('Succeeded in loading the content.');
       });
     } catch (exception) {
-      console.error(
-        `Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
-
-```ts
+```ArkTS
 // ets/pages/Index.ets
 export const entryName : string = 'Index';
 @Entry({routeName: entryName})
@@ -1034,8 +910,8 @@ export struct Index {
     Row() {
       Column() {
         Text(this.message)
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
       }
       .width('100%')
     }
@@ -1045,10 +921,10 @@ export struct Index {
 ```
 
 
-## loadContentByName11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-loadContentByName(name: string, storage?: LocalStorage): Promise<void>
+##### loadContentByName11+
+
+loadContentByName(name: string, storage?: LocalStorage): Promise&lt;void&gt;
 
 根据指定路由页面名称为当前WindowStage加载[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)页面，通过LocalStorage传递状态属性至加载页面，使用promise异步回调。
 
@@ -1062,15 +938,13 @@ loadContentByName(name: string, storage?: LocalStorage): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | name | string | 是 | 命名路由页面的名称。 |
-| storage | [LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage) | 否 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性，默认值为空。 |
+| storage | LocalStorage | 否 | 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性，默认值为空。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1081,7 +955,6 @@ loadContentByName(name: string, storage?: LocalStorage): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -1090,8 +963,7 @@ loadContentByName(name: string, storage?: LocalStorage): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1107,30 +979,20 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     this.storage.setOrCreate('storageSimpleProp', 121);
     try {
-      let promise = windowStage.loadContentByName(
-        Index.entryName,
-        this.storage,
-      );
-      promise
-        .then(() => {
-          console.info('Succeeded in loading the content.');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      let promise = windowStage.loadContentByName(Index.entryName, this.storage);
+      promise.then(() => {
+        console.info('Succeeded in loading the content.');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
-
-```ts
+```ArkTS
 // ets/pages/Index.ets
 export const entryName : string = 'Index';
 @Entry({routeName: entryName, useSharedStorage: true})
@@ -1142,8 +1004,8 @@ export struct Index {
     Row() {
       Column() {
         Text(this.message)
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
       }
       .width('100%')
     }
@@ -1153,10 +1015,10 @@ export struct Index {
 ```
 
 
-## releaseUIContent24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-releaseUIContent(): Promise<void>
+##### releaseUIContent24+
+
+releaseUIContent(): Promise&lt;void&gt;
 
 销毁WindowStage的主窗页面内容，使用Promise异步回调。
 
@@ -1168,7 +1030,6 @@ releaseUIContent(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
@@ -1178,7 +1039,6 @@ releaseUIContent(): Promise<void>
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 1300002 | This window state is abnormal. Possible cause: The window is not created or destroyed. |
@@ -1186,8 +1046,7 @@ releaseUIContent(): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1202,41 +1061,33 @@ export default class EntryAbility extends UIAbility {
     this.windowStage = windowStage;
     try {
       let promise = windowStage.loadContent('pages/page');
-      promise
-        .then(() => {
-          console.info('Succeeded in loading the content.');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then(() => {
+        console.info('Succeeded in loading the content.');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to load the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
 
-  onBackground(): void {
+  onBackground():  void {
     try {
       this.windowStage?.releaseUIContent().then(() => {
         console.info('Succeeded in releasing the content.');
       });
     } catch (exception) {
-      console.error(
-        `Failed to release the content. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to release the content. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## on('windowStageEvent')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): void
+##### on('windowStageEvent')9+
+
+on(eventType: 'windowStageEvent', callback: Callback&lt;WindowStageEventType&gt;): void
 
 开启WindowStage生命周期变化的监听。
 
@@ -1248,17 +1099,15 @@ on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageEvent'，即WindowStage生命周期变化事件。 |
-| callback | Callback&lt;[WindowStageEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstageeventtype9)&gt; | 是 | 回调函数。返回当前的WindowStage生命周期状态。 |
+| callback | Callback&lt;WindowStageEventType&gt; | 是 | 回调函数。返回当前的WindowStage生命周期状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1269,8 +1118,7 @@ on(eventType: 'windowStageEvent', callback: Callback<WindowStageEventType>): voi
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1282,24 +1130,20 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     try {
       windowStage.on('windowStageEvent', (data) => {
-        console.info(
-          `Succeeded in enabling the listener for window stage event changes. Data: ${JSON.stringify(data)}`,
-        );
+        console.info(`Succeeded in enabling the listener for window stage event changes. Data: ${JSON.stringify(data)}`);
       });
     } catch (exception) {
-      console.error(
-        `Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## off('windowStageEvent')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): void
+##### off('windowStageEvent')9+
+
+off(eventType: 'windowStageEvent', callback?: Callback&lt;WindowStageEventType&gt;): void
 
 关闭WindowStage生命周期变化的监听。
 
@@ -1315,17 +1159,15 @@ off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageEvent'，即WindowStage生命周期变化事件。 |
-| callback | Callback&lt;[WindowStageEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstageeventtype9)&gt; | 否 | 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。 |
+| callback | Callback&lt;WindowStageEventType&gt; | 否 | 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1336,8 +1178,7 @@ off(eventType: 'windowStageEvent', callback?: Callback<WindowStageEventType>): v
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1347,52 +1188,43 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage) {
     console.info('onWindowStageCreate');
-    windowStage.loadContent('page/Index', (err) => {
-      if (err.code) {
-        console.error(
-          'Failed to load the content. Cause:' + JSON.stringify(err),
-        );
+    windowStage.loadContent('page/Index', (err) =>{
+      if(err.code) {
+        console.error('Failed to load the content. Cause:' + JSON.stringify(err));
         return;
       }
       console.info('Succeeded in loading the content.');
       const callback = (windowStageEventType: window.WindowStageEventType) => {
         // ...
-      };
+      }
       try {
         windowStage.on('windowStageEvent', callback);
       } catch (exception) {
-        console.error(
-          `Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`,
-        );
+        console.error(`Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`);
       }
       try {
         windowStage.off('windowStageEvent', callback);
         // 如果通过on开启多个callback进行监听，同时关闭所有监听
         windowStage.off('windowStageEvent');
       } catch (exception) {
-        console.error(
-          `Failed to disable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`,
-        );
+        console.error(`Failed to disable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`);
       }
     });
   }
-}
+};
 ```
 
 
-## on('windowStageLifecycleEvent')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecycleEventType>): void
+##### on('windowStageLifecycleEvent')20+
+
+on(eventType: 'windowStageLifecycleEvent', callback: Callback&lt;WindowStageLifecycleEventType&gt;): void
 
 开启WindowStage生命周期变化的监听。
 
+> [!TIP]
+> on('windowStageEvent') 与本接口的区别： 1.前者无法保证状态切换间的顺序，对于状态间的顺序有要求的情况下不推荐使用，推荐使用本接口； 2.当前接口不提供WindowStage的获焦失焦状态监听，对于windowStage获焦失焦状态有监听需求的情况下，推荐使用 on('windowEvent') ； 3.其他系统机制及其生命周期状态切换的详细说明，请参考 主窗口的生命周期 。
 
-> [!NOTE]
-> [on('windowStageEvent')](#onwindowstageevent9)与本接口的区别：
-> 1.前者无法保证状态切换间的顺序，对于状态间的顺序有要求的情况下不推荐使用，推荐使用本接口；
-> 2.当前接口不提供WindowStage的获焦失焦状态监听，对于windowStage获焦失焦状态有监听需求的情况下，推荐使用[on('windowEvent')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowevent10)；
-> 3.其他系统机制及其生命周期状态切换的详细说明，请参考[主窗口的生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-overview#主窗口的生命周期)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1400,17 +1232,15 @@ on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecyc
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageLifecycleEvent'，即WindowStage生命周期变化事件。 |
-| callback | Callback&lt;[WindowStageLifecycleEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstagelifecycleeventtype20)&gt; | 是 | 回调函数。返回当前的WindowStage生命周期状态。 |
+| callback | Callback&lt;WindowStageLifecycleEventType&gt; | 是 | 回调函数。返回当前的WindowStage生命周期状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1421,8 +1251,7 @@ on(eventType: 'windowStageLifecycleEvent', callback: Callback<WindowStageLifecyc
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1433,9 +1262,7 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     console.info('onWindowStageCreate');
     const callback = (data: window.WindowStageLifecycleEventType) => {
-      console.info(
-        `Succeeded in enabling the listener for window stage event changes. Data: ${JSON.stringify(data)}`,
-      );
+      console.info(`Succeeded in enabling the listener for window stage event changes. Data: ${JSON.stringify(data)}`);
       // 根据事件状态类型选择进行具体的处理
       if (data === window.WindowStageLifecycleEventType.SHOWN) {
         console.info('current window stage event is SHOWN');
@@ -1451,23 +1278,21 @@ export default class EntryAbility extends UIAbility {
         // ...
       }
       // ...
-    };
+    }
     try {
       windowStage.on('windowStageLifecycleEvent', callback);
     } catch (exception) {
-      console.error(
-        `Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## off('windowStageLifecycleEvent')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifecycleEventType>): void
+##### off('windowStageLifecycleEvent')20+
+
+off(eventType: 'windowStageLifecycleEvent', callback?: Callback&lt;WindowStageLifecycleEventType&gt;): void
 
 关闭WindowStage生命周期变化的监听。
 
@@ -1477,17 +1302,15 @@ off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifec
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageLifecycleEvent'，即WindowStage生命周期变化事件。 |
-| callback | Callback&lt;[WindowStageLifecycleEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windowstagelifecycleeventtype20)&gt; | 否 | 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。 |
+| callback | Callback&lt;WindowStageLifecycleEventType&gt; | 否 | 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1498,8 +1321,7 @@ off(eventType: 'windowStageLifecycleEvent', callback?: Callback<WindowStageLifec
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1509,36 +1331,30 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage) {
     console.info('onWindowStageCreate');
-    const callback = (
-      windowStageLifecycleEvent: window.WindowStageLifecycleEventType,
-    ) => {
+    const callback = (windowStageLifecycleEvent: window.WindowStageLifecycleEventType) => {
       // ...
-    };
+    }
     try {
       windowStage.on('windowStageLifecycleEvent', callback);
     } catch (exception) {
-      console.error(
-        `Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to enable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`);
     }
     try {
       windowStage.off('windowStageLifecycleEvent', callback);
       // 如果通过on开启多个callback进行监听，同时关闭所有监听：
       windowStage.off('windowStageLifecycleEvent');
     } catch (exception) {
-      console.error(
-        `Failed to disable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to disable the listener for window stage event changes. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## on('windowStageClose')14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(eventType: 'windowStageClose', callback: Callback<void>): void
+##### on('windowStageClose')14+
+
+on(eventType: 'windowStageClose', callback: Callback&lt;void&gt;): void
 
 开启点击主窗三键区的关闭按钮监听事件。点击主窗口的三键区域的关闭键时触发该回调函数，将不执行注册的[UIAbility.onPrepareToTerminate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onpreparetoterminate10)生命周期回调函数。
 
@@ -1562,7 +1378,6 @@ on(eventType: 'windowStageClose', callback: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageClose'，即开启主窗三键区的关闭按钮监听。 |
@@ -1573,7 +1388,6 @@ on(eventType: 'windowStageClose', callback: Callback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1583,8 +1397,7 @@ on(eventType: 'windowStageClose', callback: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1596,25 +1409,21 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     try {
       windowStage.on('windowStageClose', () => {
-        console.info(
-          'Succeeded in enabling the listener for window stage close event.',
-        );
+        console.info('Succeeded in enabling the listener for window stage close event.');
         return false;
       });
     } catch (exception) {
-      console.error(
-        `Failed to enable the listener for window stage close event. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to enable the listener for window stage close event. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## off('windowStageClose')14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(eventType: 'windowStageClose', callback?: Callback<void>): void
+##### off('windowStageClose')14+
+
+off(eventType: 'windowStageClose', callback?: Callback&lt;void&gt;): void
 
 关闭主窗口关闭事件的监听。
 
@@ -1632,7 +1441,6 @@ off(eventType: 'windowStageClose', callback?: Callback<void>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | eventType | string | 是 | 监听事件，固定为'windowStageClose'，即关闭主窗口关闭事件的监听。 |
@@ -1643,7 +1451,6 @@ off(eventType: 'windowStageClose', callback?: Callback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -1653,8 +1460,7 @@ off(eventType: 'windowStageClose', callback?: Callback<void>): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1667,23 +1473,21 @@ export default class EntryAbility extends UIAbility {
     const callback = () => {
       // ...
       return false;
-    };
+    }
     try {
       windowStage.on('windowStageClose', callback);
       windowStage.off('windowStageClose', callback);
       windowStage.off('windowStageClose');
     } catch (exception) {
-      console.error(
-        `Failed to disable the listener for window stage close changes. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to disable the listener for window stage close changes. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## setDefaultDensityEnabled12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setDefaultDensityEnabled12+
 
 setDefaultDensityEnabled(enabled: boolean): void
 
@@ -1701,7 +1505,6 @@ setDefaultDensityEnabled(enabled: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 是否设置应用使用系统默认Density。true表示使用系统默认Density，窗口不跟随系统显示大小变化重新布局；false表示不使用系统默认Density，窗口跟随系统显示大小变化重新布局。 |
@@ -1710,7 +1513,6 @@ setDefaultDensityEnabled(enabled: boolean): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1722,42 +1524,37 @@ setDefaultDensityEnabled(enabled: boolean): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
-import { BusinessError } from '@kit.BasicServicesKit';
+import { BusinessError } from '@kit.BasicServicesKit'
 
 export default class EntryAbility extends UIAbility {
   // ...
 
   onWindowStageCreate(windowStage: window.WindowStage) {
-    windowStage.loadContent('pages/page2', (err: BusinessError) => {
-      let errCode: number = err.code;
-      if (errCode) {
-        console.error(
-          `Failed to load the content. Cause code: ${err.code}, message: ${err.message}`,
-        );
-        return;
-      }
-      console.info('onWindowStageCreate');
+      windowStage.loadContent("pages/page2", (err: BusinessError) => {
+        let errCode: number = err.code;
+        if (errCode) {
+          console.error(`Failed to load the content. Cause code: ${err.code}, message: ${err.message}`);
+          return;
+        }
+        console.info('onWindowStageCreate');
       try {
         windowStage.setDefaultDensityEnabled(true);
         console.info('Succeeded in loading the content.');
       } catch (exception) {
-        console.error(
-          `Failed to set default density enabled. Cause code: ${exception.code}, message: ${exception.message}`,
-        );
+        console.error(`Failed to set default density enabled. Cause code: ${exception.code}, message: ${exception.message}`);
       }
     });
   }
-}
+};
 ```
 
 
-## setCustomDensity15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setCustomDensity15+
 
 setCustomDensity(density: number): void
 
@@ -1775,7 +1572,6 @@ setCustomDensity(density: number): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | density | number | 是 | 自定义显示大小缩放系数。该参数为浮点数，取值范围为[0.5, 4.0]或-1.0。4.0表示窗口可显示的最大显示大小缩放系数，-1.0表示窗口使用系统显示大小缩放系数。 |
@@ -1784,7 +1580,6 @@ setCustomDensity(density: number): void
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1796,8 +1591,7 @@ setCustomDensity(density: number): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1810,17 +1604,15 @@ export default class EntryAbility extends UIAbility {
     try {
       windowStage.setCustomDensity(-1.0);
     } catch (exception) {
-      console.error(
-        `Failed to set custom density. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to set custom density. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## setCustomDensity20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setCustomDensity20+
 
 setCustomDensity(density: number, applyToSubWindow?: boolean): void
 
@@ -1834,7 +1626,6 @@ setCustomDensity(density: number, applyToSubWindow?: boolean): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | density | number | 是 | 自定义显示大小缩放系数。该参数为浮点数，取值范围为[0.5, 4.0]或-1.0。4.0表示窗口可显示的最大显示大小缩放系数，-1.0表示窗口使用系统显示大小缩放系数。 |
@@ -1845,7 +1636,6 @@ setCustomDensity(density: number, applyToSubWindow?: boolean): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
@@ -1855,8 +1645,7 @@ setCustomDensity(density: number, applyToSubWindow?: boolean): void
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
@@ -1871,19 +1660,17 @@ export default class EntryAbility extends UIAbility {
       windowStage.setCustomDensity(3.0, true);
       windowStage.setCustomDensity(-1.0, false);
     } catch (exception) {
-      console.error(
-        `Failed to set custom density. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to set custom density. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
-}
+};
 ```
 
 
-## setWindowModal14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setWindowModal(isModal: boolean): Promise<void>
+##### setWindowModal14+
+
+setWindowModal(isModal: boolean): Promise&lt;void&gt;
 
 设置主窗的模态属性是否启用，使用Promise异步回调。
 
@@ -1899,14 +1686,12 @@ setWindowModal(isModal: boolean): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | isModal | boolean | 是 | 设置主窗口模态属性是否启用，true为启用，false为不启用。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1916,7 +1701,6 @@ setWindowModal(isModal: boolean): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1929,8 +1713,7 @@ setWindowModal(isModal: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1942,29 +1725,23 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     try {
       let promise = windowStage.setWindowModal(true);
-      promise
-        .then(() => {
-          console.info('Succeeded in setting window modal');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to set window modal. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then(() => {
+        console.info('Succeeded in setting window modal');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to set window modal. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to set window modal. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to set window modal. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
 }
 ```
 
 
-## removeStartingWindow14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-removeStartingWindow(): Promise<void>
+##### removeStartingWindow14+
+
+removeStartingWindow(): Promise&lt;void&gt;
 
 支持应用控制启动页消失时机。
 
@@ -1982,7 +1759,6 @@ removeStartingWindow(): Promise<void>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | 无返回结果的Promise对象。 |
@@ -1991,7 +1767,6 @@ removeStartingWindow(): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2002,8 +1777,7 @@ removeStartingWindow(): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2014,25 +1788,20 @@ export default class EntryAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage) {
     console.info('onWindowStageCreate');
-    windowStage
-      .removeStartingWindow()
-      .then(() => {
-        console.info('Succeeded in removing starting window.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Failed to remove starting window. Cause code: ${err.code}, message: ${err.message}`,
-        );
-      });
+    windowStage.removeStartingWindow().then(() => {
+      console.info('Succeeded in removing starting window.');
+    }).catch((err: BusinessError) => {
+        console.error(`Failed to remove starting window. Cause code: ${err.code}, message: ${err.message}`);
+    });
   }
-}
+};
 ```
 
 
-## setWindowRectAutoSave14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setWindowRectAutoSave(enabled: boolean): Promise<void>
+##### setWindowRectAutoSave14+
+
+setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;
 
 设置是否启用最后关闭的主窗尺寸的记忆功能，使用Promise异步回调。
 
@@ -2041,7 +1810,6 @@ setWindowRectAutoSave(enabled: boolean): Promise<void>
 层叠规则：1、当前实例是自由窗口时，打开下一实例窗口层叠时，大小要跟随。2、当前实例是最大化或全屏窗口时，打开下一个实例窗口层叠时，保持最大化。
 
 记忆规则：
-
 
 | 上一次窗口状态 | 记忆规则 |
 | --- | --- |
@@ -2066,14 +1834,12 @@ setWindowRectAutoSave(enabled: boolean): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| enabled | boolean | 是 | 设���是否启用主窗尺寸的记忆功能，true为启用，false为不启用。 |
+| enabled | boolean | 是 | 设置是否启用主窗尺寸的记忆功能，true为启用，false为不启用。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2083,7 +1849,6 @@ setWindowRectAutoSave(enabled: boolean): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2095,8 +1860,7 @@ setWindowRectAutoSave(enabled: boolean): Promise<void>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2108,29 +1872,23 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     try {
       let promise = windowStage.setWindowRectAutoSave(true);
-      promise
-        .then(() => {
-          console.info('Succeeded in setting window rect auto-save');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to set window rect auto-save. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then(() => {
+        console.info('Succeeded in setting window rect auto-save');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to set window rect auto-save. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to set window rect auto-save. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to set window rect auto-save. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
 }
 ```
 
 
-## setWindowRectAutoSave17+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise<void>
+##### setWindowRectAutoSave17+
+
+setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise&lt;void&gt;
 
 设置是否启用主窗的尺寸记忆功能，使用Promise异步回调。
 
@@ -2139,7 +1897,6 @@ setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise
 启用记忆功能后，记忆主窗口关闭时的尺寸；对应主窗口再次启动时，以记忆的尺寸按照规则进行打开。
 
 记忆规则：
-
 
 | 上一次窗口状态 | 记忆规则 |
 | --- | --- |
@@ -2164,7 +1921,6 @@ setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | enabled | boolean | 是 | 设置是否启用主窗的尺寸记忆功能，true为启用，false为不启用。 |
@@ -2172,7 +1928,6 @@ setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2182,7 +1937,6 @@ setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2194,8 +1948,7 @@ setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2207,29 +1960,23 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     try {
       let promise = windowStage.setWindowRectAutoSave(true, true);
-      promise
-        .then(() => {
-          console.info('Succeeded in setting window rect auto-save');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to set window rect auto-save. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then(() => {
+        console.info('Succeeded in setting window rect auto-save');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to set window rect auto-save. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to set window rect auto-save. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to set window rect auto-save. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
 }
 ```
 
 
-## isWindowRectAutoSave14+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isWindowRectAutoSave(): Promise<boolean>
+##### isWindowRectAutoSave14+
+
+isWindowRectAutoSave(): Promise&lt;boolean&gt;
 
 判断当前主窗口是否已经启用尺寸记忆，使用Promise异步回调。
 
@@ -2247,7 +1994,6 @@ isWindowRectAutoSave(): Promise<boolean>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;boolean&gt; | Promise对象。返回true表示当前窗口启用尺寸记忆，返回false表示当前窗口禁用尺寸记忆。 |
@@ -2256,7 +2002,6 @@ isWindowRectAutoSave(): Promise<boolean>
 **错误码：**
 
 以下错误码的详细介绍请参见[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2267,8 +2012,7 @@ isWindowRectAutoSave(): Promise<boolean>
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2280,31 +2024,23 @@ export default class EntryAbility extends UIAbility {
     console.info('onWindowStageCreate');
     try {
       let promise = windowStage.isWindowRectAutoSave();
-      promise
-        .then((data) => {
-          console.info(
-            `Succeeded in checking whether the window support the rect auto-save. Data: ${data}`,
-          );
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to check whether the window support the rect auto-save. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then((data) => {
+        console.info(`Succeeded in checking whether the window support the rect auto-save. Data: ${data}`);
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to check whether the window support the rect auto-save. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to check whether the window support the rect auto-save. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to check whether the window support the rect auto-save. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
 }
 ```
 
 
-## setSupportedWindowModes15+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise<void>
+##### setSupportedWindowModes15+
+
+setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise&lt;void&gt;
 
 设置主窗的窗口支持模式，使用Promise异步回调。
 
@@ -2322,14 +2058,12 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| supportedWindowModes | Array&lt;[bundleManager.SupportWindowMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#supportwindowmode)&gt; | 是 | 设置主窗的窗口支持模式。          - FULL_SCREEN：支持全屏模式。          - FLOATING：支持自由悬浮窗口模式。          - SPLIT：支持分屏模式。需要配合FULL_SCREEN或FLOATING一起使用，不支持仅配置SPLIT。          注：数组中SupportWindowMode字段取值不应该与该UIAbility对应的[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)的supportWindowMode字段取值或者[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions#startoptions)的supportWindowModes属性取值冲突。当取值冲突时，最终以该参数设置的窗口支持模式为准。 |
+| supportedWindowModes | Array<bundleManager.SupportWindowMode> | 是 | 设置主窗的窗口支持模式。 - FULL_SCREEN：支持全屏模式。 - FLOATING：支持自由悬浮窗口模式。 - SPLIT：支持分屏模式。需要配合FULL_SCREEN或FLOATING一起使用，不支持仅配置SPLIT。 注：数组中SupportWindowMode字段取值不应该与该UIAbility对应的module.json5配置文件中abilities标签的supportWindowMode字段取值或者StartOptions的supportWindowModes属性取值冲突。当取值冲突时，最终以该参数设置的窗口支持模式为准。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2340,7 +2074,6 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
@@ -2350,8 +2083,7 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility, bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2365,31 +2097,25 @@ export default class EntryAbility extends UIAbility {
       let promise = windowStage.setSupportedWindowModes([
         bundleManager.SupportWindowMode.FULL_SCREEN,
         bundleManager.SupportWindowMode.SPLIT,
-        bundleManager.SupportWindowMode.FLOATING,
+        bundleManager.SupportWindowMode.FLOATING
       ]);
-      promise
-        .then(() => {
-          console.info('Succeeded in setting window support modes');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to set window support modes. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      promise.then(() => {
+        console.info('Succeeded in setting window support modes');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to set window support modes. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to set window support modes. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to set window support modes. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
 }
 ```
 
 
-## setSupportedWindowModes20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>, grayOutMaximizeButton: boolean): Promise<void>
+##### setSupportedWindowModes20+
+
+setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>, grayOutMaximizeButton: boolean): Promise&lt;void&gt;
 
 设置主窗的窗口支持模式，并提供最大化按钮置灰功能，使用Promise异步回调。
 
@@ -2405,15 +2131,13 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| supportedWindowModes | Array&lt;[bundleManager.SupportWindowMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#supportwindowmode)&gt; | 是 | 设置主窗的窗口支持模式。          - FULL_SCREEN：支持全屏模式。          - FLOATING：支持自由悬浮窗口模式。          - SPLIT：支持分屏模式。需要配合FULL_SCREEN或FLOATING一起使用，不支持仅配置SPLIT。          注：数组中SupportWindowMode字段取值不应该与该UIAbility对应的[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中[abilities标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#abilities标签)的supportWindowMode字段取值或者[StartOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-startoptions#startoptions)中属性的supportWindowModes字段取值冲突。当取值冲突时，最终以该参数设置的窗口支持模式为准。 |
+| supportedWindowModes | Array<bundleManager.SupportWindowMode> | 是 | 设置主窗的窗口支持模式。 - FULL_SCREEN：支持全屏模式。 - FLOATING：支持自由悬浮窗口模式。 - SPLIT：支持分屏模式。需要配合FULL_SCREEN或FLOATING一起使用，不支持仅配置SPLIT。 注：数组中SupportWindowMode字段取值不应该与该UIAbility对应的module.json5配置文件中abilities标签的supportWindowMode字段取值或者StartOptions中属性的supportWindowModes字段取值冲突。当取值冲突时，最终以该参数设置的窗口支持模式为准。 |
 | grayOutMaximizeButton | boolean | 是 | 是否显示并将主窗口的最大化按钮置灰。true表示显示并将主窗口的最大化按钮置灰，此时最大化按钮不可用；false表示不显示主窗口的最大化按钮。此参数配置仅在supportedWindowModes不支持FULL_SCREEN时生效。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -2423,7 +2147,6 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[窗口错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-window)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2435,8 +2158,7 @@ setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowM
 
 **示例：**
 
-
-```ts
+```ArkTS
 // EntryAbility.ets
 import { UIAbility, bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -2447,27 +2169,18 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
     console.info('onWindowStageCreate');
     try {
-      let promise = windowStage.setSupportedWindowModes(
-        [
-          bundleManager.SupportWindowMode.FULL_SCREEN,
-          bundleManager.SupportWindowMode.SPLIT,
-          bundleManager.SupportWindowMode.FLOATING,
-        ],
-        true,
-      );
-      promise
-        .then(() => {
-          console.info('Succeeded in setting window support modes');
-        })
-        .catch((err: BusinessError) => {
-          console.error(
-            `Failed to set window support modes. Cause code: ${err.code}, message: ${err.message}`,
-          );
-        });
+      let promise = windowStage.setSupportedWindowModes([
+        bundleManager.SupportWindowMode.FULL_SCREEN,
+        bundleManager.SupportWindowMode.SPLIT,
+        bundleManager.SupportWindowMode.FLOATING
+      ], true);
+      promise.then(() => {
+        console.info('Succeeded in setting window support modes');
+      }).catch((err: BusinessError) => {
+        console.error(`Failed to set window support modes. Cause code: ${err.code}, message: ${err.message}`);
+      });
     } catch (exception) {
-      console.error(
-        `Failed to set window support modes. Cause code: ${exception.code}, message: ${exception.message}`,
-      );
+      console.error(`Failed to set window support modes. Cause code: ${exception.code}, message: ${exception.message}`);
     }
   }
 }

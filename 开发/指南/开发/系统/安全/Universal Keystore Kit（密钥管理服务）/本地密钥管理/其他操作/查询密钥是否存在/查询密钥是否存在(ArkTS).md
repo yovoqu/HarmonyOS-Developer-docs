@@ -1,6 +1,6 @@
 # 查询密钥是否存在(ArkTS)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-check-key-arkts
 
@@ -9,10 +9,12 @@ HUKS提供了接口供应用查询指定密钥是否存在。
 从API 23开始支持[群组密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-group-key-overview)特性。
 
 
-## 开发步骤
+##### 开发步骤
+1. 指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。
+2. 初始化密钥属性集。用于查询时指定密钥的属性，查询单个密钥或者非群组密钥，可传空。
+3. 调用接口[hasKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukshaskeyitem11)，查询密钥是否存在。
 
-指定密钥别名，密钥别名命名规范参考[密钥生成介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-generation-overview)。 初始化密钥属性集。用于查询时指定密钥的属性，查询单个密钥或者非群组密钥，可传空。 调用接口[hasKeyItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#hukshaskeyitem11)，查询密钥是否存在。
-```text
+```ArkTS
 import { huks } from '@kit.UniversalKeystoreKit';
 
 let keyAlias = 'test_key';
@@ -40,7 +42,7 @@ let generateHuksOptions: huks.HuksOptions = {
 
 /* 1.生成密钥 */
 function generateKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     try {
       huks.generateKeyItem(keyAlias, huksOptions, (error, data) => {
         if (error) {
@@ -55,7 +57,7 @@ function generateKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
   });
 }
 
-async function generateKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function generateKey(keyAlias: string, huksOptions: huks.HuksOptions): Promise<void> {
   console.info(`enter promise generateKeyItem`);
   await generateKeyItem(keyAlias, huksOptions);
   console.info(`promise: generateKeyItem success`);
@@ -67,7 +69,7 @@ let huksOptions: huks.HuksOptions = {
 }
 
 function hasKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
-  return new Promise((resolve, reject) => {
+  return new Promise<boolean>((resolve, reject) => {
     try {
       huks.hasKeyItem(keyAlias, huksOptions, (error, data) => {
         if (error) {
@@ -82,14 +84,14 @@ function hasKeyItem(keyAlias: string, huksOptions: huks.HuksOptions) {
   });
 }
 
-async function checkKeyExistence(keyAlias: string, huksOptions: huks.HuksOptions): Promise {
+async function checkKeyExistence(keyAlias: string, huksOptions: huks.HuksOptions): Promise<boolean> {
   console.info(`enter promise hasKeyItem`);
   const exists = await hasKeyItem(keyAlias, huksOptions);
   console.info(`promise: hasKeyItem success, isKeyExist = ${exists}`);
   return exists;
 }
 
-async function executeCheckKey(): Promise {
+async function executeCheckKey(): Promise<string> {
   try {
     /* 1.生成密钥 */
     await generateKey(keyAlias, generateHuksOptions);

@@ -9,15 +9,20 @@
 相机控制器为直播和视频通话场景设计，目前仅支持在前置镜头的录像模式下使用，最高可支持1080P分辨率和30fps帧率。
 
 
-## 开发步骤
+##### 开发步骤
 
-详细的API说明请参考[Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
+详细的API说明请参考[Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
+1. 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
+
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-通过[isControlCenterSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenterquery#iscontrolcentersupported20)接口，查询当前设备及当前场景是否支持相机控制器。
+2. 通过[isControlCenterSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenterquery#iscontrolcentersupported20)接口，查询当前设备及当前场景是否支持相机控制器。
+
+  
 ```text
 function isControlCenterSupported(videoSession: camera.VideoSession): boolean {
   let isSupported: boolean = videoSession.isControlCenterSupported();
@@ -25,16 +30,20 @@ function isControlCenterSupported(videoSession: camera.VideoSession): boolean {
 }
 ```
 
-通过[getSupportedEffectTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenterquery#getsupportedeffecttypes20)接口，查询当前设备及当前场景下，相机控制器支持的效果类型。
+3. 通过[getSupportedEffectTypes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenterquery#getsupportedeffecttypes20)接口，查询当前设备及当前场景下，相机控制器支持的效果类型。
+
+  
 ```text
-function getSupportedEffectTypes(videoSession: camera.VideoSession): Array {
-  let effectTypes: Array = [];
+function getSupportedEffectTypes(videoSession: camera.VideoSession): Array<camera.ControlCenterEffectType> {
+  let effectTypes: Array<camera.ControlCenterEffectType> = [];
   effectTypes = videoSession.getSupportedEffectTypes();
   return effectTypes;
 }
 ```
 
-若设备及场景支持相机控制器，使用[enableControlCenter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenter#enablecontrolcenter20)接口可启用或关闭控制器。
+4. 若设备及场景支持相机控制器，使用[enableControlCenter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenter#enablecontrolcenter20)接口可启用或关闭控制器。
+
+  
 ```text
 function enableControlCenter(videoSession: camera.VideoSession, enable: boolean): void {
   let isSupported: boolean = videoSession.isControlCenterSupported();
@@ -44,15 +53,27 @@ function enableControlCenter(videoSession: camera.VideoSession, enable: boolean)
 }
 ```
 
-使能相机控制器后，可以在状态栏看到新增的视频效果图标。
-![](assets/相机控制器(ArkTS)
-/file-20260514131520477-0.png) 点击视频效果图标，在弹出的二级页面中，用户可调节控制器支持的效果，如图所示为美颜和背景虚化。
-![](assets/相机控制器(ArkTS)
-/file-20260514131520477-1.png)
+5. 使能相机控制器后，可以在状态栏看到新增的视频效果图标。
 
-## 状态监听
+  
+![](assets/相机控制器(ArkTS)/file-20260514131520477-0.png)
 
-使用相机控制器的过程中，应用可以监听控制器效果的使能状态。 通过注册[controlCenterEffectStatusChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession#oncontrolcentereffectstatuschange20)的回调函数获取控制器中各效果的使能状态。 当控制器中某效果使能状态发生变化时，callback返回[ControlCenterStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#controlcenterstatusinfo20)参数。
+6. 点击视频效果图标，在弹出的二级页面中，用户可调节控制器支持的效果，如图所示为美颜和背景虚化。
+
+  
+![](assets/相机控制器(ArkTS)/file-20260514131520477-1.png)
+
+
+
+
+##### 状态监听
+
+使用相机控制器的过程中，应用可以监听控制器效果的使能状态。
+
+通过注册[controlCenterEffectStatusChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession#oncontrolcentereffectstatuschange20)的回调函数获取控制器中各效果的使能状态。
+
+当控制器中某效果使能状态发生变化时，callback返回[ControlCenterStatusInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#controlcenterstatusinfo20)参数。
+
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';

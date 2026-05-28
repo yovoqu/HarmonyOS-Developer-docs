@@ -3,308 +3,254 @@
 更新时间：2026-03-27 08:08:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音频流管理。
 
 在使用AudioStreamManager的接口之前，需先通过[getStreamManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiomanager#getstreammanager9)获取AudioStreamManager实例。
 
+> [!NOTE]
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 9开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { audio } from '@kit.AudioKit';
 ```
 
 
-## getCurrentAudioRendererInfoArray9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentAudioRendererInfoArray(callback: AsyncCallback<AudioRendererChangeInfoArray>): void
+##### getCurrentAudioRendererInfoArray9+
+
+getCurrentAudioRendererInfoArray(callback: AsyncCallback&lt;AudioRendererChangeInfoArray&gt;): void
 
 获取当前音频渲染器的信息。使用callback异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
+
 
 **系统能力**: SystemCapability.Multimedia.Audio.Renderer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AudioRendererChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiorendererchangeinfoarray9)&gt; | 是 | 回调函数。当获取当前音频渲染器的信息成功，err为undefined，data为获取到的当前音频渲染器的信息；否则为错误对象。 |
+| callback | AsyncCallback&lt;AudioRendererChangeInfoArray&gt; | 是 | 回调函数。当获取当前音频渲染器的信息成功，err为undefined，data为获取到的当前音频渲染器的信息；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioStreamManager.getCurrentAudioRendererInfoArray(
-  (
-    err: BusinessError,
-    audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray,
-  ) => {
-    if (err) {
-      console.error(
-        `Failed to get current audio renderer info array. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting current audio renderer info array, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`,
-      );
-    }
-  },
-);
+audioStreamManager.getCurrentAudioRendererInfoArray((err: BusinessError, audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray) => {
+  if (err) {
+    console.error(`Failed to get current audio renderer info array. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting current audio renderer info array, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`);
+  }
+});
 ```
 
 
-## getCurrentAudioRendererInfoArray9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentAudioRendererInfoArray(): Promise<AudioRendererChangeInfoArray>
+##### getCurrentAudioRendererInfoArray9+
+
+getCurrentAudioRendererInfoArray(): Promise&lt;AudioRendererChangeInfoArray&gt;
 
 获取当前音频渲染器的信息。使用Promise异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioRendererChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiorendererchangeinfoarray9)&gt; | Promise对象，返回当前音频渲染器信息。 |
+| Promise&lt;AudioRendererChangeInfoArray&gt; | Promise对象，返回当前音频渲染器信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioStreamManager
-  .getCurrentAudioRendererInfoArray()
-  .then((audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray) => {
-    console.info(
-      `Succeeded in getting current audio renderer info array, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get current audio renderer info array. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioStreamManager.getCurrentAudioRendererInfoArray().then((audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray) => {
+  console.info(`Succeeded in getting current audio renderer info array, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get current audio renderer info array. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## getCurrentAudioRendererInfoArraySync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCurrentAudioRendererInfoArraySync10+
 
 getCurrentAudioRendererInfoArraySync(): AudioRendererChangeInfoArray
 
 获取当前音频渲染器的信息。同步返回结果。
 
-
 > [!NOTE]
 > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioRendererChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiorendererchangeinfoarray9) | 返回当前音频渲染器信息。 |
+| AudioRendererChangeInfoArray | 返回当前音频渲染器信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray =
-    audioStreamManager.getCurrentAudioRendererInfoArraySync();
-  console.info(
-    `Succeeded in getting current audio renderer info array, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`,
-  );
+  let audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray = audioStreamManager.getCurrentAudioRendererInfoArraySync();
+  console.info(`Succeeded in getting current audio renderer info array, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get current audio renderer info array. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get current audio renderer info array. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## getCurrentAudioCapturerInfoArray9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentAudioCapturerInfoArray(callback: AsyncCallback<AudioCapturerChangeInfoArray>): void
+##### getCurrentAudioCapturerInfoArray9+
+
+getCurrentAudioCapturerInfoArray(callback: AsyncCallback&lt;AudioCapturerChangeInfoArray&gt;): void
 
 获取当前音频采集器的信息。使用callback异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频采集器信息，可能包含系统内部音频录制流，如语音唤醒、蜂窝通话等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AudioCapturerChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiocapturerchangeinfoarray9)&gt; | 是 | 回调函数。当获取当前音频采集器的信息成功，err为undefined，data为获取到的当前音频采集器的信息；否则为错误对象。 |
+| callback | AsyncCallback&lt;AudioCapturerChangeInfoArray&gt; | 是 | 回调函数。当获取当前音频采集器的信息成功，err为undefined，data为获取到的当前音频采集器的信息；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioStreamManager.getCurrentAudioCapturerInfoArray(
-  (
-    err: BusinessError,
-    audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray,
-  ) => {
-    if (err) {
-      console.error(
-        `Failed to get current audio capturer info array. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting current audio capturer info array, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`,
-      );
-    }
-  },
-);
+audioStreamManager.getCurrentAudioCapturerInfoArray((err: BusinessError, audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray) => {
+  if (err) {
+    console.error(`Failed to get current audio capturer info array. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting current audio capturer info array, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`);
+  }
+});
 ```
 
 
-## getCurrentAudioCapturerInfoArray9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getCurrentAudioCapturerInfoArray(): Promise<AudioCapturerChangeInfoArray>
+##### getCurrentAudioCapturerInfoArray9+
+
+getCurrentAudioCapturerInfoArray(): Promise&lt;AudioCapturerChangeInfoArray&gt;
 
 获取当前音频采集器的信息。使用Promise异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频采集器信息，可能包含系统内部音频录制流，如语音唤醒、蜂窝通话等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioCapturerChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiocapturerchangeinfoarray9)&gt; | Promise对象，返回当前音频采集器信息。 |
+| Promise&lt;AudioCapturerChangeInfoArray&gt; | Promise对象，返回当前音频采集器信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioStreamManager
-  .getCurrentAudioCapturerInfoArray()
-  .then((audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray) => {
-    console.info(
-      `Succeeded in getting current audio capturer info array, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get current audio capturer info array. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioStreamManager.getCurrentAudioCapturerInfoArray().then((audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray) => {
+  console.info(`Succeeded in getting current audio capturer info array, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get current audio capturer info array. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## getCurrentAudioCapturerInfoArraySync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getCurrentAudioCapturerInfoArraySync10+
 
 getCurrentAudioCapturerInfoArraySync(): AudioCapturerChangeInfoArray
 
 获取当前音频采集器的信息。同步返回结果。
 
-
 > [!NOTE]
 > 该接口返回的音频采集器信息，可能包含系统内部音频录制流，如语音唤醒、蜂窝通话等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioCapturerChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiocapturerchangeinfoarray9) | 返回当前音频采集器信息。 |
+| AudioCapturerChangeInfoArray | 返回当前音频采集器信息。 |
 
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let audioCapturerChangeInfoArray =
-    audioStreamManager.getCurrentAudioCapturerInfoArraySync();
-  console.info(
-    `Succeeded in getting current audio capturer info array, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`,
-  );
+  let audioCapturerChangeInfoArray = audioStreamManager.getCurrentAudioCapturerInfoArraySync();
+  console.info(`Succeeded in getting current audio capturer info array, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get current audio capturer info array. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get current audio capturer info array. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## on('audioRendererChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'audioRendererChange', callback: Callback<AudioRendererChangeInfoArray>): void
+##### on('audioRendererChange')9+
+
+on(type: 'audioRendererChange', callback: Callback&lt;AudioRendererChangeInfoArray&gt;): void
 
 监听音频渲染器更改事件（当音频播放流状态变化或设备变化时触发）。使用callback异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioRendererChange'，当音频播放流状态变化或设备变化时，触发该事件。 |
-| callback | Callback&lt;[AudioRendererChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiorendererchangeinfoarray9)&gt; | 是 | 回调函数，返回当前音频渲染器信息。 |
+| callback | Callback&lt;AudioRendererChangeInfoArray&gt; | 是 | 回调函数，返回当前音频渲染器信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -314,45 +260,37 @@ on(type: 'audioRendererChange', callback: Callback<AudioRendererChangeInfoArray>
 
 **示例：**
 
-
-```ts
-audioStreamManager.on(
-  'audioRendererChange',
-  (audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray) => {
-    console.info(
-      `Succeeded in using on function, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`,
-    );
-  },
-);
+```json
+audioStreamManager.on('audioRendererChange',  (audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray) => {
+  console.info(`Succeeded in using on function, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`);
+});
 ```
 
 
-## off('audioRendererChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'audioRendererChange', callback?: Callback<AudioRendererChangeInfoArray>): void
+##### off('audioRendererChange')9+
+
+off(type: 'audioRendererChange', callback?: Callback&lt;AudioRendererChangeInfoArray&gt;): void
 
 取消监听音频渲染器更改事件。使用callback异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioRendererChange'，当取消监听音频渲染器更改事件时，触发该事件。 |
-| callback18+ | Callback&lt;[AudioRendererChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiorendererchangeinfoarray9)&gt; | 否 | 回调函数，返回当前音频渲染器信息。 |
+| callback18+ | Callback&lt;AudioRendererChangeInfoArray&gt; | 否 | 回调函数，返回当前音频渲染器信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -361,16 +299,11 @@ off(type: 'audioRendererChange', callback?: Callback<AudioRendererChangeInfoArra
 
 **示例：**
 
-
-```ts
+```json
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
 // 当订阅了多个该事件的监听时，可通过 audioStreamManager.off('audioRendererChange'); 取消该事件的所有监听。
-let audioRendererChangeCallback = (
-  audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray,
-) => {
-  console.info(
-    `Succeeded in using on or off function, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`,
-  );
+let audioRendererChangeCallback = (audioRendererChangeInfoArray: audio.AudioRendererChangeInfoArray) => {
+  console.info(`Succeeded in using on or off function, AudioRendererChangeInfoArray: ${JSON.stringify(audioRendererChangeInfoArray)}.`);
 };
 
 audioStreamManager.on('audioRendererChange', audioRendererChangeCallback);
@@ -379,32 +312,30 @@ audioStreamManager.off('audioRendererChange', audioRendererChangeCallback);
 ```
 
 
-## on('audioCapturerChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfoArray>): void
+##### on('audioCapturerChange')9+
+
+on(type: 'audioCapturerChange', callback: Callback&lt;AudioCapturerChangeInfoArray&gt;): void
 
 监听音频采集器更改事件（当音频录制流状态变化或设备变化时触发）。使用callback异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频采集器信息，可能包含系统内部音频录制流，如语音唤醒、蜂窝通话等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioCapturerChange'，当音频录制流状态变化或设备变化时，触发该事件。 |
-| callback | Callback&lt;[AudioCapturerChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiocapturerchangeinfoarray9)&gt; | 是 | 回调函数，返回当前音频采集器信息。 |
+| callback | Callback&lt;AudioCapturerChangeInfoArray&gt; | 是 | 回调函数，返回当前音频采集器信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -414,45 +345,37 @@ on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfoArray>
 
 **示例：**
 
-
-```ts
-audioStreamManager.on(
-  'audioCapturerChange',
-  (audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray) => {
-    console.info(
-      `Succeeded in using on function, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`,
-    );
-  },
-);
+```json
+audioStreamManager.on('audioCapturerChange', (audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray) =>  {
+  console.info(`Succeeded in using on function, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`);
+});
 ```
 
 
-## off('audioCapturerChange')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfoArray>): void
+##### off('audioCapturerChange')9+
+
+off(type: 'audioCapturerChange', callback?: Callback&lt;AudioCapturerChangeInfoArray&gt;): void
 
 取消监听音频采集器更改事件。使用callback异步回调。
 
-
 > [!NOTE]
 > 该接口返回的音频采集器信息，可能包含系统内部音频录制流，如语音唤醒、蜂窝通话等。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioCapturerChange'，当取消监听音频采集器更改事件时，触发该事件。 |
-| callback18+ | Callback&lt;[AudioCapturerChangeInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiocapturerchangeinfoarray9)&gt; | 否 | 回调函数，返回当前音频采集器信息。 |
+| callback18+ | Callback&lt;AudioCapturerChangeInfoArray&gt; | 否 | 回调函数，返回当前音频采集器信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -461,16 +384,11 @@ off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfoArra
 
 **示例：**
 
-
-```ts
+```json
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
 // 当订阅了多个该事件的监听时，可通过 audioStreamManager.off('audioCapturerChange'); 取消该事件的所有监听。
-let audioCapturerChangeCallback = (
-  audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray,
-) => {
-  console.info(
-    `Succeeded in using on or off function, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`,
-  );
+let audioCapturerChangeCallback = (audioCapturerChangeInfoArray: audio.AudioCapturerChangeInfoArray) =>  {
+  console.info(`Succeeded in using on or off function, AudioCapturerChangeInfoArray: ${JSON.stringify(audioCapturerChangeInfoArray)}.`);
 };
 
 audioStreamManager.on('audioCapturerChange', audioCapturerChangeCallback);
@@ -479,72 +397,63 @@ audioStreamManager.off('audioCapturerChange', audioCapturerChangeCallback);
 ```
 
 
-## isActive(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void
+##### isActive(deprecated)
+
+isActive(volumeType: AudioVolumeType, callback: AsyncCallback&lt;boolean&gt;): void
 
 获取指定音频流活跃状态。使用callback异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 20开始废弃，建议使用[isStreamActive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#isstreamactive20)替代。
+> 从API version 9开始支持，从API version 20开始废弃，建议使用 isStreamActive 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| volumeType | [AudioVolumeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiovolumetype) | 是 | 音频流类型。 |
+| volumeType | AudioVolumeType | 是 | 音频流类型。 |
 | callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。当获取指定音频流活跃状态成功，err为undefined，data为true表示活跃，false表示不活跃；否则为错误对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioStreamManager.isActive(
-  audio.AudioVolumeType.MEDIA,
-  (err: BusinessError, value: boolean) => {
-    if (err) {
-      console.error(`Failed to obtain the active status of the stream. ${err}`);
-      return;
-    }
-    console.info(
-      `Callback invoked to indicate that the active status of the stream is obtained ${value}.`,
-    );
-  },
-);
+audioStreamManager.isActive(audio.AudioVolumeType.MEDIA, (err: BusinessError, value: boolean) => {
+if (err) {
+  console.error(`Failed to obtain the active status of the stream. ${err}`);
+  return;
+}
+  console.info(`Callback invoked to indicate that the active status of the stream is obtained ${value}.`);
+});
 ```
 
 
-## isActive(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-isActive(volumeType: AudioVolumeType): Promise<boolean>
+##### isActive(deprecated)
+
+isActive(volumeType: AudioVolumeType): Promise&lt;boolean&gt;
 
 获取指定音频流是否为活跃状态。使用Promise异步回调。
 
-
 > [!NOTE]
-> 从API version 9开始支持，从API version 20开始废弃，建议使用[isStreamActive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#isstreamactive20)替代。
+> 从API version 9开始支持，从API version 20开始废弃，建议使用 isStreamActive 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| volumeType | [AudioVolumeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiovolumetype) | 是 | 音频流类型。 |
+| volumeType | AudioVolumeType | 是 | 音频流类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -553,41 +462,34 @@ isActive(volumeType: AudioVolumeType): Promise<boolean>
 
 **示例：**
 
-
-```ts
-audioStreamManager
-  .isActive(audio.AudioVolumeType.MEDIA)
-  .then((value: boolean) => {
-    console.info(
-      `Promise returned to indicate that the active status of the stream is obtained ${value}.`,
-    );
-  });
+```text
+audioStreamManager.isActive(audio.AudioVolumeType.MEDIA).then((value: boolean) => {
+  console.info(`Promise returned to indicate that the active status of the stream is obtained ${value}.`);
+});
 ```
 
 
-## isActiveSync(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isActiveSync(deprecated)
 
 isActiveSync(volumeType: AudioVolumeType): boolean
 
 获取指定音频流是否为活跃状态。同步返回结果。
 
-
 > [!NOTE]
-> 从API version 10开始支持，从API version 20开始废弃，建议使用[isStreamActive](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#isstreamactive20)替代。
+> 从API version 10开始支持，从API version 20开始废弃，建议使用 isStreamActive 替代。
+
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| volumeType | [AudioVolumeType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiovolumetype) | 是 | 音频流类型。 |
+| volumeType | AudioVolumeType | 是 | 音频流类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -598,7 +500,6 @@ isActiveSync(volumeType: AudioVolumeType): boolean
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
@@ -607,17 +508,12 @@ isActiveSync(volumeType: AudioVolumeType): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let value: boolean = audioStreamManager.isActiveSync(
-    audio.AudioVolumeType.MEDIA,
-  );
-  console.info(
-    `Indicate that the active status of the stream is obtained ${value}.`,
-  );
+  let value: boolean = audioStreamManager.isActiveSync(audio.AudioVolumeType.MEDIA);
+  console.info(`Indicate that the active status of the stream is obtained ${value}.`);
 } catch (err) {
   let error = err as BusinessError;
   console.error(`Failed to obtain the active status of the stream ${error}.`);
@@ -625,8 +521,8 @@ try {
 ```
 
 
-## isStreamActive20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isStreamActive20+
 
 isStreamActive(streamUsage: StreamUsage): boolean
 
@@ -636,14 +532,12 @@ isStreamActive(streamUsage: StreamUsage): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| streamUsage | [StreamUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage) | 是 | 音频流使用类型。 |
+| streamUsage | StreamUsage | 是 | 音频流使用类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -654,7 +548,6 @@ isStreamActive(streamUsage: StreamUsage): boolean
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
@@ -662,30 +555,23 @@ isStreamActive(streamUsage: StreamUsage): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let isStreamActive = audioStreamManager.isStreamActive(
-    audio.StreamUsage.STREAM_USAGE_MUSIC,
-  );
-  console.info(
-    `Succeeded in using isStreamActive function, IsStreamActive: ${isStreamActive}.`,
-  );
+  let isStreamActive = audioStreamManager.isStreamActive(audio.StreamUsage.STREAM_USAGE_MUSIC);
+  console.info(`Succeeded in using isStreamActive function, IsStreamActive: ${isStreamActive}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to use isStreamActive function. code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to use isStreamActive function. code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## getAudioEffectInfoArray10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback<AudioEffectInfoArray>): void
+##### getAudioEffectInfoArray10+
+
+getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback&lt;AudioEffectInfoArray&gt;): void
 
 获取当前音效模式的信息。使用callback异步回调。
 
@@ -693,17 +579,15 @@ getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback<AudioEffectI
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| usage | [StreamUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage) | 是 | 音频流使用类型。 |
-| callback | AsyncCallback&lt;[AudioEffectInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#getaudioeffectinfoarray10)&gt; | 是 | 回调函数。当获取当前音效模式的信息成功，err为undefined，data为获取到的当前音效模式的信息；否则为错误对象。 |
+| usage | StreamUsage | 是 | 音频流使用类型。 |
+| callback | AsyncCallback&lt;AudioEffectInfoArray&gt; | 是 | 回调函数。当获取当前音效模式的信息成功，err为undefined，data为获取到的当前音效模式的信息；否则为错误对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -713,31 +597,23 @@ getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback<AudioEffectI
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioStreamManager.getAudioEffectInfoArray(
-  audio.StreamUsage.STREAM_USAGE_MUSIC,
-  (err: BusinessError, audioEffectInfoArray: audio.AudioEffectInfoArray) => {
-    if (err) {
-      console.error(
-        `Failed to get audio effect info array. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info(
-        `Succeeded in getting effect info array, AudioEffectInfoArray: ${JSON.stringify(audioEffectInfoArray)}.`,
-      );
-    }
-  },
-);
+audioStreamManager.getAudioEffectInfoArray(audio.StreamUsage.STREAM_USAGE_MUSIC, (err: BusinessError, audioEffectInfoArray: audio.AudioEffectInfoArray) => {
+  if (err) {
+    console.error(`Failed to get audio effect info array. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info(`Succeeded in getting effect info array, AudioEffectInfoArray: ${JSON.stringify(audioEffectInfoArray)}.`);
+  }
+});
 ```
 
 
-## getAudioEffectInfoArray10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>
+##### getAudioEffectInfoArray10+
+
+getAudioEffectInfoArray(usage: StreamUsage): Promise&lt;AudioEffectInfoArray&gt;
 
 获取当前音效模式的信息。使用Promise异步回调。
 
@@ -745,24 +621,21 @@ getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| usage | [StreamUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage) | 是 | 音频流使用类型。 |
+| usage | StreamUsage | 是 | 音频流使用类型。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioEffectInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#getaudioeffectinfoarray10)&gt; | Promise对象，返回当前音效模式的信息。 |
+| Promise&lt;AudioEffectInfoArray&gt; | Promise对象，返回当前音效模式的信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -772,27 +645,19 @@ getAudioEffectInfoArray(usage: StreamUsage): Promise<AudioEffectInfoArray>
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioStreamManager
-  .getAudioEffectInfoArray(audio.StreamUsage.STREAM_USAGE_MUSIC)
-  .then((audioEffectInfoArray: audio.AudioEffectInfoArray) => {
-    console.info(
-      `Succeeded in getting effect info array, AudioEffectInfoArray: ${JSON.stringify(audioEffectInfoArray)}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get audio effect info array. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioStreamManager.getAudioEffectInfoArray(audio.StreamUsage.STREAM_USAGE_MUSIC).then((audioEffectInfoArray: audio.AudioEffectInfoArray) => {
+  console.info(`Succeeded in getting effect info array, AudioEffectInfoArray: ${JSON.stringify(audioEffectInfoArray)}.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get audio effect info array. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
 
-## getAudioEffectInfoArraySync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getAudioEffectInfoArraySync10+
 
 getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray
 
@@ -802,24 +667,21 @@ getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| usage | [StreamUsage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#streamusage) | 是 | 音频流使用类型。 |
+| usage | StreamUsage | 是 | 音频流使用类型。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [AudioEffectInfoArray](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiostreammanager#getaudioeffectinfoarray10) | 返回当前音效模式的信息。 |
+| AudioEffectInfoArray | 返回当前音效模式的信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -829,28 +691,21 @@ getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray
 
 **示例：**
 
-
-```ts
+```json
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let audioEffectInfoArray = audioStreamManager.getAudioEffectInfoArraySync(
-    audio.StreamUsage.STREAM_USAGE_MUSIC,
-  );
-  console.info(
-    `Succeeded in getting effect info array, AudioEffectInfoArray: ${JSON.stringify(audioEffectInfoArray)}.`,
-  );
+  let audioEffectInfoArray = audioStreamManager.getAudioEffectInfoArraySync(audio.StreamUsage.STREAM_USAGE_MUSIC);
+  console.info(`Succeeded in getting effect info array, AudioEffectInfoArray: ${JSON.stringify(audioEffectInfoArray)}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get audio effect info array. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get audio effect info array. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## isAcousticEchoCancelerSupported20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isAcousticEchoCancelerSupported20+
 
 isAcousticEchoCancelerSupported(sourceType: SourceType): boolean
 
@@ -860,14 +715,12 @@ isAcousticEchoCancelerSupported(sourceType: SourceType): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sourceType | [SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#sourcetype8) | 是 | 音源类型。 |
+| sourceType | SourceType | 是 | 音源类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -878,7 +731,6 @@ isAcousticEchoCancelerSupported(sourceType: SourceType): boolean
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
@@ -886,29 +738,21 @@ isAcousticEchoCancelerSupported(sourceType: SourceType): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let isAcousticEchoCancelerSupported =
-    audioStreamManager.isAcousticEchoCancelerSupported(
-      audio.SourceType.SOURCE_TYPE_LIVE,
-    );
-  console.info(
-    `Succeeded in using isAcousticEchoCancelerSupported function, IsAcousticEchoCancelerSupported: ${isAcousticEchoCancelerSupported}.`,
-  );
+  let isAcousticEchoCancelerSupported = audioStreamManager.isAcousticEchoCancelerSupported(audio.SourceType.SOURCE_TYPE_LIVE);
+  console.info(`Succeeded in using isAcousticEchoCancelerSupported function, IsAcousticEchoCancelerSupported: ${isAcousticEchoCancelerSupported}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to use isAcousticEchoCancelerSupported function. code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to use isAcousticEchoCancelerSupported function. code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## isAudioLoopbackSupported20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isAudioLoopbackSupported20+
 
 isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean
 
@@ -918,14 +762,12 @@ isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | [AudioLoopbackMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioloopbackmode20) | 是 | 音频返听模式。 |
+| mode | AudioLoopbackMode | 是 | 音频返听模式。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -936,7 +778,6 @@ isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
@@ -944,28 +785,21 @@ isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let isAudioLoopbackSupported = audioStreamManager.isAudioLoopbackSupported(
-    audio.AudioLoopbackMode.HARDWARE,
-  );
-  console.info(
-    `Succeeded in using isAudioLoopbackSupported function, IsAudioLoopbackSupported: ${isAudioLoopbackSupported}.`,
-  );
+  let isAudioLoopbackSupported = audioStreamManager.isAudioLoopbackSupported(audio.AudioLoopbackMode.HARDWARE);
+  console.info(`Succeeded in using isAudioLoopbackSupported function, IsAudioLoopbackSupported: ${isAudioLoopbackSupported}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to use isAudioLoopbackSupported function. code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to use isAudioLoopbackSupported function. code: ${error.code}, message: ${error.message}`);
 }
 ```
 
 
-## isRecordingAvailable20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isRecordingAvailable20+
 
 isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean
 
@@ -975,24 +809,21 @@ isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| capturerInfo | [AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8) | 是 | 音频采集器信息。 |
+| capturerInfo | AudioCapturerInfo | 是 | 音频采集器信息。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 代表录制是否可以启动成功。true表示成功，false表示失败。          仅检测是否可以获取音频采集器信息中音源类型的焦点。通常在音频录制启动前调用，否则已存在的录制流可能会拒绝其启动。 |
+| boolean | 代表录制是否可以启动成功。true表示成功，false表示失败。 仅检测是否可以获取音频采集器信息中音源类型的焦点。通常在音频录制启动前调用，否则已存在的录制流可能会拒绝其启动。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1001,56 +832,45 @@ isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let audioStreamInfo: audio.AudioStreamInfo = {
   samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000,
   channels: audio.AudioChannel.CHANNEL_2,
   sampleFormat: audio.AudioSampleFormat.SAMPLE_FORMAT_S16LE,
-  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW,
+  encodingType: audio.AudioEncodingType.ENCODING_TYPE_RAW
 };
 
 let audioCapturerInfo: audio.AudioCapturerInfo = {
   source: audio.SourceType.SOURCE_TYPE_MIC,
-  capturerFlags: 0,
+  capturerFlags: 0
 };
 
 let audioCapturerOptions: audio.AudioCapturerOptions = {
   streamInfo: audioStreamInfo,
-  capturerInfo: audioCapturerInfo,
+  capturerInfo: audioCapturerInfo
 };
 
-audio.createAudioCapturer(
-  audioCapturerOptions,
-  (err: BusinessError, audioCapturer: audio.AudioCapturer) => {
-    if (err) {
-      console.error(
-        `Failed to create AudioCapturer. Code: ${err.code}, message: ${err.message}`,
-      );
-    } else {
-      console.info('Succeeded in creating AudioCapturer.');
-      try {
-        let isRecordingAvailable =
-          audioStreamManager.isRecordingAvailable(audioCapturerInfo);
-        console.info(
-          `Succeeded in using isRecordingAvailable function, IsRecordingAvailable: ${isRecordingAvailable}.`,
-        );
-      } catch (err) {
-        let error = err as BusinessError;
-        console.error(
-          `Failed to use isRecordingAvailable function. code: ${error.code}, message: ${error.message}`,
-        );
-      }
+audio.createAudioCapturer(audioCapturerOptions, (err: BusinessError, audioCapturer: audio.AudioCapturer) => {
+  if (err) {
+    console.error(`Failed to create AudioCapturer. Code: ${err.code}, message: ${err.message}`);
+  } else {
+    console.info('Succeeded in creating AudioCapturer.');
+    try {
+      let isRecordingAvailable = audioStreamManager.isRecordingAvailable(audioCapturerInfo);
+      console.info(`Succeeded in using isRecordingAvailable function, IsRecordingAvailable: ${isRecordingAvailable}.`);
+    } catch (err) {
+      let error = err as BusinessError;
+      console.error(`Failed to use isRecordingAvailable function. code: ${error.code}, message: ${error.message}`);
     }
-  },
-);
+  }
+});
 ```
 
 
-## isIntelligentNoiseReductionEnabledForCurrentDevice21+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### isIntelligentNoiseReductionEnabledForCurrentDevice21+
 
 isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): boolean
 
@@ -1060,14 +880,12 @@ isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): bool
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sourceType | [SourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#sourcetype8) | 是 | 表示音源类型。 |
+| sourceType | SourceType | 是 | 表示音源类型。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1078,7 +896,6 @@ isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): bool
 
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
@@ -1086,22 +903,14 @@ isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): bool
 
 **示例：**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let isSupport =
-    audioStreamManager.isIntelligentNoiseReductionEnabledForCurrentDevice(
-      audio.SourceType.SOURCE_TYPE_LIVE,
-    );
-  console.info(
-    `SourceType: ${audio.SourceType.SOURCE_TYPE_LIVE} intelligent noise reduction enabled is: ${isSupport}`,
-  );
+  let isSupport = audioStreamManager.isIntelligentNoiseReductionEnabledForCurrentDevice(audio.SourceType.SOURCE_TYPE_LIVE);
+  console.info(`SourceType: ${audio.SourceType.SOURCE_TYPE_LIVE} intelligent noise reduction enabled is: ${isSupport}`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `isIntelligentNoiseReductionEnabledForCurrentDevice ERROR: ${error}`,
-  );
+  console.error(`isIntelligentNoiseReductionEnabledForCurrentDevice ERROR: ${error}`);
 }
 ```

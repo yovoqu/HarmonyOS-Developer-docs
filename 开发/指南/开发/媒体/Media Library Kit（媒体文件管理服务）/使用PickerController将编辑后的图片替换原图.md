@@ -4,68 +4,94 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/medialibrary-pickercontroller
 
-## 替换PhotoPicker中显示的图片/视频
+##### 替换PhotoPicker中显示的图片/视频
 
-应用可获得用户从Picker选择的图片、视频的访问权限，读取图片、视频后进行编辑、修改。完成编辑修改后的图片/视频缓存到应用沙箱后，可调用本API，将编辑结果文件发送给PhotoPicker，并指定替换显示的原图。Picker根据指定将接收的编辑结果文件替换原图片进行显示。 效果如图所示。
+应用可获得用户从Picker选择的图片、视频的访问权限，读取图片、视频后进行编辑、修改。完成编辑修改后的图片/视频缓存到应用沙箱后，可调用本API，将编辑结果文件发送给PhotoPicker，并指定替换显示的原图。Picker根据指定将接收的编辑结果文件替换原图片进行显示。
+ 
+效果如图所示。
+ 
+
 ![](assets/使用PickerController将编辑后的图片替换原图/file-20260514131559283-0.gif)
 
-## 开发步骤
+ 
+  
 
-导入选择器模块和文件管理模块。
+##### 开发步骤
+1. 导入选择器模块和文件管理模块。
+
+  
 ```text
 import { PickerController } from '@kit.MediaLibraryKit';
 import { fileUri } from '@kit.CoreFileKit';
 ```
 
-创建参数列表。
+2. 创建参数列表。
+
+  
 ```text
 @State pickerController: PickerController = new PickerController();
 @State originUrl: string = ''; // 原图URI
 @State replaceUrl: string = ''; // 原图编辑后的沙箱URI
 ```
 
-调用[replacePhotoPickerPreview()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#replacephotopickerpreview15)替换图片/视频。
+3. 调用[replacePhotoPickerPreview()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#replacephotopickerpreview15)替换图片/视频。
+
+  
 ```text
 this.pickerController.replacePhotoPickerPreview(this.originUrl, this.replaceUrl, (a, b) => {
   console.log("hello this.pickerController.replaceUrl code res:" + b)
 })
 ```
 
+ 
+  
 
-## 将Picker上替换显示的图片/视频保存到图库
+##### 将Picker上替换显示的图片/视频保存到图库
 
-应用指定保存的文件，需在替换显示的范围内。应用调用API后，PhotoPicker将在Picker上成功替换显示的图片、视频保存到图库。确保保存的内容与替换显示的图片、视频一致。 效果如图所示。
+应用指定保存的文件，需在替换显示的范围内。应用调用API后，PhotoPicker将在Picker上成功替换显示的图片、视频保存到图库。确保保存的内容与替换显示的图片、视频一致。
+ 
+效果如图所示。
+ 
+
 ![](assets/使用PickerController将编辑后的图片替换原图/file-20260514131559283-1.gif)
 
-## 开发步骤
+ 
+  
 
-导入选择器模块和文件管理模块。
+##### 开发步骤
+1. 导入选择器模块和文件管理模块。
+
+  
 ```text
 import photoAccessHelper from '@ohos.file.photoAccessHelper';
 import { PickerController, PickerOptions, SaveMode } from '@kit.MediaLibraryKit';
 import { fileUri } from '@kit.CoreFileKit';
 ```
 
-创建参数列表。
+2. 创建参数列表。
+
+  
 ```text
 @State pickerController: PickerController = new PickerController();
 @State originUrl: string = ''; // 原图URI
 @State replaceUrl: string = ''; // 原图编辑后的沙箱URI
 ```
 
-调用[saveTrustedPhotoAssets()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#savetrustedphotoassets15)保存图片/视频到图库。
+3. 调用[saveTrustedPhotoAssets()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#savetrustedphotoassets15)保存图片/视频到图库。
+
+  
 ```text
 this.pickerController.saveTrustedPhotoAssets(this.replaceUris, (a, b) => {
   console.log("hello this.pickerController.save as new code a.code:" + a.code + ",a.message:" + a.message + ",res:" + b)
 }, photoCreationConfigs, SaveMode.SAVE_AS); // SaveMode: SAVE_AS = 0(另存为)，OVERWRITE = 1 （覆盖保存）
 ```
+  该接口使用依赖[pickerController.replacePhotoPickerPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#replacephotopickerpreview15)，需要先执行[pickerController.replacePhotoPickerPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#replacephotopickerpreview15)后才能执行[pickerController.saveTrustedPhotoAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#savetrustedphotoassets15)。
+ 
+  
 
-该接口使用依赖[pickerController.replacePhotoPickerPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#replacephotopickerpreview15)，需要先执行[pickerController.replacePhotoPickerPreview](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#replacephotopickerpreview15)后才能执行[pickerController.saveTrustedPhotoAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent#savetrustedphotoassets15)。
+##### 完整示例
 
-## 完整示例
-
-
-```text
+```json
 import {
   SaveMode,
 } from '@ohos.file.PhotoPickerComponent';
@@ -89,12 +115,12 @@ struct Index {
   pickerOptions: PickerOptions = new PickerOptions();
   albumOptions: AlbumPickerOptions = new AlbumPickerOptions();
   // 已选择的图片uri数组。
-  @State selectedUris: Array = new Array();
+  @State selectedUris: Array<string> = new Array<string>();
   @State allBackGroundColor: number = 0xf1f3f5;
   // 是否在大图页面。
   @State isInPhotoBrowser: boolean = false;
   @State originUrl: string = ''; // 原图URI。
-  @State EditedUris: Array = new Array(); // 编辑后的URI数组。
+  @State EditedUris: Array<string> = new Array<string>(); // 编辑后的URI数组。
 
   private onEnterPhotoBrowser(photoBrowserInfo: PhotoBrowserInfo): boolean {
     this.isInPhotoBrowser = true;
@@ -137,7 +163,7 @@ struct Index {
     return true;
   }
 
-  private onSelectedItemsDeleted(baseItemInfos: Array): void {
+  private onSelectedItemsDeleted(baseItemInfos: Array<BaseItemInfo>): void {
     for (let info of baseItemInfos) {
       if (info?.uri) {
         // 如果元素被删除，则删除在selectedUris中的元素。
@@ -160,7 +186,7 @@ struct Index {
           Row() {
             Button('另存为').width('25%').height('50%').margin({ top: 10 }).onClick(() => {
               console.log("----save as new:--------------------------------------------");
-              let replaceUris: Array = [];
+              let replaceUris: Array<string> = [];
               this.EditedUris.forEach((uri: string) => {
                 replaceUris.push(uri);
               });
@@ -172,7 +198,7 @@ struct Index {
 
             Button('覆盖保存').width('25%').height('50%').margin({ top: 10 }).onClick(() => {
               console.log("----save as overwrite:--------------------------------------------");
-              let replaceUris: Array = [];
+              let replaceUris: Array<string> = [];
               this.EditedUris.forEach((uri: string) => {
                 replaceUris.push(uri);
               });
@@ -210,7 +236,7 @@ struct Index {
               clickType),
             onEnterPhotoBrowser: (photoBrowserInfo: PhotoBrowserInfo): boolean => this.onEnterPhotoBrowser(photoBrowserInfo),
             onExitPhotoBrowser: (photoBrowserInfo: PhotoBrowserInfo): boolean => this.onExitPhotoBrowser(photoBrowserInfo),
-            onSelectedItemsDeleted: (baseItemInfos: Array): void => this.onSelectedItemsDeleted(baseItemInfos),
+            onSelectedItemsDeleted: (baseItemInfos: Array<BaseItemInfo>): void => this.onSelectedItemsDeleted(baseItemInfos),
             pickerController: this.pickerController,
           }).height('87%')
             .width('100%')

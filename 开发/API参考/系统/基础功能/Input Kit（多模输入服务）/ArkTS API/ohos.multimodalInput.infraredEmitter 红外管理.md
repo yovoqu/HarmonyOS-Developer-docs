@@ -3,24 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-infraredemitter
-**支持设备：** Phone / TV
+**支持设备：** Phone | TV
 
 红外管理模块提供产生特定频率和大小的红外信号，以及查询设备支持的频率范围等功能。
 
+> [!NOTE]
+> 本模块首批接口从API version 15开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-## 导入模块
-**支持设备：** Phone / TV
 
+
+##### 导入模块
 
 ```text
 import { infraredEmitter } from '@kit.InputKit';
 ```
 
 
-## infraredEmitter.transmitInfrared
-**支持设备：** Phone / TV
 
-transmitInfrared(infraredFrequency: number, pattern: Array<number>): void
+##### infraredEmitter.transmitInfrared
+
+transmitInfrared(infraredFrequency: number, pattern: Array&lt;number&gt;): void
 
 产生特定频率和特定电平大小的红外信号。
 
@@ -30,17 +32,15 @@ transmitInfrared(infraredFrequency: number, pattern: Array<number>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | infraredFrequency | number | 是 | 红外频率，单位：Hz。 |
-| pattern | Array&lt;number&gt; | 是 | 红外电平信号，单位：μs。电平信号的数量取值范围为[0,1024]。电平信号的取值需大于0。          比如[100,200,300,400]该电平信号数组，其中100us为高电平信号、200us为低电平信号、300us为高电平信号、400us为低电平信号。 |
+| pattern | Array&lt;number&gt; | 是 | 红外电平信号，单位：μs。电平信号的数量取值范围为[0,1024]。电平信号的取值需大于0。 比如[100,200,300,400]该电平信号数组，其中100us为高电平信号、200us为低电平信号、300us为高电平信号、400us为低电平信号。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -50,33 +50,32 @@ transmitInfrared(infraredFrequency: number, pattern: Array<number>): void
 
 **示例**：
 
-
-```text
+```json
 import { infraredEmitter } from '@kit.InputKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-try {
-infraredEmitter.transmitInfrared(38000, [100, 200, 300, 400]);
-} catch (error) {
-console.error(`transmitInfrared failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          try {
+            infraredEmitter.transmitInfrared(38000, [100, 200, 300, 400]);
+          } catch (error) {
+            console.error(`transmitInfrared failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## infraredEmitter.getInfraredFrequencies
-**支持设备：** Phone / TV
 
-getInfraredFrequencies(): Array<InfraredFrequency>
+##### infraredEmitter.getInfraredFrequencies
+
+getInfraredFrequencies(): Array&lt;InfraredFrequency&gt;
 
 查询设备支持的红外信号的频率范围。
 
@@ -88,16 +87,14 @@ getInfraredFrequencies(): Array<InfraredFrequency>
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[InfraredFrequency](#infraredfrequency)&gt; | 红外信号的频率范围，包含多组最大和最小频率。          从API version 23开始，当设备不具有红外发射器，返回一组最大和最小频率，且均为0Hz。 |
+| Array&lt;InfraredFrequency&gt; | 红外信号的频率范围，包含多组最大和最小频率。 从API version 23开始，当设备不具有红外发射器，返回一组最大和最小频率，且均为0Hz。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -106,37 +103,35 @@ getInfraredFrequencies(): Array<InfraredFrequency>
 
 **示例**：
 
-
-```text
+```json
 import { infraredEmitter } from '@kit.InputKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-try {
-let frequencies = infraredEmitter.getInfraredFrequencies();
-console.info(`frequencies: ${JSON.stringify(frequencies)}`);
-} catch (error) {
-console.error(`Get infrared frequencies failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
-}
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+          try {
+            let frequencies = infraredEmitter.getInfraredFrequencies();
+            console.info(`frequencies: ${JSON.stringify(frequencies)}`);
+          } catch (error) {
+            console.error(`Get infrared frequencies failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+          }
+        })
+    }
+  }
 }
 ```
 
 
-## InfraredFrequency
-**支持设备：** Phone / TV
+
+##### InfraredFrequency
 
 红外信号的频率范围。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InfraredEmitter
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -144,10 +139,11 @@ console.error(`Get infrared frequencies failed, error: ${JSON.stringify(error, [
 | min | number | 否 | 否 | 最小支持频率，单位：Hz。 |
 
 
-## infraredEmitter.hasIrEmitter23+
-**支持设备：** Phone / TV
 
-hasIrEmitter(): Promise<boolean>
+
+##### infraredEmitter.hasIrEmitter23+
+
+hasIrEmitter(): Promise&lt;boolean&gt;
 
 查询设备是否配备红外发射器。使用Promise异步回调。
 
@@ -156,7 +152,6 @@ hasIrEmitter(): Promise<boolean>
 **系统能力**：SystemCapability.MultimodalInput.Input.InfraredEmitter
 
 **返回值**：
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -167,7 +162,6 @@ hasIrEmitter(): Promise<boolean>
 
 以下错误码的详细介绍请参见[全局快捷键管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-inputconsumer)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
@@ -176,24 +170,23 @@ hasIrEmitter(): Promise<boolean>
 
 **示例**：
 
-
-```text
+```json
 import { infraredEmitter } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
 struct Index {
-build() {
-RelativeContainer() {
-Text()
-.onClick(() => {
-infraredEmitter.hasIrEmitter().then((result: boolean) => {
-console.info(`hasIrEmitter: ${JSON.stringify(result)}`);
-}).catch((error: BusinessError)=> {
-console.error(`hasIrEmitter failed: ${JSON.stringify(error)}`);})
-})
-}
-}
+  build() {
+    RelativeContainer() {
+      Text()
+        .onClick(() => {
+            infraredEmitter.hasIrEmitter().then((result: boolean) => {
+              console.info(`hasIrEmitter: ${JSON.stringify(result)}`);
+            }).catch((error: BusinessError)=> {
+              console.error(`hasIrEmitter failed: ${JSON.stringify(error)}`);})
+        })
+    }
+  }
 }
 ```

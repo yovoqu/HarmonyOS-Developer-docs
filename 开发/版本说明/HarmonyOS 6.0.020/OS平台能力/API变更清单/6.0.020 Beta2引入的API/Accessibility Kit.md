@@ -7,5 +7,5 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：accessibility； API声明：function getTouchModeSync(): string; 差异内容：function getTouchModeSync(): string; | api/@ohos.accessibility.d.ts |
-| 新增API | NA | 类名：accessibility； API声明：function on(type: 'touchModeChange', callback: Callback<string>): void; 差异内容：function on(type: 'touchModeChange', callback: Callback<string>): void; | api/@ohos.accessibility.d.ts |
-| 新增API | NA | 类名：accessibility； API声明：function off(type: 'touchModeChange', callback?: Callback<string>): void; 差异内容：function off(type: 'touchModeChange', callback?: Callback<string>): void; | api/@ohos.accessibility.d.ts |
+| 新增API | NA | 类名：accessibility； API声明：function on(type: 'touchModeChange', callback: Callback&lt;string&gt;): void; 差异内容：function on(type: 'touchModeChange', callback: Callback&lt;string&gt;): void; | api/@ohos.accessibility.d.ts |
+| 新增API | NA | 类名：accessibility； API声明：function off(type: 'touchModeChange', callback?: Callback&lt;string&gt;): void; 差异内容：function off(type: 'touchModeChange', callback?: Callback&lt;string&gt;): void; | api/@ohos.accessibility.d.ts |

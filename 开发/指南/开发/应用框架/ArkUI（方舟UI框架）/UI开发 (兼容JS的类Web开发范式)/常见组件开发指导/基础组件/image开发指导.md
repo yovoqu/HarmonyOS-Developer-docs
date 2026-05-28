@@ -7,14 +7,16 @@
 image是图片组件，用来渲染展示图片。具体用法请参考[image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-image)组件。
 
 
-## 创建image组件
+##### 创建image组件
 
 在pages/index目录下的hml文件中创建一个image组件。
+
 ```text
-
-
+<!-- index.hml -->
+<div class="container">
+  <image style="height: 30%;" src="common/images/bg-tv.jpg"> </image>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -28,16 +30,22 @@ image是图片组件，用来渲染展示图片。具体用法请参考[image](h
 }
 ```
 
+
 ![](assets/image开发指导/file-20260514130750000-0.png)
 
-## 设置image样式
+
+
+
+##### 设置image样式
 
 通过设置width、height和object-fit属性定义图片的宽、高和缩放样式。
+
 ```text
-
-
+<!-- index.hml -->
+<div class="container">
+  <image src="common/images/bg-tv.jpg"> </image>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -59,16 +67,27 @@ image{
 }
 ```
 
+
 ![](assets/image开发指导/file-20260514130750000-1.png)
 
-## 加载图片
+
+
+
+##### 加载图片
 
 图片成功加载时触发complete事件，返回加载的图源尺寸。加载失败则触发error事件，打印图片加载失败。
+
 ```text
-
-
+<!-- index.hml -->
+<div class="container" >
+  <div>
+    <image src="common/images/bg-tv.jpg" oncomplete="imageComplete(1)" onerror="imageError(1)"> </image>
+  </div>
+  <div>
+    <image src="common/images/bg-tv1.jpg" oncomplete="imageComplete(2)" onerror="imageError(2)"> </image>
+  </div>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -87,7 +106,6 @@ image{
   margin-bottom: 40px;
 }
 ```
-
 
 ```text
 // index.js
@@ -110,19 +128,29 @@ export default {
 }
 ```
 
+
 ![](assets/image开发指导/file-20260514130750000-2.gif)
 
-## 场景示例
+
+
+
+##### 场景示例
 
 在本场景中，开发者长按图片后将慢慢隐藏图片，当完全隐藏后再重新显示原始图片。定时器setInterval每隔一段时间改变图片透明度,实现慢慢隐藏的效果，当透明度为0时清除定时器，设置透明度为1。
+
 ```text
-
-
-      Touch and hold the image
-
-
+<!-- index.hml -->
+<div class="page-container">
+  <div class="content">
+    <div class="image-container">
+      <image class="testimage" src="{{testuri}}" style="opacity:{{imageopacity}};" onlongpress="changeopacity"> </image>
+    </div>
+    <div class="text-container">
+      <text style="font-size: 37px;font-weight:bold;color:orange;text-align: center;width: 100%;">Touch and hold the image</text>
+    </div>
+  </div>
+</div>
 ```
-
 
 ```text
 /* xxx.css */
@@ -158,7 +186,6 @@ export default {
 }
 ```
 
-
 ```text
 // index.js
 import promptAction from '@ohos.promptAction';
@@ -185,5 +212,6 @@ export default {
   }
 }
 ```
+
 
 ![](assets/image开发指导/file-20260514130750000-3.gif)

@@ -4,12 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nodeadapter
 
+> [!TIP]
+> 以下仅介绍本模块特有错误码，通用错误码请参考 通用错误码说明文档 。
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 
-## 106104 适配器未绑定
+##### 106104 适配器未绑定
 
 **错误信息**
 
@@ -28,7 +28,8 @@ The lazy loading adapter is not bound to the component.
 为组件设置NodeAdapter。
 
 
-## 106105 适配器已存在
+
+##### 106105 适配器已存在
 
 **错误信息**
 
@@ -47,7 +48,8 @@ NodeAdapter已经存在，不支持添加删除子节点。
 移除NodeAdapter，或放弃在此处添加删除子节点。
 
 
-## 106106 子节点已存在
+
+##### 106106 子节点已存在
 
 **错误信息**
 
@@ -66,7 +68,8 @@ The corresponding node already has a child node and cannot add an adapter.
 移除子节点，或放弃在此处设置NodeAdapter。
 
 
-## 106107 参数下标越界
+
+##### 106107 参数下标越界
 
 **错误信息**
 
@@ -85,7 +88,8 @@ The parameter length in the parameter event exceeds the limit.
 检查index参数是否超出传入的数组长度限制。
 
 
-## 106108 数据不存在
+
+##### 106108 数据不存在
 
 **错误信息**
 
@@ -104,7 +108,8 @@ The data does not exist in the component event.
 确认当前事件是否存在想要查询的数据。
 
 
-## 106109 不支持返回值
+
+##### 106109 不支持返回值
 
 **错误信息**
 
@@ -123,7 +128,8 @@ The component event does not support return values.
 确认当前事件是否存在返回值。
 
 
-## 106110 暂不支持该事件类型
+
+##### 106110 暂不支持该事件类型
 
 **错误信息**
 

@@ -4,4 +4,4 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-46
 
-appId是调用方应用的包名。通过调用bundleManager.getBundleInfoForSelf()获取BundleInfo，然后通过BundleInfo对象的signatureInfo属性获取appId。
+appId是调用方应用的包名。通过调用[bundleManager.getBundleInfoForSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取BundleInfo，然后通过BundleInfo对象的signatureInfo属性获取appId。

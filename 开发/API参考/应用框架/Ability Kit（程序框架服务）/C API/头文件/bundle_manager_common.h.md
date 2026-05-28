@@ -3,11 +3,9 @@
 更新时间：2026-04-10 09:55:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-bundle-manager-common-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明BundleManager定义的相关错误码。
 
@@ -22,26 +20,25 @@
 **相关模块：** [Native_Bundle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle)
 
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### 汇总
 
 
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 枚举
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [BundleManager_ErrorCode](#bundlemanager_errorcode) | BundleManager_ErrorCode | 枚举错误码。 |
+| BundleManager_ErrorCode | BundleManager_ErrorCode | 枚举错误码。 |
 
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-### BundleManager_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 枚举类型说明
 
+
+
+##### BundleManager_ErrorCode
 
 ```text
 enum BundleManager_ErrorCode
@@ -52,7 +49,6 @@ enum BundleManager_ErrorCode
 枚举错误码，详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 **起始版本：** 21
-
 
 | 枚举项 | 描述 |
 | --- | --- |

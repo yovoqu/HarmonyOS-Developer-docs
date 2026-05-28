@@ -5,8 +5,8 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-crypto-architecture-3
 
 将服务器下发的RSA公钥字符串赋值给`pubKeyStr`，即可实现。具体代码参考如下：
-
-```ts
+ 
+```ArkTS
 import { buffer, util } from '@kit.ArkTS';
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 /**
@@ -16,14 +16,11 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
  */
 export async function encryptRSA(message: string) {
   // Server issues RSA public key string (base64 encoding)
-  let pubKeyStr =
-    'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDFQArGDm5BXM4jHHuZGIb/kUoqrSjXkjqPLgrDmqBFxNyYsyxvyFRO10nStQwdRkQkh5lZ5sqC1G/z6lyDPpEySTBo9S5GLZ2Tj4yinNjcMXmOwiHfyQAQo9LwdlyTedwRchg0fYewWBVTVhGcWPowT1aA+GnQhYwNmaS/iKQsNQIDAQAB';
+  let pubKeyStr = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDFQArGDm5BXM4jHHuZGIb/kUoqrSjXkjqPLgrDmqBFxNyYsyxvyFRO10nStQwdRkQkh5lZ5sqC1G/z6lyDPpEySTBo9S5GLZ2Tj4yinNjcMXmOwiHfyQAQo9LwdlyTedwRchg0fYewWBVTVhGcWPowT1aA+GnQhYwNmaS/iKQsNQIDAQAB";
   // Initialize Base64 tool instance
   let base64Helper = new util.Base64Helper();
   // Convert the public key to Uint8Array and package it as a DataBlob type
-  let pubKeyBlob: cryptoFramework.DataBlob = {
-    data: base64Helper.decodeSync(pubKeyStr),
-  };
+  let pubKeyBlob: cryptoFramework.DataBlob = { data: base64Helper.decodeSync(pubKeyStr) };
   // Create RSA key generator
   let rsaGenerator = cryptoFramework.createAsyKeyGenerator('RSA1024');
   // Convert the public key wrapper data pubKeyBlob into a key pair type KeyPair
@@ -31,22 +28,16 @@ export async function encryptRSA(message: string) {
   // Create a Cipher object
   let cipher = cryptoFramework.createCipher('RSA1024|PKCS1');
   // Initialize encryption mode and specify the key keyPair. pubKey
-  await cipher.init(
-    cryptoFramework.CryptoMode.ENCRYPT_MODE,
-    keyPair.pubKey,
-    null,
-  );
+  await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, keyPair.pubKey, null);
   // Packaging requires encrypted plaintext
-  let plainTextBlob: cryptoFramework.DataBlob = {
-    data: new Uint8Array(buffer.from(message, 'utf-8').buffer),
-  };
+  let plainTextBlob: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(message, 'utf-8').buffer) };
   // Pass in plaintext and retrieve encrypted data
   let encryptBlob = await cipher.doFinal(plainTextBlob);
   // Return encrypted string
   return base64Helper.encodeToStringSync(encryptBlob.data);
 }
 ```
-
-参考链接
-
-使用RSA非对称密钥（PKCS1模式）加解密
+ 
+**参考链接**
+ 
+[使用RSA非对称密钥（PKCS1模式）加解密](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-asym-encrypt-decrypt-pkcs1)

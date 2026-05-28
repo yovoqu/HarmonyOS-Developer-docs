@@ -1,15 +1,18 @@
 # 使用Web组件的手势与应用交互
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-gesture
 
 在移动端或支持触控的Web应用中，用户通过触摸屏与页面交互，Web组件支持了常见的手势识别，例如长按、滑动、点击等，以支持丰富的用户交互体验。
 
 
-## ArkWeb手势识别
+##### ArkWeb手势识别
 
-ArkWeb接收ArkUI的[触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-development-guide-touch-screen#触摸事件)，并识别出手势（触摸事件的分发策略详见[交互基础机制说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-basic-principles)）。ArkWeb手势符合W3C标准：Touch Events、UI Events、Pointer Events。 常见事件识别说明：
+ArkWeb接收ArkUI的[触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-development-guide-touch-screen#触摸事件)，并识别出手势（触摸事件的分发策略详见[交互基础机制说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-basic-principles)）。ArkWeb手势符合W3C标准：Touch Events、UI Events、Pointer Events。
+
+常见事件识别说明：
+
 | 手势事件 | 触发条件 |
 | --- | --- |
 | Tap | 按下并抬起时触发，且间隔较短未触发长按。 |
@@ -24,14 +27,27 @@ ArkWeb接收ArkUI的[触摸事件](https://developer.huawei.com/consumer/cn/doc/
 | PinchEnd | 捏合结束时触发。 |
 
 
-## ArkWeb手势与ArkUI手势
 
-ArkUI提供了[手势绑定](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-binding)，Web组件有独立的手势识别，因此需要区分两种手势： ArkWeb手势：Web组件接收触摸事件自动生成的手势，这些手势作用于网页上。 ArkUI手势：Web组件作为通用组件会接收ArkUI手势，ArkUI手势并不直接作用于网页，而作用于Web组件上。 以缩放为例说明两种手势的区别： 在Web上使用双指捏合时，Web组件中的内容将会缩放。这是由于ArkWeb识别了Pinch事件并将其作用于网页上。 使用三指捏合，Web组件本身会进行缩放。这是因为ArkWeb接收到ArkUI识别出的[PinchGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-single-gesture#捏合手势pinchgesture)，执行绑定的回调函数。同时，ArkWeb支持scale方法，能够调整Web组件的缩放比例。
-> [!NOTE]
+
+##### ArkWeb手势与ArkUI手势
+
+ArkUI提供了[手势绑定](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-binding)，Web组件有独立的手势识别，因此需要区分两种手势：
+
+ - ArkWeb手势：Web组件接收触摸事件自动生成的手势，这些手势作用于网页上。
+ - ArkUI手势：Web组件作为通用组件会接收ArkUI手势，ArkUI手势并不直接作用于网页，而作用于Web组件上。
+
+
+以缩放为例说明两种手势的区别：
+
+ - 在Web上使用双指捏合时，Web组件中的内容将会缩放。这是由于ArkWeb识别了Pinch事件并将其作用于网页上。
+ - 使用三指捏合，Web组件本身会进行缩放。这是因为ArkWeb接收到ArkUI识别出的[PinchGesture](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-single-gesture#捏合手势pinchgesture)，执行绑定的回调函数。同时，ArkWeb支持scale方法，能够调整Web组件的缩放比例。
+
+
+> [!TIP]
 > 该示例仅用于说明ArkUI手势和ArkWeb手势的区别，不建议使用此方法进行Web组件的缩放。
 
 
-```text
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -70,23 +86,47 @@ struct Index {
 }
 ```
 
-![](assets/使用Web组件的手势与应用交互/file-20260514130838678-0.gif)
 
-## Web组件的手势拦截
-
-ArkUI手势 ArkWeb会消费部分ArkUI手势，例如[滑动手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-single-gesture#滑动手势pangesture)，若希望自行处理这些手势而非由ArkWeb消费，可以参考ArkUI的[手势冲突处理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-gesture-judge)。 ArkWeb手势 ArkWeb手势的生成需要Web组件接收触摸事件，有两种拦截方案： 完全禁止触摸事件发送给Web组件，详见[触摸测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-basic-principles#触摸测试)。 发送TouchCancel触摸事件给Web组件，CAPI接口介绍详见[OH_ArkUI_TouchRecognizer_CancelTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h#函数)，具体示例请参考[NdkGestureSetting](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NdkGestureSetting)。
-
-## 常见问题
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/THdbFkAvTVmP_4mieyOvoA/zh-cn_image_0000002581434288.gif?HW-CC-KV=V1&HW-CC-Date=20260528T014743Z&HW-CC-Expire=86400&HW-CC-Sign=5E95DA7231E3066E8C3B304050FC95A5A55F8C20BE39AE1AD036BF31780AC3D4)
 
 
-## 如何禁用缩放手势
+
+
+##### Web组件的手势拦截
+
+ - ArkUI手势
+
+  ArkWeb会消费部分ArkUI手势，例如[滑动手势](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-single-gesture#滑动手势pangesture)，若希望自行处理这些手势而非由ArkWeb消费，可以参考ArkUI的[手势冲突处理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-gesture-events-gesture-judge)，具体示例也可以参考[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-customize-judge#示例)。
+ - ArkWeb手势
+
+  ArkWeb手势的生成需要Web组件接收触摸事件，有两种拦截方案：
+
+1. 完全禁止触摸事件发送给Web组件，详见[触摸测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-interaction-basic-principles#触摸测试)。
+
+2. 发送TouchCancel触摸事件给Web组件，CAPI接口介绍详见[OH_ArkUI_TouchRecognizer_CancelTouch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h#函数)，具体示例请参考[NdkGestureSetting](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NdkGestureSetting)。
+
+
+
+
+##### 常见问题
+
+
+
+##### 如何禁用缩放手势
 
 Web组件提供了接口[zoomAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#zoomaccess)，控制是否可以缩放。网页上有user-scalable属性也会影响缩放。详见[使用Web组件管理网页缩放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-scale-zoom)。
 
-## Web组件中如何通过手势滑动返回上一个Web页面
 
-**解决措施** 通过重写onBackPress函数来自定义返回逻辑，使用WebviewController判断是否返回上一个Web页面。 **示例代码**
-```text
+
+##### Web组件中如何通过手势滑动返回上一个Web页面
+
+**解决措施**
+
+通过重写onBackPress函数来自定义返回逻辑，使用WebviewController判断是否返回上一个Web页面。
+
+**示例代码**
+
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -118,10 +158,12 @@ struct Index {
 ```
 
 
-## 为什么Web组件加载后网页无法交互？
 
-网页可能基于其他平台的User-Agent进行判断。为解决此问题，可以在Web组件中设置自定义User-Agent，例如：
-```text
+##### 为什么Web组件加载后网页无法交互？
+
+网页可能基于其他平台的User-Agent进行判断。为解决此问题，可以使用[setCustomUserAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#setcustomuseragent10)在Web组件中设置自定义User-Agent，例如：
+
+```ArkTS
 import { webview } from '@kit.ArkWeb';
 
 @Entry
@@ -141,4 +183,28 @@ struct Index {
     }
   }
 }
+```
+
+
+
+##### 抛滑过快导致页面白屏的处理方法
+
+Web组件扩展了viewport meta标签，新增了max-fling-speed-x和max-fling-speed-y两个属性，用于控制页面的抛滑速度，开发者可根据实际需求调整属性值。
+
+> [!NOTE]
+> max-fling-speed-x表示限制横向的抛滑速度，max-fling-speed-y表示限制纵向的抛滑速度，单位为vp/s。
+
+
+以下是HTML片段示例：
+
+```text
+<meta name="viewport" content="width=device-width, initial-scale=1, max-fling-speed-y=4500">
+```
+
+```text
+<meta name="viewport" content="width=device-width, initial-scale=1, max-fling-speed-x=4500">
+```
+
+```text
+<meta name="viewport" content="width=device-width, initial-scale=1, max-fling-speed-y=4500, max-fling-speed-x=4500">
 ```

@@ -1,184 +1,181 @@
 # healthService (运动健康联动服务)(Lite)
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite
 **支持设备：** lite_wearable
 
 本模块提供运动健康联动服务。
-
+ 
 **起始版本：** 6.1.1(24)
+  
 
+##### 导入模块
 
-## 导入模块
-**支持设备：** lite_wearable
-
-
-```java
+```text
 import healthService from '@hms.health.service';
 ```
+ 
+  
 
-
-## SampleReal
-**支持设备：** lite_wearable
+##### SampleReal
 
 SampleReal<K extends Record<string, [healthStore.HealthValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#healthvaluetype)> = Record<string, [healthStore.HealthValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#healthvaluetype)>>
-
+ 
 联动实时运动数据。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| dataType | [healthStore.DataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#datatype) | 否 | 否 | 实时融合数据类型。 |
+| dataType | healthStore.DataType | 否 | 否 | 实时融合数据类型。 |
 | time | number | 否 | 否 | 实时融合数据产生时间，Unix时间戳，单位：ms。 |
-| fields | Pick&lt;K, keyof K&gt; | 否 | 否 | 实时融合数据字段。 |
+| fields | Pick<K, keyof K> | 否 | 否 | 实时融合数据字段。 |
 | deviceUniqueId | string | 否 | 是 | 实时融合数据来源，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-## workout
-**支持设备：** lite_wearable
+##### workout
 
 提供运动健康实时数据。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
+ 
+  
 
-
-### ConfigType
-**支持设备：** lite_wearable
+##### ConfigType
 
 type ConfigType = number | string | boolean
-
+ 
 联动配置项类型。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
 | number | 表示值类型为数字，可取任意值。 |
 | string | 表示值类型为字符串，可取任意值。 |
 | boolean | 表示值类型为布尔类型，可取true或false，具体含义以实际使用场景为准。 |
+ 
+ 
+  
 
-
-### DeviceState
-**支持设备：** lite_wearable
+##### DeviceState
 
 联动设备状态。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 设备ID。 |
 | state | number | 否 | 否 | 设备状态。 |
 | deviceName | string | 否 | 是 | 设备名称，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-### Goal
-**支持设备：** lite_wearable
+##### Goal
 
 联动运动目标。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | number | 否 | 否 | 目标类型，取值参考：[TargetType](#targettype)。 |
+| type | number | 否 | 否 | 目标类型，取值参考：TargetType。 |
 | value | number | 否 | 否 | 目标值。 |
+ 
+ 
+  
 
-
-### LinkageType
-**支持设备：** lite_wearable
+##### LinkageType
 
 联动类型。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | COURSE_LINK | 0 | 课程联动。 |
 | ACTIVITY_LINK | 1 | 运动联动。 |
+ 
+ 
+  
 
-
-### StartCode
-**支持设备：** lite_wearable
+##### StartCode
 
 联动开启结果码。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | SUCCESS | 0 | 联动开启成功。 |
 | WORKOUT_WORKING | 1 | 联动已开始。 |
 | NO_SUPPORTED_DEVICE | 2 | 无可支持联动的设备。 |
 | DEVICE_BUSY | 3 | 联动设备忙碌。 |
+ 
+ 
+  
 
-
-### StartResult
-**支持设备：** lite_wearable
+##### StartResult
 
 联动开启结果。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| startCode | [StartCode](#startcode) | 否 | 否 | 联动开启结果码。 |
-| deviceState | [DeviceState](#devicestate)[] | 否 | 否 | 联动设备状态。 |
+| startCode | StartCode | 否 | 否 | 联动开启结果码。 |
+| deviceState | DeviceState[] | 否 | 否 | 联动设备状态。 |
+ 
+ 
+  
 
-
-### TargetType
-**支持设备：** lite_wearable
+##### TargetType
 
 联动目标类型。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NONE | 0 | 无目标。 |
@@ -186,57 +183,57 @@ type ConfigType = number | string | boolean
 | CALORIE | 2 | 卡路里。 |
 | TIME | 3 | 时长。 |
 | SKIPPING_TIMES | 4 | 跳绳次数。 |
+ 
+ 
+  
 
-
-### WorkoutConfig
-**支持设备：** lite_wearable
+##### WorkoutConfig
 
 联动配置项。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| linkageType | [LinkageType](#linkagetype) | 否 | 否 | 联动类型。 |
-| sportType | number | 否 | 否 | 运动类型，参见[锻炼记录类型常量](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisedequencehelper-lite)子数据类型id。 |
-| activityGoals | [Goal](#goal)[] | 否 | 是 | 联动运动目标，若未填写，默认为空。 |
-| extensionConfig | Record&lt;string, [ConfigType](#configtype)&gt; | 否 | 是 | 扩展配置项，若未填写，默认为空。 |
+| linkageType | LinkageType | 否 | 否 | 联动类型。 |
+| sportType | number | 否 | 否 | 运动类型，参见锻炼记录类型常量子数据类型id。 |
+| activityGoals | Goal[] | 否 | 是 | 联动运动目标，若未填写，默认为空。 |
+| extensionConfig | Record<string, ConfigType> | 否 | 是 | 扩展配置项，若未填写，默认为空。 |
+ 
+ 
+  
 
-
-### DynamicLibResult
-**支持设备：** lite_wearable
+##### DynamicLibResult
 
 加载算法库操作结果类型。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| operationCode | [DynamicLibErrorCode](#dynamicliberrorcode) | 否 | 否 | 加载算法库操作结果码。 |
+| operationCode | DynamicLibErrorCode | 否 | 否 | 加载算法库操作结果码。 |
+ 
+ 
+  
 
-
-### DynamicLibErrorCode
-**支持设备：** lite_wearable
+##### DynamicLibErrorCode
 
 加载或卸载算法库文件操作结果码。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
-
+  
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | OPERATION_SUCCESS | 0 | 操作成功。 |
@@ -244,45 +241,43 @@ type ConfigType = number | string | boolean
 | SERVICE_BUSY | 2 | 算法库文件已被加载。 |
 | OPERATION_FAILED | 3 | 操作失败。 |
 | SYSTEM_INTERNAL_ERROR | 4 | 未知错误。 |
+ 
+ 
+  
 
-
-### workout.config
-**支持设备：** lite_wearable
+##### workout.config
 
 config(workoutConfig: WorkoutConfig): void
-
+ 
 运动联动配置。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| workoutConfig | [WorkoutConfig](#workoutconfig) | 是 | 联动配置项。 |
-
-
+| workoutConfig | WorkoutConfig | 是 | 联动配置项。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Illegal command. Called when workout not in stoped or idle state. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | System internal error. |
-
-
+| 201 | Permission verification failed. |
+| 1009104003 | Illegal command. Called when workout not in stoped or idle state. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 import healthStore from '@hms.health.store';
 
@@ -296,52 +291,49 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
-
-### workout.start
-**支持设备：** lite_wearable
+##### workout.start
 
 start(): StartResult
-
+ 
 开启运动联动。
-
-
+ 
 > [!NOTE]
-> 该接口调用前，需先使用[config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite#workoutconfig)方法进行联动配置。
+> 该接口调用前，需先使用 config 方法进行联动配置。
 
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **返回值：**
-
-
+  
 | 类型 | 说明 |
 | --- | --- |
-| [StartResult](#startresult) | 返回联动开启结果。 |
-
-
+| StartResult | 返回联动开启结果。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Sport service busy. Workout is already started by other application. |
-| [1009104002](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104002-不支持运动类型) | Unsupported sport type. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Called when workout in sporting, paused or stoped state. |
-| [1009104004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104004-权限校验异常) | Permission verification error. Application has no permission. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | System internal error. |
-
-
+| 201 | Permission verification failed. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104002 | Unsupported sport type. |
+| 1009104003 | Illegal command. Called when workout in sporting, paused or stopped state. |
+| 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 import healthStore from '@hms.health.store';
 
@@ -351,42 +343,40 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
-
-### workout.pause
-**支持设备：** lite_wearable
+##### workout.pause
 
 pause(): void
-
+ 
 暂停运动联动。
-
-
+ 
 > [!NOTE]
-> 该接口调用前，需先使用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite#workoutstart)方法确保运动联动已经开启。
+> 该接口调用前，需先使用 start 方法确保运动联动已经开启。
 
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Service busy. Workout has already been started by another app. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Illegal command. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | internal System error. |
-
-
+| 201 | Permission verification failed. |
+| 1009104001 | Service busy. Workout has already been started by another app. |
+| 1009104003 | Illegal command. |
+| 1009104999 | internal System error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -395,42 +385,40 @@ try {
   //
 }
 ```
+ 
+  
 
-
-### workout.resume
-**支持设备：** lite_wearable
+##### workout.resume
 
 resume(): void
-
+ 
 恢复运动联动。
-
-
+ 
 > [!NOTE]
-> 该接口调用前，需先使用[pause](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite#workoutpause)方法暂停运动联动。
+> 该接口调用前，需先使用 pause 方法暂停运动联动。
 
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Service busy. Workout has already been started by another app. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | The API is called when the workout is in ready, in-progress, or stopped state. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | Internal system error. |
-
-
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104003 | Illegal command. Called when workout in ready, sporting or stopped state. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -439,41 +427,39 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
-
-### workout.stop
-**支持设备：** lite_wearable
+##### workout.stop
 
 stop(): void
-
+ 
 停止联动。
-
-
+ 
 > [!NOTE]
-> 该接口调用前，需先使用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite#workoutstart)方法确保联动已经开启，上述接口调用后，当前运动联动被停止，其他运动可开启联动。
+> 该接口调用前，需先使用 start 方法确保联动已经开启，上述接口调用后，当前运动联动被停止，其他运动可开启联动。
 
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Illegal command. Called when workout is not started. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | System internal error. |
-
-
+| 201 | Permission verification failed. |
+| 1009104003 | Illegal command. Called when workout is not started. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -482,50 +468,48 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
-
-### workout.onData
-**支持设备：** lite_wearable
+##### workout.onData
 
 onData(dataType: undefined, listener: Callback<SampleReal[]>): void
-
+ 
 注册所有联动运动数据监听，使用callback异步回调。
-
-
+ 
 > [!NOTE]
-> 该接口调用前，需先使用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite#workoutstart)方法确保联动已经开启。
+> 该接口调用前，需先使用 start 方法确保联动已经开启。
 
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dataType | undefined | 是 | 监听所有联动运动数据类型。 |
-| listener | Callback&lt;[SampleReal](#samplereal)[]&gt; | 是 | 回调函数，返回联动运动数据。 |
-
-
+| listener | Callback<SampleReal[]> | 是 | 回调函数，返回联动运动数据。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Sports service busy. Workout has already been started by another app. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | Internal system error. |
-
-
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104003 | Illegal command. Called when workout is not started. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -537,50 +521,47 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
-
-### workout.offData
-**支持设备：** lite_wearable
+##### workout.offData
 
 offData(dataType: undefined, listener?: Callback<SampleReal[]>): void
-
+ 
 取消所有联动运动数据的监听，使用callback异步回调。
-
-
+ 
 > [!NOTE]
-> 该接口调用前，需先使用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite#workoutstart)方法确保联动已经开启。
+> 该接口调用前，需先使用 start 方法确保联动已经开启。
 
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dataType | undefined | 是 | 监听所有联动运动数据类型。 |
-| listener | Callback&lt;[SampleReal](#samplereal)[]&gt; | 否 | 回调函数，返回联动运动数据。 |
-
-
+| listener | Callback<SampleReal[]> | 否 | 回调函数，返回联动运动数据，不传值代表取消所有监听。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Service busy. Workout has already been started by another app. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | Internal system error. 2. Parameter verification failed. |
-
-
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -592,49 +573,46 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
-
-### workout.sendData
-**支持设备：** lite_wearable
+##### workout.sendData
 
 sendData(sampleReal: SampleReal[]): void
-
+ 
 下发融合运动数据到联动设备。
-
-
+ 
 > [!NOTE]
-> 该接口调用前，需先使用[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite#workoutstart)方法确保联动已经开启。
+> 该接口调用前，需先使用 start 方法确保联动已经开启。
 
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sampleReal | [SampleReal](#samplereal)[] | 是 | 融合运动数据。 |
-
-
+| sampleReal | SampleReal[] | 是 | 融合运动数据。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Service busy. Workout has already been started by another app. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | Internal system error. |
-
-
+| 201 | Permission verification failed. |
+| 1009104001 | Service busy. Workout has already been started by another app. |
+| 1009104999 | Internal system error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 import healthStore from '@hms.health.store';
 
@@ -643,56 +621,53 @@ try {
     dataType: { id: healthStore.healthDataTypes.WORKOUT_REALTIME.id },
     time: 1695740400000, // 2023-09-26 23:00:00,
     fields: {
-      hr: 90
+      forehandStroke: 45
     }
   };
   healthService.workout.sendData([sampleReal]);
 } catch (err) {
-  // 异常处理流程
+    // 异常处理流程
 }
 ```
+ 
+  
 
+##### workout.load
 
-### workout.load
-**支持设备：** lite_wearable
-
-load(path: String): void
-
+load(path: string): void
+ 
 加载算法库文件，加载后可使用算法库算法。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 算法库文件在代码工程中存放的路径，例如：common/dynamic_example.so。 |
-
-
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. Require workout management permission.Refer to the development documentation for permission request. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Sport service busy. Workout is already started by other application. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Illegal command. Called when workout is not started. |
-| [1009104004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104004-权限校验异常) | Permission verification error. |
-| [1009104005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104005-动态库加载异常) | Failed to load the dynamic library. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | Internal system error. |
-
-
+| 201 | Permission verification failed. Require workout management permission.Refer to the development documentation for permission request. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104003 | Illegal command. Called when workout is not started. |
+| 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
+| 1009104005 | Failed to load the dynamic library. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -702,49 +677,46 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
+##### workout.load
 
-### workout.load
-**支持设备：** lite_wearable
-
-load(path: String, callback: Callback<[DynamicLibResult](#dynamiclibresult)>): void
-
+load(path: string, callback: Callback<[DynamicLibResult](#dynamiclibresult)>): void
+ 
 加载算法库文件，加载后可使用算法库算法，使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 算法库文件在代码工程中存放的路径，例如：common/dynamic_example.so。 |
-| callback | Callback&lt;[DynamicLibResult](#dynamiclibresult)&gt; | 是 | 回调函数，返回算法库加载结果。 |
-
-
+| callback | Callback&lt;DynamicLibResult&gt; | 是 | 回调函数，返回算法库加载结果。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Sport service busy. Workout is already started by other application. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Illegal command. Called when workout is not started. |
-| [1009104004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104004-权限校验异常) | Permission verification error. Application has no permission, such as Motion Permission. |
-| [1009104005](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104005-动态库加载异常) | Failed to load the dynamic library. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | System internal error. |
-
-
+| 201 | Permission verification failed. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104003 | Illegal command. Called when workout is not started. |
+| 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
+| 1009104005 | Failed to load the dynamic library. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -752,67 +724,64 @@ try {
   healthService.workout.load(path, (result) => {
     switch (result.operationCode) {
       case healthService.workout.DynamicLibErrorCode.OPERATION_SUCCESS:
-      // 加载成功处理流程
-      break;
+          // 加载成功处理流程
+          break;
       case healthService.workout.DynamicLibErrorCode.FILE_NOT_FOUND:
-      // so文件未找到处理流程
-      break;
+          // so文件未找到处理流程
+          break;
       case healthService.workout.DynamicLibErrorCode.SERVICE_BUSY:
-      // so文件已加载处理流程
-      break;
+          // so文件已加载处理流程
+          break;
       case healthService.workout.DynamicLibErrorCode.OPERATION_FAILED:
-      // 操作失败处理流程
-      break;
+          // 操作失败处理流程
+          break;
       default :
-      // 未知错误处理流程
+          // 未知错误处理流程
     }
   });
 } catch (err) {
   // 异常处理流程
 }
 ```
+ 
+  
 
+##### workout.unload
 
-### workout.unload
-**支持设备：** lite_wearable
-
-unload(path: String): void
-
+unload(path: string): void
+ 
 卸载算法库文件，卸载后无法使用算法库算法。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 算法库文件在代码工程中存放的路径，例如：common/dynamic_example.so。 |
-
-
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Service busy. Workout has already been started by another app. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Invalid command. The API is called when workout is not started. |
-| [1009104004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104004-权限校验异常) | Permission verification error. |
-| [1009104006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104006-动态库卸载异常) | Failed to unload the dynamic library. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | Internal system error. |
-
-
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104003 | Illegal command. Called when workout is not started. |
+| 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
+| 1009104006 | Failed to unload the dynamic library. |
+| 1009104999 | Internal system error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -822,49 +791,46 @@ try {
   // 异常处理流程
 }
 ```
+ 
+  
 
+##### workout.unload
 
-### workout.unload
-**支持设备：** lite_wearable
-
-unload(path: String, callback: Callback<[DynamicLibResult](#dynamiclibresult)>): void
-
+unload(path: string, callback: Callback<[DynamicLibResult](#dynamiclibresult)>): void
+ 
 卸载算法库文件，卸载后无法使用算法库算法，使用callback异步回调。
-
+ 
 **系统能力：** SystemCapability.Health.HealthService.Lite
-
+ 
 **起始版本：** 6.1.1(24)
-
+ 
 **模型约束：** 此接口仅可在FA模型下使用。
-
+ 
 **参数：**
-
-
+  
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | string | 是 | 算法库文件在代码工程中存放的路径，例如：common/dynamic_example.so。 |
-| callback | Callback&lt;[DynamicLibResult](#dynamiclibresult)&gt; | 是 | 回调函数，返回算法库卸载结果。 |
-
-
+| callback | Callback&lt;DynamicLibResult&gt; | 是 | 回调函数，返回算法库卸载结果。 |
+ 
+ 
 **错误码：**
-
+ 
 以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)。
-
-
+  
 | 错误码ID | 错误信息 |
 | --- | --- |
-| [201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section201-鉴权失败) | Permission verification failed. |
-| [1009104001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104001-联动已开启) | Sport service busy. Workout is already started by other application. |
-| [1009104003](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104003-非法指令) | Illegal command. Called when workout is not started. |
-| [1009104004](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104004-权限校验异常) | Permission verification error. Application has no permission, such as Motion Permission. |
-| [1009104006](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104006-动态库卸载异常) | Failed to unload the dynamic library. |
-| [1009104999](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice#section1009104999-通用错误码) | System internal error. |
-
-
+| 201 | Permission verification failed. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104003 | Illegal command. Called when workout is not started. |
+| 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
+| 1009104006 | Failed to unload the dynamic library. |
+| 1009104999 | System internal error. |
+ 
+ 
 **示例：**
-
-
-```java
+ 
+```text
 import healthService from '@hms.health.service';
 
 try {
@@ -872,16 +838,16 @@ try {
   healthService.workout.unload(path, (result) => {
     switch (result.operationCode) {
       case healthService.workout.DynamicLibErrorCode.OPERATION_SUCCESS:
-      // 加载成功处理流程
-      break;
+        // 加载成功处理流程
+        break;
       case healthService.workout.DynamicLibErrorCode.FILE_NOT_FOUND:
-      // so文件未找到处理流程
-      break;
+        // so文件未找到处理流程
+        break;
       case healthService.workout.DynamicLibErrorCode.OPERATION_FAILED:
-      // 操作失败处理流程
-      break;
+        // 操作失败处理流程
+        break;
       default :
-      // 未知错误处理流程
+        // 未知错误处理流程
     }
   });
 } catch (err) {

@@ -6,5 +6,5 @@
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| API废弃版本变更 | 类名：HttpRequest； API声明：on(type: "headerReceive", callback: AsyncCallback<Object>): void; 差异内容：8 | 类名：HttpRequest； API声明：on(type: "headerReceive", callback: AsyncCallback<Object>): void; 差异内容：8 dynamic | api/@ohos.net.http.d.ts |
-| API废弃版本变更 | 类名：HttpRequest； API声明：off(type: "headerReceive", callback?: AsyncCallback<Object>): void; 差异内容：8 | 类名：HttpRequest； API声明：off(type: "headerReceive", callback?: AsyncCallback<Object>): void; 差异内容：8 dynamic | api/@ohos.net.http.d.ts |
+| API废弃版本变更 | 类名：HttpRequest； API声明：on(type: "headerReceive", callback: AsyncCallback&lt;Object&gt;): void; 差异内容：8 | 类名：HttpRequest； API声明：on(type: "headerReceive", callback: AsyncCallback&lt;Object&gt;): void; 差异内容：8 dynamic | api/@ohos.net.http.d.ts |
+| API废弃版本变更 | 类名：HttpRequest； API声明：off(type: "headerReceive", callback?: AsyncCallback&lt;Object&gt;): void; 差异内容：8 | 类名：HttpRequest； API声明：off(type: "headerReceive", callback?: AsyncCallback&lt;Object&gt;): void; 差异内容：8 dynamic | api/@ohos.net.http.d.ts |

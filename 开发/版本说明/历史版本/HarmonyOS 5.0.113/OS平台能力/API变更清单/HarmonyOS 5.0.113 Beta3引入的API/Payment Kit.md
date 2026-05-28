@@ -7,7 +7,7 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace ecnyPaymentService 差异内容： declare namespace ecnyPaymentService | api/@hms.core.payment.ecnyPaymentService.d.ts |
-| 新增API | NA | 类名：ecnyPaymentService； API声明：function requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise<EcnyPayResult>; 差异内容：function requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise<EcnyPayResult>; | api/@hms.core.payment.ecnyPaymentService.d.ts |
+| 新增API | NA | 类名：ecnyPaymentService； API声明：function requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise&lt;EcnyPayResult&gt;; 差异内容：function requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise&lt;EcnyPayResult&gt;; | api/@hms.core.payment.ecnyPaymentService.d.ts |
 | 新增API | NA | 类名：ecnyPaymentService； API声明： interface EcnyOrderInfo 差异内容： interface EcnyOrderInfo | api/@hms.core.payment.ecnyPaymentService.d.ts |
 | 新增API | NA | 类名：EcnyOrderInfo； API声明：merchantAppId: string; 差异内容：merchantAppId: string; | api/@hms.core.payment.ecnyPaymentService.d.ts |
 | 新增API | NA | 类名：EcnyOrderInfo； API声明：merchantNo: string; 差异内容：merchantNo: string; | api/@hms.core.payment.ecnyPaymentService.d.ts |

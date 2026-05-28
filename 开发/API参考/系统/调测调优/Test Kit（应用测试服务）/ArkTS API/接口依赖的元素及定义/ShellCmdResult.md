@@ -3,34 +3,30 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-shellcmdresult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供Shell命令执行结果的能力。
-
-
+ 
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-> 本模块接口仅可在[单元测试框架](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guidelines)中使用。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在 单元测试框架 中使用。
 
+  
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 导入模块
 
-
-```ts
+```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 ```
+ 
+  
 
-
-## 使用说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 使用说明
 
 通过abilityDelegator中的[executeShellCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegator#executeshellcommand)方法来获取。
-
+ 
 **示例：**
-
-
-```ts
+ 
+```json
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -46,16 +42,15 @@ abilityDelegator.executeShellCommand(cmd, (error: BusinessError, data) => {
   }
 });
 ```
+ 
+  
 
-
-## ShellCmdResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### ShellCmdResult
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
+ 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
-
-
+  
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | stdResult | string | 否 | 否 | Shell命令的标准输出内容。 |

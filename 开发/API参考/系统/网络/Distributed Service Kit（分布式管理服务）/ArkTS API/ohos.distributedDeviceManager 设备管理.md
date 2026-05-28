@@ -3,35 +3,33 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供分布式设备管理能力。
 
 应用可调用接口实现如下功能：
 
-
-- 注册和解除注册设备上下线变化监听。
-- 发现周边不可信设备。
-- 认证和取消认证设备。
-- 查询可信设备列表。
-- 查询本地设备信息，包括设备名称，设备类型和设备标识等。
+ - 注册和解除注册设备上下线变化监听。
+ - 发现周边不可信设备。
+ - 认证和取消认证设备。
+ - 查询可信设备列表。
+ - 查询本地设备信息，包括设备名称，设备类型和设备标识等。
 
 
 > [!NOTE]
 > 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 ```
 
 
-## distributedDeviceManager.createDeviceManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### distributedDeviceManager.createDeviceManager
 
 createDeviceManager(bundleName: string): DeviceManager
 
@@ -41,7 +39,6 @@ createDeviceManager(bundleName: string): DeviceManager
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | bundleName | string | 是 | 指示应用程序的Bundle名称。长度范围1~255字符。 |
@@ -49,16 +46,14 @@ createDeviceManager(bundleName: string): DeviceManager
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DeviceManager](#devicemanager) | 返回设备管理器对象实例。 |
+| DeviceManager | 返回设备管理器对象实例。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -67,26 +62,21 @@ createDeviceManager(bundleName: string): DeviceManager
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
-} catch (err) {
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
+} catch(err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'createDeviceManager errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('createDeviceManager errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-## distributedDeviceManager.releaseDeviceManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### distributedDeviceManager.releaseDeviceManager
 
 releaseDeviceManager(deviceManager: DeviceManager): void
 
@@ -96,16 +86,14 @@ releaseDeviceManager(deviceManager: DeviceManager): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| deviceManager | [DeviceManager](#devicemanager) | 是 | 设备管理器对象实例。 |
+| deviceManager | DeviceManager | 是 | 设备管理器对象实例。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -115,48 +103,42 @@ releaseDeviceManager(deviceManager: DeviceManager): void
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   distributedDeviceManager.releaseDeviceManager(dmInstance);
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'release device manager errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('release device manager errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-## DeviceBasicInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### DeviceBasicInfo
 
 分布式设备基本信息。
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.DistributedHardware.DeviceManager
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 设备标识符。实际值为udid-hash与appid和盐值基于sha256方式进行混淆后的值。 |
 | deviceName | string | 否 | 否 | 设备名称。 |
-| deviceType | string | 否 | 否 | [设备类型](#getdevicetype)。 |
+| deviceType | string | 否 | 否 | 设备类型。 |
 | networkId | string | 否 | 是 | 设备网络标识。 |
 
 
-## DeviceStateChange
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceStateChange
 
 表示设备状态。
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.DistributedHardware.DeviceManager
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -165,18 +147,19 @@ try {
 | UNAVAILABLE | 2 | 设备物理下线，此时状态未知。 |
 
 
-## DeviceManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DeviceManager
 
 设备管理实例，用于获取可信设备和本地设备的相关信息。在调用DeviceManager的方法前，需要先通过createDeviceManager构建一个DeviceManager实例dmInstance。
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
 
-### getAvailableDeviceListSync
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAvailableDeviceListSync(): Array<DeviceBasicInfo>
+##### getAvailableDeviceListSync
+
+getAvailableDeviceListSync(): Array&lt;DeviceBasicInfo&gt;
 
 同步获取所有可信设备列表。
 
@@ -186,16 +169,14 @@ getAvailableDeviceListSync(): Array<DeviceBasicInfo>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;[DeviceBasicInfo](#devicebasicinfo)&gt; | 返回可信设备列表。 |
+| Array&lt;DeviceBasicInfo&gt; | 返回可信设备列表。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -205,30 +186,24 @@ getAvailableDeviceListSync(): Array<DeviceBasicInfo>
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
-  let deviceInfoList: Array<distributedDeviceManager.DeviceBasicInfo> =
-    dmInstance.getAvailableDeviceListSync();
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
+  let deviceInfoList: Array<distributedDeviceManager.DeviceBasicInfo> = dmInstance.getAvailableDeviceListSync();
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'getAvailableDeviceListSync errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('getAvailableDeviceListSync errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### getAvailableDeviceList
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAvailableDeviceList(callback:AsyncCallback<Array<DeviceBasicInfo>>): void
+##### getAvailableDeviceList
+
+getAvailableDeviceList(callback:AsyncCallback<Array&lt;DeviceBasicInfo&gt;>): void
 
 获取所有可信设备列表。使用callback异步回调。
 
@@ -238,16 +213,14 @@ getAvailableDeviceList(callback:AsyncCallback<Array<DeviceBasicInfo>>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;Array&lt;[DeviceBasicInfo](#devicebasicinfo)&gt;&gt; | 是 | 回调函数。当获取可信设备列表成功，err为undefined，data为获取到的Array&lt;DeviceBasicInfo&gt;；否则为错误对象。 |
+| callback | AsyncCallback<Array&lt;DeviceBasicInfo&gt;> | 是 | 回调函数。当获取可信设备列表成功，err为undefined，data为获取到的Array&lt;DeviceBasicInfo&gt;；否则为错误对象。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -257,45 +230,30 @@ getAvailableDeviceList(callback:AsyncCallback<Array<DeviceBasicInfo>>): void
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
-  dmInstance.getAvailableDeviceList(
-    (
-      err: BusinessError,
-      data: Array<distributedDeviceManager.DeviceBasicInfo>,
-    ) => {
-      if (err) {
-        console.error(
-          'getAvailableDeviceList errCode:' +
-            err.code +
-            ',errMessage:' +
-            err.message,
-        );
-        return;
-      }
-      console.info('get available device info: ' + JSON.stringify(data));
-    },
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
+  dmInstance.getAvailableDeviceList((err: BusinessError, data: Array<distributedDeviceManager.DeviceBasicInfo>) => {
+    if (err) {
+      console.error('getAvailableDeviceList errCode:' + err.code + ',errMessage:' + err.message);
+      return;
+    }
+    console.info('get available device info: ' + JSON.stringify(data));
+  });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'getAvailableDeviceList errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('getAvailableDeviceList errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### getAvailableDeviceList
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>
+##### getAvailableDeviceList
+
+getAvailableDeviceList(): Promise<Array&lt;DeviceBasicInfo&gt;>
 
 获取所有可信设备列表。使用Promise异步回调。
 
@@ -305,16 +263,14 @@ getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Array&lt;[DeviceBasicInfo](#devicebasicinfo)&gt;&gt; | Promise对象，返回分布式设备基本信息列表。 |
+| Promise<Array&lt;DeviceBasicInfo&gt;> | Promise对象，返回分布式设备基本信息列表。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -324,32 +280,21 @@ getAvailableDeviceList(): Promise<Array<DeviceBasicInfo>>
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let dmInstance = distributedDeviceManager.createDeviceManager(
-  'ohos.samples.jsHelloWorld',
-);
-dmInstance
-  .getAvailableDeviceList()
-  .then((data: Array<distributedDeviceManager.DeviceBasicInfo>) => {
-    console.info('get available device info: ' + JSON.stringify(data));
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      'getAvailableDeviceList errCode:' +
-        err.code +
-        ',errMessage:' +
-        err.message,
-    );
-  });
+let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
+dmInstance.getAvailableDeviceList().then((data: Array<distributedDeviceManager.DeviceBasicInfo>) => {
+  console.info('get available device info: ' + JSON.stringify(data));
+  }).catch((err: BusinessError) => {
+    console.error('getAvailableDeviceList errCode:' + err.code + ',errMessage:' + err.message);
+});
 ```
 
 
-### getLocalDeviceNetworkId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLocalDeviceNetworkId
 
 getLocalDeviceNetworkId(): string
 
@@ -361,7 +306,6 @@ getLocalDeviceNetworkId(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回本地设备网络标识。 |
@@ -371,7 +315,6 @@ getLocalDeviceNetworkId(): string
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
@@ -380,28 +323,23 @@ getLocalDeviceNetworkId(): string
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   let deviceNetworkId: string = dmInstance.getLocalDeviceNetworkId();
   console.info('local device networkId: ' + JSON.stringify(deviceNetworkId));
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'getLocalDeviceNetworkId errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('getLocalDeviceNetworkId errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### getLocalDeviceName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLocalDeviceName
 
 getLocalDeviceName(): string
 
@@ -413,7 +351,6 @@ getLocalDeviceName(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回本地设备名称。 |
@@ -423,7 +360,6 @@ getLocalDeviceName(): string
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
@@ -432,28 +368,23 @@ getLocalDeviceName(): string
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   let deviceName: string = dmInstance.getLocalDeviceName();
   console.info('local device name: ' + JSON.stringify(deviceName));
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'getLocalDeviceName errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('getLocalDeviceName errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### getLocalDeviceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLocalDeviceType
 
 getLocalDeviceType(): number
 
@@ -465,16 +396,14 @@ getLocalDeviceType(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回本地设备类型。目前仅支持以下设备类型：          -0: UNKNOWN。          -14: PHONE。          -17: PAD。          -156: TV。          -131: CAR。          -109: WATCH。          -8: WiFiCamera。          -2562: SMART_DISPLAY。          -2607: 2IN1。 |
+| number | 返回本地设备类型。目前仅支持以下设备类型： -0: UNKNOWN。 -14: PHONE。 -17: PAD。 -156: TV。 -131: CAR。 -109: WATCH。 -8: WiFiCamera。 -2562: SMART_DISPLAY。 -2607: 2IN1。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -484,28 +413,23 @@ getLocalDeviceType(): number
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   let deviceType: number = dmInstance.getLocalDeviceType();
   console.info('local device type: ' + JSON.stringify(deviceType));
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'getLocalDeviceType errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('getLocalDeviceType errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### getLocalDeviceId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getLocalDeviceId
 
 getLocalDeviceId(): string
 
@@ -517,7 +441,6 @@ getLocalDeviceId(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回本地设备id。 |
@@ -527,7 +450,6 @@ getLocalDeviceId(): string
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
@@ -536,28 +458,23 @@ getLocalDeviceId(): string
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   let deviceId: string = dmInstance.getLocalDeviceId();
   console.info('local device id: ' + JSON.stringify(deviceId));
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'getLocalDeviceId errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('getLocalDeviceId errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### getDeviceName
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getDeviceName
 
 getDeviceName(networkId: string): string
 
@@ -569,14 +486,12 @@ getDeviceName(networkId: string): string
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | networkId | string | 是 | 设备的网络标识。长度范围1~255字符。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -587,7 +502,6 @@ getDeviceName(networkId: string): string
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
@@ -597,17 +511,14 @@ getDeviceName(networkId: string): string
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   // 设备网络标识，可以从可信设备列表中获取
   let networkId = 'xxxxxxx';
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   let deviceName: string = dmInstance.getDeviceName(networkId);
   console.info('device name: ' + JSON.stringify(deviceName));
 } catch (err) {
@@ -617,8 +528,8 @@ try {
 ```
 
 
-### getDeviceType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### getDeviceType
 
 getDeviceType(networkId: string): number
 
@@ -630,24 +541,21 @@ getDeviceType(networkId: string): number
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| networkId | string | 是 | 设备的网��标识。长度范围1~255字符。 |
+| networkId | string | 是 | 设备的网络标识。长度范围1~255字符。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回指定设备类型。目前仅支持以下设备类型：          -0: UNKNOWN。          -14: PHONE。          -17: PAD。          -156: TV。          -131: CAR。          -109: WATCH。          -8: WiFiCamera。          -2562: SMART_DISPLAY。          -2607: 2IN1。 |
+| number | 返回指定设备类型。目前仅支持以下设备类型： -0: UNKNOWN。 -14: PHONE。 -17: PAD。 -156: TV。 -131: CAR。 -109: WATCH。 -8: WiFiCamera。 -2562: SMART_DISPLAY。 -2607: 2IN1。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -658,17 +566,14 @@ getDeviceType(networkId: string): number
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   // 设备网络标识，可以从可信设备列表中获取
   let networkId = 'xxxxxxx';
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   let deviceType: number = dmInstance.getDeviceType(networkId);
   console.info('device type: ' + JSON.stringify(deviceType));
 } catch (err) {
@@ -678,8 +583,8 @@ try {
 ```
 
 
-### startDiscovering
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### startDiscovering
 
 startDiscovering(discoverParam: {[key: string]: Object;} , filterOptions?: {[key: string]: Object;} ): void
 
@@ -691,17 +596,15 @@ startDiscovering(discoverParam: {[key: string]: Object;} , filterOptions?: {[key
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| discoverParam | {[key: string]: Object;} | 是 | 发现标识。 标识发现的目标类型。          discoverTargetType: 发现目标默认为设备，值为1。 |
-| filterOptions | {[key: string]: Object;} | 否 | 发现设备过滤信息。可选，默认为undefined，发现未上线设备。会携带以下key值：          availableStatus(0-1)：仅发现设备可信，值为0表示设备不可信。          -0：设备离线，客户端需要通过调用bindTarget绑定设备。          -1：设备已在线，客户端可以进行连接。          discoverDistance(0-100)：发现距离本地一定距离内的设备，单位为cm。wifi场景不传该参数。          authenticationStatus(0-1)：根据不同的认证状态发现设备：          -0：设备未认证。          -1：设备已认证。          authorizationType(0-2)：根据不同的授权类型发现设备：          -0：根据临时协商的会话密钥认证的设备。          -1：基于同账号密钥进行身份验证的设备。          -2：基于不同账号凭据密钥认证的设备。 |
+| discoverParam | {[key: string]: Object;} | 是 | 发现标识。 标识发现的目标类型。 discoverTargetType: 发现目标默认为设备，值为1。 |
+| filterOptions | {[key: string]: Object;} | 否 | 发现设备过滤信息。可选，默认为undefined，发现未上线设备。会携带以下key值： availableStatus(0-1)：仅发现设备可信，值为0表示设备不可信。 -0：设备离线，客户端需要通过调用bindTarget绑定设备。 -1：设备已在线，客户端可以进行连接。 discoverDistance(0-100)：发现距离本地一定距离内的设备，单位为cm。wifi场景不传该参数。 authenticationStatus(0-1)：根据不同的认证状态发现设备： -0：设备未认证。 -1：设备已认证。 authorizationType(0-2)：根据不同的授权类型发现设备： -0：根据临时协商的会话密钥认证的设备。 -1：基于同账号密钥进行身份验证的设备。 -2：基于不同账号凭据密钥认证的设备。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -713,8 +616,7 @@ startDiscovering(discoverParam: {[key: string]: Object;} , filterOptions?: {[key
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -730,28 +632,24 @@ interface FilterOptions {
 }
 
 let discoverParam: Record<string, number> = {
-  discoverTargetType: 1,
+  'discoverTargetType': 1
 };
 let filterOptions: Record<string, number> = {
-  availableStatus: 0,
+  'availableStatus': 0
 };
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.startDiscovering(discoverParam, filterOptions); // 当有设备发现时，通过discoverSuccess回调通知给应用程序
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'startDiscovering errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('startDiscovering errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### stopDiscovering
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### stopDiscovering
 
 stopDiscovering(): void
 
@@ -765,7 +663,6 @@ stopDiscovering(): void
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
@@ -774,27 +671,22 @@ stopDiscovering(): void
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.stopDiscovering();
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'stopDiscovering errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('stopDiscovering errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### bindTarget
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### bindTarget
 
 bindTarget(deviceId: string, bindParam: {[key: string]: Object;} , callback: AsyncCallback<{deviceId: string;}>): void
 
@@ -806,18 +698,16 @@ bindTarget(deviceId: string, bindParam: {[key: string]: Object;} , callback: Asy
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 设备标识。长度范围1~255字符。 |
-| bindParam | {[key: string]: Object;} | 是 | 认证参数。由开发者自行决定传入的键值对。默认会携带以下key值：          bindType 此值是绑定的类型，必填。          -1：PIN码。          targetPkgName 绑定目标的包名。          appName 尝试绑定目标的应用程序名称。          appOperation 应用程序要绑定目标的原因。          customDescription 操作的详细说明。 |
-| callback | AsyncCallback&lt;{deviceId: string; }&gt; | 是 | 认证结果回调。 |
+| bindParam | {[key: string]: Object;} | 是 | 认证参数。由开发者自行决定传入的键值对。默认会携带以下key值： bindType 此值是绑定的类型，必填。 -1：PIN码。 targetPkgName 绑定目标的包名。 appName 尝试绑定目标的应用程序名称。 appOperation 应用程序要绑定目标的原因。 customDescription 操作的详细说明。 |
+| callback | AsyncCallback<{deviceId: string; }> | 是 | 认证结果回调。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -829,8 +719,7 @@ bindTarget(deviceId: string, bindParam: {[key: string]: Object;} , callback: Asy
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -841,30 +730,22 @@ class Data {
 // 认证的设备信息，可以从发现的结果中获取
 let deviceId = 'XXXXXXXX';
 let bindParam: Record<string, string | number> = {
-  bindType: 1, // 认证类型： 1 - 无账号PIN码认证
-  targetPkgName: 'xxxx',
-  appName: 'xxxx',
-  appOperation: 'xxxx',
-  customDescription: 'xxxx',
+  'bindType': 1, // 认证类型： 1 - 无账号PIN码认证
+  'targetPkgName': 'xxxx',
+  'appName': 'xxxx',
+  'appOperation': 'xxxx',
+  'customDescription': 'xxxx'
 };
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
-  dmInstance.bindTarget(
-    deviceId,
-    bindParam,
-    (err: BusinessError, data: Data) => {
-      if (err) {
-        console.error(
-          'bindTarget errCode:' + err.code + ',errMessage:' + err.message,
-        );
-        return;
-      }
-      console.info('bindTarget result:' + JSON.stringify(data));
-    },
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
+  dmInstance.bindTarget(deviceId, bindParam, (err: BusinessError, data: Data) => {
+    if (err) {
+      console.error('bindTarget errCode:' + err.code + ',errMessage:' + err.message);
+      return;
+    }
+    console.info('bindTarget result:' + JSON.stringify(data));
+  });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
   console.error('bindTarget errCode:' + e.code + ',errMessage:' + e.message);
@@ -872,8 +753,8 @@ try {
 ```
 
 
-### unbindTarget
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### unbindTarget
 
 unbindTarget(deviceId: string): void
 
@@ -885,7 +766,6 @@ unbindTarget(deviceId: string): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 设备标识。长度范围1~255字符。 |
@@ -894,7 +774,6 @@ unbindTarget(deviceId: string): void
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -905,16 +784,13 @@ unbindTarget(deviceId: string): void
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   let deviceId = 'XXXXXXXX';
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.unbindTarget(deviceId);
 } catch (err) {
   let e: BusinessError = err as BusinessError;
@@ -923,8 +799,8 @@ try {
 ```
 
 
-### on('deviceStateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('deviceStateChange')
 
 on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void
 
@@ -936,17 +812,15 @@ on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; de
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注册设备状态回调，固定为deviceStateChange。 |
-| callback | Callback&lt;{ action: [DeviceStateChange](#devicestatechange); device: [DeviceBasicInfo](#devicebasicinfo); }&gt; | 是 | 指示要注册的设备状态回调，返回设备状态和设备信息。 |
+| callback | Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> | 是 | 指示要注册的设备状态回调，返回设备状态和设备信息。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -956,8 +830,7 @@ on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; de
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -967,28 +840,24 @@ class Data {
     deviceId: '',
     deviceName: '',
     deviceType: '',
-    networkId: '',
+    networkId: ''
   };
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.on('deviceStateChange', (data: Data) => {
     console.info('deviceStateChange on:' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'deviceStateChange errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('deviceStateChange errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### off('deviceStateChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('deviceStateChange')
 
 off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void
 
@@ -1000,17 +869,15 @@ off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChange; 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 根据应用程序的包名取消注册设备状态回调，固定为deviceStateChange。 |
-| callback | Callback&lt;{ action: [DeviceStateChange](#devicestatechange); device: [DeviceBasicInfo](#devicebasicinfo); }&gt; | 否 | 指示要取消注册的设备状态回调，返回设备状态和设备信息。 |
+| callback | Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }> | 否 | 指示要取消注册的设备状态回调，返回设备状态和设备信息。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1020,8 +887,7 @@ off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChange; 
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1031,28 +897,24 @@ class Data {
     deviceId: '',
     deviceName: '',
     deviceType: '',
-    networkId: '',
+    networkId: ''
   };
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.off('deviceStateChange', (data: Data) => {
     console.info('deviceStateChange' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'deviceStateChange errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('deviceStateChange errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### on('discoverSuccess')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('discoverSuccess')
 
 on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): void
 
@@ -1064,17 +926,15 @@ on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): v
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注册设备发现回调，以便在发现周边设备时通知应用程序，固定为discoverSuccess。 |
-| callback | Callback&lt;{ device: [DeviceBasicInfo](#devicebasicinfo); }&gt; | 是 | 注册设备发现的回调方法。 |
+| callback | Callback<{ device: DeviceBasicInfo; }> | 是 | 注册设备发现的回调方法。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1084,8 +944,7 @@ on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): v
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1094,28 +953,24 @@ class Data {
     deviceId: '',
     deviceName: '',
     deviceType: '',
-    networkId: '',
+    networkId: ''
   };
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.on('discoverSuccess', (data: Data) => {
     console.info('discoverSuccess:' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'discoverSuccess errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('discoverSuccess errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### off('discoverSuccess')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('discoverSuccess')
 
 off(type: 'discoverSuccess', callback?: Callback<{ device: DeviceBasicInfo; }>): void
 
@@ -1127,17 +982,15 @@ off(type: 'discoverSuccess', callback?: Callback<{ device: DeviceBasicInfo; }>):
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消注册设备发现回调，固定为discoverSuccess。 |
-| callback | Callback&lt;{ device: [DeviceBasicInfo](#devicebasicinfo); }&gt; | 否 | 指示要取消注册的设备发现回调，返回设备状态和设备信息。 |
+| callback | Callback<{ device: DeviceBasicInfo; }> | 否 | 指示要取消注册的设备发现回调，返回设备状态和设备信息。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1147,8 +1000,7 @@ off(type: 'discoverSuccess', callback?: Callback<{ device: DeviceBasicInfo; }>):
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1157,28 +1009,24 @@ class Data {
     deviceId: '',
     deviceName: '',
     deviceType: '',
-    networkId: '',
+    networkId: ''
   };
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.off('discoverSuccess', (data: Data) => {
     console.info('discoverSuccess' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'discoverSuccess errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('discoverSuccess errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### on('deviceNameChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('deviceNameChange')
 
 on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void
 
@@ -1190,17 +1038,15 @@ on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注册设备名称改变回调，以便在设备名称改变时通知应用程序，固定为deviceNameChange。 |
-| callback | Callback&lt;{ deviceName: string;}&gt; | 是 | 注册设备名称改变的回调方法。 |
+| callback | Callback<{ deviceName: string;}> | 是 | 注册设备名称改变的回调方法。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1210,8 +1056,7 @@ on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1220,23 +1065,19 @@ class Data {
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.on('deviceNameChange', (data: Data) => {
     console.info('deviceNameChange on:' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'deviceNameChange errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('deviceNameChange errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### off('deviceNameChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('deviceNameChange')
 
 off(type: 'deviceNameChange', callback?: Callback<{ deviceName: string; }>): void
 
@@ -1248,17 +1089,15 @@ off(type: 'deviceNameChange', callback?: Callback<{ deviceName: string; }>): voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消注册设备名称改变回调，固定为deviceNameChange。 |
-| callback | Callback&lt;{ deviceName: string;}&gt; | 否 | 指示要取消注册设备名称改变的回调方法。 |
+| callback | Callback<{ deviceName: string;}> | 否 | 指示要取消注册设备名称改变的回调方法。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1268,8 +1107,7 @@ off(type: 'deviceNameChange', callback?: Callback<{ deviceName: string; }>): voi
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1278,23 +1116,19 @@ class Data {
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.off('deviceNameChange', (data: Data) => {
     console.info('deviceNameChange' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'deviceNameChange errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('deviceNameChange errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### on('discoverFailure')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('discoverFailure')
 
 on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void
 
@@ -1306,17 +1140,15 @@ on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注册设备发现失败回调，以便在发现周边设备失败时通知应用程序，固定为discoverFailure。 |
-| callback | Callback&lt;{ reason: number; }&gt; | 是 | 注册设备发现失败的回调方法。 |
+| callback | Callback<{ reason: number; }> | 是 | 注册设备发现失败的回调方法。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1326,8 +1158,7 @@ on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1336,23 +1167,19 @@ class Data {
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.on('discoverFailure', (data: Data) => {
     console.info('discoverFailure on:' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'discoverFailure errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('discoverFailure errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### off('discoverFailure')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('discoverFailure')
 
 off(type: 'discoverFailure', callback?: Callback<{ reason: number; }>): void
 
@@ -1364,17 +1191,15 @@ off(type: 'discoverFailure', callback?: Callback<{ reason: number; }>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消注册设备发现失败回调，固定为discoverFailure。 |
-| callback | Callback&lt;{ reason: number; }&gt; | 否 | 指示要取消注册的设备发现失败回调。 |
+| callback | Callback<{ reason: number; }> | 否 | 指示要取消注册的设备发现失败回调。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1384,8 +1209,7 @@ off(type: 'discoverFailure', callback?: Callback<{ reason: number; }>): void
 
 **示例：**
 
-
-```ts
+```json
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -1394,23 +1218,19 @@ class Data {
 }
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.off('discoverFailure', (data: Data) => {
     console.info('discoverFailure' + JSON.stringify(data));
   });
 } catch (err) {
   let e: BusinessError = err as BusinessError;
-  console.error(
-    'discoverFailure errCode:' + e.code + ',errMessage:' + e.message,
-  );
+  console.error('discoverFailure errCode:' + e.code + ',errMessage:' + e.message);
 }
 ```
 
 
-### on('serviceDie')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('serviceDie')
 
 on(type: 'serviceDie', callback?: Callback<{}>): void
 
@@ -1422,17 +1242,15 @@ on(type: 'serviceDie', callback?: Callback<{}>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 注册serviceDie回调，以便在devicemanager服务异常终止时通知应用程序，固定为serviceDie。 |
-| callback | Callback&lt;{}&gt; | 否 | 注册serviceDie的回调方法。 |
+| callback | Callback<{}> | 否 | 注册serviceDie的回调方法。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1442,15 +1260,12 @@ on(type: 'serviceDie', callback?: Callback<{}>): void
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.on('serviceDie', () => {
     console.info('serviceDie on');
   });
@@ -1461,8 +1276,8 @@ try {
 ```
 
 
-### off('serviceDie')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('serviceDie')
 
 off(type: 'serviceDie', callback?: Callback<{}>): void
 
@@ -1474,17 +1289,15 @@ off(type: 'serviceDie', callback?: Callback<{}>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消注册serviceDie回调，以便在devicemanager服务异常终止时通知应用程序，固定为serviceDie。 |
-| callback | Callback&lt;{}&gt; | 否 | 取消注册serviceDie的回调方法。 |
+| callback | Callback<{}> | 否 | 取消注册serviceDie的回调方法。 |
 
 
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1494,15 +1307,12 @@ off(type: 'serviceDie', callback?: Callback<{}>): void
 
 **示例：**
 
-
-```ts
+```bash
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let dmInstance = distributedDeviceManager.createDeviceManager(
-    'ohos.samples.jsHelloWorld',
-  );
+  let dmInstance = distributedDeviceManager.createDeviceManager('ohos.samples.jsHelloWorld');
   dmInstance.off('serviceDie', () => {
     console.info('serviceDie off');
   });

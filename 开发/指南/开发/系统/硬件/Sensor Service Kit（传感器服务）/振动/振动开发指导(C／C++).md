@@ -1,15 +1,18 @@
 # 振动开发指导(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vibrator-guidelines-capi
 
-## 场景介绍
+##### 场景介绍
 
-当设备需要设置不同的振动效果时，可以调用Vibrator模块，例如：设备的按键可以设置不同强度和不同时长的振动，闹钟和来电可以设置不同强度和时长的单次或周期振动。 详细的接口介绍请参考[Vibrator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator)。
+当设备需要设置不同的振动效果时，可以调用Vibrator模块，例如：设备的按键可以设置不同强度和不同时长的振动，闹钟和来电可以设置不同强度和时长的单次或周期振动。
 
-## 函数说明
+详细的接口介绍请参考[Vibrator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator)。
 
+
+
+##### 函数说明
 
 | 名称 | 描述 |
 | --- | --- |
@@ -18,24 +21,36 @@
 | OHOS::Sensors::OH_Vibrator_Cancel() | 停止马达振动。 |
 
 
-## 振动效果说明
+
+
+##### 振动效果说明
 
 目前支持两类振动效果，如下所示。
 
-## 固定时长振动
+
+
+##### 固定时长振动
 
 传入一个固定时长，马达按照默认强度和频率触发振动。
 
-## 自定义振动
+
+
+##### 自定义振动
 
 自定义振动提供给用户设计自己所需振动效果的能力，用户可通过自定义振动配置文件，并遵循相应规则编排所需振动形式，使能更加开放的振感交互体验。
 
-## 开发步骤
 
-新建一个Native C++工程。
-![](assets/振动开发指导(C／C++)
-/file-20260514131347070-0.png) 控制设备上的振动器，需要申请权限ohos.permission.VIBRATE。具体配置方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
-```text
+
+##### 开发步骤
+1. 新建一个Native C++工程。
+
+  
+![](assets/振动开发指导(C／C++)/file-20260514131347070-0.png)
+
+2. 控制设备上的振动器，需要申请权限ohos.permission.VIBRATE。具体配置方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+
+  
+```json
 "requestPermissions": [
   {
     "name": "ohos.permission.VIBRATE"
@@ -43,7 +58,9 @@
 ]
 ```
 
-CMakeLists.txt文件中引入动态依赖库。
+3. CMakeLists.txt文件中引入动态依赖库。
+
+  
 ```text
 target_link_libraries(entry PUBLIC libace_napi.z.so)
 target_link_libraries(entry PUBLIC libhilog_ndk.z.so)
@@ -51,27 +68,33 @@ target_link_libraries(entry PUBLIC libohvibrator.z.so)
 target_link_libraries(entry PUBLIC librawfile.z.so)
 ```
 
-导入模块。
-```text
-#include
+4. 导入模块。
+
+  
+```cpp
+#include <sensors/vibrator.h>
 #include "napi/native_api.h"
 #include "hilog/log.h"
-#include
-#include
-#include
-#include
-#include
+#include <thread>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <rawfile/raw_file_manager.h>
 ```
 
-定义常量。
-```text
+5. 定义常量。
+
+  
+```cpp
 const int VIBRATOR_LOG_DOMAIN = 0xD002701;
 const char *TAG = "[NativeVibratorTest]";
 constexpr int32_t TIME_WAIT_FOR_OP = 2;
 ```
 
-控制马达在指定时间内持续振动和停止马达振动。
-```text
+6. 控制马达在指定时间内持续振动和停止马达振动。
+
+  
+```cpp
 static napi_value PlayVibrationInDuration(napi_env env, napi_callback_info info)
 {
     Vibrator_Attribute vibrateAttribute;
@@ -94,8 +117,10 @@ static napi_value PlayVibrationInDuration(napi_env env, napi_callback_info info)
 }
 ```
 
-播放自定义振动序列。
-```text
+7. 播放自定义振动序列。
+
+  
+```cpp
 static napi_value PlayVibrationCustom(napi_env env, napi_callback_info info)
 {
     size_t argc = 1;
@@ -146,8 +171,10 @@ static napi_value PlayVibrationCustom(napi_env env, napi_callback_info info)
 }
 ```
 
-在Init函数中补充接口。
-```text
+8. 在Init函数中补充接口。
+
+  
+```cpp
 EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
@@ -161,14 +188,18 @@ static napi_value Init(napi_env env, napi_value exports)
 EXTERN_C_END
 ```
 
-在types/libentry路径下index.d.ts文件中引入Napi接口。
-```text
+9. 在types/libentry路径下index.d.ts文件中引入Napi接口。
+
+  
+```ts
 export const playVibrationInDuration: () => object;
 export const playVibrationCustom: (resmgr: object) => object;
 ```
 
-编写程序入口调用代码。
-```text
+10. 编写程序入口调用代码。
+
+  
+```ArkTS
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { resourceManager } from '@kit.LocalizationKit';

@@ -14,4 +14,4 @@
 | 新增API | NA | 类名：Rect； API声明：right: number; 差异内容：right: number; | api/@hms.stylus.HandwriteComponent.d.ets |
 | 新增API | NA | 类名：Rect； API声明：bottom: number; 差异内容：bottom: number; | api/@hms.stylus.HandwriteComponent.d.ets |
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HandwriteController； API声明：getContentRange(): Rect; 差异内容：getContentRange(): Rect; | api/@hms.stylus.HandwriteComponent.d.ets |
-| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HandwriteController； API声明：getThumbnail(rect: Rect): Promise<PixelMap>; 差异内容：getThumbnail(rect: Rect): Promise<PixelMap>; | api/@hms.stylus.HandwriteComponent.d.ets |
+| 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：HandwriteController； API声明：getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;; 差异内容：getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;; | api/@hms.stylus.HandwriteComponent.d.ets |

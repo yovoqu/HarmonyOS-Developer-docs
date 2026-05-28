@@ -4,13 +4,12 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-oh-nativebuffer
 
-
-## 概述
+##### 概述
 
 OH_NativeBuffer结构体声明。
-
+ 
 **起始版本：** 10
-
+ 
 **相关模块：** [Vulkan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan)
-
+ 
 **所在头文件：** [vulkan_ohos.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-ohos-h)

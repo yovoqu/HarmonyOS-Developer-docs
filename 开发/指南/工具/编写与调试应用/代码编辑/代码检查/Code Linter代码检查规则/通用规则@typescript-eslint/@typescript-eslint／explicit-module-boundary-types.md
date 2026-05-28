@@ -5,29 +5,30 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_explicit-module-boundary-types
 
 导出到外部的函数和公共类方法，需要显式的定义返回类型和参数类型。
+ 
+该规则仅支持对.ts文件进行检查。
+ 
 
- 该规则仅支持对.ts文件进行检查。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
-  "rules": {
+  <span style="color: rgb(135,16,148);">"rules"</span>: {
     "@typescript-eslint/explicit-module-boundary-types": "error"
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 详情请参考[@typescript-eslint/explicit-module-boundary-types选项](https://typescript-eslint.nodejs.cn/rules/explicit-module-boundary-types/#options)。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 // A function with no return value (void)
@@ -55,10 +56,10 @@ function test2() {
 
 test2();
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 // Should indicate that no value is returned (void)
@@ -80,14 +81,14 @@ export class Test {
   }
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
-plugin:@typescript-eslint/recommended
-plugin:@typescript-eslint/all
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/recommended</span>
+<span style="color: rgb(6,125,23);">plugin:@typescript-eslint/all</span>
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

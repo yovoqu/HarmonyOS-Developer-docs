@@ -5,9 +5,9 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-9
 
 通过HDC命令：
-
+ 
 ```bash
 hdc shell hilog -b D
 ```
-
+ 
 使用hdc命令开启调试开关。

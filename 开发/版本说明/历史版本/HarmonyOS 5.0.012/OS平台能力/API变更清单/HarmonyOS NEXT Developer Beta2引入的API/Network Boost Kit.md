@@ -7,10 +7,10 @@
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | 新增API | NA | 类名：global； API声明： declare namespace netQuality 差异内容： declare namespace netQuality | api/@hms.networkboost.netquality.d.ts |
-| 新增API | NA | 类名：netQuality； API声明：function on(type: 'netQosChange', callback: Callback<Array<NetworkQos>>): void; 差异内容：function on(type: 'netQosChange', callback: Callback<Array<NetworkQos>>): void; | api/@hms.networkboost.netquality.d.ts |
-| 新增API | NA | 类名：netQuality； API声明：function off(type: 'netQosChange', callback?: Callback<Array<NetworkQos>>): void; 差异内容：function off(type: 'netQosChange', callback?: Callback<Array<NetworkQos>>): void; | api/@hms.networkboost.netquality.d.ts |
-| 新增API | NA | 类名：netQuality； API声明：function on(type: 'netSceneChange', callback: Callback<Array<NetworkScene>>): void; 差异内容：function on(type: 'netSceneChange', callback: Callback<Array<NetworkScene>>): void; | api/@hms.networkboost.netquality.d.ts |
-| 新增API | NA | 类名：netQuality； API声明：function off(type: 'netSceneChange', callback?: Callback<Array<NetworkScene>>): void; 差异内容：function off(type: 'netSceneChange', callback?: Callback<Array<NetworkScene>>): void; | api/@hms.networkboost.netquality.d.ts |
+| 新增API | NA | 类名：netQuality； API声明：function on(type: 'netQosChange', callback: Callback<Array&lt;NetworkQos&gt;>): void; 差异内容：function on(type: 'netQosChange', callback: Callback<Array&lt;NetworkQos&gt;>): void; | api/@hms.networkboost.netquality.d.ts |
+| 新增API | NA | 类名：netQuality； API声明：function off(type: 'netQosChange', callback?: Callback<Array&lt;NetworkQos&gt;>): void; 差异内容：function off(type: 'netQosChange', callback?: Callback<Array&lt;NetworkQos&gt;>): void; | api/@hms.networkboost.netquality.d.ts |
+| 新增API | NA | 类名：netQuality； API声明：function on(type: 'netSceneChange', callback: Callback<Array&lt;NetworkScene&gt;>): void; 差异内容：function on(type: 'netSceneChange', callback: Callback<Array&lt;NetworkScene&gt;>): void; | api/@hms.networkboost.netquality.d.ts |
+| 新增API | NA | 类名：netQuality； API声明：function off(type: 'netSceneChange', callback?: Callback<Array&lt;NetworkScene&gt;>): void; 差异内容：function off(type: 'netSceneChange', callback?: Callback<Array&lt;NetworkScene&gt;>): void; | api/@hms.networkboost.netquality.d.ts |
 | 新增API | NA | 类名：netQuality； API声明：function reportQoe(appQoe: AppQoe): void; 差异内容：function reportQoe(appQoe: AppQoe): void; | api/@hms.networkboost.netquality.d.ts |
 | 新增API | NA | 类名：netQuality； API声明： interface NetworkQos 差异内容： interface NetworkQos | api/@hms.networkboost.netquality.d.ts |
 | 新增API | NA | 类名：NetworkQos； API声明：pathType: PathType; 差异内容：pathType: PathType; | api/@hms.networkboost.netquality.d.ts |

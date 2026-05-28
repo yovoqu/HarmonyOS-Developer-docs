@@ -1,15 +1,16 @@
 # 订阅ArkWeb抛滑丢帧事件（ArkTS）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-web-fling-jank-events-arkts
 
-## 简介
+##### 简介
 
 本文介绍如何使用HiAppEvent提供的ArkTS接口订阅ArkWeb抛滑丢帧事件。接口的详细使用说明（参数限制、取值范围等）请参考[@ohos.hiviewdfx.hiAppEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-hiappevent)。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -17,16 +18,23 @@
 | removeWatcher(watcher: Watcher): void | 移除应用事件观察者，以移除对应用事件的订阅。 |
 
 
-## 开发步骤
 
-以订阅ArkWeb抛滑丢帧事件为例，说明开发步骤。 在DevEco Studio中新建工程，选择“Empty Ability”，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块：
-```text
+
+##### 开发步骤
+
+以订阅ArkWeb抛滑丢帧事件为例，说明开发步骤。
+1. 在DevEco Studio中新建工程，选择“Empty Ability”，编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，导入依赖模块：
+
+  
+```ArkTS
 // 该变量在/pages/ArkWebPage.ets文件中进行定义，用于实现webId到网页url的映射
 import { webIdToUrlMap } from '../pages/ArkWebPage';
 ```
 
-编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
-```text
+2. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中添加系统事件的订阅，示例代码如下：
+
+  
+```ArkTS
 // 添加ArkWeb抛滑丢帧事件观察者
 hiAppEvent.addWatcher({
   // 开发者可以自定义观察者名称，系统会使用名称来标识不同的观察者
@@ -39,7 +47,7 @@ hiAppEvent.addWatcher({
     }
   ],
   // 开发者可以自行实现订阅实时回调函数，以便对订阅获取到的事件数据进行自定义处理
-  onReceive: (domain: string, appEventGroups: Array) => {
+  onReceive: (domain: string, appEventGroups: Array<hiAppEvent. AppEventGroup>) => {
     hilog.info(0x0000, 'testTag', `HiAppEvent onReceive: domain=${domain}`);
     for (const eventGroup of appEventGroups) {
       // 开发者可以根据事件集合中的事件名称区分不同的系统事件
@@ -67,12 +75,14 @@ hiAppEvent.addWatcher({
 });
 ```
 
-在工程中的“entry > src > main > ets > pages”目录下，新增ArkWebPage.ets文件，在build下加载web网页，并定期下发耗时任务阻塞应用主线程触发丢帧，示例代码如下：
-```text
+3. 在工程中的“entry > src > main > ets > pages”目录下，新增ArkWebPage.ets文件，在build下加载web网页，并定期下发耗时任务阻塞应用主线程触发丢帧，示例代码如下：
+
+  
+```ArkTS
 import web_webview from '@ohos.web.webview';
 
 // 用于存储web_id到url的映射
-export const webIdToUrlMap = new Map();
+export const webIdToUrlMap = new Map<number, string>();
 
 @Entry
 @Component
@@ -97,46 +107,68 @@ struct ArkWebPage {
           // 每2s阻塞应用主线程200ms
           setInterval(() => {
             const endTime = Date.now() + 200;
-            while (Date.now()         ![](assets/订阅ArkWeb抛滑丢帧事件（ArkTS）/file-20260514131411366-0.png)                  如果一个页面需包含多个Web网页，需创建多个webview组件，每个webview组件加载一个网页。                            编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数中跳转到Web页面。示例代码如下：
-```text
+            while (Date.now() < endTime) {}
+          }, 2000);
+        })
+    }
+  }
+}
+```
+
+
+  
+![](assets/订阅ArkWeb抛滑丢帧事件（ArkTS）/file-20260514131411366-0.png)
+ 
+
+  如果一个页面需包含多个Web网页，需创建多个webview组件，每个webview组件加载一个网页。
+4. 编辑工程中的“entry > src > main > ets > pages > Index.ets”文件，添加按钮并在其onClick函数中跳转到Web页面。示例代码如下：
+
+  
+```ArkTS
 // 按钮跳转到易出现滑动丢帧的web场景，触发ArkWeb抛滑丢帧事件。
 Button('ArkWebFlingJank ArkTs')
-.type(ButtonType.Capsule)
-.margin({
-top: 20
-})
-.backgroundColor('#0D9FFB')
-.width('80%')
-.height('5%')
-.onClick(() => {
-router.pushUrl({url: 'pages/ArkWebPage'});
-})
+  .type(ButtonType.Capsule)
+  .margin({
+    top: 20
+  })
+  .backgroundColor('#0D9FFB')
+  .width('80%')
+  .height('5%')
+  .onClick(() => {
+    router.pushUrl({url: 'pages/ArkWebPage'});
+  })
 ```
 
-             编辑工程中的“entry > src > main > resources > base > profile > main_pages.json”文件，配置ArkWebPage路由页面。
-```text
+5. 编辑工程中的“entry > src > main > resources > base > profile > main_pages.json”文件，配置ArkWebPage路由页面。
+
+  
+```json
 {
-"src": [
-"pages/Index",
-"pages/ArkWebPage"
-]
+  "src": [
+    "pages/Index",
+    "pages/ArkWebPage"
+  ]
 }
 ```
 
-             编辑工程中的“entry > src > main > module.json5”文件，添加网络访问权限。
-```text
+6. 编辑工程中的“entry > src > main > module.json5”文件，添加网络访问权限。
+
+  
+```json
 "requestPermissions": [
-{
-"name": "ohos.permission.INTERNET"
-}
+  {
+    "name": "ohos.permission.INTERNET"
+  }
 ],
 ```
 
-
 > [!NOTE]
-> Web组件详细的使用方式请参考ArkWeb简介文档
+> Web组件详细的使用方式请参考 ArkWeb简介 文档
 
-                    点击DevEco Studio界面中的运行按钮，运行应用工程。然后在应用界面中点击按钮“ArkWebFlingJank ArkTs”，跳转到网页，等待页面加载完成，滑动页面，当系统检测到故障时触发ArkWeb抛滑丢帧事件。             每次抛滑过程中发生卡顿50ms及以上场景，可以在Log窗口看到对系统事件数据的处理日志：
+7. 点击DevEco Studio界面中的运行按钮，运行应用工程。然后在应用界面中点击按钮“ArkWebFlingJank ArkTs”，跳转到网页，等待页面加载完成，滑动页面，当系统检测到故障时触发ArkWeb抛滑丢帧事件。
+8. 每次抛滑过程中发生卡顿50ms及以上场景，可以在Log窗口看到对系统事件数据的处理日志：
+
+  
 ```text
 HiAppEvent eventInfo.domain=OS
 HiAppEvent eventInfo.name=SCROLL_ARKWEB_FLING_JANK

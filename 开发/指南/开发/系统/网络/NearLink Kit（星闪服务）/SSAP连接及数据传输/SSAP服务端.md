@@ -6,38 +6,63 @@
 
 提供SSAP（SparkLink Service Access Protocol）服务端相关的连接、数据传输和服务管理功能。
 
-> [!CAUTION] 说明
-> 
 
 ![](assets/SSAP服务端/file-20260525091629235-001.png)
-> 建立SSAP连接后，SSAP服务端广播会自动停止。后续如果服务端期望被客户端发现，可参见发送星闪广播，重新发起广播。
 
-#### 场景介绍
+
+建立SSAP连接后，SSAP服务端广播会自动停止。后续如果服务端期望被客户端发现，可参见[发送星闪广播](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-send-advertising)，重新发起广播。
+
+
+
+
+##### 场景介绍
+
 支持应用基于Nearlink技术进行数据传输，设备作为服务端，客户端可连接该服务端进行数据传输。
 
-#### 接口说明
+
+
+##### 接口说明
 
 | 接口名 | 描述 |
 | --- | --- |
-| [createServer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#createserver)(): Server | 创建ssap服务端实例。 |
-| [addService](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#addservice)(service: Service): void | 服务端添加服务。 |
-| [on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#onconnectionstatechange)(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void | 订阅连接状态变化事件。 |
-| [on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#on-propertyread)(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void | 订阅客户端的读属性请求事件。 |
-| [sendResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#sendresponse)(response: ServerResponse): void | 回复客户端读/写请求。 |
-| [notifyPropertyChanged](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap#notifypropertychanged)(address: string, property: Property): Promise&lt;void&gt; | 通知客户端属性值更新。 |
+| createServer(): Server | 创建ssap服务端实例。 |
+| addService(service: Service): void | 服务端添加服务。 |
+| on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void | 订阅连接状态变化事件。 |
+| on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void | 订阅客户端的读属性请求事件。 |
+| sendResponse(response: ServerResponse): void | 回复客户端读/写请求。 |
+| notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt; | 通知客户端属性值更新。 |
 
-#### 开发步骤
-1. 导入相关模块。 import { ssap } from '@kit.NearLinkKit';
+
+
+
+##### 开发步骤
+1. 导入相关模块。
+
+  
+```text
+import { ssap } from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
-2. 创建ssap服务端实例。 let server: ssap.Server;
+```
+
+2. 创建ssap服务端实例。
+
+  
+```json
+let server: ssap.Server;
 try {
   server = ssap.createServer();
   console.info('server: ' + JSON.stringify(server));
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
-3. 添加服务端支持的服务，其中server对象在步骤2创建，后续步骤中使用的server对象也是一样，不再赘述。 // 构造descriptor
-let descriptorsArray: Array&lt;ssap.PropertyDescriptor&gt; = [];
+```
+
+3. 添加服务端支持的服务，其中server对象在步骤2创建，后续步骤中使用的server对象也是一样，不再赘述。
+
+  
+```text
+// 构造descriptor
+let descriptorsArray: Array<ssap.PropertyDescriptor> = [];
 let arrayBuffer = new ArrayBuffer(2);
 let descValue = new Uint8Array(arrayBuffer);
 descValue[0] = 11;
@@ -51,7 +76,7 @@ let descriptor: ssap.PropertyDescriptor = {
 };
 descriptorsArray[0] = descriptor;
 // 构造properties
-let propertiesArray: Array&lt;ssap.Property&gt; = [];
+let propertiesArray: Array<ssap.Property> = [];
 let arrayBufferProperty = new ArrayBuffer(1);
 let properValue = new Uint8Array(arrayBufferProperty);
 properValue[0] = 1;
@@ -81,7 +106,13 @@ try {
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
-4. 订阅连接状态变化事件。 let onReceiveConnectionChangeEvent:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
+```
+
+4. 订阅连接状态变化事件。
+
+  
+```json
+let onReceiveConnectionChangeEvent:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
   console.info('data:' + JSON.stringify(data));
 }
 try {
@@ -89,7 +120,13 @@ try {
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
-5. 订阅客户端读属性请求事件。 let onReceivePropertyReadEvent:(data: ssap.PropertyReadRequest) => void = (data: ssap.PropertyReadRequest) => {
+```
+
+5. 订阅客户端读属性请求事件。
+
+  
+```json
+let onReceivePropertyReadEvent:(data: ssap.PropertyReadRequest) => void = (data: ssap.PropertyReadRequest) => {
   console.info('data:' + JSON.stringify(data));
 }
 try {
@@ -97,7 +134,13 @@ try {
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
-6. 收到客户端读属性请求事件后，回复响应。读属性请求通过步骤5订阅。 // 订阅客户端的读写请求，收到请求后通过该接口回复
+```
+
+6. 收到客户端读属性请求事件后，回复响应。读属性请求通过步骤5订阅。
+
+  
+```text
+// 订阅客户端的读写请求，收到请求后通过该接口回复
 let arrayBuffer = new ArrayBuffer(2);
 let descValue = new Uint8Array(arrayBuffer);
 descValue[0] = 11;
@@ -113,7 +156,13 @@ try {
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
-7. 通知客户端属性值更新。其中参数address是步骤4中获取的已连接客户端设备地址。 // 构造properties
+```
+
+7. 通知客户端属性值更新。其中参数address是步骤4中获取的已连接客户端设备地址。
+
+  
+```text
+// 构造properties
 let arrayBufferProperty = new ArrayBuffer(8);
 let properValue = new Uint8Array(arrayBufferProperty);
 properValue[0] = 123; // 本次更新后的值
@@ -125,13 +174,18 @@ let property: ssap.Property = {
 try {
   let address = '00:11:22:33:AA:FF'; // 已连接的设备地址
   server.notifyPropertyChanged(address, property).then(() => {
- console.info('notifyPropertyChanged success');
+    console.info('notifyPropertyChanged success');
   }).catch ((err: BusinessError) => {
- console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
+```
 
-#### 示例代码
+
+
+
+##### 示例代码
+
 SSAP服务端功能可参考[星闪示例代码](https://gitcode.com/harmonyos_samples/nearlink-kit_-sample-code)，entry/src/main/ets/pages/SsapServerPage.ets中的实现方法。

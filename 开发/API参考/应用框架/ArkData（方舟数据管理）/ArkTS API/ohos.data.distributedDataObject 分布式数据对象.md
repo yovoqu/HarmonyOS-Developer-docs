@@ -3,26 +3,24 @@
 更新时间：2026-04-28 03:31:56
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-distributedobject
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供管理基本数据对象的相关能力，包括创建、查询、删除、修改、订阅等；同时支持相同应用多设备间的分布式数据对象协同能力。分布式数据对象处理数据时，不会解析用户数据的内容，存储路径安全性较低，不建议传输个人敏感数据和隐私数据。
-
 
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+##### 导入模块
 
-```ts
+```text
 import { distributedDataObject } from '@kit.ArkData';
 ```
 
 
-## distributedDataObject.create9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### distributedDataObject.create9+
 
 create(context: Context, source: object): DataObject
 
@@ -32,25 +30,22 @@ create(context: Context, source: object): DataObject
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | Context | 是 | 应用的上下文。          FA模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-app-context)。          Stage模型的应用Context定义见[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。 |
+| context | Context | 是 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 |
 | source | object | 是 | 设置分布式数据对象的属性。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DataObject](#dataobject) | 创建完成的分布式数据对象。 |
+| DataObject | 创建完成的分布式数据对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -61,65 +56,60 @@ create(context: Context, source: object): DataObject
 
 FA模型示例：
 
-
-```ts
+```text
 // 导入模块
 import { featureAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 // 获取context
 let context = featureAbility.getContext();
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name;
+        this.age = age;
+        this.isVis = isVis;
+    }
 }
 
-let source: SourceObject = new SourceObject('jack', 18, false);
-let g_object: distributedDataObject.DataObject = distributedDataObject.create(
-  context,
-  source,
-);
+let source: SourceObject = new SourceObject("jack", 18, false);
+let g_object: distributedDataObject.DataObject = distributedDataObject.create(context, source);
 ```
 
 Stage模型示例：
 
-
-```ts
+```text
 // 导入模块
 import { UIAbility } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
 
-let g_object: distributedDataObject.DataObject | null = null;
+let g_object: distributedDataObject.DataObject|null = null;
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name;
+        this.age = age;
+        this.isVis = isVis;
+    }
 }
 
 class EntryAbility extends UIAbility {
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    let source: SourceObject = new SourceObject('jack', 18, false);
-    g_object = distributedDataObject.create(this.context, source);
-  }
+    onWindowStageCreate(windowStage: window.WindowStage) {
+        let source: SourceObject = new SourceObject("jack", 18, false);
+        g_object = distributedDataObject.create(this.context, source);
+    }
 }
 ```
 
 
-## distributedDataObject.genSessionId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### distributedDataObject.genSessionId
 
 genSessionId(): string
 
@@ -129,7 +119,6 @@ genSessionId(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 随机创建的sessionId。 |
@@ -137,19 +126,17 @@ genSessionId(): string
 
 **示例：**
 
-
-```ts
+```text
 let sessionId: string = distributedDataObject.genSessionId();
 ```
 
 
-## SaveSuccessResponse9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### SaveSuccessResponse9+
 
 [save](#save9)接口回调信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -158,40 +145,41 @@ let sessionId: string = distributedDataObject.genSessionId();
 | deviceId | string | 否 | 否 | 存储数据的设备号，标识需要保存对象的设备。"local"表示本地设备，否则表示其他设备的设备号。 |
 
 
-## RevokeSaveSuccessResponse9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### RevokeSaveSuccessResponse9+
 
 [revokeSave](#revokesave9)接口回调信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | sessionId | string | 否 | 否 | 多设备协同的唯一标识。 |
 
 
-## BindInfo11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### BindInfo11+
 
 数据库的绑定信息。当前版本只支持关系型数据库的绑定。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | storeName | string | 否 | 否 | 待绑定资产在所属的数据库中的库名。 |
 | tableName | string | 否 | 否 | 待绑定资产在所属的数据库中的表名。 |
-| primaryKey | [commonType.ValuesBucket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#valuesbucket) | 否 | 否 | 待绑定资产在所属的数据库中的主键。 |
+| primaryKey | commonType.ValuesBucket | 否 | 否 | 待绑定资产在所属的数据库中的主键。 |
 | field | string | 否 | 否 | 待绑定资产在所属的数据库中的列名。 |
 | assetName | string | 否 | 否 | 待绑定资产在所属的数据库中的资产名。 |
 
 
-## DataObserver20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-type DataObserver = (sessionId: string, fields: Array<string>) => void
+
+##### DataObserver20+
+
+type DataObserver = (sessionId: string, fields: Array&lt;string&gt;) => void
 
 定义获取分布式对象数据变更的监听回调函数。
 
@@ -199,15 +187,15 @@ type DataObserver = (sessionId: string, fields: Array<string>) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | string | 是 | 标识变更对象的sessionId。长度需小于128字节，且只能包含字母、数字或下划线_。 |
 | fields | Array&lt;string&gt; | 是 | 标识对象变更的属性名。属性名可自定义，要求字符串非空且长度不超过128字节。 |
 
 
-## StatusObserver20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### StatusObserver20+
 
 type StatusObserver = (sessionId: string, networkId: string, status: string) => void
 
@@ -217,7 +205,6 @@ type StatusObserver = (sessionId: string, networkId: string, status: string) => 
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | string | 是 | 标识变更对象的sessionId。长度不大于128字节，且只能包含字母、数字或下划线_。 |
@@ -225,8 +212,9 @@ type StatusObserver = (sessionId: string, networkId: string, status: string) => 
 | status | string | 是 | 标识分布式对象的状态，可能的取值有'online'（上线）、'offline'（下线）和'restore'（恢复）。 |
 
 
-## ProgressObserver20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### ProgressObserver20+
 
 type ProgressObserver = (sessionId: string, progress: number) => void
 
@@ -236,23 +224,23 @@ type ProgressObserver = (sessionId: string, progress: number) => void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | string | 是 | 标识变更对象的sessionId。长度不大于128字节，且只能包含字母、数字或下划线_。 |
 | progress | number | 是 | 标识资产传输进度。取值范围为[-1, 100]，取值为整数，-1表示获取进度失败，100表示传输完成。 |
 
 
-## DataObject
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+##### DataObject
 
 表示一个分布式数据对象。在使用以下接口前，需调用[create()](#distributeddataobjectcreate9)获取DataObject对象。
 
 
-### setSessionId9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSessionId(sessionId: string, callback: AsyncCallback<void>): void
+##### setSessionId9+
+
+setSessionId(sessionId: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置sessionId，使用callback方式异步回调。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式对象设置为同一个sessionId，就能自动同步。
 
@@ -261,7 +249,6 @@ setSessionId(sessionId: string, callback: AsyncCallback<void>): void
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -273,7 +260,6 @@ setSessionId(sessionId: string, callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[分布式数据对象错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributed-dataobject)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. |
@@ -283,36 +269,34 @@ setSessionId(sessionId: string, callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 // g_object加入分布式组网
-g_object.setSessionId(distributedDataObject.genSessionId(), () => {
-  console.info('join session');
+g_object.setSessionId(distributedDataObject.genSessionId(), ()=>{
+    console.info("join session");
 });
 // g_object退出分布式组网
-g_object.setSessionId('', () => {
-  console.info('leave all session');
+g_object.setSessionId("", ()=>{
+    console.info("leave all session");
 });
 ```
 
 
-### setSessionId9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSessionId(callback: AsyncCallback<void>): void
+##### setSessionId9+
+
+setSessionId(callback: AsyncCallback&lt;void&gt;): void
 
 退出所有已加入的session，使用callback方式异步回调。
 
 **需要权限：**
 
+ - API版本20+：不需要权限
+ - API版本9-19：ohos.permission.DISTRIBUTED_DATASYNC
 
-- API版本20+：不需要权限
-- API版本9-19：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -323,7 +307,6 @@ setSessionId(callback: AsyncCallback<void>): void
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[分布式数据对象错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributed-dataobject)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Incorrect parameter types. |
@@ -332,23 +315,22 @@ setSessionId(callback: AsyncCallback<void>): void
 
 **示例：**
 
-
-```ts
+```text
 // g_object加入分布式组网
-g_object.setSessionId(distributedDataObject.genSessionId(), () => {
-  console.info('join session');
+g_object.setSessionId(distributedDataObject.genSessionId(), ()=>{
+    console.info("join session");
 });
 // 退出分布式组网
 g_object.setSessionId(() => {
-  console.info('leave all session.');
+    console.info("leave all session.");
 });
 ```
 
 
-### setSessionId9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setSessionId(sessionId?: string): Promise<void>
+##### setSessionId9+
+
+setSessionId(sessionId?: string): Promise&lt;void&gt;
 
 设置sessionId或退出分布式组网，使用Promise异步回调。当传入""、null或不传入参数时，表示退出分布式组网。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式对象设置为同一个sessionId，就能自动同步。
 
@@ -358,14 +340,12 @@ setSessionId(sessionId?: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sessionId | string | 否 | 分布式数据对象在可信组网中的标识ID，长度不大于128，且只能包含字母数字或下划线_。当传入""、null或不传入参数时表示退出分布式组网。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -376,7 +356,6 @@ setSessionId(sessionId?: string): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[分布式数据对象错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributed-dataobject)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. |
@@ -386,33 +365,26 @@ setSessionId(sessionId?: string): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 // g_object加入分布式组网
-g_object
-  .setSessionId(distributedDataObject.genSessionId())
-  .then(() => {
-    console.info('join session.');
-  })
-  .catch((error: BusinessError) => {
-    console.error('error:' + error.code + error.message);
-  });
+g_object.setSessionId(distributedDataObject.genSessionId()).then (()=>{
+    console.info("join session.");
+    }).catch((error: BusinessError)=>{
+        console.error("error:" + error.code + error.message);
+});
 // 退出分布式组网
-g_object
-  .setSessionId()
-  .then(() => {
-    console.info('leave all session.');
-  })
-  .catch((error: BusinessError) => {
-    console.error('error:' + error.code + error.message);
-  });
+g_object.setSessionId().then (()=>{
+    console.info("leave all session.");
+    }).catch((error: BusinessError)=>{
+        console.error("error:" + error.code + error.message);
+});
 ```
 
 
-### on('change')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void): void
+##### on('change')9+
+
+on(type: 'change', callback: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
 监听分布式数据对象的数据变更。
 
@@ -420,17 +392,15 @@ on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'change'，表示数据变更。 |
-| callback | (sessionId: string, fields: Array&lt;string&gt;) =&gt; void | 是 | 变更回调对象实例。          sessionId：标识变更对象的sessionId；          fields：标识对象变更的属性名。 |
+| callback | (sessionId: string, fields: Array&lt;string&gt;) => void | 是 | 变更回调对象实例。 sessionId：标识变更对象的sessionId； fields：标识对象变更的属性名。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -439,23 +409,22 @@ on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void)
 
 **示例：**
 
-
-```ts
-g_object.on('change', (sessionId: string, fields: Array<string>) => {
-  console.info('change' + sessionId);
-  if (g_object != null && fields != null && fields != undefined) {
-    for (let index: number = 0; index < fields.length; index++) {
-      console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
+```text
+g_object.on("change", (sessionId: string, fields: Array<string>) => {
+    console.info("change" + sessionId);
+    if (g_object != null && fields != null && fields != undefined) {
+        for (let index: number = 0; index < fields.length; index++) {
+            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+        }
     }
-  }
 });
 ```
 
 
-### off('change')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => void): void
+##### off('change')9+
+
+off(type: 'change', callback?: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
 当不再进行数据变更监听时，使用此接口删除对象的变更监听。
 
@@ -463,17 +432,15 @@ off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'change'，表示数据变更。 |
-| callback | (sessionId: string, fields: Array&lt;string&gt;) =&gt; void | 否 | 需要删除的数据变更回调，若不设置则删除该对象所有的数据变更回调。          sessionId：标识变更对象的sessionId；          fields：标识对象变更的属性名。 |
+| callback | (sessionId: string, fields: Array&lt;string&gt;) => void | 否 | 需要删除的数据变更回调，若不设置则删除该对象所有的数据变更回调。 sessionId：标识变更对象的sessionId； fields：标识对象变更的属性名。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -482,24 +449,23 @@ off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => voi
 
 **示例：**
 
-
-```ts
+```text
 // 删除数据变更回调changeCallback
-g_object.off('change', (sessionId: string, fields: Array<string>) => {
-  console.info('change' + sessionId);
-  if (g_object != null && fields != null && fields != undefined) {
-    for (let index: number = 0; index < fields.length; index++) {
-      console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
+g_object.off("change", (sessionId: string, fields: Array<string>) => {
+    console.info("change" + sessionId);
+    if (g_object != null && fields != null && fields != undefined) {
+        for (let index: number = 0; index < fields.length; index++) {
+            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+        }
     }
-  }
 });
 // 删除所有的数据变更回调
-g_object.off('change');
+g_object.off("change");
 ```
 
 
-### on('status')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('status')9+
 
 on(type: 'status', callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void): void
 
@@ -509,17 +475,15 @@ on(type: 'status', callback: (sessionId: string, networkId: string, status: 'onl
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示对象上下线。 |
-| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) =&gt; void | 是 | 监听上下线回调实例。          sessionId：标识变更对象的sessionId；          networkId：标识对象设备；          status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
+| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 是 | 监听上下线回调实例。 sessionId：标识变更对象的sessionId； networkId：标识对象设备； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -528,21 +492,15 @@ on(type: 'status', callback: (sessionId: string, networkId: string, status: 'onl
 
 **示例：**
 
-
-```ts
-g_object.on(
-  'status',
-  (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info(
-      'status changed ' + sessionId + ' ' + status + ' ' + networkId,
-    );
-  },
-);
+```text
+g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info("status changed " + sessionId + " " + status + " " + networkId);
+});
 ```
 
 
-### off('status')9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('status')9+
 
 off(type: 'status', callback?:(sessionId: string, networkId: string, status: 'online' | 'offline') => void): void
 
@@ -552,17 +510,15 @@ off(type: 'status', callback?:(sessionId: string, networkId: string, status: 'on
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示对象上下线。 |
-| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) =&gt; void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。          sessionId：标识变更对象的sessionId；          networkId：标识变更对象；          status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
+| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。 sessionId：标识变更对象的sessionId； networkId：标识变更对象； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -571,26 +527,20 @@ off(type: 'status', callback?:(sessionId: string, networkId: string, status: 'on
 
 **示例：**
 
-
-```ts
+```text
 // 删除上下线回调changeCallback
-g_object.off(
-  'status',
-  (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info(
-      'status changed ' + sessionId + ' ' + status + ' ' + networkId,
-    );
-  },
-);
+g_object.off("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info("status changed " + sessionId + " " + status + " " + networkId);
+});
 // 删除所有的上下线回调
-g_object.off('status');
+g_object.off("status");
 ```
 
 
-### save9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void
+##### save9+
+
+save(deviceId: string, callback: AsyncCallback&lt;SaveSuccessResponse&gt;): void
 
 保存分布式数据对象。使用callback方式异步回调。
 
@@ -598,26 +548,24 @@ save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void
 
 有以下几种情况时，保存的数据将会被释放：
 
+ - 存储时间超过24小时。
+ - 应用卸载。
+ - 成功恢复数据之后。
 
-- 存储时间超过24小时。
-- 应用卸载。
-- 成功恢复数据之后。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 保存数据的deviceId，当deviceId为"local"，代表存储在本地设备。 |
-| callback | AsyncCallback&lt;[SaveSuccessResponse](#savesuccessresponse9)&gt; | 是 | 回调函数。返回SaveSuccessResponse，包含sessionId、version、deviceId等信息。 |
+| callback | AsyncCallback&lt;SaveSuccessResponse&gt; | 是 | 回调函数。返回SaveSuccessResponse，包含sessionId、version、deviceId等信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -627,30 +575,26 @@ save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void
 
 **示例：**
 
-
-```ts
-g_object.setSessionId('123456');
-g_object.save(
-  'local',
-  (err: BusinessError, result: distributedDataObject.SaveSuccessResponse) => {
+```text
+g_object.setSessionId("123456");
+g_object.save("local", (err: BusinessError, result:distributedDataObject.SaveSuccessResponse) => {
     if (err) {
-      console.error('save failed, error code = ' + err.code);
-      console.error('save failed, error message: ' + err.message);
-      return;
+        console.error("save failed, error code = " + err.code);
+        console.error("save failed, error message: " + err.message);
+        return;
     }
-    console.info('save callback');
-    console.info('save sessionId: ' + result.sessionId);
-    console.info('save version: ' + result.version);
-    console.info('save deviceId:  ' + result.deviceId);
-  },
-);
+    console.info("save callback");
+    console.info("save sessionId: " + result.sessionId);
+    console.info("save version: " + result.version);
+    console.info("save deviceId:  " + result.deviceId);
+});
 ```
 
 
-### save9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-save(deviceId: string): Promise<SaveSuccessResponse>
+##### save9+
+
+save(deviceId: string): Promise&lt;SaveSuccessResponse&gt;
 
 保存分布式数据对象。使用Promise方式作为异步回调。
 
@@ -658,15 +602,14 @@ save(deviceId: string): Promise<SaveSuccessResponse>
 
 有以下几种情况时，保存的数据将会被释放：
 
+ - 存储时间超过24小时。
+ - 应用卸载。
+ - 成功恢复数据之后。
 
-- 存储时间超过24小时。
-- 应用卸载。
-- 成功恢复数据之后。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -675,16 +618,14 @@ save(deviceId: string): Promise<SaveSuccessResponse>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SaveSuccessResponse](#savesuccessresponse9)&gt; | Promise对象。返回SaveSuccessResponse，包含sessionId、version、deviceId等信息。 |
+| Promise&lt;SaveSuccessResponse&gt; | Promise对象。返回SaveSuccessResponse，包含sessionId、version、deviceId等信息。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -694,28 +635,24 @@ save(deviceId: string): Promise<SaveSuccessResponse>
 
 **示例：**
 
-
-```ts
-g_object.setSessionId('123456');
-g_object
-  .save('local')
-  .then((callbackInfo: distributedDataObject.SaveSuccessResponse) => {
-    console.info('save callback');
-    console.info('save sessionId ' + callbackInfo.sessionId);
-    console.info('save version ' + callbackInfo.version);
-    console.info('save deviceId ' + callbackInfo.deviceId);
-  })
-  .catch((err: BusinessError) => {
-    console.error('save failed, error code = ' + err.code);
-    console.error('save failed, error message: ' + err.message);
-  });
+```text
+g_object.setSessionId("123456");
+g_object.save("local").then((callbackInfo: distributedDataObject.SaveSuccessResponse) => {
+    console.info("save callback");
+    console.info("save sessionId " + callbackInfo.sessionId);
+    console.info("save version " + callbackInfo.version);
+    console.info("save deviceId " + callbackInfo.deviceId);
+}).catch((err: BusinessError) => {
+    console.error("save failed, error code = " + err.code);
+    console.error("save failed, error message: " + err.message);
+});
 ```
 
 
-### revokeSave9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void
+##### revokeSave9+
+
+revokeSave(callback: AsyncCallback&lt;RevokeSaveSuccessResponse&gt;): void
 
 撤回保存的分布式数据对象。使用callback方式作为异步方法。
 
@@ -727,16 +664,14 @@ revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[RevokeSaveSuccessResponse](#revokesavesuccessresponse9)&gt; | 是 | 回调函数。返回RevokeSaveSuccessResponse，包含sessionId。 |
+| callback | AsyncCallback&lt;RevokeSaveSuccessResponse&gt; | 是 | 回调函数。返回RevokeSaveSuccessResponse，包含sessionId。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -746,46 +681,37 @@ revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void
 
 **示例：**
 
-
-```ts
-g_object.setSessionId('123456');
+```text
+g_object.setSessionId("123456");
 // 持久化数据
-g_object.save(
-  'local',
-  (err: BusinessError, result: distributedDataObject.SaveSuccessResponse) => {
+g_object.save("local", (err: BusinessError, result: distributedDataObject.SaveSuccessResponse) => {
     if (err) {
-      console.error('save failed, error code = ' + err.code);
-      console.error('save failed, error message: ' + err.message);
-      return;
+        console.error("save failed, error code = " + err.code);
+        console.error("save failed, error message: " + err.message);
+        return;
     }
-    console.info('save callback');
-    console.info('save sessionId: ' + result.sessionId);
-    console.info('save version: ' + result.version);
-    console.info('save deviceId:  ' + result.deviceId);
-  },
-);
+    console.info("save callback");
+    console.info("save sessionId: " + result.sessionId);
+    console.info("save version: " + result.version);
+    console.info("save deviceId:  " + result.deviceId);
+});
 // 删除持久化保存的数据
-g_object.revokeSave(
-  (
-    err: BusinessError,
-    result: distributedDataObject.RevokeSaveSuccessResponse,
-  ) => {
+g_object.revokeSave((err: BusinessError, result: distributedDataObject.RevokeSaveSuccessResponse) => {
     if (err) {
-      console.error('revokeSave failed, error code = ' + err.code);
-      console.error('revokeSave failed, error message: ' + err.message);
+      console.error("revokeSave failed, error code = " + err.code);
+      console.error("revokeSave failed, error message: " + err.message);
       return;
     }
-    console.info('revokeSave callback');
-    console.info('revokeSave sessionId ' + result.sessionId);
-  },
-);
+    console.info("revokeSave callback");
+    console.info("revokeSave sessionId " + result.sessionId);
+});
 ```
 
 
-### revokeSave9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-revokeSave(): Promise<RevokeSaveSuccessResponse>
+##### revokeSave9+
+
+revokeSave(): Promise&lt;RevokeSaveSuccessResponse&gt;
 
 撤回保存的分布式数据对象。使用Promise方式作为异步方法。
 
@@ -797,16 +723,14 @@ revokeSave(): Promise<RevokeSaveSuccessResponse>
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[RevokeSaveSuccessResponse](#revokesavesuccessresponse9)&gt; | Promise对象。返回RevokeSaveSuccessResponse，包含sessionId。 |
+| Promise&lt;RevokeSaveSuccessResponse&gt; | Promise对象。返回RevokeSaveSuccessResponse，包含sessionId。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -815,40 +739,33 @@ revokeSave(): Promise<RevokeSaveSuccessResponse>
 
 **示例：**
 
-
-```ts
-g_object.setSessionId('123456');
+```text
+g_object.setSessionId("123456");
 // 持久化数据
-g_object
-  .save('local')
-  .then((result: distributedDataObject.SaveSuccessResponse) => {
-    console.info('save callback');
-    console.info('save sessionId ' + result.sessionId);
-    console.info('save version ' + result.version);
-    console.info('save deviceId ' + result.deviceId);
-  })
-  .catch((err: BusinessError) => {
-    console.error('save failed, error code = ' + err.code);
-    console.error('save failed, error message: ' + err.message);
-  });
+g_object.save("local").then((result: distributedDataObject.SaveSuccessResponse) => {
+    console.info("save callback");
+    console.info("save sessionId " + result.sessionId);
+    console.info("save version " + result.version);
+    console.info("save deviceId " + result.deviceId);
+}).catch((err: BusinessError) => {
+    console.error("save failed, error code = " + err.code);
+    console.error("save failed, error message: " + err.message);
+});
 // 删除持久化保存的数据
-g_object
-  .revokeSave()
-  .then((result: distributedDataObject.RevokeSaveSuccessResponse) => {
-    console.info('revokeSave callback');
-    console.info('sessionId' + result.sessionId);
-  })
-  .catch((err: BusinessError) => {
-    console.error('revokeSave failed, error code = ' + err.code);
-    console.error('revokeSave failed, error message = ' + err.message);
-  });
+g_object.revokeSave().then((result: distributedDataObject.RevokeSaveSuccessResponse) => {
+    console.info("revokeSave callback");
+    console.info("sessionId" + result.sessionId);
+}).catch((err: BusinessError)=> {
+    console.error("revokeSave failed, error code = " + err.code);
+    console.error("revokeSave failed, error message = " + err.message);
+});
 ```
 
 
-### bindAssetStore11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<void>): void
+##### bindAssetStore11+
+
+bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback&lt;void&gt;): void
 
 绑定分布式对象中的单个资产与其对应的数据库信息，当前版本只支持分布式对象中的资产与关系型数据库的绑定。使用callback方式异步回调。
 
@@ -858,18 +775,16 @@ bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<voi
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | assetKey | string | 是 | 待绑定的融合资产在分布式对象中的键值。 |
-| bindInfo | [BindInfo](#bindinfo11) | 是 | 待绑定的融合资产在数据库中的信息，包含库名、表名、主键、列名及在数据库中的资产名。 |
+| bindInfo | BindInfo | 是 | 待绑定的融合资产在数据库中的信息，包含库名、表名、主键、列名及在数据库中的资产名。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 绑定数据库的回调。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -879,23 +794,18 @@ bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<voi
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { commonType } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class Note {
-  title: string | undefined;
-  text: string | undefined;
-  attachment: commonType.Asset | undefined;
+  title: string | undefined
+  text: string | undefined
+  attachment: commonType.Asset | undefined
 
-  constructor(
-    title: string | undefined,
-    text: string | undefined,
-    attachment: commonType.Asset | undefined,
-  ) {
+  constructor(title: string | undefined, text: string | undefined, attachment: commonType.Asset | undefined) {
     this.title = title;
     this.text = text;
     this.attachment = attachment;
@@ -911,22 +821,21 @@ class EntryAbility extends UIAbility {
       createTime: '2024-01-02 10:00:00',
       modifyTime: '2024-01-02 10:00:00',
       size: '5',
-      status: commonType.AssetStatus.ASSET_NORMAL,
-    };
+      status: commonType.AssetStatus.ASSET_NORMAL
+    }
     let note: Note = new Note('test', 'test', attachment);
-    let g_object: distributedDataObject.DataObject =
-      distributedDataObject.create(this.context, note);
+    let g_object: distributedDataObject.DataObject = distributedDataObject.create(this.context, note);
     g_object.setSessionId('123456');
 
     const bindInfo: distributedDataObject.BindInfo = {
       storeName: 'notepad',
       tableName: 'note_t',
       primaryKey: {
-        uuid: '00000000-0000-0000-0000-000000000000',
+        'uuid': '00000000-0000-0000-0000-000000000000'
       },
       field: 'attachment',
-      assetName: attachment.name as string,
-    };
+      assetName: attachment.name as string
+    }
 
     g_object.bindAssetStore('attachment', bindInfo, (err: BusinessError) => {
       if (err) {
@@ -939,10 +848,10 @@ class EntryAbility extends UIAbility {
 ```
 
 
-### bindAssetStore11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>
+##### bindAssetStore11+
+
+bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise&lt;void&gt;
 
 绑定分布式对象中的单个资产与其对应的数据库信息，当前版本只支持分布式对象中的资产与关系型数据库的绑定。使用Promise方式作为异步回调。
 
@@ -952,15 +861,13 @@ bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | assetKey | string | 是 | 待绑定的融合资产在分布式对象中的键值。 |
-| bindInfo | [BindInfo](#bindinfo11) | 是 | 待绑定的融合资产在数据库中的信息，包含库名、表名、主键、列名及在数据库中的资产名。 |
+| bindInfo | BindInfo | 是 | 待绑定的融合资产在数据库中的信息，包含库名、表名、主键、列名及在数据库中的资产名。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -971,7 +878,6 @@ bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
@@ -980,23 +886,18 @@ bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>
 
 **示例：**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { commonType } from '@kit.ArkData';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 class Note {
-  title: string | undefined;
-  text: string | undefined;
-  attachment: commonType.Asset | undefined;
+  title: string | undefined
+  text: string | undefined
+  attachment: commonType.Asset | undefined
 
-  constructor(
-    title: string | undefined,
-    text: string | undefined,
-    attachment: commonType.Asset | undefined,
-  ) {
+  constructor(title: string | undefined, text: string | undefined, attachment: commonType.Asset | undefined) {
     this.title = title;
     this.text = text;
     this.attachment = attachment;
@@ -1012,38 +913,34 @@ class EntryAbility extends UIAbility {
       createTime: '2024-01-02 10:00:00',
       modifyTime: '2024-01-02 10:00:00',
       size: '5',
-      status: commonType.AssetStatus.ASSET_NORMAL,
-    };
+      status: commonType.AssetStatus.ASSET_NORMAL
+    }
     let note: Note = new Note('test', 'test', attachment);
-    let g_object: distributedDataObject.DataObject =
-      distributedDataObject.create(this.context, note);
+    let g_object: distributedDataObject.DataObject = distributedDataObject.create(this.context, note);
     g_object.setSessionId('123456');
 
     const bindInfo: distributedDataObject.BindInfo = {
       storeName: 'notepad',
       tableName: 'note_t',
       primaryKey: {
-        uuid: '00000000-0000-0000-0000-000000000000',
+        'uuid': '00000000-0000-0000-0000-000000000000'
       },
       field: 'attachment',
-      assetName: attachment.name as string,
-    };
+      assetName: attachment.name as string
+    }
 
-    g_object
-      .bindAssetStore('attachment', bindInfo)
-      .then(() => {
-        console.info('bindAssetStore success.');
-      })
-      .catch((err: BusinessError) => {
-        console.error('bindAssetStore failed, error code = ' + err.code);
-      });
+    g_object.bindAssetStore("attachment", bindInfo).then(() => {
+      console.info('bindAssetStore success.');
+    }).catch((err: BusinessError) => {
+      console.error("bindAssetStore failed, error code = " + err.code);
+    });
   }
 }
 ```
 
 
-### on('change')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('change')20+
 
 on(type: 'change', callback: DataObserver): void
 
@@ -1053,38 +950,33 @@ on(type: 'change', callback: DataObserver): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'change'，表示数据变更。 |
-| callback | [DataObserver](#dataobserver20) | 是 | 表示分布式对象数据变更的回调实例。 |
+| callback | DataObserver | 是 | 表示分布式对象数据变更的回调实例。 |
 
 
 **示例：**
 
-
-```ts
-const changeCallback1: distributedDataObject.DataObserver = (
-  sessionId: string,
-  fields: Array<string>,
-) => {
-  console.info('change callback1 ' + sessionId);
+```text
+const changeCallback1: distributedDataObject.DataObserver = (sessionId: string, fields: Array<string>) => {
+  console.info("change callback1 " + sessionId);
   if (fields != null && fields != undefined) {
-    for (let index: number = 0; index < fields.length; index++) {
-      console.info('change !' + fields[index]);
-    }
+      for (let index: number = 0; index < fields.length; index++) {
+          console.info("change !" + fields[index]);
+      }
   }
-};
+}
 try {
-  g_object.on('change', changeCallback1);
+  g_object.on("change", changeCallback1);
 } catch (error) {
-  console.error('Execute failed, error code =  ' + error.code);
+  console.error("Execute failed, error code =  " + error.code);
 }
 ```
 
 
-### off('change')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('change')20+
 
 off(type: 'change', callback?: DataObserver): void
 
@@ -1094,58 +986,50 @@ off(type: 'change', callback?: DataObserver): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'change'，表示数据变更。 |
-| callback | [DataObserver](#dataobserver20) | 否 | 需要删除的数据变更回调实例，若不设置则删除该对象所有的数据变更回调实例。 |
+| callback | DataObserver | 否 | 需要删除的数据变更回调实例，若不设置则删除该对象所有的数据变更回调实例。 |
 
 
 **示例：**
 
-
-```ts
-const changeCallback1: distributedDataObject.DataObserver = (
-  sessionId: string,
-  fields: Array<string>,
-) => {
-  console.info('change callback1 ' + sessionId);
+```text
+const changeCallback1: distributedDataObject.DataObserver = (sessionId: string, fields: Array<string>) => {
+  console.info("change callback1 " + sessionId);
   if (fields != null && fields != undefined) {
-    for (let index: number = 0; index < fields.length; index++) {
-      console.info('change !' + fields[index]);
-    }
+      for (let index: number = 0; index < fields.length; index++) {
+          console.info("change !" + fields[index]);
+      }
   }
-};
+}
 
-const changeCallback2: distributedDataObject.DataObserver = (
-  sessionId: string,
-  fields: Array<string>,
-) => {
-  console.info('change callback2 ' + sessionId);
+const changeCallback2: distributedDataObject.DataObserver = (sessionId: string, fields: Array<string>) => {
+  console.info("change callback2 " + sessionId);
   if (fields != null && fields != undefined) {
-    for (let index: number = 0; index < fields.length; index++) {
-      console.info('change !' + fields[index]);
-    }
+      for (let index: number = 0; index < fields.length; index++) {
+          console.info("change !" + fields[index]);
+      }
   }
-};
+}
 
 try {
   // 删除单个数据变更回调函数
-  g_object.on('change', changeCallback1);
-  g_object.off('change', changeCallback1);
+  g_object.on("change", changeCallback1);
+  g_object.off("change", changeCallback1);
 
   // 删除所有数据变更回调函数
-  g_object.on('change', changeCallback1);
-  g_object.on('change', changeCallback2);
-  g_object.off('change');
+  g_object.on("change", changeCallback1);
+  g_object.on("change", changeCallback2);
+  g_object.off("change");
 } catch (error) {
-  console.error('Execute failed, error code =  ' + error.code);
+  console.error("Execute failed, error code =  " + error.code);
 }
 ```
 
 
-### on('status')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('status')20+
 
 on(type: 'status', callback: StatusObserver): void
 
@@ -1155,34 +1039,28 @@ on(type: 'status', callback: StatusObserver): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示分布式对象状态变更事件。 |
-| callback | [StatusObserver](#statusobserver20) | 是 | 表示分布式对象状态变更的回调实例。 |
+| callback | StatusObserver | 是 | 表示分布式对象状态变更的回调实例。 |
 
 
 **示例：**
 
-
-```ts
-const statusCallback1: distributedDataObject.StatusObserver = (
-  sessionId: string,
-  networkId: string,
-  status: string,
-) => {
-  console.info('status callback ' + sessionId);
-};
+```text
+const statusCallback1: distributedDataObject.StatusObserver = (sessionId: string, networkId: string, status: string) => {
+  console.info("status callback " + sessionId);
+}
 try {
-  g_object.on('status', statusCallback1);
+  g_object.on("status", statusCallback1);
 } catch (error) {
-  console.error('Execute failed, error code =  ' + error.code);
+  console.error("Execute failed, error code =  " + error.code);
 }
 ```
 
 
-### off('status')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('status')20+
 
 off(type: 'status', callback?: StatusObserver): void
 
@@ -1192,49 +1070,39 @@ off(type: 'status', callback?: StatusObserver): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示数据对象状态变更事件。 |
-| callback | [StatusObserver](#statusobserver20) | 否 | 需要删除状态变更的回调实例，若不设置则删除该对象所有的状态变更回调实例。 |
+| callback | StatusObserver | 否 | 需要删除状态变更的回调实例，若不设置则删除该对象所有的状态变更回调实例。 |
 
 
 **示例：**
 
+```text
+const statusCallback1: distributedDataObject.StatusObserver = (sessionId: string, networkId: string, status: string) => {
+  console.info("status callback1" + sessionId);
+}
 
-```ts
-const statusCallback1: distributedDataObject.StatusObserver = (
-  sessionId: string,
-  networkId: string,
-  status: string,
-) => {
-  console.info('status callback1' + sessionId);
-};
-
-const statusCallback2: distributedDataObject.StatusObserver = (
-  sessionId: string,
-  networkId: string,
-  status: string,
-) => {
-  console.info('status callback2' + sessionId);
-};
+const statusCallback2: distributedDataObject.StatusObserver = (sessionId: string, networkId: string, status: string) => {
+  console.info("status callback2" + sessionId);
+}
 try {
   // 删除单个状态变更回调函数
-  g_object.on('status', statusCallback1);
-  g_object.off('status', statusCallback1);
+  g_object.on("status", statusCallback1);
+  g_object.off("status", statusCallback1);
 
   // 删除所有状态变更回调函数
-  g_object.on('status', statusCallback1);
-  g_object.on('status', statusCallback2);
-  g_object.off('status');
+  g_object.on("status", statusCallback1);
+  g_object.on("status", statusCallback2);
+  g_object.off("status");
 } catch (error) {
-  console.error('Execute failed, error code =  ' + error.code);
+  console.error("Execute failed, error code =  " + error.code);
 }
 ```
 
 
-### on('progressChanged')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('progressChanged')20+
 
 on(type: 'progressChanged', callback: ProgressObserver): void
 
@@ -1244,34 +1112,29 @@ on(type: 'progressChanged', callback: ProgressObserver): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'progressChanged'，表示资产传输进度变化事件。 |
-| callback | [ProgressObserver](#progressobserver20) | 是 | 表示资产传输进度变化的回调实例。 |
+| callback | ProgressObserver | 是 | 表示资产传输进度变化的回调实例。 |
 
 
 **示例：**
 
-
-```ts
-const progressChangedCallback: distributedDataObject.ProgressObserver = (
-  sessionId: string,
-  progress: number,
-) => {
-  console.info('progressChanged callback' + sessionId);
-  console.info('progressChanged callback' + progress);
-};
+```text
+const progressChangedCallback: distributedDataObject.ProgressObserver = (sessionId: string, progress: number) => {
+  console.info("progressChanged callback" + sessionId);
+  console.info("progressChanged callback" + progress);
+}
 try {
-  g_object.on('progressChanged', progressChangedCallback);
+  g_object.on("progressChanged", progressChangedCallback);
 } catch (error) {
-  console.error('Execute failed, error code =  ' + error.code);
+  console.error("Execute failed, error code =  " + error.code);
 }
 ```
 
 
-### off('progressChanged')20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('progressChanged')20+
 
 off(type: 'progressChanged', callback?: ProgressObserver): void
 
@@ -1281,65 +1144,61 @@ off(type: 'progressChanged', callback?: ProgressObserver): void
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'progressChanged'，表示资产传输进度变化事件。 |
-| callback | [ProgressObserver](#progressobserver20) | 否 | 需要取消监听的事件回调，若不设置，则取消对该事件的所有监听。 |
+| callback | ProgressObserver | 否 | 需要取消监听的事件回调，若不设置，则取消对该事件的所有监听。 |
 
 
 **示例：**
 
+```text
+const progressChangedCallback1: distributedDataObject.ProgressObserver = (sessionId: string, progress: number) => {
+  console.info("progressChanged callback1" + sessionId);
+  console.info("progressChanged callback1" + progress);
+}
 
-```ts
-const progressChangedCallback1: distributedDataObject.ProgressObserver = (
-  sessionId: string,
-  progress: number,
-) => {
-  console.info('progressChanged callback1' + sessionId);
-  console.info('progressChanged callback1' + progress);
-};
-
-const progressChangedCallback2: distributedDataObject.ProgressObserver = (
-  sessionId: string,
-  progress: number,
-) => {
-  console.info('progressChanged callback2' + sessionId);
-  console.info('progressChanged callback2' + progress);
-};
+const progressChangedCallback2: distributedDataObject.ProgressObserver = (sessionId: string, progress: number) => {
+  console.info("progressChanged callback2" + sessionId);
+  console.info("progressChanged callback2" + progress);
+}
 try {
-  g_object.on('progressChanged', progressChangedCallback1);
+  g_object.on("progressChanged", progressChangedCallback1);
   // 取消对资产传输进度的监听
-  g_object.off('progressChanged', progressChangedCallback1);
+  g_object.off("progressChanged", progressChangedCallback1);
 
-  g_object.on('progressChanged', progressChangedCallback1);
-  g_object.on('progressChanged', progressChangedCallback2);
+  g_object.on("progressChanged", progressChangedCallback1);
+  g_object.on("progressChanged", progressChangedCallback2);
   // 取消对资产传输进度的所有监听
-  g_object.off('progressChanged');
+  g_object.off("progressChanged");
 } catch (error) {
-  console.error('Execute failed, error code =  ' + error.code);
+  console.error("Execute failed, error code =  " + error.code);
 }
 ```
 
 
-### setAsset20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAsset(assetKey: string, uri: string): Promise<void>
+##### setAsset20+
+
+setAsset(assetKey: string, uri: string): Promise&lt;void&gt;
 
 设置分布式对象中的单个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。使用Promise异步回调。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/P1gW9WGGRQOmqSK2L0x_Mw/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T083742Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=2272E730384ED80644F3F636E38556CAE2B6DD7C973C7A78AA8481FC09F3903B)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cO0ZI0OyTjWeaFzHJIGbrw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013942Z&HW-CC-Expire=86400&HW-CC-Sign=8F9022E054390484B5831367BEC4CBEEAECAE847C7012B2935433C644781B794)
+
+
 在设置资产时必须保证assetKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
 
 在设置资产时必须保证uri为正确且真实存在的分布式路径，否则无法保证对端能接收到此次设置的资产。
 
-有以下几种异常场景:
 
+
+有以下几种异常场景:
 
 | 触发条件 | 操作结果 |
 | --- | --- |
-| 调用[setSessionId](#setsessionid9-2)接口设置sessionId后再调用[setAsset](#setasset20)接口设置资产。 | 设置资产失败，抛出15400003异常。 |
+| 调用setSessionId接口设置sessionId后再调用setAsset接口设置资产。 | 设置资产失败，抛出15400003异常。 |
 | assetKey为无效值，例如：null（不存在）、undefined（未定义）或''（空字符串）。 | 设置资产失败，抛出15400002异常。 |
 | assetKey存在、对应文件为非资产类型。 | 系统会强制修改该字段对应的文件类型为资产类型且设置资产字段，可能出现真实资产无法同步至对端设备。 |
 | uri为无效值，例如：null（不存在）、undefined（未定义）或''（空字符串）。 | 设置资产失败，抛出15400002异常。 |
@@ -1349,15 +1208,13 @@ setAsset(assetKey: string, uri: string): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| assetKey | string | 是 | 分布式对象中资产类型数据对应的属性名。          使用约束：          （1）提供的assetKey对应的文件必须已存在且类型为资产[Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#asset)，才可进行正确的设置资产。若assetKey对应文件不存在或文件存在但类型不是资产类型，可能会出现资产设置错误。          （2）在协同或接续场景下需要双端满足assetKey对应的文件存在且为资产类型，才可将设置的资产同步到对端设备。 |
+| assetKey | string | 是 | 分布式对象中资产类型数据对应的属性名。 使用约束： （1）提供的assetKey对应的文件必须已存在且类型为资产Asset，才可进行正确的设置资产。若assetKey对应文件不存在或文件存在但类型不是资产类型，可能会出现资产设置错误。 （2）在协同或接续场景下需要双端满足assetKey对应的文件存在且为资产类型，才可将设置的资产同步到对端设备。 |
 | uri | string | 是 | 待设置的新资产的uri，表示该资产的存放的分布式路径。必须为真实存在的资产对应的分布式路径。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1367,7 +1224,6 @@ setAsset(assetKey: string, uri: string): Promise<void>
 **错误码：**
 
 以下错误码的详细介绍请参见[分布式数据对象错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributed-dataobject)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1377,23 +1233,18 @@ setAsset(assetKey: string, uri: string): Promise<void>
 
 **示例:**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { commonType, distributedDataObject } from '@kit.ArkData';
 
 class Note {
-  title: string | undefined;
-  text: string | undefined;
-  attachment: commonType.Asset | undefined;
+  title: string | undefined
+  text: string | undefined
+  attachment: commonType.Asset | undefined
 
-  constructor(
-    title: string | undefined,
-    text: string | undefined,
-    attachment: commonType.Asset | undefined,
-  ) {
+  constructor(title: string | undefined, text: string | undefined, attachment: commonType.Asset | undefined) {
     this.title = title;
     this.text = text;
     this.attachment = attachment;
@@ -1409,46 +1260,46 @@ class EntryAbility extends UIAbility {
       createTime: '2024-01-02 10:00:00',
       modifyTime: '2024-01-02 10:00:00',
       size: '5',
-      status: commonType.AssetStatus.ASSET_NORMAL,
-    };
+      status: commonType.AssetStatus.ASSET_NORMAL
+    }
     let note: Note = new Note('test', 'test', attachment);
-    let g_object: distributedDataObject.DataObject =
-      distributedDataObject.create(this.context, note);
+    let g_object: distributedDataObject.DataObject = distributedDataObject.create(this.context, note);
 
-    let uri = 'file://test/test.img';
-    g_object
-      .setAsset('attachment', uri)
-      .then(() => {
-        console.info('setAsset success.');
-      })
-      .catch((err: BusinessError) => {
-        console.error('setAsset failed, error code = ' + err.code);
-      });
+    let uri = "file://test/test.img";
+    g_object.setAsset("attachment", uri).then(() => {
+      console.info('setAsset success.');
+    }).catch((err: BusinessError) => {
+      console.error("setAsset failed, error code = " + err.code);
+    });
   }
 }
 ```
 
 
-### setAssets20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-setAssets(assetsKey: string, uris: Array<string>): Promise<void>
+##### setAssets20+
+
+setAssets(assetsKey: string, uris: Array&lt;string&gt;): Promise&lt;void&gt;
 
 设置分布式对象中的多个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。uris数组的数量范围为1-50。使用Promise异步回调。
 
-![图片](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/oFtrC73cRB-sXPLOXTY_QA/caution_3.0-zh-cn.png?HW-CC-KV=V1&amp;HW-CC-Date=20260514T083742Z&amp;HW-CC-Expire=86400&amp;HW-CC-Sign=E863DF34CC1DFDA33E380A3F552C06AC78AF672BF63C197AE6A7BCD0D3B69238)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/cXHYskGwRfWCgxEdK78_hQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013942Z&HW-CC-Expire=86400&HW-CC-Sign=5A3259BA89020FAFF95BFC425629D83DEEFF68572EA833FA9BA248DA69A68945)
+
+
 在设置资产时必须保证assetsKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
 
 在设置资产时必须保证uris数组内uri均为正确且真实存在的分布式路径，否则无法保证对端能接收到此次设置的资产。
 
-有以下几种异常场景:
 
+
+有以下几种异常场景:
 
 | 触发条件 | 操作结果 |
 | --- | --- |
-| 调用[setSessionId](#setsessionid9-2)接口设置sessionId后再调用[setAssets](#setassets20)接口设置资产。 | 设置资产失败，抛出15400003异常。 |
+| 调用setSessionId接口设置sessionId后再调用setAssets接口设置资产。 | 设置资产失败，抛出15400003异常。 |
 | assetsKey为无效值，例如：null（不存在）、undefined（未定义）或''（空字符串）。 | 设置资产失败，抛出15400002异常。 |
-| assetsKey存在、对应文件为非资���类型。 | 系统会强制修改该字段对应的文件类型为资产类型且设置资产字段，可能出现真实资产无法同步至对端设备。 |
+| assetsKey存在、对应文件为非资产类型。 | 系统会强制修改该字段对应的文件类型为资产类型且设置资产字段，可能出现真实资产无法同步至对端设备。 |
 | assetsKey存在、且对应文件为资产类型。 | 设置资产成功、更新uri信息。 |
 | uris数组uri元素数量为0或超过50（不包含50）个字符。 | 设置资产失败，抛出15400002异常。 |
 | uris数组uri元素数量为1-50之间，存在单个或多个uri无效，例如：null（不存在）、undefined（未定义）或''（空字符串）。 | 设置资产失败，抛出15400002异常。 |
@@ -1458,15 +1309,13 @@ setAssets(assetsKey: string, uris: Array<string>): Promise<void>
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| assetsKey | string | 是 | 分布式对象中资产数组类型数据对应的属性名。          使用约束：          （1）提供的assetsKey对应的文件已存在且类型必须为资产[Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-commontype#asset)，才可进行正确的设置资产。若assetsKey对应文件不存在或文件存在但类型不是资产类型，可能会出现资产设置错误。          （2）在协同或接续场景下需要双端满足assetsKey对应的文件存在且为资产类型，才可将设置的资产数组同步到对端设备。 |
+| assetsKey | string | 是 | 分布式对象中资产数组类型数据对应的属性名。 使用约束： （1）提供的assetsKey对应的文件已存在且类型必须为资产Asset，才可进行正确的设置资产。若assetsKey对应文件不存在或文件存在但类型不是资产类型，可能会出现资产设置错误。 （2）在协同或接续场景下需要双端满足assetsKey对应的文件存在且为资产类型，才可将设置的资产数组同步到对端设备。 |
 | uris | Array&lt;string&gt; | 是 | 待设置的新资产数组的uri集合，表示资产数组内每个资产的存放的分布式路径。数组元素有效范围为1-50，元素uri必须为真实存在的资产对应的分布式路径。 |
 
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
@@ -1477,7 +1326,6 @@ setAssets(assetsKey: string, uris: Array<string>): Promise<void>
 
 以下错误码的详细介绍请参见[分布式数据对象错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-distributed-dataobject)。
 
-
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 15400002 | Parameter error. Possible causes:1. The assetsKey is invalid, such as ""; 2. The uris is invalid, such as the length of uris is more than 50. |
@@ -1486,23 +1334,18 @@ setAssets(assetsKey: string, uris: Array<string>): Promise<void>
 
 **示例:**
 
-
-```ts
+```text
 import { UIAbility } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { commonType, distributedDataObject } from '@kit.ArkData';
 
 class Note {
-  title: string | undefined;
-  text: string | undefined;
-  attachment: commonType.Asset | undefined;
+  title: string | undefined
+  text: string | undefined
+  attachment: commonType.Asset | undefined
 
-  constructor(
-    title: string | undefined,
-    text: string | undefined,
-    attachment: commonType.Asset | undefined,
-  ) {
+  constructor(title: string | undefined, text: string | undefined, attachment: commonType.Asset | undefined) {
     this.title = title;
     this.text = text;
     this.attachment = attachment;
@@ -1518,44 +1361,36 @@ class EntryAbility extends UIAbility {
       createTime: '2024-01-02 10:00:00',
       modifyTime: '2024-01-02 10:00:00',
       size: '5',
-      status: commonType.AssetStatus.ASSET_NORMAL,
-    };
+      status: commonType.AssetStatus.ASSET_NORMAL
+    }
     let note: Note = new Note('test', 'test', attachment);
-    let g_object: distributedDataObject.DataObject =
-      distributedDataObject.create(this.context, note);
+    let g_object: distributedDataObject.DataObject = distributedDataObject.create(this.context, note);
 
-    let uris: Array<string> = [
-      'file://test/test_1.txt',
-      'file://test/test_2.txt',
-    ];
-    g_object
-      .setAssets('attachment', uris)
-      .then(() => {
-        console.info('setAssets success.');
-      })
-      .catch((err: BusinessError) => {
-        console.error('setAssets failed, error code = ' + err.code);
-      });
+    let uris: Array<string> = ["file://test/test_1.txt", "file://test/test_2.txt"];
+    g_object.setAssets("attachment", uris).then(() => {
+      console.info('setAssets success.');
+    }).catch((err: BusinessError) => {
+      console.error("setAssets failed, error code = " + err.code);
+    });
   }
 }
 ```
 
 
-## distributedDataObject.createDistributedObject(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### distributedDataObject.createDistributedObject(deprecated)
 
 createDistributedObject(source: object): DistributedObject
 
 创建一个分布式数据对象。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[distributedDataObject.create](#distributeddataobjectcreate9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 distributedDataObject.create 替代。
+
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1564,57 +1399,53 @@ createDistributedObject(source: object): DistributedObject
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [DistributedObject](#distributedobjectdeprecated) | 创建完成的分布式数据对象。 |
+| DistributedObject | 创建完成的分布式数据对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name
+        this.age = age
+        this.isVis = isVis
+    }
 }
 
-let source: SourceObject = new SourceObject('jack', 18, false);
-let g_object: distributedDataObject.DistributedObject =
-  distributedDataObject.createDistributedObject(source);
+let source: SourceObject = new SourceObject("jack", 18, false);
+let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 ```
 
 
-## DistributedObject(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### DistributedObject(deprecated)
 
 表示一个分布式数据对象。在使用以下接口前，需调用[createDistributedObject()](#distributeddataobjectcreatedistributedobjectdeprecated)获取DistributedObject对象。
 
 
-### setSessionId(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### setSessionId(deprecated)
 
 setSessionId(sessionId?: string): boolean
 
 设置sessionId。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式对象设置为同一个sessionId，就能自动同步。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[setSessionId](#setsessionid9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 setSessionId 替代。
+
 
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1623,248 +1454,223 @@ setSessionId(sessionId?: string): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| boolean | true：标识设置sessionId成功。          false：标识设置sessionId失败。 |
+| boolean | true：标识设置sessionId成功。 false：标识设置sessionId失败。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name
+        this.age = age
+        this.isVis = isVis
+    }
 }
 
-let source: SourceObject = new SourceObject('jack', 18, false);
-let g_object: distributedDataObject.DistributedObject =
-  distributedDataObject.createDistributedObject(source);
+let source: SourceObject = new SourceObject("jack", 18, false);
+let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 // g_object加入分布式组网
 g_object.setSessionId(distributedDataObject.genSessionId());
 // 设置为""退出分布式组网
-g_object.setSessionId('');
+g_object.setSessionId("");
 ```
 
 
-### on('change')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-on(type: 'change', callback: (sessionId: string, fields: Array<string>) => void): void
+##### on('change')(deprecated)
+
+on(type: 'change', callback: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
 监听分布式数据对象的变更。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[on('change')](#onchange9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 on('change') 替代。
+
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'change'，表示数据变更。 |
-| callback | (sessionId: string, fields: Array&lt;string&gt;) =&gt; void | 是 | 变更回调对象实例。          sessionId：标识变更对象的sessionId；          fields：标识对象变更的属性名。 |
+| callback | (sessionId: string, fields: Array&lt;string&gt;) => void | 是 | 变更回调对象实例。 sessionId：标识变更对象的sessionId； fields：标识对象变更的属性名。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name
+        this.age = age
+        this.isVis = isVis
+    }
 }
 
-let source: SourceObject = new SourceObject('jack', 18, false);
-let g_object: distributedDataObject.DistributedObject =
-  distributedDataObject.createDistributedObject(source);
-g_object.on('change', (sessionId: string, fields: Array<string>) => {
-  console.info('change' + sessionId);
-  if (fields != null && fields != undefined) {
-    for (let index: number = 0; index < fields.length; index++) {
-      console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
+let source: SourceObject = new SourceObject("jack", 18, false);
+let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
+g_object.on("change", (sessionId: string, fields: Array<string>) => {
+    console.info("change" + sessionId);
+    if (fields != null && fields != undefined) {
+        for (let index: number = 0; index < fields.length; index++) {
+            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+        }
     }
-  }
 });
 ```
 
 
-### off('change')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-off(type: 'change', callback?: (sessionId: string, fields: Array<string>) => void): void
+##### off('change')(deprecated)
+
+off(type: 'change', callback?: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
 当不再进行数据变更监听时，使用此接口删除对象的变更监听。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[off('change')](#offchange9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 off('change') 替代。
+
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'change'，表示数据变更。 |
-| callback | (sessionId: string, fields: Array&lt;string&gt;) =&gt; void | 否 | 需要删除的数据变更回调，若不设置则删除该对象所有的数据变更回调。          sessionId：标识变更对象的sessionId；          fields：标识对象变更的属性名。 |
+| callback | (sessionId: string, fields: Array&lt;string&gt;) => void | 否 | 需要删除的数据变更回调，若不设置则删除该对象所有的数据变更回调。 sessionId：标识变更对象的sessionId； fields：标识对象变更的属性名。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name
+        this.age = age
+        this.isVis = isVis
+    }
 }
 
-let source: SourceObject = new SourceObject('jack', 18, false);
-let g_object: distributedDataObject.DistributedObject =
-  distributedDataObject.createDistributedObject(source);
+let source: SourceObject = new SourceObject("jack", 18, false);
+let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 // 删除数据变更回调changeCallback
-g_object.off('change', (sessionId: string, fields: Array<string>) => {
-  console.info('change' + sessionId);
-  if (fields != null && fields != undefined) {
-    for (let index: number = 0; index < fields.length; index++) {
-      console.info('changed !' + fields[index] + ' ' + g_object[fields[index]]);
+g_object.off("change", (sessionId: string, fields: Array<string>) => {
+    console.info("change" + sessionId);
+    if (fields != null && fields != undefined) {
+        for (let index: number = 0; index < fields.length; index++) {
+            console.info("changed !" + fields[index] + " " + g_object[fields[index]]);
+        }
     }
-  }
 });
 // 删除所有的数据变更回调
-g_object.off('change');
+g_object.off("change");
 ```
 
 
-### on('status')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### on('status')(deprecated)
 
 on(type: 'status', callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void): void
 
 监听分布式数据对象的上下线。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[on('status')](#onstatus9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 on('status') 替代。
+
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示对象上下线。 |
-| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) =&gt; void | 是 | 监听上下线回调实例。          sessionId：标识变更对象的sessionId；          networkId：标识对象设备；          status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
+| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 是 | 监听上下线回调实例。 sessionId：标识变更对象的sessionId； networkId：标识对象设备； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name
+        this.age = age
+        this.isVis = isVis
+    }
 }
 
-let source: SourceObject = new SourceObject('jack', 18, false);
-let g_object: distributedDataObject.DistributedObject =
-  distributedDataObject.createDistributedObject(source);
+let source: SourceObject = new SourceObject("jack", 18, false);
+let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 
-g_object.on(
-  'status',
-  (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info(
-      'status changed ' + sessionId + ' ' + status + ' ' + networkId,
-    );
-  },
-);
+g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info("status changed " + sessionId + " " + status + " " + networkId);
+});
 ```
 
 
-### off('status')(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### off('status')(deprecated)
 
 off(type: 'status', callback?: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void): void
 
 当不再进行对象上下线监听时，使用此接口删除对象的上下线监听。
 
-
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用[off('status')](#offstatus9)替代。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 off('status') 替代。
+
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，固定为'status'，表示对象上下线。 |
-| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) =&gt; void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。          sessionId：标识变更对象的sessionId；          networkId：标识变更对象；          status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
+| callback | (sessionId: string, networkId: string, status: 'online' \| 'offline' ) => void | 否 | 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。 sessionId：标识变更对象的sessionId； networkId：标识变更对象； status：标识对象为'online'(上线)或'offline'(下线)的状态。 |
 
 
 **示例：**
 
-
-```ts
+```text
 class SourceObject {
-  name: string;
-  age: number;
-  isVis: boolean;
+    name: string
+    age: number
+    isVis: boolean
 
-  constructor(name: string, age: number, isVis: boolean) {
-    this.name = name;
-    this.age = age;
-    this.isVis = isVis;
-  }
+    constructor(name: string, age: number, isVis: boolean) {
+        this.name = name
+        this.age = age
+        this.isVis = isVis
+    }
 }
 
-let source: SourceObject = new SourceObject('jack', 18, false);
-let g_object: distributedDataObject.DistributedObject =
-  distributedDataObject.createDistributedObject(source);
+let source: SourceObject = new SourceObject("jack", 18, false);
+let g_object: distributedDataObject.DistributedObject = distributedDataObject.createDistributedObject(source);
 // 删除上下线回调changeCallback
-g_object.off(
-  'status',
-  (sessionId: string, networkId: string, status: 'online' | 'offline') => {
-    console.info(
-      'status changed ' + sessionId + ' ' + status + ' ' + networkId,
-    );
-  },
-);
+g_object.off("status", (sessionId: string, networkId: string, status: 'online' | 'offline') => {
+    console.info("status changed " + sessionId + " " + status + " " + networkId);
+});
 // 删除所有的上下线回调
-g_object.off('status');
+g_object.off("status");
 ```

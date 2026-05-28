@@ -7,27 +7,24 @@
 
 本模块提供对用户动作的感知能力，包括用户的手势、动作等。
 
-
 > [!NOTE]
 > 本模块首批接口从API version 15开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
 
-## 导入模块
-**支持设备：** Phone
 
+##### 导入模块
 
-```ts
+```text
 import { motion } from '@kit.MultimodalAwarenessKit';
 ```
 
 
-## OperatingHandStatus
-**支持设备：** Phone
+
+##### OperatingHandStatus
 
 触控操作手状态信息。
 
 **系统能力**：SystemCapability.MultimodalAwareness.Motion
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -36,13 +33,13 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 | RIGHT_HAND_OPERATED | 2 | 表示触控操作手是右手。 |
 
 
-## HoldingHandStatus20+
-**支持设备：** Phone
+
+
+##### HoldingHandStatus20+
 
 手机握持手状态信息，表示握持手状态变化感知事件的结果。订阅握持手状态变化感知事件后，返回当前握持手状态信息。
 
 **系统能力**：SystemCapability.MultimodalAwareness.Motion
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -53,10 +50,11 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 | UNKNOWN_STATUS | 16 | 表示未识别。 |
 
 
-## motion.on('operatingHandChanged')
-**支持设备：** Phone
 
-on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void
+
+##### motion.on('operatingHandChanged')
+
+on(type: 'operatingHandChanged', callback: Callback&lt;OperatingHandStatus&gt;): void
 
 订阅触控操作手感知事件。
 
@@ -68,17 +66,15 @@ on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型。type为“operatingHandChanged”，表示操作手状态变化。 |
-| callback | Callback&lt;[OperatingHandStatus](#operatinghandstatus)&gt; | 是 | 回调函数，返回操作手结果。 |
+| callback | Callback&lt;OperatingHandStatus&gt; | 是 | 回调函数，返回操作手结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[动作感知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-motion)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -91,30 +87,27 @@ on(type: 'operatingHandChanged', callback: Callback<OperatingHandStatus>): void
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let callback: Callback<motion.OperatingHandStatus> = (
-  data: motion.OperatingHandStatus,
-) => {
-  console.info('callback succeeded' + data);
+let callback:Callback<motion.OperatingHandStatus> = (data:motion.OperatingHandStatus) => {
+    console.info('callback succeeded' + data);
 };
 
 try {
-  motion.on('operatingHandChanged', callback);
-  console.info('on succeeded');
+    motion.on('operatingHandChanged', callback);
+    console.info("on succeeded");
 } catch (err) {
-  let error = err as BusinessError;
-  console.error('Failed on and err code is ' + error.code);
+    let error = err as BusinessError;
+    console.error("Failed on and err code is " + error.code);
 }
 ```
 
 
-## motion.off('operatingHandChanged')
-**支持设备：** Phone
 
-off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): void
+##### motion.off('operatingHandChanged')
+
+off(type: 'operatingHandChanged', callback?: Callback&lt;OperatingHandStatus&gt;): void
 
 取消订阅触控操作手感知事件。
 
@@ -124,17 +117,15 @@ off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): voi
 
 **参数**：
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型。type为“operatingHandChanged”，表示操作手状态变化。 |
-| callback | Callback&lt;[OperatingHandStatus](#operatinghandstatus)&gt; | 否 | 回调函数，返回操作手结果。 |
+| callback | Callback&lt;OperatingHandStatus&gt; | 否 | 回调函数，返回操作手结果。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[动作感知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-motion)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -147,22 +138,21 @@ off(type: 'operatingHandChanged', callback?: Callback<OperatingHandStatus>): voi
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  motion.off('operatingHandChanged');
-  console.info('off succeeded');
+    motion.off('operatingHandChanged');
+    console.info("off succeeded");
 } catch (err) {
-  let error = err as BusinessError;
-  console.error('Failed off and err code is ' + error.code);
+    let error = err as BusinessError;
+    console.error("Failed off and err code is " + error.code);
 }
 ```
 
 
-## motion.getRecentOperatingHandStatus()
-**支持设备：** Phone
+
+##### motion.getRecentOperatingHandStatus()
 
 getRecentOperatingHandStatus(): OperatingHandStatus
 
@@ -174,16 +164,14 @@ getRecentOperatingHandStatus(): OperatingHandStatus
 
 **返回值**：
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [OperatingHandStatus](#operatinghandstatus) | 返回触控操作手状态信息。 |
+| OperatingHandStatus | 返回触控操作手状态信息。 |
 
 
 **错误码**：
 
 以下错误码的详细介绍请参见[动作感知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-motion)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -194,24 +182,23 @@ getRecentOperatingHandStatus(): OperatingHandStatus
 
 **示例**：
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let data: motion.OperatingHandStatus = motion.getRecentOperatingHandStatus();
-  console.info('get succeeded' + data);
+    let data:motion.OperatingHandStatus = motion.getRecentOperatingHandStatus();
+    console.info('get succeeded' + data);
 } catch (err) {
-  let error = err as BusinessError;
-  console.error('Failed get and err code is ' + error.code);
+    let error = err as BusinessError;
+    console.error("Failed get and err code is " + error.code);
 }
 ```
 
 
-## motion.on('holdingHandChanged') 20+
-**支持设备：** Phone
 
-on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void
+##### motion.on('holdingHandChanged') 20+
+
+on(type: 'holdingHandChanged', callback: Callback&lt;HoldingHandStatus&gt;): void
 
 订阅握持手状态变化感知事件。
 
@@ -221,17 +208,15 @@ on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，type为"holdingHandChanged"。 |
-| callback | Callback&lt;[HoldingHandStatus](#holdinghandstatus20)&gt; | 是 | 回调函数，返回握持手状态结果。 |
+| callback | Callback&lt;HoldingHandStatus&gt; | 是 | 回调函数，返回握持手状态结果。 |
 
 
 **错误码**
 
 以下错误码的详细介绍请参见[动作感知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-motion)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -243,13 +228,10 @@ on(type: 'holdingHandChanged', callback: Callback<HoldingHandStatus>): void
 
 **示例**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let callback: Callback<motion.HoldingHandStatus> = (
-  data: motion.HoldingHandStatus,
-) => {
+let callback:Callback<motion.HoldingHandStatus> = (data:motion.HoldingHandStatus) => {
   console.info('callback succeeded: ' + data);
 };
 
@@ -263,10 +245,10 @@ try {
 ```
 
 
-## motion.off('holdingHandChanged') 20+
-**支持设备：** Phone
 
-off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void
+##### motion.off('holdingHandChanged') 20+
+
+off(type: 'holdingHandChanged', callback?: Callback&lt;HoldingHandStatus&gt;): void
 
 取消订阅握持手状态变化感知事件。
 
@@ -276,17 +258,15 @@ off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void
 
 **参数**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型，type为"holdingHandChanged"。 |
-| callback | Callback&lt;[HoldingHandStatus](#holdinghandstatus20)&gt; | 否 | 需取消的回调函数。省略则移除该事件的所有回调。 |
+| callback | Callback&lt;HoldingHandStatus&gt; | 否 | 需取消的回调函数。省略则移除该事件的所有回调。 |
 
 
 **错误码**
 
 以下错误码的详细介绍请参见[动作感知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-motion)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -298,8 +278,7 @@ off(type: 'holdingHandChanged', callback?: Callback<HoldingHandStatus>): void
 
 **示例**
 
-
-```ts
+```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {

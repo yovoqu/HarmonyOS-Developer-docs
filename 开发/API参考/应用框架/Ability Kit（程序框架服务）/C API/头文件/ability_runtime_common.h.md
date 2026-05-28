@@ -3,57 +3,53 @@
 更新时间：2026-03-09 02:50:43
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ability-runtime-common-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+##### 概述
 
 声明AbilityRuntime模块的错误码。
-
+ 
 **引用文件：** <AbilityKit/ability_runtime/ability_runtime_common.h>
-
+ 
 **库：** libability_runtime.so
-
+ 
 **系统能力：** SystemCapability.Ability.AbilityRuntime.Core
-
+ 
 **起始版本：** 13
-
+ 
 **相关模块：** [AbilityRuntime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime)
+ 
+  
 
+##### 汇总
 
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
+##### 枚举
+ 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [AbilityRuntime_ErrorCode](#abilityruntime_errorcode) | AbilityRuntime_ErrorCode | AbilityRuntime模块的错误码的枚举。 |
+| AbilityRuntime_ErrorCode | AbilityRuntime_ErrorCode | AbilityRuntime模块的错误码的枚举。 |
+ 
+ 
+  
 
+##### 枚举类型说明
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+  
 
-
-### AbilityRuntime_ErrorCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+##### AbilityRuntime_ErrorCode
 
 ```text
 enum AbilityRuntime_ErrorCode
 ```
-
+ 
 **描述**
-
+ 
 AbilityRuntime模块的错误码的枚举。
-
+ 
 **起始版本：** 13
-
-
+  
 | 枚举项 | 描述 |
 | --- | --- |
 | ABILITY_RUNTIME_ERROR_CODE_NO_ERROR = 0 | 操作成功。 |

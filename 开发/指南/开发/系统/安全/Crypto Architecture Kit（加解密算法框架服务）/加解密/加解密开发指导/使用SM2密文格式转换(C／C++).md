@@ -1,6 +1,6 @@
 # 使用SM2密文格式转换(C/C++)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm2-ciphertext-conversion-ndk
 
@@ -9,9 +9,12 @@
 开发者可指定SM2密文的参数，将其转换成符合国密标准的ASN.1格式密文。反之，也可以从国密标准的ASN.1格式密文中取出具体的SM2密文参数，便于开发者自行组合成其他格式的SM2密文。
 
 **指定密文参数，生成标准ASN.1密文**
+1. 调用[OH_CryptoSm2CiphertextSpec_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h#oh_cryptosm2ciphertextspec_create)，创建空的SM2密文规格对象。
+2. 调用[OH_CryptoSm2CiphertextSpec_SetItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h#oh_cryptosm2ciphertextspec_setitem)，设置密文的各个参数（C1.x、C1.y、C2、C3）。
+3. 调用[OH_CryptoSm2CiphertextSpec_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h#oh_cryptosm2ciphertextspec_encode)，生成ASN.1格式的密文（当前密文转换仅支持SM3，实现中只校验hash长度是否为32字节）。
+4. 使用完毕后，调用[OH_CryptoSm2CiphertextSpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h#oh_cryptosm2ciphertextspec_destroy)销毁SM2密文规格对象。
 
-
-```text
+```cpp
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
 
 OH_Crypto_ErrCode doTestGenCipherTextBySpec()
@@ -75,9 +78,11 @@ OH_Crypto_ErrCode doTestGenCipherTextBySpec()
 ```
 
 **从标准ASN.1密文中获取密文参数**
+1. 调用[OH_CryptoSm2CiphertextSpec_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h#oh_cryptosm2ciphertextspec_create)，从ASN.1格式密文创建SM2密文规格对象。
+2. 调用[OH_CryptoSm2CiphertextSpec_GetItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h#oh_cryptosm2ciphertextspec_getitem)，获取密文中的各个参数（C1.x、C1.y、C2、C3）。
+3. 使用完毕后，调用[OH_CryptoSm2CiphertextSpec_Destroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-cipher-h#oh_cryptosm2ciphertextspec_destroy)销毁SM2密文规格对象。
 
-
-```text
+```cpp
 #include "CryptoArchitectureKit/crypto_architecture_kit.h"
 
 OH_Crypto_ErrCode doTestGetCipherTextSpec()

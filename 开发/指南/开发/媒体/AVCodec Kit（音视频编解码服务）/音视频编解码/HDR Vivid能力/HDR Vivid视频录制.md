@@ -5,19 +5,21 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdr-vivid-video-recorder
 
 开发者可以调用本模块的Native API接口，实现在视频录制中支持HDR Vivid标准。
+ 
+视频录制的主要流程是“相机采集 > 编码 > 封装成mp4文件”。
+  
 
- 视频录制的主要流程是“相机采集 > 编码 > 封装成mp4文件”。
-
-
-## HDR Vivid视频编码
+##### HDR Vivid视频编码
 
 应用创建H.265编码器，配置profile(main 10)相机底层包含HDR Vivid的surfacebuffer内容，编码器消费surfacebuffer编码生成对应码流。
+ 
 > [!NOTE]
 > 仅在Surface模式下支持HDR Vivid视频编码。
 
+ 
+  
 
-## 在 CMake 脚本中链接动态库
-
+##### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_media_codecbase.so)
@@ -25,38 +27,44 @@ target_link_libraries(sample PUBLIC libnative_media_avdemuxer.so)
 target_link_libraries(sample PUBLIC libnative_media_avsource.so)
 target_link_libraries(sample PUBLIC libnative_media_core.so)
 ```
-
-
+ 
 > [!NOTE]
 > 上述'sample'字样仅为示例，此处由开发者根据实际工程目录自定义。
 
+ 
+  
 
-## 开发步骤
+##### 开发步骤
+1. 添加头文件。
 
-添加头文件。
+  
 ```text
-#include
-#include
-#include
-#include
-#include
-#include
+#include <multimedia/player_framework/native_avcodec_videoencoder.h>
+#include <multimedia/player_framework/native_avcapability.h>
+#include <multimedia/player_framework/native_avcodec_base.h>
+#include <multimedia/player_framework/native_avformat.h>
+#include <multimedia/player_framework/native_avbuffer.h>
+#include <fstream>
 ```
 
-创建编码器实例。  应用可以通过名称或媒体类型创建编码器。示例中的变量说明如下：  videoEnc：视频编码器实例的指针；OH_AVCODEC_MIMETYPE_VIDEO_HEVC：HEVC格式视频编解码器。
+2. 创建编码器实例。
+
+  应用可以通过名称或媒体类型创建编码器。示例中的变量说明如下：
+
+  
+videoEnc：视频编码器实例的指针；
+3. OH_AVCODEC_MIMETYPE_VIDEO_HEVC：HEVC格式视频编解码器。
+4. 配置异步回调函数。
+
+  添加头文件：
+
+  
 ```text
-// 通过mimetype创建H.265编码器实例。
-OH_AVCodec *videoEnc = OH_VideoEncoder_CreateByMime(OH_AVCODEC_MIMETYPE_VIDEO_HEVC);
+#include <condition_variable>
+#include <queue>
+#include <mutex>
 ```
-
-配置异步回调函数。  添加头文件：
-```text
-#include
-#include
-#include
-```
-
-
+  
 ```text
 struct CodecBufferInfo {
     uint32_t bufferIndex = 0;
@@ -66,27 +74,31 @@ struct CodecBufferInfo {
 };
 std::mutex outputMutex_;
 std::condition_variable outputCond_;
-std::queue outputBufferInfoQueue_;
+std::queue<CodecBufferInfo> outputBufferInfoQueue_;
 
 // 设置OH_AVCodecOnNewOutputBuffer回调函数，编码完成帧送入输出队列。
 void OnNewOutputBuffer(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData) {
     (void)codec;
-    std::unique_lock lock(outputMutex_);
+    std::unique_lock<std::mutex> lock(outputMutex_);
     outputBufferInfoQueue_.emplace(index, buffer);
     outputCond_.notify_all();
 }
 ```
+  具体可参考：[视频编码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#surface模式)中的“步骤3：调用OH_VideoEncoder_RegisterCallback()设置回调函数”。
+5. 配置编码器。
 
-具体可参考：[视频编码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#surface模式)中的“步骤3：调用OH_VideoEncoder_RegisterCallback()设置回调函数”。  配置编码器。  可选配置视频帧宽度、视频帧高度、视频颜色格式。
+  可选配置视频帧宽度、视频帧高度、视频颜色格式。
+
+  
 ```text
 // 配置编码Profile为MAIN10（必须）。
-int32_t profile = static_cast(HEVC_PROFILE_MAIN_10);
+int32_t profile = static_cast<int32_t>(HEVC_PROFILE_MAIN_10);
 // 配置视频原色。
-int32_t primary = static_cast(OH_ColorPrimary::COLOR_PRIMARY_BT2020);
+int32_t primary = static_cast<int32_t>(OH_ColorPrimary::COLOR_PRIMARY_BT2020);
 // 配置传输特性。
-int32_t transfer = static_cast(OH_TransferCharacteristic::TRANSFER_CHARACTERISTIC_PQ);// PQ或者HLG。
+int32_t transfer = static_cast<int32_t>(OH_TransferCharacteristic::TRANSFER_CHARACTERISTIC_PQ);// PQ或者HLG。
 // 配置最大矩阵系数。
-int32_t matrix = static_cast(OH_MatrixCoefficient::MATRIX_COEFFICIENT_BT2020_CL);
+int32_t matrix = static_cast<int32_t>(OH_MatrixCoefficient::MATRIX_COEFFICIENT_BT2020_CL);
 // 配置关键帧的间隔，单位为毫秒。
 int32_t iFrameInterval = 100;
 
@@ -105,37 +117,49 @@ if (ret != AV_ERR_OK) {
 OH_AVFormat_Destroy(format);
 ```
 
-获取surface，并设置给相机。  具体可参考：[视频编码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#surface模式)中的“步骤6：获取surface”。  调用OH_VideoEncoder_Start()启动编码器。  具体可参考：[视频编码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#surface模式)中的“步骤8：调用OH_VideoEncoder_Start()启动编码器”。
+6. 获取surface，并设置给相机。
 
-## HDR Vivid视频封装
+  具体可参考：[视频编码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#surface模式)中的“步骤6：获取surface”。
+7. 调用OH_VideoEncoder_Start()启动编码器。
+
+  具体可参考：[视频编码Surface模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#surface模式)中的“步骤8：调用OH_VideoEncoder_Start()启动编码器”。
+ 
+  
+
+##### HDR Vivid视频封装
 
 调用Muxer可以将HDR Vivid码流封装成文件，码流格式需指定为hevc码流，并设置宽、高、isHDRVivid信息。Color信息通常需要从编码获取并设置给封装器。
+ 
+  
 
-## 在 CMake 脚本中链接动态库
-
+##### 在 CMake 脚本中链接动态库
 
 ```text
 target_link_libraries(sample PUBLIC libnative_media_avmuxer.so)
 target_link_libraries(sample PUBLIC libnative_media_core.so)
 ```
-
-
+ 
 > [!NOTE]
 > 上述'sample'字样仅为示例，此处由开发者根据实际工程目录自定义。
 
+ 
+  
 
-## 开发步骤
+##### 开发步骤
+1. 添加头文件。
 
-添加头文件。
+  
 ```text
-#include
-#include
-#include
-#include
-#include
+#include <multimedia/player_framework/native_avmuxer.h>
+#include <multimedia/player_framework/native_avcodec_base.h>
+#include <multimedia/player_framework/native_avformat.h>
+#include <multimedia/player_framework/native_avbuffer.h>
+#include <fcntl.h>
 ```
 
-调用OH_AVMuxer_Create()创建封装器实例对象。
+2. 调用OH_AVMuxer_Create()创建封装器实例对象。
+
+  
 ```text
 // 设置封装格式为mp4。
 OH_AVOutputFormat outputFormat = AV_OUTPUT_FORMAT_MPEG_4;
@@ -144,7 +168,9 @@ int32_t fd = open("test.mp4", O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR);
 OH_AVMuxer *muxer = OH_AVMuxer_Create(fd, outputFormat);
 ```
 
-添加视频轨，并指定类型为HDR Vivid类型。
+3. 添加视频轨，并指定类型为HDR Vivid类型。
+
+  
 ```text
 int videoTrackId = -1;
 uint8_t *buffer = ...; // 编码config data，如果没有可以不传。
@@ -164,11 +190,19 @@ OH_AVFormat_SetIntValue(formatVideo, OH_MD_KEY_TRANSFER_CHARACTERISTICS, OH_Tran
 OH_AVFormat_SetIntValue(formatVideo, OH_MD_KEY_MATRIX_COEFFICIENTS, OH_MatrixCoefficient::MATRIX_COEFFICIENT_BT2020_CL);
 
 ret = OH_AVMuxer_AddTrack(muxer, &videoTrackId, formatVideo);
-if (ret != AV_ERR_OK || videoTrackId
+if (ret != AV_ERR_OK || videoTrackId < 0) {
+    // 视频轨添加失败。
+}
+OH_AVFormat_Destroy(formatVideo); // 销毁。
+```
 
-## 处理视频帧数据
+ 
+  
 
-写入封装数据。
+##### 处理视频帧数据
+1. 写入封装数据。
+
+  
 ```text
 // start后，才能开始写入数据。
 int trackId = videoTrackId; // 选择写的媒体轨。
@@ -177,15 +211,17 @@ CodecBufferInfo bufferInfo = outputBufferInfoQueue_.front();
 outputBufferInfoQueue_.pop();
 ret = OH_AVMuxer_WriteSampleBuffer(muxer, trackId, bufferInfo.buffer);
 if (ret != AV_ERR_OK) {
-// 异常处理。
+    // 异常处理。
 }
 ```
 
-  调用OH_VideoEncoder_FreeOutputBuffer()释放编码帧。
+2. 调用OH_VideoEncoder_FreeOutputBuffer()释放编码帧。
+
+  
 ```text
 // 释放已完成写入的数据，index为对应输出队列的下标。
 ret = OH_VideoEncoder_FreeOutputBuffer(videoEnc, bufferInfo.bufferIndex);
 if (ret != AV_ERR_OK) {
-// 异常处理。
+    // 异常处理。
 }
 ```

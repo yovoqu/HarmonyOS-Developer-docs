@@ -6,23 +6,38 @@
 
 当前指导提供以下示例，供开发者参考完成签名、验签开发：
 
+ - [密钥算法为RSA、摘要算法为SHA256、填充模式为PSS](#rsasha256pss)
 
-- [密钥算法为RSA、摘要算法为SHA256、填充模式为PSS](#rsasha256pss)
 
 具体的场景介绍及支持的算法规格，请参考[签名/验签介绍及算法规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-ukey-signing-signature-verification-overview)。
 
 
-## 开发步骤
+##### 开发步骤
 
-**签名** 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)后完成PIN码认证。 指定待签名的明文数据。 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入明文数据，properties传入算法参数配置。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取签名signature。 **验签** 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，然后[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。 获取待验证的签名。 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入签名signature，properties传入算法参数配置。 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。 调用[updateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksupdatesession9)更新密钥会话。 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，验证签名。
+**签名**
+1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)后完成PIN码认证。
+2. 指定待签名的明文数据。
+3. 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入明文数据，properties传入算法参数配置。
+4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，获取签名signature。
 
-## 开发案例
+**验签**
+1. 通过证书管理系统能力提供的[证书选择接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certificatemanagerdialogopenauthorizedialog22)获取[keyUri](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog#certreference22)作为resourceId，并作为密钥别名，然后[打开资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-open-close-resource-ndk#打开资源)。
+2. 获取待验证的签名。
+3. 获取属性参数[HuksOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksoptions)，包括两个字段properties和inData。inData传入签名signature，properties传入算法参数配置。
+4. 调用[initSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksinitsession9)初始化密钥会话，并获取会话的句柄handle。
+5. 调用[updateSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksupdatesession9)更新密钥会话。
+6. 调用[finishSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks#huksfinishsession9)结束密钥会话，验证签名。
 
 
-## RSA/SHA256/PSS
+
+##### 开发案例
 
 
-```text
+
+##### RSA/SHA256/PSS
+
+```json
 /*
  * 密钥算法为RSA，摘要算法为SHA256，填充模式为PSS
  */
@@ -35,7 +50,22 @@ let signature: Uint8Array;
 
 function StringToUint8Array(str: string) {
   let arr: number[] = [];
-  for (let i = 0, j = str.length; i  = [{
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+function Uint8ArrayToString(fileData: Uint8Array) {
+  let dataString = '';
+  for (let i = 0; i < fileData.length; i++) {
+    dataString += String.fromCharCode(fileData[i]);
+  }
+  return dataString;
+}
+
+function GetRsaSignProperties() {
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_RSA
   }, {
@@ -58,7 +88,7 @@ function StringToUint8Array(str: string) {
 }
 
 function GetRsaVerifyProperties() {
-  let properties: Array = [{
+  let properties: Array<huks.HuksParam> = [{
     tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
     value: huks.HuksKeyAlg.HUKS_ALG_RSA
   }, {

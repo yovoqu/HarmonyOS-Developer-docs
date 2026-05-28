@@ -1,6 +1,6 @@
 # 复杂文本绘制与显示（C/C++）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-text-c
 
@@ -8,23 +8,35 @@
 
 复杂文本绘制主要包含以下几个场景：
 
+ - 多语言文本绘制与显示
+ - 多行文本绘制与显示
+ - 多样式文本绘制与显示
+ - 样式的拷贝、绘制与显示
 
-## 多语言文本绘制与显示
 
-多语言支持是全球化应用的基础。多语言文本绘制需要支持不同语言的字符集及其独特的显示需求，例如右到左语言（如阿拉伯语）或竖排文本（如中文）。开发者需要理解不同语言的渲染特性，确保文本的正确显示。 在多语言文本使用的场景下，主要通过指定TextStyle文本样式中的**locale**字段来实现，可直接通过locale字段的值优先匹配对应字体，跳过遍历列表匹配字体的过程，从而降低匹配时间和内存使用。
 
-## 接口说明
+##### 多语言文本绘制与显示
 
+多语言支持是全球化应用的基础。多语言文本绘制需要支持不同语言的字符集及其独特的显示需求，例如右到左语言（如阿拉伯语）或竖排文本（如中文）。开发者需要理解不同语言的渲染特性，确保文本的正确显示。
+
+在多语言文本使用的场景下，主要通过指定TextStyle文本样式中的**locale**字段来实现，可直接通过locale字段的值优先匹配对应字体，跳过遍历列表匹配字体的过程，从而降低匹配时间和内存使用。
+
+
+
+##### 接口说明
 
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_SetTypographyTextLocale(OH_Drawing_TypographyStyle* style, const char* locale) | 设置指定排版样式的语言环境。 |
 
 
-## 开发步骤
+
+
+##### 开发步骤
 
 画布Canvas对象具体可见[画布的获取与绘制结果的显示](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c)。
-```text
+
+```cpp
 // 创建一个 TypographyStyle，创建 TypographyCreate 时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 设置文本对齐方式为居中
@@ -66,16 +78,22 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 
-## 效果展示
+
+##### 效果展示
+
 
 ![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-0.png)
 
-## 多行文本绘制与显示
+
+
+
+##### 多行文本绘制与显示
 
 多行文本相对于单行文本比较复杂，一般针对多行文本，需要进行文本排版、断词策略设置、文本对齐方式、最大行数限制等，主要通过设置段落样式实现。
 
-## 接口说明
 
+
+##### 接口说明
 
 | 接口定义 | 描述 |
 | --- | --- |
@@ -84,10 +102,13 @@ OH_Drawing_DestroyTypography(typography);
 | void OH_Drawing_SetTypographyTextMaxLines(OH_Drawing_TypographyStyle* style, int lineNumber) | 设置文本最大行数。 |
 
 
-## 开发步骤
+
+
+##### 开发步骤
 
 以下以断行策略为 BREAK_ALL 的场景为例，其余策略同理。
-```text
+
+```cpp
 // 创建 FontCollection，FontCollection 用于管理字体匹配逻辑
 OH_Drawing_FontCollection *fc = OH_Drawing_CreateSharedFontCollection();
 
@@ -138,7 +159,6 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-
 | BREAK_ALL | BREAK_WORD |
 | --- | --- |
 |  |  |
@@ -149,21 +169,48 @@ OH_Drawing_DestroyTypography(typography);
 |  |  |  |
 
 
-## 多样式文本绘制与显示
 
-除基本文字、排版属性之外，针对应用中不同文本的设计，开发者可能需要设置使用不同的绘制样式或能力，以凸显对应文本的独特表现或风格，此时可以结合使用多种绘制样式进行文本的渲染。 当前支持的多样式绘制及各绘制样式侧重效果如下： **装饰线样式绘制：** 主要通过不同的线条样式对文本进行装饰，可以使文本更加突出，富有表现力。 **字体特性绘制：** 主要通过字体的变化，包括粗细、斜体等特性来改变文本的外观，增强文本的可读性和美观性。 **可变字体绘制：** 对应提供文本在不同的显示环境和设备上灵活调整的能力，可满足更为精细的视觉效果。 **文本阴影绘制：** 主要通过在文本周围添加阴影效果，以提升文本的层次感和立体感，从而使文本更具吸引力。 **占位符绘制：** 可以在不确定文本内容时保持文本布局的稳定性，使得文本显示更为流畅和自然。 **自动间距绘制：** 可以在一些字符混排切换的地方自动添加额外间距，提升阅读体验。 **渐变色绘制：** 可以为文字提供颜色渐变效果，增强文字表现力。 **垂直对齐：** 调整文本在垂直方向排版位置，提升排版质量。 **上下标：** 可以将任意字符处理成上标或下标，更精准表达文本含义。 **高对比度文字绘制：** 主要通过将深色文字变黑、浅色文字变白，增强文本的对比效果。 **行高调整：** 调整行高可改变文本行的垂直间距，使行间距更松散或更紧凑，显著改善文本垂直截断问题，提高可读性。 **行间距调整：** 通过调整行间距的方式可以实现行高调整一样的效果，优化阅读体验。
 
-## 装饰线
+##### 多样式文本绘制与显示
 
-**装饰线**是指在文本上方、下方或中间添加的装饰性线条，当前支持上划线、下划线、删除线。 可以通过添加文本装饰线，提升文本的视觉效果和可读性。 使用装饰线需要初始化装饰线样式对象，并添加到文本样式中，从而在文本绘制时生效。
+除基本文字、排版属性之外，针对应用中不同文本的设计，开发者可能需要设置使用不同的绘制样式或能力，以凸显对应文本的独特表现或风格，此时可以结合使用多种绘制样式进行文本的渲染。
+
+当前支持的多样式绘制及各绘制样式侧重效果如下：
+
+ - **装饰线样式绘制：** 主要通过不同的线条样式对文本进行装饰，可以使文本更加突出，富有表现力。
+ - **字体特性绘制：** 主要通过字体的变化，包括粗细、斜体等特性来改变文本的外观，增强文本的可读性和美观性。
+ - **可变字体绘制：** 对应提供文本在不同的显示环境和设备上灵活调整的能力，可满足更为精细的视觉效果。
+ - **文本阴影绘制：** 主要通过在文本周围添加阴影效果，以提升文本的层次感和立体感，从而使文本更具吸引力。
+ - **占位符绘制：** 可以在不确定文本内容时保持文本布局的稳定性，使得文本显示更为流畅和自然。
+ - **自动间距绘制：** 可以在一些字符混排切换的地方自动添加额外间距，提升阅读体验。
+ - **渐变色绘制：** 可以为文字提供颜色渐变效果，增强文字表现力。
+ - **垂直对齐：** 调整文本在垂直方向排版位置，提升排版质量。
+ - **上下标：** 可以将任意字符处理成上标或下标，更精准表达文本含义。
+ - **高对比度文字绘制：** 主要通过将深色文字变黑、浅色文字变白，增强文本的对比效果。
+ - **行高调整：** 调整行高可改变文本行的垂直间距，使行间距更松散或更紧凑，显著改善文本垂直截断问题，提高可读性。
+ - **行间距调整：** 通过调整行间距的方式可以实现行高调整一样的效果，优化阅读体验。
+
+
+
+
+##### 装饰线
+
+**装饰线**是指在文本上方、下方或中间添加的装饰性线条，当前支持上划线、下划线、删除线。
+
+可以通过添加文本装饰线，提升文本的视觉效果和可读性。
+
+使用装饰线需要初始化装饰线样式对象，并添加到文本样式中，从而在文本绘制时生效。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_SetTextStyleDecoration(OH_Drawing_TextStyle* style, int decoration) | 设置指定文本样式中的装饰线类型，只能设置一个装饰线类型，添加多个需要使用OH_Drawing_AddTextStyleDecoration。 |
 | void OH_Drawing_SetTextStyleDecorationStyle(OH_Drawing_TextStyle* style, int decorationStyle) | 设置指定文本样式中的装饰线样式。 |
 | void OH_Drawing_SetTextStyleDecorationColor(OH_Drawing_TextStyle* style, uint32_t color) | 设置指定文本样式中的装饰线颜色。 |
 
+
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 创建一个TypographyStyle创建Typography时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 设置文本对齐方式为居中
@@ -221,17 +268,26 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-1.png)
 
-## 字体特征
+![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-6.png)
 
-**字体特征**绘制专注于在文本渲染过程中对字体特性（如粗体、斜体、字体变种等）的处理，允许字体在不同的排版场景下表现出不同的效果，可用于增强文本的表现力，使其更符合设计和阅读需求。 常见的**FontFeature**包含有liga、frac、case等，需要对应的ttf文件支持才能正常使能。
+
+
+
+##### 字体特征
+
+**字体特征**绘制专注于在文本渲染过程中对字体特性（如粗体、斜体、字体变种等）的处理，允许字体在不同的排版场景下表现出不同的效果，可用于增强文本的表现力，使其更符合设计和阅读需求。
+
+常见的**FontFeature**包含有liga、frac、case等，需要对应的ttf文件支持才能正常使能。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_TextStyleAddFontFeature(OH_Drawing_TextStyle* style, const char* tag, int value) | 设置文本样式中指定字体特征是否启用。 |
 
+
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 创建一个 TypographyStyle，创建 TypographyCreate 时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 设置文本对齐方式为居中
@@ -289,17 +345,26 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-2.png)
 
-## 可变字体
+![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-7.jpg)
 
-**可变字体**是一种在一个字体文件中包含多个字形变体的字体格式，允许在一个字体文件内灵活地调整字体的各种属性（如字重、字宽、斜体等）。 与传统字体文件（每种变体需要一个独立的文件）不同，可变字体在一个字体文件中包含多个变体轴，可通过使用可变字体实现文本渲染绘制时的平滑过渡。
+
+
+
+##### 可变字体
+
+**可变字体**是一种在一个字体文件中包含多个字形变体的字体格式，允许在一个字体文件内灵活地调整字体的各种属性（如字重、字宽、斜体等）。
+
+与传统字体文件（每种变体需要一个独立的文件）不同，可变字体在一个字体文件中包含多个变体轴，可通过使用可变字体实现文本渲染绘制时的平滑过渡。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_TextStyleAddFontVariation(OH_Drawing_TextStyle* style, const char* axis, const float value) | 添加可变字体属性。对应的字体文件（.ttf文件）需要支持可变调节，此接口才能生效。当对应的字体不支持可变调节时，此接口调用不生效。 |
 
+
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 创建一个 TypographyStyle 创建 Typography 时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 设置文本对齐方式为居中
@@ -358,11 +423,20 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-3.png)
 
-## 文本阴影
+![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-8.jpg)
 
-**文本阴影**为文本提供了深度感，使得文本在背景上更具立体感。通常用于提升文本的视觉吸引力或增强可读性，尤其是在色彩对比度较低的场景下。 其中，TextShadow有三个属性，分别为阴影颜色color、阴影基于当前文本的偏移位置point、阴影半径blurRadius。 使用阴影效果需要在文本样式中设置对应的阴影效果数组，从而在文本绘制时生效。
+
+
+
+##### 文本阴影
+
+**文本阴影**为文本提供了深度感，使得文本在背景上更具立体感。通常用于提升文本的视觉吸引力或增强可读性，尤其是在色彩对比度较低的场景下。
+
+其中，TextShadow有三个属性，分别为阴影颜色color、阴影基于当前文本的偏移位置point、阴影半径blurRadius。
+
+使用阴影效果需要在文本样式中设置对应的阴影效果数组，从而在文本绘制时生效。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | OH_Drawing_Point* OH_Drawing_PointCreate(float x, float y) | 用于创建一个坐标点对象。 |
@@ -371,8 +445,10 @@ OH_Drawing_DestroyTypography(typography);
 | void OH_Drawing_TextStyleAddShadow(OH_Drawing_TextStyle* style, const OH_Drawing_TextShadow* shadow) | 字体阴影容器中添加字体阴影元素。 |
 | void OH_Drawing_DestroyTextShadow(OH_Drawing_TextShadow* shadow) | 释放被字体阴影对象占据的内存。 |
 
+
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 创建一个 TypographyStyle 创建 Typography 时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 设置文本对齐方式为居中
@@ -434,17 +510,26 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-4.png)
 
-## 占位符
+![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-9.png)
 
-占位符绘制用于处理文本中占位符符号的渲染。 占位符也是用来实现图文混排的关键，是指在实际图像或内容注册之前，用来预先提供或替代某个位置的视觉元素。
+
+
+
+##### 占位符
+
+占位符绘制用于处理文本中占位符符号的渲染。
+
+占位符也是用来实现图文混排的关键，是指在实际图像或内容注册之前，用来预先提供或替代某个位置的视觉元素。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_TypographyHandlerAddPlaceholder(OH_Drawing_TypographyCreate* handler, OH_Drawing_PlaceholderSpan* span) | 设置占位符。 |
 
+
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 设置页面最大宽度
 double maxWidth = width_;
 // 创建 FontCollection，FontCollection 用于管理字体匹配逻辑
@@ -510,17 +595,24 @@ OH_Drawing_DestroyTypography(typographyWithPlaceholder);
 OH_Drawing_DestroyTypography(typographyNoPlaceholder);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-5.png)
 
-## 自动间距
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KNU9Cp7yTHCStO3kgBCAOA/zh-cn_image_0000002581434788.png?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=173BD47FF8D6E39BBFC65C07B106B8C4A07106742A3DE09FF8CC23DEED6F0795)
+
+
+
+
+##### 自动间距
 
 使能自动间距，则会在文本排版时自动调整CJK（中文字符、日文字符、韩文字符）与西文（拉丁字母、西里尔字母、希腊字母）、CJK与数字、CJK与版权符号、版权符号与数字、版权符号与西文之间的间距。例如，在中英文混排场景中，使能自动间距即可在中英文切换的地方自动添加额外间距，提升阅读体验。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_SetTypographyTextAutoSpace(OH_Drawing_TypographyStyle *style, bool enableAutoSpace) | 设置文本排版时是否使能自动间距。默认不使能自动间距，一旦使能则会自动调整CJK（中文字符、日文字符、韩文字符）与西文（拉丁字母、西里尔字母、希腊字母）、CJK与数字、CJK与版权符号、版权符号与数字、版权符号与西文之间的间距。 |
 
+
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 创建一个TypographyStyle创建Typography时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 设置使能自动间距，默认为false
@@ -578,22 +670,26 @@ OH_Drawing_DestroyTypography(typography);
 OH_Drawing_DestroyTypography(typographyWithoutAutoSpace);
 ```
 
-
 | 段落样式设置（自动间距） | 示意效果 |
 | --- | --- |
 | 不使能自动间距 |  |
 | 使能自动间距 |  |
 
 
-## 渐变色
+
+
+##### 渐变色
 
 **渐变色**是一种在文字设计中广泛应用的视觉效果，通过在文字的不同部分应用不同的颜色，从而创造出从一种颜色平滑过渡到另一种颜色的效果。可以通过着色器实现文字渐变的效果，着色器的更多介绍请参考[着色器效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-c#着色器效果)。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_SetTextStyleForegroundBrush(OH_Drawing_TextStyle* style, OH_Drawing_Brush* foregroundBrush) | 添加前景画刷，渐变着色器属性依附于前景画刷中。 |
 
+
 示例及效果如下所示：
-```text
+
+```cpp
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 OH_Drawing_TextStyle *txtStyle = OH_Drawing_CreateTextStyle();
 // 设置文字大小
@@ -635,17 +731,24 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-6.png)
 
-## 垂直对齐
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/TWwZ4AcER52w1Kc96gEVVg/zh-cn_image_0000002611754727.png?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=713ED90FD51A3EB00FDFCF76FD344FF6F402AACD48A2CD74834D9B1C836C29DA)
+
+
+
+
+##### 垂直对齐
 
 **垂直对齐**用于调整文本在一行中垂直方向的排版位置。开启行高缩放或行内存在不同字号文本混排时使能垂直对齐，可以让文本实现顶部对齐、居中对齐、底部对齐或基线对齐（默认）。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_SetTypographyVerticalAlignment(OH_Drawing_TypographyStyle* style, OH_Drawing_TextVerticalAlignment align) | 设置文本垂直方向排版方式。 |
 
+
 示例及效果如下所示：
-```text
+
+```cpp
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 OH_Drawing_TextStyle *txtStyle = OH_Drawing_CreateTextStyle();
 // 设置垂直对齐方式
@@ -677,17 +780,25 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 效果如下（黑框仅为展示文本绘制区域，实际不绘制）：
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-7.jpg)
 
-## 上下标
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/efgEt1GgRHGLA3d5VKcK8w/zh-cn_image_0000002581434776.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=4F60C208B2CE250EAACC815BEE08332C7AE87F0A9056CDC842D09ED3F0E53259)
+
+
+
+
+##### 上下标
 
 **上下标**能将文本作为上标或下标参与排版。一般用于数学公式、化学式等场景。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | void OH_Drawing_SetTextStyleBadgeType(OH_Drawing_TextStyle* style, OH_Drawing_TextBadgeType textBadgeType) | 使能上下标样式。 |
 
+
 示例及效果如下所示：
-```text
+
+```cpp
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 OH_Drawing_TextStyle *txtStyle = OH_Drawing_CreateTextStyle();
 OH_Drawing_TextStyle *badgeTxtStyle = OH_Drawing_CreateTextStyle();
@@ -724,17 +835,24 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-8.jpg)
 
-## 高对比度
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/qkWZC4hlSV6eZZ3dBZoFCw/zh-cn_image_0000002611754715.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=74A099CA48934A175249E7A099A89A134E1164B73E863702BC95AC509709879D)
+
+
+
+
+##### 高对比度
 
 高对比度可将深色文字变黑、浅色文字变白。开发者可选择开启或关闭应用的高对比度文字渲染，或遵循系统设置中的高对比度文字配置。
+
 | 接口定义 | 描述 |
 | --- | --- |
-| void OH_Drawing_SetTextHighContrast(OH_Drawing_TextHighContrast action) | 设置文字渲染高对比度模式。模式具体可参考[OH_Drawing_TextHighContrast](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-global-h#oh_drawing_texthighcontrast)。 |
+| void OH_Drawing_SetTextHighContrast(OH_Drawing_TextHighContrast action) | 设置文字渲染高对比度模式。模式具体可参考OH_Drawing_TextHighContrast。 |
+
 
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 开启APP的文字渲染高对比模式，该模式的优先级要高于系统设置中的高对比度文字配置
 OH_Drawing_SetTextHighContrast(TEXT_APP_ENABLE_HIGH_CONTRAST);
 // 创建一个 TypographyStyle，创建 Typography 时需要使用
@@ -772,23 +890,33 @@ OH_Drawing_DestroyTypographyHandler(handler);
 OH_Drawing_DestroyTypography(typography);
 ```
 
-
 | 高对比度设置 | 示意效果 |
 | --- | --- |
 | 不开启高对比度 |  |
 | 开启高对比度 |  |
 
 
-## 行高调整
 
-调整行高可以改变文本行的垂直间距，行间距将变得更松散或更紧凑，可以显著改善文本垂直方向截断问题，使文本更易读。 当前行高调整方式包括两种：设置行高上限/下限和使用行高缩放系数。 **行高调整（方式一）** 从API version 21开始，支持为文本行设置行高上限与下限。
+
+##### 行高调整
+
+调整行高可以改变文本行的垂直间距，行间距将变得更松散或更紧凑，可以显著改善文本垂直方向截断问题，使文本更易读。
+
+当前行高调整方式包括两种：设置行高上限/下限和使用行高缩放系数。
+
+**行高调整（方式一）**
+
+从API version 21开始，支持为文本行设置行高上限与下限。
+
 | 接口定义 | 描述 |
 | --- | --- |
-| [OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeDouble(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, double value)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settextstyleattributedouble) | 传入id为OH_Drawing_TextStyleAttributeId::TEXT_STYLE_ATTR_D_LINE_HEIGHT_MAXIMUM，设置行高上限。 |
-| [OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeDouble(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, double value)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settextstyleattributedouble) | 传入id为OH_Drawing_TextStyleAttributeId::TEXT_STYLE_ATTR_D_LINE_HEIGHT_MINIMUM，设置行高下限。 |
+| OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeDouble(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, double value) | 传入id为OH_Drawing_TextStyleAttributeId::TEXT_STYLE_ATTR_D_LINE_HEIGHT_MAXIMUM，设置行高上限。 |
+| OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeDouble(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, double value) | 传入id为OH_Drawing_TextStyleAttributeId::TEXT_STYLE_ATTR_D_LINE_HEIGHT_MINIMUM，设置行高下限。 |
+
 
 示例及效果如下所示：
-```text
+
+```cpp
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 OH_Drawing_TextStyle *txtStyle = OH_Drawing_CreateTextStyle();
 // 设置文字大小为50
@@ -819,19 +947,26 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 具体效果如下所示：
+
 | 行高上限值 | 行高下限值 | 示意效果（黑框仅为展示文本绘制区域，实际不绘制） |
 | --- | --- | --- |
 | 65 | 65 |  |
 | 200 | 200 |  |
 
-**行高调整（方式二）** 设置行高缩放系数。
+
+**行高调整（方式二）**
+
+设置行高缩放系数。
+
 | 接口定义 | 描述 |
 | --- | --- |
-| [void OH_Drawing_SetTextStyleFontHeight(OH_Drawing_TextStyle* style, double fontHeight)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settextstylefontheight) | 使能行高缩放。 |
-| [OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeInt(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settextstyleattributeint) | 传入id为OH_Drawing_TextStyleAttributeId::TEXT_STYLE_ATTR_I_LINE_HEIGHT_STYLE，使能行高缩放样式。 |
+| void OH_Drawing_SetTextStyleFontHeight(OH_Drawing_TextStyle* style, double fontHeight) | 使能行高缩放。 |
+| OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeInt(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id) | 传入id为OH_Drawing_TextStyleAttributeId::TEXT_STYLE_ATTR_I_LINE_HEIGHT_STYLE，使能行高缩放样式。 |
+
 
 示例及效果如下所示：
-```text
+
+```cpp
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 OH_Drawing_TextStyle *txtStyle = OH_Drawing_CreateTextStyle();
 // 设置文字大小为50
@@ -863,21 +998,27 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 具体效果如下所示：
+
 | 行高缩放样式 | 示意效果（黑框仅为展示文本绘制区域，实际不绘制） |
 | --- | --- |
 | TEXT_LINE_HEIGHT_BY_FONT_SIZE |  |
 | TEXT_LINE_HEIGHT_BY_FONT_HEIGHT |  |
 
 
-## 行间距调整
+
+
+##### 行间距调整
 
 从API version 21开始，支持设置行间距可以改善文本行之间的距离，提高阅读体验。
+
 | 接口定义 | 描述 |
 | --- | --- |
-| [OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeDouble(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double value)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settypographystyleattributedouble) | 传入id为OH_Drawing_TypographyStyleAttributeId::TYPOGRAPHY_STYLE_ATTR_D_LINE_SPACING，设置行间距。 |
+| OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeDouble(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double value) | 传入id为OH_Drawing_TypographyStyleAttributeId::TYPOGRAPHY_STYLE_ATTR_D_LINE_SPACING，设置行间距。 |
+
 
 示例及效果如下所示：
-```text
+
+```cpp
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 OH_Drawing_SetTypographyStyleAttributeDouble(typoStyle,
     OH_Drawing_TypographyStyleAttributeId::TYPOGRAPHY_STYLE_ATTR_D_LINE_SPACING, 100); // 设置行间距为100
@@ -906,23 +1047,30 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 具体效果如下所示：
-| 上升部下降部开关 | 示意效果（黑框仅为展示文本绘制区域，实际不绘制） |
-| --- | --- |
-| TEXT_HEIGHT_DISABLE_ALL |  |
-| TEXT_HEIGHT_ALL |  |
+
+| 行间距 | 上升部下降部开关 | 示意效果（黑框仅为展示文本绘制区域，实际不绘制） |
+| --- | --- | --- |
+| 0 | TEXT_HEIGHT_ALL |  |
+| 100 | TEXT_HEIGHT_ALL |  |
+| 100 | TEXT_HEIGHT_DISABLE_ALL |  |
 
 
-## 样式的拷贝、绘制与显示
+
+
+##### 样式的拷贝、绘制与显示
 
 支持拷贝文本样式、段落样式、阴影样式，以便快速复制相关样式作用到不同文字上。
+
 | 接口定义 | 描述 |
 | --- | --- |
 | OH_Drawing_TypographyStyle* OH_Drawing_CopyTypographyStyle(OH_Drawing_TypographyStyle* style) | 创建一个段落样式的对象副本，用于拷贝一个已有的段落样式对象。 |
 | OH_Drawing_TextStyle* OH_Drawing_CopyTextStyle(OH_Drawing_TextStyle* style) | 创建一个文本样式的对象副本，用于拷贝一个已有的文本样式对象。 |
 | OH_Drawing_TextShadow* OH_Drawing_CopyTextShadow(OH_Drawing_TextShadow* shadow) | 创建一个文本阴影的对象副本，用于拷贝一个已有的文本阴影对象。 |
 
+
 示例及示意效果如下所示：
-```text
+
+```cpp
 // 创建一个TypographyStyle，其中创建Typography时需要使用
 OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
 // 配置段落样式包括：使能自动间距、最大行数、省略号样式、省略号文本、对齐方式
@@ -1010,4 +1158,5 @@ OH_Drawing_DestroyTypographyHandler(handlerCopy);
 OH_Drawing_DestroyTypography(typographyCopy);
 ```
 
-![](assets/复杂文本绘制与显示（C／C++）/file-20260514131646723-9.png)
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/zM8I2_0lSnS7B09f1rhTBA/zh-cn_image_0000002611754729.png?HW-CC-KV=V1&HW-CC-Date=20260528T014904Z&HW-CC-Expire=86400&HW-CC-Sign=17C19FA3E70D6A4698BA8D83E2845355D1B326AC6943869DC43D4FF847129945)

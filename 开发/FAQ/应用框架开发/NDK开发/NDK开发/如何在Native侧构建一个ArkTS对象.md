@@ -10,6 +10,7 @@
 napi_value arg_object;
 napi_create_object(env, &arg_object);
 ```
+
 2. 调用接口napi_set_named_property给对象属性赋值。
 ```cpp
 napi_value testNum, testString;

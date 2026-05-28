@@ -5,14 +5,13 @@
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-constant-property-check-in-loops
 
 在循环如需频繁访问某个常量，且该属性引用常量在循环中不会改变，建议提取到循环外部，减少属性访问的次数。
+ 
+根据[ArkTS高性能编程实践](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-high-performance-programming)，建议修改。
+ 
 
- 根据[ArkTS高性能编程实践](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-high-performance-programming)，建议修改。
+##### 规则配置
 
-
-## 规则配置
-
-
-```text
+```json
 // code-linter.json5
 {
   "rules": {
@@ -20,14 +19,16 @@
   }
 }
 ```
+ 
+ 
 
-
-## 选项
+##### 选项
 
 该规则无需配置额外选项。
+ 
+ 
 
-## 正例
-
+##### 正例
 
 ```text
 class Time {
@@ -37,7 +38,7 @@ class Time {
 function getNum(num: number): number {
   /* Year has (12 * 29 =) 348 days at least */
   let total: number = 348;
-  const info = Time.info[num- Time.start];
+  const info = Time.info[num- Time.start];  
   for (let index: number = 0x8000; index > 0x8; index >>= 1) {
     if ((info & index) != 0) {
       total++;
@@ -46,10 +47,10 @@ function getNum(num: number): number {
   return total;
 }
 ```
+ 
+ 
 
-
-## 反例
-
+##### 反例
 
 ```text
 class Time {
@@ -66,13 +67,13 @@ function getNum(num: number): number {
   return total;
 }
 ```
+ 
+ 
 
-
-## 规则集
-
+##### 规则集
 
 ```text
 plugin:@performance/all
 ```
-
- Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。
+ 
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

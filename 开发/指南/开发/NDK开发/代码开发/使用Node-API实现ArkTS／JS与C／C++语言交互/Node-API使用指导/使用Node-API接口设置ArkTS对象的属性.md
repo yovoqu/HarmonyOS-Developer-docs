@@ -1,20 +1,31 @@
 # 使用Node-API接口设置ArkTS对象的属性
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-26 06:48:54
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-property
 
-## 简介
+##### 简介
 
 使用Node-API接口获取和设置ArkTS对象的属性，实现更复杂的功能和逻辑。
+ 
+  
 
-## 基本概念
+##### 基本概念
 
-处理ArkTS对象属性，确保正确访问、设置、删除属性，并了解属性的继承关系和枚举特性。以下是一些关键概念： **对象（Object）**：在ArkTS中，对象是一种复合数据类型，它允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。**属性（Property）**：在ArkTS中，属性是对象特征的键值对。每个属性都有一个名字（也称为键或标识符）和一个值。属性的值可以是任意数据类型，包括基本类型、对象和函数。**可枚举属性（EnumerableProperty）**：在ArkTS中，对象的属性分为可枚举和不可枚举，它们是由属性的enumerable值决定的，即内部 “可枚举” 标志设置为true或false。可枚举性决定了这个属性能否被 for...in 查找遍历到。**自有属性（OwnProperty）**：自有属性是直接定义在对象上的属性，而不是从原型链上继承来的属性。
+处理ArkTS对象属性，确保正确访问、设置、删除属性，并了解属性的继承关系和枚举特性。以下是一些关键概念：
+ 
+- **对象（Object）**：在ArkTS中，对象是一种复合数据类型，它允许存储多个不同类型的值作为一个单独的实体。对象是属性和方法的集合。属性是与对象相关联的值，而方法则是对象可以执行的操作。
+- **属性（Property）**：在ArkTS中，属性是对象特征的键值对。每个属性都有一个名字（也称为键或标识符）和一个值。属性的值可以是任意数据类型，包括基本类型、对象和函数。
+- **可枚举属性（EnumerableProperty）**：在ArkTS中，对象的属性分为可枚举和不可枚举，它们是由属性的enumerable值决定的，即内部 “可枚举” 标志设置为true或false。可枚举性决定了这个属性能否被 for...in 查找遍历到。
+- **自有属性（OwnProperty）**：自有属性是直接定义在对象上的属性，而不是从原型链上继承来的属性。
 
-## 场景和功能介绍
+ 
+  
+
+##### 场景和功能介绍
 
 以下Node-API接口提供了对ArkTS对象属性的操作，包括设置、获取、删除和检查属性是否存在。使用场景如下：
+  
 | 接口 | 描述 |
 | --- | --- |
 | napi_get_property_names | 在进行对象操作或调试时，有时需要获取对象的属性和属性名。此接口可以提取对象的属性名，用于动态获取对象的属性信息。 |
@@ -28,16 +39,23 @@
 | napi_has_named_property | 此函数用于检查ArkTS对象是否包含某个命名属性。 |
 | napi_define_properties | 此函数可以在指定的Object中自定义属性，从ArkTS访问和操作这些属性。 |
 | napi_get_all_property_names | 此接口可以获取对象的所有属性名称，检查是否包含特定属性名。 |
+ 
+ 
+  
 
-
-## 使用示例
+##### 使用示例
 
 Node-API接口开发流程可参考[使用Node-API实现跨语言交互开发流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)，本文展示接口对应C++及ArkTS代码。
+ 
+  
 
-## napi_get_property_names
+##### napi_get_property_names
 
-以字符串数组的形式获取对象的可枚举属性的名称。 cpp部分代码
-```text
+以字符串数组的形式获取对象的可枚举属性的名称。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_get_property_names
 static napi_value GetPropertyNames(napi_env env, napi_callback_info info)
 {
@@ -55,14 +73,16 @@ static napi_value GetPropertyNames(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
-export const getPropertyNames: (obj: Object) => Array | undefined; // napi_get_property_names
+ 
+接口声明
+ 
+```ts
+export const getPropertyNames: (obj: Object) => Array<string> | undefined; // napi_get_property_names
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_get_property_names
 try {
   class Obj {
@@ -85,12 +105,16 @@ try {
   // ...
 }
 ```
+ 
+  
 
+##### napi_set_property
 
-## napi_set_property
-
-将给定的属性与值设置入给定的Object。 cpp部分代码
-```text
+将给定的属性与值设置入给定的Object。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_set_property
 static napi_value SetProperty(napi_env env, napi_callback_info info)
 {
@@ -111,14 +135,16 @@ static napi_value SetProperty(napi_env env, napi_callback_info info)
     return args[0];
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const setProperty: (obj: Object, key: String, value: string) => Object | undefined; // napi_set_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_set_property
 try {
   class Obj {
@@ -136,12 +162,16 @@ try {
   // ...
 }
 ```
+ 
+  
 
+##### napi_get_property
 
-## napi_get_property
-
-获取object指定的属性的值。 cpp部分代码
-```text
+获取object指定的属性的值。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_get_property
 static napi_value GetProperty(napi_env env, napi_callback_info info)
 {
@@ -159,14 +189,16 @@ static napi_value GetProperty(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const getProperty: (obj: Object, key: string) => string | undefined; // napi_get_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_get_property
 try {
   class Obj {
@@ -183,12 +215,16 @@ try {
   // ...
 }
 ```
+ 
+  
 
+##### napi_has_property
 
-## napi_has_property
-
-检查对象中是否存在指定的属性，避免访问不存在属性导致的异常。 cpp部分代码
-```text
+检查对象中是否存在指定的属性，避免访问不存在属性导致的异常。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_has_property
 static napi_value HasProperty(napi_env env, napi_callback_info info)
 {
@@ -211,14 +247,16 @@ static napi_value HasProperty(napi_env env, napi_callback_info info)
     return returnResult;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const hasProperty: (obj: Object, key: number | string) => boolean | undefined; // napi_has_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_has_property
 try {
   class Obj {
@@ -239,12 +277,18 @@ try {
   // ...
 }
 ```
+ 
+  
 
+##### napi_delete_property
 
-## napi_delete_property
-
-尝试从给定的Object中删除由key指定的属性，并返回操作的结果。 如果对象不可扩展或属性不可配置，则可能无法删除该属性。 cpp部分代码
-```text
+尝试从给定的Object中删除由key指定的属性，并返回操作的结果。
+ 
+如果对象不可扩展或属性不可配置，则可能无法删除该属性。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_delete_property
 // 从传入的Object对象中删除指定属性，返回是否删除成功的bool结果值
 static napi_value DeleteProperty(napi_env env, napi_callback_info info)
@@ -273,14 +317,16 @@ static napi_value DeleteProperty(napi_env env, napi_callback_info info)
     return ret;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const deleteProperty: (obj: Object, key: string) => boolean; // napi_delete_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ts
 import testNapi from 'libentry.so';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -302,12 +348,16 @@ export function napiDeleteProperty() {
     testNapi.deleteProperty(obj, 'config'));
 }
 ```
+ 
+  
 
+##### napi_has_own_property
 
-## napi_has_own_property
-
-用于检查传入的Object是否包含自己的命名属性，不包括从原型链上继承的属性。 cpp部分代码
-```text
+用于检查传入的Object是否包含自己的命名属性，不包括从原型链上继承的属性。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_has_own_property
 static napi_value NapiHasOwnProperty(napi_env env, napi_callback_info info)
 {
@@ -342,14 +392,16 @@ static napi_value NapiHasOwnProperty(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const napiHasOwnProperty: (obj: Object, key: string) => boolean | undefined; // napi_has_own_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ts
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import testNapi from 'libentry.so';
 
@@ -364,12 +416,16 @@ export function napiHasOwnProperty() {
     testNapi.napiHasOwnProperty(myObj, 'inheritedProperty'));
 }
 ```
+ 
+  
 
+##### napi_set_named_property
 
-## napi_set_named_property
-
-在传入的ArkTS对象上添加一个命名属性。 cpp部分代码
-```text
+在传入的ArkTS对象上添加一个命名属性。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_set_named_property
 static napi_value NapiSetNamedProperty(napi_env env, napi_callback_info info)
 {
@@ -403,25 +459,31 @@ static napi_value NapiSetNamedProperty(napi_env env, napi_callback_info info)
     return newObj;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const napiSetNamedProperty: (key: string) => Object | undefined; // napi_set_named_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_set_named_property
 let obj = testNapi.napiSetNamedProperty('myProperty');
 let objAsString = JSON.stringify(obj);
 hilog.info(0x0000, 'testTag', 'Test Node-API napi_set_named_property: %{public}s', objAsString);
 ```
+ 
+  
 
+##### napi_get_named_property
 
-## napi_get_named_property
-
-从ArkTS对象中获取命名属性的值。 cpp部分代码
-```text
+从ArkTS对象中获取命名属性的值。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_get_named_property
 static napi_value NapiGetNamedProperty(napi_env env, napi_callback_info info)
 {
@@ -445,15 +507,17 @@ static napi_value NapiGetNamedProperty(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const napiGetNamedProperty: (obj: Object,
   key: string) => boolean | number | string | Object | undefined; // napi_get_named_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_get_named_property
 interface NestedObj {
   nestedStr: string;
@@ -485,12 +549,16 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_named_property : %{public}
 hilog.info(0x0000, 'testTag', 'Test Node-API napi_get_named_property : %{public}s',
   testNapi.napiGetNamedProperty(obj, 'null'));
 ```
+ 
+  
 
+##### napi_has_named_property
 
-## napi_has_named_property
-
-检查ArkTS对象中是否具有指定的命名属性。 cpp部分代码
-```text
+检查ArkTS对象中是否具有指定的命名属性。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_has_named_property
 static napi_value NapiHasNamedProperty(napi_env env, napi_callback_info info)
 {
@@ -516,14 +584,16 @@ static napi_value NapiHasNamedProperty(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export const napiHasNamedProperty: (obj: Object, key: string) => boolean | undefined; // napi_has_named_property
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_has_named_property
 interface NestedObj {
   nestedStr: string;
@@ -550,12 +620,16 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_has_named_property : %{public}
 hilog.info(0x0000, 'testTag', 'Test Node-API napi_has_named_property : %{public}s',
   testNapi.napiHasNamedProperty(obj, 'bol'));
 ```
+ 
+  
 
+##### napi_define_properties
 
-## napi_define_properties
-
-设置对象的属性。 cpp部分代码
-```text
+设置对象的属性。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_define_properties
 static napi_value DefineMethodPropertiesExample(napi_env env, napi_callback_info info)
 {
@@ -638,9 +712,10 @@ static napi_value CreateStringWithGetterSetter(napi_env env, napi_callback_info 
     return obj;
 }
 ```
-
- 接口声明
-```text
+ 
+接口声明
+ 
+```ts
 export class DefineMethodObj {
   defineMethodPropertiesExample: Function;
 }
@@ -660,9 +735,10 @@ export const defineStringProperties: () => DefineStringObj;
 
 export const createStringWithGetterSetter: () => DefineGetterSetterObj;
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_define_properties
 // 定义method类型的属性
 hilog.info(0x0000, 'testTag', 'Test Node-API define_method_properties:%{public}d',
@@ -680,12 +756,16 @@ hilog.info(0x0000, 'testTag', 'Test Node-API setter::%{public}s ',
   testNapi.createStringWithGetterSetter()
     .setterCallback('set data'));
 ```
+ 
+  
 
+##### napi_get_all_property_names
 
-## napi_get_all_property_names
-
-获取传入的ArkTS对象的所有属性名。 cpp部分代码
-```text
+获取传入的ArkTS对象的所有属性名。
+ 
+cpp部分代码
+ 
+```cpp
 // napi_get_all_property_names
 static napi_value GetAllPropertyNames(napi_env env, napi_callback_info info)
 {
@@ -707,14 +787,16 @@ static napi_value GetAllPropertyNames(napi_env env, napi_callback_info info)
     return result;
 }
 ```
-
- 接口声明
-```text
-export const getAllPropertyNames: (obj: Object) => Array | undefined; // napi_get_all_property_names
+ 
+接口声明
+ 
+```ts
+export const getAllPropertyNames: (obj: Object) => Array<string> | undefined; // napi_get_all_property_names
 ```
-
- ArkTS侧示例代码
-```text
+ 
+ArkTS侧示例代码
+ 
+```ArkTS
 // napi_get_all_property_names
 try {
   class Obj {
@@ -733,8 +815,9 @@ try {
   // ...
 }
 ```
-
- 以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
+以上代码如果要在native cpp中打印日志，需在CMakeLists.txt文件中添加以下配置信息（并添加头文件：#include "hilog/log.h"）：
+ 
 ```text
 // CMakeLists.txt
 add_definitions( "-DLOG_DOMAIN=0xd0d0" )

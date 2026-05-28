@@ -1,17 +1,16 @@
 # ArkTS API 错误码
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-14 10:06:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-threat-protection
 **支持设备：** PC/2in1
 
+> [!TIP]
+> 以下仅介绍本模块特有错误码，详情请参见 通用错误码说明文档 。若您的问题仍无法解决，请通过 在线提单 提交问题，华为支持人员会及时处理。
 
-> [!NOTE]
-> 以下仅介绍本模块特有错误码，详情请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。
 
 
-## 1023801001 系统内部错误
-**支持设备：** PC/2in1
+##### 1023801001 系统内部错误
 
 **错误信息**
 
@@ -26,14 +25,12 @@ System service exception.
 系统处于非安全状态（如设备未解锁），或者硬件故障。
 
 **处理步骤**
-
-
 1. 确认系统状态正常后重试。
 2. 如问题仍存在，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
-## 1023802001 目标文件不存在
-**支持设备：** PC/2in1
+
+##### 1023802001 目标文件不存在
 
 **错误信息**
 
@@ -52,8 +49,8 @@ File not found.
 请确认目标路径及文件状态。
 
 
-## 1023802002 该路径不允许访问/处置
-**支持设备：** PC/2in1
+
+##### 1023802002 该路径不允许访问/处置
 
 **错误信息**
 
@@ -72,12 +69,12 @@ Access and disposal denied for this path.
 请确认路径是否超出允许访问限制和处置限制。
 
 
-## 1023802003 文件名冲突
-**支持设备：** PC/2in1
+
+##### 1023802003 文件名冲突
 
 **错误信息**
 
-Existed same file in the restored path.
+A file with the same name already exists in the restored path.
 
 **错误描述**
 
@@ -92,8 +89,8 @@ Existed same file in the restored path.
 请检查恢复路径中是否有重名文件，可通过改名、删除旧文件等方式解决错误。
 
 
-## 1023803001 尝试访问其他用户文件
-**支持设备：** PC/2in1
+
+##### 1023803001 尝试访问其他用户文件
 
 **错误信息**
 
@@ -112,8 +109,8 @@ Access to other users' files is restricted.
 确认当前操作用户身份并变更路径至有效目录。
 
 
-## 1023804001 文件类型无效
-**支持设备：** PC/2in1
+
+##### 1023804001 文件类型无效
 
 **错误信息**
 
@@ -132,8 +129,8 @@ Invalid file type.
 请检查路径是否为单文件，否则将目标改为单一文件并重新发起操作。
 
 
-## 1023804002 不支持处置，推荐自行处置
-**支持设备：** PC/2in1
+
+##### 1023804002 不支持处置，推荐自行处置
 
 **错误信息**
 
@@ -146,8 +143,6 @@ Disposal is not supported. Please handle it manually.
 **可能原因**
 
 目标路径为应用包体路径，推荐采用以下方式处置：
-
-
 1. 禁止应用运行。
 2. 卸载应用。
 
@@ -156,8 +151,8 @@ Disposal is not supported. Please handle it manually.
 请检查路径是否为应用包体路径，并选择合适的处置方式。具体处置方式请参见[访问限制和处置限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#访问限制)。
 
 
-## 1023804003 操作无效
-**支持设备：** PC/2in1
+
+##### 1023804003 操作无效
 
 **错误信息**
 
@@ -176,8 +171,8 @@ Invalid operation.
 请检查隔离ID是否与应用中存储一致，且该隔离ID对应的文件是否为被隔离状态（即存在且未被释放的隔离记录）。
 
 
-## 1023805001 隔离区空间不足
-**支持设备：** PC/2in1
+
+##### 1023805001 隔离区空间不足
 
 **错误信息**
 
@@ -192,14 +187,12 @@ Quarantine storage space is full.
 隔离区磁盘满载或达到容量上限。
 
 **处理步骤**
-
-
 1. 查询当前隔离区占用空间及状态。
 2. 使用隔离删除接口[removeIsolatedFile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-virusremediation-remove)对隔离区进行空间清理。
 
 
-## 1023806001 数据库损坏
-**支持设备：** PC/2in1
+
+##### 1023806001 数据库损坏
 
 **错误信息**
 
@@ -214,7 +207,5 @@ Database corruption detected.
 表结构异常或连接失败。
 
 **处理步骤**
-
-
 1. 执行初步自检命令或查看日志获取详细错误信息。
 2. 如问题仍存在，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。

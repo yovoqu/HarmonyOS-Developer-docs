@@ -1,94 +1,106 @@
-# 推包调试报错“Error message:cannot find record '&amp;XXX/src/main/ets/YYY&amp;x.y.z', please check the request path.'ZZZ.abc'.”
+# 推包调试报错“Error message:cannot find record '&XXX/src/main/ets/YYY&x.y.z', please check the request path.'ZZZ.abc'.”
 
 更新时间：2026-03-17 00:56:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-182
 
-问题现象
+## 推包调试报错“Error message:cannot find record '&XXX/src/main/ets/YYY&x.y.z', please check the request path.'ZZZ.abc'.”
+ 
 
+**问题现象**
+ 
 在使用DevEco Studio推包到设备进行调试时，如果遇到jscrash报错，FaultLog中显示“Error message: cannot find record '&XXX/src/main/ets/YYY&x.y.z'，请检查请求路径 'ZZZ.abc'”。
-
+ 
 
 ![](assets/推包调试报错“Error%20message／cannot%20find%20record%20'&XXX／src／main／ets／YYY&x.y.z',%20please%20check%20the%20request%20path.'ZZZ.abc'.”/file-20260515130212810-0.png)
 
-
-问题原因
-
-场景一
-
-字节码HAR（H）使用的依赖包XXX未配置在本模块的oh-package.json5的dependencies或dynamicDependencies中（错误地配置在了工程级oh-package.json5中），请参考字节码HAR约束条件。
-
-解决措施
-
+ 
+**问题原因**
+ 
+**场景一**
+ 
+字节码HAR（H）使用的依赖包XXX未配置在本模块的oh-package.json5的dependencies或dynamicDependencies中（错误地配置在了工程级oh-package.json5中），请参考[字节码HAR约束条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har#section38518561610)。
+ 
+**解决措施**
+ 
 需要字节码HAR（H）的生产方重新出包，将对XXX包的依赖添加到本模块的oh-package.json5中。
+ 
 
+ 
 
-场景二
-
-用户在工程级oh-package.json5和模块级oh-package.json5中同时依赖了XXX包的不同版本，请参考字节码HAR约束条件。
-
-解决措施：
-
+ 
+**场景二**
+ 
+用户在工程级oh-package.json5和模块级oh-package.json5中同时依赖了XXX包的不同版本，请参考[字节码HAR约束条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har#section38518561610)。
+ 
+**解决措施：**
+ 
 措施1：手工修改工程级或模块级oh-package.json5，将XXX的版本调整一致。
-
+ 
 措施2：通过工程级oh-package.json5中的overrides字段，覆盖模块中使用的其他版本。
+ 
 
+ 
 
-场景三
-
-将HSP包转成HAR包后，未删除"packageType"，导致按字节码进行打包的时候未解析其相关依赖，请参考HSP转HAR指导。
-
-解决措施
-
+ 
+**场景三**
+ 
+将HSP包转成HAR包后，未删除"packageType"，导致按字节码进行打包的时候未解析其相关依赖，请参考[HSP转HAR指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hsp-to-har#hsp转har的操作步骤)。
+ 
+**解决措施**
+ 
 参考"HSP转HAR指导"中的第四步，将模块的oh-package.json5文件中"packageType": "InterfaceHar" 配置删除。
+ 
 
+ 
 
-场景四
-
+ 
+**场景四**
+ 
 使用了不兼容的第三方插件或SDK对代码进行了修改（如混淆、加固类的SDK），导致了代码无法识别。
-
-解决措施
-
+ 
+**解决措施**
+ 
 联系对应三方插件或SDK进行解决，如升级版本。
+ 
 
+ 
 
-场景五
-
-应用依赖了包XXX，该XXX包在构建时使用了增量构建的方式，且同时修改了模块级oh-package.json5中的version字段，导致了XXX包中部分文件在寻址时还是用老的版本号去寻址，进而导致找不到相关文件。
-
-解决措施
-
-措施1：在XXX包对应工程中执行Build > Clean Project操作，然后重新构建项目。
-
+ 
+**场景****五**
+ 
+应用依赖了包XXX，该XXX包在构建时使用了[增量构建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-incremental-build)的方式，且同时修改了模块级oh-package.json5中的version字段，导致了XXX包中部分文件在寻址时还是用老的版本号去寻址，进而导致找不到相关文件。
+ 
+**解决措施**
+ 
+措施1：在XXX包对应工程中执行**Build > Clean Project**操作，然后重新构建项目。
+ 
 措施2：在工程级hvigorfile.ts文件中增加插件来修复。
-
+ 
 1）在工程根目录下新增plugin.ts文件。
-
+ 
 
 ![](assets/推包调试报错“Error%20message／cannot%20find%20record%20'&XXX／src／main／ets／YYY&x.y.z',%20please%20check%20the%20request%20path.'ZZZ.abc'.”/file-20260515130212810-1.png)
 
-
+ 
 plugin.ts文件内容：
-
+ 
 ```ts
-import { OhosPluginId, Target } from '@ohos/hvigor-ohos-plugin';
-import { hvigor, HvigorNode, HvigorPlugin } from '@ohos/hvigor';
-import path from 'path';
-import fs from 'fs';
+import {OhosPluginId, Target} from '@ohos/hvigor-ohos-plugin';
+import {hvigor, HvigorNode, HvigorPlugin} from '@ohos/hvigor';
+import path from "path";
+import fs from "fs";
+
 
 function getLoaderJsonPath(target: Target) {
-  return path.resolve(
-    target.getBuildTargetOutputPath(),
-    `../../intermediates/loader/${target.getTargetName()}/loader.json`,
-  );
+  return path.resolve(target.getBuildTargetOutputPath(), `../../intermediates/loader/${target.getTargetName()}/loader.json`);
 }
 
+
 function getPkgContextInfoPath(target: Target) {
-  return path.resolve(
-    target.getBuildTargetOutputPath(),
-    `../../intermediates/loader/${target.getTargetName()}/pkgContextInfo.json`,
-  );
+  return path.resolve(target.getBuildTargetOutputPath(), `../../intermediates/loader/${target.getTargetName()}/pkgContextInfo.json`);
 }
+
 
 function deleteLoaderJson(target: Target) {
   const loaderJsonPath = getLoaderJsonPath(target);
@@ -97,6 +109,7 @@ function deleteLoaderJson(target: Target) {
   }
 }
 
+
 function deletePkgContextInfo(target: Target) {
   const pkgContextInfoPath = getPkgContextInfoPath(target);
   if (fs.existsSync(pkgContextInfoPath)) {
@@ -104,20 +117,18 @@ function deletePkgContextInfo(target: Target) {
   }
 }
 
+
 function deleteRollupCache(target: Target, buildMode: string) {
-  const arkTSCompileCachePath = path.resolve(
-    target.getBuildTargetOutputPath(),
-    `../../cache/${target.getTargetName()}/${target.getTargetName()}@HarCompileArkTS/esmodule/${buildMode}/compiler.cache`,
-  );
+  const arkTSCompileCachePath = path.resolve(target.getBuildTargetOutputPath(),
+    `../../cache/${target.getTargetName()}/${target.getTargetName()}@HarCompileArkTS/esmodule/${buildMode}/compiler.cache`);
   if (fs.existsSync(arkTSCompileCachePath)) {
     fs.rmSync(arkTSCompileCachePath, { recursive: true });
   }
 }
 
+
 function updateHapHspAbcVersion(subNode: HvigorNode, target: Target) {
-  const task = subNode.getTaskByName(
-    `${target.getTargetName()}@GenerateLoaderJson`,
-  );
+  const task = subNode.getTaskByName(`${target.getTargetName()}@GenerateLoaderJson`);
   if (!task) {
     console.log('GenerateLoaderJson not found.');
     return;
@@ -130,9 +141,7 @@ function updateHapHspAbcVersion(subNode: HvigorNode, target: Target) {
       console.log('pkgContextInfo not found.');
       return;
     }
-    const pkgContextInfoObj = JSON.parse(
-      fs.readFileSync(pkgContextInfoPath).toString(),
-    );
+    const pkgContextInfoObj = JSON.parse(fs.readFileSync(pkgContextInfoPath).toString());
     if (!pkgContextInfoObj) {
       console.log('pkgContextInfo parse failed.');
       return;
@@ -142,9 +151,7 @@ function updateHapHspAbcVersion(subNode: HvigorNode, target: Target) {
       console.log('loaderJson not found.');
       return;
     }
-    const loaderJsonObj = JSON.parse(
-      fs.readFileSync(loaderJsonPath).toString(),
-    );
+    const loaderJsonObj = JSON.parse(fs.readFileSync(loaderJsonPath).toString());
     if (!loaderJsonObj) {
       console.log('loaderJson parse failed.');
       return;
@@ -162,11 +169,13 @@ function updateHapHspAbcVersion(subNode: HvigorNode, target: Target) {
   });
 }
 
+
 function updateHarAbcVersion(target: Target) {
   deleteLoaderJson(target);
   deleteRollupCache(target, 'debug');
   deleteRollupCache(target, 'release');
 }
+
 
 // The user of bytecode har can use this plugin to correctly modify the version number of ohmurl in abc when integrating bytecode har, ensuring no crashes during runtime
 export function updateAbcVersionPlugin(): HvigorPlugin {
@@ -174,7 +183,7 @@ export function updateAbcVersionPlugin(): HvigorPlugin {
     pluginId: 'updateAbcVersionPlugin',
     apply(node: HvigorNode) {
       hvigor.nodesEvaluated(() => {
-        hvigor.getRootNode().subNodes((subNode) => {
+        hvigor.getRootNode().subNodes(subNode => {
           let context = subNode.getContext(OhosPluginId.OHOS_HAP_PLUGIN);
           if (!context) {
             context = subNode.getContext(OhosPluginId.OHOS_HSP_PLUGIN);
@@ -182,14 +191,15 @@ export function updateAbcVersionPlugin(): HvigorPlugin {
           if (!context) {
             return;
           }
-          context.targets((target) => {
+          context.targets(target => {
             updateHapHspAbcVersion(subNode, target);
           });
         });
       });
-    },
+    }
   };
 }
+
 
 // The generator of bytecode har uses this plugin to incrementally build ohmurl with the correct bytecode har after modifying the version number
 export function updateHarAbcVersionPlugin(): HvigorPlugin {
@@ -197,47 +207,45 @@ export function updateHarAbcVersionPlugin(): HvigorPlugin {
     pluginId: 'updateHarAbcVersionPlugin',
     apply(node: HvigorNode) {
       hvigor.nodesEvaluated(() => {
-        hvigor.getRootNode().subNodes((subNode) => {
+        hvigor.getRootNode().subNodes(subNode => {
           const context = subNode.getContext(OhosPluginId.OHOS_HAR_PLUGIN);
           if (!context) {
             return;
           }
-          context.targets((target) => {
+          context.targets(target => {
             updateHarAbcVersion(target);
           });
         });
       });
-    },
+    }
   };
 }
 ```
-
+ 
 2）在工程级hvigorfile.ts文件中增加两个插件，并执行Sync。
-
+ 
 
 ![](assets/推包调试报错“Error%20message／cannot%20find%20record%20'&XXX／src／main／ets／YYY&x.y.z',%20please%20check%20the%20request%20path.'ZZZ.abc'.”/file-20260515130212810-2.png)
 
-
+ 
 hvigorfile.ts文件内容：
-
+ 
 ```ts
 import { appTasks } from '@ohos/hvigor-ohos-plugin';
 import { updateAbcVersionPlugin, updateHarAbcVersionPlugin } from './plugin.ts';
 
+
 export default {
-  system: appTasks /* Built-in plugin of Hvigor. It cannot be modified. */,
-  plugins: [
-    updateAbcVersionPlugin(),
-    updateHarAbcVersionPlugin(),
-  ] /* Custom plugin to extend the functionality of Hvigor. */,
-};
+    system: appTasks,  /* Built-in plugin of Hvigor. It cannot be modified. */
+    plugins:[updateAbcVersionPlugin(), updateHarAbcVersionPlugin()]         /* Custom plugin to extend the functionality of Hvigor. */
+}
 ```
-
+ 
 3) 在Terminal终端执行以下命令后，重新推包运行。
-
+ 
 ```bash
 hvigorw --stop-daemon
 ```
-
+ 
 
 ![](assets/推包调试报错“Error%20message／cannot%20find%20record%20'&XXX／src／main／ets／YYY&x.y.z',%20please%20check%20the%20request%20path.'ZZZ.abc'.”/file-20260515130212810-3.png)

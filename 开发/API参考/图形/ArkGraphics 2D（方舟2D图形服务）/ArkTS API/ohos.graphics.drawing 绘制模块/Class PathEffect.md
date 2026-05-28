@@ -3,24 +3,26 @@
 更新时间：2026-04-20 06:34:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 路径效果对象。
 
+> [!NOTE]
+> 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
 
-```ts
+##### 导入模块
+
+```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
 
 
-## createDashPathEffect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
-static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect
+##### createDashPathEffect12+
+
+static createDashPathEffect(intervals: Array&lt;number&gt;, phase: number): PathEffect
 
 创建将路径变为虚线的路径效果对象。
 
@@ -28,25 +30,22 @@ static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| intervals | Array&lt;number&gt; | 是 | 表示虚线的ON（实线部分）和OFF（空白部分）长度的数组，数组个数必须是偶数，且&gt;=2，该参数为正整数。 |
+| intervals | Array&lt;number&gt; | 是 | 表示虚线的ON（实线部分）和OFF（空白部分）长度的数组，数组个数必须是偶数，且>=2，该参数为正整数。 |
 | phase | number | 是 | 绘制时的偏移量，该参数为浮点数。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 返回创建的路径效果对象。 |
+| PathEffect | 返回创建的路径效果对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -55,13 +54,12 @@ static createDashPathEffect(intervals: Array<number>, phase: number): PathEffect
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let intervals = [10, 5];
     let effect = drawing.PathEffect.createDashPathEffect(intervals, 5);
@@ -70,8 +68,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## createPathDashEffect18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createPathDashEffect18+
 
 static createPathDashEffect(path: Path, advance: number, phase: number, style: PathDashStyle): PathEffect
 
@@ -81,27 +79,24 @@ static createPathDashEffect(path: Path, advance: number, phase: number, style: P
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| path | [Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-path) | 是 | 通过该路径生成一个图形，用来填充每个虚线段。 |
+| path | Path | 是 | 通过该路径生成一个图形，用来填充每个虚线段。 |
 | advance | number | 是 | 虚线段的步长，该参数为大于0的浮点数，否则会抛错误码。 |
 | phase | number | 是 | 表示虚线段内图形在虚线步长范围内的偏移量，该参数为浮点数，效果为先对偏移量取绝对值，然后对步长取模。 |
-| style | [PathDashStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#pathdashstyle18) | 是 | 指定虚线效果的样式。 |
+| style | PathDashStyle | 是 | 指定虚线效果的样式。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 返回创建的路径效果对象。 |
+| PathEffect | 返回创建的路径效果对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -110,21 +105,15 @@ static createPathDashEffect(path: Path, advance: number, phase: number, style: P
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { common2D, drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let pen = new drawing.Pen();
-    const penColor: common2D.Color = {
-      alpha: 255,
-      red: 255,
-      green: 0,
-      blue: 0,
-    };
+    const penColor: common2D.Color = { alpha: 255, red: 255, green: 0, blue: 0 }
     pen.setColor(penColor);
     pen.setStrokeWidth(10);
     canvas.attachPen(pen);
@@ -139,15 +128,10 @@ class DrawingRenderNode extends RenderNode {
     path1.moveTo(0, 0);
     path1.lineTo(10, 0);
     path1.lineTo(20, 10);
-    path1.lineTo(0, 10);
+    path1.lineTo(0,10);
 
-    let pathEffect1: drawing.PathEffect =
-      drawing.PathEffect.createPathDashEffect(
-        path1,
-        50,
-        -30,
-        drawing.PathDashStyle.MORPH,
-      );
+    let pathEffect1: drawing.PathEffect = drawing.PathEffect.createPathDashEffect(path1, 50, -30,
+        drawing.PathDashStyle.MORPH);
     pen.setPathEffect(pathEffect1);
 
     canvas.attachPen(pen);
@@ -158,8 +142,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## createSumPathEffect18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createSumPathEffect18+
 
 static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect
 
@@ -169,45 +153,39 @@ static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEf
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| firstPathEffect | [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 是 | 表示第一个路径效果。 |
-| secondPathEffect | [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 是 | 表示第二个路径效果。 |
+| firstPathEffect | PathEffect | 是 | 表示第一个路径效果。 |
+| secondPathEffect | PathEffect | 是 | 表示第二个路径效果。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 返回创建的路径效果对象。 |
+| PathEffect | 返回创建的路径效果对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let intervals = [10, 5];
     let pathEffectOne = drawing.PathEffect.createDashPathEffect(intervals, 5);
     let pathEffectTwo = drawing.PathEffect.createDashPathEffect(intervals, 10);
-    let effect = drawing.PathEffect.createSumPathEffect(
-      pathEffectOne,
-      pathEffectTwo,
-    );
+    let effect = drawing.PathEffect.createSumPathEffect(pathEffectOne, pathEffectTwo);
   }
 }
 ```
 
 
-## createCornerPathEffect12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createCornerPathEffect12+
 
 static createCornerPathEffect(radius: number): PathEffect
 
@@ -217,7 +195,6 @@ static createCornerPathEffect(radius: number): PathEffect
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | radius | number | 是 | 圆角的半径，必须大于0，该参数为浮点数。 |
@@ -225,16 +202,14 @@ static createCornerPathEffect(radius: number): PathEffect
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 返回创建的路径效果对象。 |
+| PathEffect | 返回创建的路径效果对象。 |
 
 
 **错误码：**
 
 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -243,13 +218,12 @@ static createCornerPathEffect(radius: number): PathEffect
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let effect = drawing.PathEffect.createCornerPathEffect(30);
   }
@@ -257,8 +231,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## createDiscretePathEffect18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createDiscretePathEffect18+
 
 static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number): PathEffect
 
@@ -267,7 +241,6 @@ static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: num
 **系统能力：** SystemCapability.Graphics.Drawing
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -278,21 +251,19 @@ static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: num
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 返回创建的路径效果对象。 |
+| PathEffect | 返回创建的路径效果对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let effect = drawing.PathEffect.createDiscretePathEffect(100, -50, 0);
   }
@@ -300,8 +271,8 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-## createComposePathEffect18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+##### createComposePathEffect18+
 
 static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect
 
@@ -311,37 +282,31 @@ static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| outer | [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 是 | 组合路径效果中外部路径效果。 |
-| inner | [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 是 | 组合路径效果中内部路径效果。 |
+| outer | PathEffect | 是 | 组合路径效果中外部路径效果。 |
+| inner | PathEffect | 是 | 组合路径效果中内部路径效果。 |
 
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| [PathEffect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect) | 返回创建的路径效果对象。 |
+| PathEffect | 返回创建的路径效果对象。 |
 
 
 **示例：**
 
-
-```ts
+```text
 import { RenderNode } from '@kit.ArkUI';
 import { drawing } from '@kit.ArkGraphics2D';
 
 class DrawingRenderNode extends RenderNode {
-  draw(context: DrawContext) {
+  draw(context : DrawContext) {
     const canvas = context.canvas;
     let pathEffect1 = drawing.PathEffect.createCornerPathEffect(100);
     let pathEffect2 = drawing.PathEffect.createCornerPathEffect(10);
-    let effect = drawing.PathEffect.createComposePathEffect(
-      pathEffect1,
-      pathEffect2,
-    );
+    let effect = drawing.PathEffect.createComposePathEffect(pathEffect1, pathEffect2);
   }
 }
 ```

@@ -85,18 +85,18 @@
 | 新增API | NA | 类名：CacheState； API声明：count: number; 差异内容：count: number; | api/@hms.collaboration.rcp.d.ts |
 | 新增API | NA | 类名：CacheState； API声明：hitCount: number; 差异内容：hitCount: number; | api/@hms.collaboration.rcp.d.ts |
 | 新增API | NA | 类名：rcp； API声明：export class ResponseCache 差异内容：export class ResponseCache | api/@hms.collaboration.rcp.d.ts |
-| 新增API | NA | 类名：ResponseCache； API声明：close(): Promise<void>; 差异内容：close(): Promise<void>; | api/@hms.collaboration.rcp.d.ts |
-| 新增API | NA | 类名：ResponseCache； API声明：set(key: ResponseCacheKey, response: CachedResponse, expirationPolicy?: ExpirationPolicy): Promise<void>; 差异内容：set(key: ResponseCacheKey, response: CachedResponse, expirationPolicy?: ExpirationPolicy): Promise<void>; | api/@hms.collaboration.rcp.d.ts |
-| 新增API | NA | 类名：ResponseCache； API声明：get(key: ResponseCacheKey): Promise<ResponseCacheRecord>; 差异内容：get(key: ResponseCacheKey): Promise<ResponseCacheRecord>; | api/@hms.collaboration.rcp.d.ts |
-| 新增API | NA | 类名：ResponseCache； API声明：clear(): Promise<void>; 差异内容：clear(): Promise<void>; | api/@hms.collaboration.rcp.d.ts |
-| 新增API | NA | 类名：ResponseCache； API声明：getState(): Promise<CacheState>; 差异内容：getState(): Promise<CacheState>; | api/@hms.collaboration.rcp.d.ts |
-| 新增API | NA | 类名：ResponseCache； API声明：remove(key: ResponseCacheKey): Promise<boolean>; 差异内容：remove(key: ResponseCacheKey): Promise<boolean>; | api/@hms.collaboration.rcp.d.ts |
-| 新增API | NA | 类名：ResponseCache； API声明：removeMultiple(url: URLOrString, matchKind: URLMatchKind, method?: HttpMethod): Promise<boolean>; 差异内容：removeMultiple(url: URLOrString, matchKind: URLMatchKind, method?: HttpMethod): Promise<boolean>; | api/@hms.collaboration.rcp.d.ts |
+| 新增API | NA | 类名：ResponseCache； API声明：close(): Promise&lt;void&gt;; 差异内容：close(): Promise&lt;void&gt;; | api/@hms.collaboration.rcp.d.ts |
+| 新增API | NA | 类名：ResponseCache； API声明：set(key: ResponseCacheKey, response: CachedResponse, expirationPolicy?: ExpirationPolicy): Promise&lt;void&gt;; 差异内容：set(key: ResponseCacheKey, response: CachedResponse, expirationPolicy?: ExpirationPolicy): Promise&lt;void&gt;; | api/@hms.collaboration.rcp.d.ts |
+| 新增API | NA | 类名：ResponseCache； API声明：get(key: ResponseCacheKey): Promise&lt;ResponseCacheRecord&gt;; 差异内容：get(key: ResponseCacheKey): Promise&lt;ResponseCacheRecord&gt;; | api/@hms.collaboration.rcp.d.ts |
+| 新增API | NA | 类名：ResponseCache； API声明：clear(): Promise&lt;void&gt;; 差异内容：clear(): Promise&lt;void&gt;; | api/@hms.collaboration.rcp.d.ts |
+| 新增API | NA | 类名：ResponseCache； API声明：getState(): Promise&lt;CacheState&gt;; 差异内容：getState(): Promise&lt;CacheState&gt;; | api/@hms.collaboration.rcp.d.ts |
+| 新增API | NA | 类名：ResponseCache； API声明：remove(key: ResponseCacheKey): Promise&lt;boolean&gt;; 差异内容：remove(key: ResponseCacheKey): Promise&lt;boolean&gt;; | api/@hms.collaboration.rcp.d.ts |
+| 新增API | NA | 类名：ResponseCache； API声明：removeMultiple(url: URLOrString, matchKind: URLMatchKind, method?: HttpMethod): Promise&lt;boolean&gt;; 差异内容：removeMultiple(url: URLOrString, matchKind: URLMatchKind, method?: HttpMethod): Promise&lt;boolean&gt;; | api/@hms.collaboration.rcp.d.ts |
 | 新增API | NA | 类名：rcp； API声明：export type URLMatchKind = 'exact' \| 'as-substring'; 差异内容：export type URLMatchKind = 'exact' \| 'as-substring'; | api/@hms.collaboration.rcp.d.ts |
 | 新增API | NA | 类名：rcp； API声明：export function createResponse(request: Request, cachedResponse: CachedResponse, currentTime: Date): Response; 差异内容：export function createResponse(request: Request, cachedResponse: CachedResponse, currentTime: Date): Response; | api/@hms.collaboration.rcp.d.ts |
 | 新增API | NA | 类名：rcp； API声明：export function createCachedResponse(response: Response, timeStamp?: Date): CachedResponse; 差异内容：export function createCachedResponse(response: Response, timeStamp?: Date): CachedResponse; | api/@hms.collaboration.rcp.d.ts |
 | 类新增可选成员 | 类名：global； API声明： 差异内容：NA | 类名：Request； API声明：cacheControl?: CacheControl; 差异内容：cacheControl?: CacheControl; | api/@hms.collaboration.rcp.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Session； API声明：fetchForSendable(request: Request): Promise<ResponseSendable>; 差异内容：fetchForSendable(request: Request): Promise<ResponseSendable>; | api/@hms.collaboration.rcp.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Session； API声明：fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;; 差异内容：fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;; | api/@hms.collaboration.rcp.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：Configuration； API声明：cache?: ResponseCache; 差异内容：cache?: ResponseCache; | api/@hms.collaboration.rcp.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：Response； API声明：readonly cacheInfo?: CacheInfo; 差异内容：readonly cacheInfo?: CacheInfo; | api/@hms.collaboration.rcp.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：SessionConfiguration； API声明：cacheControl?: CacheControl; 差异内容：cacheControl?: CacheControl; | api/@hms.collaboration.rcp.d.ts |

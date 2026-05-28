@@ -9,19 +9,27 @@
 预览是启动相机后看见的画面，通常在拍照和录像前执行。
 
 
-## 开发步骤
+##### 开发步骤
 
-详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
+详细的API说明请参考[@ohos.multimedia.camera (相机管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera)。
+1. 导入camera接口，接口中提供了相机相关的属性和方法，导入方法如下。
+
+  
 ```text
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
 
-创建Surface。 相机开发模型为Surface模型，该模型主要通过Surface实现数据交互。在开发相机应用界面时，首先需要通过创建XComponent组件为预览流提供Surface，再通过获取XComponent组件对应Surface的ID创建预览流，预览流画面即可直接在XComponent组件内渲染，详细获取surfaceId请参考[getXComponentSurfaceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#getxcomponentsurfaceid9)方法。而XComponent的能力由UI提供，相关介绍可参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。
+2. 创建Surface。
+
+  相机开发模型为Surface模型，该模型主要通过Surface实现数据交互。在开发相机应用界面时，首先需要通过创建XComponent组件为预览流提供Surface，再通过获取XComponent组件对应Surface的ID创建预览流，预览流画面即可直接在XComponent组件内渲染，详细获取surfaceId请参考[getXComponentSurfaceId](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#getxcomponentsurfaceid9)方法。而XComponent的能力由UI提供，相关介绍可参考[XComponent组件参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)。
+
+  
 > [!NOTE]
 > 预览流与录像输出流的分辨率的宽高比要保持一致，如果设置XComponent组件中的Surface显示区域宽高比为1920:1080 = 16:9，则需要预览流中的分辨率的宽高比也为16:9，如分辨率选择640:360，或960:540，或1920:1080，以此类推。
 
 
+  
 ```text
 @Entry
 @Component
@@ -50,13 +58,15 @@ struct example {
 }
 ```
 
-通过[CameraOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameraoutputcapability)中的previewProfiles属性获取当前设备支持的预览能力，返回previewProfilesArray数组 。通过[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)方法创建预览输出流，其中，[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)方法中的两个参数分别是当前设备支持的预览配置信息previewProfile和步骤二中获取的surfaceId。
+3. 通过[CameraOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameraoutputcapability)中的previewProfiles属性获取当前设备支持的预览能力，返回previewProfilesArray数组 。通过[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)方法创建预览输出流，其中，[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)方法中的两个参数分别是当前设备支持的预览配置信息previewProfile和步骤二中获取的surfaceId。
+
+  
 ```text
 function getPreviewOutput(cameraManager: camera.CameraManager, cameraOutputCapability: camera.CameraOutputCapability, surfaceId: string): camera.PreviewOutput | undefined {
   if (!cameraOutputCapability || !cameraOutputCapability.previewProfiles) {
     return;
   }
-  let previewProfilesArray: Array = cameraOutputCapability.previewProfiles;
+  let previewProfilesArray: Array<camera.Profile> = cameraOutputCapability.previewProfiles;
   if (!previewProfilesArray || previewProfilesArray.length === 0) {
     console.error("previewProfilesArray is null or []");
     return;
@@ -73,18 +83,20 @@ function getPreviewOutput(cameraManager: camera.CameraManager, cameraOutputCapab
 }
 ```
 
-使能。通过[Session.start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)方法输出预览流，接口调用失败会返回相应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+4. 使能。通过[Session.start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session#start11)方法输出预览流，接口调用失败会返回相应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+
+  
 ```text
-async function startPreviewOutput(cameraManager: camera.CameraManager, previewOutput: camera.PreviewOutput): Promise {
+async function startPreviewOutput(cameraManager: camera.CameraManager, previewOutput: camera.PreviewOutput): Promise<void> {
   try {
-    let cameraArray: Array = [];
+    let cameraArray: Array<camera.CameraDevice> = [];
     cameraArray = cameraManager.getSupportedCameras();
     if (cameraArray.length == 0) {
       console.error('no camera.');
       return;
     }
     // 获取支持的模式类型。
-    let sceneModes: Array = cameraManager.getSupportedSceneModes(cameraArray[0]);
+    let sceneModes: Array<camera.SceneMode> = cameraManager.getSupportedSceneModes(cameraArray[0]);
     let isSupportPhotoMode: boolean = sceneModes.indexOf(camera.SceneMode.NORMAL_PHOTO) >= 0;
     if (!isSupportPhotoMode) {
       console.error('photo mode not support');
@@ -116,9 +128,15 @@ async function startPreviewOutput(cameraManager: camera.CameraManager, previewOu
 ```
 
 
-## 状态监听
 
-在相机应用开发过程中，可以随时监听预览输出流状态，包括预览流启动、预览流结束、预览流输出错误。 通过注册固定的[on('frameStart')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#onframestart)回调函数获取监听预览启动结果，previewOutput创建成功时即可监听，预览第一次曝光时触发，有该事件返回结果则认为预览流已启动。
+
+##### 状态监听
+
+在相机应用开发过程中，可以随时监听预览输出流状态，包括预览流启动、预览流结束、预览流输出错误。
+
+ - 通过注册固定的[on('frameStart')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#onframestart)回调函数获取监听预览启动结果，previewOutput创建成功时即可监听，预览第一次曝光时触发，有该事件返回结果则认为预览流已启动。
+
+  
 ```text
 function onPreviewOutputFrameStart(previewOutput: camera.PreviewOutput): void {
   previewOutput.on('frameStart', (err: BusinessError) => {
@@ -130,7 +148,9 @@ function onPreviewOutputFrameStart(previewOutput: camera.PreviewOutput): void {
 }
 ```
 
-通过注册固定的[on('frameEnd')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#onframeend)回调函数获取监听预览结束结果，previewOutput创建成功时即可监听，预览完成最后一帧时触发，有该事件返回结果则认为预览流已结束。
+ - 通过注册固定的[on('frameEnd')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput#onframeend)回调函数获取监听预览结束结果，previewOutput创建成功时即可监听，预览完成最后一帧时触发，有该事件返回结果则认为预览流已结束。
+
+  
 ```text
 function onPreviewOutputFrameEnd(previewOutput: camera.PreviewOutput): void {
   previewOutput.on('frameEnd', (err: BusinessError) => {
@@ -142,7 +162,9 @@ function onPreviewOutputFrameEnd(previewOutput: camera.PreviewOutput): void {
 }
 ```
 
-通过注册固定的error回调函数获取监听预览输出错误结果，回调返回预览输出接口使用错误时对应的错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+ - 通过注册固定的error回调函数获取监听预览输出错误结果，回调返回预览输出接口使用错误时对应的错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
+
+  
 ```text
 function onPreviewOutputError(previewOutput: camera.PreviewOutput): void {
   previewOutput.on('error', (previewOutputError: BusinessError) => {
@@ -152,10 +174,12 @@ function onPreviewOutputError(previewOutput: camera.PreviewOutput): void {
 ```
 
 
-## 完整示例
 
 
-```text
+
+##### 完整示例
+
+```json
 import { camera } from '@kit.CameraKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { abilityAccessCtrl, Permissions } from '@kit.AbilityKit';
@@ -169,7 +193,7 @@ struct Index {
   @State imageWidth: number = 1920;
   @State imageHeight: number = 1080;
   private cameraManager: camera.CameraManager | undefined = undefined;
-  private cameras: Array | undefined = [];
+  private cameras: Array<camera.CameraDevice> | undefined = [];
   private cameraInput: camera.CameraInput | undefined = undefined;
   private previewOutput: camera.PreviewOutput | undefined = undefined;
   private session: camera.VideoSession | undefined = undefined;
@@ -182,11 +206,39 @@ struct Index {
     controller: this.xComponentCtl
   }
 
-  async requestPermissionsFn(): Promise {
+  async requestPermissionsFn(): Promise<void> {
     let atManager = abilityAccessCtrl.createAtManager();
     if (this.context) {
       let res = await atManager.requestPermissionsFromUser(this.context, [this.cameraPermission]);
-      for (let i = 0; i  {
+      for (let i = 0; i < res.permissions.length; i++) {
+        if (this.cameraPermission.toString() === res.permissions[i] && res.authResults[i] === 0) {
+          this.isShow = true;
+        }
+      }
+    }
+  }
+
+  aboutToAppear(): void {
+    this.requestPermissionsFn();
+  }
+
+  onPageShow(): void {
+    console.info('onPageShow');
+    if (this.xComponentSurfaceId !== '') {
+      this.initCamera();
+    }
+  }
+
+  onPageHide(): void {
+    console.info('onPageHide');
+    this.releaseCamera();
+  }
+
+  build() {
+    Column() {
+      if (this.isShow) {
+        XComponent(this.mXComponentOptions)
+          .onLoad(async () => {
             console.info('onLoad is called');
             this.xComponentSurfaceId = this.xComponentCtl.getXComponentSurfaceId(); // 获取组件surfaceId。
             // 初始化相机，组件实时渲染每帧预览流数据。
@@ -203,7 +255,7 @@ struct Index {
 
 
   // 初始化相机。
-  async initCamera(): Promise {
+  async initCamera(): Promise<void> {
     console.info(`initCamera previewOutput xComponentSurfaceId:${this.xComponentSurfaceId}`);
     try {
       // 获取相机管理器实例。
@@ -238,10 +290,53 @@ struct Index {
       let previewProfile: camera.Profile = capability.previewProfiles[0];
       // 应用开发者根据实际业务需求选择一个支持的预览流previewProfile。
       // 此处以选择CAMERA_FORMAT_YUV_420_SP（NV21）格式、满足限定条件分辨率的预览流previewProfile为例。
-      for (let index = 0; index = tempProfile.size.height ?
+      for (let index = 0; index < capability.previewProfiles.length; index++) {
+        const tempProfile = capability.previewProfiles[index];
+        let tempRatio = tempProfile.size.width >= tempProfile.size.height ?
           tempProfile.size.width / tempProfile.size.height : tempProfile.size.height / tempProfile.size.width;
         let currentRatio = Math.abs(tempRatio - surfaceRatio);
-        if (currentRatio  {
+        if (currentRatio <= minRatioDiff && tempProfile.format == camera.CameraFormat.CAMERA_FORMAT_YUV_420_SP) {
+          previewProfile = tempProfile;
+          break;
+        }
+      }
+      this.imageWidth = previewProfile.size.width; // 更新xComponent组件的宽。
+      this.imageHeight = previewProfile.size.height; // 更新xComponent组件的高。
+      console.info(`initCamera imageWidth:${this.imageWidth} imageHeight:${this.imageHeight}`);
+
+      // 使用xComponentSurfaceId创建预览。
+      this.previewOutput = this.cameraManager.createPreviewOutput(previewProfile, this.xComponentSurfaceId);
+      if (!this.previewOutput) {
+        console.error('initCamera createPreviewOutput');
+        this.releaseCamera();
+        return;
+      }
+      // 创建录像模式相机会话。
+      let session = this.cameraManager.createSession(camera.SceneMode.NORMAL_VIDEO);
+      if (!session) {
+        console.error('session is null');
+        this.releaseCamera();
+        return;
+      }
+      this.session = session as camera.VideoSession;
+      // 开始配置会话。
+      this.session.beginConfig();
+      // 添加相机设备输入。
+      this.session.addInput(this.cameraInput);
+      // 添加预览流输出。
+      this.session.addOutput(this.previewOutput);
+      // 提交会话配置。
+      await this.session.commitConfig();
+      // 开始启动已配置的输入输出流。
+      await this.session.start();
+    } catch (error) {
+      console.error(`initCamera fail: ${JSON.stringify(error)}`);
+      this.releaseCamera();
+    }
+  }
+
+  // 释放相机。
+  async releaseCamera(): Promise<void> {
     console.info('releaseCamera');
     // 停止当前会话。
     await this.session?.stop().catch((e: BusinessError) => {console.error('Failed to stop session: ', e)});

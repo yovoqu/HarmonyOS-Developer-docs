@@ -18,7 +18,7 @@
 | 新增API | NA | 类名：ScaleUnit； API声明：IMPERIAL_UNIT = 1 差异内容：IMPERIAL_UNIT = 1 | api/@hms.core.map.mapCommon.d.ts |
 | 新增API | NA | 类名：TransitMode； API声明：BUS = 'bus' 差异内容：BUS = 'bus' | api/@hms.core.map.navi.d.ts |
 | 新增API | NA | 类名：TransitMode； API声明：SUBWAY = 'subway' 差异内容：SUBWAY = 'subway' | api/@hms.core.map.navi.d.ts |
-| 新增API | NA | 类名：navi； API声明：function getTransitRoutes(context: common.Context, params: TransitRouteParams): Promise<TransitRouteResult>; 差异内容：function getTransitRoutes(context: common.Context, params: TransitRouteParams): Promise<TransitRouteResult>; | api/@hms.core.map.navi.d.ts |
+| 新增API | NA | 类名：navi； API声明：function getTransitRoutes(context: common.Context, params: TransitRouteParams): Promise&lt;TransitRouteResult&gt;; 差异内容：function getTransitRoutes(context: common.Context, params: TransitRouteParams): Promise&lt;TransitRouteResult&gt;; | api/@hms.core.map.navi.d.ts |
 | 新增API | NA | 类名：navi； API声明：interface TransitRouteParams 差异内容：interface TransitRouteParams | api/@hms.core.map.navi.d.ts |
 | 新增API | NA | 类名：TransitRouteParams； API声明：origin: RouteCoordinate; 差异内容：origin: RouteCoordinate; | api/@hms.core.map.navi.d.ts |
 | 新增API | NA | 类名：TransitRouteParams； API声明：destination: RouteCoordinate; 差异内容：destination: RouteCoordinate; | api/@hms.core.map.navi.d.ts |
@@ -120,9 +120,9 @@
 | 类新增必选属性或非同名方法 | 类名：global； API声明： 差异内容：NA | 类名：MapComponentController； API声明：switchIndoorMapFloor(buildingId: string, floorName: string): void; 差异内容：switchIndoorMapFloor(buildingId: string, floorName: string): void; | api/@hms.core.map.map.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Marker； API声明：setAnnotationVisible(visible: boolean): void; 差异内容：setAnnotationVisible(visible: boolean): void; | api/@hms.core.map.map.d.ts |
 | 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：Marker； API声明：isAnnotationVisible(): boolean; 差异内容：isAnnotationVisible(): boolean; | api/@hms.core.map.map.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：on(type: 'indoorMapEnter', callback: Callback<IndoorMapInfo>): void; 差异内容：on(type: 'indoorMapEnter', callback: Callback<IndoorMapInfo>): void; | api/@hms.core.map.map.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：off(type: 'indoorMapEnter', callback?: Callback<IndoorMapInfo>): void; 差异内容：off(type: 'indoorMapEnter', callback?: Callback<IndoorMapInfo>): void; | api/@hms.core.map.map.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：on(type: 'indoorMapExit', callback: Callback<void>): void; 差异内容：on(type: 'indoorMapExit', callback: Callback<void>): void; | api/@hms.core.map.map.d.ts |
-| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：off(type: 'indoorMapExit', callback?: Callback<void>): void; 差异内容：off(type: 'indoorMapExit', callback?: Callback<void>): void; | api/@hms.core.map.map.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：on(type: 'indoorMapEnter', callback: Callback&lt;IndoorMapInfo&gt;): void; 差异内容：on(type: 'indoorMapEnter', callback: Callback&lt;IndoorMapInfo&gt;): void; | api/@hms.core.map.map.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：off(type: 'indoorMapEnter', callback?: Callback&lt;IndoorMapInfo&gt;): void; 差异内容：off(type: 'indoorMapEnter', callback?: Callback&lt;IndoorMapInfo&gt;): void; | api/@hms.core.map.map.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：on(type: 'indoorMapExit', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'indoorMapExit', callback: Callback&lt;void&gt;): void; | api/@hms.core.map.map.d.ts |
+| 接口新增可选或必选方法 | 类名：global； API声明： 差异内容：NA | 类名：MapEventManager； API声明：off(type: 'indoorMapExit', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'indoorMapExit', callback?: Callback&lt;void&gt;): void; | api/@hms.core.map.map.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：MapOptions； API声明：scaleUnit?: ScaleUnit; 差异内容：scaleUnit?: ScaleUnit; | api/@hms.core.map.mapCommon.d.ts |
 | 接口新增可选属性 | 类名：global； API声明： 差异内容：NA | 类名：MapOptions； API声明：indoorMapEnabled?: boolean; 差异内容：indoorMapEnabled?: boolean; | api/@hms.core.map.mapCommon.d.ts |

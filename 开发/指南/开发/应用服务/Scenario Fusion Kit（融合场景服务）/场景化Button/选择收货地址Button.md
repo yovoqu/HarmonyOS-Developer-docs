@@ -4,23 +4,32 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-ship-to
 
-## 场景介绍
+##### 场景介绍
 
-选择收货地址Button功能可以帮助开发者调用对应Button组件快速拉起地址选择页面，并返回用户选择的收货地址。 运行示例代码单击“选择收货地址”按钮，拉起选择地址页面选择已保存的地址，也可单击“管理/新增收货地址”进入添加收货地址页面（完整场景可参考[获取收货地址](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev)）。
+选择收货地址Button功能可以帮助开发者调用对应Button组件快速拉起地址选择页面，并返回用户选择的收货地址。
 
-## 前提条件
+运行示例代码单击“选择收货地址”按钮，拉起选择地址页面选择已保存的地址，也可单击“管理/新增收货地址”进入添加收货地址页面（完整场景可参考[获取收货地址](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev)）。
+
+
+
+##### 前提条件
 
 参见[开发前提](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-choose-address-dev#开发前提)。
 
-## 开发步骤
 
-导入Scenario Fusion Kit模块以及相关公共模块。
+
+##### 开发步骤
+1. 导入Scenario Fusion Kit模块以及相关公共模块。
+
+  
 ```text
 import { FunctionalButton, functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 ```
 
-在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+2. 在容器中声明FunctionalButton，指定Button的openType，并设置对应的回调函数，代码如下：
+
+  
 ```text
 @Entry
 @Component
@@ -75,6 +84,5 @@ struct Index {
 }
 ```
 
-
 > [!NOTE]
-> openType参数填写"functionalButtonComponentManager.OpenType.CHOOSE_ADDRESS"指定Button为选择收货地址类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onChooseAddress"。 可使用自定义Modifier设置按钮样式，参考示例。 其他参数请参考：FunctionalButton（Button组件）。
+> openType参数填写"functionalButtonComponentManager.OpenType.CHOOSE_ADDRESS"指定Button为选择收货地址类型。 controller参数必须对应填写"new functionalButtonComponentManager.FunctionalButtonController().onChooseAddress"。 可使用自定义Modifier设置按钮样式，参考 示例 。 其他参数请参考： FunctionalButton（Button组件） 。
